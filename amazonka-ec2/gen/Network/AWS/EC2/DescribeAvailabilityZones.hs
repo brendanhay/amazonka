@@ -141,4 +141,4 @@ instance AWSRequest DescribeAvailabilityZones where
 
 instance FromXML DescribeAvailabilityZonesResponse where
     parseXML x = DescribeAvailabilityZonesResponse
-        <$> x .@? "AvailabilityZoneInfo" .!@ mempty
+        <$> x .@? "availabilityZoneInfo" .!@ mempty

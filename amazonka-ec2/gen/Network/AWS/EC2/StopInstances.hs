@@ -158,4 +158,4 @@ instance AWSRequest StopInstances where
 
 instance FromXML StopInstancesResponse where
     parseXML x = StopInstancesResponse
-        <$> x .@? "InstancesSet" .!@ mempty
+        <$> x .@? "instancesSet" .!@ mempty

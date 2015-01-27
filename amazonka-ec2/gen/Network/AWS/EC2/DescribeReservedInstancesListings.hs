@@ -160,4 +160,4 @@ instance AWSRequest DescribeReservedInstancesListings where
 
 instance FromXML DescribeReservedInstancesListingsResponse where
     parseXML x = DescribeReservedInstancesListingsResponse
-        <$> x .@? "ReservedInstancesListingsSet" .!@ mempty
+        <$> x .@? "reservedInstancesListingsSet" .!@ mempty

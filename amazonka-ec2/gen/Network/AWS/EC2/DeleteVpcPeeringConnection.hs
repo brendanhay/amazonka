@@ -119,4 +119,4 @@ instance AWSRequest DeleteVpcPeeringConnection where
 
 instance FromXML DeleteVpcPeeringConnectionResponse where
     parseXML x = DeleteVpcPeeringConnectionResponse
-        <$> x .@? "Return"
+        <$> x .@? "return"

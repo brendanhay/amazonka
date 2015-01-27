@@ -235,8 +235,8 @@ instance AWSRequest DescribeSpotPriceHistory where
 
 instance FromXML DescribeSpotPriceHistoryResponse where
     parseXML x = DescribeSpotPriceHistoryResponse
-        <$> x .@? "NextToken"
-        <*> x .@? "SpotPriceHistorySet" .!@ mempty
+        <$> x .@? "nextToken"
+        <*> x .@? "spotPriceHistorySet" .!@ mempty
 
 instance AWSPager DescribeSpotPriceHistory where
     page rq rs

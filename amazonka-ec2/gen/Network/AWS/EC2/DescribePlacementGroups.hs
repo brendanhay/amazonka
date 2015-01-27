@@ -137,4 +137,4 @@ instance AWSRequest DescribePlacementGroups where
 
 instance FromXML DescribePlacementGroupsResponse where
     parseXML x = DescribePlacementGroupsResponse
-        <$> x .@? "PlacementGroupSet" .!@ mempty
+        <$> x .@? "placementGroupSet" .!@ mempty

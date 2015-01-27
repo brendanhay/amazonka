@@ -147,4 +147,4 @@ instance AWSRequest CreateVpcPeeringConnection where
 
 instance FromXML CreateVpcPeeringConnectionResponse where
     parseXML x = CreateVpcPeeringConnectionResponse
-        <$> x .@? "VpcPeeringConnection"
+        <$> x .@? "vpcPeeringConnection"

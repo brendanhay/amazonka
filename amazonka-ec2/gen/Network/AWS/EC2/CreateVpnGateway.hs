@@ -129,4 +129,4 @@ instance AWSRequest CreateVpnGateway where
 
 instance FromXML CreateVpnGatewayResponse where
     parseXML x = CreateVpnGatewayResponse
-        <$> x .@? "VpnGateway"
+        <$> x .@? "vpnGateway"

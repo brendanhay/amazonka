@@ -179,8 +179,8 @@ instance AWSRequest DescribeReservedInstancesModifications where
 
 instance FromXML DescribeReservedInstancesModificationsResponse where
     parseXML x = DescribeReservedInstancesModificationsResponse
-        <$> x .@? "NextToken"
-        <*> x .@? "ReservedInstancesModificationsSet" .!@ mempty
+        <$> x .@? "nextToken"
+        <*> x .@? "reservedInstancesModificationsSet" .!@ mempty
 
 instance AWSPager DescribeReservedInstancesModifications where
     page rq rs

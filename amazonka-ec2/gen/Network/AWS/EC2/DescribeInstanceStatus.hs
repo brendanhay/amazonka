@@ -263,8 +263,8 @@ instance AWSRequest DescribeInstanceStatus where
 
 instance FromXML DescribeInstanceStatusResponse where
     parseXML x = DescribeInstanceStatusResponse
-        <$> x .@? "InstanceStatusSet" .!@ mempty
-        <*> x .@? "NextToken"
+        <$> x .@? "instanceStatusSet" .!@ mempty
+        <*> x .@? "nextToken"
 
 instance AWSPager DescribeInstanceStatus where
     page rq rs

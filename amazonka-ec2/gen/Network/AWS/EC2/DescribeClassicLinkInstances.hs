@@ -184,5 +184,5 @@ instance AWSRequest DescribeClassicLinkInstances where
 
 instance FromXML DescribeClassicLinkInstancesResponse where
     parseXML x = DescribeClassicLinkInstancesResponse
-        <$> x .@? "InstancesSet" .!@ mempty
-        <*> x .@? "NextToken"
+        <$> x .@? "instancesSet" .!@ mempty
+        <*> x .@? "nextToken"

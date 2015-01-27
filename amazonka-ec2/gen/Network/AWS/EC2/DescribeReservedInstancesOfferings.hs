@@ -299,8 +299,8 @@ instance AWSRequest DescribeReservedInstancesOfferings where
 
 instance FromXML DescribeReservedInstancesOfferingsResponse where
     parseXML x = DescribeReservedInstancesOfferingsResponse
-        <$> x .@? "NextToken"
-        <*> x .@? "ReservedInstancesOfferingsSet" .!@ mempty
+        <$> x .@? "nextToken"
+        <*> x .@? "reservedInstancesOfferingsSet" .!@ mempty
 
 instance AWSPager DescribeReservedInstancesOfferings where
     page rq rs

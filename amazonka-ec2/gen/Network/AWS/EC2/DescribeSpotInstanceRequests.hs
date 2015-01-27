@@ -247,4 +247,4 @@ instance AWSRequest DescribeSpotInstanceRequests where
 
 instance FromXML DescribeSpotInstanceRequestsResponse where
     parseXML x = DescribeSpotInstanceRequestsResponse
-        <$> x .@? "SpotInstanceRequestSet" .!@ mempty
+        <$> x .@? "spotInstanceRequestSet" .!@ mempty

@@ -162,4 +162,4 @@ instance AWSRequest DescribeAddresses where
 
 instance FromXML DescribeAddressesResponse where
     parseXML x = DescribeAddressesResponse
-        <$> x .@? "AddressesSet" .!@ mempty
+        <$> x .@? "addressesSet" .!@ mempty

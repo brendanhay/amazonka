@@ -136,4 +136,4 @@ instance AWSRequest DescribeAccountAttributes where
 
 instance FromXML DescribeAccountAttributesResponse where
     parseXML x = DescribeAccountAttributesResponse
-        <$> x .@? "AccountAttributeSet" .!@ mempty
+        <$> x .@? "accountAttributeSet" .!@ mempty

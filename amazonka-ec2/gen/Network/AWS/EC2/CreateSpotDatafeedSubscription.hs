@@ -128,4 +128,4 @@ instance AWSRequest CreateSpotDatafeedSubscription where
 
 instance FromXML CreateSpotDatafeedSubscriptionResponse where
     parseXML x = CreateSpotDatafeedSubscriptionResponse
-        <$> x .@? "SpotDatafeedSubscription"
+        <$> x .@? "spotDatafeedSubscription"

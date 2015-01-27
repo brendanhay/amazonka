@@ -125,4 +125,4 @@ instance AWSRequest DescribeConversionTasks where
 
 instance FromXML DescribeConversionTasksResponse where
     parseXML x = DescribeConversionTasksResponse
-        <$> x .@? "ConversionTasks" .!@ mempty
+        <$> x .@? "conversionTasks" .!@ mempty

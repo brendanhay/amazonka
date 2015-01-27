@@ -137,4 +137,4 @@ instance AWSRequest AttachNetworkInterface where
 
 instance FromXML AttachNetworkInterfaceResponse where
     parseXML x = AttachNetworkInterfaceResponse
-        <$> x .@? "AttachmentId"
+        <$> x .@? "attachmentId"

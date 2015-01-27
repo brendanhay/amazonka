@@ -241,4 +241,4 @@ instance AWSRequest RegisterImage where
 
 instance FromXML RegisterImageResponse where
     parseXML x = RegisterImageResponse
-        <$> x .@? "ImageId"
+        <$> x .@? "imageId"

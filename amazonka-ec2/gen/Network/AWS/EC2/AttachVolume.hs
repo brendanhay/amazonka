@@ -201,9 +201,9 @@ instance AWSRequest AttachVolume where
 
 instance FromXML AttachVolumeResponse where
     parseXML x = AttachVolumeResponse
-        <$> x .@? "AttachTime"
-        <*> x .@? "DeleteOnTermination"
-        <*> x .@? "Device"
-        <*> x .@? "InstanceId"
-        <*> x .@? "Status"
-        <*> x .@? "VolumeId"
+        <$> x .@? "attachTime"
+        <*> x .@? "deleteOnTermination"
+        <*> x .@? "device"
+        <*> x .@? "instanceId"
+        <*> x .@? "status"
+        <*> x .@? "volumeId"

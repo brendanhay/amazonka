@@ -166,4 +166,4 @@ instance AWSRequest CreateVpnConnection where
 
 instance FromXML CreateVpnConnectionResponse where
     parseXML x = CreateVpnConnectionResponse
-        <$> x .@? "VpnConnection"
+        <$> x .@? "vpnConnection"

@@ -107,4 +107,4 @@ instance AWSRequest CreateInternetGateway where
 
 instance FromXML CreateInternetGatewayResponse where
     parseXML x = CreateInternetGatewayResponse
-        <$> x .@? "InternetGateway"
+        <$> x .@? "internetGateway"

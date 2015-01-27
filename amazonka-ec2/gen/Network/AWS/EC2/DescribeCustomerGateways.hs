@@ -159,4 +159,4 @@ instance AWSRequest DescribeCustomerGateways where
 
 instance FromXML DescribeCustomerGatewaysResponse where
     parseXML x = DescribeCustomerGatewaysResponse
-        <$> x .@? "CustomerGatewaySet" .!@ mempty
+        <$> x .@? "customerGatewaySet" .!@ mempty

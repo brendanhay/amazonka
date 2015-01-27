@@ -178,4 +178,4 @@ instance AWSRequest DescribeSecurityGroups where
 
 instance FromXML DescribeSecurityGroupsResponse where
     parseXML x = DescribeSecurityGroupsResponse
-        <$> x .@? "SecurityGroupInfo" .!@ mempty
+        <$> x .@? "securityGroupInfo" .!@ mempty

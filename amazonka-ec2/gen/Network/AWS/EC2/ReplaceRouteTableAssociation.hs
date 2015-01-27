@@ -134,4 +134,4 @@ instance AWSRequest ReplaceRouteTableAssociation where
 
 instance FromXML ReplaceRouteTableAssociationResponse where
     parseXML x = ReplaceRouteTableAssociationResponse
-        <$> x .@? "NewAssociationId"
+        <$> x .@? "newAssociationId"

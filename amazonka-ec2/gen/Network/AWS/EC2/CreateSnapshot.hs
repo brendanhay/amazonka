@@ -260,15 +260,15 @@ instance AWSRequest CreateSnapshot where
 
 instance FromXML CreateSnapshotResponse where
     parseXML x = CreateSnapshotResponse
-        <$> x .@  "Description"
-        <*> x .@  "Encrypted"
-        <*> x .@? "KmsKeyId"
-        <*> x .@? "OwnerAlias"
-        <*> x .@  "OwnerId"
-        <*> x .@  "Progress"
-        <*> x .@  "SnapshotId"
-        <*> x .@  "StartTime"
-        <*> x .@  "Status"
-        <*> x .@? "TagSet" .!@ mempty
-        <*> x .@  "VolumeId"
-        <*> x .@  "VolumeSize"
+        <$> x .@  "description"
+        <*> x .@  "encrypted"
+        <*> x .@? "kmsKeyId"
+        <*> x .@? "ownerAlias"
+        <*> x .@  "ownerId"
+        <*> x .@  "progress"
+        <*> x .@  "snapshotId"
+        <*> x .@  "startTime"
+        <*> x .@  "status"
+        <*> x .@? "tagSet" .!@ mempty
+        <*> x .@  "volumeId"
+        <*> x .@  "volumeSize"

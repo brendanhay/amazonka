@@ -139,4 +139,4 @@ instance AWSRequest CreateInstanceExportTask where
 
 instance FromXML CreateInstanceExportTaskResponse where
     parseXML x = CreateInstanceExportTaskResponse
-        <$> x .@? "ExportTask"
+        <$> x .@? "exportTask"

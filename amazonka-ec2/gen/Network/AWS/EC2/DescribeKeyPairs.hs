@@ -133,4 +133,4 @@ instance AWSRequest DescribeKeyPairs where
 
 instance FromXML DescribeKeyPairsResponse where
     parseXML x = DescribeKeyPairsResponse
-        <$> x .@? "KeySet" .!@ mempty
+        <$> x .@? "keySet" .!@ mempty

@@ -160,4 +160,4 @@ instance AWSRequest DescribeSubnets where
 
 instance FromXML DescribeSubnetsResponse where
     parseXML x = DescribeSubnetsResponse
-        <$> x .@? "SubnetSet" .!@ mempty
+        <$> x .@? "subnetSet" .!@ mempty

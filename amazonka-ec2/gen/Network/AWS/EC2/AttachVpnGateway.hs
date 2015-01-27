@@ -126,4 +126,4 @@ instance AWSRequest AttachVpnGateway where
 
 instance FromXML AttachVpnGatewayResponse where
     parseXML x = AttachVpnGatewayResponse
-        <$> x .@? "Attachment"
+        <$> x .@? "attachment"

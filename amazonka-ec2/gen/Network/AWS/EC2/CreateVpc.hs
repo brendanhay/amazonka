@@ -137,4 +137,4 @@ instance AWSRequest CreateVpc where
 
 instance FromXML CreateVpcResponse where
     parseXML x = CreateVpcResponse
-        <$> x .@? "Vpc"
+        <$> x .@? "vpc"

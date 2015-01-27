@@ -171,4 +171,4 @@ instance AWSRequest DescribeVpcPeeringConnections where
 
 instance FromXML DescribeVpcPeeringConnectionsResponse where
     parseXML x = DescribeVpcPeeringConnectionsResponse
-        <$> x .@? "VpcPeeringConnectionSet" .!@ mempty
+        <$> x .@? "vpcPeeringConnectionSet" .!@ mempty

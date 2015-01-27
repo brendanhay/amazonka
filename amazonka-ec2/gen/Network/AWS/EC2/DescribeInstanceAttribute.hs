@@ -260,17 +260,17 @@ instance AWSRequest DescribeInstanceAttribute where
 
 instance FromXML DescribeInstanceAttributeResponse where
     parseXML x = DescribeInstanceAttributeResponse
-        <$> x .@? "BlockDeviceMapping" .!@ mempty
-        <*> x .@? "DisableApiTermination"
-        <*> x .@? "EbsOptimized"
-        <*> x .@? "GroupSet" .!@ mempty
-        <*> x .@? "InstanceId"
-        <*> x .@? "InstanceInitiatedShutdownBehavior"
-        <*> x .@? "InstanceType"
-        <*> x .@? "Kernel"
-        <*> x .@? "ProductCodes" .!@ mempty
-        <*> x .@? "Ramdisk"
-        <*> x .@? "RootDeviceName"
-        <*> x .@? "SourceDestCheck"
-        <*> x .@? "SriovNetSupport"
-        <*> x .@? "UserData"
+        <$> x .@? "blockDeviceMapping" .!@ mempty
+        <*> x .@? "disableApiTermination"
+        <*> x .@? "ebsOptimized"
+        <*> x .@? "groupSet" .!@ mempty
+        <*> x .@? "instanceId"
+        <*> x .@? "instanceInitiatedShutdownBehavior"
+        <*> x .@? "instanceType"
+        <*> x .@? "kernel"
+        <*> x .@? "productCodes" .!@ mempty
+        <*> x .@? "ramdisk"
+        <*> x .@? "rootDeviceName"
+        <*> x .@? "sourceDestCheck"
+        <*> x .@? "sriovNetSupport"
+        <*> x .@? "userData"

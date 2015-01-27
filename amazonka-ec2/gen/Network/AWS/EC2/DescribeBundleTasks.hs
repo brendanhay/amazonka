@@ -155,4 +155,4 @@ instance AWSRequest DescribeBundleTasks where
 
 instance FromXML DescribeBundleTasksResponse where
     parseXML x = DescribeBundleTasksResponse
-        <$> x .@? "BundleInstanceTasksSet" .!@ mempty
+        <$> x .@? "bundleInstanceTasksSet" .!@ mempty

@@ -327,15 +327,15 @@ instance AWSRequest CreateVolume where
 
 instance FromXML CreateVolumeResponse where
     parseXML x = CreateVolumeResponse
-        <$> x .@? "AttachmentSet" .!@ mempty
-        <*> x .@  "AvailabilityZone"
-        <*> x .@  "CreateTime"
-        <*> x .@  "Encrypted"
-        <*> x .@? "Iops"
-        <*> x .@? "KmsKeyId"
-        <*> x .@  "Size"
-        <*> x .@  "SnapshotId"
-        <*> x .@  "Status"
-        <*> x .@? "TagSet" .!@ mempty
-        <*> x .@  "VolumeId"
-        <*> x .@  "VolumeType"
+        <$> x .@? "attachmentSet" .!@ mempty
+        <*> x .@  "availabilityZone"
+        <*> x .@  "createTime"
+        <*> x .@  "encrypted"
+        <*> x .@? "iops"
+        <*> x .@? "kmsKeyId"
+        <*> x .@  "size"
+        <*> x .@  "snapshotId"
+        <*> x .@  "status"
+        <*> x .@? "tagSet" .!@ mempty
+        <*> x .@  "volumeId"
+        <*> x .@  "volumeType"

@@ -143,4 +143,4 @@ instance AWSRequest StartInstances where
 
 instance FromXML StartInstancesResponse where
     parseXML x = StartInstancesResponse
-        <$> x .@? "InstancesSet" .!@ mempty
+        <$> x .@? "instancesSet" .!@ mempty

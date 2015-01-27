@@ -161,4 +161,4 @@ instance AWSRequest CreateSubnet where
 
 instance FromXML CreateSubnetResponse where
     parseXML x = CreateSubnetResponse
-        <$> x .@? "Subnet"
+        <$> x .@? "subnet"

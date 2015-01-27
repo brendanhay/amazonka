@@ -141,4 +141,4 @@ instance AWSRequest DescribeVpcClassicLink where
 
 instance FromXML DescribeVpcClassicLinkResponse where
     parseXML x = DescribeVpcClassicLinkResponse
-        <$> x .@? "VpcSet" .!@ mempty
+        <$> x .@? "vpcSet" .!@ mempty

@@ -115,4 +115,4 @@ instance AWSRequest DisableVpcClassicLink where
 
 instance FromXML DisableVpcClassicLinkResponse where
     parseXML x = DisableVpcClassicLinkResponse
-        <$> x .@? "Return"
+        <$> x .@? "return"

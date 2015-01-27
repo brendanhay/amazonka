@@ -116,4 +116,4 @@ instance AWSRequest MonitorInstances where
 
 instance FromXML MonitorInstancesResponse where
     parseXML x = MonitorInstancesResponse
-        <$> x .@? "InstancesSet" .!@ mempty
+        <$> x .@? "instancesSet" .!@ mempty

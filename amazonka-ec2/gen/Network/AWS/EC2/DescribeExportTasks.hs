@@ -103,4 +103,4 @@ instance AWSRequest DescribeExportTasks where
 
 instance FromXML DescribeExportTasksResponse where
     parseXML x = DescribeExportTasksResponse
-        <$> x .@? "ExportTaskSet" .!@ mempty
+        <$> x .@? "exportTaskSet" .!@ mempty

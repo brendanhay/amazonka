@@ -173,4 +173,4 @@ instance AWSRequest CreateImage where
 
 instance FromXML CreateImageResponse where
     parseXML x = CreateImageResponse
-        <$> x .@? "ImageId"
+        <$> x .@? "imageId"

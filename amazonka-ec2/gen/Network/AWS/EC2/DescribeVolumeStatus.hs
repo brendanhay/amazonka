@@ -221,8 +221,8 @@ instance AWSRequest DescribeVolumeStatus where
 
 instance FromXML DescribeVolumeStatusResponse where
     parseXML x = DescribeVolumeStatusResponse
-        <$> x .@? "NextToken"
-        <*> x .@? "VolumeStatusSet" .!@ mempty
+        <$> x .@? "nextToken"
+        <*> x .@? "volumeStatusSet" .!@ mempty
 
 instance AWSPager DescribeVolumeStatus where
     page rq rs

@@ -151,4 +151,4 @@ instance AWSRequest DescribeInternetGateways where
 
 instance FromXML DescribeInternetGatewaysResponse where
     parseXML x = DescribeInternetGatewaysResponse
-        <$> x .@? "InternetGatewaySet" .!@ mempty
+        <$> x .@? "internetGatewaySet" .!@ mempty

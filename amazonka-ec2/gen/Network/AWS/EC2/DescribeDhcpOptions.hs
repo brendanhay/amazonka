@@ -150,4 +150,4 @@ instance AWSRequest DescribeDhcpOptions where
 
 instance FromXML DescribeDhcpOptionsResponse where
     parseXML x = DescribeDhcpOptionsResponse
-        <$> x .@? "DhcpOptionsSet" .!@ mempty
+        <$> x .@? "dhcpOptionsSet" .!@ mempty

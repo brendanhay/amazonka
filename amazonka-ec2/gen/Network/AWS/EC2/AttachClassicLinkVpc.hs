@@ -146,4 +146,4 @@ instance AWSRequest AttachClassicLinkVpc where
 
 instance FromXML AttachClassicLinkVpcResponse where
     parseXML x = AttachClassicLinkVpcResponse
-        <$> x .@? "Return"
+        <$> x .@? "return"

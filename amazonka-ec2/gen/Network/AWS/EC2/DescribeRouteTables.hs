@@ -179,4 +179,4 @@ instance AWSRequest DescribeRouteTables where
 
 instance FromXML DescribeRouteTablesResponse where
     parseXML x = DescribeRouteTablesResponse
-        <$> x .@? "RouteTableSet" .!@ mempty
+        <$> x .@? "routeTableSet" .!@ mempty

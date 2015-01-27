@@ -390,8 +390,8 @@ instance AWSRequest DescribeInstances where
 
 instance FromXML DescribeInstancesResponse where
     parseXML x = DescribeInstancesResponse
-        <$> x .@? "NextToken"
-        <*> x .@? "ReservationSet" .!@ mempty
+        <$> x .@? "nextToken"
+        <*> x .@? "reservationSet" .!@ mempty
 
 instance AWSPager DescribeInstances where
     page rq rs

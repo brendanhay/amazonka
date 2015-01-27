@@ -127,4 +127,4 @@ instance AWSRequest DetachClassicLinkVpc where
 
 instance FromXML DetachClassicLinkVpcResponse where
     parseXML x = DetachClassicLinkVpcResponse
-        <$> x .@? "Return"
+        <$> x .@? "return"

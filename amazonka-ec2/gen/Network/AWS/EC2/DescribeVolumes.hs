@@ -219,5 +219,5 @@ instance AWSRequest DescribeVolumes where
 
 instance FromXML DescribeVolumesResponse where
     parseXML x = DescribeVolumesResponse
-        <$> x .@? "NextToken"
-        <*> x .@? "VolumeSet" .!@ mempty
+        <$> x .@? "nextToken"
+        <*> x .@? "volumeSet" .!@ mempty

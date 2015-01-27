@@ -1602,13 +1602,13 @@ naeRuleNumber = lens _naeRuleNumber (\s a -> s { _naeRuleNumber = a })
 
 instance FromXML NetworkAclEntry where
     parseXML x = NetworkAclEntry
-        <$> x .@? "CidrBlock"
-        <*> x .@? "Egress"
-        <*> x .@? "IcmpTypeCode"
-        <*> x .@? "PortRange"
-        <*> x .@? "Protocol"
-        <*> x .@? "RuleAction"
-        <*> x .@? "RuleNumber"
+        <$> x .@? "cidrBlock"
+        <*> x .@? "egress"
+        <*> x .@? "icmpTypeCode"
+        <*> x .@? "portRange"
+        <*> x .@? "protocol"
+        <*> x .@? "ruleAction"
+        <*> x .@? "ruleNumber"
 
 instance ToQuery NetworkAclEntry where
     toQuery NetworkAclEntry{..} = mconcat
@@ -1641,7 +1641,7 @@ bavValue = lens _bavValue (\s a -> s { _bavValue = a })
 
 instance FromXML BlobAttributeValue where
     parseXML x = BlobAttributeValue
-        <$> x .@? "Value"
+        <$> x .@? "value"
 
 instance ToQuery BlobAttributeValue where
     toQuery BlobAttributeValue{..} = mconcat
@@ -1757,17 +1757,17 @@ iilsUserData = lens _iilsUserData (\s a -> s { _iilsUserData = a })
 
 instance FromXML ImportInstanceLaunchSpecification where
     parseXML x = ImportInstanceLaunchSpecification
-        <$> x .@? "AdditionalInfo"
-        <*> x .@? "Architecture"
+        <$> x .@? "additionalInfo"
+        <*> x .@? "architecture"
         <*> x .@? "GroupId" .!@ mempty
         <*> x .@? "GroupName" .!@ mempty
-        <*> x .@? "InstanceInitiatedShutdownBehavior"
-        <*> x .@? "InstanceType"
-        <*> x .@? "Monitoring"
-        <*> x .@? "Placement"
-        <*> x .@? "PrivateIpAddress"
-        <*> x .@? "SubnetId"
-        <*> x .@? "UserData"
+        <*> x .@? "instanceInitiatedShutdownBehavior"
+        <*> x .@? "instanceType"
+        <*> x .@? "monitoring"
+        <*> x .@? "placement"
+        <*> x .@? "privateIpAddress"
+        <*> x .@? "subnetId"
+        <*> x .@? "userData"
 
 instance ToQuery ImportInstanceLaunchSpecification where
     toQuery ImportInstanceLaunchSpecification{..} = mconcat
@@ -1904,18 +1904,18 @@ sVolumeSize = lens _sVolumeSize (\s a -> s { _sVolumeSize = a })
 
 instance FromXML Snapshot where
     parseXML x = Snapshot
-        <$> x .@  "Description"
-        <*> x .@  "Encrypted"
-        <*> x .@? "KmsKeyId"
-        <*> x .@? "OwnerAlias"
-        <*> x .@  "OwnerId"
-        <*> x .@  "Progress"
-        <*> x .@  "SnapshotId"
-        <*> x .@  "StartTime"
-        <*> x .@  "Status"
-        <*> x .@? "TagSet" .!@ mempty
-        <*> x .@  "VolumeId"
-        <*> x .@  "VolumeSize"
+        <$> x .@  "description"
+        <*> x .@  "encrypted"
+        <*> x .@? "kmsKeyId"
+        <*> x .@? "ownerAlias"
+        <*> x .@  "ownerId"
+        <*> x .@  "progress"
+        <*> x .@  "snapshotId"
+        <*> x .@  "startTime"
+        <*> x .@  "status"
+        <*> x .@? "tagSet" .!@ mempty
+        <*> x .@  "volumeId"
+        <*> x .@  "volumeSize"
 
 instance ToQuery Snapshot where
     toQuery Snapshot{..} = mconcat
@@ -1962,8 +1962,8 @@ sisfMessage = lens _sisfMessage (\s a -> s { _sisfMessage = a })
 
 instance FromXML SpotInstanceStateFault where
     parseXML x = SpotInstanceStateFault
-        <$> x .@? "Code"
-        <*> x .@? "Message"
+        <$> x .@? "code"
+        <*> x .@? "message"
 
 instance ToQuery SpotInstanceStateFault where
     toQuery SpotInstanceStateFault{..} = mconcat
@@ -2020,10 +2020,10 @@ tdValue = lens _tdValue (\s a -> s { _tdValue = a })
 
 instance FromXML TagDescription where
     parseXML x = TagDescription
-        <$> x .@  "Key"
-        <*> x .@  "ResourceId"
-        <*> x .@  "ResourceType"
-        <*> x .@  "Value"
+        <$> x .@  "key"
+        <*> x .@  "resourceId"
+        <*> x .@  "resourceType"
+        <*> x .@  "value"
 
 instance ToQuery TagDescription where
     toQuery TagDescription{..} = mconcat
@@ -2062,8 +2062,8 @@ giGroupName = lens _giGroupName (\s a -> s { _giGroupName = a })
 
 instance FromXML GroupIdentifier where
     parseXML x = GroupIdentifier
-        <$> x .@? "GroupId"
-        <*> x .@? "GroupName"
+        <$> x .@? "groupId"
+        <*> x .@? "groupName"
 
 instance ToQuery GroupIdentifier where
     toQuery GroupIdentifier{..} = mconcat
@@ -2194,16 +2194,16 @@ rilUpdateDate = lens _rilUpdateDate (\s a -> s { _rilUpdateDate = a }) . mapping
 
 instance FromXML ReservedInstancesListing where
     parseXML x = ReservedInstancesListing
-        <$> x .@? "ClientToken"
-        <*> x .@? "CreateDate"
-        <*> x .@? "InstanceCounts" .!@ mempty
-        <*> x .@? "PriceSchedules" .!@ mempty
-        <*> x .@? "ReservedInstancesId"
-        <*> x .@? "ReservedInstancesListingId"
-        <*> x .@? "Status"
-        <*> x .@? "StatusMessage"
-        <*> x .@? "TagSet" .!@ mempty
-        <*> x .@? "UpdateDate"
+        <$> x .@? "clientToken"
+        <*> x .@? "createDate"
+        <*> x .@? "instanceCounts" .!@ mempty
+        <*> x .@? "priceSchedules" .!@ mempty
+        <*> x .@? "reservedInstancesId"
+        <*> x .@? "reservedInstancesListingId"
+        <*> x .@? "status"
+        <*> x .@? "statusMessage"
+        <*> x .@? "tagSet" .!@ mempty
+        <*> x .@? "updateDate"
 
 instance ToQuery ReservedInstancesListing where
     toQuery ReservedInstancesListing{..} = mconcat
@@ -2352,8 +2352,8 @@ cvpUserId = lens _cvpUserId (\s a -> s { _cvpUserId = a })
 
 instance FromXML CreateVolumePermission where
     parseXML x = CreateVolumePermission
-        <$> x .@? "Group"
-        <*> x .@? "UserId"
+        <$> x .@? "group"
+        <*> x .@? "userId"
 
 instance ToQuery CreateVolumePermission where
     toQuery CreateVolumePermission{..} = mconcat
@@ -2392,8 +2392,8 @@ niacDeleteOnTermination =
 
 instance FromXML NetworkInterfaceAttachmentChanges where
     parseXML x = NetworkInterfaceAttachmentChanges
-        <$> x .@? "AttachmentId"
-        <*> x .@? "DeleteOnTermination"
+        <$> x .@? "attachmentId"
+        <*> x .@? "deleteOnTermination"
 
 instance ToQuery NetworkInterfaceAttachmentChanges where
     toQuery NetworkInterfaceAttachmentChanges{..} = mconcat
@@ -2462,9 +2462,9 @@ doTags = lens _doTags (\s a -> s { _doTags = a }) . _List
 
 instance FromXML DhcpOptions where
     parseXML x = DhcpOptions
-        <$> x .@? "DhcpConfigurationSet" .!@ mempty
-        <*> x .@? "DhcpOptionsId"
-        <*> x .@? "TagSet" .!@ mempty
+        <$> x .@? "dhcpConfigurationSet" .!@ mempty
+        <*> x .@? "dhcpOptionsId"
+        <*> x .@? "tagSet" .!@ mempty
 
 instance ToQuery DhcpOptions where
     toQuery DhcpOptions{..} = mconcat
@@ -2590,16 +2590,16 @@ inisSubnetId = lens _inisSubnetId (\s a -> s { _inisSubnetId = a })
 
 instance FromXML InstanceNetworkInterfaceSpecification where
     parseXML x = InstanceNetworkInterfaceSpecification
-        <$> x .@? "AssociatePublicIpAddress"
-        <*> x .@? "DeleteOnTermination"
-        <*> x .@? "Description"
-        <*> x .@? "DeviceIndex"
+        <$> x .@? "associatePublicIpAddress"
+        <*> x .@? "deleteOnTermination"
+        <*> x .@? "description"
+        <*> x .@? "deviceIndex"
         <*> x .@? "SecurityGroupId" .!@ mempty
-        <*> x .@? "NetworkInterfaceId"
-        <*> x .@? "PrivateIpAddress"
-        <*> x .@? "PrivateIpAddressesSet" .!@ mempty
-        <*> x .@? "SecondaryPrivateIpAddressCount"
-        <*> x .@? "SubnetId"
+        <*> x .@? "networkInterfaceId"
+        <*> x .@? "privateIpAddress"
+        <*> x .@? "privateIpAddressesSet" .!@ mempty
+        <*> x .@? "secondaryPrivateIpAddressCount"
+        <*> x .@? "subnetId"
 
 instance ToQuery InstanceNetworkInterfaceSpecification where
     toQuery InstanceNetworkInterfaceSpecification{..} = mconcat
@@ -2674,7 +2674,7 @@ avValue = lens _avValue (\s a -> s { _avValue = a })
 
 instance FromXML AttributeValue where
     parseXML x = AttributeValue
-        <$> x .@? "Value"
+        <$> x .@? "value"
 
 instance ToQuery AttributeValue where
     toQuery AttributeValue{..} = mconcat
@@ -2713,8 +2713,8 @@ piasPrivateIpAddress =
 
 instance FromXML PrivateIpAddressSpecification where
     parseXML x = PrivateIpAddressSpecification
-        <$> x .@? "Primary"
-        <*> x .@  "PrivateIpAddress"
+        <$> x .@? "primary"
+        <*> x .@  "privateIpAddress"
 
 instance ToQuery PrivateIpAddressSpecification where
     toQuery PrivateIpAddressSpecification{..} = mconcat
@@ -2939,29 +2939,29 @@ iVirtualizationType =
 
 instance FromXML Image where
     parseXML x = Image
-        <$> x .@  "Architecture"
-        <*> x .@? "BlockDeviceMapping" .!@ mempty
-        <*> x .@? "CreationDate"
-        <*> x .@? "Description"
-        <*> x .@  "Hypervisor"
-        <*> x .@  "ImageId"
-        <*> x .@  "ImageLocation"
-        <*> x .@? "ImageOwnerAlias"
-        <*> x .@  "ImageType"
-        <*> x .@? "KernelId"
-        <*> x .@? "Name"
-        <*> x .@  "ImageOwnerId"
-        <*> x .@? "Platform"
-        <*> x .@? "ProductCodes" .!@ mempty
-        <*> x .@  "IsPublic"
-        <*> x .@? "RamdiskId"
-        <*> x .@? "RootDeviceName"
-        <*> x .@  "RootDeviceType"
-        <*> x .@? "SriovNetSupport"
-        <*> x .@  "ImageState"
-        <*> x .@? "StateReason"
-        <*> x .@? "TagSet" .!@ mempty
-        <*> x .@  "VirtualizationType"
+        <$> x .@  "architecture"
+        <*> x .@? "blockDeviceMapping" .!@ mempty
+        <*> x .@? "creationDate"
+        <*> x .@? "description"
+        <*> x .@  "hypervisor"
+        <*> x .@  "imageId"
+        <*> x .@  "imageLocation"
+        <*> x .@? "imageOwnerAlias"
+        <*> x .@  "imageType"
+        <*> x .@? "kernelId"
+        <*> x .@? "name"
+        <*> x .@  "imageOwnerId"
+        <*> x .@? "platform"
+        <*> x .@? "productCodes" .!@ mempty
+        <*> x .@  "isPublic"
+        <*> x .@? "ramdiskId"
+        <*> x .@? "rootDeviceName"
+        <*> x .@  "rootDeviceType"
+        <*> x .@? "sriovNetSupport"
+        <*> x .@  "imageState"
+        <*> x .@? "stateReason"
+        <*> x .@? "tagSet" .!@ mempty
+        <*> x .@  "virtualizationType"
 
 instance ToQuery Image where
     toQuery Image{..} = mconcat
@@ -3019,8 +3019,8 @@ dcValues = lens _dcValues (\s a -> s { _dcValues = a }) . _List
 
 instance FromXML DhcpConfiguration where
     parseXML x = DhcpConfiguration
-        <$> x .@? "Key"
-        <*> x .@? "ValueSet" .!@ mempty
+        <$> x .@? "key"
+        <*> x .@? "valueSet" .!@ mempty
 
 instance ToQuery DhcpConfiguration where
     toQuery DhcpConfiguration{..} = mconcat
@@ -3065,8 +3065,8 @@ tagValue = lens _tagValue (\s a -> s { _tagValue = a })
 
 instance FromXML Tag where
     parseXML x = Tag
-        <$> x .@  "Key"
-        <*> x .@  "Value"
+        <$> x .@  "key"
+        <*> x .@  "value"
 
 instance ToQuery Tag where
     toQuery Tag{..} = mconcat
@@ -3172,13 +3172,13 @@ niaStatus = lens _niaStatus (\s a -> s { _niaStatus = a })
 
 instance FromXML NetworkInterfaceAttachment where
     parseXML x = NetworkInterfaceAttachment
-        <$> x .@? "AttachTime"
-        <*> x .@? "AttachmentId"
-        <*> x .@? "DeleteOnTermination"
-        <*> x .@? "DeviceIndex"
-        <*> x .@? "InstanceId"
-        <*> x .@? "InstanceOwnerId"
-        <*> x .@? "Status"
+        <$> x .@? "attachTime"
+        <*> x .@? "attachmentId"
+        <*> x .@? "deleteOnTermination"
+        <*> x .@? "deviceIndex"
+        <*> x .@? "instanceId"
+        <*> x .@? "instanceOwnerId"
+        <*> x .@? "status"
 
 instance ToQuery NetworkInterfaceAttachment where
     toQuery NetworkInterfaceAttachment{..} = mconcat
@@ -3213,7 +3213,7 @@ rimeEnabled = lens _rimeEnabled (\s a -> s { _rimeEnabled = a })
 
 instance FromXML RunInstancesMonitoringEnabled where
     parseXML x = RunInstancesMonitoringEnabled
-        <$> x .@  "Enabled"
+        <$> x .@  "enabled"
 
 instance ToQuery RunInstancesMonitoringEnabled where
     toQuery RunInstancesMonitoringEnabled{..} = mconcat
@@ -3249,8 +3249,8 @@ vsiStatus = lens _vsiStatus (\s a -> s { _vsiStatus = a })
 
 instance FromXML VolumeStatusInfo where
     parseXML x = VolumeStatusInfo
-        <$> x .@? "Details" .!@ mempty
-        <*> x .@? "Status"
+        <$> x .@? "details" .!@ mempty
+        <*> x .@? "status"
 
 instance ToQuery VolumeStatusInfo where
     toQuery VolumeStatusInfo{..} = mconcat
@@ -3311,11 +3311,11 @@ niaPublicIp = lens _niaPublicIp (\s a -> s { _niaPublicIp = a })
 
 instance FromXML NetworkInterfaceAssociation where
     parseXML x = NetworkInterfaceAssociation
-        <$> x .@? "AllocationId"
-        <*> x .@? "AssociationId"
-        <*> x .@? "IpOwnerId"
-        <*> x .@? "PublicDnsName"
-        <*> x .@? "PublicIp"
+        <$> x .@? "allocationId"
+        <*> x .@? "associationId"
+        <*> x .@? "ipOwnerId"
+        <*> x .@? "publicDnsName"
+        <*> x .@? "publicIp"
 
 instance ToQuery NetworkInterfaceAssociation where
     toQuery NetworkInterfaceAssociation{..} = mconcat
@@ -3540,8 +3540,8 @@ itcType = lens _itcType (\s a -> s { _itcType = a })
 
 instance FromXML IcmpTypeCode where
     parseXML x = IcmpTypeCode
-        <$> x .@? "Code"
-        <*> x .@? "Type"
+        <$> x .@? "code"
+        <*> x .@? "type"
 
 instance ToQuery IcmpTypeCode where
     toQuery IcmpTypeCode{..} = mconcat
@@ -3578,8 +3578,8 @@ icState = lens _icState (\s a -> s { _icState = a })
 
 instance FromXML InstanceCount where
     parseXML x = InstanceCount
-        <$> x .@? "InstanceCount"
-        <*> x .@? "State"
+        <$> x .@? "instanceCount"
+        <*> x .@? "state"
 
 instance ToQuery InstanceCount where
     toQuery InstanceCount{..} = mconcat
@@ -3635,10 +3635,10 @@ etstS3Key = lens _etstS3Key (\s a -> s { _etstS3Key = a })
 
 instance FromXML ExportToS3Task where
     parseXML x = ExportToS3Task
-        <$> x .@? "ContainerFormat"
-        <*> x .@? "DiskImageFormat"
-        <*> x .@? "S3Bucket"
-        <*> x .@? "S3Key"
+        <$> x .@? "containerFormat"
+        <*> x .@? "diskImageFormat"
+        <*> x .@? "s3Bucket"
+        <*> x .@? "s3Key"
 
 instance ToQuery ExportToS3Task where
     toQuery ExportToS3Task{..} = mconcat
@@ -3705,10 +3705,10 @@ bdmVirtualName = lens _bdmVirtualName (\s a -> s { _bdmVirtualName = a })
 
 instance FromXML BlockDeviceMapping where
     parseXML x = BlockDeviceMapping
-        <$> x .@  "DeviceName"
-        <*> x .@? "Ebs"
-        <*> x .@? "NoDevice"
-        <*> x .@? "VirtualName"
+        <$> x .@  "deviceName"
+        <*> x .@? "ebs"
+        <*> x .@? "noDevice"
+        <*> x .@? "virtualName"
 
 instance ToQuery BlockDeviceMapping where
     toQuery BlockDeviceMapping{..} = mconcat
@@ -3792,13 +3792,13 @@ ctTags = lens _ctTags (\s a -> s { _ctTags = a }) . _List
 
 instance FromXML ConversionTask where
     parseXML x = ConversionTask
-        <$> x .@  "ConversionTaskId"
-        <*> x .@? "ExpirationTime"
-        <*> x .@? "ImportInstance"
-        <*> x .@? "ImportVolume"
-        <*> x .@  "State"
-        <*> x .@? "StatusMessage"
-        <*> x .@? "TagSet" .!@ mempty
+        <$> x .@  "conversionTaskId"
+        <*> x .@? "expirationTime"
+        <*> x .@? "importInstance"
+        <*> x .@? "importVolume"
+        <*> x .@  "state"
+        <*> x .@? "statusMessage"
+        <*> x .@? "tagSet" .!@ mempty
 
 instance ToQuery ConversionTask where
     toQuery ConversionTask{..} = mconcat
@@ -3888,10 +3888,10 @@ cliVpcId = lens _cliVpcId (\s a -> s { _cliVpcId = a })
 
 instance FromXML ClassicLinkInstance where
     parseXML x = ClassicLinkInstance
-        <$> x .@? "GroupSet" .!@ mempty
-        <*> x .@? "InstanceId"
-        <*> x .@? "TagSet" .!@ mempty
-        <*> x .@? "VpcId"
+        <$> x .@? "groupSet" .!@ mempty
+        <*> x .@? "instanceId"
+        <*> x .@? "tagSet" .!@ mempty
+        <*> x .@? "vpcId"
 
 instance ToQuery ClassicLinkInstance where
     toQuery ClassicLinkInstance{..} = mconcat
@@ -4017,11 +4017,11 @@ spTimestamp = lens _spTimestamp (\s a -> s { _spTimestamp = a }) . mapping _Time
 
 instance FromXML SpotPrice where
     parseXML x = SpotPrice
-        <$> x .@? "AvailabilityZone"
-        <*> x .@? "InstanceType"
-        <*> x .@? "ProductDescription"
-        <*> x .@? "SpotPrice"
-        <*> x .@? "Timestamp"
+        <$> x .@? "availabilityZone"
+        <*> x .@? "instanceType"
+        <*> x .@? "productDescription"
+        <*> x .@? "spotPrice"
+        <*> x .@? "timestamp"
 
 instance ToQuery SpotPrice where
     toQuery SpotPrice{..} = mconcat
@@ -4061,8 +4061,8 @@ imMonitoring = lens _imMonitoring (\s a -> s { _imMonitoring = a })
 
 instance FromXML InstanceMonitoring where
     parseXML x = InstanceMonitoring
-        <$> x .@? "InstanceId"
-        <*> x .@? "Monitoring"
+        <$> x .@? "instanceId"
+        <*> x .@? "monitoring"
 
 instance ToQuery InstanceMonitoring where
     toQuery InstanceMonitoring{..} = mconcat
@@ -4109,9 +4109,9 @@ pssTerm = lens _pssTerm (\s a -> s { _pssTerm = a })
 
 instance FromXML PriceScheduleSpecification where
     parseXML x = PriceScheduleSpecification
-        <$> x .@? "CurrencyCode"
-        <*> x .@? "Price"
-        <*> x .@? "Term"
+        <$> x .@? "currencyCode"
+        <*> x .@? "price"
+        <*> x .@? "term"
 
 instance ToQuery PriceScheduleSpecification where
     toQuery PriceScheduleSpecification{..} = mconcat
@@ -4157,9 +4157,9 @@ sisUpdateTime = lens _sisUpdateTime (\s a -> s { _sisUpdateTime = a }) . mapping
 
 instance FromXML SpotInstanceStatus where
     parseXML x = SpotInstanceStatus
-        <$> x .@? "Code"
-        <*> x .@? "Message"
-        <*> x .@? "UpdateTime"
+        <$> x .@? "code"
+        <*> x .@? "message"
+        <*> x .@? "updateTime"
 
 instance ToQuery SpotInstanceStatus where
     toQuery SpotInstanceStatus{..} = mconcat
@@ -4350,22 +4350,22 @@ siValidUntil = lens _siValidUntil (\s a -> s { _siValidUntil = a }) . mapping _T
 
 instance FromXML SpotInstanceRequest where
     parseXML x = SpotInstanceRequest
-        <$> x .@? "AvailabilityZoneGroup"
-        <*> x .@? "CreateTime"
-        <*> x .@? "Fault"
-        <*> x .@? "InstanceId"
-        <*> x .@? "LaunchGroup"
-        <*> x .@? "LaunchSpecification"
-        <*> x .@? "LaunchedAvailabilityZone"
-        <*> x .@? "ProductDescription"
-        <*> x .@? "SpotInstanceRequestId"
-        <*> x .@? "SpotPrice"
-        <*> x .@? "State"
-        <*> x .@? "Status"
-        <*> x .@? "TagSet" .!@ mempty
-        <*> x .@? "Type"
-        <*> x .@? "ValidFrom"
-        <*> x .@? "ValidUntil"
+        <$> x .@? "availabilityZoneGroup"
+        <*> x .@? "createTime"
+        <*> x .@? "fault"
+        <*> x .@? "instanceId"
+        <*> x .@? "launchGroup"
+        <*> x .@? "launchSpecification"
+        <*> x .@? "launchedAvailabilityZone"
+        <*> x .@? "productDescription"
+        <*> x .@? "spotInstanceRequestId"
+        <*> x .@? "spotPrice"
+        <*> x .@? "state"
+        <*> x .@? "status"
+        <*> x .@? "tagSet" .!@ mempty
+        <*> x .@? "type"
+        <*> x .@? "validFrom"
+        <*> x .@? "validUntil"
 
 instance ToQuery SpotInstanceRequest where
     toQuery SpotInstanceRequest{..} = mconcat
@@ -4535,21 +4535,21 @@ lsUserData = lens _lsUserData (\s a -> s { _lsUserData = a })
 
 instance FromXML LaunchSpecification where
     parseXML x = LaunchSpecification
-        <$> x .@? "AddressingType"
-        <*> x .@? "BlockDeviceMapping" .!@ mempty
-        <*> x .@? "EbsOptimized"
-        <*> x .@? "IamInstanceProfile"
-        <*> x .@? "ImageId"
-        <*> x .@? "InstanceType"
-        <*> x .@? "KernelId"
-        <*> x .@? "KeyName"
-        <*> x .@? "Monitoring"
-        <*> x .@? "NetworkInterfaceSet" .!@ mempty
-        <*> x .@? "Placement"
-        <*> x .@? "RamdiskId"
-        <*> x .@? "GroupSet" .!@ mempty
-        <*> x .@? "SubnetId"
-        <*> x .@? "UserData"
+        <$> x .@? "addressingType"
+        <*> x .@? "blockDeviceMapping" .!@ mempty
+        <*> x .@? "ebsOptimized"
+        <*> x .@? "iamInstanceProfile"
+        <*> x .@? "imageId"
+        <*> x .@? "instanceType"
+        <*> x .@? "kernelId"
+        <*> x .@? "keyName"
+        <*> x .@? "monitoring"
+        <*> x .@? "networkInterfaceSet" .!@ mempty
+        <*> x .@? "placement"
+        <*> x .@? "ramdiskId"
+        <*> x .@? "groupSet" .!@ mempty
+        <*> x .@? "subnetId"
+        <*> x .@? "userData"
 
 instance ToQuery LaunchSpecification where
     toQuery LaunchSpecification{..} = mconcat
@@ -4623,11 +4623,11 @@ vseNotBefore = lens _vseNotBefore (\s a -> s { _vseNotBefore = a }) . mapping _T
 
 instance FromXML VolumeStatusEvent where
     parseXML x = VolumeStatusEvent
-        <$> x .@? "Description"
-        <*> x .@? "EventId"
-        <*> x .@? "EventType"
-        <*> x .@? "NotAfter"
-        <*> x .@? "NotBefore"
+        <$> x .@? "description"
+        <*> x .@? "eventId"
+        <*> x .@? "eventType"
+        <*> x .@? "notAfter"
+        <*> x .@? "notBefore"
 
 instance ToQuery VolumeStatusEvent where
     toQuery VolumeStatusEvent{..} = mconcat
@@ -4768,18 +4768,18 @@ vVolumeType = lens _vVolumeType (\s a -> s { _vVolumeType = a })
 
 instance FromXML Volume where
     parseXML x = Volume
-        <$> x .@? "AttachmentSet" .!@ mempty
-        <*> x .@  "AvailabilityZone"
-        <*> x .@  "CreateTime"
-        <*> x .@  "Encrypted"
-        <*> x .@? "Iops"
-        <*> x .@? "KmsKeyId"
-        <*> x .@  "Size"
-        <*> x .@  "SnapshotId"
-        <*> x .@  "Status"
-        <*> x .@? "TagSet" .!@ mempty
-        <*> x .@  "VolumeId"
-        <*> x .@  "VolumeType"
+        <$> x .@? "attachmentSet" .!@ mempty
+        <*> x .@  "availabilityZone"
+        <*> x .@  "createTime"
+        <*> x .@  "encrypted"
+        <*> x .@? "iops"
+        <*> x .@? "kmsKeyId"
+        <*> x .@  "size"
+        <*> x .@  "snapshotId"
+        <*> x .@  "status"
+        <*> x .@? "tagSet" .!@ mempty
+        <*> x .@  "volumeId"
+        <*> x .@  "volumeType"
 
 instance ToQuery Volume where
     toQuery Volume{..} = mconcat
@@ -4853,11 +4853,11 @@ rReservationId = lens _rReservationId (\s a -> s { _rReservationId = a })
 
 instance FromXML Reservation where
     parseXML x = Reservation
-        <$> x .@? "GroupSet" .!@ mempty
-        <*> x .@? "InstancesSet" .!@ mempty
-        <*> x .@  "OwnerId"
-        <*> x .@? "RequesterId"
-        <*> x .@  "ReservationId"
+        <$> x .@? "groupSet" .!@ mempty
+        <*> x .@? "instancesSet" .!@ mempty
+        <*> x .@  "ownerId"
+        <*> x .@? "requesterId"
+        <*> x .@  "reservationId"
 
 instance ToQuery Reservation where
     toQuery Reservation{..} = mconcat
@@ -4944,13 +4944,13 @@ iivdiVolume = lens _iivdiVolume (\s a -> s { _iivdiVolume = a })
 
 instance FromXML ImportInstanceVolumeDetailItem where
     parseXML x = ImportInstanceVolumeDetailItem
-        <$> x .@  "AvailabilityZone"
-        <*> x .@  "BytesConverted"
-        <*> x .@? "Description"
-        <*> x .@  "Image"
-        <*> x .@  "Status"
-        <*> x .@? "StatusMessage"
-        <*> x .@  "Volume"
+        <$> x .@  "availabilityZone"
+        <*> x .@  "bytesConverted"
+        <*> x .@? "description"
+        <*> x .@  "image"
+        <*> x .@  "status"
+        <*> x .@? "statusMessage"
+        <*> x .@  "volume"
 
 instance ToQuery ImportInstanceVolumeDetailItem where
     toQuery ImportInstanceVolumeDetailItem{..} = mconcat
@@ -5088,15 +5088,15 @@ rimUpdateDate = lens _rimUpdateDate (\s a -> s { _rimUpdateDate = a }) . mapping
 
 instance FromXML ReservedInstancesModification where
     parseXML x = ReservedInstancesModification
-        <$> x .@? "ClientToken"
-        <*> x .@? "CreateDate"
-        <*> x .@? "EffectiveDate"
-        <*> x .@? "ModificationResultSet" .!@ mempty
-        <*> x .@? "ReservedInstancesSet" .!@ mempty
-        <*> x .@? "ReservedInstancesModificationId"
-        <*> x .@? "Status"
-        <*> x .@? "StatusMessage"
-        <*> x .@? "UpdateDate"
+        <$> x .@? "clientToken"
+        <*> x .@? "createDate"
+        <*> x .@? "effectiveDate"
+        <*> x .@? "modificationResultSet" .!@ mempty
+        <*> x .@? "reservedInstancesSet" .!@ mempty
+        <*> x .@? "reservedInstancesModificationId"
+        <*> x .@? "status"
+        <*> x .@? "statusMessage"
+        <*> x .@? "updateDate"
 
 instance ToQuery ReservedInstancesModification where
     toQuery ReservedInstancesModification{..} = mconcat
@@ -5303,24 +5303,24 @@ niVpcId = lens _niVpcId (\s a -> s { _niVpcId = a })
 
 instance FromXML NetworkInterface where
     parseXML x = NetworkInterface
-        <$> x .@? "Association"
-        <*> x .@? "Attachment"
-        <*> x .@? "AvailabilityZone"
-        <*> x .@? "Description"
-        <*> x .@? "GroupSet" .!@ mempty
-        <*> x .@? "MacAddress"
-        <*> x .@? "NetworkInterfaceId"
-        <*> x .@? "OwnerId"
-        <*> x .@? "PrivateDnsName"
-        <*> x .@? "PrivateIpAddress"
-        <*> x .@? "PrivateIpAddressesSet" .!@ mempty
-        <*> x .@? "RequesterId"
-        <*> x .@? "RequesterManaged"
-        <*> x .@? "SourceDestCheck"
-        <*> x .@? "Status"
-        <*> x .@? "SubnetId"
-        <*> x .@? "TagSet" .!@ mempty
-        <*> x .@? "VpcId"
+        <$> x .@? "association"
+        <*> x .@? "attachment"
+        <*> x .@? "availabilityZone"
+        <*> x .@? "description"
+        <*> x .@? "groupSet" .!@ mempty
+        <*> x .@? "macAddress"
+        <*> x .@? "networkInterfaceId"
+        <*> x .@? "ownerId"
+        <*> x .@? "privateDnsName"
+        <*> x .@? "privateIpAddress"
+        <*> x .@? "privateIpAddressesSet" .!@ mempty
+        <*> x .@? "requesterId"
+        <*> x .@? "requesterManaged"
+        <*> x .@? "sourceDestCheck"
+        <*> x .@? "status"
+        <*> x .@? "subnetId"
+        <*> x .@? "tagSet" .!@ mempty
+        <*> x .@? "vpcId"
 
 instance ToQuery NetworkInterface where
     toQuery NetworkInterface{..} = mconcat
@@ -5469,15 +5469,15 @@ s1VpcId = lens _s1VpcId (\s a -> s { _s1VpcId = a })
 
 instance FromXML Subnet where
     parseXML x = Subnet
-        <$> x .@  "AvailabilityZone"
-        <*> x .@  "AvailableIpAddressCount"
-        <*> x .@  "CidrBlock"
-        <*> x .@  "DefaultForAz"
-        <*> x .@  "MapPublicIpOnLaunch"
-        <*> x .@  "State"
-        <*> x .@  "SubnetId"
-        <*> x .@? "TagSet" .!@ mempty
-        <*> x .@  "VpcId"
+        <$> x .@  "availabilityZone"
+        <*> x .@  "availableIpAddressCount"
+        <*> x .@  "cidrBlock"
+        <*> x .@  "defaultForAz"
+        <*> x .@  "mapPublicIpOnLaunch"
+        <*> x .@  "state"
+        <*> x .@  "subnetId"
+        <*> x .@? "tagSet" .!@ mempty
+        <*> x .@  "vpcId"
 
 instance ToQuery Subnet where
     toQuery Subnet{..} = mconcat
@@ -5525,8 +5525,8 @@ kpiKeyName = lens _kpiKeyName (\s a -> s { _kpiKeyName = a })
 
 instance FromXML KeyPairInfo where
     parseXML x = KeyPairInfo
-        <$> x .@? "KeyFingerprint"
-        <*> x .@? "KeyName"
+        <$> x .@? "keyFingerprint"
+        <*> x .@? "keyName"
 
 instance ToQuery KeyPairInfo where
     toQuery KeyPairInfo{..} = mconcat
@@ -5639,9 +5639,9 @@ iniaPublicIp = lens _iniaPublicIp (\s a -> s { _iniaPublicIp = a })
 
 instance FromXML InstanceNetworkInterfaceAssociation where
     parseXML x = InstanceNetworkInterfaceAssociation
-        <$> x .@? "IpOwnerId"
-        <*> x .@? "PublicDnsName"
-        <*> x .@? "PublicIp"
+        <$> x .@? "ipOwnerId"
+        <*> x .@? "publicDnsName"
+        <*> x .@? "publicIp"
 
 instance ToQuery InstanceNetworkInterfaceAssociation where
     toQuery InstanceNetworkInterfaceAssociation{..} = mconcat
@@ -5694,9 +5694,9 @@ didImportManifestUrl =
 
 instance FromXML DiskImageDetail where
     parseXML x = DiskImageDetail
-        <$> x .@  "Bytes"
-        <*> x .@  "Format"
-        <*> x .@  "ImportManifestUrl"
+        <$> x .@  "bytes"
+        <*> x .@  "format"
+        <*> x .@  "importManifestUrl"
 
 instance ToQuery DiskImageDetail where
     toQuery DiskImageDetail{..} = mconcat
@@ -5754,10 +5754,10 @@ ipiaPrivateIpAddress =
 
 instance FromXML InstancePrivateIpAddress where
     parseXML x = InstancePrivateIpAddress
-        <$> x .@? "Association"
-        <*> x .@? "Primary"
-        <*> x .@? "PrivateDnsName"
-        <*> x .@? "PrivateIpAddress"
+        <$> x .@? "association"
+        <*> x .@? "primary"
+        <*> x .@? "privateDnsName"
+        <*> x .@? "privateIpAddress"
 
 instance ToQuery InstancePrivateIpAddress where
     toQuery InstancePrivateIpAddress{..} = mconcat
@@ -5798,8 +5798,8 @@ csiState = lens _csiState (\s a -> s { _csiState = a })
 
 instance FromXML CancelledSpotInstanceRequest where
     parseXML x = CancelledSpotInstanceRequest
-        <$> x .@? "SpotInstanceRequestId"
-        <*> x .@? "State"
+        <$> x .@? "spotInstanceRequestId"
+        <*> x .@? "state"
 
 instance ToQuery CancelledSpotInstanceRequest where
     toQuery CancelledSpotInstanceRequest{..} = mconcat
@@ -5830,7 +5830,7 @@ vcosStaticRoutesOnly =
 
 instance FromXML VpnConnectionOptionsSpecification where
     parseXML x = VpnConnectionOptionsSpecification
-        <$> x .@? "StaticRoutesOnly"
+        <$> x .@? "staticRoutesOnly"
 
 instance ToQuery VpnConnectionOptionsSpecification where
     toQuery VpnConnectionOptionsSpecification{..} = mconcat
@@ -5919,14 +5919,14 @@ aPublicIp = lens _aPublicIp (\s a -> s { _aPublicIp = a })
 
 instance FromXML Address where
     parseXML x = Address
-        <$> x .@? "AllocationId"
-        <*> x .@? "AssociationId"
-        <*> x .@? "Domain"
-        <*> x .@? "InstanceId"
-        <*> x .@? "NetworkInterfaceId"
-        <*> x .@? "NetworkInterfaceOwnerId"
-        <*> x .@? "PrivateIpAddress"
-        <*> x .@? "PublicIp"
+        <$> x .@? "allocationId"
+        <*> x .@? "associationId"
+        <*> x .@? "domain"
+        <*> x .@? "instanceId"
+        <*> x .@? "networkInterfaceId"
+        <*> x .@? "networkInterfaceOwnerId"
+        <*> x .@? "privateIpAddress"
+        <*> x .@? "publicIp"
 
 instance ToQuery Address where
     toQuery Address{..} = mconcat
@@ -6001,8 +6001,8 @@ lpUserId = lens _lpUserId (\s a -> s { _lpUserId = a })
 
 instance FromXML LaunchPermission where
     parseXML x = LaunchPermission
-        <$> x .@? "Group"
-        <*> x .@? "UserId"
+        <$> x .@? "group"
+        <*> x .@? "userId"
 
 instance ToQuery LaunchPermission where
     toQuery LaunchPermission{..} = mconcat
@@ -6083,10 +6083,10 @@ rtaSubnetId = lens _rtaSubnetId (\s a -> s { _rtaSubnetId = a })
 
 instance FromXML RouteTableAssociation where
     parseXML x = RouteTableAssociation
-        <$> x .@? "Main"
-        <*> x .@? "RouteTableAssociationId"
-        <*> x .@? "RouteTableId"
-        <*> x .@? "SubnetId"
+        <$> x .@? "main"
+        <*> x .@? "routeTableAssociationId"
+        <*> x .@? "routeTableId"
+        <*> x .@? "subnetId"
 
 instance ToQuery RouteTableAssociation where
     toQuery RouteTableAssociation{..} = mconcat
@@ -6166,8 +6166,8 @@ prTo = lens _prTo (\s a -> s { _prTo = a })
 
 instance FromXML PortRange where
     parseXML x = PortRange
-        <$> x .@? "From"
-        <*> x .@? "To"
+        <$> x .@? "from"
+        <*> x .@? "to"
 
 instance ToQuery PortRange where
     toQuery PortRange{..} = mconcat
@@ -6248,10 +6248,10 @@ ricPlatform = lens _ricPlatform (\s a -> s { _ricPlatform = a })
 
 instance FromXML ReservedInstancesConfiguration where
     parseXML x = ReservedInstancesConfiguration
-        <$> x .@? "AvailabilityZone"
-        <*> x .@? "InstanceCount"
-        <*> x .@? "InstanceType"
-        <*> x .@? "Platform"
+        <$> x .@? "availabilityZone"
+        <*> x .@? "instanceCount"
+        <*> x .@? "instanceType"
+        <*> x .@? "platform"
 
 instance ToQuery ReservedInstancesConfiguration where
     toQuery ReservedInstancesConfiguration{..} = mconcat
@@ -6290,8 +6290,8 @@ vsdStatus = lens _vsdStatus (\s a -> s { _vsdStatus = a })
 
 instance FromXML VolumeStatusDetails where
     parseXML x = VolumeStatusDetails
-        <$> x .@? "Name"
-        <*> x .@? "Status"
+        <$> x .@? "name"
+        <*> x .@? "status"
 
 instance ToQuery VolumeStatusDetails where
     toQuery VolumeStatusDetails{..} = mconcat
@@ -6357,7 +6357,7 @@ vcoStaticRoutesOnly =
 
 instance FromXML VpnConnectionOptions where
     parseXML x = VpnConnectionOptions
-        <$> x .@? "StaticRoutesOnly"
+        <$> x .@? "staticRoutesOnly"
 
 instance ToQuery VpnConnectionOptions where
     toQuery VpnConnectionOptions{..} = mconcat
@@ -6401,9 +6401,9 @@ uigpUserId = lens _uigpUserId (\s a -> s { _uigpUserId = a })
 
 instance FromXML UserIdGroupPair where
     parseXML x = UserIdGroupPair
-        <$> x .@? "GroupId"
-        <*> x .@? "GroupName"
-        <*> x .@? "UserId"
+        <$> x .@? "groupId"
+        <*> x .@? "groupName"
+        <*> x .@? "userId"
 
 instance ToQuery UserIdGroupPair where
     toQuery UserIdGroupPair{..} = mconcat
@@ -6441,8 +6441,8 @@ issStatus = lens _issStatus (\s a -> s { _issStatus = a })
 
 instance FromXML InstanceStatusSummary where
     parseXML x = InstanceStatusSummary
-        <$> x .@? "Details" .!@ mempty
-        <*> x .@? "Status"
+        <$> x .@? "details" .!@ mempty
+        <*> x .@? "status"
 
 instance ToQuery InstanceStatusSummary where
     toQuery InstanceStatusSummary{..} = mconcat
@@ -6480,8 +6480,8 @@ sp1GroupName = lens _sp1GroupName (\s a -> s { _sp1GroupName = a })
 
 instance FromXML SpotPlacement where
     parseXML x = SpotPlacement
-        <$> x .@? "AvailabilityZone"
-        <*> x .@? "GroupName"
+        <$> x .@? "availabilityZone"
+        <*> x .@? "groupName"
 
 instance ToQuery SpotPlacement where
     toQuery SpotPlacement{..} = mconcat
@@ -6520,8 +6520,8 @@ eibdsVolumeId = lens _eibdsVolumeId (\s a -> s { _eibdsVolumeId = a })
 
 instance FromXML EbsInstanceBlockDeviceSpecification where
     parseXML x = EbsInstanceBlockDeviceSpecification
-        <$> x .@? "DeleteOnTermination"
-        <*> x .@? "VolumeId"
+        <$> x .@? "deleteOnTermination"
+        <*> x .@? "volumeId"
 
 instance ToQuery EbsInstanceBlockDeviceSpecification where
     toQuery EbsInstanceBlockDeviceSpecification{..} = mconcat
@@ -6568,9 +6568,9 @@ naaSubnetId = lens _naaSubnetId (\s a -> s { _naaSubnetId = a })
 
 instance FromXML NetworkAclAssociation where
     parseXML x = NetworkAclAssociation
-        <$> x .@? "NetworkAclAssociationId"
-        <*> x .@? "NetworkAclId"
-        <*> x .@? "SubnetId"
+        <$> x .@? "networkAclAssociationId"
+        <*> x .@? "networkAclId"
+        <*> x .@? "subnetId"
 
 instance ToQuery NetworkAclAssociation where
     toQuery NetworkAclAssociation{..} = mconcat
@@ -6664,14 +6664,14 @@ btUpdateTime = lens _btUpdateTime (\s a -> s { _btUpdateTime = a }) . _Time
 
 instance FromXML BundleTask where
     parseXML x = BundleTask
-        <$> x .@  "BundleId"
-        <*> x .@? "Error"
-        <*> x .@  "InstanceId"
-        <*> x .@  "Progress"
-        <*> x .@  "StartTime"
-        <*> x .@  "State"
-        <*> x .@  "Storage"
-        <*> x .@  "UpdateTime"
+        <$> x .@  "bundleId"
+        <*> x .@? "error"
+        <*> x .@  "instanceId"
+        <*> x .@  "progress"
+        <*> x .@  "startTime"
+        <*> x .@  "state"
+        <*> x .@  "storage"
+        <*> x .@  "updateTime"
 
 instance ToQuery BundleTask where
     toQuery BundleTask{..} = mconcat
@@ -6730,10 +6730,10 @@ iseNotBefore = lens _iseNotBefore (\s a -> s { _iseNotBefore = a }) . mapping _T
 
 instance FromXML InstanceStatusEvent where
     parseXML x = InstanceStatusEvent
-        <$> x .@? "Code"
-        <*> x .@? "Description"
-        <*> x .@? "NotAfter"
-        <*> x .@? "NotBefore"
+        <$> x .@? "code"
+        <*> x .@? "description"
+        <*> x .@? "notAfter"
+        <*> x .@? "notBefore"
 
 instance ToQuery InstanceStatusEvent where
     toQuery InstanceStatusEvent{..} = mconcat
@@ -6979,14 +6979,14 @@ rVpcPeeringConnectionId =
 
 instance FromXML Route where
     parseXML x = Route
-        <$> x .@? "DestinationCidrBlock"
-        <*> x .@? "GatewayId"
-        <*> x .@? "InstanceId"
-        <*> x .@? "InstanceOwnerId"
-        <*> x .@? "NetworkInterfaceId"
-        <*> x .@? "Origin"
-        <*> x .@? "State"
-        <*> x .@? "VpcPeeringConnectionId"
+        <$> x .@? "destinationCidrBlock"
+        <*> x .@? "gatewayId"
+        <*> x .@? "instanceId"
+        <*> x .@? "instanceOwnerId"
+        <*> x .@? "networkInterfaceId"
+        <*> x .@? "origin"
+        <*> x .@? "state"
+        <*> x .@? "vpcPeeringConnectionId"
 
 instance ToQuery Route where
     toQuery Route{..} = mconcat
@@ -7053,11 +7053,11 @@ sdsState = lens _sdsState (\s a -> s { _sdsState = a })
 
 instance FromXML SpotDatafeedSubscription where
     parseXML x = SpotDatafeedSubscription
-        <$> x .@? "Bucket"
-        <*> x .@? "Fault"
-        <*> x .@? "OwnerId"
-        <*> x .@? "Prefix"
-        <*> x .@? "State"
+        <$> x .@? "bucket"
+        <*> x .@? "fault"
+        <*> x .@? "ownerId"
+        <*> x .@? "prefix"
+        <*> x .@? "state"
 
 instance ToQuery SpotDatafeedSubscription where
     toQuery SpotDatafeedSubscription{..} = mconcat
@@ -7179,14 +7179,14 @@ sgVpcId = lens _sgVpcId (\s a -> s { _sgVpcId = a })
 
 instance FromXML SecurityGroup where
     parseXML x = SecurityGroup
-        <$> x .@  "GroupDescription"
-        <*> x .@  "GroupId"
-        <*> x .@  "GroupName"
-        <*> x .@? "IpPermissions" .!@ mempty
-        <*> x .@? "IpPermissionsEgress" .!@ mempty
-        <*> x .@  "OwnerId"
-        <*> x .@? "TagSet" .!@ mempty
-        <*> x .@? "VpcId"
+        <$> x .@  "groupDescription"
+        <*> x .@  "groupId"
+        <*> x .@  "groupName"
+        <*> x .@? "ipPermissions" .!@ mempty
+        <*> x .@? "ipPermissionsEgress" .!@ mempty
+        <*> x .@  "ownerId"
+        <*> x .@? "tagSet" .!@ mempty
+        <*> x .@? "vpcId"
 
 instance ToQuery SecurityGroup where
     toQuery SecurityGroup{..} = mconcat
@@ -7301,8 +7301,8 @@ rimrTargetConfiguration =
 
 instance FromXML ReservedInstancesModificationResult where
     parseXML x = ReservedInstancesModificationResult
-        <$> x .@? "ReservedInstancesId"
-        <*> x .@? "TargetConfiguration"
+        <$> x .@? "reservedInstancesId"
+        <*> x .@? "targetConfiguration"
 
 instance ToQuery ReservedInstancesModificationResult where
     toQuery ReservedInstancesModificationResult{..} = mconcat
@@ -7356,10 +7356,10 @@ ibdmsVirtualName = lens _ibdmsVirtualName (\s a -> s { _ibdmsVirtualName = a })
 
 instance FromXML InstanceBlockDeviceMappingSpecification where
     parseXML x = InstanceBlockDeviceMappingSpecification
-        <$> x .@? "DeviceName"
-        <*> x .@? "Ebs"
-        <*> x .@? "NoDevice"
-        <*> x .@? "VirtualName"
+        <$> x .@? "deviceName"
+        <*> x .@? "ebs"
+        <*> x .@? "noDevice"
+        <*> x .@? "virtualName"
 
 instance ToQuery InstanceBlockDeviceMappingSpecification where
     toQuery InstanceBlockDeviceMappingSpecification{..} = mconcat
@@ -7418,7 +7418,7 @@ udData = lens _udData (\s a -> s { _udData = a })
 
 instance FromXML UserData where
     parseXML x = UserData
-        <$> x .@? "Data"
+        <$> x .@? "data"
 
 instance ToQuery UserData where
     toQuery UserData{..} = mconcat
@@ -7487,12 +7487,12 @@ vaVolumeId = lens _vaVolumeId (\s a -> s { _vaVolumeId = a })
 
 instance FromXML VolumeAttachment where
     parseXML x = VolumeAttachment
-        <$> x .@? "AttachTime"
-        <*> x .@? "DeleteOnTermination"
-        <*> x .@? "Device"
-        <*> x .@? "InstanceId"
-        <*> x .@? "Status"
-        <*> x .@? "VolumeId"
+        <$> x .@? "attachTime"
+        <*> x .@? "deleteOnTermination"
+        <*> x .@? "device"
+        <*> x .@? "instanceId"
+        <*> x .@? "status"
+        <*> x .@? "volumeId"
 
 instance ToQuery VolumeAttachment where
     toQuery VolumeAttachment{..} = mconcat
@@ -7572,12 +7572,12 @@ cgType = lens _cgType (\s a -> s { _cgType = a })
 
 instance FromXML CustomerGateway where
     parseXML x = CustomerGateway
-        <$> x .@  "BgpAsn"
-        <*> x .@  "CustomerGatewayId"
-        <*> x .@  "IpAddress"
-        <*> x .@  "State"
-        <*> x .@? "TagSet" .!@ mempty
-        <*> x .@  "Type"
+        <$> x .@  "bgpAsn"
+        <*> x .@  "customerGatewayId"
+        <*> x .@  "ipAddress"
+        <*> x .@  "state"
+        <*> x .@? "tagSet" .!@ mempty
+        <*> x .@  "type"
 
 instance ToQuery CustomerGateway where
     toQuery CustomerGateway{..} = mconcat
@@ -7635,10 +7635,10 @@ eibdVolumeId = lens _eibdVolumeId (\s a -> s { _eibdVolumeId = a })
 
 instance FromXML EbsInstanceBlockDevice where
     parseXML x = EbsInstanceBlockDevice
-        <$> x .@? "AttachTime"
-        <*> x .@? "DeleteOnTermination"
-        <*> x .@? "Status"
-        <*> x .@? "VolumeId"
+        <$> x .@? "attachTime"
+        <*> x .@? "deleteOnTermination"
+        <*> x .@? "status"
+        <*> x .@? "volumeId"
 
 instance ToQuery EbsInstanceBlockDevice where
     toQuery EbsInstanceBlockDevice{..} = mconcat
@@ -7725,10 +7725,10 @@ did1Size = lens _did1Size (\s a -> s { _did1Size = a })
 
 instance FromXML DiskImageDescription where
     parseXML x = DiskImageDescription
-        <$> x .@? "Checksum"
-        <*> x .@  "Format"
-        <*> x .@  "ImportManifestUrl"
-        <*> x .@  "Size"
+        <$> x .@? "checksum"
+        <*> x .@  "format"
+        <*> x .@  "importManifestUrl"
+        <*> x .@  "size"
 
 instance ToQuery DiskImageDescription where
     toQuery DiskImageDescription{..} = mconcat
@@ -7768,8 +7768,8 @@ divdSize = lens _divdSize (\s a -> s { _divdSize = a })
 
 instance FromXML DiskImageVolumeDescription where
     parseXML x = DiskImageVolumeDescription
-        <$> x .@  "Id"
-        <*> x .@? "Size"
+        <$> x .@  "id"
+        <*> x .@? "size"
 
 instance ToQuery DiskImageVolumeDescription where
     toQuery DiskImageVolumeDescription{..} = mconcat
@@ -7798,7 +7798,7 @@ mState = lens _mState (\s a -> s { _mState = a })
 
 instance FromXML Monitoring where
     parseXML x = Monitoring
-        <$> x .@? "State"
+        <$> x .@? "state"
 
 instance ToQuery Monitoring where
     toQuery Monitoring{..} = mconcat
@@ -7874,7 +7874,7 @@ azmMessage = lens _azmMessage (\s a -> s { _azmMessage = a })
 
 instance FromXML AvailabilityZoneMessage where
     parseXML x = AvailabilityZoneMessage
-        <$> x .@? "Message"
+        <$> x .@? "message"
 
 instance ToQuery AvailabilityZoneMessage where
     toQuery AvailabilityZoneMessage{..} = mconcat
@@ -7910,8 +7910,8 @@ va1VpcId = lens _va1VpcId (\s a -> s { _va1VpcId = a })
 
 instance FromXML VpcAttachment where
     parseXML x = VpcAttachment
-        <$> x .@? "State"
-        <*> x .@? "VpcId"
+        <$> x .@? "state"
+        <*> x .@? "vpcId"
 
 instance ToQuery VpcAttachment where
     toQuery VpcAttachment{..} = mconcat
@@ -7949,8 +7949,8 @@ ibdmEbs = lens _ibdmEbs (\s a -> s { _ibdmEbs = a })
 
 instance FromXML InstanceBlockDeviceMapping where
     parseXML x = InstanceBlockDeviceMapping
-        <$> x .@? "DeviceName"
-        <*> x .@? "Ebs"
+        <$> x .@? "deviceName"
+        <*> x .@? "ebs"
 
 instance ToQuery InstanceBlockDeviceMapping where
     toQuery InstanceBlockDeviceMapping{..} = mconcat
@@ -8032,10 +8032,10 @@ etstsS3Prefix = lens _etstsS3Prefix (\s a -> s { _etstsS3Prefix = a })
 
 instance FromXML ExportToS3TaskSpecification where
     parseXML x = ExportToS3TaskSpecification
-        <$> x .@? "ContainerFormat"
-        <*> x .@? "DiskImageFormat"
-        <*> x .@? "S3Bucket"
-        <*> x .@? "S3Prefix"
+        <$> x .@? "containerFormat"
+        <*> x .@? "diskImageFormat"
+        <*> x .@? "s3Bucket"
+        <*> x .@? "s3Prefix"
 
 instance ToQuery ExportToS3TaskSpecification where
     toQuery ExportToS3TaskSpecification{..} = mconcat
@@ -8136,8 +8136,8 @@ iedTargetEnvironment =
 
 instance FromXML InstanceExportDetails where
     parseXML x = InstanceExportDetails
-        <$> x .@? "InstanceId"
-        <*> x .@? "TargetEnvironment"
+        <$> x .@? "instanceId"
+        <*> x .@? "targetEnvironment"
 
 instance ToQuery InstanceExportDetails where
     toQuery InstanceExportDetails{..} = mconcat
@@ -8216,10 +8216,10 @@ azZoneName = lens _azZoneName (\s a -> s { _azZoneName = a })
 
 instance FromXML AvailabilityZone where
     parseXML x = AvailabilityZone
-        <$> x .@? "MessageSet" .!@ mempty
-        <*> x .@? "RegionName"
-        <*> x .@? "ZoneState"
-        <*> x .@? "ZoneName"
+        <$> x .@? "messageSet" .!@ mempty
+        <*> x .@? "regionName"
+        <*> x .@? "zoneState"
+        <*> x .@? "zoneName"
 
 instance ToQuery AvailabilityZone where
     toQuery AvailabilityZone{..} = mconcat
@@ -8324,12 +8324,12 @@ rtVpcId = lens _rtVpcId (\s a -> s { _rtVpcId = a })
 
 instance FromXML RouteTable where
     parseXML x = RouteTable
-        <$> x .@? "AssociationSet" .!@ mempty
-        <*> x .@? "PropagatingVgwSet" .!@ mempty
-        <*> x .@? "RouteTableId"
-        <*> x .@? "RouteSet" .!@ mempty
-        <*> x .@? "TagSet" .!@ mempty
-        <*> x .@? "VpcId"
+        <$> x .@? "associationSet" .!@ mempty
+        <*> x .@? "propagatingVgwSet" .!@ mempty
+        <*> x .@? "routeTableId"
+        <*> x .@? "routeSet" .!@ mempty
+        <*> x .@? "tagSet" .!@ mempty
+        <*> x .@? "vpcId"
 
 instance ToQuery RouteTable where
     toQuery RouteTable{..} = mconcat
@@ -8405,9 +8405,9 @@ isdStatus = lens _isdStatus (\s a -> s { _isdStatus = a })
 
 instance FromXML InstanceStatusDetails where
     parseXML x = InstanceStatusDetails
-        <$> x .@? "ImpairedSince"
-        <*> x .@? "Name"
-        <*> x .@? "Status"
+        <$> x .@? "impairedSince"
+        <*> x .@? "name"
+        <*> x .@? "status"
 
 instance ToQuery InstanceStatusDetails where
     toQuery InstanceStatusDetails{..} = mconcat
@@ -8445,8 +8445,8 @@ iipId = lens _iipId (\s a -> s { _iipId = a })
 
 instance FromXML IamInstanceProfile where
     parseXML x = IamInstanceProfile
-        <$> x .@? "Arn"
-        <*> x .@? "Id"
+        <$> x .@? "arn"
+        <*> x .@? "id"
 
 instance ToQuery IamInstanceProfile where
     toQuery IamInstanceProfile{..} = mconcat
@@ -8485,8 +8485,8 @@ igaVpcId = lens _igaVpcId (\s a -> s { _igaVpcId = a })
 
 instance FromXML InternetGatewayAttachment where
     parseXML x = InternetGatewayAttachment
-        <$> x .@  "State"
-        <*> x .@  "VpcId"
+        <$> x .@  "state"
+        <*> x .@  "vpcId"
 
 instance ToQuery InternetGatewayAttachment where
     toQuery InternetGatewayAttachment{..} = mconcat
@@ -8649,11 +8649,11 @@ ipUserIdGroupPairs =
 
 instance FromXML IpPermission where
     parseXML x = IpPermission
-        <$> x .@  "FromPort"
-        <*> x .@  "IpProtocol"
-        <*> x .@? "IpRanges" .!@ mempty
-        <*> x .@  "ToPort"
-        <*> x .@? "Groups" .!@ mempty
+        <$> x .@  "fromPort"
+        <*> x .@  "ipProtocol"
+        <*> x .@? "ipRanges" .!@ mempty
+        <*> x .@  "toPort"
+        <*> x .@? "groups" .!@ mempty
 
 instance ToQuery IpPermission where
     toQuery IpPermission{..} = mconcat
@@ -8796,8 +8796,8 @@ vpcsrMessage = lens _vpcsrMessage (\s a -> s { _vpcsrMessage = a })
 
 instance FromXML VpcPeeringConnectionStateReason where
     parseXML x = VpcPeeringConnectionStateReason
-        <$> x .@? "Code"
-        <*> x .@? "Message"
+        <$> x .@? "code"
+        <*> x .@? "message"
 
 instance ToQuery VpcPeeringConnectionStateReason where
     toQuery VpcPeeringConnectionStateReason{..} = mconcat
@@ -8834,8 +8834,8 @@ iipsName = lens _iipsName (\s a -> s { _iipsName = a })
 
 instance FromXML IamInstanceProfileSpecification where
     parseXML x = IamInstanceProfileSpecification
-        <$> x .@? "Arn"
-        <*> x .@? "Name"
+        <$> x .@? "arn"
+        <*> x .@? "name"
 
 instance ToQuery IamInstanceProfileSpecification where
     toQuery IamInstanceProfileSpecification{..} = mconcat
@@ -8902,11 +8902,11 @@ ivtdVolume = lens _ivtdVolume (\s a -> s { _ivtdVolume = a })
 
 instance FromXML ImportVolumeTaskDetails where
     parseXML x = ImportVolumeTaskDetails
-        <$> x .@  "AvailabilityZone"
-        <*> x .@  "BytesConverted"
-        <*> x .@? "Description"
-        <*> x .@  "Image"
-        <*> x .@  "Volume"
+        <$> x .@  "availabilityZone"
+        <*> x .@  "bytesConverted"
+        <*> x .@? "description"
+        <*> x .@  "image"
+        <*> x .@  "volume"
 
 instance ToQuery ImportVolumeTaskDetails where
     toQuery ImportVolumeTaskDetails{..} = mconcat
@@ -9072,20 +9072,20 @@ iniVpcId = lens _iniVpcId (\s a -> s { _iniVpcId = a })
 
 instance FromXML InstanceNetworkInterface where
     parseXML x = InstanceNetworkInterface
-        <$> x .@? "Association"
-        <*> x .@? "Attachment"
-        <*> x .@? "Description"
-        <*> x .@? "GroupSet" .!@ mempty
-        <*> x .@? "MacAddress"
-        <*> x .@? "NetworkInterfaceId"
-        <*> x .@? "OwnerId"
-        <*> x .@? "PrivateDnsName"
-        <*> x .@? "PrivateIpAddress"
-        <*> x .@? "PrivateIpAddressesSet" .!@ mempty
-        <*> x .@? "SourceDestCheck"
-        <*> x .@? "Status"
-        <*> x .@? "SubnetId"
-        <*> x .@? "VpcId"
+        <$> x .@? "association"
+        <*> x .@? "attachment"
+        <*> x .@? "description"
+        <*> x .@? "groupSet" .!@ mempty
+        <*> x .@? "macAddress"
+        <*> x .@? "networkInterfaceId"
+        <*> x .@? "ownerId"
+        <*> x .@? "privateDnsName"
+        <*> x .@? "privateIpAddress"
+        <*> x .@? "privateIpAddressesSet" .!@ mempty
+        <*> x .@? "sourceDestCheck"
+        <*> x .@? "status"
+        <*> x .@? "subnetId"
+        <*> x .@? "vpcId"
 
 instance ToQuery InstanceNetworkInterface where
     toQuery InstanceNetworkInterface{..} = mconcat
@@ -9150,10 +9150,10 @@ vsaEventType = lens _vsaEventType (\s a -> s { _vsaEventType = a })
 
 instance FromXML VolumeStatusAction where
     parseXML x = VolumeStatusAction
-        <$> x .@? "Code"
-        <*> x .@? "Description"
-        <*> x .@? "EventId"
-        <*> x .@? "EventType"
+        <$> x .@? "code"
+        <*> x .@? "description"
+        <*> x .@? "eventId"
+        <*> x .@? "eventType"
 
 instance ToQuery VolumeStatusAction where
     toQuery VolumeStatusAction{..} = mconcat
@@ -9200,9 +9200,9 @@ vpcviVpcId = lens _vpcviVpcId (\s a -> s { _vpcviVpcId = a })
 
 instance FromXML VpcPeeringConnectionVpcInfo where
     parseXML x = VpcPeeringConnectionVpcInfo
-        <$> x .@? "CidrBlock"
-        <*> x .@? "OwnerId"
-        <*> x .@? "VpcId"
+        <$> x .@? "cidrBlock"
+        <*> x .@? "ownerId"
+        <*> x .@? "vpcId"
 
 instance ToQuery VpcPeeringConnectionVpcInfo where
     toQuery VpcPeeringConnectionVpcInfo{..} = mconcat
@@ -9242,8 +9242,8 @@ rilpCurrencyCode = lens _rilpCurrencyCode (\s a -> s { _rilpCurrencyCode = a })
 
 instance FromXML ReservedInstanceLimitPrice where
     parseXML x = ReservedInstanceLimitPrice
-        <$> x .@? "Amount"
-        <*> x .@? "CurrencyCode"
+        <$> x .@? "amount"
+        <*> x .@? "currencyCode"
 
 instance ToQuery ReservedInstanceLimitPrice where
     toQuery ReservedInstanceLimitPrice{..} = mconcat
@@ -9328,13 +9328,13 @@ vpcVpcId = lens _vpcVpcId (\s a -> s { _vpcVpcId = a })
 
 instance FromXML Vpc where
     parseXML x = Vpc
-        <$> x .@  "CidrBlock"
-        <*> x .@  "DhcpOptionsId"
-        <*> x .@  "InstanceTenancy"
-        <*> x .@  "IsDefault"
-        <*> x .@  "State"
-        <*> x .@? "TagSet" .!@ mempty
-        <*> x .@  "VpcId"
+        <$> x .@  "cidrBlock"
+        <*> x .@  "dhcpOptionsId"
+        <*> x .@  "instanceTenancy"
+        <*> x .@  "isDefault"
+        <*> x .@  "state"
+        <*> x .@? "tagSet" .!@ mempty
+        <*> x .@  "vpcId"
 
 instance ToQuery Vpc where
     toQuery Vpc{..} = mconcat
@@ -9413,12 +9413,12 @@ isSystemStatus = lens _isSystemStatus (\s a -> s { _isSystemStatus = a })
 
 instance FromXML InstanceStatus where
     parseXML x = InstanceStatus
-        <$> x .@? "AvailabilityZone"
-        <*> x .@? "EventsSet" .!@ mempty
-        <*> x .@? "InstanceId"
-        <*> x .@? "InstanceState"
-        <*> x .@? "InstanceStatus"
-        <*> x .@? "SystemStatus"
+        <$> x .@? "availabilityZone"
+        <*> x .@? "eventsSet" .!@ mempty
+        <*> x .@? "instanceId"
+        <*> x .@? "instanceState"
+        <*> x .@? "instanceStatus"
+        <*> x .@? "systemStatus"
 
 instance ToQuery InstanceStatus where
     toQuery InstanceStatus{..} = mconcat
@@ -9588,12 +9588,12 @@ ebdVolumeType = lens _ebdVolumeType (\s a -> s { _ebdVolumeType = a })
 
 instance FromXML EbsBlockDevice where
     parseXML x = EbsBlockDevice
-        <$> x .@? "DeleteOnTermination"
-        <*> x .@? "Encrypted"
-        <*> x .@? "Iops"
-        <*> x .@? "SnapshotId"
-        <*> x .@? "VolumeSize"
-        <*> x .@? "VolumeType"
+        <$> x .@? "deleteOnTermination"
+        <*> x .@? "encrypted"
+        <*> x .@? "iops"
+        <*> x .@? "snapshotId"
+        <*> x .@? "volumeSize"
+        <*> x .@? "volumeType"
 
 instance ToQuery EbsBlockDevice where
     toQuery EbsBlockDevice{..} = mconcat
@@ -9636,8 +9636,8 @@ aaAttributeValues =
 
 instance FromXML AccountAttribute where
     parseXML x = AccountAttribute
-        <$> x .@? "AttributeName"
-        <*> x .@? "AttributeValueSet" .!@ mempty
+        <$> x .@? "attributeName"
+        <*> x .@? "attributeValueSet" .!@ mempty
 
 instance ToQuery AccountAttribute where
     toQuery AccountAttribute{..} = mconcat
@@ -9701,10 +9701,10 @@ psTerm = lens _psTerm (\s a -> s { _psTerm = a })
 
 instance FromXML PriceSchedule where
     parseXML x = PriceSchedule
-        <$> x .@? "Active"
-        <*> x .@? "CurrencyCode"
-        <*> x .@? "Price"
-        <*> x .@? "Term"
+        <$> x .@? "active"
+        <*> x .@? "currencyCode"
+        <*> x .@? "price"
+        <*> x .@? "term"
 
 instance ToQuery PriceSchedule where
     toQuery PriceSchedule{..} = mconcat
@@ -9795,8 +9795,8 @@ rRegionName = lens _rRegionName (\s a -> s { _rRegionName = a })
 
 instance FromXML Region where
     parseXML x = Region
-        <$> x .@? "RegionEndpoint"
-        <*> x .@? "RegionName"
+        <$> x .@? "regionEndpoint"
+        <*> x .@? "regionName"
 
 instance ToQuery Region where
     toQuery Region{..} = mconcat
@@ -9825,7 +9825,7 @@ pvGatewayId = lens _pvGatewayId (\s a -> s { _pvGatewayId = a })
 
 instance FromXML PropagatingVgw where
     parseXML x = PropagatingVgw
-        <$> x .@? "GatewayId"
+        <$> x .@? "gatewayId"
 
 instance ToQuery PropagatingVgw where
     toQuery PropagatingVgw{..} = mconcat
@@ -9932,12 +9932,12 @@ vgVpnGatewayId = lens _vgVpnGatewayId (\s a -> s { _vgVpnGatewayId = a })
 
 instance FromXML VpnGateway where
     parseXML x = VpnGateway
-        <$> x .@? "AvailabilityZone"
-        <*> x .@? "State"
-        <*> x .@? "TagSet" .!@ mempty
-        <*> x .@? "Type"
-        <*> x .@? "Attachments" .!@ mempty
-        <*> x .@? "VpnGatewayId"
+        <$> x .@? "availabilityZone"
+        <*> x .@? "state"
+        <*> x .@? "tagSet" .!@ mempty
+        <*> x .@? "type"
+        <*> x .@? "attachments" .!@ mempty
+        <*> x .@? "vpnGatewayId"
 
 instance ToQuery VpnGateway where
     toQuery VpnGateway{..} = mconcat
@@ -10054,9 +10054,9 @@ iscPreviousState = lens _iscPreviousState (\s a -> s { _iscPreviousState = a })
 
 instance FromXML InstanceStateChange where
     parseXML x = InstanceStateChange
-        <$> x .@? "CurrentState"
-        <*> x .@? "InstanceId"
-        <*> x .@? "PreviousState"
+        <$> x .@? "currentState"
+        <*> x .@? "instanceId"
+        <*> x .@? "previousState"
 
 instance ToQuery InstanceStateChange where
     toQuery InstanceStateChange{..} = mconcat
@@ -10126,12 +10126,12 @@ naVpcId = lens _naVpcId (\s a -> s { _naVpcId = a })
 
 instance FromXML NetworkAcl where
     parseXML x = NetworkAcl
-        <$> x .@? "AssociationSet" .!@ mempty
-        <*> x .@? "EntrySet" .!@ mempty
-        <*> x .@? "Default"
-        <*> x .@? "NetworkAclId"
-        <*> x .@? "TagSet" .!@ mempty
-        <*> x .@? "VpcId"
+        <$> x .@? "associationSet" .!@ mempty
+        <*> x .@? "entrySet" .!@ mempty
+        <*> x .@? "default"
+        <*> x .@? "networkAclId"
+        <*> x .@? "tagSet" .!@ mempty
+        <*> x .@? "vpcId"
 
 instance ToQuery NetworkAcl where
     toQuery NetworkAcl{..} = mconcat
@@ -10246,11 +10246,11 @@ iniaStatus = lens _iniaStatus (\s a -> s { _iniaStatus = a })
 
 instance FromXML InstanceNetworkInterfaceAttachment where
     parseXML x = InstanceNetworkInterfaceAttachment
-        <$> x .@? "AttachTime"
-        <*> x .@? "AttachmentId"
-        <*> x .@? "DeleteOnTermination"
-        <*> x .@? "DeviceIndex"
-        <*> x .@? "Status"
+        <$> x .@? "attachTime"
+        <*> x .@? "attachmentId"
+        <*> x .@? "deleteOnTermination"
+        <*> x .@? "deviceIndex"
+        <*> x .@? "status"
 
 instance ToQuery InstanceNetworkInterfaceAttachment where
     toQuery InstanceNetworkInterfaceAttachment{..} = mconcat
@@ -10282,7 +10282,7 @@ abvValue = lens _abvValue (\s a -> s { _abvValue = a })
 
 instance FromXML AttributeBooleanValue where
     parseXML x = AttributeBooleanValue
-        <$> x .@? "Value"
+        <$> x .@? "value"
 
 instance ToQuery AttributeBooleanValue where
     toQuery AttributeBooleanValue{..} = mconcat
@@ -10318,8 +10318,8 @@ rcFrequency = lens _rcFrequency (\s a -> s { _rcFrequency = a })
 
 instance FromXML RecurringCharge where
     parseXML x = RecurringCharge
-        <$> x .@? "Amount"
-        <*> x .@? "Frequency"
+        <$> x .@? "amount"
+        <*> x .@? "frequency"
 
 instance ToQuery RecurringCharge where
     toQuery RecurringCharge{..} = mconcat
@@ -10354,7 +10354,7 @@ ndcValues = lens _ndcValues (\s a -> s { _ndcValues = a }) . _List
 
 instance FromXML NewDhcpConfiguration where
     parseXML x = NewDhcpConfiguration
-        <$> x .@? "Key"
+        <$> x .@? "key"
         <*> x .@? "Value" .!@ mempty
 
 instance ToQuery NewDhcpConfiguration where
@@ -10415,8 +10415,8 @@ srMessage = lens _srMessage (\s a -> s { _srMessage = a })
 
 instance FromXML StateReason where
     parseXML x = StateReason
-        <$> x .@? "Code"
-        <*> x .@? "Message"
+        <$> x .@? "code"
+        <*> x .@? "message"
 
 instance ToQuery StateReason where
     toQuery StateReason{..} = mconcat
@@ -10475,7 +10475,7 @@ riiReservedInstancesId =
 
 instance FromXML ReservedInstancesId where
     parseXML x = ReservedInstancesId
-        <$> x .@? "ReservedInstancesId"
+        <$> x .@? "reservedInstancesId"
 
 instance ToQuery ReservedInstancesId where
     toQuery ReservedInstancesId{..} = mconcat
@@ -10543,9 +10543,9 @@ igTags = lens _igTags (\s a -> s { _igTags = a }) . _List
 
 instance FromXML InternetGateway where
     parseXML x = InternetGateway
-        <$> x .@? "AttachmentSet" .!@ mempty
-        <*> x .@  "InternetGatewayId"
-        <*> x .@? "TagSet" .!@ mempty
+        <$> x .@? "attachmentSet" .!@ mempty
+        <*> x .@  "internetGatewayId"
+        <*> x .@? "tagSet" .!@ mempty
 
 instance ToQuery InternetGateway where
     toQuery InternetGateway{..} = mconcat
@@ -10648,10 +10648,10 @@ iitdVolumes = lens _iitdVolumes (\s a -> s { _iitdVolumes = a }) . _List
 
 instance FromXML ImportInstanceTaskDetails where
     parseXML x = ImportInstanceTaskDetails
-        <$> x .@? "Description"
-        <*> x .@? "InstanceId"
-        <*> x .@? "Platform"
-        <*> x .@? "Volumes" .!@ mempty
+        <$> x .@? "description"
+        <*> x .@? "instanceId"
+        <*> x .@? "platform"
+        <*> x .@? "volumes" .!@ mempty
 
 instance ToQuery ImportInstanceTaskDetails where
     toQuery ImportInstanceTaskDetails{..} = mconcat
@@ -10698,9 +10698,9 @@ pgStrategy = lens _pgStrategy (\s a -> s { _pgStrategy = a })
 
 instance FromXML PlacementGroup where
     parseXML x = PlacementGroup
-        <$> x .@? "GroupName"
-        <*> x .@? "State"
-        <*> x .@? "Strategy"
+        <$> x .@? "groupName"
+        <*> x .@? "state"
+        <*> x .@? "strategy"
 
 instance ToQuery PlacementGroup where
     toQuery PlacementGroup{..} = mconcat
@@ -10739,8 +10739,8 @@ pcProductCodeType =
 
 instance FromXML ProductCode where
     parseXML x = ProductCode
-        <$> x .@? "ProductCode"
-        <*> x .@? "Type"
+        <$> x .@? "productCode"
+        <*> x .@? "type"
 
 instance ToQuery ProductCode where
     toQuery ProductCode{..} = mconcat
@@ -10803,7 +10803,7 @@ irCidrIp = lens _irCidrIp (\s a -> s { _irCidrIp = a })
 
 instance FromXML IpRange where
     parseXML x = IpRange
-        <$> x .@  "CidrIp"
+        <$> x .@  "cidrIp"
 
 instance ToQuery IpRange where
     toQuery IpRange{..} = mconcat
@@ -10861,7 +10861,7 @@ aavAttributeValue =
 
 instance FromXML AccountAttributeValue where
     parseXML x = AccountAttributeValue
-        <$> x .@? "AttributeValue"
+        <$> x .@? "attributeValue"
 
 instance ToQuery AccountAttributeValue where
     toQuery AccountAttributeValue{..} = mconcat
@@ -11030,19 +11030,19 @@ rioUsagePrice = lens _rioUsagePrice (\s a -> s { _rioUsagePrice = a })
 
 instance FromXML ReservedInstancesOffering where
     parseXML x = ReservedInstancesOffering
-        <$> x .@? "AvailabilityZone"
-        <*> x .@? "CurrencyCode"
-        <*> x .@? "Duration"
-        <*> x .@? "FixedPrice"
-        <*> x .@? "InstanceTenancy"
-        <*> x .@? "InstanceType"
-        <*> x .@? "Marketplace"
-        <*> x .@? "OfferingType"
-        <*> x .@? "PricingDetailsSet" .!@ mempty
-        <*> x .@? "ProductDescription"
-        <*> x .@? "RecurringCharges" .!@ mempty
-        <*> x .@? "ReservedInstancesOfferingId"
-        <*> x .@? "UsagePrice"
+        <$> x .@? "availabilityZone"
+        <*> x .@? "currencyCode"
+        <*> x .@? "duration"
+        <*> x .@? "fixedPrice"
+        <*> x .@? "instanceTenancy"
+        <*> x .@? "instanceType"
+        <*> x .@? "marketplace"
+        <*> x .@? "offeringType"
+        <*> x .@? "pricingDetailsSet" .!@ mempty
+        <*> x .@? "productDescription"
+        <*> x .@? "recurringCharges" .!@ mempty
+        <*> x .@? "reservedInstancesOfferingId"
+        <*> x .@? "usagePrice"
 
 instance ToQuery ReservedInstancesOffering where
     toQuery ReservedInstancesOffering{..} = mconcat
@@ -11209,22 +11209,22 @@ ri1UsagePrice = lens _ri1UsagePrice (\s a -> s { _ri1UsagePrice = a })
 
 instance FromXML ReservedInstances where
     parseXML x = ReservedInstances
-        <$> x .@? "AvailabilityZone"
-        <*> x .@? "CurrencyCode"
-        <*> x .@? "Duration"
-        <*> x .@? "End"
-        <*> x .@? "FixedPrice"
-        <*> x .@? "InstanceCount"
-        <*> x .@? "InstanceTenancy"
-        <*> x .@? "InstanceType"
-        <*> x .@? "OfferingType"
-        <*> x .@? "ProductDescription"
-        <*> x .@? "RecurringCharges" .!@ mempty
-        <*> x .@? "ReservedInstancesId"
-        <*> x .@? "Start"
-        <*> x .@? "State"
-        <*> x .@? "TagSet" .!@ mempty
-        <*> x .@? "UsagePrice"
+        <$> x .@? "availabilityZone"
+        <*> x .@? "currencyCode"
+        <*> x .@? "duration"
+        <*> x .@? "end"
+        <*> x .@? "fixedPrice"
+        <*> x .@? "instanceCount"
+        <*> x .@? "instanceTenancy"
+        <*> x .@? "instanceType"
+        <*> x .@? "offeringType"
+        <*> x .@? "productDescription"
+        <*> x .@? "recurringCharges" .!@ mempty
+        <*> x .@? "reservedInstancesId"
+        <*> x .@? "start"
+        <*> x .@? "state"
+        <*> x .@? "tagSet" .!@ mempty
+        <*> x .@? "usagePrice"
 
 instance ToQuery ReservedInstances where
     toQuery ReservedInstances{..} = mconcat
@@ -11434,16 +11434,16 @@ vcVpnGatewayId = lens _vcVpnGatewayId (\s a -> s { _vcVpnGatewayId = a })
 
 instance FromXML VpnConnection where
     parseXML x = VpnConnection
-        <$> x .@  "CustomerGatewayConfiguration"
-        <*> x .@  "CustomerGatewayId"
-        <*> x .@? "Options"
-        <*> x .@? "Routes" .!@ mempty
-        <*> x .@  "State"
-        <*> x .@? "TagSet" .!@ mempty
-        <*> x .@  "Type"
-        <*> x .@? "VgwTelemetry" .!@ mempty
-        <*> x .@  "VpnConnectionId"
-        <*> x .@? "VpnGatewayId"
+        <$> x .@  "customerGatewayConfiguration"
+        <*> x .@  "customerGatewayId"
+        <*> x .@? "options"
+        <*> x .@? "routes" .!@ mempty
+        <*> x .@  "state"
+        <*> x .@? "tagSet" .!@ mempty
+        <*> x .@  "type"
+        <*> x .@? "vgwTelemetry" .!@ mempty
+        <*> x .@  "vpnConnectionId"
+        <*> x .@? "vpnGatewayId"
 
 instance ToQuery VpnConnection where
     toQuery VpnConnection{..} = mconcat
@@ -11505,8 +11505,8 @@ isName = lens _isName (\s a -> s { _isName = a })
 
 instance FromXML InstanceState where
     parseXML x = InstanceState
-        <$> x .@  "Code"
-        <*> x .@  "Name"
+        <$> x .@  "code"
+        <*> x .@  "name"
 
 instance ToQuery InstanceState where
     toQuery InstanceState{..} = mconcat
@@ -11554,9 +11554,9 @@ pTenancy = lens _pTenancy (\s a -> s { _pTenancy = a })
 
 instance FromXML Placement where
     parseXML x = Placement
-        <$> x .@? "AvailabilityZone"
-        <*> x .@? "GroupName"
-        <*> x .@? "Tenancy"
+        <$> x .@? "availabilityZone"
+        <*> x .@? "groupName"
+        <*> x .@? "tenancy"
 
 instance ToQuery Placement where
     toQuery Placement{..} = mconcat
@@ -11693,12 +11693,12 @@ vpc1VpcPeeringConnectionId =
 
 instance FromXML VpcPeeringConnection where
     parseXML x = VpcPeeringConnection
-        <$> x .@? "AccepterVpcInfo"
-        <*> x .@? "ExpirationTime"
-        <*> x .@? "RequesterVpcInfo"
-        <*> x .@? "Status"
-        <*> x .@? "TagSet" .!@ mempty
-        <*> x .@? "VpcPeeringConnectionId"
+        <$> x .@? "accepterVpcInfo"
+        <*> x .@? "expirationTime"
+        <*> x .@? "requesterVpcInfo"
+        <*> x .@? "status"
+        <*> x .@? "tagSet" .!@ mempty
+        <*> x .@? "vpcPeeringConnectionId"
 
 instance ToQuery VpcPeeringConnection where
     toQuery VpcPeeringConnection{..} = mconcat
@@ -11769,10 +11769,10 @@ ssUploadPolicySignature =
 instance FromXML S3Storage where
     parseXML x = S3Storage
         <$> x .@? "AWSAccessKeyId"
-        <*> x .@? "Bucket"
-        <*> x .@? "Prefix"
-        <*> x .@? "UploadPolicy"
-        <*> x .@? "UploadPolicySignature"
+        <*> x .@? "bucket"
+        <*> x .@? "prefix"
+        <*> x .@? "uploadPolicy"
+        <*> x .@? "uploadPolicySignature"
 
 instance ToQuery S3Storage where
     toQuery S3Storage{..} = mconcat
@@ -11841,11 +11841,11 @@ vtStatusMessage = lens _vtStatusMessage (\s a -> s { _vtStatusMessage = a })
 
 instance FromXML VgwTelemetry where
     parseXML x = VgwTelemetry
-        <$> x .@? "AcceptedRouteCount"
-        <*> x .@? "LastStatusChange"
-        <*> x .@? "OutsideIpAddress"
-        <*> x .@? "Status"
-        <*> x .@? "StatusMessage"
+        <$> x .@? "acceptedRouteCount"
+        <*> x .@? "lastStatusChange"
+        <*> x .@? "outsideIpAddress"
+        <*> x .@? "status"
+        <*> x .@? "statusMessage"
 
 instance ToQuery VgwTelemetry where
     toQuery VgwTelemetry{..} = mconcat
@@ -11894,9 +11894,9 @@ vsrState = lens _vsrState (\s a -> s { _vsrState = a })
 
 instance FromXML VpnStaticRoute where
     parseXML x = VpnStaticRoute
-        <$> x .@? "DestinationCidrBlock"
-        <*> x .@? "Source"
-        <*> x .@? "State"
+        <$> x .@? "destinationCidrBlock"
+        <*> x .@? "source"
+        <*> x .@? "state"
 
 instance ToQuery VpnStaticRoute where
     toQuery VpnStaticRoute{..} = mconcat
@@ -12293,43 +12293,43 @@ i1VpcId = lens _i1VpcId (\s a -> s { _i1VpcId = a })
 
 instance FromXML Instance where
     parseXML x = Instance
-        <$> x .@  "AmiLaunchIndex"
-        <*> x .@  "Architecture"
-        <*> x .@? "BlockDeviceMapping" .!@ mempty
-        <*> x .@? "ClientToken"
-        <*> x .@  "EbsOptimized"
-        <*> x .@  "Hypervisor"
-        <*> x .@? "IamInstanceProfile"
-        <*> x .@  "ImageId"
-        <*> x .@  "InstanceId"
-        <*> x .@? "InstanceLifecycle"
-        <*> x .@  "InstanceType"
-        <*> x .@? "KernelId"
-        <*> x .@? "KeyName"
-        <*> x .@  "LaunchTime"
-        <*> x .@  "Monitoring"
-        <*> x .@? "NetworkInterfaceSet" .!@ mempty
-        <*> x .@  "Placement"
-        <*> x .@? "Platform"
-        <*> x .@? "PrivateDnsName"
-        <*> x .@? "PrivateIpAddress"
-        <*> x .@? "ProductCodes" .!@ mempty
-        <*> x .@? "DnsName"
-        <*> x .@? "IpAddress"
-        <*> x .@? "RamdiskId"
-        <*> x .@? "RootDeviceName"
-        <*> x .@  "RootDeviceType"
-        <*> x .@? "GroupSet" .!@ mempty
-        <*> x .@? "SourceDestCheck"
-        <*> x .@? "SpotInstanceRequestId"
-        <*> x .@? "SriovNetSupport"
-        <*> x .@  "InstanceState"
-        <*> x .@? "StateReason"
-        <*> x .@? "Reason"
-        <*> x .@? "SubnetId"
-        <*> x .@? "TagSet" .!@ mempty
-        <*> x .@  "VirtualizationType"
-        <*> x .@? "VpcId"
+        <$> x .@  "amiLaunchIndex"
+        <*> x .@  "architecture"
+        <*> x .@? "blockDeviceMapping" .!@ mempty
+        <*> x .@? "clientToken"
+        <*> x .@  "ebsOptimized"
+        <*> x .@  "hypervisor"
+        <*> x .@? "iamInstanceProfile"
+        <*> x .@  "imageId"
+        <*> x .@  "instanceId"
+        <*> x .@? "instanceLifecycle"
+        <*> x .@  "instanceType"
+        <*> x .@? "kernelId"
+        <*> x .@? "keyName"
+        <*> x .@  "launchTime"
+        <*> x .@  "monitoring"
+        <*> x .@? "networkInterfaceSet" .!@ mempty
+        <*> x .@  "placement"
+        <*> x .@? "platform"
+        <*> x .@? "privateDnsName"
+        <*> x .@? "privateIpAddress"
+        <*> x .@? "productCodes" .!@ mempty
+        <*> x .@? "dnsName"
+        <*> x .@? "ipAddress"
+        <*> x .@? "ramdiskId"
+        <*> x .@? "rootDeviceName"
+        <*> x .@  "rootDeviceType"
+        <*> x .@? "groupSet" .!@ mempty
+        <*> x .@? "sourceDestCheck"
+        <*> x .@? "spotInstanceRequestId"
+        <*> x .@? "sriovNetSupport"
+        <*> x .@  "instanceState"
+        <*> x .@? "stateReason"
+        <*> x .@? "reason"
+        <*> x .@? "subnetId"
+        <*> x .@? "tagSet" .!@ mempty
+        <*> x .@  "virtualizationType"
+        <*> x .@? "vpcId"
 
 instance ToQuery Instance where
     toQuery Instance{..} = mconcat
@@ -12439,12 +12439,12 @@ etStatusMessage = lens _etStatusMessage (\s a -> s { _etStatusMessage = a })
 
 instance FromXML ExportTask where
     parseXML x = ExportTask
-        <$> x .@  "Description"
-        <*> x .@  "ExportTaskId"
-        <*> x .@  "ExportToS3"
-        <*> x .@  "InstanceExport"
-        <*> x .@  "State"
-        <*> x .@  "StatusMessage"
+        <$> x .@  "description"
+        <*> x .@  "exportTaskId"
+        <*> x .@  "exportToS3"
+        <*> x .@  "instanceExport"
+        <*> x .@  "state"
+        <*> x .@  "statusMessage"
 
 instance ToQuery ExportTask where
     toQuery ExportTask{..} = mconcat
@@ -12634,22 +12634,22 @@ rslsUserData = lens _rslsUserData (\s a -> s { _rslsUserData = a })
 
 instance FromXML RequestSpotLaunchSpecification where
     parseXML x = RequestSpotLaunchSpecification
-        <$> x .@? "AddressingType"
-        <*> x .@? "BlockDeviceMapping" .!@ mempty
-        <*> x .@? "EbsOptimized"
-        <*> x .@? "IamInstanceProfile"
-        <*> x .@? "ImageId"
-        <*> x .@? "InstanceType"
-        <*> x .@? "KernelId"
-        <*> x .@? "KeyName"
-        <*> x .@? "Monitoring"
+        <$> x .@? "addressingType"
+        <*> x .@? "blockDeviceMapping" .!@ mempty
+        <*> x .@? "ebsOptimized"
+        <*> x .@? "iamInstanceProfile"
+        <*> x .@? "imageId"
+        <*> x .@? "instanceType"
+        <*> x .@? "kernelId"
+        <*> x .@? "keyName"
+        <*> x .@? "monitoring"
         <*> x .@? "NetworkInterface" .!@ mempty
-        <*> x .@? "Placement"
-        <*> x .@? "RamdiskId"
+        <*> x .@? "placement"
+        <*> x .@? "ramdiskId"
         <*> x .@? "SecurityGroupId" .!@ mempty
         <*> x .@? "SecurityGroup" .!@ mempty
-        <*> x .@? "SubnetId"
-        <*> x .@? "UserData"
+        <*> x .@? "subnetId"
+        <*> x .@? "userData"
 
 instance ToQuery RequestSpotLaunchSpecification where
     toQuery RequestSpotLaunchSpecification{..} = mconcat
@@ -12693,7 +12693,7 @@ vdSize = lens _vdSize (\s a -> s { _vdSize = a })
 
 instance FromXML VolumeDetail where
     parseXML x = VolumeDetail
-        <$> x .@  "Size"
+        <$> x .@  "size"
 
 instance ToQuery VolumeDetail where
     toQuery VolumeDetail{..} = mconcat
@@ -12729,8 +12729,8 @@ pdPrice = lens _pdPrice (\s a -> s { _pdPrice = a })
 
 instance FromXML PricingDetail where
     parseXML x = PricingDetail
-        <$> x .@? "Count"
-        <*> x .@? "Price"
+        <$> x .@? "count"
+        <*> x .@? "price"
 
 instance ToQuery PricingDetail where
     toQuery PricingDetail{..} = mconcat
@@ -12787,10 +12787,10 @@ nipiaPrivateIpAddress =
 
 instance FromXML NetworkInterfacePrivateIpAddress where
     parseXML x = NetworkInterfacePrivateIpAddress
-        <$> x .@? "Association"
-        <*> x .@? "Primary"
-        <*> x .@? "PrivateDnsName"
-        <*> x .@? "PrivateIpAddress"
+        <$> x .@? "association"
+        <*> x .@? "primary"
+        <*> x .@? "privateDnsName"
+        <*> x .@? "privateIpAddress"
 
 instance ToQuery NetworkInterfacePrivateIpAddress where
     toQuery NetworkInterfacePrivateIpAddress{..} = mconcat
@@ -12858,8 +12858,8 @@ bteMessage = lens _bteMessage (\s a -> s { _bteMessage = a })
 
 instance FromXML BundleTaskError where
     parseXML x = BundleTaskError
-        <$> x .@? "Code"
-        <*> x .@? "Message"
+        <$> x .@? "code"
+        <*> x .@? "message"
 
 instance ToQuery BundleTaskError where
     toQuery BundleTaskError{..} = mconcat
@@ -12905,9 +12905,9 @@ vclVpcId = lens _vclVpcId (\s a -> s { _vclVpcId = a })
 
 instance FromXML VpcClassicLink where
     parseXML x = VpcClassicLink
-        <$> x .@? "ClassicLinkEnabled"
-        <*> x .@? "TagSet" .!@ mempty
-        <*> x .@? "VpcId"
+        <$> x .@? "classicLinkEnabled"
+        <*> x .@? "tagSet" .!@ mempty
+        <*> x .@? "vpcId"
 
 instance ToQuery VpcClassicLink where
     toQuery VpcClassicLink{..} = mconcat
@@ -12970,11 +12970,11 @@ vsiVolumeStatus = lens _vsiVolumeStatus (\s a -> s { _vsiVolumeStatus = a })
 
 instance FromXML VolumeStatusItem where
     parseXML x = VolumeStatusItem
-        <$> x .@? "ActionsSet" .!@ mempty
-        <*> x .@? "AvailabilityZone"
-        <*> x .@? "EventsSet" .!@ mempty
-        <*> x .@? "VolumeId"
-        <*> x .@? "VolumeStatus"
+        <$> x .@? "actionsSet" .!@ mempty
+        <*> x .@? "availabilityZone"
+        <*> x .@? "eventsSet" .!@ mempty
+        <*> x .@? "volumeId"
+        <*> x .@? "volumeStatus"
 
 instance ToQuery VolumeStatusItem where
     toQuery VolumeStatusItem{..} = mconcat

@@ -119,4 +119,4 @@ instance AWSRequest EnableVpcClassicLink where
 
 instance FromXML EnableVpcClassicLinkResponse where
     parseXML x = EnableVpcClassicLinkResponse
-        <$> x .@? "Return"
+        <$> x .@? "return"

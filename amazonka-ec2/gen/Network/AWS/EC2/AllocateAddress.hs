@@ -138,6 +138,6 @@ instance AWSRequest AllocateAddress where
 
 instance FromXML AllocateAddressResponse where
     parseXML x = AllocateAddressResponse
-        <$> x .@? "AllocationId"
-        <*> x .@? "Domain"
-        <*> x .@? "PublicIp"
+        <$> x .@? "allocationId"
+        <*> x .@? "domain"
+        <*> x .@? "publicIp"

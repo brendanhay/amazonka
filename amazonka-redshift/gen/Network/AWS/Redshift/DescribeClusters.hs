@@ -204,6 +204,6 @@ instance FromXML DescribeClustersResponse where
 
 instance AWSPager DescribeClusters where
     page rq rs
-        | stop (rq ^. dcMarker) = Nothing
+        | stop (rs ^. dcrMarker) = Nothing
         | otherwise = (\x -> rq & dcMarker ?~ x)
             <$> (rs ^. dcrMarker)

@@ -216,6 +216,6 @@ instance FromXML DescribeReservedCacheNodesResponse where
 
 instance AWSPager DescribeReservedCacheNodes where
     page rq rs
-        | stop (rq ^. drcnMarker) = Nothing
+        | stop (rs ^. drcnrMarker) = Nothing
         | otherwise = (\x -> rq & drcnMarker ?~ x)
             <$> (rs ^. drcnrMarker)

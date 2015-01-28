@@ -186,6 +186,6 @@ instance FromXML DescribeOptionGroupsResponse where
 
 instance AWSPager DescribeOptionGroups where
     page rq rs
-        | stop (rq ^. dogMarker) = Nothing
+        | stop (rs ^. dogrMarker) = Nothing
         | otherwise = (\x -> rq & dogMarker ?~ x)
             <$> (rs ^. dogrMarker)

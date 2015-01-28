@@ -190,6 +190,6 @@ instance FromJSON ListDomainsResponse where
 
 instance AWSPager ListDomains where
     page rq rs
-        | stop (rq ^. ldNextPageToken) = Nothing
+        | stop (rs ^. ldrNextPageToken) = Nothing
         | otherwise = (\x -> rq & ldNextPageToken ?~ x)
             <$> (rs ^. ldrNextPageToken)

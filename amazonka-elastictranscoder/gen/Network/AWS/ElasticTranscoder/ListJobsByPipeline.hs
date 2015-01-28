@@ -154,6 +154,6 @@ instance FromJSON ListJobsByPipelineResponse where
 
 instance AWSPager ListJobsByPipeline where
     page rq rs
-        | stop (rq ^. ljbpPageToken) = Nothing
+        | stop (rs ^. ljbprNextPageToken) = Nothing
         | otherwise = (\x -> rq & ljbpPageToken ?~ x)
             <$> (rs ^. ljbprNextPageToken)

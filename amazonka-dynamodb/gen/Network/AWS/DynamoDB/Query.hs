@@ -646,6 +646,6 @@ instance FromJSON QueryResponse where
 
 instance AWSPager Query where
     page rq rs
-        | stop (rq ^. qExclusiveStartKey) = Nothing
+        | stop (rs ^. qrLastEvaluatedKey) = Nothing
         | otherwise = Just $ rq
             & qExclusiveStartKey .~ rs ^. qrLastEvaluatedKey

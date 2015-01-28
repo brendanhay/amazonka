@@ -166,6 +166,6 @@ instance FromJSON DescribeTapesResponse where
 
 instance AWSPager DescribeTapes where
     page rq rs
-        | stop (rq ^. dtMarker) = Nothing
+        | stop (rs ^. dtrMarker) = Nothing
         | otherwise = (\x -> rq & dtMarker ?~ x)
             <$> (rs ^. dtrMarker)

@@ -501,6 +501,6 @@ instance FromJSON ScanResponse where
 
 instance AWSPager Scan where
     page rq rs
-        | stop (rq ^. sExclusiveStartKey) = Nothing
+        | stop (rs ^. srLastEvaluatedKey) = Nothing
         | otherwise = Just $ rq
             & sExclusiveStartKey .~ rs ^. srLastEvaluatedKey

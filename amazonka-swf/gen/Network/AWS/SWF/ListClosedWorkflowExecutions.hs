@@ -286,6 +286,6 @@ instance FromJSON ListClosedWorkflowExecutionsResponse where
 
 instance AWSPager ListClosedWorkflowExecutions where
     page rq rs
-        | stop (rq ^. lcweNextPageToken) = Nothing
+        | stop (rs ^. lcwerNextPageToken) = Nothing
         | otherwise = (\x -> rq & lcweNextPageToken ?~ x)
             <$> (rs ^. lcwerNextPageToken)

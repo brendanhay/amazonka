@@ -150,6 +150,6 @@ instance FromXML DescribeEngineDefaultParametersResponse where
 
 instance AWSPager DescribeEngineDefaultParameters where
     page rq rs
-        | stop (rq ^. dedpMarker) = Nothing
+        | stop (rs ^. dedprEngineDefaults . edMarker) = Nothing
         | otherwise = (\x -> rq & dedpMarker ?~ x)
             <$> (rs ^. dedprEngineDefaults . edMarker)

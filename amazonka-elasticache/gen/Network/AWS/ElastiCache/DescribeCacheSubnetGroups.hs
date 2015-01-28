@@ -154,6 +154,6 @@ instance FromXML DescribeCacheSubnetGroupsResponse where
 
 instance AWSPager DescribeCacheSubnetGroups where
     page rq rs
-        | stop (rq ^. dcsgMarker) = Nothing
+        | stop (rs ^. dcsgrMarker) = Nothing
         | otherwise = (\x -> rq & dcsgMarker ?~ x)
             <$> (rs ^. dcsgrMarker)

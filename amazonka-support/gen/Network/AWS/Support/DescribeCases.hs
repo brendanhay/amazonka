@@ -221,6 +221,6 @@ instance FromJSON DescribeCasesResponse where
 
 instance AWSPager DescribeCases where
     page rq rs
-        | stop (rq ^. dcNextToken) = Nothing
+        | stop (rs ^. dcr1NextToken) = Nothing
         | otherwise = (\x -> rq & dcNextToken ?~ x)
             <$> (rs ^. dcr1NextToken)

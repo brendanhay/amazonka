@@ -160,6 +160,6 @@ instance FromJSON ListVolumesResponse where
 
 instance AWSPager ListVolumes where
     page rq rs
-        | stop (rq ^. lvMarker) = Nothing
+        | stop (rs ^. lvrMarker) = Nothing
         | otherwise = (\x -> rq & lvMarker ?~ x)
             <$> (rs ^. lvrMarker)

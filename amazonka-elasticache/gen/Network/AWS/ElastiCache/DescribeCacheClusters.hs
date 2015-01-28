@@ -185,6 +185,6 @@ instance FromXML DescribeCacheClustersResponse where
 
 instance AWSPager DescribeCacheClusters where
     page rq rs
-        | stop (rq ^. dcc1Marker) = Nothing
+        | stop (rs ^. dccrMarker) = Nothing
         | otherwise = (\x -> rq & dcc1Marker ?~ x)
             <$> (rs ^. dccrMarker)

@@ -134,6 +134,6 @@ instance FromJSON ListBootstrapActionsResponse where
 
 instance AWSPager ListBootstrapActions where
     page rq rs
-        | stop (rq ^. lbaMarker) = Nothing
+        | stop (rs ^. lbarMarker) = Nothing
         | otherwise = (\x -> rq & lbaMarker ?~ x)
             <$> (rs ^. lbarMarker)

@@ -139,6 +139,6 @@ instance FromXML ListEndpointsByPlatformApplicationResponse where
 
 instance AWSPager ListEndpointsByPlatformApplication where
     page rq rs
-        | stop (rq ^. lebpaNextToken) = Nothing
+        | stop (rs ^. lebparNextToken) = Nothing
         | otherwise = (\x -> rq & lebpaNextToken ?~ x)
             <$> (rs ^. lebparNextToken)

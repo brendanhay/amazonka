@@ -142,6 +142,6 @@ instance FromJSON ListGatewaysResponse where
 
 instance AWSPager ListGateways where
     page rq rs
-        | stop (rq ^. lgMarker) = Nothing
+        | stop (rs ^. lgrMarker) = Nothing
         | otherwise = (\x -> rq & lgMarker ?~ x)
             <$> (rs ^. lgrMarker)

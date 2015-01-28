@@ -134,6 +134,6 @@ instance FromJSON ListInstanceGroupsResponse where
 
 instance AWSPager ListInstanceGroups where
     page rq rs
-        | stop (rq ^. ligMarker) = Nothing
+        | stop (rs ^. ligrMarker) = Nothing
         | otherwise = (\x -> rq & ligMarker ?~ x)
             <$> (rs ^. ligrMarker)

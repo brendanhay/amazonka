@@ -177,6 +177,6 @@ instance FromJSON DescribeCommunicationsResponse where
 
 instance AWSPager DescribeCommunications where
     page rq rs
-        | stop (rq ^. dc1NextToken) = Nothing
+        | stop (rs ^. dcrNextToken) = Nothing
         | otherwise = (\x -> rq & dc1NextToken ?~ x)
             <$> (rs ^. dcrNextToken)

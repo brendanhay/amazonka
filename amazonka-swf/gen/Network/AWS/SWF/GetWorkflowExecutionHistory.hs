@@ -200,6 +200,6 @@ instance FromJSON GetWorkflowExecutionHistoryResponse where
 
 instance AWSPager GetWorkflowExecutionHistory where
     page rq rs
-        | stop (rq ^. gwehNextPageToken) = Nothing
+        | stop (rs ^. gwehrNextPageToken) = Nothing
         | otherwise = (\x -> rq & gwehNextPageToken ?~ x)
             <$> (rs ^. gwehrNextPageToken)

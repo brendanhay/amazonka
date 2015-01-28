@@ -202,6 +202,6 @@ instance FromXML DescribeHsmConfigurationsResponse where
 
 instance AWSPager DescribeHsmConfigurations where
     page rq rs
-        | stop (rq ^. dhc1Marker) = Nothing
+        | stop (rs ^. dhcrMarker) = Nothing
         | otherwise = (\x -> rq & dhc1Marker ?~ x)
             <$> (rs ^. dhcrMarker)

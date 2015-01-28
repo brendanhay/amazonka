@@ -169,6 +169,6 @@ instance FromXML DescribeDBParameterGroupsResponse where
 
 instance AWSPager DescribeDBParameterGroups where
     page rq rs
-        | stop (rq ^. ddbpgMarker) = Nothing
+        | stop (rs ^. ddbpgrMarker) = Nothing
         | otherwise = (\x -> rq & ddbpgMarker ?~ x)
             <$> (rs ^. ddbpgrMarker)

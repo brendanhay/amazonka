@@ -143,6 +143,6 @@ instance FromXML ListIdentitiesResponse where
 
 instance AWSPager ListIdentities where
     page rq rs
-        | stop (rq ^. liNextToken) = Nothing
+        | stop (rs ^. lirNextToken) = Nothing
         | otherwise = (\x -> rq & liNextToken ?~ x)
             <$> (rs ^. lirNextToken)

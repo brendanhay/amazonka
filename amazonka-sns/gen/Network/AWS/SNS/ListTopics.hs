@@ -121,6 +121,6 @@ instance FromXML ListTopicsResponse where
 
 instance AWSPager ListTopics where
     page rq rs
-        | stop (rq ^. ltNextToken) = Nothing
+        | stop (rs ^. ltrNextToken) = Nothing
         | otherwise = (\x -> rq & ltNextToken ?~ x)
             <$> (rs ^. ltrNextToken)

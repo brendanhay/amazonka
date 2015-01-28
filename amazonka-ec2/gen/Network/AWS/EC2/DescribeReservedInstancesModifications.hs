@@ -184,6 +184,6 @@ instance FromXML DescribeReservedInstancesModificationsResponse where
 
 instance AWSPager DescribeReservedInstancesModifications where
     page rq rs
-        | stop (rq ^. drimNextToken) = Nothing
+        | stop (rs ^. drimrNextToken) = Nothing
         | otherwise = (\x -> rq & drimNextToken ?~ x)
             <$> (rs ^. drimrNextToken)

@@ -268,6 +268,6 @@ instance FromXML DescribeInstanceStatusResponse where
 
 instance AWSPager DescribeInstanceStatus where
     page rq rs
-        | stop (rq ^. disNextToken) = Nothing
+        | stop (rs ^. disrNextToken) = Nothing
         | otherwise = (\x -> rq & disNextToken ?~ x)
             <$> (rs ^. disrNextToken)

@@ -129,6 +129,6 @@ instance FromXML ListPlatformApplicationsResponse where
 
 instance AWSPager ListPlatformApplications where
     page rq rs
-        | stop (rq ^. lpaNextToken) = Nothing
+        | stop (rs ^. lparNextToken) = Nothing
         | otherwise = (\x -> rq & lpaNextToken ?~ x)
             <$> (rs ^. lparNextToken)

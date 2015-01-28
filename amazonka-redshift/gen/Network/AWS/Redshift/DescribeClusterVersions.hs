@@ -180,6 +180,6 @@ instance FromXML DescribeClusterVersionsResponse where
 
 instance AWSPager DescribeClusterVersions where
     page rq rs
-        | stop (rq ^. dcvMarker) = Nothing
+        | stop (rs ^. dcvrMarker) = Nothing
         | otherwise = (\x -> rq & dcvMarker ?~ x)
             <$> (rs ^. dcvrMarker)

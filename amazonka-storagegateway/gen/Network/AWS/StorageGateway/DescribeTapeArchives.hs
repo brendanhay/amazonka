@@ -157,6 +157,6 @@ instance FromJSON DescribeTapeArchivesResponse where
 
 instance AWSPager DescribeTapeArchives where
     page rq rs
-        | stop (rq ^. dtaMarker) = Nothing
+        | stop (rs ^. dtarMarker) = Nothing
         | otherwise = (\x -> rq & dtaMarker ?~ x)
             <$> (rs ^. dtarMarker)

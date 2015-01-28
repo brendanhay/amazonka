@@ -212,6 +212,6 @@ instance FromXML DescribeOrderableDBInstanceOptionsResponse where
 
 instance AWSPager DescribeOrderableDBInstanceOptions where
     page rq rs
-        | stop (rq ^. dodbioMarker) = Nothing
+        | stop (rs ^. dodbiorMarker) = Nothing
         | otherwise = (\x -> rq & dodbioMarker ?~ x)
             <$> (rs ^. dodbiorMarker)

@@ -202,6 +202,6 @@ instance FromXML DescribeClusterSubnetGroupsResponse where
 
 instance AWSPager DescribeClusterSubnetGroups where
     page rq rs
-        | stop (rq ^. dcsg1Marker) = Nothing
+        | stop (rs ^. dcsgrMarker) = Nothing
         | otherwise = (\x -> rq & dcsg1Marker ?~ x)
             <$> (rs ^. dcsgrMarker)

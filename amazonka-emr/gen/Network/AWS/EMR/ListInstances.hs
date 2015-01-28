@@ -159,6 +159,6 @@ instance FromJSON ListInstancesResponse where
 
 instance AWSPager ListInstances where
     page rq rs
-        | stop (rq ^. liMarker) = Nothing
+        | stop (rs ^. lirMarker) = Nothing
         | otherwise = (\x -> rq & liMarker ?~ x)
             <$> (rs ^. lirMarker)

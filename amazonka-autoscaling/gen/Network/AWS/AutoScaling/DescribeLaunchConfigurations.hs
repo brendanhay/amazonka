@@ -152,6 +152,6 @@ instance FromXML DescribeLaunchConfigurationsResponse where
 
 instance AWSPager DescribeLaunchConfigurations where
     page rq rs
-        | stop (rq ^. dlcNextToken) = Nothing
+        | stop (rs ^. dlcrNextToken) = Nothing
         | otherwise = (\x -> rq & dlcNextToken ?~ x)
             <$> (rs ^. dlcrNextToken)

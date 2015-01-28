@@ -165,6 +165,6 @@ instance FromXML DescribeTagsResponse where
 
 instance AWSPager DescribeTags where
     page rq rs
-        | stop (rq ^. dtNextToken) = Nothing
+        | stop (rs ^. dtrNextToken) = Nothing
         | otherwise = (\x -> rq & dtNextToken ?~ x)
             <$> (rs ^. dtrNextToken)

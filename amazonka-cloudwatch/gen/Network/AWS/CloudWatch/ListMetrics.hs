@@ -151,6 +151,6 @@ instance FromXML ListMetricsResponse where
 
 instance AWSPager ListMetrics where
     page rq rs
-        | stop (rq ^. lmNextToken) = Nothing
+        | stop (rs ^. lmrNextToken) = Nothing
         | otherwise = (\x -> rq & lmNextToken ?~ x)
             <$> (rs ^. lmrNextToken)

@@ -155,6 +155,6 @@ instance FromJSON ListClustersResponse where
 
 instance AWSPager ListClusters where
     page rq rs
-        | stop (rq ^. lcMarker) = Nothing
+        | stop (rs ^. lcrMarker) = Nothing
         | otherwise = (\x -> rq & lcMarker ?~ x)
             <$> (rs ^. lcrMarker)

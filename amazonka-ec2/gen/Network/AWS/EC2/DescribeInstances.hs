@@ -395,6 +395,6 @@ instance FromXML DescribeInstancesResponse where
 
 instance AWSPager DescribeInstances where
     page rq rs
-        | stop (rq ^. di1NextToken) = Nothing
+        | stop (rs ^. dirNextToken) = Nothing
         | otherwise = (\x -> rq & di1NextToken ?~ x)
             <$> (rs ^. dirNextToken)

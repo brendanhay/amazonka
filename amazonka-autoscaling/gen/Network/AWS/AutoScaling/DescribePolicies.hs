@@ -161,6 +161,6 @@ instance FromXML DescribePoliciesResponse where
 
 instance AWSPager DescribePolicies where
     page rq rs
-        | stop (rq ^. dp1NextToken) = Nothing
+        | stop (rs ^. dprNextToken) = Nothing
         | otherwise = (\x -> rq & dp1NextToken ?~ x)
             <$> (rs ^. dprNextToken)

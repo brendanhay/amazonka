@@ -193,6 +193,6 @@ instance FromXML DescribeCacheEngineVersionsResponse where
 
 instance AWSPager DescribeCacheEngineVersions where
     page rq rs
-        | stop (rq ^. dcevMarker) = Nothing
+        | stop (rs ^. dcevrMarker) = Nothing
         | otherwise = (\x -> rq & dcevMarker ?~ x)
             <$> (rs ^. dcevrMarker)

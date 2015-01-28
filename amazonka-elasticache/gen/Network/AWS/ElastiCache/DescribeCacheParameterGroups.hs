@@ -155,6 +155,6 @@ instance FromXML DescribeCacheParameterGroupsResponse where
 
 instance AWSPager DescribeCacheParameterGroups where
     page rq rs
-        | stop (rq ^. dcpgMarker) = Nothing
+        | stop (rs ^. dcpgrMarker) = Nothing
         | otherwise = (\x -> rq & dcpgMarker ?~ x)
             <$> (rs ^. dcpgrMarker)

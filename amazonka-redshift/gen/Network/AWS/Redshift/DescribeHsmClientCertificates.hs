@@ -205,6 +205,6 @@ instance FromXML DescribeHsmClientCertificatesResponse where
 
 instance AWSPager DescribeHsmClientCertificates where
     page rq rs
-        | stop (rq ^. dhccMarker) = Nothing
+        | stop (rs ^. dhccrMarker) = Nothing
         | otherwise = (\x -> rq & dhccMarker ?~ x)
             <$> (rs ^. dhccrMarker)

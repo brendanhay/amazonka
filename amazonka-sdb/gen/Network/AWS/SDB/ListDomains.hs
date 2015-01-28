@@ -132,6 +132,6 @@ instance FromXML ListDomainsResponse where
 
 instance AWSPager ListDomains where
     page rq rs
-        | stop (rq ^. ldNextToken) = Nothing
+        | stop (rs ^. ldrNextToken) = Nothing
         | otherwise = (\x -> rq & ldNextToken ?~ x)
             <$> (rs ^. ldrNextToken)

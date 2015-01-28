@@ -151,6 +151,6 @@ instance FromXML DescribeAutoScalingGroupsResponse where
 
 instance AWSPager DescribeAutoScalingGroups where
     page rq rs
-        | stop (rq ^. dasgNextToken) = Nothing
+        | stop (rs ^. dasgrNextToken) = Nothing
         | otherwise = (\x -> rq & dasgNextToken ?~ x)
             <$> (rs ^. dasgrNextToken)

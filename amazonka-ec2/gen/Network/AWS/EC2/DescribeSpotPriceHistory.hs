@@ -240,6 +240,6 @@ instance FromXML DescribeSpotPriceHistoryResponse where
 
 instance AWSPager DescribeSpotPriceHistory where
     page rq rs
-        | stop (rq ^. dsphNextToken) = Nothing
+        | stop (rs ^. dsphrNextToken) = Nothing
         | otherwise = (\x -> rq & dsphNextToken ?~ x)
             <$> (rs ^. dsphrNextToken)

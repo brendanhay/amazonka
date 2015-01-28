@@ -226,6 +226,6 @@ instance FromXML DescribeVolumeStatusResponse where
 
 instance AWSPager DescribeVolumeStatus where
     page rq rs
-        | stop (rq ^. dvsNextToken) = Nothing
+        | stop (rs ^. dvsrNextToken) = Nothing
         | otherwise = (\x -> rq & dvsNextToken ?~ x)
             <$> (rs ^. dvsrNextToken)

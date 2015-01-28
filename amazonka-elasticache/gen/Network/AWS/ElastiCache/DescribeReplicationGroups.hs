@@ -156,6 +156,6 @@ instance FromXML DescribeReplicationGroupsResponse where
 
 instance AWSPager DescribeReplicationGroups where
     page rq rs
-        | stop (rq ^. drg1Marker) = Nothing
+        | stop (rs ^. drgrMarker) = Nothing
         | otherwise = (\x -> rq & drg1Marker ?~ x)
             <$> (rs ^. drgrMarker)

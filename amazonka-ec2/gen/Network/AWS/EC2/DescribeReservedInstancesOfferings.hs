@@ -304,6 +304,6 @@ instance FromXML DescribeReservedInstancesOfferingsResponse where
 
 instance AWSPager DescribeReservedInstancesOfferings where
     page rq rs
-        | stop (rq ^. drioNextToken) = Nothing
+        | stop (rs ^. driorNextToken) = Nothing
         | otherwise = (\x -> rq & drioNextToken ?~ x)
             <$> (rs ^. driorNextToken)

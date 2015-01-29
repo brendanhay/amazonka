@@ -145,7 +145,7 @@ data UpdateFunctionConfigurationResponse = UpdateFunctionConfigurationResponse
     , _ufcrFunctionARN     :: Maybe Text
     , _ufcrFunctionName    :: Maybe Text
     , _ufcrHandler         :: Maybe Text
-    , _ufcrLastModified    :: Maybe POSIX
+    , _ufcrLastModified    :: Maybe Text
     , _ufcrMemorySize      :: Maybe Nat
     , _ufcrMode            :: Maybe Mode
     , _ufcrRole            :: Maybe Text
@@ -169,7 +169,7 @@ data UpdateFunctionConfigurationResponse = UpdateFunctionConfigurationResponse
 --
 -- * 'ufcrHandler' @::@ 'Maybe' 'Text'
 --
--- * 'ufcrLastModified' @::@ 'Maybe' 'UTCTime'
+-- * 'ufcrLastModified' @::@ 'Maybe' 'Text'
 --
 -- * 'ufcrMemorySize' @::@ 'Maybe' 'Natural'
 --
@@ -224,8 +224,8 @@ ufcrHandler :: Lens' UpdateFunctionConfigurationResponse (Maybe Text)
 ufcrHandler = lens _ufcrHandler (\s a -> s { _ufcrHandler = a })
 
 -- | The timestamp of the last time you updated the function.
-ufcrLastModified :: Lens' UpdateFunctionConfigurationResponse (Maybe UTCTime)
-ufcrLastModified = lens _ufcrLastModified (\s a -> s { _ufcrLastModified = a }) . mapping _Time
+ufcrLastModified :: Lens' UpdateFunctionConfigurationResponse (Maybe Text)
+ufcrLastModified = lens _ufcrLastModified (\s a -> s { _ufcrLastModified = a })
 
 -- | The memory size, in MB, you configured for the function. Must be a multiple
 -- of 64 MB.

@@ -63,8 +63,12 @@ describeKey p1 = DescribeKey
     { _dk1KeyId = p1
     }
 
--- | Unique identifier of the customer master key to be described. This can be an
--- ARN, an alias, or a globally unique identifier.
+-- | A unique identifier for the customer master key. This value can be a globally
+-- unique identifier, a fully specified ARN to either an alias or a key, or an
+-- alias name prefixed by "alias/".  Key ARN Example -
+-- arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012 Alias ARN Example - arn:aws:kms:us-east-1:123456789012:/alias/MyAliasName
+-- Globally Unique Key ID Example - 12345678-1234-1234-123456789012 Alias Name
+-- Example - alias/MyAliasName
 dk1KeyId :: Lens' DescribeKey Text
 dk1KeyId = lens _dk1KeyId (\s a -> s { _dk1KeyId = a })
 

@@ -19,6 +19,7 @@
 module Network.AWS.ImportExport
     ( module Network.AWS.ImportExport.CancelJob
     , module Network.AWS.ImportExport.CreateJob
+    , module Network.AWS.ImportExport.GetShippingLabel
     , module Network.AWS.ImportExport.GetStatus
     , module Network.AWS.ImportExport.ListJobs
     , module Network.AWS.ImportExport.Types
@@ -27,6 +28,7 @@ module Network.AWS.ImportExport
 
 import Network.AWS.ImportExport.CancelJob
 import Network.AWS.ImportExport.CreateJob
+import Network.AWS.ImportExport.GetShippingLabel
 import Network.AWS.ImportExport.GetStatus
 import Network.AWS.ImportExport.ListJobs
 import Network.AWS.ImportExport.Types

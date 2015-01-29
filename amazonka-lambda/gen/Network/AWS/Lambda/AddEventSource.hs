@@ -22,17 +22,22 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Identifies an Amazon Kinesis stream as the event source for an AWS Lambda
--- function. AWS Lambda invokes the specified function when records are posted
--- to the stream.
+-- | Identifies a stream as an event source for an AWS Lambda function. It can be
+-- either an Amazon Kinesis stream or a Amazon DynamoDB stream. AWS Lambda
+-- invokes the specified function when records are posted to the stream.
 --
 -- This is the pull model, where AWS Lambda invokes the function. For more
--- information, go to <http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS LambdaL How it Works> in the AWS Lambda Developer Guide.
+-- information, go to <http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works> in the AWS Lambda Developer Guide.
 --
 -- This association between an Amazon Kinesis stream and an AWS Lambda function
 -- is called the event source mapping. You provide the configuration information
 -- (for example, which stream to read from and which AWS Lambda function to
 -- invoke) for the event source mapping in the request body.
+--
+-- Each event source, such as a Kinesis stream, can only be associated with
+-- one AWS Lambda function. If you call 'AddEventSource' for an event source that
+-- is already mapped to another AWS Lambda function, the existing mapping is
+-- updated to call the new function instead of the old one.
 --
 -- This operation requires permission for the 'iam:PassRole' action for the IAM
 -- role. It also requires permission for the 'lambda:AddEventSource' action.
@@ -139,7 +144,7 @@ data AddEventSourceResponse = AddEventSourceResponse
     , _aesrEventSource  :: Maybe Text
     , _aesrFunctionName :: Maybe Text
     , _aesrIsActive     :: Maybe Bool
-    , _aesrLastModified :: Maybe POSIX
+    , _aesrLastModified :: Maybe Text
     , _aesrParameters   :: Map Text Text
     , _aesrRole         :: Maybe Text
     , _aesrStatus       :: Maybe Text
@@ -158,7 +163,7 @@ data AddEventSourceResponse = AddEventSourceResponse
 --
 -- * 'aesrIsActive' @::@ 'Maybe' 'Bool'
 --
--- * 'aesrLastModified' @::@ 'Maybe' 'UTCTime'
+-- * 'aesrLastModified' @::@ 'Maybe' 'Text'
 --
 -- * 'aesrParameters' @::@ 'HashMap' 'Text' 'Text'
 --
@@ -201,8 +206,8 @@ aesrIsActive :: Lens' AddEventSourceResponse (Maybe Bool)
 aesrIsActive = lens _aesrIsActive (\s a -> s { _aesrIsActive = a })
 
 -- | The UTC time string indicating the last time the event mapping was updated.
-aesrLastModified :: Lens' AddEventSourceResponse (Maybe UTCTime)
-aesrLastModified = lens _aesrLastModified (\s a -> s { _aesrLastModified = a }) . mapping _Time
+aesrLastModified :: Lens' AddEventSourceResponse (Maybe Text)
+aesrLastModified = lens _aesrLastModified (\s a -> s { _aesrLastModified = a })
 
 -- | The map (key-value pairs) defining the configuration for AWS Lambda to use
 -- when reading the event source.

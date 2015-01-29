@@ -24,7 +24,9 @@
 
 -- | Retires a grant. You can retire a grant when you're done using it to clean
 -- up. You should revoke a grant when you intend to actively deny operations
--- that depend on it.
+-- that depend on it. The following are permitted to call this API:  The account
+-- that created the grant The 'RetiringPrincipal', if present The 'GranteePrincipal', if
+-- 'RetireGrant' is a grantee operation
 --
 -- <http://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html>
 module Network.AWS.KMS.RetireGrant

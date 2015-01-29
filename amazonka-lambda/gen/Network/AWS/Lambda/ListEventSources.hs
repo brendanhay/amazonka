@@ -22,9 +22,12 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Returns a list of event source mappings. For each mapping, the API returns
--- configuration information (see 'AddEventSource'). You can optionally specify
--- filters to retrieve specific event source mappings.
+-- | Returns a list of event source mappings you created using the 'AddEventSource'
+-- (see 'AddEventSource'), where you identify a stream as event source. This list
+-- does not include Amazon S3 event sources.
+--
+-- For each mapping, the API returns configuration information. You can
+-- optionally specify filters to retrieve specific event source mappings.
 --
 -- This operation requires permission for the 'lambda:ListEventSources' action.
 --

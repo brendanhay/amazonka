@@ -1,5 +1,5 @@
 name:                  amazonka-kinesis
-version:               0.2.2
+version:               0.2.3
 synopsis:              Amazon Kinesis SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -55,5 +55,5 @@ library
     other-modules:
 
     build-depends:
-          amazonka-core == 0.2.2.*
+          amazonka-core == 0.2.3.*
         , base          >= 4.7     && < 5

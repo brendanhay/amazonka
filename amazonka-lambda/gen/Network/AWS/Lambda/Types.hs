@@ -214,7 +214,7 @@ data FunctionConfiguration = FunctionConfiguration
     , _fcFunctionARN     :: Maybe Text
     , _fcFunctionName    :: Maybe Text
     , _fcHandler         :: Maybe Text
-    , _fcLastModified    :: Maybe POSIX
+    , _fcLastModified    :: Maybe Text
     , _fcMemorySize      :: Maybe Nat
     , _fcMode            :: Maybe Mode
     , _fcRole            :: Maybe Text
@@ -238,7 +238,7 @@ data FunctionConfiguration = FunctionConfiguration
 --
 -- * 'fcHandler' @::@ 'Maybe' 'Text'
 --
--- * 'fcLastModified' @::@ 'Maybe' 'UTCTime'
+-- * 'fcLastModified' @::@ 'Maybe' 'Text'
 --
 -- * 'fcMemorySize' @::@ 'Maybe' 'Natural'
 --
@@ -293,8 +293,8 @@ fcHandler :: Lens' FunctionConfiguration (Maybe Text)
 fcHandler = lens _fcHandler (\s a -> s { _fcHandler = a })
 
 -- | The timestamp of the last time you updated the function.
-fcLastModified :: Lens' FunctionConfiguration (Maybe UTCTime)
-fcLastModified = lens _fcLastModified (\s a -> s { _fcLastModified = a }) . mapping _Time
+fcLastModified :: Lens' FunctionConfiguration (Maybe Text)
+fcLastModified = lens _fcLastModified (\s a -> s { _fcLastModified = a })
 
 -- | The memory size, in MB, you configured for the function. Must be a multiple
 -- of 64 MB.
@@ -357,7 +357,7 @@ data EventSourceConfiguration = EventSourceConfiguration
     , _escEventSource  :: Maybe Text
     , _escFunctionName :: Maybe Text
     , _escIsActive     :: Maybe Bool
-    , _escLastModified :: Maybe POSIX
+    , _escLastModified :: Maybe Text
     , _escParameters   :: Map Text Text
     , _escRole         :: Maybe Text
     , _escStatus       :: Maybe Text
@@ -376,7 +376,7 @@ data EventSourceConfiguration = EventSourceConfiguration
 --
 -- * 'escIsActive' @::@ 'Maybe' 'Bool'
 --
--- * 'escLastModified' @::@ 'Maybe' 'UTCTime'
+-- * 'escLastModified' @::@ 'Maybe' 'Text'
 --
 -- * 'escParameters' @::@ 'HashMap' 'Text' 'Text'
 --
@@ -419,8 +419,8 @@ escIsActive :: Lens' EventSourceConfiguration (Maybe Bool)
 escIsActive = lens _escIsActive (\s a -> s { _escIsActive = a })
 
 -- | The UTC time string indicating the last time the event mapping was updated.
-escLastModified :: Lens' EventSourceConfiguration (Maybe UTCTime)
-escLastModified = lens _escLastModified (\s a -> s { _escLastModified = a }) . mapping _Time
+escLastModified :: Lens' EventSourceConfiguration (Maybe Text)
+escLastModified = lens _escLastModified (\s a -> s { _escLastModified = a })
 
 -- | The map (key-value pairs) defining the configuration for AWS Lambda to use
 -- when reading the event source.

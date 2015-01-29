@@ -26,6 +26,9 @@
 -- completes the deletion. If the table is in the 'ACTIVE' state, you can delete
 -- it. If a table is in 'CREATING' or 'UPDATING' states, then DynamoDB returns a /ResourceInUseException/. If the specified table does not exist, DynamoDB returns a /ResourceNotFoundException/. If table is already in the 'DELETING' state, no error is returned.
 --
+-- DynamoDB might continue to accept data read and write operations, such as /GetItem/ and /PutItem/, on a table in the 'DELETING' state until the table deletion is
+-- complete.
+--
 -- When you delete a table, any indexes on that table are also deleted.
 --
 -- Use the /DescribeTable/ API to check the status of the table.

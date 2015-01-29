@@ -200,7 +200,7 @@ sExclusiveStartKey =
         . _Map
 
 -- | One or more substitution tokens for simplifying complex expressions. The
--- following are some use cases for an /ExpressionAttributeNames/ value:
+-- following are some use cases for using /ExpressionAttributeNames/:
 --
 -- To shorten an attribute name that is very long or unwieldy in an
 -- expression.
@@ -218,12 +218,13 @@ sExclusiveStartKey =
 --
 -- Now suppose that you specified the following for /ExpressionAttributeNames/:
 --
--- '{"n":"order.customerInfo.LastName"}'
+-- '{"#name":"order.customerInfo.LastName"}'
 --
 -- The expression can now be simplified as follows:
 --
--- '#n = "Smith" OR #n = "Jones"'
+-- '#name = "Smith" OR #name = "Jones"'
 --
+-- For more information on expression attribute names, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing ItemAttributes> in the /Amazon DynamoDB Developer Guide/.
 sExpressionAttributeNames :: Lens' Scan (HashMap Text Text)
 sExpressionAttributeNames =
     lens _sExpressionAttributeNames
@@ -232,19 +233,20 @@ sExpressionAttributeNames =
 
 -- | One or more values that can be substituted in an expression.
 --
--- Use the : character in an expression to dereference an attribute value. For
--- example, consider the following expression:
+-- Use the : (colon) character in an expression to dereference an attribute
+-- value. For example, suppose that you wanted to check whether the value of the /ProductStatus/ attribute was one of the following:
 --
--- 'ProductStatus IN ("Available","Backordered","Discontinued")'
+-- 'Available | Backordered | Discontinued'
 --
--- Now suppose that you specified the following for /ExpressionAttributeValues/:
+-- You would first need to specify /ExpressionAttributeValues/ as follows:
 --
--- '{ "a":{"S":"Available"}, "b":{"S":"Backordered"}, "d":{"S":"Discontinued"} }'
+-- '{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"},":disc":{"S":"Discontinued"} }'
 --
--- The expression can now be simplified as follows:
+-- You could then use these values in an expression, such as this:
 --
--- 'ProductStatus IN (:a,:b,:c)'
+-- 'ProductStatus IN (:avail, :back, :disc)'
 --
+-- For more information on expression attribute values, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html SpecifyingConditions> in the /Amazon DynamoDB Developer Guide/.
 sExpressionAttributeValues :: Lens' Scan (HashMap Text AttributeValue)
 sExpressionAttributeValues =
     lens _sExpressionAttributeValues
@@ -272,13 +274,15 @@ sFilterExpression =
 sLimit :: Lens' Scan (Maybe Natural)
 sLimit = lens _sLimit (\s a -> s { _sLimit = a }) . mapping _Nat
 
--- | One or more attributes to retrieve from the table. These attributes can
--- include scalars, sets, or elements of a JSON document. The attributes in the
--- expression must be separated by commas.
+-- | A string that identifies one or more attributes to retrieve from the table.
+-- These attributes can include scalars, sets, or elements of a JSON document.
+-- The attributes in the expression must be separated by commas.
 --
 -- If no attribute names are specified, then all attributes will be returned.
 -- If any of the requested attributes are not found, they will not appear in the
 -- result.
+--
+-- For more information on projection expressions, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing ItemAttributes> in the /Amazon DynamoDB Developer Guide/.
 sProjectionExpression :: Lens' Scan (Maybe Text)
 sProjectionExpression =
     lens _sProjectionExpression (\s a -> s { _sProjectionExpression = a })
@@ -312,7 +316,7 @@ sReturnConsumedCapacity =
 -- For type Number, value comparisons are numeric.
 --
 -- String value comparisons for greater than, equals, or less than are based on
--- ASCII character code values. For example, 'a' is greater than 'A', and 'aa' is
+-- ASCII character code values. For example, 'a' is greater than 'A', and 'a' is
 -- greater than 'B'. For a list of code values, see <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>.
 --
 -- For Binary, DynamoDB treats each byte of the binary data as unsigned when it

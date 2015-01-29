@@ -23,12 +23,10 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Adds a grant to a key to specify who can access the key and under what
--- conditions. Grants are alternate permission mechanisms to key policies. If
--- absent, access to the key is evaluated based on IAM policies attached to the
--- user. By default, grants do not expire. Grants can be listed, retired, or
--- revoked as indicated by the following APIs. Typically, when you are finished
--- using a grant, you retire it. When you want to end a grant immediately,
--- revoke it. For more information about grants, see <http://docs.aws.amazon.com/kms/latest/developerguide/grants.html Grants>.  'ListGrants' 'RetireGrant' 'RevokeGrant'
+-- conditions. Grants are alternate permission mechanisms to key policies. For
+-- more information about grants, see <http://docs.aws.amazon.com/kms/latest/developerguide/grants.html Grants> in the developer guide. If a grant
+-- is absent, access to the key is evaluated based on IAM policies attached to
+-- the user.  'ListGrants' 'RetireGrant' 'RevokeGrant'
 --
 -- <http://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html>
 module Network.AWS.KMS.CreateGrant
@@ -101,7 +99,7 @@ createGrant p1 p2 = CreateGrant
 cgConstraints :: Lens' CreateGrant (Maybe GrantConstraints)
 cgConstraints = lens _cgConstraints (\s a -> s { _cgConstraints = a })
 
--- | List of grant tokens.
+-- | For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.
 cgGrantTokens :: Lens' CreateGrant [Text]
 cgGrantTokens = lens _cgGrantTokens (\s a -> s { _cgGrantTokens = a }) . _List
 
@@ -111,14 +109,16 @@ cgGranteePrincipal :: Lens' CreateGrant Text
 cgGranteePrincipal =
     lens _cgGranteePrincipal (\s a -> s { _cgGranteePrincipal = a })
 
--- | A unique key identifier for a customer master key. This value can be a
--- globally unique identifier, an ARN, or an alias.
+-- | A unique identifier for the customer master key. This value can be a globally
+-- unique identifier or the fully specified ARN to a key.  Key ARN Example -
+-- arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012 Globally Unique Key ID Example - 12345678-1234-1234-123456789012
+--
 cgKeyId :: Lens' CreateGrant Text
 cgKeyId = lens _cgKeyId (\s a -> s { _cgKeyId = a })
 
 -- | List of operations permitted by the grant. This can be any combination of one
 -- or more of the following values:  Decrypt Encrypt GenerateDataKey GenerateDataKeyWithoutPlaintext
--- ReEncryptFrom ReEncryptTo CreateGrant
+-- ReEncryptFrom ReEncryptTo CreateGrant RetireGrant
 cgOperations :: Lens' CreateGrant [GrantOperation]
 cgOperations = lens _cgOperations (\s a -> s { _cgOperations = a }) . _List
 
@@ -150,9 +150,7 @@ createGrantResponse = CreateGrantResponse
 cgrGrantId :: Lens' CreateGrantResponse (Maybe Text)
 cgrGrantId = lens _cgrGrantId (\s a -> s { _cgrGrantId = a })
 
--- | The grant token. A grant token is a string that identifies a grant and which
--- can be used to make a grant take effect immediately. A token contains all of
--- the information necessary to create a grant.
+-- | For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.
 cgrGrantToken :: Lens' CreateGrantResponse (Maybe Text)
 cgrGrantToken = lens _cgrGrantToken (\s a -> s { _cgrGrantToken = a })
 

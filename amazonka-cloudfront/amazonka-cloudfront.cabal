@@ -6,7 +6,7 @@ license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
-copyright:             Copyright (c) 2013-2014 Brendan Hay
+copyright:             Copyright (c) 2013-2015 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 extra-source-files:    README.md

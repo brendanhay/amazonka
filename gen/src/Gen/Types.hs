@@ -27,7 +27,7 @@
 module Gen.Types where
 
 import           Control.Applicative
-import           Control.Lens         ((&), (.~), Traversal', makeLenses)
+import           Control.Lens         (Traversal', makeLenses, (&), (.~))
 import           Control.Monad
 import qualified Data.Aeson           as A
 import           Data.Attoparsec.Text (Parser, parseOnly)
@@ -60,7 +60,7 @@ currentLibraryVersion :: Version
 currentLibraryVersion = initial
     & major .~ 0
     & minor .~ 2
-    & patch .~ 2
+    & patch .~ 3
 
 class ToFilePath a where
     toFilePath :: a -> FilePath

@@ -199,6 +199,6 @@ instance FromXML DescribeDBSnapshotsResponse where
 
 instance AWSPager DescribeDBSnapshots where
     page rq rs
-        | stop (rq ^. ddbsMarker) = Nothing
+        | stop (rs ^. ddbsrMarker) = Nothing
         | otherwise = (\x -> rq & ddbsMarker ?~ x)
             <$> (rs ^. ddbsrMarker)

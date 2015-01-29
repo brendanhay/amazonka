@@ -151,6 +151,6 @@ instance FromXML DescribeLoadBalancersResponse where
 
 instance AWSPager DescribeLoadBalancers where
     page rq rs
-        | stop (rq ^. dlbMarker) = Nothing
+        | stop (rs ^. dlbrNextMarker) = Nothing
         | otherwise = (\x -> rq & dlbMarker ?~ x)
             <$> (rs ^. dlbrNextMarker)

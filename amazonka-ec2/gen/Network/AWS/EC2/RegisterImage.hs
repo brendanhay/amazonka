@@ -217,17 +217,17 @@ instance ToPath RegisterImage where
 
 instance ToQuery RegisterImage where
     toQuery RegisterImage{..} = mconcat
-        [ "architecture"       =? _ri1Architecture
+        [ "Architecture"       =? _ri1Architecture
         , "BlockDeviceMapping" `toQueryList` _ri1BlockDeviceMappings
-        , "description"        =? _ri1Description
-        , "dryRun"             =? _ri1DryRun
+        , "Description"        =? _ri1Description
+        , "DryRun"             =? _ri1DryRun
         , "ImageLocation"      =? _ri1ImageLocation
-        , "kernelId"           =? _ri1KernelId
-        , "name"               =? _ri1Name
-        , "ramdiskId"          =? _ri1RamdiskId
-        , "rootDeviceName"     =? _ri1RootDeviceName
-        , "sriovNetSupport"    =? _ri1SriovNetSupport
-        , "virtualizationType" =? _ri1VirtualizationType
+        , "KernelId"           =? _ri1KernelId
+        , "Name"               =? _ri1Name
+        , "RamdiskId"          =? _ri1RamdiskId
+        , "RootDeviceName"     =? _ri1RootDeviceName
+        , "SriovNetSupport"    =? _ri1SriovNetSupport
+        , "VirtualizationType" =? _ri1VirtualizationType
         ]
 
 instance ToHeaders RegisterImage

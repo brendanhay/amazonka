@@ -178,7 +178,7 @@ instance ToPath DescribeImageAttribute where
 instance ToQuery DescribeImageAttribute where
     toQuery DescribeImageAttribute{..} = mconcat
         [ "Attribute" =? _dia1Attribute
-        , "dryRun"    =? _dia1DryRun
+        , "DryRun"    =? _dia1DryRun
         , "ImageId"   =? _dia1ImageId
         ]
 

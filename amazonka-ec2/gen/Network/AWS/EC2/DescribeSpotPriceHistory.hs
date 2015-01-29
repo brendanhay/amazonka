@@ -213,15 +213,15 @@ instance ToPath DescribeSpotPriceHistory where
 
 instance ToQuery DescribeSpotPriceHistory where
     toQuery DescribeSpotPriceHistory{..} = mconcat
-        [ "availabilityZone"   =? _dsphAvailabilityZone
-        , "dryRun"             =? _dsphDryRun
-        , "endTime"            =? _dsphEndTime
+        [ "AvailabilityZone"   =? _dsphAvailabilityZone
+        , "DryRun"             =? _dsphDryRun
+        , "EndTime"            =? _dsphEndTime
         , "Filter"             `toQueryList` _dsphFilters
         , "InstanceType"       `toQueryList` _dsphInstanceTypes
-        , "maxResults"         =? _dsphMaxResults
-        , "nextToken"          =? _dsphNextToken
+        , "MaxResults"         =? _dsphMaxResults
+        , "NextToken"          =? _dsphNextToken
         , "ProductDescription" `toQueryList` _dsphProductDescriptions
-        , "startTime"          =? _dsphStartTime
+        , "StartTime"          =? _dsphStartTime
         ]
 
 instance ToHeaders DescribeSpotPriceHistory
@@ -240,6 +240,6 @@ instance FromXML DescribeSpotPriceHistoryResponse where
 
 instance AWSPager DescribeSpotPriceHistory where
     page rq rs
-        | stop (rq ^. dsphNextToken) = Nothing
+        | stop (rs ^. dsphrNextToken) = Nothing
         | otherwise = (\x -> rq & dsphNextToken ?~ x)
             <$> (rs ^. dsphrNextToken)

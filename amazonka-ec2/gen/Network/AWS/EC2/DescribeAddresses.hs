@@ -146,7 +146,7 @@ instance ToPath DescribeAddresses where
 instance ToQuery DescribeAddresses where
     toQuery DescribeAddresses{..} = mconcat
         [ "AllocationId" `toQueryList` _daAllocationIds
-        , "dryRun"       =? _daDryRun
+        , "DryRun"       =? _daDryRun
         , "Filter"       `toQueryList` _daFilters
         , "PublicIp"     `toQueryList` _daPublicIps
         ]

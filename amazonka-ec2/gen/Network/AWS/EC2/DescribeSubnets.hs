@@ -144,7 +144,7 @@ instance ToPath DescribeSubnets where
 
 instance ToQuery DescribeSubnets where
     toQuery DescribeSubnets{..} = mconcat
-        [ "dryRun"   =? _dsDryRun
+        [ "DryRun"   =? _dsDryRun
         , "Filter"   `toQueryList` _dsFilters
         , "SubnetId" `toQueryList` _dsSubnetIds
         ]

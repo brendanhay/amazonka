@@ -134,7 +134,7 @@ instance ToPath GetConsoleOutput where
 
 instance ToQuery GetConsoleOutput where
     toQuery GetConsoleOutput{..} = mconcat
-        [ "dryRun"     =? _gcoDryRun
+        [ "DryRun"     =? _gcoDryRun
         , "InstanceId" =? _gcoInstanceId
         ]
 

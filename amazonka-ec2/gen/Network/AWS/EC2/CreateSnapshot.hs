@@ -245,7 +245,7 @@ instance ToPath CreateSnapshot where
 instance ToQuery CreateSnapshot where
     toQuery CreateSnapshot{..} = mconcat
         [ "Description" =? _cs2Description
-        , "dryRun"      =? _cs2DryRun
+        , "DryRun"      =? _cs2DryRun
         , "VolumeId"    =? _cs2VolumeId
         ]
 

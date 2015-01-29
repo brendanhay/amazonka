@@ -90,7 +90,7 @@ data GetFunctionConfigurationResponse = GetFunctionConfigurationResponse
     , _gfcrFunctionARN     :: Maybe Text
     , _gfcrFunctionName    :: Maybe Text
     , _gfcrHandler         :: Maybe Text
-    , _gfcrLastModified    :: Maybe POSIX
+    , _gfcrLastModified    :: Maybe Text
     , _gfcrMemorySize      :: Maybe Nat
     , _gfcrMode            :: Maybe Mode
     , _gfcrRole            :: Maybe Text
@@ -114,7 +114,7 @@ data GetFunctionConfigurationResponse = GetFunctionConfigurationResponse
 --
 -- * 'gfcrHandler' @::@ 'Maybe' 'Text'
 --
--- * 'gfcrLastModified' @::@ 'Maybe' 'UTCTime'
+-- * 'gfcrLastModified' @::@ 'Maybe' 'Text'
 --
 -- * 'gfcrMemorySize' @::@ 'Maybe' 'Natural'
 --
@@ -169,8 +169,8 @@ gfcrHandler :: Lens' GetFunctionConfigurationResponse (Maybe Text)
 gfcrHandler = lens _gfcrHandler (\s a -> s { _gfcrHandler = a })
 
 -- | The timestamp of the last time you updated the function.
-gfcrLastModified :: Lens' GetFunctionConfigurationResponse (Maybe UTCTime)
-gfcrLastModified = lens _gfcrLastModified (\s a -> s { _gfcrLastModified = a }) . mapping _Time
+gfcrLastModified :: Lens' GetFunctionConfigurationResponse (Maybe Text)
+gfcrLastModified = lens _gfcrLastModified (\s a -> s { _gfcrLastModified = a })
 
 -- | The memory size, in MB, you configured for the function. Must be a multiple
 -- of 64 MB.

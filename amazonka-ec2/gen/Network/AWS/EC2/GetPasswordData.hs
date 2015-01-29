@@ -129,7 +129,7 @@ instance ToPath GetPasswordData where
 
 instance ToQuery GetPasswordData where
     toQuery GetPasswordData{..} = mconcat
-        [ "dryRun"     =? _gpdDryRun
+        [ "DryRun"     =? _gpdDryRun
         , "InstanceId" =? _gpdInstanceId
         ]
 

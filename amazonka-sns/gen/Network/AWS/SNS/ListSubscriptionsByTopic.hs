@@ -133,6 +133,6 @@ instance FromXML ListSubscriptionsByTopicResponse where
 
 instance AWSPager ListSubscriptionsByTopic where
     page rq rs
-        | stop (rq ^. lsbtNextToken) = Nothing
+        | stop (rs ^. lsbtrNextToken) = Nothing
         | otherwise = (\x -> rq & lsbtNextToken ?~ x)
             <$> (rs ^. lsbtrNextToken)

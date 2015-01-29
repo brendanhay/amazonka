@@ -187,6 +187,6 @@ instance FromXML DescribeScheduledActionsResponse where
 
 instance AWSPager DescribeScheduledActions where
     page rq rs
-        | stop (rq ^. dsa1NextToken) = Nothing
+        | stop (rs ^. dsarNextToken) = Nothing
         | otherwise = (\x -> rq & dsa1NextToken ?~ x)
             <$> (rs ^. dsarNextToken)

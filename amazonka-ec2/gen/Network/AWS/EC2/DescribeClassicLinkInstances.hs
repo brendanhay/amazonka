@@ -166,11 +166,11 @@ instance ToPath DescribeClassicLinkInstances where
 
 instance ToQuery DescribeClassicLinkInstances where
     toQuery DescribeClassicLinkInstances{..} = mconcat
-        [ "dryRun"     =? _dcliDryRun
+        [ "DryRun"     =? _dcliDryRun
         , "Filter"     `toQueryList` _dcliFilters
         , "InstanceId" `toQueryList` _dcliInstanceIds
-        , "maxResults" =? _dcliMaxResults
-        , "nextToken"  =? _dcliNextToken
+        , "MaxResults" =? _dcliMaxResults
+        , "NextToken"  =? _dcliNextToken
         ]
 
 instance ToHeaders DescribeClassicLinkInstances

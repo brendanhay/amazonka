@@ -165,6 +165,6 @@ instance FromXML DescribeDBSubnetGroupsResponse where
 
 instance AWSPager DescribeDBSubnetGroups where
     page rq rs
-        | stop (rq ^. ddbsgMarker) = Nothing
+        | stop (rs ^. ddbsgrMarker) = Nothing
         | otherwise = (\x -> rq & ddbsgMarker ?~ x)
             <$> (rs ^. ddbsgrMarker)

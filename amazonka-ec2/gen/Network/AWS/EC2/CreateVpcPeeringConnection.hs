@@ -130,10 +130,10 @@ instance ToPath CreateVpcPeeringConnection where
 
 instance ToQuery CreateVpcPeeringConnection where
     toQuery CreateVpcPeeringConnection{..} = mconcat
-        [ "dryRun"      =? _cvpcDryRun
-        , "peerOwnerId" =? _cvpcPeerOwnerId
-        , "peerVpcId"   =? _cvpcPeerVpcId
-        , "vpcId"       =? _cvpcVpcId
+        [ "DryRun"      =? _cvpcDryRun
+        , "PeerOwnerId" =? _cvpcPeerOwnerId
+        , "PeerVpcId"   =? _cvpcPeerVpcId
+        , "VpcId"       =? _cvpcVpcId
         ]
 
 instance ToHeaders CreateVpcPeeringConnection

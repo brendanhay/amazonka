@@ -135,7 +135,7 @@ instance ToPath DescribeSnapshotAttribute where
 instance ToQuery DescribeSnapshotAttribute where
     toQuery DescribeSnapshotAttribute{..} = mconcat
         [ "Attribute"  =? _dsaAttribute
-        , "dryRun"     =? _dsaDryRun
+        , "DryRun"     =? _dsaDryRun
         , "SnapshotId" =? _dsaSnapshotId
         ]
 

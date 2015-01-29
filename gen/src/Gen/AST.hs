@@ -8,7 +8,7 @@
 {-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Gen.AST
--- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
+-- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -19,10 +19,11 @@
 
 module Gen.AST (transformAST) where
 
-import           Control.Applicative        ((<$>), (<*>), (<|>), pure)
+import           Control.Applicative        (pure, (<$>), (<*>), (<|>))
 import           Control.Arrow              ((&&&))
 import           Control.Error
-import           Control.Lens               hiding (Indexed, op, ignored, filtered, indexed)
+import           Control.Lens               hiding (Indexed, filtered, ignored,
+                                             indexed, op)
 import           Control.Monad
 import           Control.Monad.State.Strict
 import qualified Data.CaseInsensitive       as CI
@@ -32,13 +33,13 @@ import           Data.HashMap.Strict        (HashMap)
 import qualified Data.HashMap.Strict        as Map
 import           Data.HashSet               (HashSet)
 import qualified Data.HashSet               as Set
-import           Data.List                  (find, sort, group, nub)
+import           Data.List                  (find, group, nub, sort)
 import           Data.Monoid                hiding (Product)
 import           Data.Text                  (Text)
 import qualified Data.Text                  as Text
 import           Data.Text.Manipulate
+import           Gen.Input                  hiding (Operation (..))
 import qualified Gen.Input                  as Input
-import           Gen.Input                  hiding (Operation(..))
 import           Gen.Names
 import           Gen.Output
 import           Gen.Types

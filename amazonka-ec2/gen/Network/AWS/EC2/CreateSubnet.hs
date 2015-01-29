@@ -146,7 +146,7 @@ instance ToQuery CreateSubnet where
     toQuery CreateSubnet{..} = mconcat
         [ "AvailabilityZone" =? _cs1AvailabilityZone
         , "CidrBlock"        =? _cs1CidrBlock
-        , "dryRun"           =? _cs1DryRun
+        , "DryRun"           =? _cs1DryRun
         , "VpcId"            =? _cs1VpcId
         ]
 

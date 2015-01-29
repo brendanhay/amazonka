@@ -144,6 +144,6 @@ instance FromXML ListStackResourcesResponse where
 
 instance AWSPager ListStackResources where
     page rq rs
-        | stop (rq ^. lsrNextToken) = Nothing
+        | stop (rs ^. lsrrNextToken) = Nothing
         | otherwise = (\x -> rq & lsrNextToken ?~ x)
             <$> (rs ^. lsrrNextToken)

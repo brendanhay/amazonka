@@ -155,7 +155,7 @@ instance ToPath DescribeVpnConnections where
 
 instance ToQuery DescribeVpnConnections where
     toQuery DescribeVpnConnections{..} = mconcat
-        [ "dryRun"          =? _dvc1DryRun
+        [ "DryRun"          =? _dvc1DryRun
         , "Filter"          `toQueryList` _dvc1Filters
         , "VpnConnectionId" `toQueryList` _dvc1VpnConnectionIds
         ]

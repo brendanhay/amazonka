@@ -50,7 +50,8 @@ dbInstanceDeleted = Wait
     , _waitAttempts  = 60
     , _waitDelay     = 30
     , _waitAcceptors =
-        [ matchAll "deleted" AcceptSuccess
+        [ matchError "DBInstanceNotFound" AcceptSuccess
+        , matchAll "deleted" AcceptSuccess
             (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just)
         , matchAny "creating" AcceptFailure
             (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just)

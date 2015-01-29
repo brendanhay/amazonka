@@ -372,11 +372,11 @@ instance ToPath DescribeInstances where
 
 instance ToQuery DescribeInstances where
     toQuery DescribeInstances{..} = mconcat
-        [ "dryRun"     =? _di1DryRun
+        [ "DryRun"     =? _di1DryRun
         , "Filter"     `toQueryList` _di1Filters
         , "InstanceId" `toQueryList` _di1InstanceIds
-        , "maxResults" =? _di1MaxResults
-        , "nextToken"  =? _di1NextToken
+        , "MaxResults" =? _di1MaxResults
+        , "NextToken"  =? _di1NextToken
         ]
 
 instance ToHeaders DescribeInstances
@@ -395,6 +395,6 @@ instance FromXML DescribeInstancesResponse where
 
 instance AWSPager DescribeInstances where
     page rq rs
-        | stop (rq ^. di1NextToken) = Nothing
+        | stop (rs ^. dirNextToken) = Nothing
         | otherwise = (\x -> rq & di1NextToken ?~ x)
             <$> (rs ^. dirNextToken)

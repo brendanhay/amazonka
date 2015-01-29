@@ -164,6 +164,6 @@ instance FromXML DescribeDBSecurityGroupsResponse where
 
 instance AWSPager DescribeDBSecurityGroups where
     page rq rs
-        | stop (rq ^. ddbsg1Marker) = Nothing
+        | stop (rs ^. ddbsgr1Marker) = Nothing
         | otherwise = (\x -> rq & ddbsg1Marker ?~ x)
             <$> (rs ^. ddbsgr1Marker)

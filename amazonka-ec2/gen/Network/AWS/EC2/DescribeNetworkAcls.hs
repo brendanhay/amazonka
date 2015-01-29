@@ -162,7 +162,7 @@ instance ToPath DescribeNetworkAcls where
 
 instance ToQuery DescribeNetworkAcls where
     toQuery DescribeNetworkAcls{..} = mconcat
-        [ "dryRun"       =? _dna1DryRun
+        [ "DryRun"       =? _dna1DryRun
         , "Filter"       `toQueryList` _dna1Filters
         , "NetworkAclId" `toQueryList` _dna1NetworkAclIds
         ]

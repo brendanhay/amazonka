@@ -100,7 +100,7 @@ instance ToPath CancelBundleTask where
 instance ToQuery CancelBundleTask where
     toQuery CancelBundleTask{..} = mconcat
         [ "BundleId" =? _cbtBundleId
-        , "dryRun"   =? _cbtDryRun
+        , "DryRun"   =? _cbtDryRun
         ]
 
 instance ToHeaders CancelBundleTask

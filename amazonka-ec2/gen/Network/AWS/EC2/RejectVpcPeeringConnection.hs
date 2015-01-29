@@ -105,8 +105,8 @@ instance ToPath RejectVpcPeeringConnection where
 
 instance ToQuery RejectVpcPeeringConnection where
     toQuery RejectVpcPeeringConnection{..} = mconcat
-        [ "dryRun"                 =? _rvpcDryRun
-        , "vpcPeeringConnectionId" =? _rvpcVpcPeeringConnectionId
+        [ "DryRun"                 =? _rvpcDryRun
+        , "VpcPeeringConnectionId" =? _rvpcVpcPeeringConnectionId
         ]
 
 instance ToHeaders RejectVpcPeeringConnection

@@ -248,6 +248,6 @@ instance FromJSON ListOpenWorkflowExecutionsResponse where
 
 instance AWSPager ListOpenWorkflowExecutions where
     page rq rs
-        | stop (rq ^. loweNextPageToken) = Nothing
+        | stop (rs ^. lowerNextPageToken) = Nothing
         | otherwise = (\x -> rq & loweNextPageToken ?~ x)
             <$> (rs ^. lowerNextPageToken)

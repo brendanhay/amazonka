@@ -273,17 +273,17 @@ instance ToPath DescribeReservedInstancesOfferings where
 instance ToQuery DescribeReservedInstancesOfferings where
     toQuery DescribeReservedInstancesOfferings{..} = mconcat
         [ "AvailabilityZone"            =? _drioAvailabilityZone
-        , "dryRun"                      =? _drioDryRun
+        , "DryRun"                      =? _drioDryRun
         , "Filter"                      `toQueryList` _drioFilters
         , "IncludeMarketplace"          =? _drioIncludeMarketplace
-        , "instanceTenancy"             =? _drioInstanceTenancy
+        , "InstanceTenancy"             =? _drioInstanceTenancy
         , "InstanceType"                =? _drioInstanceType
         , "MaxDuration"                 =? _drioMaxDuration
         , "MaxInstanceCount"            =? _drioMaxInstanceCount
-        , "maxResults"                  =? _drioMaxResults
+        , "MaxResults"                  =? _drioMaxResults
         , "MinDuration"                 =? _drioMinDuration
-        , "nextToken"                   =? _drioNextToken
-        , "offeringType"                =? _drioOfferingType
+        , "NextToken"                   =? _drioNextToken
+        , "OfferingType"                =? _drioOfferingType
         , "ProductDescription"          =? _drioProductDescription
         , "ReservedInstancesOfferingId" `toQueryList` _drioReservedInstancesOfferingIds
         ]
@@ -304,6 +304,6 @@ instance FromXML DescribeReservedInstancesOfferingsResponse where
 
 instance AWSPager DescribeReservedInstancesOfferings where
     page rq rs
-        | stop (rq ^. drioNextToken) = Nothing
+        | stop (rs ^. driorNextToken) = Nothing
         | otherwise = (\x -> rq & drioNextToken ?~ x)
             <$> (rs ^. driorNextToken)

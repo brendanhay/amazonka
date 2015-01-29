@@ -61,8 +61,10 @@ disableKeyRotation p1 = DisableKeyRotation
     { _dkrKeyId = p1
     }
 
--- | Unique identifier of the customer master key for which rotation is to be
--- disabled. This can be an ARN, an alias, or a globally unique identifier.
+-- | A unique identifier for the customer master key. This value can be a globally
+-- unique identifier or the fully specified ARN to a key.  Key ARN Example -
+-- arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012 Globally Unique Key ID Example - 12345678-1234-1234-123456789012
+--
 dkrKeyId :: Lens' DisableKeyRotation Text
 dkrKeyId = lens _dkrKeyId (\s a -> s { _dkrKeyId = a })
 

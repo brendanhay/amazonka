@@ -88,7 +88,7 @@ instance ToPath DeregisterImage where
 
 instance ToQuery DeregisterImage where
     toQuery DeregisterImage{..} = mconcat
-        [ "dryRun"  =? _diDryRun
+        [ "DryRun"  =? _diDryRun
         , "ImageId" =? _diImageId
         ]
 

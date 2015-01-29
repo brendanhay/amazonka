@@ -150,6 +150,6 @@ instance FromJSON ListTablesResponse where
 
 instance AWSPager ListTables where
     page rq rs
-        | stop (rq ^. ltExclusiveStartTableName) = Nothing
+        | stop (rs ^. ltrLastEvaluatedTableName) = Nothing
         | otherwise = (\x -> rq & ltExclusiveStartTableName ?~ x)
             <$> (rs ^. ltrLastEvaluatedTableName)

@@ -181,6 +181,6 @@ instance FromXML DescribeOrderableClusterOptionsResponse where
 
 instance AWSPager DescribeOrderableClusterOptions where
     page rq rs
-        | stop (rq ^. docoMarker) = Nothing
+        | stop (rs ^. docorMarker) = Nothing
         | otherwise = (\x -> rq & docoMarker ?~ x)
             <$> (rs ^. docorMarker)

@@ -144,7 +144,7 @@ instance ToPath DescribeCustomerGateways where
 instance ToQuery DescribeCustomerGateways where
     toQuery DescribeCustomerGateways{..} = mconcat
         [ "CustomerGatewayId" `toQueryList` _dcgCustomerGatewayIds
-        , "dryRun"            =? _dcgDryRun
+        , "DryRun"            =? _dcgDryRun
         , "Filter"            `toQueryList` _dcgFilters
         ]
 

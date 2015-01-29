@@ -203,7 +203,7 @@ instance ToPath DescribeVolumeStatus where
 
 instance ToQuery DescribeVolumeStatus where
     toQuery DescribeVolumeStatus{..} = mconcat
-        [ "dryRun"     =? _dvsDryRun
+        [ "DryRun"     =? _dvsDryRun
         , "Filter"     `toQueryList` _dvsFilters
         , "MaxResults" =? _dvsMaxResults
         , "NextToken"  =? _dvsNextToken
@@ -226,6 +226,6 @@ instance FromXML DescribeVolumeStatusResponse where
 
 instance AWSPager DescribeVolumeStatus where
     page rq rs
-        | stop (rq ^. dvsNextToken) = Nothing
+        | stop (rs ^. dvsrNextToken) = Nothing
         | otherwise = (\x -> rq & dvsNextToken ?~ x)
             <$> (rs ^. dvsrNextToken)

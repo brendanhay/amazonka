@@ -200,6 +200,6 @@ instance FromXML DescribeDBLogFilesResponse where
 
 instance AWSPager DescribeDBLogFiles where
     page rq rs
-        | stop (rq ^. ddblfMarker) = Nothing
+        | stop (rs ^. ddblfrMarker) = Nothing
         | otherwise = (\x -> rq & ddblfMarker ?~ x)
             <$> (rs ^. ddblfrMarker)

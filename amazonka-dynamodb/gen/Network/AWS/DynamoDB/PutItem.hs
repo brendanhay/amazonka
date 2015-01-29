@@ -42,6 +42,10 @@
 -- (before the update) or a copy of the updated item (after the update). For
 -- more information, see the /ReturnValues/ description below.
 --
+-- To prevent a new item from replacing an existing item, use a conditional
+-- put operation with /ComparisonOperator/ set to 'NULL' for the primary key
+-- attribute, or attributes.
+--
 -- For more information about using this API, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html Working with Items> in the /Amazon DynamoDB Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_PutItem.html>
@@ -135,13 +139,16 @@ putItem p1 = PutItem
 --
 -- An expression can contain any of the following:
 --
--- Boolean functions: 'ATTRIBUTE_EXIST | CONTAINS | BEGINS_WITH'
+-- Boolean functions: 'attribute_exists | attribute_not_exists | contains |begins_with'
+--
+-- These function names are case-sensitive.
 --
 -- Comparison operators: ' = | <> | < | > | <= | >= | BETWEEN | IN'
 --
--- Logical operators: 'NOT | AND | OR'
+-- Logical operators: 'AND | OR | NOT'
 --
---
+-- For more information on condition expressions, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
+-- in the /Amazon DynamoDB Developer Guide/.
 piConditionExpression :: Lens' PutItem (Maybe Text)
 piConditionExpression =
     lens _piConditionExpression (\s a -> s { _piConditionExpression = a })
@@ -199,7 +206,7 @@ piConditionalOperator =
 -- For type Number, value comparisons are numeric.
 --
 -- String value comparisons for greater than, equals, or less than are based on
--- ASCII character code values. For example, 'a' is greater than 'A', and 'aa' is
+-- ASCII character code values. For example, 'a' is greater than 'A', and 'a' is
 -- greater than 'B'. For a list of code values, see <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>.
 --
 -- For type Binary, DynamoDB treats each byte of the binary data as unsigned
@@ -268,8 +275,18 @@ piConditionalOperator =
 -- 'NOT_NULL' : The attribute exists. 'NOT_NULL' is supported for all datatypes,
 -- including lists and maps.
 --
+-- This operator tests for the existence of an attribute, not its data type. If
+-- the data type of attribute "'a'" is null, and you evaluate it using 'NOT_NULL',
+-- the result is a Boolean /true/. This result is because the attribute "'a'"
+-- exists; its data type is not relevant to the 'NOT_NULL' comparison operator.
+--
 -- 'NULL' : The attribute does not exist. 'NULL' is supported for all datatypes,
 -- including lists and maps.
+--
+-- This operator tests for the nonexistence of an attribute, not its data type.
+-- If the data type of attribute "'a'" is null, and you evaluate it using 'NULL',
+-- the result is a Boolean /false/. This is because the attribute "'a'" exists; its
+-- data type is not relevant to the 'NULL' comparison operator.
 --
 -- 'CONTAINS' : Checks for a subsequence, or value in a set.
 --
@@ -342,6 +359,8 @@ piConditionalOperator =
 -- is valid and the condition evaluates to true. If the value is found, despite
 -- the assumption that it does not exist, the condition evaluates to false.
 --
+-- Note that the default value for /Exists/ is 'true'.
+--
 -- The /Value/ and /Exists/ parameters are incompatible with /AttributeValueList/
 -- and /ComparisonOperator/. Note that if you use both sets of parameters at once,
 -- DynamoDB will return a /ValidationException/ exception.
@@ -349,7 +368,7 @@ piExpected :: Lens' PutItem (HashMap Text ExpectedAttributeValue)
 piExpected = lens _piExpected (\s a -> s { _piExpected = a }) . _Map
 
 -- | One or more substitution tokens for simplifying complex expressions. The
--- following are some use cases for an /ExpressionAttributeNames/ value:
+-- following are some use cases for using /ExpressionAttributeNames/:
 --
 -- To shorten an attribute name that is very long or unwieldy in an
 -- expression.
@@ -367,12 +386,13 @@ piExpected = lens _piExpected (\s a -> s { _piExpected = a }) . _Map
 --
 -- Now suppose that you specified the following for /ExpressionAttributeNames/:
 --
--- '{"n":"order.customerInfo.LastName"}'
+-- '{"#name":"order.customerInfo.LastName"}'
 --
 -- The expression can now be simplified as follows:
 --
--- '#n = "Smith" OR #n = "Jones"'
+-- '#name = "Smith" OR #name = "Jones"'
 --
+-- For more information on expression attribute names, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing ItemAttributes> in the /Amazon DynamoDB Developer Guide/.
 piExpressionAttributeNames :: Lens' PutItem (HashMap Text Text)
 piExpressionAttributeNames =
     lens _piExpressionAttributeNames
@@ -381,19 +401,20 @@ piExpressionAttributeNames =
 
 -- | One or more values that can be substituted in an expression.
 --
--- Use the : character in an expression to dereference an attribute value. For
--- example, consider the following expression:
+-- Use the : (colon) character in an expression to dereference an attribute
+-- value. For example, suppose that you wanted to check whether the value of the /ProductStatus/ attribute was one of the following:
 --
--- 'ProductStatus IN ("Available","Backordered","Discontinued")'
+-- 'Available | Backordered | Discontinued'
 --
--- Now suppose that you specified the following for /ExpressionAttributeValues/:
+-- You would first need to specify /ExpressionAttributeValues/ as follows:
 --
--- '{ "a":{"S":"Available"}, "b":{"S":"Backordered"}, "d":{"S":"Discontinued"} }'
+-- '{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"},":disc":{"S":"Discontinued"} }'
 --
--- The expression can now be simplified as follows:
+-- You could then use these values in an expression, such as this:
 --
--- 'ProductStatus IN (:a,:b,:c)'
+-- 'ProductStatus IN (:avail, :back, :disc)'
 --
+-- For more information on expression attribute values, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html SpecifyingConditions> in the /Amazon DynamoDB Developer Guide/.
 piExpressionAttributeValues :: Lens' PutItem (HashMap Text AttributeValue)
 piExpressionAttributeValues =
     lens _piExpressionAttributeValues

@@ -165,6 +165,6 @@ instance FromXML DescribeReservedNodeOfferingsResponse where
 
 instance AWSPager DescribeReservedNodeOfferings where
     page rq rs
-        | stop (rq ^. drnoMarker) = Nothing
+        | stop (rs ^. drnorMarker) = Nothing
         | otherwise = (\x -> rq & drnoMarker ?~ x)
             <$> (rs ^. drnorMarker)

@@ -140,6 +140,6 @@ instance FromXML DescribeStackEventsResponse where
 
 instance AWSPager DescribeStackEvents where
     page rq rs
-        | stop (rq ^. dseNextToken) = Nothing
+        | stop (rs ^. dserNextToken) = Nothing
         | otherwise = (\x -> rq & dseNextToken ?~ x)
             <$> (rs ^. dserNextToken)

@@ -93,7 +93,7 @@ instance ToPath CreateInternetGateway where
 
 instance ToQuery CreateInternetGateway where
     toQuery CreateInternetGateway{..} = mconcat
-        [ "dryRun" =? _cigDryRun
+        [ "DryRun" =? _cigDryRun
         ]
 
 instance ToHeaders CreateInternetGateway

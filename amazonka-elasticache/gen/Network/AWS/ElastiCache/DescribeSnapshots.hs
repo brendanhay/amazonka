@@ -179,6 +179,6 @@ instance FromXML DescribeSnapshotsResponse where
 
 instance AWSPager DescribeSnapshots where
     page rq rs
-        | stop (rq ^. dsMarker) = Nothing
+        | stop (rs ^. dsrMarker) = Nothing
         | otherwise = (\x -> rq & dsMarker ?~ x)
             <$> (rs ^. dsrMarker)

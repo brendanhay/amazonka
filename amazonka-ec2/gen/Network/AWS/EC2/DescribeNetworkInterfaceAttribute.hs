@@ -148,9 +148,9 @@ instance ToPath DescribeNetworkInterfaceAttribute where
 
 instance ToQuery DescribeNetworkInterfaceAttribute where
     toQuery DescribeNetworkInterfaceAttribute{..} = mconcat
-        [ "attribute"          =? _dniaAttribute
-        , "dryRun"             =? _dniaDryRun
-        , "networkInterfaceId" =? _dniaNetworkInterfaceId
+        [ "Attribute"          =? _dniaAttribute
+        , "DryRun"             =? _dniaDryRun
+        , "NetworkInterfaceId" =? _dniaNetworkInterfaceId
         ]
 
 instance ToHeaders DescribeNetworkInterfaceAttribute

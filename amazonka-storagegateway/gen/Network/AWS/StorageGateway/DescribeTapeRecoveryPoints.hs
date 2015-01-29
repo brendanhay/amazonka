@@ -166,6 +166,6 @@ instance FromJSON DescribeTapeRecoveryPointsResponse where
 
 instance AWSPager DescribeTapeRecoveryPoints where
     page rq rs
-        | stop (rq ^. dtrpMarker) = Nothing
+        | stop (rs ^. dtrprMarker) = Nothing
         | otherwise = (\x -> rq & dtrpMarker ?~ x)
             <$> (rs ^. dtrprMarker)

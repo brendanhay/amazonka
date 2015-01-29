@@ -124,7 +124,7 @@ instance ToPath AllocateAddress where
 instance ToQuery AllocateAddress where
     toQuery AllocateAddress{..} = mconcat
         [ "Domain" =? _aaDomain
-        , "dryRun" =? _aaDryRun
+        , "DryRun" =? _aaDryRun
         ]
 
 instance ToHeaders AllocateAddress

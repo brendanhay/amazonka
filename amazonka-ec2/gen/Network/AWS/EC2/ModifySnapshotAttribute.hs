@@ -144,7 +144,7 @@ instance ToQuery ModifySnapshotAttribute where
     toQuery ModifySnapshotAttribute{..} = mconcat
         [ "Attribute"              =? _msaAttribute
         , "CreateVolumePermission" =? _msaCreateVolumePermission
-        , "dryRun"                 =? _msaDryRun
+        , "DryRun"                 =? _msaDryRun
         , "UserGroup"              `toQueryList` _msaGroupNames
         , "OperationType"          =? _msaOperationType
         , "SnapshotId"             =? _msaSnapshotId

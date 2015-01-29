@@ -118,9 +118,9 @@ instance ToPath ReplaceRouteTableAssociation where
 
 instance ToQuery ReplaceRouteTableAssociation where
     toQuery ReplaceRouteTableAssociation{..} = mconcat
-        [ "associationId" =? _rrtaAssociationId
-        , "dryRun"        =? _rrtaDryRun
-        , "routeTableId"  =? _rrtaRouteTableId
+        [ "AssociationId" =? _rrtaAssociationId
+        , "DryRun"        =? _rrtaDryRun
+        , "RouteTableId"  =? _rrtaRouteTableId
         ]
 
 instance ToHeaders ReplaceRouteTableAssociation

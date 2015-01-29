@@ -100,13 +100,18 @@ reDestinationEncryptionContext =
         (\s a -> s { _reDestinationEncryptionContext = a })
             . _Map
 
--- | Key identifier of the key used to re-encrypt the data.
+-- | A unique identifier for the customer master key used to re-encrypt the data.
+-- This value can be a globally unique identifier, a fully specified ARN to
+-- either an alias or a key, or an alias name prefixed by "alias/".  Key ARN
+-- Example -
+-- arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012 Alias ARN Example - arn:aws:kms:us-east-1:123456789012:/alias/MyAliasName
+-- Globally Unique Key ID Example - 12345678-1234-1234-123456789012 Alias Name
+-- Example - alias/MyAliasName
 reDestinationKeyId :: Lens' ReEncrypt Text
 reDestinationKeyId =
     lens _reDestinationKeyId (\s a -> s { _reDestinationKeyId = a })
 
--- | Grant tokens that identify the grants that have permissions for the
--- encryption and decryption process.
+-- | For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.
 reGrantTokens :: Lens' ReEncrypt [Text]
 reGrantTokens = lens _reGrantTokens (\s a -> s { _reGrantTokens = a }) . _List
 
@@ -140,7 +145,8 @@ reEncryptResponse = ReEncryptResponse
     , _rerKeyId          = Nothing
     }
 
--- | The re-encrypted data.
+-- | The re-encrypted data. If you are using the CLI, the value is Base64 encoded.
+-- Otherwise, it is not encoded.
 rerCiphertextBlob :: Lens' ReEncryptResponse (Maybe Base64)
 rerCiphertextBlob =
     lens _rerCiphertextBlob (\s a -> s { _rerCiphertextBlob = a })

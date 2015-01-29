@@ -152,6 +152,6 @@ instance FromJSON ListJobsByStatusResponse where
 
 instance AWSPager ListJobsByStatus where
     page rq rs
-        | stop (rq ^. ljbsPageToken) = Nothing
+        | stop (rs ^. ljbsrNextPageToken) = Nothing
         | otherwise = (\x -> rq & ljbsPageToken ?~ x)
             <$> (rs ^. ljbsrNextPageToken)

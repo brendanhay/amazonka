@@ -210,6 +210,6 @@ instance FromXML DescribeClusterSecurityGroupsResponse where
 
 instance AWSPager DescribeClusterSecurityGroups where
     page rq rs
-        | stop (rq ^. dcsgMarker) = Nothing
+        | stop (rs ^. dcsgr1Marker) = Nothing
         | otherwise = (\x -> rq & dcsgMarker ?~ x)
             <$> (rs ^. dcsgr1Marker)

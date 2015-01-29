@@ -169,6 +169,6 @@ instance FromXML DescribeDBInstancesResponse where
 
 instance AWSPager DescribeDBInstances where
     page rq rs
-        | stop (rq ^. ddbi1Marker) = Nothing
+        | stop (rs ^. ddbirMarker) = Nothing
         | otherwise = (\x -> rq & ddbi1Marker ?~ x)
             <$> (rs ^. ddbirMarker)

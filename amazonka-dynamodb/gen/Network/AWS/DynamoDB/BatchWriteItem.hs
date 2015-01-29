@@ -27,6 +27,8 @@
 -- can comprise as many as 25 put or delete requests. Individual items to be
 -- written can be as large as 400 KB.
 --
+-- /BatchWriteItem/ cannot update items. To update items, use the /UpdateItem/ API.
+--
 -- The individual /PutItem/ and /DeleteItem/ operations specified in /BatchWriteItem/
 -- are atomic; however /BatchWriteItem/ as a whole is not. If any requested
 -- operations fail because the table's provisioned throughput is exceeded or an

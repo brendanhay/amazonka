@@ -85,7 +85,7 @@ instance ToPath DeleteKeyPair where
 
 instance ToQuery DeleteKeyPair where
     toQuery DeleteKeyPair{..} = mconcat
-        [ "dryRun"  =? _dkpDryRun
+        [ "DryRun"  =? _dkpDryRun
         , "KeyName" =? _dkpKeyName
         ]
 

@@ -75,7 +75,7 @@ instance ToPath DeleteSpotDatafeedSubscription where
 
 instance ToQuery DeleteSpotDatafeedSubscription where
     toQuery DeleteSpotDatafeedSubscription{..} = mconcat
-        [ "dryRun" =? _dsds1DryRun
+        [ "DryRun" =? _dsds1DryRun
         ]
 
 instance ToHeaders DeleteSpotDatafeedSubscription

@@ -137,6 +137,6 @@ instance FromJSON ListPresetsResponse where
 
 instance AWSPager ListPresets where
     page rq rs
-        | stop (rq ^. lp1PageToken) = Nothing
+        | stop (rs ^. lpr1NextPageToken) = Nothing
         | otherwise = (\x -> rq & lp1PageToken ?~ x)
             <$> (rs ^. lpr1NextPageToken)

@@ -214,6 +214,6 @@ instance FromXML DescribeDBEngineVersionsResponse where
 
 instance AWSPager DescribeDBEngineVersions where
     page rq rs
-        | stop (rq ^. ddbevMarker) = Nothing
+        | stop (rs ^. ddbevrMarker) = Nothing
         | otherwise = (\x -> rq & ddbevMarker ?~ x)
             <$> (rs ^. ddbevrMarker)

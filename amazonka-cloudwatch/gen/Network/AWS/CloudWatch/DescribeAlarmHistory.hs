@@ -174,6 +174,6 @@ instance FromXML DescribeAlarmHistoryResponse where
 
 instance AWSPager DescribeAlarmHistory where
     page rq rs
-        | stop (rq ^. dahNextToken) = Nothing
+        | stop (rs ^. dahrNextToken) = Nothing
         | otherwise = (\x -> rq & dahNextToken ?~ x)
             <$> (rs ^. dahrNextToken)

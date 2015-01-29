@@ -100,8 +100,8 @@ instance ToPath DisableVpcClassicLink where
 
 instance ToQuery DisableVpcClassicLink where
     toQuery DisableVpcClassicLink{..} = mconcat
-        [ "dryRun" =? _dvcl1DryRun
-        , "vpcId"  =? _dvcl1VpcId
+        [ "DryRun" =? _dvcl1DryRun
+        , "VpcId"  =? _dvcl1VpcId
         ]
 
 instance ToHeaders DisableVpcClassicLink

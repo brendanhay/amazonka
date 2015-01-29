@@ -201,10 +201,10 @@ instance ToPath DescribeVolumes where
 
 instance ToQuery DescribeVolumes where
     toQuery DescribeVolumes{..} = mconcat
-        [ "dryRun"     =? _dv2DryRun
+        [ "DryRun"     =? _dv2DryRun
         , "Filter"     `toQueryList` _dv2Filters
-        , "maxResults" =? _dv2MaxResults
-        , "nextToken"  =? _dv2NextToken
+        , "MaxResults" =? _dv2MaxResults
+        , "NextToken"  =? _dv2NextToken
         , "VolumeId"   `toQueryList` _dv2VolumeIds
         ]
 

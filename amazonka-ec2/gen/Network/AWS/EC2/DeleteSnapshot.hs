@@ -98,7 +98,7 @@ instance ToPath DeleteSnapshot where
 
 instance ToQuery DeleteSnapshot where
     toQuery DeleteSnapshot{..} = mconcat
-        [ "dryRun"     =? _ds3DryRun
+        [ "DryRun"     =? _ds3DryRun
         , "SnapshotId" =? _ds3SnapshotId
         ]
 

@@ -122,8 +122,8 @@ instance ToPath CreateVpc where
 instance ToQuery CreateVpc where
     toQuery CreateVpc{..} = mconcat
         [ "CidrBlock"       =? _cvCidrBlock
-        , "dryRun"          =? _cvDryRun
-        , "instanceTenancy" =? _cvInstanceTenancy
+        , "DryRun"          =? _cvDryRun
+        , "InstanceTenancy" =? _cvInstanceTenancy
         ]
 
 instance ToHeaders CreateVpc

@@ -22,8 +22,11 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Returns a key wrapped by a customer master key without the plaintext copy of
--- that key. To retrieve the plaintext, see 'GenerateDataKey'.
+-- | Returns a data key encrypted by a customer master key without the plaintext
+-- copy of that key. Otherwise, this API functions exactly like 'GenerateDataKey'.
+-- You can use this API to, for example, satisfy an audit requirement that an
+-- encrypted key be made available without exposing the plaintext copy of that
+-- key.
 --
 -- <http://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKeyWithoutPlaintext.html>
 module Network.AWS.KMS.GenerateDataKeyWithoutPlaintext
@@ -92,13 +95,16 @@ gdkwpEncryptionContext =
     lens _gdkwpEncryptionContext (\s a -> s { _gdkwpEncryptionContext = a })
         . _Map
 
--- | A list of grant tokens that represent grants which can be used to provide
--- long term permissions to generate a key.
+-- | For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.
 gdkwpGrantTokens :: Lens' GenerateDataKeyWithoutPlaintext [Text]
 gdkwpGrantTokens = lens _gdkwpGrantTokens (\s a -> s { _gdkwpGrantTokens = a }) . _List
 
--- | Unique identifier of the key. This can be an ARN, an alias, or a globally
--- unique identifier.
+-- | A unique identifier for the customer master key. This value can be a globally
+-- unique identifier, a fully specified ARN to either an alias or a key, or an
+-- alias name prefixed by "alias/".  Key ARN Example -
+-- arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012 Alias ARN Example - arn:aws:kms:us-east-1:123456789012:/alias/MyAliasName
+-- Globally Unique Key ID Example - 12345678-1234-1234-123456789012 Alias Name
+-- Example - alias/MyAliasName
 gdkwpKeyId :: Lens' GenerateDataKeyWithoutPlaintext Text
 gdkwpKeyId = lens _gdkwpKeyId (\s a -> s { _gdkwpKeyId = a })
 
@@ -108,7 +114,8 @@ gdkwpKeySpec :: Lens' GenerateDataKeyWithoutPlaintext (Maybe DataKeySpec)
 gdkwpKeySpec = lens _gdkwpKeySpec (\s a -> s { _gdkwpKeySpec = a })
 
 -- | Integer that contains the number of bytes to generate. Common values are 128,
--- 256, 512, 1024 and so on.
+-- 256, 512, 1024 and so on. We recommend that you use the 'KeySpec' parameter
+-- instead.
 gdkwpNumberOfBytes :: Lens' GenerateDataKeyWithoutPlaintext (Maybe Natural)
 gdkwpNumberOfBytes =
     lens _gdkwpNumberOfBytes (\s a -> s { _gdkwpNumberOfBytes = a })
@@ -133,13 +140,17 @@ generateDataKeyWithoutPlaintextResponse = GenerateDataKeyWithoutPlaintextRespons
     , _gdkwprKeyId          = Nothing
     }
 
--- | Ciphertext that contains the wrapped key. You must store the blob and
--- encryption context so that the key can be used in a future operation.
+-- | Ciphertext that contains the wrapped data key. You must store the blob and
+-- encryption context so that the key can be used in a future decrypt operation.
+--
+-- If you are using the CLI, the value is Base64 encoded. Otherwise, it is not
+-- encoded.
 gdkwprCiphertextBlob :: Lens' GenerateDataKeyWithoutPlaintextResponse (Maybe Base64)
 gdkwprCiphertextBlob =
     lens _gdkwprCiphertextBlob (\s a -> s { _gdkwprCiphertextBlob = a })
 
--- | System generated unique identifier for the key.
+-- | System generated unique identifier of the key to be used to decrypt the
+-- encrypted copy of the data key.
 gdkwprKeyId :: Lens' GenerateDataKeyWithoutPlaintextResponse (Maybe Text)
 gdkwprKeyId = lens _gdkwprKeyId (\s a -> s { _gdkwprKeyId = a })
 

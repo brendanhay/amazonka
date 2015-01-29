@@ -122,10 +122,10 @@ instance ToPath CreateInstanceExportTask where
 
 instance ToQuery CreateInstanceExportTask where
     toQuery CreateInstanceExportTask{..} = mconcat
-        [ "description"       =? _cietDescription
-        , "exportToS3"        =? _cietExportToS3Task
-        , "instanceId"        =? _cietInstanceId
-        , "targetEnvironment" =? _cietTargetEnvironment
+        [ "Description"       =? _cietDescription
+        , "ExportToS3"        =? _cietExportToS3Task
+        , "InstanceId"        =? _cietInstanceId
+        , "TargetEnvironment" =? _cietTargetEnvironment
         ]
 
 instance ToHeaders CreateInstanceExportTask

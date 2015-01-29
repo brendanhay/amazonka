@@ -205,6 +205,6 @@ instance FromXML DescribeClusterParameterGroupsResponse where
 
 instance AWSPager DescribeClusterParameterGroups where
     page rq rs
-        | stop (rq ^. dcpgMarker) = Nothing
+        | stop (rs ^. dcpgrMarker) = Nothing
         | otherwise = (\x -> rq & dcpgMarker ?~ x)
             <$> (rs ^. dcpgrMarker)

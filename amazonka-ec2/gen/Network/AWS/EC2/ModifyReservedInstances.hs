@@ -121,7 +121,7 @@ instance ToPath ModifyReservedInstances where
 
 instance ToQuery ModifyReservedInstances where
     toQuery ModifyReservedInstances{..} = mconcat
-        [ "clientToken"                               =? _mriClientToken
+        [ "ClientToken"                               =? _mriClientToken
         , "ReservedInstancesId"                       `toQueryList` _mriReservedInstancesIds
         , "ReservedInstancesConfigurationSetItemType" `toQueryList` _mriTargetConfigurations
         ]

@@ -99,9 +99,9 @@ instance ToPath DeleteTags where
 
 instance ToQuery DeleteTags where
     toQuery DeleteTags{..} = mconcat
-        [ "dryRun"     =? _dt1DryRun
-        , "resourceId" `toQueryList` _dt1Resources
-        , "tag"        `toQueryList` _dt1Tags
+        [ "DryRun"     =? _dt1DryRun
+        , "ResourceId" `toQueryList` _dt1Resources
+        , "Tag"        `toQueryList` _dt1Tags
         ]
 
 instance ToHeaders DeleteTags

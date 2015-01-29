@@ -87,8 +87,8 @@ instance ToPath DeleteNetworkInterface where
 
 instance ToQuery DeleteNetworkInterface where
     toQuery DeleteNetworkInterface{..} = mconcat
-        [ "dryRun"             =? _dni2DryRun
-        , "networkInterfaceId" =? _dni2NetworkInterfaceId
+        [ "DryRun"             =? _dni2DryRun
+        , "NetworkInterfaceId" =? _dni2NetworkInterfaceId
         ]
 
 instance ToHeaders DeleteNetworkInterface

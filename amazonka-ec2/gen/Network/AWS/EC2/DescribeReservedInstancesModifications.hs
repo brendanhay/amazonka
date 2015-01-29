@@ -164,7 +164,7 @@ instance ToPath DescribeReservedInstancesModifications where
 instance ToQuery DescribeReservedInstancesModifications where
     toQuery DescribeReservedInstancesModifications{..} = mconcat
         [ "Filter"                          `toQueryList` _drimFilters
-        , "nextToken"                       =? _drimNextToken
+        , "NextToken"                       =? _drimNextToken
         , "ReservedInstancesModificationId" `toQueryList` _drimReservedInstancesModificationIds
         ]
 
@@ -184,6 +184,6 @@ instance FromXML DescribeReservedInstancesModificationsResponse where
 
 instance AWSPager DescribeReservedInstancesModifications where
     page rq rs
-        | stop (rq ^. drimNextToken) = Nothing
+        | stop (rs ^. drimrNextToken) = Nothing
         | otherwise = (\x -> rq & drimNextToken ?~ x)
             <$> (rs ^. drimrNextToken)

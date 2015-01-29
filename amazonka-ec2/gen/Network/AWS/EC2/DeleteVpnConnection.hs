@@ -95,7 +95,7 @@ instance ToPath DeleteVpnConnection where
 
 instance ToQuery DeleteVpnConnection where
     toQuery DeleteVpnConnection{..} = mconcat
-        [ "dryRun"          =? _dvcDryRun
+        [ "DryRun"          =? _dvcDryRun
         , "VpnConnectionId" =? _dvcVpnConnectionId
         ]
 

@@ -155,7 +155,7 @@ instance ToPath DescribeVpcPeeringConnections where
 
 instance ToQuery DescribeVpcPeeringConnections where
     toQuery DescribeVpcPeeringConnections{..} = mconcat
-        [ "dryRun"                 =? _dvpc1DryRun
+        [ "DryRun"                 =? _dvpc1DryRun
         , "Filter"                 `toQueryList` _dvpc1Filters
         , "VpcPeeringConnectionId" `toQueryList` _dvpc1VpcPeeringConnectionIds
         ]

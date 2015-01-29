@@ -136,7 +136,7 @@ instance ToPath DescribeVpcs where
 
 instance ToQuery DescribeVpcs where
     toQuery DescribeVpcs{..} = mconcat
-        [ "dryRun" =? _dv1DryRun
+        [ "DryRun" =? _dv1DryRun
         , "Filter" `toQueryList` _dv1Filters
         , "VpcId"  `toQueryList` _dv1VpcIds
         ]

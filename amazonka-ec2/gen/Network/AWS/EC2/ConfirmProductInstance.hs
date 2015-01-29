@@ -113,7 +113,7 @@ instance ToPath ConfirmProductInstance where
 
 instance ToQuery ConfirmProductInstance where
     toQuery ConfirmProductInstance{..} = mconcat
-        [ "dryRun"      =? _cpiDryRun
+        [ "DryRun"      =? _cpiDryRun
         , "InstanceId"  =? _cpiInstanceId
         , "ProductCode" =? _cpiProductCode
         ]

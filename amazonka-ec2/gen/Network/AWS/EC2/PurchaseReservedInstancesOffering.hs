@@ -135,9 +135,9 @@ instance ToPath PurchaseReservedInstancesOffering where
 
 instance ToQuery PurchaseReservedInstancesOffering where
     toQuery PurchaseReservedInstancesOffering{..} = mconcat
-        [ "dryRun"                      =? _prioDryRun
+        [ "DryRun"                      =? _prioDryRun
         , "InstanceCount"               =? _prioInstanceCount
-        , "limitPrice"                  =? _prioLimitPrice
+        , "LimitPrice"                  =? _prioLimitPrice
         , "ReservedInstancesOfferingId" =? _prioReservedInstancesOfferingId
         ]
 

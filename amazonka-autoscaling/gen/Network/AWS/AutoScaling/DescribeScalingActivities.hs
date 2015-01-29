@@ -164,6 +164,6 @@ instance FromXML DescribeScalingActivitiesResponse where
 
 instance AWSPager DescribeScalingActivities where
     page rq rs
-        | stop (rq ^. dsa2NextToken) = Nothing
+        | stop (rs ^. dsar1NextToken) = Nothing
         | otherwise = (\x -> rq & dsa2NextToken ?~ x)
             <$> (rs ^. dsar1NextToken)

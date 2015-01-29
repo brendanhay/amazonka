@@ -185,7 +185,7 @@ instance ToPath AttachVolume where
 instance ToQuery AttachVolume where
     toQuery AttachVolume{..} = mconcat
         [ "Device"     =? _avDevice
-        , "dryRun"     =? _avDryRun
+        , "DryRun"     =? _avDryRun
         , "InstanceId" =? _avInstanceId
         , "VolumeId"   =? _avVolumeId
         ]

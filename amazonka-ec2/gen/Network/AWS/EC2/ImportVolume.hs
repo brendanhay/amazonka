@@ -130,11 +130,11 @@ instance ToPath ImportVolume where
 
 instance ToQuery ImportVolume where
     toQuery ImportVolume{..} = mconcat
-        [ "availabilityZone" =? _ivAvailabilityZone
-        , "description"      =? _ivDescription
-        , "dryRun"           =? _ivDryRun
-        , "image"            =? _ivImage
-        , "volume"           =? _ivVolume
+        [ "AvailabilityZone" =? _ivAvailabilityZone
+        , "Description"      =? _ivDescription
+        , "DryRun"           =? _ivDryRun
+        , "Image"            =? _ivImage
+        , "Volume"           =? _ivVolume
         ]
 
 instance ToHeaders ImportVolume

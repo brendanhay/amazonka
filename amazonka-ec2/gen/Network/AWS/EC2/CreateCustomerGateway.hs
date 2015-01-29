@@ -140,7 +140,7 @@ instance ToPath CreateCustomerGateway where
 instance ToQuery CreateCustomerGateway where
     toQuery CreateCustomerGateway{..} = mconcat
         [ "BgpAsn"    =? _ccgBgpAsn
-        , "dryRun"    =? _ccgDryRun
+        , "DryRun"    =? _ccgDryRun
         , "IpAddress" =? _ccgPublicIp
         , "Type"      =? _ccgType
         ]

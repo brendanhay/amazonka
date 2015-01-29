@@ -17,6 +17,7 @@
         "imports": [
             "Network.AWS.ImportExport.CancelJob",
             "Network.AWS.ImportExport.CreateJob",
+            "Network.AWS.ImportExport.GetShippingLabel",
             "Network.AWS.ImportExport.GetStatus",
             "Network.AWS.ImportExport.ListJobs",
             "Network.AWS.ImportExport.Types",
@@ -57,6 +58,7 @@
             "Network.AWS.ImportExport",
             "Network.AWS.ImportExport.CancelJob",
             "Network.AWS.ImportExport.CreateJob",
+            "Network.AWS.ImportExport.GetShippingLabel",
             "Network.AWS.ImportExport.GetStatus",
             "Network.AWS.ImportExport.ListJobs",
             "Network.AWS.ImportExport.Types",
@@ -65,7 +67,7 @@
         "url": "http://docs.aws.amazon.com/AWSImportExport/latest/DG/api-reference.html",
         "protocol": "query",
         "name": "Amazon Import/Export",
-        "version": "0.2.2",
+        "version": "0.2.3",
         "description": "AWS Import/Export accelerates moving large amounts of data into and out of\nAWS using portable storage devices for transport. AWS transfers your data\ndirectly onto and off of storage devices using Amazon’s high-speed internal\nnetwork and bypassing the Internet. For significant data sets, AWS\nImport/Export is often faster than Internet transfer and more cost effective\nthan upgrading your connectivity."
     },
     "types": {
@@ -88,6 +90,95 @@
                 "name": "JobType",
                 "type": "nullary",
                 "branchPad": 7
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show"
+                ],
+                "fieldPad": 13,
+                "ctor": "artifact",
+                "contents": [],
+                "payload": null,
+                "required": [],
+                "contentPad": 0,
+                "name": "Artifact",
+                "locationPad": 12,
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "aDescription",
+                        "name": "_aDescription",
+                        "shape": "Description",
+                        "locationName": "Description",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "aURL",
+                        "name": "_aURL",
+                        "shape": "URL",
+                        "locationName": "URL",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "aDescription",
+                        "name": "_aDescription",
+                        "shape": "Description",
+                        "locationName": "Description",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "aURL",
+                        "name": "_aURL",
+                        "shape": "URL",
+                        "locationName": "URL",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
             },
             {
                 "deriving": [
@@ -248,7 +339,8 @@
         ],
         "imports": [],
         "shared": [
-            "JobType"
+            "JobType",
+            "Artifact"
         ]
     },
     "operations": [
@@ -353,33 +445,13 @@
                     "Eq",
                     "Ord",
                     "Read",
-                    "Show",
-                    "Monoid",
-                    "IsString"
+                    "Show"
                 ],
                 "streaming": false,
-                "listElement": null,
                 "style": "query",
-                "fieldPad": 0,
+                "fieldPad": 14,
                 "ctor": "cancelJob",
                 "headerPad": 0,
-                "field": {
-                    "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "error",
-                    "monoid": false,
-                    "protocol": "query",
-                    "flattened": false,
-                    "required": true,
-                    "lens": "cjJobId",
-                    "name": "_cjJobId",
-                    "shape": "JobId",
-                    "locationName": "JobId",
-                    "documentation": null,
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
                 "contents": [],
                 "path": [
                     {
@@ -399,8 +471,8 @@
                         "protocol": "query",
                         "flattened": false,
                         "required": true,
-                        "lens": "cjJobId",
-                        "name": "_cjJobId",
+                        "lens": "cj1JobId",
+                        "name": "_cj1JobId",
                         "shape": "JobId",
                         "locationName": "JobId",
                         "documentation": null,
@@ -411,7 +483,7 @@
                 "shared": false,
                 "headers": [],
                 "contentPad": 0,
-                "queryPad": 6,
+                "queryPad": 11,
                 "name": "CancelJob",
                 "query": [
                     {
@@ -419,17 +491,57 @@
                         "type": "const"
                     },
                     {
-                        "field": "_cjJobId",
+                        "field": "_cj1JobId",
                         "locationName": "JobId",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_cj1APIVersion",
+                        "locationName": "APIVersion",
                         "type": "field"
                     }
                 ],
-                "locationPad": 0,
-                "type": "newtype",
+                "locationPad": 11,
+                "type": "record",
                 "queryAll": true,
                 "headerAll": false,
-                "optional": [],
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "cj1APIVersion",
+                        "name": "_cj1APIVersion",
+                        "shape": "APIVersion",
+                        "locationName": "APIVersion",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
                 "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "cj1APIVersion",
+                        "name": "_cj1APIVersion",
+                        "shape": "APIVersion",
+                        "locationName": "APIVersion",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
                     {
                         "location": "querystring",
                         "iso": null,
@@ -439,8 +551,8 @@
                         "protocol": "query",
                         "flattened": false,
                         "required": true,
-                        "lens": "cjJobId",
-                        "name": "_cjJobId",
+                        "lens": "cj1JobId",
+                        "name": "_cj1JobId",
                         "shape": "JobId",
                         "locationName": "JobId",
                         "documentation": null,
@@ -520,23 +632,6 @@
                         "protocol": "query",
                         "flattened": false,
                         "required": false,
-                        "lens": "cjrAwsShippingAddress",
-                        "name": "_cjrAwsShippingAddress",
-                        "shape": "AwsShippingAddress",
-                        "locationName": "AwsShippingAddress",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    },
-                    {
-                        "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "monoid": false,
-                        "protocol": "query",
-                        "flattened": false,
-                        "required": false,
                         "lens": "cjrSignature",
                         "name": "_cjrSignature",
                         "shape": "Signature",
@@ -578,25 +673,42 @@
                         "documentation": null,
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "cjrArtifactList",
+                        "name": "_cjrArtifactList",
+                        "shape": "ArtifactList",
+                        "locationName": "ArtifactList",
+                        "documentation": null,
+                        "typeExposed": "[Artifact]",
+                        "type": "List \"member\" Artifact"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "monoid": false,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
                         "protocol": "query",
                         "flattened": false,
-                        "required": false,
-                        "lens": "cjrAwsShippingAddress",
-                        "name": "_cjrAwsShippingAddress",
-                        "shape": "AwsShippingAddress",
-                        "locationName": "AwsShippingAddress",
+                        "required": true,
+                        "lens": "cjrArtifactList",
+                        "name": "_cjrArtifactList",
+                        "shape": "ArtifactList",
+                        "locationName": "ArtifactList",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "[Artifact]",
+                        "type": "List \"member\" Artifact"
                     },
                     {
                         "location": "querystring",
@@ -799,6 +911,11 @@
                         "field": "_cjValidateOnly",
                         "locationName": "ValidateOnly",
                         "type": "field"
+                    },
+                    {
+                        "field": "_cjAPIVersion",
+                        "locationName": "APIVersion",
+                        "type": "field"
                     }
                 ],
                 "locationPad": 17,
@@ -822,9 +939,43 @@
                         "documentation": null,
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "cjAPIVersion",
+                        "name": "_cjAPIVersion",
+                        "shape": "APIVersion",
+                        "locationName": "APIVersion",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     }
                 ],
                 "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "cjAPIVersion",
+                        "name": "_cjAPIVersion",
+                        "shape": "APIVersion",
+                        "locationName": "APIVersion",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
                     {
                         "location": "querystring",
                         "iso": null,
@@ -901,6 +1052,629 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Ord",
+                    "Read",
+                    "Show"
+                ],
+                "streaming": false,
+                "style": "xml",
+                "fieldPad": 21,
+                "ctor": "getShippingLabelResponse",
+                "headerPad": 0,
+                "contents": [],
+                "wrapper": false,
+                "protocol": "query",
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "name": "GetShippingLabelResponse",
+                "resultWrapper": "GetShippingLabelResult",
+                "locationPad": 17,
+                "type": "record",
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gslrShippingLabelURL",
+                        "name": "_gslrShippingLabelURL",
+                        "shape": "GenericString",
+                        "locationName": "ShippingLabelURL",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gslrWarning",
+                        "name": "_gslrWarning",
+                        "shape": "GenericString",
+                        "locationName": "Warning",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gslrShippingLabelURL",
+                        "name": "_gslrShippingLabelURL",
+                        "shape": "GenericString",
+                        "locationName": "ShippingLabelURL",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gslrWarning",
+                        "name": "_gslrWarning",
+                        "shape": "GenericString",
+                        "locationName": "Warning",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "url": "http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebGetShippingLabel.html",
+            "namespace": "Network.AWS.ImportExport.GetShippingLabel",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ImportExport.Types"
+            ],
+            "pager": null,
+            "name": "GetShippingLabel",
+            "method": "post",
+            "documentation": "-- | This operation returns information about a job, including where the job is in\n-- the processing pipeline, the status of the results, and the signature value\n-- associated with the job. You can only return information about jobs you own.",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show"
+                ],
+                "streaming": false,
+                "style": "query",
+                "fieldPad": 19,
+                "ctor": "getShippingLabel",
+                "headerPad": 0,
+                "contents": [],
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "query",
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "queryPad": 16,
+                "name": "GetShippingLabel",
+                "query": [
+                    {
+                        "value": "Operation=GetShippingLabel",
+                        "type": "const"
+                    },
+                    {
+                        "field": "_gslJobIds",
+                        "locationName": "jobIds",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_gslName",
+                        "locationName": "name",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_gslCompany",
+                        "locationName": "company",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_gslPhoneNumber",
+                        "locationName": "phoneNumber",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_gslCountry",
+                        "locationName": "country",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_gslStateOrProvince",
+                        "locationName": "stateOrProvince",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_gslCity",
+                        "locationName": "city",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_gslPostalCode",
+                        "locationName": "postalCode",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_gslStreet1",
+                        "locationName": "street1",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_gslStreet2",
+                        "locationName": "street2",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_gslStreet3",
+                        "locationName": "street3",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_gslAPIVersion",
+                        "locationName": "APIVersion",
+                        "type": "field"
+                    }
+                ],
+                "locationPad": 16,
+                "type": "record",
+                "queryAll": true,
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gslJobIds",
+                        "name": "_gslJobIds",
+                        "shape": "JobIdList",
+                        "locationName": "jobIds",
+                        "documentation": null,
+                        "typeExposed": "[Text]",
+                        "type": "List \"member\" Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gslName",
+                        "name": "_gslName",
+                        "shape": "GenericString",
+                        "locationName": "name",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gslCompany",
+                        "name": "_gslCompany",
+                        "shape": "GenericString",
+                        "locationName": "company",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gslPhoneNumber",
+                        "name": "_gslPhoneNumber",
+                        "shape": "GenericString",
+                        "locationName": "phoneNumber",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gslCountry",
+                        "name": "_gslCountry",
+                        "shape": "GenericString",
+                        "locationName": "country",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gslStateOrProvince",
+                        "name": "_gslStateOrProvince",
+                        "shape": "GenericString",
+                        "locationName": "stateOrProvince",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gslCity",
+                        "name": "_gslCity",
+                        "shape": "GenericString",
+                        "locationName": "city",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gslPostalCode",
+                        "name": "_gslPostalCode",
+                        "shape": "GenericString",
+                        "locationName": "postalCode",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gslStreet1",
+                        "name": "_gslStreet1",
+                        "shape": "GenericString",
+                        "locationName": "street1",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gslStreet2",
+                        "name": "_gslStreet2",
+                        "shape": "GenericString",
+                        "locationName": "street2",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gslStreet3",
+                        "name": "_gslStreet3",
+                        "shape": "GenericString",
+                        "locationName": "street3",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gslAPIVersion",
+                        "name": "_gslAPIVersion",
+                        "shape": "GenericString",
+                        "locationName": "APIVersion",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gslAPIVersion",
+                        "name": "_gslAPIVersion",
+                        "shape": "GenericString",
+                        "locationName": "APIVersion",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gslCity",
+                        "name": "_gslCity",
+                        "shape": "GenericString",
+                        "locationName": "city",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gslCompany",
+                        "name": "_gslCompany",
+                        "shape": "GenericString",
+                        "locationName": "company",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gslCountry",
+                        "name": "_gslCountry",
+                        "shape": "GenericString",
+                        "locationName": "country",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gslJobIds",
+                        "name": "_gslJobIds",
+                        "shape": "JobIdList",
+                        "locationName": "jobIds",
+                        "documentation": null,
+                        "typeExposed": "[Text]",
+                        "type": "List \"member\" Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gslName",
+                        "name": "_gslName",
+                        "shape": "GenericString",
+                        "locationName": "name",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gslPhoneNumber",
+                        "name": "_gslPhoneNumber",
+                        "shape": "GenericString",
+                        "locationName": "phoneNumber",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gslPostalCode",
+                        "name": "_gslPostalCode",
+                        "shape": "GenericString",
+                        "locationName": "postalCode",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gslStateOrProvince",
+                        "name": "_gslStateOrProvince",
+                        "shape": "GenericString",
+                        "locationName": "stateOrProvince",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gslStreet1",
+                        "name": "_gslStreet1",
+                        "shape": "GenericString",
+                        "locationName": "street1",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gslStreet2",
+                        "name": "_gslStreet2",
+                        "shape": "GenericString",
+                        "locationName": "street2",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gslStreet3",
+                        "name": "_gslStreet3",
+                        "shape": "GenericString",
+                        "locationName": "street3",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "ImportExport",
+            "response": {
+                "deriving": [
+                    "Eq",
                     "Read",
                     "Show"
                 ],
@@ -956,23 +1730,6 @@
                         "documentation": null,
                         "typeExposed": "Maybe JobType",
                         "type": "Maybe JobType"
-                    },
-                    {
-                        "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "monoid": false,
-                        "protocol": "query",
-                        "flattened": false,
-                        "required": false,
-                        "lens": "gsrAwsShippingAddress",
-                        "name": "_gsrAwsShippingAddress",
-                        "shape": "AwsShippingAddress",
-                        "locationName": "AwsShippingAddress",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
                     },
                     {
                         "location": "querystring",
@@ -1194,25 +1951,42 @@
                         "documentation": null,
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe ISO8601"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gsrArtifactList",
+                        "name": "_gsrArtifactList",
+                        "shape": "ArtifactList",
+                        "locationName": "ArtifactList",
+                        "documentation": null,
+                        "typeExposed": "[Artifact]",
+                        "type": "List \"member\" Artifact"
                     }
                 ],
                 "fields": [
                     {
                         "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "monoid": false,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
                         "protocol": "query",
                         "flattened": false,
-                        "required": false,
-                        "lens": "gsrAwsShippingAddress",
-                        "name": "_gsrAwsShippingAddress",
-                        "shape": "AwsShippingAddress",
-                        "locationName": "AwsShippingAddress",
+                        "required": true,
+                        "lens": "gsrArtifactList",
+                        "name": "_gsrArtifactList",
+                        "shape": "ArtifactList",
+                        "locationName": "ArtifactList",
                         "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
+                        "typeExposed": "[Artifact]",
+                        "type": "List \"member\" Artifact"
                     },
                     {
                         "location": "querystring",
@@ -1488,33 +2262,13 @@
                     "Eq",
                     "Ord",
                     "Read",
-                    "Show",
-                    "Monoid",
-                    "IsString"
+                    "Show"
                 ],
                 "streaming": false,
-                "listElement": null,
                 "style": "query",
-                "fieldPad": 0,
+                "fieldPad": 13,
                 "ctor": "getStatus",
                 "headerPad": 0,
-                "field": {
-                    "location": "querystring",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "error",
-                    "monoid": false,
-                    "protocol": "query",
-                    "flattened": false,
-                    "required": true,
-                    "lens": "gsJobId",
-                    "name": "_gsJobId",
-                    "shape": "JobId",
-                    "locationName": "JobId",
-                    "documentation": null,
-                    "typeExposed": "Text",
-                    "type": "Text"
-                },
                 "contents": [],
                 "path": [
                     {
@@ -1546,7 +2300,7 @@
                 "shared": false,
                 "headers": [],
                 "contentPad": 0,
-                "queryPad": 6,
+                "queryPad": 11,
                 "name": "GetStatus",
                 "query": [
                     {
@@ -1557,14 +2311,54 @@
                         "field": "_gsJobId",
                         "locationName": "JobId",
                         "type": "field"
+                    },
+                    {
+                        "field": "_gsAPIVersion",
+                        "locationName": "APIVersion",
+                        "type": "field"
                     }
                 ],
-                "locationPad": 0,
-                "type": "newtype",
+                "locationPad": 11,
+                "type": "record",
                 "queryAll": true,
                 "headerAll": false,
-                "optional": [],
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gsAPIVersion",
+                        "name": "_gsAPIVersion",
+                        "shape": "APIVersion",
+                        "locationName": "APIVersion",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
                 "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gsAPIVersion",
+                        "name": "_gsAPIVersion",
+                        "shape": "APIVersion",
+                        "locationName": "APIVersion",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
                     {
                         "location": "querystring",
                         "iso": null,
@@ -1714,7 +2508,7 @@
                 ],
                 "streaming": false,
                 "style": "query",
-                "fieldPad": 10,
+                "fieldPad": 13,
                 "ctor": "listJobs",
                 "headerPad": 0,
                 "contents": [],
@@ -1730,7 +2524,7 @@
                 "shared": false,
                 "headers": [],
                 "contentPad": 0,
-                "queryPad": 8,
+                "queryPad": 11,
                 "name": "ListJobs",
                 "query": [
                     {
@@ -1746,9 +2540,14 @@
                         "field": "_ljMarker",
                         "locationName": "Marker",
                         "type": "field"
+                    },
+                    {
+                        "field": "_ljAPIVersion",
+                        "locationName": "APIVersion",
+                        "type": "field"
                     }
                 ],
-                "locationPad": 8,
+                "locationPad": 11,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -1786,9 +2585,43 @@
                         "documentation": null,
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ljAPIVersion",
+                        "name": "_ljAPIVersion",
+                        "shape": "APIVersion",
+                        "locationName": "APIVersion",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     }
                 ],
                 "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ljAPIVersion",
+                        "name": "_ljAPIVersion",
+                        "shape": "APIVersion",
+                        "locationName": "APIVersion",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
                     {
                         "location": "querystring",
                         "iso": null,
@@ -1831,7 +2664,6 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Read",
                     "Show"
                 ],
@@ -1887,9 +2719,43 @@
                         "documentation": null,
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "ujrArtifactList",
+                        "name": "_ujrArtifactList",
+                        "shape": "ArtifactList",
+                        "locationName": "ArtifactList",
+                        "documentation": null,
+                        "typeExposed": "[Artifact]",
+                        "type": "List \"member\" Artifact"
                     }
                 ],
                 "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "ujrArtifactList",
+                        "name": "_ujrArtifactList",
+                        "shape": "ArtifactList",
+                        "locationName": "ArtifactList",
+                        "documentation": null,
+                        "typeExposed": "[Artifact]",
+                        "type": "List \"member\" Artifact"
+                    },
                     {
                         "location": "querystring",
                         "iso": null,
@@ -2057,14 +2923,54 @@
                         "field": "_ujValidateOnly",
                         "locationName": "ValidateOnly",
                         "type": "field"
+                    },
+                    {
+                        "field": "_ujAPIVersion",
+                        "locationName": "APIVersion",
+                        "type": "field"
                     }
                 ],
                 "locationPad": 13,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
-                "optional": [],
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ujAPIVersion",
+                        "name": "_ujAPIVersion",
+                        "shape": "APIVersion",
+                        "locationName": "APIVersion",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
                 "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ujAPIVersion",
+                        "name": "_ujAPIVersion",
+                        "shape": "APIVersion",
+                        "locationName": "APIVersion",
+                        "documentation": null,
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
                     {
                         "location": "querystring",
                         "iso": null,

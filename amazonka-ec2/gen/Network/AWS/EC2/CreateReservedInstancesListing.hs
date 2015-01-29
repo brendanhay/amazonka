@@ -148,10 +148,10 @@ instance ToPath CreateReservedInstancesListing where
 
 instance ToQuery CreateReservedInstancesListing where
     toQuery CreateReservedInstancesListing{..} = mconcat
-        [ "clientToken"         =? _crilClientToken
-        , "instanceCount"       =? _crilInstanceCount
-        , "priceSchedules"      `toQueryList` _crilPriceSchedules
-        , "reservedInstancesId" =? _crilReservedInstancesId
+        [ "ClientToken"         =? _crilClientToken
+        , "InstanceCount"       =? _crilInstanceCount
+        , "PriceSchedules"      `toQueryList` _crilPriceSchedules
+        , "ReservedInstancesId" =? _crilReservedInstancesId
         ]
 
 instance ToHeaders CreateReservedInstancesListing

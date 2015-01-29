@@ -100,7 +100,7 @@ instance ToPath ResetSnapshotAttribute where
 instance ToQuery ResetSnapshotAttribute where
     toQuery ResetSnapshotAttribute{..} = mconcat
         [ "Attribute"  =? _rsaAttribute
-        , "dryRun"     =? _rsaDryRun
+        , "DryRun"     =? _rsaDryRun
         , "SnapshotId" =? _rsaSnapshotId
         ]
 

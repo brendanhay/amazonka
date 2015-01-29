@@ -161,13 +161,13 @@ instance ToPath CreateNetworkInterface where
 
 instance ToQuery CreateNetworkInterface where
     toQuery CreateNetworkInterface{..} = mconcat
-        [ "description"                    =? _cniDescription
-        , "dryRun"                         =? _cniDryRun
+        [ "Description"                    =? _cniDescription
+        , "DryRun"                         =? _cniDryRun
         , "SecurityGroupId"                `toQueryList` _cniGroups
-        , "privateIpAddress"               =? _cniPrivateIpAddress
-        , "privateIpAddresses"             `toQueryList` _cniPrivateIpAddresses
-        , "secondaryPrivateIpAddressCount" =? _cniSecondaryPrivateIpAddressCount
-        , "subnetId"                       =? _cniSubnetId
+        , "PrivateIpAddress"               =? _cniPrivateIpAddress
+        , "PrivateIpAddresses"             `toQueryList` _cniPrivateIpAddresses
+        , "SecondaryPrivateIpAddressCount" =? _cniSecondaryPrivateIpAddressCount
+        , "SubnetId"                       =? _cniSubnetId
         ]
 
 instance ToHeaders CreateNetworkInterface

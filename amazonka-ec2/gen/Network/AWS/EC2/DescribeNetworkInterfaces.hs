@@ -214,8 +214,8 @@ instance ToPath DescribeNetworkInterfaces where
 
 instance ToQuery DescribeNetworkInterfaces where
     toQuery DescribeNetworkInterfaces{..} = mconcat
-        [ "dryRun"             =? _dni1DryRun
-        , "filter"             `toQueryList` _dni1Filters
+        [ "DryRun"             =? _dni1DryRun
+        , "Filter"             `toQueryList` _dni1Filters
         , "NetworkInterfaceId" `toQueryList` _dni1NetworkInterfaceIds
         ]
 

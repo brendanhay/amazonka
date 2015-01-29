@@ -212,6 +212,6 @@ instance FromJSON ListActivityTypesResponse where
 
 instance AWSPager ListActivityTypes where
     page rq rs
-        | stop (rq ^. latNextPageToken) = Nothing
+        | stop (rs ^. latrNextPageToken) = Nothing
         | otherwise = (\x -> rq & latNextPageToken ?~ x)
             <$> (rs ^. latrNextPageToken)

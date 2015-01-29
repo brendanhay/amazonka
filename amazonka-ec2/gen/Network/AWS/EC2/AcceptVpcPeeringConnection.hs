@@ -105,8 +105,8 @@ instance ToPath AcceptVpcPeeringConnection where
 
 instance ToQuery AcceptVpcPeeringConnection where
     toQuery AcceptVpcPeeringConnection{..} = mconcat
-        [ "dryRun"                 =? _avpcDryRun
-        , "vpcPeeringConnectionId" =? _avpcVpcPeeringConnectionId
+        [ "DryRun"                 =? _avpcDryRun
+        , "VpcPeeringConnectionId" =? _avpcVpcPeeringConnectionId
         ]
 
 instance ToHeaders AcceptVpcPeeringConnection

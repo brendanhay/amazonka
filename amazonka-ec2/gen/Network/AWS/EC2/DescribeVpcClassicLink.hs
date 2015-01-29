@@ -125,7 +125,7 @@ instance ToPath DescribeVpcClassicLink where
 
 instance ToQuery DescribeVpcClassicLink where
     toQuery DescribeVpcClassicLink{..} = mconcat
-        [ "dryRun" =? _dvclDryRun
+        [ "DryRun" =? _dvclDryRun
         , "Filter" `toQueryList` _dvclFilters
         , "VpcId"  `toQueryList` _dvclVpcIds
         ]

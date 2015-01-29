@@ -134,6 +134,6 @@ instance FromXML DescribeStacksResponse where
 
 instance AWSPager DescribeStacks where
     page rq rs
-        | stop (rq ^. ds1NextToken) = Nothing
+        | stop (rs ^. dsrNextToken) = Nothing
         | otherwise = (\x -> rq & ds1NextToken ?~ x)
             <$> (rs ^. dsrNextToken)

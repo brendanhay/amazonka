@@ -98,7 +98,7 @@ instance ToPath DeleteSecurityGroup where
 
 instance ToQuery DeleteSecurityGroup where
     toQuery DeleteSecurityGroup{..} = mconcat
-        [ "dryRun"    =? _dsgDryRun
+        [ "DryRun"    =? _dsgDryRun
         , "GroupId"   =? _dsgGroupId
         , "GroupName" =? _dsgGroupName
         ]

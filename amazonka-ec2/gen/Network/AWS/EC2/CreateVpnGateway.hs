@@ -114,7 +114,7 @@ instance ToPath CreateVpnGateway where
 instance ToQuery CreateVpnGateway where
     toQuery CreateVpnGateway{..} = mconcat
         [ "AvailabilityZone" =? _cvgAvailabilityZone
-        , "dryRun"           =? _cvgDryRun
+        , "DryRun"           =? _cvgDryRun
         , "Type"             =? _cvgType
         ]
 

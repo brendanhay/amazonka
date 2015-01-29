@@ -210,6 +210,6 @@ instance FromJSON ListWorkflowTypesResponse where
 
 instance AWSPager ListWorkflowTypes where
     page rq rs
-        | stop (rq ^. lwtNextPageToken) = Nothing
+        | stop (rs ^. lwtrNextPageToken) = Nothing
         | otherwise = (\x -> rq & lwtNextPageToken ?~ x)
             <$> (rs ^. lwtrNextPageToken)

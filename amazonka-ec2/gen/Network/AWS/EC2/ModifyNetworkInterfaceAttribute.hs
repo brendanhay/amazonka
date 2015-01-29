@@ -130,12 +130,12 @@ instance ToPath ModifyNetworkInterfaceAttribute where
 
 instance ToQuery ModifyNetworkInterfaceAttribute where
     toQuery ModifyNetworkInterfaceAttribute{..} = mconcat
-        [ "attachment"         =? _mniaAttachment
-        , "description"        =? _mniaDescription
-        , "dryRun"             =? _mniaDryRun
+        [ "Attachment"         =? _mniaAttachment
+        , "Description"        =? _mniaDescription
+        , "DryRun"             =? _mniaDryRun
         , "SecurityGroupId"    `toQueryList` _mniaGroups
-        , "networkInterfaceId" =? _mniaNetworkInterfaceId
-        , "sourceDestCheck"    =? _mniaSourceDestCheck
+        , "NetworkInterfaceId" =? _mniaNetworkInterfaceId
+        , "SourceDestCheck"    =? _mniaSourceDestCheck
         ]
 
 instance ToHeaders ModifyNetworkInterfaceAttribute

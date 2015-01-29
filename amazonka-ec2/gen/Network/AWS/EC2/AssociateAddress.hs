@@ -173,11 +173,11 @@ instance ToPath AssociateAddress where
 instance ToQuery AssociateAddress where
     toQuery AssociateAddress{..} = mconcat
         [ "AllocationId"       =? _aa1AllocationId
-        , "allowReassociation" =? _aa1AllowReassociation
-        , "dryRun"             =? _aa1DryRun
+        , "AllowReassociation" =? _aa1AllowReassociation
+        , "DryRun"             =? _aa1DryRun
         , "InstanceId"         =? _aa1InstanceId
-        , "networkInterfaceId" =? _aa1NetworkInterfaceId
-        , "privateIpAddress"   =? _aa1PrivateIpAddress
+        , "NetworkInterfaceId" =? _aa1NetworkInterfaceId
+        , "PrivateIpAddress"   =? _aa1PrivateIpAddress
         , "PublicIp"           =? _aa1PublicIp
         ]
 

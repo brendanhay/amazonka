@@ -153,7 +153,7 @@ instance ToPath CreateSecurityGroup where
 instance ToQuery CreateSecurityGroup where
     toQuery CreateSecurityGroup{..} = mconcat
         [ "GroupDescription" =? _csgDescription
-        , "dryRun"           =? _csgDryRun
+        , "DryRun"           =? _csgDryRun
         , "GroupName"        =? _csgGroupName
         , "VpcId"            =? _csgVpcId
         ]

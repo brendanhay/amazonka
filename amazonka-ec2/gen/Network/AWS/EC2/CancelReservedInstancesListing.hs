@@ -99,7 +99,7 @@ instance ToPath CancelReservedInstancesListing where
 
 instance ToQuery CancelReservedInstancesListing where
     toQuery CancelReservedInstancesListing{..} = mconcat
-        [ "reservedInstancesListingId" =? _crilReservedInstancesListingId
+        [ "ReservedInstancesListingId" =? _crilReservedInstancesListingId
         ]
 
 instance ToHeaders CancelReservedInstancesListing

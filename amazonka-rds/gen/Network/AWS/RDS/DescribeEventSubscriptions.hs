@@ -169,6 +169,6 @@ instance FromXML DescribeEventSubscriptionsResponse where
 
 instance AWSPager DescribeEventSubscriptions where
     page rq rs
-        | stop (rq ^. des1Marker) = Nothing
+        | stop (rs ^. desrMarker) = Nothing
         | otherwise = (\x -> rq & des1Marker ?~ x)
             <$> (rs ^. desrMarker)

@@ -133,7 +133,7 @@ instance ToPath DescribeVpcAttribute where
 instance ToQuery DescribeVpcAttribute where
     toQuery DescribeVpcAttribute{..} = mconcat
         [ "Attribute" =? _dva1Attribute
-        , "dryRun"    =? _dva1DryRun
+        , "DryRun"    =? _dva1DryRun
         , "VpcId"     =? _dva1VpcId
         ]
 

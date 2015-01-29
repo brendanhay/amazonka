@@ -176,6 +176,6 @@ instance FromJSON DescribeVTLDevicesResponse where
 
 instance AWSPager DescribeVTLDevices where
     page rq rs
-        | stop (rq ^. dvtldMarker) = Nothing
+        | stop (rs ^. dvtldrMarker) = Nothing
         | otherwise = (\x -> rq & dvtldMarker ?~ x)
             <$> (rs ^. dvtldrMarker)

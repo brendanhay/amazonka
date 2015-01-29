@@ -1612,13 +1612,13 @@ instance FromXML NetworkAclEntry where
 
 instance ToQuery NetworkAclEntry where
     toQuery NetworkAclEntry{..} = mconcat
-        [ "cidrBlock"    =? _naeCidrBlock
-        , "egress"       =? _naeEgress
-        , "icmpTypeCode" =? _naeIcmpTypeCode
-        , "portRange"    =? _naePortRange
-        , "protocol"     =? _naeProtocol
-        , "ruleAction"   =? _naeRuleAction
-        , "ruleNumber"   =? _naeRuleNumber
+        [ "CidrBlock"    =? _naeCidrBlock
+        , "Egress"       =? _naeEgress
+        , "IcmpTypeCode" =? _naeIcmpTypeCode
+        , "PortRange"    =? _naePortRange
+        , "Protocol"     =? _naeProtocol
+        , "RuleAction"   =? _naeRuleAction
+        , "RuleNumber"   =? _naeRuleNumber
         ]
 
 newtype BlobAttributeValue = BlobAttributeValue
@@ -1645,7 +1645,7 @@ instance FromXML BlobAttributeValue where
 
 instance ToQuery BlobAttributeValue where
     toQuery BlobAttributeValue{..} = mconcat
-        [ "value" =? _bavValue
+        [ "Value" =? _bavValue
         ]
 
 data ImportInstanceLaunchSpecification = ImportInstanceLaunchSpecification
@@ -1771,17 +1771,17 @@ instance FromXML ImportInstanceLaunchSpecification where
 
 instance ToQuery ImportInstanceLaunchSpecification where
     toQuery ImportInstanceLaunchSpecification{..} = mconcat
-        [ "additionalInfo"                    =? _iilsAdditionalInfo
-        , "architecture"                      =? _iilsArchitecture
+        [ "AdditionalInfo"                    =? _iilsAdditionalInfo
+        , "Architecture"                      =? _iilsArchitecture
         , "GroupId"                           `toQueryList` _iilsGroupIds
         , "GroupName"                         `toQueryList` _iilsGroupNames
-        , "instanceInitiatedShutdownBehavior" =? _iilsInstanceInitiatedShutdownBehavior
-        , "instanceType"                      =? _iilsInstanceType
-        , "monitoring"                        =? _iilsMonitoring
-        , "placement"                         =? _iilsPlacement
-        , "privateIpAddress"                  =? _iilsPrivateIpAddress
-        , "subnetId"                          =? _iilsSubnetId
-        , "userData"                          =? _iilsUserData
+        , "InstanceInitiatedShutdownBehavior" =? _iilsInstanceInitiatedShutdownBehavior
+        , "InstanceType"                      =? _iilsInstanceType
+        , "Monitoring"                        =? _iilsMonitoring
+        , "Placement"                         =? _iilsPlacement
+        , "PrivateIpAddress"                  =? _iilsPrivateIpAddress
+        , "SubnetId"                          =? _iilsSubnetId
+        , "UserData"                          =? _iilsUserData
         ]
 
 data Snapshot = Snapshot
@@ -1919,18 +1919,18 @@ instance FromXML Snapshot where
 
 instance ToQuery Snapshot where
     toQuery Snapshot{..} = mconcat
-        [ "description" =? _sDescription
-        , "encrypted"   =? _sEncrypted
-        , "kmsKeyId"    =? _sKmsKeyId
-        , "ownerAlias"  =? _sOwnerAlias
-        , "ownerId"     =? _sOwnerId
-        , "progress"    =? _sProgress
-        , "snapshotId"  =? _sSnapshotId
-        , "startTime"   =? _sStartTime
-        , "status"      =? _sState
-        , "tagSet"      `toQueryList` _sTags
-        , "volumeId"    =? _sVolumeId
-        , "volumeSize"  =? _sVolumeSize
+        [ "Description" =? _sDescription
+        , "Encrypted"   =? _sEncrypted
+        , "KmsKeyId"    =? _sKmsKeyId
+        , "OwnerAlias"  =? _sOwnerAlias
+        , "OwnerId"     =? _sOwnerId
+        , "Progress"    =? _sProgress
+        , "SnapshotId"  =? _sSnapshotId
+        , "StartTime"   =? _sStartTime
+        , "Status"      =? _sState
+        , "TagSet"      `toQueryList` _sTags
+        , "VolumeId"    =? _sVolumeId
+        , "VolumeSize"  =? _sVolumeSize
         ]
 
 data SpotInstanceStateFault = SpotInstanceStateFault
@@ -1967,8 +1967,8 @@ instance FromXML SpotInstanceStateFault where
 
 instance ToQuery SpotInstanceStateFault where
     toQuery SpotInstanceStateFault{..} = mconcat
-        [ "code"    =? _sisfCode
-        , "message" =? _sisfMessage
+        [ "Code"    =? _sisfCode
+        , "Message" =? _sisfMessage
         ]
 
 data TagDescription = TagDescription
@@ -2027,10 +2027,10 @@ instance FromXML TagDescription where
 
 instance ToQuery TagDescription where
     toQuery TagDescription{..} = mconcat
-        [ "key"          =? _tdKey
-        , "resourceId"   =? _tdResourceId
-        , "resourceType" =? _tdResourceType
-        , "value"        =? _tdValue
+        [ "Key"          =? _tdKey
+        , "ResourceId"   =? _tdResourceId
+        , "ResourceType" =? _tdResourceType
+        , "Value"        =? _tdValue
         ]
 
 data GroupIdentifier = GroupIdentifier
@@ -2067,8 +2067,8 @@ instance FromXML GroupIdentifier where
 
 instance ToQuery GroupIdentifier where
     toQuery GroupIdentifier{..} = mconcat
-        [ "groupId"   =? _giGroupId
-        , "groupName" =? _giGroupName
+        [ "GroupId"   =? _giGroupId
+        , "GroupName" =? _giGroupName
         ]
 
 data VpnStaticRouteSource
@@ -2207,16 +2207,16 @@ instance FromXML ReservedInstancesListing where
 
 instance ToQuery ReservedInstancesListing where
     toQuery ReservedInstancesListing{..} = mconcat
-        [ "clientToken"                =? _rilClientToken
-        , "createDate"                 =? _rilCreateDate
-        , "instanceCounts"             `toQueryList` _rilInstanceCounts
-        , "priceSchedules"             `toQueryList` _rilPriceSchedules
-        , "reservedInstancesId"        =? _rilReservedInstancesId
-        , "reservedInstancesListingId" =? _rilReservedInstancesListingId
-        , "status"                     =? _rilStatus
-        , "statusMessage"              =? _rilStatusMessage
-        , "tagSet"                     `toQueryList` _rilTags
-        , "updateDate"                 =? _rilUpdateDate
+        [ "ClientToken"                =? _rilClientToken
+        , "CreateDate"                 =? _rilCreateDate
+        , "InstanceCounts"             `toQueryList` _rilInstanceCounts
+        , "PriceSchedules"             `toQueryList` _rilPriceSchedules
+        , "ReservedInstancesId"        =? _rilReservedInstancesId
+        , "ReservedInstancesListingId" =? _rilReservedInstancesListingId
+        , "Status"                     =? _rilStatus
+        , "StatusMessage"              =? _rilStatusMessage
+        , "TagSet"                     `toQueryList` _rilTags
+        , "UpdateDate"                 =? _rilUpdateDate
         ]
 
 data InstanceLifecycleType
@@ -2357,8 +2357,8 @@ instance FromXML CreateVolumePermission where
 
 instance ToQuery CreateVolumePermission where
     toQuery CreateVolumePermission{..} = mconcat
-        [ "group"  =? _cvpGroup
-        , "userId" =? _cvpUserId
+        [ "Group"  =? _cvpGroup
+        , "UserId" =? _cvpUserId
         ]
 
 data NetworkInterfaceAttachmentChanges = NetworkInterfaceAttachmentChanges
@@ -2397,8 +2397,8 @@ instance FromXML NetworkInterfaceAttachmentChanges where
 
 instance ToQuery NetworkInterfaceAttachmentChanges where
     toQuery NetworkInterfaceAttachmentChanges{..} = mconcat
-        [ "attachmentId"        =? _niacAttachmentId
-        , "deleteOnTermination" =? _niacDeleteOnTermination
+        [ "AttachmentId"        =? _niacAttachmentId
+        , "DeleteOnTermination" =? _niacDeleteOnTermination
         ]
 
 data RecurringChargeFrequency
@@ -2468,9 +2468,9 @@ instance FromXML DhcpOptions where
 
 instance ToQuery DhcpOptions where
     toQuery DhcpOptions{..} = mconcat
-        [ "dhcpConfigurationSet" `toQueryList` _doDhcpConfigurations
-        , "dhcpOptionsId"        =? _doDhcpOptionsId
-        , "tagSet"               `toQueryList` _doTags
+        [ "DhcpConfigurationSet" `toQueryList` _doDhcpConfigurations
+        , "DhcpOptionsId"        =? _doDhcpOptionsId
+        , "TagSet"               `toQueryList` _doTags
         ]
 
 data InstanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecification
@@ -2603,16 +2603,16 @@ instance FromXML InstanceNetworkInterfaceSpecification where
 
 instance ToQuery InstanceNetworkInterfaceSpecification where
     toQuery InstanceNetworkInterfaceSpecification{..} = mconcat
-        [ "associatePublicIpAddress"       =? _inisAssociatePublicIpAddress
-        , "deleteOnTermination"            =? _inisDeleteOnTermination
-        , "description"                    =? _inisDescription
-        , "deviceIndex"                    =? _inisDeviceIndex
+        [ "AssociatePublicIpAddress"       =? _inisAssociatePublicIpAddress
+        , "DeleteOnTermination"            =? _inisDeleteOnTermination
+        , "Description"                    =? _inisDescription
+        , "DeviceIndex"                    =? _inisDeviceIndex
         , "SecurityGroupId"                `toQueryList` _inisGroups
-        , "networkInterfaceId"             =? _inisNetworkInterfaceId
-        , "privateIpAddress"               =? _inisPrivateIpAddress
-        , "privateIpAddressesSet"          `toQueryList` _inisPrivateIpAddresses
-        , "secondaryPrivateIpAddressCount" =? _inisSecondaryPrivateIpAddressCount
-        , "subnetId"                       =? _inisSubnetId
+        , "NetworkInterfaceId"             =? _inisNetworkInterfaceId
+        , "PrivateIpAddress"               =? _inisPrivateIpAddress
+        , "PrivateIpAddressesSet"          `toQueryList` _inisPrivateIpAddresses
+        , "SecondaryPrivateIpAddressCount" =? _inisSecondaryPrivateIpAddressCount
+        , "SubnetId"                       =? _inisSubnetId
         ]
 
 data VolumeState
@@ -2678,7 +2678,7 @@ instance FromXML AttributeValue where
 
 instance ToQuery AttributeValue where
     toQuery AttributeValue{..} = mconcat
-        [ "value" =? _avValue
+        [ "Value" =? _avValue
         ]
 
 data PrivateIpAddressSpecification = PrivateIpAddressSpecification
@@ -2718,8 +2718,8 @@ instance FromXML PrivateIpAddressSpecification where
 
 instance ToQuery PrivateIpAddressSpecification where
     toQuery PrivateIpAddressSpecification{..} = mconcat
-        [ "primary"          =? _piasPrimary
-        , "privateIpAddress" =? _piasPrivateIpAddress
+        [ "Primary"          =? _piasPrimary
+        , "PrivateIpAddress" =? _piasPrivateIpAddress
         ]
 
 data Image = Image
@@ -2965,29 +2965,29 @@ instance FromXML Image where
 
 instance ToQuery Image where
     toQuery Image{..} = mconcat
-        [ "architecture"       =? _iArchitecture
-        , "blockDeviceMapping" `toQueryList` _iBlockDeviceMappings
-        , "creationDate"       =? _iCreationDate
-        , "description"        =? _iDescription
-        , "hypervisor"         =? _iHypervisor
-        , "imageId"            =? _iImageId
-        , "imageLocation"      =? _iImageLocation
-        , "imageOwnerAlias"    =? _iImageOwnerAlias
-        , "imageType"          =? _iImageType
-        , "kernelId"           =? _iKernelId
-        , "name"               =? _iName
-        , "imageOwnerId"       =? _iOwnerId
-        , "platform"           =? _iPlatform
-        , "productCodes"       `toQueryList` _iProductCodes
-        , "isPublic"           =? _iPublic
-        , "ramdiskId"          =? _iRamdiskId
-        , "rootDeviceName"     =? _iRootDeviceName
-        , "rootDeviceType"     =? _iRootDeviceType
-        , "sriovNetSupport"    =? _iSriovNetSupport
-        , "imageState"         =? _iState
-        , "stateReason"        =? _iStateReason
-        , "tagSet"             `toQueryList` _iTags
-        , "virtualizationType" =? _iVirtualizationType
+        [ "Architecture"       =? _iArchitecture
+        , "BlockDeviceMapping" `toQueryList` _iBlockDeviceMappings
+        , "CreationDate"       =? _iCreationDate
+        , "Description"        =? _iDescription
+        , "Hypervisor"         =? _iHypervisor
+        , "ImageId"            =? _iImageId
+        , "ImageLocation"      =? _iImageLocation
+        , "ImageOwnerAlias"    =? _iImageOwnerAlias
+        , "ImageType"          =? _iImageType
+        , "KernelId"           =? _iKernelId
+        , "Name"               =? _iName
+        , "ImageOwnerId"       =? _iOwnerId
+        , "Platform"           =? _iPlatform
+        , "ProductCodes"       `toQueryList` _iProductCodes
+        , "IsPublic"           =? _iPublic
+        , "RamdiskId"          =? _iRamdiskId
+        , "RootDeviceName"     =? _iRootDeviceName
+        , "RootDeviceType"     =? _iRootDeviceType
+        , "SriovNetSupport"    =? _iSriovNetSupport
+        , "ImageState"         =? _iState
+        , "StateReason"        =? _iStateReason
+        , "TagSet"             `toQueryList` _iTags
+        , "VirtualizationType" =? _iVirtualizationType
         ]
 
 data DhcpConfiguration = DhcpConfiguration
@@ -3024,8 +3024,8 @@ instance FromXML DhcpConfiguration where
 
 instance ToQuery DhcpConfiguration where
     toQuery DhcpConfiguration{..} = mconcat
-        [ "key"      =? _dcKey
-        , "valueSet" `toQueryList` _dcValues
+        [ "Key"      =? _dcKey
+        , "ValueSet" `toQueryList` _dcValues
         ]
 
 data Tag = Tag
@@ -3070,8 +3070,8 @@ instance FromXML Tag where
 
 instance ToQuery Tag where
     toQuery Tag{..} = mconcat
-        [ "key"   =? _tagKey
-        , "value" =? _tagValue
+        [ "Key"   =? _tagKey
+        , "Value" =? _tagValue
         ]
 
 data AccountAttributeName
@@ -3182,13 +3182,13 @@ instance FromXML NetworkInterfaceAttachment where
 
 instance ToQuery NetworkInterfaceAttachment where
     toQuery NetworkInterfaceAttachment{..} = mconcat
-        [ "attachTime"          =? _niaAttachTime
-        , "attachmentId"        =? _niaAttachmentId
-        , "deleteOnTermination" =? _niaDeleteOnTermination
-        , "deviceIndex"         =? _niaDeviceIndex
-        , "instanceId"          =? _niaInstanceId
-        , "instanceOwnerId"     =? _niaInstanceOwnerId
-        , "status"              =? _niaStatus
+        [ "AttachTime"          =? _niaAttachTime
+        , "AttachmentId"        =? _niaAttachmentId
+        , "DeleteOnTermination" =? _niaDeleteOnTermination
+        , "DeviceIndex"         =? _niaDeviceIndex
+        , "InstanceId"          =? _niaInstanceId
+        , "InstanceOwnerId"     =? _niaInstanceOwnerId
+        , "Status"              =? _niaStatus
         ]
 
 newtype RunInstancesMonitoringEnabled = RunInstancesMonitoringEnabled
@@ -3217,7 +3217,7 @@ instance FromXML RunInstancesMonitoringEnabled where
 
 instance ToQuery RunInstancesMonitoringEnabled where
     toQuery RunInstancesMonitoringEnabled{..} = mconcat
-        [ "enabled" =? _rimeEnabled
+        [ "Enabled" =? _rimeEnabled
         ]
 
 data VolumeStatusInfo = VolumeStatusInfo
@@ -3254,8 +3254,8 @@ instance FromXML VolumeStatusInfo where
 
 instance ToQuery VolumeStatusInfo where
     toQuery VolumeStatusInfo{..} = mconcat
-        [ "details" `toQueryList` _vsiDetails
-        , "status"  =? _vsiStatus
+        [ "Details" `toQueryList` _vsiDetails
+        , "Status"  =? _vsiStatus
         ]
 
 data NetworkInterfaceAssociation = NetworkInterfaceAssociation
@@ -3319,11 +3319,11 @@ instance FromXML NetworkInterfaceAssociation where
 
 instance ToQuery NetworkInterfaceAssociation where
     toQuery NetworkInterfaceAssociation{..} = mconcat
-        [ "allocationId"  =? _niaAllocationId
-        , "associationId" =? _niaAssociationId
-        , "ipOwnerId"     =? _niaIpOwnerId
-        , "publicDnsName" =? _niaPublicDnsName
-        , "publicIp"      =? _niaPublicIp
+        [ "AllocationId"  =? _niaAllocationId
+        , "AssociationId" =? _niaAssociationId
+        , "IpOwnerId"     =? _niaIpOwnerId
+        , "PublicDnsName" =? _niaPublicDnsName
+        , "PublicIp"      =? _niaPublicIp
         ]
 
 data CreateVolumePermissionModifications = CreateVolumePermissionModifications
@@ -3545,8 +3545,8 @@ instance FromXML IcmpTypeCode where
 
 instance ToQuery IcmpTypeCode where
     toQuery IcmpTypeCode{..} = mconcat
-        [ "code" =? _itcCode
-        , "type" =? _itcType
+        [ "Code" =? _itcCode
+        , "Type" =? _itcType
         ]
 
 data InstanceCount = InstanceCount
@@ -3583,8 +3583,8 @@ instance FromXML InstanceCount where
 
 instance ToQuery InstanceCount where
     toQuery InstanceCount{..} = mconcat
-        [ "instanceCount" =? _icInstanceCount
-        , "state"         =? _icState
+        [ "InstanceCount" =? _icInstanceCount
+        , "State"         =? _icState
         ]
 
 data ExportToS3Task = ExportToS3Task
@@ -3642,10 +3642,10 @@ instance FromXML ExportToS3Task where
 
 instance ToQuery ExportToS3Task where
     toQuery ExportToS3Task{..} = mconcat
-        [ "containerFormat" =? _etstContainerFormat
-        , "diskImageFormat" =? _etstDiskImageFormat
-        , "s3Bucket"        =? _etstS3Bucket
-        , "s3Key"           =? _etstS3Key
+        [ "ContainerFormat" =? _etstContainerFormat
+        , "DiskImageFormat" =? _etstDiskImageFormat
+        , "S3Bucket"        =? _etstS3Bucket
+        , "S3Key"           =? _etstS3Key
         ]
 
 data BlockDeviceMapping = BlockDeviceMapping
@@ -3712,10 +3712,10 @@ instance FromXML BlockDeviceMapping where
 
 instance ToQuery BlockDeviceMapping where
     toQuery BlockDeviceMapping{..} = mconcat
-        [ "deviceName"  =? _bdmDeviceName
-        , "ebs"         =? _bdmEbs
-        , "noDevice"    =? _bdmNoDevice
-        , "virtualName" =? _bdmVirtualName
+        [ "DeviceName"  =? _bdmDeviceName
+        , "Ebs"         =? _bdmEbs
+        , "NoDevice"    =? _bdmNoDevice
+        , "VirtualName" =? _bdmVirtualName
         ]
 
 data ConversionTask = ConversionTask
@@ -3802,13 +3802,13 @@ instance FromXML ConversionTask where
 
 instance ToQuery ConversionTask where
     toQuery ConversionTask{..} = mconcat
-        [ "conversionTaskId" =? _ctConversionTaskId
-        , "expirationTime"   =? _ctExpirationTime
-        , "importInstance"   =? _ctImportInstance
-        , "importVolume"     =? _ctImportVolume
-        , "state"            =? _ctState
-        , "statusMessage"    =? _ctStatusMessage
-        , "tagSet"           `toQueryList` _ctTags
+        [ "ConversionTaskId" =? _ctConversionTaskId
+        , "ExpirationTime"   =? _ctExpirationTime
+        , "ImportInstance"   =? _ctImportInstance
+        , "ImportVolume"     =? _ctImportVolume
+        , "State"            =? _ctState
+        , "StatusMessage"    =? _ctStatusMessage
+        , "TagSet"           `toQueryList` _ctTags
         ]
 
 data AttachmentStatus
@@ -3895,10 +3895,10 @@ instance FromXML ClassicLinkInstance where
 
 instance ToQuery ClassicLinkInstance where
     toQuery ClassicLinkInstance{..} = mconcat
-        [ "groupSet"   `toQueryList` _cliGroups
-        , "instanceId" =? _cliInstanceId
-        , "tagSet"     `toQueryList` _cliTags
-        , "vpcId"      =? _cliVpcId
+        [ "GroupSet"   `toQueryList` _cliGroups
+        , "InstanceId" =? _cliInstanceId
+        , "TagSet"     `toQueryList` _cliTags
+        , "VpcId"      =? _cliVpcId
         ]
 
 data RouteOrigin
@@ -4025,11 +4025,11 @@ instance FromXML SpotPrice where
 
 instance ToQuery SpotPrice where
     toQuery SpotPrice{..} = mconcat
-        [ "availabilityZone"   =? _spAvailabilityZone
-        , "instanceType"       =? _spInstanceType
-        , "productDescription" =? _spProductDescription
-        , "spotPrice"          =? _spSpotPrice
-        , "timestamp"          =? _spTimestamp
+        [ "AvailabilityZone"   =? _spAvailabilityZone
+        , "InstanceType"       =? _spInstanceType
+        , "ProductDescription" =? _spProductDescription
+        , "SpotPrice"          =? _spSpotPrice
+        , "Timestamp"          =? _spTimestamp
         ]
 
 data InstanceMonitoring = InstanceMonitoring
@@ -4066,8 +4066,8 @@ instance FromXML InstanceMonitoring where
 
 instance ToQuery InstanceMonitoring where
     toQuery InstanceMonitoring{..} = mconcat
-        [ "instanceId" =? _imInstanceId
-        , "monitoring" =? _imMonitoring
+        [ "InstanceId" =? _imInstanceId
+        , "Monitoring" =? _imMonitoring
         ]
 
 data PriceScheduleSpecification = PriceScheduleSpecification
@@ -4115,9 +4115,9 @@ instance FromXML PriceScheduleSpecification where
 
 instance ToQuery PriceScheduleSpecification where
     toQuery PriceScheduleSpecification{..} = mconcat
-        [ "currencyCode" =? _pssCurrencyCode
-        , "price"        =? _pssPrice
-        , "term"         =? _pssTerm
+        [ "CurrencyCode" =? _pssCurrencyCode
+        , "Price"        =? _pssPrice
+        , "Term"         =? _pssTerm
         ]
 
 data SpotInstanceStatus = SpotInstanceStatus
@@ -4163,9 +4163,9 @@ instance FromXML SpotInstanceStatus where
 
 instance ToQuery SpotInstanceStatus where
     toQuery SpotInstanceStatus{..} = mconcat
-        [ "code"       =? _sisCode
-        , "message"    =? _sisMessage
-        , "updateTime" =? _sisUpdateTime
+        [ "Code"       =? _sisCode
+        , "Message"    =? _sisMessage
+        , "UpdateTime" =? _sisUpdateTime
         ]
 
 data AvailabilityZoneState
@@ -4369,22 +4369,22 @@ instance FromXML SpotInstanceRequest where
 
 instance ToQuery SpotInstanceRequest where
     toQuery SpotInstanceRequest{..} = mconcat
-        [ "availabilityZoneGroup"    =? _siAvailabilityZoneGroup
-        , "createTime"               =? _siCreateTime
-        , "fault"                    =? _siFault
-        , "instanceId"               =? _siInstanceId
-        , "launchGroup"              =? _siLaunchGroup
-        , "launchSpecification"      =? _siLaunchSpecification
-        , "launchedAvailabilityZone" =? _siLaunchedAvailabilityZone
-        , "productDescription"       =? _siProductDescription
-        , "spotInstanceRequestId"    =? _siSpotInstanceRequestId
-        , "spotPrice"                =? _siSpotPrice
-        , "state"                    =? _siState
-        , "status"                   =? _siStatus
-        , "tagSet"                   `toQueryList` _siTags
-        , "type"                     =? _siType
-        , "validFrom"                =? _siValidFrom
-        , "validUntil"               =? _siValidUntil
+        [ "AvailabilityZoneGroup"    =? _siAvailabilityZoneGroup
+        , "CreateTime"               =? _siCreateTime
+        , "Fault"                    =? _siFault
+        , "InstanceId"               =? _siInstanceId
+        , "LaunchGroup"              =? _siLaunchGroup
+        , "LaunchSpecification"      =? _siLaunchSpecification
+        , "LaunchedAvailabilityZone" =? _siLaunchedAvailabilityZone
+        , "ProductDescription"       =? _siProductDescription
+        , "SpotInstanceRequestId"    =? _siSpotInstanceRequestId
+        , "SpotPrice"                =? _siSpotPrice
+        , "State"                    =? _siState
+        , "Status"                   =? _siStatus
+        , "TagSet"                   `toQueryList` _siTags
+        , "Type"                     =? _siType
+        , "ValidFrom"                =? _siValidFrom
+        , "ValidUntil"               =? _siValidUntil
         ]
 
 data LaunchSpecification = LaunchSpecification
@@ -4553,21 +4553,21 @@ instance FromXML LaunchSpecification where
 
 instance ToQuery LaunchSpecification where
     toQuery LaunchSpecification{..} = mconcat
-        [ "addressingType"      =? _lsAddressingType
-        , "blockDeviceMapping"  `toQueryList` _lsBlockDeviceMappings
-        , "ebsOptimized"        =? _lsEbsOptimized
-        , "iamInstanceProfile"  =? _lsIamInstanceProfile
-        , "imageId"             =? _lsImageId
-        , "instanceType"        =? _lsInstanceType
-        , "kernelId"            =? _lsKernelId
-        , "keyName"             =? _lsKeyName
-        , "monitoring"          =? _lsMonitoring
-        , "networkInterfaceSet" `toQueryList` _lsNetworkInterfaces
-        , "placement"           =? _lsPlacement
-        , "ramdiskId"           =? _lsRamdiskId
-        , "groupSet"            `toQueryList` _lsSecurityGroups
-        , "subnetId"            =? _lsSubnetId
-        , "userData"            =? _lsUserData
+        [ "AddressingType"      =? _lsAddressingType
+        , "BlockDeviceMapping"  `toQueryList` _lsBlockDeviceMappings
+        , "EbsOptimized"        =? _lsEbsOptimized
+        , "IamInstanceProfile"  =? _lsIamInstanceProfile
+        , "ImageId"             =? _lsImageId
+        , "InstanceType"        =? _lsInstanceType
+        , "KernelId"            =? _lsKernelId
+        , "KeyName"             =? _lsKeyName
+        , "Monitoring"          =? _lsMonitoring
+        , "NetworkInterfaceSet" `toQueryList` _lsNetworkInterfaces
+        , "Placement"           =? _lsPlacement
+        , "RamdiskId"           =? _lsRamdiskId
+        , "GroupSet"            `toQueryList` _lsSecurityGroups
+        , "SubnetId"            =? _lsSubnetId
+        , "UserData"            =? _lsUserData
         ]
 
 data VolumeStatusEvent = VolumeStatusEvent
@@ -4631,11 +4631,11 @@ instance FromXML VolumeStatusEvent where
 
 instance ToQuery VolumeStatusEvent where
     toQuery VolumeStatusEvent{..} = mconcat
-        [ "description" =? _vseDescription
-        , "eventId"     =? _vseEventId
-        , "eventType"   =? _vseEventType
-        , "notAfter"    =? _vseNotAfter
-        , "notBefore"   =? _vseNotBefore
+        [ "Description" =? _vseDescription
+        , "EventId"     =? _vseEventId
+        , "EventType"   =? _vseEventType
+        , "NotAfter"    =? _vseNotAfter
+        , "NotBefore"   =? _vseNotBefore
         ]
 
 data Volume = Volume
@@ -4783,18 +4783,18 @@ instance FromXML Volume where
 
 instance ToQuery Volume where
     toQuery Volume{..} = mconcat
-        [ "attachmentSet"    `toQueryList` _vAttachments
-        , "availabilityZone" =? _vAvailabilityZone
-        , "createTime"       =? _vCreateTime
-        , "encrypted"        =? _vEncrypted
-        , "iops"             =? _vIops
-        , "kmsKeyId"         =? _vKmsKeyId
-        , "size"             =? _vSize
-        , "snapshotId"       =? _vSnapshotId
-        , "status"           =? _vState
-        , "tagSet"           `toQueryList` _vTags
-        , "volumeId"         =? _vVolumeId
-        , "volumeType"       =? _vVolumeType
+        [ "AttachmentSet"    `toQueryList` _vAttachments
+        , "AvailabilityZone" =? _vAvailabilityZone
+        , "CreateTime"       =? _vCreateTime
+        , "Encrypted"        =? _vEncrypted
+        , "Iops"             =? _vIops
+        , "KmsKeyId"         =? _vKmsKeyId
+        , "Size"             =? _vSize
+        , "SnapshotId"       =? _vSnapshotId
+        , "Status"           =? _vState
+        , "TagSet"           `toQueryList` _vTags
+        , "VolumeId"         =? _vVolumeId
+        , "VolumeType"       =? _vVolumeType
         ]
 
 data Reservation = Reservation
@@ -4861,11 +4861,11 @@ instance FromXML Reservation where
 
 instance ToQuery Reservation where
     toQuery Reservation{..} = mconcat
-        [ "groupSet"      `toQueryList` _rGroups
-        , "instancesSet"  `toQueryList` _rInstances
-        , "ownerId"       =? _rOwnerId
-        , "requesterId"   =? _rRequesterId
-        , "reservationId" =? _rReservationId
+        [ "GroupSet"      `toQueryList` _rGroups
+        , "InstancesSet"  `toQueryList` _rInstances
+        , "OwnerId"       =? _rOwnerId
+        , "RequesterId"   =? _rRequesterId
+        , "ReservationId" =? _rReservationId
         ]
 
 data ImportInstanceVolumeDetailItem = ImportInstanceVolumeDetailItem
@@ -4954,13 +4954,13 @@ instance FromXML ImportInstanceVolumeDetailItem where
 
 instance ToQuery ImportInstanceVolumeDetailItem where
     toQuery ImportInstanceVolumeDetailItem{..} = mconcat
-        [ "availabilityZone" =? _iivdiAvailabilityZone
-        , "bytesConverted"   =? _iivdiBytesConverted
-        , "description"      =? _iivdiDescription
-        , "image"            =? _iivdiImage
-        , "status"           =? _iivdiStatus
-        , "statusMessage"    =? _iivdiStatusMessage
-        , "volume"           =? _iivdiVolume
+        [ "AvailabilityZone" =? _iivdiAvailabilityZone
+        , "BytesConverted"   =? _iivdiBytesConverted
+        , "Description"      =? _iivdiDescription
+        , "Image"            =? _iivdiImage
+        , "Status"           =? _iivdiStatus
+        , "StatusMessage"    =? _iivdiStatusMessage
+        , "Volume"           =? _iivdiVolume
         ]
 
 data SummaryStatus
@@ -5100,15 +5100,15 @@ instance FromXML ReservedInstancesModification where
 
 instance ToQuery ReservedInstancesModification where
     toQuery ReservedInstancesModification{..} = mconcat
-        [ "clientToken"                     =? _rimClientToken
-        , "createDate"                      =? _rimCreateDate
-        , "effectiveDate"                   =? _rimEffectiveDate
-        , "modificationResultSet"           `toQueryList` _rimModificationResults
-        , "reservedInstancesSet"            `toQueryList` _rimReservedInstancesIds
-        , "reservedInstancesModificationId" =? _rimReservedInstancesModificationId
-        , "status"                          =? _rimStatus
-        , "statusMessage"                   =? _rimStatusMessage
-        , "updateDate"                      =? _rimUpdateDate
+        [ "ClientToken"                     =? _rimClientToken
+        , "CreateDate"                      =? _rimCreateDate
+        , "EffectiveDate"                   =? _rimEffectiveDate
+        , "ModificationResultSet"           `toQueryList` _rimModificationResults
+        , "ReservedInstancesSet"            `toQueryList` _rimReservedInstancesIds
+        , "ReservedInstancesModificationId" =? _rimReservedInstancesModificationId
+        , "Status"                          =? _rimStatus
+        , "StatusMessage"                   =? _rimStatusMessage
+        , "UpdateDate"                      =? _rimUpdateDate
         ]
 
 data RuleAction
@@ -5324,24 +5324,24 @@ instance FromXML NetworkInterface where
 
 instance ToQuery NetworkInterface where
     toQuery NetworkInterface{..} = mconcat
-        [ "association"           =? _niAssociation
-        , "attachment"            =? _niAttachment
-        , "availabilityZone"      =? _niAvailabilityZone
-        , "description"           =? _niDescription
-        , "groupSet"              `toQueryList` _niGroups
-        , "macAddress"            =? _niMacAddress
-        , "networkInterfaceId"    =? _niNetworkInterfaceId
-        , "ownerId"               =? _niOwnerId
-        , "privateDnsName"        =? _niPrivateDnsName
-        , "privateIpAddress"      =? _niPrivateIpAddress
-        , "privateIpAddressesSet" `toQueryList` _niPrivateIpAddresses
-        , "requesterId"           =? _niRequesterId
-        , "requesterManaged"      =? _niRequesterManaged
-        , "sourceDestCheck"       =? _niSourceDestCheck
-        , "status"                =? _niStatus
-        , "subnetId"              =? _niSubnetId
-        , "tagSet"                `toQueryList` _niTagSet
-        , "vpcId"                 =? _niVpcId
+        [ "Association"           =? _niAssociation
+        , "Attachment"            =? _niAttachment
+        , "AvailabilityZone"      =? _niAvailabilityZone
+        , "Description"           =? _niDescription
+        , "GroupSet"              `toQueryList` _niGroups
+        , "MacAddress"            =? _niMacAddress
+        , "NetworkInterfaceId"    =? _niNetworkInterfaceId
+        , "OwnerId"               =? _niOwnerId
+        , "PrivateDnsName"        =? _niPrivateDnsName
+        , "PrivateIpAddress"      =? _niPrivateIpAddress
+        , "PrivateIpAddressesSet" `toQueryList` _niPrivateIpAddresses
+        , "RequesterId"           =? _niRequesterId
+        , "RequesterManaged"      =? _niRequesterManaged
+        , "SourceDestCheck"       =? _niSourceDestCheck
+        , "Status"                =? _niStatus
+        , "SubnetId"              =? _niSubnetId
+        , "TagSet"                `toQueryList` _niTagSet
+        , "VpcId"                 =? _niVpcId
         ]
 
 data TelemetryStatus
@@ -5481,15 +5481,15 @@ instance FromXML Subnet where
 
 instance ToQuery Subnet where
     toQuery Subnet{..} = mconcat
-        [ "availabilityZone"        =? _s1AvailabilityZone
-        , "availableIpAddressCount" =? _s1AvailableIpAddressCount
-        , "cidrBlock"               =? _s1CidrBlock
-        , "defaultForAz"            =? _s1DefaultForAz
-        , "mapPublicIpOnLaunch"     =? _s1MapPublicIpOnLaunch
-        , "state"                   =? _s1State
-        , "subnetId"                =? _s1SubnetId
-        , "tagSet"                  `toQueryList` _s1Tags
-        , "vpcId"                   =? _s1VpcId
+        [ "AvailabilityZone"        =? _s1AvailabilityZone
+        , "AvailableIpAddressCount" =? _s1AvailableIpAddressCount
+        , "CidrBlock"               =? _s1CidrBlock
+        , "DefaultForAz"            =? _s1DefaultForAz
+        , "MapPublicIpOnLaunch"     =? _s1MapPublicIpOnLaunch
+        , "State"                   =? _s1State
+        , "SubnetId"                =? _s1SubnetId
+        , "TagSet"                  `toQueryList` _s1Tags
+        , "VpcId"                   =? _s1VpcId
         ]
 
 data KeyPairInfo = KeyPairInfo
@@ -5530,8 +5530,8 @@ instance FromXML KeyPairInfo where
 
 instance ToQuery KeyPairInfo where
     toQuery KeyPairInfo{..} = mconcat
-        [ "keyFingerprint" =? _kpiKeyFingerprint
-        , "keyName"        =? _kpiKeyName
+        [ "KeyFingerprint" =? _kpiKeyFingerprint
+        , "KeyName"        =? _kpiKeyName
         ]
 
 data LaunchPermissionModifications = LaunchPermissionModifications
@@ -5645,9 +5645,9 @@ instance FromXML InstanceNetworkInterfaceAssociation where
 
 instance ToQuery InstanceNetworkInterfaceAssociation where
     toQuery InstanceNetworkInterfaceAssociation{..} = mconcat
-        [ "ipOwnerId"     =? _iniaIpOwnerId
-        , "publicDnsName" =? _iniaPublicDnsName
-        , "publicIp"      =? _iniaPublicIp
+        [ "IpOwnerId"     =? _iniaIpOwnerId
+        , "PublicDnsName" =? _iniaPublicDnsName
+        , "PublicIp"      =? _iniaPublicIp
         ]
 
 data DiskImageDetail = DiskImageDetail
@@ -5700,9 +5700,9 @@ instance FromXML DiskImageDetail where
 
 instance ToQuery DiskImageDetail where
     toQuery DiskImageDetail{..} = mconcat
-        [ "bytes"             =? _didBytes
-        , "format"            =? _didFormat
-        , "importManifestUrl" =? _didImportManifestUrl
+        [ "Bytes"             =? _didBytes
+        , "Format"            =? _didFormat
+        , "ImportManifestUrl" =? _didImportManifestUrl
         ]
 
 data InstancePrivateIpAddress = InstancePrivateIpAddress
@@ -5761,10 +5761,10 @@ instance FromXML InstancePrivateIpAddress where
 
 instance ToQuery InstancePrivateIpAddress where
     toQuery InstancePrivateIpAddress{..} = mconcat
-        [ "association"      =? _ipiaAssociation
-        , "primary"          =? _ipiaPrimary
-        , "privateDnsName"   =? _ipiaPrivateDnsName
-        , "privateIpAddress" =? _ipiaPrivateIpAddress
+        [ "Association"      =? _ipiaAssociation
+        , "Primary"          =? _ipiaPrimary
+        , "PrivateDnsName"   =? _ipiaPrivateDnsName
+        , "PrivateIpAddress" =? _ipiaPrivateIpAddress
         ]
 
 data CancelledSpotInstanceRequest = CancelledSpotInstanceRequest
@@ -5803,8 +5803,8 @@ instance FromXML CancelledSpotInstanceRequest where
 
 instance ToQuery CancelledSpotInstanceRequest where
     toQuery CancelledSpotInstanceRequest{..} = mconcat
-        [ "spotInstanceRequestId" =? _csiSpotInstanceRequestId
-        , "state"                 =? _csiState
+        [ "SpotInstanceRequestId" =? _csiSpotInstanceRequestId
+        , "State"                 =? _csiState
         ]
 
 newtype VpnConnectionOptionsSpecification = VpnConnectionOptionsSpecification
@@ -5834,7 +5834,7 @@ instance FromXML VpnConnectionOptionsSpecification where
 
 instance ToQuery VpnConnectionOptionsSpecification where
     toQuery VpnConnectionOptionsSpecification{..} = mconcat
-        [ "staticRoutesOnly" =? _vcosStaticRoutesOnly
+        [ "StaticRoutesOnly" =? _vcosStaticRoutesOnly
         ]
 
 data Address = Address
@@ -5930,14 +5930,14 @@ instance FromXML Address where
 
 instance ToQuery Address where
     toQuery Address{..} = mconcat
-        [ "allocationId"            =? _aAllocationId
-        , "associationId"           =? _aAssociationId
-        , "domain"                  =? _aDomain
-        , "instanceId"              =? _aInstanceId
-        , "networkInterfaceId"      =? _aNetworkInterfaceId
-        , "networkInterfaceOwnerId" =? _aNetworkInterfaceOwnerId
-        , "privateIpAddress"        =? _aPrivateIpAddress
-        , "publicIp"                =? _aPublicIp
+        [ "AllocationId"            =? _aAllocationId
+        , "AssociationId"           =? _aAssociationId
+        , "Domain"                  =? _aDomain
+        , "InstanceId"              =? _aInstanceId
+        , "NetworkInterfaceId"      =? _aNetworkInterfaceId
+        , "NetworkInterfaceOwnerId" =? _aNetworkInterfaceOwnerId
+        , "PrivateIpAddress"        =? _aPrivateIpAddress
+        , "PublicIp"                =? _aPublicIp
         ]
 
 data VolumeAttachmentState
@@ -6006,8 +6006,8 @@ instance FromXML LaunchPermission where
 
 instance ToQuery LaunchPermission where
     toQuery LaunchPermission{..} = mconcat
-        [ "group"  =? _lpGroup
-        , "userId" =? _lpUserId
+        [ "Group"  =? _lpGroup
+        , "UserId" =? _lpUserId
         ]
 
 data RouteState
@@ -6090,10 +6090,10 @@ instance FromXML RouteTableAssociation where
 
 instance ToQuery RouteTableAssociation where
     toQuery RouteTableAssociation{..} = mconcat
-        [ "main"                    =? _rtaMain
-        , "routeTableAssociationId" =? _rtaRouteTableAssociationId
-        , "routeTableId"            =? _rtaRouteTableId
-        , "subnetId"                =? _rtaSubnetId
+        [ "Main"                    =? _rtaMain
+        , "RouteTableAssociationId" =? _rtaRouteTableAssociationId
+        , "RouteTableId"            =? _rtaRouteTableId
+        , "SubnetId"                =? _rtaSubnetId
         ]
 
 data BundleTaskState
@@ -6171,8 +6171,8 @@ instance FromXML PortRange where
 
 instance ToQuery PortRange where
     toQuery PortRange{..} = mconcat
-        [ "from" =? _prFrom
-        , "to"   =? _prTo
+        [ "From" =? _prFrom
+        , "To"   =? _prTo
         ]
 
 data VpcAttributeName
@@ -6255,10 +6255,10 @@ instance FromXML ReservedInstancesConfiguration where
 
 instance ToQuery ReservedInstancesConfiguration where
     toQuery ReservedInstancesConfiguration{..} = mconcat
-        [ "availabilityZone" =? _ricAvailabilityZone
-        , "instanceCount"    =? _ricInstanceCount
-        , "instanceType"     =? _ricInstanceType
-        , "platform"         =? _ricPlatform
+        [ "AvailabilityZone" =? _ricAvailabilityZone
+        , "InstanceCount"    =? _ricInstanceCount
+        , "InstanceType"     =? _ricInstanceType
+        , "Platform"         =? _ricPlatform
         ]
 
 data VolumeStatusDetails = VolumeStatusDetails
@@ -6295,8 +6295,8 @@ instance FromXML VolumeStatusDetails where
 
 instance ToQuery VolumeStatusDetails where
     toQuery VolumeStatusDetails{..} = mconcat
-        [ "name"   =? _vsdName
-        , "status" =? _vsdStatus
+        [ "Name"   =? _vsdName
+        , "Status" =? _vsdStatus
         ]
 
 data SpotInstanceState
@@ -6361,7 +6361,7 @@ instance FromXML VpnConnectionOptions where
 
 instance ToQuery VpnConnectionOptions where
     toQuery VpnConnectionOptions{..} = mconcat
-        [ "staticRoutesOnly" =? _vcoStaticRoutesOnly
+        [ "StaticRoutesOnly" =? _vcoStaticRoutesOnly
         ]
 
 data UserIdGroupPair = UserIdGroupPair
@@ -6407,9 +6407,9 @@ instance FromXML UserIdGroupPair where
 
 instance ToQuery UserIdGroupPair where
     toQuery UserIdGroupPair{..} = mconcat
-        [ "groupId"   =? _uigpGroupId
-        , "groupName" =? _uigpGroupName
-        , "userId"    =? _uigpUserId
+        [ "GroupId"   =? _uigpGroupId
+        , "GroupName" =? _uigpGroupName
+        , "UserId"    =? _uigpUserId
         ]
 
 data InstanceStatusSummary = InstanceStatusSummary
@@ -6446,8 +6446,8 @@ instance FromXML InstanceStatusSummary where
 
 instance ToQuery InstanceStatusSummary where
     toQuery InstanceStatusSummary{..} = mconcat
-        [ "details" `toQueryList` _issDetails
-        , "status"  =? _issStatus
+        [ "Details" `toQueryList` _issDetails
+        , "Status"  =? _issStatus
         ]
 
 data SpotPlacement = SpotPlacement
@@ -6485,8 +6485,8 @@ instance FromXML SpotPlacement where
 
 instance ToQuery SpotPlacement where
     toQuery SpotPlacement{..} = mconcat
-        [ "availabilityZone" =? _sp1AvailabilityZone
-        , "groupName"        =? _sp1GroupName
+        [ "AvailabilityZone" =? _sp1AvailabilityZone
+        , "GroupName"        =? _sp1GroupName
         ]
 
 data EbsInstanceBlockDeviceSpecification = EbsInstanceBlockDeviceSpecification
@@ -6525,8 +6525,8 @@ instance FromXML EbsInstanceBlockDeviceSpecification where
 
 instance ToQuery EbsInstanceBlockDeviceSpecification where
     toQuery EbsInstanceBlockDeviceSpecification{..} = mconcat
-        [ "deleteOnTermination" =? _eibdsDeleteOnTermination
-        , "volumeId"            =? _eibdsVolumeId
+        [ "DeleteOnTermination" =? _eibdsDeleteOnTermination
+        , "VolumeId"            =? _eibdsVolumeId
         ]
 
 data NetworkAclAssociation = NetworkAclAssociation
@@ -6574,9 +6574,9 @@ instance FromXML NetworkAclAssociation where
 
 instance ToQuery NetworkAclAssociation where
     toQuery NetworkAclAssociation{..} = mconcat
-        [ "networkAclAssociationId" =? _naaNetworkAclAssociationId
-        , "networkAclId"            =? _naaNetworkAclId
-        , "subnetId"                =? _naaSubnetId
+        [ "NetworkAclAssociationId" =? _naaNetworkAclAssociationId
+        , "NetworkAclId"            =? _naaNetworkAclId
+        , "SubnetId"                =? _naaSubnetId
         ]
 
 data BundleTask = BundleTask
@@ -6675,14 +6675,14 @@ instance FromXML BundleTask where
 
 instance ToQuery BundleTask where
     toQuery BundleTask{..} = mconcat
-        [ "bundleId"   =? _btBundleId
-        , "error"      =? _btBundleTaskError
-        , "instanceId" =? _btInstanceId
-        , "progress"   =? _btProgress
-        , "startTime"  =? _btStartTime
-        , "state"      =? _btState
-        , "storage"    =? _btStorage
-        , "updateTime" =? _btUpdateTime
+        [ "BundleId"   =? _btBundleId
+        , "Error"      =? _btBundleTaskError
+        , "InstanceId" =? _btInstanceId
+        , "Progress"   =? _btProgress
+        , "StartTime"  =? _btStartTime
+        , "State"      =? _btState
+        , "Storage"    =? _btStorage
+        , "UpdateTime" =? _btUpdateTime
         ]
 
 data InstanceStatusEvent = InstanceStatusEvent
@@ -6737,10 +6737,10 @@ instance FromXML InstanceStatusEvent where
 
 instance ToQuery InstanceStatusEvent where
     toQuery InstanceStatusEvent{..} = mconcat
-        [ "code"        =? _iseCode
-        , "description" =? _iseDescription
-        , "notAfter"    =? _iseNotAfter
-        , "notBefore"   =? _iseNotBefore
+        [ "Code"        =? _iseCode
+        , "Description" =? _iseDescription
+        , "NotAfter"    =? _iseNotAfter
+        , "NotBefore"   =? _iseNotBefore
         ]
 
 data InstanceType
@@ -6990,14 +6990,14 @@ instance FromXML Route where
 
 instance ToQuery Route where
     toQuery Route{..} = mconcat
-        [ "destinationCidrBlock"   =? _rDestinationCidrBlock
-        , "gatewayId"              =? _rGatewayId
-        , "instanceId"             =? _rInstanceId
-        , "instanceOwnerId"        =? _rInstanceOwnerId
-        , "networkInterfaceId"     =? _rNetworkInterfaceId
-        , "origin"                 =? _rOrigin
-        , "state"                  =? _rState
-        , "vpcPeeringConnectionId" =? _rVpcPeeringConnectionId
+        [ "DestinationCidrBlock"   =? _rDestinationCidrBlock
+        , "GatewayId"              =? _rGatewayId
+        , "InstanceId"             =? _rInstanceId
+        , "InstanceOwnerId"        =? _rInstanceOwnerId
+        , "NetworkInterfaceId"     =? _rNetworkInterfaceId
+        , "Origin"                 =? _rOrigin
+        , "State"                  =? _rState
+        , "VpcPeeringConnectionId" =? _rVpcPeeringConnectionId
         ]
 
 data SpotDatafeedSubscription = SpotDatafeedSubscription
@@ -7061,11 +7061,11 @@ instance FromXML SpotDatafeedSubscription where
 
 instance ToQuery SpotDatafeedSubscription where
     toQuery SpotDatafeedSubscription{..} = mconcat
-        [ "bucket"  =? _sdsBucket
-        , "fault"   =? _sdsFault
-        , "ownerId" =? _sdsOwnerId
-        , "prefix"  =? _sdsPrefix
-        , "state"   =? _sdsState
+        [ "Bucket"  =? _sdsBucket
+        , "Fault"   =? _sdsFault
+        , "OwnerId" =? _sdsOwnerId
+        , "Prefix"  =? _sdsPrefix
+        , "State"   =? _sdsState
         ]
 
 newtype Storage = Storage
@@ -7190,14 +7190,14 @@ instance FromXML SecurityGroup where
 
 instance ToQuery SecurityGroup where
     toQuery SecurityGroup{..} = mconcat
-        [ "groupDescription"    =? _sgDescription
-        , "groupId"             =? _sgGroupId
-        , "groupName"           =? _sgGroupName
-        , "ipPermissions"       `toQueryList` _sgIpPermissions
-        , "ipPermissionsEgress" `toQueryList` _sgIpPermissionsEgress
-        , "ownerId"             =? _sgOwnerId
-        , "tagSet"              `toQueryList` _sgTags
-        , "vpcId"               =? _sgVpcId
+        [ "GroupDescription"    =? _sgDescription
+        , "GroupId"             =? _sgGroupId
+        , "GroupName"           =? _sgGroupName
+        , "IpPermissions"       `toQueryList` _sgIpPermissions
+        , "IpPermissionsEgress" `toQueryList` _sgIpPermissionsEgress
+        , "OwnerId"             =? _sgOwnerId
+        , "TagSet"              `toQueryList` _sgTags
+        , "VpcId"               =? _sgVpcId
         ]
 
 data CancelSpotInstanceRequestState
@@ -7306,8 +7306,8 @@ instance FromXML ReservedInstancesModificationResult where
 
 instance ToQuery ReservedInstancesModificationResult where
     toQuery ReservedInstancesModificationResult{..} = mconcat
-        [ "reservedInstancesId" =? _rimrReservedInstancesId
-        , "targetConfiguration" =? _rimrTargetConfiguration
+        [ "ReservedInstancesId" =? _rimrReservedInstancesId
+        , "TargetConfiguration" =? _rimrTargetConfiguration
         ]
 
 data InstanceBlockDeviceMappingSpecification = InstanceBlockDeviceMappingSpecification
@@ -7363,10 +7363,10 @@ instance FromXML InstanceBlockDeviceMappingSpecification where
 
 instance ToQuery InstanceBlockDeviceMappingSpecification where
     toQuery InstanceBlockDeviceMappingSpecification{..} = mconcat
-        [ "deviceName"  =? _ibdmsDeviceName
-        , "ebs"         =? _ibdmsEbs
-        , "noDevice"    =? _ibdmsNoDevice
-        , "virtualName" =? _ibdmsVirtualName
+        [ "DeviceName"  =? _ibdmsDeviceName
+        , "Ebs"         =? _ibdmsEbs
+        , "NoDevice"    =? _ibdmsNoDevice
+        , "VirtualName" =? _ibdmsVirtualName
         ]
 
 data ExportEnvironment
@@ -7422,7 +7422,7 @@ instance FromXML UserData where
 
 instance ToQuery UserData where
     toQuery UserData{..} = mconcat
-        [ "data" =? _udData
+        [ "Data" =? _udData
         ]
 
 data VolumeAttachment = VolumeAttachment
@@ -7496,12 +7496,12 @@ instance FromXML VolumeAttachment where
 
 instance ToQuery VolumeAttachment where
     toQuery VolumeAttachment{..} = mconcat
-        [ "attachTime"          =? _vaAttachTime
-        , "deleteOnTermination" =? _vaDeleteOnTermination
-        , "device"              =? _vaDevice
-        , "instanceId"          =? _vaInstanceId
-        , "status"              =? _vaState
-        , "volumeId"            =? _vaVolumeId
+        [ "AttachTime"          =? _vaAttachTime
+        , "DeleteOnTermination" =? _vaDeleteOnTermination
+        , "Device"              =? _vaDevice
+        , "InstanceId"          =? _vaInstanceId
+        , "Status"              =? _vaState
+        , "VolumeId"            =? _vaVolumeId
         ]
 
 data CustomerGateway = CustomerGateway
@@ -7581,12 +7581,12 @@ instance FromXML CustomerGateway where
 
 instance ToQuery CustomerGateway where
     toQuery CustomerGateway{..} = mconcat
-        [ "bgpAsn"            =? _cgBgpAsn
-        , "customerGatewayId" =? _cgCustomerGatewayId
-        , "ipAddress"         =? _cgIpAddress
-        , "state"             =? _cgState
-        , "tagSet"            `toQueryList` _cgTags
-        , "type"              =? _cgType
+        [ "BgpAsn"            =? _cgBgpAsn
+        , "CustomerGatewayId" =? _cgCustomerGatewayId
+        , "IpAddress"         =? _cgIpAddress
+        , "State"             =? _cgState
+        , "TagSet"            `toQueryList` _cgTags
+        , "Type"              =? _cgType
         ]
 
 data EbsInstanceBlockDevice = EbsInstanceBlockDevice
@@ -7642,10 +7642,10 @@ instance FromXML EbsInstanceBlockDevice where
 
 instance ToQuery EbsInstanceBlockDevice where
     toQuery EbsInstanceBlockDevice{..} = mconcat
-        [ "attachTime"          =? _eibdAttachTime
-        , "deleteOnTermination" =? _eibdDeleteOnTermination
-        , "status"              =? _eibdStatus
-        , "volumeId"            =? _eibdVolumeId
+        [ "AttachTime"          =? _eibdAttachTime
+        , "DeleteOnTermination" =? _eibdDeleteOnTermination
+        , "Status"              =? _eibdStatus
+        , "VolumeId"            =? _eibdVolumeId
         ]
 
 data ShutdownBehavior
@@ -7732,10 +7732,10 @@ instance FromXML DiskImageDescription where
 
 instance ToQuery DiskImageDescription where
     toQuery DiskImageDescription{..} = mconcat
-        [ "checksum"          =? _did1Checksum
-        , "format"            =? _did1Format
-        , "importManifestUrl" =? _did1ImportManifestUrl
-        , "size"              =? _did1Size
+        [ "Checksum"          =? _did1Checksum
+        , "Format"            =? _did1Format
+        , "ImportManifestUrl" =? _did1ImportManifestUrl
+        , "Size"              =? _did1Size
         ]
 
 data DiskImageVolumeDescription = DiskImageVolumeDescription
@@ -7773,8 +7773,8 @@ instance FromXML DiskImageVolumeDescription where
 
 instance ToQuery DiskImageVolumeDescription where
     toQuery DiskImageVolumeDescription{..} = mconcat
-        [ "id"   =? _divdId
-        , "size" =? _divdSize
+        [ "Id"   =? _divdId
+        , "Size" =? _divdSize
         ]
 
 newtype Monitoring = Monitoring
@@ -7802,7 +7802,7 @@ instance FromXML Monitoring where
 
 instance ToQuery Monitoring where
     toQuery Monitoring{..} = mconcat
-        [ "state" =? _mState
+        [ "State" =? _mState
         ]
 
 data SubnetState
@@ -7878,7 +7878,7 @@ instance FromXML AvailabilityZoneMessage where
 
 instance ToQuery AvailabilityZoneMessage where
     toQuery AvailabilityZoneMessage{..} = mconcat
-        [ "message" =? _azmMessage
+        [ "Message" =? _azmMessage
         ]
 
 data VpcAttachment = VpcAttachment
@@ -7915,8 +7915,8 @@ instance FromXML VpcAttachment where
 
 instance ToQuery VpcAttachment where
     toQuery VpcAttachment{..} = mconcat
-        [ "state" =? _va1State
-        , "vpcId" =? _va1VpcId
+        [ "State" =? _va1State
+        , "VpcId" =? _va1VpcId
         ]
 
 data InstanceBlockDeviceMapping = InstanceBlockDeviceMapping
@@ -7954,8 +7954,8 @@ instance FromXML InstanceBlockDeviceMapping where
 
 instance ToQuery InstanceBlockDeviceMapping where
     toQuery InstanceBlockDeviceMapping{..} = mconcat
-        [ "deviceName" =? _ibdmDeviceName
-        , "ebs"        =? _ibdmEbs
+        [ "DeviceName" =? _ibdmDeviceName
+        , "Ebs"        =? _ibdmEbs
         ]
 
 data StatusType
@@ -8039,10 +8039,10 @@ instance FromXML ExportToS3TaskSpecification where
 
 instance ToQuery ExportToS3TaskSpecification where
     toQuery ExportToS3TaskSpecification{..} = mconcat
-        [ "containerFormat" =? _etstsContainerFormat
-        , "diskImageFormat" =? _etstsDiskImageFormat
-        , "s3Bucket"        =? _etstsS3Bucket
-        , "s3Prefix"        =? _etstsS3Prefix
+        [ "ContainerFormat" =? _etstsContainerFormat
+        , "DiskImageFormat" =? _etstsDiskImageFormat
+        , "S3Bucket"        =? _etstsS3Bucket
+        , "S3Prefix"        =? _etstsS3Prefix
         ]
 
 data NetworkInterfaceAttribute
@@ -8141,8 +8141,8 @@ instance FromXML InstanceExportDetails where
 
 instance ToQuery InstanceExportDetails where
     toQuery InstanceExportDetails{..} = mconcat
-        [ "instanceId"        =? _iedInstanceId
-        , "targetEnvironment" =? _iedTargetEnvironment
+        [ "InstanceId"        =? _iedInstanceId
+        , "TargetEnvironment" =? _iedTargetEnvironment
         ]
 
 data SnapshotAttributeName
@@ -8223,10 +8223,10 @@ instance FromXML AvailabilityZone where
 
 instance ToQuery AvailabilityZone where
     toQuery AvailabilityZone{..} = mconcat
-        [ "messageSet" `toQueryList` _azMessages
-        , "regionName" =? _azRegionName
-        , "zoneState"  =? _azState
-        , "zoneName"   =? _azZoneName
+        [ "MessageSet" `toQueryList` _azMessages
+        , "RegionName" =? _azRegionName
+        , "ZoneState"  =? _azState
+        , "ZoneName"   =? _azZoneName
         ]
 
 data VpnState
@@ -8333,12 +8333,12 @@ instance FromXML RouteTable where
 
 instance ToQuery RouteTable where
     toQuery RouteTable{..} = mconcat
-        [ "associationSet"    `toQueryList` _rtAssociations
-        , "propagatingVgwSet" `toQueryList` _rtPropagatingVgws
-        , "routeTableId"      =? _rtRouteTableId
-        , "routeSet"          `toQueryList` _rtRoutes
-        , "tagSet"            `toQueryList` _rtTags
-        , "vpcId"             =? _rtVpcId
+        [ "AssociationSet"    `toQueryList` _rtAssociations
+        , "PropagatingVgwSet" `toQueryList` _rtPropagatingVgws
+        , "RouteTableId"      =? _rtRouteTableId
+        , "RouteSet"          `toQueryList` _rtRoutes
+        , "TagSet"            `toQueryList` _rtTags
+        , "VpcId"             =? _rtVpcId
         ]
 
 data HypervisorType
@@ -8411,9 +8411,9 @@ instance FromXML InstanceStatusDetails where
 
 instance ToQuery InstanceStatusDetails where
     toQuery InstanceStatusDetails{..} = mconcat
-        [ "impairedSince" =? _isdImpairedSince
-        , "name"          =? _isdName
-        , "status"        =? _isdStatus
+        [ "ImpairedSince" =? _isdImpairedSince
+        , "Name"          =? _isdName
+        , "Status"        =? _isdStatus
         ]
 
 data IamInstanceProfile = IamInstanceProfile
@@ -8450,8 +8450,8 @@ instance FromXML IamInstanceProfile where
 
 instance ToQuery IamInstanceProfile where
     toQuery IamInstanceProfile{..} = mconcat
-        [ "arn" =? _iipArn
-        , "id"  =? _iipId
+        [ "Arn" =? _iipArn
+        , "Id"  =? _iipId
         ]
 
 data InternetGatewayAttachment = InternetGatewayAttachment
@@ -8490,8 +8490,8 @@ instance FromXML InternetGatewayAttachment where
 
 instance ToQuery InternetGatewayAttachment where
     toQuery InternetGatewayAttachment{..} = mconcat
-        [ "state" =? _igaState
-        , "vpcId" =? _igaVpcId
+        [ "State" =? _igaState
+        , "VpcId" =? _igaVpcId
         ]
 
 data ReservedInstanceState
@@ -8657,11 +8657,11 @@ instance FromXML IpPermission where
 
 instance ToQuery IpPermission where
     toQuery IpPermission{..} = mconcat
-        [ "fromPort"   =? _ipFromPort
-        , "ipProtocol" =? _ipIpProtocol
-        , "ipRanges"   `toQueryList` _ipIpRanges
-        , "toPort"     =? _ipToPort
-        , "groups"     `toQueryList` _ipUserIdGroupPairs
+        [ "FromPort"   =? _ipFromPort
+        , "IpProtocol" =? _ipIpProtocol
+        , "IpRanges"   `toQueryList` _ipIpRanges
+        , "ToPort"     =? _ipToPort
+        , "Groups"     `toQueryList` _ipUserIdGroupPairs
         ]
 
 data ConversionTaskState
@@ -8801,8 +8801,8 @@ instance FromXML VpcPeeringConnectionStateReason where
 
 instance ToQuery VpcPeeringConnectionStateReason where
     toQuery VpcPeeringConnectionStateReason{..} = mconcat
-        [ "code"    =? _vpcsrCode
-        , "message" =? _vpcsrMessage
+        [ "Code"    =? _vpcsrCode
+        , "Message" =? _vpcsrMessage
         ]
 
 data IamInstanceProfileSpecification = IamInstanceProfileSpecification
@@ -8839,8 +8839,8 @@ instance FromXML IamInstanceProfileSpecification where
 
 instance ToQuery IamInstanceProfileSpecification where
     toQuery IamInstanceProfileSpecification{..} = mconcat
-        [ "arn"  =? _iipsArn
-        , "name" =? _iipsName
+        [ "Arn"  =? _iipsArn
+        , "Name" =? _iipsName
         ]
 
 data ImportVolumeTaskDetails = ImportVolumeTaskDetails
@@ -8910,11 +8910,11 @@ instance FromXML ImportVolumeTaskDetails where
 
 instance ToQuery ImportVolumeTaskDetails where
     toQuery ImportVolumeTaskDetails{..} = mconcat
-        [ "availabilityZone" =? _ivtdAvailabilityZone
-        , "bytesConverted"   =? _ivtdBytesConverted
-        , "description"      =? _ivtdDescription
-        , "image"            =? _ivtdImage
-        , "volume"           =? _ivtdVolume
+        [ "AvailabilityZone" =? _ivtdAvailabilityZone
+        , "BytesConverted"   =? _ivtdBytesConverted
+        , "Description"      =? _ivtdDescription
+        , "Image"            =? _ivtdImage
+        , "Volume"           =? _ivtdVolume
         ]
 
 data PlacementStrategy
@@ -9089,20 +9089,20 @@ instance FromXML InstanceNetworkInterface where
 
 instance ToQuery InstanceNetworkInterface where
     toQuery InstanceNetworkInterface{..} = mconcat
-        [ "association"           =? _iniAssociation
-        , "attachment"            =? _iniAttachment
-        , "description"           =? _iniDescription
-        , "groupSet"              `toQueryList` _iniGroups
-        , "macAddress"            =? _iniMacAddress
-        , "networkInterfaceId"    =? _iniNetworkInterfaceId
-        , "ownerId"               =? _iniOwnerId
-        , "privateDnsName"        =? _iniPrivateDnsName
-        , "privateIpAddress"      =? _iniPrivateIpAddress
-        , "privateIpAddressesSet" `toQueryList` _iniPrivateIpAddresses
-        , "sourceDestCheck"       =? _iniSourceDestCheck
-        , "status"                =? _iniStatus
-        , "subnetId"              =? _iniSubnetId
-        , "vpcId"                 =? _iniVpcId
+        [ "Association"           =? _iniAssociation
+        , "Attachment"            =? _iniAttachment
+        , "Description"           =? _iniDescription
+        , "GroupSet"              `toQueryList` _iniGroups
+        , "MacAddress"            =? _iniMacAddress
+        , "NetworkInterfaceId"    =? _iniNetworkInterfaceId
+        , "OwnerId"               =? _iniOwnerId
+        , "PrivateDnsName"        =? _iniPrivateDnsName
+        , "PrivateIpAddress"      =? _iniPrivateIpAddress
+        , "PrivateIpAddressesSet" `toQueryList` _iniPrivateIpAddresses
+        , "SourceDestCheck"       =? _iniSourceDestCheck
+        , "Status"                =? _iniStatus
+        , "SubnetId"              =? _iniSubnetId
+        , "VpcId"                 =? _iniVpcId
         ]
 
 data VolumeStatusAction = VolumeStatusAction
@@ -9157,10 +9157,10 @@ instance FromXML VolumeStatusAction where
 
 instance ToQuery VolumeStatusAction where
     toQuery VolumeStatusAction{..} = mconcat
-        [ "code"        =? _vsaCode
-        , "description" =? _vsaDescription
-        , "eventId"     =? _vsaEventId
-        , "eventType"   =? _vsaEventType
+        [ "Code"        =? _vsaCode
+        , "Description" =? _vsaDescription
+        , "EventId"     =? _vsaEventId
+        , "EventType"   =? _vsaEventType
         ]
 
 data VpcPeeringConnectionVpcInfo = VpcPeeringConnectionVpcInfo
@@ -9206,9 +9206,9 @@ instance FromXML VpcPeeringConnectionVpcInfo where
 
 instance ToQuery VpcPeeringConnectionVpcInfo where
     toQuery VpcPeeringConnectionVpcInfo{..} = mconcat
-        [ "cidrBlock" =? _vpcviCidrBlock
-        , "ownerId"   =? _vpcviOwnerId
-        , "vpcId"     =? _vpcviVpcId
+        [ "CidrBlock" =? _vpcviCidrBlock
+        , "OwnerId"   =? _vpcviOwnerId
+        , "VpcId"     =? _vpcviVpcId
         ]
 
 data ReservedInstanceLimitPrice = ReservedInstanceLimitPrice
@@ -9247,8 +9247,8 @@ instance FromXML ReservedInstanceLimitPrice where
 
 instance ToQuery ReservedInstanceLimitPrice where
     toQuery ReservedInstanceLimitPrice{..} = mconcat
-        [ "amount"       =? _rilpAmount
-        , "currencyCode" =? _rilpCurrencyCode
+        [ "Amount"       =? _rilpAmount
+        , "CurrencyCode" =? _rilpCurrencyCode
         ]
 
 data Vpc = Vpc
@@ -9338,13 +9338,13 @@ instance FromXML Vpc where
 
 instance ToQuery Vpc where
     toQuery Vpc{..} = mconcat
-        [ "cidrBlock"       =? _vpcCidrBlock
-        , "dhcpOptionsId"   =? _vpcDhcpOptionsId
-        , "instanceTenancy" =? _vpcInstanceTenancy
-        , "isDefault"       =? _vpcIsDefault
-        , "state"           =? _vpcState
-        , "tagSet"          `toQueryList` _vpcTags
-        , "vpcId"           =? _vpcVpcId
+        [ "CidrBlock"       =? _vpcCidrBlock
+        , "DhcpOptionsId"   =? _vpcDhcpOptionsId
+        , "InstanceTenancy" =? _vpcInstanceTenancy
+        , "IsDefault"       =? _vpcIsDefault
+        , "State"           =? _vpcState
+        , "TagSet"          `toQueryList` _vpcTags
+        , "VpcId"           =? _vpcVpcId
         ]
 
 data InstanceStatus = InstanceStatus
@@ -9422,12 +9422,12 @@ instance FromXML InstanceStatus where
 
 instance ToQuery InstanceStatus where
     toQuery InstanceStatus{..} = mconcat
-        [ "availabilityZone" =? _isAvailabilityZone
-        , "eventsSet"        `toQueryList` _isEvents
-        , "instanceId"       =? _isInstanceId
-        , "instanceState"    =? _isInstanceState
-        , "instanceStatus"   =? _isInstanceStatus
-        , "systemStatus"     =? _isSystemStatus
+        [ "AvailabilityZone" =? _isAvailabilityZone
+        , "EventsSet"        `toQueryList` _isEvents
+        , "InstanceId"       =? _isInstanceId
+        , "InstanceState"    =? _isInstanceState
+        , "InstanceStatus"   =? _isInstanceStatus
+        , "SystemStatus"     =? _isSystemStatus
         ]
 
 data ArchitectureValues
@@ -9597,12 +9597,12 @@ instance FromXML EbsBlockDevice where
 
 instance ToQuery EbsBlockDevice where
     toQuery EbsBlockDevice{..} = mconcat
-        [ "deleteOnTermination" =? _ebdDeleteOnTermination
-        , "encrypted"           =? _ebdEncrypted
-        , "iops"                =? _ebdIops
-        , "snapshotId"          =? _ebdSnapshotId
-        , "volumeSize"          =? _ebdVolumeSize
-        , "volumeType"          =? _ebdVolumeType
+        [ "DeleteOnTermination" =? _ebdDeleteOnTermination
+        , "Encrypted"           =? _ebdEncrypted
+        , "Iops"                =? _ebdIops
+        , "SnapshotId"          =? _ebdSnapshotId
+        , "VolumeSize"          =? _ebdVolumeSize
+        , "VolumeType"          =? _ebdVolumeType
         ]
 
 data AccountAttribute = AccountAttribute
@@ -9641,8 +9641,8 @@ instance FromXML AccountAttribute where
 
 instance ToQuery AccountAttribute where
     toQuery AccountAttribute{..} = mconcat
-        [ "attributeName"     =? _aaAttributeName
-        , "attributeValueSet" `toQueryList` _aaAttributeValues
+        [ "AttributeName"     =? _aaAttributeName
+        , "AttributeValueSet" `toQueryList` _aaAttributeValues
         ]
 
 data PriceSchedule = PriceSchedule
@@ -9708,10 +9708,10 @@ instance FromXML PriceSchedule where
 
 instance ToQuery PriceSchedule where
     toQuery PriceSchedule{..} = mconcat
-        [ "active"       =? _psActive
-        , "currencyCode" =? _psCurrencyCode
-        , "price"        =? _psPrice
-        , "term"         =? _psTerm
+        [ "Active"       =? _psActive
+        , "CurrencyCode" =? _psCurrencyCode
+        , "Price"        =? _psPrice
+        , "Term"         =? _psTerm
         ]
 
 data DeviceType
@@ -9800,8 +9800,8 @@ instance FromXML Region where
 
 instance ToQuery Region where
     toQuery Region{..} = mconcat
-        [ "regionEndpoint" =? _rEndpoint
-        , "regionName"     =? _rRegionName
+        [ "RegionEndpoint" =? _rEndpoint
+        , "RegionName"     =? _rRegionName
         ]
 
 newtype PropagatingVgw = PropagatingVgw
@@ -9829,7 +9829,7 @@ instance FromXML PropagatingVgw where
 
 instance ToQuery PropagatingVgw where
     toQuery PropagatingVgw{..} = mconcat
-        [ "gatewayId" =? _pvGatewayId
+        [ "GatewayId" =? _pvGatewayId
         ]
 
 data OfferingTypeValues
@@ -9941,12 +9941,12 @@ instance FromXML VpnGateway where
 
 instance ToQuery VpnGateway where
     toQuery VpnGateway{..} = mconcat
-        [ "availabilityZone" =? _vgAvailabilityZone
-        , "state"            =? _vgState
-        , "tagSet"           `toQueryList` _vgTags
-        , "type"             =? _vgType
-        , "attachments"      `toQueryList` _vgVpcAttachments
-        , "vpnGatewayId"     =? _vgVpnGatewayId
+        [ "AvailabilityZone" =? _vgAvailabilityZone
+        , "State"            =? _vgState
+        , "TagSet"           `toQueryList` _vgTags
+        , "Type"             =? _vgType
+        , "Attachments"      `toQueryList` _vgVpcAttachments
+        , "VpnGatewayId"     =? _vgVpnGatewayId
         ]
 
 data Filter = Filter
@@ -10060,9 +10060,9 @@ instance FromXML InstanceStateChange where
 
 instance ToQuery InstanceStateChange where
     toQuery InstanceStateChange{..} = mconcat
-        [ "currentState"  =? _iscCurrentState
-        , "instanceId"    =? _iscInstanceId
-        , "previousState" =? _iscPreviousState
+        [ "CurrentState"  =? _iscCurrentState
+        , "InstanceId"    =? _iscInstanceId
+        , "PreviousState" =? _iscPreviousState
         ]
 
 data NetworkAcl = NetworkAcl
@@ -10135,12 +10135,12 @@ instance FromXML NetworkAcl where
 
 instance ToQuery NetworkAcl where
     toQuery NetworkAcl{..} = mconcat
-        [ "associationSet" `toQueryList` _naAssociations
-        , "entrySet"       `toQueryList` _naEntries
-        , "default"        =? _naIsDefault
-        , "networkAclId"   =? _naNetworkAclId
-        , "tagSet"         `toQueryList` _naTags
-        , "vpcId"          =? _naVpcId
+        [ "AssociationSet" `toQueryList` _naAssociations
+        , "EntrySet"       `toQueryList` _naEntries
+        , "Default"        =? _naIsDefault
+        , "NetworkAclId"   =? _naNetworkAclId
+        , "TagSet"         `toQueryList` _naTags
+        , "VpcId"          =? _naVpcId
         ]
 
 data ImageState
@@ -10254,11 +10254,11 @@ instance FromXML InstanceNetworkInterfaceAttachment where
 
 instance ToQuery InstanceNetworkInterfaceAttachment where
     toQuery InstanceNetworkInterfaceAttachment{..} = mconcat
-        [ "attachTime"          =? _iniaAttachTime
-        , "attachmentId"        =? _iniaAttachmentId
-        , "deleteOnTermination" =? _iniaDeleteOnTermination
-        , "deviceIndex"         =? _iniaDeviceIndex
-        , "status"              =? _iniaStatus
+        [ "AttachTime"          =? _iniaAttachTime
+        , "AttachmentId"        =? _iniaAttachmentId
+        , "DeleteOnTermination" =? _iniaDeleteOnTermination
+        , "DeviceIndex"         =? _iniaDeviceIndex
+        , "Status"              =? _iniaStatus
         ]
 
 newtype AttributeBooleanValue = AttributeBooleanValue
@@ -10286,7 +10286,7 @@ instance FromXML AttributeBooleanValue where
 
 instance ToQuery AttributeBooleanValue where
     toQuery AttributeBooleanValue{..} = mconcat
-        [ "value" =? _abvValue
+        [ "Value" =? _abvValue
         ]
 
 data RecurringCharge = RecurringCharge
@@ -10323,8 +10323,8 @@ instance FromXML RecurringCharge where
 
 instance ToQuery RecurringCharge where
     toQuery RecurringCharge{..} = mconcat
-        [ "amount"    =? _rcAmount
-        , "frequency" =? _rcFrequency
+        [ "Amount"    =? _rcAmount
+        , "Frequency" =? _rcFrequency
         ]
 
 data NewDhcpConfiguration = NewDhcpConfiguration
@@ -10359,7 +10359,7 @@ instance FromXML NewDhcpConfiguration where
 
 instance ToQuery NewDhcpConfiguration where
     toQuery NewDhcpConfiguration{..} = mconcat
-        [ "key"   =? _ndcKey
+        [ "Key"   =? _ndcKey
         , "Value" `toQueryList` _ndcValues
         ]
 
@@ -10420,8 +10420,8 @@ instance FromXML StateReason where
 
 instance ToQuery StateReason where
     toQuery StateReason{..} = mconcat
-        [ "code"    =? _srCode
-        , "message" =? _srMessage
+        [ "Code"    =? _srCode
+        , "Message" =? _srMessage
         ]
 
 data MonitoringState
@@ -10479,7 +10479,7 @@ instance FromXML ReservedInstancesId where
 
 instance ToQuery ReservedInstancesId where
     toQuery ReservedInstancesId{..} = mconcat
-        [ "reservedInstancesId" =? _riiReservedInstancesId
+        [ "ReservedInstancesId" =? _riiReservedInstancesId
         ]
 
 data StatusName
@@ -10549,9 +10549,9 @@ instance FromXML InternetGateway where
 
 instance ToQuery InternetGateway where
     toQuery InternetGateway{..} = mconcat
-        [ "attachmentSet"     `toQueryList` _igAttachments
-        , "internetGatewayId" =? _igInternetGatewayId
-        , "tagSet"            `toQueryList` _igTags
+        [ "AttachmentSet"     `toQueryList` _igAttachments
+        , "InternetGatewayId" =? _igInternetGatewayId
+        , "TagSet"            `toQueryList` _igTags
         ]
 
 data VolumeStatusName
@@ -10655,10 +10655,10 @@ instance FromXML ImportInstanceTaskDetails where
 
 instance ToQuery ImportInstanceTaskDetails where
     toQuery ImportInstanceTaskDetails{..} = mconcat
-        [ "description" =? _iitdDescription
-        , "instanceId"  =? _iitdInstanceId
-        , "platform"    =? _iitdPlatform
-        , "volumes"     `toQueryList` _iitdVolumes
+        [ "Description" =? _iitdDescription
+        , "InstanceId"  =? _iitdInstanceId
+        , "Platform"    =? _iitdPlatform
+        , "Volumes"     `toQueryList` _iitdVolumes
         ]
 
 data PlacementGroup = PlacementGroup
@@ -10704,9 +10704,9 @@ instance FromXML PlacementGroup where
 
 instance ToQuery PlacementGroup where
     toQuery PlacementGroup{..} = mconcat
-        [ "groupName" =? _pgGroupName
-        , "state"     =? _pgState
-        , "strategy"  =? _pgStrategy
+        [ "GroupName" =? _pgGroupName
+        , "State"     =? _pgState
+        , "Strategy"  =? _pgStrategy
         ]
 
 data ProductCode = ProductCode
@@ -10744,8 +10744,8 @@ instance FromXML ProductCode where
 
 instance ToQuery ProductCode where
     toQuery ProductCode{..} = mconcat
-        [ "productCode" =? _pcProductCodeId
-        , "type"        =? _pcProductCodeType
+        [ "ProductCode" =? _pcProductCodeId
+        , "Type"        =? _pcProductCodeType
         ]
 
 data ListingStatus
@@ -10807,7 +10807,7 @@ instance FromXML IpRange where
 
 instance ToQuery IpRange where
     toQuery IpRange{..} = mconcat
-        [ "cidrIp" =? _irCidrIp
+        [ "CidrIp" =? _irCidrIp
         ]
 
 data VolumeStatusInfoStatus
@@ -10865,7 +10865,7 @@ instance FromXML AccountAttributeValue where
 
 instance ToQuery AccountAttributeValue where
     toQuery AccountAttributeValue{..} = mconcat
-        [ "attributeValue" =? _aavAttributeValue
+        [ "AttributeValue" =? _aavAttributeValue
         ]
 
 data RIProductDescription
@@ -11046,19 +11046,19 @@ instance FromXML ReservedInstancesOffering where
 
 instance ToQuery ReservedInstancesOffering where
     toQuery ReservedInstancesOffering{..} = mconcat
-        [ "availabilityZone"            =? _rioAvailabilityZone
-        , "currencyCode"                =? _rioCurrencyCode
-        , "duration"                    =? _rioDuration
-        , "fixedPrice"                  =? _rioFixedPrice
-        , "instanceTenancy"             =? _rioInstanceTenancy
-        , "instanceType"                =? _rioInstanceType
-        , "marketplace"                 =? _rioMarketplace
-        , "offeringType"                =? _rioOfferingType
-        , "pricingDetailsSet"           `toQueryList` _rioPricingDetails
-        , "productDescription"          =? _rioProductDescription
-        , "recurringCharges"            `toQueryList` _rioRecurringCharges
-        , "reservedInstancesOfferingId" =? _rioReservedInstancesOfferingId
-        , "usagePrice"                  =? _rioUsagePrice
+        [ "AvailabilityZone"            =? _rioAvailabilityZone
+        , "CurrencyCode"                =? _rioCurrencyCode
+        , "Duration"                    =? _rioDuration
+        , "FixedPrice"                  =? _rioFixedPrice
+        , "InstanceTenancy"             =? _rioInstanceTenancy
+        , "InstanceType"                =? _rioInstanceType
+        , "Marketplace"                 =? _rioMarketplace
+        , "OfferingType"                =? _rioOfferingType
+        , "PricingDetailsSet"           `toQueryList` _rioPricingDetails
+        , "ProductDescription"          =? _rioProductDescription
+        , "RecurringCharges"            `toQueryList` _rioRecurringCharges
+        , "ReservedInstancesOfferingId" =? _rioReservedInstancesOfferingId
+        , "UsagePrice"                  =? _rioUsagePrice
         ]
 
 data ReservedInstances = ReservedInstances
@@ -11228,22 +11228,22 @@ instance FromXML ReservedInstances where
 
 instance ToQuery ReservedInstances where
     toQuery ReservedInstances{..} = mconcat
-        [ "availabilityZone"    =? _ri1AvailabilityZone
-        , "currencyCode"        =? _ri1CurrencyCode
-        , "duration"            =? _ri1Duration
-        , "end"                 =? _ri1End
-        , "fixedPrice"          =? _ri1FixedPrice
-        , "instanceCount"       =? _ri1InstanceCount
-        , "instanceTenancy"     =? _ri1InstanceTenancy
-        , "instanceType"        =? _ri1InstanceType
-        , "offeringType"        =? _ri1OfferingType
-        , "productDescription"  =? _ri1ProductDescription
-        , "recurringCharges"    `toQueryList` _ri1RecurringCharges
-        , "reservedInstancesId" =? _ri1ReservedInstancesId
-        , "start"               =? _ri1Start
-        , "state"               =? _ri1State
-        , "tagSet"              `toQueryList` _ri1Tags
-        , "usagePrice"          =? _ri1UsagePrice
+        [ "AvailabilityZone"    =? _ri1AvailabilityZone
+        , "CurrencyCode"        =? _ri1CurrencyCode
+        , "Duration"            =? _ri1Duration
+        , "End"                 =? _ri1End
+        , "FixedPrice"          =? _ri1FixedPrice
+        , "InstanceCount"       =? _ri1InstanceCount
+        , "InstanceTenancy"     =? _ri1InstanceTenancy
+        , "InstanceType"        =? _ri1InstanceType
+        , "OfferingType"        =? _ri1OfferingType
+        , "ProductDescription"  =? _ri1ProductDescription
+        , "RecurringCharges"    `toQueryList` _ri1RecurringCharges
+        , "ReservedInstancesId" =? _ri1ReservedInstancesId
+        , "Start"               =? _ri1Start
+        , "State"               =? _ri1State
+        , "TagSet"              `toQueryList` _ri1Tags
+        , "UsagePrice"          =? _ri1UsagePrice
         ]
 
 data DatafeedSubscriptionState
@@ -11447,16 +11447,16 @@ instance FromXML VpnConnection where
 
 instance ToQuery VpnConnection where
     toQuery VpnConnection{..} = mconcat
-        [ "customerGatewayConfiguration" =? _vcCustomerGatewayConfiguration
-        , "customerGatewayId"            =? _vcCustomerGatewayId
-        , "options"                      =? _vcOptions
-        , "routes"                       `toQueryList` _vcRoutes
-        , "state"                        =? _vcState
-        , "tagSet"                       `toQueryList` _vcTags
-        , "type"                         =? _vcType
-        , "vgwTelemetry"                 `toQueryList` _vcVgwTelemetry
-        , "vpnConnectionId"              =? _vcVpnConnectionId
-        , "vpnGatewayId"                 =? _vcVpnGatewayId
+        [ "CustomerGatewayConfiguration" =? _vcCustomerGatewayConfiguration
+        , "CustomerGatewayId"            =? _vcCustomerGatewayId
+        , "Options"                      =? _vcOptions
+        , "Routes"                       `toQueryList` _vcRoutes
+        , "State"                        =? _vcState
+        , "TagSet"                       `toQueryList` _vcTags
+        , "Type"                         =? _vcType
+        , "VgwTelemetry"                 `toQueryList` _vcVgwTelemetry
+        , "VpnConnectionId"              =? _vcVpnConnectionId
+        , "VpnGatewayId"                 =? _vcVpnGatewayId
         ]
 
 data InstanceState = InstanceState
@@ -11510,8 +11510,8 @@ instance FromXML InstanceState where
 
 instance ToQuery InstanceState where
     toQuery InstanceState{..} = mconcat
-        [ "code" =? _isCode
-        , "name" =? _isName
+        [ "Code" =? _isCode
+        , "Name" =? _isName
         ]
 
 data Placement = Placement
@@ -11560,9 +11560,9 @@ instance FromXML Placement where
 
 instance ToQuery Placement where
     toQuery Placement{..} = mconcat
-        [ "availabilityZone" =? _pAvailabilityZone
-        , "groupName"        =? _pGroupName
-        , "tenancy"          =? _pTenancy
+        [ "AvailabilityZone" =? _pAvailabilityZone
+        , "GroupName"        =? _pGroupName
+        , "Tenancy"          =? _pTenancy
         ]
 
 data EventCode
@@ -11702,12 +11702,12 @@ instance FromXML VpcPeeringConnection where
 
 instance ToQuery VpcPeeringConnection where
     toQuery VpcPeeringConnection{..} = mconcat
-        [ "accepterVpcInfo"        =? _vpc1AccepterVpcInfo
-        , "expirationTime"         =? _vpc1ExpirationTime
-        , "requesterVpcInfo"       =? _vpc1RequesterVpcInfo
-        , "status"                 =? _vpc1Status
-        , "tagSet"                 `toQueryList` _vpc1Tags
-        , "vpcPeeringConnectionId" =? _vpc1VpcPeeringConnectionId
+        [ "AccepterVpcInfo"        =? _vpc1AccepterVpcInfo
+        , "ExpirationTime"         =? _vpc1ExpirationTime
+        , "RequesterVpcInfo"       =? _vpc1RequesterVpcInfo
+        , "Status"                 =? _vpc1Status
+        , "TagSet"                 `toQueryList` _vpc1Tags
+        , "VpcPeeringConnectionId" =? _vpc1VpcPeeringConnectionId
         ]
 
 data S3Storage = S3Storage
@@ -11777,10 +11777,10 @@ instance FromXML S3Storage where
 instance ToQuery S3Storage where
     toQuery S3Storage{..} = mconcat
         [ "AWSAccessKeyId"        =? _ssAWSAccessKeyId
-        , "bucket"                =? _ssBucket
-        , "prefix"                =? _ssPrefix
-        , "uploadPolicy"          =? _ssUploadPolicy
-        , "uploadPolicySignature" =? _ssUploadPolicySignature
+        , "Bucket"                =? _ssBucket
+        , "Prefix"                =? _ssPrefix
+        , "UploadPolicy"          =? _ssUploadPolicy
+        , "UploadPolicySignature" =? _ssUploadPolicySignature
         ]
 
 data VgwTelemetry = VgwTelemetry
@@ -11849,11 +11849,11 @@ instance FromXML VgwTelemetry where
 
 instance ToQuery VgwTelemetry where
     toQuery VgwTelemetry{..} = mconcat
-        [ "acceptedRouteCount" =? _vtAcceptedRouteCount
-        , "lastStatusChange"   =? _vtLastStatusChange
-        , "outsideIpAddress"   =? _vtOutsideIpAddress
-        , "status"             =? _vtStatus
-        , "statusMessage"      =? _vtStatusMessage
+        [ "AcceptedRouteCount" =? _vtAcceptedRouteCount
+        , "LastStatusChange"   =? _vtLastStatusChange
+        , "OutsideIpAddress"   =? _vtOutsideIpAddress
+        , "Status"             =? _vtStatus
+        , "StatusMessage"      =? _vtStatusMessage
         ]
 
 data VpnStaticRoute = VpnStaticRoute
@@ -11900,9 +11900,9 @@ instance FromXML VpnStaticRoute where
 
 instance ToQuery VpnStaticRoute where
     toQuery VpnStaticRoute{..} = mconcat
-        [ "destinationCidrBlock" =? _vsrDestinationCidrBlock
-        , "source"               =? _vsrSource
-        , "state"                =? _vsrState
+        [ "DestinationCidrBlock" =? _vsrDestinationCidrBlock
+        , "Source"               =? _vsrSource
+        , "State"                =? _vsrState
         ]
 
 data InstanceStateName
@@ -12333,43 +12333,43 @@ instance FromXML Instance where
 
 instance ToQuery Instance where
     toQuery Instance{..} = mconcat
-        [ "amiLaunchIndex"        =? _i1AmiLaunchIndex
-        , "architecture"          =? _i1Architecture
-        , "blockDeviceMapping"    `toQueryList` _i1BlockDeviceMappings
-        , "clientToken"           =? _i1ClientToken
-        , "ebsOptimized"          =? _i1EbsOptimized
-        , "hypervisor"            =? _i1Hypervisor
-        , "iamInstanceProfile"    =? _i1IamInstanceProfile
-        , "imageId"               =? _i1ImageId
-        , "instanceId"            =? _i1InstanceId
-        , "instanceLifecycle"     =? _i1InstanceLifecycle
-        , "instanceType"          =? _i1InstanceType
-        , "kernelId"              =? _i1KernelId
-        , "keyName"               =? _i1KeyName
-        , "launchTime"            =? _i1LaunchTime
-        , "monitoring"            =? _i1Monitoring
-        , "networkInterfaceSet"   `toQueryList` _i1NetworkInterfaces
-        , "placement"             =? _i1Placement
-        , "platform"              =? _i1Platform
-        , "privateDnsName"        =? _i1PrivateDnsName
-        , "privateIpAddress"      =? _i1PrivateIpAddress
-        , "productCodes"          `toQueryList` _i1ProductCodes
-        , "dnsName"               =? _i1PublicDnsName
-        , "ipAddress"             =? _i1PublicIpAddress
-        , "ramdiskId"             =? _i1RamdiskId
-        , "rootDeviceName"        =? _i1RootDeviceName
-        , "rootDeviceType"        =? _i1RootDeviceType
-        , "groupSet"              `toQueryList` _i1SecurityGroups
-        , "sourceDestCheck"       =? _i1SourceDestCheck
-        , "spotInstanceRequestId" =? _i1SpotInstanceRequestId
-        , "sriovNetSupport"       =? _i1SriovNetSupport
-        , "instanceState"         =? _i1State
-        , "stateReason"           =? _i1StateReason
-        , "reason"                =? _i1StateTransitionReason
-        , "subnetId"              =? _i1SubnetId
-        , "tagSet"                `toQueryList` _i1Tags
-        , "virtualizationType"    =? _i1VirtualizationType
-        , "vpcId"                 =? _i1VpcId
+        [ "AmiLaunchIndex"        =? _i1AmiLaunchIndex
+        , "Architecture"          =? _i1Architecture
+        , "BlockDeviceMapping"    `toQueryList` _i1BlockDeviceMappings
+        , "ClientToken"           =? _i1ClientToken
+        , "EbsOptimized"          =? _i1EbsOptimized
+        , "Hypervisor"            =? _i1Hypervisor
+        , "IamInstanceProfile"    =? _i1IamInstanceProfile
+        , "ImageId"               =? _i1ImageId
+        , "InstanceId"            =? _i1InstanceId
+        , "InstanceLifecycle"     =? _i1InstanceLifecycle
+        , "InstanceType"          =? _i1InstanceType
+        , "KernelId"              =? _i1KernelId
+        , "KeyName"               =? _i1KeyName
+        , "LaunchTime"            =? _i1LaunchTime
+        , "Monitoring"            =? _i1Monitoring
+        , "NetworkInterfaceSet"   `toQueryList` _i1NetworkInterfaces
+        , "Placement"             =? _i1Placement
+        , "Platform"              =? _i1Platform
+        , "PrivateDnsName"        =? _i1PrivateDnsName
+        , "PrivateIpAddress"      =? _i1PrivateIpAddress
+        , "ProductCodes"          `toQueryList` _i1ProductCodes
+        , "DnsName"               =? _i1PublicDnsName
+        , "IpAddress"             =? _i1PublicIpAddress
+        , "RamdiskId"             =? _i1RamdiskId
+        , "RootDeviceName"        =? _i1RootDeviceName
+        , "RootDeviceType"        =? _i1RootDeviceType
+        , "GroupSet"              `toQueryList` _i1SecurityGroups
+        , "SourceDestCheck"       =? _i1SourceDestCheck
+        , "SpotInstanceRequestId" =? _i1SpotInstanceRequestId
+        , "SriovNetSupport"       =? _i1SriovNetSupport
+        , "InstanceState"         =? _i1State
+        , "StateReason"           =? _i1StateReason
+        , "Reason"                =? _i1StateTransitionReason
+        , "SubnetId"              =? _i1SubnetId
+        , "TagSet"                `toQueryList` _i1Tags
+        , "VirtualizationType"    =? _i1VirtualizationType
+        , "VpcId"                 =? _i1VpcId
         ]
 
 data ExportTask = ExportTask
@@ -12448,12 +12448,12 @@ instance FromXML ExportTask where
 
 instance ToQuery ExportTask where
     toQuery ExportTask{..} = mconcat
-        [ "description"    =? _etDescription
-        , "exportTaskId"   =? _etExportTaskId
-        , "exportToS3"     =? _etExportToS3Task
-        , "instanceExport" =? _etInstanceExportDetails
-        , "state"          =? _etState
-        , "statusMessage"  =? _etStatusMessage
+        [ "Description"    =? _etDescription
+        , "ExportTaskId"   =? _etExportTaskId
+        , "ExportToS3"     =? _etExportToS3Task
+        , "InstanceExport" =? _etInstanceExportDetails
+        , "State"          =? _etState
+        , "StatusMessage"  =? _etStatusMessage
         ]
 
 data ResetImageAttributeName
@@ -12653,22 +12653,22 @@ instance FromXML RequestSpotLaunchSpecification where
 
 instance ToQuery RequestSpotLaunchSpecification where
     toQuery RequestSpotLaunchSpecification{..} = mconcat
-        [ "addressingType"     =? _rslsAddressingType
-        , "blockDeviceMapping" `toQueryList` _rslsBlockDeviceMappings
-        , "ebsOptimized"       =? _rslsEbsOptimized
-        , "iamInstanceProfile" =? _rslsIamInstanceProfile
-        , "imageId"            =? _rslsImageId
-        , "instanceType"       =? _rslsInstanceType
-        , "kernelId"           =? _rslsKernelId
-        , "keyName"            =? _rslsKeyName
-        , "monitoring"         =? _rslsMonitoring
+        [ "AddressingType"     =? _rslsAddressingType
+        , "BlockDeviceMapping" `toQueryList` _rslsBlockDeviceMappings
+        , "EbsOptimized"       =? _rslsEbsOptimized
+        , "IamInstanceProfile" =? _rslsIamInstanceProfile
+        , "ImageId"            =? _rslsImageId
+        , "InstanceType"       =? _rslsInstanceType
+        , "KernelId"           =? _rslsKernelId
+        , "KeyName"            =? _rslsKeyName
+        , "Monitoring"         =? _rslsMonitoring
         , "NetworkInterface"   `toQueryList` _rslsNetworkInterfaces
-        , "placement"          =? _rslsPlacement
-        , "ramdiskId"          =? _rslsRamdiskId
+        , "Placement"          =? _rslsPlacement
+        , "RamdiskId"          =? _rslsRamdiskId
         , "SecurityGroupId"    `toQueryList` _rslsSecurityGroupIds
         , "SecurityGroup"      `toQueryList` _rslsSecurityGroups
-        , "subnetId"           =? _rslsSubnetId
-        , "userData"           =? _rslsUserData
+        , "SubnetId"           =? _rslsSubnetId
+        , "UserData"           =? _rslsUserData
         ]
 
 newtype VolumeDetail = VolumeDetail
@@ -12697,7 +12697,7 @@ instance FromXML VolumeDetail where
 
 instance ToQuery VolumeDetail where
     toQuery VolumeDetail{..} = mconcat
-        [ "size" =? _vdSize
+        [ "Size" =? _vdSize
         ]
 
 data PricingDetail = PricingDetail
@@ -12734,8 +12734,8 @@ instance FromXML PricingDetail where
 
 instance ToQuery PricingDetail where
     toQuery PricingDetail{..} = mconcat
-        [ "count" =? _pdCount
-        , "price" =? _pdPrice
+        [ "Count" =? _pdCount
+        , "Price" =? _pdPrice
         ]
 
 data NetworkInterfacePrivateIpAddress = NetworkInterfacePrivateIpAddress
@@ -12794,10 +12794,10 @@ instance FromXML NetworkInterfacePrivateIpAddress where
 
 instance ToQuery NetworkInterfacePrivateIpAddress where
     toQuery NetworkInterfacePrivateIpAddress{..} = mconcat
-        [ "association"      =? _nipiaAssociation
-        , "primary"          =? _nipiaPrimary
-        , "privateDnsName"   =? _nipiaPrivateDnsName
-        , "privateIpAddress" =? _nipiaPrivateIpAddress
+        [ "Association"      =? _nipiaAssociation
+        , "Primary"          =? _nipiaPrimary
+        , "PrivateDnsName"   =? _nipiaPrivateDnsName
+        , "PrivateIpAddress" =? _nipiaPrivateIpAddress
         ]
 
 data DiskImageFormat
@@ -12863,8 +12863,8 @@ instance FromXML BundleTaskError where
 
 instance ToQuery BundleTaskError where
     toQuery BundleTaskError{..} = mconcat
-        [ "code"    =? _bteCode
-        , "message" =? _bteMessage
+        [ "Code"    =? _bteCode
+        , "Message" =? _bteMessage
         ]
 
 data VpcClassicLink = VpcClassicLink
@@ -12911,9 +12911,9 @@ instance FromXML VpcClassicLink where
 
 instance ToQuery VpcClassicLink where
     toQuery VpcClassicLink{..} = mconcat
-        [ "classicLinkEnabled" =? _vclClassicLinkEnabled
-        , "tagSet"             `toQueryList` _vclTags
-        , "vpcId"              =? _vclVpcId
+        [ "ClassicLinkEnabled" =? _vclClassicLinkEnabled
+        , "TagSet"             `toQueryList` _vclTags
+        , "VpcId"              =? _vclVpcId
         ]
 
 data VolumeStatusItem = VolumeStatusItem
@@ -12978,9 +12978,9 @@ instance FromXML VolumeStatusItem where
 
 instance ToQuery VolumeStatusItem where
     toQuery VolumeStatusItem{..} = mconcat
-        [ "actionsSet"       `toQueryList` _vsiActions
-        , "availabilityZone" =? _vsiAvailabilityZone
-        , "eventsSet"        `toQueryList` _vsiEvents
-        , "volumeId"         =? _vsiVolumeId
-        , "volumeStatus"     =? _vsiVolumeStatus
+        [ "ActionsSet"       `toQueryList` _vsiActions
+        , "AvailabilityZone" =? _vsiAvailabilityZone
+        , "EventsSet"        `toQueryList` _vsiEvents
+        , "VolumeId"         =? _vsiVolumeId
+        , "VolumeStatus"     =? _vsiVolumeStatus
         ]

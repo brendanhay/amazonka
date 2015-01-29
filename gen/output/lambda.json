@@ -77,7 +77,7 @@
         "url": "http://docs.aws.amazon.com/lambda/latest/dg/API_Reference.html",
         "protocol": "rest-json",
         "name": "Amazon Lambda",
-        "version": "0.2.2",
+        "version": "0.2.3",
         "description": "AWS Lambda is a compute service that runs your code in response to events and\nautomatically manages the compute resources for you, making it easy to build\napplications that respond quickly to new information. AWS Lambda starts\nrunning your code within milliseconds of an event such as an image upload,\nin-app activity, website click, or output from a connected device. You can\nalso use AWS Lambda to create new back-end services where compute resources\nare automatically triggered based on custom requests. With AWS Lambda you pay\nonly for the requests served and the compute time required to run your code.\nBilling is metered in increments of 100 milliseconds, making it\ncost-effective and easy to scale automatically from a few requests per day to\nthousands per second."
     },
     "types": {
@@ -440,7 +440,7 @@
                     {
                         "location": null,
                         "iso": null,
-                        "lensMapping": "mapping _Time",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "protocol": "rest-json",
@@ -451,8 +451,8 @@
                         "shape": "Timestamp",
                         "locationName": "LastModified",
                         "documentation": "-- | The timestamp of the last time you updated the function.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe POSIX"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     }
                 ],
                 "payload": null,
@@ -652,7 +652,7 @@
                     {
                         "location": null,
                         "iso": null,
-                        "lensMapping": "mapping _Time",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "protocol": "rest-json",
@@ -663,8 +663,8 @@
                         "shape": "Timestamp",
                         "locationName": "LastModified",
                         "documentation": "-- | The timestamp of the last time you updated the function.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe POSIX"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     }
                 ],
                 "fields": [
@@ -773,7 +773,7 @@
                     {
                         "location": null,
                         "iso": null,
-                        "lensMapping": "mapping _Time",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "protocol": "rest-json",
@@ -784,8 +784,8 @@
                         "shape": "Timestamp",
                         "locationName": "LastModified",
                         "documentation": "-- | The timestamp of the last time you updated the function.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe POSIX"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": null,
@@ -988,7 +988,7 @@
                     {
                         "location": null,
                         "iso": null,
-                        "lensMapping": "mapping _Time",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "protocol": "rest-json",
@@ -999,8 +999,8 @@
                         "shape": "Timestamp",
                         "locationName": "LastModified",
                         "documentation": "-- | The UTC time string indicating the last time the event mapping was updated.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe POSIX"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": null,
@@ -1149,7 +1149,7 @@
                     {
                         "location": null,
                         "iso": null,
-                        "lensMapping": "mapping _Time",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "protocol": "rest-json",
@@ -1160,8 +1160,8 @@
                         "shape": "Timestamp",
                         "locationName": "LastModified",
                         "documentation": "-- | The UTC time string indicating the last time the event mapping was updated.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe POSIX"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": null,
@@ -1270,7 +1270,7 @@
                     {
                         "location": null,
                         "iso": null,
-                        "lensMapping": "mapping _Time",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "protocol": "rest-json",
@@ -1281,8 +1281,8 @@
                         "shape": "Timestamp",
                         "locationName": "LastModified",
                         "documentation": "-- | The UTC time string indicating the last time the event mapping was updated.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe POSIX"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": null,
@@ -1483,7 +1483,7 @@
                     {
                         "location": null,
                         "iso": null,
-                        "lensMapping": "mapping _Time",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "protocol": "rest-json",
@@ -1494,8 +1494,8 @@
                         "shape": "Timestamp",
                         "locationName": "LastModified",
                         "documentation": "-- | The UTC time string indicating the last time the event mapping was updated.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe POSIX"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": null,
@@ -1650,7 +1650,7 @@
                     {
                         "location": null,
                         "iso": null,
-                        "lensMapping": "mapping _Time",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "protocol": "rest-json",
@@ -1661,8 +1661,8 @@
                         "shape": "Timestamp",
                         "locationName": "LastModified",
                         "documentation": "-- | The UTC time string indicating the last time the event mapping was updated.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe POSIX"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": null,
@@ -1771,7 +1771,7 @@
                     {
                         "location": null,
                         "iso": null,
-                        "lensMapping": "mapping _Time",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "protocol": "rest-json",
@@ -1782,8 +1782,8 @@
                         "shape": "Timestamp",
                         "locationName": "LastModified",
                         "documentation": "-- | The UTC time string indicating the last time the event mapping was updated.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe POSIX"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": null,
@@ -1865,7 +1865,7 @@
             "pager": null,
             "name": "AddEventSource",
             "method": "post",
-            "documentation": "-- | Identifies an Amazon Kinesis stream as the event source for an AWS Lambda\n-- function. AWS Lambda invokes the specified function when records are posted\n-- to the stream.\n--\n-- This is the pull model, where AWS Lambda invokes the function. For more\n-- information, go to \u003chttp://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS LambdaL How it Works\u003e in the AWS Lambda Developer Guide.\n--\n-- This association between an Amazon Kinesis stream and an AWS Lambda function\n-- is called the event source mapping. You provide the configuration information\n-- (for example, which stream to read from and which AWS Lambda function to\n-- invoke) for the event source mapping in the request body.\n--\n-- This operation requires permission for the 'iam:PassRole' action for the IAM\n-- role. It also requires permission for the 'lambda:AddEventSource' action.",
+            "documentation": "-- | Identifies a stream as an event source for an AWS Lambda function. It can be\n-- either an Amazon Kinesis stream or a Amazon DynamoDB stream. AWS Lambda\n-- invokes the specified function when records are posted to the stream.\n--\n-- This is the pull model, where AWS Lambda invokes the function. For more\n-- information, go to \u003chttp://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works\u003e in the AWS Lambda Developer Guide.\n--\n-- This association between an Amazon Kinesis stream and an AWS Lambda function\n-- is called the event source mapping. You provide the configuration information\n-- (for example, which stream to read from and which AWS Lambda function to\n-- invoke) for the event source mapping in the request body.\n--\n-- Each event source, such as a Kinesis stream, can only be associated with\n-- one AWS Lambda function. If you call 'AddEventSource' for an event source that\n-- is already mapped to another AWS Lambda function, the existing mapping is\n-- updated to call the new function instead of the old one.\n--\n-- This operation requires permission for the 'iam:PassRole' action for the IAM\n-- role. It also requires permission for the 'lambda:AddEventSource' action.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2415,7 +2415,7 @@
                     {
                         "location": null,
                         "iso": null,
-                        "lensMapping": "mapping _Time",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "protocol": "rest-json",
@@ -2426,8 +2426,8 @@
                         "shape": "Timestamp",
                         "locationName": "LastModified",
                         "documentation": "-- | The UTC time string indicating the last time the event mapping was updated.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe POSIX"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": null,
@@ -2582,7 +2582,7 @@
                     {
                         "location": null,
                         "iso": null,
-                        "lensMapping": "mapping _Time",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "protocol": "rest-json",
@@ -2593,8 +2593,8 @@
                         "shape": "Timestamp",
                         "locationName": "LastModified",
                         "documentation": "-- | The UTC time string indicating the last time the event mapping was updated.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe POSIX"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": null,
@@ -2703,7 +2703,7 @@
                     {
                         "location": null,
                         "iso": null,
-                        "lensMapping": "mapping _Time",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "protocol": "rest-json",
@@ -2714,8 +2714,8 @@
                         "shape": "Timestamp",
                         "locationName": "LastModified",
                         "documentation": "-- | The UTC time string indicating the last time the event mapping was updated.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe POSIX"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": null,
@@ -3341,7 +3341,7 @@
                     {
                         "location": null,
                         "iso": null,
-                        "lensMapping": "mapping _Time",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "protocol": "rest-json",
@@ -3352,8 +3352,8 @@
                         "shape": "Timestamp",
                         "locationName": "LastModified",
                         "documentation": "-- | The timestamp of the last time you updated the function.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe POSIX"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     }
                 ],
                 "wrapper": false,
@@ -3559,7 +3559,7 @@
                     {
                         "location": null,
                         "iso": null,
-                        "lensMapping": "mapping _Time",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "protocol": "rest-json",
@@ -3570,8 +3570,8 @@
                         "shape": "Timestamp",
                         "locationName": "LastModified",
                         "documentation": "-- | The timestamp of the last time you updated the function.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe POSIX"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     }
                 ],
                 "fields": [
@@ -3680,7 +3680,7 @@
                     {
                         "location": null,
                         "iso": null,
-                        "lensMapping": "mapping _Time",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "protocol": "rest-json",
@@ -3691,8 +3691,8 @@
                         "shape": "Timestamp",
                         "locationName": "LastModified",
                         "documentation": "-- | The timestamp of the last time you updated the function.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe POSIX"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": null,
@@ -4284,7 +4284,7 @@
             "pager": null,
             "name": "ListEventSources",
             "method": "get",
-            "documentation": "-- | Returns a list of event source mappings. For each mapping, the API returns\n-- configuration information (see 'AddEventSource'). You can optionally specify\n-- filters to retrieve specific event source mappings.\n--\n-- This operation requires permission for the 'lambda:ListEventSources' action.",
+            "documentation": "-- | Returns a list of event source mappings you created using the 'AddEventSource'\n-- (see 'AddEventSource'), where you identify a stream as event source. This list\n-- does not include Amazon S3 event sources.\n--\n-- For each mapping, the API returns configuration information. You can\n-- optionally specify filters to retrieve specific event source mappings.\n--\n-- This operation requires permission for the 'lambda:ListEventSources' action.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -5083,7 +5083,7 @@
                     {
                         "location": null,
                         "iso": null,
-                        "lensMapping": "mapping _Time",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "protocol": "rest-json",
@@ -5094,8 +5094,8 @@
                         "shape": "Timestamp",
                         "locationName": "LastModified",
                         "documentation": "-- | The timestamp of the last time you updated the function.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe POSIX"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     }
                 ],
                 "wrapper": false,
@@ -5301,7 +5301,7 @@
                     {
                         "location": null,
                         "iso": null,
-                        "lensMapping": "mapping _Time",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "protocol": "rest-json",
@@ -5312,8 +5312,8 @@
                         "shape": "Timestamp",
                         "locationName": "LastModified",
                         "documentation": "-- | The timestamp of the last time you updated the function.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe POSIX"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     }
                 ],
                 "fields": [
@@ -5422,7 +5422,7 @@
                     {
                         "location": null,
                         "iso": null,
-                        "lensMapping": "mapping _Time",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "protocol": "rest-json",
@@ -5433,8 +5433,8 @@
                         "shape": "Timestamp",
                         "locationName": "LastModified",
                         "documentation": "-- | The timestamp of the last time you updated the function.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe POSIX"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": null,
@@ -6016,7 +6016,7 @@
                     {
                         "location": null,
                         "iso": null,
-                        "lensMapping": "mapping _Time",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "protocol": "rest-json",
@@ -6027,8 +6027,8 @@
                         "shape": "Timestamp",
                         "locationName": "LastModified",
                         "documentation": "-- | The timestamp of the last time you updated the function.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe POSIX"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     }
                 ],
                 "wrapper": false,
@@ -6234,7 +6234,7 @@
                     {
                         "location": null,
                         "iso": null,
-                        "lensMapping": "mapping _Time",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "protocol": "rest-json",
@@ -6245,8 +6245,8 @@
                         "shape": "Timestamp",
                         "locationName": "LastModified",
                         "documentation": "-- | The timestamp of the last time you updated the function.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe POSIX"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     }
                 ],
                 "fields": [
@@ -6355,7 +6355,7 @@
                     {
                         "location": null,
                         "iso": null,
-                        "lensMapping": "mapping _Time",
+                        "lensMapping": null,
                         "default": "Nothing",
                         "monoid": false,
                         "protocol": "rest-json",
@@ -6366,8 +6366,8 @@
                         "shape": "Timestamp",
                         "locationName": "LastModified",
                         "documentation": "-- | The timestamp of the last time you updated the function.",
-                        "typeExposed": "Maybe UTCTime",
-                        "type": "Maybe POSIX"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": null,

@@ -301,6 +301,6 @@ instance FromJSON PollForDecisionTaskResponse where
 
 instance AWSPager PollForDecisionTask where
     page rq rs
-        | stop (rq ^. pfdtNextPageToken) = Nothing
+        | stop (rs ^. pfdtrNextPageToken) = Nothing
         | otherwise = (\x -> rq & pfdtNextPageToken ?~ x)
             <$> (rs ^. pfdtrNextPageToken)

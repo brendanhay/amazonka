@@ -101,7 +101,7 @@ instance ToPath MonitorInstances where
 
 instance ToQuery MonitorInstances where
     toQuery MonitorInstances{..} = mconcat
-        [ "dryRun"     =? _miDryRun
+        [ "DryRun"     =? _miDryRun
         , "InstanceId" `toQueryList` _miInstanceIds
         ]
 

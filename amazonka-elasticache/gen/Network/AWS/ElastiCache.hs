@@ -56,6 +56,7 @@ module Network.AWS.ElastiCache
     , module Network.AWS.ElastiCache.ResetCacheParameterGroup
     , module Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
     , module Network.AWS.ElastiCache.Types
+    , module Network.AWS.ElastiCache.Waiters
     ) where
 
 import Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
@@ -93,3 +94,4 @@ import Network.AWS.ElastiCache.RebootCacheCluster
 import Network.AWS.ElastiCache.ResetCacheParameterGroup
 import Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
 import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Waiters

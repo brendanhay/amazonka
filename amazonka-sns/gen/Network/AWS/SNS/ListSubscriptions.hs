@@ -122,6 +122,6 @@ instance FromXML ListSubscriptionsResponse where
 
 instance AWSPager ListSubscriptions where
     page rq rs
-        | stop (rq ^. lsNextToken) = Nothing
+        | stop (rs ^. lsrNextToken) = Nothing
         | otherwise = (\x -> rq & lsNextToken ?~ x)
             <$> (rs ^. lsrNextToken)

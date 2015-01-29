@@ -113,7 +113,7 @@ instance ToPath CancelSpotInstanceRequests where
 
 instance ToQuery CancelSpotInstanceRequests where
     toQuery CancelSpotInstanceRequests{..} = mconcat
-        [ "dryRun"                =? _csirDryRun
+        [ "DryRun"                =? _csirDryRun
         , "SpotInstanceRequestId" `toQueryList` _csirSpotInstanceRequestIds
         ]
 

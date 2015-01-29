@@ -97,9 +97,9 @@ instance ToPath DeleteRoute where
 
 instance ToQuery DeleteRoute where
     toQuery DeleteRoute{..} = mconcat
-        [ "destinationCidrBlock" =? _drDestinationCidrBlock
-        , "dryRun"               =? _drDryRun
-        , "routeTableId"         =? _drRouteTableId
+        [ "DestinationCidrBlock" =? _drDestinationCidrBlock
+        , "DryRun"               =? _drDryRun
+        , "RouteTableId"         =? _drRouteTableId
         ]
 
 instance ToHeaders DeleteRoute

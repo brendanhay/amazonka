@@ -307,8 +307,8 @@ instance ToPath CreateVolume where
 instance ToQuery CreateVolume where
     toQuery CreateVolume{..} = mconcat
         [ "AvailabilityZone" =? _cv1AvailabilityZone
-        , "dryRun"           =? _cv1DryRun
-        , "encrypted"        =? _cv1Encrypted
+        , "DryRun"           =? _cv1DryRun
+        , "Encrypted"        =? _cv1Encrypted
         , "Iops"             =? _cv1Iops
         , "KmsKeyId"         =? _cv1KmsKeyId
         , "Size"             =? _cv1Size

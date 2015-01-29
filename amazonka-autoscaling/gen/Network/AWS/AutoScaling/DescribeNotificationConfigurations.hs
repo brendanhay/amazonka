@@ -147,6 +147,6 @@ instance FromXML DescribeNotificationConfigurationsResponse where
 
 instance AWSPager DescribeNotificationConfigurations where
     page rq rs
-        | stop (rq ^. dncNextToken) = Nothing
+        | stop (rs ^. dncrNextToken) = Nothing
         | otherwise = (\x -> rq & dncNextToken ?~ x)
             <$> (rs ^. dncrNextToken)

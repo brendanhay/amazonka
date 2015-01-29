@@ -145,7 +145,7 @@ instance ToQuery CopyImage where
     toQuery CopyImage{..} = mconcat
         [ "ClientToken"   =? _ciClientToken
         , "Description"   =? _ciDescription
-        , "dryRun"        =? _ciDryRun
+        , "DryRun"        =? _ciDryRun
         , "Name"          =? _ciName
         , "SourceImageId" =? _ciSourceImageId
         , "SourceRegion"  =? _ciSourceRegion

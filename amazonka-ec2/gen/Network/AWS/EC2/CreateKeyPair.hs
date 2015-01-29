@@ -133,7 +133,7 @@ instance ToPath CreateKeyPair where
 
 instance ToQuery CreateKeyPair where
     toQuery CreateKeyPair{..} = mconcat
-        [ "dryRun"  =? _ckpDryRun
+        [ "DryRun"  =? _ckpDryRun
         , "KeyName" =? _ckpKeyName
         ]
 

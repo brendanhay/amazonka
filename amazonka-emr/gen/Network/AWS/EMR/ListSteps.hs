@@ -152,6 +152,6 @@ instance FromJSON ListStepsResponse where
 
 instance AWSPager ListSteps where
     page rq rs
-        | stop (rq ^. lsMarker) = Nothing
+        | stop (rs ^. lsrMarker) = Nothing
         | otherwise = (\x -> rq & lsMarker ?~ x)
             <$> (rs ^. lsrMarker)

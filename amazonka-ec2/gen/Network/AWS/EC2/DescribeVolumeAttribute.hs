@@ -130,7 +130,7 @@ instance ToPath DescribeVolumeAttribute where
 instance ToQuery DescribeVolumeAttribute where
     toQuery DescribeVolumeAttribute{..} = mconcat
         [ "Attribute" =? _dvaAttribute
-        , "dryRun"    =? _dvaDryRun
+        , "DryRun"    =? _dvaDryRun
         , "VolumeId"  =? _dvaVolumeId
         ]
 

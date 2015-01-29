@@ -235,6 +235,6 @@ instance FromXML DescribeEventsResponse where
 
 instance AWSPager DescribeEvents where
     page rq rs
-        | stop (rq ^. deMarker) = Nothing
+        | stop (rs ^. derMarker) = Nothing
         | otherwise = (\x -> rq & deMarker ?~ x)
             <$> (rs ^. derMarker)

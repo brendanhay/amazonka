@@ -4,7 +4,7 @@ instance AWSPager {{ request.name }} where
   {% case pager.type %}
   {% when "next" %}
     page rq rs
-        | stop (rq ^. {{ pager.token.input }}) = Nothing
+        | stop (rs ^. {{ pager.token.output }}) = Nothing
       {% if pager.token.outputRequired && pager.token.inputRequired %}
         | otherwise = Just $ rq
             & {{ pager.token.input }} .~ rs ^. {{ pager.token.output }}

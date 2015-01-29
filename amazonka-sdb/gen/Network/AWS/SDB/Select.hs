@@ -156,6 +156,6 @@ instance FromXML SelectResponse where
 
 instance AWSPager Select where
     page rq rs
-        | stop (rq ^. sNextToken) = Nothing
+        | stop (rs ^. srNextToken) = Nothing
         | otherwise = (\x -> rq & sNextToken ?~ x)
             <$> (rs ^. srNextToken)

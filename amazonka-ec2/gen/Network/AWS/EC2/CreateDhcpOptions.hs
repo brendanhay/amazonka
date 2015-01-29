@@ -121,8 +121,8 @@ instance ToPath CreateDhcpOptions where
 
 instance ToQuery CreateDhcpOptions where
     toQuery CreateDhcpOptions{..} = mconcat
-        [ "dhcpConfiguration" `toQueryList` _cdoDhcpConfigurations
-        , "dryRun"            =? _cdoDryRun
+        [ "DhcpConfiguration" `toQueryList` _cdoDhcpConfigurations
+        , "DryRun"            =? _cdoDryRun
         ]
 
 instance ToHeaders CreateDhcpOptions

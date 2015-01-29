@@ -1,12 +1,12 @@
 name:                  amazonka-core
-version:               0.2.2
+version:               0.2.3
 synopsis:              Core functionality and data types for Amazonka libraries.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
-copyright:             Copyright (c) 2013-2014 Brendan Hay
+copyright:             Copyright (c) 2013-2015 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 extra-source-files:    README.md
@@ -70,7 +70,7 @@ library
         , Network.AWS.Signing.Internal.V4
 
     build-depends:
-          aeson                >= 0.8    && < 0.9
+          aeson                == 0.8.*
         , attoparsec           >= 0.12   && < 0.15
         , base                 >= 4.7    && < 5
         , base16-bytestring    >= 0.1    && < 1

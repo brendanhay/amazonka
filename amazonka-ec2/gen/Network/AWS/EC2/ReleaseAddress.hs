@@ -107,7 +107,7 @@ instance ToPath ReleaseAddress where
 instance ToQuery ReleaseAddress where
     toQuery ReleaseAddress{..} = mconcat
         [ "AllocationId" =? _raAllocationId
-        , "dryRun"       =? _raDryRun
+        , "DryRun"       =? _raDryRun
         , "PublicIp"     =? _raPublicIp
         ]
 

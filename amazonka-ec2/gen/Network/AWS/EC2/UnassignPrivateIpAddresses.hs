@@ -91,8 +91,8 @@ instance ToPath UnassignPrivateIpAddresses where
 
 instance ToQuery UnassignPrivateIpAddresses where
     toQuery UnassignPrivateIpAddresses{..} = mconcat
-        [ "networkInterfaceId" =? _upiaNetworkInterfaceId
-        , "privateIpAddress"   `toQueryList` _upiaPrivateIpAddresses
+        [ "NetworkInterfaceId" =? _upiaNetworkInterfaceId
+        , "PrivateIpAddress"   `toQueryList` _upiaPrivateIpAddresses
         ]
 
 instance ToHeaders UnassignPrivateIpAddresses

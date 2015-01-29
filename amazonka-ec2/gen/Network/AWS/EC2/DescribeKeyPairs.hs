@@ -117,7 +117,7 @@ instance ToPath DescribeKeyPairs where
 
 instance ToQuery DescribeKeyPairs where
     toQuery DescribeKeyPairs{..} = mconcat
-        [ "dryRun"  =? _dkp1DryRun
+        [ "DryRun"  =? _dkp1DryRun
         , "Filter"  `toQueryList` _dkp1Filters
         , "KeyName" `toQueryList` _dkp1KeyNames
         ]

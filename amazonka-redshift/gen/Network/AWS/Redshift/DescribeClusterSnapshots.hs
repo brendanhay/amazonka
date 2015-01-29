@@ -266,6 +266,6 @@ instance FromXML DescribeClusterSnapshotsResponse where
 
 instance AWSPager DescribeClusterSnapshots where
     page rq rs
-        | stop (rq ^. dcs1Marker) = Nothing
+        | stop (rs ^. dcsrMarker) = Nothing
         | otherwise = (\x -> rq & dcs1Marker ?~ x)
             <$> (rs ^. dcsrMarker)

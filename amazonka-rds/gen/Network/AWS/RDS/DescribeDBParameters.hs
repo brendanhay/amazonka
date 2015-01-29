@@ -180,6 +180,6 @@ instance FromXML DescribeDBParametersResponse where
 
 instance AWSPager DescribeDBParameters where
     page rq rs
-        | stop (rq ^. ddbpMarker) = Nothing
+        | stop (rs ^. ddbprMarker) = Nothing
         | otherwise = (\x -> rq & ddbpMarker ?~ x)
             <$> (rs ^. ddbprMarker)

@@ -1,5 +1,5 @@
 name:                  amazonka-ec2-examples
-version:               0.2.2
+version:               0.2.3
 synopsis:              Amazon Elastic Compute Cloud SDK Examples
 homepage:              https://github.com/brendanhay/amazonka
 license:               MPL-2.0
@@ -20,9 +20,9 @@ library
         EC2
 
     build-depends:
-        amazonka      == 0.2.2.*
-      , amazonka-core == 0.2.2.*
-      , amazonka-ec2 == 0.2.2.*
+        amazonka      == 0.2.3.*
+      , amazonka-core == 0.2.3.*
+      , amazonka-ec2 == 0.2.3.*
       , base          >= 4.7     && < 5
       , bytestring    >= 0.9
       , conduit       >= 1.1     && < 1.3

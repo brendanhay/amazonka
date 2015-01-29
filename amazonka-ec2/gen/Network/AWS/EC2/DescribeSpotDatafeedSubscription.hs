@@ -91,7 +91,7 @@ instance ToPath DescribeSpotDatafeedSubscription where
 
 instance ToQuery DescribeSpotDatafeedSubscription where
     toQuery DescribeSpotDatafeedSubscription{..} = mconcat
-        [ "dryRun" =? _dsdsDryRun
+        [ "DryRun" =? _dsdsDryRun
         ]
 
 instance ToHeaders DescribeSpotDatafeedSubscription

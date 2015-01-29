@@ -116,9 +116,9 @@ instance ToPath AssociateRouteTable where
 
 instance ToQuery AssociateRouteTable where
     toQuery AssociateRouteTable{..} = mconcat
-        [ "dryRun"       =? _artDryRun
-        , "routeTableId" =? _artRouteTableId
-        , "subnetId"     =? _artSubnetId
+        [ "DryRun"       =? _artDryRun
+        , "RouteTableId" =? _artRouteTableId
+        , "SubnetId"     =? _artSubnetId
         ]
 
 instance ToHeaders AssociateRouteTable

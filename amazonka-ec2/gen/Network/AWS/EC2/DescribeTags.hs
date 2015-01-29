@@ -143,10 +143,10 @@ instance ToPath DescribeTags where
 
 instance ToQuery DescribeTags where
     toQuery DescribeTags{..} = mconcat
-        [ "dryRun"     =? _dtDryRun
+        [ "DryRun"     =? _dtDryRun
         , "Filter"     `toQueryList` _dtFilters
-        , "maxResults" =? _dtMaxResults
-        , "nextToken"  =? _dtNextToken
+        , "MaxResults" =? _dtMaxResults
+        , "NextToken"  =? _dtNextToken
         ]
 
 instance ToHeaders DescribeTags
@@ -165,6 +165,6 @@ instance FromXML DescribeTagsResponse where
 
 instance AWSPager DescribeTags where
     page rq rs
-        | stop (rq ^. dtNextToken) = Nothing
+        | stop (rs ^. dtrNextToken) = Nothing
         | otherwise = (\x -> rq & dtNextToken ?~ x)
             <$> (rs ^. dtrNextToken)

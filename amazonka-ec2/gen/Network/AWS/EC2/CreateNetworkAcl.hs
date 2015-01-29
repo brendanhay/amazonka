@@ -102,8 +102,8 @@ instance ToPath CreateNetworkAcl where
 
 instance ToQuery CreateNetworkAcl where
     toQuery CreateNetworkAcl{..} = mconcat
-        [ "dryRun" =? _cnaDryRun
-        , "vpcId"  =? _cnaVpcId
+        [ "DryRun" =? _cnaDryRun
+        , "VpcId"  =? _cnaVpcId
         ]
 
 instance ToHeaders CreateNetworkAcl

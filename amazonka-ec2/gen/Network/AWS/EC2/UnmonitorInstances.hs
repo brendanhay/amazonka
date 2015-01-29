@@ -101,7 +101,7 @@ instance ToPath UnmonitorInstances where
 
 instance ToQuery UnmonitorInstances where
     toQuery UnmonitorInstances{..} = mconcat
-        [ "dryRun"     =? _uiDryRun
+        [ "DryRun"     =? _uiDryRun
         , "InstanceId" `toQueryList` _uiInstanceIds
         ]
 

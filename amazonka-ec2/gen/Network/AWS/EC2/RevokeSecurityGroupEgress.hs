@@ -171,15 +171,15 @@ instance ToPath RevokeSecurityGroupEgress where
 
 instance ToQuery RevokeSecurityGroupEgress where
     toQuery RevokeSecurityGroupEgress{..} = mconcat
-        [ "cidrIp"                     =? _rsgeCidrIp
-        , "dryRun"                     =? _rsgeDryRun
-        , "fromPort"                   =? _rsgeFromPort
-        , "groupId"                    =? _rsgeGroupId
-        , "ipPermissions"              `toQueryList` _rsgeIpPermissions
-        , "ipProtocol"                 =? _rsgeIpProtocol
-        , "sourceSecurityGroupName"    =? _rsgeSourceSecurityGroupName
-        , "sourceSecurityGroupOwnerId" =? _rsgeSourceSecurityGroupOwnerId
-        , "toPort"                     =? _rsgeToPort
+        [ "CidrIp"                     =? _rsgeCidrIp
+        , "DryRun"                     =? _rsgeDryRun
+        , "FromPort"                   =? _rsgeFromPort
+        , "GroupId"                    =? _rsgeGroupId
+        , "IpPermissions"              `toQueryList` _rsgeIpPermissions
+        , "IpProtocol"                 =? _rsgeIpProtocol
+        , "SourceSecurityGroupName"    =? _rsgeSourceSecurityGroupName
+        , "SourceSecurityGroupOwnerId" =? _rsgeSourceSecurityGroupOwnerId
+        , "ToPort"                     =? _rsgeToPort
         ]
 
 instance ToHeaders RevokeSecurityGroupEgress

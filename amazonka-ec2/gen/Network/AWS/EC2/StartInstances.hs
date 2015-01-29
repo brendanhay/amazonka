@@ -127,8 +127,8 @@ instance ToPath StartInstances where
 
 instance ToQuery StartInstances where
     toQuery StartInstances{..} = mconcat
-        [ "additionalInfo" =? _si1AdditionalInfo
-        , "dryRun"         =? _si1DryRun
+        [ "AdditionalInfo" =? _si1AdditionalInfo
+        , "DryRun"         =? _si1DryRun
         , "InstanceId"     `toQueryList` _si1InstanceIds
         ]
 

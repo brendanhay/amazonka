@@ -155,6 +155,6 @@ instance FromXML DescribeCacheSecurityGroupsResponse where
 
 instance AWSPager DescribeCacheSecurityGroups where
     page rq rs
-        | stop (rq ^. dcsg1Marker) = Nothing
+        | stop (rs ^. dcsgr1Marker) = Nothing
         | otherwise = (\x -> rq & dcsg1Marker ?~ x)
             <$> (rs ^. dcsgr1Marker)

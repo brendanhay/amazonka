@@ -112,9 +112,9 @@ instance ToPath CreateSpotDatafeedSubscription where
 
 instance ToQuery CreateSpotDatafeedSubscription where
     toQuery CreateSpotDatafeedSubscription{..} = mconcat
-        [ "bucket" =? _csdsBucket
-        , "dryRun" =? _csdsDryRun
-        , "prefix" =? _csdsPrefix
+        [ "Bucket" =? _csdsBucket
+        , "DryRun" =? _csdsDryRun
+        , "Prefix" =? _csdsPrefix
         ]
 
 instance ToHeaders CreateSpotDatafeedSubscription

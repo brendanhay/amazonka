@@ -191,7 +191,7 @@ instance ToPath DetachVolume where
 instance ToQuery DetachVolume where
     toQuery DetachVolume{..} = mconcat
         [ "Device"     =? _dvDevice
-        , "dryRun"     =? _dvDryRun
+        , "DryRun"     =? _dvDryRun
         , "Force"      =? _dvForce
         , "InstanceId" =? _dvInstanceId
         , "VolumeId"   =? _dvVolumeId

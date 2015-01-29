@@ -121,8 +121,8 @@ instance ToPath DescribeAccountAttributes where
 
 instance ToQuery DescribeAccountAttributes where
     toQuery DescribeAccountAttributes{..} = mconcat
-        [ "attributeName" `toQueryList` _daaAttributeNames
-        , "dryRun"        =? _daaDryRun
+        [ "AttributeName" `toQueryList` _daaAttributeNames
+        , "DryRun"        =? _daaDryRun
         ]
 
 instance ToHeaders DescribeAccountAttributes

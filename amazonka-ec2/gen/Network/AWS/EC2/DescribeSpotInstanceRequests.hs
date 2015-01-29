@@ -231,7 +231,7 @@ instance ToPath DescribeSpotInstanceRequests where
 
 instance ToQuery DescribeSpotInstanceRequests where
     toQuery DescribeSpotInstanceRequests{..} = mconcat
-        [ "dryRun"                =? _dsirDryRun
+        [ "DryRun"                =? _dsirDryRun
         , "Filter"                `toQueryList` _dsirFilters
         , "SpotInstanceRequestId" `toQueryList` _dsirSpotInstanceRequestIds
         ]

@@ -22,8 +22,36 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Generates a secure data key. Data keys are used to encrypt and decrypt data.
--- They are wrapped by customer master keys.
+-- | Generates a data key that you can use in your application to locally encrypt
+-- data. This call returns a plaintext version of the key in the 'Plaintext' field
+-- of the response object and an encrypted copy of the key in the 'CiphertextBlob'
+-- field. The key is encrypted by using the master key specified by the 'KeyId'
+-- field. To decrypt the encrypted key, pass it to the 'Decrypt' API.
+--
+-- We recommend that you use the following pattern to locally encrypt data:
+-- call the 'GenerateDataKey' API, use the key returned in the 'Plaintext' response
+-- field to locally encrypt data, and then erase the plaintext data key from
+-- memory. Store the encrypted data key (contained in the 'CiphertextBlob' field)
+-- alongside of the locally encrypted data.
+--
+-- You should not call the 'Encrypt' function to re-encrypt your data keys within
+-- a region. 'GenerateDataKey' always returns the data key encrypted and tied to
+-- the customer master key that will be used to decrypt it. There is no need to
+-- decrypt it twice.  If you decide to use the optional 'EncryptionContext'
+-- parameter, you must also store the context in full or at least store enough
+-- information along with the encrypted data to be able to reconstruct the
+-- context when submitting the ciphertext to the 'Decrypt' API. It is a good
+-- practice to choose a context that you can reconstruct on the fly to better
+-- secure the ciphertext. For more information about how this parameter is used,
+-- see <http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html Encryption Context>.
+--
+-- To decrypt data, pass the encrypted data key to the 'Decrypt' API. 'Decrypt'
+-- uses the associated master key to decrypt the encrypted data key and returns
+-- it as plaintext. Use the plaintext data key to locally decrypt your data and
+-- then erase the key from memory. You must specify the encryption context, if
+-- any, that you specified when you generated the key. The encryption context is
+-- logged by CloudTrail, and you can use this log to help track the use of
+-- particular data.
 --
 -- <http://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html>
 module Network.AWS.KMS.GenerateDataKey
@@ -94,13 +122,16 @@ gdkEncryptionContext =
     lens _gdkEncryptionContext (\s a -> s { _gdkEncryptionContext = a })
         . _Map
 
--- | A list of grant tokens that represent grants which can be used to provide
--- long term permissions to generate a key.
+-- | For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.
 gdkGrantTokens :: Lens' GenerateDataKey [Text]
 gdkGrantTokens = lens _gdkGrantTokens (\s a -> s { _gdkGrantTokens = a }) . _List
 
--- | Unique identifier of the key. This can be an ARN, an alias, or a globally
--- unique identifier.
+-- | A unique identifier for the customer master key. This value can be a globally
+-- unique identifier, a fully specified ARN to either an alias or a key, or an
+-- alias name prefixed by "alias/".  Key ARN Example -
+-- arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012 Alias ARN Example - arn:aws:kms:us-east-1:123456789012:/alias/MyAliasName
+-- Globally Unique Key ID Example - 12345678-1234-1234-123456789012 Alias Name
+-- Example - alias/MyAliasName
 gdkKeyId :: Lens' GenerateDataKey Text
 gdkKeyId = lens _gdkKeyId (\s a -> s { _gdkKeyId = a })
 
@@ -110,7 +141,7 @@ gdkKeySpec :: Lens' GenerateDataKey (Maybe DataKeySpec)
 gdkKeySpec = lens _gdkKeySpec (\s a -> s { _gdkKeySpec = a })
 
 -- | Integer that contains the number of bytes to generate. Common values are 128,
--- 256, 512, 1024 and so on. 1024 is the current limit.
+-- 256, 512, and 1024. 1024 is the current limit. We recommend that you use the 'KeySpec' parameter instead.
 gdkNumberOfBytes :: Lens' GenerateDataKey (Maybe Natural)
 gdkNumberOfBytes = lens _gdkNumberOfBytes (\s a -> s { _gdkNumberOfBytes = a }) . mapping _Nat
 
@@ -137,19 +168,25 @@ generateDataKeyResponse = GenerateDataKeyResponse
     , _gdkrKeyId          = Nothing
     }
 
--- | Ciphertext that contains the wrapped key. You must store the blob and
--- encryption context so that the ciphertext can be decrypted. You must provide
--- both the ciphertext blob and the encryption context.
+-- | Ciphertext that contains the encrypted data key. You must store the blob and
+-- enough information to reconstruct the encryption context so that the data
+-- encrypted by using the key can later be decrypted. You must provide both the
+-- ciphertext blob and the encryption context to the 'Decrypt' API to recover the
+-- plaintext data key and decrypt the object.
+--
+-- If you are using the CLI, the value is Base64 encoded. Otherwise, it is not
+-- encoded.
 gdkrCiphertextBlob :: Lens' GenerateDataKeyResponse (Maybe Base64)
 gdkrCiphertextBlob =
     lens _gdkrCiphertextBlob (\s a -> s { _gdkrCiphertextBlob = a })
 
--- | System generated unique identifier for the key.
+-- | System generated unique identifier of the key to be used to decrypt the
+-- encrypted copy of the data key.
 gdkrKeyId :: Lens' GenerateDataKeyResponse (Maybe Text)
 gdkrKeyId = lens _gdkrKeyId (\s a -> s { _gdkrKeyId = a })
 
--- | Plaintext that contains the unwrapped key. Use this for encryption and
--- decryption and then remove it from memory as soon as possible.
+-- | Plaintext that contains the data key. Use this for encryption and decryption
+-- and then remove it from memory as soon as possible.
 gdkrPlaintext :: Lens' GenerateDataKeyResponse (Maybe Base64)
 gdkrPlaintext = lens _gdkrPlaintext (\s a -> s { _gdkrPlaintext = a })
 

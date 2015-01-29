@@ -1,5 +1,5 @@
 name:                  amazonka-cloudwatch-logs-examples
-version:               0.2.2
+version:               0.2.3
 synopsis:              Amazon CloudWatch Logs SDK Examples
 homepage:              https://github.com/brendanhay/amazonka
 license:               MPL-2.0
@@ -20,9 +20,9 @@ library
         CloudWatchLogs
 
     build-depends:
-        amazonka      == 0.2.2.*
-      , amazonka-core == 0.2.2.*
-      , amazonka-cloudwatch-logs == 0.2.2.*
+        amazonka      == 0.2.3.*
+      , amazonka-core == 0.2.3.*
+      , amazonka-cloudwatch-logs == 0.2.3.*
       , base          >= 4.7     && < 5
       , bytestring    >= 0.9
       , conduit       >= 1.1     && < 1.3

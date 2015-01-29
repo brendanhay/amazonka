@@ -11,7 +11,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Lambda.GetEventSource
--- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -82,7 +82,7 @@ data GetEventSourceResponse = GetEventSourceResponse
     , _gesrEventSource  :: Maybe Text
     , _gesrFunctionName :: Maybe Text
     , _gesrIsActive     :: Maybe Bool
-    , _gesrLastModified :: Maybe POSIX
+    , _gesrLastModified :: Maybe Text
     , _gesrParameters   :: Map Text Text
     , _gesrRole         :: Maybe Text
     , _gesrStatus       :: Maybe Text
@@ -101,7 +101,7 @@ data GetEventSourceResponse = GetEventSourceResponse
 --
 -- * 'gesrIsActive' @::@ 'Maybe' 'Bool'
 --
--- * 'gesrLastModified' @::@ 'Maybe' 'UTCTime'
+-- * 'gesrLastModified' @::@ 'Maybe' 'Text'
 --
 -- * 'gesrParameters' @::@ 'HashMap' 'Text' 'Text'
 --
@@ -144,8 +144,8 @@ gesrIsActive :: Lens' GetEventSourceResponse (Maybe Bool)
 gesrIsActive = lens _gesrIsActive (\s a -> s { _gesrIsActive = a })
 
 -- | The UTC time string indicating the last time the event mapping was updated.
-gesrLastModified :: Lens' GetEventSourceResponse (Maybe UTCTime)
-gesrLastModified = lens _gesrLastModified (\s a -> s { _gesrLastModified = a }) . mapping _Time
+gesrLastModified :: Lens' GetEventSourceResponse (Maybe Text)
+gesrLastModified = lens _gesrLastModified (\s a -> s { _gesrLastModified = a })
 
 -- | The map (key-value pairs) defining the configuration for AWS Lambda to use
 -- when reading the event source.

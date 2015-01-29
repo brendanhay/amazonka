@@ -1,5 +1,5 @@
 -- Module      : Network.AWS.ElastiCache
--- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -56,6 +56,7 @@ module Network.AWS.ElastiCache
     , module Network.AWS.ElastiCache.ResetCacheParameterGroup
     , module Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
     , module Network.AWS.ElastiCache.Types
+    , module Network.AWS.ElastiCache.Waiters
     ) where
 
 import Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
@@ -93,3 +94,4 @@ import Network.AWS.ElastiCache.RebootCacheCluster
 import Network.AWS.ElastiCache.ResetCacheParameterGroup
 import Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
 import Network.AWS.ElastiCache.Types
+import Network.AWS.ElastiCache.Waiters

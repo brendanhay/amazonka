@@ -11,7 +11,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ImportExport.ListJobs
--- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -36,6 +36,7 @@ module Network.AWS.ImportExport.ListJobs
     -- ** Request constructor
     , listJobs
     -- ** Request lenses
+    , ljAPIVersion
     , ljMarker
     , ljMaxJobs
 
@@ -54,13 +55,16 @@ import Network.AWS.ImportExport.Types
 import qualified GHC.Exts
 
 data ListJobs = ListJobs
-    { _ljMarker  :: Maybe Text
-    , _ljMaxJobs :: Maybe Int
+    { _ljAPIVersion :: Maybe Text
+    , _ljMarker     :: Maybe Text
+    , _ljMaxJobs    :: Maybe Int
     } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListJobs' constructor.
 --
 -- The fields accessible through corresponding lenses are:
+--
+-- * 'ljAPIVersion' @::@ 'Maybe' 'Text'
 --
 -- * 'ljMarker' @::@ 'Maybe' 'Text'
 --
@@ -68,9 +72,13 @@ data ListJobs = ListJobs
 --
 listJobs :: ListJobs
 listJobs = ListJobs
-    { _ljMaxJobs = Nothing
-    , _ljMarker  = Nothing
+    { _ljMaxJobs    = Nothing
+    , _ljMarker     = Nothing
+    , _ljAPIVersion = Nothing
     }
+
+ljAPIVersion :: Lens' ListJobs (Maybe Text)
+ljAPIVersion = lens _ljAPIVersion (\s a -> s { _ljAPIVersion = a })
 
 ljMarker :: Lens' ListJobs (Maybe Text)
 ljMarker = lens _ljMarker (\s a -> s { _ljMarker = a })
@@ -108,8 +116,9 @@ instance ToPath ListJobs where
 
 instance ToQuery ListJobs where
     toQuery ListJobs{..} = mconcat
-        [ "Marker"  =? _ljMarker
-        , "MaxJobs" =? _ljMaxJobs
+        [ "APIVersion" =? _ljAPIVersion
+        , "Marker"     =? _ljMarker
+        , "MaxJobs"    =? _ljMaxJobs
         ]
 
 instance ToHeaders ListJobs

@@ -11,7 +11,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.KMS.RetireGrant
--- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -24,7 +24,9 @@
 
 -- | Retires a grant. You can retire a grant when you're done using it to clean
 -- up. You should revoke a grant when you intend to actively deny operations
--- that depend on it.
+-- that depend on it. The following are permitted to call this API:  The account
+-- that created the grant The 'RetiringPrincipal', if present The 'GranteePrincipal', if
+-- 'RetireGrant' is a grantee operation
 --
 -- <http://docs.aws.amazon.com/kms/latest/APIReference/API_RetireGrant.html>
 module Network.AWS.KMS.RetireGrant

@@ -11,7 +11,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DynamoDB.BatchWriteItem
--- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -26,6 +26,8 @@
 -- tables. A single call to /BatchWriteItem/ can write up to 16 MB of data, which
 -- can comprise as many as 25 put or delete requests. Individual items to be
 -- written can be as large as 400 KB.
+--
+-- /BatchWriteItem/ cannot update items. To update items, use the /UpdateItem/ API.
 --
 -- The individual /PutItem/ and /DeleteItem/ operations specified in /BatchWriteItem/
 -- are atomic; however /BatchWriteItem/ as a whole is not. If any requested

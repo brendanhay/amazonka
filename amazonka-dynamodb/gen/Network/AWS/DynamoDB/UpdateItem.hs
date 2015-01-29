@@ -11,7 +11,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DynamoDB.UpdateItem
--- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -173,6 +173,16 @@ updateItem p1 = UpdateItem
 -- If the existing attribute is a number, and if /Value/ is also a number, then /Value/ is mathematically added to the existing attribute. If /Value/ is a
 -- negative number, then it is subtracted from the existing attribute.
 --
+-- If you use 'ADD' to increment or decrement a number value for an item that
+-- doesn't exist before the update, DynamoDB uses 0 as the initial value.
+--
+-- Similarly, if you use 'ADD' for an existing item to increment or decrement an
+-- attribute value that doesn't exist before the update, DynamoDB uses '0' as the
+-- initial value. For example, suppose that the item you want to update doesn't
+-- have an attribute named /itemcount/, but you decide to 'ADD' the number '3' to this
+-- attribute anyway. DynamoDB will create the /itemcount/ attribute, set its
+-- initial value to '0', and finally add '3' to it. The result will be a new /itemcount/ attribute, with a value of '3'.
+--
 -- If the existing data type is a set, and if /Value/ is also a set, then /Value/
 -- is appended to the existing set. For example, if the attribute value is the
 -- set '[1,2]', and the 'ADD' action specified '[3]', then the final attribute value
@@ -188,9 +198,11 @@ updateItem p1 = UpdateItem
 -- 'PUT' - Causes DynamoDB to create a new item with the specified primary key,
 -- and then adds the attribute.
 --
--- 'DELETE' - Causes nothing to happen; there is no attribute to delete.
+-- 'DELETE' - Nothing happens, because attributes cannot be deleted from a
+-- nonexistent item. The operation succeeds, but DynamoDB does not create a new
+-- item.
 --
--- 'ADD' - Causes DynamoDB to creat an item with the supplied primary key and
+-- 'ADD' - Causes DynamoDB to create an item with the supplied primary key and
 -- number (or set of numbers) for the attribute value. The only data types
 -- allowed are Number and Number Set.
 --
@@ -207,13 +219,16 @@ uiAttributeUpdates =
 --
 -- An expression can contain any of the following:
 --
--- Boolean functions: 'ATTRIBUTE_EXIST | CONTAINS | BEGINS_WITH'
+-- Boolean functions: 'attribute_exists | attribute_not_exists | contains |begins_with'
+--
+-- These function names are case-sensitive.
 --
 -- Comparison operators: ' = | <> | < | > | <= | >= | BETWEEN | IN'
 --
--- Logical operators: 'NOT | AND | OR'
+-- Logical operators: 'AND | OR | NOT'
 --
---
+-- For more information on condition expressions, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
+-- in the /Amazon DynamoDB Developer Guide/.
 uiConditionExpression :: Lens' UpdateItem (Maybe Text)
 uiConditionExpression =
     lens _uiConditionExpression (\s a -> s { _uiConditionExpression = a })
@@ -271,7 +286,7 @@ uiConditionalOperator =
 -- For type Number, value comparisons are numeric.
 --
 -- String value comparisons for greater than, equals, or less than are based on
--- ASCII character code values. For example, 'a' is greater than 'A', and 'aa' is
+-- ASCII character code values. For example, 'a' is greater than 'A', and 'a' is
 -- greater than 'B'. For a list of code values, see <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>.
 --
 -- For type Binary, DynamoDB treats each byte of the binary data as unsigned
@@ -340,8 +355,18 @@ uiConditionalOperator =
 -- 'NOT_NULL' : The attribute exists. 'NOT_NULL' is supported for all datatypes,
 -- including lists and maps.
 --
+-- This operator tests for the existence of an attribute, not its data type. If
+-- the data type of attribute "'a'" is null, and you evaluate it using 'NOT_NULL',
+-- the result is a Boolean /true/. This result is because the attribute "'a'"
+-- exists; its data type is not relevant to the 'NOT_NULL' comparison operator.
+--
 -- 'NULL' : The attribute does not exist. 'NULL' is supported for all datatypes,
 -- including lists and maps.
+--
+-- This operator tests for the nonexistence of an attribute, not its data type.
+-- If the data type of attribute "'a'" is null, and you evaluate it using 'NULL',
+-- the result is a Boolean /false/. This is because the attribute "'a'" exists; its
+-- data type is not relevant to the 'NULL' comparison operator.
 --
 -- 'CONTAINS' : Checks for a subsequence, or value in a set.
 --
@@ -414,6 +439,8 @@ uiConditionalOperator =
 -- is valid and the condition evaluates to true. If the value is found, despite
 -- the assumption that it does not exist, the condition evaluates to false.
 --
+-- Note that the default value for /Exists/ is 'true'.
+--
 -- The /Value/ and /Exists/ parameters are incompatible with /AttributeValueList/
 -- and /ComparisonOperator/. Note that if you use both sets of parameters at once,
 -- DynamoDB will return a /ValidationException/ exception.
@@ -421,7 +448,7 @@ uiExpected :: Lens' UpdateItem (HashMap Text ExpectedAttributeValue)
 uiExpected = lens _uiExpected (\s a -> s { _uiExpected = a }) . _Map
 
 -- | One or more substitution tokens for simplifying complex expressions. The
--- following are some use cases for an /ExpressionAttributeNames/ value:
+-- following are some use cases for using /ExpressionAttributeNames/:
 --
 -- To shorten an attribute name that is very long or unwieldy in an
 -- expression.
@@ -439,12 +466,13 @@ uiExpected = lens _uiExpected (\s a -> s { _uiExpected = a }) . _Map
 --
 -- Now suppose that you specified the following for /ExpressionAttributeNames/:
 --
--- '{"n":"order.customerInfo.LastName"}'
+-- '{"#name":"order.customerInfo.LastName"}'
 --
 -- The expression can now be simplified as follows:
 --
--- '#n = "Smith" OR #n = "Jones"'
+-- '#name = "Smith" OR #name = "Jones"'
 --
+-- For more information on expression attribute names, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing ItemAttributes> in the /Amazon DynamoDB Developer Guide/.
 uiExpressionAttributeNames :: Lens' UpdateItem (HashMap Text Text)
 uiExpressionAttributeNames =
     lens _uiExpressionAttributeNames
@@ -453,19 +481,20 @@ uiExpressionAttributeNames =
 
 -- | One or more values that can be substituted in an expression.
 --
--- Use the : character in an expression to dereference an attribute value. For
--- example, consider the following expression:
+-- Use the : (colon) character in an expression to dereference an attribute
+-- value. For example, suppose that you wanted to check whether the value of the /ProductStatus/ attribute was one of the following:
 --
--- 'ProductStatus IN ("Available","Backordered","Discontinued")'
+-- 'Available | Backordered | Discontinued'
 --
--- Now suppose that you specified the following for /ExpressionAttributeValues/:
+-- You would first need to specify /ExpressionAttributeValues/ as follows:
 --
--- '{ "a":{"S":"Available"}, "b":{"S":"Backordered"}, "d":{"S":"Discontinued"} }'
+-- '{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"},":disc":{"S":"Discontinued"} }'
 --
--- The expression can now be simplified as follows:
+-- You could then use these values in an expression, such as this:
 --
--- 'ProductStatus IN (:a,:b,:c)'
+-- 'ProductStatus IN (:avail, :back, :disc)'
 --
+-- For more information on expression attribute values, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html SpecifyingConditions> in the /Amazon DynamoDB Developer Guide/.
 uiExpressionAttributeValues :: Lens' UpdateItem (HashMap Text AttributeValue)
 uiExpressionAttributeValues =
     lens _uiExpressionAttributeValues
@@ -551,6 +580,16 @@ uiTableName = lens _uiTableName (\s a -> s { _uiTableName = a })
 -- If the existing attribute is a number, and if /Value/ is also a number, then /Value/ is mathematically added to the existing attribute. If /Value/ is a
 -- negative number, then it is subtracted from the existing attribute.
 --
+-- If you use 'ADD' to increment or decrement a number value for an item that
+-- doesn't exist before the update, DynamoDB uses '0' as the initial value.
+--
+-- Similarly, if you use 'ADD' for an existing item to increment or decrement an
+-- attribute value that doesn't exist before the update, DynamoDB uses '0' as the
+-- initial value. For example, suppose that the item you want to update doesn't
+-- have an attribute named /itemcount/, but you decide to 'ADD' the number '3' to this
+-- attribute anyway. DynamoDB will create the /itemcount/ attribute, set its
+-- initial value to '0', and finally add '3' to it. The result will be a new /itemcount/ attribute in the item, with a value of '3'.
+--
 -- If the existing data type is a set and if /Value/ is also a set, then /Value/
 -- is added to the existing set. For example, if the attribute value is the set '[1,2]', and the 'ADD' action specified '[3]', then the final attribute value is '[1,2,3]'. An error occurs if an
 -- 'ADD' action is specified for a set attribute and the attribute type specified
@@ -573,15 +612,7 @@ uiTableName = lens _uiTableName (\s a -> s { _uiTableName = a })
 --
 -- You can have many actions in a single expression, such as the following: 'SET a=:value1, b=:value2 DELETE :value3, :value4, :value5'
 --
--- An expression can contain any of the following:
---
--- Boolean functions: 'ATTRIBUTE_EXIST | CONTAINS | BEGINS_WITH'
---
--- Comparison operators: ' = | <> | < | > | <= | >= | BETWEEN | IN'
---
--- Logical operators: 'NOT | AND | OR'
---
---
+-- For more information on update expressions, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.Modifying.html Modifying Items andAttributes> in the /Amazon DynamoDB Developer Guide/.
 uiUpdateExpression :: Lens' UpdateItem (Maybe Text)
 uiUpdateExpression =
     lens _uiUpdateExpression (\s a -> s { _uiUpdateExpression = a })

@@ -60,6 +60,12 @@
                 "operation": "DescribeDBInstances",
                 "acceptors": [
                     {
+                        "matcher": "matchError",
+                        "state": "success",
+                        "argument": null,
+                        "expected": "\"DBInstanceNotFound\""
+                    },
+                    {
                         "matcher": "matchAll",
                         "state": "success",
                         "argument": "folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just",

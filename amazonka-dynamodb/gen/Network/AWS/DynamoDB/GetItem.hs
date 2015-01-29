@@ -11,7 +11,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DynamoDB.GetItem
--- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -126,7 +126,7 @@ giConsistentRead :: Lens' GetItem (Maybe Bool)
 giConsistentRead = lens _giConsistentRead (\s a -> s { _giConsistentRead = a })
 
 -- | One or more substitution tokens for simplifying complex expressions. The
--- following are some use cases for an /ExpressionAttributeNames/ value:
+-- following are some use cases for using /ExpressionAttributeNames/:
 --
 -- To shorten an attribute name that is very long or unwieldy in an
 -- expression.
@@ -144,12 +144,13 @@ giConsistentRead = lens _giConsistentRead (\s a -> s { _giConsistentRead = a })
 --
 -- Now suppose that you specified the following for /ExpressionAttributeNames/:
 --
--- '{"n":"order.customerInfo.LastName"}'
+-- '{"#name":"order.customerInfo.LastName"}'
 --
 -- The expression can now be simplified as follows:
 --
--- '#n = "Smith" OR #n = "Jones"'
+-- '#name = "Smith" OR #name = "Jones"'
 --
+-- For more information on expression attribute names, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing ItemAttributes> in the /Amazon DynamoDB Developer Guide/.
 giExpressionAttributeNames :: Lens' GetItem (HashMap Text Text)
 giExpressionAttributeNames =
     lens _giExpressionAttributeNames
@@ -166,13 +167,15 @@ giExpressionAttributeNames =
 giKey :: Lens' GetItem (HashMap Text AttributeValue)
 giKey = lens _giKey (\s a -> s { _giKey = a }) . _Map
 
--- | One or more attributes to retrieve from the table. These attributes can
--- include scalars, sets, or elements of a JSON document. The attributes in the
--- expression must be separated by commas.
+-- | A string that identifies one or more attributes to retrieve from the table.
+-- These attributes can include scalars, sets, or elements of a JSON document.
+-- The attributes in the expression must be separated by commas.
 --
 -- If no attribute names are specified, then all attributes will be returned.
 -- If any of the requested attributes are not found, they will not appear in the
 -- result.
+--
+-- For more information on projection expressions, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing ItemAttributes> in the /Amazon DynamoDB Developer Guide/.
 giProjectionExpression :: Lens' GetItem (Maybe Text)
 giProjectionExpression =
     lens _giProjectionExpression (\s a -> s { _giProjectionExpression = a })

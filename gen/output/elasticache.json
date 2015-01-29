@@ -1,8 +1,147 @@
 {
     "waiters": {
-        "waiters": {},
+        "waiters": {
+            "CacheClusterAvailable": {
+                "operation": "DescribeCacheClusters",
+                "acceptors": [
+                    {
+                        "matcher": "matchAll",
+                        "state": "success",
+                        "argument": "folding (concatOf dccrCacheClusters) . ccCacheClusterStatus . _Just",
+                        "expected": "\"available\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf dccrCacheClusters) . ccCacheClusterStatus . _Just",
+                        "expected": "\"deleted\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf dccrCacheClusters) . ccCacheClusterStatus . _Just",
+                        "expected": "\"deleting\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf dccrCacheClusters) . ccCacheClusterStatus . _Just",
+                        "expected": "\"incompatible-network\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf dccrCacheClusters) . ccCacheClusterStatus . _Just",
+                        "expected": "\"restore-failed\""
+                    }
+                ],
+                "maxAttempts": 60,
+                "delay": 30
+            },
+            "CacheClusterDeleted": {
+                "operation": "DescribeCacheClusters",
+                "acceptors": [
+                    {
+                        "matcher": "matchError",
+                        "state": "success",
+                        "argument": null,
+                        "expected": "\"CacheClusterNotFound\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf dccrCacheClusters) . ccCacheClusterStatus . _Just",
+                        "expected": "\"creating\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf dccrCacheClusters) . ccCacheClusterStatus . _Just",
+                        "expected": "\"modifying\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf dccrCacheClusters) . ccCacheClusterStatus . _Just",
+                        "expected": "\"rebooting\""
+                    }
+                ],
+                "maxAttempts": 60,
+                "delay": 30
+            },
+            "ReplicationGroupDeleted": {
+                "operation": "DescribeReplicationGroups",
+                "acceptors": [
+                    {
+                        "matcher": "matchError",
+                        "state": "success",
+                        "argument": null,
+                        "expected": "\"ReplicationGroupNotFoundFault\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf drgrReplicationGroups) . rgStatus . _Just",
+                        "expected": "\"creating\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf drgrReplicationGroups) . rgStatus . _Just",
+                        "expected": "\"modifying\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf drgrReplicationGroups) . rgStatus . _Just",
+                        "expected": "\"rebooting\""
+                    }
+                ],
+                "maxAttempts": 60,
+                "delay": 30
+            },
+            "ReplicationGroupAvailable": {
+                "operation": "DescribeReplicationGroups",
+                "acceptors": [
+                    {
+                        "matcher": "matchAll",
+                        "state": "success",
+                        "argument": "folding (concatOf drgrReplicationGroups) . rgStatus . _Just",
+                        "expected": "\"available\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf drgrReplicationGroups) . rgStatus . _Just",
+                        "expected": "\"deleted\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf drgrReplicationGroups) . rgStatus . _Just",
+                        "expected": "\"deleting\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf drgrReplicationGroups) . rgStatus . _Just",
+                        "expected": "\"incompatible-network\""
+                    },
+                    {
+                        "matcher": "matchAny",
+                        "state": "failure",
+                        "argument": "folding (concatOf drgrReplicationGroups) . rgStatus . _Just",
+                        "expected": "\"restore-failed\""
+                    }
+                ],
+                "maxAttempts": 60,
+                "delay": 30
+            }
+        },
         "namespace": "Network.AWS.ElastiCache.Waiters",
         "imports": [
+            "Network.AWS.ElastiCache.DescribeCacheClusters",
+            "Network.AWS.ElastiCache.DescribeReplicationGroups",
             "Network.AWS.ElastiCache.Types"
         ]
     },
@@ -49,7 +188,8 @@
             "Network.AWS.ElastiCache.RebootCacheCluster",
             "Network.AWS.ElastiCache.ResetCacheParameterGroup",
             "Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress",
-            "Network.AWS.ElastiCache.Types"
+            "Network.AWS.ElastiCache.Types",
+            "Network.AWS.ElastiCache.Waiters"
         ],
         "name": "Amazon ElastiCache",
         "version": "2014-09-30",
@@ -122,7 +262,8 @@
             "Network.AWS.ElastiCache.RebootCacheCluster",
             "Network.AWS.ElastiCache.ResetCacheParameterGroup",
             "Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress",
-            "Network.AWS.ElastiCache.Types"
+            "Network.AWS.ElastiCache.Types",
+            "Network.AWS.ElastiCache.Waiters"
         ],
         "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/Welcome.html",
         "protocol": "query",

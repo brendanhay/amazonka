@@ -11,7 +11,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.KMS.Decrypt
--- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -23,7 +23,16 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Decrypts ciphertext. Ciphertext is plaintext that has been previously
--- encrypted by using the 'Encrypt' function.
+-- encrypted by using any of the following functions:  'GenerateDataKey' 'GenerateDataKeyWithoutPlaintext' 'Encrypt'
+--
+-- Note that if a caller has been granted access permissions to all keys
+-- (through, for example, IAM user policies that grant 'Decrypt' permission on all
+-- resources), then ciphertext encrypted by using keys in other accounts where
+-- the key grants access to the caller can be decrypted. To remedy this, we
+-- recommend that you do not grant 'Decrypt' access in an IAM user policy. Instead
+-- grant 'Decrypt' access only in key policies. If you must grant 'Decrypt' access
+-- in an IAM user policy, you should scope the resource to specific keys or to
+-- specific trusted accounts.
 --
 -- <http://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html>
 module Network.AWS.KMS.Decrypt
@@ -75,7 +84,7 @@ decrypt p1 = Decrypt
     , _dGrantTokens       = mempty
     }
 
--- | Ciphertext including metadata.
+-- | Ciphertext to be decrypted. The blob includes metadata.
 dCiphertextBlob :: Lens' Decrypt Base64
 dCiphertextBlob = lens _dCiphertextBlob (\s a -> s { _dCiphertextBlob = a })
 
@@ -87,8 +96,7 @@ dEncryptionContext =
     lens _dEncryptionContext (\s a -> s { _dEncryptionContext = a })
         . _Map
 
--- | A list of grant tokens that represent grants which can be used to provide
--- long term permissions to perform decryption.
+-- | For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.
 dGrantTokens :: Lens' Decrypt [Text]
 dGrantTokens = lens _dGrantTokens (\s a -> s { _dGrantTokens = a }) . _List
 
@@ -111,8 +119,8 @@ decryptResponse = DecryptResponse
     , _drPlaintext = Nothing
     }
 
--- | Unique identifier created by the system for the key. This value is always
--- returned as long as no errors are encountered during the operation.
+-- | ARN of the key used to perform the decryption. This value is returned if no
+-- errors are encountered during the operation.
 drKeyId :: Lens' DecryptResponse (Maybe Text)
 drKeyId = lens _drKeyId (\s a -> s { _drKeyId = a })
 

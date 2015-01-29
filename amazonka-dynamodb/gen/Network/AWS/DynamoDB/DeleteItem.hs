@@ -11,7 +11,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DynamoDB.DeleteItem
--- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -128,13 +128,16 @@ deleteItem p1 = DeleteItem
 --
 -- An expression can contain any of the following:
 --
--- Boolean functions: 'ATTRIBUTE_EXIST | CONTAINS | BEGINS_WITH'
+-- Boolean functions: 'attribute_exists | attribute_not_exists | contains |begins_with'
+--
+-- These function names are case-sensitive.
 --
 -- Comparison operators: ' = | <> | < | > | <= | >= | BETWEEN | IN'
 --
--- Logical operators: 'NOT | AND | OR'
+-- Logical operators: 'AND | OR | NOT'
 --
---
+-- For more information on condition expressions, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
+-- in the /Amazon DynamoDB Developer Guide/.
 diConditionExpression :: Lens' DeleteItem (Maybe Text)
 diConditionExpression =
     lens _diConditionExpression (\s a -> s { _diConditionExpression = a })
@@ -192,7 +195,7 @@ diConditionalOperator =
 -- For type Number, value comparisons are numeric.
 --
 -- String value comparisons for greater than, equals, or less than are based on
--- ASCII character code values. For example, 'a' is greater than 'A', and 'aa' is
+-- ASCII character code values. For example, 'a' is greater than 'A', and 'a' is
 -- greater than 'B'. For a list of code values, see <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>.
 --
 -- For type Binary, DynamoDB treats each byte of the binary data as unsigned
@@ -261,8 +264,18 @@ diConditionalOperator =
 -- 'NOT_NULL' : The attribute exists. 'NOT_NULL' is supported for all datatypes,
 -- including lists and maps.
 --
+-- This operator tests for the existence of an attribute, not its data type. If
+-- the data type of attribute "'a'" is null, and you evaluate it using 'NOT_NULL',
+-- the result is a Boolean /true/. This result is because the attribute "'a'"
+-- exists; its data type is not relevant to the 'NOT_NULL' comparison operator.
+--
 -- 'NULL' : The attribute does not exist. 'NULL' is supported for all datatypes,
 -- including lists and maps.
+--
+-- This operator tests for the nonexistence of an attribute, not its data type.
+-- If the data type of attribute "'a'" is null, and you evaluate it using 'NULL',
+-- the result is a Boolean /false/. This is because the attribute "'a'" exists; its
+-- data type is not relevant to the 'NULL' comparison operator.
 --
 -- 'CONTAINS' : Checks for a subsequence, or value in a set.
 --
@@ -335,6 +348,8 @@ diConditionalOperator =
 -- is valid and the condition evaluates to true. If the value is found, despite
 -- the assumption that it does not exist, the condition evaluates to false.
 --
+-- Note that the default value for /Exists/ is 'true'.
+--
 -- The /Value/ and /Exists/ parameters are incompatible with /AttributeValueList/
 -- and /ComparisonOperator/. Note that if you use both sets of parameters at once,
 -- DynamoDB will return a /ValidationException/ exception.
@@ -342,7 +357,7 @@ diExpected :: Lens' DeleteItem (HashMap Text ExpectedAttributeValue)
 diExpected = lens _diExpected (\s a -> s { _diExpected = a }) . _Map
 
 -- | One or more substitution tokens for simplifying complex expressions. The
--- following are some use cases for an /ExpressionAttributeNames/ value:
+-- following are some use cases for using /ExpressionAttributeNames/:
 --
 -- To shorten an attribute name that is very long or unwieldy in an
 -- expression.
@@ -360,12 +375,13 @@ diExpected = lens _diExpected (\s a -> s { _diExpected = a }) . _Map
 --
 -- Now suppose that you specified the following for /ExpressionAttributeNames/:
 --
--- '{"n":"order.customerInfo.LastName"}'
+-- '{"#name":"order.customerInfo.LastName"}'
 --
 -- The expression can now be simplified as follows:
 --
--- '#n = "Smith" OR #n = "Jones"'
+-- '#name = "Smith" OR #name = "Jones"'
 --
+-- For more information on expression attribute names, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing ItemAttributes> in the /Amazon DynamoDB Developer Guide/.
 diExpressionAttributeNames :: Lens' DeleteItem (HashMap Text Text)
 diExpressionAttributeNames =
     lens _diExpressionAttributeNames
@@ -374,19 +390,20 @@ diExpressionAttributeNames =
 
 -- | One or more values that can be substituted in an expression.
 --
--- Use the : character in an expression to dereference an attribute value. For
--- example, consider the following expression:
+-- Use the : (colon) character in an expression to dereference an attribute
+-- value. For example, suppose that you wanted to check whether the value of the /ProductStatus/ attribute was one of the following:
 --
--- 'ProductStatus IN ("Available","Backordered","Discontinued")'
+-- 'Available | Backordered | Discontinued'
 --
--- Now suppose that you specified the following for /ExpressionAttributeValues/:
+-- You would first need to specify /ExpressionAttributeValues/ as follows:
 --
--- '{ "a":{"S":"Available"}, "b":{"S":"Backordered"}, "d":{"S":"Discontinued"} }'
+-- '{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"},":disc":{"S":"Discontinued"} }'
 --
--- The expression can now be simplified as follows:
+-- You could then use these values in an expression, such as this:
 --
--- 'ProductStatus IN (:a,:b,:c)'
+-- 'ProductStatus IN (:avail, :back, :disc)'
 --
+-- For more information on expression attribute values, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html SpecifyingConditions> in the /Amazon DynamoDB Developer Guide/.
 diExpressionAttributeValues :: Lens' DeleteItem (HashMap Text AttributeValue)
 diExpressionAttributeValues =
     lens _diExpressionAttributeValues

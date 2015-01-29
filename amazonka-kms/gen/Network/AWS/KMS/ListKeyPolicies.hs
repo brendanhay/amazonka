@@ -11,7 +11,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.KMS.ListKeyPolicies
--- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -75,8 +75,12 @@ listKeyPolicies p1 = ListKeyPolicies
     , _lkpMarker = Nothing
     }
 
--- | Unique identifier of the key. This can be an ARN, an alias, or a globally
--- unique identifier.
+-- | A unique identifier for the customer master key. This value can be a globally
+-- unique identifier, a fully specified ARN to either an alias or a key, or an
+-- alias name prefixed by "alias/".  Key ARN Example -
+-- arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012 Alias ARN Example - arn:aws:kms:us-east-1:123456789012:/alias/MyAliasName
+-- Globally Unique Key ID Example - 12345678-1234-1234-123456789012 Alias Name
+-- Example - alias/MyAliasName
 lkpKeyId :: Lens' ListKeyPolicies Text
 lkpKeyId = lens _lkpKeyId (\s a -> s { _lkpKeyId = a })
 

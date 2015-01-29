@@ -1,5 +1,5 @@
 -- Module      : Network.AWS.ImportExport
--- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -19,6 +19,7 @@
 module Network.AWS.ImportExport
     ( module Network.AWS.ImportExport.CancelJob
     , module Network.AWS.ImportExport.CreateJob
+    , module Network.AWS.ImportExport.GetShippingLabel
     , module Network.AWS.ImportExport.GetStatus
     , module Network.AWS.ImportExport.ListJobs
     , module Network.AWS.ImportExport.Types
@@ -27,6 +28,7 @@ module Network.AWS.ImportExport
 
 import Network.AWS.ImportExport.CancelJob
 import Network.AWS.ImportExport.CreateJob
+import Network.AWS.ImportExport.GetShippingLabel
 import Network.AWS.ImportExport.GetStatus
 import Network.AWS.ImportExport.ListJobs
 import Network.AWS.ImportExport.Types

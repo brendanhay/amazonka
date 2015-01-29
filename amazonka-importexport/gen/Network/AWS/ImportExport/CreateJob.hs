@@ -11,7 +11,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ImportExport.CreateJob
--- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -36,6 +36,7 @@ module Network.AWS.ImportExport.CreateJob
     -- ** Request constructor
     , createJob
     -- ** Request lenses
+    , cjAPIVersion
     , cjJobType
     , cjManifest
     , cjManifestAddendum
@@ -46,7 +47,7 @@ module Network.AWS.ImportExport.CreateJob
     -- ** Response constructor
     , createJobResponse
     -- ** Response lenses
-    , cjrAwsShippingAddress
+    , cjrArtifactList
     , cjrJobId
     , cjrJobType
     , cjrSignature
@@ -60,7 +61,8 @@ import Network.AWS.ImportExport.Types
 import qualified GHC.Exts
 
 data CreateJob = CreateJob
-    { _cjJobType          :: JobType
+    { _cjAPIVersion       :: Maybe Text
+    , _cjJobType          :: JobType
     , _cjManifest         :: Text
     , _cjManifestAddendum :: Maybe Text
     , _cjValidateOnly     :: Bool
@@ -69,6 +71,8 @@ data CreateJob = CreateJob
 -- | 'CreateJob' constructor.
 --
 -- The fields accessible through corresponding lenses are:
+--
+-- * 'cjAPIVersion' @::@ 'Maybe' 'Text'
 --
 -- * 'cjJobType' @::@ 'JobType'
 --
@@ -87,7 +91,11 @@ createJob p1 p2 p3 = CreateJob
     , _cjManifest         = p2
     , _cjValidateOnly     = p3
     , _cjManifestAddendum = Nothing
+    , _cjAPIVersion       = Nothing
     }
+
+cjAPIVersion :: Lens' CreateJob (Maybe Text)
+cjAPIVersion = lens _cjAPIVersion (\s a -> s { _cjAPIVersion = a })
 
 cjJobType :: Lens' CreateJob JobType
 cjJobType = lens _cjJobType (\s a -> s { _cjJobType = a })
@@ -103,7 +111,7 @@ cjValidateOnly :: Lens' CreateJob Bool
 cjValidateOnly = lens _cjValidateOnly (\s a -> s { _cjValidateOnly = a })
 
 data CreateJobResponse = CreateJobResponse
-    { _cjrAwsShippingAddress    :: Maybe Text
+    { _cjrArtifactList          :: List "member" Artifact
     , _cjrJobId                 :: Maybe Text
     , _cjrJobType               :: Maybe JobType
     , _cjrSignature             :: Maybe Text
@@ -115,7 +123,7 @@ data CreateJobResponse = CreateJobResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cjrAwsShippingAddress' @::@ 'Maybe' 'Text'
+-- * 'cjrArtifactList' @::@ ['Artifact']
 --
 -- * 'cjrJobId' @::@ 'Maybe' 'Text'
 --
@@ -131,15 +139,14 @@ createJobResponse :: CreateJobResponse
 createJobResponse = CreateJobResponse
     { _cjrJobId                 = Nothing
     , _cjrJobType               = Nothing
-    , _cjrAwsShippingAddress    = Nothing
     , _cjrSignature             = Nothing
     , _cjrSignatureFileContents = Nothing
     , _cjrWarningMessage        = Nothing
+    , _cjrArtifactList          = mempty
     }
 
-cjrAwsShippingAddress :: Lens' CreateJobResponse (Maybe Text)
-cjrAwsShippingAddress =
-    lens _cjrAwsShippingAddress (\s a -> s { _cjrAwsShippingAddress = a })
+cjrArtifactList :: Lens' CreateJobResponse [Artifact]
+cjrArtifactList = lens _cjrArtifactList (\s a -> s { _cjrArtifactList = a }) . _List
 
 cjrJobId :: Lens' CreateJobResponse (Maybe Text)
 cjrJobId = lens _cjrJobId (\s a -> s { _cjrJobId = a })
@@ -164,7 +171,8 @@ instance ToPath CreateJob where
 
 instance ToQuery CreateJob where
     toQuery CreateJob{..} = mconcat
-        [ "JobType"          =? _cjJobType
+        [ "APIVersion"       =? _cjAPIVersion
+        , "JobType"          =? _cjJobType
         , "Manifest"         =? _cjManifest
         , "ManifestAddendum" =? _cjManifestAddendum
         , "ValidateOnly"     =? _cjValidateOnly
@@ -181,7 +189,7 @@ instance AWSRequest CreateJob where
 
 instance FromXML CreateJobResponse where
     parseXML = withElement "CreateJobResult" $ \x -> CreateJobResponse
-        <$> x .@? "AwsShippingAddress"
+        <$> x .@? "ArtifactList" .!@ mempty
         <*> x .@? "JobId"
         <*> x .@? "JobType"
         <*> x .@? "Signature"

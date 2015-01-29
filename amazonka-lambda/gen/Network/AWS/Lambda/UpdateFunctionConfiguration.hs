@@ -11,7 +11,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Lambda.UpdateFunctionConfiguration
--- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -145,7 +145,7 @@ data UpdateFunctionConfigurationResponse = UpdateFunctionConfigurationResponse
     , _ufcrFunctionARN     :: Maybe Text
     , _ufcrFunctionName    :: Maybe Text
     , _ufcrHandler         :: Maybe Text
-    , _ufcrLastModified    :: Maybe POSIX
+    , _ufcrLastModified    :: Maybe Text
     , _ufcrMemorySize      :: Maybe Nat
     , _ufcrMode            :: Maybe Mode
     , _ufcrRole            :: Maybe Text
@@ -169,7 +169,7 @@ data UpdateFunctionConfigurationResponse = UpdateFunctionConfigurationResponse
 --
 -- * 'ufcrHandler' @::@ 'Maybe' 'Text'
 --
--- * 'ufcrLastModified' @::@ 'Maybe' 'UTCTime'
+-- * 'ufcrLastModified' @::@ 'Maybe' 'Text'
 --
 -- * 'ufcrMemorySize' @::@ 'Maybe' 'Natural'
 --
@@ -224,8 +224,8 @@ ufcrHandler :: Lens' UpdateFunctionConfigurationResponse (Maybe Text)
 ufcrHandler = lens _ufcrHandler (\s a -> s { _ufcrHandler = a })
 
 -- | The timestamp of the last time you updated the function.
-ufcrLastModified :: Lens' UpdateFunctionConfigurationResponse (Maybe UTCTime)
-ufcrLastModified = lens _ufcrLastModified (\s a -> s { _ufcrLastModified = a }) . mapping _Time
+ufcrLastModified :: Lens' UpdateFunctionConfigurationResponse (Maybe Text)
+ufcrLastModified = lens _ufcrLastModified (\s a -> s { _ufcrLastModified = a })
 
 -- | The memory size, in MB, you configured for the function. Must be a multiple
 -- of 64 MB.

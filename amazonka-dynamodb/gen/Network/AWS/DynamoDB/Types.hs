@@ -12,7 +12,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DynamoDB.Types
--- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -142,6 +142,7 @@ module Network.AWS.DynamoDB.Types
     -- * GlobalSecondaryIndexDescription
     , GlobalSecondaryIndexDescription
     , globalSecondaryIndexDescription
+    , gsidBackfilling
     , gsidIndexName
     , gsidIndexSizeBytes
     , gsidIndexStatus
@@ -199,6 +200,14 @@ module Network.AWS.DynamoDB.Types
     , pNonKeyAttributes
     , pProjectionType
 
+    -- * CreateGlobalSecondaryIndexAction
+    , CreateGlobalSecondaryIndexAction
+    , createGlobalSecondaryIndexAction
+    , cgsiaIndexName
+    , cgsiaKeySchema
+    , cgsiaProjection
+    , cgsiaProvisionedThroughput
+
     -- * Select
     , Select (..)
 
@@ -207,6 +216,11 @@ module Network.AWS.DynamoDB.Types
     , keySchemaElement
     , kseAttributeName
     , kseKeyType
+
+    -- * DeleteGlobalSecondaryIndexAction
+    , DeleteGlobalSecondaryIndexAction
+    , deleteGlobalSecondaryIndexAction
+    , dgsiaIndexName
 
     -- * DeleteRequest
     , DeleteRequest
@@ -236,6 +250,8 @@ module Network.AWS.DynamoDB.Types
     -- * GlobalSecondaryIndexUpdate
     , GlobalSecondaryIndexUpdate
     , globalSecondaryIndexUpdate
+    , gsiuCreate
+    , gsiuDelete
     , gsiuUpdate
     ) where
 
@@ -782,6 +798,12 @@ tdCreationDateTime =
 -- | The global secondary indexes, if any, on the table. Each index is scoped to a
 -- given hash key value. Each element is composed of:
 --
+-- /Backfilling/ - If true, then the index is currently in the backfilling
+-- phase. Backfilling occurs only when a new global secondary index is added to
+-- the table; it is the process by which DynamoDB populates the new index with
+-- data from the table. (This attribute does not appear for indexes that were
+-- created during a /CreateTable/ operation.)
+--
 -- /IndexName/ - The name of the global secondary index.
 --
 -- /IndexSizeBytes/ - The total size of the global secondary index, in bytes.
@@ -1009,7 +1031,7 @@ kaaConsistentRead =
     lens _kaaConsistentRead (\s a -> s { _kaaConsistentRead = a })
 
 -- | One or more substitution tokens for simplifying complex expressions. The
--- following are some use cases for an /ExpressionAttributeNames/ value:
+-- following are some use cases for using /ExpressionAttributeNames/:
 --
 -- To shorten an attribute name that is very long or unwieldy in an
 -- expression.
@@ -1027,12 +1049,13 @@ kaaConsistentRead =
 --
 -- Now suppose that you specified the following for /ExpressionAttributeNames/:
 --
--- '{"n":"order.customerInfo.LastName"}'
+-- '{"#name":"order.customerInfo.LastName"}'
 --
 -- The expression can now be simplified as follows:
 --
--- '#n = "Smith" OR #n = "Jones"'
+-- '#name = "Smith" OR #name = "Jones"'
 --
+-- For more information on expression attribute names, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing ItemAttributes> in the /Amazon DynamoDB Developer Guide/.
 kaaExpressionAttributeNames :: Lens' KeysAndAttributes (HashMap Text Text)
 kaaExpressionAttributeNames =
     lens _kaaExpressionAttributeNames
@@ -1044,13 +1067,15 @@ kaaExpressionAttributeNames =
 kaaKeys :: Lens' KeysAndAttributes (NonEmpty (HashMap Text AttributeValue))
 kaaKeys = lens _kaaKeys (\s a -> s { _kaaKeys = a }) . _List1
 
--- | One or more attributes to retrieve from the table. These attributes can
--- include scalars, sets, or elements of a JSON document. The attributes in the
--- expression must be separated by commas.
+-- | A string that identifies one or more attributes to retrieve from the table.
+-- These attributes can include scalars, sets, or elements of a JSON document.
+-- The attributes in the expression must be separated by commas.
 --
 -- If no attribute names are specified, then all attributes will be returned.
 -- If any of the requested attributes are not found, they will not appear in the
 -- result.
+--
+-- For more information on projection expressions, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing ItemAttributes> in the /Amazon DynamoDB Developer Guide/.
 kaaProjectionExpression :: Lens' KeysAndAttributes (Maybe Text)
 kaaProjectionExpression =
     lens _kaaProjectionExpression (\s a -> s { _kaaProjectionExpression = a })
@@ -1177,6 +1202,17 @@ attributeValueUpdate = AttributeValueUpdate
 -- the /Value/ is mathematically added to the existing attribute. If /Value/ is a
 -- negative number, then it is subtracted from the existing attribute.
 --
+-- If you use 'ADD' to increment or decrement a number value for an item that
+-- doesn't exist before the update, DynamoDB uses 0 as the initial value.
+--
+-- In addition, if you use 'ADD' to update an existing item, and intend to
+-- increment or decrement an attribute value which does not yet exist, DynamoDB
+-- uses '0' as the initial value. For example, suppose that the item you want to
+-- update does not yet have an attribute named /itemcount/, but you decide to 'ADD'
+-- the number '3' to this attribute anyway, even though it currently does not
+-- exist. DynamoDB will create the /itemcount/ attribute, set its initial value to '0', and finally add '3' to it. The result will be a new /itemcount/ attribute in
+-- the item, with a value of '3'.
+--
 -- If the existing data type is a set, and if the /Value/ is also a set, then
 -- the /Value/ is added to the existing set. (This is a /set/ operation, not
 -- mathematical addition.) For example, if the attribute value was the set '[1,2]', and the
@@ -1253,7 +1289,7 @@ expectedAttributeValue = ExpectedAttributeValue
 -- For type Number, value comparisons are numeric.
 --
 -- String value comparisons for greater than, equals, or less than are based on
--- ASCII character code values. For example, 'a' is greater than 'A', and 'aa' is
+-- ASCII character code values. For example, 'a' is greater than 'A', and 'a' is
 -- greater than 'B'. For a list of code values, see <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>.
 --
 -- For Binary, DynamoDB treats each byte of the binary data as unsigned when it
@@ -1330,8 +1366,18 @@ eavAttributeValueList =
 -- 'NOT_NULL' : The attribute exists. 'NOT_NULL' is supported for all datatypes,
 -- including lists and maps.
 --
+-- This operator tests for the existence of an attribute, not its data type. If
+-- the data type of attribute "'a'" is null, and you evaluate it using 'NOT_NULL',
+-- the result is a Boolean /true/. This result is because the attribute "'a'"
+-- exists; its data type is not relevant to the 'NOT_NULL' comparison operator.
+--
 -- 'NULL' : The attribute does not exist. 'NULL' is supported for all datatypes,
 -- including lists and maps.
+--
+-- This operator tests for the nonexistence of an attribute, not its data type.
+-- If the data type of attribute "'a'" is null, and you evaluate it using 'NULL',
+-- the result is a Boolean /false/. This is because the attribute "'a'" exists; its
+-- data type is not relevant to the 'NULL' comparison operator.
 --
 -- 'CONTAINS' : Checks for a subsequence, or value in a set.
 --
@@ -1629,7 +1675,8 @@ instance ToJSON LocalSecondaryIndex where
         ]
 
 data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription
-    { _gsidIndexName             :: Maybe Text
+    { _gsidBackfilling           :: Maybe Bool
+    , _gsidIndexName             :: Maybe Text
     , _gsidIndexSizeBytes        :: Maybe Integer
     , _gsidIndexStatus           :: Maybe IndexStatus
     , _gsidItemCount             :: Maybe Integer
@@ -1641,6 +1688,8 @@ data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription
 -- | 'GlobalSecondaryIndexDescription' constructor.
 --
 -- The fields accessible through corresponding lenses are:
+--
+-- * 'gsidBackfilling' @::@ 'Maybe' 'Bool'
 --
 -- * 'gsidIndexName' @::@ 'Maybe' 'Text'
 --
@@ -1663,10 +1712,24 @@ globalSecondaryIndexDescription p1 = GlobalSecondaryIndexDescription
     , _gsidIndexName             = Nothing
     , _gsidProjection            = Nothing
     , _gsidIndexStatus           = Nothing
+    , _gsidBackfilling           = Nothing
     , _gsidProvisionedThroughput = Nothing
     , _gsidIndexSizeBytes        = Nothing
     , _gsidItemCount             = Nothing
     }
+
+-- | Indicates whether the index is currently backfilling. /Backfilling/ is the
+-- process of reading items from the table and determining whether they can be
+-- added to the index. (Not all items will qualify: For example, a hash key
+-- attribute cannot have any duplicates.) If an item can be added to the index,
+-- DynamoDB will do so. After all items have been processed, the backfilling
+-- operation is complete and /Backfilling/ is false.
+--
+-- For indexes that were created during a /CreateTable/ operation, the /Backfilling/
+-- attribute does not appear in the /DescribeTable/ output.
+--
+gsidBackfilling :: Lens' GlobalSecondaryIndexDescription (Maybe Bool)
+gsidBackfilling = lens _gsidBackfilling (\s a -> s { _gsidBackfilling = a })
 
 -- | The name of the global secondary index.
 gsidIndexName :: Lens' GlobalSecondaryIndexDescription (Maybe Text)
@@ -1685,8 +1748,7 @@ gsidIndexSizeBytes =
 --
 -- /UPDATING/ - The index is being updated, as the result of a /CreateTable/ or /UpdateTable/ operation.
 --
--- /DELETING/ - The index is being deleted, as the result of a /DeleteTable/
--- operation.
+-- /DELETING/ - The index is being deleted, as the result of an /UpdateTable/ or /DeleteTable/ operation.
 --
 -- /ACTIVE/ - The index is ready for use.
 --
@@ -1715,7 +1777,8 @@ gsidProvisionedThroughput =
 
 instance FromJSON GlobalSecondaryIndexDescription where
     parseJSON = withObject "GlobalSecondaryIndexDescription" $ \o -> GlobalSecondaryIndexDescription
-        <$> o .:? "IndexName"
+        <$> o .:? "Backfilling"
+        <*> o .:? "IndexName"
         <*> o .:? "IndexSizeBytes"
         <*> o .:? "IndexStatus"
         <*> o .:? "ItemCount"
@@ -1729,6 +1792,7 @@ instance ToJSON GlobalSecondaryIndexDescription where
         , "KeySchema"             .= _gsidKeySchema
         , "Projection"            .= _gsidProjection
         , "IndexStatus"           .= _gsidIndexStatus
+        , "Backfilling"           .= _gsidBackfilling
         , "ProvisionedThroughput" .= _gsidProvisionedThroughput
         , "IndexSizeBytes"        .= _gsidIndexSizeBytes
         , "ItemCount"             .= _gsidItemCount
@@ -2145,6 +2209,68 @@ instance ToJSON Projection where
         , "NonKeyAttributes" .= _pNonKeyAttributes
         ]
 
+data CreateGlobalSecondaryIndexAction = CreateGlobalSecondaryIndexAction
+    { _cgsiaIndexName             :: Text
+    , _cgsiaKeySchema             :: List1 "KeySchema" KeySchemaElement
+    , _cgsiaProjection            :: Projection
+    , _cgsiaProvisionedThroughput :: ProvisionedThroughput
+    } deriving (Eq, Read, Show)
+
+-- | 'CreateGlobalSecondaryIndexAction' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'cgsiaIndexName' @::@ 'Text'
+--
+-- * 'cgsiaKeySchema' @::@ 'NonEmpty' 'KeySchemaElement'
+--
+-- * 'cgsiaProjection' @::@ 'Projection'
+--
+-- * 'cgsiaProvisionedThroughput' @::@ 'ProvisionedThroughput'
+--
+createGlobalSecondaryIndexAction :: Text -- ^ 'cgsiaIndexName'
+                                 -> NonEmpty KeySchemaElement -- ^ 'cgsiaKeySchema'
+                                 -> Projection -- ^ 'cgsiaProjection'
+                                 -> ProvisionedThroughput -- ^ 'cgsiaProvisionedThroughput'
+                                 -> CreateGlobalSecondaryIndexAction
+createGlobalSecondaryIndexAction p1 p2 p3 p4 = CreateGlobalSecondaryIndexAction
+    { _cgsiaIndexName             = p1
+    , _cgsiaKeySchema             = withIso _List1 (const id) p2
+    , _cgsiaProjection            = p3
+    , _cgsiaProvisionedThroughput = p4
+    }
+
+-- | The name of the global secondary index to be created.
+cgsiaIndexName :: Lens' CreateGlobalSecondaryIndexAction Text
+cgsiaIndexName = lens _cgsiaIndexName (\s a -> s { _cgsiaIndexName = a })
+
+-- | The key schema for the global secondary index.
+cgsiaKeySchema :: Lens' CreateGlobalSecondaryIndexAction (NonEmpty KeySchemaElement)
+cgsiaKeySchema = lens _cgsiaKeySchema (\s a -> s { _cgsiaKeySchema = a }) . _List1
+
+cgsiaProjection :: Lens' CreateGlobalSecondaryIndexAction Projection
+cgsiaProjection = lens _cgsiaProjection (\s a -> s { _cgsiaProjection = a })
+
+cgsiaProvisionedThroughput :: Lens' CreateGlobalSecondaryIndexAction ProvisionedThroughput
+cgsiaProvisionedThroughput =
+    lens _cgsiaProvisionedThroughput
+        (\s a -> s { _cgsiaProvisionedThroughput = a })
+
+instance FromJSON CreateGlobalSecondaryIndexAction where
+    parseJSON = withObject "CreateGlobalSecondaryIndexAction" $ \o -> CreateGlobalSecondaryIndexAction
+        <$> o .:  "IndexName"
+        <*> o .:  "KeySchema"
+        <*> o .:  "Projection"
+        <*> o .:  "ProvisionedThroughput"
+
+instance ToJSON CreateGlobalSecondaryIndexAction where
+    toJSON CreateGlobalSecondaryIndexAction{..} = object
+        [ "IndexName"             .= _cgsiaIndexName
+        , "KeySchema"             .= _cgsiaKeySchema
+        , "Projection"            .= _cgsiaProjection
+        , "ProvisionedThroughput" .= _cgsiaProvisionedThroughput
+        ]
+
 data Select
     = AllAttributes          -- ^ ALL_ATTRIBUTES
     | AllProjectedAttributes -- ^ ALL_PROJECTED_ATTRIBUTES
@@ -2219,6 +2345,35 @@ instance ToJSON KeySchemaElement where
     toJSON KeySchemaElement{..} = object
         [ "AttributeName" .= _kseAttributeName
         , "KeyType"       .= _kseKeyType
+        ]
+
+newtype DeleteGlobalSecondaryIndexAction = DeleteGlobalSecondaryIndexAction
+    { _dgsiaIndexName :: Text
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+
+-- | 'DeleteGlobalSecondaryIndexAction' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dgsiaIndexName' @::@ 'Text'
+--
+deleteGlobalSecondaryIndexAction :: Text -- ^ 'dgsiaIndexName'
+                                 -> DeleteGlobalSecondaryIndexAction
+deleteGlobalSecondaryIndexAction p1 = DeleteGlobalSecondaryIndexAction
+    { _dgsiaIndexName = p1
+    }
+
+-- | The name of the global secondary index to be deleted.
+dgsiaIndexName :: Lens' DeleteGlobalSecondaryIndexAction Text
+dgsiaIndexName = lens _dgsiaIndexName (\s a -> s { _dgsiaIndexName = a })
+
+instance FromJSON DeleteGlobalSecondaryIndexAction where
+    parseJSON = withObject "DeleteGlobalSecondaryIndexAction" $ \o -> DeleteGlobalSecondaryIndexAction
+        <$> o .:  "IndexName"
+
+instance ToJSON DeleteGlobalSecondaryIndexAction where
+    toJSON DeleteGlobalSecondaryIndexAction{..} = object
+        [ "IndexName" .= _dgsiaIndexName
         ]
 
 newtype DeleteRequest = DeleteRequest
@@ -2350,7 +2505,7 @@ condition p1 = Condition
 -- For type Number, value comparisons are numeric.
 --
 -- String value comparisons for greater than, equals, or less than are based on
--- ASCII character code values. For example, 'a' is greater than 'A', and 'aa' is
+-- ASCII character code values. For example, 'a' is greater than 'A', and 'a' is
 -- greater than 'B'. For a list of code values, see <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>.
 --
 -- For Binary, DynamoDB treats each byte of the binary data as unsigned when it
@@ -2424,8 +2579,18 @@ cAttributeValueList =
 -- 'NOT_NULL' : The attribute exists. 'NOT_NULL' is supported for all datatypes,
 -- including lists and maps.
 --
+-- This operator tests for the existence of an attribute, not its data type. If
+-- the data type of attribute "'a'" is null, and you evaluate it using 'NOT_NULL',
+-- the result is a Boolean /true/. This result is because the attribute "'a'"
+-- exists; its data type is not relevant to the 'NOT_NULL' comparison operator.
+--
 -- 'NULL' : The attribute does not exist. 'NULL' is supported for all datatypes,
 -- including lists and maps.
+--
+-- This operator tests for the nonexistence of an attribute, not its data type.
+-- If the data type of attribute "'a'" is null, and you evaluate it using 'NULL',
+-- the result is a Boolean /false/. This is because the attribute "'a'" exists; its
+-- data type is not relevant to the 'NULL' comparison operator.
 --
 -- 'CONTAINS' : Checks for a subsequence, or value in a set.
 --
@@ -2524,31 +2689,64 @@ instance FromJSON ConditionalOperator where
 instance ToJSON ConditionalOperator where
     toJSON = toJSONText
 
-newtype GlobalSecondaryIndexUpdate = GlobalSecondaryIndexUpdate
-    { _gsiuUpdate :: Maybe UpdateGlobalSecondaryIndexAction
+data GlobalSecondaryIndexUpdate = GlobalSecondaryIndexUpdate
+    { _gsiuCreate :: Maybe CreateGlobalSecondaryIndexAction
+    , _gsiuDelete :: Maybe DeleteGlobalSecondaryIndexAction
+    , _gsiuUpdate :: Maybe UpdateGlobalSecondaryIndexAction
     } deriving (Eq, Read, Show)
 
 -- | 'GlobalSecondaryIndexUpdate' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'gsiuCreate' @::@ 'Maybe' 'CreateGlobalSecondaryIndexAction'
+--
+-- * 'gsiuDelete' @::@ 'Maybe' 'DeleteGlobalSecondaryIndexAction'
+--
 -- * 'gsiuUpdate' @::@ 'Maybe' 'UpdateGlobalSecondaryIndexAction'
 --
 globalSecondaryIndexUpdate :: GlobalSecondaryIndexUpdate
 globalSecondaryIndexUpdate = GlobalSecondaryIndexUpdate
     { _gsiuUpdate = Nothing
+    , _gsiuCreate = Nothing
+    , _gsiuDelete = Nothing
     }
 
--- | The name of a global secondary index, along with the updated provisioned
--- throughput settings that are to be applied to that index.
+-- | The parameters required for creating a global secondary index on an existing
+-- table:
+--
+-- 'IndexName '
+--
+-- 'KeySchema '
+--
+-- 'AttributeDefinitions '
+--
+-- 'Projection '
+--
+-- 'ProvisionedThroughput '
+--
+--
+gsiuCreate :: Lens' GlobalSecondaryIndexUpdate (Maybe CreateGlobalSecondaryIndexAction)
+gsiuCreate = lens _gsiuCreate (\s a -> s { _gsiuCreate = a })
+
+-- | The name of an existing global secondary index to be removed.
+gsiuDelete :: Lens' GlobalSecondaryIndexUpdate (Maybe DeleteGlobalSecondaryIndexAction)
+gsiuDelete = lens _gsiuDelete (\s a -> s { _gsiuDelete = a })
+
+-- | The name of an existing global secondary index, along with new provisioned
+-- throughput settings to be applied to that index.
 gsiuUpdate :: Lens' GlobalSecondaryIndexUpdate (Maybe UpdateGlobalSecondaryIndexAction)
 gsiuUpdate = lens _gsiuUpdate (\s a -> s { _gsiuUpdate = a })
 
 instance FromJSON GlobalSecondaryIndexUpdate where
     parseJSON = withObject "GlobalSecondaryIndexUpdate" $ \o -> GlobalSecondaryIndexUpdate
-        <$> o .:? "Update"
+        <$> o .:? "Create"
+        <*> o .:? "Delete"
+        <*> o .:? "Update"
 
 instance ToJSON GlobalSecondaryIndexUpdate where
     toJSON GlobalSecondaryIndexUpdate{..} = object
         [ "Update" .= _gsiuUpdate
+        , "Create" .= _gsiuCreate
+        , "Delete" .= _gsiuDelete
         ]

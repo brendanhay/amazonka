@@ -11,7 +11,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ImportExport.CancelJob
--- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -33,7 +33,8 @@ module Network.AWS.ImportExport.CancelJob
     -- ** Request constructor
     , cancelJob
     -- ** Request lenses
-    , cjJobId
+    , cj1APIVersion
+    , cj1JobId
 
     -- * Response
     , CancelJobResponse
@@ -48,24 +49,31 @@ import Network.AWS.Request.Query
 import Network.AWS.ImportExport.Types
 import qualified GHC.Exts
 
-newtype CancelJob = CancelJob
-    { _cjJobId :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+data CancelJob = CancelJob
+    { _cj1APIVersion :: Maybe Text
+    , _cj1JobId      :: Text
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CancelJob' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cjJobId' @::@ 'Text'
+-- * 'cj1APIVersion' @::@ 'Maybe' 'Text'
 --
-cancelJob :: Text -- ^ 'cjJobId'
+-- * 'cj1JobId' @::@ 'Text'
+--
+cancelJob :: Text -- ^ 'cj1JobId'
           -> CancelJob
 cancelJob p1 = CancelJob
-    { _cjJobId = p1
+    { _cj1JobId      = p1
+    , _cj1APIVersion = Nothing
     }
 
-cjJobId :: Lens' CancelJob Text
-cjJobId = lens _cjJobId (\s a -> s { _cjJobId = a })
+cj1APIVersion :: Lens' CancelJob (Maybe Text)
+cj1APIVersion = lens _cj1APIVersion (\s a -> s { _cj1APIVersion = a })
+
+cj1JobId :: Lens' CancelJob Text
+cj1JobId = lens _cj1JobId (\s a -> s { _cj1JobId = a })
 
 newtype CancelJobResponse = CancelJobResponse
     { _cjrSuccess :: Maybe Bool
@@ -90,7 +98,8 @@ instance ToPath CancelJob where
 
 instance ToQuery CancelJob where
     toQuery CancelJob{..} = mconcat
-        [ "JobId" =? _cjJobId
+        [ "APIVersion" =? _cj1APIVersion
+        , "JobId"      =? _cj1JobId
         ]
 
 instance ToHeaders CancelJob

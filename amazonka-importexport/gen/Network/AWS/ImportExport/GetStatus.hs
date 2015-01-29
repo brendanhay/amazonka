@@ -11,7 +11,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ImportExport.GetStatus
--- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -34,6 +34,7 @@ module Network.AWS.ImportExport.GetStatus
     -- ** Request constructor
     , getStatus
     -- ** Request lenses
+    , gsAPIVersion
     , gsJobId
 
     -- * Response
@@ -41,7 +42,7 @@ module Network.AWS.ImportExport.GetStatus
     -- ** Response constructor
     , getStatusResponse
     -- ** Response lenses
-    , gsrAwsShippingAddress
+    , gsrArtifactList
     , gsrCarrier
     , gsrCreationDate
     , gsrCurrentManifest
@@ -64,27 +65,34 @@ import Network.AWS.Request.Query
 import Network.AWS.ImportExport.Types
 import qualified GHC.Exts
 
-newtype GetStatus = GetStatus
-    { _gsJobId :: Text
-    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+data GetStatus = GetStatus
+    { _gsAPIVersion :: Maybe Text
+    , _gsJobId      :: Text
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'GetStatus' constructor.
 --
 -- The fields accessible through corresponding lenses are:
+--
+-- * 'gsAPIVersion' @::@ 'Maybe' 'Text'
 --
 -- * 'gsJobId' @::@ 'Text'
 --
 getStatus :: Text -- ^ 'gsJobId'
           -> GetStatus
 getStatus p1 = GetStatus
-    { _gsJobId = p1
+    { _gsJobId      = p1
+    , _gsAPIVersion = Nothing
     }
+
+gsAPIVersion :: Lens' GetStatus (Maybe Text)
+gsAPIVersion = lens _gsAPIVersion (\s a -> s { _gsAPIVersion = a })
 
 gsJobId :: Lens' GetStatus Text
 gsJobId = lens _gsJobId (\s a -> s { _gsJobId = a })
 
 data GetStatusResponse = GetStatusResponse
-    { _gsrAwsShippingAddress    :: Maybe Text
+    { _gsrArtifactList          :: List "member" Artifact
     , _gsrCarrier               :: Maybe Text
     , _gsrCreationDate          :: Maybe ISO8601
     , _gsrCurrentManifest       :: Maybe Text
@@ -106,7 +114,7 @@ data GetStatusResponse = GetStatusResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gsrAwsShippingAddress' @::@ 'Maybe' 'Text'
+-- * 'gsrArtifactList' @::@ ['Artifact']
 --
 -- * 'gsrCarrier' @::@ 'Maybe' 'Text'
 --
@@ -142,7 +150,6 @@ getStatusResponse :: GetStatusResponse
 getStatusResponse = GetStatusResponse
     { _gsrJobId                 = Nothing
     , _gsrJobType               = Nothing
-    , _gsrAwsShippingAddress    = Nothing
     , _gsrLocationCode          = Nothing
     , _gsrLocationMessage       = Nothing
     , _gsrProgressCode          = Nothing
@@ -156,11 +163,11 @@ getStatusResponse = GetStatusResponse
     , _gsrSignatureFileContents = Nothing
     , _gsrCurrentManifest       = Nothing
     , _gsrCreationDate          = Nothing
+    , _gsrArtifactList          = mempty
     }
 
-gsrAwsShippingAddress :: Lens' GetStatusResponse (Maybe Text)
-gsrAwsShippingAddress =
-    lens _gsrAwsShippingAddress (\s a -> s { _gsrAwsShippingAddress = a })
+gsrArtifactList :: Lens' GetStatusResponse [Artifact]
+gsrArtifactList = lens _gsrArtifactList (\s a -> s { _gsrArtifactList = a }) . _List
 
 gsrCarrier :: Lens' GetStatusResponse (Maybe Text)
 gsrCarrier = lens _gsrCarrier (\s a -> s { _gsrCarrier = a })
@@ -218,7 +225,8 @@ instance ToPath GetStatus where
 
 instance ToQuery GetStatus where
     toQuery GetStatus{..} = mconcat
-        [ "JobId" =? _gsJobId
+        [ "APIVersion" =? _gsAPIVersion
+        , "JobId"      =? _gsJobId
         ]
 
 instance ToHeaders GetStatus
@@ -232,7 +240,7 @@ instance AWSRequest GetStatus where
 
 instance FromXML GetStatusResponse where
     parseXML = withElement "GetStatusResult" $ \x -> GetStatusResponse
-        <$> x .@? "AwsShippingAddress"
+        <$> x .@? "ArtifactList" .!@ mempty
         <*> x .@? "Carrier"
         <*> x .@? "CreationDate"
         <*> x .@? "CurrentManifest"

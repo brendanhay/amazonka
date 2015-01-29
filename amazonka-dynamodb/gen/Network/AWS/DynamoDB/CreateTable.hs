@@ -11,7 +11,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DynamoDB.CreateTable
--- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -30,9 +30,9 @@
 -- request, DynamoDB immediately returns a response with a /TableStatus/ of 'CREATING'. After the table is created, DynamoDB sets the /TableStatus/ to 'ACTIVE'. You
 -- can perform read and write operations only on an 'ACTIVE' table.
 --
--- If you want to create multiple tables with secondary indexes on them, you
--- must create them sequentially. Only one table with secondary indexes can be
--- in the 'CREATING' state at any given time.
+-- You can optionally define secondary indexes on the new table, as part of the /CreateTable/ operation. If you want to create multiple tables with secondary
+-- indexes on them, you must create the tables sequentially. Only one table with
+-- secondary indexes can be in the 'CREATING' state at any given time.
 --
 -- You can use the /DescribeTable/ API to check the table status.
 --

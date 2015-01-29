@@ -11,7 +11,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ImportExport.UpdateJob
--- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -36,6 +36,7 @@ module Network.AWS.ImportExport.UpdateJob
     -- ** Request constructor
     , updateJob
     -- ** Request lenses
+    , ujAPIVersion
     , ujJobId
     , ujJobType
     , ujManifest
@@ -46,6 +47,7 @@ module Network.AWS.ImportExport.UpdateJob
     -- ** Response constructor
     , updateJobResponse
     -- ** Response lenses
+    , ujrArtifactList
     , ujrSuccess
     , ujrWarningMessage
     ) where
@@ -56,7 +58,8 @@ import Network.AWS.ImportExport.Types
 import qualified GHC.Exts
 
 data UpdateJob = UpdateJob
-    { _ujJobId        :: Text
+    { _ujAPIVersion   :: Maybe Text
+    , _ujJobId        :: Text
     , _ujJobType      :: JobType
     , _ujManifest     :: Text
     , _ujValidateOnly :: Bool
@@ -65,6 +68,8 @@ data UpdateJob = UpdateJob
 -- | 'UpdateJob' constructor.
 --
 -- The fields accessible through corresponding lenses are:
+--
+-- * 'ujAPIVersion' @::@ 'Maybe' 'Text'
 --
 -- * 'ujJobId' @::@ 'Text'
 --
@@ -84,7 +89,11 @@ updateJob p1 p2 p3 p4 = UpdateJob
     , _ujManifest     = p2
     , _ujJobType      = p3
     , _ujValidateOnly = p4
+    , _ujAPIVersion   = Nothing
     }
+
+ujAPIVersion :: Lens' UpdateJob (Maybe Text)
+ujAPIVersion = lens _ujAPIVersion (\s a -> s { _ujAPIVersion = a })
 
 ujJobId :: Lens' UpdateJob Text
 ujJobId = lens _ujJobId (\s a -> s { _ujJobId = a })
@@ -99,13 +108,16 @@ ujValidateOnly :: Lens' UpdateJob Bool
 ujValidateOnly = lens _ujValidateOnly (\s a -> s { _ujValidateOnly = a })
 
 data UpdateJobResponse = UpdateJobResponse
-    { _ujrSuccess        :: Maybe Bool
+    { _ujrArtifactList   :: List "member" Artifact
+    , _ujrSuccess        :: Maybe Bool
     , _ujrWarningMessage :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UpdateJobResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
+--
+-- * 'ujrArtifactList' @::@ ['Artifact']
 --
 -- * 'ujrSuccess' @::@ 'Maybe' 'Bool'
 --
@@ -115,7 +127,11 @@ updateJobResponse :: UpdateJobResponse
 updateJobResponse = UpdateJobResponse
     { _ujrSuccess        = Nothing
     , _ujrWarningMessage = Nothing
+    , _ujrArtifactList   = mempty
     }
+
+ujrArtifactList :: Lens' UpdateJobResponse [Artifact]
+ujrArtifactList = lens _ujrArtifactList (\s a -> s { _ujrArtifactList = a }) . _List
 
 ujrSuccess :: Lens' UpdateJobResponse (Maybe Bool)
 ujrSuccess = lens _ujrSuccess (\s a -> s { _ujrSuccess = a })
@@ -129,7 +145,8 @@ instance ToPath UpdateJob where
 
 instance ToQuery UpdateJob where
     toQuery UpdateJob{..} = mconcat
-        [ "JobId"        =? _ujJobId
+        [ "APIVersion"   =? _ujAPIVersion
+        , "JobId"        =? _ujJobId
         , "JobType"      =? _ujJobType
         , "Manifest"     =? _ujManifest
         , "ValidateOnly" =? _ujValidateOnly
@@ -146,5 +163,6 @@ instance AWSRequest UpdateJob where
 
 instance FromXML UpdateJobResponse where
     parseXML = withElement "UpdateJobResult" $ \x -> UpdateJobResponse
-        <$> x .@? "Success"
+        <$> x .@? "ArtifactList" .!@ mempty
+        <*> x .@? "Success"
         <*> x .@? "WarningMessage"

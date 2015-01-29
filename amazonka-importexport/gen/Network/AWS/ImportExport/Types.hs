@@ -12,7 +12,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.ImportExport.Types
--- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -34,6 +34,12 @@ module Network.AWS.ImportExport.Types
 
     -- * JobType
     , JobType (..)
+
+    -- * Artifact
+    , Artifact
+    , artifact
+    , aDescription
+    , aURL
 
     -- * Job
     , Job
@@ -118,6 +124,42 @@ instance ToQuery      JobType
 
 instance FromXML JobType where
     parseXML = parseXMLText "JobType"
+
+data Artifact = Artifact
+    { _aDescription :: Maybe Text
+    , _aURL         :: Maybe Text
+    } deriving (Eq, Ord, Read, Show)
+
+-- | 'Artifact' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'aDescription' @::@ 'Maybe' 'Text'
+--
+-- * 'aURL' @::@ 'Maybe' 'Text'
+--
+artifact :: Artifact
+artifact = Artifact
+    { _aDescription = Nothing
+    , _aURL         = Nothing
+    }
+
+aDescription :: Lens' Artifact (Maybe Text)
+aDescription = lens _aDescription (\s a -> s { _aDescription = a })
+
+aURL :: Lens' Artifact (Maybe Text)
+aURL = lens _aURL (\s a -> s { _aURL = a })
+
+instance FromXML Artifact where
+    parseXML x = Artifact
+        <$> x .@? "Description"
+        <*> x .@? "URL"
+
+instance ToQuery Artifact where
+    toQuery Artifact{..} = mconcat
+        [ "Description" =? _aDescription
+        , "URL"         =? _aURL
+        ]
 
 data Job = Job
     { _jobCreationDate :: ISO8601

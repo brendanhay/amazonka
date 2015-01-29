@@ -11,7 +11,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DynamoDB.DescribeTable
--- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -25,6 +25,14 @@
 -- | Returns information about the table, including the current status of the
 -- table, when it was created, the primary key schema, and any indexes on the
 -- table.
+--
+-- If you issue a DescribeTable request immediately after a CreateTable
+-- request, DynamoDB might return a ResourceNotFoundException. This is because
+-- DescribeTable uses an eventually consistent query, and the metadata for your
+-- table might not be available at that moment. Wait for a few seconds, and then
+-- try the DescribeTable request again.
+--
+--
 --
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeTable.html>
 module Network.AWS.DynamoDB.DescribeTable

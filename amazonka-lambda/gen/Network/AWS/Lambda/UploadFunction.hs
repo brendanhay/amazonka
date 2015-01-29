@@ -11,7 +11,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.Lambda.UploadFunction
--- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -184,7 +184,7 @@ data UploadFunctionResponse = UploadFunctionResponse
     , _ufrFunctionARN     :: Maybe Text
     , _ufrFunctionName    :: Maybe Text
     , _ufrHandler         :: Maybe Text
-    , _ufrLastModified    :: Maybe POSIX
+    , _ufrLastModified    :: Maybe Text
     , _ufrMemorySize      :: Maybe Nat
     , _ufrMode            :: Maybe Mode
     , _ufrRole            :: Maybe Text
@@ -208,7 +208,7 @@ data UploadFunctionResponse = UploadFunctionResponse
 --
 -- * 'ufrHandler' @::@ 'Maybe' 'Text'
 --
--- * 'ufrLastModified' @::@ 'Maybe' 'UTCTime'
+-- * 'ufrLastModified' @::@ 'Maybe' 'Text'
 --
 -- * 'ufrMemorySize' @::@ 'Maybe' 'Natural'
 --
@@ -263,8 +263,8 @@ ufrHandler :: Lens' UploadFunctionResponse (Maybe Text)
 ufrHandler = lens _ufrHandler (\s a -> s { _ufrHandler = a })
 
 -- | The timestamp of the last time you updated the function.
-ufrLastModified :: Lens' UploadFunctionResponse (Maybe UTCTime)
-ufrLastModified = lens _ufrLastModified (\s a -> s { _ufrLastModified = a }) . mapping _Time
+ufrLastModified :: Lens' UploadFunctionResponse (Maybe Text)
+ufrLastModified = lens _ufrLastModified (\s a -> s { _ufrLastModified = a })
 
 -- | The memory size, in MB, you configured for the function. Must be a multiple
 -- of 64 MB.

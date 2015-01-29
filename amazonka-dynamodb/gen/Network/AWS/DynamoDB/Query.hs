@@ -11,7 +11,7 @@
 {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Network.AWS.DynamoDB.Query
--- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -193,11 +193,7 @@ query p1 p2 = Query
 qAttributesToGet :: Lens' Query (NonEmpty Text)
 qAttributesToGet = lens _qAttributesToGet (\s a -> s { _qAttributesToGet = a }) . _List1
 
--- | There is a newer parameter available. Use /ConditionExpression/ instead. Note
--- that if you use /ConditionalOperator/ and / ConditionExpression / at the same
--- time, DynamoDB will return a /ValidationException/ exception.
---
--- This parameter does not support lists or maps.
+-- | This parameter does not support lists or maps.
 --
 -- A logical operator to apply to the conditions in the /QueryFilter/ map:
 --
@@ -234,7 +230,7 @@ qExclusiveStartKey =
         . _Map
 
 -- | One or more substitution tokens for simplifying complex expressions. The
--- following are some use cases for an /ExpressionAttributeNames/ value:
+-- following are some use cases for using /ExpressionAttributeNames/:
 --
 -- To shorten an attribute name that is very long or unwieldy in an
 -- expression.
@@ -252,12 +248,13 @@ qExclusiveStartKey =
 --
 -- Now suppose that you specified the following for /ExpressionAttributeNames/:
 --
--- '{"n":"order.customerInfo.LastName"}'
+-- '{"#name":"order.customerInfo.LastName"}'
 --
 -- The expression can now be simplified as follows:
 --
--- '#n = "Smith" OR #n = "Jones"'
+-- '#name = "Smith" OR #name = "Jones"'
 --
+-- For more information on expression attribute names, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing ItemAttributes> in the /Amazon DynamoDB Developer Guide/.
 qExpressionAttributeNames :: Lens' Query (HashMap Text Text)
 qExpressionAttributeNames =
     lens _qExpressionAttributeNames
@@ -266,30 +263,35 @@ qExpressionAttributeNames =
 
 -- | One or more values that can be substituted in an expression.
 --
--- Use the : character in an expression to dereference an attribute value. For
--- example, consider the following expression:
+-- Use the : (colon) character in an expression to dereference an attribute
+-- value. For example, suppose that you wanted to check whether the value of the /ProductStatus/ attribute was one of the following:
 --
--- 'ProductStatus IN ("Available","Backordered","Discontinued")'
+-- 'Available | Backordered | Discontinued'
 --
--- Now suppose that you specified the following for /ExpressionAttributeValues/:
+-- You would first need to specify /ExpressionAttributeValues/ as follows:
 --
--- '{ "a":{"S":"Available"}, "b":{"S":"Backordered"}, "d":{"S":"Discontinued"} }'
+-- '{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"},":disc":{"S":"Discontinued"} }'
 --
--- The expression can now be simplified as follows:
+-- You could then use these values in an expression, such as this:
 --
--- 'ProductStatus IN (:a,:b,:c)'
+-- 'ProductStatus IN (:avail, :back, :disc)'
 --
+-- For more information on expression attribute values, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html SpecifyingConditions> in the /Amazon DynamoDB Developer Guide/.
 qExpressionAttributeValues :: Lens' Query (HashMap Text AttributeValue)
 qExpressionAttributeValues =
     lens _qExpressionAttributeValues
         (\s a -> s { _qExpressionAttributeValues = a })
             . _Map
 
--- | A condition that evaluates the query results and returns only the desired
--- values.
+-- | A condition that evaluates the query results after the items are read and
+-- returns only the desired values.
 --
 -- The condition you specify is applied to the items queried; any items that do
 -- not match the expression are not returned.
+--
+-- Filter expressions are applied after the items are read, so they do not
+-- limit the capacity used. A /FilterExpression/ has the same syntax as a /ConditionExpression/. For more information on expression syntax, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions> in
+-- the /Amazon DynamoDB Developer Guide/.
 qFilterExpression :: Lens' Query (Maybe Text)
 qFilterExpression =
     lens _qFilterExpression (\s a -> s { _qFilterExpression = a })
@@ -304,10 +306,12 @@ qIndexName = lens _qIndexName (\s a -> s { _qIndexName = a })
 -- hash key attribute name and value as an 'EQ' condition. You can optionally
 -- specify a second condition, referring to the range key attribute.
 --
--- For a query on an index, you can have conditions only on the index key
--- attributes. You must specify the index hash attribute name and value as an EQ
--- condition. You can optionally specify a second condition, referring to the
--- index key range attribute.
+-- If you do not specify a range key condition, all items under the hash key
+-- will be fetched and processed. Any filters will applied after this. For a
+-- query on an index, you can have conditions only on the index key attributes.
+-- You must specify the index hash attribute name and value as an EQ condition.
+-- You can optionally specify a second condition, referring to the index key
+-- range attribute.
 --
 -- Each /KeyConditions/ element consists of an attribute name to compare, along
 -- with the following:
@@ -319,7 +323,7 @@ qIndexName = lens _qIndexName (\s a -> s { _qIndexName = a })
 -- For type Number, value comparisons are numeric.
 --
 -- String value comparisons for greater than, equals, or less than are based on
--- ASCII character code values. For example, 'a' is greater than 'A', and 'aa' is
+-- ASCII character code values. For example, 'a' is greater than 'A', and 'a' is
 -- greater than 'B'. For a list of code values, see <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>.
 --
 -- For Binary, DynamoDB treats each byte of the binary data as unsigned when it
@@ -409,13 +413,15 @@ qKeyConditions = lens _qKeyConditions (\s a -> s { _qKeyConditions = a }) . _Map
 qLimit :: Lens' Query (Maybe Natural)
 qLimit = lens _qLimit (\s a -> s { _qLimit = a }) . mapping _Nat
 
--- | One or more attributes to retrieve from the table. These attributes can
--- include scalars, sets, or elements of a JSON document. The attributes in the
--- expression must be separated by commas.
+-- | A string that identifies one or more attributes to retrieve from the table.
+-- These attributes can include scalars, sets, or elements of a JSON document.
+-- The attributes in the expression must be separated by commas.
 --
 -- If no attribute names are specified, then all attributes will be returned.
 -- If any of the requested attributes are not found, they will not appear in the
 -- result.
+--
+-- For more information on projection expressions, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing ItemAttributes> in the /Amazon DynamoDB Developer Guide/.
 qProjectionExpression :: Lens' Query (Maybe Text)
 qProjectionExpression =
     lens _qProjectionExpression (\s a -> s { _qProjectionExpression = a })
@@ -426,14 +432,18 @@ qProjectionExpression =
 --
 -- This parameter does not support lists or maps.
 --
--- A condition that evaluates the query results and returns only the desired
--- values.
+-- A condition that evaluates the query results after the items are read and
+-- returns only the desired values.
 --
--- If you specify more than one condition in the /QueryFilter/ map, then by
--- default all of the conditions must evaluate to true. In other words, the
--- conditions are ANDed together. (You can use the /ConditionalOperator/ parameter
--- to OR the conditions instead. If you do this, then at least one of the
--- conditions must evaluate to true, rather than all of them.)
+-- Query filters are applied after the items are read, so they do not limit the
+-- capacity used. If you specify more than one condition in the /QueryFilter/ map,
+-- then by default all of the conditions must evaluate to true. In other words,
+-- the conditions are ANDed together. (You can use the /ConditionalOperator/
+-- parameter to OR the conditions instead. If you do this, then at least one of
+-- the conditions must evaluate to true, rather than all of them.)
+--
+-- /QueryFilter/ does not allow key attributes. You cannot define a filter
+-- condition on a hash key or range key.
 --
 -- Each /QueryFilter/ element consists of an attribute name to compare, along
 -- with the following:
@@ -445,7 +455,7 @@ qProjectionExpression =
 -- For type Number, value comparisons are numeric.
 --
 -- String value comparisons for greater than, equals, or less than are based on
--- ASCII character code values. For example, 'a' is greater than 'A', and 'aa' is
+-- ASCII character code values. For example, 'a' is greater than 'A', and 'a' is
 -- greater than 'B'. For a list of code values, see <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>.
 --
 -- For type Binary, DynamoDB treats each byte of the binary data as unsigned

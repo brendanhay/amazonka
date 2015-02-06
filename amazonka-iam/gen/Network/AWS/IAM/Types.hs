@@ -695,7 +695,7 @@ roleDetail = RoleDetail
 rdArn :: Lens' RoleDetail (Maybe Text)
 rdArn = lens _rdArn (\s a -> s { _rdArn = a })
 
--- | The trust policy that grants an entity permission to assume the role.
+-- | The trust policy that grants permission to assume the role.
 --
 -- The returned policy is URL-encoded according to <http://www.faqs.org/rfcs/rfc3986.html RFC 3986>.
 rdAssumeRolePolicyDocument :: Lens' RoleDetail (Maybe Text)
@@ -726,7 +726,7 @@ rdRoleId = lens _rdRoleId (\s a -> s { _rdRoleId = a })
 rdRoleName :: Lens' RoleDetail (Maybe Text)
 rdRoleName = lens _rdRoleName (\s a -> s { _rdRoleName = a })
 
--- | A list of the access (permissions) policies attached to the role.
+-- | A list of the role's access (permissions) policies.
 rdRolePolicyList :: Lens' RoleDetail [PolicyDetail]
 rdRolePolicyList = lens _rdRolePolicyList (\s a -> s { _rdRolePolicyList = a }) . _List
 
@@ -1084,7 +1084,7 @@ gdGroupId = lens _gdGroupId (\s a -> s { _gdGroupId = a })
 gdGroupName :: Lens' GroupDetail (Maybe Text)
 gdGroupName = lens _gdGroupName (\s a -> s { _gdGroupName = a })
 
--- | A list of the policies attached to the group.
+-- | A list of the group's policies.
 gdGroupPolicyList :: Lens' GroupDetail [PolicyDetail]
 gdGroupPolicyList =
     lens _gdGroupPolicyList (\s a -> s { _gdGroupPolicyList = a })
@@ -1493,7 +1493,7 @@ udArn = lens _udArn (\s a -> s { _udArn = a })
 udCreateDate :: Lens' UserDetail (Maybe UTCTime)
 udCreateDate = lens _udCreateDate (\s a -> s { _udCreateDate = a }) . mapping _Time
 
--- | A list of the IAM groups that the user is in.
+-- | A list of IAM groups that the user is in.
 udGroupList :: Lens' UserDetail [Text]
 udGroupList = lens _udGroupList (\s a -> s { _udGroupList = a }) . _List
 
@@ -1511,7 +1511,7 @@ udUserId = lens _udUserId (\s a -> s { _udUserId = a })
 udUserName :: Lens' UserDetail (Maybe Text)
 udUserName = lens _udUserName (\s a -> s { _udUserName = a })
 
--- | A list of the policies attached to the user.
+-- | A list of the user's policies.
 udUserPolicyList :: Lens' UserDetail [PolicyDetail]
 udUserPolicyList = lens _udUserPolicyList (\s a -> s { _udUserPolicyList = a }) . _List
 

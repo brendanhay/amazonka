@@ -30,7 +30,7 @@
 -- to use the certificates. This could cause Elastic Load Balancing to stop
 -- accepting traffic. We recommend that you remove the reference to the
 -- certificate from Elastic Load Balancing before using this command to delete
--- the certificate. For more information, go to DeleteLoadBalancerListeners in
+-- the certificate. For more information, go to <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerListeners.html DeleteLoadBalancerListeners> in
 -- the /Elastic Load Balancing API Reference/.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteServerCertificate.html>

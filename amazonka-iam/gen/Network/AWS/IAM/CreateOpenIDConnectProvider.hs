@@ -118,6 +118,8 @@ coidcpClientIDList =
 -- stores its keys at "https://keys.server.example.com/openid-connect", the
 -- thumbprint string would be the hex-encoded SHA-1 hash value of the
 -- certificate used by https://keys.server.example.com.
+--
+-- For more information about obtaining the OIDC provider's thumbprint, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html Obtaining the Thumbprint for an OpenID Connect Provider> in the /Using IAM/ guide.
 coidcpThumbprintList :: Lens' CreateOpenIDConnectProvider [Text]
 coidcpThumbprintList =
     lens _coidcpThumbprintList (\s a -> s { _coidcpThumbprintList = a })

@@ -3995,34 +3995,14 @@
             "documentationUrl": null,
             "request": {
                 "deriving": [
-                    "Eq",
-                    "Read",
                     "Show"
                 ],
-                "streaming": false,
-                "style": "json",
+                "streaming": true,
+                "style": "body",
                 "fieldPad": 15,
                 "ctor": "invokeAsync",
                 "headerPad": 0,
-                "contents": [
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "error",
-                        "monoid": false,
-                        "protocol": "rest-json",
-                        "flattened": false,
-                        "required": true,
-                        "lens": "iaInvokeArgs",
-                        "name": "_iaInvokeArgs",
-                        "shape": "Blob",
-                        "locationName": "InvokeArgs",
-                        "documentation": "-- | JSON that you want to provide to your Lambda function as input.",
-                        "typeExposed": "Base64",
-                        "type": "Base64"
-                    }
-                ],
+                "contents": [],
                 "path": [
                     {
                         "value": "/2014-11-13/functions/",
@@ -4039,7 +4019,7 @@
                 ],
                 "protocol": "rest-json",
                 "payload": {
-                    "location": null,
+                    "location": "body",
                     "iso": null,
                     "lensMapping": null,
                     "default": "error",
@@ -4052,8 +4032,8 @@
                     "shape": "Blob",
                     "locationName": "InvokeArgs",
                     "documentation": "-- | JSON that you want to provide to your Lambda function as input.",
-                    "typeExposed": "Base64",
-                    "type": "Base64"
+                    "typeExposed": "RqBody",
+                    "type": "RqBody"
                 },
                 "required": [
                     {
@@ -4074,7 +4054,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": null,
+                        "location": "body",
                         "iso": null,
                         "lensMapping": null,
                         "default": "error",
@@ -4087,13 +4067,13 @@
                         "shape": "Blob",
                         "locationName": "InvokeArgs",
                         "documentation": "-- | JSON that you want to provide to your Lambda function as input.",
-                        "typeExposed": "Base64",
-                        "type": "Base64"
+                        "typeExposed": "RqBody",
+                        "type": "RqBody"
                     }
                 ],
                 "shared": false,
                 "headers": [],
-                "contentPad": 11,
+                "contentPad": 0,
                 "queryPad": 0,
                 "name": "InvokeAsync",
                 "query": [],
@@ -4121,7 +4101,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": null,
+                        "location": "body",
                         "iso": null,
                         "lensMapping": null,
                         "default": "error",
@@ -4134,8 +4114,8 @@
                         "shape": "Blob",
                         "locationName": "InvokeArgs",
                         "documentation": "-- | JSON that you want to provide to your Lambda function as input.",
-                        "typeExposed": "Base64",
-                        "type": "Base64"
+                        "typeExposed": "RqBody",
+                        "type": "RqBody"
                     }
                 ]
             }
@@ -6470,34 +6450,14 @@
             "documentationUrl": null,
             "request": {
                 "deriving": [
-                    "Eq",
-                    "Read",
                     "Show"
                 ],
-                "streaming": false,
-                "style": "json",
+                "streaming": true,
+                "style": "body",
                 "fieldPad": 15,
                 "ctor": "uploadFunction",
                 "headerPad": 0,
-                "contents": [
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "error",
-                        "monoid": false,
-                        "protocol": "rest-json",
-                        "flattened": false,
-                        "required": true,
-                        "lens": "ufFunctionZip",
-                        "name": "_ufFunctionZip",
-                        "shape": "Blob",
-                        "locationName": "FunctionZip",
-                        "documentation": "-- | A .zip file containing your packaged source code. For more information about\n-- creating a .zip file, go to \u003chttp://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events.html AWS LambdaL How it Works\u003e in the AWS Lambda\n-- Developer Guide.",
-                        "typeExposed": "Base64",
-                        "type": "Base64"
-                    }
-                ],
+                "contents": [],
                 "path": [
                     {
                         "value": "/2014-11-13/functions/",
@@ -6510,7 +6470,7 @@
                 ],
                 "protocol": "rest-json",
                 "payload": {
-                    "location": null,
+                    "location": "body",
                     "iso": null,
                     "lensMapping": null,
                     "default": "error",
@@ -6523,8 +6483,8 @@
                     "shape": "Blob",
                     "locationName": "FunctionZip",
                     "documentation": "-- | A .zip file containing your packaged source code. For more information about\n-- creating a .zip file, go to \u003chttp://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events.html AWS LambdaL How it Works\u003e in the AWS Lambda\n-- Developer Guide.",
-                    "typeExposed": "Base64",
-                    "type": "Base64"
+                    "typeExposed": "RqBody",
+                    "type": "RqBody"
                 },
                 "required": [
                     {
@@ -6545,7 +6505,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": null,
+                        "location": "body",
                         "iso": null,
                         "lensMapping": null,
                         "default": "error",
@@ -6558,8 +6518,8 @@
                         "shape": "Blob",
                         "locationName": "FunctionZip",
                         "documentation": "-- | A .zip file containing your packaged source code. For more information about\n-- creating a .zip file, go to \u003chttp://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events.html AWS LambdaL How it Works\u003e in the AWS Lambda\n-- Developer Guide.",
-                        "typeExposed": "Base64",
-                        "type": "Base64"
+                        "typeExposed": "RqBody",
+                        "type": "RqBody"
                     },
                     {
                         "location": "querystring",
@@ -6632,7 +6592,7 @@
                 ],
                 "shared": false,
                 "headers": [],
-                "contentPad": 12,
+                "contentPad": 0,
                 "queryPad": 12,
                 "name": "UploadFunction",
                 "query": [
@@ -6765,7 +6725,7 @@
                         "type": "Text"
                     },
                     {
-                        "location": null,
+                        "location": "body",
                         "iso": null,
                         "lensMapping": null,
                         "default": "error",
@@ -6778,8 +6738,8 @@
                         "shape": "Blob",
                         "locationName": "FunctionZip",
                         "documentation": "-- | A .zip file containing your packaged source code. For more information about\n-- creating a .zip file, go to \u003chttp://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events.html AWS LambdaL How it Works\u003e in the AWS Lambda\n-- Developer Guide.",
-                        "typeExposed": "Base64",
-                        "type": "Base64"
+                        "typeExposed": "RqBody",
+                        "type": "RqBody"
                     },
                     {
                         "location": "querystring",

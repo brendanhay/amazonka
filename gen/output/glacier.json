@@ -6212,54 +6212,52 @@
             "service": "Glacier",
             "response": {
                 "deriving": [
-                    "Eq",
-                    "Read",
                     "Show"
                 ],
-                "streaming": false,
-                "style": "json-headers",
+                "streaming": true,
+                "style": "body-headers",
                 "fieldPad": 23,
                 "ctor": "getJobOutputResponse",
                 "headerPad": 26,
-                "contents": [
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "monoid": false,
-                        "protocol": "rest-json",
-                        "flattened": false,
-                        "required": false,
-                        "lens": "gjorBody",
-                        "name": "_gjorBody",
-                        "shape": "Stream",
-                        "locationName": "body",
-                        "documentation": "-- | The job data, either archive data or inventory data.",
-                        "typeExposed": "Maybe Base64",
-                        "type": "Maybe Base64"
-                    }
-                ],
+                "contents": [],
                 "wrapper": false,
                 "protocol": "rest-json",
                 "payload": {
-                    "location": null,
+                    "location": "body",
                     "iso": null,
                     "lensMapping": null,
-                    "default": "Nothing",
+                    "default": "error",
                     "monoid": false,
                     "protocol": "rest-json",
                     "flattened": false,
-                    "required": false,
+                    "required": true,
                     "lens": "gjorBody",
                     "name": "_gjorBody",
                     "shape": "Stream",
                     "locationName": "body",
                     "documentation": "-- | The job data, either archive data or inventory data.",
-                    "typeExposed": "Maybe Base64",
-                    "type": "Maybe Base64"
+                    "typeExposed": "RsBody",
+                    "type": "RsBody"
                 },
-                "required": [],
+                "required": [
+                    {
+                        "location": "body",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gjorBody",
+                        "name": "_gjorBody",
+                        "shape": "Stream",
+                        "locationName": "body",
+                        "documentation": "-- | The job data, either archive data or inventory data.",
+                        "typeExposed": "RsBody",
+                        "type": "RsBody"
+                    }
+                ],
                 "shared": false,
                 "headers": [
                     {
@@ -6288,30 +6286,13 @@
                         "type": "field"
                     }
                 ],
-                "contentPad": 5,
+                "contentPad": 0,
                 "name": "GetJobOutputResponse",
                 "resultWrapper": null,
                 "locationPad": 26,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "monoid": false,
-                        "protocol": "rest-json",
-                        "flattened": false,
-                        "required": false,
-                        "lens": "gjorBody",
-                        "name": "_gjorBody",
-                        "shape": "Stream",
-                        "locationName": "body",
-                        "documentation": "-- | The job data, either archive data or inventory data.",
-                        "typeExposed": "Maybe Base64",
-                        "type": "Maybe Base64"
-                    },
                     {
                         "location": "header",
                         "iso": null,
@@ -6451,21 +6432,21 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "body",
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "error",
                         "monoid": false,
                         "protocol": "rest-json",
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "gjorBody",
                         "name": "_gjorBody",
                         "shape": "Stream",
                         "locationName": "body",
                         "documentation": "-- | The job data, either archive data or inventory data.",
-                        "typeExposed": "Maybe Base64",
-                        "type": "Maybe Base64"
+                        "typeExposed": "RsBody",
+                        "type": "RsBody"
                     },
                     {
                         "location": "header",
@@ -9928,34 +9909,14 @@
             "documentationUrl": null,
             "request": {
                 "deriving": [
-                    "Eq",
-                    "Read",
                     "Show"
                 ],
-                "streaming": false,
-                "style": "json-headers",
+                "streaming": true,
+                "style": "body-headers",
                 "fieldPad": 21,
                 "ctor": "uploadArchive",
                 "headerPad": 26,
-                "contents": [
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "monoid": false,
-                        "protocol": "rest-json",
-                        "flattened": false,
-                        "required": false,
-                        "lens": "uaBody",
-                        "name": "_uaBody",
-                        "shape": "Stream",
-                        "locationName": "body",
-                        "documentation": "-- | The data to upload.",
-                        "typeExposed": "Maybe Base64",
-                        "type": "Maybe Base64"
-                    }
-                ],
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -9980,21 +9941,21 @@
                 ],
                 "protocol": "rest-json",
                 "payload": {
-                    "location": null,
+                    "location": "body",
                     "iso": null,
                     "lensMapping": null,
-                    "default": "Nothing",
+                    "default": "error",
                     "monoid": false,
                     "protocol": "rest-json",
                     "flattened": false,
-                    "required": false,
+                    "required": true,
                     "lens": "uaBody",
                     "name": "_uaBody",
                     "shape": "Stream",
                     "locationName": "body",
                     "documentation": "-- | The data to upload.",
-                    "typeExposed": "Maybe Base64",
-                    "type": "Maybe Base64"
+                    "typeExposed": "RqBody",
+                    "type": "RqBody"
                 },
                 "required": [
                     {
@@ -10030,6 +9991,23 @@
                         "documentation": "-- | The 'AccountId' is the AWS Account ID. You can specify either the AWS Account\n-- ID or optionally a '-', in which case Amazon Glacier uses the AWS Account ID\n-- associated with the credentials used to sign the request. If you specify your\n-- Account ID, do not include hyphens in it.",
                         "typeExposed": "Text",
                         "type": "Text"
+                    },
+                    {
+                        "location": "body",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "uaBody",
+                        "name": "_uaBody",
+                        "shape": "Stream",
+                        "locationName": "body",
+                        "documentation": "-- | The data to upload.",
+                        "typeExposed": "RqBody",
+                        "type": "RqBody"
                     }
                 ],
                 "shared": false,
@@ -10045,7 +10023,7 @@
                         "type": "field"
                     }
                 ],
-                "contentPad": 5,
+                "contentPad": 0,
                 "queryPad": 0,
                 "name": "UploadArchive",
                 "query": [],
@@ -10087,23 +10065,6 @@
                         "documentation": "-- | The SHA256 checksum (a linear hash) of the payload.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
-                    },
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "monoid": false,
-                        "protocol": "rest-json",
-                        "flattened": false,
-                        "required": false,
-                        "lens": "uaBody",
-                        "name": "_uaBody",
-                        "shape": "Stream",
-                        "locationName": "body",
-                        "documentation": "-- | The data to upload.",
-                        "typeExposed": "Maybe Base64",
-                        "type": "Maybe Base64"
                     }
                 ],
                 "fields": [
@@ -10142,21 +10103,21 @@
                         "type": "Maybe Text"
                     },
                     {
-                        "location": null,
+                        "location": "body",
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "error",
                         "monoid": false,
                         "protocol": "rest-json",
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "uaBody",
                         "name": "_uaBody",
                         "shape": "Stream",
                         "locationName": "body",
                         "documentation": "-- | The data to upload.",
-                        "typeExposed": "Maybe Base64",
-                        "type": "Maybe Base64"
+                        "typeExposed": "RqBody",
+                        "type": "RqBody"
                     },
                     {
                         "location": "header",
@@ -10300,34 +10261,14 @@
             "documentationUrl": null,
             "request": {
                 "deriving": [
-                    "Eq",
-                    "Read",
                     "Show"
                 ],
-                "streaming": false,
-                "style": "json-headers",
+                "streaming": true,
+                "style": "body-headers",
                 "fieldPad": 13,
                 "ctor": "uploadMultipartPart",
                 "headerPad": 23,
-                "contents": [
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "monoid": false,
-                        "protocol": "rest-json",
-                        "flattened": false,
-                        "required": false,
-                        "lens": "umpBody",
-                        "name": "_umpBody",
-                        "shape": "Stream",
-                        "locationName": "body",
-                        "documentation": "-- | The data to upload.",
-                        "typeExposed": "Maybe Base64",
-                        "type": "Maybe Base64"
-                    }
-                ],
+                "contents": [],
                 "path": [
                     {
                         "value": "/",
@@ -10356,21 +10297,21 @@
                 ],
                 "protocol": "rest-json",
                 "payload": {
-                    "location": null,
+                    "location": "body",
                     "iso": null,
                     "lensMapping": null,
-                    "default": "Nothing",
+                    "default": "error",
                     "monoid": false,
                     "protocol": "rest-json",
                     "flattened": false,
-                    "required": false,
+                    "required": true,
                     "lens": "umpBody",
                     "name": "_umpBody",
                     "shape": "Stream",
                     "locationName": "body",
                     "documentation": "-- | The data to upload.",
-                    "typeExposed": "Maybe Base64",
-                    "type": "Maybe Base64"
+                    "typeExposed": "RqBody",
+                    "type": "RqBody"
                 },
                 "required": [
                     {
@@ -10423,6 +10364,23 @@
                         "documentation": "-- | The upload ID of the multipart upload.",
                         "typeExposed": "Text",
                         "type": "Text"
+                    },
+                    {
+                        "location": "body",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "umpBody",
+                        "name": "_umpBody",
+                        "shape": "Stream",
+                        "locationName": "body",
+                        "documentation": "-- | The data to upload.",
+                        "typeExposed": "RqBody",
+                        "type": "RqBody"
                     }
                 ],
                 "shared": false,
@@ -10438,7 +10396,7 @@
                         "type": "field"
                     }
                 ],
-                "contentPad": 5,
+                "contentPad": 0,
                 "queryPad": 0,
                 "name": "UploadMultipartPart",
                 "query": [],
@@ -10480,23 +10438,6 @@
                         "documentation": "-- | Identifies the range of bytes in the assembled archive that will be uploaded\n-- in this part. Amazon Glacier uses this information to assemble the archive in\n-- the proper sequence. The format of this header follows RFC 2616. An example\n-- header is Content-Range:bytes 0-4194303/*.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
-                    },
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "monoid": false,
-                        "protocol": "rest-json",
-                        "flattened": false,
-                        "required": false,
-                        "lens": "umpBody",
-                        "name": "_umpBody",
-                        "shape": "Stream",
-                        "locationName": "body",
-                        "documentation": "-- | The data to upload.",
-                        "typeExposed": "Maybe Base64",
-                        "type": "Maybe Base64"
                     }
                 ],
                 "fields": [
@@ -10518,21 +10459,21 @@
                         "type": "Text"
                     },
                     {
-                        "location": null,
+                        "location": "body",
                         "iso": null,
                         "lensMapping": null,
-                        "default": "Nothing",
+                        "default": "error",
                         "monoid": false,
                         "protocol": "rest-json",
                         "flattened": false,
-                        "required": false,
+                        "required": true,
                         "lens": "umpBody",
                         "name": "_umpBody",
                         "shape": "Stream",
                         "locationName": "body",
                         "documentation": "-- | The data to upload.",
-                        "typeExposed": "Maybe Base64",
-                        "type": "Maybe Base64"
+                        "typeExposed": "RqBody",
+                        "type": "RqBody"
                     },
                     {
                         "location": "header",

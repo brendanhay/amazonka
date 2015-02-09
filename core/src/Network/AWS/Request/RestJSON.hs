@@ -17,17 +17,18 @@ module Network.AWS.Request.RestJSON
     , delete
     , post
     , put
+    , stream
     ) where
 
-import Control.Applicative
-import Control.Lens                 hiding (Action)
-import Data.Aeson
-import Data.Monoid
-import Network.AWS.Data
-import Network.AWS.Request.Internal
-import Network.AWS.Types
-import Network.HTTP.Types.Header
-import Network.HTTP.Types.Method
+import           Control.Applicative
+import           Control.Lens                 hiding (Action)
+import           Data.Aeson
+import           Data.Monoid
+import           Network.AWS.Data
+import           Network.AWS.Request.Internal
+import           Network.AWS.Types
+import           Network.HTTP.Types.Header
+import           Network.HTTP.Types.Method
 
 get :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
 get = defaultRequest
@@ -48,11 +49,21 @@ put :: forall a. (AWSService (Sv a), ToQuery a, ToPath a, ToHeaders a, ToJSON a)
     -> Request a
 put x = get x
     & rqMethod   .~ PUT
-    & rqHeaders <>~ toHeader hContentType content
+    & rqHeaders <>~ toHeader hContentType ct
     & rqBody     .~ toBody (toJSON x)
   where
-    content = ("application/x-amz-json-" <>) <$> _svcJSONVersion svc
+    ct = ("application/x-amz-json-" <>) <$> _svcJSONVersion svc
 
     svc :: Service (Sv a)
     svc = service
 {-# INLINE put #-}
+
+stream :: (AWSService (Sv a), ToPath a, ToQuery a, ToHeaders a, ToBody a)
+       => StdMethod
+       -> a
+       -> Request a
+stream m x = content $ get x & rqMethod .~ m & rqBody .~ toBody x
+{-# INLINE stream #-}
+
+content :: Request a -> Request a
+content rq = rq & rqHeaders %~ hdr hAMZContentSHA256 (bodyHash (rq ^. rqBody))

@@ -36,24 +36,28 @@ library
 
     other-modules:
           Network.AWS.Internal.Auth
+        , Network.AWS.Internal.Body
         , Network.AWS.Internal.Env
         , Network.AWS.Internal.Log
         , Network.AWS.Internal.Retry
 
     build-depends:
-          amazonka-core     == 0.2.3.*
-        , base              >= 4.7     && < 5
-        , bytestring        >= 0.9
-        , conduit           >= 1.1     && < 1.3
-        , exceptions        == 0.6.*
-        , http-conduit      >= 2.1.4   && < 2.3
-        , lens              >= 4.4     && < 5
-        , mmorph            >= 1       && < 2
-        , monad-control     >= 1       && < 2
-        , mtl               >= 2.2.1   && < 2.3
-        , resourcet         >= 1.1     && < 1.3
-        , retry             >= 0.5
-        , text              >= 1.1
-        , time              >= 1.5
-        , transformers      == 0.4.*
-        , transformers-base >= 0.4.2
+          amazonka-core      == 0.2.3.*
+        , base               >= 4.7     && < 5
+        , bytestring         >= 0.9
+        , conduit            >= 1.1     && < 1.3
+        , conduit-extra      == 1.1.*
+        , cryptohash         == 0.11.*
+        , cryptohash-conduit >= 0.1.1
+        , exceptions         == 0.6.*
+        , http-conduit       >= 2.1.4   && < 2.3
+        , lens               >= 4.4     && < 5
+        , mmorph             >= 1       && < 2
+        , monad-control      >= 1       && < 2
+        , mtl                >= 2.2.1   && < 2.3
+        , resourcet          >= 1.1     && < 1.3
+        , retry              >= 0.5
+        , text               >= 1.1
+        , time               >= 1.5
+        , transformers       == 0.4.*
+        , transformers-base  >= 0.4.2

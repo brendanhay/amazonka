@@ -55,9 +55,10 @@ module Network.AWS
     , newLogger
 
     -- ** Streaming body helpers
-    , sourceFile
-    , sourceHandle
     , sourceBody
+    , sourceHandle
+    , sourceFile
+    , sourceFileIO
 
     -- * Types
     , module Network.AWS.Types

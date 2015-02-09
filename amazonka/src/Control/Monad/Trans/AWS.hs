@@ -88,9 +88,10 @@ module Control.Monad.Trans.AWS
     , verifyWith
 
     -- ** Streaming body helpers
-    , sourceFile
-    , sourceHandle
     , sourceBody
+    , sourceHandle
+    , sourceFile
+    , sourceFileIO
 
     -- * Types
     , ToBuilder   (..)

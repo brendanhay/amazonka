@@ -23,23 +23,6 @@ import           Network.AWS.Data
 import           Network.HTTP.Conduit
 import           System.IO
 
--- | Safely construct a 'RqBody' from a 'FilePath', calculating the SHA256 hash
--- and file size.
---
--- /Note:/ While this function will perform in constant space, it will read the
--- entirety of the file contents _twice_. Firstly to calculate the SHA256 and
--- lastly to stream the contents to the socket during sending.
-sourceFile :: MonadIO m => FilePath -> m RqBody
-sourceFile f = liftIO $ sourceBody
-    <$> runResourceT (Conduit.sourceFile f $$ Conduit.sinkHash)
-    <*> fmap fromIntegral (withBinaryFile f ReadMode hFileSize)
-    <*> pure (Conduit.sourceFile f)
-
--- | Unsafely construct a 'RqBody' from a 'Handle', calculating the SHA256 hash
--- and file size.
-sourceHandle :: Digest SHA256 -> Int64 -> Handle -> RqBody
-sourceHandle h n = sourceBody h n . Conduit.sourceHandle
-
 -- | Unsafely construct a 'RqBody' from a source, manually specifying the
 -- SHA256 hash and file size.
 sourceBody :: Digest SHA256
@@ -47,3 +30,25 @@ sourceBody :: Digest SHA256
            -> Source (ResourceT IO) ByteString
            -> RqBody
 sourceBody h n = RqBody h . requestBodySource n
+
+-- | Unsafely construct a 'RqBody' from a 'Handle', manually specifying the
+-- SHA256 hash and file size.
+sourceHandle :: Digest SHA256 -> Int64 -> Handle -> RqBody
+sourceHandle h n = sourceBody h n . Conduit.sourceHandle
+
+-- | Unsafely construct a 'RqBody' from a 'FilePath', manually specifying the
+-- SHA256 hash and file size.
+sourceFile :: Digest SHA256 -> Int64 -> FilePath -> RqBody
+sourceFile h n = sourceBody h n . Conduit.sourceFile
+
+-- | Safely construct a 'RqBody' from a 'FilePath', calculating the SHA256 hash
+-- and file size.
+--
+-- /Note:/ While this function will perform in constant space, it will read the
+-- entirety of the file contents _twice_. Firstly to calculate the SHA256 and
+-- lastly to stream the contents to the socket during sending.
+sourceFileIO :: MonadIO m => FilePath -> m RqBody
+sourceFileIO f = liftIO $ sourceFile
+    <$> runResourceT (Conduit.sourceFile f $$ Conduit.sinkHash)
+    <*> fmap fromIntegral (withBinaryFile f ReadMode hFileSize)
+    <*> pure f

@@ -89,7 +89,7 @@
         "url": "http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/Welcome.html",
         "protocol": "json",
         "name": "Amazon Cognito Identity",
-        "version": "0.2.3",
+        "version": "0.3.0",
         "description": "Amazon Cognito is a web service that facilitates the delivery of scoped,\ntemporary credentials to mobile devices or other untrusted environments.\nAmazon Cognito uniquely identifies a device or user and supplies the user\nwith a consistent identity throughout the lifetime of an application. Amazon\nCognito lets users authenticate with third-party identity providers\n(Facebook, Google, or Login with Amazon). As a developer, you decide which\nidentity providers to trust. You can also choose to support unauthenticated\naccess from your application. Your users are provided with Cognito tokens\nthat uniquely identify their device and any information provided about\nthird-party logins."
     },
     "types": {

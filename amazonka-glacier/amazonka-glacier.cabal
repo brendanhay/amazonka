@@ -1,0 +1,68 @@
+name:                  amazonka-glacier
+version:               0.3.0
+synopsis:              Amazon Glacier SDK.
+homepage:              https://github.com/brendanhay/amazonka
+license:               OtherLicense
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
+copyright:             Copyright (c) 2013-2014 Brendan Hay
+category:              Network, AWS, Cloud, Distributed Computing
+build-type:            Simple
+extra-source-files:    README.md
+cabal-version:         >= 1.10
+
+description:
+    Amazon Glacier is a secure, durable, and extremely low-cost storage service
+    for data archiving and online backup. Customers can reliably store large or
+    small amounts of data for as little as $0.01 per gigabyte per month, a
+    significant savings compared to on-premises solutions. To keep costs low,
+    Amazon Glacier is optimized for infrequently accessed data where a retrieval
+    time of several hours is suitable.
+
+    .
+    /See:/ <http://docs.aws.amazon.com/amazonglacier/latest/dev/introduction.html AWS API Reference>
+    .
+    /Warning:/ This is an experimental preview release which is still under
+    heavy development and not intended for public consumption, caveat emptor!
+
+source-repository head
+    type:     git
+    location: git://github.com/brendanhay/amazonka.git
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src gen
+
+    ghc-options:       -Wall
+
+    exposed-modules:
+          Network.AWS.Glacier
+        , Network.AWS.Glacier.AbortMultipartUpload
+        , Network.AWS.Glacier.CompleteMultipartUpload
+        , Network.AWS.Glacier.CreateVault
+        , Network.AWS.Glacier.DeleteArchive
+        , Network.AWS.Glacier.DeleteVault
+        , Network.AWS.Glacier.DeleteVaultNotifications
+        , Network.AWS.Glacier.DescribeJob
+        , Network.AWS.Glacier.DescribeVault
+        , Network.AWS.Glacier.GetDataRetrievalPolicy
+        , Network.AWS.Glacier.GetJobOutput
+        , Network.AWS.Glacier.GetVaultNotifications
+        , Network.AWS.Glacier.InitiateJob
+        , Network.AWS.Glacier.InitiateMultipartUpload
+        , Network.AWS.Glacier.ListJobs
+        , Network.AWS.Glacier.ListMultipartUploads
+        , Network.AWS.Glacier.ListParts
+        , Network.AWS.Glacier.ListVaults
+        , Network.AWS.Glacier.SetDataRetrievalPolicy
+        , Network.AWS.Glacier.SetVaultNotifications
+        , Network.AWS.Glacier.Types
+        , Network.AWS.Glacier.UploadArchive
+        , Network.AWS.Glacier.UploadMultipartPart
+
+    other-modules:
+
+    build-depends:
+          amazonka-core == 0.3.0.*
+        , base          >= 4.7     && < 5

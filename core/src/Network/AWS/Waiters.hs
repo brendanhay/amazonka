@@ -2,7 +2,6 @@
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RankNTypes        #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.Waiters
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -34,13 +33,13 @@ module Network.AWS.Waiters
     , module Control.Lens
     ) where
 
-import Control.Lens
-import Data.ByteString    (ByteString)
-import Data.Maybe
-import Network.AWS.Data
-import Network.AWS.Error
-import Network.AWS.Types
-import Network.HTTP.Types
+import           Control.Lens
+import           Data.ByteString    (ByteString)
+import           Data.Maybe
+import           Network.AWS.Data
+import           Network.AWS.Error
+import           Network.AWS.Types
+import           Network.HTTP.Types
 
 type Acceptor a = Request a -> Response' a -> Maybe Accept
 

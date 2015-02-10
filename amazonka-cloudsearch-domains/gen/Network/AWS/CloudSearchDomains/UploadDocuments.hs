@@ -71,8 +71,8 @@ import qualified GHC.Exts
 
 data UploadDocuments = UploadDocuments
     { _udContentType :: ContentType
-    , _udDocuments   :: Base64
-    } deriving (Eq, Read, Show)
+    , _udDocuments   :: RqBody
+    } deriving (Show)
 
 -- | 'UploadDocuments' constructor.
 --
@@ -80,9 +80,9 @@ data UploadDocuments = UploadDocuments
 --
 -- * 'udContentType' @::@ 'ContentType'
 --
--- * 'udDocuments' @::@ 'Base64'
+-- * 'udDocuments' @::@ 'RqBody'
 --
-uploadDocuments :: Base64 -- ^ 'udDocuments'
+uploadDocuments :: RqBody -- ^ 'udDocuments'
                 -> ContentType -- ^ 'udContentType'
                 -> UploadDocuments
 uploadDocuments p1 p2 = UploadDocuments
@@ -98,7 +98,7 @@ udContentType :: Lens' UploadDocuments ContentType
 udContentType = lens _udContentType (\s a -> s { _udContentType = a })
 
 -- | A batch of documents formatted in JSON or HTML.
-udDocuments :: Lens' UploadDocuments Base64
+udDocuments :: Lens' UploadDocuments RqBody
 udDocuments = lens _udDocuments (\s a -> s { _udDocuments = a })
 
 data UploadDocumentsResponse = UploadDocumentsResponse
@@ -156,16 +156,14 @@ instance ToHeaders UploadDocuments where
         [ "Content-Type" =: _udContentType
         ]
 
-instance ToJSON UploadDocuments where
-    toJSON UploadDocuments{..} = object
-        [ "documents" .= _udDocuments
-        ]
+instance ToBody UploadDocuments where
+    toBody = toBody . _udDocuments
 
 instance AWSRequest UploadDocuments where
     type Sv UploadDocuments = CloudSearchDomains
     type Rs UploadDocuments = UploadDocumentsResponse
 
-    request  = post
+    request  = stream POST
     response = jsonResponse
 
 instance FromJSON UploadDocumentsResponse where

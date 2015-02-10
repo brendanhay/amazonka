@@ -36,7 +36,8 @@ import qualified Data.ByteString.Lazy         as LBS
 import           Data.Conduit
 import qualified Data.Conduit.Binary          as Conduit
 import           Data.Monoid
-import           Network.AWS.Data             (LazyByteString, FromXML(..), decodeXML, build)
+import           Network.AWS.Data             (FromXML (..), LazyByteString,
+                                               build, decodeXML)
 import           Network.AWS.Types
 import           Network.HTTP.Client          hiding (Request, Response)
 import           Network.HTTP.Types
@@ -48,7 +49,7 @@ nullResponse :: (MonadResource m, AWSService (Sv a))
              -> Request a
              -> Either HttpException ClientResponse
              -> m (Response' a)
-nullResponse rs l = receive l $ \_ _ bdy ->
+nullResponse rs l = receive l $ \_ _ _ bdy ->
     liftResourceT (bdy $$+- return (Right rs))
 
 headerResponse :: (MonadResource m, AWSService (Sv a))
@@ -57,14 +58,14 @@ headerResponse :: (MonadResource m, AWSService (Sv a))
                -> Request a
                -> Either HttpException ClientResponse
                -> m (Response' a)
-headerResponse f = deserialise (const (Right ())) (const . f)
+headerResponse f = deserialise (const (Right ())) (\hs _ _ -> f hs)
 
 xmlResponse :: (MonadResource m, AWSService (Sv a), FromXML (Rs a))
             => Logger
             -> Request a
             -> Either HttpException ClientResponse
             -> m (Response' a)
-xmlResponse = deserialise (decodeXML >=> parseXML) (const Right)
+xmlResponse = deserialise (decodeXML >=> parseXML) (\_ _ -> Right)
 
 xmlHeaderResponse :: (MonadResource m, AWSService (Sv a))
                   => (ResponseHeaders -> [Node] -> Either String (Rs a))
@@ -72,17 +73,17 @@ xmlHeaderResponse :: (MonadResource m, AWSService (Sv a))
                   -> Request a
                   -> Either HttpException ClientResponse
                   -> m (Response' a)
-xmlHeaderResponse = deserialise decodeXML
+xmlHeaderResponse f = deserialise decodeXML (\hs _ -> f hs)
 
 jsonResponse :: (MonadResource m, AWSService (Sv a), FromJSON (Rs a))
              => Logger
              -> Request a
              -> Either HttpException ClientResponse
              -> m (Response' a)
-jsonResponse = deserialise eitherDecode' (const Right)
+jsonResponse = deserialise eitherDecode' (\_ _ -> Right)
 
 jsonHeaderResponse :: (MonadResource m, AWSService (Sv a))
-                   => (ResponseHeaders -> Object -> Either String (Rs a))
+                   => (ResponseHeaders -> Int -> Object -> Either String (Rs a))
                    -> Logger
                    -> Request a
                    -> Either HttpException ClientResponse
@@ -90,33 +91,33 @@ jsonHeaderResponse :: (MonadResource m, AWSService (Sv a))
 jsonHeaderResponse = deserialise eitherDecode'
 
 bodyResponse :: (MonadResource m, AWSService (Sv a))
-             => (ResponseHeaders -> ResponseBody -> Either String (Rs a))
+             => (ResponseHeaders -> Int -> ResponseBody -> Either String (Rs a))
              -> Logger
              -> Request a
              -> Either HttpException ClientResponse
              -> m (Response' a)
-bodyResponse f l = receive l $ \a hs bdy ->
-    return (SerializerError a `first` f hs bdy)
+bodyResponse f l = receive l $ \a hs s bdy ->
+    return (SerializerError a `first` f hs s bdy)
 
 deserialise :: (AWSService (Sv a), MonadResource m)
-            => (LazyByteString -> Either String b)
-            -> (ResponseHeaders -> b -> Either String (Rs a))
+            => (LazyByteString  -> Either String b)
+            -> (ResponseHeaders -> Int -> b -> Either String (Rs a))
             -> Logger
             -> Request a
             -> Either HttpException ClientResponse
             -> m (Response' a)
-deserialise g f l = receive l $ \a hs bdy -> do
+deserialise g f l = receive l $ \a hs s bdy -> do
     lbs <- sinkLbs l bdy
     return $! case g lbs of
         Left  e -> Left (SerializerError a e)
         Right o ->
-            case f hs o of
+            case f hs s o of
                 Left  e -> Left (SerializerError a e)
                 Right x -> Right x
 
 receive :: forall m a. (MonadResource m, AWSService (Sv a))
         => Logger
-        -> (Abbrev -> ResponseHeaders -> ResponseBody -> m (Response a))
+        -> (Abbrev -> ResponseHeaders -> Int -> ResponseBody -> m (Response a))
         -> Request a
         -> Either HttpException ClientResponse
         -> m (Response' a)
@@ -129,7 +130,7 @@ receive l f = const (either (return . Left . HttpError) success)
         case _svcHandle svc s of
             Just g  -> Left . g <$> sinkLbs l bdy
             Nothing -> do
-                x <- f (_svcAbbrev svc) hs bdy
+                x <- f (_svcAbbrev svc) hs (fromEnum s) bdy
                 case x of
                     Left  e -> return (Left e)
                     Right y -> return (Right (s, y))

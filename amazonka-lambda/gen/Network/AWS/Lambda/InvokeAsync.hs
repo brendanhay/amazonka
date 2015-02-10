@@ -54,8 +54,8 @@ import qualified GHC.Exts
 
 data InvokeAsync = InvokeAsync
     { _iaFunctionName :: Text
-    , _iaInvokeArgs   :: Base64
-    } deriving (Eq, Read, Show)
+    , _iaInvokeArgs   :: RqBody
+    } deriving (Show)
 
 -- | 'InvokeAsync' constructor.
 --
@@ -63,10 +63,10 @@ data InvokeAsync = InvokeAsync
 --
 -- * 'iaFunctionName' @::@ 'Text'
 --
--- * 'iaInvokeArgs' @::@ 'Base64'
+-- * 'iaInvokeArgs' @::@ 'RqBody'
 --
 invokeAsync :: Text -- ^ 'iaFunctionName'
-            -> Base64 -- ^ 'iaInvokeArgs'
+            -> RqBody -- ^ 'iaInvokeArgs'
             -> InvokeAsync
 invokeAsync p1 p2 = InvokeAsync
     { _iaFunctionName = p1
@@ -78,7 +78,7 @@ iaFunctionName :: Lens' InvokeAsync Text
 iaFunctionName = lens _iaFunctionName (\s a -> s { _iaFunctionName = a })
 
 -- | JSON that you want to provide to your Lambda function as input.
-iaInvokeArgs :: Lens' InvokeAsync Base64
+iaInvokeArgs :: Lens' InvokeAsync RqBody
 iaInvokeArgs = lens _iaInvokeArgs (\s a -> s { _iaInvokeArgs = a })
 
 newtype InvokeAsyncResponse = InvokeAsyncResponse
@@ -113,16 +113,14 @@ instance ToQuery InvokeAsync where
 
 instance ToHeaders InvokeAsync
 
-instance ToJSON InvokeAsync where
-    toJSON InvokeAsync{..} = object
-        [ "InvokeArgs" .= _iaInvokeArgs
-        ]
+instance ToBody InvokeAsync where
+    toBody = toBody . _iaInvokeArgs
 
 instance AWSRequest InvokeAsync where
     type Sv InvokeAsync = Lambda
     type Rs InvokeAsync = InvokeAsyncResponse
 
-    request  = post
+    request  = stream POST
     response = jsonResponse
 
 instance FromJSON InvokeAsyncResponse where

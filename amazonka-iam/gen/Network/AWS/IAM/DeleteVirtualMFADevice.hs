@@ -25,7 +25,7 @@
 -- | Deletes a virtual MFA device.
 --
 -- You must deactivate a user's virtual MFA device before you can delete it.
--- For information about deactivating MFA devices, see <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeactivateMFADevice.html DeactivateMFADevice>.
+-- For information about deactivating MFA devices, see 'DeactivateMFADevice'.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteVirtualMFADevice.html>
 module Network.AWS.IAM.DeleteVirtualMFADevice

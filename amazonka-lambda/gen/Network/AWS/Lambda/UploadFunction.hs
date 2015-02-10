@@ -75,14 +75,14 @@ import qualified GHC.Exts
 data UploadFunction = UploadFunction
     { _ufDescription  :: Maybe Text
     , _ufFunctionName :: Text
-    , _ufFunctionZip  :: Base64
+    , _ufFunctionZip  :: RqBody
     , _ufHandler      :: Text
     , _ufMemorySize   :: Maybe Nat
     , _ufMode         :: Mode
     , _ufRole         :: Text
     , _ufRuntime      :: Runtime
     , _ufTimeout      :: Maybe Nat
-    } deriving (Eq, Read, Show)
+    } deriving (Show)
 
 -- | 'UploadFunction' constructor.
 --
@@ -92,7 +92,7 @@ data UploadFunction = UploadFunction
 --
 -- * 'ufFunctionName' @::@ 'Text'
 --
--- * 'ufFunctionZip' @::@ 'Base64'
+-- * 'ufFunctionZip' @::@ 'RqBody'
 --
 -- * 'ufHandler' @::@ 'Text'
 --
@@ -107,7 +107,7 @@ data UploadFunction = UploadFunction
 -- * 'ufTimeout' @::@ 'Maybe' 'Natural'
 --
 uploadFunction :: Text -- ^ 'ufFunctionName'
-               -> Base64 -- ^ 'ufFunctionZip'
+               -> RqBody -- ^ 'ufFunctionZip'
                -> Runtime -- ^ 'ufRuntime'
                -> Text -- ^ 'ufRole'
                -> Text -- ^ 'ufHandler'
@@ -140,7 +140,7 @@ ufFunctionName = lens _ufFunctionName (\s a -> s { _ufFunctionName = a })
 -- | A .zip file containing your packaged source code. For more information about
 -- creating a .zip file, go to <http://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events.html AWS LambdaL How it Works> in the AWS Lambda
 -- Developer Guide.
-ufFunctionZip :: Lens' UploadFunction Base64
+ufFunctionZip :: Lens' UploadFunction RqBody
 ufFunctionZip = lens _ufFunctionZip (\s a -> s { _ufFunctionZip = a })
 
 -- | The function that Lambda calls to begin execution. For Node.js, it is the /module-name/./export/ value in your function.
@@ -310,16 +310,14 @@ instance ToQuery UploadFunction where
 
 instance ToHeaders UploadFunction
 
-instance ToJSON UploadFunction where
-    toJSON UploadFunction{..} = object
-        [ "FunctionZip" .= _ufFunctionZip
-        ]
+instance ToBody UploadFunction where
+    toBody = toBody . _ufFunctionZip
 
 instance AWSRequest UploadFunction where
     type Sv UploadFunction = Lambda
     type Rs UploadFunction = UploadFunctionResponse
 
-    request  = put
+    request  = stream PUT
     response = jsonResponse
 
 instance FromJSON UploadFunctionResponse where

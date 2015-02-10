@@ -1,4 +1,3 @@
-{-# LANGUAGE BangPatterns               #-}
 {-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE DeriveFunctor              #-}
 {-# LANGUAGE DeriveGeneric              #-}
@@ -13,7 +12,6 @@
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE RecordWildCards            #-}
 {-# LANGUAGE TemplateHaskell            #-}
-{-# LANGUAGE ViewPatterns               #-}
 
 {-# OPTIONS_GHC -fno-warn-type-defaults #-}
 
@@ -32,7 +30,7 @@ module Gen.Output where
 import           Control.Applicative
 import           Control.Arrow            ((&&&))
 import           Control.Error
-import           Control.Lens             hiding ((.=), (<.>), op, mapping)
+import           Control.Lens             hiding (mapping, op, (.=), (<.>))
 import           Data.Aeson
 import           Data.Aeson.Encode.Pretty
 import           Data.Aeson.Types         (Pair)
@@ -41,23 +39,23 @@ import           Data.CaseInsensitive     (CI)
 import qualified Data.CaseInsensitive     as CI
 import           Data.Char
 import           Data.Function            (on)
+import           Data.Hashable
 import           Data.HashMap.Strict      (HashMap)
 import qualified Data.HashMap.Strict      as Map
 import           Data.HashSet             (HashSet)
 import qualified Data.HashSet             as Set
-import           Data.Hashable
 import           Data.List
 import           Data.Monoid              hiding (Product)
 import           Data.SemVer
 import           Data.Text                (Text)
 import qualified Data.Text                as Text
 import           Data.Text.Manipulate
-import           GHC.Generics
 import           Gen.Documentation
 import           Gen.Filters
 import           Gen.Names
 import           Gen.TH
 import           Gen.Types
+import           GHC.Generics
 import           System.FilePath
 
 default (Text, FilePath)
@@ -501,7 +499,7 @@ mapFieldNames f d             = d & dataFields %~ nameOf %~ f
 setStreaming :: Bool -> Data -> Data
 setStreaming rq = dataFields %~ go
   where
-    go x = x & typeOf %~ transform (body (x ^. fStream) (x ^. fLocation))
+    go x = x & typeOf %~ transform (correct . body (x ^. fStream) (x ^. fLocation))
 
     body :: Bool -> Maybe Location -> Type -> Type
     body True _ _
@@ -515,6 +513,12 @@ setStreaming rq = dataFields %~ go
         | rq        = TPrim PReq
         | otherwise = TPrim PRes
     body _ _ x      = x
+
+    correct :: Type -> Type
+    correct = \case
+        TPrim PRes | rq     -> TPrim PReq
+        TPrim PReq | not rq -> TPrim PRes
+        x                   -> x
 
 isVoid :: Data -> Bool
 isVoid Void = True
@@ -664,8 +668,8 @@ operationJSON p s rq n d = y <> x
     style | Empty{} <- d
           , not rq         = "nullary"
           | headerAll      = "headers"
-          | s {- shared -} = k
           | stream         = h "body"
+          | s {- shared -} = k
           | otherwise      = h (b k)
       where
         h | null hs   = id
@@ -762,15 +766,15 @@ instance ToFilePath Service where
     toFilePath = toFilePath . _svNamespace
 
 data Cabal = Cabal
-    { _cName         :: !Text
-    , _cAbbrev       :: !Abbrev
-    , _cUrl          :: !Text
-    , _cLibrary      :: !Library
-    , _cVersion      :: !Version
-    , _cProtocol     :: !Protocol
-    , _cDescription  :: !Description
-    , _cExposed      :: [NS]
-    , _cOther        :: [NS]
+    { _cName        :: !Text
+    , _cAbbrev      :: !Abbrev
+    , _cUrl         :: !Text
+    , _cLibrary     :: !Library
+    , _cVersion     :: !Version
+    , _cProtocol    :: !Protocol
+    , _cDescription :: !Description
+    , _cExposed     :: [NS]
+    , _cOther       :: [NS]
     } deriving (Eq, Show)
 
 record output ''Cabal

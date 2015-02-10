@@ -23,7 +23,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Creates a new virtual MFA device for the AWS account. After creating the
--- virtual MFA, use <http://docs.aws.amazon.com/IAM/latest/APIReference/API_EnableMFADevice.html EnableMFADevice> to attach the MFA device to an IAM user. For
+-- virtual MFA, use 'EnableMFADevice' to attach the MFA device to an IAM user. For
 -- more information about creating and working with virtual MFA devices, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html Using a Virtual MFA Device> in the /Using IAM/ guide.
 --
 -- For information about limits on the number of MFA devices you can create,

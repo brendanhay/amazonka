@@ -59,8 +59,8 @@ default (Text)
 currentLibraryVersion :: Version
 currentLibraryVersion = initial
     & major .~ 0
-    & minor .~ 2
-    & patch .~ 3
+    & minor .~ 3
+    & patch .~ 0
 
 class ToFilePath a where
     toFilePath :: a -> FilePath
@@ -188,10 +188,10 @@ instance FromJSON Location where
 
 nullary output ''Location
 
-location :: Protocol -> Maybe Bool -> Maybe Location -> Maybe Location
-location _ _ (Just l)    = Just l
-location _ (Just True) _ = Just Body
-location p _ Nothing     =
+location :: Protocol -> Bool -> Maybe Location -> Maybe Location
+location _ True _        = Just Body
+location _ _    (Just l) = Just l
+location p _    Nothing  =
     case p of
         Query -> Just Querystring
         Ec2   -> Just Querystring

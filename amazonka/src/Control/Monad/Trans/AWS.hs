@@ -87,6 +87,12 @@ module Control.Monad.Trans.AWS
     , verify
     , verifyWith
 
+    -- ** Streaming body helpers
+    , sourceBody
+    , sourceHandle
+    , sourceFile
+    , sourceFileIO
+
     -- * Types
     , ToBuilder   (..)
     , module Network.AWS.Types
@@ -108,12 +114,13 @@ import           Data.ByteString              (ByteString)
 import           Data.Conduit                 hiding (await)
 import           Data.Time
 import qualified Network.AWS                  as AWS
-import           Network.AWS.Data             (ToBuilder(..))
+import           Network.AWS.Data             (ToBuilder (..))
 import           Network.AWS.Error
 import           Network.AWS.Internal.Auth
+import           Network.AWS.Internal.Body
 import           Network.AWS.Internal.Env
+import           Network.AWS.Internal.Log     hiding (debug, info, trace)
 import qualified Network.AWS.Internal.Log     as Log
-import           Network.AWS.Internal.Log     hiding (info, debug, trace)
 import           Network.AWS.Types
 import           Network.AWS.Waiters
 import qualified Network.HTTP.Conduit         as Client

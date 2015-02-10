@@ -574,18 +574,25 @@ shapes proto time m =
           -> (Text, Ref)
           -> State (HashMap Text Type) Field
     field pay req (fld, r) = do
-        t <- require req fld <$> ref fld r
+        x <- ref fld r
+        let s = fromMaybe (stream x) (r ^. refStreaming)
+            t = require req fld x
         return Field
             { _fName          = fld
             , _fShape         = r ^. refShape
             , _fType          = t
-            , _fLocation      = location proto (r ^. refStreaming) (r ^. refLocation)
+            , _fLocation      = location proto s (r ^. refLocation)
             , _fLocationName  = fromMaybe fld (r ^. refLocationName)
             , _fPayload       = Just fld == pay
-            , _fStream        = fromMaybe False (r ^. refStreaming)
+            , _fStream        = s
             , _fDocumentation = above <$> r ^. refDocumentation
             , _fProtocol      = proto
             }
+
+    stream :: Type -> Bool
+    stream (TPrim PReq) = True
+    stream (TPrim PRes) = True
+    stream _            = False
 
     require :: [Text] -> Text -> Type -> Type
     require req fld x
@@ -625,7 +632,9 @@ shapes proto time m =
             Double' _ -> pure (TPrim PDouble)
             Bool'   _ -> pure (TPrim PBool)
             Time'   x -> pure (TPrim . PTime $ fromMaybe time (x ^. tsTimestampFormat))
-            Blob'   _ -> pure (TPrim PBlob)
+            Blob'   x
+                | Just True <- x ^. blbStreaming -> pure (TPrim PReq)
+                | otherwise                      -> pure (TPrim PBlob)
 
             List'   x -> list x <$> ref fld (x ^. lstMember)
             Map'    x -> hmap x <$> ref fld (x ^. mapKey) <*> ref fld (x ^. mapValue)

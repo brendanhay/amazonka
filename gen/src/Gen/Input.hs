@@ -21,13 +21,13 @@
 
 module Gen.Input where
 
-import Control.Applicative
-import Control.Lens        hiding ((<.>), (??))
-import Data.HashMap.Strict (HashMap)
-import Data.Jason
-import Data.Text           (Text)
-import Gen.TH
-import Gen.Types
+import           Control.Applicative
+import           Control.Lens        hiding ((<.>), (??))
+import           Data.HashMap.Strict (HashMap)
+import           Data.Jason
+import           Data.Text           (Text)
+import           Gen.TH
+import           Gen.Types
 
 default (Text)
 
@@ -150,6 +150,7 @@ record input ''STime
 data SBlob = SBlob
     { _blbSensitive     :: Maybe Bool
     , _blbDocumentation :: Maybe Text
+    , _blbStreaming     :: Maybe Bool
     } deriving (Eq, Show)
 
 record input ''SBlob
@@ -205,12 +206,12 @@ data Metadata = Metadata
 classy input ''Metadata
 
 data Input = Input
-    { _inpMetadata          :: Metadata
-    , _inpDocumentation     :: Text
-    , _inpOperations        :: HashMap Text Operation
-    , _inpShapes            :: HashMap Text Shape
-    , _inpPagination        :: HashMap Text (Pager ())
-    , _inpWaiters           :: HashMap Text Waiter
+    { _inpMetadata      :: Metadata
+    , _inpDocumentation :: Text
+    , _inpOperations    :: HashMap Text Operation
+    , _inpShapes        :: HashMap Text Shape
+    , _inpPagination    :: HashMap Text (Pager ())
+    , _inpWaiters       :: HashMap Text Waiter
     } deriving (Eq, Show)
 
 record input ''Input

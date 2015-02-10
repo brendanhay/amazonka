@@ -30,7 +30,7 @@
 -- Typically, you need to update a thumbprint only when the identity provider's
 -- certificate changes, which occurs rarely. However, if the provider's
 -- certificate /does/ change, any attempt to assume an IAM role that specifies the
--- IAM provider as a principal will fail until the certificate thumbprint is
+-- OIDC provider as a principal will fail until the certificate thumbprint is
 -- updated.
 --
 -- Because trust for the OpenID Connect provider is ultimately derived from the

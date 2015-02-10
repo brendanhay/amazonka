@@ -1,5 +1,5 @@
 name:                  amazonka-cloudsearch-domains-examples
-version:               0.2.3
+version:               0.3.0
 synopsis:              Amazon CloudSearch Domain SDK Examples
 homepage:              https://github.com/brendanhay/amazonka
 license:               MPL-2.0
@@ -20,9 +20,9 @@ library
         CloudSearchDomains
 
     build-depends:
-        amazonka      == 0.2.3.*
-      , amazonka-core == 0.2.3.*
-      , amazonka-cloudsearch-domains == 0.2.3.*
+        amazonka      == 0.3.0.*
+      , amazonka-core == 0.3.0.*
+      , amazonka-cloudsearch-domains == 0.3.0.*
       , base          >= 4.7     && < 5
       , bytestring    >= 0.9
       , conduit       >= 1.1     && < 1.3

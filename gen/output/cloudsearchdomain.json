@@ -61,7 +61,7 @@
         "url": "http://docs.aws.amazon.com/cloudsearch/latest/developerguide/what-is-cloudsearch.html",
         "protocol": "rest-json",
         "name": "Amazon CloudSearch Domain",
-        "version": "0.2.3",
+        "version": "0.3.0",
         "description": "Pending"
     },
     "types": {
@@ -2718,34 +2718,14 @@
             "documentationUrl": null,
             "request": {
                 "deriving": [
-                    "Eq",
-                    "Read",
                     "Show"
                 ],
-                "streaming": false,
-                "style": "json-headers",
+                "streaming": true,
+                "style": "body-headers",
                 "fieldPad": 14,
                 "ctor": "uploadDocuments",
                 "headerPad": 13,
-                "contents": [
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "error",
-                        "monoid": false,
-                        "protocol": "rest-json",
-                        "flattened": false,
-                        "required": true,
-                        "lens": "udDocuments",
-                        "name": "_udDocuments",
-                        "shape": "Blob",
-                        "locationName": "documents",
-                        "documentation": "-- | A batch of documents formatted in JSON or HTML.",
-                        "typeExposed": "Base64",
-                        "type": "Base64"
-                    }
-                ],
+                "contents": [],
                 "path": [
                     {
                         "value": "/2013-01-01/documents/batch",
@@ -2754,7 +2734,7 @@
                 ],
                 "protocol": "rest-json",
                 "payload": {
-                    "location": null,
+                    "location": "body",
                     "iso": null,
                     "lensMapping": null,
                     "default": "error",
@@ -2767,12 +2747,12 @@
                     "shape": "Blob",
                     "locationName": "documents",
                     "documentation": "-- | A batch of documents formatted in JSON or HTML.",
-                    "typeExposed": "Base64",
-                    "type": "Base64"
+                    "typeExposed": "RqBody",
+                    "type": "RqBody"
                 },
                 "required": [
                     {
-                        "location": null,
+                        "location": "body",
                         "iso": null,
                         "lensMapping": null,
                         "default": "error",
@@ -2785,8 +2765,8 @@
                         "shape": "Blob",
                         "locationName": "documents",
                         "documentation": "-- | A batch of documents formatted in JSON or HTML.",
-                        "typeExposed": "Base64",
-                        "type": "Base64"
+                        "typeExposed": "RqBody",
+                        "type": "RqBody"
                     },
                     {
                         "location": "header",
@@ -2814,7 +2794,7 @@
                         "type": "field"
                     }
                 ],
-                "contentPad": 10,
+                "contentPad": 0,
                 "queryPad": 0,
                 "name": "UploadDocuments",
                 "query": [
@@ -2847,7 +2827,7 @@
                         "type": "ContentType"
                     },
                     {
-                        "location": null,
+                        "location": "body",
                         "iso": null,
                         "lensMapping": null,
                         "default": "error",
@@ -2860,8 +2840,8 @@
                         "shape": "Blob",
                         "locationName": "documents",
                         "documentation": "-- | A batch of documents formatted in JSON or HTML.",
-                        "typeExposed": "Base64",
-                        "type": "Base64"
+                        "typeExposed": "RqBody",
+                        "type": "RqBody"
                     }
                 ]
             }

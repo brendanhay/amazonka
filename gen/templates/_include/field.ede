@@ -4,7 +4,7 @@
 {% when "header" %}
         {% include "applicative.ede" %} h {% include "header-operator.ede" %}
 {% when "status-code" %}
-        {% include "applicative.ede" %} o {% include "json-operator.ede" %}
+        {% include "applicative.ede" %} pure {% if field.value.required %}s{% else %}(Just s){% endif %}
 {% when "body" %}
         {% include "applicative.ede" %} pure (RsBody b)
 {% endcase %}

@@ -14,6 +14,7 @@ QUERY := \
  cloudsearch \
  cloudwatch \
  ec2 \
+ ecs \
  elasticache \
  elasticbeanstalk \
  elb \
@@ -40,6 +41,7 @@ JSON := \
  dynamodb \
  elastictranscoder \
  emr \
+ glacier \
  kinesis \
  kms \
  lambda \

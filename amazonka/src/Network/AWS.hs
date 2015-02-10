@@ -54,6 +54,12 @@ module Network.AWS
     -- * Logging
     , newLogger
 
+    -- ** Streaming body helpers
+    , sourceBody
+    , sourceHandle
+    , sourceFile
+    , sourceFileIO
+
     -- * Types
     , module Network.AWS.Types
     , module Network.AWS.Error
@@ -70,14 +76,15 @@ import           Data.Time
 import           Network.AWS.Data
 import           Network.AWS.Error
 import           Network.AWS.Internal.Auth
+import           Network.AWS.Internal.Body
 import           Network.AWS.Internal.Env
 import           Network.AWS.Internal.Log
 import           Network.AWS.Internal.Retry
 import qualified Network.AWS.Signing          as Sign
 import           Network.AWS.Types
 import           Network.AWS.Waiters
-import qualified Network.HTTP.Conduit         as Client
 import           Network.HTTP.Conduit         hiding (Request, Response)
+import qualified Network.HTTP.Conduit         as Client
 
 -- | This creates a new environment without debug logging and uses 'getAuth'
 -- to expand/discover the supplied 'Credentials'.

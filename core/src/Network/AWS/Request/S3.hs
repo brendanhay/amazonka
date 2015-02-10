@@ -17,12 +17,12 @@ module Network.AWS.Request.S3
     , stream
     ) where
 
-import Control.Lens
-import Network.AWS.Data
-import Network.AWS.Request.Internal
-import Network.AWS.Types
-import Network.HTTP.Types.Method
-import Prelude                      hiding (head)
+import           Control.Lens
+import           Network.AWS.Data
+import           Network.AWS.Request.Internal
+import           Network.AWS.Types
+import           Network.HTTP.Types.Method
+import           Prelude                      hiding (head)
 
 get :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
 get = content . defaultRequest

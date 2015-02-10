@@ -227,7 +227,7 @@
         "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/Welcome.html",
         "protocol": "query",
         "name": "Amazon Identity and Access Management",
-        "version": "0.2.3",
+        "version": "0.3.0",
         "description": "AWS Identity and Access Management (IAM) enables you to securely control\naccess to AWS services and resources for your users. Using IAM, you can\ncreate and manage AWS users and groups and use permissions to allow and deny\ntheir access to AWS resources."
     },
     "types": {
@@ -1266,7 +1266,7 @@
                         "name": "_rdAssumeRolePolicyDocument",
                         "shape": "policyDocumentType",
                         "locationName": "AssumeRolePolicyDocument",
-                        "documentation": "-- | The trust policy that grants an entity permission to assume the role.\n--\n-- The returned policy is URL-encoded according to \u003chttp://www.faqs.org/rfcs/rfc3986.html RFC 3986\u003e.",
+                        "documentation": "-- | The trust policy that grants permission to assume the role.\n--\n-- The returned policy is URL-encoded according to \u003chttp://www.faqs.org/rfcs/rfc3986.html RFC 3986\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1300,7 +1300,7 @@
                         "name": "_rdRolePolicyList",
                         "shape": "policyDetailListType",
                         "locationName": "RolePolicyList",
-                        "documentation": "-- | A list of the access (permissions) policies attached to the role.",
+                        "documentation": "-- | A list of the role's access (permissions) policies.",
                         "typeExposed": "[PolicyDetail]",
                         "type": "List \"member\" PolicyDetail"
                     }
@@ -1336,7 +1336,7 @@
                         "name": "_rdAssumeRolePolicyDocument",
                         "shape": "policyDocumentType",
                         "locationName": "AssumeRolePolicyDocument",
-                        "documentation": "-- | The trust policy that grants an entity permission to assume the role.\n--\n-- The returned policy is URL-encoded according to \u003chttp://www.faqs.org/rfcs/rfc3986.html RFC 3986\u003e.",
+                        "documentation": "-- | The trust policy that grants permission to assume the role.\n--\n-- The returned policy is URL-encoded according to \u003chttp://www.faqs.org/rfcs/rfc3986.html RFC 3986\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1438,7 +1438,7 @@
                         "name": "_rdRolePolicyList",
                         "shape": "policyDetailListType",
                         "locationName": "RolePolicyList",
-                        "documentation": "-- | A list of the access (permissions) policies attached to the role.",
+                        "documentation": "-- | A list of the role's access (permissions) policies.",
                         "typeExposed": "[PolicyDetail]",
                         "type": "List \"member\" PolicyDetail"
                     }
@@ -2048,7 +2048,7 @@
                         "name": "_gdGroupPolicyList",
                         "shape": "policyDetailListType",
                         "locationName": "GroupPolicyList",
-                        "documentation": "-- | A list of the policies attached to the group.",
+                        "documentation": "-- | A list of the group's policies.",
                         "typeExposed": "[PolicyDetail]",
                         "type": "List \"member\" PolicyDetail"
                     }
@@ -2135,7 +2135,7 @@
                         "name": "_gdGroupPolicyList",
                         "shape": "policyDetailListType",
                         "locationName": "GroupPolicyList",
-                        "documentation": "-- | A list of the policies attached to the group.",
+                        "documentation": "-- | A list of the group's policies.",
                         "typeExposed": "[PolicyDetail]",
                         "type": "List \"member\" PolicyDetail"
                     },
@@ -2973,7 +2973,7 @@
                         "name": "_udUserPolicyList",
                         "shape": "policyDetailListType",
                         "locationName": "UserPolicyList",
-                        "documentation": "-- | A list of the policies attached to the user.",
+                        "documentation": "-- | A list of the user's policies.",
                         "typeExposed": "[PolicyDetail]",
                         "type": "List \"member\" PolicyDetail"
                     },
@@ -2990,7 +2990,7 @@
                         "name": "_udGroupList",
                         "shape": "groupNameListType",
                         "locationName": "GroupList",
-                        "documentation": "-- | A list of the IAM groups that the user is in.",
+                        "documentation": "-- | A list of IAM groups that the user is in.",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
                     }
@@ -3043,7 +3043,7 @@
                         "name": "_udGroupList",
                         "shape": "groupNameListType",
                         "locationName": "GroupList",
-                        "documentation": "-- | A list of the IAM groups that the user is in.",
+                        "documentation": "-- | A list of IAM groups that the user is in.",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
                     },
@@ -3111,7 +3111,7 @@
                         "name": "_udUserPolicyList",
                         "shape": "policyDetailListType",
                         "locationName": "UserPolicyList",
-                        "documentation": "-- | A list of the policies attached to the user.",
+                        "documentation": "-- | A list of the user's policies.",
                         "typeExposed": "[PolicyDetail]",
                         "type": "List \"member\" PolicyDetail"
                     }
@@ -4867,7 +4867,7 @@
                     "name": "_caaAccountAlias",
                     "shape": "accountAliasType",
                     "locationName": "AccountAlias",
-                    "documentation": "-- | The name of the account alias to create.",
+                    "documentation": "-- | The account alias to create.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -4894,7 +4894,7 @@
                         "name": "_caaAccountAlias",
                         "shape": "accountAliasType",
                         "locationName": "AccountAlias",
-                        "documentation": "-- | The name of the account alias to create.",
+                        "documentation": "-- | The account alias to create.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4930,7 +4930,7 @@
                         "name": "_caaAccountAlias",
                         "shape": "accountAliasType",
                         "locationName": "AccountAlias",
-                        "documentation": "-- | The name of the account alias to create.",
+                        "documentation": "-- | The account alias to create.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -5809,7 +5809,7 @@
                         "name": "_coidcpThumbprintList",
                         "shape": "thumbprintListType",
                         "locationName": "ThumbprintList",
-                        "documentation": "-- | A list of server certificate thumbprints for the OpenID Connect (OIDC)\n-- identity provider's server certificate(s). Typically this list includes only\n-- one entry. However, IAM lets you have up to five thumbprints for an OIDC\n-- provider. This lets you maintain multiple thumbprints if the identity\n-- provider is rotating certificates.\n--\n-- The server certificate thumbprint is the hex-encoded SHA-1 hash value of the\n-- X.509 certificate used by the domain where the OpenID Connect provider makes\n-- its keys available. It is always a 40-character string.\n--\n-- You must provide at least one thumbprint when creating an IAM OIDC provider.\n-- For example, if the OIDC provider is 'server.example.com' and the provider\n-- stores its keys at \"https://keys.server.example.com/openid-connect\", the\n-- thumbprint string would be the hex-encoded SHA-1 hash value of the\n-- certificate used by https://keys.server.example.com.",
+                        "documentation": "-- | A list of server certificate thumbprints for the OpenID Connect (OIDC)\n-- identity provider's server certificate(s). Typically this list includes only\n-- one entry. However, IAM lets you have up to five thumbprints for an OIDC\n-- provider. This lets you maintain multiple thumbprints if the identity\n-- provider is rotating certificates.\n--\n-- The server certificate thumbprint is the hex-encoded SHA-1 hash value of the\n-- X.509 certificate used by the domain where the OpenID Connect provider makes\n-- its keys available. It is always a 40-character string.\n--\n-- You must provide at least one thumbprint when creating an IAM OIDC provider.\n-- For example, if the OIDC provider is 'server.example.com' and the provider\n-- stores its keys at \"https://keys.server.example.com/openid-connect\", the\n-- thumbprint string would be the hex-encoded SHA-1 hash value of the\n-- certificate used by https://keys.server.example.com.\n--\n-- For more information about obtaining the OIDC provider's thumbprint, see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html Obtaining the Thumbprint for an OpenID Connect Provider\u003e in the /Using IAM/ guide.",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
                     }
@@ -5845,7 +5845,7 @@
                         "name": "_coidcpThumbprintList",
                         "shape": "thumbprintListType",
                         "locationName": "ThumbprintList",
-                        "documentation": "-- | A list of server certificate thumbprints for the OpenID Connect (OIDC)\n-- identity provider's server certificate(s). Typically this list includes only\n-- one entry. However, IAM lets you have up to five thumbprints for an OIDC\n-- provider. This lets you maintain multiple thumbprints if the identity\n-- provider is rotating certificates.\n--\n-- The server certificate thumbprint is the hex-encoded SHA-1 hash value of the\n-- X.509 certificate used by the domain where the OpenID Connect provider makes\n-- its keys available. It is always a 40-character string.\n--\n-- You must provide at least one thumbprint when creating an IAM OIDC provider.\n-- For example, if the OIDC provider is 'server.example.com' and the provider\n-- stores its keys at \"https://keys.server.example.com/openid-connect\", the\n-- thumbprint string would be the hex-encoded SHA-1 hash value of the\n-- certificate used by https://keys.server.example.com.",
+                        "documentation": "-- | A list of server certificate thumbprints for the OpenID Connect (OIDC)\n-- identity provider's server certificate(s). Typically this list includes only\n-- one entry. However, IAM lets you have up to five thumbprints for an OIDC\n-- provider. This lets you maintain multiple thumbprints if the identity\n-- provider is rotating certificates.\n--\n-- The server certificate thumbprint is the hex-encoded SHA-1 hash value of the\n-- X.509 certificate used by the domain where the OpenID Connect provider makes\n-- its keys available. It is always a 40-character string.\n--\n-- You must provide at least one thumbprint when creating an IAM OIDC provider.\n-- For example, if the OIDC provider is 'server.example.com' and the provider\n-- stores its keys at \"https://keys.server.example.com/openid-connect\", the\n-- thumbprint string would be the hex-encoded SHA-1 hash value of the\n-- certificate used by https://keys.server.example.com.\n--\n-- For more information about obtaining the OIDC provider's thumbprint, see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html Obtaining the Thumbprint for an OpenID Connect Provider\u003e in the /Using IAM/ guide.",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
                     },
@@ -6641,7 +6641,7 @@
             "pager": null,
             "name": "CreateVirtualMFADevice",
             "method": "post",
-            "documentation": "-- | Creates a new virtual MFA device for the AWS account. After creating the\n-- virtual MFA, use \u003chttp://docs.aws.amazon.com/IAM/latest/APIReference/API_EnableMFADevice.html EnableMFADevice\u003e to attach the MFA device to an IAM user. For\n-- more information about creating and working with virtual MFA devices, go to \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html Using a Virtual MFA Device\u003e in the /Using IAM/ guide.\n--\n-- For information about limits on the number of MFA devices you can create,\n-- see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on Entities\u003e in the /Using IAM/ guide.\n--\n-- The seed information contained in the QR code and the Base32 string should\n-- be treated like any other secret access information, such as your AWS access\n-- keys or your passwords. After you provision your virtual device, you should\n-- ensure that the information is destroyed following secure procedures.",
+            "documentation": "-- | Creates a new virtual MFA device for the AWS account. After creating the\n-- virtual MFA, use 'EnableMFADevice' to attach the MFA device to an IAM user. For\n-- more information about creating and working with virtual MFA devices, go to \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html Using a Virtual MFA Device\u003e in the /Using IAM/ guide.\n--\n-- For information about limits on the number of MFA devices you can create,\n-- see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on Entities\u003e in the /Using IAM/ guide.\n--\n-- The seed information contained in the QR code and the Base32 string should\n-- be treated like any other secret access information, such as your AWS access\n-- keys or your passwords. After you provision your virtual device, you should\n-- ensure that the information is destroyed following secure procedures.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -8454,7 +8454,7 @@
             "pager": null,
             "name": "DeleteServerCertificate",
             "method": "post",
-            "documentation": "-- | Deletes the specified server certificate.\n--\n-- If you are using a server certificate with Elastic Load Balancing, deleting\n-- the certificate could have implications for your application. If Elastic Load\n-- Balancing doesn't detect the deletion of bound certificates, it may continue\n-- to use the certificates. This could cause Elastic Load Balancing to stop\n-- accepting traffic. We recommend that you remove the reference to the\n-- certificate from Elastic Load Balancing before using this command to delete\n-- the certificate. For more information, go to DeleteLoadBalancerListeners in\n-- the /Elastic Load Balancing API Reference/.",
+            "documentation": "-- | Deletes the specified server certificate.\n--\n-- If you are using a server certificate with Elastic Load Balancing, deleting\n-- the certificate could have implications for your application. If Elastic Load\n-- Balancing doesn't detect the deletion of bound certificates, it may continue\n-- to use the certificates. This could cause Elastic Load Balancing to stop\n-- accepting traffic. We recommend that you remove the reference to the\n-- certificate from Elastic Load Balancing before using this command to delete\n-- the certificate. For more information, go to \u003chttp://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerListeners.html DeleteLoadBalancerListeners\u003e in\n-- the /Elastic Load Balancing API Reference/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -9041,7 +9041,7 @@
             "pager": null,
             "name": "DeleteVirtualMFADevice",
             "method": "post",
-            "documentation": "-- | Deletes a virtual MFA device.\n--\n-- You must deactivate a user's virtual MFA device before you can delete it.\n-- For information about deactivating MFA devices, see \u003chttp://docs.aws.amazon.com/IAM/latest/APIReference/API_DeactivateMFADevice.html DeactivateMFADevice\u003e.",
+            "documentation": "-- | Deletes a virtual MFA device.\n--\n-- You must deactivate a user's virtual MFA device before you can delete it.\n-- For information about deactivating MFA devices, see 'DeactivateMFADevice'.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -9415,7 +9415,7 @@
                         "name": "_gcrrState",
                         "shape": "ReportStateType",
                         "locationName": "State",
-                        "documentation": "-- | Information about the state of a credential report.",
+                        "documentation": "-- | Information about the state of the credential report.",
                         "typeExposed": "Maybe ReportStateType",
                         "type": "Maybe ReportStateType"
                     },
@@ -9468,7 +9468,7 @@
                         "name": "_gcrrState",
                         "shape": "ReportStateType",
                         "locationName": "State",
-                        "documentation": "-- | Information about the state of a credential report.",
+                        "documentation": "-- | Information about the state of the credential report.",
                         "typeExposed": "Maybe ReportStateType",
                         "type": "Maybe ReportStateType"
                     }
@@ -9730,7 +9730,7 @@
             "pager": null,
             "name": "GetAccountAuthorizationDetails",
             "method": "post",
-            "documentation": "-- | Retrieves information about all IAM users, groups, and roles in your account,\n-- including their relationships to one another and their attached policies. Use\n-- this API to obtain a snapshot of the configuration of IAM permissions (users,\n-- groups, roles, and policies) in your account.\n--\n-- You can optionally filter the results using the 'Filter' parameter. You can\n-- paginate the results using the 'MaxItems' and 'Marker' parameters.",
+            "documentation": "-- | Retrieves information about all IAM users, groups, and roles in your account,\n-- including their relationships to one another and their policies. Use this API\n-- to obtain a snapshot of the configuration of IAM permissions (users, groups,\n-- roles, and their policies) in your account.\n--\n-- You can optionally filter the results using the 'Filter' parameter. You can\n-- paginate the results using the 'MaxItems' and 'Marker' parameters.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -10044,7 +10044,7 @@
                     "name": "_gasrSummaryMap",
                     "shape": "summaryMapType",
                     "locationName": "SummaryMap",
-                    "documentation": "-- | A set of key value pairs containing account-level information.\n--\n-- 'SummaryMap' contains the following keys:  'AccessKeysPerUserQuota' - Maximum\n-- number of access keys that can be created per user\n--\n-- 'AccountMFAEnabled' - 1 if the root account has an MFA device assigned to it,\n-- 0 otherwise\n--\n-- 'AssumeRolePolicySizeQuota' - Maximum allowed size for assume role policy\n-- documents (in kilobytes)\n--\n-- 'GroupPolicySizeQuota' - Maximum allowed size for Group policy documents (in\n-- kilobytes)\n--\n-- 'Groups' - Number of Groups for the AWS account\n--\n-- 'GroupsPerUserQuota' - Maximum number of groups an IAM user can belong to\n--\n-- 'GroupsQuota' - Maximum groups allowed for the AWS account\n--\n-- 'InstanceProfiles' - Number of instance profiles for the AWS account\n--\n-- 'InstanceProfilesQuota' - Maximum instance profiles allowed for the AWS account\n--\n-- 'MFADevices' - Number of MFA devices, either assigned or unassigned\n--\n-- 'MFADevicesInUse' - Number of MFA devices that have been assigned to an IAM\n-- user or to the root account\n--\n-- 'RolePolicySizeQuota' - Maximum allowed size for role policy documents (in\n-- kilobytes)\n--\n-- 'Roles' - Number of roles for the AWS account\n--\n-- 'RolesQuota' - Maximum roles allowed for the AWS account\n--\n-- 'ServerCertificates' - Number of server certificates for the AWS account\n--\n-- 'ServerCertificatesQuota' - Maximum server certificates allowed for the AWS\n-- account\n--\n-- 'SigningCertificatesPerUserQuota' - Maximum number of X509 certificates\n-- allowed for a user\n--\n-- 'UserPolicySizeQuota' - Maximum allowed size for user policy documents (in\n-- kilobytes)\n--\n-- 'Users' - Number of users for the AWS account\n--\n-- 'UsersQuota' - Maximum users allowed for the AWS account\n--\n--",
+                    "documentation": "-- | A set of key value pairs containing account-level information.\n--\n-- 'SummaryMap' contains the following keys:   'AccessKeysPerUserQuota' - Maximum\n-- number of active access keys allowed per IAM user\n--\n-- 'AccountAccessKeysPresent' - 1 if the root account has an access key, 0\n-- otherwise\n--\n-- 'AccountMFAEnabled' - 1 if the root account has an MFA device assigned to\n-- it, 0 otherwise\n--\n-- 'AccountSigningCertificatesPresent' - 1 if the root account has a signing\n-- certificate, 0 otherwise\n--\n-- 'AssumeRolePolicySizeQuota' - Maximum allowed size for assume role policy\n-- documents (trust policies), in non-whitespace characters\n--\n-- 'GroupPolicySizeQuota' - Maximum allowed size for IAM group policy\n-- documents, in non-whitespace characters\n--\n-- 'Groups' - Number of IAM groups in the AWS account\n--\n-- 'GroupsPerUserQuota' - Maximum number of IAM groups each IAM user can belong\n-- to\n--\n-- 'GroupsQuota' - Maximum number of IAM groups allowed in the AWS account\n--\n-- 'InstanceProfiles' - Number of instance profiles in the AWS account\n--\n-- 'InstanceProfilesQuota' - Maximum number of instance profiles allowed in the\n-- AWS account\n--\n-- 'MFADevices' - Number of MFA devices, either assigned or unassigned\n--\n-- 'MFADevicesInUse' - Number of MFA devices that have been assigned to an IAM\n-- user or to the root account\n--\n-- 'RolePolicySizeQuota' - Maximum allowed size for IAM role policy documents\n-- (permissions policies), in non-whitespace characters\n--\n-- 'Roles' - Number of roles IAM in the AWS account\n--\n-- 'RolesQuota' - Maximum number of IAM roles allowed in the AWS account\n--\n-- 'UserPolicySizeQuota' - Maximum allowed size for IAM user policy documents,\n-- in non-whitespace characters\n--\n-- 'Users' - Number of IAM users in the AWS account\n--\n-- 'UsersQuota' - Maximum number of IAM users allowed in the AWS account\n--\n-- 'ServerCertificates' - Number of server certificates in the AWS account\n--\n-- 'ServerCertificatesQuota' - Maximum number of server certificates allowed in\n-- the AWS account\n--\n-- 'SigningCertificatesPerUserQuota' - Maximum number of X509 signing\n-- certificates allowed per IAM user\n--\n--",
                     "typeExposed": "HashMap SummaryKeyType Int",
                     "type": "EMap \"entry\" \"key\" \"value\" SummaryKeyType Int"
                 },
@@ -10075,7 +10075,7 @@
                         "name": "_gasrSummaryMap",
                         "shape": "summaryMapType",
                         "locationName": "SummaryMap",
-                        "documentation": "-- | A set of key value pairs containing account-level information.\n--\n-- 'SummaryMap' contains the following keys:  'AccessKeysPerUserQuota' - Maximum\n-- number of access keys that can be created per user\n--\n-- 'AccountMFAEnabled' - 1 if the root account has an MFA device assigned to it,\n-- 0 otherwise\n--\n-- 'AssumeRolePolicySizeQuota' - Maximum allowed size for assume role policy\n-- documents (in kilobytes)\n--\n-- 'GroupPolicySizeQuota' - Maximum allowed size for Group policy documents (in\n-- kilobytes)\n--\n-- 'Groups' - Number of Groups for the AWS account\n--\n-- 'GroupsPerUserQuota' - Maximum number of groups an IAM user can belong to\n--\n-- 'GroupsQuota' - Maximum groups allowed for the AWS account\n--\n-- 'InstanceProfiles' - Number of instance profiles for the AWS account\n--\n-- 'InstanceProfilesQuota' - Maximum instance profiles allowed for the AWS account\n--\n-- 'MFADevices' - Number of MFA devices, either assigned or unassigned\n--\n-- 'MFADevicesInUse' - Number of MFA devices that have been assigned to an IAM\n-- user or to the root account\n--\n-- 'RolePolicySizeQuota' - Maximum allowed size for role policy documents (in\n-- kilobytes)\n--\n-- 'Roles' - Number of roles for the AWS account\n--\n-- 'RolesQuota' - Maximum roles allowed for the AWS account\n--\n-- 'ServerCertificates' - Number of server certificates for the AWS account\n--\n-- 'ServerCertificatesQuota' - Maximum server certificates allowed for the AWS\n-- account\n--\n-- 'SigningCertificatesPerUserQuota' - Maximum number of X509 certificates\n-- allowed for a user\n--\n-- 'UserPolicySizeQuota' - Maximum allowed size for user policy documents (in\n-- kilobytes)\n--\n-- 'Users' - Number of users for the AWS account\n--\n-- 'UsersQuota' - Maximum users allowed for the AWS account\n--\n--",
+                        "documentation": "-- | A set of key value pairs containing account-level information.\n--\n-- 'SummaryMap' contains the following keys:   'AccessKeysPerUserQuota' - Maximum\n-- number of active access keys allowed per IAM user\n--\n-- 'AccountAccessKeysPresent' - 1 if the root account has an access key, 0\n-- otherwise\n--\n-- 'AccountMFAEnabled' - 1 if the root account has an MFA device assigned to\n-- it, 0 otherwise\n--\n-- 'AccountSigningCertificatesPresent' - 1 if the root account has a signing\n-- certificate, 0 otherwise\n--\n-- 'AssumeRolePolicySizeQuota' - Maximum allowed size for assume role policy\n-- documents (trust policies), in non-whitespace characters\n--\n-- 'GroupPolicySizeQuota' - Maximum allowed size for IAM group policy\n-- documents, in non-whitespace characters\n--\n-- 'Groups' - Number of IAM groups in the AWS account\n--\n-- 'GroupsPerUserQuota' - Maximum number of IAM groups each IAM user can belong\n-- to\n--\n-- 'GroupsQuota' - Maximum number of IAM groups allowed in the AWS account\n--\n-- 'InstanceProfiles' - Number of instance profiles in the AWS account\n--\n-- 'InstanceProfilesQuota' - Maximum number of instance profiles allowed in the\n-- AWS account\n--\n-- 'MFADevices' - Number of MFA devices, either assigned or unassigned\n--\n-- 'MFADevicesInUse' - Number of MFA devices that have been assigned to an IAM\n-- user or to the root account\n--\n-- 'RolePolicySizeQuota' - Maximum allowed size for IAM role policy documents\n-- (permissions policies), in non-whitespace characters\n--\n-- 'Roles' - Number of roles IAM in the AWS account\n--\n-- 'RolesQuota' - Maximum number of IAM roles allowed in the AWS account\n--\n-- 'UserPolicySizeQuota' - Maximum allowed size for IAM user policy documents,\n-- in non-whitespace characters\n--\n-- 'Users' - Number of IAM users in the AWS account\n--\n-- 'UsersQuota' - Maximum number of IAM users allowed in the AWS account\n--\n-- 'ServerCertificates' - Number of server certificates in the AWS account\n--\n-- 'ServerCertificatesQuota' - Maximum number of server certificates allowed in\n-- the AWS account\n--\n-- 'SigningCertificatesPerUserQuota' - Maximum number of X509 signing\n-- certificates allowed per IAM user\n--\n--",
                         "typeExposed": "HashMap SummaryKeyType Int",
                         "type": "EMap \"entry\" \"key\" \"value\" SummaryKeyType Int"
                     }
@@ -10094,7 +10094,7 @@
                         "name": "_gasrSummaryMap",
                         "shape": "summaryMapType",
                         "locationName": "SummaryMap",
-                        "documentation": "-- | A set of key value pairs containing account-level information.\n--\n-- 'SummaryMap' contains the following keys:  'AccessKeysPerUserQuota' - Maximum\n-- number of access keys that can be created per user\n--\n-- 'AccountMFAEnabled' - 1 if the root account has an MFA device assigned to it,\n-- 0 otherwise\n--\n-- 'AssumeRolePolicySizeQuota' - Maximum allowed size for assume role policy\n-- documents (in kilobytes)\n--\n-- 'GroupPolicySizeQuota' - Maximum allowed size for Group policy documents (in\n-- kilobytes)\n--\n-- 'Groups' - Number of Groups for the AWS account\n--\n-- 'GroupsPerUserQuota' - Maximum number of groups an IAM user can belong to\n--\n-- 'GroupsQuota' - Maximum groups allowed for the AWS account\n--\n-- 'InstanceProfiles' - Number of instance profiles for the AWS account\n--\n-- 'InstanceProfilesQuota' - Maximum instance profiles allowed for the AWS account\n--\n-- 'MFADevices' - Number of MFA devices, either assigned or unassigned\n--\n-- 'MFADevicesInUse' - Number of MFA devices that have been assigned to an IAM\n-- user or to the root account\n--\n-- 'RolePolicySizeQuota' - Maximum allowed size for role policy documents (in\n-- kilobytes)\n--\n-- 'Roles' - Number of roles for the AWS account\n--\n-- 'RolesQuota' - Maximum roles allowed for the AWS account\n--\n-- 'ServerCertificates' - Number of server certificates for the AWS account\n--\n-- 'ServerCertificatesQuota' - Maximum server certificates allowed for the AWS\n-- account\n--\n-- 'SigningCertificatesPerUserQuota' - Maximum number of X509 certificates\n-- allowed for a user\n--\n-- 'UserPolicySizeQuota' - Maximum allowed size for user policy documents (in\n-- kilobytes)\n--\n-- 'Users' - Number of users for the AWS account\n--\n-- 'UsersQuota' - Maximum users allowed for the AWS account\n--\n--",
+                        "documentation": "-- | A set of key value pairs containing account-level information.\n--\n-- 'SummaryMap' contains the following keys:   'AccessKeysPerUserQuota' - Maximum\n-- number of active access keys allowed per IAM user\n--\n-- 'AccountAccessKeysPresent' - 1 if the root account has an access key, 0\n-- otherwise\n--\n-- 'AccountMFAEnabled' - 1 if the root account has an MFA device assigned to\n-- it, 0 otherwise\n--\n-- 'AccountSigningCertificatesPresent' - 1 if the root account has a signing\n-- certificate, 0 otherwise\n--\n-- 'AssumeRolePolicySizeQuota' - Maximum allowed size for assume role policy\n-- documents (trust policies), in non-whitespace characters\n--\n-- 'GroupPolicySizeQuota' - Maximum allowed size for IAM group policy\n-- documents, in non-whitespace characters\n--\n-- 'Groups' - Number of IAM groups in the AWS account\n--\n-- 'GroupsPerUserQuota' - Maximum number of IAM groups each IAM user can belong\n-- to\n--\n-- 'GroupsQuota' - Maximum number of IAM groups allowed in the AWS account\n--\n-- 'InstanceProfiles' - Number of instance profiles in the AWS account\n--\n-- 'InstanceProfilesQuota' - Maximum number of instance profiles allowed in the\n-- AWS account\n--\n-- 'MFADevices' - Number of MFA devices, either assigned or unassigned\n--\n-- 'MFADevicesInUse' - Number of MFA devices that have been assigned to an IAM\n-- user or to the root account\n--\n-- 'RolePolicySizeQuota' - Maximum allowed size for IAM role policy documents\n-- (permissions policies), in non-whitespace characters\n--\n-- 'Roles' - Number of roles IAM in the AWS account\n--\n-- 'RolesQuota' - Maximum number of IAM roles allowed in the AWS account\n--\n-- 'UserPolicySizeQuota' - Maximum allowed size for IAM user policy documents,\n-- in non-whitespace characters\n--\n-- 'Users' - Number of IAM users in the AWS account\n--\n-- 'UsersQuota' - Maximum number of IAM users allowed in the AWS account\n--\n-- 'ServerCertificates' - Number of server certificates in the AWS account\n--\n-- 'ServerCertificatesQuota' - Maximum number of server certificates allowed in\n-- the AWS account\n--\n-- 'SigningCertificatesPerUserQuota' - Maximum number of X509 signing\n-- certificates allowed per IAM user\n--\n--",
                         "typeExposed": "HashMap SummaryKeyType Int",
                         "type": "EMap \"entry\" \"key\" \"value\" SummaryKeyType Int"
                     }
@@ -20319,7 +20319,7 @@
             "pager": null,
             "name": "UpdateOpenIDConnectProviderThumbprint",
             "method": "post",
-            "documentation": "-- | Replaces the existing list of server certificate thumbprints with a new list.\n--\n-- The list that you pass with this action completely replaces the existing\n-- list of thumbprints. (The lists are not merged.)\n--\n-- Typically, you need to update a thumbprint only when the identity provider's\n-- certificate changes, which occurs rarely. However, if the provider's\n-- certificate /does/ change, any attempt to assume an IAM role that specifies the\n-- IAM provider as a principal will fail until the certificate thumbprint is\n-- updated.\n--\n-- Because trust for the OpenID Connect provider is ultimately derived from the\n-- provider's certificate and is validated by the thumbprint, it is a best\n-- practice to limit access to the 'UpdateOpenIDConnectProviderThumbprint' action\n-- to highly-privileged users.",
+            "documentation": "-- | Replaces the existing list of server certificate thumbprints with a new list.\n--\n-- The list that you pass with this action completely replaces the existing\n-- list of thumbprints. (The lists are not merged.)\n--\n-- Typically, you need to update a thumbprint only when the identity provider's\n-- certificate changes, which occurs rarely. However, if the provider's\n-- certificate /does/ change, any attempt to assume an IAM role that specifies the\n-- OIDC provider as a principal will fail until the certificate thumbprint is\n-- updated.\n--\n-- Because trust for the OpenID Connect provider is ultimately derived from the\n-- provider's certificate and is validated by the thumbprint, it is a best\n-- practice to limit access to the 'UpdateOpenIDConnectProviderThumbprint' action\n-- to highly-privileged users.",
             "documentationUrl": null,
             "request": {
                 "deriving": [

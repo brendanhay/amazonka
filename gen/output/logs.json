@@ -83,7 +83,7 @@
         "url": "http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/Welcome.html",
         "protocol": "json",
         "name": "Amazon CloudWatch Logs",
-        "version": "0.2.3",
+        "version": "0.3.0",
         "description": "Amazon CloudWatch Logs enables you to monitor, store, and access your system,\napplication, and custom log files."
     },
     "types": {

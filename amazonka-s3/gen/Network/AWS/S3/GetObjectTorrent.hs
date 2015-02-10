@@ -117,5 +117,5 @@ instance AWSRequest GetObjectTorrent where
     type Rs GetObjectTorrent = GetObjectTorrentResponse
 
     request  = get
-    response = bodyResponse . const $ \b -> GetObjectTorrentResponse
+    response = bodyResponse $ \_ _ b -> GetObjectTorrentResponse
         <$> pure (RsBody b)

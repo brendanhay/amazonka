@@ -177,9 +177,7 @@ instance ToHeaders PutObjectAcl where
         ]
 
 instance ToXMLRoot PutObjectAcl where
-    toXMLRoot PutObjectAcl{..} = namespaced ns "PutObjectAcl"
-        [ "AccessControlPolicy" =@ _poaAccessControlPolicy
-        ]
+    toXMLRoot = extractRoot ns . toXML . _poaAccessControlPolicy
 
 instance ToXML PutObjectAcl
 

@@ -105,9 +105,7 @@ instance ToHeaders PutBucketLifecycle where
         ]
 
 instance ToXMLRoot PutBucketLifecycle where
-    toXMLRoot PutBucketLifecycle{..} = namespaced ns "PutBucketLifecycle"
-        [ "LifecycleConfiguration" =@ _pbl1LifecycleConfiguration
-        ]
+    toXMLRoot = extractRoot ns . toXML . _pbl1LifecycleConfiguration
 
 instance ToXML PutBucketLifecycle
 

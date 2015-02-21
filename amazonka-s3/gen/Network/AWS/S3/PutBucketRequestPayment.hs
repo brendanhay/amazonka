@@ -108,9 +108,7 @@ instance ToHeaders PutBucketRequestPayment where
         ]
 
 instance ToXMLRoot PutBucketRequestPayment where
-    toXMLRoot PutBucketRequestPayment{..} = namespaced ns "PutBucketRequestPayment"
-        [ "RequestPaymentConfiguration" =@ _pbrpRequestPaymentConfiguration
-        ]
+    toXMLRoot = extractRoot ns . toXML . _pbrpRequestPaymentConfiguration
 
 instance ToXML PutBucketRequestPayment
 

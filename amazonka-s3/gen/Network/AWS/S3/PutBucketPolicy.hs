@@ -105,9 +105,7 @@ instance ToHeaders PutBucketPolicy where
         ]
 
 instance ToXMLRoot PutBucketPolicy where
-    toXMLRoot PutBucketPolicy{..} = namespaced ns "PutBucketPolicy"
-        [ "Policy" =@ _pbpPolicy
-        ]
+    toXMLRoot = extractRoot ns . toXML . _pbpPolicy
 
 instance ToXML PutBucketPolicy
 

@@ -103,9 +103,7 @@ instance ToHeaders PutBucketCors where
         ]
 
 instance ToXMLRoot PutBucketCors where
-    toXMLRoot PutBucketCors{..} = namespaced ns "PutBucketCors"
-        [ "CORSConfiguration" =@ _pbcCORSConfiguration
-        ]
+    toXMLRoot = extractRoot ns . toXML . _pbcCORSConfiguration
 
 instance ToXML PutBucketCors
 

@@ -1676,6 +1676,10 @@ instance FromXML Grant where
         <*> x .@? "Permission"
 
 instance ToXMLRoot Grant where
+    toXMLRoot Grant{..} = namespaced ns "Grant"
+        [ "Grantee"    =@ _gGrantee
+        , "Permission" =@ _gPermission
+        ]
 
 instance ToXML Grant
 
@@ -1913,6 +1917,10 @@ instance FromXML Owner where
         <*> x .@? "ID"
 
 instance ToXMLRoot Owner where
+    toXMLRoot Owner{..} = namespaced ns "Owner"
+        [ "DisplayName" =@ _oDisplayName
+        , "ID"          =@ _oID
+        ]
 
 instance ToXML Owner
 
@@ -2574,6 +2582,9 @@ instance FromXML CommonPrefix where
         <$> x .@? "Prefix"
 
 instance ToXMLRoot CommonPrefix where
+    toXMLRoot CommonPrefix{..} = namespaced ns "CommonPrefix"
+        [ "Prefix" =@ _cpPrefix
+        ]
 
 instance ToXML CommonPrefix
 
@@ -2858,6 +2869,10 @@ instance FromXML AccessControlPolicy where
         <*> x .@? "Owner"
 
 instance ToXMLRoot AccessControlPolicy where
+    toXMLRoot AccessControlPolicy{..} = namespaced ns "AccessControlPolicy"
+        [ "AccessControlList" =@ _acpGrants
+        , "Owner"             =@ _acpOwner
+        ]
 
 instance ToXML AccessControlPolicy
 

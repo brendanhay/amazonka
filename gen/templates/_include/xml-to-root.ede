@@ -15,14 +15,18 @@ instance ToXML {{ type.name }} where
     toXML = toXMLText
 {% else %}
 instance ToXMLRoot {{ type.name }} where
-  {% if type.contents | empty %}
+  {% if type.style %}
+    {% if type.contents | empty %}
     toXMLRoot = const (namespaced ns "{{ type.name }}" [])
-  {% else %}
+    {% elif type.style == "xml-headers" && ((type.contents | length) == 1) %}
+    toXMLRoot = extractRoot ns {% for field in type.contents %}. toXML . {{ field.value.name }}{% endfor %}
+    {% else %}
     toXMLRoot {{ type.name }}{..} = namespaced ns "{{ type.name }}"
-    {% for field in type.contents %}
+        {% for field in type.contents %}
         {% include "list.ede" %} "{{ field.value.locationName | concat("\"") | justifyLeft(type.contentPad) }} =@ {{ field.value.name }}
-    {% endfor %}
+        {% endfor %}
         ]
+    {% endif %}
   {% endif %}
 
 instance ToXML {{ type.name }}

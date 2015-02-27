@@ -1,5 +1,5 @@
 name:                  amazonka-storagegateway-examples
-version:               0.3.0
+version:               0.3.1
 synopsis:              Amazon Storage Gateway SDK Examples
 homepage:              https://github.com/brendanhay/amazonka
 license:               MPL-2.0
@@ -20,9 +20,9 @@ library
         StorageGateway
 
     build-depends:
-        amazonka      == 0.3.0.*
-      , amazonka-core == 0.3.0.*
-      , amazonka-storagegateway == 0.3.0.*
+        amazonka      == 0.3.1.*
+      , amazonka-core == 0.3.1.*
+      , amazonka-storagegateway == 0.3.1.*
       , base          >= 4.7     && < 5
       , bytestring    >= 0.9
       , conduit       >= 1.1     && < 1.3

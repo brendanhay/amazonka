@@ -1,5 +1,5 @@
 name:                  amazonka-cloudwatch-logs
-version:               0.3.0
+version:               0.3.1
 synopsis:              Amazon CloudWatch Logs SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -53,5 +53,5 @@ library
     other-modules:
 
     build-depends:
-          amazonka-core == 0.3.0.*
+          amazonka-core == 0.3.1.*
         , base          >= 4.7     && < 5

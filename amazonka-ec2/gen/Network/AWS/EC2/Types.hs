@@ -8586,10 +8586,10 @@ instance FromXML InstanceAttributeName where
     parseXML = parseXMLText "InstanceAttributeName"
 
 data IpPermission = IpPermission
-    { _ipFromPort         :: Int
+    { _ipFromPort         :: Maybe Int
     , _ipIpProtocol       :: Text
     , _ipIpRanges         :: List "item" IpRange
-    , _ipToPort           :: Int
+    , _ipToPort           :: Maybe Int
     , _ipUserIdGroupPairs :: List "item" UserIdGroupPair
     } deriving (Eq, Read, Show)
 
@@ -8597,31 +8597,29 @@ data IpPermission = IpPermission
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ipFromPort' @::@ 'Int'
+-- * 'ipFromPort' @::@ 'Maybe' 'Int'
 --
 -- * 'ipIpProtocol' @::@ 'Text'
 --
 -- * 'ipIpRanges' @::@ ['IpRange']
 --
--- * 'ipToPort' @::@ 'Int'
+-- * 'ipToPort' @::@ 'Maybe' 'Int'
 --
 -- * 'ipUserIdGroupPairs' @::@ ['UserIdGroupPair']
 --
 ipPermission :: Text -- ^ 'ipIpProtocol'
-             -> Int -- ^ 'ipFromPort'
-             -> Int -- ^ 'ipToPort'
              -> IpPermission
-ipPermission p1 p2 p3 = IpPermission
+ipPermission p1 = IpPermission
     { _ipIpProtocol       = p1
-    , _ipFromPort         = p2
-    , _ipToPort           = p3
+    , _ipFromPort         = Nothing
+    , _ipToPort           = Nothing
     , _ipUserIdGroupPairs = mempty
     , _ipIpRanges         = mempty
     }
 
 -- | The start of port range for the TCP and UDP protocols, or an ICMP type
 -- number. A value of '-1' indicates all ICMP types.
-ipFromPort :: Lens' IpPermission Int
+ipFromPort :: Lens' IpPermission (Maybe Int)
 ipFromPort = lens _ipFromPort (\s a -> s { _ipFromPort = a })
 
 -- | The protocol.
@@ -8638,7 +8636,7 @@ ipIpRanges = lens _ipIpRanges (\s a -> s { _ipIpRanges = a }) . _List
 
 -- | The end of port range for the TCP and UDP protocols, or an ICMP code. A value
 -- of '-1' indicates all ICMP codes for the specified ICMP type.
-ipToPort :: Lens' IpPermission Int
+ipToPort :: Lens' IpPermission (Maybe Int)
 ipToPort = lens _ipToPort (\s a -> s { _ipToPort = a })
 
 -- | One or more security group and AWS account ID pairs.
@@ -8649,10 +8647,10 @@ ipUserIdGroupPairs =
 
 instance FromXML IpPermission where
     parseXML x = IpPermission
-        <$> x .@  "fromPort"
+        <$> x .@? "fromPort"
         <*> x .@  "ipProtocol"
         <*> x .@? "ipRanges" .!@ mempty
-        <*> x .@  "toPort"
+        <*> x .@? "toPort"
         <*> x .@? "groups" .!@ mempty
 
 instance ToQuery IpPermission where

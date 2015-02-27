@@ -2,3 +2,4 @@ language: haskell
 ghc:      7.8.4
 install:  []
 script:   [make travis]
+

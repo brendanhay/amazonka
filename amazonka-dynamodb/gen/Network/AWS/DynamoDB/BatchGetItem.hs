@@ -121,8 +121,8 @@ batchGetItem = BatchGetItem
 -- /Keys/ - An array of primary key attribute values that define specific items
 -- in the table. For each primary key, you must provide /all/ of the key
 -- attributes. For example, with a hash type primary key, you only need to
--- specify the hash attribute. For a hash-and-range type primary key, you must
--- specify /both/ the hash attribute and the range attribute.
+-- provide the hash attribute. For a hash-and-range type primary key, you must
+-- provide /both/ the hash attribute and the range attribute.
 --
 -- /AttributesToGet/ - One or more attributes to be retrieved from the table.
 -- By default, all attributes are returned. If a specified attribute is not
@@ -167,7 +167,7 @@ batchGetItemResponse = BatchGetItemResponse
     , _bgirConsumedCapacity = mempty
     }
 
--- | The write capacity units consumed by the operation.
+-- | The read capacity units consumed by the operation.
 --
 -- Each element consists of:
 --
@@ -198,7 +198,7 @@ bgirResponses = lens _bgirResponses (\s a -> s { _bgirResponses = a }) . _Map
 -- in the table.
 --
 -- /AttributesToGet/ - One or more attributes to be retrieved from the table or
--- index. By default, all attributes are returned. If a specified attribute is
+-- index. By default, all attributes are returned. If a requested attribute is
 -- not found, it does not appear in the result.
 --
 -- /ConsistentRead/ - The consistency of a read operation. If set to 'true', then

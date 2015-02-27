@@ -22,7 +22,7 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | The /ModifyCacheParameterGroup/ operation modifies the parameters of a cache
+-- | The /ModifyCacheParameterGroup/ action modifies the parameters of a cache
 -- parameter group. You can modify up to 20 parameters in a single request by
 -- submitting a list parameter name and value pairs.
 --

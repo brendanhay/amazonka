@@ -101,7 +101,7 @@ ldrDistributionList =
     lens _ldrDistributionList (\s a -> s { _ldrDistributionList = a })
 
 instance ToPath ListDistributions where
-    toPath = const "/2014-10-21/distribution"
+    toPath = const "/2014-11-06/distribution"
 
 instance ToQuery ListDistributions where
     toQuery ListDistributions{..} = mconcat

@@ -23,27 +23,27 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | This operation transfers a domain from another registrar to Amazon Route 53.
--- Domains are registered by the AWS registrar, Gandi upon transfer.
+-- When the transfer is complete, the domain is registered with the AWS
+-- registrar partner, Gandi.
 --
--- To transfer a domain, you need to meet all the domain transfer criteria,
--- including the following:
+-- For transfer requirements, a detailed procedure, and information about
+-- viewing the status of a domain transfer, see <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-transfer-to-route-53.html Transferring Registration for aDomain to Amazon Route 53> in the Amazon Route 53 Developer Guide.
 --
--- You must supply nameservers to transfer a domain. You must disable the
--- domain transfer lock (if any) before transferring the domain. A minimum of 60
--- days must have elapsed since the domain's registration or last transfer.  We
--- recommend you use the Amazon Route 53 as the DNS service for your domain. You
--- can create a hosted zone in Amazon Route 53 for your current domain before
--- transferring your domain.
+-- If the registrar for your domain is also the DNS service provider for the
+-- domain, we highly recommend that you consider transferring your DNS service
+-- to Amazon Route 53 or to another DNS service provider before you transfer
+-- your registration. Some registrars provide free DNS service when you purchase
+-- a domain registration. When you transfer the registration, the previous
+-- registrar will not renew your domain registration and could end your DNS
+-- service at any time.
 --
--- Note that upon transfer, the domain duration is extended for a year if not
--- otherwise specified. Autorenew is enabled by default.
---
--- If the transfer is successful, this method returns an operation ID that you
--- can use to track the progress and completion of the action. If the request is
--- not completed successfully, the domain registrant will be notified by email.
---
--- Transferring domains charges your AWS account an amount based on the
--- top-level domain. For more information, see <http://aws.amazon.com/route53/pricing/ Amazon Route 53 Pricing>.
+-- Caution! If the registrar for your domain is also the DNS service provider
+-- for the domain and you don't transfer DNS service to another provider, your
+-- website, email, and the web applications associated with the domain might
+-- become unavailable. If the transfer is successful, this method returns an
+-- operation ID that you can use to track the progress and completion of the
+-- action. If the transfer doesn't complete successfully, the domain registrant
+-- will be notified by email.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-TransferDomain.html>
 module Network.AWS.Route53Domains.TransferDomain
@@ -213,6 +213,8 @@ tdIdnLangCode = lens _tdIdnLangCode (\s a -> s { _tdIdnLangCode = a })
 -- Type: Complex
 --
 -- Children: 'GlueIps', 'Name'
+--
+-- Required: No
 tdNameservers :: Lens' TransferDomain [Nameserver]
 tdNameservers = lens _tdNameservers (\s a -> s { _tdNameservers = a }) . _List
 

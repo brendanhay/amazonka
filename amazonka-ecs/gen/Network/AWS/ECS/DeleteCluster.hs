@@ -45,7 +45,7 @@ module Network.AWS.ECS.DeleteCluster
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.Query
+import Network.AWS.Request.JSON
 import Network.AWS.ECS.Types
 import qualified GHC.Exts
 
@@ -65,7 +65,8 @@ deleteCluster p1 = DeleteCluster
     { _dcCluster = p1
     }
 
--- | The cluster you want to delete.
+-- | The short name or full Amazon Resource Name (ARN) of the cluster that you
+-- want to delete.
 dcCluster :: Lens' DeleteCluster Text
 dcCluster = lens _dcCluster (\s a -> s { _dcCluster = a })
 
@@ -92,19 +93,22 @@ instance ToPath DeleteCluster where
     toPath = const "/"
 
 instance ToQuery DeleteCluster where
-    toQuery DeleteCluster{..} = mconcat
-        [ "cluster" =? _dcCluster
-        ]
+    toQuery = const mempty
 
 instance ToHeaders DeleteCluster
+
+instance ToJSON DeleteCluster where
+    toJSON DeleteCluster{..} = object
+        [ "cluster" .= _dcCluster
+        ]
 
 instance AWSRequest DeleteCluster where
     type Sv DeleteCluster = ECS
     type Rs DeleteCluster = DeleteClusterResponse
 
     request  = post "DeleteCluster"
-    response = xmlResponse
+    response = jsonResponse
 
-instance FromXML DeleteClusterResponse where
-    parseXML = withElement "DeleteClusterResult" $ \x -> DeleteClusterResponse
-        <$> x .@? "cluster"
+instance FromJSON DeleteClusterResponse where
+    parseJSON = withObject "DeleteClusterResponse" $ \o -> DeleteClusterResponse
+        <$> o .:? "cluster"

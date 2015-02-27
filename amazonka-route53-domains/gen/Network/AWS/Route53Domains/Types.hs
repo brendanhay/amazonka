@@ -38,6 +38,12 @@ module Network.AWS.Route53Domains.Types
     , dsExpiry
     , dsTransferLock
 
+    -- * Tag
+    , Tag
+    , tag
+    , tagKey
+    , tagValue
+
     -- * ExtraParamName
     , ExtraParamName (..)
 
@@ -212,24 +218,85 @@ instance ToJSON DomainSummary where
         , "Expiry"       .= _dsExpiry
         ]
 
+data Tag = Tag
+    { _tagKey   :: Maybe Text
+    , _tagValue :: Maybe Text
+    } deriving (Eq, Ord, Read, Show)
+
+-- | 'Tag' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'tagKey' @::@ 'Maybe' 'Text'
+--
+-- * 'tagValue' @::@ 'Maybe' 'Text'
+--
+tag :: Tag
+tag = Tag
+    { _tagKey   = Nothing
+    , _tagValue = Nothing
+    }
+
+-- | The key (name) of a tag.
+--
+-- Type: String
+--
+-- Default: None
+--
+-- Valid values: A-Z, a-z, 0-9, space, ".:/=+\-%@"
+--
+-- Constraints: Each key can be 1-128 characters long.
+--
+-- Required: Yes
+tagKey :: Lens' Tag (Maybe Text)
+tagKey = lens _tagKey (\s a -> s { _tagKey = a })
+
+-- | The value of a tag.
+--
+-- Type: String
+--
+-- Default: None
+--
+-- Valid values: A-Z, a-z, 0-9, space, ".:/=+\-%@"
+--
+-- Constraints: Each value can be 0-256 characters long.
+--
+-- Required: Yes
+tagValue :: Lens' Tag (Maybe Text)
+tagValue = lens _tagValue (\s a -> s { _tagValue = a })
+
+instance FromJSON Tag where
+    parseJSON = withObject "Tag" $ \o -> Tag
+        <$> o .:? "Key"
+        <*> o .:? "Value"
+
+instance ToJSON Tag where
+    toJSON Tag{..} = object
+        [ "Key"   .= _tagKey
+        , "Value" .= _tagValue
+        ]
+
 data ExtraParamName
-    = AuIdNumber          -- ^ AU_ID_NUMBER
-    | AuIdType            -- ^ AU_ID_TYPE
-    | BirthCity           -- ^ BIRTH_CITY
-    | BirthCountry        -- ^ BIRTH_COUNTRY
-    | BirthDateInYyyyMmDd -- ^ BIRTH_DATE_IN_YYYY_MM_DD
-    | BirthDepartment     -- ^ BIRTH_DEPARTMENT
-    | BrandNumber         -- ^ BRAND_NUMBER
-    | CaLegalType         -- ^ CA_LEGAL_TYPE
-    | DocumentNumber      -- ^ DOCUMENT_NUMBER
-    | DunsNumber          -- ^ DUNS_NUMBER
-    | FiBusinessNumber    -- ^ FI_BUSINESS_NUMBER
-    | FiIdNumber          -- ^ FI_ID_NUMBER
-    | ItPin               -- ^ IT_PIN
-    | RuPassportData      -- ^ RU_PASSPORT_DATA
-    | SeIdNumber          -- ^ SE_ID_NUMBER
-    | SgIdNumber          -- ^ SG_ID_NUMBER
-    | VatNumber           -- ^ VAT_NUMBER
+    = AuIdNumber           -- ^ AU_ID_NUMBER
+    | AuIdType             -- ^ AU_ID_TYPE
+    | BirthCity            -- ^ BIRTH_CITY
+    | BirthCountry         -- ^ BIRTH_COUNTRY
+    | BirthDateInYyyyMmDd  -- ^ BIRTH_DATE_IN_YYYY_MM_DD
+    | BirthDepartment      -- ^ BIRTH_DEPARTMENT
+    | BrandNumber          -- ^ BRAND_NUMBER
+    | CaLegalType          -- ^ CA_LEGAL_TYPE
+    | DocumentNumber       -- ^ DOCUMENT_NUMBER
+    | DunsNumber           -- ^ DUNS_NUMBER
+    | EsIdentification     -- ^ ES_IDENTIFICATION
+    | EsIdentificationType -- ^ ES_IDENTIFICATION_TYPE
+    | EsLegalForm          -- ^ ES_LEGAL_FORM
+    | FiBusinessNumber     -- ^ FI_BUSINESS_NUMBER
+    | FiIdNumber           -- ^ FI_ID_NUMBER
+    | ItPin                -- ^ IT_PIN
+    | RuPassportData       -- ^ RU_PASSPORT_DATA
+    | SeIdNumber           -- ^ SE_ID_NUMBER
+    | SgIdNumber           -- ^ SG_ID_NUMBER
+    | VatNumber            -- ^ VAT_NUMBER
       deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ExtraParamName
@@ -246,6 +313,9 @@ instance FromText ExtraParamName where
         "ca_legal_type"            -> pure CaLegalType
         "document_number"          -> pure DocumentNumber
         "duns_number"              -> pure DunsNumber
+        "es_identification"        -> pure EsIdentification
+        "es_identification_type"   -> pure EsIdentificationType
+        "es_legal_form"            -> pure EsLegalForm
         "fi_business_number"       -> pure FiBusinessNumber
         "fi_id_number"             -> pure FiIdNumber
         "it_pin"                   -> pure ItPin
@@ -258,23 +328,26 @@ instance FromText ExtraParamName where
 
 instance ToText ExtraParamName where
     toText = \case
-        AuIdNumber          -> "AU_ID_NUMBER"
-        AuIdType            -> "AU_ID_TYPE"
-        BirthCity           -> "BIRTH_CITY"
-        BirthCountry        -> "BIRTH_COUNTRY"
-        BirthDateInYyyyMmDd -> "BIRTH_DATE_IN_YYYY_MM_DD"
-        BirthDepartment     -> "BIRTH_DEPARTMENT"
-        BrandNumber         -> "BRAND_NUMBER"
-        CaLegalType         -> "CA_LEGAL_TYPE"
-        DocumentNumber      -> "DOCUMENT_NUMBER"
-        DunsNumber          -> "DUNS_NUMBER"
-        FiBusinessNumber    -> "FI_BUSINESS_NUMBER"
-        FiIdNumber          -> "FI_ID_NUMBER"
-        ItPin               -> "IT_PIN"
-        RuPassportData      -> "RU_PASSPORT_DATA"
-        SeIdNumber          -> "SE_ID_NUMBER"
-        SgIdNumber          -> "SG_ID_NUMBER"
-        VatNumber           -> "VAT_NUMBER"
+        AuIdNumber           -> "AU_ID_NUMBER"
+        AuIdType             -> "AU_ID_TYPE"
+        BirthCity            -> "BIRTH_CITY"
+        BirthCountry         -> "BIRTH_COUNTRY"
+        BirthDateInYyyyMmDd  -> "BIRTH_DATE_IN_YYYY_MM_DD"
+        BirthDepartment      -> "BIRTH_DEPARTMENT"
+        BrandNumber          -> "BRAND_NUMBER"
+        CaLegalType          -> "CA_LEGAL_TYPE"
+        DocumentNumber       -> "DOCUMENT_NUMBER"
+        DunsNumber           -> "DUNS_NUMBER"
+        EsIdentification     -> "ES_IDENTIFICATION"
+        EsIdentificationType -> "ES_IDENTIFICATION_TYPE"
+        EsLegalForm          -> "ES_LEGAL_FORM"
+        FiBusinessNumber     -> "FI_BUSINESS_NUMBER"
+        FiIdNumber           -> "FI_ID_NUMBER"
+        ItPin                -> "IT_PIN"
+        RuPassportData       -> "RU_PASSPORT_DATA"
+        SeIdNumber           -> "SE_ID_NUMBER"
+        SgIdNumber           -> "SG_ID_NUMBER"
+        VatNumber            -> "VAT_NUMBER"
 
 instance ToByteString ExtraParamName
 instance ToHeader     ExtraParamName
@@ -1203,8 +1276,7 @@ extraParam p1 p2 = ExtraParam
 --
 -- Default: None
 --
--- Valid values: 'DUNS_NUMBER' | 'BRAND_NUMBER' | 'BIRTH_DEPARTMENT' | 'BIRTH_DATE_IN_YYYY_MM_DD' | 'BIRTH_COUNTRY' | 'BIRTH_CITY' | 'DOCUMENT_NUMBER' | 'AU_ID_NUMBER' | 'AU_ID_TYPE' | 'CA_LEGAL_TYPE' | 'FI_BUSINESS_NUMBER' | 'FI_ID_NUMBER' | 'IT_PIN' | 'RU_PASSPORT_DATA'
--- | 'SE_ID_NUMBER' | 'SG_ID_NUMBER' | 'VAT_NUMBER'
+-- Valid values: 'DUNS_NUMBER' | 'BRAND_NUMBER' | 'BIRTH_DEPARTMENT' | 'BIRTH_DATE_IN_YYYY_MM_DD' | 'BIRTH_COUNTRY' | 'BIRTH_CITY' | 'DOCUMENT_NUMBER' | 'AU_ID_NUMBER' | 'AU_ID_TYPE' | 'CA_LEGAL_TYPE' | 'ES_IDENTIFICATION' | 'ES_IDENTIFICATION_TYPE' | 'ES_LEGAL_FORM' | 'FI_BUSINESS_NUMBER' | 'FI_ID_NUMBER' | 'IT_PIN' | 'RU_PASSPORT_DATA' | 'SE_ID_NUMBER' | 'SG_ID_NUMBER' | 'VAT_NUMBER'
 --
 -- Parent: 'ExtraParams'
 --

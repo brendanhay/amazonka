@@ -34,6 +34,7 @@ module Network.AWS.ECS
     , module Network.AWS.ECS.DiscoverPollEndpoint
     , module Network.AWS.ECS.ListClusters
     , module Network.AWS.ECS.ListContainerInstances
+    , module Network.AWS.ECS.ListTaskDefinitionFamilies
     , module Network.AWS.ECS.ListTaskDefinitions
     , module Network.AWS.ECS.ListTasks
     , module Network.AWS.ECS.RegisterContainerInstance
@@ -57,6 +58,7 @@ import Network.AWS.ECS.DescribeTasks
 import Network.AWS.ECS.DiscoverPollEndpoint
 import Network.AWS.ECS.ListClusters
 import Network.AWS.ECS.ListContainerInstances
+import Network.AWS.ECS.ListTaskDefinitionFamilies
 import Network.AWS.ECS.ListTaskDefinitions
 import Network.AWS.ECS.ListTasks
 import Network.AWS.ECS.RegisterContainerInstance

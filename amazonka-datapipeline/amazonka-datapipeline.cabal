@@ -37,6 +37,7 @@ library
     exposed-modules:
           Network.AWS.DataPipeline
         , Network.AWS.DataPipeline.ActivatePipeline
+        , Network.AWS.DataPipeline.AddTags
         , Network.AWS.DataPipeline.CreatePipeline
         , Network.AWS.DataPipeline.DeletePipeline
         , Network.AWS.DataPipeline.DescribeObjects
@@ -47,6 +48,7 @@ library
         , Network.AWS.DataPipeline.PollForTask
         , Network.AWS.DataPipeline.PutPipelineDefinition
         , Network.AWS.DataPipeline.QueryObjects
+        , Network.AWS.DataPipeline.RemoveTags
         , Network.AWS.DataPipeline.ReportTaskProgress
         , Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
         , Network.AWS.DataPipeline.SetStatus

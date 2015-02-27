@@ -22,7 +22,7 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | The /CreateCacheSubnetGroup/ operation creates a new cache subnet group.
+-- | The /CreateCacheSubnetGroup/ action creates a new cache subnet group.
 --
 -- Use this parameter only when you are creating a cluster in an Amazon Virtual
 -- Private Cloud (VPC).

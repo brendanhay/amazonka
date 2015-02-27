@@ -39,9 +39,9 @@
             "Network.AWS.CloudFront.UpdateStreamingDistribution"
         ],
         "name": "Amazon CloudFront",
-        "version": "2014-10-21",
+        "version": "2014-11-06",
         "documentation": "-- | Amazon CloudFront is a web service that speeds up distribution of your static\n-- and dynamic web content, for example, .html, .css, .php, image, and media\n-- files, to end users. CloudFront delivers your content through a worldwide\n-- network of edge locations. When an end user requests content that you're\n-- serving with CloudFront, the user is routed to the edge location that\n-- provides the lowest latency, so content is delivered with the best possible\n-- performance. If the content is already in that edge location, CloudFront\n-- delivers it immediately. If the content is not currently in that edge\n-- location, CloudFront retrieves it from an Amazon S3 bucket or an HTTP server\n-- (for example, a web server) that you have identified as the source for the\n-- definitive version of your content.",
-        "xmlNamespace": "http://cloudfront.amazonaws.com/doc/2014-10-21/",
+        "xmlNamespace": "http://cloudfront.amazonaws.com/doc/2014-11-06/",
         "jsonVersion": null,
         "retryDelay": {
             "base": 5.0e-2,
@@ -1025,6 +1025,23 @@
                         "protocol": "rest-xml",
                         "flattened": false,
                         "required": false,
+                        "lens": "oOriginPath",
+                        "name": "_oOriginPath",
+                        "shape": "string",
+                        "locationName": "OriginPath",
+                        "documentation": "-- | An optional element that causes CloudFront to request your content from a\n-- directory in your Amazon S3 bucket or your custom origin. When you include\n-- the OriginPath element, specify the directory name, beginning with a /.\n-- CloudFront appends the directory name to the value of DomainName.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-xml",
+                        "flattened": false,
+                        "required": false,
                         "lens": "oS3OriginConfig",
                         "name": "_oS3OriginConfig",
                         "shape": "S3OriginConfig",
@@ -1093,6 +1110,23 @@
                 "locationPad": 19,
                 "type": "record",
                 "optional": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-xml",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "oOriginPath",
+                        "name": "_oOriginPath",
+                        "shape": "string",
+                        "locationName": "OriginPath",
+                        "documentation": "-- | An optional element that causes CloudFront to request your content from a\n-- directory in your Amazon S3 bucket or your custom origin. When you include\n-- the OriginPath element, specify the directory name, beginning with a /.\n-- CloudFront appends the directory name to the value of DomainName.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
                     {
                         "location": null,
                         "iso": null,
@@ -1179,6 +1213,23 @@
                         "documentation": "-- | A unique identifier for the origin. The value of Id must be unique within the\n-- distribution. You use the value of Id when you create a cache behavior. The\n-- Id identifies the origin that CloudFront routes a request to when the request\n-- matches the path pattern for that cache behavior.",
                         "typeExposed": "Text",
                         "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-xml",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "oOriginPath",
+                        "name": "_oOriginPath",
+                        "shape": "string",
+                        "locationName": "OriginPath",
+                        "documentation": "-- | An optional element that causes CloudFront to request your content from a\n-- directory in your Amazon S3 bucket or your custom origin. When you include\n-- the OriginPath element, specify the directory name, beginning with a /.\n-- CloudFront appends the directory name to the value of DomainName.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": null,
@@ -1593,18 +1644,18 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "error",
+                        "default": "Nothing",
                         "monoid": false,
                         "protocol": "rest-xml",
                         "flattened": false,
-                        "required": true,
+                        "required": false,
                         "lens": "sdcAliases",
                         "name": "_sdcAliases",
                         "shape": "Aliases",
                         "locationName": "Aliases",
                         "documentation": "-- | A complex type that contains information about CNAMEs (alternate domain\n-- names), if any, for this streaming distribution.",
-                        "typeExposed": "Aliases",
-                        "type": "Aliases"
+                        "typeExposed": "Maybe Aliases",
+                        "type": "Maybe Aliases"
                     },
                     {
                         "location": null,
@@ -1627,18 +1678,18 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "error",
+                        "default": "Nothing",
                         "monoid": false,
                         "protocol": "rest-xml",
                         "flattened": false,
-                        "required": true,
+                        "required": false,
                         "lens": "sdcLogging",
                         "name": "_sdcLogging",
                         "shape": "StreamingLoggingConfig",
                         "locationName": "Logging",
                         "documentation": "-- | A complex type that controls whether access logs are written for the\n-- streaming distribution.",
-                        "typeExposed": "StreamingLoggingConfig",
-                        "type": "StreamingLoggingConfig"
+                        "typeExposed": "Maybe StreamingLoggingConfig",
+                        "type": "Maybe StreamingLoggingConfig"
                     },
                     {
                         "location": null,
@@ -1661,18 +1712,18 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "error",
+                        "default": "Nothing",
                         "monoid": false,
                         "protocol": "rest-xml",
                         "flattened": false,
-                        "required": true,
+                        "required": false,
                         "lens": "sdcPriceClass",
                         "name": "_sdcPriceClass",
                         "shape": "PriceClass",
                         "locationName": "PriceClass",
                         "documentation": "-- | A complex type that contains information about price class for this streaming\n-- distribution.",
-                        "typeExposed": "PriceClass",
-                        "type": "PriceClass"
+                        "typeExposed": "Maybe PriceClass",
+                        "type": "Maybe PriceClass"
                     },
                     {
                         "location": null,
@@ -1737,23 +1788,6 @@
                         "protocol": "rest-xml",
                         "flattened": false,
                         "required": true,
-                        "lens": "sdcAliases",
-                        "name": "_sdcAliases",
-                        "shape": "Aliases",
-                        "locationName": "Aliases",
-                        "documentation": "-- | A complex type that contains information about CNAMEs (alternate domain\n-- names), if any, for this streaming distribution.",
-                        "typeExposed": "Aliases",
-                        "type": "Aliases"
-                    },
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "error",
-                        "monoid": false,
-                        "protocol": "rest-xml",
-                        "flattened": false,
-                        "required": true,
                         "lens": "sdcComment",
                         "name": "_sdcComment",
                         "shape": "string",
@@ -1761,23 +1795,6 @@
                         "documentation": "-- | Any comments you want to include about the streaming distribution.",
                         "typeExposed": "Text",
                         "type": "Text"
-                    },
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "error",
-                        "monoid": false,
-                        "protocol": "rest-xml",
-                        "flattened": false,
-                        "required": true,
-                        "lens": "sdcLogging",
-                        "name": "_sdcLogging",
-                        "shape": "StreamingLoggingConfig",
-                        "locationName": "Logging",
-                        "documentation": "-- | A complex type that controls whether access logs are written for the\n-- streaming distribution.",
-                        "typeExposed": "StreamingLoggingConfig",
-                        "type": "StreamingLoggingConfig"
                     },
                     {
                         "location": null,
@@ -1805,23 +1822,6 @@
                         "protocol": "rest-xml",
                         "flattened": false,
                         "required": true,
-                        "lens": "sdcPriceClass",
-                        "name": "_sdcPriceClass",
-                        "shape": "PriceClass",
-                        "locationName": "PriceClass",
-                        "documentation": "-- | A complex type that contains information about price class for this streaming\n-- distribution.",
-                        "typeExposed": "PriceClass",
-                        "type": "PriceClass"
-                    },
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "error",
-                        "monoid": false,
-                        "protocol": "rest-xml",
-                        "flattened": false,
-                        "required": true,
                         "lens": "sdcEnabled",
                         "name": "_sdcEnabled",
                         "shape": "boolean",
@@ -1835,24 +1835,76 @@
                 "name": "StreamingDistributionConfig",
                 "locationPad": 16,
                 "type": "record",
-                "optional": [],
-                "fields": [
+                "optional": [
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "error",
+                        "default": "Nothing",
                         "monoid": false,
                         "protocol": "rest-xml",
                         "flattened": false,
-                        "required": true,
+                        "required": false,
                         "lens": "sdcAliases",
                         "name": "_sdcAliases",
                         "shape": "Aliases",
                         "locationName": "Aliases",
                         "documentation": "-- | A complex type that contains information about CNAMEs (alternate domain\n-- names), if any, for this streaming distribution.",
-                        "typeExposed": "Aliases",
-                        "type": "Aliases"
+                        "typeExposed": "Maybe Aliases",
+                        "type": "Maybe Aliases"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-xml",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "sdcLogging",
+                        "name": "_sdcLogging",
+                        "shape": "StreamingLoggingConfig",
+                        "locationName": "Logging",
+                        "documentation": "-- | A complex type that controls whether access logs are written for the\n-- streaming distribution.",
+                        "typeExposed": "Maybe StreamingLoggingConfig",
+                        "type": "Maybe StreamingLoggingConfig"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-xml",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "sdcPriceClass",
+                        "name": "_sdcPriceClass",
+                        "shape": "PriceClass",
+                        "locationName": "PriceClass",
+                        "documentation": "-- | A complex type that contains information about price class for this streaming\n-- distribution.",
+                        "typeExposed": "Maybe PriceClass",
+                        "type": "Maybe PriceClass"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-xml",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "sdcAliases",
+                        "name": "_sdcAliases",
+                        "shape": "Aliases",
+                        "locationName": "Aliases",
+                        "documentation": "-- | A complex type that contains information about CNAMEs (alternate domain\n-- names), if any, for this streaming distribution.",
+                        "typeExposed": "Maybe Aliases",
+                        "type": "Maybe Aliases"
                     },
                     {
                         "location": null,
@@ -1909,35 +1961,35 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "error",
+                        "default": "Nothing",
                         "monoid": false,
                         "protocol": "rest-xml",
                         "flattened": false,
-                        "required": true,
+                        "required": false,
                         "lens": "sdcLogging",
                         "name": "_sdcLogging",
                         "shape": "StreamingLoggingConfig",
                         "locationName": "Logging",
                         "documentation": "-- | A complex type that controls whether access logs are written for the\n-- streaming distribution.",
-                        "typeExposed": "StreamingLoggingConfig",
-                        "type": "StreamingLoggingConfig"
+                        "typeExposed": "Maybe StreamingLoggingConfig",
+                        "type": "Maybe StreamingLoggingConfig"
                     },
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "error",
+                        "default": "Nothing",
                         "monoid": false,
                         "protocol": "rest-xml",
                         "flattened": false,
-                        "required": true,
+                        "required": false,
                         "lens": "sdcPriceClass",
                         "name": "_sdcPriceClass",
                         "shape": "PriceClass",
                         "locationName": "PriceClass",
                         "documentation": "-- | A complex type that contains information about price class for this streaming\n-- distribution.",
-                        "typeExposed": "PriceClass",
-                        "type": "PriceClass"
+                        "typeExposed": "Maybe PriceClass",
+                        "type": "Maybe PriceClass"
                     },
                     {
                         "location": null,
@@ -3951,35 +4003,35 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "error",
+                        "default": "Nothing",
                         "monoid": false,
                         "protocol": "rest-xml",
                         "flattened": false,
-                        "required": true,
+                        "required": false,
                         "lens": "dcAliases",
                         "name": "_dcAliases",
                         "shape": "Aliases",
                         "locationName": "Aliases",
                         "documentation": "-- | A complex type that contains information about CNAMEs (alternate domain\n-- names), if any, for this distribution.",
-                        "typeExposed": "Aliases",
-                        "type": "Aliases"
+                        "typeExposed": "Maybe Aliases",
+                        "type": "Maybe Aliases"
                     },
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "error",
+                        "default": "Nothing",
                         "monoid": false,
                         "protocol": "rest-xml",
                         "flattened": false,
-                        "required": true,
+                        "required": false,
                         "lens": "dcDefaultRootObject",
                         "name": "_dcDefaultRootObject",
                         "shape": "string",
                         "locationName": "DefaultRootObject",
                         "documentation": "-- | The object that you want CloudFront to return (for example, index.html) when\n-- an end user requests the root URL for your distribution\n-- (http://www.example.com) instead of an object in your distribution\n-- (http://www.example.com/index.html). Specifying a default root object avoids\n-- exposing the contents of your distribution. If you don't want to specify a\n-- default root object when you create a distribution, include an empty\n-- DefaultRootObject element. To delete the default root object from an existing\n-- distribution, update the distribution configuration and include an empty\n-- DefaultRootObject element. To replace the default root object, update the\n-- distribution configuration and specify the new object.",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": null,
@@ -4019,18 +4071,18 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "error",
+                        "default": "Nothing",
                         "monoid": false,
                         "protocol": "rest-xml",
                         "flattened": false,
-                        "required": true,
+                        "required": false,
                         "lens": "dcCacheBehaviors",
                         "name": "_dcCacheBehaviors",
                         "shape": "CacheBehaviors",
                         "locationName": "CacheBehaviors",
                         "documentation": "-- | A complex type that contains zero or more CacheBehavior elements.",
-                        "typeExposed": "CacheBehaviors",
-                        "type": "CacheBehaviors"
+                        "typeExposed": "Maybe CacheBehaviors",
+                        "type": "Maybe CacheBehaviors"
                     },
                     {
                         "location": null,
@@ -4070,35 +4122,35 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "error",
+                        "default": "Nothing",
                         "monoid": false,
                         "protocol": "rest-xml",
                         "flattened": false,
-                        "required": true,
+                        "required": false,
                         "lens": "dcLogging",
                         "name": "_dcLogging",
                         "shape": "LoggingConfig",
                         "locationName": "Logging",
                         "documentation": "-- | A complex type that controls whether access logs are written for the\n-- distribution.",
-                        "typeExposed": "LoggingConfig",
-                        "type": "LoggingConfig"
+                        "typeExposed": "Maybe LoggingConfig",
+                        "type": "Maybe LoggingConfig"
                     },
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "error",
+                        "default": "Nothing",
                         "monoid": false,
                         "protocol": "rest-xml",
                         "flattened": false,
-                        "required": true,
+                        "required": false,
                         "lens": "dcPriceClass",
                         "name": "_dcPriceClass",
                         "shape": "PriceClass",
                         "locationName": "PriceClass",
                         "documentation": "-- | A complex type that contains information about price class for this\n-- distribution.",
-                        "typeExposed": "PriceClass",
-                        "type": "PriceClass"
+                        "typeExposed": "Maybe PriceClass",
+                        "type": "Maybe PriceClass"
                     },
                     {
                         "location": null,
@@ -4180,40 +4232,6 @@
                         "protocol": "rest-xml",
                         "flattened": false,
                         "required": true,
-                        "lens": "dcAliases",
-                        "name": "_dcAliases",
-                        "shape": "Aliases",
-                        "locationName": "Aliases",
-                        "documentation": "-- | A complex type that contains information about CNAMEs (alternate domain\n-- names), if any, for this distribution.",
-                        "typeExposed": "Aliases",
-                        "type": "Aliases"
-                    },
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "error",
-                        "monoid": false,
-                        "protocol": "rest-xml",
-                        "flattened": false,
-                        "required": true,
-                        "lens": "dcDefaultRootObject",
-                        "name": "_dcDefaultRootObject",
-                        "shape": "string",
-                        "locationName": "DefaultRootObject",
-                        "documentation": "-- | The object that you want CloudFront to return (for example, index.html) when\n-- an end user requests the root URL for your distribution\n-- (http://www.example.com) instead of an object in your distribution\n-- (http://www.example.com/index.html). Specifying a default root object avoids\n-- exposing the contents of your distribution. If you don't want to specify a\n-- default root object when you create a distribution, include an empty\n-- DefaultRootObject element. To delete the default root object from an existing\n-- distribution, update the distribution configuration and include an empty\n-- DefaultRootObject element. To replace the default root object, update the\n-- distribution configuration and specify the new object.",
-                        "typeExposed": "Text",
-                        "type": "Text"
-                    },
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "error",
-                        "monoid": false,
-                        "protocol": "rest-xml",
-                        "flattened": false,
-                        "required": true,
                         "lens": "dcOrigins",
                         "name": "_dcOrigins",
                         "shape": "Origins",
@@ -4248,23 +4266,6 @@
                         "protocol": "rest-xml",
                         "flattened": false,
                         "required": true,
-                        "lens": "dcCacheBehaviors",
-                        "name": "_dcCacheBehaviors",
-                        "shape": "CacheBehaviors",
-                        "locationName": "CacheBehaviors",
-                        "documentation": "-- | A complex type that contains zero or more CacheBehavior elements.",
-                        "typeExposed": "CacheBehaviors",
-                        "type": "CacheBehaviors"
-                    },
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "error",
-                        "monoid": false,
-                        "protocol": "rest-xml",
-                        "flattened": false,
-                        "required": true,
                         "lens": "dcComment",
                         "name": "_dcComment",
                         "shape": "string",
@@ -4272,40 +4273,6 @@
                         "documentation": "-- | Any comments you want to include about the distribution.",
                         "typeExposed": "Text",
                         "type": "Text"
-                    },
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "error",
-                        "monoid": false,
-                        "protocol": "rest-xml",
-                        "flattened": false,
-                        "required": true,
-                        "lens": "dcLogging",
-                        "name": "_dcLogging",
-                        "shape": "LoggingConfig",
-                        "locationName": "Logging",
-                        "documentation": "-- | A complex type that controls whether access logs are written for the\n-- distribution.",
-                        "typeExposed": "LoggingConfig",
-                        "type": "LoggingConfig"
-                    },
-                    {
-                        "location": null,
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "error",
-                        "monoid": false,
-                        "protocol": "rest-xml",
-                        "flattened": false,
-                        "required": true,
-                        "lens": "dcPriceClass",
-                        "name": "_dcPriceClass",
-                        "shape": "PriceClass",
-                        "locationName": "PriceClass",
-                        "documentation": "-- | A complex type that contains information about price class for this\n-- distribution.",
-                        "typeExposed": "PriceClass",
-                        "type": "PriceClass"
                     },
                     {
                         "location": null,
@@ -4339,6 +4306,57 @@
                         "protocol": "rest-xml",
                         "flattened": false,
                         "required": false,
+                        "lens": "dcAliases",
+                        "name": "_dcAliases",
+                        "shape": "Aliases",
+                        "locationName": "Aliases",
+                        "documentation": "-- | A complex type that contains information about CNAMEs (alternate domain\n-- names), if any, for this distribution.",
+                        "typeExposed": "Maybe Aliases",
+                        "type": "Maybe Aliases"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-xml",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dcDefaultRootObject",
+                        "name": "_dcDefaultRootObject",
+                        "shape": "string",
+                        "locationName": "DefaultRootObject",
+                        "documentation": "-- | The object that you want CloudFront to return (for example, index.html) when\n-- an end user requests the root URL for your distribution\n-- (http://www.example.com) instead of an object in your distribution\n-- (http://www.example.com/index.html). Specifying a default root object avoids\n-- exposing the contents of your distribution. If you don't want to specify a\n-- default root object when you create a distribution, include an empty\n-- DefaultRootObject element. To delete the default root object from an existing\n-- distribution, update the distribution configuration and include an empty\n-- DefaultRootObject element. To replace the default root object, update the\n-- distribution configuration and specify the new object.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-xml",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dcCacheBehaviors",
+                        "name": "_dcCacheBehaviors",
+                        "shape": "CacheBehaviors",
+                        "locationName": "CacheBehaviors",
+                        "documentation": "-- | A complex type that contains zero or more CacheBehavior elements.",
+                        "typeExposed": "Maybe CacheBehaviors",
+                        "type": "Maybe CacheBehaviors"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-xml",
+                        "flattened": false,
+                        "required": false,
                         "lens": "dcCustomErrorResponses",
                         "name": "_dcCustomErrorResponses",
                         "shape": "CustomErrorResponses",
@@ -4346,6 +4364,40 @@
                         "documentation": "-- | A complex type that contains zero or more CustomErrorResponse elements.",
                         "typeExposed": "Maybe CustomErrorResponses",
                         "type": "Maybe CustomErrorResponses"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-xml",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dcLogging",
+                        "name": "_dcLogging",
+                        "shape": "LoggingConfig",
+                        "locationName": "Logging",
+                        "documentation": "-- | A complex type that controls whether access logs are written for the\n-- distribution.",
+                        "typeExposed": "Maybe LoggingConfig",
+                        "type": "Maybe LoggingConfig"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-xml",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dcPriceClass",
+                        "name": "_dcPriceClass",
+                        "shape": "PriceClass",
+                        "locationName": "PriceClass",
+                        "documentation": "-- | A complex type that contains information about price class for this\n-- distribution.",
+                        "typeExposed": "Maybe PriceClass",
+                        "type": "Maybe PriceClass"
                     },
                     {
                         "location": null,
@@ -4387,35 +4439,35 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "error",
+                        "default": "Nothing",
                         "monoid": false,
                         "protocol": "rest-xml",
                         "flattened": false,
-                        "required": true,
+                        "required": false,
                         "lens": "dcAliases",
                         "name": "_dcAliases",
                         "shape": "Aliases",
                         "locationName": "Aliases",
                         "documentation": "-- | A complex type that contains information about CNAMEs (alternate domain\n-- names), if any, for this distribution.",
-                        "typeExposed": "Aliases",
-                        "type": "Aliases"
+                        "typeExposed": "Maybe Aliases",
+                        "type": "Maybe Aliases"
                     },
                     {
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "error",
+                        "default": "Nothing",
                         "monoid": false,
                         "protocol": "rest-xml",
                         "flattened": false,
-                        "required": true,
+                        "required": false,
                         "lens": "dcCacheBehaviors",
                         "name": "_dcCacheBehaviors",
                         "shape": "CacheBehaviors",
                         "locationName": "CacheBehaviors",
                         "documentation": "-- | A complex type that contains zero or more CacheBehavior elements.",
-                        "typeExposed": "CacheBehaviors",
-                        "type": "CacheBehaviors"
+                        "typeExposed": "Maybe CacheBehaviors",
+                        "type": "Maybe CacheBehaviors"
                     },
                     {
                         "location": null,
@@ -4489,18 +4541,18 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "error",
+                        "default": "Nothing",
                         "monoid": false,
                         "protocol": "rest-xml",
                         "flattened": false,
-                        "required": true,
+                        "required": false,
                         "lens": "dcDefaultRootObject",
                         "name": "_dcDefaultRootObject",
                         "shape": "string",
                         "locationName": "DefaultRootObject",
                         "documentation": "-- | The object that you want CloudFront to return (for example, index.html) when\n-- an end user requests the root URL for your distribution\n-- (http://www.example.com) instead of an object in your distribution\n-- (http://www.example.com/index.html). Specifying a default root object avoids\n-- exposing the contents of your distribution. If you don't want to specify a\n-- default root object when you create a distribution, include an empty\n-- DefaultRootObject element. To delete the default root object from an existing\n-- distribution, update the distribution configuration and include an empty\n-- DefaultRootObject element. To replace the default root object, update the\n-- distribution configuration and specify the new object.",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": null,
@@ -4523,18 +4575,18 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "error",
+                        "default": "Nothing",
                         "monoid": false,
                         "protocol": "rest-xml",
                         "flattened": false,
-                        "required": true,
+                        "required": false,
                         "lens": "dcLogging",
                         "name": "_dcLogging",
                         "shape": "LoggingConfig",
                         "locationName": "Logging",
                         "documentation": "-- | A complex type that controls whether access logs are written for the\n-- distribution.",
-                        "typeExposed": "LoggingConfig",
-                        "type": "LoggingConfig"
+                        "typeExposed": "Maybe LoggingConfig",
+                        "type": "Maybe LoggingConfig"
                     },
                     {
                         "location": null,
@@ -4557,18 +4609,18 @@
                         "location": null,
                         "iso": null,
                         "lensMapping": null,
-                        "default": "error",
+                        "default": "Nothing",
                         "monoid": false,
                         "protocol": "rest-xml",
                         "flattened": false,
-                        "required": true,
+                        "required": false,
                         "lens": "dcPriceClass",
                         "name": "_dcPriceClass",
                         "shape": "PriceClass",
                         "locationName": "PriceClass",
                         "documentation": "-- | A complex type that contains information about price class for this\n-- distribution.",
-                        "typeExposed": "PriceClass",
-                        "type": "PriceClass"
+                        "typeExposed": "Maybe PriceClass",
+                        "type": "Maybe PriceClass"
                     },
                     {
                         "location": null,
@@ -10516,7 +10568,7 @@
                 ],
                 "path": [
                     {
-                        "value": "/2014-10-21/origin-access-identity/cloudfront",
+                        "value": "/2014-11-06/origin-access-identity/cloudfront",
                         "type": "const"
                     }
                 ],
@@ -10829,7 +10881,7 @@
                 ],
                 "path": [
                     {
-                        "value": "/2014-10-21/distribution",
+                        "value": "/2014-11-06/distribution",
                         "type": "const"
                     }
                 ],
@@ -11085,7 +11137,7 @@
                 ],
                 "path": [
                     {
-                        "value": "/2014-10-21/distribution/",
+                        "value": "/2014-11-06/distribution/",
                         "type": "const"
                     },
                     {
@@ -11440,7 +11492,7 @@
                 ],
                 "path": [
                     {
-                        "value": "/2014-10-21/streaming-distribution",
+                        "value": "/2014-11-06/streaming-distribution",
                         "type": "const"
                     }
                 ],
@@ -11567,7 +11619,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-10-21/origin-access-identity/cloudfront/",
+                        "value": "/2014-11-06/origin-access-identity/cloudfront/",
                         "type": "const"
                     },
                     {
@@ -11723,7 +11775,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-10-21/distribution/",
+                        "value": "/2014-11-06/distribution/",
                         "type": "const"
                     },
                     {
@@ -11879,7 +11931,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-10-21/streaming-distribution/",
+                        "value": "/2014-11-06/streaming-distribution/",
                         "type": "const"
                     },
                     {
@@ -12167,7 +12219,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-10-21/origin-access-identity/cloudfront/",
+                        "value": "/2014-11-06/origin-access-identity/cloudfront/",
                         "type": "const"
                     },
                     {
@@ -12414,7 +12466,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-10-21/origin-access-identity/cloudfront/",
+                        "value": "/2014-11-06/origin-access-identity/cloudfront/",
                         "type": "const"
                     },
                     {
@@ -12665,7 +12717,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-10-21/distribution/",
+                        "value": "/2014-11-06/distribution/",
                         "type": "const"
                     },
                     {
@@ -12912,7 +12964,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-10-21/distribution/",
+                        "value": "/2014-11-06/distribution/",
                         "type": "const"
                     },
                     {
@@ -13121,7 +13173,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-10-21/distribution/",
+                        "value": "/2014-11-06/distribution/",
                         "type": "const"
                     },
                     {
@@ -13410,7 +13462,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-10-21/streaming-distribution/",
+                        "value": "/2014-11-06/streaming-distribution/",
                         "type": "const"
                     },
                     {
@@ -13657,7 +13709,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-10-21/streaming-distribution/",
+                        "value": "/2014-11-06/streaming-distribution/",
                         "type": "const"
                     },
                     {
@@ -13875,7 +13927,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-10-21/origin-access-identity/cloudfront",
+                        "value": "/2014-11-06/origin-access-identity/cloudfront",
                         "type": "const"
                     }
                 ],
@@ -14130,7 +14182,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-10-21/distribution",
+                        "value": "/2014-11-06/distribution",
                         "type": "const"
                     }
                 ],
@@ -14385,7 +14437,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-10-21/distribution/",
+                        "value": "/2014-11-06/distribution/",
                         "type": "const"
                     },
                     {
@@ -14683,7 +14735,7 @@
                 "contents": [],
                 "path": [
                     {
-                        "value": "/2014-10-21/streaming-distribution",
+                        "value": "/2014-11-06/streaming-distribution",
                         "type": "const"
                     }
                 ],
@@ -14968,7 +15020,7 @@
                 ],
                 "path": [
                     {
-                        "value": "/2014-10-21/origin-access-identity/cloudfront/",
+                        "value": "/2014-11-06/origin-access-identity/cloudfront/",
                         "type": "const"
                     },
                     {
@@ -15307,7 +15359,7 @@
                 ],
                 "path": [
                     {
-                        "value": "/2014-10-21/distribution/",
+                        "value": "/2014-11-06/distribution/",
                         "type": "const"
                     },
                     {
@@ -15646,7 +15698,7 @@
                 ],
                 "path": [
                     {
-                        "value": "/2014-10-21/streaming-distribution/",
+                        "value": "/2014-11-06/streaming-distribution/",
                         "type": "const"
                     },
                     {

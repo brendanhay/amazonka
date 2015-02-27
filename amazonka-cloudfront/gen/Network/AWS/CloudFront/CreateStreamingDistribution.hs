@@ -111,7 +111,7 @@ csdrStreamingDistribution =
         (\s a -> s { _csdrStreamingDistribution = a })
 
 instance ToPath CreateStreamingDistribution where
-    toPath = const "/2014-10-21/streaming-distribution"
+    toPath = const "/2014-11-06/streaming-distribution"
 
 instance ToQuery CreateStreamingDistribution where
     toQuery = const mempty

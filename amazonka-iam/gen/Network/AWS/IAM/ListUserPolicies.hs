@@ -22,10 +22,16 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Lists the names of the policies associated with the specified user. If there
--- are none, the action returns an empty list.
+-- | Lists the names of the inline policies embedded in the specified user.
 --
--- You can paginate the results using the 'MaxItems' and 'Marker' parameters.
+-- A user can also have managed policies attached to it. To list the managed
+-- policies that are attached to a user, use 'ListAttachedUserPolicies'. For more
+-- information about policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in
+-- the /Using IAM/ guide.
+--
+-- You can paginate the results using the 'MaxItems' and 'Marker' parameters. If
+-- there are no inline policies embedded with the specified user, the action
+-- returns an empty list.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListUserPolicies.html>
 module Network.AWS.IAM.ListUserPolicies

@@ -22,9 +22,9 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | The /DescribeCacheSecurityGroups/ operation returns a list of cache security
--- group descriptions. If a cache security group name is specified, the list
--- will contain only the description of that group.
+-- | The /DescribeCacheSecurityGroups/ action returns a list of cache security group
+-- descriptions. If a cache security group name is specified, the list will
+-- contain only the description of that group.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheSecurityGroups.html>
 module Network.AWS.ElastiCache.DescribeCacheSecurityGroups
@@ -82,9 +82,9 @@ dcsg1CacheSecurityGroupName =
         (\s a -> s { _dcsg1CacheSecurityGroupName = a })
 
 -- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this operation. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by /MaxRecords/.
+-- pagination of results from this action. If this parameter is specified, the
+-- response includes only records beyond the marker, up to the value specified
+-- by /MaxRecords/.
 dcsg1Marker :: Lens' DescribeCacheSecurityGroups (Maybe Text)
 dcsg1Marker = lens _dcsg1Marker (\s a -> s { _dcsg1Marker = a })
 

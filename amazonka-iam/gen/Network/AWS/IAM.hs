@@ -18,6 +18,9 @@ module Network.AWS.IAM
     ( module Network.AWS.IAM.AddClientIDToOpenIDConnectProvider
     , module Network.AWS.IAM.AddRoleToInstanceProfile
     , module Network.AWS.IAM.AddUserToGroup
+    , module Network.AWS.IAM.AttachGroupPolicy
+    , module Network.AWS.IAM.AttachRolePolicy
+    , module Network.AWS.IAM.AttachUserPolicy
     , module Network.AWS.IAM.ChangePassword
     , module Network.AWS.IAM.CreateAccessKey
     , module Network.AWS.IAM.CreateAccountAlias
@@ -25,6 +28,8 @@ module Network.AWS.IAM
     , module Network.AWS.IAM.CreateInstanceProfile
     , module Network.AWS.IAM.CreateLoginProfile
     , module Network.AWS.IAM.CreateOpenIDConnectProvider
+    , module Network.AWS.IAM.CreatePolicy
+    , module Network.AWS.IAM.CreatePolicyVersion
     , module Network.AWS.IAM.CreateRole
     , module Network.AWS.IAM.CreateSAMLProvider
     , module Network.AWS.IAM.CreateUser
@@ -38,6 +43,8 @@ module Network.AWS.IAM
     , module Network.AWS.IAM.DeleteInstanceProfile
     , module Network.AWS.IAM.DeleteLoginProfile
     , module Network.AWS.IAM.DeleteOpenIDConnectProvider
+    , module Network.AWS.IAM.DeletePolicy
+    , module Network.AWS.IAM.DeletePolicyVersion
     , module Network.AWS.IAM.DeleteRole
     , module Network.AWS.IAM.DeleteRolePolicy
     , module Network.AWS.IAM.DeleteSAMLProvider
@@ -46,6 +53,9 @@ module Network.AWS.IAM
     , module Network.AWS.IAM.DeleteUser
     , module Network.AWS.IAM.DeleteUserPolicy
     , module Network.AWS.IAM.DeleteVirtualMFADevice
+    , module Network.AWS.IAM.DetachGroupPolicy
+    , module Network.AWS.IAM.DetachRolePolicy
+    , module Network.AWS.IAM.DetachUserPolicy
     , module Network.AWS.IAM.EnableMFADevice
     , module Network.AWS.IAM.GenerateCredentialReport
     , module Network.AWS.IAM.GetAccountAuthorizationDetails
@@ -57,6 +67,8 @@ module Network.AWS.IAM
     , module Network.AWS.IAM.GetInstanceProfile
     , module Network.AWS.IAM.GetLoginProfile
     , module Network.AWS.IAM.GetOpenIDConnectProvider
+    , module Network.AWS.IAM.GetPolicy
+    , module Network.AWS.IAM.GetPolicyVersion
     , module Network.AWS.IAM.GetRole
     , module Network.AWS.IAM.GetRolePolicy
     , module Network.AWS.IAM.GetSAMLProvider
@@ -65,6 +77,10 @@ module Network.AWS.IAM
     , module Network.AWS.IAM.GetUserPolicy
     , module Network.AWS.IAM.ListAccessKeys
     , module Network.AWS.IAM.ListAccountAliases
+    , module Network.AWS.IAM.ListAttachedGroupPolicies
+    , module Network.AWS.IAM.ListAttachedRolePolicies
+    , module Network.AWS.IAM.ListAttachedUserPolicies
+    , module Network.AWS.IAM.ListEntitiesForPolicy
     , module Network.AWS.IAM.ListGroupPolicies
     , module Network.AWS.IAM.ListGroups
     , module Network.AWS.IAM.ListGroupsForUser
@@ -72,6 +88,8 @@ module Network.AWS.IAM
     , module Network.AWS.IAM.ListInstanceProfilesForRole
     , module Network.AWS.IAM.ListMFADevices
     , module Network.AWS.IAM.ListOpenIDConnectProviders
+    , module Network.AWS.IAM.ListPolicies
+    , module Network.AWS.IAM.ListPolicyVersions
     , module Network.AWS.IAM.ListRolePolicies
     , module Network.AWS.IAM.ListRoles
     , module Network.AWS.IAM.ListSAMLProviders
@@ -87,6 +105,7 @@ module Network.AWS.IAM
     , module Network.AWS.IAM.RemoveRoleFromInstanceProfile
     , module Network.AWS.IAM.RemoveUserFromGroup
     , module Network.AWS.IAM.ResyncMFADevice
+    , module Network.AWS.IAM.SetDefaultPolicyVersion
     , module Network.AWS.IAM.Types
     , module Network.AWS.IAM.UpdateAccessKey
     , module Network.AWS.IAM.UpdateAccountPasswordPolicy
@@ -105,6 +124,9 @@ module Network.AWS.IAM
 import Network.AWS.IAM.AddClientIDToOpenIDConnectProvider
 import Network.AWS.IAM.AddRoleToInstanceProfile
 import Network.AWS.IAM.AddUserToGroup
+import Network.AWS.IAM.AttachGroupPolicy
+import Network.AWS.IAM.AttachRolePolicy
+import Network.AWS.IAM.AttachUserPolicy
 import Network.AWS.IAM.ChangePassword
 import Network.AWS.IAM.CreateAccessKey
 import Network.AWS.IAM.CreateAccountAlias
@@ -112,6 +134,8 @@ import Network.AWS.IAM.CreateGroup
 import Network.AWS.IAM.CreateInstanceProfile
 import Network.AWS.IAM.CreateLoginProfile
 import Network.AWS.IAM.CreateOpenIDConnectProvider
+import Network.AWS.IAM.CreatePolicy
+import Network.AWS.IAM.CreatePolicyVersion
 import Network.AWS.IAM.CreateRole
 import Network.AWS.IAM.CreateSAMLProvider
 import Network.AWS.IAM.CreateUser
@@ -125,6 +149,8 @@ import Network.AWS.IAM.DeleteGroupPolicy
 import Network.AWS.IAM.DeleteInstanceProfile
 import Network.AWS.IAM.DeleteLoginProfile
 import Network.AWS.IAM.DeleteOpenIDConnectProvider
+import Network.AWS.IAM.DeletePolicy
+import Network.AWS.IAM.DeletePolicyVersion
 import Network.AWS.IAM.DeleteRole
 import Network.AWS.IAM.DeleteRolePolicy
 import Network.AWS.IAM.DeleteSAMLProvider
@@ -133,6 +159,9 @@ import Network.AWS.IAM.DeleteSigningCertificate
 import Network.AWS.IAM.DeleteUser
 import Network.AWS.IAM.DeleteUserPolicy
 import Network.AWS.IAM.DeleteVirtualMFADevice
+import Network.AWS.IAM.DetachGroupPolicy
+import Network.AWS.IAM.DetachRolePolicy
+import Network.AWS.IAM.DetachUserPolicy
 import Network.AWS.IAM.EnableMFADevice
 import Network.AWS.IAM.GenerateCredentialReport
 import Network.AWS.IAM.GetAccountAuthorizationDetails
@@ -144,6 +173,8 @@ import Network.AWS.IAM.GetGroupPolicy
 import Network.AWS.IAM.GetInstanceProfile
 import Network.AWS.IAM.GetLoginProfile
 import Network.AWS.IAM.GetOpenIDConnectProvider
+import Network.AWS.IAM.GetPolicy
+import Network.AWS.IAM.GetPolicyVersion
 import Network.AWS.IAM.GetRole
 import Network.AWS.IAM.GetRolePolicy
 import Network.AWS.IAM.GetSAMLProvider
@@ -152,6 +183,10 @@ import Network.AWS.IAM.GetUser
 import Network.AWS.IAM.GetUserPolicy
 import Network.AWS.IAM.ListAccessKeys
 import Network.AWS.IAM.ListAccountAliases
+import Network.AWS.IAM.ListAttachedGroupPolicies
+import Network.AWS.IAM.ListAttachedRolePolicies
+import Network.AWS.IAM.ListAttachedUserPolicies
+import Network.AWS.IAM.ListEntitiesForPolicy
 import Network.AWS.IAM.ListGroupPolicies
 import Network.AWS.IAM.ListGroups
 import Network.AWS.IAM.ListGroupsForUser
@@ -159,6 +194,8 @@ import Network.AWS.IAM.ListInstanceProfiles
 import Network.AWS.IAM.ListInstanceProfilesForRole
 import Network.AWS.IAM.ListMFADevices
 import Network.AWS.IAM.ListOpenIDConnectProviders
+import Network.AWS.IAM.ListPolicies
+import Network.AWS.IAM.ListPolicyVersions
 import Network.AWS.IAM.ListRolePolicies
 import Network.AWS.IAM.ListRoles
 import Network.AWS.IAM.ListSAMLProviders
@@ -174,6 +211,7 @@ import Network.AWS.IAM.RemoveClientIDFromOpenIDConnectProvider
 import Network.AWS.IAM.RemoveRoleFromInstanceProfile
 import Network.AWS.IAM.RemoveUserFromGroup
 import Network.AWS.IAM.ResyncMFADevice
+import Network.AWS.IAM.SetDefaultPolicyVersion
 import Network.AWS.IAM.Types
 import Network.AWS.IAM.UpdateAccessKey
 import Network.AWS.IAM.UpdateAccountPasswordPolicy

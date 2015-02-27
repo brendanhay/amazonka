@@ -56,10 +56,12 @@ library
         , Network.AWS.Route53.GetHealthCheckLastFailureReason
         , Network.AWS.Route53.GetHealthCheckStatus
         , Network.AWS.Route53.GetHostedZone
+        , Network.AWS.Route53.GetHostedZoneCount
         , Network.AWS.Route53.GetReusableDelegationSet
         , Network.AWS.Route53.ListGeoLocations
         , Network.AWS.Route53.ListHealthChecks
         , Network.AWS.Route53.ListHostedZones
+        , Network.AWS.Route53.ListHostedZonesByName
         , Network.AWS.Route53.ListResourceRecordSets
         , Network.AWS.Route53.ListReusableDelegationSets
         , Network.AWS.Route53.ListTagsForResource

@@ -50,7 +50,7 @@ module Network.AWS.ECS.RegisterContainerInstance
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.Query
+import Network.AWS.Request.JSON
 import Network.AWS.ECS.Types
 import qualified GHC.Exts
 
@@ -58,7 +58,7 @@ data RegisterContainerInstance = RegisterContainerInstance
     { _rciCluster                           :: Maybe Text
     , _rciInstanceIdentityDocument          :: Maybe Text
     , _rciInstanceIdentityDocumentSignature :: Maybe Text
-    , _rciTotalResources                    :: List "member" Resource
+    , _rciTotalResources                    :: List "totalResources" Resource
     } deriving (Eq, Read, Show)
 
 -- | 'RegisterContainerInstance' constructor.
@@ -125,22 +125,25 @@ instance ToPath RegisterContainerInstance where
     toPath = const "/"
 
 instance ToQuery RegisterContainerInstance where
-    toQuery RegisterContainerInstance{..} = mconcat
-        [ "cluster"                           =? _rciCluster
-        , "instanceIdentityDocument"          =? _rciInstanceIdentityDocument
-        , "instanceIdentityDocumentSignature" =? _rciInstanceIdentityDocumentSignature
-        , "totalResources"                    =? _rciTotalResources
-        ]
+    toQuery = const mempty
 
 instance ToHeaders RegisterContainerInstance
+
+instance ToJSON RegisterContainerInstance where
+    toJSON RegisterContainerInstance{..} = object
+        [ "cluster"                           .= _rciCluster
+        , "instanceIdentityDocument"          .= _rciInstanceIdentityDocument
+        , "instanceIdentityDocumentSignature" .= _rciInstanceIdentityDocumentSignature
+        , "totalResources"                    .= _rciTotalResources
+        ]
 
 instance AWSRequest RegisterContainerInstance where
     type Sv RegisterContainerInstance = ECS
     type Rs RegisterContainerInstance = RegisterContainerInstanceResponse
 
     request  = post "RegisterContainerInstance"
-    response = xmlResponse
+    response = jsonResponse
 
-instance FromXML RegisterContainerInstanceResponse where
-    parseXML = withElement "RegisterContainerInstanceResult" $ \x -> RegisterContainerInstanceResponse
-        <$> x .@? "containerInstance"
+instance FromJSON RegisterContainerInstanceResponse where
+    parseJSON = withObject "RegisterContainerInstanceResponse" $ \o -> RegisterContainerInstanceResponse
+        <$> o .:? "containerInstance"

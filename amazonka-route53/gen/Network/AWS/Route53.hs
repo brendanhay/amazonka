@@ -35,10 +35,12 @@ module Network.AWS.Route53
     , module Network.AWS.Route53.GetHealthCheckLastFailureReason
     , module Network.AWS.Route53.GetHealthCheckStatus
     , module Network.AWS.Route53.GetHostedZone
+    , module Network.AWS.Route53.GetHostedZoneCount
     , module Network.AWS.Route53.GetReusableDelegationSet
     , module Network.AWS.Route53.ListGeoLocations
     , module Network.AWS.Route53.ListHealthChecks
     , module Network.AWS.Route53.ListHostedZones
+    , module Network.AWS.Route53.ListHostedZonesByName
     , module Network.AWS.Route53.ListResourceRecordSets
     , module Network.AWS.Route53.ListReusableDelegationSets
     , module Network.AWS.Route53.ListTagsForResource
@@ -66,10 +68,12 @@ import Network.AWS.Route53.GetHealthCheckCount
 import Network.AWS.Route53.GetHealthCheckLastFailureReason
 import Network.AWS.Route53.GetHealthCheckStatus
 import Network.AWS.Route53.GetHostedZone
+import Network.AWS.Route53.GetHostedZoneCount
 import Network.AWS.Route53.GetReusableDelegationSet
 import Network.AWS.Route53.ListGeoLocations
 import Network.AWS.Route53.ListHealthChecks
 import Network.AWS.Route53.ListHostedZones
+import Network.AWS.Route53.ListHostedZonesByName
 import Network.AWS.Route53.ListResourceRecordSets
 import Network.AWS.Route53.ListReusableDelegationSets
 import Network.AWS.Route53.ListTagsForResource

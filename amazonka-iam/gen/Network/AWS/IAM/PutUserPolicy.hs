@@ -22,17 +22,18 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Adds (or updates) a policy document associated with the specified user. For
--- information about policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html Overview of Policies> in the /Using IAM/
--- guide.
+-- | Adds (or updates) an inline policy document that is embedded in the specified
+-- user.
 --
--- For information about limits on the number of policies you can associate
--- with a user, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities> in the /Using IAM/ guide.
+-- A user can also have a managed policy attached to it. To attach a managed
+-- policy to a user, use 'AttachUserPolicy'. To create a new managed policy, use 'CreatePolicy'. For information about policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and InlinePolicies> in the /Using IAM/ guide.
+--
+-- For information about limits on the number of inline policies that you can
+-- embed in a user, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities> in the /Using IAM/ guide.
 --
 -- Because policy documents can be large, you should use POST rather than GET
--- when calling 'PutUserPolicy'. For information about setting up signatures and
--- authorization through the API, go to <http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html Signing AWS API Requests> in the /AWSGeneral Reference/. For general information about using the Query API with
--- IAM, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html Making Query Requests> in the /Using IAM/ guide.
+-- when calling 'PutUserPolicy'. For general information about using the Query API
+-- with IAM, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html Making Query Requests> in the /Using IAM/ guide.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_PutUserPolicy.html>
 module Network.AWS.IAM.PutUserPolicy

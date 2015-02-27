@@ -844,7 +844,7 @@ tdCreationDateTime =
 --
 -- /NonKeyAttributes/ - A list of one or more non-key attribute names that
 -- are projected into the secondary index. The total count of attributes
--- specified in /NonKeyAttributes/, summed across all of the secondary indexes,
+-- provided in /NonKeyAttributes/, summed across all of the secondary indexes,
 -- must not exceed 20. If you project the same attribute into two different
 -- indexes, this counts as two distinct attributes when determining the total.
 --
@@ -904,7 +904,7 @@ tdKeySchema = lens _tdKeySchema (\s a -> s { _tdKeySchema = a }) . _List1
 --
 -- /NonKeyAttributes/ - A list of one or more non-key attribute names that
 -- are projected into the secondary index. The total count of attributes
--- specified in /NonKeyAttributes/, summed across all of the secondary indexes,
+-- provided in /NonKeyAttributes/, summed across all of the secondary indexes,
 -- must not exceed 20. If you project the same attribute into two different
 -- indexes, this counts as two distinct attributes when determining the total.
 --
@@ -941,14 +941,11 @@ tdTableSizeBytes = lens _tdTableSizeBytes (\s a -> s { _tdTableSizeBytes = a })
 
 -- | The current state of the table:
 --
--- /CREATING/ - The table is being created, as the result of a /CreateTable/
--- operation.
+-- /CREATING/ - The table is being created.
 --
--- /UPDATING/ - The table is being updated, as the result of an /UpdateTable/
--- operation.
+-- /UPDATING/ - The table is being updated.
 --
--- /DELETING/ - The table is being deleted, as the result of a /DeleteTable/
--- operation.
+-- /DELETING/ - The table is being deleted.
 --
 -- /ACTIVE/ - The table is ready for use.
 --
@@ -1030,11 +1027,10 @@ kaaConsistentRead :: Lens' KeysAndAttributes (Maybe Bool)
 kaaConsistentRead =
     lens _kaaConsistentRead (\s a -> s { _kaaConsistentRead = a })
 
--- | One or more substitution tokens for simplifying complex expressions. The
+-- | One or more substitution tokens for attribute names in an expression. The
 -- following are some use cases for using /ExpressionAttributeNames/:
 --
--- To shorten an attribute name that is very long or unwieldy in an
--- expression.
+-- To access an attribute whose name conflicts with a DynamoDB reserved word.
 --
 -- To create a placeholder for repeating occurrences of an attribute name in
 -- an expression.
@@ -1043,17 +1039,23 @@ kaaConsistentRead =
 -- misinterpreted in an expression.
 --
 -- Use the # character in an expression to dereference an attribute name. For
--- example, consider the following expression:
+-- example, consider the following attribute name:
 --
--- 'order.customerInfo.LastName = "Smith" OR order.customerInfo.LastName ="Jones"'
+-- 'Percentile'
 --
--- Now suppose that you specified the following for /ExpressionAttributeNames/:
+-- The name of this attribute conflicts with a reserved word, so it cannot be
+-- used directly in an expression. (For the complete list of reserved words, go
+-- to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html Reserved Words> in the /Amazon DynamoDB Developer Guide/). To work around
+-- this, you could specify the following for /ExpressionAttributeNames/:
 --
--- '{"#name":"order.customerInfo.LastName"}'
+-- '{"#P":"Percentile"}'
 --
--- The expression can now be simplified as follows:
+-- You could then use this substitution in an expression, as in this example:
 --
--- '#name = "Smith" OR #name = "Jones"'
+-- '#P = :val'
+--
+-- Tokens that begin with the : character are /expression attribute values/,
+-- which are placeholders for the actual value at runtime.
 --
 -- For more information on expression attribute names, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing ItemAttributes> in the /Amazon DynamoDB Developer Guide/.
 kaaExpressionAttributeNames :: Lens' KeysAndAttributes (HashMap Text Text)
@@ -1069,13 +1071,13 @@ kaaKeys = lens _kaaKeys (\s a -> s { _kaaKeys = a }) . _List1
 
 -- | A string that identifies one or more attributes to retrieve from the table.
 -- These attributes can include scalars, sets, or elements of a JSON document.
--- The attributes in the expression must be separated by commas.
+-- The attributes in the /ProjectionExpression/ must be separated by commas.
 --
 -- If no attribute names are specified, then all attributes will be returned.
 -- If any of the requested attributes are not found, they will not appear in the
 -- result.
 --
--- For more information on projection expressions, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing ItemAttributes> in the /Amazon DynamoDB Developer Guide/.
+-- For more information, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes> in the /Amazon DynamoDBDeveloper Guide/.
 kaaProjectionExpression :: Lens' KeysAndAttributes (Maybe Text)
 kaaProjectionExpression =
     lens _kaaProjectionExpression (\s a -> s { _kaaProjectionExpression = a })
@@ -1293,7 +1295,7 @@ expectedAttributeValue = ExpectedAttributeValue
 -- greater than 'B'. For a list of code values, see <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>.
 --
 -- For Binary, DynamoDB treats each byte of the binary data as unsigned when it
--- compares binary values, for example when evaluating query expressions.
+-- compares binary values.
 --
 -- For information on specifying data types in JSON, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataFormat.html JSON Data Format> in
 -- the /Amazon DynamoDB Developer Guide/.
@@ -1315,7 +1317,7 @@ eavAttributeValueList =
 --
 -- /AttributeValueList/ can contain only one /AttributeValue/ element of type
 -- String, Number, Binary, String Set, Number Set, or Binary Set. If an item
--- contains an /AttributeValue/ element of a different type than the one specified
+-- contains an /AttributeValue/ element of a different type than the one provided
 -- in the request, the value does not match. For example, '{"S":"6"}' does not
 -- equal '{"N":"6"}'. Also, '{"N":"6"}' does not equal '{"NS":["6", "2", "1"]}'.
 --
@@ -1325,7 +1327,7 @@ eavAttributeValueList =
 -- maps.
 --
 -- /AttributeValueList/ can contain only one /AttributeValue/ of type String,
--- Number, Binary, String Set, Number Set, or Binary Set. If an item contains an /AttributeValue/ of a different type than the one specified in the request, the
+-- Number, Binary, String Set, Number Set, or Binary Set. If an item contains an /AttributeValue/ of a different type than the one provided in the request, the
 -- value does not match. For example, '{"S":"6"}' does not equal '{"N":"6"}'. Also, '{"N":"6"}' does not equal '{"NS":["6", "2", "1"]}'.
 --
 --
@@ -1333,7 +1335,7 @@ eavAttributeValueList =
 -- 'LE' : Less than or equal.
 --
 -- /AttributeValueList/ can contain only one /AttributeValue/ element of type
--- String, Number, or Binary (not a set type). If an item contains an /AttributeValue/ element of a different type than the one specified in the request, the value
+-- String, Number, or Binary (not a set type). If an item contains an /AttributeValue/ element of a different type than the one provided in the request, the value
 -- does not match. For example, '{"S":"6"}' does not equal '{"N":"6"}'. Also, '{"N":"6"}' does not compare to '{"NS":["6", "2", "1"]}'.
 --
 --
@@ -1342,7 +1344,7 @@ eavAttributeValueList =
 --
 -- /AttributeValueList/ can contain only one /AttributeValue/ of type String,
 -- Number, or Binary (not a set type). If an item contains an /AttributeValue/
--- element of a different type than the one specified in the request, the value
+-- element of a different type than the one provided in the request, the value
 -- does not match. For example, '{"S":"6"}' does not equal '{"N":"6"}'. Also, '{"N":"6"}' does not compare to '{"NS":["6", "2", "1"]}'.
 --
 --
@@ -1350,7 +1352,7 @@ eavAttributeValueList =
 -- 'GE' : Greater than or equal.
 --
 -- /AttributeValueList/ can contain only one /AttributeValue/ element of type
--- String, Number, or Binary (not a set type). If an item contains an /AttributeValue/ element of a different type than the one specified in the request, the value
+-- String, Number, or Binary (not a set type). If an item contains an /AttributeValue/ element of a different type than the one provided in the request, the value
 -- does not match. For example, '{"S":"6"}' does not equal '{"N":"6"}'. Also, '{"N":"6"}' does not compare to '{"NS":["6", "2", "1"]}'.
 --
 --
@@ -1358,7 +1360,7 @@ eavAttributeValueList =
 -- 'GT' : Greater than.
 --
 -- /AttributeValueList/ can contain only one /AttributeValue/ element of type
--- String, Number, or Binary (not a set type). If an item contains an /AttributeValue/ element of a different type than the one specified in the request, the value
+-- String, Number, or Binary (not a set type). If an item contains an /AttributeValue/ element of a different type than the one provided in the request, the value
 -- does not match. For example, '{"S":"6"}' does not equal '{"N":"6"}'. Also, '{"N":"6"}' does not compare to '{"NS":["6", "2", "1"]}'.
 --
 --
@@ -1428,7 +1430,7 @@ eavAttributeValueList =
 -- /AttributeValueList/ must contain two /AttributeValue/ elements of the same
 -- type, either String, Number, or Binary (not a set type). A target attribute
 -- matches if the target value is greater than, or equal to, the first element
--- and less than, or equal to, the second element. If an item contains an /AttributeValue/ element of a different type than the one specified in the request, the value
+-- and less than, or equal to, the second element. If an item contains an /AttributeValue/ element of a different type than the one provided in the request, the value
 -- does not match. For example, '{"S":"6"}' does not compare to '{"N":"6"}'. Also, '{"N":"6"}' does not compare to '{"NS":["6", "2", "1"]}'
 --
 --
@@ -1457,7 +1459,7 @@ eavComparisonOperator =
 -- /Exists/ is 'true' but there is no /Value/ to check. (You expect a value to
 -- exist, but don't specify what that value is.)
 --
--- /Exists/ is 'false' but you also specify a /Value/. (You cannot expect an
+-- /Exists/ is 'false' but you also provide a /Value/. (You cannot expect an
 -- attribute to have a value, while also expecting it not to exist.)
 --
 --
@@ -1744,11 +1746,11 @@ gsidIndexSizeBytes =
 
 -- | The current state of the global secondary index:
 --
--- /CREATING/ - The index is being created, as the result of a /CreateTable/ or /UpdateTable/ operation.
+-- /CREATING/ - The index is being created.
 --
--- /UPDATING/ - The index is being updated, as the result of a /CreateTable/ or /UpdateTable/ operation.
+-- /UPDATING/ - The index is being updated.
 --
--- /DELETING/ - The index is being deleted, as the result of an /UpdateTable/ or /DeleteTable/ operation.
+-- /DELETING/ - The index is being deleted.
 --
 -- /ACTIVE/ - The index is ready for use.
 --
@@ -2509,7 +2511,7 @@ condition p1 = Condition
 -- greater than 'B'. For a list of code values, see <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>.
 --
 -- For Binary, DynamoDB treats each byte of the binary data as unsigned when it
--- compares binary values, for example when evaluating query expressions.
+-- compares binary values.
 cAttributeValueList :: Lens' Condition [AttributeValue]
 cAttributeValueList =
     lens _cAttributeValueList (\s a -> s { _cAttributeValueList = a })
@@ -2528,7 +2530,7 @@ cAttributeValueList =
 --
 -- /AttributeValueList/ can contain only one /AttributeValue/ element of type
 -- String, Number, Binary, String Set, Number Set, or Binary Set. If an item
--- contains an /AttributeValue/ element of a different type than the one specified
+-- contains an /AttributeValue/ element of a different type than the one provided
 -- in the request, the value does not match. For example, '{"S":"6"}' does not
 -- equal '{"N":"6"}'. Also, '{"N":"6"}' does not equal '{"NS":["6", "2", "1"]}'.
 --
@@ -2538,7 +2540,7 @@ cAttributeValueList =
 -- maps.
 --
 -- /AttributeValueList/ can contain only one /AttributeValue/ of type String,
--- Number, Binary, String Set, Number Set, or Binary Set. If an item contains an /AttributeValue/ of a different type than the one specified in the request, the
+-- Number, Binary, String Set, Number Set, or Binary Set. If an item contains an /AttributeValue/ of a different type than the one provided in the request, the
 -- value does not match. For example, '{"S":"6"}' does not equal '{"N":"6"}'. Also, '{"N":"6"}' does not equal '{"NS":["6", "2", "1"]}'.
 --
 --
@@ -2546,7 +2548,7 @@ cAttributeValueList =
 -- 'LE' : Less than or equal.
 --
 -- /AttributeValueList/ can contain only one /AttributeValue/ element of type
--- String, Number, or Binary (not a set type). If an item contains an /AttributeValue/ element of a different type than the one specified in the request, the value
+-- String, Number, or Binary (not a set type). If an item contains an /AttributeValue/ element of a different type than the one provided in the request, the value
 -- does not match. For example, '{"S":"6"}' does not equal '{"N":"6"}'. Also, '{"N":"6"}' does not compare to '{"NS":["6", "2", "1"]}'.
 --
 --
@@ -2555,7 +2557,7 @@ cAttributeValueList =
 --
 -- /AttributeValueList/ can contain only one /AttributeValue/ of type String,
 -- Number, or Binary (not a set type). If an item contains an /AttributeValue/
--- element of a different type than the one specified in the request, the value
+-- element of a different type than the one provided in the request, the value
 -- does not match. For example, '{"S":"6"}' does not equal '{"N":"6"}'. Also, '{"N":"6"}' does not compare to '{"NS":["6", "2", "1"]}'.
 --
 --
@@ -2563,7 +2565,7 @@ cAttributeValueList =
 -- 'GE' : Greater than or equal.
 --
 -- /AttributeValueList/ can contain only one /AttributeValue/ element of type
--- String, Number, or Binary (not a set type). If an item contains an /AttributeValue/ element of a different type than the one specified in the request, the value
+-- String, Number, or Binary (not a set type). If an item contains an /AttributeValue/ element of a different type than the one provided in the request, the value
 -- does not match. For example, '{"S":"6"}' does not equal '{"N":"6"}'. Also, '{"N":"6"}' does not compare to '{"NS":["6", "2", "1"]}'.
 --
 --
@@ -2571,7 +2573,7 @@ cAttributeValueList =
 -- 'GT' : Greater than.
 --
 -- /AttributeValueList/ can contain only one /AttributeValue/ element of type
--- String, Number, or Binary (not a set type). If an item contains an /AttributeValue/ element of a different type than the one specified in the request, the value
+-- String, Number, or Binary (not a set type). If an item contains an /AttributeValue/ element of a different type than the one provided in the request, the value
 -- does not match. For example, '{"S":"6"}' does not equal '{"N":"6"}'. Also, '{"N":"6"}' does not compare to '{"NS":["6", "2", "1"]}'.
 --
 --
@@ -2641,7 +2643,7 @@ cAttributeValueList =
 -- /AttributeValueList/ must contain two /AttributeValue/ elements of the same
 -- type, either String, Number, or Binary (not a set type). A target attribute
 -- matches if the target value is greater than, or equal to, the first element
--- and less than, or equal to, the second element. If an item contains an /AttributeValue/ element of a different type than the one specified in the request, the value
+-- and less than, or equal to, the second element. If an item contains an /AttributeValue/ element of a different type than the one provided in the request, the value
 -- does not match. For example, '{"S":"6"}' does not compare to '{"N":"6"}'. Also, '{"N":"6"}' does not compare to '{"NS":["6", "2", "1"]}'
 --
 -- For usage examples of /AttributeValueList/ and /ComparisonOperator/, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html Legacy Conditional Parameters> in the /Amazon DynamoDB Developer Guide/.

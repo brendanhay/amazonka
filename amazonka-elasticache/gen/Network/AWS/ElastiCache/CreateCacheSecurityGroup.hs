@@ -22,8 +22,8 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | The /CreateCacheSecurityGroup/ operation creates a new cache security group.
--- Use a cache security group to control access to one or more cache clusters.
+-- | The /CreateCacheSecurityGroup/ action creates a new cache security group. Use a
+-- cache security group to control access to one or more cache clusters.
 --
 -- Cache security groups are only used when you are creating a cache cluster
 -- outside of an Amazon Virtual Private Cloud (VPC). If you are creating a cache

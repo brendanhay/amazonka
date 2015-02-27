@@ -48,7 +48,7 @@ module Network.AWS.ECS.CreateCluster
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.Query
+import Network.AWS.Request.JSON
 import Network.AWS.ECS.Types
 import qualified GHC.Exts
 
@@ -95,19 +95,22 @@ instance ToPath CreateCluster where
     toPath = const "/"
 
 instance ToQuery CreateCluster where
-    toQuery CreateCluster{..} = mconcat
-        [ "clusterName" =? _ccClusterName
-        ]
+    toQuery = const mempty
 
 instance ToHeaders CreateCluster
+
+instance ToJSON CreateCluster where
+    toJSON CreateCluster{..} = object
+        [ "clusterName" .= _ccClusterName
+        ]
 
 instance AWSRequest CreateCluster where
     type Sv CreateCluster = ECS
     type Rs CreateCluster = CreateClusterResponse
 
     request  = post "CreateCluster"
-    response = xmlResponse
+    response = jsonResponse
 
-instance FromXML CreateClusterResponse where
-    parseXML = withElement "CreateClusterResult" $ \x -> CreateClusterResponse
-        <$> x .@? "cluster"
+instance FromJSON CreateClusterResponse where
+    parseJSON = withObject "CreateClusterResponse" $ \o -> CreateClusterResponse
+        <$> o .:? "cluster"

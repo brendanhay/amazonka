@@ -44,7 +44,7 @@ module Network.AWS.ECS.StopTask
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.Query
+import Network.AWS.Request.JSON
 import Network.AWS.ECS.Types
 import qualified GHC.Exts
 
@@ -101,20 +101,23 @@ instance ToPath StopTask where
     toPath = const "/"
 
 instance ToQuery StopTask where
-    toQuery StopTask{..} = mconcat
-        [ "cluster" =? _stCluster
-        , "task"    =? _stTask
-        ]
+    toQuery = const mempty
 
 instance ToHeaders StopTask
+
+instance ToJSON StopTask where
+    toJSON StopTask{..} = object
+        [ "cluster" .= _stCluster
+        , "task"    .= _stTask
+        ]
 
 instance AWSRequest StopTask where
     type Sv StopTask = ECS
     type Rs StopTask = StopTaskResponse
 
     request  = post "StopTask"
-    response = xmlResponse
+    response = jsonResponse
 
-instance FromXML StopTaskResponse where
-    parseXML = withElement "StopTaskResult" $ \x -> StopTaskResponse
-        <$> x .@? "task"
+instance FromJSON StopTaskResponse where
+    parseJSON = withObject "StopTaskResponse" $ \o -> StopTaskResponse
+        <$> o .:? "task"

@@ -22,8 +22,8 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | The /DescribeCacheParameters/ operation returns the detailed parameter list for
--- a particular cache parameter group.
+-- | The /DescribeCacheParameters/ action returns the detailed parameter list for a
+-- particular cache parameter group.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheParameters.html>
 module Network.AWS.ElastiCache.DescribeCacheParameters
@@ -88,9 +88,9 @@ dcpCacheParameterGroupName =
         (\s a -> s { _dcpCacheParameterGroupName = a })
 
 -- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this operation. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by /MaxRecords/.
+-- pagination of results from this action. If this parameter is specified, the
+-- response includes only records beyond the marker, up to the value specified
+-- by /MaxRecords/.
 dcpMarker :: Lens' DescribeCacheParameters (Maybe Text)
 dcpMarker = lens _dcpMarker (\s a -> s { _dcpMarker = a })
 

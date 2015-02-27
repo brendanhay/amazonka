@@ -49,13 +49,13 @@ module Network.AWS.ECS.StartTask
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.Query
+import Network.AWS.Request.JSON
 import Network.AWS.ECS.Types
 import qualified GHC.Exts
 
 data StartTask = StartTask
     { _st1Cluster            :: Maybe Text
-    , _st1ContainerInstances :: List "member" Text
+    , _st1ContainerInstances :: List "containerInstances" Text
     , _st1Overrides          :: Maybe TaskOverride
     , _st1TaskDefinition     :: Text
     } deriving (Eq, Read, Show)
@@ -104,8 +104,8 @@ st1TaskDefinition =
     lens _st1TaskDefinition (\s a -> s { _st1TaskDefinition = a })
 
 data StartTaskResponse = StartTaskResponse
-    { _strFailures :: List "member" Failure
-    , _strTasks    :: List "member" Task
+    { _strFailures :: List "failures" Failure
+    , _strTasks    :: List "tasks" Task
     } deriving (Eq, Read, Show)
 
 -- | 'StartTaskResponse' constructor.
@@ -135,23 +135,26 @@ instance ToPath StartTask where
     toPath = const "/"
 
 instance ToQuery StartTask where
-    toQuery StartTask{..} = mconcat
-        [ "cluster"            =? _st1Cluster
-        , "containerInstances" =? _st1ContainerInstances
-        , "overrides"          =? _st1Overrides
-        , "taskDefinition"     =? _st1TaskDefinition
-        ]
+    toQuery = const mempty
 
 instance ToHeaders StartTask
+
+instance ToJSON StartTask where
+    toJSON StartTask{..} = object
+        [ "cluster"            .= _st1Cluster
+        , "taskDefinition"     .= _st1TaskDefinition
+        , "overrides"          .= _st1Overrides
+        , "containerInstances" .= _st1ContainerInstances
+        ]
 
 instance AWSRequest StartTask where
     type Sv StartTask = ECS
     type Rs StartTask = StartTaskResponse
 
     request  = post "StartTask"
-    response = xmlResponse
+    response = jsonResponse
 
-instance FromXML StartTaskResponse where
-    parseXML = withElement "StartTaskResult" $ \x -> StartTaskResponse
-        <$> x .@? "failures" .!@ mempty
-        <*> x .@? "tasks" .!@ mempty
+instance FromJSON StartTaskResponse where
+    parseJSON = withObject "StartTaskResponse" $ \o -> StartTaskResponse
+        <$> o .:? "failures" .!= mempty
+        <*> o .:? "tasks" .!= mempty

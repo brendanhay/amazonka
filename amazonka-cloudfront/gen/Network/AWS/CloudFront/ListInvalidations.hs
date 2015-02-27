@@ -114,7 +114,7 @@ lirInvalidationList =
 
 instance ToPath ListInvalidations where
     toPath ListInvalidations{..} = mconcat
-        [ "/2014-10-21/distribution/"
+        [ "/2014-11-06/distribution/"
         , toText _liDistributionId
         , "/invalidation"
         ]

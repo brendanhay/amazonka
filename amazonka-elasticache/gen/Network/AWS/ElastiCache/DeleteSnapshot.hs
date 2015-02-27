@@ -22,9 +22,9 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | The /DeleteSnapshot/ operation deletes an existing snapshot. When you receive a
--- successful response from this operation, ElastiCache immediately begins
--- deleting the snapshot; you cannot cancel or revert this operation.
+-- | The /DeleteSnapshot/ action deletes an existing snapshot. When you receive a
+-- successful response from this action, ElastiCache immediately begins deleting
+-- the snapshot; you cannot cancel or revert this action.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteSnapshot.html>
 module Network.AWS.ElastiCache.DeleteSnapshot

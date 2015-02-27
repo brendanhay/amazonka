@@ -34,6 +34,7 @@ library
     exposed-modules:
           Network.AWS.Route53Domains
         , Network.AWS.Route53Domains.CheckDomainAvailability
+        , Network.AWS.Route53Domains.DeleteTagsForDomain
         , Network.AWS.Route53Domains.DisableDomainAutoRenew
         , Network.AWS.Route53Domains.DisableDomainTransferLock
         , Network.AWS.Route53Domains.EnableDomainAutoRenew
@@ -42,6 +43,7 @@ library
         , Network.AWS.Route53Domains.GetOperationDetail
         , Network.AWS.Route53Domains.ListDomains
         , Network.AWS.Route53Domains.ListOperations
+        , Network.AWS.Route53Domains.ListTagsForDomain
         , Network.AWS.Route53Domains.RegisterDomain
         , Network.AWS.Route53Domains.RetrieveDomainAuthCode
         , Network.AWS.Route53Domains.TransferDomain
@@ -49,6 +51,7 @@ library
         , Network.AWS.Route53Domains.UpdateDomainContact
         , Network.AWS.Route53Domains.UpdateDomainContactPrivacy
         , Network.AWS.Route53Domains.UpdateDomainNameservers
+        , Network.AWS.Route53Domains.UpdateTagsForDomain
 
     other-modules:
 

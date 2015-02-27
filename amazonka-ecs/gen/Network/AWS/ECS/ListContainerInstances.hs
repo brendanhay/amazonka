@@ -46,7 +46,7 @@ module Network.AWS.ECS.ListContainerInstances
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.Query
+import Network.AWS.Request.JSON
 import Network.AWS.ECS.Types
 import qualified GHC.Exts
 
@@ -98,7 +98,7 @@ lciNextToken :: Lens' ListContainerInstances (Maybe Text)
 lciNextToken = lens _lciNextToken (\s a -> s { _lciNextToken = a })
 
 data ListContainerInstancesResponse = ListContainerInstancesResponse
-    { _lcirContainerInstanceArns :: List "member" Text
+    { _lcirContainerInstanceArns :: List "containerInstanceArns" Text
     , _lcirNextToken             :: Maybe Text
     } deriving (Eq, Ord, Read, Show)
 
@@ -135,22 +135,25 @@ instance ToPath ListContainerInstances where
     toPath = const "/"
 
 instance ToQuery ListContainerInstances where
-    toQuery ListContainerInstances{..} = mconcat
-        [ "cluster"    =? _lciCluster
-        , "maxResults" =? _lciMaxResults
-        , "nextToken"  =? _lciNextToken
-        ]
+    toQuery = const mempty
 
 instance ToHeaders ListContainerInstances
+
+instance ToJSON ListContainerInstances where
+    toJSON ListContainerInstances{..} = object
+        [ "cluster"    .= _lciCluster
+        , "nextToken"  .= _lciNextToken
+        , "maxResults" .= _lciMaxResults
+        ]
 
 instance AWSRequest ListContainerInstances where
     type Sv ListContainerInstances = ECS
     type Rs ListContainerInstances = ListContainerInstancesResponse
 
     request  = post "ListContainerInstances"
-    response = xmlResponse
+    response = jsonResponse
 
-instance FromXML ListContainerInstancesResponse where
-    parseXML = withElement "ListContainerInstancesResult" $ \x -> ListContainerInstancesResponse
-        <$> x .@? "containerInstanceArns" .!@ mempty
-        <*> x .@? "nextToken"
+instance FromJSON ListContainerInstancesResponse where
+    parseJSON = withObject "ListContainerInstancesResponse" $ \o -> ListContainerInstancesResponse
+        <$> o .:? "containerInstanceArns" .!= mempty
+        <*> o .:? "nextToken"

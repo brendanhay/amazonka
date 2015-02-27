@@ -162,3 +162,9 @@ instance FromJSON ListDomainsResponse where
     parseJSON = withObject "ListDomainsResponse" $ \o -> ListDomainsResponse
         <$> o .:? "Domains" .!= mempty
         <*> o .:? "NextPageMarker"
+
+instance AWSPager ListDomains where
+    page rq rs
+        | stop (rs ^. ldrNextPageMarker) = Nothing
+        | otherwise = (\x -> rq & ldMarker ?~ x)
+            <$> (rs ^. ldrNextPageMarker)

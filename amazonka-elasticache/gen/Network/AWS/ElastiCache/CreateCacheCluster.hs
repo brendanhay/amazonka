@@ -22,8 +22,8 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | The /CreateCacheCluster/ operation creates a cache cluster. All nodes in the
--- cache cluster run the same protocol-compliant cache engine software, either
+-- | The /CreateCacheCluster/ action creates a cache cluster. All nodes in the cache
+-- cluster run the same protocol-compliant cache engine software, either
 -- Memcached or Redis.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheCluster.html>
@@ -55,6 +55,7 @@ module Network.AWS.ElastiCache.CreateCacheCluster
     , cccSnapshotName
     , cccSnapshotRetentionLimit
     , cccSnapshotWindow
+    , cccTags
 
     -- * Response
     , CreateCacheClusterResponse
@@ -91,6 +92,7 @@ data CreateCacheCluster = CreateCacheCluster
     , _cccSnapshotName               :: Maybe Text
     , _cccSnapshotRetentionLimit     :: Maybe Int
     , _cccSnapshotWindow             :: Maybe Text
+    , _cccTags                       :: List "member" Tag
     } deriving (Eq, Read, Show)
 
 -- | 'CreateCacheCluster' constructor.
@@ -139,6 +141,8 @@ data CreateCacheCluster = CreateCacheCluster
 --
 -- * 'cccSnapshotWindow' @::@ 'Maybe' 'Text'
 --
+-- * 'cccTags' @::@ ['Tag']
+--
 createCacheCluster :: Text -- ^ 'cccCacheClusterId'
                    -> CreateCacheCluster
 createCacheCluster p1 = CreateCacheCluster
@@ -155,6 +159,7 @@ createCacheCluster p1 = CreateCacheCluster
     , _cccCacheSubnetGroupName       = Nothing
     , _cccCacheSecurityGroupNames    = mempty
     , _cccSecurityGroupIds           = mempty
+    , _cccTags                       = mempty
     , _cccSnapshotArns               = mempty
     , _cccSnapshotName               = Nothing
     , _cccPreferredMaintenanceWindow = Nothing
@@ -176,11 +181,7 @@ createCacheCluster p1 = CreateCacheCluster
 cccAZMode :: Lens' CreateCacheCluster (Maybe AZMode)
 cccAZMode = lens _cccAZMode (\s a -> s { _cccAZMode = a })
 
--- | Determines whether minor engine upgrades will be applied automatically to the
--- node group during the maintenance window. A value of 'true' allows these
--- upgrades to occur; 'false' disables automatic upgrades.
---
--- Default: 'true'
+-- | This parameter is currently disabled.
 cccAutoMinorVersionUpgrade :: Lens' CreateCacheCluster (Maybe Bool)
 cccAutoMinorVersionUpgrade =
     lens _cccAutoMinorVersionUpgrade
@@ -248,23 +249,25 @@ cccEngine = lens _cccEngine (\s a -> s { _cccEngine = a })
 
 -- | The version number of the cache engine to be used for this cache cluster. To
 -- view the supported cache engine versions, use the /DescribeCacheEngineVersions/
--- operation.
+-- action.
 cccEngineVersion :: Lens' CreateCacheCluster (Maybe Text)
 cccEngineVersion = lens _cccEngineVersion (\s a -> s { _cccEngineVersion = a })
 
 -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
 -- (SNS) topic to which notifications will be sent.
+--
+-- The Amazon SNS topic owner must be the same as the cache cluster owner.
 cccNotificationTopicArn :: Lens' CreateCacheCluster (Maybe Text)
 cccNotificationTopicArn =
     lens _cccNotificationTopicArn (\s a -> s { _cccNotificationTopicArn = a })
 
 -- | The initial number of cache nodes that the cache cluster will have.
 --
--- For Memcached, valid values are between 1 and 20. If you need to exceed this
--- limit, please fill out the ElastiCache Limit Increase Request form at <http://aws.amazon.com/contact-us/elasticache-node-limit-request/ http://aws.amazon.com/contact-us/elasticache-node-limit-request/>.
+-- For clusters running Redis, this value must be 1. For clusters running
+-- Memcached, this value must be between 1 and 50.
 --
--- For Redis, only single-node cache cluster are supported at this time, so the
--- value for this parameter must be 1.
+-- If you need more than 50 nodes for your Memcached cluster, please fill out
+-- the ElastiCache Limit Increase Request form at <http://aws.amazon.com/contact-us/elasticache-node-limit-request/ http://aws.amazon.com/contact-us/elasticache-node-limit-request/>.
 cccNumCacheNodes :: Lens' CreateCacheCluster (Maybe Int)
 cccNumCacheNodes = lens _cccNumCacheNodes (\s a -> s { _cccNumCacheNodes = a })
 
@@ -289,13 +292,20 @@ cccPreferredAvailabilityZone =
 --
 -- This option is only supported on Memcached.
 --
+-- If you are creating your cache cluster in an Amazon VPC (recommended) you
+-- can only locate nodes in Availability Zones that are associated with the
+-- subnets in the selected subnet group.
+--
+-- The number of Availability Zones listed must equal the value of 'NumCacheNodes'
+-- .
+--
 -- If you want all the nodes in the same Availability Zone, use 'PreferredAvailabilityZone' instead, or repeat the Availability Zone multiple times in the list.
 --
 -- Default: System chosen Availability Zones.
 --
--- Example: One Memcached node in each of three different Availability Zones: 'PreferredAvailabilityZones.member.1=us-east-1a&PreferredAvailabilityZones.member.2=us-east-1b&PreferredAvailabilityZones.member.3=us-east-1d'
+-- Example: One Memcached node in each of three different Availability Zones: 'PreferredAvailabilityZones.member.1=us-west-2a&PreferredAvailabilityZones.member.2=us-west-2b&PreferredAvailabilityZones.member.3=us-west-2c'
 --
--- Example: All three Memcached nodes in one Availability Zone: 'PreferredAvailabilityZones.member.1=us-east-1a&PreferredAvailabilityZones.member.2=us-east-1a&PreferredAvailabilityZones.member.3=us-east-1a'
+-- Example: All three Memcached nodes in one Availability Zone: 'PreferredAvailabilityZones.member.1=us-west-2a&PreferredAvailabilityZones.member.2=us-west-2a&PreferredAvailabilityZones.member.3=us-west-2a'
 cccPreferredAvailabilityZones :: Lens' CreateCacheCluster [Text]
 cccPreferredAvailabilityZones =
     lens _cccPreferredAvailabilityZones
@@ -315,10 +325,9 @@ cccPreferredMaintenanceWindow =
 -- replication group as a read replica; otherwise, the cache cluster will be a
 -- standalone primary that is not part of any replication group.
 --
--- If the specified replication group is Automatic Failover enabled and the
--- availability zone is not specified, the cache cluster will be created in
--- availability zones that provide the best spread of read replicas across
--- availability zones.
+-- If the specified replication group is Multi-AZ enabled and the availability
+-- zone is not specified, the cache cluster will be created in availability
+-- zones that provide the best spread of read replicas across availability zones.
 --
 -- Note: This parameter is only valid if the 'Engine' parameter is 'redis'.
 cccReplicationGroupId :: Lens' CreateCacheCluster (Maybe Text)
@@ -379,6 +388,11 @@ cccSnapshotWindow :: Lens' CreateCacheCluster (Maybe Text)
 cccSnapshotWindow =
     lens _cccSnapshotWindow (\s a -> s { _cccSnapshotWindow = a })
 
+-- | A list of cost allocation tags to be added to this resource. A tag is a
+-- key-value pair. A tag key must be accompanied by a tag value.
+cccTags :: Lens' CreateCacheCluster [Tag]
+cccTags = lens _cccTags (\s a -> s { _cccTags = a }) . _List
+
 newtype CreateCacheClusterResponse = CreateCacheClusterResponse
     { _cccrCacheCluster :: Maybe CacheCluster
     } deriving (Eq, Read, Show)
@@ -423,6 +437,7 @@ instance ToQuery CreateCacheCluster where
         , "SnapshotName"               =? _cccSnapshotName
         , "SnapshotRetentionLimit"     =? _cccSnapshotRetentionLimit
         , "SnapshotWindow"             =? _cccSnapshotWindow
+        , "Tags"                       =? _cccTags
         ]
 
 instance ToHeaders CreateCacheCluster

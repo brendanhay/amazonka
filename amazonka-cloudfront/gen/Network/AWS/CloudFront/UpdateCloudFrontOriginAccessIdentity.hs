@@ -121,7 +121,7 @@ ucfoairETag = lens _ucfoairETag (\s a -> s { _ucfoairETag = a })
 
 instance ToPath UpdateCloudFrontOriginAccessIdentity where
     toPath UpdateCloudFrontOriginAccessIdentity{..} = mconcat
-        [ "/2014-10-21/origin-access-identity/cloudfront/"
+        [ "/2014-11-06/origin-access-identity/cloudfront/"
         , toText _ucfoaiId
         , "/config"
         ]

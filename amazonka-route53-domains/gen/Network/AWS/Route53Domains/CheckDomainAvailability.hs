@@ -107,6 +107,8 @@ checkDomainAvailabilityResponse p1 = CheckDomainAvailabilityResponse
 
 -- | Whether the domain name is available for registering.
 --
+-- You can only register domains designated as 'AVAILABLE'.
+--
 -- Type: String
 --
 -- Valid values:

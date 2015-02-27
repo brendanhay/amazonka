@@ -22,7 +22,7 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | The /DescribeEvents/ operation returns events related to cache clusters, cache
+-- | The /DescribeEvents/ action returns events related to cache clusters, cache
 -- security groups, and cache parameter groups. You can obtain events specific
 -- to a particular cache cluster, cache security group, or cache parameter group
 -- by providing the name as a parameter.
@@ -109,9 +109,9 @@ deEndTime :: Lens' DescribeEvents (Maybe UTCTime)
 deEndTime = lens _deEndTime (\s a -> s { _deEndTime = a }) . mapping _Time
 
 -- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this operation. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by /MaxRecords/.
+-- pagination of results from this action. If this parameter is specified, the
+-- response includes only records beyond the marker, up to the value specified
+-- by /MaxRecords/.
 deMarker :: Lens' DescribeEvents (Maybe Text)
 deMarker = lens _deMarker (\s a -> s { _deMarker = a })
 

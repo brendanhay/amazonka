@@ -32,6 +32,11 @@ module Network.AWS.IAM.Types
     -- ** XML
     , ns
 
+    -- * PolicyRole
+    , PolicyRole
+    , policyRole
+    , prRoleName
+
     -- * AssignmentStatusType
     , AssignmentStatusType (..)
 
@@ -58,12 +63,26 @@ module Network.AWS.IAM.Types
     , gGroupName
     , gPath
 
+    -- * AttachedPolicy
+    , AttachedPolicy
+    , attachedPolicy
+    , apPolicyArn
+    , apPolicyName
+
     -- * MFADevice
     , MFADevice
     , mfadevice
     , mfadEnableDate
     , mfadSerialNumber
     , mfadUserName
+
+    -- * PolicyVersion
+    , PolicyVersion
+    , policyVersion
+    , pvCreateDate
+    , pvDocument
+    , pvIsDefaultVersion
+    , pvVersionId
 
     -- * InstanceProfile
     , InstanceProfile
@@ -167,6 +186,14 @@ module Network.AWS.IAM.Types
     , rRoleId
     , rRoleName
 
+    -- * PolicyGroup
+    , PolicyGroup
+    , policyGroup
+    , pgGroupName
+
+    -- * PolicyScopeType
+    , PolicyScopeType (..)
+
     -- * UserDetail
     , UserDetail
     , userDetail
@@ -177,6 +204,20 @@ module Network.AWS.IAM.Types
     , udUserId
     , udUserName
     , udUserPolicyList
+
+    -- * Policy
+    , Policy
+    , policy
+    , pArn
+    , pAttachmentCount
+    , pCreateDate
+    , pDefaultVersionId
+    , pDescription
+    , pIsAttachable
+    , pPath
+    , pPolicyId
+    , pPolicyName
+    , pUpdateDate
 
     -- * ServerCertificate
     , ServerCertificate
@@ -219,6 +260,11 @@ module Network.AWS.IAM.Types
     , akmCreateDate
     , akmStatus
     , akmUserName
+
+    -- * PolicyUser
+    , PolicyUser
+    , policyUser
+    , puUserName
     ) where
 
 import Network.AWS.Prelude
@@ -270,6 +316,34 @@ instance AWSService IAM where
 ns :: Text
 ns = "https://iam.amazonaws.com/doc/2010-05-08/"
 {-# INLINE ns #-}
+
+newtype PolicyRole = PolicyRole
+    { _prRoleName :: Maybe Text
+    } deriving (Eq, Ord, Read, Show, Monoid)
+
+-- | 'PolicyRole' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'prRoleName' @::@ 'Maybe' 'Text'
+--
+policyRole :: PolicyRole
+policyRole = PolicyRole
+    { _prRoleName = Nothing
+    }
+
+-- | The name (friendly name, not ARN) identifying the role.
+prRoleName :: Lens' PolicyRole (Maybe Text)
+prRoleName = lens _prRoleName (\s a -> s { _prRoleName = a })
+
+instance FromXML PolicyRole where
+    parseXML x = PolicyRole
+        <$> x .@? "RoleName"
+
+instance ToQuery PolicyRole where
+    toQuery PolicyRole{..} = mconcat
+        [ "RoleName" =? _prRoleName
+        ]
 
 data AssignmentStatusType
     = Any        -- ^ Any
@@ -509,6 +583,43 @@ instance ToQuery Group where
         , "Path"       =? _gPath
         ]
 
+data AttachedPolicy = AttachedPolicy
+    { _apPolicyArn  :: Maybe Text
+    , _apPolicyName :: Maybe Text
+    } deriving (Eq, Ord, Read, Show)
+
+-- | 'AttachedPolicy' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'apPolicyArn' @::@ 'Maybe' 'Text'
+--
+-- * 'apPolicyName' @::@ 'Maybe' 'Text'
+--
+attachedPolicy :: AttachedPolicy
+attachedPolicy = AttachedPolicy
+    { _apPolicyName = Nothing
+    , _apPolicyArn  = Nothing
+    }
+
+apPolicyArn :: Lens' AttachedPolicy (Maybe Text)
+apPolicyArn = lens _apPolicyArn (\s a -> s { _apPolicyArn = a })
+
+-- | The friendly name of the attached policy.
+apPolicyName :: Lens' AttachedPolicy (Maybe Text)
+apPolicyName = lens _apPolicyName (\s a -> s { _apPolicyName = a })
+
+instance FromXML AttachedPolicy where
+    parseXML x = AttachedPolicy
+        <$> x .@? "PolicyArn"
+        <*> x .@? "PolicyName"
+
+instance ToQuery AttachedPolicy where
+    toQuery AttachedPolicy{..} = mconcat
+        [ "PolicyArn"  =? _apPolicyArn
+        , "PolicyName" =? _apPolicyName
+        ]
+
 data MFADevice = MFADevice
     { _mfadEnableDate   :: ISO8601
     , _mfadSerialNumber :: Text
@@ -559,6 +670,73 @@ instance ToQuery MFADevice where
         [ "EnableDate"   =? _mfadEnableDate
         , "SerialNumber" =? _mfadSerialNumber
         , "UserName"     =? _mfadUserName
+        ]
+
+data PolicyVersion = PolicyVersion
+    { _pvCreateDate       :: Maybe ISO8601
+    , _pvDocument         :: Maybe Text
+    , _pvIsDefaultVersion :: Maybe Bool
+    , _pvVersionId        :: Maybe Text
+    } deriving (Eq, Ord, Read, Show)
+
+-- | 'PolicyVersion' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'pvCreateDate' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'pvDocument' @::@ 'Maybe' 'Text'
+--
+-- * 'pvIsDefaultVersion' @::@ 'Maybe' 'Bool'
+--
+-- * 'pvVersionId' @::@ 'Maybe' 'Text'
+--
+policyVersion :: PolicyVersion
+policyVersion = PolicyVersion
+    { _pvDocument         = Nothing
+    , _pvVersionId        = Nothing
+    , _pvIsDefaultVersion = Nothing
+    , _pvCreateDate       = Nothing
+    }
+
+-- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the policy version was
+-- created.
+pvCreateDate :: Lens' PolicyVersion (Maybe UTCTime)
+pvCreateDate = lens _pvCreateDate (\s a -> s { _pvCreateDate = a }) . mapping _Time
+
+-- | The policy document.
+--
+-- The policy document is returned in the response to the 'GetPolicyVersion'
+-- operation. It is not included in the response to the 'ListPolicyVersions'
+-- operation.
+pvDocument :: Lens' PolicyVersion (Maybe Text)
+pvDocument = lens _pvDocument (\s a -> s { _pvDocument = a })
+
+-- | Specifies whether the policy version is set as the policy's default version.
+pvIsDefaultVersion :: Lens' PolicyVersion (Maybe Bool)
+pvIsDefaultVersion =
+    lens _pvIsDefaultVersion (\s a -> s { _pvIsDefaultVersion = a })
+
+-- | The identifier for the policy version.
+--
+-- Policy version identifiers always begin with 'v' (always lowercase). When a
+-- policy is created, the first policy version is 'v1'.
+pvVersionId :: Lens' PolicyVersion (Maybe Text)
+pvVersionId = lens _pvVersionId (\s a -> s { _pvVersionId = a })
+
+instance FromXML PolicyVersion where
+    parseXML x = PolicyVersion
+        <$> x .@? "CreateDate"
+        <*> x .@? "Document"
+        <*> x .@? "IsDefaultVersion"
+        <*> x .@? "VersionId"
+
+instance ToQuery PolicyVersion where
+    toQuery PolicyVersion{..} = mconcat
+        [ "CreateDate"       =? _pvCreateDate
+        , "Document"         =? _pvDocument
+        , "IsDefaultVersion" =? _pvIsDefaultVersion
+        , "VersionId"        =? _pvVersionId
         ]
 
 data InstanceProfile = InstanceProfile
@@ -972,59 +1150,92 @@ instance FromXML EntityType where
     parseXML = parseXMLText "EntityType"
 
 data SummaryKeyType
-    = AccessKeysPerUserQuota          -- ^ AccessKeysPerUserQuota
-    | AccountMFAEnabled               -- ^ AccountMFAEnabled
-    | GroupPolicySizeQuota            -- ^ GroupPolicySizeQuota
-    | Groups                          -- ^ Groups
-    | GroupsPerUserQuota              -- ^ GroupsPerUserQuota
-    | GroupsQuota                     -- ^ GroupsQuota
-    | MFADevices                      -- ^ MFADevices
-    | MFADevicesInUse                 -- ^ MFADevicesInUse
-    | ServerCertificates              -- ^ ServerCertificates
-    | ServerCertificatesQuota         -- ^ ServerCertificatesQuota
-    | SigningCertificatesPerUserQuota -- ^ SigningCertificatesPerUserQuota
-    | UserPolicySizeQuota             -- ^ UserPolicySizeQuota
-    | Users                           -- ^ Users
-    | UsersQuota                      -- ^ UsersQuota
+    = AccessKeysPerUserQuota            -- ^ AccessKeysPerUserQuota
+    | AccountAccessKeysPresent          -- ^ AccountAccessKeysPresent
+    | AccountMFAEnabled                 -- ^ AccountMFAEnabled
+    | AccountSigningCertificatesPresent -- ^ AccountSigningCertificatesPresent
+    | AttachedPoliciesPerGroupQuota     -- ^ AttachedPoliciesPerGroupQuota
+    | AttachedPoliciesPerRoleQuota      -- ^ AttachedPoliciesPerRoleQuota
+    | AttachedPoliciesPerUserQuota      -- ^ AttachedPoliciesPerUserQuota
+    | GroupPolicySizeQuota              -- ^ GroupPolicySizeQuota
+    | Groups                            -- ^ Groups
+    | GroupsPerUserQuota                -- ^ GroupsPerUserQuota
+    | GroupsQuota                       -- ^ GroupsQuota
+    | MFADevices                        -- ^ MFADevices
+    | MFADevicesInUse                   -- ^ MFADevicesInUse
+    | Policies                          -- ^ Policies
+    | PoliciesQuota                     -- ^ PoliciesQuota
+    | PolicySizeQuota                   -- ^ PolicySizeQuota
+    | PolicyVersionsInUse               -- ^ PolicyVersionsInUse
+    | PolicyVersionsInUseQuota          -- ^ PolicyVersionsInUseQuota
+    | ServerCertificates                -- ^ ServerCertificates
+    | ServerCertificatesQuota           -- ^ ServerCertificatesQuota
+    | SigningCertificatesPerUserQuota   -- ^ SigningCertificatesPerUserQuota
+    | UserPolicySizeQuota               -- ^ UserPolicySizeQuota
+    | Users                             -- ^ Users
+    | UsersQuota                        -- ^ UsersQuota
+    | VersionsPerPolicyQuota            -- ^ VersionsPerPolicyQuota
       deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable SummaryKeyType
 
 instance FromText SummaryKeyType where
     parser = takeLowerText >>= \case
-        "accesskeysperuserquota"          -> pure AccessKeysPerUserQuota
-        "accountmfaenabled"               -> pure AccountMFAEnabled
-        "grouppolicysizequota"            -> pure GroupPolicySizeQuota
-        "groups"                          -> pure Groups
-        "groupsperuserquota"              -> pure GroupsPerUserQuota
-        "groupsquota"                     -> pure GroupsQuota
-        "mfadevices"                      -> pure MFADevices
-        "mfadevicesinuse"                 -> pure MFADevicesInUse
-        "servercertificates"              -> pure ServerCertificates
-        "servercertificatesquota"         -> pure ServerCertificatesQuota
-        "signingcertificatesperuserquota" -> pure SigningCertificatesPerUserQuota
-        "userpolicysizequota"             -> pure UserPolicySizeQuota
-        "users"                           -> pure Users
-        "usersquota"                      -> pure UsersQuota
-        e                                 -> fail $
+        "accesskeysperuserquota"            -> pure AccessKeysPerUserQuota
+        "accountaccesskeyspresent"          -> pure AccountAccessKeysPresent
+        "accountmfaenabled"                 -> pure AccountMFAEnabled
+        "accountsigningcertificatespresent" -> pure AccountSigningCertificatesPresent
+        "attachedpoliciespergroupquota"     -> pure AttachedPoliciesPerGroupQuota
+        "attachedpoliciesperrolequota"      -> pure AttachedPoliciesPerRoleQuota
+        "attachedpoliciesperuserquota"      -> pure AttachedPoliciesPerUserQuota
+        "grouppolicysizequota"              -> pure GroupPolicySizeQuota
+        "groups"                            -> pure Groups
+        "groupsperuserquota"                -> pure GroupsPerUserQuota
+        "groupsquota"                       -> pure GroupsQuota
+        "mfadevices"                        -> pure MFADevices
+        "mfadevicesinuse"                   -> pure MFADevicesInUse
+        "policies"                          -> pure Policies
+        "policiesquota"                     -> pure PoliciesQuota
+        "policysizequota"                   -> pure PolicySizeQuota
+        "policyversionsinuse"               -> pure PolicyVersionsInUse
+        "policyversionsinusequota"          -> pure PolicyVersionsInUseQuota
+        "servercertificates"                -> pure ServerCertificates
+        "servercertificatesquota"           -> pure ServerCertificatesQuota
+        "signingcertificatesperuserquota"   -> pure SigningCertificatesPerUserQuota
+        "userpolicysizequota"               -> pure UserPolicySizeQuota
+        "users"                             -> pure Users
+        "usersquota"                        -> pure UsersQuota
+        "versionsperpolicyquota"            -> pure VersionsPerPolicyQuota
+        e                                   -> fail $
             "Failure parsing SummaryKeyType from " ++ show e
 
 instance ToText SummaryKeyType where
     toText = \case
-        AccessKeysPerUserQuota          -> "AccessKeysPerUserQuota"
-        AccountMFAEnabled               -> "AccountMFAEnabled"
-        GroupPolicySizeQuota            -> "GroupPolicySizeQuota"
-        Groups                          -> "Groups"
-        GroupsPerUserQuota              -> "GroupsPerUserQuota"
-        GroupsQuota                     -> "GroupsQuota"
-        MFADevices                      -> "MFADevices"
-        MFADevicesInUse                 -> "MFADevicesInUse"
-        ServerCertificates              -> "ServerCertificates"
-        ServerCertificatesQuota         -> "ServerCertificatesQuota"
-        SigningCertificatesPerUserQuota -> "SigningCertificatesPerUserQuota"
-        UserPolicySizeQuota             -> "UserPolicySizeQuota"
-        Users                           -> "Users"
-        UsersQuota                      -> "UsersQuota"
+        AccessKeysPerUserQuota            -> "AccessKeysPerUserQuota"
+        AccountAccessKeysPresent          -> "AccountAccessKeysPresent"
+        AccountMFAEnabled                 -> "AccountMFAEnabled"
+        AccountSigningCertificatesPresent -> "AccountSigningCertificatesPresent"
+        AttachedPoliciesPerGroupQuota     -> "AttachedPoliciesPerGroupQuota"
+        AttachedPoliciesPerRoleQuota      -> "AttachedPoliciesPerRoleQuota"
+        AttachedPoliciesPerUserQuota      -> "AttachedPoliciesPerUserQuota"
+        GroupPolicySizeQuota              -> "GroupPolicySizeQuota"
+        Groups                            -> "Groups"
+        GroupsPerUserQuota                -> "GroupsPerUserQuota"
+        GroupsQuota                       -> "GroupsQuota"
+        MFADevices                        -> "MFADevices"
+        MFADevicesInUse                   -> "MFADevicesInUse"
+        Policies                          -> "Policies"
+        PoliciesQuota                     -> "PoliciesQuota"
+        PolicySizeQuota                   -> "PolicySizeQuota"
+        PolicyVersionsInUse               -> "PolicyVersionsInUse"
+        PolicyVersionsInUseQuota          -> "PolicyVersionsInUseQuota"
+        ServerCertificates                -> "ServerCertificates"
+        ServerCertificatesQuota           -> "ServerCertificatesQuota"
+        SigningCertificatesPerUserQuota   -> "SigningCertificatesPerUserQuota"
+        UserPolicySizeQuota               -> "UserPolicySizeQuota"
+        Users                             -> "Users"
+        UsersQuota                        -> "UsersQuota"
+        VersionsPerPolicyQuota            -> "VersionsPerPolicyQuota"
 
 instance ToByteString SummaryKeyType
 instance ToHeader     SummaryKeyType
@@ -1447,6 +1658,63 @@ instance ToQuery Role where
         , "RoleName"                 =? _rRoleName
         ]
 
+newtype PolicyGroup = PolicyGroup
+    { _pgGroupName :: Maybe Text
+    } deriving (Eq, Ord, Read, Show, Monoid)
+
+-- | 'PolicyGroup' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'pgGroupName' @::@ 'Maybe' 'Text'
+--
+policyGroup :: PolicyGroup
+policyGroup = PolicyGroup
+    { _pgGroupName = Nothing
+    }
+
+-- | The name (friendly name, not ARN) identifying the group.
+pgGroupName :: Lens' PolicyGroup (Maybe Text)
+pgGroupName = lens _pgGroupName (\s a -> s { _pgGroupName = a })
+
+instance FromXML PolicyGroup where
+    parseXML x = PolicyGroup
+        <$> x .@? "GroupName"
+
+instance ToQuery PolicyGroup where
+    toQuery PolicyGroup{..} = mconcat
+        [ "GroupName" =? _pgGroupName
+        ]
+
+data PolicyScopeType
+    = All   -- ^ All
+    | Aws   -- ^ AWS
+    | Local -- ^ Local
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
+
+instance Hashable PolicyScopeType
+
+instance FromText PolicyScopeType where
+    parser = takeLowerText >>= \case
+        "all"   -> pure All
+        "aws"   -> pure Aws
+        "local" -> pure Local
+        e       -> fail $
+            "Failure parsing PolicyScopeType from " ++ show e
+
+instance ToText PolicyScopeType where
+    toText = \case
+        All   -> "All"
+        Aws   -> "AWS"
+        Local -> "Local"
+
+instance ToByteString PolicyScopeType
+instance ToHeader     PolicyScopeType
+instance ToQuery      PolicyScopeType
+
+instance FromXML PolicyScopeType where
+    parseXML = parseXMLText "PolicyScopeType"
+
 data UserDetail = UserDetail
     { _udArn            :: Maybe Text
     , _udCreateDate     :: Maybe ISO8601
@@ -1534,6 +1802,139 @@ instance ToQuery UserDetail where
         , "UserId"         =? _udUserId
         , "UserName"       =? _udUserName
         , "UserPolicyList" =? _udUserPolicyList
+        ]
+
+data Policy = Policy
+    { _pArn              :: Maybe Text
+    , _pAttachmentCount  :: Maybe Int
+    , _pCreateDate       :: Maybe ISO8601
+    , _pDefaultVersionId :: Maybe Text
+    , _pDescription      :: Maybe Text
+    , _pIsAttachable     :: Maybe Bool
+    , _pPath             :: Maybe Text
+    , _pPolicyId         :: Maybe Text
+    , _pPolicyName       :: Maybe Text
+    , _pUpdateDate       :: Maybe ISO8601
+    } deriving (Eq, Ord, Read, Show)
+
+-- | 'Policy' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'pArn' @::@ 'Maybe' 'Text'
+--
+-- * 'pAttachmentCount' @::@ 'Maybe' 'Int'
+--
+-- * 'pCreateDate' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'pDefaultVersionId' @::@ 'Maybe' 'Text'
+--
+-- * 'pDescription' @::@ 'Maybe' 'Text'
+--
+-- * 'pIsAttachable' @::@ 'Maybe' 'Bool'
+--
+-- * 'pPath' @::@ 'Maybe' 'Text'
+--
+-- * 'pPolicyId' @::@ 'Maybe' 'Text'
+--
+-- * 'pPolicyName' @::@ 'Maybe' 'Text'
+--
+-- * 'pUpdateDate' @::@ 'Maybe' 'UTCTime'
+--
+policy :: Policy
+policy = Policy
+    { _pPolicyName       = Nothing
+    , _pPolicyId         = Nothing
+    , _pArn              = Nothing
+    , _pPath             = Nothing
+    , _pDefaultVersionId = Nothing
+    , _pAttachmentCount  = Nothing
+    , _pIsAttachable     = Nothing
+    , _pDescription      = Nothing
+    , _pCreateDate       = Nothing
+    , _pUpdateDate       = Nothing
+    }
+
+pArn :: Lens' Policy (Maybe Text)
+pArn = lens _pArn (\s a -> s { _pArn = a })
+
+-- | The number of entities (users, groups, and roles) that the policy is attached
+-- to.
+pAttachmentCount :: Lens' Policy (Maybe Int)
+pAttachmentCount = lens _pAttachmentCount (\s a -> s { _pAttachmentCount = a })
+
+-- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the policy was created.
+pCreateDate :: Lens' Policy (Maybe UTCTime)
+pCreateDate = lens _pCreateDate (\s a -> s { _pCreateDate = a }) . mapping _Time
+
+-- | The identifier for the version of the policy that is set as the default
+-- version.
+pDefaultVersionId :: Lens' Policy (Maybe Text)
+pDefaultVersionId =
+    lens _pDefaultVersionId (\s a -> s { _pDefaultVersionId = a })
+
+-- | A friendly description of the policy.
+--
+-- This element is included in the response to the 'GetPolicy' operation. It is
+-- not included in the response to the 'ListPolicies' operation.
+pDescription :: Lens' Policy (Maybe Text)
+pDescription = lens _pDescription (\s a -> s { _pDescription = a })
+
+-- | Specifies whether the policy can be attached to an IAM user, group, or role.
+pIsAttachable :: Lens' Policy (Maybe Bool)
+pIsAttachable = lens _pIsAttachable (\s a -> s { _pIsAttachable = a })
+
+-- | The path to the policy.
+--
+-- For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
+pPath :: Lens' Policy (Maybe Text)
+pPath = lens _pPath (\s a -> s { _pPath = a })
+
+-- | The stable and unique string identifying the policy.
+--
+-- For more information about IDs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
+pPolicyId :: Lens' Policy (Maybe Text)
+pPolicyId = lens _pPolicyId (\s a -> s { _pPolicyId = a })
+
+-- | The friendly name (not ARN) identifying the policy.
+pPolicyName :: Lens' Policy (Maybe Text)
+pPolicyName = lens _pPolicyName (\s a -> s { _pPolicyName = a })
+
+-- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the policy was last
+-- updated.
+--
+-- When a policy has only one version, this field contains the date and time
+-- when the policy was created. When a policy has more than one version, this
+-- field contains the date and time when the most recent policy version was
+-- created.
+pUpdateDate :: Lens' Policy (Maybe UTCTime)
+pUpdateDate = lens _pUpdateDate (\s a -> s { _pUpdateDate = a }) . mapping _Time
+
+instance FromXML Policy where
+    parseXML x = Policy
+        <$> x .@? "Arn"
+        <*> x .@? "AttachmentCount"
+        <*> x .@? "CreateDate"
+        <*> x .@? "DefaultVersionId"
+        <*> x .@? "Description"
+        <*> x .@? "IsAttachable"
+        <*> x .@? "Path"
+        <*> x .@? "PolicyId"
+        <*> x .@? "PolicyName"
+        <*> x .@? "UpdateDate"
+
+instance ToQuery Policy where
+    toQuery Policy{..} = mconcat
+        [ "Arn"              =? _pArn
+        , "AttachmentCount"  =? _pAttachmentCount
+        , "CreateDate"       =? _pCreateDate
+        , "DefaultVersionId" =? _pDefaultVersionId
+        , "Description"      =? _pDescription
+        , "IsAttachable"     =? _pIsAttachable
+        , "Path"             =? _pPath
+        , "PolicyId"         =? _pPolicyId
+        , "PolicyName"       =? _pPolicyName
+        , "UpdateDate"       =? _pUpdateDate
         ]
 
 data ServerCertificate = ServerCertificate
@@ -1868,4 +2269,32 @@ instance ToQuery AccessKeyMetadata where
         , "CreateDate"  =? _akmCreateDate
         , "Status"      =? _akmStatus
         , "UserName"    =? _akmUserName
+        ]
+
+newtype PolicyUser = PolicyUser
+    { _puUserName :: Maybe Text
+    } deriving (Eq, Ord, Read, Show, Monoid)
+
+-- | 'PolicyUser' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'puUserName' @::@ 'Maybe' 'Text'
+--
+policyUser :: PolicyUser
+policyUser = PolicyUser
+    { _puUserName = Nothing
+    }
+
+-- | The name (friendly name, not ARN) identifying the user.
+puUserName :: Lens' PolicyUser (Maybe Text)
+puUserName = lens _puUserName (\s a -> s { _puUserName = a })
+
+instance FromXML PolicyUser where
+    parseXML x = PolicyUser
+        <$> x .@? "UserName"
+
+instance ToQuery PolicyUser where
+    toQuery PolicyUser{..} = mconcat
+        [ "UserName" =? _puUserName
         ]

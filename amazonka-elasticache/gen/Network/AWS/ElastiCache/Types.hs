@@ -86,6 +86,12 @@ module Network.AWS.ElastiCache.Types
     , cntsvCacheNodeType
     , cntsvValue
 
+    -- * Tag
+    , Tag
+    , tag
+    , tagKey
+    , tagValue
+
     -- * PendingAutomaticFailoverStatus
     , PendingAutomaticFailoverStatus (..)
 
@@ -297,6 +303,11 @@ module Network.AWS.ElastiCache.Types
     , rcnoReservedCacheNodesOfferingId
     , rcnoUsagePrice
 
+    -- * TagListMessage
+    , TagListMessage
+    , tagListMessage
+    , tlmTagList
+
     -- * Endpoint
     , Endpoint
     , endpoint
@@ -332,7 +343,7 @@ import Network.AWS.Prelude
 import Network.AWS.Signing
 import qualified GHC.Exts
 
--- | Version @2014-09-30@ of the Amazon ElastiCache service.
+-- | Version @2015-02-02@ of the Amazon ElastiCache service.
 data ElastiCache
 
 instance AWSService ElastiCache where
@@ -345,7 +356,7 @@ instance AWSService ElastiCache where
         service' = Service
             { _svcAbbrev       = "ElastiCache"
             , _svcPrefix       = "elasticache"
-            , _svcVersion      = "2014-09-30"
+            , _svcVersion      = "2015-02-02"
             , _svcTargetPrefix = Nothing
             , _svcJSONVersion  = Nothing
             , _svcHandle       = handle
@@ -375,7 +386,7 @@ instance AWSService ElastiCache where
             | otherwise = False
 
 ns :: Text
-ns = "http://elasticache.amazonaws.com/doc/2014-09-30/"
+ns = "http://elasticache.amazonaws.com/doc/2015-02-02/"
 {-# INLINE ns #-}
 
 data NodeSnapshot = NodeSnapshot
@@ -532,8 +543,7 @@ snapshot = Snapshot
     , _sNodeSnapshots              = mempty
     }
 
--- | For the source cache cluster, indicates whether minor version patches are
--- applied automatically ('true') or not ('false').
+-- | This parameter is currently disabled.
 sAutoMinorVersionUpgrade :: Lens' Snapshot (Maybe Bool)
 sAutoMinorVersionUpgrade =
     lens _sAutoMinorVersionUpgrade
@@ -580,6 +590,9 @@ sNodeSnapshots :: Lens' Snapshot [NodeSnapshot]
 sNodeSnapshots = lens _sNodeSnapshots (\s a -> s { _sNodeSnapshots = a }) . _List
 
 -- | The number of cache nodes in the source cache cluster.
+--
+-- For clusters running Redis, this value must be 1. For clusters running
+-- Memcached, this value must be between 1 and 50.
 sNumCacheNodes :: Lens' Snapshot (Maybe Int)
 sNumCacheNodes = lens _sNumCacheNodes (\s a -> s { _sNumCacheNodes = a })
 
@@ -853,6 +866,44 @@ instance ToQuery CacheNodeTypeSpecificValue where
         , "Value"         =? _cntsvValue
         ]
 
+data Tag = Tag
+    { _tagKey   :: Maybe Text
+    , _tagValue :: Maybe Text
+    } deriving (Eq, Ord, Read, Show)
+
+-- | 'Tag' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'tagKey' @::@ 'Maybe' 'Text'
+--
+-- * 'tagValue' @::@ 'Maybe' 'Text'
+--
+tag :: Tag
+tag = Tag
+    { _tagKey   = Nothing
+    , _tagValue = Nothing
+    }
+
+-- | The key for the tag.
+tagKey :: Lens' Tag (Maybe Text)
+tagKey = lens _tagKey (\s a -> s { _tagKey = a })
+
+-- | The tag's value. May be null.
+tagValue :: Lens' Tag (Maybe Text)
+tagValue = lens _tagValue (\s a -> s { _tagValue = a })
+
+instance FromXML Tag where
+    parseXML x = Tag
+        <$> x .@? "Key"
+        <*> x .@? "Value"
+
+instance ToQuery Tag where
+    toQuery Tag{..} = mconcat
+        [ "Key"   =? _tagKey
+        , "Value" =? _tagValue
+        ]
+
 data PendingAutomaticFailoverStatus
     = Disabled -- ^ disabled
     | Enabled  -- ^ enabled
@@ -936,7 +987,11 @@ replicationGroupPendingModifiedValues = ReplicationGroupPendingModifiedValues
     , _rgpmvAutomaticFailoverStatus = Nothing
     }
 
--- | Indicates the status of automatic failover for this replication group.
+-- | Indicates the status of Multi-AZ for this replication group.
+--
+-- ElastiCache Multi-AZ replication groups are not supported on:
+--
+-- Redis versions earlier than 2.8.6. T1 and T2 cache node types.
 rgpmvAutomaticFailoverStatus :: Lens' ReplicationGroupPendingModifiedValues (Maybe PendingAutomaticFailoverStatus)
 rgpmvAutomaticFailoverStatus =
     lens _rgpmvAutomaticFailoverStatus
@@ -1307,12 +1362,12 @@ subnet = Subnet
     , _sSubnetAvailabilityZone = Nothing
     }
 
--- | The Availability Zone associated with the subnet
+-- | The Availability Zone associated with the subnet.
 sSubnetAvailabilityZone :: Lens' Subnet (Maybe AvailabilityZone)
 sSubnetAvailabilityZone =
     lens _sSubnetAvailabilityZone (\s a -> s { _sSubnetAvailabilityZone = a })
 
--- | The unique identifier for the subnet
+-- | The unique identifier for the subnet.
 sSubnetIdentifier :: Lens' Subnet (Maybe Text)
 sSubnetIdentifier =
     lens _sSubnetIdentifier (\s a -> s { _sSubnetIdentifier = a })
@@ -1468,8 +1523,7 @@ cacheCluster = CacheCluster
     , _ccSnapshotWindow             = Nothing
     }
 
--- | If 'true', then minor version patches are applied automatically; if 'false', then
--- automatic minor version patches are disabled.
+-- | This parameter is currently disabled.
 ccAutoMinorVersionUpgrade :: Lens' CacheCluster (Maybe Bool)
 ccAutoMinorVersionUpgrade =
     lens _ccAutoMinorVersionUpgrade
@@ -1542,6 +1596,9 @@ ccNotificationConfiguration =
         (\s a -> s { _ccNotificationConfiguration = a })
 
 -- | The number of cache nodes in the cache cluster.
+--
+-- For clusters running Redis, this value must be 1. For clusters running
+-- Memcached, this value must be between 1 and 50.
 ccNumCacheNodes :: Lens' CacheCluster (Maybe Int)
 ccNumCacheNodes = lens _ccNumCacheNodes (\s a -> s { _ccNumCacheNodes = a })
 
@@ -1550,7 +1607,7 @@ ccPendingModifiedValues =
     lens _ccPendingModifiedValues (\s a -> s { _ccPendingModifiedValues = a })
 
 -- | The name of the Availability Zone in which the cache cluster is located or
--- "Multiple" if the cache nodes are located in different Availability Zones.
+-- "Multiple"if the cache nodes are located in different Availability Zones.
 ccPreferredAvailabilityZone :: Lens' CacheCluster (Maybe Text)
 ccPreferredAvailabilityZone =
     lens _ccPreferredAvailabilityZone
@@ -1826,7 +1883,7 @@ cnCustomerAvailabilityZone =
     lens _cnCustomerAvailabilityZone
         (\s a -> s { _cnCustomerAvailabilityZone = a })
 
--- | The hostname and IP address for connecting to this cache node.
+-- | The hostname for connecting to this cache node.
 cnEndpoint :: Lens' CacheNode (Maybe Endpoint)
 cnEndpoint = lens _cnEndpoint (\s a -> s { _cnEndpoint = a })
 
@@ -2404,7 +2461,11 @@ replicationGroup = ReplicationGroup
     , _rgAutomaticFailover     = Nothing
     }
 
--- | Indicates the status of automatic failover for this replication group.
+-- | Indicates the status of Multi-AZ for this replication group.
+--
+-- ElastiCache Multi-AZ replication groups are not supported on:
+--
+-- Redis versions earlier than 2.8.6. T1 and T2 cache node types.
 rgAutomaticFailover :: Lens' ReplicationGroup (Maybe AutomaticFailoverStatus)
 rgAutomaticFailover =
     lens _rgAutomaticFailover (\s a -> s { _rgAutomaticFailover = a })
@@ -2611,6 +2672,40 @@ instance ToQuery ReservedCacheNodesOffering where
         , "UsagePrice"                   =? _rcnoUsagePrice
         ]
 
+newtype TagListMessage = TagListMessage
+    { _tlmTagList :: List "member" Tag
+    } deriving (Eq, Read, Show, Monoid, Semigroup)
+
+instance GHC.Exts.IsList TagListMessage where
+    type Item TagListMessage = Tag
+
+    fromList = TagListMessage . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _tlmTagList
+
+-- | 'TagListMessage' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'tlmTagList' @::@ ['Tag']
+--
+tagListMessage :: TagListMessage
+tagListMessage = TagListMessage
+    { _tlmTagList = mempty
+    }
+
+-- | A list of cost allocation tags as a key-value pair.
+tlmTagList :: Lens' TagListMessage [Tag]
+tlmTagList = lens _tlmTagList (\s a -> s { _tlmTagList = a }) . _List
+
+instance FromXML TagListMessage where
+    parseXML x = TagListMessage
+        <$> x .@? "TagList" .!@ mempty
+
+instance ToQuery TagListMessage where
+    toQuery TagListMessage{..} = mconcat
+        [ "TagList" =? _tlmTagList
+        ]
+
 data Endpoint = Endpoint
     { _eAddress :: Maybe Text
     , _ePort    :: Maybe Int
@@ -2684,6 +2779,9 @@ pmvEngineVersion :: Lens' PendingModifiedValues (Maybe Text)
 pmvEngineVersion = lens _pmvEngineVersion (\s a -> s { _pmvEngineVersion = a })
 
 -- | The new number of cache nodes for the cache cluster.
+--
+-- For clusters running Redis, this value must be 1. For clusters running
+-- Memcached, this value must be between 1 and 50.
 pmvNumCacheNodes :: Lens' PendingModifiedValues (Maybe Int)
 pmvNumCacheNodes = lens _pmvNumCacheNodes (\s a -> s { _pmvNumCacheNodes = a })
 

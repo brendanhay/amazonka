@@ -22,8 +22,8 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | The /DescribeCacheEngineVersions/ operation returns a list of the available
--- cache engines and their versions.
+-- | The /DescribeCacheEngineVersions/ action returns a list of the available cache
+-- engines and their versions.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheEngineVersions.html>
 module Network.AWS.ElastiCache.DescribeCacheEngineVersions
@@ -117,9 +117,9 @@ dcevEngineVersion =
     lens _dcevEngineVersion (\s a -> s { _dcevEngineVersion = a })
 
 -- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this operation. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by /MaxRecords/.
+-- pagination of results from this action. If this parameter is specified, the
+-- response includes only records beyond the marker, up to the value specified
+-- by /MaxRecords/.
 dcevMarker :: Lens' DescribeCacheEngineVersions (Maybe Text)
 dcevMarker = lens _dcevMarker (\s a -> s { _dcevMarker = a })
 

@@ -40,6 +40,7 @@ module Network.AWS.Route53Domains.UpdateDomainNameservers
     , updateDomainNameservers
     -- ** Request lenses
     , udnDomainName
+    , udnFIAuthKey
     , udnNameservers
 
     -- * Response
@@ -57,6 +58,7 @@ import qualified GHC.Exts
 
 data UpdateDomainNameservers = UpdateDomainNameservers
     { _udnDomainName  :: Text
+    , _udnFIAuthKey   :: Maybe Text
     , _udnNameservers :: List "Nameservers" Nameserver
     } deriving (Eq, Read, Show)
 
@@ -66,12 +68,15 @@ data UpdateDomainNameservers = UpdateDomainNameservers
 --
 -- * 'udnDomainName' @::@ 'Text'
 --
+-- * 'udnFIAuthKey' @::@ 'Maybe' 'Text'
+--
 -- * 'udnNameservers' @::@ ['Nameserver']
 --
 updateDomainNameservers :: Text -- ^ 'udnDomainName'
                         -> UpdateDomainNameservers
 updateDomainNameservers p1 = UpdateDomainNameservers
     { _udnDomainName  = p1
+    , _udnFIAuthKey   = Nothing
     , _udnNameservers = mempty
     }
 
@@ -88,6 +93,10 @@ updateDomainNameservers p1 = UpdateDomainNameservers
 -- Required: Yes
 udnDomainName :: Lens' UpdateDomainNameservers Text
 udnDomainName = lens _udnDomainName (\s a -> s { _udnDomainName = a })
+
+-- | The authorization key for .fi domains
+udnFIAuthKey :: Lens' UpdateDomainNameservers (Maybe Text)
+udnFIAuthKey = lens _udnFIAuthKey (\s a -> s { _udnFIAuthKey = a })
 
 -- | A list of new name servers for the domain.
 --
@@ -137,6 +146,7 @@ instance ToHeaders UpdateDomainNameservers
 instance ToJSON UpdateDomainNameservers where
     toJSON UpdateDomainNameservers{..} = object
         [ "DomainName"  .= _udnDomainName
+        , "FIAuthKey"   .= _udnFIAuthKey
         , "Nameservers" .= _udnNameservers
         ]
 

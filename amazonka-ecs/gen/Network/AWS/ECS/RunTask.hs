@@ -49,7 +49,7 @@ module Network.AWS.ECS.RunTask
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.Query
+import Network.AWS.Request.JSON
 import Network.AWS.ECS.Types
 import qualified GHC.Exts
 
@@ -101,8 +101,8 @@ rtTaskDefinition :: Lens' RunTask Text
 rtTaskDefinition = lens _rtTaskDefinition (\s a -> s { _rtTaskDefinition = a })
 
 data RunTaskResponse = RunTaskResponse
-    { _rtrFailures :: List "member" Failure
-    , _rtrTasks    :: List "member" Task
+    { _rtrFailures :: List "failures" Failure
+    , _rtrTasks    :: List "tasks" Task
     } deriving (Eq, Read, Show)
 
 -- | 'RunTaskResponse' constructor.
@@ -132,23 +132,26 @@ instance ToPath RunTask where
     toPath = const "/"
 
 instance ToQuery RunTask where
-    toQuery RunTask{..} = mconcat
-        [ "cluster"        =? _rtCluster
-        , "count"          =? _rtCount
-        , "overrides"      =? _rtOverrides
-        , "taskDefinition" =? _rtTaskDefinition
-        ]
+    toQuery = const mempty
 
 instance ToHeaders RunTask
+
+instance ToJSON RunTask where
+    toJSON RunTask{..} = object
+        [ "cluster"        .= _rtCluster
+        , "taskDefinition" .= _rtTaskDefinition
+        , "overrides"      .= _rtOverrides
+        , "count"          .= _rtCount
+        ]
 
 instance AWSRequest RunTask where
     type Sv RunTask = ECS
     type Rs RunTask = RunTaskResponse
 
     request  = post "RunTask"
-    response = xmlResponse
+    response = jsonResponse
 
-instance FromXML RunTaskResponse where
-    parseXML = withElement "RunTaskResult" $ \x -> RunTaskResponse
-        <$> x .@? "failures" .!@ mempty
-        <*> x .@? "tasks" .!@ mempty
+instance FromJSON RunTaskResponse where
+    parseJSON = withObject "RunTaskResponse" $ \o -> RunTaskResponse
+        <$> o .:? "failures" .!= mempty
+        <*> o .:? "tasks" .!= mempty

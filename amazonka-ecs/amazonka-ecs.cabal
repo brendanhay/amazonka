@@ -55,6 +55,7 @@ library
         , Network.AWS.ECS.DiscoverPollEndpoint
         , Network.AWS.ECS.ListClusters
         , Network.AWS.ECS.ListContainerInstances
+        , Network.AWS.ECS.ListTaskDefinitionFamilies
         , Network.AWS.ECS.ListTaskDefinitions
         , Network.AWS.ECS.ListTasks
         , Network.AWS.ECS.RegisterContainerInstance

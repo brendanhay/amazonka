@@ -22,7 +22,7 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | The /DescribeCacheSubnetGroups/ operation returns a list of cache subnet group
+-- | The /DescribeCacheSubnetGroups/ action returns a list of cache subnet group
 -- descriptions. If a subnet group name is specified, the list will contain only
 -- the description of that group.
 --
@@ -82,9 +82,9 @@ dcsgCacheSubnetGroupName =
         (\s a -> s { _dcsgCacheSubnetGroupName = a })
 
 -- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this operation. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by /MaxRecords/.
+-- pagination of results from this action. If this parameter is specified, the
+-- response includes only records beyond the marker, up to the value specified
+-- by /MaxRecords/.
 dcsgMarker :: Lens' DescribeCacheSubnetGroups (Maybe Text)
 dcsgMarker = lens _dcsgMarker (\s a -> s { _dcsgMarker = a })
 

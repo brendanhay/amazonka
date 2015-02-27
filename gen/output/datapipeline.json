@@ -16,6 +16,7 @@
         "protocol": "json",
         "imports": [
             "Network.AWS.DataPipeline.ActivatePipeline",
+            "Network.AWS.DataPipeline.AddTags",
             "Network.AWS.DataPipeline.CreatePipeline",
             "Network.AWS.DataPipeline.DeletePipeline",
             "Network.AWS.DataPipeline.DescribeObjects",
@@ -26,6 +27,7 @@
             "Network.AWS.DataPipeline.PollForTask",
             "Network.AWS.DataPipeline.PutPipelineDefinition",
             "Network.AWS.DataPipeline.QueryObjects",
+            "Network.AWS.DataPipeline.RemoveTags",
             "Network.AWS.DataPipeline.ReportTaskProgress",
             "Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat",
             "Network.AWS.DataPipeline.SetStatus",
@@ -71,6 +73,7 @@
         "exposed": [
             "Network.AWS.DataPipeline",
             "Network.AWS.DataPipeline.ActivatePipeline",
+            "Network.AWS.DataPipeline.AddTags",
             "Network.AWS.DataPipeline.CreatePipeline",
             "Network.AWS.DataPipeline.DeletePipeline",
             "Network.AWS.DataPipeline.DescribeObjects",
@@ -81,6 +84,7 @@
             "Network.AWS.DataPipeline.PollForTask",
             "Network.AWS.DataPipeline.PutPipelineDefinition",
             "Network.AWS.DataPipeline.QueryObjects",
+            "Network.AWS.DataPipeline.RemoveTags",
             "Network.AWS.DataPipeline.ReportTaskProgress",
             "Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat",
             "Network.AWS.DataPipeline.SetStatus",
@@ -391,6 +395,130 @@
                         "shape": "id",
                         "locationName": "name",
                         "documentation": "-- | Name of the object.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show"
+                ],
+                "fieldPad": 9,
+                "ctor": "tag",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "tagKey",
+                        "name": "_tagKey",
+                        "shape": "tagKey",
+                        "locationName": "key",
+                        "documentation": "-- | The key name of a tag defined by a user. For more information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines\u003e in the /AWS Data Pipeline Developer Guide/.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "tagValue",
+                        "name": "_tagValue",
+                        "shape": "tagValue",
+                        "locationName": "value",
+                        "documentation": "-- | The optional value portion of a tag defined by a user. For more information,\n-- see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines\u003e in the /AWS Data Pipeline DeveloperGuide/.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "tagKey",
+                        "name": "_tagKey",
+                        "shape": "tagKey",
+                        "locationName": "key",
+                        "documentation": "-- | The key name of a tag defined by a user. For more information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines\u003e in the /AWS Data Pipeline Developer Guide/.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "tagValue",
+                        "name": "_tagValue",
+                        "shape": "tagValue",
+                        "locationName": "value",
+                        "documentation": "-- | The optional value portion of a tag defined by a user. For more information,\n-- see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines\u003e in the /AWS Data Pipeline DeveloperGuide/.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "contentPad": 6,
+                "name": "Tag",
+                "locationPad": 6,
+                "type": "record",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "tagKey",
+                        "name": "_tagKey",
+                        "shape": "tagKey",
+                        "locationName": "key",
+                        "documentation": "-- | The key name of a tag defined by a user. For more information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines\u003e in the /AWS Data Pipeline Developer Guide/.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "tagValue",
+                        "name": "_tagValue",
+                        "shape": "tagValue",
+                        "locationName": "value",
+                        "documentation": "-- | The optional value portion of a tag defined by a user. For more information,\n-- see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines\u003e in the /AWS Data Pipeline DeveloperGuide/.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1491,6 +1619,23 @@
                         "documentation": "-- | Description of the pipeline.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "pdTags",
+                        "name": "_pdTags",
+                        "shape": "tagList",
+                        "locationName": "tags",
+                        "documentation": "-- | A list of tags to associated with a pipeline. Tags let you control access to\n-- pipelines. For more information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines\u003e in\n-- the /AWS Data Pipeline Developer Guide/.",
+                        "typeExposed": "[Tag]",
+                        "type": "List \"tags\" Tag"
                     }
                 ],
                 "payload": null,
@@ -1568,6 +1713,23 @@
                         "documentation": "-- | Description of the pipeline.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "pdTags",
+                        "name": "_pdTags",
+                        "shape": "tagList",
+                        "locationName": "tags",
+                        "documentation": "-- | A list of tags to associated with a pipeline. Tags let you control access to\n-- pipelines. For more information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines\u003e in\n-- the /AWS Data Pipeline Developer Guide/.",
+                        "typeExposed": "[Tag]",
+                        "type": "List \"tags\" Tag"
                     }
                 ],
                 "fields": [
@@ -1638,6 +1800,23 @@
                         "documentation": "-- | The pipeline identifier that was assigned by AWS Data Pipeline. This is a\n-- string of the form 'df-297EG78HU43EEXAMPLE'.",
                         "typeExposed": "Text",
                         "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "pdTags",
+                        "name": "_pdTags",
+                        "shape": "tagList",
+                        "locationName": "tags",
+                        "documentation": "-- | A list of tags to associated with a pipeline. Tags let you control access to\n-- pipelines. For more information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines\u003e in\n-- the /AWS Data Pipeline Developer Guide/.",
+                        "typeExposed": "[Tag]",
+                        "type": "List \"tags\" Tag"
                     }
                 ]
             },
@@ -2150,6 +2329,7 @@
         "shared": [
             "ParameterObject",
             "PipelineObject",
+            "Tag",
             "ParameterValue",
             "ValidationError",
             "ValidationWarning"
@@ -2344,6 +2524,186 @@
                     "Ord",
                     "Read",
                     "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "style": "nullary",
+                "fieldPad": 0,
+                "ctor": "addTagsResponse",
+                "headerPad": 0,
+                "wrapper": false,
+                "protocol": "json",
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "name": "AddTagsResponse",
+                "resultWrapper": null,
+                "type": "empty",
+                "headerAll": false,
+                "optional": [],
+                "fields": []
+            },
+            "url": "http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_AddTags.html",
+            "namespace": "Network.AWS.DataPipeline.AddTags",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.DataPipeline.Types"
+            ],
+            "pager": null,
+            "name": "AddTags",
+            "method": "post",
+            "documentation": "-- | Add or modify tags in an existing pipeline.",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Read",
+                    "Show"
+                ],
+                "streaming": false,
+                "style": "json",
+                "fieldPad": 13,
+                "ctor": "addTags",
+                "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "atPipelineId",
+                        "name": "_atPipelineId",
+                        "shape": "id",
+                        "locationName": "pipelineId",
+                        "documentation": "-- | The identifier of the pipeline to which you want to add the tags.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "atTags",
+                        "name": "_atTags",
+                        "shape": "tagList",
+                        "locationName": "tags",
+                        "documentation": "-- | The tags as key/value pairs to add to the pipeline.",
+                        "typeExposed": "[Tag]",
+                        "type": "List \"tags\" Tag"
+                    }
+                ],
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "json",
+                "payload": null,
+                "required": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "atPipelineId",
+                        "name": "_atPipelineId",
+                        "shape": "id",
+                        "locationName": "pipelineId",
+                        "documentation": "-- | The identifier of the pipeline to which you want to add the tags.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "contentPad": 11,
+                "queryPad": 0,
+                "name": "AddTags",
+                "query": [],
+                "locationPad": 11,
+                "type": "record",
+                "queryAll": false,
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "atTags",
+                        "name": "_atTags",
+                        "shape": "tagList",
+                        "locationName": "tags",
+                        "documentation": "-- | The tags as key/value pairs to add to the pipeline.",
+                        "typeExposed": "[Tag]",
+                        "type": "List \"tags\" Tag"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "atPipelineId",
+                        "name": "_atPipelineId",
+                        "shape": "id",
+                        "locationName": "pipelineId",
+                        "documentation": "-- | The identifier of the pipeline to which you want to add the tags.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "atTags",
+                        "name": "_atTags",
+                        "shape": "tagList",
+                        "locationName": "tags",
+                        "documentation": "-- | The tags as key/value pairs to add to the pipeline.",
+                        "typeExposed": "[Tag]",
+                        "type": "List \"tags\" Tag"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "DataPipeline",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show",
                     "Monoid",
                     "IsString"
                 ],
@@ -2455,7 +2815,6 @@
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Read",
                     "Show"
                 ],
@@ -2515,6 +2874,23 @@
                         "documentation": "-- | The description of the new pipeline.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "cpTags",
+                        "name": "_cpTags",
+                        "shape": "tagList",
+                        "locationName": "tags",
+                        "documentation": "-- | A list of tags to associate with a pipeline at creation time. Tags let you\n-- control access to pipelines. For more information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling UserAccess to Pipelines\u003e in the /AWS Data Pipeline Developer Guide/.",
+                        "typeExposed": "[Tag]",
+                        "type": "List \"tags\" Tag"
                     }
                 ],
                 "path": [
@@ -2588,6 +2964,23 @@
                         "documentation": "-- | The description of the new pipeline.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "cpTags",
+                        "name": "_cpTags",
+                        "shape": "tagList",
+                        "locationName": "tags",
+                        "documentation": "-- | A list of tags to associate with a pipeline at creation time. Tags let you\n-- control access to pipelines. For more information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling UserAccess to Pipelines\u003e in the /AWS Data Pipeline Developer Guide/.",
+                        "typeExposed": "[Tag]",
+                        "type": "List \"tags\" Tag"
                     }
                 ],
                 "fields": [
@@ -2624,6 +3017,23 @@
                         "documentation": "-- | The name of the new pipeline. You can use the same name for multiple\n-- pipelines associated with your AWS account, because AWS Data Pipeline assigns\n-- each new pipeline a unique pipeline identifier.",
                         "typeExposed": "Text",
                         "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "cpTags",
+                        "name": "_cpTags",
+                        "shape": "tagList",
+                        "locationName": "tags",
+                        "documentation": "-- | A list of tags to associate with a pipeline at creation time. Tags let you\n-- control access to pipelines. For more information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling UserAccess to Pipelines\u003e in the /AWS Data Pipeline Developer Guide/.",
+                        "typeExposed": "[Tag]",
+                        "type": "List \"tags\" Tag"
                     },
                     {
                         "location": null,
@@ -5686,6 +6096,187 @@
                     "Ord",
                     "Read",
                     "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "style": "nullary",
+                "fieldPad": 0,
+                "ctor": "removeTagsResponse",
+                "headerPad": 0,
+                "wrapper": false,
+                "protocol": "json",
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "name": "RemoveTagsResponse",
+                "resultWrapper": null,
+                "type": "empty",
+                "headerAll": false,
+                "optional": [],
+                "fields": []
+            },
+            "url": "http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_RemoveTags.html",
+            "namespace": "Network.AWS.DataPipeline.RemoveTags",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.DataPipeline.Types"
+            ],
+            "pager": null,
+            "name": "RemoveTags",
+            "method": "post",
+            "documentation": "-- | Remove existing tags from a pipeline.",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show"
+                ],
+                "streaming": false,
+                "style": "json",
+                "fieldPad": 13,
+                "ctor": "removeTags",
+                "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "rtPipelineId",
+                        "name": "_rtPipelineId",
+                        "shape": "id",
+                        "locationName": "pipelineId",
+                        "documentation": "-- | The pipeline from which you want to remove tags.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "rtTagKeys",
+                        "name": "_rtTagKeys",
+                        "shape": "stringList",
+                        "locationName": "tagKeys",
+                        "documentation": "-- | The keys of the tags you wish to remove.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"tagKeys\" Text"
+                    }
+                ],
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "json",
+                "payload": null,
+                "required": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "rtPipelineId",
+                        "name": "_rtPipelineId",
+                        "shape": "id",
+                        "locationName": "pipelineId",
+                        "documentation": "-- | The pipeline from which you want to remove tags.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "contentPad": 11,
+                "queryPad": 0,
+                "name": "RemoveTags",
+                "query": [],
+                "locationPad": 11,
+                "type": "record",
+                "queryAll": false,
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "rtTagKeys",
+                        "name": "_rtTagKeys",
+                        "shape": "stringList",
+                        "locationName": "tagKeys",
+                        "documentation": "-- | The keys of the tags you wish to remove.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"tagKeys\" Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "rtPipelineId",
+                        "name": "_rtPipelineId",
+                        "shape": "id",
+                        "locationName": "pipelineId",
+                        "documentation": "-- | The pipeline from which you want to remove tags.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "rtTagKeys",
+                        "name": "_rtTagKeys",
+                        "shape": "stringList",
+                        "locationName": "tagKeys",
+                        "documentation": "-- | The keys of the tags you wish to remove.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"tagKeys\" Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "DataPipeline",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show",
                     "Enum"
                 ],
                 "streaming": false,
@@ -6341,7 +6932,7 @@
                         "name": "_ssStatus",
                         "shape": "string",
                         "locationName": "status",
-                        "documentation": "-- | Specifies the status to be set on all the objects in 'objectIds'. For\n-- components, this can be either 'PAUSE' or 'RESUME'. For instances, this can be\n-- either 'CANCEL', 'RERUN', or 'MARK_FINISHED'.",
+                        "documentation": "-- | Specifies the status to be set on all the objects in 'objectIds'. For\n-- components, this can be either 'PAUSE' or 'RESUME'. For instances, this can be\n-- either 'TRY_CANCEL', 'RERUN', or 'MARK_FINISHED'.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -6385,7 +6976,7 @@
                         "name": "_ssStatus",
                         "shape": "string",
                         "locationName": "status",
-                        "documentation": "-- | Specifies the status to be set on all the objects in 'objectIds'. For\n-- components, this can be either 'PAUSE' or 'RESUME'. For instances, this can be\n-- either 'CANCEL', 'RERUN', or 'MARK_FINISHED'.",
+                        "documentation": "-- | Specifies the status to be set on all the objects in 'objectIds'. For\n-- components, this can be either 'PAUSE' or 'RESUME'. For instances, this can be\n-- either 'TRY_CANCEL', 'RERUN', or 'MARK_FINISHED'.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -6467,7 +7058,7 @@
                         "name": "_ssStatus",
                         "shape": "string",
                         "locationName": "status",
-                        "documentation": "-- | Specifies the status to be set on all the objects in 'objectIds'. For\n-- components, this can be either 'PAUSE' or 'RESUME'. For instances, this can be\n-- either 'CANCEL', 'RERUN', or 'MARK_FINISHED'.",
+                        "documentation": "-- | Specifies the status to be set on all the objects in 'objectIds'. For\n-- components, this can be either 'PAUSE' or 'RESUME'. For instances, this can be\n-- either 'TRY_CANCEL', 'RERUN', or 'MARK_FINISHED'.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }

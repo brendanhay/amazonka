@@ -21,7 +21,8 @@
 -- CloudWatch, Amazon ElastiCache provides enhanced visibility into key
 -- performance metrics associated with your Memcached or Redis nodes.
 module Network.AWS.ElastiCache
-    ( module Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
+    ( module Network.AWS.ElastiCache.AddTagsToResource
+    , module Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
     , module Network.AWS.ElastiCache.CopySnapshot
     , module Network.AWS.ElastiCache.CreateCacheCluster
     , module Network.AWS.ElastiCache.CreateCacheParameterGroup
@@ -47,18 +48,21 @@ module Network.AWS.ElastiCache
     , module Network.AWS.ElastiCache.DescribeReservedCacheNodes
     , module Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
     , module Network.AWS.ElastiCache.DescribeSnapshots
+    , module Network.AWS.ElastiCache.ListTagsForResource
     , module Network.AWS.ElastiCache.ModifyCacheCluster
     , module Network.AWS.ElastiCache.ModifyCacheParameterGroup
     , module Network.AWS.ElastiCache.ModifyCacheSubnetGroup
     , module Network.AWS.ElastiCache.ModifyReplicationGroup
     , module Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
     , module Network.AWS.ElastiCache.RebootCacheCluster
+    , module Network.AWS.ElastiCache.RemoveTagsFromResource
     , module Network.AWS.ElastiCache.ResetCacheParameterGroup
     , module Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
     , module Network.AWS.ElastiCache.Types
     , module Network.AWS.ElastiCache.Waiters
     ) where
 
+import Network.AWS.ElastiCache.AddTagsToResource
 import Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
 import Network.AWS.ElastiCache.CopySnapshot
 import Network.AWS.ElastiCache.CreateCacheCluster
@@ -85,12 +89,14 @@ import Network.AWS.ElastiCache.DescribeReplicationGroups
 import Network.AWS.ElastiCache.DescribeReservedCacheNodes
 import Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
 import Network.AWS.ElastiCache.DescribeSnapshots
+import Network.AWS.ElastiCache.ListTagsForResource
 import Network.AWS.ElastiCache.ModifyCacheCluster
 import Network.AWS.ElastiCache.ModifyCacheParameterGroup
 import Network.AWS.ElastiCache.ModifyCacheSubnetGroup
 import Network.AWS.ElastiCache.ModifyReplicationGroup
 import Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
 import Network.AWS.ElastiCache.RebootCacheCluster
+import Network.AWS.ElastiCache.RemoveTagsFromResource
 import Network.AWS.ElastiCache.ResetCacheParameterGroup
 import Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
 import Network.AWS.ElastiCache.Types

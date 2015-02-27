@@ -102,7 +102,7 @@ lsdrStreamingDistributionList =
         (\s a -> s { _lsdrStreamingDistributionList = a })
 
 instance ToPath ListStreamingDistributions where
-    toPath = const "/2014-10-21/streaming-distribution"
+    toPath = const "/2014-11-06/streaming-distribution"
 
 instance ToQuery ListStreamingDistributions where
     toQuery ListStreamingDistributions{..} = mconcat

@@ -22,9 +22,9 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | The /ModifyCacheCluster/ operation modifies the settings for a cache cluster.
--- You can use this operation to change one or more cluster configuration
--- parameters by specifying the parameters and the new values.
+-- | The /ModifyCacheCluster/ action modifies the settings for a cache cluster. You
+-- can use this action to change one or more cluster configuration parameters by
+-- specifying the parameters and the new values.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html>
 module Network.AWS.ElastiCache.ModifyCacheCluster
@@ -147,6 +147,16 @@ modifyCacheCluster p1 = ModifyCacheCluster
 -- Valid values: 'single-az' | 'cross-az'.
 --
 -- This option is only supported for Memcached cache clusters.
+--
+-- You cannot specify 'single-az' if the Memcached cache cluster already has
+-- cache nodes in different Availability Zones. If 'cross-az' is specified,
+-- existing Memcached nodes remain in their current Availability Zone.
+--
+-- Only newly created nodes will be located in different Availability Zones.
+-- For instructions on how to move existing Memcached nodes to different
+-- Availability Zones, see the Availability Zone Considerations section of <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheNode.Memcached.html CacheNode Considerations for Memcached>.
+--
+--
 mccAZMode :: Lens' ModifyCacheCluster (Maybe AZMode)
 mccAZMode = lens _mccAZMode (\s a -> s { _mccAZMode = a })
 
@@ -166,12 +176,7 @@ mccApplyImmediately :: Lens' ModifyCacheCluster (Maybe Bool)
 mccApplyImmediately =
     lens _mccApplyImmediately (\s a -> s { _mccApplyImmediately = a })
 
--- | If 'true', then minor engine upgrades will be applied automatically to the
--- cache cluster during the maintenance window.
---
--- Valid values: 'true' | 'false'
---
--- Default: 'true'
+-- | This parameter is currently disabled.
 mccAutoMinorVersionUpgrade :: Lens' ModifyCacheCluster (Maybe Bool)
 mccAutoMinorVersionUpgrade =
     lens _mccAutoMinorVersionUpgrade
@@ -183,7 +188,7 @@ mccCacheClusterId =
     lens _mccCacheClusterId (\s a -> s { _mccCacheClusterId = a })
 
 -- | A list of cache node IDs to be removed. A node ID is a numeric identifier
--- (0001, 0002, etc.). This parameter is only valid when NumCacheNodes is less
+-- (0001, 0002, etc.). This parameter is only valid when /NumCacheNodes/ is less
 -- than the existing number of cache nodes. The number of cache node IDs
 -- supplied in this parameter must match the difference between the existing
 -- number of cache nodes in the cluster or pending cache nodes, whichever is
@@ -225,7 +230,7 @@ mccEngineVersion = lens _mccEngineVersion (\s a -> s { _mccEngineVersion = a })
 -- | The list of Availability Zones where the new Memcached cache nodes will be
 -- created.
 --
--- This parameter is only valid when 'NumCacheNodes' in the request is greater
+-- This parameter is only valid when /NumCacheNodes/ in the request is greater
 -- than the sum of the number of active cache nodes and the number of cache
 -- nodes pending creation (which may be zero). The number of Availability Zones
 -- supplied in this list must match the cache nodes being added in this request.
@@ -255,16 +260,15 @@ mccEngineVersion = lens _mccEngineVersion (\s a -> s { _mccEngineVersion = a })
 --
 -- Impact of new add/remove requests upon pending requests
 --
--- Scenarios Pending Operation New Request Results   Scenario-1 Delete Delete
--- The new delete, pending or immediate, replaces the pending delete.   Scenario-2
--- Delete Create The new create, pending or immediate, replaces the pending
--- delete.   Scenario-3 Create Delete The new delete, pending or immediate,
--- replaces the pending create.   Scenario-4 Create Create The new create is
--- added to the pending create.
+-- Scenarios Pending action New Request Results   Scenario-1 Delete Delete The new delete, pending or immediate, replaces the pending delete.
+-- Scenario-2 Delete Create The new create, pending or immediate, replaces
+-- the pending delete.   Scenario-3 Create Delete The new delete, pending or
+-- immediate, replaces the pending create.   Scenario-4 Create Create The new
+-- create is added to the pending create.
 -- Important:
--- If the new create request is Apply
--- Immediately - Yes, all creates are performed immediately. If the new create
--- request is Apply Immediately - No, all creates are pending.   Example: 'NewAvailabilityZones.member.1=us-east-1a&NewAvailabilityZones.member.2=us-east-1b&NewAvailabilityZones.member.3=us-east-1d'
+-- If the new create request is
+-- Apply Immediately - Yes, all creates are performed immediately. If the new
+-- create request is Apply Immediately - No, all creates are pending.   Example: 'NewAvailabilityZones.member.1=us-west-2a&NewAvailabilityZones.member.2=us-west-2b&NewAvailabilityZones.member.3=us-west-2c'
 mccNewAvailabilityZones :: Lens' ModifyCacheCluster [Text]
 mccNewAvailabilityZones =
     lens _mccNewAvailabilityZones (\s a -> s { _mccNewAvailabilityZones = a })
@@ -272,6 +276,8 @@ mccNewAvailabilityZones =
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications
 -- will be sent.
+--
+-- The Amazon SNS topic owner must be same as the cache cluster owner.
 mccNotificationTopicArn :: Lens' ModifyCacheCluster (Maybe Text)
 mccNotificationTopicArn =
     lens _mccNotificationTopicArn (\s a -> s { _mccNotificationTopicArn = a })
@@ -296,7 +302,8 @@ mccNotificationTopicStatus =
 -- If you are removing cache nodes, you must use the 'CacheNodeIdsToRemove'
 -- parameter to provide the IDs of the specific cache nodes to remove.
 --
--- For cache clusters running Redis, the value of 'NumCacheNodes'must be 1.
+-- For clusters running Redis, this value must be 1. For clusters running
+-- Memcached, this value must be between 1 and 50.
 --
 -- Note:
 -- Adding or removing Memcached cache nodes can be applied immediately or
@@ -314,7 +321,7 @@ mccNotificationTopicStatus =
 -- does not automatically override a previous pending action to add nodes. The
 -- customer can modify the previous pending action to add more nodes or
 -- explicitly cancel the pending request and retry the new request. To cancel
--- pending actions to modify the number of cache nodes in a cluster, use the 'ModifyCacheCluster' request and set 'NumCacheNodes' equal to the number of cache nodes currently
+-- pending actions to modify the number of cache nodes in a cluster, use the 'ModifyCacheCluster' request and set /NumCacheNodes/ equal to the number of cache nodes currently
 -- in the cache cluster.
 mccNumCacheNodes :: Lens' ModifyCacheCluster (Maybe Int)
 mccNumCacheNodes = lens _mccNumCacheNodes (\s a -> s { _mccNumCacheNodes = a })

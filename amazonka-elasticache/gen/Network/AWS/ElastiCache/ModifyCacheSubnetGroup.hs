@@ -22,7 +22,7 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | The /ModifyCacheSubnetGroup/ operation modifies an existing cache subnet group.
+-- | The /ModifyCacheSubnetGroup/ action modifies an existing cache subnet group.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheSubnetGroup.html>
 module Network.AWS.ElastiCache.ModifyCacheSubnetGroup

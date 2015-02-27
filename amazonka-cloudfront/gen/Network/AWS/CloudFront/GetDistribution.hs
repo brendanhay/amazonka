@@ -98,7 +98,7 @@ gdrETag = lens _gdrETag (\s a -> s { _gdrETag = a })
 
 instance ToPath GetDistribution where
     toPath GetDistribution{..} = mconcat
-        [ "/2014-10-21/distribution/"
+        [ "/2014-11-06/distribution/"
         , toText _gdId
         ]
 

@@ -25,6 +25,10 @@
 -- | This operation disables automatic renewal of domain registration for the
 -- specified domain.
 --
+-- Caution! Amazon Route 53 doesn't have a manual renewal process, so if you
+-- disable automatic renewal, registration for the domain will not be renewed
+-- when the expiration date passes, and you will lose control of the domain name.
+--
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-DisableDomainAutoRenew.html>
 module Network.AWS.Route53Domains.DisableDomainAutoRenew
     (

@@ -134,7 +134,7 @@ ctAttributeDefinitions =
 --
 -- /NonKeyAttributes/ - A list of one or more non-key attribute names that
 -- are projected into the secondary index. The total count of attributes
--- specified in /NonKeyAttributes/, summed across all of the secondary indexes,
+-- provided in /NonKeyAttributes/, summed across all of the secondary indexes,
 -- must not exceed 20. If you project the same attribute into two different
 -- indexes, this counts as two distinct attributes when determining the total.
 --
@@ -157,11 +157,11 @@ ctGlobalSecondaryIndexes =
 --
 -- /KeyType/ - Determines whether the key attribute is 'HASH' or 'RANGE'.
 --
--- For a primary key that consists of a hash attribute, you must specify
+-- For a primary key that consists of a hash attribute, you must provide
 -- exactly one element with a /KeyType/ of 'HASH'.
 --
 -- For a primary key that consists of hash and range attributes, you must
--- specify exactly two elements, in this order: The first element must have a /KeyType/ of 'HASH', and the second element must have a /KeyType/ of 'RANGE'.
+-- provide exactly two elements, in this order: The first element must have a /KeyType/ of 'HASH', and the second element must have a /KeyType/ of 'RANGE'.
 --
 -- For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#WorkingWithTables.primary.key Specifying the Primary Key> in the /Amazon DynamoDBDeveloper Guide/.
 ctKeySchema :: Lens' CreateTable (NonEmpty KeySchemaElement)
@@ -198,7 +198,7 @@ ctKeySchema = lens _ctKeySchema (\s a -> s { _ctKeySchema = a }) . _List1
 --
 -- /NonKeyAttributes/ - A list of one or more non-key attribute names that
 -- are projected into the secondary index. The total count of attributes
--- specified in /NonKeyAttributes/, summed across all of the secondary indexes,
+-- provided in /NonKeyAttributes/, summed across all of the secondary indexes,
 -- must not exceed 20. If you project the same attribute into two different
 -- indexes, this counts as two distinct attributes when determining the total.
 --

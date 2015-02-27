@@ -46,7 +46,7 @@ module Network.AWS.ECS.DeregisterContainerInstance
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.Query
+import Network.AWS.Request.JSON
 import Network.AWS.ECS.Types
 import qualified GHC.Exts
 
@@ -119,21 +119,24 @@ instance ToPath DeregisterContainerInstance where
     toPath = const "/"
 
 instance ToQuery DeregisterContainerInstance where
-    toQuery DeregisterContainerInstance{..} = mconcat
-        [ "cluster"           =? _dci1Cluster
-        , "containerInstance" =? _dci1ContainerInstance
-        , "force"             =? _dci1Force
-        ]
+    toQuery = const mempty
 
 instance ToHeaders DeregisterContainerInstance
+
+instance ToJSON DeregisterContainerInstance where
+    toJSON DeregisterContainerInstance{..} = object
+        [ "cluster"           .= _dci1Cluster
+        , "containerInstance" .= _dci1ContainerInstance
+        , "force"             .= _dci1Force
+        ]
 
 instance AWSRequest DeregisterContainerInstance where
     type Sv DeregisterContainerInstance = ECS
     type Rs DeregisterContainerInstance = DeregisterContainerInstanceResponse
 
     request  = post "DeregisterContainerInstance"
-    response = xmlResponse
+    response = jsonResponse
 
-instance FromXML DeregisterContainerInstanceResponse where
-    parseXML = withElement "DeregisterContainerInstanceResult" $ \x -> DeregisterContainerInstanceResponse
-        <$> x .@? "containerInstance"
+instance FromJSON DeregisterContainerInstanceResponse where
+    parseJSON = withObject "DeregisterContainerInstanceResponse" $ \o -> DeregisterContainerInstanceResponse
+        <$> o .:? "containerInstance"

@@ -22,8 +22,8 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | The /DescribeReservedCacheNodesOfferings/ operation lists available reserved
--- cache node offerings.
+-- | The /DescribeReservedCacheNodesOfferings/ action lists available reserved cache
+-- node offerings.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeReservedCacheNodesOfferings.html>
 module Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
@@ -108,9 +108,9 @@ drcnoDuration :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
 drcnoDuration = lens _drcnoDuration (\s a -> s { _drcnoDuration = a })
 
 -- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this operation. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by /MaxRecords/.
+-- pagination of results from this action. If this parameter is specified, the
+-- response includes only records beyond the marker, up to the value specified
+-- by /MaxRecords/.
 drcnoMarker :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
 drcnoMarker = lens _drcnoMarker (\s a -> s { _drcnoMarker = a })
 
@@ -127,7 +127,7 @@ drcnoMaxRecords = lens _drcnoMaxRecords (\s a -> s { _drcnoMaxRecords = a })
 -- | The offering type filter value. Use this parameter to show only the available
 -- offerings matching the specified offering type.
 --
--- Valid Values: '"Light Utilization" | "Medium Utilization" | "HeavyUtilization"'
+-- Valid Values: '"Light Utilization"|"Medium Utilization"|"Heavy Utilization"'
 drcnoOfferingType :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
 drcnoOfferingType =
     lens _drcnoOfferingType (\s a -> s { _drcnoOfferingType = a })

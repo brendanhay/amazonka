@@ -22,7 +22,8 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Retrieves account level information about account entity usage and IAM quotas.
+-- | Retrieves information about IAM entity usage and IAM quotas in the AWS
+-- account.
 --
 -- For information about limitations on IAM entities, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAMEntities> in the /Using IAM/ guide.
 --
@@ -69,64 +70,149 @@ getAccountSummaryResponse = GetAccountSummaryResponse
     { _gasrSummaryMap = mempty
     }
 
--- | A set of key value pairs containing account-level information.
+-- | A set of key value pairs containing information about IAM entity usage and
+-- IAM quotas.
 --
--- 'SummaryMap' contains the following keys:   'AccessKeysPerUserQuota' - Maximum
--- number of active access keys allowed per IAM user
+-- 'SummaryMap' contains the following keys:   AccessKeysPerUserQuota
 --
--- 'AccountAccessKeysPresent' - 1 if the root account has an access key, 0
--- otherwise
+-- The maximum number of active access keys allowed for each IAM user.
 --
--- 'AccountMFAEnabled' - 1 if the root account has an MFA device assigned to
--- it, 0 otherwise
+-- AccountAccessKeysPresent
 --
--- 'AccountSigningCertificatesPresent' - 1 if the root account has a signing
--- certificate, 0 otherwise
+-- This value is 1 if the AWS account (root) has an access key, otherwise it is
+-- 0.
 --
--- 'AssumeRolePolicySizeQuota' - Maximum allowed size for assume role policy
--- documents (trust policies), in non-whitespace characters
+-- AccountMFAEnabled
 --
--- 'GroupPolicySizeQuota' - Maximum allowed size for IAM group policy
--- documents, in non-whitespace characters
+-- This value is 1 if the AWS account (root) has an MFA device assigned,
+-- otherwise it is 0.
 --
--- 'Groups' - Number of IAM groups in the AWS account
+-- AccountSigningCertificatesPresent
 --
--- 'GroupsPerUserQuota' - Maximum number of IAM groups each IAM user can belong
--- to
+-- This value is 1 if the AWS account (root) has a signing certificate,
+-- otherwise it is 0.
 --
--- 'GroupsQuota' - Maximum number of IAM groups allowed in the AWS account
+-- AssumeRolePolicySizeQuota
 --
--- 'InstanceProfiles' - Number of instance profiles in the AWS account
+-- The maximum allowed size for assume role policy documents (trust policies),
+-- in non-whitespace characters.
 --
--- 'InstanceProfilesQuota' - Maximum number of instance profiles allowed in the
--- AWS account
+-- AttachedPoliciesPerGroupQuota
 --
--- 'MFADevices' - Number of MFA devices, either assigned or unassigned
+-- The maximum number of managed policies that can be attached to an IAM group.
 --
--- 'MFADevicesInUse' - Number of MFA devices that have been assigned to an IAM
--- user or to the root account
+-- AttachedPoliciesPerRoleQuota
 --
--- 'RolePolicySizeQuota' - Maximum allowed size for IAM role policy documents
--- (permissions policies), in non-whitespace characters
+-- The maximum number of managed policies that can be attached to an IAM role.
 --
--- 'Roles' - Number of roles IAM in the AWS account
+-- AttachedPoliciesPerUserQuota
 --
--- 'RolesQuota' - Maximum number of IAM roles allowed in the AWS account
+-- The maximum number of managed policies that can be attached to an IAM user.
 --
--- 'UserPolicySizeQuota' - Maximum allowed size for IAM user policy documents,
--- in non-whitespace characters
+-- GroupPolicySizeQuota
 --
--- 'Users' - Number of IAM users in the AWS account
+-- The maximum allowed size for the aggregate of all inline policies embedded
+-- in an IAM group, in non-whitespace characters.
 --
--- 'UsersQuota' - Maximum number of IAM users allowed in the AWS account
+-- Groups
 --
--- 'ServerCertificates' - Number of server certificates in the AWS account
+-- The number of IAM groups in the AWS account.
 --
--- 'ServerCertificatesQuota' - Maximum number of server certificates allowed in
--- the AWS account
+-- GroupsPerUserQuota
 --
--- 'SigningCertificatesPerUserQuota' - Maximum number of X509 signing
--- certificates allowed per IAM user
+-- The maximum number of IAM groups each IAM user can belong to.
+--
+-- GroupsQuota
+--
+-- The maximum number of IAM groups allowed in the AWS account.
+--
+-- InstanceProfiles
+--
+-- The number of instance profiles in the AWS account.
+--
+-- InstanceProfilesQuota
+--
+-- The maximum number of instance profiles allowed in the AWS account.
+--
+-- MFADevices
+--
+-- The number of MFA devices in the AWS account, including those assigned and
+-- unassigned.
+--
+-- MFADevicesInUse
+--
+-- The number of MFA devices that have been assigned to an IAM user or to the
+-- AWS account (root).
+--
+-- Policies
+--
+-- The number of customer managed policies in the AWS account.
+--
+-- PoliciesQuota
+--
+-- The maximum number of customer managed policies allowed in the AWS account.
+--
+-- PolicySizeQuota
+--
+-- The maximum allowed size of a customer managed policy, in non-whitespace
+-- characters.
+--
+-- PolicyVersionsInUse
+--
+-- The number of managed policies that are attached to IAM users, groups, or
+-- roles in the AWS account.
+--
+-- PolicyVersionsInUseQuota
+--
+-- The maximum number of managed policies that can be attached to IAM users,
+-- groups, or roles in the AWS account.
+--
+-- Providers
+--
+-- The number of identity providers in the AWS account.
+--
+-- RolePolicySizeQuota
+--
+-- The maximum allowed size for the aggregate of all inline policies (access
+-- policies, not the trust policy) embedded in an IAM role, in non-whitespace
+-- characters.
+--
+-- Roles
+--
+-- The number of IAM roles in the AWS account.
+--
+-- RolesQuota
+--
+-- The maximum number of IAM roles allowed in the AWS account.
+--
+-- ServerCertificates
+--
+-- The number of server certificates in the AWS account.
+--
+-- ServerCertificatesQuota
+--
+-- The maximum number of server certificates allowed in the AWS account.
+--
+-- SigningCertificatesPerUserQuota
+--
+-- The maximum number of X.509 signing certificates allowed for each IAM user.
+--
+-- UserPolicySizeQuota
+--
+-- The maximum allowed size for the aggregate of all inline policies embedded
+-- in an IAM user, in non-whitespace characters.
+--
+-- Users
+--
+-- The number of IAM users in the AWS account.
+--
+-- UsersQuota
+--
+-- The maximum number of IAM users allowed in the AWS account.
+--
+-- VersionsPerPolicyQuota
+--
+-- The maximum number of policy versions allowed for each managed policy.
 --
 --
 gasrSummaryMap :: Lens' GetAccountSummaryResponse (HashMap SummaryKeyType Int)

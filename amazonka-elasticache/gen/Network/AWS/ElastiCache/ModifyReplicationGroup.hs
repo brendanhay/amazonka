@@ -22,7 +22,7 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | The /ModifyReplicationGroup/ operation modifies the settings for a replication
+-- | The /ModifyReplicationGroup/ action modifies the settings for a replication
 -- group.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyReplicationGroup.html>
@@ -155,10 +155,7 @@ mrgApplyImmediately :: Lens' ModifyReplicationGroup (Maybe Bool)
 mrgApplyImmediately =
     lens _mrgApplyImmediately (\s a -> s { _mrgApplyImmediately = a })
 
--- | Determines whether minor engine upgrades will be applied automatically to all
--- of the clusters in the replication group during the maintenance window. A
--- value of 'true' allows these upgrades to occur; 'false' disables automatic
--- upgrades.
+-- | This parameter is currently disabled.
 mrgAutoMinorVersionUpgrade :: Lens' ModifyReplicationGroup (Maybe Bool)
 mrgAutoMinorVersionUpgrade =
     lens _mrgAutoMinorVersionUpgrade
@@ -168,6 +165,10 @@ mrgAutoMinorVersionUpgrade =
 -- if the existing primary encounters a failure.
 --
 -- Valid values: 'true' | 'false'
+--
+-- ElastiCache Multi-AZ replication groups are not supported on:
+--
+-- Redis versions earlier than 2.8.6. T1 and T2 cache node types.
 mrgAutomaticFailoverEnabled :: Lens' ModifyReplicationGroup (Maybe Bool)
 mrgAutomaticFailoverEnabled =
     lens _mrgAutomaticFailoverEnabled
@@ -203,6 +204,8 @@ mrgEngineVersion = lens _mrgEngineVersion (\s a -> s { _mrgEngineVersion = a })
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications
 -- will be sent.
+--
+-- The Amazon SNS topic owner must be same as the replication group owner.
 mrgNotificationTopicArn :: Lens' ModifyReplicationGroup (Maybe Text)
 mrgNotificationTopicArn =
     lens _mrgNotificationTopicArn (\s a -> s { _mrgNotificationTopicArn = a })

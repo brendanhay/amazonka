@@ -118,7 +118,7 @@ udrETag = lens _udrETag (\s a -> s { _udrETag = a })
 
 instance ToPath UpdateDistribution where
     toPath UpdateDistribution{..} = mconcat
-        [ "/2014-10-21/distribution/"
+        [ "/2014-11-06/distribution/"
         , toText _udId
         , "/config"
         ]
@@ -132,9 +132,7 @@ instance ToHeaders UpdateDistribution where
         ]
 
 instance ToXMLRoot UpdateDistribution where
-    toXMLRoot UpdateDistribution{..} = namespaced ns "UpdateDistribution"
-        [ "DistributionConfig" =@ _udDistributionConfig
-        ]
+    toXMLRoot = extractRoot ns . toXML . _udDistributionConfig
 
 instance ToXML UpdateDistribution
 

@@ -1,5 +1,5 @@
 name:                  amazonka-iam
-version:               0.3.0
+version:               0.3.1
 synopsis:              Amazon Identity and Access Management SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -39,6 +39,9 @@ library
         , Network.AWS.IAM.AddClientIDToOpenIDConnectProvider
         , Network.AWS.IAM.AddRoleToInstanceProfile
         , Network.AWS.IAM.AddUserToGroup
+        , Network.AWS.IAM.AttachGroupPolicy
+        , Network.AWS.IAM.AttachRolePolicy
+        , Network.AWS.IAM.AttachUserPolicy
         , Network.AWS.IAM.ChangePassword
         , Network.AWS.IAM.CreateAccessKey
         , Network.AWS.IAM.CreateAccountAlias
@@ -46,6 +49,8 @@ library
         , Network.AWS.IAM.CreateInstanceProfile
         , Network.AWS.IAM.CreateLoginProfile
         , Network.AWS.IAM.CreateOpenIDConnectProvider
+        , Network.AWS.IAM.CreatePolicy
+        , Network.AWS.IAM.CreatePolicyVersion
         , Network.AWS.IAM.CreateRole
         , Network.AWS.IAM.CreateSAMLProvider
         , Network.AWS.IAM.CreateUser
@@ -59,6 +64,8 @@ library
         , Network.AWS.IAM.DeleteInstanceProfile
         , Network.AWS.IAM.DeleteLoginProfile
         , Network.AWS.IAM.DeleteOpenIDConnectProvider
+        , Network.AWS.IAM.DeletePolicy
+        , Network.AWS.IAM.DeletePolicyVersion
         , Network.AWS.IAM.DeleteRole
         , Network.AWS.IAM.DeleteRolePolicy
         , Network.AWS.IAM.DeleteSAMLProvider
@@ -67,6 +74,9 @@ library
         , Network.AWS.IAM.DeleteUser
         , Network.AWS.IAM.DeleteUserPolicy
         , Network.AWS.IAM.DeleteVirtualMFADevice
+        , Network.AWS.IAM.DetachGroupPolicy
+        , Network.AWS.IAM.DetachRolePolicy
+        , Network.AWS.IAM.DetachUserPolicy
         , Network.AWS.IAM.EnableMFADevice
         , Network.AWS.IAM.GenerateCredentialReport
         , Network.AWS.IAM.GetAccountAuthorizationDetails
@@ -78,6 +88,8 @@ library
         , Network.AWS.IAM.GetInstanceProfile
         , Network.AWS.IAM.GetLoginProfile
         , Network.AWS.IAM.GetOpenIDConnectProvider
+        , Network.AWS.IAM.GetPolicy
+        , Network.AWS.IAM.GetPolicyVersion
         , Network.AWS.IAM.GetRole
         , Network.AWS.IAM.GetRolePolicy
         , Network.AWS.IAM.GetSAMLProvider
@@ -86,6 +98,10 @@ library
         , Network.AWS.IAM.GetUserPolicy
         , Network.AWS.IAM.ListAccessKeys
         , Network.AWS.IAM.ListAccountAliases
+        , Network.AWS.IAM.ListAttachedGroupPolicies
+        , Network.AWS.IAM.ListAttachedRolePolicies
+        , Network.AWS.IAM.ListAttachedUserPolicies
+        , Network.AWS.IAM.ListEntitiesForPolicy
         , Network.AWS.IAM.ListGroupPolicies
         , Network.AWS.IAM.ListGroups
         , Network.AWS.IAM.ListGroupsForUser
@@ -93,6 +109,8 @@ library
         , Network.AWS.IAM.ListInstanceProfilesForRole
         , Network.AWS.IAM.ListMFADevices
         , Network.AWS.IAM.ListOpenIDConnectProviders
+        , Network.AWS.IAM.ListPolicies
+        , Network.AWS.IAM.ListPolicyVersions
         , Network.AWS.IAM.ListRolePolicies
         , Network.AWS.IAM.ListRoles
         , Network.AWS.IAM.ListSAMLProviders
@@ -108,6 +126,7 @@ library
         , Network.AWS.IAM.RemoveRoleFromInstanceProfile
         , Network.AWS.IAM.RemoveUserFromGroup
         , Network.AWS.IAM.ResyncMFADevice
+        , Network.AWS.IAM.SetDefaultPolicyVersion
         , Network.AWS.IAM.Types
         , Network.AWS.IAM.UpdateAccessKey
         , Network.AWS.IAM.UpdateAccountPasswordPolicy
@@ -125,5 +144,5 @@ library
     other-modules:
 
     build-depends:
-          amazonka-core == 0.3.0.*
+          amazonka-core == 0.3.1.*
         , base          >= 4.7     && < 5

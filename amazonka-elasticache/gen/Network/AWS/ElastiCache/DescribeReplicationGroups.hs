@@ -22,8 +22,9 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | The /DescribeReplicationGroups/ operation returns information about a
--- particular replication group. If no identifier is specified, /DescribeReplicationGroups/ returns information about all replication groups.
+-- | The /DescribeReplicationGroups/ action returns information about a particular
+-- replication group. If no identifier is specified, /DescribeReplicationGroups/
+-- returns information about all replication groups.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeReplicationGroups.html>
 module Network.AWS.ElastiCache.DescribeReplicationGroups
@@ -75,9 +76,9 @@ describeReplicationGroups = DescribeReplicationGroups
     }
 
 -- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this operation. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by /MaxRecords/.
+-- pagination of results from this action. If this parameter is specified, the
+-- response includes only records beyond the marker, up to the value specified
+-- by /MaxRecords/.
 drg1Marker :: Lens' DescribeReplicationGroups (Maybe Text)
 drg1Marker = lens _drg1Marker (\s a -> s { _drg1Marker = a })
 

@@ -28,9 +28,7 @@ module Network.AWS.ECS.Types
     -- * Service
       ECS
     -- ** Error
-    , RESTError
-    -- ** XML
-    , ns
+    , JSONError
 
     -- * NetworkBinding
     , NetworkBinding
@@ -46,6 +44,12 @@ module Network.AWS.ECS.Types
     , cClusterName
     , cStatus
 
+    -- * Volume
+    , Volume
+    , volume
+    , vHost
+    , vName
+
     -- * ContainerOverride
     , ContainerOverride
     , containerOverride
@@ -58,10 +62,21 @@ module Network.AWS.ECS.Types
     , kvpName
     , kvpValue
 
+    -- * VolumeFrom
+    , VolumeFrom
+    , volumeFrom
+    , vfReadOnly
+    , vfSourceContainer
+
     -- * TaskOverride
     , TaskOverride
     , taskOverride
     , toContainerOverrides
+
+    -- * HostVolumeProperties
+    , HostVolumeProperties
+    , hostVolumeProperties
+    , hvpSourcePath
 
     -- * Container
     , Container
@@ -85,8 +100,10 @@ module Network.AWS.ECS.Types
     , cdImage
     , cdLinks
     , cdMemory
+    , cdMountPoints
     , cdName
     , cdPortMappings
+    , cdVolumesFrom
 
     -- * Resource
     , Resource
@@ -123,6 +140,7 @@ module Network.AWS.ECS.Types
     , tdFamily
     , tdRevision
     , tdTaskDefinitionArn
+    , tdVolumes
 
     -- * Failure
     , Failure
@@ -139,6 +157,13 @@ module Network.AWS.ECS.Types
     , ciRegisteredResources
     , ciRemainingResources
     , ciStatus
+
+    -- * MountPoint
+    , MountPoint
+    , mountPoint
+    , mpContainerPath
+    , mpReadOnly
+    , mpSourceVolume
     ) where
 
 import Network.AWS.Prelude
@@ -150,7 +175,7 @@ data ECS
 
 instance AWSService ECS where
     type Sg ECS = V4
-    type Er ECS = RESTError
+    type Er ECS = JSONError
 
     service = service'
       where
@@ -159,15 +184,15 @@ instance AWSService ECS where
             { _svcAbbrev       = "ECS"
             , _svcPrefix       = "ecs"
             , _svcVersion      = "2014-11-13"
-            , _svcTargetPrefix = Nothing
-            , _svcJSONVersion  = Nothing
+            , _svcTargetPrefix = Just "AmazonEC2ContainerServiceV20141113"
+            , _svcJSONVersion  = Just "1.1"
             , _svcHandle       = handle
             , _svcRetry        = retry
             }
 
         handle :: Status
-               -> Maybe (LazyByteString -> ServiceError RESTError)
-        handle = restError statusSuccess service'
+               -> Maybe (LazyByteString -> ServiceError JSONError)
+        handle = jsonError statusSuccess service'
 
         retry :: Retry ECS
         retry = Exponential
@@ -178,17 +203,13 @@ instance AWSService ECS where
             }
 
         check :: Status
-              -> RESTError
+              -> JSONError
               -> Bool
         check (statusCode -> s) (awsErrorCode -> e)
             | s == 500  = True -- General Server Error
             | s == 509  = True -- Limit Exceeded
             | s == 503  = True -- Service Unavailable
             | otherwise = False
-
-ns :: Text
-ns = "http://ecs.amazonaws.com/doc/2014-11-13/"
-{-# INLINE ns #-}
 
 data NetworkBinding = NetworkBinding
     { _nbBindIP        :: Maybe Text
@@ -217,25 +238,25 @@ networkBinding = NetworkBinding
 nbBindIP :: Lens' NetworkBinding (Maybe Text)
 nbBindIP = lens _nbBindIP (\s a -> s { _nbBindIP = a })
 
--- | The port number on the container that should be used with the network binding.
+-- | The port number on the container that is be used with the network binding.
 nbContainerPort :: Lens' NetworkBinding (Maybe Int)
 nbContainerPort = lens _nbContainerPort (\s a -> s { _nbContainerPort = a })
 
--- | The port number on the host that should be used with the network binding.
+-- | The port number on the host that is used with the network binding.
 nbHostPort :: Lens' NetworkBinding (Maybe Int)
 nbHostPort = lens _nbHostPort (\s a -> s { _nbHostPort = a })
 
-instance FromXML NetworkBinding where
-    parseXML x = NetworkBinding
-        <$> x .@? "bindIP"
-        <*> x .@? "containerPort"
-        <*> x .@? "hostPort"
+instance FromJSON NetworkBinding where
+    parseJSON = withObject "NetworkBinding" $ \o -> NetworkBinding
+        <$> o .:? "bindIP"
+        <*> o .:? "containerPort"
+        <*> o .:? "hostPort"
 
-instance ToQuery NetworkBinding where
-    toQuery NetworkBinding{..} = mconcat
-        [ "bindIP"        =? _nbBindIP
-        , "containerPort" =? _nbContainerPort
-        , "hostPort"      =? _nbHostPort
+instance ToJSON NetworkBinding where
+    toJSON NetworkBinding{..} = object
+        [ "bindIP"        .= _nbBindIP
+        , "containerPort" .= _nbContainerPort
+        , "hostPort"      .= _nbHostPort
         ]
 
 data Cluster = Cluster
@@ -278,21 +299,62 @@ cClusterName = lens _cClusterName (\s a -> s { _cClusterName = a })
 cStatus :: Lens' Cluster (Maybe Text)
 cStatus = lens _cStatus (\s a -> s { _cStatus = a })
 
-instance FromXML Cluster where
-    parseXML x = Cluster
-        <$> x .@? "clusterArn"
-        <*> x .@? "clusterName"
-        <*> x .@? "status"
+instance FromJSON Cluster where
+    parseJSON = withObject "Cluster" $ \o -> Cluster
+        <$> o .:? "clusterArn"
+        <*> o .:? "clusterName"
+        <*> o .:? "status"
 
-instance ToQuery Cluster where
-    toQuery Cluster{..} = mconcat
-        [ "clusterArn"  =? _cClusterArn
-        , "clusterName" =? _cClusterName
-        , "status"      =? _cStatus
+instance ToJSON Cluster where
+    toJSON Cluster{..} = object
+        [ "clusterArn"  .= _cClusterArn
+        , "clusterName" .= _cClusterName
+        , "status"      .= _cStatus
+        ]
+
+data Volume = Volume
+    { _vHost :: Maybe HostVolumeProperties
+    , _vName :: Maybe Text
+    } deriving (Eq, Read, Show)
+
+-- | 'Volume' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'vHost' @::@ 'Maybe' 'HostVolumeProperties'
+--
+-- * 'vName' @::@ 'Maybe' 'Text'
+--
+volume :: Volume
+volume = Volume
+    { _vName = Nothing
+    , _vHost = Nothing
+    }
+
+-- | The path on the host container instance that is presented to the containers
+-- which access the volume. If this parameter is empty, then the Docker daemon
+-- assigns a host path for you.
+vHost :: Lens' Volume (Maybe HostVolumeProperties)
+vHost = lens _vHost (\s a -> s { _vHost = a })
+
+-- | The name of the volume. This name is referenced in the 'sourceVolume' parameter
+-- of container definition 'mountPoints'.
+vName :: Lens' Volume (Maybe Text)
+vName = lens _vName (\s a -> s { _vName = a })
+
+instance FromJSON Volume where
+    parseJSON = withObject "Volume" $ \o -> Volume
+        <$> o .:? "host"
+        <*> o .:? "name"
+
+instance ToJSON Volume where
+    toJSON Volume{..} = object
+        [ "name" .= _vName
+        , "host" .= _vHost
         ]
 
 data ContainerOverride = ContainerOverride
-    { _coCommand :: List "member" Text
+    { _coCommand :: List "command" Text
     , _coName    :: Maybe Text
     } deriving (Eq, Ord, Read, Show)
 
@@ -318,15 +380,15 @@ coCommand = lens _coCommand (\s a -> s { _coCommand = a }) . _List
 coName :: Lens' ContainerOverride (Maybe Text)
 coName = lens _coName (\s a -> s { _coName = a })
 
-instance FromXML ContainerOverride where
-    parseXML x = ContainerOverride
-        <$> x .@? "command" .!@ mempty
-        <*> x .@? "name"
+instance FromJSON ContainerOverride where
+    parseJSON = withObject "ContainerOverride" $ \o -> ContainerOverride
+        <$> o .:? "command" .!= mempty
+        <*> o .:? "name"
 
-instance ToQuery ContainerOverride where
-    toQuery ContainerOverride{..} = mconcat
-        [ "command" =? _coCommand
-        , "name"    =? _coName
+instance ToJSON ContainerOverride where
+    toJSON ContainerOverride{..} = object
+        [ "name"    .= _coName
+        , "command" .= _coCommand
         ]
 
 data KeyValuePair = KeyValuePair
@@ -356,19 +418,60 @@ kvpName = lens _kvpName (\s a -> s { _kvpName = a })
 kvpValue :: Lens' KeyValuePair (Maybe Text)
 kvpValue = lens _kvpValue (\s a -> s { _kvpValue = a })
 
-instance FromXML KeyValuePair where
-    parseXML x = KeyValuePair
-        <$> x .@? "name"
-        <*> x .@? "value"
+instance FromJSON KeyValuePair where
+    parseJSON = withObject "KeyValuePair" $ \o -> KeyValuePair
+        <$> o .:? "name"
+        <*> o .:? "value"
 
-instance ToQuery KeyValuePair where
-    toQuery KeyValuePair{..} = mconcat
-        [ "name"  =? _kvpName
-        , "value" =? _kvpValue
+instance ToJSON KeyValuePair where
+    toJSON KeyValuePair{..} = object
+        [ "name"  .= _kvpName
+        , "value" .= _kvpValue
+        ]
+
+data VolumeFrom = VolumeFrom
+    { _vfReadOnly        :: Maybe Bool
+    , _vfSourceContainer :: Maybe Text
+    } deriving (Eq, Ord, Read, Show)
+
+-- | 'VolumeFrom' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'vfReadOnly' @::@ 'Maybe' 'Bool'
+--
+-- * 'vfSourceContainer' @::@ 'Maybe' 'Text'
+--
+volumeFrom :: VolumeFrom
+volumeFrom = VolumeFrom
+    { _vfSourceContainer = Nothing
+    , _vfReadOnly        = Nothing
+    }
+
+-- | If this value is 'true', the container has read-only access to the volume. If
+-- this value is 'false', then the container can write to the volume. The default
+-- value is 'false'.
+vfReadOnly :: Lens' VolumeFrom (Maybe Bool)
+vfReadOnly = lens _vfReadOnly (\s a -> s { _vfReadOnly = a })
+
+-- | The name of the container to mount volumes from.
+vfSourceContainer :: Lens' VolumeFrom (Maybe Text)
+vfSourceContainer =
+    lens _vfSourceContainer (\s a -> s { _vfSourceContainer = a })
+
+instance FromJSON VolumeFrom where
+    parseJSON = withObject "VolumeFrom" $ \o -> VolumeFrom
+        <$> o .:? "readOnly"
+        <*> o .:? "sourceContainer"
+
+instance ToJSON VolumeFrom where
+    toJSON VolumeFrom{..} = object
+        [ "sourceContainer" .= _vfSourceContainer
+        , "readOnly"        .= _vfReadOnly
         ]
 
 newtype TaskOverride = TaskOverride
-    { _toContainerOverrides :: List "member" ContainerOverride
+    { _toContainerOverrides :: List "containerOverrides" ContainerOverride
     } deriving (Eq, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList TaskOverride where
@@ -394,13 +497,43 @@ toContainerOverrides =
     lens _toContainerOverrides (\s a -> s { _toContainerOverrides = a })
         . _List
 
-instance FromXML TaskOverride where
-    parseXML x = TaskOverride
-        <$> x .@? "containerOverrides" .!@ mempty
+instance FromJSON TaskOverride where
+    parseJSON = withObject "TaskOverride" $ \o -> TaskOverride
+        <$> o .:? "containerOverrides" .!= mempty
 
-instance ToQuery TaskOverride where
-    toQuery TaskOverride{..} = mconcat
-        [ "containerOverrides" =? _toContainerOverrides
+instance ToJSON TaskOverride where
+    toJSON TaskOverride{..} = object
+        [ "containerOverrides" .= _toContainerOverrides
+        ]
+
+newtype HostVolumeProperties = HostVolumeProperties
+    { _hvpSourcePath :: Maybe Text
+    } deriving (Eq, Ord, Read, Show, Monoid)
+
+-- | 'HostVolumeProperties' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'hvpSourcePath' @::@ 'Maybe' 'Text'
+--
+hostVolumeProperties :: HostVolumeProperties
+hostVolumeProperties = HostVolumeProperties
+    { _hvpSourcePath = Nothing
+    }
+
+-- | The path on the host container instance that is presented to the container.
+-- If this parameter is empty, then the Docker daemon has assigned a host path
+-- for you.
+hvpSourcePath :: Lens' HostVolumeProperties (Maybe Text)
+hvpSourcePath = lens _hvpSourcePath (\s a -> s { _hvpSourcePath = a })
+
+instance FromJSON HostVolumeProperties where
+    parseJSON = withObject "HostVolumeProperties" $ \o -> HostVolumeProperties
+        <$> o .:? "sourcePath"
+
+instance ToJSON HostVolumeProperties where
+    toJSON HostVolumeProperties{..} = object
+        [ "sourcePath" .= _hvpSourcePath
         ]
 
 data Container = Container
@@ -408,7 +541,7 @@ data Container = Container
     , _cExitCode        :: Maybe Int
     , _cLastStatus      :: Maybe Text
     , _cName            :: Maybe Text
-    , _cNetworkBindings :: List "member" NetworkBinding
+    , _cNetworkBindings :: List "networkBindings" NetworkBinding
     , _cReason          :: Maybe Text
     , _cTaskArn         :: Maybe Text
     } deriving (Eq, Read, Show)
@@ -470,38 +603,40 @@ cReason = lens _cReason (\s a -> s { _cReason = a })
 cTaskArn :: Lens' Container (Maybe Text)
 cTaskArn = lens _cTaskArn (\s a -> s { _cTaskArn = a })
 
-instance FromXML Container where
-    parseXML x = Container
-        <$> x .@? "containerArn"
-        <*> x .@? "exitCode"
-        <*> x .@? "lastStatus"
-        <*> x .@? "name"
-        <*> x .@? "networkBindings" .!@ mempty
-        <*> x .@? "reason"
-        <*> x .@? "taskArn"
+instance FromJSON Container where
+    parseJSON = withObject "Container" $ \o -> Container
+        <$> o .:? "containerArn"
+        <*> o .:? "exitCode"
+        <*> o .:? "lastStatus"
+        <*> o .:? "name"
+        <*> o .:? "networkBindings" .!= mempty
+        <*> o .:? "reason"
+        <*> o .:? "taskArn"
 
-instance ToQuery Container where
-    toQuery Container{..} = mconcat
-        [ "containerArn"    =? _cContainerArn
-        , "exitCode"        =? _cExitCode
-        , "lastStatus"      =? _cLastStatus
-        , "name"            =? _cName
-        , "networkBindings" =? _cNetworkBindings
-        , "reason"          =? _cReason
-        , "taskArn"         =? _cTaskArn
+instance ToJSON Container where
+    toJSON Container{..} = object
+        [ "containerArn"    .= _cContainerArn
+        , "taskArn"         .= _cTaskArn
+        , "name"            .= _cName
+        , "lastStatus"      .= _cLastStatus
+        , "exitCode"        .= _cExitCode
+        , "reason"          .= _cReason
+        , "networkBindings" .= _cNetworkBindings
         ]
 
 data ContainerDefinition = ContainerDefinition
-    { _cdCommand      :: List "member" Text
+    { _cdCommand      :: List "command" Text
     , _cdCpu          :: Maybe Int
-    , _cdEntryPoint   :: List "member" Text
-    , _cdEnvironment  :: List "member" KeyValuePair
+    , _cdEntryPoint   :: List "entryPoint" Text
+    , _cdEnvironment  :: List "environment" KeyValuePair
     , _cdEssential    :: Maybe Bool
     , _cdImage        :: Maybe Text
-    , _cdLinks        :: List "member" Text
+    , _cdLinks        :: List "links" Text
     , _cdMemory       :: Maybe Int
+    , _cdMountPoints  :: List "mountPoints" MountPoint
     , _cdName         :: Maybe Text
-    , _cdPortMappings :: List "member" PortMapping
+    , _cdPortMappings :: List "portMappings" PortMapping
+    , _cdVolumesFrom  :: List "volumesFrom" VolumeFrom
     } deriving (Eq, Read, Show)
 
 -- | 'ContainerDefinition' constructor.
@@ -524,9 +659,13 @@ data ContainerDefinition = ContainerDefinition
 --
 -- * 'cdMemory' @::@ 'Maybe' 'Int'
 --
+-- * 'cdMountPoints' @::@ ['MountPoint']
+--
 -- * 'cdName' @::@ 'Maybe' 'Text'
 --
 -- * 'cdPortMappings' @::@ ['PortMapping']
+--
+-- * 'cdVolumesFrom' @::@ ['VolumeFrom']
 --
 containerDefinition :: ContainerDefinition
 containerDefinition = ContainerDefinition
@@ -540,6 +679,8 @@ containerDefinition = ContainerDefinition
     , _cdEntryPoint   = mempty
     , _cdCommand      = mempty
     , _cdEnvironment  = mempty
+    , _cdMountPoints  = mempty
+    , _cdVolumesFrom  = mempty
     }
 
 -- | The 'CMD' that is passed to the container. For more information on the Docker 'CMD' parameter, see <https://docs.docker.com/reference/builder/#cmd https://docs.docker.com/reference/builder/#cmd>.
@@ -551,7 +692,10 @@ cdCommand = lens _cdCommand (\s a -> s { _cdCommand = a }) . _List
 cdCpu :: Lens' ContainerDefinition (Maybe Int)
 cdCpu = lens _cdCpu (\s a -> s { _cdCpu = a })
 
--- | The 'ENTRYPOINT' that is passed to the container. For more information on the
+-- | Early versions of the Amazon ECS container agent do not properly handle 'entryPoint' parameters. If you have problems using 'entryPoint', update your container
+-- agent or enter your commands and arguments as 'command' array items instead.
+--
+-- The 'ENTRYPOINT' that is passed to the container. For more information on the
 -- Docker 'ENTRYPOINT' parameter, see <https://docs.docker.com/reference/builder/#entrypoint https://docs.docker.com/reference/builder/#entrypoint>.
 cdEntryPoint :: Lens' ContainerDefinition [Text]
 cdEntryPoint = lens _cdEntryPoint (\s a -> s { _cdEntryPoint = a }) . _List
@@ -584,6 +728,10 @@ cdLinks = lens _cdLinks (\s a -> s { _cdLinks = a }) . _List
 cdMemory :: Lens' ContainerDefinition (Maybe Int)
 cdMemory = lens _cdMemory (\s a -> s { _cdMemory = a })
 
+-- | The mount points for data volumes in your container.
+cdMountPoints :: Lens' ContainerDefinition [MountPoint]
+cdMountPoints = lens _cdMountPoints (\s a -> s { _cdMountPoints = a }) . _List
+
 -- | The name of a container. If you are linking multiple containers together in a
 -- task definition, the 'name' of one container can be entered in the 'links' of
 -- another container to connect the containers.
@@ -594,31 +742,39 @@ cdName = lens _cdName (\s a -> s { _cdName = a })
 cdPortMappings :: Lens' ContainerDefinition [PortMapping]
 cdPortMappings = lens _cdPortMappings (\s a -> s { _cdPortMappings = a }) . _List
 
-instance FromXML ContainerDefinition where
-    parseXML x = ContainerDefinition
-        <$> x .@? "command" .!@ mempty
-        <*> x .@? "cpu"
-        <*> x .@? "entryPoint" .!@ mempty
-        <*> x .@? "environment" .!@ mempty
-        <*> x .@? "essential"
-        <*> x .@? "image"
-        <*> x .@? "links" .!@ mempty
-        <*> x .@? "memory"
-        <*> x .@? "name"
-        <*> x .@? "portMappings" .!@ mempty
+-- | Data volumes to mount from another container.
+cdVolumesFrom :: Lens' ContainerDefinition [VolumeFrom]
+cdVolumesFrom = lens _cdVolumesFrom (\s a -> s { _cdVolumesFrom = a }) . _List
 
-instance ToQuery ContainerDefinition where
-    toQuery ContainerDefinition{..} = mconcat
-        [ "command"      =? _cdCommand
-        , "cpu"          =? _cdCpu
-        , "entryPoint"   =? _cdEntryPoint
-        , "environment"  =? _cdEnvironment
-        , "essential"    =? _cdEssential
-        , "image"        =? _cdImage
-        , "links"        =? _cdLinks
-        , "memory"       =? _cdMemory
-        , "name"         =? _cdName
-        , "portMappings" =? _cdPortMappings
+instance FromJSON ContainerDefinition where
+    parseJSON = withObject "ContainerDefinition" $ \o -> ContainerDefinition
+        <$> o .:? "command" .!= mempty
+        <*> o .:? "cpu"
+        <*> o .:? "entryPoint" .!= mempty
+        <*> o .:? "environment" .!= mempty
+        <*> o .:? "essential"
+        <*> o .:? "image"
+        <*> o .:? "links" .!= mempty
+        <*> o .:? "memory"
+        <*> o .:? "mountPoints" .!= mempty
+        <*> o .:? "name"
+        <*> o .:? "portMappings" .!= mempty
+        <*> o .:? "volumesFrom" .!= mempty
+
+instance ToJSON ContainerDefinition where
+    toJSON ContainerDefinition{..} = object
+        [ "name"         .= _cdName
+        , "image"        .= _cdImage
+        , "cpu"          .= _cdCpu
+        , "memory"       .= _cdMemory
+        , "links"        .= _cdLinks
+        , "portMappings" .= _cdPortMappings
+        , "essential"    .= _cdEssential
+        , "entryPoint"   .= _cdEntryPoint
+        , "command"      .= _cdCommand
+        , "environment"  .= _cdEnvironment
+        , "mountPoints"  .= _cdMountPoints
+        , "volumesFrom"  .= _cdVolumesFrom
         ]
 
 data Resource = Resource
@@ -626,7 +782,7 @@ data Resource = Resource
     , _rIntegerValue   :: Maybe Int
     , _rLongValue      :: Maybe Integer
     , _rName           :: Maybe Text
-    , _rStringSetValue :: List "member" Text
+    , _rStringSetValue :: List "stringSetValue" Text
     , _rType           :: Maybe Text
     } deriving (Eq, Ord, Read, Show)
 
@@ -685,29 +841,29 @@ rStringSetValue = lens _rStringSetValue (\s a -> s { _rStringSetValue = a }) . _
 rType :: Lens' Resource (Maybe Text)
 rType = lens _rType (\s a -> s { _rType = a })
 
-instance FromXML Resource where
-    parseXML x = Resource
-        <$> x .@? "doubleValue"
-        <*> x .@? "integerValue"
-        <*> x .@? "longValue"
-        <*> x .@? "name"
-        <*> x .@? "stringSetValue" .!@ mempty
-        <*> x .@? "type"
+instance FromJSON Resource where
+    parseJSON = withObject "Resource" $ \o -> Resource
+        <$> o .:? "doubleValue"
+        <*> o .:? "integerValue"
+        <*> o .:? "longValue"
+        <*> o .:? "name"
+        <*> o .:? "stringSetValue" .!= mempty
+        <*> o .:? "type"
 
-instance ToQuery Resource where
-    toQuery Resource{..} = mconcat
-        [ "doubleValue"    =? _rDoubleValue
-        , "integerValue"   =? _rIntegerValue
-        , "longValue"      =? _rLongValue
-        , "name"           =? _rName
-        , "stringSetValue" =? _rStringSetValue
-        , "type"           =? _rType
+instance ToJSON Resource where
+    toJSON Resource{..} = object
+        [ "name"           .= _rName
+        , "type"           .= _rType
+        , "doubleValue"    .= _rDoubleValue
+        , "longValue"      .= _rLongValue
+        , "integerValue"   .= _rIntegerValue
+        , "stringSetValue" .= _rStringSetValue
         ]
 
 data Task = Task
     { _tClusterArn           :: Maybe Text
     , _tContainerInstanceArn :: Maybe Text
-    , _tContainers           :: List "member" Container
+    , _tContainers           :: List "containers" Container
     , _tDesiredStatus        :: Maybe Text
     , _tLastStatus           :: Maybe Text
     , _tOverrides            :: Maybe TaskOverride
@@ -782,27 +938,27 @@ tTaskDefinitionArn :: Lens' Task (Maybe Text)
 tTaskDefinitionArn =
     lens _tTaskDefinitionArn (\s a -> s { _tTaskDefinitionArn = a })
 
-instance FromXML Task where
-    parseXML x = Task
-        <$> x .@? "clusterArn"
-        <*> x .@? "containerInstanceArn"
-        <*> x .@? "containers" .!@ mempty
-        <*> x .@? "desiredStatus"
-        <*> x .@? "lastStatus"
-        <*> x .@? "overrides"
-        <*> x .@? "taskArn"
-        <*> x .@? "taskDefinitionArn"
+instance FromJSON Task where
+    parseJSON = withObject "Task" $ \o -> Task
+        <$> o .:? "clusterArn"
+        <*> o .:? "containerInstanceArn"
+        <*> o .:? "containers" .!= mempty
+        <*> o .:? "desiredStatus"
+        <*> o .:? "lastStatus"
+        <*> o .:? "overrides"
+        <*> o .:? "taskArn"
+        <*> o .:? "taskDefinitionArn"
 
-instance ToQuery Task where
-    toQuery Task{..} = mconcat
-        [ "clusterArn"           =? _tClusterArn
-        , "containerInstanceArn" =? _tContainerInstanceArn
-        , "containers"           =? _tContainers
-        , "desiredStatus"        =? _tDesiredStatus
-        , "lastStatus"           =? _tLastStatus
-        , "overrides"            =? _tOverrides
-        , "taskArn"              =? _tTaskArn
-        , "taskDefinitionArn"    =? _tTaskDefinitionArn
+instance ToJSON Task where
+    toJSON Task{..} = object
+        [ "taskArn"              .= _tTaskArn
+        , "clusterArn"           .= _tClusterArn
+        , "taskDefinitionArn"    .= _tTaskDefinitionArn
+        , "containerInstanceArn" .= _tContainerInstanceArn
+        , "overrides"            .= _tOverrides
+        , "lastStatus"           .= _tLastStatus
+        , "desiredStatus"        .= _tDesiredStatus
+        , "containers"           .= _tContainers
         ]
 
 data PortMapping = PortMapping
@@ -824,30 +980,48 @@ portMapping = PortMapping
     , _pmHostPort      = Nothing
     }
 
--- | The port number on the container that should be used with the port mapping.
+-- | The port number on the container that is bound to the user-specified or
+-- automatically assigned host port. If you specify a container port and not a
+-- host port, your container will automatically receive a host port in the 49153
+-- to 65535 port range.
 pmContainerPort :: Lens' PortMapping (Maybe Int)
 pmContainerPort = lens _pmContainerPort (\s a -> s { _pmContainerPort = a })
 
--- | The port number on the host that should be used with the port mapping.
+-- | The port number on the container instance to reserve for your container. You
+-- can specify a non-reserved host port for your container port mapping, or you
+-- can omit the 'hostPort' while specifying a 'containerPort' and your container
+-- will automatically receive a port in the 49153 to 65535 port range. You
+-- should not attempt to specify a host port in the 49153 to 65535 port range,
+-- since these are reserved for automatic assignment.
+--
+-- The default reserved ports are 22 for SSH, the Docker ports 2375 and 2376,
+-- and the Amazon ECS Container Agent port 51678. Any host port that was
+-- previously specified in a running task is also reserved while the task is
+-- running (once a task stops, the host port is released).The current reserved
+-- ports are displayed in the 'remainingResources' of 'DescribeContainerInstances'
+-- output, and a container instance may have up to 50 reserved ports at a time,
+-- including the default reserved ports (automatically assigned ports do not
+-- count toward this limit).
 pmHostPort :: Lens' PortMapping (Maybe Int)
 pmHostPort = lens _pmHostPort (\s a -> s { _pmHostPort = a })
 
-instance FromXML PortMapping where
-    parseXML x = PortMapping
-        <$> x .@? "containerPort"
-        <*> x .@? "hostPort"
+instance FromJSON PortMapping where
+    parseJSON = withObject "PortMapping" $ \o -> PortMapping
+        <$> o .:? "containerPort"
+        <*> o .:? "hostPort"
 
-instance ToQuery PortMapping where
-    toQuery PortMapping{..} = mconcat
-        [ "containerPort" =? _pmContainerPort
-        , "hostPort"      =? _pmHostPort
+instance ToJSON PortMapping where
+    toJSON PortMapping{..} = object
+        [ "containerPort" .= _pmContainerPort
+        , "hostPort"      .= _pmHostPort
         ]
 
 data TaskDefinition = TaskDefinition
-    { _tdContainerDefinitions :: List "member" ContainerDefinition
+    { _tdContainerDefinitions :: List "containerDefinitions" ContainerDefinition
     , _tdFamily               :: Maybe Text
     , _tdRevision             :: Maybe Int
     , _tdTaskDefinitionArn    :: Maybe Text
+    , _tdVolumes              :: List "volumes" Volume
     } deriving (Eq, Read, Show)
 
 -- | 'TaskDefinition' constructor.
@@ -862,16 +1036,20 @@ data TaskDefinition = TaskDefinition
 --
 -- * 'tdTaskDefinitionArn' @::@ 'Maybe' 'Text'
 --
+-- * 'tdVolumes' @::@ ['Volume']
+--
 taskDefinition :: TaskDefinition
 taskDefinition = TaskDefinition
     { _tdTaskDefinitionArn    = Nothing
     , _tdContainerDefinitions = mempty
     , _tdFamily               = Nothing
     , _tdRevision             = Nothing
+    , _tdVolumes              = mempty
     }
 
 -- | A list of container definitions in JSON format that describe the different
--- containers that make up your task.
+-- containers that make up your task. For more information on container
+-- definition parameters and defaults, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Amazon ECS Task Definitions> in the /Amazon EC2 Container Service Developer Guide/.
 tdContainerDefinitions :: Lens' TaskDefinition [ContainerDefinition]
 tdContainerDefinitions =
     lens _tdContainerDefinitions (\s a -> s { _tdContainerDefinitions = a })
@@ -895,19 +1073,26 @@ tdTaskDefinitionArn :: Lens' TaskDefinition (Maybe Text)
 tdTaskDefinitionArn =
     lens _tdTaskDefinitionArn (\s a -> s { _tdTaskDefinitionArn = a })
 
-instance FromXML TaskDefinition where
-    parseXML x = TaskDefinition
-        <$> x .@? "containerDefinitions" .!@ mempty
-        <*> x .@? "family"
-        <*> x .@? "revision"
-        <*> x .@? "taskDefinitionArn"
+-- | The list of volumes in a task. For more information on volume definition
+-- parameters and defaults, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Amazon ECS Task Definitions> in the /Amazon EC2Container Service Developer Guide/.
+tdVolumes :: Lens' TaskDefinition [Volume]
+tdVolumes = lens _tdVolumes (\s a -> s { _tdVolumes = a }) . _List
 
-instance ToQuery TaskDefinition where
-    toQuery TaskDefinition{..} = mconcat
-        [ "containerDefinitions" =? _tdContainerDefinitions
-        , "family"               =? _tdFamily
-        , "revision"             =? _tdRevision
-        , "taskDefinitionArn"    =? _tdTaskDefinitionArn
+instance FromJSON TaskDefinition where
+    parseJSON = withObject "TaskDefinition" $ \o -> TaskDefinition
+        <$> o .:? "containerDefinitions" .!= mempty
+        <*> o .:? "family"
+        <*> o .:? "revision"
+        <*> o .:? "taskDefinitionArn"
+        <*> o .:? "volumes" .!= mempty
+
+instance ToJSON TaskDefinition where
+    toJSON TaskDefinition{..} = object
+        [ "taskDefinitionArn"    .= _tdTaskDefinitionArn
+        , "containerDefinitions" .= _tdContainerDefinitions
+        , "family"               .= _tdFamily
+        , "revision"             .= _tdRevision
+        , "volumes"              .= _tdVolumes
         ]
 
 data Failure = Failure
@@ -937,23 +1122,23 @@ fArn = lens _fArn (\s a -> s { _fArn = a })
 fReason :: Lens' Failure (Maybe Text)
 fReason = lens _fReason (\s a -> s { _fReason = a })
 
-instance FromXML Failure where
-    parseXML x = Failure
-        <$> x .@? "arn"
-        <*> x .@? "reason"
+instance FromJSON Failure where
+    parseJSON = withObject "Failure" $ \o -> Failure
+        <$> o .:? "arn"
+        <*> o .:? "reason"
 
-instance ToQuery Failure where
-    toQuery Failure{..} = mconcat
-        [ "arn"    =? _fArn
-        , "reason" =? _fReason
+instance ToJSON Failure where
+    toJSON Failure{..} = object
+        [ "arn"    .= _fArn
+        , "reason" .= _fReason
         ]
 
 data ContainerInstance = ContainerInstance
     { _ciAgentConnected       :: Maybe Bool
     , _ciContainerInstanceArn :: Maybe Text
     , _ciEc2InstanceId        :: Maybe Text
-    , _ciRegisteredResources  :: List "member" Resource
-    , _ciRemainingResources   :: List "member" Resource
+    , _ciRegisteredResources  :: List "registeredResources" Resource
+    , _ciRemainingResources   :: List "remainingResources" Resource
     , _ciStatus               :: Maybe Text
     } deriving (Eq, Read, Show)
 
@@ -1021,21 +1206,71 @@ ciRemainingResources =
 ciStatus :: Lens' ContainerInstance (Maybe Text)
 ciStatus = lens _ciStatus (\s a -> s { _ciStatus = a })
 
-instance FromXML ContainerInstance where
-    parseXML x = ContainerInstance
-        <$> x .@? "agentConnected"
-        <*> x .@? "containerInstanceArn"
-        <*> x .@? "ec2InstanceId"
-        <*> x .@? "registeredResources" .!@ mempty
-        <*> x .@? "remainingResources" .!@ mempty
-        <*> x .@? "status"
+instance FromJSON ContainerInstance where
+    parseJSON = withObject "ContainerInstance" $ \o -> ContainerInstance
+        <$> o .:? "agentConnected"
+        <*> o .:? "containerInstanceArn"
+        <*> o .:? "ec2InstanceId"
+        <*> o .:? "registeredResources" .!= mempty
+        <*> o .:? "remainingResources" .!= mempty
+        <*> o .:? "status"
 
-instance ToQuery ContainerInstance where
-    toQuery ContainerInstance{..} = mconcat
-        [ "agentConnected"       =? _ciAgentConnected
-        , "containerInstanceArn" =? _ciContainerInstanceArn
-        , "ec2InstanceId"        =? _ciEc2InstanceId
-        , "registeredResources"  =? _ciRegisteredResources
-        , "remainingResources"   =? _ciRemainingResources
-        , "status"               =? _ciStatus
+instance ToJSON ContainerInstance where
+    toJSON ContainerInstance{..} = object
+        [ "containerInstanceArn" .= _ciContainerInstanceArn
+        , "ec2InstanceId"        .= _ciEc2InstanceId
+        , "remainingResources"   .= _ciRemainingResources
+        , "registeredResources"  .= _ciRegisteredResources
+        , "status"               .= _ciStatus
+        , "agentConnected"       .= _ciAgentConnected
+        ]
+
+data MountPoint = MountPoint
+    { _mpContainerPath :: Maybe Text
+    , _mpReadOnly      :: Maybe Bool
+    , _mpSourceVolume  :: Maybe Text
+    } deriving (Eq, Ord, Read, Show)
+
+-- | 'MountPoint' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'mpContainerPath' @::@ 'Maybe' 'Text'
+--
+-- * 'mpReadOnly' @::@ 'Maybe' 'Bool'
+--
+-- * 'mpSourceVolume' @::@ 'Maybe' 'Text'
+--
+mountPoint :: MountPoint
+mountPoint = MountPoint
+    { _mpSourceVolume  = Nothing
+    , _mpContainerPath = Nothing
+    , _mpReadOnly      = Nothing
+    }
+
+-- | The path on the container to mount the host volume at.
+mpContainerPath :: Lens' MountPoint (Maybe Text)
+mpContainerPath = lens _mpContainerPath (\s a -> s { _mpContainerPath = a })
+
+-- | If this value is 'true', the container has read-only access to the volume. If
+-- this value is 'false', then the container can write to the volume. The default
+-- value is 'false'.
+mpReadOnly :: Lens' MountPoint (Maybe Bool)
+mpReadOnly = lens _mpReadOnly (\s a -> s { _mpReadOnly = a })
+
+-- | The name of the volume to mount.
+mpSourceVolume :: Lens' MountPoint (Maybe Text)
+mpSourceVolume = lens _mpSourceVolume (\s a -> s { _mpSourceVolume = a })
+
+instance FromJSON MountPoint where
+    parseJSON = withObject "MountPoint" $ \o -> MountPoint
+        <$> o .:? "containerPath"
+        <*> o .:? "readOnly"
+        <*> o .:? "sourceVolume"
+
+instance ToJSON MountPoint where
+    toJSON MountPoint{..} = object
+        [ "sourceVolume"  .= _mpSourceVolume
+        , "containerPath" .= _mpContainerPath
+        , "readOnly"      .= _mpReadOnly
         ]

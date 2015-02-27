@@ -34,6 +34,7 @@ module Network.AWS.DataPipeline.CreatePipeline
     -- ** Request lenses
     , cpDescription
     , cpName
+    , cpTags
     , cpUniqueId
 
     -- * Response
@@ -52,8 +53,9 @@ import qualified GHC.Exts
 data CreatePipeline = CreatePipeline
     { _cpDescription :: Maybe Text
     , _cpName        :: Text
+    , _cpTags        :: List "tags" Tag
     , _cpUniqueId    :: Text
-    } deriving (Eq, Ord, Read, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'CreatePipeline' constructor.
 --
@@ -62,6 +64,8 @@ data CreatePipeline = CreatePipeline
 -- * 'cpDescription' @::@ 'Maybe' 'Text'
 --
 -- * 'cpName' @::@ 'Text'
+--
+-- * 'cpTags' @::@ ['Tag']
 --
 -- * 'cpUniqueId' @::@ 'Text'
 --
@@ -72,6 +76,7 @@ createPipeline p1 p2 = CreatePipeline
     { _cpName        = p1
     , _cpUniqueId    = p2
     , _cpDescription = Nothing
+    , _cpTags        = mempty
     }
 
 -- | The description of the new pipeline.
@@ -83,6 +88,11 @@ cpDescription = lens _cpDescription (\s a -> s { _cpDescription = a })
 -- each new pipeline a unique pipeline identifier.
 cpName :: Lens' CreatePipeline Text
 cpName = lens _cpName (\s a -> s { _cpName = a })
+
+-- | A list of tags to associate with a pipeline at creation time. Tags let you
+-- control access to pipelines. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling UserAccess to Pipelines> in the /AWS Data Pipeline Developer Guide/.
+cpTags :: Lens' CreatePipeline [Tag]
+cpTags = lens _cpTags (\s a -> s { _cpTags = a }) . _List
 
 -- | A unique identifier that you specify. This identifier is not the same as the
 -- pipeline identifier assigned by AWS Data Pipeline. You are responsible for
@@ -132,6 +142,7 @@ instance ToJSON CreatePipeline where
         [ "name"        .= _cpName
         , "uniqueId"    .= _cpUniqueId
         , "description" .= _cpDescription
+        , "tags"        .= _cpTags
         ]
 
 instance AWSRequest CreatePipeline where

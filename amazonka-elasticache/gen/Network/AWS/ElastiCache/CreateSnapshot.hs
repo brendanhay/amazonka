@@ -22,7 +22,7 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | The /CreateSnapshot/ operation creates a copy of an entire cache cluster at a
+-- | The /CreateSnapshot/ action creates a copy of an entire cache cluster at a
 -- specific moment in time.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateSnapshot.html>

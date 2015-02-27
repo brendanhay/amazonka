@@ -47,7 +47,7 @@ module Network.AWS.ECS.ListTaskDefinitions
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.Query
+import Network.AWS.Request.JSON
 import Network.AWS.ECS.Types
 import qualified GHC.Exts
 
@@ -74,9 +74,9 @@ listTaskDefinitions = ListTaskDefinitions
     , _ltdMaxResults   = Nothing
     }
 
--- | The name of the family that you want to filter the 'ListTaskDefinitions'
--- results with. Specifying a 'familyPrefix' will limit the listed task
--- definitions to definitions that belong to that family.
+-- | The full family name that you want to filter the 'ListTaskDefinitions' results
+-- with. Specifying a 'familyPrefix' will limit the listed task definitions to
+-- task definition revisions that belong to that family.
 ltdFamilyPrefix :: Lens' ListTaskDefinitions (Maybe Text)
 ltdFamilyPrefix = lens _ltdFamilyPrefix (\s a -> s { _ltdFamilyPrefix = a })
 
@@ -99,7 +99,7 @@ ltdNextToken = lens _ltdNextToken (\s a -> s { _ltdNextToken = a })
 
 data ListTaskDefinitionsResponse = ListTaskDefinitionsResponse
     { _ltdrNextToken          :: Maybe Text
-    , _ltdrTaskDefinitionArns :: List "member" Text
+    , _ltdrTaskDefinitionArns :: List "taskDefinitionArns" Text
     } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListTaskDefinitionsResponse' constructor.
@@ -133,22 +133,25 @@ instance ToPath ListTaskDefinitions where
     toPath = const "/"
 
 instance ToQuery ListTaskDefinitions where
-    toQuery ListTaskDefinitions{..} = mconcat
-        [ "familyPrefix" =? _ltdFamilyPrefix
-        , "maxResults"   =? _ltdMaxResults
-        , "nextToken"    =? _ltdNextToken
-        ]
+    toQuery = const mempty
 
 instance ToHeaders ListTaskDefinitions
+
+instance ToJSON ListTaskDefinitions where
+    toJSON ListTaskDefinitions{..} = object
+        [ "familyPrefix" .= _ltdFamilyPrefix
+        , "nextToken"    .= _ltdNextToken
+        , "maxResults"   .= _ltdMaxResults
+        ]
 
 instance AWSRequest ListTaskDefinitions where
     type Sv ListTaskDefinitions = ECS
     type Rs ListTaskDefinitions = ListTaskDefinitionsResponse
 
     request  = post "ListTaskDefinitions"
-    response = xmlResponse
+    response = jsonResponse
 
-instance FromXML ListTaskDefinitionsResponse where
-    parseXML = withElement "ListTaskDefinitionsResult" $ \x -> ListTaskDefinitionsResponse
-        <$> x .@? "nextToken"
-        <*> x .@? "taskDefinitionArns" .!@ mempty
+instance FromJSON ListTaskDefinitionsResponse where
+    parseJSON = withObject "ListTaskDefinitionsResponse" $ \o -> ListTaskDefinitionsResponse
+        <$> o .:? "nextToken"
+        <*> o .:? "taskDefinitionArns" .!= mempty

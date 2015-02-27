@@ -1,5 +1,5 @@
 name:                  amazonka-ecs
-version:               0.3.0
+version:               0.3.1
 synopsis:              Amazon EC2 Container Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -55,6 +55,7 @@ library
         , Network.AWS.ECS.DiscoverPollEndpoint
         , Network.AWS.ECS.ListClusters
         , Network.AWS.ECS.ListContainerInstances
+        , Network.AWS.ECS.ListTaskDefinitionFamilies
         , Network.AWS.ECS.ListTaskDefinitions
         , Network.AWS.ECS.ListTasks
         , Network.AWS.ECS.RegisterContainerInstance
@@ -69,5 +70,5 @@ library
     other-modules:
 
     build-depends:
-          amazonka-core == 0.3.0.*
+          amazonka-core == 0.3.1.*
         , base          >= 4.7     && < 5

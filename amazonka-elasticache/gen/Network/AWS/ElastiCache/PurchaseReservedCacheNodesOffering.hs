@@ -22,7 +22,7 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | The /PurchaseReservedCacheNodesOffering/ operation allows you to purchase a
+-- | The /PurchaseReservedCacheNodesOffering/ action allows you to purchase a
 -- reserved cache node offering.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_PurchaseReservedCacheNodesOffering.html>

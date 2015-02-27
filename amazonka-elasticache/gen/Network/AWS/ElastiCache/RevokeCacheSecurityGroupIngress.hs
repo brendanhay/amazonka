@@ -22,8 +22,8 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | The /RevokeCacheSecurityGroupIngress/ operation revokes ingress from a cache
--- security group. Use this operation to disallow access from an Amazon EC2
+-- | The /RevokeCacheSecurityGroupIngress/ action revokes ingress from a cache
+-- security group. Use this action to disallow access from an Amazon EC2
 -- security group that had been previously authorized.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_RevokeCacheSecurityGroupIngress.html>

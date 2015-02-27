@@ -16,6 +16,7 @@
         "protocol": "json",
         "imports": [
             "Network.AWS.Route53Domains.CheckDomainAvailability",
+            "Network.AWS.Route53Domains.DeleteTagsForDomain",
             "Network.AWS.Route53Domains.DisableDomainAutoRenew",
             "Network.AWS.Route53Domains.DisableDomainTransferLock",
             "Network.AWS.Route53Domains.EnableDomainAutoRenew",
@@ -24,13 +25,15 @@
             "Network.AWS.Route53Domains.GetOperationDetail",
             "Network.AWS.Route53Domains.ListDomains",
             "Network.AWS.Route53Domains.ListOperations",
+            "Network.AWS.Route53Domains.ListTagsForDomain",
             "Network.AWS.Route53Domains.RegisterDomain",
             "Network.AWS.Route53Domains.RetrieveDomainAuthCode",
             "Network.AWS.Route53Domains.TransferDomain",
             "Network.AWS.Route53Domains.Types",
             "Network.AWS.Route53Domains.UpdateDomainContact",
             "Network.AWS.Route53Domains.UpdateDomainContactPrivacy",
-            "Network.AWS.Route53Domains.UpdateDomainNameservers"
+            "Network.AWS.Route53Domains.UpdateDomainNameservers",
+            "Network.AWS.Route53Domains.UpdateTagsForDomain"
         ],
         "name": "Amazon Route 53 Domains",
         "version": "2014-05-15",
@@ -66,6 +69,7 @@
         "exposed": [
             "Network.AWS.Route53Domains",
             "Network.AWS.Route53Domains.CheckDomainAvailability",
+            "Network.AWS.Route53Domains.DeleteTagsForDomain",
             "Network.AWS.Route53Domains.DisableDomainAutoRenew",
             "Network.AWS.Route53Domains.DisableDomainTransferLock",
             "Network.AWS.Route53Domains.EnableDomainAutoRenew",
@@ -74,18 +78,20 @@
             "Network.AWS.Route53Domains.GetOperationDetail",
             "Network.AWS.Route53Domains.ListDomains",
             "Network.AWS.Route53Domains.ListOperations",
+            "Network.AWS.Route53Domains.ListTagsForDomain",
             "Network.AWS.Route53Domains.RegisterDomain",
             "Network.AWS.Route53Domains.RetrieveDomainAuthCode",
             "Network.AWS.Route53Domains.TransferDomain",
             "Network.AWS.Route53Domains.Types",
             "Network.AWS.Route53Domains.UpdateDomainContact",
             "Network.AWS.Route53Domains.UpdateDomainContactPrivacy",
-            "Network.AWS.Route53Domains.UpdateDomainNameservers"
+            "Network.AWS.Route53Domains.UpdateDomainNameservers",
+            "Network.AWS.Route53Domains.UpdateTagsForDomain"
         ],
         "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-domain-registrations.html",
         "protocol": "json",
         "name": "Amazon Route 53 Domains",
-        "version": "0.3.0",
+        "version": "0.3.1",
         "description": "Pending"
     },
     "types": {
@@ -323,20 +329,147 @@
                     "Eq",
                     "Ord",
                     "Read",
+                    "Show"
+                ],
+                "fieldPad": 9,
+                "ctor": "tag",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "tagKey",
+                        "name": "_tagKey",
+                        "shape": "TagKey",
+                        "locationName": "Key",
+                        "documentation": "-- | The key (name) of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: A-Z, a-z, 0-9, space, \".:/=+\\-%@\"\n--\n-- Constraints: Each key can be 1-128 characters long.\n--\n-- Required: Yes",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "tagValue",
+                        "name": "_tagValue",
+                        "shape": "TagValue",
+                        "locationName": "Value",
+                        "documentation": "-- | The value of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: A-Z, a-z, 0-9, space, \".:/=+\\-%@\"\n--\n-- Constraints: Each value can be 0-256 characters long.\n--\n-- Required: Yes",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "payload": null,
+                "required": [],
+                "contentPad": 6,
+                "name": "Tag",
+                "locationPad": 6,
+                "type": "record",
+                "optional": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "tagKey",
+                        "name": "_tagKey",
+                        "shape": "TagKey",
+                        "locationName": "Key",
+                        "documentation": "-- | The key (name) of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: A-Z, a-z, 0-9, space, \".:/=+\\-%@\"\n--\n-- Constraints: Each key can be 1-128 characters long.\n--\n-- Required: Yes",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "tagValue",
+                        "name": "_tagValue",
+                        "shape": "TagValue",
+                        "locationName": "Value",
+                        "documentation": "-- | The value of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: A-Z, a-z, 0-9, space, \".:/=+\\-%@\"\n--\n-- Constraints: Each value can be 0-256 characters long.\n--\n-- Required: Yes",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "tagKey",
+                        "name": "_tagKey",
+                        "shape": "TagKey",
+                        "locationName": "Key",
+                        "documentation": "-- | The key (name) of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: A-Z, a-z, 0-9, space, \".:/=+\\-%@\"\n--\n-- Constraints: Each key can be 1-128 characters long.\n--\n-- Required: Yes",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "tagValue",
+                        "name": "_tagValue",
+                        "shape": "TagValue",
+                        "locationName": "Value",
+                        "documentation": "-- | The value of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: A-Z, a-z, 0-9, space, \".:/=+\\-%@\"\n--\n-- Constraints: Each value can be 0-256 characters long.\n--\n-- Required: Yes",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
                     "Show",
                     "Generic",
                     "Enum"
                 ],
                 "branches": {
+                    "EsIdentificationType": "ES_IDENTIFICATION_TYPE",
                     "DocumentNumber": "DOCUMENT_NUMBER",
                     "RuPassportData": "RU_PASSPORT_DATA",
                     "SgIdNumber": "SG_ID_NUMBER",
                     "AuIdNumber": "AU_ID_NUMBER",
                     "FiBusinessNumber": "FI_BUSINESS_NUMBER",
+                    "EsLegalForm": "ES_LEGAL_FORM",
                     "BirthDateInYyyyMmDd": "BIRTH_DATE_IN_YYYY_MM_DD",
                     "CaLegalType": "CA_LEGAL_TYPE",
                     "BirthDepartment": "BIRTH_DEPARTMENT",
                     "AuIdType": "AU_ID_TYPE",
+                    "EsIdentification": "ES_IDENTIFICATION",
                     "DunsNumber": "DUNS_NUMBER",
                     "BirthCity": "BIRTH_CITY",
                     "ItPin": "IT_PIN",
@@ -349,7 +482,7 @@
                 "valuePad": 25,
                 "name": "ExtraParamName",
                 "type": "nullary",
-                "branchPad": 19
+                "branchPad": 20
             },
             {
                 "deriving": [
@@ -810,7 +943,7 @@
                         "name": "_epName",
                         "shape": "ExtraParamName",
                         "locationName": "Name",
-                        "documentation": "-- | Name of the additional parameter required by the top-level domain.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: 'DUNS_NUMBER' | 'BRAND_NUMBER' | 'BIRTH_DEPARTMENT' | 'BIRTH_DATE_IN_YYYY_MM_DD' | 'BIRTH_COUNTRY' | 'BIRTH_CITY' | 'DOCUMENT_NUMBER' | 'AU_ID_NUMBER' | 'AU_ID_TYPE' | 'CA_LEGAL_TYPE' | 'FI_BUSINESS_NUMBER' | 'FI_ID_NUMBER' | 'IT_PIN' | 'RU_PASSPORT_DATA'\n-- | 'SE_ID_NUMBER' | 'SG_ID_NUMBER' | 'VAT_NUMBER'\n--\n-- Parent: 'ExtraParams'\n--\n-- Required: Yes",
+                        "documentation": "-- | Name of the additional parameter required by the top-level domain.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: 'DUNS_NUMBER' | 'BRAND_NUMBER' | 'BIRTH_DEPARTMENT' | 'BIRTH_DATE_IN_YYYY_MM_DD' | 'BIRTH_COUNTRY' | 'BIRTH_CITY' | 'DOCUMENT_NUMBER' | 'AU_ID_NUMBER' | 'AU_ID_TYPE' | 'CA_LEGAL_TYPE' | 'ES_IDENTIFICATION' | 'ES_IDENTIFICATION_TYPE' | 'ES_LEGAL_FORM' | 'FI_BUSINESS_NUMBER' | 'FI_ID_NUMBER' | 'IT_PIN' | 'RU_PASSPORT_DATA' | 'SE_ID_NUMBER' | 'SG_ID_NUMBER' | 'VAT_NUMBER'\n--\n-- Parent: 'ExtraParams'\n--\n-- Required: Yes",
                         "typeExposed": "ExtraParamName",
                         "type": "ExtraParamName"
                     },
@@ -847,7 +980,7 @@
                         "name": "_epName",
                         "shape": "ExtraParamName",
                         "locationName": "Name",
-                        "documentation": "-- | Name of the additional parameter required by the top-level domain.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: 'DUNS_NUMBER' | 'BRAND_NUMBER' | 'BIRTH_DEPARTMENT' | 'BIRTH_DATE_IN_YYYY_MM_DD' | 'BIRTH_COUNTRY' | 'BIRTH_CITY' | 'DOCUMENT_NUMBER' | 'AU_ID_NUMBER' | 'AU_ID_TYPE' | 'CA_LEGAL_TYPE' | 'FI_BUSINESS_NUMBER' | 'FI_ID_NUMBER' | 'IT_PIN' | 'RU_PASSPORT_DATA'\n-- | 'SE_ID_NUMBER' | 'SG_ID_NUMBER' | 'VAT_NUMBER'\n--\n-- Parent: 'ExtraParams'\n--\n-- Required: Yes",
+                        "documentation": "-- | Name of the additional parameter required by the top-level domain.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: 'DUNS_NUMBER' | 'BRAND_NUMBER' | 'BIRTH_DEPARTMENT' | 'BIRTH_DATE_IN_YYYY_MM_DD' | 'BIRTH_COUNTRY' | 'BIRTH_CITY' | 'DOCUMENT_NUMBER' | 'AU_ID_NUMBER' | 'AU_ID_TYPE' | 'CA_LEGAL_TYPE' | 'ES_IDENTIFICATION' | 'ES_IDENTIFICATION_TYPE' | 'ES_LEGAL_FORM' | 'FI_BUSINESS_NUMBER' | 'FI_ID_NUMBER' | 'IT_PIN' | 'RU_PASSPORT_DATA' | 'SE_ID_NUMBER' | 'SG_ID_NUMBER' | 'VAT_NUMBER'\n--\n-- Parent: 'ExtraParams'\n--\n-- Required: Yes",
                         "typeExposed": "ExtraParamName",
                         "type": "ExtraParamName"
                     },
@@ -888,7 +1021,7 @@
                         "name": "_epName",
                         "shape": "ExtraParamName",
                         "locationName": "Name",
-                        "documentation": "-- | Name of the additional parameter required by the top-level domain.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: 'DUNS_NUMBER' | 'BRAND_NUMBER' | 'BIRTH_DEPARTMENT' | 'BIRTH_DATE_IN_YYYY_MM_DD' | 'BIRTH_COUNTRY' | 'BIRTH_CITY' | 'DOCUMENT_NUMBER' | 'AU_ID_NUMBER' | 'AU_ID_TYPE' | 'CA_LEGAL_TYPE' | 'FI_BUSINESS_NUMBER' | 'FI_ID_NUMBER' | 'IT_PIN' | 'RU_PASSPORT_DATA'\n-- | 'SE_ID_NUMBER' | 'SG_ID_NUMBER' | 'VAT_NUMBER'\n--\n-- Parent: 'ExtraParams'\n--\n-- Required: Yes",
+                        "documentation": "-- | Name of the additional parameter required by the top-level domain.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: 'DUNS_NUMBER' | 'BRAND_NUMBER' | 'BIRTH_DEPARTMENT' | 'BIRTH_DATE_IN_YYYY_MM_DD' | 'BIRTH_COUNTRY' | 'BIRTH_CITY' | 'DOCUMENT_NUMBER' | 'AU_ID_NUMBER' | 'AU_ID_TYPE' | 'CA_LEGAL_TYPE' | 'ES_IDENTIFICATION' | 'ES_IDENTIFICATION_TYPE' | 'ES_LEGAL_FORM' | 'FI_BUSINESS_NUMBER' | 'FI_ID_NUMBER' | 'IT_PIN' | 'RU_PASSPORT_DATA' | 'SE_ID_NUMBER' | 'SG_ID_NUMBER' | 'VAT_NUMBER'\n--\n-- Parent: 'ExtraParams'\n--\n-- Required: Yes",
                         "typeExposed": "ExtraParamName",
                         "type": "ExtraParamName"
                     },
@@ -1895,6 +2028,7 @@
         ],
         "imports": [],
         "shared": [
+            "Tag",
             "Nameserver",
             "ContactDetail"
         ]
@@ -1927,7 +2061,7 @@
                     "name": "_cdarAvailability",
                     "shape": "DomainAvailability",
                     "locationName": "Availability",
-                    "documentation": "-- | Whether the domain name is available for registering.\n--\n-- Type: String\n--\n-- Valid values:\n--\n-- 'AVAILABLE' – The domain name is available.  'AVAILABLE_RESERVED' – The domain\n-- name is reserved under specific conditions.  'AVAILABLE_PREORDER' – The domain\n-- name is available and can be preordered.  'UNAVAILABLE' – The domain name is\n-- not available.  'UNAVAILABLE_PREMIUM' – The domain name is not available.  'UNAVAILABLE_RESTRICTED' – The domain name is forbidden.  'RESERVED' – The domain name has been\n-- reserved for another person or organization.",
+                    "documentation": "-- | Whether the domain name is available for registering.\n--\n-- You can only register domains designated as 'AVAILABLE'.\n--\n-- Type: String\n--\n-- Valid values:\n--\n-- 'AVAILABLE' – The domain name is available.  'AVAILABLE_RESERVED' – The domain\n-- name is reserved under specific conditions.  'AVAILABLE_PREORDER' – The domain\n-- name is available and can be preordered.  'UNAVAILABLE' – The domain name is\n-- not available.  'UNAVAILABLE_PREMIUM' – The domain name is not available.  'UNAVAILABLE_RESTRICTED' – The domain name is forbidden.  'RESERVED' – The domain name has been\n-- reserved for another person or organization.",
                     "typeExposed": "DomainAvailability",
                     "type": "DomainAvailability"
                 },
@@ -1945,7 +2079,7 @@
                         "name": "_cdarAvailability",
                         "shape": "DomainAvailability",
                         "locationName": "Availability",
-                        "documentation": "-- | Whether the domain name is available for registering.\n--\n-- Type: String\n--\n-- Valid values:\n--\n-- 'AVAILABLE' – The domain name is available.  'AVAILABLE_RESERVED' – The domain\n-- name is reserved under specific conditions.  'AVAILABLE_PREORDER' – The domain\n-- name is available and can be preordered.  'UNAVAILABLE' – The domain name is\n-- not available.  'UNAVAILABLE_PREMIUM' – The domain name is not available.  'UNAVAILABLE_RESTRICTED' – The domain name is forbidden.  'RESERVED' – The domain name has been\n-- reserved for another person or organization.",
+                        "documentation": "-- | Whether the domain name is available for registering.\n--\n-- You can only register domains designated as 'AVAILABLE'.\n--\n-- Type: String\n--\n-- Valid values:\n--\n-- 'AVAILABLE' – The domain name is available.  'AVAILABLE_RESERVED' – The domain\n-- name is reserved under specific conditions.  'AVAILABLE_PREORDER' – The domain\n-- name is available and can be preordered.  'UNAVAILABLE' – The domain name is\n-- not available.  'UNAVAILABLE_PREMIUM' – The domain name is not available.  'UNAVAILABLE_RESTRICTED' – The domain name is forbidden.  'RESERVED' – The domain name has been\n-- reserved for another person or organization.",
                         "typeExposed": "DomainAvailability",
                         "type": "DomainAvailability"
                     }
@@ -1967,7 +2101,7 @@
                         "name": "_cdarAvailability",
                         "shape": "DomainAvailability",
                         "locationName": "Availability",
-                        "documentation": "-- | Whether the domain name is available for registering.\n--\n-- Type: String\n--\n-- Valid values:\n--\n-- 'AVAILABLE' – The domain name is available.  'AVAILABLE_RESERVED' – The domain\n-- name is reserved under specific conditions.  'AVAILABLE_PREORDER' – The domain\n-- name is available and can be preordered.  'UNAVAILABLE' – The domain name is\n-- not available.  'UNAVAILABLE_PREMIUM' – The domain name is not available.  'UNAVAILABLE_RESTRICTED' – The domain name is forbidden.  'RESERVED' – The domain name has been\n-- reserved for another person or organization.",
+                        "documentation": "-- | Whether the domain name is available for registering.\n--\n-- You can only register domains designated as 'AVAILABLE'.\n--\n-- Type: String\n--\n-- Valid values:\n--\n-- 'AVAILABLE' – The domain name is available.  'AVAILABLE_RESERVED' – The domain\n-- name is reserved under specific conditions.  'AVAILABLE_PREORDER' – The domain\n-- name is available and can be preordered.  'UNAVAILABLE' – The domain name is\n-- not available.  'UNAVAILABLE_PREMIUM' – The domain name is not available.  'UNAVAILABLE_RESTRICTED' – The domain name is forbidden.  'RESERVED' – The domain name has been\n-- reserved for another person or organization.",
                         "typeExposed": "DomainAvailability",
                         "type": "DomainAvailability"
                     }
@@ -1995,7 +2129,7 @@
                         "name": "_cdarAvailability",
                         "shape": "DomainAvailability",
                         "locationName": "Availability",
-                        "documentation": "-- | Whether the domain name is available for registering.\n--\n-- Type: String\n--\n-- Valid values:\n--\n-- 'AVAILABLE' – The domain name is available.  'AVAILABLE_RESERVED' – The domain\n-- name is reserved under specific conditions.  'AVAILABLE_PREORDER' – The domain\n-- name is available and can be preordered.  'UNAVAILABLE' – The domain name is\n-- not available.  'UNAVAILABLE_PREMIUM' – The domain name is not available.  'UNAVAILABLE_RESTRICTED' – The domain name is forbidden.  'RESERVED' – The domain name has been\n-- reserved for another person or organization.",
+                        "documentation": "-- | Whether the domain name is available for registering.\n--\n-- You can only register domains designated as 'AVAILABLE'.\n--\n-- Type: String\n--\n-- Valid values:\n--\n-- 'AVAILABLE' – The domain name is available.  'AVAILABLE_RESERVED' – The domain\n-- name is reserved under specific conditions.  'AVAILABLE_PREORDER' – The domain\n-- name is available and can be preordered.  'UNAVAILABLE' – The domain name is\n-- not available.  'UNAVAILABLE_PREMIUM' – The domain name is not available.  'UNAVAILABLE_RESTRICTED' – The domain name is forbidden.  'RESERVED' – The domain name has been\n-- reserved for another person or organization.",
                         "typeExposed": "DomainAvailability",
                         "type": "DomainAvailability"
                     }
@@ -2168,6 +2302,187 @@
                 "streaming": false,
                 "style": "nullary",
                 "fieldPad": 0,
+                "ctor": "deleteTagsForDomainResponse",
+                "headerPad": 0,
+                "wrapper": false,
+                "protocol": "json",
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "name": "DeleteTagsForDomainResponse",
+                "resultWrapper": null,
+                "type": "empty",
+                "headerAll": false,
+                "optional": [],
+                "fields": []
+            },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/api-DeleteTagsForDomain.html",
+            "namespace": "Network.AWS.Route53Domains.DeleteTagsForDomain",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.Route53Domains.Types"
+            ],
+            "pager": null,
+            "name": "DeleteTagsForDomain",
+            "method": "post",
+            "documentation": "-- | This operation deletes the specified tags for a domain.\n--\n-- All tag operations are eventually consistent; subsequent operations may not\n-- immediately represent all issued operations.",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show"
+                ],
+                "streaming": false,
+                "style": "json",
+                "fieldPad": 17,
+                "ctor": "deleteTagsForDomain",
+                "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "dtfdDomainName",
+                        "name": "_dtfdDomainName",
+                        "shape": "DomainName",
+                        "locationName": "DomainName",
+                        "documentation": "-- | The domain for which you want to delete one or more tags.\n--\n-- The name of a domain.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Constraints: The domain name can contain only the letters a through z, the\n-- numbers 0 through 9, and hyphen (-). Hyphens are allowed only when theyaposre\n-- surrounded by letters, numbers, or other hyphens. You canapost specify a\n-- hyphen at the beginning or end of a label. To specify an Internationalized\n-- Domain Name, you must convert the name to Punycode.\n--\n-- Required: Yes",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "dtfdTagsToDelete",
+                        "name": "_dtfdTagsToDelete",
+                        "shape": "TagKeyList",
+                        "locationName": "TagsToDelete",
+                        "documentation": "-- | A list of tag keys to delete.\n--\n-- Type: A list that contains the keys of the tags that you want to delete.\n--\n-- Default: None\n--\n-- Required: No\n--\n-- '\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "List \"TagsToDelete\" Text"
+                    }
+                ],
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "json",
+                "payload": null,
+                "required": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "dtfdDomainName",
+                        "name": "_dtfdDomainName",
+                        "shape": "DomainName",
+                        "locationName": "DomainName",
+                        "documentation": "-- | The domain for which you want to delete one or more tags.\n--\n-- The name of a domain.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Constraints: The domain name can contain only the letters a through z, the\n-- numbers 0 through 9, and hyphen (-). Hyphens are allowed only when theyaposre\n-- surrounded by letters, numbers, or other hyphens. You canapost specify a\n-- hyphen at the beginning or end of a label. To specify an Internationalized\n-- Domain Name, you must convert the name to Punycode.\n--\n-- Required: Yes",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "contentPad": 13,
+                "queryPad": 0,
+                "name": "DeleteTagsForDomain",
+                "query": [],
+                "locationPad": 13,
+                "type": "record",
+                "queryAll": false,
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "dtfdTagsToDelete",
+                        "name": "_dtfdTagsToDelete",
+                        "shape": "TagKeyList",
+                        "locationName": "TagsToDelete",
+                        "documentation": "-- | A list of tag keys to delete.\n--\n-- Type: A list that contains the keys of the tags that you want to delete.\n--\n-- Default: None\n--\n-- Required: No\n--\n-- '\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "List \"TagsToDelete\" Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "dtfdDomainName",
+                        "name": "_dtfdDomainName",
+                        "shape": "DomainName",
+                        "locationName": "DomainName",
+                        "documentation": "-- | The domain for which you want to delete one or more tags.\n--\n-- The name of a domain.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Constraints: The domain name can contain only the letters a through z, the\n-- numbers 0 through 9, and hyphen (-). Hyphens are allowed only when theyaposre\n-- surrounded by letters, numbers, or other hyphens. You canapost specify a\n-- hyphen at the beginning or end of a label. To specify an Internationalized\n-- Domain Name, you must convert the name to Punycode.\n--\n-- Required: Yes",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "dtfdTagsToDelete",
+                        "name": "_dtfdTagsToDelete",
+                        "shape": "TagKeyList",
+                        "locationName": "TagsToDelete",
+                        "documentation": "-- | A list of tag keys to delete.\n--\n-- Type: A list that contains the keys of the tags that you want to delete.\n--\n-- Default: None\n--\n-- Required: No\n--\n-- '\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "List \"TagsToDelete\" Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "Route53Domains",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "style": "nullary",
+                "fieldPad": 0,
                 "ctor": "disableDomainAutoRenewResponse",
                 "headerPad": 0,
                 "wrapper": false,
@@ -2192,7 +2507,7 @@
             "pager": null,
             "name": "DisableDomainAutoRenew",
             "method": "post",
-            "documentation": "-- | This operation disables automatic renewal of domain registration for the\n-- specified domain.",
+            "documentation": "-- | This operation disables automatic renewal of domain registration for the\n-- specified domain.\n--\n-- Caution! Amazon Route 53 doesn't have a manual renewal process, so if you\n-- disable automatic renewal, registration for the domain will not be renewed\n-- when the expiration date passes, and you will lose control of the domain name.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2567,7 +2882,7 @@
             "pager": null,
             "name": "EnableDomainAutoRenew",
             "method": "post",
-            "documentation": "-- | This operation configures Amazon Route 53 to automatically renew the\n-- specified domain before the domain registration expires. The cost of renewing\n-- your domain registration is billed to your AWS account.\n--\n-- The period during which you can renew a domain name varies by TLD. For a\n-- list of TLDs and their renewal policies, see \"Renewal, restoration, and\n-- deletion times\"\n-- (http://wiki.gandi.net/en/domains/renew#renewal_restoration_and_deletion_times) on the website for our registrar partner, Gandi. Route 53 requires that you renew before the end of the renewal period that is listed on the Gandi website so we can complete processing before the deadline.",
+            "documentation": "-- | This operation configures Amazon Route 53 to automatically renew the\n-- specified domain before the domain registration expires. The cost of renewing\n-- your domain registration is billed to your AWS account.\n--\n-- The period during which you can renew a domain name varies by TLD. For a\n-- list of TLDs and their renewal policies, see \u003chttp://wiki.gandi.net/en/domains/renew#renewal_restoration_and_deletion_times \"Renewal, restoration, anddeletion times\"\u003e on the website for our registrar partner, Gandi. Route 53\n-- requires that you renew before the end of the renewal period that is listed\n-- on the Gandi website so we can complete processing before the deadline.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4732,7 +5047,16 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.Route53Domains.Types"
             ],
-            "pager": null,
+            "pager": {
+                "token": {
+                    "input": "ldMarker",
+                    "outputRequired": false,
+                    "output": "ldrNextPageMarker",
+                    "inputRequired": false
+                },
+                "type": "next",
+                "resultKey": "ldrDomains"
+            },
             "name": "ListDomains",
             "method": "post",
             "documentation": "-- | This operation returns all the domain names registered with Amazon Route 53\n-- for the current AWS account.",
@@ -5019,7 +5343,16 @@
                 "Network.AWS.Request.JSON",
                 "Network.AWS.Route53Domains.Types"
             ],
-            "pager": null,
+            "pager": {
+                "token": {
+                    "input": "loMarker",
+                    "outputRequired": false,
+                    "output": "lorNextPageMarker",
+                    "inputRequired": false
+                },
+                "type": "next",
+                "resultKey": "lorOperations"
+            },
             "name": "ListOperations",
             "method": "post",
             "documentation": "-- | This operation returns the operation IDs of operations that are not yet\n-- complete.",
@@ -5161,6 +5494,231 @@
                         "documentation": "-- | Number of domains to be returned.\n--\n-- Type: Integer\n--\n-- Default: 20\n--\n-- Constraints: A value between 1 and 100.\n--\n-- Required: No",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "Route53Domains",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Read",
+                    "Show",
+                    "Monoid",
+                    "Semigroup"
+                ],
+                "streaming": false,
+                "listElement": "Tag",
+                "style": "json",
+                "fieldPad": 0,
+                "ctor": "listTagsForDomainResponse",
+                "headerPad": 0,
+                "field": {
+                    "location": null,
+                    "iso": "_List",
+                    "lensMapping": "_List",
+                    "default": "mempty",
+                    "monoid": true,
+                    "protocol": "json",
+                    "flattened": false,
+                    "required": true,
+                    "lens": "ltfdrTagList",
+                    "name": "_ltfdrTagList",
+                    "shape": "TagList",
+                    "locationName": "TagList",
+                    "documentation": "-- | A list of the tags that are associated with the specified domain.\n--\n-- Type: A complex type containing a list of tags\n--\n-- Each tag includes the following elements.\n--\n-- Key\n--\n-- The key (name) of a tag.\n--\n-- Type: String\n--\n-- Value\n--\n-- The value of a tag.\n--\n-- Type: String\n--\n--",
+                    "typeExposed": "[Tag]",
+                    "type": "List \"TagList\" Tag"
+                },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "ltfdrTagList",
+                        "name": "_ltfdrTagList",
+                        "shape": "TagList",
+                        "locationName": "TagList",
+                        "documentation": "-- | A list of the tags that are associated with the specified domain.\n--\n-- Type: A complex type containing a list of tags\n--\n-- Each tag includes the following elements.\n--\n-- Key\n--\n-- The key (name) of a tag.\n--\n-- Type: String\n--\n-- Value\n--\n-- The value of a tag.\n--\n-- Type: String\n--\n--",
+                        "typeExposed": "[Tag]",
+                        "type": "List \"TagList\" Tag"
+                    }
+                ],
+                "wrapper": false,
+                "protocol": "json",
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "name": "ListTagsForDomainResponse",
+                "resultWrapper": null,
+                "locationPad": 0,
+                "type": "newtype",
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "ltfdrTagList",
+                        "name": "_ltfdrTagList",
+                        "shape": "TagList",
+                        "locationName": "TagList",
+                        "documentation": "-- | A list of the tags that are associated with the specified domain.\n--\n-- Type: A complex type containing a list of tags\n--\n-- Each tag includes the following elements.\n--\n-- Key\n--\n-- The key (name) of a tag.\n--\n-- Type: String\n--\n-- Value\n--\n-- The value of a tag.\n--\n-- Type: String\n--\n--",
+                        "typeExposed": "[Tag]",
+                        "type": "List \"TagList\" Tag"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "ltfdrTagList",
+                        "name": "_ltfdrTagList",
+                        "shape": "TagList",
+                        "locationName": "TagList",
+                        "documentation": "-- | A list of the tags that are associated with the specified domain.\n--\n-- Type: A complex type containing a list of tags\n--\n-- Each tag includes the following elements.\n--\n-- Key\n--\n-- The key (name) of a tag.\n--\n-- Type: String\n--\n-- Value\n--\n-- The value of a tag.\n--\n-- Type: String\n--\n--",
+                        "typeExposed": "[Tag]",
+                        "type": "List \"TagList\" Tag"
+                    }
+                ]
+            },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/api-ListTagsForDomain.html",
+            "namespace": "Network.AWS.Route53Domains.ListTagsForDomain",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.Route53Domains.Types"
+            ],
+            "pager": null,
+            "name": "ListTagsForDomain",
+            "method": "post",
+            "documentation": "-- | This operation returns all of the tags that are associated with the specified\n-- domain.\n--\n-- All tag operations are eventually consistent; subsequent operations may not\n-- immediately represent all issued operations.",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show",
+                    "Monoid",
+                    "IsString"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "style": "json",
+                "fieldPad": 0,
+                "ctor": "listTagsForDomain",
+                "headerPad": 0,
+                "field": {
+                    "location": null,
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "error",
+                    "monoid": false,
+                    "protocol": "json",
+                    "flattened": false,
+                    "required": true,
+                    "lens": "ltfdDomainName",
+                    "name": "_ltfdDomainName",
+                    "shape": "DomainName",
+                    "locationName": "DomainName",
+                    "documentation": "-- | The domain for which you want to get a list of tags.",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "ltfdDomainName",
+                        "name": "_ltfdDomainName",
+                        "shape": "DomainName",
+                        "locationName": "DomainName",
+                        "documentation": "-- | The domain for which you want to get a list of tags.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "json",
+                "payload": null,
+                "required": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "ltfdDomainName",
+                        "name": "_ltfdDomainName",
+                        "shape": "DomainName",
+                        "locationName": "DomainName",
+                        "documentation": "-- | The domain for which you want to get a list of tags.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "queryPad": 0,
+                "name": "ListTagsForDomain",
+                "query": [],
+                "locationPad": 0,
+                "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
+                "optional": [],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "ltfdDomainName",
+                        "name": "_ltfdDomainName",
+                        "shape": "DomainName",
+                        "locationName": "DomainName",
+                        "documentation": "-- | The domain for which you want to get a list of tags.",
+                        "typeExposed": "Text",
+                        "type": "Text"
                     }
                 ]
             }
@@ -6170,7 +6728,7 @@
             "pager": null,
             "name": "TransferDomain",
             "method": "post",
-            "documentation": "-- | This operation transfers a domain from another registrar to Amazon Route 53.\n-- Domains are registered by the AWS registrar, Gandi upon transfer.\n--\n-- To transfer a domain, you need to meet all the domain transfer criteria,\n-- including the following:\n--\n-- You must supply nameservers to transfer a domain. You must disable the\n-- domain transfer lock (if any) before transferring the domain. A minimum of 60\n-- days must have elapsed since the domain's registration or last transfer.  We\n-- recommend you use the Amazon Route 53 as the DNS service for your domain. You\n-- can create a hosted zone in Amazon Route 53 for your current domain before\n-- transferring your domain.\n--\n-- Note that upon transfer, the domain duration is extended for a year if not\n-- otherwise specified. Autorenew is enabled by default.\n--\n-- If the transfer is successful, this method returns an operation ID that you\n-- can use to track the progress and completion of the action. If the request is\n-- not completed successfully, the domain registrant will be notified by email.\n--\n-- Transferring domains charges your AWS account an amount based on the\n-- top-level domain. For more information, see \u003chttp://aws.amazon.com/route53/pricing/ Amazon Route 53 Pricing\u003e.",
+            "documentation": "-- | This operation transfers a domain from another registrar to Amazon Route 53.\n-- When the transfer is complete, the domain is registered with the AWS\n-- registrar partner, Gandi.\n--\n-- For transfer requirements, a detailed procedure, and information about\n-- viewing the status of a domain transfer, see \u003chttp://docs.aws.amazon.com/Route53/latest/DeveloperGuide/domain-transfer-to-route-53.html Transferring Registration for aDomain to Amazon Route 53\u003e in the Amazon Route 53 Developer Guide.\n--\n-- If the registrar for your domain is also the DNS service provider for the\n-- domain, we highly recommend that you consider transferring your DNS service\n-- to Amazon Route 53 or to another DNS service provider before you transfer\n-- your registration. Some registrars provide free DNS service when you purchase\n-- a domain registration. When you transfer the registration, the previous\n-- registrar will not renew your domain registration and could end your DNS\n-- service at any time.\n--\n-- Caution! If the registrar for your domain is also the DNS service provider\n-- for the domain and you don't transfer DNS service to another provider, your\n-- website, email, and the web applications associated with the domain might\n-- become unavailable. If the transfer is successful, this method returns an\n-- operation ID that you can use to track the progress and completion of the\n-- action. If the transfer doesn't complete successfully, the domain registrant\n-- will be notified by email.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -6248,7 +6806,7 @@
                         "name": "_tdNameservers",
                         "shape": "NameserverList",
                         "locationName": "Nameservers",
-                        "documentation": "-- | Contains details for the host and glue IP addresses.\n--\n-- Type: Complex\n--\n-- Children: 'GlueIps', 'Name'",
+                        "documentation": "-- | Contains details for the host and glue IP addresses.\n--\n-- Type: Complex\n--\n-- Children: 'GlueIps', 'Name'\n--\n-- Required: No",
                         "typeExposed": "[Nameserver]",
                         "type": "List \"Nameservers\" Nameserver"
                     },
@@ -6525,7 +7083,7 @@
                         "name": "_tdNameservers",
                         "shape": "NameserverList",
                         "locationName": "Nameservers",
-                        "documentation": "-- | Contains details for the host and glue IP addresses.\n--\n-- Type: Complex\n--\n-- Children: 'GlueIps', 'Name'",
+                        "documentation": "-- | Contains details for the host and glue IP addresses.\n--\n-- Type: Complex\n--\n-- Children: 'GlueIps', 'Name'\n--\n-- Required: No",
                         "typeExposed": "[Nameserver]",
                         "type": "List \"Nameservers\" Nameserver"
                     },
@@ -6731,7 +7289,7 @@
                         "name": "_tdNameservers",
                         "shape": "NameserverList",
                         "locationName": "Nameservers",
-                        "documentation": "-- | Contains details for the host and glue IP addresses.\n--\n-- Type: Complex\n--\n-- Children: 'GlueIps', 'Name'",
+                        "documentation": "-- | Contains details for the host and glue IP addresses.\n--\n-- Type: Complex\n--\n-- Children: 'GlueIps', 'Name'\n--\n-- Required: No",
                         "typeExposed": "[Nameserver]",
                         "type": "List \"Nameservers\" Nameserver"
                     },
@@ -7689,6 +8247,23 @@
                     },
                     {
                         "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "udnFIAuthKey",
+                        "name": "_udnFIAuthKey",
+                        "shape": "FIAuthKey",
+                        "locationName": "FIAuthKey",
+                        "documentation": "-- | The authorization key for .fi domains",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
                         "iso": "_List",
                         "lensMapping": "_List",
                         "default": "mempty",
@@ -7745,6 +8320,23 @@
                 "optional": [
                     {
                         "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "udnFIAuthKey",
+                        "name": "_udnFIAuthKey",
+                        "shape": "FIAuthKey",
+                        "locationName": "FIAuthKey",
+                        "documentation": "-- | The authorization key for .fi domains",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
                         "iso": "_List",
                         "lensMapping": "_List",
                         "default": "mempty",
@@ -7781,6 +8373,23 @@
                     },
                     {
                         "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "udnFIAuthKey",
+                        "name": "_udnFIAuthKey",
+                        "shape": "FIAuthKey",
+                        "locationName": "FIAuthKey",
+                        "documentation": "-- | The authorization key for .fi domains",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
                         "iso": "_List",
                         "lensMapping": "_List",
                         "default": "mempty",
@@ -7795,6 +8404,186 @@
                         "documentation": "-- | A list of new name servers for the domain.\n--\n-- Type: Complex\n--\n-- Children: 'Name', 'GlueIps'\n--\n-- Required: Yes",
                         "typeExposed": "[Nameserver]",
                         "type": "List \"Nameservers\" Nameserver"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "Route53Domains",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "style": "nullary",
+                "fieldPad": 0,
+                "ctor": "updateTagsForDomainResponse",
+                "headerPad": 0,
+                "wrapper": false,
+                "protocol": "json",
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "name": "UpdateTagsForDomainResponse",
+                "resultWrapper": null,
+                "type": "empty",
+                "headerAll": false,
+                "optional": [],
+                "fields": []
+            },
+            "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/api-UpdateTagsForDomain.html",
+            "namespace": "Network.AWS.Route53Domains.UpdateTagsForDomain",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.Route53Domains.Types"
+            ],
+            "pager": null,
+            "name": "UpdateTagsForDomain",
+            "method": "post",
+            "documentation": "-- | This operation adds or updates tags for a specified domain.\n--\n-- All tag operations are eventually consistent; subsequent operations may not\n-- immediately represent all issued operations.",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Read",
+                    "Show"
+                ],
+                "streaming": false,
+                "style": "json",
+                "fieldPad": 17,
+                "ctor": "updateTagsForDomain",
+                "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "utfdDomainName",
+                        "name": "_utfdDomainName",
+                        "shape": "DomainName",
+                        "locationName": "DomainName",
+                        "documentation": "-- | The domain for which you want to add or update tags.\n--\n-- The name of a domain.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Constraints: The domain name can contain only the letters a through z, the\n-- numbers 0 through 9, and hyphen (-). Hyphens are allowed only when theyaposre\n-- surrounded by letters, numbers, or other hyphens. You canapost specify a\n-- hyphen at the beginning or end of a label. To specify an Internationalized\n-- Domain Name, you must convert the name to Punycode.\n--\n-- Required: Yes",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "utfdTagsToUpdate",
+                        "name": "_utfdTagsToUpdate",
+                        "shape": "TagList",
+                        "locationName": "TagsToUpdate",
+                        "documentation": "-- | A list of the tag keys and values that you want to add or update. If you\n-- specify a key that already exists, the corresponding value will be replaced.\n--\n-- Type: A complex type containing a list of tags\n--\n-- Default: None\n--\n-- Required: No\n--\n-- '\u003e Each tag includes the following elements:\n--\n-- Key\n--\n-- The key (name) of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: Unicode characters including alphanumeric, space, and\n-- \".:/=+\\-%@\"\n--\n-- Constraints: Each key can be 1-128 characters long.\n--\n-- Required: Yes\n--\n-- Value\n--\n-- The value of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: Unicode characters including alphanumeric, space, and\n-- \".:/=+\\-%@\"\n--\n-- Constraints: Each value can be 0-256 characters long.\n--\n-- Required: Yes\n--\n--",
+                        "typeExposed": "[Tag]",
+                        "type": "List \"TagsToUpdate\" Tag"
+                    }
+                ],
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "json",
+                "payload": null,
+                "required": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "utfdDomainName",
+                        "name": "_utfdDomainName",
+                        "shape": "DomainName",
+                        "locationName": "DomainName",
+                        "documentation": "-- | The domain for which you want to add or update tags.\n--\n-- The name of a domain.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Constraints: The domain name can contain only the letters a through z, the\n-- numbers 0 through 9, and hyphen (-). Hyphens are allowed only when theyaposre\n-- surrounded by letters, numbers, or other hyphens. You canapost specify a\n-- hyphen at the beginning or end of a label. To specify an Internationalized\n-- Domain Name, you must convert the name to Punycode.\n--\n-- Required: Yes",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "contentPad": 13,
+                "queryPad": 0,
+                "name": "UpdateTagsForDomain",
+                "query": [],
+                "locationPad": 13,
+                "type": "record",
+                "queryAll": false,
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "utfdTagsToUpdate",
+                        "name": "_utfdTagsToUpdate",
+                        "shape": "TagList",
+                        "locationName": "TagsToUpdate",
+                        "documentation": "-- | A list of the tag keys and values that you want to add or update. If you\n-- specify a key that already exists, the corresponding value will be replaced.\n--\n-- Type: A complex type containing a list of tags\n--\n-- Default: None\n--\n-- Required: No\n--\n-- '\u003e Each tag includes the following elements:\n--\n-- Key\n--\n-- The key (name) of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: Unicode characters including alphanumeric, space, and\n-- \".:/=+\\-%@\"\n--\n-- Constraints: Each key can be 1-128 characters long.\n--\n-- Required: Yes\n--\n-- Value\n--\n-- The value of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: Unicode characters including alphanumeric, space, and\n-- \".:/=+\\-%@\"\n--\n-- Constraints: Each value can be 0-256 characters long.\n--\n-- Required: Yes\n--\n--",
+                        "typeExposed": "[Tag]",
+                        "type": "List \"TagsToUpdate\" Tag"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "utfdDomainName",
+                        "name": "_utfdDomainName",
+                        "shape": "DomainName",
+                        "locationName": "DomainName",
+                        "documentation": "-- | The domain for which you want to add or update tags.\n--\n-- The name of a domain.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Constraints: The domain name can contain only the letters a through z, the\n-- numbers 0 through 9, and hyphen (-). Hyphens are allowed only when theyaposre\n-- surrounded by letters, numbers, or other hyphens. You canapost specify a\n-- hyphen at the beginning or end of a label. To specify an Internationalized\n-- Domain Name, you must convert the name to Punycode.\n--\n-- Required: Yes",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "utfdTagsToUpdate",
+                        "name": "_utfdTagsToUpdate",
+                        "shape": "TagList",
+                        "locationName": "TagsToUpdate",
+                        "documentation": "-- | A list of the tag keys and values that you want to add or update. If you\n-- specify a key that already exists, the corresponding value will be replaced.\n--\n-- Type: A complex type containing a list of tags\n--\n-- Default: None\n--\n-- Required: No\n--\n-- '\u003e Each tag includes the following elements:\n--\n-- Key\n--\n-- The key (name) of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: Unicode characters including alphanumeric, space, and\n-- \".:/=+\\-%@\"\n--\n-- Constraints: Each key can be 1-128 characters long.\n--\n-- Required: Yes\n--\n-- Value\n--\n-- The value of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: Unicode characters including alphanumeric, space, and\n-- \".:/=+\\-%@\"\n--\n-- Constraints: Each value can be 0-256 characters long.\n--\n-- Required: Yes\n--\n--",
+                        "typeExposed": "[Tag]",
+                        "type": "List \"TagsToUpdate\" Tag"
                     }
                 ]
             }

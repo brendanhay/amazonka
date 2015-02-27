@@ -46,13 +46,13 @@ module Network.AWS.ECS.DescribeContainerInstances
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.Query
+import Network.AWS.Request.JSON
 import Network.AWS.ECS.Types
 import qualified GHC.Exts
 
 data DescribeContainerInstances = DescribeContainerInstances
     { _dciCluster            :: Maybe Text
-    , _dciContainerInstances :: List "member" Text
+    , _dciContainerInstances :: List "containerInstances" Text
     } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeContainerInstances' constructor.
@@ -83,8 +83,8 @@ dciContainerInstances =
         . _List
 
 data DescribeContainerInstancesResponse = DescribeContainerInstancesResponse
-    { _dcirContainerInstances :: List "member" ContainerInstance
-    , _dcirFailures           :: List "member" Failure
+    { _dcirContainerInstances :: List "containerInstances" ContainerInstance
+    , _dcirFailures           :: List "failures" Failure
     } deriving (Eq, Read, Show)
 
 -- | 'DescribeContainerInstancesResponse' constructor.
@@ -114,21 +114,24 @@ instance ToPath DescribeContainerInstances where
     toPath = const "/"
 
 instance ToQuery DescribeContainerInstances where
-    toQuery DescribeContainerInstances{..} = mconcat
-        [ "cluster"            =? _dciCluster
-        , "containerInstances" =? _dciContainerInstances
-        ]
+    toQuery = const mempty
 
 instance ToHeaders DescribeContainerInstances
+
+instance ToJSON DescribeContainerInstances where
+    toJSON DescribeContainerInstances{..} = object
+        [ "cluster"            .= _dciCluster
+        , "containerInstances" .= _dciContainerInstances
+        ]
 
 instance AWSRequest DescribeContainerInstances where
     type Sv DescribeContainerInstances = ECS
     type Rs DescribeContainerInstances = DescribeContainerInstancesResponse
 
     request  = post "DescribeContainerInstances"
-    response = xmlResponse
+    response = jsonResponse
 
-instance FromXML DescribeContainerInstancesResponse where
-    parseXML = withElement "DescribeContainerInstancesResult" $ \x -> DescribeContainerInstancesResponse
-        <$> x .@? "containerInstances" .!@ mempty
-        <*> x .@? "failures" .!@ mempty
+instance FromJSON DescribeContainerInstancesResponse where
+    parseJSON = withObject "DescribeContainerInstancesResponse" $ \o -> DescribeContainerInstancesResponse
+        <$> o .:? "containerInstances" .!= mempty
+        <*> o .:? "failures" .!= mempty

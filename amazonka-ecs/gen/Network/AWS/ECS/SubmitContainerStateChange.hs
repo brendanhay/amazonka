@@ -52,7 +52,7 @@ module Network.AWS.ECS.SubmitContainerStateChange
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.Query
+import Network.AWS.Request.JSON
 import Network.AWS.ECS.Types
 import qualified GHC.Exts
 
@@ -60,7 +60,7 @@ data SubmitContainerStateChange = SubmitContainerStateChange
     { _scscCluster         :: Maybe Text
     , _scscContainerName   :: Maybe Text
     , _scscExitCode        :: Maybe Int
-    , _scscNetworkBindings :: List "member" NetworkBinding
+    , _scscNetworkBindings :: List "networkBindings" NetworkBinding
     , _scscReason          :: Maybe Text
     , _scscStatus          :: Maybe Text
     , _scscTask            :: Maybe Text
@@ -152,25 +152,28 @@ instance ToPath SubmitContainerStateChange where
     toPath = const "/"
 
 instance ToQuery SubmitContainerStateChange where
-    toQuery SubmitContainerStateChange{..} = mconcat
-        [ "cluster"         =? _scscCluster
-        , "containerName"   =? _scscContainerName
-        , "exitCode"        =? _scscExitCode
-        , "networkBindings" =? _scscNetworkBindings
-        , "reason"          =? _scscReason
-        , "status"          =? _scscStatus
-        , "task"            =? _scscTask
-        ]
+    toQuery = const mempty
 
 instance ToHeaders SubmitContainerStateChange
+
+instance ToJSON SubmitContainerStateChange where
+    toJSON SubmitContainerStateChange{..} = object
+        [ "cluster"         .= _scscCluster
+        , "task"            .= _scscTask
+        , "containerName"   .= _scscContainerName
+        , "status"          .= _scscStatus
+        , "exitCode"        .= _scscExitCode
+        , "reason"          .= _scscReason
+        , "networkBindings" .= _scscNetworkBindings
+        ]
 
 instance AWSRequest SubmitContainerStateChange where
     type Sv SubmitContainerStateChange = ECS
     type Rs SubmitContainerStateChange = SubmitContainerStateChangeResponse
 
     request  = post "SubmitContainerStateChange"
-    response = xmlResponse
+    response = jsonResponse
 
-instance FromXML SubmitContainerStateChangeResponse where
-    parseXML = withElement "SubmitContainerStateChangeResult" $ \x -> SubmitContainerStateChangeResponse
-        <$> x .@? "acknowledgment"
+instance FromJSON SubmitContainerStateChangeResponse where
+    parseJSON = withObject "SubmitContainerStateChangeResponse" $ \o -> SubmitContainerStateChangeResponse
+        <$> o .:? "acknowledgment"

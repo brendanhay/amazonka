@@ -36,6 +36,7 @@ module Network.AWS.ECS.DiscoverPollEndpoint
     -- ** Request constructor
     , discoverPollEndpoint
     -- ** Request lenses
+    , dpeCluster
     , dpeContainerInstance
 
     -- * Response
@@ -47,24 +48,32 @@ module Network.AWS.ECS.DiscoverPollEndpoint
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.Query
+import Network.AWS.Request.JSON
 import Network.AWS.ECS.Types
 import qualified GHC.Exts
 
-newtype DiscoverPollEndpoint = DiscoverPollEndpoint
-    { _dpeContainerInstance :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
+data DiscoverPollEndpoint = DiscoverPollEndpoint
+    { _dpeCluster           :: Maybe Text
+    , _dpeContainerInstance :: Maybe Text
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'DiscoverPollEndpoint' constructor.
 --
 -- The fields accessible through corresponding lenses are:
+--
+-- * 'dpeCluster' @::@ 'Maybe' 'Text'
 --
 -- * 'dpeContainerInstance' @::@ 'Maybe' 'Text'
 --
 discoverPollEndpoint :: DiscoverPollEndpoint
 discoverPollEndpoint = DiscoverPollEndpoint
     { _dpeContainerInstance = Nothing
+    , _dpeCluster           = Nothing
     }
+
+-- | The cluster that the container instance belongs to.
+dpeCluster :: Lens' DiscoverPollEndpoint (Maybe Text)
+dpeCluster = lens _dpeCluster (\s a -> s { _dpeCluster = a })
 
 -- | The container instance UUID or full Amazon Resource Name (ARN) of the
 -- container instance. The ARN contains the 'arn:aws:ecs' namespace, followed by
@@ -99,19 +108,23 @@ instance ToPath DiscoverPollEndpoint where
     toPath = const "/"
 
 instance ToQuery DiscoverPollEndpoint where
-    toQuery DiscoverPollEndpoint{..} = mconcat
-        [ "containerInstance" =? _dpeContainerInstance
-        ]
+    toQuery = const mempty
 
 instance ToHeaders DiscoverPollEndpoint
+
+instance ToJSON DiscoverPollEndpoint where
+    toJSON DiscoverPollEndpoint{..} = object
+        [ "containerInstance" .= _dpeContainerInstance
+        , "cluster"           .= _dpeCluster
+        ]
 
 instance AWSRequest DiscoverPollEndpoint where
     type Sv DiscoverPollEndpoint = ECS
     type Rs DiscoverPollEndpoint = DiscoverPollEndpointResponse
 
     request  = post "DiscoverPollEndpoint"
-    response = xmlResponse
+    response = jsonResponse
 
-instance FromXML DiscoverPollEndpointResponse where
-    parseXML = withElement "DiscoverPollEndpointResult" $ \x -> DiscoverPollEndpointResponse
-        <$> x .@? "endpoint"
+instance FromJSON DiscoverPollEndpointResponse where
+    parseJSON = withObject "DiscoverPollEndpointResponse" $ \o -> DiscoverPollEndpointResponse
+        <$> o .:? "endpoint"

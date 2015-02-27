@@ -22,7 +22,7 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | The /ResetCacheParameterGroup/ operation modifies the parameters of a cache
+-- | The /ResetCacheParameterGroup/ action modifies the parameters of a cache
 -- parameter group to the engine or system default value. You can reset specific
 -- parameters by submitting a list of parameter names. To reset the entire cache
 -- parameter group, specify the /ResetAllParameters/ and /CacheParameterGroupName/

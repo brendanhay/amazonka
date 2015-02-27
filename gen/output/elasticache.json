@@ -154,6 +154,7 @@
         "namespace": "Network.AWS.ElastiCache",
         "protocol": "query",
         "imports": [
+            "Network.AWS.ElastiCache.AddTagsToResource",
             "Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress",
             "Network.AWS.ElastiCache.CopySnapshot",
             "Network.AWS.ElastiCache.CreateCacheCluster",
@@ -180,21 +181,23 @@
             "Network.AWS.ElastiCache.DescribeReservedCacheNodes",
             "Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings",
             "Network.AWS.ElastiCache.DescribeSnapshots",
+            "Network.AWS.ElastiCache.ListTagsForResource",
             "Network.AWS.ElastiCache.ModifyCacheCluster",
             "Network.AWS.ElastiCache.ModifyCacheParameterGroup",
             "Network.AWS.ElastiCache.ModifyCacheSubnetGroup",
             "Network.AWS.ElastiCache.ModifyReplicationGroup",
             "Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering",
             "Network.AWS.ElastiCache.RebootCacheCluster",
+            "Network.AWS.ElastiCache.RemoveTagsFromResource",
             "Network.AWS.ElastiCache.ResetCacheParameterGroup",
             "Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress",
             "Network.AWS.ElastiCache.Types",
             "Network.AWS.ElastiCache.Waiters"
         ],
         "name": "Amazon ElastiCache",
-        "version": "2014-09-30",
+        "version": "2015-02-02",
         "documentation": "-- | ElastiCache is a web service that makes it easy to deploy, operate, and scale\n-- an in-memory cache in the cloud. The service improves the performance of web\n-- applications by allowing you to retrieve information from fast, managed,\n-- in-memory caches, instead of relying entirely on slower disk-based databases.\n-- Amazon ElastiCache automatically detects and replaces failed nodes, reducing\n-- the overhead associated with self-managed infrastructures and provides a\n-- resilient system that mitigates the risk of overloaded databases, which slow\n-- website and application load times. Through integration with Amazon\n-- CloudWatch, Amazon ElastiCache provides enhanced visibility into key\n-- performance metrics associated with your Memcached or Redis nodes.",
-        "xmlNamespace": "http://elasticache.amazonaws.com/doc/2014-09-30/",
+        "xmlNamespace": "http://elasticache.amazonaws.com/doc/2015-02-02/",
         "jsonVersion": null,
         "retryDelay": {
             "base": 5.0e-2,
@@ -228,6 +231,7 @@
         "abbrev": "ElastiCache",
         "exposed": [
             "Network.AWS.ElastiCache",
+            "Network.AWS.ElastiCache.AddTagsToResource",
             "Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress",
             "Network.AWS.ElastiCache.CopySnapshot",
             "Network.AWS.ElastiCache.CreateCacheCluster",
@@ -254,12 +258,14 @@
             "Network.AWS.ElastiCache.DescribeReservedCacheNodes",
             "Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings",
             "Network.AWS.ElastiCache.DescribeSnapshots",
+            "Network.AWS.ElastiCache.ListTagsForResource",
             "Network.AWS.ElastiCache.ModifyCacheCluster",
             "Network.AWS.ElastiCache.ModifyCacheParameterGroup",
             "Network.AWS.ElastiCache.ModifyCacheSubnetGroup",
             "Network.AWS.ElastiCache.ModifyReplicationGroup",
             "Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering",
             "Network.AWS.ElastiCache.RebootCacheCluster",
+            "Network.AWS.ElastiCache.RemoveTagsFromResource",
             "Network.AWS.ElastiCache.ResetCacheParameterGroup",
             "Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress",
             "Network.AWS.ElastiCache.Types",
@@ -268,7 +274,7 @@
         "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/Welcome.html",
         "protocol": "query",
         "name": "Amazon ElastiCache",
-        "version": "0.3.0",
+        "version": "0.3.1",
         "description": "ElastiCache is a web service that makes it easy to deploy, operate, and scale\nan in-memory cache in the cloud. The service improves the performance of web\napplications by allowing you to retrieve information from fast, managed,\nin-memory caches, instead of relying entirely on slower disk-based databases.\nAmazon ElastiCache automatically detects and replaces failed nodes, reducing\nthe overhead associated with self-managed infrastructures and provides a\nresilient system that mitigates the risk of overloaded databases, which slow\nwebsite and application load times. Through integration with Amazon\nCloudWatch, Amazon ElastiCache provides enhanced visibility into key\nperformance metrics associated with your Memcached or Redis nodes."
     },
     "types": {
@@ -579,7 +585,7 @@
                         "name": "_sNumCacheNodes",
                         "shape": "IntegerOptional",
                         "locationName": "NumCacheNodes",
-                        "documentation": "-- | The number of cache nodes in the source cache cluster.",
+                        "documentation": "-- | The number of cache nodes in the source cache cluster.\n--\n-- For clusters running Redis, this value must be 1. For clusters running\n-- Memcached, this value must be between 1 and 50.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -732,7 +738,7 @@
                         "name": "_sAutoMinorVersionUpgrade",
                         "shape": "Boolean",
                         "locationName": "AutoMinorVersionUpgrade",
-                        "documentation": "-- | For the source cache cluster, indicates whether minor version patches are\n-- applied automatically ('true') or not ('false').",
+                        "documentation": "-- | This parameter is currently disabled.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -802,7 +808,7 @@
                         "name": "_sAutoMinorVersionUpgrade",
                         "shape": "Boolean",
                         "locationName": "AutoMinorVersionUpgrade",
-                        "documentation": "-- | For the source cache cluster, indicates whether minor version patches are\n-- applied automatically ('true') or not ('false').",
+                        "documentation": "-- | This parameter is currently disabled.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -955,7 +961,7 @@
                         "name": "_sNumCacheNodes",
                         "shape": "IntegerOptional",
                         "locationName": "NumCacheNodes",
-                        "documentation": "-- | The number of cache nodes in the source cache cluster.",
+                        "documentation": "-- | The number of cache nodes in the source cache cluster.\n--\n-- For clusters running Redis, this value must be 1. For clusters running\n-- Memcached, this value must be between 1 and 50.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -1537,6 +1543,95 @@
                     "Eq",
                     "Ord",
                     "Read",
+                    "Show"
+                ],
+                "fieldPad": 9,
+                "ctor": "tag",
+                "contents": [],
+                "payload": null,
+                "required": [],
+                "contentPad": 0,
+                "name": "Tag",
+                "locationPad": 6,
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "tagKey",
+                        "name": "_tagKey",
+                        "shape": "String",
+                        "locationName": "Key",
+                        "documentation": "-- | The key for the tag.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "tagValue",
+                        "name": "_tagValue",
+                        "shape": "String",
+                        "locationName": "Value",
+                        "documentation": "-- | The tag's value. May be null.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "tagKey",
+                        "name": "_tagKey",
+                        "shape": "String",
+                        "locationName": "Key",
+                        "documentation": "-- | The key for the tag.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "tagValue",
+                        "name": "_tagValue",
+                        "shape": "String",
+                        "locationName": "Value",
+                        "documentation": "-- | The tag's value. May be null.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
                     "Show",
                     "Generic",
                     "Enum"
@@ -1685,7 +1780,7 @@
                         "name": "_rgpmvAutomaticFailoverStatus",
                         "shape": "PendingAutomaticFailoverStatus",
                         "locationName": "AutomaticFailoverStatus",
-                        "documentation": "-- | Indicates the status of automatic failover for this replication group.",
+                        "documentation": "-- | Indicates the status of Multi-AZ for this replication group.\n--\n-- ElastiCache Multi-AZ replication groups are not supported on:\n--\n-- Redis versions earlier than 2.8.6. T1 and T2 cache node types.",
                         "typeExposed": "Maybe PendingAutomaticFailoverStatus",
                         "type": "Maybe PendingAutomaticFailoverStatus"
                     }
@@ -1704,7 +1799,7 @@
                         "name": "_rgpmvAutomaticFailoverStatus",
                         "shape": "PendingAutomaticFailoverStatus",
                         "locationName": "AutomaticFailoverStatus",
-                        "documentation": "-- | Indicates the status of automatic failover for this replication group.",
+                        "documentation": "-- | Indicates the status of Multi-AZ for this replication group.\n--\n-- ElastiCache Multi-AZ replication groups are not supported on:\n--\n-- Redis versions earlier than 2.8.6. T1 and T2 cache node types.",
                         "typeExposed": "Maybe PendingAutomaticFailoverStatus",
                         "type": "Maybe PendingAutomaticFailoverStatus"
                     },
@@ -2572,7 +2667,7 @@
                         "name": "_sSubnetIdentifier",
                         "shape": "String",
                         "locationName": "SubnetIdentifier",
-                        "documentation": "-- | The unique identifier for the subnet",
+                        "documentation": "-- | The unique identifier for the subnet.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2589,7 +2684,7 @@
                         "name": "_sSubnetAvailabilityZone",
                         "shape": "AvailabilityZone",
                         "locationName": "SubnetAvailabilityZone",
-                        "documentation": "-- | The Availability Zone associated with the subnet",
+                        "documentation": "-- | The Availability Zone associated with the subnet.",
                         "typeExposed": "Maybe AvailabilityZone",
                         "type": "Maybe AvailabilityZone"
                     }
@@ -2608,7 +2703,7 @@
                         "name": "_sSubnetAvailabilityZone",
                         "shape": "AvailabilityZone",
                         "locationName": "SubnetAvailabilityZone",
-                        "documentation": "-- | The Availability Zone associated with the subnet",
+                        "documentation": "-- | The Availability Zone associated with the subnet.",
                         "typeExposed": "Maybe AvailabilityZone",
                         "type": "Maybe AvailabilityZone"
                     },
@@ -2625,7 +2720,7 @@
                         "name": "_sSubnetIdentifier",
                         "shape": "String",
                         "locationName": "SubnetIdentifier",
-                        "documentation": "-- | The unique identifier for the subnet",
+                        "documentation": "-- | The unique identifier for the subnet.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2868,7 +2963,7 @@
                         "name": "_ccNumCacheNodes",
                         "shape": "IntegerOptional",
                         "locationName": "NumCacheNodes",
-                        "documentation": "-- | The number of cache nodes in the cache cluster.",
+                        "documentation": "-- | The number of cache nodes in the cache cluster.\n--\n-- For clusters running Redis, this value must be 1. For clusters running\n-- Memcached, this value must be between 1 and 50.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -2885,7 +2980,7 @@
                         "name": "_ccPreferredAvailabilityZone",
                         "shape": "String",
                         "locationName": "PreferredAvailabilityZone",
-                        "documentation": "-- | The name of the Availability Zone in which the cache cluster is located or\n-- \"Multiple\" if the cache nodes are located in different Availability Zones.",
+                        "documentation": "-- | The name of the Availability Zone in which the cache cluster is located or\n-- \"Multiple\"if the cache nodes are located in different Availability Zones.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3038,7 +3133,7 @@
                         "name": "_ccAutoMinorVersionUpgrade",
                         "shape": "Boolean",
                         "locationName": "AutoMinorVersionUpgrade",
-                        "documentation": "-- | If 'true', then minor version patches are applied automatically; if 'false', then\n-- automatic minor version patches are disabled.",
+                        "documentation": "-- | This parameter is currently disabled.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -3125,7 +3220,7 @@
                         "name": "_ccAutoMinorVersionUpgrade",
                         "shape": "Boolean",
                         "locationName": "AutoMinorVersionUpgrade",
-                        "documentation": "-- | If 'true', then minor version patches are applied automatically; if 'false', then\n-- automatic minor version patches are disabled.",
+                        "documentation": "-- | This parameter is currently disabled.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -3363,7 +3458,7 @@
                         "name": "_ccNumCacheNodes",
                         "shape": "IntegerOptional",
                         "locationName": "NumCacheNodes",
-                        "documentation": "-- | The number of cache nodes in the cache cluster.",
+                        "documentation": "-- | The number of cache nodes in the cache cluster.\n--\n-- For clusters running Redis, this value must be 1. For clusters running\n-- Memcached, this value must be between 1 and 50.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -3397,7 +3492,7 @@
                         "name": "_ccPreferredAvailabilityZone",
                         "shape": "String",
                         "locationName": "PreferredAvailabilityZone",
-                        "documentation": "-- | The name of the Availability Zone in which the cache cluster is located or\n-- \"Multiple\" if the cache nodes are located in different Availability Zones.",
+                        "documentation": "-- | The name of the Availability Zone in which the cache cluster is located or\n-- \"Multiple\"if the cache nodes are located in different Availability Zones.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3847,7 +3942,7 @@
                         "name": "_cnEndpoint",
                         "shape": "Endpoint",
                         "locationName": "Endpoint",
-                        "documentation": "-- | The hostname and IP address for connecting to this cache node.",
+                        "documentation": "-- | The hostname for connecting to this cache node.",
                         "typeExposed": "Maybe Endpoint",
                         "type": "Maybe Endpoint"
                     },
@@ -3985,7 +4080,7 @@
                         "name": "_cnEndpoint",
                         "shape": "Endpoint",
                         "locationName": "Endpoint",
-                        "documentation": "-- | The hostname and IP address for connecting to this cache node.",
+                        "documentation": "-- | The hostname for connecting to this cache node.",
                         "typeExposed": "Maybe Endpoint",
                         "type": "Maybe Endpoint"
                     },
@@ -5326,7 +5421,7 @@
                         "name": "_rgAutomaticFailover",
                         "shape": "AutomaticFailoverStatus",
                         "locationName": "AutomaticFailover",
-                        "documentation": "-- | Indicates the status of automatic failover for this replication group.",
+                        "documentation": "-- | Indicates the status of Multi-AZ for this replication group.\n--\n-- ElastiCache Multi-AZ replication groups are not supported on:\n--\n-- Redis versions earlier than 2.8.6. T1 and T2 cache node types.",
                         "typeExposed": "Maybe AutomaticFailoverStatus",
                         "type": "Maybe AutomaticFailoverStatus"
                     }
@@ -5345,7 +5440,7 @@
                         "name": "_rgAutomaticFailover",
                         "shape": "AutomaticFailoverStatus",
                         "locationName": "AutomaticFailover",
-                        "documentation": "-- | Indicates the status of automatic failover for this replication group.",
+                        "documentation": "-- | Indicates the status of Multi-AZ for this replication group.\n--\n-- ElastiCache Multi-AZ replication groups are not supported on:\n--\n-- Redis versions earlier than 2.8.6. T1 and T2 cache node types.",
                         "typeExposed": "Maybe AutomaticFailoverStatus",
                         "type": "Maybe AutomaticFailoverStatus"
                     },
@@ -5854,6 +5949,80 @@
             {
                 "deriving": [
                     "Eq",
+                    "Read",
+                    "Show",
+                    "Monoid",
+                    "Semigroup"
+                ],
+                "listElement": "Tag",
+                "fieldPad": 0,
+                "ctor": "tagListMessage",
+                "field": {
+                    "location": "querystring",
+                    "iso": "_List",
+                    "lensMapping": "_List",
+                    "default": "mempty",
+                    "monoid": true,
+                    "protocol": "query",
+                    "flattened": false,
+                    "required": true,
+                    "lens": "tlmTagList",
+                    "name": "_tlmTagList",
+                    "shape": "TagList",
+                    "locationName": "TagList",
+                    "documentation": "-- | A list of cost allocation tags as a key-value pair.",
+                    "typeExposed": "[Tag]",
+                    "type": "List \"member\" Tag"
+                },
+                "contents": [],
+                "payload": null,
+                "required": [],
+                "contentPad": 0,
+                "name": "TagListMessage",
+                "locationPad": 0,
+                "type": "newtype",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "tlmTagList",
+                        "name": "_tlmTagList",
+                        "shape": "TagList",
+                        "locationName": "TagList",
+                        "documentation": "-- | A list of cost allocation tags as a key-value pair.",
+                        "typeExposed": "[Tag]",
+                        "type": "List \"member\" Tag"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "tlmTagList",
+                        "name": "_tlmTagList",
+                        "shape": "TagList",
+                        "locationName": "TagList",
+                        "documentation": "-- | A list of cost allocation tags as a key-value pair.",
+                        "typeExposed": "[Tag]",
+                        "type": "List \"member\" Tag"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
                     "Ord",
                     "Read",
                     "Show"
@@ -5970,7 +6139,7 @@
                         "name": "_pmvNumCacheNodes",
                         "shape": "IntegerOptional",
                         "locationName": "NumCacheNodes",
-                        "documentation": "-- | The new number of cache nodes for the cache cluster.",
+                        "documentation": "-- | The new number of cache nodes for the cache cluster.\n--\n-- For clusters running Redis, this value must be 1. For clusters running\n-- Memcached, this value must be between 1 and 50.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -6057,7 +6226,7 @@
                         "name": "_pmvNumCacheNodes",
                         "shape": "IntegerOptional",
                         "locationName": "NumCacheNodes",
-                        "documentation": "-- | The new number of cache nodes for the cache cluster.",
+                        "documentation": "-- | The new number of cache nodes for the cache cluster.\n--\n-- For clusters running Redis, this value must be 1. For clusters running\n-- Memcached, this value must be between 1 and 50.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     }
@@ -6434,6 +6603,7 @@
         "imports": [],
         "shared": [
             "Snapshot",
+            "Tag",
             "ParameterNameValue",
             "CacheSubnetGroup",
             "ReservedCacheNode",
@@ -6442,10 +6612,225 @@
             "CacheSecurityGroup",
             "AZMode",
             "ReplicationGroup",
+            "TagListMessage",
             "CacheParameterGroupNameMessage"
         ]
     },
     "operations": [
+        {
+            "service": "ElastiCache",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Read",
+                    "Show",
+                    "Monoid",
+                    "Semigroup"
+                ],
+                "streaming": false,
+                "listElement": "Tag",
+                "style": "xml",
+                "fieldPad": 0,
+                "ctor": "addTagsToResourceResponse",
+                "headerPad": 0,
+                "field": {
+                    "location": "querystring",
+                    "iso": "_List",
+                    "lensMapping": "_List",
+                    "default": "mempty",
+                    "monoid": true,
+                    "protocol": "query",
+                    "flattened": false,
+                    "required": true,
+                    "lens": "attrrTagList",
+                    "name": "_attrrTagList",
+                    "shape": "TagList",
+                    "locationName": "TagList",
+                    "documentation": "-- | A list of cost allocation tags as a key-value pair.",
+                    "typeExposed": "[Tag]",
+                    "type": "List \"member\" Tag"
+                },
+                "contents": [],
+                "wrapper": false,
+                "protocol": "query",
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "name": "AddTagsToResourceResponse",
+                "resultWrapper": "AddTagsToResourceResult",
+                "locationPad": 0,
+                "type": "newtype",
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "attrrTagList",
+                        "name": "_attrrTagList",
+                        "shape": "TagList",
+                        "locationName": "TagList",
+                        "documentation": "-- | A list of cost allocation tags as a key-value pair.",
+                        "typeExposed": "[Tag]",
+                        "type": "List \"member\" Tag"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "attrrTagList",
+                        "name": "_attrrTagList",
+                        "shape": "TagList",
+                        "locationName": "TagList",
+                        "documentation": "-- | A list of cost allocation tags as a key-value pair.",
+                        "typeExposed": "[Tag]",
+                        "type": "List \"member\" Tag"
+                    }
+                ]
+            },
+            "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_AddTagsToResource.html",
+            "namespace": "Network.AWS.ElastiCache.AddTagsToResource",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElastiCache.Types"
+            ],
+            "pager": null,
+            "name": "AddTagsToResource",
+            "method": "post",
+            "documentation": "-- | The /AddTagsToResource/ action adds up to 10 cost allocation tags to the named\n-- resource. A /cost allocation tag/ is a key-value pair where the key and value\n-- are case-sensitive. Cost allocation tags can be used to categorize and track\n-- your AWS costs.\n--\n-- When you apply tags to your ElastiCache resources, AWS generates a cost\n-- allocation report as a comma-separated value (CSV) file with your usage and\n-- costs aggregated by your tags. You can apply tags that represent business\n-- categories (such as cost centers, application names, or owners) to organize\n-- your costs across multiple services. For more information, see \u003chttp://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Tagging.html Using CostAllocation Tags in Amazon ElastiCache\u003e.",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Read",
+                    "Show"
+                ],
+                "streaming": false,
+                "style": "query",
+                "fieldPad": 17,
+                "ctor": "addTagsToResource",
+                "headerPad": 0,
+                "contents": [],
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "query",
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "attrResourceName",
+                        "name": "_attrResourceName",
+                        "shape": "String",
+                        "locationName": "ResourceName",
+                        "documentation": "-- | The name of the resource to which the tags are to be added, for example 'myCluster01'.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "queryPad": 13,
+                "name": "AddTagsToResource",
+                "query": [
+                    {
+                        "field": "_attrResourceName",
+                        "locationName": "ResourceName",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_attrTags",
+                        "locationName": "Tags",
+                        "type": "field"
+                    }
+                ],
+                "locationPad": 13,
+                "type": "record",
+                "queryAll": true,
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "attrTags",
+                        "name": "_attrTags",
+                        "shape": "TagList",
+                        "locationName": "Tags",
+                        "documentation": "-- | A list of cost allocation tags to be added to this resource. A tag is a\n-- key-value pair. A tag key must be accompanied by a tag value.",
+                        "typeExposed": "[Tag]",
+                        "type": "List \"member\" Tag"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "attrResourceName",
+                        "name": "_attrResourceName",
+                        "shape": "String",
+                        "locationName": "ResourceName",
+                        "documentation": "-- | The name of the resource to which the tags are to be added, for example 'myCluster01'.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "attrTags",
+                        "name": "_attrTags",
+                        "shape": "TagList",
+                        "locationName": "Tags",
+                        "documentation": "-- | A list of cost allocation tags to be added to this resource. A tag is a\n-- key-value pair. A tag key must be accompanied by a tag value.",
+                        "typeExposed": "[Tag]",
+                        "type": "List \"member\" Tag"
+                    }
+                ]
+            }
+        },
         {
             "service": "ElastiCache",
             "response": {
@@ -6539,7 +6924,7 @@
             "pager": null,
             "name": "AuthorizeCacheSecurityGroupIngress",
             "method": "post",
-            "documentation": "-- | The /AuthorizeCacheSecurityGroupIngress/ operation allows network ingress to a\n-- cache security group. Applications using ElastiCache must be running on\n-- Amazon EC2, and Amazon EC2 security groups are used as the authorization\n-- mechanism.",
+            "documentation": "-- | The /AuthorizeCacheSecurityGroupIngress/ action allows network ingress to a\n-- cache security group. Applications using ElastiCache must be running on\n-- Amazon EC2, and Amazon EC2 security groups are used as the authorization\n-- mechanism.\n--\n-- You cannot authorize ingress from an Amazon EC2 security group in one region\n-- to an ElastiCache cluster in another region.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -6790,7 +7175,7 @@
             "pager": null,
             "name": "CopySnapshot",
             "method": "post",
-            "documentation": "-- | The /CopySnapshot/ operation makes a copy of an existing snapshot.",
+            "documentation": "-- | The /CopySnapshot/ action makes a copy of an existing snapshot.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -7002,7 +7387,7 @@
             "pager": null,
             "name": "CreateCacheCluster",
             "method": "post",
-            "documentation": "-- | The /CreateCacheCluster/ operation creates a cache cluster. All nodes in the\n-- cache cluster run the same protocol-compliant cache engine software, either\n-- Memcached or Redis.",
+            "documentation": "-- | The /CreateCacheCluster/ action creates a cache cluster. All nodes in the cache\n-- cluster run the same protocol-compliant cache engine software, either\n-- Memcached or Redis.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -7115,6 +7500,11 @@
                         "type": "field"
                     },
                     {
+                        "field": "_cccTags",
+                        "locationName": "Tags",
+                        "type": "field"
+                    },
+                    {
                         "field": "_cccSnapshotArns",
                         "locationName": "SnapshotArns",
                         "type": "field"
@@ -7173,7 +7563,7 @@
                         "name": "_cccReplicationGroupId",
                         "shape": "String",
                         "locationName": "ReplicationGroupId",
-                        "documentation": "-- | The ID of the replication group to which this cache cluster should belong. If\n-- this parameter is specified, the cache cluster will be added to the specified\n-- replication group as a read replica; otherwise, the cache cluster will be a\n-- standalone primary that is not part of any replication group.\n--\n-- If the specified replication group is Automatic Failover enabled and the\n-- availability zone is not specified, the cache cluster will be created in\n-- availability zones that provide the best spread of read replicas across\n-- availability zones.\n--\n-- Note: This parameter is only valid if the 'Engine' parameter is 'redis'.",
+                        "documentation": "-- | The ID of the replication group to which this cache cluster should belong. If\n-- this parameter is specified, the cache cluster will be added to the specified\n-- replication group as a read replica; otherwise, the cache cluster will be a\n-- standalone primary that is not part of any replication group.\n--\n-- If the specified replication group is Multi-AZ enabled and the availability\n-- zone is not specified, the cache cluster will be created in availability\n-- zones that provide the best spread of read replicas across availability zones.\n--\n-- Note: This parameter is only valid if the 'Engine' parameter is 'redis'.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -7224,7 +7614,7 @@
                         "name": "_cccPreferredAvailabilityZones",
                         "shape": "PreferredAvailabilityZoneList",
                         "locationName": "PreferredAvailabilityZones",
-                        "documentation": "-- | A list of the Availability Zones in which cache nodes will be created. The\n-- order of the zones in the list is not important.\n--\n-- This option is only supported on Memcached.\n--\n-- If you want all the nodes in the same Availability Zone, use 'PreferredAvailabilityZone' instead, or repeat the Availability Zone multiple times in the list.\n--\n-- Default: System chosen Availability Zones.\n--\n-- Example: One Memcached node in each of three different Availability Zones: 'PreferredAvailabilityZones.member.1=us-east-1a&PreferredAvailabilityZones.member.2=us-east-1b&PreferredAvailabilityZones.member.3=us-east-1d'\n--\n-- Example: All three Memcached nodes in one Availability Zone: 'PreferredAvailabilityZones.member.1=us-east-1a&PreferredAvailabilityZones.member.2=us-east-1a&PreferredAvailabilityZones.member.3=us-east-1a'",
+                        "documentation": "-- | A list of the Availability Zones in which cache nodes will be created. The\n-- order of the zones in the list is not important.\n--\n-- This option is only supported on Memcached.\n--\n-- If you are creating your cache cluster in an Amazon VPC (recommended) you\n-- can only locate nodes in Availability Zones that are associated with the\n-- subnets in the selected subnet group.\n--\n-- The number of Availability Zones listed must equal the value of 'NumCacheNodes'\n-- .\n--\n-- If you want all the nodes in the same Availability Zone, use 'PreferredAvailabilityZone' instead, or repeat the Availability Zone multiple times in the list.\n--\n-- Default: System chosen Availability Zones.\n--\n-- Example: One Memcached node in each of three different Availability Zones: 'PreferredAvailabilityZones.member.1=us-west-2a&PreferredAvailabilityZones.member.2=us-west-2b&PreferredAvailabilityZones.member.3=us-west-2c'\n--\n-- Example: All three Memcached nodes in one Availability Zone: 'PreferredAvailabilityZones.member.1=us-west-2a&PreferredAvailabilityZones.member.2=us-west-2a&PreferredAvailabilityZones.member.3=us-west-2a'",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
                     },
@@ -7241,7 +7631,7 @@
                         "name": "_cccNumCacheNodes",
                         "shape": "IntegerOptional",
                         "locationName": "NumCacheNodes",
-                        "documentation": "-- | The initial number of cache nodes that the cache cluster will have.\n--\n-- For Memcached, valid values are between 1 and 20. If you need to exceed this\n-- limit, please fill out the ElastiCache Limit Increase Request form at \u003chttp://aws.amazon.com/contact-us/elasticache-node-limit-request/ http://aws.amazon.com/contact-us/elasticache-node-limit-request/\u003e.\n--\n-- For Redis, only single-node cache cluster are supported at this time, so the\n-- value for this parameter must be 1.",
+                        "documentation": "-- | The initial number of cache nodes that the cache cluster will have.\n--\n-- For clusters running Redis, this value must be 1. For clusters running\n-- Memcached, this value must be between 1 and 50.\n--\n-- If you need more than 50 nodes for your Memcached cluster, please fill out\n-- the ElastiCache Limit Increase Request form at \u003chttp://aws.amazon.com/contact-us/elasticache-node-limit-request/ http://aws.amazon.com/contact-us/elasticache-node-limit-request/\u003e.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -7292,7 +7682,7 @@
                         "name": "_cccEngineVersion",
                         "shape": "String",
                         "locationName": "EngineVersion",
-                        "documentation": "-- | The version number of the cache engine to be used for this cache cluster. To\n-- view the supported cache engine versions, use the /DescribeCacheEngineVersions/\n-- operation.",
+                        "documentation": "-- | The version number of the cache engine to be used for this cache cluster. To\n-- view the supported cache engine versions, use the /DescribeCacheEngineVersions/\n-- action.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -7363,6 +7753,23 @@
                         "documentation": "-- | One or more VPC security groups associated with the cache cluster.\n--\n-- Use this parameter only when you are creating a cache cluster in an Amazon\n-- Virtual Private Cloud (VPC).",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "cccTags",
+                        "name": "_cccTags",
+                        "shape": "TagList",
+                        "locationName": "Tags",
+                        "documentation": "-- | A list of cost allocation tags to be added to this resource. A tag is a\n-- key-value pair. A tag key must be accompanied by a tag value.",
+                        "typeExposed": "[Tag]",
+                        "type": "List \"member\" Tag"
                     },
                     {
                         "location": "querystring",
@@ -7445,7 +7852,7 @@
                         "name": "_cccNotificationTopicArn",
                         "shape": "String",
                         "locationName": "NotificationTopicArn",
-                        "documentation": "-- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service\n-- (SNS) topic to which notifications will be sent.",
+                        "documentation": "-- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service\n-- (SNS) topic to which notifications will be sent.\n--\n-- The Amazon SNS topic owner must be the same as the cache cluster owner.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -7462,7 +7869,7 @@
                         "name": "_cccAutoMinorVersionUpgrade",
                         "shape": "BooleanOptional",
                         "locationName": "AutoMinorVersionUpgrade",
-                        "documentation": "-- | Determines whether minor engine upgrades will be applied automatically to the\n-- node group during the maintenance window. A value of 'true' allows these\n-- upgrades to occur; 'false' disables automatic upgrades.\n--\n-- Default: 'true'",
+                        "documentation": "-- | This parameter is currently disabled.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -7532,7 +7939,7 @@
                         "name": "_cccAutoMinorVersionUpgrade",
                         "shape": "BooleanOptional",
                         "locationName": "AutoMinorVersionUpgrade",
-                        "documentation": "-- | Determines whether minor engine upgrades will be applied automatically to the\n-- node group during the maintenance window. A value of 'true' allows these\n-- upgrades to occur; 'false' disables automatic upgrades.\n--\n-- Default: 'true'",
+                        "documentation": "-- | This parameter is currently disabled.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -7651,7 +8058,7 @@
                         "name": "_cccEngineVersion",
                         "shape": "String",
                         "locationName": "EngineVersion",
-                        "documentation": "-- | The version number of the cache engine to be used for this cache cluster. To\n-- view the supported cache engine versions, use the /DescribeCacheEngineVersions/\n-- operation.",
+                        "documentation": "-- | The version number of the cache engine to be used for this cache cluster. To\n-- view the supported cache engine versions, use the /DescribeCacheEngineVersions/\n-- action.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -7668,7 +8075,7 @@
                         "name": "_cccNotificationTopicArn",
                         "shape": "String",
                         "locationName": "NotificationTopicArn",
-                        "documentation": "-- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service\n-- (SNS) topic to which notifications will be sent.",
+                        "documentation": "-- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service\n-- (SNS) topic to which notifications will be sent.\n--\n-- The Amazon SNS topic owner must be the same as the cache cluster owner.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -7685,7 +8092,7 @@
                         "name": "_cccNumCacheNodes",
                         "shape": "IntegerOptional",
                         "locationName": "NumCacheNodes",
-                        "documentation": "-- | The initial number of cache nodes that the cache cluster will have.\n--\n-- For Memcached, valid values are between 1 and 20. If you need to exceed this\n-- limit, please fill out the ElastiCache Limit Increase Request form at \u003chttp://aws.amazon.com/contact-us/elasticache-node-limit-request/ http://aws.amazon.com/contact-us/elasticache-node-limit-request/\u003e.\n--\n-- For Redis, only single-node cache cluster are supported at this time, so the\n-- value for this parameter must be 1.",
+                        "documentation": "-- | The initial number of cache nodes that the cache cluster will have.\n--\n-- For clusters running Redis, this value must be 1. For clusters running\n-- Memcached, this value must be between 1 and 50.\n--\n-- If you need more than 50 nodes for your Memcached cluster, please fill out\n-- the ElastiCache Limit Increase Request form at \u003chttp://aws.amazon.com/contact-us/elasticache-node-limit-request/ http://aws.amazon.com/contact-us/elasticache-node-limit-request/\u003e.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -7736,7 +8143,7 @@
                         "name": "_cccPreferredAvailabilityZones",
                         "shape": "PreferredAvailabilityZoneList",
                         "locationName": "PreferredAvailabilityZones",
-                        "documentation": "-- | A list of the Availability Zones in which cache nodes will be created. The\n-- order of the zones in the list is not important.\n--\n-- This option is only supported on Memcached.\n--\n-- If you want all the nodes in the same Availability Zone, use 'PreferredAvailabilityZone' instead, or repeat the Availability Zone multiple times in the list.\n--\n-- Default: System chosen Availability Zones.\n--\n-- Example: One Memcached node in each of three different Availability Zones: 'PreferredAvailabilityZones.member.1=us-east-1a&PreferredAvailabilityZones.member.2=us-east-1b&PreferredAvailabilityZones.member.3=us-east-1d'\n--\n-- Example: All three Memcached nodes in one Availability Zone: 'PreferredAvailabilityZones.member.1=us-east-1a&PreferredAvailabilityZones.member.2=us-east-1a&PreferredAvailabilityZones.member.3=us-east-1a'",
+                        "documentation": "-- | A list of the Availability Zones in which cache nodes will be created. The\n-- order of the zones in the list is not important.\n--\n-- This option is only supported on Memcached.\n--\n-- If you are creating your cache cluster in an Amazon VPC (recommended) you\n-- can only locate nodes in Availability Zones that are associated with the\n-- subnets in the selected subnet group.\n--\n-- The number of Availability Zones listed must equal the value of 'NumCacheNodes'\n-- .\n--\n-- If you want all the nodes in the same Availability Zone, use 'PreferredAvailabilityZone' instead, or repeat the Availability Zone multiple times in the list.\n--\n-- Default: System chosen Availability Zones.\n--\n-- Example: One Memcached node in each of three different Availability Zones: 'PreferredAvailabilityZones.member.1=us-west-2a&PreferredAvailabilityZones.member.2=us-west-2b&PreferredAvailabilityZones.member.3=us-west-2c'\n--\n-- Example: All three Memcached nodes in one Availability Zone: 'PreferredAvailabilityZones.member.1=us-west-2a&PreferredAvailabilityZones.member.2=us-west-2a&PreferredAvailabilityZones.member.3=us-west-2a'",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
                     },
@@ -7770,7 +8177,7 @@
                         "name": "_cccReplicationGroupId",
                         "shape": "String",
                         "locationName": "ReplicationGroupId",
-                        "documentation": "-- | The ID of the replication group to which this cache cluster should belong. If\n-- this parameter is specified, the cache cluster will be added to the specified\n-- replication group as a read replica; otherwise, the cache cluster will be a\n-- standalone primary that is not part of any replication group.\n--\n-- If the specified replication group is Automatic Failover enabled and the\n-- availability zone is not specified, the cache cluster will be created in\n-- availability zones that provide the best spread of read replicas across\n-- availability zones.\n--\n-- Note: This parameter is only valid if the 'Engine' parameter is 'redis'.",
+                        "documentation": "-- | The ID of the replication group to which this cache cluster should belong. If\n-- this parameter is specified, the cache cluster will be added to the specified\n-- replication group as a read replica; otherwise, the cache cluster will be a\n-- standalone primary that is not part of any replication group.\n--\n-- If the specified replication group is Multi-AZ enabled and the availability\n-- zone is not specified, the cache cluster will be created in availability\n-- zones that provide the best spread of read replicas across availability zones.\n--\n-- Note: This parameter is only valid if the 'Engine' parameter is 'redis'.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -7858,6 +8265,23 @@
                         "documentation": "-- | The daily time range (in UTC) during which ElastiCache will begin taking a\n-- daily snapshot of your node group.\n--\n-- Example: '05:00-09:00'\n--\n-- If you do not specify this parameter, then ElastiCache will automatically\n-- choose an appropriate time range.\n--\n-- Note: This parameter is only valid if the 'Engine' parameter is 'redis'.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "cccTags",
+                        "name": "_cccTags",
+                        "shape": "TagList",
+                        "locationName": "Tags",
+                        "documentation": "-- | A list of cost allocation tags to be added to this resource. A tag is a\n-- key-value pair. A tag key must be accompanied by a tag value.",
+                        "typeExposed": "[Tag]",
+                        "type": "List \"member\" Tag"
                     }
                 ]
             }
@@ -7955,7 +8379,7 @@
             "pager": null,
             "name": "CreateCacheParameterGroup",
             "method": "post",
-            "documentation": "-- | The /CreateCacheParameterGroup/ operation creates a new cache parameter group.\n-- A cache parameter group is a collection of parameters that you apply to all\n-- of the nodes in a cache cluster.",
+            "documentation": "-- | The /CreateCacheParameterGroup/ action creates a new cache parameter group. A\n-- cache parameter group is a collection of parameters that you apply to all of\n-- the nodes in a cache cluster.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -8206,7 +8630,7 @@
             "pager": null,
             "name": "CreateCacheSecurityGroup",
             "method": "post",
-            "documentation": "-- | The /CreateCacheSecurityGroup/ operation creates a new cache security group.\n-- Use a cache security group to control access to one or more cache clusters.\n--\n-- Cache security groups are only used when you are creating a cache cluster\n-- outside of an Amazon Virtual Private Cloud (VPC). If you are creating a cache\n-- cluster inside of a VPC, use a cache subnet group instead. For more\n-- information, see \u003chttp://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheSubnetGroup.html CreateCacheSubnetGroup\u003e.",
+            "documentation": "-- | The /CreateCacheSecurityGroup/ action creates a new cache security group. Use a\n-- cache security group to control access to one or more cache clusters.\n--\n-- Cache security groups are only used when you are creating a cache cluster\n-- outside of an Amazon Virtual Private Cloud (VPC). If you are creating a cache\n-- cluster inside of a VPC, use a cache subnet group instead. For more\n-- information, see \u003chttp://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheSubnetGroup.html CreateCacheSubnetGroup\u003e.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -8418,7 +8842,7 @@
             "pager": null,
             "name": "CreateCacheSubnetGroup",
             "method": "post",
-            "documentation": "-- | The /CreateCacheSubnetGroup/ operation creates a new cache subnet group.\n--\n-- Use this parameter only when you are creating a cluster in an Amazon Virtual\n-- Private Cloud (VPC).",
+            "documentation": "-- | The /CreateCacheSubnetGroup/ action creates a new cache subnet group.\n--\n-- Use this parameter only when you are creating a cluster in an Amazon Virtual\n-- Private Cloud (VPC).",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -8670,12 +9094,11 @@
             "pager": null,
             "name": "CreateReplicationGroup",
             "method": "post",
-            "documentation": "-- | The /CreateReplicationGroup/ operation creates a replication group. A\n-- replication group is a collection of cache clusters, where one of the cache\n-- clusters is a read/write primary and the others are read-only replicas.\n-- Writes to the primary are automatically propagated to the replicas.\n--\n-- When you create a replication group, you must specify an existing cache\n-- cluster that is in the primary role. When the replication group has been\n-- successfully created, you can add one or more read replica replicas to it, up\n-- to a total of five read replicas.\n--\n-- Note: This action is valid only for Redis.",
+            "documentation": "-- | The /CreateReplicationGroup/ action creates a replication group. A replication\n-- group is a collection of cache clusters, where one of the cache clusters is a\n-- read/write primary and the others are read-only replicas. Writes to the\n-- primary are automatically propagated to the replicas.\n--\n-- When you create a replication group, you must specify an existing cache\n-- cluster that is in the primary role. When the replication group has been\n-- successfully created, you can add one or more read replica replicas to it, up\n-- to a total of five read replicas.\n--\n-- Note: This action is valid only for Redis.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Read",
                     "Show"
                 ],
@@ -8801,6 +9224,11 @@
                         "type": "field"
                     },
                     {
+                        "field": "_crgTags",
+                        "locationName": "Tags",
+                        "type": "field"
+                    },
+                    {
                         "field": "_crgSnapshotArns",
                         "locationName": "SnapshotArns",
                         "type": "field"
@@ -8876,7 +9304,7 @@
                         "name": "_crgAutomaticFailoverEnabled",
                         "shape": "BooleanOptional",
                         "locationName": "AutomaticFailoverEnabled",
-                        "documentation": "-- | Specifies whether a read-only replica will be automatically promoted to\n-- read/write primary if the existing primary fails.\n--\n-- If 'true', automatic failover is enabled for this replication group. If 'false',\n-- automatic failover is disabled for this replication group.\n--\n-- Default: false",
+                        "documentation": "-- | Specifies whether a read-only replica will be automatically promoted to\n-- read/write primary if the existing primary fails.\n--\n-- If 'true', Multi-AZ is enabled for this replication group. If 'false', Multi-AZ\n-- is disabled for this replication group.\n--\n-- Default: false\n--\n-- ElastiCache Multi-AZ replication groups is not supported on:\n--\n-- Redis versions earlier than 2.8.6. T1 and T2 cache node types.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -8893,7 +9321,7 @@
                         "name": "_crgNumCacheClusters",
                         "shape": "IntegerOptional",
                         "locationName": "NumCacheClusters",
-                        "documentation": "-- | The number of cache clusters this replication group will initially have.\n--\n-- If /AutomaticFailover/ is 'enabled', the value of this parameter must be at\n-- least 2.\n--\n-- The maximum permitted value for /NumCacheClusters/ is 6 (primary plus 5\n-- replicas). If you need to exceed this limit, please fill out the ElastiCache\n-- Limit Increase Request forrm at \u003chttp://aws.amazon.com/contact-us/elasticache-node-limit-request http://aws.amazon.com/contact-us/elasticache-node-limit-request\u003e.",
+                        "documentation": "-- | The number of cache clusters this replication group will initially have.\n--\n-- If /Multi-AZ/ is 'enabled', the value of this parameter must be at least 2.\n--\n-- The maximum permitted value for /NumCacheClusters/ is 6 (primary plus 5\n-- replicas). If you need to exceed this limit, please fill out the ElastiCache\n-- Limit Increase Request forrm at \u003chttp://aws.amazon.com/contact-us/elasticache-node-limit-request http://aws.amazon.com/contact-us/elasticache-node-limit-request\u003e.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -8910,7 +9338,7 @@
                         "name": "_crgPreferredCacheClusterAZs",
                         "shape": "AvailabilityZonesList",
                         "locationName": "PreferredCacheClusterAZs",
-                        "documentation": "-- | A list of EC2 availability zones in which the replication group's cache\n-- clusters will be created. The order of the availability zones in the list is\n-- not important.\n--\n-- Default: system chosen availability zones.\n--\n-- Example: One Redis cache cluster in each of three availability zones.\n-- PreferredAvailabilityZones.member.1=us-east-1a\n-- PreferredAvailabilityZones.member.2=us-east-1c\n-- PreferredAvailabilityZones.member.3=us-east-1d",
+                        "documentation": "-- | A list of EC2 availability zones in which the replication group's cache\n-- clusters will be created. The order of the availability zones in the list is\n-- not important.\n--\n-- If you are creating your replication group in an Amazon VPC (recommended),\n-- you can only locate cache clusters in availability zones associated with the\n-- subnets in the selected subnet group. The number of availability zones listed\n-- must equal the value of /NumCacheClusters/.\n--\n-- Default: system chosen availability zones.\n--\n-- Example: One Redis cache cluster in each of three availability zones.\n-- PreferredAvailabilityZones.member.1=us-west-2a\n-- PreferredAvailabilityZones.member.2=us-west-2c\n-- PreferredAvailabilityZones.member.3=us-west-2c",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
                     },
@@ -8961,7 +9389,7 @@
                         "name": "_crgEngineVersion",
                         "shape": "String",
                         "locationName": "EngineVersion",
-                        "documentation": "-- | The version number of the cach engine to be used for the cache clusters in\n-- this replication group. To view the supported cache engine versions, use the /DescribeCacheEngineVersions/ operation.",
+                        "documentation": "-- | The version number of the cach engine to be used for the cache clusters in\n-- this replication group. To view the supported cache engine versions, use the /DescribeCacheEngineVersions/ action.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -9032,6 +9460,23 @@
                         "documentation": "-- | One or more Amazon VPC security groups associated with this replication group.\n--\n-- Use this parameter only when you are creating a replication group in an\n-- Amazon Virtual Private Cloud (VPC).",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "crgTags",
+                        "name": "_crgTags",
+                        "shape": "TagList",
+                        "locationName": "Tags",
+                        "documentation": "-- | A list of cost allocation tags to be added to this resource. A tag is a\n-- key-value pair. A tag key must be accompanied by a tag value.",
+                        "typeExposed": "[Tag]",
+                        "type": "List \"member\" Tag"
                     },
                     {
                         "location": "querystring",
@@ -9114,7 +9559,7 @@
                         "name": "_crgNotificationTopicArn",
                         "shape": "String",
                         "locationName": "NotificationTopicArn",
-                        "documentation": "-- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service\n-- (SNS) topic to which notifications will be sent.",
+                        "documentation": "-- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service\n-- (SNS) topic to which notifications will be sent.\n--\n-- The Amazon SNS topic owner must be the same as the cache cluster owner.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -9131,7 +9576,7 @@
                         "name": "_crgAutoMinorVersionUpgrade",
                         "shape": "BooleanOptional",
                         "locationName": "AutoMinorVersionUpgrade",
-                        "documentation": "-- | Determines whether minor engine upgrades will be applied automatically to the\n-- node group during the maintenance window. A value of 'true' allows these\n-- upgrades to occur; 'false' disables automatic upgrades.\n--\n-- Default: 'true'",
+                        "documentation": "-- | This parameter is currently disabled.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -9184,7 +9629,7 @@
                         "name": "_crgAutoMinorVersionUpgrade",
                         "shape": "BooleanOptional",
                         "locationName": "AutoMinorVersionUpgrade",
-                        "documentation": "-- | Determines whether minor engine upgrades will be applied automatically to the\n-- node group during the maintenance window. A value of 'true' allows these\n-- upgrades to occur; 'false' disables automatic upgrades.\n--\n-- Default: 'true'",
+                        "documentation": "-- | This parameter is currently disabled.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -9201,7 +9646,7 @@
                         "name": "_crgAutomaticFailoverEnabled",
                         "shape": "BooleanOptional",
                         "locationName": "AutomaticFailoverEnabled",
-                        "documentation": "-- | Specifies whether a read-only replica will be automatically promoted to\n-- read/write primary if the existing primary fails.\n--\n-- If 'true', automatic failover is enabled for this replication group. If 'false',\n-- automatic failover is disabled for this replication group.\n--\n-- Default: false",
+                        "documentation": "-- | Specifies whether a read-only replica will be automatically promoted to\n-- read/write primary if the existing primary fails.\n--\n-- If 'true', Multi-AZ is enabled for this replication group. If 'false', Multi-AZ\n-- is disabled for this replication group.\n--\n-- Default: false\n--\n-- ElastiCache Multi-AZ replication groups is not supported on:\n--\n-- Redis versions earlier than 2.8.6. T1 and T2 cache node types.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -9303,7 +9748,7 @@
                         "name": "_crgEngineVersion",
                         "shape": "String",
                         "locationName": "EngineVersion",
-                        "documentation": "-- | The version number of the cach engine to be used for the cache clusters in\n-- this replication group. To view the supported cache engine versions, use the /DescribeCacheEngineVersions/ operation.",
+                        "documentation": "-- | The version number of the cach engine to be used for the cache clusters in\n-- this replication group. To view the supported cache engine versions, use the /DescribeCacheEngineVersions/ action.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -9320,7 +9765,7 @@
                         "name": "_crgNotificationTopicArn",
                         "shape": "String",
                         "locationName": "NotificationTopicArn",
-                        "documentation": "-- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service\n-- (SNS) topic to which notifications will be sent.",
+                        "documentation": "-- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service\n-- (SNS) topic to which notifications will be sent.\n--\n-- The Amazon SNS topic owner must be the same as the cache cluster owner.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -9337,7 +9782,7 @@
                         "name": "_crgNumCacheClusters",
                         "shape": "IntegerOptional",
                         "locationName": "NumCacheClusters",
-                        "documentation": "-- | The number of cache clusters this replication group will initially have.\n--\n-- If /AutomaticFailover/ is 'enabled', the value of this parameter must be at\n-- least 2.\n--\n-- The maximum permitted value for /NumCacheClusters/ is 6 (primary plus 5\n-- replicas). If you need to exceed this limit, please fill out the ElastiCache\n-- Limit Increase Request forrm at \u003chttp://aws.amazon.com/contact-us/elasticache-node-limit-request http://aws.amazon.com/contact-us/elasticache-node-limit-request\u003e.",
+                        "documentation": "-- | The number of cache clusters this replication group will initially have.\n--\n-- If /Multi-AZ/ is 'enabled', the value of this parameter must be at least 2.\n--\n-- The maximum permitted value for /NumCacheClusters/ is 6 (primary plus 5\n-- replicas). If you need to exceed this limit, please fill out the ElastiCache\n-- Limit Increase Request forrm at \u003chttp://aws.amazon.com/contact-us/elasticache-node-limit-request http://aws.amazon.com/contact-us/elasticache-node-limit-request\u003e.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -9371,7 +9816,7 @@
                         "name": "_crgPreferredCacheClusterAZs",
                         "shape": "AvailabilityZonesList",
                         "locationName": "PreferredCacheClusterAZs",
-                        "documentation": "-- | A list of EC2 availability zones in which the replication group's cache\n-- clusters will be created. The order of the availability zones in the list is\n-- not important.\n--\n-- Default: system chosen availability zones.\n--\n-- Example: One Redis cache cluster in each of three availability zones.\n-- PreferredAvailabilityZones.member.1=us-east-1a\n-- PreferredAvailabilityZones.member.2=us-east-1c\n-- PreferredAvailabilityZones.member.3=us-east-1d",
+                        "documentation": "-- | A list of EC2 availability zones in which the replication group's cache\n-- clusters will be created. The order of the availability zones in the list is\n-- not important.\n--\n-- If you are creating your replication group in an Amazon VPC (recommended),\n-- you can only locate cache clusters in availability zones associated with the\n-- subnets in the selected subnet group. The number of availability zones listed\n-- must equal the value of /NumCacheClusters/.\n--\n-- Default: system chosen availability zones.\n--\n-- Example: One Redis cache cluster in each of three availability zones.\n-- PreferredAvailabilityZones.member.1=us-west-2a\n-- PreferredAvailabilityZones.member.2=us-west-2c\n-- PreferredAvailabilityZones.member.3=us-west-2c",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
                     },
@@ -9527,6 +9972,23 @@
                         "documentation": "-- | The daily time range (in UTC) during which ElastiCache will begin taking a\n-- daily snapshot of your node group.\n--\n-- Example: '05:00-09:00'\n--\n-- If you do not specify this parameter, then ElastiCache will automatically\n-- choose an appropriate time range.\n--\n-- Note: This parameter is only valid if the 'Engine' parameter is 'redis'.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "crgTags",
+                        "name": "_crgTags",
+                        "shape": "TagList",
+                        "locationName": "Tags",
+                        "documentation": "-- | A list of cost allocation tags to be added to this resource. A tag is a\n-- key-value pair. A tag key must be accompanied by a tag value.",
+                        "typeExposed": "[Tag]",
+                        "type": "List \"member\" Tag"
                     }
                 ]
             }
@@ -9624,7 +10086,7 @@
             "pager": null,
             "name": "CreateSnapshot",
             "method": "post",
-            "documentation": "-- | The /CreateSnapshot/ operation creates a copy of an entire cache cluster at a\n-- specific moment in time.",
+            "documentation": "-- | The /CreateSnapshot/ action creates a copy of an entire cache cluster at a\n-- specific moment in time.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -9836,7 +10298,7 @@
             "pager": null,
             "name": "DeleteCacheCluster",
             "method": "post",
-            "documentation": "-- | The /DeleteCacheCluster/ operation deletes a previously provisioned cache\n-- cluster. /DeleteCacheCluster/ deletes all associated cache nodes, node\n-- endpoints and the cache cluster itself. When you receive a successful\n-- response from this operation, Amazon ElastiCache immediately begins deleting\n-- the cache cluster; you cannot cancel or revert this operation.\n--\n-- This API cannot be used to delete a cache cluster that is the last read\n-- replica of a replication group that has automatic failover mode enabled.",
+            "documentation": "-- | The /DeleteCacheCluster/ action deletes a previously provisioned cache cluster. /DeleteCacheCluster/ deletes all associated cache nodes, node endpoints and the\n-- cache cluster itself. When you receive a successful response from this\n-- action, Amazon ElastiCache immediately begins deleting the cache cluster; you\n-- cannot cancel or revert this action.\n--\n-- This API cannot be used to delete a cache cluster that is the last read\n-- replica of a replication group that has Multi-AZ mode enabled.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -9993,7 +10455,7 @@
             "pager": null,
             "name": "DeleteCacheParameterGroup",
             "method": "post",
-            "documentation": "-- | The /DeleteCacheParameterGroup/ operation deletes the specified cache parameter\n-- group. You cannot delete a cache parameter group if it is associated with any\n-- cache clusters.",
+            "documentation": "-- | The /DeleteCacheParameterGroup/ action deletes the specified cache parameter\n-- group. You cannot delete a cache parameter group if it is associated with any\n-- cache clusters.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -10023,7 +10485,7 @@
                     "name": "_dcpg1CacheParameterGroupName",
                     "shape": "String",
                     "locationName": "CacheParameterGroupName",
-                    "documentation": "-- | The name of the cache parameter group to delete.",
+                    "documentation": "-- | The name of the cache parameter group to delete.\n--\n-- The specified cache security group must not be associated with any cache\n-- clusters.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -10050,7 +10512,7 @@
                         "name": "_dcpg1CacheParameterGroupName",
                         "shape": "String",
                         "locationName": "CacheParameterGroupName",
-                        "documentation": "-- | The name of the cache parameter group to delete.",
+                        "documentation": "-- | The name of the cache parameter group to delete.\n--\n-- The specified cache security group must not be associated with any cache\n-- clusters.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -10086,7 +10548,7 @@
                         "name": "_dcpg1CacheParameterGroupName",
                         "shape": "String",
                         "locationName": "CacheParameterGroupName",
-                        "documentation": "-- | The name of the cache parameter group to delete.",
+                        "documentation": "-- | The name of the cache parameter group to delete.\n--\n-- The specified cache security group must not be associated with any cache\n-- clusters.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -10130,7 +10592,7 @@
             "pager": null,
             "name": "DeleteCacheSecurityGroup",
             "method": "post",
-            "documentation": "-- | The /DeleteCacheSecurityGroup/ operation deletes a cache security group.",
+            "documentation": "-- | The /DeleteCacheSecurityGroup/ action deletes a cache security group.\n--\n-- You cannot delete a cache security group if it is associated with any cache\n-- clusters.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -10160,7 +10622,7 @@
                     "name": "_dcsgCacheSecurityGroupName",
                     "shape": "String",
                     "locationName": "CacheSecurityGroupName",
-                    "documentation": "-- | The name of the cache security group to delete.",
+                    "documentation": "-- | The name of the cache security group to delete.\n--\n-- You cannot delete the default security group.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -10187,7 +10649,7 @@
                         "name": "_dcsgCacheSecurityGroupName",
                         "shape": "String",
                         "locationName": "CacheSecurityGroupName",
-                        "documentation": "-- | The name of the cache security group to delete.",
+                        "documentation": "-- | The name of the cache security group to delete.\n--\n-- You cannot delete the default security group.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -10223,7 +10685,7 @@
                         "name": "_dcsgCacheSecurityGroupName",
                         "shape": "String",
                         "locationName": "CacheSecurityGroupName",
-                        "documentation": "-- | The name of the cache security group to delete.",
+                        "documentation": "-- | The name of the cache security group to delete.\n--\n-- You cannot delete the default security group.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -10267,7 +10729,7 @@
             "pager": null,
             "name": "DeleteCacheSubnetGroup",
             "method": "post",
-            "documentation": "-- | The /DeleteCacheSubnetGroup/ operation deletes a cache subnet group.",
+            "documentation": "-- | The /DeleteCacheSubnetGroup/ action deletes a cache subnet group.\n--\n-- You cannot delete a cache subnet group if it is associated with any cache\n-- clusters.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -10460,7 +10922,7 @@
             "pager": null,
             "name": "DeleteReplicationGroup",
             "method": "post",
-            "documentation": "-- | The /DeleteReplicationGroup/ operation deletes an existing cluster. By default,\n-- this operation deletes the entire cluster, including the primary node group\n-- and all of the read replicas. You can optionally delete only the read\n-- replicas, while retaining the primary node group.\n--\n-- When you receive a successful response from this operation, Amazon\n-- ElastiCache immediately begins deleting the selected resources; you cannot\n-- cancel or revert this operation.",
+            "documentation": "-- | The /DeleteReplicationGroup/ action deletes an existing replication group. By\n-- default, this action deletes the entire replication group, including the\n-- primary cluster and all of the read replicas. You can optionally delete only\n-- the read replicas, while retaining the primary cluster.\n--\n-- When you receive a successful response from this action, Amazon ElastiCache\n-- immediately begins deleting the selected resources; you cannot cancel or\n-- revert this action.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -10712,7 +11174,7 @@
             "pager": null,
             "name": "DeleteSnapshot",
             "method": "post",
-            "documentation": "-- | The /DeleteSnapshot/ operation deletes an existing snapshot. When you receive a\n-- successful response from this operation, ElastiCache immediately begins\n-- deleting the snapshot; you cannot cancel or revert this operation.",
+            "documentation": "-- | The /DeleteSnapshot/ action deletes an existing snapshot. When you receive a\n-- successful response from this action, ElastiCache immediately begins deleting\n-- the snapshot; you cannot cancel or revert this action.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -10930,7 +11392,7 @@
             },
             "name": "DescribeCacheClusters",
             "method": "post",
-            "documentation": "-- | The /DescribeCacheClusters/ operation returns information about all provisioned\n-- cache clusters if no cache cluster identifier is specified, or about a\n-- specific cache cluster if a cache cluster identifier is supplied.\n--\n-- By default, abbreviated information about the cache clusters(s) will be\n-- returned. You can use the optional /ShowDetails/ flag to retrieve detailed\n-- information about the cache nodes associated with the cache clusters. These\n-- details include the DNS address and port for the cache node endpoint.\n--\n-- If the cluster is in the CREATING state, only cluster level information will\n-- be displayed until all of the nodes are successfully provisioned.\n--\n-- If the cluster is in the DELETING state, only cluster level information will\n-- be displayed.\n--\n-- If cache nodes are currently being added to the cache cluster, node endpoint\n-- information and creation time for the additional nodes will not be displayed\n-- until they are completely provisioned. When the cache cluster state is /available/, the cluster is ready for use.\n--\n-- If cache nodes are currently being removed from the cache cluster, no\n-- endpoint information for the removed nodes is displayed.",
+            "documentation": "-- | The /DescribeCacheClusters/ action returns information about all provisioned\n-- cache clusters if no cache cluster identifier is specified, or about a\n-- specific cache cluster if a cache cluster identifier is supplied.\n--\n-- By default, abbreviated information about the cache clusters(s) will be\n-- returned. You can use the optional /ShowDetails/ flag to retrieve detailed\n-- information about the cache nodes associated with the cache clusters. These\n-- details include the DNS address and port for the cache node endpoint.\n--\n-- If the cluster is in the CREATING state, only cluster level information will\n-- be displayed until all of the nodes are successfully provisioned.\n--\n-- If the cluster is in the DELETING state, only cluster level information will\n-- be displayed.\n--\n-- If cache nodes are currently being added to the cache cluster, node endpoint\n-- information and creation time for the additional nodes will not be displayed\n-- until they are completely provisioned. When the cache cluster state is /available/, the cluster is ready for use.\n--\n-- If cache nodes are currently being removed from the cache cluster, no\n-- endpoint information for the removed nodes is displayed.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -11033,7 +11495,7 @@
                         "name": "_dcc1Marker",
                         "shape": "String",
                         "locationName": "Marker",
-                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this operation. If this parameter is specified,\n-- the response includes only records beyond the marker, up to the value\n-- specified by /MaxRecords/.",
+                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this action. If this parameter is specified, the\n-- response includes only records beyond the marker, up to the value specified\n-- by /MaxRecords/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -11086,7 +11548,7 @@
                         "name": "_dcc1Marker",
                         "shape": "String",
                         "locationName": "Marker",
-                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this operation. If this parameter is specified,\n-- the response includes only records beyond the marker, up to the value\n-- specified by /MaxRecords/.",
+                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this action. If this parameter is specified, the\n-- response includes only records beyond the marker, up to the value specified\n-- by /MaxRecords/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -11245,7 +11707,7 @@
             },
             "name": "DescribeCacheEngineVersions",
             "method": "post",
-            "documentation": "-- | The /DescribeCacheEngineVersions/ operation returns a list of the available\n-- cache engines and their versions.",
+            "documentation": "-- | The /DescribeCacheEngineVersions/ action returns a list of the available cache\n-- engines and their versions.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -11392,7 +11854,7 @@
                         "name": "_dcevMarker",
                         "shape": "String",
                         "locationName": "Marker",
-                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this operation. If this parameter is specified,\n-- the response includes only records beyond the marker, up to the value\n-- specified by /MaxRecords/.",
+                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this action. If this parameter is specified, the\n-- response includes only records beyond the marker, up to the value specified\n-- by /MaxRecords/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -11496,7 +11958,7 @@
                         "name": "_dcevMarker",
                         "shape": "String",
                         "locationName": "Marker",
-                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this operation. If this parameter is specified,\n-- the response includes only records beyond the marker, up to the value\n-- specified by /MaxRecords/.",
+                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this action. If this parameter is specified, the\n-- response includes only records beyond the marker, up to the value specified\n-- by /MaxRecords/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -11638,7 +12100,7 @@
             },
             "name": "DescribeCacheParameterGroups",
             "method": "post",
-            "documentation": "-- | The /DescribeCacheParameterGroups/ operation returns a list of cache parameter\n-- group descriptions. If a cache parameter group name is specified, the list\n-- will contain only the descriptions for that group.",
+            "documentation": "-- | The /DescribeCacheParameterGroups/ action returns a list of cache parameter\n-- group descriptions. If a cache parameter group name is specified, the list\n-- will contain only the descriptions for that group.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -11736,7 +12198,7 @@
                         "name": "_dcpgMarker",
                         "shape": "String",
                         "locationName": "Marker",
-                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this operation. If this parameter is specified,\n-- the response includes only records beyond the marker, up to the value\n-- specified by /MaxRecords/.",
+                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this action. If this parameter is specified, the\n-- response includes only records beyond the marker, up to the value specified\n-- by /MaxRecords/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -11772,7 +12234,7 @@
                         "name": "_dcpgMarker",
                         "shape": "String",
                         "locationName": "Marker",
-                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this operation. If this parameter is specified,\n-- the response includes only records beyond the marker, up to the value\n-- specified by /MaxRecords/.",
+                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this action. If this parameter is specified, the\n-- response includes only records beyond the marker, up to the value specified\n-- by /MaxRecords/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -11948,7 +12410,7 @@
             },
             "name": "DescribeCacheParameters",
             "method": "post",
-            "documentation": "-- | The /DescribeCacheParameters/ operation returns the detailed parameter list for\n-- a particular cache parameter group.",
+            "documentation": "-- | The /DescribeCacheParameters/ action returns the detailed parameter list for a\n-- particular cache parameter group.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -12069,7 +12531,7 @@
                         "name": "_dcpMarker",
                         "shape": "String",
                         "locationName": "Marker",
-                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this operation. If this parameter is specified,\n-- the response includes only records beyond the marker, up to the value\n-- specified by /MaxRecords/.",
+                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this action. If this parameter is specified, the\n-- response includes only records beyond the marker, up to the value specified\n-- by /MaxRecords/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -12105,7 +12567,7 @@
                         "name": "_dcpMarker",
                         "shape": "String",
                         "locationName": "Marker",
-                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this operation. If this parameter is specified,\n-- the response includes only records beyond the marker, up to the value\n-- specified by /MaxRecords/.",
+                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this action. If this parameter is specified, the\n-- response includes only records beyond the marker, up to the value specified\n-- by /MaxRecords/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -12264,7 +12726,7 @@
             },
             "name": "DescribeCacheSecurityGroups",
             "method": "post",
-            "documentation": "-- | The /DescribeCacheSecurityGroups/ operation returns a list of cache security\n-- group descriptions. If a cache security group name is specified, the list\n-- will contain only the description of that group.",
+            "documentation": "-- | The /DescribeCacheSecurityGroups/ action returns a list of cache security group\n-- descriptions. If a cache security group name is specified, the list will\n-- contain only the description of that group.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -12362,7 +12824,7 @@
                         "name": "_dcsg1Marker",
                         "shape": "String",
                         "locationName": "Marker",
-                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this operation. If this parameter is specified,\n-- the response includes only records beyond the marker, up to the value\n-- specified by /MaxRecords/.",
+                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this action. If this parameter is specified, the\n-- response includes only records beyond the marker, up to the value specified\n-- by /MaxRecords/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -12398,7 +12860,7 @@
                         "name": "_dcsg1Marker",
                         "shape": "String",
                         "locationName": "Marker",
-                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this operation. If this parameter is specified,\n-- the response includes only records beyond the marker, up to the value\n-- specified by /MaxRecords/.",
+                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this action. If this parameter is specified, the\n-- response includes only records beyond the marker, up to the value specified\n-- by /MaxRecords/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -12540,7 +13002,7 @@
             },
             "name": "DescribeCacheSubnetGroups",
             "method": "post",
-            "documentation": "-- | The /DescribeCacheSubnetGroups/ operation returns a list of cache subnet group\n-- descriptions. If a subnet group name is specified, the list will contain only\n-- the description of that group.",
+            "documentation": "-- | The /DescribeCacheSubnetGroups/ action returns a list of cache subnet group\n-- descriptions. If a subnet group name is specified, the list will contain only\n-- the description of that group.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -12638,7 +13100,7 @@
                         "name": "_dcsgMarker",
                         "shape": "String",
                         "locationName": "Marker",
-                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this operation. If this parameter is specified,\n-- the response includes only records beyond the marker, up to the value\n-- specified by /MaxRecords/.",
+                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this action. If this parameter is specified, the\n-- response includes only records beyond the marker, up to the value specified\n-- by /MaxRecords/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -12674,7 +13136,7 @@
                         "name": "_dcsgMarker",
                         "shape": "String",
                         "locationName": "Marker",
-                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this operation. If this parameter is specified,\n-- the response includes only records beyond the marker, up to the value\n-- specified by /MaxRecords/.",
+                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this action. If this parameter is specified, the\n-- response includes only records beyond the marker, up to the value specified\n-- by /MaxRecords/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -12800,7 +13262,7 @@
             },
             "name": "DescribeEngineDefaultParameters",
             "method": "post",
-            "documentation": "-- | The /DescribeEngineDefaultParameters/ operation returns the default engine and\n-- system parameter information for the specified cache engine.",
+            "documentation": "-- | The /DescribeEngineDefaultParameters/ action returns the default engine and\n-- system parameter information for the specified cache engine.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -12899,7 +13361,7 @@
                         "name": "_dedpMarker",
                         "shape": "String",
                         "locationName": "Marker",
-                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this operation. If this parameter is specified,\n-- the response includes only records beyond the marker, up to the value\n-- specified by /MaxRecords/.",
+                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this action. If this parameter is specified, the\n-- response includes only records beyond the marker, up to the value specified\n-- by /MaxRecords/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -12935,7 +13397,7 @@
                         "name": "_dedpMarker",
                         "shape": "String",
                         "locationName": "Marker",
-                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this operation. If this parameter is specified,\n-- the response includes only records beyond the marker, up to the value\n-- specified by /MaxRecords/.",
+                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this action. If this parameter is specified, the\n-- response includes only records beyond the marker, up to the value specified\n-- by /MaxRecords/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -13077,7 +13539,7 @@
             },
             "name": "DescribeEvents",
             "method": "post",
-            "documentation": "-- | The /DescribeEvents/ operation returns events related to cache clusters, cache\n-- security groups, and cache parameter groups. You can obtain events specific\n-- to a particular cache cluster, cache security group, or cache parameter group\n-- by providing the name as a parameter.\n--\n-- By default, only the events occurring within the last hour are returned;\n-- however, you can retrieve up to 14 days' worth of events if necessary.",
+            "documentation": "-- | The /DescribeEvents/ action returns events related to cache clusters, cache\n-- security groups, and cache parameter groups. You can obtain events specific\n-- to a particular cache cluster, cache security group, or cache parameter group\n-- by providing the name as a parameter.\n--\n-- By default, only the events occurring within the last hour are returned;\n-- however, you can retrieve up to 14 days' worth of events if necessary.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -13262,7 +13724,7 @@
                         "name": "_deMarker",
                         "shape": "String",
                         "locationName": "Marker",
-                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this operation. If this parameter is specified,\n-- the response includes only records beyond the marker, up to the value\n-- specified by /MaxRecords/.",
+                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this action. If this parameter is specified, the\n-- response includes only records beyond the marker, up to the value specified\n-- by /MaxRecords/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -13315,7 +13777,7 @@
                         "name": "_deMarker",
                         "shape": "String",
                         "locationName": "Marker",
-                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this operation. If this parameter is specified,\n-- the response includes only records beyond the marker, up to the value\n-- specified by /MaxRecords/.",
+                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this action. If this parameter is specified, the\n-- response includes only records beyond the marker, up to the value specified\n-- by /MaxRecords/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -13508,7 +13970,7 @@
             },
             "name": "DescribeReplicationGroups",
             "method": "post",
-            "documentation": "-- | The /DescribeReplicationGroups/ operation returns information about a\n-- particular replication group. If no identifier is specified, /DescribeReplicationGroups/ returns information about all replication groups.",
+            "documentation": "-- | The /DescribeReplicationGroups/ action returns information about a particular\n-- replication group. If no identifier is specified, /DescribeReplicationGroups/\n-- returns information about all replication groups.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -13606,7 +14068,7 @@
                         "name": "_drg1Marker",
                         "shape": "String",
                         "locationName": "Marker",
-                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this operation. If this parameter is specified,\n-- the response includes only records beyond the marker, up to the value\n-- specified by /MaxRecords/.",
+                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this action. If this parameter is specified, the\n-- response includes only records beyond the marker, up to the value specified\n-- by /MaxRecords/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -13625,7 +14087,7 @@
                         "name": "_drg1Marker",
                         "shape": "String",
                         "locationName": "Marker",
-                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this operation. If this parameter is specified,\n-- the response includes only records beyond the marker, up to the value\n-- specified by /MaxRecords/.",
+                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this action. If this parameter is specified, the\n-- response includes only records beyond the marker, up to the value specified\n-- by /MaxRecords/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -13784,7 +14246,7 @@
             },
             "name": "DescribeReservedCacheNodes",
             "method": "post",
-            "documentation": "-- | The /DescribeReservedCacheNodes/ operation returns information about reserved\n-- cache nodes for this account, or about a specified reserved cache node.",
+            "documentation": "-- | The /DescribeReservedCacheNodes/ action returns information about reserved\n-- cache nodes for this account, or about a specified reserved cache node.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -13958,7 +14420,7 @@
                         "name": "_drcnOfferingType",
                         "shape": "String",
                         "locationName": "OfferingType",
-                        "documentation": "-- | The offering type filter value. Use this parameter to show only the available\n-- offerings matching the specified offering type.\n--\n-- Valid values: '\"Light Utilization\" | \"Medium Utilization\" | \"HeavyUtilization\"'",
+                        "documentation": "-- | The offering type filter value. Use this parameter to show only the available\n-- offerings matching the specified offering type.\n--\n-- Valid values: '\"Light Utilization\"|\"Medium Utilization\"|\"Heavy Utilization\"'",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -13992,7 +14454,7 @@
                         "name": "_drcnMarker",
                         "shape": "String",
                         "locationName": "Marker",
-                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this operation. If this parameter is specified,\n-- the response includes only records beyond the marker, up to the value\n-- specified by /MaxRecords/.",
+                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this action. If this parameter is specified, the\n-- response includes only records beyond the marker, up to the value specified\n-- by /MaxRecords/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -14045,7 +14507,7 @@
                         "name": "_drcnMarker",
                         "shape": "String",
                         "locationName": "Marker",
-                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this operation. If this parameter is specified,\n-- the response includes only records beyond the marker, up to the value\n-- specified by /MaxRecords/.",
+                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this action. If this parameter is specified, the\n-- response includes only records beyond the marker, up to the value specified\n-- by /MaxRecords/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -14079,7 +14541,7 @@
                         "name": "_drcnOfferingType",
                         "shape": "String",
                         "locationName": "OfferingType",
-                        "documentation": "-- | The offering type filter value. Use this parameter to show only the available\n-- offerings matching the specified offering type.\n--\n-- Valid values: '\"Light Utilization\" | \"Medium Utilization\" | \"HeavyUtilization\"'",
+                        "documentation": "-- | The offering type filter value. Use this parameter to show only the available\n-- offerings matching the specified offering type.\n--\n-- Valid values: '\"Light Utilization\"|\"Medium Utilization\"|\"Heavy Utilization\"'",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -14255,7 +14717,7 @@
             },
             "name": "DescribeReservedCacheNodesOfferings",
             "method": "post",
-            "documentation": "-- | The /DescribeReservedCacheNodesOfferings/ operation lists available reserved\n-- cache node offerings.",
+            "documentation": "-- | The /DescribeReservedCacheNodesOfferings/ action lists available reserved cache\n-- node offerings.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -14407,7 +14869,7 @@
                         "name": "_drcnoOfferingType",
                         "shape": "String",
                         "locationName": "OfferingType",
-                        "documentation": "-- | The offering type filter value. Use this parameter to show only the available\n-- offerings matching the specified offering type.\n--\n-- Valid Values: '\"Light Utilization\" | \"Medium Utilization\" | \"HeavyUtilization\"'",
+                        "documentation": "-- | The offering type filter value. Use this parameter to show only the available\n-- offerings matching the specified offering type.\n--\n-- Valid Values: '\"Light Utilization\"|\"Medium Utilization\"|\"Heavy Utilization\"'",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -14441,7 +14903,7 @@
                         "name": "_drcnoMarker",
                         "shape": "String",
                         "locationName": "Marker",
-                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this operation. If this parameter is specified,\n-- the response includes only records beyond the marker, up to the value\n-- specified by /MaxRecords/.",
+                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this action. If this parameter is specified, the\n-- response includes only records beyond the marker, up to the value specified\n-- by /MaxRecords/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -14494,7 +14956,7 @@
                         "name": "_drcnoMarker",
                         "shape": "String",
                         "locationName": "Marker",
-                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this operation. If this parameter is specified,\n-- the response includes only records beyond the marker, up to the value\n-- specified by /MaxRecords/.",
+                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this action. If this parameter is specified, the\n-- response includes only records beyond the marker, up to the value specified\n-- by /MaxRecords/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -14528,7 +14990,7 @@
                         "name": "_drcnoOfferingType",
                         "shape": "String",
                         "locationName": "OfferingType",
-                        "documentation": "-- | The offering type filter value. Use this parameter to show only the available\n-- offerings matching the specified offering type.\n--\n-- Valid Values: '\"Light Utilization\" | \"Medium Utilization\" | \"HeavyUtilization\"'",
+                        "documentation": "-- | The offering type filter value. Use this parameter to show only the available\n-- offerings matching the specified offering type.\n--\n-- Valid Values: '\"Light Utilization\"|\"Medium Utilization\"|\"Heavy Utilization\"'",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -14609,7 +15071,7 @@
                         "name": "_dsrMarker",
                         "shape": "String",
                         "locationName": "Marker",
-                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this operation. If this parameter is specified,\n-- the response includes only records beyond the marker, up to the value\n-- specified by /MaxRecords/.",
+                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this action. If this parameter is specified, the\n-- response includes only records beyond the marker, up to the value specified\n-- by /MaxRecords/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -14645,7 +15107,7 @@
                         "name": "_dsrMarker",
                         "shape": "String",
                         "locationName": "Marker",
-                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this operation. If this parameter is specified,\n-- the response includes only records beyond the marker, up to the value\n-- specified by /MaxRecords/.",
+                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this action. If this parameter is specified, the\n-- response includes only records beyond the marker, up to the value specified\n-- by /MaxRecords/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -14687,7 +15149,7 @@
             },
             "name": "DescribeSnapshots",
             "method": "post",
-            "documentation": "-- | The /DescribeSnapshots/ operation returns information about cache cluster\n-- snapshots. By default, /DescribeSnapshots/ lists all of your snapshots; it can\n-- optionally describe a single snapshot, or just the snapshots associated with\n-- a particular cache cluster.",
+            "documentation": "-- | The /DescribeSnapshots/ action returns information about cache cluster\n-- snapshots. By default, /DescribeSnapshots/ lists all of your snapshots; it can\n-- optionally describe a single snapshot, or just the snapshots associated with\n-- a particular cache cluster.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -14812,7 +15274,7 @@
                         "name": "_dsMarker",
                         "shape": "String",
                         "locationName": "Marker",
-                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this operation. If this parameter is specified,\n-- the response includes only records beyond the marker, up to the value\n-- specified by /MaxRecords/.",
+                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this action. If this parameter is specified, the\n-- response includes only records beyond the marker, up to the value specified\n-- by /MaxRecords/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -14865,7 +15327,7 @@
                         "name": "_dsMarker",
                         "shape": "String",
                         "locationName": "Marker",
-                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this operation. If this parameter is specified,\n-- the response includes only records beyond the marker, up to the value\n-- specified by /MaxRecords/.",
+                        "documentation": "-- | An optional marker returned from a prior request. Use this marker for\n-- pagination of results from this action. If this parameter is specified, the\n-- response includes only records beyond the marker, up to the value specified\n-- by /MaxRecords/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -14919,6 +15381,201 @@
                         "documentation": "-- | If set to 'system', the output shows snapshots that were automatically created\n-- by ElastiCache. If set to 'user' the output shows snapshots that were manually\n-- created. If omitted, the output shows both automatically and manually created\n-- snapshots.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "ElastiCache",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Read",
+                    "Show",
+                    "Monoid",
+                    "Semigroup"
+                ],
+                "streaming": false,
+                "listElement": "Tag",
+                "style": "xml",
+                "fieldPad": 0,
+                "ctor": "listTagsForResourceResponse",
+                "headerPad": 0,
+                "field": {
+                    "location": "querystring",
+                    "iso": "_List",
+                    "lensMapping": "_List",
+                    "default": "mempty",
+                    "monoid": true,
+                    "protocol": "query",
+                    "flattened": false,
+                    "required": true,
+                    "lens": "ltfrrTagList",
+                    "name": "_ltfrrTagList",
+                    "shape": "TagList",
+                    "locationName": "TagList",
+                    "documentation": "-- | A list of cost allocation tags as a key-value pair.",
+                    "typeExposed": "[Tag]",
+                    "type": "List \"member\" Tag"
+                },
+                "contents": [],
+                "wrapper": false,
+                "protocol": "query",
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "name": "ListTagsForResourceResponse",
+                "resultWrapper": "ListTagsForResourceResult",
+                "locationPad": 0,
+                "type": "newtype",
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "ltfrrTagList",
+                        "name": "_ltfrrTagList",
+                        "shape": "TagList",
+                        "locationName": "TagList",
+                        "documentation": "-- | A list of cost allocation tags as a key-value pair.",
+                        "typeExposed": "[Tag]",
+                        "type": "List \"member\" Tag"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "ltfrrTagList",
+                        "name": "_ltfrrTagList",
+                        "shape": "TagList",
+                        "locationName": "TagList",
+                        "documentation": "-- | A list of cost allocation tags as a key-value pair.",
+                        "typeExposed": "[Tag]",
+                        "type": "List \"member\" Tag"
+                    }
+                ]
+            },
+            "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ListTagsForResource.html",
+            "namespace": "Network.AWS.ElastiCache.ListTagsForResource",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElastiCache.Types"
+            ],
+            "pager": null,
+            "name": "ListTagsForResource",
+            "method": "post",
+            "documentation": "-- | The /ListTagsForResource/ action lists all cost allocation tags currently on\n-- the named resource. A /cost allocation tag/ is a key-value pair where the key\n-- is case-sensitive and the value is optional. Cost allocation tags can be used\n-- to categorize and track your AWS costs.\n--\n-- You can have a maximum of 10 cost allocation tags on an ElastiCache\n-- resource. For more information, see \u003chttp://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/BestPractices.html Using Cost Allocation Tags in AmazonElastiCache\u003e.",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show",
+                    "Monoid",
+                    "IsString"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "style": "query",
+                "fieldPad": 0,
+                "ctor": "listTagsForResource",
+                "headerPad": 0,
+                "field": {
+                    "location": "querystring",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "error",
+                    "monoid": false,
+                    "protocol": "query",
+                    "flattened": false,
+                    "required": true,
+                    "lens": "ltfrResourceName",
+                    "name": "_ltfrResourceName",
+                    "shape": "String",
+                    "locationName": "ResourceName",
+                    "documentation": "-- | The name of the resource for which you want the list of tags, for example 'myCluster01'.",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "contents": [],
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "query",
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "ltfrResourceName",
+                        "name": "_ltfrResourceName",
+                        "shape": "String",
+                        "locationName": "ResourceName",
+                        "documentation": "-- | The name of the resource for which you want the list of tags, for example 'myCluster01'.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "queryPad": 13,
+                "name": "ListTagsForResource",
+                "query": [
+                    {
+                        "field": "_ltfrResourceName",
+                        "locationName": "ResourceName",
+                        "type": "field"
+                    }
+                ],
+                "locationPad": 0,
+                "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "ltfrResourceName",
+                        "name": "_ltfrResourceName",
+                        "shape": "String",
+                        "locationName": "ResourceName",
+                        "documentation": "-- | The name of the resource for which you want the list of tags, for example 'myCluster01'.",
+                        "typeExposed": "Text",
+                        "type": "Text"
                     }
                 ]
             }
@@ -15016,7 +15673,7 @@
             "pager": null,
             "name": "ModifyCacheCluster",
             "method": "post",
-            "documentation": "-- | The /ModifyCacheCluster/ operation modifies the settings for a cache cluster.\n-- You can use this operation to change one or more cluster configuration\n-- parameters by specifying the parameters and the new values.",
+            "documentation": "-- | The /ModifyCacheCluster/ action modifies the settings for a cache cluster. You\n-- can use this action to change one or more cluster configuration parameters by\n-- specifying the parameters and the new values.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -15162,7 +15819,7 @@
                         "name": "_mccNumCacheNodes",
                         "shape": "IntegerOptional",
                         "locationName": "NumCacheNodes",
-                        "documentation": "-- | The number of cache nodes that the cache cluster should have. If the value\n-- for 'NumCacheNodes' is greater than the sum of the number of current cache\n-- nodes and the number of cache nodes pending creation (which may be zero),\n-- then more nodes will be added. If the value is less than the number of\n-- existing cache nodes, then nodes will be removed. If the value is equal to\n-- the number of current cache nodes, then any pending add or remove requests\n-- are canceled.\n--\n-- If you are removing cache nodes, you must use the 'CacheNodeIdsToRemove'\n-- parameter to provide the IDs of the specific cache nodes to remove.\n--\n-- For cache clusters running Redis, the value of 'NumCacheNodes'must be 1.\n--\n-- Note:\n-- Adding or removing Memcached cache nodes can be applied immediately or\n-- as a pending action. See 'ApplyImmediately'.\n-- A pending action to modify the\n-- number of cache nodes in a cluster during its maintenance window, whether by\n-- adding or removing nodes in accordance with the scale out architecture, is\n-- not queued. The customer's latest request to add or remove nodes to the\n-- cluster overrides any previous pending actions to modify the number of cache\n-- nodes in the cluster. For example, a request to remove 2 nodes would override\n-- a previous pending action to remove 3 nodes. Similarly, a request to add 2\n-- nodes would override a previous pending action to remove 3 nodes and vice\n-- versa. As Memcached cache nodes may now be provisioned in different\n-- Availability Zones with flexible cache node placement, a request to add nodes\n-- does not automatically override a previous pending action to add nodes. The\n-- customer can modify the previous pending action to add more nodes or\n-- explicitly cancel the pending request and retry the new request. To cancel\n-- pending actions to modify the number of cache nodes in a cluster, use the 'ModifyCacheCluster' request and set 'NumCacheNodes' equal to the number of cache nodes currently\n-- in the cache cluster.",
+                        "documentation": "-- | The number of cache nodes that the cache cluster should have. If the value\n-- for 'NumCacheNodes' is greater than the sum of the number of current cache\n-- nodes and the number of cache nodes pending creation (which may be zero),\n-- then more nodes will be added. If the value is less than the number of\n-- existing cache nodes, then nodes will be removed. If the value is equal to\n-- the number of current cache nodes, then any pending add or remove requests\n-- are canceled.\n--\n-- If you are removing cache nodes, you must use the 'CacheNodeIdsToRemove'\n-- parameter to provide the IDs of the specific cache nodes to remove.\n--\n-- For clusters running Redis, this value must be 1. For clusters running\n-- Memcached, this value must be between 1 and 50.\n--\n-- Note:\n-- Adding or removing Memcached cache nodes can be applied immediately or\n-- as a pending action. See 'ApplyImmediately'.\n-- A pending action to modify the\n-- number of cache nodes in a cluster during its maintenance window, whether by\n-- adding or removing nodes in accordance with the scale out architecture, is\n-- not queued. The customer's latest request to add or remove nodes to the\n-- cluster overrides any previous pending actions to modify the number of cache\n-- nodes in the cluster. For example, a request to remove 2 nodes would override\n-- a previous pending action to remove 3 nodes. Similarly, a request to add 2\n-- nodes would override a previous pending action to remove 3 nodes and vice\n-- versa. As Memcached cache nodes may now be provisioned in different\n-- Availability Zones with flexible cache node placement, a request to add nodes\n-- does not automatically override a previous pending action to add nodes. The\n-- customer can modify the previous pending action to add more nodes or\n-- explicitly cancel the pending request and retry the new request. To cancel\n-- pending actions to modify the number of cache nodes in a cluster, use the 'ModifyCacheCluster' request and set /NumCacheNodes/ equal to the number of cache nodes currently\n-- in the cache cluster.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -15179,7 +15836,7 @@
                         "name": "_mccCacheNodeIdsToRemove",
                         "shape": "CacheNodeIdsList",
                         "locationName": "CacheNodeIdsToRemove",
-                        "documentation": "-- | A list of cache node IDs to be removed. A node ID is a numeric identifier\n-- (0001, 0002, etc.). This parameter is only valid when NumCacheNodes is less\n-- than the existing number of cache nodes. The number of cache node IDs\n-- supplied in this parameter must match the difference between the existing\n-- number of cache nodes in the cluster or pending cache nodes, whichever is\n-- greater, and the value of /NumCacheNodes/ in the request.\n--\n-- For example: If you have 3 active cache nodes, 7 pending cache nodes, and\n-- the number of cache nodes in this 'ModifyCacheCluser' call is 5, you must list\n-- 2 (7 - 5) cache node IDs to remove.",
+                        "documentation": "-- | A list of cache node IDs to be removed. A node ID is a numeric identifier\n-- (0001, 0002, etc.). This parameter is only valid when /NumCacheNodes/ is less\n-- than the existing number of cache nodes. The number of cache node IDs\n-- supplied in this parameter must match the difference between the existing\n-- number of cache nodes in the cluster or pending cache nodes, whichever is\n-- greater, and the value of /NumCacheNodes/ in the request.\n--\n-- For example: If you have 3 active cache nodes, 7 pending cache nodes, and\n-- the number of cache nodes in this 'ModifyCacheCluser' call is 5, you must list\n-- 2 (7 - 5) cache node IDs to remove.",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
                     },
@@ -15196,7 +15853,7 @@
                         "name": "_mccAZMode",
                         "shape": "AZMode",
                         "locationName": "AZMode",
-                        "documentation": "-- | Specifies whether the new nodes in this Memcached cache cluster are all\n-- created in a single Availability Zone or created across multiple Availability\n-- Zones.\n--\n-- Valid values: 'single-az' | 'cross-az'.\n--\n-- This option is only supported for Memcached cache clusters.",
+                        "documentation": "-- | Specifies whether the new nodes in this Memcached cache cluster are all\n-- created in a single Availability Zone or created across multiple Availability\n-- Zones.\n--\n-- Valid values: 'single-az' | 'cross-az'.\n--\n-- This option is only supported for Memcached cache clusters.\n--\n-- You cannot specify 'single-az' if the Memcached cache cluster already has\n-- cache nodes in different Availability Zones. If 'cross-az' is specified,\n-- existing Memcached nodes remain in their current Availability Zone.\n--\n-- Only newly created nodes will be located in different Availability Zones.\n-- For instructions on how to move existing Memcached nodes to different\n-- Availability Zones, see the Availability Zone Considerations section of \u003chttp://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheNode.Memcached.html CacheNode Considerations for Memcached\u003e.\n--\n--",
                         "typeExposed": "Maybe AZMode",
                         "type": "Maybe AZMode"
                     },
@@ -15213,7 +15870,7 @@
                         "name": "_mccNewAvailabilityZones",
                         "shape": "PreferredAvailabilityZoneList",
                         "locationName": "NewAvailabilityZones",
-                        "documentation": "-- | The list of Availability Zones where the new Memcached cache nodes will be\n-- created.\n--\n-- This parameter is only valid when 'NumCacheNodes' in the request is greater\n-- than the sum of the number of active cache nodes and the number of cache\n-- nodes pending creation (which may be zero). The number of Availability Zones\n-- supplied in this list must match the cache nodes being added in this request.\n--\n-- This option is only supported on Memcached clusters.\n--\n-- Scenarios:   Scenario 1: You have 3 active nodes and wish to add 2 nodes.\n--\n-- Specify 'NumCacheNodes=5' (3 + 2) and optionally specify two Availability Zones\n-- for the two new nodes.  Scenario 2: You have 3 active nodes and 2 nodes\n-- pending creation (from the scenario 1 call) and want to add 1 more node.\n--\n-- Specify 'NumCacheNodes=6' ((3 + 2) + 1) and optionally specify an Availability\n-- Zone for the new node.  Scenario 3: You want to cancel all pending actions.\n--\n-- Specify 'NumCacheNodes=3' to cancel all pending actions.\n--\n-- The Availability Zone placement of nodes pending creation cannot be\n-- modified. If you wish to cancel any nodes pending creation, add 0 nodes by\n-- setting 'NumCacheNodes' to the number of current nodes.\n--\n-- If 'cross-az' is specified, existing Memcached nodes remain in their current\n-- Availability Zone. Only newly created nodes can be located in different\n-- Availability Zones. For guidance on how to move existing Memcached nodes to\n-- different Availability Zones, see the Availability Zone Considerations\n-- section of \u003chttp://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheNode.Memcached.html Cache Node Considerations for Memcached\u003e.\n--\n-- Impact of new add/remove requests upon pending requests\n--\n-- Scenarios Pending Operation New Request Results   Scenario-1 Delete Delete\n-- The new delete, pending or immediate, replaces the pending delete.   Scenario-2\n-- Delete Create The new create, pending or immediate, replaces the pending\n-- delete.   Scenario-3 Create Delete The new delete, pending or immediate,\n-- replaces the pending create.   Scenario-4 Create Create The new create is\n-- added to the pending create.\n-- Important:\n-- If the new create request is Apply\n-- Immediately - Yes, all creates are performed immediately. If the new create\n-- request is Apply Immediately - No, all creates are pending.   Example: 'NewAvailabilityZones.member.1=us-east-1a&NewAvailabilityZones.member.2=us-east-1b&NewAvailabilityZones.member.3=us-east-1d'",
+                        "documentation": "-- | The list of Availability Zones where the new Memcached cache nodes will be\n-- created.\n--\n-- This parameter is only valid when /NumCacheNodes/ in the request is greater\n-- than the sum of the number of active cache nodes and the number of cache\n-- nodes pending creation (which may be zero). The number of Availability Zones\n-- supplied in this list must match the cache nodes being added in this request.\n--\n-- This option is only supported on Memcached clusters.\n--\n-- Scenarios:   Scenario 1: You have 3 active nodes and wish to add 2 nodes.\n--\n-- Specify 'NumCacheNodes=5' (3 + 2) and optionally specify two Availability Zones\n-- for the two new nodes.  Scenario 2: You have 3 active nodes and 2 nodes\n-- pending creation (from the scenario 1 call) and want to add 1 more node.\n--\n-- Specify 'NumCacheNodes=6' ((3 + 2) + 1) and optionally specify an Availability\n-- Zone for the new node.  Scenario 3: You want to cancel all pending actions.\n--\n-- Specify 'NumCacheNodes=3' to cancel all pending actions.\n--\n-- The Availability Zone placement of nodes pending creation cannot be\n-- modified. If you wish to cancel any nodes pending creation, add 0 nodes by\n-- setting 'NumCacheNodes' to the number of current nodes.\n--\n-- If 'cross-az' is specified, existing Memcached nodes remain in their current\n-- Availability Zone. Only newly created nodes can be located in different\n-- Availability Zones. For guidance on how to move existing Memcached nodes to\n-- different Availability Zones, see the Availability Zone Considerations\n-- section of \u003chttp://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheNode.Memcached.html Cache Node Considerations for Memcached\u003e.\n--\n-- Impact of new add/remove requests upon pending requests\n--\n-- Scenarios Pending action New Request Results   Scenario-1 Delete Delete The new delete, pending or immediate, replaces the pending delete.\n-- Scenario-2 Delete Create The new create, pending or immediate, replaces\n-- the pending delete.   Scenario-3 Create Delete The new delete, pending or\n-- immediate, replaces the pending create.   Scenario-4 Create Create The new\n-- create is added to the pending create.\n-- Important:\n-- If the new create request is\n-- Apply Immediately - Yes, all creates are performed immediately. If the new\n-- create request is Apply Immediately - No, all creates are pending.   Example: 'NewAvailabilityZones.member.1=us-west-2a&NewAvailabilityZones.member.2=us-west-2b&NewAvailabilityZones.member.3=us-west-2c'",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
                     },
@@ -15281,7 +15938,7 @@
                         "name": "_mccNotificationTopicArn",
                         "shape": "String",
                         "locationName": "NotificationTopicArn",
-                        "documentation": "-- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications\n-- will be sent.",
+                        "documentation": "-- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications\n-- will be sent.\n--\n-- The Amazon SNS topic owner must be same as the cache cluster owner.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -15366,7 +16023,7 @@
                         "name": "_mccAutoMinorVersionUpgrade",
                         "shape": "BooleanOptional",
                         "locationName": "AutoMinorVersionUpgrade",
-                        "documentation": "-- | If 'true', then minor engine upgrades will be applied automatically to the\n-- cache cluster during the maintenance window.\n--\n-- Valid values: 'true' | 'false'\n--\n-- Default: 'true'",
+                        "documentation": "-- | This parameter is currently disabled.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -15419,7 +16076,7 @@
                         "name": "_mccAZMode",
                         "shape": "AZMode",
                         "locationName": "AZMode",
-                        "documentation": "-- | Specifies whether the new nodes in this Memcached cache cluster are all\n-- created in a single Availability Zone or created across multiple Availability\n-- Zones.\n--\n-- Valid values: 'single-az' | 'cross-az'.\n--\n-- This option is only supported for Memcached cache clusters.",
+                        "documentation": "-- | Specifies whether the new nodes in this Memcached cache cluster are all\n-- created in a single Availability Zone or created across multiple Availability\n-- Zones.\n--\n-- Valid values: 'single-az' | 'cross-az'.\n--\n-- This option is only supported for Memcached cache clusters.\n--\n-- You cannot specify 'single-az' if the Memcached cache cluster already has\n-- cache nodes in different Availability Zones. If 'cross-az' is specified,\n-- existing Memcached nodes remain in their current Availability Zone.\n--\n-- Only newly created nodes will be located in different Availability Zones.\n-- For instructions on how to move existing Memcached nodes to different\n-- Availability Zones, see the Availability Zone Considerations section of \u003chttp://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheNode.Memcached.html CacheNode Considerations for Memcached\u003e.\n--\n--",
                         "typeExposed": "Maybe AZMode",
                         "type": "Maybe AZMode"
                     },
@@ -15453,7 +16110,7 @@
                         "name": "_mccAutoMinorVersionUpgrade",
                         "shape": "BooleanOptional",
                         "locationName": "AutoMinorVersionUpgrade",
-                        "documentation": "-- | If 'true', then minor engine upgrades will be applied automatically to the\n-- cache cluster during the maintenance window.\n--\n-- Valid values: 'true' | 'false'\n--\n-- Default: 'true'",
+                        "documentation": "-- | This parameter is currently disabled.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -15487,7 +16144,7 @@
                         "name": "_mccCacheNodeIdsToRemove",
                         "shape": "CacheNodeIdsList",
                         "locationName": "CacheNodeIdsToRemove",
-                        "documentation": "-- | A list of cache node IDs to be removed. A node ID is a numeric identifier\n-- (0001, 0002, etc.). This parameter is only valid when NumCacheNodes is less\n-- than the existing number of cache nodes. The number of cache node IDs\n-- supplied in this parameter must match the difference between the existing\n-- number of cache nodes in the cluster or pending cache nodes, whichever is\n-- greater, and the value of /NumCacheNodes/ in the request.\n--\n-- For example: If you have 3 active cache nodes, 7 pending cache nodes, and\n-- the number of cache nodes in this 'ModifyCacheCluser' call is 5, you must list\n-- 2 (7 - 5) cache node IDs to remove.",
+                        "documentation": "-- | A list of cache node IDs to be removed. A node ID is a numeric identifier\n-- (0001, 0002, etc.). This parameter is only valid when /NumCacheNodes/ is less\n-- than the existing number of cache nodes. The number of cache node IDs\n-- supplied in this parameter must match the difference between the existing\n-- number of cache nodes in the cluster or pending cache nodes, whichever is\n-- greater, and the value of /NumCacheNodes/ in the request.\n--\n-- For example: If you have 3 active cache nodes, 7 pending cache nodes, and\n-- the number of cache nodes in this 'ModifyCacheCluser' call is 5, you must list\n-- 2 (7 - 5) cache node IDs to remove.",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
                     },
@@ -15555,7 +16212,7 @@
                         "name": "_mccNewAvailabilityZones",
                         "shape": "PreferredAvailabilityZoneList",
                         "locationName": "NewAvailabilityZones",
-                        "documentation": "-- | The list of Availability Zones where the new Memcached cache nodes will be\n-- created.\n--\n-- This parameter is only valid when 'NumCacheNodes' in the request is greater\n-- than the sum of the number of active cache nodes and the number of cache\n-- nodes pending creation (which may be zero). The number of Availability Zones\n-- supplied in this list must match the cache nodes being added in this request.\n--\n-- This option is only supported on Memcached clusters.\n--\n-- Scenarios:   Scenario 1: You have 3 active nodes and wish to add 2 nodes.\n--\n-- Specify 'NumCacheNodes=5' (3 + 2) and optionally specify two Availability Zones\n-- for the two new nodes.  Scenario 2: You have 3 active nodes and 2 nodes\n-- pending creation (from the scenario 1 call) and want to add 1 more node.\n--\n-- Specify 'NumCacheNodes=6' ((3 + 2) + 1) and optionally specify an Availability\n-- Zone for the new node.  Scenario 3: You want to cancel all pending actions.\n--\n-- Specify 'NumCacheNodes=3' to cancel all pending actions.\n--\n-- The Availability Zone placement of nodes pending creation cannot be\n-- modified. If you wish to cancel any nodes pending creation, add 0 nodes by\n-- setting 'NumCacheNodes' to the number of current nodes.\n--\n-- If 'cross-az' is specified, existing Memcached nodes remain in their current\n-- Availability Zone. Only newly created nodes can be located in different\n-- Availability Zones. For guidance on how to move existing Memcached nodes to\n-- different Availability Zones, see the Availability Zone Considerations\n-- section of \u003chttp://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheNode.Memcached.html Cache Node Considerations for Memcached\u003e.\n--\n-- Impact of new add/remove requests upon pending requests\n--\n-- Scenarios Pending Operation New Request Results   Scenario-1 Delete Delete\n-- The new delete, pending or immediate, replaces the pending delete.   Scenario-2\n-- Delete Create The new create, pending or immediate, replaces the pending\n-- delete.   Scenario-3 Create Delete The new delete, pending or immediate,\n-- replaces the pending create.   Scenario-4 Create Create The new create is\n-- added to the pending create.\n-- Important:\n-- If the new create request is Apply\n-- Immediately - Yes, all creates are performed immediately. If the new create\n-- request is Apply Immediately - No, all creates are pending.   Example: 'NewAvailabilityZones.member.1=us-east-1a&NewAvailabilityZones.member.2=us-east-1b&NewAvailabilityZones.member.3=us-east-1d'",
+                        "documentation": "-- | The list of Availability Zones where the new Memcached cache nodes will be\n-- created.\n--\n-- This parameter is only valid when /NumCacheNodes/ in the request is greater\n-- than the sum of the number of active cache nodes and the number of cache\n-- nodes pending creation (which may be zero). The number of Availability Zones\n-- supplied in this list must match the cache nodes being added in this request.\n--\n-- This option is only supported on Memcached clusters.\n--\n-- Scenarios:   Scenario 1: You have 3 active nodes and wish to add 2 nodes.\n--\n-- Specify 'NumCacheNodes=5' (3 + 2) and optionally specify two Availability Zones\n-- for the two new nodes.  Scenario 2: You have 3 active nodes and 2 nodes\n-- pending creation (from the scenario 1 call) and want to add 1 more node.\n--\n-- Specify 'NumCacheNodes=6' ((3 + 2) + 1) and optionally specify an Availability\n-- Zone for the new node.  Scenario 3: You want to cancel all pending actions.\n--\n-- Specify 'NumCacheNodes=3' to cancel all pending actions.\n--\n-- The Availability Zone placement of nodes pending creation cannot be\n-- modified. If you wish to cancel any nodes pending creation, add 0 nodes by\n-- setting 'NumCacheNodes' to the number of current nodes.\n--\n-- If 'cross-az' is specified, existing Memcached nodes remain in their current\n-- Availability Zone. Only newly created nodes can be located in different\n-- Availability Zones. For guidance on how to move existing Memcached nodes to\n-- different Availability Zones, see the Availability Zone Considerations\n-- section of \u003chttp://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheNode.Memcached.html Cache Node Considerations for Memcached\u003e.\n--\n-- Impact of new add/remove requests upon pending requests\n--\n-- Scenarios Pending action New Request Results   Scenario-1 Delete Delete The new delete, pending or immediate, replaces the pending delete.\n-- Scenario-2 Delete Create The new create, pending or immediate, replaces\n-- the pending delete.   Scenario-3 Create Delete The new delete, pending or\n-- immediate, replaces the pending create.   Scenario-4 Create Create The new\n-- create is added to the pending create.\n-- Important:\n-- If the new create request is\n-- Apply Immediately - Yes, all creates are performed immediately. If the new\n-- create request is Apply Immediately - No, all creates are pending.   Example: 'NewAvailabilityZones.member.1=us-west-2a&NewAvailabilityZones.member.2=us-west-2b&NewAvailabilityZones.member.3=us-west-2c'",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
                     },
@@ -15572,7 +16229,7 @@
                         "name": "_mccNotificationTopicArn",
                         "shape": "String",
                         "locationName": "NotificationTopicArn",
-                        "documentation": "-- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications\n-- will be sent.",
+                        "documentation": "-- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications\n-- will be sent.\n--\n-- The Amazon SNS topic owner must be same as the cache cluster owner.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -15606,7 +16263,7 @@
                         "name": "_mccNumCacheNodes",
                         "shape": "IntegerOptional",
                         "locationName": "NumCacheNodes",
-                        "documentation": "-- | The number of cache nodes that the cache cluster should have. If the value\n-- for 'NumCacheNodes' is greater than the sum of the number of current cache\n-- nodes and the number of cache nodes pending creation (which may be zero),\n-- then more nodes will be added. If the value is less than the number of\n-- existing cache nodes, then nodes will be removed. If the value is equal to\n-- the number of current cache nodes, then any pending add or remove requests\n-- are canceled.\n--\n-- If you are removing cache nodes, you must use the 'CacheNodeIdsToRemove'\n-- parameter to provide the IDs of the specific cache nodes to remove.\n--\n-- For cache clusters running Redis, the value of 'NumCacheNodes'must be 1.\n--\n-- Note:\n-- Adding or removing Memcached cache nodes can be applied immediately or\n-- as a pending action. See 'ApplyImmediately'.\n-- A pending action to modify the\n-- number of cache nodes in a cluster during its maintenance window, whether by\n-- adding or removing nodes in accordance with the scale out architecture, is\n-- not queued. The customer's latest request to add or remove nodes to the\n-- cluster overrides any previous pending actions to modify the number of cache\n-- nodes in the cluster. For example, a request to remove 2 nodes would override\n-- a previous pending action to remove 3 nodes. Similarly, a request to add 2\n-- nodes would override a previous pending action to remove 3 nodes and vice\n-- versa. As Memcached cache nodes may now be provisioned in different\n-- Availability Zones with flexible cache node placement, a request to add nodes\n-- does not automatically override a previous pending action to add nodes. The\n-- customer can modify the previous pending action to add more nodes or\n-- explicitly cancel the pending request and retry the new request. To cancel\n-- pending actions to modify the number of cache nodes in a cluster, use the 'ModifyCacheCluster' request and set 'NumCacheNodes' equal to the number of cache nodes currently\n-- in the cache cluster.",
+                        "documentation": "-- | The number of cache nodes that the cache cluster should have. If the value\n-- for 'NumCacheNodes' is greater than the sum of the number of current cache\n-- nodes and the number of cache nodes pending creation (which may be zero),\n-- then more nodes will be added. If the value is less than the number of\n-- existing cache nodes, then nodes will be removed. If the value is equal to\n-- the number of current cache nodes, then any pending add or remove requests\n-- are canceled.\n--\n-- If you are removing cache nodes, you must use the 'CacheNodeIdsToRemove'\n-- parameter to provide the IDs of the specific cache nodes to remove.\n--\n-- For clusters running Redis, this value must be 1. For clusters running\n-- Memcached, this value must be between 1 and 50.\n--\n-- Note:\n-- Adding or removing Memcached cache nodes can be applied immediately or\n-- as a pending action. See 'ApplyImmediately'.\n-- A pending action to modify the\n-- number of cache nodes in a cluster during its maintenance window, whether by\n-- adding or removing nodes in accordance with the scale out architecture, is\n-- not queued. The customer's latest request to add or remove nodes to the\n-- cluster overrides any previous pending actions to modify the number of cache\n-- nodes in the cluster. For example, a request to remove 2 nodes would override\n-- a previous pending action to remove 3 nodes. Similarly, a request to add 2\n-- nodes would override a previous pending action to remove 3 nodes and vice\n-- versa. As Memcached cache nodes may now be provisioned in different\n-- Availability Zones with flexible cache node placement, a request to add nodes\n-- does not automatically override a previous pending action to add nodes. The\n-- customer can modify the previous pending action to add more nodes or\n-- explicitly cancel the pending request and retry the new request. To cancel\n-- pending actions to modify the number of cache nodes in a cluster, use the 'ModifyCacheCluster' request and set /NumCacheNodes/ equal to the number of cache nodes currently\n-- in the cache cluster.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -15776,7 +16433,7 @@
             "pager": null,
             "name": "ModifyCacheParameterGroup",
             "method": "post",
-            "documentation": "-- | The /ModifyCacheParameterGroup/ operation modifies the parameters of a cache\n-- parameter group. You can modify up to 20 parameters in a single request by\n-- submitting a list parameter name and value pairs.",
+            "documentation": "-- | The /ModifyCacheParameterGroup/ action modifies the parameters of a cache\n-- parameter group. You can modify up to 20 parameters in a single request by\n-- submitting a list parameter name and value pairs.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -15988,7 +16645,7 @@
             "pager": null,
             "name": "ModifyCacheSubnetGroup",
             "method": "post",
-            "documentation": "-- | The /ModifyCacheSubnetGroup/ operation modifies an existing cache subnet group.",
+            "documentation": "-- | The /ModifyCacheSubnetGroup/ action modifies an existing cache subnet group.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -16240,7 +16897,7 @@
             "pager": null,
             "name": "ModifyReplicationGroup",
             "method": "post",
-            "documentation": "-- | The /ModifyReplicationGroup/ operation modifies the settings for a replication\n-- group.",
+            "documentation": "-- | The /ModifyReplicationGroup/ action modifies the settings for a replication\n-- group.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -16438,7 +17095,7 @@
                         "name": "_mrgAutomaticFailoverEnabled",
                         "shape": "BooleanOptional",
                         "locationName": "AutomaticFailoverEnabled",
-                        "documentation": "-- | Whether a read replica will be automatically promoted to read/write primary\n-- if the existing primary encounters a failure.\n--\n-- Valid values: 'true' | 'false'",
+                        "documentation": "-- | Whether a read replica will be automatically promoted to read/write primary\n-- if the existing primary encounters a failure.\n--\n-- Valid values: 'true' | 'false'\n--\n-- ElastiCache Multi-AZ replication groups are not supported on:\n--\n-- Redis versions earlier than 2.8.6. T1 and T2 cache node types.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -16506,7 +17163,7 @@
                         "name": "_mrgNotificationTopicArn",
                         "shape": "String",
                         "locationName": "NotificationTopicArn",
-                        "documentation": "-- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications\n-- will be sent.",
+                        "documentation": "-- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications\n-- will be sent.\n--\n-- The Amazon SNS topic owner must be same as the replication group owner.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -16591,7 +17248,7 @@
                         "name": "_mrgAutoMinorVersionUpgrade",
                         "shape": "BooleanOptional",
                         "locationName": "AutoMinorVersionUpgrade",
-                        "documentation": "-- | Determines whether minor engine upgrades will be applied automatically to all\n-- of the clusters in the replication group during the maintenance window. A\n-- value of 'true' allows these upgrades to occur; 'false' disables automatic\n-- upgrades.",
+                        "documentation": "-- | This parameter is currently disabled.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -16661,7 +17318,7 @@
                         "name": "_mrgAutoMinorVersionUpgrade",
                         "shape": "BooleanOptional",
                         "locationName": "AutoMinorVersionUpgrade",
-                        "documentation": "-- | Determines whether minor engine upgrades will be applied automatically to all\n-- of the clusters in the replication group during the maintenance window. A\n-- value of 'true' allows these upgrades to occur; 'false' disables automatic\n-- upgrades.",
+                        "documentation": "-- | This parameter is currently disabled.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -16678,7 +17335,7 @@
                         "name": "_mrgAutomaticFailoverEnabled",
                         "shape": "BooleanOptional",
                         "locationName": "AutomaticFailoverEnabled",
-                        "documentation": "-- | Whether a read replica will be automatically promoted to read/write primary\n-- if the existing primary encounters a failure.\n--\n-- Valid values: 'true' | 'false'",
+                        "documentation": "-- | Whether a read replica will be automatically promoted to read/write primary\n-- if the existing primary encounters a failure.\n--\n-- Valid values: 'true' | 'false'\n--\n-- ElastiCache Multi-AZ replication groups are not supported on:\n--\n-- Redis versions earlier than 2.8.6. T1 and T2 cache node types.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -16746,7 +17403,7 @@
                         "name": "_mrgNotificationTopicArn",
                         "shape": "String",
                         "locationName": "NotificationTopicArn",
-                        "documentation": "-- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications\n-- will be sent.",
+                        "documentation": "-- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications\n-- will be sent.\n--\n-- The Amazon SNS topic owner must be same as the replication group owner.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -16999,7 +17656,7 @@
             "pager": null,
             "name": "PurchaseReservedCacheNodesOffering",
             "method": "post",
-            "documentation": "-- | The /PurchaseReservedCacheNodesOffering/ operation allows you to purchase a\n-- reserved cache node offering.",
+            "documentation": "-- | The /PurchaseReservedCacheNodesOffering/ action allows you to purchase a\n-- reserved cache node offering.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -17251,7 +17908,7 @@
             "pager": null,
             "name": "RebootCacheCluster",
             "method": "post",
-            "documentation": "-- | The /RebootCacheCluster/ operation reboots some, or all, of the cache nodes\n-- within a provisioned cache cluster. This API will apply any modified cache\n-- parameter groups to the cache cluster. The reboot action takes place as soon\n-- as possible, and results in a momentary outage to the cache cluster. During\n-- the reboot, the cache cluster status is set to REBOOTING.\n--\n-- The reboot causes the contents of the cache (for each cache node being\n-- rebooted) to be lost.\n--\n-- When the reboot is complete, a cache cluster event is created.",
+            "documentation": "-- | The /RebootCacheCluster/ action reboots some, or all, of the cache nodes within\n-- a provisioned cache cluster. This API will apply any modified cache parameter\n-- groups to the cache cluster. The reboot action takes place as soon as\n-- possible, and results in a momentary outage to the cache cluster. During the\n-- reboot, the cache cluster status is set to REBOOTING.\n--\n-- The reboot causes the contents of the cache (for each cache node being\n-- rebooted) to be lost.\n--\n-- When the reboot is complete, a cache cluster event is created.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -17376,6 +18033,221 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
+                    "Show",
+                    "Monoid",
+                    "Semigroup"
+                ],
+                "streaming": false,
+                "listElement": "Tag",
+                "style": "xml",
+                "fieldPad": 0,
+                "ctor": "removeTagsFromResourceResponse",
+                "headerPad": 0,
+                "field": {
+                    "location": "querystring",
+                    "iso": "_List",
+                    "lensMapping": "_List",
+                    "default": "mempty",
+                    "monoid": true,
+                    "protocol": "query",
+                    "flattened": false,
+                    "required": true,
+                    "lens": "rtfrrTagList",
+                    "name": "_rtfrrTagList",
+                    "shape": "TagList",
+                    "locationName": "TagList",
+                    "documentation": "-- | A list of cost allocation tags as a key-value pair.",
+                    "typeExposed": "[Tag]",
+                    "type": "List \"member\" Tag"
+                },
+                "contents": [],
+                "wrapper": false,
+                "protocol": "query",
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "name": "RemoveTagsFromResourceResponse",
+                "resultWrapper": "RemoveTagsFromResourceResult",
+                "locationPad": 0,
+                "type": "newtype",
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "rtfrrTagList",
+                        "name": "_rtfrrTagList",
+                        "shape": "TagList",
+                        "locationName": "TagList",
+                        "documentation": "-- | A list of cost allocation tags as a key-value pair.",
+                        "typeExposed": "[Tag]",
+                        "type": "List \"member\" Tag"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "rtfrrTagList",
+                        "name": "_rtfrrTagList",
+                        "shape": "TagList",
+                        "locationName": "TagList",
+                        "documentation": "-- | A list of cost allocation tags as a key-value pair.",
+                        "typeExposed": "[Tag]",
+                        "type": "List \"member\" Tag"
+                    }
+                ]
+            },
+            "url": "http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_RemoveTagsFromResource.html",
+            "namespace": "Network.AWS.ElastiCache.RemoveTagsFromResource",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElastiCache.Types"
+            ],
+            "pager": null,
+            "name": "RemoveTagsFromResource",
+            "method": "post",
+            "documentation": "-- | The /RemoveTagsFromResource/ action removes the tags identified by the 'TagKeys'\n-- list from the named resource.",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show"
+                ],
+                "streaming": false,
+                "style": "query",
+                "fieldPad": 17,
+                "ctor": "removeTagsFromResource",
+                "headerPad": 0,
+                "contents": [],
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "query",
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "rtfrResourceName",
+                        "name": "_rtfrResourceName",
+                        "shape": "String",
+                        "locationName": "ResourceName",
+                        "documentation": "-- | The name of the ElastiCache resource from which you want the listed tags\n-- removed, for example 'myCluster01'.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "queryPad": 13,
+                "name": "RemoveTagsFromResource",
+                "query": [
+                    {
+                        "field": "_rtfrResourceName",
+                        "locationName": "ResourceName",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_rtfrTagKeys",
+                        "locationName": "TagKeys",
+                        "type": "field"
+                    }
+                ],
+                "locationPad": 13,
+                "type": "record",
+                "queryAll": true,
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "rtfrTagKeys",
+                        "name": "_rtfrTagKeys",
+                        "shape": "KeyList",
+                        "locationName": "TagKeys",
+                        "documentation": "-- | A list of 'TagKeys' identifying the tags you want removed from the named\n-- resource. For example, 'TagKeys.member.1=Region' removes the cost allocation\n-- tag with the key name 'Region' from the resource named by the /ResourceName/\n-- parameter.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"member\" Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "rtfrResourceName",
+                        "name": "_rtfrResourceName",
+                        "shape": "String",
+                        "locationName": "ResourceName",
+                        "documentation": "-- | The name of the ElastiCache resource from which you want the listed tags\n-- removed, for example 'myCluster01'.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "rtfrTagKeys",
+                        "name": "_rtfrTagKeys",
+                        "shape": "KeyList",
+                        "locationName": "TagKeys",
+                        "documentation": "-- | A list of 'TagKeys' identifying the tags you want removed from the named\n-- resource. For example, 'TagKeys.member.1=Region' removes the cost allocation\n-- tag with the key name 'Region' from the resource named by the /ResourceName/\n-- parameter.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"member\" Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "ElastiCache",
+            "response": {
+                "deriving": [
+                    "Eq",
                     "Ord",
                     "Read",
                     "Show",
@@ -17466,7 +18338,7 @@
             "pager": null,
             "name": "ResetCacheParameterGroup",
             "method": "post",
-            "documentation": "-- | The /ResetCacheParameterGroup/ operation modifies the parameters of a cache\n-- parameter group to the engine or system default value. You can reset specific\n-- parameters by submitting a list of parameter names. To reset the entire cache\n-- parameter group, specify the /ResetAllParameters/ and /CacheParameterGroupName/\n-- parameters.",
+            "documentation": "-- | The /ResetCacheParameterGroup/ action modifies the parameters of a cache\n-- parameter group to the engine or system default value. You can reset specific\n-- parameters by submitting a list of parameter names. To reset the entire cache\n-- parameter group, specify the /ResetAllParameters/ and /CacheParameterGroupName/\n-- parameters.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -17717,7 +18589,7 @@
             "pager": null,
             "name": "RevokeCacheSecurityGroupIngress",
             "method": "post",
-            "documentation": "-- | The /RevokeCacheSecurityGroupIngress/ operation revokes ingress from a cache\n-- security group. Use this operation to disallow access from an Amazon EC2\n-- security group that had been previously authorized.",
+            "documentation": "-- | The /RevokeCacheSecurityGroupIngress/ action revokes ingress from a cache\n-- security group. Use this action to disallow access from an Amazon EC2\n-- security group that had been previously authorized.",
             "documentationUrl": null,
             "request": {
                 "deriving": [

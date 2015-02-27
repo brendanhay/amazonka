@@ -106,9 +106,7 @@ instance ToHeaders PutBucketLogging where
         ]
 
 instance ToXMLRoot PutBucketLogging where
-    toXMLRoot PutBucketLogging{..} = namespaced ns "PutBucketLogging"
-        [ "BucketLoggingStatus" =@ _pblBucketLoggingStatus
-        ]
+    toXMLRoot = extractRoot ns . toXML . _pblBucketLoggingStatus
 
 instance ToXML PutBucketLogging
 

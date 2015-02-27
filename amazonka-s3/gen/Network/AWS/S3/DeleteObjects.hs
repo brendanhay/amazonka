@@ -127,9 +127,7 @@ instance ToHeaders DeleteObjects where
         ]
 
 instance ToXMLRoot DeleteObjects where
-    toXMLRoot DeleteObjects{..} = namespaced ns "DeleteObjects"
-        [ "Delete" =@ _do1Delete
-        ]
+    toXMLRoot = extractRoot ns . toXML . _do1Delete
 
 instance ToXML DeleteObjects
 

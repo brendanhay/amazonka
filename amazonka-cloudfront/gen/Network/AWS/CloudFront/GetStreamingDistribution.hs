@@ -100,7 +100,7 @@ gsdrStreamingDistribution =
 
 instance ToPath GetStreamingDistribution where
     toPath GetStreamingDistribution{..} = mconcat
-        [ "/2014-10-21/streaming-distribution/"
+        [ "/2014-11-06/streaming-distribution/"
         , toText _gsdId
         ]
 

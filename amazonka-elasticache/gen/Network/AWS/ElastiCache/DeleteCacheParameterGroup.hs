@@ -22,7 +22,7 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | The /DeleteCacheParameterGroup/ operation deletes the specified cache parameter
+-- | The /DeleteCacheParameterGroup/ action deletes the specified cache parameter
 -- group. You cannot delete a cache parameter group if it is associated with any
 -- cache clusters.
 --
@@ -64,6 +64,9 @@ deleteCacheParameterGroup p1 = DeleteCacheParameterGroup
     }
 
 -- | The name of the cache parameter group to delete.
+--
+-- The specified cache security group must not be associated with any cache
+-- clusters.
 dcpg1CacheParameterGroupName :: Lens' DeleteCacheParameterGroup Text
 dcpg1CacheParameterGroupName =
     lens _dcpg1CacheParameterGroupName

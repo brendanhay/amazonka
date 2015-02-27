@@ -43,6 +43,12 @@ module Network.AWS.DataPipeline.Types
     , po1Id
     , po1Name
 
+    -- * Tag
+    , Tag
+    , tag
+    , tagKey
+    , tagValue
+
     -- * Field
     , Field
     , field
@@ -95,6 +101,7 @@ module Network.AWS.DataPipeline.Types
     , pdFields
     , pdName
     , pdPipelineId
+    , pdTags
 
     -- * InstanceIdentity
     , InstanceIdentity
@@ -259,6 +266,47 @@ instance ToJSON PipelineObject where
         [ "id"     .= _po1Id
         , "name"   .= _po1Name
         , "fields" .= _po1Fields
+        ]
+
+data Tag = Tag
+    { _tagKey   :: Text
+    , _tagValue :: Text
+    } deriving (Eq, Ord, Read, Show)
+
+-- | 'Tag' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'tagKey' @::@ 'Text'
+--
+-- * 'tagValue' @::@ 'Text'
+--
+tag :: Text -- ^ 'tagKey'
+    -> Text -- ^ 'tagValue'
+    -> Tag
+tag p1 p2 = Tag
+    { _tagKey   = p1
+    , _tagValue = p2
+    }
+
+-- | The key name of a tag defined by a user. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines> in the /AWS Data Pipeline Developer Guide/.
+tagKey :: Lens' Tag Text
+tagKey = lens _tagKey (\s a -> s { _tagKey = a })
+
+-- | The optional value portion of a tag defined by a user. For more information,
+-- see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines> in the /AWS Data Pipeline DeveloperGuide/.
+tagValue :: Lens' Tag Text
+tagValue = lens _tagValue (\s a -> s { _tagValue = a })
+
+instance FromJSON Tag where
+    parseJSON = withObject "Tag" $ \o -> Tag
+        <$> o .:  "key"
+        <*> o .:  "value"
+
+instance ToJSON Tag where
+    toJSON Tag{..} = object
+        [ "key"   .= _tagKey
+        , "value" .= _tagValue
         ]
 
 data Field = Field
@@ -588,6 +636,7 @@ data PipelineDescription = PipelineDescription
     , _pdFields      :: List "fields" Field
     , _pdName        :: Text
     , _pdPipelineId  :: Text
+    , _pdTags        :: List "tags" Tag
     } deriving (Eq, Read, Show)
 
 -- | 'PipelineDescription' constructor.
@@ -602,6 +651,8 @@ data PipelineDescription = PipelineDescription
 --
 -- * 'pdPipelineId' @::@ 'Text'
 --
+-- * 'pdTags' @::@ ['Tag']
+--
 pipelineDescription :: Text -- ^ 'pdPipelineId'
                     -> Text -- ^ 'pdName'
                     -> PipelineDescription
@@ -610,6 +661,7 @@ pipelineDescription p1 p2 = PipelineDescription
     , _pdName        = p2
     , _pdFields      = mempty
     , _pdDescription = Nothing
+    , _pdTags        = mempty
     }
 
 -- | Description of the pipeline.
@@ -630,12 +682,19 @@ pdName = lens _pdName (\s a -> s { _pdName = a })
 pdPipelineId :: Lens' PipelineDescription Text
 pdPipelineId = lens _pdPipelineId (\s a -> s { _pdPipelineId = a })
 
+-- | A list of tags to associated with a pipeline. Tags let you control access to
+-- pipelines. For more information, see <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines> in
+-- the /AWS Data Pipeline Developer Guide/.
+pdTags :: Lens' PipelineDescription [Tag]
+pdTags = lens _pdTags (\s a -> s { _pdTags = a }) . _List
+
 instance FromJSON PipelineDescription where
     parseJSON = withObject "PipelineDescription" $ \o -> PipelineDescription
         <$> o .:? "description"
         <*> o .:? "fields" .!= mempty
         <*> o .:  "name"
         <*> o .:  "pipelineId"
+        <*> o .:? "tags" .!= mempty
 
 instance ToJSON PipelineDescription where
     toJSON PipelineDescription{..} = object
@@ -643,6 +702,7 @@ instance ToJSON PipelineDescription where
         , "name"        .= _pdName
         , "fields"      .= _pdFields
         , "description" .= _pdDescription
+        , "tags"        .= _pdTags
         ]
 
 data InstanceIdentity = InstanceIdentity

@@ -98,7 +98,7 @@ gdcrETag = lens _gdcrETag (\s a -> s { _gdcrETag = a })
 
 instance ToPath GetDistributionConfig where
     toPath GetDistributionConfig{..} = mconcat
-        [ "/2014-10-21/distribution/"
+        [ "/2014-11-06/distribution/"
         , toText _gdcId
         , "/config"
         ]

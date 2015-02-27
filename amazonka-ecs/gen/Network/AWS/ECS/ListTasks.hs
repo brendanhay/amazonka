@@ -49,7 +49,7 @@ module Network.AWS.ECS.ListTasks
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.Query
+import Network.AWS.Request.JSON
 import Network.AWS.ECS.Types
 import qualified GHC.Exts
 
@@ -123,7 +123,7 @@ ltNextToken = lens _ltNextToken (\s a -> s { _ltNextToken = a })
 
 data ListTasksResponse = ListTasksResponse
     { _ltrNextToken :: Maybe Text
-    , _ltrTaskArns  :: List "member" Text
+    , _ltrTaskArns  :: List "taskArns" Text
     } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListTasksResponse' constructor.
@@ -155,24 +155,27 @@ instance ToPath ListTasks where
     toPath = const "/"
 
 instance ToQuery ListTasks where
-    toQuery ListTasks{..} = mconcat
-        [ "cluster"           =? _ltCluster
-        , "containerInstance" =? _ltContainerInstance
-        , "family"            =? _ltFamily
-        , "maxResults"        =? _ltMaxResults
-        , "nextToken"         =? _ltNextToken
-        ]
+    toQuery = const mempty
 
 instance ToHeaders ListTasks
+
+instance ToJSON ListTasks where
+    toJSON ListTasks{..} = object
+        [ "cluster"           .= _ltCluster
+        , "containerInstance" .= _ltContainerInstance
+        , "family"            .= _ltFamily
+        , "nextToken"         .= _ltNextToken
+        , "maxResults"        .= _ltMaxResults
+        ]
 
 instance AWSRequest ListTasks where
     type Sv ListTasks = ECS
     type Rs ListTasks = ListTasksResponse
 
     request  = post "ListTasks"
-    response = xmlResponse
+    response = jsonResponse
 
-instance FromXML ListTasksResponse where
-    parseXML = withElement "ListTasksResult" $ \x -> ListTasksResponse
-        <$> x .@? "nextToken"
-        <*> x .@? "taskArns" .!@ mempty
+instance FromJSON ListTasksResponse where
+    parseJSON = withObject "ListTasksResponse" $ \o -> ListTasksResponse
+        <$> o .:? "nextToken"
+        <*> o .:? "taskArns" .!= mempty

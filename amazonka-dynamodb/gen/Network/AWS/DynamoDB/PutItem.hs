@@ -157,8 +157,6 @@ piConditionExpression =
 -- that if you use /ConditionalOperator/ and / ConditionExpression / at the same
 -- time, DynamoDB will return a /ValidationException/ exception.
 --
--- This parameter does not support lists or maps.
---
 -- A logical operator to apply to the conditions in the /Expected/ map:
 --
 -- 'AND' - If all of the conditions evaluate to true, then the entire map
@@ -170,6 +168,9 @@ piConditionExpression =
 -- If you omit /ConditionalOperator/, then 'AND' is the default.
 --
 -- The operation will succeed only if the entire map evaluates to true.
+--
+-- This parameter does not support attributes of type List or Map.
+--
 piConditionalOperator :: Lens' PutItem (Maybe ConditionalOperator)
 piConditionalOperator =
     lens _piConditionalOperator (\s a -> s { _piConditionalOperator = a })
@@ -178,10 +179,10 @@ piConditionalOperator =
 -- that if you use /Expected/ and / ConditionExpression / at the same time, DynamoDB
 -- will return a /ValidationException/ exception.
 --
--- This parameter does not support lists or maps.
---
 -- A map of attribute/condition pairs. /Expected/ provides a conditional block
 -- for the /PutItem/ operation.
+--
+-- This parameter does not support attributes of type List or Map.
 --
 -- Each element of /Expected/ consists of an attribute name, a comparison
 -- operator, and one or more values. DynamoDB compares the attribute with the
@@ -210,7 +211,7 @@ piConditionalOperator =
 -- greater than 'B'. For a list of code values, see <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>.
 --
 -- For type Binary, DynamoDB treats each byte of the binary data as unsigned
--- when it compares binary values, for example when evaluating query expressions.
+-- when it compares binary values.
 --
 -- /ComparisonOperator/ - A comparator for evaluating attributes in the /AttributeValueList/. When performing the comparison, DynamoDB uses strongly consistent reads.
 --
@@ -224,7 +225,7 @@ piConditionalOperator =
 --
 -- /AttributeValueList/ can contain only one /AttributeValue/ element of type
 -- String, Number, Binary, String Set, Number Set, or Binary Set. If an item
--- contains an /AttributeValue/ element of a different type than the one specified
+-- contains an /AttributeValue/ element of a different type than the one provided
 -- in the request, the value does not match. For example, '{"S":"6"}' does not
 -- equal '{"N":"6"}'. Also, '{"N":"6"}' does not equal '{"NS":["6", "2", "1"]}'.
 --
@@ -234,7 +235,7 @@ piConditionalOperator =
 -- maps.
 --
 -- /AttributeValueList/ can contain only one /AttributeValue/ of type String,
--- Number, Binary, String Set, Number Set, or Binary Set. If an item contains an /AttributeValue/ of a different type than the one specified in the request, the
+-- Number, Binary, String Set, Number Set, or Binary Set. If an item contains an /AttributeValue/ of a different type than the one provided in the request, the
 -- value does not match. For example, '{"S":"6"}' does not equal '{"N":"6"}'. Also, '{"N":"6"}' does not equal '{"NS":["6", "2", "1"]}'.
 --
 --
@@ -242,7 +243,7 @@ piConditionalOperator =
 -- 'LE' : Less than or equal.
 --
 -- /AttributeValueList/ can contain only one /AttributeValue/ element of type
--- String, Number, or Binary (not a set type). If an item contains an /AttributeValue/ element of a different type than the one specified in the request, the value
+-- String, Number, or Binary (not a set type). If an item contains an /AttributeValue/ element of a different type than the one provided in the request, the value
 -- does not match. For example, '{"S":"6"}' does not equal '{"N":"6"}'. Also, '{"N":"6"}' does not compare to '{"NS":["6", "2", "1"]}'.
 --
 --
@@ -251,7 +252,7 @@ piConditionalOperator =
 --
 -- /AttributeValueList/ can contain only one /AttributeValue/ of type String,
 -- Number, or Binary (not a set type). If an item contains an /AttributeValue/
--- element of a different type than the one specified in the request, the value
+-- element of a different type than the one provided in the request, the value
 -- does not match. For example, '{"S":"6"}' does not equal '{"N":"6"}'. Also, '{"N":"6"}' does not compare to '{"NS":["6", "2", "1"]}'.
 --
 --
@@ -259,7 +260,7 @@ piConditionalOperator =
 -- 'GE' : Greater than or equal.
 --
 -- /AttributeValueList/ can contain only one /AttributeValue/ element of type
--- String, Number, or Binary (not a set type). If an item contains an /AttributeValue/ element of a different type than the one specified in the request, the value
+-- String, Number, or Binary (not a set type). If an item contains an /AttributeValue/ element of a different type than the one provided in the request, the value
 -- does not match. For example, '{"S":"6"}' does not equal '{"N":"6"}'. Also, '{"N":"6"}' does not compare to '{"NS":["6", "2", "1"]}'.
 --
 --
@@ -267,7 +268,7 @@ piConditionalOperator =
 -- 'GT' : Greater than.
 --
 -- /AttributeValueList/ can contain only one /AttributeValue/ element of type
--- String, Number, or Binary (not a set type). If an item contains an /AttributeValue/ element of a different type than the one specified in the request, the value
+-- String, Number, or Binary (not a set type). If an item contains an /AttributeValue/ element of a different type than the one provided in the request, the value
 -- does not match. For example, '{"S":"6"}' does not equal '{"N":"6"}'. Also, '{"N":"6"}' does not compare to '{"NS":["6", "2", "1"]}'.
 --
 --
@@ -337,7 +338,7 @@ piConditionalOperator =
 -- /AttributeValueList/ must contain two /AttributeValue/ elements of the same
 -- type, either String, Number, or Binary (not a set type). A target attribute
 -- matches if the target value is greater than, or equal to, the first element
--- and less than, or equal to, the second element. If an item contains an /AttributeValue/ element of a different type than the one specified in the request, the value
+-- and less than, or equal to, the second element. If an item contains an /AttributeValue/ element of a different type than the one provided in the request, the value
 -- does not match. For example, '{"S":"6"}' does not compare to '{"N":"6"}'. Also, '{"N":"6"}' does not compare to '{"NS":["6", "2", "1"]}'
 --
 -- For usage examples of /AttributeValueList/ and /ComparisonOperator/, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html Legacy Conditional Parameters> in the /Amazon DynamoDB Developer Guide/.
@@ -367,11 +368,10 @@ piConditionalOperator =
 piExpected :: Lens' PutItem (HashMap Text ExpectedAttributeValue)
 piExpected = lens _piExpected (\s a -> s { _piExpected = a }) . _Map
 
--- | One or more substitution tokens for simplifying complex expressions. The
+-- | One or more substitution tokens for attribute names in an expression. The
 -- following are some use cases for using /ExpressionAttributeNames/:
 --
--- To shorten an attribute name that is very long or unwieldy in an
--- expression.
+-- To access an attribute whose name conflicts with a DynamoDB reserved word.
 --
 -- To create a placeholder for repeating occurrences of an attribute name in
 -- an expression.
@@ -380,17 +380,23 @@ piExpected = lens _piExpected (\s a -> s { _piExpected = a }) . _Map
 -- misinterpreted in an expression.
 --
 -- Use the # character in an expression to dereference an attribute name. For
--- example, consider the following expression:
+-- example, consider the following attribute name:
 --
--- 'order.customerInfo.LastName = "Smith" OR order.customerInfo.LastName ="Jones"'
+-- 'Percentile'
 --
--- Now suppose that you specified the following for /ExpressionAttributeNames/:
+-- The name of this attribute conflicts with a reserved word, so it cannot be
+-- used directly in an expression. (For the complete list of reserved words, go
+-- to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html Reserved Words> in the /Amazon DynamoDB Developer Guide/). To work around
+-- this, you could specify the following for /ExpressionAttributeNames/:
 --
--- '{"#name":"order.customerInfo.LastName"}'
+-- '{"#P":"Percentile"}'
 --
--- The expression can now be simplified as follows:
+-- You could then use this substitution in an expression, as in this example:
 --
--- '#name = "Smith" OR #name = "Jones"'
+-- '#P = :val'
+--
+-- Tokens that begin with the : character are /expression attribute values/,
+-- which are placeholders for the actual value at runtime.
 --
 -- For more information on expression attribute names, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing ItemAttributes> in the /Amazon DynamoDB Developer Guide/.
 piExpressionAttributeNames :: Lens' PutItem (HashMap Text Text)
@@ -426,8 +432,8 @@ piExpressionAttributeValues =
 -- name-value pairs for the item.
 --
 -- You must provide all of the attributes for the primary key. For example,
--- with a hash type primary key, you only need to specify the hash attribute.
--- For a hash-and-range type primary key, you must specify both the hash
+-- with a hash type primary key, you only need to provide the hash attribute.
+-- For a hash-and-range type primary key, you must provide both the hash
 -- attribute and the range attribute.
 --
 -- If you specify any attributes that are part of an index key, then the data

@@ -109,7 +109,7 @@ cirLocation = lens _cirLocation (\s a -> s { _cirLocation = a })
 
 instance ToPath CreateInvalidation where
     toPath CreateInvalidation{..} = mconcat
-        [ "/2014-10-21/distribution/"
+        [ "/2014-11-06/distribution/"
         , toText _ciDistributionId
         , "/invalidation"
         ]

@@ -22,17 +22,23 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Adds (or updates) a policy document associated with the specified role. For
--- information about policies, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/PoliciesOverview.html Overview of Policies> in the /Using IAM/
--- guide.
+-- | Adds (or updates) an inline policy document that is embedded in the specified
+-- role.
 --
--- For information about limits on the policies you can associate with a role,
--- see <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities> in the /Using IAM/ guide.
+-- When you embed an inline policy in a role, the inline policy is used as the
+-- role's access (permissions) policy. The role's trust policy is created at the
+-- same time as the role, using 'CreateRole'. You can update a role's trust policy
+-- using 'UpdateAssumeRolePolicy'. For more information about roles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html UsingRoles to Delegate Permissions and Federate Identities>.
+--
+-- A role can also have a managed policy attached to it. To attach a managed
+-- policy to a role, use 'AttachRolePolicy'. To create a new managed policy, use 'CreatePolicy'. For information about policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and InlinePolicies> in the /Using IAM/ guide.
+--
+-- For information about limits on the number of inline policies that you can
+-- embed with a role, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities> in the /Using IAM/ guide.
 --
 -- Because policy documents can be large, you should use POST rather than GET
--- when calling 'PutRolePolicy'. For information about setting up signatures and
--- authorization through the API, go to <http://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html Signing AWS API Requests> in the /AWSGeneral Reference/. For general information about using the Query API with
--- IAM, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html Making Query Requests> in the /Using IAM/ guide.
+-- when calling 'PutRolePolicy'. For general information about using the Query API
+-- with IAM, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html Making Query Requests> in the /Using IAM/ guide.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_PutRolePolicy.html>
 module Network.AWS.IAM.PutRolePolicy

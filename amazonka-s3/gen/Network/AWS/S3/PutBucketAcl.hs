@@ -165,9 +165,7 @@ instance ToHeaders PutBucketAcl where
         ]
 
 instance ToXMLRoot PutBucketAcl where
-    toXMLRoot PutBucketAcl{..} = namespaced ns "PutBucketAcl"
-        [ "AccessControlPolicy" =@ _pbaAccessControlPolicy
-        ]
+    toXMLRoot = extractRoot ns . toXML . _pbaAccessControlPolicy
 
 instance ToXML PutBucketAcl
 

@@ -49,7 +49,7 @@ module Network.AWS.ECS.SubmitTaskStateChange
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.Query
+import Network.AWS.Request.JSON
 import Network.AWS.ECS.Types
 import qualified GHC.Exts
 
@@ -122,22 +122,25 @@ instance ToPath SubmitTaskStateChange where
     toPath = const "/"
 
 instance ToQuery SubmitTaskStateChange where
-    toQuery SubmitTaskStateChange{..} = mconcat
-        [ "cluster" =? _stscCluster
-        , "reason"  =? _stscReason
-        , "status"  =? _stscStatus
-        , "task"    =? _stscTask
-        ]
+    toQuery = const mempty
 
 instance ToHeaders SubmitTaskStateChange
+
+instance ToJSON SubmitTaskStateChange where
+    toJSON SubmitTaskStateChange{..} = object
+        [ "cluster" .= _stscCluster
+        , "task"    .= _stscTask
+        , "status"  .= _stscStatus
+        , "reason"  .= _stscReason
+        ]
 
 instance AWSRequest SubmitTaskStateChange where
     type Sv SubmitTaskStateChange = ECS
     type Rs SubmitTaskStateChange = SubmitTaskStateChangeResponse
 
     request  = post "SubmitTaskStateChange"
-    response = xmlResponse
+    response = jsonResponse
 
-instance FromXML SubmitTaskStateChangeResponse where
-    parseXML = withElement "SubmitTaskStateChangeResult" $ \x -> SubmitTaskStateChangeResponse
-        <$> x .@? "acknowledgment"
+instance FromJSON SubmitTaskStateChangeResponse where
+    parseJSON = withObject "SubmitTaskStateChangeResponse" $ \o -> SubmitTaskStateChangeResponse
+        <$> o .:? "acknowledgment"

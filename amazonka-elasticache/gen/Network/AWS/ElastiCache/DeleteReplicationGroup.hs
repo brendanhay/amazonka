@@ -22,14 +22,14 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | The /DeleteReplicationGroup/ operation deletes an existing cluster. By default,
--- this operation deletes the entire cluster, including the primary node group
--- and all of the read replicas. You can optionally delete only the read
--- replicas, while retaining the primary node group.
+-- | The /DeleteReplicationGroup/ action deletes an existing replication group. By
+-- default, this action deletes the entire replication group, including the
+-- primary cluster and all of the read replicas. You can optionally delete only
+-- the read replicas, while retaining the primary cluster.
 --
--- When you receive a successful response from this operation, Amazon
--- ElastiCache immediately begins deleting the selected resources; you cannot
--- cancel or revert this operation.
+-- When you receive a successful response from this action, Amazon ElastiCache
+-- immediately begins deleting the selected resources; you cannot cancel or
+-- revert this action.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteReplicationGroup.html>
 module Network.AWS.ElastiCache.DeleteReplicationGroup

@@ -44,12 +44,12 @@ module Network.AWS.ECS.DescribeClusters
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.Query
+import Network.AWS.Request.JSON
 import Network.AWS.ECS.Types
 import qualified GHC.Exts
 
 newtype DescribeClusters = DescribeClusters
-    { _dcClusters :: List "member" Text
+    { _dcClusters :: List "clusters" Text
     } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
 
 instance GHC.Exts.IsList DescribeClusters where
@@ -76,8 +76,8 @@ dcClusters :: Lens' DescribeClusters [Text]
 dcClusters = lens _dcClusters (\s a -> s { _dcClusters = a }) . _List
 
 data DescribeClustersResponse = DescribeClustersResponse
-    { _dcrClusters :: List "member" Cluster
-    , _dcrFailures :: List "member" Failure
+    { _dcrClusters :: List "clusters" Cluster
+    , _dcrFailures :: List "failures" Failure
     } deriving (Eq, Read, Show)
 
 -- | 'DescribeClustersResponse' constructor.
@@ -105,20 +105,23 @@ instance ToPath DescribeClusters where
     toPath = const "/"
 
 instance ToQuery DescribeClusters where
-    toQuery DescribeClusters{..} = mconcat
-        [ "clusters" =? _dcClusters
-        ]
+    toQuery = const mempty
 
 instance ToHeaders DescribeClusters
+
+instance ToJSON DescribeClusters where
+    toJSON DescribeClusters{..} = object
+        [ "clusters" .= _dcClusters
+        ]
 
 instance AWSRequest DescribeClusters where
     type Sv DescribeClusters = ECS
     type Rs DescribeClusters = DescribeClustersResponse
 
     request  = post "DescribeClusters"
-    response = xmlResponse
+    response = jsonResponse
 
-instance FromXML DescribeClustersResponse where
-    parseXML = withElement "DescribeClustersResult" $ \x -> DescribeClustersResponse
-        <$> x .@? "clusters" .!@ mempty
-        <*> x .@? "failures" .!@ mempty
+instance FromJSON DescribeClustersResponse where
+    parseJSON = withObject "DescribeClustersResponse" $ \o -> DescribeClustersResponse
+        <$> o .:? "clusters" .!= mempty
+        <*> o .:? "failures" .!= mempty

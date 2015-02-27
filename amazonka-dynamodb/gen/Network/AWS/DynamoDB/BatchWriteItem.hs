@@ -52,18 +52,17 @@
 -- data, such as from Amazon Elastic MapReduce (EMR), or copy data from another
 -- database into DynamoDB. In order to improve performance with these
 -- large-scale operations, /BatchWriteItem/ does not behave in the same way as
--- individual /PutItem/ and /DeleteItem/ calls would For example, you cannot specify
--- conditions on individual put and delete requests, and /BatchWriteItem/ does not
--- return deleted items in the response.
+-- individual /PutItem/ and /DeleteItem/ calls would. For example, you cannot
+-- specify conditions on individual put and delete requests, and /BatchWriteItem/
+-- does not return deleted items in the response.
 --
 -- If you use a programming language that supports concurrency, such as Java,
 -- you can use threads to write items in parallel. Your application must include
 -- the necessary logic to manage the threads. With languages that don't support
--- threading, such as PHP, you must update or delete the specified items one at
--- a time. In both situations, /BatchWriteItem/ provides an alternative where the
--- API performs the specified put and delete operations in parallel, giving you
--- the power of the thread pool approach without having to introduce complexity
--- into your application.
+-- threading, such as PHP, you must update provides an alternative where the API
+-- performs the specified put and delete operations in parallel, giving you the
+-- power of the thread pool approach without having to introduce complexity into
+-- your application.
 --
 -- Parallel processing reduces latency, but each specified put and delete
 -- request consumes the same number of write capacity units whether it is
@@ -148,8 +147,8 @@ batchWriteItem = BatchWriteItem
 -- /Key/ - A map of primary key attribute values that uniquely identify the !
 -- item. Each entry in this map consists of an attribute name and an attribute
 -- value. For each primary key, you must provide /all/ of the key attributes. For
--- example, with a hash type primary key, you only need to specify the hash
--- attribute. For a hash-and-range type primary key, you must specify /both/ the
+-- example, with a hash type primary key, you only need to provide the hash
+-- attribute. For a hash-and-range type primary key, you must provide /both/ the
 -- hash attribute and the range attribute.
 --
 -- /PutRequest/ - Perform a /PutItem/ operation on the specified item. The item

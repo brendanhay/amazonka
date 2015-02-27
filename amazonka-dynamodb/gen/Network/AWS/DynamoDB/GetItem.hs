@@ -105,11 +105,11 @@ getItem p1 p2 = GetItem
 -- that if you use /AttributesToGet/ and /ProjectionExpression/ at the same time,
 -- DynamoDB will return a /ValidationException/ exception.
 --
--- This parameter allows you to retrieve lists or maps; however, it cannot
--- retrieve individual list or map elements.
+-- This parameter allows you to retrieve attributes of type List or Map;
+-- however, it cannot retrieve individual elements within a List or a Map.
 --
 -- The names of one or more attributes to retrieve. If no attribute names are
--- specified, then all attributes will be returned. If any of the requested
+-- provided, then all attributes will be returned. If any of the requested
 -- attributes are not found, they will not appear in the result.
 --
 -- Note that /AttributesToGet/ has no effect on provisioned throughput
@@ -125,11 +125,10 @@ giAttributesToGet =
 giConsistentRead :: Lens' GetItem (Maybe Bool)
 giConsistentRead = lens _giConsistentRead (\s a -> s { _giConsistentRead = a })
 
--- | One or more substitution tokens for simplifying complex expressions. The
+-- | One or more substitution tokens for attribute names in an expression. The
 -- following are some use cases for using /ExpressionAttributeNames/:
 --
--- To shorten an attribute name that is very long or unwieldy in an
--- expression.
+-- To access an attribute whose name conflicts with a DynamoDB reserved word.
 --
 -- To create a placeholder for repeating occurrences of an attribute name in
 -- an expression.
@@ -138,17 +137,23 @@ giConsistentRead = lens _giConsistentRead (\s a -> s { _giConsistentRead = a })
 -- misinterpreted in an expression.
 --
 -- Use the # character in an expression to dereference an attribute name. For
--- example, consider the following expression:
+-- example, consider the following attribute name:
 --
--- 'order.customerInfo.LastName = "Smith" OR order.customerInfo.LastName ="Jones"'
+-- 'Percentile'
 --
--- Now suppose that you specified the following for /ExpressionAttributeNames/:
+-- The name of this attribute conflicts with a reserved word, so it cannot be
+-- used directly in an expression. (For the complete list of reserved words, go
+-- to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html Reserved Words> in the /Amazon DynamoDB Developer Guide/). To work around
+-- this, you could specify the following for /ExpressionAttributeNames/:
 --
--- '{"#name":"order.customerInfo.LastName"}'
+-- '{"#P":"Percentile"}'
 --
--- The expression can now be simplified as follows:
+-- You could then use this substitution in an expression, as in this example:
 --
--- '#name = "Smith" OR #name = "Jones"'
+-- '#P = :val'
+--
+-- Tokens that begin with the : character are /expression attribute values/,
+-- which are placeholders for the actual value at runtime.
 --
 -- For more information on expression attribute names, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing ItemAttributes> in the /Amazon DynamoDB Developer Guide/.
 giExpressionAttributeNames :: Lens' GetItem (HashMap Text Text)
@@ -161,8 +166,8 @@ giExpressionAttributeNames =
 -- key of the item to retrieve.
 --
 -- For the primary key, you must provide all of the attributes. For example,
--- with a hash type primary key, you only need to specify the hash attribute.
--- For a hash-and-range type primary key, you must specify both the hash
+-- with a hash type primary key, you only need to provide the hash attribute.
+-- For a hash-and-range type primary key, you must provide both the hash
 -- attribute and the range attribute.
 giKey :: Lens' GetItem (HashMap Text AttributeValue)
 giKey = lens _giKey (\s a -> s { _giKey = a }) . _Map
@@ -175,7 +180,7 @@ giKey = lens _giKey (\s a -> s { _giKey = a }) . _Map
 -- If any of the requested attributes are not found, they will not appear in the
 -- result.
 --
--- For more information on projection expressions, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing ItemAttributes> in the /Amazon DynamoDB Developer Guide/.
+-- For more information, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes> in the /Amazon DynamoDBDeveloper Guide/.
 giProjectionExpression :: Lens' GetItem (Maybe Text)
 giProjectionExpression =
     lens _giProjectionExpression (\s a -> s { _giProjectionExpression = a })

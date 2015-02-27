@@ -1,5 +1,5 @@
 name:                  amazonka-elasticache
-version:               0.3.0
+version:               0.3.1
 synopsis:              Amazon ElastiCache SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -42,6 +42,7 @@ library
 
     exposed-modules:
           Network.AWS.ElastiCache
+        , Network.AWS.ElastiCache.AddTagsToResource
         , Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
         , Network.AWS.ElastiCache.CopySnapshot
         , Network.AWS.ElastiCache.CreateCacheCluster
@@ -68,12 +69,14 @@ library
         , Network.AWS.ElastiCache.DescribeReservedCacheNodes
         , Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
         , Network.AWS.ElastiCache.DescribeSnapshots
+        , Network.AWS.ElastiCache.ListTagsForResource
         , Network.AWS.ElastiCache.ModifyCacheCluster
         , Network.AWS.ElastiCache.ModifyCacheParameterGroup
         , Network.AWS.ElastiCache.ModifyCacheSubnetGroup
         , Network.AWS.ElastiCache.ModifyReplicationGroup
         , Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
         , Network.AWS.ElastiCache.RebootCacheCluster
+        , Network.AWS.ElastiCache.RemoveTagsFromResource
         , Network.AWS.ElastiCache.ResetCacheParameterGroup
         , Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
         , Network.AWS.ElastiCache.Types
@@ -82,5 +85,5 @@ library
     other-modules:
 
     build-depends:
-          amazonka-core == 0.3.0.*
+          amazonka-core == 0.3.1.*
         , base          >= 4.7     && < 5

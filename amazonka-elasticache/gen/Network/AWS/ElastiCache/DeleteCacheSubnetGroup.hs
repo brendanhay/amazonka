@@ -22,7 +22,10 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | The /DeleteCacheSubnetGroup/ operation deletes a cache subnet group.
+-- | The /DeleteCacheSubnetGroup/ action deletes a cache subnet group.
+--
+-- You cannot delete a cache subnet group if it is associated with any cache
+-- clusters.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteCacheSubnetGroup.html>
 module Network.AWS.ElastiCache.DeleteCacheSubnetGroup

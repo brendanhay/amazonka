@@ -84,7 +84,7 @@ deleteDistributionResponse = DeleteDistributionResponse
 
 instance ToPath DeleteDistribution where
     toPath DeleteDistribution{..} = mconcat
-        [ "/2014-10-21/distribution/"
+        [ "/2014-11-06/distribution/"
         , toText _ddId
         ]
 

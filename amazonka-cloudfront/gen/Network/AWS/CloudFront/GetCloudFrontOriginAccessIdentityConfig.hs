@@ -99,7 +99,7 @@ gcfoaicrETag = lens _gcfoaicrETag (\s a -> s { _gcfoaicrETag = a })
 
 instance ToPath GetCloudFrontOriginAccessIdentityConfig where
     toPath GetCloudFrontOriginAccessIdentityConfig{..} = mconcat
-        [ "/2014-10-21/origin-access-identity/cloudfront/"
+        [ "/2014-11-06/origin-access-identity/cloudfront/"
         , toText _gcfoaicId
         , "/config"
         ]

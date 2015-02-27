@@ -22,7 +22,12 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deletes the specified policy associated with the specified user.
+-- | Deletes the specified inline policy that is embedded in the specified user.
+--
+-- A user can also have managed policies attached to it. To detach a managed
+-- policy from a user, use 'DetachUserPolicy'. For more information about
+-- policies, refer to <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies> in the /Using IAM/
+-- guide.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteUserPolicy.html>
 module Network.AWS.IAM.DeleteUserPolicy
@@ -67,11 +72,12 @@ deleteUserPolicy p1 p2 = DeleteUserPolicy
     , _dupPolicyName = p2
     }
 
--- | The name of the policy document to delete.
+-- | The name identifying the policy document to delete.
 dupPolicyName :: Lens' DeleteUserPolicy Text
 dupPolicyName = lens _dupPolicyName (\s a -> s { _dupPolicyName = a })
 
--- | The name of the user the policy is associated with.
+-- | The name (friendly name, not ARN) identifying the user that the policy is
+-- embedded in.
 dupUserName :: Lens' DeleteUserPolicy Text
 dupUserName = lens _dupUserName (\s a -> s { _dupUserName = a })
 

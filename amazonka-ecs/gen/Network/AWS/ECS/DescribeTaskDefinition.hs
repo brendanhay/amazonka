@@ -22,7 +22,9 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Describes a task definition.
+-- | Describes a task definition. You can specify a 'family' and 'revision' to find
+-- information on a specific task definition, or you can simply specify the
+-- family to find the latest revision in that family.
 --
 -- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTaskDefinition.html>
 module Network.AWS.ECS.DescribeTaskDefinition
@@ -43,7 +45,7 @@ module Network.AWS.ECS.DescribeTaskDefinition
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.Query
+import Network.AWS.Request.JSON
 import Network.AWS.ECS.Types
 import qualified GHC.Exts
 
@@ -63,8 +65,9 @@ describeTaskDefinition p1 = DescribeTaskDefinition
     { _dtdTaskDefinition = p1
     }
 
--- | The 'family' and 'revision' ('family:revision') or full Amazon Resource Name (ARN)
--- of the task definition that you want to describe.
+-- | The 'family' for the latest revision, 'family' and 'revision' ('family:revision') for
+-- a specific revision in the family, or full Amazon Resource Name (ARN) of the
+-- task definition that you want to describe.
 dtdTaskDefinition :: Lens' DescribeTaskDefinition Text
 dtdTaskDefinition =
     lens _dtdTaskDefinition (\s a -> s { _dtdTaskDefinition = a })
@@ -93,19 +96,22 @@ instance ToPath DescribeTaskDefinition where
     toPath = const "/"
 
 instance ToQuery DescribeTaskDefinition where
-    toQuery DescribeTaskDefinition{..} = mconcat
-        [ "taskDefinition" =? _dtdTaskDefinition
-        ]
+    toQuery = const mempty
 
 instance ToHeaders DescribeTaskDefinition
+
+instance ToJSON DescribeTaskDefinition where
+    toJSON DescribeTaskDefinition{..} = object
+        [ "taskDefinition" .= _dtdTaskDefinition
+        ]
 
 instance AWSRequest DescribeTaskDefinition where
     type Sv DescribeTaskDefinition = ECS
     type Rs DescribeTaskDefinition = DescribeTaskDefinitionResponse
 
     request  = post "DescribeTaskDefinition"
-    response = xmlResponse
+    response = jsonResponse
 
-instance FromXML DescribeTaskDefinitionResponse where
-    parseXML = withElement "DescribeTaskDefinitionResult" $ \x -> DescribeTaskDefinitionResponse
-        <$> x .@? "taskDefinition"
+instance FromJSON DescribeTaskDefinitionResponse where
+    parseJSON = withObject "DescribeTaskDefinitionResponse" $ \o -> DescribeTaskDefinitionResponse
+        <$> o .:? "taskDefinition"

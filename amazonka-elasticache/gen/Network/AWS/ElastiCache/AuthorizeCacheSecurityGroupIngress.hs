@@ -22,10 +22,13 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | The /AuthorizeCacheSecurityGroupIngress/ operation allows network ingress to a
+-- | The /AuthorizeCacheSecurityGroupIngress/ action allows network ingress to a
 -- cache security group. Applications using ElastiCache must be running on
 -- Amazon EC2, and Amazon EC2 security groups are used as the authorization
 -- mechanism.
+--
+-- You cannot authorize ingress from an Amazon EC2 security group in one region
+-- to an ElastiCache cluster in another region.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_AuthorizeCacheSecurityGroupIngress.html>
 module Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress

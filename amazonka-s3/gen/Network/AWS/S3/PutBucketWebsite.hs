@@ -104,9 +104,7 @@ instance ToHeaders PutBucketWebsite where
         ]
 
 instance ToXMLRoot PutBucketWebsite where
-    toXMLRoot PutBucketWebsite{..} = namespaced ns "PutBucketWebsite"
-        [ "WebsiteConfiguration" =@ _pbwWebsiteConfiguration
-        ]
+    toXMLRoot = extractRoot ns . toXML . _pbwWebsiteConfiguration
 
 instance ToXML PutBucketWebsite
 

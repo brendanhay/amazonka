@@ -72,6 +72,7 @@ module Network.AWS.CloudFront.Types
     , oCustomOriginConfig
     , oDomainName
     , oId
+    , oOriginPath
     , oS3OriginConfig
 
     -- * ViewerProtocolPolicy
@@ -410,7 +411,7 @@ import Network.AWS.Prelude
 import Network.AWS.Signing
 import qualified GHC.Exts
 
--- | Version @2014-10-21@ of the Amazon CloudFront service.
+-- | Version @2014-11-06@ of the Amazon CloudFront service.
 data CloudFront
 
 instance AWSService CloudFront where
@@ -423,7 +424,7 @@ instance AWSService CloudFront where
         service' = Service
             { _svcAbbrev       = "CloudFront"
             , _svcPrefix       = "cloudfront"
-            , _svcVersion      = "2014-10-21"
+            , _svcVersion      = "2014-11-06"
             , _svcTargetPrefix = Nothing
             , _svcJSONVersion  = Nothing
             , _svcHandle       = handle
@@ -452,7 +453,7 @@ instance AWSService CloudFront where
             | otherwise = False
 
 ns :: Text
-ns = "http://cloudfront.amazonaws.com/doc/2014-10-21/"
+ns = "http://cloudfront.amazonaws.com/doc/2014-11-06/"
 {-# INLINE ns #-}
 
 data CloudFrontOriginAccessIdentityList = CloudFrontOriginAccessIdentityList
@@ -749,6 +750,7 @@ data Origin = Origin
     { _oCustomOriginConfig :: Maybe CustomOriginConfig
     , _oDomainName         :: Text
     , _oId                 :: Text
+    , _oOriginPath         :: Maybe Text
     , _oS3OriginConfig     :: Maybe S3OriginConfig
     } deriving (Eq, Read, Show)
 
@@ -762,6 +764,8 @@ data Origin = Origin
 --
 -- * 'oId' @::@ 'Text'
 --
+-- * 'oOriginPath' @::@ 'Maybe' 'Text'
+--
 -- * 'oS3OriginConfig' @::@ 'Maybe' 'S3OriginConfig'
 --
 origin :: Text -- ^ 'oId'
@@ -770,6 +774,7 @@ origin :: Text -- ^ 'oId'
 origin p1 p2 = Origin
     { _oId                 = p1
     , _oDomainName         = p2
+    , _oOriginPath         = Nothing
     , _oS3OriginConfig     = Nothing
     , _oCustomOriginConfig = Nothing
     }
@@ -795,6 +800,13 @@ oDomainName = lens _oDomainName (\s a -> s { _oDomainName = a })
 oId :: Lens' Origin Text
 oId = lens _oId (\s a -> s { _oId = a })
 
+-- | An optional element that causes CloudFront to request your content from a
+-- directory in your Amazon S3 bucket or your custom origin. When you include
+-- the OriginPath element, specify the directory name, beginning with a /.
+-- CloudFront appends the directory name to the value of DomainName.
+oOriginPath :: Lens' Origin (Maybe Text)
+oOriginPath = lens _oOriginPath (\s a -> s { _oOriginPath = a })
+
 -- | A complex type that contains information about the Amazon S3 origin. If the
 -- origin is a custom origin, use the CustomOriginConfig element instead.
 oS3OriginConfig :: Lens' Origin (Maybe S3OriginConfig)
@@ -805,12 +817,14 @@ instance FromXML Origin where
         <$> x .@? "CustomOriginConfig"
         <*> x .@  "DomainName"
         <*> x .@  "Id"
+        <*> x .@? "OriginPath"
         <*> x .@? "S3OriginConfig"
 
 instance ToXML Origin where
     toXML Origin{..} = nodes "Origin"
         [ "Id"                 =@ _oId
         , "DomainName"         =@ _oDomainName
+        , "OriginPath"         =@ _oOriginPath
         , "S3OriginConfig"     =@ _oS3OriginConfig
         , "CustomOriginConfig" =@ _oCustomOriginConfig
         ]
@@ -937,12 +951,12 @@ instance ToXML StreamingDistributionList where
         ]
 
 data StreamingDistributionConfig = StreamingDistributionConfig
-    { _sdcAliases         :: Aliases
+    { _sdcAliases         :: Maybe Aliases
     , _sdcCallerReference :: Text
     , _sdcComment         :: Text
     , _sdcEnabled         :: Bool
-    , _sdcLogging         :: StreamingLoggingConfig
-    , _sdcPriceClass      :: PriceClass
+    , _sdcLogging         :: Maybe StreamingLoggingConfig
+    , _sdcPriceClass      :: Maybe PriceClass
     , _sdcS3Origin        :: S3Origin
     , _sdcTrustedSigners  :: TrustedSigners
     } deriving (Eq, Read, Show)
@@ -951,7 +965,7 @@ data StreamingDistributionConfig = StreamingDistributionConfig
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sdcAliases' @::@ 'Aliases'
+-- * 'sdcAliases' @::@ 'Maybe' 'Aliases'
 --
 -- * 'sdcCallerReference' @::@ 'Text'
 --
@@ -959,9 +973,9 @@ data StreamingDistributionConfig = StreamingDistributionConfig
 --
 -- * 'sdcEnabled' @::@ 'Bool'
 --
--- * 'sdcLogging' @::@ 'StreamingLoggingConfig'
+-- * 'sdcLogging' @::@ 'Maybe' 'StreamingLoggingConfig'
 --
--- * 'sdcPriceClass' @::@ 'PriceClass'
+-- * 'sdcPriceClass' @::@ 'Maybe' 'PriceClass'
 --
 -- * 'sdcS3Origin' @::@ 'S3Origin'
 --
@@ -969,27 +983,24 @@ data StreamingDistributionConfig = StreamingDistributionConfig
 --
 streamingDistributionConfig :: Text -- ^ 'sdcCallerReference'
                             -> S3Origin -- ^ 'sdcS3Origin'
-                            -> Aliases -- ^ 'sdcAliases'
                             -> Text -- ^ 'sdcComment'
-                            -> StreamingLoggingConfig -- ^ 'sdcLogging'
                             -> TrustedSigners -- ^ 'sdcTrustedSigners'
-                            -> PriceClass -- ^ 'sdcPriceClass'
                             -> Bool -- ^ 'sdcEnabled'
                             -> StreamingDistributionConfig
-streamingDistributionConfig p1 p2 p3 p4 p5 p6 p7 p8 = StreamingDistributionConfig
+streamingDistributionConfig p1 p2 p3 p4 p5 = StreamingDistributionConfig
     { _sdcCallerReference = p1
     , _sdcS3Origin        = p2
-    , _sdcAliases         = p3
-    , _sdcComment         = p4
-    , _sdcLogging         = p5
-    , _sdcTrustedSigners  = p6
-    , _sdcPriceClass      = p7
-    , _sdcEnabled         = p8
+    , _sdcComment         = p3
+    , _sdcTrustedSigners  = p4
+    , _sdcEnabled         = p5
+    , _sdcAliases         = Nothing
+    , _sdcLogging         = Nothing
+    , _sdcPriceClass      = Nothing
     }
 
 -- | A complex type that contains information about CNAMEs (alternate domain
 -- names), if any, for this streaming distribution.
-sdcAliases :: Lens' StreamingDistributionConfig Aliases
+sdcAliases :: Lens' StreamingDistributionConfig (Maybe Aliases)
 sdcAliases = lens _sdcAliases (\s a -> s { _sdcAliases = a })
 
 -- | A unique number that ensures the request can't be replayed. If the
@@ -1018,12 +1029,12 @@ sdcEnabled = lens _sdcEnabled (\s a -> s { _sdcEnabled = a })
 
 -- | A complex type that controls whether access logs are written for the
 -- streaming distribution.
-sdcLogging :: Lens' StreamingDistributionConfig StreamingLoggingConfig
+sdcLogging :: Lens' StreamingDistributionConfig (Maybe StreamingLoggingConfig)
 sdcLogging = lens _sdcLogging (\s a -> s { _sdcLogging = a })
 
 -- | A complex type that contains information about price class for this streaming
 -- distribution.
-sdcPriceClass :: Lens' StreamingDistributionConfig PriceClass
+sdcPriceClass :: Lens' StreamingDistributionConfig (Maybe PriceClass)
 sdcPriceClass = lens _sdcPriceClass (\s a -> s { _sdcPriceClass = a })
 
 -- | A complex type that contains information about the Amazon S3 bucket from
@@ -1049,12 +1060,12 @@ sdcTrustedSigners =
 
 instance FromXML StreamingDistributionConfig where
     parseXML x = StreamingDistributionConfig
-        <$> x .@  "Aliases"
+        <$> x .@? "Aliases"
         <*> x .@  "CallerReference"
         <*> x .@  "Comment"
         <*> x .@  "Enabled"
-        <*> x .@  "Logging"
-        <*> x .@  "PriceClass"
+        <*> x .@? "Logging"
+        <*> x .@? "PriceClass"
         <*> x .@  "S3Origin"
         <*> x .@  "TrustedSigners"
 
@@ -1701,17 +1712,17 @@ instance ToXML InvalidationSummary where
         ]
 
 data DistributionConfig = DistributionConfig
-    { _dcAliases              :: Aliases
-    , _dcCacheBehaviors       :: CacheBehaviors
+    { _dcAliases              :: Maybe Aliases
+    , _dcCacheBehaviors       :: Maybe CacheBehaviors
     , _dcCallerReference      :: Text
     , _dcComment              :: Text
     , _dcCustomErrorResponses :: Maybe CustomErrorResponses
     , _dcDefaultCacheBehavior :: DefaultCacheBehavior
-    , _dcDefaultRootObject    :: Text
+    , _dcDefaultRootObject    :: Maybe Text
     , _dcEnabled              :: Bool
-    , _dcLogging              :: LoggingConfig
+    , _dcLogging              :: Maybe LoggingConfig
     , _dcOrigins              :: Origins
-    , _dcPriceClass           :: PriceClass
+    , _dcPriceClass           :: Maybe PriceClass
     , _dcRestrictions         :: Maybe Restrictions
     , _dcViewerCertificate    :: Maybe ViewerCertificate
     } deriving (Eq, Read, Show)
@@ -1720,9 +1731,9 @@ data DistributionConfig = DistributionConfig
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcAliases' @::@ 'Aliases'
+-- * 'dcAliases' @::@ 'Maybe' 'Aliases'
 --
--- * 'dcCacheBehaviors' @::@ 'CacheBehaviors'
+-- * 'dcCacheBehaviors' @::@ 'Maybe' 'CacheBehaviors'
 --
 -- * 'dcCallerReference' @::@ 'Text'
 --
@@ -1732,54 +1743,49 @@ data DistributionConfig = DistributionConfig
 --
 -- * 'dcDefaultCacheBehavior' @::@ 'DefaultCacheBehavior'
 --
--- * 'dcDefaultRootObject' @::@ 'Text'
+-- * 'dcDefaultRootObject' @::@ 'Maybe' 'Text'
 --
 -- * 'dcEnabled' @::@ 'Bool'
 --
--- * 'dcLogging' @::@ 'LoggingConfig'
+-- * 'dcLogging' @::@ 'Maybe' 'LoggingConfig'
 --
 -- * 'dcOrigins' @::@ 'Origins'
 --
--- * 'dcPriceClass' @::@ 'PriceClass'
+-- * 'dcPriceClass' @::@ 'Maybe' 'PriceClass'
 --
 -- * 'dcRestrictions' @::@ 'Maybe' 'Restrictions'
 --
 -- * 'dcViewerCertificate' @::@ 'Maybe' 'ViewerCertificate'
 --
 distributionConfig :: Text -- ^ 'dcCallerReference'
-                   -> Aliases -- ^ 'dcAliases'
-                   -> Text -- ^ 'dcDefaultRootObject'
                    -> Origins -- ^ 'dcOrigins'
                    -> DefaultCacheBehavior -- ^ 'dcDefaultCacheBehavior'
-                   -> CacheBehaviors -- ^ 'dcCacheBehaviors'
                    -> Text -- ^ 'dcComment'
-                   -> LoggingConfig -- ^ 'dcLogging'
-                   -> PriceClass -- ^ 'dcPriceClass'
                    -> Bool -- ^ 'dcEnabled'
                    -> DistributionConfig
-distributionConfig p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 = DistributionConfig
+distributionConfig p1 p2 p3 p4 p5 = DistributionConfig
     { _dcCallerReference      = p1
-    , _dcAliases              = p2
-    , _dcDefaultRootObject    = p3
-    , _dcOrigins              = p4
-    , _dcDefaultCacheBehavior = p5
-    , _dcCacheBehaviors       = p6
-    , _dcComment              = p7
-    , _dcLogging              = p8
-    , _dcPriceClass           = p9
-    , _dcEnabled              = p10
+    , _dcOrigins              = p2
+    , _dcDefaultCacheBehavior = p3
+    , _dcComment              = p4
+    , _dcEnabled              = p5
+    , _dcAliases              = Nothing
+    , _dcDefaultRootObject    = Nothing
+    , _dcCacheBehaviors       = Nothing
     , _dcCustomErrorResponses = Nothing
+    , _dcLogging              = Nothing
+    , _dcPriceClass           = Nothing
     , _dcViewerCertificate    = Nothing
     , _dcRestrictions         = Nothing
     }
 
 -- | A complex type that contains information about CNAMEs (alternate domain
 -- names), if any, for this distribution.
-dcAliases :: Lens' DistributionConfig Aliases
+dcAliases :: Lens' DistributionConfig (Maybe Aliases)
 dcAliases = lens _dcAliases (\s a -> s { _dcAliases = a })
 
 -- | A complex type that contains zero or more CacheBehavior elements.
-dcCacheBehaviors :: Lens' DistributionConfig CacheBehaviors
+dcCacheBehaviors :: Lens' DistributionConfig (Maybe CacheBehaviors)
 dcCacheBehaviors = lens _dcCacheBehaviors (\s a -> s { _dcCacheBehaviors = a })
 
 -- | A unique number that ensures the request can't be replayed. If the
@@ -1823,7 +1829,7 @@ dcDefaultCacheBehavior =
 -- distribution, update the distribution configuration and include an empty
 -- DefaultRootObject element. To replace the default root object, update the
 -- distribution configuration and specify the new object.
-dcDefaultRootObject :: Lens' DistributionConfig Text
+dcDefaultRootObject :: Lens' DistributionConfig (Maybe Text)
 dcDefaultRootObject =
     lens _dcDefaultRootObject (\s a -> s { _dcDefaultRootObject = a })
 
@@ -1833,7 +1839,7 @@ dcEnabled = lens _dcEnabled (\s a -> s { _dcEnabled = a })
 
 -- | A complex type that controls whether access logs are written for the
 -- distribution.
-dcLogging :: Lens' DistributionConfig LoggingConfig
+dcLogging :: Lens' DistributionConfig (Maybe LoggingConfig)
 dcLogging = lens _dcLogging (\s a -> s { _dcLogging = a })
 
 -- | A complex type that contains information about origins for this distribution.
@@ -1842,7 +1848,7 @@ dcOrigins = lens _dcOrigins (\s a -> s { _dcOrigins = a })
 
 -- | A complex type that contains information about price class for this
 -- distribution.
-dcPriceClass :: Lens' DistributionConfig PriceClass
+dcPriceClass :: Lens' DistributionConfig (Maybe PriceClass)
 dcPriceClass = lens _dcPriceClass (\s a -> s { _dcPriceClass = a })
 
 dcRestrictions :: Lens' DistributionConfig (Maybe Restrictions)
@@ -1854,17 +1860,17 @@ dcViewerCertificate =
 
 instance FromXML DistributionConfig where
     parseXML x = DistributionConfig
-        <$> x .@  "Aliases"
-        <*> x .@  "CacheBehaviors"
+        <$> x .@? "Aliases"
+        <*> x .@? "CacheBehaviors"
         <*> x .@  "CallerReference"
         <*> x .@  "Comment"
         <*> x .@? "CustomErrorResponses"
         <*> x .@  "DefaultCacheBehavior"
-        <*> x .@  "DefaultRootObject"
+        <*> x .@? "DefaultRootObject"
         <*> x .@  "Enabled"
-        <*> x .@  "Logging"
+        <*> x .@? "Logging"
         <*> x .@  "Origins"
-        <*> x .@  "PriceClass"
+        <*> x .@? "PriceClass"
         <*> x .@? "Restrictions"
         <*> x .@? "ViewerCertificate"
 

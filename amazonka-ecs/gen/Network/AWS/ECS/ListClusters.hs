@@ -45,7 +45,7 @@ module Network.AWS.ECS.ListClusters
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.Query
+import Network.AWS.Request.JSON
 import Network.AWS.ECS.Types
 import qualified GHC.Exts
 
@@ -86,7 +86,7 @@ lcNextToken :: Lens' ListClusters (Maybe Text)
 lcNextToken = lens _lcNextToken (\s a -> s { _lcNextToken = a })
 
 data ListClustersResponse = ListClustersResponse
-    { _lcrClusterArns :: List "member" Text
+    { _lcrClusterArns :: List "clusterArns" Text
     , _lcrNextToken   :: Maybe Text
     } deriving (Eq, Ord, Read, Show)
 
@@ -120,21 +120,24 @@ instance ToPath ListClusters where
     toPath = const "/"
 
 instance ToQuery ListClusters where
-    toQuery ListClusters{..} = mconcat
-        [ "maxResults" =? _lcMaxResults
-        , "nextToken"  =? _lcNextToken
-        ]
+    toQuery = const mempty
 
 instance ToHeaders ListClusters
+
+instance ToJSON ListClusters where
+    toJSON ListClusters{..} = object
+        [ "nextToken"  .= _lcNextToken
+        , "maxResults" .= _lcMaxResults
+        ]
 
 instance AWSRequest ListClusters where
     type Sv ListClusters = ECS
     type Rs ListClusters = ListClustersResponse
 
     request  = post "ListClusters"
-    response = xmlResponse
+    response = jsonResponse
 
-instance FromXML ListClustersResponse where
-    parseXML = withElement "ListClustersResult" $ \x -> ListClustersResponse
-        <$> x .@? "clusterArns" .!@ mempty
-        <*> x .@? "nextToken"
+instance FromJSON ListClustersResponse where
+    parseJSON = withObject "ListClustersResponse" $ \o -> ListClustersResponse
+        <$> o .:? "clusterArns" .!= mempty
+        <*> o .:? "nextToken"

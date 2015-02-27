@@ -13,6 +13,7 @@
 -- | Pending
 module Network.AWS.Route53Domains
     ( module Network.AWS.Route53Domains.CheckDomainAvailability
+    , module Network.AWS.Route53Domains.DeleteTagsForDomain
     , module Network.AWS.Route53Domains.DisableDomainAutoRenew
     , module Network.AWS.Route53Domains.DisableDomainTransferLock
     , module Network.AWS.Route53Domains.EnableDomainAutoRenew
@@ -21,6 +22,7 @@ module Network.AWS.Route53Domains
     , module Network.AWS.Route53Domains.GetOperationDetail
     , module Network.AWS.Route53Domains.ListDomains
     , module Network.AWS.Route53Domains.ListOperations
+    , module Network.AWS.Route53Domains.ListTagsForDomain
     , module Network.AWS.Route53Domains.RegisterDomain
     , module Network.AWS.Route53Domains.RetrieveDomainAuthCode
     , module Network.AWS.Route53Domains.TransferDomain
@@ -28,9 +30,11 @@ module Network.AWS.Route53Domains
     , module Network.AWS.Route53Domains.UpdateDomainContact
     , module Network.AWS.Route53Domains.UpdateDomainContactPrivacy
     , module Network.AWS.Route53Domains.UpdateDomainNameservers
+    , module Network.AWS.Route53Domains.UpdateTagsForDomain
     ) where
 
 import Network.AWS.Route53Domains.CheckDomainAvailability
+import Network.AWS.Route53Domains.DeleteTagsForDomain
 import Network.AWS.Route53Domains.DisableDomainAutoRenew
 import Network.AWS.Route53Domains.DisableDomainTransferLock
 import Network.AWS.Route53Domains.EnableDomainAutoRenew
@@ -39,6 +43,7 @@ import Network.AWS.Route53Domains.GetDomainDetail
 import Network.AWS.Route53Domains.GetOperationDetail
 import Network.AWS.Route53Domains.ListDomains
 import Network.AWS.Route53Domains.ListOperations
+import Network.AWS.Route53Domains.ListTagsForDomain
 import Network.AWS.Route53Domains.RegisterDomain
 import Network.AWS.Route53Domains.RetrieveDomainAuthCode
 import Network.AWS.Route53Domains.TransferDomain
@@ -46,3 +51,4 @@ import Network.AWS.Route53Domains.Types
 import Network.AWS.Route53Domains.UpdateDomainContact
 import Network.AWS.Route53Domains.UpdateDomainContactPrivacy
 import Network.AWS.Route53Domains.UpdateDomainNameservers
+import Network.AWS.Route53Domains.UpdateTagsForDomain

@@ -22,7 +22,7 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | The /CopySnapshot/ operation makes a copy of an existing snapshot.
+-- | The /CopySnapshot/ action makes a copy of an existing snapshot.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CopySnapshot.html>
 module Network.AWS.ElastiCache.CopySnapshot

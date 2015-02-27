@@ -48,6 +48,7 @@ JSON := \
  logs \
  opsworks \
  route53domains \
+ ssm \
  storagegateway \
  support \
  swf

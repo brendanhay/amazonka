@@ -22,7 +22,7 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | The /DescribeCacheClusters/ operation returns information about all provisioned
+-- | The /DescribeCacheClusters/ action returns information about all provisioned
 -- cache clusters if no cache cluster identifier is specified, or about a
 -- specific cache cluster if a cache cluster identifier is supplied.
 --
@@ -106,9 +106,9 @@ dcc1CacheClusterId =
     lens _dcc1CacheClusterId (\s a -> s { _dcc1CacheClusterId = a })
 
 -- | An optional marker returned from a prior request. Use this marker for
--- pagination of results from this operation. If this parameter is specified,
--- the response includes only records beyond the marker, up to the value
--- specified by /MaxRecords/.
+-- pagination of results from this action. If this parameter is specified, the
+-- response includes only records beyond the marker, up to the value specified
+-- by /MaxRecords/.
 dcc1Marker :: Lens' DescribeCacheClusters (Maybe Text)
 dcc1Marker = lens _dcc1Marker (\s a -> s { _dcc1Marker = a })
 

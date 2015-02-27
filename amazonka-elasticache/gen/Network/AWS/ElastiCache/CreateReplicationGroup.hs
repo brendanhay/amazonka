@@ -22,10 +22,10 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | The /CreateReplicationGroup/ operation creates a replication group. A
--- replication group is a collection of cache clusters, where one of the cache
--- clusters is a read/write primary and the others are read-only replicas.
--- Writes to the primary are automatically propagated to the replicas.
+-- | The /CreateReplicationGroup/ action creates a replication group. A replication
+-- group is a collection of cache clusters, where one of the cache clusters is a
+-- read/write primary and the others are read-only replicas. Writes to the
+-- primary are automatically propagated to the replicas.
 --
 -- When you create a replication group, you must specify an existing cache
 -- cluster that is in the primary role. When the replication group has been
@@ -63,6 +63,7 @@ module Network.AWS.ElastiCache.CreateReplicationGroup
     , crgSnapshotName
     , crgSnapshotRetentionLimit
     , crgSnapshotWindow
+    , crgTags
 
     -- * Response
     , CreateReplicationGroupResponse
@@ -99,7 +100,8 @@ data CreateReplicationGroup = CreateReplicationGroup
     , _crgSnapshotName                :: Maybe Text
     , _crgSnapshotRetentionLimit      :: Maybe Int
     , _crgSnapshotWindow              :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+    , _crgTags                        :: List "member" Tag
+    } deriving (Eq, Read, Show)
 
 -- | 'CreateReplicationGroup' constructor.
 --
@@ -147,6 +149,8 @@ data CreateReplicationGroup = CreateReplicationGroup
 --
 -- * 'crgSnapshotWindow' @::@ 'Maybe' 'Text'
 --
+-- * 'crgTags' @::@ ['Tag']
+--
 createReplicationGroup :: Text -- ^ 'crgReplicationGroupId'
                        -> Text -- ^ 'crgReplicationGroupDescription'
                        -> CreateReplicationGroup
@@ -164,6 +168,7 @@ createReplicationGroup p1 p2 = CreateReplicationGroup
     , _crgCacheSubnetGroupName        = Nothing
     , _crgCacheSecurityGroupNames     = mempty
     , _crgSecurityGroupIds            = mempty
+    , _crgTags                        = mempty
     , _crgSnapshotArns                = mempty
     , _crgSnapshotName                = Nothing
     , _crgPreferredMaintenanceWindow  = Nothing
@@ -174,11 +179,7 @@ createReplicationGroup p1 p2 = CreateReplicationGroup
     , _crgSnapshotWindow              = Nothing
     }
 
--- | Determines whether minor engine upgrades will be applied automatically to the
--- node group during the maintenance window. A value of 'true' allows these
--- upgrades to occur; 'false' disables automatic upgrades.
---
--- Default: 'true'
+-- | This parameter is currently disabled.
 crgAutoMinorVersionUpgrade :: Lens' CreateReplicationGroup (Maybe Bool)
 crgAutoMinorVersionUpgrade =
     lens _crgAutoMinorVersionUpgrade
@@ -187,10 +188,14 @@ crgAutoMinorVersionUpgrade =
 -- | Specifies whether a read-only replica will be automatically promoted to
 -- read/write primary if the existing primary fails.
 --
--- If 'true', automatic failover is enabled for this replication group. If 'false',
--- automatic failover is disabled for this replication group.
+-- If 'true', Multi-AZ is enabled for this replication group. If 'false', Multi-AZ
+-- is disabled for this replication group.
 --
 -- Default: false
+--
+-- ElastiCache Multi-AZ replication groups is not supported on:
+--
+-- Redis versions earlier than 2.8.6. T1 and T2 cache node types.
 crgAutomaticFailoverEnabled :: Lens' CreateReplicationGroup (Maybe Bool)
 crgAutomaticFailoverEnabled =
     lens _crgAutomaticFailoverEnabled
@@ -239,20 +244,21 @@ crgEngine :: Lens' CreateReplicationGroup (Maybe Text)
 crgEngine = lens _crgEngine (\s a -> s { _crgEngine = a })
 
 -- | The version number of the cach engine to be used for the cache clusters in
--- this replication group. To view the supported cache engine versions, use the /DescribeCacheEngineVersions/ operation.
+-- this replication group. To view the supported cache engine versions, use the /DescribeCacheEngineVersions/ action.
 crgEngineVersion :: Lens' CreateReplicationGroup (Maybe Text)
 crgEngineVersion = lens _crgEngineVersion (\s a -> s { _crgEngineVersion = a })
 
 -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
 -- (SNS) topic to which notifications will be sent.
+--
+-- The Amazon SNS topic owner must be the same as the cache cluster owner.
 crgNotificationTopicArn :: Lens' CreateReplicationGroup (Maybe Text)
 crgNotificationTopicArn =
     lens _crgNotificationTopicArn (\s a -> s { _crgNotificationTopicArn = a })
 
 -- | The number of cache clusters this replication group will initially have.
 --
--- If /AutomaticFailover/ is 'enabled', the value of this parameter must be at
--- least 2.
+-- If /Multi-AZ/ is 'enabled', the value of this parameter must be at least 2.
 --
 -- The maximum permitted value for /NumCacheClusters/ is 6 (primary plus 5
 -- replicas). If you need to exceed this limit, please fill out the ElastiCache
@@ -270,12 +276,17 @@ crgPort = lens _crgPort (\s a -> s { _crgPort = a })
 -- clusters will be created. The order of the availability zones in the list is
 -- not important.
 --
+-- If you are creating your replication group in an Amazon VPC (recommended),
+-- you can only locate cache clusters in availability zones associated with the
+-- subnets in the selected subnet group. The number of availability zones listed
+-- must equal the value of /NumCacheClusters/.
+--
 -- Default: system chosen availability zones.
 --
 -- Example: One Redis cache cluster in each of three availability zones.
--- PreferredAvailabilityZones.member.1=us-east-1a
--- PreferredAvailabilityZones.member.2=us-east-1c
--- PreferredAvailabilityZones.member.3=us-east-1d
+-- PreferredAvailabilityZones.member.1=us-west-2a
+-- PreferredAvailabilityZones.member.2=us-west-2c
+-- PreferredAvailabilityZones.member.3=us-west-2c
 crgPreferredCacheClusterAZs :: Lens' CreateReplicationGroup [Text]
 crgPreferredCacheClusterAZs =
     lens _crgPreferredCacheClusterAZs
@@ -370,6 +381,11 @@ crgSnapshotWindow :: Lens' CreateReplicationGroup (Maybe Text)
 crgSnapshotWindow =
     lens _crgSnapshotWindow (\s a -> s { _crgSnapshotWindow = a })
 
+-- | A list of cost allocation tags to be added to this resource. A tag is a
+-- key-value pair. A tag key must be accompanied by a tag value.
+crgTags :: Lens' CreateReplicationGroup [Tag]
+crgTags = lens _crgTags (\s a -> s { _crgTags = a }) . _List
+
 newtype CreateReplicationGroupResponse = CreateReplicationGroupResponse
     { _crgrReplicationGroup :: Maybe ReplicationGroup
     } deriving (Eq, Read, Show)
@@ -415,6 +431,7 @@ instance ToQuery CreateReplicationGroup where
         , "SnapshotName"                =? _crgSnapshotName
         , "SnapshotRetentionLimit"      =? _crgSnapshotRetentionLimit
         , "SnapshotWindow"              =? _crgSnapshotWindow
+        , "Tags"                        =? _crgTags
         ]
 
 instance ToHeaders CreateReplicationGroup

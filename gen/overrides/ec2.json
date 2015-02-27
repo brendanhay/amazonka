@@ -29,9 +29,7 @@
         },
         "IpPermission": {
             "required": [
-                "IpProtocol",
-                "FromPort",
-                "ToPort"
+                "IpProtocol"
             ],
             "rename": {
                 "UserIdGroupPairs": "Groups"

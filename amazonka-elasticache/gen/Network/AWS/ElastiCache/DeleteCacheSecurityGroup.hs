@@ -22,7 +22,10 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | The /DeleteCacheSecurityGroup/ operation deletes a cache security group.
+-- | The /DeleteCacheSecurityGroup/ action deletes a cache security group.
+--
+-- You cannot delete a cache security group if it is associated with any cache
+-- clusters.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DeleteCacheSecurityGroup.html>
 module Network.AWS.ElastiCache.DeleteCacheSecurityGroup
@@ -62,6 +65,8 @@ deleteCacheSecurityGroup p1 = DeleteCacheSecurityGroup
     }
 
 -- | The name of the cache security group to delete.
+--
+-- You cannot delete the default security group.
 dcsgCacheSecurityGroupName :: Lens' DeleteCacheSecurityGroup Text
 dcsgCacheSecurityGroupName =
     lens _dcsgCacheSecurityGroupName

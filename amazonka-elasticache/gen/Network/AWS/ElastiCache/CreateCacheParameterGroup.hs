@@ -22,9 +22,9 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | The /CreateCacheParameterGroup/ operation creates a new cache parameter group.
--- A cache parameter group is a collection of parameters that you apply to all
--- of the nodes in a cache cluster.
+-- | The /CreateCacheParameterGroup/ action creates a new cache parameter group. A
+-- cache parameter group is a collection of parameters that you apply to all of
+-- the nodes in a cache cluster.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheParameterGroup.html>
 module Network.AWS.ElastiCache.CreateCacheParameterGroup

@@ -23,8 +23,8 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | The /Scan/ operation returns one or more items and item attributes by accessing
--- every item in the table. To have DynamoDB return fewer items, you can provide
--- a /ScanFilter/ operation.
+-- every item in a table or a secondary index. To have DynamoDB return fewer
+-- items, you can provide a /ScanFilter/ operation.
 --
 -- If the total number of scanned items exceeds the maximum data set size limit
 -- of 1 MB, the scan stops and results are returned to the user as a /LastEvaluatedKey/ value to continue the scan in a subsequent operation. The results also
@@ -34,9 +34,9 @@
 -- The result set is eventually consistent.
 --
 -- By default, /Scan/ operations proceed sequentially; however, for faster
--- performance on large tables, applications can request a parallel /Scan/
--- operation by specifying the /Segment/ and /TotalSegments/ parameters. For more
--- information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#QueryAndScanParallelScan Parallel Scan> in the /Amazon DynamoDB Developer Guide/.
+-- performance on a large table or secondary index, applications can request a
+-- parallel /Scan/ operation by providing the /Segment/ and /TotalSegments/
+-- parameters. For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#QueryAndScanParallelScan Parallel Scan> in the /Amazon DynamoDBDeveloper Guide/.
 --
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Scan.html>
 module Network.AWS.DynamoDB.Scan
@@ -52,6 +52,7 @@ module Network.AWS.DynamoDB.Scan
     , sExpressionAttributeNames
     , sExpressionAttributeValues
     , sFilterExpression
+    , sIndexName
     , sLimit
     , sProjectionExpression
     , sReturnConsumedCapacity
@@ -85,6 +86,7 @@ data Scan = Scan
     , _sExpressionAttributeNames  :: Map Text Text
     , _sExpressionAttributeValues :: Map Text AttributeValue
     , _sFilterExpression          :: Maybe Text
+    , _sIndexName                 :: Maybe Text
     , _sLimit                     :: Maybe Nat
     , _sProjectionExpression      :: Maybe Text
     , _sReturnConsumedCapacity    :: Maybe ReturnConsumedCapacity
@@ -111,6 +113,8 @@ data Scan = Scan
 --
 -- * 'sFilterExpression' @::@ 'Maybe' 'Text'
 --
+-- * 'sIndexName' @::@ 'Maybe' 'Text'
+--
 -- * 'sLimit' @::@ 'Maybe' 'Natural'
 --
 -- * 'sProjectionExpression' @::@ 'Maybe' 'Text'
@@ -133,6 +137,7 @@ scan :: Text -- ^ 'sTableName'
 scan p1 p2 = Scan
     { _sTableName                 = p1
     , _sAttributesToGet           = withIso _List1 (const id) p2
+    , _sIndexName                 = Nothing
     , _sLimit                     = Nothing
     , _sSelect                    = Nothing
     , _sScanFilter                = mempty
@@ -151,11 +156,11 @@ scan p1 p2 = Scan
 -- that if you use /AttributesToGet/ and /ProjectionExpression/ at the same time,
 -- DynamoDB will return a /ValidationException/ exception.
 --
--- This parameter allows you to retrieve lists or maps; however, it cannot
--- retrieve individual list or map elements.
+-- This parameter allows you to retrieve attributes of type List or Map;
+-- however, it cannot retrieve individual elements within a List or a Map.
 --
 -- The names of one or more attributes to retrieve. If no attribute names are
--- specified, then all attributes will be returned. If any of the requested
+-- provided, then all attributes will be returned. If any of the requested
 -- attributes are not found, they will not appear in the result.
 --
 -- Note that /AttributesToGet/ has no effect on provisioned throughput
@@ -168,9 +173,7 @@ sAttributesToGet = lens _sAttributesToGet (\s a -> s { _sAttributesToGet = a }) 
 -- that if you use /ConditionalOperator/ and / ConditionExpression / at the same
 -- time, DynamoDB will return a /ValidationException/ exception.
 --
--- This parameter does not support lists or maps.
---
--- A logical operator to apply to the conditions in the /ScanFilter/ map:
+-- A logical operator to apply to the conditions in a /ScanFilter/ map:
 --
 -- 'AND' - If all of the conditions evaluate to true, then the entire map
 -- evaluates to true.
@@ -181,6 +184,9 @@ sAttributesToGet = lens _sAttributesToGet (\s a -> s { _sAttributesToGet = a }) 
 -- If you omit /ConditionalOperator/, then 'AND' is the default.
 --
 -- The operation will succeed only if the entire map evaluates to true.
+--
+-- This parameter does not support attributes of type List or Map.
+--
 sConditionalOperator :: Lens' Scan (Maybe ConditionalOperator)
 sConditionalOperator =
     lens _sConditionalOperator (\s a -> s { _sConditionalOperator = a })
@@ -199,11 +205,10 @@ sExclusiveStartKey =
     lens _sExclusiveStartKey (\s a -> s { _sExclusiveStartKey = a })
         . _Map
 
--- | One or more substitution tokens for simplifying complex expressions. The
+-- | One or more substitution tokens for attribute names in an expression. The
 -- following are some use cases for using /ExpressionAttributeNames/:
 --
--- To shorten an attribute name that is very long or unwieldy in an
--- expression.
+-- To access an attribute whose name conflicts with a DynamoDB reserved word.
 --
 -- To create a placeholder for repeating occurrences of an attribute name in
 -- an expression.
@@ -212,17 +217,23 @@ sExclusiveStartKey =
 -- misinterpreted in an expression.
 --
 -- Use the # character in an expression to dereference an attribute name. For
--- example, consider the following expression:
+-- example, consider the following attribute name:
 --
--- 'order.customerInfo.LastName = "Smith" OR order.customerInfo.LastName ="Jones"'
+-- 'Percentile'
 --
--- Now suppose that you specified the following for /ExpressionAttributeNames/:
+-- The name of this attribute conflicts with a reserved word, so it cannot be
+-- used directly in an expression. (For the complete list of reserved words, go
+-- to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html Reserved Words> in the /Amazon DynamoDB Developer Guide/). To work around
+-- this, you could specify the following for /ExpressionAttributeNames/:
 --
--- '{"#name":"order.customerInfo.LastName"}'
+-- '{"#P":"Percentile"}'
 --
--- The expression can now be simplified as follows:
+-- You could then use this substitution in an expression, as in this example:
 --
--- '#name = "Smith" OR #name = "Jones"'
+-- '#P = :val'
+--
+-- Tokens that begin with the : character are /expression attribute values/,
+-- which are placeholders for the actual value at runtime.
 --
 -- For more information on expression attribute names, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing ItemAttributes> in the /Amazon DynamoDB Developer Guide/.
 sExpressionAttributeNames :: Lens' Scan (HashMap Text Text)
@@ -253,14 +264,23 @@ sExpressionAttributeValues =
         (\s a -> s { _sExpressionAttributeValues = a })
             . _Map
 
--- | A condition that evaluates the scan results and returns only the desired
--- values.
+-- | A string that contains conditions that DynamoDB applies after the /Scan/
+-- operation, but before the data is returned to you. Items that do not satisfy
+-- the /FilterExpression/ criteria are not returned.
 --
--- The condition you specify is applied to the items scanned; any items that do
--- not match the expression are not returned.
+-- A /FilterExpression/ is applied after the items have already been read; the
+-- process of filtering does not consume any additional read capacity units.
+--
+-- For more information, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#FilteringResults Filter Expressions> in the /Amazon DynamoDBDeveloper Guide/.
 sFilterExpression :: Lens' Scan (Maybe Text)
 sFilterExpression =
     lens _sFilterExpression (\s a -> s { _sFilterExpression = a })
+
+-- | The name of a secondary index to scan. This index can be any local secondary
+-- index or global secondary index. Note that if you use the 'IndexName'
+-- parameter, you must also provide 'TableName'.
+sIndexName :: Lens' Scan (Maybe Text)
+sIndexName = lens _sIndexName (\s a -> s { _sIndexName = a })
 
 -- | The maximum number of items to evaluate (not necessarily the number of
 -- matching items). If DynamoDB processes the number of items up to the limit
@@ -274,15 +294,16 @@ sFilterExpression =
 sLimit :: Lens' Scan (Maybe Natural)
 sLimit = lens _sLimit (\s a -> s { _sLimit = a }) . mapping _Nat
 
--- | A string that identifies one or more attributes to retrieve from the table.
--- These attributes can include scalars, sets, or elements of a JSON document.
--- The attributes in the expression must be separated by commas.
+-- | A string that identifies one or more attributes to retrieve from the
+-- specified table or index. These attributes can include scalars, sets, or
+-- elements of a JSON document. The attributes in the expression must be
+-- separated by commas.
 --
 -- If no attribute names are specified, then all attributes will be returned.
 -- If any of the requested attributes are not found, they will not appear in the
 -- result.
 --
--- For more information on projection expressions, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing ItemAttributes> in the /Amazon DynamoDB Developer Guide/.
+-- For more information, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes> in the /Amazon DynamoDBDeveloper Guide/.
 sProjectionExpression :: Lens' Scan (Maybe Text)
 sProjectionExpression =
     lens _sProjectionExpression (\s a -> s { _sProjectionExpression = a })
@@ -295,10 +316,10 @@ sReturnConsumedCapacity =
 -- that if you use /ScanFilter/ and /FilterExpression/ at the same time, DynamoDB
 -- will return a /ValidationException/ exception.
 --
--- This parameter does not support lists or maps.
---
 -- A condition that evaluates the scan results and returns only the desired
 -- values.
+--
+-- This parameter does not support attributes of type List or Map.
 --
 -- If you specify more than one condition in the /ScanFilter/ map, then by
 -- default all of the conditions must evaluate to true. In other words, the
@@ -320,7 +341,7 @@ sReturnConsumedCapacity =
 -- greater than 'B'. For a list of code values, see <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>.
 --
 -- For Binary, DynamoDB treats each byte of the binary data as unsigned when it
--- compares binary values, for example when evaluating query expressions.
+-- compares binary values.
 --
 -- For information on specifying data types in JSON, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataFormat.html JSON Data Format> in
 -- the /Amazon DynamoDB Developer Guide/.
@@ -342,8 +363,9 @@ sScanFilter = lens _sScanFilter (\s a -> s { _sScanFilter = a }) . _Map
 -- scanned by an application worker.
 --
 -- Segment IDs are zero-based, so the first segment is always 0. For example,
--- if you want to scan a table using four application threads, the first thread
--- specifies a /Segment/ value of 0, the second thread specifies 1, and so on.
+-- if you want to use four application threads to scan a table or an index, then
+-- the first thread specifies a /Segment/ value of 0, the second thread specifies
+-- 1, and so on.
 --
 -- The value of /LastEvaluatedKey/ returned from a parallel /Scan/ request must be
 -- used as /ExclusiveStartKey/ with the same segment ID in a subsequent /Scan/
@@ -352,7 +374,7 @@ sScanFilter = lens _sScanFilter (\s a -> s { _sScanFilter = a }) . _Map
 -- The value for /Segment/ must be greater than or equal to 0, and less than the
 -- value provided for /TotalSegments/.
 --
--- If you specify /Segment/, you must also specify /TotalSegments/.
+-- If you provide /Segment/, you must also provide /TotalSegments/.
 sSegment :: Lens' Scan (Maybe Natural)
 sSegment = lens _sSegment (\s a -> s { _sSegment = a }) . mapping _Nat
 
@@ -373,14 +395,14 @@ sSegment = lens _sSegment (\s a -> s { _sSegment = a }) . mapping _Nat
 sSelect :: Lens' Scan (Maybe Select)
 sSelect = lens _sSelect (\s a -> s { _sSelect = a })
 
--- | The name of the table containing the requested items.
+-- | The name of the table containing the requested items; or, if you provide 'IndexName', the name of the table to which that index belongs.
 sTableName :: Lens' Scan Text
 sTableName = lens _sTableName (\s a -> s { _sTableName = a })
 
 -- | For a parallel /Scan/ request, /TotalSegments/ represents the total number of
 -- segments into which the /Scan/ operation will be divided. The value of /TotalSegments/ corresponds to the number of application workers that will perform the
--- parallel scan. For example, if you want to scan a table using four
--- application threads, specify a /TotalSegments/ value of 4.
+-- parallel scan. For example, if you want to use four application threads to
+-- scan a table or an index, specify a /TotalSegments/ value of 4.
 --
 -- The value for /TotalSegments/ must be greater than or equal to 1, and less
 -- than or equal to 1000000. If you specify a /TotalSegments/ value of 1, the /Scan/
@@ -473,6 +495,7 @@ instance ToHeaders Scan
 instance ToJSON Scan where
     toJSON Scan{..} = object
         [ "TableName"                 .= _sTableName
+        , "IndexName"                 .= _sIndexName
         , "AttributesToGet"           .= _sAttributesToGet
         , "Limit"                     .= _sLimit
         , "Select"                    .= _sSelect

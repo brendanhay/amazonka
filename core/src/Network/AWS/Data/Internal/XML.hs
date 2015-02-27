@@ -37,19 +37,20 @@ module Network.AWS.Data.Internal.XML
     , element
     , nodes
     , (=@)
+    , extractRoot
     , unsafeToXML
     ) where
 
-import Control.Applicative
-import Control.Monad
-import Data.Default.Class
-import Data.Maybe
-import Data.Monoid
-import Data.Text                            (Text)
-import Network.AWS.Data.Internal.ByteString
-import Network.AWS.Data.Internal.Text
-import Numeric.Natural
-import Text.XML
+import           Control.Applicative
+import           Control.Monad
+import           Data.Default.Class
+import           Data.Maybe
+import           Data.Monoid
+import           Data.Text                            (Text)
+import           Network.AWS.Data.Internal.ByteString
+import           Network.AWS.Data.Internal.Text
+import           Numeric.Natural
+import           Text.XML
 
 decodeXML :: LazyByteString -> Either String [Node]
 decodeXML = either failure success . parseLBS def
@@ -58,11 +59,11 @@ decodeXML = either failure success . parseLBS def
     success = Right . elementNodes . documentRoot
 
 encodeXML :: ToXMLRoot a => a -> LazyByteString
-encodeXML x = renderLBS def d
+encodeXML = maybe mempty (renderLBS def . d) . toXMLRoot
   where
-    d = Document
+    d x = Document
         { documentPrologue = p
-        , documentRoot     = toXMLRoot x
+        , documentRoot     = x
         , documentEpilogue = []
         }
 
@@ -92,8 +93,8 @@ ns .@? n =
 (.!@) :: Either String (Maybe a) -> a -> Either String a
 f .!@ x = fromMaybe x <$> f
 
-namespaced :: Text -> Text -> [Node] -> Element
-namespaced g l = element (Name l (Just g) Nothing)
+namespaced :: Text -> Text -> [Node] -> Maybe Element
+namespaced g l = Just . element (Name l (Just g) Nothing)
 
 element :: Name -> [Node] -> Element
 element n = Element n mempty
@@ -104,9 +105,18 @@ nodes n ns = [NodeElement (element n ns)]
 (=@) :: ToXML a => Name -> a -> Node
 n =@ x = NodeElement (element n (toXML x))
 
+extractRoot :: Text -> [Node] -> Maybe Element
+extractRoot g ns =
+    case ns of
+        [NodeElement x] -> Just x { elementName = rename x }
+        _               -> Nothing
+  where
+    rename x = (elementName x) { nameNamespace = Just g }
+
 -- | /Caution:/ This is for use with types which are 'flattened' in
--- AWS service model terminology. It is applied by the generator/templating
--- in safe contexts only.
+-- AWS service model terminology.
+--
+-- It is applied by the generator/templating in safe contexts only.
 unsafeToXML :: (Show a, ToXML a) => a -> Node
 unsafeToXML x =
     fromMaybe (error $ "Failed to unflatten node-list for: " ++ show x)
@@ -169,13 +179,13 @@ instance FromXML Double  where parseXML = parseXMLText "Double"
 instance FromXML Bool    where parseXML = parseXMLText "Bool"
 
 class ToXMLRoot a where
-    toXMLRoot :: a -> Element
+    toXMLRoot :: a -> Maybe Element
 
 class ToXML a where
     toXML :: a -> [Node]
 
     default toXML :: ToXMLRoot a => a -> [Node]
-    toXML = (:[]) . NodeElement . toXMLRoot
+    toXML = maybeToList . fmap NodeElement . toXMLRoot
 
 instance ToXML a => ToXML (Maybe a) where
     toXML (Just x) = toXML x

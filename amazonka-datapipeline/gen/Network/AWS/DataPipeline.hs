@@ -16,6 +16,7 @@
 -- completion of previous tasks.
 module Network.AWS.DataPipeline
     ( module Network.AWS.DataPipeline.ActivatePipeline
+    , module Network.AWS.DataPipeline.AddTags
     , module Network.AWS.DataPipeline.CreatePipeline
     , module Network.AWS.DataPipeline.DeletePipeline
     , module Network.AWS.DataPipeline.DescribeObjects
@@ -26,6 +27,7 @@ module Network.AWS.DataPipeline
     , module Network.AWS.DataPipeline.PollForTask
     , module Network.AWS.DataPipeline.PutPipelineDefinition
     , module Network.AWS.DataPipeline.QueryObjects
+    , module Network.AWS.DataPipeline.RemoveTags
     , module Network.AWS.DataPipeline.ReportTaskProgress
     , module Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
     , module Network.AWS.DataPipeline.SetStatus
@@ -35,6 +37,7 @@ module Network.AWS.DataPipeline
     ) where
 
 import Network.AWS.DataPipeline.ActivatePipeline
+import Network.AWS.DataPipeline.AddTags
 import Network.AWS.DataPipeline.CreatePipeline
 import Network.AWS.DataPipeline.DeletePipeline
 import Network.AWS.DataPipeline.DescribeObjects
@@ -45,6 +48,7 @@ import Network.AWS.DataPipeline.ListPipelines
 import Network.AWS.DataPipeline.PollForTask
 import Network.AWS.DataPipeline.PutPipelineDefinition
 import Network.AWS.DataPipeline.QueryObjects
+import Network.AWS.DataPipeline.RemoveTags
 import Network.AWS.DataPipeline.ReportTaskProgress
 import Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
 import Network.AWS.DataPipeline.SetStatus

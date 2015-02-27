@@ -98,7 +98,7 @@ girInvalidation = lens _girInvalidation (\s a -> s { _girInvalidation = a })
 
 instance ToPath GetInvalidation where
     toPath GetInvalidation{..} = mconcat
-        [ "/2014-10-21/distribution/"
+        [ "/2014-11-06/distribution/"
         , toText _giDistributionId
         , "/invalidation/"
         , toText _giId

@@ -121,7 +121,7 @@ usdrStreamingDistribution =
 
 instance ToPath UpdateStreamingDistribution where
     toPath UpdateStreamingDistribution{..} = mconcat
-        [ "/2014-10-21/streaming-distribution/"
+        [ "/2014-11-06/streaming-distribution/"
         , toText _usdId
         , "/config"
         ]
@@ -135,9 +135,7 @@ instance ToHeaders UpdateStreamingDistribution where
         ]
 
 instance ToXMLRoot UpdateStreamingDistribution where
-    toXMLRoot UpdateStreamingDistribution{..} = namespaced ns "UpdateStreamingDistribution"
-        [ "StreamingDistributionConfig" =@ _usdStreamingDistributionConfig
-        ]
+    toXMLRoot = extractRoot ns . toXML . _usdStreamingDistributionConfig
 
 instance ToXML UpdateStreamingDistribution
 

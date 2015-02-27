@@ -45,13 +45,13 @@ module Network.AWS.ECS.DescribeTasks
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.Query
+import Network.AWS.Request.JSON
 import Network.AWS.ECS.Types
 import qualified GHC.Exts
 
 data DescribeTasks = DescribeTasks
     { _dtCluster :: Maybe Text
-    , _dtTasks   :: List "member" Text
+    , _dtTasks   :: List "tasks" Text
     } deriving (Eq, Ord, Read, Show)
 
 -- | 'DescribeTasks' constructor.
@@ -80,8 +80,8 @@ dtTasks :: Lens' DescribeTasks [Text]
 dtTasks = lens _dtTasks (\s a -> s { _dtTasks = a }) . _List
 
 data DescribeTasksResponse = DescribeTasksResponse
-    { _dtrFailures :: List "member" Failure
-    , _dtrTasks    :: List "member" Task
+    { _dtrFailures :: List "failures" Failure
+    , _dtrTasks    :: List "tasks" Task
     } deriving (Eq, Read, Show)
 
 -- | 'DescribeTasksResponse' constructor.
@@ -109,21 +109,24 @@ instance ToPath DescribeTasks where
     toPath = const "/"
 
 instance ToQuery DescribeTasks where
-    toQuery DescribeTasks{..} = mconcat
-        [ "cluster" =? _dtCluster
-        , "tasks"   =? _dtTasks
-        ]
+    toQuery = const mempty
 
 instance ToHeaders DescribeTasks
+
+instance ToJSON DescribeTasks where
+    toJSON DescribeTasks{..} = object
+        [ "cluster" .= _dtCluster
+        , "tasks"   .= _dtTasks
+        ]
 
 instance AWSRequest DescribeTasks where
     type Sv DescribeTasks = ECS
     type Rs DescribeTasks = DescribeTasksResponse
 
     request  = post "DescribeTasks"
-    response = xmlResponse
+    response = jsonResponse
 
-instance FromXML DescribeTasksResponse where
-    parseXML = withElement "DescribeTasksResult" $ \x -> DescribeTasksResponse
-        <$> x .@? "failures" .!@ mempty
-        <*> x .@? "tasks" .!@ mempty
+instance FromJSON DescribeTasksResponse where
+    parseJSON = withObject "DescribeTasksResponse" $ \o -> DescribeTasksResponse
+        <$> o .:? "failures" .!= mempty
+        <*> o .:? "tasks" .!= mempty

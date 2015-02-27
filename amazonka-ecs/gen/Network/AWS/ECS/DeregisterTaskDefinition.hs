@@ -22,7 +22,9 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deregisters the specified task definition. You will no longer be able to run
+-- | NOT YET IMPLEMENTED.
+--
+-- Deregisters the specified task definition. You will no longer be able to run
 -- tasks from this definition after deregistration.
 --
 -- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeregisterTaskDefinition.html>
@@ -44,7 +46,7 @@ module Network.AWS.ECS.DeregisterTaskDefinition
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.Query
+import Network.AWS.Request.JSON
 import Network.AWS.ECS.Types
 import qualified GHC.Exts
 
@@ -94,19 +96,22 @@ instance ToPath DeregisterTaskDefinition where
     toPath = const "/"
 
 instance ToQuery DeregisterTaskDefinition where
-    toQuery DeregisterTaskDefinition{..} = mconcat
-        [ "taskDefinition" =? _dtd1TaskDefinition
-        ]
+    toQuery = const mempty
 
 instance ToHeaders DeregisterTaskDefinition
+
+instance ToJSON DeregisterTaskDefinition where
+    toJSON DeregisterTaskDefinition{..} = object
+        [ "taskDefinition" .= _dtd1TaskDefinition
+        ]
 
 instance AWSRequest DeregisterTaskDefinition where
     type Sv DeregisterTaskDefinition = ECS
     type Rs DeregisterTaskDefinition = DeregisterTaskDefinitionResponse
 
     request  = post "DeregisterTaskDefinition"
-    response = xmlResponse
+    response = jsonResponse
 
-instance FromXML DeregisterTaskDefinitionResponse where
-    parseXML = withElement "DeregisterTaskDefinitionResult" $ \x -> DeregisterTaskDefinitionResponse
-        <$> x .@? "taskDefinition"
+instance FromJSON DeregisterTaskDefinitionResponse where
+    parseJSON = withObject "DeregisterTaskDefinitionResponse" $ \o -> DeregisterTaskDefinitionResponse
+        <$> o .:? "taskDefinition"

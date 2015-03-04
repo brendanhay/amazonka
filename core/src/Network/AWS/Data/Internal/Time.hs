@@ -23,11 +23,16 @@ module Network.AWS.Data.Internal.Time
     , Time   (..)
     , _Time
 
+    , UTCTime
     , RFC822
     , ISO8601
     , BasicTime
     , AWSTime
     , POSIX
+
+    , parseTime
+    , defaultTimeLocale
+    , iso8601DateFormat
     ) where
 
 import           Control.Applicative

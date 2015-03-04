@@ -23,7 +23,6 @@ module Network.AWS.Data.Internal.Time
     , Time   (..)
     , _Time
 
-    , UTCTime
     , RFC822
     , ISO8601
     , BasicTime
@@ -40,8 +39,12 @@ import qualified Data.ByteString.Char8                as BS
 import           Data.Scientific
 import           Data.Tagged
 import qualified Data.Text                            as Text
-import           Data.Time
+import           Data.Time                            (UTCTime)
 import           Data.Time.Clock.POSIX
+import           Data.Time.Format                     (formatTime)
+import           Network.AWS.Compat.Internal.Locale   (defaultTimeLocale,
+                                                       iso8601DateFormat)
+import           Network.AWS.Compat.Internal.Time     (parseTime)
 import           Network.AWS.Data.Internal.ByteString
 import           Network.AWS.Data.Internal.JSON
 import           Network.AWS.Data.Internal.Query
@@ -102,7 +105,7 @@ instance FromText POSIX where
 parseFormattedTime :: forall a. TimeFormat (Time a) => Parser (Time a)
 parseFormattedTime = do
     x <- Text.unpack <$> AText.takeText
-    p (parseTimeM True defaultTimeLocale (untag f) x) x
+    p (parseTime defaultTimeLocale (untag f) x) x
   where
     p :: Maybe UTCTime -> String -> Parser (Time a)
     p Nothing  s = fail   ("Unable to parse " ++ untag f ++ " from " ++ s)

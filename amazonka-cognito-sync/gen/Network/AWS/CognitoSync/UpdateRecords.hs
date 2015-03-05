@@ -22,11 +22,10 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Posts updates to records and add and delete records for a dataset and user.
--- The credentials used to make this API call need to have access to the
--- identity data. With Amazon Cognito Sync, each identity has access only to its
--- own data. You should use Amazon Cognito Identity service to retrieve the
--- credentials necessary to make this API call.
+-- | Posts updates to records and adds and deletes records for a dataset and user.
+--
+-- 'UpdateRecords' can only be called with temporary user credentials provided by
+-- Cognito Identity. You cannot make this API call with developer credentials.
 --
 -- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_UpdateRecords.html>
 module Network.AWS.CognitoSync.UpdateRecords

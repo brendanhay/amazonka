@@ -39,6 +39,7 @@ module Network.AWS.CognitoSync.GetIdentityPoolConfiguration
     -- ** Response constructor
     , getIdentityPoolConfigurationResponse
     -- ** Response lenses
+    , gipcrCognitoStreams
     , gipcrIdentityPoolId
     , gipcrPushSync
     ) where
@@ -72,13 +73,16 @@ gipcIdentityPoolId =
     lens _gipcIdentityPoolId (\s a -> s { _gipcIdentityPoolId = a })
 
 data GetIdentityPoolConfigurationResponse = GetIdentityPoolConfigurationResponse
-    { _gipcrIdentityPoolId :: Maybe Text
+    { _gipcrCognitoStreams :: Maybe CognitoStreams
+    , _gipcrIdentityPoolId :: Maybe Text
     , _gipcrPushSync       :: Maybe PushSync
     } deriving (Eq, Read, Show)
 
 -- | 'GetIdentityPoolConfigurationResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
+--
+-- * 'gipcrCognitoStreams' @::@ 'Maybe' 'CognitoStreams'
 --
 -- * 'gipcrIdentityPoolId' @::@ 'Maybe' 'Text'
 --
@@ -88,7 +92,13 @@ getIdentityPoolConfigurationResponse :: GetIdentityPoolConfigurationResponse
 getIdentityPoolConfigurationResponse = GetIdentityPoolConfigurationResponse
     { _gipcrIdentityPoolId = Nothing
     , _gipcrPushSync       = Nothing
+    , _gipcrCognitoStreams = Nothing
     }
+
+-- | Options to apply to this identity pool for Amazon Cognito streams.
+gipcrCognitoStreams :: Lens' GetIdentityPoolConfigurationResponse (Maybe CognitoStreams)
+gipcrCognitoStreams =
+    lens _gipcrCognitoStreams (\s a -> s { _gipcrCognitoStreams = a })
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.
@@ -96,7 +106,7 @@ gipcrIdentityPoolId :: Lens' GetIdentityPoolConfigurationResponse (Maybe Text)
 gipcrIdentityPoolId =
     lens _gipcrIdentityPoolId (\s a -> s { _gipcrIdentityPoolId = a })
 
--- | Configuration options applied to the identity pool.
+-- | Options to apply to this identity pool for push synchronization.
 gipcrPushSync :: Lens' GetIdentityPoolConfigurationResponse (Maybe PushSync)
 gipcrPushSync = lens _gipcrPushSync (\s a -> s { _gipcrPushSync = a })
 
@@ -124,5 +134,6 @@ instance AWSRequest GetIdentityPoolConfiguration where
 
 instance FromJSON GetIdentityPoolConfigurationResponse where
     parseJSON = withObject "GetIdentityPoolConfigurationResponse" $ \o -> GetIdentityPoolConfigurationResponse
-        <$> o .:? "IdentityPoolId"
+        <$> o .:? "CognitoStreams"
+        <*> o .:? "IdentityPoolId"
         <*> o .:? "PushSync"

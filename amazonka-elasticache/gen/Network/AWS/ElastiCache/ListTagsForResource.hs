@@ -69,7 +69,7 @@ listTagsForResource p1 = ListTagsForResource
     { _ltfrResourceName = p1
     }
 
--- | The name of the resource for which you want the list of tags, for example 'myCluster01'.
+-- | The name of the resource for which you want the list of tags, for example 'arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster'.
 ltfrResourceName :: Lens' ListTagsForResource Text
 ltfrResourceName = lens _ltfrResourceName (\s a -> s { _ltfrResourceName = a })
 
@@ -94,7 +94,7 @@ listTagsForResourceResponse = ListTagsForResourceResponse
     { _ltfrrTagList = mempty
     }
 
--- | A list of cost allocation tags as a key-value pair.
+-- | A list of cost allocation tags as key-value pairs.
 ltfrrTagList :: Lens' ListTagsForResourceResponse [Tag]
 ltfrrTagList = lens _ltfrrTagList (\s a -> s { _ltfrrTagList = a }) . _List
 

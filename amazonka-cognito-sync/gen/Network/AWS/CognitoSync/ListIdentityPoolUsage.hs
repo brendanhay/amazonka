@@ -24,6 +24,10 @@
 
 -- | Gets a list of identity pools registered with Cognito.
 --
+-- 'ListIdentityPoolUsage' can only be called with developer credentials. You
+-- cannot make this API call with the temporary user credentials provided by
+-- Cognito Identity.
+--
 -- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_ListIdentityPoolUsage.html>
 module Network.AWS.CognitoSync.ListIdentityPoolUsage
     (

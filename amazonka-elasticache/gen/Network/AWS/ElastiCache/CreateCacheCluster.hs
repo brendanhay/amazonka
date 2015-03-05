@@ -264,9 +264,9 @@ cccNotificationTopicArn =
 -- | The initial number of cache nodes that the cache cluster will have.
 --
 -- For clusters running Redis, this value must be 1. For clusters running
--- Memcached, this value must be between 1 and 50.
+-- Memcached, this value must be between 1 and 20.
 --
--- If you need more than 50 nodes for your Memcached cluster, please fill out
+-- If you need more than 20 nodes for your Memcached cluster, please fill out
 -- the ElastiCache Limit Increase Request form at <http://aws.amazon.com/contact-us/elasticache-node-limit-request/ http://aws.amazon.com/contact-us/elasticache-node-limit-request/>.
 cccNumCacheNodes :: Lens' CreateCacheCluster (Maybe Int)
 cccNumCacheNodes = lens _cccNumCacheNodes (\s a -> s { _cccNumCacheNodes = a })
@@ -312,9 +312,12 @@ cccPreferredAvailabilityZones =
         (\s a -> s { _cccPreferredAvailabilityZones = a })
             . _List
 
--- | The weekly time range (in UTC) during which system maintenance can occur.
+-- | Specifies the weekly time range during which maintenance on the cache cluster
+-- is performed. It is specified as a range in the format
+-- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a
+-- 60 minute period. Valid values for 'ddd' are:
 --
--- Example: 'sun:05:00-sun:09:00'
+-- 'sun' 'mon' 'tue' 'wed' 'thu' 'fri' 'sat'  Example: 'sun:05:00-sun:09:00'
 cccPreferredMaintenanceWindow :: Lens' CreateCacheCluster (Maybe Text)
 cccPreferredMaintenanceWindow =
     lens _cccPreferredMaintenanceWindow

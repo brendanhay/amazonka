@@ -15,12 +15,12 @@
 
 module Test.AWS.Data.Time (tests) where
 
-import Data.Aeson
-import Data.Time
-import Network.AWS.Prelude
-import Test.AWS.Types
-import Test.Tasty
-import Test.Tasty.HUnit
+import           Data.Aeson
+import           Network.AWS.Data
+import           Network.AWS.Prelude
+import           Test.AWS.Types
+import           Test.Tasty
+import           Test.Tasty.HUnit
 
 tests :: TestTree
 tests = testGroup "time"

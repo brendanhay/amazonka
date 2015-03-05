@@ -72,7 +72,7 @@ import           Control.Monad.Trans.Resource
 import           Data.ByteString              (ByteString)
 import           Data.Conduit                 hiding (await)
 import           Data.Monoid
-import           Data.Time
+import           Data.Time                    (UTCTime, getCurrentTime)
 import           Network.AWS.Data
 import           Network.AWS.Error
 import           Network.AWS.Internal.Auth

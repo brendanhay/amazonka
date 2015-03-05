@@ -134,7 +134,7 @@
         "url": "http://docs.aws.amazon.com/ElasticMapReduce/latest/API/Welcome.html",
         "protocol": "json",
         "name": "Amazon Elastic MapReduce",
-        "version": "0.3.1",
+        "version": "0.3.2",
         "description": "Amazon Elastic MapReduce (Amazon EMR) is a web service that makes it easy to\nprocess large amounts of data efficiently. Amazon EMR uses Hadoop processing\ncombined with several AWS products to do such tasks as web indexing, data\nmining, log file analysis, machine learning, scientific simulation, and data\nwarehousing."
     },
     "types": {

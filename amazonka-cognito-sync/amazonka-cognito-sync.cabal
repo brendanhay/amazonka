@@ -1,5 +1,5 @@
 name:                  amazonka-cognito-sync
-version:               0.3.1
+version:               0.3.2
 synopsis:              Amazon Cognito Sync SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -40,10 +40,12 @@ library
 
     exposed-modules:
           Network.AWS.CognitoSync
+        , Network.AWS.CognitoSync.BulkPublish
         , Network.AWS.CognitoSync.DeleteDataset
         , Network.AWS.CognitoSync.DescribeDataset
         , Network.AWS.CognitoSync.DescribeIdentityPoolUsage
         , Network.AWS.CognitoSync.DescribeIdentityUsage
+        , Network.AWS.CognitoSync.GetBulkPublishDetails
         , Network.AWS.CognitoSync.GetIdentityPoolConfiguration
         , Network.AWS.CognitoSync.ListDatasets
         , Network.AWS.CognitoSync.ListIdentityPoolUsage
@@ -58,5 +60,5 @@ library
     other-modules:
 
     build-depends:
-          amazonka-core == 0.3.1.*
+          amazonka-core == 0.3.2.*
         , base          >= 4.7     && < 5

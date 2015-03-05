@@ -28,7 +28,7 @@ import           Data.Monoid
 import           Data.Text                  (Text)
 import qualified Data.Text                  as Text
 import qualified Data.Text.Encoding         as Text
-import           Data.Time
+import           Data.Time                  (diffUTCTime, getCurrentTime)
 import           Network.AWS.Data
 import           Network.AWS.EC2.Metadata
 import           Network.AWS.Types

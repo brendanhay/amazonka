@@ -15,10 +15,12 @@
         "namespace": "Network.AWS.CognitoSync",
         "protocol": "rest-json",
         "imports": [
+            "Network.AWS.CognitoSync.BulkPublish",
             "Network.AWS.CognitoSync.DeleteDataset",
             "Network.AWS.CognitoSync.DescribeDataset",
             "Network.AWS.CognitoSync.DescribeIdentityPoolUsage",
             "Network.AWS.CognitoSync.DescribeIdentityUsage",
+            "Network.AWS.CognitoSync.GetBulkPublishDetails",
             "Network.AWS.CognitoSync.GetIdentityPoolConfiguration",
             "Network.AWS.CognitoSync.ListDatasets",
             "Network.AWS.CognitoSync.ListIdentityPoolUsage",
@@ -63,10 +65,12 @@
         "abbrev": "CognitoSync",
         "exposed": [
             "Network.AWS.CognitoSync",
+            "Network.AWS.CognitoSync.BulkPublish",
             "Network.AWS.CognitoSync.DeleteDataset",
             "Network.AWS.CognitoSync.DescribeDataset",
             "Network.AWS.CognitoSync.DescribeIdentityPoolUsage",
             "Network.AWS.CognitoSync.DescribeIdentityUsage",
+            "Network.AWS.CognitoSync.GetBulkPublishDetails",
             "Network.AWS.CognitoSync.GetIdentityPoolConfiguration",
             "Network.AWS.CognitoSync.ListDatasets",
             "Network.AWS.CognitoSync.ListIdentityPoolUsage",
@@ -81,7 +85,7 @@
         "url": "http://docs.aws.amazon.com/cognitosync/latest/APIReference/Welcome.html",
         "protocol": "rest-json",
         "name": "Amazon Cognito Sync",
-        "version": "0.3.1",
+        "version": "0.3.2",
         "description": "Amazon Cognito Sync provides an AWS service and client library that enable\ncross-device syncing of application-related user data. High-level client\nlibraries are available for both iOS and Android. You can use these libraries\nto persist data locally so that it's available even if the device is offline.\nDeveloper credentials don't need to be stored on the mobile device to access\nthe service. You can use Amazon Cognito to obtain a normalized user ID and\ncredentials. User data is persisted in a dataset that can store up to 1 MB of\nkey-value pairs, and you can have up to 20 datasets per user identity."
     },
     "types": {
@@ -735,6 +739,44 @@
                     "Eq",
                     "Ord",
                     "Read",
+                    "Show",
+                    "Generic",
+                    "Enum"
+                ],
+                "branches": {
+                    "Enabled": "ENABLED",
+                    "Disabled": "DISABLED"
+                },
+                "valuePad": 9,
+                "name": "StreamingStatus",
+                "type": "nullary",
+                "branchPad": 8
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show",
+                    "Generic",
+                    "Enum"
+                ],
+                "branches": {
+                    "NotStarted": "NOT_STARTED",
+                    "InProgress": "IN_PROGRESS",
+                    "Succeeded": "SUCCEEDED",
+                    "Failed": "FAILED"
+                },
+                "valuePad": 12,
+                "name": "BulkPublishStatus",
+                "type": "nullary",
+                "branchPad": 10
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
                     "Show"
                 ],
                 "fieldPad": 24,
@@ -1055,6 +1097,180 @@
                         "documentation": "-- | The value for the record.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Read",
+                    "Show"
+                ],
+                "fieldPad": 18,
+                "ctor": "cognitoStreams",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "csStreamName",
+                        "name": "_csStreamName",
+                        "shape": "StreamName",
+                        "locationName": "StreamName",
+                        "documentation": "-- | The name of the Cognito stream to receive updates. This stream must be in the\n-- developers account and in the same region as the identity pool.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "csRoleArn",
+                        "name": "_csRoleArn",
+                        "shape": "AssumeRoleArn",
+                        "locationName": "RoleArn",
+                        "documentation": "-- | The ARN of the role Amazon Cognito can assume in order to publish to the\n-- stream. This role must grant access to Amazon Cognito (cognito-sync) to\n-- invoke 'PutRecord' on your Cognito stream.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "csStreamingStatus",
+                        "name": "_csStreamingStatus",
+                        "shape": "StreamingStatus",
+                        "locationName": "StreamingStatus",
+                        "documentation": "-- | Status of the Cognito streams. Valid values are: 'ENABLED' - Streaming of\n-- updates to identity pool is enabled.\n--\n-- 'DISABLED'Streaming of updates to identity pool is disabled. Bulk publish will\n-- also fail if 'StreamingStatus' is 'DISABLED'.",
+                        "typeExposed": "Maybe StreamingStatus",
+                        "type": "Maybe StreamingStatus"
+                    }
+                ],
+                "payload": null,
+                "required": [],
+                "contentPad": 16,
+                "name": "CognitoStreams",
+                "locationPad": 16,
+                "type": "record",
+                "optional": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "csStreamName",
+                        "name": "_csStreamName",
+                        "shape": "StreamName",
+                        "locationName": "StreamName",
+                        "documentation": "-- | The name of the Cognito stream to receive updates. This stream must be in the\n-- developers account and in the same region as the identity pool.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "csRoleArn",
+                        "name": "_csRoleArn",
+                        "shape": "AssumeRoleArn",
+                        "locationName": "RoleArn",
+                        "documentation": "-- | The ARN of the role Amazon Cognito can assume in order to publish to the\n-- stream. This role must grant access to Amazon Cognito (cognito-sync) to\n-- invoke 'PutRecord' on your Cognito stream.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "csStreamingStatus",
+                        "name": "_csStreamingStatus",
+                        "shape": "StreamingStatus",
+                        "locationName": "StreamingStatus",
+                        "documentation": "-- | Status of the Cognito streams. Valid values are: 'ENABLED' - Streaming of\n-- updates to identity pool is enabled.\n--\n-- 'DISABLED'Streaming of updates to identity pool is disabled. Bulk publish will\n-- also fail if 'StreamingStatus' is 'DISABLED'.",
+                        "typeExposed": "Maybe StreamingStatus",
+                        "type": "Maybe StreamingStatus"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "csRoleArn",
+                        "name": "_csRoleArn",
+                        "shape": "AssumeRoleArn",
+                        "locationName": "RoleArn",
+                        "documentation": "-- | The ARN of the role Amazon Cognito can assume in order to publish to the\n-- stream. This role must grant access to Amazon Cognito (cognito-sync) to\n-- invoke 'PutRecord' on your Cognito stream.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "csStreamName",
+                        "name": "_csStreamName",
+                        "shape": "StreamName",
+                        "locationName": "StreamName",
+                        "documentation": "-- | The name of the Cognito stream to receive updates. This stream must be in the\n-- developers account and in the same region as the identity pool.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "csStreamingStatus",
+                        "name": "_csStreamingStatus",
+                        "shape": "StreamingStatus",
+                        "locationName": "StreamingStatus",
+                        "documentation": "-- | Status of the Cognito streams. Valid values are: 'ENABLED' - Streaming of\n-- updates to identity pool is enabled.\n--\n-- 'DISABLED'Streaming of updates to identity pool is disabled. Bulk publish will\n-- also fail if 'StreamingStatus' is 'DISABLED'.",
+                        "typeExposed": "Maybe StreamingStatus",
+                        "type": "Maybe StreamingStatus"
                     }
                 ]
             },
@@ -1742,10 +1958,226 @@
             "IdentityPoolUsage",
             "Dataset",
             "Record",
+            "CognitoStreams",
             "PushSync"
         ]
     },
     "operations": [
+        {
+            "service": "CognitoSync",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show",
+                    "Monoid"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "style": "json",
+                "fieldPad": 0,
+                "ctor": "bulkPublishResponse",
+                "headerPad": 0,
+                "field": {
+                    "location": null,
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "Nothing",
+                    "monoid": false,
+                    "protocol": "rest-json",
+                    "flattened": false,
+                    "required": false,
+                    "lens": "bprIdentityPoolId",
+                    "name": "_bprIdentityPoolId",
+                    "shape": "IdentityPoolId",
+                    "locationName": "IdentityPoolId",
+                    "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
+                    "typeExposed": "Maybe Text",
+                    "type": "Maybe Text"
+                },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "bprIdentityPoolId",
+                        "name": "_bprIdentityPoolId",
+                        "shape": "IdentityPoolId",
+                        "locationName": "IdentityPoolId",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "wrapper": false,
+                "protocol": "rest-json",
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "name": "BulkPublishResponse",
+                "resultWrapper": null,
+                "locationPad": 0,
+                "type": "newtype",
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "bprIdentityPoolId",
+                        "name": "_bprIdentityPoolId",
+                        "shape": "IdentityPoolId",
+                        "locationName": "IdentityPoolId",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "bprIdentityPoolId",
+                        "name": "_bprIdentityPoolId",
+                        "shape": "IdentityPoolId",
+                        "locationName": "IdentityPoolId",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "url": "http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_BulkPublish.html",
+            "namespace": "Network.AWS.CognitoSync.BulkPublish",
+            "protocol": "rest-json",
+            "imports": [
+                "Network.AWS.Request.RestJSON",
+                "Network.AWS.CognitoSync.Types"
+            ],
+            "pager": null,
+            "name": "BulkPublish",
+            "method": "post",
+            "documentation": "-- | Initiates a bulk publish of all existing datasets for an Identity Pool to the\n-- configured stream. Customers are limited to one successful bulk publish per\n-- 24 hours. Bulk publish is an asynchronous request, customers can see the\n-- status of the request via the GetBulkPublishDetails operation.",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show",
+                    "Monoid",
+                    "IsString"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "style": "json",
+                "fieldPad": 0,
+                "ctor": "bulkPublish",
+                "headerPad": 0,
+                "field": {
+                    "location": "uri",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "error",
+                    "monoid": false,
+                    "protocol": "rest-json",
+                    "flattened": false,
+                    "required": true,
+                    "lens": "bpIdentityPoolId",
+                    "name": "_bpIdentityPoolId",
+                    "shape": "IdentityPoolId",
+                    "locationName": "IdentityPoolId",
+                    "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "contents": [],
+                "path": [
+                    {
+                        "value": "/identitypools/",
+                        "type": "const"
+                    },
+                    {
+                        "value": "_bpIdentityPoolId",
+                        "type": "var"
+                    },
+                    {
+                        "value": "/bulkpublish",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "rest-json",
+                "payload": null,
+                "required": [
+                    {
+                        "location": "uri",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "bpIdentityPoolId",
+                        "name": "_bpIdentityPoolId",
+                        "shape": "IdentityPoolId",
+                        "locationName": "IdentityPoolId",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "queryPad": 0,
+                "name": "BulkPublish",
+                "query": [],
+                "locationPad": 0,
+                "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "uri",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "bpIdentityPoolId",
+                        "name": "_bpIdentityPoolId",
+                        "shape": "IdentityPoolId",
+                        "locationName": "IdentityPoolId",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
         {
             "service": "CognitoSync",
             "response": {
@@ -1857,7 +2289,7 @@
             "pager": null,
             "name": "DeleteDataset",
             "method": "delete",
-            "documentation": "-- | Deletes the specific dataset. The dataset will be deleted permanently, and\n-- the action can't be undone. Datasets that this dataset was merged with will\n-- no longer report the merge. Any consequent operation on this dataset will\n-- result in a ResourceNotFoundException.",
+            "documentation": "-- | Deletes the specific dataset. The dataset will be deleted permanently, and\n-- the action can't be undone. Datasets that this dataset was merged with will\n-- no longer report the merge. Any subsequent operation on this dataset will\n-- result in a 'ResourceNotFoundException'.\n--\n-- 'DeleteDataset' can be called with temporary user credentials provided by\n-- Cognito Identity or with developer credentials.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2046,7 +2478,7 @@
                     "name": "_ddrDataset",
                     "shape": "Dataset",
                     "locationName": "Dataset",
-                    "documentation": "-- | Metadata for a collection of data for an identity. An identity can have\n-- multiple datasets. A dataset can be general or associated with a particular\n-- entity in an application (like a saved game). Datasets are automatically\n-- created if they don't exist. Data is synced by dataset, and a dataset can\n-- hold up to 1MB of key-value pairs.",
+                    "documentation": "-- | Meta data for a collection of data for an identity. An identity can have\n-- multiple datasets. A dataset can be general or associated with a particular\n-- entity in an application (like a saved game). Datasets are automatically\n-- created if they don't exist. Data is synced by dataset, and a dataset can\n-- hold up to 1MB of key-value pairs.",
                     "typeExposed": "Maybe Dataset",
                     "type": "Maybe Dataset"
                 },
@@ -2064,7 +2496,7 @@
                         "name": "_ddrDataset",
                         "shape": "Dataset",
                         "locationName": "Dataset",
-                        "documentation": "-- | Metadata for a collection of data for an identity. An identity can have\n-- multiple datasets. A dataset can be general or associated with a particular\n-- entity in an application (like a saved game). Datasets are automatically\n-- created if they don't exist. Data is synced by dataset, and a dataset can\n-- hold up to 1MB of key-value pairs.",
+                        "documentation": "-- | Meta data for a collection of data for an identity. An identity can have\n-- multiple datasets. A dataset can be general or associated with a particular\n-- entity in an application (like a saved game). Datasets are automatically\n-- created if they don't exist. Data is synced by dataset, and a dataset can\n-- hold up to 1MB of key-value pairs.",
                         "typeExposed": "Maybe Dataset",
                         "type": "Maybe Dataset"
                     }
@@ -2095,7 +2527,7 @@
                         "name": "_ddrDataset",
                         "shape": "Dataset",
                         "locationName": "Dataset",
-                        "documentation": "-- | Metadata for a collection of data for an identity. An identity can have\n-- multiple datasets. A dataset can be general or associated with a particular\n-- entity in an application (like a saved game). Datasets are automatically\n-- created if they don't exist. Data is synced by dataset, and a dataset can\n-- hold up to 1MB of key-value pairs.",
+                        "documentation": "-- | Meta data for a collection of data for an identity. An identity can have\n-- multiple datasets. A dataset can be general or associated with a particular\n-- entity in an application (like a saved game). Datasets are automatically\n-- created if they don't exist. Data is synced by dataset, and a dataset can\n-- hold up to 1MB of key-value pairs.",
                         "typeExposed": "Maybe Dataset",
                         "type": "Maybe Dataset"
                     }
@@ -2114,7 +2546,7 @@
                         "name": "_ddrDataset",
                         "shape": "Dataset",
                         "locationName": "Dataset",
-                        "documentation": "-- | Metadata for a collection of data for an identity. An identity can have\n-- multiple datasets. A dataset can be general or associated with a particular\n-- entity in an application (like a saved game). Datasets are automatically\n-- created if they don't exist. Data is synced by dataset, and a dataset can\n-- hold up to 1MB of key-value pairs.",
+                        "documentation": "-- | Meta data for a collection of data for an identity. An identity can have\n-- multiple datasets. A dataset can be general or associated with a particular\n-- entity in an application (like a saved game). Datasets are automatically\n-- created if they don't exist. Data is synced by dataset, and a dataset can\n-- hold up to 1MB of key-value pairs.",
                         "typeExposed": "Maybe Dataset",
                         "type": "Maybe Dataset"
                     }
@@ -2130,7 +2562,7 @@
             "pager": null,
             "name": "DescribeDataset",
             "method": "get",
-            "documentation": "-- | Gets metadata about a dataset by identity and dataset name. The credentials\n-- used to make this API call need to have access to the identity data. With\n-- Amazon Cognito Sync, each identity has access only to its own data. You\n-- should use Amazon Cognito Identity service to retrieve the credentials\n-- necessary to make this API call.",
+            "documentation": "-- | Gets meta data about a dataset by identity and dataset name. With Amazon\n-- Cognito Sync, each identity has access only to its own data. Thus, the\n-- credentials used to make this API call need to have access to the identity\n-- data.\n--\n-- 'DescribeDataset' can be called with temporary user credentials provided by\n-- Cognito Identity or with developer credentials. You should use Cognito\n-- Identity credentials to make this API call.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2403,7 +2835,7 @@
             "pager": null,
             "name": "DescribeIdentityPoolUsage",
             "method": "get",
-            "documentation": "-- | Gets usage details (for example, data storage) about a particular identity\n-- pool.",
+            "documentation": "-- | Gets usage details (for example, data storage) about a particular identity\n-- pool.\n--\n-- 'DescribeIdentityPoolUsage' can only be called with developer credentials. You\n-- cannot make this API call with the temporary user credentials provided by\n-- Cognito Identity.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2612,7 +3044,7 @@
             "pager": null,
             "name": "DescribeIdentityUsage",
             "method": "get",
-            "documentation": "-- | Gets usage information for an identity, including number of datasets and data\n-- usage.",
+            "documentation": "-- | Gets usage information for an identity, including number of datasets and data\n-- usage.\n--\n-- 'DescribeIdentityUsage' can be called with temporary user credentials provided\n-- by Cognito Identity or with developer credentials.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2742,6 +3174,405 @@
                 ],
                 "streaming": false,
                 "style": "json",
+                "fieldPad": 29,
+                "ctor": "getBulkPublishDetailsResponse",
+                "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gbpdrIdentityPoolId",
+                        "name": "_gbpdrIdentityPoolId",
+                        "shape": "IdentityPoolId",
+                        "locationName": "IdentityPoolId",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gbpdrBulkPublishStartTime",
+                        "name": "_gbpdrBulkPublishStartTime",
+                        "shape": "Date",
+                        "locationName": "BulkPublishStartTime",
+                        "documentation": "-- | The date/time at which the last bulk publish was initiated.",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe POSIX"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gbpdrBulkPublishCompleteTime",
+                        "name": "_gbpdrBulkPublishCompleteTime",
+                        "shape": "Date",
+                        "locationName": "BulkPublishCompleteTime",
+                        "documentation": "-- | If 'BulkPublishStatus' is SUCCEEDED, the time the last bulk publish operation\n-- completed.",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe POSIX"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gbpdrBulkPublishStatus",
+                        "name": "_gbpdrBulkPublishStatus",
+                        "shape": "BulkPublishStatus",
+                        "locationName": "BulkPublishStatus",
+                        "documentation": "-- | Status of the last bulk publish operation, valid values are: 'NOT_STARTED' - No\n-- bulk publish has been requested for this identity pool\n--\n-- 'IN_PROGRESS' - Data is being published to the configured stream\n--\n-- 'SUCCEEDED' - All data for the identity pool has been published to the\n-- configured stream\n--\n-- 'FAILED' - Some portion of the data has failed to publish, check 'FailureMessage'\n-- for the cause.",
+                        "typeExposed": "Maybe BulkPublishStatus",
+                        "type": "Maybe BulkPublishStatus"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gbpdrFailureMessage",
+                        "name": "_gbpdrFailureMessage",
+                        "shape": "String",
+                        "locationName": "FailureMessage",
+                        "documentation": "-- | If BulkPublishStatus is FAILED this field will contain the error message that\n-- caused the bulk publish to fail.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "wrapper": false,
+                "protocol": "rest-json",
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "contentPad": 24,
+                "name": "GetBulkPublishDetailsResponse",
+                "resultWrapper": null,
+                "locationPad": 24,
+                "type": "record",
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gbpdrIdentityPoolId",
+                        "name": "_gbpdrIdentityPoolId",
+                        "shape": "IdentityPoolId",
+                        "locationName": "IdentityPoolId",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gbpdrBulkPublishStartTime",
+                        "name": "_gbpdrBulkPublishStartTime",
+                        "shape": "Date",
+                        "locationName": "BulkPublishStartTime",
+                        "documentation": "-- | The date/time at which the last bulk publish was initiated.",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe POSIX"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gbpdrBulkPublishCompleteTime",
+                        "name": "_gbpdrBulkPublishCompleteTime",
+                        "shape": "Date",
+                        "locationName": "BulkPublishCompleteTime",
+                        "documentation": "-- | If 'BulkPublishStatus' is SUCCEEDED, the time the last bulk publish operation\n-- completed.",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe POSIX"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gbpdrBulkPublishStatus",
+                        "name": "_gbpdrBulkPublishStatus",
+                        "shape": "BulkPublishStatus",
+                        "locationName": "BulkPublishStatus",
+                        "documentation": "-- | Status of the last bulk publish operation, valid values are: 'NOT_STARTED' - No\n-- bulk publish has been requested for this identity pool\n--\n-- 'IN_PROGRESS' - Data is being published to the configured stream\n--\n-- 'SUCCEEDED' - All data for the identity pool has been published to the\n-- configured stream\n--\n-- 'FAILED' - Some portion of the data has failed to publish, check 'FailureMessage'\n-- for the cause.",
+                        "typeExposed": "Maybe BulkPublishStatus",
+                        "type": "Maybe BulkPublishStatus"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gbpdrFailureMessage",
+                        "name": "_gbpdrFailureMessage",
+                        "shape": "String",
+                        "locationName": "FailureMessage",
+                        "documentation": "-- | If BulkPublishStatus is FAILED this field will contain the error message that\n-- caused the bulk publish to fail.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gbpdrBulkPublishCompleteTime",
+                        "name": "_gbpdrBulkPublishCompleteTime",
+                        "shape": "Date",
+                        "locationName": "BulkPublishCompleteTime",
+                        "documentation": "-- | If 'BulkPublishStatus' is SUCCEEDED, the time the last bulk publish operation\n-- completed.",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe POSIX"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gbpdrBulkPublishStartTime",
+                        "name": "_gbpdrBulkPublishStartTime",
+                        "shape": "Date",
+                        "locationName": "BulkPublishStartTime",
+                        "documentation": "-- | The date/time at which the last bulk publish was initiated.",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe POSIX"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gbpdrBulkPublishStatus",
+                        "name": "_gbpdrBulkPublishStatus",
+                        "shape": "BulkPublishStatus",
+                        "locationName": "BulkPublishStatus",
+                        "documentation": "-- | Status of the last bulk publish operation, valid values are: 'NOT_STARTED' - No\n-- bulk publish has been requested for this identity pool\n--\n-- 'IN_PROGRESS' - Data is being published to the configured stream\n--\n-- 'SUCCEEDED' - All data for the identity pool has been published to the\n-- configured stream\n--\n-- 'FAILED' - Some portion of the data has failed to publish, check 'FailureMessage'\n-- for the cause.",
+                        "typeExposed": "Maybe BulkPublishStatus",
+                        "type": "Maybe BulkPublishStatus"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gbpdrFailureMessage",
+                        "name": "_gbpdrFailureMessage",
+                        "shape": "String",
+                        "locationName": "FailureMessage",
+                        "documentation": "-- | If BulkPublishStatus is FAILED this field will contain the error message that\n-- caused the bulk publish to fail.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gbpdrIdentityPoolId",
+                        "name": "_gbpdrIdentityPoolId",
+                        "shape": "IdentityPoolId",
+                        "locationName": "IdentityPoolId",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "url": "http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_GetBulkPublishDetails.html",
+            "namespace": "Network.AWS.CognitoSync.GetBulkPublishDetails",
+            "protocol": "rest-json",
+            "imports": [
+                "Network.AWS.Request.RestJSON",
+                "Network.AWS.CognitoSync.Types"
+            ],
+            "pager": null,
+            "name": "GetBulkPublishDetails",
+            "method": "post",
+            "documentation": "-- | Get the status of the last BulkPublish operation for an identity pool.",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show",
+                    "Monoid",
+                    "IsString"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "style": "json",
+                "fieldPad": 0,
+                "ctor": "getBulkPublishDetails",
+                "headerPad": 0,
+                "field": {
+                    "location": "uri",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "error",
+                    "monoid": false,
+                    "protocol": "rest-json",
+                    "flattened": false,
+                    "required": true,
+                    "lens": "gbpdIdentityPoolId",
+                    "name": "_gbpdIdentityPoolId",
+                    "shape": "IdentityPoolId",
+                    "locationName": "IdentityPoolId",
+                    "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "contents": [],
+                "path": [
+                    {
+                        "value": "/identitypools/",
+                        "type": "const"
+                    },
+                    {
+                        "value": "_gbpdIdentityPoolId",
+                        "type": "var"
+                    },
+                    {
+                        "value": "/getBulkPublishDetails",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "rest-json",
+                "payload": null,
+                "required": [
+                    {
+                        "location": "uri",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gbpdIdentityPoolId",
+                        "name": "_gbpdIdentityPoolId",
+                        "shape": "IdentityPoolId",
+                        "locationName": "IdentityPoolId",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "queryPad": 0,
+                "name": "GetBulkPublishDetails",
+                "query": [],
+                "locationPad": 0,
+                "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "uri",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gbpdIdentityPoolId",
+                        "name": "_gbpdIdentityPoolId",
+                        "shape": "IdentityPoolId",
+                        "locationName": "IdentityPoolId",
+                        "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "CognitoSync",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Read",
+                    "Show"
+                ],
+                "streaming": false,
+                "style": "json",
                 "fieldPad": 20,
                 "ctor": "getIdentityPoolConfigurationResponse",
                 "headerPad": 0,
@@ -2776,9 +3607,26 @@
                         "name": "_gipcrPushSync",
                         "shape": "PushSync",
                         "locationName": "PushSync",
-                        "documentation": "-- | Configuration options applied to the identity pool.",
+                        "documentation": "-- | Options to apply to this identity pool for push synchronization.",
                         "typeExposed": "Maybe PushSync",
                         "type": "Maybe PushSync"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gipcrCognitoStreams",
+                        "name": "_gipcrCognitoStreams",
+                        "shape": "CognitoStreams",
+                        "locationName": "CognitoStreams",
+                        "documentation": "-- | Options to apply to this identity pool for Amazon Cognito streams.",
+                        "typeExposed": "Maybe CognitoStreams",
+                        "type": "Maybe CognitoStreams"
                     }
                 ],
                 "wrapper": false,
@@ -2824,12 +3672,46 @@
                         "name": "_gipcrPushSync",
                         "shape": "PushSync",
                         "locationName": "PushSync",
-                        "documentation": "-- | Configuration options applied to the identity pool.",
+                        "documentation": "-- | Options to apply to this identity pool for push synchronization.",
                         "typeExposed": "Maybe PushSync",
                         "type": "Maybe PushSync"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gipcrCognitoStreams",
+                        "name": "_gipcrCognitoStreams",
+                        "shape": "CognitoStreams",
+                        "locationName": "CognitoStreams",
+                        "documentation": "-- | Options to apply to this identity pool for Amazon Cognito streams.",
+                        "typeExposed": "Maybe CognitoStreams",
+                        "type": "Maybe CognitoStreams"
                     }
                 ],
                 "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gipcrCognitoStreams",
+                        "name": "_gipcrCognitoStreams",
+                        "shape": "CognitoStreams",
+                        "locationName": "CognitoStreams",
+                        "documentation": "-- | Options to apply to this identity pool for Amazon Cognito streams.",
+                        "typeExposed": "Maybe CognitoStreams",
+                        "type": "Maybe CognitoStreams"
+                    },
                     {
                         "location": null,
                         "iso": null,
@@ -2860,7 +3742,7 @@
                         "name": "_gipcrPushSync",
                         "shape": "PushSync",
                         "locationName": "PushSync",
-                        "documentation": "-- | Configuration options applied to the identity pool.",
+                        "documentation": "-- | Options to apply to this identity pool for push synchronization.",
                         "typeExposed": "Maybe PushSync",
                         "type": "Maybe PushSync"
                     }
@@ -3173,7 +4055,7 @@
             "pager": null,
             "name": "ListDatasets",
             "method": "get",
-            "documentation": "-- | Lists datasets for an identity. The credentials used to make this API call\n-- need to have access to the identity data. With Amazon Cognito Sync, each\n-- identity has access only to its own data. You should use Amazon Cognito\n-- Identity service to retrieve the credentials necessary to make this API call.",
+            "documentation": "-- | Lists datasets for an identity. With Amazon Cognito Sync, each identity has\n-- access only to its own data. Thus, the credentials used to make this API call\n-- need to have access to the identity data.\n--\n-- 'ListDatasets' can be called with temporary user credentials provided by\n-- Cognito Identity or with developer credentials. You should use the Cognito\n-- Identity credentials to make this API call.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3623,7 +4505,7 @@
             "pager": null,
             "name": "ListIdentityPoolUsage",
             "method": "get",
-            "documentation": "-- | Gets a list of identity pools registered with Cognito.",
+            "documentation": "-- | Gets a list of identity pools registered with Cognito.\n--\n-- 'ListIdentityPoolUsage' can only be called with developer credentials. You\n-- cannot make this API call with the temporary user credentials provided by\n-- Cognito Identity.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4243,7 +5125,7 @@
             "pager": null,
             "name": "ListRecords",
             "method": "get",
-            "documentation": "-- | Gets paginated records, optionally changed after a particular sync count for\n-- a dataset and identity. The credentials used to make this API call need to\n-- have access to the identity data. With Amazon Cognito Sync, each identity has\n-- access only to its own data. You should use Amazon Cognito Identity service\n-- to retrieve the credentials necessary to make this API call.",
+            "documentation": "-- | Gets paginated records, optionally changed after a particular sync count for\n-- a dataset and identity. With Amazon Cognito Sync, each identity has access\n-- only to its own data. Thus, the credentials used to make this API call need\n-- to have access to the identity data.\n--\n-- 'ListRecords' can be called with temporary user credentials provided by\n-- Cognito Identity or with developer credentials. You should use Cognito\n-- Identity credentials to make this API call.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4950,9 +5832,26 @@
                         "name": "_sipcrPushSync",
                         "shape": "PushSync",
                         "locationName": "PushSync",
-                        "documentation": "-- | Configuration options applied to the identity pool.",
+                        "documentation": "-- | Options to apply to this identity pool for push synchronization.",
                         "typeExposed": "Maybe PushSync",
                         "type": "Maybe PushSync"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "sipcrCognitoStreams",
+                        "name": "_sipcrCognitoStreams",
+                        "shape": "CognitoStreams",
+                        "locationName": "CognitoStreams",
+                        "documentation": "-- | Options to apply to this identity pool for Amazon Cognito streams.",
+                        "typeExposed": "Maybe CognitoStreams",
+                        "type": "Maybe CognitoStreams"
                     }
                 ],
                 "wrapper": false,
@@ -4998,12 +5897,46 @@
                         "name": "_sipcrPushSync",
                         "shape": "PushSync",
                         "locationName": "PushSync",
-                        "documentation": "-- | Configuration options applied to the identity pool.",
+                        "documentation": "-- | Options to apply to this identity pool for push synchronization.",
                         "typeExposed": "Maybe PushSync",
                         "type": "Maybe PushSync"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "sipcrCognitoStreams",
+                        "name": "_sipcrCognitoStreams",
+                        "shape": "CognitoStreams",
+                        "locationName": "CognitoStreams",
+                        "documentation": "-- | Options to apply to this identity pool for Amazon Cognito streams.",
+                        "typeExposed": "Maybe CognitoStreams",
+                        "type": "Maybe CognitoStreams"
                     }
                 ],
                 "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "sipcrCognitoStreams",
+                        "name": "_sipcrCognitoStreams",
+                        "shape": "CognitoStreams",
+                        "locationName": "CognitoStreams",
+                        "documentation": "-- | Options to apply to this identity pool for Amazon Cognito streams.",
+                        "typeExposed": "Maybe CognitoStreams",
+                        "type": "Maybe CognitoStreams"
+                    },
                     {
                         "location": null,
                         "iso": null,
@@ -5034,7 +5967,7 @@
                         "name": "_sipcrPushSync",
                         "shape": "PushSync",
                         "locationName": "PushSync",
-                        "documentation": "-- | Configuration options applied to the identity pool.",
+                        "documentation": "-- | Options to apply to this identity pool for push synchronization.",
                         "typeExposed": "Maybe PushSync",
                         "type": "Maybe PushSync"
                     }
@@ -5077,9 +6010,26 @@
                         "name": "_sipcPushSync",
                         "shape": "PushSync",
                         "locationName": "PushSync",
-                        "documentation": "-- | Configuration options to be applied to the identity pool.",
+                        "documentation": "-- | Options to apply to this identity pool for push synchronization.",
                         "typeExposed": "Maybe PushSync",
                         "type": "Maybe PushSync"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "sipcCognitoStreams",
+                        "name": "_sipcCognitoStreams",
+                        "shape": "CognitoStreams",
+                        "locationName": "CognitoStreams",
+                        "documentation": "-- | Options to apply to this identity pool for Amazon Cognito streams.",
+                        "typeExposed": "Maybe CognitoStreams",
+                        "type": "Maybe CognitoStreams"
                     }
                 ],
                 "path": [
@@ -5119,7 +6069,7 @@
                 ],
                 "shared": false,
                 "headers": [],
-                "contentPad": 9,
+                "contentPad": 15,
                 "queryPad": 0,
                 "name": "SetIdentityPoolConfiguration",
                 "query": [],
@@ -5141,12 +6091,46 @@
                         "name": "_sipcPushSync",
                         "shape": "PushSync",
                         "locationName": "PushSync",
-                        "documentation": "-- | Configuration options to be applied to the identity pool.",
+                        "documentation": "-- | Options to apply to this identity pool for push synchronization.",
                         "typeExposed": "Maybe PushSync",
                         "type": "Maybe PushSync"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "sipcCognitoStreams",
+                        "name": "_sipcCognitoStreams",
+                        "shape": "CognitoStreams",
+                        "locationName": "CognitoStreams",
+                        "documentation": "-- | Options to apply to this identity pool for Amazon Cognito streams.",
+                        "typeExposed": "Maybe CognitoStreams",
+                        "type": "Maybe CognitoStreams"
                     }
                 ],
                 "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "sipcCognitoStreams",
+                        "name": "_sipcCognitoStreams",
+                        "shape": "CognitoStreams",
+                        "locationName": "CognitoStreams",
+                        "documentation": "-- | Options to apply to this identity pool for Amazon Cognito streams.",
+                        "typeExposed": "Maybe CognitoStreams",
+                        "type": "Maybe CognitoStreams"
+                    },
                     {
                         "location": "uri",
                         "iso": null,
@@ -5177,7 +6161,7 @@
                         "name": "_sipcPushSync",
                         "shape": "PushSync",
                         "locationName": "PushSync",
-                        "documentation": "-- | Configuration options to be applied to the identity pool.",
+                        "documentation": "-- | Options to apply to this identity pool for push synchronization.",
                         "typeExposed": "Maybe PushSync",
                         "type": "Maybe PushSync"
                     }
@@ -5462,7 +6446,7 @@
             "pager": null,
             "name": "UnsubscribeFromDataset",
             "method": "delete",
-            "documentation": "-- | Unsubscribe from receiving notifications when a dataset is modified by\n-- another device.",
+            "documentation": "-- | Unsubscribes from receiving notifications when a dataset is modified by\n-- another device.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -5779,7 +6763,7 @@
             "pager": null,
             "name": "UpdateRecords",
             "method": "post",
-            "documentation": "-- | Posts updates to records and add and delete records for a dataset and user.\n-- The credentials used to make this API call need to have access to the\n-- identity data. With Amazon Cognito Sync, each identity has access only to its\n-- own data. You should use Amazon Cognito Identity service to retrieve the\n-- credentials necessary to make this API call.",
+            "documentation": "-- | Posts updates to records and adds and deletes records for a dataset and user.\n--\n-- 'UpdateRecords' can only be called with temporary user credentials provided by\n-- Cognito Identity. You cannot make this API call with developer credentials.",
             "documentationUrl": null,
             "request": {
                 "deriving": [

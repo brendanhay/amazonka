@@ -55,6 +55,12 @@ module Network.AWS.CognitoSync.Types
     -- * Operation
     , Operation (..)
 
+    -- * StreamingStatus
+    , StreamingStatus (..)
+
+    -- * BulkPublishStatus
+    , BulkPublishStatus (..)
+
     -- * Record
     , Record
     , record
@@ -64,6 +70,13 @@ module Network.AWS.CognitoSync.Types
     , rLastModifiedDate
     , rSyncCount
     , rValue
+
+    -- * CognitoStreams
+    , CognitoStreams
+    , cognitoStreams
+    , csRoleArn
+    , csStreamName
+    , csStreamingStatus
 
     -- * IdentityUsage
     , IdentityUsage
@@ -356,6 +369,70 @@ instance FromJSON Operation where
 instance ToJSON Operation where
     toJSON = toJSONText
 
+data StreamingStatus
+    = Disabled -- ^ DISABLED
+    | Enabled  -- ^ ENABLED
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
+
+instance Hashable StreamingStatus
+
+instance FromText StreamingStatus where
+    parser = takeLowerText >>= \case
+        "disabled" -> pure Disabled
+        "enabled"  -> pure Enabled
+        e          -> fail $
+            "Failure parsing StreamingStatus from " ++ show e
+
+instance ToText StreamingStatus where
+    toText = \case
+        Disabled -> "DISABLED"
+        Enabled  -> "ENABLED"
+
+instance ToByteString StreamingStatus
+instance ToHeader     StreamingStatus
+instance ToQuery      StreamingStatus
+
+instance FromJSON StreamingStatus where
+    parseJSON = parseJSONText "StreamingStatus"
+
+instance ToJSON StreamingStatus where
+    toJSON = toJSONText
+
+data BulkPublishStatus
+    = Failed     -- ^ FAILED
+    | InProgress -- ^ IN_PROGRESS
+    | NotStarted -- ^ NOT_STARTED
+    | Succeeded  -- ^ SUCCEEDED
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
+
+instance Hashable BulkPublishStatus
+
+instance FromText BulkPublishStatus where
+    parser = takeLowerText >>= \case
+        "failed"      -> pure Failed
+        "in_progress" -> pure InProgress
+        "not_started" -> pure NotStarted
+        "succeeded"   -> pure Succeeded
+        e             -> fail $
+            "Failure parsing BulkPublishStatus from " ++ show e
+
+instance ToText BulkPublishStatus where
+    toText = \case
+        Failed     -> "FAILED"
+        InProgress -> "IN_PROGRESS"
+        NotStarted -> "NOT_STARTED"
+        Succeeded  -> "SUCCEEDED"
+
+instance ToByteString BulkPublishStatus
+instance ToHeader     BulkPublishStatus
+instance ToQuery      BulkPublishStatus
+
+instance FromJSON BulkPublishStatus where
+    parseJSON = parseJSONText "BulkPublishStatus"
+
+instance ToJSON BulkPublishStatus where
+    toJSON = toJSONText
+
 data Record = Record
     { _rDeviceLastModifiedDate :: Maybe POSIX
     , _rKey                    :: Maybe Text
@@ -436,6 +513,62 @@ instance ToJSON Record where
         , "LastModifiedDate"       .= _rLastModifiedDate
         , "LastModifiedBy"         .= _rLastModifiedBy
         , "DeviceLastModifiedDate" .= _rDeviceLastModifiedDate
+        ]
+
+data CognitoStreams = CognitoStreams
+    { _csRoleArn         :: Maybe Text
+    , _csStreamName      :: Maybe Text
+    , _csStreamingStatus :: Maybe StreamingStatus
+    } deriving (Eq, Read, Show)
+
+-- | 'CognitoStreams' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'csRoleArn' @::@ 'Maybe' 'Text'
+--
+-- * 'csStreamName' @::@ 'Maybe' 'Text'
+--
+-- * 'csStreamingStatus' @::@ 'Maybe' 'StreamingStatus'
+--
+cognitoStreams :: CognitoStreams
+cognitoStreams = CognitoStreams
+    { _csStreamName      = Nothing
+    , _csRoleArn         = Nothing
+    , _csStreamingStatus = Nothing
+    }
+
+-- | The ARN of the role Amazon Cognito can assume in order to publish to the
+-- stream. This role must grant access to Amazon Cognito (cognito-sync) to
+-- invoke 'PutRecord' on your Cognito stream.
+csRoleArn :: Lens' CognitoStreams (Maybe Text)
+csRoleArn = lens _csRoleArn (\s a -> s { _csRoleArn = a })
+
+-- | The name of the Cognito stream to receive updates. This stream must be in the
+-- developers account and in the same region as the identity pool.
+csStreamName :: Lens' CognitoStreams (Maybe Text)
+csStreamName = lens _csStreamName (\s a -> s { _csStreamName = a })
+
+-- | Status of the Cognito streams. Valid values are: 'ENABLED' - Streaming of
+-- updates to identity pool is enabled.
+--
+-- 'DISABLED'Streaming of updates to identity pool is disabled. Bulk publish will
+-- also fail if 'StreamingStatus' is 'DISABLED'.
+csStreamingStatus :: Lens' CognitoStreams (Maybe StreamingStatus)
+csStreamingStatus =
+    lens _csStreamingStatus (\s a -> s { _csStreamingStatus = a })
+
+instance FromJSON CognitoStreams where
+    parseJSON = withObject "CognitoStreams" $ \o -> CognitoStreams
+        <$> o .:? "RoleArn"
+        <*> o .:? "StreamName"
+        <*> o .:? "StreamingStatus"
+
+instance ToJSON CognitoStreams where
+    toJSON CognitoStreams{..} = object
+        [ "StreamName"      .= _csStreamName
+        , "RoleArn"         .= _csRoleArn
+        , "StreamingStatus" .= _csStreamingStatus
         ]
 
 data IdentityUsage = IdentityUsage

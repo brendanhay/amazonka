@@ -15,9 +15,7 @@ build:
 	cabal build -j
 
 deps: add-sources
-	cabal install $(CABAL_INSTALL_DEFARGS) \
- --only-dependencies \
- --force-reinstalls # https://github.com/haskell/cabal/issues/2101
+	cabal install $(CABAL_INSTALL_DEFARGS) --only-dependencies
 
 install: add-sources
 	cabal install $(CABAL_INSTALL_DEFARGS)

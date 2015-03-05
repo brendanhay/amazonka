@@ -19,10 +19,12 @@
 -- credentials. User data is persisted in a dataset that can store up to 1 MB of
 -- key-value pairs, and you can have up to 20 datasets per user identity.
 module Network.AWS.CognitoSync
-    ( module Network.AWS.CognitoSync.DeleteDataset
+    ( module Network.AWS.CognitoSync.BulkPublish
+    , module Network.AWS.CognitoSync.DeleteDataset
     , module Network.AWS.CognitoSync.DescribeDataset
     , module Network.AWS.CognitoSync.DescribeIdentityPoolUsage
     , module Network.AWS.CognitoSync.DescribeIdentityUsage
+    , module Network.AWS.CognitoSync.GetBulkPublishDetails
     , module Network.AWS.CognitoSync.GetIdentityPoolConfiguration
     , module Network.AWS.CognitoSync.ListDatasets
     , module Network.AWS.CognitoSync.ListIdentityPoolUsage
@@ -35,10 +37,12 @@ module Network.AWS.CognitoSync
     , module Network.AWS.CognitoSync.UpdateRecords
     ) where
 
+import Network.AWS.CognitoSync.BulkPublish
 import Network.AWS.CognitoSync.DeleteDataset
 import Network.AWS.CognitoSync.DescribeDataset
 import Network.AWS.CognitoSync.DescribeIdentityPoolUsage
 import Network.AWS.CognitoSync.DescribeIdentityUsage
+import Network.AWS.CognitoSync.GetBulkPublishDetails
 import Network.AWS.CognitoSync.GetIdentityPoolConfiguration
 import Network.AWS.CognitoSync.ListDatasets
 import Network.AWS.CognitoSync.ListIdentityPoolUsage

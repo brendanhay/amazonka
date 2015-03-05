@@ -107,7 +107,7 @@
         "url": "http://docs.aws.amazon.com/cloudsearch/latest/developerguide/what-is-cloudsearch.html",
         "protocol": "query",
         "name": "Amazon CloudSearch",
-        "version": "0.3.1",
+        "version": "0.3.2",
         "description": "Amazon CloudSearch is a fully-managed service in the AWS Cloud that makes it\nsimple and cost-effective to set up, manage, and scale a search solution for\nyour website or application. Amazon CloudSearch supports 34 languages and\npopular search features such as highlighting, autocomplete, and geospatial\nsearch."
     },
     "types": {

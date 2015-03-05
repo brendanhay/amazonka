@@ -22,7 +22,7 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Unsubscribe from receiving notifications when a dataset is modified by
+-- | Unsubscribes from receiving notifications when a dataset is modified by
 -- another device.
 --
 -- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_UnsubscribeFromDataset.html>

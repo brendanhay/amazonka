@@ -243,7 +243,7 @@ crgCacheSubnetGroupName =
 crgEngine :: Lens' CreateReplicationGroup (Maybe Text)
 crgEngine = lens _crgEngine (\s a -> s { _crgEngine = a })
 
--- | The version number of the cach engine to be used for the cache clusters in
+-- | The version number of the cache engine to be used for the cache clusters in
 -- this replication group. To view the supported cache engine versions, use the /DescribeCacheEngineVersions/ action.
 crgEngineVersion :: Lens' CreateReplicationGroup (Maybe Text)
 crgEngineVersion = lens _crgEngineVersion (\s a -> s { _crgEngineVersion = a })
@@ -262,7 +262,7 @@ crgNotificationTopicArn =
 --
 -- The maximum permitted value for /NumCacheClusters/ is 6 (primary plus 5
 -- replicas). If you need to exceed this limit, please fill out the ElastiCache
--- Limit Increase Request forrm at <http://aws.amazon.com/contact-us/elasticache-node-limit-request http://aws.amazon.com/contact-us/elasticache-node-limit-request>.
+-- Limit Increase Request form at <http://aws.amazon.com/contact-us/elasticache-node-limit-request http://aws.amazon.com/contact-us/elasticache-node-limit-request>.
 crgNumCacheClusters :: Lens' CreateReplicationGroup (Maybe Int)
 crgNumCacheClusters =
     lens _crgNumCacheClusters (\s a -> s { _crgNumCacheClusters = a })
@@ -293,9 +293,12 @@ crgPreferredCacheClusterAZs =
         (\s a -> s { _crgPreferredCacheClusterAZs = a })
             . _List
 
--- | The weekly time range (in UTC) during which system maintenance can occur.
+-- | Specifies the weekly time range during which maintenance on the cache cluster
+-- is performed. It is specified as a range in the format
+-- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a
+-- 60 minute period. Valid values for 'ddd' are:
 --
--- Example: 'sun:05:00-sun:09:00'
+-- 'sun' 'mon' 'tue' 'wed' 'thu' 'fri' 'sat'  Example: 'sun:05:00-sun:09:00'
 crgPreferredMaintenanceWindow :: Lens' CreateReplicationGroup (Maybe Text)
 crgPreferredMaintenanceWindow =
     lens _crgPreferredMaintenanceWindow

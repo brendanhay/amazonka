@@ -70,7 +70,7 @@ removeTagsFromResource p1 = RemoveTagsFromResource
     }
 
 -- | The name of the ElastiCache resource from which you want the listed tags
--- removed, for example 'myCluster01'.
+-- removed, for example 'arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster'.
 rtfrResourceName :: Lens' RemoveTagsFromResource Text
 rtfrResourceName = lens _rtfrResourceName (\s a -> s { _rtfrResourceName = a })
 
@@ -102,7 +102,7 @@ removeTagsFromResourceResponse = RemoveTagsFromResourceResponse
     { _rtfrrTagList = mempty
     }
 
--- | A list of cost allocation tags as a key-value pair.
+-- | A list of cost allocation tags as key-value pairs.
 rtfrrTagList :: Lens' RemoveTagsFromResourceResponse [Tag]
 rtfrrTagList = lens _rtfrrTagList (\s a -> s { _rtfrrTagList = a }) . _List
 

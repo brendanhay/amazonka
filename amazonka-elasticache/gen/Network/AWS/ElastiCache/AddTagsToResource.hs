@@ -77,7 +77,7 @@ addTagsToResource p1 = AddTagsToResource
     , _attrTags         = mempty
     }
 
--- | The name of the resource to which the tags are to be added, for example 'myCluster01'.
+-- | The name of the resource to which the tags are to be added, for example 'arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster'.
 attrResourceName :: Lens' AddTagsToResource Text
 attrResourceName = lens _attrResourceName (\s a -> s { _attrResourceName = a })
 
@@ -107,7 +107,7 @@ addTagsToResourceResponse = AddTagsToResourceResponse
     { _attrrTagList = mempty
     }
 
--- | A list of cost allocation tags as a key-value pair.
+-- | A list of cost allocation tags as key-value pairs.
 attrrTagList :: Lens' AddTagsToResourceResponse [Tag]
 attrrTagList = lens _attrrTagList (\s a -> s { _attrrTagList = a }) . _List
 

@@ -561,6 +561,17 @@ sCacheClusterId = lens _sCacheClusterId (\s a -> s { _sCacheClusterId = a })
 
 -- | The name of the compute and memory capacity node type for the source cache
 -- cluster.
+--
+-- Valid node types are as follows:
+--
+-- General purpose:  Current generation: 'cache.t2.micro', 'cache.t2.small', 'cache.t2.medium', 'cache.m3.medium', 'cache.m3.large', 'cache.m3.xlarge', 'cache.m3.2xlarge' Previous
+-- generation: 'cache.t1.micro', 'cache.m1.small', 'cache.m1.medium', 'cache.m1.large', 'cache.m1.xlarge'  Compute optimized: 'cache.c1.xlarge' Memory optimized  Current generation: 'cache.r3.large', 'cache.r3.xlarge', 'cache.r3.2xlarge', 'cache.r3.4xlarge', 'cache.r3.8xlarge' Previous generation:
+-- 'cache.m2.xlarge', 'cache.m2.2xlarge', 'cache.m2.4xlarge'   Notes:
+--
+-- All t2 instances are created in an Amazon Virtual Private Cloud (VPC). Redis backup/restore is not supported for t2 instances.
+-- Redis Append-only files (AOF) functionality is not supported for t1 or t2
+-- instances.  For a complete listing of cache node types and specifications,
+-- see <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product Features and Details> and <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#CacheParameterGroups.Memcached.NodeSpecific Cache NodeType-Specific Parameters for Memcached> or <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parametersfor Redis>.
 sCacheNodeType :: Lens' Snapshot (Maybe Text)
 sCacheNodeType = lens _sCacheNodeType (\s a -> s { _sCacheNodeType = a })
 
@@ -592,7 +603,7 @@ sNodeSnapshots = lens _sNodeSnapshots (\s a -> s { _sNodeSnapshots = a }) . _Lis
 -- | The number of cache nodes in the source cache cluster.
 --
 -- For clusters running Redis, this value must be 1. For clusters running
--- Memcached, this value must be between 1 and 50.
+-- Memcached, this value must be between 1 and 20.
 sNumCacheNodes :: Lens' Snapshot (Maybe Int)
 sNumCacheNodes = lens _sNumCacheNodes (\s a -> s { _sNumCacheNodes = a })
 
@@ -607,8 +618,12 @@ sPreferredAvailabilityZone =
     lens _sPreferredAvailabilityZone
         (\s a -> s { _sPreferredAvailabilityZone = a })
 
--- | The time range (in UTC) during which weekly system maintenance can occur on
--- the source cache cluster.
+-- | Specifies the weekly time range during which maintenance on the cache cluster
+-- is performed. It is specified as a range in the format
+-- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a
+-- 60 minute period. Valid values for 'ddd' are:
+--
+-- 'sun' 'mon' 'tue' 'wed' 'thu' 'fri' 'sat'  Example: 'sun:05:00-sun:09:00'
 sPreferredMaintenanceWindow :: Lens' Snapshot (Maybe Text)
 sPreferredMaintenanceWindow =
     lens _sPreferredMaintenanceWindow
@@ -889,7 +904,7 @@ tag = Tag
 tagKey :: Lens' Tag (Maybe Text)
 tagKey = lens _tagKey (\s a -> s { _tagKey = a })
 
--- | The tag's value. May be null.
+-- | The tag's value. May not be null.
 tagValue :: Lens' Tag (Maybe Text)
 tagValue = lens _tagValue (\s a -> s { _tagValue = a })
 
@@ -1263,6 +1278,17 @@ rcnCacheNodeCount =
     lens _rcnCacheNodeCount (\s a -> s { _rcnCacheNodeCount = a })
 
 -- | The cache node type for the reserved cache nodes.
+--
+-- Valid node types are as follows:
+--
+-- General purpose:  Current generation: 'cache.t2.micro', 'cache.t2.small', 'cache.t2.medium', 'cache.m3.medium', 'cache.m3.large', 'cache.m3.xlarge', 'cache.m3.2xlarge' Previous
+-- generation: 'cache.t1.micro', 'cache.m1.small', 'cache.m1.medium', 'cache.m1.large', 'cache.m1.xlarge'  Compute optimized: 'cache.c1.xlarge' Memory optimized  Current generation: 'cache.r3.large', 'cache.r3.xlarge', 'cache.r3.2xlarge', 'cache.r3.4xlarge', 'cache.r3.8xlarge' Previous generation:
+-- 'cache.m2.xlarge', 'cache.m2.2xlarge', 'cache.m2.4xlarge'   Notes:
+--
+-- All t2 instances are created in an Amazon Virtual Private Cloud (VPC). Redis backup/restore is not supported for t2 instances.
+-- Redis Append-only files (AOF) functionality is not supported for t1 or t2
+-- instances.  For a complete listing of cache node types and specifications,
+-- see <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product Features and Details> and <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#CacheParameterGroups.Memcached.NodeSpecific Cache NodeType-Specific Parameters for Memcached> or <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parametersfor Redis>.
 rcnCacheNodeType :: Lens' ReservedCacheNode (Maybe Text)
 rcnCacheNodeType = lens _rcnCacheNodeType (\s a -> s { _rcnCacheNodeType = a })
 
@@ -1547,6 +1573,17 @@ ccCacheClusterStatus =
     lens _ccCacheClusterStatus (\s a -> s { _ccCacheClusterStatus = a })
 
 -- | The name of the compute and memory capacity node type for the cache cluster.
+--
+-- Valid node types are as follows:
+--
+-- General purpose:  Current generation: 'cache.t2.micro', 'cache.t2.small', 'cache.t2.medium', 'cache.m3.medium', 'cache.m3.large', 'cache.m3.xlarge', 'cache.m3.2xlarge' Previous
+-- generation: 'cache.t1.micro', 'cache.m1.small', 'cache.m1.medium', 'cache.m1.large', 'cache.m1.xlarge'  Compute optimized: 'cache.c1.xlarge' Memory optimized  Current generation: 'cache.r3.large', 'cache.r3.xlarge', 'cache.r3.2xlarge', 'cache.r3.4xlarge', 'cache.r3.8xlarge' Previous generation:
+-- 'cache.m2.xlarge', 'cache.m2.2xlarge', 'cache.m2.4xlarge'   Notes:
+--
+-- All t2 instances are created in an Amazon Virtual Private Cloud (VPC). Redis backup/restore is not supported for t2 instances.
+-- Redis Append-only files (AOF) functionality is not supported for t1 or t2
+-- instances.  For a complete listing of cache node types and specifications,
+-- see <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product Features and Details> and <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#CacheParameterGroups.Memcached.NodeSpecific Cache NodeType-Specific Parameters for Memcached> or <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parametersfor Redis>.
 ccCacheNodeType :: Lens' CacheCluster (Maybe Text)
 ccCacheNodeType = lens _ccCacheNodeType (\s a -> s { _ccCacheNodeType = a })
 
@@ -1598,7 +1635,7 @@ ccNotificationConfiguration =
 -- | The number of cache nodes in the cache cluster.
 --
 -- For clusters running Redis, this value must be 1. For clusters running
--- Memcached, this value must be between 1 and 50.
+-- Memcached, this value must be between 1 and 20.
 ccNumCacheNodes :: Lens' CacheCluster (Maybe Int)
 ccNumCacheNodes = lens _ccNumCacheNodes (\s a -> s { _ccNumCacheNodes = a })
 
@@ -1607,13 +1644,18 @@ ccPendingModifiedValues =
     lens _ccPendingModifiedValues (\s a -> s { _ccPendingModifiedValues = a })
 
 -- | The name of the Availability Zone in which the cache cluster is located or
--- "Multiple"if the cache nodes are located in different Availability Zones.
+-- "Multiple" if the cache nodes are located in different Availability Zones.
 ccPreferredAvailabilityZone :: Lens' CacheCluster (Maybe Text)
 ccPreferredAvailabilityZone =
     lens _ccPreferredAvailabilityZone
         (\s a -> s { _ccPreferredAvailabilityZone = a })
 
--- | The time range (in UTC) during which weekly system maintenance can occur.
+-- | Specifies the weekly time range during which maintenance on the cache cluster
+-- is performed. It is specified as a range in the format
+-- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a
+-- 60 minute period. Valid values for 'ddd' are:
+--
+-- 'sun' 'mon' 'tue' 'wed' 'thu' 'fri' 'sat'  Example: 'sun:05:00-sun:09:00'
 ccPreferredMaintenanceWindow :: Lens' CacheCluster (Maybe Text)
 ccPreferredMaintenanceWindow =
     lens _ccPreferredMaintenanceWindow
@@ -2612,6 +2654,17 @@ reservedCacheNodesOffering = ReservedCacheNodesOffering
     }
 
 -- | The cache node type for the reserved cache node.
+--
+-- Valid node types are as follows:
+--
+-- General purpose:  Current generation: 'cache.t2.micro', 'cache.t2.small', 'cache.t2.medium', 'cache.m3.medium', 'cache.m3.large', 'cache.m3.xlarge', 'cache.m3.2xlarge' Previous
+-- generation: 'cache.t1.micro', 'cache.m1.small', 'cache.m1.medium', 'cache.m1.large', 'cache.m1.xlarge'  Compute optimized: 'cache.c1.xlarge' Memory optimized  Current generation: 'cache.r3.large', 'cache.r3.xlarge', 'cache.r3.2xlarge', 'cache.r3.4xlarge', 'cache.r3.8xlarge' Previous generation:
+-- 'cache.m2.xlarge', 'cache.m2.2xlarge', 'cache.m2.4xlarge'   Notes:
+--
+-- All t2 instances are created in an Amazon Virtual Private Cloud (VPC). Redis backup/restore is not supported for t2 instances.
+-- Redis Append-only files (AOF) functionality is not supported for t1 or t2
+-- instances.  For a complete listing of cache node types and specifications,
+-- see <http://aws.amazon.com/elasticache/details Amazon ElastiCache Product Features and Details> and <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#CacheParameterGroups.Memcached.NodeSpecific Cache NodeType-Specific Parameters for Memcached> or <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parametersfor Redis>.
 rcnoCacheNodeType :: Lens' ReservedCacheNodesOffering (Maybe Text)
 rcnoCacheNodeType =
     lens _rcnoCacheNodeType (\s a -> s { _rcnoCacheNodeType = a })
@@ -2693,7 +2746,7 @@ tagListMessage = TagListMessage
     { _tlmTagList = mempty
     }
 
--- | A list of cost allocation tags as a key-value pair.
+-- | A list of cost allocation tags as key-value pairs.
 tlmTagList :: Lens' TagListMessage [Tag]
 tlmTagList = lens _tlmTagList (\s a -> s { _tlmTagList = a }) . _List
 
@@ -2781,7 +2834,7 @@ pmvEngineVersion = lens _pmvEngineVersion (\s a -> s { _pmvEngineVersion = a })
 -- | The new number of cache nodes for the cache cluster.
 --
 -- For clusters running Redis, this value must be 1. For clusters running
--- Memcached, this value must be between 1 and 50.
+-- Memcached, this value must be between 1 and 20.
 pmvNumCacheNodes :: Lens' PendingModifiedValues (Maybe Int)
 pmvNumCacheNodes = lens _pmvNumCacheNodes (\s a -> s { _pmvNumCacheNodes = a })
 

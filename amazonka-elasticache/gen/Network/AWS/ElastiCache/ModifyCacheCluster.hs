@@ -303,7 +303,7 @@ mccNotificationTopicStatus =
 -- parameter to provide the IDs of the specific cache nodes to remove.
 --
 -- For clusters running Redis, this value must be 1. For clusters running
--- Memcached, this value must be between 1 and 50.
+-- Memcached, this value must be between 1 and 20.
 --
 -- Note:
 -- Adding or removing Memcached cache nodes can be applied immediately or
@@ -326,11 +326,12 @@ mccNotificationTopicStatus =
 mccNumCacheNodes :: Lens' ModifyCacheCluster (Maybe Int)
 mccNumCacheNodes = lens _mccNumCacheNodes (\s a -> s { _mccNumCacheNodes = a })
 
--- | The weekly time range (in UTC) during which system maintenance can occur.
--- Note that system maintenance may result in an outage. This change is made
--- immediately. If you are moving this window to the current time, there must be
--- at least 120 minutes between the current time and end of the window to ensure
--- that pending changes are applied.
+-- | Specifies the weekly time range during which maintenance on the cache cluster
+-- is performed. It is specified as a range in the format
+-- ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The minimum maintenance window is a
+-- 60 minute period. Valid values for 'ddd' are:
+--
+-- 'sun' 'mon' 'tue' 'wed' 'thu' 'fri' 'sat'  Example: 'sun:05:00-sun:09:00'
 mccPreferredMaintenanceWindow :: Lens' ModifyCacheCluster (Maybe Text)
 mccPreferredMaintenanceWindow =
     lens _mccPreferredMaintenanceWindow

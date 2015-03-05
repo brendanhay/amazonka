@@ -40,10 +40,12 @@ library
 
     exposed-modules:
           Network.AWS.CognitoSync
+        , Network.AWS.CognitoSync.BulkPublish
         , Network.AWS.CognitoSync.DeleteDataset
         , Network.AWS.CognitoSync.DescribeDataset
         , Network.AWS.CognitoSync.DescribeIdentityPoolUsage
         , Network.AWS.CognitoSync.DescribeIdentityUsage
+        , Network.AWS.CognitoSync.GetBulkPublishDetails
         , Network.AWS.CognitoSync.GetIdentityPoolConfiguration
         , Network.AWS.CognitoSync.ListDatasets
         , Network.AWS.CognitoSync.ListIdentityPoolUsage

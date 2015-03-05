@@ -914,7 +914,7 @@
                         "name": "_ifIndexFieldName",
                         "shape": "DynamicFieldName",
                         "locationName": "IndexFieldName",
-                        "documentation": "-- | The name of a field in the search index. Field names must begin with a letter\n-- and can contain the following characters: a-z (lowercase), 0-9, and _\n-- (underscore). Uppercase letters and hyphens are not allowed. The name \"score\"\n-- is reserved and cannot be specified as field or expression name.",
+                        "documentation": "-- | A string that represents the name of an index field. CloudSearch supports\n-- regular index fields as well as dynamic fields. A dynamic field's name\n-- defines a pattern that begins or ends with a wildcard. Any document fields\n-- that don't map to a regular index field but do match a dynamic field's\n-- pattern are configured with the dynamic field's indexing options.\n--\n-- Regular field names begin with a letter and can contain the following\n-- characters: a-z (lowercase), 0-9, and _ (underscore). Dynamic field names\n-- must begin or end with a wildcard (*). The wildcard can also be the only\n-- character in a dynamic field name. Multiple wildcards, and wildcards embedded\n-- within a string are not supported.\n--\n-- The name 'score' is reserved and cannot be used as a field name. To reference\n-- a document's ID, you can use the name '_id'.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1211,7 +1211,7 @@
                         "name": "_ifIndexFieldName",
                         "shape": "DynamicFieldName",
                         "locationName": "IndexFieldName",
-                        "documentation": "-- | The name of a field in the search index. Field names must begin with a letter\n-- and can contain the following characters: a-z (lowercase), 0-9, and _\n-- (underscore). Uppercase letters and hyphens are not allowed. The name \"score\"\n-- is reserved and cannot be specified as field or expression name.",
+                        "documentation": "-- | A string that represents the name of an index field. CloudSearch supports\n-- regular index fields as well as dynamic fields. A dynamic field's name\n-- defines a pattern that begins or ends with a wildcard. Any document fields\n-- that don't map to a regular index field but do match a dynamic field's\n-- pattern are configured with the dynamic field's indexing options.\n--\n-- Regular field names begin with a letter and can contain the following\n-- characters: a-z (lowercase), 0-9, and _ (underscore). Dynamic field names\n-- must begin or end with a wildcard (*). The wildcard can also be the only\n-- character in a dynamic field name. Multiple wildcards, and wildcards embedded\n-- within a string are not supported.\n--\n-- The name 'score' is reserved and cannot be used as a field name. To reference\n-- a document's ID, you can use the name '_id'.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4570,9 +4570,13 @@
                     "Enum"
                 ],
                 "branches": {
+                    "SearchM32xlarge": "search.m3.2xlarge",
+                    "SearchM3Large": "search.m3.large",
+                    "SearchM3Medium": "search.m3.medium",
                     "SearchM22xlarge": "search.m2.2xlarge",
                     "SearchM2Xlarge": "search.m2.xlarge",
                     "SearchM1Large": "search.m1.large",
+                    "SearchM3Xlarge": "search.m3.xlarge",
                     "SearchM1Small": "search.m1.small"
                 },
                 "valuePad": 18,

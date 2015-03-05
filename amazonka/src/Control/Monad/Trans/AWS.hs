@@ -112,7 +112,7 @@ import           Control.Monad.Trans.Resource
 import           Control.Retry                (limitRetries)
 import           Data.ByteString              (ByteString)
 import           Data.Conduit                 hiding (await)
-import           Data.Time
+import           Data.Time                    (UTCTime)
 import qualified Network.AWS                  as AWS
 import           Network.AWS.Data             (ToBuilder (..))
 import           Network.AWS.Error

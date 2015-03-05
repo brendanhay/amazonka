@@ -36,4 +36,6 @@ upload:
 	cabal upload dist/$(NAME)-$(VERSION).tar.gz
 
 doc:
-	cabal haddock
+	PACKAGE_NAME=$(NAME) \
+ PACKAGE_VERSION=$(VERSION) \
+ $(TOP)/script/upload-documentation

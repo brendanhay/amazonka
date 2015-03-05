@@ -2,36 +2,31 @@
 
 set -e
 
-package=${PWD##*/}
+name=${PACKAGE_NAME?"Required"}
+version=${PACKAGE_VERSION?"Required"}
 
-echo "Package: ${package}"
-read -p "Version: " version
-read -p "Hackage user: " user
-read -sp "Hackage password (not echoed): " password
+user=${HACKAGE_USER?"Required"}
+password=${HACKAGE_PASS?"Required"}
 
-echo
-echo "BUILDING"
-echo
+package=${name}-${version}
 
-cabal configure
-cabal build
-cabal haddock \
- --hyperlink-source \
- --html-location='/package/$pkg-$version/docs' \
- --contents-location='/package/$pkg'
+set -x
 
-echo
-echo "ARCHIVING"
-echo
+cabal clean &&                                     \
+ cabal configure &&                                \
+ cabal build &&                                    \
+ cabal haddock                                     \
+     --hyperlink-source                            \
+     --html-location='/package/$pkg-$version/docs' \
+     --contents-location='/package/$pkg'
 
 cd dist/doc/html
-DDIR="${package}-${version}-docs"
-cp -r "${package}" "${DDIR}" && gtar -c -v -z -Hustar -f "${DDIR}.tar.gz" "${DDIR}"
 
-echo
-echo "UPLOADING"
-echo
+archive="${package}-docs"
+
+cp -r "${name}" "${archive}" && \
+ gtar -c -z -Hustar -f "${archive}.tar.gz" "${archive}"
 
 curl -X PUT -H 'Content-Type: application/x-tar' \
-    -H 'Content-Encoding: gzip' --data-binary "@${DDIR}.tar.gz" \
-    "http://${user}:${password}@hackage.haskell.org/package/${package}-${version}/docs"
+    -H 'Content-Encoding: gzip' --data-binary "@${archive}.tar.gz" \
+    "http://${user}:${password}@hackage.haskell.org/package/${package}/docs"

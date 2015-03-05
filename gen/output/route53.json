@@ -121,7 +121,7 @@
         "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/Welcome.html",
         "protocol": "rest-xml",
         "name": "Amazon Route 53",
-        "version": "0.3.1",
+        "version": "0.3.2",
         "description": "Amazon Route 53 is a scalable Domain Name System (DNS) web service. It\nprovides secure and reliable routing to your infrastructure that uses Amazon\nWeb Services (AWS) products, such as Amazon Elastic Compute Cloud (Amazon\nEC2), Elastic Load Balancing, or Amazon Simple Storage Service (Amazon S3).\nYou can also use Amazon Route 53 to route users to your infrastructure\noutside of AWS."
     },
     "types": {

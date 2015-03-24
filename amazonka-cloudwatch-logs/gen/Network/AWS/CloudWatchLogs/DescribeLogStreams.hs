@@ -28,7 +28,9 @@
 -- By default, this operation returns up to 50 log streams. If there are more
 -- log streams to list, the response would contain a 'nextToken' value in the
 -- response body. You can also limit the number of log streams returned in the
--- response by specifying the 'limit' parameter in the request.
+-- response by specifying the 'limit' parameter in the request. This operation has
+-- a limit of five transactions per second, after which transactions are
+-- throttled.
 --
 -- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogStreams.html>
 module Network.AWS.CloudWatchLogs.DescribeLogStreams
@@ -38,10 +40,12 @@ module Network.AWS.CloudWatchLogs.DescribeLogStreams
     -- ** Request constructor
     , describeLogStreams
     -- ** Request lenses
+    , dls1Descending
     , dls1Limit
     , dls1LogGroupName
     , dls1LogStreamNamePrefix
     , dls1NextToken
+    , dls1OrderBy
 
     -- * Response
     , DescribeLogStreamsResponse
@@ -58,15 +62,19 @@ import Network.AWS.CloudWatchLogs.Types
 import qualified GHC.Exts
 
 data DescribeLogStreams = DescribeLogStreams
-    { _dls1Limit               :: Maybe Nat
+    { _dls1Descending          :: Maybe Bool
+    , _dls1Limit               :: Maybe Nat
     , _dls1LogGroupName        :: Text
     , _dls1LogStreamNamePrefix :: Maybe Text
     , _dls1NextToken           :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+    , _dls1OrderBy             :: Maybe OrderBy
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeLogStreams' constructor.
 --
 -- The fields accessible through corresponding lenses are:
+--
+-- * 'dls1Descending' @::@ 'Maybe' 'Bool'
 --
 -- * 'dls1Limit' @::@ 'Maybe' 'Natural'
 --
@@ -76,14 +84,23 @@ data DescribeLogStreams = DescribeLogStreams
 --
 -- * 'dls1NextToken' @::@ 'Maybe' 'Text'
 --
+-- * 'dls1OrderBy' @::@ 'Maybe' 'OrderBy'
+--
 describeLogStreams :: Text -- ^ 'dls1LogGroupName'
                    -> DescribeLogStreams
 describeLogStreams p1 = DescribeLogStreams
     { _dls1LogGroupName        = p1
     , _dls1LogStreamNamePrefix = Nothing
+    , _dls1OrderBy             = Nothing
+    , _dls1Descending          = Nothing
     , _dls1NextToken           = Nothing
     , _dls1Limit               = Nothing
     }
+
+-- | If set to true, results are returned in descending order. If you don't
+-- specify a value or set it to false, results are returned in ascending order.
+dls1Descending :: Lens' DescribeLogStreams (Maybe Bool)
+dls1Descending = lens _dls1Descending (\s a -> s { _dls1Descending = a })
 
 -- | The maximum number of items returned in the response. If you don't specify a
 -- value, the request would return up to 50 items.
@@ -93,6 +110,8 @@ dls1Limit = lens _dls1Limit (\s a -> s { _dls1Limit = a }) . mapping _Nat
 dls1LogGroupName :: Lens' DescribeLogStreams Text
 dls1LogGroupName = lens _dls1LogGroupName (\s a -> s { _dls1LogGroupName = a })
 
+-- | Will only return log streams that match the provided logStreamNamePrefix. If
+-- you don't specify a value, no prefix filter is applied.
 dls1LogStreamNamePrefix :: Lens' DescribeLogStreams (Maybe Text)
 dls1LogStreamNamePrefix =
     lens _dls1LogStreamNamePrefix (\s a -> s { _dls1LogStreamNamePrefix = a })
@@ -101,6 +120,13 @@ dls1LogStreamNamePrefix =
 -- It must be a value obtained from the response of the previous 'DescribeLogStreams' request.
 dls1NextToken :: Lens' DescribeLogStreams (Maybe Text)
 dls1NextToken = lens _dls1NextToken (\s a -> s { _dls1NextToken = a })
+
+-- | Specifies what to order the returned log streams by. Valid arguments are
+-- 'LogStreamName' or 'LastEventTime'. If you don't specify a value, results are
+-- ordered by LogStreamName. If 'LastEventTime' is chosen, the request cannot
+-- also contain a logStreamNamePrefix.
+dls1OrderBy :: Lens' DescribeLogStreams (Maybe OrderBy)
+dls1OrderBy = lens _dls1OrderBy (\s a -> s { _dls1OrderBy = a })
 
 data DescribeLogStreamsResponse = DescribeLogStreamsResponse
     { _dlsrLogStreams :: List "logStreams" LogStream
@@ -139,6 +165,8 @@ instance ToJSON DescribeLogStreams where
     toJSON DescribeLogStreams{..} = object
         [ "logGroupName"        .= _dls1LogGroupName
         , "logStreamNamePrefix" .= _dls1LogStreamNamePrefix
+        , "orderBy"             .= _dls1OrderBy
+        , "descending"          .= _dls1Descending
         , "nextToken"           .= _dls1NextToken
         , "limit"               .= _dls1Limit
         ]

@@ -48,6 +48,7 @@ module Network.AWS.ElasticTranscoder.CreatePipeline
     , createPipelineResponse
     -- ** Response lenses
     , cprPipeline
+    , cprWarnings
     ) where
 
 import Network.AWS.Prelude
@@ -255,8 +256,9 @@ cp1ThumbnailConfig :: Lens' CreatePipeline (Maybe PipelineOutputConfig)
 cp1ThumbnailConfig =
     lens _cp1ThumbnailConfig (\s a -> s { _cp1ThumbnailConfig = a })
 
-newtype CreatePipelineResponse = CreatePipelineResponse
+data CreatePipelineResponse = CreatePipelineResponse
     { _cprPipeline :: Maybe Pipeline
+    , _cprWarnings :: List "Warnings" Warning
     } deriving (Eq, Read, Show)
 
 -- | 'CreatePipelineResponse' constructor.
@@ -265,15 +267,27 @@ newtype CreatePipelineResponse = CreatePipelineResponse
 --
 -- * 'cprPipeline' @::@ 'Maybe' 'Pipeline'
 --
+-- * 'cprWarnings' @::@ ['Warning']
+--
 createPipelineResponse :: CreatePipelineResponse
 createPipelineResponse = CreatePipelineResponse
     { _cprPipeline = Nothing
+    , _cprWarnings = mempty
     }
 
 -- | A section of the response body that provides information about the pipeline
 -- that is created.
 cprPipeline :: Lens' CreatePipelineResponse (Maybe Pipeline)
 cprPipeline = lens _cprPipeline (\s a -> s { _cprPipeline = a })
+
+-- | Elastic Transcoder returns a warning if the resources used by your pipeline
+-- are not in the same region as the pipeline.
+--
+-- Using resources in the same region, such as your Amazon S3 buckets, Amazon
+-- SNS notification topics, and AWS KMS key, reduces processing time and
+-- prevents cross-regional charges.
+cprWarnings :: Lens' CreatePipelineResponse [Warning]
+cprWarnings = lens _cprWarnings (\s a -> s { _cprWarnings = a }) . _List
 
 instance ToPath CreatePipeline where
     toPath = const "/2012-09-25/pipelines"
@@ -305,3 +319,4 @@ instance AWSRequest CreatePipeline where
 instance FromJSON CreatePipelineResponse where
     parseJSON = withObject "CreatePipelineResponse" $ \o -> CreatePipelineResponse
         <$> o .:? "Pipeline"
+        <*> o .:? "Warnings" .!= mempty

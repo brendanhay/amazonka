@@ -330,7 +330,9 @@ di1InstanceIds = lens _di1InstanceIds (\s a -> s { _di1InstanceIds = a }) . _Lis
 
 -- | The maximum number of items to return for this call. The call also returns a
 -- token that you can specify in a subsequent call to get the next set of
--- results. If the value is greater than 1000, we return only 1000 items.
+-- results. If the value is greater than 1000, we return only 1000 items. You
+-- cannot specify this parameter and the instance IDs parameter in the same
+-- request.
 di1MaxResults :: Lens' DescribeInstances (Maybe Int)
 di1MaxResults = lens _di1MaxResults (\s a -> s { _di1MaxResults = a })
 

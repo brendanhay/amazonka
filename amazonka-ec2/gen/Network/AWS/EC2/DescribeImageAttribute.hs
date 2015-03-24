@@ -83,6 +83,10 @@ describeImageAttribute p1 p2 = DescribeImageAttribute
     }
 
 -- | The AMI attribute.
+--
+-- Note: Depending on your account privileges, the 'blockDeviceMapping' attribute
+-- may return a 'Client.AuthFailure' error. If this happens, use 'DescribeImages' to
+-- get information about the block device mapping for the AMI.
 dia1Attribute :: Lens' DescribeImageAttribute ImageAttributeName
 dia1Attribute = lens _dia1Attribute (\s a -> s { _dia1Attribute = a })
 

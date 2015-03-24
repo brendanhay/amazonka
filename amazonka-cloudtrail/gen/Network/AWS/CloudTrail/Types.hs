@@ -30,6 +30,16 @@ module Network.AWS.CloudTrail.Types
     -- ** Error
     , JSONError
 
+    -- * Event
+    , Event
+    , event
+    , eCloudTrailEvent
+    , eEventId
+    , eEventName
+    , eEventTime
+    , eResources
+    , eUsername
+
     -- * Trail
     , Trail
     , trail
@@ -40,6 +50,21 @@ module Network.AWS.CloudTrail.Types
     , tS3BucketName
     , tS3KeyPrefix
     , tSnsTopicName
+
+    -- * LookupAttribute
+    , LookupAttribute
+    , lookupAttribute
+    , laAttributeKey
+    , laAttributeValue
+
+    -- * LookupAttributeKey
+    , LookupAttributeKey (..)
+
+    -- * Resource
+    , Resource
+    , resource
+    , rResourceName
+    , rResourceType
     ) where
 
 import Network.AWS.Prelude
@@ -86,6 +111,85 @@ instance AWSService CloudTrail where
             | s == 509  = True -- Limit Exceeded
             | s == 503  = True -- Service Unavailable
             | otherwise = False
+
+data Event = Event
+    { _eCloudTrailEvent :: Maybe Text
+    , _eEventId         :: Maybe Text
+    , _eEventName       :: Maybe Text
+    , _eEventTime       :: Maybe POSIX
+    , _eResources       :: List "Resources" Resource
+    , _eUsername        :: Maybe Text
+    } deriving (Eq, Read, Show)
+
+-- | 'Event' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'eCloudTrailEvent' @::@ 'Maybe' 'Text'
+--
+-- * 'eEventId' @::@ 'Maybe' 'Text'
+--
+-- * 'eEventName' @::@ 'Maybe' 'Text'
+--
+-- * 'eEventTime' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'eResources' @::@ ['Resource']
+--
+-- * 'eUsername' @::@ 'Maybe' 'Text'
+--
+event :: Event
+event = Event
+    { _eEventId         = Nothing
+    , _eEventName       = Nothing
+    , _eEventTime       = Nothing
+    , _eUsername        = Nothing
+    , _eResources       = mempty
+    , _eCloudTrailEvent = Nothing
+    }
+
+-- | A JSON string that contains a representation of the event returned.
+eCloudTrailEvent :: Lens' Event (Maybe Text)
+eCloudTrailEvent = lens _eCloudTrailEvent (\s a -> s { _eCloudTrailEvent = a })
+
+-- | The CloudTrail ID of the event returned.
+eEventId :: Lens' Event (Maybe Text)
+eEventId = lens _eEventId (\s a -> s { _eEventId = a })
+
+-- | The name of the event returned.
+eEventName :: Lens' Event (Maybe Text)
+eEventName = lens _eEventName (\s a -> s { _eEventName = a })
+
+-- | The date and time of the event returned.
+eEventTime :: Lens' Event (Maybe UTCTime)
+eEventTime = lens _eEventTime (\s a -> s { _eEventTime = a }) . mapping _Time
+
+-- | A list of resources referenced by the event returned.
+eResources :: Lens' Event [Resource]
+eResources = lens _eResources (\s a -> s { _eResources = a }) . _List
+
+-- | A user name or role name of the requester that called the API in the event
+-- returned.
+eUsername :: Lens' Event (Maybe Text)
+eUsername = lens _eUsername (\s a -> s { _eUsername = a })
+
+instance FromJSON Event where
+    parseJSON = withObject "Event" $ \o -> Event
+        <$> o .:? "CloudTrailEvent"
+        <*> o .:? "EventId"
+        <*> o .:? "EventName"
+        <*> o .:? "EventTime"
+        <*> o .:? "Resources" .!= mempty
+        <*> o .:? "Username"
+
+instance ToJSON Event where
+    toJSON Event{..} = object
+        [ "EventId"         .= _eEventId
+        , "EventName"       .= _eEventName
+        , "EventTime"       .= _eEventTime
+        , "Username"        .= _eUsername
+        , "Resources"       .= _eResources
+        , "CloudTrailEvent" .= _eCloudTrailEvent
+        ]
 
 data Trail = Trail
     { _tCloudWatchLogsLogGroupArn  :: Maybe Text
@@ -182,4 +286,126 @@ instance ToJSON Trail where
         , "IncludeGlobalServiceEvents" .= _tIncludeGlobalServiceEvents
         , "CloudWatchLogsLogGroupArn"  .= _tCloudWatchLogsLogGroupArn
         , "CloudWatchLogsRoleArn"      .= _tCloudWatchLogsRoleArn
+        ]
+
+data LookupAttribute = LookupAttribute
+    { _laAttributeKey   :: LookupAttributeKey
+    , _laAttributeValue :: Text
+    } deriving (Eq, Read, Show)
+
+-- | 'LookupAttribute' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'laAttributeKey' @::@ 'LookupAttributeKey'
+--
+-- * 'laAttributeValue' @::@ 'Text'
+--
+lookupAttribute :: LookupAttributeKey -- ^ 'laAttributeKey'
+                -> Text -- ^ 'laAttributeValue'
+                -> LookupAttribute
+lookupAttribute p1 p2 = LookupAttribute
+    { _laAttributeKey   = p1
+    , _laAttributeValue = p2
+    }
+
+-- | Specifies an attribute on which to filter the events returned.
+laAttributeKey :: Lens' LookupAttribute LookupAttributeKey
+laAttributeKey = lens _laAttributeKey (\s a -> s { _laAttributeKey = a })
+
+-- | Specifies a value for the specified AttributeKey.
+laAttributeValue :: Lens' LookupAttribute Text
+laAttributeValue = lens _laAttributeValue (\s a -> s { _laAttributeValue = a })
+
+instance FromJSON LookupAttribute where
+    parseJSON = withObject "LookupAttribute" $ \o -> LookupAttribute
+        <$> o .:  "AttributeKey"
+        <*> o .:  "AttributeValue"
+
+instance ToJSON LookupAttribute where
+    toJSON LookupAttribute{..} = object
+        [ "AttributeKey"   .= _laAttributeKey
+        , "AttributeValue" .= _laAttributeValue
+        ]
+
+data LookupAttributeKey
+    = EventId      -- ^ EventId
+    | EventName    -- ^ EventName
+    | ResourceName -- ^ ResourceName
+    | ResourceType -- ^ ResourceType
+    | Username     -- ^ Username
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
+
+instance Hashable LookupAttributeKey
+
+instance FromText LookupAttributeKey where
+    parser = takeLowerText >>= \case
+        "eventid"      -> pure EventId
+        "eventname"    -> pure EventName
+        "resourcename" -> pure ResourceName
+        "resourcetype" -> pure ResourceType
+        "username"     -> pure Username
+        e              -> fail $
+            "Failure parsing LookupAttributeKey from " ++ show e
+
+instance ToText LookupAttributeKey where
+    toText = \case
+        EventId      -> "EventId"
+        EventName    -> "EventName"
+        ResourceName -> "ResourceName"
+        ResourceType -> "ResourceType"
+        Username     -> "Username"
+
+instance ToByteString LookupAttributeKey
+instance ToHeader     LookupAttributeKey
+instance ToQuery      LookupAttributeKey
+
+instance FromJSON LookupAttributeKey where
+    parseJSON = parseJSONText "LookupAttributeKey"
+
+instance ToJSON LookupAttributeKey where
+    toJSON = toJSONText
+
+data Resource = Resource
+    { _rResourceName :: Maybe Text
+    , _rResourceType :: Maybe Text
+    } deriving (Eq, Ord, Read, Show)
+
+-- | 'Resource' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'rResourceName' @::@ 'Maybe' 'Text'
+--
+-- * 'rResourceType' @::@ 'Maybe' 'Text'
+--
+resource :: Resource
+resource = Resource
+    { _rResourceType = Nothing
+    , _rResourceName = Nothing
+    }
+
+-- | The name of the resource referenced by the event returned. These are
+-- user-created names whose values will depend on the environment. For example,
+-- the resource name might be "auto-scaling-test-group" for an Auto Scaling
+-- Group or "i-1234567" for an EC2 Instance.
+rResourceName :: Lens' Resource (Maybe Text)
+rResourceName = lens _rResourceName (\s a -> s { _rResourceName = a })
+
+-- | The type of a resource referenced by the event returned. When the resource
+-- type cannot be determined, null is returned. Some examples of resource types
+-- are: Instance for EC2, Trail for CloudTrail, DBInstance for RDS, and AccessKey
+-- for IAM. For a list of resource types supported for event lookup, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/lookup_supported_resourcetypes.html Resource Types Supported for Event Lookup>.
+rResourceType :: Lens' Resource (Maybe Text)
+rResourceType = lens _rResourceType (\s a -> s { _rResourceType = a })
+
+instance FromJSON Resource where
+    parseJSON = withObject "Resource" $ \o -> Resource
+        <$> o .:? "ResourceName"
+        <*> o .:? "ResourceType"
+
+instance ToJSON Resource where
+    toJSON Resource{..} = object
+        [ "ResourceType" .= _rResourceType
+        , "ResourceName" .= _rResourceName
         ]

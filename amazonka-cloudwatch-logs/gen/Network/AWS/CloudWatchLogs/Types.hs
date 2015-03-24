@@ -52,6 +52,9 @@ module Network.AWS.CloudWatchLogs.Types
     , mtMetricNamespace
     , mtMetricValue
 
+    -- * OrderBy
+    , OrderBy (..)
+
     -- * LogStream
     , LogStream
     , logStream
@@ -73,6 +76,13 @@ module Network.AWS.CloudWatchLogs.Types
     , lgMetricFilterCount
     , lgRetentionInDays
     , lgStoredBytes
+
+    -- * RejectedLogEventsInfo
+    , RejectedLogEventsInfo
+    , rejectedLogEventsInfo
+    , rleiExpiredLogEventEndIndex
+    , rleiTooNewLogEventStartIndex
+    , rleiTooOldLogEventEndIndex
 
     -- * InputLogEvent
     , InputLogEvent
@@ -286,6 +296,35 @@ instance ToJSON MetricTransformation where
         , "metricValue"     .= _mtMetricValue
         ]
 
+data OrderBy
+    = OBLastEventTime -- ^ LastEventTime
+    | OBLogStreamName -- ^ LogStreamName
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
+
+instance Hashable OrderBy
+
+instance FromText OrderBy where
+    parser = takeLowerText >>= \case
+        "lasteventtime" -> pure OBLastEventTime
+        "logstreamname" -> pure OBLogStreamName
+        e               -> fail $
+            "Failure parsing OrderBy from " ++ show e
+
+instance ToText OrderBy where
+    toText = \case
+        OBLastEventTime -> "LastEventTime"
+        OBLogStreamName -> "LogStreamName"
+
+instance ToByteString OrderBy
+instance ToHeader     OrderBy
+instance ToQuery      OrderBy
+
+instance FromJSON OrderBy where
+    parseJSON = parseJSONText "OrderBy"
+
+instance ToJSON OrderBy where
+    toJSON = toJSONText
+
 data LogStream = LogStream
     { _lsArn                 :: Maybe Text
     , _lsCreationTime        :: Maybe Nat
@@ -455,6 +494,57 @@ instance ToJSON LogGroup where
         , "metricFilterCount" .= _lgMetricFilterCount
         , "arn"               .= _lgArn
         , "storedBytes"       .= _lgStoredBytes
+        ]
+
+data RejectedLogEventsInfo = RejectedLogEventsInfo
+    { _rleiExpiredLogEventEndIndex  :: Maybe Int
+    , _rleiTooNewLogEventStartIndex :: Maybe Int
+    , _rleiTooOldLogEventEndIndex   :: Maybe Int
+    } deriving (Eq, Ord, Read, Show)
+
+-- | 'RejectedLogEventsInfo' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'rleiExpiredLogEventEndIndex' @::@ 'Maybe' 'Int'
+--
+-- * 'rleiTooNewLogEventStartIndex' @::@ 'Maybe' 'Int'
+--
+-- * 'rleiTooOldLogEventEndIndex' @::@ 'Maybe' 'Int'
+--
+rejectedLogEventsInfo :: RejectedLogEventsInfo
+rejectedLogEventsInfo = RejectedLogEventsInfo
+    { _rleiTooNewLogEventStartIndex = Nothing
+    , _rleiTooOldLogEventEndIndex   = Nothing
+    , _rleiExpiredLogEventEndIndex  = Nothing
+    }
+
+rleiExpiredLogEventEndIndex :: Lens' RejectedLogEventsInfo (Maybe Int)
+rleiExpiredLogEventEndIndex =
+    lens _rleiExpiredLogEventEndIndex
+        (\s a -> s { _rleiExpiredLogEventEndIndex = a })
+
+rleiTooNewLogEventStartIndex :: Lens' RejectedLogEventsInfo (Maybe Int)
+rleiTooNewLogEventStartIndex =
+    lens _rleiTooNewLogEventStartIndex
+        (\s a -> s { _rleiTooNewLogEventStartIndex = a })
+
+rleiTooOldLogEventEndIndex :: Lens' RejectedLogEventsInfo (Maybe Int)
+rleiTooOldLogEventEndIndex =
+    lens _rleiTooOldLogEventEndIndex
+        (\s a -> s { _rleiTooOldLogEventEndIndex = a })
+
+instance FromJSON RejectedLogEventsInfo where
+    parseJSON = withObject "RejectedLogEventsInfo" $ \o -> RejectedLogEventsInfo
+        <$> o .:? "expiredLogEventEndIndex"
+        <*> o .:? "tooNewLogEventStartIndex"
+        <*> o .:? "tooOldLogEventEndIndex"
+
+instance ToJSON RejectedLogEventsInfo where
+    toJSON RejectedLogEventsInfo{..} = object
+        [ "tooNewLogEventStartIndex" .= _rleiTooNewLogEventStartIndex
+        , "tooOldLogEventEndIndex"   .= _rleiTooOldLogEventEndIndex
+        , "expiredLogEventEndIndex"  .= _rleiExpiredLogEventEndIndex
         ]
 
 data InputLogEvent = InputLogEvent

@@ -33,9 +33,9 @@
 -- You can create encrypted volumes with the 'Encrypted' parameter. Encrypted
 -- volumes may only be attached to instances that support Amazon EBS encryption.
 -- Volumes that are created from encrypted snapshots are also automatically
--- encrypted. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> in the /AmazonElastic Compute Cloud User Guide for Linux/.
+-- encrypted. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> in the /AmazonElastic Compute Cloud User Guide/.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html Creating or Restoring an Amazon EBS Volume> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html Creating or Restoring an Amazon EBS Volume> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVolume.html>
 module Network.AWS.EC2.CreateVolume
@@ -135,7 +135,7 @@ cv1DryRun = lens _cv1DryRun (\s a -> s { _cv1DryRun = a })
 -- Volumes that are created from encrypted snapshots are automatically
 -- encrypted. There is no way to create an encrypted volume from an unencrypted
 -- snapshot or vice versa. If your AMI uses encrypted volumes, you can only
--- launch it on supported instance types. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBSEncryption> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
+-- launch it on supported instance types. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBSEncryption> in the /Amazon Elastic Compute Cloud User Guide/.
 cv1Encrypted :: Lens' CreateVolume (Maybe Bool)
 cv1Encrypted = lens _cv1Encrypted (\s a -> s { _cv1Encrypted = a })
 
@@ -155,7 +155,9 @@ cv1KmsKeyId = lens _cv1KmsKeyId (\s a -> s { _cv1KmsKeyId = a })
 -- | The size of the volume, in GiBs.
 --
 -- Constraints: If the volume type is 'io1', the minimum size of the volume is 4
--- GiB.
+-- GiB; otherwise, the minimum size is 1 GiB. The maximum volume size is 1024
+-- GiB. If you specify a snapshot, the volume size must be equal to or larger
+-- than the snapshot size.
 --
 -- Default: If you're creating the volume from a snapshot and don't specify a
 -- volume size, the default is the snapshot size.
@@ -261,7 +263,7 @@ cvrEncrypted = lens _cvrEncrypted (\s a -> s { _cvrEncrypted = a })
 -- provisioned for the volume. For General Purpose (SSD) volumes, this
 -- represents the baseline performance of the volume and the rate at which the
 -- volume accumulates I/O credits for bursting. For more information on General
--- Purpose (SSD) baseline performance, I/O credits, and bursting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBSVolume Types> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
+-- Purpose (SSD) baseline performance, I/O credits, and bursting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBSVolume Types> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- Constraint: Range is 100 to 4000 for Provisioned IOPS (SSD) volumes and 3 to
 -- 3072 for General Purpose (SSD) volumes.

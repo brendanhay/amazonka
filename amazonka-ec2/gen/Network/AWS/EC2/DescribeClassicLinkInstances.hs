@@ -122,7 +122,8 @@ dcliInstanceIds = lens _dcliInstanceIds (\s a -> s { _dcliInstanceIds = a }) . _
 
 -- | The maximum number of items to return for this request. The request returns
 -- a token that you can specify in a subsequent call to get the next set of
--- results.
+-- results. You cannot specify this parameter and the instance IDs parameter in
+-- the same request.
 --
 -- Constraint: If the value is greater than 1000, we return only 1000 items.
 dcliMaxResults :: Lens' DescribeClassicLinkInstances (Maybe Int)

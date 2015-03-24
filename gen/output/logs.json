@@ -83,7 +83,7 @@
         "url": "http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/Welcome.html",
         "protocol": "json",
         "name": "Amazon CloudWatch Logs",
-        "version": "0.3.2",
+        "version": "0.3.3",
         "description": "Amazon CloudWatch Logs enables you to monitor, store, and access your system,\napplication, and custom log files."
     },
     "types": {
@@ -663,6 +663,24 @@
                         "type": "Text"
                     }
                 ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show",
+                    "Generic",
+                    "Enum"
+                ],
+                "branches": {
+                    "OBLastEventTime": "LastEventTime",
+                    "OBLogStreamName": "LogStreamName"
+                },
+                "valuePad": 14,
+                "name": "OrderBy",
+                "type": "nullary",
+                "branchPad": 15
             },
             {
                 "deriving": [
@@ -1419,6 +1437,181 @@
                         "documentation": null,
                         "typeExposed": "Maybe Natural",
                         "type": "Maybe Nat"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show"
+                ],
+                "fieldPad": 29,
+                "ctor": "rejectedLogEventsInfo",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "rleiTooNewLogEventStartIndex",
+                        "name": "_rleiTooNewLogEventStartIndex",
+                        "shape": "LogEventIndex",
+                        "locationName": "tooNewLogEventStartIndex",
+                        "documentation": null,
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "rleiTooOldLogEventEndIndex",
+                        "name": "_rleiTooOldLogEventEndIndex",
+                        "shape": "LogEventIndex",
+                        "locationName": "tooOldLogEventEndIndex",
+                        "documentation": null,
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "rleiExpiredLogEventEndIndex",
+                        "name": "_rleiExpiredLogEventEndIndex",
+                        "shape": "LogEventIndex",
+                        "locationName": "expiredLogEventEndIndex",
+                        "documentation": null,
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
+                    }
+                ],
+                "payload": null,
+                "required": [],
+                "contentPad": 25,
+                "name": "RejectedLogEventsInfo",
+                "locationPad": 25,
+                "type": "record",
+                "optional": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "rleiTooNewLogEventStartIndex",
+                        "name": "_rleiTooNewLogEventStartIndex",
+                        "shape": "LogEventIndex",
+                        "locationName": "tooNewLogEventStartIndex",
+                        "documentation": null,
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "rleiTooOldLogEventEndIndex",
+                        "name": "_rleiTooOldLogEventEndIndex",
+                        "shape": "LogEventIndex",
+                        "locationName": "tooOldLogEventEndIndex",
+                        "documentation": null,
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "rleiExpiredLogEventEndIndex",
+                        "name": "_rleiExpiredLogEventEndIndex",
+                        "shape": "LogEventIndex",
+                        "locationName": "expiredLogEventEndIndex",
+                        "documentation": null,
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "rleiExpiredLogEventEndIndex",
+                        "name": "_rleiExpiredLogEventEndIndex",
+                        "shape": "LogEventIndex",
+                        "locationName": "expiredLogEventEndIndex",
+                        "documentation": null,
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "rleiTooNewLogEventStartIndex",
+                        "name": "_rleiTooNewLogEventStartIndex",
+                        "shape": "LogEventIndex",
+                        "locationName": "tooNewLogEventStartIndex",
+                        "documentation": null,
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "rleiTooOldLogEventEndIndex",
+                        "name": "_rleiTooOldLogEventEndIndex",
+                        "shape": "LogEventIndex",
+                        "locationName": "tooOldLogEventEndIndex",
+                        "documentation": null,
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
                     }
                 ]
             },
@@ -3195,12 +3388,11 @@
             "pager": null,
             "name": "DescribeLogStreams",
             "method": "post",
-            "documentation": "-- | Returns all the log streams that are associated with the specified log\n-- group. The list returned in the response is ASCII-sorted by log stream name.\n--\n-- By default, this operation returns up to 50 log streams. If there are more\n-- log streams to list, the response would contain a 'nextToken' value in the\n-- response body. You can also limit the number of log streams returned in the\n-- response by specifying the 'limit' parameter in the request.",
+            "documentation": "-- | Returns all the log streams that are associated with the specified log\n-- group. The list returned in the response is ASCII-sorted by log stream name.\n--\n-- By default, this operation returns up to 50 log streams. If there are more\n-- log streams to list, the response would contain a 'nextToken' value in the\n-- response body. You can also limit the number of log streams returned in the\n-- response by specifying the 'limit' parameter in the request. This operation has\n-- a limit of five transactions per second, after which transactions are\n-- throttled.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Read",
                     "Show"
                 ],
@@ -3240,9 +3432,43 @@
                         "name": "_dls1LogStreamNamePrefix",
                         "shape": "LogStreamName",
                         "locationName": "logStreamNamePrefix",
-                        "documentation": null,
+                        "documentation": "-- | Will only return log streams that match the provided logStreamNamePrefix. If\n-- you don't specify a value, no prefix filter is applied.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dls1OrderBy",
+                        "name": "_dls1OrderBy",
+                        "shape": "OrderBy",
+                        "locationName": "orderBy",
+                        "documentation": "-- | Specifies what to order the returned log streams by. Valid arguments are\n-- 'LogStreamName' or 'LastEventTime'. If you don't specify a value, results are\n-- ordered by LogStreamName. If 'LastEventTime' is chosen, the request cannot\n-- also contain a logStreamNamePrefix.",
+                        "typeExposed": "Maybe OrderBy",
+                        "type": "Maybe OrderBy"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dls1Descending",
+                        "name": "_dls1Descending",
+                        "shape": "Descending",
+                        "locationName": "descending",
+                        "documentation": "-- | If set to true, results are returned in descending order. If you don't\n-- specify a value or set it to false, results are returned in ascending order.",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
                     },
                     {
                         "location": null,
@@ -3330,9 +3556,43 @@
                         "name": "_dls1LogStreamNamePrefix",
                         "shape": "LogStreamName",
                         "locationName": "logStreamNamePrefix",
-                        "documentation": null,
+                        "documentation": "-- | Will only return log streams that match the provided logStreamNamePrefix. If\n-- you don't specify a value, no prefix filter is applied.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dls1OrderBy",
+                        "name": "_dls1OrderBy",
+                        "shape": "OrderBy",
+                        "locationName": "orderBy",
+                        "documentation": "-- | Specifies what to order the returned log streams by. Valid arguments are\n-- 'LogStreamName' or 'LastEventTime'. If you don't specify a value, results are\n-- ordered by LogStreamName. If 'LastEventTime' is chosen, the request cannot\n-- also contain a logStreamNamePrefix.",
+                        "typeExposed": "Maybe OrderBy",
+                        "type": "Maybe OrderBy"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dls1Descending",
+                        "name": "_dls1Descending",
+                        "shape": "Descending",
+                        "locationName": "descending",
+                        "documentation": "-- | If set to true, results are returned in descending order. If you don't\n-- specify a value or set it to false, results are returned in ascending order.",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
                     },
                     {
                         "location": null,
@@ -3370,6 +3630,23 @@
                     }
                 ],
                 "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dls1Descending",
+                        "name": "_dls1Descending",
+                        "shape": "Descending",
+                        "locationName": "descending",
+                        "documentation": "-- | If set to true, results are returned in descending order. If you don't\n-- specify a value or set it to false, results are returned in ascending order.",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    },
                     {
                         "location": null,
                         "iso": null,
@@ -3417,7 +3694,7 @@
                         "name": "_dls1LogStreamNamePrefix",
                         "shape": "LogStreamName",
                         "locationName": "logStreamNamePrefix",
-                        "documentation": null,
+                        "documentation": "-- | Will only return log streams that match the provided logStreamNamePrefix. If\n-- you don't specify a value, no prefix filter is applied.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3437,6 +3714,23 @@
                         "documentation": "-- | A string token used for pagination that points to the next page of results.\n-- It must be a value obtained from the response of the previous 'DescribeLogStreams' request.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dls1OrderBy",
+                        "name": "_dls1OrderBy",
+                        "shape": "OrderBy",
+                        "locationName": "orderBy",
+                        "documentation": "-- | Specifies what to order the returned log streams by. Valid arguments are\n-- 'LogStreamName' or 'LastEventTime'. If you don't specify a value, results are\n-- ordered by LogStreamName. If 'LastEventTime' is chosen, the request cannot\n-- also contain a logStreamNamePrefix.",
+                        "typeExposed": "Maybe OrderBy",
+                        "type": "Maybe OrderBy"
                     }
                 ]
             }
@@ -4430,34 +4724,14 @@
             "response": {
                 "deriving": [
                     "Eq",
-                    "Ord",
                     "Read",
-                    "Show",
-                    "Monoid"
+                    "Show"
                 ],
                 "streaming": false,
-                "listElement": null,
                 "style": "json",
-                "fieldPad": 0,
+                "fieldPad": 26,
                 "ctor": "putLogEventsResponse",
                 "headerPad": 0,
-                "field": {
-                    "location": null,
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "monoid": false,
-                    "protocol": "json",
-                    "flattened": false,
-                    "required": false,
-                    "lens": "plerNextSequenceToken",
-                    "name": "_plerNextSequenceToken",
-                    "shape": "SequenceToken",
-                    "locationName": "nextSequenceToken",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
                 "contents": [
                     {
                         "location": null,
@@ -4475,6 +4749,23 @@
                         "documentation": null,
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "plerRejectedLogEventsInfo",
+                        "name": "_plerRejectedLogEventsInfo",
+                        "shape": "RejectedLogEventsInfo",
+                        "locationName": "rejectedLogEventsInfo",
+                        "documentation": null,
+                        "typeExposed": "Maybe RejectedLogEventsInfo",
+                        "type": "Maybe RejectedLogEventsInfo"
                     }
                 ],
                 "wrapper": false,
@@ -4483,11 +4774,11 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
-                "contentPad": 0,
+                "contentPad": 22,
                 "name": "PutLogEventsResponse",
                 "resultWrapper": null,
-                "locationPad": 0,
-                "type": "newtype",
+                "locationPad": 22,
+                "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
@@ -4506,6 +4797,23 @@
                         "documentation": null,
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "plerRejectedLogEventsInfo",
+                        "name": "_plerRejectedLogEventsInfo",
+                        "shape": "RejectedLogEventsInfo",
+                        "locationName": "rejectedLogEventsInfo",
+                        "documentation": null,
+                        "typeExposed": "Maybe RejectedLogEventsInfo",
+                        "type": "Maybe RejectedLogEventsInfo"
                     }
                 ],
                 "fields": [
@@ -4525,6 +4833,23 @@
                         "documentation": null,
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "plerRejectedLogEventsInfo",
+                        "name": "_plerRejectedLogEventsInfo",
+                        "shape": "RejectedLogEventsInfo",
+                        "locationName": "rejectedLogEventsInfo",
+                        "documentation": null,
+                        "typeExposed": "Maybe RejectedLogEventsInfo",
+                        "type": "Maybe RejectedLogEventsInfo"
                     }
                 ]
             },
@@ -4538,7 +4863,7 @@
             "pager": null,
             "name": "PutLogEvents",
             "method": "post",
-            "documentation": "-- | Uploads a batch of log events to the specified log stream.\n--\n-- Every PutLogEvents request must include the 'sequenceToken' obtained from the\n-- response of the previous request. An upload in a newly created log stream\n-- does not require a 'sequenceToken'.\n--\n-- The batch of events must satisfy the following constraints:  The maximum\n-- batch size is 32,768 bytes, and this size is calculated as the sum of all\n-- event messages in UTF-8, plus 26 bytes for each log event. None of the log\n-- events in the batch can be more than 2 hours in the future. None of the log\n-- events in the batch can be older than 14 days or the retention period of the\n-- log group. The log events in the batch must be in chronological ordered by\n-- their 'timestamp'. The maximum number of log events in a batch is 1,000.",
+            "documentation": "-- | Uploads a batch of log events to the specified log stream.\n--\n-- Every PutLogEvents request must include the 'sequenceToken' obtained from the\n-- response of the previous request. An upload in a newly created log stream\n-- does not require a 'sequenceToken'.\n--\n-- The batch of events must satisfy the following constraints:  The maximum\n-- batch size is 1,048,576 bytes, and this size is calculated as the sum of all\n-- event messages in UTF-8, plus 26 bytes for each log event. None of the log\n-- events in the batch can be more than 2 hours in the future. None of the log\n-- events in the batch can be older than 14 days or the retention period of the\n-- log group. The log events in the batch must be in chronological ordered by\n-- their 'timestamp'. The maximum number of log events in a batch is 10,000.",
             "documentationUrl": null,
             "request": {
                 "deriving": [

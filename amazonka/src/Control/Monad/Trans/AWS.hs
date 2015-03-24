@@ -104,10 +104,11 @@ import           Control.Arrow                (first)
 import           Control.Lens
 import           Control.Monad.Base
 import           Control.Monad.Catch
-import           Control.Monad.Except
+import           Control.Monad.Error          (MonadError, throwError)
 import           Control.Monad.Morph
 import           Control.Monad.Reader
 import           Control.Monad.Trans.Control
+import           Control.Monad.Trans.Except
 import           Control.Monad.Trans.Resource
 import           Control.Retry                (limitRetries)
 import           Data.ByteString              (ByteString)

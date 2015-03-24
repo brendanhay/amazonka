@@ -49,7 +49,7 @@ library
         , conduit-extra      == 1.1.*
         , cryptohash         == 0.11.*
         , cryptohash-conduit >= 0.1.1
-        , exceptions         == 0.6.*
+        , exceptions         >= 0.6
         , http-conduit       >= 2.1.4   && < 2.3
         , lens               >= 4.4     && < 5
         , mmorph             >= 1       && < 2

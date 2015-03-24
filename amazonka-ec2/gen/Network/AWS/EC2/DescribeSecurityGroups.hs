@@ -25,7 +25,7 @@
 -- | Describes one or more of your security groups.
 --
 -- A security group is for use with instances either in the EC2-Classic
--- platform or in a specific VPC. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html Amazon EC2 SecurityGroups> in the /Amazon Elastic Compute Cloud User Guide for Linux/ and <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html SecurityGroups for Your VPC> in the /Amazon Virtual Private Cloud User Guide/.
+-- platform or in a specific VPC. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html Amazon EC2 SecurityGroups> in the /Amazon Elastic Compute Cloud User Guide/ and <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html Security Groups forYour VPC> in the /Amazon Virtual Private Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSecurityGroups.html>
 module Network.AWS.EC2.DescribeSecurityGroups
@@ -122,14 +122,17 @@ dsg1DryRun = lens _dsg1DryRun (\s a -> s { _dsg1DryRun = a })
 dsg1Filters :: Lens' DescribeSecurityGroups [Filter]
 dsg1Filters = lens _dsg1Filters (\s a -> s { _dsg1Filters = a }) . _List
 
--- | One or more security group IDs. Required for nondefault VPCs.
+-- | One or more security group IDs. Required for security groups in a nondefault
+-- VPC.
 --
 -- Default: Describes all your security groups.
 dsg1GroupIds :: Lens' DescribeSecurityGroups [Text]
 dsg1GroupIds = lens _dsg1GroupIds (\s a -> s { _dsg1GroupIds = a }) . _List
 
--- | [EC2-Classic, default VPC] One or more security group names. You can specify
--- either the security group name or the security group ID.
+-- | [EC2-Classic and default VPC only] One or more security group names. You can
+-- specify either the security group name or the security group ID. For security
+-- groups in a nondefault VPC, use the 'group-name' filter to describe security
+-- groups by name.
 --
 -- Default: Describes all your security groups.
 dsg1GroupNames :: Lens' DescribeSecurityGroups [Text]

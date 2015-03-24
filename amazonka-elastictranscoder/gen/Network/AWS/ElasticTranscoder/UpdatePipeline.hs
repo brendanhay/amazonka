@@ -50,6 +50,7 @@ module Network.AWS.ElasticTranscoder.UpdatePipeline
     , updatePipelineResponse
     -- ** Response lenses
     , uprPipeline
+    , uprWarnings
     ) where
 
 import Network.AWS.Prelude
@@ -219,8 +220,9 @@ upThumbnailConfig :: Lens' UpdatePipeline (Maybe PipelineOutputConfig)
 upThumbnailConfig =
     lens _upThumbnailConfig (\s a -> s { _upThumbnailConfig = a })
 
-newtype UpdatePipelineResponse = UpdatePipelineResponse
+data UpdatePipelineResponse = UpdatePipelineResponse
     { _uprPipeline :: Maybe Pipeline
+    , _uprWarnings :: List "Warnings" Warning
     } deriving (Eq, Read, Show)
 
 -- | 'UpdatePipelineResponse' constructor.
@@ -229,13 +231,25 @@ newtype UpdatePipelineResponse = UpdatePipelineResponse
 --
 -- * 'uprPipeline' @::@ 'Maybe' 'Pipeline'
 --
+-- * 'uprWarnings' @::@ ['Warning']
+--
 updatePipelineResponse :: UpdatePipelineResponse
 updatePipelineResponse = UpdatePipelineResponse
     { _uprPipeline = Nothing
+    , _uprWarnings = mempty
     }
 
 uprPipeline :: Lens' UpdatePipelineResponse (Maybe Pipeline)
 uprPipeline = lens _uprPipeline (\s a -> s { _uprPipeline = a })
+
+-- | Elastic Transcoder returns a warning if the resources used by your pipeline
+-- are not in the same region as the pipeline.
+--
+-- Using resources in the same region, such as your Amazon S3 buckets, Amazon
+-- SNS notification topics, and AWS KMS key, reduces processing time and
+-- prevents cross-regional charges.
+uprWarnings :: Lens' UpdatePipelineResponse [Warning]
+uprWarnings = lens _uprWarnings (\s a -> s { _uprWarnings = a }) . _List
 
 instance ToPath UpdatePipeline where
     toPath UpdatePipeline{..} = mconcat
@@ -269,3 +283,4 @@ instance AWSRequest UpdatePipeline where
 instance FromJSON UpdatePipelineResponse where
     parseJSON = withObject "UpdatePipelineResponse" $ \o -> UpdatePipelineResponse
         <$> o .:? "Pipeline"
+        <*> o .:? "Warnings" .!= mempty

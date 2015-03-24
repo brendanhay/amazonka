@@ -29,12 +29,12 @@
 -- does not require a 'sequenceToken'.
 --
 -- The batch of events must satisfy the following constraints:  The maximum
--- batch size is 32,768 bytes, and this size is calculated as the sum of all
+-- batch size is 1,048,576 bytes, and this size is calculated as the sum of all
 -- event messages in UTF-8, plus 26 bytes for each log event. None of the log
 -- events in the batch can be more than 2 hours in the future. None of the log
 -- events in the batch can be older than 14 days or the retention period of the
 -- log group. The log events in the batch must be in chronological ordered by
--- their 'timestamp'. The maximum number of log events in a batch is 1,000.
+-- their 'timestamp'. The maximum number of log events in a batch is 10,000.
 --
 -- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html>
 module Network.AWS.CloudWatchLogs.PutLogEvents
@@ -55,6 +55,7 @@ module Network.AWS.CloudWatchLogs.PutLogEvents
     , putLogEventsResponse
     -- ** Response lenses
     , plerNextSequenceToken
+    , plerRejectedLogEventsInfo
     ) where
 
 import Network.AWS.Prelude
@@ -105,9 +106,10 @@ pleLogStreamName = lens _pleLogStreamName (\s a -> s { _pleLogStreamName = a })
 pleSequenceToken :: Lens' PutLogEvents (Maybe Text)
 pleSequenceToken = lens _pleSequenceToken (\s a -> s { _pleSequenceToken = a })
 
-newtype PutLogEventsResponse = PutLogEventsResponse
-    { _plerNextSequenceToken :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
+data PutLogEventsResponse = PutLogEventsResponse
+    { _plerNextSequenceToken     :: Maybe Text
+    , _plerRejectedLogEventsInfo :: Maybe RejectedLogEventsInfo
+    } deriving (Eq, Read, Show)
 
 -- | 'PutLogEventsResponse' constructor.
 --
@@ -115,14 +117,22 @@ newtype PutLogEventsResponse = PutLogEventsResponse
 --
 -- * 'plerNextSequenceToken' @::@ 'Maybe' 'Text'
 --
+-- * 'plerRejectedLogEventsInfo' @::@ 'Maybe' 'RejectedLogEventsInfo'
+--
 putLogEventsResponse :: PutLogEventsResponse
 putLogEventsResponse = PutLogEventsResponse
-    { _plerNextSequenceToken = Nothing
+    { _plerNextSequenceToken     = Nothing
+    , _plerRejectedLogEventsInfo = Nothing
     }
 
 plerNextSequenceToken :: Lens' PutLogEventsResponse (Maybe Text)
 plerNextSequenceToken =
     lens _plerNextSequenceToken (\s a -> s { _plerNextSequenceToken = a })
+
+plerRejectedLogEventsInfo :: Lens' PutLogEventsResponse (Maybe RejectedLogEventsInfo)
+plerRejectedLogEventsInfo =
+    lens _plerRejectedLogEventsInfo
+        (\s a -> s { _plerRejectedLogEventsInfo = a })
 
 instance ToPath PutLogEvents where
     toPath = const "/"
@@ -150,3 +160,4 @@ instance AWSRequest PutLogEvents where
 instance FromJSON PutLogEventsResponse where
     parseJSON = withObject "PutLogEventsResponse" $ \o -> PutLogEventsResponse
         <$> o .:? "nextSequenceToken"
+        <*> o .:? "rejectedLogEventsInfo"

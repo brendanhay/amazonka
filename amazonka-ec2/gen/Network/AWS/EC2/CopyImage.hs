@@ -27,7 +27,7 @@
 -- the request. AMIs that use encrypted Amazon EBS snapshots cannot be copied
 -- with this method.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html Copying AMIs> in the /Amazon Elastic Compute CloudUser Guide for Linux/.
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html Copying AMIs> in the /Amazon Elastic Compute CloudUser Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CopyImage.html>
 module Network.AWS.EC2.CopyImage
@@ -96,7 +96,7 @@ copyImage p1 p2 p3 = CopyImage
     }
 
 -- | Unique, case-sensitive identifier you provide to ensure idempotency of the
--- request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /AmazonElastic Compute Cloud User Guide for Linux/.
+-- request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /AmazonElastic Compute Cloud User Guide/.
 ciClientToken :: Lens' CopyImage (Maybe Text)
 ciClientToken = lens _ciClientToken (\s a -> s { _ciClientToken = a })
 

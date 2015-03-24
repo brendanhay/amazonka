@@ -24,13 +24,13 @@
 
 -- | Registers an AMI. When you're creating an AMI, this is the final step you
 -- must complete before you can launch an instance from the AMI. For more
--- information about creating AMIs, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html Creating Your Own AMIs> in the /AmazonElastic Compute Cloud User Guide for Linux/.
+-- information about creating AMIs, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html Creating Your Own AMIs> in the /AmazonElastic Compute Cloud User Guide/.
 --
 -- For Amazon EBS-backed instances, 'CreateImage' creates and registers the AMI
 -- in a single request, so you don't have to register the AMI yourself.
 --
 -- You can also use 'RegisterImage' to create an Amazon EBS-backed AMI from a
--- snapshot of a root device volume. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_LaunchingInstanceFromSnapshot.html Launching anInstance from a Snapshot> in the /Amazon Elastic Compute Cloud User Guide forLinux/.
+-- snapshot of a root device volume. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_LaunchingInstanceFromSnapshot.html Launching anInstance from a Snapshot> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- If needed, you can deregister an AMI at any time. Any modifications you make
 -- to an AMI backed by an instance store volume invalidates its registration. If

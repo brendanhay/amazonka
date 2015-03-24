@@ -28,7 +28,7 @@
 -- the process of transferring the final disk image, the command fails and
 -- returns an exception.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html Using the Command Line Tools to Import YourVirtual Machine to Amazon EC2> in the /Amazon Elastic Compute Cloud User Guidefor Linux/.
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html Using the Command Line Tools to Import YourVirtual Machine to Amazon EC2> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelConversionTask.html>
 module Network.AWS.EC2.CancelConversionTask

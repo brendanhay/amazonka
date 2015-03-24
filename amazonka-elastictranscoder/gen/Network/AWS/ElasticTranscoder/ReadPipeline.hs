@@ -40,6 +40,7 @@ module Network.AWS.ElasticTranscoder.ReadPipeline
     , readPipelineResponse
     -- ** Response lenses
     , rprPipeline
+    , rprWarnings
     ) where
 
 import Network.AWS.Prelude
@@ -67,8 +68,9 @@ readPipeline p1 = ReadPipeline
 rp1Id :: Lens' ReadPipeline Text
 rp1Id = lens _rp1Id (\s a -> s { _rp1Id = a })
 
-newtype ReadPipelineResponse = ReadPipelineResponse
+data ReadPipelineResponse = ReadPipelineResponse
     { _rprPipeline :: Maybe Pipeline
+    , _rprWarnings :: List "Warnings" Warning
     } deriving (Eq, Read, Show)
 
 -- | 'ReadPipelineResponse' constructor.
@@ -77,14 +79,26 @@ newtype ReadPipelineResponse = ReadPipelineResponse
 --
 -- * 'rprPipeline' @::@ 'Maybe' 'Pipeline'
 --
+-- * 'rprWarnings' @::@ ['Warning']
+--
 readPipelineResponse :: ReadPipelineResponse
 readPipelineResponse = ReadPipelineResponse
     { _rprPipeline = Nothing
+    , _rprWarnings = mempty
     }
 
 -- | A section of the response body that provides information about the pipeline.
 rprPipeline :: Lens' ReadPipelineResponse (Maybe Pipeline)
 rprPipeline = lens _rprPipeline (\s a -> s { _rprPipeline = a })
+
+-- | Elastic Transcoder returns a warning if the resources used by your pipeline
+-- are not in the same region as the pipeline.
+--
+-- Using resources in the same region, such as your Amazon S3 buckets, Amazon
+-- SNS notification topics, and AWS KMS key, reduces processing time and
+-- prevents cross-regional charges.
+rprWarnings :: Lens' ReadPipelineResponse [Warning]
+rprWarnings = lens _rprWarnings (\s a -> s { _rprWarnings = a }) . _List
 
 instance ToPath ReadPipeline where
     toPath ReadPipeline{..} = mconcat
@@ -110,3 +124,4 @@ instance AWSRequest ReadPipeline where
 instance FromJSON ReadPipelineResponse where
     parseJSON = withObject "ReadPipelineResponse" $ \o -> ReadPipelineResponse
         <$> o .:? "Pipeline"
+        <*> o .:? "Warnings" .!= mempty

@@ -137,7 +137,7 @@ asgiDryRun = lens _asgiDryRun (\s a -> s { _asgiDryRun = a })
 asgiFromPort :: Lens' AuthorizeSecurityGroupIngress (Maybe Int)
 asgiFromPort = lens _asgiFromPort (\s a -> s { _asgiFromPort = a })
 
--- | The ID of the security group.
+-- | The ID of the security group. Required for a nondefault VPC.
 asgiGroupId :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgiGroupId = lens _asgiGroupId (\s a -> s { _asgiGroupId = a })
 
@@ -145,15 +145,15 @@ asgiGroupId = lens _asgiGroupId (\s a -> s { _asgiGroupId = a })
 asgiGroupName :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgiGroupName = lens _asgiGroupName (\s a -> s { _asgiGroupName = a })
 
--- | A set of IP permissions. You can't specify a source security group and a CIDR
--- IP address range.
+-- | A set of IP permissions. Can be used to specify multiple rules in a single
+-- command.
 asgiIpPermissions :: Lens' AuthorizeSecurityGroupIngress [IpPermission]
 asgiIpPermissions =
     lens _asgiIpPermissions (\s a -> s { _asgiIpPermissions = a })
         . _List
 
--- | The IP protocol name ('tcp', 'udp', 'icmp') or number (see <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>). Use '-1'
--- to specify all.
+-- | The IP protocol name ('tcp', 'udp', 'icmp') or number (see <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>). (VPC
+-- only) Use '-1' to specify all.
 asgiIpProtocol :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgiIpProtocol = lens _asgiIpProtocol (\s a -> s { _asgiIpProtocol = a })
 

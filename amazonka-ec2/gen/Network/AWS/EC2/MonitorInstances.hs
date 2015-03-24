@@ -23,7 +23,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Enables monitoring for a running instance. For more information about
--- monitoring instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html Monitoring Your Instances and Volumes> in the /AmazonElastic Compute Cloud User Guide for Linux/.
+-- monitoring instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch.html Monitoring Your Instances and Volumes> in the /AmazonElastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-MonitorInstances.html>
 module Network.AWS.EC2.MonitorInstances

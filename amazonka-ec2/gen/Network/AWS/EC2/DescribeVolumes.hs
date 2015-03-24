@@ -30,7 +30,7 @@
 -- your 'MaxResults' value, then that number of results is returned along with a 'NextToken' value that can be passed to a subsequent 'DescribeVolumes' request to retrieve
 -- the remaining results.
 --
--- For more information about Amazon EBS volumes, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html Amazon EBS Volumes> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
+-- For more information about Amazon EBS volumes, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html Amazon EBS Volumes> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVolumes.html>
 module Network.AWS.EC2.DescribeVolumes
@@ -151,7 +151,8 @@ dv2Filters = lens _dv2Filters (\s a -> s { _dv2Filters = a }) . _List
 -- remaining results of the initial request can be seen by sending another 'DescribeVolumes' request with the returned 'NextToken' value. This value can be between 5 and
 -- 1000; if 'MaxResults' is given a value larger than 1000, only 1000 results are
 -- returned. If this parameter is not used, then 'DescribeVolumes' returns all
--- results.
+-- results. You cannot specify this parameter and the volume IDs parameter in
+-- the same request.
 dv2MaxResults :: Lens' DescribeVolumes (Maybe Int)
 dv2MaxResults = lens _dv2MaxResults (\s a -> s { _dv2MaxResults = a })
 

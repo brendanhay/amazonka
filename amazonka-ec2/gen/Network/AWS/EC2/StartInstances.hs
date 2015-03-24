@@ -39,7 +39,7 @@
 -- Performing this operation on an instance that uses an instance store as its
 -- root device returns an error.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html Stopping Instances> in the /Amazon Elastic ComputeCloud User Guide for Linux/.
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html Stopping Instances> in the /Amazon Elastic ComputeCloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-StartInstances.html>
 module Network.AWS.EC2.StartInstances

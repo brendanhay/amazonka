@@ -30,7 +30,7 @@
 -- If a Linux/Unix instance does not cleanly shut down within four minutes,
 -- Amazon EC2 performs a hard reboot.
 --
--- For more information about troubleshooting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html Getting Console Output andRebooting Instances> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
+-- For more information about troubleshooting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html Getting Console Output andRebooting Instances> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RebootInstances.html>
 module Network.AWS.EC2.RebootInstances

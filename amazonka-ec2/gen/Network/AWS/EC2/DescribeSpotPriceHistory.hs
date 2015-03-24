@@ -22,26 +22,14 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Describes the Spot Price history. Spot Instances are instances that Amazon
--- EC2 starts on your behalf when the maximum price that you specify exceeds the
--- current Spot Price. Amazon EC2 periodically sets the Spot Price based on
--- available Spot Instance capacity and current Spot Instance requests. For more
--- information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-history.html Spot Instance Pricing History> in the /Amazon Elastic ComputeCloud User Guide for Linux/.
+-- | Describes the Spot Price history. The prices returned are listed in
+-- chronological order, from the oldest to the most recent, for up to the past
+-- 90 days. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-history.html Spot Instance Pricing History> in the /Amazon Elastic Compute Cloud User Guide/.
 --
--- When you specify an Availability Zone, this operation describes the price
--- history for the specified Availability Zone with the most recent set of
--- prices listed first. If you don't specify an Availability Zone, you get the
--- prices across all Availability Zones, starting with the most recent set.
--- However, if you're using an API version earlier than 2011-05-15, you get the
--- lowest price across the region for the specified time period. The prices
--- returned are listed in chronological order, from the oldest to the most
--- recent.
---
--- When you specify the start and end time options, this operation returns two
--- pieces of data: the prices of the instance types within the time range that
--- you specified and the time when the price changed. The price is valid within
--- the time period that you specified; the response merely indicates the last
--- time that the price changed.
+-- When you specify a start and end time, this operation returns the prices of
+-- the instance types within the time range that you specified and the time when
+-- the price changed. The price is valid within the time period that you
+-- specified; the response merely indicates the last time that the price changed.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSpotPriceHistory.html>
 module Network.AWS.EC2.DescribeSpotPriceHistory
@@ -122,7 +110,7 @@ describeSpotPriceHistory = DescribeSpotPriceHistory
     , _dsphNextToken           = Nothing
     }
 
--- | The Availability Zone.
+-- | Filters the results by the specified Availability Zone.
 dsphAvailabilityZone :: Lens' DescribeSpotPriceHistory (Maybe Text)
 dsphAvailabilityZone =
     lens _dsphAvailabilityZone (\s a -> s { _dsphAvailabilityZone = a })
@@ -130,7 +118,8 @@ dsphAvailabilityZone =
 dsphDryRun :: Lens' DescribeSpotPriceHistory (Maybe Bool)
 dsphDryRun = lens _dsphDryRun (\s a -> s { _dsphDryRun = a })
 
--- | The end date and time of the Spot Price history data.
+-- | The date and time, up to the current date, from which to stop retrieving the
+-- price history data.
 dsphEndTime :: Lens' DescribeSpotPriceHistory (Maybe UTCTime)
 dsphEndTime = lens _dsphEndTime (\s a -> s { _dsphEndTime = a }) . mapping _Time
 
@@ -154,27 +143,31 @@ dsphEndTime = lens _dsphEndTime (\s a -> s { _dsphEndTime = a }) . mapping _Time
 dsphFilters :: Lens' DescribeSpotPriceHistory [Filter]
 dsphFilters = lens _dsphFilters (\s a -> s { _dsphFilters = a }) . _List
 
--- | One or more instance types.
+-- | Filters the results by the specified instance types.
 dsphInstanceTypes :: Lens' DescribeSpotPriceHistory [InstanceType]
 dsphInstanceTypes =
     lens _dsphInstanceTypes (\s a -> s { _dsphInstanceTypes = a })
         . _List
 
--- | The number of rows to return.
+-- | The maximum number of items to return for this call. The call also returns a
+-- token that you can specify in a subsequent call to get the next set of
+-- results.
 dsphMaxResults :: Lens' DescribeSpotPriceHistory (Maybe Int)
 dsphMaxResults = lens _dsphMaxResults (\s a -> s { _dsphMaxResults = a })
 
--- | The next set of rows to return.
+-- | The token for the next set of items. (You received this token from a prior
+-- call.)
 dsphNextToken :: Lens' DescribeSpotPriceHistory (Maybe Text)
 dsphNextToken = lens _dsphNextToken (\s a -> s { _dsphNextToken = a })
 
--- | One or more basic product descriptions.
+-- | Filters the results by the specified basic product descriptions.
 dsphProductDescriptions :: Lens' DescribeSpotPriceHistory [Text]
 dsphProductDescriptions =
     lens _dsphProductDescriptions (\s a -> s { _dsphProductDescriptions = a })
         . _List
 
--- | The start date and time of the Spot Price history data.
+-- | The date and time, up to the past 90 days, from which to start retrieving the
+-- price history data.
 dsphStartTime :: Lens' DescribeSpotPriceHistory (Maybe UTCTime)
 dsphStartTime = lens _dsphStartTime (\s a -> s { _dsphStartTime = a }) . mapping _Time
 
@@ -197,8 +190,8 @@ describeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse
     , _dsphrNextToken        = Nothing
     }
 
--- | The string marking the next set of results. This is empty if there are no
--- more results.
+-- | The token to use when requesting the next set of items. If there are no
+-- additional items to return, the string is empty.
 dsphrNextToken :: Lens' DescribeSpotPriceHistoryResponse (Maybe Text)
 dsphrNextToken = lens _dsphrNextToken (\s a -> s { _dsphrNextToken = a })
 

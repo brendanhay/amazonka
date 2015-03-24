@@ -26,7 +26,7 @@
 -- only one attribute at a time.
 --
 -- For more information about Amazon EBS snapshots, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html Amazon EBS Snapshots> in
--- the /Amazon Elastic Compute Cloud User Guide for Linux/.
+-- the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshotAttribute.html>
 module Network.AWS.EC2.DescribeSnapshotAttribute

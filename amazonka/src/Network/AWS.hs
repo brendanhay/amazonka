@@ -66,13 +66,16 @@ module Network.AWS
     ) where
 
 import           Control.Applicative
+import           Control.Monad
 import           Control.Monad.Catch
-import           Control.Monad.Except
+import           Control.Monad.IO.Class
+import           Control.Monad.Trans.Class
+import           Control.Monad.Trans.Except
 import           Control.Monad.Trans.Resource
 import           Data.ByteString              (ByteString)
 import           Data.Conduit                 hiding (await)
 import           Data.Monoid
-import           Data.Time                    (UTCTime, getCurrentTime)
+import           Data.Time                    (getCurrentTime)
 import           Network.AWS.Data
 import           Network.AWS.Error
 import           Network.AWS.Internal.Auth

@@ -37,7 +37,9 @@ module Network.AWS.EC2.Metadata
 import           Control.Applicative
 import           Control.Exception
 import           Control.Monad
-import           Control.Monad.Except
+import           Control.Monad.Error        (catchError, throwError)
+import           Control.Monad.IO.Class
+import           Control.Monad.Trans.Except
 import           Data.ByteString            (ByteString)
 import qualified Data.ByteString.Char8      as BS
 import qualified Data.ByteString.Lazy       as LBS

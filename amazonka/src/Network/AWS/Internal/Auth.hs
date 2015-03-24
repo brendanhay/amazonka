@@ -20,7 +20,10 @@ module Network.AWS.Internal.Auth where
 
 import           Control.Applicative
 import           Control.Concurrent
-import           Control.Monad.Except
+import           Control.Monad
+import           Control.Monad.Error        (catchError, throwError)
+import           Control.Monad.IO.Class
+import           Control.Monad.Trans.Except
 import qualified Data.ByteString.Char8      as BS
 import qualified Data.ByteString.Lazy.Char8 as LBS
 import           Data.IORef

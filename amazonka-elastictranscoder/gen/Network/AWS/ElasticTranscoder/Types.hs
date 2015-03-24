@@ -61,6 +61,7 @@ module Network.AWS.ElasticTranscoder.Types
     , JobOutput
     , jobOutput
     , joAlbumArt
+    , joAppliedColorSpaceConversion
     , joCaptions
     , joComposition
     , joDuration
@@ -189,6 +190,12 @@ module Network.AWS.ElasticTranscoder.Types
     , pRole
     , pStatus
     , pThumbnailConfig
+
+    -- * Warning
+    , Warning
+    , warning
+    , wCode
+    , wMessage
 
     -- * Preset
     , Preset
@@ -626,23 +633,24 @@ instance ToJSON AudioCodecOptions where
         ]
 
 data JobOutput = JobOutput
-    { _joAlbumArt            :: Maybe JobAlbumArt
-    , _joCaptions            :: Maybe Captions
-    , _joComposition         :: List "Composition" Clip
-    , _joDuration            :: Maybe Integer
-    , _joEncryption          :: Maybe Encryption
-    , _joHeight              :: Maybe Int
-    , _joId                  :: Maybe Text
-    , _joKey                 :: Maybe Text
-    , _joPresetId            :: Maybe Text
-    , _joRotate              :: Maybe Text
-    , _joSegmentDuration     :: Maybe Text
-    , _joStatus              :: Maybe Text
-    , _joStatusDetail        :: Maybe Text
-    , _joThumbnailEncryption :: Maybe Encryption
-    , _joThumbnailPattern    :: Maybe Text
-    , _joWatermarks          :: List "Watermarks" JobWatermark
-    , _joWidth               :: Maybe Int
+    { _joAlbumArt                    :: Maybe JobAlbumArt
+    , _joAppliedColorSpaceConversion :: Maybe Text
+    , _joCaptions                    :: Maybe Captions
+    , _joComposition                 :: List "Composition" Clip
+    , _joDuration                    :: Maybe Integer
+    , _joEncryption                  :: Maybe Encryption
+    , _joHeight                      :: Maybe Int
+    , _joId                          :: Maybe Text
+    , _joKey                         :: Maybe Text
+    , _joPresetId                    :: Maybe Text
+    , _joRotate                      :: Maybe Text
+    , _joSegmentDuration             :: Maybe Text
+    , _joStatus                      :: Maybe Text
+    , _joStatusDetail                :: Maybe Text
+    , _joThumbnailEncryption         :: Maybe Encryption
+    , _joThumbnailPattern            :: Maybe Text
+    , _joWatermarks                  :: List "Watermarks" JobWatermark
+    , _joWidth                       :: Maybe Int
     } deriving (Eq, Read, Show)
 
 -- | 'JobOutput' constructor.
@@ -650,6 +658,8 @@ data JobOutput = JobOutput
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'joAlbumArt' @::@ 'Maybe' 'JobAlbumArt'
+--
+-- * 'joAppliedColorSpaceConversion' @::@ 'Maybe' 'Text'
 --
 -- * 'joCaptions' @::@ 'Maybe' 'Captions'
 --
@@ -685,28 +695,38 @@ data JobOutput = JobOutput
 --
 jobOutput :: JobOutput
 jobOutput = JobOutput
-    { _joId                  = Nothing
-    , _joKey                 = Nothing
-    , _joThumbnailPattern    = Nothing
-    , _joThumbnailEncryption = Nothing
-    , _joRotate              = Nothing
-    , _joPresetId            = Nothing
-    , _joSegmentDuration     = Nothing
-    , _joStatus              = Nothing
-    , _joStatusDetail        = Nothing
-    , _joDuration            = Nothing
-    , _joWidth               = Nothing
-    , _joHeight              = Nothing
-    , _joWatermarks          = mempty
-    , _joAlbumArt            = Nothing
-    , _joComposition         = mempty
-    , _joCaptions            = Nothing
-    , _joEncryption          = Nothing
+    { _joId                          = Nothing
+    , _joKey                         = Nothing
+    , _joThumbnailPattern            = Nothing
+    , _joThumbnailEncryption         = Nothing
+    , _joRotate                      = Nothing
+    , _joPresetId                    = Nothing
+    , _joSegmentDuration             = Nothing
+    , _joStatus                      = Nothing
+    , _joStatusDetail                = Nothing
+    , _joDuration                    = Nothing
+    , _joWidth                       = Nothing
+    , _joHeight                      = Nothing
+    , _joWatermarks                  = mempty
+    , _joAlbumArt                    = Nothing
+    , _joComposition                 = mempty
+    , _joCaptions                    = Nothing
+    , _joEncryption                  = Nothing
+    , _joAppliedColorSpaceConversion = Nothing
     }
 
 -- | The album art to be associated with the output file, if any.
 joAlbumArt :: Lens' JobOutput (Maybe JobAlbumArt)
 joAlbumArt = lens _joAlbumArt (\s a -> s { _joAlbumArt = a })
+
+-- | If Elastic Transcoder used a preset with a 'ColorSpaceConversionMode' to
+-- transcode the output file, the 'AppliedColorSpaceConversion' parameter shows
+-- the conversion used. If no 'ColorSpaceConversionMode' was defined in the
+-- preset, this parameter will not be included in the job response.
+joAppliedColorSpaceConversion :: Lens' JobOutput (Maybe Text)
+joAppliedColorSpaceConversion =
+    lens _joAppliedColorSpaceConversion
+        (\s a -> s { _joAppliedColorSpaceConversion = a })
 
 -- | You can configure Elastic Transcoder to transcode captions, or subtitles,
 -- from one format to another. All captions must be in UTF-8. Elastic Transcoder
@@ -901,6 +921,7 @@ joWidth = lens _joWidth (\s a -> s { _joWidth = a })
 instance FromJSON JobOutput where
     parseJSON = withObject "JobOutput" $ \o -> JobOutput
         <$> o .:? "AlbumArt"
+        <*> o .:? "AppliedColorSpaceConversion"
         <*> o .:? "Captions"
         <*> o .:? "Composition" .!= mempty
         <*> o .:? "Duration"
@@ -920,23 +941,24 @@ instance FromJSON JobOutput where
 
 instance ToJSON JobOutput where
     toJSON JobOutput{..} = object
-        [ "Id"                  .= _joId
-        , "Key"                 .= _joKey
-        , "ThumbnailPattern"    .= _joThumbnailPattern
-        , "ThumbnailEncryption" .= _joThumbnailEncryption
-        , "Rotate"              .= _joRotate
-        , "PresetId"            .= _joPresetId
-        , "SegmentDuration"     .= _joSegmentDuration
-        , "Status"              .= _joStatus
-        , "StatusDetail"        .= _joStatusDetail
-        , "Duration"            .= _joDuration
-        , "Width"               .= _joWidth
-        , "Height"              .= _joHeight
-        , "Watermarks"          .= _joWatermarks
-        , "AlbumArt"            .= _joAlbumArt
-        , "Composition"         .= _joComposition
-        , "Captions"            .= _joCaptions
-        , "Encryption"          .= _joEncryption
+        [ "Id"                          .= _joId
+        , "Key"                         .= _joKey
+        , "ThumbnailPattern"            .= _joThumbnailPattern
+        , "ThumbnailEncryption"         .= _joThumbnailEncryption
+        , "Rotate"                      .= _joRotate
+        , "PresetId"                    .= _joPresetId
+        , "SegmentDuration"             .= _joSegmentDuration
+        , "Status"                      .= _joStatus
+        , "StatusDetail"                .= _joStatusDetail
+        , "Duration"                    .= _joDuration
+        , "Width"                       .= _joWidth
+        , "Height"                      .= _joHeight
+        , "Watermarks"                  .= _joWatermarks
+        , "AlbumArt"                    .= _joAlbumArt
+        , "Composition"                 .= _joComposition
+        , "Captions"                    .= _joCaptions
+        , "Encryption"                  .= _joEncryption
+        , "AppliedColorSpaceConversion" .= _joAppliedColorSpaceConversion
         ]
 
 data Job' = Job'
@@ -1625,8 +1647,7 @@ apBitRate = lens _apBitRate (\s a -> s { _apBitRate = a })
 apChannels :: Lens' AudioParameters (Maybe Text)
 apChannels = lens _apChannels (\s a -> s { _apChannels = a })
 
--- | The audio codec for the output file. Valid values include 'aac', 'mp3', and 'vorbis'
--- .
+-- | The audio codec for the output file. Valid values include 'aac', 'mp2', 'mp3', and 'vorbis'.
 apCodec :: Lens' AudioParameters (Maybe Text)
 apCodec = lens _apCodec (\s a -> s { _apCodec = a })
 
@@ -2225,6 +2246,47 @@ instance ToJSON Pipeline where
         , "ThumbnailConfig" .= _pThumbnailConfig
         ]
 
+data Warning = Warning
+    { _wCode    :: Maybe Text
+    , _wMessage :: Maybe Text
+    } deriving (Eq, Ord, Read, Show)
+
+-- | 'Warning' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'wCode' @::@ 'Maybe' 'Text'
+--
+-- * 'wMessage' @::@ 'Maybe' 'Text'
+--
+warning :: Warning
+warning = Warning
+    { _wCode    = Nothing
+    , _wMessage = Nothing
+    }
+
+-- | The code of the cross-regional warning.
+wCode :: Lens' Warning (Maybe Text)
+wCode = lens _wCode (\s a -> s { _wCode = a })
+
+-- | The message explaining what resources are in a different region from the
+-- pipeline.
+--
+-- Note: AWS KMS keys must be in the same region as the pipeline.
+wMessage :: Lens' Warning (Maybe Text)
+wMessage = lens _wMessage (\s a -> s { _wMessage = a })
+
+instance FromJSON Warning where
+    parseJSON = withObject "Warning" $ \o -> Warning
+        <$> o .:? "Code"
+        <*> o .:? "Message"
+
+instance ToJSON Warning where
+    toJSON Warning{..} = object
+        [ "Code"    .= _wCode
+        , "Message" .= _wMessage
+        ]
+
 data Preset = Preset
     { _p1Arn         :: Maybe Text
     , _p1Audio       :: Maybe AudioParameters
@@ -2281,7 +2343,7 @@ p1Arn = lens _p1Arn (\s a -> s { _p1Arn = a })
 p1Audio :: Lens' Preset (Maybe AudioParameters)
 p1Audio = lens _p1Audio (\s a -> s { _p1Audio = a })
 
--- | The container type for the output file. Valid values include 'fmp4', 'mp3', 'mp4', 'ogg', 'ts', and 'webm'.
+-- | The container type for the output file. Valid values include 'flv', 'fmp4', 'gif', 'mp3', 'mp4', 'mpg', 'ogg', 'ts', and 'webm'.
 p1Container :: Lens' Preset (Maybe Text)
 p1Container = lens _p1Container (\s a -> s { _p1Container = a })
 
@@ -2896,12 +2958,13 @@ vpAspectRatio = lens _vpAspectRatio (\s a -> s { _vpAspectRatio = a })
 vpBitRate :: Lens' VideoParameters (Maybe Text)
 vpBitRate = lens _vpBitRate (\s a -> s { _vpBitRate = a })
 
--- | The video codec for the output file. Valid values include 'H.264' and 'vp8'. You
--- can only specify 'vp8' when the container type is 'webm'.
+-- | The video codec for the output file. Valid values include 'gif', 'H.264', 'mpeg2',
+-- and 'vp8'. You can only specify 'vp8' when the container type is 'webm', 'gif' when
+-- the container type is 'gif', and 'mpeg2' when the container type is 'mpg'.
 vpCodec :: Lens' VideoParameters (Maybe Text)
 vpCodec = lens _vpCodec (\s a -> s { _vpCodec = a })
 
--- | Profile
+-- | Profile (H.264/VP8 Only)
 --
 -- The H.264 profile that you want to use for the output file. Elastic
 -- Transcoder supports the following profiles:
@@ -2932,19 +2995,65 @@ vpCodec = lens _vpCodec (\s a -> s { _vpCodec = a })
 --
 -- 1 - 396 1b - 396 1.1 - 900 1.2 - 2376 1.3 - 2376 2 - 2376 2.1 - 4752 2.2 -
 -- 8100 3 - 8100 3.1 - 18000 3.2 - 20480 4 - 32768 4.1 - 32768   MaxBitRate
+-- (Optional, H.264/MPEG2/VP8 only)
 --
 -- The maximum number of bits per second in a video buffer; the size of the
 -- buffer is specified by 'BufferSize'. Specify a value between 16 and 62,500. You
 -- can reduce the bandwidth required to stream a video by reducing the maximum
 -- bit rate, but this also reduces the quality of the video.
 --
--- BufferSize
+-- BufferSize (Optional, H.264/MPEG2/VP8 only)
 --
 -- The maximum number of bits in any x seconds of the output video. This window
 -- is commonly 10 seconds, the standard segment duration when you're using FMP4
 -- or MPEG-TS for the container type of the output video. Specify an integer
 -- greater than 0. If you specify 'MaxBitRate' and omit 'BufferSize', Elastic
 -- Transcoder sets 'BufferSize' to 10 times the value of 'MaxBitRate'.
+--
+-- InterlacedMode (Optional, H.264/MPEG2 Only)
+--
+-- The interlace mode for the output video.
+--
+-- Interlaced video is used to double the perceived frame rate for a video by
+-- interlacing two fields (one field on every other line, the other field on the
+-- other lines) so that the human eye registers multiple pictures per frame.
+-- Interlacing reduces the bandwidth required for transmitting a video, but can
+-- result in blurred images and flickering.
+--
+-- Valid values include 'Progressive' (no interlacing, top to bottom), 'TopFirst'
+-- (top field first), 'BottomFirst' (bottom field first), and 'Auto'.
+--
+-- If 'InterlaceMode' is not specified, Elastic Transcoder uses 'Progressive' for
+-- the output. If 'Auto' is specified, Elastic Transcoder interlaces the output.
+--
+-- ColorSpaceConversionMode (Optional, H.264/MPEG2 Only)
+--
+-- The color space conversion Elastic Transcoder applies to the output video.
+-- Color spaces are the algorithms used by the computer to store information
+-- about how to render color. 'Bt.601' is the standard for standard definition
+-- video, while 'Bt.709' is the standard for high definition video.
+--
+-- Valid values include 'None', 'Bt709toBt601', 'Bt601toBt709', and 'Auto'.
+--
+-- If you chose 'Auto' for 'ColorSpaceConversionMode' and your output is
+-- interlaced, your frame rate is one of '23.97', '24', '25', '29.97', '50', or '60', your 'SegmentDuration' is null, and you are using one of the resolution changes from the list
+-- below, Elastic Transcoder applies the following color space conversions:
+--
+-- /Standard to HD, 720x480 to 1920x1080/ - Elastic Transcoder applies 'Bt601ToBt709'   /Standard to HD, 720x576 to 1920x1080/ - Elastic Transcoder applies 'Bt601ToBt709'   /HD to Standard, 1920x1080 to 720x480/ - Elastic Transcoder applies 'Bt709ToBt601'   /HD to Standard, 1920x1080 to 720x576/ - Elastic Transcoder applies 'Bt709ToBt601'   Elastic Transcoder may change the behavior of the 'ColorspaceConversionMode' 'Auto' mode in the future. All outputs in a playlist must use the same 'ColorSpaceConversionMode'. If you do not specify a 'ColorSpaceConversionMode', Elastic Transcoder does
+-- not change the color space of a file. If you are unsure what 'ColorSpaceConversionMode' was applied to your output file, you can check the 'AppliedColorSpaceConversion' parameter included in your job response. If your job does not have an 'AppliedColorSpaceConversion' in its response, no 'ColorSpaceConversionMode' was applied.
+--
+-- ChromaSubsampling
+--
+-- The sampling pattern for the chroma (color) channels of the output video.
+-- Valid values include 'yuv420p' and 'yuv422p'.
+--
+-- 'yuv420p' samples the chroma information of every other horizontal and every
+-- other vertical line, 'yuv422p' samples the color information of every
+-- horizontal line and every other vertical line.
+--
+-- LoopCount (Gif Only)
+--
+-- The number of times you want the output gif to loop. Valid values include 'Infinite' and integers between '0' and '100', inclusive.
 vpCodecOptions :: Lens' VideoParameters (HashMap Text Text)
 vpCodecOptions = lens _vpCodecOptions (\s a -> s { _vpCodecOptions = a }) . _Map
 
@@ -2953,7 +3062,9 @@ vpDisplayAspectRatio :: Lens' VideoParameters (Maybe Text)
 vpDisplayAspectRatio =
     lens _vpDisplayAspectRatio (\s a -> s { _vpDisplayAspectRatio = a })
 
--- | Whether to use a fixed value for 'FixedGOP'. Valid values are 'true' and 'false':
+-- | Applicable only when the value of Video:Codec is one of 'H.264', 'MPEG2', or 'VP8'.
+--
+-- Whether to use a fixed value for 'FixedGOP'. Valid values are 'true' and 'false':
 --
 -- 'true': Elastic Transcoder uses the value of 'KeyframesMaxDist' for the
 -- distance between key frames (the number of frames in a group of pictures, or
@@ -2989,9 +3100,11 @@ vpFixedGOP = lens _vpFixedGOP (\s a -> s { _vpFixedGOP = a })
 vpFrameRate :: Lens' VideoParameters (Maybe Text)
 vpFrameRate = lens _vpFrameRate (\s a -> s { _vpFrameRate = a })
 
--- | The maximum number of frames between key frames. Key frames are fully encoded
--- frames; the frames between key frames are encoded based, in part, on the
--- content of the key frames. The value is an integer formatted as a string;
+-- | Applicable only when the value of Video:Codec is one of 'H.264', 'MPEG2', or 'VP8'.
+--
+-- The maximum number of frames between key frames. Key frames are fully
+-- encoded frames; the frames between key frames are encoded based, in part, on
+-- the content of the key frames. The value is an integer formatted as a string;
 -- valid values are between 1 (every frame is a key frame) and 100000,
 -- inclusive. A higher value results in higher compression but may also
 -- discernibly decrease video quality.

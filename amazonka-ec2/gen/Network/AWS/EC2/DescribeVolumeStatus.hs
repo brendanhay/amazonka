@@ -154,7 +154,8 @@ dvsDryRun = lens _dvsDryRun (\s a -> s { _dvsDryRun = a })
 dvsFilters :: Lens' DescribeVolumeStatus [Filter]
 dvsFilters = lens _dvsFilters (\s a -> s { _dvsFilters = a }) . _List
 
--- | The maximum number of paginated volume items per response.
+-- | The maximum number of paginated volume items per response. You cannot specify
+-- this parameter and the volume IDs parameter in the same request.
 dvsMaxResults :: Lens' DescribeVolumeStatus (Maybe Int)
 dvsMaxResults = lens _dvsMaxResults (\s a -> s { _dvsMaxResults = a })
 

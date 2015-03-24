@@ -1,5 +1,5 @@
 name:                  amazonka-cloudtrail
-version:               0.3.2
+version:               0.3.3
 synopsis:              Amazon CloudTrail SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -41,6 +41,7 @@ library
         , Network.AWS.CloudTrail.DeleteTrail
         , Network.AWS.CloudTrail.DescribeTrails
         , Network.AWS.CloudTrail.GetTrailStatus
+        , Network.AWS.CloudTrail.LookupEvents
         , Network.AWS.CloudTrail.StartLogging
         , Network.AWS.CloudTrail.StopLogging
         , Network.AWS.CloudTrail.Types
@@ -49,5 +50,5 @@ library
     other-modules:
 
     build-depends:
-          amazonka-core == 0.3.2.*
+          amazonka-core == 0.3.3.*
         , base          >= 4.7     && < 5

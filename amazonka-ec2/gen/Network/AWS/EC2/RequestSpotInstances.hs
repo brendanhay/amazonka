@@ -23,13 +23,9 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Creates a Spot Instance request. Spot Instances are instances that Amazon EC2
--- starts on your behalf when the maximum price that you specify exceeds the
--- current Spot Price. Amazon EC2 periodically sets the Spot Price based on
--- available Spot Instance capacity and current Spot Instance requests. For more
--- information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html Spot Instance Requests> in the /Amazon Elastic Compute CloudUser Guide for Linux/.
---
--- Users must be subscribed to the required product to run an instance with AWS
--- Marketplace product codes.
+-- launches when the bid price that you specify exceeds the current Spot Price.
+-- Amazon EC2 periodically sets the Spot Price based on available Spot Instance
+-- capacity and current Spot Instance requests. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html SpotInstance Requests> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RequestSpotInstances.html>
 module Network.AWS.EC2.RequestSpotInstances
@@ -155,7 +151,7 @@ rsiLaunchSpecification :: Lens' RequestSpotInstances (Maybe RequestSpotLaunchSpe
 rsiLaunchSpecification =
     lens _rsiLaunchSpecification (\s a -> s { _rsiLaunchSpecification = a })
 
--- | The maximum hourly price for any Spot Instance launched to fulfill the
+-- | The maximum hourly price (bid) for any Spot Instance launched to fulfill the
 -- request.
 rsiSpotPrice :: Lens' RequestSpotInstances Text
 rsiSpotPrice = lens _rsiSpotPrice (\s a -> s { _rsiSpotPrice = a })

@@ -1729,9 +1729,8 @@ iilsInstanceInitiatedShutdownBehavior =
 -- | The instance type. This is not supported for VMs imported into a VPC, which
 -- are assigned the default security group. After a VM is imported into a VPC,
 -- you can specify another security group using the AWS Management Console. For
--- more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud UserGuide for Linux/. For more information about the Linux instance types you can
--- import, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/VMImportPrerequisites.html Before You Get Started> in the Amazon Elastic Compute Cloud User
--- Guide for Linux.
+-- more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud UserGuide/. For more information about the Linux instance types you can import,
+-- see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/VMImportPrerequisites.html Before You Get Started> in the Amazon Elastic Compute Cloud User Guide.
 iilsInstanceType :: Lens' ImportInstanceLaunchSpecification (Maybe InstanceType)
 iilsInstanceType = lens _iilsInstanceType (\s a -> s { _iilsInstanceType = a })
 
@@ -2528,7 +2527,7 @@ instanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecification
 -- a VPC. The public IP address can only be assigned to a network interface for
 -- eth0, and can only be assigned to a new network interface, not an existing
 -- one. You cannot specify more than one network interface in the request. If
--- luanching into a default subnet, the default value is 'true'.
+-- launching into a default subnet, the default value is 'true'.
 inisAssociatePublicIpAddress :: Lens' InstanceNetworkInterfaceSpecification (Maybe Bool)
 inisAssociatePublicIpAddress =
     lens _inisAssociatePublicIpAddress
@@ -4007,7 +4006,7 @@ spProductDescription :: Lens' SpotPrice (Maybe RIProductDescription)
 spProductDescription =
     lens _spProductDescription (\s a -> s { _spProductDescription = a })
 
--- | The maximum price you will pay to launch one or more Spot Instances.
+-- | The maximum price (bid) that you are willing to pay for a Spot Instance.
 spSpotPrice :: Lens' SpotPrice (Maybe Text)
 spSpotPrice = lens _spSpotPrice (\s a -> s { _spSpotPrice = a })
 
@@ -4143,11 +4142,11 @@ spotInstanceStatus = SpotInstanceStatus
     , _sisMessage    = Nothing
     }
 
--- | The status code of the request.
+-- | The status code.
 sisCode :: Lens' SpotInstanceStatus (Maybe Text)
 sisCode = lens _sisCode (\s a -> s { _sisCode = a })
 
--- | The description for the status code for the Spot request.
+-- | The description for the status code.
 sisMessage :: Lens' SpotInstanceStatus (Maybe Text)
 sisMessage = lens _sisMessage (\s a -> s { _sisMessage = a })
 
@@ -4311,13 +4310,13 @@ siSpotInstanceRequestId :: Lens' SpotInstanceRequest (Maybe Text)
 siSpotInstanceRequestId =
     lens _siSpotInstanceRequestId (\s a -> s { _siSpotInstanceRequestId = a })
 
--- | The maximum hourly price for any Spot Instance launched to fulfill the
+-- | The maximum hourly price (bid) for any Spot Instance launched to fulfill the
 -- request.
 siSpotPrice :: Lens' SpotInstanceRequest (Maybe Text)
 siSpotPrice = lens _siSpotPrice (\s a -> s { _siSpotPrice = a })
 
 -- | The state of the Spot Instance request. Spot bid status information can help
--- you track your Spot Instance requests. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html Spot BidStatus> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
+-- you track your Spot Instance requests. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html Spot BidStatus> in the /Amazon Elastic Compute Cloud User Guide/.
 siState :: Lens' SpotInstanceRequest (Maybe SpotInstanceState)
 siState = lens _siState (\s a -> s { _siState = a })
 
@@ -4488,8 +4487,6 @@ lsImageId :: Lens' LaunchSpecification (Maybe Text)
 lsImageId = lens _lsImageId (\s a -> s { _lsImageId = a })
 
 -- | The instance type.
---
--- Default: 'm1.small'
 lsInstanceType :: Lens' LaunchSpecification (Maybe InstanceType)
 lsInstanceType = lens _lsInstanceType (\s a -> s { _lsInstanceType = a })
 
@@ -4726,7 +4723,7 @@ vEncrypted = lens _vEncrypted (\s a -> s { _vEncrypted = a })
 -- provisioned for the volume. For General Purpose (SSD) volumes, this
 -- represents the baseline performance of the volume and the rate at which the
 -- volume accumulates I/O credits for bursting. For more information on General
--- Purpose (SSD) baseline performance, I/O credits, and bursting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBSVolume Types> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
+-- Purpose (SSD) baseline performance, I/O credits, and bursting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBSVolume Types> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- Constraint: Range is 100 to 4000 for Provisioned IOPS (SSD) volumes and 3 to
 -- 3072 for General Purpose (SSD) volumes.
@@ -6387,15 +6384,17 @@ userIdGroupPair = UserIdGroupPair
     , _uigpGroupId   = Nothing
     }
 
--- | The name of the security group in the specified AWS account.
+-- | The ID of the security group.
 uigpGroupId :: Lens' UserIdGroupPair (Maybe Text)
 uigpGroupId = lens _uigpGroupId (\s a -> s { _uigpGroupId = a })
 
--- | The ID of the security group owned by the specified AWS account.
+-- | The name of the security group. In a request, use this parameter for a
+-- security group in EC2-Classic or a default VPC only. For a security group in
+-- a nondefault VPC, use 'GroupId'.
 uigpGroupName :: Lens' UserIdGroupPair (Maybe Text)
 uigpGroupName = lens _uigpGroupName (\s a -> s { _uigpGroupName = a })
 
--- | The ID of an AWS account.
+-- | The ID of an AWS account. EC2-Classic only.
 uigpUserId :: Lens' UserIdGroupPair (Maybe Text)
 uigpUserId = lens _uigpUserId (\s a -> s { _uigpUserId = a })
 
@@ -8626,7 +8625,8 @@ ipFromPort = lens _ipFromPort (\s a -> s { _ipFromPort = a })
 --
 -- When you call 'DescribeSecurityGroups', the protocol value returned is the
 -- number. Exception: For TCP, UDP, and ICMP, the value returned is the name
--- (for example, 'tcp', 'udp', or 'icmp'). For a list of protocol numbers, see <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>.
+-- (for example, 'tcp', 'udp', or 'icmp'). For a list of protocol numbers, see <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>. (VPC only) When you call 'AuthorizeSecurityGroupIngress', you can use '-1' to
+-- specify all.
 ipIpProtocol :: Lens' IpPermission Text
 ipIpProtocol = lens _ipIpProtocol (\s a -> s { _ipIpProtocol = a })
 
@@ -9551,7 +9551,7 @@ ebdEncrypted = lens _ebdEncrypted (\s a -> s { _ebdEncrypted = a })
 -- provisioned for the volume. For General Purpose (SSD) volumes, this
 -- represents the baseline performance of the volume and the rate at which the
 -- volume accumulates I/O credits for bursting. For more information on General
--- Purpose (SSD) baseline performance, I/O credits, and bursting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBSVolume Types> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
+-- Purpose (SSD) baseline performance, I/O credits, and bursting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBSVolume Types> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- Constraint: Range is 100 to 4000 for Provisioned IOPS (SSD) volumes and 3 to
 -- 3072 for General Purpose (SSD) volumes.
@@ -9567,7 +9567,7 @@ ebdSnapshotId = lens _ebdSnapshotId (\s a -> s { _ebdSnapshotId = a })
 
 -- | The size of the volume, in GiB.
 --
--- Constraints: If the volume type is 'io1', the minimum size of the volume is 10
+-- Constraints: If the volume type is 'io1', the minimum size of the volume is 4
 -- GiB; otherwise, the minimum size is 1 GiB. The maximum volume size is 1024
 -- GiB. If you specify a snapshot, the volume size must be equal to or larger
 -- than the snapshot size.
@@ -12582,8 +12582,6 @@ rslsImageId :: Lens' RequestSpotLaunchSpecification (Maybe Text)
 rslsImageId = lens _rslsImageId (\s a -> s { _rslsImageId = a })
 
 -- | The instance type.
---
--- Default: 'm1.small'
 rslsInstanceType :: Lens' RequestSpotLaunchSpecification (Maybe InstanceType)
 rslsInstanceType = lens _rslsInstanceType (\s a -> s { _rslsInstanceType = a })
 

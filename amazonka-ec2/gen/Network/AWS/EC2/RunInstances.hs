@@ -31,15 +31,15 @@
 --
 -- If you don't specify a security group when launching an instance, Amazon EC2
 -- uses the default security group. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html Security Groups> in
--- the /Amazon Elastic Compute Cloud User Guide for Linux/.
+-- the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- Linux instances have access to the public key of the key pair at boot. You
 -- can use this key to provide secure access to the instance. Amazon EC2 public
 -- images use this feature to provide secure access without passwords. For more
--- information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key Pairs> in the /Amazon Elastic Compute Cloud User Guide forLinux/.
+-- information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key Pairs> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- You can provide optional user data when launching an instance. For more
--- information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html Instance Metadata> in the /Amazon Elastic Compute Cloud UserGuide for Linux/.
+-- information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html Instance Metadata> in the /Amazon Elastic Compute Cloud UserGuide/.
 --
 -- If any of the AMIs have a product code attached for which the user has not
 -- subscribed, 'RunInstances' fails.
@@ -49,7 +49,7 @@
 -- fails.
 --
 -- For more information about troubleshooting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html What To Do If An InstanceImmediately Terminates>, and <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html Troubleshooting Connecting to Your Instance> in
--- the /Amazon Elastic Compute Cloud User Guide for Linux/.
+-- the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RunInstances.html>
 module Network.AWS.EC2.RunInstances
@@ -217,7 +217,7 @@ riBlockDeviceMappings =
         . _List
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency of
--- the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
+-- the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- Constraints: Maximum 64 ASCII characters
 riClientToken :: Lens' RunInstances (Maybe Text)
@@ -265,7 +265,7 @@ riInstanceInitiatedShutdownBehavior =
     lens _riInstanceInitiatedShutdownBehavior
         (\s a -> s { _riInstanceInitiatedShutdownBehavior = a })
 
--- | The instance type. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /AmazonElastic Compute Cloud User Guide for Linux/.
+-- | The instance type. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /AmazonElastic Compute Cloud User Guide/.
 --
 -- Default: 'm1.small'
 riInstanceType :: Lens' RunInstances (Maybe InstanceType)
@@ -274,7 +274,7 @@ riInstanceType = lens _riInstanceType (\s a -> s { _riInstanceType = a })
 -- | The ID of the kernel.
 --
 -- We recommend that you use PV-GRUB instead of kernels and RAM disks. For
--- more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html  PV-GRUB> in the /Amazon Elastic Compute Cloud User Guidefor Linux/.
+-- more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html  PV-GRUB> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 --
 riKernelId :: Lens' RunInstances (Maybe Text)
@@ -340,7 +340,7 @@ riPrivateIpAddress =
 -- | The ID of the RAM disk.
 --
 -- We recommend that you use PV-GRUB instead of kernels and RAM disks. For
--- more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html  PV-GRUB> in the /Amazon Elastic Compute Cloud User Guidefor Linux/.
+-- more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html  PV-GRUB> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 --
 riRamdiskId :: Lens' RunInstances (Maybe Text)

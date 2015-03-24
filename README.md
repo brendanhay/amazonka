@@ -1,6 +1,7 @@
 # Amazonka
 
 [![Build Status](https://travis-ci.org/brendanhay/amazonka.svg?branch=develop)](https://travis-ci.org/brendanhay/amazonka)
+[![Hackage Version](https://img.shields.io/hackage/v/amazonka.svg)](http://hackage.haskell.org/package/amazonka)
 
 * [Description](#description)
 * [Organisation](#organisation)

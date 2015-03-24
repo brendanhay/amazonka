@@ -20,6 +20,7 @@ module Network.AWS.CloudTrail
     , module Network.AWS.CloudTrail.DeleteTrail
     , module Network.AWS.CloudTrail.DescribeTrails
     , module Network.AWS.CloudTrail.GetTrailStatus
+    , module Network.AWS.CloudTrail.LookupEvents
     , module Network.AWS.CloudTrail.StartLogging
     , module Network.AWS.CloudTrail.StopLogging
     , module Network.AWS.CloudTrail.Types
@@ -30,6 +31,7 @@ import Network.AWS.CloudTrail.CreateTrail
 import Network.AWS.CloudTrail.DeleteTrail
 import Network.AWS.CloudTrail.DescribeTrails
 import Network.AWS.CloudTrail.GetTrailStatus
+import Network.AWS.CloudTrail.LookupEvents
 import Network.AWS.CloudTrail.StartLogging
 import Network.AWS.CloudTrail.StopLogging
 import Network.AWS.CloudTrail.Types

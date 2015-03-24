@@ -76,8 +76,7 @@
 -- you can do so manually. You can also avoid retirement of EBS-backed instances
 -- by manually restarting your instance when its event code is 'instance-retirement'. This ensures that your instance is started on a different underlying host.
 --
--- For more information about failed status checks, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstances.html TroubleshootingInstances with Failed Status Checks> in the /Amazon Elastic Compute Cloud UserGuide for Linux/. For more information about working with scheduled events,
--- see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-instances-status-check_sched.html#schedevents_actions Working with an Instance That Has a Scheduled Event> in the /Amazon ElasticCompute Cloud User Guide for Linux/.
+-- For more information about failed status checks, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstances.html TroubleshootingInstances with Failed Status Checks> in the /Amazon Elastic Compute Cloud UserGuide/. For more information about working with scheduled events, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-instances-status-check_sched.html#schedevents_actions Workingwith an Instance That Has a Scheduled Event> in the /Amazon Elastic ComputeCloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInstanceStatus.html>
 module Network.AWS.EC2.DescribeInstanceStatus
@@ -199,7 +198,9 @@ disInstanceIds = lens _disInstanceIds (\s a -> s { _disInstanceIds = a }) . _Lis
 
 -- | The maximum number of paginated instance items per response. The call also
 -- returns a token that you can specify in a subsequent call to get the next set
--- of results. If the value is greater than 1000, we return only 1000 items.
+-- of results. If the value is greater than 1000, we return only 1000 items. You
+-- cannot specify this parameter and the instance IDs parameter in the same
+-- request.
 --
 -- Default: 1000
 disMaxResults :: Lens' DescribeInstanceStatus (Maybe Int)

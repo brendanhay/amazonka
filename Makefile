@@ -11,7 +11,7 @@ $1-%:
 .PHONY: $1
 endef
 
-FORWARD := build configure deps install sdist upload clean
+FORWARD := build configure deps install sdist upload clean doc
 
 $(foreach c,$(FORWARD),$(eval $(call forward, $c)))
 

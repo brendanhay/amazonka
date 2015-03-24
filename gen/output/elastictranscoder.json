@@ -122,7 +122,7 @@
         "url": "http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/api-reference.html",
         "protocol": "rest-json",
         "name": "Amazon Elastic Transcoder",
-        "version": "0.3.2",
+        "version": "0.3.3",
         "description": "Amazon Elastic Transcoder lets you convert media files that you have stored\nin Amazon Simple Storage Service (Amazon S3) into media files in the formats\nrequired by consumer playback devices. For example, you can convert large,\nhigh-quality digital media files into formats that users can play back on\nmobile devices, tablets, web browsers, and connected televisions."
     },
     "types": {
@@ -799,7 +799,7 @@
                     "Read",
                     "Show"
                 ],
-                "fieldPad": 22,
+                "fieldPad": 30,
                 "ctor": "jobOutput",
                 "contents": [
                     {
@@ -1090,13 +1090,30 @@
                         "documentation": "-- | The encryption settings, if any, that you want Elastic Transcoder to apply to\n-- your output files. If you choose to use encryption, you must specify a mode\n-- to use. If you choose not to use encryption, Elastic Transcoder will write an\n-- unencrypted file to your Amazon S3 bucket.",
                         "typeExposed": "Maybe Encryption",
                         "type": "Maybe Encryption"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "joAppliedColorSpaceConversion",
+                        "name": "_joAppliedColorSpaceConversion",
+                        "shape": "String",
+                        "locationName": "AppliedColorSpaceConversion",
+                        "documentation": "-- | If Elastic Transcoder used a preset with a 'ColorSpaceConversionMode' to\n-- transcode the output file, the 'AppliedColorSpaceConversion' parameter shows\n-- the conversion used. If no 'ColorSpaceConversionMode' was defined in the\n-- preset, this parameter will not be included in the job response.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     }
                 ],
                 "payload": null,
                 "required": [],
-                "contentPad": 20,
+                "contentPad": 28,
                 "name": "JobOutput",
-                "locationPad": 20,
+                "locationPad": 28,
                 "type": "record",
                 "optional": [
                     {
@@ -1387,6 +1404,23 @@
                         "documentation": "-- | The encryption settings, if any, that you want Elastic Transcoder to apply to\n-- your output files. If you choose to use encryption, you must specify a mode\n-- to use. If you choose not to use encryption, Elastic Transcoder will write an\n-- unencrypted file to your Amazon S3 bucket.",
                         "typeExposed": "Maybe Encryption",
                         "type": "Maybe Encryption"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "joAppliedColorSpaceConversion",
+                        "name": "_joAppliedColorSpaceConversion",
+                        "shape": "String",
+                        "locationName": "AppliedColorSpaceConversion",
+                        "documentation": "-- | If Elastic Transcoder used a preset with a 'ColorSpaceConversionMode' to\n-- transcode the output file, the 'AppliedColorSpaceConversion' parameter shows\n-- the conversion used. If no 'ColorSpaceConversionMode' was defined in the\n-- preset, this parameter will not be included in the job response.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     }
                 ],
                 "fields": [
@@ -1406,6 +1440,23 @@
                         "documentation": "-- | The album art to be associated with the output file, if any.",
                         "typeExposed": "Maybe JobAlbumArt",
                         "type": "Maybe JobAlbumArt"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "joAppliedColorSpaceConversion",
+                        "name": "_joAppliedColorSpaceConversion",
+                        "shape": "String",
+                        "locationName": "AppliedColorSpaceConversion",
+                        "documentation": "-- | If Elastic Transcoder used a preset with a 'ColorSpaceConversionMode' to\n-- transcode the output file, the 'AppliedColorSpaceConversion' parameter shows\n-- the conversion used. If no 'ColorSpaceConversionMode' was defined in the\n-- preset, this parameter will not be included in the job response.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": null,
@@ -3595,7 +3646,7 @@
                         "name": "_apCodec",
                         "shape": "AudioCodec",
                         "locationName": "Codec",
-                        "documentation": "-- | The audio codec for the output file. Valid values include 'aac', 'mp3', and 'vorbis'\n-- .",
+                        "documentation": "-- | The audio codec for the output file. Valid values include 'aac', 'mp2', 'mp3', and 'vorbis'.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3688,7 +3739,7 @@
                         "name": "_apCodec",
                         "shape": "AudioCodec",
                         "locationName": "Codec",
-                        "documentation": "-- | The audio codec for the output file. Valid values include 'aac', 'mp3', and 'vorbis'\n-- .",
+                        "documentation": "-- | The audio codec for the output file. Valid values include 'aac', 'mp2', 'mp3', and 'vorbis'.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3809,7 +3860,7 @@
                         "name": "_apCodec",
                         "shape": "AudioCodec",
                         "locationName": "Codec",
-                        "documentation": "-- | The audio codec for the output file. Valid values include 'aac', 'mp3', and 'vorbis'\n-- .",
+                        "documentation": "-- | The audio codec for the output file. Valid values include 'aac', 'mp2', 'mp3', and 'vorbis'.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -5387,6 +5438,130 @@
             {
                 "deriving": [
                     "Eq",
+                    "Ord",
+                    "Read",
+                    "Show"
+                ],
+                "fieldPad": 9,
+                "ctor": "warning",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "wCode",
+                        "name": "_wCode",
+                        "shape": "String",
+                        "locationName": "Code",
+                        "documentation": "-- | The code of the cross-regional warning.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "wMessage",
+                        "name": "_wMessage",
+                        "shape": "String",
+                        "locationName": "Message",
+                        "documentation": "-- | The message explaining what resources are in a different region from the\n-- pipeline.\n--\n-- Note: AWS KMS keys must be in the same region as the pipeline.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "payload": null,
+                "required": [],
+                "contentPad": 8,
+                "name": "Warning",
+                "locationPad": 8,
+                "type": "record",
+                "optional": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "wCode",
+                        "name": "_wCode",
+                        "shape": "String",
+                        "locationName": "Code",
+                        "documentation": "-- | The code of the cross-regional warning.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "wMessage",
+                        "name": "_wMessage",
+                        "shape": "String",
+                        "locationName": "Message",
+                        "documentation": "-- | The message explaining what resources are in a different region from the\n-- pipeline.\n--\n-- Note: AWS KMS keys must be in the same region as the pipeline.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "wCode",
+                        "name": "_wCode",
+                        "shape": "String",
+                        "locationName": "Code",
+                        "documentation": "-- | The code of the cross-regional warning.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "wMessage",
+                        "name": "_wMessage",
+                        "shape": "String",
+                        "locationName": "Message",
+                        "documentation": "-- | The message explaining what resources are in a different region from the\n-- pipeline.\n--\n-- Note: AWS KMS keys must be in the same region as the pipeline.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
                     "Read",
                     "Show"
                 ],
@@ -5474,7 +5649,7 @@
                         "name": "_p1Container",
                         "shape": "PresetContainer",
                         "locationName": "Container",
-                        "documentation": "-- | The container type for the output file. Valid values include 'fmp4', 'mp3', 'mp4', 'ogg', 'ts', and 'webm'.",
+                        "documentation": "-- | The container type for the output file. Valid values include 'flv', 'fmp4', 'gif', 'mp3', 'mp4', 'mpg', 'ogg', 'ts', and 'webm'.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -5635,7 +5810,7 @@
                         "name": "_p1Container",
                         "shape": "PresetContainer",
                         "locationName": "Container",
-                        "documentation": "-- | The container type for the output file. Valid values include 'fmp4', 'mp3', 'mp4', 'ogg', 'ts', and 'webm'.",
+                        "documentation": "-- | The container type for the output file. Valid values include 'flv', 'fmp4', 'gif', 'mp3', 'mp4', 'mpg', 'ogg', 'ts', and 'webm'.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -5756,7 +5931,7 @@
                         "name": "_p1Container",
                         "shape": "PresetContainer",
                         "locationName": "Container",
-                        "documentation": "-- | The container type for the output file. Valid values include 'fmp4', 'mp3', 'mp4', 'ogg', 'ts', and 'webm'.",
+                        "documentation": "-- | The container type for the output file. Valid values include 'flv', 'fmp4', 'gif', 'mp3', 'mp4', 'mpg', 'ogg', 'ts', and 'webm'.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -7095,7 +7270,7 @@
                         "name": "_vpCodec",
                         "shape": "VideoCodec",
                         "locationName": "Codec",
-                        "documentation": "-- | The video codec for the output file. Valid values include 'H.264' and 'vp8'. You\n-- can only specify 'vp8' when the container type is 'webm'.",
+                        "documentation": "-- | The video codec for the output file. Valid values include 'gif', 'H.264', 'mpeg2',\n-- and 'vp8'. You can only specify 'vp8' when the container type is 'webm', 'gif' when\n-- the container type is 'gif', and 'mpeg2' when the container type is 'mpg'.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -7112,7 +7287,7 @@
                         "name": "_vpCodecOptions",
                         "shape": "CodecOptions",
                         "locationName": "CodecOptions",
-                        "documentation": "-- | Profile\n--\n-- The H.264 profile that you want to use for the output file. Elastic\n-- Transcoder supports the following profiles:\n--\n-- 'baseline': The profile most commonly used for videoconferencing and for\n-- mobile applications.  'main': The profile used for standard-definition digital\n-- TV broadcasts.  'high': The profile used for high-definition digital TV\n-- broadcasts and for Blu-ray discs.   Level (H.264 Only)\n--\n-- The H.264 level that you want to use for the output file. Elastic Transcoder\n-- supports the following levels:\n--\n-- '1', '1b', '1.1', '1.2', '1.3', '2', '2.1', '2.2', '3', '3.1', '3.2', '4', '4.1'\n--\n-- MaxReferenceFrames (H.264 Only)\n--\n-- Applicable only when the value of Video:Codec is H.264. The maximum number\n-- of previously decoded frames to use as a reference for decoding future\n-- frames. Valid values are integers 0 through 16, but we recommend that you not\n-- use a value greater than the following:\n--\n-- 'Min(Floor(Maximum decoded picture buffer in macroblocks * 256 / (Width inpixels * Height in pixels)), 16)'\n--\n-- where /Width in pixels/ and /Height in pixels/ represent either MaxWidth and\n-- MaxHeight, or Resolution. /Maximum decoded picture buffer in macroblocks/\n-- depends on the value of the 'Level' object. See the list below. (A macroblock\n-- is a block of pixels measuring 16x16.)\n--\n-- 1 - 396 1b - 396 1.1 - 900 1.2 - 2376 1.3 - 2376 2 - 2376 2.1 - 4752 2.2 -\n-- 8100 3 - 8100 3.1 - 18000 3.2 - 20480 4 - 32768 4.1 - 32768   MaxBitRate\n--\n-- The maximum number of bits per second in a video buffer; the size of the\n-- buffer is specified by 'BufferSize'. Specify a value between 16 and 62,500. You\n-- can reduce the bandwidth required to stream a video by reducing the maximum\n-- bit rate, but this also reduces the quality of the video.\n--\n-- BufferSize\n--\n-- The maximum number of bits in any x seconds of the output video. This window\n-- is commonly 10 seconds, the standard segment duration when you're using FMP4\n-- or MPEG-TS for the container type of the output video. Specify an integer\n-- greater than 0. If you specify 'MaxBitRate' and omit 'BufferSize', Elastic\n-- Transcoder sets 'BufferSize' to 10 times the value of 'MaxBitRate'.",
+                        "documentation": "-- | Profile (H.264/VP8 Only)\n--\n-- The H.264 profile that you want to use for the output file. Elastic\n-- Transcoder supports the following profiles:\n--\n-- 'baseline': The profile most commonly used for videoconferencing and for\n-- mobile applications.  'main': The profile used for standard-definition digital\n-- TV broadcasts.  'high': The profile used for high-definition digital TV\n-- broadcasts and for Blu-ray discs.   Level (H.264 Only)\n--\n-- The H.264 level that you want to use for the output file. Elastic Transcoder\n-- supports the following levels:\n--\n-- '1', '1b', '1.1', '1.2', '1.3', '2', '2.1', '2.2', '3', '3.1', '3.2', '4', '4.1'\n--\n-- MaxReferenceFrames (H.264 Only)\n--\n-- Applicable only when the value of Video:Codec is H.264. The maximum number\n-- of previously decoded frames to use as a reference for decoding future\n-- frames. Valid values are integers 0 through 16, but we recommend that you not\n-- use a value greater than the following:\n--\n-- 'Min(Floor(Maximum decoded picture buffer in macroblocks * 256 / (Width inpixels * Height in pixels)), 16)'\n--\n-- where /Width in pixels/ and /Height in pixels/ represent either MaxWidth and\n-- MaxHeight, or Resolution. /Maximum decoded picture buffer in macroblocks/\n-- depends on the value of the 'Level' object. See the list below. (A macroblock\n-- is a block of pixels measuring 16x16.)\n--\n-- 1 - 396 1b - 396 1.1 - 900 1.2 - 2376 1.3 - 2376 2 - 2376 2.1 - 4752 2.2 -\n-- 8100 3 - 8100 3.1 - 18000 3.2 - 20480 4 - 32768 4.1 - 32768   MaxBitRate\n-- (Optional, H.264/MPEG2/VP8 only)\n--\n-- The maximum number of bits per second in a video buffer; the size of the\n-- buffer is specified by 'BufferSize'. Specify a value between 16 and 62,500. You\n-- can reduce the bandwidth required to stream a video by reducing the maximum\n-- bit rate, but this also reduces the quality of the video.\n--\n-- BufferSize (Optional, H.264/MPEG2/VP8 only)\n--\n-- The maximum number of bits in any x seconds of the output video. This window\n-- is commonly 10 seconds, the standard segment duration when you're using FMP4\n-- or MPEG-TS for the container type of the output video. Specify an integer\n-- greater than 0. If you specify 'MaxBitRate' and omit 'BufferSize', Elastic\n-- Transcoder sets 'BufferSize' to 10 times the value of 'MaxBitRate'.\n--\n-- InterlacedMode (Optional, H.264/MPEG2 Only)\n--\n-- The interlace mode for the output video.\n--\n-- Interlaced video is used to double the perceived frame rate for a video by\n-- interlacing two fields (one field on every other line, the other field on the\n-- other lines) so that the human eye registers multiple pictures per frame.\n-- Interlacing reduces the bandwidth required for transmitting a video, but can\n-- result in blurred images and flickering.\n--\n-- Valid values include 'Progressive' (no interlacing, top to bottom), 'TopFirst'\n-- (top field first), 'BottomFirst' (bottom field first), and 'Auto'.\n--\n-- If 'InterlaceMode' is not specified, Elastic Transcoder uses 'Progressive' for\n-- the output. If 'Auto' is specified, Elastic Transcoder interlaces the output.\n--\n-- ColorSpaceConversionMode (Optional, H.264/MPEG2 Only)\n--\n-- The color space conversion Elastic Transcoder applies to the output video.\n-- Color spaces are the algorithms used by the computer to store information\n-- about how to render color. 'Bt.601' is the standard for standard definition\n-- video, while 'Bt.709' is the standard for high definition video.\n--\n-- Valid values include 'None', 'Bt709toBt601', 'Bt601toBt709', and 'Auto'.\n--\n-- If you chose 'Auto' for 'ColorSpaceConversionMode' and your output is\n-- interlaced, your frame rate is one of '23.97', '24', '25', '29.97', '50', or '60', your 'SegmentDuration' is null, and you are using one of the resolution changes from the list\n-- below, Elastic Transcoder applies the following color space conversions:\n--\n-- /Standard to HD, 720x480 to 1920x1080/ - Elastic Transcoder applies 'Bt601ToBt709'   /Standard to HD, 720x576 to 1920x1080/ - Elastic Transcoder applies 'Bt601ToBt709'   /HD to Standard, 1920x1080 to 720x480/ - Elastic Transcoder applies 'Bt709ToBt601'   /HD to Standard, 1920x1080 to 720x576/ - Elastic Transcoder applies 'Bt709ToBt601'   Elastic Transcoder may change the behavior of the 'ColorspaceConversionMode' 'Auto' mode in the future. All outputs in a playlist must use the same 'ColorSpaceConversionMode'. If you do not specify a 'ColorSpaceConversionMode', Elastic Transcoder does\n-- not change the color space of a file. If you are unsure what 'ColorSpaceConversionMode' was applied to your output file, you can check the 'AppliedColorSpaceConversion' parameter included in your job response. If your job does not have an 'AppliedColorSpaceConversion' in its response, no 'ColorSpaceConversionMode' was applied.\n--\n-- ChromaSubsampling\n--\n-- The sampling pattern for the chroma (color) channels of the output video.\n-- Valid values include 'yuv420p' and 'yuv422p'.\n--\n-- 'yuv420p' samples the chroma information of every other horizontal and every\n-- other vertical line, 'yuv422p' samples the color information of every\n-- horizontal line and every other vertical line.\n--\n-- LoopCount (Gif Only)\n--\n-- The number of times you want the output gif to loop. Valid values include 'Infinite' and integers between '0' and '100', inclusive.",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     },
@@ -7129,7 +7304,7 @@
                         "name": "_vpKeyframesMaxDist",
                         "shape": "KeyframesMaxDist",
                         "locationName": "KeyframesMaxDist",
-                        "documentation": "-- | The maximum number of frames between key frames. Key frames are fully encoded\n-- frames; the frames between key frames are encoded based, in part, on the\n-- content of the key frames. The value is an integer formatted as a string;\n-- valid values are between 1 (every frame is a key frame) and 100000,\n-- inclusive. A higher value results in higher compression but may also\n-- discernibly decrease video quality.\n--\n-- For 'Smooth' outputs, the 'FrameRate' must have a constant ratio to the 'KeyframesMaxDist'. This allows 'Smooth' playlists to switch between different quality levels\n-- while the file is being played.\n--\n-- For example, an input file can have a 'FrameRate' of 30 with a 'KeyframesMaxDist'\n-- of 90. The output file then needs to have a ratio of 1:3. Valid outputs\n-- would have 'FrameRate' of 30, 25, and 10, and 'KeyframesMaxDist' of 90, 75, and\n-- 30, respectively.\n--\n-- Alternately, this can be achieved by setting 'FrameRate' to auto and having\n-- the same values for 'MaxFrameRate' and 'KeyframesMaxDist'.",
+                        "documentation": "-- | Applicable only when the value of Video:Codec is one of 'H.264', 'MPEG2', or 'VP8'.\n--\n-- The maximum number of frames between key frames. Key frames are fully\n-- encoded frames; the frames between key frames are encoded based, in part, on\n-- the content of the key frames. The value is an integer formatted as a string;\n-- valid values are between 1 (every frame is a key frame) and 100000,\n-- inclusive. A higher value results in higher compression but may also\n-- discernibly decrease video quality.\n--\n-- For 'Smooth' outputs, the 'FrameRate' must have a constant ratio to the 'KeyframesMaxDist'. This allows 'Smooth' playlists to switch between different quality levels\n-- while the file is being played.\n--\n-- For example, an input file can have a 'FrameRate' of 30 with a 'KeyframesMaxDist'\n-- of 90. The output file then needs to have a ratio of 1:3. Valid outputs\n-- would have 'FrameRate' of 30, 25, and 10, and 'KeyframesMaxDist' of 90, 75, and\n-- 30, respectively.\n--\n-- Alternately, this can be achieved by setting 'FrameRate' to auto and having\n-- the same values for 'MaxFrameRate' and 'KeyframesMaxDist'.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -7146,7 +7321,7 @@
                         "name": "_vpFixedGOP",
                         "shape": "FixedGOP",
                         "locationName": "FixedGOP",
-                        "documentation": "-- | Whether to use a fixed value for 'FixedGOP'. Valid values are 'true' and 'false':\n--\n-- 'true': Elastic Transcoder uses the value of 'KeyframesMaxDist' for the\n-- distance between key frames (the number of frames in a group of pictures, or\n-- GOP).  'false': The distance between key frames can vary.  'FixedGOP' must be set\n-- to 'true' for 'fmp4' containers.\n--",
+                        "documentation": "-- | Applicable only when the value of Video:Codec is one of 'H.264', 'MPEG2', or 'VP8'.\n--\n-- Whether to use a fixed value for 'FixedGOP'. Valid values are 'true' and 'false':\n--\n-- 'true': Elastic Transcoder uses the value of 'KeyframesMaxDist' for the\n-- distance between key frames (the number of frames in a group of pictures, or\n-- GOP).  'false': The distance between key frames can vary.  'FixedGOP' must be set\n-- to 'true' for 'fmp4' containers.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -7358,7 +7533,7 @@
                         "name": "_vpCodec",
                         "shape": "VideoCodec",
                         "locationName": "Codec",
-                        "documentation": "-- | The video codec for the output file. Valid values include 'H.264' and 'vp8'. You\n-- can only specify 'vp8' when the container type is 'webm'.",
+                        "documentation": "-- | The video codec for the output file. Valid values include 'gif', 'H.264', 'mpeg2',\n-- and 'vp8'. You can only specify 'vp8' when the container type is 'webm', 'gif' when\n-- the container type is 'gif', and 'mpeg2' when the container type is 'mpg'.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -7375,7 +7550,7 @@
                         "name": "_vpCodecOptions",
                         "shape": "CodecOptions",
                         "locationName": "CodecOptions",
-                        "documentation": "-- | Profile\n--\n-- The H.264 profile that you want to use for the output file. Elastic\n-- Transcoder supports the following profiles:\n--\n-- 'baseline': The profile most commonly used for videoconferencing and for\n-- mobile applications.  'main': The profile used for standard-definition digital\n-- TV broadcasts.  'high': The profile used for high-definition digital TV\n-- broadcasts and for Blu-ray discs.   Level (H.264 Only)\n--\n-- The H.264 level that you want to use for the output file. Elastic Transcoder\n-- supports the following levels:\n--\n-- '1', '1b', '1.1', '1.2', '1.3', '2', '2.1', '2.2', '3', '3.1', '3.2', '4', '4.1'\n--\n-- MaxReferenceFrames (H.264 Only)\n--\n-- Applicable only when the value of Video:Codec is H.264. The maximum number\n-- of previously decoded frames to use as a reference for decoding future\n-- frames. Valid values are integers 0 through 16, but we recommend that you not\n-- use a value greater than the following:\n--\n-- 'Min(Floor(Maximum decoded picture buffer in macroblocks * 256 / (Width inpixels * Height in pixels)), 16)'\n--\n-- where /Width in pixels/ and /Height in pixels/ represent either MaxWidth and\n-- MaxHeight, or Resolution. /Maximum decoded picture buffer in macroblocks/\n-- depends on the value of the 'Level' object. See the list below. (A macroblock\n-- is a block of pixels measuring 16x16.)\n--\n-- 1 - 396 1b - 396 1.1 - 900 1.2 - 2376 1.3 - 2376 2 - 2376 2.1 - 4752 2.2 -\n-- 8100 3 - 8100 3.1 - 18000 3.2 - 20480 4 - 32768 4.1 - 32768   MaxBitRate\n--\n-- The maximum number of bits per second in a video buffer; the size of the\n-- buffer is specified by 'BufferSize'. Specify a value between 16 and 62,500. You\n-- can reduce the bandwidth required to stream a video by reducing the maximum\n-- bit rate, but this also reduces the quality of the video.\n--\n-- BufferSize\n--\n-- The maximum number of bits in any x seconds of the output video. This window\n-- is commonly 10 seconds, the standard segment duration when you're using FMP4\n-- or MPEG-TS for the container type of the output video. Specify an integer\n-- greater than 0. If you specify 'MaxBitRate' and omit 'BufferSize', Elastic\n-- Transcoder sets 'BufferSize' to 10 times the value of 'MaxBitRate'.",
+                        "documentation": "-- | Profile (H.264/VP8 Only)\n--\n-- The H.264 profile that you want to use for the output file. Elastic\n-- Transcoder supports the following profiles:\n--\n-- 'baseline': The profile most commonly used for videoconferencing and for\n-- mobile applications.  'main': The profile used for standard-definition digital\n-- TV broadcasts.  'high': The profile used for high-definition digital TV\n-- broadcasts and for Blu-ray discs.   Level (H.264 Only)\n--\n-- The H.264 level that you want to use for the output file. Elastic Transcoder\n-- supports the following levels:\n--\n-- '1', '1b', '1.1', '1.2', '1.3', '2', '2.1', '2.2', '3', '3.1', '3.2', '4', '4.1'\n--\n-- MaxReferenceFrames (H.264 Only)\n--\n-- Applicable only when the value of Video:Codec is H.264. The maximum number\n-- of previously decoded frames to use as a reference for decoding future\n-- frames. Valid values are integers 0 through 16, but we recommend that you not\n-- use a value greater than the following:\n--\n-- 'Min(Floor(Maximum decoded picture buffer in macroblocks * 256 / (Width inpixels * Height in pixels)), 16)'\n--\n-- where /Width in pixels/ and /Height in pixels/ represent either MaxWidth and\n-- MaxHeight, or Resolution. /Maximum decoded picture buffer in macroblocks/\n-- depends on the value of the 'Level' object. See the list below. (A macroblock\n-- is a block of pixels measuring 16x16.)\n--\n-- 1 - 396 1b - 396 1.1 - 900 1.2 - 2376 1.3 - 2376 2 - 2376 2.1 - 4752 2.2 -\n-- 8100 3 - 8100 3.1 - 18000 3.2 - 20480 4 - 32768 4.1 - 32768   MaxBitRate\n-- (Optional, H.264/MPEG2/VP8 only)\n--\n-- The maximum number of bits per second in a video buffer; the size of the\n-- buffer is specified by 'BufferSize'. Specify a value between 16 and 62,500. You\n-- can reduce the bandwidth required to stream a video by reducing the maximum\n-- bit rate, but this also reduces the quality of the video.\n--\n-- BufferSize (Optional, H.264/MPEG2/VP8 only)\n--\n-- The maximum number of bits in any x seconds of the output video. This window\n-- is commonly 10 seconds, the standard segment duration when you're using FMP4\n-- or MPEG-TS for the container type of the output video. Specify an integer\n-- greater than 0. If you specify 'MaxBitRate' and omit 'BufferSize', Elastic\n-- Transcoder sets 'BufferSize' to 10 times the value of 'MaxBitRate'.\n--\n-- InterlacedMode (Optional, H.264/MPEG2 Only)\n--\n-- The interlace mode for the output video.\n--\n-- Interlaced video is used to double the perceived frame rate for a video by\n-- interlacing two fields (one field on every other line, the other field on the\n-- other lines) so that the human eye registers multiple pictures per frame.\n-- Interlacing reduces the bandwidth required for transmitting a video, but can\n-- result in blurred images and flickering.\n--\n-- Valid values include 'Progressive' (no interlacing, top to bottom), 'TopFirst'\n-- (top field first), 'BottomFirst' (bottom field first), and 'Auto'.\n--\n-- If 'InterlaceMode' is not specified, Elastic Transcoder uses 'Progressive' for\n-- the output. If 'Auto' is specified, Elastic Transcoder interlaces the output.\n--\n-- ColorSpaceConversionMode (Optional, H.264/MPEG2 Only)\n--\n-- The color space conversion Elastic Transcoder applies to the output video.\n-- Color spaces are the algorithms used by the computer to store information\n-- about how to render color. 'Bt.601' is the standard for standard definition\n-- video, while 'Bt.709' is the standard for high definition video.\n--\n-- Valid values include 'None', 'Bt709toBt601', 'Bt601toBt709', and 'Auto'.\n--\n-- If you chose 'Auto' for 'ColorSpaceConversionMode' and your output is\n-- interlaced, your frame rate is one of '23.97', '24', '25', '29.97', '50', or '60', your 'SegmentDuration' is null, and you are using one of the resolution changes from the list\n-- below, Elastic Transcoder applies the following color space conversions:\n--\n-- /Standard to HD, 720x480 to 1920x1080/ - Elastic Transcoder applies 'Bt601ToBt709'   /Standard to HD, 720x576 to 1920x1080/ - Elastic Transcoder applies 'Bt601ToBt709'   /HD to Standard, 1920x1080 to 720x480/ - Elastic Transcoder applies 'Bt709ToBt601'   /HD to Standard, 1920x1080 to 720x576/ - Elastic Transcoder applies 'Bt709ToBt601'   Elastic Transcoder may change the behavior of the 'ColorspaceConversionMode' 'Auto' mode in the future. All outputs in a playlist must use the same 'ColorSpaceConversionMode'. If you do not specify a 'ColorSpaceConversionMode', Elastic Transcoder does\n-- not change the color space of a file. If you are unsure what 'ColorSpaceConversionMode' was applied to your output file, you can check the 'AppliedColorSpaceConversion' parameter included in your job response. If your job does not have an 'AppliedColorSpaceConversion' in its response, no 'ColorSpaceConversionMode' was applied.\n--\n-- ChromaSubsampling\n--\n-- The sampling pattern for the chroma (color) channels of the output video.\n-- Valid values include 'yuv420p' and 'yuv422p'.\n--\n-- 'yuv420p' samples the chroma information of every other horizontal and every\n-- other vertical line, 'yuv422p' samples the color information of every\n-- horizontal line and every other vertical line.\n--\n-- LoopCount (Gif Only)\n--\n-- The number of times you want the output gif to loop. Valid values include 'Infinite' and integers between '0' and '100', inclusive.",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     },
@@ -7392,7 +7567,7 @@
                         "name": "_vpKeyframesMaxDist",
                         "shape": "KeyframesMaxDist",
                         "locationName": "KeyframesMaxDist",
-                        "documentation": "-- | The maximum number of frames between key frames. Key frames are fully encoded\n-- frames; the frames between key frames are encoded based, in part, on the\n-- content of the key frames. The value is an integer formatted as a string;\n-- valid values are between 1 (every frame is a key frame) and 100000,\n-- inclusive. A higher value results in higher compression but may also\n-- discernibly decrease video quality.\n--\n-- For 'Smooth' outputs, the 'FrameRate' must have a constant ratio to the 'KeyframesMaxDist'. This allows 'Smooth' playlists to switch between different quality levels\n-- while the file is being played.\n--\n-- For example, an input file can have a 'FrameRate' of 30 with a 'KeyframesMaxDist'\n-- of 90. The output file then needs to have a ratio of 1:3. Valid outputs\n-- would have 'FrameRate' of 30, 25, and 10, and 'KeyframesMaxDist' of 90, 75, and\n-- 30, respectively.\n--\n-- Alternately, this can be achieved by setting 'FrameRate' to auto and having\n-- the same values for 'MaxFrameRate' and 'KeyframesMaxDist'.",
+                        "documentation": "-- | Applicable only when the value of Video:Codec is one of 'H.264', 'MPEG2', or 'VP8'.\n--\n-- The maximum number of frames between key frames. Key frames are fully\n-- encoded frames; the frames between key frames are encoded based, in part, on\n-- the content of the key frames. The value is an integer formatted as a string;\n-- valid values are between 1 (every frame is a key frame) and 100000,\n-- inclusive. A higher value results in higher compression but may also\n-- discernibly decrease video quality.\n--\n-- For 'Smooth' outputs, the 'FrameRate' must have a constant ratio to the 'KeyframesMaxDist'. This allows 'Smooth' playlists to switch between different quality levels\n-- while the file is being played.\n--\n-- For example, an input file can have a 'FrameRate' of 30 with a 'KeyframesMaxDist'\n-- of 90. The output file then needs to have a ratio of 1:3. Valid outputs\n-- would have 'FrameRate' of 30, 25, and 10, and 'KeyframesMaxDist' of 90, 75, and\n-- 30, respectively.\n--\n-- Alternately, this can be achieved by setting 'FrameRate' to auto and having\n-- the same values for 'MaxFrameRate' and 'KeyframesMaxDist'.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -7409,7 +7584,7 @@
                         "name": "_vpFixedGOP",
                         "shape": "FixedGOP",
                         "locationName": "FixedGOP",
-                        "documentation": "-- | Whether to use a fixed value for 'FixedGOP'. Valid values are 'true' and 'false':\n--\n-- 'true': Elastic Transcoder uses the value of 'KeyframesMaxDist' for the\n-- distance between key frames (the number of frames in a group of pictures, or\n-- GOP).  'false': The distance between key frames can vary.  'FixedGOP' must be set\n-- to 'true' for 'fmp4' containers.\n--",
+                        "documentation": "-- | Applicable only when the value of Video:Codec is one of 'H.264', 'MPEG2', or 'VP8'.\n--\n-- Whether to use a fixed value for 'FixedGOP'. Valid values are 'true' and 'false':\n--\n-- 'true': Elastic Transcoder uses the value of 'KeyframesMaxDist' for the\n-- distance between key frames (the number of frames in a group of pictures, or\n-- GOP).  'false': The distance between key frames can vary.  'FixedGOP' must be set\n-- to 'true' for 'fmp4' containers.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -7649,7 +7824,7 @@
                         "name": "_vpCodec",
                         "shape": "VideoCodec",
                         "locationName": "Codec",
-                        "documentation": "-- | The video codec for the output file. Valid values include 'H.264' and 'vp8'. You\n-- can only specify 'vp8' when the container type is 'webm'.",
+                        "documentation": "-- | The video codec for the output file. Valid values include 'gif', 'H.264', 'mpeg2',\n-- and 'vp8'. You can only specify 'vp8' when the container type is 'webm', 'gif' when\n-- the container type is 'gif', and 'mpeg2' when the container type is 'mpg'.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -7666,7 +7841,7 @@
                         "name": "_vpCodecOptions",
                         "shape": "CodecOptions",
                         "locationName": "CodecOptions",
-                        "documentation": "-- | Profile\n--\n-- The H.264 profile that you want to use for the output file. Elastic\n-- Transcoder supports the following profiles:\n--\n-- 'baseline': The profile most commonly used for videoconferencing and for\n-- mobile applications.  'main': The profile used for standard-definition digital\n-- TV broadcasts.  'high': The profile used for high-definition digital TV\n-- broadcasts and for Blu-ray discs.   Level (H.264 Only)\n--\n-- The H.264 level that you want to use for the output file. Elastic Transcoder\n-- supports the following levels:\n--\n-- '1', '1b', '1.1', '1.2', '1.3', '2', '2.1', '2.2', '3', '3.1', '3.2', '4', '4.1'\n--\n-- MaxReferenceFrames (H.264 Only)\n--\n-- Applicable only when the value of Video:Codec is H.264. The maximum number\n-- of previously decoded frames to use as a reference for decoding future\n-- frames. Valid values are integers 0 through 16, but we recommend that you not\n-- use a value greater than the following:\n--\n-- 'Min(Floor(Maximum decoded picture buffer in macroblocks * 256 / (Width inpixels * Height in pixels)), 16)'\n--\n-- where /Width in pixels/ and /Height in pixels/ represent either MaxWidth and\n-- MaxHeight, or Resolution. /Maximum decoded picture buffer in macroblocks/\n-- depends on the value of the 'Level' object. See the list below. (A macroblock\n-- is a block of pixels measuring 16x16.)\n--\n-- 1 - 396 1b - 396 1.1 - 900 1.2 - 2376 1.3 - 2376 2 - 2376 2.1 - 4752 2.2 -\n-- 8100 3 - 8100 3.1 - 18000 3.2 - 20480 4 - 32768 4.1 - 32768   MaxBitRate\n--\n-- The maximum number of bits per second in a video buffer; the size of the\n-- buffer is specified by 'BufferSize'. Specify a value between 16 and 62,500. You\n-- can reduce the bandwidth required to stream a video by reducing the maximum\n-- bit rate, but this also reduces the quality of the video.\n--\n-- BufferSize\n--\n-- The maximum number of bits in any x seconds of the output video. This window\n-- is commonly 10 seconds, the standard segment duration when you're using FMP4\n-- or MPEG-TS for the container type of the output video. Specify an integer\n-- greater than 0. If you specify 'MaxBitRate' and omit 'BufferSize', Elastic\n-- Transcoder sets 'BufferSize' to 10 times the value of 'MaxBitRate'.",
+                        "documentation": "-- | Profile (H.264/VP8 Only)\n--\n-- The H.264 profile that you want to use for the output file. Elastic\n-- Transcoder supports the following profiles:\n--\n-- 'baseline': The profile most commonly used for videoconferencing and for\n-- mobile applications.  'main': The profile used for standard-definition digital\n-- TV broadcasts.  'high': The profile used for high-definition digital TV\n-- broadcasts and for Blu-ray discs.   Level (H.264 Only)\n--\n-- The H.264 level that you want to use for the output file. Elastic Transcoder\n-- supports the following levels:\n--\n-- '1', '1b', '1.1', '1.2', '1.3', '2', '2.1', '2.2', '3', '3.1', '3.2', '4', '4.1'\n--\n-- MaxReferenceFrames (H.264 Only)\n--\n-- Applicable only when the value of Video:Codec is H.264. The maximum number\n-- of previously decoded frames to use as a reference for decoding future\n-- frames. Valid values are integers 0 through 16, but we recommend that you not\n-- use a value greater than the following:\n--\n-- 'Min(Floor(Maximum decoded picture buffer in macroblocks * 256 / (Width inpixels * Height in pixels)), 16)'\n--\n-- where /Width in pixels/ and /Height in pixels/ represent either MaxWidth and\n-- MaxHeight, or Resolution. /Maximum decoded picture buffer in macroblocks/\n-- depends on the value of the 'Level' object. See the list below. (A macroblock\n-- is a block of pixels measuring 16x16.)\n--\n-- 1 - 396 1b - 396 1.1 - 900 1.2 - 2376 1.3 - 2376 2 - 2376 2.1 - 4752 2.2 -\n-- 8100 3 - 8100 3.1 - 18000 3.2 - 20480 4 - 32768 4.1 - 32768   MaxBitRate\n-- (Optional, H.264/MPEG2/VP8 only)\n--\n-- The maximum number of bits per second in a video buffer; the size of the\n-- buffer is specified by 'BufferSize'. Specify a value between 16 and 62,500. You\n-- can reduce the bandwidth required to stream a video by reducing the maximum\n-- bit rate, but this also reduces the quality of the video.\n--\n-- BufferSize (Optional, H.264/MPEG2/VP8 only)\n--\n-- The maximum number of bits in any x seconds of the output video. This window\n-- is commonly 10 seconds, the standard segment duration when you're using FMP4\n-- or MPEG-TS for the container type of the output video. Specify an integer\n-- greater than 0. If you specify 'MaxBitRate' and omit 'BufferSize', Elastic\n-- Transcoder sets 'BufferSize' to 10 times the value of 'MaxBitRate'.\n--\n-- InterlacedMode (Optional, H.264/MPEG2 Only)\n--\n-- The interlace mode for the output video.\n--\n-- Interlaced video is used to double the perceived frame rate for a video by\n-- interlacing two fields (one field on every other line, the other field on the\n-- other lines) so that the human eye registers multiple pictures per frame.\n-- Interlacing reduces the bandwidth required for transmitting a video, but can\n-- result in blurred images and flickering.\n--\n-- Valid values include 'Progressive' (no interlacing, top to bottom), 'TopFirst'\n-- (top field first), 'BottomFirst' (bottom field first), and 'Auto'.\n--\n-- If 'InterlaceMode' is not specified, Elastic Transcoder uses 'Progressive' for\n-- the output. If 'Auto' is specified, Elastic Transcoder interlaces the output.\n--\n-- ColorSpaceConversionMode (Optional, H.264/MPEG2 Only)\n--\n-- The color space conversion Elastic Transcoder applies to the output video.\n-- Color spaces are the algorithms used by the computer to store information\n-- about how to render color. 'Bt.601' is the standard for standard definition\n-- video, while 'Bt.709' is the standard for high definition video.\n--\n-- Valid values include 'None', 'Bt709toBt601', 'Bt601toBt709', and 'Auto'.\n--\n-- If you chose 'Auto' for 'ColorSpaceConversionMode' and your output is\n-- interlaced, your frame rate is one of '23.97', '24', '25', '29.97', '50', or '60', your 'SegmentDuration' is null, and you are using one of the resolution changes from the list\n-- below, Elastic Transcoder applies the following color space conversions:\n--\n-- /Standard to HD, 720x480 to 1920x1080/ - Elastic Transcoder applies 'Bt601ToBt709'   /Standard to HD, 720x576 to 1920x1080/ - Elastic Transcoder applies 'Bt601ToBt709'   /HD to Standard, 1920x1080 to 720x480/ - Elastic Transcoder applies 'Bt709ToBt601'   /HD to Standard, 1920x1080 to 720x576/ - Elastic Transcoder applies 'Bt709ToBt601'   Elastic Transcoder may change the behavior of the 'ColorspaceConversionMode' 'Auto' mode in the future. All outputs in a playlist must use the same 'ColorSpaceConversionMode'. If you do not specify a 'ColorSpaceConversionMode', Elastic Transcoder does\n-- not change the color space of a file. If you are unsure what 'ColorSpaceConversionMode' was applied to your output file, you can check the 'AppliedColorSpaceConversion' parameter included in your job response. If your job does not have an 'AppliedColorSpaceConversion' in its response, no 'ColorSpaceConversionMode' was applied.\n--\n-- ChromaSubsampling\n--\n-- The sampling pattern for the chroma (color) channels of the output video.\n-- Valid values include 'yuv420p' and 'yuv422p'.\n--\n-- 'yuv420p' samples the chroma information of every other horizontal and every\n-- other vertical line, 'yuv422p' samples the color information of every\n-- horizontal line and every other vertical line.\n--\n-- LoopCount (Gif Only)\n--\n-- The number of times you want the output gif to loop. Valid values include 'Infinite' and integers between '0' and '100', inclusive.",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     },
@@ -7700,7 +7875,7 @@
                         "name": "_vpFixedGOP",
                         "shape": "FixedGOP",
                         "locationName": "FixedGOP",
-                        "documentation": "-- | Whether to use a fixed value for 'FixedGOP'. Valid values are 'true' and 'false':\n--\n-- 'true': Elastic Transcoder uses the value of 'KeyframesMaxDist' for the\n-- distance between key frames (the number of frames in a group of pictures, or\n-- GOP).  'false': The distance between key frames can vary.  'FixedGOP' must be set\n-- to 'true' for 'fmp4' containers.\n--",
+                        "documentation": "-- | Applicable only when the value of Video:Codec is one of 'H.264', 'MPEG2', or 'VP8'.\n--\n-- Whether to use a fixed value for 'FixedGOP'. Valid values are 'true' and 'false':\n--\n-- 'true': Elastic Transcoder uses the value of 'KeyframesMaxDist' for the\n-- distance between key frames (the number of frames in a group of pictures, or\n-- GOP).  'false': The distance between key frames can vary.  'FixedGOP' must be set\n-- to 'true' for 'fmp4' containers.\n--",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -7734,7 +7909,7 @@
                         "name": "_vpKeyframesMaxDist",
                         "shape": "KeyframesMaxDist",
                         "locationName": "KeyframesMaxDist",
-                        "documentation": "-- | The maximum number of frames between key frames. Key frames are fully encoded\n-- frames; the frames between key frames are encoded based, in part, on the\n-- content of the key frames. The value is an integer formatted as a string;\n-- valid values are between 1 (every frame is a key frame) and 100000,\n-- inclusive. A higher value results in higher compression but may also\n-- discernibly decrease video quality.\n--\n-- For 'Smooth' outputs, the 'FrameRate' must have a constant ratio to the 'KeyframesMaxDist'. This allows 'Smooth' playlists to switch between different quality levels\n-- while the file is being played.\n--\n-- For example, an input file can have a 'FrameRate' of 30 with a 'KeyframesMaxDist'\n-- of 90. The output file then needs to have a ratio of 1:3. Valid outputs\n-- would have 'FrameRate' of 30, 25, and 10, and 'KeyframesMaxDist' of 90, 75, and\n-- 30, respectively.\n--\n-- Alternately, this can be achieved by setting 'FrameRate' to auto and having\n-- the same values for 'MaxFrameRate' and 'KeyframesMaxDist'.",
+                        "documentation": "-- | Applicable only when the value of Video:Codec is one of 'H.264', 'MPEG2', or 'VP8'.\n--\n-- The maximum number of frames between key frames. Key frames are fully\n-- encoded frames; the frames between key frames are encoded based, in part, on\n-- the content of the key frames. The value is an integer formatted as a string;\n-- valid values are between 1 (every frame is a key frame) and 100000,\n-- inclusive. A higher value results in higher compression but may also\n-- discernibly decrease video quality.\n--\n-- For 'Smooth' outputs, the 'FrameRate' must have a constant ratio to the 'KeyframesMaxDist'. This allows 'Smooth' playlists to switch between different quality levels\n-- while the file is being played.\n--\n-- For example, an input file can have a 'FrameRate' of 30 with a 'KeyframesMaxDist'\n-- of 90. The output file then needs to have a ratio of 1:3. Valid outputs\n-- would have 'FrameRate' of 30, 25, and 10, and 'KeyframesMaxDist' of 90, 75, and\n-- 30, respectively.\n--\n-- Alternately, this can be achieved by setting 'FrameRate' to auto and having\n-- the same values for 'MaxFrameRate' and 'KeyframesMaxDist'.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -8887,6 +9062,7 @@
             "Job'",
             "CreateJobOutput",
             "Pipeline",
+            "Warning",
             "Preset",
             "Notifications"
         ]
@@ -9545,28 +9721,10 @@
                     "Show"
                 ],
                 "streaming": false,
-                "listElement": null,
                 "style": "json",
-                "fieldPad": 0,
+                "fieldPad": 12,
                 "ctor": "createPipelineResponse",
                 "headerPad": 0,
-                "field": {
-                    "location": null,
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "monoid": false,
-                    "protocol": "rest-json",
-                    "flattened": false,
-                    "required": false,
-                    "lens": "cprPipeline",
-                    "name": "_cprPipeline",
-                    "shape": "Pipeline",
-                    "locationName": "Pipeline",
-                    "documentation": "-- | A section of the response body that provides information about the pipeline\n-- that is created.",
-                    "typeExposed": "Maybe Pipeline",
-                    "type": "Maybe Pipeline"
-                },
                 "contents": [
                     {
                         "location": null,
@@ -9584,6 +9742,23 @@
                         "documentation": "-- | A section of the response body that provides information about the pipeline\n-- that is created.",
                         "typeExposed": "Maybe Pipeline",
                         "type": "Maybe Pipeline"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "cprWarnings",
+                        "name": "_cprWarnings",
+                        "shape": "Warnings",
+                        "locationName": "Warnings",
+                        "documentation": "-- | Elastic Transcoder returns a warning if the resources used by your pipeline\n-- are not in the same region as the pipeline.\n--\n-- Using resources in the same region, such as your Amazon S3 buckets, Amazon\n-- SNS notification topics, and AWS KMS key, reduces processing time and\n-- prevents cross-regional charges.",
+                        "typeExposed": "[Warning]",
+                        "type": "List \"Warnings\" Warning"
                     }
                 ],
                 "wrapper": false,
@@ -9592,11 +9767,11 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
-                "contentPad": 0,
+                "contentPad": 9,
                 "name": "CreatePipelineResponse",
                 "resultWrapper": null,
-                "locationPad": 0,
-                "type": "newtype",
+                "locationPad": 9,
+                "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
@@ -9615,6 +9790,23 @@
                         "documentation": "-- | A section of the response body that provides information about the pipeline\n-- that is created.",
                         "typeExposed": "Maybe Pipeline",
                         "type": "Maybe Pipeline"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "cprWarnings",
+                        "name": "_cprWarnings",
+                        "shape": "Warnings",
+                        "locationName": "Warnings",
+                        "documentation": "-- | Elastic Transcoder returns a warning if the resources used by your pipeline\n-- are not in the same region as the pipeline.\n--\n-- Using resources in the same region, such as your Amazon S3 buckets, Amazon\n-- SNS notification topics, and AWS KMS key, reduces processing time and\n-- prevents cross-regional charges.",
+                        "typeExposed": "[Warning]",
+                        "type": "List \"Warnings\" Warning"
                     }
                 ],
                 "fields": [
@@ -9634,6 +9826,23 @@
                         "documentation": "-- | A section of the response body that provides information about the pipeline\n-- that is created.",
                         "typeExposed": "Maybe Pipeline",
                         "type": "Maybe Pipeline"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "cprWarnings",
+                        "name": "_cprWarnings",
+                        "shape": "Warnings",
+                        "locationName": "Warnings",
+                        "documentation": "-- | Elastic Transcoder returns a warning if the resources used by your pipeline\n-- are not in the same region as the pipeline.\n--\n-- Using resources in the same region, such as your Amazon S3 buckets, Amazon\n-- SNS notification topics, and AWS KMS key, reduces processing time and\n-- prevents cross-regional charges.",
+                        "typeExposed": "[Warning]",
+                        "type": "List \"Warnings\" Warning"
                     }
                 ]
             },
@@ -10301,7 +10510,7 @@
                         "name": "_cpContainer",
                         "shape": "PresetContainer",
                         "locationName": "Container",
-                        "documentation": "-- | The container type for the output file. Valid values include 'fmp4', 'mp3', 'mp4', 'ogg', 'ts', and 'webm'.",
+                        "documentation": "-- | The container type for the output file. Valid values include 'flv', 'fmp4', 'gif', 'mp3', 'mp4', 'mpg', 'ogg', 'ts', and 'webm'.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -10396,7 +10605,7 @@
                         "name": "_cpContainer",
                         "shape": "PresetContainer",
                         "locationName": "Container",
-                        "documentation": "-- | The container type for the output file. Valid values include 'fmp4', 'mp3', 'mp4', 'ogg', 'ts', and 'webm'.",
+                        "documentation": "-- | The container type for the output file. Valid values include 'flv', 'fmp4', 'gif', 'mp3', 'mp4', 'mpg', 'ogg', 'ts', and 'webm'.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -10512,7 +10721,7 @@
                         "name": "_cpContainer",
                         "shape": "PresetContainer",
                         "locationName": "Container",
-                        "documentation": "-- | The container type for the output file. Valid values include 'fmp4', 'mp3', 'mp4', 'ogg', 'ts', and 'webm'.",
+                        "documentation": "-- | The container type for the output file. Valid values include 'flv', 'fmp4', 'gif', 'mp3', 'mp4', 'mpg', 'ogg', 'ts', and 'webm'.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -12241,28 +12450,10 @@
                     "Show"
                 ],
                 "streaming": false,
-                "listElement": null,
                 "style": "json",
-                "fieldPad": 0,
+                "fieldPad": 12,
                 "ctor": "readPipelineResponse",
                 "headerPad": 0,
-                "field": {
-                    "location": null,
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "monoid": false,
-                    "protocol": "rest-json",
-                    "flattened": false,
-                    "required": false,
-                    "lens": "rprPipeline",
-                    "name": "_rprPipeline",
-                    "shape": "Pipeline",
-                    "locationName": "Pipeline",
-                    "documentation": "-- | A section of the response body that provides information about the pipeline.",
-                    "typeExposed": "Maybe Pipeline",
-                    "type": "Maybe Pipeline"
-                },
                 "contents": [
                     {
                         "location": null,
@@ -12280,6 +12471,23 @@
                         "documentation": "-- | A section of the response body that provides information about the pipeline.",
                         "typeExposed": "Maybe Pipeline",
                         "type": "Maybe Pipeline"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "rprWarnings",
+                        "name": "_rprWarnings",
+                        "shape": "Warnings",
+                        "locationName": "Warnings",
+                        "documentation": "-- | Elastic Transcoder returns a warning if the resources used by your pipeline\n-- are not in the same region as the pipeline.\n--\n-- Using resources in the same region, such as your Amazon S3 buckets, Amazon\n-- SNS notification topics, and AWS KMS key, reduces processing time and\n-- prevents cross-regional charges.",
+                        "typeExposed": "[Warning]",
+                        "type": "List \"Warnings\" Warning"
                     }
                 ],
                 "wrapper": false,
@@ -12288,11 +12496,11 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
-                "contentPad": 0,
+                "contentPad": 9,
                 "name": "ReadPipelineResponse",
                 "resultWrapper": null,
-                "locationPad": 0,
-                "type": "newtype",
+                "locationPad": 9,
+                "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
@@ -12311,6 +12519,23 @@
                         "documentation": "-- | A section of the response body that provides information about the pipeline.",
                         "typeExposed": "Maybe Pipeline",
                         "type": "Maybe Pipeline"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "rprWarnings",
+                        "name": "_rprWarnings",
+                        "shape": "Warnings",
+                        "locationName": "Warnings",
+                        "documentation": "-- | Elastic Transcoder returns a warning if the resources used by your pipeline\n-- are not in the same region as the pipeline.\n--\n-- Using resources in the same region, such as your Amazon S3 buckets, Amazon\n-- SNS notification topics, and AWS KMS key, reduces processing time and\n-- prevents cross-regional charges.",
+                        "typeExposed": "[Warning]",
+                        "type": "List \"Warnings\" Warning"
                     }
                 ],
                 "fields": [
@@ -12330,6 +12555,23 @@
                         "documentation": "-- | A section of the response body that provides information about the pipeline.",
                         "typeExposed": "Maybe Pipeline",
                         "type": "Maybe Pipeline"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "rprWarnings",
+                        "name": "_rprWarnings",
+                        "shape": "Warnings",
+                        "locationName": "Warnings",
+                        "documentation": "-- | Elastic Transcoder returns a warning if the resources used by your pipeline\n-- are not in the same region as the pipeline.\n--\n-- Using resources in the same region, such as your Amazon S3 buckets, Amazon\n-- SNS notification topics, and AWS KMS key, reduces processing time and\n-- prevents cross-regional charges.",
+                        "typeExposed": "[Warning]",
+                        "type": "List \"Warnings\" Warning"
                     }
                 ]
             },
@@ -13050,28 +13292,10 @@
                     "Show"
                 ],
                 "streaming": false,
-                "listElement": null,
                 "style": "json",
-                "fieldPad": 0,
+                "fieldPad": 12,
                 "ctor": "updatePipelineResponse",
                 "headerPad": 0,
-                "field": {
-                    "location": null,
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "monoid": false,
-                    "protocol": "rest-json",
-                    "flattened": false,
-                    "required": false,
-                    "lens": "uprPipeline",
-                    "name": "_uprPipeline",
-                    "shape": "Pipeline",
-                    "locationName": "Pipeline",
-                    "documentation": null,
-                    "typeExposed": "Maybe Pipeline",
-                    "type": "Maybe Pipeline"
-                },
                 "contents": [
                     {
                         "location": null,
@@ -13089,6 +13313,23 @@
                         "documentation": null,
                         "typeExposed": "Maybe Pipeline",
                         "type": "Maybe Pipeline"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "uprWarnings",
+                        "name": "_uprWarnings",
+                        "shape": "Warnings",
+                        "locationName": "Warnings",
+                        "documentation": "-- | Elastic Transcoder returns a warning if the resources used by your pipeline\n-- are not in the same region as the pipeline.\n--\n-- Using resources in the same region, such as your Amazon S3 buckets, Amazon\n-- SNS notification topics, and AWS KMS key, reduces processing time and\n-- prevents cross-regional charges.",
+                        "typeExposed": "[Warning]",
+                        "type": "List \"Warnings\" Warning"
                     }
                 ],
                 "wrapper": false,
@@ -13097,11 +13338,11 @@
                 "required": [],
                 "shared": false,
                 "headers": [],
-                "contentPad": 0,
+                "contentPad": 9,
                 "name": "UpdatePipelineResponse",
                 "resultWrapper": null,
-                "locationPad": 0,
-                "type": "newtype",
+                "locationPad": 9,
+                "type": "record",
                 "headerAll": false,
                 "optional": [
                     {
@@ -13120,6 +13361,23 @@
                         "documentation": null,
                         "typeExposed": "Maybe Pipeline",
                         "type": "Maybe Pipeline"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "uprWarnings",
+                        "name": "_uprWarnings",
+                        "shape": "Warnings",
+                        "locationName": "Warnings",
+                        "documentation": "-- | Elastic Transcoder returns a warning if the resources used by your pipeline\n-- are not in the same region as the pipeline.\n--\n-- Using resources in the same region, such as your Amazon S3 buckets, Amazon\n-- SNS notification topics, and AWS KMS key, reduces processing time and\n-- prevents cross-regional charges.",
+                        "typeExposed": "[Warning]",
+                        "type": "List \"Warnings\" Warning"
                     }
                 ],
                 "fields": [
@@ -13139,6 +13397,23 @@
                         "documentation": null,
                         "typeExposed": "Maybe Pipeline",
                         "type": "Maybe Pipeline"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "rest-json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "uprWarnings",
+                        "name": "_uprWarnings",
+                        "shape": "Warnings",
+                        "locationName": "Warnings",
+                        "documentation": "-- | Elastic Transcoder returns a warning if the resources used by your pipeline\n-- are not in the same region as the pipeline.\n--\n-- Using resources in the same region, such as your Amazon S3 buckets, Amazon\n-- SNS notification topics, and AWS KMS key, reduces processing time and\n-- prevents cross-regional charges.",
+                        "typeExposed": "[Warning]",
+                        "type": "List \"Warnings\" Warning"
                     }
                 ]
             },

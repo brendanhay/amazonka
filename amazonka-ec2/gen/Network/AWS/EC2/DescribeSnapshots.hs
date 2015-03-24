@@ -51,8 +51,14 @@
 -- account IDs (if you own the snapshots), 'self' for snapshots for which you own
 -- or have explicit permissions, or 'all' for public snapshots.
 --
+-- If you are describing a long list of snapshots, you can paginate the output
+-- to make the list more manageable. The 'MaxResults' parameter sets the maximum
+-- number of results returned in a single page. If the list of results exceeds
+-- your 'MaxResults' value, then that number of results is returned along with a 'NextToken' value that can be passed to a subsequent 'DescribeSnapshots' request to
+-- retrieve the remaining results.
+--
 -- For more information about Amazon EBS snapshots, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html Amazon EBS Snapshots> in
--- the /Amazon Elastic Compute Cloud User Guide for Linux/.
+-- the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html>
 module Network.AWS.EC2.DescribeSnapshots
@@ -64,6 +70,8 @@ module Network.AWS.EC2.DescribeSnapshots
     -- ** Request lenses
     , ds1DryRun
     , ds1Filters
+    , ds1MaxResults
+    , ds1NextToken
     , ds1OwnerIds
     , ds1RestorableByUserIds
     , ds1SnapshotIds
@@ -73,6 +81,7 @@ module Network.AWS.EC2.DescribeSnapshots
     -- ** Response constructor
     , describeSnapshotsResponse
     -- ** Response lenses
+    , dsrNextToken
     , dsrSnapshots
     ) where
 
@@ -84,6 +93,8 @@ import qualified GHC.Exts
 data DescribeSnapshots = DescribeSnapshots
     { _ds1DryRun              :: Maybe Bool
     , _ds1Filters             :: List "Filter" Filter
+    , _ds1MaxResults          :: Maybe Int
+    , _ds1NextToken           :: Maybe Text
     , _ds1OwnerIds            :: List "Owner" Text
     , _ds1RestorableByUserIds :: List "RestorableBy" Text
     , _ds1SnapshotIds         :: List "SnapshotId" Text
@@ -96,6 +107,10 @@ data DescribeSnapshots = DescribeSnapshots
 -- * 'ds1DryRun' @::@ 'Maybe' 'Bool'
 --
 -- * 'ds1Filters' @::@ ['Filter']
+--
+-- * 'ds1MaxResults' @::@ 'Maybe' 'Int'
+--
+-- * 'ds1NextToken' @::@ 'Maybe' 'Text'
 --
 -- * 'ds1OwnerIds' @::@ ['Text']
 --
@@ -110,6 +125,8 @@ describeSnapshots = DescribeSnapshots
     , _ds1OwnerIds            = mempty
     , _ds1RestorableByUserIds = mempty
     , _ds1Filters             = mempty
+    , _ds1NextToken           = Nothing
+    , _ds1MaxResults          = Nothing
     }
 
 ds1DryRun :: Lens' DescribeSnapshots (Maybe Bool)
@@ -154,6 +171,24 @@ ds1DryRun = lens _ds1DryRun (\s a -> s { _ds1DryRun = a })
 ds1Filters :: Lens' DescribeSnapshots [Filter]
 ds1Filters = lens _ds1Filters (\s a -> s { _ds1Filters = a }) . _List
 
+-- | The maximum number of snapshot results returned by 'DescribeSnapshots' in
+-- paginated output. When this parameter is used, 'DescribeSnapshots' only returns 'MaxResults' results in a single page along with a 'NextToken' response element.
+-- The remaining results of the initial request can be seen by sending another 'DescribeSnapshots' request with the returned 'NextToken' value. This value can be between 5 and
+-- 1000; if 'MaxResults' is given a value larger than 1000, only 1000 results are
+-- returned. If this parameter is not used, then 'DescribeSnapshots' returns all
+-- results. You cannot specify this parameter and the snapshot IDs parameter in
+-- the same request.
+ds1MaxResults :: Lens' DescribeSnapshots (Maybe Int)
+ds1MaxResults = lens _ds1MaxResults (\s a -> s { _ds1MaxResults = a })
+
+-- | The 'NextToken' value returned from a previous paginated 'DescribeSnapshots'
+-- request where 'MaxResults' was used and the results exceeded the value of that
+-- parameter. Pagination continues from the end of the previous results that
+-- returned the 'NextToken' value. This value is 'null' when there are no more
+-- results to return.
+ds1NextToken :: Lens' DescribeSnapshots (Maybe Text)
+ds1NextToken = lens _ds1NextToken (\s a -> s { _ds1NextToken = a })
+
 -- | Returns the snapshots owned by the specified owner. Multiple owners can be
 -- specified.
 ds1OwnerIds :: Lens' DescribeSnapshots [Text]
@@ -171,20 +206,31 @@ ds1RestorableByUserIds =
 ds1SnapshotIds :: Lens' DescribeSnapshots [Text]
 ds1SnapshotIds = lens _ds1SnapshotIds (\s a -> s { _ds1SnapshotIds = a }) . _List
 
-newtype DescribeSnapshotsResponse = DescribeSnapshotsResponse
-    { _dsrSnapshots :: List "item" Snapshot
-    } deriving (Eq, Read, Show, Monoid, Semigroup)
+data DescribeSnapshotsResponse = DescribeSnapshotsResponse
+    { _dsrNextToken :: Maybe Text
+    , _dsrSnapshots :: List "item" Snapshot
+    } deriving (Eq, Read, Show)
 
 -- | 'DescribeSnapshotsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
+--
+-- * 'dsrNextToken' @::@ 'Maybe' 'Text'
 --
 -- * 'dsrSnapshots' @::@ ['Snapshot']
 --
 describeSnapshotsResponse :: DescribeSnapshotsResponse
 describeSnapshotsResponse = DescribeSnapshotsResponse
     { _dsrSnapshots = mempty
+    , _dsrNextToken = Nothing
     }
+
+-- | The 'NextToken' value to include in a future 'DescribeSnapshots' request. When
+-- the results of a 'DescribeSnapshots' request exceed 'MaxResults', this value can
+-- be used to retrieve the next page of results. This value is 'null' when there
+-- are no more results to return.
+dsrNextToken :: Lens' DescribeSnapshotsResponse (Maybe Text)
+dsrNextToken = lens _dsrNextToken (\s a -> s { _dsrNextToken = a })
 
 dsrSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
 dsrSnapshots = lens _dsrSnapshots (\s a -> s { _dsrSnapshots = a }) . _List
@@ -196,6 +242,8 @@ instance ToQuery DescribeSnapshots where
     toQuery DescribeSnapshots{..} = mconcat
         [ "DryRun"       =? _ds1DryRun
         , "Filter"       `toQueryList` _ds1Filters
+        , "MaxResults"   =? _ds1MaxResults
+        , "NextToken"    =? _ds1NextToken
         , "Owner"        `toQueryList` _ds1OwnerIds
         , "RestorableBy" `toQueryList` _ds1RestorableByUserIds
         , "SnapshotId"   `toQueryList` _ds1SnapshotIds
@@ -212,4 +260,11 @@ instance AWSRequest DescribeSnapshots where
 
 instance FromXML DescribeSnapshotsResponse where
     parseXML x = DescribeSnapshotsResponse
-        <$> x .@? "snapshotSet" .!@ mempty
+        <$> x .@? "nextToken"
+        <*> x .@? "snapshotSet" .!@ mempty
+
+instance AWSPager DescribeSnapshots where
+    page rq rs
+        | stop (rs ^. dsrNextToken) = Nothing
+        | otherwise = (\x -> rq & ds1NextToken ?~ x)
+            <$> (rs ^. dsrNextToken)

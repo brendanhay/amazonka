@@ -27,7 +27,7 @@
 -- addresses. You cannot enable your VPC for ClassicLink if any of your VPC's
 -- route tables have existing routes for address ranges within the '10.0.0.0/8' IP
 -- address range, excluding local routes for VPCs in the '10.0.0.0/16' and '10.1.0.0/16' IP address ranges. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink> in the Amazon
--- Elastic Compute Cloud User Guide for Linux.
+-- Elastic Compute Cloud User Guide.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-EnableVpcClassicLink.html>
 module Network.AWS.EC2.EnableVpcClassicLink

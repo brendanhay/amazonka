@@ -22,7 +22,8 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Lists the Amazon EC2 instances for a deployment within the AWS user account.
+-- | Lists the instances for a deployment associated with the applicable IAM user
+-- or AWS account.
 --
 -- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListDeploymentInstances.html>
 module Network.AWS.CodeDeploy.ListDeploymentInstances
@@ -117,7 +118,7 @@ listDeploymentInstancesResponse = ListDeploymentInstancesResponse
     , _ldirNextToken     = Nothing
     }
 
--- | A list of instance IDs.
+-- | A list of instances IDs.
 ldirInstancesList :: Lens' ListDeploymentInstancesResponse [Text]
 ldirInstancesList =
     lens _ldirInstancesList (\s a -> s { _ldirInstancesList = a })

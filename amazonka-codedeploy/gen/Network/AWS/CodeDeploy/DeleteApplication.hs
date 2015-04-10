@@ -61,8 +61,8 @@ deleteApplication p1 = DeleteApplication
     { _daApplicationName = p1
     }
 
--- | The name of an existing AWS CodeDeploy application within the AWS user
--- account.
+-- | The name of an existing AWS CodeDeploy application associated with the
+-- applicable IAM user or AWS account.
 daApplicationName :: Lens' DeleteApplication Text
 daApplicationName =
     lens _daApplicationName (\s a -> s { _daApplicationName = a })

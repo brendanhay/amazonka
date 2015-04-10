@@ -63,8 +63,8 @@ getApplication p1 = GetApplication
     { _gaApplicationName = p1
     }
 
--- | The name of an existing AWS CodeDeploy application within the AWS user
--- account.
+-- | The name of an existing AWS CodeDeploy application associated with the
+-- applicable IAM user or AWS account.
 gaApplicationName :: Lens' GetApplication Text
 gaApplicationName =
     lens _gaApplicationName (\s a -> s { _gaApplicationName = a })

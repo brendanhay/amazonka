@@ -39,8 +39,10 @@ library
 
     exposed-modules:
           Network.AWS.CodeDeploy
+        , Network.AWS.CodeDeploy.AddTagsToOnPremisesInstances
         , Network.AWS.CodeDeploy.BatchGetApplications
         , Network.AWS.CodeDeploy.BatchGetDeployments
+        , Network.AWS.CodeDeploy.BatchGetOnPremisesInstances
         , Network.AWS.CodeDeploy.CreateApplication
         , Network.AWS.CodeDeploy.CreateDeployment
         , Network.AWS.CodeDeploy.CreateDeploymentConfig
@@ -48,19 +50,24 @@ library
         , Network.AWS.CodeDeploy.DeleteApplication
         , Network.AWS.CodeDeploy.DeleteDeploymentConfig
         , Network.AWS.CodeDeploy.DeleteDeploymentGroup
+        , Network.AWS.CodeDeploy.DeregisterOnPremisesInstance
         , Network.AWS.CodeDeploy.GetApplication
         , Network.AWS.CodeDeploy.GetApplicationRevision
         , Network.AWS.CodeDeploy.GetDeployment
         , Network.AWS.CodeDeploy.GetDeploymentConfig
         , Network.AWS.CodeDeploy.GetDeploymentGroup
         , Network.AWS.CodeDeploy.GetDeploymentInstance
+        , Network.AWS.CodeDeploy.GetOnPremisesInstance
         , Network.AWS.CodeDeploy.ListApplicationRevisions
         , Network.AWS.CodeDeploy.ListApplications
         , Network.AWS.CodeDeploy.ListDeploymentConfigs
         , Network.AWS.CodeDeploy.ListDeploymentGroups
         , Network.AWS.CodeDeploy.ListDeploymentInstances
         , Network.AWS.CodeDeploy.ListDeployments
+        , Network.AWS.CodeDeploy.ListOnPremisesInstances
         , Network.AWS.CodeDeploy.RegisterApplicationRevision
+        , Network.AWS.CodeDeploy.RegisterOnPremisesInstance
+        , Network.AWS.CodeDeploy.RemoveTagsFromOnPremisesInstances
         , Network.AWS.CodeDeploy.StopDeployment
         , Network.AWS.CodeDeploy.Types
         , Network.AWS.CodeDeploy.UpdateApplication

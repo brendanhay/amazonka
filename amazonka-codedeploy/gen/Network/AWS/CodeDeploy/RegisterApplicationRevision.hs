@@ -72,8 +72,8 @@ registerApplicationRevision p1 p2 = RegisterApplicationRevision
     , _rarDescription     = Nothing
     }
 
--- | The name of an existing AWS CodeDeploy application within the AWS user
--- account.
+-- | The name of an existing AWS CodeDeploy application associated with the
+-- applicable IAM user or AWS account.
 rarApplicationName :: Lens' RegisterApplicationRevision Text
 rarApplicationName =
     lens _rarApplicationName (\s a -> s { _rarApplicationName = a })

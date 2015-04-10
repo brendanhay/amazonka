@@ -94,8 +94,8 @@ listApplicationRevisions p1 = ListApplicationRevisions
     , _larNextToken       = Nothing
     }
 
--- | The name of an existing AWS CodeDeploy application within the AWS user
--- account.
+-- | The name of an existing AWS CodeDeploy application associated with the
+-- applicable IAM user or AWS account.
 larApplicationName :: Lens' ListApplicationRevisions Text
 larApplicationName =
     lens _larApplicationName (\s a -> s { _larApplicationName = a })
@@ -137,9 +137,9 @@ larSortBy = lens _larSortBy (\s a -> s { _larSortBy = a })
 
 -- | The order to sort the list results by:
 --
--- ascending: Sort the list results in ascending order. descending: Sort the
--- list results in descending order.  If not specified, the results will be
--- sorted in ascending order.
+-- ascending: Sort the list of results in ascending order. descending: Sort
+-- the list of results in descending order.  If not specified, the results will
+-- be sorted in ascending order.
 --
 -- If set to null, the results will be sorted in an arbitrary order.
 larSortOrder :: Lens' ListApplicationRevisions (Maybe SortOrder)

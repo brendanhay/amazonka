@@ -22,7 +22,8 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Lists the deployment configurations within the AWS user account.
+-- | Lists the deployment configurations with the applicable IAM user or AWS
+-- account.
 --
 -- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListDeploymentConfigs.html>
 module Network.AWS.CodeDeploy.ListDeploymentConfigs

@@ -185,7 +185,7 @@ passwordDataAvailable = Wait
     , _waitAttempts  = 40
     , _waitDelay     = 15
     , _waitAcceptors =
-        [ matchAll true AcceptSuccess
+        [ matchAll True AcceptSuccess
             (length gpdrPasswordData > 0)
         ]
     }

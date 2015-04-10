@@ -604,7 +604,7 @@ instance A.ToJSON Expected where
     toJSON (ExpectStatus n) = A.toJSON n
     toJSON (ExpectText   s) = A.toJSON ("\"" <> s <> "\"")
     toJSON (ExpectCtor   c) = A.toJSON c
-    toJSON (ExpectBool   b) = A.toJSON b
+    toJSON (ExpectBool   b) = A.toJSON (show b)
 
 data Notation
     = Indexed !Text !Notation

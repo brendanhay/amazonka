@@ -1,4 +1,4 @@
-name:                  amazonka-machinelearning-examples
+name:                  amazonka-ml-examples
 version:               0.3.3
 synopsis:              Amazon Machine Learning SDK Examples
 homepage:              https://github.com/brendanhay/amazonka
@@ -22,7 +22,7 @@ library
     build-depends:
         amazonka      == 0.3.3.*
       , amazonka-core == 0.3.3.*
-      , amazonka-machinelearning == 0.3.3.*
+      , amazonka-ml == 0.3.3.*
       , base          >= 4.7     && < 5
       , bytestring    >= 0.9
       , conduit       >= 1.1     && < 1.3

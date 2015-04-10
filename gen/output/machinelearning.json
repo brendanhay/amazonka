@@ -71,7 +71,7 @@
     },
     "cabal": {
         "other": [],
-        "library": "amazonka-machinelearning",
+        "library": "amazonka-ml",
         "abbrev": "MachineLearning",
         "exposed": [
             "Network.AWS.MachineLearning",

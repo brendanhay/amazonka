@@ -1,7 +1,7 @@
 {
     "url": "http://docs.aws.amazon.com/machine-learning/latest/APIReference/Welcome.html",
     "operationUrl": "http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_",
-    "library": "amazonka-machinelearning",
+    "library": "amazonka-ml",
     "documentation": "Amazon Machine Learning (Amazon ML) is a robust machine learning platform that allows software developers to build and train predictive applications and host those applications in a scalable AWS cloud solution.",
     "metadata": {
         "serviceAbbreviation": "MachineLearning"

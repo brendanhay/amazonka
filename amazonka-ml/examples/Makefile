@@ -1,4 +1,4 @@
 TOP    := ../..
-PARENT := amazonka-machinelearning
+PARENT := amazonka-ml
 
 include $(TOP)/share/examples.mk

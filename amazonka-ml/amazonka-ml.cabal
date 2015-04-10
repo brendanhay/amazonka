@@ -1,4 +1,4 @@
-name:                  amazonka-machinelearning
+name:                  amazonka-ml
 version:               0.3.3
 synopsis:              Amazon Machine Learning SDK.
 homepage:              https://github.com/brendanhay/amazonka

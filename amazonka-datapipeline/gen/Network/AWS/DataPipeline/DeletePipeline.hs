@@ -22,14 +22,13 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Permanently deletes a pipeline, its pipeline definition and its run history.
--- You cannot query or restore a deleted pipeline. AWS Data Pipeline will
--- attempt to cancel instances associated with the pipeline that are currently
--- being processed by task runners. Deleting a pipeline cannot be undone.
+-- | Deletes a pipeline, its pipeline definition, and its run history. AWS Data
+-- Pipeline attempts to cancel instances associated with the pipeline that are
+-- currently being processed by task runners.
 --
--- To temporarily pause a pipeline instead of deleting it, call 'SetStatus' with
--- the status set to Pause on individual components. Components that are paused
--- by 'SetStatus' can be resumed.
+-- Deleting a pipeline cannot be undone. You cannot query or restore a deleted
+-- pipeline. To temporarily pause a pipeline instead of deleting it, call 'SetStatus' with the status set to 'PAUSE' on individual components. Components that are
+-- paused by 'SetStatus' can be resumed.
 --
 -- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_DeletePipeline.html>
 module Network.AWS.DataPipeline.DeletePipeline
@@ -68,7 +67,7 @@ deletePipeline p1 = DeletePipeline
     { _dpPipelineId = p1
     }
 
--- | The identifier of the pipeline to be deleted.
+-- | The ID of the pipeline.
 dpPipelineId :: Lens' DeletePipeline Text
 dpPipelineId = lens _dpPipelineId (\s a -> s { _dpPipelineId = a })
 

@@ -203,7 +203,7 @@ parameterObject p1 = ParameterObject
 poAttributes :: Lens' ParameterObject [ParameterAttribute]
 poAttributes = lens _poAttributes (\s a -> s { _poAttributes = a }) . _List
 
--- | Identifier of the parameter object.
+-- | The ID of the parameter object.
 poId :: Lens' ParameterObject Text
 poId = lens _poId (\s a -> s { _poId = a })
 
@@ -247,11 +247,11 @@ pipelineObject p1 p2 = PipelineObject
 po1Fields :: Lens' PipelineObject [Field]
 po1Fields = lens _po1Fields (\s a -> s { _po1Fields = a }) . _List
 
--- | Identifier of the object.
+-- | The ID of the object.
 po1Id :: Lens' PipelineObject Text
 po1Id = lens _po1Id (\s a -> s { _po1Id = a })
 
--- | Name of the object.
+-- | The name of the object.
 po1Name :: Lens' PipelineObject Text
 po1Name = lens _po1Name (\s a -> s { _po1Name = a })
 
@@ -379,7 +379,7 @@ parameterValue p1 p2 = ParameterValue
     , _pvStringValue = p2
     }
 
--- | Identifier of the parameter value.
+-- | The ID of the parameter value.
 pvId :: Lens' ParameterValue Text
 pvId = lens _pvId (\s a -> s { _pvId = a })
 
@@ -559,8 +559,8 @@ taskObject = TaskObject
     , _toObjects    = mempty
     }
 
--- | Identifier of the pipeline task attempt object. AWS Data Pipeline uses this
--- value to track how many times a task is attempted.
+-- | The ID of the pipeline task attempt object. AWS Data Pipeline uses this value
+-- to track how many times a task is attempted.
 toAttemptId :: Lens' TaskObject (Maybe Text)
 toAttemptId = lens _toAttemptId (\s a -> s { _toAttemptId = a })
 
@@ -569,7 +569,7 @@ toAttemptId = lens _toAttemptId (\s a -> s { _toAttemptId = a })
 toObjects :: Lens' TaskObject (HashMap Text PipelineObject)
 toObjects = lens _toObjects (\s a -> s { _toObjects = a }) . _Map
 
--- | Identifier of the pipeline that provided the task.
+-- | The ID of the pipeline that provided the task.
 toPipelineId :: Lens' TaskObject (Maybe Text)
 toPipelineId = lens _toPipelineId (\s a -> s { _toPipelineId = a })
 
@@ -673,7 +673,7 @@ pdDescription = lens _pdDescription (\s a -> s { _pdDescription = a })
 pdFields :: Lens' PipelineDescription [Field]
 pdFields = lens _pdFields (\s a -> s { _pdFields = a }) . _List
 
--- | Name of the pipeline.
+-- | The name of the pipeline.
 pdName :: Lens' PipelineDescription Text
 pdName = lens _pdName (\s a -> s { _pdName = a })
 
@@ -724,9 +724,9 @@ instanceIdentity = InstanceIdentity
     , _iiSignature = Nothing
     }
 
--- | A description of an Amazon EC2 instance that is generated when the instance
--- is launched and exposed to the instance via the instance metadata service in
--- the form of a JSON representation of an object.
+-- | A description of an EC2 instance that is generated when the instance is
+-- launched and exposed to the instance via the instance metadata service in the
+-- form of a JSON representation of an object.
 iiDocument :: Lens' InstanceIdentity (Maybe Text)
 iiDocument = lens _iiDocument (\s a -> s { _iiDocument = a })
 
@@ -838,12 +838,12 @@ pipelineIdName = PipelineIdName
     , _pinName = Nothing
     }
 
--- | Identifier of the pipeline that was assigned by AWS Data Pipeline. This is a
+-- | The ID of the pipeline that was assigned by AWS Data Pipeline. This is a
 -- string of the form 'df-297EG78HU43EEXAMPLE'.
 pinId :: Lens' PipelineIdName (Maybe Text)
 pinId = lens _pinId (\s a -> s { _pinId = a })
 
--- | Name of the pipeline.
+-- | The name of the pipeline.
 pinName :: Lens' PipelineIdName (Maybe Text)
 pinName = lens _pinName (\s a -> s { _pinName = a })
 

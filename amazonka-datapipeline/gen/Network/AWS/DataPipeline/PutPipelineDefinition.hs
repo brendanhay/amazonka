@@ -22,18 +22,18 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Adds tasks, schedules, and preconditions that control the behavior of the
--- pipeline. You can use PutPipelineDefinition to populate a new pipeline.
+-- | Adds tasks, schedules, and preconditions to the specified pipeline. You can
+-- use 'PutPipelineDefinition' to populate a new pipeline.
 --
 -- 'PutPipelineDefinition' also validates the configuration as it adds it to the
 -- pipeline. Changes to the pipeline are saved unless one of the following three
--- validation errors exists in the pipeline.  An object is missing a name or
--- identifier field. A string or reference field is empty. The number of objects
--- in the pipeline exceeds the maximum allowed objects. The pipeline is in a
--- FINISHED state.
+-- validation errors exists in the pipeline.
 --
--- Pipeline object definitions are passed to the 'PutPipelineDefinition' action
--- and returned by the 'GetPipelineDefinition' action.
+-- An object is missing a name or identifier field. A string or reference
+-- field is empty. The number of objects in the pipeline exceeds the maximum
+-- allowed objects. The pipeline is in a FINISHED state.   Pipeline object
+-- definitions are passed to the 'PutPipelineDefinition' action and returned by
+-- the 'GetPipelineDefinition' action.
 --
 -- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_PutPipelineDefinition.html>
 module Network.AWS.DataPipeline.PutPipelineDefinition
@@ -91,23 +91,23 @@ putPipelineDefinition p1 = PutPipelineDefinition
     , _ppdParameterValues  = mempty
     }
 
--- | A list of parameter objects used with the pipeline.
+-- | The parameter objects used with the pipeline.
 ppdParameterObjects :: Lens' PutPipelineDefinition [ParameterObject]
 ppdParameterObjects =
     lens _ppdParameterObjects (\s a -> s { _ppdParameterObjects = a })
         . _List
 
--- | A list of parameter values used with the pipeline.
+-- | The parameter values used with the pipeline.
 ppdParameterValues :: Lens' PutPipelineDefinition [ParameterValue]
 ppdParameterValues =
     lens _ppdParameterValues (\s a -> s { _ppdParameterValues = a })
         . _List
 
--- | The identifier of the pipeline to be configured.
+-- | The ID of the pipeline.
 ppdPipelineId :: Lens' PutPipelineDefinition Text
 ppdPipelineId = lens _ppdPipelineId (\s a -> s { _ppdPipelineId = a })
 
--- | The objects that define the pipeline. These will overwrite the existing
+-- | The objects that define the pipeline. These objects overwrite the existing
 -- pipeline definition.
 ppdPipelineObjects :: Lens' PutPipelineDefinition [PipelineObject]
 ppdPipelineObjects =
@@ -138,21 +138,18 @@ putPipelineDefinitionResponse p1 = PutPipelineDefinitionResponse
     , _ppdrValidationWarnings = mempty
     }
 
--- | If 'True', there were validation errors. If errored is 'True', the pipeline
--- definition is stored but cannot be activated until you correct the pipeline
--- and call 'PutPipelineDefinition' to commit the corrected pipeline.
+-- | Indicates whether there were validation errors, and the pipeline definition
+-- is stored but cannot be activated until you correct the pipeline and call 'PutPipelineDefinition' to commit the corrected pipeline.
 ppdrErrored :: Lens' PutPipelineDefinitionResponse Bool
 ppdrErrored = lens _ppdrErrored (\s a -> s { _ppdrErrored = a })
 
--- | A list of the validation errors that are associated with the objects defined
--- in 'pipelineObjects'.
+-- | The validation errors that are associated with the objects defined in 'pipelineObjects'.
 ppdrValidationErrors :: Lens' PutPipelineDefinitionResponse [ValidationError]
 ppdrValidationErrors =
     lens _ppdrValidationErrors (\s a -> s { _ppdrValidationErrors = a })
         . _List
 
--- | A list of the validation warnings that are associated with the objects
--- defined in 'pipelineObjects'.
+-- | The validation warnings that are associated with the objects defined in 'pipelineObjects'.
 ppdrValidationWarnings :: Lens' PutPipelineDefinitionResponse [ValidationWarning]
 ppdrValidationWarnings =
     lens _ppdrValidationWarnings (\s a -> s { _ppdrValidationWarnings = a })

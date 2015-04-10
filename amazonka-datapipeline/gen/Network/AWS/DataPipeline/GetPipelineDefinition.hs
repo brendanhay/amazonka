@@ -22,7 +22,7 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Returns the definition of the specified pipeline. You can call 'GetPipelineDefinition' to retrieve the pipeline definition you provided using 'PutPipelineDefinition'.
+-- | Gets the definition of the specified pipeline. You can call 'GetPipelineDefinition' to retrieve the pipeline definition that you provided using 'PutPipelineDefinition'.
 --
 -- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_GetPipelineDefinition.html>
 module Network.AWS.DataPipeline.GetPipelineDefinition
@@ -70,14 +70,12 @@ getPipelineDefinition p1 = GetPipelineDefinition
     , _gpdVersion    = Nothing
     }
 
--- | The identifier of the pipeline.
+-- | The ID of the pipeline.
 gpdPipelineId :: Lens' GetPipelineDefinition Text
 gpdPipelineId = lens _gpdPipelineId (\s a -> s { _gpdPipelineId = a })
 
--- | The version of the pipeline definition to retrieve. This parameter accepts
--- the values 'latest' (default) and 'active'. Where 'latest' indicates the last
--- definition saved to the pipeline and 'active' indicates the last definition of
--- the pipeline that was activated.
+-- | The version of the pipeline definition to retrieve. Set this parameter to 'latest' (default) to use the last definition saved to the pipeline or 'active' to use
+-- the last definition that was activated.
 gpdVersion :: Lens' GetPipelineDefinition (Maybe Text)
 gpdVersion = lens _gpdVersion (\s a -> s { _gpdVersion = a })
 
@@ -104,19 +102,19 @@ getPipelineDefinitionResponse = GetPipelineDefinitionResponse
     , _gpdrParameterValues  = mempty
     }
 
--- | Returns a list of parameter objects used in the pipeline definition.
+-- | The parameter objects used in the pipeline definition.
 gpdrParameterObjects :: Lens' GetPipelineDefinitionResponse [ParameterObject]
 gpdrParameterObjects =
     lens _gpdrParameterObjects (\s a -> s { _gpdrParameterObjects = a })
         . _List
 
--- | Returns a list of parameter values used in the pipeline definition.
+-- | The parameter values used in the pipeline definition.
 gpdrParameterValues :: Lens' GetPipelineDefinitionResponse [ParameterValue]
 gpdrParameterValues =
     lens _gpdrParameterValues (\s a -> s { _gpdrParameterValues = a })
         . _List
 
--- | An array of objects defined in the pipeline.
+-- | The objects defined in the pipeline.
 gpdrPipelineObjects :: Lens' GetPipelineDefinitionResponse [PipelineObject]
 gpdrPipelineObjects =
     lens _gpdrPipelineObjects (\s a -> s { _gpdrPipelineObjects = a })

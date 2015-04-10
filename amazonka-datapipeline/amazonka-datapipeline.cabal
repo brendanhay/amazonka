@@ -39,6 +39,7 @@ library
         , Network.AWS.DataPipeline.ActivatePipeline
         , Network.AWS.DataPipeline.AddTags
         , Network.AWS.DataPipeline.CreatePipeline
+        , Network.AWS.DataPipeline.DeactivatePipeline
         , Network.AWS.DataPipeline.DeletePipeline
         , Network.AWS.DataPipeline.DescribeObjects
         , Network.AWS.DataPipeline.DescribePipelines

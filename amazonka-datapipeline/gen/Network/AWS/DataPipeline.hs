@@ -18,6 +18,7 @@ module Network.AWS.DataPipeline
     ( module Network.AWS.DataPipeline.ActivatePipeline
     , module Network.AWS.DataPipeline.AddTags
     , module Network.AWS.DataPipeline.CreatePipeline
+    , module Network.AWS.DataPipeline.DeactivatePipeline
     , module Network.AWS.DataPipeline.DeletePipeline
     , module Network.AWS.DataPipeline.DescribeObjects
     , module Network.AWS.DataPipeline.DescribePipelines
@@ -39,6 +40,7 @@ module Network.AWS.DataPipeline
 import Network.AWS.DataPipeline.ActivatePipeline
 import Network.AWS.DataPipeline.AddTags
 import Network.AWS.DataPipeline.CreatePipeline
+import Network.AWS.DataPipeline.DeactivatePipeline
 import Network.AWS.DataPipeline.DeletePipeline
 import Network.AWS.DataPipeline.DescribeObjects
 import Network.AWS.DataPipeline.DescribePipelines

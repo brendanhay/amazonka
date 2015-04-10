@@ -22,7 +22,7 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Remove existing tags from a pipeline.
+-- | Removes existing tags from the specified pipeline.
 --
 -- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_RemoveTags.html>
 module Network.AWS.DataPipeline.RemoveTags
@@ -66,11 +66,11 @@ removeTags p1 = RemoveTags
     , _rtTagKeys    = mempty
     }
 
--- | The pipeline from which you want to remove tags.
+-- | The ID of the pipeline.
 rtPipelineId :: Lens' RemoveTags Text
 rtPipelineId = lens _rtPipelineId (\s a -> s { _rtPipelineId = a })
 
--- | The keys of the tags you wish to remove.
+-- | The keys of the tags to remove.
 rtTagKeys :: Lens' RemoveTags [Text]
 rtTagKeys = lens _rtTagKeys (\s a -> s { _rtTagKeys = a }) . _List
 

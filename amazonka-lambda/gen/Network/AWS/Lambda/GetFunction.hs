@@ -23,7 +23,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Returns the configuration information of the Lambda function and a presigned
--- URL link to the .zip file you uploaded with 'UploadFunction' so you can
+-- URL link to the .zip file you uploaded with 'CreateFunction' so you can
 -- download the .zip file. Note that the URL is valid for up to 10 minutes. The
 -- configuration information is the same information you provided as parameters
 -- when uploading the function.
@@ -71,6 +71,14 @@ getFunction p1 = GetFunction
     }
 
 -- | The Lambda function name.
+--
+-- You can specify an unqualified function name (for example, "Thumbnail") or
+-- you can specify Amazon Resource Name (ARN) of the function (for example,
+-- "arn:aws:lambda:us-west-2:account-id:function:ThumbNail"). AWS Lambda also
+-- allows you to specify only the account ID qualifier (for example,
+-- "account-id:Thumbnail"). Note that the length constraint applies only to the
+-- ARN. If you specify only the function name, it is limited to 64 character in
+-- length.
 gfFunctionName :: Lens' GetFunction Text
 gfFunctionName = lens _gfFunctionName (\s a -> s { _gfFunctionName = a })
 
@@ -101,8 +109,9 @@ gfrConfiguration = lens _gfrConfiguration (\s a -> s { _gfrConfiguration = a })
 
 instance ToPath GetFunction where
     toPath GetFunction{..} = mconcat
-        [ "/2014-11-13/functions/"
+        [ "/2015-03-31/functions/"
         , toText _gfFunctionName
+        , "/versions/HEAD"
         ]
 
 instance ToQuery GetFunction where

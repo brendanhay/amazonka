@@ -109,7 +109,7 @@ lfrNextMarker :: Lens' ListFunctionsResponse (Maybe Text)
 lfrNextMarker = lens _lfrNextMarker (\s a -> s { _lfrNextMarker = a })
 
 instance ToPath ListFunctions where
-    toPath = const "/2014-11-13/functions/"
+    toPath = const "/2015-03-31/functions/"
 
 instance ToQuery ListFunctions where
     toQuery ListFunctions{..} = mconcat
@@ -133,3 +133,9 @@ instance FromJSON ListFunctionsResponse where
     parseJSON = withObject "ListFunctionsResponse" $ \o -> ListFunctionsResponse
         <$> o .:? "Functions" .!= mempty
         <*> o .:? "NextMarker"
+
+instance AWSPager ListFunctions where
+    page rq rs
+        | stop (rs ^. lfrNextMarker) = Nothing
+        | otherwise = (\x -> rq & lfMarker ?~ x)
+            <$> (rs ^. lfrNextMarker)

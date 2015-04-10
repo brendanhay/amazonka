@@ -22,29 +22,41 @@
 -- cost-effective and easy to scale automatically from a few requests per day to
 -- thousands per second.
 module Network.AWS.Lambda
-    ( module Network.AWS.Lambda.AddEventSource
+    ( module Network.AWS.Lambda.AddPermission
+    , module Network.AWS.Lambda.CreateEventSourceMapping
+    , module Network.AWS.Lambda.CreateFunction
+    , module Network.AWS.Lambda.DeleteEventSourceMapping
     , module Network.AWS.Lambda.DeleteFunction
-    , module Network.AWS.Lambda.GetEventSource
+    , module Network.AWS.Lambda.GetEventSourceMapping
     , module Network.AWS.Lambda.GetFunction
     , module Network.AWS.Lambda.GetFunctionConfiguration
+    , module Network.AWS.Lambda.GetPolicy
+    , module Network.AWS.Lambda.Invoke
     , module Network.AWS.Lambda.InvokeAsync
-    , module Network.AWS.Lambda.ListEventSources
+    , module Network.AWS.Lambda.ListEventSourceMappings
     , module Network.AWS.Lambda.ListFunctions
-    , module Network.AWS.Lambda.RemoveEventSource
+    , module Network.AWS.Lambda.RemovePermission
     , module Network.AWS.Lambda.Types
+    , module Network.AWS.Lambda.UpdateEventSourceMapping
+    , module Network.AWS.Lambda.UpdateFunctionCode
     , module Network.AWS.Lambda.UpdateFunctionConfiguration
-    , module Network.AWS.Lambda.UploadFunction
     ) where
 
-import Network.AWS.Lambda.AddEventSource
+import Network.AWS.Lambda.AddPermission
+import Network.AWS.Lambda.CreateEventSourceMapping
+import Network.AWS.Lambda.CreateFunction
+import Network.AWS.Lambda.DeleteEventSourceMapping
 import Network.AWS.Lambda.DeleteFunction
-import Network.AWS.Lambda.GetEventSource
+import Network.AWS.Lambda.GetEventSourceMapping
 import Network.AWS.Lambda.GetFunction
 import Network.AWS.Lambda.GetFunctionConfiguration
+import Network.AWS.Lambda.GetPolicy
+import Network.AWS.Lambda.Invoke
 import Network.AWS.Lambda.InvokeAsync
-import Network.AWS.Lambda.ListEventSources
+import Network.AWS.Lambda.ListEventSourceMappings
 import Network.AWS.Lambda.ListFunctions
-import Network.AWS.Lambda.RemoveEventSource
+import Network.AWS.Lambda.RemovePermission
 import Network.AWS.Lambda.Types
+import Network.AWS.Lambda.UpdateEventSourceMapping
+import Network.AWS.Lambda.UpdateFunctionCode
 import Network.AWS.Lambda.UpdateFunctionConfiguration
-import Network.AWS.Lambda.UploadFunction

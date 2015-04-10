@@ -23,7 +23,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Returns the configuration information of the Lambda function. This the same
--- information you provided as parameters when uploading the function by using 'UploadFunction'.
+-- information you provided as parameters when uploading the function by using 'CreateFunction'.
 --
 -- This operation requires permission for the 'lambda:GetFunctionConfiguration'
 -- operation.
@@ -44,14 +44,12 @@ module Network.AWS.Lambda.GetFunctionConfiguration
     , getFunctionConfigurationResponse
     -- ** Response lenses
     , gfcrCodeSize
-    , gfcrConfigurationId
     , gfcrDescription
-    , gfcrFunctionARN
+    , gfcrFunctionArn
     , gfcrFunctionName
     , gfcrHandler
     , gfcrLastModified
     , gfcrMemorySize
-    , gfcrMode
     , gfcrRole
     , gfcrRuntime
     , gfcrTimeout
@@ -80,22 +78,28 @@ getFunctionConfiguration p1 = GetFunctionConfiguration
 
 -- | The name of the Lambda function for which you want to retrieve the
 -- configuration information.
+--
+-- You can specify an unqualified function name (for example, "Thumbnail") or
+-- you can specify Amazon Resource Name (ARN) of the function (for example,
+-- "arn:aws:lambda:us-west-2:account-id:function:ThumbNail"). AWS Lambda also
+-- allows you to specify only the account ID qualifier (for example,
+-- "account-id:Thumbnail"). Note that the length constraint applies only to the
+-- ARN. If you specify only the function name, it is limited to 64 character in
+-- length.
 gfcFunctionName :: Lens' GetFunctionConfiguration Text
 gfcFunctionName = lens _gfcFunctionName (\s a -> s { _gfcFunctionName = a })
 
 data GetFunctionConfigurationResponse = GetFunctionConfigurationResponse
-    { _gfcrCodeSize        :: Maybe Integer
-    , _gfcrConfigurationId :: Maybe Text
-    , _gfcrDescription     :: Maybe Text
-    , _gfcrFunctionARN     :: Maybe Text
-    , _gfcrFunctionName    :: Maybe Text
-    , _gfcrHandler         :: Maybe Text
-    , _gfcrLastModified    :: Maybe Text
-    , _gfcrMemorySize      :: Maybe Nat
-    , _gfcrMode            :: Maybe Mode
-    , _gfcrRole            :: Maybe Text
-    , _gfcrRuntime         :: Maybe Runtime
-    , _gfcrTimeout         :: Maybe Nat
+    { _gfcrCodeSize     :: Maybe Integer
+    , _gfcrDescription  :: Maybe Text
+    , _gfcrFunctionArn  :: Maybe Text
+    , _gfcrFunctionName :: Maybe Text
+    , _gfcrHandler      :: Maybe Text
+    , _gfcrLastModified :: Maybe Text
+    , _gfcrMemorySize   :: Maybe Nat
+    , _gfcrRole         :: Maybe Text
+    , _gfcrRuntime      :: Maybe Runtime
+    , _gfcrTimeout      :: Maybe Nat
     } deriving (Eq, Read, Show)
 
 -- | 'GetFunctionConfigurationResponse' constructor.
@@ -104,11 +108,9 @@ data GetFunctionConfigurationResponse = GetFunctionConfigurationResponse
 --
 -- * 'gfcrCodeSize' @::@ 'Maybe' 'Integer'
 --
--- * 'gfcrConfigurationId' @::@ 'Maybe' 'Text'
---
 -- * 'gfcrDescription' @::@ 'Maybe' 'Text'
 --
--- * 'gfcrFunctionARN' @::@ 'Maybe' 'Text'
+-- * 'gfcrFunctionArn' @::@ 'Maybe' 'Text'
 --
 -- * 'gfcrFunctionName' @::@ 'Maybe' 'Text'
 --
@@ -118,8 +120,6 @@ data GetFunctionConfigurationResponse = GetFunctionConfigurationResponse
 --
 -- * 'gfcrMemorySize' @::@ 'Maybe' 'Natural'
 --
--- * 'gfcrMode' @::@ 'Maybe' 'Mode'
---
 -- * 'gfcrRole' @::@ 'Maybe' 'Text'
 --
 -- * 'gfcrRuntime' @::@ 'Maybe' 'Runtime'
@@ -128,37 +128,29 @@ data GetFunctionConfigurationResponse = GetFunctionConfigurationResponse
 --
 getFunctionConfigurationResponse :: GetFunctionConfigurationResponse
 getFunctionConfigurationResponse = GetFunctionConfigurationResponse
-    { _gfcrFunctionName    = Nothing
-    , _gfcrFunctionARN     = Nothing
-    , _gfcrConfigurationId = Nothing
-    , _gfcrRuntime         = Nothing
-    , _gfcrRole            = Nothing
-    , _gfcrHandler         = Nothing
-    , _gfcrMode            = Nothing
-    , _gfcrCodeSize        = Nothing
-    , _gfcrDescription     = Nothing
-    , _gfcrTimeout         = Nothing
-    , _gfcrMemorySize      = Nothing
-    , _gfcrLastModified    = Nothing
+    { _gfcrFunctionName = Nothing
+    , _gfcrFunctionArn  = Nothing
+    , _gfcrRuntime      = Nothing
+    , _gfcrRole         = Nothing
+    , _gfcrHandler      = Nothing
+    , _gfcrCodeSize     = Nothing
+    , _gfcrDescription  = Nothing
+    , _gfcrTimeout      = Nothing
+    , _gfcrMemorySize   = Nothing
+    , _gfcrLastModified = Nothing
     }
 
 -- | The size, in bytes, of the function .zip file you uploaded.
 gfcrCodeSize :: Lens' GetFunctionConfigurationResponse (Maybe Integer)
 gfcrCodeSize = lens _gfcrCodeSize (\s a -> s { _gfcrCodeSize = a })
 
--- | A Lambda-assigned unique identifier for the current function code and related
--- configuration.
-gfcrConfigurationId :: Lens' GetFunctionConfigurationResponse (Maybe Text)
-gfcrConfigurationId =
-    lens _gfcrConfigurationId (\s a -> s { _gfcrConfigurationId = a })
-
 -- | The user-provided description.
 gfcrDescription :: Lens' GetFunctionConfigurationResponse (Maybe Text)
 gfcrDescription = lens _gfcrDescription (\s a -> s { _gfcrDescription = a })
 
 -- | The Amazon Resource Name (ARN) assigned to the function.
-gfcrFunctionARN :: Lens' GetFunctionConfigurationResponse (Maybe Text)
-gfcrFunctionARN = lens _gfcrFunctionARN (\s a -> s { _gfcrFunctionARN = a })
+gfcrFunctionArn :: Lens' GetFunctionConfigurationResponse (Maybe Text)
+gfcrFunctionArn = lens _gfcrFunctionArn (\s a -> s { _gfcrFunctionArn = a })
 
 -- | The name of the function.
 gfcrFunctionName :: Lens' GetFunctionConfigurationResponse (Maybe Text)
@@ -176,10 +168,6 @@ gfcrLastModified = lens _gfcrLastModified (\s a -> s { _gfcrLastModified = a })
 -- of 64 MB.
 gfcrMemorySize :: Lens' GetFunctionConfigurationResponse (Maybe Natural)
 gfcrMemorySize = lens _gfcrMemorySize (\s a -> s { _gfcrMemorySize = a }) . mapping _Nat
-
--- | The type of the Lambda function you uploaded.
-gfcrMode :: Lens' GetFunctionConfigurationResponse (Maybe Mode)
-gfcrMode = lens _gfcrMode (\s a -> s { _gfcrMode = a })
 
 -- | The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it
 -- executes your function to access any other Amazon Web Services (AWS)
@@ -199,9 +187,9 @@ gfcrTimeout = lens _gfcrTimeout (\s a -> s { _gfcrTimeout = a }) . mapping _Nat
 
 instance ToPath GetFunctionConfiguration where
     toPath GetFunctionConfiguration{..} = mconcat
-        [ "/2014-11-13/functions/"
+        [ "/2015-03-31/functions/"
         , toText _gfcFunctionName
-        , "/configuration"
+        , "/versions/HEAD/configuration"
         ]
 
 instance ToQuery GetFunctionConfiguration where
@@ -222,14 +210,12 @@ instance AWSRequest GetFunctionConfiguration where
 instance FromJSON GetFunctionConfigurationResponse where
     parseJSON = withObject "GetFunctionConfigurationResponse" $ \o -> GetFunctionConfigurationResponse
         <$> o .:? "CodeSize"
-        <*> o .:? "ConfigurationId"
         <*> o .:? "Description"
-        <*> o .:? "FunctionARN"
+        <*> o .:? "FunctionArn"
         <*> o .:? "FunctionName"
         <*> o .:? "Handler"
         <*> o .:? "LastModified"
         <*> o .:? "MemorySize"
-        <*> o .:? "Mode"
         <*> o .:? "Role"
         <*> o .:? "Runtime"
         <*> o .:? "Timeout"

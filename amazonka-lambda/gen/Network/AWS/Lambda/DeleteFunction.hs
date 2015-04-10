@@ -24,6 +24,9 @@
 
 -- | Deletes the specified Lambda function code and configuration.
 --
+-- When you delete a function the associated access policy is also deleted. You
+-- will need to delete the event source mappings explicitly.
+--
 -- This operation requires permission for the 'lambda:DeleteFunction' action.
 --
 -- <http://docs.aws.amazon.com/lambda/latest/dg/API_DeleteFunction.html>
@@ -64,6 +67,14 @@ deleteFunction p1 = DeleteFunction
     }
 
 -- | The Lambda function to delete.
+--
+-- You can specify an unqualified function name (for example, "Thumbnail") or
+-- you can specify Amazon Resource Name (ARN) of the function (for example,
+-- "arn:aws:lambda:us-west-2:account-id:function:ThumbNail"). AWS Lambda also
+-- allows you to specify only the account ID qualifier (for example,
+-- "account-id:Thumbnail"). Note that the length constraint applies only to the
+-- ARN. If you specify only the function name, it is limited to 64 character in
+-- length.
 dfFunctionName :: Lens' DeleteFunction Text
 dfFunctionName = lens _dfFunctionName (\s a -> s { _dfFunctionName = a })
 
@@ -76,7 +87,7 @@ deleteFunctionResponse = DeleteFunctionResponse
 
 instance ToPath DeleteFunction where
     toPath DeleteFunction{..} = mconcat
-        [ "/2014-11-13/functions/"
+        [ "/2015-03-31/functions/"
         , toText _dfFunctionName
         ]
 

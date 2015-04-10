@@ -43,18 +43,24 @@ library
 
     exposed-modules:
           Network.AWS.Lambda
-        , Network.AWS.Lambda.AddEventSource
+        , Network.AWS.Lambda.AddPermission
+        , Network.AWS.Lambda.CreateEventSourceMapping
+        , Network.AWS.Lambda.CreateFunction
+        , Network.AWS.Lambda.DeleteEventSourceMapping
         , Network.AWS.Lambda.DeleteFunction
-        , Network.AWS.Lambda.GetEventSource
+        , Network.AWS.Lambda.GetEventSourceMapping
         , Network.AWS.Lambda.GetFunction
         , Network.AWS.Lambda.GetFunctionConfiguration
+        , Network.AWS.Lambda.GetPolicy
+        , Network.AWS.Lambda.Invoke
         , Network.AWS.Lambda.InvokeAsync
-        , Network.AWS.Lambda.ListEventSources
+        , Network.AWS.Lambda.ListEventSourceMappings
         , Network.AWS.Lambda.ListFunctions
-        , Network.AWS.Lambda.RemoveEventSource
+        , Network.AWS.Lambda.RemovePermission
         , Network.AWS.Lambda.Types
+        , Network.AWS.Lambda.UpdateEventSourceMapping
+        , Network.AWS.Lambda.UpdateFunctionCode
         , Network.AWS.Lambda.UpdateFunctionConfiguration
-        , Network.AWS.Lambda.UploadFunction
 
     other-modules:
 

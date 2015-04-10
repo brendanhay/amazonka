@@ -41,6 +41,7 @@ module Network.AWS.ElasticBeanstalk.TerminateEnvironment
     -- ** Response constructor
     , terminateEnvironmentResponse
     -- ** Response lenses
+    , terAbortableOperationInProgress
     , terApplicationName
     , terCNAME
     , terDateCreated
@@ -123,26 +124,29 @@ teTerminateResources =
     lens _teTerminateResources (\s a -> s { _teTerminateResources = a })
 
 data TerminateEnvironmentResponse = TerminateEnvironmentResponse
-    { _terApplicationName   :: Maybe Text
-    , _terCNAME             :: Maybe Text
-    , _terDateCreated       :: Maybe ISO8601
-    , _terDateUpdated       :: Maybe ISO8601
-    , _terDescription       :: Maybe Text
-    , _terEndpointURL       :: Maybe Text
-    , _terEnvironmentId     :: Maybe Text
-    , _terEnvironmentName   :: Maybe Text
-    , _terHealth            :: Maybe EnvironmentHealth
-    , _terResources         :: Maybe EnvironmentResourcesDescription
-    , _terSolutionStackName :: Maybe Text
-    , _terStatus            :: Maybe EnvironmentStatus
-    , _terTemplateName      :: Maybe Text
-    , _terTier              :: Maybe EnvironmentTier
-    , _terVersionLabel      :: Maybe Text
+    { _terAbortableOperationInProgress :: Maybe Bool
+    , _terApplicationName              :: Maybe Text
+    , _terCNAME                        :: Maybe Text
+    , _terDateCreated                  :: Maybe ISO8601
+    , _terDateUpdated                  :: Maybe ISO8601
+    , _terDescription                  :: Maybe Text
+    , _terEndpointURL                  :: Maybe Text
+    , _terEnvironmentId                :: Maybe Text
+    , _terEnvironmentName              :: Maybe Text
+    , _terHealth                       :: Maybe EnvironmentHealth
+    , _terResources                    :: Maybe EnvironmentResourcesDescription
+    , _terSolutionStackName            :: Maybe Text
+    , _terStatus                       :: Maybe EnvironmentStatus
+    , _terTemplateName                 :: Maybe Text
+    , _terTier                         :: Maybe EnvironmentTier
+    , _terVersionLabel                 :: Maybe Text
     } deriving (Eq, Read, Show)
 
 -- | 'TerminateEnvironmentResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
+--
+-- * 'terAbortableOperationInProgress' @::@ 'Maybe' 'Bool'
 --
 -- * 'terApplicationName' @::@ 'Maybe' 'Text'
 --
@@ -176,22 +180,30 @@ data TerminateEnvironmentResponse = TerminateEnvironmentResponse
 --
 terminateEnvironmentResponse :: TerminateEnvironmentResponse
 terminateEnvironmentResponse = TerminateEnvironmentResponse
-    { _terEnvironmentName   = Nothing
-    , _terEnvironmentId     = Nothing
-    , _terApplicationName   = Nothing
-    , _terVersionLabel      = Nothing
-    , _terSolutionStackName = Nothing
-    , _terTemplateName      = Nothing
-    , _terDescription       = Nothing
-    , _terEndpointURL       = Nothing
-    , _terCNAME             = Nothing
-    , _terDateCreated       = Nothing
-    , _terDateUpdated       = Nothing
-    , _terStatus            = Nothing
-    , _terHealth            = Nothing
-    , _terResources         = Nothing
-    , _terTier              = Nothing
+    { _terEnvironmentName              = Nothing
+    , _terEnvironmentId                = Nothing
+    , _terApplicationName              = Nothing
+    , _terVersionLabel                 = Nothing
+    , _terSolutionStackName            = Nothing
+    , _terTemplateName                 = Nothing
+    , _terDescription                  = Nothing
+    , _terEndpointURL                  = Nothing
+    , _terCNAME                        = Nothing
+    , _terDateCreated                  = Nothing
+    , _terDateUpdated                  = Nothing
+    , _terStatus                       = Nothing
+    , _terAbortableOperationInProgress = Nothing
+    , _terHealth                       = Nothing
+    , _terResources                    = Nothing
+    , _terTier                         = Nothing
     }
+
+-- | Lists in-progress environment updates and application version deployments
+-- that you can cancel.
+terAbortableOperationInProgress :: Lens' TerminateEnvironmentResponse (Maybe Bool)
+terAbortableOperationInProgress =
+    lens _terAbortableOperationInProgress
+        (\s a -> s { _terAbortableOperationInProgress = a })
 
 -- | The name of the application associated with this environment.
 terApplicationName :: Lens' TerminateEnvironmentResponse (Maybe Text)
@@ -301,7 +313,8 @@ instance AWSRequest TerminateEnvironment where
 
 instance FromXML TerminateEnvironmentResponse where
     parseXML = withElement "TerminateEnvironmentResult" $ \x -> TerminateEnvironmentResponse
-        <$> x .@? "ApplicationName"
+        <$> x .@? "AbortableOperationInProgress"
+        <*> x .@? "ApplicationName"
         <*> x .@? "CNAME"
         <*> x .@? "DateCreated"
         <*> x .@? "DateUpdated"

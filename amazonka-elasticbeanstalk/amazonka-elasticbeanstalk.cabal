@@ -42,6 +42,7 @@ library
 
     exposed-modules:
           Network.AWS.ElasticBeanstalk
+        , Network.AWS.ElasticBeanstalk.AbortEnvironmentUpdate
         , Network.AWS.ElasticBeanstalk.CheckDNSAvailability
         , Network.AWS.ElasticBeanstalk.CreateApplication
         , Network.AWS.ElasticBeanstalk.CreateApplicationVersion

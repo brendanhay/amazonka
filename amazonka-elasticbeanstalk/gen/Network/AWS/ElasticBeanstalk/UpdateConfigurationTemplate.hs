@@ -25,7 +25,9 @@
 -- | Updates the specified configuration template to have the specified
 -- properties or configuration option values.
 --
--- Related Topics
+-- If a property (for example, 'ApplicationName') is not provided, its value
+-- remains unchanged. To clear such properties, specify an empty string.  Related Topics
+--
 --
 -- 'DescribeConfigurationOptions'
 --

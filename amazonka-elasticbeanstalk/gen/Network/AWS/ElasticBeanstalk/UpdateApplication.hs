@@ -24,6 +24,9 @@
 
 -- | Updates the specified application to have the specified properties.
 --
+-- If a property (for example, 'description') is not provided, the value remains
+-- unchanged. To clear these properties, specify an empty string.
+--
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_UpdateApplication.html>
 module Network.AWS.ElasticBeanstalk.UpdateApplication
     (

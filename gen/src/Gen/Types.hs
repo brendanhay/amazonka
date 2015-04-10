@@ -592,32 +592,40 @@ data Expected
     = ExpectStatus !Int
     | ExpectText   !Text
     | ExpectCtor   !Text
+    | ExpectBool   !Bool
       deriving (Eq, Show)
 
 instance FromJSON Expected where
     parseJSON (String s) = pure (ExpectText s)
+    parseJSON (Bool   b) = pure (ExpectBool b)
     parseJSON o          = ExpectStatus <$> parseJSON o
 
 instance A.ToJSON Expected where
     toJSON (ExpectStatus n) = A.toJSON n
     toJSON (ExpectText   s) = A.toJSON ("\"" <> s <> "\"")
     toJSON (ExpectCtor   c) = A.toJSON c
+    toJSON (ExpectBool   b) = A.toJSON b
 
 data Notation
     = Indexed !Text !Notation
     | Nested  !Text !Notation
     | Access  !Text
+    | Length  !Text !Int
       deriving (Eq, Show)
 
 instance FromJSON Notation where
     parseJSON = withText "notation" (either fail pure . parseOnly note)
       where
         note :: Parser Notation
-        note = (indexed <|> nested <|> access) <* AText.endOfInput
+        note = (length' <|> indexed <|> nested <|> access) <* AText.endOfInput
 
         indexed = Indexed <$> key <* AText.string "[]." <*> note
         nested  = Nested  <$> key <* AText.char '.'     <*> note
         access  = Access  <$> key
+
+        length' = Length
+            <$> (AText.string "length(" *> AText.takeWhile1 (/= ')') <* AText.char ')')
+            <*> (AText.string " > `" *> AText.decimal <* AText.char '`')
 
         key = AText.takeWhile1 (AText.notInClass "[].")
 
@@ -628,6 +636,7 @@ instance A.ToJSON Notation where
             Indexed k i -> "folding (concatOf " <> k <> ") . " <> go i
             Nested  k i -> k <> " . " <> go i
             Access  k   -> k
+            Length  k n -> "length " <> k <> " > " <> Text.pack (show n)
 
 data Acceptor = Acceptor
     { _aExpected :: !Expected

@@ -22,7 +22,7 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Enables notifications of specified events for a bucket.
+-- | Deprecated, see the PutBucketNotificationConfiguraiton operation.
 --
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketNotification.html>
 module Network.AWS.S3.PutBucketNotification
@@ -50,7 +50,7 @@ import qualified GHC.Exts
 data PutBucketNotification = PutBucketNotification
     { _pbnBucket                    :: Text
     , _pbnContentMD5                :: Maybe Text
-    , _pbnNotificationConfiguration :: NotificationConfiguration
+    , _pbnNotificationConfiguration :: NotificationConfigurationDeprecated
     } deriving (Eq, Read, Show)
 
 -- | 'PutBucketNotification' constructor.
@@ -61,10 +61,10 @@ data PutBucketNotification = PutBucketNotification
 --
 -- * 'pbnContentMD5' @::@ 'Maybe' 'Text'
 --
--- * 'pbnNotificationConfiguration' @::@ 'NotificationConfiguration'
+-- * 'pbnNotificationConfiguration' @::@ 'NotificationConfigurationDeprecated'
 --
 putBucketNotification :: Text -- ^ 'pbnBucket'
-                      -> NotificationConfiguration -- ^ 'pbnNotificationConfiguration'
+                      -> NotificationConfigurationDeprecated -- ^ 'pbnNotificationConfiguration'
                       -> PutBucketNotification
 putBucketNotification p1 p2 = PutBucketNotification
     { _pbnBucket                    = p1
@@ -78,7 +78,7 @@ pbnBucket = lens _pbnBucket (\s a -> s { _pbnBucket = a })
 pbnContentMD5 :: Lens' PutBucketNotification (Maybe Text)
 pbnContentMD5 = lens _pbnContentMD5 (\s a -> s { _pbnContentMD5 = a })
 
-pbnNotificationConfiguration :: Lens' PutBucketNotification NotificationConfiguration
+pbnNotificationConfiguration :: Lens' PutBucketNotification NotificationConfigurationDeprecated
 pbnNotificationConfiguration =
     lens _pbnNotificationConfiguration
         (\s a -> s { _pbnNotificationConfiguration = a })

@@ -49,6 +49,7 @@ module Network.AWS.S3.PutObject
     , poGrantWriteACP
     , poKey
     , poMetadata
+    , poRequestPayer
     , poSSECustomerAlgorithm
     , poSSECustomerKey
     , poSSECustomerKeyMD5
@@ -64,6 +65,7 @@ module Network.AWS.S3.PutObject
     -- ** Response lenses
     , porETag
     , porExpiration
+    , porRequestCharged
     , porSSECustomerAlgorithm
     , porSSECustomerKeyMD5
     , porSSEKMSKeyId
@@ -94,6 +96,7 @@ data PutObject = PutObject
     , _poGrantWriteACP           :: Maybe Text
     , _poKey                     :: Text
     , _poMetadata                :: Map (CI Text) Text
+    , _poRequestPayer            :: Maybe RequestPayer
     , _poSSECustomerAlgorithm    :: Maybe Text
     , _poSSECustomerKey          :: Maybe (Sensitive Text)
     , _poSSECustomerKeyMD5       :: Maybe Text
@@ -141,6 +144,8 @@ data PutObject = PutObject
 --
 -- * 'poMetadata' @::@ 'HashMap' ('CI' 'Text') 'Text'
 --
+-- * 'poRequestPayer' @::@ 'Maybe' 'RequestPayer'
+--
 -- * 'poSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
 --
 -- * 'poSSECustomerKey' @::@ 'Maybe' 'Text'
@@ -184,6 +189,7 @@ putObject p1 p2 p3 = PutObject
     , _poSSECustomerKey          = Nothing
     , _poSSECustomerKeyMD5       = Nothing
     , _poSSEKMSKeyId             = Nothing
+    , _poRequestPayer            = Nothing
     }
 
 -- | The canned ACL to apply to the object.
@@ -258,6 +264,9 @@ poKey = lens _poKey (\s a -> s { _poKey = a })
 poMetadata :: Lens' PutObject (HashMap (CI Text) Text)
 poMetadata = lens _poMetadata (\s a -> s { _poMetadata = a }) . _Map
 
+poRequestPayer :: Lens' PutObject (Maybe RequestPayer)
+poRequestPayer = lens _poRequestPayer (\s a -> s { _poRequestPayer = a })
+
 -- | Specifies the algorithm to use to when encrypting the object (e.g., AES256,
 -- aws:kms).
 poSSECustomerAlgorithm :: Lens' PutObject (Maybe Text)
@@ -308,6 +317,7 @@ poWebsiteRedirectLocation =
 data PutObjectResponse = PutObjectResponse
     { _porETag                 :: Maybe Text
     , _porExpiration           :: Maybe Text
+    , _porRequestCharged       :: Maybe RequestCharged
     , _porSSECustomerAlgorithm :: Maybe Text
     , _porSSECustomerKeyMD5    :: Maybe Text
     , _porSSEKMSKeyId          :: Maybe (Sensitive Text)
@@ -322,6 +332,8 @@ data PutObjectResponse = PutObjectResponse
 -- * 'porETag' @::@ 'Maybe' 'Text'
 --
 -- * 'porExpiration' @::@ 'Maybe' 'Text'
+--
+-- * 'porRequestCharged' @::@ 'Maybe' 'RequestCharged'
 --
 -- * 'porSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
 --
@@ -342,6 +354,7 @@ putObjectResponse = PutObjectResponse
     , _porSSECustomerAlgorithm = Nothing
     , _porSSECustomerKeyMD5    = Nothing
     , _porSSEKMSKeyId          = Nothing
+    , _porRequestCharged       = Nothing
     }
 
 -- | Entity tag for the uploaded object.
@@ -352,6 +365,10 @@ porETag = lens _porETag (\s a -> s { _porETag = a })
 -- (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.
 porExpiration :: Lens' PutObjectResponse (Maybe Text)
 porExpiration = lens _porExpiration (\s a -> s { _porExpiration = a })
+
+porRequestCharged :: Lens' PutObjectResponse (Maybe RequestCharged)
+porRequestCharged =
+    lens _porRequestCharged (\s a -> s { _porRequestCharged = a })
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header confirming the encryption
@@ -416,6 +433,7 @@ instance ToHeaders PutObject where
         , "x-amz-server-side-encryption-customer-key"       =: _poSSECustomerKey
         , "x-amz-server-side-encryption-customer-key-MD5"   =: _poSSECustomerKeyMD5
         , "x-amz-server-side-encryption-aws-kms-key-id"     =: _poSSEKMSKeyId
+        , "x-amz-request-payer"                             =: _poRequestPayer
         ]
 
 instance ToBody PutObject where
@@ -429,6 +447,7 @@ instance AWSRequest PutObject where
     response = headerResponse $ \h -> PutObjectResponse
         <$> h ~:? "ETag"
         <*> h ~:? "x-amz-expiration"
+        <*> h ~:? "x-amz-request-charged"
         <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
         <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
         <*> h ~:? "x-amz-server-side-encryption-aws-kms-key-id"

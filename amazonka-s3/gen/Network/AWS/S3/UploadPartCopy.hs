@@ -44,6 +44,7 @@ module Network.AWS.S3.UploadPartCopy
     , upcCopySourceSSECustomerKeyMD5
     , upcKey
     , upcPartNumber
+    , upcRequestPayer
     , upcSSECustomerAlgorithm
     , upcSSECustomerKey
     , upcSSECustomerKeyMD5
@@ -56,6 +57,7 @@ module Network.AWS.S3.UploadPartCopy
     -- ** Response lenses
     , upcrCopyPartResult
     , upcrCopySourceVersionId
+    , upcrRequestCharged
     , upcrSSECustomerAlgorithm
     , upcrSSECustomerKeyMD5
     , upcrSSEKMSKeyId
@@ -80,11 +82,12 @@ data UploadPartCopy = UploadPartCopy
     , _upcCopySourceSSECustomerKeyMD5    :: Maybe Text
     , _upcKey                            :: Text
     , _upcPartNumber                     :: Int
+    , _upcRequestPayer                   :: Maybe RequestPayer
     , _upcSSECustomerAlgorithm           :: Maybe Text
     , _upcSSECustomerKey                 :: Maybe (Sensitive Text)
     , _upcSSECustomerKeyMD5              :: Maybe Text
     , _upcUploadId                       :: Text
-    } deriving (Eq, Ord, Read, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'UploadPartCopy' constructor.
 --
@@ -113,6 +116,8 @@ data UploadPartCopy = UploadPartCopy
 -- * 'upcKey' @::@ 'Text'
 --
 -- * 'upcPartNumber' @::@ 'Int'
+--
+-- * 'upcRequestPayer' @::@ 'Maybe' 'RequestPayer'
 --
 -- * 'upcSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
 --
@@ -145,6 +150,7 @@ uploadPartCopy p1 p2 p3 p4 p5 = UploadPartCopy
     , _upcCopySourceSSECustomerAlgorithm = Nothing
     , _upcCopySourceSSECustomerKey       = Nothing
     , _upcCopySourceSSECustomerKeyMD5    = Nothing
+    , _upcRequestPayer                   = Nothing
     }
 
 upcBucket :: Lens' UploadPartCopy Text
@@ -221,6 +227,9 @@ upcKey = lens _upcKey (\s a -> s { _upcKey = a })
 upcPartNumber :: Lens' UploadPartCopy Int
 upcPartNumber = lens _upcPartNumber (\s a -> s { _upcPartNumber = a })
 
+upcRequestPayer :: Lens' UploadPartCopy (Maybe RequestPayer)
+upcRequestPayer = lens _upcRequestPayer (\s a -> s { _upcRequestPayer = a })
+
 -- | Specifies the algorithm to use to when encrypting the object (e.g., AES256,
 -- aws:kms).
 upcSSECustomerAlgorithm :: Lens' UploadPartCopy (Maybe Text)
@@ -252,6 +261,7 @@ upcUploadId = lens _upcUploadId (\s a -> s { _upcUploadId = a })
 data UploadPartCopyResponse = UploadPartCopyResponse
     { _upcrCopyPartResult       :: Maybe CopyPartResult
     , _upcrCopySourceVersionId  :: Maybe Text
+    , _upcrRequestCharged       :: Maybe RequestCharged
     , _upcrSSECustomerAlgorithm :: Maybe Text
     , _upcrSSECustomerKeyMD5    :: Maybe Text
     , _upcrSSEKMSKeyId          :: Maybe (Sensitive Text)
@@ -265,6 +275,8 @@ data UploadPartCopyResponse = UploadPartCopyResponse
 -- * 'upcrCopyPartResult' @::@ 'Maybe' 'CopyPartResult'
 --
 -- * 'upcrCopySourceVersionId' @::@ 'Maybe' 'Text'
+--
+-- * 'upcrRequestCharged' @::@ 'Maybe' 'RequestCharged'
 --
 -- * 'upcrSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
 --
@@ -282,6 +294,7 @@ uploadPartCopyResponse = UploadPartCopyResponse
     , _upcrSSECustomerAlgorithm = Nothing
     , _upcrSSECustomerKeyMD5    = Nothing
     , _upcrSSEKMSKeyId          = Nothing
+    , _upcrRequestCharged       = Nothing
     }
 
 upcrCopyPartResult :: Lens' UploadPartCopyResponse (Maybe CopyPartResult)
@@ -293,6 +306,10 @@ upcrCopyPartResult =
 upcrCopySourceVersionId :: Lens' UploadPartCopyResponse (Maybe Text)
 upcrCopySourceVersionId =
     lens _upcrCopySourceVersionId (\s a -> s { _upcrCopySourceVersionId = a })
+
+upcrRequestCharged :: Lens' UploadPartCopyResponse (Maybe RequestCharged)
+upcrRequestCharged =
+    lens _upcrRequestCharged (\s a -> s { _upcrRequestCharged = a })
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header confirming the encryption
@@ -349,6 +366,7 @@ instance ToHeaders UploadPartCopy where
         , "x-amz-copy-source-server-side-encryption-customer-algorithm" =: _upcCopySourceSSECustomerAlgorithm
         , "x-amz-copy-source-server-side-encryption-customer-key"       =: _upcCopySourceSSECustomerKey
         , "x-amz-copy-source-server-side-encryption-customer-key-MD5"   =: _upcCopySourceSSECustomerKeyMD5
+        , "x-amz-request-payer"                                         =: _upcRequestPayer
         ]
 
 instance ToXMLRoot UploadPartCopy where
@@ -364,6 +382,7 @@ instance AWSRequest UploadPartCopy where
     response = xmlHeaderResponse $ \h x -> UploadPartCopyResponse
         <$> x .@? "CopyPartResult"
         <*> h ~:? "x-amz-copy-source-version-id"
+        <*> h ~:? "x-amz-request-charged"
         <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
         <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
         <*> h ~:? "x-amz-server-side-encryption-aws-kms-key-id"

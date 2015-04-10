@@ -22,7 +22,7 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Return the notification configuration of a bucket.
+-- | Deprecated, see the GetBucketNotificationConfiguration operation.
 --
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketNotification.html>
 module Network.AWS.S3.GetBucketNotification
@@ -65,13 +65,14 @@ getBucketNotification p1 = GetBucketNotification
     { _gbnBucket = p1
     }
 
+-- | Name of the buket to get the notification configuration for.
 gbnBucket :: Lens' GetBucketNotification Text
 gbnBucket = lens _gbnBucket (\s a -> s { _gbnBucket = a })
 
 data GetBucketNotificationResponse = GetBucketNotificationResponse
     { _gbnrCloudFunctionConfiguration :: Maybe CloudFunctionConfiguration
-    , _gbnrQueueConfiguration         :: Maybe QueueConfiguration
-    , _gbnrTopicConfiguration         :: Maybe TopicConfiguration
+    , _gbnrQueueConfiguration         :: Maybe QueueConfigurationDeprecated
+    , _gbnrTopicConfiguration         :: Maybe TopicConfigurationDeprecated
     } deriving (Eq, Read, Show)
 
 -- | 'GetBucketNotificationResponse' constructor.
@@ -80,9 +81,9 @@ data GetBucketNotificationResponse = GetBucketNotificationResponse
 --
 -- * 'gbnrCloudFunctionConfiguration' @::@ 'Maybe' 'CloudFunctionConfiguration'
 --
--- * 'gbnrQueueConfiguration' @::@ 'Maybe' 'QueueConfiguration'
+-- * 'gbnrQueueConfiguration' @::@ 'Maybe' 'QueueConfigurationDeprecated'
 --
--- * 'gbnrTopicConfiguration' @::@ 'Maybe' 'TopicConfiguration'
+-- * 'gbnrTopicConfiguration' @::@ 'Maybe' 'TopicConfigurationDeprecated'
 --
 getBucketNotificationResponse :: GetBucketNotificationResponse
 getBucketNotificationResponse = GetBucketNotificationResponse
@@ -96,11 +97,11 @@ gbnrCloudFunctionConfiguration =
     lens _gbnrCloudFunctionConfiguration
         (\s a -> s { _gbnrCloudFunctionConfiguration = a })
 
-gbnrQueueConfiguration :: Lens' GetBucketNotificationResponse (Maybe QueueConfiguration)
+gbnrQueueConfiguration :: Lens' GetBucketNotificationResponse (Maybe QueueConfigurationDeprecated)
 gbnrQueueConfiguration =
     lens _gbnrQueueConfiguration (\s a -> s { _gbnrQueueConfiguration = a })
 
-gbnrTopicConfiguration :: Lens' GetBucketNotificationResponse (Maybe TopicConfiguration)
+gbnrTopicConfiguration :: Lens' GetBucketNotificationResponse (Maybe TopicConfigurationDeprecated)
 gbnrTopicConfiguration =
     lens _gbnrTopicConfiguration (\s a -> s { _gbnrTopicConfiguration = a })
 

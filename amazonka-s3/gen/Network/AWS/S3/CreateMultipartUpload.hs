@@ -52,6 +52,7 @@ module Network.AWS.S3.CreateMultipartUpload
     , cmuGrantWriteACP
     , cmuKey
     , cmuMetadata
+    , cmuRequestPayer
     , cmuSSECustomerAlgorithm
     , cmuSSECustomerKey
     , cmuSSECustomerKeyMD5
@@ -67,6 +68,7 @@ module Network.AWS.S3.CreateMultipartUpload
     -- ** Response lenses
     , cmurBucket
     , cmurKey
+    , cmurRequestCharged
     , cmurSSECustomerAlgorithm
     , cmurSSECustomerKeyMD5
     , cmurSSEKMSKeyId
@@ -94,6 +96,7 @@ data CreateMultipartUpload = CreateMultipartUpload
     , _cmuGrantWriteACP           :: Maybe Text
     , _cmuKey                     :: Text
     , _cmuMetadata                :: Map (CI Text) Text
+    , _cmuRequestPayer            :: Maybe RequestPayer
     , _cmuSSECustomerAlgorithm    :: Maybe Text
     , _cmuSSECustomerKey          :: Maybe (Sensitive Text)
     , _cmuSSECustomerKeyMD5       :: Maybe Text
@@ -135,6 +138,8 @@ data CreateMultipartUpload = CreateMultipartUpload
 --
 -- * 'cmuMetadata' @::@ 'HashMap' ('CI' 'Text') 'Text'
 --
+-- * 'cmuRequestPayer' @::@ 'Maybe' 'RequestPayer'
+--
 -- * 'cmuSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
 --
 -- * 'cmuSSECustomerKey' @::@ 'Maybe' 'Text'
@@ -174,6 +179,7 @@ createMultipartUpload p1 p2 = CreateMultipartUpload
     , _cmuSSECustomerKey          = Nothing
     , _cmuSSECustomerKeyMD5       = Nothing
     , _cmuSSEKMSKeyId             = Nothing
+    , _cmuRequestPayer            = Nothing
     }
 
 -- | The canned ACL to apply to the object.
@@ -236,6 +242,9 @@ cmuKey = lens _cmuKey (\s a -> s { _cmuKey = a })
 cmuMetadata :: Lens' CreateMultipartUpload (HashMap (CI Text) Text)
 cmuMetadata = lens _cmuMetadata (\s a -> s { _cmuMetadata = a }) . _Map
 
+cmuRequestPayer :: Lens' CreateMultipartUpload (Maybe RequestPayer)
+cmuRequestPayer = lens _cmuRequestPayer (\s a -> s { _cmuRequestPayer = a })
+
 -- | Specifies the algorithm to use to when encrypting the object (e.g., AES256,
 -- aws:kms).
 cmuSSECustomerAlgorithm :: Lens' CreateMultipartUpload (Maybe Text)
@@ -288,6 +297,7 @@ cmuWebsiteRedirectLocation =
 data CreateMultipartUploadResponse = CreateMultipartUploadResponse
     { _cmurBucket               :: Maybe Text
     , _cmurKey                  :: Maybe Text
+    , _cmurRequestCharged       :: Maybe RequestCharged
     , _cmurSSECustomerAlgorithm :: Maybe Text
     , _cmurSSECustomerKeyMD5    :: Maybe Text
     , _cmurSSEKMSKeyId          :: Maybe (Sensitive Text)
@@ -302,6 +312,8 @@ data CreateMultipartUploadResponse = CreateMultipartUploadResponse
 -- * 'cmurBucket' @::@ 'Maybe' 'Text'
 --
 -- * 'cmurKey' @::@ 'Maybe' 'Text'
+--
+-- * 'cmurRequestCharged' @::@ 'Maybe' 'RequestCharged'
 --
 -- * 'cmurSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
 --
@@ -322,6 +334,7 @@ createMultipartUploadResponse = CreateMultipartUploadResponse
     , _cmurSSECustomerAlgorithm = Nothing
     , _cmurSSECustomerKeyMD5    = Nothing
     , _cmurSSEKMSKeyId          = Nothing
+    , _cmurRequestCharged       = Nothing
     }
 
 -- | Name of the bucket to which the multipart upload was initiated.
@@ -331,6 +344,10 @@ cmurBucket = lens _cmurBucket (\s a -> s { _cmurBucket = a })
 -- | Object key for which the multipart upload was initiated.
 cmurKey :: Lens' CreateMultipartUploadResponse (Maybe Text)
 cmurKey = lens _cmurKey (\s a -> s { _cmurKey = a })
+
+cmurRequestCharged :: Lens' CreateMultipartUploadResponse (Maybe RequestCharged)
+cmurRequestCharged =
+    lens _cmurRequestCharged (\s a -> s { _cmurRequestCharged = a })
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header confirming the encryption
@@ -395,6 +412,7 @@ instance ToHeaders CreateMultipartUpload where
         , "x-amz-server-side-encryption-customer-key"       =: _cmuSSECustomerKey
         , "x-amz-server-side-encryption-customer-key-MD5"   =: _cmuSSECustomerKeyMD5
         , "x-amz-server-side-encryption-aws-kms-key-id"     =: _cmuSSEKMSKeyId
+        , "x-amz-request-payer"                             =: _cmuRequestPayer
         ]
 
 instance ToXMLRoot CreateMultipartUpload where
@@ -410,6 +428,7 @@ instance AWSRequest CreateMultipartUpload where
     response = xmlHeaderResponse $ \h x -> CreateMultipartUploadResponse
         <$> x .@? "Bucket"
         <*> x .@? "Key"
+        <*> h ~:? "x-amz-request-charged"
         <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
         <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
         <*> h ~:? "x-amz-server-side-encryption-aws-kms-key-id"

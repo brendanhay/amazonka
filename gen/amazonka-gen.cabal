@@ -26,17 +26,17 @@ executable amazonka-gen
           aeson
         , aeson-pretty
         , attoparsec
-        , base                 == 4.7.*
+        , base                 >= 4.7
         , bifunctors
         , bytestring
         , case-insensitive
         , directory
-        , ede                  == 0.2.4.*
+        , ede                  >= 0.2.8.2
         , errors
         , filepath
         , hashable
         , jason
-        , lens                 == 4.5.*
+        , lens                 >= 4.5
         , mtl
         , optparse-applicative == 0.11.*
         , parsec

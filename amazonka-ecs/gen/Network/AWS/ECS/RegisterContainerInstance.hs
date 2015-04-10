@@ -40,6 +40,7 @@ module Network.AWS.ECS.RegisterContainerInstance
     , rciInstanceIdentityDocument
     , rciInstanceIdentityDocumentSignature
     , rciTotalResources
+    , rciVersionInfo
 
     -- * Response
     , RegisterContainerInstanceResponse
@@ -59,6 +60,7 @@ data RegisterContainerInstance = RegisterContainerInstance
     , _rciInstanceIdentityDocument          :: Maybe Text
     , _rciInstanceIdentityDocumentSignature :: Maybe Text
     , _rciTotalResources                    :: List "totalResources" Resource
+    , _rciVersionInfo                       :: Maybe VersionInfo
     } deriving (Eq, Read, Show)
 
 -- | 'RegisterContainerInstance' constructor.
@@ -73,12 +75,15 @@ data RegisterContainerInstance = RegisterContainerInstance
 --
 -- * 'rciTotalResources' @::@ ['Resource']
 --
+-- * 'rciVersionInfo' @::@ 'Maybe' 'VersionInfo'
+--
 registerContainerInstance :: RegisterContainerInstance
 registerContainerInstance = RegisterContainerInstance
     { _rciCluster                           = Nothing
     , _rciInstanceIdentityDocument          = Nothing
     , _rciInstanceIdentityDocumentSignature = Nothing
     , _rciTotalResources                    = mempty
+    , _rciVersionInfo                       = Nothing
     }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that you
@@ -101,6 +106,9 @@ rciTotalResources :: Lens' RegisterContainerInstance [Resource]
 rciTotalResources =
     lens _rciTotalResources (\s a -> s { _rciTotalResources = a })
         . _List
+
+rciVersionInfo :: Lens' RegisterContainerInstance (Maybe VersionInfo)
+rciVersionInfo = lens _rciVersionInfo (\s a -> s { _rciVersionInfo = a })
 
 newtype RegisterContainerInstanceResponse = RegisterContainerInstanceResponse
     { _rcirContainerInstance :: Maybe ContainerInstance
@@ -135,6 +143,7 @@ instance ToJSON RegisterContainerInstance where
         , "instanceIdentityDocument"          .= _rciInstanceIdentityDocument
         , "instanceIdentityDocumentSignature" .= _rciInstanceIdentityDocumentSignature
         , "totalResources"                    .= _rciTotalResources
+        , "versionInfo"                       .= _rciVersionInfo
         ]
 
 instance AWSRequest RegisterContainerInstance where

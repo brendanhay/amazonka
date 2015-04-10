@@ -26,6 +26,10 @@
 -- you want to use your own scheduler or place a task on a specific container
 -- instance, use 'StartTask' instead.
 --
+-- The 'count' parameter is limited to 10 tasks per call.
+--
+--
+--
 -- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html>
 module Network.AWS.ECS.RunTask
     (
@@ -37,6 +41,7 @@ module Network.AWS.ECS.RunTask
     , rtCluster
     , rtCount
     , rtOverrides
+    , rtStartedBy
     , rtTaskDefinition
 
     -- * Response
@@ -57,6 +62,7 @@ data RunTask = RunTask
     { _rtCluster        :: Maybe Text
     , _rtCount          :: Maybe Int
     , _rtOverrides      :: Maybe TaskOverride
+    , _rtStartedBy      :: Maybe Text
     , _rtTaskDefinition :: Text
     } deriving (Eq, Read, Show)
 
@@ -70,6 +76,8 @@ data RunTask = RunTask
 --
 -- * 'rtOverrides' @::@ 'Maybe' 'TaskOverride'
 --
+-- * 'rtStartedBy' @::@ 'Maybe' 'Text'
+--
 -- * 'rtTaskDefinition' @::@ 'Text'
 --
 runTask :: Text -- ^ 'rtTaskDefinition'
@@ -79,6 +87,7 @@ runTask p1 = RunTask
     , _rtCluster        = Nothing
     , _rtOverrides      = Nothing
     , _rtCount          = Nothing
+    , _rtStartedBy      = Nothing
     }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that you
@@ -87,13 +96,24 @@ runTask p1 = RunTask
 rtCluster :: Lens' RunTask (Maybe Text)
 rtCluster = lens _rtCluster (\s a -> s { _rtCluster = a })
 
--- | The number of instances of the specified task that you would like to place on
--- your cluster.
+-- | The number of instantiations of the specified task that you would like to
+-- place on your cluster.
+--
+-- The 'count' parameter is limited to 10 tasks per call.
+--
+--
 rtCount :: Lens' RunTask (Maybe Int)
 rtCount = lens _rtCount (\s a -> s { _rtCount = a })
 
+-- | A list of container overrides in JSON format that specify the name of a
+-- container in the specified task definition and the command it should run
+-- instead of its default. A total of 8192 characters are allowed for overrides.
+-- This limit includes the JSON formatting characters of the override structure.
 rtOverrides :: Lens' RunTask (Maybe TaskOverride)
 rtOverrides = lens _rtOverrides (\s a -> s { _rtOverrides = a })
+
+rtStartedBy :: Lens' RunTask (Maybe Text)
+rtStartedBy = lens _rtStartedBy (\s a -> s { _rtStartedBy = a })
 
 -- | The 'family' and 'revision' ('family:revision') or full Amazon Resource Name (ARN)
 -- of the task definition that you want to run.
@@ -142,6 +162,7 @@ instance ToJSON RunTask where
         , "taskDefinition" .= _rtTaskDefinition
         , "overrides"      .= _rtOverrides
         , "count"          .= _rtCount
+        , "startedBy"      .= _rtStartedBy
         ]
 
 instance AWSRequest RunTask where

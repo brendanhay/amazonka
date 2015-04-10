@@ -84,7 +84,8 @@ rtdContainerDefinitions =
 
 -- | You must specify a 'family' for a task definition, which allows you to track
 -- multiple versions of the same task definition. You can think of the 'family' as
--- a name for your task definition.
+-- a name for your task definition. Up to 255 letters (uppercase and lowercase),
+-- numbers, hyphens, and underscores are allowed.
 rtdFamily :: Lens' RegisterTaskDefinition Text
 rtdFamily = lens _rtdFamily (\s a -> s { _rtdFamily = a })
 

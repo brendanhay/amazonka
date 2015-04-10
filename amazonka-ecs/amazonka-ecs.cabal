@@ -45,16 +45,20 @@ library
     exposed-modules:
           Network.AWS.ECS
         , Network.AWS.ECS.CreateCluster
+        , Network.AWS.ECS.CreateService
         , Network.AWS.ECS.DeleteCluster
+        , Network.AWS.ECS.DeleteService
         , Network.AWS.ECS.DeregisterContainerInstance
         , Network.AWS.ECS.DeregisterTaskDefinition
         , Network.AWS.ECS.DescribeClusters
         , Network.AWS.ECS.DescribeContainerInstances
+        , Network.AWS.ECS.DescribeServices
         , Network.AWS.ECS.DescribeTaskDefinition
         , Network.AWS.ECS.DescribeTasks
         , Network.AWS.ECS.DiscoverPollEndpoint
         , Network.AWS.ECS.ListClusters
         , Network.AWS.ECS.ListContainerInstances
+        , Network.AWS.ECS.ListServices
         , Network.AWS.ECS.ListTaskDefinitionFamilies
         , Network.AWS.ECS.ListTaskDefinitions
         , Network.AWS.ECS.ListTasks
@@ -66,6 +70,7 @@ library
         , Network.AWS.ECS.SubmitContainerStateChange
         , Network.AWS.ECS.SubmitTaskStateChange
         , Network.AWS.ECS.Types
+        , Network.AWS.ECS.UpdateService
 
     other-modules:
 

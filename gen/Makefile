@@ -46,6 +46,7 @@ JSON := \
  kms \
  lambda \
  logs \
+ machinelearning \
  opsworks \
  route53domains \
  ssm \

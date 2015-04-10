@@ -38,6 +38,8 @@ module Network.AWS.RDS
     , module Network.AWS.RDS.DeleteDBSubnetGroup
     , module Network.AWS.RDS.DeleteEventSubscription
     , module Network.AWS.RDS.DeleteOptionGroup
+    , module Network.AWS.RDS.DescribeAccountAttributes
+    , module Network.AWS.RDS.DescribeCertificates
     , module Network.AWS.RDS.DescribeDBEngineVersions
     , module Network.AWS.RDS.DescribeDBInstances
     , module Network.AWS.RDS.DescribeDBLogFiles
@@ -98,6 +100,8 @@ import Network.AWS.RDS.DeleteDBSnapshot
 import Network.AWS.RDS.DeleteDBSubnetGroup
 import Network.AWS.RDS.DeleteEventSubscription
 import Network.AWS.RDS.DeleteOptionGroup
+import Network.AWS.RDS.DescribeAccountAttributes
+import Network.AWS.RDS.DescribeCertificates
 import Network.AWS.RDS.DescribeDBEngineVersions
 import Network.AWS.RDS.DescribeDBInstances
 import Network.AWS.RDS.DescribeDBLogFiles

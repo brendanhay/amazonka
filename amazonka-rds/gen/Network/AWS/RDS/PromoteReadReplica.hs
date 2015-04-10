@@ -30,6 +30,7 @@
 -- backups are taken based on your backup settings.
 --
 --
+--
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_PromoteReadReplica.html>
 module Network.AWS.RDS.PromoteReadReplica
     (

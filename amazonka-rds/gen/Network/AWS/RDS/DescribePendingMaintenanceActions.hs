@@ -22,7 +22,7 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Returns a list of resources (for example, DB Instances) that have at least
+-- | Returns a list of resources (for example, DB instances) that have at least
 -- one pending maintenance action.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribePendingMaintenanceActions.html>
@@ -79,16 +79,19 @@ describePendingMaintenanceActions = DescribePendingMaintenanceActions
     , _dpmaMaxRecords         = Nothing
     }
 
--- | Supported filters:
+-- | A filter that specifies one or more resources to return pending maintenance
+-- actions for.
 --
--- 'db-instance-id' - Accepts DB instance identifiers and DB instance ARNs. The
--- result list will only include maintenance actions for the specified DB
--- Instances.
+-- Supported filters:
+--
+-- 'db-instance-id' - Accepts DB instance identifiers and DB instance Amazon
+-- Resource Names (ARNs). The results list will only include pending maintenance
+-- actions for the DB instances identified by these ARNs.
 dpmaFilters :: Lens' DescribePendingMaintenanceActions [Filter]
 dpmaFilters = lens _dpmaFilters (\s a -> s { _dpmaFilters = a }) . _List
 
 -- | An optional pagination token provided by a previous 'DescribePendingMaintenanceActions' request. If this parameter is specified, the response includes only records
--- beyond the marker, up to a number of records specified by 'MaxRecords' .
+-- beyond the marker, up to a number of records specified by 'MaxRecords'.
 dpmaMarker :: Lens' DescribePendingMaintenanceActions (Maybe Text)
 dpmaMarker = lens _dpmaMarker (\s a -> s { _dpmaMarker = a })
 
@@ -102,7 +105,7 @@ dpmaMarker = lens _dpmaMarker (\s a -> s { _dpmaMarker = a })
 dpmaMaxRecords :: Lens' DescribePendingMaintenanceActions (Maybe Int)
 dpmaMaxRecords = lens _dpmaMaxRecords (\s a -> s { _dpmaMaxRecords = a })
 
--- | The ARN of the resource to return pending maintenance actions for.
+-- | The ARN of a resource to return pending maintenance actions for.
 dpmaResourceIdentifier :: Lens' DescribePendingMaintenanceActions (Maybe Text)
 dpmaResourceIdentifier =
     lens _dpmaResourceIdentifier (\s a -> s { _dpmaResourceIdentifier = a })
@@ -127,11 +130,11 @@ describePendingMaintenanceActionsResponse = DescribePendingMaintenanceActionsRes
     }
 
 -- | An optional pagination token provided by a previous 'DescribePendingMaintenanceActions' request. If this parameter is specified, the response includes only records
--- beyond the marker, up to a number of records specified by 'MaxRecords' .
+-- beyond the marker, up to a number of records specified by 'MaxRecords'.
 dpmarMarker :: Lens' DescribePendingMaintenanceActionsResponse (Maybe Text)
 dpmarMarker = lens _dpmarMarker (\s a -> s { _dpmarMarker = a })
 
--- | Provides a list of the pending maintenance actions for the resource.
+-- | A list of the pending maintenance actions for the resource.
 dpmarPendingMaintenanceActions :: Lens' DescribePendingMaintenanceActionsResponse [ResourcePendingMaintenanceActions]
 dpmarPendingMaintenanceActions =
     lens _dpmarPendingMaintenanceActions

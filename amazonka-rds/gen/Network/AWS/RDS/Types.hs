@@ -38,6 +38,7 @@ module Network.AWS.RDS.Types
     , pmaAction
     , pmaAutoAppliedAfterDate
     , pmaCurrentApplyDate
+    , pmaDescription
     , pmaForcedApplyDate
     , pmaOptInStatus
 
@@ -232,6 +233,7 @@ module Network.AWS.RDS.Types
     , dbiAutoMinorVersionUpgrade
     , dbiAvailabilityZone
     , dbiBackupRetentionPeriod
+    , dbiCACertificateIdentifier
     , dbiCharacterSetName
     , dbiDBInstanceClass
     , dbiDBInstanceIdentifier
@@ -265,6 +267,13 @@ module Network.AWS.RDS.Types
     , dbiTdeCredentialArn
     , dbiVpcSecurityGroups
 
+    -- * AccountQuota
+    , AccountQuota
+    , accountQuota
+    , aqAccountQuotaName
+    , aqMax
+    , aqUsed
+
     -- * AvailabilityZone
     , AvailabilityZone
     , availabilityZone
@@ -291,6 +300,15 @@ module Network.AWS.RDS.Types
     , dbsg1SubnetGroupStatus
     , dbsg1Subnets
     , dbsg1VpcId
+
+    -- * Certificate
+    , Certificate
+    , certificate
+    , cCertificateIdentifier
+    , cCertificateType
+    , cThumbprint
+    , cValidFrom
+    , cValidTill
 
     -- * DBInstanceStatusInfo
     , DBInstanceStatusInfo
@@ -397,6 +415,7 @@ module Network.AWS.RDS.Types
     , pendingModifiedValues
     , pmvAllocatedStorage
     , pmvBackupRetentionPeriod
+    , pmvCACertificateIdentifier
     , pmvDBInstanceClass
     , pmvDBInstanceIdentifier
     , pmvEngineVersion
@@ -491,6 +510,7 @@ data PendingMaintenanceAction = PendingMaintenanceAction
     { _pmaAction               :: Maybe Text
     , _pmaAutoAppliedAfterDate :: Maybe ISO8601
     , _pmaCurrentApplyDate     :: Maybe ISO8601
+    , _pmaDescription          :: Maybe Text
     , _pmaForcedApplyDate      :: Maybe ISO8601
     , _pmaOptInStatus          :: Maybe Text
     } deriving (Eq, Ord, Read, Show)
@@ -505,6 +525,8 @@ data PendingMaintenanceAction = PendingMaintenanceAction
 --
 -- * 'pmaCurrentApplyDate' @::@ 'Maybe' 'UTCTime'
 --
+-- * 'pmaDescription' @::@ 'Maybe' 'Text'
+--
 -- * 'pmaForcedApplyDate' @::@ 'Maybe' 'UTCTime'
 --
 -- * 'pmaOptInStatus' @::@ 'Maybe' 'Text'
@@ -516,6 +538,7 @@ pendingMaintenanceAction = PendingMaintenanceAction
     , _pmaForcedApplyDate      = Nothing
     , _pmaOptInStatus          = Nothing
     , _pmaCurrentApplyDate     = Nothing
+    , _pmaDescription          = Nothing
     }
 
 -- | The type of pending maintenance action that is available for the resource.
@@ -531,13 +554,16 @@ pmaAutoAppliedAfterDate =
         . mapping _Time
 
 -- | The effective date when the pending maintenance action will be applied to the
--- resource. This takes into account opt-in requests received from the 'ApplyPendingMaintenanceAction' API, the 'AutoAppliedAfterDate', and the 'ForcedApplyDate'. This value is blank
--- if an opt-in request has not been received and no value has been specified
--- for the 'AutoAppliedAfterDate' or 'ForcedApplyDate'.
+-- resource. This date takes into account opt-in requests received from the 'ApplyPendingMaintenanceAction' API, the 'AutoAppliedAfterDate', and the 'ForcedApplyDate'. This value is blank
+-- if an opt-in request has not been received and nothing has been specified as 'AutoAppliedAfterDate' or 'ForcedApplyDate'.
 pmaCurrentApplyDate :: Lens' PendingMaintenanceAction (Maybe UTCTime)
 pmaCurrentApplyDate =
     lens _pmaCurrentApplyDate (\s a -> s { _pmaCurrentApplyDate = a })
         . mapping _Time
+
+-- | A description providing more detail about the maintenance action.
+pmaDescription :: Lens' PendingMaintenanceAction (Maybe Text)
+pmaDescription = lens _pmaDescription (\s a -> s { _pmaDescription = a })
 
 -- | The date when the maintenance action will be automatically applied. The
 -- maintenance action will be applied to the resource on this date regardless of
@@ -556,6 +582,7 @@ instance FromXML PendingMaintenanceAction where
         <$> x .@? "Action"
         <*> x .@? "AutoAppliedAfterDate"
         <*> x .@? "CurrentApplyDate"
+        <*> x .@? "Description"
         <*> x .@? "ForcedApplyDate"
         <*> x .@? "OptInStatus"
 
@@ -564,6 +591,7 @@ instance ToQuery PendingMaintenanceAction where
         [ "Action"               =? _pmaAction
         , "AutoAppliedAfterDate" =? _pmaAutoAppliedAfterDate
         , "CurrentApplyDate"     =? _pmaCurrentApplyDate
+        , "Description"          =? _pmaDescription
         , "ForcedApplyDate"      =? _pmaForcedApplyDate
         , "OptInStatus"          =? _pmaOptInStatus
         ]
@@ -1416,14 +1444,15 @@ resourcePendingMaintenanceActions = ResourcePendingMaintenanceActions
     , _rpmaPendingMaintenanceActionDetails = mempty
     }
 
--- | Provides details about the pending maintenance actions for the resource.
+-- | A list that provides details about the pending maintenance actions for the
+-- resource.
 rpmaPendingMaintenanceActionDetails :: Lens' ResourcePendingMaintenanceActions [PendingMaintenanceAction]
 rpmaPendingMaintenanceActionDetails =
     lens _rpmaPendingMaintenanceActionDetails
         (\s a -> s { _rpmaPendingMaintenanceActionDetails = a })
             . _List
 
--- | The ARN of this resource that has pending maintenance actions.
+-- | The ARN of the resource that has pending maintenance actions.
 rpmaResourceIdentifier :: Lens' ResourcePendingMaintenanceActions (Maybe Text)
 rpmaResourceIdentifier =
     lens _rpmaResourceIdentifier (\s a -> s { _rpmaResourceIdentifier = a })
@@ -2131,6 +2160,7 @@ data DBInstance = DBInstance
     , _dbiAutoMinorVersionUpgrade               :: Maybe Bool
     , _dbiAvailabilityZone                      :: Maybe Text
     , _dbiBackupRetentionPeriod                 :: Maybe Int
+    , _dbiCACertificateIdentifier               :: Maybe Text
     , _dbiCharacterSetName                      :: Maybe Text
     , _dbiDBInstanceClass                       :: Maybe Text
     , _dbiDBInstanceIdentifier                  :: Maybe Text
@@ -2176,6 +2206,8 @@ data DBInstance = DBInstance
 -- * 'dbiAvailabilityZone' @::@ 'Maybe' 'Text'
 --
 -- * 'dbiBackupRetentionPeriod' @::@ 'Maybe' 'Int'
+--
+-- * 'dbiCACertificateIdentifier' @::@ 'Maybe' 'Text'
 --
 -- * 'dbiCharacterSetName' @::@ 'Maybe' 'Text'
 --
@@ -2279,6 +2311,7 @@ dbinstance = DBInstance
     , _dbiStorageEncrypted                      = Nothing
     , _dbiKmsKeyId                              = Nothing
     , _dbiDbiResourceId                         = Nothing
+    , _dbiCACertificateIdentifier               = Nothing
     }
 
 -- | Specifies the allocated storage size specified in gigabytes.
@@ -2302,6 +2335,12 @@ dbiBackupRetentionPeriod :: Lens' DBInstance (Maybe Int)
 dbiBackupRetentionPeriod =
     lens _dbiBackupRetentionPeriod
         (\s a -> s { _dbiBackupRetentionPeriod = a })
+
+-- | The identifier of the CA certificate for this DB instance.
+dbiCACertificateIdentifier :: Lens' DBInstance (Maybe Text)
+dbiCACertificateIdentifier =
+    lens _dbiCACertificateIdentifier
+        (\s a -> s { _dbiCACertificateIdentifier = a })
 
 -- | If present, specifies the name of the character set that this instance is
 -- associated with.
@@ -2517,6 +2556,7 @@ instance FromXML DBInstance where
         <*> x .@? "AutoMinorVersionUpgrade"
         <*> x .@? "AvailabilityZone"
         <*> x .@? "BackupRetentionPeriod"
+        <*> x .@? "CACertificateIdentifier"
         <*> x .@? "CharacterSetName"
         <*> x .@? "DBInstanceClass"
         <*> x .@? "DBInstanceIdentifier"
@@ -2556,6 +2596,7 @@ instance ToQuery DBInstance where
         , "AutoMinorVersionUpgrade"               =? _dbiAutoMinorVersionUpgrade
         , "AvailabilityZone"                      =? _dbiAvailabilityZone
         , "BackupRetentionPeriod"                 =? _dbiBackupRetentionPeriod
+        , "CACertificateIdentifier"               =? _dbiCACertificateIdentifier
         , "CharacterSetName"                      =? _dbiCharacterSetName
         , "DBInstanceClass"                       =? _dbiDBInstanceClass
         , "DBInstanceIdentifier"                  =? _dbiDBInstanceIdentifier
@@ -2588,6 +2629,55 @@ instance ToQuery DBInstance where
         , "StorageType"                           =? _dbiStorageType
         , "TdeCredentialArn"                      =? _dbiTdeCredentialArn
         , "VpcSecurityGroups"                     =? _dbiVpcSecurityGroups
+        ]
+
+data AccountQuota = AccountQuota
+    { _aqAccountQuotaName :: Maybe Text
+    , _aqMax              :: Maybe Integer
+    , _aqUsed             :: Maybe Integer
+    } deriving (Eq, Ord, Read, Show)
+
+-- | 'AccountQuota' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'aqAccountQuotaName' @::@ 'Maybe' 'Text'
+--
+-- * 'aqMax' @::@ 'Maybe' 'Integer'
+--
+-- * 'aqUsed' @::@ 'Maybe' 'Integer'
+--
+accountQuota :: AccountQuota
+accountQuota = AccountQuota
+    { _aqAccountQuotaName = Nothing
+    , _aqUsed             = Nothing
+    , _aqMax              = Nothing
+    }
+
+-- | The name of the Amazon RDS quota for this AWS account.
+aqAccountQuotaName :: Lens' AccountQuota (Maybe Text)
+aqAccountQuotaName =
+    lens _aqAccountQuotaName (\s a -> s { _aqAccountQuotaName = a })
+
+-- | The maximum allowed value for the quota.
+aqMax :: Lens' AccountQuota (Maybe Integer)
+aqMax = lens _aqMax (\s a -> s { _aqMax = a })
+
+-- | The amount currently used toward the quota maximum.
+aqUsed :: Lens' AccountQuota (Maybe Integer)
+aqUsed = lens _aqUsed (\s a -> s { _aqUsed = a })
+
+instance FromXML AccountQuota where
+    parseXML x = AccountQuota
+        <$> x .@? "AccountQuotaName"
+        <*> x .@? "Max"
+        <*> x .@? "Used"
+
+instance ToQuery AccountQuota where
+    toQuery AccountQuota{..} = mconcat
+        [ "AccountQuotaName" =? _aqAccountQuotaName
+        , "Max"              =? _aqMax
+        , "Used"             =? _aqUsed
         ]
 
 newtype AvailabilityZone = AvailabilityZone
@@ -2812,6 +2902,75 @@ instance ToQuery DBSubnetGroup where
         , "SubnetGroupStatus"        =? _dbsg1SubnetGroupStatus
         , "Subnets"                  =? _dbsg1Subnets
         , "VpcId"                    =? _dbsg1VpcId
+        ]
+
+data Certificate = Certificate
+    { _cCertificateIdentifier :: Maybe Text
+    , _cCertificateType       :: Maybe Text
+    , _cThumbprint            :: Maybe Text
+    , _cValidFrom             :: Maybe ISO8601
+    , _cValidTill             :: Maybe ISO8601
+    } deriving (Eq, Ord, Read, Show)
+
+-- | 'Certificate' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'cCertificateIdentifier' @::@ 'Maybe' 'Text'
+--
+-- * 'cCertificateType' @::@ 'Maybe' 'Text'
+--
+-- * 'cThumbprint' @::@ 'Maybe' 'Text'
+--
+-- * 'cValidFrom' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'cValidTill' @::@ 'Maybe' 'UTCTime'
+--
+certificate :: Certificate
+certificate = Certificate
+    { _cCertificateIdentifier = Nothing
+    , _cCertificateType       = Nothing
+    , _cThumbprint            = Nothing
+    , _cValidFrom             = Nothing
+    , _cValidTill             = Nothing
+    }
+
+-- | The unique key that identifies a certificate.
+cCertificateIdentifier :: Lens' Certificate (Maybe Text)
+cCertificateIdentifier =
+    lens _cCertificateIdentifier (\s a -> s { _cCertificateIdentifier = a })
+
+-- | The type of the certificate.
+cCertificateType :: Lens' Certificate (Maybe Text)
+cCertificateType = lens _cCertificateType (\s a -> s { _cCertificateType = a })
+
+-- | The thumbprint of the certificate.
+cThumbprint :: Lens' Certificate (Maybe Text)
+cThumbprint = lens _cThumbprint (\s a -> s { _cThumbprint = a })
+
+-- | The starting date from which the certificate is valid.
+cValidFrom :: Lens' Certificate (Maybe UTCTime)
+cValidFrom = lens _cValidFrom (\s a -> s { _cValidFrom = a }) . mapping _Time
+
+-- | The final date that the certificate continues to be valid.
+cValidTill :: Lens' Certificate (Maybe UTCTime)
+cValidTill = lens _cValidTill (\s a -> s { _cValidTill = a }) . mapping _Time
+
+instance FromXML Certificate where
+    parseXML x = Certificate
+        <$> x .@? "CertificateIdentifier"
+        <*> x .@? "CertificateType"
+        <*> x .@? "Thumbprint"
+        <*> x .@? "ValidFrom"
+        <*> x .@? "ValidTill"
+
+instance ToQuery Certificate where
+    toQuery Certificate{..} = mconcat
+        [ "CertificateIdentifier" =? _cCertificateIdentifier
+        , "CertificateType"       =? _cCertificateType
+        , "Thumbprint"            =? _cThumbprint
+        , "ValidFrom"             =? _cValidFrom
+        , "ValidTill"             =? _cValidTill
         ]
 
 data DBInstanceStatusInfo = DBInstanceStatusInfo
@@ -3592,16 +3751,17 @@ instance ToQuery EventCategoriesMap where
         ]
 
 data PendingModifiedValues = PendingModifiedValues
-    { _pmvAllocatedStorage      :: Maybe Int
-    , _pmvBackupRetentionPeriod :: Maybe Int
-    , _pmvDBInstanceClass       :: Maybe Text
-    , _pmvDBInstanceIdentifier  :: Maybe Text
-    , _pmvEngineVersion         :: Maybe Text
-    , _pmvIops                  :: Maybe Int
-    , _pmvMasterUserPassword    :: Maybe Text
-    , _pmvMultiAZ               :: Maybe Bool
-    , _pmvPort                  :: Maybe Int
-    , _pmvStorageType           :: Maybe Text
+    { _pmvAllocatedStorage        :: Maybe Int
+    , _pmvBackupRetentionPeriod   :: Maybe Int
+    , _pmvCACertificateIdentifier :: Maybe Text
+    , _pmvDBInstanceClass         :: Maybe Text
+    , _pmvDBInstanceIdentifier    :: Maybe Text
+    , _pmvEngineVersion           :: Maybe Text
+    , _pmvIops                    :: Maybe Int
+    , _pmvMasterUserPassword      :: Maybe Text
+    , _pmvMultiAZ                 :: Maybe Bool
+    , _pmvPort                    :: Maybe Int
+    , _pmvStorageType             :: Maybe Text
     } deriving (Eq, Ord, Read, Show)
 
 -- | 'PendingModifiedValues' constructor.
@@ -3611,6 +3771,8 @@ data PendingModifiedValues = PendingModifiedValues
 -- * 'pmvAllocatedStorage' @::@ 'Maybe' 'Int'
 --
 -- * 'pmvBackupRetentionPeriod' @::@ 'Maybe' 'Int'
+--
+-- * 'pmvCACertificateIdentifier' @::@ 'Maybe' 'Text'
 --
 -- * 'pmvDBInstanceClass' @::@ 'Maybe' 'Text'
 --
@@ -3630,16 +3792,17 @@ data PendingModifiedValues = PendingModifiedValues
 --
 pendingModifiedValues :: PendingModifiedValues
 pendingModifiedValues = PendingModifiedValues
-    { _pmvDBInstanceClass       = Nothing
-    , _pmvAllocatedStorage      = Nothing
-    , _pmvMasterUserPassword    = Nothing
-    , _pmvPort                  = Nothing
-    , _pmvBackupRetentionPeriod = Nothing
-    , _pmvMultiAZ               = Nothing
-    , _pmvEngineVersion         = Nothing
-    , _pmvIops                  = Nothing
-    , _pmvDBInstanceIdentifier  = Nothing
-    , _pmvStorageType           = Nothing
+    { _pmvDBInstanceClass         = Nothing
+    , _pmvAllocatedStorage        = Nothing
+    , _pmvMasterUserPassword      = Nothing
+    , _pmvPort                    = Nothing
+    , _pmvBackupRetentionPeriod   = Nothing
+    , _pmvMultiAZ                 = Nothing
+    , _pmvEngineVersion           = Nothing
+    , _pmvIops                    = Nothing
+    , _pmvDBInstanceIdentifier    = Nothing
+    , _pmvStorageType             = Nothing
+    , _pmvCACertificateIdentifier = Nothing
     }
 
 -- | Contains the new 'AllocatedStorage' size for the DB instance that will be
@@ -3654,6 +3817,12 @@ pmvBackupRetentionPeriod :: Lens' PendingModifiedValues (Maybe Int)
 pmvBackupRetentionPeriod =
     lens _pmvBackupRetentionPeriod
         (\s a -> s { _pmvBackupRetentionPeriod = a })
+
+-- | Specifies the identifier of the CA certificate for the DB instance.
+pmvCACertificateIdentifier :: Lens' PendingModifiedValues (Maybe Text)
+pmvCACertificateIdentifier =
+    lens _pmvCACertificateIdentifier
+        (\s a -> s { _pmvCACertificateIdentifier = a })
 
 -- | Contains the new 'DBInstanceClass' for the DB instance that will be applied or
 -- is in progress.
@@ -3699,6 +3868,7 @@ instance FromXML PendingModifiedValues where
     parseXML x = PendingModifiedValues
         <$> x .@? "AllocatedStorage"
         <*> x .@? "BackupRetentionPeriod"
+        <*> x .@? "CACertificateIdentifier"
         <*> x .@? "DBInstanceClass"
         <*> x .@? "DBInstanceIdentifier"
         <*> x .@? "EngineVersion"
@@ -3710,16 +3880,17 @@ instance FromXML PendingModifiedValues where
 
 instance ToQuery PendingModifiedValues where
     toQuery PendingModifiedValues{..} = mconcat
-        [ "AllocatedStorage"      =? _pmvAllocatedStorage
-        , "BackupRetentionPeriod" =? _pmvBackupRetentionPeriod
-        , "DBInstanceClass"       =? _pmvDBInstanceClass
-        , "DBInstanceIdentifier"  =? _pmvDBInstanceIdentifier
-        , "EngineVersion"         =? _pmvEngineVersion
-        , "Iops"                  =? _pmvIops
-        , "MasterUserPassword"    =? _pmvMasterUserPassword
-        , "MultiAZ"               =? _pmvMultiAZ
-        , "Port"                  =? _pmvPort
-        , "StorageType"           =? _pmvStorageType
+        [ "AllocatedStorage"        =? _pmvAllocatedStorage
+        , "BackupRetentionPeriod"   =? _pmvBackupRetentionPeriod
+        , "CACertificateIdentifier" =? _pmvCACertificateIdentifier
+        , "DBInstanceClass"         =? _pmvDBInstanceClass
+        , "DBInstanceIdentifier"    =? _pmvDBInstanceIdentifier
+        , "EngineVersion"           =? _pmvEngineVersion
+        , "Iops"                    =? _pmvIops
+        , "MasterUserPassword"      =? _pmvMasterUserPassword
+        , "MultiAZ"                 =? _pmvMultiAZ
+        , "Port"                    =? _pmvPort
+        , "StorageType"             =? _pmvStorageType
         ]
 
 data VpcSecurityGroupMembership = VpcSecurityGroupMembership

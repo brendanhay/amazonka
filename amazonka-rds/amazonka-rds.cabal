@@ -59,6 +59,8 @@ library
         , Network.AWS.RDS.DeleteDBSubnetGroup
         , Network.AWS.RDS.DeleteEventSubscription
         , Network.AWS.RDS.DeleteOptionGroup
+        , Network.AWS.RDS.DescribeAccountAttributes
+        , Network.AWS.RDS.DescribeCertificates
         , Network.AWS.RDS.DescribeDBEngineVersions
         , Network.AWS.RDS.DescribeDBInstances
         , Network.AWS.RDS.DescribeDBLogFiles

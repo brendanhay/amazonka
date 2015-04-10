@@ -40,6 +40,7 @@ module Network.AWS.OpsWorks.CreateInstance
     , ciArchitecture
     , ciAutoScalingType
     , ciAvailabilityZone
+    , ciBlockDeviceMappings
     , ciEbsOptimized
     , ciHostname
     , ciInstallUpdatesOnBoot
@@ -70,6 +71,7 @@ data CreateInstance = CreateInstance
     , _ciArchitecture         :: Maybe Architecture
     , _ciAutoScalingType      :: Maybe AutoScalingType
     , _ciAvailabilityZone     :: Maybe Text
+    , _ciBlockDeviceMappings  :: List "BlockDeviceMappings" BlockDeviceMapping
     , _ciEbsOptimized         :: Maybe Bool
     , _ciHostname             :: Maybe Text
     , _ciInstallUpdatesOnBoot :: Maybe Bool
@@ -94,6 +96,8 @@ data CreateInstance = CreateInstance
 -- * 'ciAutoScalingType' @::@ 'Maybe' 'AutoScalingType'
 --
 -- * 'ciAvailabilityZone' @::@ 'Maybe' 'Text'
+--
+-- * 'ciBlockDeviceMappings' @::@ ['BlockDeviceMapping']
 --
 -- * 'ciEbsOptimized' @::@ 'Maybe' 'Bool'
 --
@@ -134,6 +138,7 @@ createInstance p1 p2 = CreateInstance
     , _ciSubnetId             = Nothing
     , _ciArchitecture         = Nothing
     , _ciRootDeviceType       = Nothing
+    , _ciBlockDeviceMappings  = mempty
     , _ciInstallUpdatesOnBoot = Nothing
     , _ciEbsOptimized         = Nothing
     }
@@ -161,6 +166,13 @@ ciAutoScalingType =
 ciAvailabilityZone :: Lens' CreateInstance (Maybe Text)
 ciAvailabilityZone =
     lens _ciAvailabilityZone (\s a -> s { _ciAvailabilityZone = a })
+
+-- | An array of 'BlockDeviceMapping' objects that specify the instance's block
+-- devices. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html Block Device Mapping>.
+ciBlockDeviceMappings :: Lens' CreateInstance [BlockDeviceMapping]
+ciBlockDeviceMappings =
+    lens _ciBlockDeviceMappings (\s a -> s { _ciBlockDeviceMappings = a })
+        . _List
 
 -- | Whether to create an Amazon EBS-optimized instance.
 ciEbsOptimized :: Lens' CreateInstance (Maybe Bool)
@@ -208,7 +220,7 @@ ciOs = lens _ciOs (\s a -> s { _ciOs = a })
 ciRootDeviceType :: Lens' CreateInstance (Maybe RootDeviceType)
 ciRootDeviceType = lens _ciRootDeviceType (\s a -> s { _ciRootDeviceType = a })
 
--- | The instance SSH key name.
+-- | The instance's Amazon EC2 key pair name.
 ciSshKeyName :: Lens' CreateInstance (Maybe Text)
 ciSshKeyName = lens _ciSshKeyName (\s a -> s { _ciSshKeyName = a })
 
@@ -269,6 +281,7 @@ instance ToJSON CreateInstance where
         , "SubnetId"             .= _ciSubnetId
         , "Architecture"         .= _ciArchitecture
         , "RootDeviceType"       .= _ciRootDeviceType
+        , "BlockDeviceMappings"  .= _ciBlockDeviceMappings
         , "InstallUpdatesOnBoot" .= _ciInstallUpdatesOnBoot
         , "EbsOptimized"         .= _ciEbsOptimized
         ]

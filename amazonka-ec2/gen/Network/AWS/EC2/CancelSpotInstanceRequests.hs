@@ -26,7 +26,7 @@
 -- Amazon EC2 starts on your behalf when the bid price that you specify exceeds
 -- the current Spot Price. Amazon EC2 periodically sets the Spot Price based on
 -- available Spot Instance capacity and current Spot Instance requests. For more
--- information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html Spot Instance Requests> in the /Amazon Elastic Compute CloudUser Guide/.
+-- information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html Spot Instance Requests> in the /Amazon Elastic Compute CloudUser Guide for Linux/.
 --
 -- Canceling a Spot Instance request does not terminate running Spot Instances
 -- associated with the request.

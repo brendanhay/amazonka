@@ -26,10 +26,10 @@
 -- to the instance with the specified device name.
 --
 -- Encrypted Amazon EBS volumes may only be attached to instances that support
--- Amazon EBS encryption. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> in the /Amazon Elastic Compute Cloud User Guide/.
+-- Amazon EBS encryption. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
 --
 -- For a list of supported device names, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html Attaching an Amazon EBS Volume toan Instance>. Any device names that aren't reserved for instance store volumes
--- can be used for Amazon EBS volumes. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html Amazon EC2Instance Store> in the /Amazon Elastic Compute Cloud User Guide/.
+-- can be used for Amazon EBS volumes. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html Amazon EC2Instance Store> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
 --
 -- If a volume has an AWS Marketplace product code:
 --
@@ -40,7 +40,7 @@
 -- from a Windows instance and attach it to a Linux instance.  For an overview
 -- of the AWS Marketplace, see <https://aws.amazon.com/marketplace/help/200900000 Introducing AWS Marketplace>.
 --
--- For more information about Amazon EBS volumes, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html Attaching Amazon EBSVolumes> in the /Amazon Elastic Compute Cloud User Guide/.
+-- For more information about Amazon EBS volumes, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html Attaching Amazon EBSVolumes> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachVolume.html>
 module Network.AWS.EC2.AttachVolume

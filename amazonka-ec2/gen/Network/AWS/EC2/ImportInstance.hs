@@ -23,10 +23,8 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Creates an import instance task using metadata from the specified disk image.
--- After importing the image, you then upload it using the ec2-import-volume
--- command in the EC2 command line tools. For more information, see Using the
--- Command Line Tools to Import Your Virtual Machine to Amazon EC2 in the Amazon
--- Elastic Compute Cloud User Guide.
+-- After importing the image, you then upload it using the 'ec2-import-volume'
+-- command in the EC2 command line tools. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html Using theCommand Line Tools to Import Your Virtual Machine to Amazon EC2> in the /AmazonElastic Compute Cloud User Guide for Linux/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ImportInstance.html>
 module Network.AWS.EC2.ImportInstance

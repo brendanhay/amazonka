@@ -220,10 +220,14 @@ clName = lens _clName (\s a -> s { _clName = a })
 clPackages :: Lens' CreateLayer [Text]
 clPackages = lens _clPackages (\s a -> s { _clPackages = a }) . _List
 
--- | The layer short name, which is used internally by AWS OpsWorks and by Chef
--- recipes. The short name is also used as the name for the directory where your
--- app files are installed. It can have a maximum of 200 characters, which are
--- limited to the alphanumeric characters, '-', '_', and '.'.
+-- | For custom layers only, use this parameter to specify the layer's short name,
+-- which is used internally by AWS OpsWorks and by Chef recipes. The short name
+-- is also used as the name for the directory where your app files are
+-- installed. It can have a maximum of 200 characters, which are limited to the
+-- alphanumeric characters, '-', '_', and '.'.
+--
+-- The built-in layers' short names are defined by AWS OpsWorks. For more
+-- information, see the <http://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference>
 clShortname :: Lens' CreateLayer Text
 clShortname = lens _clShortname (\s a -> s { _clShortname = a })
 

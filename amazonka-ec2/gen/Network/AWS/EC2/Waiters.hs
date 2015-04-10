@@ -19,12 +19,16 @@ import Network.AWS.EC2.DescribeBundleTasks
 import Network.AWS.EC2.DescribeConversionTasks
 import Network.AWS.EC2.DescribeCustomerGateways
 import Network.AWS.EC2.DescribeExportTasks
+import Network.AWS.EC2.DescribeImages
+import Network.AWS.EC2.DescribeInstanceStatus
 import Network.AWS.EC2.DescribeInstances
 import Network.AWS.EC2.DescribeSnapshots
+import Network.AWS.EC2.DescribeSpotInstanceRequests
 import Network.AWS.EC2.DescribeSubnets
 import Network.AWS.EC2.DescribeVolumes
 import Network.AWS.EC2.DescribeVpcs
 import Network.AWS.EC2.DescribeVpnConnections
+import Network.AWS.EC2.GetPasswordData
 import Network.AWS.EC2.Types
 import Network.AWS.Waiters
 
@@ -104,6 +108,19 @@ exportTaskCompleted = Wait
         ]
     }
 
+imageAvailable :: Wait DescribeImages
+imageAvailable = Wait
+    { _waitName      = "ImageAvailable"
+    , _waitAttempts  = 40
+    , _waitDelay     = 15
+    , _waitAcceptors =
+        [ matchAll ISAvailable AcceptSuccess
+            (folding (concatOf dirImages) . iState)
+        , matchAny "failed" AcceptFailure
+            (folding (concatOf dirImages) . iState)
+        ]
+    }
+
 instanceRunning :: Wait DescribeInstances
 instanceRunning = Wait
     { _waitName      = "InstanceRunning"
@@ -118,6 +135,17 @@ instanceRunning = Wait
             (folding (concatOf dirReservations) . folding (concatOf rInstances) . i1State . isName)
         , matchAny ISNStopping AcceptFailure
             (folding (concatOf dirReservations) . folding (concatOf rInstances) . i1State . isName)
+        ]
+    }
+
+instanceStatusOk :: Wait DescribeInstanceStatus
+instanceStatusOk = Wait
+    { _waitName      = "InstanceStatusOk"
+    , _waitAttempts  = 40
+    , _waitDelay     = 15
+    , _waitAcceptors =
+        [ matchAll SSOk AcceptSuccess
+            (folding (concatOf disrInstanceStatuses) . isInstanceStatus . issStatus . _Just)
         ]
     }
 
@@ -151,6 +179,17 @@ instanceTerminated = Wait
         ]
     }
 
+passwordDataAvailable :: Wait GetPasswordData
+passwordDataAvailable = Wait
+    { _waitName      = "PasswordDataAvailable"
+    , _waitAttempts  = 40
+    , _waitDelay     = 15
+    , _waitAcceptors =
+        [ matchAll true AcceptSuccess
+            (length gpdrPasswordData > 0)
+        ]
+    }
+
 snapshotCompleted :: Wait DescribeSnapshots
 snapshotCompleted = Wait
     { _waitName      = "SnapshotCompleted"
@@ -162,6 +201,25 @@ snapshotCompleted = Wait
         ]
     }
 
+spotInstanceRequestFulfilled :: Wait DescribeSpotInstanceRequests
+spotInstanceRequestFulfilled = Wait
+    { _waitName      = "SpotInstanceRequestFulfilled"
+    , _waitAttempts  = 40
+    , _waitDelay     = 15
+    , _waitAcceptors =
+        [ matchAll "fulfilled" AcceptSuccess
+            (folding (concatOf dsirrSpotInstanceRequests) . siStatus . sisCode . _Just)
+        , matchAny "schedule-expired" AcceptFailure
+            (folding (concatOf dsirrSpotInstanceRequests) . siStatus . sisCode . _Just)
+        , matchAny "canceled-before-fulfillment" AcceptFailure
+            (folding (concatOf dsirrSpotInstanceRequests) . siStatus . sisCode . _Just)
+        , matchAny "bad-parameters" AcceptFailure
+            (folding (concatOf dsirrSpotInstanceRequests) . siStatus . sisCode . _Just)
+        , matchAny "system-error" AcceptFailure
+            (folding (concatOf dsirrSpotInstanceRequests) . siStatus . sisCode . _Just)
+        ]
+    }
+
 subnetAvailable :: Wait DescribeSubnets
 subnetAvailable = Wait
     { _waitName      = "SubnetAvailable"
@@ -170,6 +228,17 @@ subnetAvailable = Wait
     , _waitAcceptors =
         [ matchAll SSAvailable AcceptSuccess
             (folding (concatOf dsrSubnets) . s1State)
+        ]
+    }
+
+systemStatusOk :: Wait DescribeInstanceStatus
+systemStatusOk = Wait
+    { _waitName      = "SystemStatusOk"
+    , _waitAttempts  = 40
+    , _waitDelay     = 15
+    , _waitAcceptors =
+        [ matchAll SSOk AcceptSuccess
+            (folding (concatOf disrInstanceStatuses) . isSystemStatus . issStatus . _Just)
         ]
     }
 

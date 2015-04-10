@@ -34,7 +34,7 @@
 -- When a volume with an AWS Marketplace product code is detached from an
 -- instance, the product code is no longer associated with the instance.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html Detaching an Amazon EBS Volume> in the /AmazonElastic Compute Cloud User Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html Detaching an Amazon EBS Volume> in the /AmazonElastic Compute Cloud User Guide for Linux/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DetachVolume.html>
 module Network.AWS.EC2.DetachVolume

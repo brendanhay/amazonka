@@ -25,7 +25,7 @@
 -- | Exports a running or stopped instance to an Amazon S3 bucket.
 --
 -- For information about the supported operating systems, image formats, and
--- known limitations for the types of instances you can export, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ExportingEC2Instances.html ExportingEC2 Instances> in the /Amazon Elastic Compute Cloud User Guide/.
+-- known limitations for the types of instances you can export, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ExportingEC2Instances.html ExportingEC2 Instances> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateInstanceExportTask.html>
 module Network.AWS.EC2.CreateInstanceExportTask

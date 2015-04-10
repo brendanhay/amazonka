@@ -30,6 +30,16 @@ module Network.AWS.ElasticTranscoder.Types
     -- ** Error
     , JSONError
 
+    -- * PlayReadyDrm
+    , PlayReadyDrm
+    , playReadyDrm
+    , prdFormat
+    , prdInitializationVector
+    , prdKey
+    , prdKeyId
+    , prdKeyMd5
+    , prdLicenseAcquisitionUrl
+
     -- * PipelineOutputConfig
     , PipelineOutputConfig
     , pipelineOutputConfig
@@ -44,6 +54,7 @@ module Network.AWS.ElasticTranscoder.Types
     , cjpHlsContentProtection
     , cjpName
     , cjpOutputKeys
+    , cjpPlayReadyDrm
 
     -- * Captions
     , Captions
@@ -65,7 +76,10 @@ module Network.AWS.ElasticTranscoder.Types
     , joCaptions
     , joComposition
     , joDuration
+    , joDurationMillis
     , joEncryption
+    , joFileSize
+    , joFrameRate
     , joHeight
     , joId
     , joKey
@@ -91,6 +105,7 @@ module Network.AWS.ElasticTranscoder.Types
     , jPipelineId
     , jPlaylists
     , jStatus
+    , jTiming
     , jUserMetadata
 
     -- * CaptionSource
@@ -169,6 +184,15 @@ module Network.AWS.ElasticTranscoder.Types
     , jaaArtwork
     , jaaMergePolicy
 
+    -- * DetectedProperties
+    , DetectedProperties
+    , detectedProperties
+    , dpDurationMillis
+    , dpFileSize
+    , dpFrameRate
+    , dpHeight
+    , dpWidth
+
     -- * JobWatermark
     , JobWatermark
     , jobWatermark
@@ -241,6 +265,13 @@ module Network.AWS.ElasticTranscoder.Types
     , pwVerticalAlign
     , pwVerticalOffset
 
+    -- * Timing
+    , Timing
+    , timing
+    , tFinishTimeMillis
+    , tStartTimeMillis
+    , tSubmitTimeMillis
+
     -- * Permission
     , Permission
     , permission
@@ -274,6 +305,7 @@ module Network.AWS.ElasticTranscoder.Types
     , p2HlsContentProtection
     , p2Name
     , p2OutputKeys
+    , p2PlayReadyDrm
     , p2Status
     , p2StatusDetail
 
@@ -295,6 +327,7 @@ module Network.AWS.ElasticTranscoder.Types
     , jobInput
     , jiAspectRatio
     , jiContainer
+    , jiDetectedProperties
     , jiEncryption
     , jiFrameRate
     , jiInterlaced
@@ -347,6 +380,111 @@ instance AWSService ElasticTranscoder where
             | s == 509  = True -- Limit Exceeded
             | s == 503  = True -- Service Unavailable
             | otherwise = False
+
+data PlayReadyDrm = PlayReadyDrm
+    { _prdFormat                :: Maybe Text
+    , _prdInitializationVector  :: Maybe Text
+    , _prdKey                   :: Maybe Text
+    , _prdKeyId                 :: Maybe Text
+    , _prdKeyMd5                :: Maybe Text
+    , _prdLicenseAcquisitionUrl :: Maybe Text
+    } deriving (Eq, Ord, Read, Show)
+
+-- | 'PlayReadyDrm' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'prdFormat' @::@ 'Maybe' 'Text'
+--
+-- * 'prdInitializationVector' @::@ 'Maybe' 'Text'
+--
+-- * 'prdKey' @::@ 'Maybe' 'Text'
+--
+-- * 'prdKeyId' @::@ 'Maybe' 'Text'
+--
+-- * 'prdKeyMd5' @::@ 'Maybe' 'Text'
+--
+-- * 'prdLicenseAcquisitionUrl' @::@ 'Maybe' 'Text'
+--
+playReadyDrm :: PlayReadyDrm
+playReadyDrm = PlayReadyDrm
+    { _prdFormat                = Nothing
+    , _prdKey                   = Nothing
+    , _prdKeyMd5                = Nothing
+    , _prdKeyId                 = Nothing
+    , _prdInitializationVector  = Nothing
+    , _prdLicenseAcquisitionUrl = Nothing
+    }
+
+-- | The type of DRM, if any, that you want Elastic Transcoder to apply to the
+-- output files associated with this playlist.
+prdFormat :: Lens' PlayReadyDrm (Maybe Text)
+prdFormat = lens _prdFormat (\s a -> s { _prdFormat = a })
+
+-- | The series of random bits created by a random bit generator, unique for every
+-- encryption operation, that you want Elastic Transcoder to use to encrypt your
+-- files. The initialization vector must be base64-encoded, and it must be
+-- exactly 8 bytes long before being base64-encoded. If no initialization vector
+-- is provided, Elastic Transcoder generates one for you.
+prdInitializationVector :: Lens' PlayReadyDrm (Maybe Text)
+prdInitializationVector =
+    lens _prdInitializationVector (\s a -> s { _prdInitializationVector = a })
+
+-- | The DRM key for your file, provided by your DRM license provider. The key
+-- must be base64-encoded, and it must be one of the following bit lengths
+-- before being base64-encoded:
+--
+-- '128', '192', or '256'.
+--
+-- The key must also be encrypted by using AWS KMS.
+prdKey :: Lens' PlayReadyDrm (Maybe Text)
+prdKey = lens _prdKey (\s a -> s { _prdKey = a })
+
+-- | The ID for your DRM key, so that your DRM license provider knows which key to
+-- provide.
+--
+-- The key ID must be provided in big endian, and Elastic Transcoder will
+-- convert it to little endian before inserting it into the PlayReady DRM
+-- headers. If you are unsure whether your license server provides your key ID
+-- in big or little endian, check with your DRM provider.
+prdKeyId :: Lens' PlayReadyDrm (Maybe Text)
+prdKeyId = lens _prdKeyId (\s a -> s { _prdKeyId = a })
+
+-- | The MD5 digest of the key used for DRM on your file, and that you want
+-- Elastic Transcoder to use as a checksum to make sure your key was not
+-- corrupted in transit. The key MD5 must be base64-encoded, and it must be
+-- exactly 16 bytes before being base64-encoded.
+prdKeyMd5 :: Lens' PlayReadyDrm (Maybe Text)
+prdKeyMd5 = lens _prdKeyMd5 (\s a -> s { _prdKeyMd5 = a })
+
+-- | The location of the license key required to play DRM content. The URL must be
+-- an absolute path, and is referenced by the PlayReady header. The PlayReady
+-- header is referenced in the protection header of the client manifest for
+-- Smooth Streaming outputs, and in the EXT-X-DXDRM and EXT-XDXDRMINFO metadata
+-- tags for HLS playlist outputs. An example URL looks like this: https://www.example.com/exampleKey/
+prdLicenseAcquisitionUrl :: Lens' PlayReadyDrm (Maybe Text)
+prdLicenseAcquisitionUrl =
+    lens _prdLicenseAcquisitionUrl
+        (\s a -> s { _prdLicenseAcquisitionUrl = a })
+
+instance FromJSON PlayReadyDrm where
+    parseJSON = withObject "PlayReadyDrm" $ \o -> PlayReadyDrm
+        <$> o .:? "Format"
+        <*> o .:? "InitializationVector"
+        <*> o .:? "Key"
+        <*> o .:? "KeyId"
+        <*> o .:? "KeyMd5"
+        <*> o .:? "LicenseAcquisitionUrl"
+
+instance ToJSON PlayReadyDrm where
+    toJSON PlayReadyDrm{..} = object
+        [ "Format"                .= _prdFormat
+        , "Key"                   .= _prdKey
+        , "KeyMd5"                .= _prdKeyMd5
+        , "KeyId"                 .= _prdKeyId
+        , "InitializationVector"  .= _prdInitializationVector
+        , "LicenseAcquisitionUrl" .= _prdLicenseAcquisitionUrl
+        ]
 
 data PipelineOutputConfig = PipelineOutputConfig
     { _pocBucket       :: Maybe Text
@@ -425,6 +563,7 @@ data CreateJobPlaylist = CreateJobPlaylist
     , _cjpHlsContentProtection :: Maybe HlsContentProtection
     , _cjpName                 :: Maybe Text
     , _cjpOutputKeys           :: List "OutputKeys" Text
+    , _cjpPlayReadyDrm         :: Maybe PlayReadyDrm
     } deriving (Eq, Read, Show)
 
 -- | 'CreateJobPlaylist' constructor.
@@ -439,12 +578,15 @@ data CreateJobPlaylist = CreateJobPlaylist
 --
 -- * 'cjpOutputKeys' @::@ ['Text']
 --
+-- * 'cjpPlayReadyDrm' @::@ 'Maybe' 'PlayReadyDrm'
+--
 createJobPlaylist :: CreateJobPlaylist
 createJobPlaylist = CreateJobPlaylist
     { _cjpName                 = Nothing
     , _cjpFormat               = Nothing
     , _cjpOutputKeys           = mempty
     , _cjpHlsContentProtection = Nothing
+    , _cjpPlayReadyDrm         = Nothing
     }
 
 -- | The format of the output playlist. Valid formats include 'HLSv3', 'HLSv4', and 'Smooth'.
@@ -506,12 +648,18 @@ cjpName = lens _cjpName (\s a -> s { _cjpName = a })
 cjpOutputKeys :: Lens' CreateJobPlaylist [Text]
 cjpOutputKeys = lens _cjpOutputKeys (\s a -> s { _cjpOutputKeys = a }) . _List
 
+-- | The DRM settings, if any, that you want Elastic Transcoder to apply to the
+-- output files associated with this playlist.
+cjpPlayReadyDrm :: Lens' CreateJobPlaylist (Maybe PlayReadyDrm)
+cjpPlayReadyDrm = lens _cjpPlayReadyDrm (\s a -> s { _cjpPlayReadyDrm = a })
+
 instance FromJSON CreateJobPlaylist where
     parseJSON = withObject "CreateJobPlaylist" $ \o -> CreateJobPlaylist
         <$> o .:? "Format"
         <*> o .:? "HlsContentProtection"
         <*> o .:? "Name"
         <*> o .:? "OutputKeys" .!= mempty
+        <*> o .:? "PlayReadyDrm"
 
 instance ToJSON CreateJobPlaylist where
     toJSON CreateJobPlaylist{..} = object
@@ -519,6 +667,7 @@ instance ToJSON CreateJobPlaylist where
         , "Format"               .= _cjpFormat
         , "OutputKeys"           .= _cjpOutputKeys
         , "HlsContentProtection" .= _cjpHlsContentProtection
+        , "PlayReadyDrm"         .= _cjpPlayReadyDrm
         ]
 
 data Captions = Captions
@@ -638,7 +787,10 @@ data JobOutput = JobOutput
     , _joCaptions                    :: Maybe Captions
     , _joComposition                 :: List "Composition" Clip
     , _joDuration                    :: Maybe Integer
+    , _joDurationMillis              :: Maybe Integer
     , _joEncryption                  :: Maybe Encryption
+    , _joFileSize                    :: Maybe Integer
+    , _joFrameRate                   :: Maybe Text
     , _joHeight                      :: Maybe Int
     , _joId                          :: Maybe Text
     , _joKey                         :: Maybe Text
@@ -667,7 +819,13 @@ data JobOutput = JobOutput
 --
 -- * 'joDuration' @::@ 'Maybe' 'Integer'
 --
+-- * 'joDurationMillis' @::@ 'Maybe' 'Integer'
+--
 -- * 'joEncryption' @::@ 'Maybe' 'Encryption'
+--
+-- * 'joFileSize' @::@ 'Maybe' 'Integer'
+--
+-- * 'joFrameRate' @::@ 'Maybe' 'Text'
 --
 -- * 'joHeight' @::@ 'Maybe' 'Int'
 --
@@ -707,6 +865,9 @@ jobOutput = JobOutput
     , _joDuration                    = Nothing
     , _joWidth                       = Nothing
     , _joHeight                      = Nothing
+    , _joFrameRate                   = Nothing
+    , _joFileSize                    = Nothing
+    , _joDurationMillis              = Nothing
     , _joWatermarks                  = mempty
     , _joAlbumArt                    = Nothing
     , _joComposition                 = mempty
@@ -784,12 +945,24 @@ joComposition = lens _joComposition (\s a -> s { _joComposition = a }) . _List
 joDuration :: Lens' JobOutput (Maybe Integer)
 joDuration = lens _joDuration (\s a -> s { _joDuration = a })
 
+-- | Duration of the output file, in milliseconds.
+joDurationMillis :: Lens' JobOutput (Maybe Integer)
+joDurationMillis = lens _joDurationMillis (\s a -> s { _joDurationMillis = a })
+
 -- | The encryption settings, if any, that you want Elastic Transcoder to apply to
 -- your output files. If you choose to use encryption, you must specify a mode
 -- to use. If you choose not to use encryption, Elastic Transcoder will write an
 -- unencrypted file to your Amazon S3 bucket.
 joEncryption :: Lens' JobOutput (Maybe Encryption)
 joEncryption = lens _joEncryption (\s a -> s { _joEncryption = a })
+
+-- | File size of the output file, in bytes.
+joFileSize :: Lens' JobOutput (Maybe Integer)
+joFileSize = lens _joFileSize (\s a -> s { _joFileSize = a })
+
+-- | Frame rate of the output file, in frames per second.
+joFrameRate :: Lens' JobOutput (Maybe Text)
+joFrameRate = lens _joFrameRate (\s a -> s { _joFrameRate = a })
 
 -- | Height of the output file, in pixels.
 joHeight :: Lens' JobOutput (Maybe Int)
@@ -925,7 +1098,10 @@ instance FromJSON JobOutput where
         <*> o .:? "Captions"
         <*> o .:? "Composition" .!= mempty
         <*> o .:? "Duration"
+        <*> o .:? "DurationMillis"
         <*> o .:? "Encryption"
+        <*> o .:? "FileSize"
+        <*> o .:? "FrameRate"
         <*> o .:? "Height"
         <*> o .:? "Id"
         <*> o .:? "Key"
@@ -953,6 +1129,9 @@ instance ToJSON JobOutput where
         , "Duration"                    .= _joDuration
         , "Width"                       .= _joWidth
         , "Height"                      .= _joHeight
+        , "FrameRate"                   .= _joFrameRate
+        , "FileSize"                    .= _joFileSize
+        , "DurationMillis"              .= _joDurationMillis
         , "Watermarks"                  .= _joWatermarks
         , "AlbumArt"                    .= _joAlbumArt
         , "Composition"                 .= _joComposition
@@ -971,6 +1150,7 @@ data Job' = Job'
     , _jPipelineId      :: Text
     , _jPlaylists       :: List "Playlists" Playlist
     , _jStatus          :: Text
+    , _jTiming          :: Maybe Timing
     , _jUserMetadata    :: Map Text Text
     } deriving (Eq, Read, Show)
 
@@ -996,6 +1176,8 @@ data Job' = Job'
 --
 -- * 'jStatus' @::@ 'Text'
 --
+-- * 'jTiming' @::@ 'Maybe' 'Timing'
+--
 -- * 'jUserMetadata' @::@ 'HashMap' 'Text' 'Text'
 --
 job :: Text -- ^ 'jId'
@@ -1015,6 +1197,7 @@ job p1 p2 p3 p4 p5 = Job'
     , _jOutputs         = mempty
     , _jPlaylists       = mempty
     , _jUserMetadata    = mempty
+    , _jTiming          = Nothing
     }
 
 -- | The Amazon Resource Name (ARN) for the job.
@@ -1076,6 +1259,10 @@ jPlaylists = lens _jPlaylists (\s a -> s { _jPlaylists = a }) . _List
 jStatus :: Lens' Job' Text
 jStatus = lens _jStatus (\s a -> s { _jStatus = a })
 
+-- | Details about the timing of a job.
+jTiming :: Lens' Job' (Maybe Timing)
+jTiming = lens _jTiming (\s a -> s { _jTiming = a })
+
 -- | User-defined metadata that you want to associate with an Elastic Transcoder
 -- job. You specify metadata in 'key/value' pairs, and you can add up to 10 'key/value' pairs per job. Elastic Transcoder does not guarantee that 'key/value' pairs
 -- will be returned in the same order in which you specify them.
@@ -1105,6 +1292,7 @@ instance FromJSON Job' where
         <*> o .:  "PipelineId"
         <*> o .:? "Playlists" .!= mempty
         <*> o .:  "Status"
+        <*> o .:? "Timing"
         <*> o .:? "UserMetadata" .!= mempty
 
 instance ToJSON Job' where
@@ -1119,6 +1307,7 @@ instance ToJSON Job' where
         , "Playlists"       .= _jPlaylists
         , "Status"          .= _jStatus
         , "UserMetadata"    .= _jUserMetadata
+        , "Timing"          .= _jTiming
         ]
 
 data CaptionSource = CaptionSource
@@ -1984,6 +2173,74 @@ instance ToJSON JobAlbumArt where
         , "Artwork"     .= _jaaArtwork
         ]
 
+data DetectedProperties = DetectedProperties
+    { _dpDurationMillis :: Maybe Integer
+    , _dpFileSize       :: Maybe Integer
+    , _dpFrameRate      :: Maybe Text
+    , _dpHeight         :: Maybe Int
+    , _dpWidth          :: Maybe Int
+    } deriving (Eq, Ord, Read, Show)
+
+-- | 'DetectedProperties' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dpDurationMillis' @::@ 'Maybe' 'Integer'
+--
+-- * 'dpFileSize' @::@ 'Maybe' 'Integer'
+--
+-- * 'dpFrameRate' @::@ 'Maybe' 'Text'
+--
+-- * 'dpHeight' @::@ 'Maybe' 'Int'
+--
+-- * 'dpWidth' @::@ 'Maybe' 'Int'
+--
+detectedProperties :: DetectedProperties
+detectedProperties = DetectedProperties
+    { _dpWidth          = Nothing
+    , _dpHeight         = Nothing
+    , _dpFrameRate      = Nothing
+    , _dpFileSize       = Nothing
+    , _dpDurationMillis = Nothing
+    }
+
+-- | The detected duration of the input file, in milliseconds.
+dpDurationMillis :: Lens' DetectedProperties (Maybe Integer)
+dpDurationMillis = lens _dpDurationMillis (\s a -> s { _dpDurationMillis = a })
+
+-- | The detected file size of the input file, in bytes.
+dpFileSize :: Lens' DetectedProperties (Maybe Integer)
+dpFileSize = lens _dpFileSize (\s a -> s { _dpFileSize = a })
+
+-- | The detected frame rate of the input file, in frames per second.
+dpFrameRate :: Lens' DetectedProperties (Maybe Text)
+dpFrameRate = lens _dpFrameRate (\s a -> s { _dpFrameRate = a })
+
+-- | The detected height of the input file, in pixels.
+dpHeight :: Lens' DetectedProperties (Maybe Int)
+dpHeight = lens _dpHeight (\s a -> s { _dpHeight = a })
+
+-- | The detected width of the input file, in pixels.
+dpWidth :: Lens' DetectedProperties (Maybe Int)
+dpWidth = lens _dpWidth (\s a -> s { _dpWidth = a })
+
+instance FromJSON DetectedProperties where
+    parseJSON = withObject "DetectedProperties" $ \o -> DetectedProperties
+        <$> o .:? "DurationMillis"
+        <*> o .:? "FileSize"
+        <*> o .:? "FrameRate"
+        <*> o .:? "Height"
+        <*> o .:? "Width"
+
+instance ToJSON DetectedProperties where
+    toJSON DetectedProperties{..} = object
+        [ "Width"          .= _dpWidth
+        , "Height"         .= _dpHeight
+        , "FrameRate"      .= _dpFrameRate
+        , "FileSize"       .= _dpFileSize
+        , "DurationMillis" .= _dpDurationMillis
+        ]
+
 data JobWatermark = JobWatermark
     { _jwEncryption        :: Maybe Encryption
     , _jwInputKey          :: Maybe Text
@@ -2790,6 +3047,56 @@ instance ToJSON PresetWatermark where
         , "Target"           .= _pwTarget
         ]
 
+data Timing = Timing
+    { _tFinishTimeMillis :: Maybe Integer
+    , _tStartTimeMillis  :: Maybe Integer
+    , _tSubmitTimeMillis :: Maybe Integer
+    } deriving (Eq, Ord, Read, Show)
+
+-- | 'Timing' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'tFinishTimeMillis' @::@ 'Maybe' 'Integer'
+--
+-- * 'tStartTimeMillis' @::@ 'Maybe' 'Integer'
+--
+-- * 'tSubmitTimeMillis' @::@ 'Maybe' 'Integer'
+--
+timing :: Timing
+timing = Timing
+    { _tSubmitTimeMillis = Nothing
+    , _tStartTimeMillis  = Nothing
+    , _tFinishTimeMillis = Nothing
+    }
+
+-- | The time the job finished transcoding, in epoch milliseconds.
+tFinishTimeMillis :: Lens' Timing (Maybe Integer)
+tFinishTimeMillis =
+    lens _tFinishTimeMillis (\s a -> s { _tFinishTimeMillis = a })
+
+-- | The time the job began transcoding, in epoch milliseconds.
+tStartTimeMillis :: Lens' Timing (Maybe Integer)
+tStartTimeMillis = lens _tStartTimeMillis (\s a -> s { _tStartTimeMillis = a })
+
+-- | The time the job was submitted to Elastic Transcoder, in epoch milliseconds.
+tSubmitTimeMillis :: Lens' Timing (Maybe Integer)
+tSubmitTimeMillis =
+    lens _tSubmitTimeMillis (\s a -> s { _tSubmitTimeMillis = a })
+
+instance FromJSON Timing where
+    parseJSON = withObject "Timing" $ \o -> Timing
+        <$> o .:? "FinishTimeMillis"
+        <*> o .:? "StartTimeMillis"
+        <*> o .:? "SubmitTimeMillis"
+
+instance ToJSON Timing where
+    toJSON Timing{..} = object
+        [ "SubmitTimeMillis" .= _tSubmitTimeMillis
+        , "StartTimeMillis"  .= _tStartTimeMillis
+        , "FinishTimeMillis" .= _tFinishTimeMillis
+        ]
+
 data Permission = Permission
     { _pAccess      :: List "Access" Text
     , _pGrantee     :: Maybe Text
@@ -3256,6 +3563,7 @@ data Playlist = Playlist
     , _p2HlsContentProtection :: Maybe HlsContentProtection
     , _p2Name                 :: Maybe Text
     , _p2OutputKeys           :: List "OutputKeys" Text
+    , _p2PlayReadyDrm         :: Maybe PlayReadyDrm
     , _p2Status               :: Maybe Text
     , _p2StatusDetail         :: Maybe Text
     } deriving (Eq, Read, Show)
@@ -3272,6 +3580,8 @@ data Playlist = Playlist
 --
 -- * 'p2OutputKeys' @::@ ['Text']
 --
+-- * 'p2PlayReadyDrm' @::@ 'Maybe' 'PlayReadyDrm'
+--
 -- * 'p2Status' @::@ 'Maybe' 'Text'
 --
 -- * 'p2StatusDetail' @::@ 'Maybe' 'Text'
@@ -3282,6 +3592,7 @@ playlist = Playlist
     , _p2Format               = Nothing
     , _p2OutputKeys           = mempty
     , _p2HlsContentProtection = Nothing
+    , _p2PlayReadyDrm         = Nothing
     , _p2Status               = Nothing
     , _p2StatusDetail         = Nothing
     }
@@ -3345,6 +3656,11 @@ p2Name = lens _p2Name (\s a -> s { _p2Name = a })
 p2OutputKeys :: Lens' Playlist [Text]
 p2OutputKeys = lens _p2OutputKeys (\s a -> s { _p2OutputKeys = a }) . _List
 
+-- | The DRM settings, if any, that you want Elastic Transcoder to apply to the
+-- output files associated with this playlist.
+p2PlayReadyDrm :: Lens' Playlist (Maybe PlayReadyDrm)
+p2PlayReadyDrm = lens _p2PlayReadyDrm (\s a -> s { _p2PlayReadyDrm = a })
+
 -- | The status of the job with which the playlist is associated.
 p2Status :: Lens' Playlist (Maybe Text)
 p2Status = lens _p2Status (\s a -> s { _p2Status = a })
@@ -3359,6 +3675,7 @@ instance FromJSON Playlist where
         <*> o .:? "HlsContentProtection"
         <*> o .:? "Name"
         <*> o .:? "OutputKeys" .!= mempty
+        <*> o .:? "PlayReadyDrm"
         <*> o .:? "Status"
         <*> o .:? "StatusDetail"
 
@@ -3368,6 +3685,7 @@ instance ToJSON Playlist where
         , "Format"               .= _p2Format
         , "OutputKeys"           .= _p2OutputKeys
         , "HlsContentProtection" .= _p2HlsContentProtection
+        , "PlayReadyDrm"         .= _p2PlayReadyDrm
         , "Status"               .= _p2Status
         , "StatusDetail"         .= _p2StatusDetail
         ]
@@ -3463,13 +3781,14 @@ instance ToJSON Clip where
         ]
 
 data JobInput = JobInput
-    { _jiAspectRatio :: Maybe Text
-    , _jiContainer   :: Maybe Text
-    , _jiEncryption  :: Maybe Encryption
-    , _jiFrameRate   :: Maybe Text
-    , _jiInterlaced  :: Maybe Text
-    , _jiKey         :: Maybe Text
-    , _jiResolution  :: Maybe Text
+    { _jiAspectRatio        :: Maybe Text
+    , _jiContainer          :: Maybe Text
+    , _jiDetectedProperties :: Maybe DetectedProperties
+    , _jiEncryption         :: Maybe Encryption
+    , _jiFrameRate          :: Maybe Text
+    , _jiInterlaced         :: Maybe Text
+    , _jiKey                :: Maybe Text
+    , _jiResolution         :: Maybe Text
     } deriving (Eq, Read, Show)
 
 -- | 'JobInput' constructor.
@@ -3479,6 +3798,8 @@ data JobInput = JobInput
 -- * 'jiAspectRatio' @::@ 'Maybe' 'Text'
 --
 -- * 'jiContainer' @::@ 'Maybe' 'Text'
+--
+-- * 'jiDetectedProperties' @::@ 'Maybe' 'DetectedProperties'
 --
 -- * 'jiEncryption' @::@ 'Maybe' 'Encryption'
 --
@@ -3492,13 +3813,14 @@ data JobInput = JobInput
 --
 jobInput :: JobInput
 jobInput = JobInput
-    { _jiKey         = Nothing
-    , _jiFrameRate   = Nothing
-    , _jiResolution  = Nothing
-    , _jiAspectRatio = Nothing
-    , _jiInterlaced  = Nothing
-    , _jiContainer   = Nothing
-    , _jiEncryption  = Nothing
+    { _jiKey                = Nothing
+    , _jiFrameRate          = Nothing
+    , _jiResolution         = Nothing
+    , _jiAspectRatio        = Nothing
+    , _jiInterlaced         = Nothing
+    , _jiContainer          = Nothing
+    , _jiEncryption         = Nothing
+    , _jiDetectedProperties = Nothing
     }
 
 -- | The aspect ratio of the input file. If you want Elastic Transcoder to
@@ -3521,6 +3843,11 @@ jiAspectRatio = lens _jiAspectRatio (\s a -> s { _jiAspectRatio = a })
 -- '3gp', 'aac', 'asf', 'avi', 'divx', 'flv', 'm4a', 'mkv', 'mov', 'mp3', 'mp4', 'mpeg', 'mpeg-ps', 'mpeg-ts', 'mxf', 'ogg', 'vob', 'wav', 'webm'
 jiContainer :: Lens' JobInput (Maybe Text)
 jiContainer = lens _jiContainer (\s a -> s { _jiContainer = a })
+
+-- | The detected properties of the input file.
+jiDetectedProperties :: Lens' JobInput (Maybe DetectedProperties)
+jiDetectedProperties =
+    lens _jiDetectedProperties (\s a -> s { _jiDetectedProperties = a })
 
 -- | The encryption settings, if any, that are used for decrypting your input
 -- files. If your input file is encrypted, you must specify the mode that
@@ -3572,6 +3899,7 @@ instance FromJSON JobInput where
     parseJSON = withObject "JobInput" $ \o -> JobInput
         <$> o .:? "AspectRatio"
         <*> o .:? "Container"
+        <*> o .:? "DetectedProperties"
         <*> o .:? "Encryption"
         <*> o .:? "FrameRate"
         <*> o .:? "Interlaced"
@@ -3580,11 +3908,12 @@ instance FromJSON JobInput where
 
 instance ToJSON JobInput where
     toJSON JobInput{..} = object
-        [ "Key"         .= _jiKey
-        , "FrameRate"   .= _jiFrameRate
-        , "Resolution"  .= _jiResolution
-        , "AspectRatio" .= _jiAspectRatio
-        , "Interlaced"  .= _jiInterlaced
-        , "Container"   .= _jiContainer
-        , "Encryption"  .= _jiEncryption
+        [ "Key"                .= _jiKey
+        , "FrameRate"          .= _jiFrameRate
+        , "Resolution"         .= _jiResolution
+        , "AspectRatio"        .= _jiAspectRatio
+        , "Interlaced"         .= _jiInterlaced
+        , "Container"          .= _jiContainer
+        , "Encryption"         .= _jiEncryption
+        , "DetectedProperties" .= _jiDetectedProperties
         ]

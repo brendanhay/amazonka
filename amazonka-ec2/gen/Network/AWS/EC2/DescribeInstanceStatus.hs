@@ -76,7 +76,8 @@
 -- you can do so manually. You can also avoid retirement of EBS-backed instances
 -- by manually restarting your instance when its event code is 'instance-retirement'. This ensures that your instance is started on a different underlying host.
 --
--- For more information about failed status checks, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstances.html TroubleshootingInstances with Failed Status Checks> in the /Amazon Elastic Compute Cloud UserGuide/. For more information about working with scheduled events, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-instances-status-check_sched.html#schedevents_actions Workingwith an Instance That Has a Scheduled Event> in the /Amazon Elastic ComputeCloud User Guide/.
+-- For more information about failed status checks, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstances.html TroubleshootingInstances with Failed Status Checks> in the /Amazon Elastic Compute Cloud UserGuide for Linux/. For more information about working with scheduled events,
+-- see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-instances-status-check_sched.html#schedevents_actions Working with an Instance That Has a Scheduled Event> in the /Amazon ElasticCompute Cloud User Guide for Linux/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInstanceStatus.html>
 module Network.AWS.EC2.DescribeInstanceStatus
@@ -196,18 +197,16 @@ disIncludeAllInstances =
 disInstanceIds :: Lens' DescribeInstanceStatus [Text]
 disInstanceIds = lens _disInstanceIds (\s a -> s { _disInstanceIds = a }) . _List
 
--- | The maximum number of paginated instance items per response. The call also
--- returns a token that you can specify in a subsequent call to get the next set
--- of results. If the value is greater than 1000, we return only 1000 items. You
--- cannot specify this parameter and the instance IDs parameter in the same
--- request.
---
--- Default: 1000
+-- | The maximum number of results to return for the request in a single page. The
+-- remaining results of the initial request can be seen by sending another
+-- request with the returned 'NextToken' value. This value can be between 5 and
+-- 1000; if 'MaxResults' is given a value larger than 1000, only 1000 results are
+-- returned. You cannot specify this parameter and the instance IDs parameter in
+-- the same request.
 disMaxResults :: Lens' DescribeInstanceStatus (Maybe Int)
 disMaxResults = lens _disMaxResults (\s a -> s { _disMaxResults = a })
 
--- | The next paginated set of results to return. (You received this token from a
--- prior call.)
+-- | The token to retrieve the next page of results.
 disNextToken :: Lens' DescribeInstanceStatus (Maybe Text)
 disNextToken = lens _disNextToken (\s a -> s { _disNextToken = a })
 
@@ -236,7 +235,8 @@ disrInstanceStatuses =
     lens _disrInstanceStatuses (\s a -> s { _disrInstanceStatuses = a })
         . _List
 
--- | The next paginated set of results to return.
+-- | The token to use to retrieve the next page of results. This value is 'null'
+-- when there are no more results to return.
 disrNextToken :: Lens' DescribeInstanceStatusResponse (Maybe Text)
 disrNextToken = lens _disrNextToken (\s a -> s { _disrNextToken = a })
 

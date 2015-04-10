@@ -28,7 +28,7 @@
 -- errors, and you pay a lower usage rate than the rate charged for On-Demand
 -- instances for the actual time used.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html Reserved Instance Marketplace> in the /AmazonElastic Compute Cloud User Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html Reserved Instance Marketplace> in the /AmazonElastic Compute Cloud User Guide for Linux/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeReservedInstancesOfferings.html>
 module Network.AWS.EC2.DescribeReservedInstancesOfferings
@@ -185,8 +185,7 @@ drioInstanceTenancy =
     lens _drioInstanceTenancy (\s a -> s { _drioInstanceTenancy = a })
 
 -- | The instance type on which the Reserved Instance can be used. For more
--- information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/
--- .
+-- information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud UserGuide for Linux/.
 drioInstanceType :: Lens' DescribeReservedInstancesOfferings (Maybe InstanceType)
 drioInstanceType = lens _drioInstanceType (\s a -> s { _drioInstanceType = a })
 
@@ -203,7 +202,9 @@ drioMaxInstanceCount :: Lens' DescribeReservedInstancesOfferings (Maybe Int)
 drioMaxInstanceCount =
     lens _drioMaxInstanceCount (\s a -> s { _drioMaxInstanceCount = a })
 
--- | The maximum number of offerings to return. The maximum is 100.
+-- | The maximum number of results to return for the request in a single page. The
+-- remaining results of the initial request can be seen by sending another
+-- request with the returned 'NextToken' value. The maximum is 100.
 --
 -- Default: 100
 drioMaxResults :: Lens' DescribeReservedInstancesOfferings (Maybe Int)
@@ -215,7 +216,7 @@ drioMaxResults = lens _drioMaxResults (\s a -> s { _drioMaxResults = a })
 drioMinDuration :: Lens' DescribeReservedInstancesOfferings (Maybe Integer)
 drioMinDuration = lens _drioMinDuration (\s a -> s { _drioMinDuration = a })
 
--- | The token to use when requesting the next paginated set of offerings.
+-- | The token to retrieve the next page of results.
 drioNextToken :: Lens' DescribeReservedInstancesOfferings (Maybe Text)
 drioNextToken = lens _drioNextToken (\s a -> s { _drioNextToken = a })
 
@@ -257,7 +258,8 @@ describeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsR
     , _driorNextToken                  = Nothing
     }
 
--- | The next paginated set of results to return.
+-- | The token to use to retrieve the next page of results. This value is 'null'
+-- when there are no more results to return.
 driorNextToken :: Lens' DescribeReservedInstancesOfferingsResponse (Maybe Text)
 driorNextToken = lens _driorNextToken (\s a -> s { _driorNextToken = a })
 

@@ -120,17 +120,18 @@ dcliFilters = lens _dcliFilters (\s a -> s { _dcliFilters = a }) . _List
 dcliInstanceIds :: Lens' DescribeClassicLinkInstances [Text]
 dcliInstanceIds = lens _dcliInstanceIds (\s a -> s { _dcliInstanceIds = a }) . _List
 
--- | The maximum number of items to return for this request. The request returns
--- a token that you can specify in a subsequent call to get the next set of
--- results. You cannot specify this parameter and the instance IDs parameter in
+-- | The maximum number of results to return for the request in a single page. The
+-- remaining results of the initial request can be seen by sending another
+-- request with the returned 'NextToken' value. This value can be between 5 and
+-- 1000; if 'MaxResults' is given a value larger than 1000, only 1000 results are
+-- returned. You cannot specify this parameter and the instance IDs parameter in
 -- the same request.
 --
 -- Constraint: If the value is greater than 1000, we return only 1000 items.
 dcliMaxResults :: Lens' DescribeClassicLinkInstances (Maybe Int)
 dcliMaxResults = lens _dcliMaxResults (\s a -> s { _dcliMaxResults = a })
 
--- | The token for the next set of items to return. (You received this token from
--- a prior call.)
+-- | The token to retrieve the next page of results.
 dcliNextToken :: Lens' DescribeClassicLinkInstances (Maybe Text)
 dcliNextToken = lens _dcliNextToken (\s a -> s { _dcliNextToken = a })
 
@@ -157,8 +158,8 @@ describeClassicLinkInstancesResponse = DescribeClassicLinkInstancesResponse
 dclirInstances :: Lens' DescribeClassicLinkInstancesResponse [ClassicLinkInstance]
 dclirInstances = lens _dclirInstances (\s a -> s { _dclirInstances = a }) . _List
 
--- | The token to use when requesting the next set of items. If there are no
--- additional items to return, the string is empty.
+-- | The token to use to retrieve the next page of results. This value is 'null'
+-- when there are no more results to return.
 dclirNextToken :: Lens' DescribeClassicLinkInstancesResponse (Maybe Text)
 dclirNextToken = lens _dclirNextToken (\s a -> s { _dclirNextToken = a })
 

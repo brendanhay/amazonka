@@ -26,7 +26,7 @@
 -- Instances are instances that Amazon EC2 launches when the bid price that you
 -- specify exceeds the current Spot Price. Amazon EC2 periodically sets the Spot
 -- Price based on available Spot Instance capacity and current Spot Instance
--- requests. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html Spot Instance Requests> in the /AmazonElastic Compute Cloud User Guide/.
+-- requests. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html Spot Instance Requests> in the /AmazonElastic Compute Cloud User Guide for Linux/.
 --
 -- You can use 'DescribeSpotInstanceRequests' to find a running Spot Instance by
 -- examining the response. If the status of the Spot Instance is 'fulfilled', the
@@ -163,7 +163,7 @@ dsirDryRun = lens _dsirDryRun (\s a -> s { _dsirDryRun = a })
 --
 -- 'state' - The state of the Spot Instance request ('open' | 'active' | 'closed' | 'cancelled' | 'failed'). Spot bid status information can help you track your Amazon EC2
 -- Spot Instance requests. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html Spot Bid Status> in the
--- Amazon Elastic Compute Cloud User Guide.
+-- Amazon Elastic Compute Cloud User Guide for Linux.
 --
 -- 'status-code' - The short code describing the most recent evaluation of your
 -- Spot Instance request.

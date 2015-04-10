@@ -32,6 +32,21 @@ module Network.AWS.IAM.Types
     -- ** XML
     , ns
 
+    -- * ManagedPolicyDetail
+    , ManagedPolicyDetail
+    , managedPolicyDetail
+    , mpdArn
+    , mpdAttachmentCount
+    , mpdCreateDate
+    , mpdDefaultVersionId
+    , mpdDescription
+    , mpdIsAttachable
+    , mpdPath
+    , mpdPolicyId
+    , mpdPolicyName
+    , mpdPolicyVersionList
+    , mpdUpdateDate
+
     -- * PolicyRole
     , PolicyRole
     , policyRole
@@ -99,6 +114,7 @@ module Network.AWS.IAM.Types
     , roleDetail
     , rdArn
     , rdAssumeRolePolicyDocument
+    , rdAttachedManagedPolicies
     , rdCreateDate
     , rdInstanceProfileList
     , rdPath
@@ -141,6 +157,7 @@ module Network.AWS.IAM.Types
     , GroupDetail
     , groupDetail
     , gdArn
+    , gdAttachedManagedPolicies
     , gdCreateDate
     , gdGroupId
     , gdGroupName
@@ -198,6 +215,7 @@ module Network.AWS.IAM.Types
     , UserDetail
     , userDetail
     , udArn
+    , udAttachedManagedPolicies
     , udCreateDate
     , udGroupList
     , udPath
@@ -316,6 +334,151 @@ instance AWSService IAM where
 ns :: Text
 ns = "https://iam.amazonaws.com/doc/2010-05-08/"
 {-# INLINE ns #-}
+
+data ManagedPolicyDetail = ManagedPolicyDetail
+    { _mpdArn               :: Maybe Text
+    , _mpdAttachmentCount   :: Maybe Int
+    , _mpdCreateDate        :: Maybe ISO8601
+    , _mpdDefaultVersionId  :: Maybe Text
+    , _mpdDescription       :: Maybe Text
+    , _mpdIsAttachable      :: Maybe Bool
+    , _mpdPath              :: Maybe Text
+    , _mpdPolicyId          :: Maybe Text
+    , _mpdPolicyName        :: Maybe Text
+    , _mpdPolicyVersionList :: List "member" PolicyVersion
+    , _mpdUpdateDate        :: Maybe ISO8601
+    } deriving (Eq, Read, Show)
+
+-- | 'ManagedPolicyDetail' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'mpdArn' @::@ 'Maybe' 'Text'
+--
+-- * 'mpdAttachmentCount' @::@ 'Maybe' 'Int'
+--
+-- * 'mpdCreateDate' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'mpdDefaultVersionId' @::@ 'Maybe' 'Text'
+--
+-- * 'mpdDescription' @::@ 'Maybe' 'Text'
+--
+-- * 'mpdIsAttachable' @::@ 'Maybe' 'Bool'
+--
+-- * 'mpdPath' @::@ 'Maybe' 'Text'
+--
+-- * 'mpdPolicyId' @::@ 'Maybe' 'Text'
+--
+-- * 'mpdPolicyName' @::@ 'Maybe' 'Text'
+--
+-- * 'mpdPolicyVersionList' @::@ ['PolicyVersion']
+--
+-- * 'mpdUpdateDate' @::@ 'Maybe' 'UTCTime'
+--
+managedPolicyDetail :: ManagedPolicyDetail
+managedPolicyDetail = ManagedPolicyDetail
+    { _mpdPolicyName        = Nothing
+    , _mpdPolicyId          = Nothing
+    , _mpdArn               = Nothing
+    , _mpdPath              = Nothing
+    , _mpdDefaultVersionId  = Nothing
+    , _mpdAttachmentCount   = Nothing
+    , _mpdIsAttachable      = Nothing
+    , _mpdDescription       = Nothing
+    , _mpdCreateDate        = Nothing
+    , _mpdUpdateDate        = Nothing
+    , _mpdPolicyVersionList = mempty
+    }
+
+mpdArn :: Lens' ManagedPolicyDetail (Maybe Text)
+mpdArn = lens _mpdArn (\s a -> s { _mpdArn = a })
+
+-- | The number of principal entities (users, groups, and roles) that the policy
+-- is attached to.
+mpdAttachmentCount :: Lens' ManagedPolicyDetail (Maybe Int)
+mpdAttachmentCount =
+    lens _mpdAttachmentCount (\s a -> s { _mpdAttachmentCount = a })
+
+-- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the policy was created.
+mpdCreateDate :: Lens' ManagedPolicyDetail (Maybe UTCTime)
+mpdCreateDate = lens _mpdCreateDate (\s a -> s { _mpdCreateDate = a }) . mapping _Time
+
+-- | The identifier for the version of the policy that is set as the default
+-- (operative) version.
+--
+-- For more information about policy versions, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for ManagedPolicies> in the /Using IAM/ guide.
+mpdDefaultVersionId :: Lens' ManagedPolicyDetail (Maybe Text)
+mpdDefaultVersionId =
+    lens _mpdDefaultVersionId (\s a -> s { _mpdDefaultVersionId = a })
+
+-- | A friendly description of the policy.
+mpdDescription :: Lens' ManagedPolicyDetail (Maybe Text)
+mpdDescription = lens _mpdDescription (\s a -> s { _mpdDescription = a })
+
+-- | Specifies whether the policy can be attached to an IAM user, group, or role.
+mpdIsAttachable :: Lens' ManagedPolicyDetail (Maybe Bool)
+mpdIsAttachable = lens _mpdIsAttachable (\s a -> s { _mpdIsAttachable = a })
+
+-- | The path to the policy.
+--
+-- For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
+mpdPath :: Lens' ManagedPolicyDetail (Maybe Text)
+mpdPath = lens _mpdPath (\s a -> s { _mpdPath = a })
+
+-- | The stable and unique string identifying the policy.
+--
+-- For more information about IDs, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers> in the /Using IAM/ guide.
+mpdPolicyId :: Lens' ManagedPolicyDetail (Maybe Text)
+mpdPolicyId = lens _mpdPolicyId (\s a -> s { _mpdPolicyId = a })
+
+-- | The friendly name (not ARN) identifying the policy.
+mpdPolicyName :: Lens' ManagedPolicyDetail (Maybe Text)
+mpdPolicyName = lens _mpdPolicyName (\s a -> s { _mpdPolicyName = a })
+
+-- | A list containing information about the versions of the policy.
+mpdPolicyVersionList :: Lens' ManagedPolicyDetail [PolicyVersion]
+mpdPolicyVersionList =
+    lens _mpdPolicyVersionList (\s a -> s { _mpdPolicyVersionList = a })
+        . _List
+
+-- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the policy was last
+-- updated.
+--
+-- When a policy has only one version, this field contains the date and time
+-- when the policy was created. When a policy has more than one version, this
+-- field contains the date and time when the most recent policy version was
+-- created.
+mpdUpdateDate :: Lens' ManagedPolicyDetail (Maybe UTCTime)
+mpdUpdateDate = lens _mpdUpdateDate (\s a -> s { _mpdUpdateDate = a }) . mapping _Time
+
+instance FromXML ManagedPolicyDetail where
+    parseXML x = ManagedPolicyDetail
+        <$> x .@? "Arn"
+        <*> x .@? "AttachmentCount"
+        <*> x .@? "CreateDate"
+        <*> x .@? "DefaultVersionId"
+        <*> x .@? "Description"
+        <*> x .@? "IsAttachable"
+        <*> x .@? "Path"
+        <*> x .@? "PolicyId"
+        <*> x .@? "PolicyName"
+        <*> x .@? "PolicyVersionList" .!@ mempty
+        <*> x .@? "UpdateDate"
+
+instance ToQuery ManagedPolicyDetail where
+    toQuery ManagedPolicyDetail{..} = mconcat
+        [ "Arn"               =? _mpdArn
+        , "AttachmentCount"   =? _mpdAttachmentCount
+        , "CreateDate"        =? _mpdCreateDate
+        , "DefaultVersionId"  =? _mpdDefaultVersionId
+        , "Description"       =? _mpdDescription
+        , "IsAttachable"      =? _mpdIsAttachable
+        , "Path"              =? _mpdPath
+        , "PolicyId"          =? _mpdPolicyId
+        , "PolicyName"        =? _mpdPolicyName
+        , "PolicyVersionList" =? _mpdPolicyVersionList
+        , "UpdateDate"        =? _mpdUpdateDate
+        ]
 
 newtype PolicyRole = PolicyRole
     { _prRoleName :: Maybe Text
@@ -707,8 +870,7 @@ pvCreateDate = lens _pvCreateDate (\s a -> s { _pvCreateDate = a }) . mapping _T
 -- | The policy document.
 --
 -- The policy document is returned in the response to the 'GetPolicyVersion'
--- operation. It is not included in the response to the 'ListPolicyVersions'
--- operation.
+-- operation. It is not included in the response to the 'ListPolicyVersions' or 'GetAccountAuthorizationDetails' operations.
 pvDocument :: Lens' PolicyVersion (Maybe Text)
 pvDocument = lens _pvDocument (\s a -> s { _pvDocument = a })
 
@@ -830,6 +992,7 @@ instance ToQuery InstanceProfile where
 data RoleDetail = RoleDetail
     { _rdArn                      :: Maybe Text
     , _rdAssumeRolePolicyDocument :: Maybe Text
+    , _rdAttachedManagedPolicies  :: List "member" AttachedPolicy
     , _rdCreateDate               :: Maybe ISO8601
     , _rdInstanceProfileList      :: List "member" InstanceProfile
     , _rdPath                     :: Maybe Text
@@ -845,6 +1008,8 @@ data RoleDetail = RoleDetail
 -- * 'rdArn' @::@ 'Maybe' 'Text'
 --
 -- * 'rdAssumeRolePolicyDocument' @::@ 'Maybe' 'Text'
+--
+-- * 'rdAttachedManagedPolicies' @::@ ['AttachedPolicy']
 --
 -- * 'rdCreateDate' @::@ 'Maybe' 'UTCTime'
 --
@@ -868,6 +1033,7 @@ roleDetail = RoleDetail
     , _rdAssumeRolePolicyDocument = Nothing
     , _rdInstanceProfileList      = mempty
     , _rdRolePolicyList           = mempty
+    , _rdAttachedManagedPolicies  = mempty
     }
 
 rdArn :: Lens' RoleDetail (Maybe Text)
@@ -880,6 +1046,14 @@ rdAssumeRolePolicyDocument :: Lens' RoleDetail (Maybe Text)
 rdAssumeRolePolicyDocument =
     lens _rdAssumeRolePolicyDocument
         (\s a -> s { _rdAssumeRolePolicyDocument = a })
+
+-- | A list of managed policies attached to the role. These policies are the
+-- role's access (permissions) policies.
+rdAttachedManagedPolicies :: Lens' RoleDetail [AttachedPolicy]
+rdAttachedManagedPolicies =
+    lens _rdAttachedManagedPolicies
+        (\s a -> s { _rdAttachedManagedPolicies = a })
+            . _List
 
 -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the role was created.
 rdCreateDate :: Lens' RoleDetail (Maybe UTCTime)
@@ -904,7 +1078,8 @@ rdRoleId = lens _rdRoleId (\s a -> s { _rdRoleId = a })
 rdRoleName :: Lens' RoleDetail (Maybe Text)
 rdRoleName = lens _rdRoleName (\s a -> s { _rdRoleName = a })
 
--- | A list of the role's access (permissions) policies.
+-- | A list of inline policies embedded in the role. These policies are the role's
+-- access (permissions) policies.
 rdRolePolicyList :: Lens' RoleDetail [PolicyDetail]
 rdRolePolicyList = lens _rdRolePolicyList (\s a -> s { _rdRolePolicyList = a }) . _List
 
@@ -912,6 +1087,7 @@ instance FromXML RoleDetail where
     parseXML x = RoleDetail
         <$> x .@? "Arn"
         <*> x .@? "AssumeRolePolicyDocument"
+        <*> x .@? "AttachedManagedPolicies" .!@ mempty
         <*> x .@? "CreateDate"
         <*> x .@? "InstanceProfileList" .!@ mempty
         <*> x .@? "Path"
@@ -923,6 +1099,7 @@ instance ToQuery RoleDetail where
     toQuery RoleDetail{..} = mconcat
         [ "Arn"                      =? _rdArn
         , "AssumeRolePolicyDocument" =? _rdAssumeRolePolicyDocument
+        , "AttachedManagedPolicies"  =? _rdAttachedManagedPolicies
         , "CreateDate"               =? _rdCreateDate
         , "InstanceProfileList"      =? _rdInstanceProfileList
         , "Path"                     =? _rdPath
@@ -1121,26 +1298,32 @@ instance ToQuery LoginProfile where
         ]
 
 data EntityType
-    = ETGroup -- ^ Group
-    | ETRole  -- ^ Role
-    | ETUser  -- ^ User
+    = ETAWSManagedPolicy   -- ^ AWSManagedPolicy
+    | ETGroup              -- ^ Group
+    | ETLocalManagedPolicy -- ^ LocalManagedPolicy
+    | ETRole               -- ^ Role
+    | ETUser               -- ^ User
       deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable EntityType
 
 instance FromText EntityType where
     parser = takeLowerText >>= \case
-        "group" -> pure ETGroup
-        "role"  -> pure ETRole
-        "user"  -> pure ETUser
-        e       -> fail $
+        "awsmanagedpolicy"   -> pure ETAWSManagedPolicy
+        "group"              -> pure ETGroup
+        "localmanagedpolicy" -> pure ETLocalManagedPolicy
+        "role"               -> pure ETRole
+        "user"               -> pure ETUser
+        e                    -> fail $
             "Failure parsing EntityType from " ++ show e
 
 instance ToText EntityType where
     toText = \case
-        ETGroup -> "Group"
-        ETRole  -> "Role"
-        ETUser  -> "User"
+        ETAWSManagedPolicy   -> "AWSManagedPolicy"
+        ETGroup              -> "Group"
+        ETLocalManagedPolicy -> "LocalManagedPolicy"
+        ETRole               -> "Role"
+        ETUser               -> "User"
 
 instance ToByteString EntityType
 instance ToHeader     EntityType
@@ -1245,12 +1428,13 @@ instance FromXML SummaryKeyType where
     parseXML = parseXMLText "SummaryKeyType"
 
 data GroupDetail = GroupDetail
-    { _gdArn             :: Maybe Text
-    , _gdCreateDate      :: Maybe ISO8601
-    , _gdGroupId         :: Maybe Text
-    , _gdGroupName       :: Maybe Text
-    , _gdGroupPolicyList :: List "member" PolicyDetail
-    , _gdPath            :: Maybe Text
+    { _gdArn                     :: Maybe Text
+    , _gdAttachedManagedPolicies :: List "member" AttachedPolicy
+    , _gdCreateDate              :: Maybe ISO8601
+    , _gdGroupId                 :: Maybe Text
+    , _gdGroupName               :: Maybe Text
+    , _gdGroupPolicyList         :: List "member" PolicyDetail
+    , _gdPath                    :: Maybe Text
     } deriving (Eq, Read, Show)
 
 -- | 'GroupDetail' constructor.
@@ -1258,6 +1442,8 @@ data GroupDetail = GroupDetail
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gdArn' @::@ 'Maybe' 'Text'
+--
+-- * 'gdAttachedManagedPolicies' @::@ ['AttachedPolicy']
 --
 -- * 'gdCreateDate' @::@ 'Maybe' 'UTCTime'
 --
@@ -1271,16 +1457,24 @@ data GroupDetail = GroupDetail
 --
 groupDetail :: GroupDetail
 groupDetail = GroupDetail
-    { _gdPath            = Nothing
-    , _gdGroupName       = Nothing
-    , _gdGroupId         = Nothing
-    , _gdArn             = Nothing
-    , _gdCreateDate      = Nothing
-    , _gdGroupPolicyList = mempty
+    { _gdPath                    = Nothing
+    , _gdGroupName               = Nothing
+    , _gdGroupId                 = Nothing
+    , _gdArn                     = Nothing
+    , _gdCreateDate              = Nothing
+    , _gdGroupPolicyList         = mempty
+    , _gdAttachedManagedPolicies = mempty
     }
 
 gdArn :: Lens' GroupDetail (Maybe Text)
 gdArn = lens _gdArn (\s a -> s { _gdArn = a })
+
+-- | A list of the managed policies attached to the group.
+gdAttachedManagedPolicies :: Lens' GroupDetail [AttachedPolicy]
+gdAttachedManagedPolicies =
+    lens _gdAttachedManagedPolicies
+        (\s a -> s { _gdAttachedManagedPolicies = a })
+            . _List
 
 -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the group was created.
 gdCreateDate :: Lens' GroupDetail (Maybe UTCTime)
@@ -1295,7 +1489,7 @@ gdGroupId = lens _gdGroupId (\s a -> s { _gdGroupId = a })
 gdGroupName :: Lens' GroupDetail (Maybe Text)
 gdGroupName = lens _gdGroupName (\s a -> s { _gdGroupName = a })
 
--- | A list of the group's policies.
+-- | A list of the inline policies embedded in the group.
 gdGroupPolicyList :: Lens' GroupDetail [PolicyDetail]
 gdGroupPolicyList =
     lens _gdGroupPolicyList (\s a -> s { _gdGroupPolicyList = a })
@@ -1309,6 +1503,7 @@ gdPath = lens _gdPath (\s a -> s { _gdPath = a })
 instance FromXML GroupDetail where
     parseXML x = GroupDetail
         <$> x .@? "Arn"
+        <*> x .@? "AttachedManagedPolicies" .!@ mempty
         <*> x .@? "CreateDate"
         <*> x .@? "GroupId"
         <*> x .@? "GroupName"
@@ -1317,12 +1512,13 @@ instance FromXML GroupDetail where
 
 instance ToQuery GroupDetail where
     toQuery GroupDetail{..} = mconcat
-        [ "Arn"             =? _gdArn
-        , "CreateDate"      =? _gdCreateDate
-        , "GroupId"         =? _gdGroupId
-        , "GroupName"       =? _gdGroupName
-        , "GroupPolicyList" =? _gdGroupPolicyList
-        , "Path"            =? _gdPath
+        [ "Arn"                     =? _gdArn
+        , "AttachedManagedPolicies" =? _gdAttachedManagedPolicies
+        , "CreateDate"              =? _gdCreateDate
+        , "GroupId"                 =? _gdGroupId
+        , "GroupName"               =? _gdGroupName
+        , "GroupPolicyList"         =? _gdGroupPolicyList
+        , "Path"                    =? _gdPath
         ]
 
 data ReportStateType
@@ -1716,13 +1912,14 @@ instance FromXML PolicyScopeType where
     parseXML = parseXMLText "PolicyScopeType"
 
 data UserDetail = UserDetail
-    { _udArn            :: Maybe Text
-    , _udCreateDate     :: Maybe ISO8601
-    , _udGroupList      :: List "member" Text
-    , _udPath           :: Maybe Text
-    , _udUserId         :: Maybe Text
-    , _udUserName       :: Maybe Text
-    , _udUserPolicyList :: List "member" PolicyDetail
+    { _udArn                     :: Maybe Text
+    , _udAttachedManagedPolicies :: List "member" AttachedPolicy
+    , _udCreateDate              :: Maybe ISO8601
+    , _udGroupList               :: List "member" Text
+    , _udPath                    :: Maybe Text
+    , _udUserId                  :: Maybe Text
+    , _udUserName                :: Maybe Text
+    , _udUserPolicyList          :: List "member" PolicyDetail
     } deriving (Eq, Read, Show)
 
 -- | 'UserDetail' constructor.
@@ -1730,6 +1927,8 @@ data UserDetail = UserDetail
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'udArn' @::@ 'Maybe' 'Text'
+--
+-- * 'udAttachedManagedPolicies' @::@ ['AttachedPolicy']
 --
 -- * 'udCreateDate' @::@ 'Maybe' 'UTCTime'
 --
@@ -1745,17 +1944,25 @@ data UserDetail = UserDetail
 --
 userDetail :: UserDetail
 userDetail = UserDetail
-    { _udPath           = Nothing
-    , _udUserName       = Nothing
-    , _udUserId         = Nothing
-    , _udArn            = Nothing
-    , _udCreateDate     = Nothing
-    , _udUserPolicyList = mempty
-    , _udGroupList      = mempty
+    { _udPath                    = Nothing
+    , _udUserName                = Nothing
+    , _udUserId                  = Nothing
+    , _udArn                     = Nothing
+    , _udCreateDate              = Nothing
+    , _udUserPolicyList          = mempty
+    , _udGroupList               = mempty
+    , _udAttachedManagedPolicies = mempty
     }
 
 udArn :: Lens' UserDetail (Maybe Text)
 udArn = lens _udArn (\s a -> s { _udArn = a })
+
+-- | A list of the managed policies attached to the user.
+udAttachedManagedPolicies :: Lens' UserDetail [AttachedPolicy]
+udAttachedManagedPolicies =
+    lens _udAttachedManagedPolicies
+        (\s a -> s { _udAttachedManagedPolicies = a })
+            . _List
 
 -- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the user was created.
 udCreateDate :: Lens' UserDetail (Maybe UTCTime)
@@ -1779,13 +1986,14 @@ udUserId = lens _udUserId (\s a -> s { _udUserId = a })
 udUserName :: Lens' UserDetail (Maybe Text)
 udUserName = lens _udUserName (\s a -> s { _udUserName = a })
 
--- | A list of the user's policies.
+-- | A list of the inline policies embedded in the user.
 udUserPolicyList :: Lens' UserDetail [PolicyDetail]
 udUserPolicyList = lens _udUserPolicyList (\s a -> s { _udUserPolicyList = a }) . _List
 
 instance FromXML UserDetail where
     parseXML x = UserDetail
         <$> x .@? "Arn"
+        <*> x .@? "AttachedManagedPolicies" .!@ mempty
         <*> x .@? "CreateDate"
         <*> x .@? "GroupList" .!@ mempty
         <*> x .@? "Path"
@@ -1795,13 +2003,14 @@ instance FromXML UserDetail where
 
 instance ToQuery UserDetail where
     toQuery UserDetail{..} = mconcat
-        [ "Arn"            =? _udArn
-        , "CreateDate"     =? _udCreateDate
-        , "GroupList"      =? _udGroupList
-        , "Path"           =? _udPath
-        , "UserId"         =? _udUserId
-        , "UserName"       =? _udUserName
-        , "UserPolicyList" =? _udUserPolicyList
+        [ "Arn"                     =? _udArn
+        , "AttachedManagedPolicies" =? _udAttachedManagedPolicies
+        , "CreateDate"              =? _udCreateDate
+        , "GroupList"               =? _udGroupList
+        , "Path"                    =? _udPath
+        , "UserId"                  =? _udUserId
+        , "UserName"                =? _udUserName
+        , "UserPolicyList"          =? _udUserPolicyList
         ]
 
 data Policy = Policy

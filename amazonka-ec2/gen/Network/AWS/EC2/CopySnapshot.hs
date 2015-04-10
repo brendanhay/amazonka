@@ -34,7 +34,7 @@
 -- Copying snapshots that were encrypted with non-default AWS Key Management
 -- Service (KMS) master keys is not supported at this time.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html Copying an Amazon EBS Snapshot> in the /AmazonElastic Compute Cloud User Guide/.
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html Copying an Amazon EBS Snapshot> in the /AmazonElastic Compute Cloud User Guide for Linux/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CopySnapshot.html>
 module Network.AWS.EC2.CopySnapshot
@@ -105,8 +105,16 @@ copySnapshot p1 p2 = CopySnapshot
 csDescription :: Lens' CopySnapshot (Maybe Text)
 csDescription = lens _csDescription (\s a -> s { _csDescription = a })
 
--- | The destination region of the snapshot copy operation. This parameter is
--- required in the 'PresignedUrl'.
+-- | The destination region to use in the 'PresignedUrl' parameter of a snapshot
+-- copy operation. This parameter is only valid for specifying the destination
+-- region in a 'PresignedUrl' parameter, where it is required.
+--
+-- 'CopySnapshot' sends the snapshot copy to the regional endpoint that you send
+-- the HTTP request to, such as 'ec2.us-east-1.amazonaws.com' (in the AWS CLI,
+-- this is specified with the '--region' parameter or the default region in your
+-- AWS configuration file).
+--
+--
 csDestinationRegion :: Lens' CopySnapshot (Maybe Text)
 csDestinationRegion =
     lens _csDestinationRegion (\s a -> s { _csDestinationRegion = a })

@@ -126,7 +126,7 @@ miaDryRun = lens _miaDryRun (\s a -> s { _miaDryRun = a })
 miaImageId :: Lens' ModifyImageAttribute Text
 miaImageId = lens _miaImageId (\s a -> s { _miaImageId = a })
 
-
+-- | A launch permission modification.
 miaLaunchPermission :: Lens' ModifyImageAttribute (Maybe LaunchPermissionModifications)
 miaLaunchPermission =
     lens _miaLaunchPermission (\s a -> s { _miaLaunchPermission = a })

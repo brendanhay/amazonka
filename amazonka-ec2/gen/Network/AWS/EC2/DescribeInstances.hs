@@ -108,7 +108,7 @@ di1DryRun = lens _di1DryRun (\s a -> s { _di1DryRun = a })
 -- whether the Amazon EBS volume is deleted on instance termination.
 --
 -- 'block-device-mapping.device-name' - The device name for the Amazon EBS
--- volume (for example, '/dev/sdh').
+-- volume (for example, '/dev/sdh' or 'xvdh').
 --
 -- 'block-device-mapping.status' - The status for the Amazon EBS volume ('attaching' | 'attached' | 'detaching' | 'detached').
 --
@@ -143,7 +143,7 @@ di1DryRun = lens _di1DryRun (\s a -> s { _di1DryRun = a })
 --
 -- 'instance-state-name' - The state of the instance ('pending' | 'running' | 'shutting-down' | 'terminated' | 'stopping' | 'stopped').
 --
--- 'instance-type' - The type of instance (for example, 'm1.small').
+-- 'instance-type' - The type of instance (for example, 't2.micro').
 --
 -- 'instance.group-id' - The ID of the security group for the instance.
 --
@@ -197,7 +197,7 @@ di1DryRun = lens _di1DryRun (\s a -> s { _di1DryRun = a })
 -- get one reservation ID.
 --
 -- 'root-device-name' - The name of the root device for the instance (for
--- example, '/dev/sda1').
+-- example, '/dev/sda1' or '/dev/xvda').
 --
 -- 'root-device-type' - The type of root device that the instance uses ('ebs' | 'instance-store').
 --
@@ -262,7 +262,7 @@ di1DryRun = lens _di1DryRun (\s a -> s { _di1DryRun = a })
 -- 'network-interface-private-dns-name' - The private DNS name of the network
 -- interface.
 --
--- 'network-interface.source-destination-check' - Whether the network interface
+-- 'network-interface.source-dest-check' - Whether the network interface
 -- performs source/destination checking. A value of 'true' means checking is
 -- enabled, and 'false' means checking is disabled. The value must be 'false' for
 -- the network interface to perform network address translation (NAT) in your
@@ -328,16 +328,16 @@ di1Filters = lens _di1Filters (\s a -> s { _di1Filters = a }) . _List
 di1InstanceIds :: Lens' DescribeInstances [Text]
 di1InstanceIds = lens _di1InstanceIds (\s a -> s { _di1InstanceIds = a }) . _List
 
--- | The maximum number of items to return for this call. The call also returns a
--- token that you can specify in a subsequent call to get the next set of
--- results. If the value is greater than 1000, we return only 1000 items. You
--- cannot specify this parameter and the instance IDs parameter in the same
--- request.
+-- | The maximum number of results to return for the request in a single page. The
+-- remaining results of the initial request can be seen by sending another
+-- request with the returned 'NextToken' value. This value can be between 5 and
+-- 1000; if 'MaxResults' is given a value larger than 1000, only 1000 results are
+-- returned. You cannot specify this parameter and the instance IDs parameter in
+-- the same request.
 di1MaxResults :: Lens' DescribeInstances (Maybe Int)
 di1MaxResults = lens _di1MaxResults (\s a -> s { _di1MaxResults = a })
 
--- | The token for the next set of items to return. (You received this token from
--- a prior call.)
+-- | The token to request the next page of results.
 di1NextToken :: Lens' DescribeInstances (Maybe Text)
 di1NextToken = lens _di1NextToken (\s a -> s { _di1NextToken = a })
 
@@ -360,8 +360,8 @@ describeInstancesResponse = DescribeInstancesResponse
     , _dirNextToken    = Nothing
     }
 
--- | The token to use when requesting the next set of items. If there are no
--- additional items to return, the string is empty.
+-- | The token to use to retrieve the next page of results. This value is 'null'
+-- when there are no more results to return.
 dirNextToken :: Lens' DescribeInstancesResponse (Maybe Text)
 dirNextToken = lens _dirNextToken (\s a -> s { _dirNextToken = a })
 

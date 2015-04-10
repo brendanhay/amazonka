@@ -154,13 +154,21 @@ dvsDryRun = lens _dvsDryRun (\s a -> s { _dvsDryRun = a })
 dvsFilters :: Lens' DescribeVolumeStatus [Filter]
 dvsFilters = lens _dvsFilters (\s a -> s { _dvsFilters = a }) . _List
 
--- | The maximum number of paginated volume items per response. You cannot specify
--- this parameter and the volume IDs parameter in the same request.
+-- | The maximum number of volume results returned by 'DescribeVolumeStatus' in
+-- paginated output. When this parameter is used, the request only returns 'MaxResults' results in a single page along with a 'NextToken' response element. The
+-- remaining results of the initial request can be seen by sending another
+-- request with the returned 'NextToken' value. This value can be between 5 and
+-- 1000; if 'MaxResults' is given a value larger than 1000, only 1000 results are
+-- returned. If this parameter is not used, then 'DescribeVolumeStatus' returns
+-- all results. You cannot specify this parameter and the volume IDs parameter
+-- in the same request.
 dvsMaxResults :: Lens' DescribeVolumeStatus (Maybe Int)
 dvsMaxResults = lens _dvsMaxResults (\s a -> s { _dvsMaxResults = a })
 
--- | The next paginated set of results to return using the pagination token
--- returned by a previous call.
+-- | The 'NextToken' value to include in a future 'DescribeVolumeStatus' request. When
+-- the results of the request exceed 'MaxResults', this value can be used to
+-- retrieve the next page of results. This value is 'null' when there are no more
+-- results to return.
 dvsNextToken :: Lens' DescribeVolumeStatus (Maybe Text)
 dvsNextToken = lens _dvsNextToken (\s a -> s { _dvsNextToken = a })
 
@@ -189,7 +197,8 @@ describeVolumeStatusResponse = DescribeVolumeStatusResponse
     , _dvsrNextToken      = Nothing
     }
 
--- | The next paginated set of results to return.
+-- | The token to use to retrieve the next page of results. This value is 'null'
+-- when there are no more results to return.
 dvsrNextToken :: Lens' DescribeVolumeStatusResponse (Maybe Text)
 dvsrNextToken = lens _dvsrNextToken (\s a -> s { _dvsrNextToken = a })
 

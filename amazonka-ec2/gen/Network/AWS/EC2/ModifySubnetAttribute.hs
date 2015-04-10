@@ -66,6 +66,8 @@ modifySubnetAttribute p1 = ModifySubnetAttribute
     , _msaMapPublicIpOnLaunch = Nothing
     }
 
+-- | Specify 'true' to indicate that instances launched into the specified subnet
+-- should be assigned public IP address.
 msaMapPublicIpOnLaunch :: Lens' ModifySubnetAttribute (Maybe AttributeBooleanValue)
 msaMapPublicIpOnLaunch =
     lens _msaMapPublicIpOnLaunch (\s a -> s { _msaMapPublicIpOnLaunch = a })

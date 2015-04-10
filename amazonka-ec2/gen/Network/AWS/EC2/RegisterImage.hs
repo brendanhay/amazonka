@@ -24,13 +24,13 @@
 
 -- | Registers an AMI. When you're creating an AMI, this is the final step you
 -- must complete before you can launch an instance from the AMI. For more
--- information about creating AMIs, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html Creating Your Own AMIs> in the /AmazonElastic Compute Cloud User Guide/.
+-- information about creating AMIs, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html Creating Your Own AMIs> in the /AmazonElastic Compute Cloud User Guide for Linux/.
 --
 -- For Amazon EBS-backed instances, 'CreateImage' creates and registers the AMI
 -- in a single request, so you don't have to register the AMI yourself.
 --
 -- You can also use 'RegisterImage' to create an Amazon EBS-backed AMI from a
--- snapshot of a root device volume. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_LaunchingInstanceFromSnapshot.html Launching anInstance from a Snapshot> in the /Amazon Elastic Compute Cloud User Guide/.
+-- snapshot of a root device volume. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_LaunchingInstanceFromSnapshot.html Launching anInstance from a Snapshot> in the /Amazon Elastic Compute Cloud User Guide forLinux/.
 --
 -- If needed, you can deregister an AMI at any time. Any modifications you make
 -- to an AMI backed by an instance store volume invalidates its registration. If
@@ -170,7 +170,7 @@ ri1Name = lens _ri1Name (\s a -> s { _ri1Name = a })
 ri1RamdiskId :: Lens' RegisterImage (Maybe Text)
 ri1RamdiskId = lens _ri1RamdiskId (\s a -> s { _ri1RamdiskId = a })
 
--- | The name of the root device (for example, '/dev/sda1', or 'xvda').
+-- | The name of the root device (for example, '/dev/sda1', or '/dev/xvda').
 ri1RootDeviceName :: Lens' RegisterImage (Maybe Text)
 ri1RootDeviceName =
     lens _ri1RootDeviceName (\s a -> s { _ri1RootDeviceName = a })

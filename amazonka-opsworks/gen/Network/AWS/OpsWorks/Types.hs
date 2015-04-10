@@ -125,6 +125,14 @@ module Network.AWS.OpsWorks.Types
     , ssName
     , ssStackId
 
+    -- * BlockDeviceMapping
+    , BlockDeviceMapping
+    , blockDeviceMapping
+    , bdmDeviceName
+    , bdmEbs
+    , bdmNoDevice
+    , bdmVirtualName
+
     -- * StackAttributesKeys
     , StackAttributesKeys (..)
 
@@ -252,6 +260,15 @@ module Network.AWS.OpsWorks.Types
     , scmName
     , scmVersion
 
+    -- * EbsBlockDevice
+    , EbsBlockDevice
+    , ebsBlockDevice
+    , ebdDeleteOnTermination
+    , ebdIops
+    , ebdSnapshotId
+    , ebdVolumeSize
+    , ebdVolumeType
+
     -- * LayerAttributesKeys
     , LayerAttributesKeys (..)
 
@@ -264,6 +281,9 @@ module Network.AWS.OpsWorks.Types
     , vcRaidLevel
     , vcSize
     , vcVolumeType
+
+    -- * VolumeType
+    , VolumeType (..)
 
     -- * ReportedOs
     , ReportedOs
@@ -390,6 +410,7 @@ module Network.AWS.OpsWorks.Types
     , iArchitecture
     , iAutoScalingType
     , iAvailabilityZone
+    , iBlockDeviceMappings
     , iCreatedAt
     , iEbsOptimized
     , iEc2InstanceId
@@ -408,6 +429,7 @@ module Network.AWS.OpsWorks.Types
     , iPublicDns
     , iPublicIp
     , iRegisteredBy
+    , iReportedAgentVersion
     , iReportedOs
     , iRootDeviceType
     , iRootDeviceVolumeId
@@ -1305,6 +1327,68 @@ instance ToJSON StackSummary where
         , "InstancesCount" .= _ssInstancesCount
         ]
 
+data BlockDeviceMapping = BlockDeviceMapping
+    { _bdmDeviceName  :: Maybe Text
+    , _bdmEbs         :: Maybe EbsBlockDevice
+    , _bdmNoDevice    :: Maybe Text
+    , _bdmVirtualName :: Maybe Text
+    } deriving (Eq, Read, Show)
+
+-- | 'BlockDeviceMapping' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'bdmDeviceName' @::@ 'Maybe' 'Text'
+--
+-- * 'bdmEbs' @::@ 'Maybe' 'EbsBlockDevice'
+--
+-- * 'bdmNoDevice' @::@ 'Maybe' 'Text'
+--
+-- * 'bdmVirtualName' @::@ 'Maybe' 'Text'
+--
+blockDeviceMapping :: BlockDeviceMapping
+blockDeviceMapping = BlockDeviceMapping
+    { _bdmDeviceName  = Nothing
+    , _bdmNoDevice    = Nothing
+    , _bdmVirtualName = Nothing
+    , _bdmEbs         = Nothing
+    }
+
+-- | The device name that is exposed to the instance, such as '/dev/sdh'. For the
+-- root device, you can use the explicit device name or you can set this
+-- parameter to 'ROOT_DEVICE' and AWS OpsWorks will provide the correct device
+-- name.
+bdmDeviceName :: Lens' BlockDeviceMapping (Maybe Text)
+bdmDeviceName = lens _bdmDeviceName (\s a -> s { _bdmDeviceName = a })
+
+-- | An 'EBSBlockDevice' that defines how to configure an Amazon EBS volume when the
+-- instance is launched.
+bdmEbs :: Lens' BlockDeviceMapping (Maybe EbsBlockDevice)
+bdmEbs = lens _bdmEbs (\s a -> s { _bdmEbs = a })
+
+-- | Suppresses the specified device included in the AMI's block device mapping.
+bdmNoDevice :: Lens' BlockDeviceMapping (Maybe Text)
+bdmNoDevice = lens _bdmNoDevice (\s a -> s { _bdmNoDevice = a })
+
+-- | The virtual device name. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_BlockDeviceMapping.html BlockDeviceMapping>.
+bdmVirtualName :: Lens' BlockDeviceMapping (Maybe Text)
+bdmVirtualName = lens _bdmVirtualName (\s a -> s { _bdmVirtualName = a })
+
+instance FromJSON BlockDeviceMapping where
+    parseJSON = withObject "BlockDeviceMapping" $ \o -> BlockDeviceMapping
+        <$> o .:? "DeviceName"
+        <*> o .:? "Ebs"
+        <*> o .:? "NoDevice"
+        <*> o .:? "VirtualName"
+
+instance ToJSON BlockDeviceMapping where
+    toJSON BlockDeviceMapping{..} = object
+        [ "DeviceName"  .= _bdmDeviceName
+        , "NoDevice"    .= _bdmNoDevice
+        , "VirtualName" .= _bdmVirtualName
+        , "Ebs"         .= _bdmEbs
+        ]
+
 data StackAttributesKeys
     = Color -- ^ Color
       deriving (Eq, Ord, Read, Show, Generic, Enum)
@@ -1859,9 +1943,15 @@ appEnableSsl :: Lens' App (Maybe Bool)
 appEnableSsl = lens _appEnableSsl (\s a -> s { _appEnableSsl = a })
 
 -- | An array of 'EnvironmentVariable' objects that specify environment variables to
--- be associated with the app. You can specify up to ten environment variables.
--- After you deploy the app, these variables are defined on the associated app
--- server instances.
+-- be associated with the app. After you deploy the app, these variables are
+-- defined on the associated app server instances. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables>.
+--
+-- There is no specific limit on the number of environment variables. However,
+-- the size of the associated data structure - which includes the variables'
+-- names, values, and protected flag values - cannot exceed 10 KB (10240 Bytes).
+-- This limit should accommodate most if not all use cases, but if you do exceed
+-- it, you will cause an exception (API) with an "Environment: is too large
+-- (maximum is 10KB)" message.
 appEnvironment :: Lens' App [EnvironmentVariable]
 appEnvironment = lens _appEnvironment (\s a -> s { _appEnvironment = a }) . _List
 
@@ -2375,6 +2465,77 @@ instance ToJSON StackConfigurationManager where
         , "Version" .= _scmVersion
         ]
 
+data EbsBlockDevice = EbsBlockDevice
+    { _ebdDeleteOnTermination :: Maybe Bool
+    , _ebdIops                :: Maybe Int
+    , _ebdSnapshotId          :: Maybe Text
+    , _ebdVolumeSize          :: Maybe Int
+    , _ebdVolumeType          :: Maybe VolumeType
+    } deriving (Eq, Read, Show)
+
+-- | 'EbsBlockDevice' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'ebdDeleteOnTermination' @::@ 'Maybe' 'Bool'
+--
+-- * 'ebdIops' @::@ 'Maybe' 'Int'
+--
+-- * 'ebdSnapshotId' @::@ 'Maybe' 'Text'
+--
+-- * 'ebdVolumeSize' @::@ 'Maybe' 'Int'
+--
+-- * 'ebdVolumeType' @::@ 'Maybe' 'VolumeType'
+--
+ebsBlockDevice :: EbsBlockDevice
+ebsBlockDevice = EbsBlockDevice
+    { _ebdSnapshotId          = Nothing
+    , _ebdIops                = Nothing
+    , _ebdVolumeSize          = Nothing
+    , _ebdVolumeType          = Nothing
+    , _ebdDeleteOnTermination = Nothing
+    }
+
+-- | Whether the volume is deleted on instance termination.
+ebdDeleteOnTermination :: Lens' EbsBlockDevice (Maybe Bool)
+ebdDeleteOnTermination =
+    lens _ebdDeleteOnTermination (\s a -> s { _ebdDeleteOnTermination = a })
+
+-- | The number of I/O operations per second (IOPS) that the volume supports. For
+-- more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html EbsBlockDevice>.
+ebdIops :: Lens' EbsBlockDevice (Maybe Int)
+ebdIops = lens _ebdIops (\s a -> s { _ebdIops = a })
+
+-- | The snapshot ID.
+ebdSnapshotId :: Lens' EbsBlockDevice (Maybe Text)
+ebdSnapshotId = lens _ebdSnapshotId (\s a -> s { _ebdSnapshotId = a })
+
+-- | The volume size, in GiB. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html EbsBlockDevice>.
+ebdVolumeSize :: Lens' EbsBlockDevice (Maybe Int)
+ebdVolumeSize = lens _ebdVolumeSize (\s a -> s { _ebdVolumeSize = a })
+
+-- | The volume type. 'gp2' for General Purpose (SSD) volumes, 'io1' for Provisioned
+-- IOPS (SSD) volumes, and 'standard' for Magnetic volumes.
+ebdVolumeType :: Lens' EbsBlockDevice (Maybe VolumeType)
+ebdVolumeType = lens _ebdVolumeType (\s a -> s { _ebdVolumeType = a })
+
+instance FromJSON EbsBlockDevice where
+    parseJSON = withObject "EbsBlockDevice" $ \o -> EbsBlockDevice
+        <$> o .:? "DeleteOnTermination"
+        <*> o .:? "Iops"
+        <*> o .:? "SnapshotId"
+        <*> o .:? "VolumeSize"
+        <*> o .:? "VolumeType"
+
+instance ToJSON EbsBlockDevice where
+    toJSON EbsBlockDevice{..} = object
+        [ "SnapshotId"          .= _ebdSnapshotId
+        , "Iops"                .= _ebdIops
+        , "VolumeSize"          .= _ebdVolumeSize
+        , "VolumeType"          .= _ebdVolumeType
+        , "DeleteOnTermination" .= _ebdDeleteOnTermination
+        ]
+
 data LayerAttributesKeys
     = BundlerVersion              -- ^ BundlerVersion
     | EnableHaproxyStats          -- ^ EnableHaproxyStats
@@ -2553,6 +2714,38 @@ instance ToJSON VolumeConfiguration where
         , "VolumeType"    .= _vcVolumeType
         , "Iops"          .= _vcIops
         ]
+
+data VolumeType
+    = Gp2      -- ^ gp2
+    | Io1      -- ^ io1
+    | Standard -- ^ standard
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
+
+instance Hashable VolumeType
+
+instance FromText VolumeType where
+    parser = takeLowerText >>= \case
+        "gp2"      -> pure Gp2
+        "io1"      -> pure Io1
+        "standard" -> pure Standard
+        e          -> fail $
+            "Failure parsing VolumeType from " ++ show e
+
+instance ToText VolumeType where
+    toText = \case
+        Gp2      -> "gp2"
+        Io1      -> "io1"
+        Standard -> "standard"
+
+instance ToByteString VolumeType
+instance ToHeader     VolumeType
+instance ToQuery      VolumeType
+
+instance FromJSON VolumeType where
+    parseJSON = parseJSONText "VolumeType"
+
+instance ToJSON VolumeType where
+    toJSON = toJSONText
 
 data ReportedOs = ReportedOs
     { _roFamily  :: Maybe Text
@@ -3327,8 +3520,8 @@ sDefaultRootDeviceType :: Lens' Stack (Maybe RootDeviceType)
 sDefaultRootDeviceType =
     lens _sDefaultRootDeviceType (\s a -> s { _sDefaultRootDeviceType = a })
 
--- | A default SSH key for the stack's instances. You can override this value when
--- you create or update an instance.
+-- | A default Amazon EC2 key pair for the stack's instances. You can override
+-- this value when you create or update an instance.
 sDefaultSshKeyName :: Lens' Stack (Maybe Text)
 sDefaultSshKeyName =
     lens _sDefaultSshKeyName (\s a -> s { _sDefaultSshKeyName = a })
@@ -3636,6 +3829,7 @@ data Instance = Instance
     , _iArchitecture             :: Maybe Architecture
     , _iAutoScalingType          :: Maybe AutoScalingType
     , _iAvailabilityZone         :: Maybe Text
+    , _iBlockDeviceMappings      :: List "BlockDeviceMappings" BlockDeviceMapping
     , _iCreatedAt                :: Maybe Text
     , _iEbsOptimized             :: Maybe Bool
     , _iEc2InstanceId            :: Maybe Text
@@ -3654,6 +3848,7 @@ data Instance = Instance
     , _iPublicDns                :: Maybe Text
     , _iPublicIp                 :: Maybe Text
     , _iRegisteredBy             :: Maybe Text
+    , _iReportedAgentVersion     :: Maybe Text
     , _iReportedOs               :: Maybe ReportedOs
     , _iRootDeviceType           :: Maybe RootDeviceType
     , _iRootDeviceVolumeId       :: Maybe Text
@@ -3678,6 +3873,8 @@ data Instance = Instance
 -- * 'iAutoScalingType' @::@ 'Maybe' 'AutoScalingType'
 --
 -- * 'iAvailabilityZone' @::@ 'Maybe' 'Text'
+--
+-- * 'iBlockDeviceMappings' @::@ ['BlockDeviceMapping']
 --
 -- * 'iCreatedAt' @::@ 'Maybe' 'Text'
 --
@@ -3714,6 +3911,8 @@ data Instance = Instance
 -- * 'iPublicIp' @::@ 'Maybe' 'Text'
 --
 -- * 'iRegisteredBy' @::@ 'Maybe' 'Text'
+--
+-- * 'iReportedAgentVersion' @::@ 'Maybe' 'Text'
 --
 -- * 'iReportedOs' @::@ 'Maybe' 'ReportedOs'
 --
@@ -3767,8 +3966,10 @@ instance' = Instance
     , _iArchitecture             = Nothing
     , _iRootDeviceType           = Nothing
     , _iRootDeviceVolumeId       = Nothing
+    , _iBlockDeviceMappings      = mempty
     , _iInstallUpdatesOnBoot     = Nothing
     , _iEbsOptimized             = Nothing
+    , _iReportedAgentVersion     = Nothing
     , _iReportedOs               = Nothing
     , _iInfrastructureClass      = Nothing
     , _iRegisteredBy             = Nothing
@@ -3792,6 +3993,13 @@ iAutoScalingType = lens _iAutoScalingType (\s a -> s { _iAutoScalingType = a })
 iAvailabilityZone :: Lens' Instance (Maybe Text)
 iAvailabilityZone =
     lens _iAvailabilityZone (\s a -> s { _iAvailabilityZone = a })
+
+-- | An array of 'BlockDeviceMapping' objects that specify the instance's block
+-- device mappings.
+iBlockDeviceMappings :: Lens' Instance [BlockDeviceMapping]
+iBlockDeviceMappings =
+    lens _iBlockDeviceMappings (\s a -> s { _iBlockDeviceMappings = a })
+        . _List
 
 -- | The time that the instance was created.
 iCreatedAt :: Lens' Instance (Maybe Text)
@@ -3880,11 +4088,16 @@ iPublicIp = lens _iPublicIp (\s a -> s { _iPublicIp = a })
 iRegisteredBy :: Lens' Instance (Maybe Text)
 iRegisteredBy = lens _iRegisteredBy (\s a -> s { _iRegisteredBy = a })
 
+-- | The instance's reported AWS OpsWorks agent version.
+iReportedAgentVersion :: Lens' Instance (Maybe Text)
+iReportedAgentVersion =
+    lens _iReportedAgentVersion (\s a -> s { _iReportedAgentVersion = a })
+
 -- | For registered instances, the reported operating system.
 iReportedOs :: Lens' Instance (Maybe ReportedOs)
 iReportedOs = lens _iReportedOs (\s a -> s { _iReportedOs = a })
 
--- | The instance root device type. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the RootDevice>.
+-- | The instance's root device type. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for theRoot Device>.
 iRootDeviceType :: Lens' Instance (Maybe RootDeviceType)
 iRootDeviceType = lens _iRootDeviceType (\s a -> s { _iRootDeviceType = a })
 
@@ -3911,7 +4124,7 @@ iSshHostRsaKeyFingerprint =
     lens _iSshHostRsaKeyFingerprint
         (\s a -> s { _iSshHostRsaKeyFingerprint = a })
 
--- | The instance SSH key name.
+-- | The instance's Amazon EC2 key pair name.
 iSshKeyName :: Lens' Instance (Maybe Text)
 iSshKeyName = lens _iSshKeyName (\s a -> s { _iSshKeyName = a })
 
@@ -3940,6 +4153,7 @@ instance FromJSON Instance where
         <*> o .:? "Architecture"
         <*> o .:? "AutoScalingType"
         <*> o .:? "AvailabilityZone"
+        <*> o .:? "BlockDeviceMappings" .!= mempty
         <*> o .:? "CreatedAt"
         <*> o .:? "EbsOptimized"
         <*> o .:? "Ec2InstanceId"
@@ -3958,6 +4172,7 @@ instance FromJSON Instance where
         <*> o .:? "PublicDns"
         <*> o .:? "PublicIp"
         <*> o .:? "RegisteredBy"
+        <*> o .:? "ReportedAgentVersion"
         <*> o .:? "ReportedOs"
         <*> o .:? "RootDeviceType"
         <*> o .:? "RootDeviceVolumeId"
@@ -4000,8 +4215,10 @@ instance ToJSON Instance where
         , "Architecture"             .= _iArchitecture
         , "RootDeviceType"           .= _iRootDeviceType
         , "RootDeviceVolumeId"       .= _iRootDeviceVolumeId
+        , "BlockDeviceMappings"      .= _iBlockDeviceMappings
         , "InstallUpdatesOnBoot"     .= _iInstallUpdatesOnBoot
         , "EbsOptimized"             .= _iEbsOptimized
+        , "ReportedAgentVersion"     .= _iReportedAgentVersion
         , "ReportedOs"               .= _iReportedOs
         , "InfrastructureClass"      .= _iInfrastructureClass
         , "RegisteredBy"             .= _iRegisteredBy

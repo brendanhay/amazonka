@@ -25,7 +25,7 @@
 -- | Retrieves information about all IAM users, groups, and roles in your account,
 -- including their relationships to one another and their policies. Use this API
 -- to obtain a snapshot of the configuration of IAM permissions (users, groups,
--- roles, and their policies) in your account.
+-- roles, and policies) in your account.
 --
 -- You can optionally filter the results using the 'Filter' parameter. You can
 -- paginate the results using the 'MaxItems' and 'Marker' parameters.
@@ -50,6 +50,7 @@ module Network.AWS.IAM.GetAccountAuthorizationDetails
     , gaadrGroupDetailList
     , gaadrIsTruncated
     , gaadrMarker
+    , gaadrPolicies
     , gaadrRoleDetailList
     , gaadrUserDetailList
     ) where
@@ -82,7 +83,8 @@ getAccountAuthorizationDetails = GetAccountAuthorizationDetails
     , _gaadMarker   = Nothing
     }
 
--- | A list of entity types (user, group, or role) for filtering the results.
+-- | A list of entity types (user, group, role, local managed policy, or AWS
+-- managed policy) for filtering the results.
 gaadFilter :: Lens' GetAccountAuthorizationDetails [EntityType]
 gaadFilter = lens _gaadFilter (\s a -> s { _gaadFilter = a }) . _List
 
@@ -103,6 +105,7 @@ data GetAccountAuthorizationDetailsResponse = GetAccountAuthorizationDetailsResp
     { _gaadrGroupDetailList :: List "member" GroupDetail
     , _gaadrIsTruncated     :: Maybe Bool
     , _gaadrMarker          :: Maybe Text
+    , _gaadrPolicies        :: List "member" ManagedPolicyDetail
     , _gaadrRoleDetailList  :: List "member" RoleDetail
     , _gaadrUserDetailList  :: List "member" UserDetail
     } deriving (Eq, Read, Show)
@@ -117,6 +120,8 @@ data GetAccountAuthorizationDetailsResponse = GetAccountAuthorizationDetailsResp
 --
 -- * 'gaadrMarker' @::@ 'Maybe' 'Text'
 --
+-- * 'gaadrPolicies' @::@ ['ManagedPolicyDetail']
+--
 -- * 'gaadrRoleDetailList' @::@ ['RoleDetail']
 --
 -- * 'gaadrUserDetailList' @::@ ['UserDetail']
@@ -126,6 +131,7 @@ getAccountAuthorizationDetailsResponse = GetAccountAuthorizationDetailsResponse
     { _gaadrUserDetailList  = mempty
     , _gaadrGroupDetailList = mempty
     , _gaadrRoleDetailList  = mempty
+    , _gaadrPolicies        = mempty
     , _gaadrIsTruncated     = Nothing
     , _gaadrMarker          = Nothing
     }
@@ -146,6 +152,10 @@ gaadrIsTruncated = lens _gaadrIsTruncated (\s a -> s { _gaadrIsTruncated = a })
 -- for the 'Marker' parameter in a subsequent pagination request.
 gaadrMarker :: Lens' GetAccountAuthorizationDetailsResponse (Maybe Text)
 gaadrMarker = lens _gaadrMarker (\s a -> s { _gaadrMarker = a })
+
+-- | A list containing information about managed policies.
+gaadrPolicies :: Lens' GetAccountAuthorizationDetailsResponse [ManagedPolicyDetail]
+gaadrPolicies = lens _gaadrPolicies (\s a -> s { _gaadrPolicies = a }) . _List
 
 -- | A list containing information about IAM roles.
 gaadrRoleDetailList :: Lens' GetAccountAuthorizationDetailsResponse [RoleDetail]
@@ -183,5 +193,6 @@ instance FromXML GetAccountAuthorizationDetailsResponse where
         <$> x .@? "GroupDetailList" .!@ mempty
         <*> x .@? "IsTruncated"
         <*> x .@? "Marker"
+        <*> x .@? "Policies" .!@ mempty
         <*> x .@? "RoleDetailList" .!@ mempty
         <*> x .@? "UserDetailList" .!@ mempty

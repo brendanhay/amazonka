@@ -219,7 +219,7 @@ diar1ProductCodes =
 diar1RamdiskId :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 diar1RamdiskId = lens _diar1RamdiskId (\s a -> s { _diar1RamdiskId = a })
 
--- | The name of the root device (for example, '/dev/sda1').
+-- | The name of the root device (for example, '/dev/sda1' or '/dev/xvda').
 diar1RootDeviceName :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 diar1RootDeviceName =
     lens _diar1RootDeviceName (\s a -> s { _diar1RootDeviceName = a })

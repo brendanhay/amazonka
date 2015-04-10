@@ -207,8 +207,11 @@ usDefaultRootDeviceType :: Lens' UpdateStack (Maybe RootDeviceType)
 usDefaultRootDeviceType =
     lens _usDefaultRootDeviceType (\s a -> s { _usDefaultRootDeviceType = a })
 
--- | A default SSH key for the stack instances. You can override this value when
--- you create or update an instance.
+-- | A default Amazon EC2 key pair name. The default value is none. If you specify
+-- a key pair name, AWS OpsWorks installs the public key on the instance and you
+-- can use the private key with an SSH client to log in to the instance. For
+-- more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-ssh.html  Using SSH to Communicate with an Instance> and <http://docs.aws.amazon.com/opsworks/latest/userguide/security-ssh-access.html Managing SSH Access>. You can override this setting by specifying a different
+-- key pair, or no key pair, when you <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html  create an instance>.
 usDefaultSshKeyName :: Lens' UpdateStack (Maybe Text)
 usDefaultSshKeyName =
     lens _usDefaultSshKeyName (\s a -> s { _usDefaultSshKeyName = a })
@@ -227,7 +230,7 @@ usDefaultSubnetId =
 -- theme is used to generate host names for the stack's instances. By default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host names by appending integers to
 -- the layer's short name. The other themes are:
 --
--- 'Baked_Goods' 'Clouds' 'European_Cities' 'Fruits' 'Greek_Deities' 'Legendary_Creatures_from_Japan' 'Planets_and_Moons' 'Roman_Deities' 'Scottish_Islands' 'US_Cities' 'Wild_Cats'  To
+-- 'Baked_Goods' 'Clouds' 'Europe_Cities' 'Fruits' 'Greek_Deities' 'Legendary_creatures_from_Japan' 'Planets_and_Moons' 'Roman_Deities' 'Scottish_Islands' 'US_Cities' 'Wild_Cats'  To
 -- obtain a generated host name, call 'GetHostNameSuggestion', which returns a
 -- host name based on the current theme.
 usHostnameTheme :: Lens' UpdateStack (Maybe Text)

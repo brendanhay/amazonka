@@ -18,6 +18,7 @@
             "Network.AWS.DataPipeline.ActivatePipeline",
             "Network.AWS.DataPipeline.AddTags",
             "Network.AWS.DataPipeline.CreatePipeline",
+            "Network.AWS.DataPipeline.DeactivatePipeline",
             "Network.AWS.DataPipeline.DeletePipeline",
             "Network.AWS.DataPipeline.DescribeObjects",
             "Network.AWS.DataPipeline.DescribePipelines",
@@ -75,6 +76,7 @@
             "Network.AWS.DataPipeline.ActivatePipeline",
             "Network.AWS.DataPipeline.AddTags",
             "Network.AWS.DataPipeline.CreatePipeline",
+            "Network.AWS.DataPipeline.DeactivatePipeline",
             "Network.AWS.DataPipeline.DeletePipeline",
             "Network.AWS.DataPipeline.DescribeObjects",
             "Network.AWS.DataPipeline.DescribePipelines",
@@ -123,7 +125,7 @@
                         "name": "_poId",
                         "shape": "fieldNameString",
                         "locationName": "id",
-                        "documentation": "-- | Identifier of the parameter object.",
+                        "documentation": "-- | The ID of the parameter object.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -160,7 +162,7 @@
                         "name": "_poId",
                         "shape": "fieldNameString",
                         "locationName": "id",
-                        "documentation": "-- | Identifier of the parameter object.",
+                        "documentation": "-- | The ID of the parameter object.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -219,7 +221,7 @@
                         "name": "_poId",
                         "shape": "fieldNameString",
                         "locationName": "id",
-                        "documentation": "-- | Identifier of the parameter object.",
+                        "documentation": "-- | The ID of the parameter object.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -247,7 +249,7 @@
                         "name": "_po1Id",
                         "shape": "id",
                         "locationName": "id",
-                        "documentation": "-- | Identifier of the object.",
+                        "documentation": "-- | The ID of the object.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -264,7 +266,7 @@
                         "name": "_po1Name",
                         "shape": "id",
                         "locationName": "name",
-                        "documentation": "-- | Name of the object.",
+                        "documentation": "-- | The name of the object.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -301,7 +303,7 @@
                         "name": "_po1Id",
                         "shape": "id",
                         "locationName": "id",
-                        "documentation": "-- | Identifier of the object.",
+                        "documentation": "-- | The ID of the object.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -318,7 +320,7 @@
                         "name": "_po1Name",
                         "shape": "id",
                         "locationName": "name",
-                        "documentation": "-- | Name of the object.",
+                        "documentation": "-- | The name of the object.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -377,7 +379,7 @@
                         "name": "_po1Id",
                         "shape": "id",
                         "locationName": "id",
-                        "documentation": "-- | Identifier of the object.",
+                        "documentation": "-- | The ID of the object.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -394,7 +396,7 @@
                         "name": "_po1Name",
                         "shape": "id",
                         "locationName": "name",
-                        "documentation": "-- | Name of the object.",
+                        "documentation": "-- | The name of the object.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -723,7 +725,7 @@
                         "name": "_pvId",
                         "shape": "fieldNameString",
                         "locationName": "id",
-                        "documentation": "-- | Identifier of the parameter value.",
+                        "documentation": "-- | The ID of the parameter value.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -760,7 +762,7 @@
                         "name": "_pvId",
                         "shape": "fieldNameString",
                         "locationName": "id",
-                        "documentation": "-- | Identifier of the parameter value.",
+                        "documentation": "-- | The ID of the parameter value.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -801,7 +803,7 @@
                         "name": "_pvId",
                         "shape": "fieldNameString",
                         "locationName": "id",
-                        "documentation": "-- | Identifier of the parameter value.",
+                        "documentation": "-- | The ID of the parameter value.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1233,7 +1235,7 @@
                         "name": "_toPipelineId",
                         "shape": "id",
                         "locationName": "pipelineId",
-                        "documentation": "-- | Identifier of the pipeline that provided the task.",
+                        "documentation": "-- | The ID of the pipeline that provided the task.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1250,7 +1252,7 @@
                         "name": "_toAttemptId",
                         "shape": "id",
                         "locationName": "attemptId",
-                        "documentation": "-- | Identifier of the pipeline task attempt object. AWS Data Pipeline uses this\n-- value to track how many times a task is attempted.",
+                        "documentation": "-- | The ID of the pipeline task attempt object. AWS Data Pipeline uses this value\n-- to track how many times a task is attempted.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1309,7 +1311,7 @@
                         "name": "_toPipelineId",
                         "shape": "id",
                         "locationName": "pipelineId",
-                        "documentation": "-- | Identifier of the pipeline that provided the task.",
+                        "documentation": "-- | The ID of the pipeline that provided the task.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1326,7 +1328,7 @@
                         "name": "_toAttemptId",
                         "shape": "id",
                         "locationName": "attemptId",
-                        "documentation": "-- | Identifier of the pipeline task attempt object. AWS Data Pipeline uses this\n-- value to track how many times a task is attempted.",
+                        "documentation": "-- | The ID of the pipeline task attempt object. AWS Data Pipeline uses this value\n-- to track how many times a task is attempted.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1362,7 +1364,7 @@
                         "name": "_toAttemptId",
                         "shape": "id",
                         "locationName": "attemptId",
-                        "documentation": "-- | Identifier of the pipeline task attempt object. AWS Data Pipeline uses this\n-- value to track how many times a task is attempted.",
+                        "documentation": "-- | The ID of the pipeline task attempt object. AWS Data Pipeline uses this value\n-- to track how many times a task is attempted.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1396,7 +1398,7 @@
                         "name": "_toPipelineId",
                         "shape": "id",
                         "locationName": "pipelineId",
-                        "documentation": "-- | Identifier of the pipeline that provided the task.",
+                        "documentation": "-- | The ID of the pipeline that provided the task.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1582,7 +1584,7 @@
                         "name": "_pdName",
                         "shape": "id",
                         "locationName": "name",
-                        "documentation": "-- | Name of the pipeline.",
+                        "documentation": "-- | The name of the pipeline.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1670,7 +1672,7 @@
                         "name": "_pdName",
                         "shape": "id",
                         "locationName": "name",
-                        "documentation": "-- | Name of the pipeline.",
+                        "documentation": "-- | The name of the pipeline.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -1780,7 +1782,7 @@
                         "name": "_pdName",
                         "shape": "id",
                         "locationName": "name",
-                        "documentation": "-- | Name of the pipeline.",
+                        "documentation": "-- | The name of the pipeline.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -1843,7 +1845,7 @@
                         "name": "_iiDocument",
                         "shape": "string",
                         "locationName": "document",
-                        "documentation": "-- | A description of an Amazon EC2 instance that is generated when the instance\n-- is launched and exposed to the instance via the instance metadata service in\n-- the form of a JSON representation of an object.",
+                        "documentation": "-- | A description of an EC2 instance that is generated when the instance is\n-- launched and exposed to the instance via the instance metadata service in the\n-- form of a JSON representation of an object.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1885,7 +1887,7 @@
                         "name": "_iiDocument",
                         "shape": "string",
                         "locationName": "document",
-                        "documentation": "-- | A description of an Amazon EC2 instance that is generated when the instance\n-- is launched and exposed to the instance via the instance metadata service in\n-- the form of a JSON representation of an object.",
+                        "documentation": "-- | A description of an EC2 instance that is generated when the instance is\n-- launched and exposed to the instance via the instance metadata service in the\n-- form of a JSON representation of an object.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1921,7 +1923,7 @@
                         "name": "_iiDocument",
                         "shape": "string",
                         "locationName": "document",
-                        "documentation": "-- | A description of an Amazon EC2 instance that is generated when the instance\n-- is launched and exposed to the instance via the instance metadata service in\n-- the form of a JSON representation of an object.",
+                        "documentation": "-- | A description of an EC2 instance that is generated when the instance is\n-- launched and exposed to the instance via the instance metadata service in the\n-- form of a JSON representation of an object.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2080,7 +2082,7 @@
                         "name": "_pinId",
                         "shape": "id",
                         "locationName": "id",
-                        "documentation": "-- | Identifier of the pipeline that was assigned by AWS Data Pipeline. This is a\n-- string of the form 'df-297EG78HU43EEXAMPLE'.",
+                        "documentation": "-- | The ID of the pipeline that was assigned by AWS Data Pipeline. This is a\n-- string of the form 'df-297EG78HU43EEXAMPLE'.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2097,7 +2099,7 @@
                         "name": "_pinName",
                         "shape": "id",
                         "locationName": "name",
-                        "documentation": "-- | Name of the pipeline.",
+                        "documentation": "-- | The name of the pipeline.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2122,7 +2124,7 @@
                         "name": "_pinId",
                         "shape": "id",
                         "locationName": "id",
-                        "documentation": "-- | Identifier of the pipeline that was assigned by AWS Data Pipeline. This is a\n-- string of the form 'df-297EG78HU43EEXAMPLE'.",
+                        "documentation": "-- | The ID of the pipeline that was assigned by AWS Data Pipeline. This is a\n-- string of the form 'df-297EG78HU43EEXAMPLE'.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2139,7 +2141,7 @@
                         "name": "_pinName",
                         "shape": "id",
                         "locationName": "name",
-                        "documentation": "-- | Name of the pipeline.",
+                        "documentation": "-- | The name of the pipeline.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2158,7 +2160,7 @@
                         "name": "_pinId",
                         "shape": "id",
                         "locationName": "id",
-                        "documentation": "-- | Identifier of the pipeline that was assigned by AWS Data Pipeline. This is a\n-- string of the form 'df-297EG78HU43EEXAMPLE'.",
+                        "documentation": "-- | The ID of the pipeline that was assigned by AWS Data Pipeline. This is a\n-- string of the form 'df-297EG78HU43EEXAMPLE'.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2175,7 +2177,7 @@
                         "name": "_pinName",
                         "shape": "id",
                         "locationName": "name",
-                        "documentation": "-- | Name of the pipeline.",
+                        "documentation": "-- | The name of the pipeline.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2373,7 +2375,7 @@
             "pager": null,
             "name": "ActivatePipeline",
             "method": "post",
-            "documentation": "-- | Validates a pipeline and initiates processing. If the pipeline does not pass\n-- validation, activation fails. You cannot perform this operation on FINISHED\n-- pipelines and attempting to do so will return an InvalidRequestException.\n--\n-- Call this action to start processing pipeline tasks of a pipeline you've\n-- created using the 'CreatePipeline' and 'PutPipelineDefinition' actions. A\n-- pipeline cannot be modified after it has been successfully activated.",
+            "documentation": "-- | Validates the specified pipeline and starts processing pipeline tasks. If the\n-- pipeline does not pass validation, activation fails.\n--\n-- If you need to pause the pipeline to investigate an issue with a component,\n-- such as a data source or script, call 'DeactivatePipeline'.\n--\n-- To activate a finished pipeline, modify the end date for the pipeline and\n-- then activate it.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2400,7 +2402,7 @@
                         "name": "_apPipelineId",
                         "shape": "id",
                         "locationName": "pipelineId",
-                        "documentation": "-- | The identifier of the pipeline to activate.",
+                        "documentation": "-- | The ID of the pipeline.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -2417,9 +2419,26 @@
                         "name": "_apParameterValues",
                         "shape": "ParameterValueList",
                         "locationName": "parameterValues",
-                        "documentation": "-- | Returns a list of parameter values to pass to the pipeline at activation.",
+                        "documentation": "-- | A list of parameter values to pass to the pipeline at activation.",
                         "typeExposed": "[ParameterValue]",
                         "type": "List \"parameterValues\" ParameterValue"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "apStartTimestamp",
+                        "name": "_apStartTimestamp",
+                        "shape": "timestamp",
+                        "locationName": "startTimestamp",
+                        "documentation": "-- | The date and time to resume the pipeline. By default, the pipeline resumes\n-- from the last completed execution.",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe POSIX"
                     }
                 ],
                 "path": [
@@ -2444,7 +2463,7 @@
                         "name": "_apPipelineId",
                         "shape": "id",
                         "locationName": "pipelineId",
-                        "documentation": "-- | The identifier of the pipeline to activate.",
+                        "documentation": "-- | The ID of the pipeline.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2473,9 +2492,26 @@
                         "name": "_apParameterValues",
                         "shape": "ParameterValueList",
                         "locationName": "parameterValues",
-                        "documentation": "-- | Returns a list of parameter values to pass to the pipeline at activation.",
+                        "documentation": "-- | A list of parameter values to pass to the pipeline at activation.",
                         "typeExposed": "[ParameterValue]",
                         "type": "List \"parameterValues\" ParameterValue"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "apStartTimestamp",
+                        "name": "_apStartTimestamp",
+                        "shape": "timestamp",
+                        "locationName": "startTimestamp",
+                        "documentation": "-- | The date and time to resume the pipeline. By default, the pipeline resumes\n-- from the last completed execution.",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe POSIX"
                     }
                 ],
                 "fields": [
@@ -2492,7 +2528,7 @@
                         "name": "_apParameterValues",
                         "shape": "ParameterValueList",
                         "locationName": "parameterValues",
-                        "documentation": "-- | Returns a list of parameter values to pass to the pipeline at activation.",
+                        "documentation": "-- | A list of parameter values to pass to the pipeline at activation.",
                         "typeExposed": "[ParameterValue]",
                         "type": "List \"parameterValues\" ParameterValue"
                     },
@@ -2509,9 +2545,26 @@
                         "name": "_apPipelineId",
                         "shape": "id",
                         "locationName": "pipelineId",
-                        "documentation": "-- | The identifier of the pipeline to activate.",
+                        "documentation": "-- | The ID of the pipeline.",
                         "typeExposed": "Text",
                         "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "apStartTimestamp",
+                        "name": "_apStartTimestamp",
+                        "shape": "timestamp",
+                        "locationName": "startTimestamp",
+                        "documentation": "-- | The date and time to resume the pipeline. By default, the pipeline resumes\n-- from the last completed execution.",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe POSIX"
                     }
                 ]
             }
@@ -2553,7 +2606,7 @@
             "pager": null,
             "name": "AddTags",
             "method": "post",
-            "documentation": "-- | Add or modify tags in an existing pipeline.",
+            "documentation": "-- | Adds or modifies tags for the specified pipeline.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2580,7 +2633,7 @@
                         "name": "_atPipelineId",
                         "shape": "id",
                         "locationName": "pipelineId",
-                        "documentation": "-- | The identifier of the pipeline to which you want to add the tags.",
+                        "documentation": "-- | The ID of the pipeline.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -2597,7 +2650,7 @@
                         "name": "_atTags",
                         "shape": "tagList",
                         "locationName": "tags",
-                        "documentation": "-- | The tags as key/value pairs to add to the pipeline.",
+                        "documentation": "-- | The tags to add, as key/value pairs.",
                         "typeExposed": "[Tag]",
                         "type": "List \"tags\" Tag"
                     }
@@ -2624,7 +2677,7 @@
                         "name": "_atPipelineId",
                         "shape": "id",
                         "locationName": "pipelineId",
-                        "documentation": "-- | The identifier of the pipeline to which you want to add the tags.",
+                        "documentation": "-- | The ID of the pipeline.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2653,7 +2706,7 @@
                         "name": "_atTags",
                         "shape": "tagList",
                         "locationName": "tags",
-                        "documentation": "-- | The tags as key/value pairs to add to the pipeline.",
+                        "documentation": "-- | The tags to add, as key/value pairs.",
                         "typeExposed": "[Tag]",
                         "type": "List \"tags\" Tag"
                     }
@@ -2672,7 +2725,7 @@
                         "name": "_atPipelineId",
                         "shape": "id",
                         "locationName": "pipelineId",
-                        "documentation": "-- | The identifier of the pipeline to which you want to add the tags.",
+                        "documentation": "-- | The ID of the pipeline.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -2689,7 +2742,7 @@
                         "name": "_atTags",
                         "shape": "tagList",
                         "locationName": "tags",
-                        "documentation": "-- | The tags as key/value pairs to add to the pipeline.",
+                        "documentation": "-- | The tags to add, as key/value pairs.",
                         "typeExposed": "[Tag]",
                         "type": "List \"tags\" Tag"
                     }
@@ -2726,7 +2779,7 @@
                     "name": "_cprPipelineId",
                     "shape": "id",
                     "locationName": "pipelineId",
-                    "documentation": "-- | The ID that AWS Data Pipeline assigns the newly created pipeline. The ID is a\n-- string of the form: df-06372391ZG65EXAMPLE.",
+                    "documentation": "-- | The ID that AWS Data Pipeline assigns the newly created pipeline. For\n-- example, 'df-06372391ZG65EXAMPLE'.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -2744,7 +2797,7 @@
                         "name": "_cprPipelineId",
                         "shape": "id",
                         "locationName": "pipelineId",
-                        "documentation": "-- | The ID that AWS Data Pipeline assigns the newly created pipeline. The ID is a\n-- string of the form: df-06372391ZG65EXAMPLE.",
+                        "documentation": "-- | The ID that AWS Data Pipeline assigns the newly created pipeline. For\n-- example, 'df-06372391ZG65EXAMPLE'.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2766,7 +2819,7 @@
                         "name": "_cprPipelineId",
                         "shape": "id",
                         "locationName": "pipelineId",
-                        "documentation": "-- | The ID that AWS Data Pipeline assigns the newly created pipeline. The ID is a\n-- string of the form: df-06372391ZG65EXAMPLE.",
+                        "documentation": "-- | The ID that AWS Data Pipeline assigns the newly created pipeline. For\n-- example, 'df-06372391ZG65EXAMPLE'.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2794,7 +2847,7 @@
                         "name": "_cprPipelineId",
                         "shape": "id",
                         "locationName": "pipelineId",
-                        "documentation": "-- | The ID that AWS Data Pipeline assigns the newly created pipeline. The ID is a\n-- string of the form: df-06372391ZG65EXAMPLE.",
+                        "documentation": "-- | The ID that AWS Data Pipeline assigns the newly created pipeline. For\n-- example, 'df-06372391ZG65EXAMPLE'.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2810,7 +2863,7 @@
             "pager": null,
             "name": "CreatePipeline",
             "method": "post",
-            "documentation": "-- | Creates a new empty pipeline. When this action succeeds, you can then use the 'PutPipelineDefinition' action to populate the pipeline.",
+            "documentation": "-- | Creates a new, empty pipeline. Use 'PutPipelineDefinition' to populate the\n-- pipeline.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2837,7 +2890,7 @@
                         "name": "_cpName",
                         "shape": "id",
                         "locationName": "name",
-                        "documentation": "-- | The name of the new pipeline. You can use the same name for multiple\n-- pipelines associated with your AWS account, because AWS Data Pipeline assigns\n-- each new pipeline a unique pipeline identifier.",
+                        "documentation": "-- | The name for the pipeline. You can use the same name for multiple pipelines\n-- associated with your AWS account, because AWS Data Pipeline assigns each\n-- pipeline a unique pipeline identifier.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -2854,7 +2907,7 @@
                         "name": "_cpUniqueId",
                         "shape": "id",
                         "locationName": "uniqueId",
-                        "documentation": "-- | A unique identifier that you specify. This identifier is not the same as the\n-- pipeline identifier assigned by AWS Data Pipeline. You are responsible for\n-- defining the format and ensuring the uniqueness of this identifier. You use\n-- this parameter to ensure idempotency during repeated calls to 'CreatePipeline'.\n-- For example, if the first call to 'CreatePipeline' does not return a clear\n-- success, you can pass in the same unique identifier and pipeline name\n-- combination on a subsequent call to 'CreatePipeline'. 'CreatePipeline' ensures\n-- that if a pipeline already exists with the same name and unique identifier, a\n-- new pipeline will not be created. Instead, you'll receive the pipeline\n-- identifier from the previous attempt. The uniqueness of the name and unique\n-- identifier combination is scoped to the AWS account or IAM user credentials.",
+                        "documentation": "-- | A unique identifier. This identifier is not the same as the pipeline\n-- identifier assigned by AWS Data Pipeline. You are responsible for defining\n-- the format and ensuring the uniqueness of this identifier. You use this\n-- parameter to ensure idempotency during repeated calls to 'CreatePipeline'. For\n-- example, if the first call to 'CreatePipeline' does not succeed, you can pass\n-- in the same unique identifier and pipeline name combination on a subsequent\n-- call to 'CreatePipeline'. 'CreatePipeline' ensures that if a pipeline already\n-- exists with the same name and unique identifier, a new pipeline is not\n-- created. Instead, you'll receive the pipeline identifier from the previous\n-- attempt. The uniqueness of the name and unique identifier combination is\n-- scoped to the AWS account or IAM user credentials.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -2871,7 +2924,7 @@
                         "name": "_cpDescription",
                         "shape": "string",
                         "locationName": "description",
-                        "documentation": "-- | The description of the new pipeline.",
+                        "documentation": "-- | The description for the pipeline.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2888,7 +2941,7 @@
                         "name": "_cpTags",
                         "shape": "tagList",
                         "locationName": "tags",
-                        "documentation": "-- | A list of tags to associate with a pipeline at creation time. Tags let you\n-- control access to pipelines. For more information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling UserAccess to Pipelines\u003e in the /AWS Data Pipeline Developer Guide/.",
+                        "documentation": "-- | A list of tags to associate with the pipeline at creation. Tags let you\n-- control access to pipelines. For more information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling UserAccess to Pipelines\u003e in the /AWS Data Pipeline Developer Guide/.",
                         "typeExposed": "[Tag]",
                         "type": "List \"tags\" Tag"
                     }
@@ -2915,7 +2968,7 @@
                         "name": "_cpName",
                         "shape": "id",
                         "locationName": "name",
-                        "documentation": "-- | The name of the new pipeline. You can use the same name for multiple\n-- pipelines associated with your AWS account, because AWS Data Pipeline assigns\n-- each new pipeline a unique pipeline identifier.",
+                        "documentation": "-- | The name for the pipeline. You can use the same name for multiple pipelines\n-- associated with your AWS account, because AWS Data Pipeline assigns each\n-- pipeline a unique pipeline identifier.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -2932,7 +2985,7 @@
                         "name": "_cpUniqueId",
                         "shape": "id",
                         "locationName": "uniqueId",
-                        "documentation": "-- | A unique identifier that you specify. This identifier is not the same as the\n-- pipeline identifier assigned by AWS Data Pipeline. You are responsible for\n-- defining the format and ensuring the uniqueness of this identifier. You use\n-- this parameter to ensure idempotency during repeated calls to 'CreatePipeline'.\n-- For example, if the first call to 'CreatePipeline' does not return a clear\n-- success, you can pass in the same unique identifier and pipeline name\n-- combination on a subsequent call to 'CreatePipeline'. 'CreatePipeline' ensures\n-- that if a pipeline already exists with the same name and unique identifier, a\n-- new pipeline will not be created. Instead, you'll receive the pipeline\n-- identifier from the previous attempt. The uniqueness of the name and unique\n-- identifier combination is scoped to the AWS account or IAM user credentials.",
+                        "documentation": "-- | A unique identifier. This identifier is not the same as the pipeline\n-- identifier assigned by AWS Data Pipeline. You are responsible for defining\n-- the format and ensuring the uniqueness of this identifier. You use this\n-- parameter to ensure idempotency during repeated calls to 'CreatePipeline'. For\n-- example, if the first call to 'CreatePipeline' does not succeed, you can pass\n-- in the same unique identifier and pipeline name combination on a subsequent\n-- call to 'CreatePipeline'. 'CreatePipeline' ensures that if a pipeline already\n-- exists with the same name and unique identifier, a new pipeline is not\n-- created. Instead, you'll receive the pipeline identifier from the previous\n-- attempt. The uniqueness of the name and unique identifier combination is\n-- scoped to the AWS account or IAM user credentials.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -2961,7 +3014,7 @@
                         "name": "_cpDescription",
                         "shape": "string",
                         "locationName": "description",
-                        "documentation": "-- | The description of the new pipeline.",
+                        "documentation": "-- | The description for the pipeline.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2978,7 +3031,7 @@
                         "name": "_cpTags",
                         "shape": "tagList",
                         "locationName": "tags",
-                        "documentation": "-- | A list of tags to associate with a pipeline at creation time. Tags let you\n-- control access to pipelines. For more information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling UserAccess to Pipelines\u003e in the /AWS Data Pipeline Developer Guide/.",
+                        "documentation": "-- | A list of tags to associate with the pipeline at creation. Tags let you\n-- control access to pipelines. For more information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling UserAccess to Pipelines\u003e in the /AWS Data Pipeline Developer Guide/.",
                         "typeExposed": "[Tag]",
                         "type": "List \"tags\" Tag"
                     }
@@ -2997,7 +3050,7 @@
                         "name": "_cpDescription",
                         "shape": "string",
                         "locationName": "description",
-                        "documentation": "-- | The description of the new pipeline.",
+                        "documentation": "-- | The description for the pipeline.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3014,7 +3067,7 @@
                         "name": "_cpName",
                         "shape": "id",
                         "locationName": "name",
-                        "documentation": "-- | The name of the new pipeline. You can use the same name for multiple\n-- pipelines associated with your AWS account, because AWS Data Pipeline assigns\n-- each new pipeline a unique pipeline identifier.",
+                        "documentation": "-- | The name for the pipeline. You can use the same name for multiple pipelines\n-- associated with your AWS account, because AWS Data Pipeline assigns each\n-- pipeline a unique pipeline identifier.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3031,7 +3084,7 @@
                         "name": "_cpTags",
                         "shape": "tagList",
                         "locationName": "tags",
-                        "documentation": "-- | A list of tags to associate with a pipeline at creation time. Tags let you\n-- control access to pipelines. For more information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling UserAccess to Pipelines\u003e in the /AWS Data Pipeline Developer Guide/.",
+                        "documentation": "-- | A list of tags to associate with the pipeline at creation. Tags let you\n-- control access to pipelines. For more information, see \u003chttp://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling UserAccess to Pipelines\u003e in the /AWS Data Pipeline Developer Guide/.",
                         "typeExposed": "[Tag]",
                         "type": "List \"tags\" Tag"
                     },
@@ -3048,7 +3101,188 @@
                         "name": "_cpUniqueId",
                         "shape": "id",
                         "locationName": "uniqueId",
-                        "documentation": "-- | A unique identifier that you specify. This identifier is not the same as the\n-- pipeline identifier assigned by AWS Data Pipeline. You are responsible for\n-- defining the format and ensuring the uniqueness of this identifier. You use\n-- this parameter to ensure idempotency during repeated calls to 'CreatePipeline'.\n-- For example, if the first call to 'CreatePipeline' does not return a clear\n-- success, you can pass in the same unique identifier and pipeline name\n-- combination on a subsequent call to 'CreatePipeline'. 'CreatePipeline' ensures\n-- that if a pipeline already exists with the same name and unique identifier, a\n-- new pipeline will not be created. Instead, you'll receive the pipeline\n-- identifier from the previous attempt. The uniqueness of the name and unique\n-- identifier combination is scoped to the AWS account or IAM user credentials.",
+                        "documentation": "-- | A unique identifier. This identifier is not the same as the pipeline\n-- identifier assigned by AWS Data Pipeline. You are responsible for defining\n-- the format and ensuring the uniqueness of this identifier. You use this\n-- parameter to ensure idempotency during repeated calls to 'CreatePipeline'. For\n-- example, if the first call to 'CreatePipeline' does not succeed, you can pass\n-- in the same unique identifier and pipeline name combination on a subsequent\n-- call to 'CreatePipeline'. 'CreatePipeline' ensures that if a pipeline already\n-- exists with the same name and unique identifier, a new pipeline is not\n-- created. Instead, you'll receive the pipeline identifier from the previous\n-- attempt. The uniqueness of the name and unique identifier combination is\n-- scoped to the AWS account or IAM user credentials.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "DataPipeline",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "style": "nullary",
+                "fieldPad": 0,
+                "ctor": "deactivatePipelineResponse",
+                "headerPad": 0,
+                "wrapper": false,
+                "protocol": "json",
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "name": "DeactivatePipelineResponse",
+                "resultWrapper": null,
+                "type": "empty",
+                "headerAll": false,
+                "optional": [],
+                "fields": []
+            },
+            "url": "http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_DeactivatePipeline.html",
+            "namespace": "Network.AWS.DataPipeline.DeactivatePipeline",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.DataPipeline.Types"
+            ],
+            "pager": null,
+            "name": "DeactivatePipeline",
+            "method": "post",
+            "documentation": "-- | Deactivates the specified running pipeline. The pipeline is set to the 'DEACTIVATING' state until the deactivation process completes.\n--\n-- To resume a deactivated pipeline, use 'ActivatePipeline'. By default, the\n-- pipeline resumes from the last completed execution. Optionally, you can\n-- specify the date and time to resume the pipeline.",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show"
+                ],
+                "streaming": false,
+                "style": "json",
+                "fieldPad": 16,
+                "ctor": "deactivatePipeline",
+                "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "dp1PipelineId",
+                        "name": "_dp1PipelineId",
+                        "shape": "id",
+                        "locationName": "pipelineId",
+                        "documentation": "-- | The ID of the pipeline.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dp1CancelActive",
+                        "name": "_dp1CancelActive",
+                        "shape": "cancelActive",
+                        "locationName": "cancelActive",
+                        "documentation": "-- | Indicates whether to cancel any running objects. The default is true, which\n-- sets the state of any running objects to 'CANCELED'. If this value is false,\n-- the pipeline is deactivated after all running objects finish.",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    }
+                ],
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "json",
+                "payload": null,
+                "required": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "dp1PipelineId",
+                        "name": "_dp1PipelineId",
+                        "shape": "id",
+                        "locationName": "pipelineId",
+                        "documentation": "-- | The ID of the pipeline.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "contentPad": 13,
+                "queryPad": 0,
+                "name": "DeactivatePipeline",
+                "query": [],
+                "locationPad": 13,
+                "type": "record",
+                "queryAll": false,
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dp1CancelActive",
+                        "name": "_dp1CancelActive",
+                        "shape": "cancelActive",
+                        "locationName": "cancelActive",
+                        "documentation": "-- | Indicates whether to cancel any running objects. The default is true, which\n-- sets the state of any running objects to 'CANCELED'. If this value is false,\n-- the pipeline is deactivated after all running objects finish.",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dp1CancelActive",
+                        "name": "_dp1CancelActive",
+                        "shape": "cancelActive",
+                        "locationName": "cancelActive",
+                        "documentation": "-- | Indicates whether to cancel any running objects. The default is true, which\n-- sets the state of any running objects to 'CANCELED'. If this value is false,\n-- the pipeline is deactivated after all running objects finish.",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "dp1PipelineId",
+                        "name": "_dp1PipelineId",
+                        "shape": "id",
+                        "locationName": "pipelineId",
+                        "documentation": "-- | The ID of the pipeline.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -3092,7 +3326,7 @@
             "pager": null,
             "name": "DeletePipeline",
             "method": "post",
-            "documentation": "-- | Permanently deletes a pipeline, its pipeline definition and its run history.\n-- You cannot query or restore a deleted pipeline. AWS Data Pipeline will\n-- attempt to cancel instances associated with the pipeline that are currently\n-- being processed by task runners. Deleting a pipeline cannot be undone.\n--\n-- To temporarily pause a pipeline instead of deleting it, call 'SetStatus' with\n-- the status set to Pause on individual components. Components that are paused\n-- by 'SetStatus' can be resumed.",
+            "documentation": "-- | Deletes a pipeline, its pipeline definition, and its run history. AWS Data\n-- Pipeline attempts to cancel instances associated with the pipeline that are\n-- currently being processed by task runners.\n--\n-- Deleting a pipeline cannot be undone. You cannot query or restore a deleted\n-- pipeline. To temporarily pause a pipeline instead of deleting it, call 'SetStatus' with the status set to 'PAUSE' on individual components. Components that are\n-- paused by 'SetStatus' can be resumed.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3122,7 +3356,7 @@
                     "name": "_dpPipelineId",
                     "shape": "id",
                     "locationName": "pipelineId",
-                    "documentation": "-- | The identifier of the pipeline to be deleted.",
+                    "documentation": "-- | The ID of the pipeline.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -3140,7 +3374,7 @@
                         "name": "_dpPipelineId",
                         "shape": "id",
                         "locationName": "pipelineId",
-                        "documentation": "-- | The identifier of the pipeline to be deleted.",
+                        "documentation": "-- | The ID of the pipeline.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -3167,7 +3401,7 @@
                         "name": "_dpPipelineId",
                         "shape": "id",
                         "locationName": "pipelineId",
-                        "documentation": "-- | The identifier of the pipeline to be deleted.",
+                        "documentation": "-- | The ID of the pipeline.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -3197,7 +3431,7 @@
                         "name": "_dpPipelineId",
                         "shape": "id",
                         "locationName": "pipelineId",
-                        "documentation": "-- | The identifier of the pipeline to be deleted.",
+                        "documentation": "-- | The ID of the pipeline.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -3231,7 +3465,7 @@
                         "name": "_dorPipelineObjects",
                         "shape": "PipelineObjectList",
                         "locationName": "pipelineObjects",
-                        "documentation": "-- | An array of object definitions that are returned by the call to 'DescribeObjects'.",
+                        "documentation": "-- | An array of object definitions.",
                         "typeExposed": "[PipelineObject]",
                         "type": "List \"pipelineObjects\" PipelineObject"
                     },
@@ -3248,7 +3482,7 @@
                         "name": "_dorMarker",
                         "shape": "string",
                         "locationName": "marker",
-                        "documentation": "-- | The starting point for the next page of results. To view the next page of\n-- results, call 'DescribeObjects' again with this marker value.",
+                        "documentation": "-- | The starting point for the next page of results. To view the next page of\n-- results, call 'DescribeObjects' again with this marker value. If the value is\n-- null, there are no more results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3265,7 +3499,7 @@
                         "name": "_dorHasMoreResults",
                         "shape": "boolean",
                         "locationName": "hasMoreResults",
-                        "documentation": "-- | If 'True', there are more pages of results to return.",
+                        "documentation": "-- | Indicates whether there are more results to return.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     }
@@ -3296,7 +3530,7 @@
                         "name": "_dorPipelineObjects",
                         "shape": "PipelineObjectList",
                         "locationName": "pipelineObjects",
-                        "documentation": "-- | An array of object definitions that are returned by the call to 'DescribeObjects'.",
+                        "documentation": "-- | An array of object definitions.",
                         "typeExposed": "[PipelineObject]",
                         "type": "List \"pipelineObjects\" PipelineObject"
                     },
@@ -3313,7 +3547,7 @@
                         "name": "_dorMarker",
                         "shape": "string",
                         "locationName": "marker",
-                        "documentation": "-- | The starting point for the next page of results. To view the next page of\n-- results, call 'DescribeObjects' again with this marker value.",
+                        "documentation": "-- | The starting point for the next page of results. To view the next page of\n-- results, call 'DescribeObjects' again with this marker value. If the value is\n-- null, there are no more results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3330,7 +3564,7 @@
                         "name": "_dorHasMoreResults",
                         "shape": "boolean",
                         "locationName": "hasMoreResults",
-                        "documentation": "-- | If 'True', there are more pages of results to return.",
+                        "documentation": "-- | Indicates whether there are more results to return.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     }
@@ -3349,7 +3583,7 @@
                         "name": "_dorHasMoreResults",
                         "shape": "boolean",
                         "locationName": "hasMoreResults",
-                        "documentation": "-- | If 'True', there are more pages of results to return.",
+                        "documentation": "-- | Indicates whether there are more results to return.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -3366,7 +3600,7 @@
                         "name": "_dorMarker",
                         "shape": "string",
                         "locationName": "marker",
-                        "documentation": "-- | The starting point for the next page of results. To view the next page of\n-- results, call 'DescribeObjects' again with this marker value.",
+                        "documentation": "-- | The starting point for the next page of results. To view the next page of\n-- results, call 'DescribeObjects' again with this marker value. If the value is\n-- null, there are no more results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3383,7 +3617,7 @@
                         "name": "_dorPipelineObjects",
                         "shape": "PipelineObjectList",
                         "locationName": "pipelineObjects",
-                        "documentation": "-- | An array of object definitions that are returned by the call to 'DescribeObjects'.",
+                        "documentation": "-- | An array of object definitions.",
                         "typeExposed": "[PipelineObject]",
                         "type": "List \"pipelineObjects\" PipelineObject"
                     }
@@ -3408,7 +3642,7 @@
             },
             "name": "DescribeObjects",
             "method": "post",
-            "documentation": "-- | Returns the object definitions for a set of objects associated with the\n-- pipeline. Object definitions are composed of a set of fields that define the\n-- properties of the object.",
+            "documentation": "-- | Gets the object definitions for a set of objects associated with the\n-- pipeline. Object definitions are composed of a set of fields that define the\n-- properties of the object.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3436,7 +3670,7 @@
                         "name": "_doPipelineId",
                         "shape": "id",
                         "locationName": "pipelineId",
-                        "documentation": "-- | Identifier of the pipeline that contains the object definitions.",
+                        "documentation": "-- | The ID of the pipeline that contains the object definitions.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -3453,7 +3687,7 @@
                         "name": "_doObjectIds",
                         "shape": "idList",
                         "locationName": "objectIds",
-                        "documentation": "-- | Identifiers of the pipeline objects that contain the definitions to be\n-- described. You can pass as many as 25 identifiers in a single call to\n-- DescribeObjects.",
+                        "documentation": "-- | The IDs of the pipeline objects that contain the definitions to be described.\n-- You can pass as many as 25 identifiers in a single call to 'DescribeObjects'.",
                         "typeExposed": "[Text]",
                         "type": "List \"objectIds\" Text"
                     },
@@ -3487,7 +3721,7 @@
                         "name": "_doMarker",
                         "shape": "string",
                         "locationName": "marker",
-                        "documentation": "-- | The starting point for the results to be returned. The first time you call 'DescribeObjects', this value should be empty. As long as the action returns 'HasMoreResults' as 'True', you can call 'DescribeObjects' again and pass the marker value from the\n-- response to retrieve the next set of results.",
+                        "documentation": "-- | The starting point for the results to be returned. For the first call, this\n-- value should be empty. As long as there are more results, continue to call 'DescribeObjects' with the marker value from the previous call to retrieve the next set of\n-- results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3514,7 +3748,7 @@
                         "name": "_doPipelineId",
                         "shape": "id",
                         "locationName": "pipelineId",
-                        "documentation": "-- | Identifier of the pipeline that contains the object definitions.",
+                        "documentation": "-- | The ID of the pipeline that contains the object definitions.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -3543,7 +3777,7 @@
                         "name": "_doObjectIds",
                         "shape": "idList",
                         "locationName": "objectIds",
-                        "documentation": "-- | Identifiers of the pipeline objects that contain the definitions to be\n-- described. You can pass as many as 25 identifiers in a single call to\n-- DescribeObjects.",
+                        "documentation": "-- | The IDs of the pipeline objects that contain the definitions to be described.\n-- You can pass as many as 25 identifiers in a single call to 'DescribeObjects'.",
                         "typeExposed": "[Text]",
                         "type": "List \"objectIds\" Text"
                     },
@@ -3577,7 +3811,7 @@
                         "name": "_doMarker",
                         "shape": "string",
                         "locationName": "marker",
-                        "documentation": "-- | The starting point for the results to be returned. The first time you call 'DescribeObjects', this value should be empty. As long as the action returns 'HasMoreResults' as 'True', you can call 'DescribeObjects' again and pass the marker value from the\n-- response to retrieve the next set of results.",
+                        "documentation": "-- | The starting point for the results to be returned. For the first call, this\n-- value should be empty. As long as there are more results, continue to call 'DescribeObjects' with the marker value from the previous call to retrieve the next set of\n-- results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3613,7 +3847,7 @@
                         "name": "_doMarker",
                         "shape": "string",
                         "locationName": "marker",
-                        "documentation": "-- | The starting point for the results to be returned. The first time you call 'DescribeObjects', this value should be empty. As long as the action returns 'HasMoreResults' as 'True', you can call 'DescribeObjects' again and pass the marker value from the\n-- response to retrieve the next set of results.",
+                        "documentation": "-- | The starting point for the results to be returned. For the first call, this\n-- value should be empty. As long as there are more results, continue to call 'DescribeObjects' with the marker value from the previous call to retrieve the next set of\n-- results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3630,7 +3864,7 @@
                         "name": "_doObjectIds",
                         "shape": "idList",
                         "locationName": "objectIds",
-                        "documentation": "-- | Identifiers of the pipeline objects that contain the definitions to be\n-- described. You can pass as many as 25 identifiers in a single call to\n-- DescribeObjects.",
+                        "documentation": "-- | The IDs of the pipeline objects that contain the definitions to be described.\n-- You can pass as many as 25 identifiers in a single call to 'DescribeObjects'.",
                         "typeExposed": "[Text]",
                         "type": "List \"objectIds\" Text"
                     },
@@ -3647,7 +3881,7 @@
                         "name": "_doPipelineId",
                         "shape": "id",
                         "locationName": "pipelineId",
-                        "documentation": "-- | Identifier of the pipeline that contains the object definitions.",
+                        "documentation": "-- | The ID of the pipeline that contains the object definitions.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -3683,7 +3917,7 @@
                     "name": "_dprPipelineDescriptionList",
                     "shape": "PipelineDescriptionList",
                     "locationName": "pipelineDescriptionList",
-                    "documentation": "-- | An array of descriptions returned for the specified pipelines.",
+                    "documentation": "-- | An array of descriptions for the specified pipelines.",
                     "typeExposed": "[PipelineDescription]",
                     "type": "List \"pipelineDescriptionList\" PipelineDescription"
                 },
@@ -3701,7 +3935,7 @@
                         "name": "_dprPipelineDescriptionList",
                         "shape": "PipelineDescriptionList",
                         "locationName": "pipelineDescriptionList",
-                        "documentation": "-- | An array of descriptions returned for the specified pipelines.",
+                        "documentation": "-- | An array of descriptions for the specified pipelines.",
                         "typeExposed": "[PipelineDescription]",
                         "type": "List \"pipelineDescriptionList\" PipelineDescription"
                     }
@@ -3732,7 +3966,7 @@
                         "name": "_dprPipelineDescriptionList",
                         "shape": "PipelineDescriptionList",
                         "locationName": "pipelineDescriptionList",
-                        "documentation": "-- | An array of descriptions returned for the specified pipelines.",
+                        "documentation": "-- | An array of descriptions for the specified pipelines.",
                         "typeExposed": "[PipelineDescription]",
                         "type": "List \"pipelineDescriptionList\" PipelineDescription"
                     }
@@ -3751,7 +3985,7 @@
                         "name": "_dprPipelineDescriptionList",
                         "shape": "PipelineDescriptionList",
                         "locationName": "pipelineDescriptionList",
-                        "documentation": "-- | An array of descriptions returned for the specified pipelines.",
+                        "documentation": "-- | An array of descriptions for the specified pipelines.",
                         "typeExposed": "[PipelineDescription]",
                         "type": "List \"pipelineDescriptionList\" PipelineDescription"
                     }
@@ -3767,7 +4001,7 @@
             "pager": null,
             "name": "DescribePipelines",
             "method": "post",
-            "documentation": "-- | Retrieve metadata about one or more pipelines. The information retrieved\n-- includes the name of the pipeline, the pipeline identifier, its current\n-- state, and the user account that owns the pipeline. Using account\n-- credentials, you can retrieve metadata about pipelines that you or your IAM\n-- users have created. If you are using an IAM user account, you can retrieve\n-- metadata about only those pipelines you have read permission for.\n--\n-- To retrieve the full pipeline definition instead of metadata about the\n-- pipeline, call the 'GetPipelineDefinition' action.",
+            "documentation": "-- | Retrieves metadata about one or more pipelines. The information retrieved\n-- includes the name of the pipeline, the pipeline identifier, its current\n-- state, and the user account that owns the pipeline. Using account\n-- credentials, you can retrieve metadata about pipelines that you or your IAM\n-- users have created. If you are using an IAM user account, you can retrieve\n-- metadata about only those pipelines for which you have read permissions.\n--\n-- To retrieve the full pipeline definition instead of metadata about the\n-- pipeline, call 'GetPipelineDefinition'.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3797,7 +4031,7 @@
                     "name": "_dpPipelineIds",
                     "shape": "idList",
                     "locationName": "pipelineIds",
-                    "documentation": "-- | Identifiers of the pipelines to describe. You can pass as many as 25\n-- identifiers in a single call to 'DescribePipelines'. You can obtain pipeline\n-- identifiers by calling 'ListPipelines'.",
+                    "documentation": "-- | The IDs of the pipelines to describe. You can pass as many as 25 identifiers\n-- in a single call. To obtain pipeline IDs, call 'ListPipelines'.",
                     "typeExposed": "[Text]",
                     "type": "List \"pipelineIds\" Text"
                 },
@@ -3815,7 +4049,7 @@
                         "name": "_dpPipelineIds",
                         "shape": "idList",
                         "locationName": "pipelineIds",
-                        "documentation": "-- | Identifiers of the pipelines to describe. You can pass as many as 25\n-- identifiers in a single call to 'DescribePipelines'. You can obtain pipeline\n-- identifiers by calling 'ListPipelines'.",
+                        "documentation": "-- | The IDs of the pipelines to describe. You can pass as many as 25 identifiers\n-- in a single call. To obtain pipeline IDs, call 'ListPipelines'.",
                         "typeExposed": "[Text]",
                         "type": "List \"pipelineIds\" Text"
                     }
@@ -3853,7 +4087,7 @@
                         "name": "_dpPipelineIds",
                         "shape": "idList",
                         "locationName": "pipelineIds",
-                        "documentation": "-- | Identifiers of the pipelines to describe. You can pass as many as 25\n-- identifiers in a single call to 'DescribePipelines'. You can obtain pipeline\n-- identifiers by calling 'ListPipelines'.",
+                        "documentation": "-- | The IDs of the pipelines to describe. You can pass as many as 25 identifiers\n-- in a single call. To obtain pipeline IDs, call 'ListPipelines'.",
                         "typeExposed": "[Text]",
                         "type": "List \"pipelineIds\" Text"
                     }
@@ -3872,7 +4106,7 @@
                         "name": "_dpPipelineIds",
                         "shape": "idList",
                         "locationName": "pipelineIds",
-                        "documentation": "-- | Identifiers of the pipelines to describe. You can pass as many as 25\n-- identifiers in a single call to 'DescribePipelines'. You can obtain pipeline\n-- identifiers by calling 'ListPipelines'.",
+                        "documentation": "-- | The IDs of the pipelines to describe. You can pass as many as 25 identifiers\n-- in a single call. To obtain pipeline IDs, call 'ListPipelines'.",
                         "typeExposed": "[Text]",
                         "type": "List \"pipelineIds\" Text"
                     }
@@ -3993,7 +4227,7 @@
             "pager": null,
             "name": "EvaluateExpression",
             "method": "post",
-            "documentation": "-- | Evaluates a string in the context of a specified object. A task runner can\n-- use this action to evaluate SQL queries stored in Amazon S3.",
+            "documentation": "-- | Task runners call 'EvaluateExpression' to evaluate a string in the context of\n-- the specified object. For example, a task runner can evaluate SQL queries\n-- stored in Amazon S3.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4021,7 +4255,7 @@
                         "name": "_eePipelineId",
                         "shape": "id",
                         "locationName": "pipelineId",
-                        "documentation": "-- | The identifier of the pipeline.",
+                        "documentation": "-- | The ID of the pipeline.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4038,7 +4272,7 @@
                         "name": "_eeObjectId",
                         "shape": "id",
                         "locationName": "objectId",
-                        "documentation": "-- | The identifier of the object.",
+                        "documentation": "-- | The ID of the object.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4082,7 +4316,7 @@
                         "name": "_eePipelineId",
                         "shape": "id",
                         "locationName": "pipelineId",
-                        "documentation": "-- | The identifier of the pipeline.",
+                        "documentation": "-- | The ID of the pipeline.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4099,7 +4333,7 @@
                         "name": "_eeObjectId",
                         "shape": "id",
                         "locationName": "objectId",
-                        "documentation": "-- | The identifier of the object.",
+                        "documentation": "-- | The ID of the object.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4163,7 +4397,7 @@
                         "name": "_eeObjectId",
                         "shape": "id",
                         "locationName": "objectId",
-                        "documentation": "-- | The identifier of the object.",
+                        "documentation": "-- | The ID of the object.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4180,7 +4414,7 @@
                         "name": "_eePipelineId",
                         "shape": "id",
                         "locationName": "pipelineId",
-                        "documentation": "-- | The identifier of the pipeline.",
+                        "documentation": "-- | The ID of the pipeline.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4214,7 +4448,7 @@
                         "name": "_gpdrPipelineObjects",
                         "shape": "PipelineObjectList",
                         "locationName": "pipelineObjects",
-                        "documentation": "-- | An array of objects defined in the pipeline.",
+                        "documentation": "-- | The objects defined in the pipeline.",
                         "typeExposed": "[PipelineObject]",
                         "type": "List \"pipelineObjects\" PipelineObject"
                     },
@@ -4231,7 +4465,7 @@
                         "name": "_gpdrParameterObjects",
                         "shape": "ParameterObjectList",
                         "locationName": "parameterObjects",
-                        "documentation": "-- | Returns a list of parameter objects used in the pipeline definition.",
+                        "documentation": "-- | The parameter objects used in the pipeline definition.",
                         "typeExposed": "[ParameterObject]",
                         "type": "List \"parameterObjects\" ParameterObject"
                     },
@@ -4248,7 +4482,7 @@
                         "name": "_gpdrParameterValues",
                         "shape": "ParameterValueList",
                         "locationName": "parameterValues",
-                        "documentation": "-- | Returns a list of parameter values used in the pipeline definition.",
+                        "documentation": "-- | The parameter values used in the pipeline definition.",
                         "typeExposed": "[ParameterValue]",
                         "type": "List \"parameterValues\" ParameterValue"
                     }
@@ -4279,7 +4513,7 @@
                         "name": "_gpdrPipelineObjects",
                         "shape": "PipelineObjectList",
                         "locationName": "pipelineObjects",
-                        "documentation": "-- | An array of objects defined in the pipeline.",
+                        "documentation": "-- | The objects defined in the pipeline.",
                         "typeExposed": "[PipelineObject]",
                         "type": "List \"pipelineObjects\" PipelineObject"
                     },
@@ -4296,7 +4530,7 @@
                         "name": "_gpdrParameterObjects",
                         "shape": "ParameterObjectList",
                         "locationName": "parameterObjects",
-                        "documentation": "-- | Returns a list of parameter objects used in the pipeline definition.",
+                        "documentation": "-- | The parameter objects used in the pipeline definition.",
                         "typeExposed": "[ParameterObject]",
                         "type": "List \"parameterObjects\" ParameterObject"
                     },
@@ -4313,7 +4547,7 @@
                         "name": "_gpdrParameterValues",
                         "shape": "ParameterValueList",
                         "locationName": "parameterValues",
-                        "documentation": "-- | Returns a list of parameter values used in the pipeline definition.",
+                        "documentation": "-- | The parameter values used in the pipeline definition.",
                         "typeExposed": "[ParameterValue]",
                         "type": "List \"parameterValues\" ParameterValue"
                     }
@@ -4332,7 +4566,7 @@
                         "name": "_gpdrParameterObjects",
                         "shape": "ParameterObjectList",
                         "locationName": "parameterObjects",
-                        "documentation": "-- | Returns a list of parameter objects used in the pipeline definition.",
+                        "documentation": "-- | The parameter objects used in the pipeline definition.",
                         "typeExposed": "[ParameterObject]",
                         "type": "List \"parameterObjects\" ParameterObject"
                     },
@@ -4349,7 +4583,7 @@
                         "name": "_gpdrParameterValues",
                         "shape": "ParameterValueList",
                         "locationName": "parameterValues",
-                        "documentation": "-- | Returns a list of parameter values used in the pipeline definition.",
+                        "documentation": "-- | The parameter values used in the pipeline definition.",
                         "typeExposed": "[ParameterValue]",
                         "type": "List \"parameterValues\" ParameterValue"
                     },
@@ -4366,7 +4600,7 @@
                         "name": "_gpdrPipelineObjects",
                         "shape": "PipelineObjectList",
                         "locationName": "pipelineObjects",
-                        "documentation": "-- | An array of objects defined in the pipeline.",
+                        "documentation": "-- | The objects defined in the pipeline.",
                         "typeExposed": "[PipelineObject]",
                         "type": "List \"pipelineObjects\" PipelineObject"
                     }
@@ -4382,7 +4616,7 @@
             "pager": null,
             "name": "GetPipelineDefinition",
             "method": "post",
-            "documentation": "-- | Returns the definition of the specified pipeline. You can call 'GetPipelineDefinition' to retrieve the pipeline definition you provided using 'PutPipelineDefinition'.",
+            "documentation": "-- | Gets the definition of the specified pipeline. You can call 'GetPipelineDefinition' to retrieve the pipeline definition that you provided using 'PutPipelineDefinition'.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4410,7 +4644,7 @@
                         "name": "_gpdPipelineId",
                         "shape": "id",
                         "locationName": "pipelineId",
-                        "documentation": "-- | The identifier of the pipeline.",
+                        "documentation": "-- | The ID of the pipeline.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4427,7 +4661,7 @@
                         "name": "_gpdVersion",
                         "shape": "string",
                         "locationName": "version",
-                        "documentation": "-- | The version of the pipeline definition to retrieve. This parameter accepts\n-- the values 'latest' (default) and 'active'. Where 'latest' indicates the last\n-- definition saved to the pipeline and 'active' indicates the last definition of\n-- the pipeline that was activated.",
+                        "documentation": "-- | The version of the pipeline definition to retrieve. Set this parameter to 'latest' (default) to use the last definition saved to the pipeline or 'active' to use\n-- the last definition that was activated.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -4454,7 +4688,7 @@
                         "name": "_gpdPipelineId",
                         "shape": "id",
                         "locationName": "pipelineId",
-                        "documentation": "-- | The identifier of the pipeline.",
+                        "documentation": "-- | The ID of the pipeline.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4483,7 +4717,7 @@
                         "name": "_gpdVersion",
                         "shape": "string",
                         "locationName": "version",
-                        "documentation": "-- | The version of the pipeline definition to retrieve. This parameter accepts\n-- the values 'latest' (default) and 'active'. Where 'latest' indicates the last\n-- definition saved to the pipeline and 'active' indicates the last definition of\n-- the pipeline that was activated.",
+                        "documentation": "-- | The version of the pipeline definition to retrieve. Set this parameter to 'latest' (default) to use the last definition saved to the pipeline or 'active' to use\n-- the last definition that was activated.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -4502,7 +4736,7 @@
                         "name": "_gpdPipelineId",
                         "shape": "id",
                         "locationName": "pipelineId",
-                        "documentation": "-- | The identifier of the pipeline.",
+                        "documentation": "-- | The ID of the pipeline.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -4519,7 +4753,7 @@
                         "name": "_gpdVersion",
                         "shape": "string",
                         "locationName": "version",
-                        "documentation": "-- | The version of the pipeline definition to retrieve. This parameter accepts\n-- the values 'latest' (default) and 'active'. Where 'latest' indicates the last\n-- definition saved to the pipeline and 'active' indicates the last definition of\n-- the pipeline that was activated.",
+                        "documentation": "-- | The version of the pipeline definition to retrieve. Set this parameter to 'latest' (default) to use the last definition saved to the pipeline or 'active' to use\n-- the last definition that was activated.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -4553,7 +4787,7 @@
                         "name": "_lprPipelineIdList",
                         "shape": "pipelineList",
                         "locationName": "pipelineIdList",
-                        "documentation": "-- | A list of all the pipeline identifiers that your account has permission to\n-- access. If you require additional information about the pipelines, you can\n-- use these identifiers to call 'DescribePipelines' and 'GetPipelineDefinition'.",
+                        "documentation": "-- | The pipeline identifiers. If you require additional information about the\n-- pipelines, you can use these identifiers to call 'DescribePipelines' and 'GetPipelineDefinition'.",
                         "typeExposed": "[PipelineIdName]",
                         "type": "List \"pipelineIdList\" PipelineIdName"
                     },
@@ -4570,7 +4804,7 @@
                         "name": "_lprMarker",
                         "shape": "string",
                         "locationName": "marker",
-                        "documentation": "-- | If not null, indicates the starting point for the set of pipeline identifiers\n-- that the next call to 'ListPipelines' will retrieve. If null, there are no more\n-- pipeline identifiers.",
+                        "documentation": "-- | The starting point for the next page of results. To view the next page of\n-- results, call 'ListPipelinesOutput' again with this marker value. If the value\n-- is null, there are no more results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -4587,7 +4821,7 @@
                         "name": "_lprHasMoreResults",
                         "shape": "boolean",
                         "locationName": "hasMoreResults",
-                        "documentation": "-- | If 'True', there are more results that can be obtained by a subsequent call to 'ListPipelines'.",
+                        "documentation": "-- | Indicates whether there are more results that can be obtained by a subsequent\n-- call.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     }
@@ -4618,7 +4852,7 @@
                         "name": "_lprPipelineIdList",
                         "shape": "pipelineList",
                         "locationName": "pipelineIdList",
-                        "documentation": "-- | A list of all the pipeline identifiers that your account has permission to\n-- access. If you require additional information about the pipelines, you can\n-- use these identifiers to call 'DescribePipelines' and 'GetPipelineDefinition'.",
+                        "documentation": "-- | The pipeline identifiers. If you require additional information about the\n-- pipelines, you can use these identifiers to call 'DescribePipelines' and 'GetPipelineDefinition'.",
                         "typeExposed": "[PipelineIdName]",
                         "type": "List \"pipelineIdList\" PipelineIdName"
                     },
@@ -4635,7 +4869,7 @@
                         "name": "_lprMarker",
                         "shape": "string",
                         "locationName": "marker",
-                        "documentation": "-- | If not null, indicates the starting point for the set of pipeline identifiers\n-- that the next call to 'ListPipelines' will retrieve. If null, there are no more\n-- pipeline identifiers.",
+                        "documentation": "-- | The starting point for the next page of results. To view the next page of\n-- results, call 'ListPipelinesOutput' again with this marker value. If the value\n-- is null, there are no more results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -4652,7 +4886,7 @@
                         "name": "_lprHasMoreResults",
                         "shape": "boolean",
                         "locationName": "hasMoreResults",
-                        "documentation": "-- | If 'True', there are more results that can be obtained by a subsequent call to 'ListPipelines'.",
+                        "documentation": "-- | Indicates whether there are more results that can be obtained by a subsequent\n-- call.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     }
@@ -4671,7 +4905,7 @@
                         "name": "_lprHasMoreResults",
                         "shape": "boolean",
                         "locationName": "hasMoreResults",
-                        "documentation": "-- | If 'True', there are more results that can be obtained by a subsequent call to 'ListPipelines'.",
+                        "documentation": "-- | Indicates whether there are more results that can be obtained by a subsequent\n-- call.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -4688,7 +4922,7 @@
                         "name": "_lprMarker",
                         "shape": "string",
                         "locationName": "marker",
-                        "documentation": "-- | If not null, indicates the starting point for the set of pipeline identifiers\n-- that the next call to 'ListPipelines' will retrieve. If null, there are no more\n-- pipeline identifiers.",
+                        "documentation": "-- | The starting point for the next page of results. To view the next page of\n-- results, call 'ListPipelinesOutput' again with this marker value. If the value\n-- is null, there are no more results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -4705,7 +4939,7 @@
                         "name": "_lprPipelineIdList",
                         "shape": "pipelineList",
                         "locationName": "pipelineIdList",
-                        "documentation": "-- | A list of all the pipeline identifiers that your account has permission to\n-- access. If you require additional information about the pipelines, you can\n-- use these identifiers to call 'DescribePipelines' and 'GetPipelineDefinition'.",
+                        "documentation": "-- | The pipeline identifiers. If you require additional information about the\n-- pipelines, you can use these identifiers to call 'DescribePipelines' and 'GetPipelineDefinition'.",
                         "typeExposed": "[PipelineIdName]",
                         "type": "List \"pipelineIdList\" PipelineIdName"
                     }
@@ -4730,7 +4964,7 @@
             },
             "name": "ListPipelines",
             "method": "post",
-            "documentation": "-- | Returns a list of pipeline identifiers for all active pipelines. Identifiers\n-- are returned only for pipelines you have permission to access.",
+            "documentation": "-- | Lists the pipeline identifiers for all active pipelines that you have\n-- permission to access.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4759,7 +4993,7 @@
                     "name": "_lpMarker",
                     "shape": "string",
                     "locationName": "marker",
-                    "documentation": "-- | The starting point for the results to be returned. The first time you call 'ListPipelines', this value should be empty. As long as the action returns 'HasMoreResults' as 'True', you can call 'ListPipelines' again and pass the marker value from the\n-- response to retrieve the next set of results.",
+                    "documentation": "-- | The starting point for the results to be returned. For the first call, this\n-- value should be empty. As long as there are more results, continue to call 'ListPipelines' with the marker value from the previous call to retrieve the next set of\n-- results.",
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
@@ -4777,7 +5011,7 @@
                         "name": "_lpMarker",
                         "shape": "string",
                         "locationName": "marker",
-                        "documentation": "-- | The starting point for the results to be returned. The first time you call 'ListPipelines', this value should be empty. As long as the action returns 'HasMoreResults' as 'True', you can call 'ListPipelines' again and pass the marker value from the\n-- response to retrieve the next set of results.",
+                        "documentation": "-- | The starting point for the results to be returned. For the first call, this\n-- value should be empty. As long as there are more results, continue to call 'ListPipelines' with the marker value from the previous call to retrieve the next set of\n-- results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -4815,7 +5049,7 @@
                         "name": "_lpMarker",
                         "shape": "string",
                         "locationName": "marker",
-                        "documentation": "-- | The starting point for the results to be returned. The first time you call 'ListPipelines', this value should be empty. As long as the action returns 'HasMoreResults' as 'True', you can call 'ListPipelines' again and pass the marker value from the\n-- response to retrieve the next set of results.",
+                        "documentation": "-- | The starting point for the results to be returned. For the first call, this\n-- value should be empty. As long as there are more results, continue to call 'ListPipelines' with the marker value from the previous call to retrieve the next set of\n-- results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -4834,7 +5068,7 @@
                         "name": "_lpMarker",
                         "shape": "string",
                         "locationName": "marker",
-                        "documentation": "-- | The starting point for the results to be returned. The first time you call 'ListPipelines', this value should be empty. As long as the action returns 'HasMoreResults' as 'True', you can call 'ListPipelines' again and pass the marker value from the\n-- response to retrieve the next set of results.",
+                        "documentation": "-- | The starting point for the results to be returned. For the first call, this\n-- value should be empty. As long as there are more results, continue to call 'ListPipelines' with the marker value from the previous call to retrieve the next set of\n-- results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -4868,7 +5102,7 @@
                     "name": "_pftrTaskObject",
                     "shape": "TaskObject",
                     "locationName": "taskObject",
-                    "documentation": "-- | An instance of 'TaskObject'. The returned object contains all the information\n-- needed to complete the task that is being assigned to the task runner. One of\n-- the fields returned in this object is taskId, which contains an identifier\n-- for the task being assigned. The calling task runner uses taskId in\n-- subsequent calls to 'ReportTaskProgress' and 'SetTaskStatus'.",
+                    "documentation": "-- | The information needed to complete the task that is being assigned to the\n-- task runner. One of the fields returned in this object is 'taskId', which\n-- contains an identifier for the task being assigned. The calling task runner\n-- uses 'taskId' in subsequent calls to 'ReportTaskProgress' and 'SetTaskStatus'.",
                     "typeExposed": "Maybe TaskObject",
                     "type": "Maybe TaskObject"
                 },
@@ -4886,7 +5120,7 @@
                         "name": "_pftrTaskObject",
                         "shape": "TaskObject",
                         "locationName": "taskObject",
-                        "documentation": "-- | An instance of 'TaskObject'. The returned object contains all the information\n-- needed to complete the task that is being assigned to the task runner. One of\n-- the fields returned in this object is taskId, which contains an identifier\n-- for the task being assigned. The calling task runner uses taskId in\n-- subsequent calls to 'ReportTaskProgress' and 'SetTaskStatus'.",
+                        "documentation": "-- | The information needed to complete the task that is being assigned to the\n-- task runner. One of the fields returned in this object is 'taskId', which\n-- contains an identifier for the task being assigned. The calling task runner\n-- uses 'taskId' in subsequent calls to 'ReportTaskProgress' and 'SetTaskStatus'.",
                         "typeExposed": "Maybe TaskObject",
                         "type": "Maybe TaskObject"
                     }
@@ -4917,7 +5151,7 @@
                         "name": "_pftrTaskObject",
                         "shape": "TaskObject",
                         "locationName": "taskObject",
-                        "documentation": "-- | An instance of 'TaskObject'. The returned object contains all the information\n-- needed to complete the task that is being assigned to the task runner. One of\n-- the fields returned in this object is taskId, which contains an identifier\n-- for the task being assigned. The calling task runner uses taskId in\n-- subsequent calls to 'ReportTaskProgress' and 'SetTaskStatus'.",
+                        "documentation": "-- | The information needed to complete the task that is being assigned to the\n-- task runner. One of the fields returned in this object is 'taskId', which\n-- contains an identifier for the task being assigned. The calling task runner\n-- uses 'taskId' in subsequent calls to 'ReportTaskProgress' and 'SetTaskStatus'.",
                         "typeExposed": "Maybe TaskObject",
                         "type": "Maybe TaskObject"
                     }
@@ -4936,7 +5170,7 @@
                         "name": "_pftrTaskObject",
                         "shape": "TaskObject",
                         "locationName": "taskObject",
-                        "documentation": "-- | An instance of 'TaskObject'. The returned object contains all the information\n-- needed to complete the task that is being assigned to the task runner. One of\n-- the fields returned in this object is taskId, which contains an identifier\n-- for the task being assigned. The calling task runner uses taskId in\n-- subsequent calls to 'ReportTaskProgress' and 'SetTaskStatus'.",
+                        "documentation": "-- | The information needed to complete the task that is being assigned to the\n-- task runner. One of the fields returned in this object is 'taskId', which\n-- contains an identifier for the task being assigned. The calling task runner\n-- uses 'taskId' in subsequent calls to 'ReportTaskProgress' and 'SetTaskStatus'.",
                         "typeExposed": "Maybe TaskObject",
                         "type": "Maybe TaskObject"
                     }
@@ -4952,7 +5186,7 @@
             "pager": null,
             "name": "PollForTask",
             "method": "post",
-            "documentation": "-- | Task runners call this action to receive a task to perform from AWS Data\n-- Pipeline. The task runner specifies which tasks it can perform by setting a\n-- value for the workerGroup parameter of the 'PollForTask' call. The task\n-- returned by 'PollForTask' may come from any of the pipelines that match the\n-- workerGroup value passed in by the task runner and that was launched using\n-- the IAM user credentials specified by the task runner.\n--\n-- If tasks are ready in the work queue, 'PollForTask' returns a response\n-- immediately. If no tasks are available in the queue, 'PollForTask' uses\n-- long-polling and holds on to a poll connection for up to a 90 seconds during\n-- which time the first newly scheduled task is handed to the task runner. To\n-- accomodate this, set the socket timeout in your task runner to 90 seconds.\n-- The task runner should not call 'PollForTask' again on the same 'workerGroup'\n-- until it receives a response, and this may take up to 90 seconds.",
+            "documentation": "-- | Task runners call 'PollForTask' to receive a task to perform from AWS Data\n-- Pipeline. The task runner specifies which tasks it can perform by setting a\n-- value for the 'workerGroup' parameter. The task returned can come from any of\n-- the pipelines that match the 'workerGroup' value passed in by the task runner\n-- and that was launched using the IAM user credentials specified by the task\n-- runner.\n--\n-- If tasks are ready in the work queue, 'PollForTask' returns a response\n-- immediately. If no tasks are available in the queue, 'PollForTask' uses\n-- long-polling and holds on to a poll connection for up to a 90 seconds, during\n-- which time the first newly scheduled task is handed to the task runner. To\n-- accomodate this, set the socket timeout in your task runner to 90 seconds.\n-- The task runner should not call 'PollForTask' again on the same 'workerGroup'\n-- until it receives a response, and this can take up to 90 seconds.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4979,7 +5213,7 @@
                         "name": "_pftWorkerGroup",
                         "shape": "string",
                         "locationName": "workerGroup",
-                        "documentation": "-- | Indicates the type of task the task runner is configured to accept and\n-- process. The worker group is set as a field on objects in the pipeline when\n-- they are created. You can only specify a single value for 'workerGroup' in the\n-- call to 'PollForTask'. There are no wildcard values permitted in 'workerGroup',\n-- the string must be an exact, case-sensitive, match.",
+                        "documentation": "-- | The type of task the task runner is configured to accept and process. The\n-- worker group is set as a field on objects in the pipeline when they are\n-- created. You can only specify a single value for 'workerGroup' in the call to 'PollForTask'. There are no wildcard values permitted in 'workerGroup'; the string must be\n-- an exact, case-sensitive, match.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -5013,7 +5247,7 @@
                         "name": "_pftInstanceIdentity",
                         "shape": "InstanceIdentity",
                         "locationName": "instanceIdentity",
-                        "documentation": "-- | Identity information for the Amazon EC2 instance that is hosting the task\n-- runner. You can get this value by calling the URI, 'http://169.254.169.254/latest/meta-data/instance-id', from the EC2 instance. For more information, go to \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html Instance Metadata\u003e in the /Amazon Elastic Compute Cloud User Guide./ Passing in this value proves that\n-- your task runner is running on an EC2 instance, and ensures the proper AWS\n-- Data Pipeline service charges are applied to your pipeline.",
+                        "documentation": "-- | Identity information for the EC2 instance that is hosting the task runner.\n-- You can get this value from the instance using 'http://169.254.169.254/latest/meta-data/instance-id'. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html Instance Metadata\u003e in the /Amazon Elastic ComputeCloud User Guide./ Passing in this value proves that your task runner is\n-- running on an EC2 instance, and ensures the proper AWS Data Pipeline service\n-- charges are applied to your pipeline.",
                         "typeExposed": "Maybe InstanceIdentity",
                         "type": "Maybe InstanceIdentity"
                     }
@@ -5040,7 +5274,7 @@
                         "name": "_pftWorkerGroup",
                         "shape": "string",
                         "locationName": "workerGroup",
-                        "documentation": "-- | Indicates the type of task the task runner is configured to accept and\n-- process. The worker group is set as a field on objects in the pipeline when\n-- they are created. You can only specify a single value for 'workerGroup' in the\n-- call to 'PollForTask'. There are no wildcard values permitted in 'workerGroup',\n-- the string must be an exact, case-sensitive, match.",
+                        "documentation": "-- | The type of task the task runner is configured to accept and process. The\n-- worker group is set as a field on objects in the pipeline when they are\n-- created. You can only specify a single value for 'workerGroup' in the call to 'PollForTask'. There are no wildcard values permitted in 'workerGroup'; the string must be\n-- an exact, case-sensitive, match.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -5086,7 +5320,7 @@
                         "name": "_pftInstanceIdentity",
                         "shape": "InstanceIdentity",
                         "locationName": "instanceIdentity",
-                        "documentation": "-- | Identity information for the Amazon EC2 instance that is hosting the task\n-- runner. You can get this value by calling the URI, 'http://169.254.169.254/latest/meta-data/instance-id', from the EC2 instance. For more information, go to \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html Instance Metadata\u003e in the /Amazon Elastic Compute Cloud User Guide./ Passing in this value proves that\n-- your task runner is running on an EC2 instance, and ensures the proper AWS\n-- Data Pipeline service charges are applied to your pipeline.",
+                        "documentation": "-- | Identity information for the EC2 instance that is hosting the task runner.\n-- You can get this value from the instance using 'http://169.254.169.254/latest/meta-data/instance-id'. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html Instance Metadata\u003e in the /Amazon Elastic ComputeCloud User Guide./ Passing in this value proves that your task runner is\n-- running on an EC2 instance, and ensures the proper AWS Data Pipeline service\n-- charges are applied to your pipeline.",
                         "typeExposed": "Maybe InstanceIdentity",
                         "type": "Maybe InstanceIdentity"
                     }
@@ -5122,7 +5356,7 @@
                         "name": "_pftInstanceIdentity",
                         "shape": "InstanceIdentity",
                         "locationName": "instanceIdentity",
-                        "documentation": "-- | Identity information for the Amazon EC2 instance that is hosting the task\n-- runner. You can get this value by calling the URI, 'http://169.254.169.254/latest/meta-data/instance-id', from the EC2 instance. For more information, go to \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html Instance Metadata\u003e in the /Amazon Elastic Compute Cloud User Guide./ Passing in this value proves that\n-- your task runner is running on an EC2 instance, and ensures the proper AWS\n-- Data Pipeline service charges are applied to your pipeline.",
+                        "documentation": "-- | Identity information for the EC2 instance that is hosting the task runner.\n-- You can get this value from the instance using 'http://169.254.169.254/latest/meta-data/instance-id'. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AESDG-chapter-instancedata.html Instance Metadata\u003e in the /Amazon Elastic ComputeCloud User Guide./ Passing in this value proves that your task runner is\n-- running on an EC2 instance, and ensures the proper AWS Data Pipeline service\n-- charges are applied to your pipeline.",
                         "typeExposed": "Maybe InstanceIdentity",
                         "type": "Maybe InstanceIdentity"
                     },
@@ -5139,7 +5373,7 @@
                         "name": "_pftWorkerGroup",
                         "shape": "string",
                         "locationName": "workerGroup",
-                        "documentation": "-- | Indicates the type of task the task runner is configured to accept and\n-- process. The worker group is set as a field on objects in the pipeline when\n-- they are created. You can only specify a single value for 'workerGroup' in the\n-- call to 'PollForTask'. There are no wildcard values permitted in 'workerGroup',\n-- the string must be an exact, case-sensitive, match.",
+                        "documentation": "-- | The type of task the task runner is configured to accept and process. The\n-- worker group is set as a field on objects in the pipeline when they are\n-- created. You can only specify a single value for 'workerGroup' in the call to 'PollForTask'. There are no wildcard values permitted in 'workerGroup'; the string must be\n-- an exact, case-sensitive, match.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -5173,7 +5407,7 @@
                         "name": "_ppdrValidationErrors",
                         "shape": "ValidationErrors",
                         "locationName": "validationErrors",
-                        "documentation": "-- | A list of the validation errors that are associated with the objects defined\n-- in 'pipelineObjects'.",
+                        "documentation": "-- | The validation errors that are associated with the objects defined in 'pipelineObjects'.",
                         "typeExposed": "[ValidationError]",
                         "type": "List \"validationErrors\" ValidationError"
                     },
@@ -5190,7 +5424,7 @@
                         "name": "_ppdrValidationWarnings",
                         "shape": "ValidationWarnings",
                         "locationName": "validationWarnings",
-                        "documentation": "-- | A list of the validation warnings that are associated with the objects\n-- defined in 'pipelineObjects'.",
+                        "documentation": "-- | The validation warnings that are associated with the objects defined in 'pipelineObjects'.",
                         "typeExposed": "[ValidationWarning]",
                         "type": "List \"validationWarnings\" ValidationWarning"
                     },
@@ -5207,7 +5441,7 @@
                         "name": "_ppdrErrored",
                         "shape": "boolean",
                         "locationName": "errored",
-                        "documentation": "-- | If 'True', there were validation errors. If errored is 'True', the pipeline\n-- definition is stored but cannot be activated until you correct the pipeline\n-- and call 'PutPipelineDefinition' to commit the corrected pipeline.",
+                        "documentation": "-- | Indicates whether there were validation errors, and the pipeline definition\n-- is stored but cannot be activated until you correct the pipeline and call 'PutPipelineDefinition' to commit the corrected pipeline.",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     }
@@ -5229,7 +5463,7 @@
                         "name": "_ppdrErrored",
                         "shape": "boolean",
                         "locationName": "errored",
-                        "documentation": "-- | If 'True', there were validation errors. If errored is 'True', the pipeline\n-- definition is stored but cannot be activated until you correct the pipeline\n-- and call 'PutPipelineDefinition' to commit the corrected pipeline.",
+                        "documentation": "-- | Indicates whether there were validation errors, and the pipeline definition\n-- is stored but cannot be activated until you correct the pipeline and call 'PutPipelineDefinition' to commit the corrected pipeline.",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     }
@@ -5256,7 +5490,7 @@
                         "name": "_ppdrValidationErrors",
                         "shape": "ValidationErrors",
                         "locationName": "validationErrors",
-                        "documentation": "-- | A list of the validation errors that are associated with the objects defined\n-- in 'pipelineObjects'.",
+                        "documentation": "-- | The validation errors that are associated with the objects defined in 'pipelineObjects'.",
                         "typeExposed": "[ValidationError]",
                         "type": "List \"validationErrors\" ValidationError"
                     },
@@ -5273,7 +5507,7 @@
                         "name": "_ppdrValidationWarnings",
                         "shape": "ValidationWarnings",
                         "locationName": "validationWarnings",
-                        "documentation": "-- | A list of the validation warnings that are associated with the objects\n-- defined in 'pipelineObjects'.",
+                        "documentation": "-- | The validation warnings that are associated with the objects defined in 'pipelineObjects'.",
                         "typeExposed": "[ValidationWarning]",
                         "type": "List \"validationWarnings\" ValidationWarning"
                     }
@@ -5292,7 +5526,7 @@
                         "name": "_ppdrErrored",
                         "shape": "boolean",
                         "locationName": "errored",
-                        "documentation": "-- | If 'True', there were validation errors. If errored is 'True', the pipeline\n-- definition is stored but cannot be activated until you correct the pipeline\n-- and call 'PutPipelineDefinition' to commit the corrected pipeline.",
+                        "documentation": "-- | Indicates whether there were validation errors, and the pipeline definition\n-- is stored but cannot be activated until you correct the pipeline and call 'PutPipelineDefinition' to commit the corrected pipeline.",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     },
@@ -5309,7 +5543,7 @@
                         "name": "_ppdrValidationErrors",
                         "shape": "ValidationErrors",
                         "locationName": "validationErrors",
-                        "documentation": "-- | A list of the validation errors that are associated with the objects defined\n-- in 'pipelineObjects'.",
+                        "documentation": "-- | The validation errors that are associated with the objects defined in 'pipelineObjects'.",
                         "typeExposed": "[ValidationError]",
                         "type": "List \"validationErrors\" ValidationError"
                     },
@@ -5326,7 +5560,7 @@
                         "name": "_ppdrValidationWarnings",
                         "shape": "ValidationWarnings",
                         "locationName": "validationWarnings",
-                        "documentation": "-- | A list of the validation warnings that are associated with the objects\n-- defined in 'pipelineObjects'.",
+                        "documentation": "-- | The validation warnings that are associated with the objects defined in 'pipelineObjects'.",
                         "typeExposed": "[ValidationWarning]",
                         "type": "List \"validationWarnings\" ValidationWarning"
                     }
@@ -5342,7 +5576,7 @@
             "pager": null,
             "name": "PutPipelineDefinition",
             "method": "post",
-            "documentation": "-- | Adds tasks, schedules, and preconditions that control the behavior of the\n-- pipeline. You can use PutPipelineDefinition to populate a new pipeline.\n--\n-- 'PutPipelineDefinition' also validates the configuration as it adds it to the\n-- pipeline. Changes to the pipeline are saved unless one of the following three\n-- validation errors exists in the pipeline.  An object is missing a name or\n-- identifier field. A string or reference field is empty. The number of objects\n-- in the pipeline exceeds the maximum allowed objects. The pipeline is in a\n-- FINISHED state.\n--\n-- Pipeline object definitions are passed to the 'PutPipelineDefinition' action\n-- and returned by the 'GetPipelineDefinition' action.",
+            "documentation": "-- | Adds tasks, schedules, and preconditions to the specified pipeline. You can\n-- use 'PutPipelineDefinition' to populate a new pipeline.\n--\n-- 'PutPipelineDefinition' also validates the configuration as it adds it to the\n-- pipeline. Changes to the pipeline are saved unless one of the following three\n-- validation errors exists in the pipeline.\n--\n-- An object is missing a name or identifier field. A string or reference\n-- field is empty. The number of objects in the pipeline exceeds the maximum\n-- allowed objects. The pipeline is in a FINISHED state.   Pipeline object\n-- definitions are passed to the 'PutPipelineDefinition' action and returned by\n-- the 'GetPipelineDefinition' action.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -5369,7 +5603,7 @@
                         "name": "_ppdPipelineId",
                         "shape": "id",
                         "locationName": "pipelineId",
-                        "documentation": "-- | The identifier of the pipeline to be configured.",
+                        "documentation": "-- | The ID of the pipeline.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -5386,7 +5620,7 @@
                         "name": "_ppdPipelineObjects",
                         "shape": "PipelineObjectList",
                         "locationName": "pipelineObjects",
-                        "documentation": "-- | The objects that define the pipeline. These will overwrite the existing\n-- pipeline definition.",
+                        "documentation": "-- | The objects that define the pipeline. These objects overwrite the existing\n-- pipeline definition.",
                         "typeExposed": "[PipelineObject]",
                         "type": "List \"pipelineObjects\" PipelineObject"
                     },
@@ -5403,7 +5637,7 @@
                         "name": "_ppdParameterObjects",
                         "shape": "ParameterObjectList",
                         "locationName": "parameterObjects",
-                        "documentation": "-- | A list of parameter objects used with the pipeline.",
+                        "documentation": "-- | The parameter objects used with the pipeline.",
                         "typeExposed": "[ParameterObject]",
                         "type": "List \"parameterObjects\" ParameterObject"
                     },
@@ -5420,7 +5654,7 @@
                         "name": "_ppdParameterValues",
                         "shape": "ParameterValueList",
                         "locationName": "parameterValues",
-                        "documentation": "-- | A list of parameter values used with the pipeline.",
+                        "documentation": "-- | The parameter values used with the pipeline.",
                         "typeExposed": "[ParameterValue]",
                         "type": "List \"parameterValues\" ParameterValue"
                     }
@@ -5447,7 +5681,7 @@
                         "name": "_ppdPipelineId",
                         "shape": "id",
                         "locationName": "pipelineId",
-                        "documentation": "-- | The identifier of the pipeline to be configured.",
+                        "documentation": "-- | The ID of the pipeline.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -5476,7 +5710,7 @@
                         "name": "_ppdPipelineObjects",
                         "shape": "PipelineObjectList",
                         "locationName": "pipelineObjects",
-                        "documentation": "-- | The objects that define the pipeline. These will overwrite the existing\n-- pipeline definition.",
+                        "documentation": "-- | The objects that define the pipeline. These objects overwrite the existing\n-- pipeline definition.",
                         "typeExposed": "[PipelineObject]",
                         "type": "List \"pipelineObjects\" PipelineObject"
                     },
@@ -5493,7 +5727,7 @@
                         "name": "_ppdParameterObjects",
                         "shape": "ParameterObjectList",
                         "locationName": "parameterObjects",
-                        "documentation": "-- | A list of parameter objects used with the pipeline.",
+                        "documentation": "-- | The parameter objects used with the pipeline.",
                         "typeExposed": "[ParameterObject]",
                         "type": "List \"parameterObjects\" ParameterObject"
                     },
@@ -5510,7 +5744,7 @@
                         "name": "_ppdParameterValues",
                         "shape": "ParameterValueList",
                         "locationName": "parameterValues",
-                        "documentation": "-- | A list of parameter values used with the pipeline.",
+                        "documentation": "-- | The parameter values used with the pipeline.",
                         "typeExposed": "[ParameterValue]",
                         "type": "List \"parameterValues\" ParameterValue"
                     }
@@ -5529,7 +5763,7 @@
                         "name": "_ppdParameterObjects",
                         "shape": "ParameterObjectList",
                         "locationName": "parameterObjects",
-                        "documentation": "-- | A list of parameter objects used with the pipeline.",
+                        "documentation": "-- | The parameter objects used with the pipeline.",
                         "typeExposed": "[ParameterObject]",
                         "type": "List \"parameterObjects\" ParameterObject"
                     },
@@ -5546,7 +5780,7 @@
                         "name": "_ppdParameterValues",
                         "shape": "ParameterValueList",
                         "locationName": "parameterValues",
-                        "documentation": "-- | A list of parameter values used with the pipeline.",
+                        "documentation": "-- | The parameter values used with the pipeline.",
                         "typeExposed": "[ParameterValue]",
                         "type": "List \"parameterValues\" ParameterValue"
                     },
@@ -5563,7 +5797,7 @@
                         "name": "_ppdPipelineId",
                         "shape": "id",
                         "locationName": "pipelineId",
-                        "documentation": "-- | The identifier of the pipeline to be configured.",
+                        "documentation": "-- | The ID of the pipeline.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -5580,7 +5814,7 @@
                         "name": "_ppdPipelineObjects",
                         "shape": "PipelineObjectList",
                         "locationName": "pipelineObjects",
-                        "documentation": "-- | The objects that define the pipeline. These will overwrite the existing\n-- pipeline definition.",
+                        "documentation": "-- | The objects that define the pipeline. These objects overwrite the existing\n-- pipeline definition.",
                         "typeExposed": "[PipelineObject]",
                         "type": "List \"pipelineObjects\" PipelineObject"
                     }
@@ -5615,7 +5849,7 @@
                         "name": "_qorIds",
                         "shape": "idList",
                         "locationName": "ids",
-                        "documentation": "-- | A list of identifiers that match the query selectors.",
+                        "documentation": "-- | The identifiers that match the query selectors.",
                         "typeExposed": "[Text]",
                         "type": "List \"ids\" Text"
                     },
@@ -5632,7 +5866,7 @@
                         "name": "_qorMarker",
                         "shape": "string",
                         "locationName": "marker",
-                        "documentation": "-- | The starting point for the results to be returned. As long as the action\n-- returns 'HasMoreResults' as 'True', you can call 'QueryObjects' again and pass the\n-- marker value from the response to retrieve the next set of results.",
+                        "documentation": "-- | The starting point for the next page of results. To view the next page of\n-- results, call 'QueryObjects' again with this marker value. If the value is\n-- null, there are no more results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -5649,7 +5883,7 @@
                         "name": "_qorHasMoreResults",
                         "shape": "boolean",
                         "locationName": "hasMoreResults",
-                        "documentation": "-- | If 'True', there are more results that can be obtained by a subsequent call to 'QueryObjects'.",
+                        "documentation": "-- | Indicates whether there are more results that can be obtained by a subsequent\n-- call.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     }
@@ -5680,7 +5914,7 @@
                         "name": "_qorIds",
                         "shape": "idList",
                         "locationName": "ids",
-                        "documentation": "-- | A list of identifiers that match the query selectors.",
+                        "documentation": "-- | The identifiers that match the query selectors.",
                         "typeExposed": "[Text]",
                         "type": "List \"ids\" Text"
                     },
@@ -5697,7 +5931,7 @@
                         "name": "_qorMarker",
                         "shape": "string",
                         "locationName": "marker",
-                        "documentation": "-- | The starting point for the results to be returned. As long as the action\n-- returns 'HasMoreResults' as 'True', you can call 'QueryObjects' again and pass the\n-- marker value from the response to retrieve the next set of results.",
+                        "documentation": "-- | The starting point for the next page of results. To view the next page of\n-- results, call 'QueryObjects' again with this marker value. If the value is\n-- null, there are no more results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -5714,7 +5948,7 @@
                         "name": "_qorHasMoreResults",
                         "shape": "boolean",
                         "locationName": "hasMoreResults",
-                        "documentation": "-- | If 'True', there are more results that can be obtained by a subsequent call to 'QueryObjects'.",
+                        "documentation": "-- | Indicates whether there are more results that can be obtained by a subsequent\n-- call.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     }
@@ -5733,7 +5967,7 @@
                         "name": "_qorHasMoreResults",
                         "shape": "boolean",
                         "locationName": "hasMoreResults",
-                        "documentation": "-- | If 'True', there are more results that can be obtained by a subsequent call to 'QueryObjects'.",
+                        "documentation": "-- | Indicates whether there are more results that can be obtained by a subsequent\n-- call.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -5750,7 +5984,7 @@
                         "name": "_qorIds",
                         "shape": "idList",
                         "locationName": "ids",
-                        "documentation": "-- | A list of identifiers that match the query selectors.",
+                        "documentation": "-- | The identifiers that match the query selectors.",
                         "typeExposed": "[Text]",
                         "type": "List \"ids\" Text"
                     },
@@ -5767,7 +6001,7 @@
                         "name": "_qorMarker",
                         "shape": "string",
                         "locationName": "marker",
-                        "documentation": "-- | The starting point for the results to be returned. As long as the action\n-- returns 'HasMoreResults' as 'True', you can call 'QueryObjects' again and pass the\n-- marker value from the response to retrieve the next set of results.",
+                        "documentation": "-- | The starting point for the next page of results. To view the next page of\n-- results, call 'QueryObjects' again with this marker value. If the value is\n-- null, there are no more results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -5792,7 +6026,7 @@
             },
             "name": "QueryObjects",
             "method": "post",
-            "documentation": "-- | Queries a pipeline for the names of objects that match a specified set of\n-- conditions.\n--\n-- The objects returned by 'QueryObjects' are paginated and then filtered by the\n-- value you set for query. This means the action may return an empty result set\n-- with a value set for marker. If 'HasMoreResults' is set to 'True', you should\n-- continue to call 'QueryObjects', passing in the returned value for marker,\n-- until 'HasMoreResults' returns 'False'.",
+            "documentation": "-- | Queries the specified pipeline for the names of objects that match the\n-- specified set of conditions.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -5819,7 +6053,7 @@
                         "name": "_qoPipelineId",
                         "shape": "id",
                         "locationName": "pipelineId",
-                        "documentation": "-- | Identifier of the pipeline to be queried for object names.",
+                        "documentation": "-- | The ID of the pipeline.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -5836,7 +6070,7 @@
                         "name": "_qoQuery",
                         "shape": "Query",
                         "locationName": "query",
-                        "documentation": "-- | Query that defines the objects to be returned. The 'Query' object can contain\n-- a maximum of ten selectors. The conditions in the query are limited to\n-- top-level String fields in the object. These filters can be applied to\n-- components, instances, and attempts.",
+                        "documentation": "-- | The query that defines the objects to be returned. The 'Query' object can\n-- contain a maximum of ten selectors. The conditions in the query are limited\n-- to top-level String fields in the object. These filters can be applied to\n-- components, instances, and attempts.",
                         "typeExposed": "Maybe Query",
                         "type": "Maybe Query"
                     },
@@ -5853,7 +6087,7 @@
                         "name": "_qoSphere",
                         "shape": "string",
                         "locationName": "sphere",
-                        "documentation": "-- | Specifies whether the query applies to components or instances. Allowable\n-- values: 'COMPONENT', 'INSTANCE', 'ATTEMPT'.",
+                        "documentation": "-- | Indicates whether the query applies to components or instances. The possible\n-- values are: 'COMPONENT', 'INSTANCE', and 'ATTEMPT'.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -5870,7 +6104,7 @@
                         "name": "_qoMarker",
                         "shape": "string",
                         "locationName": "marker",
-                        "documentation": "-- | The starting point for the results to be returned. The first time you call 'QueryObjects', this value should be empty. As long as the action returns 'HasMoreResults' as 'True', you can call 'QueryObjects' again and pass the marker value from the\n-- response to retrieve the next set of results.",
+                        "documentation": "-- | The starting point for the results to be returned. For the first call, this\n-- value should be empty. As long as there are more results, continue to call 'QueryObjects' with the marker value from the previous call to retrieve the next set of\n-- results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -5887,7 +6121,7 @@
                         "name": "_qoLimit",
                         "shape": "int",
                         "locationName": "limit",
-                        "documentation": "-- | Specifies the maximum number of object names that 'QueryObjects' will return in\n-- a single call. The default value is 100.",
+                        "documentation": "-- | The maximum number of object names that 'QueryObjects' will return in a single\n-- call. The default value is 100.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     }
@@ -5914,7 +6148,7 @@
                         "name": "_qoPipelineId",
                         "shape": "id",
                         "locationName": "pipelineId",
-                        "documentation": "-- | Identifier of the pipeline to be queried for object names.",
+                        "documentation": "-- | The ID of the pipeline.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -5931,7 +6165,7 @@
                         "name": "_qoSphere",
                         "shape": "string",
                         "locationName": "sphere",
-                        "documentation": "-- | Specifies whether the query applies to components or instances. Allowable\n-- values: 'COMPONENT', 'INSTANCE', 'ATTEMPT'.",
+                        "documentation": "-- | Indicates whether the query applies to components or instances. The possible\n-- values are: 'COMPONENT', 'INSTANCE', and 'ATTEMPT'.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -5960,7 +6194,7 @@
                         "name": "_qoQuery",
                         "shape": "Query",
                         "locationName": "query",
-                        "documentation": "-- | Query that defines the objects to be returned. The 'Query' object can contain\n-- a maximum of ten selectors. The conditions in the query are limited to\n-- top-level String fields in the object. These filters can be applied to\n-- components, instances, and attempts.",
+                        "documentation": "-- | The query that defines the objects to be returned. The 'Query' object can\n-- contain a maximum of ten selectors. The conditions in the query are limited\n-- to top-level String fields in the object. These filters can be applied to\n-- components, instances, and attempts.",
                         "typeExposed": "Maybe Query",
                         "type": "Maybe Query"
                     },
@@ -5977,7 +6211,7 @@
                         "name": "_qoMarker",
                         "shape": "string",
                         "locationName": "marker",
-                        "documentation": "-- | The starting point for the results to be returned. The first time you call 'QueryObjects', this value should be empty. As long as the action returns 'HasMoreResults' as 'True', you can call 'QueryObjects' again and pass the marker value from the\n-- response to retrieve the next set of results.",
+                        "documentation": "-- | The starting point for the results to be returned. For the first call, this\n-- value should be empty. As long as there are more results, continue to call 'QueryObjects' with the marker value from the previous call to retrieve the next set of\n-- results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -5994,7 +6228,7 @@
                         "name": "_qoLimit",
                         "shape": "int",
                         "locationName": "limit",
-                        "documentation": "-- | Specifies the maximum number of object names that 'QueryObjects' will return in\n-- a single call. The default value is 100.",
+                        "documentation": "-- | The maximum number of object names that 'QueryObjects' will return in a single\n-- call. The default value is 100.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     }
@@ -6013,7 +6247,7 @@
                         "name": "_qoLimit",
                         "shape": "int",
                         "locationName": "limit",
-                        "documentation": "-- | Specifies the maximum number of object names that 'QueryObjects' will return in\n-- a single call. The default value is 100.",
+                        "documentation": "-- | The maximum number of object names that 'QueryObjects' will return in a single\n-- call. The default value is 100.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -6030,7 +6264,7 @@
                         "name": "_qoMarker",
                         "shape": "string",
                         "locationName": "marker",
-                        "documentation": "-- | The starting point for the results to be returned. The first time you call 'QueryObjects', this value should be empty. As long as the action returns 'HasMoreResults' as 'True', you can call 'QueryObjects' again and pass the marker value from the\n-- response to retrieve the next set of results.",
+                        "documentation": "-- | The starting point for the results to be returned. For the first call, this\n-- value should be empty. As long as there are more results, continue to call 'QueryObjects' with the marker value from the previous call to retrieve the next set of\n-- results.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -6047,7 +6281,7 @@
                         "name": "_qoPipelineId",
                         "shape": "id",
                         "locationName": "pipelineId",
-                        "documentation": "-- | Identifier of the pipeline to be queried for object names.",
+                        "documentation": "-- | The ID of the pipeline.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -6064,7 +6298,7 @@
                         "name": "_qoQuery",
                         "shape": "Query",
                         "locationName": "query",
-                        "documentation": "-- | Query that defines the objects to be returned. The 'Query' object can contain\n-- a maximum of ten selectors. The conditions in the query are limited to\n-- top-level String fields in the object. These filters can be applied to\n-- components, instances, and attempts.",
+                        "documentation": "-- | The query that defines the objects to be returned. The 'Query' object can\n-- contain a maximum of ten selectors. The conditions in the query are limited\n-- to top-level String fields in the object. These filters can be applied to\n-- components, instances, and attempts.",
                         "typeExposed": "Maybe Query",
                         "type": "Maybe Query"
                     },
@@ -6081,7 +6315,7 @@
                         "name": "_qoSphere",
                         "shape": "string",
                         "locationName": "sphere",
-                        "documentation": "-- | Specifies whether the query applies to components or instances. Allowable\n-- values: 'COMPONENT', 'INSTANCE', 'ATTEMPT'.",
+                        "documentation": "-- | Indicates whether the query applies to components or instances. The possible\n-- values are: 'COMPONENT', 'INSTANCE', and 'ATTEMPT'.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -6125,7 +6359,7 @@
             "pager": null,
             "name": "RemoveTags",
             "method": "post",
-            "documentation": "-- | Remove existing tags from a pipeline.",
+            "documentation": "-- | Removes existing tags from the specified pipeline.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -6153,7 +6387,7 @@
                         "name": "_rtPipelineId",
                         "shape": "id",
                         "locationName": "pipelineId",
-                        "documentation": "-- | The pipeline from which you want to remove tags.",
+                        "documentation": "-- | The ID of the pipeline.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -6170,7 +6404,7 @@
                         "name": "_rtTagKeys",
                         "shape": "stringList",
                         "locationName": "tagKeys",
-                        "documentation": "-- | The keys of the tags you wish to remove.",
+                        "documentation": "-- | The keys of the tags to remove.",
                         "typeExposed": "[Text]",
                         "type": "List \"tagKeys\" Text"
                     }
@@ -6197,7 +6431,7 @@
                         "name": "_rtPipelineId",
                         "shape": "id",
                         "locationName": "pipelineId",
-                        "documentation": "-- | The pipeline from which you want to remove tags.",
+                        "documentation": "-- | The ID of the pipeline.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -6226,7 +6460,7 @@
                         "name": "_rtTagKeys",
                         "shape": "stringList",
                         "locationName": "tagKeys",
-                        "documentation": "-- | The keys of the tags you wish to remove.",
+                        "documentation": "-- | The keys of the tags to remove.",
                         "typeExposed": "[Text]",
                         "type": "List \"tagKeys\" Text"
                     }
@@ -6245,7 +6479,7 @@
                         "name": "_rtPipelineId",
                         "shape": "id",
                         "locationName": "pipelineId",
-                        "documentation": "-- | The pipeline from which you want to remove tags.",
+                        "documentation": "-- | The ID of the pipeline.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -6262,7 +6496,7 @@
                         "name": "_rtTagKeys",
                         "shape": "stringList",
                         "locationName": "tagKeys",
-                        "documentation": "-- | The keys of the tags you wish to remove.",
+                        "documentation": "-- | The keys of the tags to remove.",
                         "typeExposed": "[Text]",
                         "type": "List \"tagKeys\" Text"
                     }
@@ -6298,7 +6532,7 @@
                     "name": "_rtprCanceled",
                     "shape": "boolean",
                     "locationName": "canceled",
-                    "documentation": "-- | If 'True', the calling task runner should cancel processing of the task. The\n-- task runner does not need to call 'SetTaskStatus' for canceled tasks.",
+                    "documentation": "-- | If true, the calling task runner should cancel processing of the task. The\n-- task runner does not need to call 'SetTaskStatus' for canceled tasks.",
                     "typeExposed": "Bool",
                     "type": "Bool"
                 },
@@ -6316,7 +6550,7 @@
                         "name": "_rtprCanceled",
                         "shape": "boolean",
                         "locationName": "canceled",
-                        "documentation": "-- | If 'True', the calling task runner should cancel processing of the task. The\n-- task runner does not need to call 'SetTaskStatus' for canceled tasks.",
+                        "documentation": "-- | If true, the calling task runner should cancel processing of the task. The\n-- task runner does not need to call 'SetTaskStatus' for canceled tasks.",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     }
@@ -6338,7 +6572,7 @@
                         "name": "_rtprCanceled",
                         "shape": "boolean",
                         "locationName": "canceled",
-                        "documentation": "-- | If 'True', the calling task runner should cancel processing of the task. The\n-- task runner does not need to call 'SetTaskStatus' for canceled tasks.",
+                        "documentation": "-- | If true, the calling task runner should cancel processing of the task. The\n-- task runner does not need to call 'SetTaskStatus' for canceled tasks.",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     }
@@ -6366,7 +6600,7 @@
                         "name": "_rtprCanceled",
                         "shape": "boolean",
                         "locationName": "canceled",
-                        "documentation": "-- | If 'True', the calling task runner should cancel processing of the task. The\n-- task runner does not need to call 'SetTaskStatus' for canceled tasks.",
+                        "documentation": "-- | If true, the calling task runner should cancel processing of the task. The\n-- task runner does not need to call 'SetTaskStatus' for canceled tasks.",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     }
@@ -6382,7 +6616,7 @@
             "pager": null,
             "name": "ReportTaskProgress",
             "method": "post",
-            "documentation": "-- | Updates the AWS Data Pipeline service on the progress of the calling task\n-- runner. When the task runner is assigned a task, it should call\n-- ReportTaskProgress to acknowledge that it has the task within 2 minutes. If\n-- the web service does not recieve this acknowledgement within the 2 minute\n-- window, it will assign the task in a subsequent 'PollForTask' call. After this\n-- initial acknowledgement, the task runner only needs to report progress every\n-- 15 minutes to maintain its ownership of the task. You can change this\n-- reporting time from 15 minutes by specifying a 'reportProgressTimeout' field in\n-- your pipeline. If a task runner does not report its status after 5 minutes,\n-- AWS Data Pipeline will assume that the task runner is unable to process the\n-- task and will reassign the task in a subsequent response to 'PollForTask'. task\n-- runners should call 'ReportTaskProgress' every 60 seconds.",
+            "documentation": "-- | Task runners call 'ReportTaskProgress' when assigned a task to acknowledge that\n-- it has the task. If the web service does not receive this acknowledgement\n-- within 2 minutes, it assigns the task in a subsequent 'PollForTask' call. After\n-- this initial acknowledgement, the task runner only needs to report progress\n-- every 15 minutes to maintain its ownership of the task. You can change this\n-- reporting time from 15 minutes by specifying a 'reportProgressTimeout' field in\n-- your pipeline.\n--\n-- If a task runner does not report its status after 5 minutes, AWS Data\n-- Pipeline assumes that the task runner is unable to process the task and\n-- reassigns the task in a subsequent response to 'PollForTask'. Task runners\n-- should call 'ReportTaskProgress' every 60 seconds.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -6409,7 +6643,7 @@
                         "name": "_rtpTaskId",
                         "shape": "taskId",
                         "locationName": "taskId",
-                        "documentation": "-- | Identifier of the task assigned to the task runner. This value is provided in\n-- the 'TaskObject' that the service returns with the response for the 'PollForTask'\n-- action.",
+                        "documentation": "-- | The ID of the task assigned to the task runner. This value is provided in the\n-- response for 'PollForTask'.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -6453,7 +6687,7 @@
                         "name": "_rtpTaskId",
                         "shape": "taskId",
                         "locationName": "taskId",
-                        "documentation": "-- | Identifier of the task assigned to the task runner. This value is provided in\n-- the 'TaskObject' that the service returns with the response for the 'PollForTask'\n-- action.",
+                        "documentation": "-- | The ID of the task assigned to the task runner. This value is provided in the\n-- response for 'PollForTask'.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -6518,7 +6752,7 @@
                         "name": "_rtpTaskId",
                         "shape": "taskId",
                         "locationName": "taskId",
-                        "documentation": "-- | Identifier of the task assigned to the task runner. This value is provided in\n-- the 'TaskObject' that the service returns with the response for the 'PollForTask'\n-- action.",
+                        "documentation": "-- | The ID of the task assigned to the task runner. This value is provided in the\n-- response for 'PollForTask'.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -6554,7 +6788,7 @@
                     "name": "_rtrhrTerminate",
                     "shape": "boolean",
                     "locationName": "terminate",
-                    "documentation": "-- | Indicates whether the calling task runner should terminate. If 'True', the task\n-- runner that called 'ReportTaskRunnerHeartbeat' should terminate.",
+                    "documentation": "-- | Indicates whether the calling task runner should terminate.",
                     "typeExposed": "Bool",
                     "type": "Bool"
                 },
@@ -6572,7 +6806,7 @@
                         "name": "_rtrhrTerminate",
                         "shape": "boolean",
                         "locationName": "terminate",
-                        "documentation": "-- | Indicates whether the calling task runner should terminate. If 'True', the task\n-- runner that called 'ReportTaskRunnerHeartbeat' should terminate.",
+                        "documentation": "-- | Indicates whether the calling task runner should terminate.",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     }
@@ -6594,7 +6828,7 @@
                         "name": "_rtrhrTerminate",
                         "shape": "boolean",
                         "locationName": "terminate",
-                        "documentation": "-- | Indicates whether the calling task runner should terminate. If 'True', the task\n-- runner that called 'ReportTaskRunnerHeartbeat' should terminate.",
+                        "documentation": "-- | Indicates whether the calling task runner should terminate.",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     }
@@ -6622,7 +6856,7 @@
                         "name": "_rtrhrTerminate",
                         "shape": "boolean",
                         "locationName": "terminate",
-                        "documentation": "-- | Indicates whether the calling task runner should terminate. If 'True', the task\n-- runner that called 'ReportTaskRunnerHeartbeat' should terminate.",
+                        "documentation": "-- | Indicates whether the calling task runner should terminate.",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     }
@@ -6638,7 +6872,7 @@
             "pager": null,
             "name": "ReportTaskRunnerHeartbeat",
             "method": "post",
-            "documentation": "-- | Task runners call 'ReportTaskRunnerHeartbeat' every 15 minutes to indicate that\n-- they are operational. In the case of AWS Data Pipeline Task Runner launched\n-- on a resource managed by AWS Data Pipeline, the web service can use this call\n-- to detect when the task runner application has failed and restart a new\n-- instance.",
+            "documentation": "-- | Task runners call 'ReportTaskRunnerHeartbeat' every 15 minutes to indicate that\n-- they are operational. If the AWS Data Pipeline Task Runner is launched on a\n-- resource managed by AWS Data Pipeline, the web service can use this call to\n-- detect when the task runner application has failed and restart a new instance.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -6666,7 +6900,7 @@
                         "name": "_rtrhTaskrunnerId",
                         "shape": "id",
                         "locationName": "taskrunnerId",
-                        "documentation": "-- | The identifier of the task runner. This value should be unique across your\n-- AWS account. In the case of AWS Data Pipeline Task Runner launched on a\n-- resource managed by AWS Data Pipeline, the web service provides a unique\n-- identifier when it launches the application. If you have written a custom\n-- task runner, you should assign a unique identifier for the task runner.",
+                        "documentation": "-- | The ID of the task runner. This value should be unique across your AWS\n-- account. In the case of AWS Data Pipeline Task Runner launched on a resource\n-- managed by AWS Data Pipeline, the web service provides a unique identifier\n-- when it launches the application. If you have written a custom task runner,\n-- you should assign a unique identifier for the task runner.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -6683,7 +6917,7 @@
                         "name": "_rtrhWorkerGroup",
                         "shape": "string",
                         "locationName": "workerGroup",
-                        "documentation": "-- | Indicates the type of task the task runner is configured to accept and\n-- process. The worker group is set as a field on objects in the pipeline when\n-- they are created. You can only specify a single value for 'workerGroup' in the\n-- call to 'ReportTaskRunnerHeartbeat'. There are no wildcard values permitted in 'workerGroup', the string must be an exact, case-sensitive, match.",
+                        "documentation": "-- | The type of task the task runner is configured to accept and process. The\n-- worker group is set as a field on objects in the pipeline when they are\n-- created. You can only specify a single value for 'workerGroup'. There are no\n-- wildcard values permitted in 'workerGroup'; the string must be an exact,\n-- case-sensitive, match.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -6700,7 +6934,7 @@
                         "name": "_rtrhHostname",
                         "shape": "id",
                         "locationName": "hostname",
-                        "documentation": "-- | The public DNS name of the calling task runner.",
+                        "documentation": "-- | The public DNS name of the task runner.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -6727,7 +6961,7 @@
                         "name": "_rtrhTaskrunnerId",
                         "shape": "id",
                         "locationName": "taskrunnerId",
-                        "documentation": "-- | The identifier of the task runner. This value should be unique across your\n-- AWS account. In the case of AWS Data Pipeline Task Runner launched on a\n-- resource managed by AWS Data Pipeline, the web service provides a unique\n-- identifier when it launches the application. If you have written a custom\n-- task runner, you should assign a unique identifier for the task runner.",
+                        "documentation": "-- | The ID of the task runner. This value should be unique across your AWS\n-- account. In the case of AWS Data Pipeline Task Runner launched on a resource\n-- managed by AWS Data Pipeline, the web service provides a unique identifier\n-- when it launches the application. If you have written a custom task runner,\n-- you should assign a unique identifier for the task runner.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -6756,7 +6990,7 @@
                         "name": "_rtrhWorkerGroup",
                         "shape": "string",
                         "locationName": "workerGroup",
-                        "documentation": "-- | Indicates the type of task the task runner is configured to accept and\n-- process. The worker group is set as a field on objects in the pipeline when\n-- they are created. You can only specify a single value for 'workerGroup' in the\n-- call to 'ReportTaskRunnerHeartbeat'. There are no wildcard values permitted in 'workerGroup', the string must be an exact, case-sensitive, match.",
+                        "documentation": "-- | The type of task the task runner is configured to accept and process. The\n-- worker group is set as a field on objects in the pipeline when they are\n-- created. You can only specify a single value for 'workerGroup'. There are no\n-- wildcard values permitted in 'workerGroup'; the string must be an exact,\n-- case-sensitive, match.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -6773,7 +7007,7 @@
                         "name": "_rtrhHostname",
                         "shape": "id",
                         "locationName": "hostname",
-                        "documentation": "-- | The public DNS name of the calling task runner.",
+                        "documentation": "-- | The public DNS name of the task runner.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -6792,7 +7026,7 @@
                         "name": "_rtrhHostname",
                         "shape": "id",
                         "locationName": "hostname",
-                        "documentation": "-- | The public DNS name of the calling task runner.",
+                        "documentation": "-- | The public DNS name of the task runner.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -6809,7 +7043,7 @@
                         "name": "_rtrhTaskrunnerId",
                         "shape": "id",
                         "locationName": "taskrunnerId",
-                        "documentation": "-- | The identifier of the task runner. This value should be unique across your\n-- AWS account. In the case of AWS Data Pipeline Task Runner launched on a\n-- resource managed by AWS Data Pipeline, the web service provides a unique\n-- identifier when it launches the application. If you have written a custom\n-- task runner, you should assign a unique identifier for the task runner.",
+                        "documentation": "-- | The ID of the task runner. This value should be unique across your AWS\n-- account. In the case of AWS Data Pipeline Task Runner launched on a resource\n-- managed by AWS Data Pipeline, the web service provides a unique identifier\n-- when it launches the application. If you have written a custom task runner,\n-- you should assign a unique identifier for the task runner.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -6826,7 +7060,7 @@
                         "name": "_rtrhWorkerGroup",
                         "shape": "string",
                         "locationName": "workerGroup",
-                        "documentation": "-- | Indicates the type of task the task runner is configured to accept and\n-- process. The worker group is set as a field on objects in the pipeline when\n-- they are created. You can only specify a single value for 'workerGroup' in the\n-- call to 'ReportTaskRunnerHeartbeat'. There are no wildcard values permitted in 'workerGroup', the string must be an exact, case-sensitive, match.",
+                        "documentation": "-- | The type of task the task runner is configured to accept and process. The\n-- worker group is set as a field on objects in the pipeline when they are\n-- created. You can only specify a single value for 'workerGroup'. There are no\n-- wildcard values permitted in 'workerGroup'; the string must be an exact,\n-- case-sensitive, match.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -6870,7 +7104,7 @@
             "pager": null,
             "name": "SetStatus",
             "method": "post",
-            "documentation": "-- | Requests that the status of an array of physical or logical pipeline objects\n-- be updated in the pipeline. This update may not occur immediately, but is\n-- eventually consistent. The status that can be set depends on the type of\n-- object, e.g. DataNode or Activity. You cannot perform this operation on\n-- FINISHED pipelines and attempting to do so will return an\n-- InvalidRequestException.",
+            "documentation": "-- | Requests that the status of the specified physical or logical pipeline\n-- objects be updated in the specified pipeline. This update might not occur\n-- immediately, but is eventually consistent. The status that can be set depends\n-- on the type of object (for example, DataNode or Activity). You cannot perform\n-- this operation on 'FINISHED' pipelines and attempting to do so returns 'InvalidRequestException'.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -6898,7 +7132,7 @@
                         "name": "_ssPipelineId",
                         "shape": "id",
                         "locationName": "pipelineId",
-                        "documentation": "-- | Identifies the pipeline that contains the objects.",
+                        "documentation": "-- | The ID of the pipeline that contains the objects.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -6915,7 +7149,7 @@
                         "name": "_ssObjectIds",
                         "shape": "idList",
                         "locationName": "objectIds",
-                        "documentation": "-- | Identifies an array of objects. The corresponding objects can be either\n-- physical or components, but not a mix of both types.",
+                        "documentation": "-- | The IDs of the objects. The corresponding objects can be either physical or\n-- components, but not a mix of both types.",
                         "typeExposed": "[Text]",
                         "type": "List \"objectIds\" Text"
                     },
@@ -6932,7 +7166,7 @@
                         "name": "_ssStatus",
                         "shape": "string",
                         "locationName": "status",
-                        "documentation": "-- | Specifies the status to be set on all the objects in 'objectIds'. For\n-- components, this can be either 'PAUSE' or 'RESUME'. For instances, this can be\n-- either 'TRY_CANCEL', 'RERUN', or 'MARK_FINISHED'.",
+                        "documentation": "-- | The status to be set on all the objects specified in 'objectIds'. For\n-- components, use 'PAUSE' or 'RESUME'. For instances, use 'TRY_CANCEL', 'RERUN', or 'MARK_FINISHED'.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -6959,7 +7193,7 @@
                         "name": "_ssPipelineId",
                         "shape": "id",
                         "locationName": "pipelineId",
-                        "documentation": "-- | Identifies the pipeline that contains the objects.",
+                        "documentation": "-- | The ID of the pipeline that contains the objects.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -6976,7 +7210,7 @@
                         "name": "_ssStatus",
                         "shape": "string",
                         "locationName": "status",
-                        "documentation": "-- | Specifies the status to be set on all the objects in 'objectIds'. For\n-- components, this can be either 'PAUSE' or 'RESUME'. For instances, this can be\n-- either 'TRY_CANCEL', 'RERUN', or 'MARK_FINISHED'.",
+                        "documentation": "-- | The status to be set on all the objects specified in 'objectIds'. For\n-- components, use 'PAUSE' or 'RESUME'. For instances, use 'TRY_CANCEL', 'RERUN', or 'MARK_FINISHED'.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -7005,7 +7239,7 @@
                         "name": "_ssObjectIds",
                         "shape": "idList",
                         "locationName": "objectIds",
-                        "documentation": "-- | Identifies an array of objects. The corresponding objects can be either\n-- physical or components, but not a mix of both types.",
+                        "documentation": "-- | The IDs of the objects. The corresponding objects can be either physical or\n-- components, but not a mix of both types.",
                         "typeExposed": "[Text]",
                         "type": "List \"objectIds\" Text"
                     }
@@ -7024,7 +7258,7 @@
                         "name": "_ssObjectIds",
                         "shape": "idList",
                         "locationName": "objectIds",
-                        "documentation": "-- | Identifies an array of objects. The corresponding objects can be either\n-- physical or components, but not a mix of both types.",
+                        "documentation": "-- | The IDs of the objects. The corresponding objects can be either physical or\n-- components, but not a mix of both types.",
                         "typeExposed": "[Text]",
                         "type": "List \"objectIds\" Text"
                     },
@@ -7041,7 +7275,7 @@
                         "name": "_ssPipelineId",
                         "shape": "id",
                         "locationName": "pipelineId",
-                        "documentation": "-- | Identifies the pipeline that contains the objects.",
+                        "documentation": "-- | The ID of the pipeline that contains the objects.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -7058,7 +7292,7 @@
                         "name": "_ssStatus",
                         "shape": "string",
                         "locationName": "status",
-                        "documentation": "-- | Specifies the status to be set on all the objects in 'objectIds'. For\n-- components, this can be either 'PAUSE' or 'RESUME'. For instances, this can be\n-- either 'TRY_CANCEL', 'RERUN', or 'MARK_FINISHED'.",
+                        "documentation": "-- | The status to be set on all the objects specified in 'objectIds'. For\n-- components, use 'PAUSE' or 'RESUME'. For instances, use 'TRY_CANCEL', 'RERUN', or 'MARK_FINISHED'.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -7102,7 +7336,7 @@
             "pager": null,
             "name": "SetTaskStatus",
             "method": "post",
-            "documentation": "-- | Notifies AWS Data Pipeline that a task is completed and provides information\n-- about the final status. The task runner calls this action regardless of\n-- whether the task was sucessful. The task runner does not need to call 'SetTaskStatus' for tasks that are canceled by the web service during a call to 'ReportTaskProgress'.",
+            "documentation": "-- | Task runners call 'SetTaskStatus' to notify AWS Data Pipeline that a task is\n-- completed and provide information about the final status. A task runner makes\n-- this call regardless of whether the task was sucessful. A task runner does\n-- not need to call 'SetTaskStatus' for tasks that are canceled by the web service\n-- during a call to 'ReportTaskProgress'.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -7129,7 +7363,7 @@
                         "name": "_stsTaskId",
                         "shape": "taskId",
                         "locationName": "taskId",
-                        "documentation": "-- | Identifies the task assigned to the task runner. This value is set in the 'TaskObject' that is returned by the 'PollForTask' action.",
+                        "documentation": "-- | The ID of the task assigned to the task runner. This value is provided in the\n-- response for 'PollForTask'.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -7146,7 +7380,7 @@
                         "name": "_stsTaskStatus",
                         "shape": "TaskStatus",
                         "locationName": "taskStatus",
-                        "documentation": "-- | If 'FINISHED', the task successfully completed. If 'FAILED' the task ended\n-- unsuccessfully. The 'FALSE' value is used by preconditions.",
+                        "documentation": "-- | If 'FINISHED', the task successfully completed. If 'FAILED', the task ended\n-- unsuccessfully. Preconditions use false.",
                         "typeExposed": "TaskStatus",
                         "type": "TaskStatus"
                     },
@@ -7163,7 +7397,7 @@
                         "name": "_stsErrorId",
                         "shape": "string",
                         "locationName": "errorId",
-                        "documentation": "-- | If an error occurred during the task, this value specifies an id value that\n-- represents the error. This value is set on the physical attempt object. It is\n-- used to display error information to the user. It should not start with\n-- string \"Service_\" which is reserved by the system.",
+                        "documentation": "-- | If an error occurred during the task, this value specifies the error code.\n-- This value is set on the physical attempt object. It is used to display error\n-- information to the user. It should not start with string \"Service_\" which is\n-- reserved by the system.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -7224,7 +7458,7 @@
                         "name": "_stsTaskId",
                         "shape": "taskId",
                         "locationName": "taskId",
-                        "documentation": "-- | Identifies the task assigned to the task runner. This value is set in the 'TaskObject' that is returned by the 'PollForTask' action.",
+                        "documentation": "-- | The ID of the task assigned to the task runner. This value is provided in the\n-- response for 'PollForTask'.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -7241,7 +7475,7 @@
                         "name": "_stsTaskStatus",
                         "shape": "TaskStatus",
                         "locationName": "taskStatus",
-                        "documentation": "-- | If 'FINISHED', the task successfully completed. If 'FAILED' the task ended\n-- unsuccessfully. The 'FALSE' value is used by preconditions.",
+                        "documentation": "-- | If 'FINISHED', the task successfully completed. If 'FAILED', the task ended\n-- unsuccessfully. Preconditions use false.",
                         "typeExposed": "TaskStatus",
                         "type": "TaskStatus"
                     }
@@ -7270,7 +7504,7 @@
                         "name": "_stsErrorId",
                         "shape": "string",
                         "locationName": "errorId",
-                        "documentation": "-- | If an error occurred during the task, this value specifies an id value that\n-- represents the error. This value is set on the physical attempt object. It is\n-- used to display error information to the user. It should not start with\n-- string \"Service_\" which is reserved by the system.",
+                        "documentation": "-- | If an error occurred during the task, this value specifies the error code.\n-- This value is set on the physical attempt object. It is used to display error\n-- information to the user. It should not start with string \"Service_\" which is\n-- reserved by the system.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -7323,7 +7557,7 @@
                         "name": "_stsErrorId",
                         "shape": "string",
                         "locationName": "errorId",
-                        "documentation": "-- | If an error occurred during the task, this value specifies an id value that\n-- represents the error. This value is set on the physical attempt object. It is\n-- used to display error information to the user. It should not start with\n-- string \"Service_\" which is reserved by the system.",
+                        "documentation": "-- | If an error occurred during the task, this value specifies the error code.\n-- This value is set on the physical attempt object. It is used to display error\n-- information to the user. It should not start with string \"Service_\" which is\n-- reserved by the system.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -7374,7 +7608,7 @@
                         "name": "_stsTaskId",
                         "shape": "taskId",
                         "locationName": "taskId",
-                        "documentation": "-- | Identifies the task assigned to the task runner. This value is set in the 'TaskObject' that is returned by the 'PollForTask' action.",
+                        "documentation": "-- | The ID of the task assigned to the task runner. This value is provided in the\n-- response for 'PollForTask'.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -7391,7 +7625,7 @@
                         "name": "_stsTaskStatus",
                         "shape": "TaskStatus",
                         "locationName": "taskStatus",
-                        "documentation": "-- | If 'FINISHED', the task successfully completed. If 'FAILED' the task ended\n-- unsuccessfully. The 'FALSE' value is used by preconditions.",
+                        "documentation": "-- | If 'FINISHED', the task successfully completed. If 'FAILED', the task ended\n-- unsuccessfully. Preconditions use false.",
                         "typeExposed": "TaskStatus",
                         "type": "TaskStatus"
                     }
@@ -7425,7 +7659,7 @@
                         "name": "_vpdrValidationErrors",
                         "shape": "ValidationErrors",
                         "locationName": "validationErrors",
-                        "documentation": "-- | Lists the validation errors that were found by 'ValidatePipelineDefinition'.",
+                        "documentation": "-- | Any validation errors that were found.",
                         "typeExposed": "[ValidationError]",
                         "type": "List \"validationErrors\" ValidationError"
                     },
@@ -7442,7 +7676,7 @@
                         "name": "_vpdrValidationWarnings",
                         "shape": "ValidationWarnings",
                         "locationName": "validationWarnings",
-                        "documentation": "-- | Lists the validation warnings that were found by 'ValidatePipelineDefinition'.",
+                        "documentation": "-- | Any validation warnings that were found.",
                         "typeExposed": "[ValidationWarning]",
                         "type": "List \"validationWarnings\" ValidationWarning"
                     },
@@ -7459,7 +7693,7 @@
                         "name": "_vpdrErrored",
                         "shape": "boolean",
                         "locationName": "errored",
-                        "documentation": "-- | If 'True', there were validation errors.",
+                        "documentation": "-- | Indicates whether there were validation errors.",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     }
@@ -7481,7 +7715,7 @@
                         "name": "_vpdrErrored",
                         "shape": "boolean",
                         "locationName": "errored",
-                        "documentation": "-- | If 'True', there were validation errors.",
+                        "documentation": "-- | Indicates whether there were validation errors.",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     }
@@ -7508,7 +7742,7 @@
                         "name": "_vpdrValidationErrors",
                         "shape": "ValidationErrors",
                         "locationName": "validationErrors",
-                        "documentation": "-- | Lists the validation errors that were found by 'ValidatePipelineDefinition'.",
+                        "documentation": "-- | Any validation errors that were found.",
                         "typeExposed": "[ValidationError]",
                         "type": "List \"validationErrors\" ValidationError"
                     },
@@ -7525,7 +7759,7 @@
                         "name": "_vpdrValidationWarnings",
                         "shape": "ValidationWarnings",
                         "locationName": "validationWarnings",
-                        "documentation": "-- | Lists the validation warnings that were found by 'ValidatePipelineDefinition'.",
+                        "documentation": "-- | Any validation warnings that were found.",
                         "typeExposed": "[ValidationWarning]",
                         "type": "List \"validationWarnings\" ValidationWarning"
                     }
@@ -7544,7 +7778,7 @@
                         "name": "_vpdrErrored",
                         "shape": "boolean",
                         "locationName": "errored",
-                        "documentation": "-- | If 'True', there were validation errors.",
+                        "documentation": "-- | Indicates whether there were validation errors.",
                         "typeExposed": "Bool",
                         "type": "Bool"
                     },
@@ -7561,7 +7795,7 @@
                         "name": "_vpdrValidationErrors",
                         "shape": "ValidationErrors",
                         "locationName": "validationErrors",
-                        "documentation": "-- | Lists the validation errors that were found by 'ValidatePipelineDefinition'.",
+                        "documentation": "-- | Any validation errors that were found.",
                         "typeExposed": "[ValidationError]",
                         "type": "List \"validationErrors\" ValidationError"
                     },
@@ -7578,7 +7812,7 @@
                         "name": "_vpdrValidationWarnings",
                         "shape": "ValidationWarnings",
                         "locationName": "validationWarnings",
-                        "documentation": "-- | Lists the validation warnings that were found by 'ValidatePipelineDefinition'.",
+                        "documentation": "-- | Any validation warnings that were found.",
                         "typeExposed": "[ValidationWarning]",
                         "type": "List \"validationWarnings\" ValidationWarning"
                     }
@@ -7594,7 +7828,7 @@
             "pager": null,
             "name": "ValidatePipelineDefinition",
             "method": "post",
-            "documentation": "-- | Tests the pipeline definition with a set of validation checks to ensure that\n-- it is well formed and can run without error.",
+            "documentation": "-- | Validates the specified pipeline definition to ensure that it is well formed\n-- and can be run without error.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -7621,7 +7855,7 @@
                         "name": "_vpdPipelineId",
                         "shape": "id",
                         "locationName": "pipelineId",
-                        "documentation": "-- | Identifies the pipeline whose definition is to be validated.",
+                        "documentation": "-- | The ID of the pipeline.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -7638,7 +7872,7 @@
                         "name": "_vpdPipelineObjects",
                         "shape": "PipelineObjectList",
                         "locationName": "pipelineObjects",
-                        "documentation": "-- | A list of objects that define the pipeline changes to validate against the\n-- pipeline.",
+                        "documentation": "-- | The objects that define the pipeline changes to validate against the pipeline.",
                         "typeExposed": "[PipelineObject]",
                         "type": "List \"pipelineObjects\" PipelineObject"
                     },
@@ -7655,7 +7889,7 @@
                         "name": "_vpdParameterObjects",
                         "shape": "ParameterObjectList",
                         "locationName": "parameterObjects",
-                        "documentation": "-- | A list of parameter objects used with the pipeline.",
+                        "documentation": "-- | The parameter objects used with the pipeline.",
                         "typeExposed": "[ParameterObject]",
                         "type": "List \"parameterObjects\" ParameterObject"
                     },
@@ -7672,7 +7906,7 @@
                         "name": "_vpdParameterValues",
                         "shape": "ParameterValueList",
                         "locationName": "parameterValues",
-                        "documentation": "-- | A list of parameter values used with the pipeline.",
+                        "documentation": "-- | The parameter values used with the pipeline.",
                         "typeExposed": "[ParameterValue]",
                         "type": "List \"parameterValues\" ParameterValue"
                     }
@@ -7699,7 +7933,7 @@
                         "name": "_vpdPipelineId",
                         "shape": "id",
                         "locationName": "pipelineId",
-                        "documentation": "-- | Identifies the pipeline whose definition is to be validated.",
+                        "documentation": "-- | The ID of the pipeline.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -7728,7 +7962,7 @@
                         "name": "_vpdPipelineObjects",
                         "shape": "PipelineObjectList",
                         "locationName": "pipelineObjects",
-                        "documentation": "-- | A list of objects that define the pipeline changes to validate against the\n-- pipeline.",
+                        "documentation": "-- | The objects that define the pipeline changes to validate against the pipeline.",
                         "typeExposed": "[PipelineObject]",
                         "type": "List \"pipelineObjects\" PipelineObject"
                     },
@@ -7745,7 +7979,7 @@
                         "name": "_vpdParameterObjects",
                         "shape": "ParameterObjectList",
                         "locationName": "parameterObjects",
-                        "documentation": "-- | A list of parameter objects used with the pipeline.",
+                        "documentation": "-- | The parameter objects used with the pipeline.",
                         "typeExposed": "[ParameterObject]",
                         "type": "List \"parameterObjects\" ParameterObject"
                     },
@@ -7762,7 +7996,7 @@
                         "name": "_vpdParameterValues",
                         "shape": "ParameterValueList",
                         "locationName": "parameterValues",
-                        "documentation": "-- | A list of parameter values used with the pipeline.",
+                        "documentation": "-- | The parameter values used with the pipeline.",
                         "typeExposed": "[ParameterValue]",
                         "type": "List \"parameterValues\" ParameterValue"
                     }
@@ -7781,7 +8015,7 @@
                         "name": "_vpdParameterObjects",
                         "shape": "ParameterObjectList",
                         "locationName": "parameterObjects",
-                        "documentation": "-- | A list of parameter objects used with the pipeline.",
+                        "documentation": "-- | The parameter objects used with the pipeline.",
                         "typeExposed": "[ParameterObject]",
                         "type": "List \"parameterObjects\" ParameterObject"
                     },
@@ -7798,7 +8032,7 @@
                         "name": "_vpdParameterValues",
                         "shape": "ParameterValueList",
                         "locationName": "parameterValues",
-                        "documentation": "-- | A list of parameter values used with the pipeline.",
+                        "documentation": "-- | The parameter values used with the pipeline.",
                         "typeExposed": "[ParameterValue]",
                         "type": "List \"parameterValues\" ParameterValue"
                     },
@@ -7815,7 +8049,7 @@
                         "name": "_vpdPipelineId",
                         "shape": "id",
                         "locationName": "pipelineId",
-                        "documentation": "-- | Identifies the pipeline whose definition is to be validated.",
+                        "documentation": "-- | The ID of the pipeline.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -7832,7 +8066,7 @@
                         "name": "_vpdPipelineObjects",
                         "shape": "PipelineObjectList",
                         "locationName": "pipelineObjects",
-                        "documentation": "-- | A list of objects that define the pipeline changes to validate against the\n-- pipeline.",
+                        "documentation": "-- | The objects that define the pipeline changes to validate against the pipeline.",
                         "typeExposed": "[PipelineObject]",
                         "type": "List \"pipelineObjects\" PipelineObject"
                     }

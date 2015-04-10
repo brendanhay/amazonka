@@ -56,6 +56,25 @@
                 "maxAttempts": 60,
                 "delay": 30
             },
+            "DBSnapshotCompleted": {
+                "operation": "DescribeDBSnapshots",
+                "acceptors": [
+                    {
+                        "matcher": "matchError",
+                        "state": "success",
+                        "argument": null,
+                        "expected": "\"DBSnapshotNotFound\""
+                    },
+                    {
+                        "matcher": "matchAll",
+                        "state": "success",
+                        "argument": "folding (concatOf ddbsrDBSnapshots) . dbsStatus . _Just",
+                        "expected": "\"available\""
+                    }
+                ],
+                "maxAttempts": 40,
+                "delay": 15
+            },
             "DBInstanceDeleted": {
                 "operation": "DescribeDBInstances",
                 "acceptors": [
@@ -103,6 +122,7 @@
         "namespace": "Network.AWS.RDS.Waiters",
         "imports": [
             "Network.AWS.RDS.DescribeDBInstances",
+            "Network.AWS.RDS.DescribeDBSnapshots",
             "Network.AWS.RDS.Types"
         ]
     },
@@ -137,6 +157,8 @@
             "Network.AWS.RDS.DeleteDBSubnetGroup",
             "Network.AWS.RDS.DeleteEventSubscription",
             "Network.AWS.RDS.DeleteOptionGroup",
+            "Network.AWS.RDS.DescribeAccountAttributes",
+            "Network.AWS.RDS.DescribeCertificates",
             "Network.AWS.RDS.DescribeDBEngineVersions",
             "Network.AWS.RDS.DescribeDBInstances",
             "Network.AWS.RDS.DescribeDBLogFiles",
@@ -233,6 +255,8 @@
             "Network.AWS.RDS.DeleteDBSubnetGroup",
             "Network.AWS.RDS.DeleteEventSubscription",
             "Network.AWS.RDS.DeleteOptionGroup",
+            "Network.AWS.RDS.DescribeAccountAttributes",
+            "Network.AWS.RDS.DescribeCertificates",
             "Network.AWS.RDS.DescribeDBEngineVersions",
             "Network.AWS.RDS.DescribeDBInstances",
             "Network.AWS.RDS.DescribeDBLogFiles",
@@ -377,9 +401,26 @@
                         "name": "_pmaCurrentApplyDate",
                         "shape": "TStamp",
                         "locationName": "CurrentApplyDate",
-                        "documentation": "-- | The effective date when the pending maintenance action will be applied to the\n-- resource. This takes into account opt-in requests received from the 'ApplyPendingMaintenanceAction' API, the 'AutoAppliedAfterDate', and the 'ForcedApplyDate'. This value is blank\n-- if an opt-in request has not been received and no value has been specified\n-- for the 'AutoAppliedAfterDate' or 'ForcedApplyDate'.",
+                        "documentation": "-- | The effective date when the pending maintenance action will be applied to the\n-- resource. This date takes into account opt-in requests received from the 'ApplyPendingMaintenanceAction' API, the 'AutoAppliedAfterDate', and the 'ForcedApplyDate'. This value is blank\n-- if an opt-in request has not been received and nothing has been specified as 'AutoAppliedAfterDate' or 'ForcedApplyDate'.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe ISO8601"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "pmaDescription",
+                        "name": "_pmaDescription",
+                        "shape": "String",
+                        "locationName": "Description",
+                        "documentation": "-- | A description providing more detail about the maintenance action.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     }
                 ],
                 "fields": [
@@ -430,9 +471,26 @@
                         "name": "_pmaCurrentApplyDate",
                         "shape": "TStamp",
                         "locationName": "CurrentApplyDate",
-                        "documentation": "-- | The effective date when the pending maintenance action will be applied to the\n-- resource. This takes into account opt-in requests received from the 'ApplyPendingMaintenanceAction' API, the 'AutoAppliedAfterDate', and the 'ForcedApplyDate'. This value is blank\n-- if an opt-in request has not been received and no value has been specified\n-- for the 'AutoAppliedAfterDate' or 'ForcedApplyDate'.",
+                        "documentation": "-- | The effective date when the pending maintenance action will be applied to the\n-- resource. This date takes into account opt-in requests received from the 'ApplyPendingMaintenanceAction' API, the 'AutoAppliedAfterDate', and the 'ForcedApplyDate'. This value is blank\n-- if an opt-in request has not been received and nothing has been specified as 'AutoAppliedAfterDate' or 'ForcedApplyDate'.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe ISO8601"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "pmaDescription",
+                        "name": "_pmaDescription",
+                        "shape": "String",
+                        "locationName": "Description",
+                        "documentation": "-- | A description providing more detail about the maintenance action.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": "querystring",
@@ -2642,7 +2700,7 @@
                         "name": "_rpmaResourceIdentifier",
                         "shape": "String",
                         "locationName": "ResourceIdentifier",
-                        "documentation": "-- | The ARN of this resource that has pending maintenance actions.",
+                        "documentation": "-- | The ARN of the resource that has pending maintenance actions.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2659,7 +2717,7 @@
                         "name": "_rpmaPendingMaintenanceActionDetails",
                         "shape": "PendingMaintenanceActionDetails",
                         "locationName": "PendingMaintenanceActionDetails",
-                        "documentation": "-- | Provides details about the pending maintenance actions for the resource.",
+                        "documentation": "-- | A list that provides details about the pending maintenance actions for the\n-- resource.",
                         "typeExposed": "[PendingMaintenanceAction]",
                         "type": "List \"member\" PendingMaintenanceAction"
                     }
@@ -2678,7 +2736,7 @@
                         "name": "_rpmaPendingMaintenanceActionDetails",
                         "shape": "PendingMaintenanceActionDetails",
                         "locationName": "PendingMaintenanceActionDetails",
-                        "documentation": "-- | Provides details about the pending maintenance actions for the resource.",
+                        "documentation": "-- | A list that provides details about the pending maintenance actions for the\n-- resource.",
                         "typeExposed": "[PendingMaintenanceAction]",
                         "type": "List \"member\" PendingMaintenanceAction"
                     },
@@ -2695,7 +2753,7 @@
                         "name": "_rpmaResourceIdentifier",
                         "shape": "String",
                         "locationName": "ResourceIdentifier",
-                        "documentation": "-- | The ARN of this resource that has pending maintenance actions.",
+                        "documentation": "-- | The ARN of the resource that has pending maintenance actions.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -5126,6 +5184,23 @@
                         "documentation": "-- | If 'StorageEncrypted' is true, the region-unique, immutable identifier for the\n-- encrypted DB instance. This identifier is found in AWS CloudTrail log entries\n-- whenever the KMS key for the DB instance is accessed.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dbiCACertificateIdentifier",
+                        "name": "_dbiCACertificateIdentifier",
+                        "shape": "String",
+                        "locationName": "CACertificateIdentifier",
+                        "documentation": "-- | The identifier of the CA certificate for this DB instance.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     }
                 ],
                 "fields": [
@@ -5196,6 +5271,23 @@
                         "documentation": "-- | Specifies the number of days for which automatic DB snapshots are retained.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dbiCACertificateIdentifier",
+                        "name": "_dbiCACertificateIdentifier",
+                        "shape": "String",
+                        "locationName": "CACertificateIdentifier",
+                        "documentation": "-- | The identifier of the CA certificate for this DB instance.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": "querystring",
@@ -5740,6 +5832,129 @@
                         "documentation": "-- | Provides List of VPC security group elements that the DB instance belongs\n-- to.",
                         "typeExposed": "[VpcSecurityGroupMembership]",
                         "type": "List \"member\" VpcSecurityGroupMembership"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show"
+                ],
+                "fieldPad": 19,
+                "ctor": "accountQuota",
+                "contents": [],
+                "payload": null,
+                "required": [],
+                "contentPad": 0,
+                "name": "AccountQuota",
+                "locationPad": 17,
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "aqAccountQuotaName",
+                        "name": "_aqAccountQuotaName",
+                        "shape": "String",
+                        "locationName": "AccountQuotaName",
+                        "documentation": "-- | The name of the Amazon RDS quota for this AWS account.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "aqUsed",
+                        "name": "_aqUsed",
+                        "shape": "Long",
+                        "locationName": "Used",
+                        "documentation": "-- | The amount currently used toward the quota maximum.",
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "aqMax",
+                        "name": "_aqMax",
+                        "shape": "Long",
+                        "locationName": "Max",
+                        "documentation": "-- | The maximum allowed value for the quota.",
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "aqAccountQuotaName",
+                        "name": "_aqAccountQuotaName",
+                        "shape": "String",
+                        "locationName": "AccountQuotaName",
+                        "documentation": "-- | The name of the Amazon RDS quota for this AWS account.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "aqMax",
+                        "name": "_aqMax",
+                        "shape": "Long",
+                        "locationName": "Max",
+                        "documentation": "-- | The maximum allowed value for the quota.",
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "aqUsed",
+                        "name": "_aqUsed",
+                        "shape": "Long",
+                        "locationName": "Used",
+                        "documentation": "-- | The amount currently used toward the quota maximum.",
+                        "typeExposed": "Maybe Integer",
+                        "type": "Maybe Integer"
                     }
                 ]
             },
@@ -6331,6 +6546,197 @@
                         "documentation": "-- | Provides the VpcId of the DB subnet group.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show"
+                ],
+                "fieldPad": 23,
+                "ctor": "certificate",
+                "contents": [],
+                "payload": null,
+                "required": [],
+                "contentPad": 0,
+                "name": "Certificate",
+                "locationPad": 22,
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "cCertificateIdentifier",
+                        "name": "_cCertificateIdentifier",
+                        "shape": "String",
+                        "locationName": "CertificateIdentifier",
+                        "documentation": "-- | The unique key that identifies a certificate.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "cCertificateType",
+                        "name": "_cCertificateType",
+                        "shape": "String",
+                        "locationName": "CertificateType",
+                        "documentation": "-- | The type of the certificate.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "cThumbprint",
+                        "name": "_cThumbprint",
+                        "shape": "String",
+                        "locationName": "Thumbprint",
+                        "documentation": "-- | The thumbprint of the certificate.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "cValidFrom",
+                        "name": "_cValidFrom",
+                        "shape": "TStamp",
+                        "locationName": "ValidFrom",
+                        "documentation": "-- | The starting date from which the certificate is valid.",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe ISO8601"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "cValidTill",
+                        "name": "_cValidTill",
+                        "shape": "TStamp",
+                        "locationName": "ValidTill",
+                        "documentation": "-- | The final date that the certificate continues to be valid.",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe ISO8601"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "cCertificateIdentifier",
+                        "name": "_cCertificateIdentifier",
+                        "shape": "String",
+                        "locationName": "CertificateIdentifier",
+                        "documentation": "-- | The unique key that identifies a certificate.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "cCertificateType",
+                        "name": "_cCertificateType",
+                        "shape": "String",
+                        "locationName": "CertificateType",
+                        "documentation": "-- | The type of the certificate.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "cThumbprint",
+                        "name": "_cThumbprint",
+                        "shape": "String",
+                        "locationName": "Thumbprint",
+                        "documentation": "-- | The thumbprint of the certificate.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "cValidFrom",
+                        "name": "_cValidFrom",
+                        "shape": "TStamp",
+                        "locationName": "ValidFrom",
+                        "documentation": "-- | The starting date from which the certificate is valid.",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe ISO8601"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "cValidTill",
+                        "name": "_cValidTill",
+                        "shape": "TStamp",
+                        "locationName": "ValidTill",
+                        "documentation": "-- | The final date that the certificate continues to be valid.",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe ISO8601"
                     }
                 ]
             },
@@ -8360,14 +8766,14 @@
                     "Read",
                     "Show"
                 ],
-                "fieldPad": 25,
+                "fieldPad": 27,
                 "ctor": "pendingModifiedValues",
                 "contents": [],
                 "payload": null,
                 "required": [],
                 "contentPad": 0,
                 "name": "PendingModifiedValues",
-                "locationPad": 22,
+                "locationPad": 24,
                 "type": "record",
                 "optional": [
                     {
@@ -8539,6 +8945,23 @@
                         "documentation": "-- | Specifies the storage type to be associated with the DB instance.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "pmvCACertificateIdentifier",
+                        "name": "_pmvCACertificateIdentifier",
+                        "shape": "String",
+                        "locationName": "CACertificateIdentifier",
+                        "documentation": "-- | Specifies the identifier of the CA certificate for the DB instance.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     }
                 ],
                 "fields": [
@@ -8575,6 +8998,23 @@
                         "documentation": "-- | Specifies the pending number of days for which automated backups are\n-- retained.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "pmvCACertificateIdentifier",
+                        "name": "_pmvCACertificateIdentifier",
+                        "shape": "String",
+                        "locationName": "CACertificateIdentifier",
+                        "documentation": "-- | Specifies the identifier of the CA certificate for the DB instance.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": "querystring",
@@ -9868,7 +10308,7 @@
             "pager": null,
             "name": "ApplyPendingMaintenanceAction",
             "method": "post",
-            "documentation": "-- | Applies a pending maintenance action to a resource.",
+            "documentation": "-- | Applies a pending maintenance action to a resource (for example, a DB\n-- instance).",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -9905,7 +10345,7 @@
                         "name": "_apmaResourceIdentifier",
                         "shape": "String",
                         "locationName": "ResourceIdentifier",
-                        "documentation": "-- | The ARN of the resource (for example, a DB Instance) that the pending\n-- maintenance action applies to.",
+                        "documentation": "-- | The ARN of the resource that the pending maintenance action applies to.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -9939,7 +10379,7 @@
                         "name": "_apmaOptInType",
                         "shape": "String",
                         "locationName": "OptInType",
-                        "documentation": "-- | Specify an opt-in request, or undo an opt-in request. An opt-in request of\n-- type 'immediate' cannot be undone.\n--\n-- Valid values:\n--\n-- 'immediate' - Apply the maintenance action immediately.  'next-maintenance' -\n-- Apply the maintenance action during the next maintenance window for the\n-- resource.  'undo-opt-in' - Cancel any existing 'next-maintenance' opt-in requests.\n--",
+                        "documentation": "-- | A value that specifies the type of opt-in request, or undoes an opt-in\n-- request. An opt-in request of type 'immediate' cannot be undone.\n--\n-- Valid values:\n--\n-- 'immediate' - Apply the maintenance action immediately.  'next-maintenance' -\n-- Apply the maintenance action during the next maintenance window for the\n-- resource.  'undo-opt-in' - Cancel any existing 'next-maintenance' opt-in requests.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -10002,7 +10442,7 @@
                         "name": "_apmaOptInType",
                         "shape": "String",
                         "locationName": "OptInType",
-                        "documentation": "-- | Specify an opt-in request, or undo an opt-in request. An opt-in request of\n-- type 'immediate' cannot be undone.\n--\n-- Valid values:\n--\n-- 'immediate' - Apply the maintenance action immediately.  'next-maintenance' -\n-- Apply the maintenance action during the next maintenance window for the\n-- resource.  'undo-opt-in' - Cancel any existing 'next-maintenance' opt-in requests.\n--",
+                        "documentation": "-- | A value that specifies the type of opt-in request, or undoes an opt-in\n-- request. An opt-in request of type 'immediate' cannot be undone.\n--\n-- Valid values:\n--\n-- 'immediate' - Apply the maintenance action immediately.  'next-maintenance' -\n-- Apply the maintenance action during the next maintenance window for the\n-- resource.  'undo-opt-in' - Cancel any existing 'next-maintenance' opt-in requests.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -10019,7 +10459,7 @@
                         "name": "_apmaResourceIdentifier",
                         "shape": "String",
                         "locationName": "ResourceIdentifier",
-                        "documentation": "-- | The ARN of the resource (for example, a DB Instance) that the pending\n-- maintenance action applies to.",
+                        "documentation": "-- | The ARN of the resource that the pending maintenance action applies to.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -11384,7 +11824,7 @@
                         "name": "_cdbiMasterUsername",
                         "shape": "String",
                         "locationName": "MasterUsername",
-                        "documentation": "-- | The name of master user for the client DB instance.\n--\n-- MySQL\n--\n-- Constraints:\n--\n-- Must be 1 to 16 alphanumeric characters. First character must be a letter. Cannot be a reserved word for the chosen database engine.\n-- Type: String\n--\n-- Oracle\n--\n-- Constraints:\n--\n-- Must be 1 to 30 alphanumeric characters. First character must be a letter. Cannot be a reserved word for the chosen database engine.\n-- SQL Server\n--\n-- Constraints:\n--\n-- Must be 1 to 128 alphanumeric characters. First character must be a letter.\n-- Cannot be a reserved word for the chosen database engine.",
+                        "documentation": "-- | The name of master user for the client DB instance.\n--\n-- MySQL\n--\n-- Constraints:\n--\n-- Must be 1 to 16 alphanumeric characters. First character must be a letter. Cannot be a reserved word for the chosen database engine.\n-- Type: String\n--\n-- Oracle\n--\n-- Constraints:\n--\n-- Must be 1 to 30 alphanumeric characters. First character must be a letter. Cannot be a reserved word for the chosen database engine.\n-- SQL Server\n--\n-- Constraints:\n--\n-- Must be 1 to 128 alphanumeric characters. First character must be a letter.\n-- Cannot be a reserved word for the chosen database engine.   PostgreSQL\n--\n-- Constraints:\n--\n-- Must be 1 to 63 alphanumeric characters. First character must be a letter. Cannot be a reserved word for the chosen database engine.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -11401,7 +11841,7 @@
                         "name": "_cdbiMasterUserPassword",
                         "shape": "String",
                         "locationName": "MasterUserPassword",
-                        "documentation": "-- | The password for the master database user. Can be any printable ASCII\n-- character except \"/\", \"\"\", or \"@\".\n--\n-- Type: String\n--\n-- MySQL\n--\n-- Constraints: Must contain from 8 to 41 characters.\n--\n-- Oracle\n--\n-- Constraints: Must contain from 8 to 30 characters.\n--\n-- SQL Server\n--\n-- Constraints: Must contain from 8 to 128 characters.",
+                        "documentation": "-- | The password for the master database user. Can be any printable ASCII\n-- character except \"/\", \"\"\", or \"@\".\n--\n-- Type: String\n--\n-- MySQL\n--\n-- Constraints: Must contain from 8 to 41 characters.\n--\n-- Oracle\n--\n-- Constraints: Must contain from 8 to 30 characters.\n--\n-- SQL Server\n--\n-- Constraints: Must contain from 8 to 128 characters.\n--\n-- PostgreSQL\n--\n-- Constraints: Must contain from 8 to 128 characters.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -11581,7 +12021,7 @@
                         "name": "_cdbiDBName",
                         "shape": "String",
                         "locationName": "DBName",
-                        "documentation": "-- | The meaning of this parameter differs according to the database engine you\n-- use.\n--\n-- Type: String\n--\n-- MySQL\n--\n-- The name of the database to create when the DB instance is created. If this\n-- parameter is not specified, no database is created in the DB instance.\n--\n-- Constraints:\n--\n-- Must contain 1 to 64 alphanumeric characters Cannot be a word reserved by\n-- the specified database engine  PostgreSQL\n--\n-- The name of the database to create when the DB instance is created. If this\n-- parameter is not specified, no database is created in the DB instance.\n--\n-- Constraints:\n--\n-- Must contain 1 to 63 alphanumeric characters Must begin with a letter or an\n-- underscore. Subsequent characters can be letters, underscores, or digits\n-- (0-9). Cannot be a word reserved by the specified database engine  Oracle\n--\n-- The Oracle System ID (SID) of the created DB instance.\n--\n-- Default: 'ORCL'\n--\n-- Constraints:\n--\n-- Cannot be longer than 8 characters  SQL Server\n--\n-- Not applicable. Must be null.",
+                        "documentation": "-- | The meaning of this parameter differs according to the database engine you\n-- use.\n--\n-- Type: String\n--\n-- MySQL\n--\n-- The name of the database to create when the DB instance is created. If this\n-- parameter is not specified, no database is created in the DB instance.\n--\n-- Constraints:\n--\n-- Must contain 1 to 64 alphanumeric characters Cannot be a word reserved by\n-- the specified database engine   PostgreSQL\n--\n-- The name of the database to create when the DB instance is created. If this\n-- parameter is not specified, no database is created in the DB instance.\n--\n-- Constraints:\n--\n-- Must contain 1 to 63 alphanumeric characters Must begin with a letter or an\n-- underscore. Subsequent characters can be letters, underscores, or digits\n-- (0-9). Cannot be a word reserved by the specified database engine   Oracle\n--\n-- The Oracle System ID (SID) of the created DB instance.\n--\n-- Default: 'ORCL'\n--\n-- Constraints:\n--\n-- Cannot be longer than 8 characters   SQL Server\n--\n-- Not applicable. Must be null.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -11768,7 +12208,7 @@
                         "name": "_cdbiEngineVersion",
                         "shape": "String",
                         "locationName": "EngineVersion",
-                        "documentation": "-- | The version number of the database engine to use.\n--\n-- The following are the database engines and major and minor versions that\n-- are available with Amazon RDS. Not every database engine is available for\n-- every AWS region.\n--\n-- MySQL\n--\n-- Version 5.1: ' 5.1.45 | 5.1.49 | 5.1.50 | 5.1.57 | 5.1.61 | 5.1.62 | 5.1.63| 5.1.69 | 5.1.71 | 5.1.73'   Version 5.5: ' 5.5.12 | 5.5.20 | 5.5.23 | 5.5.25a| 5.5.27 | 5.5.31 | 5.5.33 | 5.5.37 | 5.5.38 | 5.5.8'   Version 5.6: ' 5.6.12 |5.6.13 | 5.6.17 | 5.6.19 | 5.6.21'   Oracle Database Enterprise Edition\n-- (oracle-ee)\n--\n-- Version 11.2: ' 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 |11.2.0.2.v7 | 11.2.0.3.v1 | 11.2.0.4.v1'   Oracle Database Standard Edition\n-- (oracle-se)\n--\n-- Version 11.2: ' 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 |11.2.0.2.v7 | 11.2.0.3.v1 | 11.2.0.4.v1'   Oracle Database Standard Edition\n-- One (oracle-se1)\n--\n-- Version 11.2: ' 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 |11.2.0.2.v7 | 11.2.0.3.v1 | 11.2.0.4.v1'   PostgreSQL\n--\n-- Version 9.3: ' 9.3.1 | 9.3.2 | 9.3.3'   Microsoft SQL Server Enterprise\n-- Edition (sqlserver-ee)\n--\n-- Version 10.5: ' 10.50.2789.0.v1'   Version 11.0: ' 11.00.2100.60.v1'   Microsoft SQL Server Express Edition (sqlserver-ex)\n--\n--\n-- Version 10.5: ' 10.50.2789.0.v1'   Version 11.0: ' 11.00.2100.60.v1'   Microsoft SQL Server Standard Edition (sqlserver-se)\n--\n--\n-- Version 10.5: ' 10.50.2789.0.v1'   Version 11.0: ' 11.00.2100.60.v1'   Microsoft SQL Server Web Edition (sqlserver-web)\n--\n--\n-- Version 10.5: ' 10.50.2789.0.v1'   Version 11.0: ' 11.00.2100.60.v1'",
+                        "documentation": "-- | The version number of the database engine to use.\n--\n-- The following are the database engines and major and minor versions that\n-- are available with Amazon RDS. Not every database engine is available for\n-- every AWS region.\n--\n-- MySQL\n--\n-- Version 5.1 (Only available in the following regions: ap-northeast-1,\n-- ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2): '5.1.73a | 5.1.73b'   Version 5.5 (Only available in the following regions:\n-- ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1,\n-- us-west-1, us-west-2): ' 5.5.40 | 5.5.40a'   Version 5.5 (Available in all\n-- regions): ' 5.5.40b | 5.5.41'   Version 5.6 (Available in all regions): '5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22'    MySQL\n--\n-- Version 5.1 (Only available in the following regions: ap-northeast-1,\n-- ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2): '5.1.73a | 5.1.73b'   Version 5.5 (Only available in the following regions:\n-- ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1,\n-- us-west-1, us-west-2): ' 5.5.40 | 5.5.40a'   Version 5.5 (Available in all\n-- regions): ' 5.5.40b | 5.5.41'   Version 5.6 (Available in all regions): '5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22'    MySQL\n--\n-- Version 5.1 (Only available in the following regions: ap-northeast-1,\n-- ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2): '5.1.73a | 5.1.73b'   Version 5.5 (Only available in the following regions:\n-- ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1,\n-- us-west-1, us-west-2): ' 5.5.40 | 5.5.40a'   Version 5.5 (Available in all\n-- regions): ' 5.5.40b | 5.5.41'   Version 5.6 (Available in all regions): '5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22'    MySQL\n--\n-- Version 5.1 (Only available in the following regions: ap-northeast-1,\n-- ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2): '5.1.73a | 5.1.73b'   Version 5.5 (Only available in the following regions:\n-- ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1,\n-- us-west-1, us-west-2): ' 5.5.40 | 5.5.40a'   Version 5.5 (Available in all\n-- regions): ' 5.5.40b | 5.5.41'   Version 5.6 (Available in all regions): '5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22'    Oracle Database Enterprise\n-- Edition (oracle-ee)\n--\n-- Version 11.2 (Only available in the following regions: ap-northeast-1,\n-- ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2): '11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7'   Version\n-- 11.2 (Available in all regions): ' 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 |11.2.0.4.v3'    Oracle Database Enterprise Edition (oracle-ee)\n--\n-- Version 11.2 (Only available in the following regions: ap-northeast-1,\n-- ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2): '11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7'   Version\n-- 11.2 (Available in all regions): ' 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 |11.2.0.4.v3'    Oracle Database Standard Edition (oracle-se)\n--\n-- Version 11.2 (Only available in the following regions: us-west-1): '11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7'   Version\n-- 11.2 (Only available in the following regions: eu-central-1, us-west-1): '11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3'    Oracle Database\n-- Standard Edition (oracle-se)\n--\n-- Version 11.2 (Only available in the following regions: us-west-1): '11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7'   Version\n-- 11.2 (Only available in the following regions: eu-central-1, us-west-1): '11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3'    Oracle Database\n-- Standard Edition One (oracle-se1)\n--\n-- Version 11.2 (Only available in the following regions: us-west-1): '11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7'   Version\n-- 11.2 (Only available in the following regions: eu-central-1, us-west-1): '11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3'    Oracle Database\n-- Standard Edition One (oracle-se1)\n--\n-- Version 11.2 (Only available in the following regions: us-west-1): '11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7'   Version\n-- 11.2 (Only available in the following regions: eu-central-1, us-west-1): '11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3'    PostgreSQL\n--\n-- Version 9.3 (Only available in the following regions: ap-northeast-1,\n-- ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2): '9.3.1 | 9.3.2'   Version 9.3 (Available in all regions): ' 9.3.3 | 9.3.5'    PostgreSQL\n--\n--\n-- Version 9.3 (Only available in the following regions: ap-northeast-1,\n-- ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2): '9.3.1 | 9.3.2'   Version 9.3 (Available in all regions): ' 9.3.3 | 9.3.5'    Microsoft SQL Server Enterprise Edition (sqlserver-ee)\n--\n--\n-- Version 10.50 (Only available in the following regions: eu-central-1,\n-- us-west-1): ' 10.50.2789.0.v1'   Version 11.00 (Only available in the following\n-- regions: eu-central-1, us-west-1): ' 11.00.2100.60.v1'    Microsoft SQL Server\n-- Enterprise Edition (sqlserver-ee)\n--\n-- Version 10.50 (Only available in the following regions: eu-central-1,\n-- us-west-1): ' 10.50.2789.0.v1'   Version 11.00 (Only available in the following\n-- regions: eu-central-1, us-west-1): ' 11.00.2100.60.v1'    Microsoft SQL Server\n-- Express Edition (sqlserver-ex)\n--\n-- Version 10.50 (Available in all regions): ' 10.50.2789.0.v1'   Version 11.00\n-- (Available in all regions): ' 11.00.2100.60.v1'    Microsoft SQL Server Express\n-- Edition (sqlserver-ex)\n--\n-- Version 10.50 (Available in all regions): ' 10.50.2789.0.v1'   Version 11.00\n-- (Available in all regions): ' 11.00.2100.60.v1'    Microsoft SQL Server\n-- Standard Edition (sqlserver-se)\n--\n-- Version 10.50 (Available in all regions): ' 10.50.2789.0.v1'   Version 11.00\n-- (Available in all regions): ' 11.00.2100.60.v1'    Microsoft SQL Server\n-- Standard Edition (sqlserver-se)\n--\n-- Version 10.50 (Available in all regions): ' 10.50.2789.0.v1'   Version 11.00\n-- (Available in all regions): ' 11.00.2100.60.v1'    Microsoft SQL Server Web\n-- Edition (sqlserver-web)\n--\n-- Version 10.50 (Available in all regions): ' 10.50.2789.0.v1'   Version 11.00\n-- (Available in all regions): ' 11.00.2100.60.v1'    Microsoft SQL Server Web\n-- Edition (sqlserver-web)\n--\n-- Version 10.50 (Available in all regions): ' 10.50.2789.0.v1'   Version 11.00\n-- (Available in all regions): ' 11.00.2100.60.v1'",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -12110,7 +12550,7 @@
                         "name": "_cdbiDBName",
                         "shape": "String",
                         "locationName": "DBName",
-                        "documentation": "-- | The meaning of this parameter differs according to the database engine you\n-- use.\n--\n-- Type: String\n--\n-- MySQL\n--\n-- The name of the database to create when the DB instance is created. If this\n-- parameter is not specified, no database is created in the DB instance.\n--\n-- Constraints:\n--\n-- Must contain 1 to 64 alphanumeric characters Cannot be a word reserved by\n-- the specified database engine  PostgreSQL\n--\n-- The name of the database to create when the DB instance is created. If this\n-- parameter is not specified, no database is created in the DB instance.\n--\n-- Constraints:\n--\n-- Must contain 1 to 63 alphanumeric characters Must begin with a letter or an\n-- underscore. Subsequent characters can be letters, underscores, or digits\n-- (0-9). Cannot be a word reserved by the specified database engine  Oracle\n--\n-- The Oracle System ID (SID) of the created DB instance.\n--\n-- Default: 'ORCL'\n--\n-- Constraints:\n--\n-- Cannot be longer than 8 characters  SQL Server\n--\n-- Not applicable. Must be null.",
+                        "documentation": "-- | The meaning of this parameter differs according to the database engine you\n-- use.\n--\n-- Type: String\n--\n-- MySQL\n--\n-- The name of the database to create when the DB instance is created. If this\n-- parameter is not specified, no database is created in the DB instance.\n--\n-- Constraints:\n--\n-- Must contain 1 to 64 alphanumeric characters Cannot be a word reserved by\n-- the specified database engine   PostgreSQL\n--\n-- The name of the database to create when the DB instance is created. If this\n-- parameter is not specified, no database is created in the DB instance.\n--\n-- Constraints:\n--\n-- Must contain 1 to 63 alphanumeric characters Must begin with a letter or an\n-- underscore. Subsequent characters can be letters, underscores, or digits\n-- (0-9). Cannot be a word reserved by the specified database engine   Oracle\n--\n-- The Oracle System ID (SID) of the created DB instance.\n--\n-- Default: 'ORCL'\n--\n-- Constraints:\n--\n-- Cannot be longer than 8 characters   SQL Server\n--\n-- Not applicable. Must be null.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -12195,7 +12635,7 @@
                         "name": "_cdbiEngineVersion",
                         "shape": "String",
                         "locationName": "EngineVersion",
-                        "documentation": "-- | The version number of the database engine to use.\n--\n-- The following are the database engines and major and minor versions that\n-- are available with Amazon RDS. Not every database engine is available for\n-- every AWS region.\n--\n-- MySQL\n--\n-- Version 5.1: ' 5.1.45 | 5.1.49 | 5.1.50 | 5.1.57 | 5.1.61 | 5.1.62 | 5.1.63| 5.1.69 | 5.1.71 | 5.1.73'   Version 5.5: ' 5.5.12 | 5.5.20 | 5.5.23 | 5.5.25a| 5.5.27 | 5.5.31 | 5.5.33 | 5.5.37 | 5.5.38 | 5.5.8'   Version 5.6: ' 5.6.12 |5.6.13 | 5.6.17 | 5.6.19 | 5.6.21'   Oracle Database Enterprise Edition\n-- (oracle-ee)\n--\n-- Version 11.2: ' 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 |11.2.0.2.v7 | 11.2.0.3.v1 | 11.2.0.4.v1'   Oracle Database Standard Edition\n-- (oracle-se)\n--\n-- Version 11.2: ' 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 |11.2.0.2.v7 | 11.2.0.3.v1 | 11.2.0.4.v1'   Oracle Database Standard Edition\n-- One (oracle-se1)\n--\n-- Version 11.2: ' 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 |11.2.0.2.v7 | 11.2.0.3.v1 | 11.2.0.4.v1'   PostgreSQL\n--\n-- Version 9.3: ' 9.3.1 | 9.3.2 | 9.3.3'   Microsoft SQL Server Enterprise\n-- Edition (sqlserver-ee)\n--\n-- Version 10.5: ' 10.50.2789.0.v1'   Version 11.0: ' 11.00.2100.60.v1'   Microsoft SQL Server Express Edition (sqlserver-ex)\n--\n--\n-- Version 10.5: ' 10.50.2789.0.v1'   Version 11.0: ' 11.00.2100.60.v1'   Microsoft SQL Server Standard Edition (sqlserver-se)\n--\n--\n-- Version 10.5: ' 10.50.2789.0.v1'   Version 11.0: ' 11.00.2100.60.v1'   Microsoft SQL Server Web Edition (sqlserver-web)\n--\n--\n-- Version 10.5: ' 10.50.2789.0.v1'   Version 11.0: ' 11.00.2100.60.v1'",
+                        "documentation": "-- | The version number of the database engine to use.\n--\n-- The following are the database engines and major and minor versions that\n-- are available with Amazon RDS. Not every database engine is available for\n-- every AWS region.\n--\n-- MySQL\n--\n-- Version 5.1 (Only available in the following regions: ap-northeast-1,\n-- ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2): '5.1.73a | 5.1.73b'   Version 5.5 (Only available in the following regions:\n-- ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1,\n-- us-west-1, us-west-2): ' 5.5.40 | 5.5.40a'   Version 5.5 (Available in all\n-- regions): ' 5.5.40b | 5.5.41'   Version 5.6 (Available in all regions): '5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22'    MySQL\n--\n-- Version 5.1 (Only available in the following regions: ap-northeast-1,\n-- ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2): '5.1.73a | 5.1.73b'   Version 5.5 (Only available in the following regions:\n-- ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1,\n-- us-west-1, us-west-2): ' 5.5.40 | 5.5.40a'   Version 5.5 (Available in all\n-- regions): ' 5.5.40b | 5.5.41'   Version 5.6 (Available in all regions): '5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22'    MySQL\n--\n-- Version 5.1 (Only available in the following regions: ap-northeast-1,\n-- ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2): '5.1.73a | 5.1.73b'   Version 5.5 (Only available in the following regions:\n-- ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1,\n-- us-west-1, us-west-2): ' 5.5.40 | 5.5.40a'   Version 5.5 (Available in all\n-- regions): ' 5.5.40b | 5.5.41'   Version 5.6 (Available in all regions): '5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22'    MySQL\n--\n-- Version 5.1 (Only available in the following regions: ap-northeast-1,\n-- ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2): '5.1.73a | 5.1.73b'   Version 5.5 (Only available in the following regions:\n-- ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1,\n-- us-west-1, us-west-2): ' 5.5.40 | 5.5.40a'   Version 5.5 (Available in all\n-- regions): ' 5.5.40b | 5.5.41'   Version 5.6 (Available in all regions): '5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22'    Oracle Database Enterprise\n-- Edition (oracle-ee)\n--\n-- Version 11.2 (Only available in the following regions: ap-northeast-1,\n-- ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2): '11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7'   Version\n-- 11.2 (Available in all regions): ' 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 |11.2.0.4.v3'    Oracle Database Enterprise Edition (oracle-ee)\n--\n-- Version 11.2 (Only available in the following regions: ap-northeast-1,\n-- ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2): '11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7'   Version\n-- 11.2 (Available in all regions): ' 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 |11.2.0.4.v3'    Oracle Database Standard Edition (oracle-se)\n--\n-- Version 11.2 (Only available in the following regions: us-west-1): '11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7'   Version\n-- 11.2 (Only available in the following regions: eu-central-1, us-west-1): '11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3'    Oracle Database\n-- Standard Edition (oracle-se)\n--\n-- Version 11.2 (Only available in the following regions: us-west-1): '11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7'   Version\n-- 11.2 (Only available in the following regions: eu-central-1, us-west-1): '11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3'    Oracle Database\n-- Standard Edition One (oracle-se1)\n--\n-- Version 11.2 (Only available in the following regions: us-west-1): '11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7'   Version\n-- 11.2 (Only available in the following regions: eu-central-1, us-west-1): '11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3'    Oracle Database\n-- Standard Edition One (oracle-se1)\n--\n-- Version 11.2 (Only available in the following regions: us-west-1): '11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7'   Version\n-- 11.2 (Only available in the following regions: eu-central-1, us-west-1): '11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3'    PostgreSQL\n--\n-- Version 9.3 (Only available in the following regions: ap-northeast-1,\n-- ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2): '9.3.1 | 9.3.2'   Version 9.3 (Available in all regions): ' 9.3.3 | 9.3.5'    PostgreSQL\n--\n--\n-- Version 9.3 (Only available in the following regions: ap-northeast-1,\n-- ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2): '9.3.1 | 9.3.2'   Version 9.3 (Available in all regions): ' 9.3.3 | 9.3.5'    Microsoft SQL Server Enterprise Edition (sqlserver-ee)\n--\n--\n-- Version 10.50 (Only available in the following regions: eu-central-1,\n-- us-west-1): ' 10.50.2789.0.v1'   Version 11.00 (Only available in the following\n-- regions: eu-central-1, us-west-1): ' 11.00.2100.60.v1'    Microsoft SQL Server\n-- Enterprise Edition (sqlserver-ee)\n--\n-- Version 10.50 (Only available in the following regions: eu-central-1,\n-- us-west-1): ' 10.50.2789.0.v1'   Version 11.00 (Only available in the following\n-- regions: eu-central-1, us-west-1): ' 11.00.2100.60.v1'    Microsoft SQL Server\n-- Express Edition (sqlserver-ex)\n--\n-- Version 10.50 (Available in all regions): ' 10.50.2789.0.v1'   Version 11.00\n-- (Available in all regions): ' 11.00.2100.60.v1'    Microsoft SQL Server Express\n-- Edition (sqlserver-ex)\n--\n-- Version 10.50 (Available in all regions): ' 10.50.2789.0.v1'   Version 11.00\n-- (Available in all regions): ' 11.00.2100.60.v1'    Microsoft SQL Server\n-- Standard Edition (sqlserver-se)\n--\n-- Version 10.50 (Available in all regions): ' 10.50.2789.0.v1'   Version 11.00\n-- (Available in all regions): ' 11.00.2100.60.v1'    Microsoft SQL Server\n-- Standard Edition (sqlserver-se)\n--\n-- Version 10.50 (Available in all regions): ' 10.50.2789.0.v1'   Version 11.00\n-- (Available in all regions): ' 11.00.2100.60.v1'    Microsoft SQL Server Web\n-- Edition (sqlserver-web)\n--\n-- Version 10.50 (Available in all regions): ' 10.50.2789.0.v1'   Version 11.00\n-- (Available in all regions): ' 11.00.2100.60.v1'    Microsoft SQL Server Web\n-- Edition (sqlserver-web)\n--\n-- Version 10.50 (Available in all regions): ' 10.50.2789.0.v1'   Version 11.00\n-- (Available in all regions): ' 11.00.2100.60.v1'",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -12263,7 +12703,7 @@
                         "name": "_cdbiMasterUserPassword",
                         "shape": "String",
                         "locationName": "MasterUserPassword",
-                        "documentation": "-- | The password for the master database user. Can be any printable ASCII\n-- character except \"/\", \"\"\", or \"@\".\n--\n-- Type: String\n--\n-- MySQL\n--\n-- Constraints: Must contain from 8 to 41 characters.\n--\n-- Oracle\n--\n-- Constraints: Must contain from 8 to 30 characters.\n--\n-- SQL Server\n--\n-- Constraints: Must contain from 8 to 128 characters.",
+                        "documentation": "-- | The password for the master database user. Can be any printable ASCII\n-- character except \"/\", \"\"\", or \"@\".\n--\n-- Type: String\n--\n-- MySQL\n--\n-- Constraints: Must contain from 8 to 41 characters.\n--\n-- Oracle\n--\n-- Constraints: Must contain from 8 to 30 characters.\n--\n-- SQL Server\n--\n-- Constraints: Must contain from 8 to 128 characters.\n--\n-- PostgreSQL\n--\n-- Constraints: Must contain from 8 to 128 characters.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -12280,7 +12720,7 @@
                         "name": "_cdbiMasterUsername",
                         "shape": "String",
                         "locationName": "MasterUsername",
-                        "documentation": "-- | The name of master user for the client DB instance.\n--\n-- MySQL\n--\n-- Constraints:\n--\n-- Must be 1 to 16 alphanumeric characters. First character must be a letter. Cannot be a reserved word for the chosen database engine.\n-- Type: String\n--\n-- Oracle\n--\n-- Constraints:\n--\n-- Must be 1 to 30 alphanumeric characters. First character must be a letter. Cannot be a reserved word for the chosen database engine.\n-- SQL Server\n--\n-- Constraints:\n--\n-- Must be 1 to 128 alphanumeric characters. First character must be a letter.\n-- Cannot be a reserved word for the chosen database engine.",
+                        "documentation": "-- | The name of master user for the client DB instance.\n--\n-- MySQL\n--\n-- Constraints:\n--\n-- Must be 1 to 16 alphanumeric characters. First character must be a letter. Cannot be a reserved word for the chosen database engine.\n-- Type: String\n--\n-- Oracle\n--\n-- Constraints:\n--\n-- Must be 1 to 30 alphanumeric characters. First character must be a letter. Cannot be a reserved word for the chosen database engine.\n-- SQL Server\n--\n-- Constraints:\n--\n-- Must be 1 to 128 alphanumeric characters. First character must be a letter.\n-- Cannot be a reserved word for the chosen database engine.   PostgreSQL\n--\n-- Constraints:\n--\n-- Must be 1 to 63 alphanumeric characters. First character must be a letter. Cannot be a reserved word for the chosen database engine.\n--",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -15200,7 +15640,7 @@
             "pager": null,
             "name": "DeleteDBParameterGroup",
             "method": "post",
-            "documentation": "-- | Deletes a specified DBParameterGroup. The DBParameterGroup to be deleted\n-- cannot be associated with any DB instances.\n--\n-- The specified DB parameter group cannot be associated with any DB\n-- instances.",
+            "documentation": "-- | Deletes a specified DBParameterGroup. The DBParameterGroup to be deleted\n-- cannot be associated with any DB instances.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -16093,6 +16533,441 @@
                         "documentation": "-- | The name of the option group to be deleted.\n--\n-- You cannot delete default option groups.",
                         "typeExposed": "Text",
                         "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "RDS",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Read",
+                    "Show",
+                    "Monoid",
+                    "Semigroup"
+                ],
+                "streaming": false,
+                "listElement": "AccountQuota",
+                "style": "xml",
+                "fieldPad": 0,
+                "ctor": "describeAccountAttributesResponse",
+                "headerPad": 0,
+                "field": {
+                    "location": "querystring",
+                    "iso": "_List",
+                    "lensMapping": "_List",
+                    "default": "mempty",
+                    "monoid": true,
+                    "protocol": "query",
+                    "flattened": false,
+                    "required": true,
+                    "lens": "daarAccountQuotas",
+                    "name": "_daarAccountQuotas",
+                    "shape": "AccountQuotaList",
+                    "locationName": "AccountQuotas",
+                    "documentation": "-- | A list of 'AccountQuota' objects. Within this list, each quota has a name, a\n-- count of usage toward the quota maximum, and a maximum value for the quota.",
+                    "typeExposed": "[AccountQuota]",
+                    "type": "List \"member\" AccountQuota"
+                },
+                "contents": [],
+                "wrapper": false,
+                "protocol": "query",
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "name": "DescribeAccountAttributesResponse",
+                "resultWrapper": "DescribeAccountAttributesResult",
+                "locationPad": 0,
+                "type": "newtype",
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "daarAccountQuotas",
+                        "name": "_daarAccountQuotas",
+                        "shape": "AccountQuotaList",
+                        "locationName": "AccountQuotas",
+                        "documentation": "-- | A list of 'AccountQuota' objects. Within this list, each quota has a name, a\n-- count of usage toward the quota maximum, and a maximum value for the quota.",
+                        "typeExposed": "[AccountQuota]",
+                        "type": "List \"member\" AccountQuota"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "daarAccountQuotas",
+                        "name": "_daarAccountQuotas",
+                        "shape": "AccountQuotaList",
+                        "locationName": "AccountQuotas",
+                        "documentation": "-- | A list of 'AccountQuota' objects. Within this list, each quota has a name, a\n-- count of usage toward the quota maximum, and a maximum value for the quota.",
+                        "typeExposed": "[AccountQuota]",
+                        "type": "List \"member\" AccountQuota"
+                    }
+                ]
+            },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeAccountAttributes.html",
+            "namespace": "Network.AWS.RDS.DescribeAccountAttributes",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.RDS.Types"
+            ],
+            "pager": null,
+            "name": "DescribeAccountAttributes",
+            "method": "post",
+            "documentation": "-- | Lists all of the attributes for a customer account. The attributes include\n-- Amazon RDS quotas for the account, such as the number of DB instances\n-- allowed. The description for a quota includes the quota name, current usage\n-- toward that quota, and the quota's maximum value.\n--\n-- This command does not take any parameters.",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "style": "query",
+                "fieldPad": 0,
+                "ctor": "describeAccountAttributes",
+                "headerPad": 0,
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "query",
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "queryPad": 0,
+                "name": "DescribeAccountAttributes",
+                "query": [],
+                "type": "empty",
+                "queryAll": false,
+                "headerAll": false,
+                "optional": [],
+                "fields": []
+            }
+        },
+        {
+            "service": "RDS",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Read",
+                    "Show"
+                ],
+                "streaming": false,
+                "style": "xml",
+                "fieldPad": 16,
+                "ctor": "describeCertificatesResponse",
+                "headerPad": 0,
+                "contents": [],
+                "wrapper": false,
+                "protocol": "query",
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "name": "DescribeCertificatesResponse",
+                "resultWrapper": "DescribeCertificatesResult",
+                "locationPad": 13,
+                "type": "record",
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "dcrCertificates",
+                        "name": "_dcrCertificates",
+                        "shape": "CertificateList",
+                        "locationName": "Certificates",
+                        "documentation": "-- | The list of 'Certificate' objects for the AWS account.",
+                        "typeExposed": "[Certificate]",
+                        "type": "List \"member\" Certificate"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dcrMarker",
+                        "name": "_dcrMarker",
+                        "shape": "String",
+                        "locationName": "Marker",
+                        "documentation": "-- | An optional pagination token provided by a previous 'DescribeCertificates'\n-- request. If this parameter is specified, the response includes only records\n-- beyond the marker, up to the value specified by 'MaxRecords' .",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "dcrCertificates",
+                        "name": "_dcrCertificates",
+                        "shape": "CertificateList",
+                        "locationName": "Certificates",
+                        "documentation": "-- | The list of 'Certificate' objects for the AWS account.",
+                        "typeExposed": "[Certificate]",
+                        "type": "List \"member\" Certificate"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dcrMarker",
+                        "name": "_dcrMarker",
+                        "shape": "String",
+                        "locationName": "Marker",
+                        "documentation": "-- | An optional pagination token provided by a previous 'DescribeCertificates'\n-- request. If this parameter is specified, the response includes only records\n-- beyond the marker, up to the value specified by 'MaxRecords' .",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "url": "http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeCertificates.html",
+            "namespace": "Network.AWS.RDS.DescribeCertificates",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.RDS.Types"
+            ],
+            "pager": null,
+            "name": "DescribeCertificates",
+            "method": "post",
+            "documentation": "-- | Lists the set of CA certificates provided by Amazon RDS for this AWS\n-- account.",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Read",
+                    "Show"
+                ],
+                "streaming": false,
+                "style": "query",
+                "fieldPad": 24,
+                "ctor": "describeCertificates",
+                "headerPad": 0,
+                "contents": [],
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "query",
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "queryPad": 22,
+                "name": "DescribeCertificates",
+                "query": [
+                    {
+                        "field": "_dcCertificateIdentifier",
+                        "locationName": "CertificateIdentifier",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_dcFilters",
+                        "locationName": "Filters",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_dcMaxRecords",
+                        "locationName": "MaxRecords",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_dcMarker",
+                        "locationName": "Marker",
+                        "type": "field"
+                    }
+                ],
+                "locationPad": 22,
+                "type": "record",
+                "queryAll": true,
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dcCertificateIdentifier",
+                        "name": "_dcCertificateIdentifier",
+                        "shape": "String",
+                        "locationName": "CertificateIdentifier",
+                        "documentation": "-- | The user-supplied certificate identifier. If this parameter is specified,\n-- information for only the identified certificate is returned. This parameter\n-- isn't case-sensitive.\n--\n-- Constraints:\n--\n-- Must contain from 1 to 63 alphanumeric characters or hyphens First\n-- character must be a letter Cannot end with a hyphen or contain two\n-- consecutive hyphens",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "dcFilters",
+                        "name": "_dcFilters",
+                        "shape": "FilterList",
+                        "locationName": "Filters",
+                        "documentation": "-- | This parameter is not currently supported.",
+                        "typeExposed": "[Filter]",
+                        "type": "List \"member\" Filter"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dcMaxRecords",
+                        "name": "_dcMaxRecords",
+                        "shape": "IntegerOptional",
+                        "locationName": "MaxRecords",
+                        "documentation": "-- | The maximum number of records to include in the response. If more records\n-- exist than the specified 'MaxRecords' value, a pagination token called a marker\n-- is included in the response so that the remaining results can be retrieved.\n--\n-- Default: 100\n--\n-- Constraints: Minimum 20, maximum 100",
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dcMarker",
+                        "name": "_dcMarker",
+                        "shape": "String",
+                        "locationName": "Marker",
+                        "documentation": "-- | An optional pagination token provided by a previous 'DescribeCertificates'\n-- request. If this parameter is specified, the response includes only records\n-- beyond the marker, up to the value specified by 'MaxRecords'.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dcCertificateIdentifier",
+                        "name": "_dcCertificateIdentifier",
+                        "shape": "String",
+                        "locationName": "CertificateIdentifier",
+                        "documentation": "-- | The user-supplied certificate identifier. If this parameter is specified,\n-- information for only the identified certificate is returned. This parameter\n-- isn't case-sensitive.\n--\n-- Constraints:\n--\n-- Must contain from 1 to 63 alphanumeric characters or hyphens First\n-- character must be a letter Cannot end with a hyphen or contain two\n-- consecutive hyphens",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "dcFilters",
+                        "name": "_dcFilters",
+                        "shape": "FilterList",
+                        "locationName": "Filters",
+                        "documentation": "-- | This parameter is not currently supported.",
+                        "typeExposed": "[Filter]",
+                        "type": "List \"member\" Filter"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dcMarker",
+                        "name": "_dcMarker",
+                        "shape": "String",
+                        "locationName": "Marker",
+                        "documentation": "-- | An optional pagination token provided by a previous 'DescribeCertificates'\n-- request. If this parameter is specified, the response includes only records\n-- beyond the marker, up to the value specified by 'MaxRecords'.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "dcMaxRecords",
+                        "name": "_dcMaxRecords",
+                        "shape": "IntegerOptional",
+                        "locationName": "MaxRecords",
+                        "documentation": "-- | The maximum number of records to include in the response. If more records\n-- exist than the specified 'MaxRecords' value, a pagination token called a marker\n-- is included in the response so that the remaining results can be retrieved.\n--\n-- Default: 100\n--\n-- Constraints: Minimum 20, maximum 100",
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
                     }
                 ]
             }
@@ -21593,7 +22468,7 @@
                         "name": "_dpmarPendingMaintenanceActions",
                         "shape": "PendingMaintenanceActions",
                         "locationName": "PendingMaintenanceActions",
-                        "documentation": "-- | Provides a list of the pending maintenance actions for the resource.",
+                        "documentation": "-- | A list of the pending maintenance actions for the resource.",
                         "typeExposed": "[ResourcePendingMaintenanceActions]",
                         "type": "List \"member\" ResourcePendingMaintenanceActions"
                     },
@@ -21610,7 +22485,7 @@
                         "name": "_dpmarMarker",
                         "shape": "String",
                         "locationName": "Marker",
-                        "documentation": "-- | An optional pagination token provided by a previous 'DescribePendingMaintenanceActions' request. If this parameter is specified, the response includes only records\n-- beyond the marker, up to a number of records specified by 'MaxRecords' .",
+                        "documentation": "-- | An optional pagination token provided by a previous 'DescribePendingMaintenanceActions' request. If this parameter is specified, the response includes only records\n-- beyond the marker, up to a number of records specified by 'MaxRecords'.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -21629,7 +22504,7 @@
                         "name": "_dpmarMarker",
                         "shape": "String",
                         "locationName": "Marker",
-                        "documentation": "-- | An optional pagination token provided by a previous 'DescribePendingMaintenanceActions' request. If this parameter is specified, the response includes only records\n-- beyond the marker, up to a number of records specified by 'MaxRecords' .",
+                        "documentation": "-- | An optional pagination token provided by a previous 'DescribePendingMaintenanceActions' request. If this parameter is specified, the response includes only records\n-- beyond the marker, up to a number of records specified by 'MaxRecords'.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -21646,7 +22521,7 @@
                         "name": "_dpmarPendingMaintenanceActions",
                         "shape": "PendingMaintenanceActions",
                         "locationName": "PendingMaintenanceActions",
-                        "documentation": "-- | Provides a list of the pending maintenance actions for the resource.",
+                        "documentation": "-- | A list of the pending maintenance actions for the resource.",
                         "typeExposed": "[ResourcePendingMaintenanceActions]",
                         "type": "List \"member\" ResourcePendingMaintenanceActions"
                     }
@@ -21662,7 +22537,7 @@
             "pager": null,
             "name": "DescribePendingMaintenanceActions",
             "method": "post",
-            "documentation": "-- | Returns a list of resources (for example, DB Instances) that have at least\n-- one pending maintenance action.",
+            "documentation": "-- | Returns a list of resources (for example, DB instances) that have at least\n-- one pending maintenance action.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -21730,7 +22605,7 @@
                         "name": "_dpmaResourceIdentifier",
                         "shape": "String",
                         "locationName": "ResourceIdentifier",
-                        "documentation": "-- | The ARN of the resource to return pending maintenance actions for.",
+                        "documentation": "-- | The ARN of a resource to return pending maintenance actions for.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -21747,7 +22622,7 @@
                         "name": "_dpmaFilters",
                         "shape": "FilterList",
                         "locationName": "Filters",
-                        "documentation": "-- | Supported filters:\n--\n-- 'db-instance-id' - Accepts DB instance identifiers and DB instance ARNs. The\n-- result list will only include maintenance actions for the specified DB\n-- Instances.",
+                        "documentation": "-- | A filter that specifies one or more resources to return pending maintenance\n-- actions for.\n--\n-- Supported filters:\n--\n-- 'db-instance-id' - Accepts DB instance identifiers and DB instance Amazon\n-- Resource Names (ARNs). The results list will only include pending maintenance\n-- actions for the DB instances identified by these ARNs.",
                         "typeExposed": "[Filter]",
                         "type": "List \"member\" Filter"
                     },
@@ -21764,7 +22639,7 @@
                         "name": "_dpmaMarker",
                         "shape": "String",
                         "locationName": "Marker",
-                        "documentation": "-- | An optional pagination token provided by a previous 'DescribePendingMaintenanceActions' request. If this parameter is specified, the response includes only records\n-- beyond the marker, up to a number of records specified by 'MaxRecords' .",
+                        "documentation": "-- | An optional pagination token provided by a previous 'DescribePendingMaintenanceActions' request. If this parameter is specified, the response includes only records\n-- beyond the marker, up to a number of records specified by 'MaxRecords'.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -21800,7 +22675,7 @@
                         "name": "_dpmaFilters",
                         "shape": "FilterList",
                         "locationName": "Filters",
-                        "documentation": "-- | Supported filters:\n--\n-- 'db-instance-id' - Accepts DB instance identifiers and DB instance ARNs. The\n-- result list will only include maintenance actions for the specified DB\n-- Instances.",
+                        "documentation": "-- | A filter that specifies one or more resources to return pending maintenance\n-- actions for.\n--\n-- Supported filters:\n--\n-- 'db-instance-id' - Accepts DB instance identifiers and DB instance Amazon\n-- Resource Names (ARNs). The results list will only include pending maintenance\n-- actions for the DB instances identified by these ARNs.",
                         "typeExposed": "[Filter]",
                         "type": "List \"member\" Filter"
                     },
@@ -21817,7 +22692,7 @@
                         "name": "_dpmaMarker",
                         "shape": "String",
                         "locationName": "Marker",
-                        "documentation": "-- | An optional pagination token provided by a previous 'DescribePendingMaintenanceActions' request. If this parameter is specified, the response includes only records\n-- beyond the marker, up to a number of records specified by 'MaxRecords' .",
+                        "documentation": "-- | An optional pagination token provided by a previous 'DescribePendingMaintenanceActions' request. If this parameter is specified, the response includes only records\n-- beyond the marker, up to a number of records specified by 'MaxRecords'.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -21851,7 +22726,7 @@
                         "name": "_dpmaResourceIdentifier",
                         "shape": "String",
                         "locationName": "ResourceIdentifier",
-                        "documentation": "-- | The ARN of the resource to return pending maintenance actions for.",
+                        "documentation": "-- | The ARN of a resource to return pending maintenance actions for.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -23725,6 +24600,11 @@
                         "field": "_mdbiTdeCredentialPassword",
                         "locationName": "TdeCredentialPassword",
                         "type": "field"
+                    },
+                    {
+                        "field": "_mdbiCACertificateIdentifier",
+                        "locationName": "CACertificateIdentifier",
+                        "type": "field"
                     }
                 ],
                 "locationPad": 27,
@@ -23830,7 +24710,7 @@
                         "name": "_mdbiMasterUserPassword",
                         "shape": "String",
                         "locationName": "MasterUserPassword",
-                        "documentation": "-- | The new password for the DB instance master user. Can be any printable ASCII\n-- character except \"/\", \"\"\", or \"@\".\n--\n-- Changing this parameter does not result in an outage and the change is\n-- asynchronously applied as soon as possible. Between the time of the request\n-- and the completion of the request, the 'MasterUserPassword' element exists in\n-- the 'PendingModifiedValues' element of the operation response.\n--\n-- Default: Uses existing setting\n--\n-- Constraints: Must be 8 to 41 alphanumeric characters (MySQL), 8 to 30\n-- alphanumeric characters (Oracle), or 8 to 128 alphanumeric characters (SQL\n-- Server).\n--\n-- Amazon RDS API actions never return the password, so this action provides a\n-- way to regain access to a master instance user if the password is lost. This\n-- includes restoring privileges that may have been accidentally revoked.",
+                        "documentation": "-- | The new password for the DB instance master user. Can be any printable ASCII\n-- character except \"/\", \"\"\", or \"@\".\n--\n-- Changing this parameter does not result in an outage and the change is\n-- asynchronously applied as soon as possible. Between the time of the request\n-- and the completion of the request, the 'MasterUserPassword' element exists in\n-- the 'PendingModifiedValues' element of the operation response.\n--\n-- Default: Uses existing setting\n--\n-- Constraints: Must be 8 to 41 alphanumeric characters (MySQL), 8 to 30\n-- alphanumeric characters (Oracle), or 8 to 128 alphanumeric characters (SQL\n-- Server).\n--\n-- Amazon RDS API actions never return the password, so this action provides a\n-- way to regain access to a primary instance user if the password is lost. This\n-- includes restoring privileges that may have been accidentally revoked.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -24071,6 +24951,23 @@
                         "documentation": "-- | The password for the given ARN from the Key Store in order to access the\n-- device.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "mdbiCACertificateIdentifier",
+                        "name": "_mdbiCACertificateIdentifier",
+                        "shape": "String",
+                        "locationName": "CACertificateIdentifier",
+                        "documentation": "-- | Indicates the certificate which needs to be associated with the instance.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     }
                 ],
                 "fields": [
@@ -24158,6 +25055,23 @@
                         "documentation": "-- | The number of days to retain automated backups. Setting this parameter to a\n-- positive number enables backups. Setting this parameter to 0 disables\n-- automated backups.\n--\n-- Changing this parameter can result in an outage if you change from 0 to a\n-- non-zero value or from a non-zero value to 0. These changes are applied\n-- during the next maintenance window unless the 'ApplyImmediately' parameter is\n-- set to 'true' for this request. If you change the parameter from one non-zero\n-- value to another non-zero value, the change is asynchronously applied as soon\n-- as possible.\n--\n-- Default: Uses existing setting\n--\n-- Constraints:\n--\n-- Must be a value from 0 to 35 Can be specified for a MySQL Read Replica only\n-- if the source is running MySQL 5.6 Can be specified for a PostgreSQL Read\n-- Replica only if the source is running PostgreSQL 9.3.5 Cannot be set to 0 if\n-- the DB instance is a source to Read Replicas",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "mdbiCACertificateIdentifier",
+                        "name": "_mdbiCACertificateIdentifier",
+                        "shape": "String",
+                        "locationName": "CACertificateIdentifier",
+                        "documentation": "-- | Indicates the certificate which needs to be associated with the instance.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": "querystring",
@@ -24274,7 +25188,7 @@
                         "name": "_mdbiMasterUserPassword",
                         "shape": "String",
                         "locationName": "MasterUserPassword",
-                        "documentation": "-- | The new password for the DB instance master user. Can be any printable ASCII\n-- character except \"/\", \"\"\", or \"@\".\n--\n-- Changing this parameter does not result in an outage and the change is\n-- asynchronously applied as soon as possible. Between the time of the request\n-- and the completion of the request, the 'MasterUserPassword' element exists in\n-- the 'PendingModifiedValues' element of the operation response.\n--\n-- Default: Uses existing setting\n--\n-- Constraints: Must be 8 to 41 alphanumeric characters (MySQL), 8 to 30\n-- alphanumeric characters (Oracle), or 8 to 128 alphanumeric characters (SQL\n-- Server).\n--\n-- Amazon RDS API actions never return the password, so this action provides a\n-- way to regain access to a master instance user if the password is lost. This\n-- includes restoring privileges that may have been accidentally revoked.",
+                        "documentation": "-- | The new password for the DB instance master user. Can be any printable ASCII\n-- character except \"/\", \"\"\", or \"@\".\n--\n-- Changing this parameter does not result in an outage and the change is\n-- asynchronously applied as soon as possible. Between the time of the request\n-- and the completion of the request, the 'MasterUserPassword' element exists in\n-- the 'PendingModifiedValues' element of the operation response.\n--\n-- Default: Uses existing setting\n--\n-- Constraints: Must be 8 to 41 alphanumeric characters (MySQL), 8 to 30\n-- alphanumeric characters (Oracle), or 8 to 128 alphanumeric characters (SQL\n-- Server).\n--\n-- Amazon RDS API actions never return the password, so this action provides a\n-- way to regain access to a primary instance user if the password is lost. This\n-- includes restoring privileges that may have been accidentally revoked.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -25613,7 +26527,7 @@
             "pager": null,
             "name": "PromoteReadReplica",
             "method": "post",
-            "documentation": "-- | Promotes a Read Replica DB instance to a standalone DB instance.\n--\n-- We recommend that you enable automated backups on your Read Replica before\n-- promoting the Read Replica. This ensures that no backup is taken during the\n-- promotion process. Once the instance is promoted to a primary instance,\n-- backups are taken based on your backup settings.\n--",
+            "documentation": "-- | Promotes a Read Replica DB instance to a standalone DB instance.\n--\n-- We recommend that you enable automated backups on your Read Replica before\n-- promoting the Read Replica. This ensures that no backup is taken during the\n-- promotion process. Once the instance is promoted to a primary instance,\n-- backups are taken based on your backup settings.\n--\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [

@@ -3335,6 +3335,231 @@
             {
                 "deriving": [
                     "Eq",
+                    "Read",
+                    "Show"
+                ],
+                "fieldPad": 15,
+                "ctor": "blockDeviceMapping",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "bdmDeviceName",
+                        "name": "_bdmDeviceName",
+                        "shape": "String",
+                        "locationName": "DeviceName",
+                        "documentation": "-- | The device name that is exposed to the instance, such as '/dev/sdh'. For the\n-- root device, you can use the explicit device name or you can set this\n-- parameter to 'ROOT_DEVICE' and AWS OpsWorks will provide the correct device\n-- name.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "bdmNoDevice",
+                        "name": "_bdmNoDevice",
+                        "shape": "String",
+                        "locationName": "NoDevice",
+                        "documentation": "-- | Suppresses the specified device included in the AMI's block device mapping.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "bdmVirtualName",
+                        "name": "_bdmVirtualName",
+                        "shape": "String",
+                        "locationName": "VirtualName",
+                        "documentation": "-- | The virtual device name. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_BlockDeviceMapping.html BlockDeviceMapping\u003e.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "bdmEbs",
+                        "name": "_bdmEbs",
+                        "shape": "EbsBlockDevice",
+                        "locationName": "Ebs",
+                        "documentation": "-- | An 'EBSBlockDevice' that defines how to configure an Amazon EBS volume when the\n-- instance is launched.",
+                        "typeExposed": "Maybe EbsBlockDevice",
+                        "type": "Maybe EbsBlockDevice"
+                    }
+                ],
+                "payload": null,
+                "required": [],
+                "contentPad": 12,
+                "name": "BlockDeviceMapping",
+                "locationPad": 12,
+                "type": "record",
+                "optional": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "bdmDeviceName",
+                        "name": "_bdmDeviceName",
+                        "shape": "String",
+                        "locationName": "DeviceName",
+                        "documentation": "-- | The device name that is exposed to the instance, such as '/dev/sdh'. For the\n-- root device, you can use the explicit device name or you can set this\n-- parameter to 'ROOT_DEVICE' and AWS OpsWorks will provide the correct device\n-- name.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "bdmNoDevice",
+                        "name": "_bdmNoDevice",
+                        "shape": "String",
+                        "locationName": "NoDevice",
+                        "documentation": "-- | Suppresses the specified device included in the AMI's block device mapping.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "bdmVirtualName",
+                        "name": "_bdmVirtualName",
+                        "shape": "String",
+                        "locationName": "VirtualName",
+                        "documentation": "-- | The virtual device name. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_BlockDeviceMapping.html BlockDeviceMapping\u003e.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "bdmEbs",
+                        "name": "_bdmEbs",
+                        "shape": "EbsBlockDevice",
+                        "locationName": "Ebs",
+                        "documentation": "-- | An 'EBSBlockDevice' that defines how to configure an Amazon EBS volume when the\n-- instance is launched.",
+                        "typeExposed": "Maybe EbsBlockDevice",
+                        "type": "Maybe EbsBlockDevice"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "bdmDeviceName",
+                        "name": "_bdmDeviceName",
+                        "shape": "String",
+                        "locationName": "DeviceName",
+                        "documentation": "-- | The device name that is exposed to the instance, such as '/dev/sdh'. For the\n-- root device, you can use the explicit device name or you can set this\n-- parameter to 'ROOT_DEVICE' and AWS OpsWorks will provide the correct device\n-- name.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "bdmEbs",
+                        "name": "_bdmEbs",
+                        "shape": "EbsBlockDevice",
+                        "locationName": "Ebs",
+                        "documentation": "-- | An 'EBSBlockDevice' that defines how to configure an Amazon EBS volume when the\n-- instance is launched.",
+                        "typeExposed": "Maybe EbsBlockDevice",
+                        "type": "Maybe EbsBlockDevice"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "bdmNoDevice",
+                        "name": "_bdmNoDevice",
+                        "shape": "String",
+                        "locationName": "NoDevice",
+                        "documentation": "-- | Suppresses the specified device included in the AMI's block device mapping.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "bdmVirtualName",
+                        "name": "_bdmVirtualName",
+                        "shape": "String",
+                        "locationName": "VirtualName",
+                        "documentation": "-- | The virtual device name. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_BlockDeviceMapping.html BlockDeviceMapping\u003e.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
                     "Ord",
                     "Read",
                     "Show",
@@ -5000,7 +5225,7 @@
                         "name": "_appEnvironment",
                         "shape": "EnvironmentVariables",
                         "locationName": "Environment",
-                        "documentation": "-- | An array of 'EnvironmentVariable' objects that specify environment variables to\n-- be associated with the app. You can specify up to ten environment variables.\n-- After you deploy the app, these variables are defined on the associated app\n-- server instances.",
+                        "documentation": "-- | An array of 'EnvironmentVariable' objects that specify environment variables to\n-- be associated with the app. After you deploy the app, these variables are\n-- defined on the associated app server instances. For more information, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables\u003e.\n--\n-- There is no specific limit on the number of environment variables. However,\n-- the size of the associated data structure - which includes the variables'\n-- names, values, and protected flag values - cannot exceed 10 KB (10240 Bytes).\n-- This limit should accommodate most if not all use cases, but if you do exceed\n-- it, you will cause an exception (API) with an \"Environment: is too large\n-- (maximum is 10KB)\" message.",
                         "typeExposed": "[EnvironmentVariable]",
                         "type": "List \"Environment\" EnvironmentVariable"
                     }
@@ -5246,7 +5471,7 @@
                         "name": "_appEnvironment",
                         "shape": "EnvironmentVariables",
                         "locationName": "Environment",
-                        "documentation": "-- | An array of 'EnvironmentVariable' objects that specify environment variables to\n-- be associated with the app. You can specify up to ten environment variables.\n-- After you deploy the app, these variables are defined on the associated app\n-- server instances.",
+                        "documentation": "-- | An array of 'EnvironmentVariable' objects that specify environment variables to\n-- be associated with the app. After you deploy the app, these variables are\n-- defined on the associated app server instances. For more information, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables\u003e.\n--\n-- There is no specific limit on the number of environment variables. However,\n-- the size of the associated data structure - which includes the variables'\n-- names, values, and protected flag values - cannot exceed 10 KB (10240 Bytes).\n-- This limit should accommodate most if not all use cases, but if you do exceed\n-- it, you will cause an exception (API) with an \"Environment: is too large\n-- (maximum is 10KB)\" message.",
                         "typeExposed": "[EnvironmentVariable]",
                         "type": "List \"Environment\" EnvironmentVariable"
                     }
@@ -5401,7 +5626,7 @@
                         "name": "_appEnvironment",
                         "shape": "EnvironmentVariables",
                         "locationName": "Environment",
-                        "documentation": "-- | An array of 'EnvironmentVariable' objects that specify environment variables to\n-- be associated with the app. You can specify up to ten environment variables.\n-- After you deploy the app, these variables are defined on the associated app\n-- server instances.",
+                        "documentation": "-- | An array of 'EnvironmentVariable' objects that specify environment variables to\n-- be associated with the app. After you deploy the app, these variables are\n-- defined on the associated app server instances. For more information, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables\u003e.\n--\n-- There is no specific limit on the number of environment variables. However,\n-- the size of the associated data structure - which includes the variables'\n-- names, values, and protected flag values - cannot exceed 10 KB (10240 Bytes).\n-- This limit should accommodate most if not all use cases, but if you do exceed\n-- it, you will cause an exception (API) with an \"Environment: is too large\n-- (maximum is 10KB)\" message.",
                         "typeExposed": "[EnvironmentVariable]",
                         "type": "List \"Environment\" EnvironmentVariable"
                     },
@@ -6959,6 +7184,282 @@
             {
                 "deriving": [
                     "Eq",
+                    "Read",
+                    "Show"
+                ],
+                "fieldPad": 23,
+                "ctor": "ebsBlockDevice",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ebdSnapshotId",
+                        "name": "_ebdSnapshotId",
+                        "shape": "String",
+                        "locationName": "SnapshotId",
+                        "documentation": "-- | The snapshot ID.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ebdIops",
+                        "name": "_ebdIops",
+                        "shape": "Integer",
+                        "locationName": "Iops",
+                        "documentation": "-- | The number of I/O operations per second (IOPS) that the volume supports. For\n-- more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html EbsBlockDevice\u003e.",
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ebdVolumeSize",
+                        "name": "_ebdVolumeSize",
+                        "shape": "Integer",
+                        "locationName": "VolumeSize",
+                        "documentation": "-- | The volume size, in GiB. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html EbsBlockDevice\u003e.",
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ebdVolumeType",
+                        "name": "_ebdVolumeType",
+                        "shape": "VolumeType",
+                        "locationName": "VolumeType",
+                        "documentation": "-- | The volume type. 'gp2' for General Purpose (SSD) volumes, 'io1' for Provisioned\n-- IOPS (SSD) volumes, and 'standard' for Magnetic volumes.",
+                        "typeExposed": "Maybe VolumeType",
+                        "type": "Maybe VolumeType"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ebdDeleteOnTermination",
+                        "name": "_ebdDeleteOnTermination",
+                        "shape": "Boolean",
+                        "locationName": "DeleteOnTermination",
+                        "documentation": "-- | Whether the volume is deleted on instance termination.",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    }
+                ],
+                "payload": null,
+                "required": [],
+                "contentPad": 20,
+                "name": "EbsBlockDevice",
+                "locationPad": 20,
+                "type": "record",
+                "optional": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ebdSnapshotId",
+                        "name": "_ebdSnapshotId",
+                        "shape": "String",
+                        "locationName": "SnapshotId",
+                        "documentation": "-- | The snapshot ID.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ebdIops",
+                        "name": "_ebdIops",
+                        "shape": "Integer",
+                        "locationName": "Iops",
+                        "documentation": "-- | The number of I/O operations per second (IOPS) that the volume supports. For\n-- more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html EbsBlockDevice\u003e.",
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ebdVolumeSize",
+                        "name": "_ebdVolumeSize",
+                        "shape": "Integer",
+                        "locationName": "VolumeSize",
+                        "documentation": "-- | The volume size, in GiB. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html EbsBlockDevice\u003e.",
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ebdVolumeType",
+                        "name": "_ebdVolumeType",
+                        "shape": "VolumeType",
+                        "locationName": "VolumeType",
+                        "documentation": "-- | The volume type. 'gp2' for General Purpose (SSD) volumes, 'io1' for Provisioned\n-- IOPS (SSD) volumes, and 'standard' for Magnetic volumes.",
+                        "typeExposed": "Maybe VolumeType",
+                        "type": "Maybe VolumeType"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ebdDeleteOnTermination",
+                        "name": "_ebdDeleteOnTermination",
+                        "shape": "Boolean",
+                        "locationName": "DeleteOnTermination",
+                        "documentation": "-- | Whether the volume is deleted on instance termination.",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ebdDeleteOnTermination",
+                        "name": "_ebdDeleteOnTermination",
+                        "shape": "Boolean",
+                        "locationName": "DeleteOnTermination",
+                        "documentation": "-- | Whether the volume is deleted on instance termination.",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ebdIops",
+                        "name": "_ebdIops",
+                        "shape": "Integer",
+                        "locationName": "Iops",
+                        "documentation": "-- | The number of I/O operations per second (IOPS) that the volume supports. For\n-- more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html EbsBlockDevice\u003e.",
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ebdSnapshotId",
+                        "name": "_ebdSnapshotId",
+                        "shape": "String",
+                        "locationName": "SnapshotId",
+                        "documentation": "-- | The snapshot ID.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ebdVolumeSize",
+                        "name": "_ebdVolumeSize",
+                        "shape": "Integer",
+                        "locationName": "VolumeSize",
+                        "documentation": "-- | The volume size, in GiB. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EbsBlockDevice.html EbsBlockDevice\u003e.",
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ebdVolumeType",
+                        "name": "_ebdVolumeType",
+                        "shape": "VolumeType",
+                        "locationName": "VolumeType",
+                        "documentation": "-- | The volume type. 'gp2' for General Purpose (SSD) volumes, 'io1' for Provisioned\n-- IOPS (SSD) volumes, and 'standard' for Magnetic volumes.",
+                        "typeExposed": "Maybe VolumeType",
+                        "type": "Maybe VolumeType"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
                     "Ord",
                     "Read",
                     "Show",
@@ -7324,6 +7825,25 @@
                         "type": "Maybe Text"
                     }
                 ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show",
+                    "Generic",
+                    "Enum"
+                ],
+                "branches": {
+                    "Standard": "standard",
+                    "Io1": "io1",
+                    "Gp2": "gp2"
+                },
+                "valuePad": 9,
+                "name": "VolumeType",
+                "type": "nullary",
+                "branchPad": 8
             },
             {
                 "deriving": [
@@ -9966,7 +10486,7 @@
                         "name": "_sDefaultSshKeyName",
                         "shape": "String",
                         "locationName": "DefaultSshKeyName",
-                        "documentation": "-- | A default SSH key for the stack's instances. You can override this value when\n-- you create or update an instance.",
+                        "documentation": "-- | A default Amazon EC2 key pair for the stack's instances. You can override\n-- this value when you create or update an instance.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -10331,7 +10851,7 @@
                         "name": "_sDefaultSshKeyName",
                         "shape": "String",
                         "locationName": "DefaultSshKeyName",
-                        "documentation": "-- | A default SSH key for the stack's instances. You can override this value when\n-- you create or update an instance.",
+                        "documentation": "-- | A default Amazon EC2 key pair for the stack's instances. You can override\n-- this value when you create or update an instance.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -10571,7 +11091,7 @@
                         "name": "_sDefaultSshKeyName",
                         "shape": "String",
                         "locationName": "DefaultSshKeyName",
-                        "documentation": "-- | A default SSH key for the stack's instances. You can override this value when\n-- you create or update an instance.",
+                        "documentation": "-- | A default Amazon EC2 key pair for the stack's instances. You can override\n-- this value when you create or update an instance.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -11620,7 +12140,7 @@
                         "name": "_iSshKeyName",
                         "shape": "String",
                         "locationName": "SshKeyName",
-                        "documentation": "-- | The instance SSH key name.",
+                        "documentation": "-- | The instance's Amazon EC2 key pair name.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -11722,7 +12242,7 @@
                         "name": "_iRootDeviceType",
                         "shape": "RootDeviceType",
                         "locationName": "RootDeviceType",
-                        "documentation": "-- | The instance root device type. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the RootDevice\u003e.",
+                        "documentation": "-- | The instance's root device type. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for theRoot Device\u003e.",
                         "typeExposed": "Maybe RootDeviceType",
                         "type": "Maybe RootDeviceType"
                     },
@@ -11742,6 +12262,23 @@
                         "documentation": "-- | The root device volume ID.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "iBlockDeviceMappings",
+                        "name": "_iBlockDeviceMappings",
+                        "shape": "BlockDeviceMappings",
+                        "locationName": "BlockDeviceMappings",
+                        "documentation": "-- | An array of 'BlockDeviceMapping' objects that specify the instance's block\n-- device mappings.",
+                        "typeExposed": "[BlockDeviceMapping]",
+                        "type": "List \"BlockDeviceMappings\" BlockDeviceMapping"
                     },
                     {
                         "location": null,
@@ -11776,6 +12313,23 @@
                         "documentation": "-- | Whether this is an Amazon EBS-optimized instance.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "iReportedAgentVersion",
+                        "name": "_iReportedAgentVersion",
+                        "shape": "String",
+                        "locationName": "ReportedAgentVersion",
+                        "documentation": "-- | The instance's reported AWS OpsWorks agent version.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": null,
@@ -12189,7 +12743,7 @@
                         "name": "_iSshKeyName",
                         "shape": "String",
                         "locationName": "SshKeyName",
-                        "documentation": "-- | The instance SSH key name.",
+                        "documentation": "-- | The instance's Amazon EC2 key pair name.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -12291,7 +12845,7 @@
                         "name": "_iRootDeviceType",
                         "shape": "RootDeviceType",
                         "locationName": "RootDeviceType",
-                        "documentation": "-- | The instance root device type. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the RootDevice\u003e.",
+                        "documentation": "-- | The instance's root device type. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for theRoot Device\u003e.",
                         "typeExposed": "Maybe RootDeviceType",
                         "type": "Maybe RootDeviceType"
                     },
@@ -12311,6 +12865,23 @@
                         "documentation": "-- | The root device volume ID.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "iBlockDeviceMappings",
+                        "name": "_iBlockDeviceMappings",
+                        "shape": "BlockDeviceMappings",
+                        "locationName": "BlockDeviceMappings",
+                        "documentation": "-- | An array of 'BlockDeviceMapping' objects that specify the instance's block\n-- device mappings.",
+                        "typeExposed": "[BlockDeviceMapping]",
+                        "type": "List \"BlockDeviceMappings\" BlockDeviceMapping"
                     },
                     {
                         "location": null,
@@ -12345,6 +12916,23 @@
                         "documentation": "-- | Whether this is an Amazon EBS-optimized instance.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "iReportedAgentVersion",
+                        "name": "_iReportedAgentVersion",
+                        "shape": "String",
+                        "locationName": "ReportedAgentVersion",
+                        "documentation": "-- | The instance's reported AWS OpsWorks agent version.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": null,
@@ -12466,6 +13054,23 @@
                         "documentation": "-- | The instance Availability Zone. For more information, see \u003chttp://docs.aws.amazon.com/general/latest/gr/rande.html Regions andEndpoints\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "iBlockDeviceMappings",
+                        "name": "_iBlockDeviceMappings",
+                        "shape": "BlockDeviceMappings",
+                        "locationName": "BlockDeviceMappings",
+                        "documentation": "-- | An array of 'BlockDeviceMapping' objects that specify the instance's block\n-- device mappings.",
+                        "typeExposed": "[BlockDeviceMapping]",
+                        "type": "List \"BlockDeviceMappings\" BlockDeviceMapping"
                     },
                     {
                         "location": null,
@@ -12782,6 +13387,23 @@
                         "protocol": "json",
                         "flattened": false,
                         "required": false,
+                        "lens": "iReportedAgentVersion",
+                        "name": "_iReportedAgentVersion",
+                        "shape": "String",
+                        "locationName": "ReportedAgentVersion",
+                        "documentation": "-- | The instance's reported AWS OpsWorks agent version.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": false,
                         "lens": "iReportedOs",
                         "name": "_iReportedOs",
                         "shape": "ReportedOs",
@@ -12803,7 +13425,7 @@
                         "name": "_iRootDeviceType",
                         "shape": "RootDeviceType",
                         "locationName": "RootDeviceType",
-                        "documentation": "-- | The instance root device type. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the RootDevice\u003e.",
+                        "documentation": "-- | The instance's root device type. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for theRoot Device\u003e.",
                         "typeExposed": "Maybe RootDeviceType",
                         "type": "Maybe RootDeviceType"
                     },
@@ -12888,7 +13510,7 @@
                         "name": "_iSshKeyName",
                         "shape": "String",
                         "locationName": "SshKeyName",
-                        "documentation": "-- | The instance SSH key name.",
+                        "documentation": "-- | The instance's Amazon EC2 key pair name.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -14849,7 +15471,7 @@
             "pager": null,
             "name": "AssignVolume",
             "method": "post",
-            "documentation": "-- | Assigns one of the stack's registered Amazon EBS volumes to a specified\n-- instance. The volume must first be registered with the stack by calling 'RegisterVolume'. For more information, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management\u003e.\n--\n-- Required Permissions: To use this action, an IAM user must have a Manage\n-- permissions level for the stack, or an attached policy that explicitly grants\n-- permissions. For more information on user permissions, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing UserPermissions\u003e.",
+            "documentation": "-- | Assigns one of the stack's registered Amazon EBS volumes to a specified\n-- instance. The volume must first be registered with the stack by calling 'RegisterVolume'. After you register the volume, you must call 'UpdateVolume' to specify a\n-- mount point before calling 'AssignVolume'. For more information, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/resources.html ResourceManagement\u003e.\n--\n-- Required Permissions: To use this action, an IAM user must have a Manage\n-- permissions level for the stack, or an attached policy that explicitly grants\n-- permissions. For more information on user permissions, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing UserPermissions\u003e.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -15613,7 +16235,7 @@
                         "name": "_cs1DefaultOs",
                         "shape": "String",
                         "locationName": "DefaultOs",
-                        "documentation": "-- | The stacks's operating system, which must be set to one of the following.\n--\n-- Standard operating systems: an Amazon Linux version such as 'Amazon Linux2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom AMIs: 'Custom'. You\n-- specify the custom AMI you want to use when you create instances.   The\n-- default option is the current Amazon Linux version.",
+                        "documentation": "-- | The stack's operating system, which must be set to one of the following.\n--\n-- Standard operating systems: an Amazon Linux version such as 'Amazon Linux2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom AMIs: 'Custom'. You\n-- specify the custom AMI you want to use when you create instances.   The\n-- default option is the current Amazon Linux version.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -15630,7 +16252,7 @@
                         "name": "_cs1HostnameTheme",
                         "shape": "String",
                         "locationName": "HostnameTheme",
-                        "documentation": "-- | The stack's host name theme, with spaces are replaced by underscores. The\n-- theme is used to generate host names for the stack's instances. By default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host names by appending integers to\n-- the layer's short name. The other themes are:\n--\n-- 'Baked_Goods' 'Clouds' 'European_Cities' 'Fruits' 'Greek_Deities' 'Legendary_Creatures_from_Japan' 'Planets_and_Moons' 'Roman_Deities' 'Scottish_Islands' 'US_Cities' 'Wild_Cats'  To\n-- obtain a generated host name, call 'GetHostNameSuggestion', which returns a\n-- host name based on the current theme.",
+                        "documentation": "-- | The stack's host name theme, with spaces are replaced by underscores. The\n-- theme is used to generate host names for the stack's instances. By default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host names by appending integers to\n-- the layer's short name. The other themes are:\n--\n-- 'Baked_Goods' 'Clouds' 'Europe_Cities' 'Fruits' 'Greek_Deities' 'Legendary_creatures_from_Japan' 'Planets_and_Moons' 'Roman_Deities' 'Scottish_Islands' 'US_Cities' 'Wild_Cats'  To\n-- obtain a generated host name, call 'GetHostNameSuggestion', which returns a\n-- host name based on the current theme.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -15783,7 +16405,7 @@
                         "name": "_cs1DefaultSshKeyName",
                         "shape": "String",
                         "locationName": "DefaultSshKeyName",
-                        "documentation": "-- | A default SSH key for the stack instances. You can override this value when\n-- you create or update an instance.",
+                        "documentation": "-- | A default Amazon EC2 key pair name. The default value is none. If you specify\n-- a key pair name, AWS OpsWorks installs the public key on the instance and you\n-- can use the private key with an SSH client to log in to the instance. For\n-- more information, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-ssh.html  Using SSH to Communicate with an Instance\u003e and \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/security-ssh-access.html Managing SSH Access\u003e. You can override this setting by specifying a different\n-- key pair, or no key pair, when you \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html  create an instance\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -15992,7 +16614,7 @@
                         "name": "_cs1DefaultOs",
                         "shape": "String",
                         "locationName": "DefaultOs",
-                        "documentation": "-- | The stacks's operating system, which must be set to one of the following.\n--\n-- Standard operating systems: an Amazon Linux version such as 'Amazon Linux2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom AMIs: 'Custom'. You\n-- specify the custom AMI you want to use when you create instances.   The\n-- default option is the current Amazon Linux version.",
+                        "documentation": "-- | The stack's operating system, which must be set to one of the following.\n--\n-- Standard operating systems: an Amazon Linux version such as 'Amazon Linux2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom AMIs: 'Custom'. You\n-- specify the custom AMI you want to use when you create instances.   The\n-- default option is the current Amazon Linux version.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -16009,7 +16631,7 @@
                         "name": "_cs1HostnameTheme",
                         "shape": "String",
                         "locationName": "HostnameTheme",
-                        "documentation": "-- | The stack's host name theme, with spaces are replaced by underscores. The\n-- theme is used to generate host names for the stack's instances. By default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host names by appending integers to\n-- the layer's short name. The other themes are:\n--\n-- 'Baked_Goods' 'Clouds' 'European_Cities' 'Fruits' 'Greek_Deities' 'Legendary_Creatures_from_Japan' 'Planets_and_Moons' 'Roman_Deities' 'Scottish_Islands' 'US_Cities' 'Wild_Cats'  To\n-- obtain a generated host name, call 'GetHostNameSuggestion', which returns a\n-- host name based on the current theme.",
+                        "documentation": "-- | The stack's host name theme, with spaces are replaced by underscores. The\n-- theme is used to generate host names for the stack's instances. By default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host names by appending integers to\n-- the layer's short name. The other themes are:\n--\n-- 'Baked_Goods' 'Clouds' 'Europe_Cities' 'Fruits' 'Greek_Deities' 'Legendary_creatures_from_Japan' 'Planets_and_Moons' 'Roman_Deities' 'Scottish_Islands' 'US_Cities' 'Wild_Cats'  To\n-- obtain a generated host name, call 'GetHostNameSuggestion', which returns a\n-- host name based on the current theme.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -16162,7 +16784,7 @@
                         "name": "_cs1DefaultSshKeyName",
                         "shape": "String",
                         "locationName": "DefaultSshKeyName",
-                        "documentation": "-- | A default SSH key for the stack instances. You can override this value when\n-- you create or update an instance.",
+                        "documentation": "-- | A default Amazon EC2 key pair name. The default value is none. If you specify\n-- a key pair name, AWS OpsWorks installs the public key on the instance and you\n-- can use the private key with an SSH client to log in to the instance. For\n-- more information, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-ssh.html  Using SSH to Communicate with an Instance\u003e and \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/security-ssh-access.html Managing SSH Access\u003e. You can override this setting by specifying a different\n-- key pair, or no key pair, when you \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html  create an instance\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -16385,7 +17007,7 @@
                         "name": "_cs1DefaultOs",
                         "shape": "String",
                         "locationName": "DefaultOs",
-                        "documentation": "-- | The stacks's operating system, which must be set to one of the following.\n--\n-- Standard operating systems: an Amazon Linux version such as 'Amazon Linux2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom AMIs: 'Custom'. You\n-- specify the custom AMI you want to use when you create instances.   The\n-- default option is the current Amazon Linux version.",
+                        "documentation": "-- | The stack's operating system, which must be set to one of the following.\n--\n-- Standard operating systems: an Amazon Linux version such as 'Amazon Linux2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom AMIs: 'Custom'. You\n-- specify the custom AMI you want to use when you create instances.   The\n-- default option is the current Amazon Linux version.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -16419,7 +17041,7 @@
                         "name": "_cs1DefaultSshKeyName",
                         "shape": "String",
                         "locationName": "DefaultSshKeyName",
-                        "documentation": "-- | A default SSH key for the stack instances. You can override this value when\n-- you create or update an instance.",
+                        "documentation": "-- | A default Amazon EC2 key pair name. The default value is none. If you specify\n-- a key pair name, AWS OpsWorks installs the public key on the instance and you\n-- can use the private key with an SSH client to log in to the instance. For\n-- more information, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-ssh.html  Using SSH to Communicate with an Instance\u003e and \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/security-ssh-access.html Managing SSH Access\u003e. You can override this setting by specifying a different\n-- key pair, or no key pair, when you \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html  create an instance\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -16453,7 +17075,7 @@
                         "name": "_cs1HostnameTheme",
                         "shape": "String",
                         "locationName": "HostnameTheme",
-                        "documentation": "-- | The stack's host name theme, with spaces are replaced by underscores. The\n-- theme is used to generate host names for the stack's instances. By default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host names by appending integers to\n-- the layer's short name. The other themes are:\n--\n-- 'Baked_Goods' 'Clouds' 'European_Cities' 'Fruits' 'Greek_Deities' 'Legendary_Creatures_from_Japan' 'Planets_and_Moons' 'Roman_Deities' 'Scottish_Islands' 'US_Cities' 'Wild_Cats'  To\n-- obtain a generated host name, call 'GetHostNameSuggestion', which returns a\n-- host name based on the current theme.",
+                        "documentation": "-- | The stack's host name theme, with spaces are replaced by underscores. The\n-- theme is used to generate host names for the stack's instances. By default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host names by appending integers to\n-- the layer's short name. The other themes are:\n--\n-- 'Baked_Goods' 'Clouds' 'Europe_Cities' 'Fruits' 'Greek_Deities' 'Legendary_creatures_from_Japan' 'Planets_and_Moons' 'Roman_Deities' 'Scottish_Islands' 'US_Cities' 'Wild_Cats'  To\n-- obtain a generated host name, call 'GetHostNameSuggestion', which returns a\n-- host name based on the current theme.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -16906,7 +17528,7 @@
                         "name": "_caEnvironment",
                         "shape": "EnvironmentVariables",
                         "locationName": "Environment",
-                        "documentation": "-- | An array of 'EnvironmentVariable' objects that specify environment variables to\n-- be associated with the app. You can specify up to ten environment variables.\n-- After you deploy the app, these variables are defined on the associated app\n-- server instance.\n--\n-- This parameter is supported only by Chef 11.10 stacks. If you have specified\n-- one or more environment variables, you cannot modify the stack's Chef version.",
+                        "documentation": "-- | An array of 'EnvironmentVariable' objects that specify environment variables to\n-- be associated with the app. After you deploy the app, these variables are\n-- defined on the associated app server instance. For more information, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables\u003e.\n--\n-- There is no specific limit on the number of environment variables. However,\n-- the size of the associated data structure - which includes the variables'\n-- names, values, and protected flag values - cannot exceed 10 KB (10240 Bytes).\n-- This limit should accommodate most if not all use cases. Exceeding it will\n-- cause an exception with the message, \"Environment: is too large (maximum is\n-- 10KB).\"\n--\n-- This parameter is supported only by Chef 11.10 stacks. If you have specified\n-- one or more environment variables, you cannot modify the stack's Chef version.",
                         "typeExposed": "[EnvironmentVariable]",
                         "type": "List \"Environment\" EnvironmentVariable"
                     }
@@ -17132,7 +17754,7 @@
                         "name": "_caEnvironment",
                         "shape": "EnvironmentVariables",
                         "locationName": "Environment",
-                        "documentation": "-- | An array of 'EnvironmentVariable' objects that specify environment variables to\n-- be associated with the app. You can specify up to ten environment variables.\n-- After you deploy the app, these variables are defined on the associated app\n-- server instance.\n--\n-- This parameter is supported only by Chef 11.10 stacks. If you have specified\n-- one or more environment variables, you cannot modify the stack's Chef version.",
+                        "documentation": "-- | An array of 'EnvironmentVariable' objects that specify environment variables to\n-- be associated with the app. After you deploy the app, these variables are\n-- defined on the associated app server instance. For more information, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables\u003e.\n--\n-- There is no specific limit on the number of environment variables. However,\n-- the size of the associated data structure - which includes the variables'\n-- names, values, and protected flag values - cannot exceed 10 KB (10240 Bytes).\n-- This limit should accommodate most if not all use cases. Exceeding it will\n-- cause an exception with the message, \"Environment: is too large (maximum is\n-- 10KB).\"\n--\n-- This parameter is supported only by Chef 11.10 stacks. If you have specified\n-- one or more environment variables, you cannot modify the stack's Chef version.",
                         "typeExposed": "[EnvironmentVariable]",
                         "type": "List \"Environment\" EnvironmentVariable"
                     }
@@ -17253,7 +17875,7 @@
                         "name": "_caEnvironment",
                         "shape": "EnvironmentVariables",
                         "locationName": "Environment",
-                        "documentation": "-- | An array of 'EnvironmentVariable' objects that specify environment variables to\n-- be associated with the app. You can specify up to ten environment variables.\n-- After you deploy the app, these variables are defined on the associated app\n-- server instance.\n--\n-- This parameter is supported only by Chef 11.10 stacks. If you have specified\n-- one or more environment variables, you cannot modify the stack's Chef version.",
+                        "documentation": "-- | An array of 'EnvironmentVariable' objects that specify environment variables to\n-- be associated with the app. After you deploy the app, these variables are\n-- defined on the associated app server instance. For more information, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables\u003e.\n--\n-- There is no specific limit on the number of environment variables. However,\n-- the size of the associated data structure - which includes the variables'\n-- names, values, and protected flag values - cannot exceed 10 KB (10240 Bytes).\n-- This limit should accommodate most if not all use cases. Exceeding it will\n-- cause an exception with the message, \"Environment: is too large (maximum is\n-- 10KB).\"\n--\n-- This parameter is supported only by Chef 11.10 stacks. If you have specified\n-- one or more environment variables, you cannot modify the stack's Chef version.",
                         "typeExposed": "[EnvironmentVariable]",
                         "type": "List \"Environment\" EnvironmentVariable"
                     },
@@ -18064,7 +18686,7 @@
                         "name": "_ciSshKeyName",
                         "shape": "String",
                         "locationName": "SshKeyName",
-                        "documentation": "-- | The instance SSH key name.",
+                        "documentation": "-- | The instance's Amazon EC2 key pair name.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -18152,6 +18774,23 @@
                         "documentation": "-- | The instance root device type. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the RootDevice\u003e.",
                         "typeExposed": "Maybe RootDeviceType",
                         "type": "Maybe RootDeviceType"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "ciBlockDeviceMappings",
+                        "name": "_ciBlockDeviceMappings",
+                        "shape": "BlockDeviceMappings",
+                        "locationName": "BlockDeviceMappings",
+                        "documentation": "-- | An array of 'BlockDeviceMapping' objects that specify the instance's block\n-- devices. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html Block Device Mapping\u003e.",
+                        "typeExposed": "[BlockDeviceMapping]",
+                        "type": "List \"BlockDeviceMappings\" BlockDeviceMapping"
                     },
                     {
                         "location": null,
@@ -18341,7 +18980,7 @@
                         "name": "_ciSshKeyName",
                         "shape": "String",
                         "locationName": "SshKeyName",
-                        "documentation": "-- | The instance SSH key name.",
+                        "documentation": "-- | The instance's Amazon EC2 key pair name.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -18429,6 +19068,23 @@
                         "documentation": "-- | The instance root device type. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the RootDevice\u003e.",
                         "typeExposed": "Maybe RootDeviceType",
                         "type": "Maybe RootDeviceType"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "ciBlockDeviceMappings",
+                        "name": "_ciBlockDeviceMappings",
+                        "shape": "BlockDeviceMappings",
+                        "locationName": "BlockDeviceMappings",
+                        "documentation": "-- | An array of 'BlockDeviceMapping' objects that specify the instance's block\n-- devices. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html Block Device Mapping\u003e.",
+                        "typeExposed": "[BlockDeviceMapping]",
+                        "type": "List \"BlockDeviceMappings\" BlockDeviceMapping"
                     },
                     {
                         "location": null,
@@ -18533,6 +19189,23 @@
                         "documentation": "-- | The instance Availability Zone. For more information, see \u003chttp://docs.aws.amazon.com/general/latest/gr/rande.html Regions andEndpoints\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "flattened": false,
+                        "required": true,
+                        "lens": "ciBlockDeviceMappings",
+                        "name": "_ciBlockDeviceMappings",
+                        "shape": "BlockDeviceMappings",
+                        "locationName": "BlockDeviceMappings",
+                        "documentation": "-- | An array of 'BlockDeviceMapping' objects that specify the instance's block\n-- devices. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html Block Device Mapping\u003e.",
+                        "typeExposed": "[BlockDeviceMapping]",
+                        "type": "List \"BlockDeviceMappings\" BlockDeviceMapping"
                     },
                     {
                         "location": null,
@@ -18666,7 +19339,7 @@
                         "name": "_ciSshKeyName",
                         "shape": "String",
                         "locationName": "SshKeyName",
-                        "documentation": "-- | The instance SSH key name.",
+                        "documentation": "-- | The instance's Amazon EC2 key pair name.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -18915,7 +19588,7 @@
                         "name": "_clShortname",
                         "shape": "String",
                         "locationName": "Shortname",
-                        "documentation": "-- | The layer short name, which is used internally by AWS OpsWorks and by Chef\n-- recipes. The short name is also used as the name for the directory where your\n-- app files are installed. It can have a maximum of 200 characters, which are\n-- limited to the alphanumeric characters, '-', '_', and '.'.",
+                        "documentation": "-- | For custom layers only, use this parameter to specify the layer's short name,\n-- which is used internally by AWS OpsWorks and by Chef recipes. The short name\n-- is also used as the name for the directory where your app files are\n-- installed. It can have a maximum of 200 characters, which are limited to the\n-- alphanumeric characters, '-', '_', and '.'.\n--\n-- The built-in layers' short names are defined by AWS OpsWorks. For more\n-- information, see the \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference\u003e",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -19197,7 +19870,7 @@
                         "name": "_clShortname",
                         "shape": "String",
                         "locationName": "Shortname",
-                        "documentation": "-- | The layer short name, which is used internally by AWS OpsWorks and by Chef\n-- recipes. The short name is also used as the name for the directory where your\n-- app files are installed. It can have a maximum of 200 characters, which are\n-- limited to the alphanumeric characters, '-', '_', and '.'.",
+                        "documentation": "-- | For custom layers only, use this parameter to specify the layer's short name,\n-- which is used internally by AWS OpsWorks and by Chef recipes. The short name\n-- is also used as the name for the directory where your app files are\n-- installed. It can have a maximum of 200 characters, which are limited to the\n-- alphanumeric characters, '-', '_', and '.'.\n--\n-- The built-in layers' short names are defined by AWS OpsWorks. For more\n-- information, see the \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference\u003e",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -19619,7 +20292,7 @@
                         "name": "_clShortname",
                         "shape": "String",
                         "locationName": "Shortname",
-                        "documentation": "-- | The layer short name, which is used internally by AWS OpsWorks and by Chef\n-- recipes. The short name is also used as the name for the directory where your\n-- app files are installed. It can have a maximum of 200 characters, which are\n-- limited to the alphanumeric characters, '-', '_', and '.'.",
+                        "documentation": "-- | For custom layers only, use this parameter to specify the layer's short name,\n-- which is used internally by AWS OpsWorks and by Chef recipes. The short name\n-- is also used as the name for the directory where your app files are\n-- installed. It can have a maximum of 200 characters, which are limited to the\n-- alphanumeric characters, '-', '_', and '.'.\n--\n-- The built-in layers' short names are defined by AWS OpsWorks. For more\n-- information, see the \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference\u003e",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -19953,7 +20626,7 @@
                         "name": "_csHostnameTheme",
                         "shape": "String",
                         "locationName": "HostnameTheme",
-                        "documentation": "-- | The stack's host name theme, with spaces are replaced by underscores. The\n-- theme is used to generate host names for the stack's instances. By default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host names by appending integers to\n-- the layer's short name. The other themes are:\n--\n-- 'Baked_Goods' 'Clouds' 'European_Cities' 'Fruits' 'Greek_Deities' 'Legendary_Creatures_from_Japan' 'Planets_and_Moons' 'Roman_Deities' 'Scottish_Islands' 'US_Cities' 'Wild_Cats'  To\n-- obtain a generated host name, call 'GetHostNameSuggestion', which returns a\n-- host name based on the current theme.",
+                        "documentation": "-- | The stack's host name theme, with spaces are replaced by underscores. The\n-- theme is used to generate host names for the stack's instances. By default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host names by appending integers to\n-- the layer's short name. The other themes are:\n--\n-- 'Baked_Goods' 'Clouds' 'Europe_Cities' 'Fruits' 'Greek_Deities' 'Legendary_creatures_from_Japan' 'Planets_and_Moons' 'Roman_Deities' 'Scottish_Islands' 'US_Cities' 'Wild_Cats'  To\n-- obtain a generated host name, call 'GetHostNameSuggestion', which returns a\n-- host name based on the current theme.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -20106,7 +20779,7 @@
                         "name": "_csDefaultSshKeyName",
                         "shape": "String",
                         "locationName": "DefaultSshKeyName",
-                        "documentation": "-- | A default SSH key for the stack instances. You can override this value when\n-- you create or update an instance.",
+                        "documentation": "-- | A default Amazon EC2 key pair name. The default value is none. If you specify\n-- a key pair name, AWS OpsWorks installs the public key on the instance and you\n-- can use the private key with an SSH client to log in to the instance. For\n-- more information, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-ssh.html  Using SSH to Communicate with an Instance\u003e and \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/security-ssh-access.html Managing SSH Access\u003e. You can override this setting by specifying a different\n-- key pair, or no key pair, when you \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html  create an instance\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -20281,7 +20954,7 @@
                         "name": "_csHostnameTheme",
                         "shape": "String",
                         "locationName": "HostnameTheme",
-                        "documentation": "-- | The stack's host name theme, with spaces are replaced by underscores. The\n-- theme is used to generate host names for the stack's instances. By default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host names by appending integers to\n-- the layer's short name. The other themes are:\n--\n-- 'Baked_Goods' 'Clouds' 'European_Cities' 'Fruits' 'Greek_Deities' 'Legendary_Creatures_from_Japan' 'Planets_and_Moons' 'Roman_Deities' 'Scottish_Islands' 'US_Cities' 'Wild_Cats'  To\n-- obtain a generated host name, call 'GetHostNameSuggestion', which returns a\n-- host name based on the current theme.",
+                        "documentation": "-- | The stack's host name theme, with spaces are replaced by underscores. The\n-- theme is used to generate host names for the stack's instances. By default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host names by appending integers to\n-- the layer's short name. The other themes are:\n--\n-- 'Baked_Goods' 'Clouds' 'Europe_Cities' 'Fruits' 'Greek_Deities' 'Legendary_creatures_from_Japan' 'Planets_and_Moons' 'Roman_Deities' 'Scottish_Islands' 'US_Cities' 'Wild_Cats'  To\n-- obtain a generated host name, call 'GetHostNameSuggestion', which returns a\n-- host name based on the current theme.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -20434,7 +21107,7 @@
                         "name": "_csDefaultSshKeyName",
                         "shape": "String",
                         "locationName": "DefaultSshKeyName",
-                        "documentation": "-- | A default SSH key for the stack instances. You can override this value when\n-- you create or update an instance.",
+                        "documentation": "-- | A default Amazon EC2 key pair name. The default value is none. If you specify\n-- a key pair name, AWS OpsWorks installs the public key on the instance and you\n-- can use the private key with an SSH client to log in to the instance. For\n-- more information, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-ssh.html  Using SSH to Communicate with an Instance\u003e and \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/security-ssh-access.html Managing SSH Access\u003e. You can override this setting by specifying a different\n-- key pair, or no key pair, when you \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html  create an instance\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -20623,7 +21296,7 @@
                         "name": "_csDefaultSshKeyName",
                         "shape": "String",
                         "locationName": "DefaultSshKeyName",
-                        "documentation": "-- | A default SSH key for the stack instances. You can override this value when\n-- you create or update an instance.",
+                        "documentation": "-- | A default Amazon EC2 key pair name. The default value is none. If you specify\n-- a key pair name, AWS OpsWorks installs the public key on the instance and you\n-- can use the private key with an SSH client to log in to the instance. For\n-- more information, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-ssh.html  Using SSH to Communicate with an Instance\u003e and \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/security-ssh-access.html Managing SSH Access\u003e. You can override this setting by specifying a different\n-- key pair, or no key pair, when you \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html  create an instance\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -20657,7 +21330,7 @@
                         "name": "_csHostnameTheme",
                         "shape": "String",
                         "locationName": "HostnameTheme",
-                        "documentation": "-- | The stack's host name theme, with spaces are replaced by underscores. The\n-- theme is used to generate host names for the stack's instances. By default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host names by appending integers to\n-- the layer's short name. The other themes are:\n--\n-- 'Baked_Goods' 'Clouds' 'European_Cities' 'Fruits' 'Greek_Deities' 'Legendary_Creatures_from_Japan' 'Planets_and_Moons' 'Roman_Deities' 'Scottish_Islands' 'US_Cities' 'Wild_Cats'  To\n-- obtain a generated host name, call 'GetHostNameSuggestion', which returns a\n-- host name based on the current theme.",
+                        "documentation": "-- | The stack's host name theme, with spaces are replaced by underscores. The\n-- theme is used to generate host names for the stack's instances. By default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host names by appending integers to\n-- the layer's short name. The other themes are:\n--\n-- 'Baked_Goods' 'Clouds' 'Europe_Cities' 'Fruits' 'Greek_Deities' 'Legendary_creatures_from_Japan' 'Planets_and_Moons' 'Roman_Deities' 'Scottish_Islands' 'US_Cities' 'Wild_Cats'  To\n-- obtain a generated host name, call 'GetHostNameSuggestion', which returns a\n-- host name based on the current theme.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -22467,7 +23140,7 @@
                     "name": "_dvVolumeId",
                     "shape": "String",
                     "locationName": "VolumeId",
-                    "documentation": "-- | The volume ID.",
+                    "documentation": "-- | The AWS OpsWorks volume ID, which is the GUID that AWS OpsWorks assigned to\n-- the instance when you registered the volume with the stack, not the Amazon\n-- EC2 volume ID.",
                     "typeExposed": "Text",
                     "type": "Text"
                 },
@@ -22485,7 +23158,7 @@
                         "name": "_dvVolumeId",
                         "shape": "String",
                         "locationName": "VolumeId",
-                        "documentation": "-- | The volume ID.",
+                        "documentation": "-- | The AWS OpsWorks volume ID, which is the GUID that AWS OpsWorks assigned to\n-- the instance when you registered the volume with the stack, not the Amazon\n-- EC2 volume ID.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -22512,7 +23185,7 @@
                         "name": "_dvVolumeId",
                         "shape": "String",
                         "locationName": "VolumeId",
-                        "documentation": "-- | The volume ID.",
+                        "documentation": "-- | The AWS OpsWorks volume ID, which is the GUID that AWS OpsWorks assigned to\n-- the instance when you registered the volume with the stack, not the Amazon\n-- EC2 volume ID.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -22542,7 +23215,7 @@
                         "name": "_dvVolumeId",
                         "shape": "String",
                         "locationName": "VolumeId",
-                        "documentation": "-- | The volume ID.",
+                        "documentation": "-- | The AWS OpsWorks volume ID, which is the GUID that AWS OpsWorks assigned to\n-- the instance when you registered the volume with the stack, not the Amazon\n-- EC2 volume ID.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -31520,7 +32193,7 @@
                         "name": "_uaEnvironment",
                         "shape": "EnvironmentVariables",
                         "locationName": "Environment",
-                        "documentation": "-- | An array of 'EnvironmentVariable' objects that specify environment variables to\n-- be associated with the app. You can specify up to ten environment variables.\n-- After you deploy the app, these variables are defined on the associated app\n-- server instances.\n--\n-- This parameter is supported only by Chef 11.10 stacks. If you have specified\n-- one or more environment variables, you cannot modify the stack's Chef version.",
+                        "documentation": "-- | An array of 'EnvironmentVariable' objects that specify environment variables to\n-- be associated with the app. After you deploy the app, these variables are\n-- defined on the associated app server instances.For more information, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables\u003e.\n--\n-- There is no specific limit on the number of environment variables. However,\n-- the size of the associated data structure - which includes the variables'\n-- names, values, and protected flag values - cannot exceed 10 KB (10240 Bytes).\n-- This limit should accommodate most if not all use cases. Exceeding it will\n-- cause an exception with the message, \"Environment: is too large (maximum is\n-- 10KB).\"\n--\n-- This parameter is supported only by Chef 11.10 stacks. If you have specified\n-- one or more environment variables, you cannot modify the stack's Chef\n-- version.",
                         "typeExposed": "[EnvironmentVariable]",
                         "type": "List \"Environment\" EnvironmentVariable"
                     }
@@ -31729,7 +32402,7 @@
                         "name": "_uaEnvironment",
                         "shape": "EnvironmentVariables",
                         "locationName": "Environment",
-                        "documentation": "-- | An array of 'EnvironmentVariable' objects that specify environment variables to\n-- be associated with the app. You can specify up to ten environment variables.\n-- After you deploy the app, these variables are defined on the associated app\n-- server instances.\n--\n-- This parameter is supported only by Chef 11.10 stacks. If you have specified\n-- one or more environment variables, you cannot modify the stack's Chef version.",
+                        "documentation": "-- | An array of 'EnvironmentVariable' objects that specify environment variables to\n-- be associated with the app. After you deploy the app, these variables are\n-- defined on the associated app server instances.For more information, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables\u003e.\n--\n-- There is no specific limit on the number of environment variables. However,\n-- the size of the associated data structure - which includes the variables'\n-- names, values, and protected flag values - cannot exceed 10 KB (10240 Bytes).\n-- This limit should accommodate most if not all use cases. Exceeding it will\n-- cause an exception with the message, \"Environment: is too large (maximum is\n-- 10KB).\"\n--\n-- This parameter is supported only by Chef 11.10 stacks. If you have specified\n-- one or more environment variables, you cannot modify the stack's Chef\n-- version.",
                         "typeExposed": "[EnvironmentVariable]",
                         "type": "List \"Environment\" EnvironmentVariable"
                     }
@@ -31867,7 +32540,7 @@
                         "name": "_uaEnvironment",
                         "shape": "EnvironmentVariables",
                         "locationName": "Environment",
-                        "documentation": "-- | An array of 'EnvironmentVariable' objects that specify environment variables to\n-- be associated with the app. You can specify up to ten environment variables.\n-- After you deploy the app, these variables are defined on the associated app\n-- server instances.\n--\n-- This parameter is supported only by Chef 11.10 stacks. If you have specified\n-- one or more environment variables, you cannot modify the stack's Chef version.",
+                        "documentation": "-- | An array of 'EnvironmentVariable' objects that specify environment variables to\n-- be associated with the app. After you deploy the app, these variables are\n-- defined on the associated app server instances.For more information, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html#workingapps-creating-environment Environment Variables\u003e.\n--\n-- There is no specific limit on the number of environment variables. However,\n-- the size of the associated data structure - which includes the variables'\n-- names, values, and protected flag values - cannot exceed 10 KB (10240 Bytes).\n-- This limit should accommodate most if not all use cases. Exceeding it will\n-- cause an exception with the message, \"Environment: is too large (maximum is\n-- 10KB).\"\n--\n-- This parameter is supported only by Chef 11.10 stacks. If you have specified\n-- one or more environment variables, you cannot modify the stack's Chef\n-- version.",
                         "typeExposed": "[EnvironmentVariable]",
                         "type": "List \"Environment\" EnvironmentVariable"
                     },
@@ -32289,7 +32962,7 @@
                         "name": "_uiSshKeyName",
                         "shape": "String",
                         "locationName": "SshKeyName",
-                        "documentation": "-- | The instance SSH key name.",
+                        "documentation": "-- | The instance's Amazon EC2 key name.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -32498,7 +33171,7 @@
                         "name": "_uiSshKeyName",
                         "shape": "String",
                         "locationName": "SshKeyName",
-                        "documentation": "-- | The instance SSH key name.",
+                        "documentation": "-- | The instance's Amazon EC2 key name.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -32738,7 +33411,7 @@
                         "name": "_uiSshKeyName",
                         "shape": "String",
                         "locationName": "SshKeyName",
-                        "documentation": "-- | The instance SSH key name.",
+                        "documentation": "-- | The instance's Amazon EC2 key name.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -32843,7 +33516,7 @@
                         "name": "_ulShortname",
                         "shape": "String",
                         "locationName": "Shortname",
-                        "documentation": "-- | The layer short name, which is used internally by AWS OpsWorksand by Chef.\n-- The short name is also used as the name for the directory where your app\n-- files are installed. It can have a maximum of 200 characters and must be in\n-- the following format: /\\A[a-z0-9\\-\\_\\.]+\\Z/.",
+                        "documentation": "-- | For custom layers only, use this parameter to specify the layer's short name,\n-- which is used internally by AWS OpsWorksand by Chef. The short name is also\n-- used as the name for the directory where your app files are installed. It can\n-- have a maximum of 200 characters and must be in the following format:\n-- /\\A[a-z0-9\\-\\_\\.]+\\Z/.\n--\n-- The built-in layers' short names are defined by AWS OpsWorks. For more\n-- information, see the \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference\u003e",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -33120,7 +33793,7 @@
                         "name": "_ulShortname",
                         "shape": "String",
                         "locationName": "Shortname",
-                        "documentation": "-- | The layer short name, which is used internally by AWS OpsWorksand by Chef.\n-- The short name is also used as the name for the directory where your app\n-- files are installed. It can have a maximum of 200 characters and must be in\n-- the following format: /\\A[a-z0-9\\-\\_\\.]+\\Z/.",
+                        "documentation": "-- | For custom layers only, use this parameter to specify the layer's short name,\n-- which is used internally by AWS OpsWorksand by Chef. The short name is also\n-- used as the name for the directory where your app files are installed. It can\n-- have a maximum of 200 characters and must be in the following format:\n-- /\\A[a-z0-9\\-\\_\\.]+\\Z/.\n--\n-- The built-in layers' short names are defined by AWS OpsWorks. For more\n-- information, see the \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference\u003e",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -33547,7 +34220,7 @@
                         "name": "_ulShortname",
                         "shape": "String",
                         "locationName": "Shortname",
-                        "documentation": "-- | The layer short name, which is used internally by AWS OpsWorksand by Chef.\n-- The short name is also used as the name for the directory where your app\n-- files are installed. It can have a maximum of 200 characters and must be in\n-- the following format: /\\A[a-z0-9\\-\\_\\.]+\\Z/.",
+                        "documentation": "-- | For custom layers only, use this parameter to specify the layer's short name,\n-- which is used internally by AWS OpsWorksand by Chef. The short name is also\n-- used as the name for the directory where your app files are installed. It can\n-- have a maximum of 200 characters and must be in the following format:\n-- /\\A[a-z0-9\\-\\_\\.]+\\Z/.\n--\n-- The built-in layers' short names are defined by AWS OpsWorks. For more\n-- information, see the \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference\u003e",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -34134,7 +34807,7 @@
                         "name": "_usHostnameTheme",
                         "shape": "String",
                         "locationName": "HostnameTheme",
-                        "documentation": "-- | The stack's new host name theme, with spaces are replaced by underscores. The\n-- theme is used to generate host names for the stack's instances. By default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host names by appending integers to\n-- the layer's short name. The other themes are:\n--\n-- 'Baked_Goods' 'Clouds' 'European_Cities' 'Fruits' 'Greek_Deities' 'Legendary_Creatures_from_Japan' 'Planets_and_Moons' 'Roman_Deities' 'Scottish_Islands' 'US_Cities' 'Wild_Cats'  To\n-- obtain a generated host name, call 'GetHostNameSuggestion', which returns a\n-- host name based on the current theme.",
+                        "documentation": "-- | The stack's new host name theme, with spaces are replaced by underscores. The\n-- theme is used to generate host names for the stack's instances. By default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host names by appending integers to\n-- the layer's short name. The other themes are:\n--\n-- 'Baked_Goods' 'Clouds' 'Europe_Cities' 'Fruits' 'Greek_Deities' 'Legendary_creatures_from_Japan' 'Planets_and_Moons' 'Roman_Deities' 'Scottish_Islands' 'US_Cities' 'Wild_Cats'  To\n-- obtain a generated host name, call 'GetHostNameSuggestion', which returns a\n-- host name based on the current theme.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -34270,7 +34943,7 @@
                         "name": "_usDefaultSshKeyName",
                         "shape": "String",
                         "locationName": "DefaultSshKeyName",
-                        "documentation": "-- | A default SSH key for the stack instances. You can override this value when\n-- you create or update an instance.",
+                        "documentation": "-- | A default Amazon EC2 key pair name. The default value is none. If you specify\n-- a key pair name, AWS OpsWorks installs the public key on the instance and you\n-- can use the private key with an SSH client to log in to the instance. For\n-- more information, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-ssh.html  Using SSH to Communicate with an Instance\u003e and \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/security-ssh-access.html Managing SSH Access\u003e. You can override this setting by specifying a different\n-- key pair, or no key pair, when you \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html  create an instance\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -34445,7 +35118,7 @@
                         "name": "_usHostnameTheme",
                         "shape": "String",
                         "locationName": "HostnameTheme",
-                        "documentation": "-- | The stack's new host name theme, with spaces are replaced by underscores. The\n-- theme is used to generate host names for the stack's instances. By default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host names by appending integers to\n-- the layer's short name. The other themes are:\n--\n-- 'Baked_Goods' 'Clouds' 'European_Cities' 'Fruits' 'Greek_Deities' 'Legendary_Creatures_from_Japan' 'Planets_and_Moons' 'Roman_Deities' 'Scottish_Islands' 'US_Cities' 'Wild_Cats'  To\n-- obtain a generated host name, call 'GetHostNameSuggestion', which returns a\n-- host name based on the current theme.",
+                        "documentation": "-- | The stack's new host name theme, with spaces are replaced by underscores. The\n-- theme is used to generate host names for the stack's instances. By default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host names by appending integers to\n-- the layer's short name. The other themes are:\n--\n-- 'Baked_Goods' 'Clouds' 'Europe_Cities' 'Fruits' 'Greek_Deities' 'Legendary_creatures_from_Japan' 'Planets_and_Moons' 'Roman_Deities' 'Scottish_Islands' 'US_Cities' 'Wild_Cats'  To\n-- obtain a generated host name, call 'GetHostNameSuggestion', which returns a\n-- host name based on the current theme.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -34581,7 +35254,7 @@
                         "name": "_usDefaultSshKeyName",
                         "shape": "String",
                         "locationName": "DefaultSshKeyName",
-                        "documentation": "-- | A default SSH key for the stack instances. You can override this value when\n-- you create or update an instance.",
+                        "documentation": "-- | A default Amazon EC2 key pair name. The default value is none. If you specify\n-- a key pair name, AWS OpsWorks installs the public key on the instance and you\n-- can use the private key with an SSH client to log in to the instance. For\n-- more information, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-ssh.html  Using SSH to Communicate with an Instance\u003e and \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/security-ssh-access.html Managing SSH Access\u003e. You can override this setting by specifying a different\n-- key pair, or no key pair, when you \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html  create an instance\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -34787,7 +35460,7 @@
                         "name": "_usDefaultSshKeyName",
                         "shape": "String",
                         "locationName": "DefaultSshKeyName",
-                        "documentation": "-- | A default SSH key for the stack instances. You can override this value when\n-- you create or update an instance.",
+                        "documentation": "-- | A default Amazon EC2 key pair name. The default value is none. If you specify\n-- a key pair name, AWS OpsWorks installs the public key on the instance and you\n-- can use the private key with an SSH client to log in to the instance. For\n-- more information, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-ssh.html  Using SSH to Communicate with an Instance\u003e and \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/security-ssh-access.html Managing SSH Access\u003e. You can override this setting by specifying a different\n-- key pair, or no key pair, when you \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html  create an instance\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -34821,7 +35494,7 @@
                         "name": "_usHostnameTheme",
                         "shape": "String",
                         "locationName": "HostnameTheme",
-                        "documentation": "-- | The stack's new host name theme, with spaces are replaced by underscores. The\n-- theme is used to generate host names for the stack's instances. By default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host names by appending integers to\n-- the layer's short name. The other themes are:\n--\n-- 'Baked_Goods' 'Clouds' 'European_Cities' 'Fruits' 'Greek_Deities' 'Legendary_Creatures_from_Japan' 'Planets_and_Moons' 'Roman_Deities' 'Scottish_Islands' 'US_Cities' 'Wild_Cats'  To\n-- obtain a generated host name, call 'GetHostNameSuggestion', which returns a\n-- host name based on the current theme.",
+                        "documentation": "-- | The stack's new host name theme, with spaces are replaced by underscores. The\n-- theme is used to generate host names for the stack's instances. By default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host names by appending integers to\n-- the layer's short name. The other themes are:\n--\n-- 'Baked_Goods' 'Clouds' 'Europe_Cities' 'Fruits' 'Greek_Deities' 'Legendary_creatures_from_Japan' 'Planets_and_Moons' 'Roman_Deities' 'Scottish_Islands' 'US_Cities' 'Wild_Cats'  To\n-- obtain a generated host name, call 'GetHostNameSuggestion', which returns a\n-- host name based on the current theme.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },

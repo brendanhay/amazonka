@@ -15,6 +15,7 @@
         "namespace": "Network.AWS.ElasticBeanstalk",
         "protocol": "query",
         "imports": [
+            "Network.AWS.ElasticBeanstalk.AbortEnvironmentUpdate",
             "Network.AWS.ElasticBeanstalk.CheckDNSAvailability",
             "Network.AWS.ElasticBeanstalk.CreateApplication",
             "Network.AWS.ElasticBeanstalk.CreateApplicationVersion",
@@ -83,6 +84,7 @@
         "abbrev": "ElasticBeanstalk",
         "exposed": [
             "Network.AWS.ElasticBeanstalk",
+            "Network.AWS.ElasticBeanstalk.AbortEnvironmentUpdate",
             "Network.AWS.ElasticBeanstalk.CheckDNSAvailability",
             "Network.AWS.ElasticBeanstalk.CreateApplication",
             "Network.AWS.ElasticBeanstalk.CreateApplicationVersion",
@@ -3676,12 +3678,13 @@
                     "Enum"
                 ],
                 "branches": {
+                    "Bundle": "bundle",
                     "Tail'": "tail"
                 },
-                "valuePad": 5,
+                "valuePad": 7,
                 "name": "EnvironmentInfoType",
                 "type": "nullary",
-                "branchPad": 5
+                "branchPad": 6
             },
             {
                 "deriving": [
@@ -3689,14 +3692,14 @@
                     "Read",
                     "Show"
                 ],
-                "fieldPad": 21,
+                "fieldPad": 32,
                 "ctor": "environmentDescription",
                 "contents": [],
                 "payload": null,
                 "required": [],
                 "contentPad": 0,
                 "name": "EnvironmentDescription",
-                "locationPad": 18,
+                "locationPad": 29,
                 "type": "record",
                 "optional": [
                     {
@@ -3912,6 +3915,23 @@
                         "protocol": "query",
                         "flattened": false,
                         "required": false,
+                        "lens": "ed1AbortableOperationInProgress",
+                        "name": "_ed1AbortableOperationInProgress",
+                        "shape": "AbortableOperationInProgress",
+                        "locationName": "AbortableOperationInProgress",
+                        "documentation": "-- | Lists in-progress environment updates and application version deployments\n-- that you can cancel.",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
                         "lens": "ed1Health",
                         "name": "_ed1Health",
                         "shape": "EnvironmentHealth",
@@ -3956,6 +3976,23 @@
                     }
                 ],
                 "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ed1AbortableOperationInProgress",
+                        "name": "_ed1AbortableOperationInProgress",
+                        "shape": "AbortableOperationInProgress",
+                        "locationName": "AbortableOperationInProgress",
+                        "documentation": "-- | Lists in-progress environment updates and application version deployments\n-- that you can cancel.",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    },
                     {
                         "location": "querystring",
                         "iso": null,
@@ -4512,6 +4549,162 @@
                     "Eq",
                     "Ord",
                     "Read",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "style": "nullary",
+                "fieldPad": 0,
+                "ctor": "abortEnvironmentUpdateResponse",
+                "headerPad": 0,
+                "wrapper": false,
+                "protocol": "query",
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "name": "AbortEnvironmentUpdateResponse",
+                "resultWrapper": null,
+                "type": "empty",
+                "headerAll": false,
+                "optional": [],
+                "fields": []
+            },
+            "url": "http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_AbortEnvironmentUpdate.html",
+            "namespace": "Network.AWS.ElasticBeanstalk.AbortEnvironmentUpdate",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElasticBeanstalk.Types"
+            ],
+            "pager": null,
+            "name": "AbortEnvironmentUpdate",
+            "method": "post",
+            "documentation": "-- | Cancels in-progress environment configuration update or application version\n-- deployment.",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show"
+                ],
+                "streaming": false,
+                "style": "query",
+                "fieldPad": 19,
+                "ctor": "abortEnvironmentUpdate",
+                "headerPad": 0,
+                "contents": [],
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "query",
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "queryPad": 16,
+                "name": "AbortEnvironmentUpdate",
+                "query": [
+                    {
+                        "field": "_aeuEnvironmentId",
+                        "locationName": "EnvironmentId",
+                        "type": "field"
+                    },
+                    {
+                        "field": "_aeuEnvironmentName",
+                        "locationName": "EnvironmentName",
+                        "type": "field"
+                    }
+                ],
+                "locationPad": 16,
+                "type": "record",
+                "queryAll": true,
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "aeuEnvironmentId",
+                        "name": "_aeuEnvironmentId",
+                        "shape": "EnvironmentId",
+                        "locationName": "EnvironmentId",
+                        "documentation": "-- | This specifies the ID of the environment with the in-progress update that you\n-- want to cancel.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "aeuEnvironmentName",
+                        "name": "_aeuEnvironmentName",
+                        "shape": "EnvironmentName",
+                        "locationName": "EnvironmentName",
+                        "documentation": "-- | This specifies the name of the environment with the in-progress update that\n-- you want to cancel.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "aeuEnvironmentId",
+                        "name": "_aeuEnvironmentId",
+                        "shape": "EnvironmentId",
+                        "locationName": "EnvironmentId",
+                        "documentation": "-- | This specifies the ID of the environment with the in-progress update that you\n-- want to cancel.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "aeuEnvironmentName",
+                        "name": "_aeuEnvironmentName",
+                        "shape": "EnvironmentName",
+                        "locationName": "EnvironmentName",
+                        "documentation": "-- | This specifies the name of the environment with the in-progress update that\n-- you want to cancel.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "ElasticBeanstalk",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
                     "Show"
                 ],
                 "streaming": false,
@@ -4808,7 +5001,7 @@
             "pager": null,
             "name": "CreateApplication",
             "method": "post",
-            "documentation": "-- | Creates an application that has one configuration template named 'default' and\n-- no application versions.\n--\n--",
+            "documentation": "-- | Creates an application that has one configuration template named 'default' and\n-- no application versions.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -5021,7 +5214,7 @@
             "pager": null,
             "name": "CreateApplicationVersion",
             "method": "post",
-            "documentation": "-- | Creates an application version for the specified application.",
+            "documentation": "-- | Creates an application version for the specified application.\n--\n-- Once you create an application version with a specified Amazon S3 bucket and\n-- key location, you cannot change that Amazon S3 location. If you change the\n-- Amazon S3 location, you receive an exception when you attempt to launch an\n-- environment from the application version.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -5928,7 +6121,7 @@
                 ],
                 "streaming": false,
                 "style": "xml",
-                "fieldPad": 21,
+                "fieldPad": 32,
                 "ctor": "createEnvironmentResponse",
                 "headerPad": 0,
                 "contents": [],
@@ -5941,7 +6134,7 @@
                 "contentPad": 0,
                 "name": "CreateEnvironmentResponse",
                 "resultWrapper": "CreateEnvironmentResult",
-                "locationPad": 18,
+                "locationPad": 29,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -6158,6 +6351,23 @@
                         "protocol": "query",
                         "flattened": false,
                         "required": false,
+                        "lens": "cerAbortableOperationInProgress",
+                        "name": "_cerAbortableOperationInProgress",
+                        "shape": "AbortableOperationInProgress",
+                        "locationName": "AbortableOperationInProgress",
+                        "documentation": "-- | Lists in-progress environment updates and application version deployments\n-- that you can cancel.",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
                         "lens": "cerHealth",
                         "name": "_cerHealth",
                         "shape": "EnvironmentHealth",
@@ -6202,6 +6412,23 @@
                     }
                 ],
                 "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "cerAbortableOperationInProgress",
+                        "name": "_cerAbortableOperationInProgress",
+                        "shape": "AbortableOperationInProgress",
+                        "locationName": "AbortableOperationInProgress",
+                        "documentation": "-- | Lists in-progress environment updates and application version deployments\n-- that you can cancel.",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    },
                     {
                         "location": "querystring",
                         "iso": null,
@@ -6675,7 +6902,7 @@
                         "name": "_ceVersionLabel",
                         "shape": "VersionLabel",
                         "locationName": "VersionLabel",
-                        "documentation": "-- | The name of the application version to deploy.\n--\n-- If the specified application has no associated application versions, AWS\n-- Elastic Beanstalk 'UpdateEnvironment' returns an 'InvalidParameterValue' error.\n--\n-- Default: If not specified, AWS Elastic Beanstalk attempts to launch the sample application in the container\n-- .",
+                        "documentation": "-- | The name of the application version to deploy.\n--\n-- If the specified application has no associated application versions, AWS\n-- Elastic Beanstalk 'UpdateEnvironment' returns an 'InvalidParameterValue' error.\n--\n-- Default: If not specified, AWS Elastic Beanstalk attempts to launch the\n-- sample application in the container.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -6932,7 +7159,7 @@
                         "name": "_ceVersionLabel",
                         "shape": "VersionLabel",
                         "locationName": "VersionLabel",
-                        "documentation": "-- | The name of the application version to deploy.\n--\n-- If the specified application has no associated application versions, AWS\n-- Elastic Beanstalk 'UpdateEnvironment' returns an 'InvalidParameterValue' error.\n--\n-- Default: If not specified, AWS Elastic Beanstalk attempts to launch the sample application in the container\n-- .",
+                        "documentation": "-- | The name of the application version to deploy.\n--\n-- If the specified application has no associated application versions, AWS\n-- Elastic Beanstalk 'UpdateEnvironment' returns an 'InvalidParameterValue' error.\n--\n-- Default: If not specified, AWS Elastic Beanstalk attempts to launch the\n-- sample application in the container.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -7106,7 +7333,7 @@
             "pager": null,
             "name": "DeleteApplication",
             "method": "post",
-            "documentation": "-- | Deletes the specified application along with all associated versions and\n-- configurations. The application versions will not be deleted from your Amazon\n-- S3 bucket.",
+            "documentation": "-- | Deletes the specified application along with all associated versions and\n-- configurations. The application versions will not be deleted from your Amazon\n-- S3 bucket.\n--\n-- You cannot delete an application that has a running environment.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -7263,7 +7490,7 @@
             "pager": null,
             "name": "DeleteApplicationVersion",
             "method": "post",
-            "documentation": "-- | Deletes the specified version from the specified application.",
+            "documentation": "-- | Deletes the specified version from the specified application.\n--\n-- You cannot delete an application version that is associated with a running\n-- environment.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -7459,7 +7686,7 @@
             "pager": null,
             "name": "DeleteConfigurationTemplate",
             "method": "post",
-            "documentation": "-- | Deletes the specified configuration template.",
+            "documentation": "-- | Deletes the specified configuration template.\n--\n-- When you launch an environment using a configuration template, the\n-- environment gets a copy of the template. You can delete or modify the\n-- environment's copy of the template without affecting the running environment.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -9441,7 +9668,7 @@
             },
             "name": "DescribeEvents",
             "method": "post",
-            "documentation": "-- | Returns list of event descriptions matching criteria up to the last 6 weeks.",
+            "documentation": "-- | Returns list of event descriptions matching criteria up to the last 6 weeks.\n--\n-- This action returns the most recent 1,000 events from the specified 'NextToken'.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -10247,7 +10474,7 @@
             "pager": null,
             "name": "RequestEnvironmentInfo",
             "method": "post",
-            "documentation": "-- | Initiates a request to compile the specified type of information of the\n-- deployed environment.\n--\n-- Setting the 'InfoType' to 'tail' compiles the last lines from the application\n-- server log files of every Amazon EC2 instance in your environment. Use 'RetrieveEnvironmentInfo' to access the compiled information.\n--\n-- Related Topics\n--\n-- 'RetrieveEnvironmentInfo'",
+            "documentation": "-- | Initiates a request to compile the specified type of information of the\n-- deployed environment.\n--\n-- Setting the 'InfoType' to 'tail' compiles the last lines from the application\n-- server log files of every Amazon EC2 instance in your environment.\n--\n-- Setting the 'InfoType' to 'bundle' compresses the application server log files\n-- for every Amazon EC2 instance into a '.zip' file. Legacy and .NET containers do\n-- not support bundle logs.\n--\n-- Use 'RetrieveEnvironmentInfo' to obtain the set of logs.\n--\n-- Related Topics\n--\n-- 'RetrieveEnvironmentInfo'",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -11058,7 +11285,7 @@
                 ],
                 "streaming": false,
                 "style": "xml",
-                "fieldPad": 21,
+                "fieldPad": 32,
                 "ctor": "terminateEnvironmentResponse",
                 "headerPad": 0,
                 "contents": [],
@@ -11071,7 +11298,7 @@
                 "contentPad": 0,
                 "name": "TerminateEnvironmentResponse",
                 "resultWrapper": "TerminateEnvironmentResult",
-                "locationPad": 18,
+                "locationPad": 29,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -11288,6 +11515,23 @@
                         "protocol": "query",
                         "flattened": false,
                         "required": false,
+                        "lens": "terAbortableOperationInProgress",
+                        "name": "_terAbortableOperationInProgress",
+                        "shape": "AbortableOperationInProgress",
+                        "locationName": "AbortableOperationInProgress",
+                        "documentation": "-- | Lists in-progress environment updates and application version deployments\n-- that you can cancel.",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
                         "lens": "terHealth",
                         "name": "_terHealth",
                         "shape": "EnvironmentHealth",
@@ -11332,6 +11576,23 @@
                     }
                 ],
                 "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "terAbortableOperationInProgress",
+                        "name": "_terAbortableOperationInProgress",
+                        "shape": "AbortableOperationInProgress",
+                        "locationName": "AbortableOperationInProgress",
+                        "documentation": "-- | Lists in-progress environment updates and application version deployments\n-- that you can cancel.",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    },
                     {
                         "location": "querystring",
                         "iso": null,
@@ -11850,7 +12111,7 @@
             "pager": null,
             "name": "UpdateApplication",
             "method": "post",
-            "documentation": "-- | Updates the specified application to have the specified properties.",
+            "documentation": "-- | Updates the specified application to have the specified properties.\n--\n-- If a property (for example, 'description') is not provided, the value remains\n-- unchanged. To clear these properties, specify an empty string.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -12063,7 +12324,7 @@
             "pager": null,
             "name": "UpdateApplicationVersion",
             "method": "post",
-            "documentation": "-- | Updates the specified application version to have the specified properties.",
+            "documentation": "-- | Updates the specified application version to have the specified properties.\n--\n-- If a property (for example, 'description') is not provided, the value remains\n-- unchanged. To clear properties, specify an empty string.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -12569,7 +12830,7 @@
             "pager": null,
             "name": "UpdateConfigurationTemplate",
             "method": "post",
-            "documentation": "-- | Updates the specified configuration template to have the specified\n-- properties or configuration option values.\n--\n-- Related Topics\n--\n-- 'DescribeConfigurationOptions'",
+            "documentation": "-- | Updates the specified configuration template to have the specified\n-- properties or configuration option values.\n--\n-- If a property (for example, 'ApplicationName') is not provided, its value\n-- remains unchanged. To clear such properties, specify an empty string.  Related Topics\n--\n--\n-- 'DescribeConfigurationOptions'",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -12815,7 +13076,7 @@
                 ],
                 "streaming": false,
                 "style": "xml",
-                "fieldPad": 21,
+                "fieldPad": 32,
                 "ctor": "updateEnvironmentResponse",
                 "headerPad": 0,
                 "contents": [],
@@ -12828,7 +13089,7 @@
                 "contentPad": 0,
                 "name": "UpdateEnvironmentResponse",
                 "resultWrapper": "UpdateEnvironmentResult",
-                "locationPad": 18,
+                "locationPad": 29,
                 "type": "record",
                 "headerAll": false,
                 "optional": [
@@ -13045,6 +13306,23 @@
                         "protocol": "query",
                         "flattened": false,
                         "required": false,
+                        "lens": "uerAbortableOperationInProgress",
+                        "name": "_uerAbortableOperationInProgress",
+                        "shape": "AbortableOperationInProgress",
+                        "locationName": "AbortableOperationInProgress",
+                        "documentation": "-- | Lists in-progress environment updates and application version deployments\n-- that you can cancel.",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
                         "lens": "uerHealth",
                         "name": "_uerHealth",
                         "shape": "EnvironmentHealth",
@@ -13089,6 +13367,23 @@
                     }
                 ],
                 "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "uerAbortableOperationInProgress",
+                        "name": "_uerAbortableOperationInProgress",
+                        "shape": "AbortableOperationInProgress",
+                        "locationName": "AbortableOperationInProgress",
+                        "documentation": "-- | Lists in-progress environment updates and application version deployments\n-- that you can cancel.",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    },
                     {
                         "location": "querystring",
                         "iso": null,
@@ -13366,7 +13661,7 @@
                 ],
                 "streaming": false,
                 "style": "query",
-                "fieldPad": 18,
+                "fieldPad": 20,
                 "ctor": "updateEnvironment",
                 "headerPad": 0,
                 "contents": [],
@@ -13382,7 +13677,7 @@
                 "shared": false,
                 "headers": [],
                 "contentPad": 0,
-                "queryPad": 16,
+                "queryPad": 18,
                 "name": "UpdateEnvironment",
                 "query": [
                     {
@@ -13416,6 +13711,11 @@
                         "type": "field"
                     },
                     {
+                        "field": "_ueSolutionStackName",
+                        "locationName": "SolutionStackName",
+                        "type": "field"
+                    },
+                    {
                         "field": "_ueOptionSettings",
                         "locationName": "OptionSettings",
                         "type": "field"
@@ -13426,7 +13726,7 @@
                         "type": "field"
                     }
                 ],
-                "locationPad": 16,
+                "locationPad": 18,
                 "type": "record",
                 "queryAll": true,
                 "headerAll": false,
@@ -13530,6 +13830,23 @@
                         "shape": "ConfigurationTemplateName",
                         "locationName": "TemplateName",
                         "documentation": "-- | If this parameter is specified, AWS Elastic Beanstalk deploys this\n-- configuration template to the environment. If no such configuration template\n-- is found, AWS Elastic Beanstalk returns an 'InvalidParameterValue' error.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ueSolutionStackName",
+                        "name": "_ueSolutionStackName",
+                        "shape": "SolutionStackName",
+                        "locationName": "SolutionStackName",
+                        "documentation": "-- | This specifies the platform version that the environment will run after the\n-- environment is updated.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -13653,6 +13970,23 @@
                         "documentation": "-- | A list of custom user-defined configuration options to remove from the\n-- configuration set for this environment.",
                         "typeExposed": "[OptionSpecification]",
                         "type": "List \"member\" OptionSpecification"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "flattened": false,
+                        "required": false,
+                        "lens": "ueSolutionStackName",
+                        "name": "_ueSolutionStackName",
+                        "shape": "SolutionStackName",
+                        "locationName": "SolutionStackName",
+                        "documentation": "-- | This specifies the platform version that the environment will run after the\n-- environment is updated.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": "querystring",

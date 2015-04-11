@@ -64,7 +64,7 @@
                     {
                         "matcher": "matchAll",
                         "state": "success",
-                        "argument": "folding (concatOf disrInstanceStatuses) . isSystemStatus . issStatus . _Just",
+                        "argument": "folding (concatOf disrInstanceStatuses) . isSystemStatus . _Just . issStatus . _Just",
                         "expected": "SSOk"
                     }
                 ],
@@ -196,31 +196,31 @@
                     {
                         "matcher": "matchAll",
                         "state": "success",
-                        "argument": "folding (concatOf dsirrSpotInstanceRequests) . siStatus . sisCode . _Just",
+                        "argument": "folding (concatOf dsirrSpotInstanceRequests) . siStatus . _Just . sisCode . _Just",
                         "expected": "\"fulfilled\""
                     },
                     {
                         "matcher": "matchAny",
                         "state": "failure",
-                        "argument": "folding (concatOf dsirrSpotInstanceRequests) . siStatus . sisCode . _Just",
+                        "argument": "folding (concatOf dsirrSpotInstanceRequests) . siStatus . _Just . sisCode . _Just",
                         "expected": "\"schedule-expired\""
                     },
                     {
                         "matcher": "matchAny",
                         "state": "failure",
-                        "argument": "folding (concatOf dsirrSpotInstanceRequests) . siStatus . sisCode . _Just",
+                        "argument": "folding (concatOf dsirrSpotInstanceRequests) . siStatus . _Just . sisCode . _Just",
                         "expected": "\"canceled-before-fulfillment\""
                     },
                     {
                         "matcher": "matchAny",
                         "state": "failure",
-                        "argument": "folding (concatOf dsirrSpotInstanceRequests) . siStatus . sisCode . _Just",
+                        "argument": "folding (concatOf dsirrSpotInstanceRequests) . siStatus . _Just . sisCode . _Just",
                         "expected": "\"bad-parameters\""
                     },
                     {
                         "matcher": "matchAny",
                         "state": "failure",
-                        "argument": "folding (concatOf dsirrSpotInstanceRequests) . siStatus . sisCode . _Just",
+                        "argument": "folding (concatOf dsirrSpotInstanceRequests) . siStatus . _Just . sisCode . _Just",
                         "expected": "\"system-error\""
                     }
                 ],
@@ -393,7 +393,7 @@
                     {
                         "matcher": "matchAll",
                         "state": "success",
-                        "argument": "folding (concatOf disrInstanceStatuses) . isInstanceStatus . issStatus . _Just",
+                        "argument": "folding (concatOf disrInstanceStatuses) . isInstanceStatus . _Just . issStatus . _Just",
                         "expected": "SSOk"
                     }
                 ],

@@ -728,8 +728,12 @@ prefixWaiters ds = Map.map go
 
             Nested  k i -> do
                 let f = field k d
-                Nested (lensName (_fName f)) <$>
-                    prefix (type' (firstName f)) i
+                    m = isRequired (f ^. typeOf)
+                if m
+                   then Nested (lensName (_fName f)) <$>
+                       prefix (type' (firstName f)) i
+                   else Nested (lensName (_fName f)) . Nested "_Just" <$>
+                       prefix (type' (firstName f)) i
 
             Access  k   -> do
                 let f = field k d

@@ -610,33 +610,43 @@ data Notation
     = Indexed !Text !Notation
     | Nested  !Text !Notation
     | Access  !Text
-    | Length  !Text !Int
+    | Bounds  !Text !Ordering !Int
       deriving (Eq, Show)
 
 instance FromJSON Notation where
     parseJSON = withText "notation" (either fail pure . parseOnly note)
       where
         note :: Parser Notation
-        note = (length' <|> indexed <|> nested <|> access) <* AText.endOfInput
+        note = (bounds <|> indexed <|> nested <|> access) <* AText.endOfInput
+
+        key = AText.takeWhile1 (AText.notInClass "[].")
 
         indexed = Indexed <$> key <* AText.string "[]." <*> note
         nested  = Nested  <$> key <* AText.char '.'     <*> note
         access  = Access  <$> key
 
-        length' = Length
-            <$> (AText.string "length(" *> AText.takeWhile1 (/= ')') <* AText.char ')')
-            <*> (AText.string " > `" *> AText.decimal <* AText.char '`')
+        bounds  = Bounds <$> k <*> s <*> n
+          where
+            k = AText.string "length(" *> AText.takeWhile1 (/= ')') <* AText.char ')'
 
-        key = AText.takeWhile1 (AText.notInClass "[].")
+            n = AText.char '`' *> AText.decimal <* AText.char '`'
+
+            s = AText.skipSpace *> (gt <|> lt <|> eq) <* AText.skipSpace
+
+            gt = AText.char '>'    >> return GT
+            lt = AText.char '<'    >> return LT
+            eq = AText.string "==" >> return EQ
 
 instance A.ToJSON Notation where
     toJSON = A.toJSON . go
       where
         go = \case
-            Indexed k i -> "folding (concatOf " <> k <> ") . " <> go i
-            Nested  k i -> k <> " . " <> go i
-            Access  k   -> k
-            Length  k n -> "length " <> k <> " > " <> Text.pack (show n)
+            Indexed k i    -> "folding (concatOf " <> k <> ") . " <> go i
+            Nested  k i    -> k <> " . " <> go i
+            Access  k      -> k
+            Bounds  k GT 0 -> "nonEmpty " <> k
+            Bounds  k _  _ ->
+                error $ "Bounds notation not implemented for: " ++ show k
 
 data Acceptor = Acceptor
     { _aExpected :: !Expected

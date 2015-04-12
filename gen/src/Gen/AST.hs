@@ -745,19 +745,18 @@ prefixWaiters ds = Map.map go
                         case e of
                             ExpectText x ->
                                 case find ((x ==) . snd) (Map.toList fs) of
-                                    Just y -> put (ExpectCtor (fst y))
-                                    _      -> return ()
-                            _                  -> return ()
-                    _            -> return ()
+                                    Just y  -> put (ExpectCtor (fst y))
+                                    Nothing -> error . Text.unpack $ "Failed to find expected text " <> x <> " for field " <> k
+                            _ -> return ()
+                    _ -> return ()
                 return $!
                     if not m
                         then Nested (lensName (_fName f)) (Access "_Just")
                         else Access (lensName (_fName f))
 
-
-            Length  k n -> do
+            Bounds k o n -> do
                 let f = field k d
-                return $! Length (lensName (_fName f)) n
+                return $! Bounds (lensName (_fName f)) o n
 
     field k d =
         fromMaybe (error $ "Unable to find field: " ++ show (k, toListOf (dataFields . nameOf) d, Map.keys ds))

@@ -116,7 +116,7 @@ imageAvailable = Wait
     , _waitAcceptors =
         [ matchAll ISAvailable AcceptSuccess
             (folding (concatOf dirImages) . iState)
-        , matchAny "failed" AcceptFailure
+        , matchAny ISDeregistered AcceptFailure
             (folding (concatOf dirImages) . iState)
         ]
     }
@@ -145,7 +145,7 @@ instanceStatusOk = Wait
     , _waitDelay     = 15
     , _waitAcceptors =
         [ matchAll SSOk AcceptSuccess
-            (folding (concatOf disrInstanceStatuses) . isInstanceStatus . issStatus . _Just)
+            (folding (concatOf disrInstanceStatuses) . isInstanceStatus . _Just . issStatus . _Just)
         ]
     }
 
@@ -186,7 +186,7 @@ passwordDataAvailable = Wait
     , _waitDelay     = 15
     , _waitAcceptors =
         [ matchAll True AcceptSuccess
-            (length gpdrPasswordData > 0)
+            (nonEmpty gpdrPasswordData)
         ]
     }
 
@@ -208,15 +208,15 @@ spotInstanceRequestFulfilled = Wait
     , _waitDelay     = 15
     , _waitAcceptors =
         [ matchAll "fulfilled" AcceptSuccess
-            (folding (concatOf dsirrSpotInstanceRequests) . siStatus . sisCode . _Just)
+            (folding (concatOf dsirrSpotInstanceRequests) . siStatus . _Just . sisCode . _Just)
         , matchAny "schedule-expired" AcceptFailure
-            (folding (concatOf dsirrSpotInstanceRequests) . siStatus . sisCode . _Just)
+            (folding (concatOf dsirrSpotInstanceRequests) . siStatus . _Just . sisCode . _Just)
         , matchAny "canceled-before-fulfillment" AcceptFailure
-            (folding (concatOf dsirrSpotInstanceRequests) . siStatus . sisCode . _Just)
+            (folding (concatOf dsirrSpotInstanceRequests) . siStatus . _Just . sisCode . _Just)
         , matchAny "bad-parameters" AcceptFailure
-            (folding (concatOf dsirrSpotInstanceRequests) . siStatus . sisCode . _Just)
+            (folding (concatOf dsirrSpotInstanceRequests) . siStatus . _Just . sisCode . _Just)
         , matchAny "system-error" AcceptFailure
-            (folding (concatOf dsirrSpotInstanceRequests) . siStatus . sisCode . _Just)
+            (folding (concatOf dsirrSpotInstanceRequests) . siStatus . _Just . sisCode . _Just)
         ]
     }
 
@@ -238,7 +238,7 @@ systemStatusOk = Wait
     , _waitDelay     = 15
     , _waitAcceptors =
         [ matchAll SSOk AcceptSuccess
-            (folding (concatOf disrInstanceStatuses) . isSystemStatus . issStatus . _Just)
+            (folding (concatOf disrInstanceStatuses) . isSystemStatus . _Just . issStatus . _Just)
         ]
     }
 

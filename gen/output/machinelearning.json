@@ -121,19 +121,19 @@
                     "Enum"
                 ],
                 "branches": {
-                    "Status": "Status",
-                    "IAMUser": "IAMUser",
-                    "LastUpdatedAt": "LastUpdatedAt",
-                    "CreatedAt": "CreatedAt",
-                    "DataSourceId": "DataSourceId",
-                    "MLModelId": "MLModelId",
-                    "DataURI": "DataURI",
-                    "Name": "Name"
+                    "BatchDataSourceId": "DataSourceId",
+                    "BatchMLModelId": "MLModelId",
+                    "BatchIAMUser": "IAMUser",
+                    "BatchStatus": "Status",
+                    "BatchCreatedAt": "CreatedAt",
+                    "BatchDataURI": "DataURI",
+                    "BatchName": "Name",
+                    "BatchLastUpdatedAt": "LastUpdatedAt"
                 },
                 "valuePad": 14,
                 "name": "BatchPredictionFilterVariable",
                 "type": "nullary",
-                "branchPad": 13
+                "branchPad": 18
             },
             {
                 "deriving": [
@@ -932,19 +932,19 @@
                     "Enum"
                 ],
                 "branches": {
-                    "EFVLastUpdatedAt": "LastUpdatedAt",
-                    "EFVName": "Name",
-                    "EFVCreatedAt": "CreatedAt",
-                    "EFVIAMUser": "IAMUser",
-                    "EFVDataSourceId": "DataSourceId",
-                    "EFVDataURI": "DataURI",
-                    "EFVMLModelId": "MLModelId",
-                    "EFVStatus": "Status"
+                    "EvalDataURI": "DataURI",
+                    "EvalDataSourceId": "DataSourceId",
+                    "EvalName": "Name",
+                    "EvalLastUpdatedAt": "LastUpdatedAt",
+                    "EvalIAMUser": "IAMUser",
+                    "EvalStatus": "Status",
+                    "EvalMLModelId": "MLModelId",
+                    "EvalCreatedAt": "CreatedAt"
                 },
                 "valuePad": 14,
                 "name": "EvaluationFilterVariable",
                 "type": "nullary",
-                "branchPad": 16
+                "branchPad": 17
             },
             {
                 "deriving": [
@@ -4669,12 +4669,12 @@
                     "Enum"
                 ],
                 "branches": {
-                    "DSFVStatus": "Status",
-                    "DSFVDataLocationS3": "DataLocationS3",
-                    "DSFVCreatedAt": "CreatedAt",
-                    "DSFVLastUpdatedAt": "LastUpdatedAt",
-                    "DSFVName": "Name",
-                    "DSFVIAMUser": "IAMUser"
+                    "DataStatus": "Status",
+                    "DataIAMUser": "IAMUser",
+                    "DataLastUpdatedAt": "LastUpdatedAt",
+                    "DataCreatedAt": "CreatedAt",
+                    "DataName": "Name",
+                    "DataDataLocationS3": "DataLocationS3"
                 },
                 "valuePad": 15,
                 "name": "DataSourceFilterVariable",

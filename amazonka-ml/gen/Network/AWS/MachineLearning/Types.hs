@@ -272,41 +272,41 @@ instance AWSService MachineLearning where
             | otherwise = False
 
 data BatchPredictionFilterVariable
-    = CreatedAt     -- ^ CreatedAt
-    | DataSourceId  -- ^ DataSourceId
-    | DataURI       -- ^ DataURI
-    | IAMUser       -- ^ IAMUser
-    | LastUpdatedAt -- ^ LastUpdatedAt
-    | MLModelId     -- ^ MLModelId
-    | Name          -- ^ Name
-    | Status        -- ^ Status
+    = BatchCreatedAt     -- ^ CreatedAt
+    | BatchDataSourceId  -- ^ DataSourceId
+    | BatchDataURI       -- ^ DataURI
+    | BatchIAMUser       -- ^ IAMUser
+    | BatchLastUpdatedAt -- ^ LastUpdatedAt
+    | BatchMLModelId     -- ^ MLModelId
+    | BatchName          -- ^ Name
+    | BatchStatus        -- ^ Status
       deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable BatchPredictionFilterVariable
 
 instance FromText BatchPredictionFilterVariable where
     parser = takeLowerText >>= \case
-        "createdat"     -> pure CreatedAt
-        "datasourceid"  -> pure DataSourceId
-        "datauri"       -> pure DataURI
-        "iamuser"       -> pure IAMUser
-        "lastupdatedat" -> pure LastUpdatedAt
-        "mlmodelid"     -> pure MLModelId
-        "name"          -> pure Name
-        "status"        -> pure Status
+        "createdat"     -> pure BatchCreatedAt
+        "datasourceid"  -> pure BatchDataSourceId
+        "datauri"       -> pure BatchDataURI
+        "iamuser"       -> pure BatchIAMUser
+        "lastupdatedat" -> pure BatchLastUpdatedAt
+        "mlmodelid"     -> pure BatchMLModelId
+        "name"          -> pure BatchName
+        "status"        -> pure BatchStatus
         e               -> fail $
             "Failure parsing BatchPredictionFilterVariable from " ++ show e
 
 instance ToText BatchPredictionFilterVariable where
     toText = \case
-        CreatedAt     -> "CreatedAt"
-        DataSourceId  -> "DataSourceId"
-        DataURI       -> "DataURI"
-        IAMUser       -> "IAMUser"
-        LastUpdatedAt -> "LastUpdatedAt"
-        MLModelId     -> "MLModelId"
-        Name          -> "Name"
-        Status        -> "Status"
+        BatchCreatedAt     -> "CreatedAt"
+        BatchDataSourceId  -> "DataSourceId"
+        BatchDataURI       -> "DataURI"
+        BatchIAMUser       -> "IAMUser"
+        BatchLastUpdatedAt -> "LastUpdatedAt"
+        BatchMLModelId     -> "MLModelId"
+        BatchName          -> "Name"
+        BatchStatus        -> "Status"
 
 instance ToByteString BatchPredictionFilterVariable
 instance ToHeader     BatchPredictionFilterVariable
@@ -568,41 +568,41 @@ instance ToJSON DetailsAttributes where
     toJSON = toJSONText
 
 data EvaluationFilterVariable
-    = EFVCreatedAt     -- ^ CreatedAt
-    | EFVDataSourceId  -- ^ DataSourceId
-    | EFVDataURI       -- ^ DataURI
-    | EFVIAMUser       -- ^ IAMUser
-    | EFVLastUpdatedAt -- ^ LastUpdatedAt
-    | EFVMLModelId     -- ^ MLModelId
-    | EFVName          -- ^ Name
-    | EFVStatus        -- ^ Status
+    = EvalCreatedAt     -- ^ CreatedAt
+    | EvalDataSourceId  -- ^ DataSourceId
+    | EvalDataURI       -- ^ DataURI
+    | EvalIAMUser       -- ^ IAMUser
+    | EvalLastUpdatedAt -- ^ LastUpdatedAt
+    | EvalMLModelId     -- ^ MLModelId
+    | EvalName          -- ^ Name
+    | EvalStatus        -- ^ Status
       deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable EvaluationFilterVariable
 
 instance FromText EvaluationFilterVariable where
     parser = takeLowerText >>= \case
-        "createdat"     -> pure EFVCreatedAt
-        "datasourceid"  -> pure EFVDataSourceId
-        "datauri"       -> pure EFVDataURI
-        "iamuser"       -> pure EFVIAMUser
-        "lastupdatedat" -> pure EFVLastUpdatedAt
-        "mlmodelid"     -> pure EFVMLModelId
-        "name"          -> pure EFVName
-        "status"        -> pure EFVStatus
+        "createdat"     -> pure EvalCreatedAt
+        "datasourceid"  -> pure EvalDataSourceId
+        "datauri"       -> pure EvalDataURI
+        "iamuser"       -> pure EvalIAMUser
+        "lastupdatedat" -> pure EvalLastUpdatedAt
+        "mlmodelid"     -> pure EvalMLModelId
+        "name"          -> pure EvalName
+        "status"        -> pure EvalStatus
         e               -> fail $
             "Failure parsing EvaluationFilterVariable from " ++ show e
 
 instance ToText EvaluationFilterVariable where
     toText = \case
-        EFVCreatedAt     -> "CreatedAt"
-        EFVDataSourceId  -> "DataSourceId"
-        EFVDataURI       -> "DataURI"
-        EFVIAMUser       -> "IAMUser"
-        EFVLastUpdatedAt -> "LastUpdatedAt"
-        EFVMLModelId     -> "MLModelId"
-        EFVName          -> "Name"
-        EFVStatus        -> "Status"
+        EvalCreatedAt     -> "CreatedAt"
+        EvalDataSourceId  -> "DataSourceId"
+        EvalDataURI       -> "DataURI"
+        EvalIAMUser       -> "IAMUser"
+        EvalLastUpdatedAt -> "LastUpdatedAt"
+        EvalMLModelId     -> "MLModelId"
+        EvalName          -> "Name"
+        EvalStatus        -> "Status"
 
 instance ToByteString EvaluationFilterVariable
 instance ToHeader     EvaluationFilterVariable
@@ -1770,35 +1770,35 @@ instance ToJSON MLModelFilterVariable where
     toJSON = toJSONText
 
 data DataSourceFilterVariable
-    = DSFVCreatedAt      -- ^ CreatedAt
-    | DSFVDataLocationS3 -- ^ DataLocationS3
-    | DSFVIAMUser        -- ^ IAMUser
-    | DSFVLastUpdatedAt  -- ^ LastUpdatedAt
-    | DSFVName           -- ^ Name
-    | DSFVStatus         -- ^ Status
+    = DataCreatedAt      -- ^ CreatedAt
+    | DataDataLocationS3 -- ^ DataLocationS3
+    | DataIAMUser        -- ^ IAMUser
+    | DataLastUpdatedAt  -- ^ LastUpdatedAt
+    | DataName           -- ^ Name
+    | DataStatus         -- ^ Status
       deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable DataSourceFilterVariable
 
 instance FromText DataSourceFilterVariable where
     parser = takeLowerText >>= \case
-        "createdat"      -> pure DSFVCreatedAt
-        "datalocations3" -> pure DSFVDataLocationS3
-        "iamuser"        -> pure DSFVIAMUser
-        "lastupdatedat"  -> pure DSFVLastUpdatedAt
-        "name"           -> pure DSFVName
-        "status"         -> pure DSFVStatus
+        "createdat"      -> pure DataCreatedAt
+        "datalocations3" -> pure DataDataLocationS3
+        "iamuser"        -> pure DataIAMUser
+        "lastupdatedat"  -> pure DataLastUpdatedAt
+        "name"           -> pure DataName
+        "status"         -> pure DataStatus
         e                -> fail $
             "Failure parsing DataSourceFilterVariable from " ++ show e
 
 instance ToText DataSourceFilterVariable where
     toText = \case
-        DSFVCreatedAt      -> "CreatedAt"
-        DSFVDataLocationS3 -> "DataLocationS3"
-        DSFVIAMUser        -> "IAMUser"
-        DSFVLastUpdatedAt  -> "LastUpdatedAt"
-        DSFVName           -> "Name"
-        DSFVStatus         -> "Status"
+        DataCreatedAt      -> "CreatedAt"
+        DataDataLocationS3 -> "DataLocationS3"
+        DataIAMUser        -> "IAMUser"
+        DataLastUpdatedAt  -> "LastUpdatedAt"
+        DataName           -> "Name"
+        DataStatus         -> "Status"
 
 instance ToByteString DataSourceFilterVariable
 instance ToHeader     DataSourceFilterVariable

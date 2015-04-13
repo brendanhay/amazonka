@@ -61,8 +61,8 @@ data Invoke = Invoke
     , _iFunctionName   :: Text
     , _iInvocationType :: Maybe InvocationType
     , _iLogType        :: Maybe LogType
-    , _iPayload        :: Maybe Base64
-    } deriving (Eq, Read, Show)
+    , _iPayload        :: Maybe Object
+    } deriving (Eq, Show)
 
 -- | 'Invoke' constructor.
 --
@@ -76,7 +76,7 @@ data Invoke = Invoke
 --
 -- * 'iLogType' @::@ 'Maybe' 'LogType'
 --
--- * 'iPayload' @::@ 'Maybe' 'Base64'
+-- * 'iPayload' @::@ 'Maybe' 'Object'
 --
 invoke :: Text -- ^ 'iFunctionName'
        -> Invoke
@@ -126,15 +126,15 @@ iLogType :: Lens' Invoke (Maybe LogType)
 iLogType = lens _iLogType (\s a -> s { _iLogType = a })
 
 -- | JSON that you want to provide to your Lambda function as input.
-iPayload :: Lens' Invoke (Maybe Base64)
+iPayload :: Lens' Invoke (Maybe Object)
 iPayload = lens _iPayload (\s a -> s { _iPayload = a })
 
 data InvokeResponse = InvokeResponse
     { _irFunctionError :: Maybe Text
     , _irLogResult     :: Maybe Text
-    , _irPayload       :: Maybe Base64
+    , _irPayload       :: Maybe Object
     , _irStatusCode    :: Maybe Int
-    } deriving (Eq, Read, Show)
+    } deriving (Eq, Show)
 
 -- | 'InvokeResponse' constructor.
 --
@@ -144,7 +144,7 @@ data InvokeResponse = InvokeResponse
 --
 -- * 'irLogResult' @::@ 'Maybe' 'Text'
 --
--- * 'irPayload' @::@ 'Maybe' 'Base64'
+-- * 'irPayload' @::@ 'Maybe' 'Object'
 --
 -- * 'irStatusCode' @::@ 'Maybe' 'Int'
 --
@@ -176,7 +176,7 @@ irLogResult = lens _irLogResult (\s a -> s { _irLogResult = a })
 -- In the event of a function error this field contains a message describing
 -- the error. For the 'Handled' errors the Lambda function will report this
 -- message. For 'Unhandled' errors AWS Lambda reports the message.
-irPayload :: Lens' InvokeResponse (Maybe Base64)
+irPayload :: Lens' InvokeResponse (Maybe Object)
 irPayload = lens _irPayload (\s a -> s { _irPayload = a })
 
 -- | The HTTP status code will be in the 200 range for successful request. For the
@@ -216,5 +216,5 @@ instance AWSRequest Invoke where
     response = jsonHeaderResponse $ \h s o -> InvokeResponse
         <$> h ~:? "X-Amz-Function-Error"
         <*> h ~:? "X-Amz-Log-Result"
-        <*> o .:? "Payload"
+        <*> pure (Just o)
         <*> pure (Just s)

@@ -37,6 +37,22 @@ module Network.AWS.ECS.Types
     , nbContainerPort
     , nbHostPort
 
+    -- * ContainerService
+    , ContainerService
+    , containerService
+    , csClusterArn
+    , csDeployments
+    , csDesiredCount
+    , csEvents
+    , csLoadBalancers
+    , csPendingCount
+    , csRoleArn
+    , csRunningCount
+    , csServiceArn
+    , csServiceName
+    , csStatus
+    , csTaskDefinition
+
     -- * Cluster
     , Cluster
     , cluster
@@ -46,22 +62,6 @@ module Network.AWS.ECS.Types
     , cRegisteredContainerInstancesCount
     , cRunningTasksCount
     , cStatus
-
-    -- * Service
-    , Service
-    , service
-    , sClusterArn
-    , sDeployments
-    , sDesiredCount
-    , sEvents
-    , sLoadBalancers
-    , sPendingCount
-    , sRoleArn
-    , sRunningCount
-    , sServiceArn
-    , sServiceName
-    , sStatus
-    , sTaskDefinition
 
     -- * Volume
     , Volume
@@ -314,6 +314,154 @@ instance ToJSON NetworkBinding where
         , "hostPort"      .= _nbHostPort
         ]
 
+data ContainerService = ContainerService
+    { _csClusterArn     :: Maybe Text
+    , _csDeployments    :: List "deployments" Deployment
+    , _csDesiredCount   :: Maybe Int
+    , _csEvents         :: List "events" ServiceEvent
+    , _csLoadBalancers  :: List "loadBalancers" LoadBalancer
+    , _csPendingCount   :: Maybe Int
+    , _csRoleArn        :: Maybe Text
+    , _csRunningCount   :: Maybe Int
+    , _csServiceArn     :: Maybe Text
+    , _csServiceName    :: Maybe Text
+    , _csStatus         :: Maybe Text
+    , _csTaskDefinition :: Maybe Text
+    } deriving (Eq, Read, Show)
+
+-- | 'ContainerService' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'csClusterArn' @::@ 'Maybe' 'Text'
+--
+-- * 'csDeployments' @::@ ['Deployment']
+--
+-- * 'csDesiredCount' @::@ 'Maybe' 'Int'
+--
+-- * 'csEvents' @::@ ['ServiceEvent']
+--
+-- * 'csLoadBalancers' @::@ ['LoadBalancer']
+--
+-- * 'csPendingCount' @::@ 'Maybe' 'Int'
+--
+-- * 'csRoleArn' @::@ 'Maybe' 'Text'
+--
+-- * 'csRunningCount' @::@ 'Maybe' 'Int'
+--
+-- * 'csServiceArn' @::@ 'Maybe' 'Text'
+--
+-- * 'csServiceName' @::@ 'Maybe' 'Text'
+--
+-- * 'csStatus' @::@ 'Maybe' 'Text'
+--
+-- * 'csTaskDefinition' @::@ 'Maybe' 'Text'
+--
+containerService :: ContainerService
+containerService = ContainerService
+    { _csServiceArn     = Nothing
+    , _csServiceName    = Nothing
+    , _csClusterArn     = Nothing
+    , _csLoadBalancers  = mempty
+    , _csStatus         = Nothing
+    , _csDesiredCount   = Nothing
+    , _csRunningCount   = Nothing
+    , _csPendingCount   = Nothing
+    , _csTaskDefinition = Nothing
+    , _csDeployments    = mempty
+    , _csRoleArn        = Nothing
+    , _csEvents         = mempty
+    }
+
+-- | The Amazon Resource Name (ARN) of the of the cluster that hosts the service.
+csClusterArn :: Lens' ContainerService (Maybe Text)
+csClusterArn = lens _csClusterArn (\s a -> s { _csClusterArn = a })
+
+-- | The current state of deployments for the service.
+csDeployments :: Lens' ContainerService [Deployment]
+csDeployments = lens _csDeployments (\s a -> s { _csDeployments = a }) . _List
+
+-- | The desired number of instantiations of the task definition to keep running
+-- on the service. This value is specified when the service is created with 'CreateService', and it can be modified with 'UpdateService'.
+csDesiredCount :: Lens' ContainerService (Maybe Int)
+csDesiredCount = lens _csDesiredCount (\s a -> s { _csDesiredCount = a })
+
+-- | The event stream for your service. A maximum of 100 of the latest events are
+-- displayed.
+csEvents :: Lens' ContainerService [ServiceEvent]
+csEvents = lens _csEvents (\s a -> s { _csEvents = a }) . _List
+
+-- | A list of load balancer objects, containing the load balancer name, the
+-- container name (as it appears in a container definition), and the container
+-- port to access from the load balancer.
+csLoadBalancers :: Lens' ContainerService [LoadBalancer]
+csLoadBalancers = lens _csLoadBalancers (\s a -> s { _csLoadBalancers = a }) . _List
+
+-- | The number of tasks in the cluster that are in the 'PENDING' state.
+csPendingCount :: Lens' ContainerService (Maybe Int)
+csPendingCount = lens _csPendingCount (\s a -> s { _csPendingCount = a })
+
+-- | The Amazon Resource Name (ARN) of the IAM role associated with the service
+-- that allows the Amazon ECS container agent to register container instances
+-- with a load balancer.
+csRoleArn :: Lens' ContainerService (Maybe Text)
+csRoleArn = lens _csRoleArn (\s a -> s { _csRoleArn = a })
+
+-- | The number of tasks in the cluster that are in the 'RUNNING' state.
+csRunningCount :: Lens' ContainerService (Maybe Int)
+csRunningCount = lens _csRunningCount (\s a -> s { _csRunningCount = a })
+
+-- | The Amazon Resource Name (ARN) that identifies the service. The ARN contains
+-- the 'arn:aws:ecs' namespace, followed by the region of the service, the AWS
+-- account ID of the service owner, the 'service' namespace, and then the service
+-- name. For example, arn:aws:ecs:/region/:/012345678910/:service//my-service/.
+csServiceArn :: Lens' ContainerService (Maybe Text)
+csServiceArn = lens _csServiceArn (\s a -> s { _csServiceArn = a })
+
+-- | A user-generated string that you can use to identify your service.
+csServiceName :: Lens' ContainerService (Maybe Text)
+csServiceName = lens _csServiceName (\s a -> s { _csServiceName = a })
+
+-- | The status of the service. The valid values are 'ACTIVE', 'DRAINING', or 'INACTIVE'.
+csStatus :: Lens' ContainerService (Maybe Text)
+csStatus = lens _csStatus (\s a -> s { _csStatus = a })
+
+-- | The task definition to use for tasks in the service. This value is specified
+-- when the service is created with 'CreateService', and it can be modified with 'UpdateService'.
+csTaskDefinition :: Lens' ContainerService (Maybe Text)
+csTaskDefinition = lens _csTaskDefinition (\s a -> s { _csTaskDefinition = a })
+
+instance FromJSON ContainerService where
+    parseJSON = withObject "ContainerService" $ \o -> ContainerService
+        <$> o .:? "clusterArn"
+        <*> o .:? "deployments" .!= mempty
+        <*> o .:? "desiredCount"
+        <*> o .:? "events" .!= mempty
+        <*> o .:? "loadBalancers" .!= mempty
+        <*> o .:? "pendingCount"
+        <*> o .:? "roleArn"
+        <*> o .:? "runningCount"
+        <*> o .:? "serviceArn"
+        <*> o .:? "serviceName"
+        <*> o .:? "status"
+        <*> o .:? "taskDefinition"
+
+instance ToJSON ContainerService where
+    toJSON ContainerService{..} = object
+        [ "serviceArn"     .= _csServiceArn
+        , "serviceName"    .= _csServiceName
+        , "clusterArn"     .= _csClusterArn
+        , "loadBalancers"  .= _csLoadBalancers
+        , "status"         .= _csStatus
+        , "desiredCount"   .= _csDesiredCount
+        , "runningCount"   .= _csRunningCount
+        , "pendingCount"   .= _csPendingCount
+        , "taskDefinition" .= _csTaskDefinition
+        , "deployments"    .= _csDeployments
+        , "roleArn"        .= _csRoleArn
+        , "events"         .= _csEvents
+        ]
+
 data Cluster = Cluster
     { _cClusterArn                        :: Maybe Text
     , _cClusterName                       :: Maybe Text
@@ -399,154 +547,6 @@ instance ToJSON Cluster where
         , "registeredContainerInstancesCount" .= _cRegisteredContainerInstancesCount
         , "runningTasksCount"                 .= _cRunningTasksCount
         , "pendingTasksCount"                 .= _cPendingTasksCount
-        ]
-
-data Service = Service
-    { _sClusterArn     :: Maybe Text
-    , _sDeployments    :: List "deployments" Deployment
-    , _sDesiredCount   :: Maybe Int
-    , _sEvents         :: List "events" ServiceEvent
-    , _sLoadBalancers  :: List "loadBalancers" LoadBalancer
-    , _sPendingCount   :: Maybe Int
-    , _sRoleArn        :: Maybe Text
-    , _sRunningCount   :: Maybe Int
-    , _sServiceArn     :: Maybe Text
-    , _sServiceName    :: Maybe Text
-    , _sStatus         :: Maybe Text
-    , _sTaskDefinition :: Maybe Text
-    } deriving (Eq, Read, Show)
-
--- | 'Service' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sClusterArn' @::@ 'Maybe' 'Text'
---
--- * 'sDeployments' @::@ ['Deployment']
---
--- * 'sDesiredCount' @::@ 'Maybe' 'Int'
---
--- * 'sEvents' @::@ ['ServiceEvent']
---
--- * 'sLoadBalancers' @::@ ['LoadBalancer']
---
--- * 'sPendingCount' @::@ 'Maybe' 'Int'
---
--- * 'sRoleArn' @::@ 'Maybe' 'Text'
---
--- * 'sRunningCount' @::@ 'Maybe' 'Int'
---
--- * 'sServiceArn' @::@ 'Maybe' 'Text'
---
--- * 'sServiceName' @::@ 'Maybe' 'Text'
---
--- * 'sStatus' @::@ 'Maybe' 'Text'
---
--- * 'sTaskDefinition' @::@ 'Maybe' 'Text'
---
-service :: Service
-service = Service
-    { _sServiceArn     = Nothing
-    , _sServiceName    = Nothing
-    , _sClusterArn     = Nothing
-    , _sLoadBalancers  = mempty
-    , _sStatus         = Nothing
-    , _sDesiredCount   = Nothing
-    , _sRunningCount   = Nothing
-    , _sPendingCount   = Nothing
-    , _sTaskDefinition = Nothing
-    , _sDeployments    = mempty
-    , _sRoleArn        = Nothing
-    , _sEvents         = mempty
-    }
-
--- | The Amazon Resource Name (ARN) of the of the cluster that hosts the service.
-sClusterArn :: Lens' Service (Maybe Text)
-sClusterArn = lens _sClusterArn (\s a -> s { _sClusterArn = a })
-
--- | The current state of deployments for the service.
-sDeployments :: Lens' Service [Deployment]
-sDeployments = lens _sDeployments (\s a -> s { _sDeployments = a }) . _List
-
--- | The desired number of instantiations of the task definition to keep running
--- on the service. This value is specified when the service is created with 'CreateService', and it can be modified with 'UpdateService'.
-sDesiredCount :: Lens' Service (Maybe Int)
-sDesiredCount = lens _sDesiredCount (\s a -> s { _sDesiredCount = a })
-
--- | The event stream for your service. A maximum of 100 of the latest events are
--- displayed.
-sEvents :: Lens' Service [ServiceEvent]
-sEvents = lens _sEvents (\s a -> s { _sEvents = a }) . _List
-
--- | A list of load balancer objects, containing the load balancer name, the
--- container name (as it appears in a container definition), and the container
--- port to access from the load balancer.
-sLoadBalancers :: Lens' Service [LoadBalancer]
-sLoadBalancers = lens _sLoadBalancers (\s a -> s { _sLoadBalancers = a }) . _List
-
--- | The number of tasks in the cluster that are in the 'PENDING' state.
-sPendingCount :: Lens' Service (Maybe Int)
-sPendingCount = lens _sPendingCount (\s a -> s { _sPendingCount = a })
-
--- | The Amazon Resource Name (ARN) of the IAM role associated with the service
--- that allows the Amazon ECS container agent to register container instances
--- with a load balancer.
-sRoleArn :: Lens' Service (Maybe Text)
-sRoleArn = lens _sRoleArn (\s a -> s { _sRoleArn = a })
-
--- | The number of tasks in the cluster that are in the 'RUNNING' state.
-sRunningCount :: Lens' Service (Maybe Int)
-sRunningCount = lens _sRunningCount (\s a -> s { _sRunningCount = a })
-
--- | The Amazon Resource Name (ARN) that identifies the service. The ARN contains
--- the 'arn:aws:ecs' namespace, followed by the region of the service, the AWS
--- account ID of the service owner, the 'service' namespace, and then the service
--- name. For example, arn:aws:ecs:/region/:/012345678910/:service//my-service/.
-sServiceArn :: Lens' Service (Maybe Text)
-sServiceArn = lens _sServiceArn (\s a -> s { _sServiceArn = a })
-
--- | A user-generated string that you can use to identify your service.
-sServiceName :: Lens' Service (Maybe Text)
-sServiceName = lens _sServiceName (\s a -> s { _sServiceName = a })
-
--- | The status of the service. The valid values are 'ACTIVE', 'DRAINING', or 'INACTIVE'.
-sStatus :: Lens' Service (Maybe Text)
-sStatus = lens _sStatus (\s a -> s { _sStatus = a })
-
--- | The task definition to use for tasks in the service. This value is specified
--- when the service is created with 'CreateService', and it can be modified with 'UpdateService'.
-sTaskDefinition :: Lens' Service (Maybe Text)
-sTaskDefinition = lens _sTaskDefinition (\s a -> s { _sTaskDefinition = a })
-
-instance FromJSON Service where
-    parseJSON = withObject "Service" $ \o -> Service
-        <$> o .:? "clusterArn"
-        <*> o .:? "deployments" .!= mempty
-        <*> o .:? "desiredCount"
-        <*> o .:? "events" .!= mempty
-        <*> o .:? "loadBalancers" .!= mempty
-        <*> o .:? "pendingCount"
-        <*> o .:? "roleArn"
-        <*> o .:? "runningCount"
-        <*> o .:? "serviceArn"
-        <*> o .:? "serviceName"
-        <*> o .:? "status"
-        <*> o .:? "taskDefinition"
-
-instance ToJSON Service where
-    toJSON Service{..} = object
-        [ "serviceArn"     .= _sServiceArn
-        , "serviceName"    .= _sServiceName
-        , "clusterArn"     .= _sClusterArn
-        , "loadBalancers"  .= _sLoadBalancers
-        , "status"         .= _sStatus
-        , "desiredCount"   .= _sDesiredCount
-        , "runningCount"   .= _sRunningCount
-        , "pendingCount"   .= _sPendingCount
-        , "taskDefinition" .= _sTaskDefinition
-        , "deployments"    .= _sDeployments
-        , "roleArn"        .= _sRoleArn
-        , "events"         .= _sEvents
         ]
 
 data Volume = Volume

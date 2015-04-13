@@ -79,7 +79,7 @@ ds1Services = lens _ds1Services (\s a -> s { _ds1Services = a }) . _List
 
 data DescribeServicesResponse = DescribeServicesResponse
     { _dsrFailures :: List "failures" Failure
-    , _dsrServices :: List "services" Service
+    , _dsrServices :: List "services" ContainerService
     } deriving (Eq, Read, Show)
 
 -- | 'DescribeServicesResponse' constructor.
@@ -88,7 +88,7 @@ data DescribeServicesResponse = DescribeServicesResponse
 --
 -- * 'dsrFailures' @::@ ['Failure']
 --
--- * 'dsrServices' @::@ ['Service']
+-- * 'dsrServices' @::@ ['ContainerService']
 --
 describeServicesResponse :: DescribeServicesResponse
 describeServicesResponse = DescribeServicesResponse
@@ -101,7 +101,7 @@ dsrFailures :: Lens' DescribeServicesResponse [Failure]
 dsrFailures = lens _dsrFailures (\s a -> s { _dsrFailures = a }) . _List
 
 -- | The list of services described.
-dsrServices :: Lens' DescribeServicesResponse [Service]
+dsrServices :: Lens' DescribeServicesResponse [ContainerService]
 dsrServices = lens _dsrServices (\s a -> s { _dsrServices = a }) . _List
 
 instance ToPath DescribeServices where

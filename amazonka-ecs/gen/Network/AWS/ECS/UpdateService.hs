@@ -118,14 +118,14 @@ usTaskDefinition :: Lens' UpdateService (Maybe Text)
 usTaskDefinition = lens _usTaskDefinition (\s a -> s { _usTaskDefinition = a })
 
 newtype UpdateServiceResponse = UpdateServiceResponse
-    { _usrService :: Maybe Service
+    { _usrService :: Maybe ContainerService
     } deriving (Eq, Read, Show)
 
 -- | 'UpdateServiceResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'usrService' @::@ 'Maybe' 'Service'
+-- * 'usrService' @::@ 'Maybe' 'ContainerService'
 --
 updateServiceResponse :: UpdateServiceResponse
 updateServiceResponse = UpdateServiceResponse
@@ -133,7 +133,7 @@ updateServiceResponse = UpdateServiceResponse
     }
 
 -- | The full description of your service following the update call.
-usrService :: Lens' UpdateServiceResponse (Maybe Service)
+usrService :: Lens' UpdateServiceResponse (Maybe ContainerService)
 usrService = lens _usrService (\s a -> s { _usrService = a })
 
 instance ToPath UpdateService where

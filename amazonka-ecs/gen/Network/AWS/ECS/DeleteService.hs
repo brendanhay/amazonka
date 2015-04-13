@@ -78,21 +78,21 @@ dsService :: Lens' DeleteService Text
 dsService = lens _dsService (\s a -> s { _dsService = a })
 
 newtype DeleteServiceResponse = DeleteServiceResponse
-    { _dsrService :: Maybe Service
+    { _dsrService :: Maybe ContainerService
     } deriving (Eq, Read, Show)
 
 -- | 'DeleteServiceResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrService' @::@ 'Maybe' 'Service'
+-- * 'dsrService' @::@ 'Maybe' 'ContainerService'
 --
 deleteServiceResponse :: DeleteServiceResponse
 deleteServiceResponse = DeleteServiceResponse
     { _dsrService = Nothing
     }
 
-dsrService :: Lens' DeleteServiceResponse (Maybe Service)
+dsrService :: Lens' DeleteServiceResponse (Maybe ContainerService)
 dsrService = lens _dsrService (\s a -> s { _dsrService = a })
 
 instance ToPath DeleteService where

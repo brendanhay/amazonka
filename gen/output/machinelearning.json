@@ -105,7 +105,7 @@
         "url": "http://docs.aws.amazon.com/machine-learning/latest/APIReference/Welcome.html",
         "protocol": "json",
         "name": "Amazon Machine Learning",
-        "version": "0.3.3",
+        "version": "0.3.4",
         "description": "Amazon Machine Learning (Amazon ML) is a robust machine learning platform\nthat allows software developers to build and train predictive applications\nand host those applications in a scalable AWS cloud solution."
     },
     "types": {

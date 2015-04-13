@@ -43,6 +43,7 @@ module Network.AWS.ECS.DescribeClusters
     , dcrFailures
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.ECS.Types

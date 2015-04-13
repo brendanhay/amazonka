@@ -44,6 +44,7 @@ module Network.AWS.Lambda.GetPolicy
     , gprPolicy
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.RestJSON
 import Network.AWS.Lambda.Types

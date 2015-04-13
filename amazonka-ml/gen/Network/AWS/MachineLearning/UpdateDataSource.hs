@@ -46,6 +46,7 @@ module Network.AWS.MachineLearning.UpdateDataSource
     , udsrDataSourceId
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.MachineLearning.Types

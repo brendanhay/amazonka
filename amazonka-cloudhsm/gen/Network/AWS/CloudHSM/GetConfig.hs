@@ -47,6 +47,7 @@ module Network.AWS.CloudHSM.GetConfig
     , gcrConfigType
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.CloudHSM.Types

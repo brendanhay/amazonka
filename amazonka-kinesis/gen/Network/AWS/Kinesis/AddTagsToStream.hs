@@ -45,6 +45,7 @@ module Network.AWS.Kinesis.AddTagsToStream
     , addTagsToStreamResponse
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.Kinesis.Types

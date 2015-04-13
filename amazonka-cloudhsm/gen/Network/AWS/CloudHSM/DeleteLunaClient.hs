@@ -42,6 +42,7 @@ module Network.AWS.CloudHSM.DeleteLunaClient
     , dlcrStatus
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.CloudHSM.Types

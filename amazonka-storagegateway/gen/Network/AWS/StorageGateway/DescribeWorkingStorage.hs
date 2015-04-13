@@ -55,6 +55,7 @@ module Network.AWS.StorageGateway.DescribeWorkingStorage
     , dwsrWorkingStorageUsedInBytes
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types

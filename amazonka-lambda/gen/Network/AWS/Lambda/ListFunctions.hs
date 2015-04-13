@@ -48,6 +48,7 @@ module Network.AWS.Lambda.ListFunctions
     , lfrNextMarker
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.RestJSON
 import Network.AWS.Lambda.Types

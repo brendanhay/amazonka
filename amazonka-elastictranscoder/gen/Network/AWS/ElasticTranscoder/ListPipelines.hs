@@ -45,6 +45,7 @@ module Network.AWS.ElasticTranscoder.ListPipelines
     , lprPipelines
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.RestJSON
 import Network.AWS.ElasticTranscoder.Types

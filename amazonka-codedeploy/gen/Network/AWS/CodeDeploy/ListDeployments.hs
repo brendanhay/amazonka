@@ -48,6 +48,7 @@ module Network.AWS.CodeDeploy.ListDeployments
     , ldrNextToken
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.CodeDeploy.Types

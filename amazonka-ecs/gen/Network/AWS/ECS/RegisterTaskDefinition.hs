@@ -46,6 +46,7 @@ module Network.AWS.ECS.RegisterTaskDefinition
     , rtdrTaskDefinition
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.ECS.Types

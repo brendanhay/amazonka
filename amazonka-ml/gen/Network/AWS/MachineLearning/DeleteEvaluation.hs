@@ -48,6 +48,7 @@ module Network.AWS.MachineLearning.DeleteEvaluation
     , derEvaluationId
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.MachineLearning.Types

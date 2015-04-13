@@ -45,6 +45,7 @@ module Network.AWS.OpsWorks.DisassociateElasticIp
     , disassociateElasticIpResponse
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types

@@ -50,6 +50,7 @@ module Network.AWS.CognitoSync.DeleteDataset
     , ddr1Dataset
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.RestJSON
 import Network.AWS.CognitoSync.Types

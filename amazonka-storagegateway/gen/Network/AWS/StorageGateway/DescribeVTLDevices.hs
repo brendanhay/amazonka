@@ -50,6 +50,7 @@ module Network.AWS.StorageGateway.DescribeVTLDevices
     , dvtldrVTLDevices
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.StorageGateway.Types

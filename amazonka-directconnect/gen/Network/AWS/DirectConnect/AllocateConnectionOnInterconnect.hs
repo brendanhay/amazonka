@@ -57,6 +57,7 @@ module Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
     , acoirVlan
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.DirectConnect.Types

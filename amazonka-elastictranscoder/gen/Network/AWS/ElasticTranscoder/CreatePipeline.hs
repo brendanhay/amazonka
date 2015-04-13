@@ -51,6 +51,7 @@ module Network.AWS.ElasticTranscoder.CreatePipeline
     , cprWarnings
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.RestJSON
 import Network.AWS.ElasticTranscoder.Types

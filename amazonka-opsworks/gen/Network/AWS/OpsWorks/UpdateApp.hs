@@ -54,6 +54,7 @@ module Network.AWS.OpsWorks.UpdateApp
     , updateAppResponse
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types

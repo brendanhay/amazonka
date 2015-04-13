@@ -43,6 +43,7 @@ module Network.AWS.CloudTrail.StopLogging
     , stopLoggingResponse
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.CloudTrail.Types

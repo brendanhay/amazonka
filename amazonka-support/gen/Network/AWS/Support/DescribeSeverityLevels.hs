@@ -44,6 +44,7 @@ module Network.AWS.Support.DescribeSeverityLevels
     , dslrSeverityLevels
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.Support.Types

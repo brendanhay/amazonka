@@ -58,6 +58,7 @@ module Network.AWS.Lambda.UpdateEventSourceMapping
     , uesmrUUID
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.RestJSON
 import Network.AWS.Lambda.Types

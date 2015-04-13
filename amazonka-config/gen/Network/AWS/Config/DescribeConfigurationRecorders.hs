@@ -44,6 +44,7 @@ module Network.AWS.Config.DescribeConfigurationRecorders
     , dcrrConfigurationRecorders
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.Config.Types

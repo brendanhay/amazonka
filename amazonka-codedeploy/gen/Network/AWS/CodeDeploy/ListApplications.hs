@@ -43,6 +43,7 @@ module Network.AWS.CodeDeploy.ListApplications
     , lar1NextToken
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.CodeDeploy.Types

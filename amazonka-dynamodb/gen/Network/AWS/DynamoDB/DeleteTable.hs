@@ -51,6 +51,7 @@ module Network.AWS.DynamoDB.DeleteTable
     , dtrTableDescription
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.DynamoDB.Types

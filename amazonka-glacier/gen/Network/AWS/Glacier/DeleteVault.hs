@@ -56,6 +56,7 @@ module Network.AWS.Glacier.DeleteVault
     , deleteVaultResponse
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.RestJSON
 import Network.AWS.Glacier.Types

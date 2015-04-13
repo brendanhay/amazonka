@@ -66,6 +66,7 @@ module Network.AWS.OpsWorks.CloneStack
     , csrStackId
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types

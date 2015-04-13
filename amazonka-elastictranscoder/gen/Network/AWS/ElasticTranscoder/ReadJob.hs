@@ -42,6 +42,7 @@ module Network.AWS.ElasticTranscoder.ReadJob
     , rjrJob
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.RestJSON
 import Network.AWS.ElasticTranscoder.Types

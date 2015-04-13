@@ -63,6 +63,7 @@ module Network.AWS.MachineLearning.CreateMLModel
     , cmlmrMLModelId
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.MachineLearning.Types

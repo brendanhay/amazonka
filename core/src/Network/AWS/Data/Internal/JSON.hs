@@ -28,6 +28,7 @@ module Network.AWS.Data.Internal.JSON
     -- * ToJSON
     , ToJSON   (..)
     , toJSONText
+    , Object
     , object
     , (.=)
     ) where

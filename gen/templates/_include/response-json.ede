@@ -1,6 +1,12 @@
 {% for field in response.fields %}
   {% if field.value.location %}
     {% include "field.ede" %}
+  {% elif field.value.payload %}
+    {% if field.value.required %}
+        {% include "applicative.ede" %} pure o
+    {% else %}
+        {% include "applicative.ede" %} pure (Just o)
+    {% endif %}
   {% else %}
         {% include "applicative.ede" %} o {% include "json-operator.ede" %}
   {% endif %}

@@ -574,7 +574,8 @@ shapes proto time m =
           -> (Text, Ref)
           -> State (HashMap Text Type) Field
     field pay req (fld, r) = do
-        x <- ref fld r
+        let p = Just fld == pay
+        x <- ref fld r p
         let s = fromMaybe (stream x) (r ^. refStreaming)
             t = require req fld x
         return Field
@@ -583,7 +584,7 @@ shapes proto time m =
             , _fType          = t
             , _fLocation      = location proto s (r ^. refLocation)
             , _fLocationName  = fromMaybe fld (r ^. refLocationName)
-            , _fPayload       = Just fld == pay
+            , _fPayload       = p
             , _fStream        = s
             , _fDocumentation = above <$> r ^. refDocumentation
             , _fProtocol      = proto
@@ -604,8 +605,8 @@ shapes proto time m =
                 TSensitive {} -> TMaybe x
                 _             -> x
 
-    ref :: Text -> Ref -> State (HashMap Text Type) Type
-    ref fld r = do
+    ref :: Text -> Ref -> Bool -> State (HashMap Text Type) Type
+    ref fld r pay = do
         let k = r ^. refShape
             t = TType k
         mx <- gets (Map.lookup k)
@@ -614,10 +615,10 @@ shapes proto time m =
             Nothing ->
                 case Map.lookup k m of
                     Nothing -> insert k t >> return t
-                    Just y  -> prop fld r k y
+                    Just y  -> prop fld r k y pay
 
-    prop :: Text -> Ref -> Text -> Input.Shape -> State (HashMap Text Type) Type
-    prop fld r k s = do
+    prop :: Text -> Ref -> Text -> Input.Shape -> Bool -> State (HashMap Text Type) Type
+    prop fld r k s pay = do
         x <- gets (Map.lookup k)
 
         -- running 'go' here, ends up at some point selecting the wrong 'StringValueList'
@@ -633,11 +634,13 @@ shapes proto time m =
             Bool'   _ -> pure (TPrim PBool)
             Time'   x -> pure (TPrim . PTime $ fromMaybe time (x ^. tsTimestampFormat))
             Blob'   x
-                | Just True <- x ^. blbStreaming -> pure (TPrim PReq)
-                | otherwise                      -> pure (TPrim PBlob)
+                | Just True     <- x ^. blbStreaming -> pure (TPrim PReq)
+                | pay, Json     <- proto             -> pure (TPrim PObj)
+                | pay, RestJson <- proto             -> pure (TPrim PObj)
+                | otherwise                          -> pure (TPrim PBlob)
 
-            List'   x -> list x <$> ref fld (x ^. lstMember)
-            Map'    x -> hmap x <$> ref fld (x ^. mapKey) <*> ref fld (x ^. mapValue)
+            List'   x -> list x <$> ref fld (x ^. lstMember) False
+            Map'    x -> hmap x <$> ref fld (x ^. mapKey) False <*> ref fld (x ^. mapValue) False
 
             String' x
                 | Just _    <- x ^. strEnum      -> pure (TType k)

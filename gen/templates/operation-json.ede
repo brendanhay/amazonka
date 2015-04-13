@@ -1,5 +1,6 @@
 {% include "_include/operation-exports.ede" %}
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 {% include "_include/imports.ede" %}
 import qualified GHC.Exts

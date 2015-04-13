@@ -59,50 +59,36 @@ module Network.AWS.Prelude
     , Status       (..)
     ) where
 
-import Network.AWS.Error
-import Network.AWS.Types
+import           Control.Exception         (Exception)
+import           Data.ByteString           (ByteString)
+import           Data.CaseInsensitive      (CI)
+import           Data.HashMap.Strict       (HashMap)
+import           Data.List.NonEmpty        (NonEmpty (..))
+import           Data.Semigroup            (Semigroup)
+import           Data.String               (IsString (..))
+import           Data.Text                 (Text)
+import           GHC.Generics              (Generic)
+import           Network.AWS.Error
+import           Network.AWS.Types
+import           Network.HTTP.Client       (HttpException, RequestBody)
+import           Network.HTTP.Types.Method (StdMethod (..))
+import           Network.HTTP.Types.Status (Status (..))
+import           Numeric.Natural           (Natural)
 
-import Control.Exception         (Exception)
-import Data.ByteString           (ByteString)
-import Data.CaseInsensitive      (CI)
-import Data.HashMap.Strict       (HashMap)
-import Data.List.NonEmpty        (NonEmpty(..))
-import Data.Semigroup            (Semigroup)
-import Data.String               (IsString(..))
-import Data.Text                 (Text)
-import GHC.Generics              (Generic)
-import Network.HTTP.Client       (HttpException, RequestBody)
-import Network.HTTP.Types.Method (StdMethod(..))
-import Network.HTTP.Types.Status (Status(..))
-import Numeric.Natural           (Natural)
+import           Control.Applicative       as Export
+import           Data.Bifunctor            as Export
+import           Data.Coerce               as Export
+import           Data.Default.Class        as Export
+import           Data.Hashable             as Export
+import           Data.Maybe                as Export
+import           Data.Monoid               as Export hiding (All, Any, Sum)
+import           Data.Tagged               as Export
+import           Network.AWS.Data          as Export hiding (Object, Query)
+import           Network.AWS.Pagination    as Export
+import           Network.AWS.Response      as Export
+import           Prelude                   as Export hiding (error, head)
 
-import Control.Applicative       as Export
-import Data.Bifunctor            as Export
-import Data.Coerce               as Export
-import Data.Default.Class        as Export
-import Data.Hashable             as Export
-import Data.Maybe                as Export
-import Data.Monoid               as Export hiding (All, Any, Sum)
-import Data.Tagged               as Export
-import Network.AWS.Data          as Export hiding (Query)
-import Network.AWS.Pagination    as Export
-import Network.AWS.Response      as Export
-import Prelude                   as Export hiding (head, error)
-
-import Control.Lens              as Export
-    ( Lens'
-    , Prism'
-    , Iso'
-    , (&)
-    , (^.)
-    , (.~)
-    , (?~)
-    , (%~)
-    , (<>~)
-    , lens
-    , prism
-    , iso
-    , withIso
-    , to
-    , mapping
-    )
+import           Control.Lens              as Export (Iso', Lens', Prism', iso,
+                                                      lens, mapping, prism, to,
+                                                      withIso, (%~), (&), (.~),
+                                                      (<>~), (?~), (^.))

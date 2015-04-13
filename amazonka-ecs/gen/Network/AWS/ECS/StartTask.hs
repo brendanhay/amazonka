@@ -114,6 +114,14 @@ st1ContainerInstances =
 st1Overrides :: Lens' StartTask (Maybe TaskOverride)
 st1Overrides = lens _st1Overrides (\s a -> s { _st1Overrides = a })
 
+-- | An optional tag specified when a task is started. For example if you
+-- automatically trigger a task to run a batch process job, you could apply a
+-- unique identifier for that job to your task with the 'startedBy' parameter. You
+-- can then identify which tasks belong to that job by filtering the results of
+-- a 'ListTasks' call with the 'startedBy' value.
+--
+-- If a task is started by an Amazon ECS service, then the 'startedBy' parameter
+-- contains the deployment ID of the service that starts it.
 st1StartedBy :: Lens' StartTask (Maybe Text)
 st1StartedBy = lens _st1StartedBy (\s a -> s { _st1StartedBy = a })
 

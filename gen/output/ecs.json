@@ -1951,7 +1951,7 @@
                         "name": "_viAgentVersion",
                         "shape": "String",
                         "locationName": "agentVersion",
-                        "documentation": null,
+                        "documentation": "-- | The version number of the Amazon ECS container agent.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1968,7 +1968,7 @@
                         "name": "_viAgentHash",
                         "shape": "String",
                         "locationName": "agentHash",
-                        "documentation": null,
+                        "documentation": "-- | The Git commit hash for the Amazon ECS container agent build on the \u003chttps://github.com/aws/amazon-ecs-agent/commits/master amazon-ecs-agent \u003e GitHub repository.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1985,7 +1985,7 @@
                         "name": "_viDockerVersion",
                         "shape": "String",
                         "locationName": "dockerVersion",
-                        "documentation": null,
+                        "documentation": "-- | The Docker version running on the container instance.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2010,7 +2010,7 @@
                         "name": "_viAgentVersion",
                         "shape": "String",
                         "locationName": "agentVersion",
-                        "documentation": null,
+                        "documentation": "-- | The version number of the Amazon ECS container agent.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2027,7 +2027,7 @@
                         "name": "_viAgentHash",
                         "shape": "String",
                         "locationName": "agentHash",
-                        "documentation": null,
+                        "documentation": "-- | The Git commit hash for the Amazon ECS container agent build on the \u003chttps://github.com/aws/amazon-ecs-agent/commits/master amazon-ecs-agent \u003e GitHub repository.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2044,7 +2044,7 @@
                         "name": "_viDockerVersion",
                         "shape": "String",
                         "locationName": "dockerVersion",
-                        "documentation": null,
+                        "documentation": "-- | The Docker version running on the container instance.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2063,7 +2063,7 @@
                         "name": "_viAgentHash",
                         "shape": "String",
                         "locationName": "agentHash",
-                        "documentation": null,
+                        "documentation": "-- | The Git commit hash for the Amazon ECS container agent build on the \u003chttps://github.com/aws/amazon-ecs-agent/commits/master amazon-ecs-agent \u003e GitHub repository.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2080,7 +2080,7 @@
                         "name": "_viAgentVersion",
                         "shape": "String",
                         "locationName": "agentVersion",
-                        "documentation": null,
+                        "documentation": "-- | The version number of the Amazon ECS container agent.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2097,7 +2097,7 @@
                         "name": "_viDockerVersion",
                         "shape": "String",
                         "locationName": "dockerVersion",
-                        "documentation": null,
+                        "documentation": "-- | The Docker version running on the container instance.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3775,7 +3775,7 @@
                         "name": "_tStartedBy",
                         "shape": "String",
                         "locationName": "startedBy",
-                        "documentation": null,
+                        "documentation": "-- | The tag specified when a task is started. If the task is started by an Amazon\n-- ECS service, then the 'startedBy' parameter contains the deployment ID of the\n-- service that starts it.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3936,7 +3936,7 @@
                         "name": "_tStartedBy",
                         "shape": "String",
                         "locationName": "startedBy",
-                        "documentation": null,
+                        "documentation": "-- | The tag specified when a task is started. If the task is started by an Amazon\n-- ECS service, then the 'startedBy' parameter contains the deployment ID of the\n-- service that starts it.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -4057,7 +4057,7 @@
                         "name": "_tStartedBy",
                         "shape": "String",
                         "locationName": "startedBy",
-                        "documentation": null,
+                        "documentation": "-- | The tag specified when a task is started. If the task is started by an Amazon\n-- ECS service, then the 'startedBy' parameter contains the deployment ID of the\n-- service that starts it.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -6288,7 +6288,7 @@
                         "name": "_csClientToken",
                         "shape": "String",
                         "locationName": "clientToken",
-                        "documentation": "-- | Unique, case-sensitive identifier you provide to ensure the idempotency of\n-- the request. Up to 64 ASCII characters are allowed.",
+                        "documentation": "-- | Unique, case-sensitive identifier you provide to ensure the idempotency of\n-- the request. Up to 32 ASCII characters are allowed.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -6429,7 +6429,7 @@
                         "name": "_csClientToken",
                         "shape": "String",
                         "locationName": "clientToken",
-                        "documentation": "-- | Unique, case-sensitive identifier you provide to ensure the idempotency of\n-- the request. Up to 64 ASCII characters are allowed.",
+                        "documentation": "-- | Unique, case-sensitive identifier you provide to ensure the idempotency of\n-- the request. Up to 32 ASCII characters are allowed.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -6465,7 +6465,7 @@
                         "name": "_csClientToken",
                         "shape": "String",
                         "locationName": "clientToken",
-                        "documentation": "-- | Unique, case-sensitive identifier you provide to ensure the idempotency of\n-- the request. Up to 64 ASCII characters are allowed.",
+                        "documentation": "-- | Unique, case-sensitive identifier you provide to ensure the idempotency of\n-- the request. Up to 32 ASCII characters are allowed.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -11079,7 +11079,7 @@
                         "name": "_ltStartedBy",
                         "shape": "String",
                         "locationName": "startedBy",
-                        "documentation": null,
+                        "documentation": "-- | The 'startedBy' value that you want to filter the task results with. Specifying\n-- a 'startedBy' value will limit the results to tasks that were started with that\n-- value.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -11219,7 +11219,7 @@
                         "name": "_ltStartedBy",
                         "shape": "String",
                         "locationName": "startedBy",
-                        "documentation": null,
+                        "documentation": "-- | The 'startedBy' value that you want to filter the task results with. Specifying\n-- a 'startedBy' value will limit the results to tasks that were started with that\n-- value.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -11357,7 +11357,7 @@
                         "name": "_ltStartedBy",
                         "shape": "String",
                         "locationName": "startedBy",
-                        "documentation": null,
+                        "documentation": "-- | The 'startedBy' value that you want to filter the task results with. Specifying\n-- a 'startedBy' value will limit the results to tasks that were started with that\n-- value.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -12314,7 +12314,7 @@
                         "name": "_rtStartedBy",
                         "shape": "String",
                         "locationName": "startedBy",
-                        "documentation": null,
+                        "documentation": "-- | An optional tag specified when a task is started. For example if you\n-- automatically trigger a task to run a batch process job, you could apply a\n-- unique identifier for that job to your task with the 'startedBy' parameter. You\n-- can then identify which tasks belong to that job by filtering the results of\n-- a 'ListTasks' call with the 'startedBy' value.\n--\n-- If a task is started by an Amazon ECS service, then the 'startedBy' parameter\n-- contains the deployment ID of the service that starts it.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -12421,7 +12421,7 @@
                         "name": "_rtStartedBy",
                         "shape": "String",
                         "locationName": "startedBy",
-                        "documentation": null,
+                        "documentation": "-- | An optional tag specified when a task is started. For example if you\n-- automatically trigger a task to run a batch process job, you could apply a\n-- unique identifier for that job to your task with the 'startedBy' parameter. You\n-- can then identify which tasks belong to that job by filtering the results of\n-- a 'ListTasks' call with the 'startedBy' value.\n--\n-- If a task is started by an Amazon ECS service, then the 'startedBy' parameter\n-- contains the deployment ID of the service that starts it.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -12491,7 +12491,7 @@
                         "name": "_rtStartedBy",
                         "shape": "String",
                         "locationName": "startedBy",
-                        "documentation": null,
+                        "documentation": "-- | An optional tag specified when a task is started. For example if you\n-- automatically trigger a task to run a batch process job, you could apply a\n-- unique identifier for that job to your task with the 'startedBy' parameter. You\n-- can then identify which tasks belong to that job by filtering the results of\n-- a 'ListTasks' call with the 'startedBy' value.\n--\n-- If a task is started by an Amazon ECS service, then the 'startedBy' parameter\n-- contains the deployment ID of the service that starts it.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -12754,7 +12754,7 @@
                         "name": "_st1StartedBy",
                         "shape": "String",
                         "locationName": "startedBy",
-                        "documentation": null,
+                        "documentation": "-- | An optional tag specified when a task is started. For example if you\n-- automatically trigger a task to run a batch process job, you could apply a\n-- unique identifier for that job to your task with the 'startedBy' parameter. You\n-- can then identify which tasks belong to that job by filtering the results of\n-- a 'ListTasks' call with the 'startedBy' value.\n--\n-- If a task is started by an Amazon ECS service, then the 'startedBy' parameter\n-- contains the deployment ID of the service that starts it.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -12861,7 +12861,7 @@
                         "name": "_st1StartedBy",
                         "shape": "String",
                         "locationName": "startedBy",
-                        "documentation": null,
+                        "documentation": "-- | An optional tag specified when a task is started. For example if you\n-- automatically trigger a task to run a batch process job, you could apply a\n-- unique identifier for that job to your task with the 'startedBy' parameter. You\n-- can then identify which tasks belong to that job by filtering the results of\n-- a 'ListTasks' call with the 'startedBy' value.\n--\n-- If a task is started by an Amazon ECS service, then the 'startedBy' parameter\n-- contains the deployment ID of the service that starts it.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -12931,7 +12931,7 @@
                         "name": "_st1StartedBy",
                         "shape": "String",
                         "locationName": "startedBy",
-                        "documentation": null,
+                        "documentation": "-- | An optional tag specified when a task is started. For example if you\n-- automatically trigger a task to run a batch process job, you could apply a\n-- unique identifier for that job to your task with the 'startedBy' parameter. You\n-- can then identify which tasks belong to that job by filtering the results of\n-- a 'ListTasks' call with the 'startedBy' value.\n--\n-- If a task is started by an Amazon ECS service, then the 'startedBy' parameter\n-- contains the deployment ID of the service that starts it.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },

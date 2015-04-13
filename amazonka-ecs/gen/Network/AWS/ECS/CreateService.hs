@@ -96,7 +96,7 @@ createService p1 = CreateService
     }
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency of
--- the request. Up to 64 ASCII characters are allowed.
+-- the request. Up to 32 ASCII characters are allowed.
 csClientToken :: Lens' CreateService (Maybe Text)
 csClientToken = lens _csClientToken (\s a -> s { _csClientToken = a })
 

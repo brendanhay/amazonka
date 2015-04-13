@@ -137,6 +137,9 @@ ltNextToken = lens _ltNextToken (\s a -> s { _ltNextToken = a })
 ltServiceName :: Lens' ListTasks (Maybe Text)
 ltServiceName = lens _ltServiceName (\s a -> s { _ltServiceName = a })
 
+-- | The 'startedBy' value that you want to filter the task results with. Specifying
+-- a 'startedBy' value will limit the results to tasks that were started with that
+-- value.
 ltStartedBy :: Lens' ListTasks (Maybe Text)
 ltStartedBy = lens _ltStartedBy (\s a -> s { _ltStartedBy = a })
 

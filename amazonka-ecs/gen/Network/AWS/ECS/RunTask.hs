@@ -112,6 +112,14 @@ rtCount = lens _rtCount (\s a -> s { _rtCount = a })
 rtOverrides :: Lens' RunTask (Maybe TaskOverride)
 rtOverrides = lens _rtOverrides (\s a -> s { _rtOverrides = a })
 
+-- | An optional tag specified when a task is started. For example if you
+-- automatically trigger a task to run a batch process job, you could apply a
+-- unique identifier for that job to your task with the 'startedBy' parameter. You
+-- can then identify which tasks belong to that job by filtering the results of
+-- a 'ListTasks' call with the 'startedBy' value.
+--
+-- If a task is started by an Amazon ECS service, then the 'startedBy' parameter
+-- contains the deployment ID of the service that starts it.
 rtStartedBy :: Lens' RunTask (Maybe Text)
 rtStartedBy = lens _rtStartedBy (\s a -> s { _rtStartedBy = a })
 

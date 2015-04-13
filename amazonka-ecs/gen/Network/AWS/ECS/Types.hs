@@ -797,12 +797,15 @@ versionInfo = VersionInfo
     , _viDockerVersion = Nothing
     }
 
+-- | The Git commit hash for the Amazon ECS container agent build on the <https://github.com/aws/amazon-ecs-agent/commits/master amazon-ecs-agent > GitHub repository.
 viAgentHash :: Lens' VersionInfo (Maybe Text)
 viAgentHash = lens _viAgentHash (\s a -> s { _viAgentHash = a })
 
+-- | The version number of the Amazon ECS container agent.
 viAgentVersion :: Lens' VersionInfo (Maybe Text)
 viAgentVersion = lens _viAgentVersion (\s a -> s { _viAgentVersion = a })
 
+-- | The Docker version running on the container instance.
 viDockerVersion :: Lens' VersionInfo (Maybe Text)
 viDockerVersion = lens _viDockerVersion (\s a -> s { _viDockerVersion = a })
 
@@ -1264,6 +1267,9 @@ tLastStatus = lens _tLastStatus (\s a -> s { _tLastStatus = a })
 tOverrides :: Lens' Task (Maybe TaskOverride)
 tOverrides = lens _tOverrides (\s a -> s { _tOverrides = a })
 
+-- | The tag specified when a task is started. If the task is started by an Amazon
+-- ECS service, then the 'startedBy' parameter contains the deployment ID of the
+-- service that starts it.
 tStartedBy :: Lens' Task (Maybe Text)
 tStartedBy = lens _tStartedBy (\s a -> s { _tStartedBy = a })
 

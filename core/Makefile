@@ -7,7 +7,8 @@ include $(TOP)/share/library.mk
 .PHONY: test
 
 test: cabal.config.stripped
-	cabal install --only-dep && \
+	ln -fs $(CABAL_SANDBOX_CONFIG) cabal.sandbox.config && \
+ cabal install --only-dep && \
  cabal configure --enable-tests && \
  cabal build && \
  cabal test

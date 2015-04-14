@@ -6,7 +6,7 @@ include $(TOP)/share/library.mk
 
 .PHONY: test
 
-test:
+test: cabal.config
 	cabal install --enable-tests --only-dep --force-reinstalls && \
  cabal configure --enable-tests && \
  cabal build && \

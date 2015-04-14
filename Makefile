@@ -22,4 +22,4 @@ cabal.sandbox.config:
 	cabal sandbox init
 
 travis:
-	@make -C deps && make -C core test
+	@make -C core test

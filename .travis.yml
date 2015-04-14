@@ -1,5 +1,8 @@
 language: haskell
-ghc:      7.8.4
+ghc:
+  - '7.10'
+  - 7.8
+  - 7.6
 install:  []
 script:   [make travis]
 

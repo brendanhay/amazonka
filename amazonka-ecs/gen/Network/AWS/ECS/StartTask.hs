@@ -26,6 +26,10 @@
 -- container instance or instances. If you want to use the default Amazon ECS
 -- scheduler to place your task, use 'RunTask' instead.
 --
+-- The list of container instances to start tasks on is limited to 10.
+--
+--
+--
 -- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StartTask.html>
 module Network.AWS.ECS.StartTask
     (
@@ -37,6 +41,7 @@ module Network.AWS.ECS.StartTask
     , st1Cluster
     , st1ContainerInstances
     , st1Overrides
+    , st1StartedBy
     , st1TaskDefinition
 
     -- * Response
@@ -48,6 +53,7 @@ module Network.AWS.ECS.StartTask
     , strTasks
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.ECS.Types
@@ -57,6 +63,7 @@ data StartTask = StartTask
     { _st1Cluster            :: Maybe Text
     , _st1ContainerInstances :: List "containerInstances" Text
     , _st1Overrides          :: Maybe TaskOverride
+    , _st1StartedBy          :: Maybe Text
     , _st1TaskDefinition     :: Text
     } deriving (Eq, Read, Show)
 
@@ -70,6 +77,8 @@ data StartTask = StartTask
 --
 -- * 'st1Overrides' @::@ 'Maybe' 'TaskOverride'
 --
+-- * 'st1StartedBy' @::@ 'Maybe' 'Text'
+--
 -- * 'st1TaskDefinition' @::@ 'Text'
 --
 startTask :: Text -- ^ 'st1TaskDefinition'
@@ -79,6 +88,7 @@ startTask p1 = StartTask
     , _st1Cluster            = Nothing
     , _st1Overrides          = Nothing
     , _st1ContainerInstances = mempty
+    , _st1StartedBy          = Nothing
     }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that you
@@ -89,13 +99,32 @@ st1Cluster = lens _st1Cluster (\s a -> s { _st1Cluster = a })
 
 -- | The container instance UUIDs or full Amazon Resource Name (ARN) entries for
 -- the container instances on which you would like to place your task.
+--
+-- The list of container instances to start tasks on is limited to 10.
+--
+--
 st1ContainerInstances :: Lens' StartTask [Text]
 st1ContainerInstances =
     lens _st1ContainerInstances (\s a -> s { _st1ContainerInstances = a })
         . _List
 
+-- | A list of container overrides in JSON format that specify the name of a
+-- container in the specified task definition and the command it should run
+-- instead of its default. A total of 8192 characters are allowed for overrides.
+-- This limit includes the JSON formatting characters of the override structure.
 st1Overrides :: Lens' StartTask (Maybe TaskOverride)
 st1Overrides = lens _st1Overrides (\s a -> s { _st1Overrides = a })
+
+-- | An optional tag specified when a task is started. For example if you
+-- automatically trigger a task to run a batch process job, you could apply a
+-- unique identifier for that job to your task with the 'startedBy' parameter. You
+-- can then identify which tasks belong to that job by filtering the results of
+-- a 'ListTasks' call with the 'startedBy' value.
+--
+-- If a task is started by an Amazon ECS service, then the 'startedBy' parameter
+-- contains the deployment ID of the service that starts it.
+st1StartedBy :: Lens' StartTask (Maybe Text)
+st1StartedBy = lens _st1StartedBy (\s a -> s { _st1StartedBy = a })
 
 -- | The 'family' and 'revision' ('family:revision') or full Amazon Resource Name (ARN)
 -- of the task definition that you want to start.
@@ -145,6 +174,7 @@ instance ToJSON StartTask where
         , "taskDefinition"     .= _st1TaskDefinition
         , "overrides"          .= _st1Overrides
         , "containerInstances" .= _st1ContainerInstances
+        , "startedBy"          .= _st1StartedBy
         ]
 
 instance AWSRequest StartTask where

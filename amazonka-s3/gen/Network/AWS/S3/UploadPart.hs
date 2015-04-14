@@ -44,6 +44,7 @@ module Network.AWS.S3.UploadPart
     , upContentMD5
     , upKey
     , upPartNumber
+    , upRequestPayer
     , upSSECustomerAlgorithm
     , upSSECustomerKey
     , upSSECustomerKeyMD5
@@ -55,6 +56,7 @@ module Network.AWS.S3.UploadPart
     , uploadPartResponse
     -- ** Response lenses
     , uprETag
+    , uprRequestCharged
     , uprSSECustomerAlgorithm
     , uprSSECustomerKeyMD5
     , uprSSEKMSKeyId
@@ -73,6 +75,7 @@ data UploadPart = UploadPart
     , _upContentMD5           :: Maybe Text
     , _upKey                  :: Text
     , _upPartNumber           :: Int
+    , _upRequestPayer         :: Maybe RequestPayer
     , _upSSECustomerAlgorithm :: Maybe Text
     , _upSSECustomerKey       :: Maybe (Sensitive Text)
     , _upSSECustomerKeyMD5    :: Maybe Text
@@ -94,6 +97,8 @@ data UploadPart = UploadPart
 -- * 'upKey' @::@ 'Text'
 --
 -- * 'upPartNumber' @::@ 'Int'
+--
+-- * 'upRequestPayer' @::@ 'Maybe' 'RequestPayer'
 --
 -- * 'upSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
 --
@@ -120,6 +125,7 @@ uploadPart p1 p2 p3 p4 p5 = UploadPart
     , _upSSECustomerAlgorithm = Nothing
     , _upSSECustomerKey       = Nothing
     , _upSSECustomerKeyMD5    = Nothing
+    , _upRequestPayer         = Nothing
     }
 
 upBody :: Lens' UploadPart RqBody
@@ -142,6 +148,9 @@ upKey = lens _upKey (\s a -> s { _upKey = a })
 -- | Part number of part being uploaded.
 upPartNumber :: Lens' UploadPart Int
 upPartNumber = lens _upPartNumber (\s a -> s { _upPartNumber = a })
+
+upRequestPayer :: Lens' UploadPart (Maybe RequestPayer)
+upRequestPayer = lens _upRequestPayer (\s a -> s { _upRequestPayer = a })
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g., AES256,
 -- aws:kms).
@@ -171,6 +180,7 @@ upUploadId = lens _upUploadId (\s a -> s { _upUploadId = a })
 
 data UploadPartResponse = UploadPartResponse
     { _uprETag                 :: Maybe Text
+    , _uprRequestCharged       :: Maybe RequestCharged
     , _uprSSECustomerAlgorithm :: Maybe Text
     , _uprSSECustomerKeyMD5    :: Maybe Text
     , _uprSSEKMSKeyId          :: Maybe (Sensitive Text)
@@ -182,6 +192,8 @@ data UploadPartResponse = UploadPartResponse
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'uprETag' @::@ 'Maybe' 'Text'
+--
+-- * 'uprRequestCharged' @::@ 'Maybe' 'RequestCharged'
 --
 -- * 'uprSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
 --
@@ -198,11 +210,16 @@ uploadPartResponse = UploadPartResponse
     , _uprSSECustomerAlgorithm = Nothing
     , _uprSSECustomerKeyMD5    = Nothing
     , _uprSSEKMSKeyId          = Nothing
+    , _uprRequestCharged       = Nothing
     }
 
 -- | Entity tag for the uploaded object.
 uprETag :: Lens' UploadPartResponse (Maybe Text)
 uprETag = lens _uprETag (\s a -> s { _uprETag = a })
+
+uprRequestCharged :: Lens' UploadPartResponse (Maybe RequestCharged)
+uprRequestCharged =
+    lens _uprRequestCharged (\s a -> s { _uprRequestCharged = a })
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header confirming the encryption
@@ -250,6 +267,7 @@ instance ToHeaders UploadPart where
         , "x-amz-server-side-encryption-customer-algorithm" =: _upSSECustomerAlgorithm
         , "x-amz-server-side-encryption-customer-key"       =: _upSSECustomerKey
         , "x-amz-server-side-encryption-customer-key-MD5"   =: _upSSECustomerKeyMD5
+        , "x-amz-request-payer"                             =: _upRequestPayer
         ]
 
 instance ToBody UploadPart where
@@ -262,6 +280,7 @@ instance AWSRequest UploadPart where
     request  = stream PUT
     response = headerResponse $ \h -> UploadPartResponse
         <$> h ~:? "ETag"
+        <*> h ~:? "x-amz-request-charged"
         <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
         <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
         <*> h ~:? "x-amz-server-side-encryption-aws-kms-key-id"

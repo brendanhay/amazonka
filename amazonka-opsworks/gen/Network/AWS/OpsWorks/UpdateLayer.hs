@@ -58,6 +58,7 @@ module Network.AWS.OpsWorks.UpdateLayer
     , updateLayerResponse
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
@@ -205,10 +206,14 @@ ulName = lens _ulName (\s a -> s { _ulName = a })
 ulPackages :: Lens' UpdateLayer [Text]
 ulPackages = lens _ulPackages (\s a -> s { _ulPackages = a }) . _List
 
--- | The layer short name, which is used internally by AWS OpsWorksand by Chef.
--- The short name is also used as the name for the directory where your app
--- files are installed. It can have a maximum of 200 characters and must be in
--- the following format: /\A[a-z0-9\-\_\.]+\Z/.
+-- | For custom layers only, use this parameter to specify the layer's short name,
+-- which is used internally by AWS OpsWorksand by Chef. The short name is also
+-- used as the name for the directory where your app files are installed. It can
+-- have a maximum of 200 characters and must be in the following format:
+-- /\A[a-z0-9\-\_\.]+\Z/.
+--
+-- The built-in layers' short names are defined by AWS OpsWorks. For more
+-- information, see the <http://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference>
 ulShortname :: Lens' UpdateLayer (Maybe Text)
 ulShortname = lens _ulShortname (\s a -> s { _ulShortname = a })
 

@@ -41,6 +41,7 @@ module Network.AWS.S3.HeadObject
     , hoIfUnmodifiedSince
     , hoKey
     , hoRange
+    , hoRequestPayer
     , hoSSECustomerAlgorithm
     , hoSSECustomerKey
     , hoSSECustomerKeyMD5
@@ -65,6 +66,8 @@ module Network.AWS.S3.HeadObject
     , horLastModified
     , horMetadata
     , horMissingMeta
+    , horReplicationStatus
+    , horRequestCharged
     , horRestore
     , horSSECustomerAlgorithm
     , horSSECustomerKeyMD5
@@ -87,11 +90,12 @@ data HeadObject = HeadObject
     , _hoIfUnmodifiedSince    :: Maybe RFC822
     , _hoKey                  :: Text
     , _hoRange                :: Maybe Text
+    , _hoRequestPayer         :: Maybe RequestPayer
     , _hoSSECustomerAlgorithm :: Maybe Text
     , _hoSSECustomerKey       :: Maybe (Sensitive Text)
     , _hoSSECustomerKeyMD5    :: Maybe Text
     , _hoVersionId            :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'HeadObject' constructor.
 --
@@ -110,6 +114,8 @@ data HeadObject = HeadObject
 -- * 'hoKey' @::@ 'Text'
 --
 -- * 'hoRange' @::@ 'Maybe' 'Text'
+--
+-- * 'hoRequestPayer' @::@ 'Maybe' 'RequestPayer'
 --
 -- * 'hoSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
 --
@@ -134,6 +140,7 @@ headObject p1 p2 = HeadObject
     , _hoSSECustomerAlgorithm = Nothing
     , _hoSSECustomerKey       = Nothing
     , _hoSSECustomerKeyMD5    = Nothing
+    , _hoRequestPayer         = Nothing
     }
 
 hoBucket :: Lens' HeadObject Text
@@ -171,6 +178,9 @@ hoKey = lens _hoKey (\s a -> s { _hoKey = a })
 -- http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.
 hoRange :: Lens' HeadObject (Maybe Text)
 hoRange = lens _hoRange (\s a -> s { _hoRange = a })
+
+hoRequestPayer :: Lens' HeadObject (Maybe RequestPayer)
+hoRequestPayer = lens _hoRequestPayer (\s a -> s { _hoRequestPayer = a })
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g., AES256,
 -- aws:kms).
@@ -212,6 +222,8 @@ data HeadObjectResponse = HeadObjectResponse
     , _horLastModified            :: Maybe RFC822
     , _horMetadata                :: Map (CI Text) Text
     , _horMissingMeta             :: Maybe Int
+    , _horReplicationStatus       :: Maybe ReplicationStatus
+    , _horRequestCharged          :: Maybe RequestCharged
     , _horRestore                 :: Maybe Text
     , _horSSECustomerAlgorithm    :: Maybe Text
     , _horSSECustomerKeyMD5       :: Maybe Text
@@ -253,6 +265,10 @@ data HeadObjectResponse = HeadObjectResponse
 --
 -- * 'horMissingMeta' @::@ 'Maybe' 'Int'
 --
+-- * 'horReplicationStatus' @::@ 'Maybe' 'ReplicationStatus'
+--
+-- * 'horRequestCharged' @::@ 'Maybe' 'RequestCharged'
+--
 -- * 'horRestore' @::@ 'Maybe' 'Text'
 --
 -- * 'horSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
@@ -290,6 +306,8 @@ headObjectResponse = HeadObjectResponse
     , _horSSECustomerAlgorithm    = Nothing
     , _horSSECustomerKeyMD5       = Nothing
     , _horSSEKMSKeyId             = Nothing
+    , _horRequestCharged          = Nothing
+    , _horReplicationStatus       = Nothing
     }
 
 horAcceptRanges :: Lens' HeadObjectResponse (Maybe Text)
@@ -360,6 +378,14 @@ horMetadata = lens _horMetadata (\s a -> s { _horMetadata = a }) . _Map
 horMissingMeta :: Lens' HeadObjectResponse (Maybe Int)
 horMissingMeta = lens _horMissingMeta (\s a -> s { _horMissingMeta = a })
 
+horReplicationStatus :: Lens' HeadObjectResponse (Maybe ReplicationStatus)
+horReplicationStatus =
+    lens _horReplicationStatus (\s a -> s { _horReplicationStatus = a })
+
+horRequestCharged :: Lens' HeadObjectResponse (Maybe RequestCharged)
+horRequestCharged =
+    lens _horRequestCharged (\s a -> s { _horRequestCharged = a })
+
 -- | Provides information about object restoration operation and expiration time
 -- of the restored object copy.
 horRestore :: Lens' HeadObjectResponse (Maybe Text)
@@ -423,6 +449,7 @@ instance ToHeaders HeadObject where
         , "x-amz-server-side-encryption-customer-algorithm" =: _hoSSECustomerAlgorithm
         , "x-amz-server-side-encryption-customer-key"       =: _hoSSECustomerKey
         , "x-amz-server-side-encryption-customer-key-MD5"   =: _hoSSECustomerKeyMD5
+        , "x-amz-request-payer"                             =: _hoRequestPayer
         ]
 
 instance ToXMLRoot HeadObject where
@@ -450,6 +477,8 @@ instance AWSRequest HeadObject where
         <*> h ~:? "Last-Modified"
         <*> h ~:: "x-amz-meta-"
         <*> h ~:? "x-amz-missing-meta"
+        <*> h ~:? "x-amz-replication-status"
+        <*> h ~:? "x-amz-request-charged"
         <*> h ~:? "x-amz-restore"
         <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
         <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"

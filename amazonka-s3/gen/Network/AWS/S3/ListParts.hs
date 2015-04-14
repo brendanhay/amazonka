@@ -36,6 +36,7 @@ module Network.AWS.S3.ListParts
     , lpKey
     , lpMaxParts
     , lpPartNumberMarker
+    , lpRequestPayer
     , lpUploadId
 
     -- * Response
@@ -52,6 +53,7 @@ module Network.AWS.S3.ListParts
     , lprOwner
     , lprPartNumberMarker
     , lprParts
+    , lprRequestCharged
     , lprStorageClass
     , lprUploadId
     ) where
@@ -66,8 +68,9 @@ data ListParts = ListParts
     , _lpKey              :: Text
     , _lpMaxParts         :: Maybe Int
     , _lpPartNumberMarker :: Maybe Int
+    , _lpRequestPayer     :: Maybe RequestPayer
     , _lpUploadId         :: Text
-    } deriving (Eq, Ord, Read, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'ListParts' constructor.
 --
@@ -81,6 +84,8 @@ data ListParts = ListParts
 --
 -- * 'lpPartNumberMarker' @::@ 'Maybe' 'Int'
 --
+-- * 'lpRequestPayer' @::@ 'Maybe' 'RequestPayer'
+--
 -- * 'lpUploadId' @::@ 'Text'
 --
 listParts :: Text -- ^ 'lpBucket'
@@ -93,6 +98,7 @@ listParts p1 p2 p3 = ListParts
     , _lpUploadId         = p3
     , _lpMaxParts         = Nothing
     , _lpPartNumberMarker = Nothing
+    , _lpRequestPayer     = Nothing
     }
 
 lpBucket :: Lens' ListParts Text
@@ -111,6 +117,9 @@ lpPartNumberMarker :: Lens' ListParts (Maybe Int)
 lpPartNumberMarker =
     lens _lpPartNumberMarker (\s a -> s { _lpPartNumberMarker = a })
 
+lpRequestPayer :: Lens' ListParts (Maybe RequestPayer)
+lpRequestPayer = lens _lpRequestPayer (\s a -> s { _lpRequestPayer = a })
+
 -- | Upload ID identifying the multipart upload whose parts are being listed.
 lpUploadId :: Lens' ListParts Text
 lpUploadId = lens _lpUploadId (\s a -> s { _lpUploadId = a })
@@ -125,6 +134,7 @@ data ListPartsResponse = ListPartsResponse
     , _lprOwner                :: Maybe Owner
     , _lprPartNumberMarker     :: Maybe Int
     , _lprParts                :: List "Part" Part
+    , _lprRequestCharged       :: Maybe RequestCharged
     , _lprStorageClass         :: Maybe StorageClass
     , _lprUploadId             :: Maybe Text
     } deriving (Eq, Read, Show)
@@ -151,6 +161,8 @@ data ListPartsResponse = ListPartsResponse
 --
 -- * 'lprParts' @::@ ['Part']
 --
+-- * 'lprRequestCharged' @::@ 'Maybe' 'RequestCharged'
+--
 -- * 'lprStorageClass' @::@ 'Maybe' 'StorageClass'
 --
 -- * 'lprUploadId' @::@ 'Maybe' 'Text'
@@ -168,6 +180,7 @@ listPartsResponse = ListPartsResponse
     , _lprInitiator            = Nothing
     , _lprOwner                = Nothing
     , _lprStorageClass         = Nothing
+    , _lprRequestCharged       = Nothing
     }
 
 -- | Name of the bucket to which the multipart upload was initiated.
@@ -208,6 +221,10 @@ lprPartNumberMarker =
 lprParts :: Lens' ListPartsResponse [Part]
 lprParts = lens _lprParts (\s a -> s { _lprParts = a }) . _List
 
+lprRequestCharged :: Lens' ListPartsResponse (Maybe RequestCharged)
+lprRequestCharged =
+    lens _lprRequestCharged (\s a -> s { _lprRequestCharged = a })
+
 -- | The class of storage used to store the object.
 lprStorageClass :: Lens' ListPartsResponse (Maybe StorageClass)
 lprStorageClass = lens _lprStorageClass (\s a -> s { _lprStorageClass = a })
@@ -231,7 +248,10 @@ instance ToQuery ListParts where
         , "uploadId"           =? _lpUploadId
         ]
 
-instance ToHeaders ListParts
+instance ToHeaders ListParts where
+    toHeaders ListParts{..} = mconcat
+        [ "x-amz-request-payer" =: _lpRequestPayer
+        ]
 
 instance ToXMLRoot ListParts where
     toXMLRoot = const (namespaced ns "ListParts" [])
@@ -243,10 +263,7 @@ instance AWSRequest ListParts where
     type Rs ListParts = ListPartsResponse
 
     request  = get
-    response = xmlResponse
-
-instance FromXML ListPartsResponse where
-    parseXML x = ListPartsResponse
+    response = xmlHeaderResponse $ \h x -> ListPartsResponse
         <$> x .@? "Bucket"
         <*> x .@? "Initiator"
         <*> x .@? "IsTruncated"
@@ -255,7 +272,8 @@ instance FromXML ListPartsResponse where
         <*> x .@? "NextPartNumberMarker"
         <*> x .@? "Owner"
         <*> x .@? "PartNumberMarker"
-        <*> parseXML x
+        <*> x .@? "Part" .!@ mempty
+        <*> h ~:? "x-amz-request-charged"
         <*> x .@? "StorageClass"
         <*> x .@? "UploadId"
 

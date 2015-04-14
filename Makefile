@@ -21,5 +21,5 @@ full-clean: clean
 cabal.sandbox.config:
 	cabal sandbox init
 
-travis:
+travis: cabal.sandbox.config
 	@make -C core test

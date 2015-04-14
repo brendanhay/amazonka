@@ -60,7 +60,7 @@ currentLibraryVersion :: Version
 currentLibraryVersion = initial
     & major .~ 0
     & minor .~ 3
-    & patch .~ 3
+    & patch .~ 4
 
 class ToFilePath a where
     toFilePath :: a -> FilePath
@@ -592,42 +592,61 @@ data Expected
     = ExpectStatus !Int
     | ExpectText   !Text
     | ExpectCtor   !Text
+    | ExpectBool   !Bool
       deriving (Eq, Show)
 
 instance FromJSON Expected where
     parseJSON (String s) = pure (ExpectText s)
+    parseJSON (Bool   b) = pure (ExpectBool b)
     parseJSON o          = ExpectStatus <$> parseJSON o
 
 instance A.ToJSON Expected where
     toJSON (ExpectStatus n) = A.toJSON n
     toJSON (ExpectText   s) = A.toJSON ("\"" <> s <> "\"")
     toJSON (ExpectCtor   c) = A.toJSON c
+    toJSON (ExpectBool   b) = A.toJSON (show b)
 
 data Notation
     = Indexed !Text !Notation
     | Nested  !Text !Notation
     | Access  !Text
+    | Bounds  !Text !Ordering !Int
       deriving (Eq, Show)
 
 instance FromJSON Notation where
     parseJSON = withText "notation" (either fail pure . parseOnly note)
       where
         note :: Parser Notation
-        note = (indexed <|> nested <|> access) <* AText.endOfInput
+        note = (bounds <|> indexed <|> nested <|> access) <* AText.endOfInput
+
+        key = AText.takeWhile1 (AText.notInClass "[].")
 
         indexed = Indexed <$> key <* AText.string "[]." <*> note
         nested  = Nested  <$> key <* AText.char '.'     <*> note
         access  = Access  <$> key
 
-        key = AText.takeWhile1 (AText.notInClass "[].")
+        bounds  = Bounds <$> k <*> s <*> n
+          where
+            k = AText.string "length(" *> AText.takeWhile1 (/= ')') <* AText.char ')'
+
+            n = AText.char '`' *> AText.decimal <* AText.char '`'
+
+            s = AText.skipSpace *> (gt <|> lt <|> eq) <* AText.skipSpace
+
+            gt = AText.char '>'    >> return GT
+            lt = AText.char '<'    >> return LT
+            eq = AText.string "==" >> return EQ
 
 instance A.ToJSON Notation where
     toJSON = A.toJSON . go
       where
         go = \case
-            Indexed k i -> "folding (concatOf " <> k <> ") . " <> go i
-            Nested  k i -> k <> " . " <> go i
-            Access  k   -> k
+            Indexed k i    -> "folding (concatOf " <> k <> ") . " <> go i
+            Nested  k i    -> k <> " . " <> go i
+            Access  k      -> k
+            Bounds  k GT 0 -> "nonEmpty " <> k
+            Bounds  k _  _ ->
+                error $ "Bounds notation not implemented for: " ++ show k
 
 data Acceptor = Acceptor
     { _aExpected :: !Expected

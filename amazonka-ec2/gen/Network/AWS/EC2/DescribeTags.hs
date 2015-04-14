@@ -24,7 +24,7 @@
 
 -- | Describes one or more of the tags for your EC2 resources.
 --
--- For more information about tags, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Resources> in the /AmazonElastic Compute Cloud User Guide/.
+-- For more information about tags, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Resources> in the /AmazonElastic Compute Cloud User Guide for Linux/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeTags.html>
 module Network.AWS.EC2.DescribeTags
@@ -99,14 +99,15 @@ dtDryRun = lens _dtDryRun (\s a -> s { _dtDryRun = a })
 dtFilters :: Lens' DescribeTags [Filter]
 dtFilters = lens _dtFilters (\s a -> s { _dtFilters = a }) . _List
 
--- | The maximum number of items to return for this call. The call also returns a
--- token that you can specify in a subsequent call to get the next set of
--- results. If the value is greater than 1000, we return only 1000 items.
+-- | The maximum number of results to return for the request in a single page. The
+-- remaining results of the initial request can be seen by sending another
+-- request with the returned 'NextToken' value. This value can be between 5 and
+-- 1000; if 'MaxResults' is given a value larger than 1000, only 1000 results are
+-- returned.
 dtMaxResults :: Lens' DescribeTags (Maybe Int)
 dtMaxResults = lens _dtMaxResults (\s a -> s { _dtMaxResults = a })
 
--- | The token for the next set of items to return. (You received this token from
--- a prior call.)
+-- | The token to retrieve the next page of results.
 dtNextToken :: Lens' DescribeTags (Maybe Text)
 dtNextToken = lens _dtNextToken (\s a -> s { _dtNextToken = a })
 
@@ -129,8 +130,8 @@ describeTagsResponse = DescribeTagsResponse
     , _dtrNextToken = Nothing
     }
 
--- | The token to use when requesting the next set of items. If there are no
--- additional items to return, the string is empty.
+-- | The token to use to retrieve the next page of results. This value is 'null'
+-- when there are no more results to return..
 dtrNextToken :: Lens' DescribeTagsResponse (Maybe Text)
 dtrNextToken = lens _dtrNextToken (\s a -> s { _dtrNextToken = a })
 

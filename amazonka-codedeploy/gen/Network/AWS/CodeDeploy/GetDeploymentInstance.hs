@@ -22,7 +22,7 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Gets information about an Amazon EC2 instance as part of a deployment.
+-- | Gets information about an instance as part of a deployment.
 --
 -- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetDeploymentInstance.html>
 module Network.AWS.CodeDeploy.GetDeploymentInstance
@@ -43,6 +43,7 @@ module Network.AWS.CodeDeploy.GetDeploymentInstance
     , gdirInstanceSummary
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.CodeDeploy.Types
@@ -73,7 +74,7 @@ getDeploymentInstance p1 p2 = GetDeploymentInstance
 gdiDeploymentId :: Lens' GetDeploymentInstance Text
 gdiDeploymentId = lens _gdiDeploymentId (\s a -> s { _gdiDeploymentId = a })
 
--- | The unique ID of an Amazon EC2 instance in the deployment's deployment group.
+-- | The unique ID of an instance in the deployment's deployment group.
 gdiInstanceId :: Lens' GetDeploymentInstance Text
 gdiInstanceId = lens _gdiInstanceId (\s a -> s { _gdiInstanceId = a })
 

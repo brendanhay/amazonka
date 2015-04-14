@@ -1,5 +1,5 @@
 ifndef TOP
-$(error TOP is not set)
+$(error variable TOP is not set)
 endif
 
 SHELL   := /usr/bin/env bash
@@ -20,7 +20,9 @@ deps: add-sources
 install: add-sources
 	cabal install $(CABAL_INSTALL_DEFARGS)
 
-add-sources:
+include $(TOP)/share/stackage.mk
+
+add-sources: cabal.config
 	cabal sandbox add-source $(TOP)/core
 
 configure:
@@ -28,6 +30,7 @@ configure:
 
 clean:
 	cabal clean
+	rm -f cabal.config
 
 sdist:
 	cabal sdist

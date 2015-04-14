@@ -22,14 +22,8 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Queries a pipeline for the names of objects that match a specified set of
--- conditions.
---
--- The objects returned by 'QueryObjects' are paginated and then filtered by the
--- value you set for query. This means the action may return an empty result set
--- with a value set for marker. If 'HasMoreResults' is set to 'True', you should
--- continue to call 'QueryObjects', passing in the returned value for marker,
--- until 'HasMoreResults' returns 'False'.
+-- | Queries the specified pipeline for the names of objects that match the
+-- specified set of conditions.
 --
 -- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_QueryObjects.html>
 module Network.AWS.DataPipeline.QueryObjects
@@ -55,6 +49,7 @@ module Network.AWS.DataPipeline.QueryObjects
     , qorMarker
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.DataPipeline.Types
@@ -93,29 +88,30 @@ queryObjects p1 p2 = QueryObjects
     , _qoLimit      = Nothing
     }
 
--- | Specifies the maximum number of object names that 'QueryObjects' will return in
--- a single call. The default value is 100.
+-- | The maximum number of object names that 'QueryObjects' will return in a single
+-- call. The default value is 100.
 qoLimit :: Lens' QueryObjects (Maybe Int)
 qoLimit = lens _qoLimit (\s a -> s { _qoLimit = a })
 
--- | The starting point for the results to be returned. The first time you call 'QueryObjects', this value should be empty. As long as the action returns 'HasMoreResults' as 'True', you can call 'QueryObjects' again and pass the marker value from the
--- response to retrieve the next set of results.
+-- | The starting point for the results to be returned. For the first call, this
+-- value should be empty. As long as there are more results, continue to call 'QueryObjects' with the marker value from the previous call to retrieve the next set of
+-- results.
 qoMarker :: Lens' QueryObjects (Maybe Text)
 qoMarker = lens _qoMarker (\s a -> s { _qoMarker = a })
 
--- | Identifier of the pipeline to be queried for object names.
+-- | The ID of the pipeline.
 qoPipelineId :: Lens' QueryObjects Text
 qoPipelineId = lens _qoPipelineId (\s a -> s { _qoPipelineId = a })
 
--- | Query that defines the objects to be returned. The 'Query' object can contain
--- a maximum of ten selectors. The conditions in the query are limited to
--- top-level String fields in the object. These filters can be applied to
+-- | The query that defines the objects to be returned. The 'Query' object can
+-- contain a maximum of ten selectors. The conditions in the query are limited
+-- to top-level String fields in the object. These filters can be applied to
 -- components, instances, and attempts.
 qoQuery :: Lens' QueryObjects (Maybe Query)
 qoQuery = lens _qoQuery (\s a -> s { _qoQuery = a })
 
--- | Specifies whether the query applies to components or instances. Allowable
--- values: 'COMPONENT', 'INSTANCE', 'ATTEMPT'.
+-- | Indicates whether the query applies to components or instances. The possible
+-- values are: 'COMPONENT', 'INSTANCE', and 'ATTEMPT'.
 qoSphere :: Lens' QueryObjects Text
 qoSphere = lens _qoSphere (\s a -> s { _qoSphere = a })
 
@@ -142,18 +138,19 @@ queryObjectsResponse = QueryObjectsResponse
     , _qorHasMoreResults = Nothing
     }
 
--- | If 'True', there are more results that can be obtained by a subsequent call to 'QueryObjects'.
+-- | Indicates whether there are more results that can be obtained by a subsequent
+-- call.
 qorHasMoreResults :: Lens' QueryObjectsResponse (Maybe Bool)
 qorHasMoreResults =
     lens _qorHasMoreResults (\s a -> s { _qorHasMoreResults = a })
 
--- | A list of identifiers that match the query selectors.
+-- | The identifiers that match the query selectors.
 qorIds :: Lens' QueryObjectsResponse [Text]
 qorIds = lens _qorIds (\s a -> s { _qorIds = a }) . _List
 
--- | The starting point for the results to be returned. As long as the action
--- returns 'HasMoreResults' as 'True', you can call 'QueryObjects' again and pass the
--- marker value from the response to retrieve the next set of results.
+-- | The starting point for the next page of results. To view the next page of
+-- results, call 'QueryObjects' again with this marker value. If the value is
+-- null, there are no more results.
 qorMarker :: Lens' QueryObjectsResponse (Maybe Text)
 qorMarker = lens _qorMarker (\s a -> s { _qorMarker = a })
 

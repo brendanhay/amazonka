@@ -43,6 +43,7 @@ module Network.AWS.CodeDeploy.DeleteDeploymentConfig
     , deleteDeploymentConfigResponse
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.CodeDeploy.Types
@@ -64,7 +65,8 @@ deleteDeploymentConfig p1 = DeleteDeploymentConfig
     { _ddcDeploymentConfigName = p1
     }
 
--- | The name of an existing deployment configuration within the AWS user account.
+-- | The name of an existing deployment configuration associated with the
+-- applicable IAM user or AWS account.
 ddcDeploymentConfigName :: Lens' DeleteDeploymentConfig Text
 ddcDeploymentConfigName =
     lens _ddcDeploymentConfigName (\s a -> s { _ddcDeploymentConfigName = a })

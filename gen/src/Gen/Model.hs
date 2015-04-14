@@ -1,4 +1,4 @@
-{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE OverloadedStrings #-}
 
 {-# OPTIONS_GHC -fno-warn-type-defaults #-}
 
@@ -14,15 +14,15 @@
 
 module Gen.Model where
 
-import Control.Applicative
-import Control.Error
-import Control.Monad
-import Data.List           (sort)
-import Gen.IO
-import Gen.JSON
-import Gen.Types
-import System.Directory
-import System.FilePath
+import           Control.Applicative
+import           Control.Error
+import           Control.Monad
+import           Data.List           (sort)
+import           Gen.IO
+import           Gen.JSON
+import           Gen.Types
+import           System.Directory
+import           System.FilePath
 
 loadRetries :: FilePath -> Script Retries
 loadRetries = requireObject >=> parse

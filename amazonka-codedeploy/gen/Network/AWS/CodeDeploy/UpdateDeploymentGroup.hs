@@ -38,6 +38,7 @@ module Network.AWS.CodeDeploy.UpdateDeploymentGroup
     , udgDeploymentConfigName
     , udgEc2TagFilters
     , udgNewDeploymentGroupName
+    , udgOnPremisesInstanceTagFilters
     , udgServiceRoleArn
 
     -- * Response
@@ -48,19 +49,21 @@ module Network.AWS.CodeDeploy.UpdateDeploymentGroup
     , udgrHooksNotCleanedUp
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.CodeDeploy.Types
 import qualified GHC.Exts
 
 data UpdateDeploymentGroup = UpdateDeploymentGroup
-    { _udgApplicationName            :: Text
-    , _udgAutoScalingGroups          :: List "autoScalingGroups" Text
-    , _udgCurrentDeploymentGroupName :: Text
-    , _udgDeploymentConfigName       :: Maybe Text
-    , _udgEc2TagFilters              :: List "ec2TagFilters" EC2TagFilter
-    , _udgNewDeploymentGroupName     :: Maybe Text
-    , _udgServiceRoleArn             :: Maybe Text
+    { _udgApplicationName              :: Text
+    , _udgAutoScalingGroups            :: List "autoScalingGroups" Text
+    , _udgCurrentDeploymentGroupName   :: Text
+    , _udgDeploymentConfigName         :: Maybe Text
+    , _udgEc2TagFilters                :: List "ec2TagFilters" EC2TagFilter
+    , _udgNewDeploymentGroupName       :: Maybe Text
+    , _udgOnPremisesInstanceTagFilters :: List "onPremisesInstanceTagFilters" TagFilter
+    , _udgServiceRoleArn               :: Maybe Text
     } deriving (Eq, Read, Show)
 
 -- | 'UpdateDeploymentGroup' constructor.
@@ -79,19 +82,22 @@ data UpdateDeploymentGroup = UpdateDeploymentGroup
 --
 -- * 'udgNewDeploymentGroupName' @::@ 'Maybe' 'Text'
 --
+-- * 'udgOnPremisesInstanceTagFilters' @::@ ['TagFilter']
+--
 -- * 'udgServiceRoleArn' @::@ 'Maybe' 'Text'
 --
 updateDeploymentGroup :: Text -- ^ 'udgApplicationName'
                       -> Text -- ^ 'udgCurrentDeploymentGroupName'
                       -> UpdateDeploymentGroup
 updateDeploymentGroup p1 p2 = UpdateDeploymentGroup
-    { _udgApplicationName            = p1
-    , _udgCurrentDeploymentGroupName = p2
-    , _udgNewDeploymentGroupName     = Nothing
-    , _udgDeploymentConfigName       = Nothing
-    , _udgEc2TagFilters              = mempty
-    , _udgAutoScalingGroups          = mempty
-    , _udgServiceRoleArn             = Nothing
+    { _udgApplicationName              = p1
+    , _udgCurrentDeploymentGroupName   = p2
+    , _udgNewDeploymentGroupName       = Nothing
+    , _udgDeploymentConfigName         = Nothing
+    , _udgEc2TagFilters                = mempty
+    , _udgOnPremisesInstanceTagFilters = mempty
+    , _udgAutoScalingGroups            = mempty
+    , _udgServiceRoleArn               = Nothing
     }
 
 -- | The application name corresponding to the deployment group to update.
@@ -129,6 +135,14 @@ udgNewDeploymentGroupName =
     lens _udgNewDeploymentGroupName
         (\s a -> s { _udgNewDeploymentGroupName = a })
 
+-- | The replacement set of on-premises instance tags for filter on, if you want
+-- to change them.
+udgOnPremisesInstanceTagFilters :: Lens' UpdateDeploymentGroup [TagFilter]
+udgOnPremisesInstanceTagFilters =
+    lens _udgOnPremisesInstanceTagFilters
+        (\s a -> s { _udgOnPremisesInstanceTagFilters = a })
+            . _List
+
 -- | A replacement service role's ARN, if you want to change it.
 udgServiceRoleArn :: Lens' UpdateDeploymentGroup (Maybe Text)
 udgServiceRoleArn =
@@ -158,8 +172,8 @@ updateDeploymentGroupResponse = UpdateDeploymentGroupResponse
 -- | If the output contains no data, and the corresponding deployment group
 -- contained at least one Auto Scaling group, AWS CodeDeploy successfully
 -- removed all corresponding Auto Scaling lifecycle event hooks from the AWS
--- user account. If the output does contain data, AWS CodeDeploy could not
--- remove some Auto Scaling lifecycle event hooks from the AWS user account.
+-- account. If the output does contain data, AWS CodeDeploy could not remove
+-- some Auto Scaling lifecycle event hooks from the AWS account.
 udgrHooksNotCleanedUp :: Lens' UpdateDeploymentGroupResponse [AutoScalingGroup]
 udgrHooksNotCleanedUp =
     lens _udgrHooksNotCleanedUp (\s a -> s { _udgrHooksNotCleanedUp = a })
@@ -175,13 +189,14 @@ instance ToHeaders UpdateDeploymentGroup
 
 instance ToJSON UpdateDeploymentGroup where
     toJSON UpdateDeploymentGroup{..} = object
-        [ "applicationName"            .= _udgApplicationName
-        , "currentDeploymentGroupName" .= _udgCurrentDeploymentGroupName
-        , "newDeploymentGroupName"     .= _udgNewDeploymentGroupName
-        , "deploymentConfigName"       .= _udgDeploymentConfigName
-        , "ec2TagFilters"              .= _udgEc2TagFilters
-        , "autoScalingGroups"          .= _udgAutoScalingGroups
-        , "serviceRoleArn"             .= _udgServiceRoleArn
+        [ "applicationName"              .= _udgApplicationName
+        , "currentDeploymentGroupName"   .= _udgCurrentDeploymentGroupName
+        , "newDeploymentGroupName"       .= _udgNewDeploymentGroupName
+        , "deploymentConfigName"         .= _udgDeploymentConfigName
+        , "ec2TagFilters"                .= _udgEc2TagFilters
+        , "onPremisesInstanceTagFilters" .= _udgOnPremisesInstanceTagFilters
+        , "autoScalingGroups"            .= _udgAutoScalingGroups
+        , "serviceRoleArn"               .= _udgServiceRoleArn
         ]
 
 instance AWSRequest UpdateDeploymentGroup where

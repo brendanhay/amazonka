@@ -64,6 +64,7 @@ module Network.AWS.CloudHSM.DescribeHsm
     , dhr2VpcId
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.CloudHSM.Types

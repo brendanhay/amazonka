@@ -45,6 +45,7 @@ module Network.AWS.OpsWorks.DeregisterVolume
     , deregisterVolumeResponse
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
@@ -66,7 +67,9 @@ deregisterVolume p1 = DeregisterVolume
     { _dvVolumeId = p1
     }
 
--- | The volume ID.
+-- | The AWS OpsWorks volume ID, which is the GUID that AWS OpsWorks assigned to
+-- the instance when you registered the volume with the stack, not the Amazon
+-- EC2 volume ID.
 dvVolumeId :: Lens' DeregisterVolume Text
 dvVolumeId = lens _dvVolumeId (\s a -> s { _dvVolumeId = a })
 

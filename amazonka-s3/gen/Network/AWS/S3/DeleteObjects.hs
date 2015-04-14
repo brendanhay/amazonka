@@ -36,14 +36,16 @@ module Network.AWS.S3.DeleteObjects
     , do1Bucket
     , do1Delete
     , do1MFA
+    , do1RequestPayer
 
     -- * Response
     , DeleteObjectsResponse
     -- ** Response constructor
     , deleteObjectsResponse
     -- ** Response lenses
-    , dorDeleted
-    , dorErrors
+    , dor1Deleted
+    , dor1Errors
+    , dor1RequestCharged
     ) where
 
 import Network.AWS.Prelude
@@ -52,9 +54,10 @@ import Network.AWS.S3.Types
 import qualified GHC.Exts
 
 data DeleteObjects = DeleteObjects
-    { _do1Bucket :: Text
-    , _do1Delete :: Delete
-    , _do1MFA    :: Maybe Text
+    { _do1Bucket       :: Text
+    , _do1Delete       :: Delete
+    , _do1MFA          :: Maybe Text
+    , _do1RequestPayer :: Maybe RequestPayer
     } deriving (Eq, Read, Show)
 
 -- | 'DeleteObjects' constructor.
@@ -67,13 +70,16 @@ data DeleteObjects = DeleteObjects
 --
 -- * 'do1MFA' @::@ 'Maybe' 'Text'
 --
+-- * 'do1RequestPayer' @::@ 'Maybe' 'RequestPayer'
+--
 deleteObjects :: Text -- ^ 'do1Bucket'
               -> Delete -- ^ 'do1Delete'
               -> DeleteObjects
 deleteObjects p1 p2 = DeleteObjects
-    { _do1Bucket = p1
-    , _do1Delete = p2
-    , _do1MFA    = Nothing
+    { _do1Bucket       = p1
+    , _do1Delete       = p2
+    , _do1MFA          = Nothing
+    , _do1RequestPayer = Nothing
     }
 
 do1Bucket :: Lens' DeleteObjects Text
@@ -87,30 +93,41 @@ do1Delete = lens _do1Delete (\s a -> s { _do1Delete = a })
 do1MFA :: Lens' DeleteObjects (Maybe Text)
 do1MFA = lens _do1MFA (\s a -> s { _do1MFA = a })
 
+do1RequestPayer :: Lens' DeleteObjects (Maybe RequestPayer)
+do1RequestPayer = lens _do1RequestPayer (\s a -> s { _do1RequestPayer = a })
+
 data DeleteObjectsResponse = DeleteObjectsResponse
-    { _dorDeleted :: List "Deleted" DeletedObject
-    , _dorErrors  :: List "Error" S3ServiceError
+    { _dor1Deleted        :: List "Deleted" DeletedObject
+    , _dor1Errors         :: List "Error" S3ServiceError
+    , _dor1RequestCharged :: Maybe RequestCharged
     } deriving (Eq, Read, Show)
 
 -- | 'DeleteObjectsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dorDeleted' @::@ ['DeletedObject']
+-- * 'dor1Deleted' @::@ ['DeletedObject']
 --
--- * 'dorErrors' @::@ ['S3ServiceError']
+-- * 'dor1Errors' @::@ ['S3ServiceError']
+--
+-- * 'dor1RequestCharged' @::@ 'Maybe' 'RequestCharged'
 --
 deleteObjectsResponse :: DeleteObjectsResponse
 deleteObjectsResponse = DeleteObjectsResponse
-    { _dorDeleted = mempty
-    , _dorErrors  = mempty
+    { _dor1Deleted        = mempty
+    , _dor1RequestCharged = Nothing
+    , _dor1Errors         = mempty
     }
 
-dorDeleted :: Lens' DeleteObjectsResponse [DeletedObject]
-dorDeleted = lens _dorDeleted (\s a -> s { _dorDeleted = a }) . _List
+dor1Deleted :: Lens' DeleteObjectsResponse [DeletedObject]
+dor1Deleted = lens _dor1Deleted (\s a -> s { _dor1Deleted = a }) . _List
 
-dorErrors :: Lens' DeleteObjectsResponse [S3ServiceError]
-dorErrors = lens _dorErrors (\s a -> s { _dorErrors = a }) . _List
+dor1Errors :: Lens' DeleteObjectsResponse [S3ServiceError]
+dor1Errors = lens _dor1Errors (\s a -> s { _dor1Errors = a }) . _List
+
+dor1RequestCharged :: Lens' DeleteObjectsResponse (Maybe RequestCharged)
+dor1RequestCharged =
+    lens _dor1RequestCharged (\s a -> s { _dor1RequestCharged = a })
 
 instance ToPath DeleteObjects where
     toPath DeleteObjects{..} = mconcat
@@ -123,7 +140,8 @@ instance ToQuery DeleteObjects where
 
 instance ToHeaders DeleteObjects where
     toHeaders DeleteObjects{..} = mconcat
-        [ "x-amz-mfa" =: _do1MFA
+        [ "x-amz-mfa"           =: _do1MFA
+        , "x-amz-request-payer" =: _do1RequestPayer
         ]
 
 instance ToXMLRoot DeleteObjects where
@@ -136,9 +154,7 @@ instance AWSRequest DeleteObjects where
     type Rs DeleteObjects = DeleteObjectsResponse
 
     request  = post
-    response = xmlResponse
-
-instance FromXML DeleteObjectsResponse where
-    parseXML x = DeleteObjectsResponse
-        <$> parseXML x
-        <*> parseXML x
+    response = xmlHeaderResponse $ \h x -> DeleteObjectsResponse
+        <$> x .@? "Deleted" .!@ mempty
+        <*> x .@? "Error" .!@ mempty
+        <*> h ~:? "x-amz-request-charged"

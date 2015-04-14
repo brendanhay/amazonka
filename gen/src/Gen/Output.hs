@@ -136,6 +136,7 @@ rewrapped (k, v) = Object . \case
 
 data Prim
     = PBlob
+    | PObj
     | PReq
     | PRes
     | PBool
@@ -150,6 +151,7 @@ data Prim
 primitive :: Bool -> Prim -> Text
 primitive int = \case
     PBlob           -> "Base64"
+    PObj            -> "Object"
     PReq            -> "RqBody"
     PRes            -> "RsBody"
     PBool           -> "Bool"
@@ -335,6 +337,7 @@ instance ToJSON Field where
         , "default"       .= typeDefault _fType
         , "iso"           .= typeIso _fType
         , "protocol"      .= _fProtocol
+        , "payload"       .= _fPayload
         ]
 
 instance HasName Field where
@@ -526,17 +529,18 @@ isVoid _    = False
 
 instance DerivingOf Prim where
     derivingOf = (def <>) . \case
-        PBool    -> [Eq', Ord', Enum']
-        PText    -> [Eq', Ord', Monoid', IsString']
-        PInt     -> [Eq', Ord', Num', Enum', Integral', Real']
-        PInteger -> [Eq', Ord', Num', Enum', Integral', Real']
-        PDouble  -> [Eq', Ord', Num', Enum', RealFrac', RealFloat', Real']
-        PNatural -> [Eq', Ord', Num', Enum', Integral', Real']
-        PTime _  -> [Eq', Ord']
-        PBlob    -> [Eq']
-        _        -> []
+        PBool    -> [Eq', Ord', Read', Enum']
+        PText    -> [Eq', Ord', Read', Monoid', IsString']
+        PInt     -> [Eq', Ord', Read', Num', Enum', Integral', Real']
+        PInteger -> [Eq', Ord', Read', Num', Enum', Integral', Real']
+        PDouble  -> [Eq', Ord', Read', Num', Enum', RealFrac', RealFloat', Real']
+        PNatural -> [Eq', Ord', Read', Num', Enum', Integral', Real']
+        PTime _  -> [Eq', Ord', Read']
+        PBlob    -> [Eq', Read']
+        PObj     -> [Eq']
+        _        -> [Read']
       where
-        def = [Read', Show', Generic']
+        def = [Show', Generic']
 
 instance DerivingOf Type where
     derivingOf = \case

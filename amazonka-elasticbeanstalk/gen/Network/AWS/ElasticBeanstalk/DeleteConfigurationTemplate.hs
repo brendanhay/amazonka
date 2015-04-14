@@ -24,6 +24,10 @@
 
 -- | Deletes the specified configuration template.
 --
+-- When you launch an environment using a configuration template, the
+-- environment gets a copy of the template. You can delete or modify the
+-- environment's copy of the template without affecting the running environment.
+--
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DeleteConfigurationTemplate.html>
 module Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
     (

@@ -22,9 +22,11 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Notifies AWS Data Pipeline that a task is completed and provides information
--- about the final status. The task runner calls this action regardless of
--- whether the task was sucessful. The task runner does not need to call 'SetTaskStatus' for tasks that are canceled by the web service during a call to 'ReportTaskProgress'.
+-- | Task runners call 'SetTaskStatus' to notify AWS Data Pipeline that a task is
+-- completed and provide information about the final status. A task runner makes
+-- this call regardless of whether the task was sucessful. A task runner does
+-- not need to call 'SetTaskStatus' for tasks that are canceled by the web service
+-- during a call to 'ReportTaskProgress'.
 --
 -- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_SetTaskStatus.html>
 module Network.AWS.DataPipeline.SetTaskStatus
@@ -46,6 +48,7 @@ module Network.AWS.DataPipeline.SetTaskStatus
     , setTaskStatusResponse
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.DataPipeline.Types
@@ -84,10 +87,10 @@ setTaskStatus p1 p2 = SetTaskStatus
     , _stsErrorStackTrace = Nothing
     }
 
--- | If an error occurred during the task, this value specifies an id value that
--- represents the error. This value is set on the physical attempt object. It is
--- used to display error information to the user. It should not start with
--- string "Service_" which is reserved by the system.
+-- | If an error occurred during the task, this value specifies the error code.
+-- This value is set on the physical attempt object. It is used to display error
+-- information to the user. It should not start with string "Service_" which is
+-- reserved by the system.
 stsErrorId :: Lens' SetTaskStatus (Maybe Text)
 stsErrorId = lens _stsErrorId (\s a -> s { _stsErrorId = a })
 
@@ -106,12 +109,13 @@ stsErrorStackTrace :: Lens' SetTaskStatus (Maybe Text)
 stsErrorStackTrace =
     lens _stsErrorStackTrace (\s a -> s { _stsErrorStackTrace = a })
 
--- | Identifies the task assigned to the task runner. This value is set in the 'TaskObject' that is returned by the 'PollForTask' action.
+-- | The ID of the task assigned to the task runner. This value is provided in the
+-- response for 'PollForTask'.
 stsTaskId :: Lens' SetTaskStatus Text
 stsTaskId = lens _stsTaskId (\s a -> s { _stsTaskId = a })
 
--- | If 'FINISHED', the task successfully completed. If 'FAILED' the task ended
--- unsuccessfully. The 'FALSE' value is used by preconditions.
+-- | If 'FINISHED', the task successfully completed. If 'FAILED', the task ended
+-- unsuccessfully. Preconditions use false.
 stsTaskStatus :: Lens' SetTaskStatus TaskStatus
 stsTaskStatus = lens _stsTaskStatus (\s a -> s { _stsTaskStatus = a })
 

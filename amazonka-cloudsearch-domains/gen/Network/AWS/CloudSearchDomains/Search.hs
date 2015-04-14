@@ -74,6 +74,7 @@ module Network.AWS.CloudSearchDomains.Search
     , sr1Status
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.RestJSON
 import Network.AWS.CloudSearchDomains.Types

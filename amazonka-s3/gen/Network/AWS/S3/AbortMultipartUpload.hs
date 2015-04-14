@@ -38,12 +38,15 @@ module Network.AWS.S3.AbortMultipartUpload
     -- ** Request lenses
     , amuBucket
     , amuKey
+    , amuRequestPayer
     , amuUploadId
 
     -- * Response
     , AbortMultipartUploadResponse
     -- ** Response constructor
     , abortMultipartUploadResponse
+    -- ** Response lenses
+    , amurRequestCharged
     ) where
 
 import Network.AWS.Prelude
@@ -52,10 +55,11 @@ import Network.AWS.S3.Types
 import qualified GHC.Exts
 
 data AbortMultipartUpload = AbortMultipartUpload
-    { _amuBucket   :: Text
-    , _amuKey      :: Text
-    , _amuUploadId :: Text
-    } deriving (Eq, Ord, Read, Show)
+    { _amuBucket       :: Text
+    , _amuKey          :: Text
+    , _amuRequestPayer :: Maybe RequestPayer
+    , _amuUploadId     :: Text
+    } deriving (Eq, Read, Show)
 
 -- | 'AbortMultipartUpload' constructor.
 --
@@ -65,6 +69,8 @@ data AbortMultipartUpload = AbortMultipartUpload
 --
 -- * 'amuKey' @::@ 'Text'
 --
+-- * 'amuRequestPayer' @::@ 'Maybe' 'RequestPayer'
+--
 -- * 'amuUploadId' @::@ 'Text'
 --
 abortMultipartUpload :: Text -- ^ 'amuBucket'
@@ -72,9 +78,10 @@ abortMultipartUpload :: Text -- ^ 'amuBucket'
                      -> Text -- ^ 'amuUploadId'
                      -> AbortMultipartUpload
 abortMultipartUpload p1 p2 p3 = AbortMultipartUpload
-    { _amuBucket   = p1
-    , _amuKey      = p2
-    , _amuUploadId = p3
+    { _amuBucket       = p1
+    , _amuKey          = p2
+    , _amuUploadId     = p3
+    , _amuRequestPayer = Nothing
     }
 
 amuBucket :: Lens' AbortMultipartUpload Text
@@ -83,15 +90,30 @@ amuBucket = lens _amuBucket (\s a -> s { _amuBucket = a })
 amuKey :: Lens' AbortMultipartUpload Text
 amuKey = lens _amuKey (\s a -> s { _amuKey = a })
 
+amuRequestPayer :: Lens' AbortMultipartUpload (Maybe RequestPayer)
+amuRequestPayer = lens _amuRequestPayer (\s a -> s { _amuRequestPayer = a })
+
 amuUploadId :: Lens' AbortMultipartUpload Text
 amuUploadId = lens _amuUploadId (\s a -> s { _amuUploadId = a })
 
-data AbortMultipartUploadResponse = AbortMultipartUploadResponse
-    deriving (Eq, Ord, Read, Show, Generic)
+newtype AbortMultipartUploadResponse = AbortMultipartUploadResponse
+    { _amurRequestCharged :: Maybe RequestCharged
+    } deriving (Eq, Read, Show)
 
 -- | 'AbortMultipartUploadResponse' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'amurRequestCharged' @::@ 'Maybe' 'RequestCharged'
+--
 abortMultipartUploadResponse :: AbortMultipartUploadResponse
 abortMultipartUploadResponse = AbortMultipartUploadResponse
+    { _amurRequestCharged = Nothing
+    }
+
+amurRequestCharged :: Lens' AbortMultipartUploadResponse (Maybe RequestCharged)
+amurRequestCharged =
+    lens _amurRequestCharged (\s a -> s { _amurRequestCharged = a })
 
 instance ToPath AbortMultipartUpload where
     toPath AbortMultipartUpload{..} = mconcat
@@ -104,7 +126,10 @@ instance ToPath AbortMultipartUpload where
 instance ToQuery AbortMultipartUpload where
     toQuery rq = "uploadId" =? _amuUploadId rq
 
-instance ToHeaders AbortMultipartUpload
+instance ToHeaders AbortMultipartUpload where
+    toHeaders AbortMultipartUpload{..} = mconcat
+        [ "x-amz-request-payer" =: _amuRequestPayer
+        ]
 
 instance ToXMLRoot AbortMultipartUpload where
     toXMLRoot = const (namespaced ns "AbortMultipartUpload" [])
@@ -116,4 +141,5 @@ instance AWSRequest AbortMultipartUpload where
     type Rs AbortMultipartUpload = AbortMultipartUploadResponse
 
     request  = delete
-    response = nullResponse AbortMultipartUploadResponse
+    response = headerResponse $ \h -> AbortMultipartUploadResponse
+        <$> h ~:? "x-amz-request-charged"

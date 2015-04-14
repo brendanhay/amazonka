@@ -232,6 +232,7 @@ module Network.AWS.ElasticBeanstalk.Types
     -- * EnvironmentDescription
     , EnvironmentDescription
     , environmentDescription
+    , ed1AbortableOperationInProgress
     , ed1ApplicationName
     , ed1CNAME
     , ed1DateCreated
@@ -1843,19 +1844,23 @@ instance ToQuery Trigger where
         ]
 
 data EnvironmentInfoType
-    = Tail' -- ^ tail
+    = Bundle -- ^ bundle
+    | Tail'  -- ^ tail
       deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable EnvironmentInfoType
 
 instance FromText EnvironmentInfoType where
     parser = takeLowerText >>= \case
-        "tail" -> pure Tail'
-        e      -> fail $
+        "bundle" -> pure Bundle
+        "tail"   -> pure Tail'
+        e        -> fail $
             "Failure parsing EnvironmentInfoType from " ++ show e
 
 instance ToText EnvironmentInfoType where
-    toText Tail' = "tail"
+    toText = \case
+        Bundle -> "bundle"
+        Tail'  -> "tail"
 
 instance ToByteString EnvironmentInfoType
 instance ToHeader     EnvironmentInfoType
@@ -1865,26 +1870,29 @@ instance FromXML EnvironmentInfoType where
     parseXML = parseXMLText "EnvironmentInfoType"
 
 data EnvironmentDescription = EnvironmentDescription
-    { _ed1ApplicationName   :: Maybe Text
-    , _ed1CNAME             :: Maybe Text
-    , _ed1DateCreated       :: Maybe ISO8601
-    , _ed1DateUpdated       :: Maybe ISO8601
-    , _ed1Description       :: Maybe Text
-    , _ed1EndpointURL       :: Maybe Text
-    , _ed1EnvironmentId     :: Maybe Text
-    , _ed1EnvironmentName   :: Maybe Text
-    , _ed1Health            :: Maybe EnvironmentHealth
-    , _ed1Resources         :: Maybe EnvironmentResourcesDescription
-    , _ed1SolutionStackName :: Maybe Text
-    , _ed1Status            :: Maybe EnvironmentStatus
-    , _ed1TemplateName      :: Maybe Text
-    , _ed1Tier              :: Maybe EnvironmentTier
-    , _ed1VersionLabel      :: Maybe Text
+    { _ed1AbortableOperationInProgress :: Maybe Bool
+    , _ed1ApplicationName              :: Maybe Text
+    , _ed1CNAME                        :: Maybe Text
+    , _ed1DateCreated                  :: Maybe ISO8601
+    , _ed1DateUpdated                  :: Maybe ISO8601
+    , _ed1Description                  :: Maybe Text
+    , _ed1EndpointURL                  :: Maybe Text
+    , _ed1EnvironmentId                :: Maybe Text
+    , _ed1EnvironmentName              :: Maybe Text
+    , _ed1Health                       :: Maybe EnvironmentHealth
+    , _ed1Resources                    :: Maybe EnvironmentResourcesDescription
+    , _ed1SolutionStackName            :: Maybe Text
+    , _ed1Status                       :: Maybe EnvironmentStatus
+    , _ed1TemplateName                 :: Maybe Text
+    , _ed1Tier                         :: Maybe EnvironmentTier
+    , _ed1VersionLabel                 :: Maybe Text
     } deriving (Eq, Read, Show)
 
 -- | 'EnvironmentDescription' constructor.
 --
 -- The fields accessible through corresponding lenses are:
+--
+-- * 'ed1AbortableOperationInProgress' @::@ 'Maybe' 'Bool'
 --
 -- * 'ed1ApplicationName' @::@ 'Maybe' 'Text'
 --
@@ -1918,22 +1926,30 @@ data EnvironmentDescription = EnvironmentDescription
 --
 environmentDescription :: EnvironmentDescription
 environmentDescription = EnvironmentDescription
-    { _ed1EnvironmentName   = Nothing
-    , _ed1EnvironmentId     = Nothing
-    , _ed1ApplicationName   = Nothing
-    , _ed1VersionLabel      = Nothing
-    , _ed1SolutionStackName = Nothing
-    , _ed1TemplateName      = Nothing
-    , _ed1Description       = Nothing
-    , _ed1EndpointURL       = Nothing
-    , _ed1CNAME             = Nothing
-    , _ed1DateCreated       = Nothing
-    , _ed1DateUpdated       = Nothing
-    , _ed1Status            = Nothing
-    , _ed1Health            = Nothing
-    , _ed1Resources         = Nothing
-    , _ed1Tier              = Nothing
+    { _ed1EnvironmentName              = Nothing
+    , _ed1EnvironmentId                = Nothing
+    , _ed1ApplicationName              = Nothing
+    , _ed1VersionLabel                 = Nothing
+    , _ed1SolutionStackName            = Nothing
+    , _ed1TemplateName                 = Nothing
+    , _ed1Description                  = Nothing
+    , _ed1EndpointURL                  = Nothing
+    , _ed1CNAME                        = Nothing
+    , _ed1DateCreated                  = Nothing
+    , _ed1DateUpdated                  = Nothing
+    , _ed1Status                       = Nothing
+    , _ed1AbortableOperationInProgress = Nothing
+    , _ed1Health                       = Nothing
+    , _ed1Resources                    = Nothing
+    , _ed1Tier                         = Nothing
     }
+
+-- | Lists in-progress environment updates and application version deployments
+-- that you can cancel.
+ed1AbortableOperationInProgress :: Lens' EnvironmentDescription (Maybe Bool)
+ed1AbortableOperationInProgress =
+    lens _ed1AbortableOperationInProgress
+        (\s a -> s { _ed1AbortableOperationInProgress = a })
 
 -- | The name of the application associated with this environment.
 ed1ApplicationName :: Lens' EnvironmentDescription (Maybe Text)
@@ -2024,7 +2040,8 @@ ed1VersionLabel = lens _ed1VersionLabel (\s a -> s { _ed1VersionLabel = a })
 
 instance FromXML EnvironmentDescription where
     parseXML x = EnvironmentDescription
-        <$> x .@? "ApplicationName"
+        <$> x .@? "AbortableOperationInProgress"
+        <*> x .@? "ApplicationName"
         <*> x .@? "CNAME"
         <*> x .@? "DateCreated"
         <*> x .@? "DateUpdated"
@@ -2042,21 +2059,22 @@ instance FromXML EnvironmentDescription where
 
 instance ToQuery EnvironmentDescription where
     toQuery EnvironmentDescription{..} = mconcat
-        [ "ApplicationName"   =? _ed1ApplicationName
-        , "CNAME"             =? _ed1CNAME
-        , "DateCreated"       =? _ed1DateCreated
-        , "DateUpdated"       =? _ed1DateUpdated
-        , "Description"       =? _ed1Description
-        , "EndpointURL"       =? _ed1EndpointURL
-        , "EnvironmentId"     =? _ed1EnvironmentId
-        , "EnvironmentName"   =? _ed1EnvironmentName
-        , "Health"            =? _ed1Health
-        , "Resources"         =? _ed1Resources
-        , "SolutionStackName" =? _ed1SolutionStackName
-        , "Status"            =? _ed1Status
-        , "TemplateName"      =? _ed1TemplateName
-        , "Tier"              =? _ed1Tier
-        , "VersionLabel"      =? _ed1VersionLabel
+        [ "AbortableOperationInProgress" =? _ed1AbortableOperationInProgress
+        , "ApplicationName"              =? _ed1ApplicationName
+        , "CNAME"                        =? _ed1CNAME
+        , "DateCreated"                  =? _ed1DateCreated
+        , "DateUpdated"                  =? _ed1DateUpdated
+        , "Description"                  =? _ed1Description
+        , "EndpointURL"                  =? _ed1EndpointURL
+        , "EnvironmentId"                =? _ed1EnvironmentId
+        , "EnvironmentName"              =? _ed1EnvironmentName
+        , "Health"                       =? _ed1Health
+        , "Resources"                    =? _ed1Resources
+        , "SolutionStackName"            =? _ed1SolutionStackName
+        , "Status"                       =? _ed1Status
+        , "TemplateName"                 =? _ed1TemplateName
+        , "Tier"                         =? _ed1Tier
+        , "VersionLabel"                 =? _ed1VersionLabel
         ]
 
 data Listener = Listener

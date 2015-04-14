@@ -50,6 +50,15 @@ module Network.AWS.CodeDeploy.Types
     -- * BundleType
     , BundleType (..)
 
+    -- * Tag
+    , Tag
+    , tag
+    , tagKey
+    , tagValue
+
+    -- * TagFilterType
+    , TagFilterType (..)
+
     -- * TimeRange
     , TimeRange
     , timeRange
@@ -83,6 +92,7 @@ module Network.AWS.CodeDeploy.Types
     , dgiDeploymentGroupId
     , dgiDeploymentGroupName
     , dgiEc2TagFilters
+    , dgiOnPremisesInstanceTagFilters
     , dgiServiceRoleArn
     , dgiTargetRevision
 
@@ -138,6 +148,16 @@ module Network.AWS.CodeDeploy.Types
     -- * SortOrder
     , SortOrder (..)
 
+    -- * InstanceInfo
+    , InstanceInfo
+    , instanceInfo
+    , iiDeregisterTime
+    , iiIamUserArn
+    , iiInstanceArn
+    , iiInstanceName
+    , iiRegisterTime
+    , iiTags
+
     -- * DeploymentInfo
     , DeploymentInfo
     , deploymentInfo
@@ -155,6 +175,13 @@ module Network.AWS.CodeDeploy.Types
     , diRevision
     , diStartTime
     , diStatus
+
+    -- * TagFilter
+    , TagFilter
+    , tagFilter
+    , tfKey
+    , tfType
+    , tfValue
 
     -- * LifecycleEvent
     , LifecycleEvent
@@ -190,6 +217,9 @@ module Network.AWS.CodeDeploy.Types
 
     -- * DeploymentStatus
     , DeploymentStatus (..)
+
+    -- * RegistrationStatus
+    , RegistrationStatus (..)
 
     -- * S3Location
     , S3Location
@@ -423,6 +453,76 @@ instance FromJSON BundleType where
 instance ToJSON BundleType where
     toJSON = toJSONText
 
+data Tag = Tag
+    { _tagKey   :: Maybe Text
+    , _tagValue :: Maybe Text
+    } deriving (Eq, Ord, Read, Show)
+
+-- | 'Tag' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'tagKey' @::@ 'Maybe' 'Text'
+--
+-- * 'tagValue' @::@ 'Maybe' 'Text'
+--
+tag :: Tag
+tag = Tag
+    { _tagKey   = Nothing
+    , _tagValue = Nothing
+    }
+
+-- | The tag's key.
+tagKey :: Lens' Tag (Maybe Text)
+tagKey = lens _tagKey (\s a -> s { _tagKey = a })
+
+-- | The tag's value.
+tagValue :: Lens' Tag (Maybe Text)
+tagValue = lens _tagValue (\s a -> s { _tagValue = a })
+
+instance FromJSON Tag where
+    parseJSON = withObject "Tag" $ \o -> Tag
+        <$> o .:? "Key"
+        <*> o .:? "Value"
+
+instance ToJSON Tag where
+    toJSON Tag{..} = object
+        [ "Key"   .= _tagKey
+        , "Value" .= _tagValue
+        ]
+
+data TagFilterType
+    = KeyAndValue -- ^ KEY_AND_VALUE
+    | KeyOnly     -- ^ KEY_ONLY
+    | ValueOnly   -- ^ VALUE_ONLY
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
+
+instance Hashable TagFilterType
+
+instance FromText TagFilterType where
+    parser = takeLowerText >>= \case
+        "key_and_value" -> pure KeyAndValue
+        "key_only"      -> pure KeyOnly
+        "value_only"    -> pure ValueOnly
+        e               -> fail $
+            "Failure parsing TagFilterType from " ++ show e
+
+instance ToText TagFilterType where
+    toText = \case
+        KeyAndValue -> "KEY_AND_VALUE"
+        KeyOnly     -> "KEY_ONLY"
+        ValueOnly   -> "VALUE_ONLY"
+
+instance ToByteString TagFilterType
+instance ToHeader     TagFilterType
+instance ToQuery      TagFilterType
+
+instance FromJSON TagFilterType where
+    parseJSON = parseJSONText "TagFilterType"
+
+instance ToJSON TagFilterType where
+    toJSON = toJSONText
+
 data TimeRange = TimeRange
     { _trEnd   :: Maybe POSIX
     , _trStart :: Maybe POSIX
@@ -609,14 +709,15 @@ instance ToJSON AutoScalingGroup where
         ]
 
 data DeploymentGroupInfo = DeploymentGroupInfo
-    { _dgiApplicationName      :: Maybe Text
-    , _dgiAutoScalingGroups    :: List "autoScalingGroups" AutoScalingGroup
-    , _dgiDeploymentConfigName :: Maybe Text
-    , _dgiDeploymentGroupId    :: Maybe Text
-    , _dgiDeploymentGroupName  :: Maybe Text
-    , _dgiEc2TagFilters        :: List "ec2TagFilters" EC2TagFilter
-    , _dgiServiceRoleArn       :: Maybe Text
-    , _dgiTargetRevision       :: Maybe RevisionLocation
+    { _dgiApplicationName              :: Maybe Text
+    , _dgiAutoScalingGroups            :: List "autoScalingGroups" AutoScalingGroup
+    , _dgiDeploymentConfigName         :: Maybe Text
+    , _dgiDeploymentGroupId            :: Maybe Text
+    , _dgiDeploymentGroupName          :: Maybe Text
+    , _dgiEc2TagFilters                :: List "ec2TagFilters" EC2TagFilter
+    , _dgiOnPremisesInstanceTagFilters :: List "onPremisesInstanceTagFilters" TagFilter
+    , _dgiServiceRoleArn               :: Maybe Text
+    , _dgiTargetRevision               :: Maybe RevisionLocation
     } deriving (Eq, Read, Show)
 
 -- | 'DeploymentGroupInfo' constructor.
@@ -635,20 +736,23 @@ data DeploymentGroupInfo = DeploymentGroupInfo
 --
 -- * 'dgiEc2TagFilters' @::@ ['EC2TagFilter']
 --
+-- * 'dgiOnPremisesInstanceTagFilters' @::@ ['TagFilter']
+--
 -- * 'dgiServiceRoleArn' @::@ 'Maybe' 'Text'
 --
 -- * 'dgiTargetRevision' @::@ 'Maybe' 'RevisionLocation'
 --
 deploymentGroupInfo :: DeploymentGroupInfo
 deploymentGroupInfo = DeploymentGroupInfo
-    { _dgiApplicationName      = Nothing
-    , _dgiDeploymentGroupId    = Nothing
-    , _dgiDeploymentGroupName  = Nothing
-    , _dgiDeploymentConfigName = Nothing
-    , _dgiEc2TagFilters        = mempty
-    , _dgiAutoScalingGroups    = mempty
-    , _dgiServiceRoleArn       = Nothing
-    , _dgiTargetRevision       = Nothing
+    { _dgiApplicationName              = Nothing
+    , _dgiDeploymentGroupId            = Nothing
+    , _dgiDeploymentGroupName          = Nothing
+    , _dgiDeploymentConfigName         = Nothing
+    , _dgiEc2TagFilters                = mempty
+    , _dgiOnPremisesInstanceTagFilters = mempty
+    , _dgiAutoScalingGroups            = mempty
+    , _dgiServiceRoleArn               = Nothing
+    , _dgiTargetRevision               = Nothing
     }
 
 -- | The application name.
@@ -681,6 +785,13 @@ dgiDeploymentGroupName =
 dgiEc2TagFilters :: Lens' DeploymentGroupInfo [EC2TagFilter]
 dgiEc2TagFilters = lens _dgiEc2TagFilters (\s a -> s { _dgiEc2TagFilters = a }) . _List
 
+-- | The on-premises instance tags to filter on.
+dgiOnPremisesInstanceTagFilters :: Lens' DeploymentGroupInfo [TagFilter]
+dgiOnPremisesInstanceTagFilters =
+    lens _dgiOnPremisesInstanceTagFilters
+        (\s a -> s { _dgiOnPremisesInstanceTagFilters = a })
+            . _List
+
 -- | A service role ARN.
 dgiServiceRoleArn :: Lens' DeploymentGroupInfo (Maybe Text)
 dgiServiceRoleArn =
@@ -700,19 +811,21 @@ instance FromJSON DeploymentGroupInfo where
         <*> o .:? "deploymentGroupId"
         <*> o .:? "deploymentGroupName"
         <*> o .:? "ec2TagFilters" .!= mempty
+        <*> o .:? "onPremisesInstanceTagFilters" .!= mempty
         <*> o .:? "serviceRoleArn"
         <*> o .:? "targetRevision"
 
 instance ToJSON DeploymentGroupInfo where
     toJSON DeploymentGroupInfo{..} = object
-        [ "applicationName"      .= _dgiApplicationName
-        , "deploymentGroupId"    .= _dgiDeploymentGroupId
-        , "deploymentGroupName"  .= _dgiDeploymentGroupName
-        , "deploymentConfigName" .= _dgiDeploymentConfigName
-        , "ec2TagFilters"        .= _dgiEc2TagFilters
-        , "autoScalingGroups"    .= _dgiAutoScalingGroups
-        , "serviceRoleArn"       .= _dgiServiceRoleArn
-        , "targetRevision"       .= _dgiTargetRevision
+        [ "applicationName"              .= _dgiApplicationName
+        , "deploymentGroupId"            .= _dgiDeploymentGroupId
+        , "deploymentGroupName"          .= _dgiDeploymentGroupName
+        , "deploymentConfigName"         .= _dgiDeploymentConfigName
+        , "ec2TagFilters"                .= _dgiEc2TagFilters
+        , "onPremisesInstanceTagFilters" .= _dgiOnPremisesInstanceTagFilters
+        , "autoScalingGroups"            .= _dgiAutoScalingGroups
+        , "serviceRoleArn"               .= _dgiServiceRoleArn
+        , "targetRevision"               .= _dgiTargetRevision
         ]
 
 data ApplicationRevisionSortBy
@@ -769,17 +882,17 @@ minimumHealthyHosts = MinimumHealthyHosts
 -- | The minimum healthy instances type:
 --
 -- HOST_COUNT: The minimum number of healthy instances, as an absolute value. FLEET_PERCENT: The minimum number of healthy instances, as a percentage of the total number of instances in the deployment.
--- For example, for 9 Amazon EC2 instances, if a HOST_COUNT of 6 is specified,
--- deploy to up to 3 instances at a time. The deployment succeeds if 6 or more
--- instances are successfully deployed to; otherwise, the deployment fails. If a
+-- For example, for 9 instances, if a HOST_COUNT of 6 is specified, deploy to
+-- up to 3 instances at a time. The deployment succeeds if 6 or more instances
+-- are successfully deployed to; otherwise, the deployment fails. If a
 -- FLEET_PERCENT of 40 is specified, deploy to up to 5 instances at a time. The
 -- deployment succeeds if 4 or more instances are successfully deployed to;
 -- otherwise, the deployment fails.
 --
 -- In a call to the get deployment configuration operation,
 -- CodeDeployDefault.OneAtATime will return a minimum healthy instances type of
--- MOST_CONCURRENCY and a value of 1. This means a deployment to only one Amazon
--- EC2 instance at a time. (You cannot set the type to MOST_CONCURRENCY, only to
+-- MOST_CONCURRENCY and a value of 1. This means a deployment to only one
+-- instances at a time. (You cannot set the type to MOST_CONCURRENCY, only to
 -- HOST_COUNT or FLEET_PERCENT.)
 mhhType :: Lens' MinimumHealthyHosts (Maybe MinimumHealthyHostsType)
 mhhType = lens _mhhType (\s a -> s { _mhhType = a })
@@ -985,17 +1098,17 @@ ec2TagFilter = EC2TagFilter
     , _ectfType  = Nothing
     }
 
--- | The Amazon EC2 tag filter key.
+-- | The tag filter key.
 ectfKey :: Lens' EC2TagFilter (Maybe Text)
 ectfKey = lens _ectfKey (\s a -> s { _ectfKey = a })
 
--- | The Amazon EC2 tag filter type:
+-- | The tag filter type:
 --
 -- KEY_ONLY: Key only. VALUE_ONLY: Value only. KEY_AND_VALUE: Key and value.
 ectfType :: Lens' EC2TagFilter (Maybe EC2TagFilterType)
 ectfType = lens _ectfType (\s a -> s { _ectfType = a })
 
--- | The Amazon EC2 tag filter value.
+-- | The tag filter value.
 ectfValue :: Lens' EC2TagFilter (Maybe Text)
 ectfValue = lens _ectfValue (\s a -> s { _ectfValue = a })
 
@@ -1131,17 +1244,18 @@ errorInformation = ErrorInformation
 -- is created but before it starts. DEPLOYMENT_GROUP_MISSING: The deployment
 -- group was missing. Note that this error code will most likely be raised if
 -- the deployment group is deleted after the deployment is created but before it
--- starts. REVISION_MISSING: The revision ID was missing. Note that this error
--- code will most likely be raised if the revision is deleted after the
--- deployment is created but before it starts. IAM_ROLE_MISSING: The service
+-- starts. HEALTH_CONSTRAINTS: The deployment failed on too many instances to be
+-- able to successfully deploy within the specified instance health constraints.
+-- HEALTH_CONSTRAINTS_INVALID: The revision can never successfully deploy within
+-- the instance health constraints as specified. IAM_ROLE_MISSING: The service
 -- role cannot be accessed. IAM_ROLE_PERMISSIONS: The service role does not have
--- the correct permissions. OVER_MAX_INSTANCES: The maximum number of instances
--- was exceeded. NO_INSTANCES: No instances were specified, or no instances can
--- be found. TIMEOUT: The deployment has timed out. HEALTH_CONSTRAINTS_INVALID:
--- The revision can never successfully deploy under the instance health
--- constraints as specified. HEALTH_CONSTRAINTS: The deployment failed on too
--- many instances to be able to successfully deploy under the specified instance
--- health constraints. INTERNAL_ERROR: There was an internal error.
+-- the correct permissions. INTERNAL_ERROR: There was an internal error. NO_EC2_SUBSCRIPTION: The calling account is not subscribed to the Amazon EC2 service.
+-- NO_INSTANCES: No instances were specified, or no instances can be found. OVER_MAX_INSTANCES: The maximum number of instances was exceeded.
+-- THROTTLED: The operation was throttled because the calling account exceeded
+-- the throttling limits of one or more AWS services. TIMEOUT: The deployment
+-- has timed out. REVISION_MISSING: The revision ID was missing. Note that this
+-- error code will most likely be raised if the revision is deleted after the
+-- deployment is created but before it starts.
 eiCode :: Lens' ErrorInformation (Maybe ErrorCode)
 eiCode = lens _eiCode (\s a -> s { _eiCode = a })
 
@@ -1188,6 +1302,85 @@ instance FromJSON SortOrder where
 
 instance ToJSON SortOrder where
     toJSON = toJSONText
+
+data InstanceInfo = InstanceInfo
+    { _iiDeregisterTime :: Maybe POSIX
+    , _iiIamUserArn     :: Maybe Text
+    , _iiInstanceArn    :: Maybe Text
+    , _iiInstanceName   :: Maybe Text
+    , _iiRegisterTime   :: Maybe POSIX
+    , _iiTags           :: List "tags" Tag
+    } deriving (Eq, Read, Show)
+
+-- | 'InstanceInfo' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'iiDeregisterTime' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'iiIamUserArn' @::@ 'Maybe' 'Text'
+--
+-- * 'iiInstanceArn' @::@ 'Maybe' 'Text'
+--
+-- * 'iiInstanceName' @::@ 'Maybe' 'Text'
+--
+-- * 'iiRegisterTime' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'iiTags' @::@ ['Tag']
+--
+instanceInfo :: InstanceInfo
+instanceInfo = InstanceInfo
+    { _iiInstanceName   = Nothing
+    , _iiIamUserArn     = Nothing
+    , _iiInstanceArn    = Nothing
+    , _iiRegisterTime   = Nothing
+    , _iiDeregisterTime = Nothing
+    , _iiTags           = mempty
+    }
+
+-- | If the on-premises instance was deregistered, the time that the on-premises
+-- instance was deregistered.
+iiDeregisterTime :: Lens' InstanceInfo (Maybe UTCTime)
+iiDeregisterTime = lens _iiDeregisterTime (\s a -> s { _iiDeregisterTime = a }) . mapping _Time
+
+-- | The IAM user ARN associated with the on-premises instance.
+iiIamUserArn :: Lens' InstanceInfo (Maybe Text)
+iiIamUserArn = lens _iiIamUserArn (\s a -> s { _iiIamUserArn = a })
+
+-- | The ARN of the on-premises instance.
+iiInstanceArn :: Lens' InstanceInfo (Maybe Text)
+iiInstanceArn = lens _iiInstanceArn (\s a -> s { _iiInstanceArn = a })
+
+-- | The name of the on-premises instance.
+iiInstanceName :: Lens' InstanceInfo (Maybe Text)
+iiInstanceName = lens _iiInstanceName (\s a -> s { _iiInstanceName = a })
+
+-- | The time that the on-premises instance was registered.
+iiRegisterTime :: Lens' InstanceInfo (Maybe UTCTime)
+iiRegisterTime = lens _iiRegisterTime (\s a -> s { _iiRegisterTime = a }) . mapping _Time
+
+-- | The tags that are currently associated with the on-premises instance.
+iiTags :: Lens' InstanceInfo [Tag]
+iiTags = lens _iiTags (\s a -> s { _iiTags = a }) . _List
+
+instance FromJSON InstanceInfo where
+    parseJSON = withObject "InstanceInfo" $ \o -> InstanceInfo
+        <$> o .:? "deregisterTime"
+        <*> o .:? "iamUserArn"
+        <*> o .:? "instanceArn"
+        <*> o .:? "instanceName"
+        <*> o .:? "registerTime"
+        <*> o .:? "tags" .!= mempty
+
+instance ToJSON InstanceInfo where
+    toJSON InstanceInfo{..} = object
+        [ "instanceName"   .= _iiInstanceName
+        , "iamUserArn"     .= _iiIamUserArn
+        , "instanceArn"    .= _iiInstanceArn
+        , "registerTime"   .= _iiRegisterTime
+        , "deregisterTime" .= _iiDeregisterTime
+        , "tags"           .= _iiTags
+        ]
 
 data DeploymentInfo = DeploymentInfo
     { _diApplicationName               :: Maybe Text
@@ -1371,6 +1564,56 @@ instance ToJSON DeploymentInfo where
         , "ignoreApplicationStopFailures" .= _diIgnoreApplicationStopFailures
         ]
 
+data TagFilter = TagFilter
+    { _tfKey   :: Maybe Text
+    , _tfType  :: Maybe TagFilterType
+    , _tfValue :: Maybe Text
+    } deriving (Eq, Read, Show)
+
+-- | 'TagFilter' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'tfKey' @::@ 'Maybe' 'Text'
+--
+-- * 'tfType' @::@ 'Maybe' 'TagFilterType'
+--
+-- * 'tfValue' @::@ 'Maybe' 'Text'
+--
+tagFilter :: TagFilter
+tagFilter = TagFilter
+    { _tfKey   = Nothing
+    , _tfValue = Nothing
+    , _tfType  = Nothing
+    }
+
+-- | The on-premises instance tag filter key.
+tfKey :: Lens' TagFilter (Maybe Text)
+tfKey = lens _tfKey (\s a -> s { _tfKey = a })
+
+-- | The on-premises instance tag filter type:
+--
+-- KEY_ONLY: Key only. VALUE_ONLY: Value only. KEY_AND_VALUE: Key and value.
+tfType :: Lens' TagFilter (Maybe TagFilterType)
+tfType = lens _tfType (\s a -> s { _tfType = a })
+
+-- | The on-premises instance tag filter value.
+tfValue :: Lens' TagFilter (Maybe Text)
+tfValue = lens _tfValue (\s a -> s { _tfValue = a })
+
+instance FromJSON TagFilter where
+    parseJSON = withObject "TagFilter" $ \o -> TagFilter
+        <$> o .:? "Key"
+        <*> o .:? "Type"
+        <*> o .:? "Value"
+
+instance ToJSON TagFilter where
+    toJSON TagFilter{..} = object
+        [ "Key"   .= _tfKey
+        , "Value" .= _tfValue
+        , "Type"  .= _tfType
+        ]
+
 data LifecycleEvent = LifecycleEvent
     { _leDiagnostics        :: Maybe Diagnostics
     , _leEndTime            :: Maybe POSIX
@@ -1523,9 +1766,11 @@ data ErrorCode
     | IamRoleMissing           -- ^ IAM_ROLE_MISSING
     | IamRolePermissions       -- ^ IAM_ROLE_PERMISSIONS
     | InternalError            -- ^ INTERNAL_ERROR
+    | NOEC2SUBSCRIPTION        -- ^ NO_EC2_SUBSCRIPTION
     | NoInstances              -- ^ NO_INSTANCES
     | OverMaxInstances         -- ^ OVER_MAX_INSTANCES
     | RevisionMissing          -- ^ REVISION_MISSING
+    | Throttled                -- ^ THROTTLED
     | Timeout                  -- ^ TIMEOUT
       deriving (Eq, Ord, Read, Show, Generic, Enum)
 
@@ -1540,9 +1785,11 @@ instance FromText ErrorCode where
         "iam_role_missing"           -> pure IamRoleMissing
         "iam_role_permissions"       -> pure IamRolePermissions
         "internal_error"             -> pure InternalError
+        "no_ec2_subscription"        -> pure NOEC2SUBSCRIPTION
         "no_instances"               -> pure NoInstances
         "over_max_instances"         -> pure OverMaxInstances
         "revision_missing"           -> pure RevisionMissing
+        "throttled"                  -> pure Throttled
         "timeout"                    -> pure Timeout
         e                            -> fail $
             "Failure parsing ErrorCode from " ++ show e
@@ -1556,9 +1803,11 @@ instance ToText ErrorCode where
         IamRoleMissing           -> "IAM_ROLE_MISSING"
         IamRolePermissions       -> "IAM_ROLE_PERMISSIONS"
         InternalError            -> "INTERNAL_ERROR"
+        NOEC2SUBSCRIPTION        -> "NO_EC2_SUBSCRIPTION"
         NoInstances              -> "NO_INSTANCES"
         OverMaxInstances         -> "OVER_MAX_INSTANCES"
         RevisionMissing          -> "REVISION_MISSING"
+        Throttled                -> "THROTTLED"
         Timeout                  -> "TIMEOUT"
 
 instance ToByteString ErrorCode
@@ -1712,6 +1961,35 @@ instance FromJSON DeploymentStatus where
     parseJSON = parseJSONText "DeploymentStatus"
 
 instance ToJSON DeploymentStatus where
+    toJSON = toJSONText
+
+data RegistrationStatus
+    = Deregistered -- ^ Deregistered
+    | Registered   -- ^ Registered
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
+
+instance Hashable RegistrationStatus
+
+instance FromText RegistrationStatus where
+    parser = takeLowerText >>= \case
+        "deregistered" -> pure Deregistered
+        "registered"   -> pure Registered
+        e              -> fail $
+            "Failure parsing RegistrationStatus from " ++ show e
+
+instance ToText RegistrationStatus where
+    toText = \case
+        Deregistered -> "Deregistered"
+        Registered   -> "Registered"
+
+instance ToByteString RegistrationStatus
+instance ToHeader     RegistrationStatus
+instance ToQuery      RegistrationStatus
+
+instance FromJSON RegistrationStatus where
+    parseJSON = parseJSONText "RegistrationStatus"
+
+instance ToJSON RegistrationStatus where
     toJSON = toJSONText
 
 data S3Location = S3Location
@@ -1895,26 +2173,26 @@ instance ToJSON RevisionLocationType where
     toJSON = toJSONText
 
 data EC2TagFilterType
-    = KeyAndValue -- ^ KEY_AND_VALUE
-    | KeyOnly     -- ^ KEY_ONLY
-    | ValueOnly   -- ^ VALUE_ONLY
+    = ECTFTKeyAndValue -- ^ KEY_AND_VALUE
+    | ECTFTKeyOnly     -- ^ KEY_ONLY
+    | ECTFTValueOnly   -- ^ VALUE_ONLY
       deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable EC2TagFilterType
 
 instance FromText EC2TagFilterType where
     parser = takeLowerText >>= \case
-        "key_and_value" -> pure KeyAndValue
-        "key_only"      -> pure KeyOnly
-        "value_only"    -> pure ValueOnly
+        "key_and_value" -> pure ECTFTKeyAndValue
+        "key_only"      -> pure ECTFTKeyOnly
+        "value_only"    -> pure ECTFTValueOnly
         e               -> fail $
             "Failure parsing EC2TagFilterType from " ++ show e
 
 instance ToText EC2TagFilterType where
     toText = \case
-        KeyAndValue -> "KEY_AND_VALUE"
-        KeyOnly     -> "KEY_ONLY"
-        ValueOnly   -> "VALUE_ONLY"
+        ECTFTKeyAndValue -> "KEY_AND_VALUE"
+        ECTFTKeyOnly     -> "KEY_ONLY"
+        ECTFTValueOnly   -> "VALUE_ONLY"
 
 instance ToByteString EC2TagFilterType
 instance ToHeader     EC2TagFilterType

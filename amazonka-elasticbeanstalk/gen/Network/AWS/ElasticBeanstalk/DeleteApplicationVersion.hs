@@ -24,6 +24,9 @@
 
 -- | Deletes the specified version from the specified application.
 --
+-- You cannot delete an application version that is associated with a running
+-- environment.
+--
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DeleteApplicationVersion.html>
 module Network.AWS.ElasticBeanstalk.DeleteApplicationVersion
     (

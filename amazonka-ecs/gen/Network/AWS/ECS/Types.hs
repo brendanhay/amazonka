@@ -37,11 +37,30 @@ module Network.AWS.ECS.Types
     , nbContainerPort
     , nbHostPort
 
+    -- * ContainerService
+    , ContainerService
+    , containerService
+    , csClusterArn
+    , csDeployments
+    , csDesiredCount
+    , csEvents
+    , csLoadBalancers
+    , csPendingCount
+    , csRoleArn
+    , csRunningCount
+    , csServiceArn
+    , csServiceName
+    , csStatus
+    , csTaskDefinition
+
     -- * Cluster
     , Cluster
     , cluster
     , cClusterArn
     , cClusterName
+    , cPendingTasksCount
+    , cRegisteredContainerInstancesCount
+    , cRunningTasksCount
     , cStatus
 
     -- * Volume
@@ -78,6 +97,13 @@ module Network.AWS.ECS.Types
     , hostVolumeProperties
     , hvpSourcePath
 
+    -- * VersionInfo
+    , VersionInfo
+    , versionInfo
+    , viAgentHash
+    , viAgentVersion
+    , viDockerVersion
+
     -- * Container
     , Container
     , container
@@ -88,6 +114,13 @@ module Network.AWS.ECS.Types
     , cNetworkBindings
     , cReason
     , cTaskArn
+
+    -- * LoadBalancer
+    , LoadBalancer
+    , loadBalancer
+    , lbContainerName
+    , lbContainerPort
+    , lbLoadBalancerName
 
     -- * ContainerDefinition
     , ContainerDefinition
@@ -124,6 +157,7 @@ module Network.AWS.ECS.Types
     , tDesiredStatus
     , tLastStatus
     , tOverrides
+    , tStartedBy
     , tTaskArn
     , tTaskDefinitionArn
 
@@ -154,9 +188,30 @@ module Network.AWS.ECS.Types
     , ciAgentConnected
     , ciContainerInstanceArn
     , ciEc2InstanceId
+    , ciPendingTasksCount
     , ciRegisteredResources
     , ciRemainingResources
+    , ciRunningTasksCount
     , ciStatus
+
+    -- * ServiceEvent
+    , ServiceEvent
+    , serviceEvent
+    , seCreatedAt
+    , seId
+    , seMessage
+
+    -- * Deployment
+    , Deployment
+    , deployment
+    , dCreatedAt
+    , dDesiredCount
+    , dId
+    , dPendingCount
+    , dRunningCount
+    , dStatus
+    , dTaskDefinition
+    , dUpdatedAt
 
     -- * MountPoint
     , MountPoint
@@ -259,10 +314,161 @@ instance ToJSON NetworkBinding where
         , "hostPort"      .= _nbHostPort
         ]
 
+data ContainerService = ContainerService
+    { _csClusterArn     :: Maybe Text
+    , _csDeployments    :: List "deployments" Deployment
+    , _csDesiredCount   :: Maybe Int
+    , _csEvents         :: List "events" ServiceEvent
+    , _csLoadBalancers  :: List "loadBalancers" LoadBalancer
+    , _csPendingCount   :: Maybe Int
+    , _csRoleArn        :: Maybe Text
+    , _csRunningCount   :: Maybe Int
+    , _csServiceArn     :: Maybe Text
+    , _csServiceName    :: Maybe Text
+    , _csStatus         :: Maybe Text
+    , _csTaskDefinition :: Maybe Text
+    } deriving (Eq, Read, Show)
+
+-- | 'ContainerService' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'csClusterArn' @::@ 'Maybe' 'Text'
+--
+-- * 'csDeployments' @::@ ['Deployment']
+--
+-- * 'csDesiredCount' @::@ 'Maybe' 'Int'
+--
+-- * 'csEvents' @::@ ['ServiceEvent']
+--
+-- * 'csLoadBalancers' @::@ ['LoadBalancer']
+--
+-- * 'csPendingCount' @::@ 'Maybe' 'Int'
+--
+-- * 'csRoleArn' @::@ 'Maybe' 'Text'
+--
+-- * 'csRunningCount' @::@ 'Maybe' 'Int'
+--
+-- * 'csServiceArn' @::@ 'Maybe' 'Text'
+--
+-- * 'csServiceName' @::@ 'Maybe' 'Text'
+--
+-- * 'csStatus' @::@ 'Maybe' 'Text'
+--
+-- * 'csTaskDefinition' @::@ 'Maybe' 'Text'
+--
+containerService :: ContainerService
+containerService = ContainerService
+    { _csServiceArn     = Nothing
+    , _csServiceName    = Nothing
+    , _csClusterArn     = Nothing
+    , _csLoadBalancers  = mempty
+    , _csStatus         = Nothing
+    , _csDesiredCount   = Nothing
+    , _csRunningCount   = Nothing
+    , _csPendingCount   = Nothing
+    , _csTaskDefinition = Nothing
+    , _csDeployments    = mempty
+    , _csRoleArn        = Nothing
+    , _csEvents         = mempty
+    }
+
+-- | The Amazon Resource Name (ARN) of the of the cluster that hosts the service.
+csClusterArn :: Lens' ContainerService (Maybe Text)
+csClusterArn = lens _csClusterArn (\s a -> s { _csClusterArn = a })
+
+-- | The current state of deployments for the service.
+csDeployments :: Lens' ContainerService [Deployment]
+csDeployments = lens _csDeployments (\s a -> s { _csDeployments = a }) . _List
+
+-- | The desired number of instantiations of the task definition to keep running
+-- on the service. This value is specified when the service is created with 'CreateService', and it can be modified with 'UpdateService'.
+csDesiredCount :: Lens' ContainerService (Maybe Int)
+csDesiredCount = lens _csDesiredCount (\s a -> s { _csDesiredCount = a })
+
+-- | The event stream for your service. A maximum of 100 of the latest events are
+-- displayed.
+csEvents :: Lens' ContainerService [ServiceEvent]
+csEvents = lens _csEvents (\s a -> s { _csEvents = a }) . _List
+
+-- | A list of load balancer objects, containing the load balancer name, the
+-- container name (as it appears in a container definition), and the container
+-- port to access from the load balancer.
+csLoadBalancers :: Lens' ContainerService [LoadBalancer]
+csLoadBalancers = lens _csLoadBalancers (\s a -> s { _csLoadBalancers = a }) . _List
+
+-- | The number of tasks in the cluster that are in the 'PENDING' state.
+csPendingCount :: Lens' ContainerService (Maybe Int)
+csPendingCount = lens _csPendingCount (\s a -> s { _csPendingCount = a })
+
+-- | The Amazon Resource Name (ARN) of the IAM role associated with the service
+-- that allows the Amazon ECS container agent to register container instances
+-- with a load balancer.
+csRoleArn :: Lens' ContainerService (Maybe Text)
+csRoleArn = lens _csRoleArn (\s a -> s { _csRoleArn = a })
+
+-- | The number of tasks in the cluster that are in the 'RUNNING' state.
+csRunningCount :: Lens' ContainerService (Maybe Int)
+csRunningCount = lens _csRunningCount (\s a -> s { _csRunningCount = a })
+
+-- | The Amazon Resource Name (ARN) that identifies the service. The ARN contains
+-- the 'arn:aws:ecs' namespace, followed by the region of the service, the AWS
+-- account ID of the service owner, the 'service' namespace, and then the service
+-- name. For example, arn:aws:ecs:/region/:/012345678910/:service//my-service/.
+csServiceArn :: Lens' ContainerService (Maybe Text)
+csServiceArn = lens _csServiceArn (\s a -> s { _csServiceArn = a })
+
+-- | A user-generated string that you can use to identify your service.
+csServiceName :: Lens' ContainerService (Maybe Text)
+csServiceName = lens _csServiceName (\s a -> s { _csServiceName = a })
+
+-- | The status of the service. The valid values are 'ACTIVE', 'DRAINING', or 'INACTIVE'.
+csStatus :: Lens' ContainerService (Maybe Text)
+csStatus = lens _csStatus (\s a -> s { _csStatus = a })
+
+-- | The task definition to use for tasks in the service. This value is specified
+-- when the service is created with 'CreateService', and it can be modified with 'UpdateService'.
+csTaskDefinition :: Lens' ContainerService (Maybe Text)
+csTaskDefinition = lens _csTaskDefinition (\s a -> s { _csTaskDefinition = a })
+
+instance FromJSON ContainerService where
+    parseJSON = withObject "ContainerService" $ \o -> ContainerService
+        <$> o .:? "clusterArn"
+        <*> o .:? "deployments" .!= mempty
+        <*> o .:? "desiredCount"
+        <*> o .:? "events" .!= mempty
+        <*> o .:? "loadBalancers" .!= mempty
+        <*> o .:? "pendingCount"
+        <*> o .:? "roleArn"
+        <*> o .:? "runningCount"
+        <*> o .:? "serviceArn"
+        <*> o .:? "serviceName"
+        <*> o .:? "status"
+        <*> o .:? "taskDefinition"
+
+instance ToJSON ContainerService where
+    toJSON ContainerService{..} = object
+        [ "serviceArn"     .= _csServiceArn
+        , "serviceName"    .= _csServiceName
+        , "clusterArn"     .= _csClusterArn
+        , "loadBalancers"  .= _csLoadBalancers
+        , "status"         .= _csStatus
+        , "desiredCount"   .= _csDesiredCount
+        , "runningCount"   .= _csRunningCount
+        , "pendingCount"   .= _csPendingCount
+        , "taskDefinition" .= _csTaskDefinition
+        , "deployments"    .= _csDeployments
+        , "roleArn"        .= _csRoleArn
+        , "events"         .= _csEvents
+        ]
+
 data Cluster = Cluster
-    { _cClusterArn  :: Maybe Text
-    , _cClusterName :: Maybe Text
-    , _cStatus      :: Maybe Text
+    { _cClusterArn                        :: Maybe Text
+    , _cClusterName                       :: Maybe Text
+    , _cPendingTasksCount                 :: Maybe Int
+    , _cRegisteredContainerInstancesCount :: Maybe Int
+    , _cRunningTasksCount                 :: Maybe Int
+    , _cStatus                            :: Maybe Text
     } deriving (Eq, Ord, Read, Show)
 
 -- | 'Cluster' constructor.
@@ -273,13 +479,22 @@ data Cluster = Cluster
 --
 -- * 'cClusterName' @::@ 'Maybe' 'Text'
 --
+-- * 'cPendingTasksCount' @::@ 'Maybe' 'Int'
+--
+-- * 'cRegisteredContainerInstancesCount' @::@ 'Maybe' 'Int'
+--
+-- * 'cRunningTasksCount' @::@ 'Maybe' 'Int'
+--
 -- * 'cStatus' @::@ 'Maybe' 'Text'
 --
 cluster :: Cluster
 cluster = Cluster
-    { _cClusterArn  = Nothing
-    , _cClusterName = Nothing
-    , _cStatus      = Nothing
+    { _cClusterArn                        = Nothing
+    , _cClusterName                       = Nothing
+    , _cStatus                            = Nothing
+    , _cRegisteredContainerInstancesCount = Nothing
+    , _cRunningTasksCount                 = Nothing
+    , _cPendingTasksCount                 = Nothing
     }
 
 -- | The Amazon Resource Name (ARN) that identifies the cluster. The ARN contains
@@ -293,6 +508,22 @@ cClusterArn = lens _cClusterArn (\s a -> s { _cClusterArn = a })
 cClusterName :: Lens' Cluster (Maybe Text)
 cClusterName = lens _cClusterName (\s a -> s { _cClusterName = a })
 
+-- | The number of tasks in the cluster that are in the 'PENDING' state.
+cPendingTasksCount :: Lens' Cluster (Maybe Int)
+cPendingTasksCount =
+    lens _cPendingTasksCount (\s a -> s { _cPendingTasksCount = a })
+
+-- | The number of container instances registered into the cluster.
+cRegisteredContainerInstancesCount :: Lens' Cluster (Maybe Int)
+cRegisteredContainerInstancesCount =
+    lens _cRegisteredContainerInstancesCount
+        (\s a -> s { _cRegisteredContainerInstancesCount = a })
+
+-- | The number of tasks in the cluster that are in the 'RUNNING' state.
+cRunningTasksCount :: Lens' Cluster (Maybe Int)
+cRunningTasksCount =
+    lens _cRunningTasksCount (\s a -> s { _cRunningTasksCount = a })
+
 -- | The status of the cluster. The valid values are 'ACTIVE' or 'INACTIVE'. 'ACTIVE'
 -- indicates that you can register container instances with the cluster and the
 -- associated instances can accept tasks.
@@ -303,13 +534,19 @@ instance FromJSON Cluster where
     parseJSON = withObject "Cluster" $ \o -> Cluster
         <$> o .:? "clusterArn"
         <*> o .:? "clusterName"
+        <*> o .:? "pendingTasksCount"
+        <*> o .:? "registeredContainerInstancesCount"
+        <*> o .:? "runningTasksCount"
         <*> o .:? "status"
 
 instance ToJSON Cluster where
     toJSON Cluster{..} = object
-        [ "clusterArn"  .= _cClusterArn
-        , "clusterName" .= _cClusterName
-        , "status"      .= _cStatus
+        [ "clusterArn"                        .= _cClusterArn
+        , "clusterName"                       .= _cClusterName
+        , "status"                            .= _cStatus
+        , "registeredContainerInstancesCount" .= _cRegisteredContainerInstancesCount
+        , "runningTasksCount"                 .= _cRunningTasksCount
+        , "pendingTasksCount"                 .= _cPendingTasksCount
         ]
 
 data Volume = Volume
@@ -372,7 +609,8 @@ containerOverride = ContainerOverride
     , _coCommand = mempty
     }
 
--- | The command to send to the container that receives the override.
+-- | The command to send to the container that overrides the default command from
+-- the Docker image or the task definition.
 coCommand :: Lens' ContainerOverride [Text]
 coCommand = lens _coCommand (\s a -> s { _coCommand = a }) . _List
 
@@ -491,7 +729,7 @@ taskOverride = TaskOverride
     { _toContainerOverrides = mempty
     }
 
--- | One or more container overrides to send when running a task.
+-- | One or more container overrides sent to a task.
 toContainerOverrides :: Lens' TaskOverride [ContainerOverride]
 toContainerOverrides =
     lens _toContainerOverrides (\s a -> s { _toContainerOverrides = a })
@@ -534,6 +772,54 @@ instance FromJSON HostVolumeProperties where
 instance ToJSON HostVolumeProperties where
     toJSON HostVolumeProperties{..} = object
         [ "sourcePath" .= _hvpSourcePath
+        ]
+
+data VersionInfo = VersionInfo
+    { _viAgentHash     :: Maybe Text
+    , _viAgentVersion  :: Maybe Text
+    , _viDockerVersion :: Maybe Text
+    } deriving (Eq, Ord, Read, Show)
+
+-- | 'VersionInfo' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'viAgentHash' @::@ 'Maybe' 'Text'
+--
+-- * 'viAgentVersion' @::@ 'Maybe' 'Text'
+--
+-- * 'viDockerVersion' @::@ 'Maybe' 'Text'
+--
+versionInfo :: VersionInfo
+versionInfo = VersionInfo
+    { _viAgentVersion  = Nothing
+    , _viAgentHash     = Nothing
+    , _viDockerVersion = Nothing
+    }
+
+-- | The Git commit hash for the Amazon ECS container agent build on the <https://github.com/aws/amazon-ecs-agent/commits/master amazon-ecs-agent > GitHub repository.
+viAgentHash :: Lens' VersionInfo (Maybe Text)
+viAgentHash = lens _viAgentHash (\s a -> s { _viAgentHash = a })
+
+-- | The version number of the Amazon ECS container agent.
+viAgentVersion :: Lens' VersionInfo (Maybe Text)
+viAgentVersion = lens _viAgentVersion (\s a -> s { _viAgentVersion = a })
+
+-- | The Docker version running on the container instance.
+viDockerVersion :: Lens' VersionInfo (Maybe Text)
+viDockerVersion = lens _viDockerVersion (\s a -> s { _viDockerVersion = a })
+
+instance FromJSON VersionInfo where
+    parseJSON = withObject "VersionInfo" $ \o -> VersionInfo
+        <$> o .:? "agentHash"
+        <*> o .:? "agentVersion"
+        <*> o .:? "dockerVersion"
+
+instance ToJSON VersionInfo where
+    toJSON VersionInfo{..} = object
+        [ "agentVersion"  .= _viAgentVersion
+        , "agentHash"     .= _viAgentHash
+        , "dockerVersion" .= _viDockerVersion
         ]
 
 data Container = Container
@@ -622,6 +908,55 @@ instance ToJSON Container where
         , "exitCode"        .= _cExitCode
         , "reason"          .= _cReason
         , "networkBindings" .= _cNetworkBindings
+        ]
+
+data LoadBalancer = LoadBalancer
+    { _lbContainerName    :: Maybe Text
+    , _lbContainerPort    :: Maybe Int
+    , _lbLoadBalancerName :: Maybe Text
+    } deriving (Eq, Ord, Read, Show)
+
+-- | 'LoadBalancer' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'lbContainerName' @::@ 'Maybe' 'Text'
+--
+-- * 'lbContainerPort' @::@ 'Maybe' 'Int'
+--
+-- * 'lbLoadBalancerName' @::@ 'Maybe' 'Text'
+--
+loadBalancer :: LoadBalancer
+loadBalancer = LoadBalancer
+    { _lbLoadBalancerName = Nothing
+    , _lbContainerName    = Nothing
+    , _lbContainerPort    = Nothing
+    }
+
+-- | The name of the container to associate with the load balancer.
+lbContainerName :: Lens' LoadBalancer (Maybe Text)
+lbContainerName = lens _lbContainerName (\s a -> s { _lbContainerName = a })
+
+-- | The port on the container to associate with the load balancer.
+lbContainerPort :: Lens' LoadBalancer (Maybe Int)
+lbContainerPort = lens _lbContainerPort (\s a -> s { _lbContainerPort = a })
+
+-- | The name of the load balancer.
+lbLoadBalancerName :: Lens' LoadBalancer (Maybe Text)
+lbLoadBalancerName =
+    lens _lbLoadBalancerName (\s a -> s { _lbLoadBalancerName = a })
+
+instance FromJSON LoadBalancer where
+    parseJSON = withObject "LoadBalancer" $ \o -> LoadBalancer
+        <$> o .:? "containerName"
+        <*> o .:? "containerPort"
+        <*> o .:? "loadBalancerName"
+
+instance ToJSON LoadBalancer where
+    toJSON LoadBalancer{..} = object
+        [ "loadBalancerName" .= _lbLoadBalancerName
+        , "containerName"    .= _lbContainerName
+        , "containerPort"    .= _lbContainerPort
         ]
 
 data ContainerDefinition = ContainerDefinition
@@ -867,6 +1202,7 @@ data Task = Task
     , _tDesiredStatus        :: Maybe Text
     , _tLastStatus           :: Maybe Text
     , _tOverrides            :: Maybe TaskOverride
+    , _tStartedBy            :: Maybe Text
     , _tTaskArn              :: Maybe Text
     , _tTaskDefinitionArn    :: Maybe Text
     } deriving (Eq, Read, Show)
@@ -887,6 +1223,8 @@ data Task = Task
 --
 -- * 'tOverrides' @::@ 'Maybe' 'TaskOverride'
 --
+-- * 'tStartedBy' @::@ 'Maybe' 'Text'
+--
 -- * 'tTaskArn' @::@ 'Maybe' 'Text'
 --
 -- * 'tTaskDefinitionArn' @::@ 'Maybe' 'Text'
@@ -901,6 +1239,7 @@ task = Task
     , _tLastStatus           = Nothing
     , _tDesiredStatus        = Nothing
     , _tContainers           = mempty
+    , _tStartedBy            = Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the of the cluster that hosts the task.
@@ -928,6 +1267,12 @@ tLastStatus = lens _tLastStatus (\s a -> s { _tLastStatus = a })
 tOverrides :: Lens' Task (Maybe TaskOverride)
 tOverrides = lens _tOverrides (\s a -> s { _tOverrides = a })
 
+-- | The tag specified when a task is started. If the task is started by an Amazon
+-- ECS service, then the 'startedBy' parameter contains the deployment ID of the
+-- service that starts it.
+tStartedBy :: Lens' Task (Maybe Text)
+tStartedBy = lens _tStartedBy (\s a -> s { _tStartedBy = a })
+
 -- | The Amazon Resource Name (ARN) of the task.
 tTaskArn :: Lens' Task (Maybe Text)
 tTaskArn = lens _tTaskArn (\s a -> s { _tTaskArn = a })
@@ -946,6 +1291,7 @@ instance FromJSON Task where
         <*> o .:? "desiredStatus"
         <*> o .:? "lastStatus"
         <*> o .:? "overrides"
+        <*> o .:? "startedBy"
         <*> o .:? "taskArn"
         <*> o .:? "taskDefinitionArn"
 
@@ -959,6 +1305,7 @@ instance ToJSON Task where
         , "lastStatus"           .= _tLastStatus
         , "desiredStatus"        .= _tDesiredStatus
         , "containers"           .= _tContainers
+        , "startedBy"            .= _tStartedBy
         ]
 
 data PortMapping = PortMapping
@@ -1137,8 +1484,10 @@ data ContainerInstance = ContainerInstance
     { _ciAgentConnected       :: Maybe Bool
     , _ciContainerInstanceArn :: Maybe Text
     , _ciEc2InstanceId        :: Maybe Text
+    , _ciPendingTasksCount    :: Maybe Int
     , _ciRegisteredResources  :: List "registeredResources" Resource
     , _ciRemainingResources   :: List "remainingResources" Resource
+    , _ciRunningTasksCount    :: Maybe Int
     , _ciStatus               :: Maybe Text
     } deriving (Eq, Read, Show)
 
@@ -1152,9 +1501,13 @@ data ContainerInstance = ContainerInstance
 --
 -- * 'ciEc2InstanceId' @::@ 'Maybe' 'Text'
 --
+-- * 'ciPendingTasksCount' @::@ 'Maybe' 'Int'
+--
 -- * 'ciRegisteredResources' @::@ ['Resource']
 --
 -- * 'ciRemainingResources' @::@ ['Resource']
+--
+-- * 'ciRunningTasksCount' @::@ 'Maybe' 'Int'
 --
 -- * 'ciStatus' @::@ 'Maybe' 'Text'
 --
@@ -1166,6 +1519,8 @@ containerInstance = ContainerInstance
     , _ciRegisteredResources  = mempty
     , _ciStatus               = Nothing
     , _ciAgentConnected       = Nothing
+    , _ciRunningTasksCount    = Nothing
+    , _ciPendingTasksCount    = Nothing
     }
 
 -- | This parameter returns 'true' if the agent is actually connected to Amazon ECS.
@@ -1187,6 +1542,11 @@ ciContainerInstanceArn =
 ciEc2InstanceId :: Lens' ContainerInstance (Maybe Text)
 ciEc2InstanceId = lens _ciEc2InstanceId (\s a -> s { _ciEc2InstanceId = a })
 
+-- | The number of tasks on the container instance that are in the 'PENDING' status.
+ciPendingTasksCount :: Lens' ContainerInstance (Maybe Int)
+ciPendingTasksCount =
+    lens _ciPendingTasksCount (\s a -> s { _ciPendingTasksCount = a })
+
 -- | The registered resources on the container instance that are in use by current
 -- tasks.
 ciRegisteredResources :: Lens' ContainerInstance [Resource]
@@ -1201,6 +1561,11 @@ ciRemainingResources =
     lens _ciRemainingResources (\s a -> s { _ciRemainingResources = a })
         . _List
 
+-- | The number of tasks on the container instance that are in the 'RUNNING' status.
+ciRunningTasksCount :: Lens' ContainerInstance (Maybe Int)
+ciRunningTasksCount =
+    lens _ciRunningTasksCount (\s a -> s { _ciRunningTasksCount = a })
+
 -- | The status of the container instance. The valid values are 'ACTIVE' or 'INACTIVE'.
 -- 'ACTIVE' indicates that the container instance can accept tasks.
 ciStatus :: Lens' ContainerInstance (Maybe Text)
@@ -1211,8 +1576,10 @@ instance FromJSON ContainerInstance where
         <$> o .:? "agentConnected"
         <*> o .:? "containerInstanceArn"
         <*> o .:? "ec2InstanceId"
+        <*> o .:? "pendingTasksCount"
         <*> o .:? "registeredResources" .!= mempty
         <*> o .:? "remainingResources" .!= mempty
+        <*> o .:? "runningTasksCount"
         <*> o .:? "status"
 
 instance ToJSON ContainerInstance where
@@ -1223,6 +1590,158 @@ instance ToJSON ContainerInstance where
         , "registeredResources"  .= _ciRegisteredResources
         , "status"               .= _ciStatus
         , "agentConnected"       .= _ciAgentConnected
+        , "runningTasksCount"    .= _ciRunningTasksCount
+        , "pendingTasksCount"    .= _ciPendingTasksCount
+        ]
+
+data ServiceEvent = ServiceEvent
+    { _seCreatedAt :: Maybe POSIX
+    , _seId        :: Maybe Text
+    , _seMessage   :: Maybe Text
+    } deriving (Eq, Ord, Read, Show)
+
+-- | 'ServiceEvent' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'seCreatedAt' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'seId' @::@ 'Maybe' 'Text'
+--
+-- * 'seMessage' @::@ 'Maybe' 'Text'
+--
+serviceEvent :: ServiceEvent
+serviceEvent = ServiceEvent
+    { _seId        = Nothing
+    , _seCreatedAt = Nothing
+    , _seMessage   = Nothing
+    }
+
+-- | The Unix time in seconds and milliseconds when the event was triggered.
+seCreatedAt :: Lens' ServiceEvent (Maybe UTCTime)
+seCreatedAt = lens _seCreatedAt (\s a -> s { _seCreatedAt = a }) . mapping _Time
+
+-- | The ID string of the event.
+seId :: Lens' ServiceEvent (Maybe Text)
+seId = lens _seId (\s a -> s { _seId = a })
+
+-- | The event message.
+seMessage :: Lens' ServiceEvent (Maybe Text)
+seMessage = lens _seMessage (\s a -> s { _seMessage = a })
+
+instance FromJSON ServiceEvent where
+    parseJSON = withObject "ServiceEvent" $ \o -> ServiceEvent
+        <$> o .:? "createdAt"
+        <*> o .:? "id"
+        <*> o .:? "message"
+
+instance ToJSON ServiceEvent where
+    toJSON ServiceEvent{..} = object
+        [ "id"        .= _seId
+        , "createdAt" .= _seCreatedAt
+        , "message"   .= _seMessage
+        ]
+
+data Deployment = Deployment
+    { _dCreatedAt      :: Maybe POSIX
+    , _dDesiredCount   :: Maybe Int
+    , _dId             :: Maybe Text
+    , _dPendingCount   :: Maybe Int
+    , _dRunningCount   :: Maybe Int
+    , _dStatus         :: Maybe Text
+    , _dTaskDefinition :: Maybe Text
+    , _dUpdatedAt      :: Maybe POSIX
+    } deriving (Eq, Ord, Read, Show)
+
+-- | 'Deployment' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dCreatedAt' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'dDesiredCount' @::@ 'Maybe' 'Int'
+--
+-- * 'dId' @::@ 'Maybe' 'Text'
+--
+-- * 'dPendingCount' @::@ 'Maybe' 'Int'
+--
+-- * 'dRunningCount' @::@ 'Maybe' 'Int'
+--
+-- * 'dStatus' @::@ 'Maybe' 'Text'
+--
+-- * 'dTaskDefinition' @::@ 'Maybe' 'Text'
+--
+-- * 'dUpdatedAt' @::@ 'Maybe' 'UTCTime'
+--
+deployment :: Deployment
+deployment = Deployment
+    { _dId             = Nothing
+    , _dStatus         = Nothing
+    , _dTaskDefinition = Nothing
+    , _dDesiredCount   = Nothing
+    , _dPendingCount   = Nothing
+    , _dRunningCount   = Nothing
+    , _dCreatedAt      = Nothing
+    , _dUpdatedAt      = Nothing
+    }
+
+-- | The Unix time in seconds and milliseconds when the service was created.
+dCreatedAt :: Lens' Deployment (Maybe UTCTime)
+dCreatedAt = lens _dCreatedAt (\s a -> s { _dCreatedAt = a }) . mapping _Time
+
+-- | The most recent desired count of tasks that was specified for the service to
+-- deploy and/or maintain.
+dDesiredCount :: Lens' Deployment (Maybe Int)
+dDesiredCount = lens _dDesiredCount (\s a -> s { _dDesiredCount = a })
+
+-- | The ID of the deployment.
+dId :: Lens' Deployment (Maybe Text)
+dId = lens _dId (\s a -> s { _dId = a })
+
+-- | The number of tasks in the deployment that are in the 'PENDING' status.
+dPendingCount :: Lens' Deployment (Maybe Int)
+dPendingCount = lens _dPendingCount (\s a -> s { _dPendingCount = a })
+
+-- | The number of tasks in the deployment that are in the 'RUNNING' status.
+dRunningCount :: Lens' Deployment (Maybe Int)
+dRunningCount = lens _dRunningCount (\s a -> s { _dRunningCount = a })
+
+-- | The status of the deployment. Valid values are 'PRIMARY' (for the most recent
+-- deployment), 'ACTIVE' (for previous deployments that still have tasks running,
+-- but are being replaced with the 'PRIMARY' deployment), and 'INACTIVE' (for
+-- deployments that have been completely replaced).
+dStatus :: Lens' Deployment (Maybe Text)
+dStatus = lens _dStatus (\s a -> s { _dStatus = a })
+
+-- | The most recent task definition that was specified for the service to use.
+dTaskDefinition :: Lens' Deployment (Maybe Text)
+dTaskDefinition = lens _dTaskDefinition (\s a -> s { _dTaskDefinition = a })
+
+-- | The Unix time in seconds and milliseconds when the service was last updated.
+dUpdatedAt :: Lens' Deployment (Maybe UTCTime)
+dUpdatedAt = lens _dUpdatedAt (\s a -> s { _dUpdatedAt = a }) . mapping _Time
+
+instance FromJSON Deployment where
+    parseJSON = withObject "Deployment" $ \o -> Deployment
+        <$> o .:? "createdAt"
+        <*> o .:? "desiredCount"
+        <*> o .:? "id"
+        <*> o .:? "pendingCount"
+        <*> o .:? "runningCount"
+        <*> o .:? "status"
+        <*> o .:? "taskDefinition"
+        <*> o .:? "updatedAt"
+
+instance ToJSON Deployment where
+    toJSON Deployment{..} = object
+        [ "id"             .= _dId
+        , "status"         .= _dStatus
+        , "taskDefinition" .= _dTaskDefinition
+        , "desiredCount"   .= _dDesiredCount
+        , "pendingCount"   .= _dPendingCount
+        , "runningCount"   .= _dRunningCount
+        , "createdAt"      .= _dCreatedAt
+        , "updatedAt"      .= _dUpdatedAt
         ]
 
 data MountPoint = MountPoint

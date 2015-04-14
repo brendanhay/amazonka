@@ -39,6 +39,7 @@ module Network.AWS.S3.GetObject
     , goIfUnmodifiedSince
     , goKey
     , goRange
+    , goRequestPayer
     , goResponseCacheControl
     , goResponseContentDisposition
     , goResponseContentEncoding
@@ -70,6 +71,8 @@ module Network.AWS.S3.GetObject
     , gorLastModified
     , gorMetadata
     , gorMissingMeta
+    , gorReplicationStatus
+    , gorRequestCharged
     , gorRestore
     , gorSSECustomerAlgorithm
     , gorSSECustomerKeyMD5
@@ -92,6 +95,7 @@ data GetObject = GetObject
     , _goIfUnmodifiedSince          :: Maybe RFC822
     , _goKey                        :: Text
     , _goRange                      :: Maybe Text
+    , _goRequestPayer               :: Maybe RequestPayer
     , _goResponseCacheControl       :: Maybe Text
     , _goResponseContentDisposition :: Maybe Text
     , _goResponseContentEncoding    :: Maybe Text
@@ -102,7 +106,7 @@ data GetObject = GetObject
     , _goSSECustomerKey             :: Maybe (Sensitive Text)
     , _goSSECustomerKeyMD5          :: Maybe Text
     , _goVersionId                  :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+    } deriving (Eq, Read, Show)
 
 -- | 'GetObject' constructor.
 --
@@ -121,6 +125,8 @@ data GetObject = GetObject
 -- * 'goKey' @::@ 'Text'
 --
 -- * 'goRange' @::@ 'Maybe' 'Text'
+--
+-- * 'goRequestPayer' @::@ 'Maybe' 'RequestPayer'
 --
 -- * 'goResponseCacheControl' @::@ 'Maybe' 'Text'
 --
@@ -163,6 +169,7 @@ getObject p1 p2 = GetObject
     , _goSSECustomerAlgorithm       = Nothing
     , _goSSECustomerKey             = Nothing
     , _goSSECustomerKeyMD5          = Nothing
+    , _goRequestPayer               = Nothing
     }
 
 goBucket :: Lens' GetObject Text
@@ -200,6 +207,9 @@ goKey = lens _goKey (\s a -> s { _goKey = a })
 -- http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.
 goRange :: Lens' GetObject (Maybe Text)
 goRange = lens _goRange (\s a -> s { _goRange = a })
+
+goRequestPayer :: Lens' GetObject (Maybe RequestPayer)
+goRequestPayer = lens _goRequestPayer (\s a -> s { _goRequestPayer = a })
 
 -- | Sets the Cache-Control header of the response.
 goResponseCacheControl :: Lens' GetObject (Maybe Text)
@@ -276,6 +286,8 @@ data GetObjectResponse = GetObjectResponse
     , _gorLastModified            :: Maybe RFC822
     , _gorMetadata                :: Map (CI Text) Text
     , _gorMissingMeta             :: Maybe Int
+    , _gorReplicationStatus       :: Maybe ReplicationStatus
+    , _gorRequestCharged          :: Maybe RequestCharged
     , _gorRestore                 :: Maybe Text
     , _gorSSECustomerAlgorithm    :: Maybe Text
     , _gorSSECustomerKeyMD5       :: Maybe Text
@@ -319,6 +331,10 @@ data GetObjectResponse = GetObjectResponse
 --
 -- * 'gorMissingMeta' @::@ 'Maybe' 'Int'
 --
+-- * 'gorReplicationStatus' @::@ 'Maybe' 'ReplicationStatus'
+--
+-- * 'gorRequestCharged' @::@ 'Maybe' 'RequestCharged'
+--
 -- * 'gorRestore' @::@ 'Maybe' 'Text'
 --
 -- * 'gorSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
@@ -358,6 +374,8 @@ getObjectResponse p1 = GetObjectResponse
     , _gorSSECustomerAlgorithm    = Nothing
     , _gorSSECustomerKeyMD5       = Nothing
     , _gorSSEKMSKeyId             = Nothing
+    , _gorRequestCharged          = Nothing
+    , _gorReplicationStatus       = Nothing
     }
 
 gorAcceptRanges :: Lens' GetObjectResponse (Maybe Text)
@@ -432,6 +450,14 @@ gorMetadata = lens _gorMetadata (\s a -> s { _gorMetadata = a }) . _Map
 gorMissingMeta :: Lens' GetObjectResponse (Maybe Int)
 gorMissingMeta = lens _gorMissingMeta (\s a -> s { _gorMissingMeta = a })
 
+gorReplicationStatus :: Lens' GetObjectResponse (Maybe ReplicationStatus)
+gorReplicationStatus =
+    lens _gorReplicationStatus (\s a -> s { _gorReplicationStatus = a })
+
+gorRequestCharged :: Lens' GetObjectResponse (Maybe RequestCharged)
+gorRequestCharged =
+    lens _gorRequestCharged (\s a -> s { _gorRequestCharged = a })
+
 -- | Provides information about object restoration operation and expiration time
 -- of the restored object copy.
 gorRestore :: Lens' GetObjectResponse (Maybe Text)
@@ -503,6 +529,7 @@ instance ToHeaders GetObject where
         , "x-amz-server-side-encryption-customer-algorithm" =: _goSSECustomerAlgorithm
         , "x-amz-server-side-encryption-customer-key"       =: _goSSECustomerKey
         , "x-amz-server-side-encryption-customer-key-MD5"   =: _goSSECustomerKeyMD5
+        , "x-amz-request-payer"                             =: _goRequestPayer
         ]
 
 instance ToXMLRoot GetObject where
@@ -531,6 +558,8 @@ instance AWSRequest GetObject where
         <*> h ~:? "Last-Modified"
         <*> h ~:: "x-amz-meta-"
         <*> h ~:? "x-amz-missing-meta"
+        <*> h ~:? "x-amz-replication-status"
+        <*> h ~:? "x-amz-request-charged"
         <*> h ~:? "x-amz-restore"
         <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
         <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"

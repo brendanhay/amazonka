@@ -1,0 +1,69 @@
+name:                  amazonka-ml
+version:               0.3.4
+synopsis:              Amazon Machine Learning SDK.
+homepage:              https://github.com/brendanhay/amazonka
+license:               OtherLicense
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
+copyright:             Copyright (c) 2013-2014 Brendan Hay
+category:              Network, AWS, Cloud, Distributed Computing
+build-type:            Simple
+extra-source-files:    README.md
+cabal-version:         >= 1.10
+
+description:
+    Amazon Machine Learning (Amazon ML) is a robust machine learning platform
+    that allows software developers to build and train predictive applications
+    and host those applications in a scalable AWS cloud solution.
+
+    .
+    /See:/ <http://docs.aws.amazon.com/machine-learning/latest/APIReference/Welcome.html AWS API Reference>
+    .
+    /Warning:/ This is an experimental preview release which is still under
+    heavy development and not intended for public consumption, caveat emptor!
+
+source-repository head
+    type:     git
+    location: git://github.com/brendanhay/amazonka.git
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src gen
+
+    ghc-options:       -Wall
+
+    exposed-modules:
+          Network.AWS.MachineLearning
+        , Network.AWS.MachineLearning.CreateBatchPrediction
+        , Network.AWS.MachineLearning.CreateDataSourceFromRDS
+        , Network.AWS.MachineLearning.CreateDataSourceFromRedshift
+        , Network.AWS.MachineLearning.CreateDataSourceFromS
+        , Network.AWS.MachineLearning.CreateEvaluation
+        , Network.AWS.MachineLearning.CreateMLModel
+        , Network.AWS.MachineLearning.CreateRealtimeEndpoint
+        , Network.AWS.MachineLearning.DeleteBatchPrediction
+        , Network.AWS.MachineLearning.DeleteDataSource
+        , Network.AWS.MachineLearning.DeleteEvaluation
+        , Network.AWS.MachineLearning.DeleteMLModel
+        , Network.AWS.MachineLearning.DeleteRealtimeEndpoint
+        , Network.AWS.MachineLearning.DescribeBatchPredictions
+        , Network.AWS.MachineLearning.DescribeDataSources
+        , Network.AWS.MachineLearning.DescribeEvaluations
+        , Network.AWS.MachineLearning.DescribeMLModels
+        , Network.AWS.MachineLearning.GetBatchPrediction
+        , Network.AWS.MachineLearning.GetDataSource
+        , Network.AWS.MachineLearning.GetEvaluation
+        , Network.AWS.MachineLearning.GetMLModel
+        , Network.AWS.MachineLearning.Predict
+        , Network.AWS.MachineLearning.Types
+        , Network.AWS.MachineLearning.UpdateBatchPrediction
+        , Network.AWS.MachineLearning.UpdateDataSource
+        , Network.AWS.MachineLearning.UpdateEvaluation
+        , Network.AWS.MachineLearning.UpdateMLModel
+
+    other-modules:
+
+    build-depends:
+          amazonka-core == 0.3.4.*
+        , base          >= 4.7     && < 5

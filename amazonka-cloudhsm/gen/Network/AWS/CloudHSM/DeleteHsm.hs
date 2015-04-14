@@ -43,6 +43,7 @@ module Network.AWS.CloudHSM.DeleteHsm
     , dhr1Status
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.CloudHSM.Types

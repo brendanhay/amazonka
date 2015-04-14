@@ -1,5 +1,5 @@
 name:                  amazonka-rds
-version:               0.3.3
+version:               0.3.4
 synopsis:              Amazon Relational Database Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -59,6 +59,8 @@ library
         , Network.AWS.RDS.DeleteDBSubnetGroup
         , Network.AWS.RDS.DeleteEventSubscription
         , Network.AWS.RDS.DeleteOptionGroup
+        , Network.AWS.RDS.DescribeAccountAttributes
+        , Network.AWS.RDS.DescribeCertificates
         , Network.AWS.RDS.DescribeDBEngineVersions
         , Network.AWS.RDS.DescribeDBInstances
         , Network.AWS.RDS.DescribeDBLogFiles
@@ -99,5 +101,5 @@ library
     other-modules:
 
     build-depends:
-          amazonka-core == 0.3.3.*
+          amazonka-core == 0.3.4.*
         , base          >= 4.7     && < 5

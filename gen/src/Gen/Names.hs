@@ -40,7 +40,7 @@ enumName t u k1 v1
 
     v2 = Text.replace ":" "-" v1
 
-    f c = isUpper c || c `elem` "-_/"
+    f c = isUpper c || c `elem` ("-_/" :: String)
 
 instanceType :: Text -> Text
 instanceType v

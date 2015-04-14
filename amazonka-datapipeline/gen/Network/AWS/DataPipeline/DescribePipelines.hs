@@ -22,15 +22,15 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Retrieve metadata about one or more pipelines. The information retrieved
+-- | Retrieves metadata about one or more pipelines. The information retrieved
 -- includes the name of the pipeline, the pipeline identifier, its current
 -- state, and the user account that owns the pipeline. Using account
 -- credentials, you can retrieve metadata about pipelines that you or your IAM
 -- users have created. If you are using an IAM user account, you can retrieve
--- metadata about only those pipelines you have read permission for.
+-- metadata about only those pipelines for which you have read permissions.
 --
 -- To retrieve the full pipeline definition instead of metadata about the
--- pipeline, call the 'GetPipelineDefinition' action.
+-- pipeline, call 'GetPipelineDefinition'.
 --
 -- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_DescribePipelines.html>
 module Network.AWS.DataPipeline.DescribePipelines
@@ -50,6 +50,7 @@ module Network.AWS.DataPipeline.DescribePipelines
     , dprPipelineDescriptionList
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.DataPipeline.Types
@@ -76,9 +77,8 @@ describePipelines = DescribePipelines
     { _dpPipelineIds = mempty
     }
 
--- | Identifiers of the pipelines to describe. You can pass as many as 25
--- identifiers in a single call to 'DescribePipelines'. You can obtain pipeline
--- identifiers by calling 'ListPipelines'.
+-- | The IDs of the pipelines to describe. You can pass as many as 25 identifiers
+-- in a single call. To obtain pipeline IDs, call 'ListPipelines'.
 dpPipelineIds :: Lens' DescribePipelines [Text]
 dpPipelineIds = lens _dpPipelineIds (\s a -> s { _dpPipelineIds = a }) . _List
 
@@ -103,7 +103,7 @@ describePipelinesResponse = DescribePipelinesResponse
     { _dprPipelineDescriptionList = mempty
     }
 
--- | An array of descriptions returned for the specified pipelines.
+-- | An array of descriptions for the specified pipelines.
 dprPipelineDescriptionList :: Lens' DescribePipelinesResponse [PipelineDescription]
 dprPipelineDescriptionList =
     lens _dprPipelineDescriptionList

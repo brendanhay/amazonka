@@ -22,7 +22,7 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deploys an application revision to the specified deployment group.
+-- | Deploys an application revision through the specified deployment group.
 --
 -- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeployment.html>
 module Network.AWS.CodeDeploy.CreateDeployment
@@ -47,6 +47,7 @@ module Network.AWS.CodeDeploy.CreateDeployment
     , cdrDeploymentId
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.CodeDeploy.Types
@@ -88,13 +89,14 @@ createDeployment p1 = CreateDeployment
     , _cdIgnoreApplicationStopFailures = Nothing
     }
 
--- | The name of an existing AWS CodeDeploy application within the AWS user
--- account.
+-- | The name of an existing AWS CodeDeploy application associated with the
+-- applicable IAM user or AWS account.
 cdApplicationName :: Lens' CreateDeployment Text
 cdApplicationName =
     lens _cdApplicationName (\s a -> s { _cdApplicationName = a })
 
--- | The name of an existing deployment configuration within the AWS user account.
+-- | The name of an existing deployment configuration associated with the
+-- applicable IAM user or AWS account.
 --
 -- If not specified, the value configured in the deployment group will be used
 -- as the default. If the deployment group does not have a deployment

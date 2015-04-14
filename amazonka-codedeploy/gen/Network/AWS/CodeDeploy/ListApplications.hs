@@ -22,7 +22,7 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Lists the applications registered within the AWS user account.
+-- | Lists the applications registered with the applicable IAM user or AWS account.
 --
 -- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListApplications.html>
 module Network.AWS.CodeDeploy.ListApplications
@@ -43,6 +43,7 @@ module Network.AWS.CodeDeploy.ListApplications
     , lar1NextToken
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.CodeDeploy.Types

@@ -63,6 +63,7 @@ module Network.AWS.Kinesis.DescribeStream
     , dsrStreamDescription
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.Kinesis.Types

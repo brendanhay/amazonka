@@ -39,6 +39,7 @@ module Network.AWS.RDS.ModifyDBInstance
     , mdbiApplyImmediately
     , mdbiAutoMinorVersionUpgrade
     , mdbiBackupRetentionPeriod
+    , mdbiCACertificateIdentifier
     , mdbiDBInstanceClass
     , mdbiDBInstanceIdentifier
     , mdbiDBParameterGroupName
@@ -75,6 +76,7 @@ data ModifyDBInstance = ModifyDBInstance
     , _mdbiApplyImmediately           :: Maybe Bool
     , _mdbiAutoMinorVersionUpgrade    :: Maybe Bool
     , _mdbiBackupRetentionPeriod      :: Maybe Int
+    , _mdbiCACertificateIdentifier    :: Maybe Text
     , _mdbiDBInstanceClass            :: Maybe Text
     , _mdbiDBInstanceIdentifier       :: Text
     , _mdbiDBParameterGroupName       :: Maybe Text
@@ -106,6 +108,8 @@ data ModifyDBInstance = ModifyDBInstance
 -- * 'mdbiAutoMinorVersionUpgrade' @::@ 'Maybe' 'Bool'
 --
 -- * 'mdbiBackupRetentionPeriod' @::@ 'Maybe' 'Int'
+--
+-- * 'mdbiCACertificateIdentifier' @::@ 'Maybe' 'Text'
 --
 -- * 'mdbiDBInstanceClass' @::@ 'Maybe' 'Text'
 --
@@ -163,6 +167,7 @@ modifyDBInstance p1 = ModifyDBInstance
     , _mdbiStorageType                = Nothing
     , _mdbiTdeCredentialArn           = Nothing
     , _mdbiTdeCredentialPassword      = Nothing
+    , _mdbiCACertificateIdentifier    = Nothing
     }
 
 -- | The new storage capacity of the RDS instance. Changing this setting does not
@@ -287,6 +292,12 @@ mdbiBackupRetentionPeriod =
     lens _mdbiBackupRetentionPeriod
         (\s a -> s { _mdbiBackupRetentionPeriod = a })
 
+-- | Indicates the certificate which needs to be associated with the instance.
+mdbiCACertificateIdentifier :: Lens' ModifyDBInstance (Maybe Text)
+mdbiCACertificateIdentifier =
+    lens _mdbiCACertificateIdentifier
+        (\s a -> s { _mdbiCACertificateIdentifier = a })
+
 -- | The new compute and memory capacity of the DB instance. To determine the
 -- instance classes that are available for a particular DB engine, use the 'DescribeOrderableDBInstanceOptions' action.
 --
@@ -408,7 +419,7 @@ mdbiIops = lens _mdbiIops (\s a -> s { _mdbiIops = a })
 -- Server).
 --
 -- Amazon RDS API actions never return the password, so this action provides a
--- way to regain access to a master instance user if the password is lost. This
+-- way to regain access to a primary instance user if the password is lost. This
 -- includes restoring privileges that may have been accidentally revoked.
 mdbiMasterUserPassword :: Lens' ModifyDBInstance (Maybe Text)
 mdbiMasterUserPassword =
@@ -554,6 +565,7 @@ instance ToQuery ModifyDBInstance where
         , "ApplyImmediately"           =? _mdbiApplyImmediately
         , "AutoMinorVersionUpgrade"    =? _mdbiAutoMinorVersionUpgrade
         , "BackupRetentionPeriod"      =? _mdbiBackupRetentionPeriod
+        , "CACertificateIdentifier"    =? _mdbiCACertificateIdentifier
         , "DBInstanceClass"            =? _mdbiDBInstanceClass
         , "DBInstanceIdentifier"       =? _mdbiDBInstanceIdentifier
         , "DBParameterGroupName"       =? _mdbiDBParameterGroupName

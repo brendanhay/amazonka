@@ -1,5 +1,5 @@
 name:                  amazonka-s3
-version:               0.3.3
+version:               0.3.4
 synopsis:              Amazon Simple Storage Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -48,6 +48,7 @@ library
         , Network.AWS.S3.DeleteBucketCors
         , Network.AWS.S3.DeleteBucketLifecycle
         , Network.AWS.S3.DeleteBucketPolicy
+        , Network.AWS.S3.DeleteBucketReplication
         , Network.AWS.S3.DeleteBucketTagging
         , Network.AWS.S3.DeleteBucketWebsite
         , Network.AWS.S3.DeleteObject
@@ -58,7 +59,9 @@ library
         , Network.AWS.S3.GetBucketLocation
         , Network.AWS.S3.GetBucketLogging
         , Network.AWS.S3.GetBucketNotification
+        , Network.AWS.S3.GetBucketNotificationConfiguration
         , Network.AWS.S3.GetBucketPolicy
+        , Network.AWS.S3.GetBucketReplication
         , Network.AWS.S3.GetBucketRequestPayment
         , Network.AWS.S3.GetBucketTagging
         , Network.AWS.S3.GetBucketVersioning
@@ -78,7 +81,9 @@ library
         , Network.AWS.S3.PutBucketLifecycle
         , Network.AWS.S3.PutBucketLogging
         , Network.AWS.S3.PutBucketNotification
+        , Network.AWS.S3.PutBucketNotificationConfiguration
         , Network.AWS.S3.PutBucketPolicy
+        , Network.AWS.S3.PutBucketReplication
         , Network.AWS.S3.PutBucketRequestPayment
         , Network.AWS.S3.PutBucketTagging
         , Network.AWS.S3.PutBucketVersioning
@@ -95,5 +100,5 @@ library
           Network.AWS.S3.Internal
 
     build-depends:
-          amazonka-core == 0.3.3.*
+          amazonka-core == 0.3.4.*
         , base          >= 4.7     && < 5

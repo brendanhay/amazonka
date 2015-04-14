@@ -33,8 +33,19 @@ module Network.AWS.Lambda.Types
     -- * Runtime
     , Runtime (..)
 
-    -- * Mode
-    , Mode (..)
+    -- * EventSourcePosition
+    , EventSourcePosition (..)
+
+    -- * InvocationType
+    , InvocationType (..)
+
+    -- * LogType
+    , LogType (..)
+
+    -- * FunctionCode
+    , FunctionCode
+    , functionCode
+    , fcZipFile
 
     -- * FunctionCodeLocation
     , FunctionCodeLocation
@@ -46,37 +57,34 @@ module Network.AWS.Lambda.Types
     , FunctionConfiguration
     , functionConfiguration
     , fcCodeSize
-    , fcConfigurationId
     , fcDescription
-    , fcFunctionARN
+    , fcFunctionArn
     , fcFunctionName
     , fcHandler
     , fcLastModified
     , fcMemorySize
-    , fcMode
     , fcRole
     , fcRuntime
     , fcTimeout
 
-    -- * EventSourceConfiguration
-    , EventSourceConfiguration
-    , eventSourceConfiguration
-    , escBatchSize
-    , escEventSource
-    , escFunctionName
-    , escIsActive
-    , escLastModified
-    , escParameters
-    , escRole
-    , escStatus
-    , escUUID
+    -- * EventSourceMappingConfiguration
+    , EventSourceMappingConfiguration
+    , eventSourceMappingConfiguration
+    , esmcBatchSize
+    , esmcEventSourceArn
+    , esmcFunctionArn
+    , esmcLastModified
+    , esmcLastProcessingResult
+    , esmcState
+    , esmcStateTransitionReason
+    , esmcUUID
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Signing
 import qualified GHC.Exts
 
--- | Version @2014-11-11@ of the Amazon Lambda service.
+-- | Version @2015-03-31@ of the Amazon Lambda service.
 data Lambda
 
 instance AWSService Lambda where
@@ -89,7 +97,7 @@ instance AWSService Lambda where
         service' = Service
             { _svcAbbrev       = "Lambda"
             , _svcPrefix       = "lambda"
-            , _svcVersion      = "2014-11-11"
+            , _svcVersion      = "2015-03-31"
             , _svcTargetPrefix = Nothing
             , _svcJSONVersion  = Nothing
             , _svcHandle       = handle
@@ -118,19 +126,26 @@ instance AWSService Lambda where
             | otherwise = False
 
 data Runtime
-    = Nodejs -- ^ nodejs
+    = Jvm    -- ^ jvm
+    | Nodejs -- ^ nodejs
+    | Python -- ^ python
       deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable Runtime
 
 instance FromText Runtime where
     parser = takeLowerText >>= \case
+        "jvm"    -> pure Jvm
         "nodejs" -> pure Nodejs
+        "python" -> pure Python
         e        -> fail $
             "Failure parsing Runtime from " ++ show e
 
 instance ToText Runtime where
-    toText Nodejs = "nodejs"
+    toText = \case
+        Jvm    -> "jvm"
+        Nodejs -> "nodejs"
+        Python -> "python"
 
 instance ToByteString Runtime
 instance ToHeader     Runtime
@@ -142,30 +157,124 @@ instance FromJSON Runtime where
 instance ToJSON Runtime where
     toJSON = toJSONText
 
-data Mode
-    = Event -- ^ event
+data EventSourcePosition
+    = Latest      -- ^ LATEST
+    | TrimHorizon -- ^ TRIM_HORIZON
       deriving (Eq, Ord, Read, Show, Generic, Enum)
 
-instance Hashable Mode
+instance Hashable EventSourcePosition
 
-instance FromText Mode where
+instance FromText EventSourcePosition where
     parser = takeLowerText >>= \case
-        "event" -> pure Event
-        e       -> fail $
-            "Failure parsing Mode from " ++ show e
+        "latest"       -> pure Latest
+        "trim_horizon" -> pure TrimHorizon
+        e              -> fail $
+            "Failure parsing EventSourcePosition from " ++ show e
 
-instance ToText Mode where
-    toText Event = "event"
+instance ToText EventSourcePosition where
+    toText = \case
+        Latest      -> "LATEST"
+        TrimHorizon -> "TRIM_HORIZON"
 
-instance ToByteString Mode
-instance ToHeader     Mode
-instance ToQuery      Mode
+instance ToByteString EventSourcePosition
+instance ToHeader     EventSourcePosition
+instance ToQuery      EventSourcePosition
 
-instance FromJSON Mode where
-    parseJSON = parseJSONText "Mode"
+instance FromJSON EventSourcePosition where
+    parseJSON = parseJSONText "EventSourcePosition"
 
-instance ToJSON Mode where
+instance ToJSON EventSourcePosition where
     toJSON = toJSONText
+
+data InvocationType
+    = DryRun          -- ^ DryRun
+    | Event           -- ^ Event
+    | RequestResponse -- ^ RequestResponse
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
+
+instance Hashable InvocationType
+
+instance FromText InvocationType where
+    parser = takeLowerText >>= \case
+        "dryrun"          -> pure DryRun
+        "event"           -> pure Event
+        "requestresponse" -> pure RequestResponse
+        e                 -> fail $
+            "Failure parsing InvocationType from " ++ show e
+
+instance ToText InvocationType where
+    toText = \case
+        DryRun          -> "DryRun"
+        Event           -> "Event"
+        RequestResponse -> "RequestResponse"
+
+instance ToByteString InvocationType
+instance ToHeader     InvocationType
+instance ToQuery      InvocationType
+
+instance FromJSON InvocationType where
+    parseJSON = parseJSONText "InvocationType"
+
+instance ToJSON InvocationType where
+    toJSON = toJSONText
+
+data LogType
+    = None  -- ^ None
+    | Tail' -- ^ Tail
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
+
+instance Hashable LogType
+
+instance FromText LogType where
+    parser = takeLowerText >>= \case
+        "none" -> pure None
+        "tail" -> pure Tail'
+        e      -> fail $
+            "Failure parsing LogType from " ++ show e
+
+instance ToText LogType where
+    toText = \case
+        None  -> "None"
+        Tail' -> "Tail"
+
+instance ToByteString LogType
+instance ToHeader     LogType
+instance ToQuery      LogType
+
+instance FromJSON LogType where
+    parseJSON = parseJSONText "LogType"
+
+instance ToJSON LogType where
+    toJSON = toJSONText
+
+newtype FunctionCode = FunctionCode
+    { _fcZipFile :: Maybe Base64
+    } deriving (Eq, Read, Show)
+
+-- | 'FunctionCode' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'fcZipFile' @::@ 'Maybe' 'Base64'
+--
+functionCode :: FunctionCode
+functionCode = FunctionCode
+    { _fcZipFile = Nothing
+    }
+
+-- | A base64-encoded .zip file containing your packaged source code. For more
+-- information about creating a .zip file, go to <http://http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html Execution Permissions> in the /AWS Lambda Developer Guide/.
+fcZipFile :: Lens' FunctionCode (Maybe Base64)
+fcZipFile = lens _fcZipFile (\s a -> s { _fcZipFile = a })
+
+instance FromJSON FunctionCode where
+    parseJSON = withObject "FunctionCode" $ \o -> FunctionCode
+        <$> o .:? "ZipFile"
+
+instance ToJSON FunctionCode where
+    toJSON FunctionCode{..} = object
+        [ "ZipFile" .= _fcZipFile
+        ]
 
 data FunctionCodeLocation = FunctionCodeLocation
     { _fclLocation       :: Maybe Text
@@ -208,18 +317,16 @@ instance ToJSON FunctionCodeLocation where
         ]
 
 data FunctionConfiguration = FunctionConfiguration
-    { _fcCodeSize        :: Maybe Integer
-    , _fcConfigurationId :: Maybe Text
-    , _fcDescription     :: Maybe Text
-    , _fcFunctionARN     :: Maybe Text
-    , _fcFunctionName    :: Maybe Text
-    , _fcHandler         :: Maybe Text
-    , _fcLastModified    :: Maybe Text
-    , _fcMemorySize      :: Maybe Nat
-    , _fcMode            :: Maybe Mode
-    , _fcRole            :: Maybe Text
-    , _fcRuntime         :: Maybe Runtime
-    , _fcTimeout         :: Maybe Nat
+    { _fcCodeSize     :: Maybe Integer
+    , _fcDescription  :: Maybe Text
+    , _fcFunctionArn  :: Maybe Text
+    , _fcFunctionName :: Maybe Text
+    , _fcHandler      :: Maybe Text
+    , _fcLastModified :: Maybe Text
+    , _fcMemorySize   :: Maybe Nat
+    , _fcRole         :: Maybe Text
+    , _fcRuntime      :: Maybe Runtime
+    , _fcTimeout      :: Maybe Nat
     } deriving (Eq, Read, Show)
 
 -- | 'FunctionConfiguration' constructor.
@@ -228,11 +335,9 @@ data FunctionConfiguration = FunctionConfiguration
 --
 -- * 'fcCodeSize' @::@ 'Maybe' 'Integer'
 --
--- * 'fcConfigurationId' @::@ 'Maybe' 'Text'
---
 -- * 'fcDescription' @::@ 'Maybe' 'Text'
 --
--- * 'fcFunctionARN' @::@ 'Maybe' 'Text'
+-- * 'fcFunctionArn' @::@ 'Maybe' 'Text'
 --
 -- * 'fcFunctionName' @::@ 'Maybe' 'Text'
 --
@@ -242,8 +347,6 @@ data FunctionConfiguration = FunctionConfiguration
 --
 -- * 'fcMemorySize' @::@ 'Maybe' 'Natural'
 --
--- * 'fcMode' @::@ 'Maybe' 'Mode'
---
 -- * 'fcRole' @::@ 'Maybe' 'Text'
 --
 -- * 'fcRuntime' @::@ 'Maybe' 'Runtime'
@@ -252,37 +355,29 @@ data FunctionConfiguration = FunctionConfiguration
 --
 functionConfiguration :: FunctionConfiguration
 functionConfiguration = FunctionConfiguration
-    { _fcFunctionName    = Nothing
-    , _fcFunctionARN     = Nothing
-    , _fcConfigurationId = Nothing
-    , _fcRuntime         = Nothing
-    , _fcRole            = Nothing
-    , _fcHandler         = Nothing
-    , _fcMode            = Nothing
-    , _fcCodeSize        = Nothing
-    , _fcDescription     = Nothing
-    , _fcTimeout         = Nothing
-    , _fcMemorySize      = Nothing
-    , _fcLastModified    = Nothing
+    { _fcFunctionName = Nothing
+    , _fcFunctionArn  = Nothing
+    , _fcRuntime      = Nothing
+    , _fcRole         = Nothing
+    , _fcHandler      = Nothing
+    , _fcCodeSize     = Nothing
+    , _fcDescription  = Nothing
+    , _fcTimeout      = Nothing
+    , _fcMemorySize   = Nothing
+    , _fcLastModified = Nothing
     }
 
 -- | The size, in bytes, of the function .zip file you uploaded.
 fcCodeSize :: Lens' FunctionConfiguration (Maybe Integer)
 fcCodeSize = lens _fcCodeSize (\s a -> s { _fcCodeSize = a })
 
--- | A Lambda-assigned unique identifier for the current function code and related
--- configuration.
-fcConfigurationId :: Lens' FunctionConfiguration (Maybe Text)
-fcConfigurationId =
-    lens _fcConfigurationId (\s a -> s { _fcConfigurationId = a })
-
 -- | The user-provided description.
 fcDescription :: Lens' FunctionConfiguration (Maybe Text)
 fcDescription = lens _fcDescription (\s a -> s { _fcDescription = a })
 
 -- | The Amazon Resource Name (ARN) assigned to the function.
-fcFunctionARN :: Lens' FunctionConfiguration (Maybe Text)
-fcFunctionARN = lens _fcFunctionARN (\s a -> s { _fcFunctionARN = a })
+fcFunctionArn :: Lens' FunctionConfiguration (Maybe Text)
+fcFunctionArn = lens _fcFunctionArn (\s a -> s { _fcFunctionArn = a })
 
 -- | The name of the function.
 fcFunctionName :: Lens' FunctionConfiguration (Maybe Text)
@@ -300,10 +395,6 @@ fcLastModified = lens _fcLastModified (\s a -> s { _fcLastModified = a })
 -- of 64 MB.
 fcMemorySize :: Lens' FunctionConfiguration (Maybe Natural)
 fcMemorySize = lens _fcMemorySize (\s a -> s { _fcMemorySize = a }) . mapping _Nat
-
--- | The type of the Lambda function you uploaded.
-fcMode :: Lens' FunctionConfiguration (Maybe Mode)
-fcMode = lens _fcMode (\s a -> s { _fcMode = a })
 
 -- | The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it
 -- executes your function to access any other Amazon Web Services (AWS)
@@ -324,145 +415,134 @@ fcTimeout = lens _fcTimeout (\s a -> s { _fcTimeout = a }) . mapping _Nat
 instance FromJSON FunctionConfiguration where
     parseJSON = withObject "FunctionConfiguration" $ \o -> FunctionConfiguration
         <$> o .:? "CodeSize"
-        <*> o .:? "ConfigurationId"
         <*> o .:? "Description"
-        <*> o .:? "FunctionARN"
+        <*> o .:? "FunctionArn"
         <*> o .:? "FunctionName"
         <*> o .:? "Handler"
         <*> o .:? "LastModified"
         <*> o .:? "MemorySize"
-        <*> o .:? "Mode"
         <*> o .:? "Role"
         <*> o .:? "Runtime"
         <*> o .:? "Timeout"
 
 instance ToJSON FunctionConfiguration where
     toJSON FunctionConfiguration{..} = object
-        [ "FunctionName"    .= _fcFunctionName
-        , "FunctionARN"     .= _fcFunctionARN
-        , "ConfigurationId" .= _fcConfigurationId
-        , "Runtime"         .= _fcRuntime
-        , "Role"            .= _fcRole
-        , "Handler"         .= _fcHandler
-        , "Mode"            .= _fcMode
-        , "CodeSize"        .= _fcCodeSize
-        , "Description"     .= _fcDescription
-        , "Timeout"         .= _fcTimeout
-        , "MemorySize"      .= _fcMemorySize
-        , "LastModified"    .= _fcLastModified
+        [ "FunctionName" .= _fcFunctionName
+        , "FunctionArn"  .= _fcFunctionArn
+        , "Runtime"      .= _fcRuntime
+        , "Role"         .= _fcRole
+        , "Handler"      .= _fcHandler
+        , "CodeSize"     .= _fcCodeSize
+        , "Description"  .= _fcDescription
+        , "Timeout"      .= _fcTimeout
+        , "MemorySize"   .= _fcMemorySize
+        , "LastModified" .= _fcLastModified
         ]
 
-data EventSourceConfiguration = EventSourceConfiguration
-    { _escBatchSize    :: Maybe Int
-    , _escEventSource  :: Maybe Text
-    , _escFunctionName :: Maybe Text
-    , _escIsActive     :: Maybe Bool
-    , _escLastModified :: Maybe Text
-    , _escParameters   :: Map Text Text
-    , _escRole         :: Maybe Text
-    , _escStatus       :: Maybe Text
-    , _escUUID         :: Maybe Text
-    } deriving (Eq, Read, Show)
+data EventSourceMappingConfiguration = EventSourceMappingConfiguration
+    { _esmcBatchSize             :: Maybe Nat
+    , _esmcEventSourceArn        :: Maybe Text
+    , _esmcFunctionArn           :: Maybe Text
+    , _esmcLastModified          :: Maybe POSIX
+    , _esmcLastProcessingResult  :: Maybe Text
+    , _esmcState                 :: Maybe Text
+    , _esmcStateTransitionReason :: Maybe Text
+    , _esmcUUID                  :: Maybe Text
+    } deriving (Eq, Ord, Read, Show)
 
--- | 'EventSourceConfiguration' constructor.
+-- | 'EventSourceMappingConfiguration' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'escBatchSize' @::@ 'Maybe' 'Int'
+-- * 'esmcBatchSize' @::@ 'Maybe' 'Natural'
 --
--- * 'escEventSource' @::@ 'Maybe' 'Text'
+-- * 'esmcEventSourceArn' @::@ 'Maybe' 'Text'
 --
--- * 'escFunctionName' @::@ 'Maybe' 'Text'
+-- * 'esmcFunctionArn' @::@ 'Maybe' 'Text'
 --
--- * 'escIsActive' @::@ 'Maybe' 'Bool'
+-- * 'esmcLastModified' @::@ 'Maybe' 'UTCTime'
 --
--- * 'escLastModified' @::@ 'Maybe' 'Text'
+-- * 'esmcLastProcessingResult' @::@ 'Maybe' 'Text'
 --
--- * 'escParameters' @::@ 'HashMap' 'Text' 'Text'
+-- * 'esmcState' @::@ 'Maybe' 'Text'
 --
--- * 'escRole' @::@ 'Maybe' 'Text'
+-- * 'esmcStateTransitionReason' @::@ 'Maybe' 'Text'
 --
--- * 'escStatus' @::@ 'Maybe' 'Text'
+-- * 'esmcUUID' @::@ 'Maybe' 'Text'
 --
--- * 'escUUID' @::@ 'Maybe' 'Text'
---
-eventSourceConfiguration :: EventSourceConfiguration
-eventSourceConfiguration = EventSourceConfiguration
-    { _escUUID         = Nothing
-    , _escBatchSize    = Nothing
-    , _escEventSource  = Nothing
-    , _escFunctionName = Nothing
-    , _escParameters   = mempty
-    , _escRole         = Nothing
-    , _escLastModified = Nothing
-    , _escIsActive     = Nothing
-    , _escStatus       = Nothing
+eventSourceMappingConfiguration :: EventSourceMappingConfiguration
+eventSourceMappingConfiguration = EventSourceMappingConfiguration
+    { _esmcUUID                  = Nothing
+    , _esmcBatchSize             = Nothing
+    , _esmcEventSourceArn        = Nothing
+    , _esmcFunctionArn           = Nothing
+    , _esmcLastModified          = Nothing
+    , _esmcLastProcessingResult  = Nothing
+    , _esmcState                 = Nothing
+    , _esmcStateTransitionReason = Nothing
     }
 
--- | The largest number of records that AWS Lambda will POST in the invocation
--- request to your function.
-escBatchSize :: Lens' EventSourceConfiguration (Maybe Int)
-escBatchSize = lens _escBatchSize (\s a -> s { _escBatchSize = a })
+-- | The largest number of records that AWS Lambda will retrieve from your event
+-- source at the time of invoking your function. Your function receives an event
+-- with all the retrieved records.
+esmcBatchSize :: Lens' EventSourceMappingConfiguration (Maybe Natural)
+esmcBatchSize = lens _esmcBatchSize (\s a -> s { _esmcBatchSize = a }) . mapping _Nat
 
 -- | The Amazon Resource Name (ARN) of the Amazon Kinesis stream that is the
 -- source of events.
-escEventSource :: Lens' EventSourceConfiguration (Maybe Text)
-escEventSource = lens _escEventSource (\s a -> s { _escEventSource = a })
+esmcEventSourceArn :: Lens' EventSourceMappingConfiguration (Maybe Text)
+esmcEventSourceArn =
+    lens _esmcEventSourceArn (\s a -> s { _esmcEventSourceArn = a })
 
 -- | The Lambda function to invoke when AWS Lambda detects an event on the stream.
-escFunctionName :: Lens' EventSourceConfiguration (Maybe Text)
-escFunctionName = lens _escFunctionName (\s a -> s { _escFunctionName = a })
-
--- | Indicates whether the event source mapping is currently honored. Events are
--- only processes if IsActive is true.
-escIsActive :: Lens' EventSourceConfiguration (Maybe Bool)
-escIsActive = lens _escIsActive (\s a -> s { _escIsActive = a })
+esmcFunctionArn :: Lens' EventSourceMappingConfiguration (Maybe Text)
+esmcFunctionArn = lens _esmcFunctionArn (\s a -> s { _esmcFunctionArn = a })
 
 -- | The UTC time string indicating the last time the event mapping was updated.
-escLastModified :: Lens' EventSourceConfiguration (Maybe Text)
-escLastModified = lens _escLastModified (\s a -> s { _escLastModified = a })
+esmcLastModified :: Lens' EventSourceMappingConfiguration (Maybe UTCTime)
+esmcLastModified = lens _esmcLastModified (\s a -> s { _esmcLastModified = a }) . mapping _Time
 
--- | The map (key-value pairs) defining the configuration for AWS Lambda to use
--- when reading the event source.
-escParameters :: Lens' EventSourceConfiguration (HashMap Text Text)
-escParameters = lens _escParameters (\s a -> s { _escParameters = a }) . _Map
+-- | The result of the last AWS Lambda invocation of your Lambda function.
+esmcLastProcessingResult :: Lens' EventSourceMappingConfiguration (Maybe Text)
+esmcLastProcessingResult =
+    lens _esmcLastProcessingResult
+        (\s a -> s { _esmcLastProcessingResult = a })
 
--- | The ARN of the IAM role (invocation role) that AWS Lambda can assume to read
--- from the stream and invoke the function.
-escRole :: Lens' EventSourceConfiguration (Maybe Text)
-escRole = lens _escRole (\s a -> s { _escRole = a })
+-- | The state of the event source mapping. It can be "Creating", "Enabled",
+-- "Disabled", "Enabling", "Disabling", "Updating", or "Deleting".
+esmcState :: Lens' EventSourceMappingConfiguration (Maybe Text)
+esmcState = lens _esmcState (\s a -> s { _esmcState = a })
 
--- | The description of the health of the event source mapping. Valid values are:
--- "PENDING", "OK", and "PROBLEM:/message/". Initially this staus is "PENDING".
--- When AWS Lambda begins processing events, it changes the status to "OK".
-escStatus :: Lens' EventSourceConfiguration (Maybe Text)
-escStatus = lens _escStatus (\s a -> s { _escStatus = a })
+-- | The reason the event source mapping is in its current state. It is either
+-- user-requested or an AWS Lambda-initiated state transition.
+esmcStateTransitionReason :: Lens' EventSourceMappingConfiguration (Maybe Text)
+esmcStateTransitionReason =
+    lens _esmcStateTransitionReason
+        (\s a -> s { _esmcStateTransitionReason = a })
 
 -- | The AWS Lambda assigned opaque identifier for the mapping.
-escUUID :: Lens' EventSourceConfiguration (Maybe Text)
-escUUID = lens _escUUID (\s a -> s { _escUUID = a })
+esmcUUID :: Lens' EventSourceMappingConfiguration (Maybe Text)
+esmcUUID = lens _esmcUUID (\s a -> s { _esmcUUID = a })
 
-instance FromJSON EventSourceConfiguration where
-    parseJSON = withObject "EventSourceConfiguration" $ \o -> EventSourceConfiguration
+instance FromJSON EventSourceMappingConfiguration where
+    parseJSON = withObject "EventSourceMappingConfiguration" $ \o -> EventSourceMappingConfiguration
         <$> o .:? "BatchSize"
-        <*> o .:? "EventSource"
-        <*> o .:? "FunctionName"
-        <*> o .:? "IsActive"
+        <*> o .:? "EventSourceArn"
+        <*> o .:? "FunctionArn"
         <*> o .:? "LastModified"
-        <*> o .:? "Parameters" .!= mempty
-        <*> o .:? "Role"
-        <*> o .:? "Status"
+        <*> o .:? "LastProcessingResult"
+        <*> o .:? "State"
+        <*> o .:? "StateTransitionReason"
         <*> o .:? "UUID"
 
-instance ToJSON EventSourceConfiguration where
-    toJSON EventSourceConfiguration{..} = object
-        [ "UUID"         .= _escUUID
-        , "BatchSize"    .= _escBatchSize
-        , "EventSource"  .= _escEventSource
-        , "FunctionName" .= _escFunctionName
-        , "Parameters"   .= _escParameters
-        , "Role"         .= _escRole
-        , "LastModified" .= _escLastModified
-        , "IsActive"     .= _escIsActive
-        , "Status"       .= _escStatus
+instance ToJSON EventSourceMappingConfiguration where
+    toJSON EventSourceMappingConfiguration{..} = object
+        [ "UUID"                  .= _esmcUUID
+        , "BatchSize"             .= _esmcBatchSize
+        , "EventSourceArn"        .= _esmcEventSourceArn
+        , "FunctionArn"           .= _esmcFunctionArn
+        , "LastModified"          .= _esmcLastModified
+        , "LastProcessingResult"  .= _esmcLastProcessingResult
+        , "State"                 .= _esmcState
+        , "StateTransitionReason" .= _esmcStateTransitionReason
         ]

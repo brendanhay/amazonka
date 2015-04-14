@@ -44,6 +44,7 @@ module Network.AWS.CognitoSync.GetIdentityPoolConfiguration
     , gipcrPushSync
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.RestJSON
 import Network.AWS.CognitoSync.Types

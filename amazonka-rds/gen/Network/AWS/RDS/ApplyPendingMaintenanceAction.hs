@@ -22,7 +22,8 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Applies a pending maintenance action to a resource.
+-- | Applies a pending maintenance action to a resource (for example, a DB
+-- instance).
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ApplyPendingMaintenanceAction.html>
 module Network.AWS.RDS.ApplyPendingMaintenanceAction
@@ -79,8 +80,8 @@ applyPendingMaintenanceAction p1 p2 p3 = ApplyPendingMaintenanceAction
 apmaApplyAction :: Lens' ApplyPendingMaintenanceAction Text
 apmaApplyAction = lens _apmaApplyAction (\s a -> s { _apmaApplyAction = a })
 
--- | Specify an opt-in request, or undo an opt-in request. An opt-in request of
--- type 'immediate' cannot be undone.
+-- | A value that specifies the type of opt-in request, or undoes an opt-in
+-- request. An opt-in request of type 'immediate' cannot be undone.
 --
 -- Valid values:
 --
@@ -91,8 +92,7 @@ apmaApplyAction = lens _apmaApplyAction (\s a -> s { _apmaApplyAction = a })
 apmaOptInType :: Lens' ApplyPendingMaintenanceAction Text
 apmaOptInType = lens _apmaOptInType (\s a -> s { _apmaOptInType = a })
 
--- | The ARN of the resource (for example, a DB Instance) that the pending
--- maintenance action applies to.
+-- | The ARN of the resource that the pending maintenance action applies to.
 apmaResourceIdentifier :: Lens' ApplyPendingMaintenanceAction Text
 apmaResourceIdentifier =
     lens _apmaResourceIdentifier (\s a -> s { _apmaResourceIdentifier = a })

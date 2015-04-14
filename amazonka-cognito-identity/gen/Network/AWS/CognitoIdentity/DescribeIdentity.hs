@@ -46,6 +46,7 @@ module Network.AWS.CognitoIdentity.DescribeIdentity
     , dirLogins
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.CognitoIdentity.Types

@@ -25,7 +25,7 @@
 -- | Creates a Spot Instance request. Spot Instances are instances that Amazon EC2
 -- launches when the bid price that you specify exceeds the current Spot Price.
 -- Amazon EC2 periodically sets the Spot Price based on available Spot Instance
--- capacity and current Spot Instance requests. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html SpotInstance Requests> in the /Amazon Elastic Compute Cloud User Guide/.
+-- capacity and current Spot Instance requests. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html SpotInstance Requests> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RequestSpotInstances.html>
 module Network.AWS.EC2.RequestSpotInstances

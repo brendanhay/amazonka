@@ -53,6 +53,7 @@ module Network.AWS.Support.AddAttachmentsToSet
     , aatsrExpiryTime
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.Support.Types

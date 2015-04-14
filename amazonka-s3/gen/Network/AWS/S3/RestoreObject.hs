@@ -34,6 +34,7 @@ module Network.AWS.S3.RestoreObject
     -- ** Request lenses
     , roBucket
     , roKey
+    , roRequestPayer
     , roRestoreRequest
     , roVersionId
 
@@ -41,6 +42,8 @@ module Network.AWS.S3.RestoreObject
     , RestoreObjectResponse
     -- ** Response constructor
     , restoreObjectResponse
+    -- ** Response lenses
+    , rorRequestCharged
     ) where
 
 import Network.AWS.Prelude
@@ -51,6 +54,7 @@ import qualified GHC.Exts
 data RestoreObject = RestoreObject
     { _roBucket         :: Text
     , _roKey            :: Text
+    , _roRequestPayer   :: Maybe RequestPayer
     , _roRestoreRequest :: Maybe RestoreRequest
     , _roVersionId      :: Maybe Text
     } deriving (Eq, Read, Show)
@@ -62,6 +66,8 @@ data RestoreObject = RestoreObject
 -- * 'roBucket' @::@ 'Text'
 --
 -- * 'roKey' @::@ 'Text'
+--
+-- * 'roRequestPayer' @::@ 'Maybe' 'RequestPayer'
 --
 -- * 'roRestoreRequest' @::@ 'Maybe' 'RestoreRequest'
 --
@@ -75,6 +81,7 @@ restoreObject p1 p2 = RestoreObject
     , _roKey            = p2
     , _roVersionId      = Nothing
     , _roRestoreRequest = Nothing
+    , _roRequestPayer   = Nothing
     }
 
 roBucket :: Lens' RestoreObject Text
@@ -83,18 +90,33 @@ roBucket = lens _roBucket (\s a -> s { _roBucket = a })
 roKey :: Lens' RestoreObject Text
 roKey = lens _roKey (\s a -> s { _roKey = a })
 
+roRequestPayer :: Lens' RestoreObject (Maybe RequestPayer)
+roRequestPayer = lens _roRequestPayer (\s a -> s { _roRequestPayer = a })
+
 roRestoreRequest :: Lens' RestoreObject (Maybe RestoreRequest)
 roRestoreRequest = lens _roRestoreRequest (\s a -> s { _roRestoreRequest = a })
 
 roVersionId :: Lens' RestoreObject (Maybe Text)
 roVersionId = lens _roVersionId (\s a -> s { _roVersionId = a })
 
-data RestoreObjectResponse = RestoreObjectResponse
-    deriving (Eq, Ord, Read, Show, Generic)
+newtype RestoreObjectResponse = RestoreObjectResponse
+    { _rorRequestCharged :: Maybe RequestCharged
+    } deriving (Eq, Read, Show)
 
 -- | 'RestoreObjectResponse' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'rorRequestCharged' @::@ 'Maybe' 'RequestCharged'
+--
 restoreObjectResponse :: RestoreObjectResponse
 restoreObjectResponse = RestoreObjectResponse
+    { _rorRequestCharged = Nothing
+    }
+
+rorRequestCharged :: Lens' RestoreObjectResponse (Maybe RequestCharged)
+rorRequestCharged =
+    lens _rorRequestCharged (\s a -> s { _rorRequestCharged = a })
 
 instance ToPath RestoreObject where
     toPath RestoreObject{..} = mconcat
@@ -110,12 +132,13 @@ instance ToQuery RestoreObject where
         , "versionId" =? _roVersionId
         ]
 
-instance ToHeaders RestoreObject
+instance ToHeaders RestoreObject where
+    toHeaders RestoreObject{..} = mconcat
+        [ "x-amz-request-payer" =: _roRequestPayer
+        ]
 
 instance ToXMLRoot RestoreObject where
-    toXMLRoot RestoreObject{..} = namespaced ns "RestoreObject"
-        [ "RestoreRequest" =@ _roRestoreRequest
-        ]
+    toXMLRoot = extractRoot ns . toXML . _roRestoreRequest
 
 instance ToXML RestoreObject
 
@@ -124,4 +147,5 @@ instance AWSRequest RestoreObject where
     type Rs RestoreObject = RestoreObjectResponse
 
     request  = post
-    response = nullResponse RestoreObjectResponse
+    response = headerResponse $ \h -> RestoreObjectResponse
+        <$> h ~:? "x-amz-request-charged"

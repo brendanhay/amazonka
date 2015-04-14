@@ -27,6 +27,7 @@ module Network.AWS.S3
     , module Network.AWS.S3.DeleteBucketCors
     , module Network.AWS.S3.DeleteBucketLifecycle
     , module Network.AWS.S3.DeleteBucketPolicy
+    , module Network.AWS.S3.DeleteBucketReplication
     , module Network.AWS.S3.DeleteBucketTagging
     , module Network.AWS.S3.DeleteBucketWebsite
     , module Network.AWS.S3.DeleteObject
@@ -37,7 +38,9 @@ module Network.AWS.S3
     , module Network.AWS.S3.GetBucketLocation
     , module Network.AWS.S3.GetBucketLogging
     , module Network.AWS.S3.GetBucketNotification
+    , module Network.AWS.S3.GetBucketNotificationConfiguration
     , module Network.AWS.S3.GetBucketPolicy
+    , module Network.AWS.S3.GetBucketReplication
     , module Network.AWS.S3.GetBucketRequestPayment
     , module Network.AWS.S3.GetBucketTagging
     , module Network.AWS.S3.GetBucketVersioning
@@ -57,7 +60,9 @@ module Network.AWS.S3
     , module Network.AWS.S3.PutBucketLifecycle
     , module Network.AWS.S3.PutBucketLogging
     , module Network.AWS.S3.PutBucketNotification
+    , module Network.AWS.S3.PutBucketNotificationConfiguration
     , module Network.AWS.S3.PutBucketPolicy
+    , module Network.AWS.S3.PutBucketReplication
     , module Network.AWS.S3.PutBucketRequestPayment
     , module Network.AWS.S3.PutBucketTagging
     , module Network.AWS.S3.PutBucketVersioning
@@ -80,6 +85,7 @@ import Network.AWS.S3.DeleteBucket
 import Network.AWS.S3.DeleteBucketCors
 import Network.AWS.S3.DeleteBucketLifecycle
 import Network.AWS.S3.DeleteBucketPolicy
+import Network.AWS.S3.DeleteBucketReplication
 import Network.AWS.S3.DeleteBucketTagging
 import Network.AWS.S3.DeleteBucketWebsite
 import Network.AWS.S3.DeleteObject
@@ -90,7 +96,9 @@ import Network.AWS.S3.GetBucketLifecycle
 import Network.AWS.S3.GetBucketLocation
 import Network.AWS.S3.GetBucketLogging
 import Network.AWS.S3.GetBucketNotification
+import Network.AWS.S3.GetBucketNotificationConfiguration
 import Network.AWS.S3.GetBucketPolicy
+import Network.AWS.S3.GetBucketReplication
 import Network.AWS.S3.GetBucketRequestPayment
 import Network.AWS.S3.GetBucketTagging
 import Network.AWS.S3.GetBucketVersioning
@@ -110,7 +118,9 @@ import Network.AWS.S3.PutBucketCors
 import Network.AWS.S3.PutBucketLifecycle
 import Network.AWS.S3.PutBucketLogging
 import Network.AWS.S3.PutBucketNotification
+import Network.AWS.S3.PutBucketNotificationConfiguration
 import Network.AWS.S3.PutBucketPolicy
+import Network.AWS.S3.PutBucketReplication
 import Network.AWS.S3.PutBucketRequestPayment
 import Network.AWS.S3.PutBucketTagging
 import Network.AWS.S3.PutBucketVersioning

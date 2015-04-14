@@ -35,6 +35,7 @@ module Network.AWS.S3.CompleteMultipartUpload
     , cmu1Bucket
     , cmu1Key
     , cmu1MultipartUpload
+    , cmu1RequestPayer
     , cmu1UploadId
 
     -- * Response
@@ -47,6 +48,7 @@ module Network.AWS.S3.CompleteMultipartUpload
     , cmur1Expiration
     , cmur1Key
     , cmur1Location
+    , cmur1RequestCharged
     , cmur1SSEKMSKeyId
     , cmur1ServerSideEncryption
     , cmur1VersionId
@@ -61,6 +63,7 @@ data CompleteMultipartUpload = CompleteMultipartUpload
     { _cmu1Bucket          :: Text
     , _cmu1Key             :: Text
     , _cmu1MultipartUpload :: Maybe CompletedMultipartUpload
+    , _cmu1RequestPayer    :: Maybe RequestPayer
     , _cmu1UploadId        :: Text
     } deriving (Eq, Read, Show)
 
@@ -74,6 +77,8 @@ data CompleteMultipartUpload = CompleteMultipartUpload
 --
 -- * 'cmu1MultipartUpload' @::@ 'Maybe' 'CompletedMultipartUpload'
 --
+-- * 'cmu1RequestPayer' @::@ 'Maybe' 'RequestPayer'
+--
 -- * 'cmu1UploadId' @::@ 'Text'
 --
 completeMultipartUpload :: Text -- ^ 'cmu1Bucket'
@@ -85,6 +90,7 @@ completeMultipartUpload p1 p2 p3 = CompleteMultipartUpload
     , _cmu1Key             = p2
     , _cmu1UploadId        = p3
     , _cmu1MultipartUpload = Nothing
+    , _cmu1RequestPayer    = Nothing
     }
 
 cmu1Bucket :: Lens' CompleteMultipartUpload Text
@@ -97,6 +103,9 @@ cmu1MultipartUpload :: Lens' CompleteMultipartUpload (Maybe CompletedMultipartUp
 cmu1MultipartUpload =
     lens _cmu1MultipartUpload (\s a -> s { _cmu1MultipartUpload = a })
 
+cmu1RequestPayer :: Lens' CompleteMultipartUpload (Maybe RequestPayer)
+cmu1RequestPayer = lens _cmu1RequestPayer (\s a -> s { _cmu1RequestPayer = a })
+
 cmu1UploadId :: Lens' CompleteMultipartUpload Text
 cmu1UploadId = lens _cmu1UploadId (\s a -> s { _cmu1UploadId = a })
 
@@ -106,6 +115,7 @@ data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse
     , _cmur1Expiration           :: Maybe Text
     , _cmur1Key                  :: Maybe Text
     , _cmur1Location             :: Maybe Text
+    , _cmur1RequestCharged       :: Maybe RequestCharged
     , _cmur1SSEKMSKeyId          :: Maybe (Sensitive Text)
     , _cmur1ServerSideEncryption :: Maybe ServerSideEncryption
     , _cmur1VersionId            :: Maybe Text
@@ -125,6 +135,8 @@ data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse
 --
 -- * 'cmur1Location' @::@ 'Maybe' 'Text'
 --
+-- * 'cmur1RequestCharged' @::@ 'Maybe' 'RequestCharged'
+--
 -- * 'cmur1SSEKMSKeyId' @::@ 'Maybe' 'Text'
 --
 -- * 'cmur1ServerSideEncryption' @::@ 'Maybe' 'ServerSideEncryption'
@@ -141,6 +153,7 @@ completeMultipartUploadResponse = CompleteMultipartUploadResponse
     , _cmur1ServerSideEncryption = Nothing
     , _cmur1VersionId            = Nothing
     , _cmur1SSEKMSKeyId          = Nothing
+    , _cmur1RequestCharged       = Nothing
     }
 
 cmur1Bucket :: Lens' CompleteMultipartUploadResponse (Maybe Text)
@@ -160,6 +173,10 @@ cmur1Key = lens _cmur1Key (\s a -> s { _cmur1Key = a })
 
 cmur1Location :: Lens' CompleteMultipartUploadResponse (Maybe Text)
 cmur1Location = lens _cmur1Location (\s a -> s { _cmur1Location = a })
+
+cmur1RequestCharged :: Lens' CompleteMultipartUploadResponse (Maybe RequestCharged)
+cmur1RequestCharged =
+    lens _cmur1RequestCharged (\s a -> s { _cmur1RequestCharged = a })
 
 -- | If present, specifies the ID of the AWS Key Management Service (KMS) master
 -- encryption key that was used for the object.
@@ -188,12 +205,13 @@ instance ToPath CompleteMultipartUpload where
 instance ToQuery CompleteMultipartUpload where
     toQuery rq = "uploadId" =? _cmu1UploadId rq
 
-instance ToHeaders CompleteMultipartUpload
+instance ToHeaders CompleteMultipartUpload where
+    toHeaders CompleteMultipartUpload{..} = mconcat
+        [ "x-amz-request-payer" =: _cmu1RequestPayer
+        ]
 
 instance ToXMLRoot CompleteMultipartUpload where
-    toXMLRoot CompleteMultipartUpload{..} = namespaced ns "CompleteMultipartUpload"
-        [ "CompleteMultipartUpload" =@ _cmu1MultipartUpload
-        ]
+    toXMLRoot = extractRoot ns . toXML . _cmu1MultipartUpload
 
 instance ToXML CompleteMultipartUpload
 
@@ -208,6 +226,7 @@ instance AWSRequest CompleteMultipartUpload where
         <*> h ~:? "x-amz-expiration"
         <*> x .@? "Key"
         <*> x .@? "Location"
+        <*> h ~:? "x-amz-request-charged"
         <*> h ~:? "x-amz-server-side-encryption-aws-kms-key-id"
         <*> h ~:? "x-amz-server-side-encryption"
         <*> h ~:? "x-amz-version-id"

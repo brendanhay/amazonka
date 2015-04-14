@@ -22,18 +22,18 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Updates the AWS Data Pipeline service on the progress of the calling task
--- runner. When the task runner is assigned a task, it should call
--- ReportTaskProgress to acknowledge that it has the task within 2 minutes. If
--- the web service does not recieve this acknowledgement within the 2 minute
--- window, it will assign the task in a subsequent 'PollForTask' call. After this
--- initial acknowledgement, the task runner only needs to report progress every
--- 15 minutes to maintain its ownership of the task. You can change this
+-- | Task runners call 'ReportTaskProgress' when assigned a task to acknowledge that
+-- it has the task. If the web service does not receive this acknowledgement
+-- within 2 minutes, it assigns the task in a subsequent 'PollForTask' call. After
+-- this initial acknowledgement, the task runner only needs to report progress
+-- every 15 minutes to maintain its ownership of the task. You can change this
 -- reporting time from 15 minutes by specifying a 'reportProgressTimeout' field in
--- your pipeline. If a task runner does not report its status after 5 minutes,
--- AWS Data Pipeline will assume that the task runner is unable to process the
--- task and will reassign the task in a subsequent response to 'PollForTask'. task
--- runners should call 'ReportTaskProgress' every 60 seconds.
+-- your pipeline.
+--
+-- If a task runner does not report its status after 5 minutes, AWS Data
+-- Pipeline assumes that the task runner is unable to process the task and
+-- reassigns the task in a subsequent response to 'PollForTask'. Task runners
+-- should call 'ReportTaskProgress' every 60 seconds.
 --
 -- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ReportTaskProgress.html>
 module Network.AWS.DataPipeline.ReportTaskProgress
@@ -54,6 +54,7 @@ module Network.AWS.DataPipeline.ReportTaskProgress
     , rtprCanceled
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.DataPipeline.Types
@@ -84,9 +85,8 @@ reportTaskProgress p1 = ReportTaskProgress
 rtpFields :: Lens' ReportTaskProgress [Field]
 rtpFields = lens _rtpFields (\s a -> s { _rtpFields = a }) . _List
 
--- | Identifier of the task assigned to the task runner. This value is provided in
--- the 'TaskObject' that the service returns with the response for the 'PollForTask'
--- action.
+-- | The ID of the task assigned to the task runner. This value is provided in the
+-- response for 'PollForTask'.
 rtpTaskId :: Lens' ReportTaskProgress Text
 rtpTaskId = lens _rtpTaskId (\s a -> s { _rtpTaskId = a })
 
@@ -106,7 +106,7 @@ reportTaskProgressResponse p1 = ReportTaskProgressResponse
     { _rtprCanceled = p1
     }
 
--- | If 'True', the calling task runner should cancel processing of the task. The
+-- | If true, the calling task runner should cancel processing of the task. The
 -- task runner does not need to call 'SetTaskStatus' for canceled tasks.
 rtprCanceled :: Lens' ReportTaskProgressResponse Bool
 rtprCanceled = lens _rtprCanceled (\s a -> s { _rtprCanceled = a })

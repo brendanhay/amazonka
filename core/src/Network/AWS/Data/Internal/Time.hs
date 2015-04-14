@@ -78,11 +78,11 @@ _Time = iso (\(Time t) -> t) Time
 convert :: Time a -> Time b
 convert (Time t) = Time t
 
-type RFC822    = Time RFC822Format
-type ISO8601   = Time ISO8601Format
-type BasicTime = Time BasicFormat
-type AWSTime   = Time AWSFormat
-type POSIX     = Time POSIXFormat
+type RFC822    = Time 'RFC822Format
+type ISO8601   = Time 'ISO8601Format
+type BasicTime = Time 'BasicFormat
+type AWSTime   = Time 'AWSFormat
+type POSIX     = Time 'POSIXFormat
 
 class TimeFormat a where
     format :: Tagged a String

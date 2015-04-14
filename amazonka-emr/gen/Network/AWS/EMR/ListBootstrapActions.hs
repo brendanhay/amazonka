@@ -44,6 +44,7 @@ module Network.AWS.EMR.ListBootstrapActions
     , lbarMarker
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.EMR.Types

@@ -23,7 +23,8 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Assigns one of the stack's registered Amazon EBS volumes to a specified
--- instance. The volume must first be registered with the stack by calling 'RegisterVolume'. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management>.
+-- instance. The volume must first be registered with the stack by calling 'RegisterVolume'. After you register the volume, you must call 'UpdateVolume' to specify a
+-- mount point before calling 'AssignVolume'. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html ResourceManagement>.
 --
 -- Required Permissions: To use this action, an IAM user must have a Manage
 -- permissions level for the stack, or an attached policy that explicitly grants
@@ -46,6 +47,7 @@ module Network.AWS.OpsWorks.AssignVolume
     , assignVolumeResponse
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types

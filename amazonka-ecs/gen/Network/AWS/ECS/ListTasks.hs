@@ -38,6 +38,8 @@ module Network.AWS.ECS.ListTasks
     , ltFamily
     , ltMaxResults
     , ltNextToken
+    , ltServiceName
+    , ltStartedBy
 
     -- * Response
     , ListTasksResponse
@@ -48,6 +50,7 @@ module Network.AWS.ECS.ListTasks
     , ltrTaskArns
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.ECS.Types
@@ -59,6 +62,8 @@ data ListTasks = ListTasks
     , _ltFamily            :: Maybe Text
     , _ltMaxResults        :: Maybe Int
     , _ltNextToken         :: Maybe Text
+    , _ltServiceName       :: Maybe Text
+    , _ltStartedBy         :: Maybe Text
     } deriving (Eq, Ord, Read, Show)
 
 -- | 'ListTasks' constructor.
@@ -75,6 +80,10 @@ data ListTasks = ListTasks
 --
 -- * 'ltNextToken' @::@ 'Maybe' 'Text'
 --
+-- * 'ltServiceName' @::@ 'Maybe' 'Text'
+--
+-- * 'ltStartedBy' @::@ 'Maybe' 'Text'
+--
 listTasks :: ListTasks
 listTasks = ListTasks
     { _ltCluster           = Nothing
@@ -82,6 +91,8 @@ listTasks = ListTasks
     , _ltFamily            = Nothing
     , _ltNextToken         = Nothing
     , _ltMaxResults        = Nothing
+    , _ltStartedBy         = Nothing
+    , _ltServiceName       = Nothing
     }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that hosts
@@ -120,6 +131,18 @@ ltMaxResults = lens _ltMaxResults (\s a -> s { _ltMaxResults = a })
 -- results to return.
 ltNextToken :: Lens' ListTasks (Maybe Text)
 ltNextToken = lens _ltNextToken (\s a -> s { _ltNextToken = a })
+
+-- | The name of the service that you want to filter the 'ListTasks' results with.
+-- Specifying a 'serviceName' will limit the results to tasks that belong to that
+-- service.
+ltServiceName :: Lens' ListTasks (Maybe Text)
+ltServiceName = lens _ltServiceName (\s a -> s { _ltServiceName = a })
+
+-- | The 'startedBy' value that you want to filter the task results with. Specifying
+-- a 'startedBy' value will limit the results to tasks that were started with that
+-- value.
+ltStartedBy :: Lens' ListTasks (Maybe Text)
+ltStartedBy = lens _ltStartedBy (\s a -> s { _ltStartedBy = a })
 
 data ListTasksResponse = ListTasksResponse
     { _ltrNextToken :: Maybe Text
@@ -166,6 +189,8 @@ instance ToJSON ListTasks where
         , "family"            .= _ltFamily
         , "nextToken"         .= _ltNextToken
         , "maxResults"        .= _ltMaxResults
+        , "startedBy"         .= _ltStartedBy
+        , "serviceName"       .= _ltServiceName
         ]
 
 instance AWSRequest ListTasks where

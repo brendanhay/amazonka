@@ -50,6 +50,7 @@ module Network.AWS.ElasticBeanstalk.CreateEnvironment
     -- ** Response constructor
     , createEnvironmentResponse
     -- ** Response lenses
+    , cerAbortableOperationInProgress
     , cerApplicationName
     , cerCNAME
     , cerDateCreated
@@ -207,32 +208,35 @@ ceTier = lens _ceTier (\s a -> s { _ceTier = a })
 -- If the specified application has no associated application versions, AWS
 -- Elastic Beanstalk 'UpdateEnvironment' returns an 'InvalidParameterValue' error.
 --
--- Default: If not specified, AWS Elastic Beanstalk attempts to launch the sample application in the container
--- .
+-- Default: If not specified, AWS Elastic Beanstalk attempts to launch the
+-- sample application in the container.
 ceVersionLabel :: Lens' CreateEnvironment (Maybe Text)
 ceVersionLabel = lens _ceVersionLabel (\s a -> s { _ceVersionLabel = a })
 
 data CreateEnvironmentResponse = CreateEnvironmentResponse
-    { _cerApplicationName   :: Maybe Text
-    , _cerCNAME             :: Maybe Text
-    , _cerDateCreated       :: Maybe ISO8601
-    , _cerDateUpdated       :: Maybe ISO8601
-    , _cerDescription       :: Maybe Text
-    , _cerEndpointURL       :: Maybe Text
-    , _cerEnvironmentId     :: Maybe Text
-    , _cerEnvironmentName   :: Maybe Text
-    , _cerHealth            :: Maybe EnvironmentHealth
-    , _cerResources         :: Maybe EnvironmentResourcesDescription
-    , _cerSolutionStackName :: Maybe Text
-    , _cerStatus            :: Maybe EnvironmentStatus
-    , _cerTemplateName      :: Maybe Text
-    , _cerTier              :: Maybe EnvironmentTier
-    , _cerVersionLabel      :: Maybe Text
+    { _cerAbortableOperationInProgress :: Maybe Bool
+    , _cerApplicationName              :: Maybe Text
+    , _cerCNAME                        :: Maybe Text
+    , _cerDateCreated                  :: Maybe ISO8601
+    , _cerDateUpdated                  :: Maybe ISO8601
+    , _cerDescription                  :: Maybe Text
+    , _cerEndpointURL                  :: Maybe Text
+    , _cerEnvironmentId                :: Maybe Text
+    , _cerEnvironmentName              :: Maybe Text
+    , _cerHealth                       :: Maybe EnvironmentHealth
+    , _cerResources                    :: Maybe EnvironmentResourcesDescription
+    , _cerSolutionStackName            :: Maybe Text
+    , _cerStatus                       :: Maybe EnvironmentStatus
+    , _cerTemplateName                 :: Maybe Text
+    , _cerTier                         :: Maybe EnvironmentTier
+    , _cerVersionLabel                 :: Maybe Text
     } deriving (Eq, Read, Show)
 
 -- | 'CreateEnvironmentResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
+--
+-- * 'cerAbortableOperationInProgress' @::@ 'Maybe' 'Bool'
 --
 -- * 'cerApplicationName' @::@ 'Maybe' 'Text'
 --
@@ -266,22 +270,30 @@ data CreateEnvironmentResponse = CreateEnvironmentResponse
 --
 createEnvironmentResponse :: CreateEnvironmentResponse
 createEnvironmentResponse = CreateEnvironmentResponse
-    { _cerEnvironmentName   = Nothing
-    , _cerEnvironmentId     = Nothing
-    , _cerApplicationName   = Nothing
-    , _cerVersionLabel      = Nothing
-    , _cerSolutionStackName = Nothing
-    , _cerTemplateName      = Nothing
-    , _cerDescription       = Nothing
-    , _cerEndpointURL       = Nothing
-    , _cerCNAME             = Nothing
-    , _cerDateCreated       = Nothing
-    , _cerDateUpdated       = Nothing
-    , _cerStatus            = Nothing
-    , _cerHealth            = Nothing
-    , _cerResources         = Nothing
-    , _cerTier              = Nothing
+    { _cerEnvironmentName              = Nothing
+    , _cerEnvironmentId                = Nothing
+    , _cerApplicationName              = Nothing
+    , _cerVersionLabel                 = Nothing
+    , _cerSolutionStackName            = Nothing
+    , _cerTemplateName                 = Nothing
+    , _cerDescription                  = Nothing
+    , _cerEndpointURL                  = Nothing
+    , _cerCNAME                        = Nothing
+    , _cerDateCreated                  = Nothing
+    , _cerDateUpdated                  = Nothing
+    , _cerStatus                       = Nothing
+    , _cerAbortableOperationInProgress = Nothing
+    , _cerHealth                       = Nothing
+    , _cerResources                    = Nothing
+    , _cerTier                         = Nothing
     }
+
+-- | Lists in-progress environment updates and application version deployments
+-- that you can cancel.
+cerAbortableOperationInProgress :: Lens' CreateEnvironmentResponse (Maybe Bool)
+cerAbortableOperationInProgress =
+    lens _cerAbortableOperationInProgress
+        (\s a -> s { _cerAbortableOperationInProgress = a })
 
 -- | The name of the application associated with this environment.
 cerApplicationName :: Lens' CreateEnvironmentResponse (Maybe Text)
@@ -399,7 +411,8 @@ instance AWSRequest CreateEnvironment where
 
 instance FromXML CreateEnvironmentResponse where
     parseXML = withElement "CreateEnvironmentResult" $ \x -> CreateEnvironmentResponse
-        <$> x .@? "ApplicationName"
+        <$> x .@? "AbortableOperationInProgress"
+        <*> x .@? "ApplicationName"
         <*> x .@? "CNAME"
         <*> x .@? "DateCreated"
         <*> x .@? "DateUpdated"

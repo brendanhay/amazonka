@@ -55,6 +55,7 @@ module Network.AWS.S3.CopyObject
     , coKey
     , coMetadata
     , coMetadataDirective
+    , coRequestPayer
     , coSSECustomerAlgorithm
     , coSSECustomerKey
     , coSSECustomerKeyMD5
@@ -71,6 +72,7 @@ module Network.AWS.S3.CopyObject
     , corCopyObjectResult
     , corCopySourceVersionId
     , corExpiration
+    , corRequestCharged
     , corSSECustomerAlgorithm
     , corSSECustomerKeyMD5
     , corSSEKMSKeyId
@@ -106,6 +108,7 @@ data CopyObject = CopyObject
     , _coKey                            :: Text
     , _coMetadata                       :: Map (CI Text) Text
     , _coMetadataDirective              :: Maybe MetadataDirective
+    , _coRequestPayer                   :: Maybe RequestPayer
     , _coSSECustomerAlgorithm           :: Maybe Text
     , _coSSECustomerKey                 :: Maybe (Sensitive Text)
     , _coSSECustomerKeyMD5              :: Maybe Text
@@ -165,6 +168,8 @@ data CopyObject = CopyObject
 --
 -- * 'coMetadataDirective' @::@ 'Maybe' 'MetadataDirective'
 --
+-- * 'coRequestPayer' @::@ 'Maybe' 'RequestPayer'
+--
 -- * 'coSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
 --
 -- * 'coSSECustomerKey' @::@ 'Maybe' 'Text'
@@ -214,6 +219,7 @@ copyObject p1 p2 p3 = CopyObject
     , _coCopySourceSSECustomerAlgorithm = Nothing
     , _coCopySourceSSECustomerKey       = Nothing
     , _coCopySourceSSECustomerKeyMD5    = Nothing
+    , _coRequestPayer                   = Nothing
     }
 
 -- | The canned ACL to apply to the object.
@@ -336,6 +342,9 @@ coMetadataDirective :: Lens' CopyObject (Maybe MetadataDirective)
 coMetadataDirective =
     lens _coMetadataDirective (\s a -> s { _coMetadataDirective = a })
 
+coRequestPayer :: Lens' CopyObject (Maybe RequestPayer)
+coRequestPayer = lens _coRequestPayer (\s a -> s { _coRequestPayer = a })
+
 -- | Specifies the algorithm to use to when encrypting the object (e.g., AES256,
 -- aws:kms).
 coSSECustomerAlgorithm :: Lens' CopyObject (Maybe Text)
@@ -387,6 +396,7 @@ data CopyObjectResponse = CopyObjectResponse
     { _corCopyObjectResult     :: Maybe CopyObjectResult
     , _corCopySourceVersionId  :: Maybe Text
     , _corExpiration           :: Maybe Text
+    , _corRequestCharged       :: Maybe RequestCharged
     , _corSSECustomerAlgorithm :: Maybe Text
     , _corSSECustomerKeyMD5    :: Maybe Text
     , _corSSEKMSKeyId          :: Maybe (Sensitive Text)
@@ -402,6 +412,8 @@ data CopyObjectResponse = CopyObjectResponse
 -- * 'corCopySourceVersionId' @::@ 'Maybe' 'Text'
 --
 -- * 'corExpiration' @::@ 'Maybe' 'Text'
+--
+-- * 'corRequestCharged' @::@ 'Maybe' 'RequestCharged'
 --
 -- * 'corSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
 --
@@ -420,6 +432,7 @@ copyObjectResponse = CopyObjectResponse
     , _corSSECustomerAlgorithm = Nothing
     , _corSSECustomerKeyMD5    = Nothing
     , _corSSEKMSKeyId          = Nothing
+    , _corRequestCharged       = Nothing
     }
 
 corCopyObjectResult :: Lens' CopyObjectResponse (Maybe CopyObjectResult)
@@ -433,6 +446,10 @@ corCopySourceVersionId =
 -- | If the object expiration is configured, the response includes this header.
 corExpiration :: Lens' CopyObjectResponse (Maybe Text)
 corExpiration = lens _corExpiration (\s a -> s { _corExpiration = a })
+
+corRequestCharged :: Lens' CopyObjectResponse (Maybe RequestCharged)
+corRequestCharged =
+    lens _corRequestCharged (\s a -> s { _corRequestCharged = a })
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header confirming the encryption
@@ -500,6 +517,7 @@ instance ToHeaders CopyObject where
         , "x-amz-copy-source-server-side-encryption-customer-algorithm" =: _coCopySourceSSECustomerAlgorithm
         , "x-amz-copy-source-server-side-encryption-customer-key"       =: _coCopySourceSSECustomerKey
         , "x-amz-copy-source-server-side-encryption-customer-key-MD5"   =: _coCopySourceSSECustomerKeyMD5
+        , "x-amz-request-payer"                                         =: _coRequestPayer
         ]
 
 instance ToXMLRoot CopyObject where
@@ -516,6 +534,7 @@ instance AWSRequest CopyObject where
         <$> x .@? "CopyObjectResult"
         <*> h ~:? "x-amz-copy-source-version-id"
         <*> h ~:? "x-amz-expiration"
+        <*> h ~:? "x-amz-request-charged"
         <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
         <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
         <*> h ~:? "x-amz-server-side-encryption-aws-kms-key-id"

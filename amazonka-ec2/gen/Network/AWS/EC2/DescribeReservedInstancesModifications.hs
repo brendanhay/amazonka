@@ -28,7 +28,7 @@
 -- about the specific modification is returned.
 --
 -- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html Modifying Reserved Instances> in the Amazon Elastic
--- Compute Cloud User Guide.
+-- Compute Cloud User Guide for Linux.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeReservedInstancesModifications.html>
 module Network.AWS.EC2.DescribeReservedInstancesModifications
@@ -117,7 +117,7 @@ describeReservedInstancesModifications = DescribeReservedInstancesModifications
 drimFilters :: Lens' DescribeReservedInstancesModifications [Filter]
 drimFilters = lens _drimFilters (\s a -> s { _drimFilters = a }) . _List
 
--- | The token for the next page of data.
+-- | The token to retrieve the next page of results.
 drimNextToken :: Lens' DescribeReservedInstancesModifications (Maybe Text)
 drimNextToken = lens _drimNextToken (\s a -> s { _drimNextToken = a })
 
@@ -147,7 +147,8 @@ describeReservedInstancesModificationsResponse = DescribeReservedInstancesModifi
     , _drimrNextToken                      = Nothing
     }
 
--- | The token for the next page of data.
+-- | The token to use to retrieve the next page of results. This value is 'null'
+-- when there are no more results to return.
 drimrNextToken :: Lens' DescribeReservedInstancesModificationsResponse (Maybe Text)
 drimrNextToken = lens _drimrNextToken (\s a -> s { _drimrNextToken = a })
 

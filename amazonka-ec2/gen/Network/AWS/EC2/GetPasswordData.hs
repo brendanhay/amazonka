@@ -90,39 +90,42 @@ gpdInstanceId :: Lens' GetPasswordData Text
 gpdInstanceId = lens _gpdInstanceId (\s a -> s { _gpdInstanceId = a })
 
 data GetPasswordDataResponse = GetPasswordDataResponse
-    { _gpdrInstanceId   :: Maybe Text
-    , _gpdrPasswordData :: Maybe Text
-    , _gpdrTimestamp    :: Maybe ISO8601
+    { _gpdrInstanceId   :: Text
+    , _gpdrPasswordData :: Text
+    , _gpdrTimestamp    :: ISO8601
     } deriving (Eq, Ord, Read, Show)
 
 -- | 'GetPasswordDataResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gpdrInstanceId' @::@ 'Maybe' 'Text'
+-- * 'gpdrInstanceId' @::@ 'Text'
 --
--- * 'gpdrPasswordData' @::@ 'Maybe' 'Text'
+-- * 'gpdrPasswordData' @::@ 'Text'
 --
--- * 'gpdrTimestamp' @::@ 'Maybe' 'UTCTime'
+-- * 'gpdrTimestamp' @::@ 'UTCTime'
 --
-getPasswordDataResponse :: GetPasswordDataResponse
-getPasswordDataResponse = GetPasswordDataResponse
-    { _gpdrInstanceId   = Nothing
-    , _gpdrTimestamp    = Nothing
-    , _gpdrPasswordData = Nothing
+getPasswordDataResponse :: Text -- ^ 'gpdrInstanceId'
+                        -> UTCTime -- ^ 'gpdrTimestamp'
+                        -> Text -- ^ 'gpdrPasswordData'
+                        -> GetPasswordDataResponse
+getPasswordDataResponse p1 p2 p3 = GetPasswordDataResponse
+    { _gpdrInstanceId   = p1
+    , _gpdrTimestamp    = withIso _Time (const id) p2
+    , _gpdrPasswordData = p3
     }
 
 -- | The ID of the Windows instance.
-gpdrInstanceId :: Lens' GetPasswordDataResponse (Maybe Text)
+gpdrInstanceId :: Lens' GetPasswordDataResponse Text
 gpdrInstanceId = lens _gpdrInstanceId (\s a -> s { _gpdrInstanceId = a })
 
 -- | The password of the instance.
-gpdrPasswordData :: Lens' GetPasswordDataResponse (Maybe Text)
+gpdrPasswordData :: Lens' GetPasswordDataResponse Text
 gpdrPasswordData = lens _gpdrPasswordData (\s a -> s { _gpdrPasswordData = a })
 
 -- | The time the data was last updated.
-gpdrTimestamp :: Lens' GetPasswordDataResponse (Maybe UTCTime)
-gpdrTimestamp = lens _gpdrTimestamp (\s a -> s { _gpdrTimestamp = a }) . mapping _Time
+gpdrTimestamp :: Lens' GetPasswordDataResponse UTCTime
+gpdrTimestamp = lens _gpdrTimestamp (\s a -> s { _gpdrTimestamp = a }) . _Time
 
 instance ToPath GetPasswordData where
     toPath = const "/"
@@ -144,6 +147,6 @@ instance AWSRequest GetPasswordData where
 
 instance FromXML GetPasswordDataResponse where
     parseXML x = GetPasswordDataResponse
-        <$> x .@? "instanceId"
-        <*> x .@? "passwordData"
-        <*> x .@? "timestamp"
+        <$> x .@  "instanceId"
+        <*> x .@  "passwordData"
+        <*> x .@  "timestamp"

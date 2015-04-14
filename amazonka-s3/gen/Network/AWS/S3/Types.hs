@@ -32,8 +32,27 @@ module Network.AWS.S3.Types
     -- ** XML
     , ns
 
+    -- * GetBucketNotificationConfigurationRequest
+    , GetBucketNotificationConfigurationRequest
+    , getBucketNotificationConfigurationRequest
+    , gbncBucket
+
+    -- * ReplicationConfiguration
+    , ReplicationConfiguration
+    , replicationConfiguration
+    , rcRole
+    , rcRules
+
+    -- * Destination
+    , Destination
+    , destination
+    , dBucket
+
     -- * Event
     , Event (..)
+
+    -- * RequestCharged
+    , RequestCharged (..)
 
     -- * NoncurrentVersionExpiration
     , NoncurrentVersionExpiration
@@ -85,6 +104,14 @@ module Network.AWS.S3.Types
     -- * MetadataDirective
     , MetadataDirective (..)
 
+    -- * ReplicationRule
+    , ReplicationRule
+    , replicationRule
+    , rrDestination
+    , rrID
+    , rrPrefix
+    , rrStatus
+
     -- * RedirectAllRequestsTo
     , RedirectAllRequestsTo
     , redirectAllRequestsTo
@@ -100,9 +127,9 @@ module Network.AWS.S3.Types
     -- * NotificationConfiguration
     , NotificationConfiguration
     , notificationConfiguration
-    , ncCloudFunctionConfiguration
-    , ncQueueConfiguration
-    , ncTopicConfiguration
+    , ncLambdaFunctionConfigurations
+    , ncQueueConfigurations
+    , ncTopicConfigurations
 
     -- * S3ServiceError
     , S3ServiceError
@@ -204,21 +231,22 @@ module Network.AWS.S3.Types
     , rStatus
     , rTransition
 
+    -- * RequestPayer
+    , RequestPayer (..)
+
     -- * TopicConfiguration
     , TopicConfiguration
     , topicConfiguration
-    , tcEvent
     , tcEvents
     , tcId
-    , tcTopic
+    , tcTopicArn
 
     -- * QueueConfiguration
     , QueueConfiguration
     , queueConfiguration
-    , qcEvent
     , qcEvents
     , qcId
-    , qcQueue
+    , qcQueueArn
 
     -- * Owner
     , Owner
@@ -230,6 +258,13 @@ module Network.AWS.S3.Types
     , BucketLoggingStatus
     , bucketLoggingStatus
     , blsLoggingEnabled
+
+    -- * NotificationConfigurationDeprecated
+    , NotificationConfigurationDeprecated
+    , notificationConfigurationDeprecated
+    , ncdCloudFunctionConfiguration
+    , ncdQueueConfiguration
+    , ncdTopicConfiguration
 
     -- * ErrorDocument
     , ErrorDocument
@@ -327,8 +362,34 @@ module Network.AWS.S3.Types
     , muStorageClass
     , muUploadId
 
+    -- * LambdaFunctionConfiguration
+    , LambdaFunctionConfiguration
+    , lambdaFunctionConfiguration
+    , lfcEvents
+    , lfcId
+    , lfcLambdaFunctionArn
+
+    -- * QueueConfigurationDeprecated
+    , QueueConfigurationDeprecated
+    , queueConfigurationDeprecated
+    , qcdEvent
+    , qcdEvents
+    , qcdId
+    , qcdQueue
+
+    -- * TopicConfigurationDeprecated
+    , TopicConfigurationDeprecated
+    , topicConfigurationDeprecated
+    , tcdEvent
+    , tcdEvents
+    , tcdId
+    , tcdTopic
+
     -- * Type
     , Type (..)
+
+    -- * ReplicationStatus
+    , ReplicationStatus (..)
 
     -- * TransitionStorageClass
     , TransitionStorageClass (..)
@@ -388,6 +449,9 @@ module Network.AWS.S3.Types
     , leTargetBucket
     , leTargetGrants
     , leTargetPrefix
+
+    -- * ReplicationRuleStatus
+    , ReplicationRuleStatus (..)
 
     -- * ServerSideEncryption
     , ServerSideEncryption (..)
@@ -469,6 +533,108 @@ ns :: Text
 ns = "http://s3.amazonaws.com/doc/2006-03-01/"
 {-# INLINE ns #-}
 
+newtype GetBucketNotificationConfigurationRequest = GetBucketNotificationConfigurationRequest
+    { _gbncBucket :: Text
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+
+-- | 'GetBucketNotificationConfigurationRequest' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'gbncBucket' @::@ 'Text'
+--
+getBucketNotificationConfigurationRequest :: Text -- ^ 'gbncBucket'
+                                          -> GetBucketNotificationConfigurationRequest
+getBucketNotificationConfigurationRequest p1 = GetBucketNotificationConfigurationRequest
+    { _gbncBucket = p1
+    }
+
+-- | Name of the buket to get the notification configuration for.
+gbncBucket :: Lens' GetBucketNotificationConfigurationRequest Text
+gbncBucket = lens _gbncBucket (\s a -> s { _gbncBucket = a })
+
+instance FromXML GetBucketNotificationConfigurationRequest where
+    parseXML x = GetBucketNotificationConfigurationRequest
+        <$> x .@  "Bucket"
+
+instance ToXMLRoot GetBucketNotificationConfigurationRequest where
+    toXMLRoot = const (namespaced ns "GetBucketNotificationConfigurationRequest" [])
+
+instance ToXML GetBucketNotificationConfigurationRequest
+
+data ReplicationConfiguration = ReplicationConfiguration
+    { _rcRole  :: Text
+    , _rcRules :: List "Rule" ReplicationRule
+    } deriving (Eq, Read, Show)
+
+-- | 'ReplicationConfiguration' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'rcRole' @::@ 'Text'
+--
+-- * 'rcRules' @::@ ['ReplicationRule']
+--
+replicationConfiguration :: Text -- ^ 'rcRole'
+                         -> ReplicationConfiguration
+replicationConfiguration p1 = ReplicationConfiguration
+    { _rcRole  = p1
+    , _rcRules = mempty
+    }
+
+-- | Amazon Resource Name (ARN) of an IAM role for Amazon S3 to assume when
+-- replicating the objects.
+rcRole :: Lens' ReplicationConfiguration Text
+rcRole = lens _rcRole (\s a -> s { _rcRole = a })
+
+-- | Container for information about a particular replication rule. Replication
+-- configuration must have at least one rule and can contain up to 1,000 rules.
+rcRules :: Lens' ReplicationConfiguration [ReplicationRule]
+rcRules = lens _rcRules (\s a -> s { _rcRules = a }) . _List
+
+instance FromXML ReplicationConfiguration where
+    parseXML x = ReplicationConfiguration
+        <$> x .@  "Role"
+        <*> parseXML x
+
+instance ToXMLRoot ReplicationConfiguration where
+    toXMLRoot ReplicationConfiguration{..} = namespaced ns "ReplicationConfiguration"
+        [ "Role" =@ _rcRole
+        , "Rule" =@ _rcRules
+        ]
+
+instance ToXML ReplicationConfiguration
+
+newtype Destination = Destination
+    { _dBucket :: Text
+    } deriving (Eq, Ord, Read, Show, Monoid, IsString)
+
+-- | 'Destination' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dBucket' @::@ 'Text'
+--
+destination :: Text -- ^ 'dBucket'
+            -> Destination
+destination p1 = Destination
+    { _dBucket = p1
+    }
+
+-- | Amazon resource name (ARN) of the bucket where you want Amazon S3 to store
+-- replicas of the object identified by the rule.
+dBucket :: Lens' Destination Text
+dBucket = lens _dBucket (\s a -> s { _dBucket = a })
+
+instance FromXML Destination where
+    parseXML x = Destination
+        <$> x .@  "Bucket"
+
+instance ToXML Destination where
+    toXML Destination{..} = nodes "Destination"
+        [ "Bucket" =@ _dBucket
+        ]
+
 data Event
     = S3ObjectCreatedCompleteMultipartUpload -- ^ s3:ObjectCreated:CompleteMultipartUpload
     | S3ObjectCreatedCopy                    -- ^ s3:ObjectCreated:Copy
@@ -505,6 +671,31 @@ instance FromXML Event where
     parseXML = parseXMLText "Event"
 
 instance ToXML Event where
+    toXML = toXMLText
+
+data RequestCharged
+    = Requester -- ^ requester
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
+
+instance Hashable RequestCharged
+
+instance FromText RequestCharged where
+    parser = takeLowerText >>= \case
+        "requester" -> pure Requester
+        e           -> fail $
+            "Failure parsing RequestCharged from " ++ show e
+
+instance ToText RequestCharged where
+    toText Requester = "requester"
+
+instance ToByteString RequestCharged
+instance ToHeader     RequestCharged
+instance ToQuery      RequestCharged
+
+instance FromXML RequestCharged where
+    parseXML = parseXMLText "RequestCharged"
+
+instance ToXML RequestCharged where
     toXML = toXMLText
 
 newtype NoncurrentVersionExpiration = NoncurrentVersionExpiration
@@ -887,6 +1078,69 @@ instance FromXML MetadataDirective where
 instance ToXML MetadataDirective where
     toXML = toXMLText
 
+data ReplicationRule = ReplicationRule
+    { _rrDestination :: Destination
+    , _rrID          :: Maybe Text
+    , _rrPrefix      :: Text
+    , _rrStatus      :: ReplicationRuleStatus
+    } deriving (Eq, Read, Show)
+
+-- | 'ReplicationRule' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'rrDestination' @::@ 'Destination'
+--
+-- * 'rrID' @::@ 'Maybe' 'Text'
+--
+-- * 'rrPrefix' @::@ 'Text'
+--
+-- * 'rrStatus' @::@ 'ReplicationRuleStatus'
+--
+replicationRule :: Text -- ^ 'rrPrefix'
+                -> ReplicationRuleStatus -- ^ 'rrStatus'
+                -> Destination -- ^ 'rrDestination'
+                -> ReplicationRule
+replicationRule p1 p2 p3 = ReplicationRule
+    { _rrPrefix      = p1
+    , _rrStatus      = p2
+    , _rrDestination = p3
+    , _rrID          = Nothing
+    }
+
+rrDestination :: Lens' ReplicationRule Destination
+rrDestination = lens _rrDestination (\s a -> s { _rrDestination = a })
+
+-- | Unique identifier for the rule. The value cannot be longer than 255
+-- characters.
+rrID :: Lens' ReplicationRule (Maybe Text)
+rrID = lens _rrID (\s a -> s { _rrID = a })
+
+-- | Object keyname prefix identifying one or more objects to which the rule
+-- applies. Maximum prefix length can be up to 1,024 characters. Overlapping
+-- prefixes are not supported.
+rrPrefix :: Lens' ReplicationRule Text
+rrPrefix = lens _rrPrefix (\s a -> s { _rrPrefix = a })
+
+-- | The rule is ignored if status is not Enabled.
+rrStatus :: Lens' ReplicationRule ReplicationRuleStatus
+rrStatus = lens _rrStatus (\s a -> s { _rrStatus = a })
+
+instance FromXML ReplicationRule where
+    parseXML x = ReplicationRule
+        <$> x .@  "Destination"
+        <*> x .@? "ID"
+        <*> x .@  "Prefix"
+        <*> x .@  "Status"
+
+instance ToXML ReplicationRule where
+    toXML ReplicationRule{..} = nodes "ReplicationRule"
+        [ "ID"          =@ _rrID
+        , "Prefix"      =@ _rrPrefix
+        , "Status"      =@ _rrStatus
+        , "Destination" =@ _rrDestination
+        ]
+
 data RedirectAllRequestsTo = RedirectAllRequestsTo
     { _rartHostName :: Text
     , _rartProtocol :: Maybe Protocol
@@ -972,53 +1226,58 @@ instance ToXML RoutingRule where
         ]
 
 data NotificationConfiguration = NotificationConfiguration
-    { _ncCloudFunctionConfiguration :: Maybe CloudFunctionConfiguration
-    , _ncQueueConfiguration         :: Maybe QueueConfiguration
-    , _ncTopicConfiguration         :: Maybe TopicConfiguration
+    { _ncLambdaFunctionConfigurations :: List "CloudFunctionConfiguration" LambdaFunctionConfiguration
+    , _ncQueueConfigurations          :: List "QueueConfiguration" QueueConfiguration
+    , _ncTopicConfigurations          :: List "TopicConfiguration" TopicConfiguration
     } deriving (Eq, Read, Show)
 
 -- | 'NotificationConfiguration' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ncCloudFunctionConfiguration' @::@ 'Maybe' 'CloudFunctionConfiguration'
+-- * 'ncLambdaFunctionConfigurations' @::@ ['LambdaFunctionConfiguration']
 --
--- * 'ncQueueConfiguration' @::@ 'Maybe' 'QueueConfiguration'
+-- * 'ncQueueConfigurations' @::@ ['QueueConfiguration']
 --
--- * 'ncTopicConfiguration' @::@ 'Maybe' 'TopicConfiguration'
+-- * 'ncTopicConfigurations' @::@ ['TopicConfiguration']
 --
 notificationConfiguration :: NotificationConfiguration
 notificationConfiguration = NotificationConfiguration
-    { _ncTopicConfiguration         = Nothing
-    , _ncQueueConfiguration         = Nothing
-    , _ncCloudFunctionConfiguration = Nothing
+    { _ncTopicConfigurations          = mempty
+    , _ncQueueConfigurations          = mempty
+    , _ncLambdaFunctionConfigurations = mempty
     }
 
-ncCloudFunctionConfiguration :: Lens' NotificationConfiguration (Maybe CloudFunctionConfiguration)
-ncCloudFunctionConfiguration =
-    lens _ncCloudFunctionConfiguration
-        (\s a -> s { _ncCloudFunctionConfiguration = a })
+ncLambdaFunctionConfigurations :: Lens' NotificationConfiguration [LambdaFunctionConfiguration]
+ncLambdaFunctionConfigurations =
+    lens _ncLambdaFunctionConfigurations
+        (\s a -> s { _ncLambdaFunctionConfigurations = a })
+            . _List
 
-ncQueueConfiguration :: Lens' NotificationConfiguration (Maybe QueueConfiguration)
-ncQueueConfiguration =
-    lens _ncQueueConfiguration (\s a -> s { _ncQueueConfiguration = a })
+ncQueueConfigurations :: Lens' NotificationConfiguration [QueueConfiguration]
+ncQueueConfigurations =
+    lens _ncQueueConfigurations (\s a -> s { _ncQueueConfigurations = a })
+        . _List
 
-ncTopicConfiguration :: Lens' NotificationConfiguration (Maybe TopicConfiguration)
-ncTopicConfiguration =
-    lens _ncTopicConfiguration (\s a -> s { _ncTopicConfiguration = a })
+ncTopicConfigurations :: Lens' NotificationConfiguration [TopicConfiguration]
+ncTopicConfigurations =
+    lens _ncTopicConfigurations (\s a -> s { _ncTopicConfigurations = a })
+        . _List
 
 instance FromXML NotificationConfiguration where
     parseXML x = NotificationConfiguration
-        <$> x .@? "CloudFunctionConfiguration"
-        <*> x .@? "QueueConfiguration"
-        <*> x .@? "TopicConfiguration"
+        <$> parseXML x
+        <*> parseXML x
+        <*> parseXML x
 
-instance ToXML NotificationConfiguration where
-    toXML NotificationConfiguration{..} = nodes "NotificationConfiguration"
-        [ "TopicConfiguration"         =@ _ncTopicConfiguration
-        , "QueueConfiguration"         =@ _ncQueueConfiguration
-        , "CloudFunctionConfiguration" =@ _ncCloudFunctionConfiguration
+instance ToXMLRoot NotificationConfiguration where
+    toXMLRoot NotificationConfiguration{..} = namespaced ns "NotificationConfiguration"
+        [ "TopicConfiguration"         =@ _ncTopicConfigurations
+        , "QueueConfiguration"         =@ _ncQueueConfigurations
+        , "CloudFunctionConfiguration" =@ _ncLambdaFunctionConfigurations
         ]
+
+instance ToXML NotificationConfiguration
 
 data S3ServiceError = S3ServiceError
     { _sseCode      :: Maybe Text
@@ -1775,36 +2034,54 @@ instance ToXML Rule where
         , "NoncurrentVersionExpiration" =@ _rNoncurrentVersionExpiration
         ]
 
+data RequestPayer
+    = RPRequester -- ^ requester
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
+
+instance Hashable RequestPayer
+
+instance FromText RequestPayer where
+    parser = takeLowerText >>= \case
+        "requester" -> pure RPRequester
+        e           -> fail $
+            "Failure parsing RequestPayer from " ++ show e
+
+instance ToText RequestPayer where
+    toText RPRequester = "requester"
+
+instance ToByteString RequestPayer
+instance ToHeader     RequestPayer
+instance ToQuery      RequestPayer
+
+instance FromXML RequestPayer where
+    parseXML = parseXMLText "RequestPayer"
+
+instance ToXML RequestPayer where
+    toXML = toXMLText
+
 data TopicConfiguration = TopicConfiguration
-    { _tcEvent  :: Maybe Event
-    , _tcEvents :: List "Event" Event
-    , _tcId     :: Maybe Text
-    , _tcTopic  :: Maybe Text
+    { _tcEvents   :: List "Event" Event
+    , _tcId       :: Maybe Text
+    , _tcTopicArn :: Text
     } deriving (Eq, Read, Show)
 
 -- | 'TopicConfiguration' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'tcEvent' @::@ 'Maybe' 'Event'
---
 -- * 'tcEvents' @::@ ['Event']
 --
 -- * 'tcId' @::@ 'Maybe' 'Text'
 --
--- * 'tcTopic' @::@ 'Maybe' 'Text'
+-- * 'tcTopicArn' @::@ 'Text'
 --
-topicConfiguration :: TopicConfiguration
-topicConfiguration = TopicConfiguration
-    { _tcId     = Nothing
-    , _tcEvents = mempty
-    , _tcEvent  = Nothing
-    , _tcTopic  = Nothing
+topicConfiguration :: Text -- ^ 'tcTopicArn'
+                   -> TopicConfiguration
+topicConfiguration p1 = TopicConfiguration
+    { _tcTopicArn = p1
+    , _tcId       = Nothing
+    , _tcEvents   = mempty
     }
-
--- | Bucket event for which to send notifications.
-tcEvent :: Lens' TopicConfiguration (Maybe Event)
-tcEvent = lens _tcEvent (\s a -> s { _tcEvent = a })
 
 tcEvents :: Lens' TopicConfiguration [Event]
 tcEvents = lens _tcEvents (\s a -> s { _tcEvents = a }) . _List
@@ -1812,55 +2089,47 @@ tcEvents = lens _tcEvents (\s a -> s { _tcEvents = a }) . _List
 tcId :: Lens' TopicConfiguration (Maybe Text)
 tcId = lens _tcId (\s a -> s { _tcId = a })
 
--- | Amazon SNS topic to which Amazon S3 will publish a message to report the
--- specified events for the bucket.
-tcTopic :: Lens' TopicConfiguration (Maybe Text)
-tcTopic = lens _tcTopic (\s a -> s { _tcTopic = a })
+-- | Amazon SNS topic ARN to which Amazon S3 will publish a message when it
+-- detects events of specified type.
+tcTopicArn :: Lens' TopicConfiguration Text
+tcTopicArn = lens _tcTopicArn (\s a -> s { _tcTopicArn = a })
 
 instance FromXML TopicConfiguration where
     parseXML x = TopicConfiguration
-        <$> x .@? "Event"
-        <*> parseXML x
+        <$> parseXML x
         <*> x .@? "Id"
-        <*> x .@? "Topic"
+        <*> x .@  "Topic"
 
 instance ToXML TopicConfiguration where
     toXML TopicConfiguration{..} = nodes "TopicConfiguration"
         [ "Id"    =@ _tcId
+        , "Topic" =@ _tcTopicArn
         , unsafeToXML     _tcEvents
-        , "Event" =@ _tcEvent
-        , "Topic" =@ _tcTopic
         ]
 
 data QueueConfiguration = QueueConfiguration
-    { _qcEvent  :: Maybe Event
-    , _qcEvents :: List "Event" Event
-    , _qcId     :: Maybe Text
-    , _qcQueue  :: Maybe Text
+    { _qcEvents   :: List "Event" Event
+    , _qcId       :: Maybe Text
+    , _qcQueueArn :: Text
     } deriving (Eq, Read, Show)
 
 -- | 'QueueConfiguration' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'qcEvent' @::@ 'Maybe' 'Event'
---
 -- * 'qcEvents' @::@ ['Event']
 --
 -- * 'qcId' @::@ 'Maybe' 'Text'
 --
--- * 'qcQueue' @::@ 'Maybe' 'Text'
+-- * 'qcQueueArn' @::@ 'Text'
 --
-queueConfiguration :: QueueConfiguration
-queueConfiguration = QueueConfiguration
-    { _qcId     = Nothing
-    , _qcEvent  = Nothing
-    , _qcEvents = mempty
-    , _qcQueue  = Nothing
+queueConfiguration :: Text -- ^ 'qcQueueArn'
+                   -> QueueConfiguration
+queueConfiguration p1 = QueueConfiguration
+    { _qcQueueArn = p1
+    , _qcId       = Nothing
+    , _qcEvents   = mempty
     }
-
-qcEvent :: Lens' QueueConfiguration (Maybe Event)
-qcEvent = lens _qcEvent (\s a -> s { _qcEvent = a })
 
 qcEvents :: Lens' QueueConfiguration [Event]
 qcEvents = lens _qcEvents (\s a -> s { _qcEvents = a }) . _List
@@ -1868,22 +2137,22 @@ qcEvents = lens _qcEvents (\s a -> s { _qcEvents = a }) . _List
 qcId :: Lens' QueueConfiguration (Maybe Text)
 qcId = lens _qcId (\s a -> s { _qcId = a })
 
-qcQueue :: Lens' QueueConfiguration (Maybe Text)
-qcQueue = lens _qcQueue (\s a -> s { _qcQueue = a })
+-- | Amazon SQS queue ARN to which Amazon S3 will publish a message when it
+-- detects events of specified type.
+qcQueueArn :: Lens' QueueConfiguration Text
+qcQueueArn = lens _qcQueueArn (\s a -> s { _qcQueueArn = a })
 
 instance FromXML QueueConfiguration where
     parseXML x = QueueConfiguration
-        <$> x .@? "Event"
-        <*> parseXML x
+        <$> parseXML x
         <*> x .@? "Id"
-        <*> x .@? "Queue"
+        <*> x .@  "Queue"
 
 instance ToXML QueueConfiguration where
     toXML QueueConfiguration{..} = nodes "QueueConfiguration"
         [ "Id"    =@ _qcId
-        , "Event" =@ _qcEvent
+        , "Queue" =@ _qcQueueArn
         , unsafeToXML     _qcEvents
-        , "Queue" =@ _qcQueue
         ]
 
 data Owner = Owner
@@ -1951,6 +2220,57 @@ instance ToXML BucketLoggingStatus where
     toXML BucketLoggingStatus{..} = nodes "BucketLoggingStatus"
         [ "LoggingEnabled" =@ _blsLoggingEnabled
         ]
+
+data NotificationConfigurationDeprecated = NotificationConfigurationDeprecated
+    { _ncdCloudFunctionConfiguration :: Maybe CloudFunctionConfiguration
+    , _ncdQueueConfiguration         :: Maybe QueueConfigurationDeprecated
+    , _ncdTopicConfiguration         :: Maybe TopicConfigurationDeprecated
+    } deriving (Eq, Read, Show)
+
+-- | 'NotificationConfigurationDeprecated' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'ncdCloudFunctionConfiguration' @::@ 'Maybe' 'CloudFunctionConfiguration'
+--
+-- * 'ncdQueueConfiguration' @::@ 'Maybe' 'QueueConfigurationDeprecated'
+--
+-- * 'ncdTopicConfiguration' @::@ 'Maybe' 'TopicConfigurationDeprecated'
+--
+notificationConfigurationDeprecated :: NotificationConfigurationDeprecated
+notificationConfigurationDeprecated = NotificationConfigurationDeprecated
+    { _ncdTopicConfiguration         = Nothing
+    , _ncdQueueConfiguration         = Nothing
+    , _ncdCloudFunctionConfiguration = Nothing
+    }
+
+ncdCloudFunctionConfiguration :: Lens' NotificationConfigurationDeprecated (Maybe CloudFunctionConfiguration)
+ncdCloudFunctionConfiguration =
+    lens _ncdCloudFunctionConfiguration
+        (\s a -> s { _ncdCloudFunctionConfiguration = a })
+
+ncdQueueConfiguration :: Lens' NotificationConfigurationDeprecated (Maybe QueueConfigurationDeprecated)
+ncdQueueConfiguration =
+    lens _ncdQueueConfiguration (\s a -> s { _ncdQueueConfiguration = a })
+
+ncdTopicConfiguration :: Lens' NotificationConfigurationDeprecated (Maybe TopicConfigurationDeprecated)
+ncdTopicConfiguration =
+    lens _ncdTopicConfiguration (\s a -> s { _ncdTopicConfiguration = a })
+
+instance FromXML NotificationConfigurationDeprecated where
+    parseXML x = NotificationConfigurationDeprecated
+        <$> x .@? "CloudFunctionConfiguration"
+        <*> x .@? "QueueConfiguration"
+        <*> x .@? "TopicConfiguration"
+
+instance ToXMLRoot NotificationConfigurationDeprecated where
+    toXMLRoot NotificationConfigurationDeprecated{..} = namespaced ns "NotificationConfigurationDeprecated"
+        [ "TopicConfiguration"         =@ _ncdTopicConfiguration
+        , "QueueConfiguration"         =@ _ncdQueueConfiguration
+        , "CloudFunctionConfiguration" =@ _ncdCloudFunctionConfiguration
+        ]
+
+instance ToXML NotificationConfigurationDeprecated
 
 newtype ErrorDocument = ErrorDocument
     { _edKey :: Text
@@ -2174,23 +2494,23 @@ instance ToXML MFADeleteStatus where
     toXML = toXMLText
 
 data Payer
-    = BucketOwner -- ^ BucketOwner
-    | Requester   -- ^ Requester
+    = PBucketOwner -- ^ BucketOwner
+    | PRequester   -- ^ Requester
       deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable Payer
 
 instance FromText Payer where
     parser = takeLowerText >>= \case
-        "bucketowner" -> pure BucketOwner
-        "requester"   -> pure Requester
+        "bucketowner" -> pure PBucketOwner
+        "requester"   -> pure PRequester
         e             -> fail $
             "Failure parsing Payer from " ++ show e
 
 instance ToText Payer where
     toText = \case
-        BucketOwner -> "BucketOwner"
-        Requester   -> "Requester"
+        PBucketOwner -> "BucketOwner"
+        PRequester   -> "Requester"
 
 instance ToByteString Payer
 instance ToHeader     Payer
@@ -2366,7 +2686,8 @@ createBucketConfiguration = CreateBucketConfiguration
     { _cbcLocationConstraint = Nothing
     }
 
--- | Specifies the region where the bucket will be created.
+-- | Specifies the region where the bucket will be created. If you don't specify a
+-- region, the bucket will be created in US Standard.
 cbcLocationConstraint :: Lens' CreateBucketConfiguration (Maybe Region)
 cbcLocationConstraint =
     lens _cbcLocationConstraint (\s a -> s { _cbcLocationConstraint = a })
@@ -2665,6 +2986,166 @@ instance ToXML MultipartUpload where
         , "Initiator"    =@ _muInitiator
         ]
 
+data LambdaFunctionConfiguration = LambdaFunctionConfiguration
+    { _lfcEvents            :: List "Event" Event
+    , _lfcId                :: Maybe Text
+    , _lfcLambdaFunctionArn :: Text
+    } deriving (Eq, Read, Show)
+
+-- | 'LambdaFunctionConfiguration' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'lfcEvents' @::@ ['Event']
+--
+-- * 'lfcId' @::@ 'Maybe' 'Text'
+--
+-- * 'lfcLambdaFunctionArn' @::@ 'Text'
+--
+lambdaFunctionConfiguration :: Text -- ^ 'lfcLambdaFunctionArn'
+                            -> LambdaFunctionConfiguration
+lambdaFunctionConfiguration p1 = LambdaFunctionConfiguration
+    { _lfcLambdaFunctionArn = p1
+    , _lfcId                = Nothing
+    , _lfcEvents            = mempty
+    }
+
+lfcEvents :: Lens' LambdaFunctionConfiguration [Event]
+lfcEvents = lens _lfcEvents (\s a -> s { _lfcEvents = a }) . _List
+
+lfcId :: Lens' LambdaFunctionConfiguration (Maybe Text)
+lfcId = lens _lfcId (\s a -> s { _lfcId = a })
+
+-- | Lambda cloud function ARN that Amazon S3 can invoke when it detects events of
+-- the specified type.
+lfcLambdaFunctionArn :: Lens' LambdaFunctionConfiguration Text
+lfcLambdaFunctionArn =
+    lens _lfcLambdaFunctionArn (\s a -> s { _lfcLambdaFunctionArn = a })
+
+instance FromXML LambdaFunctionConfiguration where
+    parseXML x = LambdaFunctionConfiguration
+        <$> parseXML x
+        <*> x .@? "Id"
+        <*> x .@  "CloudFunction"
+
+instance ToXML LambdaFunctionConfiguration where
+    toXML LambdaFunctionConfiguration{..} = nodes "LambdaFunctionConfiguration"
+        [ "Id"            =@ _lfcId
+        , "CloudFunction" =@ _lfcLambdaFunctionArn
+        , unsafeToXML        _lfcEvents
+        ]
+
+data QueueConfigurationDeprecated = QueueConfigurationDeprecated
+    { _qcdEvent  :: Maybe Event
+    , _qcdEvents :: List "Event" Event
+    , _qcdId     :: Maybe Text
+    , _qcdQueue  :: Maybe Text
+    } deriving (Eq, Read, Show)
+
+-- | 'QueueConfigurationDeprecated' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'qcdEvent' @::@ 'Maybe' 'Event'
+--
+-- * 'qcdEvents' @::@ ['Event']
+--
+-- * 'qcdId' @::@ 'Maybe' 'Text'
+--
+-- * 'qcdQueue' @::@ 'Maybe' 'Text'
+--
+queueConfigurationDeprecated :: QueueConfigurationDeprecated
+queueConfigurationDeprecated = QueueConfigurationDeprecated
+    { _qcdId     = Nothing
+    , _qcdEvent  = Nothing
+    , _qcdEvents = mempty
+    , _qcdQueue  = Nothing
+    }
+
+qcdEvent :: Lens' QueueConfigurationDeprecated (Maybe Event)
+qcdEvent = lens _qcdEvent (\s a -> s { _qcdEvent = a })
+
+qcdEvents :: Lens' QueueConfigurationDeprecated [Event]
+qcdEvents = lens _qcdEvents (\s a -> s { _qcdEvents = a }) . _List
+
+qcdId :: Lens' QueueConfigurationDeprecated (Maybe Text)
+qcdId = lens _qcdId (\s a -> s { _qcdId = a })
+
+qcdQueue :: Lens' QueueConfigurationDeprecated (Maybe Text)
+qcdQueue = lens _qcdQueue (\s a -> s { _qcdQueue = a })
+
+instance FromXML QueueConfigurationDeprecated where
+    parseXML x = QueueConfigurationDeprecated
+        <$> x .@? "Event"
+        <*> parseXML x
+        <*> x .@? "Id"
+        <*> x .@? "Queue"
+
+instance ToXML QueueConfigurationDeprecated where
+    toXML QueueConfigurationDeprecated{..} = nodes "QueueConfigurationDeprecated"
+        [ "Id"    =@ _qcdId
+        , "Event" =@ _qcdEvent
+        , unsafeToXML     _qcdEvents
+        , "Queue" =@ _qcdQueue
+        ]
+
+data TopicConfigurationDeprecated = TopicConfigurationDeprecated
+    { _tcdEvent  :: Maybe Event
+    , _tcdEvents :: List "Event" Event
+    , _tcdId     :: Maybe Text
+    , _tcdTopic  :: Maybe Text
+    } deriving (Eq, Read, Show)
+
+-- | 'TopicConfigurationDeprecated' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'tcdEvent' @::@ 'Maybe' 'Event'
+--
+-- * 'tcdEvents' @::@ ['Event']
+--
+-- * 'tcdId' @::@ 'Maybe' 'Text'
+--
+-- * 'tcdTopic' @::@ 'Maybe' 'Text'
+--
+topicConfigurationDeprecated :: TopicConfigurationDeprecated
+topicConfigurationDeprecated = TopicConfigurationDeprecated
+    { _tcdId     = Nothing
+    , _tcdEvents = mempty
+    , _tcdEvent  = Nothing
+    , _tcdTopic  = Nothing
+    }
+
+-- | Bucket event for which to send notifications.
+tcdEvent :: Lens' TopicConfigurationDeprecated (Maybe Event)
+tcdEvent = lens _tcdEvent (\s a -> s { _tcdEvent = a })
+
+tcdEvents :: Lens' TopicConfigurationDeprecated [Event]
+tcdEvents = lens _tcdEvents (\s a -> s { _tcdEvents = a }) . _List
+
+tcdId :: Lens' TopicConfigurationDeprecated (Maybe Text)
+tcdId = lens _tcdId (\s a -> s { _tcdId = a })
+
+-- | Amazon SNS topic to which Amazon S3 will publish a message to report the
+-- specified events for the bucket.
+tcdTopic :: Lens' TopicConfigurationDeprecated (Maybe Text)
+tcdTopic = lens _tcdTopic (\s a -> s { _tcdTopic = a })
+
+instance FromXML TopicConfigurationDeprecated where
+    parseXML x = TopicConfigurationDeprecated
+        <$> x .@? "Event"
+        <*> parseXML x
+        <*> x .@? "Id"
+        <*> x .@? "Topic"
+
+instance ToXML TopicConfigurationDeprecated where
+    toXML TopicConfigurationDeprecated{..} = nodes "TopicConfigurationDeprecated"
+        [ "Id"    =@ _tcdId
+        , unsafeToXML     _tcdEvents
+        , "Event" =@ _tcdEvent
+        , "Topic" =@ _tcdTopic
+        ]
+
 data Type
     = AmazonCustomerByEmail -- ^ AmazonCustomerByEmail
     | CanonicalUser         -- ^ CanonicalUser
@@ -2695,6 +3176,41 @@ instance FromXML Type where
     parseXML = parseXMLText "Type"
 
 instance ToXML Type where
+    toXML = toXMLText
+
+data ReplicationStatus
+    = Complete -- ^ COMPLETE
+    | Failed   -- ^ FAILED
+    | Pending  -- ^ PENDING
+    | Replica  -- ^ REPLICA
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
+
+instance Hashable ReplicationStatus
+
+instance FromText ReplicationStatus where
+    parser = takeLowerText >>= \case
+        "complete" -> pure Complete
+        "failed"   -> pure Failed
+        "pending"  -> pure Pending
+        "replica"  -> pure Replica
+        e          -> fail $
+            "Failure parsing ReplicationStatus from " ++ show e
+
+instance ToText ReplicationStatus where
+    toText = \case
+        Complete -> "COMPLETE"
+        Failed   -> "FAILED"
+        Pending  -> "PENDING"
+        Replica  -> "REPLICA"
+
+instance ToByteString ReplicationStatus
+instance ToHeader     ReplicationStatus
+instance ToQuery      ReplicationStatus
+
+instance FromXML ReplicationStatus where
+    parseXML = parseXMLText "ReplicationStatus"
+
+instance ToXML ReplicationStatus where
     toXML = toXMLText
 
 data TransitionStorageClass
@@ -3061,7 +3577,7 @@ instance FromXML Grantee where
         <$> x .@? "DisplayName"
         <*> x .@? "EmailAddress"
         <*> x .@? "ID"
-        <*> x .@  "Type"
+        <*> x .@  "xsi:type"
         <*> x .@? "URI"
 
 instance ToXML Grantee where
@@ -3069,7 +3585,7 @@ instance ToXML Grantee where
         [ "DisplayName"  =@ _gDisplayName
         , "EmailAddress" =@ _gEmailAddress
         , "ID"           =@ _gID
-        , "Type"         =@ _gType
+        , "xsi:type"     =@ _gType
         , "URI"          =@ _gURI
         ]
 
@@ -3152,6 +3668,35 @@ instance ToXML LoggingEnabled where
         , "TargetGrants" =@ _leTargetGrants
         , "TargetPrefix" =@ _leTargetPrefix
         ]
+
+data ReplicationRuleStatus
+    = RRSDisabled -- ^ Disabled
+    | RRSEnabled  -- ^ Enabled
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
+
+instance Hashable ReplicationRuleStatus
+
+instance FromText ReplicationRuleStatus where
+    parser = takeLowerText >>= \case
+        "disabled" -> pure RRSDisabled
+        "enabled"  -> pure RRSEnabled
+        e          -> fail $
+            "Failure parsing ReplicationRuleStatus from " ++ show e
+
+instance ToText ReplicationRuleStatus where
+    toText = \case
+        RRSDisabled -> "Disabled"
+        RRSEnabled  -> "Enabled"
+
+instance ToByteString ReplicationRuleStatus
+instance ToHeader     ReplicationRuleStatus
+instance ToQuery      ReplicationRuleStatus
+
+instance FromXML ReplicationRuleStatus where
+    parseXML = parseXMLText "ReplicationRuleStatus"
+
+instance ToXML ReplicationRuleStatus where
+    toXML = toXMLText
 
 data ServerSideEncryption
     = AES256 -- ^ AES256

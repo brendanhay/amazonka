@@ -22,8 +22,8 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Tests the pipeline definition with a set of validation checks to ensure that
--- it is well formed and can run without error.
+-- | Validates the specified pipeline definition to ensure that it is well formed
+-- and can be run without error.
 --
 -- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ValidatePipelineDefinition.html>
 module Network.AWS.DataPipeline.ValidatePipelineDefinition
@@ -48,6 +48,7 @@ module Network.AWS.DataPipeline.ValidatePipelineDefinition
     , vpdrValidationWarnings
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.DataPipeline.Types
@@ -81,24 +82,23 @@ validatePipelineDefinition p1 = ValidatePipelineDefinition
     , _vpdParameterValues  = mempty
     }
 
--- | A list of parameter objects used with the pipeline.
+-- | The parameter objects used with the pipeline.
 vpdParameterObjects :: Lens' ValidatePipelineDefinition [ParameterObject]
 vpdParameterObjects =
     lens _vpdParameterObjects (\s a -> s { _vpdParameterObjects = a })
         . _List
 
--- | A list of parameter values used with the pipeline.
+-- | The parameter values used with the pipeline.
 vpdParameterValues :: Lens' ValidatePipelineDefinition [ParameterValue]
 vpdParameterValues =
     lens _vpdParameterValues (\s a -> s { _vpdParameterValues = a })
         . _List
 
--- | Identifies the pipeline whose definition is to be validated.
+-- | The ID of the pipeline.
 vpdPipelineId :: Lens' ValidatePipelineDefinition Text
 vpdPipelineId = lens _vpdPipelineId (\s a -> s { _vpdPipelineId = a })
 
--- | A list of objects that define the pipeline changes to validate against the
--- pipeline.
+-- | The objects that define the pipeline changes to validate against the pipeline.
 vpdPipelineObjects :: Lens' ValidatePipelineDefinition [PipelineObject]
 vpdPipelineObjects =
     lens _vpdPipelineObjects (\s a -> s { _vpdPipelineObjects = a })
@@ -128,17 +128,17 @@ validatePipelineDefinitionResponse p1 = ValidatePipelineDefinitionResponse
     , _vpdrValidationWarnings = mempty
     }
 
--- | If 'True', there were validation errors.
+-- | Indicates whether there were validation errors.
 vpdrErrored :: Lens' ValidatePipelineDefinitionResponse Bool
 vpdrErrored = lens _vpdrErrored (\s a -> s { _vpdrErrored = a })
 
--- | Lists the validation errors that were found by 'ValidatePipelineDefinition'.
+-- | Any validation errors that were found.
 vpdrValidationErrors :: Lens' ValidatePipelineDefinitionResponse [ValidationError]
 vpdrValidationErrors =
     lens _vpdrValidationErrors (\s a -> s { _vpdrValidationErrors = a })
         . _List
 
--- | Lists the validation warnings that were found by 'ValidatePipelineDefinition'.
+-- | Any validation warnings that were found.
 vpdrValidationWarnings :: Lens' ValidatePipelineDefinitionResponse [ValidationWarning]
 vpdrValidationWarnings =
     lens _vpdrValidationWarnings (\s a -> s { _vpdrValidationWarnings = a })

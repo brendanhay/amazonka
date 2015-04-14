@@ -46,6 +46,7 @@ JSON := \
  kms \
  lambda \
  logs \
+ machinelearning \
  opsworks \
  route53domains \
  ssm \
@@ -58,7 +59,7 @@ MODELS ?= $(QUERY) $(XML) $(JSON)
 .PHONY: gen
 
 gen: build
-	@dist/build/amazonka-gen/amazonka-gen \
+	dist/build/amazonka-gen/amazonka-gen \
  --out=../ \
  --services=output \
  --overrides=overrides \
@@ -70,12 +71,15 @@ gen: build
 build: input output
 	cabal build $(addprefix -,$(findstring j,$(MAKEFLAGS)))
 
-install: add-sources
+deps: add-sources
 	cabal install $(CABAL_INSTALL_DEFARGS) --only-dependencies
+
+full-clean: clean
+	rm -rf input vendor
 
 clean:
 	cabal clean
-	rm -rf input output cabal.sandbox.config .cabal-sandbox vendor
+	rm -rf output cabal.sandbox.config .cabal-sandbox
 
 add-sources: cabal.sandbox.config $(DEPS)
 	cabal sandbox add-source vendor/jason

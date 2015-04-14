@@ -51,6 +51,7 @@ module Network.AWS.CognitoIdentity.MergeDeveloperIdentities
     , mdirIdentityId
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.CognitoIdentity.Types

@@ -24,7 +24,7 @@
 
 -- | Describes the Spot Price history. The prices returned are listed in
 -- chronological order, from the oldest to the most recent, for up to the past
--- 90 days. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-history.html Spot Instance Pricing History> in the /Amazon Elastic Compute Cloud User Guide/.
+-- 90 days. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-history.html Spot Instance Pricing History> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
 --
 -- When you specify a start and end time, this operation returns the prices of
 -- the instance types within the time range that you specified and the time when
@@ -149,14 +149,15 @@ dsphInstanceTypes =
     lens _dsphInstanceTypes (\s a -> s { _dsphInstanceTypes = a })
         . _List
 
--- | The maximum number of items to return for this call. The call also returns a
--- token that you can specify in a subsequent call to get the next set of
--- results.
+-- | The maximum number of results to return for the request in a single page. The
+-- remaining results of the initial request can be seen by sending another
+-- request with the returned 'NextToken' value. This value can be between 5 and
+-- 1000; if 'MaxResults' is given a value larger than 1000, only 1000 results are
+-- returned.
 dsphMaxResults :: Lens' DescribeSpotPriceHistory (Maybe Int)
 dsphMaxResults = lens _dsphMaxResults (\s a -> s { _dsphMaxResults = a })
 
--- | The token for the next set of items. (You received this token from a prior
--- call.)
+-- | The token to retrieve the next page of results.
 dsphNextToken :: Lens' DescribeSpotPriceHistory (Maybe Text)
 dsphNextToken = lens _dsphNextToken (\s a -> s { _dsphNextToken = a })
 
@@ -190,8 +191,8 @@ describeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse
     , _dsphrNextToken        = Nothing
     }
 
--- | The token to use when requesting the next set of items. If there are no
--- additional items to return, the string is empty.
+-- | The token to use to retrieve the next page of results. This value is 'null'
+-- when there are no more results to return.
 dsphrNextToken :: Lens' DescribeSpotPriceHistoryResponse (Maybe Text)
 dsphrNextToken = lens _dsphrNextToken (\s a -> s { _dsphrNextToken = a })
 

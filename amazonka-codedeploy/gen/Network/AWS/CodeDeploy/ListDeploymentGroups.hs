@@ -22,8 +22,8 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Lists the deployment groups for an application registered within the AWS user
--- account.
+-- | Lists the deployment groups for an application registered with the applicable
+-- IAM user or AWS account.
 --
 -- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListDeploymentGroups.html>
 module Network.AWS.CodeDeploy.ListDeploymentGroups
@@ -46,6 +46,7 @@ module Network.AWS.CodeDeploy.ListDeploymentGroups
     , ldgrNextToken
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.CodeDeploy.Types
@@ -71,8 +72,8 @@ listDeploymentGroups p1 = ListDeploymentGroups
     , _ldgNextToken       = Nothing
     }
 
--- | The name of an existing AWS CodeDeploy application within the AWS user
--- account.
+-- | The name of an existing AWS CodeDeploy application associated with the
+-- applicable IAM user or AWS account.
 ldgApplicationName :: Lens' ListDeploymentGroups Text
 ldgApplicationName =
     lens _ldgApplicationName (\s a -> s { _ldgApplicationName = a })

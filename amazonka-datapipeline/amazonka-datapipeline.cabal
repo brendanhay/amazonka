@@ -1,5 +1,5 @@
 name:                  amazonka-datapipeline
-version:               0.3.3
+version:               0.3.4
 synopsis:              Amazon Data Pipeline SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -39,6 +39,7 @@ library
         , Network.AWS.DataPipeline.ActivatePipeline
         , Network.AWS.DataPipeline.AddTags
         , Network.AWS.DataPipeline.CreatePipeline
+        , Network.AWS.DataPipeline.DeactivatePipeline
         , Network.AWS.DataPipeline.DeletePipeline
         , Network.AWS.DataPipeline.DescribeObjects
         , Network.AWS.DataPipeline.DescribePipelines
@@ -59,5 +60,5 @@ library
     other-modules:
 
     build-depends:
-          amazonka-core == 0.3.3.*
+          amazonka-core == 0.3.4.*
         , base          >= 4.7     && < 5

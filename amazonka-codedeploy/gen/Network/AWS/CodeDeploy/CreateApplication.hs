@@ -42,6 +42,7 @@ module Network.AWS.CodeDeploy.CreateApplication
     , carApplicationId
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.CodeDeploy.Types
@@ -63,8 +64,8 @@ createApplication p1 = CreateApplication
     { _caApplicationName = p1
     }
 
--- | The name of the application. This name must be unique within the AWS user
--- account.
+-- | The name of the application. This name must be unique with the applicable IAM
+-- user or AWS account.
 caApplicationName :: Lens' CreateApplication Text
 caApplicationName =
     lens _caApplicationName (\s a -> s { _caApplicationName = a })

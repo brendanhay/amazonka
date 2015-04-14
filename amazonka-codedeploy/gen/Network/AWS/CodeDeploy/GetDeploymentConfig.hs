@@ -42,6 +42,7 @@ module Network.AWS.CodeDeploy.GetDeploymentConfig
     , gdcrDeploymentConfigInfo
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.CodeDeploy.Types
@@ -63,7 +64,8 @@ getDeploymentConfig p1 = GetDeploymentConfig
     { _gdcDeploymentConfigName = p1
     }
 
--- | The name of an existing deployment configuration within the AWS user account.
+-- | The name of an existing deployment configuration associated with the
+-- applicable IAM user or AWS account.
 gdcDeploymentConfigName :: Lens' GetDeploymentConfig Text
 gdcDeploymentConfigName =
     lens _gdcDeploymentConfigName (\s a -> s { _gdcDeploymentConfigName = a })

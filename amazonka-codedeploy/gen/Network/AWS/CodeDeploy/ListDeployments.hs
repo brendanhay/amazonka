@@ -22,8 +22,8 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Lists the deployments under a deployment group for an application registered
--- within the AWS user account.
+-- | Lists the deployments within a deployment group for an application registered
+-- with the applicable IAM user or AWS account.
 --
 -- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListDeployments.html>
 module Network.AWS.CodeDeploy.ListDeployments
@@ -48,6 +48,7 @@ module Network.AWS.CodeDeploy.ListDeployments
     , ldrNextToken
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.CodeDeploy.Types
@@ -84,8 +85,8 @@ listDeployments = ListDeployments
     , _ldNextToken           = Nothing
     }
 
--- | The name of an existing AWS CodeDeploy application within the AWS user
--- account.
+-- | The name of an existing AWS CodeDeploy application associated with the
+-- applicable IAM user or AWS account.
 ldApplicationName :: Lens' ListDeployments (Maybe Text)
 ldApplicationName =
     lens _ldApplicationName (\s a -> s { _ldApplicationName = a })
@@ -101,11 +102,13 @@ ldDeploymentGroupName :: Lens' ListDeployments (Maybe Text)
 ldDeploymentGroupName =
     lens _ldDeploymentGroupName (\s a -> s { _ldDeploymentGroupName = a })
 
--- | A subset of deployments to list, by status:  Created: Include in the
--- resulting list created deployments. Queued: Include in the resulting list
--- queued deployments. In Progress: Include in the resulting list in-progress
--- deployments. Succeeded: Include in the resulting list succeeded deployments. Failed: Include in the resulting list failed deployments.
--- Aborted: Include in the resulting list aborted deployments.
+-- | A subset of deployments to list, by status:
+--
+-- Created: Include in the resulting list created deployments. Queued: Include
+-- in the resulting list queued deployments. In Progress: Include in the
+-- resulting list in-progress deployments. Succeeded: Include in the resulting
+-- list succeeded deployments. Failed: Include in the resulting list failed
+-- deployments. Aborted: Include in the resulting list aborted deployments.
 ldIncludeOnlyStatuses :: Lens' ListDeployments [DeploymentStatus]
 ldIncludeOnlyStatuses =
     lens _ldIncludeOnlyStatuses (\s a -> s { _ldIncludeOnlyStatuses = a })

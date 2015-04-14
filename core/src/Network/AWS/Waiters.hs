@@ -29,6 +29,9 @@ module Network.AWS.Waiters
     , matchError
     , matchStatus
 
+    -- * Util
+    , nonEmpty
+
     -- * Lenses
     , module Control.Lens
     ) where
@@ -36,6 +39,8 @@ module Network.AWS.Waiters
 import           Control.Lens
 import           Data.ByteString    (ByteString)
 import           Data.Maybe
+import           Data.Text          (Text)
+import qualified Data.Text          as Text
 import           Network.AWS.Data
 import           Network.AWS.Error
 import           Network.AWS.Types
@@ -91,3 +96,6 @@ match f a _ = \case
     Right (_, rs)
         | f rs -> Just a
     _          -> Nothing
+
+nonEmpty :: Fold a Text -> Fold a Bool
+nonEmpty l = l . to Text.null

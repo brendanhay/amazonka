@@ -439,8 +439,8 @@ instance FromText Region where
         "ap-southeast-2"     -> pure Sydney
         "cn-north-1"         -> pure Beijing
         "us-east-1"          -> pure NorthVirginia
-        "us-west-2"          -> pure NorthCalifornia
-        "us-west-1"          -> pure Oregon
+        "us-west-2"          -> pure Oregon
+        "us-west-1"          -> pure NorthCalifornia
         "us-gov-west-1"      -> pure GovCloud
         "fips-us-gov-west-1" -> pure GovCloudFIPS
         "sa-east-1"          -> pure SaoPaulo

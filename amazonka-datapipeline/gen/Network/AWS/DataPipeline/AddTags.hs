@@ -22,7 +22,7 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Add or modify tags in an existing pipeline.
+-- | Adds or modifies tags for the specified pipeline.
 --
 -- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_AddTags.html>
 module Network.AWS.DataPipeline.AddTags
@@ -41,6 +41,7 @@ module Network.AWS.DataPipeline.AddTags
     , addTagsResponse
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.DataPipeline.Types
@@ -66,11 +67,11 @@ addTags p1 = AddTags
     , _atTags       = mempty
     }
 
--- | The identifier of the pipeline to which you want to add the tags.
+-- | The ID of the pipeline.
 atPipelineId :: Lens' AddTags Text
 atPipelineId = lens _atPipelineId (\s a -> s { _atPipelineId = a })
 
--- | The tags as key/value pairs to add to the pipeline.
+-- | The tags to add, as key/value pairs.
 atTags :: Lens' AddTags [Tag]
 atTags = lens _atTags (\s a -> s { _atTags = a }) . _List
 

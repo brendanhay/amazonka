@@ -42,6 +42,7 @@ module Network.AWS.KMS.PutKeyPolicy
     , putKeyPolicyResponse
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.KMS.Types

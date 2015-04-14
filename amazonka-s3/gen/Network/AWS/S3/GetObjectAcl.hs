@@ -34,6 +34,7 @@ module Network.AWS.S3.GetObjectAcl
     -- ** Request lenses
     , goaBucket
     , goaKey
+    , goaRequestPayer
     , goaVersionId
 
     -- * Response
@@ -43,6 +44,7 @@ module Network.AWS.S3.GetObjectAcl
     -- ** Response lenses
     , goarGrants
     , goarOwner
+    , goarRequestCharged
     ) where
 
 import Network.AWS.Prelude
@@ -51,10 +53,11 @@ import Network.AWS.S3.Types
 import qualified GHC.Exts
 
 data GetObjectAcl = GetObjectAcl
-    { _goaBucket    :: Text
-    , _goaKey       :: Text
-    , _goaVersionId :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+    { _goaBucket       :: Text
+    , _goaKey          :: Text
+    , _goaRequestPayer :: Maybe RequestPayer
+    , _goaVersionId    :: Maybe Text
+    } deriving (Eq, Read, Show)
 
 -- | 'GetObjectAcl' constructor.
 --
@@ -64,15 +67,18 @@ data GetObjectAcl = GetObjectAcl
 --
 -- * 'goaKey' @::@ 'Text'
 --
+-- * 'goaRequestPayer' @::@ 'Maybe' 'RequestPayer'
+--
 -- * 'goaVersionId' @::@ 'Maybe' 'Text'
 --
 getObjectAcl :: Text -- ^ 'goaBucket'
              -> Text -- ^ 'goaKey'
              -> GetObjectAcl
 getObjectAcl p1 p2 = GetObjectAcl
-    { _goaBucket    = p1
-    , _goaKey       = p2
-    , _goaVersionId = Nothing
+    { _goaBucket       = p1
+    , _goaKey          = p2
+    , _goaVersionId    = Nothing
+    , _goaRequestPayer = Nothing
     }
 
 goaBucket :: Lens' GetObjectAcl Text
@@ -81,13 +87,17 @@ goaBucket = lens _goaBucket (\s a -> s { _goaBucket = a })
 goaKey :: Lens' GetObjectAcl Text
 goaKey = lens _goaKey (\s a -> s { _goaKey = a })
 
+goaRequestPayer :: Lens' GetObjectAcl (Maybe RequestPayer)
+goaRequestPayer = lens _goaRequestPayer (\s a -> s { _goaRequestPayer = a })
+
 -- | VersionId used to reference a specific version of the object.
 goaVersionId :: Lens' GetObjectAcl (Maybe Text)
 goaVersionId = lens _goaVersionId (\s a -> s { _goaVersionId = a })
 
 data GetObjectAclResponse = GetObjectAclResponse
-    { _goarGrants :: List "Grant" Grant
-    , _goarOwner  :: Maybe Owner
+    { _goarGrants         :: List "Grant" Grant
+    , _goarOwner          :: Maybe Owner
+    , _goarRequestCharged :: Maybe RequestCharged
     } deriving (Eq, Read, Show)
 
 -- | 'GetObjectAclResponse' constructor.
@@ -98,10 +108,13 @@ data GetObjectAclResponse = GetObjectAclResponse
 --
 -- * 'goarOwner' @::@ 'Maybe' 'Owner'
 --
+-- * 'goarRequestCharged' @::@ 'Maybe' 'RequestCharged'
+--
 getObjectAclResponse :: GetObjectAclResponse
 getObjectAclResponse = GetObjectAclResponse
-    { _goarOwner  = Nothing
-    , _goarGrants = mempty
+    { _goarOwner          = Nothing
+    , _goarGrants         = mempty
+    , _goarRequestCharged = Nothing
     }
 
 -- | A list of grants.
@@ -110,6 +123,10 @@ goarGrants = lens _goarGrants (\s a -> s { _goarGrants = a }) . _List
 
 goarOwner :: Lens' GetObjectAclResponse (Maybe Owner)
 goarOwner = lens _goarOwner (\s a -> s { _goarOwner = a })
+
+goarRequestCharged :: Lens' GetObjectAclResponse (Maybe RequestCharged)
+goarRequestCharged =
+    lens _goarRequestCharged (\s a -> s { _goarRequestCharged = a })
 
 instance ToPath GetObjectAcl where
     toPath GetObjectAcl{..} = mconcat
@@ -125,7 +142,10 @@ instance ToQuery GetObjectAcl where
         , "versionId" =? _goaVersionId
         ]
 
-instance ToHeaders GetObjectAcl
+instance ToHeaders GetObjectAcl where
+    toHeaders GetObjectAcl{..} = mconcat
+        [ "x-amz-request-payer" =: _goaRequestPayer
+        ]
 
 instance ToXMLRoot GetObjectAcl where
     toXMLRoot = const (namespaced ns "GetObjectAcl" [])
@@ -137,9 +157,7 @@ instance AWSRequest GetObjectAcl where
     type Rs GetObjectAcl = GetObjectAclResponse
 
     request  = get
-    response = xmlResponse
-
-instance FromXML GetObjectAclResponse where
-    parseXML x = GetObjectAclResponse
+    response = xmlHeaderResponse $ \h x -> GetObjectAclResponse
         <$> x .@? "AccessControlList" .!@ mempty
         <*> x .@? "Owner"
+        <*> h ~:? "x-amz-request-charged"

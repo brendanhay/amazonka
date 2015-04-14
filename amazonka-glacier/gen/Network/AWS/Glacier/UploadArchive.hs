@@ -78,6 +78,7 @@ module Network.AWS.Glacier.UploadArchive
     , uarLocation
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.RestJSON
 import Network.AWS.Glacier.Types

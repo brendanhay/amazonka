@@ -37,6 +37,7 @@ module Network.AWS.S3.DeleteObject
     , doBucket
     , doKey
     , doMFA
+    , doRequestPayer
     , doVersionId
 
     -- * Response
@@ -45,6 +46,7 @@ module Network.AWS.S3.DeleteObject
     , deleteObjectResponse
     -- ** Response lenses
     , dorDeleteMarker
+    , dorRequestCharged
     , dorVersionId
     ) where
 
@@ -54,11 +56,12 @@ import Network.AWS.S3.Types
 import qualified GHC.Exts
 
 data DeleteObject = DeleteObject
-    { _doBucket    :: Text
-    , _doKey       :: Text
-    , _doMFA       :: Maybe Text
-    , _doVersionId :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+    { _doBucket       :: Text
+    , _doKey          :: Text
+    , _doMFA          :: Maybe Text
+    , _doRequestPayer :: Maybe RequestPayer
+    , _doVersionId    :: Maybe Text
+    } deriving (Eq, Read, Show)
 
 -- | 'DeleteObject' constructor.
 --
@@ -70,16 +73,19 @@ data DeleteObject = DeleteObject
 --
 -- * 'doMFA' @::@ 'Maybe' 'Text'
 --
+-- * 'doRequestPayer' @::@ 'Maybe' 'RequestPayer'
+--
 -- * 'doVersionId' @::@ 'Maybe' 'Text'
 --
 deleteObject :: Text -- ^ 'doBucket'
              -> Text -- ^ 'doKey'
              -> DeleteObject
 deleteObject p1 p2 = DeleteObject
-    { _doBucket    = p1
-    , _doKey       = p2
-    , _doMFA       = Nothing
-    , _doVersionId = Nothing
+    { _doBucket       = p1
+    , _doKey          = p2
+    , _doMFA          = Nothing
+    , _doVersionId    = Nothing
+    , _doRequestPayer = Nothing
     }
 
 doBucket :: Lens' DeleteObject Text
@@ -93,14 +99,18 @@ doKey = lens _doKey (\s a -> s { _doKey = a })
 doMFA :: Lens' DeleteObject (Maybe Text)
 doMFA = lens _doMFA (\s a -> s { _doMFA = a })
 
+doRequestPayer :: Lens' DeleteObject (Maybe RequestPayer)
+doRequestPayer = lens _doRequestPayer (\s a -> s { _doRequestPayer = a })
+
 -- | VersionId used to reference a specific version of the object.
 doVersionId :: Lens' DeleteObject (Maybe Text)
 doVersionId = lens _doVersionId (\s a -> s { _doVersionId = a })
 
 data DeleteObjectResponse = DeleteObjectResponse
-    { _dorDeleteMarker :: Maybe Bool
-    , _dorVersionId    :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+    { _dorDeleteMarker   :: Maybe Bool
+    , _dorRequestCharged :: Maybe RequestCharged
+    , _dorVersionId      :: Maybe Text
+    } deriving (Eq, Read, Show)
 
 -- | 'DeleteObjectResponse' constructor.
 --
@@ -108,18 +118,25 @@ data DeleteObjectResponse = DeleteObjectResponse
 --
 -- * 'dorDeleteMarker' @::@ 'Maybe' 'Bool'
 --
+-- * 'dorRequestCharged' @::@ 'Maybe' 'RequestCharged'
+--
 -- * 'dorVersionId' @::@ 'Maybe' 'Text'
 --
 deleteObjectResponse :: DeleteObjectResponse
 deleteObjectResponse = DeleteObjectResponse
-    { _dorDeleteMarker = Nothing
-    , _dorVersionId    = Nothing
+    { _dorDeleteMarker   = Nothing
+    , _dorVersionId      = Nothing
+    , _dorRequestCharged = Nothing
     }
 
 -- | Specifies whether the versioned object that was permanently deleted was
 -- (true) or was not (false) a delete marker.
 dorDeleteMarker :: Lens' DeleteObjectResponse (Maybe Bool)
 dorDeleteMarker = lens _dorDeleteMarker (\s a -> s { _dorDeleteMarker = a })
+
+dorRequestCharged :: Lens' DeleteObjectResponse (Maybe RequestCharged)
+dorRequestCharged =
+    lens _dorRequestCharged (\s a -> s { _dorRequestCharged = a })
 
 -- | Returns the version ID of the delete marker created as a result of the DELETE
 -- operation.
@@ -139,7 +156,8 @@ instance ToQuery DeleteObject where
 
 instance ToHeaders DeleteObject where
     toHeaders DeleteObject{..} = mconcat
-        [ "x-amz-mfa" =: _doMFA
+        [ "x-amz-mfa"           =: _doMFA
+        , "x-amz-request-payer" =: _doRequestPayer
         ]
 
 instance ToXMLRoot DeleteObject where
@@ -154,4 +172,5 @@ instance AWSRequest DeleteObject where
     request  = delete
     response = headerResponse $ \h -> DeleteObjectResponse
         <$> h ~:? "x-amz-delete-marker"
+        <*> h ~:? "x-amz-request-charged"
         <*> h ~:? "x-amz-version-id"

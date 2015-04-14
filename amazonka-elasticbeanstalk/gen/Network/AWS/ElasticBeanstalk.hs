@@ -21,7 +21,8 @@
 -- is no additional charge for Elastic Beanstalk - you pay only for the AWS
 -- resources needed to store and run your applications.
 module Network.AWS.ElasticBeanstalk
-    ( module Network.AWS.ElasticBeanstalk.CheckDNSAvailability
+    ( module Network.AWS.ElasticBeanstalk.AbortEnvironmentUpdate
+    , module Network.AWS.ElasticBeanstalk.CheckDNSAvailability
     , module Network.AWS.ElasticBeanstalk.CreateApplication
     , module Network.AWS.ElasticBeanstalk.CreateApplicationVersion
     , module Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
@@ -53,6 +54,7 @@ module Network.AWS.ElasticBeanstalk
     , module Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
     ) where
 
+import Network.AWS.ElasticBeanstalk.AbortEnvironmentUpdate
 import Network.AWS.ElasticBeanstalk.CheckDNSAvailability
 import Network.AWS.ElasticBeanstalk.CreateApplication
 import Network.AWS.ElasticBeanstalk.CreateApplicationVersion

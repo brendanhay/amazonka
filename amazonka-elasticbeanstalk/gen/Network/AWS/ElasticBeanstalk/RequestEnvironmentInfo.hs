@@ -26,7 +26,13 @@
 -- deployed environment.
 --
 -- Setting the 'InfoType' to 'tail' compiles the last lines from the application
--- server log files of every Amazon EC2 instance in your environment. Use 'RetrieveEnvironmentInfo' to access the compiled information.
+-- server log files of every Amazon EC2 instance in your environment.
+--
+-- Setting the 'InfoType' to 'bundle' compresses the application server log files
+-- for every Amazon EC2 instance into a '.zip' file. Legacy and .NET containers do
+-- not support bundle logs.
+--
+-- Use 'RetrieveEnvironmentInfo' to obtain the set of logs.
 --
 -- Related Topics
 --

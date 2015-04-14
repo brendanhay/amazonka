@@ -24,7 +24,7 @@
 
 -- | Describes one or more of the Reserved Instances that you purchased.
 --
--- For more information about Reserved Instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html Reserved Instances> in the /Amazon Elastic Compute Cloud User Guide/.
+-- For more information about Reserved Instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html Reserved Instances> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeReservedInstances.html>
 module Network.AWS.EC2.DescribeReservedInstances

@@ -43,6 +43,7 @@ module Network.AWS.CodeDeploy.DeleteDeploymentGroup
     , ddgrHooksNotCleanedUp
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.CodeDeploy.Types
@@ -69,8 +70,8 @@ deleteDeploymentGroup p1 p2 = DeleteDeploymentGroup
     , _ddgDeploymentGroupName = p2
     }
 
--- | The name of an existing AWS CodeDeploy application within the AWS user
--- account.
+-- | The name of an existing AWS CodeDeploy application associated with the
+-- applicable IAM user or AWS account.
 ddgApplicationName :: Lens' DeleteDeploymentGroup Text
 ddgApplicationName =
     lens _ddgApplicationName (\s a -> s { _ddgApplicationName = a })
@@ -103,10 +104,10 @@ deleteDeploymentGroupResponse = DeleteDeploymentGroupResponse
 
 -- | If the output contains no data, and the corresponding deployment group
 -- contained at least one Auto Scaling group, AWS CodeDeploy successfully
--- removed all corresponding Auto Scaling lifecycle event hooks from the
--- instances in the Auto Scaling. If the output does contain data, AWS
+-- removed all corresponding Auto Scaling lifecycle event hooks from the Amazon
+-- EC2 instances in the Auto Scaling. If the output does contain data, AWS
 -- CodeDeploy could not remove some Auto Scaling lifecycle event hooks from the
--- instances in the Auto Scaling group.
+-- Amazon EC2 instances in the Auto Scaling group.
 ddgrHooksNotCleanedUp :: Lens' DeleteDeploymentGroupResponse [AutoScalingGroup]
 ddgrHooksNotCleanedUp =
     lens _ddgrHooksNotCleanedUp (\s a -> s { _ddgrHooksNotCleanedUp = a })

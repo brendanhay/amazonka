@@ -16,6 +16,7 @@
 module Network.AWS.RDS.Waiters where
 
 import Network.AWS.RDS.DescribeDBInstances
+import Network.AWS.RDS.DescribeDBSnapshots
 import Network.AWS.RDS.Types
 import Network.AWS.Waiters
 
@@ -61,5 +62,17 @@ dbInstanceDeleted = Wait
             (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just)
         , matchAny "resetting-master-credentials" AcceptFailure
             (folding (concatOf ddbirDBInstances) . dbiDBInstanceStatus . _Just)
+        ]
+    }
+
+dbSnapshotCompleted :: Wait DescribeDBSnapshots
+dbSnapshotCompleted = Wait
+    { _waitName      = "DBSnapshotCompleted"
+    , _waitAttempts  = 40
+    , _waitDelay     = 15
+    , _waitAcceptors =
+        [ matchError "DBSnapshotNotFound" AcceptSuccess
+        , matchAll "available" AcceptSuccess
+            (folding (concatOf ddbsrDBSnapshots) . dbsStatus . _Just)
         ]
     }

@@ -315,7 +315,7 @@ cdbiDBInstanceIdentifier =
 -- Constraints:
 --
 -- Must contain 1 to 64 alphanumeric characters Cannot be a word reserved by
--- the specified database engine  PostgreSQL
+-- the specified database engine   PostgreSQL
 --
 -- The name of the database to create when the DB instance is created. If this
 -- parameter is not specified, no database is created in the DB instance.
@@ -324,7 +324,7 @@ cdbiDBInstanceIdentifier =
 --
 -- Must contain 1 to 63 alphanumeric characters Must begin with a letter or an
 -- underscore. Subsequent characters can be letters, underscores, or digits
--- (0-9). Cannot be a word reserved by the specified database engine  Oracle
+-- (0-9). Cannot be a word reserved by the specified database engine   Oracle
 --
 -- The Oracle System ID (SID) of the created DB instance.
 --
@@ -332,7 +332,7 @@ cdbiDBInstanceIdentifier =
 --
 -- Constraints:
 --
--- Cannot be longer than 8 characters  SQL Server
+-- Cannot be longer than 8 characters   SQL Server
 --
 -- Not applicable. Must be null.
 cdbiDBName :: Lens' CreateDBInstance (Maybe Text)
@@ -382,30 +382,94 @@ cdbiEngine = lens _cdbiEngine (\s a -> s { _cdbiEngine = a })
 --
 -- MySQL
 --
--- Version 5.1: ' 5.1.45 | 5.1.49 | 5.1.50 | 5.1.57 | 5.1.61 | 5.1.62 | 5.1.63| 5.1.69 | 5.1.71 | 5.1.73'   Version 5.5: ' 5.5.12 | 5.5.20 | 5.5.23 | 5.5.25a| 5.5.27 | 5.5.31 | 5.5.33 | 5.5.37 | 5.5.38 | 5.5.8'   Version 5.6: ' 5.6.12 |5.6.13 | 5.6.17 | 5.6.19 | 5.6.21'   Oracle Database Enterprise Edition
--- (oracle-ee)
+-- Version 5.1 (Only available in the following regions: ap-northeast-1,
+-- ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2): '5.1.73a | 5.1.73b'   Version 5.5 (Only available in the following regions:
+-- ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1,
+-- us-west-1, us-west-2): ' 5.5.40 | 5.5.40a'   Version 5.5 (Available in all
+-- regions): ' 5.5.40b | 5.5.41'   Version 5.6 (Available in all regions): '5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22'    MySQL
 --
--- Version 11.2: ' 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 |11.2.0.2.v7 | 11.2.0.3.v1 | 11.2.0.4.v1'   Oracle Database Standard Edition
--- (oracle-se)
+-- Version 5.1 (Only available in the following regions: ap-northeast-1,
+-- ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2): '5.1.73a | 5.1.73b'   Version 5.5 (Only available in the following regions:
+-- ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1,
+-- us-west-1, us-west-2): ' 5.5.40 | 5.5.40a'   Version 5.5 (Available in all
+-- regions): ' 5.5.40b | 5.5.41'   Version 5.6 (Available in all regions): '5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22'    MySQL
 --
--- Version 11.2: ' 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 |11.2.0.2.v7 | 11.2.0.3.v1 | 11.2.0.4.v1'   Oracle Database Standard Edition
--- One (oracle-se1)
+-- Version 5.1 (Only available in the following regions: ap-northeast-1,
+-- ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2): '5.1.73a | 5.1.73b'   Version 5.5 (Only available in the following regions:
+-- ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1,
+-- us-west-1, us-west-2): ' 5.5.40 | 5.5.40a'   Version 5.5 (Available in all
+-- regions): ' 5.5.40b | 5.5.41'   Version 5.6 (Available in all regions): '5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22'    MySQL
 --
--- Version 11.2: ' 11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 |11.2.0.2.v7 | 11.2.0.3.v1 | 11.2.0.4.v1'   PostgreSQL
+-- Version 5.1 (Only available in the following regions: ap-northeast-1,
+-- ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2): '5.1.73a | 5.1.73b'   Version 5.5 (Only available in the following regions:
+-- ap-northeast-1, ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1,
+-- us-west-1, us-west-2): ' 5.5.40 | 5.5.40a'   Version 5.5 (Available in all
+-- regions): ' 5.5.40b | 5.5.41'   Version 5.6 (Available in all regions): '5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22'    Oracle Database Enterprise
+-- Edition (oracle-ee)
 --
--- Version 9.3: ' 9.3.1 | 9.3.2 | 9.3.3'   Microsoft SQL Server Enterprise
--- Edition (sqlserver-ee)
+-- Version 11.2 (Only available in the following regions: ap-northeast-1,
+-- ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2): '11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7'   Version
+-- 11.2 (Available in all regions): ' 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 |11.2.0.4.v3'    Oracle Database Enterprise Edition (oracle-ee)
 --
--- Version 10.5: ' 10.50.2789.0.v1'   Version 11.0: ' 11.00.2100.60.v1'   Microsoft SQL Server Express Edition (sqlserver-ex)
+-- Version 11.2 (Only available in the following regions: ap-northeast-1,
+-- ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2): '11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7'   Version
+-- 11.2 (Available in all regions): ' 11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 |11.2.0.4.v3'    Oracle Database Standard Edition (oracle-se)
+--
+-- Version 11.2 (Only available in the following regions: us-west-1): '11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7'   Version
+-- 11.2 (Only available in the following regions: eu-central-1, us-west-1): '11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3'    Oracle Database
+-- Standard Edition (oracle-se)
+--
+-- Version 11.2 (Only available in the following regions: us-west-1): '11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7'   Version
+-- 11.2 (Only available in the following regions: eu-central-1, us-west-1): '11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3'    Oracle Database
+-- Standard Edition One (oracle-se1)
+--
+-- Version 11.2 (Only available in the following regions: us-west-1): '11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7'   Version
+-- 11.2 (Only available in the following regions: eu-central-1, us-west-1): '11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3'    Oracle Database
+-- Standard Edition One (oracle-se1)
+--
+-- Version 11.2 (Only available in the following regions: us-west-1): '11.2.0.2.v3 | 11.2.0.2.v4 | 11.2.0.2.v5 | 11.2.0.2.v6 | 11.2.0.2.v7'   Version
+-- 11.2 (Only available in the following regions: eu-central-1, us-west-1): '11.2.0.3.v1 | 11.2.0.3.v2 | 11.2.0.4.v1 | 11.2.0.4.v3'    PostgreSQL
+--
+-- Version 9.3 (Only available in the following regions: ap-northeast-1,
+-- ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2): '9.3.1 | 9.3.2'   Version 9.3 (Available in all regions): ' 9.3.3 | 9.3.5'    PostgreSQL
 --
 --
--- Version 10.5: ' 10.50.2789.0.v1'   Version 11.0: ' 11.00.2100.60.v1'   Microsoft SQL Server Standard Edition (sqlserver-se)
+-- Version 9.3 (Only available in the following regions: ap-northeast-1,
+-- ap-southeast-1, ap-southeast-2, eu-west-1, sa-east-1, us-west-1, us-west-2): '9.3.1 | 9.3.2'   Version 9.3 (Available in all regions): ' 9.3.3 | 9.3.5'    Microsoft SQL Server Enterprise Edition (sqlserver-ee)
 --
 --
--- Version 10.5: ' 10.50.2789.0.v1'   Version 11.0: ' 11.00.2100.60.v1'   Microsoft SQL Server Web Edition (sqlserver-web)
+-- Version 10.50 (Only available in the following regions: eu-central-1,
+-- us-west-1): ' 10.50.2789.0.v1'   Version 11.00 (Only available in the following
+-- regions: eu-central-1, us-west-1): ' 11.00.2100.60.v1'    Microsoft SQL Server
+-- Enterprise Edition (sqlserver-ee)
 --
+-- Version 10.50 (Only available in the following regions: eu-central-1,
+-- us-west-1): ' 10.50.2789.0.v1'   Version 11.00 (Only available in the following
+-- regions: eu-central-1, us-west-1): ' 11.00.2100.60.v1'    Microsoft SQL Server
+-- Express Edition (sqlserver-ex)
 --
--- Version 10.5: ' 10.50.2789.0.v1'   Version 11.0: ' 11.00.2100.60.v1'
+-- Version 10.50 (Available in all regions): ' 10.50.2789.0.v1'   Version 11.00
+-- (Available in all regions): ' 11.00.2100.60.v1'    Microsoft SQL Server Express
+-- Edition (sqlserver-ex)
+--
+-- Version 10.50 (Available in all regions): ' 10.50.2789.0.v1'   Version 11.00
+-- (Available in all regions): ' 11.00.2100.60.v1'    Microsoft SQL Server
+-- Standard Edition (sqlserver-se)
+--
+-- Version 10.50 (Available in all regions): ' 10.50.2789.0.v1'   Version 11.00
+-- (Available in all regions): ' 11.00.2100.60.v1'    Microsoft SQL Server
+-- Standard Edition (sqlserver-se)
+--
+-- Version 10.50 (Available in all regions): ' 10.50.2789.0.v1'   Version 11.00
+-- (Available in all regions): ' 11.00.2100.60.v1'    Microsoft SQL Server Web
+-- Edition (sqlserver-web)
+--
+-- Version 10.50 (Available in all regions): ' 10.50.2789.0.v1'   Version 11.00
+-- (Available in all regions): ' 11.00.2100.60.v1'    Microsoft SQL Server Web
+-- Edition (sqlserver-web)
+--
+-- Version 10.50 (Available in all regions): ' 10.50.2789.0.v1'   Version 11.00
+-- (Available in all regions): ' 11.00.2100.60.v1'
 cdbiEngineVersion :: Lens' CreateDBInstance (Maybe Text)
 cdbiEngineVersion =
     lens _cdbiEngineVersion (\s a -> s { _cdbiEngineVersion = a })
@@ -453,6 +517,10 @@ cdbiLicenseModel = lens _cdbiLicenseModel (\s a -> s { _cdbiLicenseModel = a })
 -- SQL Server
 --
 -- Constraints: Must contain from 8 to 128 characters.
+--
+-- PostgreSQL
+--
+-- Constraints: Must contain from 8 to 128 characters.
 cdbiMasterUserPassword :: Lens' CreateDBInstance Text
 cdbiMasterUserPassword =
     lens _cdbiMasterUserPassword (\s a -> s { _cdbiMasterUserPassword = a })
@@ -476,7 +544,12 @@ cdbiMasterUserPassword =
 -- Constraints:
 --
 -- Must be 1 to 128 alphanumeric characters. First character must be a letter.
--- Cannot be a reserved word for the chosen database engine.
+-- Cannot be a reserved word for the chosen database engine.   PostgreSQL
+--
+-- Constraints:
+--
+-- Must be 1 to 63 alphanumeric characters. First character must be a letter. Cannot be a reserved word for the chosen database engine.
+--
 cdbiMasterUsername :: Lens' CreateDBInstance Text
 cdbiMasterUsername =
     lens _cdbiMasterUsername (\s a -> s { _cdbiMasterUsername = a })

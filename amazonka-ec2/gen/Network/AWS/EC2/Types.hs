@@ -1729,8 +1729,9 @@ iilsInstanceInitiatedShutdownBehavior =
 -- | The instance type. This is not supported for VMs imported into a VPC, which
 -- are assigned the default security group. After a VM is imported into a VPC,
 -- you can specify another security group using the AWS Management Console. For
--- more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud UserGuide/. For more information about the Linux instance types you can import,
--- see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/VMImportPrerequisites.html Before You Get Started> in the Amazon Elastic Compute Cloud User Guide.
+-- more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud UserGuide for Linux/. For more information about the Linux instance types you can
+-- import, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/VMImportPrerequisites.html Before You Get Started> in the Amazon Elastic Compute Cloud User
+-- Guide for Linux.
 iilsInstanceType :: Lens' ImportInstanceLaunchSpecification (Maybe InstanceType)
 iilsInstanceType = lens _iilsInstanceType (\s a -> s { _iilsInstanceType = a })
 
@@ -2143,7 +2144,8 @@ reservedInstancesListing = ReservedInstancesListing
     , _rilClientToken                = Nothing
     }
 
--- | The idempotency token you provided when you created the listing.
+-- | A unique, case-sensitive key supplied by the client to ensure that the
+-- request is idempotent. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
 rilClientToken :: Lens' ReservedInstancesListing (Maybe Text)
 rilClientToken = lens _rilClientToken (\s a -> s { _rilClientToken = a })
 
@@ -2905,7 +2907,7 @@ iPublic = lens _iPublic (\s a -> s { _iPublic = a })
 iRamdiskId :: Lens' Image (Maybe Text)
 iRamdiskId = lens _iRamdiskId (\s a -> s { _iRamdiskId = a })
 
--- | The device name of the root device (for example, /dev/sda1 or xvda).
+-- | The device name of the root device (for example, '/dev/sda1' or '/dev/xvda').
 iRootDeviceName :: Lens' Image (Maybe Text)
 iRootDeviceName = lens _iRootDeviceName (\s a -> s { _iRootDeviceName = a })
 
@@ -3625,7 +3627,7 @@ etstDiskImageFormat =
     lens _etstDiskImageFormat (\s a -> s { _etstDiskImageFormat = a })
 
 -- | The Amazon S3 bucket for the destination image. The destination bucket must
--- exist and grant WRITE and READ_ACL permissions to the AWS account 'vm-import-export@amazon.com'.
+-- exist and grant WRITE and READ_ACP permissions to the AWS account 'vm-import-export@amazon.com'.
 etstS3Bucket :: Lens' ExportToS3Task (Maybe Text)
 etstS3Bucket = lens _etstS3Bucket (\s a -> s { _etstS3Bucket = a })
 
@@ -3675,7 +3677,7 @@ blockDeviceMapping p1 = BlockDeviceMapping
     , _bdmNoDevice    = Nothing
     }
 
--- | The device name exposed to the instance (for example, '/dev/sdh').
+-- | The device name exposed to the instance (for example, '/dev/sdh' or 'xvdh').
 bdmDeviceName :: Lens' BlockDeviceMapping Text
 bdmDeviceName = lens _bdmDeviceName (\s a -> s { _bdmDeviceName = a })
 
@@ -4316,7 +4318,7 @@ siSpotPrice :: Lens' SpotInstanceRequest (Maybe Text)
 siSpotPrice = lens _siSpotPrice (\s a -> s { _siSpotPrice = a })
 
 -- | The state of the Spot Instance request. Spot bid status information can help
--- you track your Spot Instance requests. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html Spot BidStatus> in the /Amazon Elastic Compute Cloud User Guide/.
+-- you track your Spot Instance requests. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html Spot BidStatus> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
 siState :: Lens' SpotInstanceRequest (Maybe SpotInstanceState)
 siState = lens _siState (\s a -> s { _siState = a })
 
@@ -4723,10 +4725,10 @@ vEncrypted = lens _vEncrypted (\s a -> s { _vEncrypted = a })
 -- provisioned for the volume. For General Purpose (SSD) volumes, this
 -- represents the baseline performance of the volume and the rate at which the
 -- volume accumulates I/O credits for bursting. For more information on General
--- Purpose (SSD) baseline performance, I/O credits, and bursting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBSVolume Types> in the /Amazon Elastic Compute Cloud User Guide/.
+-- Purpose (SSD) baseline performance, I/O credits, and bursting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBSVolume Types> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
 --
--- Constraint: Range is 100 to 4000 for Provisioned IOPS (SSD) volumes and 3 to
--- 3072 for General Purpose (SSD) volumes.
+-- Constraint: Range is 100 to 20000 for Provisioned IOPS (SSD) volumes and 3
+-- to 10000 for General Purpose (SSD) volumes.
 --
 -- Condition: This parameter is required for requests to create 'io1' volumes; it
 -- is not used in requests to create 'standard' or 'gp2' volumes.
@@ -5040,7 +5042,7 @@ reservedInstancesModification = ReservedInstancesModification
     }
 
 -- | A unique, case-sensitive key supplied by the client to ensure that the
--- modification request is idempotent.
+-- request is idempotent. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
 rimClientToken :: Lens' ReservedInstancesModification (Maybe Text)
 rimClientToken = lens _rimClientToken (\s a -> s { _rimClientToken = a })
 
@@ -6759,6 +6761,10 @@ data InstanceType
     | CC2_8XLarge -- ^ cc2.8xlarge
     | CG1_4XLarge -- ^ cg1.4xlarge
     | CR1_8XLarge -- ^ cr1.8xlarge
+    | D2_2XLarge  -- ^ d2.2xlarge
+    | D2_4XLarge  -- ^ d2.4xlarge
+    | D2_8XLarge  -- ^ d2.8xlarge
+    | D2_XLarge   -- ^ d2.xlarge
     | G2_2XLarge  -- ^ g2.2xlarge
     | HI1_4XLarge -- ^ hi1.4xlarge
     | HS1_8XLarge -- ^ hs1.8xlarge
@@ -6808,6 +6814,10 @@ instance FromText InstanceType where
         "cc2.8xlarge" -> pure CC2_8XLarge
         "cg1.4xlarge" -> pure CG1_4XLarge
         "cr1.8xlarge" -> pure CR1_8XLarge
+        "d2.2xlarge"  -> pure D2_2XLarge
+        "d2.4xlarge"  -> pure D2_4XLarge
+        "d2.8xlarge"  -> pure D2_8XLarge
+        "d2.xlarge"   -> pure D2_XLarge
         "g2.2xlarge"  -> pure G2_2XLarge
         "hi1.4xlarge" -> pure HI1_4XLarge
         "hs1.8xlarge" -> pure HS1_8XLarge
@@ -6856,6 +6866,10 @@ instance ToText InstanceType where
         CC2_8XLarge -> "cc2.8xlarge"
         CG1_4XLarge -> "cg1.4xlarge"
         CR1_8XLarge -> "cr1.8xlarge"
+        D2_2XLarge  -> "d2.2xlarge"
+        D2_4XLarge  -> "d2.4xlarge"
+        D2_8XLarge  -> "d2.8xlarge"
+        D2_XLarge   -> "d2.xlarge"
         G2_2XLarge  -> "g2.2xlarge"
         HI1_4XLarge -> "hi1.4xlarge"
         HS1_8XLarge -> "hs1.8xlarge"
@@ -7336,7 +7350,7 @@ instanceBlockDeviceMappingSpecification = InstanceBlockDeviceMappingSpecificatio
     , _ibdmsNoDevice    = Nothing
     }
 
--- | The device name exposed to the instance (for example, /dev/sdh).
+-- | The device name exposed to the instance (for example, '/dev/sdh' or 'xvdh').
 ibdmsDeviceName :: Lens' InstanceBlockDeviceMappingSpecification (Maybe Text)
 ibdmsDeviceName = lens _ibdmsDeviceName (\s a -> s { _ibdmsDeviceName = a })
 
@@ -7937,7 +7951,7 @@ instanceBlockDeviceMapping = InstanceBlockDeviceMapping
     , _ibdmEbs        = Nothing
     }
 
--- | The device name exposed to the instance (for example, /dev/sdh).
+-- | The device name exposed to the instance (for example, '/dev/sdh' or 'xvdh').
 ibdmDeviceName :: Lens' InstanceBlockDeviceMapping (Maybe Text)
 ibdmDeviceName = lens _ibdmDeviceName (\s a -> s { _ibdmDeviceName = a })
 
@@ -9551,10 +9565,10 @@ ebdEncrypted = lens _ebdEncrypted (\s a -> s { _ebdEncrypted = a })
 -- provisioned for the volume. For General Purpose (SSD) volumes, this
 -- represents the baseline performance of the volume and the rate at which the
 -- volume accumulates I/O credits for bursting. For more information on General
--- Purpose (SSD) baseline performance, I/O credits, and bursting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBSVolume Types> in the /Amazon Elastic Compute Cloud User Guide/.
+-- Purpose (SSD) baseline performance, I/O credits, and bursting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBSVolume Types> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
 --
--- Constraint: Range is 100 to 4000 for Provisioned IOPS (SSD) volumes and 3 to
--- 3072 for General Purpose (SSD) volumes.
+-- Constraint: Range is 100 to 20000 for Provisioned IOPS (SSD) volumes and 3
+-- to 10000 for General Purpose (SSD) volumes.
 --
 -- Condition: This parameter is required for requests to create 'io1' volumes; it
 -- is not used in requests to create 'standard' or 'gp2' volumes.
@@ -9567,10 +9581,8 @@ ebdSnapshotId = lens _ebdSnapshotId (\s a -> s { _ebdSnapshotId = a })
 
 -- | The size of the volume, in GiB.
 --
--- Constraints: If the volume type is 'io1', the minimum size of the volume is 4
--- GiB; otherwise, the minimum size is 1 GiB. The maximum volume size is 1024
--- GiB. If you specify a snapshot, the volume size must be equal to or larger
--- than the snapshot size.
+-- Constraints: '1-1024' for 'standard' volumes, '1-16384' for 'gp2' volumes, and '4-16384' for 'io1' volumes. If you specify a snapshot, the volume size must be equal to
+-- or larger than the snapshot size.
 --
 -- Default: If you're creating the volume from a snapshot and don't specify a
 -- volume size, the default is the snapshot size.
@@ -12226,7 +12238,7 @@ i1PublicIpAddress =
 i1RamdiskId :: Lens' Instance (Maybe Text)
 i1RamdiskId = lens _i1RamdiskId (\s a -> s { _i1RamdiskId = a })
 
--- | The root device name (for example, '/dev/sda1').
+-- | The root device name (for example, '/dev/sda1' or '/dev/xvda').
 i1RootDeviceName :: Lens' Instance (Maybe Text)
 i1RootDeviceName = lens _i1RootDeviceName (\s a -> s { _i1RootDeviceName = a })
 

@@ -22,13 +22,14 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Validates a pipeline and initiates processing. If the pipeline does not pass
--- validation, activation fails. You cannot perform this operation on FINISHED
--- pipelines and attempting to do so will return an InvalidRequestException.
+-- | Validates the specified pipeline and starts processing pipeline tasks. If the
+-- pipeline does not pass validation, activation fails.
 --
--- Call this action to start processing pipeline tasks of a pipeline you've
--- created using the 'CreatePipeline' and 'PutPipelineDefinition' actions. A
--- pipeline cannot be modified after it has been successfully activated.
+-- If you need to pause the pipeline to investigate an issue with a component,
+-- such as a data source or script, call 'DeactivatePipeline'.
+--
+-- To activate a finished pipeline, modify the end date for the pipeline and
+-- then activate it.
 --
 -- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ActivatePipeline.html>
 module Network.AWS.DataPipeline.ActivatePipeline
@@ -40,6 +41,7 @@ module Network.AWS.DataPipeline.ActivatePipeline
     -- ** Request lenses
     , apParameterValues
     , apPipelineId
+    , apStartTimestamp
 
     -- * Response
     , ActivatePipelineResponse
@@ -47,6 +49,7 @@ module Network.AWS.DataPipeline.ActivatePipeline
     , activatePipelineResponse
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.DataPipeline.Types
@@ -55,6 +58,7 @@ import qualified GHC.Exts
 data ActivatePipeline = ActivatePipeline
     { _apParameterValues :: List "parameterValues" ParameterValue
     , _apPipelineId      :: Text
+    , _apStartTimestamp  :: Maybe POSIX
     } deriving (Eq, Read, Show)
 
 -- | 'ActivatePipeline' constructor.
@@ -65,22 +69,30 @@ data ActivatePipeline = ActivatePipeline
 --
 -- * 'apPipelineId' @::@ 'Text'
 --
+-- * 'apStartTimestamp' @::@ 'Maybe' 'UTCTime'
+--
 activatePipeline :: Text -- ^ 'apPipelineId'
                  -> ActivatePipeline
 activatePipeline p1 = ActivatePipeline
     { _apPipelineId      = p1
     , _apParameterValues = mempty
+    , _apStartTimestamp  = Nothing
     }
 
--- | Returns a list of parameter values to pass to the pipeline at activation.
+-- | A list of parameter values to pass to the pipeline at activation.
 apParameterValues :: Lens' ActivatePipeline [ParameterValue]
 apParameterValues =
     lens _apParameterValues (\s a -> s { _apParameterValues = a })
         . _List
 
--- | The identifier of the pipeline to activate.
+-- | The ID of the pipeline.
 apPipelineId :: Lens' ActivatePipeline Text
 apPipelineId = lens _apPipelineId (\s a -> s { _apPipelineId = a })
+
+-- | The date and time to resume the pipeline. By default, the pipeline resumes
+-- from the last completed execution.
+apStartTimestamp :: Lens' ActivatePipeline (Maybe UTCTime)
+apStartTimestamp = lens _apStartTimestamp (\s a -> s { _apStartTimestamp = a }) . mapping _Time
 
 data ActivatePipelineResponse = ActivatePipelineResponse
     deriving (Eq, Ord, Read, Show, Generic)
@@ -101,6 +113,7 @@ instance ToJSON ActivatePipeline where
     toJSON ActivatePipeline{..} = object
         [ "pipelineId"      .= _apPipelineId
         , "parameterValues" .= _apParameterValues
+        , "startTimestamp"  .= _apStartTimestamp
         ]
 
 instance AWSRequest ActivatePipeline where

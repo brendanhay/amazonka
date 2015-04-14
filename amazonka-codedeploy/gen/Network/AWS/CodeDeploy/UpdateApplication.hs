@@ -41,6 +41,7 @@ module Network.AWS.CodeDeploy.UpdateApplication
     , updateApplicationResponse
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.CodeDeploy.Types

@@ -48,6 +48,7 @@ module Network.AWS.CloudHSM.ListHapgs
     , lhr1NextToken
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.CloudHSM.Types

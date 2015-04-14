@@ -22,8 +22,9 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Evaluates a string in the context of a specified object. A task runner can
--- use this action to evaluate SQL queries stored in Amazon S3.
+-- | Task runners call 'EvaluateExpression' to evaluate a string in the context of
+-- the specified object. For example, a task runner can evaluate SQL queries
+-- stored in Amazon S3.
 --
 -- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_EvaluateExpression.html>
 module Network.AWS.DataPipeline.EvaluateExpression
@@ -45,6 +46,7 @@ module Network.AWS.DataPipeline.EvaluateExpression
     , eerEvaluatedExpression
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.DataPipeline.Types
@@ -80,11 +82,11 @@ evaluateExpression p1 p2 p3 = EvaluateExpression
 eeExpression :: Lens' EvaluateExpression Text
 eeExpression = lens _eeExpression (\s a -> s { _eeExpression = a })
 
--- | The identifier of the object.
+-- | The ID of the object.
 eeObjectId :: Lens' EvaluateExpression Text
 eeObjectId = lens _eeObjectId (\s a -> s { _eeObjectId = a })
 
--- | The identifier of the pipeline.
+-- | The ID of the pipeline.
 eePipelineId :: Lens' EvaluateExpression Text
 eePipelineId = lens _eePipelineId (\s a -> s { _eePipelineId = a })
 

@@ -43,11 +43,14 @@ module Network.AWS.S3.PutObjectAcl
     , poaGrantWrite
     , poaGrantWriteACP
     , poaKey
+    , poaRequestPayer
 
     -- * Response
     , PutObjectAclResponse
     -- ** Response constructor
     , putObjectAclResponse
+    -- ** Response lenses
+    , poarRequestCharged
     ) where
 
 import Network.AWS.Prelude
@@ -66,6 +69,7 @@ data PutObjectAcl = PutObjectAcl
     , _poaGrantWrite          :: Maybe Text
     , _poaGrantWriteACP       :: Maybe Text
     , _poaKey                 :: Text
+    , _poaRequestPayer        :: Maybe RequestPayer
     } deriving (Eq, Read, Show)
 
 -- | 'PutObjectAcl' constructor.
@@ -92,6 +96,8 @@ data PutObjectAcl = PutObjectAcl
 --
 -- * 'poaKey' @::@ 'Text'
 --
+-- * 'poaRequestPayer' @::@ 'Maybe' 'RequestPayer'
+--
 putObjectAcl :: Text -- ^ 'poaBucket'
              -> Text -- ^ 'poaKey'
              -> PutObjectAcl
@@ -106,6 +112,7 @@ putObjectAcl p1 p2 = PutObjectAcl
     , _poaGrantReadACP        = Nothing
     , _poaGrantWrite          = Nothing
     , _poaGrantWriteACP       = Nothing
+    , _poaRequestPayer        = Nothing
     }
 
 -- | The canned ACL to apply to the object.
@@ -147,12 +154,27 @@ poaGrantWriteACP = lens _poaGrantWriteACP (\s a -> s { _poaGrantWriteACP = a })
 poaKey :: Lens' PutObjectAcl Text
 poaKey = lens _poaKey (\s a -> s { _poaKey = a })
 
-data PutObjectAclResponse = PutObjectAclResponse
-    deriving (Eq, Ord, Read, Show, Generic)
+poaRequestPayer :: Lens' PutObjectAcl (Maybe RequestPayer)
+poaRequestPayer = lens _poaRequestPayer (\s a -> s { _poaRequestPayer = a })
+
+newtype PutObjectAclResponse = PutObjectAclResponse
+    { _poarRequestCharged :: Maybe RequestCharged
+    } deriving (Eq, Read, Show)
 
 -- | 'PutObjectAclResponse' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'poarRequestCharged' @::@ 'Maybe' 'RequestCharged'
+--
 putObjectAclResponse :: PutObjectAclResponse
 putObjectAclResponse = PutObjectAclResponse
+    { _poarRequestCharged = Nothing
+    }
+
+poarRequestCharged :: Lens' PutObjectAclResponse (Maybe RequestCharged)
+poarRequestCharged =
+    lens _poarRequestCharged (\s a -> s { _poarRequestCharged = a })
 
 instance ToPath PutObjectAcl where
     toPath PutObjectAcl{..} = mconcat
@@ -174,6 +196,7 @@ instance ToHeaders PutObjectAcl where
         , "x-amz-grant-read-acp"     =: _poaGrantReadACP
         , "x-amz-grant-write"        =: _poaGrantWrite
         , "x-amz-grant-write-acp"    =: _poaGrantWriteACP
+        , "x-amz-request-payer"      =: _poaRequestPayer
         ]
 
 instance ToXMLRoot PutObjectAcl where
@@ -186,4 +209,5 @@ instance AWSRequest PutObjectAcl where
     type Rs PutObjectAcl = PutObjectAclResponse
 
     request  = put
-    response = nullResponse PutObjectAclResponse
+    response = headerResponse $ \h -> PutObjectAclResponse
+        <$> h ~:? "x-amz-request-charged"

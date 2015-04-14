@@ -54,6 +54,7 @@ module Network.AWS.OpsWorks.UpdateInstance
     , updateInstanceResponse
     ) where
 
+import Network.AWS.Data (Object)
 import Network.AWS.Prelude
 import Network.AWS.Request.JSON
 import Network.AWS.OpsWorks.Types
@@ -179,7 +180,7 @@ uiLayerIds = lens _uiLayerIds (\s a -> s { _uiLayerIds = a }) . _List
 uiOs :: Lens' UpdateInstance (Maybe Text)
 uiOs = lens _uiOs (\s a -> s { _uiOs = a })
 
--- | The instance SSH key name.
+-- | The instance's Amazon EC2 key name.
 uiSshKeyName :: Lens' UpdateInstance (Maybe Text)
 uiSshKeyName = lens _uiSshKeyName (\s a -> s { _uiSshKeyName = a })
 

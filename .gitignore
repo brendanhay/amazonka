@@ -6,6 +6,7 @@
 *.chs.h
 *.imports
 cabal.sandbox.config
+cabal.config
 
 # Dirs
 .cabal-sandbox

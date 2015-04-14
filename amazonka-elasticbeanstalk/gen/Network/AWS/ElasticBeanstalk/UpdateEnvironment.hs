@@ -46,6 +46,7 @@ module Network.AWS.ElasticBeanstalk.UpdateEnvironment
     , ueEnvironmentName
     , ueOptionSettings
     , ueOptionsToRemove
+    , ueSolutionStackName
     , ueTemplateName
     , ueTier
     , ueVersionLabel
@@ -55,6 +56,7 @@ module Network.AWS.ElasticBeanstalk.UpdateEnvironment
     -- ** Response constructor
     , updateEnvironmentResponse
     -- ** Response lenses
+    , uerAbortableOperationInProgress
     , uerApplicationName
     , uerCNAME
     , uerDateCreated
@@ -78,14 +80,15 @@ import Network.AWS.ElasticBeanstalk.Types
 import qualified GHC.Exts
 
 data UpdateEnvironment = UpdateEnvironment
-    { _ueDescription     :: Maybe Text
-    , _ueEnvironmentId   :: Maybe Text
-    , _ueEnvironmentName :: Maybe Text
-    , _ueOptionSettings  :: List "member" ConfigurationOptionSetting
-    , _ueOptionsToRemove :: List "member" OptionSpecification
-    , _ueTemplateName    :: Maybe Text
-    , _ueTier            :: Maybe EnvironmentTier
-    , _ueVersionLabel    :: Maybe Text
+    { _ueDescription       :: Maybe Text
+    , _ueEnvironmentId     :: Maybe Text
+    , _ueEnvironmentName   :: Maybe Text
+    , _ueOptionSettings    :: List "member" ConfigurationOptionSetting
+    , _ueOptionsToRemove   :: List "member" OptionSpecification
+    , _ueSolutionStackName :: Maybe Text
+    , _ueTemplateName      :: Maybe Text
+    , _ueTier              :: Maybe EnvironmentTier
+    , _ueVersionLabel      :: Maybe Text
     } deriving (Eq, Read, Show)
 
 -- | 'UpdateEnvironment' constructor.
@@ -102,6 +105,8 @@ data UpdateEnvironment = UpdateEnvironment
 --
 -- * 'ueOptionsToRemove' @::@ ['OptionSpecification']
 --
+-- * 'ueSolutionStackName' @::@ 'Maybe' 'Text'
+--
 -- * 'ueTemplateName' @::@ 'Maybe' 'Text'
 --
 -- * 'ueTier' @::@ 'Maybe' 'EnvironmentTier'
@@ -110,14 +115,15 @@ data UpdateEnvironment = UpdateEnvironment
 --
 updateEnvironment :: UpdateEnvironment
 updateEnvironment = UpdateEnvironment
-    { _ueEnvironmentId   = Nothing
-    , _ueEnvironmentName = Nothing
-    , _ueDescription     = Nothing
-    , _ueTier            = Nothing
-    , _ueVersionLabel    = Nothing
-    , _ueTemplateName    = Nothing
-    , _ueOptionSettings  = mempty
-    , _ueOptionsToRemove = mempty
+    { _ueEnvironmentId     = Nothing
+    , _ueEnvironmentName   = Nothing
+    , _ueDescription       = Nothing
+    , _ueTier              = Nothing
+    , _ueVersionLabel      = Nothing
+    , _ueTemplateName      = Nothing
+    , _ueSolutionStackName = Nothing
+    , _ueOptionSettings    = mempty
+    , _ueOptionsToRemove   = mempty
     }
 
 -- | If this parameter is specified, AWS Elastic Beanstalk updates the
@@ -156,6 +162,12 @@ ueOptionsToRemove =
     lens _ueOptionsToRemove (\s a -> s { _ueOptionsToRemove = a })
         . _List
 
+-- | This specifies the platform version that the environment will run after the
+-- environment is updated.
+ueSolutionStackName :: Lens' UpdateEnvironment (Maybe Text)
+ueSolutionStackName =
+    lens _ueSolutionStackName (\s a -> s { _ueSolutionStackName = a })
+
 -- | If this parameter is specified, AWS Elastic Beanstalk deploys this
 -- configuration template to the environment. If no such configuration template
 -- is found, AWS Elastic Beanstalk returns an 'InvalidParameterValue' error.
@@ -176,26 +188,29 @@ ueVersionLabel :: Lens' UpdateEnvironment (Maybe Text)
 ueVersionLabel = lens _ueVersionLabel (\s a -> s { _ueVersionLabel = a })
 
 data UpdateEnvironmentResponse = UpdateEnvironmentResponse
-    { _uerApplicationName   :: Maybe Text
-    , _uerCNAME             :: Maybe Text
-    , _uerDateCreated       :: Maybe ISO8601
-    , _uerDateUpdated       :: Maybe ISO8601
-    , _uerDescription       :: Maybe Text
-    , _uerEndpointURL       :: Maybe Text
-    , _uerEnvironmentId     :: Maybe Text
-    , _uerEnvironmentName   :: Maybe Text
-    , _uerHealth            :: Maybe EnvironmentHealth
-    , _uerResources         :: Maybe EnvironmentResourcesDescription
-    , _uerSolutionStackName :: Maybe Text
-    , _uerStatus            :: Maybe EnvironmentStatus
-    , _uerTemplateName      :: Maybe Text
-    , _uerTier              :: Maybe EnvironmentTier
-    , _uerVersionLabel      :: Maybe Text
+    { _uerAbortableOperationInProgress :: Maybe Bool
+    , _uerApplicationName              :: Maybe Text
+    , _uerCNAME                        :: Maybe Text
+    , _uerDateCreated                  :: Maybe ISO8601
+    , _uerDateUpdated                  :: Maybe ISO8601
+    , _uerDescription                  :: Maybe Text
+    , _uerEndpointURL                  :: Maybe Text
+    , _uerEnvironmentId                :: Maybe Text
+    , _uerEnvironmentName              :: Maybe Text
+    , _uerHealth                       :: Maybe EnvironmentHealth
+    , _uerResources                    :: Maybe EnvironmentResourcesDescription
+    , _uerSolutionStackName            :: Maybe Text
+    , _uerStatus                       :: Maybe EnvironmentStatus
+    , _uerTemplateName                 :: Maybe Text
+    , _uerTier                         :: Maybe EnvironmentTier
+    , _uerVersionLabel                 :: Maybe Text
     } deriving (Eq, Read, Show)
 
 -- | 'UpdateEnvironmentResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
+--
+-- * 'uerAbortableOperationInProgress' @::@ 'Maybe' 'Bool'
 --
 -- * 'uerApplicationName' @::@ 'Maybe' 'Text'
 --
@@ -229,22 +244,30 @@ data UpdateEnvironmentResponse = UpdateEnvironmentResponse
 --
 updateEnvironmentResponse :: UpdateEnvironmentResponse
 updateEnvironmentResponse = UpdateEnvironmentResponse
-    { _uerEnvironmentName   = Nothing
-    , _uerEnvironmentId     = Nothing
-    , _uerApplicationName   = Nothing
-    , _uerVersionLabel      = Nothing
-    , _uerSolutionStackName = Nothing
-    , _uerTemplateName      = Nothing
-    , _uerDescription       = Nothing
-    , _uerEndpointURL       = Nothing
-    , _uerCNAME             = Nothing
-    , _uerDateCreated       = Nothing
-    , _uerDateUpdated       = Nothing
-    , _uerStatus            = Nothing
-    , _uerHealth            = Nothing
-    , _uerResources         = Nothing
-    , _uerTier              = Nothing
+    { _uerEnvironmentName              = Nothing
+    , _uerEnvironmentId                = Nothing
+    , _uerApplicationName              = Nothing
+    , _uerVersionLabel                 = Nothing
+    , _uerSolutionStackName            = Nothing
+    , _uerTemplateName                 = Nothing
+    , _uerDescription                  = Nothing
+    , _uerEndpointURL                  = Nothing
+    , _uerCNAME                        = Nothing
+    , _uerDateCreated                  = Nothing
+    , _uerDateUpdated                  = Nothing
+    , _uerStatus                       = Nothing
+    , _uerAbortableOperationInProgress = Nothing
+    , _uerHealth                       = Nothing
+    , _uerResources                    = Nothing
+    , _uerTier                         = Nothing
     }
+
+-- | Lists in-progress environment updates and application version deployments
+-- that you can cancel.
+uerAbortableOperationInProgress :: Lens' UpdateEnvironmentResponse (Maybe Bool)
+uerAbortableOperationInProgress =
+    lens _uerAbortableOperationInProgress
+        (\s a -> s { _uerAbortableOperationInProgress = a })
 
 -- | The name of the application associated with this environment.
 uerApplicationName :: Lens' UpdateEnvironmentResponse (Maybe Text)
@@ -338,14 +361,15 @@ instance ToPath UpdateEnvironment where
 
 instance ToQuery UpdateEnvironment where
     toQuery UpdateEnvironment{..} = mconcat
-        [ "Description"     =? _ueDescription
-        , "EnvironmentId"   =? _ueEnvironmentId
-        , "EnvironmentName" =? _ueEnvironmentName
-        , "OptionSettings"  =? _ueOptionSettings
-        , "OptionsToRemove" =? _ueOptionsToRemove
-        , "TemplateName"    =? _ueTemplateName
-        , "Tier"            =? _ueTier
-        , "VersionLabel"    =? _ueVersionLabel
+        [ "Description"       =? _ueDescription
+        , "EnvironmentId"     =? _ueEnvironmentId
+        , "EnvironmentName"   =? _ueEnvironmentName
+        , "OptionSettings"    =? _ueOptionSettings
+        , "OptionsToRemove"   =? _ueOptionsToRemove
+        , "SolutionStackName" =? _ueSolutionStackName
+        , "TemplateName"      =? _ueTemplateName
+        , "Tier"              =? _ueTier
+        , "VersionLabel"      =? _ueVersionLabel
         ]
 
 instance ToHeaders UpdateEnvironment
@@ -359,7 +383,8 @@ instance AWSRequest UpdateEnvironment where
 
 instance FromXML UpdateEnvironmentResponse where
     parseXML = withElement "UpdateEnvironmentResult" $ \x -> UpdateEnvironmentResponse
-        <$> x .@? "ApplicationName"
+        <$> x .@? "AbortableOperationInProgress"
+        <*> x .@? "ApplicationName"
         <*> x .@? "CNAME"
         <*> x .@? "DateCreated"
         <*> x .@? "DateUpdated"

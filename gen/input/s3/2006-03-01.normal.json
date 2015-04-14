@@ -1,4 +1,5 @@
 {
+  "version":"2.0",
   "metadata":{
     "apiVersion":"2006-03-01",
     "checksumFormat":"md5",
@@ -18,6 +19,7 @@
         "requestUri":"/{Bucket}/{Key+}"
       },
       "input":{"shape":"AbortMultipartUploadRequest"},
+      "output":{"shape":"AbortMultipartUploadOutput"},
       "errors":[
         {
           "shape":"NoSuchUpload",
@@ -129,6 +131,14 @@
       "documentation":"Deletes the policy from the bucket.",
       "documentationUrl":"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketDELETEpolicy.html"
     },
+    "DeleteBucketReplication":{
+      "name":"DeleteBucketReplication",
+      "http":{
+        "method":"DELETE",
+        "requestUri":"/{Bucket}?replication"
+      },
+      "input":{"shape":"DeleteBucketReplicationRequest"}
+    },
     "DeleteBucketTagging":{
       "name":"DeleteBucketTagging",
       "http":{
@@ -233,10 +243,24 @@
         "method":"GET",
         "requestUri":"/{Bucket}?notification"
       },
-      "input":{"shape":"GetBucketNotificationRequest"},
-      "output":{"shape":"GetBucketNotificationOutput"},
-      "documentation":"Return the notification configuration of a bucket.",
+      "input":{"shape":"GetBucketNotificationConfigurationRequest"},
+      "output":{"shape":"NotificationConfigurationDeprecated"},
+      "deprecated":true,
+      "documentation":"Deprecated, see the GetBucketNotificationConfiguration operation.",
       "documentationUrl":"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketGETnotification.html"
+    },
+    "GetBucketNotificationConfiguration":{
+      "name":"GetBucketNotificationConfiguration",
+      "http":{
+        "method":"GET",
+        "requestUri":"/{Bucket}?notification"
+      },
+      "input":{"shape":"GetBucketNotificationConfigurationRequest"},
+      "output":{
+        "shape":"NotificationConfiguration",
+        "documentation":"Container for specifying the notification configuration of the bucket. If this element is empty, notifications are turned off on the bucket."
+      },
+      "documentation":"Returns the notification configuration of a bucket."
     },
     "GetBucketPolicy":{
       "name":"GetBucketPolicy",
@@ -248,6 +272,15 @@
       "output":{"shape":"GetBucketPolicyOutput"},
       "documentation":"Returns the policy of a specified bucket.",
       "documentationUrl":"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketGETpolicy.html"
+    },
+    "GetBucketReplication":{
+      "name":"GetBucketReplication",
+      "http":{
+        "method":"GET",
+        "requestUri":"/{Bucket}?replication"
+      },
+      "input":{"shape":"GetBucketReplicationRequest"},
+      "output":{"shape":"GetBucketReplicationOutput"}
     },
     "GetBucketRequestPayment":{
       "name":"GetBucketRequestPayment",
@@ -486,8 +519,18 @@
         "requestUri":"/{Bucket}?notification"
       },
       "input":{"shape":"PutBucketNotificationRequest"},
-      "documentation":"Enables notifications of specified events for a bucket.",
+      "deprecated":true,
+      "documentation":"Deprecated, see the PutBucketNotificationConfiguraiton operation.",
       "documentationUrl":"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketPUTnotification.html"
+    },
+    "PutBucketNotificationConfiguration":{
+      "name":"PutBucketNotificationConfiguration",
+      "http":{
+        "method":"PUT",
+        "requestUri":"/{Bucket}?notification"
+      },
+      "input":{"shape":"PutBucketNotificationConfigurationRequest"},
+      "documentation":"Enables notifications of specified events for a bucket."
     },
     "PutBucketPolicy":{
       "name":"PutBucketPolicy",
@@ -499,6 +542,15 @@
       "documentation":"Replaces a policy on a bucket. If the bucket already has a policy, the one in this request completely replaces it.",
       "documentationUrl":"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketPUTpolicy.html"
     },
+    "PutBucketReplication":{
+      "name":"PutBucketReplication",
+      "http":{
+        "method":"PUT",
+        "requestUri":"/{Bucket}?replication"
+      },
+      "input":{"shape":"PutBucketReplicationRequest"},
+      "documentation":"Creates a new replication configuration (or replaces an existing one, if present)."
+    },
     "PutBucketRequestPayment":{
       "name":"PutBucketRequestPayment",
       "http":{
@@ -506,7 +558,7 @@
         "requestUri":"/{Bucket}?requestPayment"
       },
       "input":{"shape":"PutBucketRequestPaymentRequest"},
-      "documentation":"Sets the request payment configuration for a bucket. By default, the bucket owner pays for downloads from the bucket. This configuration parameter enables the bucket owner (only) to specify that the person requesting the download will be charged for the download.",
+      "documentation":"Sets the request payment configuration for a bucket. By default, the bucket owner pays for downloads from the bucket. This configuration parameter enables the bucket owner (only) to specify that the person requesting the download will be charged for the download. Documentation on requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html",
       "documentationUrl":"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTrequestPaymentPUT.html"
     },
     "PutBucketTagging":{
@@ -557,6 +609,7 @@
         "requestUri":"/{Bucket}/{Key+}?acl"
       },
       "input":{"shape":"PutObjectAclRequest"},
+      "output":{"shape":"PutObjectAclOutput"},
       "errors":[
         {
           "shape":"NoSuchKey",
@@ -574,6 +627,7 @@
         "requestUri":"/{Bucket}/{Key+}?restore"
       },
       "input":{"shape":"RestoreObjectRequest"},
+      "output":{"shape":"RestoreObjectOutput"},
       "errors":[
         {
           "shape":"ObjectAlreadyInActiveTierError",
@@ -609,6 +663,16 @@
     }
   },
   "shapes":{
+    "AbortMultipartUploadOutput":{
+      "type":"structure",
+      "members":{
+        "RequestCharged":{
+          "shape":"RequestCharged",
+          "location":"header",
+          "locationName":"x-amz-request-charged"
+        }
+      }
+    },
     "AbortMultipartUploadRequest":{
       "type":"structure",
       "required":[
@@ -631,6 +695,11 @@
           "shape":"MultipartUploadId",
           "location":"querystring",
           "locationName":"uploadId"
+        },
+        "RequestPayer":{
+          "shape":"RequestPayer",
+          "location":"header",
+          "locationName":"x-amz-request-payer"
         }
       }
     },
@@ -705,7 +774,6 @@
         "ap-southeast-2",
         "ap-northeast-1",
         "sa-east-1",
-        "",
         "cn-north-1",
         "eu-central-1"
       ]
@@ -793,7 +861,7 @@
           "deprecated":true
         },
         "Events":{
-          "shape":"Events",
+          "shape":"EventList",
           "locationName":"Event"
         },
         "CloudFunction":{"shape":"CloudFunction"},
@@ -846,6 +914,11 @@
           "location":"header",
           "locationName":"x-amz-server-side-encryption-aws-kms-key-id",
           "documentation":"If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object."
+        },
+        "RequestCharged":{
+          "shape":"RequestCharged",
+          "location":"header",
+          "locationName":"x-amz-request-charged"
         }
       }
     },
@@ -876,6 +949,11 @@
           "shape":"MultipartUploadId",
           "location":"querystring",
           "locationName":"uploadId"
+        },
+        "RequestPayer":{
+          "shape":"RequestPayer",
+          "location":"header",
+          "locationName":"x-amz-request-payer"
         }
       },
       "payload":"MultipartUpload"
@@ -964,6 +1042,11 @@
           "location":"header",
           "locationName":"x-amz-server-side-encryption-aws-kms-key-id",
           "documentation":"If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object."
+        },
+        "RequestCharged":{
+          "shape":"RequestCharged",
+          "location":"header",
+          "locationName":"x-amz-request-charged"
         }
       },
       "payload":"CopyObjectResult"
@@ -1153,6 +1236,11 @@
           "location":"header",
           "locationName":"x-amz-copy-source-server-side-encryption-customer-key-MD5",
           "documentation":"Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error."
+        },
+        "RequestPayer":{
+          "shape":"RequestPayer",
+          "location":"header",
+          "locationName":"x-amz-request-payer"
         }
       }
     },
@@ -1197,7 +1285,7 @@
       "members":{
         "LocationConstraint":{
           "shape":"BucketLocationConstraint",
-          "documentation":"Specifies the region where the bucket will be created."
+          "documentation":"Specifies the region where the bucket will be created. If you don't specify a region, the bucket will be created in US Standard."
         }
       }
     },
@@ -1303,6 +1391,11 @@
           "location":"header",
           "locationName":"x-amz-server-side-encryption-aws-kms-key-id",
           "documentation":"If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object."
+        },
+        "RequestCharged":{
+          "shape":"RequestCharged",
+          "location":"header",
+          "locationName":"x-amz-request-charged"
         }
       }
     },
@@ -1436,6 +1529,11 @@
           "location":"header",
           "locationName":"x-amz-server-side-encryption-aws-kms-key-id",
           "documentation":"Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. Documentation on configuring any of the officially supported AWS SDKs and CLI can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version"
+        },
+        "RequestPayer":{
+          "shape":"RequestPayer",
+          "location":"header",
+          "locationName":"x-amz-request-payer"
         }
       }
     },
@@ -1482,6 +1580,17 @@
       }
     },
     "DeleteBucketPolicyRequest":{
+      "type":"structure",
+      "required":["Bucket"],
+      "members":{
+        "Bucket":{
+          "shape":"BucketName",
+          "location":"uri",
+          "locationName":"Bucket"
+        }
+      }
+    },
+    "DeleteBucketReplicationRequest":{
       "type":"structure",
       "required":["Bucket"],
       "members":{
@@ -1568,6 +1677,11 @@
           "location":"header",
           "locationName":"x-amz-version-id",
           "documentation":"Returns the version ID of the delete marker created as a result of the DELETE operation."
+        },
+        "RequestCharged":{
+          "shape":"RequestCharged",
+          "location":"header",
+          "locationName":"x-amz-request-charged"
         }
       }
     },
@@ -1599,6 +1713,11 @@
           "location":"querystring",
           "locationName":"versionId",
           "documentation":"VersionId used to reference a specific version of the object."
+        },
+        "RequestPayer":{
+          "shape":"RequestPayer",
+          "location":"header",
+          "locationName":"x-amz-request-payer"
         }
       }
     },
@@ -1606,6 +1725,11 @@
       "type":"structure",
       "members":{
         "Deleted":{"shape":"DeletedObjects"},
+        "RequestCharged":{
+          "shape":"RequestCharged",
+          "location":"header",
+          "locationName":"x-amz-request-charged"
+        },
         "Errors":{
           "shape":"Errors",
           "locationName":"Error"
@@ -1634,6 +1758,11 @@
           "location":"header",
           "locationName":"x-amz-mfa",
           "documentation":"The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device."
+        },
+        "RequestPayer":{
+          "shape":"RequestPayer",
+          "location":"header",
+          "locationName":"x-amz-request-payer"
         }
       },
       "payload":"Delete"
@@ -1653,6 +1782,16 @@
       "flattened":true
     },
     "Delimiter":{"type":"string"},
+    "Destination":{
+      "type":"structure",
+      "required":["Bucket"],
+      "members":{
+        "Bucket":{
+          "shape":"BucketName",
+          "documentation":"Amazon resource name (ARN) of the bucket where you want Amazon S3 to store replicas of the object identified by the rule."
+        }
+      }
+    },
     "DisplayName":{"type":"string"},
     "ETag":{"type":"string"},
     "EmailAddress":{"type":"string"},
@@ -1693,9 +1832,10 @@
         "s3:ObjectCreated:Post",
         "s3:ObjectCreated:Copy",
         "s3:ObjectCreated:CompleteMultipartUpload"
-      ]
+      ],
+      "documentation":"Bucket event for which to send notifications."
     },
-    "Events":{
+    "EventList":{
       "type":"list",
       "member":{"shape":"Event"},
       "flattened":true
@@ -1811,22 +1951,15 @@
         }
       }
     },
-    "GetBucketNotificationOutput":{
-      "type":"structure",
-      "members":{
-        "TopicConfiguration":{"shape":"TopicConfiguration"},
-        "QueueConfiguration":{"shape":"QueueConfiguration"},
-        "CloudFunctionConfiguration":{"shape":"CloudFunctionConfiguration"}
-      }
-    },
-    "GetBucketNotificationRequest":{
+    "GetBucketNotificationConfigurationRequest":{
       "type":"structure",
       "required":["Bucket"],
       "members":{
         "Bucket":{
           "shape":"BucketName",
           "location":"uri",
-          "locationName":"Bucket"
+          "locationName":"Bucket",
+          "documentation":"Name of the buket to get the notification configuration for."
         }
       }
     },
@@ -1841,6 +1974,24 @@
       "payload":"Policy"
     },
     "GetBucketPolicyRequest":{
+      "type":"structure",
+      "required":["Bucket"],
+      "members":{
+        "Bucket":{
+          "shape":"BucketName",
+          "location":"uri",
+          "locationName":"Bucket"
+        }
+      }
+    },
+    "GetBucketReplicationOutput":{
+      "type":"structure",
+      "members":{
+        "ReplicationConfiguration":{"shape":"ReplicationConfiguration"}
+      },
+      "payload":"ReplicationConfiguration"
+    },
+    "GetBucketReplicationRequest":{
       "type":"structure",
       "required":["Bucket"],
       "members":{
@@ -1942,6 +2093,11 @@
           "shape":"Grants",
           "documentation":"A list of grants.",
           "locationName":"AccessControlList"
+        },
+        "RequestCharged":{
+          "shape":"RequestCharged",
+          "location":"header",
+          "locationName":"x-amz-request-charged"
         }
       }
     },
@@ -1967,6 +2123,11 @@
           "location":"querystring",
           "locationName":"versionId",
           "documentation":"VersionId used to reference a specific version of the object."
+        },
+        "RequestPayer":{
+          "shape":"RequestPayer",
+          "location":"header",
+          "locationName":"x-amz-request-payer"
         }
       }
     },
@@ -2102,6 +2263,16 @@
           "location":"header",
           "locationName":"x-amz-server-side-encryption-aws-kms-key-id",
           "documentation":"If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object."
+        },
+        "RequestCharged":{
+          "shape":"RequestCharged",
+          "location":"header",
+          "locationName":"x-amz-request-charged"
+        },
+        "ReplicationStatus":{
+          "shape":"ReplicationStatus",
+          "location":"header",
+          "locationName":"x-amz-replication-status"
         }
       },
       "payload":"Body"
@@ -2212,6 +2383,11 @@
           "location":"header",
           "locationName":"x-amz-server-side-encryption-customer-key-MD5",
           "documentation":"Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error."
+        },
+        "RequestPayer":{
+          "shape":"RequestPayer",
+          "location":"header",
+          "locationName":"x-amz-request-payer"
         }
       }
     },
@@ -2221,6 +2397,11 @@
         "Body":{
           "shape":"Body",
           "streaming":true
+        },
+        "RequestCharged":{
+          "shape":"RequestCharged",
+          "location":"header",
+          "locationName":"x-amz-request-charged"
         }
       },
       "payload":"Body"
@@ -2241,6 +2422,11 @@
           "shape":"ObjectKey",
           "location":"uri",
           "locationName":"Key"
+        },
+        "RequestPayer":{
+          "shape":"RequestPayer",
+          "location":"header",
+          "locationName":"x-amz-request-payer"
         }
       }
     },
@@ -2277,7 +2463,9 @@
         },
         "Type":{
           "shape":"Type",
-          "documentation":"Type of grantee"
+          "documentation":"Type of grantee",
+          "xmlAttribute":true,
+          "locationName":"xsi:type"
         },
         "URI":{
           "shape":"URI",
@@ -2434,6 +2622,16 @@
           "location":"header",
           "locationName":"x-amz-server-side-encryption-aws-kms-key-id",
           "documentation":"If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object."
+        },
+        "RequestCharged":{
+          "shape":"RequestCharged",
+          "location":"header",
+          "locationName":"x-amz-request-charged"
+        },
+        "ReplicationStatus":{
+          "shape":"ReplicationStatus",
+          "location":"header",
+          "locationName":"x-amz-replication-status"
         }
       }
     },
@@ -2507,6 +2705,11 @@
           "location":"header",
           "locationName":"x-amz-server-side-encryption-customer-key-MD5",
           "documentation":"Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error."
+        },
+        "RequestPayer":{
+          "shape":"RequestPayer",
+          "location":"header",
+          "locationName":"x-amz-request-payer"
         }
       }
     },
@@ -2546,6 +2749,32 @@
     "IsTruncated":{"type":"boolean"},
     "KeyMarker":{"type":"string"},
     "KeyPrefixEquals":{"type":"string"},
+    "LambdaFunctionArn":{"type":"string"},
+    "LambdaFunctionConfiguration":{
+      "type":"structure",
+      "required":[
+        "LambdaFunctionArn",
+        "Events"
+      ],
+      "members":{
+        "Id":{"shape":"NotificationId"},
+        "LambdaFunctionArn":{
+          "shape":"LambdaFunctionArn",
+          "documentation":"Lambda cloud function ARN that Amazon S3 can invoke when it detects events of the specified type.",
+          "locationName":"CloudFunction"
+        },
+        "Events":{
+          "shape":"EventList",
+          "locationName":"Event"
+        }
+      },
+      "documentation":"Container for specifying the AWS Lambda notification configuration."
+    },
+    "LambdaFunctionConfigurationList":{
+      "type":"list",
+      "member":{"shape":"LambdaFunctionConfiguration"},
+      "flattened":true
+    },
     "LastModified":{"type":"timestamp"},
     "LifecycleConfiguration":{
       "type":"structure",
@@ -2862,6 +3091,11 @@
         "StorageClass":{
           "shape":"StorageClass",
           "documentation":"The class of storage used to store the object."
+        },
+        "RequestCharged":{
+          "shape":"RequestCharged",
+          "location":"header",
+          "locationName":"x-amz-request-charged"
         }
       }
     },
@@ -2900,6 +3134,11 @@
           "location":"querystring",
           "locationName":"uploadId",
           "documentation":"Upload ID identifying the multipart upload whose parts are being listed."
+        },
+        "RequestPayer":{
+          "shape":"RequestPayer",
+          "location":"header",
+          "locationName":"x-amz-request-payer"
         }
       }
     },
@@ -3039,12 +3278,33 @@
     "NotificationConfiguration":{
       "type":"structure",
       "members":{
-        "TopicConfiguration":{"shape":"TopicConfiguration"},
-        "QueueConfiguration":{"shape":"QueueConfiguration"},
+        "TopicConfigurations":{
+          "shape":"TopicConfigurationList",
+          "locationName":"TopicConfiguration"
+        },
+        "QueueConfigurations":{
+          "shape":"QueueConfigurationList",
+          "locationName":"QueueConfiguration"
+        },
+        "LambdaFunctionConfigurations":{
+          "shape":"LambdaFunctionConfigurationList",
+          "locationName":"CloudFunctionConfiguration"
+        }
+      },
+      "documentation":"Container for specifying the notification configuration of the bucket. If this element is empty, notifications are turned off on the bucket."
+    },
+    "NotificationConfigurationDeprecated":{
+      "type":"structure",
+      "members":{
+        "TopicConfiguration":{"shape":"TopicConfigurationDeprecated"},
+        "QueueConfiguration":{"shape":"QueueConfigurationDeprecated"},
         "CloudFunctionConfiguration":{"shape":"CloudFunctionConfiguration"}
       }
     },
-    "NotificationId":{"type":"string"},
+    "NotificationId":{
+      "type":"string",
+      "documentation":"Optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID."
+    },
     "Object":{
       "type":"structure",
       "members":{
@@ -3346,6 +3606,26 @@
       },
       "payload":"BucketLoggingStatus"
     },
+    "PutBucketNotificationConfigurationRequest":{
+      "type":"structure",
+      "required":[
+        "Bucket",
+        "NotificationConfiguration"
+      ],
+      "members":{
+        "Bucket":{
+          "shape":"BucketName",
+          "location":"uri",
+          "locationName":"Bucket"
+        },
+        "NotificationConfiguration":{
+          "shape":"NotificationConfiguration",
+          "xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},
+          "locationName":"NotificationConfiguration"
+        }
+      },
+      "payload":"NotificationConfiguration"
+    },
     "PutBucketNotificationRequest":{
       "type":"structure",
       "required":[
@@ -3364,7 +3644,7 @@
           "locationName":"Content-MD5"
         },
         "NotificationConfiguration":{
-          "shape":"NotificationConfiguration",
+          "shape":"NotificationConfigurationDeprecated",
           "xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},
           "locationName":"NotificationConfiguration"
         }
@@ -3394,6 +3674,31 @@
         }
       },
       "payload":"Policy"
+    },
+    "PutBucketReplicationRequest":{
+      "type":"structure",
+      "required":[
+        "Bucket",
+        "ReplicationConfiguration"
+      ],
+      "members":{
+        "Bucket":{
+          "shape":"BucketName",
+          "location":"uri",
+          "locationName":"Bucket"
+        },
+        "ContentMD5":{
+          "shape":"ContentMD5",
+          "location":"header",
+          "locationName":"Content-MD5"
+        },
+        "ReplicationConfiguration":{
+          "shape":"ReplicationConfiguration",
+          "xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},
+          "locationName":"ReplicationConfiguration"
+        }
+      },
+      "payload":"ReplicationConfiguration"
     },
     "PutBucketRequestPaymentRequest":{
       "type":"structure",
@@ -3501,6 +3806,16 @@
       },
       "payload":"WebsiteConfiguration"
     },
+    "PutObjectAclOutput":{
+      "type":"structure",
+      "members":{
+        "RequestCharged":{
+          "shape":"RequestCharged",
+          "location":"header",
+          "locationName":"x-amz-request-charged"
+        }
+      }
+    },
     "PutObjectAclRequest":{
       "type":"structure",
       "required":[
@@ -3563,6 +3878,11 @@
           "shape":"ObjectKey",
           "location":"uri",
           "locationName":"Key"
+        },
+        "RequestPayer":{
+          "shape":"RequestPayer",
+          "location":"header",
+          "locationName":"x-amz-request-payer"
         }
       },
       "payload":"AccessControlPolicy"
@@ -3611,6 +3931,11 @@
           "location":"header",
           "locationName":"x-amz-server-side-encryption-aws-kms-key-id",
           "documentation":"If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object."
+        },
+        "RequestCharged":{
+          "shape":"RequestCharged",
+          "location":"header",
+          "locationName":"x-amz-request-charged"
         }
       }
     },
@@ -3760,12 +4085,37 @@
           "location":"header",
           "locationName":"x-amz-server-side-encryption-aws-kms-key-id",
           "documentation":"Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. Documentation on configuring any of the officially supported AWS SDKs and CLI can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version"
+        },
+        "RequestPayer":{
+          "shape":"RequestPayer",
+          "location":"header",
+          "locationName":"x-amz-request-payer"
         }
       },
       "payload":"Body"
     },
-    "Queue":{"type":"string"},
+    "QueueArn":{"type":"string"},
     "QueueConfiguration":{
+      "type":"structure",
+      "required":[
+        "QueueArn",
+        "Events"
+      ],
+      "members":{
+        "Id":{"shape":"NotificationId"},
+        "QueueArn":{
+          "shape":"QueueArn",
+          "documentation":"Amazon SQS queue ARN to which Amazon S3 will publish a message when it detects events of specified type.",
+          "locationName":"Queue"
+        },
+        "Events":{
+          "shape":"EventList",
+          "locationName":"Event"
+        }
+      },
+      "documentation":"Container for specifying an configuration when you want Amazon S3 to publish events to an Amazon Simple Queue Service (Amazon SQS) queue."
+    },
+    "QueueConfigurationDeprecated":{
       "type":"structure",
       "members":{
         "Id":{"shape":"NotificationId"},
@@ -3774,11 +4124,16 @@
           "deprecated":true
         },
         "Events":{
-          "shape":"Events",
+          "shape":"EventList",
           "locationName":"Event"
         },
-        "Queue":{"shape":"Queue"}
+        "Queue":{"shape":"QueueArn"}
       }
+    },
+    "QueueConfigurationList":{
+      "type":"list",
+      "member":{"shape":"QueueConfiguration"},
+      "flattened":true
     },
     "Quiet":{"type":"boolean"},
     "Range":{"type":"string"},
@@ -3823,6 +4178,79 @@
     },
     "ReplaceKeyPrefixWith":{"type":"string"},
     "ReplaceKeyWith":{"type":"string"},
+    "ReplicationConfiguration":{
+      "type":"structure",
+      "required":[
+        "Role",
+        "Rules"
+      ],
+      "members":{
+        "Role":{
+          "shape":"Role",
+          "documentation":"Amazon Resource Name (ARN) of an IAM role for Amazon S3 to assume when replicating the objects."
+        },
+        "Rules":{
+          "shape":"ReplicationRules",
+          "documentation":"Container for information about a particular replication rule. Replication configuration must have at least one rule and can contain up to 1,000 rules.",
+          "locationName":"Rule"
+        }
+      },
+      "documentation":"Container for replication rules. You can add as many as 1,000 rules. Total replication configuration size can be up to 2 MB."
+    },
+    "ReplicationRule":{
+      "type":"structure",
+      "required":[
+        "Prefix",
+        "Status",
+        "Destination"
+      ],
+      "members":{
+        "ID":{
+          "shape":"ID",
+          "documentation":"Unique identifier for the rule. The value cannot be longer than 255 characters."
+        },
+        "Prefix":{
+          "shape":"Prefix",
+          "documentation":"Object keyname prefix identifying one or more objects to which the rule applies. Maximum prefix length can be up to 1,024 characters. Overlapping prefixes are not supported."
+        },
+        "Status":{
+          "shape":"ReplicationRuleStatus",
+          "documentation":"The rule is ignored if status is not Enabled."
+        },
+        "Destination":{"shape":"Destination"}
+      }
+    },
+    "ReplicationRuleStatus":{
+      "type":"string",
+      "enum":[
+        "Enabled",
+        "Disabled"
+      ]
+    },
+    "ReplicationRules":{
+      "type":"list",
+      "member":{"shape":"ReplicationRule"},
+      "flattened":true
+    },
+    "ReplicationStatus":{
+      "type":"string",
+      "enum":[
+        "COMPLETE",
+        "PENDING",
+        "FAILED",
+        "REPLICA"
+      ]
+    },
+    "RequestCharged":{
+      "type":"string",
+      "enum":["requester"],
+      "documentation":"If present, indicates that the requester was successfully charged for the request."
+    },
+    "RequestPayer":{
+      "type":"string",
+      "enum":["requester"],
+      "documentation":"Confirms that the requester knows that she or he will be charged for the request. Bucket owners need not specify this parameter in their requests. Documentation on downloading objects from requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html"
+    },
     "RequestPaymentConfiguration":{
       "type":"structure",
       "required":["Payer"],
@@ -3840,6 +4268,16 @@
     "ResponseContentType":{"type":"string"},
     "ResponseExpires":{"type":"timestamp"},
     "Restore":{"type":"string"},
+    "RestoreObjectOutput":{
+      "type":"structure",
+      "members":{
+        "RequestCharged":{
+          "shape":"RequestCharged",
+          "location":"header",
+          "locationName":"x-amz-request-charged"
+        }
+      }
+    },
     "RestoreObjectRequest":{
       "type":"structure",
       "required":[
@@ -3866,6 +4304,11 @@
           "shape":"RestoreRequest",
           "xmlNamespace":{"uri":"http://s3.amazonaws.com/doc/2006-03-01/"},
           "locationName":"RestoreRequest"
+        },
+        "RequestPayer":{
+          "shape":"RequestPayer",
+          "location":"header",
+          "locationName":"x-amz-request-payer"
         }
       },
       "payload":"RestoreRequest"
@@ -3880,6 +4323,7 @@
         }
       }
     },
+    "Role":{"type":"string"},
     "RoutingRule":{
       "type":"structure",
       "required":["Redirect"],
@@ -4004,13 +4448,33 @@
       }
     },
     "TargetPrefix":{"type":"string"},
-    "Topic":{"type":"string"},
+    "TopicArn":{"type":"string"},
     "TopicConfiguration":{
+      "type":"structure",
+      "required":[
+        "TopicArn",
+        "Events"
+      ],
+      "members":{
+        "Id":{"shape":"NotificationId"},
+        "TopicArn":{
+          "shape":"TopicArn",
+          "documentation":"Amazon SNS topic ARN to which Amazon S3 will publish a message when it detects events of specified type.",
+          "locationName":"Topic"
+        },
+        "Events":{
+          "shape":"EventList",
+          "locationName":"Event"
+        }
+      },
+      "documentation":"Container for specifying the configuration when you want Amazon S3 to publish events to an Amazon Simple Notification Service (Amazon SNS) topic."
+    },
+    "TopicConfigurationDeprecated":{
       "type":"structure",
       "members":{
         "Id":{"shape":"NotificationId"},
         "Events":{
-          "shape":"Events",
+          "shape":"EventList",
           "locationName":"Event"
         },
         "Event":{
@@ -4019,10 +4483,15 @@
           "documentation":"Bucket event for which to send notifications."
         },
         "Topic":{
-          "shape":"Topic",
+          "shape":"TopicArn",
           "documentation":"Amazon SNS topic to which Amazon S3 will publish a message to report the specified events for the bucket."
         }
       }
+    },
+    "TopicConfigurationList":{
+      "type":"list",
+      "member":{"shape":"TopicConfiguration"},
+      "flattened":true
     },
     "Transition":{
       "type":"structure",
@@ -4051,9 +4520,7 @@
         "CanonicalUser",
         "AmazonCustomerByEmail",
         "Group"
-      ],
-      "xmlAttribute":true,
-      "locationName":"xsi:type"
+      ]
     },
     "URI":{"type":"string"},
     "UploadIdMarker":{"type":"string"},
@@ -4090,6 +4557,11 @@
           "location":"header",
           "locationName":"x-amz-server-side-encryption-aws-kms-key-id",
           "documentation":"If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object."
+        },
+        "RequestCharged":{
+          "shape":"RequestCharged",
+          "location":"header",
+          "locationName":"x-amz-request-charged"
         }
       },
       "payload":"CopyPartResult"
@@ -4197,6 +4669,11 @@
           "location":"header",
           "locationName":"x-amz-copy-source-server-side-encryption-customer-key-MD5",
           "documentation":"Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error."
+        },
+        "RequestPayer":{
+          "shape":"RequestPayer",
+          "location":"header",
+          "locationName":"x-amz-request-payer"
         }
       }
     },
@@ -4232,6 +4709,11 @@
           "location":"header",
           "locationName":"x-amz-server-side-encryption-aws-kms-key-id",
           "documentation":"If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object."
+        },
+        "RequestCharged":{
+          "shape":"RequestCharged",
+          "location":"header",
+          "locationName":"x-amz-request-charged"
         }
       }
     },
@@ -4298,6 +4780,11 @@
           "location":"header",
           "locationName":"x-amz-server-side-encryption-customer-key-MD5",
           "documentation":"Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error."
+        },
+        "RequestPayer":{
+          "shape":"RequestPayer",
+          "location":"header",
+          "locationName":"x-amz-request-payer"
         }
       },
       "payload":"Body"

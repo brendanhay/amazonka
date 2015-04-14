@@ -21,4 +21,3 @@ install:
 script:
   - make travis
   - make sdist
-

@@ -1,13 +1,17 @@
 #!/usr/bin/env bash
 
 set -e
+set -x
 
-doc=$HOME/Projects/aws-doc
-libs=$HOME/Projects/amazonka/amazonka-*
+ver=7.10.1
+proj=$HOME/proj
+doc=$proj/aws-doc
+libs=$proj/amazonka/amazonka-*
 
 standalone-haddock \
  -o $doc \
- --package-db $HOME/Projects/amazonka/.cabal-sandbox/x86_64-osx-ghc-7.8.4-packages.conf.d \
+ --package-db $HOME/.ghc/x86_64-linux-$ver/package.conf.d \
+ --package-db $proj/amazonka/.cabal-sandbox/x86_64-linux-ghc-$ver-packages.conf.d \
  amazonka core $libs
 
 cd $doc

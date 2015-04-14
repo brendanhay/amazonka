@@ -5,6 +5,9 @@ endif
 CABAL_CONFIG     := $(TOP)/share/cabal.config
 STACKAGE_NIGHTLY ?= $(shell date -d "yesterday 13:00 " '+%Y-%m-%d')
 
+cabal.config.stripped: cabal.config
+	sed -i "/\b\(amazonka\)\b/d" $(CABAL_CONFIG)
+
 cabal.config: $(CABAL_CONFIG)
 	ln -fs $(TOP)/share/cabal.config $@
 

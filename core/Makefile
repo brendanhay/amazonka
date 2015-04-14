@@ -8,7 +8,7 @@ include $(TOP)/share/library.mk
 
 test: cabal.config.stripped
 	ln -fs $(CABAL_SANDBOX_CONFIG) cabal.sandbox.config && \
- cabal install --only-dep && \
+ cabal install --enable-tests --only-dep && \
  cabal configure --enable-tests && \
  cabal build && \
  cabal test

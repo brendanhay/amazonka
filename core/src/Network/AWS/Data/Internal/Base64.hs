@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 
 module Network.AWS.Data.Internal.Base64
-    ( Base64
+    ( Base64 (..)
     ) where
 
 import           Data.Aeson.Types

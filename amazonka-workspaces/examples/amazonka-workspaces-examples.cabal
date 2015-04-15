@@ -1,0 +1,33 @@
+name:                  amazonka-workspaces-examples
+version:               0.3.4
+synopsis:              Amazon WorkSpaces SDK Examples
+homepage:              https://github.com/brendanhay/amazonka
+license:               MPL-2.0
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
+copyright:             Copyright (c) 2013-2014 Brendan Hay
+category:              Network, AWS, Cloud, Distributed Computing
+build-type:            Simple
+cabal-version:         >= 1.10
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src
+
+    ghc-options:       -Wall -threaded
+
+    exposed-modules:
+        WorkSpaces
+
+    build-depends:
+        amazonka      == 0.3.4.*
+      , amazonka-core == 0.3.4.*
+      , amazonka-workspaces == 0.3.4.*
+      , base          >= 4.7     && < 5
+      , bytestring    >= 0.9
+      , conduit       >= 1.1
+      , lens          >= 4.4
+      , lifted-base
+      , text          >= 1.1
+      , time          >= 1.4
+      , transformers  >= 0.2

@@ -52,7 +52,8 @@ JSON := \
  ssm \
  storagegateway \
  support \
- swf
+ swf \
+ workspaces
 
 MODELS ?= $(QUERY) $(XML) $(JSON)
 

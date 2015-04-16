@@ -36,7 +36,7 @@ instance AWSService {{ service.abbrev }} where
         check (statusCode -> s) (awsErrorCode -> e)
         {% for policy in service.retryPolicies %}
           {% if policy.value.error | defined %}
-            | s == {{ policy.value.code }} && Just "{{ policy.value.error }}" == e = True -- {{ policy.key | toTitle }}
+            | s == {{ policy.value.code }} && (Just "{{ policy.value.error }}") == e = True -- {{ policy.key | toTitle }}
           {% endif %}
         {% endfor %}
         {% for policy in service.retryPolicies %}

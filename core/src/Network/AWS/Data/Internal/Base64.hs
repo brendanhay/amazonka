@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 
 module Network.AWS.Data.Internal.Base64
-    ( Base64
+    ( Base64 (..)
     ) where
 
 import           Data.Aeson.Types
@@ -28,6 +28,8 @@ import           Network.AWS.Data.Internal.Text
 import           Network.AWS.Data.Internal.XML
 
 -- | Base64 encoded binary data.
+--
+-- Encoding/decoding is deferred to serialisation/deserialisation respectively.
 newtype Base64 = Base64 { unBase64 :: ByteString }
     deriving (Eq, Read, Ord, Generic)
 

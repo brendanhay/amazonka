@@ -523,7 +523,7 @@ instance AWSService S3 where
               -> RESTError
               -> Bool
         check (statusCode -> s) (awsErrorCode -> e)
-            | s == 400 && Just "RequestTimeout" == e = True -- Timeouts
+            | s == 400 && (Just "RequestTimeout") == e = True -- Timeouts
             | s == 500  = True -- General Server Error
             | s == 509  = True -- Limit Exceeded
             | s == 503  = True -- Service Unavailable

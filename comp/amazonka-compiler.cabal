@@ -2,7 +2,7 @@ name:                  amazonka-compiler
 version:               0.3.0
 synopsis:              Amazonka Compiler
 homepage:              https://github.com/brendanhay/amazonka
-license:               nOtherLicense
+license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay@gmail.com>

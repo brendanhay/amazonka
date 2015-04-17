@@ -45,7 +45,7 @@ executable compile
           aeson
         , aeson-pretty
         , attoparsec
-        , base
+        , base                 == 4.8.*
         , bifunctors
         , bytestring
         , case-insensitive
@@ -74,6 +74,5 @@ executable compile
         , text-manipulate      >= 0.2
         , text-regex-replace   >= 0.1.0.1
         , transformers
---        , transformers-compat
         , unordered-containers
         , vector

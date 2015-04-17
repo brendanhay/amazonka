@@ -60,7 +60,7 @@ MODELS ?= $(QUERY) $(XML) $(JSON)
 .PHONY: compile
 
 compile: build
-	dist/build/amazonka-compile/amazonka-compile \
+	dist/build/amazonka-compiler/compile \
  --out=../ \
  --version=$(VERSION) \
  --overrides=override \

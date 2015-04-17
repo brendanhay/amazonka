@@ -26,6 +26,7 @@ tags
 .*.sw[a-z]
 *.un~
 *.org
+.projectile
 
 # OSX
 .DS_Store

@@ -21,58 +21,19 @@ executable compile
     main-is:           Main.hs
 
     other-modules:
-          Gen.AST
-        , Gen.Documentation
-        , Gen.IO
-        , Gen.JSON
-        , Gen.Library
-        , Gen.Model
-        , Gen.Model.Endpoint
-        , Gen.Model.Index
-        , Gen.Model.Paginator
-        , Gen.Model.Retrier
-        , Gen.Model.URI
-        , Gen.Model.Waiter
-        , Gen.OrdMap
-        , Gen.Override
-        , Gen.TH
-        , Gen.Text
-        , Gen.Types
 
     ghc-options:       -Wall -threaded
 
     build-depends:
-          aeson
-        , aeson-pretty
-        , attoparsec
-        , base                 == 4.8.*
-        , bifunctors
+          base                 == 4.8.*
         , bytestring
-        , case-insensitive
-        , data-default-class
-        , directory-tree
         , ede                  >= 0.2.4
         , errors
-        , hashable
-        , haskell-src-exts     >= 1.16
-        , hindent
-        , jason
         , lens
         , mtl
         , optparse-applicative
-        , pandoc
-        , parsec
-        , scientific
-        , semigroups
-        , semver
-        , stylish-haskell
         , system-fileio
         , system-filepath
-        , template-haskell
         , text
-        , text-icu
-        , text-manipulate      >= 0.2
-        , text-regex-replace   >= 0.1.0.1
         , transformers
         , unordered-containers
-        , vector

@@ -1,7 +1,7 @@
 SHELL     := /usr/bin/env bash
 TOP       := ..
 VERSION   := $(shell sed -n 's/^version: *\(.*\)$$/\1/p' amazonka-compiler.cabal)
-DEPS      := vendor/botocore vendor/jason vendor/text-regex-replace
+DEPS      := vendor/botocore vendor/jason
 MODEL_DIR := model
 
 CABAL_INSTALL_DEFARGS ?= -j --disable-documentation --disable-coverage
@@ -49,11 +49,14 @@ JSON := \
  kms \
  lambda \
  logs \
+ machinelearning \
  opsworks \
  route53domains \
+ ssm \
  storagegateway \
  support \
- swf
+ swf \
+ workspaces
 
 MODELS ?= $(QUERY) $(XML) $(JSON)
 
@@ -84,15 +87,11 @@ full-clean: clean
 
 include ../share/stackage.mk
 
-add-sources: cabal.sandbox.config $(DEPS) # cabal.config
-	cabal sandbox add-source vendor/text-regex-replace
+add-sources: $(DEPS) cabal.sandbox.config cabal.config
 	cabal sandbox add-source vendor/jason
 
 cabal.sandbox.config:
 	cabal sandbox init
-
-vendor/text-regex-replace:
-	git clone git@github.com:erochest/text-regex-replace $@
 
 vendor/botocore:
 	git clone git@github.com:boto/botocore $@

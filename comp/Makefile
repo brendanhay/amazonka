@@ -57,10 +57,10 @@ JSON := \
 
 MODELS ?= $(QUERY) $(XML) $(JSON)
 
-.PHONY: gen
+.PHONY: compile
 
-gen: build
-	dist/build/amazonka-gen/amazonka-gen \
+compile: build
+	dist/build/amazonka-compile/amazonka-compile \
  --out=../ \
  --version=$(VERSION) \
  --overrides=override \

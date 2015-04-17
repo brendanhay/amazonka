@@ -1,0 +1,42 @@
+{{ shape.value.comment }}
+{{ shape.value.declaration }}
+
+instance FromText {{ shape.key }} where
+    parser = takeLowerText >>= \case
+      {% for ctor in shape.value.constructors %}
+        "{{ ctor.value }}" -> pure {{ ctor.key }}
+      {% endfor %}
+        e -> fail ("Failure parsing {{ shape.key }} from " ++ show e)
+
+instance ToText {{ shape.key }} where
+    toText = \case
+      {% for ctor in shape.value.constructors %}
+        {{ ctor.key }} -> "{{ ctor.value }}"
+      {% endfor %}
+
+instance Hashable {{ shape.key }}
+{% for inst in shape.value.instances %}
+  {% case inst.value %}
+  {% when "to-query" %}
+
+instance ToQuery {{ shape.key }}
+  {% when "from-json" %}
+
+instance FromJSON {{ shape.key }} where
+    parseJSON = parseJSONText "{{ shape.key }}"
+  {% when "to-json" %}
+
+instance ToJSON {{ shape.key }} where
+    toJSON = toJSONText
+  {% when "from-xml" %}
+
+instance FromXML {{ shape.key }} where
+    parseXML = parseXMLText "{{ shape.key }}"
+  {% when "to-xml" %}
+
+instance ToXML {{ shape.key }} where
+    toXML = toXMLText
+  {% else %}
+Error: Attempting to render unrecognized instance '{{ inst.value }}'
+  {% endcase %}
+{% endfor %}

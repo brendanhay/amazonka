@@ -1,0 +1,14 @@
+{
+    "url": "http://docs.aws.amazon.com/awssupport/latest/APIReference/Welcome.html",
+    "operationUrl": "http://docs.aws.amazon.com/awssupport/latest/APIReference/API_",
+    "library": "amazonka-support",
+    "documentation": "AWS Support is a one-on-one, fast-response support channel that is staffed with experienced support personnel. The service helps customers get the most from the products and features provided by Amazon Web Services. There are four levels, or tiers, of AWS Support: Basic, Developer, Business, and Enterprise. The Basic tier is free of charge and offers support for account and billing questions and service limit increases. The other tiers offer an unlimited number of technical support cases with pay-by-the-month pricing and no long-term contracts, providing developers and businesses flexibility to choose the level of support that meets their needs.",
+    "metadata": {
+        "serviceAbbreviation": "Support"
+    },
+    "overrides": {
+        "Service": {
+            "rename_to": "SupportService"
+        }
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/Welcome.html",
+    "operationUrl": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_",
+    "library": "amazonka-opsworks",
+    "documentation": "AWS OpsWorks provides a simple and flexible way to create and manage stacks and applications. With AWS OpsWorks, you can provision AWS resources, manage their configuration, deploy applications to those resources, and monitor their health.",
+    "metadata": {
+        "serviceAbbreviation": "OpsWorks"
+    },
+    "overrides": {
+        "ServiceError": {
+            "rename_to": "ServiceError'"
+        }
+    }
+}

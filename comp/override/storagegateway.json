@@ -1,0 +1,14 @@
+{
+    "url": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/Welcome.html",
+    "operationUrl": "http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_",
+    "library": "amazonka-storagegateway",
+    "documentation": "AWS Storage Gateway is a service that connects an on-premises software appliance with cloud-based storage to provide seamless and secure integration between your on-premises IT environment and AWS's storage infrastructure.",
+    "metadata": {
+        "serviceAbbreviation": "StorageGateway"
+       },
+    "overrides": {
+        "StorageGatewayError": {
+            "rename_to": "Error'"
+        }
+    }
+}

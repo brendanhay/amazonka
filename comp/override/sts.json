@@ -1,0 +1,9 @@
+{
+    "url": "http://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html",
+    "operationUrl": "http://docs.aws.amazon.com/STS/latest/APIReference/API_",
+    "library": "amazonka-sts",
+    "documentation": "The AWS Security Token Service (STS) is a web service that enables you to request temporary, limited-privilege credentials for AWS Identity and Access Management (IAM) users or for users that you authenticate (federated users).",
+    "metadata": {
+        "serviceAbbreviation": "STS"
+    }
+}

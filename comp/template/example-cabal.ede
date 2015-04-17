@@ -1,10 +1,6 @@
-name:                  amazonka-workspaces-examples
-<<<<<<< HEAD
-version:               0.3.6
-=======
-version:               0.3.4
->>>>>>> Beginning new exploratory AST/generator improvements
-synopsis:              Amazon WorkSpaces SDK Examples
+name:                  {{ library }}-examples
+version:               {{ version }}
+synopsis:              {{ name }} SDK Examples
 homepage:              https://github.com/brendanhay/amazonka
 license:               MPL-2.0
 author:                Brendan Hay
@@ -21,23 +17,17 @@ library
     ghc-options:       -Wall -threaded
 
     exposed-modules:
-        WorkSpaces
+        {{ abbrev }}
 
     build-depends:
-<<<<<<< HEAD
-        amazonka      == 0.3.6.*
-      , amazonka-core == 0.3.6.*
-      , amazonka-workspaces == 0.3.6.*
-=======
-        amazonka      == 0.3.4.*
-      , amazonka-core == 0.3.4.*
-      , amazonka-workspaces == 0.3.4.*
->>>>>>> Beginning new exploratory AST/generator improvements
+        amazonka      == {{ version }}.*
+      , amazonka-core == {{ version }}.*
+      , {{ library }} == {{ version }}.*
       , base          >= 4.7     && < 5
       , bytestring    >= 0.9
-      , conduit       >= 1.1
-      , lens          >= 4.4
+      , conduit       >= 1.1     && < 1.3
+      , lens          >= 4.3     && < 5
       , lifted-base
       , text          >= 1.1
       , time          >= 1.4
-      , transformers  >= 0.2
+      , transformers  == 0.4.*

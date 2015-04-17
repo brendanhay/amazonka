@@ -1,5 +1,9 @@
 name:                  amazonka-workspaces
+<<<<<<< HEAD
 version:               0.3.6
+=======
+version:               0.3.4
+>>>>>>> Beginning new exploratory AST/generator improvements
 synopsis:              Amazon WorkSpaces SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -49,5 +53,9 @@ library
     other-modules:
 
     build-depends:
+<<<<<<< HEAD
           amazonka-core == 0.3.6.*
+=======
+          amazonka-core == 0.3.4.*
+>>>>>>> Beginning new exploratory AST/generator improvements
         , base          >= 4.7     && < 5

@@ -1,0 +1,68 @@
+{{ shape.value.comment }}
+--
+-- /See:/ '{{ shape.value.constructor.name }}' smart constructor.
+{% for lens in shape.value.lenses %}
+  {% if lens.first %}
+--
+-- The fields accessible through corresponding lenses are:
+  {% endif %}
+--
+-- * '{{ lens.value.name }}'
+{% endfor %}
+{{ shape.value.declaration }}
+
+{{ shape.value.constructor.comment }}
+{{ shape.value.constructor.signature }}
+{{ shape.value.constructor.declaration }}
+{% for lens in shape.value.lenses %}
+
+{{ lens.value.comment }}
+{{ lens.value.signature }}
+{{ lens.value.declaration }}
+{% endfor %}
+{% for inst in shape.value.instances %}
+  {% case inst.value %}
+  {% when "to-query" %}
+
+instance ToQuery {{ shape.key }} where
+    toQuery {{ shape.key }}{..} = mconcat
+      {% for field in shape.value.fields %}
+        {% include "list.ede" %} "{{ field.value }}" =? {{ field.key }}
+      {% endfor %}
+        ]
+  {% when "from-json" %}
+
+instance FromJSON {{ shape.key }} where
+    parseJSON = withObject "{{ shape.key }}" $ \o -> {{ shape.key }}
+      {% for field in shape.value.fields %}
+        {% include "applicative.ede" %} o .: "{{ field.value }}"
+      {% endfor %}
+  {% when "to-json" %}
+
+instance ToJSON {{ shape.key }} where
+    toJSON {{ shape.key }}{..} = object
+      {% for field in shape.value.fields %}
+        {% include "list.ede" %} "{{ field.value }}" .= {{ field.key }}
+      {% endfor %}
+        ]
+  {% when "from-xml" %}
+
+instance FromXML {{ shape.key }} where
+    parseXML x = {{ shape.key }}
+      {% for field in shape.value.fields %}
+        {% include "applicative.ede" %} x .@ "{{ field.value }}"
+      {% endfor %}
+  {% when "to-xml" %}
+
+instance ToXML {{ shape.key }} where
+    toXMLRoot = namespaced ns "{{ shape.key }}"
+    toXML {{ shape.key }}{..} = nodes "{{ shape.key }}"
+      {% for field in shape.value.fields %}
+        {% include "list.ede" %} "{{ field.value }}" =@ {{ field.key }}
+      {% endfor %}
+        ]
+  {% else %}
+
+Error: Attempting to render unrecognized instance '{{ inst.value }}'
+  {% endcase %}
+{% endfor %}

@@ -1,0 +1,35 @@
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TypeFamilies      #-}
+
+{% include "_include/license.ede" %}
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+module {{ namespace }} where
+
+{% include "_include/imports.ede" %}
+import Network.AWS.Waiters
+{% for waiter in waiters %}
+
+{{ waiter.key | waiter }} :: Wait {{ waiter.value.operation }}
+{{ waiter.key | waiter }} = Wait
+    { _waitName      = "{{ waiter.key }}"
+    , _waitAttempts  = {{ waiter.value.maxAttempts }}
+    , _waitDelay     = {{ waiter.value.delay }}
+    , _waitAcceptors =
+    {% for accept in waiter.value.acceptors %}
+      {% case accept.value.matcher %}
+      {% when "matchError" %}
+        {% include "_include/list.ede" with field = accept %} {{ accept.value.matcher }} {{ accept.value.expected }} Accept{{ accept.value.state | upperHead }}
+      {% when "matchStatus" %}
+        {% include "_include/list.ede" with field = accept %} {{ accept.value.matcher }} {{ accept.value.expected }} Accept{{ accept.value.state | upperHead }}
+      {% else %}
+        {% include "_include/list.ede" with field = accept %} {{ accept.value.matcher }} {{ accept.value.expected }} Accept{{ accept.value.state | upperHead }}
+            {{ accept.value.argument | wrapped }}
+      {% endcase %}
+    {% else %}
+        [
+    {% endfor %}
+        ]
+    }
+{% endfor %}

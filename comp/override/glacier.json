@@ -1,0 +1,9 @@
+{
+    "url": "http://docs.aws.amazon.com/amazonglacier/latest/dev/introduction.html",
+    "operationUrl": "http://docs.aws.amazon.com/amazonglacier/latest/dev/api-",
+    "library": "amazonka-glacier",
+    "documentation": "Amazon Glacier is a secure, durable, and extremely low-cost storage service for data archiving and online backup. Customers can reliably store large or small amounts of data for as little as $0.01 per gigabyte per month, a significant savings compared to on-premises solutions. To keep costs low, Amazon Glacier is optimized for infrequently accessed data where a retrieval time of several hours is suitable.",
+    "metadata": {
+        "serviceAbbreviation": "Glacier"
+    }
+}

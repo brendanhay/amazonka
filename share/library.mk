@@ -30,7 +30,7 @@ configure:
 
 clean:
 	cabal clean
-	rm -f cabal.config
+	-rm cabal.config
 
 sdist:
 	cabal sdist

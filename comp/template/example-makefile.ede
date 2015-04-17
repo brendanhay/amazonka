@@ -1,0 +1,4 @@
+TOP    := ../..
+PARENT := {{ library }}
+
+include $(TOP)/share/examples.mk

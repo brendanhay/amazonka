@@ -1,0 +1,9 @@
+{
+    "url": "http://docs.aws.amazon.com/cloudsearch/latest/developerguide/what-is-cloudsearch.html",
+    "operationUrl": "http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_",
+    "library": "amazonka-cloudsearch-domains",
+    "documentation": "Pending",
+    "metadata": {
+        "serviceAbbreviation": "CloudSearchDomains"
+    }
+}

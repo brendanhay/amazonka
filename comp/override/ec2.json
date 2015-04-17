@@ -1,0 +1,235 @@
+{
+    "url": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Welcome.html",
+    "operationUrl": "http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-",
+    "library": "amazonka-ec2",
+    "documentation": "Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides resizable compute capacity in the cloud. It is designed to make web-scale computing easier for developers. Amazon EC2’s simple web service interface allows you to obtain and configure capacity with minimal friction. It provides you with complete control of your computing resources and lets you run on Amazon’s proven computing environment. Amazon EC2 reduces the time required to obtain and boot new server instances to minutes, allowing you to quickly scale capacity, both up and down, as your computing requirements change. Amazon EC2 changes the economics of computing by allowing you to pay only for capacity that you actually use. Amazon EC2 provides developers the tools to build failure resilient applications and isolate themselves from common failure scenarios.",
+    "metadata": {
+        "serviceAbbreviation": "EC2"
+    },
+    "typeModules": [
+        "Network.AWS.EC2.Internal"
+    ],
+    "ignoreWaiters": [
+        "ConversionTaskDeleted"
+    ],
+    "overrides": {
+        "RouteOrigin": {
+            "sum_prefix": "Origin"
+        },
+        "InstanceAttributeName": {
+            "sum_prefix": "Instance"
+        },
+        "ImageAttributeName": {
+            "sum_prefix": "Image"
+        },
+        "IpRange": {
+            "required": [
+                "CidrIp"
+            ]
+        },
+        "IpPermission": {
+            "required": [
+                "IpProtocol",
+                "FromPort",
+                "ToPort"
+            ],
+            "rename": {
+                "UserIdGroupPairs": "Groups"
+            }
+        },
+        "InternetGateway": {
+            "required": [
+                "InternetGatewayId"
+            ]
+        },
+        "InternetGatewayAttachment": {
+            "required": [
+                "State",
+                "VpcId"
+            ]
+        },
+        "Filter": {
+            "required": [
+                "Name"
+            ]
+        },
+        "BlockDeviceMapping": {
+            "required": [
+                "DeviceName"
+            ]
+        },
+        "SecurityGroup": {
+            "required": [
+                "OwnerId",
+                "GroupId",
+                "GroupName",
+                "Description"
+            ]
+        },
+        "Image": {
+            "required": [
+                "ImageId",
+                "ImageLocation",
+                "State",
+                "OwnerId",
+                "Public",
+                "Architecture",
+                "ImageType",
+                "RootDeviceType",
+                "VirtualizationType",
+                "Hypervisor"
+            ]
+        },
+        "InstanceState": {
+            "required": [
+                "Name",
+                "Code"
+            ]
+        },
+        "Tag": {
+            "required": [
+                "Key",
+                "Value"
+            ]
+        },
+        "TagDescription": {
+            "required": [
+                "ResourceId",
+                "ResourceType",
+                "Key",
+                "Value"
+            ]
+        },
+        "KeyPair": {
+            "required": [
+                "KeyName",
+                "KeyFingerprint",
+                "KeyMaterial"
+            ]
+        },
+        "InstanceType": {
+            "sum_prefix": ""
+        },
+        "CreateSecurityGroupResult": {
+            "required": [
+                "GroupId"
+            ]
+        },
+        "VpnConnection": {
+            "required": [
+                "VpnConnectionId",
+                "CustomerGatewayId",
+                "Customergatewayconfiguration",
+                "State",
+                "Type"
+            ]
+        },
+        "Snapshot": {
+            "required": [
+                "SnapshotId",
+                "OwnerId",
+                "VolumeId",
+                "VolumeSize",
+                "Description",
+                "StartTime",
+                "Progress",
+                "State",
+                "Encrypted"
+            ]
+        },
+        "Reservation": {
+            "required": [
+                "ReservationId",
+                "OwnerId"
+            ]
+        },
+        "Instance": {
+            "required": [
+                "InstanceId",
+                "ImageId",
+                "AmiLaunchIndex",
+                "InstanceType",
+                "LaunchTime",
+                "Placement",
+                "Monitoring",
+                "Architecture",
+                "RootDeviceType",
+                "VirtualizationType",
+                "Hypervisor",
+                "EbsOptimized",
+                "State"
+            ]
+        },
+        "BundleTask": {
+            "required": [
+                "BundleId",
+                "InstanceId",
+                "Progress",
+                "StartTime",
+                "State",
+                "Storage",
+                "UpdateTime"
+            ]
+        },
+        "Vpc": {
+            "required": [
+                "CidrBlock",
+                "DhcpOptionsId",
+                "InstanceTenancy",
+                "IsDefault",
+                "State",
+                "VpcId"
+            ]
+        },
+        "ExportTask": {
+            "required": [
+                "Description",
+                "ExportTaskId",
+                "ExportToS3Task",
+                "InstanceExportDetails",
+                "State",
+                "StatusMessage"
+            ]
+        },
+        "Volume": {
+            "required": [
+                "AvailabilityZone",
+                "CreateTime",
+                "Encrypted",
+                "Size",
+                "SnapshotId",
+                "State",
+                "VolumeId",
+                "VolumeType"
+            ]
+        },
+        "Subnet": {
+            "required": [
+                "AvailabilityZone",
+                "AvailableIpAddressCount",
+                "CidrBlock",
+                "DefaultForAz",
+                "MapPublicIpOnLaunch",
+                "State",
+                "SubnetId",
+                "VpcId"
+            ]
+        },
+        "CustomerGateway": {
+            "required": [
+                "BgpAsn",
+                "CustomerGatewayId",
+                "IpAddress",
+                "State",
+                "Type"
+            ]
+        },
+        "OfferingTypeValues": {
+            "sum_values": {
+                "NoUpfront": "No Upfront",
+                "PartialUpfront": "Partial Upfront",
+                "AllUpfront": "All Upfront"
+            }
+        }
+    }
+}

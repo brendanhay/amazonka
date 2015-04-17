@@ -66,8 +66,8 @@ compile: build
 	dist/build/amazonka-compiler/compile \
  --out=../ \
  --version=$(VERSION) \
- --overrides=override \
- --templates=template \
+ --overrides=over \
+ --templates=tmpl \
  --assets=asset \
  --retry=$(MODEL_DIR)/_retry.json \
  $(addprefix --model=,$(addprefix $(MODEL_DIR)/,$(MODELS)))

@@ -1,6 +1,6 @@
 SHELL     := /usr/bin/env bash
 TOP       := ..
-VERSION   := 0.3.0
+VERSION   := $(shell sed -n 's/^version: *\(.*\)$$/\1/p' amazonka-compiler.cabal)
 DEPS      := vendor/botocore vendor/jason vendor/text-regex-replace
 MODEL_DIR := model
 

@@ -123,8 +123,9 @@ validate o = flip execStateT o $ do
     canon :: MonadIO m => FilePath -> m FilePath
     canon = liftIO . FS.canonicalizePath
 
--- main :: IO ()
--- main = runScript $ do
+main :: IO ()
+main = runScript $ return ()
+
 --     o <- scriptIO $ customExecParser (prefs showHelpOnError) options
 --         >>= validate
 

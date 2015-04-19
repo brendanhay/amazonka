@@ -27,7 +27,7 @@ executable compile
     build-depends:
           base                 == 4.8.*
         , bytestring
-        , ede                  >= 0.2.4
+        , ede
         , errors
         , lens
         , mtl

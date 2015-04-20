@@ -52,13 +52,13 @@ versionFromFile f
     | not (hasExtension f "json")
                 = failure ("Unexpected model version " % path) f
     | otherwise = do
-        let dir  = directory f
-            base = basename f
-        t <- parseTimeM True defaultTimeLocale (iso8601DateFormat Nothing) (encodeString base)
-            ?? format ("Unable to parse ISO8601 date " % path % " from " % path) base f
+        let d = directory f
+            b = basename f
+        t <- parseTimeM True defaultTimeLocale (iso8601DateFormat Nothing) (encodeString b)
+            ?? format ("Unable to parse ISO8601 date " % path % " from " % path) b f
         return $! Ver t f
-            (dir </> base <.> paginators)
-            (dir </> base <.> waiters)
+            (d </> b <.> paginators)
+            (d </> b <.> waiters)
 
 data Model = Model
     { _modName      :: Text
@@ -68,8 +68,8 @@ data Model = Model
 
 makeLenses ''Model
 
-override :: Path -> Model -> Path
-override dir m = dir </> fromText (_modName m) <.> "json"
+override :: Getter Model Path
+override = to (flip addExtension "json" . fromText . _modName)
 
 latest :: Getter Model Ver
 latest = to (NonEmpty.head . _modVersions)
@@ -78,13 +78,13 @@ unused :: Fold Model Ver
 unused = folding (NonEmpty.tail . _modVersions)
 
 modelFromDir :: Monad m => Dir -> EitherT LazyText m Model
-modelFromDir d@(Dir f xs) = do
-    let dir  = basename f
-        name = toTextIgnore dir
-        norm = filter (Text.isSuffixOf normal . toTextIgnore)
-    ys <- nempty _verDate <$> mapM versionFromFile (norm xs)
-    Model name d <$> ys
-        ?? format ("Failed to find any model versions for " % stext) name
-  where
-    nempty :: (Eq a, Ord b) => (a -> b) -> [a] -> Maybe (NonEmpty a)
-    nempty f = fmap (NonEmpty.sortBy (on compare (Down . f))) . nonEmpty . nub
+modelFromDir dir@(Dir p xs) = do
+    let d = basename p
+        n = toTextIgnore d
+        f = filter (Text.isSuffixOf normal . toTextIgnore)
+    ys <- ordNonEmpty _verDate <$> mapM versionFromFile (f xs)
+    Model n dir <$> ys
+        ?? format ("Failed to find any model versions for " % stext) n
+
+ordNonEmpty :: (Eq a, Ord b) => (a -> b) -> [a] -> Maybe (NonEmpty a)
+ordNonEmpty f = fmap (NonEmpty.sortBy (on compare (Down . f))) . nonEmpty . nub

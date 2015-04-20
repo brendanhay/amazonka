@@ -139,7 +139,7 @@ main = do
                 (m ^.. unused . verDate)
 
             api <- parseObject . mergeObjects =<< sequence
-                [ required (override _optOverrides m)
+                [ required (_optOverrides </> (m ^. override))
                 , required _verNormal
                 , optional _verWaiters
                 , optional _verPagers

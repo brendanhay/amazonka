@@ -85,6 +85,6 @@ modelFromDir d@(Dir f xs) = do
     ys <- nempty _verDate <$> mapM versionFromFile (norm xs)
     Model name d <$> ys
         ?? format ("Failed to find any model versions for " % stext) name
-
-nempty :: (Eq a, Ord b) => (a -> b) -> [a] -> Maybe (NonEmpty a)
-nempty f = fmap (NonEmpty.sortBy (on compare (Down . f))) . nonEmpty . nub
+  where
+    nempty :: (Eq a, Ord b) => (a -> b) -> [a] -> Maybe (NonEmpty a)
+    nempty f = fmap (NonEmpty.sortBy (on compare (Down . f))) . nonEmpty . nub

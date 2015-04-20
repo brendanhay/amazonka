@@ -21,9 +21,8 @@ import           Compiler.IO
 import           Compiler.JSON
 import           Compiler.Model
 import           Compiler.Types
-import           Control.Applicative
 import           Control.Error
-import           Control.Lens               hiding (over, (<.>), (??))
+import           Control.Lens               hiding ((<.>), (??))
 import           Control.Monad
 import           Control.Monad.Error
 import           Control.Monad.State
@@ -40,7 +39,7 @@ import qualified Filesystem                 as FS
 import           Filesystem.Path.CurrentOS
 import           Formatting
 import           Formatting.Time
-import           Options.Applicative
+import           Options.Applicative        hiding (optional)
 import qualified Text.EDE                   as EDE
 
 data Opt = Opt
@@ -124,7 +123,8 @@ validate o = flip execStateT o $ do
 
 main :: IO ()
 main = do
-    Opt{..} <- customExecParser (prefs showHelpOnError) options >>= validate
+    Opt{..} <- customExecParser (prefs showHelpOnError) options
+        >>= validate
 
     run $ do
         forM_ _optModels $ \f -> do
@@ -132,7 +132,6 @@ main = do
 
             m@Model{..} <- modelFromDir =<< listDirectory f
             let Ver{..} = m ^. latest
-                opath   = override _optOverrides m
 
             say ("Using " % stext % " version " % dateDash % ", out-of-date " % dateDashes)
                 _modName
@@ -140,19 +139,23 @@ main = do
                 (m ^.. unused . verDate)
 
             api <- parseObject . mergeObjects =<< sequence
-                [ required opath
+                [ required (override _optOverrides m)
                 , required _verNormal
                 , optional _verWaiters
                 , optional _verPagers
                 ]
 
+            obj <- return (api :: Object)
+
             return ()
 
         say ("Successfully processed " % int % " models.")
             (length _optModels)
-  where
-    required f = noteT (format ("Unable to find " % path) f) (readByteString f)
-        >>= decodeObject
 
-    optional f = runMaybeT (readByteString f)
-        >>= maybe (return mempty) decodeObject
+required :: MonadIO m => Path -> EitherT LazyText m Object
+required f = noteT (format ("Unable to find " % path) f) (readByteString f)
+    >>= decodeObject
+
+optional :: MonadIO m => Path -> EitherT LazyText m Object
+optional f = runMaybeT (readByteString f)
+    >>= maybe (return mempty) decodeObject

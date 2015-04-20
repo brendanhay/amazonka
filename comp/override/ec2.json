@@ -29,9 +29,7 @@
         },
         "IpPermission": {
             "required": [
-                "IpProtocol",
-                "FromPort",
-                "ToPort"
+                "IpProtocol"
             ],
             "rename": {
                 "UserIdGroupPairs": "Groups"
@@ -230,6 +228,34 @@
                 "PartialUpfront": "Partial Upfront",
                 "AllUpfront": "All Upfront"
             }
+        },
+        "GetPasswordDataResult": {
+            "required": [
+                "InstanceId",
+                "PasswordData",
+                "Timestamp"
+            ]
+        }
+    },
+    "waiters": {
+        "ImageAvailable": {
+            "operation": "DescribeImages",
+            "maxAttempts": 40,
+            "delay": 15,
+            "acceptors": [
+                {
+                    "state": "success",
+                    "matcher": "pathAll",
+                    "argument": "Images[].State",
+                    "expected": "available"
+                },
+                {
+                    "state": "failure",
+                    "matcher": "pathAny",
+                    "argument": "Images[].State",
+                    "expected": "deregistered"
+                }
+            ]
         }
     }
 }

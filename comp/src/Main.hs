@@ -2,6 +2,7 @@
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE OverloadedStrings     #-}
 {-# LANGUAGE RankNTypes            #-}
+{-# LANGUAGE RecordWildCards       #-}
 {-# LANGUAGE TemplateHaskell       #-}
 
 -- Module      : Main
@@ -16,51 +17,46 @@
 
 module Main (main) where
 
+import           Compiler.IO
+import           Compiler.JSON
+import           Compiler.Model
+import           Compiler.Types
 import           Control.Applicative
 import           Control.Error
-import           Control.Lens               hiding ((<.>), (??))
+import           Control.Lens               hiding (over, (<.>), (??))
 import           Control.Monad
 import           Control.Monad.Error
 import           Control.Monad.State
 import           Control.Monad.Trans.Except
 import           Data.Either
-import           Data.Jason                 (eitherDecode)
+import           Data.Jason
 import           Data.List                  (nub, sortBy)
-import           Data.List.NonEmpty         (NonEmpty (..))
-import qualified Data.List.NonEmpty         as NonEmpty
 import           Data.Monoid
 import qualified Data.SemVer                as SemVer
 import           Data.String
 import qualified Data.Text                  as Text
+import qualified Data.Text.Lazy             as LText
 import qualified Filesystem                 as FS
-import           Filesystem.Path.CurrentOS  hiding (encode)
-import           Gen.IO
-import qualified Gen.JSON                   as JSON
-import qualified Gen.Library                as Library
-import           Gen.Model
-import qualified Gen.Override               as Override
-import           Gen.Types
+import           Filesystem.Path.CurrentOS
+import           Formatting
+import           Formatting.Time
 import           Options.Applicative
-import           Prelude                    hiding (FilePath)
 import qualified Text.EDE                   as EDE
 
-data Options = Options
-    { _optOutput    :: FilePath
-    , _optModels    :: [FilePath]
-    , _optOverrides :: FilePath
-    , _optTemplates :: FilePath
-    , _optAssets    :: FilePath
-    , _optRetry     :: FilePath
+data Opt = Opt
+    { _optOutput    :: Path
+    , _optModels    :: [Path]
+    , _optOverrides :: Path
+    , _optTemplates :: Path
+    , _optAssets    :: Path
+    , _optRetry     :: Path
     , _optVersion   :: SemVer.Version
     } deriving (Show)
 
-makeLenses ''Options
+makeLenses ''Opt
 
-options :: ParserInfo Options
-options = info (helper <*> parser) fullDesc
-
-parser :: Parser Options
-parser = Options
+parser :: Parser Opt
+parser = Opt
     <$> option string
          ( long "out"
         <> metavar "DIR"
@@ -102,11 +98,14 @@ parser = Options
         <> metavar "VER"
         <> help "Version of the library to generate. [required]"
          )
+  where
+    string :: IsString a => ReadM a
+    string = eitherReader (Right . fromString)
 
-string :: IsString a => ReadM a
-string = eitherReader (Right . fromString)
+options :: ParserInfo Opt
+options = info (helper <*> parser) fullDesc
 
-validate :: MonadIO m => Options -> m Options
+validate :: MonadIO m => Opt -> m Opt
 validate o = flip execStateT o $ do
     sequence_
         [ check optOutput
@@ -117,32 +116,43 @@ validate o = flip execStateT o $ do
         ]
     mapM canon (o ^. optModels) >>= assign optModels
   where
-    check :: (MonadIO m, MonadState s m) => Lens' s FilePath -> m ()
+    check :: (MonadIO m, MonadState s m) => Lens' s Path -> m ()
     check l = gets (view l) >>= canon >>= assign l
 
-    canon :: MonadIO m => FilePath -> m FilePath
+    canon :: MonadIO m => Path -> m Path
     canon = liftIO . FS.canonicalizePath
 
 main :: IO ()
-main = runScript $ return ()
+main = do
+    Opt{..} <- customExecParser (prefs showHelpOnError) options >>= validate
 
---     o <- scriptIO $ customExecParser (prefs showHelpOnError) options
---         >>= validate
+    run $ do
+        forM_ _optModels $ \f -> do
+            say ("Retrieving model versions from " % path) f
 
---     t <- templates (o ^. optTemplates)
+            m@Model{..} <- modelFromDir =<< listDirectory f
+            let Ver{..} = m ^. latest
+                opath   = override _optOverrides m
 
---     forM_ (o ^. optModels) $ \d -> do
---         s <- model d (o ^. optOverrides)
+            say ("Using " % stext % " version " % dateDash % ", out-of-date " % dateDashes)
+                _modName
+                _verDate
+                (m ^.. unused . verDate)
 
---         -- mapM_ (\p -> AST.pretty p >>= scriptIO . LText.putStrLn . (<> "\n"))
---         --     . mapMaybe (uncurry AST.transform)
---         --     $ Map.toList (s ^. svcShapes)
+            api <- parseObject . mergeObjects =<< sequence
+                [ required opath
+                , required _verNormal
+                , optional _verWaiters
+                , optional _verPagers
+                ]
 
---         r <- Library.tree (o ^. optOutput) t (o ^. optVersion) s
---             >>= writeTree "Write Library"
+            return ()
 
---         copyDirectory (o ^. optAssets) (Library.root r)
+        say ("Successfully processed " % int % " models.")
+            (length _optModels)
+  where
+    required f = noteT (format ("Unable to find " % path) f) (readByteString f)
+        >>= decodeObject
 
---         say "Completed" (s ^. svcName)
-
---     say "Completed" (Text.pack $ show (length (o ^. optModels)) ++ " models.")
+    optional f = runMaybeT (readByteString f)
+        >>= maybe (return mempty) decodeObject

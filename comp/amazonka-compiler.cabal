@@ -25,15 +25,21 @@ executable compile
     ghc-options:       -Wall -threaded
 
     build-depends:
-          base                 == 4.8.*
+          aeson
+        , base                 == 4.8.*
         , bytestring
         , ede
         , errors
+        , formatting
+        , jason
         , lens
         , mtl
         , optparse-applicative
+        , semigroups
+        , semver
         , system-fileio
         , system-filepath
         , text
+        , time                 >= 1.5
         , transformers
         , unordered-containers

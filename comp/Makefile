@@ -63,10 +63,10 @@ MODELS ?= $(QUERY) $(XML) $(JSON)
 .PHONY: compile
 
 compile: build
-	dist/build/amazonka-compiler/compile \
+	dist/build/compile/compile \
  --out=../ \
  --version=$(VERSION) \
- --overrides=over \
+ --overrides=override \
  --templates=tmpl \
  --assets=asset \
  --retry=$(MODEL_DIR)/_retry.json \
@@ -87,7 +87,7 @@ full-clean: clean
 
 include ../share/stackage.mk
 
-add-sources: $(DEPS) cabal.sandbox.config cabal.config
+add-sources: $(DEPS) cabal.sandbox.config # cabal.config - removing until stackage supports 7.10
 	cabal sandbox add-source vendor/jason
 
 cabal.sandbox.config:

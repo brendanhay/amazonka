@@ -15,20 +15,13 @@ module Compiler.IO where
 import           Compiler.Types
 import           Control.Error
 import           Control.Monad.IO.Class
-import           Control.Monad.Trans
-import           Data.ByteString           (ByteString)
-import qualified Data.ByteString           as BS
-import           Data.List.NonEmpty        (NonEmpty (..), nonEmpty)
-import           Data.Text                 (Text)
-import qualified Data.Text                 as Text
-import qualified Data.Text.Lazy            as LText
-import           Data.Text.Lazy.Builder    (Builder, toLazyText)
-import qualified Data.Text.Lazy.IO         as LText
-import           Data.Time
-import qualified Filesystem                as FS
-import           Filesystem.Path.CurrentOS
-import           Formatting                hiding (left)
-import           Formatting.Internal       (runFormat)
+import           Data.ByteString        (ByteString)
+import qualified Data.Text.Lazy         as LText
+import           Data.Text.Lazy.Builder (toLazyText)
+import qualified Data.Text.Lazy.IO      as LText
+import qualified Filesystem             as FS
+import           Formatting             hiding (left)
+import           Formatting.Internal    (runFormat)
 
 listDirectory :: MonadIO m => Path -> EitherT LazyText m Dir
 listDirectory d = Dir d <$> io (FS.listDirectory d)

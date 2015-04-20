@@ -22,25 +22,20 @@ import           Compiler.JSON
 import           Compiler.Model
 import           Compiler.Types
 import           Control.Error
-import           Control.Lens               hiding ((<.>), (??))
+import           Control.Lens              hiding ((<.>), (??))
 import           Control.Monad
-import           Control.Monad.Error
+import           Control.Monad.Except
 import           Control.Monad.State
-import           Control.Monad.Trans.Except
-import           Data.Either
 import           Data.Jason
-import           Data.List                  (nub, sortBy)
 import           Data.Monoid
-import qualified Data.SemVer                as SemVer
+import qualified Data.SemVer               as SemVer
 import           Data.String
-import qualified Data.Text                  as Text
-import qualified Data.Text.Lazy             as LText
-import qualified Filesystem                 as FS
+import qualified Data.Text                 as Text
+import qualified Filesystem                as FS
 import           Filesystem.Path.CurrentOS
 import           Formatting
 import           Formatting.Time
-import           Options.Applicative        hiding (optional)
-import qualified Text.EDE                   as EDE
+import           Options.Applicative       hiding (optional)
 
 data Opt = Opt
     { _optOutput    :: Path
@@ -56,37 +51,37 @@ makeLenses ''Opt
 
 parser :: Parser Opt
 parser = Opt
-    <$> option string
+    <$> option isString
          ( long "out"
         <> metavar "DIR"
         <> help "Directory to place the generated library. [required]"
          )
 
-    <*> some (option string
+    <*> some (option isString
          ( long "model"
         <> metavar "PATH"
         <> help "Directory for a service's botocore models. [required]"
          ))
 
-    <*> option string
+    <*> option isString
          ( long "overrides"
         <> metavar "DIR"
         <> help "Directory containing amazonka overrides. [required]"
          )
 
-    <*> option string
+    <*> option isString
          ( long "templates"
         <> metavar "DIR"
         <> help "Directory containing ED-E templates. [required]"
          )
 
-    <*> option string
+    <*> option isString
          ( long "assets"
         <> metavar "PATH"
         <> help "Directory containing assets for generated libraries. [required]"
          )
 
-    <*> option string
+    <*> option isString
          ( long "retry"
         <> metavar "PATH"
         <> help "Path to the file containing retry definitions. [required]"
@@ -98,8 +93,8 @@ parser = Opt
         <> help "Version of the library to generate. [required]"
          )
   where
-    string :: IsString a => ReadM a
-    string = eitherReader (Right . fromString)
+    isString :: IsString a => ReadM a
+    isString = eitherReader (Right . fromString)
 
 options :: ParserInfo Opt
 options = info (helper <*> parser) fullDesc
@@ -145,7 +140,7 @@ main = do
                 , optional _verPagers
                 ]
 
-            obj <- return (api :: Object)
+            _   <- return (api :: Object)
 
             return ()
 

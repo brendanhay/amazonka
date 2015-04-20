@@ -16,8 +16,6 @@ module Compiler.Model where
 import           Compiler.Types
 import           Control.Error
 import           Control.Lens              hiding ((<.>), (??))
-import           Control.Monad.IO.Class
-import           Control.Monad.Trans
 import           Data.Function             (on)
 import           Data.List                 (nub)
 import           Data.List.NonEmpty        (NonEmpty (..), nonEmpty)
@@ -25,11 +23,7 @@ import qualified Data.List.NonEmpty        as NonEmpty
 import           Data.Ord
 import           Data.Text                 (Text)
 import qualified Data.Text                 as Text
-import qualified Data.Text.Lazy            as LText
-import           Data.Text.Lazy.Builder    (Builder, toLazyText)
-import qualified Data.Text.Lazy.IO         as LText
 import           Data.Time
-import qualified Filesystem                as FS
 import           Filesystem.Path.CurrentOS
 import           Formatting                hiding (left)
 

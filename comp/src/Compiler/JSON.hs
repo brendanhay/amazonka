@@ -16,27 +16,13 @@ module Compiler.JSON where
 
 import           Compiler.Types
 import           Control.Error
-import           Control.Monad.IO.Class
-import           Control.Monad.Trans
-import qualified Data.Aeson                as A
-import           Data.ByteString           (ByteString)
-import qualified Data.ByteString.Lazy      as LBS
-import           Data.Function             (on)
+import           Data.ByteString      (ByteString)
+import qualified Data.ByteString.Lazy as LBS
+import           Data.Function        (on)
 import           Data.Jason
 import           Data.Jason.Types
 import           Data.List
-import           Data.List                 (intersperse)
-import           Data.List.NonEmpty        (NonEmpty (..))
-import           Data.Monoid
-import           Data.Text                 (Text)
-import qualified Data.Text.Lazy            as LText
-import qualified Data.Text.Lazy.Builder    as Build
-import qualified Data.Text.Lazy.IO         as LText
-import           Data.Time
-import qualified Filesystem                as FS
-import qualified Filesystem.Path.CurrentOS as Path
-import           Formatting
-import           Formatting.Time
+import qualified Data.Text.Lazy       as LText
 
 decodeObject :: Monad m => ByteString -> EitherT LazyText m Object
 decodeObject = either (Control.Error.left . LText.pack) return

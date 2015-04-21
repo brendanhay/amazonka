@@ -28,6 +28,7 @@ executable compile
           aeson
         , base                 == 4.8.*
         , bytestring
+        , case-insensitive
         , ede
         , errors
         , formatting
@@ -35,11 +36,16 @@ executable compile
         , lens
         , mtl
         , optparse-applicative
+        , parsec
         , semigroups
         , semver
         , system-fileio
         , system-filepath
+        , template-haskell
         , text
+        , text-icu
+        , text-manipulate
+        , text-regex-replace
         , time                 >= 1.5
         , transformers
         , unordered-containers

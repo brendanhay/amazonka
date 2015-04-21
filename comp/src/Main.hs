@@ -17,6 +17,7 @@
 
 module Main (main) where
 
+import           Compiler.AST
 import           Compiler.IO
 import           Compiler.JSON
 import           Compiler.Model
@@ -128,7 +129,7 @@ main = do
             m@Model{..} <- modelFromDir =<< listDirectory f
             let Ver{..} = m ^. latest
 
-            say ("Using " % stext % " version " % dateDash % ", out-of-date " % dateDashes)
+            say ("Using " % stext % " version " % dateDash % ", ignoring " % dateDashes)
                 _modName
                 _verDate
                 (m ^.. unused . verDate)

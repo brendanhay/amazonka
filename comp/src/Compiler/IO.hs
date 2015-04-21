@@ -34,7 +34,7 @@ readByteString f = hushT $ do
     p <- isFile f
     if p
         then say ("Reading "  % path) f >> io (FS.readFile f)
-        else say ("Skipping " % path) f >> failure ("Missing " % path) f
+        else failure ("Missing " % path) f
 
 say :: MonadIO m => Format (EitherT LazyText m ()) a -> a
 say m = runFormat m (io . LText.putStrLn . toLazyText)

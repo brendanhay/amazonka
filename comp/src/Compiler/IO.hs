@@ -33,11 +33,14 @@ readByteString :: MonadIO m => Path -> MaybeT m ByteString
 readByteString f = hushT $ do
     p <- isFile f
     if p
-        then say ("Reading "  % path) f >> io (FS.readFile f)
+        then reply ("Reading "  % path) f >> io (FS.readFile f)
         else failure ("Missing " % path) f
 
 say :: MonadIO m => Format (EitherT LazyText m ()) a -> a
 say m = runFormat m (io . LText.putStrLn . toLazyText)
+
+reply :: MonadIO m => Format (EitherT LazyText m ()) a -> a
+reply = say . (" -> " %)
 
 run :: EitherT LazyText IO a -> IO a
 run = runScript . fmapLT LText.unpack

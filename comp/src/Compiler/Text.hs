@@ -41,8 +41,8 @@ stripLens t
     | "_" `Text.isPrefixOf` t = lowerHead (dropLower t)
     | otherwise               = t
 
-stripPrime :: Text -> Text
-stripPrime = stripSuffix "'"
+-- stripPrime :: Text -> Text
+-- stripPrime = stripSuffix "'"
 
 stripPrefix :: Text -> Text -> Text
 stripPrefix p t = Text.strip . fromMaybe t $ p `Text.stripPrefix` t

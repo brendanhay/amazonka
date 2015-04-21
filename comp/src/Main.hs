@@ -123,13 +123,15 @@ main = do
         >>= validate
 
     run $ do
-        forM_ _optModels $ \f -> do
-            say ("Retrieving model versions from " % path) f
+        let i = length _optModels
+
+        forM_ (zip [1..] _optModels) $ \(j, f) -> do
+            say ("[" % int % "/" % int % "] " % path) j i (filename f)
 
             m@Model{..} <- modelFromDir =<< listDirectory f
             let Ver{..} = m ^. latest
 
-            say ("Using " % stext % " version " % dateDash % ", ignoring " % dateDashes)
+            reply ("Using " % stext % " version " % dateDash % ", ignoring " % dateDashes)
                 _modName
                 _verDate
                 (m ^.. unused . verDate)
@@ -141,12 +143,13 @@ main = do
                 , optional _verPagers
                 ]
 
-            _   <- return (api :: Object)
+            reply ("Successfully parsed " % stext) (api ^. serviceFullName)
+
+            _   <- return (api :: API)
 
             return ()
 
-        say ("Successfully processed " % int % " models.")
-            (length _optModels)
+        say ("Successfully processed " % int % " models.") i
 
 required :: MonadIO m => Path -> EitherT LazyText m Object
 required f = noteT (format ("Unable to find " % path) f) (readByteString f)

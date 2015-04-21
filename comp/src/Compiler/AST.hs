@@ -14,12 +14,11 @@
 
 module Compiler.AST where
 
-import           Compiler.Text
 import           Compiler.TH
 import           Control.Lens
 import           Data.Jason
-import           Data.Text     (Text)
-import qualified Data.Text     as Text
+import           Data.Text    (Text)
+import qualified Data.Text    as Text
 
 data Signature
     = V2

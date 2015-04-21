@@ -41,7 +41,7 @@ data Ver = Ver
 
 makeLenses ''Ver
 
-versionFromFile :: Monad m => Path -> EitherT LazyText m Ver
+versionFromFile :: Monad m => Path -> Compiler m Ver
 versionFromFile f
     | not (hasExtension f "json")
                 = failure ("Unexpected model version " % path) f
@@ -56,7 +56,7 @@ versionFromFile f
 
 data Model = Model
     { _modName      :: Text
-    , _modDirectory :: Dir
+    , _modDirectory :: Path
     , _modVersions  :: NonEmpty Ver
     } deriving (Show)
 
@@ -71,13 +71,13 @@ latest = to (NonEmpty.head . _modVersions)
 unused :: Fold Model Ver
 unused = folding (NonEmpty.tail . _modVersions)
 
-modelFromDir :: Monad m => Dir -> EitherT LazyText m Model
-modelFromDir dir@(Dir p xs) = do
+modelFromDir :: Monad m => Path -> [Path] -> Compiler m Model
+modelFromDir p xs = do
     let d = basename p
         n = toTextIgnore d
         f = filter (Text.isSuffixOf normal . toTextIgnore)
     ys <- ordNonEmpty _verDate <$> mapM versionFromFile (f xs)
-    Model n dir <$> ys
+    Model n p <$> ys
         ?? format ("Failed to find any model versions for " % stext) n
 
 ordNonEmpty :: (Eq a, Ord b) => (a -> b) -> [a] -> Maybe (NonEmpty a)

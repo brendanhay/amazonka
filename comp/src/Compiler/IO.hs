@@ -1,5 +1,6 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TupleSections     #-}
 
 -- Module      : Compiler.IO
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -16,6 +17,7 @@ module Compiler.IO where
 import           Compiler.Types
 import           Control.Error
 import           Control.Monad.Except
+import           Data.Bifunctor
 import           Data.ByteString           (ByteString)
 import           Data.List                 (intercalate)
 import qualified Data.Text.Lazy            as LText
@@ -26,22 +28,23 @@ import           Filesystem.Path.CurrentOS
 import           Formatting                hiding (left)
 import           Formatting.Internal       (runFormat)
 import           System.Directory.Tree     hiding (Dir)
+import qualified Text.EDE                  as EDE
 
-isFile :: MonadIO m => Path -> EitherT LazyText m Bool
+isFile :: MonadIO m => Path -> Compiler m Bool
 isFile = io . FS.isFile
 
-readByteString :: MonadIO m => Path -> MaybeT m ByteString
-readByteString f = hushT $ do
+readBSFile :: MonadIO m => Path -> MaybeT m ByteString
+readBSFile f = hushT $ do
     p <- isFile f
     if p
         then say ("Reading "  % path) f >> io (FS.readFile f)
         else failure ("Missing " % path) f
 
-listDirectory :: MonadIO m => Path -> EitherT LazyText m Dir
-listDirectory d = Dir d <$> io (FS.listDirectory d)
+listDir :: MonadIO m => Path -> Compiler m [Path]
+listDir = io . FS.listDirectory
 
-copyDirectory :: MonadIO m => Path -> Path -> EitherT LazyText m ()
-copyDirectory src dst = io (FS.listDirectory src >>= mapM_ copy)
+copyDir :: MonadIO m => Path -> Path -> Compiler m ()
+copyDir src dst = io (FS.listDirectory src >>= mapM_ copy)
   where
     copy f = do
         let p = dst </> filename f
@@ -50,7 +53,7 @@ copyDirectory src dst = io (FS.listDirectory src >>= mapM_ copy)
 
 writeTree :: MonadIO m
           => AnchoredDirTree LazyText
-          -> EitherT LazyText m (AnchoredDirTree ())
+          -> Compiler m (AnchoredDirTree ())
 writeTree t = io (writeDirectoryWith write t) >>= verify
   where
     write p x = fprint (" -> Writing " % string % "\n") p >> LText.writeFile p x
@@ -64,17 +67,24 @@ writeTree t = io (writeDirectoryWith write t) >>= verify
         f (Failed _ e) = Just (show e)
         f _            = Nothing
 
-title :: MonadIO m => Format (EitherT LazyText m ()) a -> a
+readTemplate :: MonadIO m => Path -> Path -> Compiler m EDE.Template
+readTemplate d f = do
+    let p = d </> f
+    say ("Parsing " % path) p
+    io (EDE.eitherParseFile (encodeString p))
+        >>= hoistEither . first LText.pack
+
+title :: MonadIO m => Format (Compiler m ()) a -> a
 title m = runFormat m (io . LText.putStrLn . toLazyText)
 
-say :: MonadIO m => Format (EitherT LazyText m ()) a -> a
+say :: MonadIO m => Format (Compiler m ()) a -> a
 say = title . (" -> " %)
 
-done :: MonadIO m => EitherT LazyText m ()
+done :: MonadIO m => Compiler m ()
 done = title ""
 
-run :: EitherT LazyText IO a -> IO a
+run :: Compiler IO a -> IO a
 run = runScript . fmapLT LText.unpack
 
-io :: MonadIO m => IO a -> EitherT LazyText m a
+io :: MonadIO m => IO a -> Compiler m a
 io = fmapLT (LText.pack . show) . syncIO

@@ -21,7 +21,7 @@ import           Compiler.AST
 import           Compiler.IO
 import           Compiler.JSON
 import           Compiler.Model
-import           Compiler.Render
+import           Compiler.Tree
 import           Compiler.Types
 import           Control.Error
 import           Control.Lens              hiding ((<.>), (??))
@@ -33,6 +33,7 @@ import           Data.Monoid
 import qualified Data.SemVer               as SemVer
 import           Data.String
 import qualified Data.Text                 as Text
+import qualified Data.Text.Lazy.Builder    as Build
 import qualified Filesystem                as FS
 import           Filesystem.Path.CurrentOS
 import           Formatting
@@ -46,7 +47,7 @@ data Opt = Opt
     , _optTemplates :: Path
     , _optAssets    :: Path
     , _optRetry     :: Path
-    , _optVersion   :: SemVer.Version
+    , _optVersion   :: SemVer
     } deriving (Show)
 
 makeLenses ''Opt
@@ -120,23 +121,38 @@ validate o = flip execStateT o $ do
 
 main :: IO ()
 main = do
-    Opt{..} <- customExecParser (prefs showHelpOnError) options
+    o@Opt{..} <- customExecParser (prefs showHelpOnError) options
         >>= validate
 
     let i = length _optModels
 
     run $ do
+        title ("Loading templates from " % path) _optTemplates
+
+        let load = readTemplate _optTemplates
+
+        tmpl <- Templates
+            <$> load "cabal.ede"
+            <*> pure (error "service.ede")
+            <*> pure (error "waiters.ede")
+            <*> load "readme.ede"
+            <*> pure (error "example-cabal.ede")
+            <*> pure (error "example-makefile.ede")
+            <*> load "operation.ede"
+            <*> load "types.ede"
+            <*  done
+
         forM_ (zip [1..] _optModels) $ \(j, f) -> do
             title ("[" % int % "/" % int % "] model:" % path) j i (filename f)
 
-            m@Model{..} <- modelFromDir =<< listDirectory f
+            m@Model{..} <- listDir f >>= modelFromDir f
             let Ver{..} = m ^. latest
 
             say ("Using version " % dateDash % ", ignoring " % dateDashes)
                 _verDate
                 (m ^.. unused . verDate)
 
-            api <- parseObject . mergeObjects =<< sequence
+            api  <- parseObject . mergeObjects =<< sequence
                 [ required (_optOverrides </> (m ^. override))
                 , required _verNormal
                 , optional _verWaiters
@@ -145,22 +161,23 @@ main = do
 
             say ("Successfully parsed " % stext) (api ^. serviceFullName)
 
-            tree <- renderTree _optOutput _optVersion api >>= writeTree
+            tree <- populateTree _optOutput _optVersion tmpl api
+                >>= writeTree
 
             say ("Successfully created " % stext % "-" % semver)
                 (api ^. libraryName)
                 _optVersion
 
-            copyDirectory _optAssets (rootTree tree)
+            copyDir _optAssets (rootDir tree)
 
             done
 
         title ("Successfully processed " % int % " models.") i
 
 required :: MonadIO m => Path -> EitherT LazyText m Object
-required f = noteT (format ("Unable to find " % path) f) (readByteString f)
+required f = noteT (format ("Unable to find " % path) f) (readBSFile f)
     >>= decodeObject
 
 optional :: MonadIO m => Path -> EitherT LazyText m Object
-optional f = runMaybeT (readByteString f)
+optional f = runMaybeT (readBSFile f)
     >>= maybe (return mempty) decodeObject

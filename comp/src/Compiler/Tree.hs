@@ -4,7 +4,7 @@
 {-# LANGUAGE OverloadedStrings     #-}
 {-# LANGUAGE TupleSections         #-}
 
--- Module      : Compiler.Render
+-- Module      : Compiler.Tree
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -14,43 +14,26 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.Render where
+module Compiler.Tree where
 
 import           Compiler.AST
-import           Compiler.Types             (LazyText)
-import           Control.Applicative
+import           Compiler.EDE
+import           Compiler.Types
 import           Control.Error
-import           Control.Lens               ((^.))
-import           Control.Monad
-import           Control.Monad.Error
-import           Control.Monad.Trans.Except
-import           Data.Aeson
-import qualified Data.SemVer                as SemVer
-import qualified Data.Text.Lazy             as LText
-import           Filesystem.Path.CurrentOS  hiding (encode)
-import           Prelude                    hiding (FilePath)
-import           System.Directory.Tree      hiding (file)
-import qualified Text.EDE                   as EDE
+import           Control.Lens              ((^.))
+import           Filesystem.Path.CurrentOS
+import           System.Directory.Tree     hiding (file)
 
--- tree :: FilePath
---      -> Templates Protocol
---      -> SemVer.Version
---      -> Service (Typed Shape) b
---      -> AnchoredDirTree (Either String LText.Text)
+rootDir :: AnchoredDirTree a -> Path
+rootDir (p :/ d) = decodeString p </> decodeString (name d)
 
---               (MonadError String f, MonadError String m)
--- => FilePath
--- -> Templates a0
--- -> t
--- -> Service (Typed Shape) b
--- -> f (AnchoredDirTree (m LText.Text))
-
-renderTree :: Monad m
-           => FilePath
-           -> SemVer.Version
-           -> API
-           -> EitherT LazyText m (AnchoredDirTree LazyText)
-renderTree d v api =
+populateTree :: Monad m
+             => Path
+             -> SemVer
+             -> Templates
+             -> API
+             -> Compiler m (AnchoredDirTree LazyText)
+populateTree d v t api =
     return $! encodeString d :/ dir lib
         [ dir "src" []
         , dir "examples"
@@ -113,56 +96,15 @@ renderTree d v api =
 
     -- tmpl = t ^. tmplOperation $ proto
 
-dir :: FilePath -> [DirTree a] -> DirTree a
+dir :: Path -> [DirTree a] -> DirTree a
 dir p = Dir (encodeString p)
 
-file :: FilePath -> a -> DirTree a
+file :: Path -> a -> DirTree a
 file p = File (encodeString p)
 
 -- reformat :: (Monad m, MonadError String m) => LText.Text -> m LText.Text
 -- reformat = either throwError (return . Build.toLazyText)
 --     . HIndent.reformat HIndent.johanTibell Nothing
 
--- render :: (Monad m, MonadError String m) => EDE.Template -> Value -> m LText.Text
--- render x v = either throwError return $
---     note ("Error serialising params: " ++ show v) (EDE.fromValue v)
---         >>= EDE.eitherRenderWith filters x
---   where
---     filters = mempty -- Map.fromList
--- --        [ "indent" @: flip indent
---         -- , "highlight"    @: highlightType
---         -- , "parens"       @: parens
---         -- , "wrapped"      @: wrapped
---         -- , "concat"       @: (mappend :: Text -> Text -> Text)
---         -- , "joinedLength" @: joinedLength
---         -- , "member"       @: (elem :: Text -> [Text] -> Bool)
---         -- , "waiter"       @: waiter
--- --        ]
-
-rootTree :: AnchoredDirTree a -> FilePath
-rootTree (p :/ d) = decodeString p </> decodeString (name d)
-
 -- (<//>) :: FilePath -> DirTree a -> DirTree a
 -- p <//> d = dir p [d]
-
--- parens :: Text -> Text
--- parens t = "(" <> t <> ")"
-
--- wrapped :: Text -> Text
--- wrapped t
---     | Text.null t        = t
---     | Text.head t == '[' = t
---     | otherwise          = maybe t (const (parens t)) (Text.findIndex isSpace t)
-
--- joinedLength :: [Text] -> Text -> Int
--- joinedLength xs sep = sum (map ((+n) . Text.length) xs)
---   where
---     n = Text.length sep
-
--- waiter :: Text -> Text
--- waiter t
---     | p "DB"    = "db" <> Text.drop 2 t
---     | otherwise = toCamel t
---   where
---     p = flip Text.isPrefixOf t
-

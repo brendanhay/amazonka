@@ -1,5 +1,4 @@
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TemplateHaskell   #-}
 
 -- Module      : Compiler.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -14,10 +13,8 @@
 module Compiler.Types where
 
 import           Control.Error
-import qualified Data.ByteString.Lazy      as LBS
 import           Data.List                 (intersperse)
 import           Data.Monoid
-import           Data.SemVer               (Version)
 import qualified Data.SemVer               as SemVer
 import           Data.Text                 (Text)
 import qualified Data.Text.Lazy            as LText
@@ -26,19 +23,18 @@ import           Data.Time
 import qualified Filesystem.Path.CurrentOS as Path
 import           Formatting
 import           Formatting.Time
+import           Text.EDE                  (Template)
 
-type LazyText       = LText.Text
-type LazyByteString = LBS.ByteString
-
-type Path = Path.FilePath
+type Compiler = EitherT LazyText
+type LazyText = LText.Text
+type SemVer   = SemVer.Version
+type Path     = Path.FilePath
 
 path :: Format a (Path -> a)
 path = later (Build.fromText . toTextIgnore)
 
 toTextIgnore :: Path -> Text
 toTextIgnore = either id id . Path.toText
-
-data Dir = Dir Path [Path] deriving (Show)
 
 dateDashes :: Format a ([UTCTime] -> a)
 dateDashes = later (list . map (bprint dateDash))
@@ -48,5 +44,16 @@ dateDashes = later (list . map (bprint dateDash))
 failure :: Monad m => Format LText.Text (a -> e) -> a -> EitherT e m b
 failure m = Control.Error.left . format m
 
-semver :: Format a (Version -> a)
+semver :: Format a (SemVer -> a)
 semver = later (Build.fromText . SemVer.toText)
+
+data Templates = Templates
+    { cabalTemplate           :: Template
+    , serviceTemplate         :: Template
+    , waitersTemplate         :: Template
+    , readmeTemplate          :: Template
+    , exampleCabalTemplate    :: Template
+    , exampleMakefileTemplate :: Template
+    , operationTemplate       :: Template
+    , typesTemplate           :: Template
+    }

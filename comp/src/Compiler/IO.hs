@@ -1,3 +1,4 @@
+{-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Compiler.IO
@@ -14,14 +15,17 @@ module Compiler.IO where
 
 import           Compiler.Types
 import           Control.Error
-import           Control.Monad.IO.Class
-import           Data.ByteString        (ByteString)
-import qualified Data.Text.Lazy         as LText
-import           Data.Text.Lazy.Builder (toLazyText)
-import qualified Data.Text.Lazy.IO      as LText
-import qualified Filesystem             as FS
-import           Formatting             hiding (left)
-import           Formatting.Internal    (runFormat)
+import           Control.Monad.Except
+import           Data.ByteString           (ByteString)
+import           Data.List                 (intercalate)
+import qualified Data.Text.Lazy            as LText
+import           Data.Text.Lazy.Builder    (toLazyText)
+import qualified Data.Text.Lazy.IO         as LText
+import qualified Filesystem                as FS
+import           Filesystem.Path.CurrentOS
+import           Formatting                hiding (left)
+import           Formatting.Internal       (runFormat)
+import           System.Directory.Tree     hiding (Dir)
 
 listDirectory :: MonadIO m => Path -> EitherT LazyText m Dir
 listDirectory d = Dir d <$> io (FS.listDirectory d)
@@ -33,14 +37,41 @@ readByteString :: MonadIO m => Path -> MaybeT m ByteString
 readByteString f = hushT $ do
     p <- isFile f
     if p
-        then reply ("Reading "  % path) f >> io (FS.readFile f)
+        then say ("Reading "  % path) f >> io (FS.readFile f)
         else failure ("Missing " % path) f
 
-say :: MonadIO m => Format (EitherT LazyText m ()) a -> a
-say m = runFormat m (io . LText.putStrLn . toLazyText)
+writeTree :: MonadIO m
+          => AnchoredDirTree LazyText
+          -> EitherT LazyText m (AnchoredDirTree ())
+writeTree t = io (writeDirectoryWith write t) >>= verify
+  where
+    write p x = fprint (" -> Writing " % string % "\n") p >> LText.writeFile p x
 
-reply :: MonadIO m => Format (EitherT LazyText m ()) a -> a
-reply = say . (" -> " %)
+    verify dir@(_ :/ d)
+        | [] <- xs  = return dir
+        | otherwise = throwError . LText.pack $ intercalate "\n" xs
+      where
+        xs = mapMaybe f (failures d)
+
+        f (Failed _ e) = Just (show e)
+        f _            = Nothing
+
+copyDirectory :: MonadIO m => Path -> Path -> EitherT LazyText m ()
+copyDirectory src dst = io (FS.listDirectory src >>= mapM_ copy)
+  where
+    copy f = do
+        let p = dst </> filename f
+        fprint (" -> Copying " % path % " to " % path % "\n") f (directory p)
+        FS.copyFile f p
+
+title :: MonadIO m => Format (EitherT LazyText m ()) a -> a
+title m = runFormat m (io . LText.putStrLn . toLazyText)
+
+say :: MonadIO m => Format (EitherT LazyText m ()) a -> a
+say = title . (" -> " %)
+
+done :: MonadIO m => EitherT LazyText m ()
+done = title ""
 
 run :: EitherT LazyText IO a -> IO a
 run = runScript . fmapLT LText.unpack

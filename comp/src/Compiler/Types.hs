@@ -17,6 +17,8 @@ import           Control.Error
 import qualified Data.ByteString.Lazy      as LBS
 import           Data.List                 (intersperse)
 import           Data.Monoid
+import           Data.SemVer               (Version)
+import qualified Data.SemVer               as SemVer
 import           Data.Text                 (Text)
 import qualified Data.Text.Lazy            as LText
 import qualified Data.Text.Lazy.Builder    as Build
@@ -45,3 +47,6 @@ dateDashes = later (list . map (bprint dateDash))
 
 failure :: Monad m => Format LText.Text (a -> e) -> a -> EitherT e m b
 failure m = Control.Error.left . format m
+
+semver :: Format a (Version -> a)
+semver = later (Build.fromText . SemVer.toText)

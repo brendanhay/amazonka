@@ -21,6 +21,7 @@ import           Compiler.AST
 import           Compiler.IO
 import           Compiler.JSON
 import           Compiler.Model
+import           Compiler.Render
 import           Compiler.Types
 import           Control.Error
 import           Control.Lens              hiding ((<.>), (??))
@@ -122,17 +123,16 @@ main = do
     Opt{..} <- customExecParser (prefs showHelpOnError) options
         >>= validate
 
-    run $ do
-        let i = length _optModels
+    let i = length _optModels
 
+    run $ do
         forM_ (zip [1..] _optModels) $ \(j, f) -> do
-            say ("[" % int % "/" % int % "] " % path) j i (filename f)
+            title ("[" % int % "/" % int % "] model:" % path) j i (filename f)
 
             m@Model{..} <- modelFromDir =<< listDirectory f
             let Ver{..} = m ^. latest
 
-            reply ("Using " % stext % " version " % dateDash % ", ignoring " % dateDashes)
-                _modName
+            say ("Using version " % dateDash % ", ignoring " % dateDashes)
                 _verDate
                 (m ^.. unused . verDate)
 
@@ -143,13 +143,19 @@ main = do
                 , optional _verPagers
                 ]
 
-            reply ("Successfully parsed " % stext) (api ^. serviceFullName)
+            say ("Successfully parsed " % stext) (api ^. serviceFullName)
 
-            _   <- return (api :: API)
+            tree <- renderTree _optOutput _optVersion api >>= writeTree
 
-            return ()
+            say ("Successfully created " % stext % "-" % semver)
+                (api ^. libraryName)
+                _optVersion
 
-        say ("Successfully processed " % int % " models.") i
+            copyDirectory _optAssets (rootTree tree)
+
+            done
+
+        title ("Successfully processed " % int % " models.") i
 
 required :: MonadIO m => Path -> EitherT LazyText m Object
 required f = noteT (format ("Unable to find " % path) f) (readByteString f)

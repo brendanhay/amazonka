@@ -29,6 +29,7 @@ executable compile
         , base                 == 4.8.*
         , bytestring
         , case-insensitive
+        , directory-tree
         , ede
         , errors
         , formatting

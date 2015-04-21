@@ -27,9 +27,6 @@ import           Formatting                hiding (left)
 import           Formatting.Internal       (runFormat)
 import           System.Directory.Tree     hiding (Dir)
 
-listDirectory :: MonadIO m => Path -> EitherT LazyText m Dir
-listDirectory d = Dir d <$> io (FS.listDirectory d)
-
 isFile :: MonadIO m => Path -> EitherT LazyText m Bool
 isFile = io . FS.isFile
 
@@ -39,6 +36,17 @@ readByteString f = hushT $ do
     if p
         then say ("Reading "  % path) f >> io (FS.readFile f)
         else failure ("Missing " % path) f
+
+listDirectory :: MonadIO m => Path -> EitherT LazyText m Dir
+listDirectory d = Dir d <$> io (FS.listDirectory d)
+
+copyDirectory :: MonadIO m => Path -> Path -> EitherT LazyText m ()
+copyDirectory src dst = io (FS.listDirectory src >>= mapM_ copy)
+  where
+    copy f = do
+        let p = dst </> filename f
+        fprint (" -> Copying " % path % " to " % path % "\n") f (directory p)
+        FS.copyFile f p
 
 writeTree :: MonadIO m
           => AnchoredDirTree LazyText
@@ -55,14 +63,6 @@ writeTree t = io (writeDirectoryWith write t) >>= verify
 
         f (Failed _ e) = Just (show e)
         f _            = Nothing
-
-copyDirectory :: MonadIO m => Path -> Path -> EitherT LazyText m ()
-copyDirectory src dst = io (FS.listDirectory src >>= mapM_ copy)
-  where
-    copy f = do
-        let p = dst </> filename f
-        fprint (" -> Copying " % path % " to " % path % "\n") f (directory p)
-        FS.copyFile f p
 
 title :: MonadIO m => Format (EitherT LazyText m ()) a -> a
 title m = runFormat m (io . LText.putStrLn . toLazyText)

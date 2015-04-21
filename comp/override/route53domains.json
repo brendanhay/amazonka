@@ -1,8 +1,8 @@
 {
-    "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-domain-registrations.html",
+    "referenceUrl": "http://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-domain-registrations.html",
     "operationUrl": "http://docs.aws.amazon.com/Route53/latest/APIReference/api-",
-    "library": "amazonka-route53-domains",
-    "documentation": "Pending",
+    "libraryName": "amazonka-route53-domains",
+    "description": "Pending",
     "metadata": {
         "serviceAbbreviation": "Route53Domains"
     }

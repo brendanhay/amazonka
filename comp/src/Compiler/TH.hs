@@ -16,12 +16,11 @@ module Compiler.TH
     , A.deriveToJSON
 
     , Options(..)
-    , defaults
-    , aeson
     , upper
     , lower
     , spinal
     , camel
+    , aeson
     ) where
 
 import           Compiler.Text
@@ -37,14 +36,13 @@ deriveJSON o n = concat <$> sequence
     , A.deriveToJSON (aeson o) n
     ]
 
-upper, lower, spinal, camel :: Options
-upper  = defaults { constructorTagModifier = asText Text.toUpper      }
-lower  = defaults { constructorTagModifier = asText Text.toLower      }
-spinal = defaults { constructorTagModifier = asText (toSpinal . safe) }
-camel  = defaults
+upper, lower, spinal :: Options
+upper  = camel { constructorTagModifier = asText Text.toUpper      }
+lower  = camel { constructorTagModifier = asText Text.toLower      }
+spinal = camel { constructorTagModifier = asText (toSpinal . safe) }
 
-defaults :: Options
-defaults = defaultOptions
+camel :: Options
+camel = defaultOptions
     { constructorTagModifier = asText (toCamel . safe)
     , fieldLabelModifier     = asText (stripPrefix "_" . stripSuffix "'")
     , allNullaryToStringTag  = True

@@ -106,7 +106,7 @@ instance FromJSON Metadata where
             <*> o .:? "jsonVersion"     .!= "1.0"
             <*> o .:? "targetPrefix"
 
-deriveToJSON (aeson defaults) ''Metadata
+deriveToJSON (aeson camel) ''Metadata
 
 data API = API
     { _metadata'      :: Metadata

@@ -168,7 +168,7 @@ main = do
             dir <- foldTree (failure string . show) createDir writeLTFile
                 (populateTree _optOutput _optVersion tmpl api)
 
-            say ("Successfully created " % stext % "-" % semver)
+            say ("Successfully rendered " % stext % "-" % semver % " package")
                 (api ^. libraryName)
                 _optVersion
 

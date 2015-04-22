@@ -39,7 +39,9 @@ readBSFile f = hushT $ do
         else failure ("Missing " % path) f
 
 writeLTFile :: MonadIO m => Path -> LazyText -> Compiler m ()
-writeLTFile f t = io $ FS.withFile f FS.WriteMode (`LText.hPutStr` t)
+writeLTFile f t = do
+    say ("Writing " % path) f
+    io $ FS.withFile f FS.WriteMode (`LText.hPutStr` t)
 
 createDir :: MonadIO m => Path -> Compiler m ()
 createDir d = do

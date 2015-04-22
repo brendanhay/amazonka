@@ -19,7 +19,6 @@ import           Control.Error
 import           Control.Monad.Except
 import           Data.Bifunctor
 import           Data.ByteString           (ByteString)
-import           Data.List                 (intercalate)
 import qualified Data.Text.Lazy            as LText
 import           Data.Text.Lazy.Builder    (toLazyText)
 import qualified Data.Text.Lazy.IO         as LText
@@ -27,7 +26,6 @@ import qualified Filesystem                as FS
 import           Filesystem.Path.CurrentOS
 import           Formatting                hiding (left)
 import           Formatting.Internal       (runFormat)
-import           System.Directory.Tree     hiding (Dir)
 import qualified Text.EDE                  as EDE
 
 isFile :: MonadIO m => Path -> Compiler m Bool
@@ -60,22 +58,6 @@ copyDir src dst = io (FS.listDirectory src >>= mapM_ copy)
         let p = dst </> filename f
         fprint (" -> Copying " % path % " to " % path % "\n") f (directory p)
         FS.copyFile f p
-
-writeTree :: MonadIO m
-          => AnchoredDirTree LazyText
-          -> Compiler m (AnchoredDirTree ())
-writeTree t = io (writeDirectoryWith write t) >>= verify
-  where
-    write p x = fprint (" -> Writing " % string % "\n") p >> LText.writeFile p x
-
-    verify dir@(_ :/ d)
-        | [] <- xs  = return dir
-        | otherwise = throwError . LText.pack $ intercalate "\n" xs
-      where
-        xs = mapMaybe f (failures d)
-
-        f (Failed _ e) = Just (show e)
-        f _            = Nothing
 
 readTemplate :: MonadIO m => Path -> Path -> Compiler m EDE.Template
 readTemplate d f = do

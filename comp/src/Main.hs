@@ -33,7 +33,6 @@ import           Data.Monoid
 import qualified Data.SemVer               as SemVer
 import           Data.String
 import qualified Data.Text                 as Text
-import qualified Data.Text.Lazy            as LText
 import qualified Filesystem                as FS
 import           Filesystem.Path.CurrentOS
 import           Formatting

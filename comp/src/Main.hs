@@ -132,11 +132,11 @@ main = do
 
         tmpl <- Templates
             <$> load "cabal.ede"
-            <*> pure (error "service.ede")
-            <*> pure (error "waiters.ede")
+            <*> load "service.ede"
+            <*> load "waiters.ede"
             <*> load "readme.ede"
-            <*> pure (error "example-cabal.ede")
-            <*> pure (error "example-makefile.ede")
+            <*> load "example-cabal.ede"
+            <*> load "example-makefile.ede"
             <*> load "operation.ede"
             <*> load "types.ede"
             <*  done

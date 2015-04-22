@@ -24,6 +24,7 @@ import           Compiler.Types
 import           Control.Error
 import           Control.Lens              ((^.))
 import           Data.Aeson
+import           Data.Monoid
 import           Filesystem.Path.CurrentOS
 import           System.Directory.Tree
 import           System.IO.Error
@@ -57,36 +58,26 @@ populateTree d v Templates{..} api =
         [ dir "src" []
         , dir "examples"
             [ dir "src" []
-        --     , file (fromText $ s ^. svcLibrary <> "-examples.cabal") cabalExample
-        --     , file "Makefile" makefileExample
+            , tmpl (lib <> "-examples.cabal") exampleCabalTemplate (Object mempty)
+            , tmpl "Makefile" exampleMakefileTemplate (Object mempty)
             ]
         , dir "gen"
             [ dir "Network"
                 [ dir "AWS"
                     [ dir abbrev
-                        [ template "Types.hs" typesTemplate (Object mempty)
-                        ]
-        --                 , file "Waiters.hs" waiters
-        --                 ] ++ map (uncurry file) operations
-        --             , file (abbrev <.> "hs") service
+                        [ tmpl "Types.hs" typesTemplate (Object mempty)
+                        , tmpl "Waiters.hs" waitersTemplate (Object mempty)
+                        ] -- ++ map (tmpl ) []
+                    , tmpl (abbrev <.> "hs") serviceTemplate (Object mempty)
                     ]
                 ]
             ]
---        , file (lib <.> "cabal") cabal
---        , file "README.md" readme
+        , tmpl (lib <.> "cabal") cabalTemplate (Object mempty)
+        , tmpl "README.md" readmeTemplate (Object mempty)
         ]
   where
-    -- proto  = s ^. metaProtocol
-
-
     abbrev = fromText (api ^. serviceAbbreviation)
     lib    = fromText (api ^. libraryName)
-
-    -- cabalExample    = render (t ^. tmplCabalExample)    test
-    -- makefileExample = render (t ^. tmplMakefileExample) test
-
-    -- service         = render (t ^. tmplService)         test
-    -- waiters         = render (t ^. tmplWaiters)         test
 
     -- Types:
     --   key        = name
@@ -108,19 +99,15 @@ populateTree d v Templates{..} api =
     --         , "shapes"    .= ds
     --         ]
 
-    -- cbl = toJSON (Cabal v s)
-
 --    operations      = map f . Map.toList $ s ^. svcOperations
       -- where
       --   f (k, _) = (fromText k <.> "hs", EDE.eitherRender tmpl mempty)
 
-    -- tmpl = t ^. tmplOperation $ proto
-
 dir :: Path -> [DirTree a] -> DirTree a
 dir p = Dir (encodeString p)
 
-template :: Path -> Template -> Value -> DirTree LazyText
-template (encodeString -> f) x v =
+tmpl :: Path -> Template -> Value -> DirTree LazyText
+tmpl (encodeString -> f) x v =
     case note ("Error serialising params: " ++ show v) (fromValue v)
         >>= eitherRender x of
         Right t -> File   f t

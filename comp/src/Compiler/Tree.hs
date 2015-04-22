@@ -23,7 +23,7 @@ import           Compiler.AST
 import           Compiler.Types
 import           Control.Error
 import           Control.Lens              ((^.))
-import           Data.Aeson
+import           Data.Aeson                hiding (json)
 import           Data.Monoid
 import           Data.Text                 (Text)
 import           Filesystem.Path.CurrentOS
@@ -52,9 +52,9 @@ foldTree h g f (p :/ t) = (p :/) <$> go (decodeString p) t
 populateTree :: Path
              -> SemVer
              -> Templates
-             -> API
+             -> Package
              -> AnchoredDirTree LazyText
-populateTree d v Templates{..} api =
+populateTree d v Templates{..} pkg =
     encodeString d :/ dir lib
         [ dir "src" []
         , dir "examples"
@@ -77,12 +77,11 @@ populateTree d v Templates{..} api =
 --        , file "README.md" readmeTemplate (Object mempty)
         ]
   where
-    abbrev = fromText (api ^. serviceAbbreviation)
-    lib    = fromText (api ^. libraryName)
-
+    abbrev = fromText (pkg ^. serviceAbbreviation)
+    lib    = fromText (pkg ^. libraryName)
 
     file   = render json
-    json   = toJSON api
+    json   = toJSON pkg
 
     -- Types:
     --   key        = name

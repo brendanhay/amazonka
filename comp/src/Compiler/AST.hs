@@ -109,22 +109,21 @@ instance FromJSON Metadata where
 deriveToJSON (aeson camel) ''Metadata
 
 data API = API
-    { _metadata'      :: Metadata
-    , _referenceUrl   :: Text
-    , _operationUrl   :: Text
-    , _description    :: Text
+    { _metadata'    :: Metadata
+    , _referenceUrl :: Text
+    , _operationUrl :: Text
+    , _description  :: Text
     -- , Operations   :: HashMap Text Operation
     -- , Shapes       :: HashMap Text Shape
-    , _libraryName    :: Text
-    , _libraryVersion :: SemVer
+    , _libraryName  :: Text
     } deriving (Eq, Show)
 
-makeLenses ''API
+makeClassy ''API
 
 instance HasMetadata API where
     metadata = metadata'
 
-instance FromJSON (SemVer -> API) where
+instance FromJSON API where
     parseJSON = withObject "api" $ \o ->
          API <$> o .: "metadata"
              <*> o .: "referenceUrl"
@@ -132,14 +131,31 @@ instance FromJSON (SemVer -> API) where
              <*> o .: "description"
              <*> o .: "libraryName"
 
-instance A.ToJSON API where
-    toJSON API{..} = A.Object (x <> y)
+data Package = Package
+    { _api'           :: API
+    , _libraryVersion :: SemVer
+    , _exposedModules :: [Text]
+    , _otherModules   :: [Text]
+    } deriving (Eq, Show)
+
+makeLenses ''Package
+
+instance HasMetadata Package where
+    metadata = api' . metadata'
+
+instance HasAPI Package where
+    aPI = api'
+
+instance A.ToJSON Package where
+    toJSON p@Package{..} = A.Object (x <> y)
       where
-        A.Object y = A.toJSON _metadata'
+        A.Object y = A.toJSON (p ^. metadata)
         A.Object x = A.object
-            [ "referenceUrl"   A..= _referenceUrl
-            , "operationUrl"   A..= _operationUrl
-            , "description"    A..= _description
-            , "libraryName"    A..= _libraryName
-            , "libraryVersion" A..= _libraryVersion
+            [ "referenceUrl"   A..= (p ^. referenceUrl)
+            , "operationUrl"   A..= (p ^. operationUrl)
+            , "description"    A..= (p ^. description)
+            , "libraryName"    A..= (p ^. libraryName)
+            , "libraryVersion" A..= (p ^. libraryVersion)
+            , "exposedModules" A..= (p ^. exposedModules)
+            , "otherModules"   A..= (p ^. otherModules)
             ]

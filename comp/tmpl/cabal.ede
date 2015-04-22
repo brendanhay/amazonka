@@ -31,8 +31,14 @@ library
     ghc-options:       -Wall
 
     exposed-modules:
+      {% for module in exposedModules %}
+        {% if module.first %}  {% else %}, {% endif %}{{ module.value }}
+      {% endfor %}
 
     other-modules:
+      {% for module in otherModules %}
+        {% if module.first %}  {% else %}, {% endif %}{{ module.value }}
+      {% endfor %}
 
     build-depends:
           amazonka-core == {{ libraryVersion }}.*

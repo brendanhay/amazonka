@@ -21,10 +21,11 @@ import           Compiler.AST
 import           Compiler.IO
 import           Compiler.JSON
 import           Compiler.Model
+import           Compiler.Rewrite
 import           Compiler.Tree
 import           Compiler.Types
 import           Control.Error
-import           Control.Lens              hiding ((<.>), (??))
+import           Control.Lens              hiding (rewrite, (<.>), (??))
 import           Control.Monad
 import           Control.Monad.Except
 import           Control.Monad.State
@@ -152,21 +153,20 @@ main = do
                 _verDate
                 (m ^.. unused . verDate)
 
-            api <- fmap ($ _optVersion)
-                . parseObject
-                . mergeObjects
-                    =<< sequence
-                        [ required (_optOverrides </> (m ^. override))
-                        , required _verNormal
-                        , optional _verWaiters
-                        , optional _verPagers
-                        ]
+            api <- parseObject . mergeObjects =<< sequence
+                [ required (_optOverrides </> (m ^. override))
+                , required _verNormal
+                , optional _verWaiters
+                , optional _verPagers
+                ]
 
-            say ("Successfully parsed '" % stext % "' definition")
+            say ("Successfully parsed '" % stext % "' API definition")
                 (api ^. serviceFullName)
 
+            pkg <- rewrite api >>= \x -> return (Package x _optVersion [] [])
+
             dir <- foldTree (failure string . show) createDir writeLTFile
-                (populateTree _optOutput _optVersion tmpl api)
+                (populateTree _optOutput _optVersion tmpl pkg)
 
             say ("Successfully rendered " % stext % "-" % semver % " package")
                 (api ^. libraryName)

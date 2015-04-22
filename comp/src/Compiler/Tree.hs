@@ -25,10 +25,11 @@ import           Control.Error
 import           Control.Lens              ((^.))
 import           Data.Aeson
 import           Data.Monoid
+import           Data.Text                 (Text)
 import           Filesystem.Path.CurrentOS
-import           System.Directory.Tree
+import           System.Directory.Tree     hiding (file)
 import           System.IO.Error
-import           Text.EDE
+import           Text.EDE                  hiding (render)
 
 rootTree :: AnchoredDirTree a -> Path
 rootTree (p :/ d) = decodeString p </> decodeString (name d)
@@ -58,26 +59,30 @@ populateTree d v Templates{..} api =
         [ dir "src" []
         , dir "examples"
             [ dir "src" []
-            , tmpl (lib <> "-examples.cabal") exampleCabalTemplate (Object mempty)
-            , tmpl "Makefile" exampleMakefileTemplate (Object mempty)
+            -- , file (lib <//> "-examples.cabal") exampleCabalTemplate (Object mempty)
+            -- , file "Makefile" exampleMakefileTemplate (Object mempty)
             ]
-        , dir "gen"
-            [ dir "Network"
-                [ dir "AWS"
-                    [ dir abbrev
-                        [ tmpl "Types.hs" typesTemplate (Object mempty)
-                        , tmpl "Waiters.hs" waitersTemplate (Object mempty)
-                        ] -- ++ map (tmpl ) []
-                    , tmpl (abbrev <.> "hs") serviceTemplate (Object mempty)
-                    ]
-                ]
-            ]
-        , tmpl (lib <.> "cabal") cabalTemplate (Object mempty)
-        , tmpl "README.md" readmeTemplate (Object mempty)
+        -- , dir "gen"
+        --     [ dir "Network"
+        --         [ dir "AWS"
+        --             [ dir abbrev
+        --                 [ file "Types.hs" typesTemplate (Object mempty)
+        --                 , file "Waiters.hs" waitersTemplate (Object mempty)
+        --                 ] -- ++ map (file ) []
+        --             , file (abbrev <.> "hs") serviceTemplate (Object mempty)
+        --             ]
+        --         ]
+        --     ]
+        , file (lib <.> "cabal") cabalTemplate
+--        , file "README.md" readmeTemplate (Object mempty)
         ]
   where
     abbrev = fromText (api ^. serviceAbbreviation)
     lib    = fromText (api ^. libraryName)
+
+
+    file   = render json
+    json   = toJSON api
 
     -- Types:
     --   key        = name
@@ -90,7 +95,7 @@ populateTree d v Templates{..} api =
     -- types = do
     --     let ss = Map.fromList . catMaybes . map (\(k, v) -> (k,) <$> AST.transform k v) $ Map.toList (s ^. svcShapes)
     --     ds <- traverse AST.json ss
-    --     render (t ^. tmplTypes $ proto) $ object
+    --     render (t ^. fileTypes $ proto) $ object
     --         [ "namespace" .= Text.pack "Network.AWS.<service>.Types"
     --         , "service"   .= object
     --             [ "abbrev" .= view svcAbbrev s
@@ -101,13 +106,13 @@ populateTree d v Templates{..} api =
 
 --    operations      = map f . Map.toList $ s ^. svcOperations
       -- where
-      --   f (k, _) = (fromText k <.> "hs", EDE.eitherRender tmpl mempty)
+      --   f (k, _) = (fromText k <.> "hs", EDE.eitherRender file mempty)
 
 dir :: Path -> [DirTree a] -> DirTree a
 dir p = Dir (encodeString p)
 
-tmpl :: Path -> Template -> Value -> DirTree LazyText
-tmpl (encodeString -> f) x v =
+render :: Value -> Path -> Template -> DirTree LazyText
+render v (encodeString -> f) x =
     case note ("Error serialising params: " ++ show v) (fromValue v)
         >>= eitherRender x of
         Right t -> File   f t
@@ -115,3 +120,5 @@ tmpl (encodeString -> f) x v =
           where
             ex = mkIOError userErrorType (e ++ "\nRender") Nothing (Just f)
 
+(<//>) :: Path -> Text -> Path
+a <//> b = fromText (toTextIgnore a <> b)

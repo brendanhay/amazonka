@@ -1,5 +1,7 @@
+{-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TemplateHaskell   #-}
 
 -- Module      : Compiler.AST
@@ -15,10 +17,13 @@
 module Compiler.AST where
 
 import           Compiler.TH
+import           Compiler.Types
 import           Control.Lens
+import qualified Data.Aeson     as A
 import           Data.Jason
-import           Data.Text    (Text)
-import qualified Data.Text    as Text
+import           Data.Monoid
+import           Data.Text      (Text)
+import qualified Data.Text      as Text
 
 data Signature
     = V2
@@ -28,7 +33,7 @@ data Signature
     | S3
       deriving (Eq, Show)
 
-deriveFromJSON lower ''Signature
+deriveJSON lower ''Signature
 
 data Protocol
     = JSON
@@ -39,7 +44,7 @@ data Protocol
     | EC2
       deriving (Eq, Show)
 
-deriveFromJSON spinal ''Protocol
+deriveJSON spinal ''Protocol
 
 data Timestamp
     = RFC822
@@ -53,6 +58,8 @@ instance FromJSON Timestamp where
         "iso8601"       -> pure ISO8601
         "unixTimestamp" -> pure POSIX
         e               -> fail ("Unknown Timestamp: " ++ Text.unpack e)
+
+deriveToJSON (aeson lower) ''Timestamp
 
 defaultTimestamp :: Protocol -> Timestamp
 defaultTimestamp = \case
@@ -68,7 +75,7 @@ data Checksum
     | SHA256
       deriving (Eq, Show)
 
-deriveFromJSON lower ''Checksum
+deriveJSON lower ''Checksum
 
 data Metadata = Metadata
     { _protocol            :: Protocol
@@ -99,14 +106,17 @@ instance FromJSON Metadata where
             <*> o .:? "jsonVersion"     .!= "1.0"
             <*> o .:? "targetPrefix"
 
+deriveToJSON (aeson defaults) ''Metadata
+
 data API = API
-    { _libraryName  :: Text
-    , _description  :: Text
-    , _referenceUrl :: Text
-    , _operationUrl :: Text
-    , _metadata'    :: Metadata
-    -- , Operations  :: HashMap Text Operation
-    -- , Shapes      :: HashMap Text Shape
+    { _metadata'      :: Metadata
+    , _referenceUrl   :: Text
+    , _operationUrl   :: Text
+    , _description    :: Text
+    -- , Operations   :: HashMap Text Operation
+    -- , Shapes       :: HashMap Text Shape
+    , _libraryName    :: Text
+    , _libraryVersion :: SemVer
     } deriving (Eq, Show)
 
 makeLenses ''API
@@ -114,65 +124,22 @@ makeLenses ''API
 instance HasMetadata API where
     metadata = metadata'
 
-deriveFromJSON defaults ''API
+instance FromJSON (SemVer -> API) where
+    parseJSON = withObject "api" $ \o ->
+         API <$> o .: "metadata"
+             <*> o .: "referenceUrl"
+             <*> o .: "operationUrl"
+             <*> o .: "description"
+             <*> o .: "libraryName"
 
--- data HTTP = HTTP
---     { _hMethod     :: !Method
---     , _hRequestUri :: URI
---     } deriving (Eq, Show)
-
--- data Ref = Ref
---     { _refShape         :: !Text
---     , _refDocumentation :: Maybe Text
---     , _refLocation      :: Maybe Location
---     , _refLocationName  :: Maybe Text
---     , _refStreaming     :: Maybe Bool
---     , _refException     :: Maybe Bool
---     , _refFault         :: Maybe Bool
---     , _refResultWrapper :: Maybe Text
---     , _refWrapper       :: Maybe Bool
---     , _refFlattened     :: Maybe Bool
---     } deriving (Eq, Show)
-
--- data Operation = Operation
---     { _oName             :: !Text
---     , _oDocumentation    :: Maybe Text
---     , _oDocumentationUrl :: Maybe Text
---     , _oHttp             :: HTTP
---     , _oInput            :: Maybe Ref
---     , _oOutput           :: Maybe Ref
---     , _oErrors           :: Maybe [Ref]
---     } deriving (Eq, Show)
-
--- data XmlNamespace = XmlNamespace
---     { _xnsPrefix :: !Text
---     , _xnsUri    :: !Text
---     } deriving (Eq, Show)
-
--- data Shape
---     = List'   SList
---     | Struct' SStruct
---     | Map'    SMap
---     | String' SString
---     | Int'    (SNum Int)
---     | Long'   (SNum Integer)
---     | Double' (SNum Double)
---     | Bool'   SBool
---     | Time'   STime
---     | Blob'   SBlob
---       deriving (Eq, Show)
-
--- data Metadata = Metadata
---     { _mServiceFullName     :: !Text
---     , _mServiceAbbreviation :: !Abbrev
---     , _mApiVersion          :: !Text
---     , _mEndpointPrefix      :: !Text
---     , _mGlobalEndpoint      :: Maybe Text
---     , _mSignatureVersion    :: !Signature
---     , _mXmlNamespace        :: Maybe Text
---     , _mTargetPrefix        :: Maybe Text
---     , _mJsonVersion         :: Maybe Text
---     , _mTimestampFormat     :: Maybe Timestamp
---     , _mChecksumFormat      :: Maybe Checksum
---     , _mProtocol            :: !Protocol
---     } deriving (Eq, Show)
+instance A.ToJSON API where
+    toJSON API{..} = A.Object (x <> y)
+      where
+        A.Object y = A.toJSON _metadata'
+        A.Object x = A.object
+            [ "referenceUrl"   A..= _referenceUrl
+            , "operationUrl"   A..= _operationUrl
+            , "description"    A..= _description
+            , "libraryName"    A..= _libraryName
+            , "libraryVersion" A..= _libraryVersion
+            ]

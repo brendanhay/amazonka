@@ -11,10 +11,13 @@
 -- Portability : non-portable (GHC extensions)
 
 module Compiler.TH
-    ( deriveFromJSON
+    ( Compiler.TH.deriveJSON
+    , deriveFromJSON
+    , A.deriveToJSON
 
     , Options(..)
     , defaults
+    , aeson
     , upper
     , lower
     , spinal
@@ -22,11 +25,17 @@ module Compiler.TH
     ) where
 
 import           Compiler.Text
+import qualified Data.Aeson.TH        as A
 import           Data.Char
 import           Data.Jason.TH
 import           Data.Text            (Text)
 import qualified Data.Text            as Text
 import           Data.Text.Manipulate
+
+deriveJSON o n = concat <$> sequence
+    [ deriveFromJSON o         n
+    , A.deriveToJSON (aeson o) n
+    ]
 
 upper, lower, spinal, camel :: Options
 upper  = defaults { constructorTagModifier = asText Text.toUpper      }
@@ -45,6 +54,20 @@ defaults = defaultOptions
             , contentsFieldName = "contents"
             }
     }
+
+aeson :: Options -> A.Options
+aeson o = A.defaultOptions
+    { A.constructorTagModifier = constructorTagModifier o
+    , A.fieldLabelModifier     = fieldLabelModifier     o
+    , A.allNullaryToStringTag  = allNullaryToStringTag  o
+    , A.sumEncoding            =
+        A.defaultTaggedObject
+            { A.tagFieldName      = tagFieldName      tag
+            , A.contentsFieldName = contentsFieldName tag
+            }
+    }
+  where
+    tag = sumEncoding o
 
 safe :: Text -> Text
 safe x

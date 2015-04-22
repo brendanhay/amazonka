@@ -152,23 +152,27 @@ main = do
                 _verDate
                 (m ^.. unused . verDate)
 
-            api  <- parseObject . mergeObjects =<< sequence
-                [ required (_optOverrides </> (m ^. override))
-                , required _verNormal
-                , optional _verWaiters
-                , optional _verPagers
-                ]
+            api <- fmap ($ _optVersion)
+                . parseObject
+                . mergeObjects
+                    =<< sequence
+                        [ required (_optOverrides </> (m ^. override))
+                        , required _verNormal
+                        , optional _verWaiters
+                        , optional _verPagers
+                        ]
 
-            say ("Successfully parsed " % stext) (api ^. serviceFullName)
+            say ("Successfully parsed " % stext % " definition")
+                (api ^. serviceFullName)
 
-            tree <- foldTree (failure string . show) createDir writeLTFile
+            dir <- foldTree (failure string . show) createDir writeLTFile
                 (populateTree _optOutput _optVersion tmpl api)
 
             say ("Successfully created " % stext % "-" % semver)
                 (api ^. libraryName)
                 _optVersion
 
-            copyDir _optAssets (rootTree tree)
+            copyDir _optAssets (rootTree dir)
 
             done
 

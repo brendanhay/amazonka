@@ -1,3 +1,4 @@
+{-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE OverloadedStrings #-}
 
 -- Module      : Compiler.Types
@@ -13,6 +14,7 @@
 module Compiler.Types where
 
 import           Control.Error
+import qualified Data.Aeson                as Aeson
 import           Data.List                 (intersperse)
 import           Data.Monoid
 import qualified Data.SemVer               as SemVer
@@ -27,8 +29,8 @@ import           Text.EDE                  (Template)
 
 type Compiler = EitherT LazyText
 type LazyText = LText.Text
-type SemVer   = SemVer.Version
-type Path     = Path.FilePath
+
+type Path = Path.FilePath
 
 path :: Format a (Path -> a)
 path = later (Build.fromText . toTextIgnore)
@@ -43,6 +45,11 @@ dateDashes = later (list . map (bprint dateDash))
 
 failure :: Monad m => Format LText.Text (a -> e) -> a -> EitherT e m b
 failure m = Control.Error.left . format m
+
+type SemVer = SemVer.Version
+
+instance Aeson.ToJSON SemVer where
+    toJSON = Aeson.toJSON . SemVer.toText
 
 semver :: Format a (SemVer -> a)
 semver = later (Build.fromText . SemVer.toText)

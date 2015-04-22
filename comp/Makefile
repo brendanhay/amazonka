@@ -60,11 +60,11 @@ JSON := \
 
 MODELS ?= $(QUERY) $(XML) $(JSON)
 
-.PHONY: compile tmp
+.PHONY: compile gen
 
-compile: build tmp
+compile: build gen
 	dist/build/compile/compile \
- --out=tmp \
+ --out=gen \
  --version=$(VERSION) \
  --overrides=override \
  --templates=tmpl \
@@ -72,8 +72,8 @@ compile: build tmp
  --retry=$(MODEL_DIR)/_retry.json \
  $(addprefix --model=,$(addprefix $(MODEL_DIR)/,$(MODELS)))
 
-tmp:
-	rm -rf ./tmp && mkdir tmp
+gen:
+	rm -rf $@ && mkdir $@
 
 build: $(MODEL_DIR)
 	cabal build $(addprefix -,$(findstring j,$(MAKEFLAGS)))

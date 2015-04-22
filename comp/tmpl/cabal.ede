@@ -1,6 +1,6 @@
-name:                  {{ library }}
-version:               {{ version }}
-synopsis:              {{ name }} SDK.
+name:                  {{ libraryName }}
+version:               {{ libraryVersion }}
+synopsis:              {{ serviceFullName }} SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE
@@ -13,9 +13,9 @@ extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-{{ documentation }}
+{{ description }}
     .
-    /See:/ <{{ documentationUrl }} AWS API Reference>
+    /See:/ <{{ referenceUrl }} AWS API Reference>
     .
     /Warning:/ This is an experimental preview release which is still under
     heavy development and not intended for public consumption, caveat emptor!
@@ -35,5 +35,5 @@ library
     other-modules:
 
     build-depends:
-          amazonka-core == {{ version }}.*
+          amazonka-core == {{ libraryVersion }}.*
         , base          >= 4.7     && < 5

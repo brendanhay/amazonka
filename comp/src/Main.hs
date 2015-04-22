@@ -162,7 +162,7 @@ main = do
                         , optional _verPagers
                         ]
 
-            say ("Successfully parsed " % stext % " definition")
+            say ("Successfully parsed '" % stext % "' definition")
                 (api ^. serviceFullName)
 
             dir <- foldTree (failure string . show) createDir writeLTFile

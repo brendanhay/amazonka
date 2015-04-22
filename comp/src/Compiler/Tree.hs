@@ -27,7 +27,7 @@ import           Data.Aeson
 import           Filesystem.Path.CurrentOS
 import           System.Directory.Tree
 import           System.IO.Error
-import           Text.EDE                  (Template, eitherRender, fromValue)
+import           Text.EDE
 
 rootTree :: AnchoredDirTree a -> Path
 rootTree (p :/ d) = decodeString p </> decodeString (name d)
@@ -64,7 +64,7 @@ populateTree d v Templates{..} api =
             [ dir "Network"
                 [ dir "AWS"
                     [ dir abbrev
-                        [ render "Types.hs" typesTemplate (Object mempty)
+                        [ template "Types.hs" typesTemplate (Object mempty)
                         ]
         --                 , file "Waiters.hs" waiters
         --                 ] ++ map (uncurry file) operations
@@ -119,8 +119,8 @@ populateTree d v Templates{..} api =
 dir :: Path -> [DirTree a] -> DirTree a
 dir p = Dir (encodeString p)
 
-render :: Path -> Template -> Value -> DirTree LazyText
-render (encodeString -> f) x v =
+template :: Path -> Template -> Value -> DirTree LazyText
+template (encodeString -> f) x v =
     case note ("Error serialising params: " ++ show v) (fromValue v)
         >>= eitherRender x of
         Right t -> File   f t

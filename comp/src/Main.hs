@@ -126,6 +126,7 @@ main = do
     let i = length _optModels
 
     run $ do
+        title "Initialising..." <* done
         title ("Loading templates from " % path) _optTemplates
 
         let load = readTemplate _optTemplates

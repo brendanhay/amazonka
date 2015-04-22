@@ -60,7 +60,7 @@ JSON := \
 
 MODELS ?= $(QUERY) $(XML) $(JSON)
 
-.PHONY: compile
+.PHONY: compile tmp
 
 compile: build tmp
 	dist/build/compile/compile \

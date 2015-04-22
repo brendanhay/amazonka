@@ -33,7 +33,7 @@ import           Data.Monoid
 import qualified Data.SemVer               as SemVer
 import           Data.String
 import qualified Data.Text                 as Text
-import qualified Data.Text.Lazy.Builder    as Build
+import qualified Data.Text.Lazy            as LText
 import qualified Filesystem                as FS
 import           Filesystem.Path.CurrentOS
 import           Formatting
@@ -121,7 +121,7 @@ validate o = flip execStateT o $ do
 
 main :: IO ()
 main = do
-    o@Opt{..} <- customExecParser (prefs showHelpOnError) options
+    Opt{..} <- customExecParser (prefs showHelpOnError) options
         >>= validate
 
     let i = length _optModels
@@ -161,14 +161,14 @@ main = do
 
             say ("Successfully parsed " % stext) (api ^. serviceFullName)
 
-            tree <- populateTree _optOutput _optVersion tmpl api
-                >>= writeTree
+            tree <- foldTree (failure string . show) createDir writeLTFile
+                (populateTree _optOutput _optVersion tmpl api)
 
             say ("Successfully created " % stext % "-" % semver)
                 (api ^. libraryName)
                 _optVersion
 
-            copyDir _optAssets (rootDir tree)
+            copyDir _optAssets (rootTree tree)
 
             done
 

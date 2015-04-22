@@ -40,6 +40,16 @@ readBSFile f = hushT $ do
         then say ("Reading "  % path) f >> io (FS.readFile f)
         else failure ("Missing " % path) f
 
+writeLTFile :: MonadIO m => Path -> LazyText -> Compiler m ()
+writeLTFile f t = io $ FS.withFile f FS.WriteMode (`LText.hPutStr` t)
+
+createDir :: MonadIO m => Path -> Compiler m ()
+createDir d = do
+    p <- io (FS.isDirectory d)
+    unless p $ do
+        say ("Creating " % path) d
+        io (FS.createTree d)
+
 listDir :: MonadIO m => Path -> Compiler m [Path]
 listDir = io . FS.listDirectory
 

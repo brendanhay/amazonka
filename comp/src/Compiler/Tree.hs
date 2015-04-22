@@ -1,8 +1,11 @@
 {-# LANGUAGE FlexibleContexts      #-}
 {-# LANGUAGE FlexibleInstances     #-}
+{-# LANGUAGE LambdaCase            #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE OverloadedStrings     #-}
+{-# LANGUAGE RecordWildCards       #-}
 {-# LANGUAGE TupleSections         #-}
+{-# LANGUAGE ViewPatterns          #-}
 
 -- Module      : Compiler.Tree
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -17,24 +20,40 @@
 module Compiler.Tree where
 
 import           Compiler.AST
-import           Compiler.EDE
 import           Compiler.Types
 import           Control.Error
 import           Control.Lens              ((^.))
+import           Data.Aeson
 import           Filesystem.Path.CurrentOS
-import           System.Directory.Tree     hiding (file)
+import           System.Directory.Tree
+import           System.IO.Error
+import           Text.EDE                  (Template, eitherRender, fromValue)
 
-rootDir :: AnchoredDirTree a -> Path
-rootDir (p :/ d) = decodeString p </> decodeString (name d)
+rootTree :: AnchoredDirTree a -> Path
+rootTree (p :/ d) = decodeString p </> decodeString (name d)
 
-populateTree :: Monad m
-             => Path
+foldTree :: Monad m
+         => (IOError -> m ())  -- ^ Failures
+         -> (Path -> m ())     -- ^ Directories
+         -> (Path -> a -> m b) -- ^ Files
+         -> AnchoredDirTree a
+         -> m (AnchoredDirTree b)
+foldTree h g f (p :/ t) = (p :/) <$> go (decodeString p) t
+  where
+    go x = \case
+        Failed n e  -> h e >> return (Failed n e)
+        File   n a  -> File n <$> f (x </> decodeString n) a
+        Dir    n cs -> g d >> Dir n <$> mapM (go d) cs
+          where
+            d = x </> decodeString n
+
+populateTree :: Path
              -> SemVer
              -> Templates
              -> API
-             -> Compiler m (AnchoredDirTree LazyText)
-populateTree d v t api =
-    return $! encodeString d :/ dir lib
+             -> AnchoredDirTree LazyText
+populateTree d v Templates{..} api =
+    encodeString d :/ dir lib
         [ dir "src" []
         , dir "examples"
             [ dir "src" []
@@ -45,7 +64,7 @@ populateTree d v t api =
             [ dir "Network"
                 [ dir "AWS"
                     [ dir abbrev
-                        [ -- file "Types.hs" types
+                        [ render "Types.hs" typesTemplate (Object mempty)
                         ]
         --                 , file "Waiters.hs" waiters
         --                 ] ++ map (uncurry file) operations
@@ -58,6 +77,7 @@ populateTree d v t api =
         ]
   where
     -- proto  = s ^. metaProtocol
+
 
     abbrev = fromText (api ^. serviceAbbreviation)
     lib    = fromText (api ^. libraryName)
@@ -99,12 +119,12 @@ populateTree d v t api =
 dir :: Path -> [DirTree a] -> DirTree a
 dir p = Dir (encodeString p)
 
-file :: Path -> a -> DirTree a
-file p = File (encodeString p)
+render :: Path -> Template -> Value -> DirTree LazyText
+render (encodeString -> f) x v =
+    case note ("Error serialising params: " ++ show v) (fromValue v)
+        >>= eitherRender x of
+        Right t -> File   f t
+        Left  e -> Failed f ex
+          where
+            ex = mkIOError userErrorType (e ++ "\nRender") Nothing (Just f)
 
--- reformat :: (Monad m, MonadError String m) => LText.Text -> m LText.Text
--- reformat = either throwError (return . Build.toLazyText)
---     . HIndent.reformat HIndent.johanTibell Nothing
-
--- (<//>) :: FilePath -> DirTree a -> DirTree a
--- p <//> d = dir p [d]

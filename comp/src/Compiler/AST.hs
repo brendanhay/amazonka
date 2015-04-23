@@ -99,12 +99,12 @@ data Location
     = Headers
     | Header
     | URI
-    | QueryString
+    | Querystring
     | StatusCode
     | Body
       deriving (Eq, Show)
 
-deriveJSON lower ''Location
+deriveJSON camel ''Location
 
 data NS = NS
     { _xmlPrefix :: Text
@@ -117,20 +117,33 @@ deriveJSON (camel { lenses = True }) ''NS
 data Ref = Ref
     { _refShape         :: Text
     , _refDocumentation :: Maybe Text
-    , _refLocation      :: !Location
-    , _refLocationName  :: Text
+    , _refLocation      :: Maybe Location
+    , _refLocationName  :: Maybe Text
     , _refQueryName     :: Maybe Text
     , _refStreaming     :: !Bool
     , _refWrapper       :: !Bool
     , _refXMLAttribute  :: !Bool
-    , _refXMLNamespace  :: NS
+    , _refXMLNamespace  :: Maybe NS
     } deriving (Eq, Show)
 
 makeLenses ''Ref
-deriveJSON (camel { lenses = True }) ''Ref
 
-instance HasNS Ref where
-    nS = refXMLNamespace
+instance FromJSON Ref where
+    parseJSON = withObject "ref" $ \o -> Ref
+        <$> o .:  "shape"
+        <*> o .:? "documentation"
+        <*> o .:? "location"
+        <*> o .:? "locationName"
+        <*> o .:? "queryName"
+        <*> o .:? "streaming"    .!= False
+        <*> o .:? "wrapper"      .!= False
+        <*> o .:? "xmlAttribute" .!= False
+        <*> o .:? "xmlnamespace"
+
+deriveToJSON (camel { lenses = True }) ''Ref
+
+-- instance HasNS Ref where
+--     nS = refXMLNamespace
 
 data Info = Info
     { _infoDocumentation :: Maybe Text
@@ -166,18 +179,6 @@ data Lit
     | Bool
       deriving (Eq, Show)
 
-literal :: Text -> Either String Lit
-literal = \case
-    "integer"   -> Right Int
-    "long"      -> Right Long
-    "double"    -> Right Double
-    "float"     -> Right Double
-    "string"    -> Right Text
-    "blob"      -> Right Blob
-    "boolean"   -> Right Bool
-    "timestamp" -> Right Time
-    e           -> Left $ "Unknown Lit type: " ++ Text.unpack e
-
 deriveToJSON lower ''Lit
 
 data Shape
@@ -207,17 +208,30 @@ instance HasInfo Shape where
 
 instance FromJSON Shape where
     parseJSON = withObject "shape" $ \o -> do
-        i  <- parseJSON (Object o)
-        t  <- o .:  "type"
-        mv <- o .:? "enum"
+        i <- parseJSON (Object o)
+        t <- o .:  "type"
+        m <- o .:? "enum"
         case t of
-            "list"   -> List   i <$> o .: "member"
-            "map"    -> Map    i <$> o .: "key" <*> o .: "value"
-            "struct" -> Struct i <$> o .: "members" <*> o .: "required" <*> o .:? "payload"
+            "list"      -> List i <$> o .: "member"
+            "map"       -> Map  i <$> o .: "key" <*> o .: "value"
+
+            "structure" -> Struct i
+                <$> o .:  "members"
+                <*> o .:? "required" .!= mempty
+                <*> o .:? "payload"
+
             "string"
-                | Just v <- mv
-                     -> pure . Enum i $ joinMap v
-            _        -> either fail (return . Lit i) (literal t)
+                | Just v <- m -> pure . Enum i $ joinMap v
+                | otherwise   -> pure (Lit i Text)
+
+            "integer"         -> pure (Lit i Int)
+            "long"            -> pure (Lit i Long)
+            "double"          -> pure (Lit i Double)
+            "float"           -> pure (Lit i Double)
+            "blob"            -> pure (Lit i Blob)
+            "boolean"         -> pure (Lit i Bool)
+            "timestamp"       -> pure (Lit i Time)
+            _                 -> fail $ "Unknown Shape type: " ++ Text.unpack t
 
 data Metadata = Metadata
     { _protocol            :: !Protocol

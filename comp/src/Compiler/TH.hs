@@ -74,7 +74,7 @@ aeson (options -> (f, g)) = A.defaultOptions
 options :: TH -> (String -> String, String -> String)
 options TH{..} = (f field, f ctor)
   where
-    f g = asText (g . renameAcronym . h . stripSuffix "'")
+    f g = asText (g . revertAcronym . h . stripSuffix "'")
 
     h | lenses    = stripLens
       | otherwise = stripPrefix "_"

@@ -7,8 +7,6 @@
 {-# LANGUAGE StandaloneDeriving     #-}
 {-# LANGUAGE TemplateHaskell        #-}
 
-{-# OPTIONS_GHC -ddump-splices        #-}
-
 -- Module      : Compiler.AST
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
@@ -147,8 +145,8 @@ instance FromJSON (Ref Maybe) where
 
 --deriveToJSON (camel { lenses = True }) ''Ref
 
--- instance HasNS Ref where
---     nS = refXMLNamespace
+instance HasNS (Ref Identity) where
+    nS = refXMLNamespace . _Wrapped
 
 data Info f = Info
     { _infoDocumentation :: f Text

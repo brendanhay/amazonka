@@ -1,8 +1,13 @@
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE FlexibleInstances      #-}
+{-# LANGUAGE FunctionalDependencies #-}
+{-# LANGUAGE LambdaCase             #-}
+{-# LANGUAGE MultiParamTypeClasses  #-}
+{-# LANGUAGE OverloadedStrings      #-}
+{-# LANGUAGE RecordWildCards        #-}
+{-# LANGUAGE StandaloneDeriving     #-}
+{-# LANGUAGE TemplateHaskell        #-}
+
+{-# OPTIONS_GHC -ddump-splices        #-}
 
 -- Module      : Compiler.AST
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -49,7 +54,7 @@ data Signature
     | V3HTTPS
     | V4
     | S3
-      deriving (Eq, Show)
+      deriving (Eq)
 
 deriveJSON lower ''Signature
 
@@ -60,7 +65,7 @@ data Protocol
     | RestXML
     | Query
     | EC2
-      deriving (Eq, Show)
+      deriving (Eq)
 
 deriveJSON spinal ''Protocol
 
@@ -68,7 +73,7 @@ data Timestamp
     = RFC822
     | ISO8601
     | POSIX
-      deriving (Eq, Show)
+      deriving (Eq)
 
 instance FromJSON Timestamp where
     parseJSON = withText "timestamp" $ \case
@@ -91,7 +96,7 @@ defaultTimestamp = \case
 data Checksum
     = MD5
     | SHA256
-      deriving (Eq, Show)
+      deriving (Eq)
 
 deriveJSON lower ''Checksum
 
@@ -102,33 +107,33 @@ data Location
     | Querystring
     | StatusCode
     | Body
-      deriving (Eq, Show)
+      deriving (Eq)
 
 deriveJSON camel ''Location
 
 data NS = NS
     { _xmlPrefix :: Text
     , _xmlUri    :: Text
-    } deriving (Eq, Show)
+    }
 
 makeClassy ''NS
 deriveJSON (camel { lenses = True }) ''NS
 
-data Ref = Ref
+data Ref f = Ref
     { _refShape         :: Text
-    , _refDocumentation :: Maybe Text
-    , _refLocation      :: Maybe Location
-    , _refLocationName  :: Maybe Text
-    , _refQueryName     :: Maybe Text
+    , _refDocumentation :: f Text
+    , _refLocation      :: f Location
+    , _refLocationName  :: f Text
+    , _refQueryName     :: f Text
     , _refStreaming     :: !Bool
     , _refWrapper       :: !Bool
     , _refXMLAttribute  :: !Bool
-    , _refXMLNamespace  :: Maybe NS
-    } deriving (Eq, Show)
+    , _refXMLNamespace  :: f NS
+    }
 
 makeLenses ''Ref
 
-instance FromJSON Ref where
+instance FromJSON (Ref Maybe) where
     parseJSON = withObject "ref" $ \o -> Ref
         <$> o .:  "shape"
         <*> o .:? "documentation"
@@ -140,24 +145,24 @@ instance FromJSON Ref where
         <*> o .:? "xmlAttribute" .!= False
         <*> o .:? "xmlnamespace"
 
-deriveToJSON (camel { lenses = True }) ''Ref
+--deriveToJSON (camel { lenses = True }) ''Ref
 
 -- instance HasNS Ref where
 --     nS = refXMLNamespace
 
-data Info = Info
-    { _infoDocumentation :: Maybe Text
+data Info f = Info
+    { _infoDocumentation :: f Text
     , _infoMin           :: !Natural
     , _infoMax           :: Maybe Natural
     , _infoFlattened     :: !Bool
     , _infoSensitive     :: !Bool
     , _infoStreaming     :: !Bool
     , _infoException     :: !Bool
-    } deriving (Eq, Show)
+    }
 
 makeClassy ''Info
 
-instance FromJSON Info where
+instance FromJSON (Info Maybe) where
     parseJSON = withObject "info" $ \o -> Info
         <$> o .:? "documentation"
         <*> o .:? "min"       .!= 0
@@ -167,7 +172,7 @@ instance FromJSON Info where
         <*> o .:? "streaming" .!= False
         <*> o .:? "exception" .!= False
 
-deriveToJSON (camel { lenses = True }) ''Info
+-- deriveToJSON (camel { lenses = True }) ''Info
 
 data Lit
     = Int
@@ -177,19 +182,17 @@ data Lit
     | Blob
     | Time
     | Bool
-      deriving (Eq, Show)
 
 deriveToJSON lower ''Lit
 
-data Shape
-    = List   Info Ref
-    | Map    Info Ref Ref
-    | Struct Info (Map Text Ref) [Text] (Maybe Text)
-    | Enum   Info (Map Text Text)
-    | Lit    Info Lit
-      deriving (Eq, Show)
+data Shape f
+    = List   (Info f) (Ref f)
+    | Map    (Info f) (Ref f) (Ref f)
+    | Struct (Info f) (Map Text (Ref f)) [Text] (Maybe Text)
+    | Enum   (Info f) (Map Text Text)
+    | Lit    (Info f) Lit
 
-instance HasInfo Shape where
+instance HasInfo (Shape f) f where
     info = lens f (flip g)
       where
          f = \case
@@ -206,7 +209,7 @@ instance HasInfo Shape where
              Enum   _ m      -> Enum   i m
              Lit    _ l      -> Lit    i l
 
-instance FromJSON Shape where
+instance FromJSON (Shape Maybe) where
     parseJSON = withObject "shape" $ \o -> do
         i <- parseJSON (Object o)
         t <- o .:  "type"
@@ -244,7 +247,7 @@ data Metadata = Metadata
     , _checksumFormat      :: !Checksum
     , _jsonVersion         :: Text
     , _targetPrefix        :: Maybe Text
-    } deriving (Eq, Show)
+    }
 
 makeClassy ''Metadata
 
@@ -264,22 +267,22 @@ instance FromJSON Metadata where
 
 deriveToJSON camel ''Metadata
 
-data API = API
+data API f = API
     { _metadata'    :: Metadata
     , _referenceUrl :: Text
     , _operationUrl :: Text
     , _description  :: Text
     -- , Operations   :: Map Text Operation
-    , _shapes       :: Map Text Shape
+    , _shapes       :: Map Text (Shape f)
     , _libraryName  :: Text
-    } deriving (Eq, Show)
+    }
 
 makeClassy ''API
 
-instance HasMetadata API where
+instance HasMetadata (API f) where
     metadata = metadata'
 
-instance FromJSON API where
+instance FromJSON (API Maybe) where
     parseJSON = withObject "api" $ \o ->
          API <$> o .: "metadata"
              <*> o .: "referenceUrl"
@@ -288,22 +291,22 @@ instance FromJSON API where
              <*> o .: "shapes"
              <*> o .: "libraryName"
 
-data Package = Package
-    { _api'           :: API
+data Package f = Package
+    { _api'           :: API f
     , _libraryVersion :: SemVer
     , _exposedModules :: [Text]
     , _otherModules   :: [Text]
-    } deriving (Eq, Show)
+    }
 
 makeLenses ''Package
 
-instance HasMetadata Package where
+instance HasMetadata (Package f) where
     metadata = api' . metadata'
 
-instance HasAPI Package where
+instance HasAPI (Package f) f where
     aPI = api'
 
-instance A.ToJSON Package where
+instance A.ToJSON (Package Identity) where
     toJSON p@Package{..} = A.Object (x <> y)
       where
         A.Object y = A.toJSON (p ^. metadata)

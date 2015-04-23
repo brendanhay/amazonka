@@ -1,4 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Compiler.TH
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -11,63 +13,73 @@
 -- Portability : non-portable (GHC extensions)
 
 module Compiler.TH
-    ( Compiler.TH.deriveJSON
-    , deriveFromJSON
-    , A.deriveToJSON
+    ( deriveFromJSON
+    , deriveToJSON
+    , deriveJSON
 
-    , Options(..)
+    , TH (..)
     , upper
     , lower
     , spinal
     , camel
-    , aeson
     ) where
 
 import           Compiler.Text
 import qualified Data.Aeson.TH        as A
-import           Data.Char
-import           Data.Jason.TH
+import qualified Data.Jason.TH        as J
 import           Data.Text            (Text)
 import qualified Data.Text            as Text
-import           Data.Text.Manipulate
+import qualified Data.Text.Manipulate as Text
 
-deriveJSON o n = concat <$> sequence
-    [ deriveFromJSON o         n
-    , A.deriveToJSON (aeson o) n
-    ]
+deriveFromJSON th   = J.deriveFromJSON (jason th)
+deriveToJSON   th   = A.deriveToJSON (aeson th)
+deriveJSON     th n = concat <$> sequence [deriveFromJSON th n, deriveToJSON th n]
 
-upper, lower, spinal :: Options
-upper  = camel { constructorTagModifier = asText Text.toUpper      }
-lower  = camel { constructorTagModifier = asText Text.toLower      }
-spinal = camel { constructorTagModifier = asText (toSpinal . safe) }
+data TH = TH
+    { field  :: Text -> Text
+    , ctor   :: Text -> Text
+    , lenses :: Bool
+    }
 
-camel :: Options
-camel = defaultOptions
-    { constructorTagModifier = asText (toCamel . safe)
-    , fieldLabelModifier     = asText (stripPrefix "_" . stripSuffix "'")
-    , allNullaryToStringTag  = True
-    , sumEncoding            =
-        defaultTaggedObject
-            { tagFieldName      = "type"
-            , contentsFieldName = "contents"
+upper, lower, spinal, camel :: TH
+upper  = TH Text.toUpper  Text.toUpper  False
+lower  = TH Text.toLower  Text.toLower  False
+spinal = TH Text.toSpinal Text.toSpinal False
+camel  = TH Text.toCamel  Text.toCamel  False
+
+jason :: TH -> J.Options
+jason (options -> (f, g)) = J.defaultOptions
+    { J.constructorTagModifier = f
+    , J.fieldLabelModifier     = g
+    , J.allNullaryToStringTag  = True
+    , J.sumEncoding            =
+        J.defaultTaggedObject
+            { J.tagFieldName      = "type"
+            , J.contentsFieldName = "contents"
             }
     }
 
-aeson :: Options -> A.Options
-aeson o = A.defaultOptions
-    { A.constructorTagModifier = constructorTagModifier o
-    , A.fieldLabelModifier     = fieldLabelModifier     o
-    , A.allNullaryToStringTag  = allNullaryToStringTag  o
+aeson :: TH -> A.Options
+aeson (options -> (f, g)) = A.defaultOptions
+    { A.constructorTagModifier = f
+    , A.fieldLabelModifier     = g
+    , A.allNullaryToStringTag  = True
     , A.sumEncoding            =
         A.defaultTaggedObject
-            { A.tagFieldName      = tagFieldName      tag
-            , A.contentsFieldName = contentsFieldName tag
+            { A.tagFieldName      = "type"
+            , A.contentsFieldName = "contents"
             }
     }
-  where
-    tag = sumEncoding o
 
-safe :: Text -> Text
-safe x
-    | Text.all isUpper x = Text.toLower x
-    | otherwise          = x
+options :: TH -> (String -> String, String -> String)
+options TH{..} = (f field, f ctor)
+  where
+    f g = asText (g . renameAcronym . h . stripSuffix "'")
+
+    h | lenses    = stripLens
+      | otherwise = stripPrefix "_"
+
+-- safe :: Text -> Text
+-- safe x
+--     | Text.all isUpper x = Text.toLower xc
+--     | otherwise          = x

@@ -38,6 +38,7 @@ executable compile
         , mtl
         , optparse-applicative
         , parsec
+        , scientific
         , semigroups
         , semver
         , system-fileio

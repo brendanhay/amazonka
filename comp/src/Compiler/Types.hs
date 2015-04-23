@@ -14,9 +14,14 @@
 module Compiler.Types where
 
 import           Control.Error
-import qualified Data.Aeson                as Aeson
+import           Control.Monad
+import qualified Data.Aeson                as A
+import qualified Data.HashMap.Strict       as Map
+import qualified Data.Jason                as J
+import qualified Data.Jason.Types          as J
 import           Data.List                 (intersperse)
 import           Data.Monoid
+import           Data.Scientific           (floatingOrInteger)
 import qualified Data.SemVer               as SemVer
 import           Data.Text                 (Text)
 import qualified Data.Text.Lazy            as LText
@@ -25,10 +30,16 @@ import           Data.Time
 import qualified Filesystem.Path.CurrentOS as Path
 import           Formatting
 import           Formatting.Time
+import           Numeric.Natural
 import           Text.EDE                  (Template)
 
 type Compiler = EitherT LazyText
 type LazyText = LText.Text
+
+type Map = Map.HashMap
+
+joinMap :: [Text] -> Map Text Text
+joinMap = Map.fromList . map (join (,))
 
 type Path = Path.FilePath
 
@@ -48,8 +59,8 @@ failure m = Control.Error.left . format m
 
 type SemVer = SemVer.Version
 
-instance Aeson.ToJSON SemVer where
-    toJSON = Aeson.toJSON . SemVer.toText
+instance A.ToJSON SemVer where
+    toJSON = A.toJSON . SemVer.toText
 
 semver :: Format a (SemVer -> a)
 semver = later (Build.fromText . SemVer.toText)
@@ -64,3 +75,15 @@ data Templates = Templates
     , operationTemplate       :: Template
     , typesTemplate           :: Template
     }
+
+instance J.FromJSON Natural where
+    parseJSON = J.withScientific "natural" (f . floatingOrInteger)
+      where
+        f :: Either Double Integer -> J.Parser Natural
+        f (Left  e)     = fail ("Double when expecting Natural: " ++ show e)
+        f (Right x)
+            | x < 0     = fail ("Negative when expecting Natural: " ++ show x)
+            | otherwise = pure (fromInteger x)
+
+instance A.ToJSON Natural where
+    toJSON = A.toJSON . toInteger

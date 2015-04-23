@@ -19,11 +19,29 @@ module Compiler.AST where
 import           Compiler.TH
 import           Compiler.Types
 import           Control.Lens
-import qualified Data.Aeson     as A
-import           Data.Jason
+import qualified Data.Aeson      as A
+import           Data.Jason      hiding (Bool)
 import           Data.Monoid
-import           Data.Text      (Text)
-import qualified Data.Text      as Text
+import           Data.Text       (Text)
+import qualified Data.Text       as Text
+import           Numeric.Natural
+
+-- a Ref can circularly point to a Shape via a stable/unique identifer
+-- which is indexed somewhere to point to the correct Shape.
+--
+-- This means all Shape Refs need to be updated to correctly point
+-- to the destination Shapes.
+--
+-- This way a Ref can transparently 'have' Info with an unsafe lookup
+-- since the initial assignment of identifiers can be considered safe.
+-- e.g.:
+--   instance HasInfo (StateT (IntMap Shape) Ref)
+
+-- Maybe constraints and types can be solved similarly, via separate indexes
+-- rather than trying to transform the Shapes in place?
+--   * how would the above be serialised to JSON for rendering?
+--   * should another attempt be made to use haskell-src-exts
+--     to pre-render the type class instances?
 
 data Signature
     = V2
@@ -59,7 +77,7 @@ instance FromJSON Timestamp where
         "unixTimestamp" -> pure POSIX
         e               -> fail ("Unknown Timestamp: " ++ Text.unpack e)
 
-deriveToJSON (aeson lower) ''Timestamp
+deriveToJSON lower ''Timestamp
 
 defaultTimestamp :: Protocol -> Timestamp
 defaultTimestamp = \case
@@ -77,15 +95,139 @@ data Checksum
 
 deriveJSON lower ''Checksum
 
+data Location
+    = Headers
+    | Header
+    | URI
+    | QueryString
+    | StatusCode
+    | Body
+      deriving (Eq, Show)
+
+deriveJSON lower ''Location
+
+data NS = NS
+    { _xmlPrefix :: Text
+    , _xmlUri    :: Text
+    } deriving (Eq, Show)
+
+makeClassy ''NS
+deriveJSON (camel { lenses = True }) ''NS
+
+data Ref = Ref
+    { _refShape         :: Text
+    , _refDocumentation :: Maybe Text
+    , _refLocation      :: !Location
+    , _refLocationName  :: Text
+    , _refQueryName     :: Maybe Text
+    , _refStreaming     :: !Bool
+    , _refWrapper       :: !Bool
+    , _refXMLAttribute  :: !Bool
+    , _refXMLNamespace  :: NS
+    } deriving (Eq, Show)
+
+makeLenses ''Ref
+deriveJSON (camel { lenses = True }) ''Ref
+
+instance HasNS Ref where
+    nS = refXMLNamespace
+
+data Info = Info
+    { _infoDocumentation :: Maybe Text
+    , _infoMin           :: !Natural
+    , _infoMax           :: Maybe Natural
+    , _infoFlattened     :: !Bool
+    , _infoSensitive     :: !Bool
+    , _infoStreaming     :: !Bool
+    , _infoException     :: !Bool
+    } deriving (Eq, Show)
+
+makeClassy ''Info
+
+instance FromJSON Info where
+    parseJSON = withObject "info" $ \o -> Info
+        <$> o .:? "documentation"
+        <*> o .:? "min"       .!= 0
+        <*> o .:? "max"
+        <*> o .:? "flattened" .!= False
+        <*> o .:? "sensitive" .!= False
+        <*> o .:? "streaming" .!= False
+        <*> o .:? "exception" .!= False
+
+deriveToJSON (camel { lenses = True }) ''Info
+
+data Lit
+    = Int
+    | Long
+    | Double
+    | Text
+    | Blob
+    | Time
+    | Bool
+      deriving (Eq, Show)
+
+literal :: Text -> Either String Lit
+literal = \case
+    "integer"   -> Right Int
+    "long"      -> Right Long
+    "double"    -> Right Double
+    "float"     -> Right Double
+    "string"    -> Right Text
+    "blob"      -> Right Blob
+    "boolean"   -> Right Bool
+    "timestamp" -> Right Time
+    e           -> Left $ "Unknown Lit type: " ++ Text.unpack e
+
+deriveToJSON lower ''Lit
+
+data Shape
+    = List   Info Ref
+    | Map    Info Ref Ref
+    | Struct Info (Map Text Ref) [Text] (Maybe Text)
+    | Enum   Info (Map Text Text)
+    | Lit    Info Lit
+      deriving (Eq, Show)
+
+instance HasInfo Shape where
+    info = lens f (flip g)
+      where
+         f = \case
+             List   i _      -> i
+             Map    i _ _    -> i
+             Struct i _ _ _  -> i
+             Enum   i _      -> i
+             Lit    i _      -> i
+
+         g i = \case
+             List   _ e      -> List   i e
+             Map    _ k v    -> Map    i k v
+             Struct _ ms r p -> Struct i ms r p
+             Enum   _ m      -> Enum   i m
+             Lit    _ l      -> Lit    i l
+
+instance FromJSON Shape where
+    parseJSON = withObject "shape" $ \o -> do
+        i  <- parseJSON (Object o)
+        t  <- o .:  "type"
+        mv <- o .:? "enum"
+        case t of
+            "list"   -> List   i <$> o .: "member"
+            "map"    -> Map    i <$> o .: "key" <*> o .: "value"
+            "struct" -> Struct i <$> o .: "members" <*> o .: "required" <*> o .:? "payload"
+            "string"
+                | Just v <- mv
+                     -> pure . Enum i $ joinMap v
+            _        -> either fail (return . Lit i) (literal t)
+
 data Metadata = Metadata
-    { _protocol            :: Protocol
+    { _protocol            :: !Protocol
     , _serviceAbbreviation :: Text
     , _serviceFullName     :: Text
     , _apiVersion          :: Text
-    , _signatureVersion    :: Signature
+    , _signatureVersion    :: !Signature
     , _endpointPrefix      :: Text
-    , _timestampFormat     :: Timestamp
-    , _checksumFormat      :: Checksum
+    , _timestampFormat     :: !Timestamp
+    , _checksumFormat      :: !Checksum
     , _jsonVersion         :: Text
     , _targetPrefix        :: Maybe Text
     } deriving (Eq, Show)
@@ -106,15 +248,15 @@ instance FromJSON Metadata where
             <*> o .:? "jsonVersion"     .!= "1.0"
             <*> o .:? "targetPrefix"
 
-deriveToJSON (aeson camel) ''Metadata
+deriveToJSON camel ''Metadata
 
 data API = API
     { _metadata'    :: Metadata
     , _referenceUrl :: Text
     , _operationUrl :: Text
     , _description  :: Text
-    -- , Operations   :: HashMap Text Operation
-    -- , Shapes       :: HashMap Text Shape
+    -- , Operations   :: Map Text Operation
+    , _shapes       :: Map Text Shape
     , _libraryName  :: Text
     } deriving (Eq, Show)
 
@@ -129,6 +271,7 @@ instance FromJSON API where
              <*> o .: "referenceUrl"
              <*> o .: "operationUrl"
              <*> o .: "description"
+             <*> o .: "shapes"
              <*> o .: "libraryName"
 
 data Package = Package

@@ -1,3 +1,4 @@
+{-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE ViewPatterns      #-}
@@ -13,9 +14,8 @@
 -- Portability : non-portable (GHC extensions)
 
 module Compiler.TH
-    ( deriveFromJSON
-    , deriveToJSON
-    , deriveJSON
+    ( gParseJSON'
+    , gToJSON'
 
     , TH (..)
     , upper
@@ -25,15 +25,19 @@ module Compiler.TH
     ) where
 
 import           Compiler.Text
+import qualified Data.Aeson           as A
 import qualified Data.Aeson.TH        as A
+import qualified Data.Jason           as J
 import qualified Data.Jason.TH        as J
 import           Data.Text            (Text)
 import qualified Data.Text            as Text
 import qualified Data.Text.Manipulate as Text
 
-deriveFromJSON th   = J.deriveFromJSON (jason th)
-deriveToJSON   th   = A.deriveToJSON (aeson th)
-deriveJSON     th n = concat <$> sequence [deriveFromJSON th n, deriveToJSON th n]
+-- deriveFromJSON th   = J.deriveFromJSON (jason th)
+-- deriveToJSON   th   = A.deriveToJSON (aeson th)
+-- deriveJSON  th n = concat <$> sequence [deriveFromJSON th n, deriveToJSON th n]
+gParseJSON' th = J.genericParseJSON (jason th)
+gToJSON'    th = A.genericToJSON    (aeson th)
 
 data TH = TH
     { field  :: Text -> Text
@@ -78,8 +82,3 @@ options TH{..} = (f field, f ctor)
 
     h | lenses    = stripLens
       | otherwise = stripPrefix "_"
-
--- safe :: Text -> Text
--- safe x
---     | Text.all isUpper x = Text.toLower xc
---     | otherwise          = x

@@ -1,3 +1,4 @@
+{-# LANGUAGE DeriveGeneric          #-}
 {-# LANGUAGE FlexibleInstances      #-}
 {-# LANGUAGE FunctionalDependencies #-}
 {-# LANGUAGE LambdaCase             #-}
@@ -22,11 +23,13 @@ module Compiler.AST where
 import           Compiler.TH
 import           Compiler.Types
 import           Control.Lens
+import           Data.Aeson      (ToJSON (..))
 import qualified Data.Aeson      as A
-import           Data.Jason      hiding (Bool)
+import           Data.Jason      hiding (Bool, ToJSON (..))
 import           Data.Monoid
 import           Data.Text       (Text)
 import qualified Data.Text       as Text
+import           GHC.Generics
 import           Numeric.Natural
 
 -- a Ref can circularly point to a Shape via a stable/unique identifer
@@ -52,9 +55,13 @@ data Signature
     | V3HTTPS
     | V4
     | S3
-      deriving (Eq)
+      deriving (Eq, Show, Generic)
 
-deriveJSON lower ''Signature
+instance FromJSON Signature where
+    parseJSON = gParseJSON' lower
+
+instance ToJSON Signature where
+    toJSON = gToJSON' lower
 
 data Protocol
     = JSON
@@ -63,15 +70,19 @@ data Protocol
     | RestXML
     | Query
     | EC2
-      deriving (Eq)
+      deriving (Eq, Show, Generic)
 
-deriveJSON spinal ''Protocol
+instance FromJSON Protocol where
+    parseJSON = gParseJSON' spinal
+
+instance ToJSON Protocol where
+    toJSON = gToJSON' spinal
 
 data Timestamp
     = RFC822
     | ISO8601
     | POSIX
-      deriving (Eq)
+      deriving (Eq, Show, Generic)
 
 instance FromJSON Timestamp where
     parseJSON = withText "timestamp" $ \case
@@ -80,7 +91,8 @@ instance FromJSON Timestamp where
         "unixTimestamp" -> pure POSIX
         e               -> fail ("Unknown Timestamp: " ++ Text.unpack e)
 
-deriveToJSON lower ''Timestamp
+instance ToJSON Timestamp where
+    toJSON = gToJSON' lower
 
 defaultTimestamp :: Protocol -> Timestamp
 defaultTimestamp = \case
@@ -94,9 +106,13 @@ defaultTimestamp = \case
 data Checksum
     = MD5
     | SHA256
-      deriving (Eq)
+      deriving (Eq, Show, Generic)
 
-deriveJSON lower ''Checksum
+instance FromJSON Checksum where
+    parseJSON = gParseJSON' lower
+
+instance ToJSON Checksum where
+    toJSON = gToJSON' lower
 
 data Location
     = Headers
@@ -105,17 +121,20 @@ data Location
     | Querystring
     | StatusCode
     | Body
-      deriving (Eq)
+      deriving (Eq, Show, Generic)
 
-deriveJSON camel ''Location
+instance FromJSON Location where
+    parseJSON = gParseJSON' camel
 
 data NS = NS
     { _xmlPrefix :: Text
     , _xmlUri    :: Text
-    }
+    } deriving (Eq, Show, Generic)
 
 makeClassy ''NS
-deriveJSON (camel { lenses = True }) ''NS
+
+instance FromJSON NS where
+    parseJSON = gParseJSON' $ camel { lenses = True }
 
 data Ref f = Ref
     { _refShape         :: Text
@@ -127,7 +146,7 @@ data Ref f = Ref
     , _refWrapper       :: !Bool
     , _refXMLAttribute  :: !Bool
     , _refXMLNamespace  :: f NS
-    }
+    } deriving (Generic)
 
 makeLenses ''Ref
 
@@ -143,8 +162,6 @@ instance FromJSON (Ref Maybe) where
         <*> o .:? "xmlAttribute" .!= False
         <*> o .:? "xmlnamespace"
 
---deriveToJSON (camel { lenses = True }) ''Ref
-
 instance HasNS (Ref Identity) where
     nS = refXMLNamespace . _Wrapped
 
@@ -156,7 +173,7 @@ data Info f = Info
     , _infoSensitive     :: !Bool
     , _infoStreaming     :: !Bool
     , _infoException     :: !Bool
-    }
+    } deriving (Generic)
 
 makeClassy ''Info
 
@@ -170,8 +187,6 @@ instance FromJSON (Info Maybe) where
         <*> o .:? "streaming" .!= False
         <*> o .:? "exception" .!= False
 
--- deriveToJSON (camel { lenses = True }) ''Info
-
 data Lit
     = Int
     | Long
@@ -181,14 +196,14 @@ data Lit
     | Time
     | Bool
 
-deriveToJSON lower ''Lit
-
 data Shape f
     = List   (Info f) (Ref f)
     | Map    (Info f) (Ref f) (Ref f)
     | Struct (Info f) (Map Text (Ref f)) [Text] (Maybe Text)
     | Enum   (Info f) (Map Text Text)
     | Lit    (Info f) Lit
+
+makePrisms ''Shape
 
 instance HasInfo (Shape f) f where
     info = lens f (flip g)
@@ -206,6 +221,26 @@ instance HasInfo (Shape f) f where
              Struct _ ms r p -> Struct i ms r p
              Enum   _ m      -> Enum   i m
              Lit    _ l      -> Lit    i l
+
+-- references :: Traversal (Shape a) (Shape b) (Ref a) (Ref b)
+-- references f = \case
+--     SList   x -> list   x <$> f (_listMember x)
+--     SMap    x -> hmap   x <$> f (_mapKey x) <*> f (_mapValue x)
+--     SStruct x -> struct x <$> traverse g (_structMembers x)
+--     SString x -> pure (SString x)
+--     SEnum   x -> pure (SEnum   x)
+--     SBlob   x -> pure (SBlob   x)
+--     SBool   x -> pure (SBool   x)
+--     STime   x -> pure (STime   x)
+--     SInt    x -> pure (SInt    x)
+--     SDouble x -> pure (SDouble x)
+--     SLong   x -> pure (SLong   x)
+--   where
+--     g x = f x -- trace (show (_refShape x)) (f x)
+
+--     list   x m   = SList   $ x { _listMember = m }
+--     hmap   x k v = SMap    $ x { _mapKey = k, _mapValue = v}
+--     struct x ms  = SStruct $ x { _structMembers = ms }
 
 instance FromJSON (Shape Maybe) where
     parseJSON = withObject "shape" $ \o -> do
@@ -234,77 +269,77 @@ instance FromJSON (Shape Maybe) where
             "timestamp"       -> pure (Lit i Time)
             _                 -> fail $ "Unknown Shape type: " ++ Text.unpack t
 
-data Metadata = Metadata
+data Metadata f = Metadata
     { _protocol            :: !Protocol
     , _serviceAbbreviation :: Text
     , _serviceFullName     :: Text
     , _apiVersion          :: Text
     , _signatureVersion    :: !Signature
     , _endpointPrefix      :: Text
-    , _timestampFormat     :: !Timestamp
-    , _checksumFormat      :: !Checksum
+    , _timestampFormat     :: f Timestamp
+    , _checksumFormat      :: f Checksum
     , _jsonVersion         :: Text
     , _targetPrefix        :: Maybe Text
-    }
+    } deriving (Generic)
 
 makeClassy ''Metadata
 
-instance FromJSON Metadata where
-    parseJSON = withObject "metadata" $ \o -> do
-        p <- o .: "protocol"
-        Metadata p
-            <$> o .:  "serviceAbbreviation"
-            <*> o .:  "serviceFullName"
-            <*> o .:  "apiVersion"
-            <*> o .:  "signatureVersion"
-            <*> o .:  "endpointPrefix"
-            <*> o .:? "timestampFormat" .!= defaultTimestamp p
-            <*> o .:? "checksumFormat"  .!= SHA256
-            <*> o .:? "jsonVersion"     .!= "1.0"
-            <*> o .:? "targetPrefix"
+instance FromJSON (Metadata Maybe) where
+    parseJSON = withObject "metadata" $ \o -> Metadata
+        <$> o .:  "protocol"
+        <*> o .:  "serviceAbbreviation"
+        <*> o .:  "serviceFullName"
+        <*> o .:  "apiVersion"
+        <*> o .:  "signatureVersion"
+        <*> o .:  "endpointPrefix"
+        <*> o .:? "timestampFormat"
+        <*> o .:? "checksumFormat"
+        <*> o .:? "jsonVersion"     .!= "1.0"
+        <*> o .:? "targetPrefix"
 
-deriveToJSON camel ''Metadata
+instance ToJSON (Metadata Identity) where
+    toJSON = gToJSON' camel
 
 data API f = API
-    { _metadata'    :: Metadata
+    { _metadata'    :: Metadata f
     , _referenceUrl :: Text
     , _operationUrl :: Text
     , _description  :: Text
     -- , Operations   :: Map Text Operation
     , _shapes       :: Map Text (Shape f)
     , _libraryName  :: Text
-    }
+    } deriving (Generic)
 
 makeClassy ''API
 
-instance HasMetadata (API f) where
+instance HasMetadata (API f) f where
     metadata = metadata'
 
 instance FromJSON (API Maybe) where
-    parseJSON = withObject "api" $ \o ->
-         API <$> o .: "metadata"
-             <*> o .: "referenceUrl"
-             <*> o .: "operationUrl"
-             <*> o .: "description"
-             <*> o .: "shapes"
-             <*> o .: "libraryName"
+    parseJSON = withObject "api" $ \o -> API
+         <$> o .: "metadata"
+         <*> o .: "referenceUrl"
+         <*> o .: "operationUrl"
+         <*> o .: "description"
+         <*> o .: "shapes"
+         <*> o .: "libraryName"
 
-data Package f = Package
-    { _api'           :: API f
+data Package = Package
+    { _api'           :: API Identity
     , _libraryVersion :: SemVer
     , _exposedModules :: [Text]
     , _otherModules   :: [Text]
-    }
+    } deriving (Generic)
 
 makeLenses ''Package
 
-instance HasMetadata (Package f) where
+instance HasMetadata Package Identity where
     metadata = api' . metadata'
 
-instance HasAPI (Package f) f where
+instance HasAPI Package Identity where
     aPI = api'
 
-instance A.ToJSON (Package Identity) where
+instance ToJSON Package where
     toJSON p@Package{..} = A.Object (x <> y)
       where
         A.Object y = A.toJSON (p ^. metadata)

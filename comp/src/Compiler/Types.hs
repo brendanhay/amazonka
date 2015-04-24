@@ -13,6 +13,7 @@
 
 module Compiler.Types where
 
+import           Compiler.Orphans          ()
 import           Control.Error
 import           Control.Monad
 import qualified Data.Aeson                as A
@@ -21,7 +22,6 @@ import qualified Data.Jason                as J
 import qualified Data.Jason.Types          as J
 import           Data.List                 (intersperse)
 import           Data.Monoid
-import           Data.Scientific           (floatingOrInteger)
 import qualified Data.SemVer               as SemVer
 import           Data.Text                 (Text)
 import qualified Data.Text.Lazy            as LText
@@ -49,18 +49,7 @@ path = later (Build.fromText . toTextIgnore)
 toTextIgnore :: Path -> Text
 toTextIgnore = either id id . Path.toText
 
-dateDashes :: Format a ([UTCTime] -> a)
-dateDashes = later (list . map (bprint dateDash))
-  where
-    list = ("[" <>) . (<> "]") . mconcat . intersperse ","
-
-failure :: Monad m => Format LText.Text (a -> e) -> a -> EitherT e m b
-failure m = Control.Error.left . format m
-
 type SemVer = SemVer.Version
-
-instance A.ToJSON SemVer where
-    toJSON = A.toJSON . SemVer.toText
 
 semver :: Format a (SemVer -> a)
 semver = later (Build.fromText . SemVer.toText)
@@ -76,14 +65,10 @@ data Templates = Templates
     , typesTemplate           :: Template
     }
 
-instance J.FromJSON Natural where
-    parseJSON = J.withScientific "natural" (f . floatingOrInteger)
-      where
-        f :: Either Double Integer -> J.Parser Natural
-        f (Left  e)     = fail ("Double when expecting Natural: " ++ show e)
-        f (Right x)
-            | x < 0     = fail ("Negative when expecting Natural: " ++ show x)
-            | otherwise = pure (fromInteger x)
+dateDashes :: Format a ([UTCTime] -> a)
+dateDashes = later (list . map (bprint dateDash))
+  where
+    list = ("[" <>) . (<> "]") . mconcat . intersperse ","
 
-instance A.ToJSON Natural where
-    toJSON = A.toJSON . toInteger
+failure :: Monad m => Format LText.Text (a -> e) -> a -> EitherT e m b
+failure m = Control.Error.left . format m

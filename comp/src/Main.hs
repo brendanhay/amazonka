@@ -163,7 +163,7 @@ main = do
             say ("Successfully parsed '" % stext % "' API definition")
                 (api ^. serviceFullName)
 
-            pkg <- elaborate api >>= \x -> return (Package x _optVersion [] [])
+            pkg <- createPackage _optVersion api
 
             dir <- foldTree (failure string . show) createDir writeLTFile
                 (populateTree _optOutput _optVersion tmpl pkg)

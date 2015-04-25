@@ -6,11 +6,11 @@
     "metadata": {
         "serviceAbbreviation": "EC2"
     },
-    "typeModules": [
-        "Network.AWS.EC2.Internal"
-    ],
-    "ignoreWaiters": [
+    "ignoredWaiters": [
         "ConversionTaskDeleted"
+    ],
+    "typeImports": [
+        "Network.AWS.EC2.Internal"
     ],
     "typeOverrides": {
         "RouteOrigin": {
@@ -221,13 +221,6 @@
                 "State",
                 "Type"
             ]
-        },
-        "OfferingTypeValues": {
-            "enumValues": {
-                "NoUpfront": "No Upfront",
-                "PartialUpfront": "Partial Upfront",
-                "AllUpfront": "All Upfront"
-            }
         },
         "GetPasswordDataResult": {
             "requiredFields": [

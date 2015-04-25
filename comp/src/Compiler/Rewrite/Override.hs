@@ -9,7 +9,7 @@
 {-# LANGUAGE TemplateHaskell       #-}
 {-# LANGUAGE TupleSections         #-}
 
--- Module      : Compiler.Override
+-- Module      : Compiler.Rewrite.Override
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -19,7 +19,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.Override where
+module Compiler.Rewrite.Override where
 
 import           Compiler.Model             hiding (Name, State)
 import           Compiler.OrdMap            (OrdMap)
@@ -48,22 +48,26 @@ import qualified Data.Text                  as Text
 import           Data.Text.Manipulate
 import           Debug.Trace
 
-type PS = HashMap (CI Text) (HashSet (CI Text))
+-- FIXME: Renaming should additionally operate over
+-- the operation input/output.
 
--- | Apply the override rulset to shapes and their respective fields.
-rules :: TextMap Rules -> TextMap (Untyped Shape) -> TextMap (Untyped Shape)
-rules o = Map.foldlWithKey' go mempty
+applyOverrides :: Rules
+               -> Map Text (Shape Identity)
+               -> Map Text (Shape Identity)
+applyOverrides api = Map.foldlWithKey' go mempty
   where
+
+-- overrideShapes
+
+-- overrideFields
+
     go acc n = shape (fromMaybe def (Map.lookup n o)) acc n
 
-     -- FIXME: Renaming should additionally operate over
-     -- the operation input/output.
-
     shape :: Rules
-          -> TextMap (Untyped Shape)
+          -> Map Text (Untyped Shape)
           -> Text
           -> (Untyped Shape)
-          -> TextMap (Untyped Shape)
+          -> Map Text (Untyped Shape)
     shape rs acc n s
         | Map.member n replacedBy          = acc
         | Just x <- Map.lookup n renamedTo = shape rs acc x s
@@ -106,12 +110,10 @@ rules o = Map.foldlWithKey' go mempty
         appendEnum :: Untyped Shape -> Untyped Shape
         appendEnum = _SEnum . enumValues <>~ _ruleEnumValues rs
 
-    renamedTo :: TextMap Text
-    renamedTo = buildMapping _ruleRenameTo
+    renamed, replaced :: Map Text Text
+    renamed  = buildMapping _renameTo
+    replaced = buildMapping _replacedBy
 
-    replacedBy :: TextMap Text
-    replacedBy = buildMapping _ruleReplacedBy
-
-    buildMapping :: (Rules -> Maybe Text) -> TextMap Text
-    buildMapping f = Map.fromList $
-        mapMaybe (\(k, v) -> (k,) <$> f v) (Map.toList o)
+buildMapping :: (Rules -> Maybe Text) -> Map Text Text
+buildMapping f = Map.fromList $
+    mapMaybe (\(k, v) -> (k,) <$> f v) (Map.toList o)

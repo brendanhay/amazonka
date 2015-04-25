@@ -17,6 +17,7 @@ import           Compiler.Orphans          ()
 import           Control.Error
 import           Control.Monad
 import qualified Data.HashMap.Strict       as Map
+import qualified Data.HashSet              as Set
 import           Data.List                 (intersperse)
 import           Data.Monoid
 import qualified Data.SemVer               as SemVer
@@ -32,6 +33,7 @@ import           Text.EDE                  (Template)
 type Compiler = EitherT LazyText
 type LazyText = LText.Text
 
+type Set = Set.HashSet
 type Map = Map.HashMap
 
 joinMap :: [Text] -> Map Text Text

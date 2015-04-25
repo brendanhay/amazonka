@@ -23,12 +23,13 @@ module Compiler.AST where
 import           Compiler.TH
 import           Compiler.Types
 import           Control.Lens
-import           Data.Aeson      (ToJSON (..))
-import qualified Data.Aeson      as A
-import           Data.Jason      hiding (Bool, ToJSON (..))
+import           Data.Aeson           (ToJSON (..))
+import qualified Data.Aeson           as A
+import           Data.CaseInsensitive (CI)
+import           Data.Jason           hiding (Bool, ToJSON (..))
 import           Data.Monoid
-import           Data.Text       (Text)
-import qualified Data.Text       as Text
+import           Data.Text            (Text)
+import qualified Data.Text            as Text
 import           GHC.Generics
 import           Numeric.Natural
 
@@ -48,17 +49,6 @@ import           Numeric.Natural
 --   * how would the above be serialised to JSON for rendering?
 --   * should another attempt be made to use haskell-src-exts
 --     to pre-render the type class instances?
-
-newtype Id = Id Int deriving (Eq, Ord, Show)
-
-makePrisms ''Id
-
-newtype Name = Name Text deriving (Eq, Show)
-
-instance FromJSON Name where
-    parseJSON = fmap Name . parseJSON
-
-makePrisms ''Name
 
 data Signature
     = V2
@@ -138,8 +128,8 @@ makeClassy ''NS
 instance FromJSON NS where
     parseJSON = gParseJSON' $ camel { lenses = True }
 
-data Ref f a = Ref
-    { _refShape         :: !a
+data Ref f = Ref
+    { _refShape         :: Text
     , _refDocumentation :: f Text
     , _refLocation      :: f Location
     , _refLocationName  :: f Text
@@ -152,7 +142,7 @@ data Ref f a = Ref
 
 makeLenses ''Ref
 
-instance FromJSON (Ref Maybe Name) where
+instance FromJSON (Ref Maybe) where
     parseJSON = withObject "ref" $ \o -> Ref
         <$> o .:  "shape"
         <*> o .:? "documentation"
@@ -164,7 +154,7 @@ instance FromJSON (Ref Maybe Name) where
         <*> o .:? "xmlAttribute" .!= False
         <*> o .:? "xmlnamespace"
 
-instance HasNS (Ref Identity a) where
+instance HasNS (Ref Identity) where
     nS = refXMLNamespace . _Wrapped
 
 data Info f = Info
@@ -198,16 +188,16 @@ data Lit
     | Time
     | Bool
 
-data Shape f a
-    = List   (Info f) (Ref f a)
-    | Map    (Info f) (Ref f a) (Ref f a)
-    | Struct (Info f) (Map Text (Ref f a)) [Text] (Maybe Text)
+data Shape f
+    = List   (Info f) (Ref f)
+    | Map    (Info f) (Ref f) (Ref f)
+    | Struct (Info f) (Map Text (Ref f)) [Text] (Maybe Text)
     | Enum   (Info f) (Map Text Text)
     | Lit    (Info f) Lit
 
 makePrisms ''Shape
 
-instance HasInfo (Shape f a) f where
+instance HasInfo (Shape f) f where
     info = lens f (flip g)
       where
          f = \case
@@ -224,7 +214,7 @@ instance HasInfo (Shape f a) f where
              Enum   _ m      -> Enum   i m
              Lit    _ l      -> Lit    i l
 
--- references :: Traversal (Shape a) (Shape b) (Ref a) (Ref b)
+-- references :: Traversal (Shape a) (Shape b) (Ref) (Ref b)
 -- references f = \case
 --     SList   x -> list   x <$> f (_listMember x)
 --     SMap    x -> hmap   x <$> f (_mapKey x) <*> f (_mapValue x)
@@ -244,7 +234,7 @@ instance HasInfo (Shape f a) f where
 --     hmap   x k v = SMap    $ x { _mapKey = k, _mapValue = v}
 --     struct x ms  = SStruct $ x { _structMembers = ms }
 
-instance FromJSON (Shape Maybe Name) where
+instance FromJSON (Shape Maybe) where
     parseJSON = withObject "shape" $ \o -> do
         i <- parseJSON (Object o)
         t <- o .:  "type"
@@ -271,7 +261,7 @@ instance FromJSON (Shape Maybe Name) where
             "timestamp"       -> pure (Lit i Time)
             _                 -> fail $ "Unknown Shape type: " ++ Text.unpack t
 
-data Meta f = Meta
+data Metadata f = Metadata
     { _protocol            :: !Protocol
     , _serviceAbbreviation :: Text
     , _serviceFullName     :: Text
@@ -284,10 +274,10 @@ data Meta f = Meta
     , _targetPrefix        :: Maybe Text
     } deriving (Generic)
 
-makeClassy ''Meta
+makeClassy ''Metadata
 
-instance FromJSON (Meta Maybe) where
-    parseJSON = withObject "meta" $ \o -> Meta
+instance FromJSON (Metadata Maybe) where
+    parseJSON = withObject "meta" $ \o -> Metadata
         <$> o .:  "protocol"
         <*> o .:  "serviceAbbreviation"
         <*> o .:  "serviceFullName"
@@ -299,35 +289,75 @@ instance FromJSON (Meta Maybe) where
         <*> o .:? "jsonVersion"     .!= "1.0"
         <*> o .:? "targetPrefix"
 
-instance ToJSON (Meta Identity) where
+instance ToJSON (Metadata Identity) where
     toJSON = gToJSON' camel
 
-data API f a = API
-    { _metadata     :: Meta f
+data Override = Override
+    { _renamedTo      :: Maybe Text         -- ^ Rename type
+    , _replacedBy     :: Maybe Text         -- ^ Existing type that supplants this type
+    , _enumPrefix     :: Maybe Text         -- ^ Enum constructor prefix
+    , _requiredFields :: Set (CI Text)      -- ^ Required fields
+    , _optionalFields :: Set (CI Text)      -- ^ Optional fields
+    , _renamedFields  :: Map (CI Text) Text -- ^ Rename fields
+    } deriving (Eq, Show)
+
+makeLenses ''Override
+
+instance FromJSON Override where
+    parseJSON = withObject "override" $ \o -> Override
+        <$> o .:? "renamedTo"
+        <*> o .:? "replacedBy"
+        <*> o .:? "enumPrefix"
+        <*> o .:? "requiredFields" .!= mempty
+        <*> o .:? "optionalFields" .!= mempty
+        <*> o .:? "renamedFields"  .!= mempty
+
+data Rules = Rules
+    { _operationImports :: [Text]
+    , _typeImports      :: [Text]
+    , _typeOverrides    :: Map Text Override
+    , _ignoredWaiters   :: Set (CI Text)
+    }
+
+makeClassy ''Rules
+
+instance FromJSON Rules where
+    parseJSON = withObject "rules" $ \o -> Rules
+        <$> o .:? "operationImports" .!= mempty
+        <*> o .:? "typeImports"      .!= mempty
+        <*> o .:? "typeOverrides"    .!= mempty
+        <*> o .:? "ignoredWaiters"   .!= mempty
+
+-- An Operation should end up just referring to a Shape, like a Ref does.
+
+data API f = API
+    { _metadata'    :: Metadata f
+    , _rules'       :: Rules
     , _referenceUrl :: Text
     , _operationUrl :: Text
     , _description  :: Text
     -- , Operations   :: Map Text Operation
-    , _shapes       :: Map Text (Shape f a)
+    , _shapes       :: Map Text (Shape f)
     , _libraryName  :: Text
     } deriving (Generic)
 
 makeClassy ''API
 
-instance HasMeta (API f a) f where
-    meta = metadata
+instance HasMetadata (API f) f where
+    metadata = metadata'
 
-instance FromJSON (API Maybe Name) where
+instance FromJSON (API Maybe) where
     parseJSON = withObject "api" $ \o -> API
-         <$> o .: "metadata"
-         <*> o .: "referenceUrl"
-         <*> o .: "operationUrl"
-         <*> o .: "description"
-         <*> o .: "shapes"
-         <*> o .: "libraryName"
+        <$> o .: "metadata"
+        <*> parseJSON (Object o)
+        <*> o .: "referenceUrl"
+        <*> o .: "operationUrl"
+        <*> o .: "description"
+        <*> o .: "shapes"
+        <*> o .: "libraryName"
 
 data Package = Package
-    { _api            :: API Identity Id
+    { _api'           :: API Identity
     , _libraryVersion :: SemVer
     , _exposedModules :: [Text]
     , _otherModules   :: [Text]
@@ -335,16 +365,19 @@ data Package = Package
 
 makeLenses ''Package
 
-instance HasMeta Package Identity where
-    meta = api . metadata
+instance HasMetadata Package Identity where
+    metadata = api' . metadata'
 
-instance HasAPI Package Identity Id where
-    aPI = api
+instance HasAPI Package Identity where
+    aPI = api'
+
+instance HasRules (API f) where
+    rules = rules'
 
 instance ToJSON Package where
     toJSON p@Package{..} = A.Object (x <> y)
       where
-        A.Object y = A.toJSON (p ^. meta)
+        A.Object y = A.toJSON (p ^. metadata)
         A.Object x = A.object
             [ "referenceUrl"   A..= (p ^. referenceUrl)
             , "operationUrl"   A..= (p ^. operationUrl)

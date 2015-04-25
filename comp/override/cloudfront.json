@@ -6,7 +6,7 @@
     "metadata": {
         "serviceAbbreviation": "CloudFront"
     },
-    "ignoreWaiters": [
+    "ignoredWaiters": [
         "DistributionDeployed",
         "InvalidationCompleted",
         "StreamingDistributionDeployed"

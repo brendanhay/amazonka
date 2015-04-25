@@ -6,9 +6,9 @@
     "metadata": {
         "serviceAbbreviation": "S3"
     },
-    "operationModules": [
+    "operationImports": [
     ],
-    "typeModules": [
+    "typeImports": [
         "Network.AWS.S3.Internal"
     ],
     "typeOverrides": {

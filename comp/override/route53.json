@@ -6,7 +6,7 @@
     "metadata": {
         "serviceAbbreviation": "Route53"
     },
-    "typeModules": [
+    "typeImports": [
         "Network.AWS.Route53.Internal"
     ],
     "typeOverrides": {

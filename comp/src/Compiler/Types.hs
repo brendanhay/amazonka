@@ -16,10 +16,7 @@ module Compiler.Types where
 import           Compiler.Orphans          ()
 import           Control.Error
 import           Control.Monad
-import qualified Data.Aeson                as A
 import qualified Data.HashMap.Strict       as Map
-import qualified Data.Jason                as J
-import qualified Data.Jason.Types          as J
 import           Data.List                 (intersperse)
 import           Data.Monoid
 import qualified Data.SemVer               as SemVer
@@ -30,7 +27,6 @@ import           Data.Time
 import qualified Filesystem.Path.CurrentOS as Path
 import           Formatting
 import           Formatting.Time
-import           Numeric.Natural
 import           Text.EDE                  (Template)
 
 type Compiler = EitherT LazyText

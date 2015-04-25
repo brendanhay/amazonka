@@ -8,7 +8,7 @@
     },
     "typeOverrides": {
         "InvokeAsyncResponse": {
-            "required": [
+            "requiredFields": [
                 "Status"
             ]
         }

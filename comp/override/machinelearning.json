@@ -8,13 +8,13 @@
     },
     "typeOverrides": {
         "BatchPredictionFilterVariable": {
-            "sum_prefix": "Batch"
+            "enumPrefix": "Batch"
         },
         "EvaluationFilterVariable": {
-            "sum_prefix": "Eval"
+            "enumPrefix": "Eval"
         },
         "DataSourceFilterVariable": {
-            "sum_prefix": "Data"
+            "enumPrefix": "Data"
         }
     }
 }

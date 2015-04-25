@@ -8,12 +8,12 @@
     },
     "typeOverrides": {
         "DescribeTableOutput": {
-            "required": [
+            "requiredFields": [
                 "Table"
             ]
         },
         "TableDescription": {
-            "required": [
+            "requiredFields": [
                 "CreationDateTime",
                 "ProvisionedThroughput",
                 "TableName",

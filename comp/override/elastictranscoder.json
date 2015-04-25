@@ -8,13 +8,13 @@
     },
     "typeOverrides": {
         "ReadJobResponse": {
-            "required": [
+            "requiredFields": [
                 "Job"
             ]
         },
         "Job": {
-            "rename_to": "Job'",
-            "required": [
+            "renamedTo": "Job'",
+            "requiredFields": [
                 "Id",
                 "Status",
                 "Input",

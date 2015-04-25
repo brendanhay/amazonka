@@ -8,7 +8,7 @@
     },
     "typeOverrides": {
         "OperatorType": {
-            "sum_prefix": "Operator"
+            "enumPrefix": "Operator"
         }
     }
 }

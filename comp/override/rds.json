@@ -8,7 +8,7 @@
     },
     "typeOverrides": {
         "DescribeEngineDefaultParametersResult": {
-            "required": [
+            "requiredFields": [
                 "EngineDefaults"
             ]
         }

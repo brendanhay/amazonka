@@ -13,22 +13,22 @@
     ],
     "typeOverrides": {
         "ListCloudFrontOriginAccessIdentitiesResult": {
-            "required": [
+            "requiredFields": [
                 "CloudFrontOriginAccessIdentityList"
             ]
         },
         "ListInvalidationsResult": {
-            "required": [
+            "requiredFields": [
                 "InvalidationList"
             ]
         },
         "ListDistributionsResult": {
-            "required": [
+            "requiredFields": [
                 "DistributionList"
             ]
         },
         "ListStreamingDistributionsResult": {
-            "required": [
+            "requiredFields": [
                 "StreamingDistributionList"
             ]
         }

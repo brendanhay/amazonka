@@ -8,12 +8,12 @@
     },
     "typeOverrides": {
         "Filter": {
-            "required": [
+            "requiredFields": [
                 "Name"
             ]
         },
         "Tag": {
-            "required": [
+            "requiredFields": [
                 "ResourceId",
                 "ResourceType",
                 "Key",
@@ -22,7 +22,7 @@
             ]
         },
         "TagDescription": {
-            "required": [
+            "requiredFields": [
                 "ResourceId",
                 "ResourceType",
                 "Key",

@@ -8,12 +8,12 @@
     },
     "typeOverrides": {
         "DescribeClusterOutput": {
-            "required": [
+            "requiredFields": [
                 "Cluster"
             ]
         },
         "Cluster": {
-            "required": [
+            "requiredFields": [
                 "Id",
                 "Name",
                 "Status"

@@ -13,21 +13,21 @@
     ],
     "typeOverrides": {
         "Error": {
-            "rename_to": "S3ServiceError"
+            "renamedTo": "S3ServiceError"
         },
         "ListObjectsResponse": {
-            "required": [
+            "requiredFields": [
                 "Name"
             ]
         },
         "Bucket": {
-            "required": [
+            "requiredFields": [
                 "CreationDate",
                 "Name"
             ]
         },
         "Object": {
-            "required": [
+            "requiredFields": [
                 "ETag",
                 "Size",
                 "Owner",
@@ -37,36 +37,36 @@
             ]
         },
         "BucketLocationConstraint": {
-            "replaced_by": "Region"
+            "replacedBy": "Region"
         },
         "BucketName": {
-            "replaced_by": "BucketName"
+            "replacedBy": "BucketName"
         },
         "ObjectKey": {
-            "replaced_by": "ObjectKey"
+            "replacedBy": "ObjectKey"
         },
         "ObjectVersionId": {
-            "replaced_by": "ObjectVersionId"
+            "replacedBy": "ObjectVersionId"
         },
         "ETag": {
-            "replaced_by": "ETag"
+            "replacedBy": "ETag"
         },
         "Delimiter": {
-            "replaced_by": "Char"
+            "replacedBy": "Char"
         },
         "NoncurrentVersionExpiration": {
-            "required": [
+            "requiredFields": [
                 "NoncurrentDays"
             ]
         },
         "NoncurrentVersionTransition": {
-            "required": [
+            "requiredFields": [
                 "NoncurrentDays",
                 "StorageClass"
             ]
         },
         "BucketCannedACL": {
-            "sum_prefix": "Canned"
+            "enumPrefix": "Canned"
         }
     }
 }

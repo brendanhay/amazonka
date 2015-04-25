@@ -8,10 +8,10 @@
     },
     "typeOverrides": {
         "QueueAttributeName": {
-            "replaced_by": "Text"
+            "replacedBy": "Text"
         },
         "GetQueueUrlResult": {
-            "required": [
+            "requiredFields": [
                 "QueueUrl"
             ]
         }

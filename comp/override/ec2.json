@@ -14,50 +14,50 @@
     ],
     "typeOverrides": {
         "RouteOrigin": {
-            "sum_prefix": "Origin"
+            "enumPrefix": "Origin"
         },
         "InstanceAttributeName": {
-            "sum_prefix": "Instance"
+            "enumPrefix": "Instance"
         },
         "ImageAttributeName": {
-            "sum_prefix": "Image"
+            "enumPrefix": "Image"
         },
         "IpRange": {
-            "required": [
+            "requiredFields": [
                 "CidrIp"
             ]
         },
         "IpPermission": {
-            "required": [
+            "requiredFields": [
                 "IpProtocol"
             ],
-            "rename": {
+            "renamedFields": {
                 "UserIdGroupPairs": "Groups"
             }
         },
         "InternetGateway": {
-            "required": [
+            "requiredFields": [
                 "InternetGatewayId"
             ]
         },
         "InternetGatewayAttachment": {
-            "required": [
+            "requiredFields": [
                 "State",
                 "VpcId"
             ]
         },
         "Filter": {
-            "required": [
+            "requiredFields": [
                 "Name"
             ]
         },
         "BlockDeviceMapping": {
-            "required": [
+            "requiredFields": [
                 "DeviceName"
             ]
         },
         "SecurityGroup": {
-            "required": [
+            "requiredFields": [
                 "OwnerId",
                 "GroupId",
                 "GroupName",
@@ -65,7 +65,7 @@
             ]
         },
         "Image": {
-            "required": [
+            "requiredFields": [
                 "ImageId",
                 "ImageLocation",
                 "State",
@@ -79,19 +79,19 @@
             ]
         },
         "InstanceState": {
-            "required": [
+            "requiredFields": [
                 "Name",
                 "Code"
             ]
         },
         "Tag": {
-            "required": [
+            "requiredFields": [
                 "Key",
                 "Value"
             ]
         },
         "TagDescription": {
-            "required": [
+            "requiredFields": [
                 "ResourceId",
                 "ResourceType",
                 "Key",
@@ -99,22 +99,22 @@
             ]
         },
         "KeyPair": {
-            "required": [
+            "requiredFields": [
                 "KeyName",
                 "KeyFingerprint",
                 "KeyMaterial"
             ]
         },
         "InstanceType": {
-            "sum_prefix": ""
+            "enumPrefix": ""
         },
         "CreateSecurityGroupResult": {
-            "required": [
+            "requiredFields": [
                 "GroupId"
             ]
         },
         "VpnConnection": {
-            "required": [
+            "requiredFields": [
                 "VpnConnectionId",
                 "CustomerGatewayId",
                 "Customergatewayconfiguration",
@@ -123,7 +123,7 @@
             ]
         },
         "Snapshot": {
-            "required": [
+            "requiredFields": [
                 "SnapshotId",
                 "OwnerId",
                 "VolumeId",
@@ -136,13 +136,13 @@
             ]
         },
         "Reservation": {
-            "required": [
+            "requiredFields": [
                 "ReservationId",
                 "OwnerId"
             ]
         },
         "Instance": {
-            "required": [
+            "requiredFields": [
                 "InstanceId",
                 "ImageId",
                 "AmiLaunchIndex",
@@ -159,7 +159,7 @@
             ]
         },
         "BundleTask": {
-            "required": [
+            "requiredFields": [
                 "BundleId",
                 "InstanceId",
                 "Progress",
@@ -170,7 +170,7 @@
             ]
         },
         "Vpc": {
-            "required": [
+            "requiredFields": [
                 "CidrBlock",
                 "DhcpOptionsId",
                 "InstanceTenancy",
@@ -180,7 +180,7 @@
             ]
         },
         "ExportTask": {
-            "required": [
+            "requiredFields": [
                 "Description",
                 "ExportTaskId",
                 "ExportToS3Task",
@@ -190,7 +190,7 @@
             ]
         },
         "Volume": {
-            "required": [
+            "requiredFields": [
                 "AvailabilityZone",
                 "CreateTime",
                 "Encrypted",
@@ -202,7 +202,7 @@
             ]
         },
         "Subnet": {
-            "required": [
+            "requiredFields": [
                 "AvailabilityZone",
                 "AvailableIpAddressCount",
                 "CidrBlock",
@@ -214,7 +214,7 @@
             ]
         },
         "CustomerGateway": {
-            "required": [
+            "requiredFields": [
                 "BgpAsn",
                 "CustomerGatewayId",
                 "IpAddress",
@@ -223,14 +223,14 @@
             ]
         },
         "OfferingTypeValues": {
-            "sum_values": {
+            "enumValues": {
                 "NoUpfront": "No Upfront",
                 "PartialUpfront": "Partial Upfront",
                 "AllUpfront": "All Upfront"
             }
         },
         "GetPasswordDataResult": {
-            "required": [
+            "requiredFields": [
                 "InstanceId",
                 "PasswordData",
                 "Timestamp"

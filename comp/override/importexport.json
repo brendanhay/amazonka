@@ -8,7 +8,7 @@
     },
     "typeOverrides": {
         "Job": {
-            "required": [
+            "requiredFields": [
                 "JobType",
                 "JobId",
                 "IsCanceled",

@@ -8,7 +8,7 @@
     },
     "typeOverrides": {
         "ClientVersion": {
-            "sum_prefix": "V"
+            "enumPrefix": "V"
         }
     }
 }

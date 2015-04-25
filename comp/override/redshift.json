@@ -8,7 +8,7 @@
     },
     "typeOverrides": {
         "DescribeDefaultClusterParametersResult": {
-            "required": [
+            "requiredFields": [
                 "DefaultClusterParameters"
             ]
         }

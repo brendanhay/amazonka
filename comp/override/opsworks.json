@@ -8,7 +8,7 @@
     },
     "typeOverrides": {
         "ServiceError": {
-            "rename_to": "ServiceError'"
+            "renamedTo": "ServiceError'"
         }
     }
 }

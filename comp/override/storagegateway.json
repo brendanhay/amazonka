@@ -8,7 +8,7 @@
        },
     "typeOverrides": {
         "StorageGatewayError": {
-            "rename_to": "Error'"
+            "renamedTo": "Error'"
         }
     }
 }

@@ -8,7 +8,7 @@
     },
     "typeOverrides": {
         "Service": {
-            "rename_to": "SupportService"
+            "renamedTo": "SupportService"
         }
     }
 }

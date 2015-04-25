@@ -11,23 +11,23 @@
     ],
     "typeOverrides": {
         "ListHostedZonesResponse": {
-            "optional": [
+            "optionalFields": [
                 "Marker"
             ]
         },
         "ResourceRecordSet": {
-            "required": [
+            "requiredFields": [
                 "ResourceRecords"
             ]
         },
         "ResourceRecordSetRegion": {
-            "replaced_by": "Region"
+            "replacedBy": "Region"
         },
         "RRType": {
-            "rename_to": "RecordType"
+            "renamedTo": "RecordType"
         },
         "ResourceRecordSetFailover": {
-            "rename_to": "Failover"
+            "renamedTo": "Failover"
         }
     }
 }

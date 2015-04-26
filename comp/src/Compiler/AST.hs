@@ -34,23 +34,6 @@ import qualified Data.Text            as Text
 import           GHC.Generics
 import           Numeric.Natural
 
--- a Ref can circularly point to a Shape via a stable/unique identifer
--- which is indexed somewhere to point to the correct Shape.
---
--- This means all Shape Refs need to be updated to correctly point
--- to the destination Shapes.
---
--- This way a Ref can transparently 'have' Info with an unsafe lookup
--- since the initial assignment of identifiers can be considered safe.
--- e.g.:
---   instance HasInfo (StateT (IntMap Shape) Ref)
-
--- Maybe constraints and types can be solved similarly, via separate indexes
--- rather than trying to transform the Shapes in place?
---   * how would the above be serialised to JSON for rendering?
---   * should another attempt be made to use haskell-src-exts
---     to pre-render the type class instances?
-
 data Signature
     = V2
     | V3

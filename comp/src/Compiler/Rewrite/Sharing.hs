@@ -29,14 +29,11 @@ type Count = State (Map Text Int)
 sharing :: Map Text (Operation Identity Ref)
         -> Map Text (Shape Identity)
         -> Set Text
-sharing os ss = uniq (execState occur mempty)
+sharing os ss = Set.fromList . Map.keys . Map.filter (> 1) $ execState go mempty
   where
     -- FIXME: Need to correctly count a shape being used as a ref as shared.
-    uniq :: Map Text Int -> Set Text
-    uniq = Set.fromList . Map.keys . Map.filter (> 1)
-
-    occur :: Count ()
-    occur = forM_ (Map.elems os) $ \o -> do
+    go :: Count ()
+    go = forM_ (Map.elems os) $ \o -> do
         ref (o ^. opInput  . _Identity . refShape)
         ref (o ^. opOutput . _Identity . refShape)
 

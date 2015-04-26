@@ -17,19 +17,19 @@ module Compiler.Rewrite where
 
 import           Compiler.AST
 import           Compiler.Rewrite.Default
-import           Compiler.Rewrite.Elaborate
 import           Compiler.Rewrite.Override
 import           Compiler.Rewrite.Sharing
+import           Compiler.Rewrite.Subst
 import           Compiler.Types
 import           Control.Error
 import           Control.Lens
 import           Control.Monad
 import           Data.Functor.Identity
-import qualified Data.HashMap.Strict        as Map
-import qualified Data.HashSet               as Set
+import qualified Data.HashMap.Strict       as Map
+import qualified Data.HashSet              as Set
 import           Data.Monoid
-import           Data.Text                  (Text)
-import qualified Data.Text.Lazy             as LText
+import           Data.Text                 (Text)
+import qualified Data.Text.Lazy            as LText
 
 createPackage :: Monad m
               => SemVer
@@ -37,8 +37,8 @@ createPackage :: Monad m
               -> EitherT LazyText m Package
 createPackage ver api = do
     let x  = defaults api & shapes %~ overrides (api ^. typeOverrides)
-        s  = sharing     (x ^. operations) (x ^. shapes)
-        os = elaborate s (x ^. operations) (x ^. shapes)
+        s  = sharing (x ^. operations) (x ^. shapes)
+        os = subst s (x ^. operations) (x ^. shapes)
     return $! Package (x { _operations =  os }) ver [] []
 
 -- AST.hs

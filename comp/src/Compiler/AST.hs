@@ -260,6 +260,8 @@ makeClassy ''HTTP
 instance FromJSON (HTTP Maybe) where
     parseJSON = gParseJSON' camel
 
+-- data RQRS f a = RQRS (Ref f a) (Shape f)
+
 data Operation f a = Operation
     { _opName          :: Text
     , _opDocumentation :: f Text

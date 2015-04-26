@@ -1,13 +1,5 @@
-{-# LANGUAGE FlexibleContexts      #-}
-{-# LANGUAGE FlexibleInstances     #-}
-{-# LANGUAGE LambdaCase            #-}
-{-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE OverloadedLists       #-}
-{-# LANGUAGE OverloadedStrings     #-}
-{-# LANGUAGE RankNTypes            #-}
-{-# LANGUAGE RecordWildCards       #-}
-{-# LANGUAGE TemplateHaskell       #-}
-{-# LANGUAGE TupleSections         #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
 
 -- Module      : Compiler.Rewrite.Override
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,101 +11,76 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.Rewrite.Override where
+module Compiler.Rewrite.Override
+    ( overrides
+    ) where
 
-import           Compiler.Model             hiding (Name, State)
-import           Compiler.OrdMap            (OrdMap)
-import qualified Compiler.OrdMap            as OrdMap
-import           Compiler.Text              (safeHead)
-import           Compiler.Types             hiding (override)
-import           Control.Applicative
+import           Compiler.AST
+import           Compiler.Text
+import           Compiler.Types
 import           Control.Error
 import           Control.Lens
-import           Control.Monad.Error
-import           Control.Monad.State.Strict
-import           Control.Monad.Trans.Except
 import           Data.Bifunctor
-import           Data.CaseInsensitive       (CI)
-import qualified Data.CaseInsensitive       as CI
-import           Data.Default.Class
-import           Data.Foldable              (foldl')
-import           Data.HashMap.Strict        (HashMap)
-import qualified Data.HashMap.Strict        as Map
-import           Data.HashSet               (HashSet)
-import qualified Data.HashSet               as Set
-import           Data.List                  (intercalate)
+import           Data.CaseInsensitive (CI)
+import qualified Data.CaseInsensitive as CI
+import           Data.Foldable        (foldl')
+import qualified Data.HashMap.Strict  as Map
+import qualified Data.HashSet         as Set
+import           Data.List            (intercalate)
 import           Data.Monoid
-import           Data.Text                  (Text)
-import qualified Data.Text                  as Text
+import           Data.Text            (Text)
+import qualified Data.Text            as Text
 import           Data.Text.Manipulate
-import           Debug.Trace
 
 -- FIXME: Renaming should additionally operate over
 -- the operation input/output.
 
-applyOverrides :: Rules
-               -> Map Text (Shape Identity)
-               -> Map Text (Shape Identity)
-applyOverrides api = Map.foldlWithKey' go mempty
+overrides :: Map Text Override
+          -> Map Text (Shape Identity)
+          -> Map Text (Shape Identity)
+overrides ov = Map.foldlWithKey' go mempty
   where
+    go acc k = shape (defaultOverride (Map.lookup k ov)) acc k
 
--- overrideShapes
-
--- overrideFields
-
-    go acc n = shape (fromMaybe def (Map.lookup n o)) acc n
-
-    shape :: Rules
-          -> Map Text (Untyped Shape)
+    shape :: Override
+          -> Map Text (Shape Identity)
           -> Text
-          -> (Untyped Shape)
-          -> Map Text (Untyped Shape)
-    shape rs acc n s
-        | Map.member n replacedBy          = acc
-        | Just x <- Map.lookup n renamedTo = shape rs acc x s
-        | otherwise                        = Map.insert n (rules s) acc
+          -> Shape Identity
+          -> Map Text (Shape Identity)
+    shape o@Override{..} acc k s
+        | Map.member k replaced          = acc             -- Replace the type.
+        | Just x <- Map.lookup k renamed = shape o acc x s -- Rename the type.
+        | otherwise                      = Map.insert k (rules s) acc
       where
-        rules = requireFields
-              . optionalFields
-              . renameFields
-              . retypeFields
-              . prefixEnum
-              . appendEnum
+        rules = require . optional . rename . retype . prefix
 
-        requireFields :: Untyped Shape -> Untyped Shape
-        requireFields = _SStruct . structRequired
-            %~ (<> _ruleRequired rs)
+        require  = _Struct . _3 %~ (<> _requiredFields)
+        optional = _Struct . _3 %~ (`Set.difference` _optionalFields)
 
-        optionalFields = _SStruct . structRequired
-            %~ (`Set.difference` _ruleOptional rs)
-
-        renameFields :: Untyped Shape -> Untyped Shape
-        renameFields = _SStruct . structMembers %~ first f
+        rename = fields %~ first f
           where
-            f k = fromMaybe k $ do
-                k' <- Map.lookup (CI.mk (k ^. memOriginal)) (_ruleRenamed rs)
-                return (k & memName .~ k')
+            f k = fromMaybe k $
+                Map.lookup (CI.mk k) _renamedFields
 
-        retypeFields :: Untyped Shape -> Untyped Shape
-        retypeFields = references %~ f replacedBy . f renamedTo
+        retype = references %~ f replaced . f renamed
           where
-            f m v = maybe v (\x -> v & refShape .~ x)
-                $ Map.lookup (v ^. refShape) m
+            f m v = maybe v (flip (set refShape) v) $
+                Map.lookup (v ^. refShape) m
 
-        prefixEnum :: Untyped Shape -> Untyped Shape
-        prefixEnum = _SEnum . enumValues %~ f
-          where
-            f vs = fromMaybe vs $ do
-                p <- _ruleEnumPrefix rs
-                return $! first (memPrefix ?~ p) vs
-
-        appendEnum :: Untyped Shape -> Untyped Shape
-        appendEnum = _SEnum . enumValues <>~ _ruleEnumValues rs
+        prefix
+            | Just p <- _enumPrefix = values %~ first (mappend p)
+            | otherwise             = id
 
     renamed, replaced :: Map Text Text
-    renamed  = buildMapping _renameTo
-    replaced = buildMapping _replacedBy
+    renamed  = maybeMap _renamedTo  ov
+    replaced = maybeMap _replacedBy ov
 
-buildMapping :: (Rules -> Maybe Text) -> Map Text Text
-buildMapping f = Map.fromList $
-    mapMaybe (\(k, v) -> (k,) <$> f v) (Map.toList o)
+defaultOverride :: Maybe Override -> Override
+defaultOverride = fromMaybe $ Override
+    { _renamedTo      = Nothing
+    , _replacedBy     = Nothing
+    , _enumPrefix     = Nothing
+    , _requiredFields = mempty
+    , _optionalFields = mempty
+    , _renamedFields  = mempty
+    }

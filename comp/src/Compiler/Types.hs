@@ -1,5 +1,6 @@
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TupleSections     #-}
 
 -- Module      : Compiler.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -16,6 +17,7 @@ module Compiler.Types where
 import           Compiler.Orphans          ()
 import           Control.Error
 import           Control.Monad
+import           Data.Hashable
 import qualified Data.HashMap.Strict       as Map
 import qualified Data.HashSet              as Set
 import           Data.List                 (intersperse)
@@ -38,6 +40,18 @@ type Map = Map.HashMap
 
 joinMap :: [Text] -> Map Text Text
 joinMap = Map.fromList . map (join (,))
+
+maybeMap :: (Eq k, Hashable k)
+         => (a -> Maybe b)
+         -> Map.HashMap k a
+         -> Map.HashMap k b
+maybeMap f = Map.fromList . mapMaybe (\(k, v) -> (k,) <$> f v) . Map.toList
+
+traversePairs :: (Applicative f, Eq k', Hashable k')
+              => ((k, v) -> f (k', v'))
+              -> Map k v
+              -> f (Map k' v')
+traversePairs f = fmap Map.fromList . traverse f . Map.toList
 
 type Path = Path.FilePath
 

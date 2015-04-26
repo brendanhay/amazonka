@@ -14,29 +14,26 @@
 -- Portability : non-portable (GHC extensions)
 
 module Compiler.Rewrite.Default
-    ( setDefaults
+    ( defaults
     ) where
 
 import           Compiler.AST
-import           Compiler.Types
-import           Control.Error
 import           Control.Lens
-import           Data.Functor.Identity
-import qualified Data.HashMap.Strict   as Map
-import           Data.Monoid
-import           Data.Text             (Text)
+import qualified Data.HashMap.Strict as Map
 
-setDefaults :: API Maybe -> API Identity
-setDefaults api@API{..} = api
-    { _metadata' = setMetadata _metadata'
+defaults :: API Maybe -> API Identity
+defaults api@API{..} = api
+    { _metadata' = setMeta _metadata'
     , _shapes    = Map.map setShape _shapes
     }
   where
-    setMetadata m@Metadata{..} = m
+    setMeta :: Metadata Maybe -> Metadata Identity
+    setMeta m@Metadata{..} = m
         { _timestampFormat = _timestampFormat .! defaultTimestamp _protocol
         , _checksumFormat  = _checksumFormat  .! SHA256
         }
 
+    setShape :: Shape Maybe -> Shape Identity
     setShape = \case
         List   i e      -> List   (setInfo i) (setRef e)
         Map    i k v    -> Map    (setInfo i) (setRef k) (setRef v)
@@ -44,11 +41,12 @@ setDefaults api@API{..} = api
         Enum   i m      -> Enum   (setInfo i) m
         Lit    i l      -> Lit    (setInfo i) l
 
+    setInfo :: Info Maybe -> Info Identity
     setInfo i@Info{..} = i
         { _infoDocumentation = _infoDocumentation .! "FIXME: Undocumented shape."
         }
 
---    setRef :: Ref Maybe Name -> Ref Identity Name
+    setRef :: Ref Maybe -> Ref Identity
     setRef r@Ref{..} = r
         { _refDocumentation = _refDocumentation .! "FIXME: Undocumented reference."
         , _refLocation      = _refLocation      .! Querystring

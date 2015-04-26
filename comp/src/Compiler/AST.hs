@@ -191,48 +191,41 @@ data Lit
 data Shape f
     = List   (Info f) (Ref f)
     | Map    (Info f) (Ref f) (Ref f)
-    | Struct (Info f) (Map Text (Ref f)) [Text] (Maybe Text)
+    | Struct (Info f) (Map Text (Ref f)) (Set (CI Text)) (Maybe (CI Text))
     | Enum   (Info f) (Map Text Text)
     | Lit    (Info f) Lit
 
 makePrisms ''Shape
 
+references :: Traversal' (Shape f) (Ref f)
+references f = \case
+    List   i e      -> List   i <$> f e
+    Map    i k v    -> Map    i <$> f k <*> f v
+    Struct i ms r p -> Struct i <$> traverse f ms <*> pure r <*> pure p
+    s               -> pure s
+
+fields :: Traversal' (Shape f) (Text, Ref f)
+fields = _Struct . _2 . traversePairs
+
+values :: Traversal' (Shape f) (Text, Text)
+values = _Enum . _2 . traversePairs
+
 instance HasInfo (Shape f) f where
     info = lens f (flip g)
       where
-         f = \case
-             List   i _      -> i
-             Map    i _ _    -> i
-             Struct i _ _ _  -> i
-             Enum   i _      -> i
-             Lit    i _      -> i
+        f = \case
+            List   i _      -> i
+            Map    i _ _    -> i
+            Struct i _ _ _  -> i
+            Enum   i _      -> i
+            Lit    i _      -> i
 
-         g i = \case
-             List   _ e      -> List   i e
-             Map    _ k v    -> Map    i k v
-             Struct _ ms r p -> Struct i ms r p
-             Enum   _ m      -> Enum   i m
-             Lit    _ l      -> Lit    i l
-
--- references :: Traversal (Shape a) (Shape b) (Ref) (Ref b)
--- references f = \case
---     SList   x -> list   x <$> f (_listMember x)
---     SMap    x -> hmap   x <$> f (_mapKey x) <*> f (_mapValue x)
---     SStruct x -> struct x <$> traverse g (_structMembers x)
---     SString x -> pure (SString x)
---     SEnum   x -> pure (SEnum   x)
---     SBlob   x -> pure (SBlob   x)
---     SBool   x -> pure (SBool   x)
---     STime   x -> pure (STime   x)
---     SInt    x -> pure (SInt    x)
---     SDouble x -> pure (SDouble x)
---     SLong   x -> pure (SLong   x)
---   where
---     g x = f x -- trace (show (_refShape x)) (f x)
-
---     list   x m   = SList   $ x { _listMember = m }
---     hmap   x k v = SMap    $ x { _mapKey = k, _mapValue = v}
---     struct x ms  = SStruct $ x { _structMembers = ms }
+        g i = \case
+            List   _ e      -> List   i e
+            Map    _ k v    -> Map    i k v
+            Struct _ ms r p -> Struct i ms r p
+            Enum   _ m      -> Enum   i m
+            Lit    _ l      -> Lit    i l
 
 instance FromJSON (Shape Maybe) where
     parseJSON = withObject "shape" $ \o -> do
@@ -312,33 +305,21 @@ instance FromJSON Override where
         <*> o .:? "optionalFields" .!= mempty
         <*> o .:? "renamedFields"  .!= mempty
 
-data Rules = Rules
-    { _operationImports :: [Text]
+-- FIXME: An Operation should end up referring to a Shape,
+-- similarly to a Ref.
+
+data API f = API
+    { _metadata'        :: Metadata f
+    , _referenceUrl     :: Text
+    , _operationUrl     :: Text
+    , _description      :: Text
+    -- , Operations   :: Map Text Operation
+    , _shapes           :: Map Text (Shape f)
+    , _libraryName      :: Text
+    , _operationImports :: [Text]
     , _typeImports      :: [Text]
     , _typeOverrides    :: Map Text Override
     , _ignoredWaiters   :: Set (CI Text)
-    }
-
-makeClassy ''Rules
-
-instance FromJSON Rules where
-    parseJSON = withObject "rules" $ \o -> Rules
-        <$> o .:? "operationImports" .!= mempty
-        <*> o .:? "typeImports"      .!= mempty
-        <*> o .:? "typeOverrides"    .!= mempty
-        <*> o .:? "ignoredWaiters"   .!= mempty
-
--- An Operation should end up just referring to a Shape, like a Ref does.
-
-data API f = API
-    { _metadata'    :: Metadata f
-    , _rules'       :: Rules
-    , _referenceUrl :: Text
-    , _operationUrl :: Text
-    , _description  :: Text
-    -- , Operations   :: Map Text Operation
-    , _shapes       :: Map Text (Shape f)
-    , _libraryName  :: Text
     } deriving (Generic)
 
 makeClassy ''API
@@ -348,13 +329,16 @@ instance HasMetadata (API f) f where
 
 instance FromJSON (API Maybe) where
     parseJSON = withObject "api" $ \o -> API
-        <$> o .: "metadata"
-        <*> parseJSON (Object o)
-        <*> o .: "referenceUrl"
-        <*> o .: "operationUrl"
-        <*> o .: "description"
-        <*> o .: "shapes"
-        <*> o .: "libraryName"
+        <$> o .:  "metadata"
+        <*> o .:  "referenceUrl"
+        <*> o .:  "operationUrl"
+        <*> o .:  "description"
+        <*> o .:  "shapes"
+        <*> o .:  "libraryName"
+        <*> o .:? "operationImports" .!= mempty
+        <*> o .:? "typeImports"      .!= mempty
+        <*> o .:? "typeOverrides"    .!= mempty
+        <*> o .:? "ignoredWaiters"   .!= mempty
 
 data Package = Package
     { _api'           :: API Identity
@@ -370,9 +354,6 @@ instance HasMetadata Package Identity where
 
 instance HasAPI Package Identity where
     aPI = api'
-
-instance HasRules (API f) where
-    rules = rules'
 
 instance ToJSON Package where
     toJSON p@Package{..} = A.Object (x <> y)

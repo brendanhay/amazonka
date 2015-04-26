@@ -33,6 +33,7 @@ executable compile
         , ede
         , errors
         , formatting
+        , hashable
         , jason
         , lens
         , mtl

@@ -17,20 +17,22 @@ module Compiler.Rewrite where
 
 import           Compiler.AST
 import           Compiler.Rewrite.Default
+import           Compiler.Rewrite.Override
 import           Compiler.Types
 import           Control.Error
 import           Control.Lens
 import           Data.Functor.Identity
-import qualified Data.HashMap.Strict      as Map
+import qualified Data.HashMap.Strict       as Map
 import           Data.Monoid
-import           Data.Text                (Text)
+import           Data.Text                 (Text)
 
 createPackage :: Monad m
               => SemVer
               -> API Maybe
               -> EitherT LazyText m Package
 createPackage ver api = do
-    return $! Package (setDefaults api) ver [] []
+    let x = defaults api & shapes %~ overrides (api ^. typeOverrides)
+    return $! Package x ver [] []
 
 -- AST.hs
 -- Constraint.hs
@@ -52,7 +54,6 @@ createPackage ver api = do
 --    * rename fields
 --    * retype fields
 --    * prefix enums
---    * append values to enums
 --  - Types:
 --    * rename types
 --    * replace types

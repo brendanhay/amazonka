@@ -24,7 +24,6 @@ import           Compiler.Types
 import           Control.Error
 import           Control.Lens              ((^.))
 import           Data.Aeson                hiding (json)
-import           Data.Functor.Identity
 import           Data.Monoid
 import           Data.Text                 (Text)
 import           Filesystem.Path.CurrentOS

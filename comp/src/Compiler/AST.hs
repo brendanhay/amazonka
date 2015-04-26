@@ -200,10 +200,10 @@ references f = \case
     s               -> pure s
 
 fields :: Traversal' (Shape f) (Text, Ref f)
-fields = _Struct . _2 . traversePairs
+fields = _Struct . _2 . traverseKV
 
 values :: Traversal' (Shape f) (Text, Text)
-values = _Enum . _2 . traversePairs
+values = _Enum . _2 . traverseKV
 
 instance HasInfo (Shape f) f where
     info = lens f (flip g)
@@ -237,17 +237,17 @@ instance FromJSON (Shape Maybe) where
                 <*> o .:? "payload"
 
             "string"
-                | Just v <- m -> pure . Enum i $ joinMap v
+                | Just v <- m -> pure . Enum i $ joinKV v
                 | otherwise   -> pure (Lit i Text)
 
-            "integer"         -> pure (Lit i Int)
-            "long"            -> pure (Lit i Long)
-            "double"          -> pure (Lit i Double)
-            "float"           -> pure (Lit i Double)
-            "blob"            -> pure (Lit i Blob)
-            "boolean"         -> pure (Lit i Bool)
-            "timestamp"       -> pure (Lit i Time)
-            _                 -> fail $ "Unknown Shape type: " ++ Text.unpack t
+            "integer"   -> pure (Lit i Int)
+            "long"      -> pure (Lit i Long)
+            "double"    -> pure (Lit i Double)
+            "float"     -> pure (Lit i Double)
+            "blob"      -> pure (Lit i Blob)
+            "boolean"   -> pure (Lit i Bool)
+            "timestamp" -> pure (Lit i Time)
+            _           -> fail $ "Unknown Shape type: " ++ Text.unpack t
 
 data HTTP f = HTTP
     { _method       :: !Method
@@ -260,17 +260,17 @@ makeClassy ''HTTP
 instance FromJSON (HTTP Maybe) where
     parseJSON = gParseJSON' camel
 
-data Operation f = Operation
+data Operation f a = Operation
     { _opName          :: Text
     , _opDocumentation :: f Text
     , _opHTTP          :: HTTP f
-    , _opInput         :: f (Ref f)
-    , _opOutput        :: f (Ref f)
+    , _opInput         :: f (a f)
+    , _opOutput        :: f (a f)
     }
 
 makeLenses ''Operation
 
-instance FromJSON (Operation Maybe) where
+instance FromJSON (Operation Maybe Ref) where
     parseJSON = withObject "operation" $ \o -> Operation
         <$> o .:  "name"
         <*> o .:? "documentation"
@@ -278,7 +278,7 @@ instance FromJSON (Operation Maybe) where
         <*> o .:? "input"
         <*> o .:? "output"
 
-instance HasHTTP (Operation f) f where
+instance HasHTTP (Operation f a) f where
     hTTP = opHTTP
 
 data Metadata f = Metadata
@@ -335,12 +335,12 @@ instance FromJSON Override where
 -- FIXME: An Operation should end up referring to a Shape,
 -- similarly to a Ref.
 
-data API f = API
+data API f a = API
     { _metadata'        :: Metadata f
     , _referenceUrl     :: Text
     , _operationUrl     :: Text
     , _description      :: Text
-    , _operations       :: Map Text (Operation f)
+    , _operations       :: Map Text (Operation f a)
     , _shapes           :: Map Text (Shape f)
     , _libraryName      :: Text
     , _operationImports :: [Text]
@@ -351,10 +351,10 @@ data API f = API
 
 makeClassy ''API
 
-instance HasMetadata (API f) f where
+instance HasMetadata (API f a) f where
     metadata = metadata'
 
-instance FromJSON (API Maybe) where
+instance FromJSON (API Maybe Ref) where
     parseJSON = withObject "api" $ \o -> API
         <$> o .:  "metadata"
         <*> o .:  "referenceUrl"
@@ -369,7 +369,7 @@ instance FromJSON (API Maybe) where
         <*> o .:? "ignoredWaiters"   .!= mempty
 
 data Package = Package
-    { _api'           :: API Identity
+    { _api'           :: API Identity Shape
     , _libraryVersion :: SemVer
     , _exposedModules :: [Text]
     , _otherModules   :: [Text]
@@ -380,7 +380,7 @@ makeLenses ''Package
 instance HasMetadata Package Identity where
     metadata = api' . metadata'
 
-instance HasAPI Package Identity where
+instance HasAPI Package Identity Shape where
     aPI = api'
 
 instance ToJSON Package where

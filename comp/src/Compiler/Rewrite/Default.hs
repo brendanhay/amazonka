@@ -23,7 +23,9 @@ import qualified Data.HashMap.Strict as Map
 import           Data.Maybe
 import           Data.Text           (Text)
 
-defaults :: API Maybe -> API Identity
+-- | Set defaults for various fields post-parsing as determined by the
+-- protocol and service type.
+defaults :: API Maybe Ref -> API Identity Ref
 defaults api@API{..} = api
     { _metadata'  = meta' _metadata'
     , _operations = Map.map operation' _operations

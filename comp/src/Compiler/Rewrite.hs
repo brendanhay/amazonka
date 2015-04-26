@@ -17,25 +17,29 @@ module Compiler.Rewrite where
 
 import           Compiler.AST
 import           Compiler.Rewrite.Default
+import           Compiler.Rewrite.Elaborate
 import           Compiler.Rewrite.Override
-import           Compiler.Rewrite.Share
+import           Compiler.Rewrite.Sharing
 import           Compiler.Types
 import           Control.Error
 import           Control.Lens
+import           Control.Monad
 import           Data.Functor.Identity
-import qualified Data.HashMap.Strict       as Map
+import qualified Data.HashMap.Strict        as Map
+import qualified Data.HashSet               as Set
 import           Data.Monoid
-import           Data.Text                 (Text)
-import qualified Data.Text.Lazy            as LText
+import           Data.Text                  (Text)
+import qualified Data.Text.Lazy             as LText
 
 createPackage :: Monad m
               => SemVer
-              -> API Maybe
+              -> API Maybe Ref
               -> EitherT LazyText m Package
 createPackage ver api = do
-    let x = defaults api & shapes %~ overrides (api ^. typeOverrides)
---    left $ LText.pack (show (sharing ))
-    return $! Package x ver [] []
+    let x  = defaults api & shapes %~ overrides (api ^. typeOverrides)
+        s  = sharing     (x ^. operations) (x ^. shapes)
+        os = elaborate s (x ^. operations) (x ^. shapes)
+    return $! Package (x { _operations =  os }) ver [] []
 
 -- AST.hs
 -- Constraint.hs
@@ -44,9 +48,9 @@ createPackage ver api = do
 -- Rewrite.hs
 -- Rewrite/Default.hs
 -- Rewrite/Override.hs
--- Rewrite/Prune.hs
--- Rewrite/Share.hs
+-- Rewrite/Sharing.hs
 -- Rewrite/Elaborate.hs
+-- Rewrite/Disambiguate.hs
 
 -- Rewrite.hs: rewrite process:
 -- 1. set defaults (Default)
@@ -60,9 +64,8 @@ createPackage ver api = do
 --  - Types:
 --    * rename types
 --    * replace types
--- 3. determine (+ prune) unused/unreferenced shapes (Prune)
--- 4. determine sharing (Share)
--- 5. create/insert request + response shapes (Elaborate)
--- 6. generate unique prefixes (Prefix)
--- 7. generate shape->constraint index (Index)
--- 8. generate shape->type index (Index)
+-- 3. determine sharing (Share)
+-- 4. create/insert request + response shapes (Elaborate)
+-- 5. generate unique prefixes (Prefix)
+-- 6. generate shape->constraint index (Index)
+-- 7. generate shape->type index (Index)

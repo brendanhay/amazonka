@@ -1,5 +1,6 @@
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TemplateHaskell   #-}
 {-# LANGUAGE TupleSections     #-}
 
 -- Module      : Compiler.Types
@@ -16,6 +17,7 @@ module Compiler.Types where
 
 import           Compiler.Orphans          ()
 import           Control.Error
+import           Control.Lens
 import           Control.Monad
 import           Data.Hashable
 import qualified Data.HashMap.Strict       as Map
@@ -38,20 +40,20 @@ type LazyText = LText.Text
 type Set = Set.HashSet
 type Map = Map.HashMap
 
-joinMap :: [Text] -> Map Text Text
-joinMap = Map.fromList . map (join (,))
+joinKV :: [Text] -> Map Text Text
+joinKV = Map.fromList . map (join (,))
 
-maybeMap :: (Eq k, Hashable k)
-         => (a -> Maybe b)
-         -> Map.HashMap k a
-         -> Map.HashMap k b
-maybeMap f = Map.fromList . mapMaybe (\(k, v) -> (k,) <$> f v) . Map.toList
+mapMaybeV :: (Eq k, Hashable k)
+          => (a -> Maybe b)
+          -> Map.HashMap k a
+          -> Map.HashMap k b
+mapMaybeV f = Map.fromList . mapMaybe (\(k, v) -> (k,) <$> f v) . Map.toList
 
-traversePairs :: (Applicative f, Eq k', Hashable k')
-              => ((k, v) -> f (k', v'))
-              -> Map k v
-              -> f (Map k' v')
-traversePairs f = fmap Map.fromList . traverse f . Map.toList
+traverseKV :: (Applicative f, Eq k', Hashable k')
+           => ((k, v) -> f (k', v'))
+           -> Map k v
+           -> f (Map k' v')
+traverseKV f = fmap Map.fromList . traverse f . Map.toList
 
 type Path = Path.FilePath
 
@@ -84,3 +86,5 @@ dateDashes = later (list . map (bprint dateDash))
 
 failure :: Monad m => Format LText.Text (a -> e) -> a -> EitherT e m b
 failure m = Control.Error.left . format m
+
+makePrisms ''Identity

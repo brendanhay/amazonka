@@ -29,6 +29,7 @@ import           Data.Text            (Text)
 -- FIXME: Renaming should additionally operate over
 -- the operation input/output.
 
+-- | Apply the override rules to shapes and their respective fields.
 overrides :: Map Text Override
           -> Map Text (Shape Identity)
           -> Map Text (Shape Identity)
@@ -66,8 +67,8 @@ overrides os = Map.foldlWithKey' go mempty
             | otherwise             = id
 
     renamed, replaced :: Map Text Text
-    renamed  = maybeMap _renamedTo  os
-    replaced = maybeMap _replacedBy os
+    renamed  = mapMaybeV _renamedTo  os
+    replaced = mapMaybeV _replacedBy os
 
 defaultOverride :: Override
 defaultOverride = Override

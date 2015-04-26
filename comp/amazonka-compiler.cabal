@@ -26,6 +26,7 @@ executable compile
 
     build-depends:
           aeson
+        , attoparsec
         , base                 == 4.8.*
         , bytestring
         , case-insensitive

@@ -20,40 +20,67 @@ module Compiler.Rewrite.Default
 import           Compiler.AST
 import           Control.Lens
 import qualified Data.HashMap.Strict as Map
+import           Data.Maybe
+import           Data.Text           (Text)
 
 defaults :: API Maybe -> API Identity
 defaults api@API{..} = api
-    { _metadata' = setMeta _metadata'
-    , _shapes    = Map.map setShape _shapes
+    { _metadata'  = meta' _metadata'
+    , _operations = Map.map operation' _operations
+    , _shapes     = Map.map shape' _shapes
     }
   where
-    setMeta :: Metadata Maybe -> Metadata Identity
-    setMeta m@Metadata{..} = m
+    meta' m@Metadata{..} = m
         { _timestampFormat = _timestampFormat .! defaultTimestamp _protocol
         , _checksumFormat  = _checksumFormat  .! SHA256
         }
 
-    setShape :: Shape Maybe -> Shape Identity
-    setShape = \case
-        List   i e      -> List   (setInfo i) (setRef e)
-        Map    i k v    -> Map    (setInfo i) (setRef k) (setRef v)
-        Struct i ms r p -> Struct (setInfo i) (Map.map setRef ms) r p
-        Enum   i m      -> Enum   (setInfo i) m
-        Lit    i l      -> Lit    (setInfo i) l
+    operation' o@Operation{..} = o
+        { _opDocumentation = _opDocumentation .! "FIXME: Undocumented operation."
+        , _opHTTP          = http' _opHTTP
+        , _opInput         = rqrs'  _opInput
+        , _opOutput        = rqrs'  _opOutput
+        }
 
-    setInfo :: Info Maybe -> Info Identity
-    setInfo i@Info{..} = i
+    http' h@HTTP{..} = h
+        { _responseCode = _responseCode .! 200
+        }
+
+    rqrs' = Identity
+        . ref'
+        . fromMaybe (defaultRef "FIXME: Unnamed request/response type.")
+
+    shape' = \case
+        List   i e      -> List   (info' i) (ref' e)
+        Map    i k v    -> Map    (info' i) (ref' k) (ref' v)
+        Struct i ms r p -> Struct (info' i) (Map.map ref' ms) r p
+        Enum   i m      -> Enum   (info' i) m
+        Lit    i l      -> Lit    (info' i) l
+
+    info' i@Info{..} = i
         { _infoDocumentation = _infoDocumentation .! "FIXME: Undocumented shape."
         }
 
-    setRef :: Ref Maybe -> Ref Identity
-    setRef r@Ref{..} = r
+    ref' r@Ref{..} = r
         { _refDocumentation = _refDocumentation .! "FIXME: Undocumented reference."
         , _refLocation      = _refLocation      .! Querystring
         , _refLocationName  = _refLocationName  .! _refShape
         , _refQueryName     = _refQueryName     .! _refShape
         , _refXMLNamespace  = _refXMLNamespace  .! NS "" ""
         }
+
+defaultRef :: Text -> Ref Maybe
+defaultRef s = Ref
+    { _refShape         = s
+    , _refDocumentation = Nothing
+    , _refLocation      = Nothing
+    , _refLocationName  = Nothing
+    , _refQueryName     = Nothing
+    , _refStreaming     = False
+    , _refWrapper       = False
+    , _refXMLAttribute  = False
+    , _refXMLNamespace  = Nothing
+    }
 
 defaultTimestamp :: Protocol -> Timestamp
 defaultTimestamp = \case

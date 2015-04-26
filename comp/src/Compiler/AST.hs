@@ -20,6 +20,7 @@
 
 module Compiler.AST where
 
+import           Compiler.AST.URI
 import           Compiler.TH
 import           Compiler.Types
 import           Control.Lens
@@ -117,6 +118,17 @@ data Location
 
 instance FromJSON Location where
     parseJSON = gParseJSON' camel
+
+data Method
+    = GET
+    | POST
+    | HEAD
+    | PUT
+    | DELETE
+      deriving (Eq, Show, Generic)
+
+instance FromJSON Method where
+    parseJSON = gParseJSON' upper
 
 data NS = NS
     { _xmlPrefix :: Text
@@ -254,6 +266,38 @@ instance FromJSON (Shape Maybe) where
             "timestamp"       -> pure (Lit i Time)
             _                 -> fail $ "Unknown Shape type: " ++ Text.unpack t
 
+data HTTP f = HTTP
+    { _method       :: !Method
+    , _requestURI   :: URI
+    , _responseCode :: f Int
+    } deriving (Generic)
+
+makeClassy ''HTTP
+
+instance FromJSON (HTTP Maybe) where
+    parseJSON = gParseJSON' camel
+
+data Operation f = Operation
+    { _opName          :: Text
+    , _opDocumentation :: f Text
+    , _opHTTP          :: HTTP f
+    , _opInput         :: f (Ref f)
+    , _opOutput        :: f (Ref f)
+    }
+
+makeLenses ''Operation
+
+instance FromJSON (Operation Maybe) where
+    parseJSON = withObject "operation" $ \o -> Operation
+        <$> o .:  "name"
+        <*> o .:? "documentation"
+        <*> o .:  "http"
+        <*> o .:? "input"
+        <*> o .:? "output"
+
+instance HasHTTP (Operation f) f where
+    hTTP = opHTTP
+
 data Metadata f = Metadata
     { _protocol            :: !Protocol
     , _serviceAbbreviation :: Text
@@ -313,7 +357,7 @@ data API f = API
     , _referenceUrl     :: Text
     , _operationUrl     :: Text
     , _description      :: Text
-    -- , Operations   :: Map Text Operation
+    , _operations       :: Map Text (Operation f)
     , _shapes           :: Map Text (Shape f)
     , _libraryName      :: Text
     , _operationImports :: [Text]
@@ -333,6 +377,7 @@ instance FromJSON (API Maybe) where
         <*> o .:  "referenceUrl"
         <*> o .:  "operationUrl"
         <*> o .:  "description"
+        <*> o .:  "operations"
         <*> o .:  "shapes"
         <*> o .:  "libraryName"
         <*> o .:? "operationImports" .!= mempty

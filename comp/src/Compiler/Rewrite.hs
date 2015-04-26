@@ -18,6 +18,7 @@ module Compiler.Rewrite where
 import           Compiler.AST
 import           Compiler.Rewrite.Default
 import           Compiler.Rewrite.Override
+import           Compiler.Rewrite.Share
 import           Compiler.Types
 import           Control.Error
 import           Control.Lens
@@ -25,6 +26,7 @@ import           Data.Functor.Identity
 import qualified Data.HashMap.Strict       as Map
 import           Data.Monoid
 import           Data.Text                 (Text)
+import qualified Data.Text.Lazy            as LText
 
 createPackage :: Monad m
               => SemVer
@@ -32,6 +34,7 @@ createPackage :: Monad m
               -> EitherT LazyText m Package
 createPackage ver api = do
     let x = defaults api & shapes %~ overrides (api ^. typeOverrides)
+--    left $ LText.pack (show (sharing ))
     return $! Package x ver [] []
 
 -- AST.hs
@@ -57,9 +60,9 @@ createPackage ver api = do
 --  - Types:
 --    * rename types
 --    * replace types
--- 4. determine (+ prune) unused/unreferenced shapes (Prune)
--- 5. determine sharing (Share)
--- 6. create/insert request + response shapes (Elaborate)
--- 7. generate unique prefixes (Prefix)
--- 8. generate shape->constraint index (Index)
--- 9. generate shape->type index (Index)
+-- 3. determine (+ prune) unused/unreferenced shapes (Prune)
+-- 4. determine sharing (Share)
+-- 5. create/insert request + response shapes (Elaborate)
+-- 6. generate unique prefixes (Prefix)
+-- 7. generate shape->constraint index (Index)
+-- 8. generate shape->type index (Index)

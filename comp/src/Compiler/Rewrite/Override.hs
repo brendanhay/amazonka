@@ -16,21 +16,15 @@ module Compiler.Rewrite.Override
     ) where
 
 import           Compiler.AST
-import           Compiler.Text
 import           Compiler.Types
 import           Control.Error
 import           Control.Lens
 import           Data.Bifunctor
-import           Data.CaseInsensitive (CI)
 import qualified Data.CaseInsensitive as CI
-import           Data.Foldable        (foldl')
 import qualified Data.HashMap.Strict  as Map
 import qualified Data.HashSet         as Set
-import           Data.List            (intercalate)
 import           Data.Monoid
 import           Data.Text            (Text)
-import qualified Data.Text            as Text
-import           Data.Text.Manipulate
 
 -- FIXME: Renaming should additionally operate over
 -- the operation input/output.
@@ -38,19 +32,19 @@ import           Data.Text.Manipulate
 overrides :: Map Text Override
           -> Map Text (Shape Identity)
           -> Map Text (Shape Identity)
-overrides ov = Map.foldlWithKey' go mempty
+overrides os = Map.foldlWithKey' go mempty
   where
-    go acc k = shape (defaultOverride (Map.lookup k ov)) acc k
+    go acc n = shape (fromMaybe defaultOverride (Map.lookup n os)) acc n
 
     shape :: Override
           -> Map Text (Shape Identity)
           -> Text
           -> Shape Identity
           -> Map Text (Shape Identity)
-    shape o@Override{..} acc k s
-        | Map.member k replaced          = acc             -- Replace the type.
-        | Just x <- Map.lookup k renamed = shape o acc x s -- Rename the type.
-        | otherwise                      = Map.insert k (rules s) acc
+    shape o@Override{..} acc n s
+        | Map.member n replaced          = acc             -- Replace the type.
+        | Just x <- Map.lookup n renamed = shape o acc x s -- Rename the type.
+        | otherwise                      = Map.insert n (rules s) acc
       where
         rules = require . optional . rename . retype . prefix
 
@@ -72,11 +66,11 @@ overrides ov = Map.foldlWithKey' go mempty
             | otherwise             = id
 
     renamed, replaced :: Map Text Text
-    renamed  = maybeMap _renamedTo  ov
-    replaced = maybeMap _replacedBy ov
+    renamed  = maybeMap _renamedTo  os
+    replaced = maybeMap _replacedBy os
 
-defaultOverride :: Maybe Override -> Override
-defaultOverride = fromMaybe $ Override
+defaultOverride :: Override
+defaultOverride = Override
     { _renamedTo      = Nothing
     , _replacedBy     = Nothing
     , _enumPrefix     = Nothing

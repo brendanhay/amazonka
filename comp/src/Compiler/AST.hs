@@ -31,7 +31,7 @@ import           Data.Jason           hiding (Bool, ToJSON (..))
 import           Data.Monoid
 import           Data.Text            (Text)
 import qualified Data.Text            as Text
-import           GHC.Generics
+import           GHC.Generics         (Generic)
 import           Numeric.Natural
 
 data Signature
@@ -285,6 +285,10 @@ data Operation f a = Operation
     }
 
 makeLenses ''Operation
+
+requestName, responseName :: Getter (Operation f a) Text
+requestName  = to _opName
+responseName = to ((<> "Response") . _opName)
 
 instance FromJSON (Operation Maybe Ref) where
     parseJSON = withObject "operation" $ \o -> Operation

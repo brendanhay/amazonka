@@ -18,7 +18,6 @@ module Compiler.Rewrite where
 import           Compiler.AST
 import           Compiler.Rewrite.Default
 import           Compiler.Rewrite.Override
-import           Compiler.Rewrite.Sharing
 import           Compiler.Rewrite.Subst
 import           Compiler.Types
 import           Control.Error
@@ -35,11 +34,10 @@ createPackage :: Monad m
               => SemVer
               -> API Maybe Ref
               -> EitherT LazyText m Package
-createPackage ver api = do
-    let x  = defaults api & shapes %~ overrides (api ^. typeOverrides)
-        s  = sharing (x ^. operations) (x ^. shapes)
-        os = subst s (x ^. operations) (x ^. shapes)
-    return $! Package (x { _operations =  os }) ver [] []
+createPackage ver x = do
+    y <- defaults (substitute x)
+    error $ show (y ^. typeOverrides)
+    return $! Package y ver [] []
 
 -- AST.hs
 -- Constraint.hs

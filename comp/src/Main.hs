@@ -38,7 +38,7 @@ import qualified Filesystem                as FS
 import           Filesystem.Path.CurrentOS
 import           Formatting
 import           Formatting.Time
-import           Options.Applicative       hiding (optional)
+import           Options.Applicative
 
 data Opt = Opt
     { _optOutput    :: Path
@@ -144,7 +144,10 @@ main = do
             <*  done
 
         forM_ (zip [1..] _optModels) $ \(j, f) -> do
-            title ("[" % int % "/" % int % "] model:" % path) j i (filename f)
+            title ("[" % int % "/" % int % "] model:" % path)
+                  (j :: Int)
+                  (i :: Int)
+                  (filename f)
 
             m@Model{..} <- listDir f >>= modelFromDir f
             let Ver{..} = m ^. latest
@@ -154,10 +157,10 @@ main = do
                 (m ^.. unused . verDate)
 
             api <- parseObject . mergeObjects =<< sequence
-                [ required (_optOverrides </> (m ^. override))
-                , required _verNormal
-                , optional _verWaiters
-                , optional _verPagers
+                [ requiredObject (_optOverrides </> (m ^. override))
+                , requiredObject _verNormal
+                , optionalObject _verWaiters
+                , optionalObject _verPagers
                 ]
 
             say ("Successfully parsed '" % stext % "' API definition")
@@ -178,10 +181,10 @@ main = do
 
         title ("Successfully processed " % int % " models.") i
 
-required :: MonadIO m => Path -> EitherT LazyText m Object
-required f = noteT (format ("Unable to find " % path) f) (readBSFile f)
+requiredObject :: MonadIO m => Path -> EitherT LazyText m Object
+requiredObject f = noteT (format ("Unable to find " % path) f) (readBSFile f)
     >>= decodeObject
 
-optional :: MonadIO m => Path -> EitherT LazyText m Object
-optional f = runMaybeT (readBSFile f)
+optionalObject :: MonadIO m => Path -> EitherT LazyText m Object
+optionalObject f = runMaybeT (readBSFile f)
     >>= maybe (return mempty) decodeObject

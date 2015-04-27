@@ -17,7 +17,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.Tree where
+module Compiler.Tree
+    ( rootTree
+    , foldTree
+    , populateTree
+    ) where
 
 import           Compiler.AST
 import           Compiler.Types
@@ -119,5 +123,5 @@ render v (encodeString -> f) x =
           where
             ex = mkIOError userErrorType (e ++ "\nRender") Nothing (Just f)
 
-(<//>) :: Path -> Text -> Path
-a <//> b = fromText (toTextIgnore a <> b)
+-- (<//>) :: Path -> Text -> Path
+-- a <//> b = fromText (toTextIgnore a <> b)

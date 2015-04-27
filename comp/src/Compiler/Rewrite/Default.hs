@@ -18,39 +18,44 @@ module Compiler.Rewrite.Default
     ) where
 
 import           Compiler.AST
+import           Compiler.Types
+import           Control.Error
 import           Control.Lens
 import qualified Data.HashMap.Strict as Map
-import           Data.Maybe
+import           Data.Monoid
 import           Data.Text           (Text)
+import qualified Data.Text.Lazy      as LText
 
 -- | Set defaults for various fields post-parsing as determined by the
 -- protocol and service type.
-defaults :: API Maybe Ref -> API Identity Ref
-defaults api@API{..} = api
-    { _metadata'  = meta' _metadata'
-    , _operations = Map.map operation' _operations
-    , _shapes     = Map.map shape' _shapes
-    }
+defaults :: Monad m => API Maybe Shape -> Compiler m (API Identity Shape)
+defaults api@API{..} = hoistEither $ do
+    os <- traverse operation' _operations
+    return $! api
+        { _metadata'  = meta' _metadata'
+        , _operations = os
+        , _shapes     = Map.map shape' _shapes
+        }
   where
     meta' m@Metadata{..} = m
         { _timestampFormat = _timestampFormat .! defaultTimestamp _protocol
         , _checksumFormat  = _checksumFormat  .! SHA256
         }
 
-    operation' o@Operation{..} = o
-        { _opDocumentation = _opDocumentation .! "FIXME: Undocumented operation."
-        , _opHTTP          = http' _opHTTP
-        , _opInput         = rqrs'  _opInput
-        , _opOutput        = rqrs'  _opOutput
-        }
+    operation' o@Operation{..} = do
+        let may m = fmap (Identity . shape') . note (m <> LText.fromStrict _opName)
+        rq <- may "Vacant operation input: "  _opInput
+        rs <- may "Vacant operation output: " _opOutput
+        return $! o
+            { _opDocumentation = _opDocumentation .! "FIXME: Undocumented operation."
+            , _opHTTP          = http' _opHTTP
+            , _opInput         = rq
+            , _opOutput        = rs
+            }
 
     http' h@HTTP{..} = h
         { _responseCode = _responseCode .! 200
         }
-
-    rqrs' = Identity
-        . ref'
-        . fromMaybe (defaultRef "FIXME: Unnamed request/response type.")
 
     shape' = \case
         List   i e   -> List   (info' i) (ref' e)
@@ -70,19 +75,6 @@ defaults api@API{..} = api
         , _refQueryName     = _refQueryName     .! _refShape
         , _refXMLNamespace  = _refXMLNamespace  .! NS "" ""
         }
-
-defaultRef :: Text -> Ref Maybe
-defaultRef s = Ref
-    { _refShape         = s
-    , _refDocumentation = Nothing
-    , _refLocation      = Nothing
-    , _refLocationName  = Nothing
-    , _refQueryName     = Nothing
-    , _refStreaming     = False
-    , _refWrapper       = False
-    , _refXMLAttribute  = False
-    , _refXMLNamespace  = Nothing
-    }
 
 defaultTimestamp :: Protocol -> Timestamp
 defaultTimestamp = \case

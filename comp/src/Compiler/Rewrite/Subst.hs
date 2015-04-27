@@ -44,14 +44,16 @@ subst shared os ss = evalState (Map.traverseWithKey go os) ss
 
     go :: Text -> Operation Identity Ref -> Shapes (Operation Identity Shape)
     go k o = do
-        rq <- elaborate (op ^. input)
-        rs <- elaborate (op ^. output)
+        rq <- elaborate (o ^. opInput  . _Identity)
+        rs <- elaborate (o ^. opOutput . _Identity)
         return $! o
-            { _input  = rq
-            , _output = rs
+            { _opInput  = Identity rq
+            , _opOutput = Identity rs
             }
 
     elaborate :: Ref Identity -> Shapes (Shape Identity)
-    elaborate = undefined
+    elaborate Ref{..} = do
+        unless (Set.member _refShape shared) $
+            modify (Map.delete _refShape)
+        return $! Struct (info ?) (struct ?)
 
-    share = (`Set.member` shared)

@@ -53,11 +53,11 @@ defaults api@API{..} = api
         . fromMaybe (defaultRef "FIXME: Unnamed request/response type.")
 
     shape' = \case
-        List   i e      -> List   (info' i) (ref' e)
-        Map    i k v    -> Map    (info' i) (ref' k) (ref' v)
-        Struct i ms r p -> Struct (info' i) (Map.map ref' ms) r p
-        Enum   i m      -> Enum   (info' i) m
-        Lit    i l      -> Lit    (info' i) l
+        List   i e   -> List   (info' i) (ref' e)
+        Map    i k v -> Map    (info' i) (ref' k) (ref' v)
+        Struct i s   -> Struct (info' i) (over (members . each) ref' s)
+        Enum   i m   -> Enum   (info' i) m
+        Lit    i l   -> Lit    (info' i) l
 
     info' i@Info{..} = i
         { _infoDocumentation = _infoDocumentation .! "FIXME: Undocumented shape."

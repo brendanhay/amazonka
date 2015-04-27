@@ -49,10 +49,8 @@ mapMaybeV :: (Eq k, Hashable k)
           -> Map.HashMap k b
 mapMaybeV f = Map.fromList . mapMaybe (\(k, v) -> (k,) <$> f v) . Map.toList
 
-traverseKV :: (Applicative f, Eq k', Hashable k')
-           => ((k, v) -> f (k', v'))
-           -> Map k v
-           -> f (Map k' v')
+traverseKV :: (Eq k', Hashable k')
+           => Traversal (Map k v) (Map k' v') (k, v) (k', v')
 traverseKV f = fmap Map.fromList . traverse f . Map.toList
 
 type Path = Path.FilePath

@@ -183,24 +183,44 @@ data Lit
     | Time
     | Bool
 
+class HasRefs f a | a -> f where
+    references :: Traversal' a (Ref f)
+
+data Struct f = Struct'
+    { _members  :: Map Text (Ref f)
+    , _required :: Set (CI Text)
+    , _payload  :: Maybe (CI Text)
+    }
+
+makeLenses ''Struct
+
+instance HasRefs f (Struct f) where
+    references = members . each
+
+instance FromJSON (Struct Maybe) where
+    parseJSON = withObject "struct" $ \o -> Struct'
+        <$> o .:  "members"
+        <*> o .:? "required" .!= mempty
+        <*> o .:? "payload"
+
 data Shape f
     = List   (Info f) (Ref f)
     | Map    (Info f) (Ref f) (Ref f)
-    | Struct (Info f) (Map Text (Ref f)) (Set (CI Text)) (Maybe (CI Text))
+    | Struct (Info f) (Struct f)
     | Enum   (Info f) (Map Text Text)
     | Lit    (Info f) Lit
 
 makePrisms ''Shape
 
-references :: Traversal' (Shape f) (Ref f)
-references f = \case
-    List   i e      -> List   i <$> f e
-    Map    i k v    -> Map    i <$> f k <*> f v
-    Struct i ms r p -> Struct i <$> traverse f ms <*> pure r <*> pure p
-    s               -> pure s
+instance HasRefs f (Shape f) where
+    references f = \case
+        List   i e   -> List   i <$> f e
+        Map    i k v -> Map    i <$> f k <*> f v
+        Struct i s   -> Struct i <$> references f s
+        s            -> pure s
 
 fields :: Traversal' (Shape f) (Text, Ref f)
-fields = _Struct . _2 . traverseKV
+fields = _Struct . _2 . members . traverseKV
 
 values :: Traversal' (Shape f) (Text, Text)
 values = _Enum . _2 . traverseKV
@@ -209,18 +229,18 @@ instance HasInfo (Shape f) f where
     info = lens f (flip g)
       where
         f = \case
-            List   i _      -> i
-            Map    i _ _    -> i
-            Struct i _ _ _  -> i
-            Enum   i _      -> i
-            Lit    i _      -> i
+            List   i _   -> i
+            Map    i _ _ -> i
+            Struct i _   -> i
+            Enum   i _   -> i
+            Lit    i _   -> i
 
         g i = \case
-            List   _ e      -> List   i e
-            Map    _ k v    -> Map    i k v
-            Struct _ ms r p -> Struct i ms r p
-            Enum   _ m      -> Enum   i m
-            Lit    _ l      -> Lit    i l
+            List   _ e   -> List   i e
+            Map    _ k v -> Map    i k v
+            Struct _ s   -> Struct i s
+            Enum   _ m   -> Enum   i m
+            Lit    _ l   -> Lit    i l
 
 instance FromJSON (Shape Maybe) where
     parseJSON = withObject "shape" $ \o -> do
@@ -228,18 +248,9 @@ instance FromJSON (Shape Maybe) where
         t <- o .:  "type"
         m <- o .:? "enum"
         case t of
-            "list"      -> List i <$> o .: "member"
-            "map"       -> Map  i <$> o .: "key" <*> o .: "value"
-
-            "structure" -> Struct i
-                <$> o .:  "members"
-                <*> o .:? "required" .!= mempty
-                <*> o .:? "payload"
-
-            "string"
-                | Just v <- m -> pure . Enum i $ joinKV v
-                | otherwise   -> pure (Lit i Text)
-
+            "list"      -> List   i <$> o .: "member"
+            "map"       -> Map    i <$> o .: "key" <*> o .: "value"
+            "structure" -> Struct i <$> parseJSON (Object o)
             "integer"   -> pure (Lit i Int)
             "long"      -> pure (Lit i Long)
             "double"    -> pure (Lit i Double)
@@ -247,6 +258,9 @@ instance FromJSON (Shape Maybe) where
             "blob"      -> pure (Lit i Blob)
             "boolean"   -> pure (Lit i Bool)
             "timestamp" -> pure (Lit i Time)
+            "string"
+                | Just v <- m -> pure . Enum i $ joinKV v
+                | otherwise   -> pure (Lit i Text)
             _           -> fail $ "Unknown Shape type: " ++ Text.unpack t
 
 data HTTP f = HTTP

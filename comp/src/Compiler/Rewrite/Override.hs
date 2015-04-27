@@ -49,8 +49,8 @@ overrides os = Map.foldlWithKey' go mempty
       where
         rules = require . optional . rename . retype . prefix
 
-        require  = _Struct . _3 %~ (<> _requiredFields)
-        optional = _Struct . _3 %~ (`Set.difference` _optionalFields)
+        require  = _Struct . _2 . required %~ (<> _requiredFields)
+        optional = _Struct . _2 . required %~ (`Set.difference` _optionalFields)
 
         rename = fields %~ first f
           where

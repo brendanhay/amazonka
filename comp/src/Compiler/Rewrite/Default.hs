@@ -73,7 +73,7 @@ defaults api@API{..} = hoistEither $ do
         , _refLocation      = _refLocation      .! Querystring
         , _refLocationName  = _refLocationName  .! _refShape
         , _refQueryName     = _refQueryName     .! _refShape
-        , _refXMLNamespace  = _refXMLNamespace  .! NS "" ""
+        , _refXMLNamespace  = _refXMLNamespace  .! XML' "" ""
         }
 
 defaultTimestamp :: Protocol -> Timestamp

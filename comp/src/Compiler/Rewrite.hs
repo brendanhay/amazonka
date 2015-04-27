@@ -26,6 +26,7 @@ import           Control.Monad
 import           Data.Functor.Identity
 import qualified Data.HashMap.Strict       as Map
 import qualified Data.HashSet              as Set
+import           Data.List                 (sort)
 import           Data.Monoid
 import           Data.Text                 (Text)
 import qualified Data.Text.Lazy            as LText
@@ -36,8 +37,16 @@ createPackage :: Monad m
               -> EitherT LazyText m Package
 createPackage ver x = do
     y <- defaults (substitute x)
-    error $ show (y ^. typeOverrides)
-    return $! Package y ver [] []
+
+    let ns     = NS ["Network", "AWS", y ^. serviceAbbreviation]
+        expose = ns : ns <> "Types"
+                    : ns <> "Waiters"
+                    : map (mappend ns . namespace) (Map.keys $ y ^. operations)
+        other  = x ^. operationImports ++ x ^. typeImports
+
+    return $! Package y ver (sort expose) (sort other)
+
+
 
 -- AST.hs
 -- Constraint.hs
@@ -54,8 +63,8 @@ createPackage ver x = do
 -- 1. set defaults (Default)
 -- 2. apply overrides (Override)
 --  - Fields:
---    * mark required fields
---    * mark optional fields
+--    *  mark required fields
+--    * mark fields optional
 --    * rename fields
 --    * retype fields
 --    * prefix enums

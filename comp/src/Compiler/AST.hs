@@ -29,6 +29,7 @@ import qualified Data.Aeson           as A
 import           Data.CaseInsensitive (CI)
 import           Data.Jason           hiding (Bool, ToJSON (..))
 import           Data.Monoid
+import           Data.String
 import           Data.Text            (Text)
 import qualified Data.Text            as Text
 import           GHC.Generics         (Generic)
@@ -113,14 +114,33 @@ data Method
 instance FromJSON Method where
     parseJSON = gParseJSON' upper
 
-data NS = NS
+newtype NS = NS [Text]
+    deriving (Eq, Ord, Show)
+
+instance IsString NS where
+    fromString = namespace . fromString
+
+instance Monoid NS where
+    mempty                  = NS []
+    mappend (NS xs) (NS ys) = NS (xs <> ys)
+
+instance FromJSON NS where
+    parseJSON = withText "namespace" (pure . namespace)
+
+instance ToJSON NS where
+    toJSON (NS xs) = toJSON (Text.intercalate "." xs)
+
+namespace :: Text -> NS
+namespace = NS . Text.splitOn "."
+
+data XML = XML'
     { _xmlPrefix :: Text
     , _xmlUri    :: Text
     } deriving (Eq, Show, Generic)
 
-makeClassy ''NS
+makeClassy ''XML
 
-instance FromJSON NS where
+instance FromJSON XML where
     parseJSON = gParseJSON' $ camel { lenses = True }
 
 data Ref f = Ref
@@ -132,7 +152,7 @@ data Ref f = Ref
     , _refStreaming     :: !Bool
     , _refWrapper       :: !Bool
     , _refXMLAttribute  :: !Bool
-    , _refXMLNamespace  :: f NS
+    , _refXMLNamespace  :: f XML
     } deriving (Generic)
 
 makeLenses ''Ref
@@ -149,8 +169,8 @@ instance FromJSON (Ref Maybe) where
         <*> o .:? "xmlAttribute" .!= False
         <*> o .:? "xmlnamespace"
 
-instance HasNS (Ref Identity) where
-    nS = refXMLNamespace . _Wrapped
+instance HasXML (Ref Identity) where
+    xML = refXMLNamespace . _Wrapped
 
 data Info f = Info
     { _infoDocumentation :: f Text
@@ -363,8 +383,8 @@ data API f a = API
     , _operations       :: Map Text (Operation f a)
     , _shapes           :: Map Text (Shape f)
     , _libraryName      :: Text
-    , _operationImports :: [Text]
-    , _typeImports      :: [Text]
+    , _operationImports :: [NS]
+    , _typeImports      :: [NS]
     , _typeOverrides    :: Map Text Override
     , _ignoredWaiters   :: Set (CI Text)
     } deriving (Generic)
@@ -391,8 +411,8 @@ instance FromJSON (API Maybe Ref) where
 data Package = Package
     { _api'           :: API Identity Shape
     , _libraryVersion :: SemVer
-    , _exposedModules :: [Text]
-    , _otherModules   :: [Text]
+    , _exposedModules :: [NS]
+    , _otherModules   :: [NS]
     } deriving (Generic)
 
 makeLenses ''Package

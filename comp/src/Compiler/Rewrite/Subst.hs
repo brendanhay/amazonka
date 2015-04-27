@@ -88,11 +88,7 @@ substitute api@API{..} = api
                 , _renamedFields  = mempty
                 }
 
-    -- IDEA: What about renaming correctly (in accordance with how overrides does it)
-    -- namely by adding an override, doing this entire subst step first,
-    -- and also lettings Default.hs take care of filling out fields?
-
--- emptyStruct ::
+emptyStruct :: f Text -> Shape f
 emptyStruct d = Struct i s
   where
     i = Info

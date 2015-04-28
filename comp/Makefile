@@ -1,6 +1,5 @@
 SHELL     := /usr/bin/env bash
 TOP       := ..
-VERSION   := $(shell sed -n 's/^version: *\(.*\)$$/\1/p' amazonka-compiler.cabal)
 DEPS      := vendor/botocore vendor/jason
 MODEL_DIR := model
 
@@ -60,12 +59,20 @@ JSON := \
 
 MODELS ?= $(QUERY) $(XML) $(JSON)
 
+define version =
+$(shell sed -n 's/^version: *\(.*\)$$/\1/p' $(1))
+endef
+
+CORE_VERSION = $(call version,$(TOP)/core/amazonka-core.cabal)
+VERSION      = $(call version,amazonka-compiler.cabal)
+
 .PHONY: compile gen
 
 compile: build gen
 	dist/build/compile/compile \
  --out=gen \
- --version=$(VERSION) \
+ --lib-version=$(VERSION) \
+ --core-version=$(CORE_VERSION) \
  --overrides=override \
  --templates=tmpl \
  --assets=asset \

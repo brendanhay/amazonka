@@ -70,11 +70,6 @@ path = later (Build.fromText . toTextIgnore)
 toTextIgnore :: Path -> Text
 toTextIgnore = either id id . Path.toText
 
-type SemVer = SemVer.Version
-
-semver :: Format a (SemVer -> a)
-semver = later (Build.fromText . SemVer.toText)
-
 data Templates = Templates
     { cabalTemplate           :: Template
     , serviceTemplate         :: Template
@@ -115,7 +110,7 @@ instance FromJSON NS where
 instance ToJSON NS where
     toJSON (NS xs) = A.toJSON (Text.intercalate "." xs)
 
-newtype Help = Help { pdoc :: Pandoc }
+newtype Help = Help Pandoc
 
 instance IsString Help where
     fromString = Help . readHaddock def
@@ -140,3 +135,18 @@ helpToHaddock sep (Help h) = Text.pack
     . prefixed (Text.unpack sep)
     . fromString
     $ writeHaddock def h
+
+newtype LibVer = LibVer SemVer.Version
+    deriving (Eq, Show)
+
+instance A.ToJSON LibVer where
+    toJSON (LibVer v) = A.toJSON (SemVer.toText v)
+
+libver :: Format a (LibVer -> a)
+libver = later (\(LibVer v) -> Build.fromText (SemVer.toText v))
+
+newtype CoreVer = CoreVer SemVer.Version
+    deriving (Eq, Show)
+
+instance A.ToJSON CoreVer where
+    toJSON (CoreVer v) = A.toJSON (SemVer.toText v)

@@ -47,7 +47,8 @@ data Opt = Opt
     , _optTemplates :: Path
     , _optAssets    :: Path
     , _optRetry     :: Path
-    , _optVersion   :: SemVer
+    , _optLibVer    :: LibVer
+    , _optCoreVer   :: CoreVer
     } deriving (Show)
 
 makeLenses ''Opt
@@ -90,14 +91,23 @@ parser = Opt
         <> help "Path to the file containing retry definitions. [required]"
          )
 
-    <*> option (eitherReader (SemVer.fromText . Text.pack))
-         ( long "version"
+    <*> option (LibVer <$> semver)
+         ( long "lib-version"
         <> metavar "VER"
         <> help "Version of the library to generate. [required]"
+         )
+
+    <*> option (CoreVer <$> semver)
+         ( long "core-version"
+        <> metavar "VER"
+        <> help "Version of the core library to depend upon. [required]"
          )
   where
     isString :: IsString a => ReadM a
     isString = eitherReader (Right . fromString)
+
+    semver :: ReadM SemVer.Version
+    semver = eitherReader (SemVer.fromText . Text.pack)
 
 options :: ParserInfo Opt
 options = info (helper <*> parser) fullDesc
@@ -166,14 +176,14 @@ main = do
             say ("Successfully parsed '" % stext % "' API definition")
                 (api ^. serviceFullName)
 
-            pkg <- createPackage _optVersion api
+            pkg <- createLibrary _optLibVer _optCoreVer api
 
             dir <- foldTree (failure string . show) createDir writeLTFile
-                (populateTree _optOutput _optVersion tmpl pkg)
+                (populateTree _optOutput tmpl pkg)
 
-            say ("Successfully rendered " % stext % "-" % semver % " package")
+            say ("Successfully rendered " % stext % "-" % libver % " package")
                 (api ^. libraryName)
-                _optVersion
+                _optLibVer
 
             copyDir _optAssets (rootTree dir)
 

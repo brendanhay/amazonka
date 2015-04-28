@@ -46,8 +46,5 @@ instance J.FromJSON Natural where
 instance A.ToJSON Natural where
     toJSON = A.toJSON . toInteger
 
-instance A.ToJSON SemVer.Version where
-    toJSON = A.toJSON . SemVer.toText
-
 instance A.ToJSON a => A.ToJSON (Identity a) where
     toJSON = A.toJSON . runIdentity

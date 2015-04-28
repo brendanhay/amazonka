@@ -31,11 +31,12 @@ import           Data.Monoid
 import           Data.Text                 (Text)
 import qualified Data.Text.Lazy            as LText
 
-createPackage :: Monad m
-              => SemVer
+createLibrary :: Monad m
+              => LibVer
+              -> CoreVer
               -> API Maybe Ref
-              -> EitherT LazyText m Package
-createPackage ver x = do
+              -> EitherT LazyText m Library
+createLibrary lv cv x = do
     y <- defaults (substitute x)
 
     let stem   = NS ["Network", "AWS", y ^. serviceAbbreviation]
@@ -46,7 +47,7 @@ createPackage ver x = do
                : map (mappend stem . textToNS)
                      (y ^.. operations . ifolded . asIndex)
 
-    return $! Package y ver (sort expose) (sort other)
+    return $! Library y lv cv (sort expose) (sort other)
 
 -- AST.hs
 -- Constraint.hs

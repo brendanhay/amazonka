@@ -388,23 +388,24 @@ instance FromJSON (API Maybe Ref) where
         <*> o .:? "typeOverrides"    .!= mempty
         <*> o .:? "ignoredWaiters"   .!= mempty
 
-data Package = Package
+data Library = Library
     { _api'           :: API Identity Shape
-    , _libraryVersion :: SemVer
+    , _libraryVersion :: LibVer
+    , _coreVersion    :: CoreVer
     , _exposedModules :: [NS]
     , _otherModules   :: [NS]
     } deriving (Generic)
 
-makeLenses ''Package
+makeLenses ''Library
 
-instance HasMetadata Package Identity where
+instance HasMetadata Library Identity where
     metadata = api' . metadata'
 
-instance HasAPI Package Identity Shape where
+instance HasAPI Library Identity Shape where
     aPI = api'
 
-instance ToJSON Package where
-    toJSON p@Package{..} = A.Object (x <> y)
+instance ToJSON Library where
+    toJSON p = A.Object (x <> y)
       where
         A.Object y = A.toJSON (p ^. metadata)
         A.Object x = A.object
@@ -413,6 +414,7 @@ instance ToJSON Package where
             , "description"    A..= (p ^. description)
             , "libraryName"    A..= (p ^. libraryName)
             , "libraryVersion" A..= (p ^. libraryVersion)
+            , "coreVersion"    A..= (p ^. coreVersion)
             , "exposedModules" A..= (p ^. exposedModules)
             , "otherModules"   A..= (p ^. otherModules)
             ]

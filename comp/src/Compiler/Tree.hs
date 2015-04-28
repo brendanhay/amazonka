@@ -54,11 +54,10 @@ foldTree h g f (p :/ t) = (p :/) <$> go (decodeString p) t
             d = x </> decodeString n
 
 populateTree :: Path
-             -> SemVer
              -> Templates
-             -> Package
+             -> Library
              -> AnchoredDirTree LazyText
-populateTree d v Templates{..} pkg =
+populateTree d Templates{..} l =
     encodeString d :/ dir lib
         [ dir "src" []
         , dir "examples"
@@ -81,11 +80,11 @@ populateTree d v Templates{..} pkg =
 --        , file "README.md" readmeTemplate (Object mempty)
         ]
   where
-    abbrev = fromText (pkg ^. serviceAbbreviation)
-    lib    = fromText (pkg ^. libraryName)
+    abbrev = fromText (l ^. serviceAbbreviation)
+    lib    = fromText (l ^. libraryName)
 
     file   = render json
-    json   = toJSON pkg
+    json   = toJSON l
 
     -- Types:
     --   key        = name

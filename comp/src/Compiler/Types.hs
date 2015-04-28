@@ -124,7 +124,7 @@ instance FromJSON Help where
     parseJSON = J.withText "help" (pure . Help . readHtml def . Text.unpack)
 
 instance ToJSON Help where
-    toJSON = toJSON . mappend "--|" . Text.drop 2 . haddock "-- "
+    toJSON = toJSON . mappend "--|" . Text.drop 2 . helpToHaddock "-- "
 
 newtype Desc = Desc Help
 
@@ -132,10 +132,10 @@ instance FromJSON Desc where
     parseJSON = fmap Desc . J.parseJSON
 
 instance ToJSON Desc where
-    toJSON (Desc h) = toJSON (haddock "    " h)
+    toJSON (Desc h) = toJSON (helpToHaddock "    " h)
 
-haddock :: Text -> Help -> Text
-haddock sep (Help h) = Text.pack
+helpToHaddock :: Text -> Help -> Text
+helpToHaddock sep (Help h) = Text.pack
     . render (Just 76)
     . prefixed (Text.unpack sep)
     . fromString

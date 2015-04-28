@@ -26,6 +26,7 @@ import qualified Filesystem                as FS
 import           Filesystem.Path.CurrentOS
 import           Formatting                hiding (left)
 import           Formatting.Internal       (runFormat)
+import           System.IO
 import qualified Text.EDE                  as EDE
 
 isFile :: MonadIO m => Path -> Compiler m Bool
@@ -41,7 +42,9 @@ readBSFile f = hushT $ do
 writeLTFile :: MonadIO m => Path -> LazyText -> Compiler m ()
 writeLTFile f t = do
     say ("Writing " % path) f
-    io $ FS.withFile f FS.WriteMode (`LText.hPutStr` t)
+    io . FS.withFile f FS.WriteMode $ \h -> do
+        hSetEncoding  h utf8
+        LText.hPutStr h t
 
 createDir :: MonadIO m => Path -> Compiler m ()
 createDir d = do

@@ -29,7 +29,6 @@ import qualified Data.Aeson           as A
 import           Data.CaseInsensitive (CI)
 import           Data.Jason           hiding (Bool, ToJSON (..))
 import           Data.Monoid
-import           Data.String
 import           Data.Text            (Text)
 import qualified Data.Text            as Text
 import           GHC.Generics         (Generic)
@@ -113,25 +112,6 @@ data Method
 
 instance FromJSON Method where
     parseJSON = gParseJSON' upper
-
-newtype NS = NS [Text]
-    deriving (Eq, Ord, Show)
-
-instance IsString NS where
-    fromString = namespace . fromString
-
-instance Monoid NS where
-    mempty                  = NS []
-    mappend (NS xs) (NS ys) = NS (xs <> ys)
-
-instance FromJSON NS where
-    parseJSON = withText "namespace" (pure . namespace)
-
-instance ToJSON NS where
-    toJSON (NS xs) = toJSON (Text.intercalate "." xs)
-
-namespace :: Text -> NS
-namespace = NS . Text.splitOn "."
 
 data XML = XML'
     { _xmlPrefix :: Text
@@ -379,7 +359,7 @@ data API f a = API
     { _metadata'        :: Metadata f
     , _referenceUrl     :: Text
     , _operationUrl     :: Text
-    , _description      :: Text
+    , _description      :: Desc
     , _operations       :: Map Text (Operation f a)
     , _shapes           :: Map Text (Shape f)
     , _libraryName      :: Text

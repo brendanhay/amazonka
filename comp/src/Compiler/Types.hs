@@ -19,13 +19,20 @@ import           Compiler.Orphans          ()
 import           Control.Error
 import           Control.Lens
 import           Control.Monad
+import           Data.Aeson                (ToJSON (..))
+import qualified Data.Aeson                as A
+import           Data.Default.Class
 import           Data.Hashable
 import qualified Data.HashMap.Strict       as Map
 import qualified Data.HashSet              as Set
+import           Data.Jason                (FromJSON (..))
+import qualified Data.Jason                as J
 import           Data.List                 (intersperse)
 import           Data.Monoid
 import qualified Data.SemVer               as SemVer
+import           Data.String
 import           Data.Text                 (Text)
+import qualified Data.Text                 as Text
 import qualified Data.Text.Lazy            as LText
 import qualified Data.Text.Lazy.Builder    as Build
 import           Data.Time
@@ -33,6 +40,8 @@ import qualified Filesystem.Path.CurrentOS as Path
 import           Formatting
 import           Formatting.Time
 import           Text.EDE                  (Template)
+import           Text.Pandoc               hiding (Format, Template)
+import           Text.Pandoc.Pretty        (prefixed, render)
 
 type Compiler = EitherT LazyText
 type LazyText = LText.Text
@@ -86,3 +95,48 @@ failure :: Monad m => Format LText.Text (a -> e) -> a -> EitherT e m b
 failure m = Control.Error.left . format m
 
 makePrisms ''Identity
+
+newtype NS = NS [Text]
+    deriving (Eq, Ord, Show)
+
+textToNS :: Text -> NS
+textToNS = NS . Text.splitOn "."
+
+instance IsString NS where
+    fromString = textToNS . fromString
+
+instance Monoid NS where
+    mempty                  = NS []
+    mappend (NS xs) (NS ys) = NS (xs <> ys)
+
+instance FromJSON NS where
+    parseJSON = J.withText "namespace" (pure . textToNS)
+
+instance ToJSON NS where
+    toJSON (NS xs) = A.toJSON (Text.intercalate "." xs)
+
+newtype Help = Help { pdoc :: Pandoc }
+
+instance IsString Help where
+    fromString = Help . readHaddock def
+
+instance FromJSON Help where
+    parseJSON = J.withText "help" (pure . Help . readHtml def . Text.unpack)
+
+instance ToJSON Help where
+    toJSON = toJSON . mappend "--|" . Text.drop 2 . haddock "-- "
+
+newtype Desc = Desc Help
+
+instance FromJSON Desc where
+    parseJSON = fmap Desc . J.parseJSON
+
+instance ToJSON Desc where
+    toJSON (Desc h) = toJSON (haddock "    " h)
+
+haddock :: Text -> Help -> Text
+haddock sep (Help h) = Text.pack
+    . render (Just 76)
+    . prefixed (Text.unpack sep)
+    . fromString
+    $ writeHaddock def h

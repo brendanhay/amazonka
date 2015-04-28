@@ -38,15 +38,15 @@ createPackage :: Monad m
 createPackage ver x = do
     y <- defaults (substitute x)
 
-    let ns     = NS ["Network", "AWS", y ^. serviceAbbreviation]
-        expose = ns : ns <> "Types"
-                    : ns <> "Waiters"
-                    : map (mappend ns . namespace) (Map.keys $ y ^. operations)
+    let stem   = NS ["Network", "AWS", y ^. serviceAbbreviation]
         other  = x ^. operationImports ++ x ^. typeImports
+        expose = stem
+               : stem <> "Types"
+               : stem <> "Waiters"
+               : map (mappend stem . textToNS)
+                     (y ^.. operations . ifolded . asIndex)
 
     return $! Package y ver (sort expose) (sort other)
-
-
 
 -- AST.hs
 -- Constraint.hs

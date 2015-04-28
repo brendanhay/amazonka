@@ -25,9 +25,9 @@ module Compiler.Tree
 
 import           Compiler.AST
 import           Compiler.Types
-import           Control.Error
 import           Control.Lens              ((^.))
 import           Data.Aeson                hiding (json)
+import qualified Data.HashMap.Strict       as Map
 import           Data.Monoid
 import           Data.Text                 (Text)
 import           Filesystem.Path.CurrentOS
@@ -57,66 +57,42 @@ populateTree :: Path
              -> Templates
              -> Library
              -> AnchoredDirTree LazyText
-populateTree d Templates{..} l =
-    encodeString d :/ dir lib
+populateTree d Templates{..} l = encodeString d :/ dir lib
+    [ dir "src" []
+    , dir "examples"
         [ dir "src" []
-        , dir "examples"
-            [ dir "src" []
-            , file (lib <-> "examples.cabal") exampleCabalTemplate
-            , file "Makefile" exampleMakefileTemplate
-            ]
-        -- , dir "gen"
-        --     [ dir "Network"
-        --         [ dir "AWS"
-        --             [ dir abbrev
-        --                 [ file "Types.hs" typesTemplate (Object mempty)
-        --                 , file "Waiters.hs" waitersTemplate (Object mempty)
-        --                 ] -- ++ map (file ) []
-        --             , file (abbrev <.> "hs") serviceTemplate (Object mempty)
-        --             ]
-        --         ]
-        --     ]
-        , file (lib <.> "cabal") cabalTemplate
---        , file "README.md" readmeTemplate (Object mempty)
+        , file (lib <-> "examples.cabal") exampleCabalTemplate
+        , file "Makefile" exampleMakefileTemplate
         ]
+    , dir "gen"
+        [ dir "Network"
+            [ dir "AWS"
+                [ dir abbrev []
+    --                 [ file "Types.hs" typesTemplate (Object mempty)
+    --                 , file "Waiters.hs" waitersTemplate (Object mempty)
+    --                 ] -- ++ map (file ) []
+                , hs "" (abbrev <.> "hs") serviceTemplate
+                ]
+            ]
+        ]
+    , file (lib <.> "cabal") cabalTemplate
+    , file "README.md" readmeTemplate
+    ]
   where
---    abbrev = fromText (l ^. serviceAbbrev)
+    abbrev = fromText (l ^. serviceAbbrev)
     lib    = fromText (l ^. libraryName)
 
-    file   = render json
-    json   = toJSON l
+    file = render env
+    hs n = render $ Map.insert "moduleName" (toJSON (l ^. namespace <> n)) env
 
-    -- Types:
-    --   key        = name
-    --   value      =
-    --     type     = <shape_type>
-    --     ctor     = Text
-    --     pretty   = Text
-    --     lenses[] = Text
-
-    -- types = do
-    --     let ss = Map.fromList . catMaybes . map (\(k, v) -> (k,) <$> AST.transform k v) $ Map.toList (s ^. svcShapes)
-    --     ds <- traverse AST.json ss
-    --     render (t ^. fileTypes $ proto) $ object
-    --         [ "namespace" .= Text.pack "Network.AWS.<service>.Types"
-    --         , "service"   .= object
-    --             [ "abbrev" .= view svcAbbrev s
-    --             , "error"  .= Text.pack "<service>Error"
-    --             ]
-    --         , "shapes"    .= ds
-    --         ]
-
---    operations      = map f . Map.toList $ s ^. svcOperations
-      -- where
-      --   f (k, _) = (fromText k <.> "hs", EDE.eitherRender file mempty)
+    Object env = toJSON l
 
 dir :: Path -> [DirTree a] -> DirTree a
 dir p = Dir (encodeString p)
 
-render :: Value -> Path -> Template -> DirTree LazyText
-render v (encodeString -> f) x =
-    case note ("Error serialising params: " ++ show v) (fromValue v)
-        >>= eitherRender x of
+render :: Object -> Path -> Template -> DirTree LazyText
+render o (encodeString -> f) x =
+    case eitherRender x o of
         Right t -> File   f t
         Left  e -> Failed f ex
           where

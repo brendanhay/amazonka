@@ -38,15 +38,15 @@ createLibrary :: Monad m
 createLibrary v x = do
     y <- defaults (substitute x)
 
-    let stem   = NS ["Network", "AWS", y ^. serviceAbbrev]
+    let ns     = NS ["Network", "AWS", y ^. serviceAbbrev]
         other  = x ^. operationImports ++ x ^. typeImports
-        expose = stem
-               : stem <> "Types"
-               : stem <> "Waiters"
-               : map (mappend stem . textToNS)
+        expose = ns
+               : ns <> "Types"
+               : ns <> "Waiters"
+               : map (mappend ns . textToNS)
                      (y ^.. operations . ifolded . asIndex)
 
-    return $! Library y v (sort expose) (sort other)
+    return $! Library y v ns (sort expose) (sort other)
 
 -- AST.hs
 -- Constraint.hs

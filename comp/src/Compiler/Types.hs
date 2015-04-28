@@ -126,11 +126,11 @@ instance ToJSON Help where
 
 newtype Desc = Desc Help
 
-instance FromJSON Desc where
-    parseJSON = fmap Desc . J.parseJSON
-
 instance ToJSON Desc where
-    toJSON (Desc h) = toJSON (helpToHaddock "    " h)
+    toJSON (Desc h) = toJSON (helpToHaddock "" h)
+
+asDesc :: Getter Help Desc
+asDesc = to Desc
 
 helpToHaddock :: Text -> Help -> Text
 helpToHaddock sep (Help h) = Text.pack

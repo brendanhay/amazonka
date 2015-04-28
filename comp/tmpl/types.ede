@@ -12,7 +12,7 @@
 {% endfor %}
 {% include "_include/license.ede" %}
 
-module {{ name }}
+module {{ moduleName }}
     (
     ) where
 

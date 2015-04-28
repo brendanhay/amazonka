@@ -359,7 +359,7 @@ data API f a = API
     { _metadata'        :: Metadata f
     , _referenceUrl     :: Text
     , _operationUrl     :: Text
-    , _description      :: Desc
+    , _description      :: Help
     , _operations       :: Map Text (Operation f a)
     , _shapes           :: Map Text (Shape f)
     , _libraryName      :: Text
@@ -399,6 +399,7 @@ makeClassy ''Versions
 data Library = Library
     { _api'           :: API Identity Shape
     , _versions'      :: Versions
+    , _namespace      :: NS
     , _exposedModules :: [NS]
     , _otherModules   :: [NS]
     } deriving (Generic)
@@ -421,7 +422,8 @@ instance ToJSON Library where
         A.Object x = A.object
             [ "referenceUrl"   A..= (p ^. referenceUrl)
             , "operationUrl"   A..= (p ^. operationUrl)
-            , "description"    A..= (p ^. description)
+            , "description"    A..= (p ^. description . asDesc)
+            , "documentation"  A..= (p ^. description)
             , "libraryName"    A..= (p ^. libraryName)
             , "libraryVersion" A..= (p ^. libraryVersion)
             , "clientVersion"  A..= (p ^. clientVersion)

@@ -63,15 +63,17 @@ define version =
 $(shell sed -n 's/^version: *\(.*\)$$/\1/p' $(1))
 endef
 
-CORE_VERSION = $(call version,$(TOP)/core/amazonka-core.cabal)
-VERSION      = $(call version,amazonka-compiler.cabal)
+VERSION        = $(call version,amazonka-compiler.cabal)
+CLIENT_VERSION = $(call version,$(TOP)/amazonka/amazonka.cabal)
+CORE_VERSION  = $(call version,$(TOP)/core/amazonka-core.cabal)
 
 .PHONY: compile gen
 
 compile: build gen
 	dist/build/compile/compile \
  --out=gen \
- --lib-version=$(VERSION) \
+ --library-version=$(VERSION) \
+ --client-version=$(VERSION) \
  --core-version=$(CORE_VERSION) \
  --overrides=override \
  --templates=tmpl \

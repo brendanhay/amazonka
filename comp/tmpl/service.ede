@@ -1,3 +1,5 @@
 {% include "_include/license.ede" %}
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+{{ documentation }}

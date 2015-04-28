@@ -62,8 +62,8 @@ populateTree d Templates{..} l =
         [ dir "src" []
         , dir "examples"
             [ dir "src" []
-            -- , file (lib <//> "-examples.cabal") exampleCabalTemplate (Object mempty)
-            -- , file "Makefile" exampleMakefileTemplate (Object mempty)
+            , file (lib <-> "examples.cabal") exampleCabalTemplate
+            , file "Makefile" exampleMakefileTemplate
             ]
         -- , dir "gen"
         --     [ dir "Network"
@@ -80,7 +80,7 @@ populateTree d Templates{..} l =
 --        , file "README.md" readmeTemplate (Object mempty)
         ]
   where
-    abbrev = fromText (l ^. serviceAbbreviation)
+--    abbrev = fromText (l ^. serviceAbbrev)
     lib    = fromText (l ^. libraryName)
 
     file   = render json
@@ -122,5 +122,5 @@ render v (encodeString -> f) x =
           where
             ex = mkIOError userErrorType (e ++ "\nRender") Nothing (Just f)
 
--- (<//>) :: Path -> Text -> Path
--- a <//> b = fromText (toTextIgnore a <> b)
+(<->) :: Path -> Text -> Path
+a <-> b = fromText (toTextIgnore a <> "-" <> b)

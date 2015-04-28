@@ -1,4 +1,6 @@
+{-# LANGUAGE DataKinds         #-}
 {-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE KindSignatures    #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TemplateHaskell   #-}
 {-# LANGUAGE TupleSections     #-}
@@ -39,6 +41,7 @@ import           Data.Time
 import qualified Filesystem.Path.CurrentOS as Path
 import           Formatting
 import           Formatting.Time
+import           GHC.TypeLits
 import           Text.EDE                  (Template)
 import           Text.Pandoc               hiding (Format, Template)
 import           Text.Pandoc.Pretty        (prefixed, render)
@@ -136,17 +139,15 @@ helpToHaddock sep (Help h) = Text.pack
     . fromString
     $ writeHaddock def h
 
-newtype LibVer = LibVer SemVer.Version
+newtype Version (v :: Symbol) = Version SemVer.Version
     deriving (Eq, Show)
 
-instance A.ToJSON LibVer where
-    toJSON (LibVer v) = A.toJSON (SemVer.toText v)
+instance A.ToJSON (Version v) where
+    toJSON (Version v) = A.toJSON (SemVer.toText v)
 
-libver :: Format a (LibVer -> a)
-libver = later (\(LibVer v) -> Build.fromText (SemVer.toText v))
+semver :: Format a (Version v -> a)
+semver = later (\(Version v) -> Build.fromText (SemVer.toText v))
 
-newtype CoreVer = CoreVer SemVer.Version
-    deriving (Eq, Show)
-
-instance A.ToJSON CoreVer where
-    toJSON (CoreVer v) = A.toJSON (SemVer.toText v)
+type LibraryVer = Version "library"
+type ClientVer  = Version "client"
+type CoreVer    = Version "core"

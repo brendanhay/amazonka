@@ -47,8 +47,7 @@ data Opt = Opt
     , _optTemplates :: Path
     , _optAssets    :: Path
     , _optRetry     :: Path
-    , _optLibVer    :: LibVer
-    , _optCoreVer   :: CoreVer
+    , _optVersions  :: Versions
     } deriving (Show)
 
 makeLenses ''Opt
@@ -91,23 +90,30 @@ parser = Opt
         <> help "Path to the file containing retry definitions. [required]"
          )
 
-    <*> option (LibVer <$> semver)
-         ( long "lib-version"
-        <> metavar "VER"
-        <> help "Version of the library to generate. [required]"
-         )
+    <*> (Versions
+        <$> option version
+             ( long "library-version"
+            <> metavar "VER"
+            <> help "Version of the library to generate. [required]"
+             )
 
-    <*> option (CoreVer <$> semver)
-         ( long "core-version"
-        <> metavar "VER"
-        <> help "Version of the core library to depend upon. [required]"
-         )
-  where
-    isString :: IsString a => ReadM a
-    isString = eitherReader (Right . fromString)
+        <*> option version
+             ( long "client-version"
+            <> metavar "VER"
+            <> help "Version of the client library for examples to depend upon. [required]"
+             )
 
-    semver :: ReadM SemVer.Version
-    semver = eitherReader (SemVer.fromText . Text.pack)
+        <*> option version
+             ( long "core-version"
+            <> metavar "VER"
+            <> help "Version of the core library to depend upon. [required]"
+             ))
+
+isString :: IsString a => ReadM a
+isString = eitherReader (Right . fromString)
+
+version :: ReadM (Version v)
+version = eitherReader (fmap Version . SemVer.fromText . Text.pack)
 
 options :: ParserInfo Opt
 options = info (helper <*> parser) fullDesc
@@ -147,8 +153,8 @@ main = do
             <*> load "service.ede"
             <*> load "waiters.ede"
             <*> load "readme.ede"
-            <*> load "example-cabal.ede"
-            <*> load "example-makefile.ede"
+            <*> load "example/cabal.ede"
+            <*> load "example/makefile.ede"
             <*> load "operation.ede"
             <*> load "types.ede"
             <*  done
@@ -176,14 +182,14 @@ main = do
             say ("Successfully parsed '" % stext % "' API definition")
                 (api ^. serviceFullName)
 
-            pkg <- createLibrary _optLibVer _optCoreVer api
+            lib <- createLibrary _optVersions api
 
             dir <- foldTree (failure string . show) createDir writeLTFile
-                (populateTree _optOutput tmpl pkg)
+                (populateTree _optOutput tmpl lib)
 
-            say ("Successfully rendered " % stext % "-" % libver % " package")
-                (api ^. libraryName)
-                _optLibVer
+            say ("Successfully rendered " % stext % "-" % semver % " package")
+                (lib ^. libraryName)
+                (lib ^. libraryVersion)
 
             copyDir _optAssets (rootTree dir)
 

@@ -302,16 +302,16 @@ instance HasHTTP (Operation f a) f where
     hTTP = opHTTP
 
 data Metadata f = Metadata
-    { _protocol            :: !Protocol
-    , _serviceAbbreviation :: Text
-    , _serviceFullName     :: Text
-    , _apiVersion          :: Text
-    , _signatureVersion    :: !Signature
-    , _endpointPrefix      :: Text
-    , _timestampFormat     :: f Timestamp
-    , _checksumFormat      :: f Checksum
-    , _jsonVersion         :: Text
-    , _targetPrefix        :: Maybe Text
+    { _protocol         :: !Protocol
+    , _serviceAbbrev    :: Text
+    , _serviceFullName  :: Text
+    , _apiVersion       :: Text
+    , _signatureVersion :: !Signature
+    , _endpointPrefix   :: Text
+    , _timestampFormat  :: f Timestamp
+    , _checksumFormat   :: f Checksum
+    , _jsonVersion      :: Text
+    , _targetPrefix     :: Maybe Text
     } deriving (Generic)
 
 makeClassy ''Metadata
@@ -388,10 +388,17 @@ instance FromJSON (API Maybe Ref) where
         <*> o .:? "typeOverrides"    .!= mempty
         <*> o .:? "ignoredWaiters"   .!= mempty
 
+data Versions = Versions
+    { _libraryVersion :: LibraryVer
+    , _clientVersion  :: ClientVer
+    , _coreVersion    :: CoreVer
+    } deriving (Show)
+
+makeClassy ''Versions
+
 data Library = Library
     { _api'           :: API Identity Shape
-    , _libraryVersion :: LibVer
-    , _coreVersion    :: CoreVer
+    , _versions'      :: Versions
     , _exposedModules :: [NS]
     , _otherModules   :: [NS]
     } deriving (Generic)
@@ -404,6 +411,9 @@ instance HasMetadata Library Identity where
 instance HasAPI Library Identity Shape where
     aPI = api'
 
+instance HasVersions Library where
+    versions = versions'
+
 instance ToJSON Library where
     toJSON p = A.Object (x <> y)
       where
@@ -414,6 +424,7 @@ instance ToJSON Library where
             , "description"    A..= (p ^. description)
             , "libraryName"    A..= (p ^. libraryName)
             , "libraryVersion" A..= (p ^. libraryVersion)
+            , "clientVersion"  A..= (p ^. clientVersion)
             , "coreVersion"    A..= (p ^. coreVersion)
             , "exposedModules" A..= (p ^. exposedModules)
             , "otherModules"   A..= (p ^. otherModules)

@@ -101,17 +101,21 @@ textToNS :: Text -> NS
 textToNS = NS . Text.splitOn "."
 
 instance IsString NS where
-    fromString = textToNS . fromString
+    fromString "" = mempty
+    fromString s  = textToNS (fromString s)
 
 instance Monoid NS where
-    mempty                  = NS []
-    mappend (NS xs) (NS ys) = NS (xs <> ys)
+    mempty = NS []
+    mappend (NS xs) (NS ys)
+        | null xs   = NS ys
+        | null ys   = NS xs
+        | otherwise = NS (xs <> ys)
 
 instance FromJSON NS where
     parseJSON = withText "namespace" (pure . textToNS)
 
 instance ToJSON NS where
-    toJSON (NS xs) = A.toJSON (Text.intercalate "." xs)
+    toJSON (NS xs) = toJSON (Text.intercalate "." xs)
 
 newtype Help = Help Pandoc
 

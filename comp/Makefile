@@ -75,8 +75,9 @@ compile: build gen
  --library-version=$(VERSION) \
  --client-version=$(VERSION) \
  --core-version=$(CORE_VERSION) \
- --overrides=override \
- --templates=tmpl \
+ --annexes=annex \
+ --configs=config \
+ --templates=template \
  --assets=asset \
  --retry=$(MODEL_DIR)/_retry.json \
  $(addprefix --model=,$(addprefix $(MODEL_DIR)/,$(MODELS)))

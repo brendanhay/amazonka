@@ -62,8 +62,9 @@ data Model = Model
 
 makeLenses ''Model
 
-override :: Getter Model Path
-override = to (flip addExtension "json" . fromText . _modName)
+configFile, annexFile :: Getter Model Path
+configFile = to (flip addExtension "json" . fromText . _modName)
+annexFile  = configFile
 
 latest :: Getter Model Ver
 latest = to (NonEmpty.head . _modVersions)

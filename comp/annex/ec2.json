@@ -1,0 +1,26 @@
+{
+    "metadata": {
+        "serviceAbbreviation": "EC2"
+    },
+    "waiters": {
+        "ImageAvailable": {
+            "operation": "DescribeImages",
+            "maxAttempts": 40,
+            "delay": 15,
+            "acceptors": [
+                {
+                    "state": "success",
+                    "matcher": "pathAll",
+                    "argument": "Images[].State",
+                    "expected": "available"
+                },
+                {
+                    "state": "failure",
+                    "matcher": "pathAny",
+                    "argument": "Images[].State",
+                    "expected": "deregistered"
+                }
+            ]
+        }
+    }
+}

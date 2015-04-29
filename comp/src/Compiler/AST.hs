@@ -274,8 +274,6 @@ makeClassy ''HTTP
 instance FromJSON (HTTP Maybe) where
     parseJSON = gParseJSON' camel
 
--- data RQRS f a = RQRS (Ref f a) (Shape f)
-
 data Operation f a = Operation
     { _opName          :: Text
     , _opDocumentation :: f Text
@@ -332,73 +330,25 @@ instance FromJSON (Metadata Maybe) where
 instance ToJSON (Metadata Identity) where
     toJSON = gToJSON' camel
 
-data Override = Override
-    { _renamedTo      :: Maybe Text         -- ^ Rename type
-    , _replacedBy     :: Maybe Text         -- ^ Existing type that supplants this type
-    , _enumPrefix     :: Maybe Text         -- ^ Enum constructor prefix
-    , _requiredFields :: Set (CI Text)      -- ^ Required fields
-    , _optionalFields :: Set (CI Text)      -- ^ Optional fields
-    , _renamedFields  :: Map (CI Text) Text -- ^ Rename fields
-    } deriving (Eq, Show)
-
-makeLenses ''Override
-
-instance FromJSON Override where
-    parseJSON = withObject "override" $ \o -> Override
-        <$> o .:? "renamedTo"
-        <*> o .:? "replacedBy"
-        <*> o .:? "enumPrefix"
-        <*> o .:? "requiredFields" .!= mempty
-        <*> o .:? "optionalFields" .!= mempty
-        <*> o .:? "renamedFields"  .!= mempty
-
--- FIXME: An Operation should end up referring to a Shape,
--- similarly to a Ref.
-
-data API f a = API
-    { _metadata'        :: Metadata f
-    , _referenceUrl     :: Text
-    , _operationUrl     :: Text
-    , _description      :: Help
-    , _operations       :: Map Text (Operation f a)
-    , _shapes           :: Map Text (Shape f)
-    , _libraryName      :: Text
-    , _operationImports :: [NS]
-    , _typeImports      :: [NS]
-    , _typeOverrides    :: Map Text Override
-    , _ignoredWaiters   :: Set (CI Text)
+data Service f a = Service
+    { _metadata'     :: Metadata f
+    , _documentation :: Help
+    , _operations    :: Map Text (Operation f a)
+    , _shapes        :: Map Text (Shape f)
     } deriving (Generic)
 
-makeClassy ''API
+makeClassy ''Service
 
-instance HasMetadata (API f a) f where
+instance HasMetadata (Service f a) f where
     metadata = metadata'
 
-instance FromJSON (API Maybe Ref) where
-    parseJSON = withObject "api" $ \o -> API
-        <$> o .:  "metadata"
-        <*> o .:  "referenceUrl"
-        <*> o .:  "operationUrl"
-        <*> o .:  "description"
-        <*> o .:  "operations"
-        <*> o .:  "shapes"
-        <*> o .:  "libraryName"
-        <*> o .:? "operationImports" .!= mempty
-        <*> o .:? "typeImports"      .!= mempty
-        <*> o .:? "typeOverrides"    .!= mempty
-        <*> o .:? "ignoredWaiters"   .!= mempty
-
-data Versions = Versions
-    { _libraryVersion :: LibraryVer
-    , _clientVersion  :: ClientVer
-    , _coreVersion    :: CoreVer
-    } deriving (Show)
-
-makeClassy ''Versions
+instance FromJSON (Service Maybe Ref) where
+    parseJSON = gParseJSON' lower
 
 data Library = Library
-    { _api'           :: API Identity Shape
-    , _versions'      :: Versions
+    { _versions'      :: Versions
+    , _config'        :: Config
+    , _service'       :: Service Identity Shape
     , _namespace      :: NS
     , _exposedModules :: [NS]
     , _otherModules   :: [NS]
@@ -406,28 +356,24 @@ data Library = Library
 
 makeLenses ''Library
 
-instance HasMetadata Library Identity where
-    metadata = api' . metadata'
-
-instance HasAPI Library Identity Shape where
-    aPI = api'
-
-instance HasVersions Library where
-    versions = versions'
+instance HasMetadata Library Identity       where metadata = service' . metadata'
+instance HasService  Library Identity Shape where service  = service'
+instance HasConfig   Library                where config   = config'
+instance HasVersions Library                where versions = versions'
 
 instance ToJSON Library where
-    toJSON p = A.Object (x <> y)
+    toJSON l = A.Object (x <> y)
       where
-        A.Object y = A.toJSON (p ^. metadata)
+        A.Object y = A.toJSON (l ^. metadata)
         A.Object x = A.object
-            [ "referenceUrl"   A..= (p ^. referenceUrl)
-            , "operationUrl"   A..= (p ^. operationUrl)
-            , "description"    A..= (p ^. description . asDesc)
-            , "documentation"  A..= (p ^. description)
-            , "libraryName"    A..= (p ^. libraryName)
-            , "libraryVersion" A..= (p ^. libraryVersion)
-            , "clientVersion"  A..= (p ^. clientVersion)
-            , "coreVersion"    A..= (p ^. coreVersion)
-            , "exposedModules" A..= (p ^. exposedModules)
-            , "otherModules"   A..= (p ^. otherModules)
+            [ "referenceUrl"   A..= (l ^. referenceUrl)
+            , "operationUrl"   A..= (l ^. operationUrl)
+            , "description"    A..= (l ^. documentation . asDesc)
+            , "documentation"  A..= (l ^. documentation)
+            , "libraryName"    A..= (l ^. libraryName)
+            , "libraryVersion" A..= (l ^. libraryVersion)
+            , "clientVersion"  A..= (l ^. clientVersion)
+            , "coreVersion"    A..= (l ^. coreVersion)
+            , "exposedModules" A..= (l ^. exposedModules)
+            , "otherModules"   A..= (l ^. otherModules)
             ]

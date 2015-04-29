@@ -1,0 +1,27 @@
+{
+    "referenceUrl": "http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/Welcome.html",
+    "operationUrl": "http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/",
+    "libraryName": "amazonka-cloudfront",
+    "typeOverrides": {
+        "ListCloudFrontOriginAccessIdentitiesResult": {
+            "requiredFields": [
+                "CloudFrontOriginAccessIdentityList"
+            ]
+        },
+        "ListInvalidationsResult": {
+            "requiredFields": [
+                "InvalidationList"
+            ]
+        },
+        "ListDistributionsResult": {
+            "requiredFields": [
+                "DistributionList"
+            ]
+        },
+        "ListStreamingDistributionsResult": {
+            "requiredFields": [
+                "StreamingDistributionList"
+            ]
+        }
+    }
+}

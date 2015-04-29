@@ -1,0 +1,16 @@
+{
+    "referenceUrl": "http://docs.aws.amazon.com/machine-learning/latest/APIReference/Welcome.html",
+    "operationUrl": "http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_",
+    "libraryName": "amazonka-ml",
+    "typeOverrides": {
+        "BatchPredictionFilterVariable": {
+            "enumPrefix": "Batch"
+        },
+        "EvaluationFilterVariable": {
+            "enumPrefix": "Eval"
+        },
+        "DataSourceFilterVariable": {
+            "enumPrefix": "Data"
+        }
+    }
+}

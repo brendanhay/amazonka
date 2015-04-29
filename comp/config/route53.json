@@ -1,0 +1,29 @@
+{
+    "referenceUrl": "http://docs.aws.amazon.com/Route53/latest/APIReference/Welcome.html",
+    "operationUrl": "http://docs.aws.amazon.com/Route53/latest/APIReference/API_",
+    "libraryName": "amazonka-route53",
+    "typeImports": [
+        "Network.AWS.Route53.Internal"
+    ],
+    "typeOverrides": {
+        "ListHostedZonesResponse": {
+            "optionalFields": [
+                "Marker"
+            ]
+        },
+        "ResourceRecordSet": {
+            "requiredFields": [
+                "ResourceRecords"
+            ]
+        },
+        "ResourceRecordSetRegion": {
+            "replacedBy": "Region"
+        },
+        "RRType": {
+            "renamedTo": "RecordType"
+        },
+        "ResourceRecordSetFailover": {
+            "renamedTo": "Failover"
+        }
+    }
+}

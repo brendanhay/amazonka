@@ -23,12 +23,12 @@ import           Control.Lens
 import           Control.Monad
 import           Data.Aeson                (ToJSON (..))
 import qualified Data.Aeson                as A
+import           Data.CaseInsensitive      (CI)
 import           Data.Default.Class
 import           Data.Hashable
 import qualified Data.HashMap.Strict       as Map
 import qualified Data.HashSet              as Set
-import           Data.Jason                (FromJSON (..))
-import qualified Data.Jason                as J
+import           Data.Jason                hiding (ToJSON (..))
 import           Data.List                 (intersperse)
 import           Data.Monoid
 import qualified Data.SemVer               as SemVer
@@ -108,7 +108,7 @@ instance Monoid NS where
     mappend (NS xs) (NS ys) = NS (xs <> ys)
 
 instance FromJSON NS where
-    parseJSON = J.withText "namespace" (pure . textToNS)
+    parseJSON = withText "namespace" (pure . textToNS)
 
 instance ToJSON NS where
     toJSON (NS xs) = A.toJSON (Text.intercalate "." xs)
@@ -119,7 +119,7 @@ instance IsString Help where
     fromString = Help . readHaddock def
 
 instance FromJSON Help where
-    parseJSON = J.withText "help" (pure . Help . readHtml def . Text.unpack)
+    parseJSON = withText "help" (pure . Help . readHtml def . Text.unpack)
 
 instance ToJSON Help where
     toJSON = toJSON . mappend "--|" . Text.drop 2 . helpToHaddock "-- "
@@ -151,3 +151,54 @@ semver = later (\(Version v) -> Build.fromText (SemVer.toText v))
 type LibraryVer = Version "library"
 type ClientVer  = Version "client"
 type CoreVer    = Version "core"
+
+data Override = Override
+    { _renamedTo      :: Maybe Text         -- ^ Rename type
+    , _replacedBy     :: Maybe Text         -- ^ Existing type that supplants this type
+    , _enumPrefix     :: Maybe Text         -- ^ Enum constructor prefix
+    , _requiredFields :: Set (CI Text)      -- ^ Required fields
+    , _optionalFields :: Set (CI Text)      -- ^ Optional fields
+    , _renamedFields  :: Map (CI Text) Text -- ^ Rename fields
+    } deriving (Eq, Show)
+
+makeLenses ''Override
+
+instance FromJSON Override where
+    parseJSON = withObject "override" $ \o -> Override
+        <$> o .:? "renamedTo"
+        <*> o .:? "replacedBy"
+        <*> o .:? "enumPrefix"
+        <*> o .:? "requiredFields" .!= mempty
+        <*> o .:? "optionalFields" .!= mempty
+        <*> o .:? "renamedFields"  .!= mempty
+
+-- FIXME: An Operation should end up referring to a Shape,
+-- similarly to a Ref.
+
+data Versions = Versions
+    { _libraryVersion :: LibraryVer
+    , _clientVersion  :: ClientVer
+    , _coreVersion    :: CoreVer
+    } deriving (Show)
+
+makeClassy ''Versions
+
+data Config = Config
+    { _libraryName      :: Text
+    , _referenceUrl     :: Text
+    , _operationUrl     :: Text
+    , _operationImports :: [NS]
+    , _typeImports      :: [NS]
+    , _typeOverrides    :: Map Text Override
+    }
+
+makeClassy ''Config
+
+instance FromJSON Config where
+    parseJSON = withObject "config" $ \o -> Config
+        <$> o .:  "libraryName"
+        <*> o .:  "referenceUrl"
+        <*> o .:  "operationUrl"
+        <*> o .:? "operationImports" .!= mempty
+        <*> o .:? "typeImports"      .!= mempty
+        <*> o .:? "typeOverrides"    .!= mempty

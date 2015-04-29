@@ -24,31 +24,31 @@ import qualified Data.HashMap.Strict         as Map
 import qualified Data.HashSet                as Set
 import           Data.Text                   (Text)
 
--- FIXME:
--- input/output ref only has:
---   shape
---   documentation
---   pxmlNamespace
---   locationName
-
 type Replace = [(Text, Text)]
 type Shapes  = Map Text (Shape Maybe)
 type Subst   = WriterT Replace (Reader Shapes)
 
-substitute :: API Maybe Ref -> API Maybe Shape
-substitute api@API{..} = api
-    { _operations    = os
-    , _typeOverrides = overrides
-    }
+substitute :: Config -> Service Maybe Ref -> (Config, Service Maybe Shape)
+substitute cfg@Config{..} svc@Service{..} =
+    ( cfg { _typeOverrides = overrides }
+    , svc { _operations    = os        }
+    )
   where
-    (os, r) = runReader (runWriterT (traverse go _operations)) _shapes
+    overrides = Map.fromList (map replace r) <> _typeOverrides
 
-    -- 1. extract the shape used as the input (or output)
-    -- 2. if the shape is shared, do nothing
-    -- 3. if the shape is not-shared, delete it from the shapes map
-    -- 4. modify the copied shape according to the ref
-    -- 5. discard the ref, and set the operation's input (or output)
-    --    to the new shape.
+    replace (k, v) = (k,) $
+        case Map.lookup k _typeOverrides of
+            Just x  -> x & replacedBy ?~ v
+            Nothing -> Override
+                { _renamedTo      = Nothing
+                , _replacedBy     = Just v
+                , _enumPrefix     = Nothing
+                , _requiredFields = mempty
+                , _optionalFields = mempty
+                , _renamedFields  = mempty
+                }
+
+    (os, r) = runReader (runWriterT (traverse go _operations)) _shapes
 
     go :: Operation Maybe Ref -> Subst (Operation Maybe Shape)
     go o = do
@@ -73,20 +73,6 @@ substitute api@API{..} = api
         return $! x
 
     shared = sharing _operations _shapes
-
-    overrides = Map.fromList (map replace r) <> _typeOverrides
-
-    replace (k, v) = (k,) $
-        case Map.lookup k _typeOverrides of
-            Just x  -> x & replacedBy ?~ v
-            Nothing -> Override
-                { _renamedTo      = Nothing
-                , _replacedBy     = Just v
-                , _enumPrefix     = Nothing
-                , _requiredFields = mempty
-                , _optionalFields = mempty
-                , _renamedFields  = mempty
-                }
 
 emptyStruct :: f Text -> Shape f
 emptyStruct d = Struct i s

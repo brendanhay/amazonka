@@ -23,15 +23,14 @@ import           Control.Error
 import           Control.Lens
 import qualified Data.HashMap.Strict as Map
 import           Data.Monoid
-import           Data.Text           (Text)
 import qualified Data.Text.Lazy      as LText
 
 -- | Set defaults for various fields post-parsing as determined by the
 -- protocol and service type.
-defaults :: Monad m => API Maybe Shape -> Compiler m (API Identity Shape)
-defaults api@API{..} = hoistEither $ do
+defaults :: Monad m => Service Maybe Shape -> Compiler m (Service Identity Shape)
+defaults svc@Service{..} = hoistEither $ do
     os <- traverse operation' _operations
-    return $! api
+    return $! svc
         { _metadata'  = meta' _metadata'
         , _operations = os
         , _shapes     = Map.map shape' _shapes

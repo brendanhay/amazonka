@@ -43,7 +43,8 @@ import           Options.Applicative
 data Opt = Opt
     { _optOutput    :: Path
     , _optModels    :: [Path]
-    , _optOverrides :: Path
+    , _optAnnexes   :: Path
+    , _optConfigs   :: Path
     , _optTemplates :: Path
     , _optAssets    :: Path
     , _optRetry     :: Path
@@ -57,56 +58,62 @@ parser = Opt
     <$> option isString
          ( long "out"
         <> metavar "DIR"
-        <> help "Directory to place the generated library. [required]"
+        <> help "Directory to place the generated library."
          )
 
     <*> some (option isString
          ( long "model"
-        <> metavar "PATH"
-        <> help "Directory for a service's botocore models. [required]"
+        <> metavar "DIR"
+        <> help "Directory for a service's botocore models."
          ))
 
     <*> option isString
-         ( long "overrides"
+         ( long "annexes"
         <> metavar "DIR"
-        <> help "Directory containing amazonka overrides. [required]"
+        <> help "Directory containing botocore model annexes."
+         )
+
+    <*> option isString
+         ( long "configs"
+        <> metavar "DIR"
+        <> help "Directory containing service configuration."
          )
 
     <*> option isString
          ( long "templates"
         <> metavar "DIR"
-        <> help "Directory containing ED-E templates. [required]"
+        <> help "Directory containing ED-E templates."
          )
 
     <*> option isString
          ( long "assets"
-        <> metavar "PATH"
-        <> help "Directory containing assets for generated libraries. [required]"
+        <> metavar "DIR"
+        <> help "Directory containing assets for generated libraries."
          )
 
     <*> option isString
          ( long "retry"
         <> metavar "PATH"
-        <> help "Path to the file containing retry definitions. [required]"
+        <> help "Path to the file containing retry definitions."
          )
 
     <*> (Versions
         <$> option version
              ( long "library-version"
             <> metavar "VER"
-            <> help "Version of the library to generate. [required]"
+            <> help "Version of the library to generate."
              )
 
         <*> option version
              ( long "client-version"
             <> metavar "VER"
-            <> help "Version of the client library for examples to depend upon. [required]"
+            <> help "Client library version dependecy for examples."
              )
 
         <*> option version
              ( long "core-version"
             <> metavar "VER"
-            <> help "Version of the core library to depend upon. [required]"
+            <> help "Core library version dependency."
              ))
 
 isString :: IsString a => ReadM a
@@ -122,7 +129,8 @@ validate :: MonadIO m => Opt -> m Opt
 validate o = flip execStateT o $ do
     sequence_
         [ check optOutput
-        , check optOverrides
+        , check optAnnexes
+        , check optConfigs
         , check optTemplates
         , check optAssets
         , check optRetry
@@ -166,14 +174,18 @@ main = do
                   (filename f)
 
             m@Model{..} <- listDir f >>= modelFromDir f
+
             let Ver{..} = m ^. latest
+                configf = _optConfigs </> (m ^. configFile)
+                annexf  = _optAnnexes </> (m ^. annexFile)
 
             say ("Using version " % dateDash % ", ignoring " % dateDashes)
                 _verDate
                 (m ^.. unused . verDate)
 
+            cfg <- parseObject =<< requiredObject configf
             api <- parseObject . mergeObjects =<< sequence
-                [ requiredObject (_optOverrides </> (m ^. override))
+                [ optionalObject annexf
                 , requiredObject _verNormal
                 , optionalObject _verWaiters
                 , optionalObject _verPagers
@@ -182,7 +194,7 @@ main = do
             say ("Successfully parsed '" % stext % "' API definition")
                 (api ^. serviceFullName)
 
-            lib <- createLibrary _optVersions api
+            lib <- createLibrary _optVersions cfg api
 
             dir <- foldTree (failure string . show) createDir writeLTFile
                 (populateTree _optOutput tmpl lib)

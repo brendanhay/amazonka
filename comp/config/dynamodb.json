@@ -1,0 +1,22 @@
+{
+    "referenceUrl": "http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/Welcome.html",
+    "operationUrl": "http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_",
+    "libraryName": "amazonka-dynamodb",
+    "typeOverrides": {
+        "DescribeTableOutput": {
+            "requiredFields": [
+                "Table"
+            ]
+        },
+        "TableDescription": {
+            "requiredFields": [
+                "CreationDateTime",
+                "ProvisionedThroughput",
+                "TableName",
+                "ItemCount",
+                "TableSizeBytes",
+                "TableStatus"
+            ]
+        }
+    }
+}

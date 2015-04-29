@@ -1,0 +1,10 @@
+{
+    "referenceUrl": "http://docs.aws.amazon.com/opsworks/latest/APIReference/Welcome.html",
+    "operationUrl": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_",
+    "libraryName": "amazonka-opsworks",
+    "typeOverrides": {
+        "ServiceError": {
+            "renamedTo": "ServiceError'"
+        }
+    }
+}

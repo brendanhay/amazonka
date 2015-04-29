@@ -1,0 +1,12 @@
+{
+    "referenceUrl": "http://docs.aws.amazon.com/redshift/latest/APIReference/Welcome.html",
+    "operationUrl": "http://docs.aws.amazon.com/redshift/latest/APIReference/API_",
+    "libraryName": "amazonka-redshift",
+    "typeOverrides": {
+        "DescribeDefaultClusterParametersResult": {
+            "requiredFields": [
+                "DefaultClusterParameters"
+            ]
+        }
+    }
+}

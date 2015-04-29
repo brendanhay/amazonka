@@ -33,20 +33,23 @@ import qualified Data.Text.Lazy            as LText
 
 createLibrary :: Monad m
               => Versions
-              -> API Maybe Ref
+              -> Config
+              -> Service Maybe Ref
               -> EitherT LazyText m Library
-createLibrary v x = do
-    y <- defaults (substitute x)
+createLibrary v c x = do
+    let (c', s) = substitute c x
 
-    let ns     = NS ["Network", "AWS", y ^. serviceAbbrev]
-        other  = x ^. operationImports ++ x ^. typeImports
+    s' <- defaults s
+
+    let ns     = NS ["Network", "AWS", s' ^. serviceAbbrev]
+        other  = c' ^. operationImports ++ c' ^. typeImports
         expose = ns
                : ns <> "Types"
                : ns <> "Waiters"
                : map (mappend ns . textToNS)
-                     (y ^.. operations . ifolded . asIndex)
+                     (s' ^.. operations . ifolded . asIndex)
 
-    return $! Library y v ns (sort expose) (sort other)
+    return $! Library v c' s' ns (sort expose) (sort other)
 
 -- AST.hs
 -- Constraint.hs

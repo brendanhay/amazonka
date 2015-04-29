@@ -1,0 +1,15 @@
+{
+    "referenceUrl": "http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/Welcome.html",
+    "operationUrl": "http://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_",
+    "libraryName": "amazonka-sqs",
+    "typeOverrides": {
+        "QueueAttributeName": {
+            "replacedBy": "Text"
+        },
+        "GetQueueUrlResult": {
+            "requiredFields": [
+                "QueueUrl"
+            ]
+        }
+    }
+}

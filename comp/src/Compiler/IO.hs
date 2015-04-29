@@ -18,9 +18,11 @@ import           Compiler.Types
 import           Control.Error
 import           Control.Monad.Except
 import           Data.ByteString           (ByteString)
+import qualified Data.Text                 as Text
 import qualified Data.Text.Lazy            as LText
 import           Data.Text.Lazy.Builder    (toLazyText)
 import qualified Data.Text.Lazy.IO         as LText
+import           Debug.Trace
 import qualified Filesystem                as FS
 import           Filesystem.Path.CurrentOS
 import           Formatting                hiding (left, right)
@@ -31,8 +33,8 @@ import qualified Text.EDE                  as EDE
 isFile :: MonadIO m => Path -> Compiler m Bool
 isFile = io . FS.isFile
 
-readBSFile :: MonadIO m => Path -> MaybeT m ByteString
-readBSFile f = hushT $ do
+readBSFile :: MonadIO m => Path -> Compiler m ByteString
+readBSFile f = do
     p <- isFile f
     if p
         then say ("Reading "  % path) f >> io (FS.readFile f)
@@ -64,13 +66,16 @@ copyDir src dst = io (FS.listDirectory src >>= mapM_ copy)
         FS.copyFile f p
 
 readTemplate :: MonadIO m => Path -> Path -> Compiler m EDE.Template
-readTemplate d f = do
-    let p       = d </> f
-        inc s i = io . EDE.includeFile (encodeString d) s i
+readTemplate d f = readBSFile root
+    >>= EDE.parseWith EDE.defaultSyntax (load d) (toTextIgnore root)
+    >>= EDE.result (left . LText.pack . show) right
+  where
+    root = d </> f
 
-    noteT (format ("Unable to find " % path) p) (readBSFile p)
-        >>= EDE.parseWith EDE.defaultSyntax inc (toTextIgnore p)
-        >>= EDE.result (left . LText.pack . show) right
+    load p o k _ = readBSFile f >>= EDE.parseWith o (load (directory f)) k
+      where
+        f | Text.null k = fromText k
+          | otherwise   = p </> fromText k
 
 title :: MonadIO m => Format (Compiler m ()) a -> a
 title m = runFormat m (io . LText.putStrLn . toLazyText)

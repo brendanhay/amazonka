@@ -27,6 +27,7 @@ import           Compiler.Types
 import           Control.Error
 import           Control.Lens              hiding (rewrite, (<.>), (??))
 import           Control.Monad
+import           Control.Monad
 import           Control.Monad.Except
 import           Control.Monad.State
 import           Data.Jason
@@ -209,10 +210,9 @@ main = do
 
         title ("Successfully processed " % int % " models.") i
 
-requiredObject :: MonadIO m => Path -> EitherT LazyText m Object
-requiredObject f = noteT (format ("Unable to find " % path) f) (readBSFile f)
-    >>= decodeObject
+requiredObject :: MonadIO m => Path -> Compiler m Object
+requiredObject = readBSFile >=> decodeObject
 
-optionalObject :: MonadIO m => Path -> EitherT LazyText m Object
-optionalObject f = runMaybeT (readBSFile f)
-    >>= maybe (return mempty) decodeObject
+optionalObject :: MonadIO m => Path -> Compiler m Object
+optionalObject f = readBSFile f `catchError` const (return mempty)
+    >>= decodeObject

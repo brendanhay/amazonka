@@ -122,7 +122,7 @@ instance FromJSON Help where
     parseJSON = withText "help" (pure . Help . readHtml def . Text.unpack)
 
 instance ToJSON Help where
-    toJSON = toJSON . mappend "--|" . Text.drop 2 . helpToHaddock "-- "
+    toJSON = toJSON . mappend "-- |" . Text.drop 2 . helpToHaddock "-- "
 
 newtype Desc = Desc Help
 

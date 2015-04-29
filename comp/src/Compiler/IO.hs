@@ -17,14 +17,13 @@ module Compiler.IO where
 import           Compiler.Types
 import           Control.Error
 import           Control.Monad.Except
-import           Data.Bifunctor
 import           Data.ByteString           (ByteString)
 import qualified Data.Text.Lazy            as LText
 import           Data.Text.Lazy.Builder    (toLazyText)
 import qualified Data.Text.Lazy.IO         as LText
 import qualified Filesystem                as FS
 import           Filesystem.Path.CurrentOS
-import           Formatting                hiding (left)
+import           Formatting                hiding (left, right)
 import           Formatting.Internal       (runFormat)
 import           System.IO
 import qualified Text.EDE                  as EDE
@@ -66,10 +65,12 @@ copyDir src dst = io (FS.listDirectory src >>= mapM_ copy)
 
 readTemplate :: MonadIO m => Path -> Path -> Compiler m EDE.Template
 readTemplate d f = do
-    let p = d </> f
-    say ("Parsing " % path) p
-    io (EDE.eitherParseFile (encodeString p))
-        >>= hoistEither . first LText.pack
+    let p       = d </> f
+        inc s i = io . EDE.includeFile (encodeString d) s i
+
+    noteT (format ("Unable to find " % path) p) (readBSFile p)
+        >>= EDE.parseWith EDE.defaultSyntax inc (toTextIgnore p)
+        >>= EDE.result (left . LText.pack . show) right
 
 title :: MonadIO m => Format (Compiler m ()) a -> a
 title m = runFormat m (io . LText.putStrLn . toLazyText)

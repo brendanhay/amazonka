@@ -107,10 +107,10 @@ cabal.sandbox.config:
 	cabal sandbox init
 
 vendor/botocore:
-	git clone git@github.com:boto/botocore $@
+n	git clone git@github.com:boto/botocore $@
 
 vendor/%:
 	git clone git@github.com:brendanhay/$*.git $@
 
 $(MODEL_DIR):
-	cp -rf vendor/botocore/botocore/data/aws $@
+	cp -rf vendor/botocore/botocore/data $@

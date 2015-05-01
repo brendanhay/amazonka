@@ -1,7 +1,4 @@
-{-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RankNTypes        #-}
-{-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TupleSections     #-}
 
 -- Module      : Compiler.Rewrite
@@ -54,6 +51,9 @@ createLibrary v x y = do
         let (c, s) = substitute c' s'
         (c,) <$> defaulted (override c s)
 
+-- TODO:
+-- constraints and prefixing
+
 -- Rewrite.hs: rewrite process:
 -- 1. set defaults (Default)
 -- 2. apply overrides (Override)
@@ -67,7 +67,7 @@ createLibrary v x y = do
 --    * rename types
 --    * replace types
 -- 3. determine sharing (Share)
--- 4. create/insert request + response shapes (Elaborate)
+-- 4. create/insert request + response shapes ()
 -- 5. generate unique prefixes (Prefix)
 -- 6. generate shape->constraint index (Index)
 -- 7. generate shape->type index (Index)

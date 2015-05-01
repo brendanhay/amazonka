@@ -20,13 +20,10 @@ module Main (main) where
 import           Compiler.AST              hiding (info)
 import           Compiler.IO
 import           Compiler.JSON
-import           Compiler.Model
 import           Compiler.Rewrite
 import           Compiler.Tree
 import           Compiler.Types
-import           Control.Error
 import           Control.Lens              hiding (rewrite, (<.>), (??))
-import           Control.Monad
 import           Control.Monad
 import           Control.Monad.Except
 import           Control.Monad.State
@@ -174,23 +171,19 @@ main = do
                   (i :: Int)
                   (filename f)
 
-            m@Model{..} <- listDir f >>= modelFromDir f
+            m <- listDir f >>= loadModel f
 
-            let Ver{..} = m ^. latest
-                configf = _optConfigs </> (m ^. configFile)
-                annexf  = _optAnnexes </> (m ^. annexFile)
+            say ("Using version " % dateDash) (m ^. modelVersion)
 
-            say ("Using version " % dateDash % ", ignoring " % dateDashes)
-                _verDate
-                (m ^.. unused . verDate)
+            cfg <- requiredObject (_optConfigs </> (m ^. configFile))
+                >>= parseObject
 
-            cfg <- parseObject =<< requiredObject configf
-            api <- parseObject . mergeObjects =<< sequence
-                [ optionalObject annexf
-                , requiredObject _verNormal
-                , optionalObject _verWaiters
-                , optionalObject _verPagers
-                ]
+            api <- sequence
+                [ optionalObject (_optAnnexes </> (m ^. annexFile))
+                , requiredObject (m ^. serviceFile)
+                , optionalObject (m ^. waitersFile)
+                , optionalObject (m ^. pagersFile)
+                ] >>= parseObject . mergeObjects
 
             say ("Successfully parsed '" % stext % "' API definition")
                 (api ^. serviceFullName)
@@ -214,5 +207,5 @@ requiredObject :: MonadIO m => Path -> Compiler m Object
 requiredObject = readBSFile >=> decodeObject
 
 optionalObject :: MonadIO m => Path -> Compiler m Object
-optionalObject f = readBSFile f `catchError` const (return mempty)
+optionalObject f = readBSFile f `catchError` const (return "{}")
     >>= decodeObject

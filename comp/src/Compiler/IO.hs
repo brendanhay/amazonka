@@ -22,7 +22,6 @@ import qualified Data.Text                 as Text
 import qualified Data.Text.Lazy            as LText
 import           Data.Text.Lazy.Builder    (toLazyText)
 import qualified Data.Text.Lazy.IO         as LText
-import           Debug.Trace
 import qualified Filesystem                as FS
 import           Filesystem.Path.CurrentOS
 import           Formatting                hiding (left, right)
@@ -32,6 +31,9 @@ import qualified Text.EDE                  as EDE
 
 isFile :: MonadIO m => Path -> Compiler m Bool
 isFile = io . FS.isFile
+
+listDir :: MonadIO m => Path -> Compiler m [Path]
+listDir = io . FS.listDirectory
 
 readBSFile :: MonadIO m => Path -> Compiler m ByteString
 readBSFile f = do
@@ -54,9 +56,6 @@ createDir d = do
         say ("Creating " % path) d
         io (FS.createTree d)
 
-listDir :: MonadIO m => Path -> Compiler m [Path]
-listDir = io . FS.listDirectory
-
 copyDir :: MonadIO m => Path -> Path -> Compiler m ()
 copyDir src dst = io (FS.listDirectory src >>= mapM_ copy)
   where
@@ -66,16 +65,16 @@ copyDir src dst = io (FS.listDirectory src >>= mapM_ copy)
         FS.copyFile f p
 
 readTemplate :: MonadIO m => Path -> Path -> Compiler m EDE.Template
-readTemplate d f = readBSFile root
-    >>= EDE.parseWith EDE.defaultSyntax (load d) (toTextIgnore root)
+readTemplate d f = readBSFile file
+    >>= EDE.parseWith EDE.defaultSyntax (load d) (toTextIgnore file)
     >>= EDE.result (left . LText.pack . show) right
   where
-    root = d </> f
+    file = d </> f
 
-    load p o k _ = readBSFile f >>= EDE.parseWith o (load (directory f)) k
+    load p o k _ = readBSFile f' >>= EDE.parseWith o (load (directory f')) k
       where
-        f | Text.null k = fromText k
-          | otherwise   = p </> fromText k
+        f' | Text.null k = fromText k
+           | otherwise   = p </> fromText k
 
 title :: MonadIO m => Format (Compiler m ()) a -> a
 title m = runFormat m (io . LText.putStrLn . toLazyText)

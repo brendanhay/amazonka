@@ -29,8 +29,9 @@ import           Data.Hashable
 import qualified Data.HashMap.Strict       as Map
 import qualified Data.HashSet              as Set
 import           Data.Jason                hiding (ToJSON (..))
-import           Data.List                 (intersperse)
+import           Data.List                 (sortOn)
 import           Data.Monoid
+import           Data.Ord
 import qualified Data.SemVer               as SemVer
 import           Data.String
 import           Data.Text                 (Text)
@@ -40,7 +41,6 @@ import qualified Data.Text.Lazy.Builder    as Build
 import           Data.Time
 import qualified Filesystem.Path.CurrentOS as Path
 import           Formatting
-import           Formatting.Time
 import           GHC.TypeLits
 import           Text.EDE                  (Template)
 import           Text.Pandoc               hiding (Format, Template)
@@ -73,6 +73,34 @@ path = later (Build.fromText . toTextIgnore)
 toTextIgnore :: Path -> Text
 toTextIgnore = either id id . Path.toText
 
+data Model = Model
+    { _modelName    :: Text
+    , _modelVersion :: UTCTime
+    , _modelPath    :: Path
+    } deriving (Eq, Show)
+
+makeLenses ''Model
+
+configFile, annexFile :: Getter Model Path
+configFile = to (flip Path.addExtension "json" . Path.fromText . _modelName)
+annexFile  = configFile
+
+serviceFile, waitersFile, pagersFile :: Getter Model Path
+serviceFile = to (flip Path.append "service-2.json"    . _modelPath)
+waitersFile = to (flip Path.append "waiters-2.json"    . _modelPath)
+pagersFile  = to (flip Path.append "paginators-1.json" . _modelPath)
+
+loadModel :: Monad m => Path -> [Path] -> Compiler m Model
+loadModel p xs = uncurry (Model n) <$>
+    tryHead (format ("No valid model versions found in " % string) (show xs)) vs
+  where
+    vs = sortOn Down (mapMaybe parse xs)
+    n  = toTextIgnore (Path.filename p)
+
+    parse d = (,d) <$> parseTimeM True defaultTimeLocale
+        (iso8601DateFormat Nothing)
+        (Path.encodeString (Path.filename d))
+
 data Templates = Templates
     { cabalTemplate           :: Template
     , serviceTemplate         :: Template
@@ -83,11 +111,6 @@ data Templates = Templates
     , operationTemplate       :: Template
     , typesTemplate           :: Template
     }
-
-dateDashes :: Format a ([UTCTime] -> a)
-dateDashes = later (list . map (bprint dateDash))
-  where
-    list = ("[" <>) . (<> "]") . mconcat . intersperse ","
 
 failure :: Monad m => Format LText.Text (a -> e) -> a -> EitherT e m b
 failure m = Control.Error.left . format m

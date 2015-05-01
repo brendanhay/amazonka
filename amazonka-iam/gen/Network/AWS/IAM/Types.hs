@@ -1554,7 +1554,7 @@ data User = User
     { _uArn              :: Text
     , _uCreateDate       :: ISO8601
     , _uPasswordLastUsed :: Maybe ISO8601
-    , _uPath             :: Text
+    , _uPath             :: Maybe Text
     , _uUserId           :: Text
     , _uUserName         :: Text
     } deriving (Eq, Ord, Read, Show)
@@ -1569,24 +1569,23 @@ data User = User
 --
 -- * 'uPasswordLastUsed' @::@ 'Maybe' 'UTCTime'
 --
--- * 'uPath' @::@ 'Text'
+-- * 'uPath' @::@ 'Maybe' 'Text'
 --
 -- * 'uUserId' @::@ 'Text'
 --
 -- * 'uUserName' @::@ 'Text'
 --
-user :: Text -- ^ 'uPath'
-     -> Text -- ^ 'uUserName'
+user :: Text -- ^ 'uUserName'
      -> Text -- ^ 'uUserId'
      -> Text -- ^ 'uArn'
      -> UTCTime -- ^ 'uCreateDate'
      -> User
-user p1 p2 p3 p4 p5 = User
-    { _uPath             = p1
-    , _uUserName         = p2
-    , _uUserId           = p3
-    , _uArn              = p4
-    , _uCreateDate       = withIso _Time (const id) p5
+user p1 p2 p3 p4 = User
+    { _uUserName         = p1
+    , _uUserId           = p2
+    , _uArn              = p3
+    , _uCreateDate       = withIso _Time (const id) p4
+    , _uPath             = Nothing
     , _uPasswordLastUsed = Nothing
     }
 
@@ -1615,7 +1614,7 @@ uPasswordLastUsed =
 
 -- | The path to the user. For more information about paths, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
 -- in the /Using IAM/ guide.
-uPath :: Lens' User Text
+uPath :: Lens' User (Maybe Text)
 uPath = lens _uPath (\s a -> s { _uPath = a })
 
 -- | The stable and unique string identifying the user. For more information about
@@ -1632,7 +1631,7 @@ instance FromXML User where
         <$> x .@  "Arn"
         <*> x .@  "CreateDate"
         <*> x .@? "PasswordLastUsed"
-        <*> x .@  "Path"
+        <*> x .@? "Path"
         <*> x .@  "UserId"
         <*> x .@  "UserName"
 

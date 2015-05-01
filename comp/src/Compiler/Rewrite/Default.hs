@@ -27,7 +27,9 @@ import qualified Data.Text.Lazy      as LText
 
 -- | Set defaults for various fields post-parsing as determined by the
 -- protocol and service type.
-defaulted :: Monad m => Service Maybe Shape -> Compiler m (Service Identity Shape)
+defaulted :: Monad m
+          => Service Maybe Shape Shape
+          -> Compiler m (Service Identity Shape Shape)
 defaulted svc@Service{..} = hoistEither $ do
     os <- traverse operation' _operations
     return $! svc

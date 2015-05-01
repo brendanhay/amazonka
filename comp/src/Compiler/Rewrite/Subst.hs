@@ -28,7 +28,9 @@ type Replace = [(Text, Text)]
 type Shapes  = Map Text (Shape Maybe)
 type Subst   = WriterT Replace (Reader Shapes)
 
-substitute :: Config -> Service Maybe Ref -> (Config, Service Maybe Shape)
+substitute :: Config
+           -> Service Maybe Ref Shape
+           -> (Config, Service Maybe Shape Shape)
 substitute cfg@Config{..} svc@Service{..} =
     ( cfg { _typeOverrides = overrides }
     , svc { _operations    = os        }
@@ -74,7 +76,7 @@ substitute cfg@Config{..} svc@Service{..} =
 
     shared = sharing _operations _shapes
 
-emptyStruct :: f Text -> Shape f
+emptyStruct :: f Help -> Shape f
 emptyStruct d = Struct i s
   where
     i = Info

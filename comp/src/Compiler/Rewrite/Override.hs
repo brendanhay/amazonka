@@ -30,17 +30,16 @@ import           Data.Text            (Text)
 -- the operation input/output.
 
 -- | Apply the override rules to shapes and their respective fields.
-override :: Config -> Service Maybe Shape -> Service Maybe Shape
-override cfg@Config{..} svc@Service{..} = svc
-    { _ Map.foldlWithKey' go mempty
+override :: Config -> Service f Shape Shape -> Service f Shape Shape
+override Config{..} = shapes %~ Map.foldlWithKey' go mempty
   where
     go acc n = shape (fromMaybe defaultOverride (Map.lookup n _typeOverrides)) acc n
 
     shape :: Override
-          -> Map Text (Shape Identity)
+          -> Map Text (Shape f)
           -> Text
-          -> Shape Identity
-          -> Map Text (Shape Identity)
+          -> Shape f
+          -> Map Text (Shape f)
     shape o@Override{..} acc n s
         | Map.member n replaced          = acc             -- Replace the type.
         | Just x <- Map.lookup n renamed = shape o acc x s -- Rename the type.

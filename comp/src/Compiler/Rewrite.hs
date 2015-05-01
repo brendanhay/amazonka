@@ -2,6 +2,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RankNTypes        #-}
 {-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TupleSections     #-}
 
 -- Module      : Compiler.Rewrite
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -24,45 +25,34 @@ import           Control.Error
 import           Control.Lens
 import           Control.Monad
 import           Data.Functor.Identity
-import qualified Data.HashMap.Strict         as Map
-import qualified Data.HashSet                as Set
-import           Data.List                   (sort)
+import qualified Data.HashMap.Strict       as Map
+import qualified Data.HashSet              as Set
+import           Data.List                 (sort)
 import           Data.Monoid
-import           Data.Text                   (Text)
-import qualified Data.Text.Lazy              as LText
+import           Data.Text                 (Text)
+import qualified Data.Text.Lazy            as LText
 
 createLibrary :: Monad m
               => Versions
               -> Config
-              -> Service Maybe Ref
+              -> Service Maybe Ref Shape
               -> EitherT LazyText m Library
-createLibrary v c x = do
-    let (c', s) = substitute c x
+createLibrary v x y = do
+    (c, s) <- rewrite x y
 
-    s' <- defaulted s
-
-    s' &
-
-    let ns     = NS ["Network", "AWS", s' ^. serviceAbbrev]
-        other  = c' ^. operationImports ++ c' ^. typeImports
+    let ns     = NS ["Network", "AWS", s ^. serviceAbbrev]
+        other  = c ^. operationImports ++ c ^. typeImports
         expose = ns
                : ns <> "Types"
                : ns <> "Waiters"
                : map (mappend ns . textToNS)
-                     (s' ^.. operations . ifolded . asIndex)
+                     (s ^.. operations . ifolded . asIndex)
 
-    return $! Library v c' s' ns (sort expose) (sort other)
-
--- AST.hs
--- Constraint.hs
--- TypeOf.hs
-
--- Rewrite.hs
--- Rewrite/Default.hs
--- Rewrite/Override.hs
--- Rewrite/Sharing.hs
--- Rewrite/Elaborate.hs
--- Rewrite/Disambiguate.hs
+    return $! Library v c s ns (sort expose) (sort other)
+  where
+    rewrite c' s' = do
+        let (c, s) = substitute c' s'
+        (c,) <$> defaulted (override c s)
 
 -- Rewrite.hs: rewrite process:
 -- 1. set defaults (Default)

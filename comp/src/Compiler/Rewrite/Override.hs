@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 
 module Compiler.Rewrite.Override
-    ( overrides
+    ( override
     ) where
 
 import           Compiler.AST
@@ -30,12 +30,11 @@ import           Data.Text            (Text)
 -- the operation input/output.
 
 -- | Apply the override rules to shapes and their respective fields.
-overrides :: Map Text Override
-          -> Map Text (Shape Identity)
-          -> Map Text (Shape Identity)
-overrides os = Map.foldlWithKey' go mempty
+override :: Config -> Service Maybe Shape -> Service Maybe Shape
+override cfg@Config{..} svc@Service{..} = svc
+    { _ Map.foldlWithKey' go mempty
   where
-    go acc n = shape (fromMaybe defaultOverride (Map.lookup n os)) acc n
+    go acc n = shape (fromMaybe defaultOverride (Map.lookup n _typeOverrides)) acc n
 
     shape :: Override
           -> Map Text (Shape Identity)
@@ -67,8 +66,8 @@ overrides os = Map.foldlWithKey' go mempty
             | otherwise             = id
 
     renamed, replaced :: Map Text Text
-    renamed  = mapMaybeV _renamedTo  os
-    replaced = mapMaybeV _replacedBy os
+    renamed  = mapMaybeV _renamedTo  _typeOverrides
+    replaced = mapMaybeV _replacedBy _typeOverrides
 
 defaultOverride :: Override
 defaultOverride = Override

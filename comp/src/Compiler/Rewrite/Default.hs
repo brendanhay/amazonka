@@ -14,7 +14,7 @@
 -- Portability : non-portable (GHC extensions)
 
 module Compiler.Rewrite.Default
-    ( defaults
+    ( defaulted
     ) where
 
 import           Compiler.AST
@@ -27,8 +27,8 @@ import qualified Data.Text.Lazy      as LText
 
 -- | Set defaults for various fields post-parsing as determined by the
 -- protocol and service type.
-defaults :: Monad m => Service Maybe Shape -> Compiler m (Service Identity Shape)
-defaults svc@Service{..} = hoistEither $ do
+defaulted :: Monad m => Service Maybe Shape -> Compiler m (Service Identity Shape)
+defaulted svc@Service{..} = hoistEither $ do
     os <- traverse operation' _operations
     return $! svc
         { _metadata'  = meta' _metadata'

@@ -123,6 +123,9 @@ newtype NS = NS [Text]
 textToNS :: Text -> NS
 textToNS = NS . Text.splitOn "."
 
+nsToPath :: NS -> Path
+nsToPath (NS xs) = Path.fromText (Text.intercalate "/" xs) Path.<.> "hs"
+
 instance IsString NS where
     fromString "" = mempty
     fromString s  = textToNS (fromString s)

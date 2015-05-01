@@ -36,6 +36,7 @@ executable compile
         , errors
         , formatting
         , hashable
+        , haskell-src-exts
         , jason
         , lens
         , mtl

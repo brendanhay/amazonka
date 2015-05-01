@@ -24,14 +24,15 @@ import           Compiler.AST.URI
 import           Compiler.TH
 import           Compiler.Types
 import           Control.Lens
-import           Data.Aeson           (ToJSON (..))
-import qualified Data.Aeson           as A
-import           Data.CaseInsensitive (CI)
-import           Data.Jason           hiding (Bool, ToJSON (..))
-import           Data.Monoid
-import           Data.Text            (Text)
-import qualified Data.Text            as Text
-import           GHC.Generics         (Generic)
+import           Data.Aeson                   (ToJSON (..))
+import qualified Data.Aeson                   as A
+import           Data.CaseInsensitive         (CI)
+import           Data.Jason                   hiding (Bool, ToJSON (..))
+import           Data.Monoid                  hiding (Product, Sum)
+import           Data.Text                    (Text)
+import qualified Data.Text                    as Text
+import           GHC.Generics                 (Generic)
+import           Language.Haskell.Exts.Syntax (Decl, Name)
 import           Numeric.Natural
 
 data Signature
@@ -125,7 +126,7 @@ instance FromJSON XML where
 
 data Ref f = Ref
     { _refShape         :: Text
-    , _refDocumentation :: f Text
+    , _refDocumentation :: f Help
     , _refLocation      :: f Location
     , _refLocationName  :: f Text
     , _refQueryName     :: f Text
@@ -153,7 +154,7 @@ instance HasXML (Ref Identity) where
     xML = refXMLNamespace . _Wrapped
 
 data Info f = Info
-    { _infoDocumentation :: f Text
+    { _infoDocumentation :: f Help
     , _infoMin           :: !Natural
     , _infoMax           :: Maybe Natural
     , _infoFlattened     :: !Bool
@@ -330,25 +331,51 @@ instance FromJSON (Metadata Maybe) where
 instance ToJSON (Metadata Identity) where
     toJSON = gToJSON' camel
 
-data Service f a = Service
+data Service f a b = Service
     { _metadata'     :: Metadata f
     , _documentation :: Help
     , _operations    :: Map Text (Operation f a)
-    , _shapes        :: Map Text (Shape f)
+    , _shapes        :: Map Text (b f)
     } deriving (Generic)
 
 makeClassy ''Service
 
-instance HasMetadata (Service f a) f where
+instance HasMetadata (Service f a b) f where
     metadata = metadata'
 
-instance FromJSON (Service Maybe Ref) where
+instance FromJSON (Service Maybe Ref Shape) where
     parseJSON = gParseJSON' lower
+
+data Fun = Fun Name Help Decl Decl
+
+data Inst
+    = ToQuery
+    | ToJSON
+    | FromJSON
+    | ToXML
+    | FromXML
+
+data Type f
+    = Product (Info f) (Struct f)      Decl [Inst] Fun (Map Text Fun)
+    | Sum     (Info f) (Map Text Text) Decl [Inst]
+
+makePrisms ''Type
+
+instance HasInfo (Type f) f where
+    info = lens f (flip g)
+      where
+        f = \case
+            Product i _ _ _ _ _  -> i
+            Sum     i _ _ _      -> i
+
+        g i = \case
+            Product _ s  d is c ls -> Product i s d is c ls
+            Sum     _ vs d is      -> Sum i vs d is
 
 data Library = Library
     { _versions'      :: Versions
     , _config'        :: Config
-    , _service'       :: Service Identity Shape
+    , _service'       :: Service Identity Type Type
     , _namespace      :: NS
     , _exposedModules :: [NS]
     , _otherModules   :: [NS]
@@ -356,10 +383,10 @@ data Library = Library
 
 makeLenses ''Library
 
-instance HasMetadata Library Identity       where metadata = service' . metadata'
-instance HasService  Library Identity Shape where service  = service'
-instance HasConfig   Library                where config   = config'
-instance HasVersions Library                where versions = versions'
+instance HasMetadata Library Identity           where metadata = service' . metadata'
+instance HasService  Library Identity Type Type where service  = service'
+instance HasConfig   Library                    where config   = config'
+instance HasVersions Library                    where versions = versions'
 
 instance ToJSON Library where
     toJSON l = A.Object (x <> y)

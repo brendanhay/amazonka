@@ -24,12 +24,12 @@ import           Control.Error
 import           Control.Lens
 import           Control.Monad
 import           Data.Functor.Identity
-import qualified Data.HashMap.Strict       as Map
-import qualified Data.HashSet              as Set
-import           Data.List                 (sort)
+import qualified Data.HashMap.Strict         as Map
+import qualified Data.HashSet                as Set
+import           Data.List                   (sort)
 import           Data.Monoid
-import           Data.Text                 (Text)
-import qualified Data.Text.Lazy            as LText
+import           Data.Text                   (Text)
+import qualified Data.Text.Lazy              as LText
 
 createLibrary :: Monad m
               => Versions
@@ -39,7 +39,9 @@ createLibrary :: Monad m
 createLibrary v c x = do
     let (c', s) = substitute c x
 
-    s' <- defaults s
+    s' <- defaulted s
+
+    s' &
 
     let ns     = NS ["Network", "AWS", s' ^. serviceAbbrev]
         other  = c' ^. operationImports ++ c' ^. typeImports

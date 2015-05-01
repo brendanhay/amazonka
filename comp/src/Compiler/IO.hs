@@ -65,16 +65,16 @@ copyDir src dst = io (FS.listDirectory src >>= mapM_ copy)
         FS.copyFile f p
 
 readTemplate :: MonadIO m => Path -> Path -> Compiler m EDE.Template
-readTemplate d f = readBSFile file
-    >>= EDE.parseWith EDE.defaultSyntax (load d) (toTextIgnore file)
-    >>= EDE.result (left . LText.pack . show) right
+readTemplate d f = do
+    let file = d </> f
+    readBSFile file
+        >>= EDE.parseWith EDE.defaultSyntax (load d) (toTextIgnore file)
+        >>= EDE.result (left . LText.pack . show) right
   where
-    file = d </> f
-
-    load p o k _ = readBSFile f' >>= EDE.parseWith o (load (directory f')) k
+    load p o k _ = readBSFile file >>= EDE.parseWith o (load (directory file)) k
       where
-        f' | Text.null k = fromText k
-           | otherwise   = p </> fromText k
+        file | Text.null k = fromText k
+             | otherwise   = p </> fromText k
 
 title :: MonadIO m => Format (Compiler m ()) a -> a
 title m = runFormat m (io . LText.putStrLn . toLazyText)

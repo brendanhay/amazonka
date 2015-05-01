@@ -67,11 +67,11 @@ populateTree d Templates{..} l = encodeString d :/ dir lib
     , dir "gen"
         [ dir "Network"
             [ dir "AWS"
-                [ dir abbrev []
-    --                 [ file "Types.hs" typesTemplate (Object mempty)
-    --                 , file "Waiters.hs" waitersTemplate (Object mempty)
-    --                 ] -- ++ map (file ) []
-                , hs "" (abbrev <.> "hs") serviceTemplate
+                [ dir abbrev
+                    [ mod (ns <> "Types") typesTemplate
+--                    , file "Waiters.hs" waitersTemplate (Object mempty)
+                    ] -- ++ map (file ) []
+                , mod ns serviceTemplate
                 ]
             ]
         ]
@@ -81,9 +81,10 @@ populateTree d Templates{..} l = encodeString d :/ dir lib
   where
     abbrev = fromText (l ^. serviceAbbrev)
     lib    = fromText (l ^. libraryName)
+    ns     = l ^. namespace
 
-    file = render env
-    hs n = render $ Map.insert "moduleName" (toJSON (l ^. namespace <> n)) env
+    mod n  = render (Map.insert "moduleName" (toJSON n) env) (filename (nsToPath n))
+    file   = render env
 
     Object env = toJSON l
 

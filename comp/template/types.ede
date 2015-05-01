@@ -1,31 +1,20 @@
-{% for extension in extensions %}
-{{ extension.value }}
-  {% if extension.last %}
+{-# LANGUAGE DataKinds                  #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE LambdaCase                 #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE ViewPatterns               #-}
 
-  {% endif %}
-{% endfor %}
-{% for option in options %}
-{{ option.value }}
-  {% if option.last %}
-
-  {% endif %}
-{% endfor %}
 {% include "_include/license.ede" %}
 
 module {{ moduleName }}
     (
     ) where
 
-{% for import in imports %}
-{{ import.value }}
-{% endfor %}
-{% for shape in shapes %}
-  {% case shape.value.type %}
-  {% when "product" %}
-
-{% include "_include/product.ede" %}
-  {% when "sum" %}
-
-{% include "_include/sum.ede" %}
-  {% endcase %}
-{% endfor %}
+import           Network.AWS.Prelude
+import           Network.AWS.Signing
+import qualified GHC.Exts

@@ -1,6 +1,7 @@
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TupleSections     #-}
 
 -- Module      : Compiler.Rewrite.TypeOf
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -107,30 +108,38 @@ datatype :: Monad m
          -> Shape Identity
          -> Compiler m (Maybe (Data Identity))
 datatype ts n = \case
-    Struct i s -> return $ Just (prod i s)
+    Struct i s -> hoistEither (Just <$> prod i s)
     Enum   {}  -> return Nothing
     _          -> return Nothing
   where
-    prod :: Info  Identity -> Struct Identity -> Data Identity
-    prod i s@Struct'{..} = Product i s decl [] ctor lenses
+    prod i s@Struct'{..} = Product i s
+        <$> decl
+        <*> pure []
+        <*> ctor
+        <*> pure lenses
       where
-        decl =
-           DataDecl noLoc arity [] (ident n) []
-               [ QualConDecl noLoc [] [] $
-                   RecDecl (ident n) (map (uncurry field) (Map.toList _members))
+        decl = do
+           fs <- traverse field (Map.toList _members)
+           return $! DataDecl noLoc arity [] (ident n) []
+               [ QualConDecl noLoc [] [] (RecDecl (ident n) fs)
                ] []
+
+        -- Facets of Info for the field need to be layered on top
+        -- of the type, such as nonempty, maybe, etc.
+        field (k, v) = ([ident k],) <$> note m (Map.lookup t ts)
+          where
+            t = v ^. refShape
+            m = format ("Missing type " % stext %
+                        " of field "    % stext %
+                        " in record "   % stext)
+                       t k n
 
         arity | Map.size _members == 1 = NewType
               | otherwise              = DataType
 
-        ctor = undefined -- Fun
+        ctor = pure undefined -- Fun
 
         lenses = mempty
-
-        field k v =
-            ( [ident k]
-            , TyApp (tycon "Maybe") (tycon "Int")
-            )
 
 tycon = TyCon . unqual
 

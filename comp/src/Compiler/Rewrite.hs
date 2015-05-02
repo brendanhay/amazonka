@@ -16,6 +16,7 @@ module Compiler.Rewrite where
 import           Compiler.AST
 import           Compiler.Rewrite.Default
 import           Compiler.Rewrite.Override
+import           Compiler.Rewrite.Prefix
 import           Compiler.Rewrite.Subst
 import           Compiler.Rewrite.TypeOf
 import           Compiler.Types
@@ -29,6 +30,11 @@ import           Data.List                 (sort)
 import           Data.Monoid
 import           Data.Text                 (Text)
 import qualified Data.Text.Lazy            as LText
+
+-- FIXME:
+-- Constraint solving
+-- Add a rename step which renames the acronyms in enums/structs
+-- to the correct casing.
 
 createLibrary :: Monad m
               => Versions
@@ -51,24 +57,3 @@ createLibrary v x y = do
     return $! Library v c s ns
         (sort expose)
         (sort other)
-
--- TODO:
--- constraints and prefixing
-
--- Rewrite.hs: rewrite process:
--- 1. set defaults (Default)
--- 2. apply overrides (Override)
---  - Fields:
---    *  mark required fields
---    * mark fields optional
---    * rename fields
---    * retype fields
---    * prefix enums
---  - Types:
---    * rename types
---    * replace types
--- 3. determine sharing (Share)
--- 4. create/insert request + response shapes ()
--- 5. generate unique prefixes (Prefix)
--- 6. generate shape->constraint index (Index)
--- 7. generate shape->type index (Index)

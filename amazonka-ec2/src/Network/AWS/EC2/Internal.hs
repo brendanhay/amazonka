@@ -20,7 +20,7 @@ import Network.AWS.Error
 import Network.AWS.Prelude
 
 data Message = Message
-    { _msgCode    :: ErrorCode
+    { _msgCode    :: Maybe ErrorCode
     , _msgMessage :: Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -32,7 +32,7 @@ instance FromXML Message where
         <$> x .@ "Code"
         <*> x .@ "Message"
 
-msgCode :: Lens' Message ErrorCode
+msgCode :: Lens' Message (Maybe ErrorCode)
 msgCode = lens _msgCode (\s x -> s { _msgCode = x })
 
 msgMessage :: Lens' Message Text

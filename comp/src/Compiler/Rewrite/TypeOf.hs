@@ -58,39 +58,6 @@ typed svc@Service{..} = do
 -- Should empty responses be a shared type, and always succeed based
 -- on HTTP response code?
 
-datatype :: Monad m
-         => Map Text Type
-         -> Text
-         -> Shape Identity
-         -> Compiler m (Maybe (Data Identity))
-datatype ts n = \case
-    Struct i s -> return $ Just (product i s)
-    Enum   {}  -> return Nothing
-    _          -> return Nothing
-  where
-    product :: Info   Identity
-            -> Struct Identity
-            -> Data   Identity
-    product i@Info{..} s@Struct'{..} = Product i s decl [] ctor lenses
-      where
-        decl =
-           DataDecl noLoc arity [] (ident n) []
-               [ QualConDecl noLoc [] [] $
-                   RecDecl (ident n) (map (uncurry field) (Map.toList _members))
-               ] []
-
-        arity | Map.size _members == 1 = NewType
-              | otherwise              = DataType
-
-        ctor = undefined -- Fun
-
-        lenses = mempty
-
-        field k v =
-            ( [ident k]
-            , TyApp (tycon "Maybe") (tycon "Int")
-            )
-
 solve :: Monad m => Map Text (Shape f) -> Compiler m (Map Text Type)
 solve ss = evalStateT (Map.traverseWithKey go ss) mempty
   where
@@ -131,9 +98,39 @@ solve ss = evalStateT (Map.traverseWithKey go ss) mempty
             Just x  -> return x
             Nothing -> do
                 case Map.lookup n ss of
-                 -- operation inputs/outputs need to be considered too
                     Just x  -> go n x
-                    Nothing -> lift $ failure ("Unable to find type: " % stext) n
+                    Nothing -> failure ("Unable to find type: " % stext) n
+
+datatype :: Monad m
+         => Map Text Type
+         -> Text
+         -> Shape Identity
+         -> Compiler m (Maybe (Data Identity))
+datatype ts n = \case
+    Struct i s -> return $ Just (prod i s)
+    Enum   {}  -> return Nothing
+    _          -> return Nothing
+  where
+    prod :: Info  Identity -> Struct Identity -> Data Identity
+    prod i s@Struct'{..} = Product i s decl [] ctor lenses
+      where
+        decl =
+           DataDecl noLoc arity [] (ident n) []
+               [ QualConDecl noLoc [] [] $
+                   RecDecl (ident n) (map (uncurry field) (Map.toList _members))
+               ] []
+
+        arity | Map.size _members == 1 = NewType
+              | otherwise              = DataType
+
+        ctor = undefined -- Fun
+
+        lenses = mempty
+
+        field k v =
+            ( [ident k]
+            , TyApp (tycon "Maybe") (tycon "Int")
+            )
 
 tycon = TyCon . unqual
 

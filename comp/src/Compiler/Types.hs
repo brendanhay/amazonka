@@ -17,10 +17,10 @@
 
 module Compiler.Types where
 
+import           Control.Monad.Except
 import           Compiler.Orphans          ()
 import           Control.Error
 import           Control.Lens
-import           Control.Monad
 import           Data.Aeson                (ToJSON (..))
 import qualified Data.Aeson                as A
 import           Data.CaseInsensitive      (CI)
@@ -120,8 +120,8 @@ data Templates = Templates
     , typesTemplate           :: Template
     }
 
-failure :: Monad m => Format LText.Text (a -> e) -> a -> EitherT e m b
-failure m = Control.Error.left . format m
+failure :: MonadError e m => Format LText.Text (a -> e) -> a -> m b
+failure m = throwError . format m
 
 makePrisms ''Identity
 

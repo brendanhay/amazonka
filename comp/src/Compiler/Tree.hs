@@ -31,6 +31,7 @@ import qualified Data.HashMap.Strict       as Map
 import           Data.Monoid
 import           Data.Text                 (Text)
 import           Filesystem.Path.CurrentOS
+import           Prelude                   hiding (mod)
 import           System.Directory.Tree     hiding (file)
 import           System.IO.Error
 import           Text.EDE                  hiding (render)

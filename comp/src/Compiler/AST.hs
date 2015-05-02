@@ -347,7 +347,7 @@ instance HasMetadata (Service f a b) f where
 instance FromJSON (Service Maybe Ref Shape) where
     parseJSON = gParseJSON' lower
 
-data Fun = Fun Name Help Decl Decl
+data Fun = Fun Name Help LazyText LazyText
 
 data Inst
     = ToQuery
@@ -357,8 +357,8 @@ data Inst
     | FromXML
 
 data Data f
-    = Product (Info f) (Struct f)      Decl [Inst] Fun (Map Text Fun)
-    | Sum     (Info f) (Map Text Text) Decl [Inst]
+    = Product (Info f) (Struct f)      LazyText [Inst] Fun (Map Text Fun)
+    | Sum     (Info f) (Map Text Text) LazyText [Inst]
 
 makePrisms ''Data
 
@@ -370,8 +370,8 @@ instance HasInfo (Data f) f where
             Sum     i _ _ _      -> i
 
         g i = \case
-            Product _ s  d is c ls -> Product i s d is c ls
-            Sum     _ vs d is      -> Sum i vs d is
+            Product _ s  d is c ls -> Product i s  d is c ls
+            Sum     _ vs d is      -> Sum     i vs d is
 
 instance ToJSON (Data f) where
     toJSON = \case

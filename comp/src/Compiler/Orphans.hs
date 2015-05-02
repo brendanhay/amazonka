@@ -50,16 +50,16 @@ instance A.ToJSON Natural where
 instance A.ToJSON a => A.ToJSON (Identity a) where
     toJSON = A.toJSON . runIdentity
 
-instance A.ToJSON Decl where
-    toJSON = A.toJSON . prettyPrintStyleMode s m
-      where
-        s = style
-            { mode           = PageMode
-            , lineLength     = 80
-            , ribbonsPerLine = 1.5
-            }
+-- instance A.ToJSON Decl where
+--     toJSON = A.toJSON . prettyPrintStyleMode s m
+--       where
+--         s = style
+--             { mode           = PageMode
+--             , lineLength     = 80
+--             , ribbonsPerLine = 1.5
+--             }
 
-        m = defaultMode
-            { spacing = False
-            , layout  = PPNoLayout
-            }
+--         m = defaultMode
+--             { spacing = False
+--             , layout  = PPNoLayout
+--             }

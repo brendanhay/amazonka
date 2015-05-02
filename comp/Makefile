@@ -67,7 +67,7 @@ VERSION        = $(call version,amazonka-compiler.cabal)
 CLIENT_VERSION = $(call version,$(TOP)/amazonka/amazonka.cabal)
 CORE_VERSION  = $(call version,$(TOP)/core/amazonka-core.cabal)
 
-.PHONY: compile gen
+.PHONY: compile format gen
 
 compile: build gen
 	dist/build/compile/compile \
@@ -82,7 +82,9 @@ compile: build gen
  --retry=$(MODEL_DIR)/_retry.json \
  $(addprefix --model=,$(addprefix $(MODEL_DIR)/,$(MODELS)))
 
-gen:
+format: compile
+
+gen: # temporary
 	rm -rf $@ && mkdir $@
 
 build: $(MODEL_DIR)
@@ -107,7 +109,7 @@ cabal.sandbox.config:
 	cabal sandbox init
 
 vendor/botocore:
-n	git clone git@github.com:boto/botocore $@
+	git clone git@github.com:boto/botocore $@
 
 vendor/%:
 	git clone git@github.com:brendanhay/$*.git $@

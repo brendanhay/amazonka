@@ -23,6 +23,7 @@ import           Control.Monad
 import           Control.Monad.Except
 import           Control.Monad.Reader
 import           Control.Monad.State
+import           Data.Bifunctor
 import           Data.Foldable                (traverse_)
 import           Data.Functor.Identity
 import qualified Data.HashMap.Strict          as Map
@@ -32,7 +33,9 @@ import           Data.Monoid                  hiding (Product, Sum)
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
 import qualified Data.Text.Lazy               as LText
+import qualified Data.Text.Lazy.Builder       as Build
 import           Formatting
+import           HIndent
 import           Language.Haskell.Exts        hiding (Int, List, Lit)
 import           Language.Haskell.Exts.SrcLoc (noLoc)
 
@@ -108,7 +111,7 @@ datatype :: Monad m
          -> Shape Identity
          -> Compiler m (Maybe (Data Identity))
 datatype ts n = \case
-    Struct i s -> hoistEither (Just <$> prod i s)
+    Struct i s -> hoistEither $ Just <$> prod i s
     Enum   {}  -> return Nothing
     _          -> return Nothing
   where
@@ -120,7 +123,7 @@ datatype ts n = \case
       where
         decl = do
            fs <- traverse field (Map.toList _members)
-           return $! DataDecl noLoc arity [] (ident n) []
+           pretty $ DataDecl noLoc arity [] (ident n) []
                [ QualConDecl noLoc [] [] (RecDecl (ident n) fs)
                ] []
 
@@ -140,6 +143,24 @@ datatype ts n = \case
         ctor = pure undefined -- Fun
 
         lenses = mempty
+
+pretty :: Decl -> Either LazyText LazyText
+pretty d = bimap e Build.toLazyText $ reformat johanTibell Nothing p
+  where
+    e = flip mappend (" - when formatting datatype: " <> p) . LText.pack
+
+    p = LText.pack (prettyPrintStyleMode s m d)
+
+    s = style
+        { mode           = PageMode
+        , lineLength     = 80
+        , ribbonsPerLine = 1.5
+        }
+
+    m = defaultMode
+        { spacing = False
+        , layout  = PPNoLayout
+        }
 
 tycon = TyCon . unqual
 

@@ -37,6 +37,7 @@ executable compile
         , formatting
         , hashable
         , haskell-src-exts
+        , hindent
         , jason
         , lens
         , mtl

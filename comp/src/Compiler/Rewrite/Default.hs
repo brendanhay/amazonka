@@ -25,7 +25,7 @@ import qualified Data.HashMap.Strict as Map
 import           Data.Monoid
 import qualified Data.Text.Lazy      as LText
 
--- | Set defaults for various fields post-parsing as determined by the
+-- | Set defaults for variousOf fields post-parsing as determined by the
 -- protocol and service type.
 defaulted :: Monad m
           => Service Maybe Shape Shape

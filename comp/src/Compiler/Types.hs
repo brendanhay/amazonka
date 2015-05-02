@@ -30,6 +30,7 @@ import qualified Data.HashMap.Strict       as Map
 import qualified Data.HashSet              as Set
 import           Data.Jason                hiding (ToJSON (..))
 import           Data.List                 (sortOn)
+import           Data.Maybe
 import           Data.Monoid
 import           Data.Ord
 import qualified Data.SemVer               as SemVer
@@ -59,7 +60,14 @@ mapMaybeV :: (Eq k, Hashable k)
           => (a -> Maybe b)
           -> Map.HashMap k a
           -> Map.HashMap k b
-mapMaybeV f = Map.fromList . mapMaybe (\(k, v) -> (k,) <$> f v) . Map.toList
+mapMaybeV f = runIdentity . traverseMaybeKV (const (pure . f))
+
+traverseMaybeKV :: (Applicative f, Eq k, Hashable k)
+                => (k -> a -> f (Maybe b))
+                -> Map.HashMap k a
+                -> f (Map.HashMap k b)
+traverseMaybeKV f = fmap (Map.map fromJust . Map.filter isJust)
+    . Map.traverseWithKey f
 
 traverseKV :: (Eq k', Hashable k')
            => Traversal (Map k v) (Map k' v') (k, v) (k', v')

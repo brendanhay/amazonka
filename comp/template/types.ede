@@ -18,3 +18,10 @@ module {{ moduleName }}
 import           Network.AWS.Prelude
 import           Network.AWS.Signing
 import qualified GHC.Exts
+
+{% for shape in shapes %}
+{{ shape.value.declaration }}
+  {% if !shape.last %}
+
+  {% endif %}
+{% endfor %}

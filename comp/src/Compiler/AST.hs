@@ -23,11 +23,12 @@ module Compiler.AST where
 import           Compiler.AST.URI
 import           Compiler.TH
 import           Compiler.Types
-import           Control.Lens
-import           Data.Aeson                   (ToJSON (..))
+import           Control.Lens                 hiding ((.=))
+import           Data.Aeson                   (ToJSON (..), object, (.=))
 import qualified Data.Aeson                   as A
 import           Data.CaseInsensitive         (CI)
-import           Data.Jason                   hiding (Bool, ToJSON (..))
+import           Data.Jason                   hiding (Bool, ToJSON (..), object,
+                                               (.=))
 import           Data.Monoid                  hiding (Product, Sum)
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
@@ -355,13 +356,13 @@ data Inst
     | ToXML
     | FromXML
 
-data Type f
+data Data f
     = Product (Info f) (Struct f)      Decl [Inst] Fun (Map Text Fun)
     | Sum     (Info f) (Map Text Text) Decl [Inst]
 
-makePrisms ''Type
+makePrisms ''Data
 
-instance HasInfo (Type f) f where
+instance HasInfo (Data f) f where
     info = lens f (flip g)
       where
         f = \case
@@ -372,10 +373,38 @@ instance HasInfo (Type f) f where
             Product _ s  d is c ls -> Product i s d is c ls
             Sum     _ vs d is      -> Sum i vs d is
 
+instance ToJSON (Data f) where
+    toJSON = \case
+        Product i s d is c ls -> object
+            [ "type" .= Text.pack "product"
+            , "declaration" .= d
+            ]
+
+        Sum i vs d is -> object
+            [ "type" .= Text.pack "sum"
+            , "declaration" .= d
+            ]
+
+           --             [ "type"        .- Text.pack "product"
+        --     , "constructor" .- ctor
+        --     , "comment"     .- Above 0 doc
+        --     , "declaration" .- decl
+        --     , "fields"      .- fieldPairs (x ^. structMembers)
+        --     , "lenses"      .- ls
+        --     , "instances"   .- is
+        --     ]
+        -- Sum x doc decl is ->
+        --     [ "type"         .- Text.pack "sum"
+        --     , "comment"      .- Above 0 doc
+        --     , "declaration"  .- decl
+        --     , "constructors" .- view enumValues x
+        --     , "instances"    .- is
+        --     ]
+
 data Library = Library
     { _versions'      :: Versions
     , _config'        :: Config
-    , _service'       :: Service Identity Type Type
+    , _service'       :: Service Identity Data Data
     , _namespace      :: NS
     , _exposedModules :: [NS]
     , _otherModules   :: [NS]
@@ -384,23 +413,24 @@ data Library = Library
 makeLenses ''Library
 
 instance HasMetadata Library Identity           where metadata = service' . metadata'
-instance HasService  Library Identity Type Type where service  = service'
+instance HasService  Library Identity Data Data where service  = service'
 instance HasConfig   Library                    where config   = config'
 instance HasVersions Library                    where versions = versions'
 
 instance ToJSON Library where
     toJSON l = A.Object (x <> y)
       where
-        A.Object y = A.toJSON (l ^. metadata)
-        A.Object x = A.object
-            [ "referenceUrl"   A..= (l ^. referenceUrl)
-            , "operationUrl"   A..= (l ^. operationUrl)
-            , "description"    A..= (l ^. documentation . asDesc)
-            , "documentation"  A..= (l ^. documentation)
-            , "libraryName"    A..= (l ^. libraryName)
-            , "libraryVersion" A..= (l ^. libraryVersion)
-            , "clientVersion"  A..= (l ^. clientVersion)
-            , "coreVersion"    A..= (l ^. coreVersion)
-            , "exposedModules" A..= (l ^. exposedModules)
-            , "otherModules"   A..= (l ^. otherModules)
+        A.Object y = toJSON (l ^. metadata)
+        A.Object x = object
+            [ "referenceUrl"   .= (l ^. referenceUrl)
+            , "operationUrl"   .= (l ^. operationUrl)
+            , "description"    .= (l ^. documentation . asDesc)
+            , "documentation"  .= (l ^. documentation)
+            , "libraryName"    .= (l ^. libraryName)
+            , "libraryVersion" .= (l ^. libraryVersion)
+            , "clientVersion"  .= (l ^. clientVersion)
+            , "coreVersion"    .= (l ^. coreVersion)
+            , "exposedModules" .= (l ^. exposedModules)
+            , "otherModules"   .= (l ^. otherModules)
+            , "shapes"         .= (l ^. shapes)
             ]

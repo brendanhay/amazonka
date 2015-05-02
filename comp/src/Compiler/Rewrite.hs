@@ -17,6 +17,7 @@ import           Compiler.AST
 import           Compiler.Rewrite.Default
 import           Compiler.Rewrite.Override
 import           Compiler.Rewrite.Subst
+import           Compiler.Rewrite.TypeOf
 import           Compiler.Types
 import           Control.Error
 import           Control.Lens
@@ -35,7 +36,9 @@ createLibrary :: Monad m
               -> Service Maybe Ref Shape
               -> EitherT LazyText m Library
 createLibrary v x y = do
-    (c, s) <- rewrite x y
+    (c, s) <- do
+        let (c, s) = substitute x y
+        (c,) <$> (defaulted (override c s) >>= typed)
 
     let ns     = NS ["Network", "AWS", s ^. serviceAbbrev]
         other  = c ^. operationImports ++ c ^. typeImports
@@ -45,11 +48,9 @@ createLibrary v x y = do
                : map (mappend ns . textToNS)
                      (s ^.. operations . ifolded . asIndex)
 
-    return $! Library v c s ns (sort expose) (sort other)
-  where
-    rewrite c' s' = do
-        let (c, s) = substitute c' s'
-        (c,) <$> defaulted (override c s)
+    return $! Library v c s ns
+        (sort expose)
+        (sort other)
 
 -- TODO:
 -- constraints and prefixing

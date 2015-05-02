@@ -14,18 +14,19 @@
 
 module Compiler.Orphans where
 
-import qualified Data.Aeson            as A
+import qualified Data.Aeson                   as A
 import           Data.Bifunctor
-import           Data.CaseInsensitive  (CI)
-import qualified Data.CaseInsensitive  as CI
+import           Data.CaseInsensitive         (CI)
+import qualified Data.CaseInsensitive         as CI
 import           Data.Functor.Identity
-import           Data.HashMap.Strict   (HashMap)
-import qualified Data.HashMap.Strict   as Map
-import qualified Data.Jason            as J
-import qualified Data.Jason.Types      as J
-import           Data.Scientific       (floatingOrInteger)
-import qualified Data.SemVer           as SemVer
-import           Data.Text             (Text)
+import           Data.HashMap.Strict          (HashMap)
+import qualified Data.HashMap.Strict          as Map
+import qualified Data.Jason                   as J
+import qualified Data.Jason.Types             as J
+import           Data.Scientific              (floatingOrInteger)
+import           Data.Text                    (Text)
+import           Language.Haskell.Exts        (Decl)
+import           Language.Haskell.Exts.Pretty
 import           Numeric.Natural
 
 instance (J.FromJSON a, CI.FoldCase a) => J.FromJSON (CI a) where
@@ -48,3 +49,17 @@ instance A.ToJSON Natural where
 
 instance A.ToJSON a => A.ToJSON (Identity a) where
     toJSON = A.toJSON . runIdentity
+
+instance A.ToJSON Decl where
+    toJSON = A.toJSON . prettyPrintStyleMode s m
+      where
+        s = style
+            { mode           = PageMode
+            , lineLength     = 80
+            , ribbonsPerLine = 1.5
+            }
+
+        m = defaultMode
+            { spacing = False
+            , layout  = PPNoLayout
+            }

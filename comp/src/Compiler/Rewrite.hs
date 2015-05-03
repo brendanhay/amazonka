@@ -13,8 +13,7 @@
 
 module Compiler.Rewrite where
 
-import           Compiler.AST
-import           Compiler.Rewrite.Acronym
+import           Compiler.Rewrite.Config
 import           Compiler.Rewrite.Default
 import           Compiler.Rewrite.Override
 import           Compiler.Rewrite.Prefix
@@ -24,6 +23,7 @@ import           Compiler.Types
 import           Control.Error
 import           Control.Lens
 import           Control.Monad
+import           Control.Monad.State
 import           Data.Functor.Identity
 import qualified Data.HashMap.Strict       as Map
 import qualified Data.HashSet              as Set
@@ -37,6 +37,7 @@ import qualified Data.Text.Lazy            as LText
 -- Add a rename step which renames the acronyms in enums/structs
 -- to the correct casing.
 
+-- Order:
 -- substitute
 -- recase
 -- override
@@ -44,28 +45,24 @@ import qualified Data.Text.Lazy            as LText
 -- prefix
 -- type
 
-createLibrary :: Monad m
-              => Versions
-              -> Config
-              -> Service Maybe Ref Shape
-              -> EitherT LazyText m Library
-createLibrary v x y = do
-    let (x1, y1) = substitute x y
-        x2       = recase x1 (y1 ^. shapes)
-        y2       = override x2 y1
+rewrite :: Monad m
+        => Versions
+        -> Config
+        -> Service Maybe Ref Shape
+        -> Compiler m Library
+rewrite v c' s'' = do
+    let (s', c) = runState (substitute s'' >>= rename >>= override) c'
 
-    y3 <- defaulted y2
-    ps <- prefixes (y3 ^. shapes)
-    y4 <- typed ps y3
+    s <- setDefaults s' >>= annotateTypes
 
-    let ns     = NS ["Network", "AWS", y4 ^. serviceAbbrev]
-        other  = x2 ^. operationImports ++ x2 ^. typeImports
+    let ns     = NS ["Network", "AWS", s ^. serviceAbbrev]
+        other  = c ^. operationImports ++ c ^. typeImports
         expose = ns
                : ns <> "Types"
                : ns <> "Waiters"
                : map (mappend ns . textToNS)
-                     (y4 ^.. operations . ifolded . asIndex)
+                     (s ^.. operations . ifolded . asIndex)
 
-    return $! Library v x2 y4 ns
-        (sort expose)
-        (sort other)
+    return $! Library v c s ns (sort expose) (sort other)
+
+-- need to add operations to prefixes

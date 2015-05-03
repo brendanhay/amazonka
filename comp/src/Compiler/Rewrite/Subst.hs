@@ -11,9 +11,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.Rewrite.Subst where
+module Compiler.Rewrite.Subst
+    ( substitute
+    ) where
 
-import           Compiler.AST
+import           Compiler.Rewrite.Config
 import           Compiler.Types
 import           Control.Lens
 import           Control.Monad.Reader
@@ -24,17 +26,13 @@ import qualified Data.HashMap.Strict         as Map
 import qualified Data.HashSet                as Set
 import           Data.Text                   (Text)
 
-type Replace = [(Text, Text)]
-type Shapes  = Map Text (Shape Maybe)
-type Subst   = WriterT Replace (Reader Shapes)
+type Subst = WriterT [(Text, Text)] (Reader (Map Text (Shape Maybe)))
 
-substitute :: Config
-           -> Service Maybe Ref Shape
-           -> (Config, Service Maybe Shape Shape)
-substitute cfg@Config{..} svc@Service{..} =
-    ( merge renamedTo r cfg
-    , svc { _operations = os }
-    )
+substitute :: Service Maybe Ref Shape
+           -> State Config (Service Maybe Shape Shape)
+substitute svc@Service{..} = do
+    merge renamedTo r
+    return $! svc { _operations = os }
   where
     (os, r) = runReader (runWriterT (traverse go _operations)) _shapes
 

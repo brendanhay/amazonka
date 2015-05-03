@@ -15,34 +15,38 @@ module Compiler.Rewrite.Override
     ( override
     ) where
 
-import           Compiler.AST
+import           Compiler.Rewrite.Config
 import           Compiler.Types
 import           Control.Error
 import           Control.Lens
+import           Control.Monad.State
 import           Data.Bifunctor
-import qualified Data.CaseInsensitive as CI
-import qualified Data.HashMap.Strict  as Map
-import qualified Data.HashSet         as Set
+import qualified Data.CaseInsensitive    as CI
+import qualified Data.HashMap.Strict     as Map
+import qualified Data.HashSet            as Set
 import           Data.Monoid
-import           Data.Text            (Text)
+import           Data.Text               (Text)
 
 -- FIXME: Renaming should additionally operate over
 -- the operation input/output.
 
 -- | Apply the override rules to shapes and their respective fields.
-override :: Config -> Service f Shape Shape -> Service f Shape Shape
-override Config{..} = shapes %~ Map.foldlWithKey' go mempty
+override :: Service f Shape Shape -> State Config (Service f Shape Shape)
+override svc = do
+    cfg <- get
+    return $! svc & shapes %~ Map.foldlWithKey' (go cfg) mempty
   where
-    go acc n = shape (fromMaybe defaultOverride (Map.lookup n _typeOverrides)) acc n
+    go Config{..} acc n = shape renamed replaced o acc n
+      where
+        o = defaultOverride `fromMaybe` Map.lookup n _typeOverrides
 
-    shape :: Override
-          -> Map Text (Shape f)
-          -> Text
-          -> Shape f
-          -> Map Text (Shape f)
-    shape o@Override{..} acc n s
+        renamed, replaced :: Map Text Text
+        renamed  = vMapMaybe _renamedTo  _typeOverrides
+        replaced = vMapMaybe _replacedBy _typeOverrides
+
+    shape renamed replaced o@Override{..} acc n s
         | Map.member n replaced          = acc             -- Replace the type.
-        | Just x <- Map.lookup n renamed = shape o acc x s -- Rename the type.
+        | Just x <- Map.lookup n renamed = shape renamed replaced o acc x s -- Rename the type.
         | otherwise                      = Map.insert n (rules s) acc
       where
         rules = require . optional . rename . retype . prefix
@@ -63,10 +67,6 @@ override Config{..} = shapes %~ Map.foldlWithKey' go mempty
         prefix
             | Just p <- _enumPrefix = values %~ first (mappend p)
             | otherwise             = id
-
-    renamed, replaced :: Map Text Text
-    renamed  = mapMaybeV _renamedTo  _typeOverrides
-    replaced = mapMaybeV _replacedBy _typeOverrides
 
 defaultOverride :: Override
 defaultOverride = Override

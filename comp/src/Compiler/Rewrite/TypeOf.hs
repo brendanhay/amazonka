@@ -14,44 +14,39 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.Rewrite.TypeOf where
+module Compiler.Rewrite.TypeOf
+    ( annotateTypes
+    ) where
 
-import           Compiler.AST
+import           Compiler.Formatting
+import           Compiler.Rewrite.Prefix
 import           Compiler.Types
 import           Control.Error
 import           Control.Lens
-import           Control.Monad
-import           Control.Monad.Except
-import           Control.Monad.Reader
 import           Control.Monad.State
-import           Data.Bifunctor
-import           Data.Foldable                (traverse_)
-import           Data.Functor.Identity
 import qualified Data.HashMap.Strict          as Map
-import qualified Data.HashSet                 as Set
-import           Data.List                    (sort)
 import           Data.Monoid                  hiding (Product, Sum)
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
 import qualified Data.Text.Lazy               as LText
 import qualified Data.Text.Lazy.Builder       as Build
-import           Formatting
 import           HIndent
 import           Language.Haskell.Exts        hiding (Int, List, Lit)
 import           Language.Haskell.Exts.SrcLoc (noLoc)
 
-typed :: Monad m
-      => Map Text Text
-      -> Service Identity Shape Shape
-      -> Compiler m (Service Identity Data Data)
-typed ps svc@Service{..} = do
-    let op o = Map.fromList
-             [ (o ^. requestName,  o ^. opInput  . _Identity)
-             , (o ^. responseName, o ^. opOutput . _Identity)
-             ]
+annotateTypes :: Monad m
+              => Service Identity Shape Shape
+              -> Compiler m (Service Identity Data Data)
+annotateTypes svc@Service{..} = do
+    ps <- getPrefixes _shapes
 
-    ts <- solve (_shapes <> foldMap op _operations)
-    ss <- traverseMaybeKV (datatype ps ts) _shapes
+    let f x = Map.fromList
+            [ (x ^. requestName,  x ^. opInput  . _Identity)
+            , (x ^. responseName, x ^. opOutput . _Identity)
+            ]
+
+    ts <- solve (_shapes <> foldMap f _operations)
+    ss <- kvTraverseMaybe (datatype ps ts) _shapes
 
     return $! svc
         { _operations = mempty
@@ -166,9 +161,11 @@ pretty d = bimap e Build.toLazyText $ reformat johanTibell Nothing p
         , layout  = PPNoLayout
         }
 
+tycon :: Text -> Type
 tycon = TyCon . unqual
 
+unqual :: Text -> QName
 unqual = UnQual . ident
 
--- ident :: Text ->
+ident :: Text -> Name
 ident = Ident . Text.unpack

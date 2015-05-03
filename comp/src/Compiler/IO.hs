@@ -14,6 +14,7 @@
 
 module Compiler.IO where
 
+import           Compiler.Formatting
 import           Compiler.Types
 import           Control.Error
 import           Control.Monad.Except
@@ -24,8 +25,6 @@ import           Data.Text.Lazy.Builder    (toLazyText)
 import qualified Data.Text.Lazy.IO         as LText
 import qualified Filesystem                as FS
 import           Filesystem.Path.CurrentOS
-import           Formatting                hiding (left, right)
-import           Formatting.Internal       (runFormat)
 import           System.IO
 import qualified Text.EDE                  as EDE
 

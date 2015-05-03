@@ -23,7 +23,6 @@ module Compiler.Tree
     , populateTree
     ) where
 
-import           Compiler.AST
 import           Compiler.Types
 import           Control.Lens              ((^.))
 import           Data.Aeson                hiding (json)

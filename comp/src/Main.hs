@@ -17,12 +17,12 @@
 
 module Main (main) where
 
-import           Compiler.AST              hiding (info)
+import           Compiler.Formatting
 import           Compiler.IO
 import           Compiler.JSON
 import           Compiler.Rewrite
 import           Compiler.Tree
-import           Compiler.Types
+import           Compiler.Types            hiding (info)
 import           Control.Lens              hiding (rewrite, (<.>), (??))
 import           Control.Monad
 import           Control.Monad.Except
@@ -34,8 +34,6 @@ import           Data.String
 import qualified Data.Text                 as Text
 import qualified Filesystem                as FS
 import           Filesystem.Path.CurrentOS
-import           Formatting
-import           Formatting.Time
 import           Options.Applicative
 
 data Opt = Opt
@@ -188,7 +186,7 @@ main = do
             say ("Successfully parsed '" % stext % "' API definition")
                 (api ^. serviceFullName)
 
-            lib <- createLibrary _optVersions cfg api
+            lib <- rewrite _optVersions cfg api
 
             dir <- foldTree (failure string . show) createDir writeLTFile
                 (populateTree _optOutput tmpl lib)

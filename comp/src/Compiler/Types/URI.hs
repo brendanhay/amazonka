@@ -1,6 +1,6 @@
 {-# LANGUAGE TemplateHaskell #-}
 
--- Module      : Compiler.AST.URI
+-- Module      : Compiler.Types.URI
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -10,9 +10,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.AST.URI
+module Compiler.Types.URI
     ( Segment
-    , URI (..)
+    , URI
     , uriPath
     , uriQuery
     , segments
@@ -33,7 +33,7 @@ data Segment
 
 makePrisms ''Segment
 
-data URI = URI
+data URI = URI'
     { _uriPath  :: [Segment]
     , _uriQuery :: [Segment]
     } deriving (Eq, Show)
@@ -41,7 +41,7 @@ data URI = URI
 makeLenses ''URI
 
 segments :: Traversal' URI Segment
-segments f x = URI <$> traverse f (_uriPath x) <*> traverse f (_uriQuery x)
+segments f x = URI' <$> traverse f (_uriPath x) <*> traverse f (_uriQuery x)
 
 variables :: Traversal' URI Text
 variables = segments . _Var
@@ -50,7 +50,7 @@ instance FromJSON URI where
     parseJSON = withText "uri" (either fail return . Parse.parseOnly parser)
 
 parser :: Parser URI
-parser = URI
+parser = URI'
     <$> some seg
     <*> Parse.option [] (Parse.char '?' *> some seg)
     <*  Parse.endOfInput

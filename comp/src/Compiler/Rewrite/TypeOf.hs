@@ -40,16 +40,17 @@ import           Language.Haskell.Exts        hiding (Int, List, Lit)
 import           Language.Haskell.Exts.SrcLoc (noLoc)
 
 typed :: Monad m
-      => Service Identity Shape Shape
+      => Map Text Text
+      -> Service Identity Shape Shape
       -> Compiler m (Service Identity Data Data)
-typed svc@Service{..} = do
+typed ps svc@Service{..} = do
     let op o = Map.fromList
              [ (o ^. requestName,  o ^. opInput  . _Identity)
              , (o ^. responseName, o ^. opOutput . _Identity)
              ]
 
     ts <- solve (_shapes <> foldMap op _operations)
-    ss <- traverseMaybeKV (datatype ts) _shapes
+    ss <- traverseMaybeKV (datatype ps ts) _shapes
 
     return $! svc
         { _operations = mempty
@@ -106,16 +107,17 @@ solve ss = evalStateT (Map.traverseWithKey go ss) mempty
                     Nothing -> failure ("Unable to find type: " % stext) n
 
 datatype :: Monad m
-         => Map Text Type
+         => Map Text Text
+         -> Map Text Type
          -> Text
          -> Shape Identity
          -> Compiler m (Maybe (Data Identity))
-datatype ts n = \case
-    Struct i s -> hoistEither $ Just <$> prod i s
+datatype ps ts n = \case
+    Struct i s -> hoistEither $ Just <$> (note "Cant find prefix" (Map.lookup n ps) >>= prod i s)
     Enum   {}  -> return Nothing
     _          -> return Nothing
   where
-    prod i s@Struct'{..} = Product i s
+    prod i s@Struct'{..} p = Product i s
         <$> decl
         <*> pure []
         <*> ctor
@@ -129,7 +131,8 @@ datatype ts n = \case
 
         -- Facets of Info for the field need to be layered on top
         -- of the type, such as nonempty, maybe, etc.
-        field (k, v) = ([ident k],) <$> note m (Map.lookup t ts)
+        field (k, v) = do
+            ([ident ("_" <> p <> k)],) <$> note m (Map.lookup t ts)
           where
             t = v ^. refShape
             m = format ("Missing type " % stext %

@@ -42,9 +42,10 @@ createLibrary :: Monad m
               -> Service Maybe Ref Shape
               -> EitherT LazyText m Library
 createLibrary v x y = do
+    ps     <- prefixes (y ^. shapes)
     (c, s) <- do
         let (c, s) = substitute x y
-        (c,) <$> (defaulted (override c s) >>= typed)
+        (c,) <$> (defaulted (override c s) >>= typed ps)
 
     let ns     = NS ["Network", "AWS", s ^. serviceAbbrev]
         other  = c ^. operationImports ++ c ^. typeImports

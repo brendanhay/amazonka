@@ -24,7 +24,7 @@ import           Control.Monad.Except
 import           Control.Monad.State
 import           Data.CaseInsensitive (CI)
 import qualified Data.CaseInsensitive as CI
-import qualified Data.HashMap.Strict  as Map
+import           Data.Hashable
 import qualified Data.HashMap.Strict  as Map
 import qualified Data.HashSet         as Set
 import           Data.List            (intercalate)
@@ -43,28 +43,35 @@ prefixes :: Monad m
 prefixes = (`evalStateT` mempty) . traverseMaybeKV go
   where
     go n = \case
-        Struct _ s  -> Just <$> uniq n (heuristics n) (Set.fromList $ Map.keys (_members s))
-        Enum   _ vs -> Just <$> uniq n (mempty : heuristics n) (Set.fromList $ Map.keys vs)
+        Struct _ s  -> Just <$> uniq n (heuristics n) (keys (_members s))
+        Enum   _ vs -> Just <$> uniq n (mempty : heuristics n) (keys vs)
         _           -> return Nothing
+
+    keys :: Map Text a -> Set Text
+    keys = Set.fromList . Map.keys
 
     uniq :: Monad m
          => Text
          -> [Text]
          -> Set Text
          -> StateT Memo (Compiler m) Text
+
+    uniq n [] xs = do
+        s <- get
+        let imply h = "\n" <> h <> " => " <> Text.pack (show (Map.lookup h s))
+        throwError $
+            format ("Error prefixing: " % stext % ", fields: " % scomma % scomma)
+                   n (Set.toList xs) (map imply (heuristics n))
+
     uniq n (h:hs) xs = do
         m <- gets (Map.lookup h)
         case m of
-            Just ys | not (Set.null (Set.intersection ys xs))
+            Just ys | overlap ys xs
                 -> uniq n hs xs
             _   -> modify (Map.insertWith (<>) h xs) >> return h
-    uniq n []     xs = do
-        s <- get
-        let imply h = show h <> " => " <> show (Map.lookup h s)
-        throwError . LText.pack . intercalate "\n" $
-              ("Error prefixing: " <> Text.unpack n)
-            : ("Fields: " <> show xs)
-            : map imply (heuristics n)
+
+    overlap :: (Eq a, Hashable a) => Set a -> Set a -> Bool
+    overlap xs ys = not . Set.null $ Set.intersection xs ys
 
 -- | Acronym preference list.
 heuristics :: Text -> [Text]

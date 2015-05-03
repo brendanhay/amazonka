@@ -50,6 +50,9 @@ import           Text.Pandoc.Pretty        (prefixed, render)
 type Compiler = EitherT LazyText
 type LazyText = LText.Text
 
+scomma :: Format a ([Text] -> a)
+scomma = later (Build.fromText . Text.intercalate ",")
+
 type Set = Set.HashSet
 type Map = Map.HashMap
 

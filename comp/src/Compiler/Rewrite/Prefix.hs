@@ -1,5 +1,6 @@
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Compiler.Rewrite.Prefix
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,7 +43,7 @@ prefixes :: Monad m
          -> Compiler m (Map Text Text)
 prefixes = (`evalStateT` mempty) . traverseMaybeKV go
   where
-    go n = \case
+    go (camelAcronym -> n) = \case
         Struct _ s  -> Just <$> uniq n (heuristics n) (keys (_members s))
         Enum   _ vs -> Just <$> uniq n (mempty : heuristics n) (keys vs)
         _           -> return Nothing

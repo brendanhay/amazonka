@@ -33,7 +33,7 @@ import           Data.Monoid                  hiding (Product, Sum)
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
 import           GHC.Generics                 (Generic)
-import           Language.Haskell.Exts.Syntax (Decl, Name)
+import           Language.Haskell.Exts.Syntax (Name)
 import           Numeric.Natural
 
 data Signature

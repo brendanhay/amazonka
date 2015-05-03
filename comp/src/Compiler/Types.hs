@@ -1,4 +1,5 @@
 {-# LANGUAGE DataKinds         #-}
+{-# LANGUAGE RankNTypes        #-}
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE KindSignatures    #-}
 {-# LANGUAGE OverloadedStrings #-}
@@ -243,3 +244,20 @@ instance FromJSON Config where
         <*> o .:? "operationImports" .!= mempty
         <*> o .:? "typeImports"      .!= mempty
         <*> o .:? "typeOverrides"    .!= mempty
+
+merge :: Setter' Override (Maybe Text) -> [(Text, Text)] -> Config -> Config
+merge l xs = typeOverrides %~ replace
+  where
+    replace os = Map.fromList (map f xs) <> os
+      where
+        f (k, v) = (k,) . set l (Just v) $
+            case Map.lookup k os of
+                Just x  -> x
+                Nothing -> Override
+                    { _renamedTo      = Nothing
+                    , _replacedBy     = Nothing
+                    , _enumPrefix     = Nothing
+                    , _requiredFields = mempty
+                    , _optionalFields = mempty
+                    , _renamedFields  = mempty
+                    }

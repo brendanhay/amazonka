@@ -32,24 +32,10 @@ substitute :: Config
            -> Service Maybe Ref Shape
            -> (Config, Service Maybe Shape Shape)
 substitute cfg@Config{..} svc@Service{..} =
-    ( cfg { _typeOverrides = overrides }
-    , svc { _operations    = os        }
+    ( merge renamedTo r cfg
+    , svc { _operations = os }
     )
   where
-    overrides = Map.fromList (map replace r) <> _typeOverrides
-
-    replace (k, v) = (k,) $
-        case Map.lookup k _typeOverrides of
-            Just x  -> x & replacedBy ?~ v
-            Nothing -> Override
-                { _renamedTo      = Nothing
-                , _replacedBy     = Just v
-                , _enumPrefix     = Nothing
-                , _requiredFields = mempty
-                , _optionalFields = mempty
-                , _renamedFields  = mempty
-                }
-
     (os, r) = runReader (runWriterT (traverse go _operations)) _shapes
 
     go :: Operation Maybe Ref -> Subst (Operation Maybe Shape)

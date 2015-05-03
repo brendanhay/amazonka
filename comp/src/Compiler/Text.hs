@@ -80,7 +80,7 @@ renameReserved x
 
 renameCtor :: Text -> Text
 renameCtor = stripSuffix "_"
-    . renameAcronym
+    . upperAcronym
     . Text.concat
     . map recase
     . splitWords
@@ -95,8 +95,8 @@ renameCtor = stripSuffix "_"
             Nothing      -> x
             Just (c, cs) -> c `Text.cons` upperHead cs
 
-renameAcronym :: Text -> Text
-renameAcronym x = Fold.foldl' (flip (uncurry RE.replaceAll)) x xs
+upperAcronym :: Text -> Text
+upperAcronym x = Fold.foldl' (flip (uncurry RE.replaceAll)) x xs
   where
     xs :: [(Regex, Replace)]
     xs = [ ("Acl",           "ACL")
@@ -174,8 +174,8 @@ renameAcronym x = Fold.foldl' (flip (uncurry RE.replaceAll)) x xs
          , ("Xlarge",        "XLarge")
          ]
 
-revertAcronym :: Text -> Text
-revertAcronym x = Fold.foldl' (flip (uncurry RE.replaceAll)) x xs
+camelAcronym :: Text -> Text
+camelAcronym x = Fold.foldl' (flip (uncurry RE.replaceAll)) x xs
   where
     xs :: [(Regex, Replace)]
     xs = [ ("ACL",      "Acl")

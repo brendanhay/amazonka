@@ -14,6 +14,7 @@
 module Compiler.Rewrite where
 
 import           Compiler.AST
+import           Compiler.Rewrite.Acronym
 import           Compiler.Rewrite.Default
 import           Compiler.Rewrite.Override
 import           Compiler.Rewrite.Prefix
@@ -36,25 +37,35 @@ import qualified Data.Text.Lazy            as LText
 -- Add a rename step which renames the acronyms in enums/structs
 -- to the correct casing.
 
+-- substitute
+-- recase
+-- override
+-- default
+-- prefix
+-- type
+
 createLibrary :: Monad m
               => Versions
               -> Config
               -> Service Maybe Ref Shape
               -> EitherT LazyText m Library
 createLibrary v x y = do
-    ps     <- prefixes (y ^. shapes)
-    (c, s) <- do
-        let (c, s) = substitute x y
-        (c,) <$> (defaulted (override c s) >>= typed ps)
+    let (x1, y1) = substitute x y
+        x2       = recase x1 (y1 ^. shapes)
+        y2       = override x2 y1
 
-    let ns     = NS ["Network", "AWS", s ^. serviceAbbrev]
-        other  = c ^. operationImports ++ c ^. typeImports
+    y3 <- defaulted y2
+    ps <- prefixes (y3 ^. shapes)
+    y4 <- typed ps y3
+
+    let ns     = NS ["Network", "AWS", y4 ^. serviceAbbrev]
+        other  = x2 ^. operationImports ++ x2 ^. typeImports
         expose = ns
                : ns <> "Types"
                : ns <> "Waiters"
                : map (mappend ns . textToNS)
-                     (s ^.. operations . ifolded . asIndex)
+                     (y4 ^.. operations . ifolded . asIndex)
 
-    return $! Library v c s ns
+    return $! Library v x2 y4 ns
         (sort expose)
         (sort other)

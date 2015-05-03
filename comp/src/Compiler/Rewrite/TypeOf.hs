@@ -2,6 +2,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TupleSections     #-}
+{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Compiler.Rewrite.TypeOf
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -113,11 +114,11 @@ datatype :: Monad m
          -> Shape Identity
          -> Compiler m (Maybe (Data Identity))
 datatype ps ts n = \case
-    Struct i s -> hoistEither $ Just <$> (note "Cant find prefix" (Map.lookup n ps) >>= prod i s)
+    Struct i s -> hoistEither $ Just <$> (note (LText.pack $ show (n, ps)) (Map.lookup n ps) >>= prod i s)
     Enum   {}  -> return Nothing
     _          -> return Nothing
   where
-    prod i s@Struct'{..} p = Product i s
+    prod i s@Struct'{..} (Text.toLower -> p) = Product i s
         <$> decl
         <*> pure []
         <*> ctor

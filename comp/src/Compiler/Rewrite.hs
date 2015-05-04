@@ -32,6 +32,8 @@ import           Data.Monoid
 import           Data.Text                 (Text)
 import qualified Data.Text.Lazy            as LText
 
+import           Debug.Trace
+
 -- FIXME:
 -- Constraint solving
 -- Add a rename step which renames the acronyms in enums/structs
@@ -50,10 +52,11 @@ rewrite :: Monad m
         -> Config
         -> Service Maybe Ref Shape
         -> Compiler m Library
-rewrite v c' s'' = do
-    let (s', c) = runState (substitute s'' >>= rename >>= override) c'
+rewrite v c' s' = do
+    let c = rename c' s'
 
-    s <- setDefaults s' >>= annotateTypes
+    s <- setDefaults (substitute (override c s'))
+        >>= annotateTypes
 
     let ns     = NS ["Network", "AWS", s ^. serviceAbbrev]
         other  = c ^. operationImports ++ c ^. typeImports

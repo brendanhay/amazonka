@@ -37,6 +37,7 @@ import           Data.Aeson                   (ToJSON (..), object, (.=))
 import qualified Data.Aeson                   as A
 import           Data.CaseInsensitive         (CI)
 import           Data.Default.Class
+import           Data.Hashable
 import qualified Data.HashSet                 as Set
 import           Data.Jason                   hiding (Bool, ToJSON (..), object,
                                                (.=))
@@ -136,6 +137,9 @@ instance ToJSON NS where
     toJSON (NS xs) = toJSON (Text.intercalate "." xs)
 
 newtype Help = Help Pandoc
+
+instance Show Help where
+    show (Help p) = writeHaddock def p
 
 instance IsString Help where
     fromString = Help . readHaddock def
@@ -326,6 +330,10 @@ data Ref f = Ref
     , _refXMLAttribute  :: !Bool
     , _refXMLNamespace  :: f XML
     } deriving (Generic)
+
+-- Debug:
+instance Show (Ref f) where
+    show = show . _refShape
 
 makeLenses ''Ref
 
@@ -537,18 +545,35 @@ instance HasMetadata (Service f a b) f where
 instance FromJSON (Service Maybe Ref Shape) where
     parseJSON = gParseJSON' lower
 
+data Constraint
+    = CEq
+    | COrd
+    | CRead
+    | CShow
+    | CGeneric
+    | CEnum
+    | CNum
+    | CIntegral
+    | CReal
+    | CRealFrac
+    | CRealFloat
+    | CMonoid
+    | CSemigroup
+    | CIsString
+    | CToQuery
+    | CToJSON
+    | CFromJSON
+    | CToXML
+    | CFromXML
+      deriving (Eq, Ord, Show, Generic)
+
+instance Hashable Constraint
+
 data Fun = Fun Name Help LazyText LazyText
 
-data Inst
-    = ToQuery
-    | ToJSON
-    | FromJSON
-    | ToXML
-    | FromXML
-
 data Data f
-    = Product (Info f) (Struct f)      LazyText [Inst] Fun (Map Text Fun)
-    | Sum     (Info f) (Map Text Text) LazyText [Inst]
+    = Product (Info f) (Struct f)      LazyText [Constraint] Fun (Map Text Fun)
+    | Sum     (Info f) (Map Text Text) LazyText [Constraint]
 
 makePrisms ''Data
 

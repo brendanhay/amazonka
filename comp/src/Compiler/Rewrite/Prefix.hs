@@ -13,7 +13,7 @@
 -- Portability : non-portable (GHC extensions)
 
 module Compiler.Rewrite.Prefix
-    ( getPrefixes
+    ( prefixes
     ) where
 
 import           Compiler.Formatting
@@ -30,10 +30,10 @@ import           Data.Text            (Text)
 import qualified Data.Text            as Text
 import           Data.Text.Manipulate
 
-getPrefixes :: Monad m
-            => Map Text (Shape f)
-            -> Compiler m (Map Text Text)
-getPrefixes = (`evalStateT` mempty) . kvTraverseMaybe go
+prefixes :: Monad m
+         => Map Text (Shape f)
+         -> Compiler m (Map Text Text)
+prefixes = (`evalStateT` mempty) . kvTraverseMaybe go
   where
     go (camelAcronym -> n) = \case
         Struct _ s  -> Just <$> uniq n (heuristics n) (keys (_members s))

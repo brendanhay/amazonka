@@ -1,5 +1,7 @@
+{-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TupleSections     #-}
 
 -- Module      : Compiler.Rewrite.Override
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -15,40 +17,26 @@ module Compiler.Rewrite.Override
     ( override
     ) where
 
-import           Compiler.Rewrite.Config
 import           Compiler.Types
 import           Control.Error
 import           Control.Lens
-import           Control.Monad.State
 import           Data.Bifunctor
-import qualified Data.CaseInsensitive    as CI
-import qualified Data.HashMap.Strict     as Map
-import qualified Data.HashSet            as Set
+import qualified Data.CaseInsensitive as CI
+import qualified Data.HashMap.Strict  as Map
+import qualified Data.HashSet         as Set
 import           Data.Monoid
-import           Data.Text               (Text)
-
--- FIXME: Renaming should additionally operate over
--- the operation input/output.
 
 -- | Apply the override rules to shapes and their respective fields.
-override :: Service f Shape Shape -> State Config (Service f Shape Shape)
-override svc = do
-    cfg <- get
-    return $! svc & shapes %~ Map.foldlWithKey' (go cfg) mempty
+override :: Config -> Service f Ref Shape -> Service f Ref Shape
+override Config{..} = shapes %~ Map.foldlWithKey' go mempty
   where
-    go Config{..} acc n = shape renamed replaced o acc n
-      where
-        o = defaultOverride `fromMaybe` Map.lookup n _typeOverrides
-
-        renamed, replaced :: Map Text Text
-        renamed  = vMapMaybe _renamedTo  _typeOverrides
-        replaced = vMapMaybe _replacedBy _typeOverrides
-
-    shape renamed replaced o@Override{..} acc n s
-        | Map.member n replaced          = acc             -- Replace the type.
-        | Just x <- Map.lookup n renamed = shape renamed replaced o acc x s -- Rename the type.
+    go acc n s
+        | Map.member n replaced          = acc        -- Replace the type.
+        | Just x <- Map.lookup n renamed = go acc x s -- Rename the type.
         | otherwise                      = Map.insert n (rules s) acc
       where
+        Override{..} = defaultOverride `fromMaybe` Map.lookup n _typeOverrides
+
         rules = require . optional . rename . retype . prefix
 
         require  = _Struct . _2 . required %~ (<> _requiredFields)
@@ -67,6 +55,9 @@ override svc = do
         prefix
             | Just p <- _enumPrefix = values %~ first (mappend p)
             | otherwise             = id
+
+    renamed  = vMapMaybe _renamedTo  _typeOverrides
+    replaced = vMapMaybe _replacedBy _typeOverrides
 
 defaultOverride :: Override
 defaultOverride = Override

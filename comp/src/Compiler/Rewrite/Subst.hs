@@ -1,5 +1,6 @@
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TupleSections   #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TupleSections     #-}
 
 -- Module      : Compiler.Rewrite.Subst
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -15,69 +16,69 @@ module Compiler.Rewrite.Subst
     ( substitute
     ) where
 
-import           Compiler.Rewrite.Config
 import           Compiler.Types
 import           Control.Lens
-import           Control.Monad.Reader
+import           Control.Monad
 import           Control.Monad.State
-import           Control.Monad.Writer.Strict
-import           Data.Foldable               (traverse_)
-import qualified Data.HashMap.Strict         as Map
-import qualified Data.HashSet                as Set
-import           Data.Text                   (Text)
+import           Data.Foldable       (traverse_)
+import qualified Data.HashMap.Strict as Map
+import qualified Data.HashSet        as Set
+import           Data.Maybe
+import           Data.Text           (Text)
+import           Data.Traversable    (for)
+import           Debug.Trace
 
-type Subst = WriterT [(Text, Text)] (Reader (Map Text (Shape Maybe)))
+type Subst = State (Map Text (Shape Maybe))
 
-substitute :: Service Maybe Ref Shape
-           -> State Config (Service Maybe Shape Shape)
-substitute svc@Service{..} = do
-    merge renamedTo r
-    return $! svc { _operations = os }
+substitute :: Service Maybe Ref Shape -> Service Maybe Shape Shape
+substitute svc@Service{..} = svc
+    { _operations = os
+    , _shapes     = ss
+    }
   where
-    (os, r) = runReader (runWriterT (traverse go _operations)) _shapes
+    (os, ss) = runState (traverse go _operations) _shapes
 
     go :: Operation Maybe Ref -> Subst (Operation Maybe Shape)
     go o = do
-        rq <- elaborate (o ^. requestName)  (o ^. opInput)
-        rs <- elaborate (o ^. responseName) (o ^. opOutput)
+        rq <- wrap (o ^. opInput)
+        rs <- wrap (o ^. opOutput)
         return $! o
             { _opInput  = Just rq
             , _opOutput = Just rs
             }
 
-    elaborate :: Text -> Maybe (Ref Maybe) -> Subst (Shape Maybe)
-    elaborate _ Nothing        = return $! emptyStruct Nothing
-    elaborate k (Just Ref{..}) = do
-        m <- asks (Map.lookup _refShape)
-
-        let x | Just s <- m  = s
-              | otherwise    = emptyStruct _refDocumentation
-
-        unless (Set.member _refShape shared) $
-            tell [(_refShape, k)]
-
-        return $! x
+    -- If shared, create a newtype pointing to the shared type.
+    -- FIXME: Will either provide an iso or some suitable lenses.
+    wrap :: Maybe (Ref Maybe) -> Subst (Shape Maybe)
+    wrap Nothing          = return $! empty Nothing mempty
+    wrap (Just r@Ref{..}) = do
+        m <- gets (Map.lookup _refShape)
+        if _refShape `Set.member` shared
+            then return $! empty _refDocumentation $ Map.fromList [(_refShape, r)]
+            else do
+                 modify (Map.delete _refShape)
+                 return $! fromMaybe (empty _refDocumentation mempty) m
 
     shared = sharing _operations _shapes
 
-emptyStruct :: f Help -> Shape f
-emptyStruct d = Struct i s
-  where
-    i = Info
-        { _infoDocumentation = d
-        , _infoMin           = 0
-        , _infoMax           = Nothing
-        , _infoFlattened     = False
-        , _infoSensitive     = False
-        , _infoStreaming     = False
-        , _infoException     = False
-        }
+    empty :: f Help -> Map Text (Ref f) -> Shape f
+    empty d rs = Struct i s
+      where
+        i = Info
+            { _infoDocumentation = d
+            , _infoMin           = 0
+            , _infoMax           = Nothing
+            , _infoFlattened     = False
+            , _infoSensitive     = False
+            , _infoStreaming     = False
+            , _infoException     = False
+            }
 
-    s = Struct'
-        { _members  = mempty
-        , _required = mempty
-        , _payload  = Nothing
-        }
+        s = Struct'
+            { _members  = rs
+            , _required = mempty
+            , _payload  = Nothing
+            }
 
 type Count = State (Map Text Int)
 
@@ -88,12 +89,13 @@ type Count = State (Map Text Int)
 sharing :: Map Text (Operation Maybe Ref)
         -> Map Text (Shape Maybe)
         -> Set Text
-sharing os ss = Set.fromList . Map.keys . Map.filter (> 1) $ execState go mempty
+sharing os ss = count (execState (ops >> traverse_ shape ss) mempty)
   where
-    -- FIXME: Need to correctly count a shape being used as a ref as shared.
-    go :: Count ()
-    go = forM_ (Map.elems os) $ \o -> do
-        ref (o ^? opInput . _Just . refShape)
+    count x = trace (show (Map.lookup "Volume" x)) $ Set.fromList . Map.keys $ Map.filter (> 1) x
+
+    ops :: Count ()
+    ops = void . for os $ \o -> do
+        ref (o ^? opInput  . _Just . refShape)
         ref (o ^? opOutput . _Just . refShape)
 
     ref :: Maybe Text -> Count ()
@@ -101,7 +103,7 @@ sharing os ss = Set.fromList . Map.keys . Map.filter (> 1) $ execState go mempty
     ref (Just n) = incr n >> maybe (pure ()) shape (Map.lookup n ss)
 
     shape :: Shape Maybe -> Count ()
-    shape = traverse_ (incr . view refShape) . toListOf references
+    shape = traverse_ incr . toListOf (references . refShape)
 
     incr :: Text -> Count ()
-    incr n  = modify (Map.insertWith (+) n 1)
+    incr n = modify (Map.insertWith (+) n 1)

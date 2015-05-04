@@ -23,10 +23,8 @@ import qualified Data.HashMap.Strict as Map
 import           Data.Monoid
 import           Data.Text           (Text)
 
-rename :: Service f a Shape -> State Config (Service f a Shape)
-rename svc = do
-    merge renamedTo (f `mapMaybe` Map.toList (svc ^. shapes))
-    return svc
+rename :: Config -> Service f a Shape -> Config
+rename cfg svc = merge renamedTo (f `mapMaybe` Map.toList (svc ^. shapes)) cfg
   where
     f (k, v)
         | k /= k'   = Just (k, k')
@@ -36,8 +34,9 @@ rename svc = do
 
 merge :: Setter' Override (Maybe Text)
       -> [(Text, Text)]
-      -> State Config ()
-merge l xs = modify (typeOverrides %~ replace)
+      -> Config
+      -> Config
+merge l xs = typeOverrides %~ replace
   where
     replace os = Map.fromList (map f xs) <> os
       where

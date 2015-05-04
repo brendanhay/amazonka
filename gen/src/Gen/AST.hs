@@ -680,11 +680,12 @@ shapes proto time m =
             flatten = x ^. lstFlattened
                   <|> x ^. lstMember . refFlattened
 
-            ann | proto == Query = "member"
-                | otherwise      =
+            ann =
                     fromMaybe fld $
                             x ^. lstMember . refLocationName
                         <|> r ^. refLocationName
+                        -- Fallback to 'member' only if there is no locationName
+                        <|> if proto == Query then Just "member" else Nothing
 
     flat :: Maybe Bool -> Type -> Type
     flat _ | proto == Ec2 = TFlatten

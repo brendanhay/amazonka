@@ -40,10 +40,8 @@ import           Compiler.Types.Orphans       ()
 import           Compiler.Types.URI
 import           Control.Error
 import           Control.Lens                 hiding ((.=))
-import           Control.Monad
 import           Data.Aeson                   (ToJSON (..), object, (.=))
 import qualified Data.Aeson                   as A
-import           Data.Bifunctor
 import           Data.Hashable
 import qualified Data.HashMap.Strict          as Map
 import qualified Data.HashSet                 as Set
@@ -298,7 +296,7 @@ data Shape f
     = List   (Info f) (Ref f)
     | Map    (Info f) (Ref f) (Ref f)
     | Struct (Info f) (Struct f)
-    | Enum   (Info f) (Map Id Text)
+    | Enum   (Info f) (Map Text Text)
     | Lit    (Info f) Lit
 
 deriving instance Show (Shape Maybe)
@@ -348,9 +346,10 @@ instance FromJSON (Shape Maybe) where
             "timestamp" -> pure (Lit i Time)
             "string"    -> pure $
                 maybe (Lit i Text)
-                      (Enum i . Map.fromList . map (first textToId . join (,)))
+                      (Enum i . Map.fromList . map renameBranch)
                       m
             _           -> fail $ "Unknown Shape type: " ++ Text.unpack t
+
 
 data HTTP f = HTTP
     { _method       :: !Method
@@ -612,3 +611,4 @@ instance ToJSON Library where
             , "otherModules"   .= (l ^. otherModules)
             , "shapes"         .= (l ^. shapes)
             ]
+

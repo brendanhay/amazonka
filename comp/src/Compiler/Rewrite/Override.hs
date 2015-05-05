@@ -64,7 +64,7 @@ override Config{..} svc@Service{..} = svc
                 Map.lookup (v ^. refShape) m
 
         prefix
-            | Just p <- _enumPrefix = _Enum._2.kvTraversal %~ first (`keyAppend` p)
+            | Just p <- _enumPrefix = _Enum._2.kvTraversal %~ first (p <>)
             | otherwise             = id
 
     renamed :: Map Id Id

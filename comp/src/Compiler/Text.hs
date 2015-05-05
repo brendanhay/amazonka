@@ -1,4 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TupleSections     #-}
 
 -- Module      : Compiler.Text
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -13,6 +14,8 @@
 module Compiler.Text where
 
 import           Control.Error
+import           Control.Monad
+import           Data.Bifunctor
 import qualified Data.CaseInsensitive  as CI
 import           Data.Char
 import           Data.Foldable         as Fold
@@ -41,22 +44,43 @@ stripLens t
     | "_" `Text.isPrefixOf` t = lowerHead (dropLower t)
     | otherwise               = t
 
--- stripPrime :: Text -> Text
--- stripPrime = stripSuffix "'"
-
 stripPrefix :: Text -> Text -> Text
 stripPrefix p t = Text.strip . fromMaybe t $ p `Text.stripPrefix` t
 
 stripSuffix :: Text -> Text -> Text
 stripSuffix p t = Text.strip . fromMaybe t $ p `Text.stripSuffix` t
 
--- renameService :: Text -> Text -> Text
--- renameService abbrev full = RE.replaceAll re mempty
---   where
---     n | Text.null abbrev = full
---       | otherwise        = abbrev
+renameBranch :: Text -> (Text, Text)
+renameBranch = first (upperAcronym . foldMap g . Text.split f) . join (,)
+  where
+    f x = x == '-'
+       || x == ' '
+       || x == '\\'
+       || x == '/'
+       || x == '+'
+       || x == '.'
 
---     re = "^Amazon|AWS\s*|\(.*|\s+|\W+"
+    g x | Text.null x           = x
+        | isDigit (Text.last x) = Text.toUpper x
+        | otherwise             = upperHead x
+
+-- renameCtor :: Text -> (Text, Text)
+-- renameCtor t = (t,) . stripSuffix "_"
+--     . upperAcronym
+--     . Text.concat
+--     . map recase
+--     . splitWords
+--     $ t
+--   where
+--     recase x
+--         | Text.null x           = x
+--         | isDigit (Text.last x) = Text.toUpper x `Text.snoc` '_'
+--         | isDigit (Text.head x) = upper `Text.snoc` '_'
+--         | otherwise             = upperHead x
+--       where
+--         upper = case Text.uncons x of
+--             Nothing      -> x
+--             Just (c, cs) -> c `Text.cons` upperHead cs
 
 renameReserved :: Text -> Text
 renameReserved x
@@ -77,23 +101,6 @@ renameReserved x
          , "list"
          , "list1"
          ] ++ reservedNames haskellDef
-
-renameCtor :: Text -> Text
-renameCtor = stripSuffix "_"
-    . upperAcronym
-    . Text.concat
-    . map recase
-    . splitWords
-  where
-    recase x
-        | Text.null x           = x
-        | isDigit (Text.last x) = Text.toUpper x `Text.snoc` '_'
-        | isDigit (Text.head x) = upper `Text.snoc` '_'
-        | otherwise             = upperHead x
-      where
-        upper = case Text.uncons x of
-            Nothing      -> x
-            Just (c, cs) -> c `Text.cons` upperHead cs
 
 upperAcronym :: Text -> Text
 upperAcronym x = Fold.foldl' (flip (uncurry RE.replaceAll)) x xs
@@ -129,11 +136,8 @@ upperAcronym x = Fold.foldl' (flip (uncurry RE.replaceAll)) x xs
          , ("Hvm",           "HVM")
          , ("Iam",           "IAM")
          , ("Icmp",          "ICMP")
---         , ("Id$",           "ID")
---         , ("Id([A-Z])",     "ID$1")
          , ("Idn",           "IDN")
-         -- , ("Ids$",          "IDs")
-         -- , ("Ids([A-Z])",    "IDs$1")
+         , ("Io([^a-z])",    "IO$1")
          , ("Iops",          "IOPS")
          , ("Ip",            "IP")
          , ("Jar",           "JAR")
@@ -172,6 +176,7 @@ upperAcronym x = Fold.foldl' (flip (uncurry RE.replaceAll)) x xs
          , ("Vpn",           "VPN")
          , ("Xml",           "XML")
          , ("Xlarge",        "XLarge")
+         , ("xlarge",        "XLarge")
          ]
 
 camelAcronym :: Text -> Text

@@ -27,6 +27,7 @@ import           Control.Error
 import           Control.Lens                 hiding ((??))
 import           Control.Monad.Except
 import           Control.Monad.State
+import           Data.Bifunctor
 import           Data.Foldable                (foldl')
 import qualified Data.HashMap.Strict          as Map
 import qualified Data.HashSet                 as Set
@@ -179,29 +180,57 @@ datatype :: Monad m
          -> Shape Identity
          -> Compiler m (Maybe (Data Identity))
 datatype ps ts cs n = \case
-    Struct i s -> Just <$> (prod i s =<< prefix)
-    Enum   {}  -> return Nothing
-    _          -> return Nothing
+    Enum   i vs -> Just <$> (sum' i vs =<< prefix)
+    Struct i s  -> Just <$> (prod i s  =<< prefix)
+    _           -> return Nothing
   where
+    prefix :: Monad m => Compiler m Text
     prefix = Map.lookup n ps ??
         format ("Missing prefix for shape " % fid %
                 ", possible matches "       % partial)
                n (n, ps)
 
+    sum' :: Monad m
+         => Info Identity
+         -> Map Text Text
+         -> Text
+         -> Compiler m (Data Identity)
+    sum' i vs p = Sum i bs <$> decl <*> pure []
+      where
+        bs :: Map Text Text
+        bs = vs & kvTraversal %~ first (f . upperHead)
+          where
+            f | Text.null p = id
+              | otherwise   = mappend (upperHead p)
+
+        decl :: Monad m => Compiler m LazyText
+        decl = hoistEither . pretty $
+            dataDecl (iident n) (map branch $ Map.keys bs) []
+
+        branch :: Text -> QualConDecl
+        branch k = QualConDecl noLoc [] [] (ConDecl (ident k) [])
+
+    prod :: Monad m
+         => Info Identity
+         -> Struct Identity
+         -> Text
+         -> Compiler m (Data Identity)
     prod i s@Struct'{..} p = Product i s
         <$> decl
         <*> pure []
         <*> ctor
         <*> pure lenses
-      where
+     where
+        decl :: Monad m => Compiler m LazyText
         decl = do
            fs <- traverse field (Map.toList _members)
-           hoistEither . pretty $ DataDecl noLoc arity [] (iident n) []
+           hoistEither . pretty $ dataDecl (iident n)
                [ QualConDecl noLoc [] [] (RecDecl (iident n) fs)
                ] []
 
         -- FIXME: Facets of Info for the field need to be layered on top
         -- of the type, such as nonempty, maybe, etc.
+        field :: Monad m => (Id, Ref Identity) -> Compiler m ([Name], Type)
         field (k, v) = ([accessor (Text.toLower p) k],)
             <$> (Map.lookup t ts ?? e)
           where
@@ -212,9 +241,6 @@ datatype ps ts cs n = \case
                         ", possible matches " % partial)
                        t k n (t, ts)
 
-        arity | Map.size _members == 1 = NewType
-              | otherwise              = DataType
-
         ctor = pure undefined -- Fun
 
         lenses = mempty
@@ -222,7 +248,7 @@ datatype ps ts cs n = \case
 pretty :: Decl -> Either LazyText LazyText
 pretty d = bimap e Build.toLazyText $ reformat johanTibell Nothing p
   where
-    e = flip mappend (" - when formatting datatype: " <> p) . LText.pack
+    e = flip mappend (", when formatting datatype: " <> p) . LText.pack
 
     p = LText.pack (prettyPrintStyleMode s m d)
 
@@ -262,3 +288,10 @@ iident = ident . view keyActual
 
 ident :: Text -> Name
 ident = Ident . Text.unpack
+
+dataDecl :: Name -> [QualConDecl] -> [Deriving] -> Decl
+dataDecl n cs = DataDecl noLoc arity [] n [] cs
+  where
+    arity = case cs of
+        [QualConDecl _ _ _ (RecDecl _ [_])] -> NewType
+        _                                   -> DataType

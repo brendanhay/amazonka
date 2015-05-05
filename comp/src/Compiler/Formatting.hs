@@ -23,7 +23,6 @@ import           Control.Lens
 import           Control.Monad.Except
 import qualified Data.HashMap.Strict    as Map
 import           Data.Monoid
-import           Data.Text              (Text)
 import qualified Data.Text              as Text
 import qualified Data.Text.Lazy.Builder as Build
 import           Formatting             hiding (left, right)

@@ -37,8 +37,8 @@ prefixes :: Monad m => Map Id (Shape f) -> Compiler m (Map Id Text)
 prefixes = (`evalStateT` mempty) . kvTraverseMaybe go
   where
     go n = \case
-        Struct _ s  -> Just <$> uniq n (heuristics k) (keys (_members s))
-        Enum   _ vs -> Just <$> uniq n (mempty : heuristics k) (keys vs)
+        Struct _ s  -> Just <$> uniq n (heuristics k) (keys (^. keyCI) (_members s))
+        Enum   _ vs -> Just <$> uniq n (mempty : heuristics k) (keys CI.mk vs)
         _           -> return Nothing
       where
         k = n ^. keyOriginal
@@ -67,7 +67,7 @@ prefixes = (`evalStateT` mempty) . kvTraverseMaybe go
     overlap xs ys = not . Set.null $ Set.intersection xs ys
 
 --    keys :: (Eq k, Hashable k) => Map k v -> Set k
-    keys = Set.fromList . map (view keyCI) . Map.keys
+    keys f = Set.fromList . map f . Map.keys
 
 -- | Acronym preference list.
 heuristics :: Text -> [CI Text]

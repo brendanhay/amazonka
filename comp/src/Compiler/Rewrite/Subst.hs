@@ -26,6 +26,7 @@ import qualified Data.HashSet        as Set
 import           Data.Maybe
 import           Data.Text           (Text)
 import           Data.Traversable    (for)
+import           Debug.Trace
 
 type Subst = State (Map Text (Shape Maybe))
 
@@ -55,10 +56,10 @@ substitute svc@Service{..} = svc
             then return $! empty _refDocumentation $ Map.fromList [(_refShape, r)]
             else do
                  m <- gets (Map.lookup _refShape)
-                 modify (Map.delete _refShape)
+                 modify (Map.delete (trace ("delete: " ++ show _refShape) _refShape))
                  return $! fromMaybe (empty _refDocumentation mempty) m
 
-    shared = sharing _operations _shapes
+    shared = let x = sharing _operations _shapes in trace (show x) x
 
     -- FIXME: How to annotate that this is a reference to a shared type?
     empty :: f Help -> Map Text (Ref f) -> Shape f

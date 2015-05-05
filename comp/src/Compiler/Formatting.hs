@@ -1,4 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Compiler.Formatting
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -17,9 +18,10 @@ module Compiler.Formatting
     , runFormat
     ) where
 
+import qualified Data.HashMap.Strict    as Map
 import           Compiler.Types
 import           Control.Monad.Except
-import           Data.Text (Text)
+import           Data.Text              (Text)
 import qualified Data.Text              as Text
 import qualified Data.Text.Lazy.Builder as Build
 import           Formatting             hiding (left, right)
@@ -31,6 +33,12 @@ scomma = later (Build.fromText . Text.intercalate ",")
 
 path :: Format a (Path -> a)
 path = later (Build.fromText . toTextIgnore)
+
+partial :: Show b => Format a ((Text, Map.HashMap Text b) -> a)
+partial = later (Build.fromString . show . Map.toList . prefix)
+  where
+    prefix (Text.take 3 -> p, m) =
+        Map.filterWithKey (const . Text.isPrefixOf p) m
 
 failure :: MonadError e m => Format LazyText (a -> e) -> a -> m b
 failure m = throwError . format m

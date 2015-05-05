@@ -1,3 +1,4 @@
+{-# LANGUAGE BangPatterns      #-}
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
@@ -23,6 +24,7 @@ import           Compiler.Formatting
 import           Compiler.Rewrite.Prefix
 import           Compiler.Types
 import           Control.Applicative
+import           Control.Arrow                ((&&&))
 import           Control.Error
 import           Control.Lens                 hiding ((??))
 import           Control.Monad.Except
@@ -35,17 +37,20 @@ import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
 import qualified Data.Text.Lazy               as LText
 import qualified Data.Text.Lazy.Builder       as Build
+import           Debug.Trace
 import           HIndent
 import           Language.Haskell.Exts        hiding (Int, List, Lit)
 import           Language.Haskell.Exts.SrcLoc (noLoc)
 
 annotateTypes :: Monad m
-              => Service Identity Shape Shape
+              => Config
+              -> Service Identity Shape Shape
               -> Compiler m (Service Identity Data Data)
-annotateTypes svc@Service{..} = do
+annotateTypes cfg svc@Service{..} = do
+    let !ts = solve cfg universe'
+
     ps <- prefixes universe'
-    ts <- solve universe'
-    cs <- constraints universe'
+    cs <- constraints cfg universe'
 
     ss <- kvTraverseMaybe (datatype ps ts cs) _shapes
 
@@ -67,13 +72,13 @@ annotateTypes svc@Service{..} = do
 -- Should empty responses be a shared type, and always succeed based
 -- on HTTP response code?
 
-solve :: Monad m => Map Text (Shape Identity) -> Compiler m (Map Text Type)
-solve ss = evalStateT (Map.traverseWithKey go ss) mempty
+solve :: Config -> Map Text (Shape Identity) -> Map Text Type
+solve cfg ss = execState (Map.traverseWithKey go ss) initial
   where
-    go :: Monad m
-       => Text
-       -> Shape Identity
-       -> StateT (Map Text Type) (Compiler m) Type
+    initial :: Map Text Type
+    initial = replaced (tycon . _replaceName) cfg
+
+    go :: Text -> Shape Identity -> State (Map Text Type) Type
     go n = \case
         Struct {}  -> save n (tycon n)
         Enum   {}  -> save n (tycon n)
@@ -95,9 +100,7 @@ solve ss = evalStateT (Map.traverseWithKey go ss) mempty
             Time   -> save n (tycon "Time")
             Bool   -> save n (tycon "Bool")
 
-    memo :: Monad m
-         => Text
-         -> StateT (Map Text Type) (Compiler m) Type
+    memo :: Text -> State (Map Text Type) Type
     memo k = do
         m <- gets (Map.lookup k)
         case m of
@@ -109,14 +112,31 @@ solve ss = evalStateT (Map.traverseWithKey go ss) mempty
                     -- means types won't be solvable via the current environment.
                     Nothing -> return (tycon k)
 
+-- So maybe it should be an error .. but the 'replacedBy' override rather than
+-- removing something from the universe should just not have it rendered?
+
+-- How else could constraints be safely calcuated, ie. for Region?
+-- Have a bit/Bool on the shape which is set to true by default
+-- for whether then shape is rendered or not?
+
+-- Unrelated, is it worth investigating idempotency of requests
+-- and how this info can be used to generate tests or examples?
+
+-- Should the 'override' replacedBy specify the constraints?
+
+
     save :: Monad m => Text -> a -> StateT (Map Text a) m a
     save n t = modify (Map.insert n t) >> return t
 
 constraints :: Monad m
-            => Map Text (Shape Identity)
+            => Config
+            -> Map Text (Shape Identity)
             -> Compiler m (Map Text (Set Constraint))
-constraints ss = evalStateT (Map.traverseWithKey go ss) mempty
+constraints cfg ss = evalStateT (Map.traverseWithKey go ss) initial
   where
+    initial :: Map Text (Set Constraint)
+    initial = replaced _replaceConstraints cfg
+
     go :: Monad m
        => Text
        -> Shape Identity
@@ -130,26 +150,30 @@ constraints ss = evalStateT (Map.traverseWithKey go ss) mempty
     derive n = \case
         List   {}  -> save n (def <> list)
         Map    {}  -> save n (def <> list)
-        Struct _ s -> save n . Set.insert CGeneric =<< complex n s
-        s          -> save n (simple s)
+        Struct _ s -> save n . Set.insert CGeneric =<< cplx n s
+        s          -> save n (smpl s)
 
-    complex :: Monad m
-            => Text
-            -> Struct Identity
-            -> StateT (Map Text (Set Constraint)) (Compiler m) (Set Constraint)
-    complex n s = fmap sect . traverse ref . toListOf references $ s
+    cplx :: Monad m
+         => Text
+         -> Struct Identity
+         -> StateT (Map Text (Set Constraint)) (Compiler m) (Set Constraint)
+    cplx n s = sect <$> traverse ref (s ^.. references)
       where
         sect (x:xs) = Set.intersection str (foldl' Set.intersection x xs)
         sect _      = mempty
 
-        ref r = lift (Map.lookup k ss ?? e) >>= go k
+        ref r = do
+            m <- gets (Map.lookup k)
+            maybe (lift (Map.lookup k ss ?? e) >>= go k) return m
           where
             k = r ^. refShape
-            e = format ("Missing Shape " % stext %
-                        " when determining constraints for: " % stext % "\n" % string)
-                       k n (show (s^..references))
+            e = format ("Missing shape " % stext %
+                        " when determining constraints for " % stext %
+                        " :: " % shown %
+                        ", in possible matches " % partial)
+                       k n (s ^.. references) (k, ss)
 
-    simple = \case
+    smpl = \case
         -- SString _ -> [CEq, COrd, CRead, CShow, CGeneric, CIsString]
         -- SEnum   _ -> [CEq, COrd, CEnum, CRead, CShow, CGeneric]
         -- SBlob   _ -> [CGeneric]
@@ -198,10 +222,11 @@ datatype ps ts cs n = \case
         field (k, v) = ([ident ("_" <> p <> k)],) <$> (Map.lookup t ts ?? e)
           where
             t = v ^. refShape
-            e = format ("Missing type " % stext %
-                        " of field "    % stext %
-                        " in record "   % stext)
-                       t k n
+            e = format ("Missing type "       % stext %
+                        " of field "          % stext %
+                        " in record "         % stext %
+                        ", possible matches " % partial)
+                       t k n (t, ts)
 
         arity | Map.size _members == 1 = NewType
               | otherwise              = DataType
@@ -214,7 +239,7 @@ pretty :: Decl -> Either LazyText LazyText
 pretty d = bimap e Build.toLazyText $ reformat johanTibell Nothing p
   where
     e = flip mappend (" - when formatting datatype: " <> p) . LText.pack
-
+    --
     p = LText.pack (prettyPrintStyleMode s m d)
 
     s = style
@@ -227,6 +252,14 @@ pretty d = bimap e Build.toLazyText $ reformat johanTibell Nothing p
         { spacing = False
         , layout  = PPNoLayout
         }
+
+--replacements :: Map Text Type
+replaced f =
+      Map.fromList
+    . map (_replaceName &&& f)
+    . Map.elems
+    . vMapMaybe _replacedBy
+    . _typeOverrides
 
 tycon :: Text -> Type
 tycon = TyCon . unqual

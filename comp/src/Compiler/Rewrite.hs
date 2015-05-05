@@ -56,7 +56,7 @@ rewrite v c' s' = do
     let c = rename c' s'
 
     s <- setDefaults (substitute (override c s'))
-        >>= annotateTypes
+        >>= annotateTypes c
 
     let ns     = NS ["Network", "AWS", s ^. serviceAbbrev]
         other  = c ^. operationImports ++ c ^. typeImports

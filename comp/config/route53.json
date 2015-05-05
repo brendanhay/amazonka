@@ -17,7 +17,11 @@
             ]
         },
         "ResourceRecordSetRegion": {
-            "replacedBy": "Region"
+            "replacedBy": {
+                "name": "Region",
+                "constraints": [
+                ]
+            }
         },
         "RRType": {
             "renamedTo": "RecordType"

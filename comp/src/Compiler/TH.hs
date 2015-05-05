@@ -1,6 +1,7 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
 {-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Compiler.TH
@@ -17,7 +18,11 @@ module Compiler.TH
     ( gParseJSON'
     , gToJSON'
 
-    , TH (..)
+    , TH
+    , field
+    , ctor
+    , lenses
+
     , upper
     , lower
     , spinal
@@ -25,6 +30,7 @@ module Compiler.TH
     ) where
 
 import           Compiler.Text
+import           Control.Lens
 import qualified Data.Aeson           as A
 import qualified Data.Aeson.TH        as A
 import qualified Data.Jason           as J
@@ -33,17 +39,19 @@ import           Data.Text            (Text)
 import qualified Data.Text            as Text
 import qualified Data.Text.Manipulate as Text
 
+data TH = TH
+    { _ctor   :: Text -> Text
+    , _field  :: Text -> Text
+    , _lenses :: Bool
+    }
+
+makeLenses ''TH
+
 -- deriveFromJSON th   = J.deriveFromJSON (jason th)
 -- deriveToJSON   th   = A.deriveToJSON (aeson th)
 -- deriveJSON  th n = concat <$> sequence [deriveFromJSON th n, deriveToJSON th n]
 gParseJSON' th = J.genericParseJSON (jason th)
 gToJSON'    th = A.genericToJSON    (aeson th)
-
-data TH = TH
-    { field  :: Text -> Text
-    , ctor   :: Text -> Text
-    , lenses :: Bool
-    }
 
 upper, lower, spinal, camel :: TH
 upper  = TH Text.toUpper  Text.toUpper  False
@@ -76,9 +84,9 @@ aeson (options -> (f, g)) = A.defaultOptions
     }
 
 options :: TH -> (String -> String, String -> String)
-options TH{..} = (f field, f ctor)
+options TH{..} = (f _ctor, f _field)
   where
     f g = asText (g . camelAcronym . h . stripSuffix "'")
 
-    h | lenses    = stripLens
+    h | _lenses   = stripLens
       | otherwise = stripPrefix "_"

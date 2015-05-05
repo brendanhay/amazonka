@@ -23,6 +23,12 @@ import qualified Data.HashMap.Strict as Map
 import           Data.Monoid
 import           Data.Text           (Text)
 
+Rather than renaming, why not just have a Name type which has both
+similar to the CI type.
+
+The hashable instance can just use the Original field.
+Any textual representation will use the Modified field.
+
 rename :: Config -> Service f a Shape -> Config
 rename cfg svc = merge renamedTo (f `mapMaybe` Map.toList (svc ^. shapes)) cfg
   where

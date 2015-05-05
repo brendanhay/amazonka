@@ -28,6 +28,7 @@ module Compiler.Types
     ) where
 
 import           Compiler.Orphans             ()
+import           Compiler.Text
 import           Compiler.TH
 import           Compiler.Types.Map
 import           Compiler.Types.URI
@@ -165,71 +166,6 @@ helpToHaddock sep (Help h) = Text.pack
     . fromString
     $ writeHaddock def h
 
-newtype Version (v :: Symbol) = Version SemVer.Version
-    deriving (Eq, Show)
-
-instance A.ToJSON (Version v) where
-    toJSON (Version v) = A.toJSON (SemVer.toText v)
-
-semver :: Format a (Version v -> a)
-semver = later (\(Version v) -> Build.fromText (SemVer.toText v))
-
-type LibraryVer = Version "library"
-type ClientVer  = Version "client"
-type CoreVer    = Version "core"
-
-data Override = Override
-    { _renamedTo      :: Maybe Text         -- ^ Rename type
-    , _replacedBy     :: Maybe Text         -- ^ Existing type that supplants this type
-    , _enumPrefix     :: Maybe Text         -- ^ Enum constructor prefix
-    , _requiredFields :: Set (CI Text)      -- ^ Required fields
-    , _optionalFields :: Set (CI Text)      -- ^ Optional fields
-    , _renamedFields  :: Map (CI Text) Text -- ^ Rename fields
-    } deriving (Eq, Show)
-
-makeLenses ''Override
-
-instance FromJSON Override where
-    parseJSON = withObject "override" $ \o -> Override
-        <$> o .:? "renamedTo"
-        <*> o .:? "replacedBy"
-        <*> o .:? "enumPrefix"
-        <*> o .:? "requiredFields" .!= mempty
-        <*> o .:? "optionalFields" .!= mempty
-        <*> o .:? "renamedFields"  .!= mempty
-
--- FIXME: An Operation should end up referring to a Shape,
--- similarly to a Ref.
-
-data Versions = Versions
-    { _libraryVersion :: LibraryVer
-    , _clientVersion  :: ClientVer
-    , _coreVersion    :: CoreVer
-    } deriving (Show)
-
-makeClassy ''Versions
-
-data Config = Config
-    { _libraryName      :: Text
-    , _referenceUrl     :: Text
-    , _operationUrl     :: Text
-    , _operationImports :: [NS]
-    , _typeImports      :: [NS]
-    , _typeOverrides    :: Map Text Override
-    }
-
-makeClassy ''Config
-
-instance FromJSON Config where
-    parseJSON = withObject "config" $ \o -> Config
-        <$> o .:  "libraryName"
-        <*> o .:  "referenceUrl"
-        <*> o .:  "operationUrl"
-        <*> o .:? "operationImports" .!= mempty
-        <*> o .:? "typeImports"      .!= mempty
-        <*> o .:? "typeOverrides"    .!= mempty
-
-
 data Signature
     = V2
     | V3
@@ -317,7 +253,7 @@ data XML = XML'
 makeClassy ''XML
 
 instance FromJSON XML where
-    parseJSON = gParseJSON' $ camel { lenses = True }
+    parseJSON = gParseJSON' (camel & lenses .~ True)
 
 data Ref f = Ref
     { _refShape         :: Text
@@ -331,9 +267,8 @@ data Ref f = Ref
     , _refXMLNamespace  :: f XML
     } deriving (Generic)
 
--- Debug:
-instance Show (Ref f) where
-    show = show . _refShape
+deriving instance Show (Ref Maybe)
+deriving instance Show (Ref Identity)
 
 makeLenses ''Ref
 
@@ -362,6 +297,9 @@ data Info f = Info
     , _infoException     :: !Bool
     } deriving (Generic)
 
+deriving instance Show (Info Maybe)
+deriving instance Show (Info Identity)
+
 makeClassy ''Info
 
 instance FromJSON (Info Maybe) where
@@ -382,6 +320,7 @@ data Lit
     | Blob
     | Time
     | Bool
+      deriving (Eq, Show)
 
 class HasRefs f a | a -> f where
     references :: Traversal' a (Ref f)
@@ -391,6 +330,9 @@ data Struct f = Struct'
     , _required :: Set (CI Text)
     , _payload  :: Maybe (CI Text)
     }
+
+deriving instance Show (Struct Maybe)
+deriving instance Show (Struct Identity)
 
 makeLenses ''Struct
 
@@ -409,6 +351,9 @@ data Shape f
     | Struct (Info f) (Struct f)
     | Enum   (Info f) (Map Text Text)
     | Lit    (Info f) Lit
+
+deriving instance Show (Shape Maybe)
+deriving instance Show (Shape Identity)
 
 makePrisms ''Shape
 
@@ -490,8 +435,8 @@ responseName = to ((<> "Response") . _opName)
 
 instance FromJSON (Operation Maybe Ref) where
     parseJSON = withObject "operation" $ \o -> Operation
-        <$> o .:  "name"
-        <*> o .:? "documentation"
+        <$> o .: "name"
+        <$> o .:? "documentation"
         <*> o .:  "http"
         <*> o .:? "input"
         <*> o .:? "output"
@@ -569,6 +514,9 @@ data Constraint
 
 instance Hashable Constraint
 
+instance FromJSON Constraint where
+    parseJSON = gParseJSON' (spinal & ctor %~ (. Text.drop 1))
+
 data Fun = Fun Name Help LazyText LazyText
 
 data Data f
@@ -615,6 +563,77 @@ instance ToJSON (Data f) where
         --     , "constructors" .- view enumValues x
         --     , "instances"    .- is
         --     ]
+
+data Repl = Repl
+    { _replaceName        :: Text
+    , _replaceConstraints :: Set Constraint
+    } deriving (Eq, Show, Generic)
+
+makeLenses ''Repl
+
+instance FromJSON Repl where
+    parseJSON = gParseJSON' (lower & field %~ (. stripPrefix "replace"))
+
+data Override = Override
+    { _renamedTo      :: Maybe Text         -- ^ Rename type
+    , _replacedBy     :: Maybe Repl         -- ^ Existing type that supplants this type
+    , _enumPrefix     :: Maybe Text         -- ^ Enum constructor prefix
+    , _requiredFields :: Set (CI Text)      -- ^ Required fields
+    , _optionalFields :: Set (CI Text)      -- ^ Optional fields
+    , _renamedFields  :: Map (CI Text) Text -- ^ Rename fields
+    } deriving (Eq, Show)
+
+makeLenses ''Override
+
+instance FromJSON Override where
+    parseJSON = withObject "override" $ \o -> Override
+        <$> o .:? "renamedTo"
+        <*> o .:? "replacedBy"
+        <*> o .:? "enumPrefix"
+        <*> o .:? "requiredFields" .!= mempty
+        <*> o .:? "optionalFields" .!= mempty
+        <*> o .:? "renamedFields"  .!= mempty
+
+newtype Version (v :: Symbol) = Version SemVer.Version
+    deriving (Eq, Show)
+
+instance A.ToJSON (Version v) where
+    toJSON (Version v) = A.toJSON (SemVer.toText v)
+
+semver :: Format a (Version v -> a)
+semver = later (\(Version v) -> Build.fromText (SemVer.toText v))
+
+type LibraryVer = Version "library"
+type ClientVer  = Version "client"
+type CoreVer    = Version "core"
+
+data Versions = Versions
+    { _libraryVersion :: LibraryVer
+    , _clientVersion  :: ClientVer
+    , _coreVersion    :: CoreVer
+    } deriving (Show)
+
+makeClassy ''Versions
+
+data Config = Config
+    { _libraryName      :: Text
+    , _referenceUrl     :: Text
+    , _operationUrl     :: Text
+    , _operationImports :: [NS]
+    , _typeImports      :: [NS]
+    , _typeOverrides    :: Map Text Override
+    }
+
+makeClassy ''Config
+
+instance FromJSON Config where
+    parseJSON = withObject "config" $ \o -> Config
+        <$> o .:  "libraryName"
+        <*> o .:  "referenceUrl"
+        <*> o .:  "operationUrl"
+        <*> o .:? "operationImports" .!= mempty
+        <*> o .:? "typeImports"      .!= mempty
+        <*> o .:? "typeOverrides"    .!= mempty
 
 data Library = Library
     { _versions'      :: Versions

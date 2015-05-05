@@ -27,9 +27,21 @@ import qualified Data.HashSet         as Set
 import           Data.Monoid
 
 -- | Apply the override rules to shapes and their respective fields.
-override :: Config -> Service f Ref Shape -> Service f Ref Shape
-override Config{..} = shapes %~ Map.foldlWithKey' go mempty
+override :: Functor f => Config -> Service f Ref Shape -> Service f Ref Shape
+override Config{..} svc@Service{..} = svc
+    { _operations = Map.map oper _operations
+    , _shapes     = Map.foldlWithKey' go mempty _shapes
+    }
   where
+    oper o = o
+        { _opInput  = ref <$> _opInput  o
+        , _opOutput = ref <$> _opOutput o
+        }
+
+    ref r | Just x <- Map.lookup (r ^. refShape) renamed  = r & refShape .~ x
+          | Just x <- Map.lookup (r ^. refShape) replaced = r & refShape .~ _replaceName x
+          | otherwise = r
+
     go acc n s
         | Map.member n replaced          = acc        -- Replace the type.
         | Just x <- Map.lookup n renamed = go acc x s -- Rename the type.
@@ -47,9 +59,9 @@ override Config{..} = shapes %~ Map.foldlWithKey' go mempty
             f k = fromMaybe k $
                 Map.lookup (CI.mk k) _renamedFields
 
-        retype = references %~ f replaced . f renamed
+        retype = references %~ f _replaceName replaced . f id renamed
           where
-            f m v = maybe v (flip (set refShape) v) $
+            f g m v = maybe v (flip (set refShape) v . g) $
                 Map.lookup (v ^. refShape) m
 
         prefix

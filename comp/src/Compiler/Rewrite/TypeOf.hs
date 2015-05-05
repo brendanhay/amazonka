@@ -79,11 +79,11 @@ solve ss = evalStateT (Map.traverseWithKey go ss) mempty
         Enum   {}  -> save n (tycon n)
 
         List _ e -> do
-            t <- TyApp (tycon "List") <$> memo n (e ^. refShape)
+            t <- TyApp (tycon "List") <$> memo (e ^. refShape)
             save n t
 
         Map _ k v -> do
-            t <- TyApp <$> memo n (k ^. refShape) <*> memo n (v ^. refShape)
+            t <- TyApp <$> memo (k ^. refShape) <*> memo (v ^. refShape)
             save n (TyApp (tycon "Map") t)
 
         Lit _ l -> case l of
@@ -97,18 +97,17 @@ solve ss = evalStateT (Map.traverseWithKey go ss) mempty
 
     memo :: Monad m
          => Text
-         -> Text
          -> StateT (Map Text Type) (Compiler m) Type
-    memo n k = do
+    memo k = do
         m <- gets (Map.lookup k)
         case m of
             Just x  -> return x
             Nothing ->
                 case Map.lookup k ss of
                     Just x  -> go k x
-                    Nothing -> throwError $
-                        format ("Unable to find type: " % stext %
-                                " from " % stext % "\nKeys: " % shown) k n (filter (Text.isPrefixOf (Text.take 1 k)) $ Map.keys ss)
+                    -- FIXME: Is this an error? Renaming via the overrides
+                    -- means types won't be solvable via the current environment.
+                    Nothing -> return (tycon k)
 
     save :: Monad m => Text -> a -> StateT (Map Text a) m a
     save n t = modify (Map.insert n t) >> return t

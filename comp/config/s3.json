@@ -31,22 +31,40 @@
             ]
         },
         "BucketLocationConstraint": {
-            "replacedBy": "Region"
+            "replacedBy": {
+                "name": "Region",
+                "constraints": []
+            }
         },
         "BucketName": {
-            "replacedBy": "BucketName"
+            "replacedBy": {
+                "name": "BucketName",
+                "constraints": []
+            }
         },
         "ObjectKey": {
-            "replacedBy": "ObjectKey"
+            "replacedBy": {
+                "name": "ObjectKey",
+                "constraints": []
+            }
         },
         "ObjectVersionId": {
-            "replacedBy": "ObjectVersionId"
+            "replacedBy": {
+                "name": "ObjectVersionId",
+                "constraints": []
+            }
         },
         "ETag": {
-            "replacedBy": "ETag"
+            "replacedBy": {
+                "name": "ETag",
+                "constraints": []
+            }
         },
         "Delimiter": {
-            "replacedBy": "Char"
+            "replacedBy": {
+                "name": "Char",
+                "constraints": []
+            }
         },
         "NoncurrentVersionExpiration": {
             "requiredFields": [

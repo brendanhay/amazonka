@@ -33,28 +33,34 @@ import           Data.Text            (Text)
 import qualified Data.Text            as Text
 import           Data.Text.Manipulate
 
+type Prefixes = Map (CI Text) (Set (CI Text))
+
+-- FIXME: some assurances about stability of prefixes.
+
 prefixes :: Monad m => Map Id (Shape f) -> Compiler m (Map Id Text)
 prefixes = (`evalStateT` mempty) . kvTraverseMaybe go
   where
-    go n = \case
-        Struct _ s  -> Just <$> uniq n (heuristics k) (keys (^. keyCI) (_members s))
-        Enum   _ vs -> Just <$> uniq n (mempty : heuristics k) (keys CI.mk vs)
+    go (view keyOriginal -> n) = \case
+        Struct _ s  -> Just <$> uniq n (heuristics n) (keys (^. keyCI) (_members s))
+        Enum   _ vs -> Just <$> uniq n (mempty : heuristics n) (keys CI.mk vs)
         _           -> return Nothing
-      where
-        k = n ^. keyOriginal
 
     uniq :: Monad m
-         => Id
+         => Text
          -> [CI Text]
          -> Set (CI Text)
-         -> StateT (Map (CI Text) (Set (CI Text))) (Compiler m) Text
+         -> StateT Prefixes (Compiler m) Text
 
     uniq n [] xs = do
---        s <- get
---        let imply h = "\n" <> h <> " => " <> Text.pack (show (Map.lookup h s))
-        throwError "error!"
---             format ("Error prefixing: " % fid % ", fields: " % shown % fcomma)
---                     n (Set.toList xs) (map imply (heuristics n))
+        s <- get
+        let hs      = heuristics n
+            imply h = sformat ("\n" % soriginal % " => " % shown)
+                      h (Map.lookup h s)
+        throwError $
+            format ("Error prefixing: " % stext %
+                    ", fields: "        % shown %
+                    scomma)
+                   n (Set.toList xs) (map imply hs)
 
     uniq n (h:hs) xs = do
         m <- gets (Map.lookup h)

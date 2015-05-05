@@ -21,16 +21,22 @@ module Compiler.Formatting
 import           Compiler.Types
 import           Control.Lens
 import           Control.Monad.Except
+import qualified Data.CaseInsensitive   as CI
+import           Data.CaseInsensitive   (CI)
 import qualified Data.HashMap.Strict    as Map
 import           Data.Monoid
+import           Data.Text              (Text)
 import qualified Data.Text              as Text
 import qualified Data.Text.Lazy.Builder as Build
 import           Formatting             hiding (left, right)
 import           Formatting.Internal    (runFormat)
 import           Formatting.Time
 
-fcomma :: Format a ([Id] -> a)
-fcomma = later (Build.fromText . Text.intercalate "," . map (^. keyOriginal))
+scomma :: Format a ([Text] -> a)
+scomma = later (Build.fromText . Text.intercalate ",")
+
+soriginal :: Format a (CI Text -> a)
+soriginal = later (Build.fromText . CI.original)
 
 fid :: Format a (Id -> a)
 fid = later (\i -> Build.fromText $ i ^. keyOriginal <> "/" <> i ^. keyActual)

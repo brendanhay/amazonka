@@ -24,11 +24,9 @@ import           Data.Foldable       (traverse_)
 import qualified Data.HashMap.Strict as Map
 import qualified Data.HashSet        as Set
 import           Data.Maybe
-import           Data.Text           (Text)
 import           Data.Traversable    (for)
-import           Debug.Trace
 
-type Subst = State (Map Text (Shape Maybe))
+type Subst = State (Map Id (Shape Maybe))
 
 substitute :: Service Maybe Ref Shape -> Service Maybe Shape Shape
 substitute svc@Service{..} = svc
@@ -56,13 +54,13 @@ substitute svc@Service{..} = svc
             then return $! empty _refDocumentation $ Map.fromList [(_refShape, r)]
             else do
                  m <- gets (Map.lookup _refShape)
-                 modify (Map.delete (trace ("delete: " ++ show _refShape) _refShape))
+                 modify (Map.delete _refShape)
                  return $! fromMaybe (empty _refDocumentation mempty) m
 
-    shared = let x = sharing _operations _shapes in trace (show x) x
+    shared = sharing _operations _shapes
 
     -- FIXME: How to annotate that this is a reference to a shared type?
-    empty :: f Help -> Map Text (Ref f) -> Shape f
+    empty :: f Help -> Map Id (Ref f) -> Shape f
     empty d rs = Struct i s
       where
         i = Info
@@ -81,15 +79,15 @@ substitute svc@Service{..} = svc
             , _payload  = Nothing
             }
 
-type Count = State (Map Text Int)
+type Count = State (Map Id Int)
 
 -- | Determine the usage of operation input/output shapes.
 --
 -- A shape is considered 'shared' if it is used as a field of another shape,
 -- as opposed to only being referenced by the operation itself.
-sharing :: Map Text (Operation Maybe Ref)
-        -> Map Text (Shape Maybe)
-        -> Set Text
+sharing :: Map Id (Operation Maybe Ref)
+        -> Map Id (Shape Maybe)
+        -> Set Id
 sharing os ss = count (execState (ops >> traverse_ shape ss) mempty)
   where
     count = Set.fromList . Map.keys . Map.filter (> 1)
@@ -99,12 +97,12 @@ sharing os ss = count (execState (ops >> traverse_ shape ss) mempty)
         ref (o ^? opInput  . _Just . refShape)
         ref (o ^? opOutput . _Just . refShape)
 
-    ref :: Maybe Text -> Count ()
+    ref :: Maybe Id -> Count ()
     ref Nothing  = pure ()
     ref (Just n) = incr n >> maybe (pure ()) shape (Map.lookup n ss)
 
     shape :: Shape Maybe -> Count ()
     shape = traverse_ incr . toListOf (references . refShape)
 
-    incr :: Text -> Count ()
+    incr :: Id -> Count ()
     incr n = modify (Map.insertWith (+) n 1)

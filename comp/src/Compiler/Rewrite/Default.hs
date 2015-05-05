@@ -43,7 +43,8 @@ setDefaults svc@Service{..} = hoistEither $ do
         }
 
     operation' o@Operation{..} = do
-        let may m = fmap (Identity . shape') . note (m <> LText.fromStrict _opName)
+        let may m f = Identity . shape' <$>
+                          note (m <> LText.fromStrict (_opName ^. keyOriginal)) f
         rq <- may "Vacant operation input: "  _opInput
         rs <- may "Vacant operation output: " _opOutput
         return $! o
@@ -71,8 +72,8 @@ setDefaults svc@Service{..} = hoistEither $ do
     ref' r@Ref{..} = r
         { _refDocumentation = _refDocumentation .! "FIXME: Undocumented reference."
         , _refLocation      = _refLocation      .! Querystring
-        , _refLocationName  = _refLocationName  .! _refShape
-        , _refQueryName     = _refQueryName     .! _refShape
+        , _refLocationName  = _refLocationName  .! _refShape ^. keyOriginal
+        , _refQueryName     = _refQueryName     .! _refShape ^. keyOriginal
         , _refXMLNamespace  = _refXMLNamespace  .! XML' "" ""
         }
 

@@ -50,8 +50,3 @@ mergeObjects = foldl' go mempty
       where
         g (k, x) | Just y <- lookup k ys = (k, f x y)
                  | otherwise             = (k, x)
-
--- toEnv :: (Show a, A.ToJSON a) => a -> Script A.Object
--- toEnv (A.toJSON -> A.Object o) = right o
--- toEnv e                        = left $
---     "Failed to extract JSON Object from: " ++ show e

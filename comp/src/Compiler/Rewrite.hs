@@ -13,7 +13,6 @@
 
 module Compiler.Rewrite where
 
-import           Compiler.Rewrite.Config
 import           Compiler.Rewrite.Default
 import           Compiler.Rewrite.Override
 import           Compiler.Rewrite.Prefix
@@ -52,9 +51,7 @@ rewrite :: Monad m
         -> Config
         -> Service Maybe Ref Shape
         -> Compiler m Library
-rewrite v c' s' = do
-    let c = rename c' s'
-
+rewrite v c s' = do
     s <- setDefaults (substitute (override c s'))
         >>= annotateTypes c
 
@@ -64,7 +61,7 @@ rewrite v c' s' = do
                : ns <> "Types"
                : ns <> "Waiters"
                : map (mappend ns . textToNS)
-                     (s ^.. operations . ifolded . asIndex)
+                     (s ^.. operations . ifolded . asIndex . keyActual)
 
     return $! Library v c s ns (sort expose) (sort other)
 

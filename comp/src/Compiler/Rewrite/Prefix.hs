@@ -20,8 +20,11 @@ import           Compiler.Formatting
 import           Compiler.Text
 import           Compiler.Types
 import           Control.Error
+import           Control.Lens
 import           Control.Monad.Except
 import           Control.Monad.State
+import           Data.CaseInsensitive (CI)
+import qualified Data.CaseInsensitive as CI
 import           Data.Hashable
 import qualified Data.HashMap.Strict  as Map
 import qualified Data.HashSet         as Set
@@ -30,45 +33,45 @@ import           Data.Text            (Text)
 import qualified Data.Text            as Text
 import           Data.Text.Manipulate
 
-prefixes :: Monad m
-         => Map Text (Shape f)
-         -> Compiler m (Map Text Text)
+prefixes :: Monad m => Map Id (Shape f) -> Compiler m (Map Id Text)
 prefixes = (`evalStateT` mempty) . kvTraverseMaybe go
   where
-    go (camelAcronym -> n) = \case
-        Struct _ s  -> Just <$> uniq n (heuristics n) (keys (_members s))
-        Enum   _ vs -> Just <$> uniq n (mempty : heuristics n) (keys vs)
+    go n = \case
+        Struct _ s  -> Just <$> uniq n (heuristics k) (keys (_members s))
+        Enum   _ vs -> Just <$> uniq n (mempty : heuristics k) (keys vs)
         _           -> return Nothing
-
-    keys :: Map Text a -> Set Text
-    keys = Set.fromList . Map.keys
+      where
+        k = n ^. keyOriginal
 
     uniq :: Monad m
-         => Text
-         -> [Text]
-         -> Set Text
-         -> StateT (Map Text (Set Text)) (Compiler m) Text
+         => Id
+         -> [CI Text]
+         -> Set (CI Text)
+         -> StateT (Map (CI Text) (Set (CI Text))) (Compiler m) Text
 
     uniq n [] xs = do
-        s <- get
-        let imply h = "\n" <> h <> " => " <> Text.pack (show (Map.lookup h s))
-        throwError $
-            format ("Error prefixing: " % stext % ", fields: " % scomma % scomma)
-                   n (Set.toList xs) (map imply (heuristics n))
+--        s <- get
+--        let imply h = "\n" <> h <> " => " <> Text.pack (show (Map.lookup h s))
+        throwError "error!"
+--             format ("Error prefixing: " % fid % ", fields: " % shown % fcomma)
+--                     n (Set.toList xs) (map imply (heuristics n))
 
     uniq n (h:hs) xs = do
         m <- gets (Map.lookup h)
         case m of
             Just ys | overlap ys xs
                 -> uniq n hs xs
-            _   -> modify (Map.insertWith (<>) h xs) >> return h
+            _   -> modify (Map.insertWith (<>) h xs) >> return (CI.original h)
 
     overlap :: (Eq a, Hashable a) => Set a -> Set a -> Bool
     overlap xs ys = not . Set.null $ Set.intersection xs ys
 
+--    keys :: (Eq k, Hashable k) => Map k v -> Set k
+    keys = Set.fromList . map (view keyCI) . Map.keys
+
 -- | Acronym preference list.
-heuristics :: Text -> [Text]
-heuristics n = rules ++ ordinals
+heuristics :: Text -> [CI Text]
+heuristics (camelAcronym -> n) = map CI.mk (rules ++ ordinals)
   where
     -- Append an ordinal to the generated acronyms.
     ordinals = concatMap (\i -> map (\x -> mappend x (num i)) rules) [1..3]

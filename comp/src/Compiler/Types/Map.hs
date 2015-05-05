@@ -11,15 +11,11 @@
 module Compiler.Types.Map where
 
 import           Control.Lens
-import           Control.Monad
 import           Data.Hashable
 import qualified Data.HashMap.Strict as Map
 import           Data.Maybe
 
 type Map = Map.HashMap
-
-kvJoin :: (Eq a, Hashable a) => [a] -> Map a a
-kvJoin = Map.fromList . map (join (,))
 
 vMapMaybe :: (Eq k, Hashable k)
           => (a -> Maybe b)
@@ -35,5 +31,5 @@ kvTraverseMaybe f = fmap (Map.map fromJust . Map.filter isJust)
     . Map.traverseWithKey f
 
 kvTraversal :: (Eq k', Hashable k')
-           => Traversal (Map k v) (Map k' v') (k, v) (k', v')
+            => Traversal (Map k v) (Map k' v') (k, v) (k', v')
 kvTraversal f = fmap Map.fromList . traverse f . Map.toList

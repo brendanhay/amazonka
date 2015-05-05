@@ -21,9 +21,8 @@ import           Compiler.Types
 import           Control.Error
 import           Control.Lens
 import           Data.Bifunctor
-import qualified Data.CaseInsensitive as CI
-import qualified Data.HashMap.Strict  as Map
-import qualified Data.HashSet         as Set
+import qualified Data.HashMap.Strict as Map
+import qualified Data.HashSet        as Set
 import           Data.Monoid
 
 -- | Apply the override rules to shapes and their respective fields.
@@ -42,6 +41,7 @@ override Config{..} svc@Service{..} = svc
           | Just x <- Map.lookup (r ^. refShape) replaced = r & refShape .~ _replaceName x
           | otherwise = r
 
+    go :: Map Id (Shape f) -> Id -> Shape f -> Map Id (Shape f)
     go acc n s
         | Map.member n replaced          = acc        -- Replace the type.
         | Just x <- Map.lookup n renamed = go acc x s -- Rename the type.
@@ -51,13 +51,12 @@ override Config{..} svc@Service{..} = svc
 
         rules = require . optional . rename . retype . prefix
 
-        require  = _Struct . _2 . required %~ (<> _requiredFields)
-        optional = _Struct . _2 . required %~ (`Set.difference` _optionalFields)
+        require  = _Struct._2.required %~ (<> _requiredFields)
+        optional = _Struct._2.required %~ (`Set.difference` _optionalFields)
 
-        rename = fields %~ first f
+        rename = _Struct._2.members.kvTraversal %~ first f
           where
-            f k = fromMaybe k $
-                Map.lookup (CI.mk k) _renamedFields
+            f k = fromMaybe k (Map.lookup k _renamedFields)
 
         retype = references %~ f _replaceName replaced . f id renamed
           where
@@ -65,10 +64,13 @@ override Config{..} svc@Service{..} = svc
                 Map.lookup (v ^. refShape) m
 
         prefix
-            | Just p <- _enumPrefix = values %~ first (mappend p)
+            | Just p <- _enumPrefix = _Enum._2.kvTraversal %~ first (`keyAppend` p)
             | otherwise             = id
 
-    renamed  = vMapMaybe _renamedTo  _typeOverrides
+    renamed :: Map Id Id
+    renamed = vMapMaybe _renamedTo  _typeOverrides
+
+    replaced :: Map Id Replace
     replaced = vMapMaybe _replacedBy _typeOverrides
 
 defaultOverride :: Override

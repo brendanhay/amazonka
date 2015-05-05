@@ -4,7 +4,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TupleSections     #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Compiler.Rewrite.TypeOf
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -23,7 +22,6 @@ module Compiler.Rewrite.TypeOf
 import           Compiler.Formatting
 import           Compiler.Rewrite.Prefix
 import           Compiler.Types
-import           Control.Applicative
 import           Control.Arrow                ((&&&))
 import           Control.Error
 import           Control.Lens                 hiding ((??))
@@ -37,21 +35,24 @@ import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
 import qualified Data.Text.Lazy               as LText
 import qualified Data.Text.Lazy.Builder       as Build
-import           Debug.Trace
+import           Data.Text.Manipulate
 import           HIndent
 import           Language.Haskell.Exts        hiding (Int, List, Lit)
 import           Language.Haskell.Exts.SrcLoc (noLoc)
+
+-- FIXME: Should empty responses be a shared type, and
+-- always succeed based on HTTP response code?
 
 annotateTypes :: Monad m
               => Config
               -> Service Identity Shape Shape
               -> Compiler m (Service Identity Data Data)
 annotateTypes cfg svc@Service{..} = do
+    ps <- prefixes universe'
+
     let !ts = solve cfg universe'
 
-    ps <- prefixes universe'
     cs <- constraints cfg universe'
-
     ss <- kvTraverseMaybe (datatype ps ts cs) _shapes
 
     return $! svc
@@ -66,22 +67,16 @@ annotateTypes cfg svc@Service{..} = do
         , (x ^. responseName, x ^. opOutput . _Identity)
         ]
 
--- FIXME:
--- It'll be an error if the operation input/output is untranslatable
---
--- Should empty responses be a shared type, and always succeed based
--- on HTTP response code?
-
-solve :: Config -> Map Text (Shape Identity) -> Map Text Type
+solve :: Config -> Map Id (Shape Identity) -> Map Id Type
 solve cfg ss = execState (Map.traverseWithKey go ss) initial
   where
-    initial :: Map Text Type
-    initial = replaced (tycon . _replaceName) cfg
+    initial :: Map Id Type
+    initial = replaced (itycon . _replaceName) cfg
 
-    go :: Text -> Shape Identity -> State (Map Text Type) Type
+    go :: Id -> Shape Identity -> State (Map Id Type) Type
     go n = \case
-        Struct {}  -> save n (tycon n)
-        Enum   {}  -> save n (tycon n)
+        Struct {}  -> save n (itycon n)
+        Enum   {}  -> save n (itycon n)
 
         List _ e -> do
             t <- TyApp (tycon "List") <$> memo (e ^. refShape)
@@ -100,7 +95,7 @@ solve cfg ss = execState (Map.traverseWithKey go ss) initial
             Time   -> save n (tycon "Time")
             Bool   -> save n (tycon "Bool")
 
-    memo :: Text -> State (Map Text Type) Type
+    memo :: Id -> State (Map Id Type) Type
     memo k = do
         m <- gets (Map.lookup k)
         case m of
@@ -108,39 +103,24 @@ solve cfg ss = execState (Map.traverseWithKey go ss) initial
             Nothing ->
                 case Map.lookup k ss of
                     Just x  -> go k x
-                    -- FIXME: Is this an error? Renaming via the overrides
-                    -- means types won't be solvable via the current environment.
-                    Nothing -> return (tycon k)
+                    Nothing -> return (itycon k)
 
--- So maybe it should be an error .. but the 'replacedBy' override rather than
--- removing something from the universe should just not have it rendered?
-
--- How else could constraints be safely calcuated, ie. for Region?
--- Have a bit/Bool on the shape which is set to true by default
--- for whether then shape is rendered or not?
-
--- Unrelated, is it worth investigating idempotency of requests
--- and how this info can be used to generate tests or examples?
-
--- Should the 'override' replacedBy specify the constraints?
-
-
-    save :: Monad m => Text -> a -> StateT (Map Text a) m a
+    save :: Monad m => Id -> a -> StateT (Map Id a) m a
     save n t = modify (Map.insert n t) >> return t
 
 constraints :: Monad m
             => Config
-            -> Map Text (Shape Identity)
-            -> Compiler m (Map Text (Set Constraint))
+            -> Map Id (Shape Identity)
+            -> Compiler m (Map Id (Set Constraint))
 constraints cfg ss = evalStateT (Map.traverseWithKey go ss) initial
   where
-    initial :: Map Text (Set Constraint)
+    initial :: Map Id (Set Constraint)
     initial = replaced _replaceConstraints cfg
 
     go :: Monad m
-       => Text
+       => Id
        -> Shape Identity
-       -> StateT (Map Text (Set Constraint)) (Compiler m) (Set Constraint)
+       -> StateT (Map Id (Set Constraint)) (Compiler m) (Set Constraint)
     go n s = do
         m <- gets (Map.lookup n)
         case m of
@@ -154,9 +134,9 @@ constraints cfg ss = evalStateT (Map.traverseWithKey go ss) initial
         s          -> save n (smpl s)
 
     cplx :: Monad m
-         => Text
+         => Id
          -> Struct Identity
-         -> StateT (Map Text (Set Constraint)) (Compiler m) (Set Constraint)
+         -> StateT (Map Id (Set Constraint)) (Compiler m) (Set Constraint)
     cplx n s = sect <$> traverse ref (s ^.. references)
       where
         sect (x:xs) = Set.intersection str (foldl' Set.intersection x xs)
@@ -167,10 +147,10 @@ constraints cfg ss = evalStateT (Map.traverseWithKey go ss) initial
             maybe (lift (Map.lookup k ss ?? e) >>= go k) return m
           where
             k = r ^. refShape
-            e = format ("Missing shape " % stext %
-                        " when determining constraints for " % stext %
-                        " :: " % shown %
-                        ", in possible matches " % partial)
+            e = format ("Missing shape "                     % fid %
+                        " when determining constraints for " % fid %
+                        " :: "                               % shown %
+                        ", in possible matches "             % partial)
                        k n (s ^.. references) (k, ss)
 
     smpl = \case
@@ -188,24 +168,27 @@ constraints cfg ss = evalStateT (Map.traverseWithKey go ss) initial
     list = Set.fromList [CMonoid, CSemigroup]
     def  = Set.fromList [CEq, CRead, CShow, CGeneric]
 
-    save :: (Monad m, Monoid a) => Text -> a -> StateT (Map Text a) m a
+    save :: (Monad m, Monoid a) => Id -> a -> StateT (Map Id a) m a
     save k x = modify (Map.insertWith (<>) k x) >> return x
 
 datatype :: Monad m
-         => Map Text Text
-         -> Map Text Type
-         -> Map Text (Set Constraint)
-         -> Text
+         => Map Id Text
+         -> Map Id Type
+         -> Map Id (Set Constraint)
+         -> Id
          -> Shape Identity
          -> Compiler m (Maybe (Data Identity))
 datatype ps ts cs n = \case
-    Struct i s -> do
-        p <- Map.lookup n ps ?? "poo"
-        Just <$> prod i s p
+    Struct i s -> Just <$> (prod i s =<< prefix)
     Enum   {}  -> return Nothing
     _          -> return Nothing
   where
-    prod i s@Struct'{..} (Text.toLower -> p) = Product i s
+    prefix = Map.lookup n ps ??
+        format ("Missing prefix for shape " % fid %
+                ", possible matches "       % partial)
+               n (n, ps)
+
+    prod i s@Struct'{..} p = Product i s
         <$> decl
         <*> pure []
         <*> ctor
@@ -213,18 +196,19 @@ datatype ps ts cs n = \case
       where
         decl = do
            fs <- traverse field (Map.toList _members)
-           hoistEither . pretty $ DataDecl noLoc arity [] (ident n) []
-               [ QualConDecl noLoc [] [] (RecDecl (ident n) fs)
+           hoistEither . pretty $ DataDecl noLoc arity [] (iident n) []
+               [ QualConDecl noLoc [] [] (RecDecl (iident n) fs)
                ] []
 
-        -- Facets of Info for the field need to be layered on top
+        -- FIXME: Facets of Info for the field need to be layered on top
         -- of the type, such as nonempty, maybe, etc.
-        field (k, v) = ([ident ("_" <> p <> k)],) <$> (Map.lookup t ts ?? e)
+        field (k, v) = ([accessor (Text.toLower p) k],)
+            <$> (Map.lookup t ts ?? e)
           where
             t = v ^. refShape
-            e = format ("Missing type "       % stext %
-                        " of field "          % stext %
-                        " in record "         % stext %
+            e = format ("Missing type "       % fid %
+                        " of field "          % fid %
+                        " in shape "          % fid %
                         ", possible matches " % partial)
                        t k n (t, ts)
 
@@ -239,7 +223,7 @@ pretty :: Decl -> Either LazyText LazyText
 pretty d = bimap e Build.toLazyText $ reformat johanTibell Nothing p
   where
     e = flip mappend (" - when formatting datatype: " <> p) . LText.pack
-    --
+
     p = LText.pack (prettyPrintStyleMode s m d)
 
     s = style
@@ -253,7 +237,7 @@ pretty d = bimap e Build.toLazyText $ reformat johanTibell Nothing p
         , layout  = PPNoLayout
         }
 
---replacements :: Map Text Type
+replaced :: (Replace -> a) -> Config -> Map Id a
 replaced f =
       Map.fromList
     . map (_replaceName &&& f)
@@ -261,11 +245,20 @@ replaced f =
     . vMapMaybe _replacedBy
     . _typeOverrides
 
+accessor :: Text -> Id -> Name
+accessor p k = ident ("_" <> p <> upperHead (k ^. keyActual))
+
+itycon :: Id -> Type
+itycon = TyCon . UnQual . iident
+
 tycon :: Text -> Type
 tycon = TyCon . unqual
 
 unqual :: Text -> QName
 unqual = UnQual . ident
+
+iident :: Id -> Name
+iident = ident . view keyActual
 
 ident :: Text -> Name
 ident = Ident . Text.unpack

@@ -24,21 +24,28 @@
 module Compiler.Types
     ( module Compiler.Types
     , module Compiler.Types.Map
+    , module Compiler.Types.Id
     , module Compiler.Types.URI
+    , module Compiler.Types.NS
+    , module Compiler.Types.Help
     ) where
 
-import           Compiler.Orphans             ()
 import           Compiler.Text
 import           Compiler.TH
+import           Compiler.Types.Help
+import           Compiler.Types.Id
 import           Compiler.Types.Map
+import           Compiler.Types.NS
+import           Compiler.Types.Orphans       ()
 import           Compiler.Types.URI
 import           Control.Error
 import           Control.Lens                 hiding ((.=))
+import           Control.Monad
 import           Data.Aeson                   (ToJSON (..), object, (.=))
 import qualified Data.Aeson                   as A
-import           Data.CaseInsensitive         (CI)
-import           Data.Default.Class
+import           Data.Bifunctor
 import           Data.Hashable
+import qualified Data.HashMap.Strict          as Map
 import qualified Data.HashSet                 as Set
 import           Data.Jason                   hiding (Bool, ToJSON (..), object,
                                                (.=))
@@ -46,7 +53,6 @@ import           Data.List                    (sortOn)
 import           Data.Monoid                  hiding (Product, Sum)
 import           Data.Ord
 import qualified Data.SemVer                  as SemVer
-import           Data.String
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
 import qualified Data.Text.Lazy               as LText
@@ -59,8 +65,6 @@ import           GHC.TypeLits
 import           Language.Haskell.Exts.Syntax (Name)
 import           Numeric.Natural
 import           Text.EDE                     (Template)
-import           Text.Pandoc                  hiding (Format, Template)
-import           Text.Pandoc.Pretty           (prefixed, render)
 
 type Compiler = EitherT LazyText
 type LazyText = LText.Text
@@ -110,61 +114,6 @@ data Templates = Templates
     }
 
 makePrisms ''Identity
-
-newtype NS = NS [Text]
-    deriving (Eq, Ord, Show)
-
-textToNS :: Text -> NS
-textToNS = NS . Text.splitOn "."
-
-nsToPath :: NS -> Path
-nsToPath (NS xs) = Path.fromText (Text.intercalate "/" xs) Path.<.> "hs"
-
-instance IsString NS where
-    fromString "" = mempty
-    fromString s  = textToNS (fromString s)
-
-instance Monoid NS where
-    mempty = NS []
-    mappend (NS xs) (NS ys)
-        | null xs   = NS ys
-        | null ys   = NS xs
-        | otherwise = NS (xs <> ys)
-
-instance FromJSON NS where
-    parseJSON = withText "namespace" (pure . textToNS)
-
-instance ToJSON NS where
-    toJSON (NS xs) = toJSON (Text.intercalate "." xs)
-
-newtype Help = Help Pandoc
-
-instance Show Help where
-    show (Help p) = writeHaddock def p
-
-instance IsString Help where
-    fromString = Help . readHaddock def
-
-instance FromJSON Help where
-    parseJSON = withText "help" (pure . Help . readHtml def . Text.unpack)
-
-instance ToJSON Help where
-    toJSON = toJSON . mappend "-- |" . Text.drop 2 . helpToHaddock "-- "
-
-newtype Desc = Desc Help
-
-instance ToJSON Desc where
-    toJSON (Desc h) = toJSON (helpToHaddock "" h)
-
-asDesc :: Getter Help Desc
-asDesc = to Desc
-
-helpToHaddock :: Text -> Help -> Text
-helpToHaddock sep (Help h) = Text.pack
-    . render (Just 76)
-    . prefixed (Text.unpack sep)
-    . fromString
-    $ writeHaddock def h
 
 data Signature
     = V2
@@ -256,7 +205,7 @@ instance FromJSON XML where
     parseJSON = gParseJSON' (camel & lenses .~ True)
 
 data Ref f = Ref
-    { _refShape         :: Text
+    { _refShape         :: Id
     , _refDocumentation :: f Help
     , _refLocation      :: f Location
     , _refLocationName  :: f Text
@@ -326,9 +275,9 @@ class HasRefs f a | a -> f where
     references :: Traversal' a (Ref f)
 
 data Struct f = Struct'
-    { _members  :: Map Text (Ref f)
-    , _required :: Set (CI Text)
-    , _payload  :: Maybe (CI Text)
+    { _members  :: Map Id (Ref f)
+    , _required :: Set Id
+    , _payload  :: Maybe Id
     }
 
 deriving instance Show (Struct Maybe)
@@ -349,7 +298,7 @@ data Shape f
     = List   (Info f) (Ref f)
     | Map    (Info f) (Ref f) (Ref f)
     | Struct (Info f) (Struct f)
-    | Enum   (Info f) (Map Text Text)
+    | Enum   (Info f) (Map Id Text)
     | Lit    (Info f) Lit
 
 deriving instance Show (Shape Maybe)
@@ -363,12 +312,6 @@ instance HasRefs f (Shape f) where
         Map    i k v -> Map    i <$> f k <*> f v
         Struct i s   -> Struct i <$> references f s
         s            -> pure s
-
-fields :: Traversal' (Shape f) (Text, Ref f)
-fields = _Struct . _2 . members . kvTraversal
-
-values :: Traversal' (Shape f) (Text, Text)
-values = _Enum . _2 . kvTraversal
 
 instance HasInfo (Shape f) f where
     info = lens f (flip g)
@@ -403,9 +346,10 @@ instance FromJSON (Shape Maybe) where
             "blob"      -> pure (Lit i Blob)
             "boolean"   -> pure (Lit i Bool)
             "timestamp" -> pure (Lit i Time)
-            "string"
-                | Just v <- m -> pure . Enum i $ kvJoin v
-                | otherwise   -> pure (Lit i Text)
+            "string"    -> pure $
+                maybe (Lit i Text)
+                      (Enum i . Map.fromList . map (first textToId . join (,)))
+                      m
             _           -> fail $ "Unknown Shape type: " ++ Text.unpack t
 
 data HTTP f = HTTP
@@ -420,7 +364,7 @@ instance FromJSON (HTTP Maybe) where
     parseJSON = gParseJSON' camel
 
 data Operation f a = Operation
-    { _opName          :: Text
+    { _opName          :: Id
     , _opDocumentation :: f Text
     , _opHTTP          :: HTTP f
     , _opInput         :: f (a f)
@@ -429,14 +373,14 @@ data Operation f a = Operation
 
 makeLenses ''Operation
 
-requestName, responseName :: Getter (Operation f a) Text
+requestName, responseName :: Getter (Operation f a) Id
 requestName  = to _opName
-responseName = to ((<> "Response") . _opName)
+responseName = to ((`keyAppend` "Response") . _opName)
 
 instance FromJSON (Operation Maybe Ref) where
     parseJSON = withObject "operation" $ \o -> Operation
         <$> o .: "name"
-        <$> o .:? "documentation"
+        <*> o .:? "documentation"
         <*> o .:  "http"
         <*> o .:? "input"
         <*> o .:? "output"
@@ -478,8 +422,8 @@ instance ToJSON (Metadata Identity) where
 data Service f a b = Service
     { _metadata'     :: Metadata f
     , _documentation :: Help
-    , _operations    :: Map Text (Operation f a)
-    , _shapes        :: Map Text (b f)
+    , _operations    :: Map Id (Operation f a)
+    , _shapes        :: Map Id (b f)
     } deriving (Generic)
 
 makeClassy ''Service
@@ -564,23 +508,23 @@ instance ToJSON (Data f) where
         --     , "instances"    .- is
         --     ]
 
-data Repl = Repl
-    { _replaceName        :: Text
+data Replace = Replace
+    { _replaceName        :: Id
     , _replaceConstraints :: Set Constraint
     } deriving (Eq, Show, Generic)
 
-makeLenses ''Repl
+makeLenses ''Replace
 
-instance FromJSON Repl where
+instance FromJSON Replace where
     parseJSON = gParseJSON' (lower & field %~ (. stripPrefix "replace"))
 
 data Override = Override
-    { _renamedTo      :: Maybe Text         -- ^ Rename type
-    , _replacedBy     :: Maybe Repl         -- ^ Existing type that supplants this type
-    , _enumPrefix     :: Maybe Text         -- ^ Enum constructor prefix
-    , _requiredFields :: Set (CI Text)      -- ^ Required fields
-    , _optionalFields :: Set (CI Text)      -- ^ Optional fields
-    , _renamedFields  :: Map (CI Text) Text -- ^ Rename fields
+    { _renamedTo      :: Maybe Id      -- ^ Rename type
+    , _replacedBy     :: Maybe Replace -- ^ Existing type that supplants this type
+    , _enumPrefix     :: Maybe Text    -- ^ Enum constructor prefix
+    , _requiredFields :: Set Id        -- ^ Required fields
+    , _optionalFields :: Set Id        -- ^ Optional fields
+    , _renamedFields  :: Map Id Id     -- ^ Rename fields
     } deriving (Eq, Show)
 
 makeLenses ''Override
@@ -621,7 +565,7 @@ data Config = Config
     , _operationUrl     :: Text
     , _operationImports :: [NS]
     , _typeImports      :: [NS]
-    , _typeOverrides    :: Map Text Override
+    , _typeOverrides    :: Map Id Override
     }
 
 makeClassy ''Config

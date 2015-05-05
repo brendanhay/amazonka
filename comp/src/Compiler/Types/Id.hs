@@ -26,6 +26,7 @@ import           Data.Hashable
 import           Data.Jason           hiding (ToJSON (..))
 import           Data.String
 import           Data.Text            (Text)
+import           Data.Text.Manipulate
 
 data Id = Id (CI Text) Text
     deriving (Show)
@@ -40,7 +41,9 @@ keyOriginal :: Getter Id Text
 keyOriginal = keyCI . to CI.original
 
 keyActual :: Lens' Id Text
-keyActual = lens (\(Id _ t) -> upperAcronym t) (\(Id ci _) t -> Id ci t)
+keyActual =
+    lens (\(Id _  t)   -> upperHead $ upperAcronym t)
+         (\(Id ci _) t -> Id ci t)
 
 keyAppend :: Id -> Text -> Id
 keyAppend i t = i & keyActual <>~ t

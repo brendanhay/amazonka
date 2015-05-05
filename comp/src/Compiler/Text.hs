@@ -54,33 +54,16 @@ renameBranch :: Text -> (Text, Text)
 renameBranch = first (upperAcronym . foldMap g . Text.split f) . join (,)
   where
     f x = x == '-'
-       || x == ' '
+       || x == '.'
+       || x == ':'
        || x == '\\'
        || x == '/'
        || x == '+'
-       || x == '.'
+       || x == ' '
 
-    g x | Text.null x           = x
+    g x | Text.length x <= 1    = x
         | isDigit (Text.last x) = Text.toUpper x
         | otherwise             = upperHead x
-
--- renameCtor :: Text -> (Text, Text)
--- renameCtor t = (t,) . stripSuffix "_"
---     . upperAcronym
---     . Text.concat
---     . map recase
---     . splitWords
---     $ t
---   where
---     recase x
---         | Text.null x           = x
---         | isDigit (Text.last x) = Text.toUpper x `Text.snoc` '_'
---         | isDigit (Text.head x) = upper `Text.snoc` '_'
---         | otherwise             = upperHead x
---       where
---         upper = case Text.uncons x of
---             Nothing      -> x
---             Just (c, cs) -> c `Text.cons` upperHead cs
 
 renameReserved :: Text -> Text
 renameReserved x

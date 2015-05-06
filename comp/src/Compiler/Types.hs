@@ -439,7 +439,7 @@ data Constraint
     | CRead
     | CShow
     | CEnum
-    | CGeneric
+--    | CGeneric
     | CNum
     | CIntegral
     | CReal

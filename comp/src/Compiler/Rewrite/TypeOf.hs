@@ -25,7 +25,7 @@ import           Compiler.Rewrite.Prefix
 import           Compiler.Types
 import           Control.Arrow                ((&&&))
 import           Control.Error
-import           Control.Lens                 hiding ((??))
+import           Control.Lens                 hiding (enum, (??))
 import           Control.Monad.Except
 import           Control.Monad.State
 import           Data.Bifunctor
@@ -130,45 +130,54 @@ constraints cfg ss = evalStateT (Map.traverseWithKey go ss) initial
             Just cs -> return cs
             Nothing -> derive n s
 
+    -- FIXME: Filter constraints based on things like min/max of lists etc.
     derive n = save n <=< \case
-        Struct _ s -> Set.insert CGeneric <$> cplx n s
+        Struct _ s -> cplx n s
         List   {}  -> pure (base <> list)
         Map    {}  -> pure (base <> list)
-        Enum   {}  -> pure [CEq, COrd, CEnum, CRead, CShow, CGeneric]
+        Enum   {}  -> pure (base <> enum)
         Lit    _ l -> pure $
             case l of
-                Text   -> [CEq, COrd, CRead, CShow, CGeneric, CIsString]
-                Blob   -> [CGeneric]
-                Bool   -> [CEq, COrd, CEnum, CRead, CShow, CGeneric]
-                Time   -> [CEq, COrd, CRead, CShow, CGeneric]
-                Int    -> [CEq, COrd, CEnum, CRead, CShow, CNum, CIntegral, CReal]
-                Long   -> [CEq, COrd, CEnum, CRead, CShow, CNum, CIntegral, CReal]
-                Double -> [CEq, COrd, CEnum, CRead, CShow, CNum, CReal, CRealFrac, CRealFloat]
+                Int    -> base <> num
+                Long   -> base <> num
+                Double -> base <> frac
+                Text   -> base <> str
+                Blob   -> [CShow]
+                Time   -> base <> enum
+                Bool   -> base <> enum
 
     cplx :: Monad m
          => Id
          -> Struct Identity
          -> StateT (Map Id (Set Constraint)) (Compiler m) (Set Constraint)
-    cplx n s = sect <$> traverse ref (s ^.. references)
+    cplx n s = combine <$> traverse ref (s ^.. references . refShape)
       where
-        sect (x:xs) = Set.intersection str (foldl' Set.intersection x xs)
-        sect _      = mempty
+        combine :: [Set Constraint] -> Set Constraint
+        combine [x]    = x
+        combine (x:xs) = Set.intersection (foldl' Set.intersection x xs) base
+        combine _      = base
 
-        ref r = do
-            m <- gets (Map.lookup k)
-            maybe (lift (Map.lookup k ss ?? e) >>= go k) return m
+        ref :: Monad m
+            => Id
+            -> StateT (Map Id (Set Constraint)) (Compiler m) (Set Constraint)
+        ref k = cache >>= maybe miss return
           where
-            k = r ^. refShape
+            cache = gets (Map.lookup k)
+            miss  = lift (Map.lookup k ss ?? e) >>= go k
+
             e = format ("Missing shape "                     % fid %
                         " when determining constraints for " % fid %
                         " :: "                               % shown %
                         ", in possible matches "             % partial)
                        k n (s ^.. references) (k, ss)
 
-        str = base <> [COrd, CIsString]
-
+    str, num, frac, list, enum, base :: Set Constraint
+    str  = [CIsString]
+    num  = [CEnum, CNum, CIntegral, CReal]
+    frac = [CRealFrac, CRealFloat]
     list = [CMonoid, CSemigroup]
-    base = [CEq, CRead, CShow, CGeneric]
+    enum = [CEnum]
+    base = [CEq, COrd, CRead, CShow]
 
     save :: (Monad m, Monoid a) => Id -> a -> StateT (Map Id a) m a
     save k x = modify (Map.insertWith (<>) k x) >> return x

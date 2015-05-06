@@ -438,8 +438,8 @@ data Constraint
     | COrd
     | CRead
     | CShow
-    | CGeneric
     | CEnum
+    | CGeneric
     | CNum
     | CIntegral
     | CReal
@@ -448,11 +448,11 @@ data Constraint
     | CMonoid
     | CSemigroup
     | CIsString
-    | CToQuery
-    | CToJSON
-    | CFromJSON
-    | CToXML
-    | CFromXML
+    -- | CToQuery
+    -- | CToJSON
+    -- | CFromJSON
+    -- | CToXML
+    -- | CFromXML
       deriving (Eq, Ord, Show, Generic)
 
 instance Hashable Constraint

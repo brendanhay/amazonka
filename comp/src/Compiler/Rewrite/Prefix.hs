@@ -72,7 +72,6 @@ prefixes = (`evalStateT` mempty) . kvTraverseMaybe go
     overlap :: (Eq a, Hashable a) => Set a -> Set a -> Bool
     overlap xs ys = not . Set.null $ Set.intersection xs ys
 
---    keys :: (Eq k, Hashable k) => Map k v -> Set k
     keys f = Set.fromList . map f . Map.keys
 
 -- | Acronym preference list.

@@ -1,6 +1,7 @@
 {-# LANGUAGE BangPatterns      #-}
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE LambdaCase        #-}
+{-# LANGUAGE OverloadedLists   #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TupleSections     #-}
@@ -19,7 +20,7 @@ module Compiler.Rewrite.TypeOf
     ( annotateTypes
     ) where
 
-import           Compiler.Formatting
+import           Compiler.Formatting          hiding (base)
 import           Compiler.Rewrite.Prefix
 import           Compiler.Types
 import           Control.Arrow                ((&&&))
@@ -31,6 +32,7 @@ import           Data.Bifunctor
 import           Data.Foldable                (foldl')
 import qualified Data.HashMap.Strict          as Map
 import qualified Data.HashSet                 as Set
+import           Data.List                    (sort)
 import           Data.Monoid                  hiding (Product, Sum)
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
@@ -128,11 +130,20 @@ constraints cfg ss = evalStateT (Map.traverseWithKey go ss) initial
             Just cs -> return cs
             Nothing -> derive n s
 
-    derive n = \case
-        List   {}  -> save n (def <> list)
-        Map    {}  -> save n (def <> list)
-        Struct _ s -> save n . Set.insert CGeneric =<< cplx n s
-        s          -> save n (smpl s)
+    derive n = save n <=< \case
+        Struct _ s -> Set.insert CGeneric <$> cplx n s
+        List   {}  -> pure (base <> list)
+        Map    {}  -> pure (base <> list)
+        Enum   {}  -> pure [CEq, COrd, CEnum, CRead, CShow, CGeneric]
+        Lit    _ l -> pure $
+            case l of
+                Text   -> [CEq, COrd, CRead, CShow, CGeneric, CIsString]
+                Blob   -> [CGeneric]
+                Bool   -> [CEq, COrd, CEnum, CRead, CShow, CGeneric]
+                Time   -> [CEq, COrd, CRead, CShow, CGeneric]
+                Int    -> [CEq, COrd, CEnum, CRead, CShow, CNum, CIntegral, CReal]
+                Long   -> [CEq, COrd, CEnum, CRead, CShow, CNum, CIntegral, CReal]
+                Double -> [CEq, COrd, CEnum, CRead, CShow, CNum, CReal, CRealFrac, CRealFloat]
 
     cplx :: Monad m
          => Id
@@ -154,20 +165,10 @@ constraints cfg ss = evalStateT (Map.traverseWithKey go ss) initial
                         ", in possible matches "             % partial)
                        k n (s ^.. references) (k, ss)
 
-    smpl = \case
-        -- SString _ -> [CEq, COrd, CRead, CShow, CGeneric, CIsString]
-        -- SEnum   _ -> [CEq, COrd, CEnum, CRead, CShow, CGeneric]
-        -- SBlob   _ -> [CGeneric]
-        -- SBool   _ -> [CEq, COrd, CEnum, CRead, CShow, CGeneric]
-        -- STime   _ -> [CEq, COrd, CRead, CShow, CGeneric]
-        -- SInt    _ -> [CEq, COrd, CEnum, CRead, CShow, CNum, CIntegral, CReal]
-        -- SDouble _ -> [CEq, COrd, CEnum, CRead, CShow, CNum, CReal, CRealFrac, CRealFloat]
-        -- SLong   _ -> [CEq, COrd, CEnum, CRead, CShow, CNum, CIntegral, CReal]
-        _         -> mempty
+        str = base <> [COrd, CIsString]
 
-    str  = def <> Set.fromList [COrd, CIsString]
-    list = Set.fromList [CMonoid, CSemigroup]
-    def  = Set.fromList [CEq, CRead, CShow, CGeneric]
+    list = [CMonoid, CSemigroup]
+    base = [CEq, CRead, CShow, CGeneric]
 
     save :: (Monad m, Monoid a) => Id -> a -> StateT (Map Id a) m a
     save k x = modify (Map.insertWith (<>) k x) >> return x
@@ -180,22 +181,31 @@ datatype :: Monad m
          -> Shape Identity
          -> Compiler m (Maybe (Data Identity))
 datatype ps ts cs n = \case
-    Enum   i vs -> Just <$> (sum' i vs =<< prefix)
-    Struct i s  -> Just <$> (prod i s  =<< prefix)
+    Enum   i vs -> satisfy (sum' i vs)
+    Struct i s  -> satisfy (prod i s)
     _           -> return Nothing
   where
+    satisfy f = Just <$> ((,) <$> prefix <*> fulfill >>= uncurry f)
+
     prefix :: Monad m => Compiler m Text
     prefix = Map.lookup n ps ??
         format ("Missing prefix for shape " % fid %
                 ", possible matches "       % partial)
                n (n, ps)
 
+    fulfill :: Monad m => Compiler m [Deriving]
+    fulfill = fmap derivings $ Map.lookup n cs ??
+        format ("Missing constraints for shape " % fid %
+                ", possible matches "            % partial)
+               n (n, cs)
+
     sum' :: Monad m
          => Info Identity
          -> Map Text Text
          -> Text
+         -> [Deriving]
          -> Compiler m (Data Identity)
-    sum' i vs p = Sum i bs <$> decl <*> pure []
+    sum' i vs p ds = Sum i bs <$> decl <*> pure []
       where
         bs :: Map Text Text
         bs = vs & kvTraversal %~ first (f . upperHead)
@@ -205,7 +215,7 @@ datatype ps ts cs n = \case
 
         decl :: Monad m => Compiler m LazyText
         decl = hoistEither . pretty $
-            dataDecl (iident n) (map branch $ Map.keys bs) []
+            dataDecl (iident n) (map branch $ Map.keys bs) ds
 
         branch :: Text -> QualConDecl
         branch k = QualConDecl noLoc [] [] (ConDecl (ident k) [])
@@ -214,19 +224,17 @@ datatype ps ts cs n = \case
          => Info Identity
          -> Struct Identity
          -> Text
+         -> [Deriving]
          -> Compiler m (Data Identity)
-    prod i s@Struct'{..} p = Product i s
-        <$> decl
-        <*> pure []
-        <*> ctor
-        <*> pure lenses
+    prod i s@Struct'{..} p ds =
+        Product i s <$> decl <*> pure [] <*> ctor <*> pure lenses
      where
         decl :: Monad m => Compiler m LazyText
         decl = do
            fs <- traverse field (Map.toList _members)
            hoistEither . pretty $ dataDecl (iident n)
                [ QualConDecl noLoc [] [] (RecDecl (iident n) fs)
-               ] []
+               ] ds
 
         -- FIXME: Facets of Info for the field need to be layered on top
         -- of the type, such as nonempty, maybe, etc.
@@ -295,3 +303,6 @@ dataDecl n cs = DataDecl noLoc arity [] n [] cs
     arity = case cs of
         [QualConDecl _ _ _ (RecDecl _ [_])] -> NewType
         _                                   -> DataType
+
+derivings :: Set Constraint -> [Deriving]
+derivings = map ((,[]) . UnQual . Ident . drop 1 . show) . sort . Set.toList

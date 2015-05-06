@@ -236,7 +236,7 @@ instance HasXML (Ref Identity) where
 
 data Info f = Info
     { _infoDocumentation :: f Help
-    , _infoMin           :: !Natural
+    , _infoMin           :: Maybe Natural
     , _infoMax           :: Maybe Natural
     , _infoFlattened     :: !Bool
     , _infoSensitive     :: !Bool
@@ -252,7 +252,7 @@ makeClassy ''Info
 instance FromJSON (Info Maybe) where
     parseJSON = withObject "info" $ \o -> Info
         <$> o .:? "documentation"
-        <*> o .:? "min"       .!= 0
+        <*> o .:? "min"
         <*> o .:? "max"
         <*> o .:? "flattened" .!= False
         <*> o .:? "sensitive" .!= False
@@ -276,6 +276,7 @@ data Struct f = Struct'
     { _members  :: Map Id (Ref f)
     , _required :: Set Id
     , _payload  :: Maybe Id
+    , _wrapper  :: !Bool
     }
 
 deriving instance Show (Struct Maybe)
@@ -291,6 +292,7 @@ instance FromJSON (Struct Maybe) where
         <$> o .:  "members"
         <*> o .:? "required" .!= mempty
         <*> o .:? "payload"
+        <*> pure False
 
 data Shape f
     = List   (Info f) (Ref f)

@@ -60,12 +60,13 @@ substitute svc@Service{..} = svc
     shared = sharing _operations _shapes
 
     -- FIXME: How to annotate that this is a reference to a shared type?
+    -- answer: _wrapper
     empty :: f Help -> Map Id (Ref f) -> Shape f
     empty d rs = Struct i s
       where
         i = Info
             { _infoDocumentation = d
-            , _infoMin           = 0
+            , _infoMin           = Nothing
             , _infoMax           = Nothing
             , _infoFlattened     = False
             , _infoSensitive     = False
@@ -77,6 +78,7 @@ substitute svc@Service{..} = svc
             { _members  = rs
             , _required = mempty
             , _payload  = Nothing
+            , _wrapper  = not (Map.null rs)
             }
 
 type Count = State (Map Id Int)

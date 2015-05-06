@@ -53,7 +53,7 @@ annotateTypes :: Monad m
 annotateTypes cfg svc@Service{..} = do
     ps <- prefixes universe'
 
-    let !ts = solve cfg universe'
+    let !ts = solve cfg (svc ^. timestampFormat . _Identity) universe'
 
     cs <- constraints cfg universe'
     ss <- kvTraverseMaybe (datatype ps ts cs) _shapes
@@ -70,33 +70,48 @@ annotateTypes cfg svc@Service{..} = do
         , (x ^. responseName, x ^. opOutput . _Identity)
         ]
 
-solve :: Config -> Map Id (Shape Identity) -> Map Id Type
-solve cfg ss = execState (Map.traverseWithKey go ss) initial
+solve :: Config -> Timestamp -> Map Id (Shape Identity) -> Map Id Type
+solve cfg t ss = execState (Map.traverseWithKey go ss) initial
   where
     initial :: Map Id Type
     initial = replaced (itycon . _replaceName) cfg
 
     go :: Id -> Shape Identity -> State (Map Id Type) Type
-    go n = \case
-        Struct {}  -> save n (itycon n)
-        Enum   {}  -> save n (itycon n)
+    go n = save n <=< \case
+        Struct {}  -> pure (itycon n)
+        Enum   {}  -> pure (itycon n)
 
-        List _ e -> do
-            t <- TyApp (tycon "List") <$> memo (e ^. refShape)
-            save n t
+        List _ e ->
+            TyApp (tycon "List") <$> memo (e ^. refShape)
 
-        Map _ k v -> do
-            t <- TyApp <$> memo (k ^. refShape) <*> memo (v ^. refShape)
-            save n (TyApp (tycon "Map") t)
+        Map _ k v ->
+            TyApp (tycon "Map") <$>
+                (TyApp <$> memo (k ^. refShape)
+                       <*> memo (v ^. refShape))
 
-        Lit _ l -> case l of
-            Int    -> save n (tycon "Int")
-            Long   -> save n (tycon "Long")
-            Double -> save n (tycon "Double")
-            Text   -> save n (tycon "Text")
-            Blob   -> save n (tycon "Blob")
-            Time   -> save n (tycon "Time")
-            Bool   -> save n (tycon "Bool")
+        Lit i l -> pure . sensitive i $
+            case l of
+                Int    -> natural i (tycon "Int")
+                Long   -> natural i (tycon "Long")
+                Double -> tycon "Double"
+                Text   -> tycon "Text"
+                Blob   -> tycon "Blob"
+                Time   -> time
+                Bool   -> tycon "Bool"
+
+    time :: Type
+    time = TyCon . UnQual . Ident $ show t
+
+    natural :: HasInfo a f => a -> (Type -> Type)
+    natural x
+        | Just i <- x ^. infoMin
+        , i >= 0    = const (tycon "Natural")
+        | otherwise = id
+
+    sensitive :: HasInfo a f => a -> (Type -> Type)
+    sensitive x
+        | x ^. infoSensitive = TyApp (tycon "Sensitive")
+        | otherwise          = id
 
     memo :: Id -> State (Map Id Type) Type
     memo k = do
@@ -109,7 +124,7 @@ solve cfg ss = execState (Map.traverseWithKey go ss) initial
                     Nothing -> return (itycon k)
 
     save :: Monad m => Id -> a -> StateT (Map Id a) m a
-    save n t = modify (Map.insert n t) >> return t
+    save k v = modify (Map.insert k v) >> return v
 
 constraints :: Monad m
             => Config

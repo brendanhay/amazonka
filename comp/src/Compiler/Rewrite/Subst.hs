@@ -61,7 +61,7 @@ substitute svc@Service{..} = svc
 
     -- FIXME: How to annotate that this is a reference to a shared type?
     -- answer: _wrapper
-    empty :: f Help -> Map Id (Ref f) -> Shape f
+    empty :: Maybe Help -> Map Id (Ref f) -> Shape f
     empty d rs = Struct i s
       where
         i = Info

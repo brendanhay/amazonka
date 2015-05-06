@@ -13,11 +13,11 @@
 
 module Compiler.Rewrite where
 
+import           Compiler.Rewrite.Ann
 import           Compiler.Rewrite.Default
 import           Compiler.Rewrite.Override
 import           Compiler.Rewrite.Prefix
 import           Compiler.Rewrite.Subst
-import           Compiler.Rewrite.TypeOf
 import           Compiler.Types
 import           Control.Error
 import           Control.Lens

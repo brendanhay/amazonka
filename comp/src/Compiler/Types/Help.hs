@@ -1,4 +1,5 @@
-{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE OverloadedStrings          #-}
 
 -- Module      : Compiler.Types.Help
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,6 +23,7 @@ import           Text.Pandoc
 import           Text.Pandoc.Pretty
 
 newtype Help = Help Pandoc
+    deriving (Monoid)
 
 instance Show Help where
     show (Help p) = writeHaddock def p

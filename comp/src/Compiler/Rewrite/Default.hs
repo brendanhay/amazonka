@@ -38,7 +38,7 @@ setDefaults svc@Service{..} = hoistEither $ do
         }
   where
     meta' m@Metadata{..} = m
-        { _timestampFormat = _timestampFormat .! defaultTimestamp _protocol
+        { _timestampFormat = _timestampFormat .! timestamp
         , _checksumFormat  = _checksumFormat  .! SHA256
         }
 
@@ -59,32 +59,37 @@ setDefaults svc@Service{..} = hoistEither $ do
         }
 
     shape' = \case
-        List   i e   -> List   (info' i) (ref' e)
-        Map    i k v -> Map    (info' i) (ref' k) (ref' v)
-        Struct i s   -> Struct (info' i) (over (members . each) ref' s)
-        Enum   i m   -> Enum   (info' i) m
-        Lit    i l   -> Lit    (info' i) l
-
-    info' i@Info{..} = i
-        { _infoDocumentation = _infoDocumentation .! "FIXME: Undocumented shape."
-        }
+        List   i e   -> List   i (ref' e)
+        Map    i k v -> Map    i (ref' k) (ref' v)
+        Struct i s   -> Struct i (over (members . each) ref' s)
+        Enum   i m   -> Enum   i m
+        Lit    i l   -> Lit    i (lit' l)
 
     ref' r@Ref{..} = r
         { _refDocumentation = _refDocumentation .! "FIXME: Undocumented reference."
-        , _refLocation      = _refLocation      .! Querystring
-        , _refLocationName  = _refLocationName  .! _refShape ^. keyOriginal
+        , _refLocation      = _refLocation      .! Querystring -- FIXME: This is based upon the protocol
+        , _refLocationName  = _refLocationName  .! _refShape ^. keyOriginal -- FIXME: This is based up on the protocol and shape type (list == member etc.)
         , _refQueryName     = _refQueryName     .! _refShape ^. keyOriginal
         , _refXMLNamespace  = _refXMLNamespace  .! XML' "" ""
         }
 
-defaultTimestamp :: Protocol -> Timestamp
-defaultTimestamp = \case
-    JSON     -> POSIX
-    RestJSON -> POSIX
-    XML      -> ISO8601
-    RestXML  -> ISO8601
-    Query    -> ISO8601
-    EC2      -> ISO8601
+    lit' = \case
+        Time t -> Time . Identity $ fromMaybe timestamp t
+        Int    -> Int
+        Long   -> Long
+        Double -> Double
+        Text   -> Text
+        Blob   -> Blob
+        Bool   -> Bool
+
+    timestamp =
+        case svc ^. protocol of
+            JSON     -> POSIX
+            RestJSON -> POSIX
+            XML      -> ISO8601
+            RestXML  -> ISO8601
+            Query    -> ISO8601
+            EC2      -> ISO8601
 
 infixl 7 .!
 

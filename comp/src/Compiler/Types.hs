@@ -234,22 +234,19 @@ instance FromJSON (Ref Maybe) where
 instance HasXML (Ref Identity) where
     xML = refXMLNamespace . _Wrapped
 
-data Info f = Info
-    { _infoDocumentation :: f Help
+data Info = Info
+    { _infoDocumentation :: Maybe Help
     , _infoMin           :: Maybe Natural
     , _infoMax           :: Maybe Natural
     , _infoFlattened     :: !Bool
     , _infoSensitive     :: !Bool
     , _infoStreaming     :: !Bool
     , _infoException     :: !Bool
-    } deriving (Generic)
-
-deriving instance Show (Info Maybe)
-deriving instance Show (Info Identity)
+    } deriving (Show, Generic)
 
 makeClassy ''Info
 
-instance FromJSON (Info Maybe) where
+instance FromJSON Info where
     parseJSON = withObject "info" $ \o -> Info
         <$> o .:? "documentation"
         <*> o .:? "min"
@@ -259,15 +256,17 @@ instance FromJSON (Info Maybe) where
         <*> o .:? "streaming" .!= False
         <*> o .:? "exception" .!= False
 
-data Lit
+data Lit f
     = Int
     | Long
     | Double
     | Text
     | Blob
-    | Time
+    | Time (f Timestamp)
     | Bool
-      deriving (Eq, Show)
+
+deriving instance Show (Lit Maybe)
+deriving instance Show (Lit Identity)
 
 class HasRefs f a | a -> f where
     references :: Traversal' a (Ref f)
@@ -295,11 +294,11 @@ instance FromJSON (Struct Maybe) where
         <*> pure False
 
 data Shape f
-    = List   (Info f) (Ref f)
-    | Map    (Info f) (Ref f) (Ref f)
-    | Struct (Info f) (Struct f)
-    | Enum   (Info f) (Map Text Text)
-    | Lit    (Info f) Lit
+    = List   Info (Ref f)
+    | Map    Info (Ref f) (Ref f)
+    | Struct Info (Struct f)
+    | Enum   Info (Map Text Text)
+    | Lit    Info (Lit f)
 
 deriving instance Show (Shape Maybe)
 deriving instance Show (Shape Identity)
@@ -313,7 +312,7 @@ instance HasRefs f (Shape f) where
         Struct i s   -> Struct i <$> references f s
         s            -> pure s
 
-instance HasInfo (Shape f) f where
+instance HasInfo (Shape f) where
     info = lens f (flip g)
       where
         f = \case
@@ -345,7 +344,7 @@ instance FromJSON (Shape Maybe) where
             "float"     -> pure (Lit i Double)
             "blob"      -> pure (Lit i Blob)
             "boolean"   -> pure (Lit i Bool)
-            "timestamp" -> pure (Lit i Time)
+            "timestamp" -> pure (Lit i (Time Nothing))
             "string"    -> pure $
                 maybe (Lit i Text)
                       (Enum i . Map.fromList . map renameBranch)
@@ -482,12 +481,12 @@ instance ToJSON Fun where
         ]
 
 data Data f
-    = Product (Info f) (Struct f)      LazyText [Instance] Fun (Map Text Fun)
-    | Sum     (Info f) (Map Text Text) LazyText [Instance]
+    = Product Info (Struct f)      LazyText [Instance] Fun (Map Text Fun)
+    | Sum     Info (Map Text Text) LazyText [Instance]
 
 makePrisms ''Data
 
-instance HasInfo (Data f) f where
+instance HasInfo (Data f) where
     info = lens f (flip g)
       where
         f = \case

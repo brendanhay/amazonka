@@ -36,33 +36,33 @@ import           Compiler.Types.Help
 import           Compiler.Types.Id
 import           Compiler.Types.Map
 import           Compiler.Types.NS
-import           Compiler.Types.Orphans       ()
+import           Compiler.Types.Orphans    ()
 import           Compiler.Types.URI
 import           Control.Error
-import           Control.Lens                 hiding ((.=))
-import           Data.Aeson                   (ToJSON (..), object, (.=))
-import qualified Data.Aeson                   as A
+import           Control.Lens              hiding ((.=))
+import           Data.Aeson                (ToJSON (..), object, (.=))
+import qualified Data.Aeson                as A
+import           Data.Bifunctor
 import           Data.Hashable
-import qualified Data.HashMap.Strict          as Map
-import qualified Data.HashSet                 as Set
-import           Data.Jason                   hiding (Bool, ToJSON (..), object,
-                                               (.=))
-import           Data.List                    (sortOn)
-import           Data.Monoid                  hiding (Product, Sum)
+import qualified Data.HashMap.Strict       as Map
+import qualified Data.HashSet              as Set
+import           Data.Jason                hiding (Bool, ToJSON (..), object,
+                                            (.=))
+import           Data.List                 (sortOn)
+import           Data.Monoid               hiding (Product, Sum)
 import           Data.Ord
-import qualified Data.SemVer                  as SemVer
-import           Data.Text                    (Text)
-import qualified Data.Text                    as Text
-import qualified Data.Text.Lazy               as LText
-import qualified Data.Text.Lazy.Builder       as Build
+import qualified Data.SemVer               as SemVer
+import           Data.Text                 (Text)
+import qualified Data.Text                 as Text
+import qualified Data.Text.Lazy            as LText
+import qualified Data.Text.Lazy.Builder    as Build
 import           Data.Time
-import qualified Filesystem.Path.CurrentOS    as Path
+import qualified Filesystem.Path.CurrentOS as Path
 import           Formatting
-import           GHC.Generics                 (Generic)
+import           GHC.Generics              (Generic)
 import           GHC.TypeLits
-import           Language.Haskell.Exts.Syntax (Name)
 import           Numeric.Natural
-import           Text.EDE                     (Template)
+import           Text.EDE                  (Template)
 
 type Compiler = EitherT LazyText
 type LazyText = LText.Text
@@ -435,6 +435,20 @@ instance HasMetadata (Service f a b) f where
 instance FromJSON (Service Maybe Ref Shape) where
     parseJSON = gParseJSON' lower
 
+data Instance
+    = ToJSON
+    | FromJSON
+    | ToQuery
+    | FromQuery
+    | ToXML
+    | FromXML
+      deriving (Eq, Ord, Show, Generic)
+
+instance Hashable Instance
+
+instance ToJSON Instance where
+    toJSON = gToJSON' spinal
+
 data Constraint
     = CEq
     | COrd
@@ -450,11 +464,6 @@ data Constraint
     | CMonoid
     | CSemigroup
     | CIsString
-    -- | CToQuery
-    -- | CToJSON
-    -- | CFromJSON
-    -- | CToXML
-    -- | CFromXML
       deriving (Eq, Ord, Show, Generic)
 
 instance Hashable Constraint
@@ -462,11 +471,19 @@ instance Hashable Constraint
 instance FromJSON Constraint where
     parseJSON = gParseJSON' (spinal & ctor %~ (. Text.drop 1))
 
-data Fun = Fun Name Help LazyText LazyText
+data Fun = Fun Text Help LazyText LazyText
+
+instance ToJSON Fun where
+    toJSON (Fun n c s d) = object
+        [ "name"        .= n
+        , "comment"     .= c
+        , "signature"   .= s
+        , "declaration" .= d
+        ]
 
 data Data f
-    = Product (Info f) (Struct f)      LazyText [Constraint] Fun (Map Text Fun)
-    | Sum     (Info f) (Map Text Text) LazyText [Constraint]
+    = Product (Info f) (Struct f)      LazyText [Instance] Fun (Map Text Fun)
+    | Sum     (Info f) (Map Text Text) LazyText [Instance]
 
 makePrisms ''Data
 
@@ -481,33 +498,24 @@ instance HasInfo (Data f) f where
             Product _ s  d is c ls -> Product i s  d is c ls
             Sum     _ vs d is      -> Sum     i vs d is
 
-instance ToJSON (Data f) where
+instance ToJSON (Data Identity) where
     toJSON = \case
         Product i s d is c ls -> object
-            [ "type" .= Text.pack "product"
+            [ "type"        .= Text.pack "product"
+            , "constructor" .= c
+            , "comment"     .= (i ^. infoDocumentation)
             , "declaration" .= d
+            , "fields"      .= ((s ^. members) & kvTraversal %~ second (^. refLocationName))
+            , "lenses"      .= ls
+            , "instances"   .= is
             ]
-
         Sum i vs d is -> object
-            [ "type" .= Text.pack "sum"
-            , "declaration" .= d
+            [ "type"         .= Text.pack "sum"
+            , "comment"      .= (i ^. infoDocumentation)
+            , "declaration"  .= d
+            , "constructors" .= vs
+            , "instances"   .= is
             ]
-
-           --             [ "type"        .- Text.pack "product"
-        --     , "constructor" .- ctor
-        --     , "comment"     .- Above 0 doc
-        --     , "declaration" .- decl
-        --     , "fields"      .- fieldPairs (x ^. structMembers)
-        --     , "lenses"      .- ls
-        --     , "instances"   .- is
-        --     ]
-        -- Sum x doc decl is ->
-        --     [ "type"         .- Text.pack "sum"
-        --     , "comment"      .- Above 0 doc
-        --     , "declaration"  .- decl
-        --     , "constructors" .- view enumValues x
-        --     , "instances"    .- is
-        --     ]
 
 data Replace = Replace
     { _replaceName        :: Id

@@ -21,6 +21,14 @@ import qualified GHC.Exts
 
 {% for shape in shapes %}
 {{ shape.value.declaration }}
+  {% case shape.value.type %}
+  {% when "product" %}
+
+    {% include "_include/product.ede" %}
+  {% when "sum" %}
+
+    {% include "_include/sum.ede" %}
+  {% endcase %}
   {% if !shape.last %}
 
   {% endif %}

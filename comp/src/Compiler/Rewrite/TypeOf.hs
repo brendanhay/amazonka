@@ -54,9 +54,10 @@ annotateTypes cfg svc@Service{..} = do
     ps <- prefixes universe'
 
     let !ts = solve cfg (svc ^. timestampFormat . _Identity) universe'
+        !is = instances (svc ^. protocol)
 
     cs <- constraints cfg universe'
-    ss <- kvTraverseMaybe (datatype ps ts cs) _shapes
+    ss <- kvTraverseMaybe (datatype ps ts cs is) _shapes
 
     return $! svc
         { _operations = mempty
@@ -197,14 +198,24 @@ constraints cfg ss = evalStateT (Map.traverseWithKey go ss) initial
     save :: (Monad m, Monoid a) => Id -> a -> StateT (Map Id a) m a
     save k x = modify (Map.insertWith (<>) k x) >> return x
 
+instances :: Protocol -> [Instance]
+instances = \case
+    JSON     -> [FromJSON, ToJSON]
+    RestJSON -> [FromJSON, ToJSON]
+    XML      -> [FromXML,  ToXML]
+    RestXML  -> [FromXML,  ToXML]
+    Query    -> [FromXML,  ToQuery]
+    EC2      -> [FromXML,  ToQuery]
+
 datatype :: Monad m
          => Map Id Text
          -> Map Id Type
          -> Map Id (Set Constraint)
+         -> [Instance]
          -> Id
          -> Shape Identity
          -> Compiler m (Maybe (Data Identity))
-datatype ps ts cs n = \case
+datatype ps ts cs is n = \case
     Enum   i vs -> satisfy (sum' i vs)
     Struct i s  -> satisfy (prod i s)
     _           -> return Nothing
@@ -229,7 +240,7 @@ datatype ps ts cs n = \case
          -> Text
          -> [Deriving]
          -> Compiler m (Data Identity)
-    sum' i vs p ds = Sum i bs <$> decl <*> pure []
+    sum' i vs p ds = Sum i bs <$> decl <*> pure is
       where
         bs :: Map Text Text
         bs = vs & kvTraversal %~ first (f . upperHead)
@@ -250,8 +261,7 @@ datatype ps ts cs n = \case
          -> Text
          -> [Deriving]
          -> Compiler m (Data Identity)
-    prod i s@Struct'{..} p ds =
-        Product i s <$> decl <*> pure [] <*> ctor <*> pure lenses
+    prod i s@Struct'{..} p ds = Product i s <$> decl <*> pure is <*> ctor <*> pure lenses
      where
         decl :: Monad m => Compiler m LazyText
         decl = do
@@ -273,7 +283,7 @@ datatype ps ts cs n = \case
                         ", possible matches " % partial)
                        t k n (t, ts)
 
-        ctor = pure undefined -- Fun
+        ctor = pure (Fun "functionName" "comment" "sig" "body")
 
         lenses = mempty
 

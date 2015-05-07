@@ -23,6 +23,7 @@ import           Compiler.JSON
 import           Compiler.Rewrite
 import           Compiler.Tree
 import           Compiler.Types            hiding (info)
+import           Control.Error
 import           Control.Lens              hiding (rewrite, (<.>), (??))
 import           Control.Monad
 import           Control.Monad.Except
@@ -35,6 +36,8 @@ import qualified Data.Text                 as Text
 import qualified Filesystem                as FS
 import           Filesystem.Path.CurrentOS
 import           Options.Applicative
+
+-- FIXME: remove need for soo much usage of hoistEither
 
 data Opt = Opt
     { _optOutput    :: Path
@@ -169,24 +172,24 @@ main = do
                   (i :: Int)
                   (filename f)
 
-            m <- listDir f >>= loadModel f
+            m <- listDir f >>= hoistEither . loadModel f
 
             say ("Using version " % dateDash) (m ^. modelVersion)
 
             cfg <- requiredObject (_optConfigs </> (m ^. configFile))
-                >>= parseObject
+                >>= hoistEither . parseObject
 
             api <- sequence
                 [ optionalObject (_optAnnexes </> (m ^. annexFile))
                 , requiredObject (m ^. serviceFile)
                 , optionalObject (m ^. waitersFile)
                 , optionalObject (m ^. pagersFile)
-                ] >>= parseObject . mergeObjects
+                ] >>= hoistEither . parseObject . mergeObjects
 
             say ("Successfully parsed '" % stext % "' API definition")
                 (api ^. serviceFullName)
 
-            lib <- rewrite _optVersions cfg api
+            lib <- hoistEither (rewrite _optVersions cfg api)
 
             dir <- foldTree (failure string . show) createDir writeLTFile
                 (populateTree _optOutput tmpl lib)
@@ -201,9 +204,9 @@ main = do
 
         title ("Successfully processed " % int % " models.") i
 
-requiredObject :: MonadIO m => Path -> Compiler m Object
-requiredObject = readBSFile >=> decodeObject
+requiredObject :: MonadIO m => Path -> EitherT Error m Object
+requiredObject = readBSFile >=> hoistEither . decodeObject
 
-optionalObject :: MonadIO m => Path -> Compiler m Object
+optionalObject :: MonadIO m => Path -> EitherT Error m Object
 optionalObject f = readBSFile f `catchError` const (return "{}")
-    >>= decodeObject
+    >>= hoistEither . decodeObject

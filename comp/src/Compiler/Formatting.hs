@@ -24,7 +24,6 @@ import           Control.Monad.Except
 import qualified Data.CaseInsensitive   as CI
 import           Data.CaseInsensitive   (CI)
 import qualified Data.HashMap.Strict    as Map
-import           Data.Monoid
 import           Data.Text              (Text)
 import qualified Data.Text              as Text
 import qualified Data.Text.Lazy.Builder as Build
@@ -38,8 +37,8 @@ scomma = later (Build.fromText . Text.intercalate ",")
 soriginal :: Format a (CI Text -> a)
 soriginal = later (Build.fromText . CI.original)
 
-fid :: Format a (Id -> a)
-fid = later (\i -> Build.fromText $ i ^. keyOriginal <> "/" <> i ^. keyActual)
+iprimary :: Format a (Id -> a)
+iprimary = later (Build.fromText . view primaryId)
 
 path :: Format a (Path -> a)
 path = later (Build.fromText . toTextIgnore)
@@ -47,8 +46,8 @@ path = later (Build.fromText . toTextIgnore)
 partial :: Show b => Format a ((Id, Map.HashMap Id b) -> a)
 partial = later (Build.fromString . show . Map.toList . prefix)
   where
-    prefix (view keyOriginal -> Text.take 3 -> p, m) =
-        Map.filterWithKey (const . Text.isPrefixOf p . view keyOriginal) m
+    prefix (view primaryId -> Text.take 3 -> p, m) =
+        Map.filterWithKey (const . Text.isPrefixOf p . view primaryId) m
 
 failure :: MonadError e m => Format LazyText (a -> e) -> a -> m b
 failure m = throwError . format m

@@ -15,7 +15,6 @@
 module Compiler.JSON where
 
 import           Compiler.Types
-import           Control.Error
 import           Data.Bifunctor
 import           Data.ByteString      (ByteString)
 import qualified Data.ByteString.Lazy as LBS
@@ -25,13 +24,11 @@ import           Data.Jason.Types
 import           Data.List
 import qualified Data.Text.Lazy       as LText
 
-decodeObject :: Monad m => ByteString -> Compiler m Object
-decodeObject = either (Control.Error.left . LText.pack) return
-    . eitherDecode'
-    . LBS.fromStrict
+decodeObject :: ByteString -> Either Error Object
+decodeObject = first LText.pack . eitherDecode' . LBS.fromStrict
 
-parseObject :: (Monad m, FromJSON a) => Object -> Compiler m a
-parseObject = hoistEither . first LText.pack . parseEither parseJSON . Object
+parseObject :: FromJSON a => Object -> Either Error a
+parseObject = first LText.pack . parseEither parseJSON . Object
 
 mergeObjects :: [Object] -> Object
 mergeObjects = foldl' go mempty

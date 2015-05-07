@@ -37,19 +37,18 @@ type Prefixes = Map (CI Text) (Set (CI Text))
 
 -- FIXME: some assurances about stability of prefixes.
 
-prefixes :: Monad m => Map Id (Shape f) -> Compiler m (Map Id Text)
+prefixes :: Map Id (Shape f) -> Either Error (Map Id Text)
 prefixes = (`evalStateT` mempty) . kvTraverseMaybe go
   where
-    go (view keyOriginal -> n) = \case
-        Struct _ s  -> Just <$> uniq n (heuristics n) (keys (^. keyCI) (_members s))
+    go (view primaryId -> n) = \case
+        Struct _ s  -> Just <$> uniq n (heuristics n) (keys (^. ciId) (_members s))
         Enum   _ vs -> Just <$> uniq n (mempty : heuristics n) (keys CI.mk vs)
         _           -> return Nothing
 
-    uniq :: Monad m
-         => Text
+    uniq :: Text
          -> [CI Text]
          -> Set (CI Text)
-         -> StateT Prefixes (Compiler m) Text
+         -> StateT Prefixes (Either Error) Text
 
     uniq n [] xs = do
         s <- get

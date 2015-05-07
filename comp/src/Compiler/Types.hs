@@ -64,8 +64,8 @@ import           GHC.TypeLits
 import           Numeric.Natural
 import           Text.EDE                  (Template)
 
-type Compiler = EitherT LazyText
 type LazyText = LText.Text
+type Error    = LText.Text
 type Set      = Set.HashSet
 type Path     = Path.FilePath
 
@@ -89,9 +89,9 @@ serviceFile = to (flip Path.append "service-2.json"    . _modelPath)
 waitersFile = to (flip Path.append "waiters-2.json"    . _modelPath)
 pagersFile  = to (flip Path.append "paginators-1.json" . _modelPath)
 
-loadModel :: Monad m => Path -> [Path] -> Compiler m Model
+loadModel :: Path -> [Path] -> Either Error Model
 loadModel p xs = uncurry (Model n) <$>
-    tryHead (format ("No valid model versions found in " % string) (show xs)) vs
+    headErr (format ("No valid model versions found in " % shown) xs) vs
   where
     vs = sortOn Down (mapMaybe parse xs)
     n  = toTextIgnore (Path.filename p)
@@ -375,7 +375,7 @@ makeLenses ''Operation
 
 requestName, responseName :: Getter (Operation f a) Id
 requestName  = to _opName
-responseName = to ((`keyAppend` "Response") . _opName)
+responseName = to ((`appendId` "Response") . _opName)
 
 instance FromJSON (Operation Maybe Ref) where
     parseJSON = withObject "operation" $ \o -> Operation
@@ -481,7 +481,7 @@ instance ToJSON Fun where
         ]
 
 data Data f
-    = Product Info (Struct f)      LazyText [Instance] Fun (Map Text Fun)
+    = Product Info (Struct f)      LazyText [Instance] Fun [Fun]
     | Sum     Info (Map Text Text) LazyText [Instance]
 
 makePrisms ''Data

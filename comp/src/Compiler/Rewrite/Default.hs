@@ -17,19 +17,17 @@ module Compiler.Rewrite.Default
     ( setDefaults
     ) where
 
+import           Compiler.Formatting
 import           Compiler.Types
 import           Control.Error
 import           Control.Lens
 import qualified Data.HashMap.Strict as Map
-import           Data.Monoid
-import qualified Data.Text.Lazy      as LText
 
 -- | Set defaults for variousOf fields post-parsing as determined by the
 -- protocol and service type.
-setDefaults :: Monad m
-            => Service Maybe Shape Shape
-            -> Compiler m (Service Identity Shape Shape)
-setDefaults svc@Service{..} = hoistEither $ do
+setDefaults :: Service Maybe Shape Shape
+            -> Either Error (Service Identity Shape Shape)
+setDefaults svc@Service{..} = do
     os <- traverse operation' _operations
     return $! svc
         { _metadata'  = meta' _metadata'
@@ -43,10 +41,10 @@ setDefaults svc@Service{..} = hoistEither $ do
         }
 
     operation' o@Operation{..} = do
-        let may m f = Identity . shape' <$>
-                          note (m <> LText.fromStrict (_opName ^. keyOriginal)) f
-        rq <- may "Vacant operation input: "  _opInput
-        rs <- may "Vacant operation output: " _opOutput
+        let e = format ("Vacant operation input/output: " % iprimary) _opName
+            f = fmap (Identity . shape') . note e
+        rq <- f _opInput
+        rs <- f _opOutput
         return $! o
             { _opDocumentation = _opDocumentation .! "FIXME: Undocumented operation."
             , _opHTTP          = http' _opHTTP
@@ -68,8 +66,8 @@ setDefaults svc@Service{..} = hoistEither $ do
     ref' r@Ref{..} = r
         { _refDocumentation = _refDocumentation .! "FIXME: Undocumented reference."
         , _refLocation      = _refLocation      .! Querystring -- FIXME: This is based upon the protocol
-        , _refLocationName  = _refLocationName  .! _refShape ^. keyOriginal -- FIXME: This is based up on the protocol and shape type (list == member etc.)
-        , _refQueryName     = _refQueryName     .! _refShape ^. keyOriginal
+        , _refLocationName  = _refLocationName  .! _refShape ^. primaryId -- FIXME: This is based up on the protocol and shape type (list == member etc.)
+        , _refQueryName     = _refQueryName     .! _refShape ^. primaryId
         , _refXMLNamespace  = _refXMLNamespace  .! XML' "" ""
         }
 

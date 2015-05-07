@@ -46,11 +46,10 @@ import           Debug.Trace
 -- prefix
 -- type
 
-rewrite :: Monad m
-        => Versions
+rewrite :: Versions
         -> Config
         -> Service Maybe Ref Shape
-        -> Compiler m Library
+        -> Either Error Library
 rewrite v c s' = do
     s <- setDefaults (substitute (override c s'))
         >>= annotateTypes c
@@ -61,7 +60,7 @@ rewrite v c s' = do
                : ns <> "Types"
                : ns <> "Waiters"
                : map (mappend ns . textToNS)
-                     (s ^.. operations . ifolded . asIndex . keyActual)
+                     (s ^.. operations . ifolded . asIndex . ctorId)
 
     return $! Library v c s ns (sort expose) (sort other)
 

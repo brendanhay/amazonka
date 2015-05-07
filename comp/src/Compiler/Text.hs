@@ -50,12 +50,6 @@ stripPrefix p t = Text.strip . fromMaybe t $ p `Text.stripPrefix` t
 stripSuffix :: Text -> Text -> Text
 stripSuffix p t = Text.strip . fromMaybe t $ p `Text.stripSuffix` t
 
-renameLens :: Text -> Text
-renameLens = Text.cons '_' . renameCtor
-
-renameCtor :: Text -> Text
-renameCtor = renameReserved . lowerHead
-
 renameBranch :: Text -> (Text, Text)
 renameBranch = first (upperAcronym . foldMap g . Text.split f) . join (,)
   where

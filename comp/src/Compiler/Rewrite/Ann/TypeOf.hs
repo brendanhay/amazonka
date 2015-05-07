@@ -17,29 +17,12 @@
 
 module Compiler.Rewrite.Ann.TypeOf where
 
+import           Compiler.Rewrite.Ann.Syntax
 import           Compiler.Types
-import           Control.Arrow                ((&&&))
-import           Control.Error
 import           Control.Lens                 hiding (enum, (??))
-import           Control.Monad.Except
-import           Control.Monad.State
-import           Data.Bifunctor
 import qualified Data.Foldable                as Fold
-import qualified Data.HashMap.Strict          as Map
-import qualified Data.HashSet                 as Set
-import           Data.List                    (sort)
-import           Data.Monoid                  hiding (Product, Sum)
-import           Data.String
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
-import qualified Data.Text.Lazy               as LText
-import qualified Data.Text.Lazy.Builder       as Build
-import           Data.Text.Manipulate
-import           HIndent
-import qualified Language.Haskell.Exts        as Exts
-import           Language.Haskell.Exts.Build  (app, lamE, op, paren, sfun, sym)
-import           Language.Haskell.Exts.Pretty
-import           Language.Haskell.Exts.SrcLoc (noLoc)
 import           Language.Haskell.Exts.Syntax hiding (Int, List, Lit)
 
 data TType
@@ -56,7 +39,7 @@ data TType
 
 internal :: TType -> Type
 internal = \case
-    TType        x       -> itycon x
+    TType        x       -> x ^. conId
     TLit         x       -> literal True x
     TNatural             -> tycon "Nat"
     TMaybe       x       -> TyApp (tycon "Maybe") (internal x)
@@ -77,7 +60,7 @@ internal = \case
 
 external :: TType -> Type
 external = \case
-    TType        x   -> itycon x
+    TType        x   -> x ^. conId
     TLit         x   -> literal False x
     TNatural         -> tycon "Natural"
     TMaybe       x   -> TyApp (tycon "Maybe") (external x)
@@ -103,16 +86,16 @@ singleton :: Text -> Type
 singleton = tycon -- . ("\"" <>) . (<> "\"")
 
 mapping :: TType -> (Exp -> Exp)
-mapping = compose . iso
+mapping = compose . iso'
   where
-    compose xs e = Fold.foldl' (\y -> InfixApp y (Exts.op (sym "."))) e xs
+    compose xs e = Fold.foldl' (\y -> InfixApp y (symop ".")) e xs
 
-    iso = \case
+    iso' = \case
         TLit  (Time {}) -> [var "_Time"]
         TNatural        -> [var "_Nat"]
-        TMaybe     x    -> var "mapping"    : iso x
-        TFlatten   x    -> var "_Flatten"   : iso x
-        TSensitive x    -> var "_Sensitive" : iso x
+        TMaybe     x    -> var "mapping"    : iso' x
+        TFlatten   x    -> var "_Flatten"   : iso' x
+        TSensitive x    -> var "_Sensitive" : iso' x
         TList      {}   -> [var "_List"]  -- Coercible.
         TList1     {}   -> [var "_List1"] -- Coercible.
         TMap       {}   -> [var "_Map"]   -- Coercible.
@@ -149,21 +132,3 @@ optional False t =
         TList1 {} -> t
         TMap   {} -> t
         _         -> TMaybe t
-
-itycon :: Id -> Type
-itycon = TyCon . UnQual . iident
-
-tycon :: Text -> Type
-tycon = TyCon . unqual
-
-var :: Text -> Exp
-var = Exts.var . ident
-
-unqual :: Text -> QName
-unqual = UnQual . ident
-
-iident :: Id -> Name
-iident = ident . view keyActual
-
-ident :: Text -> Name
-ident = Ident . Text.unpack

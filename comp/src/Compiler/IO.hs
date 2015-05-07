@@ -28,34 +28,34 @@ import           Filesystem.Path.CurrentOS
 import           System.IO
 import qualified Text.EDE                  as EDE
 
-isFile :: MonadIO m => Path -> Compiler m Bool
+isFile :: MonadIO m => Path -> EitherT Error m Bool
 isFile = io . FS.isFile
 
-listDir :: MonadIO m => Path -> Compiler m [Path]
+listDir :: MonadIO m => Path -> EitherT Error m [Path]
 listDir = io . FS.listDirectory
 
-readBSFile :: MonadIO m => Path -> Compiler m ByteString
+readBSFile :: MonadIO m => Path -> EitherT Error m ByteString
 readBSFile f = do
     p <- isFile f
     if p
         then say ("Reading "  % path) f >> io (FS.readFile f)
         else failure ("Missing " % path) f
 
-writeLTFile :: MonadIO m => Path -> LazyText -> Compiler m ()
+writeLTFile :: MonadIO m => Path -> LazyText -> EitherT Error m ()
 writeLTFile f t = do
     say ("Writing " % path) f
     io . FS.withFile f FS.WriteMode $ \h -> do
         hSetEncoding  h utf8
         LText.hPutStr h t
 
-createDir :: MonadIO m => Path -> Compiler m ()
+createDir :: MonadIO m => Path -> EitherT Error m ()
 createDir d = do
     p <- io (FS.isDirectory d)
     unless p $ do
         say ("Creating " % path) d
         io (FS.createTree d)
 
-copyDir :: MonadIO m => Path -> Path -> Compiler m ()
+copyDir :: MonadIO m => Path -> Path -> EitherT Error m ()
 copyDir src dst = io (FS.listDirectory src >>= mapM_ copy)
   where
     copy f = do
@@ -63,7 +63,7 @@ copyDir src dst = io (FS.listDirectory src >>= mapM_ copy)
         fprint (" -> Copying " % path % " to " % path % "\n") f (directory p)
         FS.copyFile f p
 
-readTemplate :: MonadIO m => Path -> Path -> Compiler m EDE.Template
+readTemplate :: MonadIO m => Path -> Path -> EitherT Error m EDE.Template
 readTemplate d f = do
     let file = d </> f
     readBSFile file
@@ -75,17 +75,17 @@ readTemplate d f = do
         file | Text.null k = fromText k
              | otherwise   = p </> fromText k
 
-title :: MonadIO m => Format (Compiler m ()) a -> a
+title :: MonadIO m => Format (EitherT Error m ()) a -> a
 title m = runFormat m (io . LText.putStrLn . toLazyText)
 
-say :: MonadIO m => Format (Compiler m ()) a -> a
+say :: MonadIO m => Format (EitherT Error m ()) a -> a
 say = title . (" -> " %)
 
-done :: MonadIO m => Compiler m ()
+done :: MonadIO m => EitherT Error m ()
 done = title ""
 
-run :: Compiler IO a -> IO a
+run :: EitherT Error IO a -> IO a
 run = runScript . fmapLT LText.unpack
 
-io :: MonadIO m => IO a -> Compiler m a
+io :: MonadIO m => IO a -> EitherT Error m a
 io = fmapLT (LText.pack . show) . syncIO

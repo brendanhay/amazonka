@@ -262,7 +262,7 @@ datatype ps ts cs is n = \case
         fs <- traverse (uncurry field) (zip [1..] $ Map.toList _members)
         Product i s <$> decl fs <*> pure is <*> ctor fs <*> lenses fs
       where
-        decl fs = pretty True$ dataDecl (n ^. typeId . to ident)
+        decl fs = pretty True $ dataDecl (n ^. typeId . to ident)
             [ QualConDecl noLoc [] [] (RecDecl (n ^. typeId . to ident) (map fieldAccessor fs))
             ] (derivings ds)
 

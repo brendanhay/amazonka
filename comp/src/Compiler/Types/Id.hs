@@ -69,7 +69,7 @@ primaryId = ciId . to CI.original
 
 -- FIXME: vPNStaticRoute :: VPNStaticRoute smart ctor name, note vPN
 ctorId :: Getter Id Text
-ctorId = typeId . to lowerHead
+ctorId = typeId . to (lowerHead . lowerFirstAcronym)
 
 typeId :: Getter Id Text
 typeId = representation . to renameReserved
@@ -84,4 +84,4 @@ accessor :: Text -> Getter Id Text
 accessor p = representation . to (mappend (Text.toLower p) . upperHead)
 
 appendId :: Id -> Text -> Id
-appendId i t = i & representation <>~ (format t)
+appendId i t = i & representation <>~ format t

@@ -247,7 +247,7 @@ datatype ps ts cs is n = \case
               | otherwise   = mappend (upperHead p)
 
         decl :: Either Error LazyText
-        decl = pretty $
+        decl = pretty True$
             dataDecl (n ^. typeId . to ident) (map branch $ Map.keys bs) (derivings ds)
 
         branch :: Text -> QualConDecl
@@ -262,11 +262,11 @@ datatype ps ts cs is n = \case
         fs <- traverse (uncurry field) (zip [1..] $ Map.toList _members)
         Product i s <$> decl fs <*> pure is <*> ctor fs <*> lenses fs
       where
-        decl fs = pretty $ dataDecl (n ^. typeId . to ident)
+        decl fs = pretty True$ dataDecl (n ^. typeId . to ident)
             [ QualConDecl noLoc [] [] (RecDecl (n ^. typeId . to ident) (map fieldAccessor fs))
             ] (derivings ds)
 
-        ctor fs = Fun (n ^. ctorId) h <$> pretty sig <*> pretty body
+        ctor fs = Fun (n ^. ctorId) h <$> pretty False sig <*> pretty True body
           where
             -- FIXME: this should output haddock single quotes to ensure
             -- the type is linked properly.
@@ -294,8 +294,8 @@ datatype ps ts cs is n = \case
             let o = Ident ("p" ++ show i)
                 f = fromMaybe (Var (UnQual o)) (def c)
 
-            ls <- pretty $ lenss t
-            lf <- pretty $ lensf t
+            ls <- pretty False $ lenss t
+            lf <- pretty False $ lensf t
 
             return $! Field
                 { fieldParam    = o
@@ -330,8 +330,10 @@ datatype ps ts cs is n = \case
               where
                 s = TyApp (TyApp (tycon "Lens'") (n ^. typeId . to tycon)) (external t)
 
-pretty :: Decl -> Either Error LazyText
-pretty d = bimap e Build.toLazyText $ reformat johanTibell Nothing p
+pretty :: Bool -> Decl -> Either Error LazyText
+pretty fmt d
+    | fmt       = bimap e Build.toLazyText $ reformat johanTibell Nothing p
+    | otherwise = return p
   where
     e = flip mappend (", when formatting datatype: " <> p) . LText.pack
 

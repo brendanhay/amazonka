@@ -273,7 +273,7 @@ datatype ps ts cs is n = \case
             h = fromString $ Text.unpack ("'" <> n ^. typeId <> "' smart constructor.")
 
             sig  = typeSig c (n ^. typeId . to tycon) ty
-            body = sfun noLoc c [] (UnGuardedRhs (RecConstr (n ^. typeId . to unqual) us)) (BDecls [])
+            body = sfun noLoc c ps (UnGuardedRhs (RecConstr (n ^. typeId . to unqual) us)) (BDecls [])
 
             c = n ^. ctorId . to ident
 

@@ -13,7 +13,7 @@
 {% endfor %}
 {{ shape.value.declaration }}
 
-{{ shape.value.constructor.comment }}
+-- | '{{ shape.key }}' smart constructor.
 {{ shape.value.constructor.signature }}
 {{ shape.value.constructor.declaration }}
 {% for lens in shape.value.lenses %}

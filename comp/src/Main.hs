@@ -37,8 +37,6 @@ import qualified Filesystem                as FS
 import           Filesystem.Path.CurrentOS
 import           Options.Applicative
 
--- FIXME: remove need for soo much usage of hoistEither
-
 data Opt = Opt
     { _optOutput    :: Path
     , _optModels    :: [Path]

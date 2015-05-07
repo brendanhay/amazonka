@@ -39,7 +39,7 @@ data TType
 
 internal :: TType -> Type
 internal = \case
-    TType        x       -> x ^. conId
+    TType        x       -> tycon (x ^. typeId)
     TLit         x       -> literal True x
     TNatural             -> tycon "Nat"
     TMaybe       x       -> TyApp (tycon "Maybe") (internal x)
@@ -60,7 +60,7 @@ internal = \case
 
 external :: TType -> Type
 external = \case
-    TType        x   -> x ^. conId
+    TType        x   -> tycon (x ^. typeId)
     TLit         x   -> literal False x
     TNatural         -> tycon "Natural"
     TMaybe       x   -> TyApp (tycon "Maybe") (external x)
@@ -93,7 +93,7 @@ mapping = compose . iso'
     iso' = \case
         TLit  (Time {}) -> [var "_Time"]
         TNatural        -> [var "_Nat"]
-        TMaybe     x    -> var "mapping"    : iso' x
+        TMaybe     x    -> case iso' x of; [] -> []; xs -> var "mapping" : xs
         TFlatten   x    -> var "_Flatten"   : iso' x
         TSensitive x    -> var "_Sensitive" : iso' x
         TList      {}   -> [var "_List"]  -- Coercible.

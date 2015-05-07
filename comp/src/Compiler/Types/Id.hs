@@ -15,6 +15,7 @@ module Compiler.Types.Id
     , textToId
     , ciId
     , primaryId
+    , typeId
     , ctorId
     , fieldId
     , lensId
@@ -31,8 +32,6 @@ import           Data.Jason           hiding (ToJSON (..))
 import           Data.Text            (Text)
 import qualified Data.Text            as Text
 import           Data.Text.Manipulate
-
--- FIXME: vPNStaticRoute :: VPNStaticRoute smart ctor name, note vPN
 
 -- | A type where the actual identifier is immutable,
 -- but the usable representation can be appended/modified.
@@ -68,8 +67,12 @@ ciId = to (\(Id x _) -> x)
 primaryId :: Getter Id Text
 primaryId = ciId . to CI.original
 
+-- FIXME: vPNStaticRoute :: VPNStaticRoute smart ctor name, note vPN
 ctorId :: Getter Id Text
-ctorId = representation . to renameReserved
+ctorId = typeId . to lowerHead
+
+typeId :: Getter Id Text
+typeId = representation . to renameReserved
 
 fieldId :: Text -> Getter Id Text
 fieldId p = accessor p . to (Text.cons '_')

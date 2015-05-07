@@ -27,7 +27,7 @@ import           Compiler.Rewrite.Prefix
 import           Compiler.Types
 import           Control.Arrow                ((&&&))
 import           Control.Error
-import           Control.Lens                 hiding (enum, (??))
+import           Control.Lens                 hiding (enum, mapping, (??))
 import           Control.Monad.Except
 import           Control.Monad.State
 import           Data.Bifunctor
@@ -42,7 +42,7 @@ import qualified Data.Text.Lazy               as LText
 import qualified Data.Text.Lazy.Builder       as Build
 import           Data.Text.Manipulate
 import           HIndent
-import           Language.Haskell.Exts.Build  (sfun)
+import           Language.Haskell.Exts.Build  (app, lamE, paren, sfun)
 import           Language.Haskell.Exts.Pretty
 import           Language.Haskell.Exts.SrcLoc (noLoc)
 import           Language.Haskell.Exts.Syntax hiding (Int, List, Lit)
@@ -135,7 +135,7 @@ solve cfg ss = execState (Map.traverseWithKey go ss) initial
     save :: Monad m => Id -> a -> StateT (Map Id a) m a
     save k v = modify (Map.insert k v) >> return v
 
-type Solved = StateT (Map Id (Set Constraint)) (Either Error)
+type CS = StateT (Map Id (Set Constraint)) (Either Error)
 
 constraints :: Config
             -> Map Id (Shape Identity)
@@ -145,7 +145,7 @@ constraints cfg ss = evalStateT (Map.traverseWithKey go ss) initial
     initial :: Map Id (Set Constraint)
     initial = replaced _replaceConstraints cfg
 
-    go :: Id -> Shape Identity -> Solved (Set Constraint)
+    go :: Id -> Shape Identity -> CS (Set Constraint)
     go n s = do
         m <- gets (Map.lookup n)
         case m of
@@ -168,7 +168,7 @@ constraints cfg ss = evalStateT (Map.traverseWithKey go ss) initial
                 Time _ -> base <> enum
                 Bool   -> base <> enum
 
-    cplx :: Id -> Struct Identity -> Solved (Set Constraint)
+    cplx :: Id -> Struct Identity -> CS (Set Constraint)
     cplx n s = combine <$> traverse ref (s ^.. references . refShape)
       where
         combine :: [Set Constraint] -> Set Constraint
@@ -176,7 +176,7 @@ constraints cfg ss = evalStateT (Map.traverseWithKey go ss) initial
         combine (x:xs) = Set.intersection (Fold.foldl' Set.intersection x xs) base
         combine _      = base
 
-        ref :: Id -> Solved (Set Constraint)
+        ref :: Id -> CS (Set Constraint)
         ref k = cache >>= maybe miss return
           where
             cache = gets (Map.lookup k)
@@ -248,7 +248,7 @@ datatype ps ts cs is n = \case
 
         decl :: Either Error LazyText
         decl = pretty $
-            dataDecl (n ^. typeId) (map branch $ Map.keys bs) (derivings ds)
+            dataDecl (n ^. typeId . to ident) (map branch $ Map.keys bs) (derivings ds)
 
         branch :: Text -> QualConDecl
         branch k = QualConDecl noLoc [] [] (ConDecl (ident k) [])
@@ -262,19 +262,18 @@ datatype ps ts cs is n = \case
         fs <- traverse (uncurry field) (zip [1..] $ Map.toList _members)
         Product i s <$> decl fs <*> pure is <*> ctor fs <*> lenses fs
       where
-        -- decl :: Monad m => Either Error LazyText
-        -- decl = do
-
-        decl fs = pretty $ dataDecl (n ^. typeId)
-            [ QualConDecl noLoc [] [] (RecDecl (n ^. typeId) (map fieldAccessor fs))
+        decl fs = pretty $ dataDecl (n ^. typeId . to ident)
+            [ QualConDecl noLoc [] [] (RecDecl (n ^. typeId . to ident) (map fieldAccessor fs))
             ] (derivings ds)
 
         ctor fs = Fun (n ^. ctorId) h <$> pretty sig <*> pretty body
           where
-            h = fromString $ Text.unpack ("'" <> n ^. ctorId <> "' smart constructor.")
+            -- FIXME: this should output haddock single quotes to ensure
+            -- the type is linked properly.
+            h = fromString $ Text.unpack ("'" <> n ^. typeId <> "' smart constructor.")
 
-            sig  = typeSig c (n ^. conId) ty
-            body = sfun noLoc c [] (UnGuardedRhs (RecConstr (n ^. qtypeId) us)) (BDecls [])
+            sig  = typeSig c (n ^. typeId . to tycon) ty
+            body = sfun noLoc c [] (UnGuardedRhs (RecConstr (n ^. typeId . to unqual) us)) (BDecls [])
 
             c = n ^. ctorId . to ident
 
@@ -294,19 +293,21 @@ datatype ps ts cs is n = \case
 
             let o = Ident ("p" ++ show i)
                 f = fromMaybe (Var (UnQual o)) (def c)
-                a :: Text
-                a = k ^. fieldId p
+
+            ls <- pretty $ lenss t
+            lf <- pretty $ lensf t
 
             return $! Field
                 { fieldParam    = o
                 , fieldType     = external t
                 , fieldAccessor = ([ident a], internal t)
-                , fieldLens     = Fun (k ^. lensId p) (v ^. refDocumentation . _Identity) "" ""
+                , fieldLens     = Fun (k ^. lensId p) (v ^. refDocumentation . _Identity) ls lf
                 , fieldUpdate   = FieldUpdate (unqual a) f
                 , fieldReq      = req
                 }
           where
             r = v ^. refShape
+            a = k ^. fieldId p
 
             req :: Bool
             req = Set.member k _required
@@ -316,6 +317,18 @@ datatype ps ts cs is n = \case
                 | not req              = Just (var "Nothing")
                 | Set.member CMonoid c = Just (var "mempty")
                 | otherwise            = Nothing
+
+            lensf t = sfun noLoc (k ^. lensId p . to ident) [] (UnGuardedRhs sett) (BDecls [])
+              where
+                sett = mapping t $
+                    app (app (var "lens") (var a))
+                        (paren (lamE noLoc [pvar "s", pvar "a"]
+                            (RecUpdate (var "s") [FieldUpdate (unqual a) (var "a")])))
+
+           -- lensf
+            lenss t = typeSig (k ^. lensId p . to ident) s []
+              where
+                s = TyApp (TyApp (tycon "Lens'") (n ^. typeId . to tycon)) (external t)
 
 pretty :: Decl -> Either Error LazyText
 pretty d = bimap e Build.toLazyText $ reformat johanTibell Nothing p

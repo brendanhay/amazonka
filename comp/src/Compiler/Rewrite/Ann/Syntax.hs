@@ -18,7 +18,6 @@
 module Compiler.Rewrite.Ann.Syntax where
 
 import           Compiler.Types
-import           Control.Lens                 hiding (enum, (??))
 import qualified Data.Foldable                as Fold
 import qualified Data.HashSet                 as Set
 import           Data.List                    (sort)
@@ -44,17 +43,17 @@ derivings = map ((,[]) . UnQual . Ident . drop 1 . show) . sort . Set.toList
 -- itycon :: Id -> Type
 -- itycon = TyCon . UnQual . iident
 
-conId :: Getter Id Type
-conId = qtypeId . to TyCon
+-- conId :: Getter Id Type
+-- conId = qtypeId . to TyCon
 
-qtypeId :: Getter Id QName
-qtypeId = ctorId . to unqual
-
-typeId :: Getter Id Name
-typeId = ctorId . to ident
+-- qtypeId :: Getter Id QName
+-- qtypeId = ctorId . to unqual
 
 tycon :: Text -> Type
 tycon = TyCon . unqual
+
+pvar :: Text -> Pat
+pvar = Exts.pvar . ident
 
 var :: Text -> Exp
 var = Exts.var . ident

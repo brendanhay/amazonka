@@ -1,4 +1,6 @@
+{% if shape.value.comment %}
 {{ shape.value.comment }}
+{% endif %}
 --
 -- /See:/ '{{ shape.value.constructor.name }}' smart constructor.
 {% for lens in shape.value.lenses %}

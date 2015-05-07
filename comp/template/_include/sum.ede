@@ -1,4 +1,6 @@
+{% if shape.value.comment %}
 {{ shape.value.comment }}
+{% endif %}
 {{ shape.value.declaration }}
 
 instance FromText {{ shape.key }} where

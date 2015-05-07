@@ -20,7 +20,6 @@ import           Network.AWS.Signing
 import qualified GHC.Exts
 
 {% for shape in shapes %}
-{{ shape.value.declaration }}
   {% case shape.value.type %}
   {% when "product" %}
 
@@ -29,7 +28,4 @@ import qualified GHC.Exts
 
     {% include "_include/sum.ede" %}
   {% endcase %}
-  {% if !shape.last %}
-
-  {% endif %}
 {% endfor %}

@@ -16,27 +16,11 @@ module Compiler.Rewrite where
 import           Compiler.Rewrite.Ann
 import           Compiler.Rewrite.Default
 import           Compiler.Rewrite.Override
-import           Compiler.Rewrite.Prefix
 import           Compiler.Rewrite.Subst
 import           Compiler.Types
-import           Control.Error
 import           Control.Lens
-import           Control.Monad
-import           Control.Monad.State
-import           Data.Functor.Identity
-import qualified Data.HashMap.Strict       as Map
-import qualified Data.HashSet              as Set
 import           Data.List                 (sort)
 import           Data.Monoid
-import           Data.Text                 (Text)
-import qualified Data.Text.Lazy            as LText
-
-import           Debug.Trace
-
--- FIXME:
--- Constraint solving
--- Add a rename step which renames the acronyms in enums/structs
--- to the correct casing.
 
 -- Order:
 -- substitute
@@ -63,5 +47,3 @@ rewrite v c s' = do
                      (s ^.. operations . ifolded . asIndex . ctorId)
 
     return $! Library v c s ns (sort expose) (sort other)
-
--- need to add operations to prefixes

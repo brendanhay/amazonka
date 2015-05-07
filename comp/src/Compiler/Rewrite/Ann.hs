@@ -5,6 +5,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TupleSections     #-}
+{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Compiler.Rewrite.Ann
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -42,9 +43,8 @@ import qualified Data.Text.Lazy               as LText
 import qualified Data.Text.Lazy.Builder       as Build
 import           Data.Text.Manipulate
 import           HIndent
-import           Language.Haskell.Exts.Build  (app, lamE, paren, sfun)
+-- import           Language.Haskell.Exts.Build  (app, lamE, paren, sfun)
 import           Language.Haskell.Exts.Pretty
-import           Language.Haskell.Exts.SrcLoc (noLoc)
 import           Language.Haskell.Exts.Syntax hiding (Int, List, Lit)
 
 -- FIXME: Should empty responses be a shared type, and
@@ -74,23 +74,7 @@ annotateTypes cfg svc@Service{..} = do
         , (x ^. responseName, x ^. opOutput . _Identity)
         ]
 
-instances :: Protocol -> [Instance]
-instances = \case
-    JSON     -> [FromJSON, ToJSON]
-    RestJSON -> [FromJSON, ToJSON]
-    XML      -> [FromXML,  ToXML]
-    RestXML  -> [FromXML,  ToXML]
-    Query    -> [FromXML,  ToQuery]
-    EC2      -> [FromXML,  ToQuery]
-
-data Field = Field
-    { fieldParam    :: Name
-    , fieldType     :: Type
-    , fieldAccessor :: ([Name], Type)
-    , fieldLens     :: Fun
-    , fieldUpdate   :: FieldUpdate
-    , fieldReq      :: !Bool
-    }
+type Solve = State (Map Id TType)
 
 solve :: Config -> Map Id (Shape Identity) -> Map Id TType
 solve cfg ss = execState (Map.traverseWithKey go ss) initial
@@ -98,7 +82,7 @@ solve cfg ss = execState (Map.traverseWithKey go ss) initial
     initial :: Map Id TType
     initial = replaced (TType . _replaceName) cfg
 
-    go :: Id -> Shape Identity -> State (Map Id TType) TType
+    go :: Id -> Shape Identity -> Solve TType
     go n = save n <=< \case
         Struct {}  -> pure (TType n)
         Enum   {}  -> pure (TType n)
@@ -122,7 +106,7 @@ solve cfg ss = execState (Map.traverseWithKey go ss) initial
                 Long   -> natural i (TLit l)
                 _      -> TLit l
 
-    memo :: Id -> State (Map Id TType) TType
+    memo :: Id -> Solve TType
     memo k = do
         m <- gets (Map.lookup k)
         case m of
@@ -132,7 +116,7 @@ solve cfg ss = execState (Map.traverseWithKey go ss) initial
                     Just x  -> go k x
                     Nothing -> return (TType k)
 
-    save :: Monad m => Id -> a -> StateT (Map Id a) m a
+    save :: Id -> TType -> Solve TType
     save k v = modify (Map.insert k v) >> return v
 
 type CS = StateT (Map Id (Set Constraint)) (Either Error)
@@ -196,8 +180,17 @@ constraints cfg ss = evalStateT (Map.traverseWithKey go ss) initial
     enum = [CEnum]
     base = [CEq, COrd, CRead, CShow]
 
-    save :: (Monad m, Monoid a) => Id -> a -> StateT (Map Id a) m a
+    save :: Id -> Set Constraint -> CS (Set Constraint)
     save k x = modify (Map.insertWith (<>) k x) >> return x
+
+data Field = Field
+    { fieldParam    :: Name
+    , fieldType     :: Type
+    , fieldAccessor :: ([Name], Type)
+    , fieldLens     :: Fun
+    , fieldUpdate   :: FieldUpdate
+    , fieldReq      :: !Bool
+    }
 
 datatype :: Map Id Text
          -> Map Id TType
@@ -207,8 +200,8 @@ datatype :: Map Id Text
          -> Shape Identity
          -> Either Error (Maybe (Data Identity))
 datatype ps ts cs is n = \case
-    Enum   i vs -> satisfy (sum' i vs)
-    Struct i s  -> satisfy (prod i s)
+    Enum   i vs -> satisfy (enum   i vs)
+    Struct i s  -> satisfy (struct i s)
     _           -> return Nothing
   where
     satisfy f = Just <$> ((,) <$> prefix <*> fulfill n >>= uncurry f)
@@ -233,12 +226,14 @@ datatype ps ts cs is n = \case
                 ": "                      % partial)
                n k (k, ts)
 
-    sum' :: Info
+    name = n ^. typeId
+
+    enum :: Info
          -> Map Text Text
          -> Text
          -> Set Constraint
          -> Either Error (Data Identity)
-    sum' i vs p ds = Sum i bs <$> decl <*> pure is
+    enum i vs p ds = Sum i bs <$> decl <*> pure is
       where
         bs :: Map Text Text
         bs = vs & kvTraversal %~ first (f . upperHead)
@@ -247,88 +242,61 @@ datatype ps ts cs is n = \case
               | otherwise   = mappend (upperHead p)
 
         decl :: Either Error LazyText
-        decl = pretty True$
-            dataDecl (n ^. typeId . to ident) (map branch $ Map.keys bs) (derivings ds)
+        decl = pretty True $ dataDecl name (map conDecl $ Map.keys bs) ds
 
-        branch :: Text -> QualConDecl
-        branch k = QualConDecl noLoc [] [] (ConDecl (ident k) [])
-
-    prod :: Info
-         -> Struct Identity
-         -> Text
-         -> Set Constraint
-         -> Either Error (Data Identity)
-    prod i s@Struct'{..} p ds = do
-        fs <- traverse (uncurry field) (zip [1..] $ Map.toList _members)
+    struct :: Info
+           -> Struct Identity
+           -> Text
+           -> Set Constraint
+           -> Either Error (Data Identity)
+    struct i s p ds = do
+        fs <- traverse (uncurry field) (zip [1..] . Map.toList $ s ^. members)
         Product i s <$> decl fs <*> pure is <*> ctor fs <*> lenses fs
       where
-        decl fs = pretty True $ dataDecl (n ^. typeId . to ident)
-            [ QualConDecl noLoc [] [] (RecDecl (n ^. typeId . to ident) (map fieldAccessor fs))
-            ] (derivings ds)
+        decl fs = pretty True $ dataDecl (n ^. typeId)
+            [ recDecl (n ^. typeId) (map fieldAccessor fs)
+            ] ds
 
-        ctor fs = Fun (n ^. ctorId) h <$> pretty False sig <*> pretty True body
+        ctor fs = Fun c h <$> pretty False sig <*> pretty True body
           where
+            sig  = typeSig c (n ^. typeId . to tycon) (map fieldType rs)
+            body = funDecl c (map fieldParam rs) $
+                RecConstr (n ^. typeId . to unqual) (map fieldUpdate fs)
+
+            c  = n ^. ctorId
+            rs = filter fieldReq fs -- Required fields
+
             -- FIXME: this should output haddock single quotes to ensure
             -- the type is linked properly.
             h = fromString $ Text.unpack ("'" <> n ^. typeId <> "' smart constructor.")
-
-            sig  = typeSig c (n ^. typeId . to tycon) ty
-            body = sfun noLoc c ps (UnGuardedRhs (RecConstr (n ^. typeId . to unqual) us)) (BDecls [])
-
-            c = n ^. ctorId . to ident
-
-            ty = map fieldType rs
-            ps = map fieldParam rs  -- Constructor parameters
-            rs = filter fieldReq fs -- Required fields
-            us = map fieldUpdate fs
 
         lenses = pure . map fieldLens
 
         -- FIXME: Facets of Info for the field need to be layered on top
         -- of the type, such as nonempty, maybe, etc.
         field :: Int -> (Id, Ref Identity) -> Either Error Field
-        field i (k, v) = do
+        field (param -> o) (k, v) = do
+            let r = v ^. refShape
+                a = k ^. fieldId p
+                l = k ^. lensId p
+
+            let req = Set.member k (s ^. required)
+
             c <- fulfill r
             t <- optional req <$> typeOf r
 
-            let o = Ident ("p" ++ show i)
-                f = fromMaybe (Var (UnQual o)) (def c)
-
-            ls <- pretty False $ lenss t
-            lf <- pretty False $ lensf t
+            d <- Fun l (v ^. refDocumentation . _Identity)
+                <$> pretty False (lensSig l (n ^. typeId . to tycon) (external t))
+                <*> pretty False (funDecl l [] (mapping t (lensBody a)))
 
             return $! Field
                 { fieldParam    = o
                 , fieldType     = external t
                 , fieldAccessor = ([ident a], internal t)
-                , fieldLens     = Fun (k ^. lensId p) (v ^. refDocumentation . _Identity) ls lf
-                , fieldUpdate   = FieldUpdate (unqual a) f
+                , fieldLens     = d
+                , fieldUpdate   = update a o req c
                 , fieldReq      = req
                 }
-          where
-            r = v ^. refShape
-            a = k ^. fieldId p
-
-            req :: Bool
-            req = Set.member k _required
-
-            def :: Set Constraint -> Maybe Exp
-            def c
-                | not req              = Just (var "Nothing")
-                | Set.member CMonoid c = Just (var "mempty")
-                | otherwise            = Nothing
-
-            lensf t = sfun noLoc (k ^. lensId p . to ident) [] (UnGuardedRhs sett) (BDecls [])
-              where
-                sett = mapping t $
-                    app (app (var "lens") (var a))
-                        (paren (lamE noLoc [pvar "s", pvar "a"]
-                            (RecUpdate (var "s") [FieldUpdate (unqual a) (var "a")])))
-
-           -- lensf
-            lenss t = typeSig (k ^. lensId p . to ident) s []
-              where
-                s = TyApp (TyApp (tycon "Lens'") (n ^. typeId . to tycon)) (external t)
 
 pretty :: Bool -> Decl -> Either Error LazyText
 pretty fmt d
@@ -357,3 +325,12 @@ replaced f =
     . Map.elems
     . vMapMaybe _replacedBy
     . _typeOverrides
+
+instances :: Protocol -> [Instance]
+instances = \case
+    JSON     -> [FromJSON, ToJSON]
+    RestJSON -> [FromJSON, ToJSON]
+    XML      -> [FromXML,  ToXML]
+    RestXML  -> [FromXML,  ToXML]
+    Query    -> [FromXML,  ToQuery]
+    EC2      -> [FromXML,  ToQuery]

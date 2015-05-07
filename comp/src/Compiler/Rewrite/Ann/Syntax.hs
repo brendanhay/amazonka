@@ -24,30 +24,48 @@ import           Data.List                    (sort)
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
 import qualified Language.Haskell.Exts        as Exts
+import           Language.Haskell.Exts.Build  (app, lamE, paren, sfun)
 import           Language.Haskell.Exts.SrcLoc (noLoc)
 import           Language.Haskell.Exts.Syntax hiding (Int, List, Lit)
 
-typeSig :: Name -> Type -> [Type] -> Decl
-typeSig n t = TypeSig noLoc [n] . Fold.foldr' TyFun t
+typeSig :: Text -> Type -> [Type] -> Decl
+typeSig n t = TypeSig noLoc [ident n] . Fold.foldr' TyFun t
 
-dataDecl :: Name -> [QualConDecl] -> [Deriving] -> Decl
-dataDecl n cs = DataDecl noLoc arity [] n [] cs
+dataDecl :: Text -> [QualConDecl] -> Set Constraint -> Decl
+dataDecl n fs cs = DataDecl noLoc arity [] (ident n) [] fs ds
   where
-    arity = case cs of
+    arity = case fs of
         [QualConDecl _ _ _ (RecDecl _ [_])] -> NewType
         _                                   -> DataType
 
-derivings :: Set Constraint -> [Deriving]
-derivings = map ((,[]) . UnQual . Ident . drop 1 . show) . sort . Set.toList
+    ds = map ((,[]) . UnQual . Ident . drop 1 . show)
+       . sort
+       $ Set.toList cs
 
--- itycon :: Id -> Type
--- itycon = TyCon . UnQual . iident
+funDecl :: Text -> [Name] -> Exp -> Decl
+funDecl n ps f = sfun noLoc (ident n) ps (UnGuardedRhs f) (BDecls [])
 
--- conId :: Getter Id Type
--- conId = qtypeId . to TyCon
+lensSig :: Text -> Type -> Type -> Decl
+lensSig n x y = typeSig n (TyApp (TyApp (tycon "Lens'") x) y) []
 
--- qtypeId :: Getter Id QName
--- qtypeId = ctorId . to unqual
+lensBody :: Text -> Exp
+lensBody n =
+    app (app (var "lens") (var n))
+        (paren (lamE noLoc [pvar "s", pvar "a"]
+               (RecUpdate (var "s") [FieldUpdate (unqual n) (var "a")])))
+
+conDecl :: Text -> QualConDecl
+conDecl n = QualConDecl noLoc [] [] (ConDecl (ident n) [])
+
+recDecl :: Text -> [([Name], Type)] -> QualConDecl
+recDecl n = QualConDecl noLoc [] [] . RecDecl (ident n)
+
+update :: Text -> Name -> Bool -> Set Constraint -> FieldUpdate
+update n p req cs = FieldUpdate (unqual n) f
+  where
+    f | not req               = var "Nothing"
+      | Set.member CMonoid cs = var "mempty"
+      | otherwise             = Var (UnQual p)
 
 tycon :: Text -> Type
 tycon = TyCon . unqual
@@ -58,8 +76,11 @@ pvar = Exts.pvar . ident
 var :: Text -> Exp
 var = Exts.var . ident
 
-symop :: String -> QOp
-symop = Exts.op . Exts.sym
+qop :: String -> QOp
+qop = Exts.op . Exts.sym
+
+param :: Int -> Name
+param = Ident . mappend "p" . show
 
 unqual :: Text -> QName
 unqual = UnQual . ident

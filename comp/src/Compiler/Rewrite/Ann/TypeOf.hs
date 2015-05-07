@@ -88,7 +88,7 @@ singleton = tycon -- . ("\"" <>) . (<> "\"")
 mapping :: TType -> (Exp -> Exp)
 mapping = compose . iso'
   where
-    compose xs e = Fold.foldl' (\y -> InfixApp y (symop ".")) e xs
+    compose xs e = Fold.foldl' (\y -> InfixApp y (qop ".")) e xs
 
     iso' = \case
         TLit  (Time {}) -> [var "_Time"]

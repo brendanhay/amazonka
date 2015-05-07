@@ -29,7 +29,7 @@ import qualified Data.Text              as Text
 import qualified Data.Text.Lazy.Builder as Build
 import           Formatting             hiding (left, right)
 import           Formatting.Internal    (runFormat)
-import           Formatting.Time
+import           Formatting.Time        hiding (fmt)
 
 scomma :: Format a ([Text] -> a)
 scomma = later (Build.fromText . Text.intercalate ",")

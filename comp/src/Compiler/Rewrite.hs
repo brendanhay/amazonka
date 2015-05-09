@@ -1,3 +1,4 @@
+{-# LANGUAGE BangPatterns      #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TupleSections     #-}
@@ -16,16 +17,19 @@ module Compiler.Rewrite where
 
 import           Compiler.Formatting
 import           Compiler.Protocol
-import           Compiler.Rewrite.Ann
+import qualified Data.HashMap.Strict       as Map
+import           Debug.Trace
+--import           Compiler.Rewrite.Ann
 import           Compiler.Rewrite.Override
+import           Compiler.Rewrite.Solve
 import           Compiler.Rewrite.Subst
 import           Compiler.Types
+import           Control.Comonad
+import           Control.Comonad.Cofree
 import           Control.Error
 import           Control.Lens
 import           Data.List                 (sort)
 import           Data.Monoid
-import           Control.Comonad
-import           Control.Comonad.Cofree
 
 -- Order:
 -- substitute
@@ -37,44 +41,52 @@ import           Control.Comonad.Cofree
 
 rewrite :: Versions
         -> Config
-        -> Service Maybe Ref Shape
+        -> Service Maybe (RefF ()) (ShapeF ())
         -> Either Error Library
 rewrite v c s' = do
-    s <- annotateTypes c =<< defaults (substitute $ override c s')
+    s   <- defaults . substitute $ override c s'
+    ss  <- elaborate (s ^. shapes)
 
-    let ns     = NS ["Network", "AWS", s ^. serviceAbbrev]
-        other  = c ^. operationImports ++ c ^. typeImports
-        expose = ns
-               : ns <> "Types"
-               : ns <> "Waiters"
-               : map (mappend ns . textToNS)
-                     (s ^.. operations . ifolded . asIndex . ctorId)
+    let !ss' = solve c ss
 
-    return $! Library v c s ns (sort expose) (sort other)
+--    s <- annotateTypes c =<< defaults (substitute $ override c s')
+    undefined
+    -- let ns     = NS ["Network", "AWS", s ^. serviceAbbrev]
+    --     other  = c ^. operationImports ++ c ^. typeImports
+    --     expose = ns
+    --            : ns <> "Types"
+    --            : ns <> "Waiters"
+    --            : map (mappend ns . textToNS)
+    --                  (s ^.. operations . ifolded . asIndex . ctorId)
 
-annotate :: Map Id (ShapeF Id) -> Either Error (Map Id (Shape ()))
-annotate ss = traverse (fmap cofree . shape) ss
+    -- return $! Library v c s ns (sort expose) (sort other)
+
+elaborate :: Map Id (ShapeF a) -> Either Error [Shape Id]
+elaborate ss = Map.elems <$> Map.traverseWithKey shape ss
   where
-    shape :: ShapeF Id -> Either Error (Mu ShapeF)
-    shape = fmap Mu . \case
-        List   i e   -> List   i <$> ref e
-        Map    i k v -> Map    i <$> ref k <*> ref v
-        Struct i s   -> Struct i <$> traverseOf (members . each) ref s
-        s            -> pure s
-        -- Enum   i vs  -> pure (Enum i vs)
-        -- Lit    i l   -> pure (Lit  i l)
+    shape :: Id -> ShapeF a -> Either Error (Shape Id)
+    shape n s = (n :<) <$>
+        case s of
+            List   i e   -> List   i <$> ref e
+            Map    i k v -> Map    i <$> ref k <*> ref v
+            Struct i o   -> Struct i <$> traverseOf (members . each) ref o
+            Enum   i vs  -> pure (Enum i vs)
+            Lit    i l   -> pure (Lit  i l)
 
-    ref :: Ref Id -> Either Error (Ref (Mu ShapeF))
-    ref r = flip (set refShape) r <$> (ptr r >>= shape)
+    ref :: RefF a -> Either Error (RefF (Shape Id))
+    ref r = flip (set refAnn) r <$> (safe n >>= shape n)
+      where
+        n = r ^. refShape
 
-    ptr :: Ref Id -> Either Error (ShapeF Id)
-    ptr r = do
-        let k = r ^. refAnn
-        note (format ("Missing shape " % iprimary) k)
-             (Map.lookup k ss)
+    safe n = note (format ("Missing shape " % iprimary) n) (Map.lookup n ss)
 
-defaults :: Service Maybe Shape Shape
-         -> Either Error (Service Identity Shape Shape)
+infixl 7 .!
+
+(.!) :: Maybe a -> a -> Identity a
+m .! x = maybe (Identity x) Identity m
+
+defaults :: Service Maybe (ShapeF ()) (ShapeF ())
+         -> Either Error (Service Identity (ShapeF ()) (ShapeF ()))
 defaults svc@Service{..} = do
     os <- traverse operation _operations
     return $! svc
@@ -88,48 +100,18 @@ defaults svc@Service{..} = do
         }
 
     operation o@Operation{..} = do
-        let e = format ("Vacant operation input/output: " % iprimary) _opName
+        let h = _opDocumentation .! "FIXME: Undocumented operation."
+            e = format ("Vacant operation input/output: " % iprimary) _opName
             f = fmap Identity . note e
-
         rq <- f _opInput
         rs <- f _opOutput
-
         return $! o
-            { _opDocumentation = _opDocumentation .! "FIXME: Undocumented operation."
+            { _opDocumentation = h
             , _opHTTP          = http _opHTTP
             , _opInput         = rq
             , _opOutput        = rs
             }
 
-    http h@HTTP{..} = h
-        { _responseCode = _responseCode .! 200
+    http h = h
+        { _responseCode = _responseCode h .! 200
         }
-
-    -- shape' = \case
-    --     List   i e   -> List   i (ref' e)
-    --     Map    i k v -> Map    i (ref' k) (ref' v)
-    --     Struct i s   -> Struct i (over (members . each) ref' s)
-    --     Enum   i m   -> Enum   i m
-    --     Lit    i l   -> Lit    i (lit' l)
-
-    -- ref' r@Ref{..} = r
-    --     { _refDocumentation = _refDocumentation .! "FIXME: Undocumented reference."
-    --     , _refLocation      = _refLocation      .! Querystring -- FIXME: This is based upon the protocol
-    --     , _refLocationName  = _refLocationName  .! _refShape ^. primaryId -- FIXME: This is based up on the protocol and shape type (list == member etc.)
-    --     , _refQueryName     = _refQueryName     .! _refShape ^. primaryId
-    --     , _refXMLNamespace  = _refXMLNamespace  .! XML' "" ""
-    --     }
-
-    -- lit' = \case
-    --     Time t -> Time . Identity $ fromMaybe timestamp t
-    --     Int    -> Int
-    --     Long   -> Long
-    --     Double -> Double
-    --     Text   -> Text
-    --     Blob   -> Blob
-    --     Bool   -> Bool
-
-infixl 7 .!
-
-(.!) :: Maybe a -> a -> Identity a
-m .! x = maybe (Identity x) Identity m

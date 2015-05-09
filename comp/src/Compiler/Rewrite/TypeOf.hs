@@ -6,7 +6,7 @@
 {-# LANGUAGE TemplateHaskell   #-}
 {-# LANGUAGE TupleSections     #-}
 
--- Module      : Compiler.Rewrite.Ann.TypeOf
+-- Module      : Compiler.Rewrite.TypeOf
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -16,9 +16,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.Rewrite.Ann.TypeOf where
+module Compiler.Rewrite.TypeOf where
 
-import           Compiler.Rewrite.Ann.Syntax
+import           Compiler.Rewrite.Syntax
 import           Compiler.Types
 import           Control.Lens                 hiding (enum, (??))
 import qualified Data.Foldable                as Fold
@@ -27,7 +27,7 @@ import qualified Data.Text                    as Text
 import           Language.Haskell.Exts.Syntax hiding (Int, List, Lit)
 
 data TType
-    = TType      Id
+    = TType      Text
     | TLit       Lit
     | TNatural
     | TMaybe     TType
@@ -50,7 +50,7 @@ data TType
 
 internal :: TType -> Type
 internal = \case
-    TType        x       -> tycon (x ^. typeId)
+    TType        x       -> tycon x
     TLit         x       -> literal True x
     TNatural             -> tycon "Nat"
     TMaybe       x       -> TyApp (tycon "Maybe") (internal x)
@@ -75,7 +75,7 @@ internal = \case
 
 external :: TType -> Type
 external = \case
-    TType        x   -> tycon (x ^. typeId)
+    TType        x   -> tycon x
     TLit         x   -> literal False x
     TNatural         -> tycon "Natural"
     TMaybe       x   -> TyApp (tycon "Maybe") (external x)

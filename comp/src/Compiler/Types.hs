@@ -1,6 +1,8 @@
 {-# LANGUAGE DataKinds              #-}
+{-# LANGUAGE DeriveFoldable         #-}
 {-# LANGUAGE DeriveFunctor          #-}
 {-# LANGUAGE DeriveGeneric          #-}
+{-# LANGUAGE DeriveTraversable      #-}
 {-# LANGUAGE FlexibleInstances      #-}
 {-# LANGUAGE FunctionalDependencies #-}
 {-# LANGUAGE KindSignatures         #-}
@@ -40,6 +42,7 @@ import           Compiler.Types.Map
 import           Compiler.Types.NS
 import           Compiler.Types.Orphans    ()
 import           Compiler.Types.URI
+import           Control.Comonad
 import           Control.Comonad.Cofree
 import           Control.Error
 import           Control.Lens              hiding ((.=))
@@ -220,7 +223,7 @@ data RefF a = RefF
 --    , _refWrapper     :: !Bool
     , _refXMLAttribute  :: !Bool
     , _refXMLNamespace  :: Maybe XML
-    } deriving (Show, Functor, Generic)
+    } deriving (Show, Functor, Foldable, Traversable, Generic)
 
 makeLenses ''RefF
 
@@ -262,6 +265,9 @@ instance FromJSON Info where
         <*> o .:? "streaming" .!= False
         <*> o .:? "exception" .!= False
 
+nonEmpty :: HasInfo a => a -> Bool
+nonEmpty = (> Just 0) . view infoMin
+
 data Lit
     = Int
     | Long
@@ -291,7 +297,7 @@ data StructF a = StructF
     , _required :: Set Id
     , _payload  :: Maybe Id
     , _wrapper  :: !Bool
-    } deriving (Show, Functor)
+    } deriving (Show, Functor, Foldable, Traversable)
 
 makeLenses ''StructF
 
@@ -311,18 +317,27 @@ data ShapeF a
     | Struct Info (StructF a)
     | Enum   Info (Map Text Text)
     | Lit    Info Lit
-      deriving (Show, Functor)
+      deriving (Show, Functor, Foldable, Traversable)
 
 makePrisms ''ShapeF
 
 newtype Mu f = Mu (f (Mu f))
 
-cofree :: Functor f => Mu f -> Cofree f ()
-cofree (Mu f) = () :< fmap cofree f
+cofree :: Functor f => a -> Mu f -> Cofree f a
+cofree x = go
+  where
+    go (Mu f) = x :< fmap go f
 
 type Shape = Cofree ShapeF
 
 data a :*: b = !a :*: !b
+    deriving (Show)
+
+annotate :: (Functor t, Functor f)
+         => (Cofree t a -> f b)
+         -> Cofree t a
+         -> Cofree t (f (a :*: b))
+annotate f x@(a :< _) = extend (fmap (a :*:) . f) x
 
 -- type EndResult = Shape (Direction :*: Prefix :*: TType) -> Data
 
@@ -330,7 +345,7 @@ data a :*: b = !a :*: !b
 --     references f = \case
 --         List   i e   -> List   i <$> f e
 --         Map    i k v -> Map    i <$> f k <*> f v
---         Struct i s   -> Struct i <$> references f s
+--         Struct i ms  -> Struct i <$> references f s
 --         s            -> pure s
 
 -- class HasRefs a b where
@@ -340,7 +355,7 @@ references :: Traversal' (ShapeF a) (RefF a)
 references f = \case
     List   i e   -> List   i <$> f e
     Map    i k v -> Map    i <$> f k <*> f v
-    Struct i s   -> Struct i <$> traverseOf (members . each) f s
+    Struct i ms  -> Struct i <$> traverseOf (members . each) f ms
     s            -> pure s
 
 instance HasInfo (ShapeF a) where
@@ -356,7 +371,7 @@ instance HasInfo (ShapeF a) where
         g i = \case
             List   _ e   -> List   i e
             Map    _ k v -> Map    i k v
-            Struct _ s   -> Struct i s
+            Struct _ ms  -> Struct i ms
             Enum   _ m   -> Enum   i m
             Lit    _ l   -> Lit    i l
 

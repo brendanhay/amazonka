@@ -64,7 +64,7 @@ substitute svc@Service{..} = svc
     shared = sharing _operations _shapes
 
     empty :: Maybe Help -> Map Id (RefF a) -> ShapeF a
-    empty d rs = Struct i s
+    empty d rs = Struct i ms
       where
         i = Info
             { _infoDocumentation = d
@@ -76,7 +76,7 @@ substitute svc@Service{..} = svc
             , _infoException     = False
             }
 
-        s = StructF
+        ms = StructF
             { _members  = rs
             , _required = mempty
             , _payload  = Nothing

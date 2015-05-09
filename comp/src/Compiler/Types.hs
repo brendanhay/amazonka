@@ -1,4 +1,5 @@
 {-# LANGUAGE DataKinds              #-}
+{-# LANGUAGE DeriveFunctor          #-}
 {-# LANGUAGE DeriveGeneric          #-}
 {-# LANGUAGE FlexibleInstances      #-}
 {-# LANGUAGE FunctionalDependencies #-}
@@ -10,6 +11,7 @@
 {-# LANGUAGE StandaloneDeriving     #-}
 {-# LANGUAGE TemplateHaskell        #-}
 {-# LANGUAGE TupleSections          #-}
+{-# LANGUAGE TypeOperators          #-}
 
 -- Module      : Compiler.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,6 +40,7 @@ import           Compiler.Types.Map
 import           Compiler.Types.NS
 import           Compiler.Types.Orphans    ()
 import           Compiler.Types.URI
+import           Control.Comonad.Cofree
 import           Control.Error
 import           Control.Lens              hiding ((.=))
 import           Data.Aeson                (ToJSON (..), object, (.=))
@@ -175,11 +178,14 @@ data Location
     | URI
     | Querystring
     | StatusCode
-    | Body
+    | Body -- FIXME: !Bool streaming
       deriving (Eq, Show, Generic)
 
 instance FromJSON Location where
     parseJSON = gParseJSON' camel
+
+instance ToJSON Location where
+    toJSON = gToJSON' camel
 
 data Method
     = GET
@@ -197,42 +203,42 @@ data XML = XML'
     , _xmlUri    :: Text
     } deriving (Eq, Show, Generic)
 
-makeClassy ''XML
+makeLenses ''XML
 
 instance FromJSON XML where
     parseJSON = gParseJSON' (camel & lenses .~ True)
 
-data Ref f = Ref
-    { _refShape         :: Id
-    , _refDocumentation :: f Help
-    , _refLocation      :: f Location
-    , _refLocationName  :: f Text
-    , _refQueryName     :: f Text
+data RefF a = RefF
+    { _refAnn           :: a
+    , _refShape         :: Id
+    , _refDocumentation :: Maybe Help
+    , _refLocation      :: Maybe Location
+    , _refLocationName  :: Maybe Text
+    , _refResultWrapper :: Maybe Text
+    , _refQueryName     :: Maybe Text
     , _refStreaming     :: !Bool
-    , _refWrapper       :: !Bool
+--    , _refWrapper     :: !Bool
     , _refXMLAttribute  :: !Bool
-    , _refXMLNamespace  :: f XML
-    } deriving (Generic)
+    , _refXMLNamespace  :: Maybe XML
+    } deriving (Show, Functor, Generic)
 
-deriving instance Show (Ref Maybe)
-deriving instance Show (Ref Identity)
+makeLenses ''RefF
 
-makeLenses ''Ref
+-- refDocumentation :: Getter Ref Help
+-- refDocumentation = to $
+--     fromMaybe "FIXME: Undocumented reference." . _refDocumentation'
 
-instance FromJSON (Ref Maybe) where
-    parseJSON = withObject "ref" $ \o -> Ref
+instance FromJSON (RefF ()) where
+    parseJSON = withObject "ref" $ \o -> RefF ()
         <$> o .:  "shape"
         <*> o .:? "documentation"
         <*> o .:? "location"
         <*> o .:? "locationName"
+        <*> o .:? "resultWrapper"
         <*> o .:? "queryName"
         <*> o .:? "streaming"    .!= False
-        <*> o .:? "wrapper"      .!= False
         <*> o .:? "xmlAttribute" .!= False
         <*> o .:? "xmlnamespace"
-
-instance HasXML (Ref Identity) where
-    xML = refXMLNamespace . _Wrapped
 
 data Info = Info
     { _infoDocumentation :: Maybe Help
@@ -256,63 +262,88 @@ instance FromJSON Info where
         <*> o .:? "streaming" .!= False
         <*> o .:? "exception" .!= False
 
-data Lit f
+data Lit
     = Int
     | Long
     | Double
     | Text
     | Blob
-    | Time (f Timestamp)
+    | Time
     | Bool
+      deriving (Show)
 
-deriving instance Show (Lit Maybe)
-deriving instance Show (Lit Identity)
+-- class HasRefs a b where
+--     references :: Traversal' a (RefF b)
 
-class HasRefs f a | a -> f where
-    references :: Traversal' a (Ref f)
+-- FIXME: Map shouldn't be used for struct fields to ensure ordering is the same as JSON,
+-- due to the use of Jason.
+--
+-- Also a (simpler) Jason alternative would be nice.
 
-data Struct f = Struct'
-    { _members  :: Map Id (Ref f)
+-- FIXME: Parameterize Ref over a, which can be swapped out for the actual shape.
+-- (Id -> Ref -> Shape) Forms a Field
+
+-- _members [(Id, Ref)]
+
+data StructF a = StructF
+--    { _members  :: [(Id, a)]
+    { _members  :: Map Id (RefF a)
     , _required :: Set Id
     , _payload  :: Maybe Id
     , _wrapper  :: !Bool
-    }
+    } deriving (Show, Functor)
 
-deriving instance Show (Struct Maybe)
-deriving instance Show (Struct Identity)
+makeLenses ''StructF
 
-makeLenses ''Struct
+-- instance HasRefs (Struct Ptr) Id where
+--     references = members . each
 
-instance HasRefs f (Struct f) where
-    references = members . each
-
-instance FromJSON (Struct Maybe) where
-    parseJSON = withObject "struct" $ \o -> Struct'
+instance FromJSON (StructF ()) where
+    parseJSON = withObject "struct" $ \o -> StructF
         <$> o .:  "members"
         <*> o .:? "required" .!= mempty
         <*> o .:? "payload"
         <*> pure False
 
-data Shape f
-    = List   Info (Ref f)
-    | Map    Info (Ref f) (Ref f)
-    | Struct Info (Struct f)
+data ShapeF a
+    = List   Info (RefF a)
+    | Map    Info (RefF a) (RefF a)
+    | Struct Info (StructF a)
     | Enum   Info (Map Text Text)
-    | Lit    Info (Lit f)
+    | Lit    Info Lit
+      deriving (Show, Functor)
 
-deriving instance Show (Shape Maybe)
-deriving instance Show (Shape Identity)
+makePrisms ''ShapeF
 
-makePrisms ''Shape
+newtype Mu f = Mu (f (Mu f))
 
-instance HasRefs f (Shape f) where
-    references f = \case
-        List   i e   -> List   i <$> f e
-        Map    i k v -> Map    i <$> f k <*> f v
-        Struct i s   -> Struct i <$> references f s
-        s            -> pure s
+cofree :: Functor f => Mu f -> Cofree f ()
+cofree (Mu f) = () :< fmap cofree f
 
-instance HasInfo (Shape f) where
+type Shape = Cofree ShapeF
+
+data a :*: b = !a :*: !b
+
+-- type EndResult = Shape (Direction :*: Prefix :*: TType) -> Data
+
+-- instance HasRefs (Shape Ptr) Id where
+--     references f = \case
+--         List   i e   -> List   i <$> f e
+--         Map    i k v -> Map    i <$> f k <*> f v
+--         Struct i s   -> Struct i <$> references f s
+--         s            -> pure s
+
+-- class HasRefs a b where
+--     references :: Traversal' a (RefF b)
+
+references :: Traversal' (ShapeF a) (RefF a)
+references f = \case
+    List   i e   -> List   i <$> f e
+    Map    i k v -> Map    i <$> f k <*> f v
+    Struct i s   -> Struct i <$> traverseOf (members . each) f s
+    s            -> pure s
+
+instance HasInfo (ShapeF a) where
     info = lens f (flip g)
       where
         f = \case
@@ -329,7 +360,7 @@ instance HasInfo (Shape f) where
             Enum   _ m   -> Enum   i m
             Lit    _ l   -> Lit    i l
 
-instance FromJSON (Shape Maybe) where
+instance FromJSON (ShapeF ()) where
     parseJSON = withObject "shape" $ \o -> do
         i <- parseJSON (Object o)
         t <- o .:  "type"
@@ -344,13 +375,12 @@ instance FromJSON (Shape Maybe) where
             "float"     -> pure (Lit i Double)
             "blob"      -> pure (Lit i Blob)
             "boolean"   -> pure (Lit i Bool)
-            "timestamp" -> pure (Lit i (Time Nothing))
+            "timestamp" -> pure (Lit i Time)
             "string"    -> pure $
                 maybe (Lit i Text)
                       (Enum i . Map.fromList . map renameBranch)
                       m
             _           -> fail $ "Unknown Shape type: " ++ Text.unpack t
-
 
 data HTTP f = HTTP
     { _method       :: !Method
@@ -367,8 +397,8 @@ data Operation f a = Operation
     { _opName          :: Id
     , _opDocumentation :: f Text
     , _opHTTP          :: HTTP f
-    , _opInput         :: f (a f)
-    , _opOutput        :: f (a f)
+    , _opInput         :: f a
+    , _opOutput        :: f a
     }
 
 makeLenses ''Operation
@@ -377,9 +407,9 @@ requestName, responseName :: Getter (Operation f a) Id
 requestName  = to _opName
 responseName = to ((`appendId` "Response") . _opName)
 
-instance FromJSON (Operation Maybe Ref) where
+instance FromJSON (Operation Maybe (RefF ())) where
     parseJSON = withObject "operation" $ \o -> Operation
-        <$> o .: "name"
+        <$> o .:  "name"
         <*> o .:? "documentation"
         <*> o .:  "http"
         <*> o .:? "input"
@@ -423,7 +453,7 @@ data Service f a b = Service
     { _metadata'     :: Metadata f
     , _documentation :: Help
     , _operations    :: Map Id (Operation f a)
-    , _shapes        :: Map Id (b f)
+    , _shapes        :: Map Id b
     } deriving (Generic)
 
 makeClassy ''Service
@@ -431,44 +461,67 @@ makeClassy ''Service
 instance HasMetadata (Service f a b) f where
     metadata = metadata'
 
-instance FromJSON (Service Maybe Ref Shape) where
+instance FromJSON (Service Maybe (RefF ()) (ShapeF ())) where
     parseJSON = gParseJSON' lower
 
+data Mode
+   = Input
+   | Output
+     deriving (Eq, Show)
+
+data Direction
+    = Both
+    | Mode Mode
+      deriving (Eq, Show)
+
+instance Monoid Direction where
+    mempty            = Both
+    mappend Both _    = Both
+    mappend _    Both = Both
+    mappend a    b
+        | a == b      = a
+        | otherwise   = Both
+
+data Derive
+    = DEq
+    | DOrd
+    | DRead
+    | DShow
+    | DEnum
+    | DNum
+    | DIntegral
+    | DReal
+    | DRealFrac
+    | DRealFloat
+    | DMonoid
+    | DSemigroup
+    | DIsString
+      deriving (Eq, Ord, Show, Generic)
+
+instance Hashable Derive
+
+instance FromJSON Derive where
+    parseJSON = gParseJSON' (spinal & ctor %~ (. Text.drop 1))
+
 data Instance
-    = ToJSON
-    | FromJSON
-    | ToQuery
-    | FromQuery
-    | ToXML
-    | FromXML
+    = FromJSON  -- headers, status, json object
+    | ToJSON
+    | FromXML   -- headers, status, xml cursor
+    | ToXML     -- xml
+    | ToQuery   -- query params
+    | FromBody  -- headers, status, streaming response body
+    | ToPath    -- uri and query components
+    | ToBody    -- streaming request body
+    | ToHeaders -- headers
       deriving (Eq, Ord, Show, Generic)
 
 instance Hashable Instance
 
+instToText :: Instance -> Text
+instToText = Text.pack . show
+
 instance ToJSON Instance where
-    toJSON = gToJSON' spinal
-
-data Constraint
-    = CEq
-    | COrd
-    | CRead
-    | CShow
-    | CEnum
---    | CGeneric
-    | CNum
-    | CIntegral
-    | CReal
-    | CRealFrac
-    | CRealFloat
-    | CMonoid
-    | CSemigroup
-    | CIsString
-      deriving (Eq, Ord, Show, Generic)
-
-instance Hashable Constraint
-
-instance FromJSON Constraint where
-    parseJSON = gParseJSON' (spinal & ctor %~ (. Text.drop 1))
+    toJSON = toJSON . instToText
 
 data Fun = Fun Text Help LazyText LazyText
 
@@ -480,35 +533,34 @@ instance ToJSON Fun where
         , "declaration" .= d
         ]
 
-data Data f
-    = Product Info (Struct f)      LazyText [Instance] Fun [Fun]
-    | Sum     Info (Map Text Text) LazyText [Instance]
+data Data
+    = Product Info LazyText Fun [Fun] (Map Instance [LazyText])
+    | Sum     Info LazyText (Map Text Text) [Instance]
 
-makePrisms ''Data
+-- makePrisms ''Data
 
-instance HasInfo (Data f) where
+instance HasInfo Data where
     info = lens f (flip g)
       where
         f = \case
-            Product i _ _ _ _ _  -> i
-            Sum     i _ _ _      -> i
+            Product i _ _ _ _ -> i
+            Sum     i _ _ _   -> i
 
         g i = \case
-            Product _ s  d is c ls -> Product i s  d is c ls
-            Sum     _ vs d is      -> Sum     i vs d is
+            Product _ d c ls is -> Product i d c ls is
+            Sum     _ d vs   is -> Sum     i d vs   is
 
-instance ToJSON (Data Identity) where
+instance ToJSON Data where
     toJSON = \case
-        Product i s d is c ls -> object
+        Product i d c ls is -> object
             [ "type"        .= Text.pack "product"
             , "constructor" .= c
             , "comment"     .= (i ^. infoDocumentation)
             , "declaration" .= d
-            , "fields"      .= ((s ^. members) & kvTraversal %~ second (^. refLocationName))
             , "lenses"      .= ls
-            , "instances"   .= is
+            , "instances"   .= (is & kvTraversal %~ first instToText)
             ]
-        Sum i vs d is -> object
+        Sum i d vs is -> object
             [ "type"         .= Text.pack "sum"
             , "comment"      .= (i ^. infoDocumentation)
             , "declaration"  .= d
@@ -517,8 +569,8 @@ instance ToJSON (Data Identity) where
             ]
 
 data Replace = Replace
-    { _replaceName        :: Id
-    , _replaceConstraints :: Set Constraint
+    { _replaceName     :: Id
+    , _replaceDeriving :: Set Derive
     } deriving (Eq, Show, Generic)
 
 makeLenses ''Replace

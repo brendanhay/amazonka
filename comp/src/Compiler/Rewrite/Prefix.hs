@@ -19,7 +19,6 @@ module Compiler.Rewrite.Prefix
 import           Compiler.Formatting
 import           Compiler.Text
 import           Compiler.Types
-import           Control.Error
 import           Control.Lens
 import           Control.Monad.Except
 import           Control.Monad.State
@@ -28,38 +27,43 @@ import qualified Data.CaseInsensitive as CI
 import           Data.Hashable
 import qualified Data.HashMap.Strict  as Map
 import qualified Data.HashSet         as Set
+import           Data.Maybe
 import           Data.Monoid
 import           Data.Text            (Text)
 import qualified Data.Text            as Text
 import           Data.Text.Manipulate
 
-type Prefixes = Map (CI Text) (Set (CI Text))
+type Prefixes = StateT (Map (CI Text) (Set (CI Text))) (Either Error)
 
 -- FIXME: some assurances about stability of prefixes.
 
-prefixes :: Map Id (Shape f) -> Either Error (Map Id Text)
+prefixes :: Map Id (ShapeF a) -> Either Error (Map Id Text)
 prefixes = (`evalStateT` mempty) . kvTraverseMaybe go
   where
-    go (view primaryId -> n) = \case
-        Struct _ s  -> Just <$> uniq n (heuristics n) (keys (^. ciId) (_members s))
-        Enum   _ vs -> Just <$> uniq n (mempty : heuristics n) (keys CI.mk vs)
+    go :: Id -> ShapeF a -> Prefixes (Maybe Text)
+    go (view memberId -> n) = \case
+        Struct _ s  -> Just <$> do
+            let hs = heuristics n
+                xs = keys (^. ciId) (s ^. members)
+            uniq n hs xs
+
+        Enum   _ vs -> Just <$> do
+            let hs = mempty : heuristics n
+                xs = keys CI.mk vs
+            uniq n hs xs
+
         _           -> return Nothing
 
-    uniq :: Text
-         -> [CI Text]
-         -> Set (CI Text)
-         -> StateT Prefixes (Either Error) Text
-
+    uniq :: Text -> [CI Text] -> Set (CI Text) -> Prefixes Text
     uniq n [] xs = do
         s <- get
-        let hs      = heuristics n
-            imply h = sformat ("\n" % soriginal % " => " % shown)
-                      h (Map.lookup h s)
+        let hs  = heuristics n
+            f h = sformat ("\n" % soriginal % " => " % shown) h (Map.lookup h s)
         throwError $
             format ("Error prefixing: " % stext %
                     ", fields: "        % shown %
                     scomma)
-                   n (Set.toList xs) (map imply hs)
+                   n (Set.toList xs) (map f hs)
 
     uniq n (h:hs) xs = do
         m <- gets (Map.lookup h)
@@ -71,6 +75,7 @@ prefixes = (`evalStateT` mempty) . kvTraverseMaybe go
     overlap :: (Eq a, Hashable a) => Set a -> Set a -> Bool
     overlap xs ys = not . Set.null $ Set.intersection xs ys
 
+    keys :: (Eq b, Hashable b) => (a -> b) -> Map a c -> Set b
     keys f = Set.fromList . map f . Map.keys
 
 -- | Acronym preference list.

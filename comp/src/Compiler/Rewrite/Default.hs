@@ -80,15 +80,6 @@ setDefaults svc@Service{..} = do
         Blob   -> Blob
         Bool   -> Bool
 
-    timestamp =
-        case svc ^. protocol of
-            JSON     -> POSIX
-            RestJSON -> POSIX
-            XML      -> ISO8601
-            RestXML  -> ISO8601
-            Query    -> ISO8601
-            EC2      -> ISO8601
-
 infixl 7 .!
 
 (.!) :: Maybe a -> a -> Identity a

@@ -26,9 +26,10 @@ import qualified Data.HashSet        as Set
 import           Data.Maybe
 import           Data.Traversable    (for)
 
-type Subst = State (Map Id (Shape Maybe))
+type Subst a = State (Map Id (ShapeF a))
 
-substitute :: Service Maybe Ref Shape -> Service Maybe Shape Shape
+substitute :: Service Maybe (RefF   a) (ShapeF a)
+           -> Service Maybe (ShapeF a) (ShapeF a)
 substitute svc@Service{..} = svc
     { _operations = os
     , _shapes     = ss
@@ -36,7 +37,7 @@ substitute svc@Service{..} = svc
   where
     (os, ss) = runState (traverse go _operations) _shapes
 
-    go :: Operation Maybe Ref -> Subst (Operation Maybe Shape)
+    go :: Operation Maybe (RefF a) -> Subst a (Operation Maybe (ShapeF a))
     go o = do
         rq <- wrap (o ^. opInput)
         rs <- wrap (o ^. opOutput)
@@ -47,21 +48,22 @@ substitute svc@Service{..} = svc
 
     -- If shared, create a newtype pointing to the shared type.
     -- FIXME: Will either provide an iso or some suitable lenses.
-    wrap :: Maybe (Ref Maybe) -> Subst (Shape Maybe)
-    wrap Nothing          = return $! empty Nothing mempty
-    wrap (Just r@Ref{..}) = do
-        if _refShape `Set.member` shared
-            then return $! empty _refDocumentation $ Map.fromList [(_refShape, r)]
+    wrap :: Maybe (RefF a) -> Subst a (ShapeF a)
+    wrap Nothing  = return $! empty Nothing mempty
+    wrap (Just r) = do
+        let h = r ^. refDocumentation
+            n = r ^. refShape
+        if n `Set.member` shared
+            then return $! empty h $ Map.fromList [(n, r)]
             else do
-                 m <- gets (Map.lookup _refShape)
-                 modify (Map.delete _refShape)
-                 return $! fromMaybe (empty _refDocumentation mempty) m
+                m <- gets (Map.lookup n)
+                modify (Map.delete n)
+                return $! fromMaybe (empty h mempty) m
 
+    shared :: Set Id
     shared = sharing _operations _shapes
 
-    -- FIXME: How to annotate that this is a reference to a shared type?
-    -- answer: _wrapper
-    empty :: Maybe Help -> Map Id (Ref f) -> Shape f
+    empty :: Maybe Help -> Map Id (RefF a) -> ShapeF a
     empty d rs = Struct i s
       where
         i = Info
@@ -74,7 +76,7 @@ substitute svc@Service{..} = svc
             , _infoException     = False
             }
 
-        s = Struct'
+        s = StructF
             { _members  = rs
             , _required = mempty
             , _payload  = Nothing
@@ -87,8 +89,8 @@ type Count = State (Map Id Int)
 --
 -- A shape is considered 'shared' if it is used as a field of another shape,
 -- as opposed to only being referenced by the operation itself.
-sharing :: Map Id (Operation Maybe Ref)
-        -> Map Id (Shape Maybe)
+sharing :: Map Id (Operation Maybe (RefF a))
+        -> Map Id (ShapeF b)
         -> Set Id
 sharing os ss = count (execState (ops >> traverse_ shape ss) mempty)
   where
@@ -103,7 +105,7 @@ sharing os ss = count (execState (ops >> traverse_ shape ss) mempty)
     ref Nothing  = pure ()
     ref (Just n) = incr n >> maybe (pure ()) shape (Map.lookup n ss)
 
-    shape :: Shape Maybe -> Count ()
+    shape :: ShapeF a -> Count ()
     shape = traverse_ incr . toListOf (references . refShape)
 
     incr :: Id -> Count ()

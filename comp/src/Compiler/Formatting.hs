@@ -38,7 +38,7 @@ soriginal :: Format a (CI Text -> a)
 soriginal = later (Build.fromText . CI.original)
 
 iprimary :: Format a (Id -> a)
-iprimary = later (Build.fromText . view primaryId)
+iprimary = later (Build.fromText . view memberId)
 
 path :: Format a (Path -> a)
 path = later (Build.fromText . toTextIgnore)
@@ -46,8 +46,8 @@ path = later (Build.fromText . toTextIgnore)
 partial :: Show b => Format a ((Id, Map.HashMap Id b) -> a)
 partial = later (Build.fromString . show . Map.toList . prefix)
   where
-    prefix (view primaryId -> Text.take 3 -> p, m) =
-        Map.filterWithKey (const . Text.isPrefixOf p . view primaryId) m
+    prefix (view memberId -> Text.take 3 -> p, m) =
+        Map.filterWithKey (const . Text.isPrefixOf p . view memberId) m
 
 failure :: MonadError e m => Format LazyText (a -> e) -> a -> m b
 failure m = throwError . format m

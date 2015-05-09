@@ -57,3 +57,6 @@ executable compile
         , time                 >= 1.5
         , transformers
         , unordered-containers
+
+                , free
+                , comonad

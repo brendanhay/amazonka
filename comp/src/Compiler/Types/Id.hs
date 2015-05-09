@@ -14,10 +14,10 @@ module Compiler.Types.Id
     ( Id
     , textToId
     , ciId
-    , primaryId
+    , memberId
     , typeId
     , ctorId
-    , fieldId
+    , accessorId
     , lensId
     , appendId
     ) where
@@ -64,8 +64,8 @@ representation =
 ciId :: Getter Id (CI Text)
 ciId = to (\(Id x _) -> x)
 
-primaryId :: Getter Id Text
-primaryId = ciId . to CI.original
+memberId :: Getter Id Text
+memberId = ciId . to CI.original
 
 -- FIXME: vPNStaticRoute :: VPNStaticRoute smart ctor name, note vPN
 ctorId :: Getter Id Text
@@ -74,8 +74,8 @@ ctorId = typeId . to (lowerHead . lowerFirstAcronym)
 typeId :: Getter Id Text
 typeId = representation . to renameReserved
 
-fieldId :: Text -> Getter Id Text
-fieldId p = accessor p . to (Text.cons '_')
+accessorId :: Text -> Getter Id Text
+accessorId p = accessor p . to (Text.cons '_')
 
 lensId :: Text -> Getter Id Text
 lensId p = accessor p . to renameReserved

@@ -26,43 +26,58 @@ import qualified Data.HashSet        as Set
 import           Data.Monoid
 
 -- | Apply the override rules to shapes and their respective fields.
-override :: Functor f => Config -> Service f Ref Shape -> Service f Ref Shape
+override :: Functor f
+         => Config
+         -> Service f (RefF a) (ShapeF b)
+         -> Service f (RefF a) (ShapeF b)
 override Config{..} svc@Service{..} = svc
-    { _operations = Map.map oper _operations
-    , _shapes     = Map.foldlWithKey' go mempty _shapes
-    }
+    & operations . each %~ operation
+    & shapes            %~ Map.foldlWithKey' shape mempty
   where
-    oper o = o
+    operation :: Functor f
+              => Operation f (RefF a)
+              -> Operation f (RefF a)
+    operation o = o
         { _opInput  = ref <$> _opInput  o
         , _opOutput = ref <$> _opOutput o
         }
+      where
+        ref :: RefF a -> RefF a
+        ref r
+            | Just x <- ptr renamed  = r & refShape .~ x
+            | Just x <- ptr replaced = r & refShape .~ x ^. replaceName
+            | otherwise              = r
+          where
+            ptr = Map.lookup (r ^. refShape)
 
-    ref r | Just x <- Map.lookup (r ^. refShape) renamed  = r & refShape .~ x
-          | Just x <- Map.lookup (r ^. refShape) replaced = r & refShape .~ _replaceName x
-          | otherwise = r
-
-    go :: Map Id (Shape f) -> Id -> Shape f -> Map Id (Shape f)
-    go acc n s
-        | Map.member n replaced          = acc        -- Replace the type.
-        | Just x <- Map.lookup n renamed = go acc x s -- Rename the type.
+    shape :: Map Id (ShapeF a) -> Id -> ShapeF a -> Map Id (ShapeF a)
+    shape acc n s
+        | Map.member n replaced          = acc           -- Replace the type.
+        | Just x <- Map.lookup n renamed = shape acc x s -- Rename the type.
         | otherwise                      = Map.insert n (rules s) acc
       where
-        Override{..} = defaultOverride `fromMaybe` Map.lookup n _typeOverrides
+        Override{..} = fromMaybe defaultOverride $
+             Map.lookup n _typeOverrides
 
+        rules :: ShapeF a -> ShapeF a
         rules = require . optional . rename . retype . prefix
 
+        require, optional :: ShapeF a -> ShapeF a
         require  = _Struct._2.required %~ (<> _requiredFields)
         optional = _Struct._2.required %~ (`Set.difference` _optionalFields)
 
+        rename :: ShapeF a -> ShapeF a
         rename = _Struct._2.members.kvTraversal %~ first f
           where
             f k = fromMaybe k (Map.lookup k _renamedFields)
 
+        retype :: ShapeF a -> ShapeF a
         retype = references %~ f _replaceName replaced . f id renamed
           where
             f g m v = maybe v (flip (set refShape) v . g) $
                 Map.lookup (v ^. refShape) m
 
+        prefix :: ShapeF a -> ShapeF a
         prefix
             | Just p <- _enumPrefix = _Enum._2.kvTraversal %~ first (p <>)
             | otherwise             = id

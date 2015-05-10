@@ -6,7 +6,7 @@
 {-# LANGUAGE TupleSections     #-}
 {-# LANGUAGE TypeOperators     #-}
 
--- Module      : Compiler.Rewrite.Solve
+-- Module      : Compiler.Solve
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -16,13 +16,13 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.Rewrite.Solve
+module Compiler.Solve
     ( solve
     ) where
 
 import           Compiler.AST
-import           Compiler.Rewrite.Syntax
-import           Compiler.Rewrite.TypeOf
+import           Compiler.Syntax
+import           Compiler.TypeOf
 import           Compiler.Types
 import           Control.Arrow                ((&&&))
 import           Control.Comonad
@@ -54,7 +54,7 @@ type Solve = State (Map Id (TType :*: [Derive]))
 -- TType, Derive and Instance into a single 'Type' datatype
 
 solve :: Config -> [Shape Id] -> [Shape (Id :*: TType :*: [Derive])]
-solve cfg = (`evalState` env) . traverse (annotate (pure . ann))
+solve cfg = (`evalState` env) . traverse (annotate id (pure . ann))
  where
     env :: Map Id (TType :*: [Derive])
     env = replaced (uncurry (:*:) . (f &&& g)) cfg

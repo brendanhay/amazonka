@@ -6,7 +6,7 @@
 {-# LANGUAGE TemplateHaskell   #-}
 {-# LANGUAGE TupleSections     #-}
 
--- Module      : Compiler.Rewrite.TypeOf
+-- Module      : Compiler.TypeOf
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -16,9 +16,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.Rewrite.TypeOf where
+module Compiler.TypeOf where
 
-import           Compiler.Rewrite.Syntax
+import           Compiler.Syntax
 import           Compiler.Types
 import           Control.Lens                 hiding (enum, (??))
 import qualified Data.Foldable                as Fold

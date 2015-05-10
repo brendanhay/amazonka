@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TupleSections     #-}
 
--- Module      : Compiler.Rewrite.Subst
+-- Module      : Compiler.Subst
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -12,7 +12,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.Rewrite.Subst
+module Compiler.Subst
     ( substitute
     ) where
 

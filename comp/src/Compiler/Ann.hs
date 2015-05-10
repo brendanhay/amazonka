@@ -6,7 +6,7 @@
 {-# LANGUAGE TupleSections     #-}
 {-# LANGUAGE TypeOperators     #-}
 
--- Module      : Compiler.Rewrite.Ann
+-- Module      : Compiler.Ann
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -16,15 +16,15 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.Rewrite.Ann where
+module Compiler.Ann where
     -- ( annotateTypes
     -- ) where
 
 import           Compiler.Formatting          hiding (base)
 import           Compiler.Protocol
-import           Compiler.Rewrite.Ann.Syntax
-import           Compiler.Rewrite.Ann.TypeOf
-import           Compiler.Rewrite.Prefix
+import           Compiler.Ann.Syntax
+import           Compiler.Ann.TypeOf
+import           Compiler.Prefix
 import           Compiler.Types
 import           Control.Arrow                ((&&&))
 import           Control.Comonad

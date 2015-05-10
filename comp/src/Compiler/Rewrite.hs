@@ -21,18 +21,18 @@ import           Compiler.AST
 import           Compiler.Formatting
 import           Compiler.Protocol
 import           Control.Monad.State
-import qualified Data.HashMap.Strict       as Map
+import qualified Data.HashMap.Strict    as Map
 import           Debug.Trace
---import           Compiler.Rewrite.Ann
-import           Compiler.Rewrite.Override
-import           Compiler.Rewrite.Solve
-import           Compiler.Rewrite.Subst
+--import           Compiler.Ann
+import           Compiler.Override
+import           Compiler.Solve
+import           Compiler.Subst
 import           Compiler.Types
 import           Control.Comonad
 import           Control.Comonad.Cofree
 import           Control.Error
 import           Control.Lens
-import           Data.List                 (sort)
+import           Data.List              (sort)
 import           Data.Monoid
 
 -- Order:

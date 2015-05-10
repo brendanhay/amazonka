@@ -19,7 +19,7 @@
         "ResourceRecordSetRegion": {
             "replacedBy": {
                 "name": "Region",
-                "constraints": [
+                "deriving": [
                 ]
             }
         },

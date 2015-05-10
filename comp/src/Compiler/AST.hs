@@ -67,12 +67,10 @@ rewrite v c s' = do
     -- Generate unique prefixes for struct members and enums to avoid ambiguity.
     s3 <- prefixes s2
 
-    -- Determine the Haskell AST Type, auto derived instances, and manual instances.
+    -- Determine the Haskell AST type, auto derived instances, and manual instances.
     let !s4 = solve c s2
 
---    so now map over the list of shapes, turning them into 'Data' decls.
-
---    s <- annotateTypes c =<< defaults (substitute $ override c s')
+    -- Convert the shape AST into a rendered Haskell AST declaration
     s5 <- traverse (dataType (s ^. protocol)) s4
 
     undefined

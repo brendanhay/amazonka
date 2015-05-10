@@ -38,3 +38,4 @@ instance ToQuery {{ shape.key }} where
 Error: Attempting to render unrecognized instance '{{ inst.key }}'
   {% endcase %}
 {% endfor %}
+ 

@@ -17,18 +17,17 @@
 
 module Main (main) where
 
+import qualified Compiler.AST              as AST
 import           Compiler.Formatting
 import           Compiler.IO
-import           Compiler.JSON
-import           Compiler.Rewrite
-import           Compiler.Tree
+import qualified Compiler.JSON             as JSON
+import qualified Compiler.Tree             as Tree
 import           Compiler.Types            hiding (info)
 import           Control.Error
-import           Control.Lens              hiding (rewrite, (<.>), (??))
+import           Control.Lens
 import           Control.Monad
 import           Control.Monad.Except
 import           Control.Monad.State
-import           Data.Jason
 import           Data.Monoid
 import qualified Data.SemVer               as SemVer
 import           Data.String
@@ -174,37 +173,30 @@ main = do
 
             say ("Using version " % dateDash) (m ^. modelVersion)
 
-            cfg <- requiredObject (_optConfigs </> (m ^. configFile))
-                >>= hoistEither . parseObject
+            cfg <- JSON.required (_optConfigs </> (m ^. configFile))
+                >>= hoistEither . JSON.parse
 
             api <- sequence
-                [ optionalObject (_optAnnexes </> (m ^. annexFile))
-                , requiredObject (m ^. serviceFile)
-                , optionalObject (m ^. waitersFile)
-                , optionalObject (m ^. pagersFile)
-                ] >>= hoistEither . parseObject . mergeObjects
+                [ JSON.optional (_optAnnexes </> (m ^. annexFile))
+                , JSON.required (m ^. serviceFile)
+                , JSON.optional (m ^. waitersFile)
+                , JSON.optional (m ^. pagersFile)
+                ] >>= hoistEither . JSON.parse . JSON.merge
 
             say ("Successfully parsed '" % stext % "' API definition")
                 (api ^. serviceFullName)
 
-            lib <- hoistEither (rewrite _optVersions cfg api)
+            lib <- hoistEither (AST.rewrite _optVersions cfg api)
 
-            dir <- foldTree (failure string . show) createDir writeLTFile
-                (populateTree _optOutput tmpl lib)
+            dir <- Tree.fold (failure string . show) createDir writeLTFile
+                (Tree.populate _optOutput tmpl lib)
 
             say ("Successfully rendered " % stext % "-" % semver % " package")
                 (lib ^. libraryName)
                 (lib ^. libraryVersion)
 
-            copyDir _optAssets (rootTree dir)
+            copyDir _optAssets (Tree.root dir)
 
             done
 
         title ("Successfully processed " % int % " models.") i
-
-requiredObject :: MonadIO m => Path -> EitherT Error m Object
-requiredObject = readBSFile >=> hoistEither . decodeObject
-
-optionalObject :: MonadIO m => Path -> EitherT Error m Object
-optionalObject f = readBSFile f `catchError` const (return "{}")
-    >>= hoistEither . decodeObject

@@ -14,24 +14,34 @@
 
 module Compiler.JSON where
 
+import           Compiler.IO
 import           Compiler.Types
+import           Control.Error
+import           Control.Monad.Except
 import           Data.Bifunctor
 import           Data.ByteString      (ByteString)
 import qualified Data.ByteString.Lazy as LBS
 import           Data.Function        (on)
-import           Data.Jason
+import           Data.Jason           hiding (decode)
 import           Data.Jason.Types
 import           Data.List
 import qualified Data.Text.Lazy       as LText
 
-decodeObject :: ByteString -> Either Error Object
-decodeObject = first LText.pack . eitherDecode' . LBS.fromStrict
+required :: MonadIO m => Path -> EitherT Error m Object
+required = readBSFile >=> hoistEither . decode
 
-parseObject :: FromJSON a => Object -> Either Error a
-parseObject = first LText.pack . parseEither parseJSON . Object
+optional :: MonadIO m => Path -> EitherT Error m Object
+optional f = readBSFile f `catchError` const (return "{}")
+    >>= hoistEither . decode
 
-mergeObjects :: [Object] -> Object
-mergeObjects = foldl' go mempty
+decode :: ByteString -> Either Error Object
+decode = first LText.pack . eitherDecode' . LBS.fromStrict
+
+parse :: FromJSON a => Object -> Either Error a
+parse = first LText.pack . parseEither parseJSON . Object
+
+merge :: [Object] -> Object
+merge = foldl' go mempty
   where
     go :: Object -> Object -> Object
     go (unObject -> a) (unObject -> b) = mkObject (assoc value a b)

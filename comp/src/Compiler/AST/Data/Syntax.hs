@@ -4,7 +4,7 @@
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TupleSections     #-}
 
--- Module      : Compiler.Syntax
+-- Module      : Compiler.AST.Data.Syntax
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.Syntax where
+module Compiler.AST.Data.Syntax where
 
 import           Compiler.Types               (Derive (..), Map, Set)
 import           Compiler.Types.Id
@@ -26,7 +26,7 @@ import qualified Data.Text                    as Text
 import qualified Language.Haskell.Exts        as Exts
 import           Language.Haskell.Exts.Build  (app, infixApp, lamE, paren, sfun)
 import           Language.Haskell.Exts.SrcLoc (noLoc)
-import           Language.Haskell.Exts.Syntax hiding (str)
+import           Language.Haskell.Exts.Syntax
 
 typeSig :: Text -> Type -> [Type] -> Decl
 typeSig n t = TypeSig noLoc [ident n] . Fold.foldr' TyFun t

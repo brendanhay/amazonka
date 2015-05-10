@@ -6,7 +6,7 @@
 {-# LANGUAGE TupleSections     #-}
 {-# LANGUAGE TypeOperators     #-}
 
--- Module      : Compiler.Ann
+-- Module      : Compiler.AST.Data
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -16,15 +16,15 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.Ann where
-    -- ( annotateTypes
-    -- ) where
+module Compiler.AST.Data
+    ( dataType
+    ) where
 
+import           Compiler.AST.Data.Syntax
+import           Compiler.AST.Prefix
+import           Compiler.AST.Solve.TypeOf
 import           Compiler.Formatting          hiding (base)
 import           Compiler.Protocol
-import           Compiler.Ann.Syntax
-import           Compiler.Ann.TypeOf
-import           Compiler.Prefix
 import           Compiler.Types
 import           Control.Arrow                ((&&&))
 import           Control.Comonad
@@ -50,6 +50,9 @@ import           Language.Haskell.Exts.Syntax hiding (Int, List, Lit)
 
 -- FIXME: Should empty responses be a shared type, and
 -- always succeed based on HTTP response code?
+
+dataType :: Protocol -> Shape a -> Either Error Data
+dataType proto s = undefined
 
 -- annotateTypes :: Config
 --               -> Service Identity Shape Shape

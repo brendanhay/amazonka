@@ -6,7 +6,7 @@
 {-# LANGUAGE TupleSections     #-}
 {-# LANGUAGE TypeOperators     #-}
 
--- Module      : Compiler.Solve
+-- Module      : Compiler.AST.Solve
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -16,44 +16,30 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.Solve
+module Compiler.AST.Solve
     ( solve
     ) where
 
-import           Compiler.AST
-import           Compiler.Syntax
-import           Compiler.TypeOf
+import           Compiler.AST.Cofree
+import           Compiler.AST.Solve.TypeOf
 import           Compiler.Types
-import           Control.Arrow                ((&&&))
-import           Control.Comonad
+import           Control.Arrow             ((&&&))
 import           Control.Comonad.Cofree
-import           Control.Error
-import           Control.Lens                 hiding (enum, mapping, (??))
-import           Control.Monad.Except
+import           Control.Lens              hiding (enum, mapping, (??))
 import           Control.Monad.State
-import           Data.Bifunctor
-import           Data.Foldable                (foldl', foldr')
-import           Data.Hashable
-import qualified Data.HashMap.Strict          as Map
-import qualified Data.HashSet                 as Set
-import           Data.List                    (intersect, nub, sort)
-import           Data.Monoid                  hiding (Product, Sum)
-import           Data.String
-import           Data.Text                    (Text)
-import qualified Data.Text                    as Text
-import qualified Data.Text.Lazy               as LText
-import qualified Data.Text.Lazy.Builder       as Build
-import           Data.Text.Manipulate
-import           HIndent
-import           Language.Haskell.Exts.Build  (app, infixApp, paren)
-import           Language.Haskell.Exts.Pretty
-import           Language.Haskell.Exts.Syntax hiding (Int, List, Lit)
+import           Data.Foldable             (foldr')
+import qualified Data.HashMap.Strict       as Map
+import qualified Data.HashSet              as Set
+import           Data.List                 (intersect, nub, sort)
+import           Data.Monoid               hiding (Product, Sum)
 
-type Solve = State (Map Id (TType :*: [Derive]))
--- Instance as well? Maybe roll up
--- TType, Derive and Instance into a single 'Type' datatype
+-- FIXME: Instances as well? Maybe roll up
+-- TType, Derive and Instance into a single 'Type/Solved' datatype
 
-solve :: Config -> [Shape Id] -> [Shape (Id :*: TType :*: [Derive])]
+solve :: (Traversable t, HasId a)
+      => Config
+      -> t (Shape a)
+      -> t (Shape (a :*: TType :*: [Derive]))
 solve cfg = (`evalState` env) . traverse (annotate id (pure . ann))
  where
     env :: Map Id (TType :*: [Derive])
@@ -62,31 +48,33 @@ solve cfg = (`evalState` env) . traverse (annotate id (pure . ann))
         f = view (replaceName . typeId . to TType)
         g = view (replaceDeriving . to Set.toList)
 
-    ann :: Shape Id -> TType :*: [Derive]
+    ann :: HasId a => Shape a -> TType :*: [Derive]
     ann x = typeOf x :*: derive x
 
-typeOf :: Shape Id -> TType
-typeOf (n :< s) = sensitive s $
-    case s of
-        Struct {}    -> TType (n ^. typeId)
-        Enum   {}    -> TType (n ^. typeId)
-        List   i e
-            | nonEmpty i -> TList1 t
-            | otherwise  -> TList  t
-          where
-            t = typeOf (e ^. refAnn)
-        Map    _ k v -> TMap (typeOf (k ^. refAnn)) (typeOf (v ^. refAnn))
-        Lit    i l   ->
-            case l of
-                Int  -> natural i (TLit l)
-                Long -> natural i (TLit l)
-                _    -> TLit l
+typeOf :: HasId a => Shape a -> TType
+typeOf (x :< s) =
+    let n = identifier x
+     in sensitive s $
+        case s of
+            Struct {}    -> TType (n ^. typeId)
+            Enum   {}    -> TType (n ^. typeId)
+            List   i e
+                | nonEmpty i -> TList1 t
+                | otherwise  -> TList  t
+              where
+                t = typeOf (e ^. refAnn)
+            Map    _ k v -> TMap (typeOf (k ^. refAnn)) (typeOf (v ^. refAnn))
+            Lit    i l   ->
+                case l of
+                    Int  -> natural i (TLit l)
+                    Long -> natural i (TLit l)
+                    _    -> TLit l
 
 -- FIXME: Filter constraints based on info like min/max of lists etc.
-derive :: Shape Id -> [Derive]
+derive :: Shape a -> [Derive]
 derive (_ :< s) = nub . sort $ shape s
   where
-    shape :: ShapeF (Shape Id) -> [Derive]
+    shape :: ShapeF (Shape a) -> [Derive]
     shape = \case
         Struct _ ms -> foldr' (intersect . derive) base ms
         List   {}   -> base <> monoid

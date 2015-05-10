@@ -21,6 +21,29 @@ executable compile
     main-is:           Main.hs
 
     other-modules:
+          Compiler.AST
+        , Compiler.AST.Cofree
+        , Compiler.AST.Data
+        , Compiler.AST.Data.Syntax
+        , Compiler.AST.Prefix
+        , Compiler.AST.Solve
+        , Compiler.AST.Solve.TypeOf
+        , Compiler.Formatting
+        , Compiler.IO
+        , Compiler.JSON
+        , Compiler.Override
+        , Compiler.Protocol
+        , Compiler.TH
+        , Compiler.Text
+        , Compiler.Tree
+        , Compiler.Types
+        , Compiler.Types.Help
+        , Compiler.Types.Id
+        , Compiler.Types.Map
+        , Compiler.Types.NS
+        , Compiler.Types.Orphans
+        , Compiler.Types.Service
+        , Compiler.Types.URI
 
     ghc-options:       -Wall -threaded
 

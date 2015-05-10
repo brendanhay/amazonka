@@ -18,9 +18,9 @@
 -- Portability : non-portable (GHC extensions)
 
 module Compiler.Tree
-    ( rootTree
-    , foldTree
-    , populateTree
+    ( root
+    , fold
+    , populate
     ) where
 
 import           Compiler.Types
@@ -29,22 +29,22 @@ import           Data.Aeson                hiding (json)
 import qualified Data.HashMap.Strict       as Map
 import           Data.Monoid
 import           Data.Text                 (Text)
-import           Filesystem.Path.CurrentOS
+import           Filesystem.Path.CurrentOS hiding (root)
 import           Prelude                   hiding (mod)
 import           System.Directory.Tree     hiding (file)
 import           System.IO.Error
 import           Text.EDE                  hiding (render)
 
-rootTree :: AnchoredDirTree a -> Path
-rootTree (p :/ d) = decodeString p </> decodeString (name d)
+root :: AnchoredDirTree a -> Path
+root (p :/ d) = decodeString p </> decodeString (name d)
 
-foldTree :: Monad m
-         => (IOError -> m ())  -- ^ Failures
-         -> (Path -> m ())     -- ^ Directories
-         -> (Path -> a -> m b) -- ^ Files
-         -> AnchoredDirTree a
-         -> m (AnchoredDirTree b)
-foldTree h g f (p :/ t) = (p :/) <$> go (decodeString p) t
+fold :: Monad m
+     => (IOError -> m ())  -- ^ Failures
+     -> (Path -> m ())     -- ^ Directories
+     -> (Path -> a -> m b) -- ^ Files
+     -> AnchoredDirTree a
+     -> m (AnchoredDirTree b)
+fold h g f (p :/ t) = (p :/) <$> go (decodeString p) t
   where
     go x = \case
         Failed n e  -> h e >> return (Failed n e)
@@ -53,11 +53,11 @@ foldTree h g f (p :/ t) = (p :/) <$> go (decodeString p) t
           where
             d = x </> decodeString n
 
-populateTree :: Path
-             -> Templates
-             -> Library
-             -> AnchoredDirTree LazyText
-populateTree d Templates{..} l = encodeString d :/ dir lib
+populate :: Path
+         -> Templates
+         -> Library
+         -> AnchoredDirTree LazyText
+populate d Templates{..} l = encodeString d :/ dir lib
     [ dir "src" []
     , dir "examples"
         [ dir "src" []

@@ -31,13 +31,14 @@ module Compiler.TH
 
 import           Compiler.Text
 import           Control.Lens
-import qualified Data.Aeson           as A
 import qualified Data.Aeson.TH        as A
-import qualified Data.Jason           as J
+import qualified Data.Aeson.Types     as A
 import qualified Data.Jason.TH        as J
+import qualified Data.Jason.Types     as J
 import           Data.Text            (Text)
 import qualified Data.Text            as Text
 import qualified Data.Text.Manipulate as Text
+import           GHC.Generics
 
 data TH = TH
     { _ctor   :: Text -> Text
@@ -47,11 +48,11 @@ data TH = TH
 
 makeLenses ''TH
 
--- deriveFromJSON th   = J.deriveFromJSON (jason th)
--- deriveToJSON   th   = A.deriveToJSON (aeson th)
--- deriveJSON  th n = concat <$> sequence [deriveFromJSON th n, deriveToJSON th n]
+gParseJSON' :: (Generic a, J.GFromJSON (Rep a)) => TH -> J.Value -> J.Parser a
 gParseJSON' th = J.genericParseJSON (jason th)
-gToJSON'    th = A.genericToJSON    (aeson th)
+
+gToJSON' :: (Generic a, A.GToJSON (Rep a)) => TH -> a -> A.Value
+gToJSON' th = A.genericToJSON (aeson th)
 
 upper, lower, spinal, camel :: TH
 upper  = TH Text.toUpper  Text.toUpper  False

@@ -6,7 +6,7 @@
 {-# LANGUAGE TemplateHaskell   #-}
 {-# LANGUAGE TupleSections     #-}
 
--- Module      : Compiler.TypeOf
+-- Module      : Compiler.AST.Solve.TypeOf
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -16,11 +16,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.TypeOf where
+module Compiler.AST.Solve.TypeOf where
 
-import           Compiler.Syntax
+import           Compiler.AST.Data.Syntax
 import           Compiler.Types
-import           Control.Lens                 hiding (enum, (??))
+import           Control.Lens
 import qualified Data.Foldable                as Fold
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
@@ -31,33 +31,21 @@ data TType
     | TLit       Lit
     | TNatural
     | TMaybe     TType
---    | TFlatten   TType
     | TSensitive TType
     | TList      TType
     | TList1     TType
     | TMap       TType TType
       deriving (Show)
 
--- data Typed a = Typed
---     { _typed  :: a
---     , _typeof :: TType
---     } deriving (Show)
-
--- makeLenses ''Typed
-
--- instance HasInfo a => HasInfo (Typed a) where
---     info = typed . info
-
 internal :: TType -> Type
 internal = \case
-    TType        x       -> tycon x
-    TLit         x       -> literal True x
-    TNatural             -> tycon "Nat"
-    TMaybe       x       -> TyApp (tycon "Maybe") (internal x)
---    TFlatten     x       -> TyApp (tycon "Flatten") (internal x)
-    TSensitive   x       -> TyApp (tycon "Sensitive") (internal x)
-    TList      x -> TyApp (tycon "List") (internal x)
-    TList1     x -> TyApp (tycon "List1") (internal x)
+    TType      x   -> tycon x
+    TLit       x   -> literal True x
+    TNatural       -> tycon "Nat"
+    TMaybe     x   -> TyApp (tycon "Maybe") (internal x)
+    TSensitive x   -> TyApp (tycon "Sensitive") (internal x)
+    TList      x   -> TyApp (tycon "List") (internal x)
+    TList1     x   -> TyApp (tycon "List1") (internal x)
     TMap       k v -> TyApp (TyApp (tycon "Map") (internal k)) (internal v)
 
      -- TList      i x       -> TyApp (TyApp (tycon "List") (singleton i)) (internal x)
@@ -75,15 +63,14 @@ internal = \case
 
 external :: TType -> Type
 external = \case
-    TType        x   -> tycon x
-    TLit         x   -> literal False x
-    TNatural         -> tycon "Natural"
-    TMaybe       x   -> TyApp (tycon "Maybe") (external x)
---    TFlatten     x   -> external x
-    TSensitive   x   -> external x
+    TType      x   -> tycon x
+    TLit       x   -> literal False x
+    TNatural       -> tycon "Natural"
+    TMaybe     x   -> TyApp (tycon "Maybe") (external x)
+    TSensitive x   -> external x
     TList      x   -> TyList (external x)
     TList1     x   -> TyApp (tycon "NonEmpty") (external x)
-    TMap         k v -> TyApp (TyApp (tycon "HashMap") (external k)) (external v)
+    TMap       k v -> TyApp (TyApp (tycon "HashMap") (external k)) (external v)
 
 literal :: Bool -> Lit -> Type
 literal i = tycon . \case
@@ -116,12 +103,6 @@ mapping = compose . iso'
         TMap       {}   -> [var "_Map"]   -- Coercible.
         _               -> []
 
--- list :: HasInfo a => a -> Ref -> TType -> TType
--- list i r = undefined -- sensitive i . flatten i . c (r ^. refLocationName . _Identity)
---   where
---     c | i ^. infoMin > Just 0 = TList1
---       | otherwise             = TList
-
 natural :: HasInfo a => a -> (TType -> TType)
 natural x
     | Just i <- x ^. infoMin
@@ -132,11 +113,6 @@ sensitive :: HasInfo a => a -> (TType -> TType)
 sensitive x
     | x ^. infoSensitive = TSensitive
     | otherwise          = id
-
--- flatten :: HasInfo a => a -> (TType -> TType)
--- flatten x
---     | x ^. infoFlattened = TFlatten
---     | otherwise          = id
 
 optional :: Bool -> TType -> TType
 optional True  t = t

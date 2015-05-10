@@ -26,6 +26,8 @@ import qualified Data.HashSet        as Set
 import           Data.Maybe
 import           Data.Traversable    (for)
 
+-- FIXME: Merge subst into rewrite
+
 type Subst a = State (Map Id (ShapeF a))
 
 substitute :: Service Maybe (RefF   a) (ShapeF a)

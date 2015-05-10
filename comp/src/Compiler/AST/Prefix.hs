@@ -4,7 +4,7 @@
 {-# LANGUAGE TypeOperators     #-}
 {-# LANGUAGE ViewPatterns      #-}
 
--- Module      : Compiler.Prefix
+-- Module      : Compiler.AST.Prefix
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -14,11 +14,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.Prefix
+module Compiler.AST.Prefix
     ( prefixes
     ) where
 
-import           Compiler.AST
+import           Compiler.AST.Cofree
 import           Compiler.Formatting
 import           Compiler.Text
 import           Compiler.Types
@@ -46,7 +46,8 @@ makeLenses ''Env
 
 type Prefix = StateT Env (Either Error)
 
-prefixes :: HasId a => [Shape a] -> Either Error [Shape (a :*: Maybe Text)]
+prefixes :: (Traversable t, HasId a)
+         => t (Shape a) -> Either Error (t (Shape (a :*: Maybe Text)))
 prefixes = (`evalStateT` Env mempty mempty) . traverse prefix
 
 prefix :: HasId a => Shape a -> Prefix (Shape (a :*: Maybe Text))

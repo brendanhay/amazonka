@@ -21,8 +21,8 @@ module Compiler.AST.Data
     ) where
 
 import           Compiler.AST.Data.Syntax
+import           Compiler.AST.Data.TypeOf
 import           Compiler.AST.Prefix
-import           Compiler.AST.Solve.TypeOf
 import           Compiler.Formatting          hiding (base)
 import           Compiler.Protocol
 import           Compiler.Types

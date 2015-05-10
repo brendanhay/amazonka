@@ -91,24 +91,3 @@ mapping = compose . iso'
         TList1     {}   -> [var "_List1"] -- Coercible.
         TMap       {}   -> [var "_Map"]   -- Coercible.
         _               -> []
-
-natural :: HasInfo a => a -> (TType -> TType)
-natural x
-    | Just i <- x ^. infoMin
-    , i >= 0    = const TNatural
-    | otherwise = id
-
-sensitive :: HasInfo a => a -> (TType -> TType)
-sensitive x
-    | x ^. infoSensitive = TSensitive
-    | otherwise          = id
-
-optional :: Bool -> TType -> TType
-optional True  t = t
-optional False t =
-    case t of
-        TMaybe {} -> t
-        TList  {} -> t
-        TList1 {} -> t
-        TMap   {} -> t
-        _         -> TMaybe t

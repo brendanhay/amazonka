@@ -21,6 +21,7 @@ module Compiler.AST.Solve
     ) where
 
 import           Compiler.AST.Cofree
+import           Compiler.Protocol
 import           Compiler.Types
 import           Control.Arrow          ((&&&))
 import           Control.Comonad.Cofree
@@ -32,23 +33,22 @@ import qualified Data.HashSet           as Set
 import           Data.List              (intersect, nub, sort)
 import           Data.Monoid            hiding (Product, Sum)
 
--- FIXME: Instances as well? Maybe roll up
--- TType, Derive and Instance into a single 'Type/Solved' datatype
-
 solve :: (Traversable t, HasId a)
       => Config
-      -> t (Shape a)
-      -> t (Shape (a ::: TType ::: [Derive]))
-solve cfg = (`evalState` env) . traverse (annotate id (pure . ann))
+      -> Protocol
+      -> t (Shape (a ::: Direction))
+      -> t (Shape (a ::: Direction ::: Solved))
+solve cfg proto = (`evalState` env) . traverse (annotate id (pure . ann))
  where
-    env :: Map Id (TType ::: [Derive])
-    env = replaced (uncurry (:::) . (f &&& g)) cfg
+    env :: Map Id Solved
+    env = replaced def cfg
       where
-        f = view (replaceName . typeId . to TType)
-        g = view (replaceDeriving . to Set.toList)
+        def x = x ^. replaceName . typeId . to TType
+            ::: x ^. replaceDeriving . to Set.toList
+            ::: instances proto mempty
 
-    ann :: HasId a => Shape a -> TType ::: [Derive]
-    ann x = typeOf x ::: derive x
+    ann :: HasId a => Shape (a ::: Direction) -> Solved
+    ann x@((_ ::: d) :< _) = typeOf x ::: derive x ::: instances proto d
 
 typeOf :: HasId a => Shape a -> TType
 typeOf (x :< s) =
@@ -68,6 +68,27 @@ typeOf (x :< s) =
                     Int  -> natural i (TLit l)
                     Long -> natural i (TLit l)
                     _    -> TLit l
+
+natural :: HasInfo a => a -> (TType -> TType)
+natural x
+    | Just i <- x ^. infoMin
+    , i >= 0    = const TNatural
+    | otherwise = id
+
+sensitive :: HasInfo a => a -> (TType -> TType)
+sensitive x
+    | x ^. infoSensitive = TSensitive
+    | otherwise          = id
+
+optional :: Bool -> TType -> TType
+optional True  t = t
+optional False t =
+    case t of
+        TMaybe {} -> t
+        TList  {} -> t
+        TList1 {} -> t
+        TMap   {} -> t
+        _         -> TMaybe t
 
 -- FIXME: Filter constraints based on info like min/max of lists etc.
 derive :: Shape a -> [Derive]

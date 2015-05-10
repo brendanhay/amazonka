@@ -1,5 +1,6 @@
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE TypeOperators #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE TypeOperators     #-}
 
 -- Module      : Compiler.Types.Ann
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -23,10 +24,12 @@ import           Data.Text         (Text)
 import qualified Data.Text         as Text
 import           GHC.Generics
 
+type Solved = TType ::: [Derive] ::: [Instance]
+
 data a ::: b = !a ::: !b
     deriving (Show)
 
-infixr 5 :::
+infixl 5 :::
 
 instance HasId a => HasId (a ::: b) where
     identifier (x ::: _) = identifier x
@@ -110,5 +113,3 @@ instToText = Text.pack . show
 
 instance ToJSON Instance where
     toJSON = toJSON . instToText
-
-type Solved = TType ::: [Derive] ::: [Instance]

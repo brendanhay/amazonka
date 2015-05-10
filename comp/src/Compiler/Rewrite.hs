@@ -2,6 +2,8 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TupleSections     #-}
+{-# LANGUAGE TypeOperators     #-}
+{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Compiler.Rewrite
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -15,8 +17,10 @@
 
 module Compiler.Rewrite where
 
+import           Compiler.AST
 import           Compiler.Formatting
 import           Compiler.Protocol
+import           Control.Monad.State
 import qualified Data.HashMap.Strict       as Map
 import           Debug.Trace
 --import           Compiler.Rewrite.Ann
@@ -39,15 +43,24 @@ import           Data.Monoid
 -- prefix
 -- type
 
+-- FIXME:
+-- For now ignore substitution/operations, since it'd be good do all the AST annotations
+-- on a single env of [Shape ..]
+
 rewrite :: Versions
         -> Config
         -> Service Maybe (RefF ()) (ShapeF ())
         -> Either Error Library
 rewrite v c s' = do
-    s   <- defaults . substitute $ override c s'
+    let s  = override c s'
+--    substitute $ defaults .
     ss  <- elaborate (s ^. shapes)
 
-    let !ss' = solve c ss
+    !ds <- directions (s ^. operations) (s ^. shapes)
+
+    let !sss = map (identify ds) ss
+
+    -- let !ss' = solve c ss
 
 --    s <- annotateTypes c =<< defaults (substitute $ override c s')
     undefined
@@ -60,6 +73,33 @@ rewrite v c s' = do
     --                  (s ^.. operations . ifolded . asIndex . ctorId)
 
     -- return $! Library v c s ns (sort expose) (sort other)
+
+
+type Dir = StateT (Map Id Direction) (Either Error)
+
+directions :: Map Id (Operation Maybe (RefF a))
+           -> Map Id (ShapeF b)
+           -> Either Error (Map Id Direction)
+directions os ss = execStateT (traverse go os) mempty
+  where
+    go :: Operation Maybe (RefF a) -> Dir ()
+    go o = mode Input requestName opInput >> mode Output responseName opOutput
+      where
+        mode (Mode -> d) f g = do
+            modify (Map.insertWith (<>) (o ^. f) d)
+            count d (o ^? g . _Just . refShape)
+
+    shape :: Direction -> ShapeF a -> Dir ()
+    shape d = mapM_ (count d . Just . view refShape) . toListOf references
+
+    count :: Direction -> Maybe Id -> Dir ()
+    count d Nothing  = pure ()
+    count d (Just n) = do
+        modify (Map.insertWith (<>) n d)
+        s <- lift $
+            note (format ("Unable to find shape " % iprimary) n)
+                 (Map.lookup n ss)
+        shape d s
 
 elaborate :: Map Id (ShapeF a) -> Either Error [Shape Id]
 elaborate ss = Map.elems <$> Map.traverseWithKey shape ss

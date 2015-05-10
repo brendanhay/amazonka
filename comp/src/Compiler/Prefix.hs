@@ -1,8 +1,10 @@
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE TypeOperators     #-}
 {-# LANGUAGE ViewPatterns      #-}
 
--- Module      : Compiler.Rewrite.Prefix
+-- Module      : Compiler.Prefix
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -12,53 +14,65 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.Rewrite.Prefix
+module Compiler.Prefix
     ( prefixes
     ) where
 
+import           Compiler.AST
 import           Compiler.Formatting
 import           Compiler.Text
 import           Compiler.Types
+import           Control.Comonad.Cofree
 import           Control.Lens
 import           Control.Monad.Except
 import           Control.Monad.State
-import           Data.CaseInsensitive (CI)
-import qualified Data.CaseInsensitive as CI
+import           Data.CaseInsensitive   (CI)
+import qualified Data.CaseInsensitive   as CI
 import           Data.Hashable
-import qualified Data.HashMap.Strict  as Map
-import qualified Data.HashSet         as Set
+import qualified Data.HashMap.Strict    as Map
+import qualified Data.HashSet           as Set
 import           Data.Maybe
 import           Data.Monoid
-import           Data.Text            (Text)
-import qualified Data.Text            as Text
+import           Data.Text              (Text)
+import qualified Data.Text              as Text
 import           Data.Text.Manipulate
 
-type Prefixes = StateT (Map (CI Text) (Set (CI Text))) (Either Error)
+data Env = Env
+    { _memo :: Map Id (Maybe Text)
+    , _seen :: Map (CI Text) (Set (CI Text))
+    }
 
--- FIXME: some assurances about stability of prefixes.
+makeLenses ''Env
 
-prefixes :: Map Id (ShapeF a) -> Either Error (Map Id Text)
-prefixes = (`evalStateT` mempty) . kvTraverseMaybe go
+type Prefix = StateT Env (Either Error)
+
+prefixes :: HasId a => [Shape a] -> Either Error [Shape (a :*: Maybe Text)]
+prefixes = (`evalStateT` Env mempty mempty) . traverse prefix
+
+prefix :: HasId a => Shape a -> Prefix (Shape (a :*: Maybe Text))
+prefix = annotate memo go
   where
-    go :: Id -> ShapeF a -> Prefixes (Maybe Text)
-    go (view memberId -> n) = \case
-        Struct _ s  -> Just <$> do
-            let hs = heuristics n
-                xs = keys (^. ciId) (s ^. members)
-            uniq n hs xs
+    go :: HasId a => Shape a -> Prefix (Maybe Text)
+    go (x :< s) =
+        let n = identifier x ^. memberId
+         in case s of
+            Struct _ ms -> Just <$> do
+                let hs = heuristics n
+                    xs = keys (^. ciId) (ms ^. members)
+                uniq n hs xs
 
-        Enum   _ vs -> Just <$> do
-            let hs = mempty : heuristics n
-                xs = keys CI.mk vs
-            uniq n hs xs
+            Enum   _ vs -> Just <$> do
+                let hs = mempty : heuristics n
+                    xs = keys CI.mk vs
+                uniq n hs xs
 
-        _           -> return Nothing
+            _           -> return Nothing
 
-    uniq :: Text -> [CI Text] -> Set (CI Text) -> Prefixes Text
+    uniq :: Text -> [CI Text] -> Set (CI Text) -> Prefix Text
     uniq n [] xs = do
-        s <- get
+        s <- use seen
         let hs  = heuristics n
-            f h = sformat ("\n" % soriginal % " => " % shown) h (Map.lookup h s)
+            f x = sformat ("\n" % soriginal % " => " % shown) x (Map.lookup x s)
         throwError $
             format ("Error prefixing: " % stext %
                     ", fields: "        % shown %
@@ -66,17 +80,19 @@ prefixes = (`evalStateT` mempty) . kvTraverseMaybe go
                    n (Set.toList xs) (map f hs)
 
     uniq n (h:hs) xs = do
-        m <- gets (Map.lookup h)
+        m <- uses seen (Map.lookup h)
         case m of
             Just ys | overlap ys xs
                 -> uniq n hs xs
-            _   -> modify (Map.insertWith (<>) h xs) >> return (CI.original h)
+            _   -> do
+                seen %= Map.insertWith (<>) h xs
+                return (CI.original h)
 
-    overlap :: (Eq a, Hashable a) => Set a -> Set a -> Bool
-    overlap xs ys = not . Set.null $ Set.intersection xs ys
+overlap :: (Eq a, Hashable a) => Set a -> Set a -> Bool
+overlap xs ys = not . Set.null $ Set.intersection xs ys
 
-    keys :: (Eq b, Hashable b) => (a -> b) -> Map a c -> Set b
-    keys f = Set.fromList . map f . Map.keys
+keys :: (Eq b, Hashable b) => (a -> b) -> Map a c -> Set b
+keys f = Set.fromList . map f . Map.keys
 
 -- | Acronym preference list.
 heuristics :: Text -> [CI Text]

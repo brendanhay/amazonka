@@ -16,11 +16,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.Rewrite.Solve where
-    -- ( annotateTypes
-    -- ) where
+module Compiler.Rewrite.Solve
+    ( solve
+    ) where
 
-import           Compiler.Protocol
+import           Compiler.AST
 import           Compiler.Rewrite.Syntax
 import           Compiler.Rewrite.TypeOf
 import           Compiler.Types
@@ -49,16 +49,21 @@ import           Language.Haskell.Exts.Build  (app, infixApp, paren)
 import           Language.Haskell.Exts.Pretty
 import           Language.Haskell.Exts.Syntax hiding (Int, List, Lit)
 
-type Solve = State (Map Id (TType))
+type Solve = State (Map Id (TType :*: [Derive]))
+-- Instance as well? Maybe roll up
+-- TType, Derive and Instance into a single 'Type' datatype
 
-solve :: Config -> [Shape Id] -> [Shape (Id :*: TType)]
-solve cfg = (`evalState` initial) . traverse go
+solve :: Config -> [Shape Id] -> [Shape (Id :*: TType :*: [Derive])]
+solve cfg = (`evalState` env) . traverse (annotate (pure . ann))
  where
-    initial :: Map Id TType
-    initial = replaced (TType . view (replaceName . typeId)) cfg
+    env :: Map Id (TType :*: [Derive])
+    env = replaced (uncurry (:*:) . (f &&& g)) cfg
+      where
+        f = view (replaceName . typeId . to TType)
+        g = view (replaceDeriving . to Set.toList)
 
-    go :: Shape Id -> Solve (Shape (Id :*: TType))
-    go = sequence . annotate (memo (pure . typeOf))
+    ann :: Shape Id -> TType :*: [Derive]
+    ann x = typeOf x :*: derive x
 
 typeOf :: Shape Id -> TType
 typeOf (n :< s) = sensitive s $
@@ -76,14 +81,6 @@ typeOf (n :< s) = sensitive s $
                 Int  -> natural i (TLit l)
                 Long -> natural i (TLit l)
                 _    -> TLit l
-
-memo :: (Shape Id -> Solve TType) -> Shape Id -> Solve TType
-memo f x@(n :< _) = gets (Map.lookup n) >>= maybe act return
-  where
-    act = do
-        r <- f x
-        modify (Map.insert n r)
-        return r
 
 -- FIXME: Filter constraints based on info like min/max of lists etc.
 derive :: Shape Id -> [Derive]

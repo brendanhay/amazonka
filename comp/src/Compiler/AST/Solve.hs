@@ -38,8 +38,13 @@ solve :: (Traversable t, HasId a)
       -> Protocol
       -> t (Shape (a ::: Direction))
       -> t (Shape (a ::: Direction ::: Solved))
-solve cfg proto = (`evalState` env) . traverse (annotate id (pure . ann))
+solve cfg proto = (`evalState` env) . traverse (assoc . annotate id (pure . ann))
  where
+    assoc :: (Functor f, Functor g)
+          => f (g ((a ::: b) ::: c))
+          -> f (g (a ::: b ::: c))
+    assoc = fmap (fmap rassoc)
+
     env :: Map Id Solved
     env = replaced def cfg
       where

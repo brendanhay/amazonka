@@ -1,6 +1,7 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedLists   #-}
+{-# LANGUAGE ViewPatterns   #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TupleSections     #-}
@@ -21,13 +22,13 @@ module Compiler.AST.Data
     ) where
 
 import           Compiler.AST.Data.Syntax
-import           Compiler.AST.Data.TypeOf
 import           Compiler.AST.Prefix
 import           Compiler.Formatting          hiding (base)
 import           Compiler.Protocol
 import           Compiler.Types
 import           Control.Arrow                ((&&&))
 import           Control.Comonad
+import           Control.Comonad.Cofree
 import           Control.Error
 import           Control.Lens                 hiding (enum, mapping, (??))
 import           Control.Monad.Except
@@ -48,127 +49,120 @@ import           Language.Haskell.Exts.Build  (app, infixApp, paren)
 import           Language.Haskell.Exts.Pretty
 import           Language.Haskell.Exts.Syntax hiding (Int, List, Lit)
 
--- data Field = Field
---     { fieldParam    :: Name
---     , fieldType     :: Type
---     , fieldAccessor :: ([Name], Type)
---     , fieldLens     :: Fun
---     , fieldUpdate   :: FieldUpdate
---     , fieldReq      :: !Bool
---     , fieldId       :: Id
---     , fieldRef      :: Ptr
---     , fieldRefShape :: Shape
---     }
+data Field = Field
+    { fieldParam    :: Name
+    , fieldType     :: Type
+    , fieldAccessor :: ([Name], Type)
+    , fieldLens     :: Fun
+    , fieldUpdate   :: FieldUpdate
+    , fieldReq      :: !Bool
+    }
 
 -- FIXME: Should empty responses be a shared type, and
 -- always succeed based on HTTP response code?
 
--- id, prefix, [derive], direction, [instance]
-dataType :: Protocol -> Shape a -> Either Error (Maybe Data)
-dataType proto (n :< s) =
+dataType :: Protocol
+         -> Shape (Id ::: Direction ::: Maybe Text ::: Solved)
+         -> Either Error (Maybe Data)
+dataType proto ((n ::: d ::: p ::: t ::: ds ::: is) :< s) =
     case s of
-        Struct i ms -> struct i ms
-        Enum   i vs -> enum   i vs
+        Enum   i vs -> Just <$> enum i vs
+        Struct i ms -> Just <$> struct i ms
         _           -> return Nothing
   where
     enum :: Info -> Map Text Text -> Either Error Data
-    enum i vs p ds = Sum i <$> decl <*> pure bs <*> pure is
+    enum i vs = Sum i
+        <$> formatted (dataDecl n (map conDecl (Map.keys bs)) ds)
+        <*> pure
+        <*> pure is
       where
         bs :: Map Text Text
-        bs = vs & kvTraversal %~ first (f . upperHead)
+        bs = Map.keys vs & kvTraversal %~ first (f . upperHead)
+
+        f :: Text -> Text
+        f | Just x <- p = mappend (upperHead x)
+          | otherwise   = id
+
+    -- struct :: Info -> Struct
+    --        -> Text
+    --        -> Set Derive
+    --        -> Either Error Data
+    struct :: Info -> _ -> Either Error Data
+    struct i s = do
+        fs <- traverse (uncurry field) imembers
+        Product i <$> decl fs <*> ctor fs <*> lenses fs <*> pure mempty -- insts fs
+      where
+        imembers :: [(Int, _)]
+        imembers = zip [1..] . Map.toList $ s ^. members
+
+        decl fs = formatted $ dataDecl (n ^. typeId)
+            [ recDecl (n ^. typeId) (map fieldAccessor fs)
+            ] ds
+
+        ctor fs = Fun c h
+            <$> unformatted sig
+            <*> formatted bdy
           where
-            f | Text.null p = id
-              | otherwise   = mappend (upperHead p)
+            sig = ctorSig n (map fieldType rs)
+            bdy = ctorDecl p n (map fieldParam rs)
 
-        decl :: Either Error LazyText
-        decl = formatted $ dataDecl name (map conDecl $ Map.keys bs) ds
+            -- FIXME: this should output haddock single quotes to ensure
+            -- the type is linked properly.
+            h = fromString $ Text.unpack ("'" <> n ^. typeId <> "' smart constructor.")
 
---     struct :: Info
---            -> Struct
---            -> Text
---            -> Set Derive
---            -> Either Error Data
---     struct i s p ds = do
---         fs <- traverse (uncurry field) (zip [1..] . Map.toList $ s ^. members)
---         Product i <$> decl fs <*> ctor fs <*> lenses fs <*> pure mempty -- insts fs
---       where
---         decl fs = pretty True $ dataDecl (n ^. typeId)
---             [ recDecl (n ^. typeId) (map fieldAccessor fs)
---             ] ds
+        lenses = pure . map fieldLens
 
---         ctor fs = Fun c h <$> pretty False sig <*> pretty True body
---           where
---             sig  = typeSig c (n ^. typeId . to tycon) (map fieldType rs)
---             body = funDecl c (map fieldParam rs) $
---                 RecConstr (n ^. typeId . to unqual) (map fieldUpdate fs)
+        -- insts :: [Field] -> Either Error (Map Inst [LazyText])
+        -- insts fs = Map.fromList <$> traverse (\i -> (i,) <$> fgh i) is
+        --   whereS
+        --     fgh :: Inst -> Either Error [LazyText]
+        --     fgh i = implement i $ satisfying i (_refLocation . fieldRef) fs
 
---             c  = n ^. ctorId
---             rs = filter fieldReq fs -- Required fields
+        --     implement :: Inst -> [Field] -> Either Error [LazyText]
+        --     implement ToQuery xs = traverse function xs
+        --       where
+        --         function Field{..} = pretty False $ fun fieldRefShape
+        --           where
+        --             fun (List i e) =
+        --                 app (app (var "toQueryList")
+        --                          (str (parent <> maybe mempty (mappend ".") element)))
+        --                     (var (fieldId ^. accessorId p))
+        --               where
+        --                 ((parent, element), _) =
+        --                     listName proto (fieldId, fieldRef) (i, e)
 
---             -- FIXME: this should output haddock single quotes to ensure
---             -- the type is linked properly.
---             h = fromString $ Text.unpack ("'" <> n ^. typeId <> "' smart constructor.")
-
---         lenses = pure . map fieldLens
-
---         -- insts :: [Field] -> Either Error (Map Inst [LazyText])
---         -- insts fs = Map.fromList <$> traverse (\i -> (i,) <$> fgh i) is
---         --   where
---         --     fgh :: Inst -> Either Error [LazyText]
---         --     fgh i = implement i $ satisfying i (_refLocation . fieldRef) fs
-
---         --     implement :: Inst -> [Field] -> Either Error [LazyText]
---         --     implement ToQuery xs = traverse function xs
---         --       where
---         --         function Field{..} = pretty False $ fun fieldRefShape
---         --           where
---         --             fun (List i e) =
---         --                 app (app (var "toQueryList")
---         --                          (str (parent <> maybe mempty (mappend ".") element)))
---         --                     (var (fieldId ^. accessorId p))
---         --               where
---         --                 ((parent, element), _) =
---         --                     listName proto (fieldId, fieldRef) (i, e)
-
---         --             fun _         =
---         --                 infixApp (str $ fst (memberName proto (fieldId, fieldRef)))
---         --                          (qop "=?")
---         --                          (var (fieldId ^. accessorId p))
---         --     implement _ _ = pure []
+        --             fun _         =
+        --                 infixApp (str $ fst (memberName proto (fieldId, fieldRef)))
+        --                          (qop "=?")
+        --                          (var (fieldId ^. accessorId p))
+        --     implement _ _ = pure []
 
 
---         -- FIXME: Facets of Info for the field need to be layered on top
---         -- of the type, such as nonempty, maybe, etc.
---         field :: Int -> (Id, Ref) -> Either Error Field
---         field (param -> o) (k, v) = do
---             let r = v ^. refShape
---                 a = k ^. accessorId p
---                 l = k ^. lensId p
+        -- FIXME: Facets of Info for the field need to be layered on top
+        -- of the type, such as nonempty, maybe, etc.
+--        field :: Int -> (Id, Ref) -> Either Error Field
+        field (param -> o) (k, v) = do
+            let r = v ^. refShape
+                a = k ^. accessorId p
+                l = k ^. lensId p
 
---             let req = Set.member k (s ^. required)
+            let req = Set.member k (s ^. required)
 
---             c   <- fulfill r
---             typ <- getTyped r
+            let h = fromMaybe "FIXME: Undocumented reference."
+                        (v ^. refShape . _refDocumentation)
 
---             let t = optional req (typ ^. typeof)
---                 h = fromMaybe "FIXME: Undocumented reference."
---                         (v ^. refShape . _refDocumentation)
+            d <- Fun l h
+                <$> unformatted (lensSig  p k t t)
+                <*> unformatted (lensDecl p k t)
 
---             d   <- Fun l h
---                 <$> pretty False (lensSig l (n ^. typeId . to tycon) (external t))
---                 <*> pretty False (funDecl l [] (mapping t (lensBody a)))
-
---             return $! Field
---                 { fieldParam    = o
---                 , fieldType     = external t
---                 , fieldAccessor = ([ident a], internal t)
---                 , fieldLens     = d
---                 , fieldUpdate   = update a o req c
---                 , fieldReq      = req
---                 , fieldId       = k
---                 , fieldRef      = v
---                 , fieldRefShape = typ ^. typed
---                 }
+            return $! Field
+                { fieldParam    = o
+                , fieldType     = external t
+                , fieldAccessor = ([ident a], internal t)
+                , fieldLens     = d
+                , fieldUpdate   = update a o req c
+                , fieldReq      = req
+                }
 
 formatted, unformatted :: Pretty a => a -> Either Error LazyText
 formatted   = pretty True

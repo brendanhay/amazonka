@@ -16,34 +16,74 @@
 
 module Compiler.AST.Data.Syntax where
 
-import           Compiler.Types               (Derive (..), Map, Set)
-import           Compiler.Types.Id
+import           Compiler.Types
+import           Control.Lens                 hiding (mapping)
 import qualified Data.Foldable                as Fold
 import qualified Data.HashSet                 as Set
-import           Data.List                    (sort)
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
 import qualified Language.Haskell.Exts        as Exts
 import           Language.Haskell.Exts.Build  (app, infixApp, lamE, paren, sfun)
 import           Language.Haskell.Exts.SrcLoc (noLoc)
-import           Language.Haskell.Exts.Syntax
+import           Language.Haskell.Exts.Syntax hiding (Int, List, Lit)
 
-typeSig :: Text -> Type -> [Type] -> Decl
-typeSig n t = TypeSig noLoc [ident n] . Fold.foldr' TyFun t
+ctorSig :: Id -> [TType] -> Decl
+ctorSig n = TypeSig noLoc [n ^. smartCtorId . to ident] .
+    Fold.foldr' (TyFun . external) (n ^. typeId . to tycon)
 
-dataDecl :: Text -> [QualConDecl] -> Set Derive -> Decl
-dataDecl n fs cs = DataDecl noLoc arity [] (ident n) [] fs ds
+ctorDecl :: Maybe Text -> Id -> [Id] -> Set Id -> [Derive] -> Decl
+ctorDecl p n ms rs ds =
+    sfun noLoc (n ^. smartCtorId . to ident) ps (UnGuardedRhs rhs) (BDecls [])
+  where
+    rhs :: Exp
+    rhs = RecConstr (n ^. typeId . to unqual) $ map (uncurry upd) (zip ps ms)
+
+    ps :: [Name]
+    ps = take (length ms) $ map (Ident . mappend "p" . show) ([1..] :: [Int])
+
+    upd :: Name -> Id -> FieldUpdate
+    upd i n = FieldUpdate (n ^. accessorId p . to unqual) f
+      where
+        f | not (Set.member n rs) = var "Nothing"
+          | DMonoid `elem` ds     = var "mempty"
+          | otherwise             = Var (UnQual i)
+
+lensSig :: Maybe Text -> Id -> TType -> TType -> Decl
+lensSig p n x y = TypeSig noLoc [ident (n ^. lensId p)] $
+    TyApp (TyApp (tycon "Lens'")
+                 (external x))
+          (external y)
+
+lensDecl :: Maybe Text -> Id -> TType -> Decl
+lensDecl p n t = sfun noLoc (ident l) [] (UnGuardedRhs rhs) (BDecls [])
+  where
+    l = n ^. lensId p
+    a = n ^. accessorId p
+
+    rhs = mapping t $
+        app (app (var "lens") (var a))
+            (paren (lamE noLoc [pvar "s", pvar "a"]
+                   (RecUpdate (var "s") [FieldUpdate (unqual a) (var "a")])))
+
+dataDecl :: Id -> [QualConDecl] -> [Derive] -> Decl
+dataDecl n fs cs = DataDecl noLoc arity [] (ident (n ^. ctorId)) [] fs ds
   where
     arity = case fs of
         [QualConDecl _ _ _ (RecDecl _ [_])] -> NewType
         _                                   -> DataType
 
-    ds = map ((,[]) . UnQual . Ident . drop 1 . show)
-       . sort
-       $ Set.toList cs
+    ds = map ((,[]) . UnQual . Ident . drop 1 . show) cs
 
-funDecl :: Text -> [Name] -> Exp -> Decl
-funDecl n ps f = sfun noLoc (ident n) ps (UnGuardedRhs f) (BDecls [])
+conDecl :: Id -> QualConDecl
+conDecl n = QualConDecl noLoc [] [] (ConDecl (ident (n ^. ctorId)) [])
+
+recDecl :: Maybe Text -> Id -> [([Id], TType)] -> QualConDecl
+recDecl p n = QualConDecl noLoc [] []
+    . RecDecl (ident (n ^. ctorId))
+    . map (bimap f g)
+  where
+    f = map (view (accessorId p . to ident))
+    g = internal
 
 -- instDecl :: Text -> Text -> Text -> Text -> [Text] -> Decl
 -- instDecl c f o t fs = InstDecl noLoc Nothing [] [] (UnQual (ident c)) [tycon t]
@@ -65,28 +105,71 @@ funDecl n ps f = sfun noLoc (ident n) ps (UnGuardedRhs f) (BDecls [])
 
 --     v = "x"
 
-lensSig :: Text -> Type -> Type -> Decl
-lensSig n x y = typeSig n (TyApp (TyApp (tycon "Lens'") x) y) []
+internal :: TType -> Type
+internal = \case
+    TType      x   -> tycon x
+    TLit       x   -> literal True x
+    TNatural       -> tycon "Nat"
+    TMaybe     x   -> TyApp (tycon "Maybe") (internal x)
+    TSensitive x   -> TyApp (tycon "Sensitive") (internal x)
+    TList      x   -> TyApp (tycon "List") (internal x)
+    TList1     x   -> TyApp (tycon "List1") (internal x)
+    TMap       k v -> TyApp (TyApp (tycon "Map") (internal k)) (internal v)
 
-lensBody :: Text -> Exp
-lensBody n =
-    app (app (var "lens") (var n))
-        (paren (lamE noLoc [pvar "s", pvar "a"]
-               (RecUpdate (var "s") [FieldUpdate (unqual n) (var "a")])))
+     -- TList      i x       -> TyApp (TyApp (tycon "List") (singleton i)) (internal x)
+    -- TList1     i x       -> TyApp (TyApp (tycon "List1") (singleton i)) (internal x)
+    -- TMap   (e, i, j) k v ->
+    --     TyApp
+    --       (TyApp
+    --         (TyApp
+    --            (TyApp
+    --               (TyApp (tycon "EMap") (singleton e))
+    --               (singleton i))
+    --            (singleton j))
+    --         (internal k))
+    --       (internal v)
 
-conDecl :: Text -> QualConDecl
-conDecl n = QualConDecl noLoc [] [] (ConDecl (ident n) [])
+external :: TType -> Type
+external = \case
+    TType      x   -> tycon x
+    TLit       x   -> literal False x
+    TNatural       -> tycon "Natural"
+    TMaybe     x   -> TyApp (tycon "Maybe") (external x)
+    TSensitive x   -> external x
+    TList      x   -> TyList (external x)
+    TList1     x   -> TyApp (tycon "NonEmpty") (external x)
+    TMap       k v -> TyApp (TyApp (tycon "HashMap") (external k)) (external v)
 
-recDecl :: Text -> [([Name], Type)] -> QualConDecl
-recDecl n = QualConDecl noLoc [] [] . RecDecl (ident n)
+literal :: Bool -> Lit -> Type
+literal _ = tycon . \case
+    Int         -> "Int"
+    Long        -> "Integer"
+    Double      -> "Double"
+    Text        -> "Text"
+    Blob        -> "Base64"
+    Bool        -> "Bool"
+    -- Time (Just x) -- FIXME:
+    --     | not i -> Text.pack (show x)
+    Time        -> "UTCTime"
 
-update :: Text -> Name -> Bool -> Set Derive -> FieldUpdate
-update n p req cs = FieldUpdate (unqual n) f
+singleton :: Text -> Type
+singleton = tycon -- . ("\"" <>) . (<> "\"")
+
+mapping :: TType -> (Exp -> Exp)
+mapping = compose . iso'
   where
-    f | not req               = var "Nothing"
-      | Set.member DMonoid cs = var "mempty"
-      | otherwise             = Var (UnQual p)
+    compose xs e = Fold.foldl' (\y -> InfixApp y (qop ".")) e xs
 
+    iso' = \case
+        TLit  (Time {}) -> [var "_Time"]
+        TNatural        -> [var "_Nat"]
+        TMaybe     x    -> case iso' x of; [] -> []; xs -> var "mapping" : xs
+--        TFlatten   x    -> var "_Flatten"   : iso' x
+        TSensitive x    -> var "_Sensitive" : iso' x
+        TList      {}   -> [var "_List"]  -- Coercible.
+        TList1     {}   -> [var "_List1"] -- Coercible.
+        TMap       {}   -> [var "_Map"]   -- Coercible.
+        _               -> []
 
 tycon :: Text -> Type
 tycon = TyCon . unqual
@@ -95,7 +178,7 @@ con :: Text -> Exp
 con = Con . unqual
 
 str :: Text -> Exp
-str = Lit . String . Text.unpack
+str = Exts.Lit . String . Text.unpack
 
 pvar :: Text -> Pat
 pvar = Exts.pvar . ident

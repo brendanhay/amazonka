@@ -21,6 +21,7 @@ module Compiler.Types.Id
     , memberId
     , typeId
     , ctorId
+    , smartCtorId
     , accessorId
     , lensId
     , appendId
@@ -83,21 +84,25 @@ ciId = to (\(Id x _) -> x)
 memberId :: Getter Id Text
 memberId = ciId . to CI.original
 
--- FIXME: vPNStaticRoute :: VPNStaticRoute smart ctor name, note vPN
-ctorId :: Getter Id Text
-ctorId = typeId . to (lowerHead . lowerFirstAcronym)
-
 typeId :: Getter Id Text
 typeId = representation . to renameReserved
 
-accessorId :: Text -> Getter Id Text
+ctorId :: Getter Id Text
+ctorId = typeId
+
+-- FIXME: vPNStaticRoute :: VPNStaticRoute smart ctor name, note vPN
+smartCtorId :: Getter Id Text
+smartCtorId = typeId . to (lowerHead . lowerFirstAcronym)
+
+accessorId :: Maybe Text -> Getter Id Text
 accessorId p = accessor p . to (Text.cons '_')
 
-lensId :: Text -> Getter Id Text
+lensId :: Maybe Text -> Getter Id Text
 lensId p = accessor p . to renameReserved
 
-accessor :: Text -> Getter Id Text
-accessor p = representation . to (mappend (Text.toLower p) . upperHead)
+accessor :: Maybe Text -> Getter Id Text
+accessor Nothing  = representation . to lowerHead
+accessor (Just p) = representation . to (mappend (Text.toLower p) . upperHead)
 
 appendId :: Id -> Text -> Id
 appendId i t = i & representation <>~ format t

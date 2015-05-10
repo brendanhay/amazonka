@@ -29,10 +29,13 @@ type Solved = TType ::: [Derive] ::: [Instance]
 data a ::: b = !a ::: !b
     deriving (Show)
 
-infixl 5 :::
+infixr 5 :::
 
 instance HasId a => HasId (a ::: b) where
     identifier (x ::: _) = identifier x
+
+rassoc :: (a ::: b) ::: c -> a ::: b ::: c
+rassoc ((x ::: y) ::: z) = x ::: y ::: z
 
 data Mode
    = Input

@@ -47,10 +47,10 @@ makeLenses ''Env
 type Prefix = StateT Env (Either Error)
 
 prefixes :: (Traversable t, HasId a)
-         => t (Shape a) -> Either Error (t (Shape (a :*: Maybe Text)))
+         => t (Shape a) -> Either Error (t (Shape (a ::: Maybe Text)))
 prefixes = (`evalStateT` Env mempty mempty) . traverse prefix
 
-prefix :: HasId a => Shape a -> Prefix (Shape (a :*: Maybe Text))
+prefix :: HasId a => Shape a -> Prefix (Shape (a ::: Maybe Text))
 prefix = annotate memo go
   where
     go :: HasId a => Shape a -> Prefix (Maybe Text)

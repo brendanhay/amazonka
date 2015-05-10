@@ -28,6 +28,7 @@
 
 module Compiler.Types
     ( module Compiler.Types
+    , module Compiler.Types.Ann
     , module Compiler.Types.Help
     , module Compiler.Types.Id
     , module Compiler.Types.Map
@@ -38,6 +39,7 @@ module Compiler.Types
 
 import           Compiler.Text
 import           Compiler.TH
+import           Compiler.Types.Ann
 import           Compiler.Types.Help
 import           Compiler.Types.Id
 import           Compiler.Types.Map
@@ -50,7 +52,6 @@ import           Control.Lens              hiding ((.=))
 import           Data.Aeson                (ToJSON (..), object, (.=))
 import qualified Data.Aeson                as A
 import           Data.Bifunctor
-import           Data.Hashable
 import           Data.Jason                hiding (Bool, ToJSON (..), object,
                                             (.=))
 import           Data.List                 (sortOn)
@@ -76,65 +77,6 @@ type Path     = Path.FilePath
 
 toTextIgnore :: Path -> Text
 toTextIgnore = either id id . Path.toText
-
-data Mode
-   = Input
-   | Output
-     deriving (Eq, Show)
-
-data Direction
-    = Both
-    | Mode Mode
-      deriving (Eq, Show)
-
-instance Monoid Direction where
-    mempty            = Both
-    mappend Both _    = Both
-    mappend _    Both = Both
-    mappend a    b
-        | a == b      = a
-        | otherwise   = Both
-
-data Derive
-    = DEq
-    | DOrd
-    | DRead
-    | DShow
-    | DEnum
-    | DNum
-    | DIntegral
-    | DReal
-    | DRealFrac
-    | DRealFloat
-    | DMonoid
-    | DSemigroup
-    | DIsString
-      deriving (Eq, Ord, Show, Generic)
-
-instance Hashable Derive
-
-instance FromJSON Derive where
-    parseJSON = gParseJSON' (spinal & ctor %~ (. Text.drop 1))
-
-data Instance
-    = FromJSON  -- headers, status, json object
-    | ToJSON
-    | FromXML   -- headers, status, xml cursor
-    | ToXML     -- xml
-    | ToQuery   -- query params
-    | FromBody  -- headers, status, streaming response body
-    | ToPath    -- uri and query components
-    | ToBody    -- streaming request body
-    | ToHeaders -- headers
-      deriving (Eq, Ord, Show, Generic)
-
-instance Hashable Instance
-
-instToText :: Instance -> Text
-instToText = Text.pack . show
-
-instance ToJSON Instance where
-    toJSON = toJSON . instToText
 
 data Fun = Fun Text Help LazyText LazyText
 
@@ -284,6 +226,17 @@ instance ToJSON Library where
             , "shapes"         .= (l ^. shapes)
             ]
 
+data Templates = Templates
+    { cabalTemplate           :: Template
+    , serviceTemplate         :: Template
+    , waitersTemplate         :: Template
+    , readmeTemplate          :: Template
+    , exampleCabalTemplate    :: Template
+    , exampleMakefileTemplate :: Template
+    , operationTemplate       :: Template
+    , typesTemplate           :: Template
+    }
+
 data Model = Model
     { _modelName    :: Text
     , _modelVersion :: UTCTime
@@ -311,14 +264,3 @@ loadModel p xs = uncurry (Model n) <$>
     parse d = (,d) <$> parseTimeM True defaultTimeLocale
         (iso8601DateFormat Nothing)
         (Path.encodeString (Path.filename d))
-
-data Templates = Templates
-    { cabalTemplate           :: Template
-    , serviceTemplate         :: Template
-    , waitersTemplate         :: Template
-    , readmeTemplate          :: Template
-    , exampleCabalTemplate    :: Template
-    , exampleMakefileTemplate :: Template
-    , operationTemplate       :: Template
-    , typesTemplate           :: Template
-    }

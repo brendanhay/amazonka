@@ -48,36 +48,6 @@ import           Language.Haskell.Exts.Build  (app, infixApp, paren)
 import           Language.Haskell.Exts.Pretty
 import           Language.Haskell.Exts.Syntax hiding (Int, List, Lit)
 
--- FIXME: Should empty responses be a shared type, and
--- always succeed based on HTTP response code?
-
-dataType :: Protocol -> Shape a -> Either Error Data
-dataType proto s = undefined
-
--- annotateTypes :: Config
---               -> Service Identity Shape Shape
---               -> Either Error (Service Identity Data Data)
--- annotateTypes cfg svc@Service{..} = do
---     ps <- prefixes universe'
-
---     let !ts = solve cfg universe'
---         !ds = directions (svc ^. operations) (svc ^. shapes)
-
---     cs <- constraints cfg universe'
---     ss <- kvTraverseMaybe (datatype (svc ^. protocol) ps ts cs ds) _shapes
-
---     return $! svc
---         { _operations = mempty
---         , _shapes     = ss
---         }
---   where
---     universe' = _shapes <> foldMap f _operations
-
---     f x = Map.fromList
---         [ (x ^. requestName,  x ^. opInput  . _Identity)
---         , (x ^. responseName, x ^. opOutput . _Identity)
---         ]
-
 -- data Field = Field
 --     { fieldParam    :: Name
 --     , fieldType     :: Type
@@ -90,66 +60,28 @@ dataType proto s = undefined
 --     , fieldRefShape :: Shape
 --     }
 
--- datatype :: Protocol
---          -> Map Id Text
---          -> Map Id (Cofree Shape)
---          -> Map Id (Set Derive)
---          -> Map Id Direction
---          -> Id
---          -> Shape
---          -> Either Error (Maybe Data)
--- datatype proto ps ts cs ds n = \case
---     Enum   i vs -> satisfy (enum   i vs)
---     Struct i s  -> satisfy (struct i s)
---     _           -> return Nothing
---   where
---     satisfy f = Just <$> ((,) <$> prefix <*> fulfill n >>= uncurry f)
+-- FIXME: Should empty responses be a shared type, and
+-- always succeed based on HTTP response code?
 
---     is = instances proto
+-- id, prefix, [derive], direction, [instance]
+dataType :: Protocol -> Shape a -> Either Error (Maybe Data)
+dataType proto (n :< s) =
+    case s of
+        Struct i ms -> struct i ms
+        Enum   i vs -> enum   i vs
+        _           -> return Nothing
+  where
+    enum :: Info -> Map Text Text -> Either Error Data
+    enum i vs p ds = Sum i <$> decl <*> pure bs <*> pure is
+      where
+        bs :: Map Text Text
+        bs = vs & kvTraversal %~ first (f . upperHead)
+          where
+            f | Text.null p = id
+              | otherwise   = mappend (upperHead p)
 
---     prefix :: Either Error Text
---     prefix = flip note (Map.lookup n ps) $
---         format ("Missing prefix for shape " % iprimary %
---                 ", possible matches "       % partial)
---                n (n, ps)
-
---     fulfill :: Id -> Either Error (Set Derive)
---     fulfill k = flip note (Map.lookup k cs) $
---         format ("Missing constraints for shape " % iprimary %
---                 ", possible matches for "        % iprimary %
---                 ": "                             % partial)
---                n k (k, cs)
-
---     getTyped :: Id -> Either Error (Typed Shape)
---     getTyped k = flip note (Map.lookup k ts) $
---         format ("Missing type for shape " % iprimary %
---                 ", possible matches for " % iprimary %
---                 ": "                      % partial)
---                n k (k, ts)
-
---     direct :: Either Error Direction
---     direct = flip note (Map.lookup n ds) $
---         format ("Missing direction for shape " % iprimary %
---                 ", possible matches "          % partial)
---                n (n, ds)
-
---     name = n ^. typeId
-
---     enum :: Info
---          -> Map Text Text
---          -> Text
---          -> Set Derive
---          -> Either Error Data
---     enum i vs p ds = Sum i <$> decl <*> pure bs <*> pure is
---       where
---         bs :: Map Text Text
---         bs = vs & kvTraversal %~ first (f . upperHead)
---           where
---             f | Text.null p = id
---               | otherwise   = mappend (upperHead p)
-
---         decl :: Either Error LazyText
---         decl = pretty True $ dataDecl name (map conDecl $ Map.keys bs) ds
+        decl :: Either Error LazyText
+        decl = formatted $ dataDecl name (map conDecl $ Map.keys bs) ds
 
 --     struct :: Info
 --            -> Struct
@@ -238,6 +170,10 @@ dataType proto s = undefined
 --                 , fieldRefShape = typ ^. typed
 --                 }
 
+formatted, unformatted :: Pretty a => a -> Either Error LazyText
+formatted   = pretty True
+unformatted = pretty False
+
 pretty :: Pretty a => Bool -> a -> Either Error LazyText
 pretty fmt d
     | fmt       = bimap e Build.toLazyText $ reformat johanTibell Nothing p
@@ -257,3 +193,28 @@ pretty fmt d
         -- { spacing = False
         -- , layout  = PPNoLayout
         -- }
+
+
+-- annotateTypes :: Config
+--               -> Service Identity Shape Shape
+--               -> Either Error (Service Identity Data Data)
+-- annotateTypes cfg svc@Service{..} = do
+--     ps <- prefixes universe'
+
+--     let !ts = solve cfg universe'
+--         !ds = directions (svc ^. operations) (svc ^. shapes)
+
+--     cs <- constraints cfg universe'
+--     ss <- kvTraverseMaybe (datatype (svc ^. protocol) ps ts cs ds) _shapes
+
+--     return $! svc
+--         { _operations = mempty
+--         , _shapes     = ss
+--         }
+--   where
+--     universe' = _shapes <> foldMap f _operations
+
+--     f x = Map.fromList
+--         [ (x ^. requestName,  x ^. opInput  . _Identity)
+--         , (x ^. responseName, x ^. opOutput . _Identity)
+--         ]

@@ -21,17 +21,16 @@ module Compiler.AST.Solve
     ) where
 
 import           Compiler.AST.Cofree
-import           Compiler.AST.Solve.TypeOf
 import           Compiler.Types
-import           Control.Arrow             ((&&&))
+import           Control.Arrow          ((&&&))
 import           Control.Comonad.Cofree
-import           Control.Lens              hiding (enum, mapping, (??))
+import           Control.Lens           hiding (enum, mapping, (??))
 import           Control.Monad.State
-import           Data.Foldable             (foldr')
-import qualified Data.HashMap.Strict       as Map
-import qualified Data.HashSet              as Set
-import           Data.List                 (intersect, nub, sort)
-import           Data.Monoid               hiding (Product, Sum)
+import           Data.Foldable          (foldr')
+import qualified Data.HashMap.Strict    as Map
+import qualified Data.HashSet           as Set
+import           Data.List              (intersect, nub, sort)
+import           Data.Monoid            hiding (Product, Sum)
 
 -- FIXME: Instances as well? Maybe roll up
 -- TType, Derive and Instance into a single 'Type/Solved' datatype
@@ -39,17 +38,17 @@ import           Data.Monoid               hiding (Product, Sum)
 solve :: (Traversable t, HasId a)
       => Config
       -> t (Shape a)
-      -> t (Shape (a :*: TType :*: [Derive]))
+      -> t (Shape (a ::: TType ::: [Derive]))
 solve cfg = (`evalState` env) . traverse (annotate id (pure . ann))
  where
-    env :: Map Id (TType :*: [Derive])
-    env = replaced (uncurry (:*:) . (f &&& g)) cfg
+    env :: Map Id (TType ::: [Derive])
+    env = replaced (uncurry (:::) . (f &&& g)) cfg
       where
         f = view (replaceName . typeId . to TType)
         g = view (replaceDeriving . to Set.toList)
 
-    ann :: HasId a => Shape a -> TType :*: [Derive]
-    ann x = typeOf x :*: derive x
+    ann :: HasId a => Shape a -> TType ::: [Derive]
+    ann x = typeOf x ::: derive x
 
 typeOf :: HasId a => Shape a -> TType
 typeOf (x :< s) =

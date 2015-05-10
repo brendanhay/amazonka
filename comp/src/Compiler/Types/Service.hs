@@ -30,6 +30,7 @@ module Compiler.Types.Service where
 
 import           Compiler.Text
 import           Compiler.TH
+import           Compiler.Types.Ann
 import           Compiler.Types.Help
 import           Compiler.Types.Id
 import           Compiler.Types.Map
@@ -196,16 +197,6 @@ instance FromJSON Info where
 
 nonEmpty :: HasInfo a => a -> Bool
 nonEmpty = (> Just 0) . view infoMin
-
-data Lit
-    = Int
-    | Long
-    | Double
-    | Text
-    | Blob
-    | Time
-    | Bool
-      deriving (Show)
 
 -- class HasRefs a b where
 --     references :: Traversal' a (RefF b)

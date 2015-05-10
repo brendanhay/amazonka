@@ -11,7 +11,11 @@
 -- Portability : non-portable (GHC extensions)
 
 module Compiler.Types.Id
-    ( Id
+    (
+    -- * Class
+      HasId (..)
+    -- * Identifier
+    , Id
     , textToId
     , ciId
     , memberId
@@ -23,15 +27,27 @@ module Compiler.Types.Id
     ) where
 
 import           Compiler.Text
+import           Control.Comonad
+import           Control.Comonad.Cofree
 import           Control.Lens
-import           Data.Aeson           (ToJSON (..))
-import           Data.CaseInsensitive (CI)
-import qualified Data.CaseInsensitive as CI
+import           Data.Aeson             (ToJSON (..))
+import           Data.CaseInsensitive   (CI)
+import qualified Data.CaseInsensitive   as CI
 import           Data.Hashable
-import           Data.Jason           hiding (ToJSON (..))
-import           Data.Text            (Text)
-import qualified Data.Text            as Text
+import           Data.Jason             hiding (ToJSON (..))
+import           Data.Text              (Text)
+import qualified Data.Text              as Text
 import           Data.Text.Manipulate
+
+-- | A class to extract identifiers from arbitrary products.
+class HasId a where
+    identifier :: a -> Id
+
+instance HasId Id where
+     identifier = id
+
+instance (Functor f, HasId a) => HasId (Cofree f a) where
+     identifier = identifier . extract
 
 -- | A type where the actual identifier is immutable,
 -- but the usable representation can be appended/modified.

@@ -6,7 +6,7 @@
 {-# LANGUAGE TemplateHaskell   #-}
 {-# LANGUAGE TupleSections     #-}
 
--- Module      : Compiler.AST.Solve.TypeOf
+-- Module      : Compiler.AST.Data.TypeOf
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -16,7 +16,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.AST.Solve.TypeOf where
+module Compiler.AST.Data.TypeOf where
 
 import           Compiler.AST.Data.Syntax
 import           Compiler.Types
@@ -25,17 +25,6 @@ import qualified Data.Foldable                as Fold
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
 import           Language.Haskell.Exts.Syntax hiding (Int, List, Lit)
-
-data TType
-    = TType      Text
-    | TLit       Lit
-    | TNatural
-    | TMaybe     TType
-    | TSensitive TType
-    | TList      TType
-    | TList1     TType
-    | TMap       TType TType
-      deriving (Show)
 
 internal :: TType -> Type
 internal = \case

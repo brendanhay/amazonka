@@ -37,6 +37,7 @@ executable compile
         , Compiler.Text
         , Compiler.Tree
         , Compiler.Types
+        , Compiler.Types.Ann
         , Compiler.Types.Help
         , Compiler.Types.Id
         , Compiler.Types.Map

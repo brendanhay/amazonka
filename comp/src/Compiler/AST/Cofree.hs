@@ -29,36 +29,19 @@ cofree x = go
   where
     go (Mu f) = x :< fmap go f
 
-data a :*: b = !a :*: !b
-    deriving (Show)
-
-infixr 5 :*:
-
-class HasId a where
-    identifier :: a -> Id
-
-instance HasId Id where
-     identifier = id
-
-instance HasId a => HasId (a :*: b) where
-    identifier (x :*: _) = identifier x
-
-instance (Functor f, HasId a) => HasId (Cofree f a) where
-     identifier = identifier . extract
-
-attach :: (HasId a, Monoid b, Comonad w) => Map Id b -> w a -> w (a :*: b)
+attach :: (HasId a, Monoid b, Comonad w) => Map Id b -> w a -> w (a ::: b)
 attach m = extend (go . extract)
   where
-    go x = x :*: fromMaybe mempty (Map.lookup (identifier x) m)
+    go x = x ::: fromMaybe mempty (Map.lookup (identifier x) m)
 
 annotate :: (Traversable t, MonadState s m, HasId a)
          => Lens' s (Map Id b)
          -> (Cofree t a -> m b)
          -> Cofree t a
-         -> m (Cofree t (a :*: b))
+         -> m (Cofree t (a ::: b))
 annotate l f = sequence . go
   where
-    go x@(a :< _) = extend (fmap (a :*:) . memoise l f) x
+    go x@(a :< _) = extend (fmap (a :::) . memoise l f) x
 
 memoise :: (MonadState s m, HasId a)
         => Lens' s (Map Id b)

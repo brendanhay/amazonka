@@ -14,9 +14,12 @@ module Compiler.Types.Id
     (
     -- * Class
       HasId (..)
+
     -- * Identifier
     , Id
     , textToId
+
+    -- * Lenses
     , ciId
     , memberId
     , typeId
@@ -24,6 +27,9 @@ module Compiler.Types.Id
     , smartCtorId
     , accessorId
     , lensId
+
+    -- * Modify representation
+    , prependId
     , appendId
     ) where
 
@@ -76,7 +82,7 @@ format = upperHead . upperAcronym
 representation :: Lens' Id Text
 representation =
     lens (\(Id _ t)   -> t)
-         (\(Id x _) t -> Id x t)
+         (\(Id x _) t -> Id x (format t))
 
 ciId :: Getter Id (CI Text)
 ciId = to (\(Id x _) -> x)
@@ -87,8 +93,12 @@ memberId = ciId . to CI.original
 typeId :: Getter Id Text
 typeId = representation . to renameReserved
 
-ctorId :: Getter Id Text
-ctorId = typeId
+ctorId :: Maybe Text -> Getter Id Text
+ctorId p = typeId . to f
+  where
+    f :: Text -> Text
+    f | Just x <- p = mappend (upperHead x)
+      | otherwise   = id
 
 -- FIXME: vPNStaticRoute :: VPNStaticRoute smart ctor name, note vPN
 smartCtorId :: Getter Id Text
@@ -104,5 +114,8 @@ accessor :: Maybe Text -> Getter Id Text
 accessor Nothing  = representation . to lowerHead
 accessor (Just p) = representation . to (mappend (Text.toLower p) . upperHead)
 
+prependId :: Text -> Id -> Id
+prependId t i = i & representation %~ mappend t
+
 appendId :: Id -> Text -> Id
-appendId i t = i & representation <>~ format t
+appendId i t = i & representation <>~ t

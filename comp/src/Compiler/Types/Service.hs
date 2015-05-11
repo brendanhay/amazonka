@@ -39,6 +39,7 @@ import           Compiler.Types.URI
 import           Control.Comonad.Cofree
 import           Control.Lens           hiding ((.=))
 import           Data.Aeson             (ToJSON (..))
+import           Data.Bifunctor
 import qualified Data.HashMap.Strict    as Map
 import qualified Data.HashSet           as Set
 import           Data.Jason             hiding (Bool, ToJSON (..), object, (.=))
@@ -235,7 +236,7 @@ data ShapeF a
     = List   Info (RefF a)
     | Map    Info (RefF a) (RefF a)
     | Struct Info (StructF a)
-    | Enum   Info (Map Text Text)
+    | Enum   Info (Map Id Text)
     | Lit    Info Lit
       deriving (Show, Functor, Foldable, Traversable)
 
@@ -285,7 +286,7 @@ instance FromJSON (ShapeF ()) where
             "timestamp" -> pure (Lit i Time)
             "string"    -> pure $
                 maybe (Lit i Text)
-                      (Enum i . Map.fromList . map renameBranch)
+                      (Enum i . Map.fromList . map (first textToId . renameBranch))
                       m
             _           -> fail $ "Unknown Shape type: " ++ Text.unpack t
 

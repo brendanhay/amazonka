@@ -47,7 +47,8 @@ makeLenses ''Env
 type Prefix = StateT Env (Either Error)
 
 prefixes :: (Traversable t, HasId a)
-         => t (Shape a) -> Either Error (t (Shape (a ::: Maybe Text)))
+         => t (Shape a)
+         -> Either Error (t (Shape (a ::: Maybe Text)))
 prefixes = (`evalStateT` Env mempty mempty) . traverse prefix
 
 prefix :: HasId a => Shape a -> Prefix (Shape (a ::: Maybe Text))
@@ -59,12 +60,12 @@ prefix = annotate memo go
          in case s of
             Struct _ ms -> Just <$> do
                 let hs = heuristics n
-                    xs = keys (^. ciId) (ms ^. members)
+                    xs = keys (ms ^. members)
                 uniq n hs xs
 
             Enum   _ vs -> Just <$> do
                 let hs = mempty : heuristics n
-                    xs = keys CI.mk vs
+                    xs = keys vs
                 uniq n hs xs
 
             _           -> return Nothing
@@ -92,8 +93,8 @@ prefix = annotate memo go
 overlap :: (Eq a, Hashable a) => Set a -> Set a -> Bool
 overlap xs ys = not . Set.null $ Set.intersection xs ys
 
-keys :: (Eq b, Hashable b) => (a -> b) -> Map a c -> Set b
-keys f = Set.fromList . map f . Map.keys
+keys :: Map Id a -> Set (CI Text)
+keys = Set.fromList . map (^. ciId) . Map.keys
 
 -- | Acronym preference list.
 heuristics :: Text -> [CI Text]

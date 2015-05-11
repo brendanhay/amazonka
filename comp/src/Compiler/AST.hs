@@ -24,6 +24,8 @@ import           Compiler.Formatting
 import           Compiler.Protocol
 import           Control.Monad.State
 import qualified Data.HashMap.Strict    as Map
+import           Data.Text              (Text)
+import           Data.Traversable       (for)
 import           Debug.Trace
 --import           Compiler.AST.Data
 import           Compiler.AST.Solve
@@ -53,37 +55,48 @@ rewrite :: Versions
         -> Config
         -> Service Maybe (RefF ()) (ShapeF ())
         -> Either Error Library
-rewrite v c s' = do
+rewrite v cfg s'' = do
     -- Apply the configured overrides to the service.
-    let s  = override c s'
+    let s' = override cfg s''
 --    substitute $ defaults .
+    ss <- rewriteShapes cfg s'
 
+--    let s = s' & shapes .~ ss
+    s''' <- defaults s'
+
+    let s  = s''' { _shapes = ss }
+
+    let ns     = NS ["Network", "AWS", s ^. serviceAbbrev]
+        other  = cfg ^. operationImports ++ cfg ^. typeImports
+        expose = ns
+               : ns <> "Types"
+               : ns <> "Waiters"
+               : map (mappend ns . textToNS)
+                     (s ^.. operations . ifolded . asIndex . typeId)
+
+    return $! Library v cfg s ns (sort expose) (sort other)
+
+rewriteShapes :: Config
+              -> Service Maybe (RefF ()) (ShapeF ())
+              -> Either Error (Map Id Data)
+rewriteShapes cfg svc = do
     -- Elaborate the map into a comonadic strucutre for traversing.
-    s1 <- elaborate (s ^. shapes)
-
-    -- Determine which direction (input, output, or both) shapes are used.
-    s2 <- flip map s1 . attach <$> directions (s ^. operations) (s ^. shapes)
+    s1 <- elaborate (svc ^. shapes)
 
     -- Generate unique prefixes for struct members and enums to avoid ambiguity.
-    s3 <- prefixes s2
+    s2 <- prefixes s1
+
+    -- Determine which direction (input, output, or both) shapes are used.
+    ds <- directions (svc ^. operations) (svc ^. shapes)
+
+    -- Annotate the comonadic tree with the associated directions.
+    let !s3 = Map.map (attach ds) s2
 
     -- Determine the Haskell AST type, auto derived instances, and manual instances.
-    let !s4 = solve c s2
+    let !s4 = solve cfg (svc ^. protocol) s3
 
     -- Convert the shape AST into a rendered Haskell AST declaration
-    s5 <- traverse (dataType (s ^. protocol)) s4
-
-    undefined
-
-    -- let ns     = NS ["Network", "AWS", s ^. serviceAbbrev]
-    --     other  = c ^. operationImports ++ c ^. typeImports
-    --     expose = ns
-    --            : ns <> "Types"
-    --            : ns <> "Waiters"
-    --            : map (mappend ns . textToNS)
-    --                  (s ^.. operations . ifolded . asIndex . ctorId)
-
-    -- return $! Library v c s ns (sort expose) (sort other)
+    kvTraverseMaybe (const (dataType (svc ^. protocol) . fmap rassoc)) s4
 
 type Dir = StateT (Map Id Direction) (Either Error)
 
@@ -103,7 +116,7 @@ directions os ss = execStateT (traverse go os) mempty
     shape d = mapM_ (count d . Just . view refShape) . toListOf references
 
     count :: Direction -> Maybe Id -> Dir ()
-    count d Nothing  = pure ()
+    count _ Nothing  = pure ()
     count d (Just n) = do
         modify (Map.insertWith (<>) n d)
         s <- lift $
@@ -111,8 +124,8 @@ directions os ss = execStateT (traverse go os) mempty
                  (Map.lookup n ss)
         shape d s
 
-elaborate :: Map Id (ShapeF a) -> Either Error [Shape Id]
-elaborate ss = Map.elems <$> Map.traverseWithKey shape ss
+elaborate :: Map Id (ShapeF a) -> Either Error (Map Id (Shape Id))
+elaborate ss = Map.traverseWithKey shape ss
   where
     shape :: Id -> ShapeF a -> Either Error (Shape Id)
     shape n s = (n :<) <$>
@@ -135,8 +148,8 @@ infixl 7 .!
 (.!) :: Maybe a -> a -> Identity a
 m .! x = maybe (Identity x) Identity m
 
-defaults :: Service Maybe (ShapeF ()) (ShapeF ())
-         -> Either Error (Service Identity (ShapeF ()) (ShapeF ()))
+defaults :: Service Maybe (RefF ()) (ShapeF ())
+         -> Either Error (Service Identity (RefF ()) (ShapeF ()))
 defaults svc@Service{..} = do
     os <- traverse operation _operations
     return $! svc

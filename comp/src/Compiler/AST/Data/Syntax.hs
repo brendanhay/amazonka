@@ -2,6 +2,7 @@
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TemplateHaskell   #-}
 {-# LANGUAGE TupleSections     #-}
 
 -- Module      : Compiler.AST.Data.Syntax
@@ -27,46 +28,61 @@ import           Language.Haskell.Exts.Build  (app, infixApp, lamE, paren, sfun)
 import           Language.Haskell.Exts.SrcLoc (noLoc)
 import           Language.Haskell.Exts.Syntax hiding (Int, List, Lit)
 
-ctorSig :: Id -> [TType] -> Decl
-ctorSig n = TypeSig noLoc [n ^. smartCtorId . to ident] .
-    Fold.foldr' (TyFun . external) (n ^. typeId . to tycon)
+data Field = Field
+    { fieldId      :: Id
+    , fieldOrdinal :: !Int
+    , fieldType    :: TType
+    , fieldReq     :: !Bool
+    , fieldDerive  :: [Derive]
+    , fieldComment :: Help
+    }
 
-ctorDecl :: Maybe Text -> Id -> [Id] -> Set Id -> [Derive] -> Decl
-ctorDecl p n ms rs ds =
+fieldParam :: Field -> Name
+fieldParam = Ident . mappend "p" . show . fieldOrdinal
+
+ctorSig :: Id -> [Field] -> Decl
+ctorSig n = TypeSig noLoc [n ^. smartCtorId . to ident]
+    . Fold.foldr' (TyFun . external) (n ^. typeId . to tycon)
+    . map fieldType
+    . filter fieldReq
+
+ctorDecl :: Maybe Text -> Id -> [Field] -> Decl
+ctorDecl p n fs =
     sfun noLoc (n ^. smartCtorId . to ident) ps (UnGuardedRhs rhs) (BDecls [])
   where
-    rhs :: Exp
-    rhs = RecConstr (n ^. typeId . to unqual) $ map (uncurry upd) (zip ps ms)
-
     ps :: [Name]
-    ps = take (length ms) $ map (Ident . mappend "p" . show) ([1..] :: [Int])
+    ps = map fieldParam (filter fieldReq fs)
 
-    upd :: Name -> Id -> FieldUpdate
-    upd i n = FieldUpdate (n ^. accessorId p . to unqual) f
+    rhs :: Exp
+    rhs = RecConstr (n ^. typeId . to unqual) (map upd fs)
+
+    upd :: Field -> FieldUpdate
+    upd f@Field{..} = FieldUpdate (fieldId ^. accessorId p . to unqual) def
       where
-        f | not (Set.member n rs) = var "Nothing"
-          | DMonoid `elem` ds     = var "mempty"
-          | otherwise             = Var (UnQual i)
+        def | not fieldReq               = var "Nothing"
+            | DMonoid `elem` fieldDerive = var "mempty"
+            | otherwise                  = Var (UnQual (fieldParam f))
 
-lensSig :: Maybe Text -> Id -> TType -> TType -> Decl
-lensSig p n x y = TypeSig noLoc [ident (n ^. lensId p)] $
+lensSig :: Maybe Text -> TType -> Field -> Decl
+lensSig p t Field{..} = TypeSig noLoc [ident (fieldId ^. lensId p)] $
     TyApp (TyApp (tycon "Lens'")
-                 (external x))
-          (external y)
+                 (external t))
+          (external fieldType)
 
-lensDecl :: Maybe Text -> Id -> TType -> Decl
-lensDecl p n t = sfun noLoc (ident l) [] (UnGuardedRhs rhs) (BDecls [])
+lensDecl :: Maybe Text -> Field -> Decl
+lensDecl p Field{..} =
+    sfun noLoc (ident l) [] (UnGuardedRhs rhs) (BDecls [])
   where
-    l = n ^. lensId p
-    a = n ^. accessorId p
+    l = fieldId ^. lensId p
+    a = fieldId ^. accessorId p
 
-    rhs = mapping t $
+    rhs = mapping fieldType $
         app (app (var "lens") (var a))
             (paren (lamE noLoc [pvar "s", pvar "a"]
                    (RecUpdate (var "s") [FieldUpdate (unqual a) (var "a")])))
 
 dataDecl :: Id -> [QualConDecl] -> [Derive] -> Decl
-dataDecl n fs cs = DataDecl noLoc arity [] (ident (n ^. ctorId)) [] fs ds
+dataDecl n fs cs = DataDecl noLoc arity [] (ident (n ^. typeId)) [] fs ds
   where
     arity = case fs of
         [QualConDecl _ _ _ (RecDecl _ [_])] -> NewType
@@ -74,16 +90,13 @@ dataDecl n fs cs = DataDecl noLoc arity [] (ident (n ^. ctorId)) [] fs ds
 
     ds = map ((,[]) . UnQual . Ident . drop 1 . show) cs
 
-conDecl :: Id -> QualConDecl
-conDecl n = QualConDecl noLoc [] [] (ConDecl (ident (n ^. ctorId)) [])
+conDecl :: Text -> QualConDecl
+conDecl n = QualConDecl noLoc [] [] (ConDecl (ident n) [])
 
-recDecl :: Maybe Text -> Id -> [([Id], TType)] -> QualConDecl
+recDecl :: Maybe Text -> Id -> [Field] -> QualConDecl
 recDecl p n = QualConDecl noLoc [] []
-    . RecDecl (ident (n ^. ctorId))
-    . map (bimap f g)
-  where
-    f = map (view (accessorId p . to ident))
-    g = internal
+    . RecDecl (ident (n ^. typeId)) -- Record has the same ctor as the type.
+    . map (\f -> ([fieldId f ^. accessorId p . to ident], internal (fieldType f)))
 
 -- instDecl :: Text -> Text -> Text -> Text -> [Text] -> Decl
 -- instDecl c f o t fs = InstDecl noLoc Nothing [] [] (UnQual (ident c)) [tycon t]

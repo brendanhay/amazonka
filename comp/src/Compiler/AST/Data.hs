@@ -1,7 +1,6 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedLists   #-}
-{-# LANGUAGE ViewPatterns   #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TupleSections     #-}
@@ -49,68 +48,75 @@ import           Language.Haskell.Exts.Build  (app, infixApp, paren)
 import           Language.Haskell.Exts.Pretty
 import           Language.Haskell.Exts.Syntax hiding (Int, List, Lit)
 
-data Field = Field
-    { fieldParam    :: Name
-    , fieldType     :: Type
-    , fieldAccessor :: ([Name], Type)
-    , fieldLens     :: Fun
-    , fieldUpdate   :: FieldUpdate
-    , fieldReq      :: !Bool
-    }
+-- type Field = Id ::: TType ::: [Derive]
 
 -- FIXME: Should empty responses be a shared type, and
 -- always succeed based on HTTP response code?
 
 dataType :: Protocol
-         -> Shape (Id ::: Direction ::: Maybe Text ::: Solved)
+         -> Shape (Id ::: Maybe Text ::: Direction ::: Solved)
          -> Either Error (Maybe Data)
-dataType proto ((n ::: d ::: p ::: t ::: ds ::: is) :< s) =
+dataType proto ((n ::: p ::: d ::: t ::: ds ::: is) :< s) =
     case s of
         Enum   i vs -> Just <$> enum i vs
         Struct i ms -> Just <$> struct i ms
         _           -> return Nothing
   where
-    enum :: Info -> Map Text Text -> Either Error Data
+    enum :: Info -> Map Id Text -> Either Error Data
     enum i vs = Sum i
         <$> formatted (dataDecl n (map conDecl (Map.keys bs)) ds)
-        <*> pure
+        <*> pure bs
         <*> pure is
       where
         bs :: Map Text Text
-        bs = Map.keys vs & kvTraversal %~ first (f . upperHead)
+        bs = vs & kvTraversal %~ first (^. ctorId p)
 
-        f :: Text -> Text
-        f | Just x <- p = mappend (upperHead x)
-          | otherwise   = id
-
-    -- struct :: Info -> Struct
-    --        -> Text
-    --        -> Set Derive
-    --        -> Either Error Data
-    struct :: Info -> _ -> Either Error Data
-    struct i s = do
-        fs <- traverse (uncurry field) imembers
-        Product i <$> decl fs <*> ctor fs <*> lenses fs <*> pure mempty -- insts fs
+    struct :: Info
+           -> StructF (Shape (Id ::: Maybe Text ::: Direction ::: Solved))
+           -> Either Error Data
+    struct i strct = Product i
+        <$> formatted (dataDecl n [recDecl p n fs] ds)
+        <*> ctor
+        <*> traverse lens' fs
+        <*> pure mempty -- insts fs
       where
-        imembers :: [(Int, _)]
-        imembers = zip [1..] . Map.toList $ s ^. members
+        fs :: [Field]
+        fs = zipWith field [1..] . Map.toList $ strct ^. members
 
-        decl fs = formatted $ dataDecl (n ^. typeId)
-            [ recDecl (n ^. typeId) (map fieldAccessor fs)
-            ] ds
-
-        ctor fs = Fun c h
-            <$> unformatted sig
-            <*> formatted bdy
+        ctor :: Either Error Fun
+        ctor = Fun (n ^. smartCtorId) h
+            <$> unformatted (ctorSig n fs)
+            <*> formatted (ctorDecl p n fs)
           where
-            sig = ctorSig n (map fieldType rs)
-            bdy = ctorDecl p n (map fieldParam rs)
-
             -- FIXME: this should output haddock single quotes to ensure
             -- the type is linked properly.
             h = fromString $ Text.unpack ("'" <> n ^. typeId <> "' smart constructor.")
 
-        lenses = pure . map fieldLens
+        lens' :: Field -> Either Error Fun
+        lens' f@Field{..} = Fun (fieldId ^. lensId p) fieldComment
+            <$> unformatted (lensSig  p t f)
+            <*> unformatted (lensDecl p f)
+
+        -- FIXME: Facets of Info for the field need to be layered on top
+        -- of the type, such as nonempty, maybe, etc.
+--        field :: Int -> (Id, Ref) -> Either Error Field
+        field :: Int
+              -> (Id, RefF (Shape (Id ::: Maybe Text ::: Direction ::: Solved)))
+              -> Field
+        field o (k, v) = Field
+            { fieldId      = k
+            , fieldOrdinal = o
+            , fieldType    = rt
+            , fieldReq     = Set.member k (strct ^. required)
+            , fieldDerive  = rds
+            , fieldComment = h
+            }
+          where
+            -- FIXME: need to use the correct member id for the type etc.
+            _ ::: _ ::: _ ::: rt ::: rds ::: _ = extract (v ^. refAnn)
+
+            h = fromMaybe "FIXME: Undocumented reference." $
+                v ^. refDocumentation
 
         -- insts :: [Field] -> Either Error (Map Inst [LazyText])
         -- insts fs = Map.fromList <$> traverse (\i -> (i,) <$> fgh i) is
@@ -136,33 +142,6 @@ dataType proto ((n ::: d ::: p ::: t ::: ds ::: is) :< s) =
         --                          (qop "=?")
         --                          (var (fieldId ^. accessorId p))
         --     implement _ _ = pure []
-
-
-        -- FIXME: Facets of Info for the field need to be layered on top
-        -- of the type, such as nonempty, maybe, etc.
---        field :: Int -> (Id, Ref) -> Either Error Field
-        field (param -> o) (k, v) = do
-            let r = v ^. refShape
-                a = k ^. accessorId p
-                l = k ^. lensId p
-
-            let req = Set.member k (s ^. required)
-
-            let h = fromMaybe "FIXME: Undocumented reference."
-                        (v ^. refShape . _refDocumentation)
-
-            d <- Fun l h
-                <$> unformatted (lensSig  p k t t)
-                <*> unformatted (lensDecl p k t)
-
-            return $! Field
-                { fieldParam    = o
-                , fieldType     = external t
-                , fieldAccessor = ([ident a], internal t)
-                , fieldLens     = d
-                , fieldUpdate   = update a o req c
-                , fieldReq      = req
-                }
 
 formatted, unformatted :: Pretty a => a -> Either Error LazyText
 formatted   = pretty True

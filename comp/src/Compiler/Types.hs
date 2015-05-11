@@ -52,6 +52,7 @@ import           Control.Lens              hiding ((.=))
 import           Data.Aeson                (ToJSON (..), object, (.=))
 import qualified Data.Aeson                as A
 import           Data.Bifunctor
+import qualified Data.HashMap.Strict       as Map
 import           Data.Jason                hiding (Bool, ToJSON (..), object,
                                             (.=))
 import           Data.List                 (sortOn)
@@ -195,7 +196,7 @@ instance FromJSON Config where
 data Library = Library
     { _versions'      :: Versions
     , _config'        :: Config
-    , _service'       :: Service Identity Data Data
+    , _service'       :: Service Identity (RefF ()) Data
     , _namespace      :: NS
     , _exposedModules :: [NS]
     , _otherModules   :: [NS]
@@ -203,8 +204,8 @@ data Library = Library
 
 makeLenses ''Library
 
-instance HasMetadata Library Identity           where metadata = service' . metadata'
-instance HasService  Library Identity Data Data where service  = service'
+instance HasMetadata Library Identity            where metadata = service' . metadata'
+instance HasService  Library Identity (RefF ()) Data where service  = service'
 instance HasConfig   Library                    where config   = config'
 instance HasVersions Library                    where versions = versions'
 
@@ -223,7 +224,7 @@ instance ToJSON Library where
             , "coreVersion"    .= (l ^. coreVersion)
             , "exposedModules" .= (l ^. exposedModules)
             , "otherModules"   .= (l ^. otherModules)
-            , "shapes"         .= (l ^. shapes)
+            , "shapes"         .= (l ^. shapes . to Map.elems)
             ]
 
 data Templates = Templates

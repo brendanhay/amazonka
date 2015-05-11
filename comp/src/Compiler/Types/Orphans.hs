@@ -30,8 +30,9 @@ import           Numeric.Natural
 instance J.FromJSON a => J.FromJSON (Map Id a) where
     parseJSON = J.parseJSON >=> return . (kvTraversal %~ first textToId)
 
-instance A.ToJSON a => A.ToJSON (Map Id a) where
-    toJSON = A.Object . (kvTraversal %~ bimap (view typeId) A.toJSON)
+-- Makes no sense to have a toJSON Id, since which representation would you want?
+-- instance A.ToJSON a => A.ToJSON (Map Id a) where
+--     toJSON = A.Object . (kvTraversal %~ bimap (view typeId) A.toJSON)
 
 instance J.FromJSON Natural where
     parseJSON = J.withScientific "natural" (f . floatingOrInteger)

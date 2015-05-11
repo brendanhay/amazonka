@@ -79,7 +79,7 @@ override Config{..} svc@Service{..} = svc
 
         prefix :: ShapeF a -> ShapeF a
         prefix
-            | Just p <- _enumPrefix = _Enum._2.kvTraversal %~ first (p <>)
+            | Just p <- _enumPrefix = _Enum._2.kvTraversal %~ first (prependId p)
             | otherwise             = id
 
     renamed :: Map Id Id

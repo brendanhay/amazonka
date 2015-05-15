@@ -18,7 +18,6 @@ module {{ moduleName }}
 import           Network.AWS.Prelude
 import           Network.AWS.Signing
 import qualified GHC.Exts
-
 {% for shape in shapes %}
   {% case shape.value.type %}
   {% when "product" %}

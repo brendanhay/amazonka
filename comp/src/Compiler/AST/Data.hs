@@ -27,6 +27,7 @@ import           Control.Comonad.Cofree
 import           Control.Error
 import           Control.Lens                 hiding (enum, mapping, (??))
 import           Data.Bifunctor
+import           Data.Char                    (isSpace)
 import qualified Data.HashMap.Strict          as Map
 import qualified Data.HashSet                 as Set
 import           Data.Monoid                  hiding (Product, Sum)
@@ -54,7 +55,7 @@ dataType proto ((n ::: p ::: _ ::: t ::: ds ::: is) :< s) =
   where
     enum :: Info -> Map Id Text -> Either Error Data
     enum i vs = Sum i
-        <$> formatted (dataDecl n (map conDecl (Map.keys bs)) ds)
+        <$> format (dataDecl n (map conDecl (Map.keys bs)) ds)
         <*> pure bs
         <*> pure is
       where
@@ -65,7 +66,7 @@ dataType proto ((n ::: p ::: _ ::: t ::: ds ::: is) :< s) =
            -> StructF (Shape (Id ::: Maybe Text ::: Relation ::: Solved))
            -> Either Error Data
     struct i strct = Product i
-        <$> formatted (dataDecl n [recDecl p n fs] ds)
+        <$> format (dataDecl n [recDecl p n fs] ds)
         <*> ctor
         <*> traverse lens' fs
         <*> pure mempty -- insts fs
@@ -75,8 +76,8 @@ dataType proto ((n ::: p ::: _ ::: t ::: ds ::: is) :< s) =
 
         ctor :: Either Error Fun
         ctor = Fun (n ^. smartCtorId) h
-            <$> unformatted (ctorSig n fs)
-            <*> formatted (ctorDecl p n fs)
+            <$> plain (ctorSig n fs)
+            <*> format (ctorDecl p n fs)
           where
             -- FIXME: this should output haddock single quotes to ensure
             -- the type is linked properly.
@@ -84,12 +85,11 @@ dataType proto ((n ::: p ::: _ ::: t ::: ds ::: is) :< s) =
 
         lens' :: Field -> Either Error Fun
         lens' f@Field{..} = Fun (fieldId ^. lensId p) fieldComment
-            <$> unformatted (lensSig  p t f)
-            <*> unformatted (lensDecl p f)
+            <$> plain (lensSig p t f)
+            <*> plain (lensDecl p f)
 
         -- FIXME: Facets of Info for the field need to be layered on top
         -- of the type, such as nonempty, maybe, etc.
---        field :: Int -> (Id, Ref) -> Either Error Field
         field :: Int
               -> (Id, RefF (Shape (Id ::: Maybe Text ::: Relation ::: Solved)))
               -> Field
@@ -133,9 +133,9 @@ dataType proto ((n ::: p ::: _ ::: t ::: ds ::: is) :< s) =
         --                          (var (fieldId ^. accessorId p))
         --     implement _ _ = pure []
 
-formatted, unformatted :: Pretty a => a -> Either Error LazyText
-formatted   = pretty True
-unformatted = pretty False
+format, plain :: Pretty a => a -> Either Error LazyText
+format = pretty True
+plain  = pretty False
 
 pretty :: Pretty a => Bool -> a -> Either Error LazyText
 pretty fmt d
@@ -144,7 +144,7 @@ pretty fmt d
   where
     e = flip mappend (", when formatting datatype: " <> p) . LText.pack
 
-    p = LText.pack (prettyPrintStyleMode s m d)
+    p = LText.dropWhile isSpace $ LText.pack (prettyPrintStyleMode s m d)
 
     s = style
         { mode           = PageMode
@@ -153,31 +153,5 @@ pretty fmt d
         }
 
     m = defaultMode
-        -- { spacing = False
-        -- , layout  = PPNoLayout
-        -- }
-
-
--- annotateTypes :: Config
---               -> Service Identity Shape Shape
---               -> Either Error (Service Identity Data Data)
--- annotateTypes cfg svc@Service{..} = do
---     ps <- prefixes universe'
-
---     let !ts = solve cfg universe'
---         !ds = directions (svc ^. operations) (svc ^. shapes)
-
---     cs <- constraints cfg universe'
---     ss <- kvTraverseMaybe (datatype (svc ^. protocol) ps ts cs ds) _shapes
-
---     return $! svc
---         { _operations = mempty
---         , _shapes     = ss
---         }
---   where
---     universe' = _shapes <> foldMap f _operations
-
---     f x = Map.fromList
---         [ (x ^. requestName,  x ^. opInput  . _Identity)
---         , (x ^. responseName, x ^. opOutput . _Identity)
---         ]
+        { layout  = PPNoLayout
+        }

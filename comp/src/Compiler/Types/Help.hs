@@ -15,6 +15,7 @@ module Compiler.Types.Help where
 
 import           Control.Lens
 import           Data.Aeson         (ToJSON (..))
+import           Data.Char          (isSpace)
 import           Data.Jason         hiding (ToJSON (..))
 import           Data.String
 import           Data.Text          (Text)
@@ -46,7 +47,8 @@ asDesc :: Getter Help Desc
 asDesc = to Desc
 
 helpToHaddock :: Text -> Help -> Text
-helpToHaddock sep (Help h) = Text.pack
+helpToHaddock sep (Help h) =
+      Text.dropWhileEnd isSpace
     . render (Just 76)
     . prefixed (Text.unpack sep)
     . fromString

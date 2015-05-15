@@ -22,7 +22,6 @@
 {{ lens.value.signature }}
 {{ lens.value.declaration }}
 {% endfor %}
-
 {% for inst in shape.value.instances %}
   {% case inst.key %}
   {% when "ToQuery" %}
@@ -35,7 +34,6 @@ instance ToQuery {{ shape.key }} where
         ]
   {% else %}
 
-Error: Attempting to render unrecognized instance '{{ inst.key }}'
+-- Error: Attempting to render unrecognized instance '{{ inst.key }}'
   {% endcase %}
 {% endfor %}
- 

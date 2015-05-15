@@ -46,7 +46,6 @@ import           Control.Lens              hiding ((.=))
 import           Data.Aeson                (ToJSON (..), object, (.=))
 import qualified Data.Aeson                as A
 import           Data.Bifunctor
-import qualified Data.HashMap.Strict       as Map
 import           Data.Jason                hiding (Bool, ToJSON (..), object,
                                             (.=))
 import           Data.List                 (sortOn)
@@ -218,7 +217,7 @@ instance ToJSON Library where
             , "coreVersion"    .= (l ^. coreVersion)
             , "exposedModules" .= (l ^. exposedModules)
             , "otherModules"   .= (l ^. otherModules)
-            , "shapes"         .= (l ^. shapes . to Map.elems)
+            , "shapes"         .= (l ^. shapes & kvTraversal %~ first (^. typeId))
             ]
 
 data Templates = Templates

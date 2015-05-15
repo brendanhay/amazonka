@@ -109,7 +109,7 @@ full-clean: clean
 
 include ../share/stackage.mk
 
-add-sources: $(DEPS) cabal.sandbox.config # cabal.config - removing until stackage supports 7.10
+add-sources: $(DEPS) cabal.sandbox.config cabal.config
 	cabal sandbox add-source vendor/jason
 
 cabal.sandbox.config:

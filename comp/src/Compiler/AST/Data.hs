@@ -49,7 +49,7 @@ dataType :: Protocol
          -> Either Error (Maybe Data)
 dataType proto ((n ::: p ::: _ ::: t ::: ds ::: is) :< s) =
     case s of
-        Enum   i vs -> Just <$> enum i vs
+        Enum   i vs -> Just <$> enum   i vs
         Struct i ms -> Just <$> struct i ms
         _           -> return Nothing
   where
@@ -93,17 +93,19 @@ dataType proto ((n ::: p ::: _ ::: t ::: ds ::: is) :< s) =
         field :: Int
               -> (Id, RefF (Shape (Id ::: Maybe Text ::: Relation ::: Solved)))
               -> Field
-        field o (k, v) = Field
-            { fieldId      = k
-            , fieldOrdinal = o
-            , fieldType    = rt
-            , fieldReq     = Set.member k (strct ^. required)
-            , fieldDerive  = rds
-            , fieldComment = h
-            }
+        field o (k, v) =
+              let f = Field
+                    { fieldId      = k
+                    , fieldOrdinal = o
+                    , fieldType    = rt
+                    , fieldReq     = Set.member k (strct ^. required)
+                    , fieldDerive  = rds
+                    , fieldComment = h
+                    }
+               in f -- trace (show ann) f
           where
             -- FIXME: need to use the correct member id for the type etc.
-            _ ::: _ ::: _ ::: rt ::: rds ::: _ = extract (v ^. refAnn)
+            ann@(_ ::: _ ::: _ ::: rt ::: rds ::: _) = extract (v ^. refAnn)
 
             h = fromMaybe "FIXME: Undocumented reference." $
                 v ^. refDocumentation
@@ -153,5 +155,5 @@ pretty fmt d
         }
 
     m = defaultMode
-        { layout  = PPNoLayout
-        }
+        -- { layout  = PPNoLayout
+        -- }

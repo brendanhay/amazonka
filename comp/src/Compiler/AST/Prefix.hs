@@ -1,3 +1,4 @@
+{-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TemplateHaskell   #-}
@@ -46,12 +47,12 @@ makeLenses ''Env
 
 type MemoP = StateT Env (Either Error)
 
-prefixes :: (Traversable t, HasId a)
+prefixes :: (Show a, Traversable t, HasId a)
          => t (Shape a)
          -> Either Error (t (Shape (a ::: Maybe Text)))
 prefixes = (`evalStateT` Env mempty mempty) . traverse prefix
 
-prefix :: HasId a => Shape a -> MemoP (Shape (a ::: Maybe Text))
+prefix :: (Show a, HasId a) => Shape a -> MemoP (Shape (a ::: Maybe Text))
 prefix = annotate memo go
   where
     go :: HasId a => Shape a -> MemoP (Maybe Text)

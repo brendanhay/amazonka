@@ -91,7 +91,7 @@ memberId :: Getter Id Text
 memberId = ciId . to CI.original
 
 typeId :: Getter Id Text
-typeId = representation . to renameReserved
+typeId = representation
 
 ctorId :: Maybe Text -> Getter Id Text
 ctorId p = typeId . to f
@@ -102,7 +102,7 @@ ctorId p = typeId . to f
 
 -- FIXME: vPNStaticRoute :: VPNStaticRoute smart ctor name, note vPN
 smartCtorId :: Getter Id Text
-smartCtorId = typeId . to (lowerHead . lowerFirstAcronym)
+smartCtorId = typeId . to (lowerHead . lowerFirstAcronym . renameReserved)
 
 accessorId :: Maybe Text -> Getter Id Text
 accessorId p = accessor p . to (Text.cons '_')

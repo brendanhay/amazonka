@@ -41,9 +41,9 @@ annotate :: (Traversable t, MonadState s m, HasId a)
          -> (Cofree t a -> m b)
          -> Cofree t a
          -> m (Cofree t (a ::: b))
-annotate l f = sequence . go
+annotate l f = sequence . extend go
   where
-    go x@(a :< _) = extend (fmap (a :::) . memoise l f) x
+    go x@(a :< _) = (a :::) <$> memoise l f x
 
 memoise :: (MonadState s m, HasId a)
         => Lens' s (Map Id b)
@@ -52,7 +52,7 @@ memoise :: (MonadState s m, HasId a)
         -> m b
 memoise l f x = uses l (Map.lookup n) >>= maybe go return
   where
-    n = identifier x :: Id
+    n = identifier x
 
     go = do
         r <- f x
@@ -63,13 +63,18 @@ elaborate :: Map Id (ShapeF a) -> Either Error (Map Id (Shape Id))
 elaborate ss = Map.traverseWithKey shape ss
   where
     shape :: Id -> ShapeF a -> Either Error (Shape Id)
-    shape n s = (n :<) <$>
-        case s of
-            List   i e   -> List   i <$> ref e
-            Map    i k v -> Map    i <$> ref k <*> ref v
-            Struct i o   -> Struct i <$> traverseOf (members . each) ref o
-            Enum   i vs  -> pure (Enum i vs)
-            Lit    i l   -> pure (Lit  i l)
+    shape n s = do
+        x <- (n :<) <$>
+            case s of
+                List   i e   -> List   i <$> ref e
+                Map    i k v -> Map    i <$> ref k <*> ref v
+                Struct i o   -> Struct i <$> traverseOf (members . each) ref o
+                Enum   i vs  -> pure (Enum i vs)
+                Lit    i l   -> pure (Lit  i l)
+        return x -- $!
+          -- if n == textToId "DescribeInstancesRequest"
+          --     then trace (ppShow x) x
+          --     else x
 
     ref :: RefF a -> Either Error (RefF (Shape Id))
     ref r = flip (set refAnn) r <$> (safe n >>= shape n)

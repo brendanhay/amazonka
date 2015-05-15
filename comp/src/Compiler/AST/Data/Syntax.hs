@@ -33,7 +33,7 @@ data Field = Field
     , fieldReq     :: !Bool
     , fieldDerive  :: [Derive]
     , fieldComment :: Help
-    }
+    } deriving (Show)
 
 fieldParam :: Field -> Name
 fieldParam = Ident . mappend "p" . show . fieldOrdinal

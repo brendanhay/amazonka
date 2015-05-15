@@ -26,8 +26,9 @@ import           Text.Pandoc.Pretty
 newtype Help = Help Pandoc
     deriving (Monoid)
 
+-- | Empty Show instance to avoid verbose debugging output.
 instance Show Help where
-    show (Help p) = writeHaddock def p
+    show _ = mempty
 
 instance IsString Help where
     fromString = Help . readHaddock def

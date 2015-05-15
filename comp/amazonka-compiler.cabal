@@ -53,11 +53,13 @@ executable compile
         , base                 == 4.8.*
         , bytestring
         , case-insensitive
+        , comonad
         , data-default-class
         , directory-tree
         , ede
         , errors
         , formatting
+        , free
         , hashable
         , haskell-src-exts
         , hindent
@@ -80,6 +82,3 @@ executable compile
         , time                 >= 1.5
         , transformers
         , unordered-containers
-
-                , free
-                , comonad

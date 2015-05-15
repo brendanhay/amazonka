@@ -55,7 +55,7 @@ rewrite v cfg s'' = do
     ss <- rewriteShapes cfg s'
 
 --    let s = s' & shapes .~ ss
-    s''' <- defaults s'
+    s''' <- setDefaults s'
 
     let s  = s''' { _shapes = ss }
 
@@ -89,7 +89,7 @@ rewriteShapes cfg svc = do
     let !s4 = solve cfg (svc ^. protocol) s3
 
     -- Convert the shape AST into a rendered Haskell AST declaration
-    kvTraverseMaybe (const (dataType (svc ^. protocol) . fmap rassoc)) s4
+    s4 & kvTraverseMaybe (const (dataType (svc ^. protocol) . fmap rassoc))
 
 type Dir = StateT (Map Id Direction) (Either Error)
 
@@ -117,9 +117,9 @@ directions os ss = execStateT (traverse go os) mempty
                  (Map.lookup n ss)
         shape d s
 
-defaults :: Service Maybe (RefF ()) (ShapeF ())
-         -> Either Error (Service Identity (RefF ()) (ShapeF ()))
-defaults svc@Service{..} = do
+setDefaults :: Service Maybe (RefF ()) (ShapeF ())
+            -> Either Error (Service Identity (RefF ()) (ShapeF ()))
+setDefaults svc@Service{..} = do
     os <- traverse operation _operations
     return $! svc
         { _metadata'  = meta _metadata'

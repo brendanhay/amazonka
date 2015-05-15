@@ -18,21 +18,15 @@ import           Compiler.Types.Id
 import           Compiler.Types.Map
 import           Control.Lens
 import           Control.Monad
-import qualified Data.Aeson                   as A
+import qualified Data.Aeson         as A
 import           Data.Bifunctor
-import qualified Data.Jason                   as J
-import qualified Data.Jason.Types             as J
-import           Data.Scientific              (floatingOrInteger)
-import           Data.String
-import           Language.Haskell.Exts.Syntax
+import qualified Data.Jason         as J
+import qualified Data.Jason.Types   as J
+import           Data.Scientific    (floatingOrInteger)
 import           Numeric.Natural
 
 instance J.FromJSON a => J.FromJSON (Map Id a) where
     parseJSON = J.parseJSON >=> return . (kvTraversal %~ first textToId)
-
--- Makes no sense to have a toJSON Id, since which representation would you want?
--- instance A.ToJSON a => A.ToJSON (Map Id a) where
---     toJSON = A.Object . (kvTraversal %~ bimap (view typeId) A.toJSON)
 
 instance J.FromJSON Natural where
     parseJSON = J.withScientific "natural" (f . floatingOrInteger)
@@ -48,9 +42,3 @@ instance A.ToJSON Natural where
 
 instance A.ToJSON a => A.ToJSON (Identity a) where
     toJSON = A.toJSON . runIdentity
-
-instance IsString Name where
-    fromString = Ident
-
-instance IsString QName where
-    fromString = UnQual . Ident

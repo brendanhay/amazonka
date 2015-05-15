@@ -42,7 +42,7 @@ data Opt = Opt
     , _optAnnexes   :: Path
     , _optConfigs   :: Path
     , _optTemplates :: Path
-    , _optAssets    :: Path
+    , _optStatic    :: Path
     , _optRetry     :: Path
     , _optVersions  :: Versions
     } deriving (Show)
@@ -82,9 +82,9 @@ parser = Opt
          )
 
     <*> option isString
-         ( long "assets"
+         ( long "static"
         <> metavar "DIR"
-        <> help "Directory containing assets for generated libraries."
+        <> help "Directory containing static files for generated libraries."
          )
 
     <*> option isString
@@ -128,7 +128,7 @@ validate o = flip execStateT o $ do
         , check optAnnexes
         , check optConfigs
         , check optTemplates
-        , check optAssets
+        , check optStatic
         , check optRetry
         ]
     mapM canon (o ^. optModels) >>= assign optModels
@@ -195,7 +195,7 @@ main = do
                 (lib ^. libraryName)
                 (lib ^. libraryVersion)
 
-            copyDir _optAssets (Tree.root dir)
+            copyDir _optStatic (Tree.root dir)
 
             done
 

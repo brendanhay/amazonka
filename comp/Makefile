@@ -41,6 +41,7 @@ JSON := \
  config \
  datapipeline \
  directconnect \
+ ds \
  dynamodb \
  elastictranscoder \
  emr \
@@ -90,7 +91,7 @@ compile: build gen
  --annexes=annex \
  --configs=config \
  --templates=template \
- --assets=asset \
+ --static=static \
  --retry=$(MODEL_DIR)/_retry.json \
  $(addprefix --model=,$(addprefix $(MODEL_DIR)/,$(MODELS)))
 

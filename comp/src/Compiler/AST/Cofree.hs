@@ -1,6 +1,7 @@
-{-# LANGUAGE FlexibleContexts #-}
-{-# LANGUAGE RankNTypes       #-}
-{-# LANGUAGE TypeOperators    #-}
+{-# LANGUAGE FlexibleContexts  #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RankNTypes        #-}
+{-# LANGUAGE TypeOperators     #-}
 
 -- Module      : Compiler.AST.Cofree
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -14,13 +15,14 @@
 
 module Compiler.AST.Cofree where
 
+import           Compiler.Formatting
 import           Compiler.Types
 import           Control.Comonad
 import           Control.Comonad.Cofree
+import           Control.Error
 import           Control.Lens
 import           Control.Monad.State
 import qualified Data.HashMap.Strict    as Map
-import           Data.Maybe
 
 newtype Mu f = Mu (f (Mu f))
 
@@ -56,3 +58,23 @@ memoise l f x = uses l (Map.lookup n) >>= maybe go return
         r <- f x
         l %= Map.insert n r
         return r
+
+elaborate :: Map Id (ShapeF a) -> Either Error (Map Id (Shape Id))
+elaborate ss = Map.traverseWithKey shape ss
+  where
+    shape :: Id -> ShapeF a -> Either Error (Shape Id)
+    shape n s = (n :<) <$>
+        case s of
+            List   i e   -> List   i <$> ref e
+            Map    i k v -> Map    i <$> ref k <*> ref v
+            Struct i o   -> Struct i <$> traverseOf (members . each) ref o
+            Enum   i vs  -> pure (Enum i vs)
+            Lit    i l   -> pure (Lit  i l)
+
+    ref :: RefF a -> Either Error (RefF (Shape Id))
+    ref r = flip (set refAnn) r <$> (safe n >>= shape n)
+      where
+        n = r ^. refShape
+
+    safe n = note (format ("Missing shape " % iprimary) n)
+                  (Map.lookup n ss)

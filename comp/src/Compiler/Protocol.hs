@@ -1,7 +1,6 @@
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RankNTypes        #-}
-{-# LANGUAGE RecordWildCards   #-}
 
 -- Module      : Compiler.Protocol
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>

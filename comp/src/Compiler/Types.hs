@@ -28,25 +28,19 @@
 
 module Compiler.Types
     ( module Compiler.Types
-    , module Compiler.Types.Ann
-    , module Compiler.Types.Help
-    , module Compiler.Types.Id
-    , module Compiler.Types.Map
-    , module Compiler.Types.NS
-    , module Compiler.Types.Service
-    , module Compiler.Types.URI
+    , module Types
     ) where
 
 import           Compiler.Text
 import           Compiler.TH
-import           Compiler.Types.Ann
-import           Compiler.Types.Help
-import           Compiler.Types.Id
-import           Compiler.Types.Map
-import           Compiler.Types.NS
+import           Compiler.Types.Ann        as Types
+import           Compiler.Types.Help       as Types
+import           Compiler.Types.Id         as Types
+import           Compiler.Types.Map        as Types
+import           Compiler.Types.NS         as Types
 import           Compiler.Types.Orphans    ()
-import           Compiler.Types.Service
-import           Compiler.Types.URI
+import           Compiler.Types.Service    as Types
+import           Compiler.Types.URI        as Types
 import           Control.Error
 import           Control.Lens              hiding ((.=))
 import           Data.Aeson                (ToJSON (..), object, (.=))

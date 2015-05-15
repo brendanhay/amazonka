@@ -20,23 +20,16 @@ module Compiler.AST where
 import           Compiler.AST.Cofree
 import           Compiler.AST.Data
 import           Compiler.AST.Prefix
-import           Compiler.Formatting
-import           Compiler.Protocol
-import           Control.Monad.State
-import qualified Data.HashMap.Strict    as Map
-import           Data.Text              (Text)
-import           Data.Traversable       (for)
-import           Debug.Trace
---import           Compiler.AST.Data
 import           Compiler.AST.Solve
+import           Compiler.Formatting
 import           Compiler.Override
-import           Compiler.Subst
+import           Compiler.Protocol
 import           Compiler.Types
-import           Control.Comonad
-import           Control.Comonad.Cofree
 import           Control.Error
 import           Control.Lens
-import           Data.List              (sort)
+import           Control.Monad.State
+import qualified Data.HashMap.Strict as Map
+import           Data.List           (sort)
 import           Data.Monoid
 
 -- Order:
@@ -124,30 +117,6 @@ directions os ss = execStateT (traverse go os) mempty
                  (Map.lookup n ss)
         shape d s
 
-elaborate :: Map Id (ShapeF a) -> Either Error (Map Id (Shape Id))
-elaborate ss = Map.traverseWithKey shape ss
-  where
-    shape :: Id -> ShapeF a -> Either Error (Shape Id)
-    shape n s = (n :<) <$>
-        case s of
-            List   i e   -> List   i <$> ref e
-            Map    i k v -> Map    i <$> ref k <*> ref v
-            Struct i o   -> Struct i <$> traverseOf (members . each) ref o
-            Enum   i vs  -> pure (Enum i vs)
-            Lit    i l   -> pure (Lit  i l)
-
-    ref :: RefF a -> Either Error (RefF (Shape Id))
-    ref r = flip (set refAnn) r <$> (safe n >>= shape n)
-      where
-        n = r ^. refShape
-
-    safe n = note (format ("Missing shape " % iprimary) n) (Map.lookup n ss)
-
-infixl 7 .!
-
-(.!) :: Maybe a -> a -> Identity a
-m .! x = maybe (Identity x) Identity m
-
 defaults :: Service Maybe (RefF ()) (ShapeF ())
          -> Either Error (Service Identity (RefF ()) (ShapeF ()))
 defaults svc@Service{..} = do
@@ -178,3 +147,8 @@ defaults svc@Service{..} = do
     http h = h
         { _responseCode = _responseCode h .! 200
         }
+
+infixl 7 .!
+
+(.!) :: Maybe a -> a -> Identity a
+m .! x = maybe (Identity x) Identity m

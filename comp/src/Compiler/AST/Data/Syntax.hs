@@ -2,7 +2,6 @@
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TemplateHaskell   #-}
 {-# LANGUAGE TupleSections     #-}
 
 -- Module      : Compiler.AST.Data.Syntax
@@ -20,11 +19,10 @@ module Compiler.AST.Data.Syntax where
 import           Compiler.Types
 import           Control.Lens                 hiding (mapping)
 import qualified Data.Foldable                as Fold
-import qualified Data.HashSet                 as Set
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
 import qualified Language.Haskell.Exts        as Exts
-import           Language.Haskell.Exts.Build  (app, infixApp, lamE, paren, sfun)
+import           Language.Haskell.Exts.Build  (app, lamE, paren, sfun)
 import           Language.Haskell.Exts.SrcLoc (noLoc)
 import           Language.Haskell.Exts.Syntax hiding (Int, List, Lit)
 
@@ -168,7 +166,7 @@ literal _ = tycon . \case
 singleton :: Text -> Type
 singleton = tycon -- . ("\"" <>) . (<> "\"")
 
-mapping :: TType -> (Exp -> Exp)
+mapping :: TType -> Exp -> Exp
 mapping = compose . iso'
   where
     compose xs e = Fold.foldl' (\y -> InfixApp y (qop ".")) e xs

@@ -21,19 +21,12 @@ module Compiler.AST.Data
     ) where
 
 import           Compiler.AST.Data.Syntax
-import           Compiler.AST.Prefix
-import           Compiler.Formatting          hiding (base)
-import           Compiler.Protocol
 import           Compiler.Types
-import           Control.Arrow                ((&&&))
 import           Control.Comonad
 import           Control.Comonad.Cofree
 import           Control.Error
 import           Control.Lens                 hiding (enum, mapping, (??))
-import           Control.Monad.Except
-import           Control.Monad.State
 import           Data.Bifunctor
-import qualified Data.Foldable                as Fold
 import qualified Data.HashMap.Strict          as Map
 import qualified Data.HashSet                 as Set
 import           Data.Monoid                  hiding (Product, Sum)
@@ -42,11 +35,8 @@ import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
 import qualified Data.Text.Lazy               as LText
 import qualified Data.Text.Lazy.Builder       as Build
-import           Data.Text.Manipulate
 import           HIndent
-import           Language.Haskell.Exts.Build  (app, infixApp, paren)
 import           Language.Haskell.Exts.Pretty
-import           Language.Haskell.Exts.Syntax hiding (Int, List, Lit)
 
 -- type Field = Id ::: TType ::: [Derive]
 

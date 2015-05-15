@@ -35,8 +35,8 @@ import           Data.Monoid            hiding (Product, Sum)
 solve :: (Traversable t, HasId a)
       => Config
       -> Protocol
-      -> t (Shape (a ::: Direction))
-      -> t (Shape (a ::: Direction ::: Solved))
+      -> t (Shape (a ::: Relation))
+      -> t (Shape (a ::: Relation ::: Solved))
 solve cfg proto = (`evalState` env) . traverse (assoc . annotate id (pure . ann))
  where
     assoc :: (Functor f, Functor g)
@@ -51,8 +51,8 @@ solve cfg proto = (`evalState` env) . traverse (assoc . annotate id (pure . ann)
             ::: x ^. replaceDeriving . to Set.toList
             ::: instances proto mempty
 
-    ann :: HasId a => Shape (a ::: Direction) -> Solved
-    ann x@((_ ::: d) :< _) = typeOf x ::: derive x ::: instances proto d
+    ann :: HasId a => Shape (a ::: Relation) -> Solved
+    ann x@((_ ::: r) :< _) = typeOf x ::: derive x ::: instances proto r
 
 typeOf :: HasId a => Shape a -> TType
 typeOf (x :< s) =

@@ -44,9 +44,9 @@ import           Language.Haskell.Exts.Pretty
 -- always succeed based on HTTP response code?
 
 dataType :: Protocol
-         -> Shape (Id ::: Maybe Text ::: Direction ::: Solved)
+         -> Shape (Id ::: Maybe Text ::: Relation ::: Solved)
          -> Either Error (Maybe Data)
-dataType proto ((n ::: p ::: d ::: t ::: ds ::: is) :< s) =
+dataType proto ((n ::: p ::: _ ::: t ::: ds ::: is) :< s) =
     case s of
         Enum   i vs -> Just <$> enum i vs
         Struct i ms -> Just <$> struct i ms
@@ -62,7 +62,7 @@ dataType proto ((n ::: p ::: d ::: t ::: ds ::: is) :< s) =
         bs = vs & kvTraversal %~ first (^. ctorId p)
 
     struct :: Info
-           -> StructF (Shape (Id ::: Maybe Text ::: Direction ::: Solved))
+           -> StructF (Shape (Id ::: Maybe Text ::: Relation ::: Solved))
            -> Either Error Data
     struct i strct = Product i
         <$> formatted (dataDecl n [recDecl p n fs] ds)
@@ -91,7 +91,7 @@ dataType proto ((n ::: p ::: d ::: t ::: ds ::: is) :< s) =
         -- of the type, such as nonempty, maybe, etc.
 --        field :: Int -> (Id, Ref) -> Either Error Field
         field :: Int
-              -> (Id, RefF (Shape (Id ::: Maybe Text ::: Direction ::: Solved)))
+              -> (Id, RefF (Shape (Id ::: Maybe Text ::: Relation ::: Solved)))
               -> Field
         field o (k, v) = Field
             { fieldId      = k

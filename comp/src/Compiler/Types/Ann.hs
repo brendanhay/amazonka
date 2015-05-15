@@ -37,23 +37,23 @@ instance HasId a => HasId (a ::: b) where
 rassoc :: (a ::: b) ::: c -> a ::: b ::: c
 rassoc ((x ::: y) ::: z) = x ::: y ::: z
 
-data Mode
+data Direction
    = Input
    | Output
      deriving (Eq, Show)
 
-data Direction
-    = Both
-    | Mode Mode
+data Relation
+    = Uni Direction
+    | Bi
       deriving (Eq, Show)
 
-instance Monoid Direction where
-    mempty            = Both
-    mappend Both _    = Both
-    mappend _    Both = Both
+instance Monoid Relation where
+    mempty          = Bi
+    mappend Bi _    = Bi
+    mappend _    Bi = Bi
     mappend a    b
-        | a == b      = a
-        | otherwise   = Both
+        | a == b    = a
+        | otherwise = Bi
 
 data Lit
     = Int

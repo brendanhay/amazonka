@@ -44,17 +44,17 @@ data Env = Env
 
 makeLenses ''Env
 
-type Prefix = StateT Env (Either Error)
+type MemoP = StateT Env (Either Error)
 
 prefixes :: (Traversable t, HasId a)
          => t (Shape a)
          -> Either Error (t (Shape (a ::: Maybe Text)))
 prefixes = (`evalStateT` Env mempty mempty) . traverse prefix
 
-prefix :: HasId a => Shape a -> Prefix (Shape (a ::: Maybe Text))
+prefix :: HasId a => Shape a -> MemoP (Shape (a ::: Maybe Text))
 prefix = annotate memo go
   where
-    go :: HasId a => Shape a -> Prefix (Maybe Text)
+    go :: HasId a => Shape a -> MemoP (Maybe Text)
     go (x :< s) =
         let n = identifier x ^. memberId
          in case s of
@@ -70,7 +70,7 @@ prefix = annotate memo go
 
             _           -> return Nothing
 
-    uniq :: Text -> [CI Text] -> Set (CI Text) -> Prefix Text
+    uniq :: Text -> [CI Text] -> Set (CI Text) -> MemoP Text
     uniq n [] xs = do
         s <- use seen
         let hs  = heuristics n
@@ -108,17 +108,13 @@ heuristics (camelAcronym -> n) = map CI.mk (rules ++ ordinals)
 
     -- SomeTestTType -> STT
     r1 = toAcronym n
-
     -- SomeTestTType -> S
     r3 = Text.toUpper <$> safeHead n
-
     -- SomeTestTType -> Som
     r2 | Text.length n <= 3 = Just n
        | otherwise          = Just (Text.take 3 n)
-
     -- Some -> Some || SomeTestTType -> Some
     r4 = upperHead <$> listToMaybe (splitWords n)
-
     -- VpcPeeringInfo -> VPCPI
     r5 = toAcronym (upperAcronym n)
 

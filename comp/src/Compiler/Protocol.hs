@@ -15,10 +15,6 @@
 module Compiler.Protocol where
 
 import           Compiler.Types
-import           Control.Error
-import           Control.Lens         hiding (element)
-import           Data.Text            (Text)
-import           Data.Text.Manipulate
 
 timestamp :: Protocol -> Timestamp
 timestamp = \case
@@ -29,11 +25,11 @@ timestamp = \case
     Query    -> ISO8601
     EC2      -> ISO8601
 
-instances :: Protocol -> Direction -> [Instance]
+instances :: Protocol -> Relation -> [Instance]
 instances p = \case
-    Both        -> [inp, out]
-    Mode Input  -> [inp]
-    Mode Output -> [out]
+    Bi         -> [inp, out]
+    Uni Input  -> [inp]
+    Uni Output -> [out]
   where
     inp = case p of
         JSON     -> ToJSON

@@ -77,11 +77,14 @@ renderShapes cfg svc = do
     rs <- relations (svc ^. operations) (svc ^. shapes)
     -- Elaborate the map into a comonadic strucutre for traversing.
     elaborate (svc ^. shapes)
-        -- Generate unique prefixes for struct members and enums to avoid ambiguity.
+        -- Generate unique prefixes for struct (product) members and
+        -- enum (sum) branches to avoid ambiguity.
         >>= prefixes
-        -- Annotate the comonadic tree with the associated directions.
+        -- Annotate the comonadic tree with the associated
+        -- bi/unidirectional (input/output/both) relation for shapes
         >>= traverse (pure . attach rs)
-        -- Determine the Haskell AST type, auto derived instances, and manual instances.
+        -- Determine the appropriate Haskell AST type, auto deriveable instances,
+        -- and fully rendered instances.
         >>= pure . solve cfg (svc ^. protocol)
         -- Convert the shape AST into a rendered Haskell AST declaration
         >>= kvTraverseMaybe (const (dataType (svc ^. protocol) . fmap rassoc))

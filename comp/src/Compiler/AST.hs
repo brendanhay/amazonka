@@ -26,9 +26,10 @@ import           Compiler.Protocol
 import           Compiler.Types
 import           Control.Error
 import           Control.Lens
+import           Control.Monad.Except (throwError)
 import           Control.Monad.State
-import qualified Data.HashMap.Strict as Map
-import           Data.List           (sort)
+import qualified Data.HashMap.Strict  as Map
+import           Data.List            (sort)
 import           Data.Monoid
 
 -- Order:
@@ -48,17 +49,15 @@ rewrite :: Versions
         -> Service Maybe (RefF ()) (ShapeF ())
         -> Either Error Library
 rewrite v cfg s'' = do
-    -- Apply the configured overrides to the service.
-    let s' = override cfg s''
---    substitute $ defaults .
-    ss <- rewriteShapes cfg s'
+    -- Apply the override configuration to the service, and default any
+    -- optional fields from the JSON where needed.
+    s' <- setDefaults (override cfg s'')
 
---    let s = s' & shapes .~ ss
-    s''' <- setDefaults s'
+    -- Perform the necessary rewrites and rendering
+    -- of shapes Haskell data declarations.
+    ss <- renderShapes cfg s'
 
-
-
-    let s  = s''' { _shapes = ss }
+    let s  = s' { _shapes = ss }
 
     let ns     = NS ["Network", "AWS", s ^. serviceAbbrev]
         other  = cfg ^. operationImports ++ cfg ^. typeImports
@@ -70,14 +69,10 @@ rewrite v cfg s'' = do
 
     return $! Library v cfg s ns (sort expose) (sort other)
 
--- substitute :: Config
---            -> Service Maybe (RefF ()) (ShapeF ())
---            -> Service Maybe ())
-
-rewriteShapes :: Config
-              -> Service Maybe (RefF ()) (ShapeF ())
-              -> Either Error (Map Id Data)
-rewriteShapes cfg svc = do
+renderShapes :: Config
+             -> Service Identity (RefF ()) (ShapeF ())
+             -> Either Error (Map Id Data)
+renderShapes cfg svc = do
     -- Determine which direction (input, output, or both) shapes are used.
     rs <- relations (svc ^. operations) (svc ^. shapes)
     -- Elaborate the map into a comonadic strucutre for traversing.
@@ -94,24 +89,23 @@ rewriteShapes cfg svc = do
 type MemoR = StateT (Map Id Relation) (Either Error)
 
 -- | Determine the relation for operation payloads, both input and output.
-relations :: Map Id (Operation Maybe (RefF a))
+relations :: Map Id (Operation Identity (RefF a))
           -> Map Id (ShapeF b)
           -> Either Error (Map Id Relation)
 relations os ss = execStateT (traverse go os) mempty
   where
-    go :: Operation Maybe (RefF a) -> MemoR ()
+    go :: Operation Identity (RefF a) -> MemoR ()
     go o = mode Input requestName opInput >> mode Output responseName opOutput
       where
         mode (Uni -> d) f g = do
             modify (Map.insertWith (<>) (o ^. f) d)
-            count d (o ^? g . _Just . refShape)
+            count d (o ^. g . _Identity . refShape)
 
     shape :: Relation -> ShapeF a -> MemoR ()
-    shape d = mapM_ (count d . Just . view refShape) . toListOf references
+    shape d = mapM_ (count d . view refShape) . toListOf references
 
-    count :: Relation -> Maybe Id -> MemoR ()
-    count _ Nothing  = pure ()
-    count d (Just n) = do
+    count :: Relation -> Id -> MemoR ()
+    count d n = do
         modify (Map.insertWith (<>) n d)
         s <- lift $
             note (format ("Unable to find shape " % iprimary %
@@ -120,38 +114,83 @@ relations os ss = execStateT (traverse go os) mempty
                  (Map.lookup n ss)
         shape d s
 
-setDefaults :: Service Maybe (RefF ()) a
-            -> Either Error (Service Identity (RefF ()) a)
+type Subst = StateT (Map Id (ShapeF ())) (Either Error)
+
+-- | Set some appropriate defaults where needed for later stages,
+-- and ensure there are no vacant references to input/output shapes
+-- by adding any empty request or response types where appropriate.
+setDefaults :: Service Maybe (RefF ()) (ShapeF ())
+            -> Either Error (Service Identity (RefF ()) (ShapeF ()))
 setDefaults svc@Service{..} = do
-    os <- traverse operation _operations
+    (os, ss) <- runStateT (traverse operation _operations) _shapes
     return $! svc
         { _metadata'  = meta _metadata'
         , _operations = os
+        , _shapes     = ss
         }
   where
+    meta :: Metadata Maybe -> Metadata Identity
     meta m@Metadata{..} = m
         { _timestampFormat = _timestampFormat .! timestamp _protocol
         , _checksumFormat  = _checksumFormat  .! SHA256
         }
 
+    operation :: Operation Maybe (RefF ())
+              -> Subst (Operation Identity (RefF ()))
     operation o@Operation{..} = do
-        let h = _opDocumentation .! "FIXME: Undocumented operation."
-            e = format ("Vacant operation input/output: " % iprimary) _opName
-            f = fmap Identity . note e
-        rq <- f _opInput
-        rs <- f _opOutput
+        rq <- subst (name _opName Input) _opInput
+        rs <- subst (name _opName Output) _opOutput
         return $! o
-            { _opDocumentation = h
+            { _opDocumentation =
+                _opDocumentation .! "FIXME: Undocumented operation."
             , _opHTTP          = http _opHTTP
             , _opInput         = rq
             , _opOutput        = rs
             }
 
+    http :: HTTP Maybe -> HTTP Identity
     http h = h
         { _responseCode = _responseCode h .! 200
         }
 
-infixl 7 .!
+    name :: Id -> Direction -> Id
+    name o Input  = o
+    name o Output = appendId o "Response"
 
-(.!) :: Maybe a -> a -> Identity a
-m .! x = maybe (Identity x) Identity m
+    subst :: Id -> Maybe (RefF ()) -> Subst (Identity (RefF ()))
+    subst _ (Just r) = pure (Identity r)
+    subst n Nothing  = do
+          p <- gets (Map.member n)
+          when p . throwError $
+              format ("Failling attempt to substitute a fresh shape for " %
+                     iprimary) n
+          modify (Map.insert n s)
+          return (Identity r)
+      where
+        s = Struct i (StructF mempty mempty Nothing False)
+        i = Info
+            { _infoDocumentation = Nothing
+            , _infoMin           = Nothing
+            , _infoMax           = Nothing
+            , _infoFlattened     = False
+            , _infoSensitive     = False
+            , _infoStreaming     = False
+            , _infoException     = False
+            }
+        r = RefF
+            { _refAnn           = ()
+            , _refShape         = n
+            , _refDocumentation = Nothing
+            , _refLocation      = Nothing
+            , _refLocationName  = Nothing
+            , _refResultWrapper = Nothing
+            , _refQueryName     = Nothing
+            , _refStreaming     = False
+            , _refXMLAttribute  = False
+            , _refXMLNamespace  = Nothing
+            }
+
+    infixl 7 .!
+
+    (.!) :: Maybe a -> a -> Identity a
+    m .! x = maybe (Identity x) Identity m

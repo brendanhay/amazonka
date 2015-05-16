@@ -53,7 +53,7 @@ solve cfg proto = (`evalState` env) . traverse (assoc . annotate id (pure . ann)
             ::: instances proto mempty
 
     ann :: HasId a => Shape (a ::: Relation) -> Solved
-    ann x@((_ ::: r) :< _) = shapeType x ::: derive x ::: instances proto r
+    ann x@((_ ::: r) :< _) = typeOf x ::: derive x ::: instances proto r
 
 -- FIXME: Filter constraints based on info like min/max of lists etc.
 derive :: Shape a -> [Derive]

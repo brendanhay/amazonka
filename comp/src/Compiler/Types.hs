@@ -105,8 +105,9 @@ instance ToJSON Data where
             , "comment"     .= (i ^. infoDocumentation)
             , "declaration" .= d
             , "lenses"      .= ls
-            , "instances"   .= (is & kvTraversal %~ first instToText)
+            , "instances"   .= (kvTraversal %~ first instToText) is
             ]
+
         Sum i d vs is -> object
             [ "type"         .= Text.pack "sum"
             , "comment"      .= (i ^. infoDocumentation)

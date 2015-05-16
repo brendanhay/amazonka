@@ -47,6 +47,28 @@ instances p = \case
         Query    -> FromXML
         EC2      -> FromXML
 
+satisfies :: Instance -> (a -> Maybe Location) -> [a] -> [a]
+satisfies i f = filter (match i . f)
+  where
+    -- Protocol classes (total)
+    match FromJSON  = const True
+    match FromXML   = const True
+    match FromBody  = const True
+
+    match ToJSON    = discard
+    match ToXML     = discard
+    match ToQuery   = discard
+
+    -- Request classes (partial)
+    match ToBody    = (== Just Body)
+    match ToHeaders = flip elem [Just Headers, Just Header]
+    match ToPath    = flip elem [Just URI, Just Querystring]
+
+    discard x = not $
+           match ToPath x
+        || match ToBody x
+        || match ToHeaders x
+
 -- memberName :: Protocol -> Uni -> Id -> Ref -> Text
 -- memberName = undefined
 
@@ -85,28 +107,6 @@ instances p = \case
 --     dir =
 --         case i of
 --             ToJSON -> Input
-
-satisfies :: Instance -> (a -> Maybe Location) -> [a] -> [a]
-satisfies i f = filter (match i . f)
-  where
-    -- Protocol classes (total)
-    match FromJSON  = const True
-    match FromXML   = const True
-    match FromBody  = const True
-
-    match ToJSON    = discard
-    match ToXML     = discard
-    match ToQuery   = discard
-
-    -- Request classes (partial)
-    match ToBody    = (== Just Body)
-    match ToHeaders = flip elem [Just Headers, Just Header]
-    match ToPath    = flip elem [Just URI, Just Querystring]
-
-    discard x = not $
-           match ToPath x
-        || match ToBody x
-        || match ToHeaders x
 
 -- listName :: Protocol    -- ^ Service protocol
 --          -> (Id,   Ref) -- ^ The struct member Id and Ref

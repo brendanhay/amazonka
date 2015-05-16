@@ -23,6 +23,7 @@ module Compiler.AST.Data
 import           Compiler.AST.Data.Field
 import           Compiler.AST.Data.Syntax
 import           Compiler.AST.TypeOf
+import           Compiler.Protocol
 import           Compiler.Types
 import           Control.Comonad
 import           Control.Comonad.Cofree
@@ -56,80 +57,66 @@ dataType proto ((n ::: p ::: _ ::: t ::: ds ::: is) :< s) =
   where
     enum :: Info -> Map Id Text -> Either Error Data
     enum i vs = Sum i
-        <$> format (dataDecl n (map conDecl (Map.keys bs)) ds)
-        <*> pure bs
+        <$> format (dataDecl n (map conDecl (Map.keys branches)) ds)
+        <*> pure branches
         <*> pure is
       where
-        bs :: Map Text Text
-        bs = vs & kvTraversal %~ first (^. ctorId p)
+        branches :: Map Text Text
+        branches = vs & kvTraversal %~ first (^. ctorId p)
 
     struct :: Info
            -> StructF (Shape (Id ::: Maybe Text ::: Relation ::: Solved))
            -> Either Error Data
     struct i strf = Product i
-        <$> format (dataDecl n [recDecl p n fs] ds)
-        <*> ctor
-        <*> traverse lens' fs
-        <*> pure mempty -- insts fs
+        <$> format (dataDecl n [recDecl p n fields] ds)
+        <*> mkCtor
+        <*> traverse mkLens fields
+        <*> instances
       where
-        fs :: [Field]
-        fs = map field . Map.toList $ strf ^. members
-
-        ctor :: Either Error Fun
-        ctor = Fun (n ^. smartCtorId) h
-            <$> plain (ctorSig n fs)
-            <*> format (ctorDecl p n fs)
+        mkCtor :: Either Error Fun
+        mkCtor = Fun (n ^. smartCtorId) h
+            <$> plain  (ctorSig    n fields)
+            <*> format (ctorDecl p n fields)
           where
             -- FIXME: this should output haddock single quotes to ensure
             -- the type is linked properly, but the following outputs
             -- '@' delimiters, need to investigate pandoc.
             h = fromString $ Text.unpack ("'" <> n ^. typeId <> "' smart constructor.")
 
-        lens' :: Field -> Either Error Fun
-        lens' f = Fun (fieldId f ^. lensId p) (fieldHelp f)
+        mkLens :: Field -> Either Error Fun
+        mkLens f = Fun (f ^. fieldId . lensId p) (f ^. fieldHelp)
             <$> plain (lensSig  p t f)
             <*> plain (lensDecl p f)
 
-        -- FIXME: Facets of Info for the field need to be layered on top
-        -- of the type, such as nonempty, maybe, etc.
-        -- This should be layered via the Compiler.AST.TypeOf module.
-        field :: (Id, RefF (Shape (Id ::: Maybe Text ::: Relation ::: Solved)))
-              -> Field
-        field (k, v) = Field
-            { fieldId      = k
-            , fieldType    = memberType k (strf ^. required) rt
-            , fieldDerive  = rds
-            , fieldHelp    =
-                fromMaybe "FIXME: Undocumented member."
-                    (v ^. refDocumentation)
-            }
+        -- | Creating an application of locationName <de/serialiser> accessor
+        -- per field that satisfies the instance location requirement.
+        mkInstance :: Instance -> Either Error [LazyText]
+        mkInstance i = go i (satisfies i fieldLocation fields)
           where
-            _ ::: _ ::: _ ::: rt ::: rds ::: _ = extract (v ^. refAnn)
+            go :: Instance -> [Field] -> Either Error [LazyText]
+            go _       [] = pure []
+            go ToQuery xs = traverse line xs
+              where
+                line Field{..} = pretty False $ fun fieldRefShape
+                  where
+                    fun (List i e) =
+                        app (app (var "toQueryList")
+                                 (str (parent <> maybe mempty (mappend ".") element)))
+                            (var (fieldId ^. accessorId p))
+                      where
+                        ((parent, element), _) =
+                            listName proto (fieldId, fieldRef) (i, e)
 
-        -- insts :: [Field] -> Either Error (Map Inst [LazyText])
-        -- insts fs = Map.fromList <$> traverse (\i -> (i,) <$> fgh i) is
-        --   whereS
-        --     fgh :: Inst -> Either Error [LazyText]
-        --     fgh i = implement i $ satisfying i (_refLocation . fieldRef) fs
+                    fun _         =
+                        infixApp (str $ fst (memberName proto (fieldId, fieldRef)))
+                                 (qop "=?")
+                                 (var (fieldId ^. accessorId p))
 
-        --     implement :: Inst -> [Field] -> Either Error [LazyText]
-        --     implement ToQuery xs = traverse function xs
-        --       where
-        --         function Field{..} = pretty False $ fun fieldRefShape
-        --           where
-        --             fun (List i e) =
-        --                 app (app (var "toQueryList")
-        --                          (str (parent <> maybe mempty (mappend ".") element)))
-        --                     (var (fieldId ^. accessorId p))
-        --               where
-        --                 ((parent, element), _) =
-        --                     listName proto (fieldId, fieldRef) (i, e)
-
-        --             fun _         =
-        --                 infixApp (str $ fst (memberName proto (fieldId, fieldRef)))
-        --                          (qop "=?")
-        --                          (var (fieldId ^. accessorId p))
-        --     implement _ _ = pure []
+        fields :: [Field]
+        fields = map mk . Map.toList $ strf ^. members
+          where
+            mk :: (Id, Ref) -> Field
+            mk (k, v) = Field k v (Set.member k (strf ^. required))
 
 format, plain :: Pretty a => a -> Either Error LazyText
 format = pretty True
@@ -137,19 +124,16 @@ plain  = pretty False
 
 pretty :: Pretty a => Bool -> a -> Either Error LazyText
 pretty fmt d
-    | fmt       = bimap e Build.toLazyText $ reformat johanTibell Nothing p
-    | otherwise = return p
+    | fmt       = bimap e Build.toLazyText (reformat johanTibell Nothing p)
+    | otherwise = pure p
   where
     e = flip mappend (", when formatting datatype: " <> p) . LText.pack
 
-    p = LText.dropWhile isSpace $ LText.pack (prettyPrintStyleMode s m d)
+    p = LText.dropWhile isSpace . LText.pack $
+        prettyPrintStyleMode s defaultMode d
 
     s = style
         { mode           = PageMode
         , lineLength     = 80
         , ribbonsPerLine = 1.5
         }
-
-    m = defaultMode
-        -- { layout  = PPNoLayout
-        -- }

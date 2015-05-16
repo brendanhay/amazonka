@@ -1,4 +1,5 @@
 {-# LANGUAGE FlexibleContexts  #-}
+{-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedLists   #-}
 {-# LANGUAGE OverloadedStrings #-}
@@ -16,9 +17,8 @@
 -- Portability : non-portable (GHC extensions)
 
 module Compiler.AST.TypeOf
-    ( shapeType
-    , memberType
-    , requiredType
+    ( TypeOf (..)
+    , typeRequired
     ) where
 
 import           Compiler.AST.Cofree
@@ -34,40 +34,38 @@ import qualified Data.HashSet           as Set
 import           Data.List              (intersect, nub, sort)
 import           Data.Monoid            hiding (Product, Sum)
 
-shapeType :: HasId a => Shape a -> TType
-shapeType (x :< s) =
-    let n = identifier x
-     in sensitive s $
-        case s of
-            Struct {}    -> TType (n ^. typeId)
-            Enum   {}    -> TType (n ^. typeId)
-            List   i e
-                | nonEmpty i -> TList1 t
-                | otherwise  -> TList  t
-              where
-                t = shapeType (e ^. refAnn)
-            Map    _ k v ->
-                TMap (shapeType (k ^. refAnn)) (shapeType (v ^. refAnn))
-            Lit    i l   ->
-                case l of
-                    Int  -> natural i (TLit l)
-                    Long -> natural i (TLit l)
-                    _    -> TLit l
+class TypeOf a where
+    typeOf :: a -> TType
 
-memberType :: Id -> Set Id -> TType -> TType
-memberType n req = canDefault (Set.member n req)
-  where
-    canDefault :: Bool -> TType -> TType
-    canDefault True  t   = t -- This field is required.
-    canDefault False t
-          -- This field is not required, but the TType can't be defaulted sensibly.
-        | requiredType t = TMaybe t
-          -- This field is not required, and can be defaulted using mempty/Nothing.
-        | otherwise      = t
+instance TypeOf TType where
+    typeOf = id
 
-requiredType :: TType -> Bool
-requiredType = \case
-    TSensitive t  -> requiredType t
+instance TypeOf (a ::: Solved) where
+    typeOf (_ ::: t ::: _ ::: _) = t
+
+instance HasId a => TypeOf (Shape a) where
+    typeOf (x :< s) =
+        let n = identifier x
+         in sensitive s $
+            case s of
+                Struct {}        -> TType  (n ^. typeId)
+                Enum   {}        -> TType  (n ^. typeId)
+                List   i e
+                    | nonEmpty i -> TList1 (typeOf e)
+                    | otherwise  -> TList  (typeOf e)
+                Map    _ k v     -> TMap   (typeOf k) (typeOf v)
+                Lit    i l       ->
+                    case l of
+                        Int      -> natural i (TLit l)
+                        Long     -> natural i (TLit l)
+                        _        -> TLit l
+
+instance TypeOf a => TypeOf (RefF a) where
+    typeOf = typeOf . view refAnn
+
+typeRequired :: TType -> Bool
+typeRequired = \case
+    TSensitive t  -> typeRequired t
     TMaybe     {} -> False
     TList      {} -> False
     TList1     {} -> False

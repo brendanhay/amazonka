@@ -243,6 +243,7 @@ data ShapeF a
 makePrisms ''ShapeF
 
 type Shape = Cofree ShapeF
+type Ref   = RefF (Shape (Id ::: Maybe Text ::: Relation ::: Solved))
 
 references :: Traversal' (ShapeF a) (RefF a)
 references f = \case

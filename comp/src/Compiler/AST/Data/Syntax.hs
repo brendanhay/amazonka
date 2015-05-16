@@ -3,6 +3,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TupleSections     #-}
+{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Compiler.AST.Data.Syntax
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -17,6 +18,7 @@
 module Compiler.AST.Data.Syntax where
 
 import           Compiler.AST.Data.Field
+import           Compiler.AST.TypeOf
 import           Compiler.Types
 import           Control.Lens                 hiding (mapping)
 import qualified Data.Foldable                as Fold
@@ -29,43 +31,42 @@ import           Language.Haskell.Exts.Syntax hiding (Int, List, Lit)
 
 ctorSig :: Id -> [Field] -> Decl
 ctorSig n = TypeSig noLoc [n ^. smartCtorId . to ident]
-    . Fold.foldr' (TyFun . external) (n ^. typeId . to tycon)
-    . map fieldType
-    . filter fieldRequire
+    . Fold.foldr' TyFun (n ^. typeId . to tycon)
+    . map external
+    . filter (^. fieldRequired)
 
 ctorDecl :: Maybe Text -> Id -> [Field] -> Decl
 ctorDecl p n fs =
     sfun noLoc (n ^. smartCtorId . to ident) ps (UnGuardedRhs rhs) (BDecls [])
   where
     ps :: [Name]
-    ps = map fieldParam (filter fieldRequire fs)
+    ps = map (view fieldParam) (filter (view fieldRequired) fs)
 
     rhs :: Exp
     rhs = RecConstr (n ^. typeId . to unqual) (map upd fs)
 
     upd :: Field -> FieldUpdate
-    upd f = FieldUpdate (fieldId f ^. accessorId p . to unqual) def
+    upd f = FieldUpdate (f ^. fieldId . accessorId p . to unqual) def
       where
-        def | nreq, fieldMonoid f = var "mempty"
-            | nreq                = var "Nothing"
-            | otherwise           = Var (UnQual (fieldParam f))
+        def | opt, f ^. fieldMonoid = var "mempty"
+            | opt                   = var "Nothing"
+            | otherwise             = Var (UnQual (f ^. fieldParam))
 
-        nreq = not (fieldRequire f)
+        opt = not (f ^. fieldRequired)
 
 lensSig :: Maybe Text -> TType -> Field -> Decl
-lensSig p t Field{..} = TypeSig noLoc [ident (fieldId ^. lensId p)] $
+lensSig p t f = TypeSig noLoc [ident (f ^. fieldId . lensId p)] $
     TyApp (TyApp (tycon "Lens'")
                  (external t))
-          (external fieldType)
+          (external (typeOf f))
 
 lensDecl :: Maybe Text -> Field -> Decl
-lensDecl p Field{..} =
-    sfun noLoc (ident l) [] (UnGuardedRhs rhs) (BDecls [])
+lensDecl p f = sfun noLoc (ident l) [] (UnGuardedRhs rhs) (BDecls [])
   where
-    l = fieldId ^. lensId p
-    a = fieldId ^. accessorId p
+    l = f ^. fieldId . lensId p
+    a = f ^. fieldId . accessorId p
 
-    rhs = mapping fieldType $
+    rhs = mapping (typeOf f) $
         app (app (var "lens") (var a))
             (paren (lamE noLoc [pvar "s", pvar "a"]
                    (RecUpdate (var "s") [FieldUpdate (unqual a) (var "a")])))
@@ -83,9 +84,9 @@ conDecl :: Text -> QualConDecl
 conDecl n = QualConDecl noLoc [] [] (ConDecl (ident n) [])
 
 recDecl :: Maybe Text -> Id -> [Field] -> QualConDecl
-recDecl p n = QualConDecl noLoc [] []
-    . RecDecl (ident (n ^. typeId)) -- Record has the same ctor as the type.
-    . map (\f -> ([fieldId f ^. accessorId p . to ident], internal (fieldType f)))
+recDecl p n = QualConDecl noLoc [] [] . RecDecl (ident (n ^. typeId)) . map g
+  where
+    g f = ([f ^. fieldId . accessorId p . to ident], internal f)
 
 -- instDecl :: Text -> Text -> Text -> Text -> [Text] -> Decl
 -- instDecl c f o t fs = InstDecl noLoc Nothing [] [] (UnQual (ident c)) [tycon t]
@@ -107,16 +108,17 @@ recDecl p n = QualConDecl noLoc [] []
 
 --     v = "x"
 
-internal :: TType -> Type
-internal = \case
-    TType      x   -> tycon x
-    TLit       x   -> literal True x
-    TNatural       -> tycon "Nat"
-    TMaybe     x   -> TyApp (tycon "Maybe") (internal x)
-    TSensitive x   -> TyApp (tycon "Sensitive") (internal x)
-    TList      x   -> TyApp (tycon "List") (internal x)
-    TList1     x   -> TyApp (tycon "List1") (internal x)
-    TMap       k v -> TyApp (TyApp (tycon "Map") (internal k)) (internal v)
+internal :: TypeOf a => a -> Type
+internal (typeOf -> t) =
+    case t of
+        TType      x   -> tycon x
+        TLit       x   -> literal True x
+        TNatural       -> tycon "Nat"
+        TMaybe     x   -> TyApp (tycon "Maybe") (internal x)
+        TSensitive x   -> TyApp (tycon "Sensitive") (internal x)
+        TList      x   -> TyApp (tycon "List") (internal x)
+        TList1     x   -> TyApp (tycon "List1") (internal x)
+        TMap       k v -> TyApp (TyApp (tycon "Map") (internal k)) (internal v)
 
      -- TList      i x       -> TyApp (TyApp (tycon "List") (singleton i)) (internal x)
     -- TList1     i x       -> TyApp (TyApp (tycon "List1") (singleton i)) (internal x)
@@ -131,16 +133,17 @@ internal = \case
     --         (internal k))
     --       (internal v)
 
-external :: TType -> Type
-external = \case
-    TType      x   -> tycon x
-    TLit       x   -> literal False x
-    TNatural       -> tycon "Natural"
-    TMaybe     x   -> TyApp (tycon "Maybe") (external x)
-    TSensitive x   -> external x
-    TList      x   -> TyList (external x)
-    TList1     x   -> TyApp (tycon "NonEmpty") (external x)
-    TMap       k v -> TyApp (TyApp (tycon "HashMap") (external k)) (external v)
+external :: TypeOf a => a -> Type
+external (typeOf -> t) =
+    case t of
+        TType      x   -> tycon x
+        TLit       x   -> literal False x
+        TNatural       -> tycon "Natural"
+        TMaybe     x   -> TyApp (tycon "Maybe") (external x)
+        TSensitive x   -> external x
+        TList      x   -> TyList (external x)
+        TList1     x   -> TyApp (tycon "NonEmpty") (external x)
+        TMap       k v -> TyApp (TyApp (tycon "HashMap") (external k)) (external v)
 
 literal :: Bool -> Lit -> Type
 literal _ = tycon . \case

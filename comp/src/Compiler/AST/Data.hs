@@ -100,7 +100,7 @@ dataType proto ((n ::: p ::: _ ::: t ::: ds ::: is) :< s) =
             , fieldType    = memberType k (strf ^. required) rt
             , fieldDerive  = rds
             , fieldHelp    =
-                fromMaybe "FIXME: Undocumented reference."
+                fromMaybe "FIXME: Undocumented member."
                     (v ^. refDocumentation)
             }
           where

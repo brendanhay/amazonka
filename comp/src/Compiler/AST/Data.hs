@@ -20,7 +20,9 @@ module Compiler.AST.Data
     ( dataType
     ) where
 
+import           Compiler.AST.Data.Field
 import           Compiler.AST.Data.Syntax
+import           Compiler.AST.TypeOf
 import           Compiler.Types
 import           Control.Comonad
 import           Control.Comonad.Cofree
@@ -29,7 +31,6 @@ import           Control.Lens                 hiding (enum, mapping, (??))
 import           Data.Bifunctor
 import           Data.Char                    (isSpace)
 import qualified Data.HashMap.Strict          as Map
-import qualified Data.HashSet                 as Set
 import           Data.Monoid                  hiding (Product, Sum)
 import           Data.String
 import           Data.Text                    (Text)
@@ -65,14 +66,14 @@ dataType proto ((n ::: p ::: _ ::: t ::: ds ::: is) :< s) =
     struct :: Info
            -> StructF (Shape (Id ::: Maybe Text ::: Relation ::: Solved))
            -> Either Error Data
-    struct i strct = Product i
+    struct i strf = Product i
         <$> format (dataDecl n [recDecl p n fs] ds)
         <*> ctor
         <*> traverse lens' fs
         <*> pure mempty -- insts fs
       where
         fs :: [Field]
-        fs = zipWith field [1..] . Map.toList $ strct ^. members
+        fs = map field . Map.toList $ strf ^. members
 
         ctor :: Either Error Fun
         ctor = Fun (n ^. smartCtorId) h
@@ -80,35 +81,30 @@ dataType proto ((n ::: p ::: _ ::: t ::: ds ::: is) :< s) =
             <*> format (ctorDecl p n fs)
           where
             -- FIXME: this should output haddock single quotes to ensure
-            -- the type is linked properly.
+            -- the type is linked properly, but the following outputs
+            -- '@' delimiters, need to investigate pandoc.
             h = fromString $ Text.unpack ("'" <> n ^. typeId <> "' smart constructor.")
 
         lens' :: Field -> Either Error Fun
-        lens' f@Field{..} = Fun (fieldId ^. lensId p) fieldComment
-            <$> plain (lensSig p t f)
+        lens' f = Fun (fieldId f ^. lensId p) (fieldHelp f)
+            <$> plain (lensSig  p t f)
             <*> plain (lensDecl p f)
 
         -- FIXME: Facets of Info for the field need to be layered on top
         -- of the type, such as nonempty, maybe, etc.
-        field :: Int
-              -> (Id, RefF (Shape (Id ::: Maybe Text ::: Relation ::: Solved)))
+        -- This should be layered via the Compiler.AST.TypeOf module.
+        field :: (Id, RefF (Shape (Id ::: Maybe Text ::: Relation ::: Solved)))
               -> Field
-        field o (k, v) =
-              let f = Field
-                    { fieldId      = k
-                    , fieldOrdinal = o
-                    , fieldType    = rt
-                    , fieldReq     = Set.member k (strct ^. required)
-                    , fieldDerive  = rds
-                    , fieldComment = h
-                    }
-               in f -- trace (show ann) f
+        field (k, v) = Field
+            { fieldId      = k
+            , fieldType    = memberType k (strf ^. required) rt
+            , fieldDerive  = rds
+            , fieldHelp    =
+                fromMaybe "FIXME: Undocumented reference."
+                    (v ^. refDocumentation)
+            }
           where
-            -- FIXME: need to use the correct member id for the type etc.
-            ann@(_ ::: _ ::: _ ::: rt ::: rds ::: _) = extract (v ^. refAnn)
-
-            h = fromMaybe "FIXME: Undocumented reference." $
-                v ^. refDocumentation
+            _ ::: _ ::: _ ::: rt ::: rds ::: _ = extract (v ^. refAnn)
 
         -- insts :: [Field] -> Either Error (Map Inst [LazyText])
         -- insts fs = Map.fromList <$> traverse (\i -> (i,) <$> fgh i) is

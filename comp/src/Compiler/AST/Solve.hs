@@ -20,6 +20,7 @@ module Compiler.AST.Solve
     ) where
 
 import           Compiler.AST.Cofree
+import           Compiler.AST.TypeOf
 import           Compiler.Protocol
 import           Compiler.Types
 import           Control.Arrow          ((&&&))
@@ -52,47 +53,7 @@ solve cfg proto = (`evalState` env) . traverse (assoc . annotate id (pure . ann)
             ::: instances proto mempty
 
     ann :: HasId a => Shape (a ::: Relation) -> Solved
-    ann x@((_ ::: r) :< _) = typeOf x ::: derive x ::: instances proto r
-
-typeOf :: HasId a => Shape a -> TType
-typeOf (x :< s) =
-    let n = identifier x
-     in sensitive s $
-        case s of
-            Struct {}    -> TType (n ^. typeId)
-            Enum   {}    -> TType (n ^. typeId)
-            List   i e
-                | nonEmpty i -> TList1 t
-                | otherwise  -> TList  t
-              where
-                t = typeOf (e ^. refAnn)
-            Map    _ k v -> TMap (typeOf (k ^. refAnn)) (typeOf (v ^. refAnn))
-            Lit    i l   ->
-                case l of
-                    Int  -> natural i (TLit l)
-                    Long -> natural i (TLit l)
-                    _    -> TLit l
-
-natural :: HasInfo a => a -> TType -> TType
-natural x
-    | Just i <- x ^. infoMin
-    , i >= 0    = const TNatural
-    | otherwise = id
-
-sensitive :: HasInfo a => a -> TType -> TType
-sensitive x
-    | x ^. infoSensitive = TSensitive
-    | otherwise          = id
-
--- optional :: Bool -> TType -> TType
--- optional True  t = t
--- optional False t =
---     case t of
---         TMaybe {} -> t
---         TList  {} -> t
---         TList1 {} -> t
---         TMap   {} -> t
---         _         -> TMaybe t
+    ann x@((_ ::: r) :< _) = shapeType x ::: derive x ::: instances proto r
 
 -- FIXME: Filter constraints based on info like min/max of lists etc.
 derive :: Shape a -> [Derive]

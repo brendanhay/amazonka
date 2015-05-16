@@ -16,6 +16,7 @@
 
 module Compiler.AST.Data.Syntax where
 
+import           Compiler.AST.Data.Field
 import           Compiler.Types
 import           Control.Lens                 hiding (mapping)
 import qualified Data.Foldable                as Fold
@@ -26,40 +27,30 @@ import           Language.Haskell.Exts.Build  (app, lamE, paren, sfun)
 import           Language.Haskell.Exts.SrcLoc (noLoc)
 import           Language.Haskell.Exts.Syntax hiding (Int, List, Lit)
 
-data Field = Field
-    { fieldId      :: Id
-    , fieldOrdinal :: !Int
-    , fieldType    :: TType
-    , fieldReq     :: !Bool
-    , fieldDerive  :: [Derive]
-    , fieldComment :: Help
-    } deriving (Show)
-
-fieldParam :: Field -> Name
-fieldParam = Ident . mappend "p" . show . fieldOrdinal
-
 ctorSig :: Id -> [Field] -> Decl
 ctorSig n = TypeSig noLoc [n ^. smartCtorId . to ident]
     . Fold.foldr' (TyFun . external) (n ^. typeId . to tycon)
     . map fieldType
-    . filter fieldReq
+    . filter fieldRequire
 
 ctorDecl :: Maybe Text -> Id -> [Field] -> Decl
 ctorDecl p n fs =
     sfun noLoc (n ^. smartCtorId . to ident) ps (UnGuardedRhs rhs) (BDecls [])
   where
     ps :: [Name]
-    ps = map fieldParam (filter fieldReq fs)
+    ps = map fieldParam (filter fieldRequire fs)
 
     rhs :: Exp
     rhs = RecConstr (n ^. typeId . to unqual) (map upd fs)
 
     upd :: Field -> FieldUpdate
-    upd f@Field{..} = FieldUpdate (fieldId ^. accessorId p . to unqual) def
+    upd f = FieldUpdate (fieldId f ^. accessorId p . to unqual) def
       where
-        def | not fieldReq               = var "Nothing"
-            | DMonoid `elem` fieldDerive = var "mempty"
-            | otherwise                  = Var (UnQual (fieldParam f))
+        def | nreq, fieldMonoid f = var "mempty"
+            | nreq                = var "Nothing"
+            | otherwise           = Var (UnQual (fieldParam f))
+
+        nreq = not (fieldRequire f)
 
 lensSig :: Maybe Text -> TType -> Field -> Decl
 lensSig p t Field{..} = TypeSig noLoc [ident (fieldId ^. lensId p)] $

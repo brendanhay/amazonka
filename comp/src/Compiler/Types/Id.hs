@@ -27,6 +27,7 @@ module Compiler.Types.Id
     , smartCtorId
     , accessorId
     , lensId
+    , paramId
 
     -- * Modify representation
     , prependId
@@ -109,6 +110,9 @@ accessorId p = accessor p . to (Text.cons '_')
 
 lensId :: Maybe Text -> Getter Id Text
 lensId p = accessor p . to renameReserved
+
+paramId :: Getter Id Text
+paramId = accessor Nothing . to (renameReserved . Text.toLower)
 
 accessor :: Maybe Text -> Getter Id Text
 accessor Nothing  = representation . to lowerHead

@@ -24,9 +24,11 @@ executable compile
           Compiler.AST
         , Compiler.AST.Cofree
         , Compiler.AST.Data
+        , Compiler.AST.Data.Field
         , Compiler.AST.Data.Syntax
         , Compiler.AST.Prefix
         , Compiler.AST.Solve
+        , Compiler.AST.TypeOf
         , Compiler.Formatting
         , Compiler.IO
         , Compiler.JSON

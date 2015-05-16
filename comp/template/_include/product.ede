@@ -24,14 +24,29 @@
 {% endfor %}
 {% for inst in shape.value.instances %}
   {% case inst.key %}
+  {% when "FromXML" %}
+
+instance FromXML {{ shape.key }} where
+    {% if inst.value | empty %}
+        parseXML = const {{ shape.key }}
+    {% else %}
+    parseXML ns = {{ shape.key }}
+      {% for field in inst.value %}
+        {% include "applicative.ede" %} {{ field.value }}
+      {% endfor %}
+    {% endif %}
   {% when "ToQuery" %}
 
 instance ToQuery {{ shape.key }} where
+    {% if inst.value | empty %}
+        toQuery = const mempty
+    {% else %}
     toQuery {{ shape.key }}{..} = mconcat
       {% for field in inst.value %}
         {% include "list.ede" %} {{ field.value }}
       {% endfor %}
         ]
+    {% endif %}
   {% else %}
 
 -- Error: Attempting to render unrecognized instance '{{ inst.key }}'

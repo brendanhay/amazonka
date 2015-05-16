@@ -92,7 +92,7 @@ dataType proto ((n ::: p ::: r ::: t ::: ds ::: is) :< s) =
             go x = traverse (plain . instanceExp proto x)
 
         fields :: [Field]
-        fields = mkFields st
+        fields = mkFields p st
 
 format, plain :: Pretty a => a -> Either Error LazyText
 format = pretty True
@@ -106,10 +106,15 @@ pretty fmt d
     e = flip mappend (", when formatting datatype: " <> p) . LText.pack
 
     p = LText.dropWhile isSpace . LText.pack $
-        prettyPrintStyleMode s defaultMode d
+        prettyPrintStyleMode s m d
 
     s = style
         { mode           = PageMode
         , lineLength     = 80
         , ribbonsPerLine = 1.5
+        }
+
+    m = defaultMode
+        { layout  = PPNoLayout
+        , spacing = False
         }

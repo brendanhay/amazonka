@@ -19,9 +19,12 @@ module Compiler.AST.Data.Syntax where
 
 import           Compiler.AST.Data.Field
 import           Compiler.AST.TypeOf
+import           Compiler.Protocol
 import           Compiler.Types
+import           Control.Comonad.Cofree
 import           Control.Lens                 hiding (mapping)
 import qualified Data.Foldable                as Fold
+import           Data.Monoid
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
 import qualified Language.Haskell.Exts        as Exts
@@ -57,8 +60,7 @@ ctorDecl n fs =
 lensSig :: TType -> Field -> Decl
 lensSig t f = TypeSig noLoc [ident (f ^. fieldLens)] $
     TyApp (TyApp (tycon "Lens'")
-                 (external t))
-          (external (typeOf f))
+                 (external t))          (external (typeOf f))
 
 lensDecl :: Field -> Decl
 lensDecl f = sfun noLoc (ident l) [] (UnGuardedRhs rhs) (BDecls [])
@@ -88,24 +90,41 @@ recDecl n = QualConDecl noLoc [] [] . RecDecl (ident (n ^. typeId)) . map g
   where
     g f = ([f ^. fieldAccessor . to ident], internal f)
 
+infixl 7 @:
+
+(@:) :: Exp -> Exp -> Exp
+(@:) = app
+
 instanceExp :: Protocol -> Instance -> Field -> Exp
-instanceExp proto i f = undefined -- fun (f ^. fieldRef . refAnn)
-  -- where
-  --   go (_ :< s) = case s of
-  --       List l ->
-  --           let (member, item) = listName proto (direction i)
-  --           app (app (var "toQueryList")
-  --                    (str member)
-  --               (var (fieldId ^. accessorId p))
-  --         where
+instanceExp proto i f = go (f ^. fieldRef . refAnn)
+  where
+    go (_ :< s) = case s of
+        List l -> infixop name
+          where
+            name = parent <> maybe mempty (mappend ".") item
 
-          --   (parent, item) =
-          --       listName proto (instanceDirection i) (f ^. fieldId) (v ^. fieldRef)
+Parsing fromxml/fromjson needs to be a bit more sophisticated for names
 
-         -- _         =
-         --    infixApp (str $ fst (memberName proto (fieldId, fieldRef)))
-         --             (qop "=?")
-         --             (var (fieldId ^. accessorId p))
+            (parent, item) =
+                listName proto dir (f ^. fieldId) (f ^. fieldRef) l
+
+        _ -> infixop member
+
+    infixop n = str n @: var op @: var accessor
+
+    accessor = f ^. fieldAccessor
+    member   = memberName (f ^. fieldId) (f ^. fieldRef)
+
+    op  = operator i req
+    dir = direction i
+    req = f ^. fieldRequired
+
+        -- List l -> var "toQueryList" @: str name @: var accessor
+        --   where
+        --     name = parent <> maybe mempty (mappend ".") item
+
+        --     (parent, item) =
+        --         listName proto (direction i) (f ^. fieldId) (f ^. fieldRef) l
 
 
 -- go _ _  = pure []

@@ -53,11 +53,11 @@ instances p = \case
 
 direction :: Instance -> Direction
 direction = \case
+    FromJSON -> Output
+    FromXML  -> Output
     ToJSON   -> Input
     ToXML    -> Input
     ToQuery  -> Input
-    FromJSON -> Output
-    FromXML  -> Output
 
 satisfies :: Instance -> (a -> Maybe Location) -> [a] -> [a]
 satisfies i f = filter (match i . f)
@@ -81,8 +81,27 @@ satisfies i f = filter (match i . f)
         || match ToBody x
         || match ToHeaders x
 
-listName :: Protocol  -- ^ Service protocol.
-         -> Direction -- ^ The serialisation direction.
+-- FIXME: Go through the other SDK's tests to ensure correctness.
+memberName :: Id     -- ^ The member id.
+           -> RefF a -- ^ The member reference.
+           -> Text
+memberName n r = fromMaybe (n ^. memberId) (r ^. refLocationName)
+
+operator :: Instance
+         -> Bool -- ^ Is the field required?
+         -> Text
+operator = go
+  where
+    go FromJSON True  = ".:"
+    go FromJSON False = ".:?"
+    go FromXML  True  = ".@"
+    go FromXML  False = ".@?"
+    go ToJSON   _     = ".="
+    go ToXML    _     = "=@"
+    go ToQuery  _     = "=?"
+
+listName :: Protocol
+         -> Direction
          -> Id        -- ^ The member id.
          -> RefF  a   -- ^ The member reference.
          -> ListF a   -- ^ The list shape pointed to by the member reference.

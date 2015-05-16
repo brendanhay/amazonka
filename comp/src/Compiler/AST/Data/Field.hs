@@ -18,6 +18,7 @@ module Compiler.AST.Data.Field
     , mkFields
 
     -- * Ids
+    , fieldId
     , fieldLens
     , fieldAccessor
     , fieldParam
@@ -47,6 +48,7 @@ data Field = Field
     { _fieldId       :: Id    -- ^ The memberId from the struct members map.
     , _fieldRef      :: Ref   -- ^ The original struct member reference.
     , _fieldRequired :: !Bool -- ^ Does the struct have this member in the required set.
+    , _fieldPrefix   :: Maybe Text
     } deriving (Show)
 
 makeLenses ''Field
@@ -62,12 +64,13 @@ instance TypeOf Field where
               -- This field is not required, and can be defaulted using mempty/Nothing.
             | otherwise      = t
 
-mkFields :: StructF (Shape (Id ::: (Maybe Text ::: (Relation ::: Solved))))
+mkFields :: Maybe Text
+         -> StructF (Shape (Id ::: (Maybe Text ::: (Relation ::: Solved))))
          -> [Field]
-mkFields st = map mk . Map.toList $ st ^. members
+mkFields p st = map mk . Map.toList $ st ^. members
   where
     mk :: (Id, Ref) -> Field
-    mk (k, v) = Field k v (Set.member k (st ^. required))
+    mk (k, v) = Field k v (Set.member k (st ^. required)) p
 
 fieldLens, fieldAccessor :: Getter Field Text
 fieldLens     = to (\f -> f ^. fieldId . lensId     (f ^. fieldPrefix))
@@ -89,8 +92,3 @@ fieldMonoid :: Getter Field Bool
 fieldMonoid = fieldRef . refAnn . to (f . extract)
   where
     f (_ ::: _ ::: _ ::: _ ::: ds ::: _) = DMonoid `elem` ds
-
-fieldPrefix :: Getter Field (Maybe Text)
-fieldPrefix = fieldRef . refAnn . to (f . extract)
-  where
-    f (_ ::: p ::: _ ::: _ ::: _ ::: _) = p

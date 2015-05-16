@@ -116,7 +116,10 @@ paramId = accessor Nothing . to (renameReserved . Text.toLower)
 
 accessor :: Maybe Text -> Getter Id Text
 accessor Nothing  = representation . to lowerHead
-accessor (Just p) = representation . to (mappend (Text.toLower p) . upperHead)
+accessor (Just p) = representation . to f
+  where
+    f | Text.null p = lowerHead
+      | otherwise   = mappend (Text.toLower p) . upperHead
 
 prependId :: Text -> Id -> Id
 prependId t i = i & representation %~ mappend t

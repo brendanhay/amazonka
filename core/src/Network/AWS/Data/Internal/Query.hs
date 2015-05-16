@@ -28,7 +28,6 @@ module Network.AWS.Data.Internal.Query
 
     , (=?)
     , pair
-    , toQueryList
     ) where
 
 import           Control.Lens
@@ -86,11 +85,6 @@ pair k v = mappend (Pair k (toQuery v))
 
 (=?) :: ToQuery a => ByteString -> a -> Query
 (=?) k v = Pair k (toQuery v)
-
-toQueryList :: (IsList a, ToQuery (Item a)) => ByteString -> a -> Query
-toQueryList n = mconcat . zipWith (\i v -> n =? (toBS i, v)) idx . toList
-  where
-    idx = [1..] :: [Int]
 
 renderQuery :: Query -> ByteString
 renderQuery = intercalate . sort . enc Nothing

@@ -61,11 +61,11 @@ derive (_ :< s) = nub . sort $ shape s
   where
     shape :: ShapeF (Shape a) -> [Derive]
     shape = \case
-        Struct _ ms -> foldr' (intersect . derive) base ms
-        List   {}   -> base <> monoid
-        Map    {}   -> base <> monoid
-        Enum   {}   -> base <> enum
-        Lit    _ l  -> lit l
+        Struct st -> foldr' (intersect . derive) base st
+        List   {} -> base <> monoid
+        Map    {} -> base <> monoid
+        Enum   {} -> base <> enum
+        Lit   _ l -> lit l
 
     lit :: Lit -> [Derive]
     lit = \case

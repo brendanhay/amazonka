@@ -174,6 +174,9 @@ instance FromJSON (RefF ()) where
         <*> o .:? "xmlAttribute" .!= False
         <*> o .:? "xmlnamespace"
 
+class HasRefs f where
+     references :: Traversal (f a) (f b) (RefF a) (RefF b)
+
 data Info = Info
     { _infoDocumentation :: Maybe Help
     , _infoMin           :: Maybe Natural
@@ -199,6 +202,43 @@ instance FromJSON Info where
 nonEmpty :: HasInfo a => a -> Bool
 nonEmpty = (> Just 0) . view infoMin
 
+data ListF a = ListF
+    { _listInfo :: Info
+    , _listItem :: RefF a
+    } deriving (Show, Functor, Foldable, Traversable)
+
+makeLenses ''ListF
+
+instance HasInfo (ListF a) where
+    info = listInfo
+
+instance HasRefs ListF where
+    references = listItem
+
+instance FromJSON (Info -> ListF ()) where
+    parseJSON = withObject "list" $ \o -> flip ListF
+        <$> o .: "member"
+
+data MapF a = MapF
+    { _mapInfo  :: Info
+    , _mapKey   :: RefF a
+    , _mapValue :: RefF a
+    } deriving (Show, Functor, Foldable, Traversable)
+
+makeLenses ''MapF
+
+instance HasInfo (MapF a) where
+    info = mapInfo
+
+instance HasRefs MapF where
+    references f (MapF i k v) = MapF i <$> f k <*> f v
+
+instance FromJSON (Info -> MapF ()) where
+    parseJSON = withObject "map" $ \o -> do
+        k <- o .: "key"
+        v <- o .: "value"
+        return $! \i -> MapF i k v
+
 -- class HasRefs a b where
 --     references :: Traversal' a (RefF b)
 
@@ -210,32 +250,34 @@ nonEmpty = (> Just 0) . view infoMin
 -- FIXME: Parameterize Ref over a, which can be swapped out for the actual shape.
 -- (Id -> Ref -> Shape) Forms a Field
 
--- _members [(Id, Ref)]
-
-data StructF a = StructF
 --    { _members  :: [(Id, a)]
-    { _members  :: Map Id (RefF a)
-    , _required :: Set Id
-    , _payload  :: Maybe Id
-    , _wrapper  :: !Bool
+data StructF a = StructF
+    { _structInfo :: Info
+    , _members    :: Map Id (RefF a)
+    , _required   :: Set Id
+    , _payload    :: Maybe Id
+    , _wrapper    :: !Bool
     } deriving (Show, Functor, Foldable, Traversable)
 
 makeLenses ''StructF
 
--- instance HasRefs (Struct Ptr) Id where
---     references = members . each
+instance HasInfo (StructF a) where
+    info = structInfo
 
-instance FromJSON (StructF ()) where
-    parseJSON = withObject "struct" $ \o -> StructF
-        <$> o .:  "members"
-        <*> o .:? "required" .!= mempty
-        <*> o .:? "payload"
-        <*> pure False
+instance HasRefs StructF where
+    references = traverseOf (members . each)
+
+instance FromJSON (Info -> StructF ()) where
+    parseJSON = withObject "struct" $ \o -> do
+        ms <- o .:  "members"
+        r  <- o .:? "required" .!= mempty
+        p  <- o .:? "payload"
+        return $! \i -> StructF i ms r p False
 
 data ShapeF a
-    = List   Info (RefF a)
-    | Map    Info (RefF a) (RefF a)
-    | Struct Info (StructF a)
+    = List   (ListF   a)
+    | Map    (MapF    a)
+    | Struct (StructF a)
     | Enum   Info (Map Id Text)
     | Lit    Info Lit
       deriving (Show, Functor, Foldable, Traversable)
@@ -245,29 +287,21 @@ makePrisms ''ShapeF
 type Shape = Cofree ShapeF
 type Ref   = RefF (Shape (Id ::: Maybe Text ::: Relation ::: Solved))
 
-references :: Traversal' (ShapeF a) (RefF a)
-references f = \case
-    List   i e   -> List   i <$> f e
-    Map    i k v -> Map    i <$> f k <*> f v
-    Struct i ms  -> Struct i <$> traverseOf (members . each) f ms
-    s            -> pure s
-
 instance HasInfo (ShapeF a) where
-    info = lens f (flip g)
-      where
-        f = \case
-            List   i _   -> i
-            Map    i _ _ -> i
-            Struct i _   -> i
-            Enum   i _   -> i
-            Lit    i _   -> i
+    info f = \case
+        List   l    -> List        <$> info f l
+        Map    m    -> Map         <$> info f m
+        Struct s    -> Struct      <$> info f s
+        Enum   i vs -> (`Enum` vs) <$> f i
+        Lit    i l  -> (`Lit`  l)  <$> f i
 
-        g i = \case
-            List   _ e   -> List   i e
-            Map    _ k v -> Map    i k v
-            Struct _ ms  -> Struct i ms
-            Enum   _ m   -> Enum   i m
-            Lit    _ l   -> Lit    i l
+instance HasRefs ShapeF where
+    references f = \case
+        List l    -> List   <$> references f l
+        Map  m    -> Map    <$> references f m
+        Struct s  -> Struct <$> references f s
+        Enum i vs -> pure (Enum i vs)
+        Lit  i l  -> pure (Lit i l)
 
 instance FromJSON (ShapeF ()) where
     parseJSON = withObject "shape" $ \o -> do
@@ -275,9 +309,9 @@ instance FromJSON (ShapeF ()) where
         t <- o .:  "type"
         m <- o .:? "enum"
         case t of
-            "list"      -> List   i <$> o .: "member"
-            "map"       -> Map    i <$> o .: "key" <*> o .: "value"
-            "structure" -> Struct i <$> parseJSON (Object o)
+            "list"      -> List   . ($ i) <$> parseJSON (Object o)
+            "map"       -> Map    . ($ i) <$> parseJSON (Object o)
+            "structure" -> Struct . ($ i) <$> parseJSON (Object o)
             "integer"   -> pure (Lit i Int)
             "long"      -> pure (Lit i Long)
             "double"    -> pure (Lit i Double)

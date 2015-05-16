@@ -22,16 +22,14 @@ module Compiler.AST.Data
 
 import           Compiler.AST.Data.Field
 import           Compiler.AST.Data.Syntax
-import           Compiler.AST.TypeOf
 import           Compiler.Protocol
 import           Compiler.Types
-import           Control.Comonad
 import           Control.Comonad.Cofree
-import           Control.Error
 import           Control.Lens                 hiding (enum, mapping, (??))
 import           Data.Bifunctor
 import           Data.Char                    (isSpace)
 import qualified Data.HashMap.Strict          as Map
+import qualified Data.HashSet                 as Set
 import           Data.Monoid                  hiding (Product, Sum)
 import           Data.String
 import           Data.Text                    (Text)
@@ -49,7 +47,7 @@ import           Language.Haskell.Exts.Pretty
 dataType :: Protocol
          -> Shape (Id ::: Maybe Text ::: Relation ::: Solved)
          -> Either Error (Maybe Data)
-dataType proto ((n ::: p ::: _ ::: t ::: ds ::: is) :< s) =
+dataType proto ((n ::: p ::: r ::: t ::: ds ::: is) :< s) =
     case s of
         Enum   i vs -> Just <$> enum   i vs
         Struct i ms -> Just <$> struct i ms
@@ -67,11 +65,11 @@ dataType proto ((n ::: p ::: _ ::: t ::: ds ::: is) :< s) =
     struct :: Info
            -> StructF (Shape (Id ::: Maybe Text ::: Relation ::: Solved))
            -> Either Error Data
-    struct i strf = Product i
+    struct i st = Product i
         <$> format (dataDecl n [recDecl p n fields] ds)
         <*> mkCtor
         <*> traverse mkLens fields
-        <*> instances
+        <*> (Map.fromList <$> traverse mkInstance (instances proto r))
       where
         mkCtor :: Either Error Fun
         mkCtor = Fun (n ^. smartCtorId) h
@@ -81,7 +79,8 @@ dataType proto ((n ::: p ::: _ ::: t ::: ds ::: is) :< s) =
             -- FIXME: this should output haddock single quotes to ensure
             -- the type is linked properly, but the following outputs
             -- '@' delimiters, need to investigate pandoc.
-            h = fromString $ Text.unpack ("'" <> n ^. typeId <> "' smart constructor.")
+            h = fromString . Text.unpack $
+                "'" <> n ^. typeId <> "' smart constructor."
 
         mkLens :: Field -> Either Error Fun
         mkLens f = Fun (f ^. fieldId . lensId p) (f ^. fieldHelp)
@@ -90,33 +89,17 @@ dataType proto ((n ::: p ::: _ ::: t ::: ds ::: is) :< s) =
 
         -- | Creating an application of locationName <de/serialiser> accessor
         -- per field that satisfies the instance location requirement.
-        mkInstance :: Instance -> Either Error [LazyText]
-        mkInstance i = go i (satisfies i fieldLocation fields)
+        mkInstance :: Instance -> Either Error (Instance, [LazyText])
+        mkInstance k = (k,) <$> go k (satisfies k (^. fieldLocation) fields)
           where
             go :: Instance -> [Field] -> Either Error [LazyText]
-            go _       [] = pure []
-            go ToQuery xs = traverse line xs
-              where
-                line Field{..} = pretty False $ fun fieldRefShape
-                  where
-                    fun (List i e) =
-                        app (app (var "toQueryList")
-                                 (str (parent <> maybe mempty (mappend ".") element)))
-                            (var (fieldId ^. accessorId p))
-                      where
-                        ((parent, element), _) =
-                            listName proto (fieldId, fieldRef) (i, e)
-
-                    fun _         =
-                        infixApp (str $ fst (memberName proto (fieldId, fieldRef)))
-                                 (qop "=?")
-                                 (var (fieldId ^. accessorId p))
+            go x = traverse (plain . instanceExp x)
 
         fields :: [Field]
-        fields = map mk . Map.toList $ strf ^. members
+        fields = map mk . Map.toList $ st ^. members
           where
             mk :: (Id, Ref) -> Field
-            mk (k, v) = Field k v (Set.member k (strf ^. required))
+            mk (k, v) = Field k v (Set.member k (st ^. required))
 
 format, plain :: Pretty a => a -> Either Error LazyText
 format = pretty True

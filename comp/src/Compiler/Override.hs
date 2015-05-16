@@ -63,11 +63,11 @@ override Config{..} svc@Service{..} = svc
         rules = require . optional . rename . retype . prefix
 
         require, optional :: ShapeF a -> ShapeF a
-        require  = _Struct._2.required %~ (<> _requiredFields)
-        optional = _Struct._2.required %~ (`Set.difference` _optionalFields)
+        require  = _Struct.required %~ (<> _requiredFields)
+        optional = _Struct.required %~ (`Set.difference` _optionalFields)
 
         rename :: ShapeF a -> ShapeF a
-        rename = _Struct._2.members.kvTraversal %~ first f
+        rename = _Struct.members.kvTraversal %~ first f
           where
             f k = fromMaybe k (Map.lookup k _renamedFields)
 

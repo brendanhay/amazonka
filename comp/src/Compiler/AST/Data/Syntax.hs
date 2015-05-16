@@ -88,6 +88,29 @@ recDecl p n = QualConDecl noLoc [] [] . RecDecl (ident (n ^. typeId)) . map g
   where
     g f = ([f ^. fieldId . accessorId p . to ident], internal f)
 
+instanceExp :: Protocol -> Instance -> Field -> Exp
+instanceExp proto i f = fun (f ^. fieldRef . refAnn)
+  where
+    go (_ :< s) = case s of
+        List i e ->
+            app (app (var "toQueryList")
+                     (str member)
+                (var (fieldId ^. accessorId p))
+          -- where
+          --   (parent, item) =
+          --       listName proto (instanceDirection i) (f ^. fieldId) (v ^. fieldRef)
+
+         -- _         =
+         --    infixApp (str $ fst (memberName proto (fieldId, fieldRef)))
+         --             (qop "=?")
+         --             (var (fieldId ^. accessorId p))
+
+
+-- go _ _  = pure []
+
+-- deserialiserExp :: Instance -> Field -> Exp
+-- deserialiserExp = undefined
+
 -- instDecl :: Text -> Text -> Text -> Text -> [Text] -> Decl
 -- instDecl c f o t fs = InstDecl noLoc Nothing [] [] (UnQual (ident c)) [tycon t]
 --     [InsDecl (sfun noLoc (ident f) [ident v] (UnGuardedRhs rhs) (BDecls []))]

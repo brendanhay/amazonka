@@ -59,12 +59,12 @@ prefix = annotate memo go
     go (x :< s) =
         let n = identifier x ^. memberId
          in case s of
-            Struct _ ms -> Just <$> do
+            Struct st -> Just <$> do
                 let hs = heuristics n
-                    xs = keys (ms ^. members)
+                    xs = keys (st ^. members)
                 uniq n hs xs
 
-            Enum   _ vs -> Just <$> do
+            Enum _ vs -> Just <$> do
                 let hs = mempty : heuristics n
                     xs = keys vs
                 uniq n hs xs

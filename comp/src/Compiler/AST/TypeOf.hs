@@ -21,18 +21,9 @@ module Compiler.AST.TypeOf
     , typeRequired
     ) where
 
-import           Compiler.AST.Cofree
-import           Compiler.Protocol
 import           Compiler.Types
-import           Control.Arrow          ((&&&))
 import           Control.Comonad.Cofree
 import           Control.Lens           hiding (enum, mapping, (??))
-import           Control.Monad.State
-import           Data.Foldable          (foldr')
-import qualified Data.HashMap.Strict    as Map
-import qualified Data.HashSet           as Set
-import           Data.List              (intersect, nub, sort)
-import           Data.Monoid            hiding (Product, Sum)
 
 class TypeOf a where
     typeOf :: a -> TType
@@ -50,11 +41,11 @@ instance HasId a => TypeOf (Shape a) where
             case s of
                 Struct {}        -> TType  (n ^. typeId)
                 Enum   {}        -> TType  (n ^. typeId)
-                List   i e
+                List (ListF i e)
                     | nonEmpty i -> TList1 (typeOf e)
                     | otherwise  -> TList  (typeOf e)
-                Map    _ k v     -> TMap   (typeOf k) (typeOf v)
-                Lit    i l       ->
+                Map (MapF _ k v) -> TMap   (typeOf k) (typeOf v)
+                Lit i l          ->
                     case l of
                         Int      -> natural i (TLit l)
                         Long     -> natural i (TLit l)

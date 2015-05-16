@@ -15,6 +15,10 @@
 module Compiler.Protocol where
 
 import           Compiler.Types
+import           Control.Lens
+import           Data.Maybe
+import           Data.Text            (Text)
+import           Data.Text.Manipulate
 
 timestamp :: Protocol -> Timestamp
 timestamp = \case
@@ -47,6 +51,14 @@ instances p = \case
         Query    -> FromXML
         EC2      -> FromXML
 
+instanceDirection :: Instance -> Direction
+instanceDirection = \case
+    ToJSON   -> Input
+    ToXML    -> Input
+    ToQuery  -> Input
+    FromJSON -> Output
+    FromXML  -> Output
+
 satisfies :: Instance -> (a -> Maybe Location) -> [a] -> [a]
 satisfies i f = filter (match i . f)
   where
@@ -69,107 +81,40 @@ satisfies i f = filter (match i . f)
         || match ToBody x
         || match ToHeaders x
 
--- memberName :: Protocol -> Uni -> Id -> Ref -> Text
--- memberName = undefined
-
--- itemName :: Protocol -> Uni -> Ref -> Shape -> Maybe Text
--- itemName = undefined
-
--- -- keyName
--- -- valueName
-
--- Just focus on getting the types rendered and worry about request/response later.
-
--- Render the `member op location` and vice versa lines for each Inst
-
--- instanceOp :: Inst -> Id -> Text -> Exp
--- instanceOp i l m = infixapp () (qop (op i)) ()
-
---     This is the function that needs to call listName, keyName, valueName
-
--- -- FIXME: Parameterize Ref over a, which can be swapped out for the actual shape.
-
--- instanceOp :: Protocol -> Inst -> Id -> Ref -> Shape -> Exp
--- instanceOp p i k v = \case
---     List {} ->
---     Map  {} ->
---     _ ->
+-- listNames :: Protocol     -- ^ Service protocol.
+--           -> Direction      -- ^ The serialisation direction.
+--           -> (Id,   RefF a) -- ^ The member (in the struct).
+--           -> (Info, Ref)      -- ^ The.
+--           -> (Text, Maybe Text)
+-- listNames p d k v = go p d (v ^. infoFlattened)
 --   where
---     name = memberName p dir k v
---     item = itemName p dir v v'
---     key  = itemName p dir v v'
---     val  = itemName p dir v v'
+--     go :: Protocol
+--        -> Direction
+--        -> Bool -- ^ Flattened?
+--        -> (Text, Maybe Text)
 
---     op =
---         case i of
---             ToJSON -> ".="
+--     go Query    _      True  = (key, Nothing)
+--     go Query    _      False = (key, Just item)
 
---     dir =
---         case i of
---             ToJSON -> Input
+--     go EC2      Input  _     = (upperHead $ fromMaybe key (v ^. refQueryName), Nothing)
+--     go EC2      Output True  = (key, Nothing)
+--     go EC2      Output False = (key, Just item)
 
--- listName :: Protocol    -- ^ Service protocol
---          -> (Id,   Ref) -- ^ The struct member Id and Ref
---          -> (Info, Ref) -- ^ The actual list type item's member ref
---          -> ((Text, Maybe Text), (Text, Maybe Text))
--- listName p (k, v) (i, e) = ((inp, input p flat), (out, output p flat))
---   where
---     flat = i ^. infoFlattened
+--     go JSON     _      _     = (key, Nothing)
 
---     -- Use the locationName on the struct member if present,
---     -- otherwise the struct member id.
---     (inp, out) = memberName p (k, v)
+--     go RestJSON _      _     = (key, Nothing)
 
---     -- Use the locationName on list element if present,
---     -- otherwise defualt to 'member'.
---     element = fromMaybe "member" (e ^. refLocationName)
+--     go RestXML  _      True  = (key, Nothing)
+--     go RestXML  _      False = (key, Just item)
 
 --     -- input XML       True  = (parent, Nothing) -
 --     -- input XML       False = (parent, Just element)
 
---     input Query     True  = Nothing
---     input Query     False = Just element
---     input EC2       _     = Nothing
---     input JSON      _     = Nothing
---     input RestJSON  _     = Nothing
---     input RestXML   True  = Nothing
---     input RestXML   False = Just element
-
---     output Query    True  = Nothing
---     output Query    False = Just element
---     output EC2      True  = Nothing
---     output EC2      False = Just element
---     output JSON     _     = Nothing
---     output RestJSON _     = Nothing
---     output RestXML  True  = Nothing
---     output RestXML  False = Just element
-
--- listMember :: Protocol -- ^ Service protocol
---            -> Bool     -- ^ Request
---            -> Id       -- ^ The member id
---            -> Ref      -- ^ The member ref
---            -> Text
-
--- inputMember p k = fromMaybe (k ^. memberId) . view refLocationName
-
--- inputListMember p k v
---     | EC2 <- p  = upperHead $ fromMaybe parent (v ^. refQueryName)
---     | otherwise = parent
---   where
 --     -- Use the locationName on the struct member if present,
 --     -- otherwise the struct member id.
---     parent = fromMaybe (k ^. memberId) (v ^. refLocationName)
+--     key = fromMaybe (k ^. memberId) (v ^. refLocationName)
 
--- outputListMember k v = fromMaybe (k ^. memberId) (v ^. refLocationName)
-
--- listItem :: Info -> Ref -> Text
--- listItem = fromMaybe "member" . view refLocationName
-
-
--- memberName :: Protocol -> (Id, Ref) -> (Text, Text)
--- memberName p (k, v) = (input p, member)
---   where
---     input EC2 = upperHead $ fromMaybe member (v ^. refQueryName)
---     input _   = member
-
-    -- member = fromMaybe (k ^. memberId) (v ^. refLocationName)
+--     -- Use the locationName on the actual list element pointed
+--     -- to by the struct member reference if present,
+--     -- otherwise default to 'member'.
+--     item = fromMaybe "member" (v ^. refLocationName)

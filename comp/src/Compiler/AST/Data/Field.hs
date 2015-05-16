@@ -71,3 +71,11 @@ fieldMonoid = fieldRef . refAnn . to (f . extract)
 
 --    , fieldLocation :: !Location    Also the name? Maybe just the ref here or what?
 
+fieldLocation :: Getter Field (Maybe Location)
+fieldLocation = fieldRef . refLocation
+
+-- fieldLocationName :: Getter Field Text
+-- fieldLocationName = undefined
+
+-- This can perhaps call out to the Protocol module and provide
+-- correction 'locationName' lenses for the field.

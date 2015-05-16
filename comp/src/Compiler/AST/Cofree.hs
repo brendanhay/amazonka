@@ -64,12 +64,7 @@ elaborate :: Map Id (ShapeF a) -> Either Error (Map Id (Shape Id))
 elaborate ss = Map.traverseWithKey shape ss
   where
     shape :: Id -> ShapeF a -> Either Error (Shape Id)
-    shape n = fmap (n :<) . \case
-        List   i e   -> List   i <$> ref e
-        Map    i k v -> Map    i <$> ref k <*> ref v
-        Struct i o   -> Struct i <$> traverseOf (members . each) ref o
-        Enum   i vs  -> pure (Enum i vs)
-        Lit    i l   -> pure (Lit  i l)
+    shape n = fmap (n :<) . traverseOf references ref
 
     ref :: RefF a -> Either Error (RefF (Shape Id))
     ref r = flip (set refAnn) r <$> (safe n >>= shape n)

@@ -1,0 +1,13 @@
+steps:
+  - imports:
+      align: global
+  - language_pragmas:
+      style: vertical
+      remove_redundant: true
+  - records: {}
+  - trailing_whitespace: {}
+
+columns: 80
+
+language_extensions:
+  - MultiParamTypeClasses

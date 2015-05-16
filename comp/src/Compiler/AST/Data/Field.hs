@@ -13,13 +13,31 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.AST.Data.Field where
+module Compiler.AST.Data.Field
+    ( Field
+    , mkFields
+
+    -- * Ids
+    , fieldLens
+    , fieldAccessor
+    , fieldParam
+
+    -- * Nested Lenses
+    , fieldRef
+    , fieldRequired
+    , fieldHelp
+    , fieldLocation
+    , fieldMonoid
+    ) where
 
 import           Compiler.AST.TypeOf
 import           Compiler.Types
 import           Control.Comonad
 import           Control.Lens
+import qualified Data.HashMap.Strict          as Map
+import qualified Data.HashSet                 as Set
 import           Data.Maybe
+import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
 import           Language.Haskell.Exts.Syntax (Name (..))
 
@@ -30,17 +48,6 @@ data Field = Field
     , _fieldRef      :: Ref   -- ^ The original struct member reference.
     , _fieldRequired :: !Bool -- ^ Does the struct have this member in the required set.
     } deriving (Show)
-
-   -- let _ ::: _ ::: _ ::: rt ::: rds ::: _ = extract (v ^. refAnn)
-   --  in Field
-   --     { fieldId      = k
-   --     , fieldType    = memberType k (strf ^. required) rt
-
-   --     , fieldDerive  = rds
-   --     , fieldHelp    =
-   --         fromMaybe "FIXME: Undocumented member."
-   --             (v ^. refDocumentation)
-   --     }
 
 makeLenses ''Field
 
@@ -55,6 +62,17 @@ instance TypeOf Field where
               -- This field is not required, and can be defaulted using mempty/Nothing.
             | otherwise      = t
 
+mkFields :: StructF (Shape (Id ::: (Maybe Text ::: (Relation ::: Solved))))
+         -> [Field]
+mkFields st = map mk . Map.toList $ st ^. members
+  where
+    mk :: (Id, Ref) -> Field
+    mk (k, v) = Field k v (Set.member k (st ^. required))
+
+fieldLens, fieldAccessor :: Getter Field Text
+fieldLens     = to (\f -> f ^. fieldId . lensId     (f ^. fieldPrefix))
+fieldAccessor = to (\f -> f ^. fieldId . accessorId (f ^. fieldPrefix))
+
 -- | Parameter to a constructor function.
 fieldParam :: Getter Field Name
 fieldParam = fieldId . paramId . to (Ident . Text.unpack)
@@ -64,18 +82,15 @@ fieldHelp = fieldRef
     . refDocumentation
     . to (fromMaybe "FIXME: Undocumented member.")
 
+fieldLocation :: Getter Field (Maybe Location)
+fieldLocation = fieldRef . refLocation
+
 fieldMonoid :: Getter Field Bool
 fieldMonoid = fieldRef . refAnn . to (f . extract)
   where
     f (_ ::: _ ::: _ ::: _ ::: ds ::: _) = DMonoid `elem` ds
 
---    , fieldLocation :: !Location    Also the name? Maybe just the ref here or what?
-
-fieldLocation :: Getter Field (Maybe Location)
-fieldLocation = fieldRef . refLocation
-
--- fieldLocationName :: Getter Field Text
--- fieldLocationName = undefined
-
--- This can perhaps call out to the Protocol module and provide
--- correction 'locationName' lenses for the field.
+fieldPrefix :: Getter Field (Maybe Text)
+fieldPrefix = fieldRef . refAnn . to (f . extract)
+  where
+    f (_ ::: p ::: _ ::: _ ::: _ ::: _) = p

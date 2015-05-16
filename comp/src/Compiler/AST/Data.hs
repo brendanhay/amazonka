@@ -29,7 +29,6 @@ import           Control.Lens                 hiding (enum, mapping, (??))
 import           Data.Bifunctor
 import           Data.Char                    (isSpace)
 import qualified Data.HashMap.Strict          as Map
-import qualified Data.HashSet                 as Set
 import           Data.Monoid                  hiding (Product, Sum)
 import           Data.String
 import           Data.Text                    (Text)
@@ -39,8 +38,6 @@ import qualified Data.Text.Lazy.Builder       as Build
 import           HIndent
 import           Language.Haskell.Exts.Pretty
 
--- type Field = Id ::: TType ::: [Derive]
-
 -- FIXME: Should empty responses be a shared type, and
 -- always succeed based on HTTP response code?
 
@@ -49,8 +46,8 @@ dataType :: Protocol
          -> Either Error (Maybe Data)
 dataType proto ((n ::: p ::: r ::: t ::: ds ::: is) :< s) =
     case s of
-        Enum   i vs -> Just <$> enum   i vs
-        Struct i ms -> Just <$> struct i ms
+        Enum   i vs -> Just <$> enum i vs
+        Struct st   -> Just <$> struct st
         _           -> return Nothing
   where
     enum :: Info -> Map Id Text -> Either Error Data
@@ -62,19 +59,18 @@ dataType proto ((n ::: p ::: r ::: t ::: ds ::: is) :< s) =
         branches :: Map Text Text
         branches = vs & kvTraversal %~ first (^. ctorId p)
 
-    struct :: Info
-           -> StructF (Shape (Id ::: Maybe Text ::: Relation ::: Solved))
+    struct :: StructF (Shape (Id ::: Maybe Text ::: Relation ::: Solved))
            -> Either Error Data
-    struct i st = Product i
-        <$> format (dataDecl n [recDecl p n fields] ds)
+    struct st = Product (st ^. info)
+        <$> format (dataDecl n [recDecl n fields] ds)
         <*> mkCtor
         <*> traverse mkLens fields
         <*> (Map.fromList <$> traverse mkInstance (instances proto r))
       where
         mkCtor :: Either Error Fun
         mkCtor = Fun (n ^. smartCtorId) h
-            <$> plain  (ctorSig    n fields)
-            <*> format (ctorDecl p n fields)
+            <$> plain  (ctorSig  n fields)
+            <*> format (ctorDecl n fields)
           where
             -- FIXME: this should output haddock single quotes to ensure
             -- the type is linked properly, but the following outputs
@@ -83,9 +79,9 @@ dataType proto ((n ::: p ::: r ::: t ::: ds ::: is) :< s) =
                 "'" <> n ^. typeId <> "' smart constructor."
 
         mkLens :: Field -> Either Error Fun
-        mkLens f = Fun (f ^. fieldId . lensId p) (f ^. fieldHelp)
-            <$> plain (lensSig  p t f)
-            <*> plain (lensDecl p f)
+        mkLens f = Fun (f ^. fieldLens) (f ^. fieldHelp)
+            <$> plain (lensSig t f)
+            <*> plain (lensDecl  f)
 
         -- | Creating an application of locationName <de/serialiser> accessor
         -- per field that satisfies the instance location requirement.
@@ -93,13 +89,10 @@ dataType proto ((n ::: p ::: r ::: t ::: ds ::: is) :< s) =
         mkInstance k = (k,) <$> go k (satisfies k (^. fieldLocation) fields)
           where
             go :: Instance -> [Field] -> Either Error [LazyText]
-            go x = traverse (plain . instanceExp x)
+            go x = traverse (plain . instanceExp proto x)
 
         fields :: [Field]
-        fields = map mk . Map.toList $ st ^. members
-          where
-            mk :: (Id, Ref) -> Field
-            mk (k, v) = Field k v (Set.member k (st ^. required))
+        fields = mkFields st
 
 format, plain :: Pretty a => a -> Either Error LazyText
 format = pretty True

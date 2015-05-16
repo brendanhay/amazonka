@@ -170,7 +170,7 @@ setDefaults svc@Service{..} = do
           modify (Map.insert n s)
           return (Identity r)
       where
-        s = Struct i (StructF mempty mempty Nothing False)
+        s = Struct (StructF i mempty mempty Nothing False)
         i = Info
             { _infoDocumentation = Nothing
             , _infoMin           = Nothing

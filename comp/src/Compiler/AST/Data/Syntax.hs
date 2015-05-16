@@ -35,8 +35,8 @@ ctorSig n = TypeSig noLoc [n ^. smartCtorId . to ident]
     . map external
     . filter (^. fieldRequired)
 
-ctorDecl :: Maybe Text -> Id -> [Field] -> Decl
-ctorDecl p n fs =
+ctorDecl :: Id -> [Field] -> Decl
+ctorDecl n fs =
     sfun noLoc (n ^. smartCtorId . to ident) ps (UnGuardedRhs rhs) (BDecls [])
   where
     ps :: [Name]
@@ -46,7 +46,7 @@ ctorDecl p n fs =
     rhs = RecConstr (n ^. typeId . to unqual) (map upd fs)
 
     upd :: Field -> FieldUpdate
-    upd f = FieldUpdate (f ^. fieldId . accessorId p . to unqual) def
+    upd f = FieldUpdate (f ^. fieldAccessor . to unqual) def
       where
         def | opt, f ^. fieldMonoid = var "mempty"
             | opt                   = var "Nothing"
@@ -54,17 +54,17 @@ ctorDecl p n fs =
 
         opt = not (f ^. fieldRequired)
 
-lensSig :: Maybe Text -> TType -> Field -> Decl
-lensSig p t f = TypeSig noLoc [ident (f ^. fieldId . lensId p)] $
+lensSig :: TType -> Field -> Decl
+lensSig t f = TypeSig noLoc [ident (f ^. fieldLens)] $
     TyApp (TyApp (tycon "Lens'")
                  (external t))
           (external (typeOf f))
 
-lensDecl :: Maybe Text -> Field -> Decl
-lensDecl p f = sfun noLoc (ident l) [] (UnGuardedRhs rhs) (BDecls [])
+lensDecl :: Field -> Decl
+lensDecl f = sfun noLoc (ident l) [] (UnGuardedRhs rhs) (BDecls [])
   where
-    l = f ^. fieldId . lensId p
-    a = f ^. fieldId . accessorId p
+    l = f ^. fieldLens
+    a = f ^. fieldAccessor
 
     rhs = mapping (typeOf f) $
         app (app (var "lens") (var a))
@@ -83,20 +83,22 @@ dataDecl n fs cs = DataDecl noLoc arity [] (ident (n ^. typeId)) [] fs ds
 conDecl :: Text -> QualConDecl
 conDecl n = QualConDecl noLoc [] [] (ConDecl (ident n) [])
 
-recDecl :: Maybe Text -> Id -> [Field] -> QualConDecl
-recDecl p n = QualConDecl noLoc [] [] . RecDecl (ident (n ^. typeId)) . map g
+recDecl :: Id -> [Field] -> QualConDecl
+recDecl n = QualConDecl noLoc [] [] . RecDecl (ident (n ^. typeId)) . map g
   where
-    g f = ([f ^. fieldId . accessorId p . to ident], internal f)
+    g f = ([f ^. fieldAccessor . to ident], internal f)
 
 instanceExp :: Protocol -> Instance -> Field -> Exp
-instanceExp proto i f = fun (f ^. fieldRef . refAnn)
-  where
-    go (_ :< s) = case s of
-        List i e ->
-            app (app (var "toQueryList")
-                     (str member)
-                (var (fieldId ^. accessorId p))
-          -- where
+instanceExp proto i f = undefined -- fun (f ^. fieldRef . refAnn)
+  -- where
+  --   go (_ :< s) = case s of
+  --       List l ->
+  --           let (member, item) = listName proto (direction i)
+  --           app (app (var "toQueryList")
+  --                    (str member)
+  --               (var (fieldId ^. accessorId p))
+  --         where
+
           --   (parent, item) =
           --       listName proto (instanceDirection i) (f ^. fieldId) (v ^. fieldRef)
 

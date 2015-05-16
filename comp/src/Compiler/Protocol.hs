@@ -51,8 +51,8 @@ instances p = \case
         Query    -> FromXML
         EC2      -> FromXML
 
-instanceDirection :: Instance -> Direction
-instanceDirection = \case
+direction :: Instance -> Direction
+direction = \case
     ToJSON   -> Input
     ToXML    -> Input
     ToQuery  -> Input
@@ -81,40 +81,41 @@ satisfies i f = filter (match i . f)
         || match ToBody x
         || match ToHeaders x
 
--- listNames :: Protocol     -- ^ Service protocol.
---           -> Direction      -- ^ The serialisation direction.
---           -> (Id,   RefF a) -- ^ The member (in the struct).
---           -> (Info, Ref)      -- ^ The.
---           -> (Text, Maybe Text)
--- listNames p d k v = go p d (v ^. infoFlattened)
---   where
---     go :: Protocol
---        -> Direction
---        -> Bool -- ^ Flattened?
---        -> (Text, Maybe Text)
+listName :: Protocol  -- ^ Service protocol.
+         -> Direction -- ^ The serialisation direction.
+         -> Id        -- ^ The member id.
+         -> RefF  a   -- ^ The member reference.
+         -> ListF a   -- ^ The list shape pointed to by the member reference.
+         -> (Text, Maybe Text)
+listName p d n r l = go p d (l ^. infoFlattened)
+  where
+    go :: Protocol
+       -> Direction
+       -> Bool -- ^ Flattened?
+       -> (Text, Maybe Text)
 
---     go Query    _      True  = (key, Nothing)
---     go Query    _      False = (key, Just item)
+    go Query    _      True  = (key, Nothing)
+    go Query    _      False = (key, Just item)
 
---     go EC2      Input  _     = (upperHead $ fromMaybe key (v ^. refQueryName), Nothing)
---     go EC2      Output True  = (key, Nothing)
---     go EC2      Output False = (key, Just item)
+    go EC2      Input  _     = (upperHead $ fromMaybe key (r ^. refQueryName), Nothing)
+    go EC2      Output True  = (key, Nothing)
+    go EC2      Output False = (key, Just item)
 
---     go JSON     _      _     = (key, Nothing)
+    go JSON     _      _     = (key, Nothing)
 
---     go RestJSON _      _     = (key, Nothing)
+    go RestJSON _      _     = (key, Nothing)
 
---     go RestXML  _      True  = (key, Nothing)
---     go RestXML  _      False = (key, Just item)
+    go RestXML  _      True  = (key, Nothing)
+    go RestXML  _      False = (key, Just item)
 
---     -- input XML       True  = (parent, Nothing) -
---     -- input XML       False = (parent, Just element)
+    -- input XML       True  = (parent, Nothing) -
+    -- input XML       False = (parent, Just element)
 
---     -- Use the locationName on the struct member if present,
---     -- otherwise the struct member id.
---     key = fromMaybe (k ^. memberId) (v ^. refLocationName)
+    -- Use the locationName on the struct member if present,
+    -- otherwise the struct member id.
+    key = fromMaybe (n ^. memberId) (r ^. refLocationName)
 
---     -- Use the locationName on the actual list element pointed
---     -- to by the struct member reference if present,
---     -- otherwise default to 'member'.
---     item = fromMaybe "member" (v ^. refLocationName)
+    -- Use the locationName on the actual list element pointed
+    -- to by the struct member reference if present,
+    -- otherwise default to 'member'.
+    item = fromMaybe "member" (l ^. listItem . refLocationName)

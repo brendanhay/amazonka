@@ -40,10 +40,6 @@ import           Data.Monoid
 -- prefix
 -- type
 
--- FIXME:
--- For now ignore substitution/operations, since it'd be good do all the AST annotations
--- on a single env of [Shape ..]
-
 rewrite :: Versions
         -> Config
         -> Service Maybe (RefF ()) (ShapeF ())
@@ -64,8 +60,7 @@ rewrite v cfg s'' = do
         expose = ns
                : ns <> "Types"
                : ns <> "Waiters"
-               : map (mappend ns . textToNS)
-                     (s ^.. operations . ifolded . asIndex . typeId)
+               : map (mappend ns) (s ^.. operationNS)
 
     return $! Library v cfg s ns (sort expose) (sort other)
 

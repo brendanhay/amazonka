@@ -24,7 +24,7 @@ module Compiler.Tree
     ) where
 
 import           Compiler.Types
-import           Control.Lens              ((^.))
+import           Control.Lens              ((^.), (^..))
 import           Data.Aeson                hiding (json)
 import qualified Data.HashMap.Strict       as Map
 import           Data.Monoid
@@ -67,11 +67,11 @@ populate d Templates{..} l = encodeString d :/ dir lib
     , dir "gen"
         [ dir "Network"
             [ dir "AWS"
-                [ dir abbrev
-                    [ mod (ns <> "Types") typesTemplate
---                    , file "Waiters.hs" waitersTemplate (Object mempty)
-                    ] -- ++ map (file ) []
-                , mod ns tocTemplate
+                [ dir abbrev $
+                    [ mod "Types" typesTemplate
+                    , mod "Waiters" waitersTemplate
+                    ] ++ map (`mod` operationTemplate) (l ^.. operationNS)
+                , mod mempty tocTemplate
                 ]
             ]
         ]
@@ -83,8 +83,11 @@ populate d Templates{..} l = encodeString d :/ dir lib
     lib    = fromText (l ^. libraryName)
     ns     = l ^. namespace
 
-    mod n  = render (Map.insert "moduleName" (toJSON n) env) (filename (nsToPath n))
-    file   = render env
+    file  = render env
+    mod n = render (Map.insert "moduleName" (toJSON m) env) f
+      where
+        m = ns <> n
+        f = filename (nsToPath m)
 
     Object env = toJSON l
 

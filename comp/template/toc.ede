@@ -4,5 +4,17 @@
 
 {{ documentation }}
 module {{ moduleName }}
-    (
+{% for module in exposedModules %}
+    {% if module.first %}( {% else %}, {% endif %}module {{ module.value }}
+{% endfor %}
+{% for module in otherModules %}
+    , module {{ module.value }}
+{% endfor %}
     ) where
+
+{% for module in exposedModules %}
+import {{ module.value }}
+{% endfor %}
+{% for module in otherModules %}
+import {{ module.value }}
+{% endfor %}

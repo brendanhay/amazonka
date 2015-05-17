@@ -198,10 +198,17 @@ data Library = Library
 
 makeLenses ''Library
 
-instance HasMetadata Library Identity            where metadata = service' . metadata'
-instance HasService  Library Identity (RefF ()) Data where service  = service'
-instance HasConfig   Library                    where config   = config'
-instance HasVersions Library                    where versions = versions'
+instance HasMetadata Library Identity where
+    metadata = service' . metadata'
+
+instance HasService Library Identity (RefF ()) Data where
+    service  = service'
+
+instance HasConfig Library where
+    config = config'
+
+instance HasVersions Library where
+    versions = versions'
 
 instance ToJSON Library where
     toJSON l = A.Object (x <> y)

@@ -34,6 +34,7 @@ import           Compiler.Types.Ann
 import           Compiler.Types.Help
 import           Compiler.Types.Id
 import           Compiler.Types.Map
+import           Compiler.Types.NS
 import           Compiler.Types.Orphans ()
 import           Compiler.Types.URI
 import           Control.Comonad.Cofree
@@ -406,3 +407,6 @@ instance HasMetadata (Service f a b) f where
 
 instance FromJSON (Service Maybe (RefF ()) (ShapeF ())) where
     parseJSON = gParseJSON' lower
+
+operationNS :: HasService s f a b => Fold s NS
+operationNS = operations . ifolded . asIndex . typeId . to textToNS

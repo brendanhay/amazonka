@@ -223,7 +223,7 @@ instance ToJSON Library where
 
 data Templates = Templates
     { cabalTemplate           :: Template
-    , serviceTemplate         :: Template
+    , tocTemplate             :: Template
     , waitersTemplate         :: Template
     , readmeTemplate          :: Template
     , exampleCabalTemplate    :: Template

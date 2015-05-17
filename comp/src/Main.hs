@@ -154,7 +154,7 @@ main = do
 
         tmpl <- Templates
             <$> load "cabal.ede"
-            <*> load "service.ede"
+            <*> load "toc.ede"
             <*> load "waiters.ede"
             <*> load "readme.ede"
             <*> load "example/cabal.ede"

@@ -23,14 +23,13 @@ import           Control.Comonad.Cofree
 import           Control.Error
 import           Control.Lens
 import           Control.Monad.State
+import           Data.Functor.Foldable  (Fix (..))
 import qualified Data.HashMap.Strict    as Map
 
-newtype Mu f = Mu (f (Mu f))
-
-cofree :: Functor f => a -> Mu f -> Cofree f a
+cofree :: Functor f => a -> Fix f -> Cofree f a
 cofree x = go
   where
-    go (Mu f) = x :< fmap go f
+    go (Fix f) = x :< fmap go f
 
 attach :: (HasId a, Monoid b, Comonad w) => Map Id b -> w a -> w (a ::: b)
 attach m = extend (go . extract)

@@ -129,7 +129,7 @@ instanceExp proto i f =
 --     rhs = case fs of
 --         []   -> var "mzero"
 --         [x]  -> first x
---         x:xs -> Fold.foldl' (flip rest) (first x) xs
+--         x:xs -> Fold.foldl' (flip rest) (first x) x
 
 --     first :: Text -> Exp
 --     first x = infixApp (con t) (qop "<$>") (loc x)

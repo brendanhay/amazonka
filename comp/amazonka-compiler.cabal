@@ -71,6 +71,7 @@ executable compile
         , optparse-applicative
         , pandoc
         , parsec
+        , recursion-schemes
         , scientific
         , semigroups
         , semver

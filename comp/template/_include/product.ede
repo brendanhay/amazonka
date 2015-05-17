@@ -30,7 +30,7 @@
 
 instance FromXML {{ shape.key }} where
     {% if inst.value | empty %}
-        parseXML = const {{ shape.key }}
+    parseXML = const {{ shape.key }}
     {% else %}
     parseXML x = {{ shape.key }}
       {% for field in inst.value %}
@@ -41,7 +41,7 @@ instance FromXML {{ shape.key }} where
 
 instance ToQuery {{ shape.key }} where
     {% if inst.value | empty %}
-        toQuery = const mempty
+    toQuery = const mempty
     {% else %}
     toQuery {{ shape.key }}{..} = mconcat
       {% for field in inst.value %}

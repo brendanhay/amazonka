@@ -154,19 +154,6 @@ internal (typeOf -> t) =
         TList1     x   -> TyApp (tycon "List1") (internal x)
         TMap       k v -> TyApp (TyApp (tycon "Map") (internal k)) (internal v)
 
-     -- TList      i x       -> TyApp (TyApp (tycon "List") (singleton i)) (internal x)
-    -- TList1     i x       -> TyApp (TyApp (tycon "List1") (singleton i)) (internal x)
-    -- TMap   (e, i, j) k v ->
-    --     TyApp
-    --       (TyApp
-    --         (TyApp
-    --            (TyApp
-    --               (TyApp (tycon "EMap") (singleton e))
-    --               (singleton i))
-    --            (singleton j))
-    --         (internal k))
-    --       (internal v)
-
 external :: TypeOf a => a -> Type
 external (typeOf -> t) =
     case t of
@@ -191,9 +178,6 @@ literal _ = tycon . \case
     --     | not i -> Text.pack (show x)
     Time        -> "UTCTime"
 
-singleton :: Text -> Type
-singleton = tycon -- . ("\"" <>) . (<> "\"")
-
 mapping :: TType -> Exp -> Exp
 mapping = compose . iso'
   where
@@ -203,7 +187,6 @@ mapping = compose . iso'
         TLit  (Time {}) -> [var "_Time"]
         TNatural        -> [var "_Nat"]
         TMaybe     x    -> case iso' x of; [] -> []; xs -> var "mapping" : xs
---        TFlatten   x    -> var "_Flatten"   : iso' x
         TSensitive x    -> var "_Sensitive" : iso' x
         TList      {}   -> [var "_List"]  -- Coercible.
         TList1     {}   -> [var "_List1"] -- Coercible.

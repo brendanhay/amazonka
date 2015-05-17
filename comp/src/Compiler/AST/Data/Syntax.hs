@@ -22,10 +22,9 @@ import           Compiler.AST.TypeOf
 import           Compiler.Protocol
 import           Compiler.Types
 import           Control.Comonad.Cofree
-import           Control.Lens                 hiding (mapping)
+import           Control.Lens                 hiding (mapping, op)
 import qualified Data.Foldable                as Fold
 import           Data.Maybe
-import           Data.Monoid
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
 import qualified Language.Haskell.Exts        as Exts
@@ -40,14 +39,17 @@ ctorSig n = TypeSig noLoc [n ^. smartCtorId . to ident]
     . filter (^. fieldRequired)
 
 ctorDecl :: Id -> [Field] -> Decl
-ctorDecl n fs =
-    sfun noLoc (n ^. smartCtorId . to ident) ps (UnGuardedRhs rhs) (BDecls [])
+ctorDecl n fs = sfun noLoc name ps (UnGuardedRhs rhs) (BDecls [])
   where
+    name :: Name
+    name = n ^. smartCtorId . to ident
+
     ps :: [Name]
     ps = map (view fieldParam) (filter (view fieldRequired) fs)
 
     rhs :: Exp
-    rhs = RecConstr (n ^. typeId . to unqual) (map upd fs)
+    rhs | null fs   = var (n ^. typeId)
+        | otherwise = RecConstr (n ^. typeId . to unqual) (map upd fs)
 
     upd :: Field -> FieldUpdate
     upd f = FieldUpdate (f ^. fieldAccessor . to unqual) def
@@ -87,36 +89,37 @@ conDecl :: Text -> QualConDecl
 conDecl n = QualConDecl noLoc [] [] (ConDecl (ident n) [])
 
 recDecl :: Id -> [Field] -> QualConDecl
-recDecl n = QualConDecl noLoc [] [] . RecDecl (ident (n ^. typeId)) . map g
+recDecl n [] = conDecl (n ^. typeId)
+recDecl n fs = QualConDecl noLoc [] [] $ RecDecl (ident (n ^. typeId)) (map g fs)
   where
     g f = ([f ^. fieldAccessor . to ident], internal f)
 
-infixl 7 @:
-
-(@:) :: Exp -> Exp -> Exp
-(@:) = app
-
 instanceExp :: Protocol -> Instance -> Field -> Exp
-instanceExp proto i f = go (f ^. fieldRef . refAnn)
+instanceExp proto i f =
+    case unwrap (f ^. fieldRef . refAnn) of
+        List l -> expr (parent : maybeToList item)
+          where
+            (parent, item) =
+                listName proto dir (f ^. fieldId) (f ^. fieldRef) l
+
+        _ -> expr [member]
   where
-    go (_ :< s) =
-        case s of
-            List l -> expr (parent : maybeToList item)
-              where
-                (parent, item) =
-                    listName proto dir (f ^. fieldId) (f ^. fieldRef) l
-
-            _ -> expr [member]
-
     expr :: [Text] -> Exp
-    expr Output = Fold.foldl' (\acc -> infixApp acc op . str) (var "x")
-    expr Input  = Fold.foldr' (\x   -> infixApp (str x) op)   (var accessor)
+    expr = case dir of
+        Output -> Fold.foldl' (\acc -> infixApp acc op . str) (var "x")
+        Input  -> Fold.foldr' (\x   -> infixApp (str x) op)   (var accessor)
 
+    accessor, member :: Text
     accessor = f ^. fieldAccessor
     member   = memberName (f ^. fieldId) (f ^. fieldRef)
 
-    op  = qop (operator i req)
+    op :: QOp
+    op = qop (operator i req)
+
+    dir :: Direction
     dir = direction i
+
+    req :: Bool
     req = f ^. fieldRequired
 
 -- instDecl :: Text -> Text -> Text -> Text -> [Text] -> Decl

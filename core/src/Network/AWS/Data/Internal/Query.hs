@@ -83,6 +83,8 @@ valuesOf = deep _Value
 pair :: ToQuery a => ByteString -> a -> Query -> Query
 pair k v = mappend (Pair k (toQuery v))
 
+infixr 7 =?
+
 (=?) :: ToQuery a => ByteString -> a -> Query
 (=?) k v = Pair k (toQuery v)
 

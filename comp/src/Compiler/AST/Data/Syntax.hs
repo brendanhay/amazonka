@@ -24,11 +24,12 @@ import           Compiler.Types
 import           Control.Comonad.Cofree
 import           Control.Lens                 hiding (mapping)
 import qualified Data.Foldable                as Fold
+import           Data.Maybe
 import           Data.Monoid
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
 import qualified Language.Haskell.Exts        as Exts
-import           Language.Haskell.Exts.Build  (app, lamE, paren, sfun)
+import           Language.Haskell.Exts.Build  (app, infixApp, lamE, paren, sfun)
 import           Language.Haskell.Exts.SrcLoc (noLoc)
 import           Language.Haskell.Exts.Syntax hiding (Int, List, Lit)
 
@@ -98,39 +99,25 @@ infixl 7 @:
 instanceExp :: Protocol -> Instance -> Field -> Exp
 instanceExp proto i f = go (f ^. fieldRef . refAnn)
   where
-    go (_ :< s) = case s of
-        List l -> infixop name
-          where
-            name = parent <> maybe mempty (mappend ".") item
+    go (_ :< s) =
+        case s of
+            List l -> expr (parent : maybeToList item)
+              where
+                (parent, item) =
+                    listName proto dir (f ^. fieldId) (f ^. fieldRef) l
 
-Parsing fromxml/fromjson needs to be a bit more sophisticated for names
+            _ -> expr [member]
 
-            (parent, item) =
-                listName proto dir (f ^. fieldId) (f ^. fieldRef) l
-
-        _ -> infixop member
-
-    infixop n = str n @: var op @: var accessor
+    expr :: [Text] -> Exp
+    expr Output = Fold.foldl' (\acc -> infixApp acc op . str) (var "x")
+    expr Input  = Fold.foldr' (\x   -> infixApp (str x) op)   (var accessor)
 
     accessor = f ^. fieldAccessor
     member   = memberName (f ^. fieldId) (f ^. fieldRef)
 
-    op  = operator i req
+    op  = qop (operator i req)
     dir = direction i
     req = f ^. fieldRequired
-
-        -- List l -> var "toQueryList" @: str name @: var accessor
-        --   where
-        --     name = parent <> maybe mempty (mappend ".") item
-
-        --     (parent, item) =
-        --         listName proto (direction i) (f ^. fieldId) (f ^. fieldRef) l
-
-
--- go _ _  = pure []
-
--- deserialiserExp :: Instance -> Field -> Exp
--- deserialiserExp = undefined
 
 -- instDecl :: Text -> Text -> Text -> Text -> [Text] -> Decl
 -- instDecl c f o t fs = InstDecl noLoc Nothing [] [] (UnQual (ident c)) [tycon t]

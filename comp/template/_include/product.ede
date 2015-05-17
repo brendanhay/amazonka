@@ -30,7 +30,7 @@ instance FromXML {{ shape.key }} where
     {% if inst.value | empty %}
         parseXML = const {{ shape.key }}
     {% else %}
-    parseXML ns = {{ shape.key }}
+    parseXML x = {{ shape.key }}
       {% for field in inst.value %}
         {% include "applicative.ede" %} {{ field.value }}
       {% endfor %}

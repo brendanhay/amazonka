@@ -1,8 +1,10 @@
 {% if shape.value.comment %}
 {{ shape.value.comment }}
-{% endif %}
 --
 -- /See:/ '{{ shape.value.constructor.name }}' smart constructor.
+{% else %}
+-- | /See:/ '{{ shape.value.constructor.name }}' smart constructor.
+{% endif %}
 {% for lens in shape.value.lenses %}
   {% if lens.first %}
 --

@@ -91,6 +91,11 @@ renderShapes cfg svc = do
 
 type MemoR = StateT (Map Id Relation) (Either Error)
 
+-- FIXME:
+-- Maybe make this more detailed and provide a map of which shapes are used
+-- by which other shapes? This can be used to create
+-- cross linked haddock markup like /See:/ Parent1, Parent2, etc.
+
 -- | Determine the relation for operation payloads, both input and output.
 relations :: Map Id (Operation Identity (RefF a))
           -> Map Id (ShapeF b)

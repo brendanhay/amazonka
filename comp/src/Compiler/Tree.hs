@@ -71,7 +71,7 @@ populate d Templates{..} l = encodeString d :/ dir lib
                     [ mod (ns <> "Types") typesTemplate
 --                    , file "Waiters.hs" waitersTemplate (Object mempty)
                     ] -- ++ map (file ) []
-                , mod ns serviceTemplate
+                , mod ns tocTemplate
                 ]
             ]
         ]

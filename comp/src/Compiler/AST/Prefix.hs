@@ -61,12 +61,12 @@ prefix = annotate memo go
          in case s of
             Struct st -> Just <$> do
                 let hs = heuristics n
-                    xs = keys (st ^. members)
+                    xs = keys (st ^.. members . each . _1)
                 uniq n hs xs
 
             Enum _ vs -> Just <$> do
                 let hs = mempty : heuristics n
-                    xs = keys vs
+                    xs = keys (vs ^.. ifolded . asIndex)
                 uniq n hs xs
 
             _           -> return Nothing
@@ -94,8 +94,8 @@ prefix = annotate memo go
 overlap :: (Eq a, Hashable a) => Set a -> Set a -> Bool
 overlap xs ys = not . Set.null $ Set.intersection xs ys
 
-keys :: Map Id a -> Set (CI Text)
-keys = Set.fromList . map (^. ciId) . Map.keys
+keys :: [Id] -> Set (CI Text)
+keys = Set.fromList . map (^. ciId)
 
 -- | Acronym preference list.
 heuristics :: Text -> [CI Text]

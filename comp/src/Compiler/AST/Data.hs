@@ -33,7 +33,6 @@ import qualified Data.HashMap.Strict          as Map
 import           Data.Monoid                  hiding (Product, Sum)
 import           Data.String
 import           Data.Text                    (Text)
-import qualified Data.Text                    as Text
 import qualified Data.Text.Lazy               as LText
 import qualified Data.Text.Lazy.Builder       as Build
 import           HIndent

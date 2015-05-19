@@ -43,8 +43,10 @@ import           Data.Aeson             (ToJSON (..))
 import           Data.Bifunctor
 import qualified Data.HashMap.Strict    as Map
 import           Data.Jason             hiding (Bool, ToJSON (..))
+import           Data.Jason.Types       (unObject)
 import           Data.Text              (Text)
 import qualified Data.Text              as Text
+import           Data.Traversable       (for)
 import           GHC.Generics           (Generic)
 import           Numeric.Natural
 
@@ -239,9 +241,6 @@ instance FromJSON (Info -> MapF ()) where
         v <- o .: "value"
         return $! \i -> MapF i k v
 
--- class HasRefs a b where
---     references :: Traversal' a (RefF b)
-
 -- FIXME: Map shouldn't be used for struct fields to ensure ordering is the same as JSON,
 -- due to the use of Jason.
 --
@@ -253,7 +252,7 @@ instance FromJSON (Info -> MapF ()) where
 --    { _members  :: [(Id, a)]
 data StructF a = StructF
     { _structInfo :: Info
-    , _members    :: Map Id (RefF a)
+    , _members    :: [(Id, RefF a)]
     , _required   :: Set Id
     , _payload    :: Maybe Id
     , _wrapper    :: !Bool
@@ -265,14 +264,19 @@ instance HasInfo (StructF a) where
     info = structInfo
 
 instance HasRefs StructF where
-    references = traverseOf (members . each)
+    references = traverseOf (members . each . _2)
 
 instance FromJSON (Info -> StructF ()) where
     parseJSON = withObject "struct" $ \o -> do
-        ms <- o .:  "members"
+        ms <- o .:  "members" >>= parse
         r  <- o .:? "required" .!= mempty
         p  <- o .:? "payload"
         return $! \i -> StructF i ms r p False
+      where
+        parse (Object o) =
+            for (unObject o) $ \(k, v) ->
+                (textToId k,) <$> parseJSON v
+        parse _          = fail "Unexpected non-object for 'members'"
 
 data ShapeF a
     = List   (ListF   a)

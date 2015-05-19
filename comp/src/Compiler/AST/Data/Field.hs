@@ -35,7 +35,6 @@ import           Compiler.AST.TypeOf
 import           Compiler.Types
 import           Control.Comonad
 import           Control.Lens
-import qualified Data.HashMap.Strict          as Map
 import qualified Data.HashSet                 as Set
 import           Data.Maybe
 import           Data.Text                    (Text)
@@ -67,7 +66,7 @@ instance TypeOf Field where
 mkFields :: Maybe Text
          -> StructF (Shape (Id ::: (Maybe Text ::: (Relation ::: Solved))))
          -> [Field]
-mkFields p st = map mk . Map.toList $ st ^. members
+mkFields p st = map mk (st ^. members)
   where
     mk :: (Id, Ref) -> Field
     mk (k, v) = Field k v (Set.member k (st ^. required)) p

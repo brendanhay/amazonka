@@ -28,7 +28,6 @@ import           Control.Error
 import           Control.Lens
 import           Control.Monad.Except (throwError)
 import           Control.Monad.State
-import qualified Data.Foldable        as Fold
 import qualified Data.HashMap.Strict  as Map
 import qualified Data.HashSet         as Set
 import           Data.List            (sort)
@@ -138,11 +137,11 @@ separate os ss = runStateT (traverse go os) ss
   where
     go :: Operation Identity (RefF a) -> Sep b (Operation Identity b)
     go o = do
-        rq <- remove (o ^. input)
-        rs <- remove (o ^. output)
+        inp <- remove (o ^. input)
+        out <- remove (o ^. output)
         return $! o
-            { _opInput  = Identity rq
-            , _opOutput = Identity rs
+            { _opInput  = Identity inp
+            , _opOutput = Identity out
             }
 
     remove :: Id -> Sep a a
@@ -184,14 +183,14 @@ setDefaults rs svc@Service{..} = do
     operation :: Operation Maybe (RefF ())
               -> Subst (Operation Identity (RefF ()))
     operation o@Operation{..} = do
-        rq <- subst (name Input  _opName) _opInput
-        rs <- subst (name Output _opName) _opOutput
+        inp <- subst (name Input  _opName) _opInput
+        out <- subst (name Output _opName) _opOutput
         return $! o
             { _opDocumentation =
                 _opDocumentation .! "FIXME: Undocumented operation."
             , _opHTTP          = http _opHTTP
-            , _opInput         = rq
-            , _opOutput        = rs
+            , _opInput         = inp
+            , _opOutput        = out
             }
 
     http :: HTTP Maybe -> HTTP Identity
@@ -221,7 +220,7 @@ setDefaults rs svc@Service{..} = do
             verify n "Failed attempting to create wrapper"
             -- Create a newtype wrapper which points to the shared Shape
             -- and has 'StructF.wrapper' set.
-            _2 %= Map.insert n (emptyStruct (Map.singleton (r ^. refShape) r) True)
+            _2 %= Map.insert n (emptyStruct [(r ^. refShape, r)] True)
             -- Update the Ref to point to the new wrapper.
             return $! Identity (r & refShape .~ n)
 
@@ -248,7 +247,7 @@ setDefaults rs svc@Service{..} = do
     (.!) :: Maybe a -> a -> Identity a
     m .! x = maybe (Identity x) Identity m
 
-    emptyStruct ms = Struct . StructF i ms (Set.fromList (Map.keys ms)) Nothing
+    emptyStruct ms = Struct . StructF i ms (Set.fromList (map fst ms)) Nothing
       where
         i = Info
             { _infoDocumentation = Nothing

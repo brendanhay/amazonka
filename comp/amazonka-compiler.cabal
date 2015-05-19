@@ -45,6 +45,7 @@ executable compile
         , Compiler.Types.NS
         , Compiler.Types.Orphans
         , Compiler.Types.Service
+        , Compiler.Types.Timestamp
         , Compiler.Types.URI
 
     ghc-options:       -Wall -threaded

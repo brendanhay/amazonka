@@ -168,16 +168,15 @@ external (typeOf -> t) =
 
 literal :: Bool -> Lit -> Type
 literal i = tycon . \case
-    Int                -> "Int"
-    Long               -> "Integer"
-    Double             -> "Double"
-    Text               -> "Text"
-    Blob               -> "Base64"
-    Bool               -> "Bool"
+    Int                   -> "Int"
+    Long                  -> "Integer"
+    Double                -> "Double"
+    Text                  -> "Text"
+    Blob                  -> "Base64"
+    Bool                  -> "Bool"
     Time ts
-        | i            -> "UTCTime"
-        | Just x <- ts -> Text.pack . show $ x
-        | otherwise    -> "UTCTime"
+        | i, Just x <- ts -> Text.pack . show $ x
+        | otherwise       -> "UTCTime"
 
 mapping :: TType -> Exp -> Exp
 mapping = compose . iso'

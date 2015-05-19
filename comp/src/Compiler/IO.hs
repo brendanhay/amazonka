@@ -81,32 +81,29 @@ copyDir src dst = io (FS.listDirectory src >>= mapM_ copy)
         fprint (" -> Copying " % path % " to " % path % "\n") f (directory p)
         FS.copyFile f p
 
-type MemoT m = StateT (Map Text (EDE.Result EDE.Template)) (EitherT Error m)
-
 readTemplate :: MonadIO m
              => Path
              -> Path
-             -> MemoT m EDE.Template
-readTemplate d p = do
-    let tmpl = d </> p
+             -> StateT (Map Text (EDE.Result EDE.Template)) (EitherT Error m) EDE.Template
+readTemplate d f = do
+    let tmpl = d </> f
     lift (readBSFile tmpl)
         >>= EDE.parseWith EDE.defaultSyntax (load d) (toTextIgnore tmpl)
         >>= EDE.result (lift . left . LText.pack . show) (lift . right)
   where
     load p o k _ = memo go incl
       where
-        go f = lift (readBSFile f)
-            >>= EDE.parseWith o (load (directory f)) k
+        go x = lift (readBSFile x) >>= EDE.parseWith o (load (directory x)) k
 
         incl | Text.null k = fromText k
              | otherwise   = p </> fromText k
 
-    memo f p = do
+    memo action p = do
         let k = toTextIgnore p
         m <- gets (Map.lookup k)
         case m of
             Just x  -> return x
             Nothing -> do
-                x <- f p
+                x <- action p
                 modify (Map.insert k x)
                 return x

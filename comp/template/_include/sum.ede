@@ -1,42 +1,42 @@
-{% if shape.value.comment %}
-{{ shape.value.comment }}
+{% if shape.comment %}
+{{ shape.comment }}
 {% endif %}
-{{ shape.value.declaration }}
+{{ shape.declaration }}
 
-instance FromText {{ shape.key }} where
+instance FromText {{ shape.name }} where
     parser = takeLowerText >>= \case
-      {% for ctor in shape.value.constructors %}
+      {% for ctor in shape.constructors %}
         "{{ ctor.value }}" -> pure {{ ctor.key }}
       {% endfor %}
-        e -> fail ("Failure parsing {{ shape.key }} from " ++ show e)
+        e -> fail ("Failure parsing {{ shape.name }} from " ++ show e)
 
-instance ToText {{ shape.key }} where
+instance ToText {{ shape.name }} where
     toText = \case
-      {% for ctor in shape.value.constructors %}
+      {% for ctor in shape.constructors %}
         {{ ctor.key }} -> "{{ ctor.value }}"
       {% endfor %}
 
-instance Hashable {{ shape.key }}
-{% for inst in shape.value.instances %}
+instance Hashable {{ shape.name }}
+{% for inst in shape.instances %}
   {% case inst.value %}
   {% when "ToQuery" %}
 
-instance ToQuery {{ shape.key }}
+instance ToQuery {{ shape.name }}
   {% when "FromJSON" %}
 
-instance FromJSON {{ shape.key }} where
-    parseJSON = parseJSONText "{{ shape.key }}"
+instance FromJSON {{ shape.name }} where
+    parseJSON = parseJSONText "{{ shape.name }}"
   {% when "ToJSON" %}
 
-instance ToJSON {{ shape.key }} where
+instance ToJSON {{ shape.name }} where
     toJSON = toJSONText
   {% when "FromXML" %}
 
-instance FromXML {{ shape.key }} where
-    parseXML = parseXMLText "{{ shape.key }}"
+instance FromXML {{ shape.name }} where
+    parseXML = parseXMLText "{{ shape.name }}"
   {% when "ToXML" %}
 
-instance ToXML {{ shape.key }} where
+instance ToXML {{ shape.name }} where
     toXML = toXMLText
   {% else %}
 

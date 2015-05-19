@@ -22,6 +22,7 @@ module Compiler.AST.Data
 
 import           Compiler.AST.Data.Field
 import           Compiler.AST.Data.Syntax
+import           Compiler.Formatting
 import           Compiler.Protocol
 import           Compiler.Types
 import           Control.Comonad.Cofree
@@ -51,8 +52,8 @@ dataType proto ((n ::: p ::: r ::: t ::: ds ::: is) :< s) =
         _           -> return Nothing
   where
     enum :: Info -> Map Id Text -> Either Error Data
-    enum i vs = Sum i
-        <$> format (dataDecl n (map conDecl (Map.keys branches)) ds)
+    enum i vs = Sum (n ^. typeId) i
+        <$> render (dataDecl n (map conDecl (Map.keys branches)) ds)
         <*> pure branches
         <*> pure is
       where
@@ -61,22 +62,31 @@ dataType proto ((n ::: p ::: r ::: t ::: ds ::: is) :< s) =
 
     struct :: StructF (Shape (Id ::: Maybe Text ::: Relation ::: Solved))
            -> Either Error Data
-    struct st = Product (st ^. info)
-        <$> format (dataDecl n [recDecl n fields] ds)
+    struct st = Product (n ^. typeId) (st ^. info)
+        <$> render (dataDecl n [recDecl n fields] ds)
         <*> mkCtor
         <*> traverse mkLens fields
         <*> (Map.fromList <$> traverse mkInstance (instances proto r))
       where
         mkCtor :: Either Error Fun
-        mkCtor = Fun (n ^. smartCtorId) h
+        mkCtor = Fun (n ^. smartCtorId) help
             <$> plain  (ctorSig  n fields)
-            <*> format (ctorDecl n fields)
+            <*> render (ctorDecl n fields)
           where
-            -- FIXME: this should output haddock single quotes to ensure
-            -- the type is linked properly, but the following outputs
-            -- '@' delimiters, need to investigate pandoc.
-            h = fromString . Text.unpack $
-                "'" <> n ^. typeId <> "' smart constructor."
+            help = fromString
+                . LText.unpack
+                $ format ("'" % itype % "' smart constructor.") n
+               -- <> see
+
+            -- FIXME: this is useless currently, since the relations are out of
+            -- date after a combination of overriding, and the solving potentially
+            -- remove the list types etc.
+            --
+            -- see = case calls r of
+            --     [] -> mempty
+            --     xs -> mappend "\n\n/See/: "
+            --         . LText.intercalate ", "
+            --         $ map (format ("'" % itype % "'")) xs
 
         mkLens :: Field -> Either Error Fun
         mkLens f = Fun (f ^. fieldLens) (f ^. fieldHelp)
@@ -94,8 +104,8 @@ dataType proto ((n ::: p ::: r ::: t ::: ds ::: is) :< s) =
         fields :: [Field]
         fields = mkFields p st
 
-format, plain :: Pretty a => a -> Either Error LazyText
-format = pretty True
+render, plain :: Pretty a => a -> Either Error LazyText
+render = pretty True
 plain  = pretty False
 
 pretty :: Pretty a => Bool -> a -> Either Error LazyText

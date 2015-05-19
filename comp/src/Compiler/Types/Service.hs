@@ -38,18 +38,17 @@ import           Compiler.Types.NS
 import           Compiler.Types.Orphans ()
 import           Compiler.Types.URI
 import           Control.Comonad.Cofree
-import           Control.Lens           hiding ((.=))
+import           Control.Lens
 import           Data.Aeson             (ToJSON (..))
 import           Data.Bifunctor
 import qualified Data.HashMap.Strict    as Map
-import qualified Data.HashSet           as Set
-import           Data.Jason             hiding (Bool, ToJSON (..), object, (.=))
+import           Data.Jason             hiding (Bool, ToJSON (..))
 import           Data.Text              (Text)
 import qualified Data.Text              as Text
 import           GHC.Generics           (Generic)
 import           Numeric.Natural
 
-type Set = Set.HashSet
+makePrisms ''Identity
 
 data Signature
     = V2
@@ -339,7 +338,7 @@ instance FromJSON (HTTP Maybe) where
 
 data Operation f a = Operation
     { _opName          :: Id
-    , _opDocumentation :: f Text
+    , _opDocumentation :: f Help
     , _opHTTP          :: HTTP f
     , _opInput         :: f a
     , _opOutput        :: f a
@@ -347,9 +346,12 @@ data Operation f a = Operation
 
 makeLenses ''Operation
 
-requestName, responseName :: Getter (Operation f a) Id
-requestName  = to _opName
-responseName = to ((`appendId` "Response") . _opName)
+operationNS :: Getter (Operation f a) NS
+operationNS = opName . typeId . to textToNS
+
+input, output :: Getter (Operation Identity (RefF a)) Id
+input  = opInput  . _Identity . refShape
+output = opOutput . _Identity . refShape
 
 instance FromJSON (Operation Maybe (RefF ())) where
     parseJSON = withObject "operation" $ \o -> Operation
@@ -407,6 +409,3 @@ instance HasMetadata (Service f a b) f where
 
 instance FromJSON (Service Maybe (RefF ()) (ShapeF ())) where
     parseJSON = gParseJSON' lower
-
-operationNS :: HasService s f a b => Fold s NS
-operationNS = operations . ifolded . asIndex . typeId . to textToNS

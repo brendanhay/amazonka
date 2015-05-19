@@ -101,7 +101,6 @@ ctorId p = typeId . to f
     f | Just x <- p = mappend (upperHead x)
       | otherwise   = id
 
--- FIXME: vPNStaticRoute :: VPNStaticRoute smart ctor name, note vPN
 smartCtorId :: Getter Id Text
 smartCtorId = typeId . to (lowerHead . lowerFirstAcronym . renameReserved)
 

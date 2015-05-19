@@ -1,5 +1,6 @@
 {-# LANGUAGE FlexibleContexts      #-}
 {-# LANGUAGE FlexibleInstances     #-}
+{-# LANGUAGE GADTs                 #-}
 {-# LANGUAGE LambdaCase            #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE OverloadedStrings     #-}
@@ -24,7 +25,7 @@ module Compiler.Tree
     ) where
 
 import           Compiler.Types
-import           Control.Lens              ((^.), (^..))
+import           Control.Lens              (each, (^.), (^..))
 import           Data.Aeson                hiding (json)
 import qualified Data.HashMap.Strict       as Map
 import           Data.Monoid
@@ -53,6 +54,13 @@ fold h g f (p :/ t) = (p :/) <$> go (decodeString p) t
           where
             d = x </> decodeString n
 
+-- data OpM = OpM (Operation Identity (RefF ()))
+
+-- environ :: Module -> Object
+-- environ (Module ns x) = Map.insert "moduleName" (toJSON ns) env
+--   where
+--     Object env = toJSON x
+
 populate :: Path
          -> Templates
          -> Library
@@ -70,7 +78,7 @@ populate d Templates{..} l = encodeString d :/ dir lib
                 [ dir abbrev $
                     [ mod "Types" typesTemplate
                     , mod "Waiters" waitersTemplate
-                    ] ++ map (`mod` operationTemplate) (l ^.. operationNS)
+                    ] ++ map op (l ^.. operations . each)
                 , mod mempty tocTemplate
                 ]
             ]
@@ -83,8 +91,14 @@ populate d Templates{..} l = encodeString d :/ dir lib
     lib    = fromText (l ^. libraryName)
     ns     = l ^. namespace
 
-    file  = render env
-    mod n = render (Map.insert "moduleName" (toJSON m) env) f
+    file = render env
+
+    op o = mod' (o ^. operationNS) x operationTemplate
+      where
+        Object x = toJSON o
+
+    mod  n   = mod' n env
+    mod' n x = render (Map.insert "moduleName" (toJSON m) x) f
       where
         m = ns <> n
         f = filename (nsToPath m)

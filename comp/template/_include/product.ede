@@ -1,11 +1,11 @@
-{% if shape.value.comment %}
-{{ shape.value.comment }}
+{% if shape.comment %}
+{{ shape.comment }}
 --
--- /See:/ '{{ shape.value.constructor.name }}' smart constructor.
+-- /See:/ '{{ shape.constructor.name }}' smart constructor.
 {% else %}
--- | /See:/ '{{ shape.value.constructor.name }}' smart constructor.
+-- | /See:/ '{{ shape.constructor.name }}' smart constructor.
 {% endif %}
-{% for lens in shape.value.lenses %}
+{% for lens in shape.lenses %}
   {% if lens.first %}
 --
 -- The fields accessible through corresponding lenses are:
@@ -13,37 +13,37 @@
 --
 -- * '{{ lens.value.name }}'
 {% endfor %}
-{{ shape.value.declaration }}
+{{ shape.declaration }}
 
-{{ shape.value.constructor.comment }}
-{{ shape.value.constructor.signature }}
-{{ shape.value.constructor.declaration }}
-{% for lens in shape.value.lenses %}
+{{ shape.constructor.comment }}
+{{ shape.constructor.signature }}
+{{ shape.constructor.declaration }}
+{% for lens in shape.lenses %}
 
 {{ lens.value.comment }}
 {{ lens.value.signature }}
 {{ lens.value.declaration }}
 {% endfor %}
-{% for inst in shape.value.instances %}
+{% for inst in shape.instances %}
   {% case inst.key %}
   {% when "FromXML" %}
 
-instance FromXML {{ shape.key }} where
+instance FromXML {{ shape.name }} where
     {% if inst.value | empty %}
-    parseXML = const {{ shape.key }}
+    parseXML = const {{ shape.name }}
     {% else %}
-    parseXML x = {{ shape.key }}
+    parseXML x = {{ shape.name }}
       {% for field in inst.value %}
         {% include "applicative.ede" %} {{ field.value }}
       {% endfor %}
     {% endif %}
   {% when "ToQuery" %}
 
-instance ToQuery {{ shape.key }} where
+instance ToQuery {{ shape.name }} where
     {% if inst.value | empty %}
     toQuery = const mempty
     {% else %}
-    toQuery {{ shape.key }}{..} = mconcat
+    toQuery {{ shape.name }}{..} = mconcat
       {% for field in inst.value %}
         {% include "list.ede" %} {{ field.value }}
       {% endfor %}

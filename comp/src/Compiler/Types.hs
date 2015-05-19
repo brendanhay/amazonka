@@ -63,8 +63,6 @@ import           GHC.Generics              (Generic)
 import           GHC.TypeLits
 import           Text.EDE                  (Template)
 
-makePrisms ''Identity
-
 type LazyText = LText.Text
 type Error    = LText.Text
 type Path     = Path.FilePath
@@ -73,6 +71,7 @@ toTextIgnore :: Path -> Text
 toTextIgnore = either id id . Path.toText
 
 data Fun = Fun Text Help LazyText LazyText
+    deriving (Show)
 
 instance ToJSON Fun where
     toJSON (Fun n c s d) = object
@@ -83,24 +82,26 @@ instance ToJSON Fun where
         ]
 
 data Data
-    = Product Info LazyText Fun [Fun] (Map Instance [LazyText])
-    | Sum     Info LazyText (Map Text Text) [Instance]
+    = Product Text Info LazyText Fun [Fun] (Map Instance [LazyText])
+    | Sum     Text Info LazyText (Map Text Text) [Instance]
+      deriving (Show)
 
 instance HasInfo Data where
     info = lens f (flip g)
       where
         f = \case
-            Product i _ _ _ _ -> i
-            Sum     i _ _ _   -> i
+            Product _ i _ _ _ _ -> i
+            Sum     _ i _ _ _   -> i
 
         g i = \case
-            Product _ d c ls is -> Product i d c ls is
-            Sum     _ d vs   is -> Sum     i d vs   is
+            Product n _ d c ls is -> Product n i d c ls is
+            Sum     n _ d vs   is -> Sum     n i d vs   is
 
 instance ToJSON Data where
     toJSON = \case
-        Product i d c ls is -> object
+        Product n i d c ls is -> object
             [ "type"        .= Text.pack "product"
+            , "name"        .= n
             , "constructor" .= c
             , "comment"     .= (i ^. infoDocumentation)
             , "declaration" .= d
@@ -108,13 +109,22 @@ instance ToJSON Data where
             , "instances"   .= (kvTraversal %~ first instToText) is
             ]
 
-        Sum i d vs is -> object
+        Sum n i d vs is -> object
             [ "type"         .= Text.pack "sum"
+            , "name"         .= n
             , "comment"      .= (i ^. infoDocumentation)
             , "declaration"  .= d
             , "constructors" .= vs
-            , "instances"   .= is
+            , "instances"    .= is
             ]
+
+instance ToJSON (Operation Identity Data) where
+    toJSON o = object
+        [ "name"          .= (o ^. opName)
+        , "documentation" .= (o ^. opDocumentation)
+        , "input"         .= (o ^. opInput)
+        , "output"        .= (o ^. opOutput)
+        ]
 
 data Replace = Replace
     { _replaceName     :: Id
@@ -145,6 +155,16 @@ instance FromJSON Override where
         <*> o .:? "requiredFields" .!= mempty
         <*> o .:? "optionalFields" .!= mempty
         <*> o .:? "renamedFields"  .!= mempty
+
+defaultOverride :: Override
+defaultOverride = Override
+    { _renamedTo      = Nothing
+    , _replacedBy     = Nothing
+    , _enumPrefix     = Nothing
+    , _requiredFields = mempty
+    , _optionalFields = mempty
+    , _renamedFields  = mempty
+    }
 
 newtype Version (v :: Symbol) = Version SemVer.Version
     deriving (Eq, Show)
@@ -190,7 +210,7 @@ instance FromJSON Config where
 data Library = Library
     { _versions'      :: Versions
     , _config'        :: Config
-    , _service'       :: Service Identity (RefF ()) Data
+    , _service'       :: Service Identity Data Data
     , _namespace      :: NS
     , _exposedModules :: [NS]
     , _otherModules   :: [NS]
@@ -201,7 +221,7 @@ makeLenses ''Library
 instance HasMetadata Library Identity where
     metadata = service' . metadata'
 
-instance HasService Library Identity (RefF ()) Data where
+instance HasService Library Identity Data Data where
     service  = service'
 
 instance HasConfig Library where

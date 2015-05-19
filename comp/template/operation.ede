@@ -1,2 +1,13 @@
+{-# LANGUAGE RecordWildCards #-}
+
+{% include "_include/license.ede" %}
+
+{{ documentation }}
+module {{ moduleName }}
+    (
+    ) where
+
 import Network.AWS.Prelude
 import qualified GHC.Exts
+
+{% include "_include/product.ede" with shape = input %}

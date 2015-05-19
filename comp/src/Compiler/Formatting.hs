@@ -40,6 +40,9 @@ soriginal = later (Build.fromText . CI.original)
 iprimary :: Format a (Id -> a)
 iprimary = later (Build.fromText . view memberId)
 
+itype :: Format a (Id -> a)
+itype = later (Build.fromText . view typeId)
+
 path :: Format a (Path -> a)
 path = later (Build.fromText . toTextIgnore)
 

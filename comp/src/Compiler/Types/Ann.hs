@@ -1,5 +1,6 @@
 {-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE TypeOperators     #-}
 
 -- Module      : Compiler.Types.Ann
@@ -16,13 +17,19 @@ module Compiler.Types.Ann where
 
 import           Compiler.TH
 import           Compiler.Types.Id
+import           Compiler.Types.Map
 import           Control.Lens
-import           Data.Aeson        (ToJSON (..))
+import           Data.Aeson          (ToJSON (..))
 import           Data.Hashable
-import           Data.Jason        hiding (ToJSON (..))
-import           Data.Text         (Text)
-import qualified Data.Text         as Text
+import qualified Data.HashMap.Strict as Map
+import qualified Data.HashSet        as Set
+import           Data.Jason          hiding (ToJSON (..))
+import           Data.Monoid
+import           Data.Text           (Text)
+import qualified Data.Text           as Text
 import           GHC.Generics
+
+type Set = Set.HashSet
 
 type Solved = TType ::: [Derive] ::: [Instance]
 
@@ -43,17 +50,34 @@ data Direction
      deriving (Eq, Show)
 
 data Relation
-    = Uni Direction
-    | Bi
+    = Uni (Set Id) Direction
+    | Bi  (Set Id)
       deriving (Eq, Show)
 
 instance Monoid Relation where
-    mempty          = Bi
-    mappend Bi _    = Bi
-    mappend _    Bi = Bi
-    mappend a    b
-        | a == b    = a
-        | otherwise = Bi
+    mempty      = Bi mempty
+    mappend a b =
+        case (a, b) of
+            (Bi  x,   Bi  y)   -> Bi  (x <> y)
+            (Bi  x,   Uni y _) -> Bi  (x <> y)
+            (Uni x _, Bi  y)   -> Bi  (x <> y)
+            (Uni x i, Uni y o)
+                | i == o       -> Uni (x <> y) i
+                | otherwise    -> Bi  (x <> y)
+
+relation :: Id -> Direction -> Relation
+relation n = Uni (Set.singleton n)
+
+calls :: Relation -> [Id]
+calls = Set.toList . \case
+    Uni x _ -> x
+    Bi  x   -> x
+
+sharing :: Map Id Relation -> Set Id
+sharing = Set.fromList
+    . Map.keys
+    . Map.filter (> 1)
+    . Map.map (length . calls)
 
 data Lit
     = Int

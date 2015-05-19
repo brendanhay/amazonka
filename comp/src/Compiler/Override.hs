@@ -27,10 +27,10 @@ import           Data.Monoid
 
 -- | Apply the override rules to shapes and their respective fields.
 override :: Functor f
-         => Config
+         => Map Id Override
          -> Service f (RefF a) (ShapeF b)
          -> Service f (RefF a) (ShapeF b)
-override Config{..} svc@Service{..} = svc
+override ovs svc@Service{..} = svc
     & operations . each %~ operation
     & shapes            %~ Map.foldlWithKey' shape mempty
   where
@@ -56,8 +56,7 @@ override Config{..} svc@Service{..} = svc
         | Just x <- Map.lookup n renamed = shape acc x s -- Rename the type.
         | otherwise                      = Map.insert n (rules s) acc
       where
-        Override{..} = fromMaybe defaultOverride $
-             Map.lookup n _typeOverrides
+        Override{..} = fromMaybe defaultOverride $ Map.lookup n ovs
 
         rules :: ShapeF a -> ShapeF a
         rules = require . optional . rename . retype . prefix
@@ -83,17 +82,7 @@ override Config{..} svc@Service{..} = svc
             | otherwise             = id
 
     renamed :: Map Id Id
-    renamed = vMapMaybe _renamedTo  _typeOverrides
+    renamed = vMapMaybe _renamedTo ovs
 
     replaced :: Map Id Replace
-    replaced = vMapMaybe _replacedBy _typeOverrides
-
-defaultOverride :: Override
-defaultOverride = Override
-    { _renamedTo      = Nothing
-    , _replacedBy     = Nothing
-    , _enumPrefix     = Nothing
-    , _requiredFields = mempty
-    , _optionalFields = mempty
-    , _renamedFields  = mempty
-    }
+    replaced = vMapMaybe _replacedBy ovs

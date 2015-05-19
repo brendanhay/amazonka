@@ -31,9 +31,9 @@ timestamp = \case
 
 instances :: Protocol -> Relation -> [Instance]
 instances p = \case
-    Bi         -> [inp, out]
-    Uni Input  -> [inp]
-    Uni Output -> [out]
+    Bi  _        -> [inp, out]
+    Uni _ Input  -> [inp]
+    Uni _ Output -> [out]
   where
     inp = case p of
         JSON     -> ToJSON

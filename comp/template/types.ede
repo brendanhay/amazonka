@@ -22,9 +22,9 @@ import qualified GHC.Exts
   {% case shape.value.type %}
   {% when "product" %}
 
-    {% include "_include/product.ede" %}
+    {% include "_include/product.ede" with shape = shape.value %}
   {% when "sum" %}
 
-    {% include "_include/sum.ede" %}
+    {% include "_include/sum.ede" with shape = shape.value %}
   {% endcase %}
 {% endfor %}

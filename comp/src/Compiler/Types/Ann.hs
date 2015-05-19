@@ -1,7 +1,9 @@
-{-# LANGUAGE DeriveGeneric     #-}
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE TypeOperators     #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE FlexibleInstances  #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE StandaloneDeriving #-}
+{-# LANGUAGE TypeOperators      #-}
 
 -- Module      : Compiler.Types.Ann
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,15 +20,16 @@ module Compiler.Types.Ann where
 import           Compiler.TH
 import           Compiler.Types.Id
 import           Compiler.Types.Map
+import           Compiler.Types.Timestamp
 import           Control.Lens
-import           Data.Aeson          (ToJSON (..))
+import           Data.Aeson               (ToJSON (..))
 import           Data.Hashable
-import qualified Data.HashMap.Strict as Map
-import qualified Data.HashSet        as Set
-import           Data.Jason          hiding (ToJSON (..))
+import qualified Data.HashMap.Strict      as Map
+import qualified Data.HashSet             as Set
+import           Data.Jason               hiding (ToJSON (..))
 import           Data.Monoid
-import           Data.Text           (Text)
-import qualified Data.Text           as Text
+import           Data.Text                (Text)
+import qualified Data.Text                as Text
 import           GHC.Generics
 
 type Set = Set.HashSet
@@ -85,7 +88,7 @@ data Lit
     | Double
     | Text
     | Blob
-    | Time
+    | Time (Maybe Timestamp)
     | Bool
       deriving (Show)
 

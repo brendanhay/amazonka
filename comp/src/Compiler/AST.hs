@@ -1,4 +1,5 @@
 {-# LANGUAGE FlexibleContexts  #-}
+{-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TupleSections     #-}
@@ -166,7 +167,7 @@ setDefaults :: Map Id Relation
             -> Either Error (Service Identity (RefF ()) (ShapeF ()))
 setDefaults rs svc@Service{..} = do
     (os, (ovs, ss)) <-
-        runStateT (traverse operation _operations) (mempty, _shapes)
+        runStateT (traverse operation _operations) initial
     -- Apply any overrides that might have been returned for wrappers.
     return $! override ovs $ svc
         { _metadata'  = meta _metadata'
@@ -174,11 +175,17 @@ setDefaults rs svc@Service{..} = do
         , _shapes     = ss
         }
   where
+    initial :: (Map Id Override, Map Id (ShapeF ()))
+    initial = (mempty, Map.map shape _shapes)
+
     meta :: Metadata Maybe -> Metadata Identity
     meta m@Metadata{..} = m
-        { _timestampFormat = _timestampFormat .! timestamp _protocol
+        { _timestampFormat = Identity ts
         , _checksumFormat  = _checksumFormat  .! SHA256
         }
+
+    ts :: Timestamp
+    ts = fromMaybe (timestamp (svc ^. protocol)) (svc ^. timestampFormat)
 
     operation :: Operation Maybe (RefF ())
               -> Subst (Operation Identity (RefF ()))
@@ -197,6 +204,11 @@ setDefaults rs svc@Service{..} = do
     http h = h
         { _responseCode = _responseCode h .! 200
         }
+
+    shape :: ShapeF a -> ShapeF a
+    shape = \case
+        Lit i (Time Nothing) -> Lit i . Time $ Just ts
+        x                    -> x
 
     -- FIXME: too complicated? Just copy the shape if it's shared, and since
     -- this is an operation, consider it safe to remove the shape wholly?

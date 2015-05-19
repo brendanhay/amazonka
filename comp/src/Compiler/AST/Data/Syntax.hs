@@ -167,16 +167,17 @@ external (typeOf -> t) =
         TMap       k v -> TyApp (TyApp (tycon "HashMap") (external k)) (external v)
 
 literal :: Bool -> Lit -> Type
-literal _ = tycon . \case
-    Int         -> "Int"
-    Long        -> "Integer"
-    Double      -> "Double"
-    Text        -> "Text"
-    Blob        -> "Base64"
-    Bool        -> "Bool"
-    -- Time (Just x) -- FIXME:
-    --     | not i -> Text.pack (show x)
-    Time        -> "UTCTime"
+literal i = tycon . \case
+    Int                -> "Int"
+    Long               -> "Integer"
+    Double             -> "Double"
+    Text               -> "Text"
+    Blob               -> "Base64"
+    Bool               -> "Bool"
+    Time ts
+        | i            -> "UTCTime"
+        | Just x <- ts -> Text.pack . show $ x
+        | otherwise    -> "UTCTime"
 
 mapping :: TType -> Exp -> Exp
 mapping = compose . iso'

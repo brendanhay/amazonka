@@ -59,7 +59,7 @@ memoise l f x = uses l (Map.lookup n) >>= maybe go return
         l %= Map.insert n r
         return r
 
-elaborate :: Map Id (ShapeF a) -> Either Error (Map Id (Shape Id))
+elaborate :: Show a => Map Id (ShapeF a) -> Either Error (Map Id (Shape Id))
 elaborate ss = Map.traverseWithKey shape ss
   where
     shape :: Id -> ShapeF a -> Either Error (Shape Id)
@@ -70,5 +70,7 @@ elaborate ss = Map.traverseWithKey shape ss
       where
         n = r ^. refShape
 
-    safe n = note (format ("Missing shape " % iprimary) n)
-                  (Map.lookup n ss)
+    safe n = note
+        (format ("Missing shape " % iprimary % " possible matches: " % partial)
+                n (n, ss))
+        (Map.lookup n ss)

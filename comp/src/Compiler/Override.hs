@@ -28,8 +28,8 @@ import           Data.Monoid
 -- | Apply the override rules to shapes and their respective fields.
 override :: Functor f
          => Map Id Override
-         -> Service f (RefF a) (ShapeF b)
-         -> Service f (RefF a) (ShapeF b)
+         -> Service f (RefF a) (ShapeF ())
+         -> Service f (RefF a) (ShapeF ())
 override ovs svc@Service{..} = svc
     & operations . each %~ operation
     & shapes            %~ Map.foldlWithKey' shape mempty
@@ -50,13 +50,16 @@ override ovs svc@Service{..} = svc
           where
             ptr = Map.lookup (r ^. refShape)
 
-    shape :: Map Id (ShapeF a) -> Id -> ShapeF a -> Map Id (ShapeF a)
+    shape :: Map Id (ShapeF ()) -> Id -> ShapeF () -> Map Id (ShapeF ())
     shape acc n s
-        | Map.member n replaced          = acc           -- Replace the type.
-        | Just x <- Map.lookup n renamed = shape acc x s -- Rename the type.
-        | otherwise                      = Map.insert n (rules s) acc
+        | Just x <- Map.lookup n renamed
+            = shape acc x s
+        | Just x <- Map.lookup n replaced
+            = uncurry Map.insert (replacementPtr s x) acc
+        | otherwise
+            = Map.insert n (rules s) acc
       where
-        Override{..} = fromMaybe defaultOverride $ Map.lookup n ovs
+        Override{..} = fromMaybe defaultOverride (Map.lookup n ovs)
 
         rules :: ShapeF a -> ShapeF a
         rules = require . optional . rename . retype . prefix

@@ -137,6 +137,9 @@ makeLenses ''Replace
 instance FromJSON Replace where
     parseJSON = gParseJSON' (lower & field %~ (. stripPrefix "replace"))
 
+replacementPtr :: HasInfo a => a -> Replace -> (Id, ShapeF ())
+replacementPtr i r = (r ^. replaceName, Ptr (i ^. info) (r ^. replaceDeriving))
+
 data Override = Override
     { _renamedTo      :: Maybe Id      -- ^ Rename type
     , _replacedBy     :: Maybe Replace -- ^ Existing type that supplants this type

@@ -32,6 +32,7 @@ module Compiler.Types.Id
     -- * Modify representation
     , prependId
     , appendId
+    , replaceId
     ) where
 
 import           Compiler.Text
@@ -125,3 +126,6 @@ prependId t i = i & representation %~ mappend t
 
 appendId :: Id -> Text -> Id
 appendId i t = i & representation <>~ t
+
+replaceId :: Id -> Id -> Id
+replaceId x y = x & representation .~ y ^. representation

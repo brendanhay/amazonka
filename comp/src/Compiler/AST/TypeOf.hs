@@ -39,6 +39,7 @@ instance HasId a => TypeOf (Shape a) where
         let n = identifier x
          in sensitive s $
             case s of
+                Ptr    {}        -> TType  (n ^. typeId)
                 Struct {}        -> TType  (n ^. typeId)
                 Enum   {}        -> TType  (n ^. typeId)
                 List (ListF i e)

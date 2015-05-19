@@ -264,7 +264,8 @@ instance FromJSON (Info -> StructF ()) where
         parse _          = fail "Unexpected non-object for 'members'"
 
 data ShapeF a
-    = List   (ListF   a)
+    = Ptr    Info (Set Derive)
+    | List   (ListF   a)
     | Map    (MapF    a)
     | Struct (StructF a)
     | Enum   Info (Map Id Text)
@@ -278,6 +279,7 @@ type Ref   = RefF (Shape (Id ::: Maybe Text ::: Relation ::: Solved))
 
 instance HasInfo (ShapeF a) where
     info f = \case
+        Ptr    i ds -> (`Ptr`  ds) <$> f i
         List   l    -> List        <$> info f l
         Map    m    -> Map         <$> info f m
         Struct s    -> Struct      <$> info f s
@@ -286,11 +288,12 @@ instance HasInfo (ShapeF a) where
 
 instance HasRefs ShapeF where
     references f = \case
+        Ptr  i ds -> pure (Ptr  i ds)
         List l    -> List   <$> references f l
         Map  m    -> Map    <$> references f m
         Struct s  -> Struct <$> references f s
         Enum i vs -> pure (Enum i vs)
-        Lit  i l  -> pure (Lit i l)
+        Lit  i l  -> pure (Lit  i l)
 
 instance FromJSON (ShapeF ()) where
     parseJSON = withObject "shape" $ \o -> do

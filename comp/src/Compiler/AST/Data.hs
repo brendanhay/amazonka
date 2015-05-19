@@ -38,9 +38,6 @@ import qualified Data.Text.Lazy.Builder       as Build
 import           HIndent
 import           Language.Haskell.Exts.Pretty
 
--- FIXME: Should empty responses be a shared type, and
--- always succeed based on HTTP response code?
-
 dataType :: Protocol
          -> Shape (Id ::: Maybe Text ::: Relation ::: Solved)
          -> Either Error (Maybe Data)

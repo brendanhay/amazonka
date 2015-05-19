@@ -18,7 +18,10 @@ import           Compiler.Formatting
 import           Compiler.Types
 import           Control.Error
 import           Control.Monad.Except
+import           Control.Monad.State
 import           Data.ByteString           (ByteString)
+import qualified Data.HashMap.Strict       as Map
+import           Data.Text                 (Text)
 import qualified Data.Text                 as Text
 import qualified Data.Text.Lazy            as LText
 import           Data.Text.Lazy.Builder    (toLazyText)
@@ -27,6 +30,21 @@ import qualified Filesystem                as FS
 import           Filesystem.Path.CurrentOS
 import           System.IO
 import qualified Text.EDE                  as EDE
+
+run :: EitherT Error IO a -> IO a
+run = runScript . fmapLT LText.unpack
+
+io :: MonadIO m => IO a -> EitherT Error m a
+io = fmapLT (LText.pack . show) . syncIO
+
+title :: MonadIO m => Format (EitherT Error m ()) a -> a
+title m = runFormat m (io . LText.putStrLn . toLazyText)
+
+say :: MonadIO m => Format (EitherT Error m ()) a -> a
+say = title . (" -> " %)
+
+done :: MonadIO m => EitherT Error m ()
+done = title ""
 
 isFile :: MonadIO m => Path -> EitherT Error m Bool
 isFile = io . FS.isFile
@@ -63,29 +81,32 @@ copyDir src dst = io (FS.listDirectory src >>= mapM_ copy)
         fprint (" -> Copying " % path % " to " % path % "\n") f (directory p)
         FS.copyFile f p
 
-readTemplate :: MonadIO m => Path -> Path -> EitherT Error m EDE.Template
-readTemplate d f = do
-    let file = d </> f
-    readBSFile file
-        >>= EDE.parseWith EDE.defaultSyntax (load d) (toTextIgnore file)
-        >>= EDE.result (left . LText.pack . show) right
+type MemoT m = StateT (Map Text (EDE.Result EDE.Template)) (EitherT Error m)
+
+readTemplate :: MonadIO m
+             => Path
+             -> Path
+             -> MemoT m EDE.Template
+readTemplate d p = do
+    let tmpl = d </> p
+    lift (readBSFile tmpl)
+        >>= EDE.parseWith EDE.defaultSyntax (load d) (toTextIgnore tmpl)
+        >>= EDE.result (lift . left . LText.pack . show) (lift . right)
   where
-    load p o k _ = readBSFile file >>= EDE.parseWith o (load (directory file)) k
+    load p o k _ = memo go incl
       where
-        file | Text.null k = fromText k
+        go f = lift (readBSFile f)
+            >>= EDE.parseWith o (load (directory f)) k
+
+        incl | Text.null k = fromText k
              | otherwise   = p </> fromText k
 
-title :: MonadIO m => Format (EitherT Error m ()) a -> a
-title m = runFormat m (io . LText.putStrLn . toLazyText)
-
-say :: MonadIO m => Format (EitherT Error m ()) a -> a
-say = title . (" -> " %)
-
-done :: MonadIO m => EitherT Error m ()
-done = title ""
-
-run :: EitherT Error IO a -> IO a
-run = runScript . fmapLT LText.unpack
-
-io :: MonadIO m => IO a -> EitherT Error m a
-io = fmapLT (LText.pack . show) . syncIO
+    memo f p = do
+        let k = toTextIgnore p
+        m <- gets (Map.lookup k)
+        case m of
+            Just x  -> return x
+            Nothing -> do
+                x <- f p
+                modify (Map.insert k x)
+                return x

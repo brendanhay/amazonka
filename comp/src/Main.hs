@@ -152,7 +152,7 @@ main = do
 
         let load = readTemplate _optTemplates
 
-        tmpl <- Templates
+        tmpl <- flip evalStateT mempty $ Templates
             <$> load "cabal.ede"
             <*> load "toc.ede"
             <*> load "waiters.ede"
@@ -161,7 +161,7 @@ main = do
             <*> load "example/makefile.ede"
             <*> load "operation.ede"
             <*> load "types.ede"
-            <*  done
+            <*  lift done
 
         forM_ (zip [1..] _optModels) $ \(j, f) -> do
             title ("[" % int % "/" % int % "] model:" % path)

@@ -29,6 +29,7 @@ import           Data.Bifunctor
 import qualified Data.HashMap.Strict    as Map
 import qualified Data.HashSet           as Set
 import           Data.Monoid
+import           Debug.Trace
 
 data Env = Env
     { _renamed  :: Map Id Id
@@ -39,7 +40,11 @@ data Env = Env
 makeLenses ''Env
 
 env :: MonadState Env m => Getter Env (Map Id a) -> Id -> m (Maybe a)
-env l n = uses l (Map.lookup n)
+env l n = uses l (Map.lookup k)
+  where
+    k | n == textToId "DetachNetworkInterfaceRequest" = trace (show n) n
+      | n == textToId "DetachNetworkInterface"     = trace (show n) n
+      | otherwise = n
 
 save :: Shape Related -> MemoS (Shape Related)
 save x = memo %= Map.insert (identifier x) x >> return x
@@ -55,6 +60,8 @@ override ovs svc = do
   where
     ss = Map.traverseWithKey (overrideShape ovs) (svc ^. shapes)
 
+    eval State doesn't modify the Id in the map!!
+
     operation :: Functor f => Operation f (RefF a) -> Operation f (RefF a)
     operation o = o
         { _opInput  = ref <$> _opInput  o
@@ -63,14 +70,14 @@ override ovs svc = do
 
     ref :: RefF a -> RefF a
     ref r
-        | Just x <- ptr rename  = r & refShape .~ x
-        | Just x <- ptr replace = r & refShape .~ x ^. replaceName
+        | Just x <- ptr rename  = trace ("renaming " ++ show (r ^. refShape . typeId, x ^. typeId)) $ r & refShape .~ x
+        | Just x <- ptr replace = trace ("replacing " ++ show (r ^. refShape . typeId, x ^. replaceName . typeId)) $ r & refShape .~ x ^. replaceName
         | otherwise             = r
       where
         ptr = Map.lookup (r ^. refShape)
 
     rename :: Map Id Id
-    rename = vMapMaybe _renamedTo ovs
+    rename =  vMapMaybe _renamedTo ovs
 
     replace :: Map Id Replace
     replace = vMapMaybe _replacedBy ovs

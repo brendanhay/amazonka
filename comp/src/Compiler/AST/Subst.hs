@@ -1,5 +1,6 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE LambdaCase        #-}
+{-# LANGUAGE MultiWayIf        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TemplateHaskell   #-}
@@ -30,14 +31,13 @@ import           Compiler.Types
 import           Control.Comonad.Cofree
 import           Control.Error
 import           Control.Lens
-import           Control.Lens
 import           Control.Monad.Except
-import           Control.Monad.Except   (throwError)
 import           Control.Monad.State
 import qualified Data.HashMap.Strict    as Map
 import qualified Data.HashSet           as Set
 import           Data.List              (sort)
 import           Data.Monoid
+import           Debug.Trace
 
 data Env a = Env
     { _overrides :: Map Id Override
@@ -124,12 +124,11 @@ substitute svc@Service{..} = do
     subst _ n (Just r) = do
         let k = r ^. refShape
         s@((_, d) :< _) <- use memo >>= lift . safe k
-        if not (shared d)
-            -- Ref exists, and is not referred to by any other Shape.
+        if  -- Ref exists, and is not referred to by any other Shape.
             -- Insert override to rename the Ref/Shape to the desired name.
-            then rename k n >> return (Identity r)
+            | not (shared d) -> rename k n >> return (Identity r)
             -- Ref exists and is referred to by other shapes.
-            else do
+            | otherwise -> do
                 -- Check that the desired name is not in use
                 -- to prevent accidental override.
                 verify n "Failed attempting to create wrapper"

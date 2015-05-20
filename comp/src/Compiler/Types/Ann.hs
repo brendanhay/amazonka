@@ -74,7 +74,7 @@ calls = lens f (flip g) . each
         Bi  _   -> Bi  x
 
 shared :: Relation -> Bool
-shared = not . null . toListOf calls
+shared = (> 1) . lengthOf calls
 
 data Lit
     = Int

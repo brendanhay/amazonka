@@ -141,7 +141,7 @@ relations os ss = execStateT (traverse go os) mempty
     shape :: Id -> Direction -> ShapeF a -> MemoR ()
     shape p d = mapM_ (count p d . Just . view refShape) . toListOf references
 
-type Sep a = StateT (Map Id a) (Either Error)
+type MemoS a = StateT (Map Id a) (Either Error)
 
 -- | Filter the ids representing operation input/outputs from the supplied map,
 -- and attach the associated shape to the appropriate operation.
@@ -150,7 +150,7 @@ separate :: Show b => Map Id (Operation Identity (RefF a))
          -> Either Error (Map Id (Operation Identity b), Map Id b)
 separate os ss = runStateT (traverse go os) ss
   where
-    go :: Operation Identity (RefF a) -> Sep b (Operation Identity b)
+    go :: Operation Identity (RefF a) -> MemoS b (Operation Identity b)
     go o = do
         inp <- remove (o ^. input)
         out <- remove (o ^. output)
@@ -159,16 +159,14 @@ separate os ss = runStateT (traverse go os) ss
             , _opOutput = Identity out
             }
 
-    remove :: Id -> Sep a a
+    remove :: Id -> MemoS a a
     remove n = do
         s <- get
         case Map.lookup n s of
-            Just x | n == textToId "ScalingProcessQuery"
-                      -> modify (Map.delete n) >> trace ("Removed " ++ show n) (pure x)
-                   | otherwise -> modify (Map.delete n) >> pure x
+            Just x  -> modify (Map.delete n) >> return x
             Nothing -> throwError $
-                format ("Failure attempting to remove operation wrapper " %
-                       iprimary % " from " % partial)
+                format ("Failure attempting to remove operation wrapper " % iprimary %
+                        " from " % partial)
                        n (n, Map.map (const ()) s)
 
 -- type Subst = StateT (Map Id Override, Map Id (ShapeF ())) (Either Error)

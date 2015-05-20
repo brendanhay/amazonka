@@ -52,14 +52,14 @@ override ovs svc@Service{..} = svc
 
     shape :: Map Id (ShapeF ()) -> Id -> ShapeF () -> Map Id (ShapeF ())
     shape acc n s
-        | Just x <- Map.lookup n renamed
-            = shape acc x s
-        | Just x <- Map.lookup n replaced
-            = uncurry Map.insert (replacementPtr s x) acc
-        | otherwise
-            = Map.insert n (rules s) acc
+        | Just x <- Map.lookup n renamed  = shape acc x s
+        | Just x <- Map.lookup n replaced = uncurry Map.insert (pointer x) acc
+        | otherwise                       = Map.insert n (rules s) acc
       where
         Override{..} = fromMaybe defaultOverride (Map.lookup n ovs)
+
+        pointer :: Replace -> (Id, ShapeF ())
+        pointer r = (r ^. replaceName, Ptr (s ^. info) (r ^. replaceDeriving))
 
         rules :: ShapeF a -> ShapeF a
         rules = require . optional . rename . retype . prefix

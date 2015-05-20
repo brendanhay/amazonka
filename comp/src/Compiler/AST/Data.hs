@@ -4,7 +4,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TupleSections     #-}
-{-# LANGUAGE TypeOperators     #-}
 
 -- Module      : Compiler.AST.Data
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -38,10 +37,8 @@ import qualified Data.Text.Lazy.Builder       as Build
 import           HIndent
 import           Language.Haskell.Exts.Pretty
 
-dataType :: Protocol
-         -> Shape (Id ::: Maybe Text ::: Relation ::: Solved)
-         -> Either Error (Maybe Data)
-dataType proto ((n ::: p ::: r ::: t ::: ds ::: is) :< s) =
+dataType :: Protocol -> Shape Solved -> Either Error (Maybe Data)
+dataType proto ((n, r, p, t, ds, is) :< s) =
     case s of
         Enum   i vs -> Just <$> enum i vs
         Struct st   -> Just <$> struct st
@@ -56,8 +53,7 @@ dataType proto ((n ::: p ::: r ::: t ::: ds ::: is) :< s) =
         branches :: Map Text Text
         branches = vs & kvTraversal %~ first (^. ctorId p)
 
-    struct :: StructF (Shape (Id ::: Maybe Text ::: Relation ::: Solved))
-           -> Either Error Data
+    struct :: StructF (Shape Solved) -> Either Error Data
     struct st = Product (n ^. typeId) (st ^. info)
         <$> render (dataDecl n [recDecl n fields] ds)
         <*> mkCtor
@@ -72,17 +68,13 @@ dataType proto ((n ::: p ::: r ::: t ::: ds ::: is) :< s) =
             help = fromString
                 . LText.unpack
                 $ format ("'" % itype % "' smart constructor.") n
-               -- <> see
+               <> see
 
-            -- FIXME: this is useless currently, since the relations are out of
-            -- date after a combination of overriding, and the solving potentially
-            -- removing list types etc.
-            --
-            -- see = case calls r of
-            --     [] -> mempty
-            --     xs -> mappend "\n\n/See/: "
-            --         . LText.intercalate ", "
-            --         $ map (format ("'" % itype % "'")) xs
+            see = case r ^.. calls of
+                [] -> mempty
+                xs -> mappend "\n\n/See/: "
+                    . LText.intercalate ", "
+                    $ map (format ("'" % itype % "'")) xs
 
         mkLens :: Field -> Either Error Fun
         mkLens f = Fun (f ^. fieldLens) (f ^. fieldHelp)

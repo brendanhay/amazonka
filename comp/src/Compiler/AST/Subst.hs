@@ -4,7 +4,6 @@
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TemplateHaskell   #-}
 {-# LANGUAGE TupleSections     #-}
-{-# LANGUAGE TypeOperators     #-}
 
 -- Module      : Compiler.AST.Subst
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -22,10 +21,10 @@ module Compiler.AST.Subst
 
 import           Compiler.AST.Cofree
 import           Compiler.AST.Data
+import           Compiler.AST.Override
 import           Compiler.AST.Prefix
 import           Compiler.AST.Solve
 import           Compiler.Formatting
-import           Compiler.Override
 import           Compiler.Protocol
 import           Compiler.Types
 import           Control.Comonad.Cofree
@@ -60,15 +59,12 @@ rename x y = overrides %= Map.insert x (defaultOverride & renamedTo ?~ y)
 -- by either adding any empty request or response shapes,
 -- or creating a wrapper type for the request/response pointing to a
 -- potentially shared shape.
-substitute :: Service Maybe (RefF ()) (Shape (Id ::: Relation))
-           -> Either Error
-                  ( Map Id Override
-                  , Service Identity (RefF ()) (Shape (Id ::: Relation))
-                  )
+substitute :: Service Maybe (RefF ()) (Shape Related)
+           -> Either Error (Service Identity (RefF ()) (Shape Related))
 substitute svc@Service{..} = do
     (os, e) <- runStateT (traverse operation _operations) $
         Env mempty (Map.map shape _shapes)
-    return $! (e ^. overrides,) $ svc
+    return $! override (e ^. overrides) $ svc
         { _metadata'  = meta _metadata'
         , _operations = os
         , _shapes     = e ^. memo
@@ -84,7 +80,7 @@ substitute svc@Service{..} = do
     ts = fromMaybe (timestamp (svc ^. protocol)) (svc ^. timestampFormat)
 
     operation :: Operation Maybe (RefF ())
-              -> MemoS (Id ::: Relation) (Operation Identity (RefF ()))
+              -> MemoS Related (Operation Identity (RefF ()))
     operation o@Operation{..} = do
         inp <- subst Input  (name Input  _opName) _opInput
         out <- subst Output (name Output _opName) _opOutput
@@ -117,17 +113,17 @@ substitute svc@Service{..} = do
     subst :: Direction
           -> Id
           -> Maybe (RefF ())
-          -> MemoS (Id ::: Relation) (Identity (RefF ()))
+          -> MemoS Related (Identity (RefF ()))
 
     subst d n Nothing  = do
         verify n "Failure attempting to substitute fresh shape"
         -- No Ref exists, safely insert an empty shape and return a related Ref.
-        save n ((n ::: Uni mempty d) :< emptyStruct mempty False)
+        save n ((n, Uni mempty d) :< emptyStruct mempty False)
         return $! Identity (emptyRef n)
 
     subst _ n (Just r) = do
         let k = r ^. refShape
-        s@((_ ::: d) :< _) <- use memo >>= lift . safe k
+        s@((_, d) :< _) <- use memo >>= lift . safe k
         if not (shared d)
             -- Ref exists, and is not referred to by any other Shape.
             -- Insert override to rename the Ref/Shape to the desired name.
@@ -139,7 +135,7 @@ substitute svc@Service{..} = do
                 verify n "Failed attempting to create wrapper"
                 -- Create a newtype wrapper which points to the shared Shape
                 -- and has 'StructF.wrapper' set.
-                save n ((n ::: d) :< emptyStruct [(k, r & refAnn .~ s)] True)
+                save n ((n, d) :< emptyStruct [(k, r & refAnn .~ s)] True)
                 -- Update the Ref to point to the new wrapper.
                 return $! Identity (r & refShape .~ n)
 

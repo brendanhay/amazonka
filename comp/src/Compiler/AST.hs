@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TupleSections     #-}
-{-# LANGUAGE TypeOperators     #-}
 
 -- Module      : Compiler.AST
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,21 +18,22 @@ module Compiler.AST where
 
 import           Compiler.AST.Cofree
 import           Compiler.AST.Data
+import           Compiler.AST.Override
 import           Compiler.AST.Prefix
 import           Compiler.AST.Solve
 import           Compiler.AST.Subst
 import           Compiler.Formatting
-import           Compiler.Override
 import           Compiler.Protocol
 import           Compiler.Types
 import           Control.Error
 import           Control.Lens
-import           Control.Monad.Except (throwError)
+import           Control.Monad.Except  (throwError)
 import           Control.Monad.State
-import qualified Data.HashMap.Strict  as Map
-import qualified Data.HashSet         as Set
-import           Data.List            (sort)
+import qualified Data.HashMap.Strict   as Map
+import qualified Data.HashSet          as Set
+import           Data.List             (sort)
 import           Data.Monoid
+import           Data.Text             (Text)
 import           Debug.Trace
 
 -- Order:
@@ -55,19 +55,8 @@ rewrite :: Versions
         -> Service Maybe (RefF ()) (ShapeF ())
         -> Either Error Library
 rewrite v cfg s' = do
-    -- Determine which direction (input, output, or both) shapes are used.
-    rs <- relations (s' ^. operations) (s' ^. shapes)
-        -- Apply the override configuration to the service, and default any
-        -- optional fields from the JSON where needed.
-
-    s <- substitute s' (sharing rs)
-        >>= traverse (pure . attach rs)
-        >>= override (cfg ^. typeOverrides)
-
-    s  <- setDefaults rs (override (cfg ^. typeOverrides) s')
-        -- Perform the necessary rewrites and rendering
-        -- of shapes Haskell data declarations.
-        >>= renderShapes rs cfg
+    s <- rewriteService cfg s'
+        >>= renderShapes cfg
 
     let ns     = NS ["Network", "AWS", s ^. serviceAbbrev]
         other  = cfg ^. operationImports ++ cfg ^. typeImports
@@ -79,27 +68,40 @@ rewrite v cfg s' = do
 
     return $! Library v cfg s ns (sort expose) (sort other)
 
-renderShapes :: Map Id Relation
-             -> Config
-             -> Service Identity (RefF ()) (ShapeF ())
+rewriteService :: Config
+               -> Service Maybe (RefF ()) (ShapeF ())
+               -> Either Error (Service Identity (RefF ()) (Shape Related))
+rewriteService cfg s = do
+        -- Determine which direction (input, output, or both) shapes are used.
+    rs <- relations (s ^. operations) (s ^. shapes)
+        -- Elaborate the shape map into a comonadic strucutre for traversing.
+    elaborate (s ^. shapes)
+        -- Annotate the comonadic tree with the associated
+        -- bi/unidirectional (input/output/both) relation for shapes.
+        >>= traverse (pure . attach rs)
+        -- Apply the override configuration to the service, and default any
+        -- optional fields from the JSON where needed.
+        >>= return . (\ss -> override (cfg ^. typeOverrides) (s { _shapes = ss }))
+        -- Ensure no empty operation references exist, and that operation shapes
+        -- are considered 'unique', so they can be lifted into the operation's
+        -- module, separately from .Types.
+        >>= substitute
+
+renderShapes :: Config
+             -> Service Identity (RefF ()) (Shape Related)
              -> Either Error (Service Identity Data Data)
-renderShapes rs cfg svc = do
-    (os, ss)
-        -- Elaborate the map into a comonadic strucutre for traversing.
-         <- elaborate (svc ^. shapes)
+renderShapes cfg svc = do
         -- Generate unique prefixes for struct (product) members and
         -- enum (sum) branches to avoid ambiguity.
-        >>= prefixes
-        -- Annotate the comonadic tree with the associated
-        -- bi/unidirectional (input/output/both) relation for shapes
-        >>= traverse (pure . attach rs)
+    (os, ss) <- prefixes (svc ^. shapes)
         -- Determine the appropriate Haskell AST type, auto deriveable instances,
         -- and fully rendered instances.
-        >>= pure . solve cfg (svc ^. protocol)
+        >>= return . solve cfg (svc ^. protocol)
         -- Convert the shape AST into a rendered Haskell AST declaration
-        >>= kvTraverseMaybe (const (dataType (svc ^. protocol) . fmap rassoc))
+        >>= kvTraverseMaybe (const (dataType (svc ^. protocol)))
         -- Separate the operation input/output shapes from the .Types shapes.
         >>= separate (svc ^. operations)
+
     return $! svc
         { _operations = os
         , _shapes     = ss

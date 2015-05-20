@@ -47,13 +47,13 @@ makeLenses ''Env
 
 type MemoP = StateT Env (Either Error)
 
-prefixes :: (Show a, Traversable t, HasId a)
-         => t (Shape a)
-         -> Either Error (t (Shape (a ::: Maybe Text)))
+prefixes :: Traversable t
+         => t (Shape Related)
+         -> Either Error (t (Shape Prefixed))
 prefixes = (`evalStateT` Env mempty mempty) . traverse prefix
 
-prefix :: (Show a, HasId a) => Shape a -> MemoP (Shape (a ::: Maybe Text))
-prefix = annotate memo go
+prefix :: Shape Related -> MemoP (Shape Prefixed)
+prefix = fmap (fmap assoc) . annotate memo go
   where
     go :: HasId a => Shape a -> MemoP (Maybe Text)
     go (x :< s) =
@@ -70,6 +70,9 @@ prefix = annotate memo go
                 uniq n hs xs
 
             _           -> return Nothing
+
+    assoc :: (Related, Maybe Text) -> Prefixed
+    assoc ((n, r), p) = (n, r, p)
 
     uniq :: Text -> [CI Text] -> Set (CI Text) -> MemoP Text
     uniq n [] xs = do

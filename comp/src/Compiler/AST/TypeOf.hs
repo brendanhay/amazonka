@@ -4,7 +4,6 @@
 {-# LANGUAGE OverloadedLists   #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TupleSections     #-}
-{-# LANGUAGE TypeOperators     #-}
 
 -- Module      : Compiler.AST.TypeOf
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -31,8 +30,8 @@ class TypeOf a where
 instance TypeOf TType where
     typeOf = id
 
-instance TypeOf (a ::: Solved) where
-    typeOf (_ ::: t ::: _ ::: _) = t
+instance TypeOf Solved where
+    typeOf (_, _, _, t, _, _) = t
 
 instance HasId a => TypeOf (Shape a) where
     typeOf (x :< s) =

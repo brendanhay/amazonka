@@ -5,7 +5,7 @@
 {-# LANGUAGE TemplateHaskell   #-}
 {-# LANGUAGE TupleSections     #-}
 
--- Module      : Compiler.Override
+-- Module      : Compiler.AST.Override
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -15,7 +15,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.Override
+module Compiler.AST.Override
     ( override
     ) where
 
@@ -33,7 +33,7 @@ import           Data.Monoid
 data Env = Env
     { _renamed  :: Map Id Id
     , _replaced :: Map Id Replace
-    , _memo     :: Map Id (Shape Id)
+    , _memo     :: Map Id (Shape Related)
     }
 
 makeLenses ''Env
@@ -41,14 +41,14 @@ makeLenses ''Env
 env :: MonadState Env m => Getter Env (Map Id a) -> Id -> m (Maybe a)
 env l n = uses l (Map.lookup n)
 
-save :: Shape Id -> MemoS (Shape Id)
+save :: Shape Related -> MemoS (Shape Related)
 save x = memo %= Map.insert (identifier x) x >> return x
 
 -- | Apply the override rules to shapes and their respective fields.
 override :: Functor f
          => Map Id Override
-         -> Service f (RefF a) (Shape Id)
-         -> Service f (RefF a) (Shape Id)
+         -> Service f (RefF a) (Shape Related)
+         -> Service f (RefF a) (Shape Related)
 override ovs svc = do
    svc & operations . each %~ operation
        & shapes            .~ evalState ss (Env rename replace mempty)
@@ -77,25 +77,41 @@ override ovs svc = do
 
 type MemoS = State Env
 
-overrideShape :: Map Id Override -> Id -> Shape a -> MemoS (Shape Id)
-overrideShape ovs n c@(_ :< s) = mayRemember
+overrideRelation :: Relation -> MemoS Relation
+overrideRelation r = do
+    rn <- use renamed
+    rp <- use replaced
+    return $! r & calls %~ f rn rp
   where
-    mayRemember, mayRename, mayReplace :: MemoS (Shape Id)
-    mayRemember = env memo     n >>= maybe mayRename   return
-    mayRename   = env renamed  n >>= maybe mayReplace  (\x -> overrideShape ovs x c)
-    mayReplace  = env replaced n >>= maybe (shape n s) (save . pointer)
+    f rn rp n
+        | Just x <- Map.lookup n rn = f rn rp x
+        | Just x <- Map.lookup n rp = f rn rp (x ^. replaceName)
+        | otherwise                 = n
+
+overrideShape :: Map Id Override
+              -> Id
+              -> Shape (a, Relation)
+              -> MemoS (Shape Related)
+overrideShape ovs n c@((_, d) :< s) = mayRemember
+  where
+    mayRemember = env memo     n >>= maybe mayRename  return
+    mayRename   = env renamed  n >>= maybe mayReplace (\x -> overrideShape ovs x c)
+    mayReplace  = env replaced n >>= maybe shape      (save . pointer)
 
     Override{..} = fromMaybe defaultOverride (Map.lookup n ovs)
 
-    pointer :: Replace -> Shape Id
-    pointer r = r ^. replaceName :< Ptr (s ^. info) (r ^. replaceDeriving)
+    pointer :: Replace -> Shape Related
+    pointer r = (r ^. replaceName, mempty)
+         :< Ptr (s ^. info) (r ^. replaceDeriving)
 
-    shape :: Id -> ShapeF (Shape a) -> MemoS (Shape Id)
-    shape x = traverseOf references ref
-          >=> rules
-          >=> save . (x :<)
+    shape :: MemoS (Shape Related)
+    shape = do
+       d' <- overrideRelation d
+       traverseOf references ref s
+           >>= rules
+           >>= save . ((n, d') :<)
 
-    ref :: RefF (Shape a) -> MemoS (RefF (Shape Id))
+    ref :: RefF (Shape (a, Relation)) -> MemoS (RefF (Shape Related))
     ref r = flip (set refAnn) r <$>
         overrideShape ovs (r ^. refShape) (r ^. refAnn)
 

@@ -275,7 +275,7 @@ data ShapeF a
 makePrisms ''ShapeF
 
 type Shape = Cofree ShapeF
-type Ref   = RefF (Shape (Id ::: Maybe Text ::: Relation ::: Solved))
+type Ref   = RefF (Shape Solved)
 
 instance HasInfo (ShapeF a) where
     info f = \case

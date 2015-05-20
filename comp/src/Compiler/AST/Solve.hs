@@ -3,7 +3,6 @@
 {-# LANGUAGE OverloadedLists   #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TupleSections     #-}
-{-# LANGUAGE TypeOperators     #-}
 
 -- Module      : Compiler.AST.Solve
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,27 +32,29 @@ import qualified Data.HashSet           as Set
 import           Data.List              (intersect, nub, sort)
 import           Data.Monoid            hiding (Product, Sum)
 
-solve :: (Traversable t, HasId a)
+-- FIXME: Necessary to update the Relation?
+solve :: (Traversable t)
       => Config
       -> Protocol
-      -> t (Shape (a ::: Relation))
-      -> t (Shape (a ::: Relation ::: Solved))
-solve cfg proto = (`evalState` env) . traverse (assoc . annotate id (pure . ann))
+      -> t (Shape Prefixed)
+      -> t (Shape Solved)
+solve cfg proto = (`evalState` env) . traverse go
  where
-    assoc :: (Functor f, Functor g)
-          => f (g ((a ::: b) ::: c))
-          -> f (g (a ::: b ::: c))
-    assoc = fmap (fmap rassoc)
-
-    env :: Map Id Solved
+    go  = fmap (fmap assoc) . annotate id (pure . ann)
     env = replaced def cfg
       where
-        def x = x ^. replaceName . typeId . to TType
-            ::: x ^. replaceDeriving . to Set.toList
-            ::: instances proto mempty
+        def x =
+           ( x ^. replaceName . typeId . to TType
+           , x ^. replaceDeriving . to Set.toList
+           , instances proto mempty
+           )
 
-    ann :: HasId a => Shape (a ::: Relation) -> Solved
-    ann x@((_ ::: r) :< _) = typeOf x ::: derive x ::: instances proto r
+    assoc :: (Prefixed, (TType, [Derive], [Instance]))
+          -> Solved
+    assoc ((n, r, p), (t, ds, is)) = (n, r, p, t, ds, is)
+
+    ann :: Shape Prefixed -> (TType, [Derive], [Instance])
+    ann x@((_, r, _) :< _) = (typeOf x, derive x, instances proto r)
 
 -- FIXME: Filter constraints based on info like min/max of lists etc.
 derive :: Shape a -> [Derive]

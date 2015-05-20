@@ -58,6 +58,15 @@ instance HasId Id where
 instance (Functor f, HasId a) => HasId (Cofree f a) where
      identifier = identifier . extract
 
+instance HasId a => HasId (a, b) where
+    identifier (x, _) = identifier x
+
+instance HasId a => HasId (a, b, c) where
+    identifier (x, _, _) = identifier x
+
+instance HasId a => HasId (a, b, d, e, f, g) where
+    identifier (x, _, _, _, _, _) = identifier x
+
 -- | A type where the actual identifier is immutable,
 -- but the usable representation can be appended/modified.
 data Id = Id (CI Text) Text

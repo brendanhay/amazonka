@@ -63,9 +63,7 @@ instance TypeOf Field where
               -- This field is not required, and can be defaulted using mempty/Nothing.
             | otherwise      = t
 
-mkFields :: Maybe Text
-         -> StructF (Shape (Id ::: (Maybe Text ::: (Relation ::: Solved))))
-         -> [Field]
+mkFields :: Maybe Text -> StructF (Shape Solved) -> [Field]
 mkFields p st = map mk (st ^. members)
   where
     mk :: (Id, Ref) -> Field
@@ -90,4 +88,4 @@ fieldLocation = fieldRef . refLocation
 fieldMonoid :: Getter Field Bool
 fieldMonoid = fieldRef . refAnn . to (f . extract)
   where
-    f (_ ::: _ ::: _ ::: _ ::: ds ::: _) = DMonoid `elem` ds
+    f (_, _, _, _, ds, _) = DMonoid `elem` ds

@@ -2,7 +2,7 @@
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RankNTypes        #-}
-{-# LANGUAGE TypeOperators     #-}
+{-# LANGUAGE TupleSections     #-}
 
 -- Module      : Compiler.AST.Cofree
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -31,19 +31,21 @@ cofree x = go
   where
     go (Fix f) = x :< fmap go f
 
-attach :: (HasId a, Monoid b, Comonad w) => Map Id b -> w a -> w (a ::: b)
+attach :: (HasId a, Monoid b, Comonad w) => Map Id b -> w a -> w (a, b)
 attach m = extend (go . extract)
   where
-    go x = x ::: fromMaybe mempty (Map.lookup (identifier x) m)
+    go x = (x, fromMaybe mempty (Map.lookup (identifier x) m))
 
+-- | Allows the new annotation to be memoised separately
+-- from the pre-existing annotation.
 annotate :: (Traversable t, MonadState s m, HasId a)
          => Lens' s (Map Id b)
          -> (Cofree t a -> m b)
          -> Cofree t a
-         -> m (Cofree t (a ::: b))
+         -> m (Cofree t (a, b))
 annotate l f = sequence . extend go
   where
-    go x@(a :< _) = (a :::) <$> memoise l f x
+    go x@(a :< _) = (a,) <$> memoise l f x
 
 memoise :: (MonadState s m, HasId a)
         => Lens' s (Map Id b)

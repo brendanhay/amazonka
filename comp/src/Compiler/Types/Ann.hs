@@ -3,7 +3,7 @@
 {-# LANGUAGE LambdaCase         #-}
 {-# LANGUAGE OverloadedStrings  #-}
 {-# LANGUAGE StandaloneDeriving #-}
-{-# LANGUAGE TypeOperators      #-}
+{-# LANGUAGE ViewPatterns       #-}
 
 -- Module      : Compiler.Types.Ann
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -19,12 +19,10 @@ module Compiler.Types.Ann where
 
 import           Compiler.TH
 import           Compiler.Types.Id
-import           Compiler.Types.Map
 import           Compiler.Types.Timestamp
 import           Control.Lens
 import           Data.Aeson               (ToJSON (..))
 import           Data.Hashable
-import qualified Data.HashMap.Strict      as Map
 import qualified Data.HashSet             as Set
 import           Data.Jason               hiding (ToJSON (..))
 import           Data.Monoid
@@ -34,18 +32,11 @@ import           GHC.Generics
 
 type Set = Set.HashSet
 
-type Solved = TType ::: [Derive] ::: [Instance]
-
-data a ::: b = !a ::: !b
-    deriving (Show)
-
-infixr 5 :::
-
-instance HasId a => HasId (a ::: b) where
-    identifier (x ::: _) = identifier x
-
-rassoc :: (a ::: b) ::: c -> a ::: b ::: c
-rassoc ((x ::: y) ::: z) = x ::: y ::: z
+-- FIXME: consider replacing raw tuples with something fancier for
+-- deconstructing and avoiding rebalancing of tuples or type operators.
+type Related  = (Id, Relation)
+type Prefixed = (Id, Relation, Maybe Text)
+type Solved   = (Id, Relation, Maybe Text, TType, [Derive], [Instance])
 
 data Direction
    = Input
@@ -71,19 +62,19 @@ instance Monoid Relation where
 relation :: Id -> Direction -> Relation
 relation n = Uni (Set.singleton n)
 
-calls :: Relation -> [Id]
-calls = Set.toList . \case
-    Uni x _ -> x
-    Bi  x   -> x
+calls :: Traversal' Relation Id
+calls = lens f (flip g) . each
+  where
+    f = Set.toList . \case
+        Uni x _ -> x
+        Bi  x   -> x
+
+    g (Set.fromList -> x) = \case
+        Uni _ d -> Uni x d
+        Bi  _   -> Bi  x
 
 shared :: Relation -> Bool
-shared = not . null . calls
-
--- sharing :: Map Id Relation -> Set Id
--- sharing = Set.fromList
---     . Map.keys
---     . Map.filter (> 1)
---     . Map.map (length . calls)
+shared = not . null . toListOf calls
 
 data Lit
     = Int

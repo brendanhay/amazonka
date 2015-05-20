@@ -26,6 +26,7 @@ executable compile
         , Compiler.AST.Data
         , Compiler.AST.Data.Field
         , Compiler.AST.Data.Syntax
+        , Compiler.AST.Override
         , Compiler.AST.Prefix
         , Compiler.AST.Solve
         , Compiler.AST.Subst
@@ -33,7 +34,6 @@ executable compile
         , Compiler.Formatting
         , Compiler.IO
         , Compiler.JSON
-        , Compiler.Override
         , Compiler.Protocol
         , Compiler.TH
         , Compiler.Text

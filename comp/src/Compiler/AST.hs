@@ -21,6 +21,7 @@ import           Compiler.AST.Cofree
 import           Compiler.AST.Data
 import           Compiler.AST.Prefix
 import           Compiler.AST.Solve
+import           Compiler.AST.Subst
 import           Compiler.Formatting
 import           Compiler.Override
 import           Compiler.Protocol
@@ -43,6 +44,12 @@ import           Debug.Trace
 -- prefix
 -- type
 
+-- FIXME: Relations need to be updated by:
+--  - overrides
+--  - solving
+
+-- FIXME: Ponder having both setDefaults and overrides work on the elaborated AST?
+
 rewrite :: Versions
         -> Config
         -> Service Maybe (RefF ()) (ShapeF ())
@@ -52,6 +59,11 @@ rewrite v cfg s' = do
     rs <- relations (s' ^. operations) (s' ^. shapes)
         -- Apply the override configuration to the service, and default any
         -- optional fields from the JSON where needed.
+
+    s <- substitute s' (sharing rs)
+        >>= traverse (pure . attach rs)
+        >>= override (cfg ^. typeOverrides)
+
     s  <- setDefaults rs (override (cfg ^. typeOverrides) s')
         -- Perform the necessary rewrites and rendering
         -- of shapes Haskell data declarations.
@@ -130,7 +142,7 @@ relations os ss = execStateT (traverse go os) mempty
 type Sep a = StateT (Map Id a) (Either Error)
 
 -- | Filter the ids representing operation input/outputs from the supplied map,
--- attaching them to the appropriate operation.
+-- and attach the associated shape to the appropriate operation.
 separate :: Show b => Map Id (Operation Identity (RefF a))
          -> Map Id b
          -> Either Error (Map Id (Operation Identity b), Map Id b)
@@ -157,129 +169,129 @@ separate os ss = runStateT (traverse go os) ss
                        iprimary % " from " % partial)
                        n (n, Map.map (const ()) s)
 
-type Subst = StateT (Map Id Override, Map Id (ShapeF ())) (Either Error)
+-- type Subst = StateT (Map Id Override, Map Id (ShapeF ())) (Either Error)
 
--- | Set some appropriate defaults where needed for later stages,
--- and ensure there are no vacant references to input/output shapes
--- by adding any empty request or response types where appropriate.
-setDefaults :: Map Id Relation
-            -> Service Maybe (RefF ()) (ShapeF ())
-            -> Either Error (Service Identity (RefF ()) (ShapeF ()))
-setDefaults rs svc@Service{..} = do
-    (os, (ovs, ss)) <-
-        runStateT (traverse operation _operations) initial
-    -- Apply any overrides that might have been returned for wrappers.
-    return $! override ovs $ svc
-        { _metadata'  = meta _metadata'
-        , _operations = os
-        , _shapes     = ss
-        }
-  where
-    initial :: (Map Id Override, Map Id (ShapeF ()))
-    initial = (mempty, Map.map shape _shapes)
+-- -- | Set some appropriate defaults where needed for later stages,
+-- -- and ensure there are no vacant references to input/output shapes
+-- -- by adding any empty request or response types where appropriate.
+-- setDefaults :: Map Id Relation
+--             -> Service Maybe (RefF ()) (ShapeF ())
+--             -> Either Error (Service Identity (RefF ()) (ShapeF ()))
+-- setDefaults rs svc@Service{..} = do
+--     (os, (ovs, ss)) <-
+--         runStateT (traverse operation _operations) initial
+--     -- Apply any overrides that might have been returned for wrappers.
+--     return $! override ovs $ svc
+--         { _metadata'  = meta _metadata'
+--         , _operations = os
+--         , _shapes     = ss
+--         }
+--   where
+--     initial :: (Map Id Override, Map Id (ShapeF ()))
+--     initial = (mempty, Map.map shape _shapes)
 
-    meta :: Metadata Maybe -> Metadata Identity
-    meta m@Metadata{..} = m
-        { _timestampFormat = Identity ts
-        , _checksumFormat  = _checksumFormat  .! SHA256
-        }
+--     meta :: Metadata Maybe -> Metadata Identity
+--     meta m@Metadata{..} = m
+--         { _timestampFormat = Identity ts
+--         , _checksumFormat  = _checksumFormat  .! SHA256
+--         }
 
-    ts :: Timestamp
-    ts = fromMaybe (timestamp (svc ^. protocol)) (svc ^. timestampFormat)
+--     ts :: Timestamp
+--     ts = fromMaybe (timestamp (svc ^. protocol)) (svc ^. timestampFormat)
 
-    operation :: Operation Maybe (RefF ())
-              -> Subst (Operation Identity (RefF ()))
-    operation o@Operation{..} = do
-        inp <- subst (name Input  _opName) _opInput
-        out <- subst (name Output _opName) _opOutput
-        return $! o
-            { _opDocumentation =
-                _opDocumentation .! "FIXME: Undocumented operation."
-            , _opHTTP          = http _opHTTP
-            , _opInput         = inp
-            , _opOutput        = out
-            }
+--     operation :: Operation Maybe (RefF ())
+--               -> Subst (Operation Identity (RefF ()))
+--     operation o@Operation{..} = do
+--         inp <- subst (name Input  _opName) _opInput
+--         out <- subst (name Output _opName) _opOutput
+--         return $! o
+--             { _opDocumentation =
+--                 _opDocumentation .! "FIXME: Undocumented operation."
+--             , _opHTTP          = http _opHTTP
+--             , _opInput         = inp
+--             , _opOutput        = out
+--             }
 
-    http :: HTTP Maybe -> HTTP Identity
-    http h = h
-        { _responseCode = _responseCode h .! 200
-        }
+--     http :: HTTP Maybe -> HTTP Identity
+--     http h = h
+--         { _responseCode = _responseCode h .! 200
+--         }
 
-    shape :: ShapeF a -> ShapeF a
-    shape = \case
-        Lit i (Time Nothing) -> Lit i . Time $ Just ts
-        x                    -> x
+--     shape :: ShapeF a -> ShapeF a
+--     shape = \case
+--         Lit i (Time Nothing) -> Lit i . Time $ Just ts
+--         x                    -> x
 
-    -- FIXME: too complicated? Just copy the shape if it's shared, and since
-    -- this is an operation, consider it safe to remove the shape wholly?
+--     -- FIXME: too complicated? Just copy the shape if it's shared, and since
+--     -- this is an operation, consider it safe to remove the shape wholly?
 
-    -- Fill out missing Refs with a default Ref pointing to an empty Shape,
-    -- which is also inserted into the resulting Shape universe.
-    --
-    -- Likewise provide an appropriate wrapper over any shared Shape.
-    subst :: Id -> Maybe (RefF ()) -> Subst (Identity (RefF ()))
-    subst n (Just r)
-          -- Ref exists, and is not referred to by any other Shape.
-        | not (Set.member (r ^. refShape) shared) = do
-            -- Insert override to rename the Ref/Shape to the desired name.
-            _1 %= Map.insert (r ^. refShape) (defaultOverride & renamedTo ?~ n)
-            return $! Identity r
+--     -- Fill out missing Refs with a default Ref pointing to an empty Shape,
+--     -- which is also inserted into the resulting Shape universe.
+--     --
+--     -- Likewise provide an appropriate wrapper over any shared Shape.
+--     subst :: Id -> Maybe (RefF ()) -> Subst (Identity (RefF ()))
+--     subst n (Just r)
+--           -- Ref exists, and is not referred to by any other Shape.
+--         | not (Set.member (r ^. refShape) shared) = do
+--             -- Insert override to rename the Ref/Shape to the desired name.
+--             _1 %= Map.insert (r ^. refShape) (defaultOverride & renamedTo ?~ n)
+--             return $! Identity r
 
-          -- Ref exists and is referred to by other shapes.
-        | otherwise = do
-            -- Check that the desired name is not in use
-            -- to prevent accidental override.
-            verify n "Failed attempting to create wrapper"
-            -- Create a newtype wrapper which points to the shared Shape
-            -- and has 'StructF.wrapper' set.
-            _2 %= Map.insert n (emptyStruct [(r ^. refShape, r)] True)
-            -- Update the Ref to point to the new wrapper.
-            return $! Identity (r & refShape .~ n)
+--           -- Ref exists and is referred to by other shapes.
+--         | otherwise = do
+--             -- Check that the desired name is not in use
+--             -- to prevent accidental override.
+--             verify n "Failed attempting to create wrapper"
+--             -- Create a newtype wrapper which points to the shared Shape
+--             -- and has 'StructF.wrapper' set.
+--             _2 %= Map.insert n (emptyStruct [(r ^. refShape, r)] True)
+--             -- Update the Ref to point to the new wrapper.
+--             return $! Identity (r & refShape .~ n)
 
-    -- No Ref exists, safely insert an empty shape and return a related Ref.
-    subst n Nothing  = do
-        verify n "Failure attemptting to substitute fresh shape"
-        _2 %= Map.insert n (emptyStruct mempty False)
-        return $! Identity (emptyRef n)
+--     -- No Ref exists, safely insert an empty shape and return a related Ref.
+--     subst n Nothing  = do
+--         verify n "Failure attemptting to substitute fresh shape"
+--         _2 %= Map.insert n (emptyStruct mempty False)
+--         return $! Identity (emptyRef n)
 
-    verify n msg = do
-        p <- uses _2 (Map.member n)
-        when p . throwError $
-            format (msg % " for " % iprimary) n
+--     verify n msg = do
+--         p <- uses _2 (Map.member n)
+--         when p . throwError $
+--             format (msg % " for " % iprimary) n
 
-    name :: Direction -> Id -> Id
-    name Input  n = textToId (n ^. typeId)
-    name Output n = textToId (appendId n "Response" ^. typeId)
+--     name :: Direction -> Id -> Id
+--     name Input  n = textToId (n ^. typeId)
+--     name Output n = textToId (appendId n "Response" ^. typeId)
 
-    shared :: Set Id
-    shared = sharing rs
+--     shared :: Set Id
+--     shared = sharing rs
 
-    infixl 7 .!
+--     infixl 7 .!
 
-    (.!) :: Maybe a -> a -> Identity a
-    m .! x = maybe (Identity x) Identity m
+--     (.!) :: Maybe a -> a -> Identity a
+--     m .! x = maybe (Identity x) Identity m
 
-    emptyStruct ms = Struct . StructF i ms (Set.fromList (map fst ms)) Nothing
-      where
-        i = Info
-            { _infoDocumentation = Nothing
-            , _infoMin           = Nothing
-            , _infoMax           = Nothing
-            , _infoFlattened     = False
-            , _infoSensitive     = False
-            , _infoStreaming     = False
-            , _infoException     = False
-            }
+--     emptyStruct ms = Struct . StructF i ms (Set.fromList (map fst ms)) Nothing
+--       where
+--         i = Info
+--             { _infoDocumentation = Nothing
+--             , _infoMin           = Nothing
+--             , _infoMax           = Nothing
+--             , _infoFlattened     = False
+--             , _infoSensitive     = False
+--             , _infoStreaming     = False
+--             , _infoException     = False
+--             }
 
-    emptyRef n = RefF
-        { _refAnn           = ()
-        , _refShape         = n
-        , _refDocumentation = Nothing
-        , _refLocation      = Nothing
-        , _refLocationName  = Nothing
-        , _refResultWrapper = Nothing
-        , _refQueryName     = Nothing
-        , _refStreaming     = False
-        , _refXMLAttribute  = False
-        , _refXMLNamespace  = Nothing
-        }
+--     emptyRef n = RefF
+--         { _refAnn           = ()
+--         , _refShape         = n
+--         , _refDocumentation = Nothing
+--         , _refLocation      = Nothing
+--         , _refLocationName  = Nothing
+--         , _refResultWrapper = Nothing
+--         , _refQueryName     = Nothing
+--         , _refStreaming     = False
+--         , _refXMLAttribute  = False
+--         , _refXMLNamespace  = Nothing
+--         }

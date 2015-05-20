@@ -76,11 +76,14 @@ calls = Set.toList . \case
     Uni x _ -> x
     Bi  x   -> x
 
-sharing :: Map Id Relation -> Set Id
-sharing = Set.fromList
-    . Map.keys
-    . Map.filter (> 1)
-    . Map.map (length . calls)
+shared :: Relation -> Bool
+shared = not . null . calls
+
+-- sharing :: Map Id Relation -> Set Id
+-- sharing = Set.fromList
+--     . Map.keys
+--     . Map.filter (> 1)
+--     . Map.map (length . calls)
 
 data Lit
     = Int

@@ -71,6 +71,7 @@ elaborate ss = Map.traverseWithKey shape ss
         n = r ^. refShape
 
     safe n = note
-        (format ("Missing shape " % iprimary % " possible matches: " % partial)
+        (format ("Missing shape "      % iprimary %
+                ", possible matches: " % partial)
                 n (n, ss))
         (Map.lookup n ss)

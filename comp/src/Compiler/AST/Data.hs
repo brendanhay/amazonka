@@ -76,7 +76,7 @@ dataType proto ((n ::: p ::: r ::: t ::: ds ::: is) :< s) =
 
             -- FIXME: this is useless currently, since the relations are out of
             -- date after a combination of overriding, and the solving potentially
-            -- remove the list types etc.
+            -- removing list types etc.
             --
             -- see = case calls r of
             --     [] -> mempty

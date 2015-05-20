@@ -28,6 +28,7 @@ executable compile
         , Compiler.AST.Data.Syntax
         , Compiler.AST.Prefix
         , Compiler.AST.Solve
+        , Compiler.AST.Subst
         , Compiler.AST.TypeOf
         , Compiler.Formatting
         , Compiler.IO

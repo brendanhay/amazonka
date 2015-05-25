@@ -35,7 +35,9 @@ import           Compiler.AST.TypeOf
 import           Compiler.Types
 import           Control.Comonad
 import           Control.Lens
+import           Data.Function                (on)
 import qualified Data.HashSet                 as Set
+import           Data.List                    (sort)
 import           Data.Maybe
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
@@ -52,6 +54,18 @@ data Field = Field
 
 makeLenses ''Field
 
+instance Eq Field where
+    (==) = on (==) _fieldId
+
+-- | Ensures that streaming fields appear last in the parameter ordering,
+-- but doesn't affect the rest of the order which is determined by parsing
+-- of the JSON service definition.
+instance Ord Field where
+    compare = on compare streaming
+
+instance IsStreaming Field where
+    streaming = streaming . _fieldRef
+
 instance TypeOf Field where
     typeOf f = canDefault (f ^. fieldRequired) (typeOf (f ^. fieldRef))
       where
@@ -64,7 +78,7 @@ instance TypeOf Field where
             | otherwise     = TMaybe t
 
 mkFields :: Maybe Text -> StructF (Shape Solved) -> [Field]
-mkFields p st = map mk (st ^. members)
+mkFields p st = sort $ map mk (st ^. members)
   where
     mk :: (Id, Ref) -> Field
     mk (k, v) = Field k v (Set.member k (getRequired st)) p

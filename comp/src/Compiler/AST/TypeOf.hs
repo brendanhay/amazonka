@@ -31,7 +31,7 @@ instance TypeOf TType where
     typeOf = id
 
 instance TypeOf Solved where
-    typeOf (_, _, _, t, _, _) = t
+    typeOf = view annType
 
 instance HasId a => TypeOf (Shape a) where
     typeOf (x :< s) =

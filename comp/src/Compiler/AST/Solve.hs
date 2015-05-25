@@ -32,15 +32,19 @@ import qualified Data.HashSet           as Set
 import           Data.List              (intersect, nub, sort)
 import           Data.Monoid            hiding (Product, Sum)
 
+Can just assume for the purposes of determing instances
+that if a Shape's relation contains no parents then it's
+an operation?
+
 -- FIXME: Necessary to update the Relation?
 solve :: (Traversable t)
       => Config
       -> Protocol
       -> t (Shape Prefixed)
       -> t (Shape Solved)
-solve cfg proto = (`evalState` env) . traverse go
+solve cfg proto = (`evalState` env) . traverse (annotate con id (pure . ann))
  where
-    go  = fmap (fmap assoc) . annotate id (pure . ann)
+    env :: Map Id (TType, [Derive], [Instance])
     env = replaced def cfg
       where
         def x =
@@ -49,12 +53,11 @@ solve cfg proto = (`evalState` env) . traverse go
            , instances proto mempty
            )
 
-    assoc :: (Prefixed, (TType, [Derive], [Instance]))
-          -> Solved
-    assoc ((n, r, p), (t, ds, is)) = (n, r, p, t, ds, is)
-
     ann :: Shape Prefixed -> (TType, [Derive], [Instance])
-    ann x@((_, r, _) :< _) = (typeOf x, derive x, instances proto r)
+    ann x@(p :< _) = (typeOf x, derive x, instances proto (p ^. annRelation))
+
+    con :: Prefixed -> (TType, [Derive], [Instance]) -> Solved
+    con p (t, ds, is) = Solved p t ds is
 
 -- FIXME: Filter constraints based on info like min/max of lists etc.
 derive :: Shape a -> [Derive]

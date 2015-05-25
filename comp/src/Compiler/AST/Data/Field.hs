@@ -33,7 +33,6 @@ module Compiler.AST.Data.Field
 
 import           Compiler.AST.TypeOf
 import           Compiler.Types
-import           Control.Comonad
 import           Control.Lens
 import           Data.Function                (on)
 import qualified Data.HashSet                 as Set
@@ -100,6 +99,4 @@ fieldLocation :: Getter Field (Maybe Location)
 fieldLocation = fieldRef . refLocation
 
 fieldMonoid :: Getter Field Bool
-fieldMonoid = fieldRef . refAnn . to (f . extract)
-  where
-    f (_, _, _, _, ds, _) = DMonoid `elem` ds
+fieldMonoid = fieldRef . refAnn . to (elem DMonoid . view annDerive)

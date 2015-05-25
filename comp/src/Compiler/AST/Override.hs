@@ -42,8 +42,8 @@ makeLenses ''Env
 env :: MonadState Env m => Getter Env (Map Id a) -> Id -> m (Maybe a)
 env l n = uses l (Map.lookup k)
   where
-    k | n == textToId "DetachNetworkInterfaceRequest" = trace (show n) n
-      | n == textToId "DetachNetworkInterface"     = trace (show n) n
+    k | n == mkId "DetachNetworkInterfaceRequest" = trace (show n) n
+      | n == mkId "DetachNetworkInterface"     = trace (show n) n
       | otherwise = n
 
 save :: Shape Related -> MemoS (Shape Related)
@@ -98,9 +98,9 @@ overrideRelation r = do
 
 overrideShape :: Map Id Override
               -> Id
-              -> Shape (a, Relation)
+              -> Shape Related
               -> MemoS (Id, Shape Related)
-overrideShape ovs n c@((_, d) :< s) = mayRemember
+overrideShape ovs n c@(_ :< s) = mayRemember
   where
     mayRemember = env memo     n >>= maybe mayRename        (return . (n,))
     mayRename   = env renamed  n >>= maybe mayReplace       (\x -> overrideShape ovs x c)
@@ -108,8 +108,10 @@ overrideShape ovs n c@((_, d) :< s) = mayRemember
 
     Override{..} = fromMaybe defaultOverride (Map.lookup n ovs)
 
+    d = c ^. annRelation
+
     pointer :: Replace -> Shape Related
-    pointer r = (r ^. replaceName, mempty)
+    pointer r = Related (r ^. replaceName) mempty
          :< Ptr (s ^. info) (r ^. replaceDeriving)
 
     shape :: MemoS (Shape Related)
@@ -117,9 +119,9 @@ overrideShape ovs n c@((_, d) :< s) = mayRemember
        d' <- overrideRelation d
        traverseOf references ref s
            >>= rules
-           >>= save . ((n, d') :<)
+           >>= save . (Related n d' :<)
 
-    ref :: RefF (Shape (a, Relation)) -> MemoS (RefF (Shape Related))
+    ref :: RefF (Shape Related) -> MemoS (RefF (Shape Related))
     ref r = flip (set refAnn) r . snd <$>
         overrideShape ovs (r ^. refShape) (r ^. refAnn)
 

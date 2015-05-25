@@ -26,7 +26,7 @@ import           Data.Scientific    (floatingOrInteger)
 import           Numeric.Natural
 
 instance J.FromJSON a => J.FromJSON (Map Id a) where
-    parseJSON = J.parseJSON >=> return . (kvTraversal %~ first textToId)
+    parseJSON = J.parseJSON >=> return . (kvTraversal %~ first mkId)
 
 instance J.FromJSON Natural where
     parseJSON = J.withScientific "natural" (f . floatingOrInteger)

@@ -17,7 +17,7 @@ module Compiler.Types.Id
 
     -- * Identifier
     , Id
-    , textToId
+    , mkId
 
     -- * Lenses
     , ciId
@@ -53,19 +53,10 @@ class HasId a where
     identifier :: a -> Id
 
 instance HasId Id where
-     identifier = id
+    identifier = id
 
 instance (Functor f, HasId a) => HasId (Cofree f a) where
-     identifier = identifier . extract
-
-instance HasId a => HasId (a, b) where
-    identifier (x, _) = identifier x
-
-instance HasId a => HasId (a, b, c) where
-    identifier (x, _, _) = identifier x
-
-instance HasId a => HasId (a, b, d, e, f, g) where
-    identifier (x, _, _, _, _, _) = identifier x
+    identifier = identifier . extract
 
 -- | A type where the actual identifier is immutable,
 -- but the usable representation can be appended/modified.
@@ -79,13 +70,13 @@ instance Hashable Id where
     hashWithSalt n (Id x _) = hashWithSalt n x
 
 instance FromJSON Id where
-    parseJSON = withText "id" (pure . textToId)
+    parseJSON = withText "id" (pure . mkId)
 
 instance ToJSON Id where
     toJSON = toJSON . view representation
 
-textToId :: Text -> Id
-textToId t = Id (CI.mk t) (format t)
+mkId :: Text -> Id
+mkId t = Id (CI.mk t) (format t)
 
 format :: Text -> Text
 format = upperHead . upperAcronym

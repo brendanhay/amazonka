@@ -38,12 +38,18 @@ import           HIndent
 import           Language.Haskell.Exts.Pretty
 
 dataType :: Protocol -> Shape Solved -> Either Error (Maybe Data)
-dataType proto ((n, r, p, t, ds, is) :< s) =
-    case s of
-        Enum   i vs -> Just <$> enum i vs
-        Struct st   -> Just <$> struct st
-        _           -> return Nothing
+dataType proto s = case unwrap s of
+    Enum   i vs -> Just <$> enum i vs
+    Struct st   -> Just <$> struct st
+    _           -> return Nothing
   where
+    n  = s ^. annId
+    r  = s ^. annRelation
+    p  = s ^. annPrefix
+    t  = s ^. annType
+    ds = s ^. annDerive
+    is = s ^. annInstances
+
     enum :: Info -> Map Id Text -> Either Error Data
     enum i vs = Sum (n ^. typeId) i
         <$> render (dataDecl n (map conDecl (Map.keys branches)) ds)

@@ -3,6 +3,7 @@
 {-# LANGUAGE LambdaCase         #-}
 {-# LANGUAGE OverloadedStrings  #-}
 {-# LANGUAGE StandaloneDeriving #-}
+{-# LANGUAGE TemplateHaskell    #-}
 {-# LANGUAGE ViewPatterns       #-}
 
 -- Module      : Compiler.Types.Ann
@@ -20,6 +21,8 @@ module Compiler.Types.Ann where
 import           Compiler.TH
 import           Compiler.Types.Id
 import           Compiler.Types.Timestamp
+import           Control.Comonad
+import           Control.Comonad.Cofree
 import           Control.Lens
 import           Data.Aeson               (ToJSON (..))
 import           Data.Hashable
@@ -31,12 +34,6 @@ import qualified Data.Text                as Text
 import           GHC.Generics
 
 type Set = Set.HashSet
-
--- FIXME: consider replacing raw tuples with something fancier for
--- deconstructing and avoiding rebalancing of tuples or type operators.
-type Related  = (Id, Relation)
-type Prefixed = (Id, Relation, Maybe Text)
-type Solved   = (Id, Relation, Maybe Text, TType, [Derive], [Instance])
 
 data Direction
    = Input
@@ -50,31 +47,31 @@ data Relation
 
 instance Monoid Relation where
     mempty      = Bi mempty
-    mappend a b =
-        case (a, b) of
+    mappend l r =
+        case (l, r) of
             (Bi  x,   Bi  y)   -> Bi  (x <> y)
             (Bi  x,   Uni y _) -> Bi  (x <> y)
             (Uni x _, Bi  y)   -> Bi  (x <> y)
-            (Uni x i, Uni y o)
-                | i == o       -> Uni (x <> y) i
+            (Uni x a, Uni y b)
+                | a == b       -> Uni (x <> y) b
                 | otherwise    -> Bi  (x <> y)
 
-relation :: Id -> Direction -> Relation
-relation n = Uni (Set.singleton n)
+mkRelation :: Id -> Direction -> Relation
+mkRelation n = Uni (Set.singleton n)
 
-calls :: Traversal' Relation Id
-calls = lens f (flip g) . each
+parents :: Traversal' Relation Id
+parents = lens f (flip g) . each
   where
     f = Set.toList . \case
-        Uni x _ -> x
-        Bi  x   -> x
+        Uni  x _ -> x
+        Bi   x   -> x
 
     g (Set.fromList -> x) = \case
         Uni _ d -> Uni x d
         Bi  _   -> Bi  x
 
 shared :: Relation -> Bool
-shared = (> 1) . lengthOf calls
+shared = (> 1) . lengthOf parents
 
 data Lit
     = Int
@@ -138,3 +135,54 @@ instToText = Text.pack . show
 
 instance ToJSON Instance where
     toJSON = toJSON . instToText
+
+data Related = Related
+    { _annId       :: Id
+    , _annRelation :: Relation
+    , _annOp       :: !Bool
+    } deriving (Show)
+
+makeClassy ''Related
+
+instance (Functor f, HasRelated a) => HasRelated (Cofree f a) where
+    related = lens extract (flip (:<) . unwrap) . related
+
+instance HasId Related where
+    identifier = _annId
+
+data Prefixed = Prefixed
+    { _annRelated :: Related
+    , _annPrefix  :: Maybe Text
+    } deriving (Show)
+
+makeClassy ''Prefixed
+
+instance (Functor f, HasPrefixed a) => HasPrefixed (Cofree f a) where
+    prefixed = lens extract (flip (:<) . unwrap) . prefixed
+
+instance HasRelated Prefixed where
+    related = annRelated
+
+instance HasId Prefixed where
+    identifier = view annId
+
+data Solved = Solved
+    { _annPrefixed  :: Prefixed
+    , _annType      :: TType
+    , _annDerive    :: [Derive]
+    , _annInstances :: [Instance]
+    } deriving (Show)
+
+makeClassy ''Solved
+
+instance (Functor f, HasSolved a) => HasSolved (Cofree f a) where
+    solved = lens extract (flip (:<) . unwrap) . solved
+
+instance HasRelated Solved where
+    related = prefixed . related
+
+instance HasPrefixed Solved where
+    prefixed = annPrefixed
+
+instance HasId Solved where
+    identifier = view annId

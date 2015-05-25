@@ -77,7 +77,7 @@ rewriteService cfg s = do
     elaborate (s ^. shapes)
         -- Annotate the comonadic tree with the associated
         -- bi/unidirectional (input/output/both) relation for shapes.
-        >>= traverse (pure . attach rs)
+        >>= traverse (pure . attach Related rs)
         -- Apply the override configuration to the service, and default any
         -- optional fields from the JSON where needed.
         >>= return . (\ss -> override (cfg ^. typeOverrides) (s { _shapes = ss }))
@@ -119,26 +119,34 @@ type MemoR = StateT (Map Id Relation) (Either Error)
 --used by 'setDefaults'.
 relations :: Map Id (Operation Maybe (RefF a))
           -> Map Id (ShapeF b)
-          -> Either Error (Map Id Relation)
+          -> Either Error (Map Id (Relation, Bool))
 relations os ss = execStateT (traverse go os) mempty
   where
     go :: Operation Maybe (RefF a) -> MemoR ()
-    go o = count (o ^. opName) Input  (o ^? opInput  . _Just . refShape)
-        >> count (o ^. opName) Output (o ^? opOutput . _Just . refShape)
+    go o = count (o ^. opName) (Input,  True) (o ^? opInput  . _Just . refShape)
+        >> count (o ^. opName) (Output, True) (o ^? opOutput . _Just . refShape)
 
     -- | Inserts a valid relation containing an referring shape's id,
     -- and the direction the parent is used in.
-    count :: Id -> Direction -> Maybe Id -> MemoR ()
-    count _ _ Nothing  = pure ()
-    count p d (Just n) = do
-        modify (Map.insertWith (<>) n (relation p d))
-        s <- lift $ note (format ("Unable to find shape " % iprimary %
-                         " when counting relations") n)
-                       (Map.lookup n ss)
+    count :: Id -> (Direction, Bool) -> Maybe Id -> MemoR ()
+    count _ _       Nothing  = pure ()
+    count p (d, op) (Just n) = do
+        modify $ Map.insertWith ins n (mkRelation p d, op)
+        s <- lift (safe n ss)
         shape n d s
 
     shape :: Id -> Direction -> ShapeF a -> MemoR ()
-    shape p d = mapM_ (count p d . Just . view refShape) . toListOf references
+    shape p d = mapM_ (count p (d, False) . Just . view refShape)
+        . toListOf references
+
+    ins (a, c) (b, d) = (b <> a, d)
+
+    safe n m = note
+        (format ("Missing shape "            % iprimary %
+                 " when counting relations " %
+                 ", possible matches: "      % partial)
+                n (n, m))
+        (Map.lookup n m)
 
 type MemoS a = StateT (Map Id a) (Either Error)
 
@@ -259,8 +267,8 @@ separate os ss = runStateT (traverse go os) ss
 --             format (msg % " for " % iprimary) n
 
 --     name :: Direction -> Id -> Id
---     name Input  n = textToId (n ^. typeId)
---     name Output n = textToId (appendId n "Response" ^. typeId)
+--     name Input  n = mkId (n ^. typeId)
+--     name Output n = mkId (appendId n "Response" ^. typeId)
 
 --     shared :: Set Id
 --     shared = sharing rs

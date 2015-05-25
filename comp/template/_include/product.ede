@@ -24,6 +24,9 @@
 {{ lens.value.signature }}
 {{ lens.value.declaration }}
 {% endfor %}
+
+{{ shape.instances | show }}
+
 {% for inst in shape.instances %}
   {% case inst.key %}
   {% when "FromXML" %}
@@ -37,6 +40,18 @@ instance FromXML {{ shape.name }} where
         {% include "applicative.ede" %} {{ field.value }}
       {% endfor %}
     {% endif %}
+  {% when "ToXML" %}
+
+instance ToXML {{ shape.name }} where
+    {% if inst.value | empty %}
+    toXML = const mempty
+    {% else %}
+    toXML {{ shape.name }}{..} =
+      {% for field in inst.value %}
+        {% include "list.ede" %} {{ field.value }}
+      {% endfor %}
+        ]
+    {% endif %}
   {% when "ToQuery" %}
 
 instance ToQuery {{ shape.name }} where
@@ -44,6 +59,30 @@ instance ToQuery {{ shape.name }} where
     toQuery = const mempty
     {% else %}
     toQuery {{ shape.name }}{..} = mconcat
+      {% for field in inst.value %}
+        {% include "list.ede" %} {{ field.value }}
+      {% endfor %}
+        ]
+    {% endif %}
+  {% when "ToHeaders" %}
+
+instance ToHeaders {{ shape.name }} where
+    {% if inst.value | empty %}
+    toHeaders = const mempty
+    {% else %}
+    toHeaders {{ shape.name }}{..} =
+      {% for field in inst.value %}
+        {% include "list.ede" %} {{ field.value }}
+      {% endfor %}
+        ]
+    {% endif %}
+  {% when "ToBody" %}
+
+instance ToBody {{ shape.name }} where
+    {% if inst.value | empty %}
+    toBody = const mempty
+    {% else %}
+    toBody {{ shape.name }}{..} =
       {% for field in inst.value %}
         {% include "list.ede" %} {{ field.value }}
       {% endfor %}

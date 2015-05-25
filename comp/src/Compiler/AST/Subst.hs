@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TemplateHaskell   #-}
 {-# LANGUAGE TupleSections     #-}
+{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Compiler.AST.Subst
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -117,12 +118,12 @@ substitute svc@Service{..} = do
     subst d n Nothing  = do
         verify n "Failure attempting to substitute fresh shape"
         -- No Ref exists, safely insert an empty shape and return a related Ref.
-        save n ((n, Uni mempty d) :< emptyStruct)
+        save n (Related n (Uni mempty d) :< emptyStruct)
         return $! Identity (emptyRef n)
 
     subst _ n (Just r) = do
         let k = r ^. refShape
-        (_, d) :< s <- lift (safe k _shapes)
+        (view annRelation -> d) :< s <- lift (safe k _shapes)
         if not (shared d)
             -- Ref exists, and is not referred to by any other Shape.
             -- Insert override to rename the Ref/Shape to the desired name.
@@ -133,7 +134,7 @@ substitute svc@Service{..} = do
                 -- to prevent accidental override.
                 verify n "Failed attempting to copy type"
                 -- Copy the shape by saving it under the desired name.
-                save n ((n, d) :< s)
+                save n (Related n d :< s)
                 -- Update the Ref to point to the new wrapper.
                 return $! Identity (r & refShape .~ n)
 
@@ -154,8 +155,8 @@ verify n msg = do
         format (msg % " for " % iprimary) n
 
 name :: Direction -> Id -> Id
-name Input  n = textToId (n ^. typeId)
-name Output n = textToId (appendId n "Response" ^. typeId)
+name Input  n = mkId (n ^. typeId)
+name Output n = mkId (appendId n "Response" ^. typeId)
 
 infixl 7 .!
 

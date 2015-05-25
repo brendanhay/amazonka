@@ -53,7 +53,7 @@ prefixes :: Traversable t
 prefixes = (`evalStateT` Env mempty mempty) . traverse prefix
 
 prefix :: Shape Related -> MemoP (Shape Prefixed)
-prefix = fmap (fmap assoc) . annotate memo go
+prefix = annotate Prefixed memo go
   where
     go :: HasId a => Shape a -> MemoP (Maybe Text)
     go (x :< s) =
@@ -70,9 +70,6 @@ prefix = fmap (fmap assoc) . annotate memo go
                 uniq n hs xs
 
             _           -> return Nothing
-
-    assoc :: (Related, Maybe Text) -> Prefixed
-    assoc ((n, r), p) = (n, r, p)
 
     uniq :: Text -> [CI Text] -> Set (CI Text) -> MemoP Text
     uniq n [] xs = do

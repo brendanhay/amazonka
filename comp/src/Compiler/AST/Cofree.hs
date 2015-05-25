@@ -31,21 +31,26 @@ cofree x = go
   where
     go (Fix f) = x :< fmap go f
 
-attach :: (HasId a, Monoid b, Comonad w) => Map Id b -> w a -> w (a, b)
-attach m = extend (go . extract)
+attach :: (Traversable t, HasId a, Monoid b)
+       => (a -> b -> c)
+       -> Map Id b
+       -> Cofree t a
+       -> Cofree t c
+attach ctor m = extend (go . extract)
   where
-    go x = (x, fromMaybe mempty (Map.lookup (identifier x) m))
+    go x = ctor x . fromMaybe mempty $ Map.lookup (identifier x) m
 
 -- | Allows the new annotation to be memoised separately
 -- from the pre-existing annotation.
 annotate :: (Traversable t, MonadState s m, HasId a)
-         => Lens' s (Map Id b)
+         => (a -> b -> c)
+         -> Lens' s (Map Id b)
          -> (Cofree t a -> m b)
          -> Cofree t a
-         -> m (Cofree t (a, b))
-annotate l f = sequence . extend go
+         -> m (Cofree t c)
+annotate ctor l f = sequence . extend go
   where
-    go x@(a :< _) = (a,) <$> memoise l f x
+    go x@(a :< _) = ctor a <$> memoise l f x
 
 memoise :: (MonadState s m, HasId a)
         => Lens' s (Map Id b)
@@ -62,7 +67,7 @@ memoise l f x = uses l (Map.lookup n) >>= maybe go return
         return r
 
 elaborate :: Show a => Map Id (ShapeF a) -> Either Error (Map Id (Shape Id))
-elaborate ss = Map.traverseWithKey shape ss
+elaborate m = Map.traverseWithKey shape m
   where
     shape :: Id -> ShapeF a -> Either Error (Shape Id)
     shape n = fmap (n :<) . traverseOf references ref
@@ -73,7 +78,7 @@ elaborate ss = Map.traverseWithKey shape ss
         n = r ^. refShape
 
     safe n = note
-        (format ("Missing shape "      % iprimary %
-                ", possible matches: " % partial)
-                n (n, ss))
-        (Map.lookup n ss)
+        (format ("Missing shape "       % iprimary %
+                 ", possible matches: " % partial)
+                n (n, m))
+        (Map.lookup n m)

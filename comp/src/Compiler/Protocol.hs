@@ -59,6 +59,13 @@ direction = \case
     ToXML    -> Input
     ToQuery  -> Input
 
+-- FIXME: this needs to take into account location?
+--   perhaps constraint a to Info?
+--   what about the StructF's 'payload' field?
+
+--   Make sense to use the fromjson instance of the struct
+--   to find the parsed member payload and set it's location to body?
+
 satisfies :: Instance -> (a -> Maybe Location) -> [a] -> [a]
 satisfies i f = filter (match i . f)
   where
@@ -66,6 +73,9 @@ satisfies i f = filter (match i . f)
     match FromJSON  = const True
     match FromXML   = const True
     match FromBody  = const True
+
+    -- FIXME: Is it a streaming request?
+    -- If so Then it shouldn't have tojson/toxml instances.
 
     match ToJSON    = discard
     match ToXML     = discard

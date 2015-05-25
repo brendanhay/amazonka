@@ -257,12 +257,20 @@ instance FromJSON (Info -> StructF ()) where
         ms <- o .:  "members" >>= parse
         r  <- o .:? "required" .!= mempty
         p  <- o .:? "payload"
-        return $! \i -> StructF i ms r p
+        return $! \i -> StructF i (body p ms) r p
       where
         parse (Object o) =
             for (unObject o) $ \(k, v) ->
-                (textToId k,) <$> parseJSON v
+                (mkId k,) <$> parseJSON v
         parse _          = fail "Unexpected non-object for 'members'"
+
+        -- This ensure that the field referenced by a possible
+        -- "payload":<id> has a location set.
+        body Nothing  = id
+        body (Just p) = map f
+          where
+            f (n, r) | p == n    = (n, r & refLocation ?~ Body)
+                     | otherwise = (n, r)
 
 data ShapeF a
     = Ptr    Info (Set Derive)
@@ -311,7 +319,7 @@ instance FromJSON (ShapeF ()) where
             "timestamp" -> pure (Lit i (Time Nothing))
             "string"    -> pure $
                 maybe (Lit i Text)
-                      (Enum i . Map.fromList . map (first textToId . renameBranch))
+                      (Enum i . Map.fromList . map (first mkId . renameBranch))
                       m
             _           -> fail $ "Unknown Shape type: " ++ Text.unpack t
 

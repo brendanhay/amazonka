@@ -101,9 +101,9 @@ renderQuery = intercalate . sort . enc Nothing
         | otherwise   = enc (Just k') x
     enc k (Value (Just (urlEncode True -> v)))
         | Just n <- k = [n <> vsep <> v]
-        | otherwise   = [v]
+        | otherwise   = [v <> vsep]
     enc k _
-        | Just n <- k = [n]
+        | Just n <- k = [n <> vsep]
         | otherwise   = []
 
     intercalate []     = mempty

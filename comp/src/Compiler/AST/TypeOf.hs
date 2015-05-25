@@ -24,6 +24,24 @@ import           Compiler.Types
 import           Control.Comonad.Cofree
 import           Control.Lens           hiding (enum, mapping, (??))
 
+-- DetachNetworkInterface <- the toQuery interface has incorrect keys, lowercased?
+
+-- The parse xml instances chaining .@? would be incorrect? ie:
+-- instance FromXML Volume where
+--     parseXML x = Volume
+--         <$> x .@ "volumeId"
+--         <*> x .@ "size"
+--         <*> x .@ "snapshotId"
+--         <*> x .@ "availabilityZone"
+--         <*> x .@ "status"
+--         <*> x .@ "createTime"
+--         <*> x .@? "attachmentSet" .@? "item"
+--         <*> x .@? "tagSet" .@? "item"
+--         <*> x .@ "volumeType"
+--         <*> x .@? "iops"
+--         <*> x .@ "encrypted"
+--         <*> x .@? "kmsKeyId"
+
 class TypeOf a where
     typeOf :: a -> TType
 

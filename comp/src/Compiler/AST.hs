@@ -55,8 +55,7 @@ rewrite :: Versions
         -> Service Maybe (RefF ()) (ShapeF ())
         -> Either Error Library
 rewrite v cfg s' = do
-    s <- rewriteService cfg s'
-        >>= renderShapes cfg
+    s <- rewriteService cfg s' >>= renderShapes cfg
 
     let ns     = NS ["Network", "AWS", s ^. serviceAbbrev]
         other  = cfg ^. operationImports ++ cfg ^. typeImports

@@ -1,6 +1,5 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE MultiWayIf        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TemplateHaskell   #-}
@@ -103,38 +102,38 @@ substitute svc@Service{..} = do
             Lit i (Time Nothing) -> Lit i . Time $ Just ts
             _                    -> s
 
-    -- FIXME: too complicated? Just copy the shape if it's shared, and since
-    -- this is an operation, consider it safe to remove the shape wholly?
-
     -- Fill out missing Refs with a default Ref pointing to an empty Shape,
     -- which is also inserted into the resulting Shape universe.
     --
-    -- Likewise provide an appropriate wrapper over any shared Shape.
+    -- For shared Shapes, perform a copy of the destination Shape to a new Shape.
     subst :: Direction
           -> Id
           -> Maybe (RefF ())
           -> MemoS Related (Identity (RefF ()))
 
+    -- FIXME: this could be a shared empty shape for void types which succeeds
+    -- on de/serialisation for any protocol, and takes into account a successful
+    -- status code on responses.
     subst d n Nothing  = do
         verify n "Failure attempting to substitute fresh shape"
         -- No Ref exists, safely insert an empty shape and return a related Ref.
-        save n ((n, Uni mempty d) :< emptyStruct mempty False)
+        save n ((n, Uni mempty d) :< emptyStruct)
         return $! Identity (emptyRef n)
 
     subst _ n (Just r) = do
         let k = r ^. refShape
-        s@((_, d) :< _) <- use memo >>= lift . safe k
-        if  -- Ref exists, and is not referred to by any other Shape.
+        (_, d) :< s <- lift (safe k _shapes)
+        if not (shared d)
+            -- Ref exists, and is not referred to by any other Shape.
             -- Insert override to rename the Ref/Shape to the desired name.
-            | not (shared d) -> rename k n >> return (Identity r)
+            then rename k n >> return (Identity r)
             -- Ref exists and is referred to by other shapes.
-            | otherwise -> do
+            else do
                 -- Check that the desired name is not in use
                 -- to prevent accidental override.
-                verify n "Failed attempting to create wrapper"
-                -- Create a newtype wrapper which points to the shared Shape
-                -- and has 'StructF.wrapper' set.
-                save n ((n, d) :< emptyStruct [(k, r & refAnn .~ s)] True)
+                verify n "Failed attempting to copy type"
+                -- Copy the shape by saving it under the desired name.
+                save n ((n, d) :< s)
                 -- Update the Ref to point to the new wrapper.
                 return $! Identity (r & refShape .~ n)
 
@@ -163,8 +162,8 @@ infixl 7 .!
 (.!) :: Maybe a -> a -> Identity a
 m .! x = maybe (Identity x) Identity m
 
-emptyStruct :: [(Id, RefF a)] -> Bool -> ShapeF a
-emptyStruct ms = Struct . StructF i ms (Set.fromList (map fst ms)) Nothing
+emptyStruct :: ShapeF a
+emptyStruct = Struct (StructF i mempty mempty Nothing)
   where
     i = Info
         { _infoDocumentation = Nothing

@@ -58,9 +58,10 @@ override ovs svc = do
    svc & operations . each %~ operation
        & shapes            .~ evalState ss (Env rename replace mempty)
   where
-    ss = Map.traverseWithKey (overrideShape ovs) (svc ^. shapes)
-
-    eval State doesn't modify the Id in the map!!
+    ss = fmap Map.fromList
+       . traverse (uncurry (overrideShape ovs))
+       . Map.toList
+       $ svc ^. shapes
 
     operation :: Functor f => Operation f (RefF a) -> Operation f (RefF a)
     operation o = o
@@ -70,8 +71,8 @@ override ovs svc = do
 
     ref :: RefF a -> RefF a
     ref r
-        | Just x <- ptr rename  = trace ("renaming " ++ show (r ^. refShape . typeId, x ^. typeId)) $ r & refShape .~ x
-        | Just x <- ptr replace = trace ("replacing " ++ show (r ^. refShape . typeId, x ^. replaceName . typeId)) $ r & refShape .~ x ^. replaceName
+        | Just x <- ptr rename  = r & refShape .~ x
+        | Just x <- ptr replace = r & refShape .~ x ^. replaceName
         | otherwise             = r
       where
         ptr = Map.lookup (r ^. refShape)
@@ -98,12 +99,12 @@ overrideRelation r = do
 overrideShape :: Map Id Override
               -> Id
               -> Shape (a, Relation)
-              -> MemoS (Shape Related)
+              -> MemoS (Id, Shape Related)
 overrideShape ovs n c@((_, d) :< s) = mayRemember
   where
-    mayRemember = env memo     n >>= maybe mayRename  return
-    mayRename   = env renamed  n >>= maybe mayReplace (\x -> overrideShape ovs x c)
-    mayReplace  = env replaced n >>= maybe shape      (save . pointer)
+    mayRemember = env memo     n >>= maybe mayRename        (return . (n,))
+    mayRename   = env renamed  n >>= maybe mayReplace       (\x -> overrideShape ovs x c)
+    mayReplace  = env replaced n >>= maybe ((n,) <$> shape) (fmap (n,) . save . pointer)
 
     Override{..} = fromMaybe defaultOverride (Map.lookup n ovs)
 
@@ -119,7 +120,7 @@ overrideShape ovs n c@((_, d) :< s) = mayRemember
            >>= save . ((n, d') :<)
 
     ref :: RefF (Shape (a, Relation)) -> MemoS (RefF (Shape Related))
-    ref r = flip (set refAnn) r <$>
+    ref r = flip (set refAnn) r . snd <$>
         overrideShape ovs (r ^. refShape) (r ^. refAnn)
 
     rules :: ShapeF a -> MemoS (ShapeF a)

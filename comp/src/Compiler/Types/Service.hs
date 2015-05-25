@@ -240,7 +240,6 @@ data StructF a = StructF
     , _members    :: [(Id, RefF a)]
     , _required   :: Set Id
     , _payload    :: Maybe Id
-    , _wrapper    :: !Bool
     } deriving (Show, Functor, Foldable, Traversable)
 
 makeLenses ''StructF
@@ -256,7 +255,7 @@ instance FromJSON (Info -> StructF ()) where
         ms <- o .:  "members" >>= parse
         r  <- o .:? "required" .!= mempty
         p  <- o .:? "payload"
-        return $! \i -> StructF i ms r p False
+        return $! \i -> StructF i ms r p
       where
         parse (Object o) =
             for (unObject o) $ \(k, v) ->

@@ -90,6 +90,7 @@ data TType
     = TType      Text
     | TLit       Lit
     | TNatural
+    | TStream
     | TMaybe     TType
     | TSensitive TType
     | TList      TType

@@ -111,7 +111,7 @@ instanceExp proto i f =
 
     accessor, member :: Text
     accessor = f ^. fieldAccessor
-    member   = memberName (f ^. fieldId) (f ^. fieldRef)
+    member   = memberName proto dir (f ^. fieldId) (f ^. fieldRef)
 
     op :: QOp
     op = qop (operator i req)
@@ -148,6 +148,7 @@ internal (typeOf -> t) =
         TType      x   -> tycon x
         TLit       x   -> literal True x
         TNatural       -> tycon "Nat"
+        TStream        -> tycon "Stream"
         TMaybe     x   -> TyApp (tycon "Maybe") (internal x)
         TSensitive x   -> TyApp (tycon "Sensitive") (internal x)
         TList      x   -> TyApp (tycon "List") (internal x)
@@ -160,11 +161,15 @@ external (typeOf -> t) =
         TType      x   -> tycon x
         TLit       x   -> literal False x
         TNatural       -> tycon "Natural"
+        TStream        -> tycon "Stream"
         TMaybe     x   -> TyApp (tycon "Maybe") (external x)
         TSensitive x   -> external x
         TList      x   -> TyList (external x)
         TList1     x   -> TyApp (tycon "NonEmpty") (external x)
         TMap       k v -> TyApp (TyApp (tycon "HashMap") (external k)) (external v)
+
+-- Determine correct streaming based on refStreaming/info + possibly protocol if
+-- streaming is not set?a
 
 literal :: Bool -> Lit -> Type
 literal i = tycon . \case

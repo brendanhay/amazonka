@@ -17,30 +17,12 @@
 
 module Compiler.AST.TypeOf
     ( TypeOf (..)
-    , typeRequired
+    , typeDefault
     ) where
 
 import           Compiler.Types
 import           Control.Comonad.Cofree
 import           Control.Lens           hiding (enum, mapping, (??))
-
--- DetachNetworkInterface <- the toQuery interface has incorrect keys, lowercased?
-
--- The parse xml instances chaining .@? would be incorrect? ie:
--- instance FromXML Volume where
---     parseXML x = Volume
---         <$> x .@ "volumeId"
---         <*> x .@ "size"
---         <*> x .@ "snapshotId"
---         <*> x .@ "availabilityZone"
---         <*> x .@ "status"
---         <*> x .@ "createTime"
---         <*> x .@? "attachmentSet" .@? "item"
---         <*> x .@? "tagSet" .@? "item"
---         <*> x .@ "volumeType"
---         <*> x .@? "iops"
---         <*> x .@ "encrypted"
---         <*> x .@? "kmsKeyId"
 
 class TypeOf a where
     typeOf :: a -> TType
@@ -65,21 +47,28 @@ instance HasId a => TypeOf (Shape a) where
                 Map (MapF _ k v) -> TMap   (typeOf k) (typeOf v)
                 Lit i l          ->
                     case l of
-                        Int      -> natural i (TLit l)
-                        Long     -> natural i (TLit l)
-                        _        -> TLit l
+                        Int                -> natural i (TLit l)
+                        Long               -> natural i (TLit l)
+                        Blob | streaming i -> TStream
+                        _                  -> TLit l
 
-instance TypeOf a => TypeOf (RefF a) where
-    typeOf = typeOf . view refAnn
+-- This was not specific enough to determine streaming.
+-- instance TypeOf a => TypeOf (RefF a) where
+--     typeOf = typeOf . view refAnn
 
-typeRequired :: TType -> Bool
-typeRequired = \case
-    TSensitive t  -> typeRequired t
-    TMaybe     {} -> False
-    TList      {} -> False
-    TList1     {} -> False
-    TMap       {} -> False
-    _             -> True
+instance HasId a => TypeOf (RefF (Shape a)) where
+    typeOf r
+        | streaming r = TStream
+        | otherwise   = typeOf (r ^. refAnn)
+
+typeDefault :: TType -> Bool
+typeDefault = \case
+    TSensitive t       -> typeDefault t
+    TMaybe     {}      -> True
+    TList      {}      -> True
+    TList1     {}      -> True
+    TMap       {}      -> True
+    _                  -> False
 
 natural :: HasInfo a => a -> TType -> TType
 natural x

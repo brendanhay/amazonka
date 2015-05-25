@@ -11,3 +11,5 @@ import Network.AWS.Prelude
 import qualified GHC.Exts
 
 {% include "_include/product.ede" with shape = input %}
+
+{% include "_include/product.ede" with shape = output %}

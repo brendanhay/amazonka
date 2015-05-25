@@ -56,18 +56,18 @@ instance TypeOf Field where
     typeOf f = canDefault (f ^. fieldRequired) (typeOf (f ^. fieldRef))
       where
         canDefault :: Bool -> TType -> TType
-        canDefault True  t   = t -- This field is required.
+        canDefault True  t  = t -- This field is required.
         canDefault False t
-              -- This field is not required, but the TType can't be defaulted sensibly.
-            | typeRequired t = TMaybe t
               -- This field is not required, and can be defaulted using mempty/Nothing.
-            | otherwise      = t
+            | typeDefault t = t
+              -- This field is not required, but the TType can't be defaulted sensibly.
+            | otherwise     = TMaybe t
 
 mkFields :: Maybe Text -> StructF (Shape Solved) -> [Field]
 mkFields p st = map mk (st ^. members)
   where
     mk :: (Id, Ref) -> Field
-    mk (k, v) = Field k v (Set.member k (st ^. required)) p
+    mk (k, v) = Field k v (Set.member k (getRequired st)) p
 
 fieldLens, fieldAccessor :: Getter Field Text
 fieldLens     = to (\f -> f ^. fieldId . lensId     (f ^. fieldPrefix))

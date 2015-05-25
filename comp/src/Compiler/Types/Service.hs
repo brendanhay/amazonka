@@ -43,8 +43,10 @@ import           Control.Lens
 import           Data.Aeson               (ToJSON (..))
 import           Data.Bifunctor
 import qualified Data.HashMap.Strict      as Map
+import qualified Data.HashSet             as Set
 import           Data.Jason               hiding (Bool, ToJSON (..))
 import           Data.Jason.Types         (unObject)
+import           Data.Monoid
 import           Data.Text                (Text)
 import qualified Data.Text                as Text
 import           Data.Traversable         (for)
@@ -238,7 +240,7 @@ instance FromJSON (Info -> MapF ()) where
 data StructF a = StructF
     { _structInfo :: Info
     , _members    :: [(Id, RefF a)]
-    , _required   :: Set Id
+    , _required'  :: Set Id
     , _payload    :: Maybe Id
     } deriving (Show, Functor, Foldable, Traversable)
 
@@ -272,9 +274,6 @@ data ShapeF a
       deriving (Show, Functor, Foldable, Traversable)
 
 makePrisms ''ShapeF
-
-type Shape = Cofree ShapeF
-type Ref   = RefF (Shape Solved)
 
 instance HasInfo (ShapeF a) where
     info f = \case
@@ -400,3 +399,28 @@ instance HasMetadata (Service f a b) f where
 
 instance FromJSON (Service Maybe (RefF ()) (ShapeF ())) where
     parseJSON = gParseJSON' lower
+
+type Shape = Cofree ShapeF
+type Ref   = RefF (Shape Solved)
+
+class IsStreaming a where
+    streaming :: a -> Bool
+
+instance IsStreaming Info where
+    streaming = _infoStreaming
+
+instance IsStreaming (Shape a) where
+    streaming (_ :< s) = streaming (s ^. info)
+
+instance IsStreaming (RefF (Shape a)) where
+    streaming r = _refStreaming r || streaming (_refAnn r)
+
+setRequired :: (Set Id -> Set Id) -> ShapeF a -> ShapeF a
+setRequired f = _Struct . required' %~ f
+
+getRequired :: StructF (Shape a) -> Set Id
+getRequired s = _required' s <> Set.fromList (concatMap f (_members s))
+  where
+    f (n, r)
+        | streaming r = [n]
+        | otherwise   = []

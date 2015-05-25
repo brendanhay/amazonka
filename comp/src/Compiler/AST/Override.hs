@@ -127,8 +127,8 @@ overrideShape ovs n c@((_, d) :< s) = mayRemember
     rules = rename . prefix . require . optional >=> retype
 
     require, optional :: ShapeF a -> ShapeF a
-    require  = _Struct . required %~ (<> _requiredFields)
-    optional = _Struct . required %~ (`Set.difference` _optionalFields)
+    require  = setRequired (<> _requiredFields)
+    optional = setRequired (`Set.difference` _optionalFields)
 
     prefix :: ShapeF a -> ShapeF a
     prefix =

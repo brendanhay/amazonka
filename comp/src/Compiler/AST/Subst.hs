@@ -118,7 +118,7 @@ substitute svc@Service{..} = do
     subst d n Nothing  = do
         verify n "Failure attempting to substitute fresh shape"
         -- No Ref exists, safely insert an empty shape and return a related Ref.
-        save n (Related n (Uni mempty d) :< emptyStruct)
+        save n (Related True n (Uni mempty d) :< emptyStruct)
         return $! Identity (emptyRef n)
 
     subst _ n (Just r) = do
@@ -134,7 +134,7 @@ substitute svc@Service{..} = do
                 -- to prevent accidental override.
                 verify n "Failed attempting to copy type"
                 -- Copy the shape by saving it under the desired name.
-                save n (Related n d :< s)
+                save n (Related True n d :< s)
                 -- Update the Ref to point to the new wrapper.
                 return $! Identity (r & refShape .~ n)
 

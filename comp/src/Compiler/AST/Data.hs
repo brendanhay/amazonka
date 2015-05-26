@@ -76,7 +76,7 @@ dataType proto s = case unwrap s of
                 $ format ("'" % itype % "' smart constructor.") n
                <> see
 
-            see = case r ^.. calls of
+            see = case r ^.. parents of
                 [] -> mempty
                 xs -> mappend "\n\n/See/: "
                     . LText.intercalate ", "

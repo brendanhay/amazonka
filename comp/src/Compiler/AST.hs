@@ -77,7 +77,7 @@ rewriteService cfg s = do
     elaborate (s ^. shapes)
         -- Annotate the comonadic tree with the associated
         -- bi/unidirectional (input/output/both) relation for shapes.
-        >>= traverse (pure . attach Related rs)
+        >>= traverse (pure . attach (Related False) rs)
         -- Apply the override configuration to the service, and default any
         -- optional fields from the JSON where needed.
         >>= return . (\ss -> override (cfg ^. typeOverrides) (s { _shapes = ss }))
@@ -117,36 +117,35 @@ type MemoR = StateT (Map Id Relation) (Either Error)
 --
 -- /Note:/ This currently doesn't operate over the free AST, since it's also
 --used by 'setDefaults'.
-relations :: Map Id (Operation Maybe (RefF a))
+relations :: Show b
+          => Map Id (Operation Maybe (RefF a))
           -> Map Id (ShapeF b)
-          -> Either Error (Map Id (Relation, Bool))
+          -> Either Error (Map Id Relation)
 relations os ss = execStateT (traverse go os) mempty
   where
     go :: Operation Maybe (RefF a) -> MemoR ()
-    go o = count (o ^. opName) (Input,  True) (o ^? opInput  . _Just . refShape)
-        >> count (o ^. opName) (Output, True) (o ^? opOutput . _Just . refShape)
+    go o = count (o ^. opName) Input  (o ^? opInput  . _Just . refShape)
+        >> count (o ^. opName) Output (o ^? opOutput . _Just . refShape)
 
     -- | Inserts a valid relation containing an referring shape's id,
     -- and the direction the parent is used in.
-    count :: Id -> (Direction, Bool) -> Maybe Id -> MemoR ()
+    count :: Id -> Direction -> Maybe Id -> MemoR ()
     count _ _       Nothing  = pure ()
-    count p (d, op) (Just n) = do
-        modify $ Map.insertWith ins n (mkRelation p d, op)
-        s <- lift (safe n ss)
+    count p d (Just n) = do
+        modify $ Map.insertWith (<>) n (mkRelation p d)
+        s <- lift (safe n)
         shape n d s
 
     shape :: Id -> Direction -> ShapeF a -> MemoR ()
-    shape p d = mapM_ (count p (d, False) . Just . view refShape)
+    shape p d = mapM_ (count p d . Just . view refShape)
         . toListOf references
 
-    ins (a, c) (b, d) = (b <> a, d)
-
-    safe n m = note
+    safe n = note
         (format ("Missing shape "            % iprimary %
                  " when counting relations " %
                  ", possible matches: "      % partial)
-                n (n, m))
-        (Map.lookup n m)
+                n (n, ss))
+        (Map.lookup n ss)
 
 type MemoS a = StateT (Map Id a) (Either Error)
 

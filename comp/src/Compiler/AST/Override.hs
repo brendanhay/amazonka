@@ -89,7 +89,7 @@ overrideRelation :: Relation -> MemoS Relation
 overrideRelation r = do
     rn <- use renamed
     rp <- use replaced
-    return $! r & calls %~ f rn rp
+    return $! r & parents %~ f rn rp
   where
     f rn rp n
         | Just x <- Map.lookup n rn = f rn rp x
@@ -111,7 +111,7 @@ overrideShape ovs n c@(_ :< s) = mayRemember
     d = c ^. annRelation
 
     pointer :: Replace -> Shape Related
-    pointer r = Related (r ^. replaceName) mempty
+    pointer r = Related False (r ^. replaceName) mempty
          :< Ptr (s ^. info) (r ^. replaceDeriving)
 
     shape :: MemoS (Shape Related)
@@ -119,7 +119,7 @@ overrideShape ovs n c@(_ :< s) = mayRemember
        d' <- overrideRelation d
        traverseOf references ref s
            >>= rules
-           >>= save . (Related n d' :<)
+           >>= save . (Related False n d' :<)
 
     ref :: RefF (Shape Related) -> MemoS (RefF (Shape Related))
     ref r = flip (set refAnn) r . snd <$>

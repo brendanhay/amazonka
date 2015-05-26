@@ -137,9 +137,9 @@ instance ToJSON Instance where
     toJSON = toJSON . instToText
 
 data Related = Related
-    { _annId       :: Id
+    { _annOp       :: !Bool
+    , _annId       :: Id
     , _annRelation :: Relation
-    , _annOp       :: !Bool
     } deriving (Show)
 
 makeClassy ''Related

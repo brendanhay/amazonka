@@ -32,9 +32,9 @@ import qualified Data.HashSet           as Set
 import           Data.List              (intersect, nub, sort)
 import           Data.Monoid            hiding (Product, Sum)
 
-Can just assume for the purposes of determing instances
-that if a Shape's relation contains no parents then it's
-an operation?
+-- Can just assume for the purposes of determing instances
+-- that if a Shape's relation contains no parents then it's
+-- an operation?
 
 -- FIXME: Necessary to update the Relation?
 solve :: (Traversable t)

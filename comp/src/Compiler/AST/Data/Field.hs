@@ -29,6 +29,7 @@ module Compiler.AST.Data.Field
     , fieldHelp
     , fieldLocation
     , fieldMonoid
+    , fieldPayload
     ) where
 
 import           Compiler.AST.TypeOf
@@ -48,6 +49,7 @@ data Field = Field
     { _fieldId       :: Id    -- ^ The memberId from the struct members map.
     , _fieldRef      :: Ref   -- ^ The original struct member reference.
     , _fieldRequired :: !Bool -- ^ Does the struct have this member in the required set.
+    , _fieldPayload  :: !Bool -- ^ Does the struct have this memeber marked as the payload.
     , _fieldPrefix   :: Maybe Text
     } deriving (Show)
 
@@ -80,7 +82,7 @@ mkFields :: Maybe Text -> StructF (Shape Solved) -> [Field]
 mkFields p st = sort $ map mk (st ^. members)
   where
     mk :: (Id, Ref) -> Field
-    mk (k, v) = Field k v (Set.member k (getRequired st)) p
+    mk (k, v) = Field k v (Set.member k (getRequired st)) (Just k == st ^. payload) p
 
 fieldLens, fieldAccessor :: Getter Field Text
 fieldLens     = to (\f -> f ^. fieldId . lensId     (f ^. fieldPrefix))

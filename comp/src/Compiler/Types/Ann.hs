@@ -4,7 +4,6 @@
 {-# LANGUAGE OverloadedStrings  #-}
 {-# LANGUAGE StandaloneDeriving #-}
 {-# LANGUAGE TemplateHaskell    #-}
-{-# LANGUAGE ViewPatterns       #-}
 
 -- Module      : Compiler.Types.Ann
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,57 +20,54 @@ module Compiler.Types.Ann where
 import           Compiler.TH
 import           Compiler.Types.Id
 import           Compiler.Types.Timestamp
+import           Compiler.Types.URI
 import           Control.Comonad
 import           Control.Comonad.Cofree
 import           Control.Lens
-import           Data.Aeson               (ToJSON (..))
 import           Data.Hashable
 import qualified Data.HashSet             as Set
 import           Data.Jason               hiding (ToJSON (..))
 import           Data.Monoid
 import           Data.Text                (Text)
 import qualified Data.Text                as Text
-import           GHC.Generics
+import           GHC.Generics             (Generic)
 
 type Set = Set.HashSet
 
 data Direction
-   = Input
-   | Output
+   = Output
+   | Input
      deriving (Eq, Show)
 
-data Relation
-    = Uni (Set Id) Direction
-    | Bi  (Set Id)
+data Mode
+    = Bi
+    | Uni Direction
       deriving (Eq, Show)
 
+instance Monoid Mode where
+    mempty                  = Bi
+    mappend (Uni i) (Uni o)
+        | i == o            = Uni o
+    mappend _       _       = Bi
+
+data Relation = Relation
+    { _relParents :: Set Id
+    , _relMode    :: !Mode
+    } deriving (Eq, Show)
+
+makeClassy ''Relation
+
 instance Monoid Relation where
-    mempty      = Bi mempty
-    mappend l r =
-        case (l, r) of
-            (Bi  x,   Bi  y)   -> Bi  (x <> y)
-            (Bi  x,   Uni y _) -> Bi  (x <> y)
-            (Uni x _, Bi  y)   -> Bi  (x <> y)
-            (Uni x a, Uni y b)
-                | a == b       -> Uni (x <> y) b
-                | otherwise    -> Bi  (x <> y)
+    mempty      = Relation mempty mempty
+    mappend a b = Relation
+        (_relParents a <> _relParents b)
+        (_relMode    a <> _relMode    b)
 
-mkRelation :: Id -> Direction -> Relation
-mkRelation n = Uni (Set.singleton n)
+mkRelation :: Set Id -> Direction -> Relation
+mkRelation xs = Relation xs . Uni
 
-parents :: Traversal' Relation Id
-parents = lens f (flip g) . each
-  where
-    f = Set.toList . \case
-        Uni  x _ -> x
-        Bi   x   -> x
-
-    g (Set.fromList -> x) = \case
-        Uni _ d -> Uni x d
-        Bi  _   -> Bi  x
-
-shared :: Relation -> Bool
-shared = (> 1) . lengthOf parents
+isShared :: HasRelation a => a -> Bool
+isShared = (> 1) . Set.size . view relParents
 
 data Lit
     = Int
@@ -116,39 +112,63 @@ instance Hashable Derive
 instance FromJSON Derive where
     parseJSON = gParseJSON' (spinal & ctor %~ (. Text.drop 1))
 
-data Instance
-    = FromJSON  -- headers, status, json object
-    | ToJSON
-    | FromXML   -- headers, status, xml cursor
-    | ToXML     -- xml
-    | ToQuery   -- query params
-    | FromBody  -- headers, status, streaming response body
-    | ToPath    -- uri and query components
-    | ToBody    -- streaming request body
-    | ToHeaders -- headers
-      deriving (Eq, Ord, Show, Generic)
+data Related
+    = RShape Id Relation
+    | RReq   Id Relation (HTTP Identity)
+    | RRes   Id Relation
+      deriving (Show)
 
-instance Hashable Instance
+makePrisms ''Related
 
-instToText :: Instance -> Text
-instToText = Text.pack . show
+relPairs :: Related -> (Id, Relation)
+relPairs = \case
+    RShape n r   -> (n, r)
+    RReq   n r _ -> (n, r)
+    RRes   n r   -> (n, r)
 
-instance ToJSON Instance where
-    toJSON = toJSON . instToText
+class HasRelated a where
+    related     :: Lens' a Related
+    annId       :: Lens' a Id
+    annRelation :: Lens' a Relation
 
-data Related = Related
-    { _annOp       :: !Bool
-    , _annId       :: Id
-    , _annRelation :: Relation
-    } deriving (Show)
+    annId = related . lens (fst . relPairs) (flip f)
+      where
+        f n = \case
+            RShape _ r   -> RShape n r
+            RReq   _ r h -> RReq   n r h
+            RRes   _ r   -> RRes   n r
 
-makeClassy ''Related
+    annRelation = related . lens (snd . relPairs) (flip f)
+      where
+        f r = \case
+            RShape n _   -> RShape n r
+            RReq   n _ h -> RReq   n r h
+            RRes   n _   -> RRes   n r
+
+instance HasRelated Related where
+    related = id
 
 instance (Functor f, HasRelated a) => HasRelated (Cofree f a) where
     related = lens extract (flip (:<) . unwrap) . related
 
 instance HasId Related where
-    identifier = _annId
+    identifier = view annId
+
+instance HasRelation Related where
+    relation = annRelation
+
+mkRelShape :: HasRelation a => Id -> a -> Related
+mkRelShape n = RShape n . view relation
+
+mkRelOp :: HasRelation a => Direction -> Id -> HTTP Identity -> a -> Related
+mkRelOp Input  n h r = RReq n (r ^. relation) h
+mkRelOp Output n _ r = RRes n (r ^. relation)
+
+-- isReq :: HasRelated a => a -> Bool
+-- isReq = not . isn't _RReq . view related
+
+-- isRes :: HasRelated a => a -> Bool
+-- isRes = not . isn't _RRes . view related
 
 data Prefixed = Prefixed
     { _annRelated :: Related
@@ -167,10 +187,9 @@ instance HasId Prefixed where
     identifier = view annId
 
 data Solved = Solved
-    { _annPrefixed  :: Prefixed
-    , _annType      :: TType
-    , _annDerive    :: [Derive]
-    , _annInstances :: [Instance]
+    { _annPrefixed :: Prefixed
+    , _annType     :: TType
+    , _annDerive   :: [Derive]
     } deriving (Show)
 
 makeClassy ''Solved

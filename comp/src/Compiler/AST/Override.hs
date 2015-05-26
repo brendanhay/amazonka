@@ -20,6 +20,7 @@ module Compiler.AST.Override
     ) where
 
 import           Compiler.Types
+import           Control.Comonad
 import           Control.Comonad.Cofree
 import           Control.Error
 import           Control.Lens
@@ -29,7 +30,6 @@ import           Data.Bifunctor
 import qualified Data.HashMap.Strict    as Map
 import qualified Data.HashSet           as Set
 import           Data.Monoid
-import           Debug.Trace
 
 data Env = Env
     { _renamed  :: Map Id Id
@@ -38,16 +38,6 @@ data Env = Env
     }
 
 makeLenses ''Env
-
-env :: MonadState Env m => Getter Env (Map Id a) -> Id -> m (Maybe a)
-env l n = uses l (Map.lookup k)
-  where
-    k | n == mkId "DetachNetworkInterfaceRequest" = trace (show n) n
-      | n == mkId "DetachNetworkInterface"     = trace (show n) n
-      | otherwise = n
-
-save :: Shape Related -> MemoS (Shape Related)
-save x = memo %= Map.insert (identifier x) x >> return x
 
 -- | Apply the override rules to shapes and their respective fields.
 override :: Functor f
@@ -85,16 +75,18 @@ override ovs svc = do
 
 type MemoS = State Env
 
-overrideRelation :: Relation -> MemoS Relation
-overrideRelation r = do
+overrideAnn :: Id -> Related -> MemoS Related
+overrideAnn n r = do
     rn <- use renamed
     rp <- use replaced
-    return $! r & parents %~ f rn rp
+    return $! r
+        & annId      .~ n
+        & relParents %~ Set.map (f rn rp)
   where
-    f rn rp n
-        | Just x <- Map.lookup n rn = f rn rp x
-        | Just x <- Map.lookup n rp = f rn rp (x ^. replaceName)
-        | otherwise                 = n
+    f rn rp k
+        | Just x <- Map.lookup k rn = f rn rp x
+        | Just x <- Map.lookup k rp = f rn rp (x ^. replaceName)
+        | otherwise                 = k
 
 overrideShape :: Map Id Override
               -> Id
@@ -104,22 +96,21 @@ overrideShape ovs n c@(_ :< s) = mayRemember
   where
     mayRemember = env memo     n >>= maybe mayRename        (return . (n,))
     mayRename   = env renamed  n >>= maybe mayReplace       (\x -> overrideShape ovs x c)
-    mayReplace  = env replaced n >>= maybe ((n,) <$> shape) (fmap (n,) . save . pointer)
+    mayReplace  = env replaced n >>= maybe ((n,) <$> shape) (fmap (n,) . pointer)
 
     Override{..} = fromMaybe defaultOverride (Map.lookup n ovs)
 
-    d = c ^. annRelation
-
-    pointer :: Replace -> Shape Related
-    pointer r = Related False (r ^. replaceName) mempty
-         :< Ptr (s ^. info) (r ^. replaceDeriving)
+    pointer :: Replace -> MemoS (Shape Related)
+    pointer r = do
+        d <- overrideAnn n (extract c)
+        save $ d :< Ptr (s ^. info) (r ^. replaceDeriving)
 
     shape :: MemoS (Shape Related)
     shape = do
-       d' <- overrideRelation d
+       d <- overrideAnn n (extract c)
        traverseOf references ref s
            >>= rules
-           >>= save . (Related False n d' :<)
+           >>= save . (d :<)
 
     ref :: RefF (Shape Related) -> MemoS (RefF (Shape Related))
     ref r = flip (set refAnn) r . snd <$>
@@ -155,3 +146,9 @@ overrideShape ovs n c@(_ :< s) = mayRemember
         return $! x
                 & references
                %~ f _replaceName rp . f id rn
+
+env :: MonadState Env m => Getter Env (Map Id a) -> Id -> m (Maybe a)
+env l n = uses l (Map.lookup n)
+
+save :: Shape Related -> MemoS (Shape Related)
+save x = memo %= Map.insert (identifier x) x >> return x

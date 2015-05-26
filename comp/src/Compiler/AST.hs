@@ -23,7 +23,6 @@ import           Compiler.AST.Prefix
 import           Compiler.AST.Solve
 import           Compiler.AST.Subst
 import           Compiler.Formatting
-import           Compiler.Protocol
 import           Compiler.Types
 import           Control.Error
 import           Control.Lens
@@ -33,8 +32,6 @@ import qualified Data.HashMap.Strict   as Map
 import qualified Data.HashSet          as Set
 import           Data.List             (sort)
 import           Data.Monoid
-import           Data.Text             (Text)
-import           Debug.Trace
 
 -- Order:
 -- substitute
@@ -77,7 +74,7 @@ rewriteService cfg s = do
     elaborate (s ^. shapes)
         -- Annotate the comonadic tree with the associated
         -- bi/unidirectional (input/output/both) relation for shapes.
-        >>= traverse (pure . attach (Related False) rs)
+        >>= traverse (pure . attach mkRelShape rs)
         -- Apply the override configuration to the service, and default any
         -- optional fields from the JSON where needed.
         >>= return . (\ss -> override (cfg ^. typeOverrides) (s { _shapes = ss }))
@@ -95,7 +92,7 @@ renderShapes cfg svc = do
     (os, ss) <- prefixes (svc ^. shapes)
         -- Determine the appropriate Haskell AST type, auto deriveable instances,
         -- and fully rendered instances.
-        >>= return . solve cfg (svc ^. protocol)
+        >>= return . solve cfg
         -- Convert the shape AST into a rendered Haskell AST declaration
         >>= kvTraverseMaybe (const (dataType (svc ^. protocol)))
         -- Separate the operation input/output shapes from the .Types shapes.
@@ -132,7 +129,7 @@ relations os ss = execStateT (traverse go os) mempty
     count :: Id -> Direction -> Maybe Id -> MemoR ()
     count _ _       Nothing  = pure ()
     count p d (Just n) = do
-        modify $ Map.insertWith (<>) n (mkRelation p d)
+        modify $ Map.insertWith (<>) n (mkRelation (Set.singleton p) d)
         s <- lift (safe n)
         shape n d s
 

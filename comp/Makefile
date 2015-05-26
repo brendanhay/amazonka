@@ -71,6 +71,8 @@ CORE_VERSION  = $(call version,$(TOP)/core/amazonka-core.cabal)
 
 .PHONY: format compile gen
 
+default: compile # Temporary to avoid formatting
+
 format: compile
 	@echo -e '\nFormatting...'
 	@find $(wildcard $(OUT_DIR)/amazonka-*/gen) \

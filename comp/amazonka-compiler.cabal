@@ -25,6 +25,7 @@ executable compile
         , Compiler.AST.Cofree
         , Compiler.AST.Data
         , Compiler.AST.Data.Field
+        , Compiler.AST.Data.Instance
         , Compiler.AST.Data.Syntax
         , Compiler.AST.Override
         , Compiler.AST.Prefix

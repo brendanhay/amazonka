@@ -20,6 +20,7 @@ module Compiler.AST.Data
     ) where
 
 import           Compiler.AST.Data.Field
+import           Compiler.AST.Data.Instance
 import           Compiler.AST.Data.Syntax
 import           Compiler.Formatting
 import           Compiler.Protocol
@@ -29,6 +30,7 @@ import           Control.Lens                 hiding (enum, mapping, (??))
 import           Data.Bifunctor
 import           Data.Char                    (isSpace)
 import qualified Data.HashMap.Strict          as Map
+import qualified Data.HashSet                 as Set
 import           Data.Monoid                  hiding (Product, Sum)
 import           Data.String
 import           Data.Text                    (Text)
@@ -48,13 +50,12 @@ dataType proto s = case unwrap s of
     p  = s ^. annPrefix
     t  = s ^. annType
     ds = s ^. annDerive
-    is = s ^. annInstances
 
     enum :: Info -> Map Id Text -> Either Error Data
     enum i vs = Sum (n ^. typeId) i
         <$> render (dataDecl n (map conDecl (Map.keys branches)) ds)
         <*> pure branches
-        <*> pure is
+        <*> pure (sumInstances proto r)
       where
         branches :: Map Text Text
         branches = vs & kvTraversal %~ first (^. ctorId p)
@@ -64,7 +65,7 @@ dataType proto s = case unwrap s of
         <$> render (dataDecl n [recDecl n fields] ds)
         <*> mkCtor
         <*> traverse mkLens fields
-        <*> (Map.fromList <$> traverse mkInstance (instances proto r))
+        <*> mkInstances
       where
         mkCtor :: Either Error Fun
         mkCtor = Fun (n ^. smartCtorId) help
@@ -76,7 +77,7 @@ dataType proto s = case unwrap s of
                 $ format ("'" % itype % "' smart constructor.") n
                <> see
 
-            see = case r ^.. parents of
+            see = case r ^. relParents . to Set.toList of
                 [] -> mempty
                 xs -> mappend "\n\n/See/: "
                     . LText.intercalate ", "
@@ -87,13 +88,12 @@ dataType proto s = case unwrap s of
             <$> plain (lensSig t f)
             <*> plain (lensDecl  f)
 
-        -- | Creating an application of locationName <de/serialiser> accessor
-        -- per field that satisfies the instance location requirement.
-        mkInstance :: Instance -> Either Error (Instance, [LazyText])
-        mkInstance k = (k,) <$> go k (satisfies k (^. fieldLocation) fields)
-          where
-            go :: Instance -> [Field] -> Either Error [LazyText]
-            go x = traverse (plain . instanceExp proto x)
+        mkInstances :: Either Error (Map Text [LazyText])
+        mkInstances = Map.fromList <$>
+            (prodInstances proto s fields >>= traverse mkInst)
+
+        mkInst :: Instance -> Either Error (Text, [LazyText])
+        mkInst i = (instToText i,) <$> traverse plain (instanceExps i)
 
         fields :: [Field]
         fields = mkFields p st

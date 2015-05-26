@@ -18,19 +18,22 @@
 module Compiler.AST.Data.Syntax where
 
 import           Compiler.AST.Data.Field
+import           Compiler.AST.Data.Instance
 import           Compiler.AST.TypeOf
+import           Compiler.Formatting
 import           Compiler.Protocol
 import           Compiler.Types
 import           Control.Comonad.Cofree
+import           Control.Error
 import           Control.Lens                 hiding (mapping, op)
 import qualified Data.Foldable                as Fold
-import           Data.Maybe
+import qualified Data.HashMap.Strict          as Map
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
 import qualified Language.Haskell.Exts        as Exts
 import           Language.Haskell.Exts.Build  (app, infixApp, lamE, paren, sfun)
 import           Language.Haskell.Exts.SrcLoc (noLoc)
-import           Language.Haskell.Exts.Syntax hiding (Int, List, Lit)
+import           Language.Haskell.Exts.Syntax hiding (Int, List, Lit, Var)
 
 ctorSig :: Id -> [Field] -> Decl
 ctorSig n = TypeSig noLoc [n ^. smartCtorId . to ident]
@@ -56,7 +59,7 @@ ctorDecl n fs = sfun noLoc name ps (UnGuardedRhs rhs) (BDecls [])
       where
         def | opt, f ^. fieldMonoid = var "mempty"
             | opt                   = var "Nothing"
-            | otherwise             = Var (UnQual (f ^. fieldParam))
+            | otherwise             = Exts.Var (UnQual (f ^. fieldParam))
 
         opt = not (f ^. fieldRequired)
 
@@ -94,33 +97,48 @@ recDecl n fs = QualConDecl noLoc [] [] $ RecDecl (ident (n ^. typeId)) (map g fs
   where
     g f = ([f ^. fieldAccessor . to ident], internal f)
 
-instanceExp :: Protocol -> Instance -> Field -> Exp
-instanceExp proto i f =
-    case unwrap (f ^. fieldRef . refAnn) of
-        List l -> expr (parent : maybeToList item)
-          where
-            (parent, item) =
-                listName proto dir (f ^. fieldId) (f ^. fieldRef) l
-
-        _ -> expr [member]
+toPathExps :: (Show a, HasURI b) => a -> b -> [Field] -> Either Error [Exp]
+toPathExps x (view uRI -> u) fs = traverse g (u ^.. segments)
   where
-    expr :: [Text] -> Exp
-    expr = case dir of
-        Output -> Fold.foldl' (\acc -> infixApp acc op . str) (var "x")
-        Input  -> Fold.foldr' (\x   -> infixApp (str x) op)   (var accessor)
+    g (Tok t) = return $! str t
+    g (Var n) = do
+        f <- note (format ("Missing field in ToPath expression " % iprimary %
+                           "\n" % shown) n x)
+            $ Fold.find ((n ==) . view fieldId) fs
+        return $! app (var "toText") (var (f ^. fieldAccessor))
 
-    accessor, member :: Text
-    accessor = f ^. fieldAccessor
-    member   = memberName proto dir (f ^. fieldId) (f ^. fieldRef)
+instanceExps :: Instance -> [Exp]
+instanceExps = undefined
 
-    op :: QOp
-    op = qop (operator i req)
+-- instanceExp :: Protocol -> Instance -> Field -> Exp
+-- instanceExp proto i f =
+--     case shape of
+--         List l -> expr (parent : maybeToList item)
+--           where
+--             (parent, item) =
+--                 listName proto dir (f ^. fieldId) (f ^. fieldRef) l
 
-    dir :: Direction
-    dir = direction i
+--         _ -> expr [member]
+--   where
+--     shape = unwrap (f ^. fieldRef . refAnn)
 
-    req :: Bool
-    req = f ^. fieldRequired
+--     expr :: [Text] -> Exp
+--     expr = case dir of
+--         Output -> Fold.foldl' (\acc -> infixApp acc op . str) (var "x")
+--         Input  -> Fold.foldr' (\x   -> infixApp (str x) op)   (var accessor)
+
+--     accessor, member :: Text
+--     accessor = f ^. fieldAccessor
+--     member   = memberName proto dir (f ^. fieldId) (f ^. fieldRef)
+
+--     op :: QOp
+--     op = qop (operator i req)
+
+--     dir :: Direction
+--     dir = placement i
+
+--     req :: Bool
+--     req = f ^. fieldRequired
 
 -- instDecl :: Text -> Text -> Text -> Text -> [Text] -> Decl
 -- instDecl c f o t fs = InstDecl noLoc Nothing [] [] (UnQual (ident c)) [tycon t]

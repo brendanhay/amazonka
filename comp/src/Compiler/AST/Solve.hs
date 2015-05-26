@@ -20,7 +20,6 @@ module Compiler.AST.Solve
 
 import           Compiler.AST.Cofree
 import           Compiler.AST.TypeOf
-import           Compiler.Protocol
 import           Compiler.Types
 import           Control.Arrow          ((&&&))
 import           Control.Comonad.Cofree
@@ -39,25 +38,23 @@ import           Data.Monoid            hiding (Product, Sum)
 -- FIXME: Necessary to update the Relation?
 solve :: (Traversable t)
       => Config
-      -> Protocol
       -> t (Shape Prefixed)
       -> t (Shape Solved)
-solve cfg proto = (`evalState` env) . traverse (annotate con id (pure . ann))
+solve cfg = (`evalState` env) . traverse (annotate con id (pure . ann))
  where
-    env :: Map Id (TType, [Derive], [Instance])
+    env :: Map Id (TType, [Derive])
     env = replaced def cfg
       where
         def x =
            ( x ^. replaceName . typeId . to TType
            , x ^. replaceDeriving . to Set.toList
-           , instances proto mempty
            )
 
-    ann :: Shape Prefixed -> (TType, [Derive], [Instance])
-    ann x@(p :< _) = (typeOf x, derive x, instances proto (p ^. annRelation))
+    ann :: Shape Prefixed -> (TType, [Derive])
+    ann x = (typeOf x, derive x)
 
-    con :: Prefixed -> (TType, [Derive], [Instance]) -> Solved
-    con p (t, ds, is) = Solved p t ds is
+    con :: Prefixed -> (TType, [Derive]) -> Solved
+    con p (t, ds) = Solved p t ds
 
 -- FIXME: Filter constraints based on info like min/max of lists etc.
 derive :: Shape a -> [Derive]

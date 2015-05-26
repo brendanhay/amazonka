@@ -83,8 +83,8 @@ instance ToJSON Fun where
         ]
 
 data Data
-    = Product Text Info LazyText Fun [Fun] (Map Instance [LazyText])
-    | Sum     Text Info LazyText (Map Text Text) [Instance]
+    = Product Text Info LazyText Fun [Fun] (Map Text [LazyText])
+    | Sum     Text Info LazyText (Map Text Text) [Text]
       deriving (Show)
 
 instance HasInfo Data where
@@ -107,7 +107,7 @@ instance ToJSON Data where
             , "comment"     .= (i ^. infoDocumentation)
             , "declaration" .= d
             , "lenses"      .= ls
-            , "instances"   .= (kvTraversal %~ first instToText) is
+            , "instances"   .= is
             ]
 
         Sum n i d vs is -> object

@@ -84,6 +84,15 @@ instance FromJSON Protocol where
 instance ToJSON Protocol where
     toJSON = gToJSON' spinal
 
+timestamp :: Protocol -> Timestamp
+timestamp = \case
+    JSON     -> POSIX
+    RestJSON -> POSIX
+    XML      -> ISO8601
+    RestXML  -> ISO8601
+    Query    -> ISO8601
+    EC2      -> ISO8601
+
 data Checksum
     = MD5
     | SHA256
@@ -109,17 +118,6 @@ instance FromJSON Location where
 
 instance ToJSON Location where
     toJSON = gToJSON' camel
-
-data Method
-    = GET
-    | POST
-    | HEAD
-    | PUT
-    | DELETE
-      deriving (Eq, Show, Generic)
-
-instance FromJSON Method where
-    parseJSON = gParseJSON' upper
 
 data XML = XML'
     { _xmlPrefix :: Text
@@ -322,17 +320,6 @@ instance FromJSON (ShapeF ()) where
                       (Enum i . Map.fromList . map (first mkId . renameBranch))
                       m
             _           -> fail $ "Unknown Shape type: " ++ Text.unpack t
-
-data HTTP f = HTTP
-    { _method       :: !Method
-    , _requestURI   :: URI
-    , _responseCode :: f Int
-    } deriving (Generic)
-
-makeClassy ''HTTP
-
-instance FromJSON (HTTP Maybe) where
-    parseJSON = gParseJSON' camel
 
 data Operation f a = Operation
     { _opName          :: Id

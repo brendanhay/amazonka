@@ -4,7 +4,6 @@
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TemplateHaskell   #-}
 {-# LANGUAGE TupleSections     #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Compiler.AST.Subst
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -48,12 +47,6 @@ makeLenses ''Env
 
 type MemoS a = StateT (Env a) (Either Error)
 
-save :: Id -> Shape a -> MemoS a ()
-save n s = memo %= Map.insert n s
-
-rename :: Id -> Id -> MemoS a ()
-rename x y = overrides %= Map.insert x (defaultOverride & renamedTo ?~ y)
-
 -- | Set some appropriate defaults where needed for later stages,
 -- and ensure there are no vacant references to input/output shapes
 -- by either adding any empty request or response shapes,
@@ -82,12 +75,14 @@ substitute svc@Service{..} = do
     operation :: Operation Maybe (RefF ())
               -> MemoS Related (Operation Identity (RefF ()))
     operation o@Operation{..} = do
-        inp <- subst Input  (name Input  _opName) _opInput
-        out <- subst Output (name Output _opName) _opOutput
+        let h = http _opHTTP
+
+        inp <- subst Input  (name Input  _opName) h _opInput
+        out <- subst Output (name Output _opName) h _opOutput
         return $! o
             { _opDocumentation =
                 _opDocumentation .! "FIXME: Undocumented operation."
-            , _opHTTP          = http _opHTTP
+            , _opHTTP          = h
             , _opInput         = inp
             , _opOutput        = out
             }
@@ -109,34 +104,45 @@ substitute svc@Service{..} = do
     -- For shared Shapes, perform a copy of the destination Shape to a new Shape.
     subst :: Direction
           -> Id
+          -> HTTP Identity
           -> Maybe (RefF ())
           -> MemoS Related (Identity (RefF ()))
 
     -- FIXME: this could be a shared empty shape for void types which succeeds
     -- on de/serialisation for any protocol, and takes into account a successful
     -- status code on responses.
-    subst d n Nothing  = do
+    subst d n h Nothing  = do
         verify n "Failure attempting to substitute fresh shape"
         -- No Ref exists, safely insert an empty shape and return a related Ref.
-        save n (Related True n (Uni mempty d) :< emptyStruct)
+        save n (mkRelOp d n h (mkRelation mempty d) :< emptyStruct)
         return $! Identity (emptyRef n)
 
-    subst _ n (Just r) = do
+    subst d n h (Just r) = do
         let k = r ^. refShape
-        (view annRelation -> d) :< s <- lift (safe k _shapes)
-        if not (shared d)
+        x :< s <- lift (safe k _shapes)
+        if not (isShared x)
             -- Ref exists, and is not referred to by any other Shape.
             -- Insert override to rename the Ref/Shape to the desired name.
-            then rename k n >> return (Identity r)
+            then do
+                -- Ensure the annotation is updated.
+                save k (mkRelOp d k h x :< s)
+                rename k n >> return (Identity r)
             -- Ref exists and is referred to by other shapes.
             else do
                 -- Check that the desired name is not in use
                 -- to prevent accidental override.
-                verify n "Failed attempting to copy type"
+                verify n "Failed attempting to copy existing shape"
                 -- Copy the shape by saving it under the desired name.
-                save n (Related True n d :< s)
+                save n (mkRelOp d n h x :< s)
+                memo %= Map.delete k
                 -- Update the Ref to point to the new wrapper.
                 return $! Identity (r & refShape .~ n)
+
+save :: Id -> Shape a -> MemoS a ()
+save n s = memo %= Map.insert n s
+
+rename :: Id -> Id -> MemoS a ()
+rename x y = overrides %= Map.insert x (defaultOverride & renamedTo ?~ y)
 
 safe :: Show a => Id -> Map Id a -> Either Error a
 safe n ss = note

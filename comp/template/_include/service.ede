@@ -1,0 +1,36 @@
+-- | Version @{{ apiVersion }}@ of the {{ serviceFullName }}.
+data {{ serviceAbbrev }}
+
+instance AWSService {{ serviceAbbrev }} where
+    type Sg {{ serviceAbbrev }} = {{ signatureVersion }}
+    type Er {{ serviceAbbrev }} = {{ serviceError }}
+
+    service = service'
+      where
+        service' :: Service {{ serviceAbbrev }}
+        service' = Service
+            { _svcAbbrev       = "{{ serviceAbbrev }}"
+            , _svcPrefix       = "{{ endpointPrefix }}"
+            , _svcVersion      = "{{ apiVersion }}"
+            , _svcTargetPrefix = {% if targetPrefix %}Just "{{ targetPrefix }}"{% else %}Nothing{% endif %}
+            , _svcJSONVersion  = "{{ jsonVersion }}"
+            , _svcHandle       = handle
+            , _svcRetry        = retry
+            }
+
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError {{ serviceError }})
+        handle = {{ serviceErrorFunction }} statusSuccess service'
+
+        retry :: Retry {{ serviceAbbrev }}
+        retry = undefined
+
+        check :: Status
+              -> {{ serviceError }}
+              -> Bool
+        check (statusCode -> s) (awsErrorCode -> e) = undefined
+{% if xmlNamespace %}
+
+ns :: Text
+ns = "{{ xmlNamespace }}"
+{% endif %}

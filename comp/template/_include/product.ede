@@ -47,6 +47,27 @@ instance ToXML {{ shape.name }} where
       {% endfor %}
         ]
     {% endif %}
+  {% when "FromJSON" %}
+
+instance FromJSON {{ shape.name }} where
+    {% if inst.value | empty %}
+    parseJSON = const {{ shape.name }}
+    {% else %}
+    parseJSON x = {{ shape.name }}
+      {% for field in inst.value %}
+        {% include "applicative.ede" %} {{ field.value }}
+      {% endfor %}
+    {% endif %}
+  {% when "ToJSON" %}
+    {% if !(inst.value | empty) %}
+
+instance ToJSON {{ shape.name }} where
+    toJSON {{ shape.name }}{..} =
+      {% for field in inst.value %}
+        {% include "list.ede" %} {{ field.value }}
+      {% endfor %}
+        ]
+    {% endif %}
   {% when "ToQuery" %}
 
 instance ToQuery {{ shape.name }} where

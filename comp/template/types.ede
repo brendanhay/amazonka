@@ -18,7 +18,7 @@ module {{ moduleName }}
     -- * Service
       {{ serviceAbbrev }}
     -- ** Errors
-    ,
+    , {{ serviceError }}
 
   {% for shape in shapes %}
     -- * {{ shape.value.name }}
@@ -43,6 +43,8 @@ import           Network.AWS.Signing
 {% for import in typeImports %}
 import           {{ import.value }}
 {% endfor %}
+
+{% include "_include/service.ede" %}
 {% for shape in shapes %}
   {% case shape.value.type %}
   {% when "product" %}

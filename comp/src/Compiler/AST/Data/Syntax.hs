@@ -102,15 +102,12 @@ recDecl ts n fs = QualConDecl noLoc [] [] $ RecDecl (ident (n ^. typeId)) (map g
   where
     g f = ([f ^. fieldAccessor . to ident], internal ts f)
 
--- requestExps :: ToReq -> [Exp]
--- requestExps = const []
-
 responseExps :: Protocol -> [Field] -> [Exp]
 responseExps p = map go
   where
     go f = case f ^. fieldLocation of
-        Just Headers     -> decodeExp p '~' "h" f
-        Just Header      -> decodeExp p '~' "h" f
+        Just Headers     -> fromHeadersExp p f
+        Just Header      -> fromHeadersExp p f
         Just StatusCode  -> app (var "pure") (var "s")
         Just Body        -> app (var "pure") (var "x")
         Nothing
@@ -118,21 +115,34 @@ responseExps p = map go
                          -> app (var "pure") (var "x")
         _                ->
             case p of
-                JSON     -> decodeExp p ':' "x" f
-                RestJSON -> decodeExp p ':' "x" f
-                _        -> decodeExp p '@' "x" f
+                JSON     -> fromJSONExp p f
+                RestJSON -> fromJSONExp p f
+                _        -> fromXMLExp  p f
 
 instanceExps :: Protocol -> Inst -> [Exp]
 instanceExps p = \case
-    FromXML   fs -> map (decodeExp p '@' "x") fs
-    ToXML     fs -> map (encodeExp p '@') fs
-    ToHeaders fs -> map (encodeExp p '~') fs
-    ToQuery   es -> map (either str (encodeExp p '?')) es
-    ToPath    es -> map (either str (app (var "toText") . var . view fieldAccessor)) es
+    FromXML   fs -> map (fromXMLExp   p) fs
+    ToXML     fs -> map (toXMLExp     p) fs
+    ToHeaders fs -> map (toHeadersExp p) fs
+    ToQuery   es -> map (either str (toQueryExp p)) es
+    ToPath    es -> map (either str toPathExp)      es
     ToBody    f  -> [var (f ^. fieldAccessor)]
 
-decodeExp :: Protocol -> Char -> Text -> Field -> Exp
-decodeExp p c (var -> v) f
+fromXMLExp, fromJSONExp, fromHeadersExp, toXMLExp,
+ toJSONExp, toHeadersExp, toQueryExp :: Protocol -> Field -> Exp
+fromXMLExp     = decodeExp '@'
+fromJSONExp    = decodeExp ':'
+fromHeadersExp = decodeExp '?'
+toXMLExp       = encodeExp '@'
+toJSONExp      = encodeExp '.'
+toHeadersExp   = encodeExp '~'
+toQueryExp     = encodeExp '?'
+
+toPathExp :: Field -> Exp
+toPathExp = app (var "toText") . var . view fieldAccessor
+
+decodeExp :: Char -> Protocol -> Field -> Exp
+decodeExp c p f
     | Just i <- m        = infixApp v (decodeListOp  c) (infixApp n (decodeOp c) i)
     | f ^. fieldRequired = infixApp v (decodeOp      c) n
     | f ^. fieldMonoid   = infixApp v (decodeOp      c) (infixApp n (decodeDefOp c) (var "mempty"))
@@ -140,8 +150,10 @@ decodeExp p c (var -> v) f
   where
     (n, m) = memberNames p f
 
-encodeExp :: Protocol -> Char -> Field -> Exp
-encodeExp p c f
+    v = var "x"
+
+encodeExp :: Char -> Protocol -> Field -> Exp
+encodeExp c p f
     | Just i <- m = infixApp n o (infixApp i o v)
     | otherwise   = infixApp n o v
   where
@@ -201,10 +213,6 @@ mapping t e = Fold.foldl' (\y -> InfixApp y (qop ".")) e (go t)
 
     coerce (x:xs) = app (var "mapping") x : xs
     coerce []     = []
-
-        --        TList      {}   -> [] -- [var "_List"]  -- Coercible.
-        -- TList1     {}   -> [] -- [var "_List1"] -- Coercible.
-        -- TMap       {}   -> [] -- [var "_Map"]   -- Coercible.
 
 iso :: TType -> Maybe Exp
 iso = \case

@@ -36,10 +36,10 @@ import           Language.Haskell.Exts.Build  (app, infixApp, lamE, paren, sfun)
 import           Language.Haskell.Exts.SrcLoc (noLoc)
 import           Language.Haskell.Exts.Syntax hiding (Int, List, Lit, Var)
 
-ctorSig :: Id -> [Field] -> Decl
-ctorSig n = TypeSig noLoc [n ^. smartCtorId . to ident]
+ctorSig :: Timestamp -> Id -> [Field] -> Decl
+ctorSig ts n = TypeSig noLoc [n ^. smartCtorId . to ident]
     . Fold.foldr' TyFun (n ^. typeId . to tycon)
-    . map external
+    . map (external ts)
     . filter (^. fieldRequired)
 
 ctorDecl :: Id -> [Field] -> Decl
@@ -64,10 +64,10 @@ ctorDecl n fs = sfun noLoc name ps (UnGuardedRhs rhs) (BDecls [])
 
         opt = not (f ^. fieldRequired)
 
-lensSig :: TType -> Field -> Decl
-lensSig t f = TypeSig noLoc [ident (f ^. fieldLens)] $
+lensSig :: Timestamp -> TType -> Field -> Decl
+lensSig ts t f = TypeSig noLoc [ident (f ^. fieldLens)] $
     TyApp (TyApp (tycon "Lens'")
-                 (external t))          (external (typeOf f))
+                 (external ts t)) (external ts (typeOf f))
 
 lensDecl :: Field -> Decl
 lensDecl f = sfun noLoc (ident l) [] (UnGuardedRhs rhs) (BDecls [])
@@ -92,11 +92,11 @@ dataDecl n fs cs = DataDecl noLoc arity [] (ident (n ^. typeId)) [] fs ds
 conDecl :: Text -> QualConDecl
 conDecl n = QualConDecl noLoc [] [] (ConDecl (ident n) [])
 
-recDecl :: Id -> [Field] -> QualConDecl
-recDecl n [] = conDecl (n ^. typeId)
-recDecl n fs = QualConDecl noLoc [] [] $ RecDecl (ident (n ^. typeId)) (map g fs)
+recDecl :: Timestamp -> Id -> [Field] -> QualConDecl
+recDecl _  n [] = conDecl (n ^. typeId)
+recDecl ts n fs = QualConDecl noLoc [] [] $ RecDecl (ident (n ^. typeId)) (map g fs)
   where
-    g f = ([f ^. fieldAccessor . to ident], internal f)
+    g f = ([f ^. fieldAccessor . to ident], internal ts f)
 
 -- requestExps :: ToReq -> [Exp]
 -- requestExps = const []
@@ -149,78 +149,57 @@ names proto f = case unwrap (f ^. fieldRef . refAnn) of
   where
     member = memberName proto Input (f ^. fieldId) (f ^. fieldRef)
 
--- instDecl :: Text -> Text -> Text -> Text -> [Text] -> Decl
--- instDecl c f o t fs = InstDecl noLoc Nothing [] [] (UnQual (ident c)) [tycon t]
---     [InsDecl (sfun noLoc (ident f) [ident v] (UnGuardedRhs rhs) (BDecls []))]
---   where
---     rhs = case fs of
---         []   -> var "mzero"
---         [x]  -> first x
---         x:xs -> Fold.foldl' (flip rest) (first x) x
+internal :: TypeOf a => Timestamp -> a -> Type
+internal ts (typeOf -> t) = case t of
+    TType      x   -> tycon x
+    TLit       x   -> literal True ts x
+    TNatural       -> tycon "Nat"
+    TStream        -> tycon "Stream"
+    TMaybe     x   -> TyApp  (tycon "Maybe") (internal ts x)
+    TSensitive x   -> TyApp  (tycon "Sensitive") (internal ts x)
+    TList      x   -> TyList (internal ts x)
+    TList1     x   -> TyApp  (tycon "NonEmpty") (internal ts x)
+    TMap       k v -> TyApp  (TyApp (tycon "HashMap") (internal ts k)) (internal ts v)
 
---     first :: Text -> Exp
---     first x = infixApp (con t) (qop "<$>") (loc x)
-
---     rest :: Text -> Exp -> Exp
---     rest x e = infixApp e (qop "<*>") (loc x)
-
---     loc :: Text -> Exp
---     loc = paren . infixApp (var v) (qop o) . str
-
---     v = "x"
-
-internal :: TypeOf a => a -> Type
-internal (typeOf -> t) =
-    case t of
-        TType      x   -> tycon x
-        TLit       x   -> literal True x
-        TNatural       -> tycon "Nat"
-        TStream        -> tycon "Stream"
-        TMaybe     x   -> TyApp (tycon "Maybe") (internal x)
-        TSensitive x   -> TyApp (tycon "Sensitive") (internal x)
-        TList      x   -> TyList (internal x)
-        TList1     x   -> TyApp (tycon "NonEmpty") (internal x)
-        TMap       k v -> TyApp (TyApp (tycon "HashMap") (internal k)) (internal v)
-
-external :: TypeOf a => a -> Type
-external (typeOf -> t) =
-    case t of
-        TType      x   -> tycon x
-        TLit       x   -> literal False x
-        TNatural       -> tycon "Natural"
-        TStream        -> tycon "Stream"
-        TMaybe     x   -> TyApp (tycon "Maybe") (external x)
-        TSensitive x   -> external x
-        TList      x   -> TyList (external x)
-        TList1     x   -> TyApp (tycon "NonEmpty") (external x)
-        TMap       k v -> TyApp (TyApp (tycon "HashMap") (external k)) (external v)
+external :: TypeOf a => Timestamp -> a -> Type
+external ts (typeOf -> t) = case t of
+    TType      x   -> tycon x
+    TLit       x   -> literal False ts x
+    TNatural       -> tycon "Natural"
+    TStream        -> tycon "Stream"
+    TMaybe     x   -> TyApp  (tycon "Maybe") (external ts x)
+    TSensitive x   -> external ts x
+    TList      x   -> TyList (external ts x)
+    TList1     x   -> TyApp  (tycon "NonEmpty") (external ts x)
+    TMap       k v -> TyApp  (TyApp (tycon "HashMap") (external ts k)) (external ts v)
 
 mapping :: TType -> Exp -> Exp
-mapping = compose . iso'
+mapping t e = Fold.foldl' (\y -> InfixApp y (qop ".")) e (go t)
   where
-    compose xs e = Fold.foldl' (\y -> InfixApp y (qop ".")) e xs
+    go = \case
+        TLit Time    -> [var "_Time"]
+        TNatural     -> [var "_Nat"]
+        TSensitive x -> var "_Sensitive" : go x
+        TMaybe     x -> coerce (go x)
+        _            -> []
 
-    iso' = \case
-        TLit  (Time {}) -> [var "_Time"]
-        TNatural        -> [var "_Nat"]
-        TMaybe     x    -> case iso' x of; [] -> []; xs -> var "mapping" : xs
-        TSensitive x    -> var "_Sensitive" : iso' x
-        TList      {}   -> [] -- [var "_List"]  -- Coercible.
-        TList1     {}   -> [] -- [var "_List1"] -- Coercible.
-        TMap       {}   -> [] -- [var "_Map"]   -- Coercible.
-        _               -> []
+    coerce (x:xs) = app (var "mapping") x : xs
+    coerce []     = []
 
-literal :: Bool -> Lit -> Type
-literal i = tycon . \case
-    Int                   -> "Int"
-    Long                  -> "Integer"
-    Double                -> "Double"
-    Text                  -> "Text"
-    Blob                  -> "Base64"
-    Bool                  -> "Bool"
-    Time ts
-        | i, Just x <- ts -> Text.pack . show $ x
-        | otherwise       -> "UTCTime"
+        --        TList      {}   -> [] -- [var "_List"]  -- Coercible.
+        -- TList1     {}   -> [] -- [var "_List1"] -- Coercible.
+        -- TMap       {}   -> [] -- [var "_Map"]   -- Coercible.
+
+literal :: Bool -> Timestamp -> Lit -> Type
+literal i ts = tycon . \case
+    Int              -> "Int"
+    Long             -> "Integer"
+    Double           -> "Double"
+    Text             -> "Text"
+    Blob             -> "Base64"
+    Bool             -> "Bool"
+    Time | i         -> tsToText ts
+         | otherwise -> "UTCTime"
 
 tycon :: Text -> Type
 tycon = TyCon . unqual

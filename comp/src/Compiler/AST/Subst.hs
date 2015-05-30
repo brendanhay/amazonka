@@ -56,8 +56,7 @@ type MemoS a = StateT (Env a) (Either Error)
 substitute :: Service Maybe (RefF ()) (Shape Related)
            -> Either Error (Service Identity (RefF ()) (Shape Related))
 substitute svc@Service{..} = do
-    (os, e) <- runStateT (traverse operation _operations) $
-        Env mempty (Map.map shape _shapes)
+    (os, e) <- runStateT (traverse operation _operations) (Env mempty _shapes)
     return $! override (e ^. overrides) $ svc
         { _metadata'  = meta _metadata'
         , _operations = os
@@ -80,6 +79,7 @@ substitute svc@Service{..} = do
 
         inp <- subst Input  (name Input  _opName) h _opInput
         out <- subst Output (name Output _opName) h _opOutput
+
         return $! o
             { _opDocumentation =
                 _opDocumentation .! "FIXME: Undocumented operation."
@@ -92,12 +92,6 @@ substitute svc@Service{..} = do
     http h = h
         { _responseCode = _responseCode h .! 200
         }
-
-    shape :: Shape a -> Shape a
-    shape (n :< s) = (n :<) $
-        case s of
-            Lit i (Time Nothing) -> Lit i . Time $ Just ts
-            _                    -> s
 
     -- Fill out missing Refs with a default Ref pointing to an empty Shape,
     -- which is also inserted into the resulting Shape universe.

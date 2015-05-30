@@ -76,7 +76,7 @@ derive (_ :< s) = nub . sort $ shape s
         Double -> base <> frac
         Text   -> base <> string
         Blob   -> [DShow]
-        Time _ -> base <> enum
+        Time   -> base <> enum
         Bool   -> base <> enum
 
     string = [DIsString]

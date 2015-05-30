@@ -39,12 +39,18 @@ import qualified Data.Text.Lazy.Builder       as Build
 import           HIndent
 import           Language.Haskell.Exts.Pretty
 
-dataType :: Protocol -> Shape Solved -> Either Error (Maybe Data)
-dataType proto s = case unwrap s of
+dataType :: HasMetadata a Identity
+         => a
+         -> Shape Solved
+         -> Either Error (Maybe Data)
+dataType m s = case unwrap s of
     Enum   i vs -> Just <$> enum i vs
     Struct st   -> Just <$> struct st
     _           -> return Nothing
   where
+    ts    = m ^. timestampFormat . _Identity
+    proto = m ^. protocol
+
     n  = s ^. annId
     r  = s ^. annRelation
     p  = s ^. annPrefix
@@ -77,13 +83,13 @@ dataType proto s = case unwrap s of
             _ -> Prod <$> prod <*> mkInsts (prodInsts proto s fields)
       where
         prod = Prod' (n ^. typeId) (st ^. infoDocumentation)
-            <$> render (dataDecl n [recDecl n fields] ds)
+            <$> render (dataDecl n [recDecl ts n fields] ds)
             <*> mkCtor
             <*> traverse mkLens fields
 
         mkCtor :: Either Error Fun
         mkCtor = Fun (n ^. smartCtorId) help
-            <$> plain  (ctorSig  n fields)
+            <$> plain  (ctorSig ts n fields)
             <*> render (ctorDecl n fields)
           where
             help = fromString
@@ -99,8 +105,8 @@ dataType proto s = case unwrap s of
 
         mkLens :: Field -> Either Error Fun
         mkLens f = Fun (f ^. fieldLens) (f ^. fieldHelp)
-            <$> plain (lensSig t f)
-            <*> plain (lensDecl  f)
+            <$> plain (lensSig ts t f)
+            <*> plain (lensDecl f)
 
         mkInsts :: Either Error [Inst] -> Either Error (Map Text [LText.Text])
         mkInsts f = Map.fromList <$> (f >>= traverse mkInst)

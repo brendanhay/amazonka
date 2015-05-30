@@ -81,7 +81,7 @@ renderShapes cfg svc = do
         -- and fully rendered instances.
         >>= return . solve cfg
         -- Convert the shape AST into a rendered Haskell AST declaration
-        >>= kvTraverseMaybe (const (dataType (svc ^. protocol)))
+        >>= kvTraverseMaybe (const (dataType svc))
         -- Separate the operation input/output shapes from the .Types shapes.
         >>= separate (svc ^. operations)
 

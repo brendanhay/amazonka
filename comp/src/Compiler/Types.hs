@@ -41,7 +41,6 @@ import           Compiler.Types.Map        as Types
 import           Compiler.Types.NS         as Types
 import           Compiler.Types.Orphans    ()
 import           Compiler.Types.Service    as Types
-import           Compiler.Types.Timestamp  as Types
 import           Compiler.Types.URI        as Types
 import           Control.Error
 import           Control.Lens              hiding ((.=))

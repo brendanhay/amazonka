@@ -19,18 +19,17 @@ module Compiler.Types.Ann where
 
 import           Compiler.TH
 import           Compiler.Types.Id
-import           Compiler.Types.Timestamp
 import           Compiler.Types.URI
 import           Control.Comonad
 import           Control.Comonad.Cofree
 import           Control.Lens
 import           Data.Hashable
-import qualified Data.HashSet             as Set
-import           Data.Jason               hiding (ToJSON (..))
+import qualified Data.HashSet           as Set
+import           Data.Jason             hiding (ToJSON (..))
 import           Data.Monoid
-import           Data.Text                (Text)
-import qualified Data.Text                as Text
-import           GHC.Generics             (Generic)
+import           Data.Text              (Text)
+import qualified Data.Text              as Text
+import           GHC.Generics           (Generic)
 
 type Set = Set.HashSet
 
@@ -78,7 +77,7 @@ data Lit
     | Double
     | Text
     | Blob
-    | Time (Maybe Timestamp)
+    | Time
     | Bool
       deriving (Show)
 

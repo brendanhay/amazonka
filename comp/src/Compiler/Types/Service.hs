@@ -35,24 +35,22 @@ import           Compiler.Types.Help
 import           Compiler.Types.Id
 import           Compiler.Types.Map
 import           Compiler.Types.NS
-import           Compiler.Types.Orphans   ()
-import           Compiler.Types.Timestamp
+import           Compiler.Types.Orphans ()
 import           Compiler.Types.URI
 import           Control.Comonad.Cofree
-import           Control.Lens             hiding ((.=))
-import           Data.Aeson               (ToJSON (..), object, (.=))
-import qualified Data.Aeson               as A
+import           Control.Lens           hiding ((.=))
+import           Data.Aeson             (ToJSON (..), object, (.=))
+import qualified Data.Aeson             as A
 import           Data.Bifunctor
-import qualified Data.HashMap.Strict      as Map
-import qualified Data.HashSet             as Set
-import           Data.Jason               hiding (Bool, ToJSON (..), object,
-                                           (.=))
-import           Data.Jason.Types         (unObject)
+import qualified Data.HashMap.Strict    as Map
+import qualified Data.HashSet           as Set
+import           Data.Jason             hiding (Bool, ToJSON (..), object, (.=))
+import           Data.Jason.Types       (unObject)
 import           Data.Monoid
-import           Data.Text                (Text)
-import qualified Data.Text                as Text
-import           Data.Traversable         (for)
-import           GHC.Generics             (Generic)
+import           Data.Text              (Text)
+import qualified Data.Text              as Text
+import           Data.Traversable       (for)
+import           GHC.Generics           (Generic)
 import           Numeric.Natural
 
 makePrisms ''Identity
@@ -70,6 +68,25 @@ instance FromJSON Signature where
 
 instance ToJSON Signature where
     toJSON = const "V4"
+
+data Timestamp
+    = RFC822
+    | ISO8601
+    | POSIX
+      deriving (Eq, Show, Generic)
+
+tsToText :: Timestamp -> Text
+tsToText = Text.pack . show
+
+instance FromJSON Timestamp where
+    parseJSON = withText "timestamp" $ \case
+        "rfc822"        -> pure RFC822
+        "iso8601"       -> pure ISO8601
+        "unixTimestamp" -> pure POSIX
+        e               -> fail ("Unknown Timestamp: " ++ Text.unpack e)
+
+instance ToJSON Timestamp where
+    toJSON = toJSON . tsToText
 
 data Protocol
     = JSON
@@ -316,11 +333,10 @@ instance FromJSON (ShapeF ()) where
             "float"     -> pure (Lit i Double)
             "blob"      -> pure (Lit i Blob)
             "boolean"   -> pure (Lit i Bool)
-            "timestamp" -> pure (Lit i (Time Nothing))
-            "string"    -> pure $
-                maybe (Lit i Text)
-                      (Enum i . Map.fromList . map (first mkId . renameBranch))
-                      m
+            "timestamp" -> pure (Lit i Time)
+            "string"    -> pure (maybe (Lit i Text) f m)
+              where
+                f = Enum i . Map.fromList . map (first mkId . renameBranch)
             _           -> fail $ "Unknown Shape type: " ++ Text.unpack t
 
 data Operation f a = Operation

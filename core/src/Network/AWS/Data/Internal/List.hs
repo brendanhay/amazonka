@@ -42,76 +42,70 @@ import           Network.AWS.Data.Internal.Query
 import           Network.AWS.Data.Internal.XML
 import           Text.XML
 
-newtype List (e :: Symbol) a = List { list :: [a] }
+newtype List  a = List { toList' :: [a] }
     deriving (Eq, Ord, Read, Show, Semigroup, Monoid)
 
-newtype List1 (e :: Symbol) a = List1 { list1 :: NonEmpty a }
+newtype List1 a = List1 { toNonEmpty' :: NonEmpty a }
     deriving (Eq, Ord, Read, Show, Semigroup)
 
-deriving instance Functor     (List1 e)
-deriving instance Foldable    (List1 e)
-deriving instance Traversable (List1 e)
+type role List  representational
+type role List1 representational
 
-type role List  phantom representational
-type role List1 phantom representational
-
-_List :: (Coercible a b, Coercible b a) => Iso' (List e a) [b]
+_List :: (Coercible a b, Coercible b a) => Iso' (List a) [b]
 _List = iso (coerce . list) (List . coerce)
 
-_List1 :: (Coercible a b, Coercible b a) => Iso' (List1 e a) (NonEmpty b)
+_List1 :: (Coercible a b, Coercible b a) => Iso' (List1 a) (NonEmpty b)
 _List1 = iso (coerce . list1) (List1 . coerce)
 
-instance IsList (List e a) where
-    type Item (List e a) = a
+instance IsList (List a) where
+    type Item (List a) = a
 
     fromList = List
-    toList   = list
+    toList   = toList'
 
 fromList1 :: List1 e a -> List e a
-fromList1 = List . toList . list1
+fromList1 = List . toList . toNonEmpty'
 
 toList1 :: List e a -> Either String (List1 e a)
 toList1 (List (x:xs))
           = Right $ List1 (x :| xs)
 toList1 _ = Left  $ "Unexpected empty list, expected at least 1 element."
 
-instance (KnownSymbol e, ToQuery a) => ToQuery (List e a) where
+instance ToQuery a => ToQuery (List a) where
     toQuery = toQueryList n . toList . list
-      where
-        n = fromString $ symbolVal (Proxy :: Proxy e)
 
-instance (KnownSymbol e, ToQuery a) => ToQuery (List1 e a) where
+instance ToQuery a) => ToQuery (List1 a) where
     toQuery = toQueryList n . toList . list1
       where
         n = fromString $ symbolVal (Proxy :: Proxy e)
 
-instance FromJSON a => FromJSON (List e a) where
+instance FromJSON a => FromJSON (List a) where
     parseJSON = fmap List . parseJSON
 
-instance FromJSON a => FromJSON (List1 e a) where
+instance FromJSON a => FromJSON (List1 a) where
     parseJSON = withArray "List1" $ \case
         v | Vector.null v -> fail "Empty array, expected at least 1 element."
         v                 -> traverse parseJSON
             . List1 $ Vector.unsafeHead v :| Vector.toList (Vector.unsafeTail v)
 
-instance ToJSON a => ToJSON (List e a) where
+instance ToJSON a => ToJSON (List a) where
     toJSON = toJSON . list
 
-instance ToJSON a => ToJSON (List1 e a) where
+instance ToJSON a => ToJSON (List1 a) where
     toJSON = toJSON . toList . list1
 
-instance (KnownSymbol e, FromXML a) => FromXML (List e a) where
+instance FromXML a) => FromXML (List a) where
     parseXML = fmap List . traverse parseXML . mapMaybe (childNodes n)
       where
         n = Text.pack $ symbolVal (Proxy :: Proxy e)
 
-instance (KnownSymbol e, FromXML a) => FromXML (List1 e a) where
+instance FromXML a) => FromXML (List1 a) where
     parseXML = parseXML >=> toList1
 
-instance (KnownSymbol e, ToXML a) => ToXML (List e a) where
+instance ToXML a) => ToXML (List a) where
     toXML = map (NodeElement . element n . toXML) . list
       where
         n = fromString $ symbolVal (Proxy :: Proxy e)
 
-instance (KnownSymbol e, ToXML a) => ToXML (List1 e a) where
+instance ToXML a) => ToXML (List1 a) where
     toXML = toXML . fromList1

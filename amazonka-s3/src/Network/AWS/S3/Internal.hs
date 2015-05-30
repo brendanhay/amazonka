@@ -16,15 +16,16 @@ module Network.AWS.S3.Internal
     , Region
     ) where
 
-import Data.String
-import GHC.Generics
-import Network.AWS.Prelude
-import Network.AWS.Types (Region)
+import           Data.String
+import           GHC.Generics
+import           Network.AWS.Prelude
+import           Network.AWS.Types   (Region)
 
 newtype BucketName = BucketName Text
     deriving
         ( Eq
         , Ord
+        , Read
         , Show
         , Generic
         , IsString
@@ -40,6 +41,7 @@ newtype ObjectKey = ObjectKey Text
     deriving
         ( Eq
         , Ord
+        , Read
         , Show
         , Generic
         , IsString
@@ -55,6 +57,7 @@ newtype ObjectVersionId = ObjectVersionId Text
     deriving
         ( Eq
         , Ord
+        , Read
         , Show
         , Generic
         , IsString
@@ -66,10 +69,13 @@ newtype ObjectVersionId = ObjectVersionId Text
         , ToQuery
         )
 
+-- FIXME: This should gracefully handle the extra quotations of
+-- etags parsed from headers.
 newtype ETag = ETag Text
     deriving
         ( Eq
         , Ord
+        , Read
         , Show
         , Generic
         , IsString

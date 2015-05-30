@@ -180,18 +180,19 @@ instance ToJSON Library where
       where
         A.Object y = toJSON (l ^. metadata)
         A.Object x = object
-            [ "referenceUrl"   .= (l ^. referenceUrl)
-            , "operationUrl"   .= (l ^. operationUrl)
-            , "description"    .= (l ^. documentation . asDesc)
-            , "documentation"  .= (l ^. documentation)
-            , "libraryName"    .= (l ^. libraryName)
-            , "libraryVersion" .= (l ^. libraryVersion)
-            , "clientVersion"  .= (l ^. clientVersion)
-            , "coreVersion"    .= (l ^. coreVersion)
-            , "exposedModules" .= (l ^. exposedModules)
-            , "otherModules"   .= (l ^. otherModules)
-            , "shapes"         .= (l ^. shapes & kvTraversal %~ first (^. typeId))
-            , "typeImports"    .= (l ^. typeImports)
+            [ "referenceUrl"     .= (l ^. referenceUrl)
+            , "operationUrl"     .= (l ^. operationUrl)
+            , "description"      .= (l ^. documentation . asDesc)
+            , "documentation"    .= (l ^. documentation)
+            , "libraryName"      .= (l ^. libraryName)
+            , "libraryNamespace" .= (l ^. namespace)
+            , "libraryVersion"   .= (l ^. libraryVersion)
+            , "clientVersion"    .= (l ^. clientVersion)
+            , "coreVersion"      .= (l ^. coreVersion)
+            , "exposedModules"   .= (l ^. exposedModules)
+            , "otherModules"     .= (l ^. otherModules)
+            , "shapes"           .= (l ^. shapes & kvTraversal %~ first (^. typeId))
+            , "typeImports"      .= (l ^. typeImports)
             ]
 
 data Templates = Templates

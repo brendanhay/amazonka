@@ -2,7 +2,7 @@ SHELL     := /usr/bin/env bash
 TOP       := ..
 DEPS      := vendor/botocore vendor/jason
 MODEL_DIR := model
-OUT_DIR   := gen
+OUT_DIR   := ..
 
 CABAL_INSTALL_DEFARGS ?= -j --disable-documentation --disable-coverage
 
@@ -69,9 +69,9 @@ VERSION        = $(call version,amazonka-compiler.cabal)
 CLIENT_VERSION = $(call version,$(TOP)/amazonka/amazonka.cabal)
 CORE_VERSION  = $(call version,$(TOP)/core/amazonka-core.cabal)
 
-.PHONY: format compile gen
+.PHONY: format compile
 
-default: compile # Temporary to avoid formatting
+default: compile # temporary to avoid formatting
 
 format: compile
 	@echo -e '\nFormatting...'
@@ -81,10 +81,7 @@ format: compile
  -printf ' -> %p\n' \
  -exec stylish-haskell -i {} \;
 
-gen: # temporary while OUT_DIR is set for development.
-	rm -rf $@ && mkdir $@
-
-compile: build gen
+compile: build
 	dist/build/compile/compile \
  --out=$(OUT_DIR) \
  --library-version=$(VERSION) \

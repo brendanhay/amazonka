@@ -31,8 +31,9 @@ library
     ghc-options:       -Wall
 
     exposed-modules:
+          {{ libraryNamespace }}
       {% for module in exposedModules %}
-        {% if module.first %}  {% else %}, {% endif %}{{ module.value }}
+        , {{ module.value }}
       {% endfor %}
 
     other-modules:

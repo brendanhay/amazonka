@@ -59,7 +59,7 @@ instance ToJSON Help where
 newtype Desc = Desc Help
 
 instance ToJSON Desc where
-    toJSON (Desc h) = toJSON . wrap "" $ flatten h
+    toJSON (Desc h) = toJSON . wrap "    " $ flatten h
 
 asDesc :: Getter Help Desc
 asDesc = to Desc

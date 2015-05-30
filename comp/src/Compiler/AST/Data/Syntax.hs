@@ -178,9 +178,9 @@ internal (typeOf -> t) =
         TStream        -> tycon "Stream"
         TMaybe     x   -> TyApp (tycon "Maybe") (internal x)
         TSensitive x   -> TyApp (tycon "Sensitive") (internal x)
-        TList      x   -> TyApp (tycon "List") (internal x)
-        TList1     x   -> TyApp (tycon "List1") (internal x)
-        TMap       k v -> TyApp (TyApp (tycon "Map") (internal k)) (internal v)
+        TList      x   -> TyList (internal x)
+        TList1     x   -> TyApp (tycon "NonEmpty") (internal x)
+        TMap       k v -> TyApp (TyApp (tycon "HashMap") (internal k)) (internal v)
 
 external :: TypeOf a => a -> Type
 external (typeOf -> t) =
@@ -195,8 +195,20 @@ external (typeOf -> t) =
         TList1     x   -> TyApp (tycon "NonEmpty") (external x)
         TMap       k v -> TyApp (TyApp (tycon "HashMap") (external k)) (external v)
 
--- Determine correct streaming based on refStreaming/info + possibly protocol if
--- streaming is not set?a
+mapping :: TType -> Exp -> Exp
+mapping = compose . iso'
+  where
+    compose xs e = Fold.foldl' (\y -> InfixApp y (qop ".")) e xs
+
+    iso' = \case
+        TLit  (Time {}) -> [var "_Time"]
+        TNatural        -> [var "_Nat"]
+        TMaybe     x    -> case iso' x of; [] -> []; xs -> var "mapping" : xs
+        TSensitive x    -> var "_Sensitive" : iso' x
+        TList      {}   -> [] -- [var "_List"]  -- Coercible.
+        TList1     {}   -> [] -- [var "_List1"] -- Coercible.
+        TMap       {}   -> [] -- [var "_Map"]   -- Coercible.
+        _               -> []
 
 literal :: Bool -> Lit -> Type
 literal i = tycon . \case
@@ -209,21 +221,6 @@ literal i = tycon . \case
     Time ts
         | i, Just x <- ts -> Text.pack . show $ x
         | otherwise       -> "UTCTime"
-
-mapping :: TType -> Exp -> Exp
-mapping = compose . iso'
-  where
-    compose xs e = Fold.foldl' (\y -> InfixApp y (qop ".")) e xs
-
-    iso' = \case
-        TLit  (Time {}) -> [var "_Time"]
-        TNatural        -> [var "_Nat"]
-        TMaybe     x    -> case iso' x of; [] -> []; xs -> var "mapping" : xs
-        TSensitive x    -> var "_Sensitive" : iso' x
-        TList      {}   -> [var "_List"]  -- Coercible.
-        TList1     {}   -> [var "_List1"] -- Coercible.
-        TMap       {}   -> [var "_Map"]   -- Coercible.
-        _               -> []
 
 tycon :: Text -> Type
 tycon = TyCon . unqual

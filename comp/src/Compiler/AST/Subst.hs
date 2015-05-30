@@ -67,7 +67,7 @@ substitute svc@Service{..} = do
     meta :: Metadata Maybe -> Metadata Identity
     meta m@Metadata{..} = m
         { _timestampFormat = Identity ts
-        , _checksumFormat  = _checksumFormat  .! SHA256
+        , _checksumFormat  = _checksumFormat .! SHA256
         }
 
     ts :: Timestamp

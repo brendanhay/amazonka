@@ -39,12 +39,14 @@ import           Compiler.Types.Orphans   ()
 import           Compiler.Types.Timestamp
 import           Compiler.Types.URI
 import           Control.Comonad.Cofree
-import           Control.Lens
-import           Data.Aeson               (ToJSON (..))
+import           Control.Lens             hiding ((.=))
+import           Data.Aeson               (ToJSON (..), object, (.=))
+import qualified Data.Aeson               as A
 import           Data.Bifunctor
 import qualified Data.HashMap.Strict      as Map
 import qualified Data.HashSet             as Set
-import           Data.Jason               hiding (Bool, ToJSON (..))
+import           Data.Jason               hiding (Bool, ToJSON (..), object,
+                                           (.=))
 import           Data.Jason.Types         (unObject)
 import           Data.Monoid
 import           Data.Text                (Text)
@@ -67,7 +69,7 @@ instance FromJSON Signature where
     parseJSON = gParseJSON' lower
 
 instance ToJSON Signature where
-    toJSON = gToJSON' lower
+    toJSON = const "V4"
 
 data Protocol
     = JSON
@@ -358,11 +360,21 @@ data Metadata f = Metadata
     , _endpointPrefix   :: Text
     , _timestampFormat  :: f Timestamp
     , _checksumFormat   :: f Checksum
+    , _xmlNamespace     :: Maybe Text
     , _jsonVersion      :: Text
     , _targetPrefix     :: Maybe Text
     } deriving (Generic)
 
 makeClassy ''Metadata
+
+serviceError :: HasMetadata a f => Getter a (Text, Text)
+serviceError = protocol . to f
+  where
+    f = \case
+        JSON     -> ("JSONError", "jsonError")
+        RestJSON -> ("JSONError", "jsonError")
+        EC2      -> ("EC2Error",  "restError")
+        _        -> ("RESTError", "restError")
 
 instance FromJSON (Metadata Maybe) where
     parseJSON = withObject "meta" $ \o -> Metadata
@@ -374,11 +386,20 @@ instance FromJSON (Metadata Maybe) where
         <*> o .:  "endpointPrefix"
         <*> o .:? "timestampFormat"
         <*> o .:? "checksumFormat"
+        <*> o .:? "xmlNamespace"
         <*> o .:? "jsonVersion"     .!= "1.0"
         <*> o .:? "targetPrefix"
 
 instance ToJSON (Metadata Identity) where
-    toJSON = gToJSON' camel
+    toJSON m = A.Object (x <> y)
+      where
+        A.Object x = gToJSON' camel m
+        A.Object y = object
+            [ "serviceError"         .= e
+            , "serviceErrorFunction" .= f
+            ]
+
+        (e, f) = m ^. serviceError
 
 data Service f a b = Service
     { _metadata'     :: Metadata f

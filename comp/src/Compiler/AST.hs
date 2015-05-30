@@ -45,11 +45,9 @@ rewrite v cfg s' = do
 
     let ns     = NS ["Network", "AWS", s ^. serviceAbbrev]
         other  = cfg ^. operationImports ++ cfg ^. typeImports
-        expose = ns
-               : ns <> "Types"
+        expose = ns <> "Types"
                : ns <> "Waiters"
-               : map (mappend ns)
-                     (s ^.. operations . each . operationNS)
+               : map (mappend ns) (s ^.. operations . each . operationNS)
 
     return $! Library v cfg s ns (sort expose) (sort other)
 

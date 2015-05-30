@@ -18,7 +18,7 @@ import           Control.Monad
 import           Data.Bifunctor
 import qualified Data.CaseInsensitive  as CI
 import           Data.Char
-import           Data.Foldable         as Fold
+import qualified Data.Foldable         as Fold
 import qualified Data.HashSet          as Set
 import           Data.Monoid
 import           Data.String
@@ -52,7 +52,7 @@ stripSuffix :: Text -> Text -> Text
 stripSuffix p t = Text.strip . fromMaybe t $ p `Text.stripSuffix` t
 
 renameBranch :: Text -> (Text, Text)
-renameBranch = first (upperAcronym . foldMap g . Text.split f) . join (,)
+renameBranch = first (upperAcronym . Fold.foldMap g . Text.split f) . join (,)
   where
     f x = x == '-'
        || x == '.'
@@ -61,10 +61,11 @@ renameBranch = first (upperAcronym . foldMap g . Text.split f) . join (,)
        || x == '/'
        || x == '+'
        || x == ' '
+       || x == '_'
 
     g x | Text.length x <= 1    = x
         | isDigit (Text.last x) = Text.toUpper x
-        | otherwise             = upperHead x
+        | otherwise             = upperHead (Text.toLower x)
 
 renameReserved :: Text -> Text
 renameReserved x

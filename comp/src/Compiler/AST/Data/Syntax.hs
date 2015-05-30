@@ -25,14 +25,15 @@ import           Compiler.Protocol
 import           Compiler.Types
 import           Control.Comonad.Cofree
 import           Control.Error
-import           Control.Lens                 hiding (mapping, op)
+import           Control.Lens                 hiding (iso, mapping, op)
 import qualified Data.Foldable                as Fold
 import           Data.Function                ((&))
 import qualified Data.HashMap.Strict          as Map
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
 import qualified Language.Haskell.Exts        as Exts
-import           Language.Haskell.Exts.Build  (app, infixApp, lamE, paren, sfun)
+import           Language.Haskell.Exts.Build  (app, appFun, infixApp, lamE,
+                                               paren, sfun)
 import           Language.Haskell.Exts.SrcLoc (noLoc)
 import           Language.Haskell.Exts.Syntax hiding (Int, List, Lit, Var)
 
@@ -53,16 +54,19 @@ ctorDecl n fs = sfun noLoc name ps (UnGuardedRhs rhs) (BDecls [])
 
     rhs :: Exp
     rhs | null fs   = var (n ^. typeId)
-        | otherwise = RecConstr (n ^. typeId . to unqual) (map upd fs)
+        | otherwise = RecConstr (n ^. typeId . to unqual) (map fieldUpdate fs)
 
-    upd :: Field -> FieldUpdate
-    upd f = FieldUpdate (f ^. fieldAccessor . to unqual) def
-      where
-        def | opt, f ^. fieldMonoid = var "mempty"
-            | opt                   = var "Nothing"
-            | otherwise             = Exts.Var (UnQual (f ^. fieldParam))
+fieldUpdate :: Field -> FieldUpdate
+fieldUpdate f = FieldUpdate (f ^. fieldAccessor . to unqual) set'
+  where
+    set' | opt, f ^. fieldMonoid    = var "mempty"
+         | opt                      = var "Nothing"
+         | Just v <- iso (typeOf f) = infixApp v (qop "#") p
+         | otherwise                = p
 
-        opt = not (f ^. fieldRequired)
+    opt = not (f ^. fieldRequired)
+
+    p = Exts.Var (UnQual (f ^. fieldParam))
 
 lensSig :: Timestamp -> TType -> Field -> Decl
 lensSig ts t f = TypeSig noLoc [ident (f ^. fieldLens)] $
@@ -105,49 +109,63 @@ responseExps :: Protocol -> [Field] -> [Exp]
 responseExps p = map go
   where
     go f = case f ^. fieldLocation of
-        Just Headers     -> fld "~:" "~:?" "h" f
-        Just Header      -> fld "~:" "~:?" "h" f
+        Just Headers     -> decodeExp p '~' "h" f
+        Just Header      -> decodeExp p '~' "h" f
         Just StatusCode  -> app (var "pure") (var "s")
         Just Body        -> app (var "pure") (var "x")
-        Nothing | f ^. fieldPayload
+        Nothing
+            | f ^. fieldPayload
                          -> app (var "pure") (var "x")
         _                ->
             case p of
-                JSON     -> fld ".:" ".:?" "x" f
-                RestJSON -> fld ".:" ".:?" "x" f
-                _        -> fld ".@" ".@?" "x" f
-
-    fld = deserialiseExp p
+                JSON     -> decodeExp p ':' "x" f
+                RestJSON -> decodeExp p ':' "x" f
+                _        -> decodeExp p '@' "x" f
 
 instanceExps :: Protocol -> Inst -> [Exp]
 instanceExps p = \case
-    ToXML     fs -> map (serialiseExp p "=@") fs
-    FromXML   fs -> map (deserialiseExp p ".@" ".@?" "x") fs
-    ToQuery   es -> map (either str (serialiseExp p "=?")) es
-    ToHeaders fs -> map (serialiseExp p "=:") fs
+    FromXML   fs -> map (decodeExp p '@' "x") fs
+    ToXML     fs -> map (encodeExp p '@') fs
+    ToHeaders fs -> map (encodeExp p '~') fs
+    ToQuery   es -> map (either str (encodeExp p '?')) es
     ToPath    es -> map (either str (app (var "toText") . var . view fieldAccessor)) es
     ToBody    f  -> [var (f ^. fieldAccessor)]
 
-serialiseExp :: Protocol -> Text -> Field -> Exp
-serialiseExp p o f =
-    Fold.foldr' go (var (f ^. fieldAccessor)) (names p f)
+decodeExp :: Protocol -> Char -> Text -> Field -> Exp
+decodeExp p c (var -> v) f
+    | Just i <- m        = infixApp v (decodeListOp  c) (infixApp n (decodeOp c) i)
+    | f ^. fieldRequired = infixApp v (decodeOp      c) n
+    | f ^. fieldMonoid   = infixApp v (decodeOp      c) (infixApp n (decodeDefOp c) (var "mempty"))
+    | otherwise          = infixApp v (decodeMaybeOp c) n
   where
-    go x = infixApp (str x) (qop o)
+    (n, m) = memberNames p f
 
-deserialiseExp :: Protocol -> Text -> Text -> Text -> Field -> Exp
-deserialiseExp p o om v f =
-    Fold.foldl' (\acc -> infixApp acc op . str) (var v) (names p f)
+encodeExp :: Protocol -> Char -> Field -> Exp
+encodeExp p c f
+    | Just i <- m = infixApp n o (infixApp i o v)
+    | otherwise   = infixApp n o v
   where
-    op | f ^. fieldRequired = qop o
-       | f ^. fieldMonoid   = qop o
-       | otherwise          = qop om
+    (n, m) = memberNames p f
 
-names :: Protocol -> Field -> [Text]
-names proto f = case unwrap (f ^. fieldRef . refAnn) of
-    List l -> member : maybeToList (listItemName proto Input l)
-    _      -> [member]
+    o = encodeOp c
+    v = var (f ^. fieldAccessor)
+
+decodeOp, decodeMaybeOp, decodeListOp, decodeDefOp, encodeOp :: Char -> QOp
+decodeOp      c = Exts.op (Exts.sym ['.', c])
+decodeMaybeOp c = Exts.op (Exts.sym ['.', c, '?'])
+decodeListOp  c = Exts.op (Exts.sym ['.', c, c])
+decodeDefOp   c = Exts.op (Exts.sym ['.', '!', c])
+encodeOp      c = Exts.op (Exts.sym [c, '='])
+
+memberNames :: Protocol -> Field -> (Exp, Maybe Exp)
+memberNames p f =
+    ( str  $  memberName p Input (f ^. fieldId) (f ^. fieldRef)
+    , str <$> item
+    )
   where
-    member = memberName proto Input (f ^. fieldId) (f ^. fieldRef)
+    item = case unwrap (f ^. fieldRef . refAnn) of
+        List l -> listItemName p Input l
+        _      -> Nothing
 
 internal :: TypeOf a => Timestamp -> a -> Type
 internal ts (typeOf -> t) = case t of
@@ -177,11 +195,9 @@ mapping :: TType -> Exp -> Exp
 mapping t e = Fold.foldl' (\y -> InfixApp y (qop ".")) e (go t)
   where
     go = \case
-        TLit Time    -> [var "_Time"]
-        TNatural     -> [var "_Nat"]
         TSensitive x -> var "_Sensitive" : go x
         TMaybe     x -> coerce (go x)
-        _            -> []
+        x            -> maybeToList (iso x)
 
     coerce (x:xs) = app (var "mapping") x : xs
     coerce []     = []
@@ -189,6 +205,13 @@ mapping t e = Fold.foldl' (\y -> InfixApp y (qop ".")) e (go t)
         --        TList      {}   -> [] -- [var "_List"]  -- Coercible.
         -- TList1     {}   -> [] -- [var "_List1"] -- Coercible.
         -- TMap       {}   -> [] -- [var "_Map"]   -- Coercible.
+
+iso :: TType -> Maybe Exp
+iso = \case
+    TLit Time    -> Just (var "_Time")
+    TNatural     -> Just (var "_Nat")
+    TSensitive _ -> Just (var "_Sensitive")
+    _            -> Nothing
 
 literal :: Bool -> Timestamp -> Lit -> Type
 literal i ts = tycon . \case

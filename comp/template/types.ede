@@ -24,7 +24,7 @@ module {{ moduleName }}
     -- * {{ shape.value.name }}
     {% case shape.value.type %}
     {% when "product" %}
-    , {{ shape.value.name }} (..)
+    , {{ shape.value.name }}
       {% for lens in shape.value.lenses %}
     , {{ lens.value.name }}
       {% endfor %}

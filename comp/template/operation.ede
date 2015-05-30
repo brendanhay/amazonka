@@ -10,7 +10,7 @@
 module {{ moduleName }}
     (
     -- * Request
-      {{ input.name }} (..)
+      {{ input.name }}
     -- ** Request constructor
     , {{ input.constructor.name}}
   {% for lens in input.lenses %}
@@ -21,7 +21,7 @@ module {{ moduleName }}
   {% endfor %}
 
     -- * Response
-    , {{ output.name }} (..)
+    , {{ output.name }}
     -- ** Response constructor
     , {{ output.constructor.name}}
   {% for lens in output.lenses %}

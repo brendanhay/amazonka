@@ -15,11 +15,13 @@
 module Compiler.Protocol where
 
 import           Compiler.Types
+import           Control.Comonad
+import           Control.Comonad.Cofree
 import           Control.Lens
-import           Data.List            (nub)
+import           Data.List              (nub)
 import           Data.Maybe
 import           Data.Monoid
-import           Data.Text            (Text)
+import           Data.Text              (Text)
 import           Data.Text.Manipulate
 
 -- FIXME: Go through the other SDK's tests to ensure correctness.

@@ -30,7 +30,7 @@
 
 instance FromXML {{ shape.name }} where
     {% if inst.value | empty %}
-    parseXML = const {{ shape.name }}
+    parseXML = const (return {{ shape.name }})
     {% else %}
     parseXML x = {{ shape.name }}
       {% for field in inst.value %}
@@ -51,7 +51,7 @@ instance ToXML {{ shape.name }} where
 
 instance FromJSON {{ shape.name }} where
     {% if inst.value | empty %}
-    parseJSON = const {{ shape.name }}
+    parseJSON = const (return {{ shape.name }})
     {% else %}
     parseJSON x = {{ shape.name }}
       {% for field in inst.value %}

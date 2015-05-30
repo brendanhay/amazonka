@@ -30,6 +30,7 @@ import           Data.Aeson                hiding (json)
 import qualified Data.HashMap.Strict       as Map
 import           Data.Monoid
 import           Data.Text                 (Text)
+import qualified Data.Text.Lazy            as LText
 import           Filesystem.Path.CurrentOS hiding (root)
 import           Prelude                   hiding (mod)
 import           System.Directory.Tree     hiding (file)
@@ -64,7 +65,7 @@ fold h g f (p :/ t) = (p :/) <$> go (decodeString p) t
 populate :: Path
          -> Templates
          -> Library
-         -> AnchoredDirTree LazyText
+         -> AnchoredDirTree LText.Text
 populate d Templates{..} l = encodeString d :/ dir lib
     [ dir "src" []
     , dir "examples"
@@ -93,22 +94,28 @@ populate d Templates{..} l = encodeString d :/ dir lib
 
     file = render env
 
-    op o = mod' (o ^. operationNS) x operationTemplate
+    op o = mod' (o ^. operationNS) (y <> x <> met) operationTemplate
       where
         Object x = toJSON o
+        Object y = object
+            [ "operationUrl"     .= (l ^. operationUrl)
+            , "operationImports" .= (l ^. operationImports)
+            ]
 
-    mod  n   = mod' n env
+    mod n = mod' n env
+
     mod' n x = render (Map.insert "moduleName" (toJSON m) x) f
       where
         m = ns <> n
         f = filename (nsToPath m)
 
     Object env = toJSON l
+    Object met = toJSON (l ^. metadata)
 
 dir :: Path -> [DirTree a] -> DirTree a
 dir p = Dir (encodeString p)
 
-render :: Object -> Path -> Template -> DirTree LazyText
+render :: Object -> Path -> Template -> DirTree LText.Text
 render o (encodeString -> f) x =
     case eitherRender x o of
         Right t -> File   f t

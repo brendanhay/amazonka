@@ -63,6 +63,9 @@ instance Monoid Relation where
         (_relParents a <> _relParents b)
         (_relMode    a <> _relMode    b)
 
+instance (Functor f, HasRelation a) => HasRelation (Cofree f a) where
+    relation = lens extract (flip (:<) . unwrap) . relation
+
 mkRelation :: Set Id -> Direction -> Relation
 mkRelation xs = Relation xs . Uni
 
@@ -180,6 +183,9 @@ makeClassy ''Prefixed
 instance (Functor f, HasPrefixed a) => HasPrefixed (Cofree f a) where
     prefixed = lens extract (flip (:<) . unwrap) . prefixed
 
+instance HasRelation Prefixed where
+    relation = related . relation
+
 instance HasRelated Prefixed where
     related = annRelated
 
@@ -197,6 +203,9 @@ makeClassy ''Solved
 instance (Functor f, HasSolved a) => HasSolved (Cofree f a) where
     solved = lens extract (flip (:<) . unwrap) . solved
 
+instance HasRelation Solved where
+    relation = prefixed . relation
+
 instance HasRelated Solved where
     related = prefixed . related
 
@@ -205,3 +214,4 @@ instance HasPrefixed Solved where
 
 instance HasId Solved where
     identifier = view annId
+

@@ -34,6 +34,7 @@ module Compiler.Types
 import           Compiler.Text
 import           Compiler.TH
 import           Compiler.Types.Ann        as Types
+import           Compiler.Types.Data       as Types
 import           Compiler.Types.Help       as Types
 import           Compiler.Types.Id         as Types
 import           Compiler.Types.Map        as Types
@@ -64,68 +65,11 @@ import           GHC.Generics              (Generic)
 import           GHC.TypeLits
 import           Text.EDE                  (Template)
 
-type LazyText = LText.Text
-type Error    = LText.Text
-type Path     = Path.FilePath
+type Error = LText.Text
+type Path  = Path.FilePath
 
 toTextIgnore :: Path -> Text
 toTextIgnore = either id id . Path.toText
-
-data Fun = Fun Text Help LazyText LazyText
-    deriving (Show)
-
-instance ToJSON Fun where
-    toJSON (Fun n c s d) = object
-        [ "name"        .= n
-        , "comment"     .= c
-        , "signature"   .= s
-        , "declaration" .= d
-        ]
-
-data Data
-    = Product Text Info LazyText Fun [Fun] (Map Text [LazyText])
-    | Sum     Text Info LazyText (Map Text Text) [Text]
-      deriving (Show)
-
-instance HasInfo Data where
-    info = lens f (flip g)
-      where
-        f = \case
-            Product _ i _ _ _ _ -> i
-            Sum     _ i _ _ _   -> i
-
-        g i = \case
-            Product n _ d c ls is -> Product n i d c ls is
-            Sum     n _ d vs   is -> Sum     n i d vs   is
-
-instance ToJSON Data where
-    toJSON = \case
-        Product n i d c ls is -> object
-            [ "type"        .= Text.pack "product"
-            , "name"        .= n
-            , "constructor" .= c
-            , "comment"     .= (i ^. infoDocumentation)
-            , "declaration" .= d
-            , "lenses"      .= ls
-            , "instances"   .= is
-            ]
-
-        Sum n i d vs is -> object
-            [ "type"         .= Text.pack "sum"
-            , "name"         .= n
-            , "comment"      .= (i ^. infoDocumentation)
-            , "declaration"  .= d
-            , "constructors" .= vs
-            , "instances"    .= is
-            ]
-
-instance ToJSON (Operation Identity Data) where
-    toJSON o = object
-        [ "name"          .= (o ^. opName)
-        , "documentation" .= (o ^. opDocumentation)
-        , "input"         .= (o ^. opInput)
-        , "output"        .= (o ^. opOutput)
-        ]
 
 data Replace = Replace
     { _replaceName     :: Id
@@ -247,6 +191,7 @@ instance ToJSON Library where
             , "exposedModules" .= (l ^. exposedModules)
             , "otherModules"   .= (l ^. otherModules)
             , "shapes"         .= (l ^. shapes & kvTraversal %~ first (^. typeId))
+            , "typeImports"    .= (l ^. typeImports)
             ]
 
 data Templates = Templates

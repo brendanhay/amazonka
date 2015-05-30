@@ -33,19 +33,8 @@ import qualified Data.HashSet          as Set
 import           Data.List             (sort)
 import           Data.Monoid
 
--- Order:
--- substitute
--- recase
--- override
--- default
--- prefix
--- type
-
 -- FIXME: Relations need to be updated by:
---  - overrides
 --  - solving
-
--- FIXME: Ponder having both setDefaults and overrides work on the elaborated AST?
 
 rewrite :: Versions
         -> Config

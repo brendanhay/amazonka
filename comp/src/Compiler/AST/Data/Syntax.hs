@@ -27,6 +27,7 @@ import           Control.Comonad.Cofree
 import           Control.Error
 import           Control.Lens                 hiding (mapping, op)
 import qualified Data.Foldable                as Fold
+import           Data.Function                ((&))
 import qualified Data.HashMap.Strict          as Map
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
@@ -97,48 +98,56 @@ recDecl n fs = QualConDecl noLoc [] [] $ RecDecl (ident (n ^. typeId)) (map g fs
   where
     g f = ([f ^. fieldAccessor . to ident], internal f)
 
-toPathExps :: (Show a, HasURI b) => a -> b -> [Field] -> Either Error [Exp]
-toPathExps x (view uRI -> u) fs = traverse g (u ^.. segments)
+-- requestExps :: ToReq -> [Exp]
+-- requestExps = const []
+
+responseExps :: Protocol -> [Field] -> [Exp]
+responseExps p = map go
   where
-    g (Tok t) = return $! str t
-    g (Var n) = do
-        f <- note (format ("Missing field in ToPath expression " % iprimary %
-                           "\n" % shown) n x)
-            $ Fold.find ((n ==) . view fieldId) fs
-        return $! app (var "toText") (var (f ^. fieldAccessor))
+    go f = case f ^. fieldLocation of
+        Just Headers     -> fld "~:" "~:?" "h" f
+        Just Header      -> fld "~:" "~:?" "h" f
+        Just StatusCode  -> app (var "pure") (var "s")
+        Just Body        -> app (var "pure") (var "x")
+        Nothing | f ^. fieldPayload
+                         -> app (var "pure") (var "x")
+        _                ->
+            case p of
+                JSON     -> fld ".:" ".:?" "x" f
+                RestJSON -> fld ".:" ".:?" "x" f
+                _        -> fld ".@" ".@?" "x" f
 
-instanceExps :: Instance -> [Exp]
-instanceExps = undefined
+    fld = deserialiseExp p
 
--- instanceExp :: Protocol -> Instance -> Field -> Exp
--- instanceExp proto i f =
---     case shape of
---         List l -> expr (parent : maybeToList item)
---           where
---             (parent, item) =
---                 listName proto dir (f ^. fieldId) (f ^. fieldRef) l
+instanceExps :: Protocol -> Inst -> [Exp]
+instanceExps p = \case
+    ToXML     fs -> map (serialiseExp p "=@") fs
+    FromXML   fs -> map (deserialiseExp p ".@" ".@?" "x") fs
+    ToQuery   es -> map (either str (serialiseExp p "=?")) es
+    ToHeaders fs -> map (serialiseExp p "=:") fs
+    ToPath    es -> map (either str (app (var "toText") . var . view fieldAccessor)) es
+    ToBody    f  -> [var (f ^. fieldAccessor)]
 
---         _ -> expr [member]
---   where
---     shape = unwrap (f ^. fieldRef . refAnn)
+serialiseExp :: Protocol -> Text -> Field -> Exp
+serialiseExp p o f =
+    Fold.foldr' go (var (f ^. fieldAccessor)) (names p f)
+  where
+    go x = infixApp (str x) (qop o)
 
---     expr :: [Text] -> Exp
---     expr = case dir of
---         Output -> Fold.foldl' (\acc -> infixApp acc op . str) (var "x")
---         Input  -> Fold.foldr' (\x   -> infixApp (str x) op)   (var accessor)
+deserialiseExp :: Protocol -> Text -> Text -> Text -> Field -> Exp
+deserialiseExp p o om v f =
+    Fold.foldl' (\acc -> infixApp acc op . str) (var v) (names p f)
+  where
+    op | f ^. fieldRequired = qop o
+       | f ^. fieldMonoid   = qop o
+       | otherwise          = qop om
 
---     accessor, member :: Text
---     accessor = f ^. fieldAccessor
---     member   = memberName proto dir (f ^. fieldId) (f ^. fieldRef)
-
---     op :: QOp
---     op = qop (operator i req)
-
---     dir :: Direction
---     dir = placement i
-
---     req :: Bool
---     req = f ^. fieldRequired
+names :: Protocol -> Field -> [Text]
+names proto f = case unwrap (f ^. fieldRef . refAnn) of
+    List l -> member : maybeToList (listItemName proto Input l)
+    _      -> [member]
+  where
+    member = memberName proto Input (f ^. fieldId) (f ^. fieldRef)
 
 -- instDecl :: Text -> Text -> Text -> Text -> [Text] -> Decl
 -- instDecl c f o t fs = InstDecl noLoc Nothing [] [] (UnQual (ident c)) [tycon t]

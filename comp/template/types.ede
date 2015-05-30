@@ -10,14 +10,39 @@
 {-# LANGUAGE ViewPatterns               #-}
 
 {% include "_include/license.ede" %}
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 module {{ moduleName }}
     (
+    -- * Service
+      {{ serviceAbbrev }}
+    -- ** Errors
+    ,
+
+  {% for shape in shapes %}
+    -- * {{ shape.value.name }}
+    {% case shape.value.type %}
+    {% when "product" %}
+    , {{ shape.value.name }} (..)
+      {% for lens in shape.value.lenses %}
+    , {{ lens.value.name }}
+      {% endfor %}
+    {% when "sum" %}
+    , {{ shape.value.name }} (..)
+    {% endcase %}
+    {% if !shape.last %}
+
+    {% endif %}
+  {% endfor %}
     ) where
 
+import qualified GHC.Exts
 import           Network.AWS.Prelude
 import           Network.AWS.Signing
-import qualified GHC.Exts
+{% for import in typeImports %}
+import           {{ import.value }}
+{% endfor %}
 {% for shape in shapes %}
   {% case shape.value.type %}
   {% when "product" %}

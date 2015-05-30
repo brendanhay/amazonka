@@ -38,6 +38,7 @@ instance FromXML {{ shape.name }} where
       {% endfor %}
     {% endif %}
   {% when "ToXML" %}
+    {% if !(inst.value | empty) %}
 
 instance ToXML {{ shape.name }} where
     toXML {{ shape.name }}{..} =
@@ -45,30 +46,43 @@ instance ToXML {{ shape.name }} where
         {% include "list.ede" %} {{ field.value }}
       {% endfor %}
         ]
+    {% endif %}
   {% when "ToQuery" %}
 
 instance ToQuery {{ shape.name }} where
+    {% if inst.value | empty %}
+    toQuery = const mempty
+    {% else %}
     toQuery {{ shape.name }}{..} = mconcat
       {% for field in inst.value %}
         {% include "list.ede" %} {{ field.value }}
       {% endfor %}
         ]
+    {% endif %}
   {% when "ToHeaders" %}
 
 instance ToHeaders {{ shape.name }} where
+    {% if inst.value | empty %}
+    toHeaders = const mempty
+    {% else %}
     toHeaders {{ shape.name }}{..} =
       {% for field in inst.value %}
         {% include "list.ede" %} {{ field.value }}
       {% endfor %}
         ]
+    {% endif %}
   {% when "ToPath" %}
 
 instance ToPath {{ shape.name }} where
+    {% if inst.value | empty %}
+    toPath = const "/"
+    {% else %}
     toPath {{ shape.name }}{..} = mconcat
       {% for field in inst.value %}
         {% include "list.ede" %} {{ field.value }}
       {% endfor %}
         ]
+    {% endif %}
   {% when "ToBody" %}
 
 instance ToBody {{ shape.name }} where

@@ -36,6 +36,7 @@ import qualified Data.HashMap.Strict    as Map
 import qualified Data.HashSet           as Set
 import           Data.List              (sort)
 import           Data.Monoid
+import qualified Data.Text.Lazy         as LText
 import           Debug.Trace
 
 data Env a = Env
@@ -153,7 +154,7 @@ safe n ss = note
 
 verify :: (MonadState (Env a) m, MonadError e m)
        => Id
-       -> Format (Id -> LazyText) (Id -> e)
+       -> Format (Id -> LText.Text) (Id -> e)
        -> m ()
 verify n msg = do
     p <- uses memo (Map.member n)

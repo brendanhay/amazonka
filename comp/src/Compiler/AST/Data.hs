@@ -52,21 +52,35 @@ dataType proto s = case unwrap s of
     ds = s ^. annDerive
 
     enum :: Info -> Map Id Text -> Either Error Data
-    enum i vs = Sum (n ^. typeId) i
-        <$> render (dataDecl n (map conDecl (Map.keys branches)) ds)
-        <*> pure branches
-        <*> pure (sumInstances proto r)
+    enum i vs = Sum <$> sum <*> pure (sumInsts proto r)
       where
+        sum = Sum' (n ^. typeId) (i ^. infoDocumentation)
+            <$> render (dataDecl n (map conDecl (Map.keys branches)) ds)
+            <*> pure branches
+
         branches :: Map Text Text
         branches = vs & kvTraversal %~ first (^. ctorId p)
 
     struct :: StructF (Shape Solved) -> Either Error Data
-    struct st = Product (n ^. typeId) (st ^. info)
-        <$> render (dataDecl n [recDecl n fields] ds)
-        <*> mkCtor
-        <*> traverse mkLens fields
-        <*> mkInstances
+    struct st =
+        case s ^. related of
+            RReq _ _ h -> Req
+                <$> prod
+                <*> pure (requestFunction proto h fields)
+                <*> mkInsts (requestInsts proto h fields)
+
+            RRes {} -> Res
+                <$> prod
+                <*> pure (responseFunction proto fields)
+                <*> traverse plain (responseExps proto fields)
+
+            _ -> Prod <$> prod <*> mkInsts (prodInsts proto s fields)
       where
+        prod = Prod' (n ^. typeId) (st ^. infoDocumentation)
+            <$> render (dataDecl n [recDecl n fields] ds)
+            <*> mkCtor
+            <*> traverse mkLens fields
+
         mkCtor :: Either Error Fun
         mkCtor = Fun (n ^. smartCtorId) help
             <$> plain  (ctorSig  n fields)
@@ -88,21 +102,20 @@ dataType proto s = case unwrap s of
             <$> plain (lensSig t f)
             <*> plain (lensDecl  f)
 
-        mkInstances :: Either Error (Map Text [LazyText])
-        mkInstances = Map.fromList <$>
-            (prodInstances proto s fields >>= traverse mkInst)
+        mkInsts :: Either Error [Inst] -> Either Error (Map Text [LText.Text])
+        mkInsts f = Map.fromList <$> (f >>= traverse mkInst)
 
-        mkInst :: Instance -> Either Error (Text, [LazyText])
-        mkInst i = (instToText i,) <$> traverse plain (instanceExps i)
+        mkInst :: Inst -> Either Error (Text, [LText.Text])
+        mkInst i = (instToText i,) <$> traverse plain (instanceExps proto i)
 
         fields :: [Field]
         fields = mkFields p st
 
-render, plain :: Pretty a => a -> Either Error LazyText
+render, plain :: Pretty a => a -> Either Error LText.Text
 render = pretty True
 plain  = pretty False
 
-pretty :: Pretty a => Bool -> a -> Either Error LazyText
+pretty :: Pretty a => Bool -> a -> Either Error LText.Text
 pretty fmt d
     | fmt       = bimap e Build.toLazyText (reformat johanTibell Nothing p)
     | otherwise = pure p

@@ -81,6 +81,9 @@ data Method
 instance FromJSON Method where
     parseJSON = gParseJSON' upper
 
+methodToText :: Method -> Text
+methodToText = Text.toLower . Text.pack . show
+
 data HTTP f = HTTP
     { _method       :: !Method
     , _requestURI   :: URI

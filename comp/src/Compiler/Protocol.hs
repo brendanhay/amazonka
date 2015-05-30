@@ -37,35 +37,28 @@ memberName p d n r = go p d
     -- otherwise the struct member id.
     key = fromMaybe (n ^. memberId) (r ^. refLocationName)
 
-listName :: Protocol
-         -> Direction
-         -> Id        -- ^ The member id.
-         -> RefF  a   -- ^ The member reference.
-         -> ListF a   -- ^ The list shape pointed to by the member reference.
-         -> (Text, Maybe Text)
-listName p d n r l = (memberName p d n r, go p d (l ^. infoFlattened))
+listItemName :: Protocol
+             -> Direction
+             -> ListF a   -- ^ The list shape pointed to by the member reference.
+             -> Maybe Text
+listItemName p d l = go p d (l ^. infoFlattened)
   where
-    go :: Protocol
-       -> Direction
-       -> Bool -- ^ Flattened?
-       -> Maybe Text
-
-    go Query    _      True  = Nothing
-    go Query    _      False = Just item
-
-    go EC2      _      True  = Nothing
-    go EC2      _      False = Just item
-
-    go JSON     _      _     = Nothing
-    go RestJSON _      _     = Nothing
-
-    go RestXML  _      True  = Nothing
-    go RestXML  _      False = Just item
-
-    -- input XML       True  = (parent, Nothing) -
-    -- input XML       False = (parent, Just element)
-
     -- Use the locationName on the actual list element pointed
     -- to by the struct member reference if present,
     -- otherwise default to 'member'.
     item = fromMaybe "member" (l ^. listItem . refLocationName)
+
+    go Query    _ True   = Nothing
+    go Query    _ False  = Just item
+
+    go EC2      _ True   = Nothing
+    go EC2      _ False  = Just item
+
+    go JSON     _      _ = Nothing
+    go RestJSON _      _ = Nothing
+
+    go RestXML  _ True   = Nothing
+    go RestXML  _ False  = Just item
+
+    -- input XML       True  = (parent, Nothing) -
+    -- input XML       False = (parent, Just element)

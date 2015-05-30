@@ -59,7 +59,7 @@ readBSFile f = do
         then say ("Reading "  % path) f >> io (FS.readFile f)
         else failure ("Missing " % path) f
 
-writeLTFile :: MonadIO m => Path -> LazyText -> EitherT Error m ()
+writeLTFile :: MonadIO m => Path -> LText.Text -> EitherT Error m ()
 writeLTFile f t = do
     say ("Writing " % path) f
     io . FS.withFile f FS.WriteMode $ \h -> do
@@ -91,19 +91,7 @@ readTemplate d f = do
         >>= EDE.parseWith EDE.defaultSyntax (load d) (toTextIgnore tmpl)
         >>= EDE.result (lift . left . LText.pack . show) (lift . right)
   where
-    load p o k _ = memo go incl
+    load p o k _ = lift (readBSFile x) >>= EDE.parseWith o (load (directory x)) k
       where
-        go x = lift (readBSFile x) >>= EDE.parseWith o (load (directory x)) k
-
-        incl | Text.null k = fromText k
-             | otherwise   = p </> fromText k
-
-    memo action p = do
-        let k = toTextIgnore p
-        m <- gets (Map.lookup k)
-        case m of
-            Just x  -> return x
-            Nothing -> do
-                x <- action p
-                modify (Map.insert k x)
-                return x
+        x | Text.null k = fromText k
+          | otherwise   = p </> fromText k

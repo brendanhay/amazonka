@@ -26,6 +26,7 @@ import           Data.CaseInsensitive   (CI)
 import qualified Data.HashMap.Strict    as Map
 import           Data.Text              (Text)
 import qualified Data.Text              as Text
+import qualified Data.Text.Lazy         as LText
 import qualified Data.Text.Lazy.Builder as Build
 import           Formatting             hiding (left, right)
 import           Formatting.Internal    (runFormat)
@@ -52,5 +53,5 @@ partial = later (Build.fromString . show . Map.toList . prefix)
     prefix (view memberId -> Text.take 3 -> p, m) =
         Map.filterWithKey (const . Text.isPrefixOf p . view memberId) m
 
-failure :: MonadError e m => Format LazyText (a -> e) -> a -> m b
+failure :: MonadError e m => Format LText.Text (a -> e) -> a -> m b
 failure m = throwError . format m

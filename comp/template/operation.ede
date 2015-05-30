@@ -1,15 +1,57 @@
 {-# LANGUAGE RecordWildCards #-}
 
 {% include "_include/license.ede" %}
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 {{ documentation }}
+--
+-- <{{ operationUrl }}{{ name }}.html>
 module {{ moduleName }}
     (
+    -- * Request
+      {{ input.name }} (..)
+    -- ** Request constructor
+    , {{ input.constructor.name}}
+  {% for lens in input.lenses %}
+    {% if lens.first %}
+    -- ** Request lenses
+    {% endif %}
+    , {{ lens.value.name }}
+  {% endfor %}
+
+    -- * Response
+    , {{ output.name }} (..)
+    -- ** Response constructor
+    , {{ output.constructor.name}}
+  {% for lens in output.lenses %}
+    {% if lens.first %}
+    -- ** Response lenses
+    {% endif %}
+    , {{ lens.value.name }}
+  {% endfor %}
     ) where
 
-import Network.AWS.Prelude
 import qualified GHC.Exts
+import           Network.AWS.Prelude
+{% for import in operationImports %}
+import           {{ import.value }}
+{% endfor %}
 
 {% include "_include/product.ede" with shape = input %}
 
--- include "_include/product.ede" with shape = output
+{% include "_include/product.ede" with shape = output %}
+
+instance AWSRequest {{ input.name }} where
+    type Sv {{ input.name }} = {{ serviceAbbrev }}
+    type Rs {{ input.name }} = {{ output.name }}
+
+    request  = {{ input.method }}
+    {% if output.fields | empty %}
+    response = responseNull (return {{ output.name}})
+    {% else %}
+    response = {{ output.method }} $ \h s x -> {{ output.name }}
+      {% for field in output.fields %}
+        {% include "_include/applicative.ede" %} {{ field.value }}
+      {% endfor %}
+    {% endif %}

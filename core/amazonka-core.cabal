@@ -60,7 +60,6 @@ library
         , Network.AWS.Data.Internal.ByteString
         , Network.AWS.Data.Internal.Header
         , Network.AWS.Data.Internal.JSON
-        , Network.AWS.Data.Internal.Map
         , Network.AWS.Data.Internal.Numeric
         , Network.AWS.Data.Internal.Path
         , Network.AWS.Data.Internal.Query

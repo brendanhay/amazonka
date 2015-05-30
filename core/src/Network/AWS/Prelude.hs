@@ -88,5 +88,5 @@ import           Prelude                   as Export hiding (error, head)
 
 import           Control.Lens              as Export (Iso', Lens', Prism', iso,
                                                       lens, mapping, prism, to,
-                                                      withIso, (%~), (&), (.~),
+                                                      ( # ), (%~), (&), (.~),
                                                       (<>~), (?~), (^.))

@@ -49,9 +49,6 @@ module Network.AWS.Data
 
     -- * JSON
     , module Network.AWS.Data.Internal.JSON
-
-    -- * Collections
-    , module Network.AWS.Data.Internal.Map
     ) where
 
 import           Network.AWS.Data.Internal.Base64
@@ -59,7 +56,6 @@ import           Network.AWS.Data.Internal.Body
 import           Network.AWS.Data.Internal.ByteString
 import           Network.AWS.Data.Internal.Header
 import           Network.AWS.Data.Internal.JSON
-import           Network.AWS.Data.Internal.Map
 import           Network.AWS.Data.Internal.Numeric
 import           Network.AWS.Data.Internal.Path
 import           Network.AWS.Data.Internal.Query

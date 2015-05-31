@@ -23,8 +23,9 @@ import           Control.Comonad.Cofree
 import           Control.Error
 import           Control.Lens
 import           Control.Monad.State
-import           Data.Functor.Foldable  (Fix (..))
 import qualified Data.HashMap.Strict    as Map
+
+newtype Fix f = Fix (f (Fix f))
 
 cofree :: Functor f => a -> Fix f -> Cofree f a
 cofree x = go

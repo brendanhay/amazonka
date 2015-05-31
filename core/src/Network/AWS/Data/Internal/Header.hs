@@ -28,6 +28,10 @@ import           Network.AWS.Data.Internal.ByteString
 import           Network.AWS.Data.Internal.Text
 import           Network.HTTP.Types
 
+-- infixl 7 .~, .~?, .!~
+
+-- infixr 7 ~=, ~~=
+
 (~:) :: FromText a => ResponseHeaders -> HeaderName -> Either String a
 hs ~: k = hs ~:? k >>= note
   where
@@ -40,10 +44,6 @@ hs ~:? k =
           (fmap Just . fromText . Text.decodeUtf8)
           (k `lookup` hs)
 
-class ToHeaders a where
-    toHeaders :: a -> [Header]
-    toHeaders = const mempty
-
 (=:) :: ToHeader a => HeaderName -> a -> [Header]
 (=:) = toHeader
 
@@ -55,6 +55,10 @@ hdrs xs ys = Fold.foldr' (uncurry hdr) ys xs
 
 toHeaderText :: ToText a => HeaderName -> a -> [Header]
 toHeaderText k = toHeader k . toText
+
+class ToHeaders a where
+    toHeaders :: a -> [Header]
+    toHeaders = const mempty
 
 class ToHeader a where
     toHeader :: HeaderName -> a -> [Header]

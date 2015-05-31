@@ -1,4 +1,5 @@
 {-# LANGUAGE DefaultSignatures   #-}
+{-# LANGUAGE FlexibleContexts    #-}
 {-# LANGUAGE FlexibleInstances   #-}
 {-# LANGUAGE LambdaCase          #-}
 {-# LANGUAGE OverloadedStrings   #-}
@@ -51,10 +52,65 @@ import qualified Data.List.NonEmpty                   as NonEmpty
 import           Data.Maybe
 import           Data.Monoid
 import           Data.Text                            (Text)
+import           GHC.Exts
 import           Network.AWS.Data.Internal.ByteString
 import           Network.AWS.Data.Internal.Text
 import           Numeric.Natural
 import           Text.XML
+
+infixl 7 .@, .@?, .!@
+
+(.@) :: FromXML a => [Node] -> Text -> Either String a
+ns .@ n = findElement n ns >>= parseXML
+
+(.@?) :: FromXML a => [Node] -> Text -> Either String (Maybe a)
+ns .@? n =
+    case findElement n ns of
+        Left _   -> Right Nothing
+        Right xs -> parseXML xs
+
+(.!@) :: Either String (Maybe a) -> a -> Either String a
+f .!@ x = fromMaybe x <$> f
+
+parseList1 :: FromXML a => Text -> [Node] -> Either String (NonEmpty a)
+parseList1 n ns = do
+    l <- parseList n ns
+    maybe (Left $ "Empty list when expecting at least one element: " ++ show n)
+          Right
+          (NonEmpty.nonEmpty l)
+
+parseList :: FromXML a => Text -> [Node] -> Either String [a]
+parseList n = traverse parseXML . mapMaybe (childNodesOf n)
+
+infixr 7 @=, @@=
+
+(@=) :: ToXML a => Name -> a -> XML
+n @= x = One . NodeElement . mkElement n $ toXMLNodes x
+
+-- FIXME: This will not handle ze HashMaps, sir.
+(@@=) :: (IsList a, ToXML (Item a)) => Name -> a -> XML
+n @@= xs = Many . map (NodeElement . mkElement n . toXMLNodes) $ toList xs
+
+decodeXML :: FromXML a => LazyByteString -> Either String a
+decodeXML = either failure success . parseLBS def
+  where
+    failure = Left  . show
+    success = parseXML . elementNodes . documentRoot
+
+encodeXML :: ToXMLElement a => a -> LazyByteString
+encodeXML = renderLBS def . toDocument
+
+toDocument :: ToXMLElement a => a -> Document
+toDocument x = Document
+    { documentRoot     = toElement x
+    , documentEpilogue = []
+    , documentPrologue =
+        Prologue
+            { prologueBefore  = []
+            , prologueDoctype = Nothing
+            , prologueAfter   = []
+            }
+    }
 
 class FromXML a where
     parseXML :: [Node] -> Either String a
@@ -119,8 +175,8 @@ instance ToXML a => ToXML (Maybe a) where
     toXML (Just x) = toXML x
     toXML Nothing  = None
 
-instance ToXML a => ToXML [a] where
-    toXML = foldMap toXML
+-- instance ToXML a => ToXML [a] where
+--     toXML = foldMap toXML
 
 instance ToXML Text    where toXML = toXMLText
 instance ToXML Int     where toXML = toXMLText
@@ -129,59 +185,13 @@ instance ToXML Natural where toXML = toXMLText
 instance ToXML Double  where toXML = toXMLText
 instance ToXML Bool    where toXML = toXMLText
 
-decodeXML :: FromXML a => LazyByteString -> Either String a
-decodeXML = either failure success . parseLBS def
-  where
-    failure = Left  . show
-    success = parseXML . elementNodes . documentRoot
-
-encodeXML :: ToXMLElement a => a -> LazyByteString
-encodeXML = renderLBS def . toDocument
-
-toDocument :: ToXMLElement a => a -> Document
-toDocument x = Document
-    { documentRoot     = toElement x
-    , documentEpilogue = []
-    , documentPrologue =
-        Prologue
-            { prologueBefore  = []
-            , prologueDoctype = Nothing
-            , prologueAfter   = []
-            }
-    }
-
 parseXMLText :: FromText a => String -> [Node] -> Either String a
 parseXMLText n = withContent n >=>
     maybe (Left $ "empty node list, when expecting single node " ++ n)
-       fromText
+        fromText
 
 toXMLText :: ToText a => a -> XML
 toXMLText = One . NodeContent . toText
-
-infixl 7 .@, .@?, .!@, .@@
-
-(.@) :: FromXML a => [Node] -> Text -> Either String a
-ns .@ n = findElement n ns >>= parseXML
-
-(.@?) :: FromXML a => [Node] -> Text -> Either String (Maybe a)
-ns .@? n =
-    case findElement n ns of
-        Left _   -> Right Nothing
-        Right xs -> parseXML xs
-
-(.!@) :: Either String (Maybe a) -> a -> Either String a
-f .!@ x = fromMaybe x <$> f
-
-(.@@) :: FromXML a => Either String [Node] -> Text -> Either String [a]
-f .@@ n = f >>= traverse parseXML . mapMaybe (childNodes n)
-
-infixr 7 @=, @@=
-
-(@=) :: ToXML a => Name -> a -> XML
-n @= x = One . NodeElement . mkElement n $ toXMLNodes x
-
-(@@=) :: ToXML a => Name -> [a] -> XML
-n @@= xs = Many $ map (NodeElement . mkElement n . toXMLNodes) xs
 
 -- namespaced :: Text -> Text -> [Node] -> Maybe Element
 -- namespaced g l = Just . element (Name l (Just g) Nothing)
@@ -211,15 +221,15 @@ withElement n f = findElement n >=> f
 
 findElement :: Text -> [Node] -> Either String [Node]
 findElement n ns =
-    maybe (Left missing) Right . listToMaybe $ mapMaybe (childNodes n) ns
+    maybe (Left missing) Right . listToMaybe $ mapMaybe (childNodesOf n) ns
   where
     missing = "unable to find element "
         ++ show n
         ++ " in nodes "
         ++ show (mapMaybe localName ns)
 
-childNodes :: Text -> Node -> Maybe [Node]
-childNodes n x = case x of
+childNodesOf :: Text -> Node -> Maybe [Node]
+childNodesOf n x = case x of
     NodeElement e
         | Just n' <- localName x
         , n == n' -> Just (elementNodes e)

@@ -156,20 +156,21 @@ decodeExp c p f
 
 encodeExp :: Char -> Protocol -> Field -> Exp
 encodeExp c p f
-    | Just i <- m = infixApp n o (infixApp i o v)
-    | otherwise   = infixApp n o v
+    | Just i <- m = infixApp n (encodeOp c) (infixApp i (encodeListOp c) v)
+    | otherwise   = infixApp n (encodeOp c) v
   where
     (n, m) = memberNames p f
 
-    o = encodeOp c
     v = var (f ^. fieldAccessor)
 
-decodeOp, decodeMaybeOp, decodeListOp, decodeDefOp, encodeOp :: Char -> QOp
+decodeOp, decodeMaybeOp, decodeListOp, decodeDefOp,
+ encodeOp, encodeListOp :: Char -> QOp
 decodeOp      c = Exts.op (Exts.sym ['.', c])
 decodeMaybeOp c = Exts.op (Exts.sym ['.', c, '?'])
 decodeListOp  c = Exts.op (Exts.sym ['.', c, c])
 decodeDefOp   c = Exts.op (Exts.sym ['.', '!', c])
 encodeOp      c = Exts.op (Exts.sym [c, '='])
+encodeListOp  c = Exts.op (Exts.sym [c, c, '='])
 
 memberNames :: Protocol -> Field -> (Exp, Maybe Exp)
 memberNames p f =

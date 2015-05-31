@@ -12,5 +12,5 @@ cabal.config: $(CABAL_CONFIG)
 	ln -fs $(TOP)/share/cabal.config $@
 
 $(CABAL_CONFIG):
-	curl -s \
+	curl -f \
  https://www.stackage.org/snapshot/nightly-$(STACKAGE_NIGHTLY)/cabal.config > $(TOP)/share/cabal.config

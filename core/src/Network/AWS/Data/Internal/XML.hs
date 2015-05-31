@@ -1,4 +1,5 @@
 {-# LANGUAGE DefaultSignatures   #-}
+{-# LANGUAGE FlexibleInstances   #-}
 {-# LANGUAGE LambdaCase          #-}
 {-# LANGUAGE OverloadedStrings   #-}
 {-# LANGUAGE ScopedTypeVariables #-}
@@ -13,37 +14,40 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Data.Internal.XML
-    (
-    -- * FromXML
-      FromXML      (..)
-    , decodeXML
-    , parseXMLText
-    -- ** Combinators
-    , withContent
-    , withElement
-    , findElement
-    -- ** Operators
-    , (.@)
-    , (.@?)
+module Network.AWS.Data.Internal.XML where
+    -- (
+    -- -- * FromXML
+    --   FromXML      (..)
+    -- , decodeXML
+    -- , parseXMLText
+    -- -- ** Combinators
+    -- , withContent
+    -- , withElement
+    -- , findElement
+    -- -- ** Operators
+    -- , (.@)
+    -- , (.@?)
     -- , (.!@)
+    -- , (.@@)
 
-    -- * ToXML
-    , ToXMLElement (..)
-    , ToXML        (..)
-    , encodeXML
-    , toXMLText
-    -- ** Constructors
-    , namespaced
-    , element
-    , nodes
-    -- ** Operators
-    , (=@)
-    ) where
+    -- -- * ToXML
+    -- , ToXMLElement (..)
+    -- , ToXML        (..)
+    -- , encodeXML
+    -- , toXMLText
+    -- -- ** Constructors
+    -- , namespaced
+    -- , element
+    -- , nodes
+    -- -- ** Operators
+    -- , (@=)
+    -- ) where
 
 import           Control.Applicative
 import           Control.Monad
 import           Data.Default.Class
+import           Data.List.NonEmpty                   (NonEmpty (..))
+import qualified Data.List.NonEmpty                   as NonEmpty
 import           Data.Maybe
 import           Data.Monoid
 import           Data.Text                            (Text)
@@ -55,12 +59,15 @@ import           Text.XML
 class FromXML a where
     parseXML :: [Node] -> Either String a
 
+instance FromXML [Node] where
+    parseXML = pure
+
 instance FromXML a => FromXML (Maybe a) where
     parseXML [] = pure Nothing
     parseXML ns = Just <$> parseXML ns
 
 instance FromXML Text where
-    parseXML = withContent "Text" >=> fromText . fromMaybe mempty
+    parseXML = fmap (fromMaybe mempty) . withContent "Text"
 
 instance FromXML Int     where parseXML = parseXMLText "Int"
 instance FromXML Integer where parseXML = parseXMLText "Integer"
@@ -74,17 +81,45 @@ instance FromXML Bool    where parseXML = parseXMLText "Bool"
 class ToXMLElement a where
     toElement :: a -> Element
 
+instance ToXMLElement Element where
+    toElement = id
+
+-- | Provides a way to make the operators for ToXML instance
+-- declaration be consistent WRT to single nodes or lists of nodes.
+data XML
+    = None
+    | One  Node
+    | Many [Node]
+      deriving (Show)
+
+instance Monoid XML where
+    mempty            = None
+    mappend None None = None
+    mappend a    b    = Many (listXMLNodes a <> listXMLNodes b)
+
+listXMLNodes :: XML -> [Node]
+listXMLNodes = \case
+    None    -> []
+    One  n  -> [n]
+    Many ns -> ns
+
 class ToXML a where
-    toXML :: a -> [Node]
+    toXML :: a -> XML
 
     -- default toXML :: ToXMLElement a => a -> [Node]
     -- toXML = maybeToList . fmap NodeElement . toXMLRoot
 
+toXMLNodes :: ToXML a => a -> [Node]
+toXMLNodes = listXMLNodes . toXML
+
+instance ToXML XML where
+    toXML = id
+
 instance ToXML a => ToXML (Maybe a) where
     toXML (Just x) = toXML x
-    toXML Nothing  = []
+    toXML Nothing  = None
 
-instance ToXML Node    where toXML = (:[])
+-- instance ToXML Node    where toXML = One
 instance ToXML Text    where toXML = toXMLText
 instance ToXML Int     where toXML = toXMLText
 instance ToXML Integer where toXML = toXMLText
@@ -92,11 +127,14 @@ instance ToXML Natural where toXML = toXMLText
 instance ToXML Double  where toXML = toXMLText
 instance ToXML Bool    where toXML = toXMLText
 
-decodeXML :: LazyByteString -> Either String [Node]
+-- instance ToXML a => ToXML [a] where
+--     toXML
+
+decodeXML :: FromXML a => LazyByteString -> Either String a
 decodeXML = either failure success . parseLBS def
   where
     failure = Left  . show
-    success = Right . elementNodes . documentRoot
+    success = parseXML . elementNodes . documentRoot
 
 encodeXML :: ToXMLElement a => a -> LazyByteString
 encodeXML = renderLBS def . toDocument
@@ -114,14 +152,14 @@ toDocument x = Document
     }
 
 parseXMLText :: FromText a => String -> [Node] -> Either String a
-parseXMLText n = withContent n >=> maybe err fromText
-  where
-    err = Left $ "empty node list, when expecting single node " ++ n
+parseXMLText n = withContent n >=>
+    maybe (Left $ "empty node list, when expecting single node " ++ n)
+       fromText
 
-toXMLText :: ToText a => a -> [Node]
-toXMLText x = [NodeContent (toText x)]
+toXMLText :: ToText a => a -> XML
+toXMLText = One . NodeContent . toText
 
-infixr 7 .@, .@?, =@
+infixl 7 .@, .@?, .!@, .@@
 
 (.@) :: FromXML a => [Node] -> Text -> Either String a
 ns .@ n = findElement n ns >>= parseXML
@@ -132,42 +170,42 @@ ns .@? n =
         Left _   -> Right Nothing
         Right xs -> parseXML xs
 
--- (.!@) :: Either String (Maybe a) -> a -> Either String a
--- f .!@ x = fromMaybe x <$> f
+(.!@) :: Either String (Maybe a) -> a -> Either String a
+f .!@ x = fromMaybe x <$> f
 
-(=@) :: ToXML a => Name -> a -> Node
-n =@ x = NodeElement (element n (toXML x))
+(.@@) :: FromXML a => Either String [Node] -> Text -> Either String [a]
+f .@@ n = f >>= traverse parseXML . mapMaybe (childNodes n)
 
-namespaced :: Text -> Text -> [Node] -> Maybe Element
-namespaced g l = Just . element (Name l (Just g) Nothing)
+infixr 7 @=, @@=
 
-element :: Name -> [Node] -> Element
-element n = Element n mempty
+(@=) :: ToXML a => Name -> a -> XML
+n @= x = One . NodeElement . mkElement n $ toXMLNodes x
 
-nodes :: Name -> [Node] -> [Node]
-nodes n ns = [NodeElement (element n ns)]
+(@@=) :: ToXML a => Name -> [a] -> XML
+n @@= xs = Many $ map (NodeElement . mkElement n . toXMLNodes) xs
 
--- extractRoot :: Text -> [Node] -> Maybe Element
--- extractRoot g ns =
---     case ns of
---         [NodeElement x] -> Just x { elementName = rename x }
---         _               -> Nothing
---   where
---     rename x = (elementName x) { nameNamespace = Just g }
+-- namespaced :: Text -> Text -> [Node] -> Maybe Element
+-- namespaced g l = Just . element (Name l (Just g) Nothing)
+
+mkElement :: Name -> [Node] -> Element
+mkElement n = Element n mempty
+
+-- nodes :: Name -> [Node] -> [Node]
+-- nodes n ns = [NodeElement (element n ns)]
+
+-- -- extractRoot :: Text -> [Node] -> Maybe Element
+-- -- extractRoot g ns =
+-- --     case ns of
+-- --         [NodeElement x] -> Just x { elementName = rename x }
+-- --         _               -> Nothing
+-- --   where
+-- --     rename x = (elementName x) { nameNamespace = Just g }
 
 withContent :: String -> [Node] -> Either String (Maybe Text)
-withContent n = \case
-    [x] -> go x
-    []  -> Right Nothing
-    _   -> Left encountered
-  where
-    go (NodeContent x) = Right (Just x)
-    go (NodeElement e) = Left . unexpected . show $ elementName e
-    go _               = Left unrecognised
-
-    encountered  = "encountered node list, when expecting exactly one node: " ++ n
-    unexpected k = "unexpected element " ++ k ++ ", when expecting node content: " ++ n
-    unrecognised = "unrecognised element, when expecting node content: " ++ n
+withContent k = \case
+    []              -> Right Nothing
+    [NodeContent x] -> Right (Just x)
+    _               -> Left $ "encountered many nodes, when expecting text: " ++ k
 
 withElement :: Text -> ([Node] -> Either String a) -> [Node] -> Either String a
 withElement n f = findElement n >=> f
@@ -182,10 +220,11 @@ findElement n ns =
         ++ show (mapMaybe localName ns)
 
 childNodes :: Text -> Node -> Maybe [Node]
-childNodes n = \case
-    NodeElement e | nameLocalName (elementName e) == n
-        -> Just (elementNodes e)
-    _   -> Nothing
+childNodes n x = case x of
+    NodeElement e
+        | Just n' <- localName x
+        , n == n' -> Just (elementNodes e)
+    _             -> Nothing
 
 localName :: Node -> Maybe Text
 localName = \case

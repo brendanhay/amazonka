@@ -65,7 +65,7 @@ xmlResponse :: (MonadResource m, AWSService (Sv a), FromXML (Rs a))
             -> Request a
             -> Either HttpException ClientResponse
             -> m (Response' a)
-xmlResponse = deserialise (decodeXML >=> parseXML) (\_ _ -> Right)
+xmlResponse = deserialise decodeXML (\_ _ -> Right)
 
 xmlHeaderResponse :: (MonadResource m, AWSService (Sv a))
                   => (ResponseHeaders -> [Node] -> Either String (Rs a))

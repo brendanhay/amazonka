@@ -123,7 +123,7 @@ restError f Service{..} s
     | f s       = Nothing
     | otherwise = Just go
   where
-    go x = either failure success (decodeXML x >>= parseXML)
+    go x = either failure success (decodeXML x)
       where
         failure e = SerializerError _svcAbbrev (e ++ ":\n" ++ unpack x)
         success   = ServiceError _svcAbbrev s

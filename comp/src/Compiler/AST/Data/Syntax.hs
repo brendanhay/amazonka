@@ -143,11 +143,13 @@ toPathExp = app (var "toText") . var . view fieldAccessor
 
 decodeExp :: Char -> Protocol -> Field -> Exp
 decodeExp c p f
-    | Just i <- m        = infixApp v (decodeListOp  c) (infixApp n (decodeOp c) i)
-    | f ^. fieldRequired = infixApp v (decodeOp      c) n
-    | f ^. fieldMonoid   = infixApp v (decodeOp      c) (infixApp n (decodeDefOp c) (var "mempty"))
-    | otherwise          = infixApp v (decodeMaybeOp c) n
+    | Just i <- m = infixApp (paren op) (decodeListOp c) i
+    | otherwise   = op
   where
+    op | f ^. fieldRequired = infixApp v (decodeOp      c) n
+       | f ^. fieldMonoid   = infixApp v (decodeMaybeOp c) (infixApp n (decodeDefOp c) (var "mempty"))
+       | otherwise          = infixApp v (decodeMaybeOp c) n
+
     (n, m) = memberNames p f
 
     v = var "x"

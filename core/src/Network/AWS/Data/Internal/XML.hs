@@ -119,16 +119,15 @@ instance ToXML a => ToXML (Maybe a) where
     toXML (Just x) = toXML x
     toXML Nothing  = None
 
--- instance ToXML Node    where toXML = One
+instance ToXML a => ToXML [a] where
+    toXML = foldMap toXML
+
 instance ToXML Text    where toXML = toXMLText
 instance ToXML Int     where toXML = toXMLText
 instance ToXML Integer where toXML = toXMLText
 instance ToXML Natural where toXML = toXMLText
 instance ToXML Double  where toXML = toXMLText
 instance ToXML Bool    where toXML = toXMLText
-
--- instance ToXML a => ToXML [a] where
---     toXML
 
 decodeXML :: FromXML a => LazyByteString -> Either String a
 decodeXML = either failure success . parseLBS def

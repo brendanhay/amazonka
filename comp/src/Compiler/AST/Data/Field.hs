@@ -1,3 +1,5 @@
+{-# LANGUAGE FlexibleContexts  #-}
+{-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TemplateHaskell   #-}
@@ -13,27 +15,12 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.AST.Data.Field
-    ( Field
-    , mkFields
-
-    -- * Ids
-    , fieldId
-    , fieldLens
-    , fieldAccessor
-    , fieldParam
-
-    -- * Nested Lenses
-    , fieldRef
-    , fieldRequired
-    , fieldHelp
-    , fieldLocation
-    , fieldMonoid
-    , fieldPayload
-    ) where
+module Compiler.AST.Data.Field where
 
 import           Compiler.AST.TypeOf
 import           Compiler.Types
+import           Control.Comonad
+import           Control.Comonad.Cofree
 import           Control.Lens
 import           Data.Function                (on)
 import qualified Data.HashSet                 as Set
@@ -78,6 +65,14 @@ instance TypeOf Field where
               -- This field is not required, but the TType can't be defaulted sensibly.
             | otherwise     = TMaybe t
 
+instance HasInfo Field where
+    info = fieldAnn . info
+
+instance HasInfo (Shape a) where
+    info = lens unwrap go . info
+      where
+        go s a = extract s :< a
+
 mkFields :: Maybe Text -> StructF (Shape Solved) -> [Field]
 mkFields p st = sort $ map mk (st ^. members)
   where
@@ -101,4 +96,12 @@ fieldLocation :: Getter Field (Maybe Location)
 fieldLocation = fieldRef . refLocation
 
 fieldMonoid :: Getter Field Bool
-fieldMonoid = fieldRef . refAnn . to (elem DMonoid . view annDerive)
+fieldMonoid = fieldAnn . to (elem DMonoid . view annDerive)
+
+fieldList1, fieldList, fieldMap :: Field -> Bool
+fieldList1 f = fieldList f && nonEmpty f
+fieldList    = not . isn't _List . unwrap . view fieldAnn
+fieldMap     = not . isn't _Map  . unwrap . view fieldAnn
+
+fieldAnn :: Lens' Field (Shape Solved)
+fieldAnn = fieldRef . refAnn

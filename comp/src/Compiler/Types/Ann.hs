@@ -107,6 +107,7 @@ data Derive
     | DMonoid
     | DSemigroup
     | DIsString
+    | DGeneric
       deriving (Eq, Ord, Show, Generic)
 
 instance Hashable Derive
@@ -213,4 +214,3 @@ instance HasPrefixed Solved where
 
 instance HasId Solved where
     identifier = view annId
-

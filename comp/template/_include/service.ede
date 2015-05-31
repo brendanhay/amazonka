@@ -13,7 +13,7 @@ instance AWSService {{ serviceAbbrev }} where
             , _svcPrefix       = "{{ endpointPrefix }}"
             , _svcVersion      = "{{ apiVersion }}"
             , _svcTargetPrefix = {% if targetPrefix %}Just "{{ targetPrefix }}"{% else %}Nothing{% endif %}
-            , _svcJSONVersion  = "{{ jsonVersion }}"
+            , _svcJSONVersion  = {% if jsonVersion %}Just "{{ jsonVersion }}"{% else %}Nothing{% endif %}
             , _svcHandle       = handle
             , _svcRetry        = retry
             }

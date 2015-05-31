@@ -1,5 +1,6 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE LambdaCase        #-}
+{-# LANGUAGE MultiWayIf        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TupleSections     #-}
@@ -132,23 +133,29 @@ fromXMLExp, fromJSONExp, fromHeadersExp, toXMLExp,
  toJSONExp, toHeadersExp, toQueryExp :: Protocol -> Field -> Exp
 fromXMLExp     = decodeExp '@'
 fromJSONExp    = decodeExp ':'
-fromHeadersExp = decodeExp '?'
+fromHeadersExp = decodeExp '~'
 toXMLExp       = encodeExp '@'
 toJSONExp      = encodeExp '.'
 toHeadersExp   = encodeExp '~'
-toQueryExp     = encodeExp '?'
+toQueryExp     = encodeExp '#'
 
 toPathExp :: Field -> Exp
 toPathExp = app (var "toText") . var . view fieldAccessor
 
 decodeExp :: Char -> Protocol -> Field -> Exp
 decodeExp c p f
-    | Just i <- m = infixApp (paren op) (decodeListOp c) i
-    | otherwise   = op
+   | Just i <- m        = paren (infixApp monoid (qop ">>=") (parse i))
+   | f ^. fieldMonoid   = app (parse n) v
+   | f ^. fieldRequired = infixApp v (decodeOp      c) n
+   | otherwise          = infixApp v (decodeMaybeOp c) n
   where
-    op | f ^. fieldRequired = infixApp v (decodeOp      c) n
-       | f ^. fieldMonoid   = infixApp v (decodeMaybeOp c) (infixApp n (decodeDefOp c) (var "mempty"))
-       | otherwise          = infixApp v (decodeMaybeOp c) n
+    monoid = infixApp v (decodeMaybeOp c) $
+        infixApp n (decodeDefOp c) (var "mempty")
+
+    parse i
+        | fieldList1 f = app (var "parseList1") i
+        | fieldList  f = app (var "parseList")  i
+        | fieldMap   f = app (var "parseMap")   i
 
     (n, m) = memberNames p f
 
@@ -156,18 +163,19 @@ decodeExp c p f
 
 encodeExp :: Char -> Protocol -> Field -> Exp
 encodeExp c p f
-    | Just i <- m = infixApp n (encodeOp c) (infixApp i (encodeListOp c) v)
-    | otherwise   = infixApp n (encodeOp c) v
+    | Just i <- m  = infixApp n (encodeOp     c) (infixApp i (encodeListOp c) v)
+    | fieldList1 f = infixApp n (encodeListOp c) v
+    | fieldList  f = infixApp n (encodeListOp c) v
+--    | fieldMap   f = infixApp n (encodeOp c) v
+    | otherwise    = infixApp n (encodeOp     c) v
   where
     (n, m) = memberNames p f
 
     v = var (f ^. fieldAccessor)
 
-decodeOp, decodeMaybeOp, decodeListOp, decodeDefOp,
- encodeOp, encodeListOp :: Char -> QOp
+decodeOp, decodeMaybeOp, decodeDefOp, encodeOp, encodeListOp :: Char -> QOp
 decodeOp      c = Exts.op (Exts.sym ['.', c])
 decodeMaybeOp c = Exts.op (Exts.sym ['.', c, '?'])
-decodeListOp  c = Exts.op (Exts.sym ['.', c, c])
 decodeDefOp   c = Exts.op (Exts.sym ['.', '!', c])
 encodeOp      c = Exts.op (Exts.sym [c, '='])
 encodeListOp  c = Exts.op (Exts.sym [c, c, '='])

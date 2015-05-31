@@ -83,7 +83,7 @@ derive (_ :< s) = nub . sort $ shape s
     num    = [DEnum, DNum, DIntegral, DReal]
     frac   = [DRealFrac, DRealFloat]
     monoid = [DMonoid, DSemigroup]
-    enum   = [DEnum]
+    enum   = [DEnum, DGeneric]
     base   = [DEq, DOrd, DRead, DShow]
 
 replaced :: (Replace -> a) -> Config -> Map Id a

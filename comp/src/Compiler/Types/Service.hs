@@ -37,6 +37,7 @@ import           Compiler.Types.Map
 import           Compiler.Types.NS
 import           Compiler.Types.Orphans ()
 import           Compiler.Types.URI
+import           Control.Comonad
 import           Control.Comonad.Cofree
 import           Control.Lens           hiding ((.=))
 import           Data.Aeson             (ToJSON (..), object, (.=))
@@ -377,7 +378,7 @@ data Metadata f = Metadata
     , _timestampFormat  :: f Timestamp
     , _checksumFormat   :: f Checksum
     , _xmlNamespace     :: Maybe Text
-    , _jsonVersion      :: Text
+    , _jsonVersion      :: Maybe Text
     , _targetPrefix     :: Maybe Text
     } deriving (Generic)
 
@@ -403,7 +404,7 @@ instance FromJSON (Metadata Maybe) where
         <*> o .:? "timestampFormat"
         <*> o .:? "checksumFormat"
         <*> o .:? "xmlNamespace"
-        <*> o .:? "jsonVersion"     .!= "1.0"
+        <*> o .:? "jsonVersion"
         <*> o .:? "targetPrefix"
 
 instance ToJSON (Metadata Identity) where

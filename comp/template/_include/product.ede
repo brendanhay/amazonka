@@ -41,7 +41,7 @@ instance FromXML {{ shape.name }} where
     {% if !(inst.value | empty) %}
 
 instance ToXML {{ shape.name }} where
-    toXML {{ shape.name }}{..} =
+    toXML {{ shape.name }}{..} = mconcat
       {% for field in inst.value %}
         {% include "list.ede" %} {{ field.value }}
       {% endfor %}

@@ -52,10 +52,6 @@ instance HasId a => TypeOf (Shape a) where
                         Blob | streaming i -> TStream
                         _                  -> TLit l
 
--- This was not specific enough to determine streaming.
--- instance TypeOf a => TypeOf (RefF a) where
---     typeOf = typeOf . view refAnn
-
 instance HasId a => TypeOf (RefF (Shape a)) where
     typeOf r
         | streaming r = TStream

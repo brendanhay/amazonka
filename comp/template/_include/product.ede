@@ -47,6 +47,11 @@ instance ToXML {{ shape.name }} where
       {% endfor %}
         ]
     {% endif %}
+    {% when "ToElement" %}
+
+instance ToElement {{ shape.name }} where
+    toElement {{ shape.name }}{..} =
+        {% for field in inst.value %}{{ field.value }}{% endfor %}
   {% when "FromJSON" %}
 
 instance FromJSON {{ shape.name }} where

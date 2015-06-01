@@ -1,0 +1,10 @@
+{% case shape.type %}
+{% when "sum" %}
+  {% include "sum.ede" %}
+{% when "product" %}
+  {% include "product.ede" %}
+  {% include "instances-product.ede" %}
+{% when "nullary" %}
+  {% include "product.ede" %}
+  {% include "instances-nullary.ede" %}
+{% endcase %}

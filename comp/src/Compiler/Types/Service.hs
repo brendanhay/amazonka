@@ -141,7 +141,7 @@ instance ToJSON Location where
     toJSON = gToJSON' camel
 
 data XML = XML'
-    { _xmlPrefix :: Text
+    { _xmlPrefix :: Maybe Text
     , _xmlUri    :: Text
     } deriving (Eq, Show, Generic)
 
@@ -180,7 +180,7 @@ instance FromJSON (RefF ()) where
         <*> o .:? "queryName"
         <*> o .:? "streaming"    .!= False
         <*> o .:? "xmlAttribute" .!= False
-        <*> o .:? "xmlnamespace"
+        <*> o .:? "xmlNamespace"
 
 class HasRefs f where
      references :: Traversal (f a) (f b) (RefF a) (RefF b)
@@ -349,6 +349,7 @@ instance FromJSON (ShapeF ()) where
 data Operation f a = Operation
     { _opName          :: Id
     , _opDocumentation :: f Help
+    , _opDeprecated    :: !Bool
     , _opHTTP          :: HTTP f
     , _opInput         :: f a
     , _opOutput        :: f a
@@ -367,6 +368,7 @@ instance FromJSON (Operation Maybe (RefF ())) where
     parseJSON = withObject "operation" $ \o -> Operation
         <$> o .:  "name"
         <*> o .:? "documentation"
+        <*> o .:? "deprecated" .!= False
         <*> o .:  "http"
         <*> o .:? "input"
         <*> o .:? "output"

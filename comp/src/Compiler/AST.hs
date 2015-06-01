@@ -33,15 +33,16 @@ import qualified Data.HashSet          as Set
 import           Data.List             (sort)
 import           Data.Monoid
 
--- FIXME: Relations need to be updated by:
---  - solving
+-- FIXME: Relations need to be updated by the solving step.
+
+-- FIXME: add pruning of unreferenced shapes, such as errors etc.
 
 rewrite :: Versions
         -> Config
         -> Service Maybe (RefF ()) (ShapeF ())
         -> Either Error Library
 rewrite v cfg s' = do
-    s <- rewriteService cfg s' >>= renderShapes cfg
+    s <- rewriteService cfg (deprecate s') >>= renderShapes cfg
 
     let ns     = NS ["Network", "AWS", s ^. serviceAbbrev]
         other  = cfg ^. operationImports ++ cfg ^. typeImports
@@ -89,6 +90,9 @@ renderShapes cfg svc = do
         { _operations = os
         , _shapes     = ss
         }
+
+deprecate :: Service f a b -> Service f a b
+deprecate = operations %~ Map.filter (not . view opDeprecated)
 
 type MemoR = StateT (Map Id Relation) (Either Error)
 

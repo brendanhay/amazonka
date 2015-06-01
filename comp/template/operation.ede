@@ -40,9 +40,9 @@ import           Network.AWS.Request.{{ protocol }}
 import           {{ import.value }}
 {% endfor %}
 
-{% include "_include/product.ede" with shape = input %}
+{% include "_include/shape.ede" with shape = input %}
 
-{% include "_include/product.ede" with shape = output %}
+{% include "_include/shape.ede" with shape = output %}
 
 instance AWSRequest {{ input.name }} where
     type Sv {{ input.name }} = {{ serviceAbbrev }}

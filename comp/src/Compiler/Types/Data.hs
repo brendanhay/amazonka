@@ -62,7 +62,7 @@ data Prod = Prod'
 
 prodToJSON :: Prod -> Map Text [LText.Text] -> [Pair]
 prodToJSON Prod'{..} is =
-    [ "type"          .= Text.pack "product"
+    [ "type"          .= typ
     , "name"          .= _prodName
     , "constructor"   .= _prodCtor
     , "documentation" .= _prodDocumentation
@@ -70,6 +70,10 @@ prodToJSON Prod'{..} is =
     , "lenses"        .= _prodLenses
     , "instances"     .= is
     ]
+  where
+    typ :: Text
+    typ | null _prodLenses = "nullary"
+        | otherwise        = "product"
 
 data Sum = Sum'
     { _sumName          :: Text

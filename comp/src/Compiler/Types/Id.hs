@@ -1,4 +1,5 @@
-{-# LANGUAGE RankNTypes #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RankNTypes        #-}
 
 -- Module      : Compiler.Types.Id
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -27,7 +28,6 @@ module Compiler.Types.Id
     , smartCtorId
     , accessorId
     , lensId
-    , paramId
 
     -- * Modify representation
     , prependId
@@ -44,6 +44,7 @@ import           Data.CaseInsensitive   (CI)
 import qualified Data.CaseInsensitive   as CI
 import           Data.Hashable
 import           Data.Jason             hiding (ToJSON (..))
+import           Data.Monoid
 import           Data.Text              (Text)
 import qualified Data.Text              as Text
 import           Data.Text.Manipulate
@@ -110,9 +111,6 @@ accessorId p = accessor p . to (Text.cons '_')
 
 lensId :: Maybe Text -> Getter Id Text
 lensId p = accessor p . to renameReserved
-
-paramId :: Getter Id Text
-paramId = accessor Nothing . to (renameReserved . Text.toLower)
 
 accessor :: Maybe Text -> Getter Id Text
 accessor Nothing  = representation . to lowerHead

@@ -51,12 +51,6 @@ import           {{ import.value }}
 
 {% include "_include/service.ede" %}
 {% for shape in shapes %}
-  {% case shape.value.type %}
-  {% when "product" %}
 
-    {% include "_include/product.ede" with shape = shape.value %}
-  {% when "sum" %}
-
-    {% include "_include/sum.ede" with shape = shape.value %}
-  {% endcase %}
+  {% include "_include/shape.ede" with shape = shape.value %}
 {% endfor %}

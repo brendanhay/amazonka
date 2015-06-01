@@ -35,7 +35,7 @@ import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
 import qualified Language.Haskell.Exts        as Exts
 import           Language.Haskell.Exts.Build  (app, appFun, infixApp, lamE,
-                                               paren, sfun)
+                                               listE, paren, sfun)
 import           Language.Haskell.Exts.SrcLoc (noLoc)
 import           Language.Haskell.Exts.Syntax hiding (Int, List, Lit, Var)
 
@@ -127,12 +127,12 @@ responseExps p = map go
 
 instanceExps :: Protocol -> Inst -> [Exp]
 instanceExps p = \case
-    FromXML   fs -> map (fromXMLExp   p) fs
-    ToXML     fs -> map (toXMLExp     p) fs
+    FromXML   fs -> map (fromXMLExp p) fs
+    ToXML     fs -> map (toXMLExp p) fs
     ToElement f  -> [toXMLElementExp p f]
     ToHeaders fs -> map (toHeadersExp p) fs
     ToQuery   es -> map (either str (toQueryExp p)) es
-    ToPath    es -> map (either str toPathExp)      es
+    ToPath    es -> [toPathExp es]
     ToBody    f  -> [toBodyExp f]
 
 data Dec = Dec
@@ -158,16 +158,23 @@ toHeadersExp = encodeExp (Enc "=#" "=##")
 toQueryExp   = encodeExp (Enc "=:" "=:")
 
 toXMLElementExp :: Protocol -> Field -> Exp
-toXMLElementExp p f = appFun (var "namespaced")
-    [ var "ns"
-    , fst (memberNames p f)
+toXMLElementExp p f = appFun (var "mkElement")
+    [ str name
     , var "$"
     , var "toXML"
     , var (f ^. fieldAccessor)
     ]
+  where
+    name | Just ns <- f ^. fieldNamespace = "{" <> ns <> "}" <> n
+         | otherwise                      = n
 
-toPathExp :: Field -> Exp
-toPathExp = app (var "toText") . var . view fieldAccessor
+    n = memberName p Input (f ^. fieldId) (f ^. fieldRef)
+
+toPathExp :: [Either Text Field] -> Exp
+toPathExp [Left t] = str t
+toPathExp fs       = app (var "mconcat") . listE $ map (either str go) fs
+  where
+    go = app (var "toText") . var . view fieldAccessor
 
 toBodyExp :: Field -> Exp
 toBodyExp f = var (f ^. fieldAccessor)

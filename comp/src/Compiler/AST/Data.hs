@@ -115,7 +115,7 @@ dataType m s = case unwrap s of
         mkInst i = (instToText i,) <$> traverse plain (instanceExps proto i)
 
         fields :: [Field]
-        fields = mkFields p st
+        fields = mkFields m p st
 
 render, plain :: Pretty a => a -> Either Error LText.Text
 render = pretty True

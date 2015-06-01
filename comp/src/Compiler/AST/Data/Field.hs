@@ -19,6 +19,7 @@ module Compiler.AST.Data.Field where
 
 import           Compiler.AST.TypeOf
 import           Compiler.Types
+import           Control.Applicative
 import           Control.Comonad
 import           Control.Comonad.Cofree
 import           Control.Lens
@@ -28,16 +29,18 @@ import           Data.List                    (sort)
 import           Data.Maybe
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
+import           Data.Text.Manipulate
 import           Language.Haskell.Exts.Syntax (Name (..))
 
 -- | Convenience type to package up some information from the struct with the
 -- related field, namely the memberId and the (Set.member required).
 data Field = Field
-    { _fieldId       :: Id    -- ^ The memberId from the struct members map.
-    , _fieldRef      :: Ref   -- ^ The original struct member reference.
-    , _fieldRequired :: !Bool -- ^ Does the struct have this member in the required set.
-    , _fieldPayload  :: !Bool -- ^ Does the struct have this memeber marked as the payload.
-    , _fieldPrefix   :: Maybe Text
+    { _fieldId        :: Id    -- ^ The memberId from the struct members map.
+    , _fieldRef       :: Ref   -- ^ The original struct member reference.
+    , _fieldRequired  :: !Bool -- ^ Does the struct have this member in the required set.
+    , _fieldPayload   :: !Bool -- ^ Does the struct have this memeber marked as the payload.
+    , _fieldPrefix    :: Maybe Text
+    , _fieldNamespace :: Maybe Text
     } deriving (Show)
 
 makeLenses ''Field
@@ -68,11 +71,23 @@ instance TypeOf Field where
 instance HasInfo Field where
     info = fieldAnn . info
 
-mkFields :: Maybe Text -> StructF (Shape Solved) -> [Field]
-mkFields p st = sort $ map mk (st ^. members)
+-- FIXME: Can just add the metadata to field as well since
+-- the protocol/timestamp are passed in everywhere in the .Syntax module.
+mkFields :: HasMetadata a f
+         => a
+         -> Maybe Text
+         -> StructF (Shape Solved)
+         -> [Field]
+mkFields m p st = sort $ map mk (st ^. members)
   where
     mk :: (Id, Ref) -> Field
-    mk (k, v) = Field k v (Set.member k (getRequired st)) (Just k == st ^. payload) p
+    mk (k, v) = Field k v req pay p ns
+      where
+        req = Set.member k (getRequired st)
+        pay = Just k == st ^. payload
+
+        ns  = (view xmlUri <$> v ^. refXMLNamespace)
+          <|> (m ^. xmlNamespace)
 
 fieldLens, fieldAccessor :: Getter Field Text
 fieldLens     = to (\f -> f ^. fieldId . lensId     (f ^. fieldPrefix))
@@ -80,7 +95,9 @@ fieldAccessor = to (\f -> f ^. fieldId . accessorId (f ^. fieldPrefix))
 
 -- | Parameter to a constructor function.
 fieldParam :: Getter Field Name
-fieldParam = fieldId . paramId . to (Ident . Text.unpack)
+fieldParam = fieldId
+    . lensId Nothing
+    . to (Ident . Text.unpack . Text.cons 'p' . upperHead)
 
 fieldHelp :: Getter Field Help
 fieldHelp = fieldRef

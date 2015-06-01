@@ -1,0 +1,89 @@
+{% for inst in shape.instances %}
+  {% case inst.key %}
+  {% when "FromXML" %}
+
+instance FromXML {{ shape.name }} where
+    {% if inst.value | empty %}
+    parseXML = const (return {{ shape.name }})
+    {% else %}
+    parseXML x = {{ shape.name }}
+      {% for field in inst.value %}
+        {% include "applicative.ede" %} {{ field.value }}
+      {% endfor %}
+    {% endif %}
+  {% when "ToXML" %}
+    {% if !(inst.value | empty) %}
+
+instance ToXML {{ shape.name }} where
+    toXML {{ shape.name }}{..} = mconcat
+      {% for field in inst.value %}
+        {% include "list.ede" %} {{ field.value }}
+      {% endfor %}
+        ]
+    {% endif %}
+    {% when "ToElement" %}
+
+instance ToElement {{ shape.name }} where
+    toElement {{ shape.name }}{..} =
+        {% for field in inst.value %}{{ field.value }}{% endfor %}
+  {% when "FromJSON" %}
+
+instance FromJSON {{ shape.name }} where
+    {% if inst.value | empty %}
+    parseJSON = const (return {{ shape.name }})
+    {% else %}
+    parseJSON x = {{ shape.name }}
+      {% for field in inst.value %}
+        {% include "applicative.ede" %} {{ field.value }}
+      {% endfor %}
+    {% endif %}
+  {% when "ToJSON" %}
+    {% if !(inst.value | empty) %}
+
+instance ToJSON {{ shape.name }} where
+    toJSON {{ shape.name }}{..} =
+      {% for field in inst.value %}
+        {% include "list.ede" %} {{ field.value }}
+      {% endfor %}
+        ]
+    {% endif %}
+  {% when "ToQuery" %}
+
+instance ToQuery {{ shape.name }} where
+    {% if inst.value | empty %}
+    toQuery = const mempty
+    {% else %}
+    toQuery {{ shape.name }}{..} = mconcat
+      {% for field in inst.value %}
+        {% include "list.ede" %} {{ field.value }}
+      {% endfor %}
+        ]
+    {% endif %}
+  {% when "ToHeaders" %}
+
+instance ToHeaders {{ shape.name }} where
+    {% if inst.value | empty %}
+    toHeaders = const mempty
+    {% else %}
+    toHeaders {{ shape.name }}{..} =
+      {% for field in inst.value %}
+        {% include "list.ede" %} {{ field.value }}
+      {% endfor %}
+        ]
+    {% endif %}
+  {% when "ToPath" %}
+
+instance ToPath {{ shape.name }} where
+    toPath {{ shape.name }}{..} =
+      {% for field in inst.value %}
+        {{ field.value }}
+      {% endfor %}
+  {% when "ToBody" %}
+
+instance ToBody {{ shape.name }} where
+    toBody = {% for field in inst.value %}{{ field.value }}{% endfor %}
+  {% else %}
+
+-- Error: Attempting to render unrecognized instance '{{ inst.key }}'
+  {% endcase %}
+{% endfor %}

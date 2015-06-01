@@ -32,7 +32,7 @@ module Network.AWS.Data.Internal.XML where
     -- , (.@@)
 
     -- -- * ToXML
-    -- , ToXMLElement (..)
+    -- , ToElement (..)
     -- , ToXML        (..)
     -- , encodeXML
     -- , toXMLText
@@ -97,10 +97,10 @@ decodeXML = either failure success . parseLBS def
     failure = Left  . show
     success = parseXML . elementNodes . documentRoot
 
-encodeXML :: ToXMLElement a => a -> LazyByteString
+encodeXML :: ToElement a => a -> LazyByteString
 encodeXML = renderLBS def . toDocument
 
-toDocument :: ToXMLElement a => a -> Document
+toDocument :: ToElement a => a -> Document
 toDocument x = Document
     { documentRoot     = toElement x
     , documentEpilogue = []
@@ -134,10 +134,10 @@ instance FromXML Bool    where parseXML = parseXMLText "Bool"
 -- class ToXMLElemet a where
 --     toXMLRoot :: a -> Element
 
-class ToXMLElement a where
+class ToElement a where
     toElement :: a -> Element
 
-instance ToXMLElement Element where
+instance ToElement Element where
     toElement = id
 
 -- | Provides a way to make the operators for ToXML instance
@@ -162,7 +162,7 @@ listXMLNodes = \case
 class ToXML a where
     toXML :: a -> XML
 
-    -- default toXML :: ToXMLElement a => a -> [Node]
+    -- default toXML :: ToElement a => a -> [Node]
     -- toXML = maybeToList . fmap NodeElement . toXMLRoot
 
 toXMLNodes :: ToXML a => a -> [Node]
@@ -193,8 +193,8 @@ parseXMLText n = withContent n >=>
 toXMLText :: ToText a => a -> XML
 toXMLText = One . NodeContent . toText
 
--- namespaced :: Text -> Text -> [Node] -> Maybe Element
--- namespaced g l = Just . element (Name l (Just g) Nothing)
+-- mkNamespace :: Text -> Text -> [Node] -> Maybe Element
+-- mkNamespacesnamespaced g l = Just . element (Name l (Just g) Nothing)
 
 mkElement :: Name -> [Node] -> Element
 mkElement n = Element n mempty

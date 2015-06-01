@@ -35,10 +35,10 @@ head :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
 head x = get x & rqMethod .~ HEAD
 {-# INLINE head #-}
 
-post :: (ToPath a, ToQuery a, ToHeaders a, ToXMLElement a) => a -> Request a
+post :: (ToPath a, ToQuery a, ToHeaders a, ToElement a) => a -> Request a
 post x = put x & rqMethod .~ POST
 {-# INLINE post #-}
 
-put :: (ToPath a, ToQuery a, ToHeaders a, ToXMLElement a) => a -> Request a
+put :: (ToPath a, ToQuery a, ToHeaders a, ToElement a) => a -> Request a
 put x = get x & rqMethod .~ PUT & rqBody .~ toBody (encodeXML x)
 {-# INLINE put #-}

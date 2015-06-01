@@ -68,7 +68,8 @@ instance FromJSON Signature where
     parseJSON = gParseJSON' lower
 
 instance ToJSON Signature where
-    toJSON = const "V4"
+    toJSON V2 = A.String "V2"
+    toJSON _  = A.String "V4"
 
 data Timestamp
     = RFC822
@@ -102,7 +103,7 @@ instance FromJSON Protocol where
     parseJSON = gParseJSON' spinal
 
 instance ToJSON Protocol where
-    toJSON = gToJSON' spinal
+    toJSON = A.String . Text.pack . show
 
 timestamp :: Protocol -> Timestamp
 timestamp = \case
@@ -309,6 +310,11 @@ instance HasInfo (ShapeF a) where
         Struct s    -> Struct      <$> info f s
         Enum   i vs -> (`Enum` vs) <$> f i
         Lit    i l  -> (`Lit`  l)  <$> f i
+
+instance HasInfo (Cofree ShapeF a) where
+    info = lens unwrap go . info
+      where
+        go s a = extract s :< a
 
 instance HasRefs ShapeF where
     references f = \case

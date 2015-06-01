@@ -68,11 +68,6 @@ instance TypeOf Field where
 instance HasInfo Field where
     info = fieldAnn . info
 
-instance HasInfo (Shape a) where
-    info = lens unwrap go . info
-      where
-        go s a = extract s :< a
-
 mkFields :: Maybe Text -> StructF (Shape Solved) -> [Field]
 mkFields p st = sort $ map mk (st ^. members)
   where
@@ -97,6 +92,12 @@ fieldLocation = fieldRef . refLocation
 
 fieldMonoid :: Getter Field Bool
 fieldMonoid = fieldAnn . to (elem DMonoid . view annDerive)
+
+fieldStream :: Getter Field Bool
+fieldStream = to f
+  where
+    f x = x ^. fieldRef . refStreaming
+       || x ^. fieldAnn . infoStreaming
 
 fieldList1, fieldList, fieldMap :: Field -> Bool
 fieldList1 f = fieldList f && nonEmpty f

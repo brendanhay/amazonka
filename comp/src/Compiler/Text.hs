@@ -81,10 +81,8 @@ renameReserved x
          , "true"
          , "false"
          , "map"
-         , "mape"
          , "object"
-         , "list"
-         , "list1"
+         , "get"
          ] ++ reservedNames haskellDef
 
 upperAcronym :: Text -> Text

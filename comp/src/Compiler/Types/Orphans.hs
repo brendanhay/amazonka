@@ -18,11 +18,14 @@ import           Compiler.Types.Id
 import           Compiler.Types.Map
 import           Control.Lens
 import           Control.Monad
-import qualified Data.Aeson         as A
+import qualified Data.Aeson            as A
 import           Data.Bifunctor
-import qualified Data.Jason         as J
-import qualified Data.Jason.Types   as J
-import           Data.Scientific    (floatingOrInteger)
+import qualified Data.Jason            as J
+import qualified Data.Jason.Types      as J
+import           Data.Scientific       (floatingOrInteger)
+import           Data.String
+import           Data.String
+import qualified Language.Haskell.Exts as Exts
 import           Numeric.Natural
 
 instance J.FromJSON a => J.FromJSON (Map Id a) where
@@ -42,3 +45,6 @@ instance A.ToJSON Natural where
 
 instance A.ToJSON a => A.ToJSON (Identity a) where
     toJSON = A.toJSON . runIdentity
+
+instance IsString Exts.QOp where
+    fromString = Exts.op . Exts.sym

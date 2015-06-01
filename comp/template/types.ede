@@ -25,6 +25,7 @@ module {{ moduleName }}
     {% case shape.value.type %}
     {% when "product" %}
     , {{ shape.value.name }}
+    , {{ shape.value.constructor.name }}
       {% for lens in shape.value.lenses %}
     , {{ lens.value.name }}
       {% endfor %}
@@ -34,6 +35,10 @@ module {{ moduleName }}
     {% if !shape.last %}
 
     {% endif %}
+  {% endfor %}
+
+  {% for import in typeImports %}
+    , module {{ import.value }}
   {% endfor %}
     ) where
 

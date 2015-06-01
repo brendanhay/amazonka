@@ -30,6 +30,7 @@ import           Control.Lens                 hiding (iso, mapping, op)
 import qualified Data.Foldable                as Fold
 import           Data.Function                ((&))
 import qualified Data.HashMap.Strict          as Map
+import           Data.Monoid
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
 import qualified Language.Haskell.Exts        as Exts
@@ -37,6 +38,10 @@ import           Language.Haskell.Exts.Build  (app, appFun, infixApp, lamE,
                                                paren, sfun)
 import           Language.Haskell.Exts.SrcLoc (noLoc)
 import           Language.Haskell.Exts.Syntax hiding (Int, List, Lit, Var)
+
+-- FIXME: remove .Internal Data namespace, and import explicitly
+-- like Headers/Path/etc to types, whatnot? Or make an import scheme
+-- based on protocol name?
 
 ctorSig :: Timestamp -> Id -> [Field] -> Decl
 ctorSig ts n = TypeSig noLoc [n ^. smartCtorId . to ident]
@@ -129,28 +134,39 @@ instanceExps p = \case
     ToPath    es -> map (either str toPathExp)      es
     ToBody    f  -> [var (f ^. fieldAccessor)]
 
+data Dec = Dec
+    { decodeOp      :: QOp
+    , decodeMaybeOp :: QOp
+    , decodeDefOp   :: QOp
+    }
+
+data Enc = Enc
+    { encodeOp     :: QOp
+    , encodeListOp :: QOp
+    }
+
 fromXMLExp, fromJSONExp, fromHeadersExp, toXMLExp,
  toJSONExp, toHeadersExp, toQueryExp :: Protocol -> Field -> Exp
-fromXMLExp     = decodeExp '@'
-fromJSONExp    = decodeExp ':'
-fromHeadersExp = decodeExp '~'
-toXMLExp       = encodeExp '@'
-toJSONExp      = encodeExp '.'
-toHeadersExp   = encodeExp '~'
-toQueryExp     = encodeExp '#'
+fromXMLExp     = decodeExp (Dec ".@" ".@?" ".!@")
+fromJSONExp    = decodeExp (Dec ".:" ".:?" ".!=")
+fromHeadersExp = decodeExp (Dec ".#" ".#?" ".!#")
+toXMLExp       = encodeExp (Enc "@=" "@@=")
+toJSONExp      = encodeExp (Enc ".=" ".=")
+toHeadersExp   = encodeExp (Enc "=#" "=##")
+toQueryExp     = encodeExp (Enc "=:" "=:")
 
 toPathExp :: Field -> Exp
 toPathExp = app (var "toText") . var . view fieldAccessor
 
-decodeExp :: Char -> Protocol -> Field -> Exp
-decodeExp c p f
+decodeExp :: Dec -> Protocol -> Field -> Exp
+decodeExp o p f
    | Just i <- m        = paren (infixApp monoid (qop ">>=") (parse i))
    | f ^. fieldMonoid   = app (parse n) v
-   | f ^. fieldRequired = infixApp v (decodeOp      c) n
-   | otherwise          = infixApp v (decodeMaybeOp c) n
+   | f ^. fieldRequired = infixApp v (decodeOp      o) n
+   | otherwise          = infixApp v (decodeMaybeOp o) n
   where
-    monoid = infixApp v (decodeMaybeOp c) $
-        infixApp n (decodeDefOp c) (var "mempty")
+    monoid = infixApp v (decodeMaybeOp o) $
+        infixApp n (decodeDefOp o) (var "mempty")
 
     parse i
         | fieldList1 f = app (var "parseList1") i
@@ -161,24 +177,24 @@ decodeExp c p f
 
     v = var "x"
 
-encodeExp :: Char -> Protocol -> Field -> Exp
-encodeExp c p f
-    | Just i <- m  = infixApp n (encodeOp     c) (infixApp i (encodeListOp c) v)
-    | fieldList1 f = infixApp n (encodeListOp c) v
-    | fieldList  f = infixApp n (encodeListOp c) v
+encodeExp :: Enc -> Protocol -> Field -> Exp
+encodeExp o p f
+    | Just i <- m  = infixApp n (encodeOp     o) (infixApp i (encodeListOp o) v)
+    | fieldList1 f = infixApp n (encodeListOp o) v
+    | fieldList  f = infixApp n (encodeListOp o) v
 --    | fieldMap   f = infixApp n (encodeOp c) v
-    | otherwise    = infixApp n (encodeOp     c) v
+    | otherwise    = infixApp n (encodeOp     o) v
   where
     (n, m) = memberNames p f
 
     v = var (f ^. fieldAccessor)
 
-decodeOp, decodeMaybeOp, decodeDefOp, encodeOp, encodeListOp :: Char -> QOp
-decodeOp      c = Exts.op (Exts.sym ['.', c])
-decodeMaybeOp c = Exts.op (Exts.sym ['.', c, '?'])
-decodeDefOp   c = Exts.op (Exts.sym ['.', '!', c])
-encodeOp      c = Exts.op (Exts.sym [c, '='])
-encodeListOp  c = Exts.op (Exts.sym [c, c, '='])
+-- decodeOp, decodeMaybeOp, decodeDefOp, encodeOp, encodeListOp :: (Stri, Char) -> QOp
+-- decodeOp      (a, b) = Exts.op (Exts.sym [a, b])
+-- decodeMaybeOp (a, b) = Exts.op (Exts.sym [a, b, '?'])
+-- decodeDefOp   (a, b) = Exts.op (Exts.sym [a, '!', b])
+-- encodeOp      (a, b) = Exts.op (Exts.sym [a, '='])
+-- encodeListOp  (a, b) = Exts.op (Exts.sym [a, b, '='])
 
 memberNames :: Protocol -> Field -> (Exp, Maybe Exp)
 memberNames p f =
@@ -189,6 +205,24 @@ memberNames p f =
     item = case unwrap (f ^. fieldRef . refAnn) of
         List l -> listItemName p Input l
         _      -> Nothing
+
+responseFun :: Protocol -> [Field] -> Text
+responseFun p fs = "response" <> f
+  where
+    f | any (view fieldStream) fs = "Body"
+      | otherwise                 =
+          case p of
+              JSON     -> "JSON"
+              RestJSON -> "JSON"
+              XML      -> "XML"
+              RestXML  -> "XML"
+              Query    -> "XML"
+              EC2      -> "XML"
+
+requestFun :: HTTP Identity -> [Field] -> Text
+requestFun h fs
+    | any (view fieldStream) fs = "stream"
+    | otherwise                 = methodToText (h ^. method)
 
 internal :: TypeOf a => Timestamp -> a -> Type
 internal ts (typeOf -> t) = case t of

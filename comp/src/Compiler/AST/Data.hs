@@ -72,12 +72,12 @@ dataType m s = case unwrap s of
         case s ^. related of
             RReq _ _ h -> Req
                 <$> prod
-                <*> pure (requestFunction proto h fields)
+                <*> pure (requestFun h fields)
                 <*> mkInsts (requestInsts proto h fields)
 
             RRes {} -> Res
                 <$> prod
-                <*> pure (responseFunction proto fields)
+                <*> pure (responseFun proto fields)
                 <*> traverse plain (responseExps proto fields)
 
             _ -> Prod <$> prod <*> mkInsts (prodInsts proto s fields)

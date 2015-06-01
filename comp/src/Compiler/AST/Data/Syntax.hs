@@ -129,10 +129,11 @@ instanceExps :: Protocol -> Inst -> [Exp]
 instanceExps p = \case
     FromXML   fs -> map (fromXMLExp   p) fs
     ToXML     fs -> map (toXMLExp     p) fs
+    ToElement f  -> [toXMLElementExp p f]
     ToHeaders fs -> map (toHeadersExp p) fs
     ToQuery   es -> map (either str (toQueryExp p)) es
     ToPath    es -> map (either str toPathExp)      es
-    ToBody    f  -> [var (f ^. fieldAccessor)]
+    ToBody    f  -> [toBodyExp f]
 
 data Dec = Dec
     { decodeOp      :: QOp
@@ -145,18 +146,31 @@ data Enc = Enc
     , encodeListOp :: QOp
     }
 
-fromXMLExp, fromJSONExp, fromHeadersExp, toXMLExp,
- toJSONExp, toHeadersExp, toQueryExp :: Protocol -> Field -> Exp
+fromXMLExp, fromJSONExp, fromHeadersExp :: Protocol -> Field -> Exp
 fromXMLExp     = decodeExp (Dec ".@" ".@?" ".!@")
 fromJSONExp    = decodeExp (Dec ".:" ".:?" ".!=")
 fromHeadersExp = decodeExp (Dec ".#" ".#?" ".!#")
-toXMLExp       = encodeExp (Enc "@=" "@@=")
-toJSONExp      = encodeExp (Enc ".=" ".=")
-toHeadersExp   = encodeExp (Enc "=#" "=##")
-toQueryExp     = encodeExp (Enc "=:" "=:")
+
+toXMLExp, toJSONExp, toHeadersExp, toQueryExp :: Protocol -> Field -> Exp
+toXMLExp     = encodeExp (Enc "@=" "@@=")
+toJSONExp    = encodeExp (Enc ".=" ".=")
+toHeadersExp = encodeExp (Enc "=#" "=##")
+toQueryExp   = encodeExp (Enc "=:" "=:")
+
+toXMLElementExp :: Protocol -> Field -> Exp
+toXMLElementExp p f = appFun (var "namespaced")
+    [ var "ns"
+    , fst (memberNames p f)
+    , var "$"
+    , var "toXML"
+    , var (f ^. fieldAccessor)
+    ]
 
 toPathExp :: Field -> Exp
 toPathExp = app (var "toText") . var . view fieldAccessor
+
+toBodyExp :: Field -> Exp
+toBodyExp f = var (f ^. fieldAccessor)
 
 decodeExp :: Dec -> Protocol -> Field -> Exp
 decodeExp o p f

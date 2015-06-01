@@ -27,7 +27,7 @@ import           Data.Text               (Text)
 import qualified Data.Text               as Text
 import           Data.Text.Manipulate
 
--- FIXME: XML namespace requirement for ToXMLElement
+-- FIXME: XML namespace requirement for ToElement
 -- general tidy up of syntax/instance/data/annotations
 -- build
 
@@ -35,6 +35,7 @@ data Inst
     = FromXML   [Field]
     | FromJSON  [Field]
     | ToXML     [Field]
+    | ToElement Field
     | ToJSON    [Field]
     | ToQuery   [Either Text Field]
     | ToHeaders [Field]
@@ -47,14 +48,15 @@ instance ToJSON Inst where
 
 instToText :: Inst -> Text
 instToText = \case
-    FromJSON  {} -> "FromJSON"
-    FromXML   {} -> "FromXML"
-    ToJSON    {} -> "ToJSON"
-    ToXML     {} -> "ToXML"
-    ToQuery   {} -> "ToQuery"
-    ToHeaders {} -> "ToHeaders"
-    ToPath    {} -> "ToPath"
-    ToBody    {} -> "ToBody"
+    FromJSON     {} -> "FromJSON"
+    FromXML      {} -> "FromXML"
+    ToJSON       {} -> "ToJSON"
+    ToXML        {} -> "ToXML"
+    ToElement {} -> "ToElement"
+    ToQuery      {} -> "ToQuery"
+    ToHeaders    {} -> "ToHeaders"
+    ToPath       {} -> "ToPath"
+    ToBody       {} -> "ToBody"
 
 prodInsts :: HasRelation a
           => Protocol
@@ -66,33 +68,40 @@ prodInsts p r = pure . shape p (r ^. relMode)
 sumInsts :: HasRelation a => Protocol -> a -> [Text]
 sumInsts p r = map instToText $ shape p (r ^. relMode) []
 
-data FromRes = FromRes
-    { _resFunction :: Text
-    , _resFields   :: [Field]
-    -- , _resStatus      :: Maybe Field
-    -- , _resDeserialise :: Either Inst Field
-    } deriving (Eq, Show)
-
+-- FIXME: this is of a singluar horror.
 requestInsts :: Protocol -> HTTP Identity -> [Field] -> Either Error [Inst]
 requestInsts p h fs = do
-    ps <- uri uriPath
-    qs <- uri uriQuery
+    ps  <- uri uriPath
+    qs  <- uri uriQuery
+    xml <- xelement
     return $!
-        [ ToHeaders hs
-        , ToPath    ps
+        [ ToHeaders    hs
+        , ToPath       ps
         ] ++ maybe [] ((:[]) . ToBody) (find (view fieldStream) bs)
           ++ maybe [ToQuery []] (g (qs <> map Right (satisfies [Querystring] fs))) (find f is)
-          ++ filter (not . f) is
+          ++ filter (not . f) xml
   where
-    hs = satisfies [Header, Headers] fs
-    bs = satisfy (\l -> isNothing l || Just Body == l) fs
-    is = shape p (Uni Input) (filter (not . view fieldStream) bs)
+    hs  = satisfies [Header, Headers] fs
+    bs  = satisfy (\l -> isNothing l || Just Body == l) fs
+    is' = filter (not . view fieldStream) bs
+    is  = shape p (Uni Input) is'
 
-    f ToQuery{} = True
-    f _         = False
+    xelement = traverse go is
+      where
+        go (ToXML [])  = return $  ToXML []
+        go (ToXML [x]) = return $! ToElement x
+        go (ToXML _)   = Left "More than one toxmlelement field"
+        go x           = return x
+
+    f ToQuery {} = True
+    f _          = False
+
+    -- f' ToXML {} = True
+    -- f' _        = False
 
     g ys (ToQuery xs) = [ToQuery (xs <> ys)]
     g _  x            = [x]
+
     uri l = traverse go (h ^. l)
       where
         go (Tok t) = return (Left t)

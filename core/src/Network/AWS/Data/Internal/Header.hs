@@ -28,24 +28,24 @@ import           Network.AWS.Data.Internal.ByteString
 import           Network.AWS.Data.Internal.Text
 import           Network.HTTP.Types
 
--- infixl 7 .~, .~?, .!~
+infixl 7 .#, .#?
 
--- infixr 7 ~=, ~~=
-
-(~:) :: FromText a => ResponseHeaders -> HeaderName -> Either String a
-hs ~: k = hs ~:? k >>= note
+(.#) :: FromText a => ResponseHeaders -> HeaderName -> Either String a
+hs .# k = hs .#? k >>= note
   where
     note Nothing  = Left (BS.unpack $ "Unable to find header: " <> CI.original k)
     note (Just x) = Right x
 
-(~:?) :: FromText a => ResponseHeaders -> HeaderName -> Either String (Maybe a)
-hs ~:? k =
+(.#?) :: FromText a => ResponseHeaders -> HeaderName -> Either String (Maybe a)
+hs .#? k =
     maybe (Right Nothing)
           (fmap Just . fromText . Text.decodeUtf8)
           (k `lookup` hs)
 
-(=:) :: ToHeader a => HeaderName -> a -> [Header]
-(=:) = toHeader
+infixr 7 =# --, --=
+
+(=#) :: ToHeader a => HeaderName -> a -> [Header]
+(=#) = toHeader
 
 hdr :: HeaderName -> ByteString -> [Header] -> [Header]
 hdr k v hs = (k, v) : filter ((/= k) . fst) hs
@@ -53,8 +53,8 @@ hdr k v hs = (k, v) : filter ((/= k) . fst) hs
 hdrs :: [Header] -> [Header] -> [Header]
 hdrs xs ys = Fold.foldr' (uncurry hdr) ys xs
 
-toHeaderText :: ToText a => HeaderName -> a -> [Header]
-toHeaderText k = toHeader k . toText
+-- toHeaderText :: ToText a => HeaderName -> a -> [Header]
+-- toHeaderText k = toHeader k . toText
 
 class ToHeaders a where
     toHeaders :: a -> [Header]

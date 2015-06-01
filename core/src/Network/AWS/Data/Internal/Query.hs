@@ -19,16 +19,16 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Data.Internal.Query
-    ( ToQuery (..)
-    , renderQuery
+module Network.AWS.Data.Internal.Query where
+    -- ( ToQuery (..)
+    -- , renderQuery
 
-    , Query
-    , valuesOf
+    -- , Query
+    -- -- , valuesOf
 
-    , (=?)
-    , pair
-    ) where
+    -- , (=?)
+    -- , pair
+    -- ) where
 
 import           Control.Lens
 import           Data.ByteString                      (ByteString)
@@ -40,7 +40,6 @@ import           Data.Monoid
 import           Data.String
 import           Data.Text                            (Text)
 import qualified Data.Text.Encoding                   as Text
-import           GHC.Exts
 import           Network.AWS.Data.Internal.ByteString
 import           Network.AWS.Data.Internal.Text
 import           Network.HTTP.Types.URI               (urlEncode)
@@ -83,10 +82,13 @@ valuesOf = deep _Value
 pair :: ToQuery a => ByteString -> a -> Query -> Query
 pair k v = mappend (Pair k (toQuery v))
 
-infixr 7 =?
+infixr 7 =: --, =::
 
-(=?) :: ToQuery a => ByteString -> a -> Query
-(=?) k v = Pair k (toQuery v)
+(=:) :: ToQuery a => ByteString -> a -> Query
+k =: v = Pair k (toQuery v)
+
+-- (=::) :: (IsList a, ToQuery (Item a)) => ByteString -> a -> Query
+-- k =:: xs = List . map (Pair k . toQuery) $ toList xs
 
 renderQuery :: Query -> ByteString
 renderQuery = intercalate . sort . enc Nothing
@@ -139,7 +141,7 @@ instance ToQuery a => ToQuery (Maybe a) where
     toQuery Nothing  = mempty
 
 instance ToQuery a => ToQuery [a] where
-    toQuery = List . zipWith (\n v -> toBS n =? toQuery v) idx
+    toQuery = List . zipWith (\n v -> toBS n =: toQuery v) idx
       where
         idx = [1..] :: [Integer]
 

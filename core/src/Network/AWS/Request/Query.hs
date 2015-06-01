@@ -16,12 +16,12 @@ module Network.AWS.Request.Query
     ( post
     ) where
 
-import Control.Lens                 hiding (Action)
-import Data.Monoid
-import Network.AWS.Data
-import Network.AWS.Request.Internal
-import Network.AWS.Types
-import Network.HTTP.Types.Method
+import           Control.Lens                 hiding (Action)
+import           Data.Monoid
+import           Network.AWS.Data
+import           Network.AWS.Request.Internal
+import           Network.AWS.Types
+import           Network.HTTP.Types.Method
 
 post :: forall a. (AWSService (Sv a), ToQuery a, ToPath a, ToHeaders a)
      => Action
@@ -29,9 +29,8 @@ post :: forall a. (AWSService (Sv a), ToQuery a, ToPath a, ToHeaders a)
      -> Request a
 post a x = defaultRequest x & rqMethod .~ POST & rqQuery <>~ qry
   where
-    qry = pair "Version" (_svcVersion svc)
-        . pair "Action"  (toBS a)
-        $ mempty
+    qry = "Version" =: _svcVersion svc
+       <> "Action"  =: toBS a
 
     svc :: Service (Sv a)
     svc = service

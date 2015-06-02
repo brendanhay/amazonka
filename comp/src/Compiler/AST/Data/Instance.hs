@@ -69,7 +69,6 @@ prodInsts p r = pure . shape p (r ^. relMode)
 sumInsts :: HasRelation a => Protocol -> a -> [Text]
 sumInsts p r = map instToText $ shape p (r ^. relMode) []
 
--- FIXME: this is of a singluar horror.
 requestInsts :: Protocol -> HTTP Identity -> [Field] -> Either Error [Inst]
 requestInsts p h fs = do
     path <- toPath

@@ -77,7 +77,7 @@
         "url": "http://docs.aws.amazon.com/config/latest/APIReference/Welcome.html",
         "protocol": "json",
         "name": "Amazon Config",
-        "version": "0.3.4",
+        "version": "0.3.5",
         "description": "Amazon Config is a fully managed service that provides you with an Amazon\nresource inventory, configuration history, and configuration change\nnotifications to enable security and governance. With Amazon Config you can\ndiscover existing Amazon resources, export a complete inventory of your\nAmazon resources with all configuration details, and determine how a resource\nwas configured at any point in time. These capabilities enable compliance\nauditing, security analysis, resource change tracking, and troubleshooting."
     },
     "types": {

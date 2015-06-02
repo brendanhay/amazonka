@@ -1,5 +1,5 @@
 name:                  amazonka-ses
-version:               0.3.4
+version:               0.3.5
 synopsis:              Amazon Simple Email Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -64,5 +64,5 @@ library
     other-modules:
 
     build-depends:
-          amazonka-core == 0.3.4.*
+          amazonka-core == 0.3.5.*
         , base          >= 4.7     && < 5

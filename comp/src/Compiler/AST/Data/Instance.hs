@@ -1,5 +1,6 @@
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Compiler.AST.Data.Instance
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,7 +21,7 @@ import           Control.Error
 import           Control.Lens
 import           Data.Aeson
 import qualified Data.Foldable           as Fold
-import           Data.List               (deleteBy, find)
+import           Data.List               (deleteBy, find, partition)
 import           Data.Maybe
 import           Data.Monoid
 import           Data.Text               (Text)
@@ -71,44 +72,56 @@ sumInsts p r = map instToText $ shape p (r ^. relMode) []
 -- FIXME: this is of a singluar horror.
 requestInsts :: Protocol -> HTTP Identity -> [Field] -> Either Error [Inst]
 requestInsts p h fs = do
-    ps  <- uri uriPath
-    qs  <- uri uriQuery
-    xml <- xelement
-    return $!
-        [ ToHeaders    hs
-        , ToPath       ps
-        ] ++ maybe [] ((:[]) . ToBody) (find (view fieldStream) bs)
-          ++ maybe [ToQuery []] (g (qs <> map Right (satisfies [Querystring] fs))) (find f is)
-          ++ filter (not . f) xml
+    path <- toPath
+    concatQuery =<< replaceXML
+        ( [toHeaders, path]
+       ++ maybeToList toBody
+       ++ shape p (Uni Input) fields
+        )
   where
-    hs  = satisfies [Header, Headers] fs
-    bs  = satisfy (\l -> isNothing l || Just Body == l) fs
-    is' = filter (not . view fieldStream) bs
-    is  = shape p (Uni Input) is'
+    toHeaders :: Inst
+    toHeaders = ToHeaders (satisfies [Header, Headers] fs)
 
-    xelement = traverse go is
+    toPath :: Either Error Inst
+    toPath = ToPath <$> uriFields h uriPath fs
+
+    toBody :: Maybe Inst
+    toBody = ToBody <$> stream
+
+    concatQuery :: [Inst] -> Either Error [Inst]
+    concatQuery is = do
+        xs <- uriFields h uriQuery fs
+        return $! merged xs : filter (not . f) is
+      where
+        merged xs =
+            let ys = map Right (satisfies [Querystring] fs) <> xs
+             in case find f is of
+                Just (ToQuery zs) -> ToQuery (ys <> zs)
+                _                 -> ToQuery ys
+
+        f ToQuery {} = True
+        f _          = False
+
+    replaceXML :: [Inst] -> Either Error [Inst]
+    replaceXML = traverse go
       where
         go (ToXML [])  = return $  ToXML []
         go (ToXML [x]) = return $! ToElement x
-        go (ToXML _)   = Left "More than one toxmlelement field"
+        go (ToXML _)   = Left "More than one field found for ToElement instance"
         go x           = return x
 
-    f ToQuery {} = True
-    f _          = False
+    (listToMaybe -> stream, fields) =
+        partition (view fieldStream) notLocated
 
-    -- f' ToXML {} = True
-    -- f' _        = False
+    notLocated :: [Field]
+    notLocated = satisfy (\l -> isNothing l || Just Body == l) fs
 
-    g ys (ToQuery xs) = [ToQuery (xs <> ys)]
-    g _  x            = [x]
+uriFields h l fs = traverse go (h ^. l)
+  where
+    go (Tok t) = return (Left t)
+    go (Var v) = Right <$> note (missing v) (find ((v ==) . view fieldId) fs)
 
-    uri l = traverse go (h ^. l)
-      where
-        go (Tok t) = return (Left t)
-        go (Var v) = do
-            let m = format ("Missing field corresponding to URI var " % iprimary) v
-            f <- note m (Fold.find ((v ==) . view fieldId) fs)
-            return (Right f)
+    missing = format ("Missing field corresponding to URI var " % iprimary)
 
 shape :: Protocol -> Mode -> [Field] -> [Inst]
 shape p m fs = case m of

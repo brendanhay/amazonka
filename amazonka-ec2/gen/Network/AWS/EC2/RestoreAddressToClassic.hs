@@ -84,7 +84,7 @@ ratcPublicIp = lens _ratcPublicIp (\s a -> s { _ratcPublicIp = a })
 
 data RestoreAddressToClassicResponse = RestoreAddressToClassicResponse
     { _ratcrPublicIp :: Maybe Text
-    , _ratcrStatus   :: Maybe Status
+    , _ratcrStatus   :: Maybe AddressStatus
     } deriving (Eq, Read, Show)
 
 -- | 'RestoreAddressToClassicResponse' constructor.
@@ -93,7 +93,7 @@ data RestoreAddressToClassicResponse = RestoreAddressToClassicResponse
 --
 -- * 'ratcrPublicIp' @::@ 'Maybe' 'Text'
 --
--- * 'ratcrStatus' @::@ 'Maybe' 'Status'
+-- * 'ratcrStatus' @::@ 'Maybe' 'AddressStatus'
 --
 restoreAddressToClassicResponse :: RestoreAddressToClassicResponse
 restoreAddressToClassicResponse = RestoreAddressToClassicResponse
@@ -106,7 +106,7 @@ ratcrPublicIp :: Lens' RestoreAddressToClassicResponse (Maybe Text)
 ratcrPublicIp = lens _ratcrPublicIp (\s a -> s { _ratcrPublicIp = a })
 
 -- | The move status for the IP address.
-ratcrStatus :: Lens' RestoreAddressToClassicResponse (Maybe Status)
+ratcrStatus :: Lens' RestoreAddressToClassicResponse (Maybe AddressStatus)
 ratcrStatus = lens _ratcrStatus (\s a -> s { _ratcrStatus = a })
 
 instance ToPath RestoreAddressToClassic where

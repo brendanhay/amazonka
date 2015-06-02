@@ -15,9 +15,9 @@
 
 module Network.AWS.EC2.Internal where
 
-import GHC.Generics
-import Network.AWS.Error
-import Network.AWS.Prelude
+import           GHC.Generics
+import           Network.AWS.Error
+import           Network.AWS.Prelude
 
 data Message = Message
     { _msgCode    :: Maybe ErrorCode

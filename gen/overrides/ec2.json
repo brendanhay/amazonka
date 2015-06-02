@@ -13,6 +13,9 @@
         "ConversionTaskDeleted"
     ],
     "overrides": {
+        "Status": {
+            "rename_to": "AddressStatus"
+        },
         "RouteOrigin": {
             "sum_prefix": "Origin"
         },

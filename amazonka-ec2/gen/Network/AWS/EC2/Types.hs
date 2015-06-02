@@ -38,9 +38,6 @@ module Network.AWS.EC2.Types
     -- * PermissionGroup
     , PermissionGroup (..)
 
-    -- * Status
-    , Status (..)
-
     -- * NetworkAclEntry
     , NetworkAclEntry
     , networkAclEntry
@@ -1014,6 +1011,9 @@ module Network.AWS.EC2.Types
     , igaState
     , igaVpcId
 
+    -- * AddressStatus
+    , AddressStatus (..)
+
     -- * ReservedInstanceState
     , ReservedInstanceState (..)
 
@@ -1740,35 +1740,6 @@ instance ToQuery      PermissionGroup
 
 instance FromXML PermissionGroup where
     parseXML = parseXMLText "PermissionGroup"
-
-data Status
-    = InClassic      -- ^ InClassic
-    | InVpc          -- ^ InVpc
-    | MoveInProgress -- ^ MoveInProgress
-      deriving (Eq, Ord, Read, Show, Generic, Enum)
-
-instance Hashable Status
-
-instance FromText Status where
-    parser = takeLowerText >>= \case
-        "inclassic"      -> pure InClassic
-        "invpc"          -> pure InVpc
-        "moveinprogress" -> pure MoveInProgress
-        e                -> fail $
-            "Failure parsing Status from " ++ show e
-
-instance ToText Status where
-    toText = \case
-        InClassic      -> "InClassic"
-        InVpc          -> "InVpc"
-        MoveInProgress -> "MoveInProgress"
-
-instance ToByteString Status
-instance ToHeader     Status
-instance ToQuery      Status
-
-instance FromXML Status where
-    parseXML = parseXMLText "Status"
 
 data NetworkAclEntry = NetworkAclEntry
     { _naeCidrBlock    :: Maybe Text
@@ -9807,6 +9778,35 @@ instance ToQuery InternetGatewayAttachment where
         [ "State" =? _igaState
         , "VpcId" =? _igaVpcId
         ]
+
+data AddressStatus
+    = InClassic      -- ^ InClassic
+    | InVpc          -- ^ InVpc
+    | MoveInProgress -- ^ MoveInProgress
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
+
+instance Hashable AddressStatus
+
+instance FromText AddressStatus where
+    parser = takeLowerText >>= \case
+        "inclassic"      -> pure InClassic
+        "invpc"          -> pure InVpc
+        "moveinprogress" -> pure MoveInProgress
+        e                -> fail $
+            "Failure parsing AddressStatus from " ++ show e
+
+instance ToText AddressStatus where
+    toText = \case
+        InClassic      -> "InClassic"
+        InVpc          -> "InVpc"
+        MoveInProgress -> "MoveInProgress"
+
+instance ToByteString AddressStatus
+instance ToHeader     AddressStatus
+instance ToQuery      AddressStatus
+
+instance FromXML AddressStatus where
+    parseXML = parseXMLText "AddressStatus"
 
 data ReservedInstanceState
     = RISActive         -- ^ active

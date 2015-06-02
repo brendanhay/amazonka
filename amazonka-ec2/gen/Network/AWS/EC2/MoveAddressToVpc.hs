@@ -87,7 +87,7 @@ matvPublicIp = lens _matvPublicIp (\s a -> s { _matvPublicIp = a })
 
 data MoveAddressToVpcResponse = MoveAddressToVpcResponse
     { _matvrAllocationId :: Maybe Text
-    , _matvrStatus       :: Maybe Status
+    , _matvrStatus       :: Maybe AddressStatus
     } deriving (Eq, Read, Show)
 
 -- | 'MoveAddressToVpcResponse' constructor.
@@ -96,7 +96,7 @@ data MoveAddressToVpcResponse = MoveAddressToVpcResponse
 --
 -- * 'matvrAllocationId' @::@ 'Maybe' 'Text'
 --
--- * 'matvrStatus' @::@ 'Maybe' 'Status'
+-- * 'matvrStatus' @::@ 'Maybe' 'AddressStatus'
 --
 moveAddressToVpcResponse :: MoveAddressToVpcResponse
 moveAddressToVpcResponse = MoveAddressToVpcResponse
@@ -110,7 +110,7 @@ matvrAllocationId =
     lens _matvrAllocationId (\s a -> s { _matvrAllocationId = a })
 
 -- | The status of the move of the IP address.
-matvrStatus :: Lens' MoveAddressToVpcResponse (Maybe Status)
+matvrStatus :: Lens' MoveAddressToVpcResponse (Maybe AddressStatus)
 matvrStatus = lens _matvrStatus (\s a -> s { _matvrStatus = a })
 
 instance ToPath MoveAddressToVpc where

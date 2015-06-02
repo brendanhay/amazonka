@@ -928,25 +928,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
-                    "Read",
-                    "Show",
-                    "Generic",
-                    "Enum"
-                ],
-                "branches": {
-                    "MoveInProgress": "MoveInProgress",
-                    "InVpc": "InVpc",
-                    "InClassic": "InClassic"
-                },
-                "valuePad": 15,
-                "name": "Status",
-                "type": "nullary",
-                "branchPad": 14
-            },
-            {
-                "deriving": [
-                    "Eq",
                     "Read",
                     "Show"
                 ],
@@ -20140,6 +20121,25 @@
                     "Enum"
                 ],
                 "branches": {
+                    "MoveInProgress": "MoveInProgress",
+                    "InVpc": "InVpc",
+                    "InClassic": "InClassic"
+                },
+                "valuePad": 15,
+                "name": "AddressStatus",
+                "type": "nullary",
+                "branchPad": 14
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show",
+                    "Generic",
+                    "Enum"
+                ],
+                "branches": {
                     "RISPaymentPending": "payment-pending",
                     "RISRetired": "retired",
                     "RISActive": "active",
@@ -32452,7 +32452,6 @@
             "Network.AWS.EC2.Internal"
         ],
         "shared": [
-            "Status",
             "Snapshot",
             "GroupIdentifier",
             "ReservedInstancesListing",
@@ -32478,6 +32477,7 @@
             "CustomerGateway",
             "SnapshotAttributeName",
             "RouteTable",
+            "AddressStatus",
             "InstanceAttributeName",
             "IpPermission",
             "Tenancy",
@@ -77610,8 +77610,8 @@
                         "shape": "Status",
                         "locationName": "status",
                         "documentation": "-- | The status of the move of the IP address.",
-                        "typeExposed": "Maybe Status",
-                        "type": "Maybe Status"
+                        "typeExposed": "Maybe AddressStatus",
+                        "type": "Maybe AddressStatus"
                     }
                 ],
                 "fields": [
@@ -77648,8 +77648,8 @@
                         "shape": "Status",
                         "locationName": "status",
                         "documentation": "-- | The status of the move of the IP address.",
-                        "typeExposed": "Maybe Status",
-                        "type": "Maybe Status"
+                        "typeExposed": "Maybe AddressStatus",
+                        "type": "Maybe AddressStatus"
                     }
                 ]
             },
@@ -82584,8 +82584,8 @@
                         "shape": "Status",
                         "locationName": "status",
                         "documentation": "-- | The move status for the IP address.",
-                        "typeExposed": "Maybe Status",
-                        "type": "Maybe Status"
+                        "typeExposed": "Maybe AddressStatus",
+                        "type": "Maybe AddressStatus"
                     },
                     {
                         "location": "querystring",
@@ -82640,8 +82640,8 @@
                         "shape": "Status",
                         "locationName": "status",
                         "documentation": "-- | The move status for the IP address.",
-                        "typeExposed": "Maybe Status",
-                        "type": "Maybe Status"
+                        "typeExposed": "Maybe AddressStatus",
+                        "type": "Maybe AddressStatus"
                     }
                 ]
             },

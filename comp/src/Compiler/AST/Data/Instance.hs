@@ -49,15 +49,15 @@ instance ToJSON Inst where
 
 instToText :: Inst -> Text
 instToText = \case
-    FromJSON     {} -> "FromJSON"
-    FromXML      {} -> "FromXML"
-    ToJSON       {} -> "ToJSON"
-    ToXML        {} -> "ToXML"
+    FromJSON  {} -> "FromJSON"
+    FromXML   {} -> "FromXML"
+    ToJSON    {} -> "ToJSON"
+    ToXML     {} -> "ToXML"
     ToElement {} -> "ToElement"
-    ToQuery      {} -> "ToQuery"
-    ToHeaders    {} -> "ToHeaders"
-    ToPath       {} -> "ToPath"
-    ToBody       {} -> "ToBody"
+    ToQuery   {} -> "ToQuery"
+    ToHeaders {} -> "ToHeaders"
+    ToPath    {} -> "ToPath"
+    ToBody    {} -> "ToBody"
 
 prodInsts :: HasRelation a
           => Protocol
@@ -75,7 +75,7 @@ requestInsts p h fs = do
     concatQuery =<< replaceXML
         ( [toHeaders, path]
        ++ maybeToList toBody
-       ++ shape p (Uni Input) fields
+       ++ removeMethods (shape p (Uni Input) fields)
         )
   where
     toHeaders :: Inst
@@ -108,6 +108,17 @@ requestInsts p h fs = do
         go (ToXML [x]) = return $! ToElement x
         go (ToXML _)   = Left "More than one field found for ToElement instance"
         go x           = return x
+
+    removeMethods :: [Inst] -> [Inst]
+    removeMethods = mapMaybe go
+      where
+        go = \case
+            ToXML  {} | idem || body -> Nothing
+            ToJSON {} | idem || body -> Nothing
+            i                        -> Just i
+
+        idem = elem (h ^. method) [HEAD, GET, DELETE]
+        body = isJust toBody
 
     (listToMaybe -> stream, fields) =
         partition (view fieldStream) notLocated

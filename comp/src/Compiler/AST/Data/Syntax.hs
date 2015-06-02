@@ -130,75 +130,77 @@ instanceD p n = \case
     FromJSON  fs -> fromJSOND  p n fs
     ToElement f  -> toElementD p n f
     ToXML     fs -> toXMLD     p n fs
+    ToJSON    fs -> toJSOND   p n fs
     ToHeaders fs -> toHeadersD p n fs
-    _            -> fromXMLD   p n []
-
-    -- ToXML     fs -> toXMLExp        p fs
-    -- ToElement f  -> toXMLElementExp p f
-    -- ToHeaders fs -> toHeadersExp    p fs
-    -- ToQuery   es -> toQueryExp      p es
-    -- ToPath    es -> toPathExp         es
-    -- ToBody    f  -> toBodyExp         f
+    ToPath    es -> toPathD      n es
+    ToQuery   es -> toQueryD   p n es
+    ToBody    f  -> toBodyD    p n f
 
 fromXMLD :: Protocol -> Id -> [Field] -> Decl
-fromXMLD p n fs = InstDecl noLoc Nothing [] [] cls [tycon typ] [decl]
+fromXMLD p n fs = instD "FromXML" n (funArgsD "parseXML" ["x"] exps)
   where
-    typ = n ^. typeId
-    cls = unqual "FromXML"
-    fun = pvar "parseXML"
-
-    decl = InsDecl (patBind noLoc fun exps)
-    exps = seqE (var typ) (map (fromXMLE p) fs)
+    exps = seqE (n ^. typeId . to var) (map (fromXMLE p) fs)
 
 fromJSOND :: Protocol -> Id -> [Field] -> Decl
-fromJSOND p n fs = InstDecl noLoc Nothing [] [] cls [tycon typ] [decl]
+fromJSOND p n fs = instD "FromJSON" n (funArgsD "parseJSON" ["x"] exps)
   where
-    typ = n ^. typeId
-    cls = unqual "FromJSON"
-    fun = pvar "parseJSON"
-
-    decl = InsDecl (patBind noLoc fun exps)
-    exps = seqE (var typ) (map (fromJSONE p) fs)
+    exps = seqE (n ^. typeId . to var) (map (fromJSONE p) fs)
 
 toElementD :: Protocol -> Id -> Field -> Decl
-toElementD p n f = InstDecl noLoc Nothing [] [] cls [tycon typ] [decl]
-  where
-    typ = n ^. typeId
-    cls = unqual "ToElement"
-    fun = pvar "toElement"
-
-    decl = InsDecl (patBind noLoc fun rhs)
-    rhs  = toElementE p f
+toElementD p n = instD "ToElement" n . funD "toElement" . toElementE p
 
 toXMLD :: Protocol -> Id -> [Field] -> Decl
-toXMLD p n fs = InstDecl noLoc Nothing [] [] cls [tycon typ] [decl]
+toXMLD p n fs = instD "ToXML" n (wildcardD n "toXML" exps)
   where
-    typ = n ^. typeId
-    cls = unqual "ToXML"
-    fun = ident "toXML"
-
-    decl  = InsDecl (FunBind [match])
-    match = Match noLoc fun [pat] Nothing rhs noBinds
-    pat   = PRec (unqual typ) [PFieldWildcard]
-    rhs   = UnGuardedRhs exps
     exps  = listE (map (toXMLE p) fs)
 
--- FIXME:
--- Since this is so horrendously slow to hindent with lots of fields,
--- maybe return piecemeal, like lines or something?
+toJSOND :: Protocol -> Id -> [Field] -> Decl
+toJSOND p n fs = instD "ToJSON" n (wildcardD n "toJSON" exps)
+  where
+    exps  = listE (map (toJSONE p) fs)
 
 toHeadersD :: Protocol -> Id -> [Field] -> Decl
-toHeadersD p n fs = InstDecl noLoc Nothing [] [] cls [tycon typ] [decl]
+toHeadersD p n fs = instD "ToHeaders" n decl
   where
-    typ = n ^. typeId
-    cls = unqual "ToHeaders"
-    fun = ident "toHeaders"
+    decl = wildcardD n "toHeaders" exps
+    exps = listE (map (toHeadersE p) fs)
 
-    decl  = InsDecl (FunBind [match])
-    match = Match noLoc fun [pat] Nothing rhs noBinds
-    pat   = PRec (unqual typ) [PFieldWildcard]
-    rhs   = UnGuardedRhs exps
-    exps  = listE (map (toHeadersE p) fs)
+toQueryD :: Protocol -> Id -> [Either Text Field] -> Decl
+toQueryD p n es = instD "ToQuery" n decl
+  where
+    decl = wildcardD n "toQuery" exps
+    exps = listE (map (toQueryE p) es)
+
+toPathD :: Id -> [Either Text Field] -> Decl
+toPathD n es
+    | [Left t] <- es = ins (single t)
+    | otherwise      = ins multi
+  where
+    ins = instD "ToPath" n
+    fun = "toPath"
+
+    single = funD fun . app (var "const") . str
+    multi  = wildcardD n fun . app (var "mconcat") . listE $ map toPathE es
+
+toBodyD :: Protocol -> Id -> Field -> Decl
+toBodyD p n = instD "ToBody" n . funD "toBody" . toBodyE
+
+instD :: Text -> Id -> InstDecl -> Decl
+instD c n d = InstDecl noLoc Nothing [] [] (unqual c) [n ^. typeId . to tycon] [d]
+
+funD :: Text -> Exp -> InstDecl
+funD f = InsDecl . patBind noLoc (pvar f)
+
+funArgsD :: Text -> [Text] -> Exp -> InstDecl
+funArgsD f as e =
+    InsDecl (sfun noLoc (ident f) (map ident as) (UnGuardedRhs e) noBinds)
+
+wildcardD :: Id -> Text -> Exp -> InstDecl
+wildcardD n f e = InsDecl (FunBind [match])
+  where
+    match = Match noLoc (ident f) [pat] Nothing rhs noBinds
+    pat   = PRec (n ^. typeId . to unqual) [PFieldWildcard]
+    rhs   = UnGuardedRhs e
 
 seqE :: Exp -> [Exp] -> Exp
 seqE l []     = app (var "pure") l
@@ -208,20 +210,18 @@ infixE :: Exp -> QOp -> [Exp] -> Exp
 infixE l _ []     = l
 infixE l o (r:rs) = infixE (infixApp l o r) o rs
 
--- [InsDecl (PatBind (SrcLoc "<unknown>.hs" 1 32) (PVar (Ident "fromXML")) (UnGuardedRhs (Var (UnQual (Ident "mempty")))) noBinds)]
--- data Decl = InstDecl SrcLoc (Maybe Overlap) [TyVarBind] Context QName [Type] [InstDecl]
--- data InstDecl = InsDecl Decl
-
 fromXMLE, fromJSONE, fromHeadersE :: Protocol -> Field -> Exp
 fromXMLE     = decodeE (Dec ".@" ".@?" ".!@")
 fromJSONE    = decodeE (Dec ".:" ".:?" ".!=")
 fromHeadersE = decodeE (Dec ".#" ".#?" ".!#")
 
-toXMLE, toJSONE, toHeadersE, toQueryE :: Protocol -> Field -> Exp
+toXMLE, toJSONE, toHeadersE :: Protocol -> Field -> Exp
 toXMLE     = encodeE (Enc "@=" "@@=")
 toJSONE    = encodeE (Enc ".=" ".=")
 toHeadersE = encodeE (Enc "=#" "=##")
-toQueryE   = encodeE (Enc "=:" "=:")
+
+toQueryE :: Protocol -> Either Text Field -> Exp
+toQueryE p = either str (encodeE (Enc "=:" "=:") p)
 
 toElementE :: Protocol -> Field -> Exp
 toElementE p f = appFun (var "mkElement")
@@ -237,14 +237,11 @@ toElementE p f = appFun (var "mkElement")
 
     n = memberName p Input (f ^. fieldId) (f ^. fieldRef)
 
--- toPathExp :: [Either Text Field] -> Exp
--- toPathExp [Left t] = str t
--- toPathExp fs       = app (var "mconcat") . listE $ map (either str go) fs
---   where
---     go = app (var "toText") . var . view fieldAccessor
+toPathE :: Either Text Field -> Exp
+toPathE = either str (app (var "toText") . var . view fieldAccessor)
 
--- toBodyExp :: Field -> Exp
--- toBodyExp f = var (f ^. fieldAccessor)
+toBodyE :: Field -> Exp
+toBodyE f = var (f ^. fieldAccessor)
 
 data Dec = Dec
     { decodeOp      :: QOp
@@ -287,8 +284,6 @@ encodeE o p f
     (n, m) = memberNames p f
 
     v = var (f ^. fieldAccessor)
-
-
 
 memberNames :: Protocol -> Field -> (Exp, Maybe Exp)
 memberNames p f =

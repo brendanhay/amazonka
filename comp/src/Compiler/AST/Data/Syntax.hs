@@ -130,6 +130,7 @@ instanceD p n = \case
     FromJSON  fs -> fromJSOND  p n fs
     ToElement f  -> toElementD p n f
     ToXML     fs -> toXMLD     p n fs
+    ToHeaders fs -> toHeadersD p n fs
     _            -> fromXMLD   p n []
 
     -- ToXML     fs -> toXMLExp        p fs
@@ -159,8 +160,15 @@ fromJSOND p n fs = InstDecl noLoc Nothing [] [] cls [tycon typ] [decl]
     decl = InsDecl (patBind noLoc fun exps)
     exps = seqE (var typ) (map (fromJSONE p) fs)
 
-toElementD :: Protocol -> Id -> [Field] -> Decl
-toElementD p n fs =
+toElementD :: Protocol -> Id -> Field -> Decl
+toElementD p n f = InstDecl noLoc Nothing [] [] cls [tycon typ] [decl]
+  where
+    typ = n ^. typeId
+    cls = unqual "ToElement"
+    fun = pvar "toElement"
+
+    decl = InsDecl (patBind noLoc fun rhs)
+    rhs  = toElementE p f
 
 toXMLD :: Protocol -> Id -> [Field] -> Decl
 toXMLD p n fs = InstDecl noLoc Nothing [] [] cls [tycon typ] [decl]
@@ -173,7 +181,24 @@ toXMLD p n fs = InstDecl noLoc Nothing [] [] cls [tycon typ] [decl]
     match = Match noLoc fun [pat] Nothing rhs noBinds
     pat   = PRec (unqual typ) [PFieldWildcard]
     rhs   = UnGuardedRhs exps
-    exps  = seqE (var typ) (map (fromJSONE p) fs)
+    exps  = listE (map (toXMLE p) fs)
+
+-- FIXME:
+-- Since this is so horrendously slow to hindent with lots of fields,
+-- maybe return piecemeal, like lines or something?
+
+toHeadersD :: Protocol -> Id -> [Field] -> Decl
+toHeadersD p n fs = InstDecl noLoc Nothing [] [] cls [tycon typ] [decl]
+  where
+    typ = n ^. typeId
+    cls = unqual "ToHeaders"
+    fun = ident "toHeaders"
+
+    decl  = InsDecl (FunBind [match])
+    match = Match noLoc fun [pat] Nothing rhs noBinds
+    pat   = PRec (unqual typ) [PFieldWildcard]
+    rhs   = UnGuardedRhs exps
+    exps  = listE (map (toHeadersE p) fs)
 
 seqE :: Exp -> [Exp] -> Exp
 seqE l []     = app (var "pure") l
@@ -198,18 +223,19 @@ toJSONE    = encodeE (Enc ".=" ".=")
 toHeadersE = encodeE (Enc "=#" "=##")
 toQueryE   = encodeE (Enc "=:" "=:")
 
--- toXMLElementExp :: Protocol -> Field -> Exp
--- toXMLElementExp p f = appFun (var "mkElement")
---     [ str name
---     , var "$"
---     , var "toXML"
---     , var (f ^. fieldAccessor)
---     ]
---   where
---     name | Just ns <- f ^. fieldNamespace = "{" <> ns <> "}" <> n
---          | otherwise                      = n
+toElementE :: Protocol -> Field -> Exp
+toElementE p f = appFun (var "mkElement")
+    [ str name
+    , var "."
+    , var "toXML"
+    , var "."
+    , var (f ^. fieldAccessor)
+    ]
+  where
+    name | Just ns <- f ^. fieldNamespace = "{" <> ns <> "}" <> n
+         | otherwise                      = n
 
---     n = memberName p Input (f ^. fieldId) (f ^. fieldRef)
+    n = memberName p Input (f ^. fieldId) (f ^. fieldRef)
 
 -- toPathExp :: [Either Text Field] -> Exp
 -- toPathExp [Left t] = str t

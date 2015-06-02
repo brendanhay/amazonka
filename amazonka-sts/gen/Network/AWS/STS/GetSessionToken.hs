@@ -38,6 +38,11 @@
 -- created by using account credentials have a maximum duration of 3600 seconds
 -- (1 hour).
 --
+-- We recommend that you do not call 'GetSessionToken' with root account
+-- credentials. Instead, follow our <http://docs.aws.amazon.com/IAM/latest/UserGuide/IAMBestPractices.html#create-iam-users best practices> by creating one or more IAM
+-- users, giving them the necessary permissions, and using IAM users for
+-- everyday interaction with AWS.
+--
 -- The permissions associated with the temporary security credentials returned
 -- by 'GetSessionToken' are based on the permissions associated with account or
 -- IAM user whose credentials are used to call the action. If 'GetSessionToken' is

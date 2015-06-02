@@ -24,7 +24,7 @@
 
 -- | Describes one or more of the Reserved Instances that you purchased.
 --
--- For more information about Reserved Instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html Reserved Instances> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
+-- For more information about Reserved Instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html Reserved Instances> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeReservedInstances.html>
 module Network.AWS.EC2.DescribeReservedInstances
@@ -79,6 +79,9 @@ describeReservedInstances = DescribeReservedInstances
     , _driOfferingType         = Nothing
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 driDryRun :: Lens' DescribeReservedInstances (Maybe Bool)
 driDryRun = lens _driDryRun (\s a -> s { _driDryRun = a })
 
@@ -106,7 +109,7 @@ driDryRun = lens _driDryRun (\s a -> s { _driDryRun = a })
 -- 'start' - The time at which the Reserved Instance purchase request was
 -- placed (for example, 2014-08-07T11:54:42.000Z).
 --
--- 'state' - The state of the Reserved Instance ('pending-payment' | 'active' | 'payment-failed' | 'retired').
+-- 'state' - The state of the Reserved Instance ('payment-pending' | 'active' | 'payment-failed' | 'retired').
 --
 -- 'tag':/key/=/value/ - The key/value combination of a tag assigned to the
 -- resource.

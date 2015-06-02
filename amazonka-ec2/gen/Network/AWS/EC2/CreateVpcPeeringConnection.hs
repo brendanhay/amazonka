@@ -87,6 +87,9 @@ createVpcPeeringConnection = CreateVpcPeeringConnection
     , _cvpcPeerOwnerId = Nothing
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 cvpcDryRun :: Lens' CreateVpcPeeringConnection (Maybe Bool)
 cvpcDryRun = lens _cvpcDryRun (\s a -> s { _cvpcDryRun = a })
 

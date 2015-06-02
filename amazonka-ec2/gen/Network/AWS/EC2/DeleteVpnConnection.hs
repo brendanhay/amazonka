@@ -75,6 +75,9 @@ deleteVpnConnection p1 = DeleteVpnConnection
     , _dvcDryRun          = Nothing
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dvcDryRun :: Lens' DeleteVpnConnection (Maybe Bool)
 dvcDryRun = lens _dvcDryRun (\s a -> s { _dvcDryRun = a })
 

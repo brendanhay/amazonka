@@ -111,6 +111,9 @@ replaceNetworkAclEntry p1 p2 p3 p4 p5 p6 = ReplaceNetworkAclEntry
 rnaeCidrBlock :: Lens' ReplaceNetworkAclEntry Text
 rnaeCidrBlock = lens _rnaeCidrBlock (\s a -> s { _rnaeCidrBlock = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 rnaeDryRun :: Lens' ReplaceNetworkAclEntry (Maybe Bool)
 rnaeDryRun = lens _rnaeDryRun (\s a -> s { _rnaeDryRun = a })
 

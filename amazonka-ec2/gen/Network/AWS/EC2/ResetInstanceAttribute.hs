@@ -82,6 +82,9 @@ resetInstanceAttribute p1 p2 = ResetInstanceAttribute
 riaAttribute :: Lens' ResetInstanceAttribute InstanceAttributeName
 riaAttribute = lens _riaAttribute (\s a -> s { _riaAttribute = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 riaDryRun :: Lens' ResetInstanceAttribute (Maybe Bool)
 riaDryRun = lens _riaDryRun (\s a -> s { _riaDryRun = a })
 

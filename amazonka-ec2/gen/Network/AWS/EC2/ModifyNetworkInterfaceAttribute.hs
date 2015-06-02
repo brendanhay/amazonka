@@ -96,6 +96,9 @@ mniaAttachment = lens _mniaAttachment (\s a -> s { _mniaAttachment = a })
 mniaDescription :: Lens' ModifyNetworkInterfaceAttribute (Maybe AttributeValue)
 mniaDescription = lens _mniaDescription (\s a -> s { _mniaDescription = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 mniaDryRun :: Lens' ModifyNetworkInterfaceAttribute (Maybe Bool)
 mniaDryRun = lens _mniaDryRun (\s a -> s { _mniaDryRun = a })
 

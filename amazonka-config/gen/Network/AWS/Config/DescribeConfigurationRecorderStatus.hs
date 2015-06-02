@@ -26,6 +26,8 @@
 -- configuration recorder is not specified, this action returns the status of
 -- all configuration recorder associated with the account.
 --
+-- Currently, you can specify only one configuration recorder per account.
+--
 -- <http://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html>
 module Network.AWS.Config.DescribeConfigurationRecorderStatus
     (

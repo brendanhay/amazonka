@@ -22,10 +22,10 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Creates one or more listeners on a load balancer for the specified port. If
--- a listener with the given port does not already exist, it will be created;
--- otherwise, the properties of the new listener must match the properties of
--- the existing listener.
+-- | Creates one or more listeners for the specified load balancer. If a listener
+-- with the specified port does not already exist, it is created; otherwise, the
+-- properties of the new listener must match the properties of the existing
+-- listener.
 --
 -- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/us-add-listener.html Add a Listener to Your Load Balancer> in the /Elastic Load Balancing Developer Guide/.
 --
@@ -71,7 +71,7 @@ createLoadBalancerListeners p1 = CreateLoadBalancerListeners
     , _clblListeners        = mempty
     }
 
--- | A list of 'LoadBalancerPort', 'InstancePort', 'Protocol', 'InstanceProtocol', and 'SSLCertificateId' items.
+-- | The listeners.
 clblListeners :: Lens' CreateLoadBalancerListeners [Listener]
 clblListeners = lens _clblListeners (\s a -> s { _clblListeners = a }) . _List
 

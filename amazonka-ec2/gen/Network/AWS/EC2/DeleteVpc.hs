@@ -70,6 +70,9 @@ deleteVpc p1 = DeleteVpc
     , _dv3DryRun = Nothing
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dv3DryRun :: Lens' DeleteVpc (Maybe Bool)
 dv3DryRun = lens _dv3DryRun (\s a -> s { _dv3DryRun = a })
 

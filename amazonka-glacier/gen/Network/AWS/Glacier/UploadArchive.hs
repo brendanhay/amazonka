@@ -118,10 +118,11 @@ uploadArchive p1 p2 p3 = UploadArchive
     , _uaChecksum           = Nothing
     }
 
--- | The 'AccountId' is the AWS Account ID. You can specify either the AWS Account
--- ID or optionally a '-', in which case Amazon Glacier uses the AWS Account ID
--- associated with the credentials used to sign the request. If you specify your
--- Account ID, do not include hyphens in it.
+-- | The 'AccountId' value is the AWS account ID of the account that owns the vault.
+-- You can either specify an AWS account ID or optionally a single apos'-'apos
+-- (hyphen), in which case Amazon Glacier uses the AWS account ID associated
+-- with the credentials used to sign the request. If you use an account ID, do
+-- not include any hyphens (apos-apos) in the ID.
 uaAccountId :: Lens' UploadArchive Text
 uaAccountId = lens _uaAccountId (\s a -> s { _uaAccountId = a })
 
@@ -134,7 +135,7 @@ uaArchiveDescription =
 uaBody :: Lens' UploadArchive RqBody
 uaBody = lens _uaBody (\s a -> s { _uaBody = a })
 
--- | The SHA256 checksum (a linear hash) of the payload.
+-- | The SHA256 tree hash of the data being uploaded.
 uaChecksum :: Lens' UploadArchive (Maybe Text)
 uaChecksum = lens _uaChecksum (\s a -> s { _uaChecksum = a })
 

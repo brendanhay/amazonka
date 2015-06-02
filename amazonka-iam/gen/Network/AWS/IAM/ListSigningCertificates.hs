@@ -25,8 +25,8 @@
 -- | Returns information about the signing certificates associated with the
 -- specified user. If there are none, the action returns an empty list.
 --
--- Although each user is limited to a small number of signing certificates,
--- you can still paginate the results using the 'MaxItems' and 'Marker' parameters.
+-- Although each user is limited to a small number of signing certificates, you
+-- can still paginate the results using the 'MaxItems' and 'Marker' parameters.
 --
 -- If the 'UserName' field is not specified, the user name is determined
 -- implicitly based on the AWS access key ID used to sign the request. Because
@@ -84,9 +84,9 @@ listSigningCertificates = ListSigningCertificates
     , _lsc1MaxItems = Nothing
     }
 
--- | Use this only when paginating results, and only in a subsequent request
--- after you've received a response where the results are truncated. Set it to
--- the value of the 'Marker' element in the response you just received.
+-- | Use this only when paginating results, and only in a subsequent request after
+-- you've received a response where the results are truncated. Set it to the
+-- value of the 'Marker' element in the response you just received.
 lsc1Marker :: Lens' ListSigningCertificates (Maybe Text)
 lsc1Marker = lens _lsc1Marker (\s a -> s { _lsc1Marker = a })
 

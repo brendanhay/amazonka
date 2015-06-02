@@ -41,11 +41,11 @@
 -- function is used to map partition keys to 128-bit integer values and to map
 -- associated data records to shards. As a result of this hashing mechanism, all
 -- data records with the same partition key map to the same shard within the
--- stream. For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-api-java.html#kinesis-using-api-defn-partition-key Partition Key> in the /Amazon KinesisDeveloper Guide/.
+-- stream. For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-add-data-to-stream.html Adding Data to a Stream> in the /AmazonKinesis Developer Guide/.
 --
 -- Each record in the 'Records' array may include an optional parameter, 'ExplicitHashKey', which overrides the partition key to shard mapping. This parameter allows a
 -- data producer to determine explicitly the shard where the record is stored.
--- For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-api-java.html#kinesis-using-api-putrecords Adding Multiple Records with PutRecords> in the /Amazon Kinesis Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-add-data-to-stream.html#kinesis-using-sdk-java-putrecords Adding Multiple Records with PutRecords> in the /Amazon Kinesis Developer Guide/.
 --
 -- The 'PutRecords' response includes an array of response 'Records'. Each record
 -- in the response array directly correlates with a record in the request array
@@ -65,7 +65,8 @@
 -- An unsuccessfully-processed record includes 'ErrorCode' and 'ErrorMessage'
 -- values. 'ErrorCode' reflects the type of error and can be one of the following
 -- values: 'ProvisionedThroughputExceededException' or 'InternalFailure'. 'ErrorMessage' provides more detailed information about the 'ProvisionedThroughputExceededException' exception including the account ID, stream name, and shard ID of the record
--- that was throttled.
+-- that was throttled. For more information about partially successful
+-- responses, see <http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-add-data-to-stream.html#kinesis-using-sdk-java-putrecords Adding Multiple Records with PutRecords> in the /Amazon KinesisDeveloper Guide/.
 --
 -- Data records are accessible for only 24 hours from the time that they are
 -- added to an Amazon Kinesis stream.

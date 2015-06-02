@@ -30,6 +30,11 @@
 --
 -- Initiate a retrieval job.
 --
+-- A data retrieval policy can cause your initiate retrieval job request to
+-- fail with a PolicyEnforcedException exception. For more information about
+-- data retrieval policies, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/data-retrieval-policy.html Amazon Glacier Data Retrieval Policies>. For more
+-- information about the PolicyEnforcedException exception, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-error-responses.html Error Responses>.
+--
 -- After the job completes, download the bytes.
 --
 -- The retrieval request is executed asynchronously. When you initiate a
@@ -179,10 +184,11 @@ initiateJob p1 p2 = InitiateJob
     , _ijJobParameters = Nothing
     }
 
--- | The 'AccountId' is the AWS Account ID. You can specify either the AWS Account
--- ID or optionally a '-', in which case Amazon Glacier uses the AWS Account ID
--- associated with the credentials used to sign the request. If you specify your
--- Account ID, do not include hyphens in it.
+-- | The 'AccountId' value is the AWS account ID of the account that owns the vault.
+-- You can either specify an AWS account ID or optionally a single apos'-'apos
+-- (hyphen), in which case Amazon Glacier uses the AWS account ID associated
+-- with the credentials used to sign the request. If you use an account ID, do
+-- not include any hyphens (apos-apos) in the ID.
 ijAccountId :: Lens' InitiateJob Text
 ijAccountId = lens _ijAccountId (\s a -> s { _ijAccountId = a })
 

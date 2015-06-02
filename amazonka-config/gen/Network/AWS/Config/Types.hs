@@ -701,23 +701,26 @@ instance ToJSON ConfigurationItem where
         ]
 
 data DeliveryStatus
-    = Failure -- ^ Failure
-    | Success -- ^ Success
+    = Failure       -- ^ Failure
+    | NotApplicable -- ^ Not_Applicable
+    | Success       -- ^ Success
       deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable DeliveryStatus
 
 instance FromText DeliveryStatus where
     parser = takeLowerText >>= \case
-        "failure" -> pure Failure
-        "success" -> pure Success
-        e         -> fail $
+        "failure"        -> pure Failure
+        "not_applicable" -> pure NotApplicable
+        "success"        -> pure Success
+        e                -> fail $
             "Failure parsing DeliveryStatus from " ++ show e
 
 instance ToText DeliveryStatus where
     toText = \case
-        Failure -> "Failure"
-        Success -> "Success"
+        Failure       -> "Failure"
+        NotApplicable -> "Not_Applicable"
+        Success       -> "Success"
 
 instance ToByteString DeliveryStatus
 instance ToHeader     DeliveryStatus

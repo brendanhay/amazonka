@@ -24,7 +24,7 @@
 
 -- | Describes one or more of your key pairs.
 --
--- For more information about key pairs, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key Pairs> in the /Amazon ElasticCompute Cloud User Guide for Linux/.
+-- For more information about key pairs, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key Pairs> in the /Amazon ElasticCompute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeKeyPairs.html>
 module Network.AWS.EC2.DescribeKeyPairs
@@ -74,6 +74,9 @@ describeKeyPairs = DescribeKeyPairs
     , _dkp1Filters  = mempty
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dkp1DryRun :: Lens' DescribeKeyPairs (Maybe Bool)
 dkp1DryRun = lens _dkp1DryRun (\s a -> s { _dkp1DryRun = a })
 

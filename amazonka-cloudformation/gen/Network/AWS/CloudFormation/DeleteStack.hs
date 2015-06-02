@@ -63,7 +63,7 @@ deleteStack p1 = DeleteStack
     { _dsStackName = p1
     }
 
--- | The name or the unique identifier associated with the stack.
+-- | The name or the unique stack ID that is associated with the stack.
 dsStackName :: Lens' DeleteStack Text
 dsStackName = lens _dsStackName (\s a -> s { _dsStackName = a })
 

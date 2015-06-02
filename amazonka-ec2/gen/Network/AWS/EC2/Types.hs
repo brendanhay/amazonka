@@ -38,6 +38,9 @@ module Network.AWS.EC2.Types
     -- * PermissionGroup
     , PermissionGroup (..)
 
+    -- * Status
+    , Status (..)
+
     -- * NetworkAclEntry
     , NetworkAclEntry
     , networkAclEntry
@@ -99,6 +102,13 @@ module Network.AWS.EC2.Types
     , tdResourceType
     , tdValue
 
+    -- * ImportSnapshotTask
+    , ImportSnapshotTask
+    , importSnapshotTask
+    , istDescription
+    , istImportTaskId
+    , istSnapshotTaskDetail
+
     -- * GroupIdentifier
     , GroupIdentifier
     , groupIdentifier
@@ -124,6 +134,9 @@ module Network.AWS.EC2.Types
 
     -- * InstanceLifecycleType
     , InstanceLifecycleType (..)
+
+    -- * State
+    , State (..)
 
     -- * VirtualizationType
     , VirtualizationType (..)
@@ -217,6 +230,12 @@ module Network.AWS.EC2.Types
     , dcKey
     , dcValues
 
+    -- * CancelSpotFleetRequestsError
+    , CancelSpotFleetRequestsError
+    , cancelSpotFleetRequestsError
+    , csfreCode
+    , csfreMessage
+
     -- * Tag
     , Tag
     , tag
@@ -295,6 +314,13 @@ module Network.AWS.EC2.Types
     , etstS3Bucket
     , etstS3Key
 
+    -- * PrefixList
+    , PrefixList
+    , prefixList
+    , plCidrs
+    , plPrefixListId
+    , plPrefixListName
+
     -- * BlockDeviceMapping
     , BlockDeviceMapping
     , blockDeviceMapping
@@ -340,6 +366,25 @@ module Network.AWS.EC2.Types
     , spSpotPrice
     , spTimestamp
 
+    -- * ActiveInstance
+    , ActiveInstance
+    , activeInstance
+    , aiInstanceId
+    , aiInstanceType
+    , aiSpotInstanceRequestId
+
+    -- * SpotFleetRequestConfigData
+    , SpotFleetRequestConfigData
+    , spotFleetRequestConfigData
+    , sfrcdClientToken
+    , sfrcdIamFleetRole
+    , sfrcdLaunchSpecifications
+    , sfrcdSpotPrice
+    , sfrcdTargetCapacity
+    , sfrcdTerminateInstancesWithExpiration
+    , sfrcdValidFrom
+    , sfrcdValidUntil
+
     -- * InstanceMonitoring
     , InstanceMonitoring
     , instanceMonitoring
@@ -353,12 +398,32 @@ module Network.AWS.EC2.Types
     , pssPrice
     , pssTerm
 
+    -- * SpotFleetRequestConfig
+    , SpotFleetRequestConfig
+    , spotFleetRequestConfig
+    , sfrcSpotFleetRequestConfig
+    , sfrcSpotFleetRequestId
+    , sfrcSpotFleetRequestState
+
     -- * SpotInstanceStatus
     , SpotInstanceStatus
     , spotInstanceStatus
     , sisCode
     , sisMessage
     , sisUpdateTime
+
+    -- * SnapshotTaskDetail
+    , SnapshotTaskDetail
+    , snapshotTaskDetail
+    , stdDescription
+    , stdDiskImageSize
+    , stdFormat
+    , stdProgress
+    , stdSnapshotId
+    , stdStatus
+    , stdStatusMessage
+    , stdUrl
+    , stdUserBucket
 
     -- * AvailabilityZoneState
     , AvailabilityZoneState (..)
@@ -466,6 +531,9 @@ module Network.AWS.EC2.Types
     -- * RuleAction
     , RuleAction (..)
 
+    -- * BatchState
+    , BatchState (..)
+
     -- * NetworkInterface
     , NetworkInterface
     , networkInterface
@@ -566,6 +634,12 @@ module Network.AWS.EC2.Types
 
     -- * VolumeAttachmentState
     , VolumeAttachmentState (..)
+
+    -- * MovingAddressStatus
+    , MovingAddressStatus
+    , movingAddressStatus
+    , masMoveStatus
+    , masPublicIp
 
     -- * LaunchPermission
     , LaunchPermission
@@ -677,6 +751,7 @@ module Network.AWS.EC2.Types
     , Route
     , route
     , rDestinationCidrBlock
+    , rDestinationPrefixListId
     , rGatewayId
     , rInstanceId
     , rInstanceOwnerId
@@ -792,6 +867,13 @@ module Network.AWS.EC2.Types
     -- * SubnetState
     , SubnetState (..)
 
+    -- * CancelSpotFleetRequestsSuccessItem
+    , CancelSpotFleetRequestsSuccessItem
+    , cancelSpotFleetRequestsSuccessItem
+    , csfrsiCurrentSpotFleetRequestState
+    , csfrsiPreviousSpotFleetRequestState
+    , csfrsiSpotFleetRequestId
+
     -- * ContainerFormat
     , ContainerFormat (..)
 
@@ -805,6 +887,9 @@ module Network.AWS.EC2.Types
     , vpcAttachment
     , va1State
     , va1VpcId
+
+    -- * EventType
+    , EventType (..)
 
     -- * InstanceBlockDeviceMapping
     , InstanceBlockDeviceMapping
@@ -822,6 +907,14 @@ module Network.AWS.EC2.Types
     , etstsDiskImageFormat
     , etstsS3Bucket
     , etstsS3Prefix
+
+    -- * CancelBatchErrorCode
+    , CancelBatchErrorCode (..)
+
+    -- * PrefixListId
+    , PrefixListId
+    , prefixListId
+    , pliPrefixListId
 
     -- * NetworkInterfaceAttribute
     , NetworkInterfaceAttribute (..)
@@ -846,6 +939,28 @@ module Network.AWS.EC2.Types
     , azState
     , azZoneName
 
+    -- * HistoryRecord
+    , HistoryRecord
+    , historyRecord
+    , hrEventInformation
+    , hrEventType
+    , hrTimestamp
+
+    -- * ImportImageTask
+    , ImportImageTask
+    , importImageTask
+    , iitArchitecture
+    , iitDescription
+    , iitHypervisor
+    , iitImageId
+    , iitImportTaskId
+    , iitLicenseType
+    , iitPlatform
+    , iitProgress
+    , iitSnapshotDetails
+    , iitStatus
+    , iitStatusMessage
+
     -- * VpnState
     , VpnState (..)
 
@@ -859,8 +974,20 @@ module Network.AWS.EC2.Types
     , rtTags
     , rtVpcId
 
+    -- * UserBucket
+    , UserBucket
+    , userBucket
+    , ubS3Bucket
+    , ubS3Key
+
     -- * HypervisorType
     , HypervisorType (..)
+
+    -- * CancelSpotFleetRequestsErrorItem
+    , CancelSpotFleetRequestsErrorItem
+    , cancelSpotFleetRequestsErrorItem
+    , csfreiError
+    , csfreiSpotFleetRequestId
 
     -- * InstanceStatusDetails
     , InstanceStatusDetails
@@ -874,6 +1001,12 @@ module Network.AWS.EC2.Types
     , iamInstanceProfile
     , iipArn
     , iipId
+
+    -- * UnsuccessfulItem
+    , UnsuccessfulItem
+    , unsuccessfulItem
+    , uiError
+    , uiResourceId
 
     -- * InternetGatewayAttachment
     , InternetGatewayAttachment
@@ -893,6 +1026,7 @@ module Network.AWS.EC2.Types
     , ipFromPort
     , ipIpProtocol
     , ipIpRanges
+    , ipPrefixListIds
     , ipToPort
     , ipUserIdGroupPairs
 
@@ -908,6 +1042,12 @@ module Network.AWS.EC2.Types
 
     -- * Tenancy
     , Tenancy (..)
+
+    -- * UnsuccessfulItemError
+    , UnsuccessfulItemError
+    , unsuccessfulItemError
+    , uieCode
+    , uieMessage
 
     -- * VpcPeeringConnectionStateReason
     , VpcPeeringConnectionStateReason
@@ -966,6 +1106,12 @@ module Network.AWS.EC2.Types
     , vpcviOwnerId
     , vpcviVpcId
 
+    -- * UserBucketDetails
+    , UserBucketDetails
+    , userBucketDetails
+    , ubdS3Bucket
+    , ubdS3Key
+
     -- * ReservedInstanceLimitPrice
     , ReservedInstanceLimitPrice
     , reservedInstanceLimitPrice
@@ -983,6 +1129,16 @@ module Network.AWS.EC2.Types
     , vpcTags
     , vpcVpcId
 
+    -- * ImageDiskContainer
+    , ImageDiskContainer
+    , imageDiskContainer
+    , idcDescription
+    , idcDeviceName
+    , idcFormat
+    , idcSnapshotId
+    , idcUrl
+    , idcUserBucket
+
     -- * InstanceStatus
     , InstanceStatus
     , instanceStatus
@@ -999,6 +1155,9 @@ module Network.AWS.EC2.Types
     -- * ReportInstanceReasonCodes
     , ReportInstanceReasonCodes (..)
 
+    -- * MoveStatus
+    , MoveStatus (..)
+
     -- * EbsBlockDevice
     , EbsBlockDevice
     , ebsBlockDevice
@@ -1014,6 +1173,20 @@ module Network.AWS.EC2.Types
     , accountAttribute
     , aaAttributeName
     , aaAttributeValues
+
+    -- * SnapshotDetail
+    , SnapshotDetail
+    , snapshotDetail
+    , sdDescription
+    , sdDeviceName
+    , sdDiskImageSize
+    , sdFormat
+    , sdProgress
+    , sdSnapshotId
+    , sdStatus
+    , sdStatusMessage
+    , sdUrl
+    , sdUserBucket
 
     -- * PriceSchedule
     , PriceSchedule
@@ -1052,6 +1225,13 @@ module Network.AWS.EC2.Types
     , vgType
     , vgVpcAttachments
     , vgVpnGatewayId
+
+    -- * EventInformation
+    , EventInformation
+    , eventInformation
+    , eiEventDescription
+    , eiEventSubType
+    , eiInstanceId
 
     -- * Filter
     , Filter
@@ -1178,6 +1358,14 @@ module Network.AWS.EC2.Types
     , accountAttributeValue
     , aavAttributeValue
 
+    -- * SnapshotDiskContainer
+    , SnapshotDiskContainer
+    , snapshotDiskContainer
+    , sdcDescription
+    , sdcFormat
+    , sdcUrl
+    , sdcUserBucket
+
     -- * RIProductDescription
     , RIProductDescription (..)
 
@@ -1246,6 +1434,25 @@ module Network.AWS.EC2.Types
     , instanceState
     , isCode
     , isName
+
+    -- * VpcEndpoint
+    , VpcEndpoint
+    , vpcEndpoint
+    , veCreationTimestamp
+    , vePolicyDocument
+    , veRouteTableIds
+    , veServiceName
+    , veState
+    , veVpcEndpointId
+    , veVpcId
+
+    -- * ClientData
+    , ClientData
+    , clientData
+    , cdComment
+    , cdUploadEnd
+    , cdUploadSize
+    , cdUploadStart
 
     -- * Placement
     , Placement
@@ -1425,7 +1632,7 @@ import Network.AWS.Signing
 import Network.AWS.EC2.Internal
 import qualified GHC.Exts
 
--- | Version @2014-10-01@ of the Amazon Elastic Compute Cloud service.
+-- | Version @2015-04-15@ of the Amazon Elastic Compute Cloud service.
 data EC2
 
 instance AWSService EC2 where
@@ -1438,7 +1645,7 @@ instance AWSService EC2 where
         service' = Service
             { _svcAbbrev       = "EC2"
             , _svcPrefix       = "ec2"
-            , _svcVersion      = "2014-10-01"
+            , _svcVersion      = "2015-04-15"
             , _svcTargetPrefix = Nothing
             , _svcJSONVersion  = Nothing
             , _svcHandle       = handle
@@ -1468,7 +1675,7 @@ instance AWSService EC2 where
             | otherwise = False
 
 ns :: Text
-ns = "http://ec2.amazonaws.com/doc/2014-10-01"
+ns = "http://ec2.amazonaws.com/doc/2015-04-15"
 {-# INLINE ns #-}
 
 data ImageAttributeName
@@ -1478,6 +1685,7 @@ data ImageAttributeName
     | ImageLaunchPermission   -- ^ launchPermission
     | ImageProductCodes       -- ^ productCodes
     | ImageRamdisk            -- ^ ramdisk
+    | ImageSriovNetSupport    -- ^ sriovNetSupport
       deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ImageAttributeName
@@ -1490,6 +1698,7 @@ instance FromText ImageAttributeName where
         "launchpermission"   -> pure ImageLaunchPermission
         "productcodes"       -> pure ImageProductCodes
         "ramdisk"            -> pure ImageRamdisk
+        "sriovnetsupport"    -> pure ImageSriovNetSupport
         e                    -> fail $
             "Failure parsing ImageAttributeName from " ++ show e
 
@@ -1501,6 +1710,7 @@ instance ToText ImageAttributeName where
         ImageLaunchPermission   -> "launchPermission"
         ImageProductCodes       -> "productCodes"
         ImageRamdisk            -> "ramdisk"
+        ImageSriovNetSupport    -> "sriovNetSupport"
 
 instance ToByteString ImageAttributeName
 instance ToHeader     ImageAttributeName
@@ -1530,6 +1740,35 @@ instance ToQuery      PermissionGroup
 
 instance FromXML PermissionGroup where
     parseXML = parseXMLText "PermissionGroup"
+
+data Status
+    = InClassic      -- ^ InClassic
+    | InVpc          -- ^ InVpc
+    | MoveInProgress -- ^ MoveInProgress
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
+
+instance Hashable Status
+
+instance FromText Status where
+    parser = takeLowerText >>= \case
+        "inclassic"      -> pure InClassic
+        "invpc"          -> pure InVpc
+        "moveinprogress" -> pure MoveInProgress
+        e                -> fail $
+            "Failure parsing Status from " ++ show e
+
+instance ToText Status where
+    toText = \case
+        InClassic      -> "InClassic"
+        InVpc          -> "InVpc"
+        MoveInProgress -> "MoveInProgress"
+
+instance ToByteString Status
+instance ToHeader     Status
+instance ToQuery      Status
+
+instance FromXML Status where
+    parseXML = parseXMLText "Status"
 
 data NetworkAclEntry = NetworkAclEntry
     { _naeCidrBlock    :: Maybe Text
@@ -1703,6 +1942,7 @@ importInstanceLaunchSpecification = ImportInstanceLaunchSpecification
     , _iilsPrivateIpAddress                  = Nothing
     }
 
+-- | Reserved.
 iilsAdditionalInfo :: Lens' ImportInstanceLaunchSpecification (Maybe Text)
 iilsAdditionalInfo =
     lens _iilsAdditionalInfo (\s a -> s { _iilsAdditionalInfo = a })
@@ -1726,32 +1966,30 @@ iilsInstanceInitiatedShutdownBehavior =
     lens _iilsInstanceInitiatedShutdownBehavior
         (\s a -> s { _iilsInstanceInitiatedShutdownBehavior = a })
 
--- | The instance type. This is not supported for VMs imported into a VPC, which
--- are assigned the default security group. After a VM is imported into a VPC,
--- you can specify another security group using the AWS Management Console. For
--- more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud UserGuide for Linux/. For more information about the Linux instance types you can
+-- | The instance type. For more information about the instance types that you can
 -- import, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/VMImportPrerequisites.html Before You Get Started> in the Amazon Elastic Compute Cloud User
--- Guide for Linux.
+-- Guide.
 iilsInstanceType :: Lens' ImportInstanceLaunchSpecification (Maybe InstanceType)
 iilsInstanceType = lens _iilsInstanceType (\s a -> s { _iilsInstanceType = a })
 
+-- | Indicates whether monitoring is enabled.
 iilsMonitoring :: Lens' ImportInstanceLaunchSpecification (Maybe Bool)
 iilsMonitoring = lens _iilsMonitoring (\s a -> s { _iilsMonitoring = a })
 
+-- | The placement information for the instance.
 iilsPlacement :: Lens' ImportInstanceLaunchSpecification (Maybe Placement)
 iilsPlacement = lens _iilsPlacement (\s a -> s { _iilsPlacement = a })
 
--- | [EC2-VPC] Optionally, you can use this parameter to assign the instance a
--- specific available IP address from the IP address range of the subnet.
+-- | [EC2-VPC] An available IP address from the IP address range of the subnet.
 iilsPrivateIpAddress :: Lens' ImportInstanceLaunchSpecification (Maybe Text)
 iilsPrivateIpAddress =
     lens _iilsPrivateIpAddress (\s a -> s { _iilsPrivateIpAddress = a })
 
--- | [EC2-VPC] The ID of the subnet to launch the instance into.
+-- | [EC2-VPC] The ID of the subnet in which to launch the instance.
 iilsSubnetId :: Lens' ImportInstanceLaunchSpecification (Maybe Text)
 iilsSubnetId = lens _iilsSubnetId (\s a -> s { _iilsSubnetId = a })
 
--- | User data to be made available to the instance.
+-- | The Base64-encoded MIME user data to be made available to the instance.
 iilsUserData :: Lens' ImportInstanceLaunchSpecification (Maybe UserData)
 iilsUserData = lens _iilsUserData (\s a -> s { _iilsUserData = a })
 
@@ -1870,7 +2108,7 @@ sKmsKeyId = lens _sKmsKeyId (\s a -> s { _sKmsKeyId = a })
 sOwnerAlias :: Lens' Snapshot (Maybe Text)
 sOwnerAlias = lens _sOwnerAlias (\s a -> s { _sOwnerAlias = a })
 
--- | The AWS account ID of the Amazon EBS snapshot owner.
+-- | The AWS account ID of the EBS snapshot owner.
 sOwnerId :: Lens' Snapshot Text
 sOwnerId = lens _sOwnerId (\s a -> s { _sOwnerId = a })
 
@@ -2031,6 +2269,55 @@ instance ToQuery TagDescription where
         , "ResourceId"   =? _tdResourceId
         , "ResourceType" =? _tdResourceType
         , "Value"        =? _tdValue
+        ]
+
+data ImportSnapshotTask = ImportSnapshotTask
+    { _istDescription        :: Maybe Text
+    , _istImportTaskId       :: Maybe Text
+    , _istSnapshotTaskDetail :: Maybe SnapshotTaskDetail
+    } deriving (Eq, Read, Show)
+
+-- | 'ImportSnapshotTask' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'istDescription' @::@ 'Maybe' 'Text'
+--
+-- * 'istImportTaskId' @::@ 'Maybe' 'Text'
+--
+-- * 'istSnapshotTaskDetail' @::@ 'Maybe' 'SnapshotTaskDetail'
+--
+importSnapshotTask :: ImportSnapshotTask
+importSnapshotTask = ImportSnapshotTask
+    { _istImportTaskId       = Nothing
+    , _istSnapshotTaskDetail = Nothing
+    , _istDescription        = Nothing
+    }
+
+-- | A description of the import snapshot task.
+istDescription :: Lens' ImportSnapshotTask (Maybe Text)
+istDescription = lens _istDescription (\s a -> s { _istDescription = a })
+
+-- | The ID of the import snapshot task.
+istImportTaskId :: Lens' ImportSnapshotTask (Maybe Text)
+istImportTaskId = lens _istImportTaskId (\s a -> s { _istImportTaskId = a })
+
+-- | Describes an import snapshot task.
+istSnapshotTaskDetail :: Lens' ImportSnapshotTask (Maybe SnapshotTaskDetail)
+istSnapshotTaskDetail =
+    lens _istSnapshotTaskDetail (\s a -> s { _istSnapshotTaskDetail = a })
+
+instance FromXML ImportSnapshotTask where
+    parseXML x = ImportSnapshotTask
+        <$> x .@? "description"
+        <*> x .@? "importTaskId"
+        <*> x .@? "snapshotTaskDetail"
+
+instance ToQuery ImportSnapshotTask where
+    toQuery ImportSnapshotTask{..} = mconcat
+        [ "Description"        =? _istDescription
+        , "ImportTaskId"       =? _istImportTaskId
+        , "SnapshotTaskDetail" =? _istSnapshotTaskDetail
         ]
 
 data GroupIdentifier = GroupIdentifier
@@ -2242,6 +2529,38 @@ instance ToQuery      InstanceLifecycleType
 instance FromXML InstanceLifecycleType where
     parseXML = parseXMLText "InstanceLifecycleType"
 
+data State
+    = Available -- ^ Available
+    | Deleted   -- ^ Deleted
+    | Deleting  -- ^ Deleting
+    | Pending   -- ^ Pending
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
+
+instance Hashable State
+
+instance FromText State where
+    parser = takeLowerText >>= \case
+        "available" -> pure Available
+        "deleted"   -> pure Deleted
+        "deleting"  -> pure Deleting
+        "pending"   -> pure Pending
+        e           -> fail $
+            "Failure parsing State from " ++ show e
+
+instance ToText State where
+    toText = \case
+        Available -> "Available"
+        Deleted   -> "Deleted"
+        Deleting  -> "Deleting"
+        Pending   -> "Pending"
+
+instance ToByteString State
+instance ToHeader     State
+instance ToQuery      State
+
+instance FromXML State where
+    parseXML = parseXMLText "State"
+
 data VirtualizationType
     = Hvm         -- ^ hvm
     | Paravirtual -- ^ paravirtual
@@ -2269,29 +2588,29 @@ instance FromXML VirtualizationType where
     parseXML = parseXMLText "VirtualizationType"
 
 data NetworkInterfaceStatus
-    = Attaching -- ^ attaching
-    | Available -- ^ available
-    | Detaching -- ^ detaching
-    | InUse     -- ^ in-use
+    = NISAttaching -- ^ attaching
+    | NISAvailable -- ^ available
+    | NISDetaching -- ^ detaching
+    | NISInUse     -- ^ in-use
       deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable NetworkInterfaceStatus
 
 instance FromText NetworkInterfaceStatus where
     parser = takeLowerText >>= \case
-        "attaching" -> pure Attaching
-        "available" -> pure Available
-        "detaching" -> pure Detaching
-        "in-use"    -> pure InUse
+        "attaching" -> pure NISAttaching
+        "available" -> pure NISAvailable
+        "detaching" -> pure NISDetaching
+        "in-use"    -> pure NISInUse
         e           -> fail $
             "Failure parsing NetworkInterfaceStatus from " ++ show e
 
 instance ToText NetworkInterfaceStatus where
     toText = \case
-        Attaching -> "attaching"
-        Available -> "available"
-        Detaching -> "detaching"
-        InUse     -> "in-use"
+        NISAttaching -> "attaching"
+        NISAvailable -> "available"
+        NISDetaching -> "detaching"
+        NISInUse     -> "in-use"
 
 instance ToByteString NetworkInterfaceStatus
 instance ToHeader     NetworkInterfaceStatus
@@ -2911,8 +3230,8 @@ iRamdiskId = lens _iRamdiskId (\s a -> s { _iRamdiskId = a })
 iRootDeviceName :: Lens' Image (Maybe Text)
 iRootDeviceName = lens _iRootDeviceName (\s a -> s { _iRootDeviceName = a })
 
--- | The type of root device used by the AMI. The AMI can use an Amazon EBS volume
--- or an instance store volume.
+-- | The type of root device used by the AMI. The AMI can use an EBS volume or an
+-- instance store volume.
 iRootDeviceType :: Lens' Image DeviceType
 iRootDeviceType = lens _iRootDeviceType (\s a -> s { _iRootDeviceType = a })
 
@@ -3027,6 +3346,46 @@ instance ToQuery DhcpConfiguration where
     toQuery DhcpConfiguration{..} = mconcat
         [ "Key"      =? _dcKey
         , "ValueSet" `toQueryList` _dcValues
+        ]
+
+data CancelSpotFleetRequestsError = CancelSpotFleetRequestsError
+    { _csfreCode    :: CancelBatchErrorCode
+    , _csfreMessage :: Text
+    } deriving (Eq, Read, Show)
+
+-- | 'CancelSpotFleetRequestsError' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'csfreCode' @::@ 'CancelBatchErrorCode'
+--
+-- * 'csfreMessage' @::@ 'Text'
+--
+cancelSpotFleetRequestsError :: CancelBatchErrorCode -- ^ 'csfreCode'
+                             -> Text -- ^ 'csfreMessage'
+                             -> CancelSpotFleetRequestsError
+cancelSpotFleetRequestsError p1 p2 = CancelSpotFleetRequestsError
+    { _csfreCode    = p1
+    , _csfreMessage = p2
+    }
+
+-- | The error code.
+csfreCode :: Lens' CancelSpotFleetRequestsError CancelBatchErrorCode
+csfreCode = lens _csfreCode (\s a -> s { _csfreCode = a })
+
+-- | The description for the error code.
+csfreMessage :: Lens' CancelSpotFleetRequestsError Text
+csfreMessage = lens _csfreMessage (\s a -> s { _csfreMessage = a })
+
+instance FromXML CancelSpotFleetRequestsError where
+    parseXML x = CancelSpotFleetRequestsError
+        <$> x .@  "code"
+        <*> x .@  "message"
+
+instance ToQuery CancelSpotFleetRequestsError where
+    toQuery CancelSpotFleetRequestsError{..} = mconcat
+        [ "Code"    =? _csfreCode
+        , "Message" =? _csfreMessage
         ]
 
 data Tag = Tag
@@ -3569,7 +3928,7 @@ instanceCount = InstanceCount
     , _icInstanceCount = Nothing
     }
 
--- | he number of listed Reserved Instances in the state specified by the 'state'.
+-- | The number of listed Reserved Instances in the state specified by the 'state'.
 icInstanceCount :: Lens' InstanceCount (Maybe Int)
 icInstanceCount = lens _icInstanceCount (\s a -> s { _icInstanceCount = a })
 
@@ -3626,11 +3985,12 @@ etstDiskImageFormat :: Lens' ExportToS3Task (Maybe DiskImageFormat)
 etstDiskImageFormat =
     lens _etstDiskImageFormat (\s a -> s { _etstDiskImageFormat = a })
 
--- | The Amazon S3 bucket for the destination image. The destination bucket must
--- exist and grant WRITE and READ_ACP permissions to the AWS account 'vm-import-export@amazon.com'.
+-- | The S3 bucket for the destination image. The destination bucket must exist
+-- and grant WRITE and READ_ACP permissions to the AWS account 'vm-import-export@amazon.com'.
 etstS3Bucket :: Lens' ExportToS3Task (Maybe Text)
 etstS3Bucket = lens _etstS3Bucket (\s a -> s { _etstS3Bucket = a })
 
+-- | The encryption key for your S3 bucket.
 etstS3Key :: Lens' ExportToS3Task (Maybe Text)
 etstS3Key = lens _etstS3Key (\s a -> s { _etstS3Key = a })
 
@@ -3647,6 +4007,54 @@ instance ToQuery ExportToS3Task where
         , "DiskImageFormat" =? _etstDiskImageFormat
         , "S3Bucket"        =? _etstS3Bucket
         , "S3Key"           =? _etstS3Key
+        ]
+
+data PrefixList = PrefixList
+    { _plCidrs          :: List "item" Text
+    , _plPrefixListId   :: Maybe Text
+    , _plPrefixListName :: Maybe Text
+    } deriving (Eq, Ord, Read, Show)
+
+-- | 'PrefixList' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'plCidrs' @::@ ['Text']
+--
+-- * 'plPrefixListId' @::@ 'Maybe' 'Text'
+--
+-- * 'plPrefixListName' @::@ 'Maybe' 'Text'
+--
+prefixList :: PrefixList
+prefixList = PrefixList
+    { _plPrefixListId   = Nothing
+    , _plPrefixListName = Nothing
+    , _plCidrs          = mempty
+    }
+
+-- | The IP address range of the AWS service.
+plCidrs :: Lens' PrefixList [Text]
+plCidrs = lens _plCidrs (\s a -> s { _plCidrs = a }) . _List
+
+-- | The ID of the prefix.
+plPrefixListId :: Lens' PrefixList (Maybe Text)
+plPrefixListId = lens _plPrefixListId (\s a -> s { _plPrefixListId = a })
+
+-- | The name of the prefix.
+plPrefixListName :: Lens' PrefixList (Maybe Text)
+plPrefixListName = lens _plPrefixListName (\s a -> s { _plPrefixListName = a })
+
+instance FromXML PrefixList where
+    parseXML x = PrefixList
+        <$> x .@? "cidrSet" .!@ mempty
+        <*> x .@? "prefixListId"
+        <*> x .@? "prefixListName"
+
+instance ToQuery PrefixList where
+    toQuery PrefixList{..} = mconcat
+        [ "CidrSet"        `toQueryList` _plCidrs
+        , "PrefixListId"   =? _plPrefixListId
+        , "PrefixListName" =? _plPrefixListName
         ]
 
 data BlockDeviceMapping = BlockDeviceMapping
@@ -3681,8 +4089,8 @@ blockDeviceMapping p1 = BlockDeviceMapping
 bdmDeviceName :: Lens' BlockDeviceMapping Text
 bdmDeviceName = lens _bdmDeviceName (\s a -> s { _bdmDeviceName = a })
 
--- | Parameters used to automatically set up Amazon EBS volumes when the instance
--- is launched.
+-- | Parameters used to automatically set up EBS volumes when the instance is
+-- launched.
 bdmEbs :: Lens' BlockDeviceMapping (Maybe EbsBlockDevice)
 bdmEbs = lens _bdmEbs (\s a -> s { _bdmEbs = a })
 
@@ -3788,6 +4196,7 @@ ctState = lens _ctState (\s a -> s { _ctState = a })
 ctStatusMessage :: Lens' ConversionTask (Maybe Text)
 ctStatusMessage = lens _ctStatusMessage (\s a -> s { _ctStatusMessage = a })
 
+-- | Any tags assigned to the task.
 ctTags :: Lens' ConversionTask [Tag]
 ctTags = lens _ctTags (\s a -> s { _ctTags = a }) . _List
 
@@ -3813,29 +4222,29 @@ instance ToQuery ConversionTask where
         ]
 
 data AttachmentStatus
-    = ASAttached  -- ^ attached
-    | ASAttaching -- ^ attaching
-    | ASDetached  -- ^ detached
-    | ASDetaching -- ^ detaching
+    = Attached  -- ^ attached
+    | Attaching -- ^ attaching
+    | Detached  -- ^ detached
+    | Detaching -- ^ detaching
       deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable AttachmentStatus
 
 instance FromText AttachmentStatus where
     parser = takeLowerText >>= \case
-        "attached"  -> pure ASAttached
-        "attaching" -> pure ASAttaching
-        "detached"  -> pure ASDetached
-        "detaching" -> pure ASDetaching
+        "attached"  -> pure Attached
+        "attaching" -> pure Attaching
+        "detached"  -> pure Detached
+        "detaching" -> pure Detaching
         e           -> fail $
             "Failure parsing AttachmentStatus from " ++ show e
 
 instance ToText AttachmentStatus where
     toText = \case
-        ASAttached  -> "attached"
-        ASAttaching -> "attaching"
-        ASDetached  -> "detached"
-        ASDetaching -> "detaching"
+        Attached  -> "attached"
+        Attaching -> "attaching"
+        Detached  -> "detached"
+        Detaching -> "detaching"
 
 instance ToByteString AttachmentStatus
 instance ToHeader     AttachmentStatus
@@ -4012,7 +4421,8 @@ spProductDescription =
 spSpotPrice :: Lens' SpotPrice (Maybe Text)
 spSpotPrice = lens _spSpotPrice (\s a -> s { _spSpotPrice = a })
 
--- | The date and time the request was created.
+-- | The date and time the request was created, in UTC format (for example, /YYYY/-/MM/
+-- -/DD/T/HH/:/MM/:/SS/Z).
 spTimestamp :: Lens' SpotPrice (Maybe UTCTime)
 spTimestamp = lens _spTimestamp (\s a -> s { _spTimestamp = a }) . mapping _Time
 
@@ -4031,6 +4441,171 @@ instance ToQuery SpotPrice where
         , "ProductDescription" =? _spProductDescription
         , "SpotPrice"          =? _spSpotPrice
         , "Timestamp"          =? _spTimestamp
+        ]
+
+data ActiveInstance = ActiveInstance
+    { _aiInstanceId            :: Maybe Text
+    , _aiInstanceType          :: Maybe Text
+    , _aiSpotInstanceRequestId :: Maybe Text
+    } deriving (Eq, Ord, Read, Show)
+
+-- | 'ActiveInstance' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'aiInstanceId' @::@ 'Maybe' 'Text'
+--
+-- * 'aiInstanceType' @::@ 'Maybe' 'Text'
+--
+-- * 'aiSpotInstanceRequestId' @::@ 'Maybe' 'Text'
+--
+activeInstance :: ActiveInstance
+activeInstance = ActiveInstance
+    { _aiInstanceType          = Nothing
+    , _aiInstanceId            = Nothing
+    , _aiSpotInstanceRequestId = Nothing
+    }
+
+-- | The ID of the instance.
+aiInstanceId :: Lens' ActiveInstance (Maybe Text)
+aiInstanceId = lens _aiInstanceId (\s a -> s { _aiInstanceId = a })
+
+-- | The instance type.
+aiInstanceType :: Lens' ActiveInstance (Maybe Text)
+aiInstanceType = lens _aiInstanceType (\s a -> s { _aiInstanceType = a })
+
+-- | The ID of the Spot Instance request.
+aiSpotInstanceRequestId :: Lens' ActiveInstance (Maybe Text)
+aiSpotInstanceRequestId =
+    lens _aiSpotInstanceRequestId (\s a -> s { _aiSpotInstanceRequestId = a })
+
+instance FromXML ActiveInstance where
+    parseXML x = ActiveInstance
+        <$> x .@? "instanceId"
+        <*> x .@? "instanceType"
+        <*> x .@? "spotInstanceRequestId"
+
+instance ToQuery ActiveInstance where
+    toQuery ActiveInstance{..} = mconcat
+        [ "InstanceId"            =? _aiInstanceId
+        , "InstanceType"          =? _aiInstanceType
+        , "SpotInstanceRequestId" =? _aiSpotInstanceRequestId
+        ]
+
+data SpotFleetRequestConfigData = SpotFleetRequestConfigData
+    { _sfrcdClientToken                      :: Maybe Text
+    , _sfrcdIamFleetRole                     :: Text
+    , _sfrcdLaunchSpecifications             :: List1 "item" LaunchSpecification
+    , _sfrcdSpotPrice                        :: Text
+    , _sfrcdTargetCapacity                   :: Int
+    , _sfrcdTerminateInstancesWithExpiration :: Maybe Bool
+    , _sfrcdValidFrom                        :: Maybe ISO8601
+    , _sfrcdValidUntil                       :: Maybe ISO8601
+    } deriving (Eq, Read, Show)
+
+-- | 'SpotFleetRequestConfigData' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'sfrcdClientToken' @::@ 'Maybe' 'Text'
+--
+-- * 'sfrcdIamFleetRole' @::@ 'Text'
+--
+-- * 'sfrcdLaunchSpecifications' @::@ 'NonEmpty' 'LaunchSpecification'
+--
+-- * 'sfrcdSpotPrice' @::@ 'Text'
+--
+-- * 'sfrcdTargetCapacity' @::@ 'Int'
+--
+-- * 'sfrcdTerminateInstancesWithExpiration' @::@ 'Maybe' 'Bool'
+--
+-- * 'sfrcdValidFrom' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'sfrcdValidUntil' @::@ 'Maybe' 'UTCTime'
+--
+spotFleetRequestConfigData :: Text -- ^ 'sfrcdSpotPrice'
+                           -> Int -- ^ 'sfrcdTargetCapacity'
+                           -> Text -- ^ 'sfrcdIamFleetRole'
+                           -> NonEmpty LaunchSpecification -- ^ 'sfrcdLaunchSpecifications'
+                           -> SpotFleetRequestConfigData
+spotFleetRequestConfigData p1 p2 p3 p4 = SpotFleetRequestConfigData
+    { _sfrcdSpotPrice                        = p1
+    , _sfrcdTargetCapacity                   = p2
+    , _sfrcdIamFleetRole                     = p3
+    , _sfrcdLaunchSpecifications             = withIso _List1 (const id) p4
+    , _sfrcdClientToken                      = Nothing
+    , _sfrcdValidFrom                        = Nothing
+    , _sfrcdValidUntil                       = Nothing
+    , _sfrcdTerminateInstancesWithExpiration = Nothing
+    }
+
+-- | A unique, case-sensitive identifier you provide to ensure idempotency of your
+-- listings. This helps avoid duplicate listings. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
+sfrcdClientToken :: Lens' SpotFleetRequestConfigData (Maybe Text)
+sfrcdClientToken = lens _sfrcdClientToken (\s a -> s { _sfrcdClientToken = a })
+
+-- | Grants the Spot fleet service permission to terminate instances on your
+-- behalf when you cancel a Spot fleet request using 'CancelSpotFleetRequests' or
+-- when the Spot fleet request expires, if you set 'terminateInstancesWithExpiration'.
+sfrcdIamFleetRole :: Lens' SpotFleetRequestConfigData Text
+sfrcdIamFleetRole =
+    lens _sfrcdIamFleetRole (\s a -> s { _sfrcdIamFleetRole = a })
+
+-- | Information about the launch specifications for the instances.
+sfrcdLaunchSpecifications :: Lens' SpotFleetRequestConfigData (NonEmpty LaunchSpecification)
+sfrcdLaunchSpecifications =
+    lens _sfrcdLaunchSpecifications
+        (\s a -> s { _sfrcdLaunchSpecifications = a })
+            . _List1
+
+-- | The maximum hourly price (bid) for any Spot Instance launched to fulfill the
+-- request.
+sfrcdSpotPrice :: Lens' SpotFleetRequestConfigData Text
+sfrcdSpotPrice = lens _sfrcdSpotPrice (\s a -> s { _sfrcdSpotPrice = a })
+
+-- | The maximum number of Spot Instances to launch.
+sfrcdTargetCapacity :: Lens' SpotFleetRequestConfigData Int
+sfrcdTargetCapacity =
+    lens _sfrcdTargetCapacity (\s a -> s { _sfrcdTargetCapacity = a })
+
+-- | Indicates whether running instances should be terminated when the Spot fleet
+-- request expires.
+sfrcdTerminateInstancesWithExpiration :: Lens' SpotFleetRequestConfigData (Maybe Bool)
+sfrcdTerminateInstancesWithExpiration =
+    lens _sfrcdTerminateInstancesWithExpiration
+        (\s a -> s { _sfrcdTerminateInstancesWithExpiration = a })
+
+-- | The start date and time of the request, in UTC format (for example, /YYYY/-/MM/-/DD/
+-- T/HH/:/MM/:/SS/Z). The default is to start fulfilling the request immediately.
+sfrcdValidFrom :: Lens' SpotFleetRequestConfigData (Maybe UTCTime)
+sfrcdValidFrom = lens _sfrcdValidFrom (\s a -> s { _sfrcdValidFrom = a }) . mapping _Time
+
+-- | The end date and time of the request, in UTC format (for example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). At this point, no new Spot Instance requests are placed or enabled
+-- to fulfill the request.
+sfrcdValidUntil :: Lens' SpotFleetRequestConfigData (Maybe UTCTime)
+sfrcdValidUntil = lens _sfrcdValidUntil (\s a -> s { _sfrcdValidUntil = a }) . mapping _Time
+
+instance FromXML SpotFleetRequestConfigData where
+    parseXML x = SpotFleetRequestConfigData
+        <$> x .@? "clientToken"
+        <*> x .@  "iamFleetRole"
+        <*> x .@  "launchSpecifications"
+        <*> x .@  "spotPrice"
+        <*> x .@  "targetCapacity"
+        <*> x .@? "terminateInstancesWithExpiration"
+        <*> x .@? "validFrom"
+        <*> x .@? "validUntil"
+
+instance ToQuery SpotFleetRequestConfigData where
+    toQuery SpotFleetRequestConfigData{..} = mconcat
+        [ "ClientToken"                      =? _sfrcdClientToken
+        , "IamFleetRole"                     =? _sfrcdIamFleetRole
+        , "LaunchSpecifications"             =? _sfrcdLaunchSpecifications
+        , "SpotPrice"                        =? _sfrcdSpotPrice
+        , "TargetCapacity"                   =? _sfrcdTargetCapacity
+        , "TerminateInstancesWithExpiration" =? _sfrcdTerminateInstancesWithExpiration
+        , "ValidFrom"                        =? _sfrcdValidFrom
+        , "ValidUntil"                       =? _sfrcdValidUntil
         ]
 
 data InstanceMonitoring = InstanceMonitoring
@@ -4121,6 +4696,62 @@ instance ToQuery PriceScheduleSpecification where
         , "Term"         =? _pssTerm
         ]
 
+data SpotFleetRequestConfig = SpotFleetRequestConfig
+    { _sfrcSpotFleetRequestConfig :: SpotFleetRequestConfigData
+    , _sfrcSpotFleetRequestId     :: Text
+    , _sfrcSpotFleetRequestState  :: BatchState
+    } deriving (Eq, Read, Show)
+
+-- | 'SpotFleetRequestConfig' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'sfrcSpotFleetRequestConfig' @::@ 'SpotFleetRequestConfigData'
+--
+-- * 'sfrcSpotFleetRequestId' @::@ 'Text'
+--
+-- * 'sfrcSpotFleetRequestState' @::@ 'BatchState'
+--
+spotFleetRequestConfig :: Text -- ^ 'sfrcSpotFleetRequestId'
+                       -> BatchState -- ^ 'sfrcSpotFleetRequestState'
+                       -> SpotFleetRequestConfigData -- ^ 'sfrcSpotFleetRequestConfig'
+                       -> SpotFleetRequestConfig
+spotFleetRequestConfig p1 p2 p3 = SpotFleetRequestConfig
+    { _sfrcSpotFleetRequestId     = p1
+    , _sfrcSpotFleetRequestState  = p2
+    , _sfrcSpotFleetRequestConfig = p3
+    }
+
+-- | Information about the configuration of the Spot fleet request.
+sfrcSpotFleetRequestConfig :: Lens' SpotFleetRequestConfig SpotFleetRequestConfigData
+sfrcSpotFleetRequestConfig =
+    lens _sfrcSpotFleetRequestConfig
+        (\s a -> s { _sfrcSpotFleetRequestConfig = a })
+
+-- | The ID of the Spot fleet request.
+sfrcSpotFleetRequestId :: Lens' SpotFleetRequestConfig Text
+sfrcSpotFleetRequestId =
+    lens _sfrcSpotFleetRequestId (\s a -> s { _sfrcSpotFleetRequestId = a })
+
+-- | The state of the Spot fleet request.
+sfrcSpotFleetRequestState :: Lens' SpotFleetRequestConfig BatchState
+sfrcSpotFleetRequestState =
+    lens _sfrcSpotFleetRequestState
+        (\s a -> s { _sfrcSpotFleetRequestState = a })
+
+instance FromXML SpotFleetRequestConfig where
+    parseXML x = SpotFleetRequestConfig
+        <$> x .@  "spotFleetRequestConfig"
+        <*> x .@  "spotFleetRequestId"
+        <*> x .@  "spotFleetRequestState"
+
+instance ToQuery SpotFleetRequestConfig where
+    toQuery SpotFleetRequestConfig{..} = mconcat
+        [ "SpotFleetRequestConfig" =? _sfrcSpotFleetRequestConfig
+        , "SpotFleetRequestId"     =? _sfrcSpotFleetRequestId
+        , "SpotFleetRequestState"  =? _sfrcSpotFleetRequestState
+        ]
+
 data SpotInstanceStatus = SpotInstanceStatus
     { _sisCode       :: Maybe Text
     , _sisMessage    :: Maybe Text
@@ -4152,7 +4783,8 @@ sisCode = lens _sisCode (\s a -> s { _sisCode = a })
 sisMessage :: Lens' SpotInstanceStatus (Maybe Text)
 sisMessage = lens _sisMessage (\s a -> s { _sisMessage = a })
 
--- | The time of the most recent status update.
+-- | The date and time of the most recent status update, in UTC format (for
+-- example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
 sisUpdateTime :: Lens' SpotInstanceStatus (Maybe UTCTime)
 sisUpdateTime = lens _sisUpdateTime (\s a -> s { _sisUpdateTime = a }) . mapping _Time
 
@@ -4167,6 +4799,114 @@ instance ToQuery SpotInstanceStatus where
         [ "Code"       =? _sisCode
         , "Message"    =? _sisMessage
         , "UpdateTime" =? _sisUpdateTime
+        ]
+
+data SnapshotTaskDetail = SnapshotTaskDetail
+    { _stdDescription   :: Maybe Text
+    , _stdDiskImageSize :: Maybe Double
+    , _stdFormat        :: Maybe Text
+    , _stdProgress      :: Maybe Text
+    , _stdSnapshotId    :: Maybe Text
+    , _stdStatus        :: Maybe Text
+    , _stdStatusMessage :: Maybe Text
+    , _stdUrl           :: Maybe Text
+    , _stdUserBucket    :: Maybe UserBucketDetails
+    } deriving (Eq, Read, Show)
+
+-- | 'SnapshotTaskDetail' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'stdDescription' @::@ 'Maybe' 'Text'
+--
+-- * 'stdDiskImageSize' @::@ 'Maybe' 'Double'
+--
+-- * 'stdFormat' @::@ 'Maybe' 'Text'
+--
+-- * 'stdProgress' @::@ 'Maybe' 'Text'
+--
+-- * 'stdSnapshotId' @::@ 'Maybe' 'Text'
+--
+-- * 'stdStatus' @::@ 'Maybe' 'Text'
+--
+-- * 'stdStatusMessage' @::@ 'Maybe' 'Text'
+--
+-- * 'stdUrl' @::@ 'Maybe' 'Text'
+--
+-- * 'stdUserBucket' @::@ 'Maybe' 'UserBucketDetails'
+--
+snapshotTaskDetail :: SnapshotTaskDetail
+snapshotTaskDetail = SnapshotTaskDetail
+    { _stdDiskImageSize = Nothing
+    , _stdDescription   = Nothing
+    , _stdFormat        = Nothing
+    , _stdUrl           = Nothing
+    , _stdUserBucket    = Nothing
+    , _stdSnapshotId    = Nothing
+    , _stdProgress      = Nothing
+    , _stdStatusMessage = Nothing
+    , _stdStatus        = Nothing
+    }
+
+-- | The description of the snapshot.
+stdDescription :: Lens' SnapshotTaskDetail (Maybe Text)
+stdDescription = lens _stdDescription (\s a -> s { _stdDescription = a })
+
+-- | The size of the disk in the snapshot, in GiB.
+stdDiskImageSize :: Lens' SnapshotTaskDetail (Maybe Double)
+stdDiskImageSize = lens _stdDiskImageSize (\s a -> s { _stdDiskImageSize = a })
+
+-- | The format of the disk image from which the snapshot is created.
+stdFormat :: Lens' SnapshotTaskDetail (Maybe Text)
+stdFormat = lens _stdFormat (\s a -> s { _stdFormat = a })
+
+-- | The percentage of completion for the import snapshot task.
+stdProgress :: Lens' SnapshotTaskDetail (Maybe Text)
+stdProgress = lens _stdProgress (\s a -> s { _stdProgress = a })
+
+-- | The snapshot ID of the disk being imported.
+stdSnapshotId :: Lens' SnapshotTaskDetail (Maybe Text)
+stdSnapshotId = lens _stdSnapshotId (\s a -> s { _stdSnapshotId = a })
+
+-- | A brief status for the import snapshot task.
+stdStatus :: Lens' SnapshotTaskDetail (Maybe Text)
+stdStatus = lens _stdStatus (\s a -> s { _stdStatus = a })
+
+-- | A detailed status message for the import snapshot task.
+stdStatusMessage :: Lens' SnapshotTaskDetail (Maybe Text)
+stdStatusMessage = lens _stdStatusMessage (\s a -> s { _stdStatusMessage = a })
+
+-- | The URL of the disk image from which the snapshot is created.
+stdUrl :: Lens' SnapshotTaskDetail (Maybe Text)
+stdUrl = lens _stdUrl (\s a -> s { _stdUrl = a })
+
+-- | The S3 bucket for the disk image.
+stdUserBucket :: Lens' SnapshotTaskDetail (Maybe UserBucketDetails)
+stdUserBucket = lens _stdUserBucket (\s a -> s { _stdUserBucket = a })
+
+instance FromXML SnapshotTaskDetail where
+    parseXML x = SnapshotTaskDetail
+        <$> x .@? "description"
+        <*> x .@? "diskImageSize"
+        <*> x .@? "format"
+        <*> x .@? "progress"
+        <*> x .@? "snapshotId"
+        <*> x .@? "status"
+        <*> x .@? "statusMessage"
+        <*> x .@? "url"
+        <*> x .@? "userBucket"
+
+instance ToQuery SnapshotTaskDetail where
+    toQuery SnapshotTaskDetail{..} = mconcat
+        [ "Description"   =? _stdDescription
+        , "DiskImageSize" =? _stdDiskImageSize
+        , "Format"        =? _stdFormat
+        , "Progress"      =? _stdProgress
+        , "SnapshotId"    =? _stdSnapshotId
+        , "Status"        =? _stdStatus
+        , "StatusMessage" =? _stdStatusMessage
+        , "Url"           =? _stdUrl
+        , "UserBucket"    =? _stdUserBucket
         ]
 
 data AvailabilityZoneState
@@ -4273,7 +5013,8 @@ siAvailabilityZoneGroup :: Lens' SpotInstanceRequest (Maybe Text)
 siAvailabilityZoneGroup =
     lens _siAvailabilityZoneGroup (\s a -> s { _siAvailabilityZoneGroup = a })
 
--- | The time stamp when the Spot Instance request was created.
+-- | The date and time when the Spot Instance request was created, in UTC format
+-- (for example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
 siCreateTime :: Lens' SpotInstanceRequest (Maybe UTCTime)
 siCreateTime = lens _siCreateTime (\s a -> s { _siCreateTime = a }) . mapping _Time
 
@@ -4318,7 +5059,7 @@ siSpotPrice :: Lens' SpotInstanceRequest (Maybe Text)
 siSpotPrice = lens _siSpotPrice (\s a -> s { _siSpotPrice = a })
 
 -- | The state of the Spot Instance request. Spot bid status information can help
--- you track your Spot Instance requests. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html Spot BidStatus> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
+-- you track your Spot Instance requests. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html Spot BidStatus> in the /Amazon Elastic Compute Cloud User Guide/.
 siState :: Lens' SpotInstanceRequest (Maybe SpotInstanceState)
 siState = lens _siState (\s a -> s { _siState = a })
 
@@ -4334,18 +5075,16 @@ siTags = lens _siTags (\s a -> s { _siTags = a }) . _List
 siType :: Lens' SpotInstanceRequest (Maybe SpotInstanceType)
 siType = lens _siType (\s a -> s { _siType = a })
 
--- | The start date of the request. If this is a one-time request, the request
--- becomes active at this date and time and remains active until all instances
--- launch, the request expires, or the request is canceled. If the request is
--- persistent, the request becomes active at this date and time and remains
--- active until it expires or is canceled.
+-- | The start date of the request, in UTC format (for example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/
+-- Z). If this is a one-time request, the request becomes active at this date
+-- and time and remains active until all instances launch, the request expires,
+-- or the request is canceled. If the request is persistent, the request becomes
+-- active at this date and time and remains active until it expires or is
+-- canceled.
 siValidFrom :: Lens' SpotInstanceRequest (Maybe UTCTime)
 siValidFrom = lens _siValidFrom (\s a -> s { _siValidFrom = a }) . mapping _Time
 
--- | The end date of the request. If this is a one-time request, the request
--- remains active until all instances launch, the request is canceled, or this
--- date is reached. If the request is persistent, it remains active until it is
--- canceled or this date is reached.
+-- | The end date of the request, in UTC format (for example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). If this is a one-time request, the request remains active until all instances launch, the request is canceled, or this date is reached. If the request is persistent, it remains active until it is canceled or this date is reached.
 siValidUntil :: Lens' SpotInstanceRequest (Maybe UTCTime)
 siValidUntil = lens _siValidUntil (\s a -> s { _siValidUntil = a }) . mapping _Time
 
@@ -4704,6 +5443,7 @@ volume p1 p2 p3 p4 p5 p6 p7 p8 = Volume
     , _vKmsKeyId         = Nothing
     }
 
+-- | Information about the volume attachments.
 vAttachments :: Lens' Volume [VolumeAttachment]
 vAttachments = lens _vAttachments (\s a -> s { _vAttachments = a }) . _List
 
@@ -4725,7 +5465,7 @@ vEncrypted = lens _vEncrypted (\s a -> s { _vEncrypted = a })
 -- provisioned for the volume. For General Purpose (SSD) volumes, this
 -- represents the baseline performance of the volume and the rate at which the
 -- volume accumulates I/O credits for bursting. For more information on General
--- Purpose (SSD) baseline performance, I/O credits, and bursting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBSVolume Types> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
+-- Purpose (SSD) baseline performance, I/O credits, and bursting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBSVolume Types> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- Constraint: Range is 100 to 20000 for Provisioned IOPS (SSD) volumes and 3
 -- to 10000 for General Purpose (SSD) volumes.
@@ -4921,6 +5661,7 @@ iivdiBytesConverted :: Lens' ImportInstanceVolumeDetailItem Integer
 iivdiBytesConverted =
     lens _iivdiBytesConverted (\s a -> s { _iivdiBytesConverted = a })
 
+-- | A description of the task.
 iivdiDescription :: Lens' ImportInstanceVolumeDetailItem (Maybe Text)
 iivdiDescription = lens _iivdiDescription (\s a -> s { _iivdiDescription = a })
 
@@ -5135,6 +5876,44 @@ instance ToQuery      RuleAction
 
 instance FromXML RuleAction where
     parseXML = parseXMLText "RuleAction"
+
+data BatchState
+    = Active               -- ^ active
+    | Cancelled            -- ^ cancelled
+    | CancelledRunning     -- ^ cancelled_running
+    | CancelledTerminating -- ^ cancelled_terminating
+    | Failed               -- ^ failed
+    | Submitted            -- ^ submitted
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
+
+instance Hashable BatchState
+
+instance FromText BatchState where
+    parser = takeLowerText >>= \case
+        "active"                -> pure Active
+        "cancelled"             -> pure Cancelled
+        "cancelled_running"     -> pure CancelledRunning
+        "cancelled_terminating" -> pure CancelledTerminating
+        "failed"                -> pure Failed
+        "submitted"             -> pure Submitted
+        e                       -> fail $
+            "Failure parsing BatchState from " ++ show e
+
+instance ToText BatchState where
+    toText = \case
+        Active               -> "active"
+        Cancelled            -> "cancelled"
+        CancelledRunning     -> "cancelled_running"
+        CancelledTerminating -> "cancelled_terminating"
+        Failed               -> "failed"
+        Submitted            -> "submitted"
+
+instance ToByteString BatchState
+instance ToHeader     BatchState
+instance ToQuery      BatchState
+
+instance FromXML BatchState where
+    parseXML = parseXMLText "BatchState"
 
 data NetworkInterface = NetworkInterface
     { _niAssociation        :: Maybe NetworkInterfaceAssociation
@@ -5572,26 +6351,26 @@ instance ToQuery LaunchPermissionModifications where
         ]
 
 data SnapshotState
-    = Completed -- ^ completed
-    | Error     -- ^ error
-    | Pending   -- ^ pending
+    = SSCompleted -- ^ completed
+    | SSError     -- ^ error
+    | SSPending   -- ^ pending
       deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable SnapshotState
 
 instance FromText SnapshotState where
     parser = takeLowerText >>= \case
-        "completed" -> pure Completed
-        "error"     -> pure Error
-        "pending"   -> pure Pending
+        "completed" -> pure SSCompleted
+        "error"     -> pure SSError
+        "pending"   -> pure SSPending
         e           -> fail $
             "Failure parsing SnapshotState from " ++ show e
 
 instance ToText SnapshotState where
     toText = \case
-        Completed -> "completed"
-        Error     -> "error"
-        Pending   -> "pending"
+        SSCompleted -> "completed"
+        SSError     -> "error"
+        SSPending   -> "pending"
 
 instance ToByteString SnapshotState
 instance ToHeader     SnapshotState
@@ -5675,6 +6454,7 @@ diskImageDetail p1 p2 p3 = DiskImageDetail
     , _didImportManifestUrl = p3
     }
 
+-- | The size of the disk image, in GiB.
 didBytes :: Lens' DiskImageDetail Integer
 didBytes = lens _didBytes (\s a -> s { _didBytes = a })
 
@@ -5892,7 +6672,7 @@ aAssociationId = lens _aAssociationId (\s a -> s { _aAssociationId = a })
 aDomain :: Lens' Address (Maybe DomainType)
 aDomain = lens _aDomain (\s a -> s { _aDomain = a })
 
--- | The ID of the instance the address is associated with (if any).
+-- | The ID of the instance that the address is associated with (if any).
 aInstanceId :: Lens' Address (Maybe Text)
 aInstanceId = lens _aInstanceId (\s a -> s { _aInstanceId = a })
 
@@ -5971,6 +6751,45 @@ instance ToQuery      VolumeAttachmentState
 instance FromXML VolumeAttachmentState where
     parseXML = parseXMLText "VolumeAttachmentState"
 
+data MovingAddressStatus = MovingAddressStatus
+    { _masMoveStatus :: Maybe MoveStatus
+    , _masPublicIp   :: Maybe Text
+    } deriving (Eq, Read, Show)
+
+-- | 'MovingAddressStatus' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'masMoveStatus' @::@ 'Maybe' 'MoveStatus'
+--
+-- * 'masPublicIp' @::@ 'Maybe' 'Text'
+--
+movingAddressStatus :: MovingAddressStatus
+movingAddressStatus = MovingAddressStatus
+    { _masPublicIp   = Nothing
+    , _masMoveStatus = Nothing
+    }
+
+-- | The status of the Elastic IP address that's being moved to the EC2-VPC
+-- platform, or restored to the EC2-Classic platform.
+masMoveStatus :: Lens' MovingAddressStatus (Maybe MoveStatus)
+masMoveStatus = lens _masMoveStatus (\s a -> s { _masMoveStatus = a })
+
+-- | The Elastic IP address.
+masPublicIp :: Lens' MovingAddressStatus (Maybe Text)
+masPublicIp = lens _masPublicIp (\s a -> s { _masPublicIp = a })
+
+instance FromXML MovingAddressStatus where
+    parseXML x = MovingAddressStatus
+        <$> x .@? "moveStatus"
+        <*> x .@? "publicIp"
+
+instance ToQuery MovingAddressStatus where
+    toQuery MovingAddressStatus{..} = mconcat
+        [ "MoveStatus" =? _masMoveStatus
+        , "PublicIp"   =? _masPublicIp
+        ]
+
 data LaunchPermission = LaunchPermission
     { _lpGroup  :: Maybe PermissionGroup
     , _lpUserId :: Maybe Text
@@ -6010,23 +6829,23 @@ instance ToQuery LaunchPermission where
         ]
 
 data RouteState
-    = Active    -- ^ active
-    | Blackhole -- ^ blackhole
+    = RSActive    -- ^ active
+    | RSBlackhole -- ^ blackhole
       deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable RouteState
 
 instance FromText RouteState where
     parser = takeLowerText >>= \case
-        "active"    -> pure Active
-        "blackhole" -> pure Blackhole
+        "active"    -> pure RSActive
+        "blackhole" -> pure RSBlackhole
         e           -> fail $
             "Failure parsing RouteState from " ++ show e
 
 instance ToText RouteState where
     toText = \case
-        Active    -> "active"
-        Blackhole -> "blackhole"
+        RSActive    -> "active"
+        RSBlackhole -> "blackhole"
 
 instance ToByteString RouteState
 instance ToHeader     RouteState
@@ -6515,7 +7334,7 @@ eibdsDeleteOnTermination =
     lens _eibdsDeleteOnTermination
         (\s a -> s { _eibdsDeleteOnTermination = a })
 
--- | The ID of the Amazon EBS volume.
+-- | The ID of the EBS volume.
 eibdsVolumeId :: Lens' EbsInstanceBlockDeviceSpecification (Maybe Text)
 eibdsVolumeId = lens _eibdsVolumeId (\s a -> s { _eibdsVolumeId = a })
 
@@ -6713,11 +7532,15 @@ instanceStatusEvent = InstanceStatusEvent
     , _iseNotAfter    = Nothing
     }
 
--- | The associated code of the event.
+-- | The event code.
 iseCode :: Lens' InstanceStatusEvent (Maybe EventCode)
 iseCode = lens _iseCode (\s a -> s { _iseCode = a })
 
 -- | A description of the event.
+--
+-- After a scheduled event is completed, it can still be described for up to a
+-- week. If the event has been completed, this description starts with the
+-- following text: [Completed].
 iseDescription :: Lens' InstanceStatusEvent (Maybe Text)
 iseDescription = lens _iseDescription (\s a -> s { _iseDescription = a })
 
@@ -6906,14 +7729,15 @@ instance FromXML InstanceType where
     parseXML = parseXMLText "InstanceType"
 
 data Route = Route
-    { _rDestinationCidrBlock   :: Maybe Text
-    , _rGatewayId              :: Maybe Text
-    , _rInstanceId             :: Maybe Text
-    , _rInstanceOwnerId        :: Maybe Text
-    , _rNetworkInterfaceId     :: Maybe Text
-    , _rOrigin                 :: Maybe RouteOrigin
-    , _rState                  :: Maybe RouteState
-    , _rVpcPeeringConnectionId :: Maybe Text
+    { _rDestinationCidrBlock    :: Maybe Text
+    , _rDestinationPrefixListId :: Maybe Text
+    , _rGatewayId               :: Maybe Text
+    , _rInstanceId              :: Maybe Text
+    , _rInstanceOwnerId         :: Maybe Text
+    , _rNetworkInterfaceId      :: Maybe Text
+    , _rOrigin                  :: Maybe RouteOrigin
+    , _rState                   :: Maybe RouteState
+    , _rVpcPeeringConnectionId  :: Maybe Text
     } deriving (Eq, Read, Show)
 
 -- | 'Route' constructor.
@@ -6921,6 +7745,8 @@ data Route = Route
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rDestinationCidrBlock' @::@ 'Maybe' 'Text'
+--
+-- * 'rDestinationPrefixListId' @::@ 'Maybe' 'Text'
 --
 -- * 'rGatewayId' @::@ 'Maybe' 'Text'
 --
@@ -6938,20 +7764,27 @@ data Route = Route
 --
 route :: Route
 route = Route
-    { _rDestinationCidrBlock   = Nothing
-    , _rGatewayId              = Nothing
-    , _rInstanceId             = Nothing
-    , _rInstanceOwnerId        = Nothing
-    , _rNetworkInterfaceId     = Nothing
-    , _rVpcPeeringConnectionId = Nothing
-    , _rState                  = Nothing
-    , _rOrigin                 = Nothing
+    { _rDestinationCidrBlock    = Nothing
+    , _rDestinationPrefixListId = Nothing
+    , _rGatewayId               = Nothing
+    , _rInstanceId              = Nothing
+    , _rInstanceOwnerId         = Nothing
+    , _rNetworkInterfaceId      = Nothing
+    , _rVpcPeeringConnectionId  = Nothing
+    , _rState                   = Nothing
+    , _rOrigin                  = Nothing
     }
 
 -- | The CIDR block used for the destination match.
 rDestinationCidrBlock :: Lens' Route (Maybe Text)
 rDestinationCidrBlock =
     lens _rDestinationCidrBlock (\s a -> s { _rDestinationCidrBlock = a })
+
+-- | The prefix of the AWS service.
+rDestinationPrefixListId :: Lens' Route (Maybe Text)
+rDestinationPrefixListId =
+    lens _rDestinationPrefixListId
+        (\s a -> s { _rDestinationPrefixListId = a })
 
 -- | The ID of a gateway attached to your VPC.
 rGatewayId :: Lens' Route (Maybe Text)
@@ -6993,6 +7826,7 @@ rVpcPeeringConnectionId =
 instance FromXML Route where
     parseXML x = Route
         <$> x .@? "destinationCidrBlock"
+        <*> x .@? "destinationPrefixListId"
         <*> x .@? "gatewayId"
         <*> x .@? "instanceId"
         <*> x .@? "instanceOwnerId"
@@ -7003,14 +7837,15 @@ instance FromXML Route where
 
 instance ToQuery Route where
     toQuery Route{..} = mconcat
-        [ "DestinationCidrBlock"   =? _rDestinationCidrBlock
-        , "GatewayId"              =? _rGatewayId
-        , "InstanceId"             =? _rInstanceId
-        , "InstanceOwnerId"        =? _rInstanceOwnerId
-        , "NetworkInterfaceId"     =? _rNetworkInterfaceId
-        , "Origin"                 =? _rOrigin
-        , "State"                  =? _rState
-        , "VpcPeeringConnectionId" =? _rVpcPeeringConnectionId
+        [ "DestinationCidrBlock"    =? _rDestinationCidrBlock
+        , "DestinationPrefixListId" =? _rDestinationPrefixListId
+        , "GatewayId"               =? _rGatewayId
+        , "InstanceId"              =? _rInstanceId
+        , "InstanceOwnerId"         =? _rInstanceOwnerId
+        , "NetworkInterfaceId"      =? _rNetworkInterfaceId
+        , "Origin"                  =? _rOrigin
+        , "State"                   =? _rState
+        , "VpcPeeringConnectionId"  =? _rVpcPeeringConnectionId
         ]
 
 data SpotDatafeedSubscription = SpotDatafeedSubscription
@@ -7354,8 +8189,8 @@ instanceBlockDeviceMappingSpecification = InstanceBlockDeviceMappingSpecificatio
 ibdmsDeviceName :: Lens' InstanceBlockDeviceMappingSpecification (Maybe Text)
 ibdmsDeviceName = lens _ibdmsDeviceName (\s a -> s { _ibdmsDeviceName = a })
 
--- | Parameters used to automatically set up Amazon EBS volumes when the instance
--- is launched.
+-- | Parameters used to automatically set up EBS volumes when the instance is
+-- launched.
 ibdmsEbs :: Lens' InstanceBlockDeviceMappingSpecification (Maybe EbsInstanceBlockDeviceSpecification)
 ibdmsEbs = lens _ibdmsEbs (\s a -> s { _ibdmsEbs = a })
 
@@ -7426,6 +8261,7 @@ userData = UserData
     { _udData = Nothing
     }
 
+-- | The Base64-encoded MIME user data for the instance.
 udData :: Lens' UserData (Maybe Text)
 udData = lens _udData (\s a -> s { _udData = a })
 
@@ -7477,7 +8313,7 @@ volumeAttachment = VolumeAttachment
 vaAttachTime :: Lens' VolumeAttachment (Maybe UTCTime)
 vaAttachTime = lens _vaAttachTime (\s a -> s { _vaAttachTime = a }) . mapping _Time
 
--- | Indicates whether the Amazon EBS volume is deleted on instance termination.
+-- | Indicates whether the EBS volume is deleted on instance termination.
 vaDeleteOnTermination :: Lens' VolumeAttachment (Maybe Bool)
 vaDeleteOnTermination =
     lens _vaDeleteOnTermination (\s a -> s { _vaDeleteOnTermination = a })
@@ -7642,7 +8478,7 @@ eibdDeleteOnTermination =
 eibdStatus :: Lens' EbsInstanceBlockDevice (Maybe AttachmentStatus)
 eibdStatus = lens _eibdStatus (\s a -> s { _eibdStatus = a })
 
--- | The ID of the Amazon EBS volume.
+-- | The ID of the EBS volume.
 eibdVolumeId :: Lens' EbsInstanceBlockDevice (Maybe Text)
 eibdVolumeId = lens _eibdVolumeId (\s a -> s { _eibdVolumeId = a })
 
@@ -7732,7 +8568,7 @@ did1ImportManifestUrl :: Lens' DiskImageDescription Text
 did1ImportManifestUrl =
     lens _did1ImportManifestUrl (\s a -> s { _did1ImportManifestUrl = a })
 
--- | The size of the disk image.
+-- | The size of the disk image, in GiB.
 did1Size :: Lens' DiskImageDescription Integer
 did1Size = lens _did1Size (\s a -> s { _did1Size = a })
 
@@ -7775,7 +8611,7 @@ diskImageVolumeDescription p1 = DiskImageVolumeDescription
 divdId :: Lens' DiskImageVolumeDescription Text
 divdId = lens _divdId (\s a -> s { _divdId = a })
 
--- | The size of the volume.
+-- | The size of the volume, in GiB.
 divdSize :: Lens' DiskImageVolumeDescription (Maybe Integer)
 divdSize = lens _divdSize (\s a -> s { _divdSize = a })
 
@@ -7819,23 +8655,23 @@ instance ToQuery Monitoring where
         ]
 
 data SubnetState
-    = SSAvailable -- ^ available
-    | SSPending   -- ^ pending
+    = SubnetStateAvailable -- ^ available
+    | SubnetStatePending   -- ^ pending
       deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable SubnetState
 
 instance FromText SubnetState where
     parser = takeLowerText >>= \case
-        "available" -> pure SSAvailable
-        "pending"   -> pure SSPending
+        "available" -> pure SubnetStateAvailable
+        "pending"   -> pure SubnetStatePending
         e           -> fail $
             "Failure parsing SubnetState from " ++ show e
 
 instance ToText SubnetState where
     toText = \case
-        SSAvailable -> "available"
-        SSPending   -> "pending"
+        SubnetStateAvailable -> "available"
+        SubnetStatePending   -> "pending"
 
 instance ToByteString SubnetState
 instance ToHeader     SubnetState
@@ -7843,6 +8679,63 @@ instance ToQuery      SubnetState
 
 instance FromXML SubnetState where
     parseXML = parseXMLText "SubnetState"
+
+data CancelSpotFleetRequestsSuccessItem = CancelSpotFleetRequestsSuccessItem
+    { _csfrsiCurrentSpotFleetRequestState  :: BatchState
+    , _csfrsiPreviousSpotFleetRequestState :: BatchState
+    , _csfrsiSpotFleetRequestId            :: Text
+    } deriving (Eq, Read, Show)
+
+-- | 'CancelSpotFleetRequestsSuccessItem' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'csfrsiCurrentSpotFleetRequestState' @::@ 'BatchState'
+--
+-- * 'csfrsiPreviousSpotFleetRequestState' @::@ 'BatchState'
+--
+-- * 'csfrsiSpotFleetRequestId' @::@ 'Text'
+--
+cancelSpotFleetRequestsSuccessItem :: Text -- ^ 'csfrsiSpotFleetRequestId'
+                                   -> BatchState -- ^ 'csfrsiCurrentSpotFleetRequestState'
+                                   -> BatchState -- ^ 'csfrsiPreviousSpotFleetRequestState'
+                                   -> CancelSpotFleetRequestsSuccessItem
+cancelSpotFleetRequestsSuccessItem p1 p2 p3 = CancelSpotFleetRequestsSuccessItem
+    { _csfrsiSpotFleetRequestId            = p1
+    , _csfrsiCurrentSpotFleetRequestState  = p2
+    , _csfrsiPreviousSpotFleetRequestState = p3
+    }
+
+-- | The current state of the Spot fleet request.
+csfrsiCurrentSpotFleetRequestState :: Lens' CancelSpotFleetRequestsSuccessItem BatchState
+csfrsiCurrentSpotFleetRequestState =
+    lens _csfrsiCurrentSpotFleetRequestState
+        (\s a -> s { _csfrsiCurrentSpotFleetRequestState = a })
+
+-- | The previous state of the Spot fleet request.
+csfrsiPreviousSpotFleetRequestState :: Lens' CancelSpotFleetRequestsSuccessItem BatchState
+csfrsiPreviousSpotFleetRequestState =
+    lens _csfrsiPreviousSpotFleetRequestState
+        (\s a -> s { _csfrsiPreviousSpotFleetRequestState = a })
+
+-- | The ID of the Spot fleet request.
+csfrsiSpotFleetRequestId :: Lens' CancelSpotFleetRequestsSuccessItem Text
+csfrsiSpotFleetRequestId =
+    lens _csfrsiSpotFleetRequestId
+        (\s a -> s { _csfrsiSpotFleetRequestId = a })
+
+instance FromXML CancelSpotFleetRequestsSuccessItem where
+    parseXML x = CancelSpotFleetRequestsSuccessItem
+        <$> x .@  "currentSpotFleetRequestState"
+        <*> x .@  "previousSpotFleetRequestState"
+        <*> x .@  "spotFleetRequestId"
+
+instance ToQuery CancelSpotFleetRequestsSuccessItem where
+    toQuery CancelSpotFleetRequestsSuccessItem{..} = mconcat
+        [ "CurrentSpotFleetRequestState"  =? _csfrsiCurrentSpotFleetRequestState
+        , "PreviousSpotFleetRequestState" =? _csfrsiPreviousSpotFleetRequestState
+        , "SpotFleetRequestId"            =? _csfrsiSpotFleetRequestId
+        ]
 
 data ContainerFormat
     = Ova -- ^ ova
@@ -7932,6 +8825,35 @@ instance ToQuery VpcAttachment where
         , "VpcId" =? _va1VpcId
         ]
 
+data EventType
+    = Error              -- ^ error
+    | FleetRequestChange -- ^ fleetRequestChange
+    | InstanceChange     -- ^ instanceChange
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
+
+instance Hashable EventType
+
+instance FromText EventType where
+    parser = takeLowerText >>= \case
+        "error"              -> pure Error
+        "fleetrequestchange" -> pure FleetRequestChange
+        "instancechange"     -> pure InstanceChange
+        e                    -> fail $
+            "Failure parsing EventType from " ++ show e
+
+instance ToText EventType where
+    toText = \case
+        Error              -> "error"
+        FleetRequestChange -> "fleetRequestChange"
+        InstanceChange     -> "instanceChange"
+
+instance ToByteString EventType
+instance ToHeader     EventType
+instance ToQuery      EventType
+
+instance FromXML EventType where
+    parseXML = parseXMLText "EventType"
+
 data InstanceBlockDeviceMapping = InstanceBlockDeviceMapping
     { _ibdmDeviceName :: Maybe Text
     , _ibdmEbs        :: Maybe EbsInstanceBlockDevice
@@ -7955,8 +8877,8 @@ instanceBlockDeviceMapping = InstanceBlockDeviceMapping
 ibdmDeviceName :: Lens' InstanceBlockDeviceMapping (Maybe Text)
 ibdmDeviceName = lens _ibdmDeviceName (\s a -> s { _ibdmDeviceName = a })
 
--- | Parameters used to automatically set up Amazon EBS volumes when the instance
--- is launched.
+-- | Parameters used to automatically set up EBS volumes when the instance is
+-- launched.
 ibdmEbs :: Lens' InstanceBlockDeviceMapping (Maybe EbsInstanceBlockDevice)
 ibdmEbs = lens _ibdmEbs (\s a -> s { _ibdmEbs = a })
 
@@ -7972,26 +8894,26 @@ instance ToQuery InstanceBlockDeviceMapping where
         ]
 
 data StatusType
-    = Failed           -- ^ failed
-    | InsufficientData -- ^ insufficient-data
-    | Passed           -- ^ passed
+    = STFailed           -- ^ failed
+    | STInsufficientData -- ^ insufficient-data
+    | STPassed           -- ^ passed
       deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable StatusType
 
 instance FromText StatusType where
     parser = takeLowerText >>= \case
-        "failed"            -> pure Failed
-        "insufficient-data" -> pure InsufficientData
-        "passed"            -> pure Passed
+        "failed"            -> pure STFailed
+        "insufficient-data" -> pure STInsufficientData
+        "passed"            -> pure STPassed
         e                   -> fail $
             "Failure parsing StatusType from " ++ show e
 
 instance ToText StatusType where
     toText = \case
-        Failed           -> "failed"
-        InsufficientData -> "insufficient-data"
-        Passed           -> "passed"
+        STFailed           -> "failed"
+        STInsufficientData -> "insufficient-data"
+        STPassed           -> "passed"
 
 instance ToByteString StatusType
 instance ToHeader     StatusType
@@ -8027,18 +8949,23 @@ exportToS3TaskSpecification = ExportToS3TaskSpecification
     , _etstsS3Prefix        = Nothing
     }
 
+-- | The container format used to combine disk images with metadata (such as OVF).
+-- If absent, only the disk image is exported.
 etstsContainerFormat :: Lens' ExportToS3TaskSpecification (Maybe ContainerFormat)
 etstsContainerFormat =
     lens _etstsContainerFormat (\s a -> s { _etstsContainerFormat = a })
 
+-- | The format for the exported image.
 etstsDiskImageFormat :: Lens' ExportToS3TaskSpecification (Maybe DiskImageFormat)
 etstsDiskImageFormat =
     lens _etstsDiskImageFormat (\s a -> s { _etstsDiskImageFormat = a })
 
+-- | The S3 bucket for the destination image. The destination bucket must exist
+-- and grant WRITE and READ_ACP permissions to the AWS account 'vm-import-export@amazon.com'.
 etstsS3Bucket :: Lens' ExportToS3TaskSpecification (Maybe Text)
 etstsS3Bucket = lens _etstsS3Bucket (\s a -> s { _etstsS3Bucket = a })
 
--- | The image is written to a single object in the Amazon S3 bucket at the S3 key
+-- | The image is written to a single object in the S3 bucket at the S3 key
 -- s3prefix + exportTaskId + '.' + diskImageFormat.
 etstsS3Prefix :: Lens' ExportToS3TaskSpecification (Maybe Text)
 etstsS3Prefix = lens _etstsS3Prefix (\s a -> s { _etstsS3Prefix = a })
@@ -8056,6 +8983,66 @@ instance ToQuery ExportToS3TaskSpecification where
         , "DiskImageFormat" =? _etstsDiskImageFormat
         , "S3Bucket"        =? _etstsS3Bucket
         , "S3Prefix"        =? _etstsS3Prefix
+        ]
+
+data CancelBatchErrorCode
+    = FleetRequestIdDoesNotExist        -- ^ fleetRequestIdDoesNotExist
+    | FleetRequestIdMalformed           -- ^ fleetRequestIdMalformed
+    | FleetRequestNotInCancellableState -- ^ fleetRequestNotInCancellableState
+    | UnexpectedError                   -- ^ unexpectedError
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
+
+instance Hashable CancelBatchErrorCode
+
+instance FromText CancelBatchErrorCode where
+    parser = takeLowerText >>= \case
+        "fleetrequestiddoesnotexist"        -> pure FleetRequestIdDoesNotExist
+        "fleetrequestidmalformed"           -> pure FleetRequestIdMalformed
+        "fleetrequestnotincancellablestate" -> pure FleetRequestNotInCancellableState
+        "unexpectederror"                   -> pure UnexpectedError
+        e                                   -> fail $
+            "Failure parsing CancelBatchErrorCode from " ++ show e
+
+instance ToText CancelBatchErrorCode where
+    toText = \case
+        FleetRequestIdDoesNotExist        -> "fleetRequestIdDoesNotExist"
+        FleetRequestIdMalformed           -> "fleetRequestIdMalformed"
+        FleetRequestNotInCancellableState -> "fleetRequestNotInCancellableState"
+        UnexpectedError                   -> "unexpectedError"
+
+instance ToByteString CancelBatchErrorCode
+instance ToHeader     CancelBatchErrorCode
+instance ToQuery      CancelBatchErrorCode
+
+instance FromXML CancelBatchErrorCode where
+    parseXML = parseXMLText "CancelBatchErrorCode"
+
+newtype PrefixListId = PrefixListId
+    { _pliPrefixListId :: Maybe Text
+    } deriving (Eq, Ord, Read, Show, Monoid)
+
+-- | 'PrefixListId' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'pliPrefixListId' @::@ 'Maybe' 'Text'
+--
+prefixListId :: PrefixListId
+prefixListId = PrefixListId
+    { _pliPrefixListId = Nothing
+    }
+
+-- | The ID of the prefix.
+pliPrefixListId :: Lens' PrefixListId (Maybe Text)
+pliPrefixListId = lens _pliPrefixListId (\s a -> s { _pliPrefixListId = a })
+
+instance FromXML PrefixListId where
+    parseXML x = PrefixListId
+        <$> x .@? "prefixListId"
+
+instance ToQuery PrefixListId where
+    toQuery PrefixListId{..} = mconcat
+        [ "PrefixListId" =? _pliPrefixListId
         ]
 
 data NetworkInterfaceAttribute
@@ -8242,6 +9229,201 @@ instance ToQuery AvailabilityZone where
         , "ZoneName"   =? _azZoneName
         ]
 
+data HistoryRecord = HistoryRecord
+    { _hrEventInformation :: EventInformation
+    , _hrEventType        :: EventType
+    , _hrTimestamp        :: ISO8601
+    } deriving (Eq, Read, Show)
+
+-- | 'HistoryRecord' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'hrEventInformation' @::@ 'EventInformation'
+--
+-- * 'hrEventType' @::@ 'EventType'
+--
+-- * 'hrTimestamp' @::@ 'UTCTime'
+--
+historyRecord :: UTCTime -- ^ 'hrTimestamp'
+              -> EventType -- ^ 'hrEventType'
+              -> EventInformation -- ^ 'hrEventInformation'
+              -> HistoryRecord
+historyRecord p1 p2 p3 = HistoryRecord
+    { _hrTimestamp        = withIso _Time (const id) p1
+    , _hrEventType        = p2
+    , _hrEventInformation = p3
+    }
+
+-- | Information about the event.
+hrEventInformation :: Lens' HistoryRecord EventInformation
+hrEventInformation =
+    lens _hrEventInformation (\s a -> s { _hrEventInformation = a })
+
+-- | The event type.
+--
+-- 'error' - Indicates an error with the Spot fleet request.
+--
+-- 'fleetRequestChange' - Indicates a change in the status or configuration of
+-- the Spot fleet request.
+--
+-- 'instanceChange' - Indicates that an instance was launched or terminated.
+--
+--
+hrEventType :: Lens' HistoryRecord EventType
+hrEventType = lens _hrEventType (\s a -> s { _hrEventType = a })
+
+-- | The date and time of the event, in UTC format (for example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
+hrTimestamp :: Lens' HistoryRecord UTCTime
+hrTimestamp = lens _hrTimestamp (\s a -> s { _hrTimestamp = a }) . _Time
+
+instance FromXML HistoryRecord where
+    parseXML x = HistoryRecord
+        <$> x .@  "eventInformation"
+        <*> x .@  "eventType"
+        <*> x .@  "timestamp"
+
+instance ToQuery HistoryRecord where
+    toQuery HistoryRecord{..} = mconcat
+        [ "EventInformation" =? _hrEventInformation
+        , "EventType"        =? _hrEventType
+        , "Timestamp"        =? _hrTimestamp
+        ]
+
+data ImportImageTask = ImportImageTask
+    { _iitArchitecture    :: Maybe Text
+    , _iitDescription     :: Maybe Text
+    , _iitHypervisor      :: Maybe Text
+    , _iitImageId         :: Maybe Text
+    , _iitImportTaskId    :: Maybe Text
+    , _iitLicenseType     :: Maybe Text
+    , _iitPlatform        :: Maybe Text
+    , _iitProgress        :: Maybe Text
+    , _iitSnapshotDetails :: List "item" SnapshotDetail
+    , _iitStatus          :: Maybe Text
+    , _iitStatusMessage   :: Maybe Text
+    } deriving (Eq, Read, Show)
+
+-- | 'ImportImageTask' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'iitArchitecture' @::@ 'Maybe' 'Text'
+--
+-- * 'iitDescription' @::@ 'Maybe' 'Text'
+--
+-- * 'iitHypervisor' @::@ 'Maybe' 'Text'
+--
+-- * 'iitImageId' @::@ 'Maybe' 'Text'
+--
+-- * 'iitImportTaskId' @::@ 'Maybe' 'Text'
+--
+-- * 'iitLicenseType' @::@ 'Maybe' 'Text'
+--
+-- * 'iitPlatform' @::@ 'Maybe' 'Text'
+--
+-- * 'iitProgress' @::@ 'Maybe' 'Text'
+--
+-- * 'iitSnapshotDetails' @::@ ['SnapshotDetail']
+--
+-- * 'iitStatus' @::@ 'Maybe' 'Text'
+--
+-- * 'iitStatusMessage' @::@ 'Maybe' 'Text'
+--
+importImageTask :: ImportImageTask
+importImageTask = ImportImageTask
+    { _iitImportTaskId    = Nothing
+    , _iitArchitecture    = Nothing
+    , _iitLicenseType     = Nothing
+    , _iitPlatform        = Nothing
+    , _iitHypervisor      = Nothing
+    , _iitDescription     = Nothing
+    , _iitSnapshotDetails = mempty
+    , _iitImageId         = Nothing
+    , _iitProgress        = Nothing
+    , _iitStatusMessage   = Nothing
+    , _iitStatus          = Nothing
+    }
+
+-- | The architecture of the virtual machine.
+--
+-- Valid values: 'i386' | 'x86_64'
+iitArchitecture :: Lens' ImportImageTask (Maybe Text)
+iitArchitecture = lens _iitArchitecture (\s a -> s { _iitArchitecture = a })
+
+-- | A description of the import task.
+iitDescription :: Lens' ImportImageTask (Maybe Text)
+iitDescription = lens _iitDescription (\s a -> s { _iitDescription = a })
+
+-- | The target hypervisor for the import task.
+--
+-- Valid values: 'xen'
+iitHypervisor :: Lens' ImportImageTask (Maybe Text)
+iitHypervisor = lens _iitHypervisor (\s a -> s { _iitHypervisor = a })
+
+-- | The ID of the Amazon Machine Image (AMI) of the imported virtual machine.
+iitImageId :: Lens' ImportImageTask (Maybe Text)
+iitImageId = lens _iitImageId (\s a -> s { _iitImageId = a })
+
+-- | The ID of the import image task.
+iitImportTaskId :: Lens' ImportImageTask (Maybe Text)
+iitImportTaskId = lens _iitImportTaskId (\s a -> s { _iitImportTaskId = a })
+
+-- | The license type of the virtual machine.
+iitLicenseType :: Lens' ImportImageTask (Maybe Text)
+iitLicenseType = lens _iitLicenseType (\s a -> s { _iitLicenseType = a })
+
+-- | The description string for the import image task.
+iitPlatform :: Lens' ImportImageTask (Maybe Text)
+iitPlatform = lens _iitPlatform (\s a -> s { _iitPlatform = a })
+
+-- | The percentage of progress of the import image task.
+iitProgress :: Lens' ImportImageTask (Maybe Text)
+iitProgress = lens _iitProgress (\s a -> s { _iitProgress = a })
+
+-- | Information about the snapshots.
+iitSnapshotDetails :: Lens' ImportImageTask [SnapshotDetail]
+iitSnapshotDetails =
+    lens _iitSnapshotDetails (\s a -> s { _iitSnapshotDetails = a })
+        . _List
+
+-- | A brief status for the import image task.
+iitStatus :: Lens' ImportImageTask (Maybe Text)
+iitStatus = lens _iitStatus (\s a -> s { _iitStatus = a })
+
+-- | A descriptive status message for the import image task.
+iitStatusMessage :: Lens' ImportImageTask (Maybe Text)
+iitStatusMessage = lens _iitStatusMessage (\s a -> s { _iitStatusMessage = a })
+
+instance FromXML ImportImageTask where
+    parseXML x = ImportImageTask
+        <$> x .@? "architecture"
+        <*> x .@? "description"
+        <*> x .@? "hypervisor"
+        <*> x .@? "imageId"
+        <*> x .@? "importTaskId"
+        <*> x .@? "licenseType"
+        <*> x .@? "platform"
+        <*> x .@? "progress"
+        <*> x .@? "snapshotDetailSet" .!@ mempty
+        <*> x .@? "status"
+        <*> x .@? "statusMessage"
+
+instance ToQuery ImportImageTask where
+    toQuery ImportImageTask{..} = mconcat
+        [ "Architecture"      =? _iitArchitecture
+        , "Description"       =? _iitDescription
+        , "Hypervisor"        =? _iitHypervisor
+        , "ImageId"           =? _iitImageId
+        , "ImportTaskId"      =? _iitImportTaskId
+        , "LicenseType"       =? _iitLicenseType
+        , "Platform"          =? _iitPlatform
+        , "Progress"          =? _iitProgress
+        , "SnapshotDetailSet" `toQueryList` _iitSnapshotDetails
+        , "Status"            =? _iitStatus
+        , "StatusMessage"     =? _iitStatusMessage
+        ]
+
 data VpnState
     = VpnStateAvailable -- ^ available
     | VpnStateDeleted   -- ^ deleted
@@ -8354,6 +9536,44 @@ instance ToQuery RouteTable where
         , "VpcId"             =? _rtVpcId
         ]
 
+data UserBucket = UserBucket
+    { _ubS3Bucket :: Maybe Text
+    , _ubS3Key    :: Maybe Text
+    } deriving (Eq, Ord, Read, Show)
+
+-- | 'UserBucket' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'ubS3Bucket' @::@ 'Maybe' 'Text'
+--
+-- * 'ubS3Key' @::@ 'Maybe' 'Text'
+--
+userBucket :: UserBucket
+userBucket = UserBucket
+    { _ubS3Bucket = Nothing
+    , _ubS3Key    = Nothing
+    }
+
+-- | The name of the S3 bucket where the disk image is located.
+ubS3Bucket :: Lens' UserBucket (Maybe Text)
+ubS3Bucket = lens _ubS3Bucket (\s a -> s { _ubS3Bucket = a })
+
+-- | The key for the disk image.
+ubS3Key :: Lens' UserBucket (Maybe Text)
+ubS3Key = lens _ubS3Key (\s a -> s { _ubS3Key = a })
+
+instance FromXML UserBucket where
+    parseXML x = UserBucket
+        <$> x .@? "S3Bucket"
+        <*> x .@? "S3Key"
+
+instance ToQuery UserBucket where
+    toQuery UserBucket{..} = mconcat
+        [ "S3Bucket" =? _ubS3Bucket
+        , "S3Key"    =? _ubS3Key
+        ]
+
 data HypervisorType
     = Ovm -- ^ ovm
     | Xen -- ^ xen
@@ -8379,6 +9599,48 @@ instance ToQuery      HypervisorType
 
 instance FromXML HypervisorType where
     parseXML = parseXMLText "HypervisorType"
+
+data CancelSpotFleetRequestsErrorItem = CancelSpotFleetRequestsErrorItem
+    { _csfreiError              :: CancelSpotFleetRequestsError
+    , _csfreiSpotFleetRequestId :: Text
+    } deriving (Eq, Read, Show)
+
+-- | 'CancelSpotFleetRequestsErrorItem' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'csfreiError' @::@ 'CancelSpotFleetRequestsError'
+--
+-- * 'csfreiSpotFleetRequestId' @::@ 'Text'
+--
+cancelSpotFleetRequestsErrorItem :: Text -- ^ 'csfreiSpotFleetRequestId'
+                                 -> CancelSpotFleetRequestsError -- ^ 'csfreiError'
+                                 -> CancelSpotFleetRequestsErrorItem
+cancelSpotFleetRequestsErrorItem p1 p2 = CancelSpotFleetRequestsErrorItem
+    { _csfreiSpotFleetRequestId = p1
+    , _csfreiError              = p2
+    }
+
+-- | The error.
+csfreiError :: Lens' CancelSpotFleetRequestsErrorItem CancelSpotFleetRequestsError
+csfreiError = lens _csfreiError (\s a -> s { _csfreiError = a })
+
+-- | The ID of the Spot fleet request.
+csfreiSpotFleetRequestId :: Lens' CancelSpotFleetRequestsErrorItem Text
+csfreiSpotFleetRequestId =
+    lens _csfreiSpotFleetRequestId
+        (\s a -> s { _csfreiSpotFleetRequestId = a })
+
+instance FromXML CancelSpotFleetRequestsErrorItem where
+    parseXML x = CancelSpotFleetRequestsErrorItem
+        <$> x .@  "error"
+        <*> x .@  "spotFleetRequestId"
+
+instance ToQuery CancelSpotFleetRequestsErrorItem where
+    toQuery CancelSpotFleetRequestsErrorItem{..} = mconcat
+        [ "Error"              =? _csfreiError
+        , "SpotFleetRequestId" =? _csfreiSpotFleetRequestId
+        ]
 
 data InstanceStatusDetails = InstanceStatusDetails
     { _isdImpairedSince :: Maybe ISO8601
@@ -8465,6 +9727,45 @@ instance ToQuery IamInstanceProfile where
     toQuery IamInstanceProfile{..} = mconcat
         [ "Arn" =? _iipArn
         , "Id"  =? _iipId
+        ]
+
+data UnsuccessfulItem = UnsuccessfulItem
+    { _uiError      :: UnsuccessfulItemError
+    , _uiResourceId :: Maybe Text
+    } deriving (Eq, Read, Show)
+
+-- | 'UnsuccessfulItem' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'uiError' @::@ 'UnsuccessfulItemError'
+--
+-- * 'uiResourceId' @::@ 'Maybe' 'Text'
+--
+unsuccessfulItem :: UnsuccessfulItemError -- ^ 'uiError'
+                 -> UnsuccessfulItem
+unsuccessfulItem p1 = UnsuccessfulItem
+    { _uiError      = p1
+    , _uiResourceId = Nothing
+    }
+
+-- | Information about the error.
+uiError :: Lens' UnsuccessfulItem UnsuccessfulItemError
+uiError = lens _uiError (\s a -> s { _uiError = a })
+
+-- | The ID of the resource.
+uiResourceId :: Lens' UnsuccessfulItem (Maybe Text)
+uiResourceId = lens _uiResourceId (\s a -> s { _uiResourceId = a })
+
+instance FromXML UnsuccessfulItem where
+    parseXML x = UnsuccessfulItem
+        <$> x .@  "error"
+        <*> x .@? "resourceId"
+
+instance ToQuery UnsuccessfulItem where
+    toQuery UnsuccessfulItem{..} = mconcat
+        [ "Error"      =? _uiError
+        , "ResourceId" =? _uiResourceId
         ]
 
 data InternetGatewayAttachment = InternetGatewayAttachment
@@ -8602,6 +9903,7 @@ data IpPermission = IpPermission
     { _ipFromPort         :: Maybe Int
     , _ipIpProtocol       :: Text
     , _ipIpRanges         :: List "item" IpRange
+    , _ipPrefixListIds    :: List "item" PrefixListId
     , _ipToPort           :: Maybe Int
     , _ipUserIdGroupPairs :: List "item" UserIdGroupPair
     } deriving (Eq, Read, Show)
@@ -8616,6 +9918,8 @@ data IpPermission = IpPermission
 --
 -- * 'ipIpRanges' @::@ ['IpRange']
 --
+-- * 'ipPrefixListIds' @::@ ['PrefixListId']
+--
 -- * 'ipToPort' @::@ 'Maybe' 'Int'
 --
 -- * 'ipUserIdGroupPairs' @::@ ['UserIdGroupPair']
@@ -8628,6 +9932,7 @@ ipPermission p1 = IpPermission
     , _ipToPort           = Nothing
     , _ipUserIdGroupPairs = mempty
     , _ipIpRanges         = mempty
+    , _ipPrefixListIds    = mempty
     }
 
 -- | The start of port range for the TCP and UDP protocols, or an ICMP type
@@ -8648,6 +9953,11 @@ ipIpProtocol = lens _ipIpProtocol (\s a -> s { _ipIpProtocol = a })
 ipIpRanges :: Lens' IpPermission [IpRange]
 ipIpRanges = lens _ipIpRanges (\s a -> s { _ipIpRanges = a }) . _List
 
+-- | (Valid for 'AuthorizeSecurityGroupEgress', 'RevokeSecurityGroupEgress' and 'DescribeSecurityGroups' only) One or more prefix list IDs for an AWS service. In an 'AuthorizeSecurityGroupEgress' request, this is the AWS service that you want to access through a VPC
+-- endpoint from instances associated with the security group.
+ipPrefixListIds :: Lens' IpPermission [PrefixListId]
+ipPrefixListIds = lens _ipPrefixListIds (\s a -> s { _ipPrefixListIds = a }) . _List
+
 -- | The end of port range for the TCP and UDP protocols, or an ICMP code. A value
 -- of '-1' indicates all ICMP codes for the specified ICMP type.
 ipToPort :: Lens' IpPermission (Maybe Int)
@@ -8664,16 +9974,18 @@ instance FromXML IpPermission where
         <$> x .@? "fromPort"
         <*> x .@  "ipProtocol"
         <*> x .@? "ipRanges" .!@ mempty
+        <*> x .@? "prefixListIds" .!@ mempty
         <*> x .@? "toPort"
         <*> x .@? "groups" .!@ mempty
 
 instance ToQuery IpPermission where
     toQuery IpPermission{..} = mconcat
-        [ "FromPort"   =? _ipFromPort
-        , "IpProtocol" =? _ipIpProtocol
-        , "IpRanges"   `toQueryList` _ipIpRanges
-        , "ToPort"     =? _ipToPort
-        , "Groups"     `toQueryList` _ipUserIdGroupPairs
+        [ "FromPort"      =? _ipFromPort
+        , "IpProtocol"    =? _ipIpProtocol
+        , "IpRanges"      `toQueryList` _ipIpRanges
+        , "PrefixListIds" `toQueryList` _ipPrefixListIds
+        , "ToPort"        =? _ipToPort
+        , "Groups"        `toQueryList` _ipUserIdGroupPairs
         ]
 
 data ConversionTaskState
@@ -8731,12 +10043,15 @@ diskImage = DiskImage
     , _diVolume      = Nothing
     }
 
+-- | A description of the disk image.
 diDescription :: Lens' DiskImage (Maybe Text)
 diDescription = lens _diDescription (\s a -> s { _diDescription = a })
 
+-- | Information about the disk image.
 diImage :: Lens' DiskImage (Maybe DiskImageDetail)
 diImage = lens _diImage (\s a -> s { _diImage = a })
 
+-- | Information about the volume.
 diVolume :: Lens' DiskImage (Maybe VolumeDetail)
 diVolume = lens _diVolume (\s a -> s { _diVolume = a })
 
@@ -8778,6 +10093,46 @@ instance ToQuery      Tenancy
 
 instance FromXML Tenancy where
     parseXML = parseXMLText "Tenancy"
+
+data UnsuccessfulItemError = UnsuccessfulItemError
+    { _uieCode    :: Text
+    , _uieMessage :: Text
+    } deriving (Eq, Ord, Read, Show)
+
+-- | 'UnsuccessfulItemError' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'uieCode' @::@ 'Text'
+--
+-- * 'uieMessage' @::@ 'Text'
+--
+unsuccessfulItemError :: Text -- ^ 'uieCode'
+                      -> Text -- ^ 'uieMessage'
+                      -> UnsuccessfulItemError
+unsuccessfulItemError p1 p2 = UnsuccessfulItemError
+    { _uieCode    = p1
+    , _uieMessage = p2
+    }
+
+-- | The error code.
+uieCode :: Lens' UnsuccessfulItemError Text
+uieCode = lens _uieCode (\s a -> s { _uieCode = a })
+
+-- | The error message accompanying the error code.
+uieMessage :: Lens' UnsuccessfulItemError Text
+uieMessage = lens _uieMessage (\s a -> s { _uieMessage = a })
+
+instance FromXML UnsuccessfulItemError where
+    parseXML x = UnsuccessfulItemError
+        <$> x .@  "code"
+        <*> x .@  "message"
+
+instance ToQuery UnsuccessfulItemError where
+    toQuery UnsuccessfulItemError{..} = mconcat
+        [ "Code"    =? _uieCode
+        , "Message" =? _uieMessage
+        ]
 
 data VpcPeeringConnectionStateReason = VpcPeeringConnectionStateReason
     { _vpcsrCode    :: Maybe Text
@@ -9223,6 +10578,44 @@ instance ToQuery VpcPeeringConnectionVpcInfo where
         , "VpcId"     =? _vpcviVpcId
         ]
 
+data UserBucketDetails = UserBucketDetails
+    { _ubdS3Bucket :: Maybe Text
+    , _ubdS3Key    :: Maybe Text
+    } deriving (Eq, Ord, Read, Show)
+
+-- | 'UserBucketDetails' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'ubdS3Bucket' @::@ 'Maybe' 'Text'
+--
+-- * 'ubdS3Key' @::@ 'Maybe' 'Text'
+--
+userBucketDetails :: UserBucketDetails
+userBucketDetails = UserBucketDetails
+    { _ubdS3Bucket = Nothing
+    , _ubdS3Key    = Nothing
+    }
+
+-- | The S3 bucket from which the disk image was created.
+ubdS3Bucket :: Lens' UserBucketDetails (Maybe Text)
+ubdS3Bucket = lens _ubdS3Bucket (\s a -> s { _ubdS3Bucket = a })
+
+-- | The key from which the disk image was created.
+ubdS3Key :: Lens' UserBucketDetails (Maybe Text)
+ubdS3Key = lens _ubdS3Key (\s a -> s { _ubdS3Key = a })
+
+instance FromXML UserBucketDetails where
+    parseXML x = UserBucketDetails
+        <$> x .@? "s3Bucket"
+        <*> x .@? "s3Key"
+
+instance ToQuery UserBucketDetails where
+    toQuery UserBucketDetails{..} = mconcat
+        [ "S3Bucket" =? _ubdS3Bucket
+        , "S3Key"    =? _ubdS3Key
+        ]
+
 data ReservedInstanceLimitPrice = ReservedInstanceLimitPrice
     { _rilpAmount       :: Maybe Double
     , _rilpCurrencyCode :: Maybe CurrencyCodeValues
@@ -9359,6 +10752,87 @@ instance ToQuery Vpc where
         , "VpcId"           =? _vpcVpcId
         ]
 
+data ImageDiskContainer = ImageDiskContainer
+    { _idcDescription :: Maybe Text
+    , _idcDeviceName  :: Maybe Text
+    , _idcFormat      :: Maybe Text
+    , _idcSnapshotId  :: Maybe Text
+    , _idcUrl         :: Maybe Text
+    , _idcUserBucket  :: Maybe UserBucket
+    } deriving (Eq, Read, Show)
+
+-- | 'ImageDiskContainer' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'idcDescription' @::@ 'Maybe' 'Text'
+--
+-- * 'idcDeviceName' @::@ 'Maybe' 'Text'
+--
+-- * 'idcFormat' @::@ 'Maybe' 'Text'
+--
+-- * 'idcSnapshotId' @::@ 'Maybe' 'Text'
+--
+-- * 'idcUrl' @::@ 'Maybe' 'Text'
+--
+-- * 'idcUserBucket' @::@ 'Maybe' 'UserBucket'
+--
+imageDiskContainer :: ImageDiskContainer
+imageDiskContainer = ImageDiskContainer
+    { _idcDescription = Nothing
+    , _idcFormat      = Nothing
+    , _idcUrl         = Nothing
+    , _idcUserBucket  = Nothing
+    , _idcDeviceName  = Nothing
+    , _idcSnapshotId  = Nothing
+    }
+
+-- | The description of the disk image.
+idcDescription :: Lens' ImageDiskContainer (Maybe Text)
+idcDescription = lens _idcDescription (\s a -> s { _idcDescription = a })
+
+-- | The block device mapping for the disk.
+idcDeviceName :: Lens' ImageDiskContainer (Maybe Text)
+idcDeviceName = lens _idcDeviceName (\s a -> s { _idcDeviceName = a })
+
+-- | The format of the disk image being imported.
+--
+-- Valid values: 'RAW' | 'VHD' | 'VMDK' | 'OVA'
+idcFormat :: Lens' ImageDiskContainer (Maybe Text)
+idcFormat = lens _idcFormat (\s a -> s { _idcFormat = a })
+
+-- | The ID of the EBS snapshot to be used for importing the snapshot.
+idcSnapshotId :: Lens' ImageDiskContainer (Maybe Text)
+idcSnapshotId = lens _idcSnapshotId (\s a -> s { _idcSnapshotId = a })
+
+-- | The URL to the Amazon S3-based disk image being imported. The URL can either
+-- be a https URL (https://..) or an Amazon S3 URL (s3://..)
+idcUrl :: Lens' ImageDiskContainer (Maybe Text)
+idcUrl = lens _idcUrl (\s a -> s { _idcUrl = a })
+
+-- | The S3 bucket for the disk image.
+idcUserBucket :: Lens' ImageDiskContainer (Maybe UserBucket)
+idcUserBucket = lens _idcUserBucket (\s a -> s { _idcUserBucket = a })
+
+instance FromXML ImageDiskContainer where
+    parseXML x = ImageDiskContainer
+        <$> x .@? "Description"
+        <*> x .@? "DeviceName"
+        <*> x .@? "Format"
+        <*> x .@? "SnapshotId"
+        <*> x .@? "Url"
+        <*> x .@? "UserBucket"
+
+instance ToQuery ImageDiskContainer where
+    toQuery ImageDiskContainer{..} = mconcat
+        [ "Description" =? _idcDescription
+        , "DeviceName"  =? _idcDeviceName
+        , "Format"      =? _idcFormat
+        , "SnapshotId"  =? _idcSnapshotId
+        , "Url"         =? _idcUrl
+        , "UserBucket"  =? _idcUserBucket
+        ]
+
 data InstanceStatus = InstanceStatus
     { _isAvailabilityZone :: Maybe Text
     , _isEvents           :: List "item" InstanceStatusEvent
@@ -9399,7 +10873,7 @@ isAvailabilityZone :: Lens' InstanceStatus (Maybe Text)
 isAvailabilityZone =
     lens _isAvailabilityZone (\s a -> s { _isAvailabilityZone = a })
 
--- | Extra information regarding events associated with the instance.
+-- | Any scheduled events associated with the instance.
 isEvents :: Lens' InstanceStatus [InstanceStatusEvent]
 isEvents = lens _isEvents (\s a -> s { _isEvents = a }) . _List
 
@@ -9515,6 +10989,32 @@ instance ToQuery      ReportInstanceReasonCodes
 instance FromXML ReportInstanceReasonCodes where
     parseXML = parseXMLText "ReportInstanceReasonCodes"
 
+data MoveStatus
+    = MovingToVpc        -- ^ movingToVpc
+    | RestoringToClassic -- ^ restoringToClassic
+      deriving (Eq, Ord, Read, Show, Generic, Enum)
+
+instance Hashable MoveStatus
+
+instance FromText MoveStatus where
+    parser = takeLowerText >>= \case
+        "movingtovpc"        -> pure MovingToVpc
+        "restoringtoclassic" -> pure RestoringToClassic
+        e                    -> fail $
+            "Failure parsing MoveStatus from " ++ show e
+
+instance ToText MoveStatus where
+    toText = \case
+        MovingToVpc        -> "movingToVpc"
+        RestoringToClassic -> "restoringToClassic"
+
+instance ToByteString MoveStatus
+instance ToHeader     MoveStatus
+instance ToQuery      MoveStatus
+
+instance FromXML MoveStatus where
+    parseXML = parseXMLText "MoveStatus"
+
 data EbsBlockDevice = EbsBlockDevice
     { _ebdDeleteOnTermination :: Maybe Bool
     , _ebdEncrypted           :: Maybe Bool
@@ -9550,13 +11050,13 @@ ebsBlockDevice = EbsBlockDevice
     , _ebdEncrypted           = Nothing
     }
 
--- | Indicates whether the Amazon EBS volume is deleted on instance termination.
+-- | Indicates whether the EBS volume is deleted on instance termination.
 ebdDeleteOnTermination :: Lens' EbsBlockDevice (Maybe Bool)
 ebdDeleteOnTermination =
     lens _ebdDeleteOnTermination (\s a -> s { _ebdDeleteOnTermination = a })
 
--- | Indicates whether the Amazon EBS volume is encrypted. Encrypted Amazon EBS
--- volumes may only be attached to instances that support Amazon EBS encryption.
+-- | Indicates whether the EBS volume is encrypted. Encrypted Amazon EBS volumes
+-- may only be attached to instances that support Amazon EBS encryption.
 ebdEncrypted :: Lens' EbsBlockDevice (Maybe Bool)
 ebdEncrypted = lens _ebdEncrypted (\s a -> s { _ebdEncrypted = a })
 
@@ -9565,7 +11065,7 @@ ebdEncrypted = lens _ebdEncrypted (\s a -> s { _ebdEncrypted = a })
 -- provisioned for the volume. For General Purpose (SSD) volumes, this
 -- represents the baseline performance of the volume and the rate at which the
 -- volume accumulates I/O credits for bursting. For more information on General
--- Purpose (SSD) baseline performance, I/O credits, and bursting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBSVolume Types> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
+-- Purpose (SSD) baseline performance, I/O credits, and bursting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBSVolume Types> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- Constraint: Range is 100 to 20000 for Provisioned IOPS (SSD) volumes and 3
 -- to 10000 for General Purpose (SSD) volumes.
@@ -9653,6 +11153,123 @@ instance ToQuery AccountAttribute where
     toQuery AccountAttribute{..} = mconcat
         [ "AttributeName"     =? _aaAttributeName
         , "AttributeValueSet" `toQueryList` _aaAttributeValues
+        ]
+
+data SnapshotDetail = SnapshotDetail
+    { _sdDescription   :: Maybe Text
+    , _sdDeviceName    :: Maybe Text
+    , _sdDiskImageSize :: Maybe Double
+    , _sdFormat        :: Maybe Text
+    , _sdProgress      :: Maybe Text
+    , _sdSnapshotId    :: Maybe Text
+    , _sdStatus        :: Maybe Text
+    , _sdStatusMessage :: Maybe Text
+    , _sdUrl           :: Maybe Text
+    , _sdUserBucket    :: Maybe UserBucketDetails
+    } deriving (Eq, Read, Show)
+
+-- | 'SnapshotDetail' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'sdDescription' @::@ 'Maybe' 'Text'
+--
+-- * 'sdDeviceName' @::@ 'Maybe' 'Text'
+--
+-- * 'sdDiskImageSize' @::@ 'Maybe' 'Double'
+--
+-- * 'sdFormat' @::@ 'Maybe' 'Text'
+--
+-- * 'sdProgress' @::@ 'Maybe' 'Text'
+--
+-- * 'sdSnapshotId' @::@ 'Maybe' 'Text'
+--
+-- * 'sdStatus' @::@ 'Maybe' 'Text'
+--
+-- * 'sdStatusMessage' @::@ 'Maybe' 'Text'
+--
+-- * 'sdUrl' @::@ 'Maybe' 'Text'
+--
+-- * 'sdUserBucket' @::@ 'Maybe' 'UserBucketDetails'
+--
+snapshotDetail :: SnapshotDetail
+snapshotDetail = SnapshotDetail
+    { _sdDiskImageSize = Nothing
+    , _sdDescription   = Nothing
+    , _sdFormat        = Nothing
+    , _sdUrl           = Nothing
+    , _sdUserBucket    = Nothing
+    , _sdDeviceName    = Nothing
+    , _sdSnapshotId    = Nothing
+    , _sdProgress      = Nothing
+    , _sdStatusMessage = Nothing
+    , _sdStatus        = Nothing
+    }
+
+-- | A description for the snapshot.
+sdDescription :: Lens' SnapshotDetail (Maybe Text)
+sdDescription = lens _sdDescription (\s a -> s { _sdDescription = a })
+
+-- | The block device mapping for the snapshot.
+sdDeviceName :: Lens' SnapshotDetail (Maybe Text)
+sdDeviceName = lens _sdDeviceName (\s a -> s { _sdDeviceName = a })
+
+-- | The size of the disk in the snapshot, in GiB.
+sdDiskImageSize :: Lens' SnapshotDetail (Maybe Double)
+sdDiskImageSize = lens _sdDiskImageSize (\s a -> s { _sdDiskImageSize = a })
+
+-- | The format of the disk image from which the snapshot is created.
+sdFormat :: Lens' SnapshotDetail (Maybe Text)
+sdFormat = lens _sdFormat (\s a -> s { _sdFormat = a })
+
+-- | The percentage of progress for the task.
+sdProgress :: Lens' SnapshotDetail (Maybe Text)
+sdProgress = lens _sdProgress (\s a -> s { _sdProgress = a })
+
+-- | The snapshot ID of the disk being imported.
+sdSnapshotId :: Lens' SnapshotDetail (Maybe Text)
+sdSnapshotId = lens _sdSnapshotId (\s a -> s { _sdSnapshotId = a })
+
+-- | A brief status of the snapshot creation.
+sdStatus :: Lens' SnapshotDetail (Maybe Text)
+sdStatus = lens _sdStatus (\s a -> s { _sdStatus = a })
+
+-- | A detailed status message for the snapshot creation.
+sdStatusMessage :: Lens' SnapshotDetail (Maybe Text)
+sdStatusMessage = lens _sdStatusMessage (\s a -> s { _sdStatusMessage = a })
+
+-- | The URL used to access the disk image.
+sdUrl :: Lens' SnapshotDetail (Maybe Text)
+sdUrl = lens _sdUrl (\s a -> s { _sdUrl = a })
+
+sdUserBucket :: Lens' SnapshotDetail (Maybe UserBucketDetails)
+sdUserBucket = lens _sdUserBucket (\s a -> s { _sdUserBucket = a })
+
+instance FromXML SnapshotDetail where
+    parseXML x = SnapshotDetail
+        <$> x .@? "description"
+        <*> x .@? "deviceName"
+        <*> x .@? "diskImageSize"
+        <*> x .@? "format"
+        <*> x .@? "progress"
+        <*> x .@? "snapshotId"
+        <*> x .@? "status"
+        <*> x .@? "statusMessage"
+        <*> x .@? "url"
+        <*> x .@? "userBucket"
+
+instance ToQuery SnapshotDetail where
+    toQuery SnapshotDetail{..} = mconcat
+        [ "Description"   =? _sdDescription
+        , "DeviceName"    =? _sdDeviceName
+        , "DiskImageSize" =? _sdDiskImageSize
+        , "Format"        =? _sdFormat
+        , "Progress"      =? _sdProgress
+        , "SnapshotId"    =? _sdSnapshotId
+        , "Status"        =? _sdStatus
+        , "StatusMessage" =? _sdStatusMessage
+        , "Url"           =? _sdUrl
+        , "UserBucket"    =? _sdUserBucket
         ]
 
 data PriceSchedule = PriceSchedule
@@ -9959,6 +11576,97 @@ instance ToQuery VpnGateway where
         , "VpnGatewayId"     =? _vgVpnGatewayId
         ]
 
+data EventInformation = EventInformation
+    { _eiEventDescription :: Maybe Text
+    , _eiEventSubType     :: Maybe Text
+    , _eiInstanceId       :: Maybe Text
+    } deriving (Eq, Ord, Read, Show)
+
+-- | 'EventInformation' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'eiEventDescription' @::@ 'Maybe' 'Text'
+--
+-- * 'eiEventSubType' @::@ 'Maybe' 'Text'
+--
+-- * 'eiInstanceId' @::@ 'Maybe' 'Text'
+--
+eventInformation :: EventInformation
+eventInformation = EventInformation
+    { _eiInstanceId       = Nothing
+    , _eiEventSubType     = Nothing
+    , _eiEventDescription = Nothing
+    }
+
+-- | The description of the event.
+eiEventDescription :: Lens' EventInformation (Maybe Text)
+eiEventDescription =
+    lens _eiEventDescription (\s a -> s { _eiEventDescription = a })
+
+-- | The event.
+--
+-- The following are the 'error' events.
+--
+-- 'iamFleetRoleInvalid' - Spot fleet did not have the required permissions
+-- either to launch or terminate an instance.
+--
+-- 'spotFleetRequestConfigurationInvalid' - The configuration is not valid. For
+-- more information, see the description.   'spotInstanceCountLimitExceeded' -
+-- You've reached the limit on the number of Spot Instances that you can launch.
+--
+-- The following are the 'fleetRequestChange' events.
+--
+-- 'active' - The Spot fleet has been validated and Amazon EC2 is attempting to
+-- maintain the target number of running Spot Instances.
+--
+-- 'cancelled' - The Spot fleet is canceled and has no running Spot Instances.
+-- The Spot fleet will be deleted two days after its instances were terminated.
+--
+-- 'cancelled_running' - The Spot fleet is canceled and will not launch
+-- additional Spot Instances, but its existing Spot Instances will continue to
+-- run until they are interrupted or terminated.
+--
+-- 'cancelled_terminating' - The Spot fleet is canceled and its Spot Instances
+-- are terminating.
+--
+-- 'expired' - The Spot fleet request has expired. A subsequent event indicates
+-- that the instances were terminated, if the request was created with 'terminateInstancesWithExpiration' set.
+--
+-- 'price_update' - The bid price for a launch configuration was adjusted
+-- because it was too high. This change is permanent.
+--
+-- 'submitted' - The Spot fleet request is being evaluated and Amazon EC2 is
+-- preparing to launch the target number of Spot Instances.
+--
+-- The following are the 'instanceChange' events.
+--
+-- 'launched' - A bid was fulfilled and a new instance was launched.
+--
+-- 'terminated' - An instance was terminated by the user.
+--
+--
+eiEventSubType :: Lens' EventInformation (Maybe Text)
+eiEventSubType = lens _eiEventSubType (\s a -> s { _eiEventSubType = a })
+
+-- | The ID of the instance. This information is available only for 'instanceChange'
+-- events.
+eiInstanceId :: Lens' EventInformation (Maybe Text)
+eiInstanceId = lens _eiInstanceId (\s a -> s { _eiInstanceId = a })
+
+instance FromXML EventInformation where
+    parseXML x = EventInformation
+        <$> x .@? "eventDescription"
+        <*> x .@? "eventSubType"
+        <*> x .@? "instanceId"
+
+instance ToQuery EventInformation where
+    toQuery EventInformation{..} = mconcat
+        [ "EventDescription" =? _eiEventDescription
+        , "EventSubType"     =? _eiEventSubType
+        , "InstanceId"       =? _eiInstanceId
+        ]
+
 data Filter = Filter
     { _fName   :: Text
     , _fValues :: List "item" Text
@@ -10156,6 +11864,11 @@ instance ToQuery NetworkAcl where
 data ImageState
     = ISAvailable    -- ^ available
     | ISDeregistered -- ^ deregistered
+    | ISError        -- ^ error
+    | ISFailed       -- ^ failed
+    | ISInvalid      -- ^ invalid
+    | ISPending      -- ^ pending
+    | ISTransient    -- ^ transient
       deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable ImageState
@@ -10164,6 +11877,11 @@ instance FromText ImageState where
     parser = takeLowerText >>= \case
         "available"    -> pure ISAvailable
         "deregistered" -> pure ISDeregistered
+        "error"        -> pure ISError
+        "failed"       -> pure ISFailed
+        "invalid"      -> pure ISInvalid
+        "pending"      -> pure ISPending
+        "transient"    -> pure ISTransient
         e              -> fail $
             "Failure parsing ImageState from " ++ show e
 
@@ -10171,6 +11889,11 @@ instance ToText ImageState where
     toText = \case
         ISAvailable    -> "available"
         ISDeregistered -> "deregistered"
+        ISError        -> "error"
+        ISFailed       -> "failed"
+        ISInvalid      -> "invalid"
+        ISPending      -> "pending"
+        ISTransient    -> "transient"
 
 instance ToByteString ImageState
 instance ToHeader     ImageState
@@ -10435,26 +12158,29 @@ instance ToQuery StateReason where
         ]
 
 data MonitoringState
-    = MSDisabled -- ^ disabled
-    | MSEnabled  -- ^ enabled
-    | MSPending  -- ^ pending
+    = MSDisabled  -- ^ disabled
+    | MSDisabling -- ^ disabling
+    | MSEnabled   -- ^ enabled
+    | MSPending   -- ^ pending
       deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable MonitoringState
 
 instance FromText MonitoringState where
     parser = takeLowerText >>= \case
-        "disabled" -> pure MSDisabled
-        "enabled"  -> pure MSEnabled
-        "pending"  -> pure MSPending
-        e          -> fail $
+        "disabled"  -> pure MSDisabled
+        "disabling" -> pure MSDisabling
+        "enabled"   -> pure MSEnabled
+        "pending"   -> pure MSPending
+        e           -> fail $
             "Failure parsing MonitoringState from " ++ show e
 
 instance ToText MonitoringState where
     toText = \case
-        MSDisabled -> "disabled"
-        MSEnabled  -> "enabled"
-        MSPending  -> "pending"
+        MSDisabled  -> "disabled"
+        MSDisabling -> "disabling"
+        MSEnabled   -> "enabled"
+        MSPending   -> "pending"
 
 instance ToByteString MonitoringState
 instance ToHeader     MonitoringState
@@ -10643,9 +12369,11 @@ importInstanceTaskDetails = ImportInstanceTaskDetails
     , _iitdDescription = Nothing
     }
 
+-- | A description of the task.
 iitdDescription :: Lens' ImportInstanceTaskDetails (Maybe Text)
 iitdDescription = lens _iitdDescription (\s a -> s { _iitdDescription = a })
 
+-- | The ID of the instance.
 iitdInstanceId :: Lens' ImportInstanceTaskDetails (Maybe Text)
 iitdInstanceId = lens _iitdInstanceId (\s a -> s { _iitdInstanceId = a })
 
@@ -10653,6 +12381,7 @@ iitdInstanceId = lens _iitdInstanceId (\s a -> s { _iitdInstanceId = a })
 iitdPlatform :: Lens' ImportInstanceTaskDetails (Maybe PlatformValues)
 iitdPlatform = lens _iitdPlatform (\s a -> s { _iitdPlatform = a })
 
+-- | One or more volumes.
 iitdVolumes :: Lens' ImportInstanceTaskDetails [ImportInstanceVolumeDetailItem]
 iitdVolumes = lens _iitdVolumes (\s a -> s { _iitdVolumes = a }) . _List
 
@@ -10876,6 +12605,66 @@ instance FromXML AccountAttributeValue where
 instance ToQuery AccountAttributeValue where
     toQuery AccountAttributeValue{..} = mconcat
         [ "AttributeValue" =? _aavAttributeValue
+        ]
+
+data SnapshotDiskContainer = SnapshotDiskContainer
+    { _sdcDescription :: Maybe Text
+    , _sdcFormat      :: Maybe Text
+    , _sdcUrl         :: Maybe Text
+    , _sdcUserBucket  :: Maybe UserBucket
+    } deriving (Eq, Read, Show)
+
+-- | 'SnapshotDiskContainer' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'sdcDescription' @::@ 'Maybe' 'Text'
+--
+-- * 'sdcFormat' @::@ 'Maybe' 'Text'
+--
+-- * 'sdcUrl' @::@ 'Maybe' 'Text'
+--
+-- * 'sdcUserBucket' @::@ 'Maybe' 'UserBucket'
+--
+snapshotDiskContainer :: SnapshotDiskContainer
+snapshotDiskContainer = SnapshotDiskContainer
+    { _sdcDescription = Nothing
+    , _sdcFormat      = Nothing
+    , _sdcUrl         = Nothing
+    , _sdcUserBucket  = Nothing
+    }
+
+-- | The description of the disk image being imported.
+sdcDescription :: Lens' SnapshotDiskContainer (Maybe Text)
+sdcDescription = lens _sdcDescription (\s a -> s { _sdcDescription = a })
+
+-- | The format of the disk image being imported.
+--
+-- Valid values: 'RAW' | 'VHD' | 'VMDK' | 'OVA'
+sdcFormat :: Lens' SnapshotDiskContainer (Maybe Text)
+sdcFormat = lens _sdcFormat (\s a -> s { _sdcFormat = a })
+
+-- | The URL to the Amazon S3-based disk image being imported. It can either be a
+-- https URL (https://..) or an Amazon S3 URL (s3://..).
+sdcUrl :: Lens' SnapshotDiskContainer (Maybe Text)
+sdcUrl = lens _sdcUrl (\s a -> s { _sdcUrl = a })
+
+sdcUserBucket :: Lens' SnapshotDiskContainer (Maybe UserBucket)
+sdcUserBucket = lens _sdcUserBucket (\s a -> s { _sdcUserBucket = a })
+
+instance FromXML SnapshotDiskContainer where
+    parseXML x = SnapshotDiskContainer
+        <$> x .@? "Description"
+        <*> x .@? "Format"
+        <*> x .@? "Url"
+        <*> x .@? "UserBucket"
+
+instance ToQuery SnapshotDiskContainer where
+    toQuery SnapshotDiskContainer{..} = mconcat
+        [ "Description" =? _sdcDescription
+        , "Format"      =? _sdcFormat
+        , "Url"         =? _sdcUrl
+        , "UserBucket"  =? _sdcUserBucket
         ]
 
 data RIProductDescription
@@ -11522,6 +13311,154 @@ instance ToQuery InstanceState where
     toQuery InstanceState{..} = mconcat
         [ "Code" =? _isCode
         , "Name" =? _isName
+        ]
+
+data VpcEndpoint = VpcEndpoint
+    { _veCreationTimestamp :: Maybe ISO8601
+    , _vePolicyDocument    :: Maybe Text
+    , _veRouteTableIds     :: List "item" Text
+    , _veServiceName       :: Maybe Text
+    , _veState             :: Maybe State
+    , _veVpcEndpointId     :: Maybe Text
+    , _veVpcId             :: Maybe Text
+    } deriving (Eq, Read, Show)
+
+-- | 'VpcEndpoint' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'veCreationTimestamp' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'vePolicyDocument' @::@ 'Maybe' 'Text'
+--
+-- * 'veRouteTableIds' @::@ ['Text']
+--
+-- * 'veServiceName' @::@ 'Maybe' 'Text'
+--
+-- * 'veState' @::@ 'Maybe' 'State'
+--
+-- * 'veVpcEndpointId' @::@ 'Maybe' 'Text'
+--
+-- * 'veVpcId' @::@ 'Maybe' 'Text'
+--
+vpcEndpoint :: VpcEndpoint
+vpcEndpoint = VpcEndpoint
+    { _veVpcEndpointId     = Nothing
+    , _veVpcId             = Nothing
+    , _veServiceName       = Nothing
+    , _veState             = Nothing
+    , _vePolicyDocument    = Nothing
+    , _veRouteTableIds     = mempty
+    , _veCreationTimestamp = Nothing
+    }
+
+-- | The date and time the VPC endpoint was created.
+veCreationTimestamp :: Lens' VpcEndpoint (Maybe UTCTime)
+veCreationTimestamp =
+    lens _veCreationTimestamp (\s a -> s { _veCreationTimestamp = a })
+        . mapping _Time
+
+-- | The policy document associated with the endpoint.
+vePolicyDocument :: Lens' VpcEndpoint (Maybe Text)
+vePolicyDocument = lens _vePolicyDocument (\s a -> s { _vePolicyDocument = a })
+
+-- | One or more route tables associated with the endpoint.
+veRouteTableIds :: Lens' VpcEndpoint [Text]
+veRouteTableIds = lens _veRouteTableIds (\s a -> s { _veRouteTableIds = a }) . _List
+
+-- | The name of the AWS service to which the endpoint is associated.
+veServiceName :: Lens' VpcEndpoint (Maybe Text)
+veServiceName = lens _veServiceName (\s a -> s { _veServiceName = a })
+
+-- | The state of the VPC endpoint.
+veState :: Lens' VpcEndpoint (Maybe State)
+veState = lens _veState (\s a -> s { _veState = a })
+
+-- | The ID of the VPC endpoint.
+veVpcEndpointId :: Lens' VpcEndpoint (Maybe Text)
+veVpcEndpointId = lens _veVpcEndpointId (\s a -> s { _veVpcEndpointId = a })
+
+-- | The ID of the VPC to which the endpoint is associated.
+veVpcId :: Lens' VpcEndpoint (Maybe Text)
+veVpcId = lens _veVpcId (\s a -> s { _veVpcId = a })
+
+instance FromXML VpcEndpoint where
+    parseXML x = VpcEndpoint
+        <$> x .@? "creationTimestamp"
+        <*> x .@? "policyDocument"
+        <*> x .@? "routeTableIdSet" .!@ mempty
+        <*> x .@? "serviceName"
+        <*> x .@? "state"
+        <*> x .@? "vpcEndpointId"
+        <*> x .@? "vpcId"
+
+instance ToQuery VpcEndpoint where
+    toQuery VpcEndpoint{..} = mconcat
+        [ "CreationTimestamp" =? _veCreationTimestamp
+        , "PolicyDocument"    =? _vePolicyDocument
+        , "RouteTableIdSet"   `toQueryList` _veRouteTableIds
+        , "ServiceName"       =? _veServiceName
+        , "State"             =? _veState
+        , "VpcEndpointId"     =? _veVpcEndpointId
+        , "VpcId"             =? _veVpcId
+        ]
+
+data ClientData = ClientData
+    { _cdComment     :: Maybe Text
+    , _cdUploadEnd   :: Maybe ISO8601
+    , _cdUploadSize  :: Maybe Double
+    , _cdUploadStart :: Maybe ISO8601
+    } deriving (Eq, Ord, Read, Show)
+
+-- | 'ClientData' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'cdComment' @::@ 'Maybe' 'Text'
+--
+-- * 'cdUploadEnd' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'cdUploadSize' @::@ 'Maybe' 'Double'
+--
+-- * 'cdUploadStart' @::@ 'Maybe' 'UTCTime'
+--
+clientData :: ClientData
+clientData = ClientData
+    { _cdUploadStart = Nothing
+    , _cdUploadEnd   = Nothing
+    , _cdUploadSize  = Nothing
+    , _cdComment     = Nothing
+    }
+
+-- | A user-defined comment about the disk upload.
+cdComment :: Lens' ClientData (Maybe Text)
+cdComment = lens _cdComment (\s a -> s { _cdComment = a })
+
+-- | The time that the disk upload ends.
+cdUploadEnd :: Lens' ClientData (Maybe UTCTime)
+cdUploadEnd = lens _cdUploadEnd (\s a -> s { _cdUploadEnd = a }) . mapping _Time
+
+-- | The size of the uploaded disk image, in GiB.
+cdUploadSize :: Lens' ClientData (Maybe Double)
+cdUploadSize = lens _cdUploadSize (\s a -> s { _cdUploadSize = a })
+
+-- | The time that the disk upload starts.
+cdUploadStart :: Lens' ClientData (Maybe UTCTime)
+cdUploadStart = lens _cdUploadStart (\s a -> s { _cdUploadStart = a }) . mapping _Time
+
+instance FromXML ClientData where
+    parseXML x = ClientData
+        <$> x .@? "Comment"
+        <*> x .@? "UploadEnd"
+        <*> x .@? "UploadSize"
+        <*> x .@? "UploadStart"
+
+instance ToQuery ClientData where
+    toQuery ClientData{..} = mconcat
+        [ "Comment"     =? _cdComment
+        , "UploadEnd"   =? _cdUploadEnd
+        , "UploadSize"  =? _cdUploadSize
+        , "UploadStart" =? _cdUploadStart
         ]
 
 data Placement = Placement
@@ -12242,8 +14179,8 @@ i1RamdiskId = lens _i1RamdiskId (\s a -> s { _i1RamdiskId = a })
 i1RootDeviceName :: Lens' Instance (Maybe Text)
 i1RootDeviceName = lens _i1RootDeviceName (\s a -> s { _i1RootDeviceName = a })
 
--- | The root device type used by the AMI. The AMI can use an Amazon EBS volume or
--- an instance store volume.
+-- | The root device type used by the AMI. The AMI can use an EBS volume or an
+-- instance store volume.
 i1RootDeviceType :: Lens' Instance DeviceType
 i1RootDeviceType = lens _i1RootDeviceType (\s a -> s { _i1RootDeviceType = a })
 
@@ -12431,15 +14368,16 @@ etDescription = lens _etDescription (\s a -> s { _etDescription = a })
 etExportTaskId :: Lens' ExportTask Text
 etExportTaskId = lens _etExportTaskId (\s a -> s { _etExportTaskId = a })
 
+-- | Information about the export task.
 etExportToS3Task :: Lens' ExportTask ExportToS3Task
 etExportToS3Task = lens _etExportToS3Task (\s a -> s { _etExportToS3Task = a })
 
--- | The instance being exported.
+-- | Information about the instance to export.
 etInstanceExportDetails :: Lens' ExportTask InstanceExportDetails
 etInstanceExportDetails =
     lens _etInstanceExportDetails (\s a -> s { _etInstanceExportDetails = a })
 
--- | The state of the conversion task.
+-- | The state of the export task.
 etState :: Lens' ExportTask ExportTaskState
 etState = lens _etState (\s a -> s { _etState = a })
 

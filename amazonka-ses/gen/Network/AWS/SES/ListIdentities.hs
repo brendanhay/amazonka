@@ -81,7 +81,7 @@ listIdentities = ListIdentities
 liIdentityType :: Lens' ListIdentities (Maybe IdentityType)
 liIdentityType = lens _liIdentityType (\s a -> s { _liIdentityType = a })
 
--- | The maximum number of identities per page. Possible values are 1-100
+-- | The maximum number of identities per page. Possible values are 1-1000
 -- inclusive.
 liMaxItems :: Lens' ListIdentities (Maybe Int)
 liMaxItems = lens _liMaxItems (\s a -> s { _liMaxItems = a })

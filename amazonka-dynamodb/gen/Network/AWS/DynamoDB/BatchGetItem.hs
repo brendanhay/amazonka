@@ -50,7 +50,7 @@
 -- individual tables. If you delay the batch operation using exponential
 -- backoff, the individual requests in the batch are much more likely to succeed.
 --
--- For more information, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#BatchOperations Batch Operations and Error Handling> in the /Amazon DynamoDB Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#BatchOperations Batch Operations and Error Handling> in the /AmazonDynamoDB Developer Guide/.
 --
 -- By default, /BatchGetItem/ performs eventually consistent reads on every
 -- table in the request. If you want strongly consistent reads instead, you can
@@ -113,11 +113,46 @@ batchGetItem = BatchGetItem
     , _bgiReturnConsumedCapacity = Nothing
     }
 
--- | A map of one or more table names and, for each table, the corresponding
--- primary keys for the items to retrieve. Each table name can be invoked only
--- once.
+-- | A map of one or more table names and, for each table, a map that describes
+-- one or more items to retrieve from that table. Each table name can be used
+-- only once per /BatchGetItem/ request.
 --
--- Each element in the map consists of the following:
+-- Each element in the map of items to retrieve consists of the following:
+--
+-- /ConsistentRead/ - If 'true', a strongly consistent read is used; if 'false'
+-- (the default), an eventually consistent read is used.
+--
+-- /ExpressionAttributeNames/ - One or more substitution tokens for attribute
+-- names in the /ProjectionExpression/ parameter. The following are some use cases
+-- for using /ExpressionAttributeNames/:
+--
+-- To access an attribute whose name conflicts with a DynamoDB reserved word.
+--
+-- To create a placeholder for repeating occurrences of an attribute name in
+-- an expression.
+--
+-- To prevent special characters in an attribute name from being
+-- misinterpreted in an expression.
+--
+-- Use the # character in an expression to dereference an attribute name. For
+-- example, consider the following attribute name:
+--
+-- 'Percentile'
+--
+-- The name of this attribute conflicts with a reserved word, so it cannot be
+-- used directly in an expression. (For the complete list of reserved words, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html Reserved Words> in the /Amazon DynamoDB Developer Guide/). To work around this,
+-- you could specify the following for /ExpressionAttributeNames/:
+--
+-- '{"#P":"Percentile"}'
+--
+-- You could then use this substitution in an expression, as in this example:
+--
+-- '#P = :val'
+--
+-- Tokens that begin with the : character are /expression attribute values/,
+-- which are placeholders for the actual value at runtime.
+--
+-- For more information on expression attribute names, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing ItemAttributes> in the /Amazon DynamoDB Developer Guide/.
 --
 -- /Keys/ - An array of primary key attribute values that define specific items
 -- in the table. For each primary key, you must provide /all/ of the key
@@ -125,16 +160,33 @@ batchGetItem = BatchGetItem
 -- provide the hash attribute. For a hash-and-range type primary key, you must
 -- provide /both/ the hash attribute and the range attribute.
 --
--- /AttributesToGet/ - One or more attributes to be retrieved from the table.
--- By default, all attributes are returned. If a specified attribute is not
--- found, it does not appear in the result.
+-- /ProjectionExpression/ - A string that identifies one or more attributes to
+-- retrieve from the table. These attributes can include scalars, sets, or
+-- elements of a JSON document. The attributes in the expression must be
+-- separated by commas.
+--
+-- If no attribute names are specified, then all attributes will be returned.
+-- If any of the requested attributes are not found, they will not appear in the
+-- result.
+--
+-- For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes> in the /Amazon DynamoDBDeveloper Guide/.
+--
+-- /AttributesToGet/ -
+--
+-- This is a legacy parameter, for backward compatibility. New applications
+-- should use /ProjectionExpression/ instead. Do not combine legacy parameters and
+-- expression parameters in a single API call; otherwise, DynamoDB will return a /ValidationException/ exception.
+--
+-- This parameter allows you to retrieve attributes of type List or Map;
+-- however, it cannot retrieve individual elements within a List or a Map.
+--
+-- The names of one or more attributes to retrieve. If no attribute names are
+-- provided, then all attributes will be returned. If any of the requested
+-- attributes are not found, they will not appear in the result.
 --
 -- Note that /AttributesToGet/ has no effect on provisioned throughput
 -- consumption. DynamoDB determines capacity units consumed based on item size,
 -- not on the amount of data that is returned to an application.
---
--- /ConsistentRead/ - If 'true', a strongly consistent read is used; if 'false'
--- (the default), an eventually consistent read is used.
 --
 --
 bgiRequestItems :: Lens' BatchGetItem (HashMap Text KeysAndAttributes)

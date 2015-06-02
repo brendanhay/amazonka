@@ -23,7 +23,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- | Describes one or more of your placement groups. For more information about
--- placement groups and cluster instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html Cluster Instances> in the /AmazonElastic Compute Cloud User Guide for Linux/.
+-- placement groups and cluster instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html Cluster Instances> in the /AmazonElastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribePlacementGroups.html>
 module Network.AWS.EC2.DescribePlacementGroups
@@ -73,6 +73,9 @@ describePlacementGroups = DescribePlacementGroups
     , _dpg1Filters    = mempty
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dpg1DryRun :: Lens' DescribePlacementGroups (Maybe Bool)
 dpg1DryRun = lens _dpg1DryRun (\s a -> s { _dpg1DryRun = a })
 

@@ -58,6 +58,7 @@ module Network.AWS.IAM
     , module Network.AWS.IAM.DetachUserPolicy
     , module Network.AWS.IAM.EnableMFADevice
     , module Network.AWS.IAM.GenerateCredentialReport
+    , module Network.AWS.IAM.GetAccessKeyLastUsed
     , module Network.AWS.IAM.GetAccountAuthorizationDetails
     , module Network.AWS.IAM.GetAccountPasswordPolicy
     , module Network.AWS.IAM.GetAccountSummary
@@ -164,6 +165,7 @@ import Network.AWS.IAM.DetachRolePolicy
 import Network.AWS.IAM.DetachUserPolicy
 import Network.AWS.IAM.EnableMFADevice
 import Network.AWS.IAM.GenerateCredentialReport
+import Network.AWS.IAM.GetAccessKeyLastUsed
 import Network.AWS.IAM.GetAccountAuthorizationDetails
 import Network.AWS.IAM.GetAccountPasswordPolicy
 import Network.AWS.IAM.GetAccountSummary

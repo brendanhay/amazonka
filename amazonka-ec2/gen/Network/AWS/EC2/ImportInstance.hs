@@ -22,9 +22,8 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Creates an import instance task using metadata from the specified disk image.
--- After importing the image, you then upload it using the 'ec2-import-volume'
--- command in the EC2 command line tools. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html Using theCommand Line Tools to Import Your Virtual Machine to Amazon EC2> in the /AmazonElastic Compute Cloud User Guide for Linux/.
+-- | Creates an import instance task using metadata from the specified disk image. 'ImportInstance' only supports single-volume VMs. To import multi-volume VMs,
+-- use 'ImportImage'. After importing the image, you then upload it using the 'ec2-import-volume' command in the EC2 command line tools. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html Using theCommand Line Tools to Import Your Virtual Machine to Amazon EC2> in the /AmazonElastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ImportInstance.html>
 module Network.AWS.EC2.ImportInstance
@@ -89,13 +88,17 @@ importInstance p1 = ImportInstance
 iiDescription :: Lens' ImportInstance (Maybe Text)
 iiDescription = lens _iiDescription (\s a -> s { _iiDescription = a })
 
+-- | The disk image.
 iiDiskImages :: Lens' ImportInstance [DiskImage]
 iiDiskImages = lens _iiDiskImages (\s a -> s { _iiDiskImages = a }) . _List
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 iiDryRun :: Lens' ImportInstance (Maybe Bool)
 iiDryRun = lens _iiDryRun (\s a -> s { _iiDryRun = a })
 
-
+-- | The launch specification.
 iiLaunchSpecification :: Lens' ImportInstance (Maybe ImportInstanceLaunchSpecification)
 iiLaunchSpecification =
     lens _iiLaunchSpecification (\s a -> s { _iiLaunchSpecification = a })
@@ -119,6 +122,7 @@ importInstanceResponse = ImportInstanceResponse
     { _iirConversionTask = Nothing
     }
 
+-- | Information about the conversion task.
 iirConversionTask :: Lens' ImportInstanceResponse (Maybe ConversionTask)
 iirConversionTask =
     lens _iirConversionTask (\s a -> s { _iirConversionTask = a })

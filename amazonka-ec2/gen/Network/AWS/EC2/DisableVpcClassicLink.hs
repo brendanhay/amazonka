@@ -69,6 +69,9 @@ disableVpcClassicLink p1 = DisableVpcClassicLink
     , _dvcl1DryRun = Nothing
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dvcl1DryRun :: Lens' DisableVpcClassicLink (Maybe Bool)
 dvcl1DryRun = lens _dvcl1DryRun (\s a -> s { _dvcl1DryRun = a })
 

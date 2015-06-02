@@ -72,6 +72,9 @@ describeVpcs = DescribeVpcs
     , _dv1Filters = mempty
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dv1DryRun :: Lens' DescribeVpcs (Maybe Bool)
 dv1DryRun = lens _dv1DryRun (\s a -> s { _dv1DryRun = a })
 

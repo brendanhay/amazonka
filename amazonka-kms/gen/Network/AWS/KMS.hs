@@ -43,6 +43,7 @@ module Network.AWS.KMS
     , module Network.AWS.KMS.RetireGrant
     , module Network.AWS.KMS.RevokeGrant
     , module Network.AWS.KMS.Types
+    , module Network.AWS.KMS.UpdateAlias
     , module Network.AWS.KMS.UpdateKeyDescription
     ) where
 
@@ -71,4 +72,5 @@ import Network.AWS.KMS.ReEncrypt
 import Network.AWS.KMS.RetireGrant
 import Network.AWS.KMS.RevokeGrant
 import Network.AWS.KMS.Types
+import Network.AWS.KMS.UpdateAlias
 import Network.AWS.KMS.UpdateKeyDescription

@@ -80,6 +80,9 @@ resetImageAttribute p1 p2 = ResetImageAttribute
 ria1Attribute :: Lens' ResetImageAttribute ResetImageAttributeName
 ria1Attribute = lens _ria1Attribute (\s a -> s { _ria1Attribute = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 ria1DryRun :: Lens' ResetImageAttribute (Maybe Bool)
 ria1DryRun = lens _ria1DryRun (\s a -> s { _ria1DryRun = a })
 

@@ -42,7 +42,7 @@
 -- the shard.
 --
 -- When you repeatedly read from an Amazon Kinesis stream use a 'GetShardIterator'
--- request to get the first shard iterator to to use in your first 'GetRecords'
+-- request to get the first shard iterator for use in your first 'GetRecords'
 -- request and then use the shard iterator returned by the 'GetRecords' request in 'NextShardIterator' for subsequent reads. A new shard iterator is returned by
 -- every 'GetRecords' request in 'NextShardIterator', which you use in the 'ShardIterator' parameter of the next 'GetRecords' request.
 --

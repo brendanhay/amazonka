@@ -26,7 +26,7 @@
 -- connections. The specified certificate replaces any prior certificate that
 -- was used on the same load balancer and port.
 --
--- For more information on updating your SSL certificate, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_UpdatingLoadBalancerSSL.html Updating an SSLCertificate for a Load Balancer> in the /Elastic Load Balancing Developer Guide/.
+-- For more information about updating your SSL certificate, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_UpdatingLoadBalancerSSL.html Updating anSSL Certificate for a Load Balancer> in the /Elastic Load Balancing DeveloperGuide/.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_SetLoadBalancerListenerSSLCertificate.html>
 module Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
@@ -89,9 +89,7 @@ slblsslcLoadBalancerPort =
     lens _slblsslcLoadBalancerPort
         (\s a -> s { _slblsslcLoadBalancerPort = a })
 
--- | The Amazon Resource Number (ARN) of the SSL certificate chain to use. For
--- more information on SSL certificates, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html  Managing Server Certificates> in
--- the /AWS Identity and Access Management User Guide/.
+-- | The Amazon Resource Name (ARN) of the SSL certificate.
 slblsslcSSLCertificateId :: Lens' SetLoadBalancerListenerSSLCertificate Text
 slblsslcSSLCertificateId =
     lens _slblsslcSSLCertificateId

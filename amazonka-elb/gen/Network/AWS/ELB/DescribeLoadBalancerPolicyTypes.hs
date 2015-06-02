@@ -22,10 +22,10 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Returns meta-information on the specified load balancer policies defined by
--- the Elastic Load Balancing service. The policy types that are returned from
--- this action can be used in a 'CreateLoadBalancerPolicy' action to instantiate
--- specific policy configurations that will be applied to a load balancer.
+-- | Describes the specified load balancer policy types.
+--
+-- You can use these policy types with 'CreateLoadBalancerPolicy' to create
+-- policy configurations for a load balancer.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeLoadBalancerPolicyTypes.html>
 module Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
@@ -71,9 +71,8 @@ describeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes
     { _dlbptPolicyTypeNames = mempty
     }
 
--- | Specifies the name of the policy types. If no names are specified, returns
--- the description of all the policy types defined by Elastic Load Balancing
--- service.
+-- | The names of the policy types. If no names are specified, describes all
+-- policy types defined by Elastic Load Balancing.
 dlbptPolicyTypeNames :: Lens' DescribeLoadBalancerPolicyTypes [Text]
 dlbptPolicyTypeNames =
     lens _dlbptPolicyTypeNames (\s a -> s { _dlbptPolicyTypeNames = a })
@@ -100,9 +99,7 @@ describeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesRespons
     { _dlbptrPolicyTypeDescriptions = mempty
     }
 
--- | List of policy type description structures of the specified policy type. If
--- no policy type names are specified, returns the description of all the policy
--- types defined by Elastic Load Balancing service.
+-- | Information about the policy types.
 dlbptrPolicyTypeDescriptions :: Lens' DescribeLoadBalancerPolicyTypesResponse [PolicyTypeDescription]
 dlbptrPolicyTypeDescriptions =
     lens _dlbptrPolicyTypeDescriptions

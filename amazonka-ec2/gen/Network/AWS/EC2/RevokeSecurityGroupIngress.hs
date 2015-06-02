@@ -120,6 +120,9 @@ revokeSecurityGroupIngress = RevokeSecurityGroupIngress
 rsgiCidrIp :: Lens' RevokeSecurityGroupIngress (Maybe Text)
 rsgiCidrIp = lens _rsgiCidrIp (\s a -> s { _rsgiCidrIp = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 rsgiDryRun :: Lens' RevokeSecurityGroupIngress (Maybe Bool)
 rsgiDryRun = lens _rsgiDryRun (\s a -> s { _rsgiDryRun = a })
 

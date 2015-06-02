@@ -25,7 +25,7 @@
 -- | Creates a Spot Instance request. Spot Instances are instances that Amazon EC2
 -- launches when the bid price that you specify exceeds the current Spot Price.
 -- Amazon EC2 periodically sets the Spot Price based on available Spot Instance
--- capacity and current Spot Instance requests. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html SpotInstance Requests> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
+-- capacity and current Spot Instance requests. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html SpotInstance Requests> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-RequestSpotInstances.html>
 module Network.AWS.EC2.RequestSpotInstances
@@ -36,6 +36,7 @@ module Network.AWS.EC2.RequestSpotInstances
     , requestSpotInstances
     -- ** Request lenses
     , rsiAvailabilityZoneGroup
+    , rsiClientToken
     , rsiDryRun
     , rsiInstanceCount
     , rsiLaunchGroup
@@ -60,6 +61,7 @@ import qualified GHC.Exts
 
 data RequestSpotInstances = RequestSpotInstances
     { _rsiAvailabilityZoneGroup :: Maybe Text
+    , _rsiClientToken           :: Maybe Text
     , _rsiDryRun                :: Maybe Bool
     , _rsiInstanceCount         :: Maybe Int
     , _rsiLaunchGroup           :: Maybe Text
@@ -75,6 +77,8 @@ data RequestSpotInstances = RequestSpotInstances
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rsiAvailabilityZoneGroup' @::@ 'Maybe' 'Text'
+--
+-- * 'rsiClientToken' @::@ 'Maybe' 'Text'
 --
 -- * 'rsiDryRun' @::@ 'Maybe' 'Bool'
 --
@@ -97,6 +101,7 @@ requestSpotInstances :: Text -- ^ 'rsiSpotPrice'
 requestSpotInstances p1 = RequestSpotInstances
     { _rsiSpotPrice             = p1
     , _rsiDryRun                = Nothing
+    , _rsiClientToken           = Nothing
     , _rsiInstanceCount         = Nothing
     , _rsiType                  = Nothing
     , _rsiValidFrom             = Nothing
@@ -131,6 +136,14 @@ rsiAvailabilityZoneGroup =
     lens _rsiAvailabilityZoneGroup
         (\s a -> s { _rsiAvailabilityZoneGroup = a })
 
+-- | Unique, case-sensitive identifier that you provide to ensure the idempotency
+-- of the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency> in the /Amazon Elastic Compute Cloud User Guide/.
+rsiClientToken :: Lens' RequestSpotInstances (Maybe Text)
+rsiClientToken = lens _rsiClientToken (\s a -> s { _rsiClientToken = a })
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 rsiDryRun :: Lens' RequestSpotInstances (Maybe Bool)
 rsiDryRun = lens _rsiDryRun (\s a -> s { _rsiDryRun = a })
 
@@ -209,6 +222,7 @@ instance ToPath RequestSpotInstances where
 instance ToQuery RequestSpotInstances where
     toQuery RequestSpotInstances{..} = mconcat
         [ "AvailabilityZoneGroup" =? _rsiAvailabilityZoneGroup
+        , "ClientToken"           =? _rsiClientToken
         , "DryRun"                =? _rsiDryRun
         , "InstanceCount"         =? _rsiInstanceCount
         , "LaunchGroup"           =? _rsiLaunchGroup

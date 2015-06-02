@@ -45,6 +45,9 @@ module Network.AWS.Lambda.Types
     -- * FunctionCode
     , FunctionCode
     , functionCode
+    , fcS3Bucket
+    , fcS3Key
+    , fcS3ObjectVersion
     , fcZipFile
 
     -- * FunctionCodeLocation
@@ -126,26 +129,19 @@ instance AWSService Lambda where
             | otherwise = False
 
 data Runtime
-    = Jvm    -- ^ jvm
-    | Nodejs -- ^ nodejs
-    | Python -- ^ python
+    = Nodejs -- ^ nodejs
       deriving (Eq, Ord, Read, Show, Generic, Enum)
 
 instance Hashable Runtime
 
 instance FromText Runtime where
     parser = takeLowerText >>= \case
-        "jvm"    -> pure Jvm
         "nodejs" -> pure Nodejs
-        "python" -> pure Python
         e        -> fail $
             "Failure parsing Runtime from " ++ show e
 
 instance ToText Runtime where
-    toText = \case
-        Jvm    -> "jvm"
-        Nodejs -> "nodejs"
-        Python -> "python"
+    toText Nodejs = "nodejs"
 
 instance ToByteString Runtime
 instance ToHeader     Runtime
@@ -247,33 +243,66 @@ instance FromJSON LogType where
 instance ToJSON LogType where
     toJSON = toJSONText
 
-newtype FunctionCode = FunctionCode
-    { _fcZipFile :: Maybe Base64
+data FunctionCode = FunctionCode
+    { _fcS3Bucket        :: Maybe Text
+    , _fcS3Key           :: Maybe Text
+    , _fcS3ObjectVersion :: Maybe Text
+    , _fcZipFile         :: Maybe Base64
     } deriving (Eq, Read, Show)
 
 -- | 'FunctionCode' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'fcS3Bucket' @::@ 'Maybe' 'Text'
+--
+-- * 'fcS3Key' @::@ 'Maybe' 'Text'
+--
+-- * 'fcS3ObjectVersion' @::@ 'Maybe' 'Text'
+--
 -- * 'fcZipFile' @::@ 'Maybe' 'Base64'
 --
 functionCode :: FunctionCode
 functionCode = FunctionCode
-    { _fcZipFile = Nothing
+    { _fcZipFile         = Nothing
+    , _fcS3Bucket        = Nothing
+    , _fcS3Key           = Nothing
+    , _fcS3ObjectVersion = Nothing
     }
 
--- | A base64-encoded .zip file containing your packaged source code. For more
--- information about creating a .zip file, go to <http://http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html Execution Permissions> in the /AWS Lambda Developer Guide/.
+-- | Amazon S3 bucket name where the .zip file containing your deployment package
+-- is stored. This bucket must reside in the same AWS region where you are
+-- creating the Lambda function.
+fcS3Bucket :: Lens' FunctionCode (Maybe Text)
+fcS3Bucket = lens _fcS3Bucket (\s a -> s { _fcS3Bucket = a })
+
+-- | The Amazon S3 object (the deployment package) key name you want to upload.
+fcS3Key :: Lens' FunctionCode (Maybe Text)
+fcS3Key = lens _fcS3Key (\s a -> s { _fcS3Key = a })
+
+-- | The Amazon S3 object (the deployment package) version you want to upload.
+fcS3ObjectVersion :: Lens' FunctionCode (Maybe Text)
+fcS3ObjectVersion =
+    lens _fcS3ObjectVersion (\s a -> s { _fcS3ObjectVersion = a })
+
+-- | A base64-encoded .zip file containing your deployment package. For more
+-- information about creating a .zip file, go to <http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html Execution Permissions> in the /AWS Lambda Developer Guide/.
 fcZipFile :: Lens' FunctionCode (Maybe Base64)
 fcZipFile = lens _fcZipFile (\s a -> s { _fcZipFile = a })
 
 instance FromJSON FunctionCode where
     parseJSON = withObject "FunctionCode" $ \o -> FunctionCode
-        <$> o .:? "ZipFile"
+        <$> o .:? "S3Bucket"
+        <*> o .:? "S3Key"
+        <*> o .:? "S3ObjectVersion"
+        <*> o .:? "ZipFile"
 
 instance ToJSON FunctionCode where
     toJSON FunctionCode{..} = object
-        [ "ZipFile" .= _fcZipFile
+        [ "ZipFile"         .= _fcZipFile
+        , "S3Bucket"        .= _fcS3Bucket
+        , "S3Key"           .= _fcS3Key
+        , "S3ObjectVersion" .= _fcS3ObjectVersion
         ]
 
 data FunctionCodeLocation = FunctionCodeLocation

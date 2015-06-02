@@ -22,12 +22,11 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Adds one or more tags for the specified load balancer. Each load balancer can
--- have a maximum of 10 tags. Each tag consists of a key and an optional value.
+-- | Adds the specified tags to the specified load balancer. Each load balancer
+-- can have a maximum of 10 tags.
 --
--- Tag keys must be unique for each load balancer. If a tag with the same key
--- is already associated with the load balancer, this action will update the
--- value of the key.
+-- Each tag consists of a key and an optional value. If a tag with the same key
+-- is already associated with the load balancer, 'AddTags' updates its value.
 --
 -- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#tagging-elb Tagging> in the /Elastic Load Balancing DeveloperGuide/.
 --
@@ -73,14 +72,13 @@ addTags p1 = AddTags
     , _atLoadBalancerNames = mempty
     }
 
--- | The name of the load balancer to tag. You can specify a maximum of one load
--- balancer name.
+-- | The name of the load balancer. You can specify one load balancer only.
 atLoadBalancerNames :: Lens' AddTags [Text]
 atLoadBalancerNames =
     lens _atLoadBalancerNames (\s a -> s { _atLoadBalancerNames = a })
         . _List
 
--- | A list of tags for each load balancer.
+-- | The tags.
 atTags :: Lens' AddTags (NonEmpty Tag)
 atTags = lens _atTags (\s a -> s { _atTags = a }) . _List1
 

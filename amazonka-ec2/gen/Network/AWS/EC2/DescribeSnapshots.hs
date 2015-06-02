@@ -22,7 +22,7 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Describes one or more of the Amazon EBS snapshots available to you. Available
+-- | Describes one or more of the EBS snapshots available to you. Available
 -- snapshots include public snapshots available for any AWS account to launch,
 -- private snapshots that you own, and private snapshots owned by another AWS
 -- account but for which you've been given explicit create volume permissions.
@@ -57,8 +57,7 @@
 -- your 'MaxResults' value, then that number of results is returned along with a 'NextToken' value that can be passed to a subsequent 'DescribeSnapshots' request to
 -- retrieve the remaining results.
 --
--- For more information about Amazon EBS snapshots, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html Amazon EBS Snapshots> in
--- the /Amazon Elastic Compute Cloud User Guide for Linux/.
+-- For more information about EBS snapshots, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html Amazon EBS Snapshots> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html>
 module Network.AWS.EC2.DescribeSnapshots
@@ -129,6 +128,9 @@ describeSnapshots = DescribeSnapshots
     , _ds1MaxResults          = Nothing
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 ds1DryRun :: Lens' DescribeSnapshots (Maybe Bool)
 ds1DryRun = lens _ds1DryRun (\s a -> s { _ds1DryRun = a })
 
@@ -232,6 +234,7 @@ describeSnapshotsResponse = DescribeSnapshotsResponse
 dsrNextToken :: Lens' DescribeSnapshotsResponse (Maybe Text)
 dsrNextToken = lens _dsrNextToken (\s a -> s { _dsrNextToken = a })
 
+-- | Information about the snapshots.
 dsrSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
 dsrSnapshots = lens _dsrSnapshots (\s a -> s { _dsrSnapshots = a }) . _List
 

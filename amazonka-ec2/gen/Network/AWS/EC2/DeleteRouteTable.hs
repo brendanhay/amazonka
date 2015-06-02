@@ -67,6 +67,9 @@ deleteRouteTable p1 = DeleteRouteTable
     , _drt1DryRun       = Nothing
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 drt1DryRun :: Lens' DeleteRouteTable (Maybe Bool)
 drt1DryRun = lens _drt1DryRun (\s a -> s { _drt1DryRun = a })
 

@@ -26,7 +26,7 @@
 -- access only to its own data. Thus, the credentials used to make this API call
 -- need to have access to the identity data.
 --
--- 'ListDatasets' can be called with temporary user credentials provided by
+-- ListDatasets can be called with temporary user credentials provided by
 -- Cognito Identity or with developer credentials. You should use the Cognito
 -- Identity credentials to make this API call.
 --

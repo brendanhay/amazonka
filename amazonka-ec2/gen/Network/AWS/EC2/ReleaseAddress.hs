@@ -87,6 +87,9 @@ releaseAddress = ReleaseAddress
 raAllocationId :: Lens' ReleaseAddress (Maybe Text)
 raAllocationId = lens _raAllocationId (\s a -> s { _raAllocationId = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 raDryRun :: Lens' ReleaseAddress (Maybe Bool)
 raDryRun = lens _raDryRun (\s a -> s { _raDryRun = a })
 

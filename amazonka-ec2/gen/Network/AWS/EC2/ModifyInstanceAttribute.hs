@@ -26,7 +26,7 @@
 -- only one attribute at a time.
 --
 -- To modify some attributes, the instance must be stopped. For more
--- information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingAttributesWhileInstanceStopped.html Modifying Attributes of a Stopped Instance> in the /AmazonElastic Compute Cloud User Guide for Linux/.
+-- information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingAttributesWhileInstanceStopped.html Modifying Attributes of a Stopped Instance> in the /AmazonElastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyInstanceAttribute.html>
 module Network.AWS.EC2.ModifyInstanceAttribute
@@ -145,7 +145,7 @@ mia1Attribute = lens _mia1Attribute (\s a -> s { _mia1Attribute = a })
 -- the instance is terminated.
 --
 -- To add instance store volumes to an Amazon EBS-backed instance, you must add
--- them when you launch the instance. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM Updating theBlock Device Mapping when Launching an Instance> in the /Amazon Elastic ComputeCloud User Guide for Linux/.
+-- them when you launch the instance. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM Updating theBlock Device Mapping when Launching an Instance> in the /Amazon Elastic ComputeCloud User Guide/.
 mia1BlockDeviceMappings :: Lens' ModifyInstanceAttribute [InstanceBlockDeviceMappingSpecification]
 mia1BlockDeviceMappings =
     lens _mia1BlockDeviceMappings (\s a -> s { _mia1BlockDeviceMappings = a })
@@ -158,6 +158,9 @@ mia1DisableApiTermination =
     lens _mia1DisableApiTermination
         (\s a -> s { _mia1DisableApiTermination = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 mia1DryRun :: Lens' ModifyInstanceAttribute (Maybe Bool)
 mia1DryRun = lens _mia1DryRun (\s a -> s { _mia1DryRun = a })
 

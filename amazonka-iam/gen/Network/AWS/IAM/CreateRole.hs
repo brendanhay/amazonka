@@ -22,13 +22,12 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Creates a new role for your AWS account. For more information about roles,
--- go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles>. For information about limitations on role names and
+-- | Creates a new role for your AWS account. For more information about roles, go
+-- to <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles>. For information about limitations on role names and
 -- the number of roles you can create, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities> in the /Using IAM/ guide.
 --
--- The example policy grants permission to an EC2 instance to assume the role.
--- The policy is URL-encoded according to RFC 3986. For more information about
--- RFC 3986, go to <http://www.faqs.org/rfcs/rfc3986.html http://www.faqs.org/rfcs/rfc3986.html>.
+-- The policy in the following example grants permission to an EC2 instance to
+-- assume the role.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateRole.html>
 module Network.AWS.IAM.CreateRole

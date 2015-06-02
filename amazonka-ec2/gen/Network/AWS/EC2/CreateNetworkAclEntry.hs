@@ -125,6 +125,9 @@ createNetworkAclEntry p1 p2 p3 p4 p5 p6 = CreateNetworkAclEntry
 cnaeCidrBlock :: Lens' CreateNetworkAclEntry Text
 cnaeCidrBlock = lens _cnaeCidrBlock (\s a -> s { _cnaeCidrBlock = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 cnaeDryRun :: Lens' CreateNetworkAclEntry (Maybe Bool)
 cnaeDryRun = lens _cnaeDryRun (\s a -> s { _cnaeDryRun = a })
 

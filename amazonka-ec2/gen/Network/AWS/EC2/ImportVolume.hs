@@ -25,7 +25,7 @@
 -- | Creates an import volume task using metadata from the specified disk image.
 -- After importing the image, you then upload it using the 'ec2-import-volume'
 -- command in the Amazon EC2 command-line interface (CLI) tools. For more
--- information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html Using the Command Line Tools to Import Your Virtual Machineto Amazon EC2> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
+-- information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html Using the Command Line Tools to Import Your Virtual Machineto Amazon EC2> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ImportVolume.html>
 module Network.AWS.EC2.ImportVolume
@@ -88,21 +88,26 @@ importVolume p1 p2 p3 = ImportVolume
     , _ivDescription      = Nothing
     }
 
--- | The Availability Zone for the resulting Amazon EBS volume.
+-- | The Availability Zone for the resulting EBS volume.
 ivAvailabilityZone :: Lens' ImportVolume Text
 ivAvailabilityZone =
     lens _ivAvailabilityZone (\s a -> s { _ivAvailabilityZone = a })
 
--- | An optional description for the volume being imported.
+-- | A description of the volume.
 ivDescription :: Lens' ImportVolume (Maybe Text)
 ivDescription = lens _ivDescription (\s a -> s { _ivDescription = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 ivDryRun :: Lens' ImportVolume (Maybe Bool)
 ivDryRun = lens _ivDryRun (\s a -> s { _ivDryRun = a })
 
+-- | The disk image.
 ivImage :: Lens' ImportVolume DiskImageDetail
 ivImage = lens _ivImage (\s a -> s { _ivImage = a })
 
+-- | The volume size.
 ivVolume :: Lens' ImportVolume VolumeDetail
 ivVolume = lens _ivVolume (\s a -> s { _ivVolume = a })
 
@@ -121,6 +126,7 @@ importVolumeResponse = ImportVolumeResponse
     { _ivrConversionTask = Nothing
     }
 
+-- | Information about the conversion task.
 ivrConversionTask :: Lens' ImportVolumeResponse (Maybe ConversionTask)
 ivrConversionTask =
     lens _ivrConversionTask (\s a -> s { _ivrConversionTask = a })

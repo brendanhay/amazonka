@@ -64,8 +64,8 @@ getStackPolicy p1 = GetStackPolicy
     { _gspStackName = p1
     }
 
--- | The name or stack ID that is associated with the stack whose policy you want
--- to get.
+-- | The name or unique stack ID that is associated with the stack whose policy
+-- you want to get.
 gspStackName :: Lens' GetStackPolicy Text
 gspStackName = lens _gspStackName (\s a -> s { _gspStackName = a })
 

@@ -72,6 +72,9 @@ describeInternetGateways = DescribeInternetGateways
     , _dig1Filters            = mempty
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dig1DryRun :: Lens' DescribeInternetGateways (Maybe Bool)
 dig1DryRun = lens _dig1DryRun (\s a -> s { _dig1DryRun = a })
 

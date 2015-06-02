@@ -28,7 +28,7 @@
 -- the process of transferring the final disk image, the command fails and
 -- returns an exception.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html Using the Command Line Tools to Import YourVirtual Machine to Amazon EC2> in the /Amazon Elastic Compute Cloud User Guidefor Linux/.
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UploadingYourInstancesandVolumes.html Using the Command Line Tools to Import YourVirtual Machine to Amazon EC2> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelConversionTask.html>
 module Network.AWS.EC2.CancelConversionTask
@@ -82,9 +82,13 @@ cctConversionTaskId :: Lens' CancelConversionTask Text
 cctConversionTaskId =
     lens _cctConversionTaskId (\s a -> s { _cctConversionTaskId = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 cctDryRun :: Lens' CancelConversionTask (Maybe Bool)
 cctDryRun = lens _cctDryRun (\s a -> s { _cctDryRun = a })
 
+-- | The reason for canceling the conversion task.
 cctReasonMessage :: Lens' CancelConversionTask (Maybe Text)
 cctReasonMessage = lens _cctReasonMessage (\s a -> s { _cctReasonMessage = a })
 

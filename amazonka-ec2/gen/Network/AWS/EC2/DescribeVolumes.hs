@@ -22,7 +22,7 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Describes the specified Amazon EBS volumes.
+-- | Describes the specified EBS volumes.
 --
 -- If you are describing a long list of volumes, you can paginate the output to
 -- make the list more manageable. The 'MaxResults' parameter sets the maximum
@@ -30,7 +30,7 @@
 -- your 'MaxResults' value, then that number of results is returned along with a 'NextToken' value that can be passed to a subsequent 'DescribeVolumes' request to retrieve
 -- the remaining results.
 --
--- For more information about Amazon EBS volumes, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html Amazon EBS Volumes> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
+-- For more information about EBS volumes, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html Amazon EBS Volumes> in the /AmazonElastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVolumes.html>
 module Network.AWS.EC2.DescribeVolumes
@@ -91,6 +91,9 @@ describeVolumes = DescribeVolumes
     , _dv2MaxResults = Nothing
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dv2DryRun :: Lens' DescribeVolumes (Maybe Bool)
 dv2DryRun = lens _dv2DryRun (\s a -> s { _dv2DryRun = a })
 
@@ -194,6 +197,7 @@ describeVolumesResponse = DescribeVolumesResponse
 dvrNextToken :: Lens' DescribeVolumesResponse (Maybe Text)
 dvrNextToken = lens _dvrNextToken (\s a -> s { _dvrNextToken = a })
 
+-- | Information about the volumes.
 dvrVolumes :: Lens' DescribeVolumesResponse [Volume]
 dvrVolumes = lens _dvrVolumes (\s a -> s { _dvrVolumes = a }) . _List
 

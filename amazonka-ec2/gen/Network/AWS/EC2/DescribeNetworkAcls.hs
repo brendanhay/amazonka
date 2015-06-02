@@ -74,6 +74,9 @@ describeNetworkAcls = DescribeNetworkAcls
     , _dna1Filters       = mempty
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dna1DryRun :: Lens' DescribeNetworkAcls (Maybe Bool)
 dna1DryRun = lens _dna1DryRun (\s a -> s { _dna1DryRun = a })
 

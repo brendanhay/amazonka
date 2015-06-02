@@ -74,6 +74,9 @@ ddo1DhcpOptionsId :: Lens' DeleteDhcpOptions Text
 ddo1DhcpOptionsId =
     lens _ddo1DhcpOptionsId (\s a -> s { _ddo1DhcpOptionsId = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 ddo1DryRun :: Lens' DeleteDhcpOptions (Maybe Bool)
 ddo1DryRun = lens _ddo1DryRun (\s a -> s { _ddo1DryRun = a })
 

@@ -26,7 +26,7 @@
 -- Amazon EC2 starts on your behalf when the bid price that you specify exceeds
 -- the current Spot Price. Amazon EC2 periodically sets the Spot Price based on
 -- available Spot Instance capacity and current Spot Instance requests. For more
--- information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html Spot Instance Requests> in the /Amazon Elastic Compute CloudUser Guide for Linux/.
+-- information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html Spot Instance Requests> in the /Amazon Elastic Compute CloudUser Guide/.
 --
 -- Canceling a Spot Instance request does not terminate running Spot Instances
 -- associated with the request.
@@ -76,6 +76,9 @@ cancelSpotInstanceRequests = CancelSpotInstanceRequests
     , _csirSpotInstanceRequestIds = mempty
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 csirDryRun :: Lens' CancelSpotInstanceRequests (Maybe Bool)
 csirDryRun = lens _csirDryRun (\s a -> s { _csirDryRun = a })
 

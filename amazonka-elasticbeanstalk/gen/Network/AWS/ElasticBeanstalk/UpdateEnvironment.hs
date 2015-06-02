@@ -176,8 +176,8 @@ ueTemplateName = lens _ueTemplateName (\s a -> s { _ueTemplateName = a })
 
 -- | This specifies the tier to use to update the environment.
 --
--- Condition: You can only update the tier version for an environment. If you
--- change the name of the type, AWS Elastic Beanstalk returns 'InvalidParameterValue' error.
+-- Condition: At this time, if you change the tier version, name, or type, AWS
+-- Elastic Beanstalk returns 'InvalidParameterValue' error.
 ueTier :: Lens' UpdateEnvironment (Maybe EnvironmentTier)
 ueTier = lens _ueTier (\s a -> s { _ueTier = a })
 
@@ -262,8 +262,12 @@ updateEnvironmentResponse = UpdateEnvironmentResponse
     , _uerTier                         = Nothing
     }
 
--- | Lists in-progress environment updates and application version deployments
--- that you can cancel.
+-- | Indicates if there is an in-progress environment configuration update or
+-- application version deployment that you can cancel.
+--
+-- 'true:' There is an update in progress.
+--
+-- 'false:' There are no updates currently in progress.
 uerAbortableOperationInProgress :: Lens' UpdateEnvironmentResponse (Maybe Bool)
 uerAbortableOperationInProgress =
     lens _uerAbortableOperationInProgress

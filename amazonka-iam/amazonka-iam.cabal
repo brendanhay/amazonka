@@ -79,6 +79,7 @@ library
         , Network.AWS.IAM.DetachUserPolicy
         , Network.AWS.IAM.EnableMFADevice
         , Network.AWS.IAM.GenerateCredentialReport
+        , Network.AWS.IAM.GetAccessKeyLastUsed
         , Network.AWS.IAM.GetAccountAuthorizationDetails
         , Network.AWS.IAM.GetAccountPasswordPolicy
         , Network.AWS.IAM.GetAccountSummary

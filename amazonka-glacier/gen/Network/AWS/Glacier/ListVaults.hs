@@ -92,10 +92,12 @@ listVaults p1 = ListVaults
     , _lvLimit     = Nothing
     }
 
--- | The 'AccountId' is the AWS Account ID. You can specify either the AWS Account
--- ID or optionally a '-', in which case Amazon Glacier uses the AWS Account ID
--- associated with the credentials used to sign the request. If you specify your
--- Account ID, do not include hyphens in it.
+-- | The 'AccountId' value is the AWS account ID. This value must match the AWS
+-- account ID associated with the credentials used to sign the request. You can
+-- either specify an AWS account ID or optionally a single apos'-'apos (hyphen),
+-- in which case Amazon Glacier uses the AWS account ID associated with the
+-- credentials used to sign the request. If you specify your Account ID, do not
+-- include any hyphens (apos-apos) in the ID.
 lvAccountId :: Lens' ListVaults Text
 lvAccountId = lens _lvAccountId (\s a -> s { _lvAccountId = a })
 

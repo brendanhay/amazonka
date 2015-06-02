@@ -27,6 +27,13 @@
 -- decrypted and then encrypted. This operation can also be used to change the
 -- encryption context of a ciphertext.
 --
+-- Unlike other actions, 'ReEncrypt' is authorized twice - once as 'ReEncryptFrom'
+-- on the source key and once as 'ReEncryptTo' on the destination key. We
+-- therefore recommend that you include the '"action":"kms:ReEncrypt*"' statement
+-- in your key policies to permit re-encryption from or to the key. The
+-- statement is included automatically when you authorize use of the key through
+-- the console but must be included manually when you set a policy by using the 'PutKeyPolicy' function.
+--
 -- <http://docs.aws.amazon.com/kms/latest/APIReference/API_ReEncrypt.html>
 module Network.AWS.KMS.ReEncrypt
     (
@@ -105,9 +112,9 @@ reDestinationEncryptionContext =
 -- This value can be a globally unique identifier, a fully specified ARN to
 -- either an alias or a key, or an alias name prefixed by "alias/".  Key ARN
 -- Example -
--- arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012 Alias ARN Example - arn:aws:kms:us-east-1:123456789012:/alias/MyAliasName
--- Globally Unique Key ID Example - 12345678-1234-1234-123456789012 Alias Name
--- Example - alias/MyAliasName
+-- arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012 Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName
+-- Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012 Alias
+-- Name Example - alias/MyAliasName
 reDestinationKeyId :: Lens' ReEncrypt Text
 reDestinationKeyId =
     lens _reDestinationKeyId (\s a -> s { _reDestinationKeyId = a })

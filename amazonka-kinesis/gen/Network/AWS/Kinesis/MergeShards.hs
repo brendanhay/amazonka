@@ -34,7 +34,7 @@
 -- 'MergeShards' is called when there is a need to reduce the overall capacity of
 -- a stream because of excess capacity that is not being used. You must specify
 -- the shard to be merged and the adjacent shard for a stream. For more
--- information about merging shards, see <http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-api-java.html#kinesis-using-api-java-resharding-merge Merge Two Shards> in the /Amazon KinesisDeveloper Guide/.
+-- information about merging shards, see <http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-resharding-merge.html Merge Two Shards> in the /Amazon KinesisDeveloper Guide/.
 --
 -- If the stream is in the 'ACTIVE' state, you can call 'MergeShards'. If a stream
 -- is in the 'CREATING', 'UPDATING', or 'DELETING' state, 'MergeShards' returns a 'ResourceInUseException'. If the specified stream does not exist, 'MergeShards' returns a 'ResourceNotFoundException'.

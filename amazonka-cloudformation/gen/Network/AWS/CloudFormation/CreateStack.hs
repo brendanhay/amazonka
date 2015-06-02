@@ -126,10 +126,10 @@ createStack p1 = CreateStack
 -- explicitly acknowledge their capabilities by specifying this parameter.
 --
 -- Currently, the only valid value is 'CAPABILITY_IAM', which is required for the
--- following resources: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html  AWS::CloudFormation::Stack>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html  AWS::IAM::AccessKey>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html AWS::IAM::Group>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html  AWS::IAM::InstanceProfile>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html  AWS::IAM::Policy>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html AWS::IAM::Role>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html  AWS::IAM::User>, and <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html  AWS::IAM::UserToGroupAddition>. If your
--- stack template contains these resources, we recommend that you review any
--- permissions associated with them. If you don't specify this parameter, this
--- action returns an 'InsufficientCapabilities' error.
+-- following resources: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html  AWS::IAM::AccessKey>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html  AWS::IAM::Group>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html AWS::IAM::InstanceProfile>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html  AWS::IAM::Policy>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html  AWS::IAM::Role>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html  AWS::IAM::User>
+-- , and <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html  AWS::IAM::UserToGroupAddition>. If your stack template contains these
+-- resources, we recommend that you review any permissions associated with them.
+-- If you don't specify this parameter, this action returns an 'InsufficientCapabilities' error.
 csCapabilities :: Lens' CreateStack [Capability]
 csCapabilities = lens _csCapabilities (\s a -> s { _csCapabilities = a }) . _List
 
@@ -160,11 +160,12 @@ csOnFailure = lens _csOnFailure (\s a -> s { _csOnFailure = a })
 csParameters :: Lens' CreateStack [Parameter]
 csParameters = lens _csParameters (\s a -> s { _csParameters = a }) . _List
 
--- | The name associated with the stack. The name must be unique within your AWS
--- account.
+-- | The name that is associated with the stack. The name must be unique in the
+-- region in which you are creating the stack.
 --
--- Must contain only alphanumeric characters (case sensitive) and start with an
--- alpha character. Maximum length of the name is 255 characters.
+-- A stack name can contain only alphanumeric characters (case sensitive) and
+-- hyphens. It must start with an alphabetic character and cannot be longer than
+-- 255 characters.
 csStackName :: Lens' CreateStack Text
 csStackName = lens _csStackName (\s a -> s { _csStackName = a })
 
@@ -199,7 +200,7 @@ csTemplateBody :: Lens' CreateStack (Maybe Text)
 csTemplateBody = lens _csTemplateBody (\s a -> s { _csTemplateBody = a })
 
 -- | Location of file containing the template body. The URL must point to a
--- template (max size: 307,200 bytes) located in an S3 bucket in the same region
+-- template (max size: 460,800 bytes) located in an S3 bucket in the same region
 -- as the stack. For more information, go to the <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS
 -- CloudFormation User Guide.
 --

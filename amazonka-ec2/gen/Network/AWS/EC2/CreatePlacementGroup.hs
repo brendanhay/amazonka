@@ -25,7 +25,7 @@
 -- | Creates a placement group that you launch cluster instances into. You must
 -- give the group a name that's unique within the scope of your account.
 --
--- For more information about placement groups and cluster instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html Cluster Instances> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
+-- For more information about placement groups and cluster instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html Cluster Instances> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreatePlacementGroup.html>
 module Network.AWS.EC2.CreatePlacementGroup
@@ -75,6 +75,9 @@ createPlacementGroup p1 p2 = CreatePlacementGroup
     , _cpgDryRun    = Nothing
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 cpgDryRun :: Lens' CreatePlacementGroup (Maybe Bool)
 cpgDryRun = lens _cpgDryRun (\s a -> s { _cpgDryRun = a })
 

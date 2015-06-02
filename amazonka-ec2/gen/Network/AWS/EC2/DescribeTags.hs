@@ -24,7 +24,7 @@
 
 -- | Describes one or more of the tags for your EC2 resources.
 --
--- For more information about tags, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Resources> in the /AmazonElastic Compute Cloud User Guide for Linux/.
+-- For more information about tags, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Resources> in the /AmazonElastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeTags.html>
 module Network.AWS.EC2.DescribeTags
@@ -80,6 +80,9 @@ describeTags = DescribeTags
     , _dtNextToken  = Nothing
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dtDryRun :: Lens' DescribeTags (Maybe Bool)
 dtDryRun = lens _dtDryRun (\s a -> s { _dtDryRun = a })
 

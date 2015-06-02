@@ -81,6 +81,7 @@ describeExportTasksResponse = DescribeExportTasksResponse
     { _detrExportTasks = mempty
     }
 
+-- | Information about the export tasks.
 detrExportTasks :: Lens' DescribeExportTasksResponse [ExportTask]
 detrExportTasks = lens _detrExportTasks (\s a -> s { _detrExportTasks = a }) . _List
 

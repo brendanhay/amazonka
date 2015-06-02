@@ -25,11 +25,13 @@ module Network.AWS.CognitoSync
     , module Network.AWS.CognitoSync.DescribeIdentityPoolUsage
     , module Network.AWS.CognitoSync.DescribeIdentityUsage
     , module Network.AWS.CognitoSync.GetBulkPublishDetails
+    , module Network.AWS.CognitoSync.GetCognitoEvents
     , module Network.AWS.CognitoSync.GetIdentityPoolConfiguration
     , module Network.AWS.CognitoSync.ListDatasets
     , module Network.AWS.CognitoSync.ListIdentityPoolUsage
     , module Network.AWS.CognitoSync.ListRecords
     , module Network.AWS.CognitoSync.RegisterDevice
+    , module Network.AWS.CognitoSync.SetCognitoEvents
     , module Network.AWS.CognitoSync.SetIdentityPoolConfiguration
     , module Network.AWS.CognitoSync.SubscribeToDataset
     , module Network.AWS.CognitoSync.Types
@@ -43,11 +45,13 @@ import Network.AWS.CognitoSync.DescribeDataset
 import Network.AWS.CognitoSync.DescribeIdentityPoolUsage
 import Network.AWS.CognitoSync.DescribeIdentityUsage
 import Network.AWS.CognitoSync.GetBulkPublishDetails
+import Network.AWS.CognitoSync.GetCognitoEvents
 import Network.AWS.CognitoSync.GetIdentityPoolConfiguration
 import Network.AWS.CognitoSync.ListDatasets
 import Network.AWS.CognitoSync.ListIdentityPoolUsage
 import Network.AWS.CognitoSync.ListRecords
 import Network.AWS.CognitoSync.RegisterDevice
+import Network.AWS.CognitoSync.SetCognitoEvents
 import Network.AWS.CognitoSync.SetIdentityPoolConfiguration
 import Network.AWS.CognitoSync.SubscribeToDataset
 import Network.AWS.CognitoSync.Types

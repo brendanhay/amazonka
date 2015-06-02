@@ -70,6 +70,9 @@ deleteVpnGateway p1 = DeleteVpnGateway
     , _dvgDryRun       = Nothing
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dvgDryRun :: Lens' DeleteVpnGateway (Maybe Bool)
 dvgDryRun = lens _dvgDryRun (\s a -> s { _dvgDryRun = a })
 

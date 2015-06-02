@@ -271,6 +271,13 @@ module Network.AWS.IAM.Types
     , sc1UploadDate
     , sc1UserName
 
+    -- * AccessKeyLastUsed
+    , AccessKeyLastUsed
+    , accessKeyLastUsed
+    , akluLastUsedDate
+    , akluRegion
+    , akluServiceName
+
     -- * AccessKeyMetadata
     , AccessKeyMetadata
     , accessKeyMetadata
@@ -869,8 +876,7 @@ pvCreateDate = lens _pvCreateDate (\s a -> s { _pvCreateDate = a }) . mapping _T
 
 -- | The policy document.
 --
--- The policy document is returned in the response to the 'GetPolicyVersion'
--- operation. It is not included in the response to the 'ListPolicyVersions' or 'GetAccountAuthorizationDetails' operations.
+-- The policy document is returned in the response to the 'GetPolicyVersion' and 'GetAccountAuthorizationDetails' operations. It is not returned in the response to the 'CreatePolicyVersion' or 'ListPolicyVersions' operations.
 pvDocument :: Lens' PolicyVersion (Maybe Text)
 pvDocument = lens _pvDocument (\s a -> s { _pvDocument = a })
 
@@ -1040,8 +1046,6 @@ rdArn :: Lens' RoleDetail (Maybe Text)
 rdArn = lens _rdArn (\s a -> s { _rdArn = a })
 
 -- | The trust policy that grants permission to assume the role.
---
--- The returned policy is URL-encoded according to <http://www.faqs.org/rfcs/rfc3986.html RFC 3986>.
 rdAssumeRolePolicyDocument :: Lens' RoleDetail (Maybe Text)
 rdAssumeRolePolicyDocument =
     lens _rdAssumeRolePolicyDocument
@@ -1665,8 +1669,6 @@ policyDetail = PolicyDetail
     }
 
 -- | The policy document.
---
--- The returned policy is URL-encoded according to <http://www.faqs.org/rfcs/rfc3986.html RFC 3986>.
 pdPolicyDocument :: Lens' PolicyDetail (Maybe Text)
 pdPolicyDocument = lens _pdPolicyDocument (\s a -> s { _pdPolicyDocument = a })
 
@@ -1809,8 +1811,6 @@ rArn :: Lens' Role Text
 rArn = lens _rArn (\s a -> s { _rArn = a })
 
 -- | The policy that grants an entity permission to assume the role.
---
--- The returned policy is URL-encoded according to <http://www.faqs.org/rfcs/rfc3986.html RFC 3986>.
 rAssumeRolePolicyDocument :: Lens' Role (Maybe Text)
 rAssumeRolePolicyDocument =
     lens _rAssumeRolePolicyDocument
@@ -2419,6 +2419,61 @@ instance ToQuery SigningCertificate where
         , "Status"          =? _sc1Status
         , "UploadDate"      =? _sc1UploadDate
         , "UserName"        =? _sc1UserName
+        ]
+
+data AccessKeyLastUsed = AccessKeyLastUsed
+    { _akluLastUsedDate :: ISO8601
+    , _akluRegion       :: Text
+    , _akluServiceName  :: Text
+    } deriving (Eq, Ord, Read, Show)
+
+-- | 'AccessKeyLastUsed' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'akluLastUsedDate' @::@ 'UTCTime'
+--
+-- * 'akluRegion' @::@ 'Text'
+--
+-- * 'akluServiceName' @::@ 'Text'
+--
+accessKeyLastUsed :: UTCTime -- ^ 'akluLastUsedDate'
+                  -> Text -- ^ 'akluServiceName'
+                  -> Text -- ^ 'akluRegion'
+                  -> AccessKeyLastUsed
+accessKeyLastUsed p1 p2 p3 = AccessKeyLastUsed
+    { _akluLastUsedDate = withIso _Time (const id) p1
+    , _akluServiceName  = p2
+    , _akluRegion       = p3
+    }
+
+-- | The date and time, in <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the access key was most
+-- recently used.
+akluLastUsedDate :: Lens' AccessKeyLastUsed UTCTime
+akluLastUsedDate = lens _akluLastUsedDate (\s a -> s { _akluLastUsedDate = a }) . _Time
+
+-- | The AWS region where this access key was most recently used.
+--
+-- For more information about AWS regions, see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints> in the
+-- Amazon Web Services General Reference.
+akluRegion :: Lens' AccessKeyLastUsed Text
+akluRegion = lens _akluRegion (\s a -> s { _akluRegion = a })
+
+-- | The name of the AWS service with which this access key was most recently used.
+akluServiceName :: Lens' AccessKeyLastUsed Text
+akluServiceName = lens _akluServiceName (\s a -> s { _akluServiceName = a })
+
+instance FromXML AccessKeyLastUsed where
+    parseXML x = AccessKeyLastUsed
+        <$> x .@  "LastUsedDate"
+        <*> x .@  "Region"
+        <*> x .@  "ServiceName"
+
+instance ToQuery AccessKeyLastUsed where
+    toQuery AccessKeyLastUsed{..} = mconcat
+        [ "LastUsedDate" =? _akluLastUsedDate
+        , "Region"       =? _akluRegion
+        , "ServiceName"  =? _akluServiceName
         ]
 
 data AccessKeyMetadata = AccessKeyMetadata

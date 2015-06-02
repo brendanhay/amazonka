@@ -40,10 +40,10 @@
 -- Download a 128 MB chunk of output by specifying the appropriate byte range
 -- using the 'Range' header.
 --
--- Along with the data, the response includes a checksum of the payload. You
--- compute the checksum of the payload on the client and compare it with the
--- checksum you received in the response to ensure you received all the expected
--- data.
+-- Along with the data, the response includes a SHA256 tree hash of the
+-- payload. You compute the checksum of the payload on the client and compare it
+-- with the checksum you received in the response to ensure you received all the
+-- expected data.
 --
 -- Repeat steps 1 and 2 for all the eight 128 MB chunks of output data, each
 -- time specifying the appropriate byte range.
@@ -126,10 +126,11 @@ getJobOutput p1 p2 p3 = GetJobOutput
     , _gjoRange     = Nothing
     }
 
--- | The 'AccountId' is the AWS Account ID. You can specify either the AWS Account
--- ID or optionally a '-', in which case Amazon Glacier uses the AWS Account ID
--- associated with the credentials used to sign the request. If you specify your
--- Account ID, do not include hyphens in it.
+-- | The 'AccountId' value is the AWS account ID of the account that owns the vault.
+-- You can either specify an AWS account ID or optionally a single apos'-'apos
+-- (hyphen), in which case Amazon Glacier uses the AWS account ID associated
+-- with the credentials used to sign the request. If you use an account ID, do
+-- not include any hyphens (apos-apos) in the ID.
 gjoAccountId :: Lens' GetJobOutput Text
 gjoAccountId = lens _gjoAccountId (\s a -> s { _gjoAccountId = a })
 

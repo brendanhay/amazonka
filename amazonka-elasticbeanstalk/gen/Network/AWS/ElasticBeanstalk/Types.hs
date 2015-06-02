@@ -86,6 +86,7 @@ module Network.AWS.ElasticBeanstalk.Types
     , configurationOptionSetting
     , cosNamespace
     , cosOptionName
+    , cosResourceName
     , cosValue
 
     -- * ConfigurationOptionValueType
@@ -119,6 +120,7 @@ module Network.AWS.ElasticBeanstalk.Types
     , optionSpecification
     , osNamespace
     , osOptionName
+    , osResourceName
 
     -- * EnvironmentResourceDescription
     , EnvironmentResourceDescription
@@ -693,9 +695,10 @@ instance FromXML ConfigurationDeploymentStatus where
     parseXML = parseXMLText "ConfigurationDeploymentStatus"
 
 data ConfigurationOptionSetting = ConfigurationOptionSetting
-    { _cosNamespace  :: Maybe Text
-    , _cosOptionName :: Maybe Text
-    , _cosValue      :: Maybe Text
+    { _cosNamespace    :: Maybe Text
+    , _cosOptionName   :: Maybe Text
+    , _cosResourceName :: Maybe Text
+    , _cosValue        :: Maybe Text
     } deriving (Eq, Ord, Read, Show)
 
 -- | 'ConfigurationOptionSetting' constructor.
@@ -706,13 +709,16 @@ data ConfigurationOptionSetting = ConfigurationOptionSetting
 --
 -- * 'cosOptionName' @::@ 'Maybe' 'Text'
 --
+-- * 'cosResourceName' @::@ 'Maybe' 'Text'
+--
 -- * 'cosValue' @::@ 'Maybe' 'Text'
 --
 configurationOptionSetting :: ConfigurationOptionSetting
 configurationOptionSetting = ConfigurationOptionSetting
-    { _cosNamespace  = Nothing
-    , _cosOptionName = Nothing
-    , _cosValue      = Nothing
+    { _cosResourceName = Nothing
+    , _cosNamespace    = Nothing
+    , _cosOptionName   = Nothing
+    , _cosValue        = Nothing
     }
 
 -- | A unique namespace identifying the option's associated AWS resource.
@@ -723,6 +729,10 @@ cosNamespace = lens _cosNamespace (\s a -> s { _cosNamespace = a })
 cosOptionName :: Lens' ConfigurationOptionSetting (Maybe Text)
 cosOptionName = lens _cosOptionName (\s a -> s { _cosOptionName = a })
 
+-- | A unique resource name for a time-based scaling configuration option.
+cosResourceName :: Lens' ConfigurationOptionSetting (Maybe Text)
+cosResourceName = lens _cosResourceName (\s a -> s { _cosResourceName = a })
+
 -- | The current value for the configuration option.
 cosValue :: Lens' ConfigurationOptionSetting (Maybe Text)
 cosValue = lens _cosValue (\s a -> s { _cosValue = a })
@@ -731,13 +741,15 @@ instance FromXML ConfigurationOptionSetting where
     parseXML x = ConfigurationOptionSetting
         <$> x .@? "Namespace"
         <*> x .@? "OptionName"
+        <*> x .@? "ResourceName"
         <*> x .@? "Value"
 
 instance ToQuery ConfigurationOptionSetting where
     toQuery ConfigurationOptionSetting{..} = mconcat
-        [ "Namespace"  =? _cosNamespace
-        , "OptionName" =? _cosOptionName
-        , "Value"      =? _cosValue
+        [ "Namespace"    =? _cosNamespace
+        , "OptionName"   =? _cosOptionName
+        , "ResourceName" =? _cosResourceName
+        , "Value"        =? _cosValue
         ]
 
 data ConfigurationOptionValueType
@@ -979,8 +991,9 @@ instance ToQuery ApplicationVersionDescription where
         ]
 
 data OptionSpecification = OptionSpecification
-    { _osNamespace  :: Maybe Text
-    , _osOptionName :: Maybe Text
+    { _osNamespace    :: Maybe Text
+    , _osOptionName   :: Maybe Text
+    , _osResourceName :: Maybe Text
     } deriving (Eq, Ord, Read, Show)
 
 -- | 'OptionSpecification' constructor.
@@ -991,10 +1004,13 @@ data OptionSpecification = OptionSpecification
 --
 -- * 'osOptionName' @::@ 'Maybe' 'Text'
 --
+-- * 'osResourceName' @::@ 'Maybe' 'Text'
+--
 optionSpecification :: OptionSpecification
 optionSpecification = OptionSpecification
-    { _osNamespace  = Nothing
-    , _osOptionName = Nothing
+    { _osResourceName = Nothing
+    , _osNamespace    = Nothing
+    , _osOptionName   = Nothing
     }
 
 -- | A unique namespace identifying the option's associated AWS resource.
@@ -1005,15 +1021,21 @@ osNamespace = lens _osNamespace (\s a -> s { _osNamespace = a })
 osOptionName :: Lens' OptionSpecification (Maybe Text)
 osOptionName = lens _osOptionName (\s a -> s { _osOptionName = a })
 
+-- | A unique resource name for a time-based scaling configuration option.
+osResourceName :: Lens' OptionSpecification (Maybe Text)
+osResourceName = lens _osResourceName (\s a -> s { _osResourceName = a })
+
 instance FromXML OptionSpecification where
     parseXML x = OptionSpecification
         <$> x .@? "Namespace"
         <*> x .@? "OptionName"
+        <*> x .@? "ResourceName"
 
 instance ToQuery OptionSpecification where
     toQuery OptionSpecification{..} = mconcat
-        [ "Namespace"  =? _osNamespace
-        , "OptionName" =? _osOptionName
+        [ "Namespace"    =? _osNamespace
+        , "OptionName"   =? _osOptionName
+        , "ResourceName" =? _osResourceName
         ]
 
 data EnvironmentResourceDescription = EnvironmentResourceDescription
@@ -1944,8 +1966,12 @@ environmentDescription = EnvironmentDescription
     , _ed1Tier                         = Nothing
     }
 
--- | Lists in-progress environment updates and application version deployments
--- that you can cancel.
+-- | Indicates if there is an in-progress environment configuration update or
+-- application version deployment that you can cancel.
+--
+-- 'true:' There is an update in progress.
+--
+-- 'false:' There are no updates currently in progress.
 ed1AbortableOperationInProgress :: Lens' EnvironmentDescription (Maybe Bool)
 ed1AbortableOperationInProgress =
     lens _ed1AbortableOperationInProgress

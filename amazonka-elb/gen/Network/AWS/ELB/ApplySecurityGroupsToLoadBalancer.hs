@@ -22,11 +22,11 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Associates one or more security groups with your load balancer in Amazon
--- Virtual Private Cloud (Amazon VPC). The provided security group IDs will
--- override any currently applied security groups.
+-- | Associates one or more security groups with your load balancer in a virtual
+-- private cloud (VPC). The specified security groups override the previously
+-- associated security groups.
 --
--- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/USVPC_ApplySG.html Manage Security Groups in Amazon VPC> in the /Elastic Load Balancing Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/USVPC_ApplySG.html Manage Security Groups for Amazon VPC> in the /Elastic Load Balancing Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_ApplySecurityGroupsToLoadBalancer.html>
 module Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
@@ -72,15 +72,13 @@ applySecurityGroupsToLoadBalancer p1 = ApplySecurityGroupsToLoadBalancer
     , _asgtlbSecurityGroups   = mempty
     }
 
--- | The name associated with the load balancer. The name must be unique within
--- the set of load balancers associated with your AWS account.
+-- | The name of the load balancer.
 asgtlbLoadBalancerName :: Lens' ApplySecurityGroupsToLoadBalancer Text
 asgtlbLoadBalancerName =
     lens _asgtlbLoadBalancerName (\s a -> s { _asgtlbLoadBalancerName = a })
 
--- | A list of security group IDs to associate with your load balancer in VPC.
--- The security group IDs must be provided as the ID and not the security group
--- name (For example, sg-1234).
+-- | The IDs of the security groups to associate with the load balancer. Note that
+-- you cannot specify the name of the security group.
 asgtlbSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancer [Text]
 asgtlbSecurityGroups =
     lens _asgtlbSecurityGroups (\s a -> s { _asgtlbSecurityGroups = a })
@@ -107,7 +105,7 @@ applySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerRes
     { _asgtlbrSecurityGroups = mempty
     }
 
--- | A list of security group IDs associated with your load balancer.
+-- | The IDs of the security groups associated with the load balancer.
 asgtlbrSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancerResponse [Text]
 asgtlbrSecurityGroups =
     lens _asgtlbrSecurityGroups (\s a -> s { _asgtlbrSecurityGroups = a })

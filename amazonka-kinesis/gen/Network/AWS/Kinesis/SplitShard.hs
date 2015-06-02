@@ -38,7 +38,7 @@
 -- position in the shard where the shard gets split in two. In many cases, the
 -- new hash key might simply be the average of the beginning and ending hash
 -- key, but it can be any hash key value in the range being mapped into the
--- shard. For more information about splitting shards, see <http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-api-java.html#kinesis-using-api-java-resharding-split Split a Shard> in the /Amazon Kinesis Developer Guide/.
+-- shard. For more information about splitting shards, see <http://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-resharding-split.html Split a Shard> in the /Amazon Kinesis Developer Guide/.
 --
 -- You can use 'DescribeStream' to determine the shard ID and hash key values for
 -- the 'ShardToSplit' and 'NewStartingHashKey' parameters that are specified in the 'SplitShard' request.
@@ -56,9 +56,8 @@
 -- If the specified stream does not exist, 'DescribeStream' returns a 'ResourceNotFoundException'. If you try to create more shards than are authorized for your account, you
 -- receive a 'LimitExceededException'.
 --
--- The default limit for an AWS account is 10 shards per stream. If you need to
--- create a stream with more than 10 shards, <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html contact AWS Support> to increase the
--- limit on your account.
+-- For the default shard limit for an AWS account, see <http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html Amazon Kinesis Limits>.
+-- If you need to increase this limit, <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html contact AWS Support>
 --
 -- If you try to operate on too many streams in parallel using 'CreateStream', 'DeleteStream', 'MergeShards' or 'SplitShard', you receive a 'LimitExceededException'.
 --

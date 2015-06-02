@@ -108,7 +108,7 @@ utfdDomainName = lens _utfdDomainName (\s a -> s { _utfdDomainName = a })
 -- Default: None
 --
 -- Valid values: Unicode characters including alphanumeric, space, and
--- ".:/=+\-%@"
+-- ".:/=+\-@"
 --
 -- Constraints: Each key can be 1-128 characters long.
 --
@@ -123,7 +123,7 @@ utfdDomainName = lens _utfdDomainName (\s a -> s { _utfdDomainName = a })
 -- Default: None
 --
 -- Valid values: Unicode characters including alphanumeric, space, and
--- ".:/=+\-%@"
+-- ".:/=+\-@"
 --
 -- Constraints: Each value can be 0-256 characters long.
 --

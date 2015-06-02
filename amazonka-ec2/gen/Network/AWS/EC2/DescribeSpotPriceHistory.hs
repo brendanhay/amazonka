@@ -24,7 +24,7 @@
 
 -- | Describes the Spot Price history. The prices returned are listed in
 -- chronological order, from the oldest to the most recent, for up to the past
--- 90 days. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-history.html Spot Instance Pricing History> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
+-- 90 days. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-history.html Spot Instance Pricing History> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- When you specify a start and end time, this operation returns the prices of
 -- the instance types within the time range that you specified and the time when
@@ -115,11 +115,14 @@ dsphAvailabilityZone :: Lens' DescribeSpotPriceHistory (Maybe Text)
 dsphAvailabilityZone =
     lens _dsphAvailabilityZone (\s a -> s { _dsphAvailabilityZone = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dsphDryRun :: Lens' DescribeSpotPriceHistory (Maybe Bool)
 dsphDryRun = lens _dsphDryRun (\s a -> s { _dsphDryRun = a })
 
 -- | The date and time, up to the current date, from which to stop retrieving the
--- price history data.
+-- price history data, in UTC format (for example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
 dsphEndTime :: Lens' DescribeSpotPriceHistory (Maybe UTCTime)
 dsphEndTime = lens _dsphEndTime (\s a -> s { _dsphEndTime = a }) . mapping _Time
 
@@ -135,9 +138,9 @@ dsphEndTime = lens _dsphEndTime (\s a -> s { _dsphEndTime = a }) . mapping _Time
 -- 'spot-price' - The Spot Price. The value must match exactly (or use
 -- wildcards; greater than or less than comparison is not supported).
 --
--- 'timestamp' - The timestamp of the Spot Price history (for example,
--- 2010-08-16T05:06:11.000Z). You can use wildcards (* and ?). Greater than or
--- less than comparison is not supported.
+-- 'timestamp' - The timestamp of the Spot Price history, in UTC format (for
+-- example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). You can use wildcards (* and ?). Greater than
+-- or less than comparison is not supported.
 --
 --
 dsphFilters :: Lens' DescribeSpotPriceHistory [Filter]
@@ -149,15 +152,13 @@ dsphInstanceTypes =
     lens _dsphInstanceTypes (\s a -> s { _dsphInstanceTypes = a })
         . _List
 
--- | The maximum number of results to return for the request in a single page. The
--- remaining results of the initial request can be seen by sending another
--- request with the returned 'NextToken' value. This value can be between 5 and
--- 1000; if 'MaxResults' is given a value larger than 1000, only 1000 results are
--- returned.
+-- | The maximum number of results to return in a single call. Specify a value
+-- between 1 and 1000. The default value is 1000. To retrieve the remaining
+-- results, make another call with the returned 'NextToken' value.
 dsphMaxResults :: Lens' DescribeSpotPriceHistory (Maybe Int)
 dsphMaxResults = lens _dsphMaxResults (\s a -> s { _dsphMaxResults = a })
 
--- | The token to retrieve the next page of results.
+-- | The token for the next set of results.
 dsphNextToken :: Lens' DescribeSpotPriceHistory (Maybe Text)
 dsphNextToken = lens _dsphNextToken (\s a -> s { _dsphNextToken = a })
 
@@ -168,7 +169,7 @@ dsphProductDescriptions =
         . _List
 
 -- | The date and time, up to the past 90 days, from which to start retrieving the
--- price history data.
+-- price history data, in UTC format (for example, /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
 dsphStartTime :: Lens' DescribeSpotPriceHistory (Maybe UTCTime)
 dsphStartTime = lens _dsphStartTime (\s a -> s { _dsphStartTime = a }) . mapping _Time
 
@@ -191,7 +192,7 @@ describeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse
     , _dsphrNextToken        = Nothing
     }
 
--- | The token to use to retrieve the next page of results. This value is 'null'
+-- | The token required to retrieve the next set of results. This value is 'null'
 -- when there are no more results to return.
 dsphrNextToken :: Lens' DescribeSpotPriceHistoryResponse (Maybe Text)
 dsphrNextToken = lens _dsphrNextToken (\s a -> s { _dsphrNextToken = a })

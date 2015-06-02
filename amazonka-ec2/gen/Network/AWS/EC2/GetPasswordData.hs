@@ -82,6 +82,9 @@ getPasswordData p1 = GetPasswordData
     , _gpdDryRun     = Nothing
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 gpdDryRun :: Lens' GetPasswordData (Maybe Bool)
 gpdDryRun = lens _gpdDryRun (\s a -> s { _gpdDryRun = a })
 

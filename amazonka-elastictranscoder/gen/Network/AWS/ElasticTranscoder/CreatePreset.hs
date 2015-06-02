@@ -108,7 +108,7 @@ createPreset p1 p2 = CreatePreset
 cpAudio :: Lens' CreatePreset (Maybe AudioParameters)
 cpAudio = lens _cpAudio (\s a -> s { _cpAudio = a })
 
--- | The container type for the output file. Valid values include 'flv', 'fmp4', 'gif', 'mp3', 'mp4', 'mpg', 'ogg', 'ts', and 'webm'.
+-- | The container type for the output file. Valid values include 'flac', 'flv', 'fmp4', 'gif', 'mp3', 'mp4', 'mpg', 'mxf', 'oga', 'ogg', 'ts', and 'webm'.
 cpContainer :: Lens' CreatePreset Text
 cpContainer = lens _cpContainer (\s a -> s { _cpContainer = a })
 

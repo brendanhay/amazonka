@@ -31,9 +31,11 @@
 -- where those credentials can be safely stored, usually in a server-based
 -- application.
 --
--- Note: Do not use this call in mobile applications or client-based web
--- applications that directly get temporary security credentials. For those
--- types of applications, use 'AssumeRoleWithWebIdentity'.
+-- If you are creating a mobile-based or browser-based app that can
+-- authenticate users using a web identity provider like Login with Amazon,
+-- Facebook, Google, or an OpenID Connect-compatible identity provider, we
+-- recommend that you use <http://aws.amazon.com/cognito/ Amazon Cognito> or 'AssumeRoleWithWebIdentity'. For more
+-- information, see <http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingWIF.html Creating Temporary Security Credentials for Mobile AppsUsing Identity Providers> in /Using Temporary Security Credentials/.
 --
 -- The 'GetFederationToken' action must be called by using the long-term AWS
 -- security credentials of an IAM user. You can also call 'GetFederationToken'

@@ -74,6 +74,9 @@ describeRouteTables = DescribeRouteTables
     , _drt2Filters       = mempty
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 drt2DryRun :: Lens' DescribeRouteTables (Maybe Bool)
 drt2DryRun = lens _drt2DryRun (\s a -> s { _drt2DryRun = a })
 
@@ -94,6 +97,9 @@ drt2DryRun = lens _drt2DryRun (\s a -> s { _drt2DryRun = a })
 --
 -- 'route.destination-cidr-block' - The CIDR range specified in a route in the
 -- table.
+--
+-- 'route.destination-prefix-list-id' - The ID (prefix) of the AWS service
+-- specified in a route in the table.
 --
 -- 'route.gateway-id' - The ID of a gateway specified in a route in the table.
 --

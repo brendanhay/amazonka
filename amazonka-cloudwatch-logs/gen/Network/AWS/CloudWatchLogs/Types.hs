@@ -38,6 +38,12 @@ module Network.AWS.CloudWatchLogs.Types
     , mfFilterPattern
     , mfMetricTransformations
 
+    -- * SearchedLogStream
+    , SearchedLogStream
+    , searchedLogStream
+    , slsLogStreamName
+    , slsSearchedCompletely
+
     -- * MetricFilterMatchRecord
     , MetricFilterMatchRecord
     , metricFilterMatchRecord
@@ -89,6 +95,15 @@ module Network.AWS.CloudWatchLogs.Types
     , inputLogEvent
     , ileMessage
     , ileTimestamp
+
+    -- * FilteredLogEvent
+    , FilteredLogEvent
+    , filteredLogEvent
+    , fleEventId
+    , fleIngestionTime
+    , fleLogStreamName
+    , fleMessage
+    , fleTimestamp
 
     -- * OutputLogEvent
     , OutputLogEvent
@@ -198,6 +213,46 @@ instance ToJSON MetricFilter where
         , "filterPattern"         .= _mfFilterPattern
         , "metricTransformations" .= _mfMetricTransformations
         , "creationTime"          .= _mfCreationTime
+        ]
+
+data SearchedLogStream = SearchedLogStream
+    { _slsLogStreamName      :: Maybe Text
+    , _slsSearchedCompletely :: Maybe Bool
+    } deriving (Eq, Ord, Read, Show)
+
+-- | 'SearchedLogStream' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'slsLogStreamName' @::@ 'Maybe' 'Text'
+--
+-- * 'slsSearchedCompletely' @::@ 'Maybe' 'Bool'
+--
+searchedLogStream :: SearchedLogStream
+searchedLogStream = SearchedLogStream
+    { _slsLogStreamName      = Nothing
+    , _slsSearchedCompletely = Nothing
+    }
+
+-- | The name of the log stream.
+slsLogStreamName :: Lens' SearchedLogStream (Maybe Text)
+slsLogStreamName = lens _slsLogStreamName (\s a -> s { _slsLogStreamName = a })
+
+-- | Indicates whether all the events in this log stream were searched or more
+-- data exists to search by paginating further.
+slsSearchedCompletely :: Lens' SearchedLogStream (Maybe Bool)
+slsSearchedCompletely =
+    lens _slsSearchedCompletely (\s a -> s { _slsSearchedCompletely = a })
+
+instance FromJSON SearchedLogStream where
+    parseJSON = withObject "SearchedLogStream" $ \o -> SearchedLogStream
+        <$> o .:? "logStreamName"
+        <*> o .:? "searchedCompletely"
+
+instance ToJSON SearchedLogStream where
+    toJSON SearchedLogStream{..} = object
+        [ "logStreamName"      .= _slsLogStreamName
+        , "searchedCompletely" .= _slsSearchedCompletely
         ]
 
 data MetricFilterMatchRecord = MetricFilterMatchRecord
@@ -583,6 +638,71 @@ instance ToJSON InputLogEvent where
     toJSON InputLogEvent{..} = object
         [ "timestamp" .= _ileTimestamp
         , "message"   .= _ileMessage
+        ]
+
+data FilteredLogEvent = FilteredLogEvent
+    { _fleEventId       :: Maybe Text
+    , _fleIngestionTime :: Maybe Nat
+    , _fleLogStreamName :: Maybe Text
+    , _fleMessage       :: Maybe Text
+    , _fleTimestamp     :: Maybe Nat
+    } deriving (Eq, Ord, Read, Show)
+
+-- | 'FilteredLogEvent' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'fleEventId' @::@ 'Maybe' 'Text'
+--
+-- * 'fleIngestionTime' @::@ 'Maybe' 'Natural'
+--
+-- * 'fleLogStreamName' @::@ 'Maybe' 'Text'
+--
+-- * 'fleMessage' @::@ 'Maybe' 'Text'
+--
+-- * 'fleTimestamp' @::@ 'Maybe' 'Natural'
+--
+filteredLogEvent :: FilteredLogEvent
+filteredLogEvent = FilteredLogEvent
+    { _fleLogStreamName = Nothing
+    , _fleTimestamp     = Nothing
+    , _fleMessage       = Nothing
+    , _fleIngestionTime = Nothing
+    , _fleEventId       = Nothing
+    }
+
+-- | A unique identifier for this event.
+fleEventId :: Lens' FilteredLogEvent (Maybe Text)
+fleEventId = lens _fleEventId (\s a -> s { _fleEventId = a })
+
+fleIngestionTime :: Lens' FilteredLogEvent (Maybe Natural)
+fleIngestionTime = lens _fleIngestionTime (\s a -> s { _fleIngestionTime = a }) . mapping _Nat
+
+-- | The name of the log stream this event belongs to.
+fleLogStreamName :: Lens' FilteredLogEvent (Maybe Text)
+fleLogStreamName = lens _fleLogStreamName (\s a -> s { _fleLogStreamName = a })
+
+fleMessage :: Lens' FilteredLogEvent (Maybe Text)
+fleMessage = lens _fleMessage (\s a -> s { _fleMessage = a })
+
+fleTimestamp :: Lens' FilteredLogEvent (Maybe Natural)
+fleTimestamp = lens _fleTimestamp (\s a -> s { _fleTimestamp = a }) . mapping _Nat
+
+instance FromJSON FilteredLogEvent where
+    parseJSON = withObject "FilteredLogEvent" $ \o -> FilteredLogEvent
+        <$> o .:? "eventId"
+        <*> o .:? "ingestionTime"
+        <*> o .:? "logStreamName"
+        <*> o .:? "message"
+        <*> o .:? "timestamp"
+
+instance ToJSON FilteredLogEvent where
+    toJSON FilteredLogEvent{..} = object
+        [ "logStreamName" .= _fleLogStreamName
+        , "timestamp"     .= _fleTimestamp
+        , "message"       .= _fleMessage
+        , "ingestionTime" .= _fleIngestionTime
+        , "eventId"       .= _fleEventId
         ]
 
 data OutputLogEvent = OutputLogEvent

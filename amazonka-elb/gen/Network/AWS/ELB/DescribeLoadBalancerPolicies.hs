@@ -22,13 +22,14 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Returns detailed descriptions of the policies. If you specify a load balancer
--- name, the action returns the descriptions of all the policies created for the
--- load balancer. If you specify a policy name associated with your load
--- balancer, the action returns the description of that policy. If you don't
--- specify a load balancer name, the action returns descriptions of the
--- specified sample policies, or descriptions of all the sample policies. The
--- names of the sample policies have the 'ELBSample-' prefix.
+-- | Describes the specified policies.
+--
+-- If you specify a load balancer name, the action returns the descriptions of
+-- all policies created for the load balancer. If you specify a policy name
+-- associated with your load balancer, the action returns the description of
+-- that policy. If you don't specify a load balancer name, the action returns
+-- descriptions of the specified sample policies, or descriptions of all sample
+-- policies. The names of the sample policies have the 'ELBSample-' prefix.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeLoadBalancerPolicies.html>
 module Network.AWS.ELB.DescribeLoadBalancerPolicies
@@ -73,16 +74,12 @@ describeLoadBalancerPolicies = DescribeLoadBalancerPolicies
     , _dlbpPolicyNames      = mempty
     }
 
--- | The mnemonic name associated with the load balancer. If no name is
--- specified, the operation returns the attributes of either all the sample
--- policies pre-defined by Elastic Load Balancing or the specified sample
--- polices.
+-- | The name of the load balancer.
 dlbpLoadBalancerName :: Lens' DescribeLoadBalancerPolicies (Maybe Text)
 dlbpLoadBalancerName =
     lens _dlbpLoadBalancerName (\s a -> s { _dlbpLoadBalancerName = a })
 
--- | The names of load balancer policies you've created or Elastic Load Balancing
--- sample policy names.
+-- | The names of the policies.
 dlbpPolicyNames :: Lens' DescribeLoadBalancerPolicies [Text]
 dlbpPolicyNames = lens _dlbpPolicyNames (\s a -> s { _dlbpPolicyNames = a }) . _List
 
@@ -107,7 +104,7 @@ describeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse
     { _dlbprPolicyDescriptions = mempty
     }
 
--- | A list of policy description structures.
+-- | Information about the policies.
 dlbprPolicyDescriptions :: Lens' DescribeLoadBalancerPoliciesResponse [PolicyDescription]
 dlbprPolicyDescriptions =
     lens _dlbprPolicyDescriptions (\s a -> s { _dlbprPolicyDescriptions = a })

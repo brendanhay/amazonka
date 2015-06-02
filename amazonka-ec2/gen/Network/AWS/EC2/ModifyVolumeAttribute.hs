@@ -85,6 +85,9 @@ modifyVolumeAttribute p1 = ModifyVolumeAttribute
 mvaAutoEnableIO :: Lens' ModifyVolumeAttribute (Maybe AttributeBooleanValue)
 mvaAutoEnableIO = lens _mvaAutoEnableIO (\s a -> s { _mvaAutoEnableIO = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 mvaDryRun :: Lens' ModifyVolumeAttribute (Maybe Bool)
 mvaDryRun = lens _mvaDryRun (\s a -> s { _mvaDryRun = a })
 

@@ -74,6 +74,9 @@ deleteSecurityGroup = DeleteSecurityGroup
     , _dsgGroupId   = Nothing
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dsgDryRun :: Lens' DeleteSecurityGroup (Maybe Bool)
 dsgDryRun = lens _dsgDryRun (\s a -> s { _dsgDryRun = a })
 

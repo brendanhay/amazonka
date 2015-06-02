@@ -25,7 +25,7 @@
 -- | Acquires an Elastic IP address.
 --
 -- An Elastic IP address is for use either in the EC2-Classic platform or in a
--- VPC. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses> in the /Amazon ElasticCompute Cloud User Guide for Linux/.
+-- VPC. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses> in the /Amazon ElasticCompute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AllocateAddress.html>
 module Network.AWS.EC2.AllocateAddress
@@ -78,6 +78,9 @@ allocateAddress = AllocateAddress
 aaDomain :: Lens' AllocateAddress (Maybe DomainType)
 aaDomain = lens _aaDomain (\s a -> s { _aaDomain = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 aaDryRun :: Lens' AllocateAddress (Maybe Bool)
 aaDryRun = lens _aaDryRun (\s a -> s { _aaDryRun = a })
 

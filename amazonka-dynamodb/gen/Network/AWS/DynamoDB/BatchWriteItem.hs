@@ -46,7 +46,7 @@
 -- individual tables. If you delay the batch operation using exponential
 -- backoff, the individual requests in the batch are much more likely to succeed.
 --
--- For more information, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#BatchOperations Batch Operations and Error Handling> in the /Amazon DynamoDB Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#BatchOperations Batch Operations and Error Handling> in the /AmazonDynamoDB Developer Guide/.
 --
 -- With /BatchWriteItem/, you can efficiently write or delete large amounts of
 -- data, such as from Amazon Elastic MapReduce (EMR), or copy data from another
@@ -59,10 +59,11 @@
 -- If you use a programming language that supports concurrency, such as Java,
 -- you can use threads to write items in parallel. Your application must include
 -- the necessary logic to manage the threads. With languages that don't support
--- threading, such as PHP, you must update provides an alternative where the API
--- performs the specified put and delete operations in parallel, giving you the
--- power of the thread pool approach without having to introduce complexity into
--- your application.
+-- threading, such as PHP, you must update or delete the specified items one at
+-- a time. In both situations, /BatchWriteItem/ provides an alternative where the
+-- API performs the specified put and delete operations in parallel, giving you
+-- the power of the thread pool approach without having to introduce complexity
+-- into your application.
 --
 -- Parallel processing reduces latency, but each specified put and delete
 -- request consumes the same number of write capacity units whether it is

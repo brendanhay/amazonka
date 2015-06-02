@@ -102,6 +102,9 @@ rrDestinationCidrBlock :: Lens' ReplaceRoute Text
 rrDestinationCidrBlock =
     lens _rrDestinationCidrBlock (\s a -> s { _rrDestinationCidrBlock = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 rrDryRun :: Lens' ReplaceRoute (Maybe Bool)
 rrDryRun = lens _rrDryRun (\s a -> s { _rrDryRun = a })
 

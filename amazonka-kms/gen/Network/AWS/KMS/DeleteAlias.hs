@@ -22,7 +22,7 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deletes the specified alias.
+-- | Deletes the specified alias. To associate an alias with a different key, call 'UpdateAlias'.
 --
 -- <http://docs.aws.amazon.com/kms/latest/APIReference/API_DeleteAlias.html>
 module Network.AWS.KMS.DeleteAlias
@@ -62,7 +62,8 @@ deleteAlias p1 = DeleteAlias
     { _daAliasName = p1
     }
 
--- | The alias to be deleted.
+-- | The alias to be deleted. The name must start with the word "alias" followed
+-- by a forward slash (alias/). Aliases that begin with "alias/AWS" are reserved.
 daAliasName :: Lens' DeleteAlias Text
 daAliasName = lens _daAliasName (\s a -> s { _daAliasName = a })
 

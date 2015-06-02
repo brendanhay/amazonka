@@ -22,12 +22,11 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Adds one or more subnets to the set of configured subnets in the Amazon
--- Virtual Private Cloud (Amazon VPC) for the load balancer.
+-- | Adds one or more subnets to the set of configured subnets for the specified
+-- load balancer.
 --
--- The load balancers evenly distribute requests across all of the registered
--- subnets. For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/UserScenariosForVPC.html Deploy Elastic Load Balancing in Amazon VPC>
--- in the /Elastic Load Balancing Developer Guide/.
+-- The load balancer evenly distributes requests across all registered subnets.
+-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/UserScenariosForVPC.html Elastic Load Balancing in Amazon VPC> in the /ElasticLoad Balancing Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_AttachLoadBalancerToSubnets.html>
 module Network.AWS.ELB.AttachLoadBalancerToSubnets
@@ -73,13 +72,12 @@ attachLoadBalancerToSubnets p1 = AttachLoadBalancerToSubnets
     , _albtsSubnets          = mempty
     }
 
--- | The name associated with the load balancer. The name must be unique within
--- the set of load balancers associated with your AWS account.
+-- | The name of the load balancer.
 albtsLoadBalancerName :: Lens' AttachLoadBalancerToSubnets Text
 albtsLoadBalancerName =
     lens _albtsLoadBalancerName (\s a -> s { _albtsLoadBalancerName = a })
 
--- | A list of subnet IDs to add for the load balancer. You can add only one
+-- | The IDs of the subnets to add for the load balancer. You can add only one
 -- subnet per Availability Zone.
 albtsSubnets :: Lens' AttachLoadBalancerToSubnets [Text]
 albtsSubnets = lens _albtsSubnets (\s a -> s { _albtsSubnets = a }) . _List
@@ -105,7 +103,7 @@ attachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse
     { _albtsrSubnets = mempty
     }
 
--- | A list of subnet IDs attached to the load balancer.
+-- | The IDs of the subnets attached to the load balancer.
 albtsrSubnets :: Lens' AttachLoadBalancerToSubnetsResponse [Text]
 albtsrSubnets = lens _albtsrSubnets (\s a -> s { _albtsrSubnets = a }) . _List
 

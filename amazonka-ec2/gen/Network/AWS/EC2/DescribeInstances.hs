@@ -92,6 +92,9 @@ describeInstances = DescribeInstances
     , _di1MaxResults  = Nothing
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 di1DryRun :: Lens' DescribeInstances (Maybe Bool)
 di1DryRun = lens _di1DryRun (\s a -> s { _di1DryRun = a })
 
@@ -101,18 +104,18 @@ di1DryRun = lens _di1DryRun (\s a -> s { _di1DryRun = a })
 --
 -- 'availability-zone' - The Availability Zone of the instance.
 --
--- 'block-device-mapping.attach-time' - The attach time for an Amazon EBS
--- volume mapped to the instance, for example, '2010-09-15T17:15:20.000Z'.
+-- 'block-device-mapping.attach-time' - The attach time for an EBS volume
+-- mapped to the instance, for example, '2010-09-15T17:15:20.000Z'.
 --
 -- 'block-device-mapping.delete-on-termination' - A Boolean that indicates
--- whether the Amazon EBS volume is deleted on instance termination.
+-- whether the EBS volume is deleted on instance termination.
 --
--- 'block-device-mapping.device-name' - The device name for the Amazon EBS
--- volume (for example, '/dev/sdh' or 'xvdh').
+-- 'block-device-mapping.device-name' - The device name for the EBS volume (for
+-- example, '/dev/sdh' or 'xvdh').
 --
--- 'block-device-mapping.status' - The status for the Amazon EBS volume ('attaching' | 'attached' | 'detaching' | 'detached').
+-- 'block-device-mapping.status' - The status for the EBS volume ('attaching' | 'attached' | 'detaching' | 'detached').
 --
--- 'block-device-mapping.volume-id' - The volume ID of the Amazon EBS volume.
+-- 'block-device-mapping.volume-id' - The volume ID of the EBS volume.
 --
 -- 'client-token' - The idempotency token you provided when you launched the
 -- instance.

@@ -89,6 +89,9 @@ describeImages = DescribeImages
     , _di2Filters         = mempty
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 di2DryRun :: Lens' DescribeImages (Maybe Bool)
 di2DryRun = lens _di2DryRun (\s a -> s { _di2DryRun = a })
 
@@ -106,17 +109,17 @@ di2ExecutableUsers =
 -- 'block-device-mapping.delete-on-termination' - A Boolean value that
 -- indicates whether the Amazon EBS volume is deleted on instance termination.
 --
--- 'block-device-mapping.device-name' - The device name for the Amazon EBS
--- volume (for example, '/dev/sdh').
+-- 'block-device-mapping.device-name' - The device name for the EBS volume (for
+-- example, '/dev/sdh').
 --
--- 'block-device-mapping.snapshot-id' - The ID of the snapshot used for the
--- Amazon EBS volume.
+-- 'block-device-mapping.snapshot-id' - The ID of the snapshot used for the EBS
+-- volume.
 --
--- 'block-device-mapping.volume-size' - The volume size of the Amazon EBS
--- volume, in GiB.
+-- 'block-device-mapping.volume-size' - The volume size of the EBS volume, in
+-- GiB.
 --
--- 'block-device-mapping.volume-type' - The volume type of the Amazon EBS
--- volume ('gp2' | 'standard' | 'io1').
+-- 'block-device-mapping.volume-type' - The volume type of the EBS volume ('gp2'
+-- | 'standard' | 'io1').
 --
 -- 'description' - The description of the image (provided during image
 -- creation).

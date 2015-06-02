@@ -71,7 +71,7 @@ setStackPolicy p1 = SetStackPolicy
     , _sspStackPolicyURL  = Nothing
     }
 
--- | The name or stack ID that you want to associate a policy with.
+-- | The name or unique stack ID that you want to associate a policy with.
 sspStackName :: Lens' SetStackPolicy Text
 sspStackName = lens _sspStackName (\s a -> s { _sspStackName = a })
 

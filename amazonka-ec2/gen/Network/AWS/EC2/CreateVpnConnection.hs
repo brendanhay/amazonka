@@ -104,6 +104,9 @@ cvcCustomerGatewayId :: Lens' CreateVpnConnection Text
 cvcCustomerGatewayId =
     lens _cvcCustomerGatewayId (\s a -> s { _cvcCustomerGatewayId = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 cvcDryRun :: Lens' CreateVpnConnection (Maybe Bool)
 cvcDryRun = lens _cvcDryRun (\s a -> s { _cvcDryRun = a })
 

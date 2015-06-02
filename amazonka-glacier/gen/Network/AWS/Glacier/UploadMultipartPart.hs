@@ -129,10 +129,11 @@ uploadMultipartPart p1 p2 p3 p4 = UploadMultipartPart
     , _umpRange     = Nothing
     }
 
--- | The 'AccountId' is the AWS Account ID. You can specify either the AWS Account
--- ID or optionally a '-', in which case Amazon Glacier uses the AWS Account ID
--- associated with the credentials used to sign the request. If you specify your
--- Account ID, do not include hyphens in it.
+-- | The 'AccountId' value is the AWS account ID of the account that owns the vault.
+-- You can either specify an AWS account ID or optionally a single apos'-'apos
+-- (hyphen), in which case Amazon Glacier uses the AWS account ID associated
+-- with the credentials used to sign the request. If you use an account ID, do
+-- not include any hyphens (apos-apos) in the ID.
 umpAccountId :: Lens' UploadMultipartPart Text
 umpAccountId = lens _umpAccountId (\s a -> s { _umpAccountId = a })
 

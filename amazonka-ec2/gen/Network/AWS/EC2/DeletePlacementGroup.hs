@@ -24,7 +24,7 @@
 
 -- | Deletes the specified placement group. You must terminate all instances in
 -- the placement group before you can delete the placement group. For more
--- information about placement groups and cluster instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html ClusterInstances> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
+-- information about placement groups and cluster instances, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html ClusterInstances> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeletePlacementGroup.html>
 module Network.AWS.EC2.DeletePlacementGroup
@@ -68,6 +68,9 @@ deletePlacementGroup p1 = DeletePlacementGroup
     , _dpgDryRun    = Nothing
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dpgDryRun :: Lens' DeletePlacementGroup (Maybe Bool)
 dpgDryRun = lens _dpgDryRun (\s a -> s { _dpgDryRun = a })
 

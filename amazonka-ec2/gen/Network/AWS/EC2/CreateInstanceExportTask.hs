@@ -22,10 +22,10 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Exports a running or stopped instance to an Amazon S3 bucket.
+-- | Exports a running or stopped instance to an S3 bucket.
 --
 -- For information about the supported operating systems, image formats, and
--- known limitations for the types of instances you can export, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ExportingEC2Instances.html ExportingEC2 Instances> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
+-- known limitations for the types of instances you can export, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ExportingEC2Instances.html ExportingEC2 Instances> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateInstanceExportTask.html>
 module Network.AWS.EC2.CreateInstanceExportTask
@@ -86,6 +86,7 @@ createInstanceExportTask p1 = CreateInstanceExportTask
 cietDescription :: Lens' CreateInstanceExportTask (Maybe Text)
 cietDescription = lens _cietDescription (\s a -> s { _cietDescription = a })
 
+-- | The format and location for an instance export task.
 cietExportToS3Task :: Lens' CreateInstanceExportTask (Maybe ExportToS3TaskSpecification)
 cietExportToS3Task =
     lens _cietExportToS3Task (\s a -> s { _cietExportToS3Task = a })
@@ -114,6 +115,7 @@ createInstanceExportTaskResponse = CreateInstanceExportTaskResponse
     { _cietrExportTask = Nothing
     }
 
+-- | Information about the instance export task.
 cietrExportTask :: Lens' CreateInstanceExportTaskResponse (Maybe ExportTask)
 cietrExportTask = lens _cietrExportTask (\s a -> s { _cietrExportTask = a })
 

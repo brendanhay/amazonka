@@ -22,7 +22,7 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Describes the data feed for Spot Instances. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html SpotInstance Data Feed> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
+-- | Describes the data feed for Spot Instances. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html SpotInstance Data Feed> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSpotDatafeedSubscription.html>
 module Network.AWS.EC2.DescribeSpotDatafeedSubscription
@@ -62,6 +62,9 @@ describeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription
     { _dsdsDryRun = Nothing
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dsdsDryRun :: Lens' DescribeSpotDatafeedSubscription (Maybe Bool)
 dsdsDryRun = lens _dsdsDryRun (\s a -> s { _dsdsDryRun = a })
 

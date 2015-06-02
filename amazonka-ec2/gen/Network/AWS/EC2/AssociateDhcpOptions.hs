@@ -87,6 +87,9 @@ associateDhcpOptions p1 p2 = AssociateDhcpOptions
 adoDhcpOptionsId :: Lens' AssociateDhcpOptions Text
 adoDhcpOptionsId = lens _adoDhcpOptionsId (\s a -> s { _adoDhcpOptionsId = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 adoDryRun :: Lens' AssociateDhcpOptions (Maybe Bool)
 adoDryRun = lens _adoDryRun (\s a -> s { _adoDryRun = a })
 

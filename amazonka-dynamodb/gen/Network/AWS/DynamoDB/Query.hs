@@ -22,12 +22,13 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | A /Query/ operation directly accesses items from a table using the table
--- primary key, or from an index using the index key. You must provide a
--- specific hash key value. You can narrow the scope of the query by using
--- comparison operators on the range key value, or on the index key. You can use
--- the /ScanIndexForward/ parameter to get results in forward or reverse order, by
--- range key or by index key.
+-- | A /Query/ operation uses the primary key of a table or a secondary index to
+-- directly access items from that table or index.
+--
+-- Use the /KeyConditionExpression/ parameter to provide a specific hash key
+-- value. The /Query/ operation will return all of the items from the table or
+-- index with that hash key value. You can optionally narrow the scope of the /Query/ by specifying a range key value and a comparison operator in the /KeyConditionExpression/. You can use the /ScanIndexForward/ parameter to get results in forward or
+-- reverse order, by range key or by index key.
 --
 -- Queries that do not return results consume the minimum number of read
 -- capacity units for that type of read operation.
@@ -60,6 +61,7 @@ module Network.AWS.DynamoDB.Query
     , qExpressionAttributeValues
     , qFilterExpression
     , qIndexName
+    , qKeyConditionExpression
     , qKeyConditions
     , qLimit
     , qProjectionExpression
@@ -96,6 +98,7 @@ data Query = Query
     , _qExpressionAttributeValues :: Map Text AttributeValue
     , _qFilterExpression          :: Maybe Text
     , _qIndexName                 :: Maybe Text
+    , _qKeyConditionExpression    :: Maybe Text
     , _qKeyConditions             :: Map Text Condition
     , _qLimit                     :: Maybe Nat
     , _qProjectionExpression      :: Maybe Text
@@ -125,6 +128,8 @@ data Query = Query
 -- * 'qFilterExpression' @::@ 'Maybe' 'Text'
 --
 -- * 'qIndexName' @::@ 'Maybe' 'Text'
+--
+-- * 'qKeyConditionExpression' @::@ 'Maybe' 'Text'
 --
 -- * 'qKeyConditions' @::@ 'HashMap' 'Text' 'Condition'
 --
@@ -160,13 +165,14 @@ query p1 p2 = Query
     , _qReturnConsumedCapacity    = Nothing
     , _qProjectionExpression      = Nothing
     , _qFilterExpression          = Nothing
+    , _qKeyConditionExpression    = Nothing
     , _qExpressionAttributeNames  = mempty
     , _qExpressionAttributeValues = mempty
     }
 
--- | There is a newer parameter available. Use /ProjectionExpression/ instead. Note
--- that if you use /AttributesToGet/ and /ProjectionExpression/ at the same time,
--- DynamoDB will return a /ValidationException/ exception.
+-- | This is a legacy parameter, for backward compatibility. New applications
+-- should use /ProjectionExpression/ instead. Do not combine legacy parameters and
+-- expression parameters in a single API call; otherwise, DynamoDB will return a /ValidationException/ exception.
 --
 -- This parameter allows you to retrieve attributes of type List or Map;
 -- however, it cannot retrieve individual elements within a List or a Map.
@@ -194,7 +200,11 @@ query p1 p2 = Query
 qAttributesToGet :: Lens' Query (NonEmpty Text)
 qAttributesToGet = lens _qAttributesToGet (\s a -> s { _qAttributesToGet = a }) . _List1
 
--- | A logical operator to apply to the conditions in a /QueryFilter/ map:
+-- | This is a legacy parameter, for backward compatibility. New applications
+-- should use /FilterExpression/ instead. Do not combine legacy parameters and
+-- expression parameters in a single API call; otherwise, DynamoDB will return a /ValidationException/ exception.
+--
+-- A logical operator to apply to the conditions in a /QueryFilter/ map:
 --
 -- 'AND' - If all of the conditions evaluate to true, then the entire map
 -- evaluates to true.
@@ -248,9 +258,8 @@ qExclusiveStartKey =
 -- 'Percentile'
 --
 -- The name of this attribute conflicts with a reserved word, so it cannot be
--- used directly in an expression. (For the complete list of reserved words, go
--- to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html Reserved Words> in the /Amazon DynamoDB Developer Guide/). To work around
--- this, you could specify the following for /ExpressionAttributeNames/:
+-- used directly in an expression. (For the complete list of reserved words, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html Reserved Words> in the /Amazon DynamoDB Developer Guide/). To work around this,
+-- you could specify the following for /ExpressionAttributeNames/:
 --
 -- '{"#P":"Percentile"}'
 --
@@ -261,7 +270,7 @@ qExclusiveStartKey =
 -- Tokens that begin with the : character are /expression attribute values/,
 -- which are placeholders for the actual value at runtime.
 --
--- For more information on expression attribute names, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing ItemAttributes> in the /Amazon DynamoDB Developer Guide/.
+-- For more information on expression attribute names, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ExpressionPlaceholders.html Using Placeholdersfor Attribute Names and Values> in the /Amazon DynamoDB Developer Guide/.
 qExpressionAttributeNames :: Lens' Query (HashMap Text Text)
 qExpressionAttributeNames =
     lens _qExpressionAttributeNames
@@ -283,7 +292,7 @@ qExpressionAttributeNames =
 --
 -- 'ProductStatus IN (:avail, :back, :disc)'
 --
--- For more information on expression attribute values, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html SpecifyingConditions> in the /Amazon DynamoDB Developer Guide/.
+-- For more information on expression attribute values, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ExpressionPlaceholders.html Using Placeholdersfor Attribute Names and Values> in the /Amazon DynamoDB Developer Guide/.
 qExpressionAttributeValues :: Lens' Query (HashMap Text AttributeValue)
 qExpressionAttributeValues =
     lens _qExpressionAttributeValues
@@ -297,27 +306,98 @@ qExpressionAttributeValues =
 -- A /FilterExpression/ is applied after the items have already been read; the
 -- process of filtering does not consume any additional read capacity units.
 --
--- For more information, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#FilteringResults Filter Expressions> in the /Amazon DynamoDBDeveloper Guide/.
+-- For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#FilteringResults Filter Expressions> in the /Amazon DynamoDBDeveloper Guide/.
+--
+-- /FilterExpression/ replaces the legacy /QueryFilter/ and /ConditionalOperator/
+-- parameters.
+--
 qFilterExpression :: Lens' Query (Maybe Text)
 qFilterExpression =
     lens _qFilterExpression (\s a -> s { _qFilterExpression = a })
 
 -- | The name of an index to query. This index can be any local secondary index or
--- global secondary index on the table.
+-- global secondary index on the table. Note that if you use the /IndexName/
+-- parameter, you must also provide /TableName./
 qIndexName :: Lens' Query (Maybe Text)
 qIndexName = lens _qIndexName (\s a -> s { _qIndexName = a })
 
--- | The selection criteria for the query. For a query on a table, you can have
+-- | The condition that specifies the key value(s) for items to be retrieved by
+-- the /Query/ action.
+--
+-- The condition must perform an equality test on a single hash key value. The
+-- condition can also test for one or more range key values. A /Query/ can use /KeyConditionExpression/ to retrieve a single item with a given hash and range key value, or several
+-- items that have the same hash key value but different range key values.
+--
+-- The hash key equality test is required, and must be specified in the
+-- following format:
+--
+-- 'hashAttributeName' /=/ ':hashval'
+--
+-- If you also want to provide a range key condition, it must be combined using /AND/ with the hash key condition. Following is an example, using the =
+-- comparison operator for the range key:
+--
+-- 'hashAttributeName' /=/ ':hashval' /AND/ 'rangeAttributeName' /=/ ':rangeval'
+--
+-- Valid comparisons for the range key condition are as follows:
+--
+-- 'rangeAttributeName' /=/ ':rangeval' - true if the range key is equal to ':rangeval'.
+--
+-- 'rangeAttributeName' /</ ':rangeval' - true if the range key is less than ':rangeval'.
+--
+-- 'rangeAttributeName' /<=/ ':rangeval' - true if the range key is less than or
+-- equal to ':rangeval'.
+--
+-- 'rangeAttributeName' />/ ':rangeval' - true if the range key is greater than ':rangeval'.
+--
+-- 'rangeAttributeName' />= /':rangeval' - true if the range key is greater than or
+-- equal to ':rangeval'.
+--
+-- 'rangeAttributeName' /BETWEEN/ ':rangeval1' /AND/ ':rangeval2' - true if the range
+-- key is less than or greater than ':rangeval1', and less than or equal to ':rangeval2'.
+--
+-- /begins_with (/'rangeAttributeName', ':rangeval'/)/ - true if the range key begins
+-- with a particular operand. Note that the function name 'begins_with' is
+-- case-sensitive.
+--
+-- Use the /ExpressionAttributeValues/ parameter to replace tokens such as ':hashval' and ':rangeval' with actual values at runtime.
+--
+-- You can optionally use the /ExpressionAttributeNames/ parameter to replace the
+-- names of the hash and range attributes with placeholder tokens. This might be
+-- necessary if an attribute name conflicts with a DynamoDB reserved word. For
+-- example, the following /KeyConditionExpression/ causes an error because /Size/ is
+-- a reserved word:
+--
+-- 'Size = :myval'   To work around this, define a placeholder (such a '#myval')
+-- to represent the attribute name /Size/. /KeyConditionExpression/ then is as
+-- follows:
+--
+-- '#S = :myval'   For a list of reserved words, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html Reserved Words> in the /Amazon DynamoDB Developer Guide/.
+--
+-- For more information on /ExpressionAttributeNames/ and /ExpressionAttributeValues/, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ExpressionPlaceholders.html Using Placeholders for Attribute Names and Values> in the /AmazonDynamoDB Developer Guide/.
+--
+-- /KeyConditionExpression/ replaces the legacy /KeyConditions/ parameter.
+--
+--
+qKeyConditionExpression :: Lens' Query (Maybe Text)
+qKeyConditionExpression =
+    lens _qKeyConditionExpression (\s a -> s { _qKeyConditionExpression = a })
+
+-- | This is a legacy parameter, for backward compatibility. New applications
+-- should use /KeyConditionExpression/ instead. Do not combine legacy parameters
+-- and expression parameters in a single API call; otherwise, DynamoDB will
+-- return a /ValidationException/ exception.
+--
+-- The selection criteria for the query. For a query on a table, you can have
 -- conditions only on the table primary key attributes. You must provide the
 -- hash key attribute name and value as an 'EQ' condition. You can optionally
 -- provide a second condition, referring to the range key attribute.
 --
--- If you do not provide a range key condition, all of the items that match the
+-- If you don't provide a range key condition, all of the items that match the
 -- hash key will be retrieved. If a /FilterExpression/ or /QueryFilter/ is present,
 -- it will be applied after the items are retrieved.
 --
 -- For a query on an index, you can have conditions only on the index key
--- attributes. You must provide the index hash attribute name and value as an EQ
+-- attributes. You must provide the index hash attribute name and value as an 'EQ'
 -- condition. You can optionally provide a second condition, referring to the
 -- index key range attribute.
 --
@@ -429,22 +509,25 @@ qLimit = lens _qLimit (\s a -> s { _qLimit = a }) . mapping _Nat
 -- If any of the requested attributes are not found, they will not appear in the
 -- result.
 --
--- For more information, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes> in the /Amazon DynamoDBDeveloper Guide/.
+-- For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes> in the /Amazon DynamoDBDeveloper Guide/.
+--
+-- /ProjectionExpression/ replaces the legacy /AttributesToGet/ parameter.
+--
 qProjectionExpression :: Lens' Query (Maybe Text)
 qProjectionExpression =
     lens _qProjectionExpression (\s a -> s { _qProjectionExpression = a })
 
--- | There is a newer parameter available. Use /FilterExpression/ instead. Note
--- that if you use /QueryFilter/ and /FilterExpression/ at the same time, DynamoDB
--- will return a /ValidationException/ exception.
+-- | This is a legacy parameter, for backward compatibility. New applications
+-- should use /FilterExpression/ instead. Do not combine legacy parameters and
+-- expression parameters in a single API call; otherwise, DynamoDB will return a /ValidationException/ exception.
 --
 -- A condition that evaluates the query results after the items are read and
 -- returns only the desired values.
 --
 -- This parameter does not support attributes of type List or Map.
 --
--- A /QueryFilter/ is applied after the items have already been read; the process
--- of filtering does not consume any additional read capacity units.
+-- A /QueryFilter/ is applied after the items have already been read; the
+-- process of filtering does not consume any additional read capacity units.
 --
 -- If you provide more than one condition in the /QueryFilter/ map, then by
 -- default all of the conditions must evaluate to true. In other words, the
@@ -541,6 +624,10 @@ qScanIndexForward =
 -- index. You cannot use both /Select/ and /AttributesToGet/ together in a single
 -- request, unless the value for /Select/ is 'SPECIFIC_ATTRIBUTES'. (This usage is
 -- equivalent to specifying /AttributesToGet/ without any value for /Select/.)
+--
+-- If you use the /ProjectionExpression/ parameter, then the value for /Select/ can
+-- only be 'SPECIFIC_ATTRIBUTES'. Any other value for /Select/ will return an error.
+--
 qSelect :: Lens' Query (Maybe Select)
 qSelect = lens _qSelect (\s a -> s { _qSelect = a })
 
@@ -645,6 +732,7 @@ instance ToJSON Query where
         , "ReturnConsumedCapacity"    .= _qReturnConsumedCapacity
         , "ProjectionExpression"      .= _qProjectionExpression
         , "FilterExpression"          .= _qFilterExpression
+        , "KeyConditionExpression"    .= _qKeyConditionExpression
         , "ExpressionAttributeNames"  .= _qExpressionAttributeNames
         , "ExpressionAttributeValues" .= _qExpressionAttributeValues
         ]

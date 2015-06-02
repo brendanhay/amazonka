@@ -80,6 +80,9 @@ describeVpcAttribute p1 = DescribeVpcAttribute
 dva1Attribute :: Lens' DescribeVpcAttribute (Maybe VpcAttributeName)
 dva1Attribute = lens _dva1Attribute (\s a -> s { _dva1Attribute = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dva1DryRun :: Lens' DescribeVpcAttribute (Maybe Bool)
 dva1DryRun = lens _dva1DryRun (\s a -> s { _dva1DryRun = a })
 

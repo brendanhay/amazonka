@@ -94,6 +94,9 @@ cdoDhcpConfigurations =
     lens _cdoDhcpConfigurations (\s a -> s { _cdoDhcpConfigurations = a })
         . _List
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 cdoDryRun :: Lens' CreateDhcpOptions (Maybe Bool)
 cdoDryRun = lens _cdoDryRun (\s a -> s { _cdoDryRun = a })
 

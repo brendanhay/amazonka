@@ -78,6 +78,7 @@ library
         , Network.AWS.OpsWorks.DetachElasticLoadBalancer
         , Network.AWS.OpsWorks.DisassociateElasticIp
         , Network.AWS.OpsWorks.GetHostnameSuggestion
+        , Network.AWS.OpsWorks.GrantAccess
         , Network.AWS.OpsWorks.RebootInstance
         , Network.AWS.OpsWorks.RegisterElasticIp
         , Network.AWS.OpsWorks.RegisterInstance

@@ -25,7 +25,7 @@
 -- | Describes one or more of your Elastic IP addresses.
 --
 -- An Elastic IP address is for use in either the EC2-Classic platform or in a
--- VPC. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses> in the /Amazon ElasticCompute Cloud User Guide for Linux/.
+-- VPC. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses> in the /Amazon ElasticCompute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeAddresses.html>
 module Network.AWS.EC2.DescribeAddresses
@@ -86,6 +86,9 @@ describeAddresses = DescribeAddresses
 daAllocationIds :: Lens' DescribeAddresses [Text]
 daAllocationIds = lens _daAllocationIds (\s a -> s { _daAllocationIds = a }) . _List
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 daDryRun :: Lens' DescribeAddresses (Maybe Bool)
 daDryRun = lens _daDryRun (\s a -> s { _daDryRun = a })
 

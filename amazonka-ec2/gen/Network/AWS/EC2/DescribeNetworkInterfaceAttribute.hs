@@ -82,6 +82,9 @@ describeNetworkInterfaceAttribute p1 = DescribeNetworkInterfaceAttribute
 dniaAttribute :: Lens' DescribeNetworkInterfaceAttribute (Maybe NetworkInterfaceAttribute)
 dniaAttribute = lens _dniaAttribute (\s a -> s { _dniaAttribute = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dniaDryRun :: Lens' DescribeNetworkInterfaceAttribute (Maybe Bool)
 dniaDryRun = lens _dniaDryRun (\s a -> s { _dniaDryRun = a })
 

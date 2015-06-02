@@ -22,8 +22,8 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Associates, updates, or disables a policy with a listener on the load
--- balancer. You can associate multiple policies with a listener.
+-- | Associates, updates, or disables a policy with a listener for the specified
+-- load balancer. You can associate multiple policies with a listener.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_SetLoadBalancerPoliciesOfListener.html>
 module Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
@@ -78,13 +78,13 @@ slbpolLoadBalancerName :: Lens' SetLoadBalancerPoliciesOfListener Text
 slbpolLoadBalancerName =
     lens _slbpolLoadBalancerName (\s a -> s { _slbpolLoadBalancerName = a })
 
--- | The external port of the load balancer to associate the policy.
+-- | The external port of the load balancer for the policy.
 slbpolLoadBalancerPort :: Lens' SetLoadBalancerPoliciesOfListener Int
 slbpolLoadBalancerPort =
     lens _slbpolLoadBalancerPort (\s a -> s { _slbpolLoadBalancerPort = a })
 
--- | List of policies to be associated with the listener. If the list is empty,
--- the current policy is removed from the listener.
+-- | The names of the policies. If the list is empty, the current policy is
+-- removed from the listener.
 slbpolPolicyNames :: Lens' SetLoadBalancerPoliciesOfListener [Text]
 slbpolPolicyNames =
     lens _slbpolPolicyNames (\s a -> s { _slbpolPolicyNames = a })

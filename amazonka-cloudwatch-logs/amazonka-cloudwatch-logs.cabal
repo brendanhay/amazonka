@@ -43,6 +43,7 @@ library
         , Network.AWS.CloudWatchLogs.DescribeLogGroups
         , Network.AWS.CloudWatchLogs.DescribeLogStreams
         , Network.AWS.CloudWatchLogs.DescribeMetricFilters
+        , Network.AWS.CloudWatchLogs.FilterLogEvents
         , Network.AWS.CloudWatchLogs.GetLogEvents
         , Network.AWS.CloudWatchLogs.PutLogEvents
         , Network.AWS.CloudWatchLogs.PutMetricFilter

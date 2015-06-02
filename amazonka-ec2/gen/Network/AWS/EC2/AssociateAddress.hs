@@ -25,7 +25,7 @@
 -- | Associates an Elastic IP address with an instance or a network interface.
 --
 -- An Elastic IP address is for use in either the EC2-Classic platform or in a
--- VPC. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses> in the /Amazon ElasticCompute Cloud User Guide for Linux/.
+-- VPC. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses> in the /Amazon ElasticCompute Cloud User Guide/.
 --
 -- [EC2-Classic, VPC in an EC2-VPC-only account] If the Elastic IP address is
 -- already associated with a different instance, it is disassociated from that
@@ -120,6 +120,9 @@ aa1AllowReassociation :: Lens' AssociateAddress (Maybe Bool)
 aa1AllowReassociation =
     lens _aa1AllowReassociation (\s a -> s { _aa1AllowReassociation = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 aa1DryRun :: Lens' AssociateAddress (Maybe Bool)
 aa1DryRun = lens _aa1DryRun (\s a -> s { _aa1DryRun = a })
 

@@ -90,10 +90,11 @@ describeVault p1 p2 = DescribeVault
     , _dvVaultName = p2
     }
 
--- | The 'AccountId' is the AWS Account ID. You can specify either the AWS Account
--- ID or optionally a '-', in which case Amazon Glacier uses the AWS Account ID
--- associated with the credentials used to sign the request. If you specify your
--- Account ID, do not include hyphens in it.
+-- | The 'AccountId' value is the AWS account ID of the account that owns the vault.
+-- You can either specify an AWS account ID or optionally a single apos'-'apos
+-- (hyphen), in which case Amazon Glacier uses the AWS account ID associated
+-- with the credentials used to sign the request. If you use an account ID, do
+-- not include any hyphens (apos-apos) in the ID.
 dvAccountId :: Lens' DescribeVault Text
 dvAccountId = lens _dvAccountId (\s a -> s { _dvAccountId = a })
 

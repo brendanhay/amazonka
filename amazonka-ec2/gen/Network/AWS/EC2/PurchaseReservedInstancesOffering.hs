@@ -32,7 +32,7 @@
 -- offerings that match your specifications. After you've purchased a Reserved
 -- Instance, you can check for your new Reserved Instance with 'DescribeReservedInstances'.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html Reserved Instances> and <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html Reserved InstanceMarketplace> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html Reserved Instances> and <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html Reserved InstanceMarketplace> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-PurchaseReservedInstancesOffering.html>
 module Network.AWS.EC2.PurchaseReservedInstancesOffering
@@ -89,6 +89,9 @@ purchaseReservedInstancesOffering p1 p2 = PurchaseReservedInstancesOffering
     , _prioLimitPrice                  = Nothing
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 prioDryRun :: Lens' PurchaseReservedInstancesOffering (Maybe Bool)
 prioDryRun = lens _prioDryRun (\s a -> s { _prioDryRun = a })
 

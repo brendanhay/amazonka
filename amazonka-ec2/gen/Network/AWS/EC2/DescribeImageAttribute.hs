@@ -90,6 +90,9 @@ describeImageAttribute p1 p2 = DescribeImageAttribute
 dia1Attribute :: Lens' DescribeImageAttribute ImageAttributeName
 dia1Attribute = lens _dia1Attribute (\s a -> s { _dia1Attribute = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dia1DryRun :: Lens' DescribeImageAttribute (Maybe Bool)
 dia1DryRun = lens _dia1DryRun (\s a -> s { _dia1DryRun = a })
 

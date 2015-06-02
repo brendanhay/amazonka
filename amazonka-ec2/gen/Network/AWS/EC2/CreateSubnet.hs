@@ -113,6 +113,9 @@ cs1AvailabilityZone =
 cs1CidrBlock :: Lens' CreateSubnet Text
 cs1CidrBlock = lens _cs1CidrBlock (\s a -> s { _cs1CidrBlock = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 cs1DryRun :: Lens' CreateSubnet (Maybe Bool)
 cs1DryRun = lens _cs1DryRun (\s a -> s { _cs1DryRun = a })
 

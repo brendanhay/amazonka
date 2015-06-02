@@ -22,20 +22,17 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Replaces the current set of policies associated with a port on which the
--- back-end server is listening with a new set of policies. After the policies
--- have been created using 'CreateLoadBalancerPolicy', they can be applied here as
--- a list. At this time, only the back-end server authentication policy type can
--- be applied to the back-end ports; this policy type is composed of multiple
--- public key policies.
+-- | Replaces the set of policies associated with the specified port on which the
+-- back-end server is listening with a new set of policies. At this time, only
+-- the back-end server authentication policy type can be applied to the back-end
+-- ports; this policy type is composed of multiple public key policies.
 --
--- The /SetLoadBalancerPoliciesForBackendServer/ replaces the current set of
--- policies associated with the specified instance port. Every time you use this
--- action to enable the policies, use the 'PolicyNames' parameter to list all the
--- policies you want to enable.
+-- Each time you use 'SetLoadBalancerPoliciesForBackendServer' to enable the
+-- policies, use the 'PolicyNames' parameter to list the policies that you want to
+-- enable.
 --
--- You can use 'DescribeLoadBalancers' or 'DescribeLoadBalancerPolicies' action to
--- verify that the policy has been associated with the back-end server.
+-- You can use 'DescribeLoadBalancers' or 'DescribeLoadBalancerPolicies' to verify
+-- that the policy is associated with the back-end server.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_SetLoadBalancerPoliciesForBackendServer.html>
 module Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
@@ -90,14 +87,13 @@ slbpfbsInstancePort :: Lens' SetLoadBalancerPoliciesForBackendServer Int
 slbpfbsInstancePort =
     lens _slbpfbsInstancePort (\s a -> s { _slbpfbsInstancePort = a })
 
--- | The mnemonic name associated with the load balancer. This name must be
--- unique within the set of your load balancers.
+-- | The name of the load balancer.
 slbpfbsLoadBalancerName :: Lens' SetLoadBalancerPoliciesForBackendServer Text
 slbpfbsLoadBalancerName =
     lens _slbpfbsLoadBalancerName (\s a -> s { _slbpfbsLoadBalancerName = a })
 
--- | List of policy names to be set. If the list is empty, then all current
--- polices are removed from the back-end server.
+-- | The names of the policies. If the list is empty, then all current polices are
+-- removed from the back-end server.
 slbpfbsPolicyNames :: Lens' SetLoadBalancerPoliciesForBackendServer [Text]
 slbpfbsPolicyNames =
     lens _slbpfbsPolicyNames (\s a -> s { _slbpfbsPolicyNames = a })

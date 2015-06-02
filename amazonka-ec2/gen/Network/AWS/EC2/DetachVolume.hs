@@ -22,7 +22,7 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Detaches an Amazon EBS volume from an instance. Make sure to unmount any file
+-- | Detaches an EBS volume from an instance. Make sure to unmount any file
 -- systems on the device within your operating system before detaching the
 -- volume. Failure to do so results in the volume being stuck in a busy state
 -- while detaching.
@@ -34,7 +34,7 @@
 -- When a volume with an AWS Marketplace product code is detached from an
 -- instance, the product code is no longer associated with the instance.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html Detaching an Amazon EBS Volume> in the /AmazonElastic Compute Cloud User Guide for Linux/.
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html Detaching an Amazon EBS Volume> in the /AmazonElastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DetachVolume.html>
 module Network.AWS.EC2.DetachVolume
@@ -104,6 +104,9 @@ detachVolume p1 = DetachVolume
 dvDevice :: Lens' DetachVolume (Maybe Text)
 dvDevice = lens _dvDevice (\s a -> s { _dvDevice = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dvDryRun :: Lens' DetachVolume (Maybe Bool)
 dvDryRun = lens _dvDryRun (\s a -> s { _dvDryRun = a })
 
@@ -164,7 +167,7 @@ detachVolumeResponse = DetachVolumeResponse
 dvrAttachTime :: Lens' DetachVolumeResponse (Maybe UTCTime)
 dvrAttachTime = lens _dvrAttachTime (\s a -> s { _dvrAttachTime = a }) . mapping _Time
 
--- | Indicates whether the Amazon EBS volume is deleted on instance termination.
+-- | Indicates whether the EBS volume is deleted on instance termination.
 dvrDeleteOnTermination :: Lens' DetachVolumeResponse (Maybe Bool)
 dvrDeleteOnTermination =
     lens _dvrDeleteOnTermination (\s a -> s { _dvrDeleteOnTermination = a })

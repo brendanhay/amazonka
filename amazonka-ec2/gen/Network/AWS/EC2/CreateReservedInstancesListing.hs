@@ -38,7 +38,7 @@
 -- Reserved Instance listings then become available for purchase. To view the
 -- details of your Reserved Instance listing, you can use the 'DescribeReservedInstancesListings' operation.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html Reserved Instance Marketplace> in the /AmazonElastic Compute Cloud User Guide for Linux/.
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html Reserved Instance Marketplace> in the /AmazonElastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateReservedInstancesListing.html>
 module Network.AWS.EC2.CreateReservedInstancesListing

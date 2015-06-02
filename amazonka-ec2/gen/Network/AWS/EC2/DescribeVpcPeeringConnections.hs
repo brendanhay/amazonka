@@ -72,6 +72,9 @@ describeVpcPeeringConnections = DescribeVpcPeeringConnections
     , _dvpc1Filters                 = mempty
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dvpc1DryRun :: Lens' DescribeVpcPeeringConnections (Maybe Bool)
 dvpc1DryRun = lens _dvpc1DryRun (\s a -> s { _dvpc1DryRun = a })
 

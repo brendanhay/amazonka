@@ -26,6 +26,8 @@
 -- channel is not specified, this action returns the current status of all
 -- delivery channels associated with the account.
 --
+-- Currently, you can specify only one delivery channel per account.
+--
 -- <http://docs.aws.amazon.com/config/latest/APIReference/API_DescribeDeliveryChannelStatus.html>
 module Network.AWS.Config.DescribeDeliveryChannelStatus
     (

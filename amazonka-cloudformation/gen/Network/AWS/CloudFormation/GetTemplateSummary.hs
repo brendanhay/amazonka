@@ -53,6 +53,7 @@ module Network.AWS.CloudFormation.GetTemplateSummary
     , gtsrCapabilities
     , gtsrCapabilitiesReason
     , gtsrDescription
+    , gtsrMetadata
     , gtsrParameters
     , gtsrVersion
     ) where
@@ -85,7 +86,7 @@ getTemplateSummary = GetTemplateSummary
     , _gtsStackName    = Nothing
     }
 
--- | The name or the unique identifier associated with the stack, which are not
+-- | The name or the stack ID that is associated with the stack, which are not
 -- always interchangeable. For running stacks, you can specify either the
 -- stack's name or its unique stack ID. For deleted stack, you must specify the
 -- unique stack ID.
@@ -104,7 +105,7 @@ gtsTemplateBody :: Lens' GetTemplateSummary (Maybe Text)
 gtsTemplateBody = lens _gtsTemplateBody (\s a -> s { _gtsTemplateBody = a })
 
 -- | Location of file containing the template body. The URL must point to a
--- template (max size: 307,200 bytes) located in an Amazon S3 bucket. For more
+-- template (max size: 460,800 bytes) located in an Amazon S3 bucket. For more
 -- information about templates, see <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS CloudFormation
 -- User Guide.
 --
@@ -117,6 +118,7 @@ data GetTemplateSummaryResponse = GetTemplateSummaryResponse
     { _gtsrCapabilities       :: List "member" Capability
     , _gtsrCapabilitiesReason :: Maybe Text
     , _gtsrDescription        :: Maybe Text
+    , _gtsrMetadata           :: Maybe Text
     , _gtsrParameters         :: List "member" ParameterDeclaration
     , _gtsrVersion            :: Maybe Text
     } deriving (Eq, Read, Show)
@@ -131,6 +133,8 @@ data GetTemplateSummaryResponse = GetTemplateSummaryResponse
 --
 -- * 'gtsrDescription' @::@ 'Maybe' 'Text'
 --
+-- * 'gtsrMetadata' @::@ 'Maybe' 'Text'
+--
 -- * 'gtsrParameters' @::@ ['ParameterDeclaration']
 --
 -- * 'gtsrVersion' @::@ 'Maybe' 'Text'
@@ -142,6 +146,7 @@ getTemplateSummaryResponse = GetTemplateSummaryResponse
     , _gtsrCapabilities       = mempty
     , _gtsrCapabilitiesReason = Nothing
     , _gtsrVersion            = Nothing
+    , _gtsrMetadata           = Nothing
     }
 
 -- | The capabilities found within the template. Currently, AWS CloudFormation
@@ -152,7 +157,8 @@ getTemplateSummaryResponse = GetTemplateSummaryResponse
 gtsrCapabilities :: Lens' GetTemplateSummaryResponse [Capability]
 gtsrCapabilities = lens _gtsrCapabilities (\s a -> s { _gtsrCapabilities = a }) . _List
 
--- | The capabilities reason found within the template.
+-- | The list of resources that generated the values in the 'Capabilities' response
+-- element.
 gtsrCapabilitiesReason :: Lens' GetTemplateSummaryResponse (Maybe Text)
 gtsrCapabilitiesReason =
     lens _gtsrCapabilitiesReason (\s a -> s { _gtsrCapabilitiesReason = a })
@@ -160,6 +166,10 @@ gtsrCapabilitiesReason =
 -- | The value that is defined in the 'Description' property of the template.
 gtsrDescription :: Lens' GetTemplateSummaryResponse (Maybe Text)
 gtsrDescription = lens _gtsrDescription (\s a -> s { _gtsrDescription = a })
+
+-- | The value that is defined for the 'Metadata' property of the template.
+gtsrMetadata :: Lens' GetTemplateSummaryResponse (Maybe Text)
+gtsrMetadata = lens _gtsrMetadata (\s a -> s { _gtsrMetadata = a })
 
 -- | A list of parameter declarations that describe various properties for each
 -- parameter.
@@ -195,5 +205,6 @@ instance FromXML GetTemplateSummaryResponse where
         <$> x .@? "Capabilities" .!@ mempty
         <*> x .@? "CapabilitiesReason"
         <*> x .@? "Description"
+        <*> x .@? "Metadata"
         <*> x .@? "Parameters" .!@ mempty
         <*> x .@? "Version"

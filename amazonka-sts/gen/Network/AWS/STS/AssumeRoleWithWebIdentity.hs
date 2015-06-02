@@ -24,7 +24,15 @@
 
 -- | Returns a set of temporary security credentials for users who have been
 -- authenticated in a mobile or web application with a web identity provider,
--- such as Login with Amazon, Amazon Cognito, Facebook, or Google.
+-- such as Amazon Cognito, Login with Amazon, Facebook, Google, or any OpenID
+-- Connect-compatible identity provider.
+--
+-- For mobile applications, we recommend that you use Amazon Cognito. You can
+-- use Amazon Cognito with the <http://aws.amazon.com/sdkforios/ AWS SDK for iOS> and the <http://aws.amazon.com/sdkforandroid/ AWS SDK for Android> to
+-- uniquely identify a user and supply the user with a consistent identity
+-- throughout the lifetime of an application.
+--
+-- To learn more about Amazon Cognito, see <http://docs.aws.amazon.com/mobile/sdkforandroid/developerguide/cognito-auth.html#d0e840 Amazon Cognito Overview> in the /AWSSDK for Android Developer Guide/ guide and <http://docs.aws.amazon.com/mobile/sdkforios/developerguide/cognito-auth.html#d0e664 Amazon Cognito Overview> in the /AWSSDK for iOS Developer Guide/.
 --
 -- Calling 'AssumeRoleWithWebIdentity' does not require the use of AWS security
 -- credentials. Therefore, you can distribute an application (for example, on
@@ -58,18 +66,15 @@
 -- identity provider that is associated with the identity token. In other words,
 -- the identity provider must be specified in the role's trust policy.
 --
--- For more information about how to use web identity federation and the 'AssumeRoleWithWebIdentity', see the following resources:
+-- For more information about how to use web identity federation and the 'AssumeRoleWithWebIdentity' API, see the following resources:
 --
--- Creating a Mobile Application with Third-Party Sign-In and  Creating
--- Temporary Security Credentials for Mobile Apps Using Third-Party Identity
--- Providers in /Using Temporary Security Credentials/.    Web Identity Federation
--- Playground. This interactive website lets you walk through the process of
+-- <http://docs.aws.amazon.com/STS/latest/UsingSTS/STSUseCases.html#MobileApplication-KnownProvider  Creating a Mobile Application with Third-Party Sign-In> and <http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingWIF.html  CreatingTemporary Security Credentials for Mobile Apps Using Third-Party IdentityProviders> in /Using Temporary Security Credentials/.   <https://web-identity-federation-playground.s3.amazonaws.com/index.html  Web Identity FederationPlayground>. This interactive website lets you walk through the process of
 -- authenticating via Login with Amazon, Facebook, or Google, getting temporary
 -- security credentials, and then using those credentials to make a request to
--- AWS.   <http://aws.amazon.com/sdkforios/ AWS SDK for iOS> and AWS SDK for Android. These toolkits contain sample
+-- AWS.   <http://aws.amazon.com/sdkforios/ AWS SDK for iOS> and <http://aws.amazon.com/sdkforandroid/ AWS SDK for Android>. These toolkits contain sample
 -- apps that show how to invoke the identity providers, and then how to use the
 -- information from these providers to get and use temporary security
--- credentials.   Web Identity Federation with Mobile Applications. This article
+-- credentials.   <http://aws.amazon.com/articles/4617974389850313 Web Identity Federation with Mobile Applications>. This article
 -- discusses web identity federation and shows an example of how to use web
 -- identity federation to get access to content in Amazon S3.
 --
@@ -164,10 +169,14 @@ arwwiDurationSeconds =
 arwwiPolicy :: Lens' AssumeRoleWithWebIdentity (Maybe Text)
 arwwiPolicy = lens _arwwiPolicy (\s a -> s { _arwwiPolicy = a })
 
--- | The fully-qualified host component of the domain name of the identity
--- provider. Specify this value only for OAuth access tokens. Do not specify
--- this value for OpenID Connect ID tokens, such as 'accounts.google.com'. Do not
--- include URL schemes and port numbers. Currently, 'www.amazon.com' and 'graph.facebook.com' are supported.
+-- | The fully qualified host component of the domain name of the identity
+-- provider.
+--
+-- Specify this value only for OAuth 2.0 access tokens. Currently 'www.amazon.com'
+-- and 'graph.facebook.com' are the only supported identity providers for OAuth
+-- 2.0 access tokens. Do not include URL schemes and port numbers.
+--
+-- Do not specify this value for OpenID Connect ID tokens.
 arwwiProviderId :: Lens' AssumeRoleWithWebIdentity (Maybe Text)
 arwwiProviderId = lens _arwwiProviderId (\s a -> s { _arwwiProviderId = a })
 
@@ -236,9 +245,9 @@ arwwirAssumedRoleUser :: Lens' AssumeRoleWithWebIdentityResponse (Maybe AssumedR
 arwwirAssumedRoleUser =
     lens _arwwirAssumedRoleUser (\s a -> s { _arwwirAssumedRoleUser = a })
 
--- | The intended audience of the web identity token. This is traditionally the
--- client identifier issued to the application that requested the web identity
--- token.
+-- | The intended audience (also known as client ID) of the web identity token.
+-- This is traditionally the client identifier issued to the application that
+-- requested the web identity token.
 arwwirAudience :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Text)
 arwwirAudience = lens _arwwirAudience (\s a -> s { _arwwirAudience = a })
 
@@ -258,7 +267,7 @@ arwwirPackedPolicySize =
 
 -- | The issuing authority of the web identity token presented. For OpenID
 -- Connect ID Tokens this contains the value of the 'iss' field. For OAuth 2.0
--- Access Tokens, this contains the value of the 'ProviderId' parameter that was
+-- access tokens, this contains the value of the 'ProviderId' parameter that was
 -- passed in the 'AssumeRoleWithWebIdentity' request.
 arwwirProvider :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Text)
 arwwirProvider = lens _arwwirProvider (\s a -> s { _arwwirProvider = a })
@@ -267,8 +276,8 @@ arwwirProvider = lens _arwwirProvider (\s a -> s { _arwwirProvider = a })
 -- identifier is associated with the 'WebIdentityToken' that was submitted with
 -- the 'AssumeRoleWithWebIdentity' call. The identifier is typically unique to the
 -- user and the application that acquired the 'WebIdentityToken' (pairwise
--- identifier). If an OpenID Connect ID token was submitted in the 'WebIdentityToken', this value is returned by the identity provider as the token's 'sub'
--- (Subject) claim.
+-- identifier). For OpenID Connect ID tokens, this field contains the value
+-- returned by the identity provider as the token's 'sub' (Subject) claim.
 arwwirSubjectFromWebIdentityToken :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Text)
 arwwirSubjectFromWebIdentityToken =
     lens _arwwirSubjectFromWebIdentityToken

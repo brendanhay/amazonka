@@ -288,8 +288,12 @@ createEnvironmentResponse = CreateEnvironmentResponse
     , _cerTier                         = Nothing
     }
 
--- | Lists in-progress environment updates and application version deployments
--- that you can cancel.
+-- | Indicates if there is an in-progress environment configuration update or
+-- application version deployment that you can cancel.
+--
+-- 'true:' There is an update in progress.
+--
+-- 'false:' There are no updates currently in progress.
 cerAbortableOperationInProgress :: Lens' CreateEnvironmentResponse (Maybe Bool)
 cerAbortableOperationInProgress =
     lens _cerAbortableOperationInProgress

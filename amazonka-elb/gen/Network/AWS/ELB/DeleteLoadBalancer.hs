@@ -24,17 +24,13 @@
 
 -- | Deletes the specified load balancer.
 --
--- If attempting to recreate the load balancer, you must reconfigure all the
--- settings. The DNS name associated with a deleted load balancer will no longer
--- be usable. Once deleted, the name and associated DNS record of the load
--- balancer no longer exist and traffic sent to any of its IP addresses will no
--- longer be delivered to back-end instances.
+-- If you are attempting to recreate a load balancer, you must reconfigure all
+-- settings. The DNS name associated with a deleted load balancer are no longer
+-- usable. The name and associated DNS record of the deleted load balancer no
+-- longer exist and traffic sent to any of its IP addresses is no longer
+-- delivered to back-end instances.
 --
--- To successfully call this API, you must provide the same account
--- credentials as were used to create the load balancer.
---
--- By design, if the load balancer does not exist or has already been deleted,
--- a call to 'DeleteLoadBalancer' action still succeeds.
+-- If the load balancer does not exist or has already been deleted, the call to 'DeleteLoadBalancer' still succeeds.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancer.html>
 module Network.AWS.ELB.DeleteLoadBalancer
@@ -73,7 +69,7 @@ deleteLoadBalancer p1 = DeleteLoadBalancer
     { _dlbLoadBalancerName = p1
     }
 
--- | The name associated with the load balancer.
+-- | The name of the load balancer.
 dlbLoadBalancerName :: Lens' DeleteLoadBalancer Text
 dlbLoadBalancerName =
     lens _dlbLoadBalancerName (\s a -> s { _dlbLoadBalancerName = a })

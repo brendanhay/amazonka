@@ -106,8 +106,6 @@ cpPath :: Lens' CreatePolicy (Maybe Text)
 cpPath = lens _cpPath (\s a -> s { _cpPath = a })
 
 -- | The policy document.
---
--- The policy must be URL-encoded according to <http://www.faqs.org/rfcs/rfc3986.html RFC 3986>.
 cpPolicyDocument :: Lens' CreatePolicy Text
 cpPolicyDocument = lens _cpPolicyDocument (\s a -> s { _cpPolicyDocument = a })
 

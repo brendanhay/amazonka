@@ -82,6 +82,9 @@ rnaaAssociationId :: Lens' ReplaceNetworkAclAssociation Text
 rnaaAssociationId =
     lens _rnaaAssociationId (\s a -> s { _rnaaAssociationId = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 rnaaDryRun :: Lens' ReplaceNetworkAclAssociation (Maybe Bool)
 rnaaDryRun = lens _rnaaDryRun (\s a -> s { _rnaaDryRun = a })
 

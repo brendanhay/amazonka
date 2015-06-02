@@ -87,8 +87,6 @@ cpvPolicyArn :: Lens' CreatePolicyVersion Text
 cpvPolicyArn = lens _cpvPolicyArn (\s a -> s { _cpvPolicyArn = a })
 
 -- | The policy document.
---
--- The policy must be URL-encoded according to <http://www.faqs.org/rfcs/rfc3986.html RFC 3986>.
 cpvPolicyDocument :: Lens' CreatePolicyVersion Text
 cpvPolicyDocument =
     lens _cpvPolicyDocument (\s a -> s { _cpvPolicyDocument = a })

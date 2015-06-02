@@ -74,6 +74,9 @@ describeVpnGateways = DescribeVpnGateways
     , _dvg2Filters       = mempty
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dvg2DryRun :: Lens' DescribeVpnGateways (Maybe Bool)
 dvg2DryRun = lens _dvg2DryRun (\s a -> s { _dvg2DryRun = a })
 

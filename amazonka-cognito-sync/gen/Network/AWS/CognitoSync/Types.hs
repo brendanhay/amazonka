@@ -540,7 +540,7 @@ cognitoStreams = CognitoStreams
 
 -- | The ARN of the role Amazon Cognito can assume in order to publish to the
 -- stream. This role must grant access to Amazon Cognito (cognito-sync) to
--- invoke 'PutRecord' on your Cognito stream.
+-- invoke PutRecord on your Cognito stream.
 csRoleArn :: Lens' CognitoStreams (Maybe Text)
 csRoleArn = lens _csRoleArn (\s a -> s { _csRoleArn = a })
 
@@ -549,11 +549,11 @@ csRoleArn = lens _csRoleArn (\s a -> s { _csRoleArn = a })
 csStreamName :: Lens' CognitoStreams (Maybe Text)
 csStreamName = lens _csStreamName (\s a -> s { _csStreamName = a })
 
--- | Status of the Cognito streams. Valid values are: 'ENABLED' - Streaming of
+-- | Status of the Cognito streams. Valid values are: ENABLED - Streaming of
 -- updates to identity pool is enabled.
 --
--- 'DISABLED'Streaming of updates to identity pool is disabled. Bulk publish will
--- also fail if 'StreamingStatus' is 'DISABLED'.
+-- DISABLED - Streaming of updates to identity pool is disabled. Bulk publish
+-- will also fail if StreamingStatus is DISABLED.
 csStreamingStatus :: Lens' CognitoStreams (Maybe StreamingStatus)
 csStreamingStatus =
     lens _csStreamingStatus (\s a -> s { _csStreamingStatus = a })

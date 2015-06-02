@@ -158,7 +158,8 @@ ciAmiId = lens _ciAmiId (\s a -> s { _ciAmiId = a })
 ciArchitecture :: Lens' CreateInstance (Maybe Architecture)
 ciArchitecture = lens _ciArchitecture (\s a -> s { _ciArchitecture = a })
 
--- | For load-based or time-based instances, the type.
+-- | For load-based or time-based instances, the type. Windows stacks can use only
+-- time-based instances.
 ciAutoScalingType :: Lens' CreateInstance (Maybe AutoScalingType)
 ciAutoScalingType =
     lens _ciAutoScalingType (\s a -> s { _ciAutoScalingType = a })
@@ -207,6 +208,10 @@ ciLayerIds :: Lens' CreateInstance [Text]
 ciLayerIds = lens _ciLayerIds (\s a -> s { _ciLayerIds = a }) . _List
 
 -- | The instance's operating system, which must be set to one of the following.
+--
+-- For Windows stacks: Microsoft Windows Server 2012 R2.
+--
+-- For Linux stacks:
 --
 -- Standard operating systems: an Amazon Linux version such as 'Amazon Linux2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom AMIs: 'Custom'   The
 -- default option is the current Amazon Linux version. If you set this parameter

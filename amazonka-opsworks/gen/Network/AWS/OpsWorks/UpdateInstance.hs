@@ -130,7 +130,8 @@ uiAmiId = lens _uiAmiId (\s a -> s { _uiAmiId = a })
 uiArchitecture :: Lens' UpdateInstance (Maybe Architecture)
 uiArchitecture = lens _uiArchitecture (\s a -> s { _uiArchitecture = a })
 
--- | For load-based or time-based instances, the type.
+-- | For load-based or time-based instances, the type. Windows stacks can use only
+-- time-based instances.
 uiAutoScalingType :: Lens' UpdateInstance (Maybe AutoScalingType)
 uiAutoScalingType =
     lens _uiAutoScalingType (\s a -> s { _uiAutoScalingType = a })
@@ -172,11 +173,16 @@ uiLayerIds = lens _uiLayerIds (\s a -> s { _uiLayerIds = a }) . _List
 
 -- | The instance's operating system, which must be set to one of the following.
 --
--- Standard operating systems: An Amazon Linux version such as 'Amazon Linux2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom AMIs: 'Custom'   The
--- default option is the current Amazon Linux version, such as 'Amazon Linux2014.09'. If you set this parameter to 'Custom', you must use the 'CreateInstance'
--- action's AmiId parameter to specify the custom AMI that you want to use. For
--- more information on the standard operating systems, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html Operating Systems>For
--- more information on how to use custom AMIs with OpsWorks, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using CustomAMIs>.
+-- For Windows stacks: Microsoft Windows Server 2012 R2.
+--
+-- For Linux stacks:
+--
+-- Standard operating systems: an Amazon Linux version such as 'Amazon Linux2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom AMIs: 'Custom'   The
+-- default option is the current Amazon Linux version. If you set this parameter
+-- to 'Custom', you must use the 'CreateInstance' action's AmiId parameter to
+-- specify the custom AMI that you want to use. For more information on the
+-- standard operating systems, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html Operating Systems>For more information on how
+-- to use custom AMIs with OpsWorks, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using Custom AMIs>.
 uiOs :: Lens' UpdateInstance (Maybe Text)
 uiOs = lens _uiOs (\s a -> s { _uiOs = a })
 

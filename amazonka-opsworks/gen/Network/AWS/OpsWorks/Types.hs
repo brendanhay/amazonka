@@ -176,6 +176,7 @@ module Network.AWS.OpsWorks.Types
     -- * AutoScalingThresholds
     , AutoScalingThresholds
     , autoScalingThresholds
+    , astAlarms
     , astCpuThreshold
     , astIgnoreMetricsTime
     , astInstanceCount
@@ -271,6 +272,14 @@ module Network.AWS.OpsWorks.Types
 
     -- * LayerAttributesKeys
     , LayerAttributesKeys (..)
+
+    -- * TemporaryCredential
+    , TemporaryCredential
+    , temporaryCredential
+    , tcInstanceId
+    , tcPassword
+    , tcUsername
+    , tcValidForInMinutes
 
     -- * VolumeConfiguration
     , VolumeConfiguration
@@ -702,7 +711,8 @@ cStatus = lens _cStatus (\s a -> s { _cStatus = a })
 
 -- | The command type:
 --
--- 'deploy' 'rollback' 'start' 'stop' 'restart' 'undeploy' 'update_dependencies' 'install_dependencies' 'update_custom_cookbooks' 'execute_recipes'
+-- 'deploy'   'rollback'   'start'   'stop'   'restart'   'undeploy'   'update_dependencies'
+-- 'install_dependencies'   'update_custom_cookbooks'   'execute_recipes'
 cType :: Lens' Command (Maybe Text)
 cType = lens _cType (\s a -> s { _cType = a })
 
@@ -1083,7 +1093,7 @@ rdiDbInstanceIdentifier :: Lens' RdsDbInstance (Maybe Text)
 rdiDbInstanceIdentifier =
     lens _rdiDbInstanceIdentifier (\s a -> s { _rdiDbInstanceIdentifier = a })
 
--- | The database password.
+-- | AWS OpsWorks returns '*****FILTERED*****' instead of the actual value.
 rdiDbPassword :: Lens' RdsDbInstance (Maybe Text)
 rdiDbPassword = lens _rdiDbPassword (\s a -> s { _rdiDbPassword = a })
 
@@ -1752,7 +1762,8 @@ instance ToJSON LayerType where
     toJSON = toJSONText
 
 data AutoScalingThresholds = AutoScalingThresholds
-    { _astCpuThreshold       :: Maybe Double
+    { _astAlarms             :: List "Alarms" Text
+    , _astCpuThreshold       :: Maybe Double
     , _astIgnoreMetricsTime  :: Maybe Nat
     , _astInstanceCount      :: Maybe Int
     , _astLoadThreshold      :: Maybe Double
@@ -1763,6 +1774,8 @@ data AutoScalingThresholds = AutoScalingThresholds
 -- | 'AutoScalingThresholds' constructor.
 --
 -- The fields accessible through corresponding lenses are:
+--
+-- * 'astAlarms' @::@ ['Text']
 --
 -- * 'astCpuThreshold' @::@ 'Maybe' 'Double'
 --
@@ -1784,20 +1797,30 @@ autoScalingThresholds = AutoScalingThresholds
     , _astCpuThreshold       = Nothing
     , _astMemoryThreshold    = Nothing
     , _astLoadThreshold      = Nothing
+    , _astAlarms             = mempty
     }
+
+-- | Custom Cloudwatch auto scaling alarms, to be used as thresholds. This
+-- parameter takes a list of up to five alarm names, which are case sensitive
+-- and must be in the same region as the stack.
+--
+-- To use custom alarms, you must update your service role to allow 'cloudwatch:DescribeAlarms'. You can either have AWS OpsWorks update the role for you when you first use
+-- this feature or you can edit the role manually. For more information, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-servicerole.html Allowing AWS OpsWorks to Act on Your Behalf>.
+astAlarms :: Lens' AutoScalingThresholds [Text]
+astAlarms = lens _astAlarms (\s a -> s { _astAlarms = a }) . _List
 
 -- | The CPU utilization threshold, as a percent of the available CPU.
 astCpuThreshold :: Lens' AutoScalingThresholds (Maybe Double)
 astCpuThreshold = lens _astCpuThreshold (\s a -> s { _astCpuThreshold = a })
 
 -- | The amount of time (in minutes) after a scaling event occurs that AWS
--- OpsWorks should ignore metrics and not raise any additional scaling events.
--- For example, AWS OpsWorks adds new instances following an upscaling event but
--- the instances won't start reducing the load until they have been booted and
+-- OpsWorks should ignore metrics and suppress additional scaling events. For
+-- example, AWS OpsWorks adds new instances following an upscaling event but the
+-- instances won't start reducing the load until they have been booted and
 -- configured. There is no point in raising additional scaling events during
 -- that operation, which typically takes several minutes. 'IgnoreMetricsTime'
--- allows you to direct AWS OpsWorks to not raise any scaling events long enough
--- to get the new instances online.
+-- allows you to direct AWS OpsWorks to suppress scaling events long enough to
+-- get the new instances online.
 astIgnoreMetricsTime :: Lens' AutoScalingThresholds (Maybe Natural)
 astIgnoreMetricsTime =
     lens _astIgnoreMetricsTime (\s a -> s { _astIgnoreMetricsTime = a })
@@ -1825,7 +1848,8 @@ astThresholdsWaitTime =
 
 instance FromJSON AutoScalingThresholds where
     parseJSON = withObject "AutoScalingThresholds" $ \o -> AutoScalingThresholds
-        <$> o .:? "CpuThreshold"
+        <$> o .:? "Alarms" .!= mempty
+        <*> o .:? "CpuThreshold"
         <*> o .:? "IgnoreMetricsTime"
         <*> o .:? "InstanceCount"
         <*> o .:? "LoadThreshold"
@@ -1840,6 +1864,7 @@ instance ToJSON AutoScalingThresholds where
         , "CpuThreshold"       .= _astCpuThreshold
         , "MemoryThreshold"    .= _astMemoryThreshold
         , "LoadThreshold"      .= _astLoadThreshold
+        , "Alarms"             .= _astAlarms
         ]
 
 data App = App
@@ -2295,11 +2320,14 @@ source = Source
     , _sRevision = Nothing
     }
 
--- | This parameter depends on the repository type.
+-- | When included in a request, the parameter depends on the repository type.
 --
 -- For Amazon S3 bundles, set 'Password' to the appropriate IAM secret access
 -- key. For HTTP bundles and Subversion repositories, set 'Password' to the
 -- password.  For more information on how to safely handle IAM credentials, see <http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html >.
+--
+-- In responses, AWS OpsWorks returns '*****FILTERED*****' instead of the actual
+-- value.
 sPassword :: Lens' Source (Maybe Text)
 sPassword = lens _sPassword (\s a -> s { _sPassword = a })
 
@@ -2310,7 +2338,10 @@ sPassword = lens _sPassword (\s a -> s { _sPassword = a })
 sRevision :: Lens' Source (Maybe Text)
 sRevision = lens _sRevision (\s a -> s { _sRevision = a })
 
--- | The repository's SSH key.
+-- | In requests, the repository's SSH key.
+--
+-- In responses, AWS OpsWorks returns '*****FILTERED*****' instead of the actual
+-- value.
 sSshKey :: Lens' Source (Maybe Text)
 sSshKey = lens _sSshKey (\s a -> s { _sSshKey = a })
 
@@ -2631,6 +2662,68 @@ instance FromJSON LayerAttributesKeys where
 instance ToJSON LayerAttributesKeys where
     toJSON = toJSONText
 
+data TemporaryCredential = TemporaryCredential
+    { _tcInstanceId        :: Maybe Text
+    , _tcPassword          :: Maybe Text
+    , _tcUsername          :: Maybe Text
+    , _tcValidForInMinutes :: Maybe Int
+    } deriving (Eq, Ord, Read, Show)
+
+-- | 'TemporaryCredential' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'tcInstanceId' @::@ 'Maybe' 'Text'
+--
+-- * 'tcPassword' @::@ 'Maybe' 'Text'
+--
+-- * 'tcUsername' @::@ 'Maybe' 'Text'
+--
+-- * 'tcValidForInMinutes' @::@ 'Maybe' 'Int'
+--
+temporaryCredential :: TemporaryCredential
+temporaryCredential = TemporaryCredential
+    { _tcUsername          = Nothing
+    , _tcPassword          = Nothing
+    , _tcValidForInMinutes = Nothing
+    , _tcInstanceId        = Nothing
+    }
+
+-- | The instance's AWS OpsWorks ID.
+tcInstanceId :: Lens' TemporaryCredential (Maybe Text)
+tcInstanceId = lens _tcInstanceId (\s a -> s { _tcInstanceId = a })
+
+-- | The password.
+tcPassword :: Lens' TemporaryCredential (Maybe Text)
+tcPassword = lens _tcPassword (\s a -> s { _tcPassword = a })
+
+-- | The user name.
+tcUsername :: Lens' TemporaryCredential (Maybe Text)
+tcUsername = lens _tcUsername (\s a -> s { _tcUsername = a })
+
+-- | The length of time (in minutes) that the grant is valid. When the grant
+-- expires, at the end of this period, the user will no longer be able to use
+-- the credentials to log in. If they are logged in at the time, they will be
+-- automatically logged out.
+tcValidForInMinutes :: Lens' TemporaryCredential (Maybe Int)
+tcValidForInMinutes =
+    lens _tcValidForInMinutes (\s a -> s { _tcValidForInMinutes = a })
+
+instance FromJSON TemporaryCredential where
+    parseJSON = withObject "TemporaryCredential" $ \o -> TemporaryCredential
+        <$> o .:? "InstanceId"
+        <*> o .:? "Password"
+        <*> o .:? "Username"
+        <*> o .:? "ValidForInMinutes"
+
+instance ToJSON TemporaryCredential where
+    toJSON TemporaryCredential{..} = object
+        [ "Username"          .= _tcUsername
+        , "Password"          .= _tcPassword
+        , "ValidForInMinutes" .= _tcValidForInMinutes
+        , "InstanceId"        .= _tcInstanceId
+        ]
+
 data VolumeConfiguration = VolumeConfiguration
     { _vcIops          :: Maybe Int
     , _vcMountPoint    :: Text
@@ -2841,8 +2934,8 @@ pIamUserArn = lens _pIamUserArn (\s a -> s { _pIamUserArn = a })
 
 -- | The user's permission level, which must be the following:
 --
--- 'deny' 'show' 'deploy' 'manage' 'iam_only'  For more information on the permissions
--- associated with these levels, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>
+-- 'deny'   'show'   'deploy'   'manage'   'iam_only'   For more information on the
+-- permissions associated with these levels, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>
 pLevel :: Lens' Permission (Maybe Text)
 pLevel = lens _pLevel (\s a -> s { _pLevel = a })
 
@@ -2900,7 +2993,8 @@ evKey :: Lens' EnvironmentVariable Text
 evKey = lens _evKey (\s a -> s { _evKey = a })
 
 -- | (Optional) Whether the variable's value will be returned by the 'DescribeApps'
--- action. To conceal an environment variable's value, set 'Secure' to 'true'. 'DescribeApps' then returns '**Filtered**' instead of the actual value. The default value for 'Secure' is 'false'.
+-- action. To conceal an environment variable's value, set 'Secure' to 'true'. 'DescribeApps' then returns '*****FILTERED*****' instead of the actual value. The default
+-- value for 'Secure' is 'false'.
 evSecure :: Lens' EnvironmentVariable (Maybe Bool)
 evSecure = lens _evSecure (\s a -> s { _evSecure = a })
 
@@ -3015,6 +3109,10 @@ layer = Layer
     }
 
 -- | The layer attributes.
+--
+-- For the 'HaproxyStatsPassword', 'MysqlRootPassword', and 'GangliaPassword'
+-- attributes, AWS OpsWorks returns '*****FILTERED*****' instead of the actual
+-- value
 lAttributes :: Lens' Layer (HashMap LayerAttributesKeys Text)
 lAttributes = lens _lAttributes (\s a -> s { _lAttributes = a }) . _Map
 
@@ -3486,13 +3584,14 @@ sCustomCookbooksSource :: Lens' Stack (Maybe Source)
 sCustomCookbooksSource =
     lens _sCustomCookbooksSource (\s a -> s { _sCustomCookbooksSource = a })
 
--- | A string that contains user-defined, custom JSON. It is used to override the
--- corresponding default stack configuration JSON values. The string should be
--- in the following format and must escape characters such as '"'.:
+-- | A string that contains user-defined, custom JSON. It can be used to override
+-- the corresponding default stack configuration JSON values or to pass data to
+-- recipes. The string should be in the following format and must escape
+-- characters such as '"'.:
 --
 -- '"{\"key1\": \"value1\", \"key2\": \"value2\",...}"'
 --
--- For more information on custom JSON, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration JSON>.
+-- For more information on custom JSON, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration Attributes>.
 sCustomJson :: Lens' Stack (Maybe Text)
 sCustomJson = lens _sCustomJson (\s a -> s { _sCustomJson = a })
 
@@ -3639,7 +3738,7 @@ deploymentCommand p1 = DeploymentCommand
 -- | The arguments of those commands that take arguments. It should be set to a
 -- JSON object with the following format:
 --
--- '{"arg_name1" : ["value1", "value2", ...], "arg_name2" : ["value1", "value2",...], ...}'
+-- '{"arg_name1" : ["value1", "value2", ...], "arg_name2" : ["value1","value2", ...], ...}'
 --
 -- The 'update_dependencies' command takes two arguments:
 --
@@ -3661,14 +3760,19 @@ dcArgs = lens _dcArgs (\s a -> s { _dcArgs = a }) . _Map
 -- 'execute_recipes': Execute one or more recipes. To specify the recipes, set
 -- an 'Args' parameter named 'recipes' to the list of recipes to be executed. For
 -- example, to execute 'phpapp::appsetup', set 'Args' to '{"recipes":["phpapp::appsetup"]}'.  'install_dependencies': Install the stack's dependencies.  'update_custom_cookbooks': Update the stack's custom cookbooks.  'update_dependencies': Update the
--- stack's dependencies.  For apps, the following commands are available:
+-- stack's dependencies.  The update_dependencies and install_dependencies
+-- commands are supported only for Linux instances. You can run the commands
+-- successfully on Windows instances, but they do nothing. For apps, the
+-- following commands are available:
 --
--- 'deploy': Deploy an app. Rails apps have an optional 'Args' parameter named 'migrate'. Set 'Args' to {"migrate":["true"]} to migrate the database. The default
--- setting is {"migrate":["false"]}.  'rollback' Roll the app back to the previous
--- version. When you update an app, AWS OpsWorks stores the previous version, up
--- to a maximum of five versions. You can use this command to roll an app back
--- as many as four versions.  'start': Start the app's web or application server.  'stop': Stop the app's web or application server.  'restart': Restart the app's
--- web or application server.  'undeploy': Undeploy the app.
+-- 'deploy': Deploy an app. Ruby on Rails apps have an optional 'Args' parameter
+-- named 'migrate'. Set 'Args' to {"migrate":["true"]} to migrate the database. The
+-- default setting is {"migrate":["false"]}.  'rollback' Roll the app back to the
+-- previous version. When you update an app, AWS OpsWorks stores the previous
+-- version, up to a maximum of five versions. You can use this command to roll
+-- an app back as many as four versions.  'start': Start the app's web or
+-- application server.  'stop': Stop the app's web or application server.  'restart': Restart the app's web or application server.
+-- 'undeploy': Undeploy the app.
 dcName :: Lens' DeploymentCommand DeploymentCommandName
 dcName = lens _dcName (\s a -> s { _dcName = a })
 
@@ -4134,7 +4238,7 @@ iStackId = lens _iStackId (\s a -> s { _iStackId = a })
 
 -- | The instance status:
 --
--- 'booting' 'connection_lost' 'online' 'pending' 'rebooting' 'requested' 'running_setup' 'setup_failed' 'shutting_down' 'start_failed' 'stopped' 'stopping' 'terminated' 'terminating'
+-- 'booting'   'connection_lost'   'online'   'pending'   'rebooting'   'requested'   'running_setup'   'setup_failed'   'shutting_down'   'start_failed'   'stopped'   'stopping'   'terminated'   'terminating'
 iStatus :: Lens' Instance (Maybe Text)
 iStatus = lens _iStatus (\s a -> s { _iStatus = a })
 
@@ -4302,13 +4406,14 @@ dCompletedAt = lens _dCompletedAt (\s a -> s { _dCompletedAt = a })
 dCreatedAt :: Lens' Deployment (Maybe Text)
 dCreatedAt = lens _dCreatedAt (\s a -> s { _dCreatedAt = a })
 
--- | A string that contains user-defined custom JSON. It is used to override the
--- corresponding default stack configuration JSON values for stack. The string
--- should be in the following format and must escape characters such as '"'.:
+-- | A string that contains user-defined custom JSON. It can be used to override
+-- the corresponding default stack configuration attribute values for stack or
+-- to pass data to recipes. The string should be in the following format and
+-- must escape characters such as '"'.:
 --
 -- '"{\"key1\": \"value1\", \"key2\": \"value2\",...}"'
 --
--- For more information on custom JSON, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration JSON>.
+-- For more information on custom JSON, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration Attributes>.
 dCustomJson :: Lens' Deployment (Maybe Text)
 dCustomJson = lens _dCustomJson (\s a -> s { _dCustomJson = a })
 

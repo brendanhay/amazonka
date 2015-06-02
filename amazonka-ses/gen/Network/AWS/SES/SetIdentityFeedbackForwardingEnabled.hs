@@ -27,7 +27,9 @@
 -- forwarding can only be disabled when Amazon Simple Notification Service
 -- (Amazon SNS) topics are specified for both bounces and complaints.
 --
--- This action is throttled at one request per second.
+-- Feedback forwarding does not apply to delivery notifications. Delivery
+-- notifications are only available through Amazon SNS. This action is throttled
+-- at one request per second.
 --
 -- For more information about using notifications with Amazon SES, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html Amazon SES Developer Guide>.
 --

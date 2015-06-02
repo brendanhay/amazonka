@@ -64,6 +64,7 @@ library
         , Network.AWS.KMS.RetireGrant
         , Network.AWS.KMS.RevokeGrant
         , Network.AWS.KMS.Types
+        , Network.AWS.KMS.UpdateAlias
         , Network.AWS.KMS.UpdateKeyDescription
 
     other-modules:

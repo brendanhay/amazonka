@@ -67,6 +67,9 @@ deleteSubnet p1 = DeleteSubnet
     , _ds2DryRun   = Nothing
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 ds2DryRun :: Lens' DeleteSubnet (Maybe Bool)
 ds2DryRun = lens _ds2DryRun (\s a -> s { _ds2DryRun = a })
 

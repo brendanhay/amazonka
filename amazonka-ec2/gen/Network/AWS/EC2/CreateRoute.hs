@@ -50,6 +50,7 @@ module Network.AWS.EC2.CreateRoute
     -- ** Request constructor
     , createRoute
     -- ** Request lenses
+    , crClientToken
     , crDestinationCidrBlock
     , crDryRun
     , crGatewayId
@@ -62,6 +63,9 @@ module Network.AWS.EC2.CreateRoute
     , CreateRouteResponse
     -- ** Response constructor
     , createRouteResponse
+    -- ** Response lenses
+    , crrClientToken
+    , crrReturn
     ) where
 
 import Network.AWS.Prelude
@@ -70,7 +74,8 @@ import Network.AWS.EC2.Types
 import qualified GHC.Exts
 
 data CreateRoute = CreateRoute
-    { _crDestinationCidrBlock   :: Text
+    { _crClientToken            :: Maybe Text
+    , _crDestinationCidrBlock   :: Text
     , _crDryRun                 :: Maybe Bool
     , _crGatewayId              :: Maybe Text
     , _crInstanceId             :: Maybe Text
@@ -82,6 +87,8 @@ data CreateRoute = CreateRoute
 -- | 'CreateRoute' constructor.
 --
 -- The fields accessible through corresponding lenses are:
+--
+-- * 'crClientToken' @::@ 'Maybe' 'Text'
 --
 -- * 'crDestinationCidrBlock' @::@ 'Text'
 --
@@ -108,7 +115,13 @@ createRoute p1 p2 = CreateRoute
     , _crInstanceId             = Nothing
     , _crNetworkInterfaceId     = Nothing
     , _crVpcPeeringConnectionId = Nothing
+    , _crClientToken            = Nothing
     }
+
+-- | Unique, case-sensitive identifier you provide to ensure the idempotency of
+-- the request. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to Ensure Idempotency>.
+crClientToken :: Lens' CreateRoute (Maybe Text)
+crClientToken = lens _crClientToken (\s a -> s { _crClientToken = a })
 
 -- | The CIDR address block used for the destination match. Routing decisions are
 -- based on the most specific match.
@@ -116,6 +129,9 @@ crDestinationCidrBlock :: Lens' CreateRoute Text
 crDestinationCidrBlock =
     lens _crDestinationCidrBlock (\s a -> s { _crDestinationCidrBlock = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 crDryRun :: Lens' CreateRoute (Maybe Bool)
 crDryRun = lens _crDryRun (\s a -> s { _crDryRun = a })
 
@@ -144,18 +160,40 @@ crVpcPeeringConnectionId =
         (\s a -> s { _crVpcPeeringConnectionId = a })
 
 data CreateRouteResponse = CreateRouteResponse
-    deriving (Eq, Ord, Read, Show, Generic)
+    { _crrClientToken :: Maybe Text
+    , _crrReturn      :: Maybe Bool
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'CreateRouteResponse' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'crrClientToken' @::@ 'Maybe' 'Text'
+--
+-- * 'crrReturn' @::@ 'Maybe' 'Bool'
+--
 createRouteResponse :: CreateRouteResponse
 createRouteResponse = CreateRouteResponse
+    { _crrReturn      = Nothing
+    , _crrClientToken = Nothing
+    }
+
+-- | Unique, case-sensitive identifier you provide to ensure the idempotency of
+-- the request.
+crrClientToken :: Lens' CreateRouteResponse (Maybe Text)
+crrClientToken = lens _crrClientToken (\s a -> s { _crrClientToken = a })
+
+-- | Returns 'true' if the request succeeds; otherwise, it returns an error.
+crrReturn :: Lens' CreateRouteResponse (Maybe Bool)
+crrReturn = lens _crrReturn (\s a -> s { _crrReturn = a })
 
 instance ToPath CreateRoute where
     toPath = const "/"
 
 instance ToQuery CreateRoute where
     toQuery CreateRoute{..} = mconcat
-        [ "DestinationCidrBlock"   =? _crDestinationCidrBlock
+        [ "ClientToken"            =? _crClientToken
+        , "DestinationCidrBlock"   =? _crDestinationCidrBlock
         , "DryRun"                 =? _crDryRun
         , "GatewayId"              =? _crGatewayId
         , "InstanceId"             =? _crInstanceId
@@ -171,4 +209,9 @@ instance AWSRequest CreateRoute where
     type Rs CreateRoute = CreateRouteResponse
 
     request  = post "CreateRoute"
-    response = nullResponse CreateRouteResponse
+    response = xmlResponse
+
+instance FromXML CreateRouteResponse where
+    parseXML x = CreateRouteResponse
+        <$> x .@? "clientToken"
+        <*> x .@? "return"

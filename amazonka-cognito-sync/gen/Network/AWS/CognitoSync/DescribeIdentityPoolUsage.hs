@@ -25,7 +25,7 @@
 -- | Gets usage details (for example, data storage) about a particular identity
 -- pool.
 --
--- 'DescribeIdentityPoolUsage' can only be called with developer credentials. You
+-- DescribeIdentityPoolUsage can only be called with developer credentials. You
 -- cannot make this API call with the temporary user credentials provided by
 -- Cognito Identity.
 --

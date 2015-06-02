@@ -22,7 +22,11 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-GetDataRetrievalPolicy.html>
+-- | This operation returns the current data retrieval policy for the account and
+-- region specified in the GET request. For more information about data
+-- retrieval policies, see <http://docs.aws.amazon.com/amazonglacier/latest/dev/data-retrieval-policy.html Amazon Glacier Data Retrieval Policies>.
+--
+-- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-GetDataRetrievalPolicy.html>
 module Network.AWS.Glacier.GetDataRetrievalPolicy
     (
     -- * Request
@@ -62,6 +66,12 @@ getDataRetrievalPolicy p1 = GetDataRetrievalPolicy
     { _gdrpAccountId = p1
     }
 
+-- | The 'AccountId' value is the AWS account ID. This value must match the AWS
+-- account ID associated with the credentials used to sign the request. You can
+-- either specify an AWS account ID or optionally a single apos'-'apos (hyphen),
+-- in which case Amazon Glacier uses the AWS account ID associated with the
+-- credentials used to sign the request. If you specify your Account ID, do not
+-- include any hyphens (apos-apos) in the ID.
 gdrpAccountId :: Lens' GetDataRetrievalPolicy Text
 gdrpAccountId = lens _gdrpAccountId (\s a -> s { _gdrpAccountId = a })
 
@@ -80,6 +90,7 @@ getDataRetrievalPolicyResponse = GetDataRetrievalPolicyResponse
     { _gdrprPolicy = Nothing
     }
 
+-- | Contains the returned data retrieval policy in JSON format.
 gdrprPolicy :: Lens' GetDataRetrievalPolicyResponse (Maybe DataRetrievalPolicy)
 gdrprPolicy = lens _gdrprPolicy (\s a -> s { _gdrprPolicy = a })
 

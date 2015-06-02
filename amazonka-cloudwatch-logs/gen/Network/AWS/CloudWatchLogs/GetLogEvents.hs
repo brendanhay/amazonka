@@ -110,7 +110,7 @@ gleEndTime :: Lens' GetLogEvents (Maybe Natural)
 gleEndTime = lens _gleEndTime (\s a -> s { _gleEndTime = a }) . mapping _Nat
 
 -- | The maximum number of log events returned in the response. If you don't
--- specify a value, the request would return as much log events as can fit in a
+-- specify a value, the request would return as many log events as can fit in a
 -- response size of 1MB, up to 10,000 log events.
 gleLimit :: Lens' GetLogEvents (Maybe Natural)
 gleLimit = lens _gleLimit (\s a -> s { _gleLimit = a }) . mapping _Nat

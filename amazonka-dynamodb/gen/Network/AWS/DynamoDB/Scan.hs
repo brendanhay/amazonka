@@ -153,9 +153,9 @@ scan p1 p2 = Scan
     , _sExpressionAttributeValues = mempty
     }
 
--- | There is a newer parameter available. Use /ProjectionExpression/ instead. Note
--- that if you use /AttributesToGet/ and /ProjectionExpression/ at the same time,
--- DynamoDB will return a /ValidationException/ exception.
+-- | This is a legacy parameter, for backward compatibility. New applications
+-- should use /ProjectionExpression/ instead. Do not combine legacy parameters and
+-- expression parameters in a single API call; otherwise, DynamoDB will return a /ValidationException/ exception.
 --
 -- This parameter allows you to retrieve attributes of type List or Map;
 -- however, it cannot retrieve individual elements within a List or a Map.
@@ -170,9 +170,9 @@ scan p1 p2 = Scan
 sAttributesToGet :: Lens' Scan (NonEmpty Text)
 sAttributesToGet = lens _sAttributesToGet (\s a -> s { _sAttributesToGet = a }) . _List1
 
--- | There is a newer parameter available. Use /ConditionExpression/ instead. Note
--- that if you use /ConditionalOperator/ and / ConditionExpression / at the same
--- time, DynamoDB will return a /ValidationException/ exception.
+-- | This is a legacy parameter, for backward compatibility. New applications
+-- should use /FilterExpression/ instead. Do not combine legacy parameters and
+-- expression parameters in a single API call; otherwise, DynamoDB will return a /ValidationException/ exception.
 --
 -- A logical operator to apply to the conditions in a /ScanFilter/ map:
 --
@@ -223,9 +223,8 @@ sExclusiveStartKey =
 -- 'Percentile'
 --
 -- The name of this attribute conflicts with a reserved word, so it cannot be
--- used directly in an expression. (For the complete list of reserved words, go
--- to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html Reserved Words> in the /Amazon DynamoDB Developer Guide/). To work around
--- this, you could specify the following for /ExpressionAttributeNames/:
+-- used directly in an expression. (For the complete list of reserved words, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html Reserved Words> in the /Amazon DynamoDB Developer Guide/). To work around this,
+-- you could specify the following for /ExpressionAttributeNames/:
 --
 -- '{"#P":"Percentile"}'
 --
@@ -236,7 +235,7 @@ sExclusiveStartKey =
 -- Tokens that begin with the : character are /expression attribute values/,
 -- which are placeholders for the actual value at runtime.
 --
--- For more information on expression attribute names, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing ItemAttributes> in the /Amazon DynamoDB Developer Guide/.
+-- For more information on expression attribute names, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ExpressionPlaceholders.html Using Placeholdersfor Attribute Names and Values> in the /Amazon DynamoDB Developer Guide/.
 sExpressionAttributeNames :: Lens' Scan (HashMap Text Text)
 sExpressionAttributeNames =
     lens _sExpressionAttributeNames
@@ -258,7 +257,7 @@ sExpressionAttributeNames =
 --
 -- 'ProductStatus IN (:avail, :back, :disc)'
 --
--- For more information on expression attribute values, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html SpecifyingConditions> in the /Amazon DynamoDB Developer Guide/.
+-- For more information on expression attribute values, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ExpressionPlaceholders.html Using Placeholdersfor Attribute Names and Values> in the /Amazon DynamoDB Developer Guide/.
 sExpressionAttributeValues :: Lens' Scan (HashMap Text AttributeValue)
 sExpressionAttributeValues =
     lens _sExpressionAttributeValues
@@ -272,7 +271,11 @@ sExpressionAttributeValues =
 -- A /FilterExpression/ is applied after the items have already been read; the
 -- process of filtering does not consume any additional read capacity units.
 --
--- For more information, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#FilteringResults Filter Expressions> in the /Amazon DynamoDBDeveloper Guide/.
+-- For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#FilteringResults Filter Expressions> in the /Amazon DynamoDBDeveloper Guide/.
+--
+-- /FilterExpression/ replaces the legacy /ScanFilter/ and /ConditionalOperator/
+-- parameters.
+--
 sFilterExpression :: Lens' Scan (Maybe Text)
 sFilterExpression =
     lens _sFilterExpression (\s a -> s { _sFilterExpression = a })
@@ -304,7 +307,10 @@ sLimit = lens _sLimit (\s a -> s { _sLimit = a }) . mapping _Nat
 -- If any of the requested attributes are not found, they will not appear in the
 -- result.
 --
--- For more information, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes> in the /Amazon DynamoDBDeveloper Guide/.
+-- For more information, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes> in the /Amazon DynamoDBDeveloper Guide/.
+--
+-- /ProjectionExpression/ replaces the legacy /AttributesToGet/ parameter.
+--
 sProjectionExpression :: Lens' Scan (Maybe Text)
 sProjectionExpression =
     lens _sProjectionExpression (\s a -> s { _sProjectionExpression = a })
@@ -313,9 +319,9 @@ sReturnConsumedCapacity :: Lens' Scan (Maybe ReturnConsumedCapacity)
 sReturnConsumedCapacity =
     lens _sReturnConsumedCapacity (\s a -> s { _sReturnConsumedCapacity = a })
 
--- | There is a newer parameter available. Use /FilterExpression/ instead. Note
--- that if you use /ScanFilter/ and /FilterExpression/ at the same time, DynamoDB
--- will return a /ValidationException/ exception.
+-- | This is a legacy parameter, for backward compatibility. New applications
+-- should use /FilterExpression/ instead. Do not combine legacy parameters and
+-- expression parameters in a single API call; otherwise, DynamoDB will return a /ValidationException/ exception.
 --
 -- A condition that evaluates the scan results and returns only the desired
 -- values.

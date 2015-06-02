@@ -28,6 +28,12 @@
 -- page. If a limit is specified, a 'nextToken' is returned as part of the result
 -- that you can use to continue this request.
 --
+-- Each call to the API is limited to span a duration of seven days. It is
+-- likely that the number of records returned is smaller than the specified 'limit'
+-- . In such cases, you can make another call, using the 'nextToken' .
+--
+--
+--
 -- <http://docs.aws.amazon.com/config/latest/APIReference/API_GetResourceConfigHistory.html>
 module Network.AWS.Config.GetResourceConfigHistory
     (

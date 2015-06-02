@@ -51,8 +51,8 @@
 --
 -- The size of the data returned by 'GetRecords' will vary depending on the
 -- utilization of the shard. The maximum size of data that 'GetRecords' can return
--- is 10 MB. If a call returns 10 MB of data, subsequent calls made within the
--- next 5 seconds throw 'ProvisionedThroughputExceededException'. If there is
+-- is 10 MB. If a call returns this amount of data, subsequent calls made within
+-- the next 5 seconds throw 'ProvisionedThroughputExceededException'. If there is
 -- insufficient provisioned throughput on the shard, subsequent calls made
 -- within the next 1 second throw 'ProvisionedThroughputExceededException'. Note
 -- that 'GetRecords' won't return any data when it throws an exception. For this
@@ -60,10 +60,10 @@
 -- however, it's possible that the application will get exceptions for longer
 -- than 1 second.
 --
--- To detect whether the application is falling behind in processing, add a
--- timestamp to your records and note how long it takes to process them. You can
--- also monitor how much data is in a stream using the CloudWatch metrics for
--- write operations ('PutRecord' and 'PutRecords'). For more information, see <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring_with_cloudwatch.html Monitoring Amazon Kinesis with Amazon CloudWatch> in the /Amazon Kinesis Developer Guide/.
+-- To detect whether the application is falling behind in processing, you can
+-- use the 'MillisBehindLatest' response attribute. You can also monitor the
+-- amount of data in a stream using the CloudWatch metrics. For more
+-- information, see <http://docs.aws.amazon.com/kinesis/latest/dev/monitoring_with_cloudwatch.html Monitoring Amazon Kinesis with Amazon CloudWatch> in the /Amazon Kinesis Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetRecords.html>
 module Network.AWS.Kinesis.GetRecords
@@ -81,6 +81,7 @@ module Network.AWS.Kinesis.GetRecords
     -- ** Response constructor
     , getRecordsResponse
     -- ** Response lenses
+    , grrMillisBehindLatest
     , grrNextShardIterator
     , grrRecords
     ) where
@@ -123,13 +124,16 @@ grShardIterator :: Lens' GetRecords Text
 grShardIterator = lens _grShardIterator (\s a -> s { _grShardIterator = a })
 
 data GetRecordsResponse = GetRecordsResponse
-    { _grrNextShardIterator :: Maybe Text
-    , _grrRecords           :: List "Records" Record
+    { _grrMillisBehindLatest :: Maybe Nat
+    , _grrNextShardIterator  :: Maybe Text
+    , _grrRecords            :: List "Records" Record
     } deriving (Eq, Read, Show)
 
 -- | 'GetRecordsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
+--
+-- * 'grrMillisBehindLatest' @::@ 'Maybe' 'Natural'
 --
 -- * 'grrNextShardIterator' @::@ 'Maybe' 'Text'
 --
@@ -137,9 +141,19 @@ data GetRecordsResponse = GetRecordsResponse
 --
 getRecordsResponse :: GetRecordsResponse
 getRecordsResponse = GetRecordsResponse
-    { _grrRecords           = mempty
-    , _grrNextShardIterator = Nothing
+    { _grrRecords            = mempty
+    , _grrNextShardIterator  = Nothing
+    , _grrMillisBehindLatest = Nothing
     }
+
+-- | The number of milliseconds the 'GetRecords' response is from the tip of the
+-- stream, indicating how far behind current time the consumer is. A value of
+-- zero indicates record processing is caught up, and there are no new records
+-- to process at this moment.
+grrMillisBehindLatest :: Lens' GetRecordsResponse (Maybe Natural)
+grrMillisBehindLatest =
+    lens _grrMillisBehindLatest (\s a -> s { _grrMillisBehindLatest = a })
+        . mapping _Nat
 
 -- | The next position in the shard from which to start sequentially reading data
 -- records. If set to 'null', the shard has been closed and the requested iterator
@@ -175,5 +189,6 @@ instance AWSRequest GetRecords where
 
 instance FromJSON GetRecordsResponse where
     parseJSON = withObject "GetRecordsResponse" $ \o -> GetRecordsResponse
-        <$> o .:? "NextShardIterator"
+        <$> o .:? "MillisBehindLatest"
+        <*> o .:? "NextShardIterator"
         <*> o .:? "Records" .!= mempty

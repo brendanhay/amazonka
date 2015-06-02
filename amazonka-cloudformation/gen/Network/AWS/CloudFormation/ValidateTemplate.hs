@@ -80,7 +80,7 @@ vtTemplateBody :: Lens' ValidateTemplate (Maybe Text)
 vtTemplateBody = lens _vtTemplateBody (\s a -> s { _vtTemplateBody = a })
 
 -- | Location of file containing the template body. The URL must point to a
--- template (max size: 307,200 bytes) located in an S3 bucket in the same region
+-- template (max size: 460,800 bytes) located in an S3 bucket in the same region
 -- as the stack. For more information, go to <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy> in the AWS
 -- CloudFormation User Guide.
 --
@@ -124,7 +124,8 @@ validateTemplateResponse = ValidateTemplateResponse
 vtrCapabilities :: Lens' ValidateTemplateResponse [Capability]
 vtrCapabilities = lens _vtrCapabilities (\s a -> s { _vtrCapabilities = a }) . _List
 
--- | The capabilities reason found within the template.
+-- | The list of resources that generated the values in the 'Capabilities' response
+-- element.
 vtrCapabilitiesReason :: Lens' ValidateTemplateResponse (Maybe Text)
 vtrCapabilitiesReason =
     lens _vtrCapabilitiesReason (\s a -> s { _vtrCapabilitiesReason = a })

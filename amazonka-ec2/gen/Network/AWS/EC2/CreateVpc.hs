@@ -85,6 +85,9 @@ createVpc p1 = CreateVpc
 cvCidrBlock :: Lens' CreateVpc Text
 cvCidrBlock = lens _cvCidrBlock (\s a -> s { _cvCidrBlock = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 cvDryRun :: Lens' CreateVpc (Maybe Bool)
 cvDryRun = lens _cvDryRun (\s a -> s { _cvDryRun = a })
 

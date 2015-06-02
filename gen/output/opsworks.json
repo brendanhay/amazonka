@@ -57,6 +57,7 @@
             "Network.AWS.OpsWorks.DetachElasticLoadBalancer",
             "Network.AWS.OpsWorks.DisassociateElasticIp",
             "Network.AWS.OpsWorks.GetHostnameSuggestion",
+            "Network.AWS.OpsWorks.GrantAccess",
             "Network.AWS.OpsWorks.RebootInstance",
             "Network.AWS.OpsWorks.RegisterElasticIp",
             "Network.AWS.OpsWorks.RegisterInstance",
@@ -161,6 +162,7 @@
             "Network.AWS.OpsWorks.DetachElasticLoadBalancer",
             "Network.AWS.OpsWorks.DisassociateElasticIp",
             "Network.AWS.OpsWorks.GetHostnameSuggestion",
+            "Network.AWS.OpsWorks.GrantAccess",
             "Network.AWS.OpsWorks.RebootInstance",
             "Network.AWS.OpsWorks.RegisterElasticIp",
             "Network.AWS.OpsWorks.RegisterInstance",
@@ -584,7 +586,7 @@
                         "name": "_cType",
                         "shape": "String",
                         "locationName": "Type",
-                        "documentation": "-- | The command type:\n--\n-- 'deploy' 'rollback' 'start' 'stop' 'restart' 'undeploy' 'update_dependencies' 'install_dependencies' 'update_custom_cookbooks' 'execute_recipes'",
+                        "documentation": "-- | The command type:\n--\n-- 'deploy'   'rollback'   'start'   'stop'   'restart'   'undeploy'   'update_dependencies'\n-- 'install_dependencies'   'update_custom_cookbooks'   'execute_recipes'",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -772,7 +774,7 @@
                         "name": "_cType",
                         "shape": "String",
                         "locationName": "Type",
-                        "documentation": "-- | The command type:\n--\n-- 'deploy' 'rollback' 'start' 'stop' 'restart' 'undeploy' 'update_dependencies' 'install_dependencies' 'update_custom_cookbooks' 'execute_recipes'",
+                        "documentation": "-- | The command type:\n--\n-- 'deploy'   'rollback'   'start'   'stop'   'restart'   'undeploy'   'update_dependencies'\n-- 'install_dependencies'   'update_custom_cookbooks'   'execute_recipes'",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -954,7 +956,7 @@
                         "name": "_cType",
                         "shape": "String",
                         "locationName": "Type",
-                        "documentation": "-- | The command type:\n--\n-- 'deploy' 'rollback' 'start' 'stop' 'restart' 'undeploy' 'update_dependencies' 'install_dependencies' 'update_custom_cookbooks' 'execute_recipes'",
+                        "documentation": "-- | The command type:\n--\n-- 'deploy'   'rollback'   'start'   'stop'   'restart'   'undeploy'   'update_dependencies'\n-- 'install_dependencies'   'update_custom_cookbooks'   'execute_recipes'",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -2364,7 +2366,7 @@
                         "name": "_rdiDbPassword",
                         "shape": "String",
                         "locationName": "DbPassword",
-                        "documentation": "-- | The database password.",
+                        "documentation": "-- | AWS OpsWorks returns '*****FILTERED*****' instead of the actual value.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2534,7 +2536,7 @@
                         "name": "_rdiDbPassword",
                         "shape": "String",
                         "locationName": "DbPassword",
-                        "documentation": "-- | The database password.",
+                        "documentation": "-- | AWS OpsWorks returns '*****FILTERED*****' instead of the actual value.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2680,7 +2682,7 @@
                         "name": "_rdiDbPassword",
                         "shape": "String",
                         "locationName": "DbPassword",
-                        "documentation": "-- | The database password.",
+                        "documentation": "-- | AWS OpsWorks returns '*****FILTERED*****' instead of the actual value.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -4955,7 +4957,7 @@
                         "name": "_astIgnoreMetricsTime",
                         "shape": "Minute",
                         "locationName": "IgnoreMetricsTime",
-                        "documentation": "-- | The amount of time (in minutes) after a scaling event occurs that AWS\n-- OpsWorks should ignore metrics and not raise any additional scaling events.\n-- For example, AWS OpsWorks adds new instances following an upscaling event but\n-- the instances won't start reducing the load until they have been booted and\n-- configured. There is no point in raising additional scaling events during\n-- that operation, which typically takes several minutes. 'IgnoreMetricsTime'\n-- allows you to direct AWS OpsWorks to not raise any scaling events long enough\n-- to get the new instances online.",
+                        "documentation": "-- | The amount of time (in minutes) after a scaling event occurs that AWS\n-- OpsWorks should ignore metrics and suppress additional scaling events. For\n-- example, AWS OpsWorks adds new instances following an upscaling event but the\n-- instances won't start reducing the load until they have been booted and\n-- configured. There is no point in raising additional scaling events during\n-- that operation, which typically takes several minutes. 'IgnoreMetricsTime'\n-- allows you to direct AWS OpsWorks to suppress scaling events long enough to\n-- get the new instances online.",
                         "typeExposed": "Maybe Natural",
                         "type": "Maybe Nat"
                     },
@@ -5012,6 +5014,24 @@
                         "documentation": "-- | The load threshold. For more information about how load is computed, see \u003chttp://en.wikipedia.org/wiki/Load_%28computing%29 Load(computing)\u003e.",
                         "typeExposed": "Maybe Double",
                         "type": "Maybe Double"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "astAlarms",
+                        "name": "_astAlarms",
+                        "shape": "Strings",
+                        "locationName": "Alarms",
+                        "documentation": "-- | Custom Cloudwatch auto scaling alarms, to be used as thresholds. This\n-- parameter takes a list of up to five alarm names, which are case sensitive\n-- and must be in the same region as the stack.\n--\n-- To use custom alarms, you must update your service role to allow 'cloudwatch:DescribeAlarms'. You can either have AWS OpsWorks update the role for you when you first use\n-- this feature or you can edit the role manually. For more information, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-servicerole.html Allowing AWS OpsWorks to Act on Your Behalf\u003e.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"Alarms\" Text"
                     }
                 ],
                 "payload": null,
@@ -5071,7 +5091,7 @@
                         "name": "_astIgnoreMetricsTime",
                         "shape": "Minute",
                         "locationName": "IgnoreMetricsTime",
-                        "documentation": "-- | The amount of time (in minutes) after a scaling event occurs that AWS\n-- OpsWorks should ignore metrics and not raise any additional scaling events.\n-- For example, AWS OpsWorks adds new instances following an upscaling event but\n-- the instances won't start reducing the load until they have been booted and\n-- configured. There is no point in raising additional scaling events during\n-- that operation, which typically takes several minutes. 'IgnoreMetricsTime'\n-- allows you to direct AWS OpsWorks to not raise any scaling events long enough\n-- to get the new instances online.",
+                        "documentation": "-- | The amount of time (in minutes) after a scaling event occurs that AWS\n-- OpsWorks should ignore metrics and suppress additional scaling events. For\n-- example, AWS OpsWorks adds new instances following an upscaling event but the\n-- instances won't start reducing the load until they have been booted and\n-- configured. There is no point in raising additional scaling events during\n-- that operation, which typically takes several minutes. 'IgnoreMetricsTime'\n-- allows you to direct AWS OpsWorks to suppress scaling events long enough to\n-- get the new instances online.",
                         "typeExposed": "Maybe Natural",
                         "type": "Maybe Nat"
                     },
@@ -5128,9 +5148,45 @@
                         "documentation": "-- | The load threshold. For more information about how load is computed, see \u003chttp://en.wikipedia.org/wiki/Load_%28computing%29 Load(computing)\u003e.",
                         "typeExposed": "Maybe Double",
                         "type": "Maybe Double"
+                    },
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "astAlarms",
+                        "name": "_astAlarms",
+                        "shape": "Strings",
+                        "locationName": "Alarms",
+                        "documentation": "-- | Custom Cloudwatch auto scaling alarms, to be used as thresholds. This\n-- parameter takes a list of up to five alarm names, which are case sensitive\n-- and must be in the same region as the stack.\n--\n-- To use custom alarms, you must update your service role to allow 'cloudwatch:DescribeAlarms'. You can either have AWS OpsWorks update the role for you when you first use\n-- this feature or you can edit the role manually. For more information, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-servicerole.html Allowing AWS OpsWorks to Act on Your Behalf\u003e.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"Alarms\" Text"
                     }
                 ],
                 "fields": [
+                    {
+                        "location": null,
+                        "iso": "_List",
+                        "lensMapping": "_List",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "astAlarms",
+                        "name": "_astAlarms",
+                        "shape": "Strings",
+                        "locationName": "Alarms",
+                        "documentation": "-- | Custom Cloudwatch auto scaling alarms, to be used as thresholds. This\n-- parameter takes a list of up to five alarm names, which are case sensitive\n-- and must be in the same region as the stack.\n--\n-- To use custom alarms, you must update your service role to allow 'cloudwatch:DescribeAlarms'. You can either have AWS OpsWorks update the role for you when you first use\n-- this feature or you can edit the role manually. For more information, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-servicerole.html Allowing AWS OpsWorks to Act on Your Behalf\u003e.",
+                        "typeExposed": "[Text]",
+                        "type": "List \"Alarms\" Text"
+                    },
                     {
                         "location": null,
                         "iso": null,
@@ -5163,7 +5219,7 @@
                         "name": "_astIgnoreMetricsTime",
                         "shape": "Minute",
                         "locationName": "IgnoreMetricsTime",
-                        "documentation": "-- | The amount of time (in minutes) after a scaling event occurs that AWS\n-- OpsWorks should ignore metrics and not raise any additional scaling events.\n-- For example, AWS OpsWorks adds new instances following an upscaling event but\n-- the instances won't start reducing the load until they have been booted and\n-- configured. There is no point in raising additional scaling events during\n-- that operation, which typically takes several minutes. 'IgnoreMetricsTime'\n-- allows you to direct AWS OpsWorks to not raise any scaling events long enough\n-- to get the new instances online.",
+                        "documentation": "-- | The amount of time (in minutes) after a scaling event occurs that AWS\n-- OpsWorks should ignore metrics and suppress additional scaling events. For\n-- example, AWS OpsWorks adds new instances following an upscaling event but the\n-- instances won't start reducing the load until they have been booted and\n-- configured. There is no point in raising additional scaling events during\n-- that operation, which typically takes several minutes. 'IgnoreMetricsTime'\n-- allows you to direct AWS OpsWorks to suppress scaling events long enough to\n-- get the new instances online.",
                         "typeExposed": "Maybe Natural",
                         "type": "Maybe Nat"
                     },
@@ -6957,7 +7013,7 @@
                         "name": "_sPassword",
                         "shape": "String",
                         "locationName": "Password",
-                        "documentation": "-- | This parameter depends on the repository type.\n--\n-- For Amazon S3 bundles, set 'Password' to the appropriate IAM secret access\n-- key. For HTTP bundles and Subversion repositories, set 'Password' to the\n-- password.  For more information on how to safely handle IAM credentials, see \u003chttp://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html \u003e.",
+                        "documentation": "-- | When included in a request, the parameter depends on the repository type.\n--\n-- For Amazon S3 bundles, set 'Password' to the appropriate IAM secret access\n-- key. For HTTP bundles and Subversion repositories, set 'Password' to the\n-- password.  For more information on how to safely handle IAM credentials, see \u003chttp://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html \u003e.\n--\n-- In responses, AWS OpsWorks returns '*****FILTERED*****' instead of the actual\n-- value.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -6975,7 +7031,7 @@
                         "name": "_sSshKey",
                         "shape": "String",
                         "locationName": "SshKey",
-                        "documentation": "-- | The repository's SSH key.",
+                        "documentation": "-- | In requests, the repository's SSH key.\n--\n-- In responses, AWS OpsWorks returns '*****FILTERED*****' instead of the actual\n-- value.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -7073,7 +7129,7 @@
                         "name": "_sPassword",
                         "shape": "String",
                         "locationName": "Password",
-                        "documentation": "-- | This parameter depends on the repository type.\n--\n-- For Amazon S3 bundles, set 'Password' to the appropriate IAM secret access\n-- key. For HTTP bundles and Subversion repositories, set 'Password' to the\n-- password.  For more information on how to safely handle IAM credentials, see \u003chttp://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html \u003e.",
+                        "documentation": "-- | When included in a request, the parameter depends on the repository type.\n--\n-- For Amazon S3 bundles, set 'Password' to the appropriate IAM secret access\n-- key. For HTTP bundles and Subversion repositories, set 'Password' to the\n-- password.  For more information on how to safely handle IAM credentials, see \u003chttp://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html \u003e.\n--\n-- In responses, AWS OpsWorks returns '*****FILTERED*****' instead of the actual\n-- value.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -7091,7 +7147,7 @@
                         "name": "_sSshKey",
                         "shape": "String",
                         "locationName": "SshKey",
-                        "documentation": "-- | The repository's SSH key.",
+                        "documentation": "-- | In requests, the repository's SSH key.\n--\n-- In responses, AWS OpsWorks returns '*****FILTERED*****' instead of the actual\n-- value.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -7129,7 +7185,7 @@
                         "name": "_sPassword",
                         "shape": "String",
                         "locationName": "Password",
-                        "documentation": "-- | This parameter depends on the repository type.\n--\n-- For Amazon S3 bundles, set 'Password' to the appropriate IAM secret access\n-- key. For HTTP bundles and Subversion repositories, set 'Password' to the\n-- password.  For more information on how to safely handle IAM credentials, see \u003chttp://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html \u003e.",
+                        "documentation": "-- | When included in a request, the parameter depends on the repository type.\n--\n-- For Amazon S3 bundles, set 'Password' to the appropriate IAM secret access\n-- key. For HTTP bundles and Subversion repositories, set 'Password' to the\n-- password.  For more information on how to safely handle IAM credentials, see \u003chttp://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html \u003e.\n--\n-- In responses, AWS OpsWorks returns '*****FILTERED*****' instead of the actual\n-- value.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -7165,7 +7221,7 @@
                         "name": "_sSshKey",
                         "shape": "String",
                         "locationName": "SshKey",
-                        "documentation": "-- | The repository's SSH key.",
+                        "documentation": "-- | In requests, the repository's SSH key.\n--\n-- In responses, AWS OpsWorks returns '*****FILTERED*****' instead of the actual\n-- value.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -7895,6 +7951,244 @@
                     "Read",
                     "Show"
                 ],
+                "fieldPad": 20,
+                "ctor": "temporaryCredential",
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "tcUsername",
+                        "name": "_tcUsername",
+                        "shape": "String",
+                        "locationName": "Username",
+                        "documentation": "-- | The user name.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "tcPassword",
+                        "name": "_tcPassword",
+                        "shape": "String",
+                        "locationName": "Password",
+                        "documentation": "-- | The password.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "tcValidForInMinutes",
+                        "name": "_tcValidForInMinutes",
+                        "shape": "Integer",
+                        "locationName": "ValidForInMinutes",
+                        "documentation": "-- | The length of time (in minutes) that the grant is valid. When the grant\n-- expires, at the end of this period, the user will no longer be able to use\n-- the credentials to log in. If they are logged in at the time, they will be\n-- automatically logged out.",
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "tcInstanceId",
+                        "name": "_tcInstanceId",
+                        "shape": "String",
+                        "locationName": "InstanceId",
+                        "documentation": "-- | The instance's AWS OpsWorks ID.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "payload": null,
+                "required": [],
+                "contentPad": 18,
+                "name": "TemporaryCredential",
+                "locationPad": 18,
+                "type": "record",
+                "optional": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "tcUsername",
+                        "name": "_tcUsername",
+                        "shape": "String",
+                        "locationName": "Username",
+                        "documentation": "-- | The user name.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "tcPassword",
+                        "name": "_tcPassword",
+                        "shape": "String",
+                        "locationName": "Password",
+                        "documentation": "-- | The password.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "tcValidForInMinutes",
+                        "name": "_tcValidForInMinutes",
+                        "shape": "Integer",
+                        "locationName": "ValidForInMinutes",
+                        "documentation": "-- | The length of time (in minutes) that the grant is valid. When the grant\n-- expires, at the end of this period, the user will no longer be able to use\n-- the credentials to log in. If they are logged in at the time, they will be\n-- automatically logged out.",
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "tcInstanceId",
+                        "name": "_tcInstanceId",
+                        "shape": "String",
+                        "locationName": "InstanceId",
+                        "documentation": "-- | The instance's AWS OpsWorks ID.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "tcInstanceId",
+                        "name": "_tcInstanceId",
+                        "shape": "String",
+                        "locationName": "InstanceId",
+                        "documentation": "-- | The instance's AWS OpsWorks ID.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "tcPassword",
+                        "name": "_tcPassword",
+                        "shape": "String",
+                        "locationName": "Password",
+                        "documentation": "-- | The password.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "tcUsername",
+                        "name": "_tcUsername",
+                        "shape": "String",
+                        "locationName": "Username",
+                        "documentation": "-- | The user name.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "tcValidForInMinutes",
+                        "name": "_tcValidForInMinutes",
+                        "shape": "Integer",
+                        "locationName": "ValidForInMinutes",
+                        "documentation": "-- | The length of time (in minutes) that the grant is valid. When the grant\n-- expires, at the end of this period, the user will no longer be able to use\n-- the credentials to log in. If they are logged in at the time, they will be\n-- automatically logged out.",
+                        "typeExposed": "Maybe Int",
+                        "type": "Maybe Int"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show"
+                ],
                 "fieldPad": 16,
                 "ctor": "volumeConfiguration",
                 "contents": [
@@ -8534,7 +8828,7 @@
                         "name": "_pLevel",
                         "shape": "String",
                         "locationName": "Level",
-                        "documentation": "-- | The user's permission level, which must be the following:\n--\n-- 'deny' 'show' 'deploy' 'manage' 'iam_only'  For more information on the permissions\n-- associated with these levels, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions\u003e",
+                        "documentation": "-- | The user's permission level, which must be the following:\n--\n-- 'deny'   'show'   'deploy'   'manage'   'iam_only'   For more information on the\n-- permissions associated with these levels, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions\u003e",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -8632,7 +8926,7 @@
                         "name": "_pLevel",
                         "shape": "String",
                         "locationName": "Level",
-                        "documentation": "-- | The user's permission level, which must be the following:\n--\n-- 'deny' 'show' 'deploy' 'manage' 'iam_only'  For more information on the permissions\n-- associated with these levels, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions\u003e",
+                        "documentation": "-- | The user's permission level, which must be the following:\n--\n-- 'deny'   'show'   'deploy'   'manage'   'iam_only'   For more information on the\n-- permissions associated with these levels, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions\u003e",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -8706,7 +9000,7 @@
                         "name": "_pLevel",
                         "shape": "String",
                         "locationName": "Level",
-                        "documentation": "-- | The user's permission level, which must be the following:\n--\n-- 'deny' 'show' 'deploy' 'manage' 'iam_only'  For more information on the permissions\n-- associated with these levels, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions\u003e",
+                        "documentation": "-- | The user's permission level, which must be the following:\n--\n-- 'deny'   'show'   'deploy'   'manage'   'iam_only'   For more information on the\n-- permissions associated with these levels, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions\u003e",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -8790,7 +9084,7 @@
                         "name": "_evSecure",
                         "shape": "Boolean",
                         "locationName": "Secure",
-                        "documentation": "-- | (Optional) Whether the variable's value will be returned by the 'DescribeApps'\n-- action. To conceal an environment variable's value, set 'Secure' to 'true'. 'DescribeApps' then returns '**Filtered**' instead of the actual value. The default value for 'Secure' is 'false'.",
+                        "documentation": "-- | (Optional) Whether the variable's value will be returned by the 'DescribeApps'\n-- action. To conceal an environment variable's value, set 'Secure' to 'true'. 'DescribeApps' then returns '*****FILTERED*****' instead of the actual value. The default\n-- value for 'Secure' is 'false'.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     }
@@ -8853,7 +9147,7 @@
                         "name": "_evSecure",
                         "shape": "Boolean",
                         "locationName": "Secure",
-                        "documentation": "-- | (Optional) Whether the variable's value will be returned by the 'DescribeApps'\n-- action. To conceal an environment variable's value, set 'Secure' to 'true'. 'DescribeApps' then returns '**Filtered**' instead of the actual value. The default value for 'Secure' is 'false'.",
+                        "documentation": "-- | (Optional) Whether the variable's value will be returned by the 'DescribeApps'\n-- action. To conceal an environment variable's value, set 'Secure' to 'true'. 'DescribeApps' then returns '*****FILTERED*****' instead of the actual value. The default\n-- value for 'Secure' is 'false'.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     }
@@ -8891,7 +9185,7 @@
                         "name": "_evSecure",
                         "shape": "Boolean",
                         "locationName": "Secure",
-                        "documentation": "-- | (Optional) Whether the variable's value will be returned by the 'DescribeApps'\n-- action. To conceal an environment variable's value, set 'Secure' to 'true'. 'DescribeApps' then returns '**Filtered**' instead of the actual value. The default value for 'Secure' is 'false'.",
+                        "documentation": "-- | (Optional) Whether the variable's value will be returned by the 'DescribeApps'\n-- action. To conceal an environment variable's value, set 'Secure' to 'true'. 'DescribeApps' then returns '*****FILTERED*****' instead of the actual value. The default\n-- value for 'Secure' is 'false'.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -9028,7 +9322,7 @@
                         "name": "_lAttributes",
                         "shape": "LayerAttributes",
                         "locationName": "Attributes",
-                        "documentation": "-- | The layer attributes.",
+                        "documentation": "-- | The layer attributes.\n--\n-- For the 'HaproxyStatsPassword', 'MysqlRootPassword', and 'GangliaPassword'\n-- attributes, AWS OpsWorks returns '*****FILTERED*****' instead of the actual\n-- value",
                         "typeExposed": "HashMap LayerAttributesKeys Text",
                         "type": "Map LayerAttributesKeys Text"
                     },
@@ -9396,7 +9690,7 @@
                         "name": "_lAttributes",
                         "shape": "LayerAttributes",
                         "locationName": "Attributes",
-                        "documentation": "-- | The layer attributes.",
+                        "documentation": "-- | The layer attributes.\n--\n-- For the 'HaproxyStatsPassword', 'MysqlRootPassword', and 'GangliaPassword'\n-- attributes, AWS OpsWorks returns '*****FILTERED*****' instead of the actual\n-- value",
                         "typeExposed": "HashMap LayerAttributesKeys Text",
                         "type": "Map LayerAttributesKeys Text"
                     },
@@ -9668,7 +9962,7 @@
                         "name": "_lAttributes",
                         "shape": "LayerAttributes",
                         "locationName": "Attributes",
-                        "documentation": "-- | The layer attributes.",
+                        "documentation": "-- | The layer attributes.\n--\n-- For the 'HaproxyStatsPassword', 'MysqlRootPassword', and 'GangliaPassword'\n-- attributes, AWS OpsWorks returns '*****FILTERED*****' instead of the actual\n-- value",
                         "typeExposed": "HashMap LayerAttributesKeys Text",
                         "type": "Map LayerAttributesKeys Text"
                     },
@@ -10932,7 +11226,7 @@
                         "name": "_sCustomJson",
                         "shape": "String",
                         "locationName": "CustomJson",
-                        "documentation": "-- | A string that contains user-defined, custom JSON. It is used to override the\n-- corresponding default stack configuration JSON values. The string should be\n-- in the following format and must escape characters such as '\"'.:\n--\n-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'\n--\n-- For more information on custom JSON, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration JSON\u003e.",
+                        "documentation": "-- | A string that contains user-defined, custom JSON. It can be used to override\n-- the corresponding default stack configuration JSON values or to pass data to\n-- recipes. The string should be in the following format and must escape\n-- characters such as '\"'.:\n--\n-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'\n--\n-- For more information on custom JSON, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration Attributes\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -11318,7 +11612,7 @@
                         "name": "_sCustomJson",
                         "shape": "String",
                         "locationName": "CustomJson",
-                        "documentation": "-- | A string that contains user-defined, custom JSON. It is used to override the\n-- corresponding default stack configuration JSON values. The string should be\n-- in the following format and must escape characters such as '\"'.:\n--\n-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'\n--\n-- For more information on custom JSON, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration JSON\u003e.",
+                        "documentation": "-- | A string that contains user-defined, custom JSON. It can be used to override\n-- the corresponding default stack configuration JSON values or to pass data to\n-- recipes. The string should be in the following format and must escape\n-- characters such as '\"'.:\n--\n-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'\n--\n-- For more information on custom JSON, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration Attributes\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -11590,7 +11884,7 @@
                         "name": "_sCustomJson",
                         "shape": "String",
                         "locationName": "CustomJson",
-                        "documentation": "-- | A string that contains user-defined, custom JSON. It is used to override the\n-- corresponding default stack configuration JSON values. The string should be\n-- in the following format and must escape characters such as '\"'.:\n--\n-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'\n--\n-- For more information on custom JSON, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration JSON\u003e.",
+                        "documentation": "-- | A string that contains user-defined, custom JSON. It can be used to override\n-- the corresponding default stack configuration JSON values or to pass data to\n-- recipes. The string should be in the following format and must escape\n-- characters such as '\"'.:\n--\n-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'\n--\n-- For more information on custom JSON, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration Attributes\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -11871,7 +12165,7 @@
                         "name": "_dcName",
                         "shape": "DeploymentCommandName",
                         "locationName": "Name",
-                        "documentation": "-- | Specifies the operation. You can specify only one command.\n--\n-- For stacks, the following commands are available:\n--\n-- 'execute_recipes': Execute one or more recipes. To specify the recipes, set\n-- an 'Args' parameter named 'recipes' to the list of recipes to be executed. For\n-- example, to execute 'phpapp::appsetup', set 'Args' to '{\"recipes\":[\"phpapp::appsetup\"]}'.  'install_dependencies': Install the stack's dependencies.  'update_custom_cookbooks': Update the stack's custom cookbooks.  'update_dependencies': Update the\n-- stack's dependencies.  For apps, the following commands are available:\n--\n-- 'deploy': Deploy an app. Rails apps have an optional 'Args' parameter named 'migrate'. Set 'Args' to {\"migrate\":[\"true\"]} to migrate the database. The default\n-- setting is {\"migrate\":[\"false\"]}.  'rollback' Roll the app back to the previous\n-- version. When you update an app, AWS OpsWorks stores the previous version, up\n-- to a maximum of five versions. You can use this command to roll an app back\n-- as many as four versions.  'start': Start the app's web or application server.  'stop': Stop the app's web or application server.  'restart': Restart the app's\n-- web or application server.  'undeploy': Undeploy the app.",
+                        "documentation": "-- | Specifies the operation. You can specify only one command.\n--\n-- For stacks, the following commands are available:\n--\n-- 'execute_recipes': Execute one or more recipes. To specify the recipes, set\n-- an 'Args' parameter named 'recipes' to the list of recipes to be executed. For\n-- example, to execute 'phpapp::appsetup', set 'Args' to '{\"recipes\":[\"phpapp::appsetup\"]}'.  'install_dependencies': Install the stack's dependencies.  'update_custom_cookbooks': Update the stack's custom cookbooks.  'update_dependencies': Update the\n-- stack's dependencies.  The update_dependencies and install_dependencies\n-- commands are supported only for Linux instances. You can run the commands\n-- successfully on Windows instances, but they do nothing. For apps, the\n-- following commands are available:\n--\n-- 'deploy': Deploy an app. Ruby on Rails apps have an optional 'Args' parameter\n-- named 'migrate'. Set 'Args' to {\"migrate\":[\"true\"]} to migrate the database. The\n-- default setting is {\"migrate\":[\"false\"]}.  'rollback' Roll the app back to the\n-- previous version. When you update an app, AWS OpsWorks stores the previous\n-- version, up to a maximum of five versions. You can use this command to roll\n-- an app back as many as four versions.  'start': Start the app's web or\n-- application server.  'stop': Stop the app's web or application server.  'restart': Restart the app's web or application server.\n-- 'undeploy': Undeploy the app.",
                         "typeExposed": "DeploymentCommandName",
                         "type": "DeploymentCommandName"
                     },
@@ -11889,7 +12183,7 @@
                         "name": "_dcArgs",
                         "shape": "DeploymentCommandArgs",
                         "locationName": "Args",
-                        "documentation": "-- | The arguments of those commands that take arguments. It should be set to a\n-- JSON object with the following format:\n--\n-- '{\"arg_name1\" : [\"value1\", \"value2\", ...], \"arg_name2\" : [\"value1\", \"value2\",...], ...}'\n--\n-- The 'update_dependencies' command takes two arguments:\n--\n-- 'upgrade_os_to' - Specifies the desired Amazon Linux version for instances\n-- whose OS you want to upgrade, such as 'Amazon Linux 2014.09'. You must also set\n-- the 'allow_reboot' argument to true.  'allow_reboot' - Specifies whether to allow\n-- AWS OpsWorks to reboot the instances if necessary, after installing the\n-- updates. This argument can be set to either 'true' or 'false'. The default value\n-- is 'false'.  For example, to upgrade an instance to Amazon Linux 2014.09, set 'Args' to the following.\n--\n-- ' { \"upgrade_os_to\":[\"Amazon Linux 2014.09\"], \"allow_reboot\":[\"true\"] } '",
+                        "documentation": "-- | The arguments of those commands that take arguments. It should be set to a\n-- JSON object with the following format:\n--\n-- '{\"arg_name1\" : [\"value1\", \"value2\", ...], \"arg_name2\" : [\"value1\",\"value2\", ...], ...}'\n--\n-- The 'update_dependencies' command takes two arguments:\n--\n-- 'upgrade_os_to' - Specifies the desired Amazon Linux version for instances\n-- whose OS you want to upgrade, such as 'Amazon Linux 2014.09'. You must also set\n-- the 'allow_reboot' argument to true.  'allow_reboot' - Specifies whether to allow\n-- AWS OpsWorks to reboot the instances if necessary, after installing the\n-- updates. This argument can be set to either 'true' or 'false'. The default value\n-- is 'false'.  For example, to upgrade an instance to Amazon Linux 2014.09, set 'Args' to the following.\n--\n-- ' { \"upgrade_os_to\":[\"Amazon Linux 2014.09\"], \"allow_reboot\":[\"true\"] } '",
                         "typeExposed": "HashMap Text [Text]",
                         "type": "Map Text (List \"Args\" Text)"
                     }
@@ -11910,7 +12204,7 @@
                         "name": "_dcName",
                         "shape": "DeploymentCommandName",
                         "locationName": "Name",
-                        "documentation": "-- | Specifies the operation. You can specify only one command.\n--\n-- For stacks, the following commands are available:\n--\n-- 'execute_recipes': Execute one or more recipes. To specify the recipes, set\n-- an 'Args' parameter named 'recipes' to the list of recipes to be executed. For\n-- example, to execute 'phpapp::appsetup', set 'Args' to '{\"recipes\":[\"phpapp::appsetup\"]}'.  'install_dependencies': Install the stack's dependencies.  'update_custom_cookbooks': Update the stack's custom cookbooks.  'update_dependencies': Update the\n-- stack's dependencies.  For apps, the following commands are available:\n--\n-- 'deploy': Deploy an app. Rails apps have an optional 'Args' parameter named 'migrate'. Set 'Args' to {\"migrate\":[\"true\"]} to migrate the database. The default\n-- setting is {\"migrate\":[\"false\"]}.  'rollback' Roll the app back to the previous\n-- version. When you update an app, AWS OpsWorks stores the previous version, up\n-- to a maximum of five versions. You can use this command to roll an app back\n-- as many as four versions.  'start': Start the app's web or application server.  'stop': Stop the app's web or application server.  'restart': Restart the app's\n-- web or application server.  'undeploy': Undeploy the app.",
+                        "documentation": "-- | Specifies the operation. You can specify only one command.\n--\n-- For stacks, the following commands are available:\n--\n-- 'execute_recipes': Execute one or more recipes. To specify the recipes, set\n-- an 'Args' parameter named 'recipes' to the list of recipes to be executed. For\n-- example, to execute 'phpapp::appsetup', set 'Args' to '{\"recipes\":[\"phpapp::appsetup\"]}'.  'install_dependencies': Install the stack's dependencies.  'update_custom_cookbooks': Update the stack's custom cookbooks.  'update_dependencies': Update the\n-- stack's dependencies.  The update_dependencies and install_dependencies\n-- commands are supported only for Linux instances. You can run the commands\n-- successfully on Windows instances, but they do nothing. For apps, the\n-- following commands are available:\n--\n-- 'deploy': Deploy an app. Ruby on Rails apps have an optional 'Args' parameter\n-- named 'migrate'. Set 'Args' to {\"migrate\":[\"true\"]} to migrate the database. The\n-- default setting is {\"migrate\":[\"false\"]}.  'rollback' Roll the app back to the\n-- previous version. When you update an app, AWS OpsWorks stores the previous\n-- version, up to a maximum of five versions. You can use this command to roll\n-- an app back as many as four versions.  'start': Start the app's web or\n-- application server.  'stop': Stop the app's web or application server.  'restart': Restart the app's web or application server.\n-- 'undeploy': Undeploy the app.",
                         "typeExposed": "DeploymentCommandName",
                         "type": "DeploymentCommandName"
                     }
@@ -11934,7 +12228,7 @@
                         "name": "_dcArgs",
                         "shape": "DeploymentCommandArgs",
                         "locationName": "Args",
-                        "documentation": "-- | The arguments of those commands that take arguments. It should be set to a\n-- JSON object with the following format:\n--\n-- '{\"arg_name1\" : [\"value1\", \"value2\", ...], \"arg_name2\" : [\"value1\", \"value2\",...], ...}'\n--\n-- The 'update_dependencies' command takes two arguments:\n--\n-- 'upgrade_os_to' - Specifies the desired Amazon Linux version for instances\n-- whose OS you want to upgrade, such as 'Amazon Linux 2014.09'. You must also set\n-- the 'allow_reboot' argument to true.  'allow_reboot' - Specifies whether to allow\n-- AWS OpsWorks to reboot the instances if necessary, after installing the\n-- updates. This argument can be set to either 'true' or 'false'. The default value\n-- is 'false'.  For example, to upgrade an instance to Amazon Linux 2014.09, set 'Args' to the following.\n--\n-- ' { \"upgrade_os_to\":[\"Amazon Linux 2014.09\"], \"allow_reboot\":[\"true\"] } '",
+                        "documentation": "-- | The arguments of those commands that take arguments. It should be set to a\n-- JSON object with the following format:\n--\n-- '{\"arg_name1\" : [\"value1\", \"value2\", ...], \"arg_name2\" : [\"value1\",\"value2\", ...], ...}'\n--\n-- The 'update_dependencies' command takes two arguments:\n--\n-- 'upgrade_os_to' - Specifies the desired Amazon Linux version for instances\n-- whose OS you want to upgrade, such as 'Amazon Linux 2014.09'. You must also set\n-- the 'allow_reboot' argument to true.  'allow_reboot' - Specifies whether to allow\n-- AWS OpsWorks to reboot the instances if necessary, after installing the\n-- updates. This argument can be set to either 'true' or 'false'. The default value\n-- is 'false'.  For example, to upgrade an instance to Amazon Linux 2014.09, set 'Args' to the following.\n--\n-- ' { \"upgrade_os_to\":[\"Amazon Linux 2014.09\"], \"allow_reboot\":[\"true\"] } '",
                         "typeExposed": "HashMap Text [Text]",
                         "type": "Map Text (List \"Args\" Text)"
                     }
@@ -11954,7 +12248,7 @@
                         "name": "_dcArgs",
                         "shape": "DeploymentCommandArgs",
                         "locationName": "Args",
-                        "documentation": "-- | The arguments of those commands that take arguments. It should be set to a\n-- JSON object with the following format:\n--\n-- '{\"arg_name1\" : [\"value1\", \"value2\", ...], \"arg_name2\" : [\"value1\", \"value2\",...], ...}'\n--\n-- The 'update_dependencies' command takes two arguments:\n--\n-- 'upgrade_os_to' - Specifies the desired Amazon Linux version for instances\n-- whose OS you want to upgrade, such as 'Amazon Linux 2014.09'. You must also set\n-- the 'allow_reboot' argument to true.  'allow_reboot' - Specifies whether to allow\n-- AWS OpsWorks to reboot the instances if necessary, after installing the\n-- updates. This argument can be set to either 'true' or 'false'. The default value\n-- is 'false'.  For example, to upgrade an instance to Amazon Linux 2014.09, set 'Args' to the following.\n--\n-- ' { \"upgrade_os_to\":[\"Amazon Linux 2014.09\"], \"allow_reboot\":[\"true\"] } '",
+                        "documentation": "-- | The arguments of those commands that take arguments. It should be set to a\n-- JSON object with the following format:\n--\n-- '{\"arg_name1\" : [\"value1\", \"value2\", ...], \"arg_name2\" : [\"value1\",\"value2\", ...], ...}'\n--\n-- The 'update_dependencies' command takes two arguments:\n--\n-- 'upgrade_os_to' - Specifies the desired Amazon Linux version for instances\n-- whose OS you want to upgrade, such as 'Amazon Linux 2014.09'. You must also set\n-- the 'allow_reboot' argument to true.  'allow_reboot' - Specifies whether to allow\n-- AWS OpsWorks to reboot the instances if necessary, after installing the\n-- updates. This argument can be set to either 'true' or 'false'. The default value\n-- is 'false'.  For example, to upgrade an instance to Amazon Linux 2014.09, set 'Args' to the following.\n--\n-- ' { \"upgrade_os_to\":[\"Amazon Linux 2014.09\"], \"allow_reboot\":[\"true\"] } '",
                         "typeExposed": "HashMap Text [Text]",
                         "type": "Map Text (List \"Args\" Text)"
                     },
@@ -11972,7 +12266,7 @@
                         "name": "_dcName",
                         "shape": "DeploymentCommandName",
                         "locationName": "Name",
-                        "documentation": "-- | Specifies the operation. You can specify only one command.\n--\n-- For stacks, the following commands are available:\n--\n-- 'execute_recipes': Execute one or more recipes. To specify the recipes, set\n-- an 'Args' parameter named 'recipes' to the list of recipes to be executed. For\n-- example, to execute 'phpapp::appsetup', set 'Args' to '{\"recipes\":[\"phpapp::appsetup\"]}'.  'install_dependencies': Install the stack's dependencies.  'update_custom_cookbooks': Update the stack's custom cookbooks.  'update_dependencies': Update the\n-- stack's dependencies.  For apps, the following commands are available:\n--\n-- 'deploy': Deploy an app. Rails apps have an optional 'Args' parameter named 'migrate'. Set 'Args' to {\"migrate\":[\"true\"]} to migrate the database. The default\n-- setting is {\"migrate\":[\"false\"]}.  'rollback' Roll the app back to the previous\n-- version. When you update an app, AWS OpsWorks stores the previous version, up\n-- to a maximum of five versions. You can use this command to roll an app back\n-- as many as four versions.  'start': Start the app's web or application server.  'stop': Stop the app's web or application server.  'restart': Restart the app's\n-- web or application server.  'undeploy': Undeploy the app.",
+                        "documentation": "-- | Specifies the operation. You can specify only one command.\n--\n-- For stacks, the following commands are available:\n--\n-- 'execute_recipes': Execute one or more recipes. To specify the recipes, set\n-- an 'Args' parameter named 'recipes' to the list of recipes to be executed. For\n-- example, to execute 'phpapp::appsetup', set 'Args' to '{\"recipes\":[\"phpapp::appsetup\"]}'.  'install_dependencies': Install the stack's dependencies.  'update_custom_cookbooks': Update the stack's custom cookbooks.  'update_dependencies': Update the\n-- stack's dependencies.  The update_dependencies and install_dependencies\n-- commands are supported only for Linux instances. You can run the commands\n-- successfully on Windows instances, but they do nothing. For apps, the\n-- following commands are available:\n--\n-- 'deploy': Deploy an app. Ruby on Rails apps have an optional 'Args' parameter\n-- named 'migrate'. Set 'Args' to {\"migrate\":[\"true\"]} to migrate the database. The\n-- default setting is {\"migrate\":[\"false\"]}.  'rollback' Roll the app back to the\n-- previous version. When you update an app, AWS OpsWorks stores the previous\n-- version, up to a maximum of five versions. You can use this command to roll\n-- an app back as many as four versions.  'start': Start the app's web or\n-- application server.  'stop': Stop the app's web or application server.  'restart': Restart the app's web or application server.\n-- 'undeploy': Undeploy the app.",
                         "typeExposed": "DeploymentCommandName",
                         "type": "DeploymentCommandName"
                     }
@@ -12588,7 +12882,7 @@
                         "name": "_iStatus",
                         "shape": "String",
                         "locationName": "Status",
-                        "documentation": "-- | The instance status:\n--\n-- 'booting' 'connection_lost' 'online' 'pending' 'rebooting' 'requested' 'running_setup' 'setup_failed' 'shutting_down' 'start_failed' 'stopped' 'stopping' 'terminated' 'terminating'",
+                        "documentation": "-- | The instance status:\n--\n-- 'booting'   'connection_lost'   'online'   'pending'   'rebooting'   'requested'   'running_setup'   'setup_failed'   'shutting_down'   'start_failed'   'stopped'   'stopping'   'terminated'   'terminating'",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -13226,7 +13520,7 @@
                         "name": "_iStatus",
                         "shape": "String",
                         "locationName": "Status",
-                        "documentation": "-- | The instance status:\n--\n-- 'booting' 'connection_lost' 'online' 'pending' 'rebooting' 'requested' 'running_setup' 'setup_failed' 'shutting_down' 'start_failed' 'stopped' 'stopping' 'terminated' 'terminating'",
+                        "documentation": "-- | The instance status:\n--\n-- 'booting'   'connection_lost'   'online'   'pending'   'rebooting'   'requested'   'running_setup'   'setup_failed'   'shutting_down'   'start_failed'   'stopped'   'stopping'   'terminated'   'terminating'",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -14272,7 +14566,7 @@
                         "name": "_iStatus",
                         "shape": "String",
                         "locationName": "Status",
-                        "documentation": "-- | The instance status:\n--\n-- 'booting' 'connection_lost' 'online' 'pending' 'rebooting' 'requested' 'running_setup' 'setup_failed' 'shutting_down' 'start_failed' 'stopped' 'stopping' 'terminated' 'terminating'",
+                        "documentation": "-- | The instance status:\n--\n-- 'booting'   'connection_lost'   'online'   'pending'   'rebooting'   'requested'   'running_setup'   'setup_failed'   'shutting_down'   'start_failed'   'stopped'   'stopping'   'terminated'   'terminating'",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -14517,7 +14811,7 @@
                         "name": "_dCustomJson",
                         "shape": "String",
                         "locationName": "CustomJson",
-                        "documentation": "-- | A string that contains user-defined custom JSON. It is used to override the\n-- corresponding default stack configuration JSON values for stack. The string\n-- should be in the following format and must escape characters such as '\"'.:\n--\n-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'\n--\n-- For more information on custom JSON, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration JSON\u003e.",
+                        "documentation": "-- | A string that contains user-defined custom JSON. It can be used to override\n-- the corresponding default stack configuration attribute values for stack or\n-- to pass data to recipes. The string should be in the following format and\n-- must escape characters such as '\"'.:\n--\n-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'\n--\n-- For more information on custom JSON, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration Attributes\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -14741,7 +15035,7 @@
                         "name": "_dCustomJson",
                         "shape": "String",
                         "locationName": "CustomJson",
-                        "documentation": "-- | A string that contains user-defined custom JSON. It is used to override the\n-- corresponding default stack configuration JSON values for stack. The string\n-- should be in the following format and must escape characters such as '\"'.:\n--\n-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'\n--\n-- For more information on custom JSON, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration JSON\u003e.",
+                        "documentation": "-- | A string that contains user-defined custom JSON. It can be used to override\n-- the corresponding default stack configuration attribute values for stack or\n-- to pass data to recipes. The string should be in the following format and\n-- must escape characters such as '\"'.:\n--\n-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'\n--\n-- For more information on custom JSON, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration Attributes\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -14869,7 +15163,7 @@
                         "name": "_dCustomJson",
                         "shape": "String",
                         "locationName": "CustomJson",
-                        "documentation": "-- | A string that contains user-defined custom JSON. It is used to override the\n-- corresponding default stack configuration JSON values for stack. The string\n-- should be in the following format and must escape characters such as '\"'.:\n--\n-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'\n--\n-- For more information on custom JSON, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration JSON\u003e.",
+                        "documentation": "-- | A string that contains user-defined custom JSON. It can be used to override\n-- the corresponding default stack configuration attribute values for stack or\n-- to pass data to recipes. The string should be in the following format and\n-- must escape characters such as '\"'.:\n--\n-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'\n--\n-- For more information on custom JSON, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration Attributes\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -16113,7 +16407,7 @@
             "pager": null,
             "name": "AssignInstance",
             "method": "post",
-            "documentation": "-- | Assign a registered instance to a custom layer. You cannot use this action\n-- with instances that were created with AWS OpsWorks.\n--\n-- Required Permissions: To use this action, an IAM user must have a Manage\n-- permissions level for the stack or an attached policy that explicitly grants\n-- permissions. For more information on user permissions, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing UserPermissions\u003e.",
+            "documentation": "-- | Assign a registered instance to a layer.\n--\n-- You can assign registered on-premises instances to any layer type. You can\n-- assign registered Amazon EC2 instances only to custom layers. You cannot use\n-- this action with instances that were created with AWS OpsWorks.  Required\n-- Permissions: To use this action, an IAM user must have a Manage permissions\n-- level for the stack or an attached policy that explicitly grants permissions.\n-- For more information on user permissions, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions\u003e.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -17094,7 +17388,7 @@
                         "name": "_cs1DefaultOs",
                         "shape": "String",
                         "locationName": "DefaultOs",
-                        "documentation": "-- | The stack's operating system, which must be set to one of the following.\n--\n-- Standard operating systems: an Amazon Linux version such as 'Amazon Linux2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom AMIs: 'Custom'. You\n-- specify the custom AMI you want to use when you create instances.   The\n-- default option is the current Amazon Linux version.",
+                        "documentation": "-- | The stack's operating system, which must be set to one of the following.\n--\n-- Standard Linux operating systems: an Amazon Linux version such as 'AmazonLinux 2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom Linux AMIs: 'Custom'. You specify the custom AMI you want to use when you create instances. Microsoft Windows Server 2012 R2.\n-- The default option is the current Amazon Linux version.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -17112,7 +17406,7 @@
                         "name": "_cs1HostnameTheme",
                         "shape": "String",
                         "locationName": "HostnameTheme",
-                        "documentation": "-- | The stack's host name theme, with spaces are replaced by underscores. The\n-- theme is used to generate host names for the stack's instances. By default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host names by appending integers to\n-- the layer's short name. The other themes are:\n--\n-- 'Baked_Goods' 'Clouds' 'Europe_Cities' 'Fruits' 'Greek_Deities' 'Legendary_creatures_from_Japan' 'Planets_and_Moons' 'Roman_Deities' 'Scottish_Islands' 'US_Cities' 'Wild_Cats'  To\n-- obtain a generated host name, call 'GetHostNameSuggestion', which returns a\n-- host name based on the current theme.",
+                        "documentation": "-- | The stack's host name theme, with spaces are replaced by underscores. The\n-- theme is used to generate host names for the stack's instances. By default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host names by appending integers to\n-- the layer's short name. The other themes are:\n--\n-- 'Baked_Goods'   'Clouds'   'Europe_Cities'   'Fruits'   'Greek_Deities'   'Legendary_creatures_from_Japan'   'Planets_and_Moons'   'Roman_Deities'   'Scottish_Islands'   'US_Cities'   'Wild_Cats'   To obtain a generated host name, call 'GetHostNameSuggestion', which returns\n-- a host name based on the current theme.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -17166,7 +17460,7 @@
                         "name": "_cs1CustomJson",
                         "shape": "String",
                         "locationName": "CustomJson",
-                        "documentation": "-- | A string that contains user-defined, custom JSON. It is used to override the\n-- corresponding default stack configuration JSON values. The string should be\n-- in the following format and must escape characters such as '\"'.:\n--\n-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'\n--\n-- For more information on custom JSON, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration JSON\u003e",
+                        "documentation": "-- | A string that contains user-defined, custom JSON. It is used to override the\n-- corresponding default stack configuration JSON values. The string should be\n-- in the following format and must escape characters such as '\"'.:\n--\n-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'\n--\n-- For more information on custom JSON, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration Attributes\u003e",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -17494,7 +17788,7 @@
                         "name": "_cs1DefaultOs",
                         "shape": "String",
                         "locationName": "DefaultOs",
-                        "documentation": "-- | The stack's operating system, which must be set to one of the following.\n--\n-- Standard operating systems: an Amazon Linux version such as 'Amazon Linux2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom AMIs: 'Custom'. You\n-- specify the custom AMI you want to use when you create instances.   The\n-- default option is the current Amazon Linux version.",
+                        "documentation": "-- | The stack's operating system, which must be set to one of the following.\n--\n-- Standard Linux operating systems: an Amazon Linux version such as 'AmazonLinux 2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom Linux AMIs: 'Custom'. You specify the custom AMI you want to use when you create instances. Microsoft Windows Server 2012 R2.\n-- The default option is the current Amazon Linux version.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -17512,7 +17806,7 @@
                         "name": "_cs1HostnameTheme",
                         "shape": "String",
                         "locationName": "HostnameTheme",
-                        "documentation": "-- | The stack's host name theme, with spaces are replaced by underscores. The\n-- theme is used to generate host names for the stack's instances. By default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host names by appending integers to\n-- the layer's short name. The other themes are:\n--\n-- 'Baked_Goods' 'Clouds' 'Europe_Cities' 'Fruits' 'Greek_Deities' 'Legendary_creatures_from_Japan' 'Planets_and_Moons' 'Roman_Deities' 'Scottish_Islands' 'US_Cities' 'Wild_Cats'  To\n-- obtain a generated host name, call 'GetHostNameSuggestion', which returns a\n-- host name based on the current theme.",
+                        "documentation": "-- | The stack's host name theme, with spaces are replaced by underscores. The\n-- theme is used to generate host names for the stack's instances. By default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host names by appending integers to\n-- the layer's short name. The other themes are:\n--\n-- 'Baked_Goods'   'Clouds'   'Europe_Cities'   'Fruits'   'Greek_Deities'   'Legendary_creatures_from_Japan'   'Planets_and_Moons'   'Roman_Deities'   'Scottish_Islands'   'US_Cities'   'Wild_Cats'   To obtain a generated host name, call 'GetHostNameSuggestion', which returns\n-- a host name based on the current theme.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -17566,7 +17860,7 @@
                         "name": "_cs1CustomJson",
                         "shape": "String",
                         "locationName": "CustomJson",
-                        "documentation": "-- | A string that contains user-defined, custom JSON. It is used to override the\n-- corresponding default stack configuration JSON values. The string should be\n-- in the following format and must escape characters such as '\"'.:\n--\n-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'\n--\n-- For more information on custom JSON, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration JSON\u003e",
+                        "documentation": "-- | A string that contains user-defined, custom JSON. It is used to override the\n-- corresponding default stack configuration JSON values. The string should be\n-- in the following format and must escape characters such as '\"'.:\n--\n-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'\n--\n-- For more information on custom JSON, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration Attributes\u003e",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -17856,7 +18150,7 @@
                         "name": "_cs1CustomJson",
                         "shape": "String",
                         "locationName": "CustomJson",
-                        "documentation": "-- | A string that contains user-defined, custom JSON. It is used to override the\n-- corresponding default stack configuration JSON values. The string should be\n-- in the following format and must escape characters such as '\"'.:\n--\n-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'\n--\n-- For more information on custom JSON, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration JSON\u003e",
+                        "documentation": "-- | A string that contains user-defined, custom JSON. It is used to override the\n-- corresponding default stack configuration JSON values. The string should be\n-- in the following format and must escape characters such as '\"'.:\n--\n-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'\n--\n-- For more information on custom JSON, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration Attributes\u003e",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -17910,7 +18204,7 @@
                         "name": "_cs1DefaultOs",
                         "shape": "String",
                         "locationName": "DefaultOs",
-                        "documentation": "-- | The stack's operating system, which must be set to one of the following.\n--\n-- Standard operating systems: an Amazon Linux version such as 'Amazon Linux2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom AMIs: 'Custom'. You\n-- specify the custom AMI you want to use when you create instances.   The\n-- default option is the current Amazon Linux version.",
+                        "documentation": "-- | The stack's operating system, which must be set to one of the following.\n--\n-- Standard Linux operating systems: an Amazon Linux version such as 'AmazonLinux 2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom Linux AMIs: 'Custom'. You specify the custom AMI you want to use when you create instances. Microsoft Windows Server 2012 R2.\n-- The default option is the current Amazon Linux version.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -17982,7 +18276,7 @@
                         "name": "_cs1HostnameTheme",
                         "shape": "String",
                         "locationName": "HostnameTheme",
-                        "documentation": "-- | The stack's host name theme, with spaces are replaced by underscores. The\n-- theme is used to generate host names for the stack's instances. By default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host names by appending integers to\n-- the layer's short name. The other themes are:\n--\n-- 'Baked_Goods' 'Clouds' 'Europe_Cities' 'Fruits' 'Greek_Deities' 'Legendary_creatures_from_Japan' 'Planets_and_Moons' 'Roman_Deities' 'Scottish_Islands' 'US_Cities' 'Wild_Cats'  To\n-- obtain a generated host name, call 'GetHostNameSuggestion', which returns a\n-- host name based on the current theme.",
+                        "documentation": "-- | The stack's host name theme, with spaces are replaced by underscores. The\n-- theme is used to generate host names for the stack's instances. By default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host names by appending integers to\n-- the layer's short name. The other themes are:\n--\n-- 'Baked_Goods'   'Clouds'   'Europe_Cities'   'Fruits'   'Greek_Deities'   'Legendary_creatures_from_Japan'   'Planets_and_Moons'   'Roman_Deities'   'Scottish_Islands'   'US_Cities'   'Wild_Cats'   To obtain a generated host name, call 'GetHostNameSuggestion', which returns\n-- a host name based on the current theme.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -18350,7 +18644,7 @@
                         "name": "_caType",
                         "shape": "AppType",
                         "locationName": "Type",
-                        "documentation": "-- | The app type. Each supported type is associated with a particular layer. For\n-- example, PHP applications are associated with a PHP layer. AWS OpsWorks\n-- deploys an application to those instances that are members of the\n-- corresponding layer.",
+                        "documentation": "-- | The app type. Each supported type is associated with a particular layer. For\n-- example, PHP applications are associated with a PHP layer. AWS OpsWorks\n-- deploys an application to those instances that are members of the\n-- corresponding layer. If your app isn't one of the standard types, or you\n-- prefer to implement your own Deploy recipes, specify 'other'.",
                         "typeExposed": "AppType",
                         "type": "AppType"
                     },
@@ -18522,7 +18816,7 @@
                         "name": "_caType",
                         "shape": "AppType",
                         "locationName": "Type",
-                        "documentation": "-- | The app type. Each supported type is associated with a particular layer. For\n-- example, PHP applications are associated with a PHP layer. AWS OpsWorks\n-- deploys an application to those instances that are members of the\n-- corresponding layer.",
+                        "documentation": "-- | The app type. Each supported type is associated with a particular layer. For\n-- example, PHP applications are associated with a PHP layer. AWS OpsWorks\n-- deploys an application to those instances that are members of the\n-- corresponding layer. If your app isn't one of the standard types, or you\n-- prefer to implement your own Deploy recipes, specify 'other'.",
                         "typeExposed": "AppType",
                         "type": "AppType"
                     }
@@ -18914,7 +19208,7 @@
                         "name": "_caType",
                         "shape": "AppType",
                         "locationName": "Type",
-                        "documentation": "-- | The app type. Each supported type is associated with a particular layer. For\n-- example, PHP applications are associated with a PHP layer. AWS OpsWorks\n-- deploys an application to those instances that are members of the\n-- corresponding layer.",
+                        "documentation": "-- | The app type. Each supported type is associated with a particular layer. For\n-- example, PHP applications are associated with a PHP layer. AWS OpsWorks\n-- deploys an application to those instances that are members of the\n-- corresponding layer. If your app isn't one of the standard types, or you\n-- prefer to implement your own Deploy recipes, specify 'other'.",
                         "typeExposed": "AppType",
                         "type": "AppType"
                     }
@@ -19156,7 +19450,7 @@
                         "name": "_cdCustomJson",
                         "shape": "String",
                         "locationName": "CustomJson",
-                        "documentation": "-- | A string that contains user-defined, custom JSON. It is used to override the\n-- corresponding default stack configuration JSON values. The string should be\n-- in the following format and must escape characters such as '\"'.:\n--\n-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'\n--\n-- For more information on custom JSON, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration JSON\u003e.",
+                        "documentation": "-- | A string that contains user-defined, custom JSON. It is used to override the\n-- corresponding default stack configuration JSON values. The string should be\n-- in the following format and must escape characters such as '\"'.:\n--\n-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'\n--\n-- For more information on custom JSON, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration Attributes\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -19286,7 +19580,7 @@
                         "name": "_cdCustomJson",
                         "shape": "String",
                         "locationName": "CustomJson",
-                        "documentation": "-- | A string that contains user-defined, custom JSON. It is used to override the\n-- corresponding default stack configuration JSON values. The string should be\n-- in the following format and must escape characters such as '\"'.:\n--\n-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'\n--\n-- For more information on custom JSON, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration JSON\u003e.",
+                        "documentation": "-- | A string that contains user-defined, custom JSON. It is used to override the\n-- corresponding default stack configuration JSON values. The string should be\n-- in the following format and must escape characters such as '\"'.:\n--\n-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'\n--\n-- For more information on custom JSON, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration Attributes\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -19360,7 +19654,7 @@
                         "name": "_cdCustomJson",
                         "shape": "String",
                         "locationName": "CustomJson",
-                        "documentation": "-- | A string that contains user-defined, custom JSON. It is used to override the\n-- corresponding default stack configuration JSON values. The string should be\n-- in the following format and must escape characters such as '\"'.:\n--\n-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'\n--\n-- For more information on custom JSON, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration JSON\u003e.",
+                        "documentation": "-- | A string that contains user-defined, custom JSON. It is used to override the\n-- corresponding default stack configuration JSON values. The string should be\n-- in the following format and must escape characters such as '\"'.:\n--\n-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'\n--\n-- For more information on custom JSON, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration Attributes\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -19602,7 +19896,7 @@
                         "name": "_ciAutoScalingType",
                         "shape": "AutoScalingType",
                         "locationName": "AutoScalingType",
-                        "documentation": "-- | For load-based or time-based instances, the type.",
+                        "documentation": "-- | For load-based or time-based instances, the type. Windows stacks can use only\n-- time-based instances.",
                         "typeExposed": "Maybe AutoScalingType",
                         "type": "Maybe AutoScalingType"
                     },
@@ -19638,7 +19932,7 @@
                         "name": "_ciOs",
                         "shape": "String",
                         "locationName": "Os",
-                        "documentation": "-- | The instance's operating system, which must be set to one of the following.\n--\n-- Standard operating systems: an Amazon Linux version such as 'Amazon Linux2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom AMIs: 'Custom'   The\n-- default option is the current Amazon Linux version. If you set this parameter\n-- to 'Custom', you must use the 'CreateInstance' action's AmiId parameter to\n-- specify the custom AMI that you want to use. For more information on the\n-- standard operating systems, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html Operating Systems\u003eFor more information on how\n-- to use custom AMIs with OpsWorks, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using Custom AMIs\u003e.",
+                        "documentation": "-- | The instance's operating system, which must be set to one of the following.\n--\n-- For Windows stacks: Microsoft Windows Server 2012 R2.\n--\n-- For Linux stacks:\n--\n-- Standard operating systems: an Amazon Linux version such as 'Amazon Linux2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom AMIs: 'Custom'   The\n-- default option is the current Amazon Linux version. If you set this parameter\n-- to 'Custom', you must use the 'CreateInstance' action's AmiId parameter to\n-- specify the custom AMI that you want to use. For more information on the\n-- standard operating systems, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html Operating Systems\u003eFor more information on how\n-- to use custom AMIs with OpsWorks, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using Custom AMIs\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -19912,7 +20206,7 @@
                         "name": "_ciAutoScalingType",
                         "shape": "AutoScalingType",
                         "locationName": "AutoScalingType",
-                        "documentation": "-- | For load-based or time-based instances, the type.",
+                        "documentation": "-- | For load-based or time-based instances, the type. Windows stacks can use only\n-- time-based instances.",
                         "typeExposed": "Maybe AutoScalingType",
                         "type": "Maybe AutoScalingType"
                     },
@@ -19948,7 +20242,7 @@
                         "name": "_ciOs",
                         "shape": "String",
                         "locationName": "Os",
-                        "documentation": "-- | The instance's operating system, which must be set to one of the following.\n--\n-- Standard operating systems: an Amazon Linux version such as 'Amazon Linux2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom AMIs: 'Custom'   The\n-- default option is the current Amazon Linux version. If you set this parameter\n-- to 'Custom', you must use the 'CreateInstance' action's AmiId parameter to\n-- specify the custom AMI that you want to use. For more information on the\n-- standard operating systems, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html Operating Systems\u003eFor more information on how\n-- to use custom AMIs with OpsWorks, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using Custom AMIs\u003e.",
+                        "documentation": "-- | The instance's operating system, which must be set to one of the following.\n--\n-- For Windows stacks: Microsoft Windows Server 2012 R2.\n--\n-- For Linux stacks:\n--\n-- Standard operating systems: an Amazon Linux version such as 'Amazon Linux2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom AMIs: 'Custom'   The\n-- default option is the current Amazon Linux version. If you set this parameter\n-- to 'Custom', you must use the 'CreateInstance' action's AmiId parameter to\n-- specify the custom AMI that you want to use. For more information on the\n-- standard operating systems, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html Operating Systems\u003eFor more information on how\n-- to use custom AMIs with OpsWorks, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using Custom AMIs\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -20184,7 +20478,7 @@
                         "name": "_ciAutoScalingType",
                         "shape": "AutoScalingType",
                         "locationName": "AutoScalingType",
-                        "documentation": "-- | For load-based or time-based instances, the type.",
+                        "documentation": "-- | For load-based or time-based instances, the type. Windows stacks can use only\n-- time-based instances.",
                         "typeExposed": "Maybe AutoScalingType",
                         "type": "Maybe AutoScalingType"
                     },
@@ -20328,7 +20622,7 @@
                         "name": "_ciOs",
                         "shape": "String",
                         "locationName": "Os",
-                        "documentation": "-- | The instance's operating system, which must be set to one of the following.\n--\n-- Standard operating systems: an Amazon Linux version such as 'Amazon Linux2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom AMIs: 'Custom'   The\n-- default option is the current Amazon Linux version. If you set this parameter\n-- to 'Custom', you must use the 'CreateInstance' action's AmiId parameter to\n-- specify the custom AMI that you want to use. For more information on the\n-- standard operating systems, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html Operating Systems\u003eFor more information on how\n-- to use custom AMIs with OpsWorks, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using Custom AMIs\u003e.",
+                        "documentation": "-- | The instance's operating system, which must be set to one of the following.\n--\n-- For Windows stacks: Microsoft Windows Server 2012 R2.\n--\n-- For Linux stacks:\n--\n-- Standard operating systems: an Amazon Linux version such as 'Amazon Linux2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom AMIs: 'Custom'   The\n-- default option is the current Amazon Linux version. If you set this parameter\n-- to 'Custom', you must use the 'CreateInstance' action's AmiId parameter to\n-- specify the custom AMI that you want to use. For more information on the\n-- standard operating systems, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html Operating Systems\u003eFor more information on how\n-- to use custom AMIs with OpsWorks, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using Custom AMIs\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -21700,7 +21994,7 @@
                         "name": "_csDefaultOs",
                         "shape": "String",
                         "locationName": "DefaultOs",
-                        "documentation": "-- | The stack's operating system, which must be set to one of the following.\n--\n-- Standard operating systems: an Amazon Linux version such as 'Amazon Linux2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom AMIs: 'Custom'. You\n-- specify the custom AMI you want to use when you create instances.   The\n-- default option is the current Amazon Linux version.",
+                        "documentation": "-- | The stack's operating system, which must be set to one of the following.\n--\n-- Standard Linux operating systems: an Amazon Linux version such as 'AmazonLinux 2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom Linux AMIs: 'Custom'. You specify the custom AMI you want to use when you create instances. Microsoft Windows Server 2012 R2.\n-- The default option is the current Amazon Linux version.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -21718,7 +22012,7 @@
                         "name": "_csHostnameTheme",
                         "shape": "String",
                         "locationName": "HostnameTheme",
-                        "documentation": "-- | The stack's host name theme, with spaces are replaced by underscores. The\n-- theme is used to generate host names for the stack's instances. By default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host names by appending integers to\n-- the layer's short name. The other themes are:\n--\n-- 'Baked_Goods' 'Clouds' 'Europe_Cities' 'Fruits' 'Greek_Deities' 'Legendary_creatures_from_Japan' 'Planets_and_Moons' 'Roman_Deities' 'Scottish_Islands' 'US_Cities' 'Wild_Cats'  To\n-- obtain a generated host name, call 'GetHostNameSuggestion', which returns a\n-- host name based on the current theme.",
+                        "documentation": "-- | The stack's host name theme, with spaces are replaced by underscores. The\n-- theme is used to generate host names for the stack's instances. By default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host names by appending integers to\n-- the layer's short name. The other themes are:\n--\n-- 'Baked_Goods'   'Clouds'   'Europe_Cities'   'Fruits'   'Greek_Deities'   'Legendary_creatures_from_Japan'   'Planets_and_Moons'   'Roman_Deities'   'Scottish_Islands'   'US_Cities'   'Wild_Cats'   To obtain a generated host name, call 'GetHostNameSuggestion', which returns\n-- a host name based on the current theme.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -21772,7 +22066,7 @@
                         "name": "_csCustomJson",
                         "shape": "String",
                         "locationName": "CustomJson",
-                        "documentation": "-- | A string that contains user-defined, custom JSON. It is used to override the\n-- corresponding default stack configuration JSON values. The string should be\n-- in the following format and must escape characters such as '\"'.:\n--\n-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'\n--\n-- For more information on custom JSON, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration JSON\u003e.",
+                        "documentation": "-- | A string that contains user-defined, custom JSON. It can be used to override\n-- the corresponding default stack configuration attribute values, or to pass\n-- data to recipes. The string should be in the following format and must escape\n-- characters such as '\"'.:\n--\n-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'\n--\n-- For more information on custom JSON, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration Attributes\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -22046,7 +22340,7 @@
                         "name": "_csDefaultOs",
                         "shape": "String",
                         "locationName": "DefaultOs",
-                        "documentation": "-- | The stack's operating system, which must be set to one of the following.\n--\n-- Standard operating systems: an Amazon Linux version such as 'Amazon Linux2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom AMIs: 'Custom'. You\n-- specify the custom AMI you want to use when you create instances.   The\n-- default option is the current Amazon Linux version.",
+                        "documentation": "-- | The stack's operating system, which must be set to one of the following.\n--\n-- Standard Linux operating systems: an Amazon Linux version such as 'AmazonLinux 2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom Linux AMIs: 'Custom'. You specify the custom AMI you want to use when you create instances. Microsoft Windows Server 2012 R2.\n-- The default option is the current Amazon Linux version.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -22064,7 +22358,7 @@
                         "name": "_csHostnameTheme",
                         "shape": "String",
                         "locationName": "HostnameTheme",
-                        "documentation": "-- | The stack's host name theme, with spaces are replaced by underscores. The\n-- theme is used to generate host names for the stack's instances. By default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host names by appending integers to\n-- the layer's short name. The other themes are:\n--\n-- 'Baked_Goods' 'Clouds' 'Europe_Cities' 'Fruits' 'Greek_Deities' 'Legendary_creatures_from_Japan' 'Planets_and_Moons' 'Roman_Deities' 'Scottish_Islands' 'US_Cities' 'Wild_Cats'  To\n-- obtain a generated host name, call 'GetHostNameSuggestion', which returns a\n-- host name based on the current theme.",
+                        "documentation": "-- | The stack's host name theme, with spaces are replaced by underscores. The\n-- theme is used to generate host names for the stack's instances. By default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host names by appending integers to\n-- the layer's short name. The other themes are:\n--\n-- 'Baked_Goods'   'Clouds'   'Europe_Cities'   'Fruits'   'Greek_Deities'   'Legendary_creatures_from_Japan'   'Planets_and_Moons'   'Roman_Deities'   'Scottish_Islands'   'US_Cities'   'Wild_Cats'   To obtain a generated host name, call 'GetHostNameSuggestion', which returns\n-- a host name based on the current theme.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -22118,7 +22412,7 @@
                         "name": "_csCustomJson",
                         "shape": "String",
                         "locationName": "CustomJson",
-                        "documentation": "-- | A string that contains user-defined, custom JSON. It is used to override the\n-- corresponding default stack configuration JSON values. The string should be\n-- in the following format and must escape characters such as '\"'.:\n--\n-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'\n--\n-- For more information on custom JSON, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration JSON\u003e.",
+                        "documentation": "-- | A string that contains user-defined, custom JSON. It can be used to override\n-- the corresponding default stack configuration attribute values, or to pass\n-- data to recipes. The string should be in the following format and must escape\n-- characters such as '\"'.:\n--\n-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'\n--\n-- For more information on custom JSON, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration Attributes\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -22336,7 +22630,7 @@
                         "name": "_csCustomJson",
                         "shape": "String",
                         "locationName": "CustomJson",
-                        "documentation": "-- | A string that contains user-defined, custom JSON. It is used to override the\n-- corresponding default stack configuration JSON values. The string should be\n-- in the following format and must escape characters such as '\"'.:\n--\n-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'\n--\n-- For more information on custom JSON, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration JSON\u003e.",
+                        "documentation": "-- | A string that contains user-defined, custom JSON. It can be used to override\n-- the corresponding default stack configuration attribute values, or to pass\n-- data to recipes. The string should be in the following format and must escape\n-- characters such as '\"'.:\n--\n-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'\n--\n-- For more information on custom JSON, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration Attributes\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -22390,7 +22684,7 @@
                         "name": "_csDefaultOs",
                         "shape": "String",
                         "locationName": "DefaultOs",
-                        "documentation": "-- | The stack's operating system, which must be set to one of the following.\n--\n-- Standard operating systems: an Amazon Linux version such as 'Amazon Linux2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom AMIs: 'Custom'. You\n-- specify the custom AMI you want to use when you create instances.   The\n-- default option is the current Amazon Linux version.",
+                        "documentation": "-- | The stack's operating system, which must be set to one of the following.\n--\n-- Standard Linux operating systems: an Amazon Linux version such as 'AmazonLinux 2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom Linux AMIs: 'Custom'. You specify the custom AMI you want to use when you create instances. Microsoft Windows Server 2012 R2.\n-- The default option is the current Amazon Linux version.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -22462,7 +22756,7 @@
                         "name": "_csHostnameTheme",
                         "shape": "String",
                         "locationName": "HostnameTheme",
-                        "documentation": "-- | The stack's host name theme, with spaces are replaced by underscores. The\n-- theme is used to generate host names for the stack's instances. By default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host names by appending integers to\n-- the layer's short name. The other themes are:\n--\n-- 'Baked_Goods' 'Clouds' 'Europe_Cities' 'Fruits' 'Greek_Deities' 'Legendary_creatures_from_Japan' 'Planets_and_Moons' 'Roman_Deities' 'Scottish_Islands' 'US_Cities' 'Wild_Cats'  To\n-- obtain a generated host name, call 'GetHostNameSuggestion', which returns a\n-- host name based on the current theme.",
+                        "documentation": "-- | The stack's host name theme, with spaces are replaced by underscores. The\n-- theme is used to generate host names for the stack's instances. By default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host names by appending integers to\n-- the layer's short name. The other themes are:\n--\n-- 'Baked_Goods'   'Clouds'   'Europe_Cities'   'Fruits'   'Greek_Deities'   'Legendary_creatures_from_Japan'   'Planets_and_Moons'   'Roman_Deities'   'Scottish_Islands'   'US_Cities'   'Wild_Cats'   To obtain a generated host name, call 'GetHostNameSuggestion', which returns\n-- a host name based on the current theme.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -30232,6 +30526,271 @@
             "response": {
                 "deriving": [
                     "Eq",
+                    "Read",
+                    "Show"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "style": "json",
+                "fieldPad": 0,
+                "ctor": "grantAccessResponse",
+                "headerPad": 0,
+                "field": {
+                    "location": null,
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "Nothing",
+                    "monoid": false,
+                    "protocol": "json",
+                    "payload": false,
+                    "flattened": false,
+                    "required": false,
+                    "lens": "garTemporaryCredential",
+                    "name": "_garTemporaryCredential",
+                    "shape": "TemporaryCredential",
+                    "locationName": "TemporaryCredential",
+                    "documentation": "-- | A 'TemporaryCredential' object that contains the data needed to log in to the\n-- instance by RDP clients, such as the Microsoft Remote Desktop Connection.",
+                    "typeExposed": "Maybe TemporaryCredential",
+                    "type": "Maybe TemporaryCredential"
+                },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "garTemporaryCredential",
+                        "name": "_garTemporaryCredential",
+                        "shape": "TemporaryCredential",
+                        "locationName": "TemporaryCredential",
+                        "documentation": "-- | A 'TemporaryCredential' object that contains the data needed to log in to the\n-- instance by RDP clients, such as the Microsoft Remote Desktop Connection.",
+                        "typeExposed": "Maybe TemporaryCredential",
+                        "type": "Maybe TemporaryCredential"
+                    }
+                ],
+                "wrapper": false,
+                "protocol": "json",
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "name": "GrantAccessResponse",
+                "resultWrapper": null,
+                "locationPad": 0,
+                "type": "newtype",
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "garTemporaryCredential",
+                        "name": "_garTemporaryCredential",
+                        "shape": "TemporaryCredential",
+                        "locationName": "TemporaryCredential",
+                        "documentation": "-- | A 'TemporaryCredential' object that contains the data needed to log in to the\n-- instance by RDP clients, such as the Microsoft Remote Desktop Connection.",
+                        "typeExposed": "Maybe TemporaryCredential",
+                        "type": "Maybe TemporaryCredential"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "garTemporaryCredential",
+                        "name": "_garTemporaryCredential",
+                        "shape": "TemporaryCredential",
+                        "locationName": "TemporaryCredential",
+                        "documentation": "-- | A 'TemporaryCredential' object that contains the data needed to log in to the\n-- instance by RDP clients, such as the Microsoft Remote Desktop Connection.",
+                        "typeExposed": "Maybe TemporaryCredential",
+                        "type": "Maybe TemporaryCredential"
+                    }
+                ]
+            },
+            "url": "http://docs.aws.amazon.com/opsworks/latest/APIReference/API_GrantAccess.html",
+            "namespace": "Network.AWS.OpsWorks.GrantAccess",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.OpsWorks.Types"
+            ],
+            "pager": null,
+            "name": "GrantAccess",
+            "method": "post",
+            "documentation": "-- | This API can be used only with Windows stacks. Grants RDP access to a Windows\n-- instance for a specified time period.",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show"
+                ],
+                "streaming": false,
+                "style": "json",
+                "fieldPad": 20,
+                "ctor": "grantAccess",
+                "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gaInstanceId",
+                        "name": "_gaInstanceId",
+                        "shape": "String",
+                        "locationName": "InstanceId",
+                        "documentation": "-- | The instance's AWS OpsWorks ID.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": "mapping _Nat",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gaValidForInMinutes",
+                        "name": "_gaValidForInMinutes",
+                        "shape": "ValidForInMinutes",
+                        "locationName": "ValidForInMinutes",
+                        "documentation": "-- | The length of time (in minutes) that the grant is valid. When the grant\n-- expires at the end of this period, the user will no longer be able to use the\n-- credentials to log in. If the user is logged in at the time, he or she\n-- automatically will be logged out.",
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Nat"
+                    }
+                ],
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "json",
+                "payload": null,
+                "required": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gaInstanceId",
+                        "name": "_gaInstanceId",
+                        "shape": "String",
+                        "locationName": "InstanceId",
+                        "documentation": "-- | The instance's AWS OpsWorks ID.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "contentPad": 18,
+                "queryPad": 0,
+                "name": "GrantAccess",
+                "query": [],
+                "locationPad": 18,
+                "type": "record",
+                "queryAll": false,
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": "mapping _Nat",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gaValidForInMinutes",
+                        "name": "_gaValidForInMinutes",
+                        "shape": "ValidForInMinutes",
+                        "locationName": "ValidForInMinutes",
+                        "documentation": "-- | The length of time (in minutes) that the grant is valid. When the grant\n-- expires at the end of this period, the user will no longer be able to use the\n-- credentials to log in. If the user is logged in at the time, he or she\n-- automatically will be logged out.",
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Nat"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gaInstanceId",
+                        "name": "_gaInstanceId",
+                        "shape": "String",
+                        "locationName": "InstanceId",
+                        "documentation": "-- | The instance's AWS OpsWorks ID.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": null,
+                        "iso": null,
+                        "lensMapping": "mapping _Nat",
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gaValidForInMinutes",
+                        "name": "_gaValidForInMinutes",
+                        "shape": "ValidForInMinutes",
+                        "locationName": "ValidForInMinutes",
+                        "documentation": "-- | The length of time (in minutes) that the grant is valid. When the grant\n-- expires at the end of this period, the user will no longer be able to use the\n-- credentials to log in. If the user is logged in at the time, he or she\n-- automatically will be logged out.",
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Nat"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "OpsWorks",
+            "response": {
+                "deriving": [
+                    "Eq",
                     "Ord",
                     "Read",
                     "Show",
@@ -32175,7 +32734,7 @@
                         "name": "_spLevel",
                         "shape": "String",
                         "locationName": "Level",
-                        "documentation": "-- | The user's permission level, which must be set to one of the following\n-- strings. You cannot set your own permissions level.\n--\n-- 'deny' 'show' 'deploy' 'manage' 'iam_only'  For more information on the permissions\n-- associated with these levels, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions\u003e",
+                        "documentation": "-- | The user's permission level, which must be set to one of the following\n-- strings. You cannot set your own permissions level.\n--\n-- 'deny'   'show'   'deploy'   'manage'   'iam_only'   For more information on the\n-- permissions associated with these levels, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions\u003e",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -32287,7 +32846,7 @@
                         "name": "_spLevel",
                         "shape": "String",
                         "locationName": "Level",
-                        "documentation": "-- | The user's permission level, which must be set to one of the following\n-- strings. You cannot set your own permissions level.\n--\n-- 'deny' 'show' 'deploy' 'manage' 'iam_only'  For more information on the permissions\n-- associated with these levels, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions\u003e",
+                        "documentation": "-- | The user's permission level, which must be set to one of the following\n-- strings. You cannot set your own permissions level.\n--\n-- 'deny'   'show'   'deploy'   'manage'   'iam_only'   For more information on the\n-- permissions associated with these levels, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions\u003e",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -32361,7 +32920,7 @@
                         "name": "_spLevel",
                         "shape": "String",
                         "locationName": "Level",
-                        "documentation": "-- | The user's permission level, which must be set to one of the following\n-- strings. You cannot set your own permissions level.\n--\n-- 'deny' 'show' 'deploy' 'manage' 'iam_only'  For more information on the permissions\n-- associated with these levels, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions\u003e",
+                        "documentation": "-- | The user's permission level, which must be set to one of the following\n-- strings. You cannot set your own permissions level.\n--\n-- 'deny'   'show'   'deploy'   'manage'   'iam_only'   For more information on the\n-- permissions associated with these levels, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions\u003e",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -34468,7 +35027,7 @@
                         "name": "_uiAutoScalingType",
                         "shape": "AutoScalingType",
                         "locationName": "AutoScalingType",
-                        "documentation": "-- | For load-based or time-based instances, the type.",
+                        "documentation": "-- | For load-based or time-based instances, the type. Windows stacks can use only\n-- time-based instances.",
                         "typeExposed": "Maybe AutoScalingType",
                         "type": "Maybe AutoScalingType"
                     },
@@ -34504,7 +35063,7 @@
                         "name": "_uiOs",
                         "shape": "String",
                         "locationName": "Os",
-                        "documentation": "-- | The instance's operating system, which must be set to one of the following.\n--\n-- Standard operating systems: An Amazon Linux version such as 'Amazon Linux2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom AMIs: 'Custom'   The\n-- default option is the current Amazon Linux version, such as 'Amazon Linux2014.09'. If you set this parameter to 'Custom', you must use the 'CreateInstance'\n-- action's AmiId parameter to specify the custom AMI that you want to use. For\n-- more information on the standard operating systems, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html Operating Systems\u003eFor\n-- more information on how to use custom AMIs with OpsWorks, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using CustomAMIs\u003e.",
+                        "documentation": "-- | The instance's operating system, which must be set to one of the following.\n--\n-- For Windows stacks: Microsoft Windows Server 2012 R2.\n--\n-- For Linux stacks:\n--\n-- Standard operating systems: an Amazon Linux version such as 'Amazon Linux2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom AMIs: 'Custom'   The\n-- default option is the current Amazon Linux version. If you set this parameter\n-- to 'Custom', you must use the 'CreateInstance' action's AmiId parameter to\n-- specify the custom AMI that you want to use. For more information on the\n-- standard operating systems, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html Operating Systems\u003eFor more information on how\n-- to use custom AMIs with OpsWorks, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using Custom AMIs\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -34688,7 +35247,7 @@
                         "name": "_uiAutoScalingType",
                         "shape": "AutoScalingType",
                         "locationName": "AutoScalingType",
-                        "documentation": "-- | For load-based or time-based instances, the type.",
+                        "documentation": "-- | For load-based or time-based instances, the type. Windows stacks can use only\n-- time-based instances.",
                         "typeExposed": "Maybe AutoScalingType",
                         "type": "Maybe AutoScalingType"
                     },
@@ -34724,7 +35283,7 @@
                         "name": "_uiOs",
                         "shape": "String",
                         "locationName": "Os",
-                        "documentation": "-- | The instance's operating system, which must be set to one of the following.\n--\n-- Standard operating systems: An Amazon Linux version such as 'Amazon Linux2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom AMIs: 'Custom'   The\n-- default option is the current Amazon Linux version, such as 'Amazon Linux2014.09'. If you set this parameter to 'Custom', you must use the 'CreateInstance'\n-- action's AmiId parameter to specify the custom AMI that you want to use. For\n-- more information on the standard operating systems, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html Operating Systems\u003eFor\n-- more information on how to use custom AMIs with OpsWorks, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using CustomAMIs\u003e.",
+                        "documentation": "-- | The instance's operating system, which must be set to one of the following.\n--\n-- For Windows stacks: Microsoft Windows Server 2012 R2.\n--\n-- For Linux stacks:\n--\n-- Standard operating systems: an Amazon Linux version such as 'Amazon Linux2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom AMIs: 'Custom'   The\n-- default option is the current Amazon Linux version. If you set this parameter\n-- to 'Custom', you must use the 'CreateInstance' action's AmiId parameter to\n-- specify the custom AMI that you want to use. For more information on the\n-- standard operating systems, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html Operating Systems\u003eFor more information on how\n-- to use custom AMIs with OpsWorks, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using Custom AMIs\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -34870,7 +35429,7 @@
                         "name": "_uiAutoScalingType",
                         "shape": "AutoScalingType",
                         "locationName": "AutoScalingType",
-                        "documentation": "-- | For load-based or time-based instances, the type.",
+                        "documentation": "-- | For load-based or time-based instances, the type. Windows stacks can use only\n-- time-based instances.",
                         "typeExposed": "Maybe AutoScalingType",
                         "type": "Maybe AutoScalingType"
                     },
@@ -34996,7 +35555,7 @@
                         "name": "_uiOs",
                         "shape": "String",
                         "locationName": "Os",
-                        "documentation": "-- | The instance's operating system, which must be set to one of the following.\n--\n-- Standard operating systems: An Amazon Linux version such as 'Amazon Linux2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom AMIs: 'Custom'   The\n-- default option is the current Amazon Linux version, such as 'Amazon Linux2014.09'. If you set this parameter to 'Custom', you must use the 'CreateInstance'\n-- action's AmiId parameter to specify the custom AMI that you want to use. For\n-- more information on the standard operating systems, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html Operating Systems\u003eFor\n-- more information on how to use custom AMIs with OpsWorks, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using CustomAMIs\u003e.",
+                        "documentation": "-- | The instance's operating system, which must be set to one of the following.\n--\n-- For Windows stacks: Microsoft Windows Server 2012 R2.\n--\n-- For Linux stacks:\n--\n-- Standard operating systems: an Amazon Linux version such as 'Amazon Linux2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom AMIs: 'Custom'   The\n-- default option is the current Amazon Linux version. If you set this parameter\n-- to 'Custom', you must use the 'CreateInstance' action's AmiId parameter to\n-- specify the custom AMI that you want to use. For more information on the\n-- standard operating systems, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html Operating Systems\u003eFor more information on how\n-- to use custom AMIs with OpsWorks, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Using Custom AMIs\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -36457,7 +37016,7 @@
                         "name": "_usDefaultOs",
                         "shape": "String",
                         "locationName": "DefaultOs",
-                        "documentation": "-- | The stack's operating system, which must be set to one of the following.\n--\n-- Standard operating systems: an Amazon Linux version such as 'Amazon Linux2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom AMIs: 'Custom'. You\n-- specify the custom AMI you want to use when you create instances.   The\n-- default option is the current Amazon Linux version.",
+                        "documentation": "-- | The stack's operating system, which must be set to one of the following.\n--\n-- Standard Linux operating systems: an Amazon Linux version such as 'AmazonLinux 2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom Linux AMIs: 'Custom'. You specify the custom AMI you want to use when you create instances. Microsoft Windows Server 2012 R2.\n-- The default option is the current Amazon Linux version.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -36475,7 +37034,7 @@
                         "name": "_usHostnameTheme",
                         "shape": "String",
                         "locationName": "HostnameTheme",
-                        "documentation": "-- | The stack's new host name theme, with spaces are replaced by underscores. The\n-- theme is used to generate host names for the stack's instances. By default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host names by appending integers to\n-- the layer's short name. The other themes are:\n--\n-- 'Baked_Goods' 'Clouds' 'Europe_Cities' 'Fruits' 'Greek_Deities' 'Legendary_creatures_from_Japan' 'Planets_and_Moons' 'Roman_Deities' 'Scottish_Islands' 'US_Cities' 'Wild_Cats'  To\n-- obtain a generated host name, call 'GetHostNameSuggestion', which returns a\n-- host name based on the current theme.",
+                        "documentation": "-- | The stack's new host name theme, with spaces are replaced by underscores. The\n-- theme is used to generate host names for the stack's instances. By default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host names by appending integers to\n-- the layer's short name. The other themes are:\n--\n-- 'Baked_Goods'   'Clouds'   'Europe_Cities'   'Fruits'   'Greek_Deities'   'Legendary_creatures_from_Japan'   'Planets_and_Moons'   'Roman_Deities'   'Scottish_Islands'   'US_Cities'   'Wild_Cats'   To obtain a generated host name, call 'GetHostNameSuggestion', which returns\n-- a host name based on the current theme.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -36529,7 +37088,7 @@
                         "name": "_usCustomJson",
                         "shape": "String",
                         "locationName": "CustomJson",
-                        "documentation": "-- | A string that contains user-defined, custom JSON. It is used to override the\n-- corresponding default stack configuration JSON values. The string should be\n-- in the following format and must escape characters such as '\"'.:\n--\n-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'\n--\n-- For more information on custom JSON, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration JSON\u003e.",
+                        "documentation": "-- | A string that contains user-defined, custom JSON. It can be used to override\n-- the corresponding default stack configuration JSON values or to pass data to\n-- recipes. The string should be in the following format and must escape\n-- characters such as '\"'.:\n--\n-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'\n--\n-- For more information on custom JSON, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration Attributes\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -36785,7 +37344,7 @@
                         "name": "_usDefaultOs",
                         "shape": "String",
                         "locationName": "DefaultOs",
-                        "documentation": "-- | The stack's operating system, which must be set to one of the following.\n--\n-- Standard operating systems: an Amazon Linux version such as 'Amazon Linux2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom AMIs: 'Custom'. You\n-- specify the custom AMI you want to use when you create instances.   The\n-- default option is the current Amazon Linux version.",
+                        "documentation": "-- | The stack's operating system, which must be set to one of the following.\n--\n-- Standard Linux operating systems: an Amazon Linux version such as 'AmazonLinux 2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom Linux AMIs: 'Custom'. You specify the custom AMI you want to use when you create instances. Microsoft Windows Server 2012 R2.\n-- The default option is the current Amazon Linux version.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -36803,7 +37362,7 @@
                         "name": "_usHostnameTheme",
                         "shape": "String",
                         "locationName": "HostnameTheme",
-                        "documentation": "-- | The stack's new host name theme, with spaces are replaced by underscores. The\n-- theme is used to generate host names for the stack's instances. By default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host names by appending integers to\n-- the layer's short name. The other themes are:\n--\n-- 'Baked_Goods' 'Clouds' 'Europe_Cities' 'Fruits' 'Greek_Deities' 'Legendary_creatures_from_Japan' 'Planets_and_Moons' 'Roman_Deities' 'Scottish_Islands' 'US_Cities' 'Wild_Cats'  To\n-- obtain a generated host name, call 'GetHostNameSuggestion', which returns a\n-- host name based on the current theme.",
+                        "documentation": "-- | The stack's new host name theme, with spaces are replaced by underscores. The\n-- theme is used to generate host names for the stack's instances. By default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host names by appending integers to\n-- the layer's short name. The other themes are:\n--\n-- 'Baked_Goods'   'Clouds'   'Europe_Cities'   'Fruits'   'Greek_Deities'   'Legendary_creatures_from_Japan'   'Planets_and_Moons'   'Roman_Deities'   'Scottish_Islands'   'US_Cities'   'Wild_Cats'   To obtain a generated host name, call 'GetHostNameSuggestion', which returns\n-- a host name based on the current theme.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -36857,7 +37416,7 @@
                         "name": "_usCustomJson",
                         "shape": "String",
                         "locationName": "CustomJson",
-                        "documentation": "-- | A string that contains user-defined, custom JSON. It is used to override the\n-- corresponding default stack configuration JSON values. The string should be\n-- in the following format and must escape characters such as '\"'.:\n--\n-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'\n--\n-- For more information on custom JSON, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration JSON\u003e.",
+                        "documentation": "-- | A string that contains user-defined, custom JSON. It can be used to override\n-- the corresponding default stack configuration JSON values or to pass data to\n-- recipes. The string should be in the following format and must escape\n-- characters such as '\"'.:\n--\n-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'\n--\n-- For more information on custom JSON, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration Attributes\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -37075,7 +37634,7 @@
                         "name": "_usCustomJson",
                         "shape": "String",
                         "locationName": "CustomJson",
-                        "documentation": "-- | A string that contains user-defined, custom JSON. It is used to override the\n-- corresponding default stack configuration JSON values. The string should be\n-- in the following format and must escape characters such as '\"'.:\n--\n-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'\n--\n-- For more information on custom JSON, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration JSON\u003e.",
+                        "documentation": "-- | A string that contains user-defined, custom JSON. It can be used to override\n-- the corresponding default stack configuration JSON values or to pass data to\n-- recipes. The string should be in the following format and must escape\n-- characters such as '\"'.:\n--\n-- '\"{\\\"key1\\\": \\\"value1\\\", \\\"key2\\\": \\\"value2\\\",...}\"'\n--\n-- For more information on custom JSON, see \u003chttp://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration Attributes\u003e.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -37129,7 +37688,7 @@
                         "name": "_usDefaultOs",
                         "shape": "String",
                         "locationName": "DefaultOs",
-                        "documentation": "-- | The stack's operating system, which must be set to one of the following.\n--\n-- Standard operating systems: an Amazon Linux version such as 'Amazon Linux2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom AMIs: 'Custom'. You\n-- specify the custom AMI you want to use when you create instances.   The\n-- default option is the current Amazon Linux version.",
+                        "documentation": "-- | The stack's operating system, which must be set to one of the following.\n--\n-- Standard Linux operating systems: an Amazon Linux version such as 'AmazonLinux 2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom Linux AMIs: 'Custom'. You specify the custom AMI you want to use when you create instances. Microsoft Windows Server 2012 R2.\n-- The default option is the current Amazon Linux version.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -37201,7 +37760,7 @@
                         "name": "_usHostnameTheme",
                         "shape": "String",
                         "locationName": "HostnameTheme",
-                        "documentation": "-- | The stack's new host name theme, with spaces are replaced by underscores. The\n-- theme is used to generate host names for the stack's instances. By default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host names by appending integers to\n-- the layer's short name. The other themes are:\n--\n-- 'Baked_Goods' 'Clouds' 'Europe_Cities' 'Fruits' 'Greek_Deities' 'Legendary_creatures_from_Japan' 'Planets_and_Moons' 'Roman_Deities' 'Scottish_Islands' 'US_Cities' 'Wild_Cats'  To\n-- obtain a generated host name, call 'GetHostNameSuggestion', which returns a\n-- host name based on the current theme.",
+                        "documentation": "-- | The stack's new host name theme, with spaces are replaced by underscores. The\n-- theme is used to generate host names for the stack's instances. By default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host names by appending integers to\n-- the layer's short name. The other themes are:\n--\n-- 'Baked_Goods'   'Clouds'   'Europe_Cities'   'Fruits'   'Greek_Deities'   'Legendary_creatures_from_Japan'   'Planets_and_Moons'   'Roman_Deities'   'Scottish_Islands'   'US_Cities'   'Wild_Cats'   To obtain a generated host name, call 'GetHostNameSuggestion', which returns\n-- a host name based on the current theme.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },

@@ -21,11 +21,13 @@
             "Network.AWS.CognitoSync.DescribeIdentityPoolUsage",
             "Network.AWS.CognitoSync.DescribeIdentityUsage",
             "Network.AWS.CognitoSync.GetBulkPublishDetails",
+            "Network.AWS.CognitoSync.GetCognitoEvents",
             "Network.AWS.CognitoSync.GetIdentityPoolConfiguration",
             "Network.AWS.CognitoSync.ListDatasets",
             "Network.AWS.CognitoSync.ListIdentityPoolUsage",
             "Network.AWS.CognitoSync.ListRecords",
             "Network.AWS.CognitoSync.RegisterDevice",
+            "Network.AWS.CognitoSync.SetCognitoEvents",
             "Network.AWS.CognitoSync.SetIdentityPoolConfiguration",
             "Network.AWS.CognitoSync.SubscribeToDataset",
             "Network.AWS.CognitoSync.Types",
@@ -71,11 +73,13 @@
             "Network.AWS.CognitoSync.DescribeIdentityPoolUsage",
             "Network.AWS.CognitoSync.DescribeIdentityUsage",
             "Network.AWS.CognitoSync.GetBulkPublishDetails",
+            "Network.AWS.CognitoSync.GetCognitoEvents",
             "Network.AWS.CognitoSync.GetIdentityPoolConfiguration",
             "Network.AWS.CognitoSync.ListDatasets",
             "Network.AWS.CognitoSync.ListIdentityPoolUsage",
             "Network.AWS.CognitoSync.ListRecords",
             "Network.AWS.CognitoSync.RegisterDevice",
+            "Network.AWS.CognitoSync.SetCognitoEvents",
             "Network.AWS.CognitoSync.SetIdentityPoolConfiguration",
             "Network.AWS.CognitoSync.SubscribeToDataset",
             "Network.AWS.CognitoSync.Types",
@@ -1192,7 +1196,7 @@
                         "name": "_csRoleArn",
                         "shape": "AssumeRoleArn",
                         "locationName": "RoleArn",
-                        "documentation": "-- | The ARN of the role Amazon Cognito can assume in order to publish to the\n-- stream. This role must grant access to Amazon Cognito (cognito-sync) to\n-- invoke 'PutRecord' on your Cognito stream.",
+                        "documentation": "-- | The ARN of the role Amazon Cognito can assume in order to publish to the\n-- stream. This role must grant access to Amazon Cognito (cognito-sync) to\n-- invoke PutRecord on your Cognito stream.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1210,7 +1214,7 @@
                         "name": "_csStreamingStatus",
                         "shape": "StreamingStatus",
                         "locationName": "StreamingStatus",
-                        "documentation": "-- | Status of the Cognito streams. Valid values are: 'ENABLED' - Streaming of\n-- updates to identity pool is enabled.\n--\n-- 'DISABLED'Streaming of updates to identity pool is disabled. Bulk publish will\n-- also fail if 'StreamingStatus' is 'DISABLED'.",
+                        "documentation": "-- | Status of the Cognito streams. Valid values are: ENABLED - Streaming of\n-- updates to identity pool is enabled.\n--\n-- DISABLED - Streaming of updates to identity pool is disabled. Bulk publish\n-- will also fail if StreamingStatus is DISABLED.",
                         "typeExposed": "Maybe StreamingStatus",
                         "type": "Maybe StreamingStatus"
                     }
@@ -1254,7 +1258,7 @@
                         "name": "_csRoleArn",
                         "shape": "AssumeRoleArn",
                         "locationName": "RoleArn",
-                        "documentation": "-- | The ARN of the role Amazon Cognito can assume in order to publish to the\n-- stream. This role must grant access to Amazon Cognito (cognito-sync) to\n-- invoke 'PutRecord' on your Cognito stream.",
+                        "documentation": "-- | The ARN of the role Amazon Cognito can assume in order to publish to the\n-- stream. This role must grant access to Amazon Cognito (cognito-sync) to\n-- invoke PutRecord on your Cognito stream.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1272,7 +1276,7 @@
                         "name": "_csStreamingStatus",
                         "shape": "StreamingStatus",
                         "locationName": "StreamingStatus",
-                        "documentation": "-- | Status of the Cognito streams. Valid values are: 'ENABLED' - Streaming of\n-- updates to identity pool is enabled.\n--\n-- 'DISABLED'Streaming of updates to identity pool is disabled. Bulk publish will\n-- also fail if 'StreamingStatus' is 'DISABLED'.",
+                        "documentation": "-- | Status of the Cognito streams. Valid values are: ENABLED - Streaming of\n-- updates to identity pool is enabled.\n--\n-- DISABLED - Streaming of updates to identity pool is disabled. Bulk publish\n-- will also fail if StreamingStatus is DISABLED.",
                         "typeExposed": "Maybe StreamingStatus",
                         "type": "Maybe StreamingStatus"
                     }
@@ -1292,7 +1296,7 @@
                         "name": "_csRoleArn",
                         "shape": "AssumeRoleArn",
                         "locationName": "RoleArn",
-                        "documentation": "-- | The ARN of the role Amazon Cognito can assume in order to publish to the\n-- stream. This role must grant access to Amazon Cognito (cognito-sync) to\n-- invoke 'PutRecord' on your Cognito stream.",
+                        "documentation": "-- | The ARN of the role Amazon Cognito can assume in order to publish to the\n-- stream. This role must grant access to Amazon Cognito (cognito-sync) to\n-- invoke PutRecord on your Cognito stream.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1328,7 +1332,7 @@
                         "name": "_csStreamingStatus",
                         "shape": "StreamingStatus",
                         "locationName": "StreamingStatus",
-                        "documentation": "-- | Status of the Cognito streams. Valid values are: 'ENABLED' - Streaming of\n-- updates to identity pool is enabled.\n--\n-- 'DISABLED'Streaming of updates to identity pool is disabled. Bulk publish will\n-- also fail if 'StreamingStatus' is 'DISABLED'.",
+                        "documentation": "-- | Status of the Cognito streams. Valid values are: ENABLED - Streaming of\n-- updates to identity pool is enabled.\n--\n-- DISABLED - Streaming of updates to identity pool is disabled. Bulk publish\n-- will also fail if StreamingStatus is DISABLED.",
                         "typeExposed": "Maybe StreamingStatus",
                         "type": "Maybe StreamingStatus"
                     }
@@ -2396,7 +2400,7 @@
             "pager": null,
             "name": "DeleteDataset",
             "method": "delete",
-            "documentation": "-- | Deletes the specific dataset. The dataset will be deleted permanently, and\n-- the action can't be undone. Datasets that this dataset was merged with will\n-- no longer report the merge. Any subsequent operation on this dataset will\n-- result in a 'ResourceNotFoundException'.\n--\n-- 'DeleteDataset' can be called with temporary user credentials provided by\n-- Cognito Identity or with developer credentials.",
+            "documentation": "-- | Deletes the specific dataset. The dataset will be deleted permanently, and\n-- the action can't be undone. Datasets that this dataset was merged with will\n-- no longer report the merge. Any subsequent operation on this dataset will\n-- result in a ResourceNotFoundException.\n--\n-- DeleteDataset can be called with temporary user credentials provided by\n-- Cognito Identity or with developer credentials.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2679,7 +2683,7 @@
             "pager": null,
             "name": "DescribeDataset",
             "method": "get",
-            "documentation": "-- | Gets meta data about a dataset by identity and dataset name. With Amazon\n-- Cognito Sync, each identity has access only to its own data. Thus, the\n-- credentials used to make this API call need to have access to the identity\n-- data.\n--\n-- 'DescribeDataset' can be called with temporary user credentials provided by\n-- Cognito Identity or with developer credentials. You should use Cognito\n-- Identity credentials to make this API call.",
+            "documentation": "-- | Gets meta data about a dataset by identity and dataset name. With Amazon\n-- Cognito Sync, each identity has access only to its own data. Thus, the\n-- credentials used to make this API call need to have access to the identity\n-- data.\n--\n-- DescribeDataset can be called with temporary user credentials provided by\n-- Cognito Identity or with developer credentials. You should use Cognito\n-- Identity credentials to make this API call.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2962,7 +2966,7 @@
             "pager": null,
             "name": "DescribeIdentityPoolUsage",
             "method": "get",
-            "documentation": "-- | Gets usage details (for example, data storage) about a particular identity\n-- pool.\n--\n-- 'DescribeIdentityPoolUsage' can only be called with developer credentials. You\n-- cannot make this API call with the temporary user credentials provided by\n-- Cognito Identity.",
+            "documentation": "-- | Gets usage details (for example, data storage) about a particular identity\n-- pool.\n--\n-- DescribeIdentityPoolUsage can only be called with developer credentials. You\n-- cannot make this API call with the temporary user credentials provided by\n-- Cognito Identity.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3178,7 +3182,7 @@
             "pager": null,
             "name": "DescribeIdentityUsage",
             "method": "get",
-            "documentation": "-- | Gets usage information for an identity, including number of datasets and data\n-- usage.\n--\n-- 'DescribeIdentityUsage' can be called with temporary user credentials provided\n-- by Cognito Identity or with developer credentials.",
+            "documentation": "-- | Gets usage information for an identity, including number of datasets and data\n-- usage.\n--\n-- DescribeIdentityUsage can be called with temporary user credentials provided\n-- by Cognito Identity or with developer credentials.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3366,7 +3370,7 @@
                         "name": "_gbpdrBulkPublishCompleteTime",
                         "shape": "Date",
                         "locationName": "BulkPublishCompleteTime",
-                        "documentation": "-- | If 'BulkPublishStatus' is SUCCEEDED, the time the last bulk publish operation\n-- completed.",
+                        "documentation": "-- | If BulkPublishStatus is SUCCEEDED, the time the last bulk publish operation\n-- completed.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe POSIX"
                     },
@@ -3384,7 +3388,7 @@
                         "name": "_gbpdrBulkPublishStatus",
                         "shape": "BulkPublishStatus",
                         "locationName": "BulkPublishStatus",
-                        "documentation": "-- | Status of the last bulk publish operation, valid values are: 'NOT_STARTED' - No\n-- bulk publish has been requested for this identity pool\n--\n-- 'IN_PROGRESS' - Data is being published to the configured stream\n--\n-- 'SUCCEEDED' - All data for the identity pool has been published to the\n-- configured stream\n--\n-- 'FAILED' - Some portion of the data has failed to publish, check 'FailureMessage'\n-- for the cause.",
+                        "documentation": "-- | Status of the last bulk publish operation, valid values are: NOT_STARTED - No\n-- bulk publish has been requested for this identity pool\n--\n-- IN_PROGRESS - Data is being published to the configured stream\n--\n-- SUCCEEDED - All data for the identity pool has been published to the\n-- configured stream\n--\n-- FAILED - Some portion of the data has failed to publish, check\n-- FailureMessage for the cause.",
                         "typeExposed": "Maybe BulkPublishStatus",
                         "type": "Maybe BulkPublishStatus"
                     },
@@ -3470,7 +3474,7 @@
                         "name": "_gbpdrBulkPublishCompleteTime",
                         "shape": "Date",
                         "locationName": "BulkPublishCompleteTime",
-                        "documentation": "-- | If 'BulkPublishStatus' is SUCCEEDED, the time the last bulk publish operation\n-- completed.",
+                        "documentation": "-- | If BulkPublishStatus is SUCCEEDED, the time the last bulk publish operation\n-- completed.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe POSIX"
                     },
@@ -3488,7 +3492,7 @@
                         "name": "_gbpdrBulkPublishStatus",
                         "shape": "BulkPublishStatus",
                         "locationName": "BulkPublishStatus",
-                        "documentation": "-- | Status of the last bulk publish operation, valid values are: 'NOT_STARTED' - No\n-- bulk publish has been requested for this identity pool\n--\n-- 'IN_PROGRESS' - Data is being published to the configured stream\n--\n-- 'SUCCEEDED' - All data for the identity pool has been published to the\n-- configured stream\n--\n-- 'FAILED' - Some portion of the data has failed to publish, check 'FailureMessage'\n-- for the cause.",
+                        "documentation": "-- | Status of the last bulk publish operation, valid values are: NOT_STARTED - No\n-- bulk publish has been requested for this identity pool\n--\n-- IN_PROGRESS - Data is being published to the configured stream\n--\n-- SUCCEEDED - All data for the identity pool has been published to the\n-- configured stream\n--\n-- FAILED - Some portion of the data has failed to publish, check\n-- FailureMessage for the cause.",
                         "typeExposed": "Maybe BulkPublishStatus",
                         "type": "Maybe BulkPublishStatus"
                     },
@@ -3526,7 +3530,7 @@
                         "name": "_gbpdrBulkPublishCompleteTime",
                         "shape": "Date",
                         "locationName": "BulkPublishCompleteTime",
-                        "documentation": "-- | If 'BulkPublishStatus' is SUCCEEDED, the time the last bulk publish operation\n-- completed.",
+                        "documentation": "-- | If BulkPublishStatus is SUCCEEDED, the time the last bulk publish operation\n-- completed.",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe POSIX"
                     },
@@ -3562,7 +3566,7 @@
                         "name": "_gbpdrBulkPublishStatus",
                         "shape": "BulkPublishStatus",
                         "locationName": "BulkPublishStatus",
-                        "documentation": "-- | Status of the last bulk publish operation, valid values are: 'NOT_STARTED' - No\n-- bulk publish has been requested for this identity pool\n--\n-- 'IN_PROGRESS' - Data is being published to the configured stream\n--\n-- 'SUCCEEDED' - All data for the identity pool has been published to the\n-- configured stream\n--\n-- 'FAILED' - Some portion of the data has failed to publish, check 'FailureMessage'\n-- for the cause.",
+                        "documentation": "-- | Status of the last bulk publish operation, valid values are: NOT_STARTED - No\n-- bulk publish has been requested for this identity pool\n--\n-- IN_PROGRESS - Data is being published to the configured stream\n--\n-- SUCCEEDED - All data for the identity pool has been published to the\n-- configured stream\n--\n-- FAILED - Some portion of the data has failed to publish, check\n-- FailureMessage for the cause.",
                         "typeExposed": "Maybe BulkPublishStatus",
                         "type": "Maybe BulkPublishStatus"
                     },
@@ -3713,6 +3717,228 @@
                         "shape": "IdentityPoolId",
                         "locationName": "IdentityPoolId",
                         "documentation": "-- | A name-spaced GUID (for example,\n-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito.\n-- GUID generation is unique within a region.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "CognitoSync",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Read",
+                    "Show",
+                    "Monoid",
+                    "Semigroup"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "style": "json",
+                "fieldPad": 0,
+                "ctor": "getCognitoEventsResponse",
+                "headerPad": 0,
+                "field": {
+                    "location": null,
+                    "iso": "_Map",
+                    "lensMapping": "_Map",
+                    "default": "mempty",
+                    "monoid": true,
+                    "protocol": "rest-json",
+                    "payload": false,
+                    "flattened": false,
+                    "required": true,
+                    "lens": "gcerEvents",
+                    "name": "_gcerEvents",
+                    "shape": "Events",
+                    "locationName": "Events",
+                    "documentation": "-- | The Cognito Events returned from the GetCognitoEvents request",
+                    "typeExposed": "HashMap Text Text",
+                    "type": "Map Text Text"
+                },
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "rest-json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gcerEvents",
+                        "name": "_gcerEvents",
+                        "shape": "Events",
+                        "locationName": "Events",
+                        "documentation": "-- | The Cognito Events returned from the GetCognitoEvents request",
+                        "typeExposed": "HashMap Text Text",
+                        "type": "Map Text Text"
+                    }
+                ],
+                "wrapper": false,
+                "protocol": "rest-json",
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "name": "GetCognitoEventsResponse",
+                "resultWrapper": null,
+                "locationPad": 0,
+                "type": "newtype",
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "rest-json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gcerEvents",
+                        "name": "_gcerEvents",
+                        "shape": "Events",
+                        "locationName": "Events",
+                        "documentation": "-- | The Cognito Events returned from the GetCognitoEvents request",
+                        "typeExposed": "HashMap Text Text",
+                        "type": "Map Text Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "rest-json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gcerEvents",
+                        "name": "_gcerEvents",
+                        "shape": "Events",
+                        "locationName": "Events",
+                        "documentation": "-- | The Cognito Events returned from the GetCognitoEvents request",
+                        "typeExposed": "HashMap Text Text",
+                        "type": "Map Text Text"
+                    }
+                ]
+            },
+            "url": "http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_GetCognitoEvents.html",
+            "namespace": "Network.AWS.CognitoSync.GetCognitoEvents",
+            "protocol": "rest-json",
+            "imports": [
+                "Network.AWS.Request.RestJSON",
+                "Network.AWS.CognitoSync.Types"
+            ],
+            "pager": null,
+            "name": "GetCognitoEvents",
+            "method": "get",
+            "documentation": "-- | Gets the events and the corresponding Lambda functions associated with an\n-- identity pool",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show",
+                    "Monoid",
+                    "IsString"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "style": "json",
+                "fieldPad": 0,
+                "ctor": "getCognitoEvents",
+                "headerPad": 0,
+                "field": {
+                    "location": "uri",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "error",
+                    "monoid": false,
+                    "protocol": "rest-json",
+                    "payload": false,
+                    "flattened": false,
+                    "required": true,
+                    "lens": "gceIdentityPoolId",
+                    "name": "_gceIdentityPoolId",
+                    "shape": "IdentityPoolId",
+                    "locationName": "IdentityPoolId",
+                    "documentation": "-- | The Cognito Identity Pool ID for the request",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "contents": [],
+                "path": [
+                    {
+                        "value": "/identitypools/",
+                        "type": "const"
+                    },
+                    {
+                        "value": "_gceIdentityPoolId",
+                        "type": "var"
+                    },
+                    {
+                        "value": "/events",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "rest-json",
+                "payload": null,
+                "required": [
+                    {
+                        "location": "uri",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gceIdentityPoolId",
+                        "name": "_gceIdentityPoolId",
+                        "shape": "IdentityPoolId",
+                        "locationName": "IdentityPoolId",
+                        "documentation": "-- | The Cognito Identity Pool ID for the request",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "queryPad": 0,
+                "name": "GetCognitoEvents",
+                "query": [],
+                "locationPad": 0,
+                "type": "newtype",
+                "queryAll": false,
+                "headerAll": false,
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "uri",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gceIdentityPoolId",
+                        "name": "_gceIdentityPoolId",
+                        "shape": "IdentityPoolId",
+                        "locationName": "IdentityPoolId",
+                        "documentation": "-- | The Cognito Identity Pool ID for the request",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -4232,7 +4458,7 @@
             "pager": null,
             "name": "ListDatasets",
             "method": "get",
-            "documentation": "-- | Lists datasets for an identity. With Amazon Cognito Sync, each identity has\n-- access only to its own data. Thus, the credentials used to make this API call\n-- need to have access to the identity data.\n--\n-- 'ListDatasets' can be called with temporary user credentials provided by\n-- Cognito Identity or with developer credentials. You should use the Cognito\n-- Identity credentials to make this API call.",
+            "documentation": "-- | Lists datasets for an identity. With Amazon Cognito Sync, each identity has\n-- access only to its own data. Thus, the credentials used to make this API call\n-- need to have access to the identity data.\n--\n-- ListDatasets can be called with temporary user credentials provided by\n-- Cognito Identity or with developer credentials. You should use the Cognito\n-- Identity credentials to make this API call.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4702,7 +4928,7 @@
             "pager": null,
             "name": "ListIdentityPoolUsage",
             "method": "get",
-            "documentation": "-- | Gets a list of identity pools registered with Cognito.\n--\n-- 'ListIdentityPoolUsage' can only be called with developer credentials. You\n-- cannot make this API call with the temporary user credentials provided by\n-- Cognito Identity.",
+            "documentation": "-- | Gets a list of identity pools registered with Cognito.\n--\n-- ListIdentityPoolUsage can only be called with developer credentials. You\n-- cannot make this API call with the temporary user credentials provided by\n-- Cognito Identity.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -5353,7 +5579,7 @@
             "pager": null,
             "name": "ListRecords",
             "method": "get",
-            "documentation": "-- | Gets paginated records, optionally changed after a particular sync count for\n-- a dataset and identity. With Amazon Cognito Sync, each identity has access\n-- only to its own data. Thus, the credentials used to make this API call need\n-- to have access to the identity data.\n--\n-- 'ListRecords' can be called with temporary user credentials provided by\n-- Cognito Identity or with developer credentials. You should use Cognito\n-- Identity credentials to make this API call.",
+            "documentation": "-- | Gets paginated records, optionally changed after a particular sync count for\n-- a dataset and identity. With Amazon Cognito Sync, each identity has access\n-- only to its own data. Thus, the credentials used to make this API call need\n-- to have access to the identity data.\n--\n-- ListRecords can be called with temporary user credentials provided by\n-- Cognito Identity or with developer credentials. You should use Cognito\n-- Identity credentials to make this API call.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -6038,6 +6264,182 @@
                         "shape": "PushToken",
                         "locationName": "Token",
                         "documentation": "-- | The push token.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "CognitoSync",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "style": "nullary",
+                "fieldPad": 0,
+                "ctor": "setCognitoEventsResponse",
+                "headerPad": 0,
+                "wrapper": false,
+                "protocol": "rest-json",
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "name": "SetCognitoEventsResponse",
+                "resultWrapper": null,
+                "type": "empty",
+                "headerAll": false,
+                "optional": [],
+                "fields": []
+            },
+            "url": "http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_SetCognitoEvents.html",
+            "namespace": "Network.AWS.CognitoSync.SetCognitoEvents",
+            "protocol": "rest-json",
+            "imports": [
+                "Network.AWS.Request.RestJSON",
+                "Network.AWS.CognitoSync.Types"
+            ],
+            "pager": null,
+            "name": "SetCognitoEvents",
+            "method": "post",
+            "documentation": "-- | Sets the AWS Lambda function for a given event type for an identity pool.\n-- This request only updates the key/value pair specified. Other key/values\n-- pairs are not updated. To remove a key value pair, pass a empty value for the\n-- particular key.",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Read",
+                    "Show"
+                ],
+                "streaming": false,
+                "style": "json",
+                "fieldPad": 18,
+                "ctor": "setCognitoEvents",
+                "headerPad": 0,
+                "contents": [
+                    {
+                        "location": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "rest-json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "sceEvents",
+                        "name": "_sceEvents",
+                        "shape": "Events",
+                        "locationName": "Events",
+                        "documentation": "-- | The events to configure",
+                        "typeExposed": "HashMap Text Text",
+                        "type": "Map Text Text"
+                    }
+                ],
+                "path": [
+                    {
+                        "value": "/identitypools/",
+                        "type": "const"
+                    },
+                    {
+                        "value": "_sceIdentityPoolId",
+                        "type": "var"
+                    },
+                    {
+                        "value": "/events",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "rest-json",
+                "payload": null,
+                "required": [
+                    {
+                        "location": "uri",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "sceIdentityPoolId",
+                        "name": "_sceIdentityPoolId",
+                        "shape": "IdentityPoolId",
+                        "locationName": "IdentityPoolId",
+                        "documentation": "-- | The Cognito Identity Pool to use when configuring Cognito Events",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "contentPad": 7,
+                "queryPad": 0,
+                "name": "SetCognitoEvents",
+                "query": [],
+                "locationPad": 15,
+                "type": "record",
+                "queryAll": false,
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "rest-json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "sceEvents",
+                        "name": "_sceEvents",
+                        "shape": "Events",
+                        "locationName": "Events",
+                        "documentation": "-- | The events to configure",
+                        "typeExposed": "HashMap Text Text",
+                        "type": "Map Text Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": null,
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
+                        "default": "mempty",
+                        "monoid": true,
+                        "protocol": "rest-json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "sceEvents",
+                        "name": "_sceEvents",
+                        "shape": "Events",
+                        "locationName": "Events",
+                        "documentation": "-- | The events to configure",
+                        "typeExposed": "HashMap Text Text",
+                        "type": "Map Text Text"
+                    },
+                    {
+                        "location": "uri",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "rest-json",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "sceIdentityPoolId",
+                        "name": "_sceIdentityPoolId",
+                        "shape": "IdentityPoolId",
+                        "locationName": "IdentityPoolId",
+                        "documentation": "-- | The Cognito Identity Pool to use when configuring Cognito Events",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -7056,7 +7458,7 @@
             "pager": null,
             "name": "UpdateRecords",
             "method": "post",
-            "documentation": "-- | Posts updates to records and adds and deletes records for a dataset and user.\n--\n-- 'UpdateRecords' can only be called with temporary user credentials provided by\n-- Cognito Identity. You cannot make this API call with developer credentials.",
+            "documentation": "-- | Posts updates to records and adds and deletes records for a dataset and user.\n--\n-- UpdateRecords can only be called with temporary user credentials provided by\n-- Cognito Identity. You cannot make this API call with developer credentials.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -7294,7 +7696,7 @@
                         "name": "_urClientContext",
                         "shape": "ClientContext",
                         "locationName": "x-amz-Client-Context",
-                        "documentation": "-- | Intended to supply a device ID that will populate the 'lastModifiedBy' field\n-- referenced in other methods. The 'ClientContext' field is not yet implemented.",
+                        "documentation": "-- | Intended to supply a device ID that will populate the lastModifiedBy field\n-- referenced in other methods. The ClientContext field is not yet implemented.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -7314,7 +7716,7 @@
                         "name": "_urClientContext",
                         "shape": "ClientContext",
                         "locationName": "x-amz-Client-Context",
-                        "documentation": "-- | Intended to supply a device ID that will populate the 'lastModifiedBy' field\n-- referenced in other methods. The 'ClientContext' field is not yet implemented.",
+                        "documentation": "-- | Intended to supply a device ID that will populate the lastModifiedBy field\n-- referenced in other methods. The ClientContext field is not yet implemented.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },

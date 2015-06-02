@@ -1922,12 +1922,13 @@
                 ],
                 "branches": {
                     "Success": "Success",
+                    "NotApplicable": "Not_Applicable",
                     "Failure": "Failure"
                 },
-                "valuePad": 8,
+                "valuePad": 15,
                 "name": "DeliveryStatus",
                 "type": "nullary",
-                "branchPad": 7
+                "branchPad": 13
             },
             {
                 "deriving": [
@@ -3299,7 +3300,7 @@
             "pager": null,
             "name": "DescribeConfigurationRecorderStatus",
             "method": "post",
-            "documentation": "-- | Returns the current status of the specified configuration recorder. If a\n-- configuration recorder is not specified, this action returns the status of\n-- all configuration recorder associated with the account.",
+            "documentation": "-- | Returns the current status of the specified configuration recorder. If a\n-- configuration recorder is not specified, this action returns the status of\n-- all configuration recorder associated with the account.\n--\n-- Currently, you can specify only one configuration recorder per account.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3532,7 +3533,7 @@
             "pager": null,
             "name": "DescribeConfigurationRecorders",
             "method": "post",
-            "documentation": "-- | Returns the name of one or more specified configuration recorders. If the\n-- recorder name is not specified, this action returns the names of all the\n-- configuration recorders associated with the account.",
+            "documentation": "-- | Returns the name of one or more specified configuration recorders. If the\n-- recorder name is not specified, this action returns the names of all the\n-- configuration recorders associated with the account.\n--\n-- Currently, you can specify only one configuration recorder per account.\n--\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3765,7 +3766,7 @@
             "pager": null,
             "name": "DescribeDeliveryChannelStatus",
             "method": "post",
-            "documentation": "-- | Returns the current status of the specified delivery channel. If a delivery\n-- channel is not specified, this action returns the current status of all\n-- delivery channels associated with the account.",
+            "documentation": "-- | Returns the current status of the specified delivery channel. If a delivery\n-- channel is not specified, this action returns the current status of all\n-- delivery channels associated with the account.\n--\n-- Currently, you can specify only one delivery channel per account.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3998,7 +3999,7 @@
             "pager": null,
             "name": "DescribeDeliveryChannels",
             "method": "post",
-            "documentation": "-- | Returns details about the specified delivery channel. If a delivery channel\n-- is not specified, this action returns the details of all delivery channels\n-- associated with the account.",
+            "documentation": "-- | Returns details about the specified delivery channel. If a delivery channel\n-- is not specified, this action returns the details of all delivery channels\n-- associated with the account.\n--\n-- Currently, you can specify only one delivery channel per account.\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4264,7 +4265,7 @@
             "pager": null,
             "name": "GetResourceConfigHistory",
             "method": "post",
-            "documentation": "-- | Returns a list of configuration items for the specified resource. The list\n-- contains details about each state of the resource during the specified time\n-- interval. You can specify a 'limit' on the number of results returned on the\n-- page. If a limit is specified, a 'nextToken' is returned as part of the result\n-- that you can use to continue this request.",
+            "documentation": "-- | Returns a list of configuration items for the specified resource. The list\n-- contains details about each state of the resource during the specified time\n-- interval. You can specify a 'limit' on the number of results returned on the\n-- page. If a limit is specified, a 'nextToken' is returned as part of the result\n-- that you can use to continue this request.\n--\n-- Each call to the API is limited to span a duration of seven days. It is\n-- likely that the number of records returned is smaller than the specified 'limit'\n-- . In such cases, you can make another call, using the 'nextToken' .\n--\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4720,7 +4721,7 @@
             "pager": null,
             "name": "PutConfigurationRecorder",
             "method": "post",
-            "documentation": "-- | Creates a new configuration recorder to record the resource configurations.\n--\n-- You can use this action to change the role ('roleARN') of an existing\n-- recorder. To change the role, call the action on the existing configuration\n-- recorder and specify a role.",
+            "documentation": "-- | Creates a new configuration recorder to record the resource configurations.\n--\n-- You can use this action to change the role ('roleARN') of an existing\n-- recorder. To change the role, call the action on the existing configuration\n-- recorder and specify a role.\n--\n-- Currently, you can specify only one configuration recorder per account.\n--\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4870,7 +4871,7 @@
             "pager": null,
             "name": "PutDeliveryChannel",
             "method": "post",
-            "documentation": "-- | Creates a new delivery channel object to deliver the configuration\n-- information to an Amazon S3 bucket, and to an Amazon SNS topic.\n--\n-- You can use this action to change the Amazon S3 bucket or an Amazon SNS\n-- topic of the existing delivery channel. To change the Amazon S3 bucket or an\n-- Amazon SNS topic, call this action and specify the changed values for the S3\n-- bucket and the SNS topic. If you specify a different value for either the S3\n-- bucket or the SNS topic, this action will keep the existing value for the\n-- parameter that is not changed.",
+            "documentation": "-- | Creates a new delivery channel object to deliver the configuration\n-- information to an Amazon S3 bucket, and to an Amazon SNS topic.\n--\n-- You can use this action to change the Amazon S3 bucket or an Amazon SNS\n-- topic of the existing delivery channel. To change the Amazon S3 bucket or an\n-- Amazon SNS topic, call this action and specify the changed values for the S3\n-- bucket and the SNS topic. If you specify a different value for either the S3\n-- bucket or the SNS topic, this action will keep the existing value for the\n-- parameter that is not changed.\n--\n-- Currently, you can specify only one delivery channel per account.\n--\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [

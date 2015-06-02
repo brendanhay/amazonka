@@ -30,7 +30,7 @@
 -- mapping information for those volumes. When you launch an instance from this
 -- new AMI, the instance automatically launches with those additional volumes.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html Creating Amazon EBS-Backed Linux AMIs> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html Creating Amazon EBS-Backed Linux AMIs> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateImage.html>
 module Network.AWS.EC2.CreateImage
@@ -107,6 +107,9 @@ ci1BlockDeviceMappings =
 ci1Description :: Lens' CreateImage (Maybe Text)
 ci1Description = lens _ci1Description (\s a -> s { _ci1Description = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 ci1DryRun :: Lens' CreateImage (Maybe Bool)
 ci1DryRun = lens _ci1DryRun (\s a -> s { _ci1DryRun = a })
 

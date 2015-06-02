@@ -65,7 +65,7 @@ cancelUpdateStack p1 = CancelUpdateStack
     { _cusStackName = p1
     }
 
--- | The name or the unique identifier associated with the stack.
+-- | The name or the unique stack ID that is associated with the stack.
 cusStackName :: Lens' CancelUpdateStack Text
 cusStackName = lens _cusStackName (\s a -> s { _cusStackName = a })
 

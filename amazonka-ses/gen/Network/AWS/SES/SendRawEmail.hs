@@ -26,11 +26,12 @@
 -- message must comply with Internet email standards; otherwise, the message
 -- cannot be sent.
 --
--- You can only send email from verified email addresses and domains. If you
--- have not requested production access to Amazon SES, you must also verify
--- every recipient email address except for the recipients provided by the
--- Amazon SES mailbox simulator. For more information, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Amazon SESDeveloper Guide>.  The total size of the message cannot exceed 10 MB. This
--- includes any attachments that are part of the message.
+-- You can only send email from verified email addresses and domains. If your
+-- account is still in the Amazon SES sandbox, you must also verify every
+-- recipient email address except for the recipients provided by the Amazon SES
+-- mailbox simulator. For more information, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Amazon SES Developer Guide>.
+-- The total size of the message cannot exceed 10 MB. This includes any
+-- attachments that are part of the message.
 --
 -- Amazon SES has a limit on the total number of recipients per message: The
 -- combined number of To:, CC: and BCC: email addresses cannot exceed 50. If you
@@ -112,12 +113,19 @@ sreDestinations = lens _sreDestinations (\s a -> s { _sreDestinations = a }) . _
 sreRawMessage :: Lens' SendRawEmail RawMessage
 sreRawMessage = lens _sreRawMessage (\s a -> s { _sreRawMessage = a })
 
--- | The identity's email address.
+-- | The identity's email address. If you do not provide a value for this
+-- parameter, you must specify a "From" address in the raw text of the message.
+-- (You can also specify both.)
 --
 -- By default, the string must be 7-bit ASCII. If the text must contain any
 -- other characters, then you must use MIME encoded-word syntax (RFC 2047)
 -- instead of a literal string. MIME encoded-word syntax uses the following
 -- form: '=?charset?encoding?encoded-text?='. For more information, see <http://tools.ietf.org/html/rfc2047 RFC 2047>.
+--
+-- If you specify the 'Source' parameter and have feedback forwarding enabled,
+-- then bounces and complaints will be sent to this email address. This takes
+-- precedence over any /Return-Path/ header that you might include in the raw text
+-- of the message.
 sreSource :: Lens' SendRawEmail (Maybe Text)
 sreSource = lens _sreSource (\s a -> s { _sreSource = a })
 

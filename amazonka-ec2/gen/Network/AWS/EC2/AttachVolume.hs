@@ -22,14 +22,14 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Attaches an Amazon EBS volume to a running or stopped instance and exposes it
--- to the instance with the specified device name.
+-- | Attaches an EBS volume to a running or stopped instance and exposes it to the
+-- instance with the specified device name.
 --
--- Encrypted Amazon EBS volumes may only be attached to instances that support
--- Amazon EBS encryption. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
+-- Encrypted EBS volumes may only be attached to instances that support Amazon
+-- EBS encryption. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> in the /AmazonElastic Compute Cloud User Guide/.
 --
--- For a list of supported device names, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html Attaching an Amazon EBS Volume toan Instance>. Any device names that aren't reserved for instance store volumes
--- can be used for Amazon EBS volumes. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html Amazon EC2Instance Store> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
+-- For a list of supported device names, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html Attaching an EBS Volume to anInstance>. Any device names that aren't reserved for instance store volumes
+-- can be used for EBS volumes. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html Amazon EC2 InstanceStore> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- If a volume has an AWS Marketplace product code:
 --
@@ -40,7 +40,8 @@
 -- from a Windows instance and attach it to a Linux instance.  For an overview
 -- of the AWS Marketplace, see <https://aws.amazon.com/marketplace/help/200900000 Introducing AWS Marketplace>.
 --
--- For more information about Amazon EBS volumes, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html Attaching Amazon EBSVolumes> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
+-- For more information about EBS volumes, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html Attaching Amazon EBS Volumes> in
+-- the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-AttachVolume.html>
 module Network.AWS.EC2.AttachVolume
@@ -107,6 +108,9 @@ attachVolume p1 p2 p3 = AttachVolume
 avDevice :: Lens' AttachVolume Text
 avDevice = lens _avDevice (\s a -> s { _avDevice = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 avDryRun :: Lens' AttachVolume (Maybe Bool)
 avDryRun = lens _avDryRun (\s a -> s { _avDryRun = a })
 
@@ -114,8 +118,8 @@ avDryRun = lens _avDryRun (\s a -> s { _avDryRun = a })
 avInstanceId :: Lens' AttachVolume Text
 avInstanceId = lens _avInstanceId (\s a -> s { _avInstanceId = a })
 
--- | The ID of the Amazon EBS volume. The volume and instance must be within the
--- same Availability Zone.
+-- | The ID of the EBS volume. The volume and instance must be within the same
+-- Availability Zone.
 avVolumeId :: Lens' AttachVolume Text
 avVolumeId = lens _avVolumeId (\s a -> s { _avVolumeId = a })
 
@@ -158,7 +162,7 @@ attachVolumeResponse = AttachVolumeResponse
 avrAttachTime :: Lens' AttachVolumeResponse (Maybe UTCTime)
 avrAttachTime = lens _avrAttachTime (\s a -> s { _avrAttachTime = a }) . mapping _Time
 
--- | Indicates whether the Amazon EBS volume is deleted on instance termination.
+-- | Indicates whether the EBS volume is deleted on instance termination.
 avrDeleteOnTermination :: Lens' AttachVolumeResponse (Maybe Bool)
 avrDeleteOnTermination =
     lens _avrDeleteOnTermination (\s a -> s { _avrDeleteOnTermination = a })

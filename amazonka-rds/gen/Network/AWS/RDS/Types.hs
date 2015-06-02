@@ -496,7 +496,7 @@ instance AWSService RDS where
               -> RESTError
               -> Bool
         check (statusCode -> s) (awsErrorCode -> e)
-            | s == 400 && "Throttling" == e = True -- Throttling
+            | s == 400 && (Just "Throttling") == e = True -- Throttling
             | s == 500  = True -- General Server Error
             | s == 509  = True -- Limit Exceeded
             | s == 503  = True -- Service Unavailable

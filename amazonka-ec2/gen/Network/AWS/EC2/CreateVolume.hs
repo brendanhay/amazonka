@@ -22,20 +22,20 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Creates an Amazon EBS volume that can be attached to an instance in the same
+-- | Creates an EBS volume that can be attached to an instance in the same
 -- Availability Zone. The volume is created in the regional endpoint that you
 -- send the HTTP request to. For more information see <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
 --
--- You can create a new empty volume or restore a volume from an Amazon EBS
--- snapshot. Any AWS Marketplace product codes from the snapshot are propagated
--- to the volume.
+-- You can create a new empty volume or restore a volume from an EBS snapshot.
+-- Any AWS Marketplace product codes from the snapshot are propagated to the
+-- volume.
 --
 -- You can create encrypted volumes with the 'Encrypted' parameter. Encrypted
 -- volumes may only be attached to instances that support Amazon EBS encryption.
 -- Volumes that are created from encrypted snapshots are also automatically
--- encrypted. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> in the /AmazonElastic Compute Cloud User Guide for Linux/.
+-- encrypted. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption> in the /AmazonElastic Compute Cloud User Guide/.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html Creating or Restoring an Amazon EBS Volume> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html Creating or Restoring an Amazon EBS Volume> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVolume.html>
 module Network.AWS.EC2.CreateVolume
@@ -127,6 +127,9 @@ cv1AvailabilityZone :: Lens' CreateVolume Text
 cv1AvailabilityZone =
     lens _cv1AvailabilityZone (\s a -> s { _cv1AvailabilityZone = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 cv1DryRun :: Lens' CreateVolume (Maybe Bool)
 cv1DryRun = lens _cv1DryRun (\s a -> s { _cv1DryRun = a })
 
@@ -135,7 +138,7 @@ cv1DryRun = lens _cv1DryRun (\s a -> s { _cv1DryRun = a })
 -- Volumes that are created from encrypted snapshots are automatically
 -- encrypted. There is no way to create an encrypted volume from an unencrypted
 -- snapshot or vice versa. If your AMI uses encrypted volumes, you can only
--- launch it on supported instance types. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBSEncryption> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
+-- launch it on supported instance types. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBSEncryption> in the /Amazon Elastic Compute Cloud User Guide/.
 cv1Encrypted :: Lens' CreateVolume (Maybe Bool)
 cv1Encrypted = lens _cv1Encrypted (\s a -> s { _cv1Encrypted = a })
 
@@ -243,6 +246,7 @@ createVolumeResponse p1 p2 p3 p4 p5 p6 p7 p8 = CreateVolumeResponse
     , _cvrKmsKeyId         = Nothing
     }
 
+-- | Information about the volume attachments.
 cvrAttachments :: Lens' CreateVolumeResponse [VolumeAttachment]
 cvrAttachments = lens _cvrAttachments (\s a -> s { _cvrAttachments = a }) . _List
 
@@ -264,7 +268,7 @@ cvrEncrypted = lens _cvrEncrypted (\s a -> s { _cvrEncrypted = a })
 -- provisioned for the volume. For General Purpose (SSD) volumes, this
 -- represents the baseline performance of the volume and the rate at which the
 -- volume accumulates I/O credits for bursting. For more information on General
--- Purpose (SSD) baseline performance, I/O credits, and bursting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBSVolume Types> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
+-- Purpose (SSD) baseline performance, I/O credits, and bursting, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html Amazon EBSVolume Types> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- Constraint: Range is 100 to 20000 for Provisioned IOPS (SSD) volumes and 3
 -- to 10000 for General Purpose (SSD) volumes.

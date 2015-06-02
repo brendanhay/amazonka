@@ -75,6 +75,9 @@ detachNetworkInterface p1 = DetachNetworkInterface
 dniAttachmentId :: Lens' DetachNetworkInterface Text
 dniAttachmentId = lens _dniAttachmentId (\s a -> s { _dniAttachmentId = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dniDryRun :: Lens' DetachNetworkInterface (Maybe Bool)
 dniDryRun = lens _dniDryRun (\s a -> s { _dniDryRun = a })
 

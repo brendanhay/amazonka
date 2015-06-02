@@ -121,6 +121,17 @@ imageAvailable = Wait
         ]
     }
 
+instanceExists :: Wait DescribeInstances
+instanceExists = Wait
+    { _waitName      = "InstanceExists"
+    , _waitAttempts  = 40
+    , _waitDelay     = 5
+    , _waitAcceptors =
+        [ matchStatus 200 AcceptSuccess
+        , matchError "InvalidInstanceIDNotFound" AcceptRetry
+        ]
+    }
+
 instanceRunning :: Wait DescribeInstances
 instanceRunning = Wait
     { _waitName      = "InstanceRunning"
@@ -196,7 +207,7 @@ snapshotCompleted = Wait
     , _waitAttempts  = 40
     , _waitDelay     = 15
     , _waitAcceptors =
-        [ matchAll Completed AcceptSuccess
+        [ matchAll SSCompleted AcceptSuccess
             (folding (concatOf dsrSnapshots) . sState)
         ]
     }
@@ -226,7 +237,7 @@ subnetAvailable = Wait
     , _waitAttempts  = 40
     , _waitDelay     = 15
     , _waitAcceptors =
-        [ matchAll SSAvailable AcceptSuccess
+        [ matchAll SubnetStateAvailable AcceptSuccess
             (folding (concatOf dsrSubnets) . s1State)
         ]
     }
@@ -263,6 +274,7 @@ volumeDeleted = Wait
     , _waitAcceptors =
         [ matchAll VSDeleted AcceptSuccess
             (folding (concatOf dvrVolumes) . vState)
+        , matchError "InvalidVolumeNotFound" AcceptSuccess
         ]
     }
 

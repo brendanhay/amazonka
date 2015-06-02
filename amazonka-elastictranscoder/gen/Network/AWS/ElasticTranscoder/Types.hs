@@ -66,7 +66,10 @@ module Network.AWS.ElasticTranscoder.Types
     -- * AudioCodecOptions
     , AudioCodecOptions
     , audioCodecOptions
+    , acoBitDepth
+    , acoBitOrder
     , acoProfile
+    , acoSigned
 
     -- * JobOutput
     , JobOutput
@@ -152,6 +155,7 @@ module Network.AWS.ElasticTranscoder.Types
     -- * AudioParameters
     , AudioParameters
     , audioParameters
+    , apAudioPackingMode
     , apBitRate
     , apChannels
     , apCodec
@@ -375,7 +379,7 @@ instance AWSService ElasticTranscoder where
               -> JSONError
               -> Bool
         check (statusCode -> s) (awsErrorCode -> e)
-            | s == 400 && "ThrottlingException" == e = True -- Throttling
+            | s == 400 && (Just "ThrottlingException") == e = True -- Throttling
             | s == 500  = True -- General Server Error
             | s == 509  = True -- Limit Exceeded
             | s == 503  = True -- Service Unavailable
@@ -738,20 +742,54 @@ instance ToJSON Captions where
         , "CaptionFormats" .= _cCaptionFormats
         ]
 
-newtype AudioCodecOptions = AudioCodecOptions
-    { _acoProfile :: Maybe Text
-    } deriving (Eq, Ord, Read, Show, Monoid)
+data AudioCodecOptions = AudioCodecOptions
+    { _acoBitDepth :: Maybe Text
+    , _acoBitOrder :: Maybe Text
+    , _acoProfile  :: Maybe Text
+    , _acoSigned   :: Maybe Text
+    } deriving (Eq, Ord, Read, Show)
 
 -- | 'AudioCodecOptions' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'acoBitDepth' @::@ 'Maybe' 'Text'
+--
+-- * 'acoBitOrder' @::@ 'Maybe' 'Text'
+--
 -- * 'acoProfile' @::@ 'Maybe' 'Text'
+--
+-- * 'acoSigned' @::@ 'Maybe' 'Text'
 --
 audioCodecOptions :: AudioCodecOptions
 audioCodecOptions = AudioCodecOptions
-    { _acoProfile = Nothing
+    { _acoProfile  = Nothing
+    , _acoBitDepth = Nothing
+    , _acoBitOrder = Nothing
+    , _acoSigned   = Nothing
     }
+
+-- | You can only choose an audio bit depth when you specify 'flac' or 'pcm' for the
+-- value of Audio:Codec.
+--
+-- The bit depth of a sample is how many bits of information are included in
+-- the audio samples. The higher the bit depth, the better the audio, but the
+-- larger the file.
+--
+-- Valid values are '16' and '24'.
+--
+-- The most common bit depth is '24'.
+acoBitDepth :: Lens' AudioCodecOptions (Maybe Text)
+acoBitDepth = lens _acoBitDepth (\s a -> s { _acoBitDepth = a })
+
+-- | You can only choose an audio bit order when you specify 'pcm' for the value of
+-- Audio:Codec.
+--
+-- The order the bits of a PCM sample are stored in.
+--
+-- The supported value is 'LittleEndian'.
+acoBitOrder :: Lens' AudioCodecOptions (Maybe Text)
+acoBitOrder = lens _acoBitOrder (\s a -> s { _acoBitOrder = a })
 
 -- | You can only choose an audio profile when you specify AAC for the value of
 -- Audio:Codec.
@@ -772,13 +810,29 @@ audioCodecOptions = AudioCodecOptions
 acoProfile :: Lens' AudioCodecOptions (Maybe Text)
 acoProfile = lens _acoProfile (\s a -> s { _acoProfile = a })
 
+-- | You can only choose whether an audio sample is signed when you specify 'pcm'
+-- for the value of Audio:Codec.
+--
+-- Whether audio samples are represented with negative and positive numbers
+-- (signed) or only positive numbers (unsigned).
+--
+-- The supported value is 'Signed'.
+acoSigned :: Lens' AudioCodecOptions (Maybe Text)
+acoSigned = lens _acoSigned (\s a -> s { _acoSigned = a })
+
 instance FromJSON AudioCodecOptions where
     parseJSON = withObject "AudioCodecOptions" $ \o -> AudioCodecOptions
-        <$> o .:? "Profile"
+        <$> o .:? "BitDepth"
+        <*> o .:? "BitOrder"
+        <*> o .:? "Profile"
+        <*> o .:? "Signed"
 
 instance ToJSON AudioCodecOptions where
     toJSON AudioCodecOptions{..} = object
-        [ "Profile" .= _acoProfile
+        [ "Profile"  .= _acoProfile
+        , "BitDepth" .= _acoBitDepth
+        , "BitOrder" .= _acoBitOrder
+        , "Signed"   .= _acoSigned
         ]
 
 data JobOutput = JobOutput
@@ -1792,16 +1846,19 @@ instance ToJSON CreateJobOutput where
         ]
 
 data AudioParameters = AudioParameters
-    { _apBitRate      :: Maybe Text
-    , _apChannels     :: Maybe Text
-    , _apCodec        :: Maybe Text
-    , _apCodecOptions :: Maybe AudioCodecOptions
-    , _apSampleRate   :: Maybe Text
+    { _apAudioPackingMode :: Maybe Text
+    , _apBitRate          :: Maybe Text
+    , _apChannels         :: Maybe Text
+    , _apCodec            :: Maybe Text
+    , _apCodecOptions     :: Maybe AudioCodecOptions
+    , _apSampleRate       :: Maybe Text
     } deriving (Eq, Read, Show)
 
 -- | 'AudioParameters' constructor.
 --
 -- The fields accessible through corresponding lenses are:
+--
+-- * 'apAudioPackingMode' @::@ 'Maybe' 'Text'
 --
 -- * 'apBitRate' @::@ 'Maybe' 'Text'
 --
@@ -1815,28 +1872,105 @@ data AudioParameters = AudioParameters
 --
 audioParameters :: AudioParameters
 audioParameters = AudioParameters
-    { _apCodec        = Nothing
-    , _apSampleRate   = Nothing
-    , _apBitRate      = Nothing
-    , _apChannels     = Nothing
-    , _apCodecOptions = Nothing
+    { _apCodec            = Nothing
+    , _apSampleRate       = Nothing
+    , _apBitRate          = Nothing
+    , _apChannels         = Nothing
+    , _apAudioPackingMode = Nothing
+    , _apCodecOptions     = Nothing
     }
+
+-- | The method of organizing audio channels and tracks. Use 'Audio:Channels' to
+-- specify the number of channels in your output, and 'Audio:AudioPackingMode' to
+-- specify the number of tracks and their relation to the channels. If you do
+-- not specify an 'Audio:AudioPackingMode', Elastic Transcoder uses 'SingleTrack'.
+--
+-- The following values are valid:
+--
+-- 'SingleTrack', 'OneChannelPerTrack', and 'OneChannelPerTrackWithMosTo8Tracks'
+--
+-- When you specify 'SingleTrack', Elastic Transcoder creates a single track for
+-- your output. The track can have up to eight channels. Use 'SingleTrack' for all
+-- non-'mxf' containers.
+--
+-- The outputs of 'SingleTrack' for a specific channel value and inputs are as
+-- follows:
+--
+-- '0'  channels with any input: Audio omitted from the output  '1, 2, or auto ' channels with no audio input:
+-- Audio omitted from the output  '1 ' channel with any input with audio: One
+-- track with one channel, downmixed if necessary  '2 ' channels with one track
+-- with one channel: One track with two identical channels  '2 or auto ' channels
+-- with two tracks with one channel each: One track with two channels  '2 or auto '
+-- channels with one track with two channels: One track with two channels  '2 ' channels with one track with multiple channels:
+-- One track with two channels  'auto ' channels with one track with one channel:
+-- One track with one channel  'auto ' channels with one track with multiple
+-- channels: One track with multiple channels  When you specify 'OneChannelPerTrack', Elastic Transcoder creates a new track for every channel in your output.
+-- Your output can have up to eight single-channel tracks.
+--
+-- The outputs of 'OneChannelPerTrack' for a specific channel value and inputs
+-- are as follows:
+--
+-- '0 ' channels with any input: Audio omitted from the output  '1, 2, or auto ' channels with no audio input:
+-- Audio omitted from the output  '1 ' channel with any input with audio: One
+-- track with one channel, downmixed if necessary  '2 ' channels with one track
+-- with one channel: Two tracks with one identical channel each  '2 or auto ' channels with two tracks with one channel each:
+-- Two tracks with one channel each  '2 or auto ' channels with one track with
+-- two channels: Two tracks with one channel each  '2 ' channels with one track
+-- with multiple channels: Two tracks with one channel each  'auto ' channels with
+-- one track with one channel: One track with one channel  'auto ' channels with
+-- one track with multiple channels: Up to eight tracks with one channel each  When you specify
+-- 'OneChannelPerTrackWithMosTo8Tracks', Elastic Transcoder creates eight
+-- single-channel tracks for your output. All tracks that do not contain audio
+-- data from an input channel are MOS, or Mit Out Sound, tracks.
+--
+-- The outputs of 'OneChannelPerTrackWithMosTo8Tracks' for a specific channel
+-- value and inputs are as follows:
+--
+-- '0 ' channels with any input: Audio omitted from the output  '1, 2, or auto ' channels with no audio input:
+-- Audio omitted from the output  '1 ' channel with any input with audio: One
+-- track with one channel, downmixed if necessary, plus six MOS tracks  '2 ' channels with one track with one channel:
+-- Two tracks with one identical channel each, plus six MOS tracks  '2 or auto ' channels with two tracks with one channel each:
+-- Two tracks with one channel each, plus six MOS tracks  '2 or auto ' channels
+-- with one track with two channels: Two tracks with one channel each, plus six
+-- MOS tracks  '2 ' channels with one track with multiple channels: Two tracks
+-- with one channel each, plus six MOS tracks  'auto ' channels with one track
+-- with one channel: One track with one channel, plus seven MOS tracks  'auto ' channels with one track with multiple channels:
+-- Up to eight tracks with one channel each, plus MOS tracks until there are
+-- eight tracks in all
+apAudioPackingMode :: Lens' AudioParameters (Maybe Text)
+apAudioPackingMode =
+    lens _apAudioPackingMode (\s a -> s { _apAudioPackingMode = a })
 
 -- | The bit rate of the audio stream in the output file, in kilobits/second.
 -- Enter an integer between 64 and 320, inclusive.
 apBitRate :: Lens' AudioParameters (Maybe Text)
 apBitRate = lens _apBitRate (\s a -> s { _apBitRate = a })
 
--- | The number of audio channels in the output file. Valid values include:
+-- | The number of audio channels in the output file. The following values are
+-- valid:
 --
 -- 'auto', '0', '1', '2'
 --
--- If you specify 'auto', Elastic Transcoder automatically detects the number of
--- channels in the input file.
+-- One channel carries the information played by a single speaker. For example,
+-- a stereo track with two channels sends one channel to the left speaker, and
+-- the other channel to the right speaker. The output channels are organized
+-- into tracks. If you want Elastic Transcoder to automatically detect the
+-- number of audio channels in the input file and use that value for the output
+-- file, select 'auto'.
+--
+-- The output of a specific channel value and inputs are as follows:
+--
+-- 'auto' channel specified, with any input: Pass through up to eight input
+-- channels.  '0' channels specified, with any input: Audio omitted from the
+-- output.  '1' channel specified, with at least one input channel: Mono sound.  '2'
+-- channels specified, with any input: Two identical mono channels or stereo.
+-- For more information about tracks, see 'Audio:AudioPackingMode.'    For more
+-- information about how Elastic Transcoder organizes channels and tracks, see 'Audio:AudioPackingMode'.
 apChannels :: Lens' AudioParameters (Maybe Text)
 apChannels = lens _apChannels (\s a -> s { _apChannels = a })
 
--- | The audio codec for the output file. Valid values include 'aac', 'mp2', 'mp3', and 'vorbis'.
+-- | The audio codec for the output file. Valid values include 'aac', 'flac', 'mp2', 'mp3',
+-- 'pcm', and 'vorbis'.
 apCodec :: Lens' AudioParameters (Maybe Text)
 apCodec = lens _apCodec (\s a -> s { _apCodec = a })
 
@@ -1862,7 +1996,8 @@ apSampleRate = lens _apSampleRate (\s a -> s { _apSampleRate = a })
 
 instance FromJSON AudioParameters where
     parseJSON = withObject "AudioParameters" $ \o -> AudioParameters
-        <$> o .:? "BitRate"
+        <$> o .:? "AudioPackingMode"
+        <*> o .:? "BitRate"
         <*> o .:? "Channels"
         <*> o .:? "Codec"
         <*> o .:? "CodecOptions"
@@ -1870,11 +2005,12 @@ instance FromJSON AudioParameters where
 
 instance ToJSON AudioParameters where
     toJSON AudioParameters{..} = object
-        [ "Codec"        .= _apCodec
-        , "SampleRate"   .= _apSampleRate
-        , "BitRate"      .= _apBitRate
-        , "Channels"     .= _apChannels
-        , "CodecOptions" .= _apCodecOptions
+        [ "Codec"            .= _apCodec
+        , "SampleRate"       .= _apSampleRate
+        , "BitRate"          .= _apBitRate
+        , "Channels"         .= _apChannels
+        , "AudioPackingMode" .= _apAudioPackingMode
+        , "CodecOptions"     .= _apCodecOptions
         ]
 
 data Thumbnails = Thumbnails
@@ -2600,7 +2736,7 @@ p1Arn = lens _p1Arn (\s a -> s { _p1Arn = a })
 p1Audio :: Lens' Preset (Maybe AudioParameters)
 p1Audio = lens _p1Audio (\s a -> s { _p1Audio = a })
 
--- | The container type for the output file. Valid values include 'flv', 'fmp4', 'gif', 'mp3', 'mp4', 'mpg', 'ogg', 'ts', and 'webm'.
+-- | The container type for the output file. Valid values include 'flac', 'flv', 'fmp4', 'gif', 'mp3', 'mp4', 'mpg', 'mxf', 'oga', 'ogg', 'ts', and 'webm'.
 p1Container :: Lens' Preset (Maybe Text)
 p1Container = lens _p1Container (\s a -> s { _p1Container = a })
 
@@ -2689,6 +2825,8 @@ cfEncryption = lens _cfEncryption (\s a -> s { _cfEncryption = a })
 -- embedded or sidecar caption for this output.
 --
 -- Valid Embedded Caption Formats:
+--
+-- for FLAC: None
 --
 -- For MP3: None
 --

@@ -243,7 +243,7 @@ tag = Tag
 --
 -- Default: None
 --
--- Valid values: A-Z, a-z, 0-9, space, ".:/=+\-%@"
+-- Valid values: A-Z, a-z, 0-9, space, ".:/=+\-@"
 --
 -- Constraints: Each key can be 1-128 characters long.
 --
@@ -257,7 +257,7 @@ tagKey = lens _tagKey (\s a -> s { _tagKey = a })
 --
 -- Default: None
 --
--- Valid values: A-Z, a-z, 0-9, space, ".:/=+\-%@"
+-- Valid values: A-Z, a-z, 0-9, space, ".:/=+\-@"
 --
 -- Constraints: Each value can be 0-256 characters long.
 --
@@ -455,6 +455,7 @@ data DomainAvailability
     = Available             -- ^ AVAILABLE
     | AvailablePreorder     -- ^ AVAILABLE_PREORDER
     | AvailableReserved     -- ^ AVAILABLE_RESERVED
+    | DontKnow              -- ^ DONT_KNOW
     | Reserved              -- ^ RESERVED
     | Unavailable           -- ^ UNAVAILABLE
     | UnavailablePremium    -- ^ UNAVAILABLE_PREMIUM
@@ -468,6 +469,7 @@ instance FromText DomainAvailability where
         "available"              -> pure Available
         "available_preorder"     -> pure AvailablePreorder
         "available_reserved"     -> pure AvailableReserved
+        "dont_know"              -> pure DontKnow
         "reserved"               -> pure Reserved
         "unavailable"            -> pure Unavailable
         "unavailable_premium"    -> pure UnavailablePremium
@@ -480,6 +482,7 @@ instance ToText DomainAvailability where
         Available             -> "AVAILABLE"
         AvailablePreorder     -> "AVAILABLE_PREORDER"
         AvailableReserved     -> "AVAILABLE_RESERVED"
+        DontKnow              -> "DONT_KNOW"
         Reserved              -> "RESERVED"
         Unavailable           -> "UNAVAILABLE"
         UnavailablePremium    -> "UNAVAILABLE_PREMIUM"

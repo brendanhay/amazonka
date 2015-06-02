@@ -22,7 +22,7 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deletes listeners from the load balancer for the specified port.
+-- | Deletes the specified listeners from the specified load balancer.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerListeners.html>
 module Network.AWS.ELB.DeleteLoadBalancerListeners
@@ -66,12 +66,12 @@ deleteLoadBalancerListeners p1 = DeleteLoadBalancerListeners
     , _dlblLoadBalancerPorts = mempty
     }
 
--- | The mnemonic name associated with the load balancer.
+-- | The name of the load balancer.
 dlblLoadBalancerName :: Lens' DeleteLoadBalancerListeners Text
 dlblLoadBalancerName =
     lens _dlblLoadBalancerName (\s a -> s { _dlblLoadBalancerName = a })
 
--- | The client port number(s) of the load balancer listener(s) to be removed.
+-- | The client port numbers of the listeners.
 dlblLoadBalancerPorts :: Lens' DeleteLoadBalancerListeners [Int]
 dlblLoadBalancerPorts =
     lens _dlblLoadBalancerPorts (\s a -> s { _dlblLoadBalancerPorts = a })

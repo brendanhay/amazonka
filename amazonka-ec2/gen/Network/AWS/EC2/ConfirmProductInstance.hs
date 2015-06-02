@@ -77,6 +77,9 @@ confirmProductInstance p1 p2 = ConfirmProductInstance
     , _cpiDryRun      = Nothing
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 cpiDryRun :: Lens' ConfirmProductInstance (Maybe Bool)
 cpiDryRun = lens _cpiDryRun (\s a -> s { _cpiDryRun = a })
 

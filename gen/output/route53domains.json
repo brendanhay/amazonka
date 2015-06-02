@@ -91,7 +91,7 @@
         "url": "http://docs.aws.amazon.com/Route53/latest/APIReference/actions-on-domain-registrations.html",
         "protocol": "json",
         "name": "Amazon Route 53 Domains",
-        "version": "0.3.4",
+        "version": "0.3.5",
         "description": "Pending"
     },
     "types": {
@@ -360,7 +360,7 @@
                         "name": "_tagKey",
                         "shape": "TagKey",
                         "locationName": "Key",
-                        "documentation": "-- | The key (name) of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: A-Z, a-z, 0-9, space, \".:/=+\\-%@\"\n--\n-- Constraints: Each key can be 1-128 characters long.\n--\n-- Required: Yes",
+                        "documentation": "-- | The key (name) of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: A-Z, a-z, 0-9, space, \".:/=+\\-@\"\n--\n-- Constraints: Each key can be 1-128 characters long.\n--\n-- Required: Yes",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -378,7 +378,7 @@
                         "name": "_tagValue",
                         "shape": "TagValue",
                         "locationName": "Value",
-                        "documentation": "-- | The value of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: A-Z, a-z, 0-9, space, \".:/=+\\-%@\"\n--\n-- Constraints: Each value can be 0-256 characters long.\n--\n-- Required: Yes",
+                        "documentation": "-- | The value of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: A-Z, a-z, 0-9, space, \".:/=+\\-@\"\n--\n-- Constraints: Each value can be 0-256 characters long.\n--\n-- Required: Yes",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -404,7 +404,7 @@
                         "name": "_tagKey",
                         "shape": "TagKey",
                         "locationName": "Key",
-                        "documentation": "-- | The key (name) of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: A-Z, a-z, 0-9, space, \".:/=+\\-%@\"\n--\n-- Constraints: Each key can be 1-128 characters long.\n--\n-- Required: Yes",
+                        "documentation": "-- | The key (name) of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: A-Z, a-z, 0-9, space, \".:/=+\\-@\"\n--\n-- Constraints: Each key can be 1-128 characters long.\n--\n-- Required: Yes",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -422,7 +422,7 @@
                         "name": "_tagValue",
                         "shape": "TagValue",
                         "locationName": "Value",
-                        "documentation": "-- | The value of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: A-Z, a-z, 0-9, space, \".:/=+\\-%@\"\n--\n-- Constraints: Each value can be 0-256 characters long.\n--\n-- Required: Yes",
+                        "documentation": "-- | The value of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: A-Z, a-z, 0-9, space, \".:/=+\\-@\"\n--\n-- Constraints: Each value can be 0-256 characters long.\n--\n-- Required: Yes",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -442,7 +442,7 @@
                         "name": "_tagKey",
                         "shape": "TagKey",
                         "locationName": "Key",
-                        "documentation": "-- | The key (name) of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: A-Z, a-z, 0-9, space, \".:/=+\\-%@\"\n--\n-- Constraints: Each key can be 1-128 characters long.\n--\n-- Required: Yes",
+                        "documentation": "-- | The key (name) of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: A-Z, a-z, 0-9, space, \".:/=+\\-@\"\n--\n-- Constraints: Each key can be 1-128 characters long.\n--\n-- Required: Yes",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -460,7 +460,7 @@
                         "name": "_tagValue",
                         "shape": "TagValue",
                         "locationName": "Value",
-                        "documentation": "-- | The value of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: A-Z, a-z, 0-9, space, \".:/=+\\-%@\"\n--\n-- Constraints: Each value can be 0-256 characters long.\n--\n-- Required: Yes",
+                        "documentation": "-- | The value of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: A-Z, a-z, 0-9, space, \".:/=+\\-@\"\n--\n-- Constraints: Each value can be 0-256 characters long.\n--\n-- Required: Yes",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -664,6 +664,7 @@
                     "Enum"
                 ],
                 "branches": {
+                    "DontKnow": "DONT_KNOW",
                     "UnavailableRestricted": "UNAVAILABLE_RESTRICTED",
                     "AvailableReserved": "AVAILABLE_RESERVED",
                     "AvailablePreorder": "AVAILABLE_PREORDER",
@@ -2146,7 +2147,7 @@
                     "name": "_cdarAvailability",
                     "shape": "DomainAvailability",
                     "locationName": "Availability",
-                    "documentation": "-- | Whether the domain name is available for registering.\n--\n-- You can only register domains designated as 'AVAILABLE'.\n--\n-- Type: String\n--\n-- Valid values:\n--\n-- 'AVAILABLE' – The domain name is available.  'AVAILABLE_RESERVED' – The domain\n-- name is reserved under specific conditions.  'AVAILABLE_PREORDER' – The domain\n-- name is available and can be preordered.  'UNAVAILABLE' – The domain name is\n-- not available.  'UNAVAILABLE_PREMIUM' – The domain name is not available.  'UNAVAILABLE_RESTRICTED' – The domain name is forbidden.  'RESERVED' – The domain name has been\n-- reserved for another person or organization.",
+                    "documentation": "-- | Whether the domain name is available for registering.\n--\n-- You can only register domains designated as 'AVAILABLE'.\n--\n-- Type: String\n--\n-- Valid values:\n--\n-- 'AVAILABLE' – The domain name is available.  'AVAILABLE_RESERVED' – The domain\n-- name is reserved under specific conditions.  'AVAILABLE_PREORDER' – The domain\n-- name is available and can be preordered.  'UNAVAILABLE' – The domain name is\n-- not available.  'UNAVAILABLE_PREMIUM' – The domain name is not available.  'UNAVAILABLE_RESTRICTED' – The domain name is forbidden.  'RESERVED' – The domain name has been\n-- reserved for another person or organization.  'DONT_KNOW' – The TLD registry\n-- didn't reply with a definitive answer about whether the domain name is\n-- available. Amazon Route 53 can return this response for a variety of reasons,\n-- for example, the registry is performing maintenance. Try again later.",
                     "typeExposed": "DomainAvailability",
                     "type": "DomainAvailability"
                 },
@@ -2165,7 +2166,7 @@
                         "name": "_cdarAvailability",
                         "shape": "DomainAvailability",
                         "locationName": "Availability",
-                        "documentation": "-- | Whether the domain name is available for registering.\n--\n-- You can only register domains designated as 'AVAILABLE'.\n--\n-- Type: String\n--\n-- Valid values:\n--\n-- 'AVAILABLE' – The domain name is available.  'AVAILABLE_RESERVED' – The domain\n-- name is reserved under specific conditions.  'AVAILABLE_PREORDER' – The domain\n-- name is available and can be preordered.  'UNAVAILABLE' – The domain name is\n-- not available.  'UNAVAILABLE_PREMIUM' – The domain name is not available.  'UNAVAILABLE_RESTRICTED' – The domain name is forbidden.  'RESERVED' – The domain name has been\n-- reserved for another person or organization.",
+                        "documentation": "-- | Whether the domain name is available for registering.\n--\n-- You can only register domains designated as 'AVAILABLE'.\n--\n-- Type: String\n--\n-- Valid values:\n--\n-- 'AVAILABLE' – The domain name is available.  'AVAILABLE_RESERVED' – The domain\n-- name is reserved under specific conditions.  'AVAILABLE_PREORDER' – The domain\n-- name is available and can be preordered.  'UNAVAILABLE' – The domain name is\n-- not available.  'UNAVAILABLE_PREMIUM' – The domain name is not available.  'UNAVAILABLE_RESTRICTED' – The domain name is forbidden.  'RESERVED' – The domain name has been\n-- reserved for another person or organization.  'DONT_KNOW' – The TLD registry\n-- didn't reply with a definitive answer about whether the domain name is\n-- available. Amazon Route 53 can return this response for a variety of reasons,\n-- for example, the registry is performing maintenance. Try again later.",
                         "typeExposed": "DomainAvailability",
                         "type": "DomainAvailability"
                     }
@@ -2188,7 +2189,7 @@
                         "name": "_cdarAvailability",
                         "shape": "DomainAvailability",
                         "locationName": "Availability",
-                        "documentation": "-- | Whether the domain name is available for registering.\n--\n-- You can only register domains designated as 'AVAILABLE'.\n--\n-- Type: String\n--\n-- Valid values:\n--\n-- 'AVAILABLE' – The domain name is available.  'AVAILABLE_RESERVED' – The domain\n-- name is reserved under specific conditions.  'AVAILABLE_PREORDER' – The domain\n-- name is available and can be preordered.  'UNAVAILABLE' – The domain name is\n-- not available.  'UNAVAILABLE_PREMIUM' – The domain name is not available.  'UNAVAILABLE_RESTRICTED' – The domain name is forbidden.  'RESERVED' – The domain name has been\n-- reserved for another person or organization.",
+                        "documentation": "-- | Whether the domain name is available for registering.\n--\n-- You can only register domains designated as 'AVAILABLE'.\n--\n-- Type: String\n--\n-- Valid values:\n--\n-- 'AVAILABLE' – The domain name is available.  'AVAILABLE_RESERVED' – The domain\n-- name is reserved under specific conditions.  'AVAILABLE_PREORDER' – The domain\n-- name is available and can be preordered.  'UNAVAILABLE' – The domain name is\n-- not available.  'UNAVAILABLE_PREMIUM' – The domain name is not available.  'UNAVAILABLE_RESTRICTED' – The domain name is forbidden.  'RESERVED' – The domain name has been\n-- reserved for another person or organization.  'DONT_KNOW' – The TLD registry\n-- didn't reply with a definitive answer about whether the domain name is\n-- available. Amazon Route 53 can return this response for a variety of reasons,\n-- for example, the registry is performing maintenance. Try again later.",
                         "typeExposed": "DomainAvailability",
                         "type": "DomainAvailability"
                     }
@@ -2217,7 +2218,7 @@
                         "name": "_cdarAvailability",
                         "shape": "DomainAvailability",
                         "locationName": "Availability",
-                        "documentation": "-- | Whether the domain name is available for registering.\n--\n-- You can only register domains designated as 'AVAILABLE'.\n--\n-- Type: String\n--\n-- Valid values:\n--\n-- 'AVAILABLE' – The domain name is available.  'AVAILABLE_RESERVED' – The domain\n-- name is reserved under specific conditions.  'AVAILABLE_PREORDER' – The domain\n-- name is available and can be preordered.  'UNAVAILABLE' – The domain name is\n-- not available.  'UNAVAILABLE_PREMIUM' – The domain name is not available.  'UNAVAILABLE_RESTRICTED' – The domain name is forbidden.  'RESERVED' – The domain name has been\n-- reserved for another person or organization.",
+                        "documentation": "-- | Whether the domain name is available for registering.\n--\n-- You can only register domains designated as 'AVAILABLE'.\n--\n-- Type: String\n--\n-- Valid values:\n--\n-- 'AVAILABLE' – The domain name is available.  'AVAILABLE_RESERVED' – The domain\n-- name is reserved under specific conditions.  'AVAILABLE_PREORDER' – The domain\n-- name is available and can be preordered.  'UNAVAILABLE' – The domain name is\n-- not available.  'UNAVAILABLE_PREMIUM' – The domain name is not available.  'UNAVAILABLE_RESTRICTED' – The domain name is forbidden.  'RESERVED' – The domain name has been\n-- reserved for another person or organization.  'DONT_KNOW' – The TLD registry\n-- didn't reply with a definitive answer about whether the domain name is\n-- available. Amazon Route 53 can return this response for a variety of reasons,\n-- for example, the registry is performing maintenance. Try again later.",
                         "typeExposed": "DomainAvailability",
                         "type": "DomainAvailability"
                     }
@@ -8863,7 +8864,7 @@
                         "name": "_utfdTagsToUpdate",
                         "shape": "TagList",
                         "locationName": "TagsToUpdate",
-                        "documentation": "-- | A list of the tag keys and values that you want to add or update. If you\n-- specify a key that already exists, the corresponding value will be replaced.\n--\n-- Type: A complex type containing a list of tags\n--\n-- Default: None\n--\n-- Required: No\n--\n-- '\u003e Each tag includes the following elements:\n--\n-- Key\n--\n-- The key (name) of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: Unicode characters including alphanumeric, space, and\n-- \".:/=+\\-%@\"\n--\n-- Constraints: Each key can be 1-128 characters long.\n--\n-- Required: Yes\n--\n-- Value\n--\n-- The value of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: Unicode characters including alphanumeric, space, and\n-- \".:/=+\\-%@\"\n--\n-- Constraints: Each value can be 0-256 characters long.\n--\n-- Required: Yes\n--\n--",
+                        "documentation": "-- | A list of the tag keys and values that you want to add or update. If you\n-- specify a key that already exists, the corresponding value will be replaced.\n--\n-- Type: A complex type containing a list of tags\n--\n-- Default: None\n--\n-- Required: No\n--\n-- '\u003e Each tag includes the following elements:\n--\n-- Key\n--\n-- The key (name) of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: Unicode characters including alphanumeric, space, and\n-- \".:/=+\\-@\"\n--\n-- Constraints: Each key can be 1-128 characters long.\n--\n-- Required: Yes\n--\n-- Value\n--\n-- The value of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: Unicode characters including alphanumeric, space, and\n-- \".:/=+\\-@\"\n--\n-- Constraints: Each value can be 0-256 characters long.\n--\n-- Required: Yes\n--\n--",
                         "typeExposed": "[Tag]",
                         "type": "List \"TagsToUpdate\" Tag"
                     }
@@ -8921,7 +8922,7 @@
                         "name": "_utfdTagsToUpdate",
                         "shape": "TagList",
                         "locationName": "TagsToUpdate",
-                        "documentation": "-- | A list of the tag keys and values that you want to add or update. If you\n-- specify a key that already exists, the corresponding value will be replaced.\n--\n-- Type: A complex type containing a list of tags\n--\n-- Default: None\n--\n-- Required: No\n--\n-- '\u003e Each tag includes the following elements:\n--\n-- Key\n--\n-- The key (name) of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: Unicode characters including alphanumeric, space, and\n-- \".:/=+\\-%@\"\n--\n-- Constraints: Each key can be 1-128 characters long.\n--\n-- Required: Yes\n--\n-- Value\n--\n-- The value of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: Unicode characters including alphanumeric, space, and\n-- \".:/=+\\-%@\"\n--\n-- Constraints: Each value can be 0-256 characters long.\n--\n-- Required: Yes\n--\n--",
+                        "documentation": "-- | A list of the tag keys and values that you want to add or update. If you\n-- specify a key that already exists, the corresponding value will be replaced.\n--\n-- Type: A complex type containing a list of tags\n--\n-- Default: None\n--\n-- Required: No\n--\n-- '\u003e Each tag includes the following elements:\n--\n-- Key\n--\n-- The key (name) of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: Unicode characters including alphanumeric, space, and\n-- \".:/=+\\-@\"\n--\n-- Constraints: Each key can be 1-128 characters long.\n--\n-- Required: Yes\n--\n-- Value\n--\n-- The value of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: Unicode characters including alphanumeric, space, and\n-- \".:/=+\\-@\"\n--\n-- Constraints: Each value can be 0-256 characters long.\n--\n-- Required: Yes\n--\n--",
                         "typeExposed": "[Tag]",
                         "type": "List \"TagsToUpdate\" Tag"
                     }
@@ -8959,7 +8960,7 @@
                         "name": "_utfdTagsToUpdate",
                         "shape": "TagList",
                         "locationName": "TagsToUpdate",
-                        "documentation": "-- | A list of the tag keys and values that you want to add or update. If you\n-- specify a key that already exists, the corresponding value will be replaced.\n--\n-- Type: A complex type containing a list of tags\n--\n-- Default: None\n--\n-- Required: No\n--\n-- '\u003e Each tag includes the following elements:\n--\n-- Key\n--\n-- The key (name) of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: Unicode characters including alphanumeric, space, and\n-- \".:/=+\\-%@\"\n--\n-- Constraints: Each key can be 1-128 characters long.\n--\n-- Required: Yes\n--\n-- Value\n--\n-- The value of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: Unicode characters including alphanumeric, space, and\n-- \".:/=+\\-%@\"\n--\n-- Constraints: Each value can be 0-256 characters long.\n--\n-- Required: Yes\n--\n--",
+                        "documentation": "-- | A list of the tag keys and values that you want to add or update. If you\n-- specify a key that already exists, the corresponding value will be replaced.\n--\n-- Type: A complex type containing a list of tags\n--\n-- Default: None\n--\n-- Required: No\n--\n-- '\u003e Each tag includes the following elements:\n--\n-- Key\n--\n-- The key (name) of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: Unicode characters including alphanumeric, space, and\n-- \".:/=+\\-@\"\n--\n-- Constraints: Each key can be 1-128 characters long.\n--\n-- Required: Yes\n--\n-- Value\n--\n-- The value of a tag.\n--\n-- Type: String\n--\n-- Default: None\n--\n-- Valid values: Unicode characters including alphanumeric, space, and\n-- \".:/=+\\-@\"\n--\n-- Constraints: Each value can be 0-256 characters long.\n--\n-- Required: Yes\n--\n--",
                         "typeExposed": "[Tag]",
                         "type": "List \"TagsToUpdate\" Tag"
                     }

@@ -116,6 +116,9 @@ revokeSecurityGroupEgress p1 = RevokeSecurityGroupEgress
 rsgeCidrIp :: Lens' RevokeSecurityGroupEgress (Maybe Text)
 rsgeCidrIp = lens _rsgeCidrIp (\s a -> s { _rsgeCidrIp = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 rsgeDryRun :: Lens' RevokeSecurityGroupEgress (Maybe Bool)
 rsgeDryRun = lens _rsgeDryRun (\s a -> s { _rsgeDryRun = a })
 

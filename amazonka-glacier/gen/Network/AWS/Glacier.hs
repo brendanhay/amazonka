@@ -22,11 +22,13 @@ module Network.AWS.Glacier
     , module Network.AWS.Glacier.CreateVault
     , module Network.AWS.Glacier.DeleteArchive
     , module Network.AWS.Glacier.DeleteVault
+    , module Network.AWS.Glacier.DeleteVaultAccessPolicy
     , module Network.AWS.Glacier.DeleteVaultNotifications
     , module Network.AWS.Glacier.DescribeJob
     , module Network.AWS.Glacier.DescribeVault
     , module Network.AWS.Glacier.GetDataRetrievalPolicy
     , module Network.AWS.Glacier.GetJobOutput
+    , module Network.AWS.Glacier.GetVaultAccessPolicy
     , module Network.AWS.Glacier.GetVaultNotifications
     , module Network.AWS.Glacier.InitiateJob
     , module Network.AWS.Glacier.InitiateMultipartUpload
@@ -35,6 +37,7 @@ module Network.AWS.Glacier
     , module Network.AWS.Glacier.ListParts
     , module Network.AWS.Glacier.ListVaults
     , module Network.AWS.Glacier.SetDataRetrievalPolicy
+    , module Network.AWS.Glacier.SetVaultAccessPolicy
     , module Network.AWS.Glacier.SetVaultNotifications
     , module Network.AWS.Glacier.Types
     , module Network.AWS.Glacier.UploadArchive
@@ -46,11 +49,13 @@ import Network.AWS.Glacier.CompleteMultipartUpload
 import Network.AWS.Glacier.CreateVault
 import Network.AWS.Glacier.DeleteArchive
 import Network.AWS.Glacier.DeleteVault
+import Network.AWS.Glacier.DeleteVaultAccessPolicy
 import Network.AWS.Glacier.DeleteVaultNotifications
 import Network.AWS.Glacier.DescribeJob
 import Network.AWS.Glacier.DescribeVault
 import Network.AWS.Glacier.GetDataRetrievalPolicy
 import Network.AWS.Glacier.GetJobOutput
+import Network.AWS.Glacier.GetVaultAccessPolicy
 import Network.AWS.Glacier.GetVaultNotifications
 import Network.AWS.Glacier.InitiateJob
 import Network.AWS.Glacier.InitiateMultipartUpload
@@ -59,6 +64,7 @@ import Network.AWS.Glacier.ListMultipartUploads
 import Network.AWS.Glacier.ListParts
 import Network.AWS.Glacier.ListVaults
 import Network.AWS.Glacier.SetDataRetrievalPolicy
+import Network.AWS.Glacier.SetVaultAccessPolicy
 import Network.AWS.Glacier.SetVaultNotifications
 import Network.AWS.Glacier.Types
 import Network.AWS.Glacier.UploadArchive

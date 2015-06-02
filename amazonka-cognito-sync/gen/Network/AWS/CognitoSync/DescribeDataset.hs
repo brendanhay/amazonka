@@ -27,7 +27,7 @@
 -- credentials used to make this API call need to have access to the identity
 -- data.
 --
--- 'DescribeDataset' can be called with temporary user credentials provided by
+-- DescribeDataset can be called with temporary user credentials provided by
 -- Cognito Identity or with developer credentials. You should use Cognito
 -- Identity credentials to make this API call.
 --

@@ -75,6 +75,9 @@ disassociateRouteTable p1 = DisassociateRouteTable
 drtAssociationId :: Lens' DisassociateRouteTable Text
 drtAssociationId = lens _drtAssociationId (\s a -> s { _drtAssociationId = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 drtDryRun :: Lens' DisassociateRouteTable (Maybe Bool)
 drtDryRun = lens _drtDryRun (\s a -> s { _drtDryRun = a })
 

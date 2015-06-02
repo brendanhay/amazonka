@@ -26,7 +26,7 @@
 -- be used on an existing Lambda function and cannot be used to update the
 -- function configuration.
 --
--- This operation requires permision for the 'lambda:UpdateFunctionCode' action.
+-- This operation requires permission for the 'lambda:UpdateFunctionCode' action.
 --
 -- <http://docs.aws.amazon.com/lambda/latest/dg/API_UpdateFunctionCode.html>
 module Network.AWS.Lambda.UpdateFunctionCode
@@ -37,6 +37,9 @@ module Network.AWS.Lambda.UpdateFunctionCode
     , updateFunctionCode
     -- ** Request lenses
     , ufc1FunctionName
+    , ufc1S3Bucket
+    , ufc1S3Key
+    , ufc1S3ObjectVersion
     , ufc1ZipFile
 
     -- * Response
@@ -63,8 +66,11 @@ import Network.AWS.Lambda.Types
 import qualified GHC.Exts
 
 data UpdateFunctionCode = UpdateFunctionCode
-    { _ufc1FunctionName :: Text
-    , _ufc1ZipFile      :: Base64
+    { _ufc1FunctionName    :: Text
+    , _ufc1S3Bucket        :: Maybe Text
+    , _ufc1S3Key           :: Maybe Text
+    , _ufc1S3ObjectVersion :: Maybe Text
+    , _ufc1ZipFile         :: Maybe Base64
     } deriving (Eq, Read, Show)
 
 -- | 'UpdateFunctionCode' constructor.
@@ -73,14 +79,22 @@ data UpdateFunctionCode = UpdateFunctionCode
 --
 -- * 'ufc1FunctionName' @::@ 'Text'
 --
--- * 'ufc1ZipFile' @::@ 'Base64'
+-- * 'ufc1S3Bucket' @::@ 'Maybe' 'Text'
+--
+-- * 'ufc1S3Key' @::@ 'Maybe' 'Text'
+--
+-- * 'ufc1S3ObjectVersion' @::@ 'Maybe' 'Text'
+--
+-- * 'ufc1ZipFile' @::@ 'Maybe' 'Base64'
 --
 updateFunctionCode :: Text -- ^ 'ufc1FunctionName'
-                   -> Base64 -- ^ 'ufc1ZipFile'
                    -> UpdateFunctionCode
-updateFunctionCode p1 p2 = UpdateFunctionCode
-    { _ufc1FunctionName = p1
-    , _ufc1ZipFile      = p2
+updateFunctionCode p1 = UpdateFunctionCode
+    { _ufc1FunctionName    = p1
+    , _ufc1ZipFile         = Nothing
+    , _ufc1S3Bucket        = Nothing
+    , _ufc1S3Key           = Nothing
+    , _ufc1S3ObjectVersion = Nothing
     }
 
 -- | The existing Lambda function name whose code you want to replace.
@@ -95,8 +109,23 @@ updateFunctionCode p1 p2 = UpdateFunctionCode
 ufc1FunctionName :: Lens' UpdateFunctionCode Text
 ufc1FunctionName = lens _ufc1FunctionName (\s a -> s { _ufc1FunctionName = a })
 
+-- | Amazon S3 bucket name where the .zip file containing your deployment package
+-- is stored. This bucket must reside in the same AWS region where you are
+-- creating the Lambda function.
+ufc1S3Bucket :: Lens' UpdateFunctionCode (Maybe Text)
+ufc1S3Bucket = lens _ufc1S3Bucket (\s a -> s { _ufc1S3Bucket = a })
+
+-- | The Amazon S3 object (the deployment package) key name you want to upload.
+ufc1S3Key :: Lens' UpdateFunctionCode (Maybe Text)
+ufc1S3Key = lens _ufc1S3Key (\s a -> s { _ufc1S3Key = a })
+
+-- | The Amazon S3 object (the deployment package) version you want to upload.
+ufc1S3ObjectVersion :: Lens' UpdateFunctionCode (Maybe Text)
+ufc1S3ObjectVersion =
+    lens _ufc1S3ObjectVersion (\s a -> s { _ufc1S3ObjectVersion = a })
+
 -- | Based64-encoded .zip file containing your packaged source code.
-ufc1ZipFile :: Lens' UpdateFunctionCode Base64
+ufc1ZipFile :: Lens' UpdateFunctionCode (Maybe Base64)
 ufc1ZipFile = lens _ufc1ZipFile (\s a -> s { _ufc1ZipFile = a })
 
 data UpdateFunctionCodeResponse = UpdateFunctionCodeResponse
@@ -209,7 +238,10 @@ instance ToHeaders UpdateFunctionCode
 
 instance ToJSON UpdateFunctionCode where
     toJSON UpdateFunctionCode{..} = object
-        [ "ZipFile" .= _ufc1ZipFile
+        [ "ZipFile"         .= _ufc1ZipFile
+        , "S3Bucket"        .= _ufc1S3Bucket
+        , "S3Key"           .= _ufc1S3Key
+        , "S3ObjectVersion" .= _ufc1S3ObjectVersion
         ]
 
 instance AWSRequest UpdateFunctionCode where

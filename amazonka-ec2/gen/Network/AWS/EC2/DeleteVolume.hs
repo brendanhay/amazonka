@@ -22,12 +22,12 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deletes the specified Amazon EBS volume. The volume must be in the 'available'
--- state (not attached to an instance).
+-- | Deletes the specified EBS volume. The volume must be in the 'available' state
+-- (not attached to an instance).
 --
 -- The volume may remain in the 'deleting' state for several minutes.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-volume.html Deleting an Amazon EBS Volume> in the /AmazonElastic Compute Cloud User Guide for Linux/.
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-volume.html Deleting an Amazon EBS Volume> in the /AmazonElastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteVolume.html>
 module Network.AWS.EC2.DeleteVolume
@@ -71,6 +71,9 @@ deleteVolume p1 = DeleteVolume
     , _dv4DryRun   = Nothing
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dv4DryRun :: Lens' DeleteVolume (Maybe Bool)
 dv4DryRun = lens _dv4DryRun (\s a -> s { _dv4DryRun = a })
 

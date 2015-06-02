@@ -325,5 +325,5 @@ get m url = ExceptT . liftIO $ req `catch` err
 request :: Manager -> Text -> IO ByteString
 request m url = do
     rq <- parseUrl (Text.unpack url)
-    rs <- httpLbs (rq { responseTimeout = Just 2 }) m
+    rs <- httpLbs rq m
     return . LBS.toStrict $ responseBody rs

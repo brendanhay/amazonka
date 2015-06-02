@@ -22,13 +22,13 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Modifies the attributes of a specified load balancer.
+-- | Modifies the attributes of the specified load balancer.
 --
 -- You can modify the load balancer attributes, such as 'AccessLogs', 'ConnectionDraining', and 'CrossZoneLoadBalancing' by either enabling or disabling them. Or, you
 -- can modify the load balancer attribute 'ConnectionSettings' by specifying an
 -- idle connection timeout value for your load balancer.
 --
--- For more information, see the following:
+-- For more information, see the following in the /Elastic Load BalancingDeveloper Guide/:
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#request-routing Cross-Zone Load Balancing> <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#conn-drain Connection Draining> <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/access-log-collection.html Access Logs> <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#idle-timeout Idle ConnectionTimeout>
 --
@@ -78,7 +78,7 @@ modifyLoadBalancerAttributes p1 p2 = ModifyLoadBalancerAttributes
     , _mlbaLoadBalancerAttributes = p2
     }
 
--- | Attributes of the load balancer.
+-- | The attributes of the load balancer.
 mlbaLoadBalancerAttributes :: Lens' ModifyLoadBalancerAttributes LoadBalancerAttributes
 mlbaLoadBalancerAttributes =
     lens _mlbaLoadBalancerAttributes

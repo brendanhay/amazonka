@@ -22,8 +22,8 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Deletes a policy from the load balancer. The specified policy must not be
--- enabled for any listeners.
+-- | Deletes the specified policy from the specified load balancer. This policy
+-- must not be enabled for any listeners.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerPolicy.html>
 module Network.AWS.ELB.DeleteLoadBalancerPolicy
@@ -68,12 +68,12 @@ deleteLoadBalancerPolicy p1 p2 = DeleteLoadBalancerPolicy
     , _dlbp1PolicyName       = p2
     }
 
--- | The mnemonic name associated with the load balancer.
+-- | The name of the load balancer.
 dlbp1LoadBalancerName :: Lens' DeleteLoadBalancerPolicy Text
 dlbp1LoadBalancerName =
     lens _dlbp1LoadBalancerName (\s a -> s { _dlbp1LoadBalancerName = a })
 
--- | The mnemonic name for the policy being deleted.
+-- | The name of the policy.
 dlbp1PolicyName :: Lens' DeleteLoadBalancerPolicy Text
 dlbp1PolicyName = lens _dlbp1PolicyName (\s a -> s { _dlbp1PolicyName = a })
 

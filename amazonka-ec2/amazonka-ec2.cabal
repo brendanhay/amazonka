@@ -1,5 +1,5 @@
 name:                  amazonka-ec2
-version:               0.3.4
+version:               0.3.5
 synopsis:              Amazon Elastic Compute Cloud SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -61,7 +61,9 @@ library
         , Network.AWS.EC2.CancelBundleTask
         , Network.AWS.EC2.CancelConversionTask
         , Network.AWS.EC2.CancelExportTask
+        , Network.AWS.EC2.CancelImportTask
         , Network.AWS.EC2.CancelReservedInstancesListing
+        , Network.AWS.EC2.CancelSpotFleetRequests
         , Network.AWS.EC2.CancelSpotInstanceRequests
         , Network.AWS.EC2.ConfirmProductInstance
         , Network.AWS.EC2.CopyImage
@@ -86,6 +88,7 @@ library
         , Network.AWS.EC2.CreateTags
         , Network.AWS.EC2.CreateVolume
         , Network.AWS.EC2.CreateVpc
+        , Network.AWS.EC2.CreateVpcEndpoint
         , Network.AWS.EC2.CreateVpcPeeringConnection
         , Network.AWS.EC2.CreateVpnConnection
         , Network.AWS.EC2.CreateVpnConnectionRoute
@@ -107,6 +110,7 @@ library
         , Network.AWS.EC2.DeleteTags
         , Network.AWS.EC2.DeleteVolume
         , Network.AWS.EC2.DeleteVpc
+        , Network.AWS.EC2.DeleteVpcEndpoints
         , Network.AWS.EC2.DeleteVpcPeeringConnection
         , Network.AWS.EC2.DeleteVpnConnection
         , Network.AWS.EC2.DeleteVpnConnectionRoute
@@ -123,15 +127,19 @@ library
         , Network.AWS.EC2.DescribeExportTasks
         , Network.AWS.EC2.DescribeImageAttribute
         , Network.AWS.EC2.DescribeImages
+        , Network.AWS.EC2.DescribeImportImageTasks
+        , Network.AWS.EC2.DescribeImportSnapshotTasks
         , Network.AWS.EC2.DescribeInstanceAttribute
         , Network.AWS.EC2.DescribeInstanceStatus
         , Network.AWS.EC2.DescribeInstances
         , Network.AWS.EC2.DescribeInternetGateways
         , Network.AWS.EC2.DescribeKeyPairs
+        , Network.AWS.EC2.DescribeMovingAddresses
         , Network.AWS.EC2.DescribeNetworkAcls
         , Network.AWS.EC2.DescribeNetworkInterfaceAttribute
         , Network.AWS.EC2.DescribeNetworkInterfaces
         , Network.AWS.EC2.DescribePlacementGroups
+        , Network.AWS.EC2.DescribePrefixLists
         , Network.AWS.EC2.DescribeRegions
         , Network.AWS.EC2.DescribeReservedInstances
         , Network.AWS.EC2.DescribeReservedInstancesListings
@@ -142,6 +150,9 @@ library
         , Network.AWS.EC2.DescribeSnapshotAttribute
         , Network.AWS.EC2.DescribeSnapshots
         , Network.AWS.EC2.DescribeSpotDatafeedSubscription
+        , Network.AWS.EC2.DescribeSpotFleetInstances
+        , Network.AWS.EC2.DescribeSpotFleetRequestHistory
+        , Network.AWS.EC2.DescribeSpotFleetRequests
         , Network.AWS.EC2.DescribeSpotInstanceRequests
         , Network.AWS.EC2.DescribeSpotPriceHistory
         , Network.AWS.EC2.DescribeSubnets
@@ -151,6 +162,8 @@ library
         , Network.AWS.EC2.DescribeVolumes
         , Network.AWS.EC2.DescribeVpcAttribute
         , Network.AWS.EC2.DescribeVpcClassicLink
+        , Network.AWS.EC2.DescribeVpcEndpointServices
+        , Network.AWS.EC2.DescribeVpcEndpoints
         , Network.AWS.EC2.DescribeVpcPeeringConnections
         , Network.AWS.EC2.DescribeVpcs
         , Network.AWS.EC2.DescribeVpnConnections
@@ -169,8 +182,10 @@ library
         , Network.AWS.EC2.EnableVpcClassicLink
         , Network.AWS.EC2.GetConsoleOutput
         , Network.AWS.EC2.GetPasswordData
+        , Network.AWS.EC2.ImportImage
         , Network.AWS.EC2.ImportInstance
         , Network.AWS.EC2.ImportKeyPair
+        , Network.AWS.EC2.ImportSnapshot
         , Network.AWS.EC2.ImportVolume
         , Network.AWS.EC2.ModifyImageAttribute
         , Network.AWS.EC2.ModifyInstanceAttribute
@@ -180,7 +195,9 @@ library
         , Network.AWS.EC2.ModifySubnetAttribute
         , Network.AWS.EC2.ModifyVolumeAttribute
         , Network.AWS.EC2.ModifyVpcAttribute
+        , Network.AWS.EC2.ModifyVpcEndpoint
         , Network.AWS.EC2.MonitorInstances
+        , Network.AWS.EC2.MoveAddressToVpc
         , Network.AWS.EC2.PurchaseReservedInstancesOffering
         , Network.AWS.EC2.RebootInstances
         , Network.AWS.EC2.RegisterImage
@@ -191,11 +208,13 @@ library
         , Network.AWS.EC2.ReplaceRoute
         , Network.AWS.EC2.ReplaceRouteTableAssociation
         , Network.AWS.EC2.ReportInstanceStatus
+        , Network.AWS.EC2.RequestSpotFleet
         , Network.AWS.EC2.RequestSpotInstances
         , Network.AWS.EC2.ResetImageAttribute
         , Network.AWS.EC2.ResetInstanceAttribute
         , Network.AWS.EC2.ResetNetworkInterfaceAttribute
         , Network.AWS.EC2.ResetSnapshotAttribute
+        , Network.AWS.EC2.RestoreAddressToClassic
         , Network.AWS.EC2.RevokeSecurityGroupEgress
         , Network.AWS.EC2.RevokeSecurityGroupIngress
         , Network.AWS.EC2.RunInstances
@@ -211,5 +230,5 @@ library
           Network.AWS.EC2.Internal
 
     build-depends:
-          amazonka-core == 0.3.4.*
+          amazonka-core == 0.3.5.*
         , base          >= 4.7     && < 5

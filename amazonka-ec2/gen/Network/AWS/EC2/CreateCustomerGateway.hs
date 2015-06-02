@@ -40,6 +40,14 @@
 --
 -- For more information about VPN customer gateways, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html Adding a HardwareVirtual Private Gateway to Your VPC> in the /Amazon Virtual Private Cloud UserGuide/.
 --
+-- You cannot create more than one customer gateway with the same VPN type, IP
+-- address, and BGP ASN parameter values. If you run an identical request more
+-- than one time, the first request creates the customer gateway, and subsequent
+-- requests return information about the existing customer gateway. The
+-- subsequent requests do not create new customer gateway resources.
+--
+--
+--
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateCustomerGateway.html>
 module Network.AWS.EC2.CreateCustomerGateway
     (
@@ -102,6 +110,9 @@ createCustomerGateway p1 p2 p3 = CreateCustomerGateway
 ccgBgpAsn :: Lens' CreateCustomerGateway Int
 ccgBgpAsn = lens _ccgBgpAsn (\s a -> s { _ccgBgpAsn = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 ccgDryRun :: Lens' CreateCustomerGateway (Maybe Bool)
 ccgDryRun = lens _ccgDryRun (\s a -> s { _ccgDryRun = a })
 

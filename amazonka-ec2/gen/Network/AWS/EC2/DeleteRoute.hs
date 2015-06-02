@@ -78,6 +78,9 @@ drDestinationCidrBlock :: Lens' DeleteRoute Text
 drDestinationCidrBlock =
     lens _drDestinationCidrBlock (\s a -> s { _drDestinationCidrBlock = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 drDryRun :: Lens' DeleteRoute (Maybe Bool)
 drDryRun = lens _drDryRun (\s a -> s { _drDryRun = a })
 

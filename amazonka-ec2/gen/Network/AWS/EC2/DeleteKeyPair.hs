@@ -66,6 +66,9 @@ deleteKeyPair p1 = DeleteKeyPair
     , _dkpDryRun  = Nothing
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dkpDryRun :: Lens' DeleteKeyPair (Maybe Bool)
 dkpDryRun = lens _dkpDryRun (\s a -> s { _dkpDryRun = a })
 

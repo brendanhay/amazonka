@@ -79,6 +79,9 @@ detachVpnGateway p1 p2 = DetachVpnGateway
     , _dvg1DryRun       = Nothing
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dvg1DryRun :: Lens' DetachVpnGateway (Maybe Bool)
 dvg1DryRun = lens _dvg1DryRun (\s a -> s { _dvg1DryRun = a })
 

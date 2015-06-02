@@ -80,12 +80,16 @@ getSendQuotaResponse = GetSendQuotaResponse
     }
 
 -- | The maximum number of emails the user is allowed to send in a 24-hour
--- interval.
+-- interval. A value of -1 signifies an unlimited quota.
 gsqrMax24HourSend :: Lens' GetSendQuotaResponse (Maybe Double)
 gsqrMax24HourSend =
     lens _gsqrMax24HourSend (\s a -> s { _gsqrMax24HourSend = a })
 
--- | The maximum number of emails the user is allowed to send per second.
+-- | The maximum number of emails that Amazon SES can accept from the user's
+-- account per second.
+--
+-- The rate at which Amazon SES accepts the user's messages might be less than
+-- the maximum send rate.
 gsqrMaxSendRate :: Lens' GetSendQuotaResponse (Maybe Double)
 gsqrMaxSendRate = lens _gsqrMaxSendRate (\s a -> s { _gsqrMaxSendRate = a })
 

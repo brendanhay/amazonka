@@ -67,6 +67,9 @@ deleteInternetGateway p1 = DeleteInternetGateway
     , _dig2DryRun            = Nothing
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dig2DryRun :: Lens' DeleteInternetGateway (Maybe Bool)
 dig2DryRun = lens _dig2DryRun (\s a -> s { _dig2DryRun = a })
 

@@ -132,7 +132,7 @@ listEventSourceMappingsResponse = ListEventSourceMappingsResponse
     , _lesmrEventSourceMappings = mempty
     }
 
--- | An arrary of 'EventSourceMappingConfiguration' objects.
+-- | An array of 'EventSourceMappingConfiguration' objects.
 lesmrEventSourceMappings :: Lens' ListEventSourceMappingsResponse [EventSourceMappingConfiguration]
 lesmrEventSourceMappings =
     lens _lesmrEventSourceMappings

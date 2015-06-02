@@ -118,6 +118,9 @@ describeVolumeStatus = DescribeVolumeStatus
     , _dvsMaxResults = Nothing
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dvsDryRun :: Lens' DescribeVolumeStatus (Maybe Bool)
 dvsDryRun = lens _dvsDryRun (\s a -> s { _dvsDryRun = a })
 

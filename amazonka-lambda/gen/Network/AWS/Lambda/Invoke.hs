@@ -24,7 +24,7 @@
 
 -- | Invokes a specified Lambda function.
 --
--- This operation requires permission for the 'lambda:Invoke' action.
+-- This operation requires permission for the 'lambda:InvokeFunction' action.
 --
 -- <http://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html>
 module Network.AWS.Lambda.Invoke

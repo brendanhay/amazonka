@@ -82,6 +82,9 @@ ddoDhcpOptionsIds =
     lens _ddoDhcpOptionsIds (\s a -> s { _ddoDhcpOptionsIds = a })
         . _List
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 ddoDryRun :: Lens' DescribeDhcpOptions (Maybe Bool)
 ddoDryRun = lens _ddoDryRun (\s a -> s { _ddoDryRun = a })
 

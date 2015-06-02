@@ -70,6 +70,9 @@ acceptVpcPeeringConnection = AcceptVpcPeeringConnection
     , _avpcVpcPeeringConnectionId = Nothing
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 avpcDryRun :: Lens' AcceptVpcPeeringConnection (Maybe Bool)
 avpcDryRun = lens _avpcDryRun (\s a -> s { _avpcDryRun = a })
 

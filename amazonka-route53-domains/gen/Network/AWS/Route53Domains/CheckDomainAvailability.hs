@@ -118,7 +118,10 @@ checkDomainAvailabilityResponse p1 = CheckDomainAvailabilityResponse
 -- name is reserved under specific conditions.  'AVAILABLE_PREORDER' – The domain
 -- name is available and can be preordered.  'UNAVAILABLE' – The domain name is
 -- not available.  'UNAVAILABLE_PREMIUM' – The domain name is not available.  'UNAVAILABLE_RESTRICTED' – The domain name is forbidden.  'RESERVED' – The domain name has been
--- reserved for another person or organization.
+-- reserved for another person or organization.  'DONT_KNOW' – The TLD registry
+-- didn't reply with a definitive answer about whether the domain name is
+-- available. Amazon Route 53 can return this response for a variety of reasons,
+-- for example, the registry is performing maintenance. Try again later.
 cdarAvailability :: Lens' CheckDomainAvailabilityResponse DomainAvailability
 cdarAvailability = lens _cdarAvailability (\s a -> s { _cdarAvailability = a })
 

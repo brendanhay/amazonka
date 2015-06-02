@@ -88,8 +88,8 @@ matchStatus x a _ = \case
 matchError :: AWSErrorCode (Er (Sv a)) => ErrorCode -> Accept -> Acceptor a
 matchError c a _ = \case
     Left (ServiceError _ _ e)
-        | c == awsErrorCode e -> Just a
-    _                         -> Nothing
+        | Just c == awsErrorCode e -> Just a
+    _                              -> Nothing
 
 match :: (Rs a -> Bool) -> Accept -> Acceptor a
 match f a _ = \case

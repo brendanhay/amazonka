@@ -73,7 +73,7 @@ rtLoadBalancerNames =
     lens _rtLoadBalancerNames (\s a -> s { _rtLoadBalancerNames = a })
         . _List
 
--- | A list of tag keys to remove.
+-- | The list of tag keys to remove.
 rtTags :: Lens' RemoveTags (NonEmpty TagKeyOnly)
 rtTags = lens _rtTags (\s a -> s { _rtTags = a }) . _List1
 

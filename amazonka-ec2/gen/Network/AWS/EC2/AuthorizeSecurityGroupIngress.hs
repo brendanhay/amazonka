@@ -129,6 +129,9 @@ authorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress
 asgiCidrIp :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
 asgiCidrIp = lens _asgiCidrIp (\s a -> s { _asgiCidrIp = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 asgiDryRun :: Lens' AuthorizeSecurityGroupIngress (Maybe Bool)
 asgiDryRun = lens _asgiDryRun (\s a -> s { _asgiDryRun = a })
 

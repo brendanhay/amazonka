@@ -48,9 +48,8 @@
 -- you try to do one of the following:
 --
 -- Have more than five streams in the 'CREATING' state at any point in time. Create more shards than are authorized for your account.
--- The default limit for an AWS account is 10 shards per stream. If you need
--- to create a stream with more than 10 shards, <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html contact AWS Support> to increase
--- the limit on your account.
+-- For the default shard limit for an AWS account, see <http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html Amazon Kinesis Limits>.
+-- If you need to increase this limit, <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html contact AWS Support>
 --
 -- You can use 'DescribeStream' to check the stream status, which is returned in 'StreamStatus'.
 --
@@ -104,9 +103,7 @@ createStream p1 p2 = CreateStream
 -- is a function of the number of shards; more shards are required for greater
 -- provisioned throughput.
 --
--- Note: The default limit for an AWS account is 10 shards per stream. If you
--- need to create a stream with more than 10 shards, <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html contact AWS Support> to
--- increase the limit on your account.
+-- DefaultShardLimit;
 csShardCount :: Lens' CreateStream Natural
 csShardCount = lens _csShardCount (\s a -> s { _csShardCount = a }) . _Nat
 

@@ -74,6 +74,9 @@ describeSubnets = DescribeSubnets
     , _dsFilters   = mempty
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dsDryRun :: Lens' DescribeSubnets (Maybe Bool)
 dsDryRun = lens _dsDryRun (\s a -> s { _dsDryRun = a })
 

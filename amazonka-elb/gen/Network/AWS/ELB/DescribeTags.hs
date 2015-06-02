@@ -22,7 +22,7 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Describes the tags associated with one or more load balancers.
+-- | Describes the tags associated with the specified load balancers.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeTags.html>
 module Network.AWS.ELB.DescribeTags
@@ -90,7 +90,7 @@ describeTagsResponse = DescribeTagsResponse
     { _dtrTagDescriptions = mempty
     }
 
--- | A list of tag description structures.
+-- | Information about the tags.
 dtrTagDescriptions :: Lens' DescribeTagsResponse [TagDescription]
 dtrTagDescriptions =
     lens _dtrTagDescriptions (\s a -> s { _dtrTagDescriptions = a })

@@ -26,7 +26,8 @@
 -- verification status and (for domain identities) the verification token for
 -- each identity.
 --
--- This action is throttled at one request per second.
+-- This action is throttled at one request per second and can only get
+-- verification attributes for up to 100 identities at a time.
 --
 -- <http://docs.aws.amazon.com/ses/latest/APIReference/API_GetIdentityVerificationAttributes.html>
 module Network.AWS.SES.GetIdentityVerificationAttributes

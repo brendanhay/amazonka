@@ -27,7 +27,8 @@
 -- bounce, complaint, and/or delivery notifications for emails sent with that
 -- identity as the 'Source'.
 --
--- This action is throttled at one request per second.
+-- Unless feedback forwarding is enabled, you must specify Amazon SNS topics
+-- for bounce and complaint notifications. For more information, see 'SetIdentityFeedbackForwardingEnabled'.  This action is throttled at one request per second.
 --
 -- For more information about feedback notification, see the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html Amazon SESDeveloper Guide>.
 --

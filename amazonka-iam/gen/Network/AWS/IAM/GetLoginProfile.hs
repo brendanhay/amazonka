@@ -22,8 +22,8 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Retrieves the user name and password-creation date for the specified user.
--- If the user has not been assigned a password, the action returns a 404 ('NoSuchEntity') error.
+-- | Retrieves the user name and password-creation date for the specified user. If
+-- the user has not been assigned a password, the action returns a 404 ('NoSuchEntity') error.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetLoginProfile.html>
 module Network.AWS.IAM.GetLoginProfile

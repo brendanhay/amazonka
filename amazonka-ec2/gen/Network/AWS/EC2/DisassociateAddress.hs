@@ -26,7 +26,7 @@
 -- it's associated with.
 --
 -- An Elastic IP address is for use in either the EC2-Classic platform or in a
--- VPC. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses> in the /Amazon ElasticCompute Cloud User Guide for Linux/.
+-- VPC. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP Addresses> in the /Amazon ElasticCompute Cloud User Guide/.
 --
 -- This is an idempotent operation. If you perform the operation more than
 -- once, Amazon EC2 doesn't return an error.
@@ -81,6 +81,9 @@ disassociateAddress = DisassociateAddress
 da1AssociationId :: Lens' DisassociateAddress (Maybe Text)
 da1AssociationId = lens _da1AssociationId (\s a -> s { _da1AssociationId = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 da1DryRun :: Lens' DisassociateAddress (Maybe Bool)
 da1DryRun = lens _da1DryRun (\s a -> s { _da1DryRun = a })
 

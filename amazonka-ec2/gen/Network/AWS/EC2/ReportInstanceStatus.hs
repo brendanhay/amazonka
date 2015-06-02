@@ -100,6 +100,9 @@ reportInstanceStatus p1 = ReportInstanceStatus
 risDescription :: Lens' ReportInstanceStatus (Maybe Text)
 risDescription = lens _risDescription (\s a -> s { _risDescription = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 risDryRun :: Lens' ReportInstanceStatus (Maybe Bool)
 risDryRun = lens _risDryRun (\s a -> s { _risDryRun = a })
 

@@ -89,6 +89,9 @@ attachClassicLinkVpc p1 p2 = AttachClassicLinkVpc
     , _aclvGroups     = mempty
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 aclvDryRun :: Lens' AttachClassicLinkVpc (Maybe Bool)
 aclvDryRun = lens _aclvDryRun (\s a -> s { _aclvDryRun = a })
 

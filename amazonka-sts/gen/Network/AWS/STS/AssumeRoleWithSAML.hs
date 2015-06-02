@@ -31,20 +31,22 @@
 -- access key ID, a secret access key, and a security token. Applications can
 -- use these temporary security credentials to sign calls to AWS services. The
 -- credentials are valid for the duration that you specified when calling 'AssumeRoleWithSAML', which can be up to 3600 seconds (1 hour) or until the time specified in the
--- SAML authentication response's 'NotOnOrAfter' value, whichever is shorter.
+-- SAML authentication response's 'SessionNotOnOrAfter' value, whichever is
+-- shorter.
 --
--- Optionally, you can pass an IAM access policy to this operation. If you
--- choose not to pass a policy, the temporary security credentials that are
--- returned by the operation have the permissions that are defined in the access
--- policy of the role that is being assumed. If you pass a policy to this
--- operation, the temporary security credentials that are returned by the
--- operation have the permissions that are allowed by both the access policy of
--- the role that is being assumed, /and/ the policy that you pass. This gives you
--- a way to further restrict the permissions for the resulting temporary
--- security credentials. You cannot use the passed policy to grant permissions
--- that are in excess of those allowed by the access policy of the role that is
--- being assumed. For more information, see <http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-assume-role.html Permissions for AssumeRoleWithSAML>
--- in /Using Temporary Security Credentials/.
+-- The maximum duration for a session is 1 hour, and the minimum duration is 15
+-- minutes, even if values outside this range are specified.  Optionally, you
+-- can pass an IAM access policy to this operation. If you choose not to pass a
+-- policy, the temporary security credentials that are returned by the operation
+-- have the permissions that are defined in the access policy of the role that
+-- is being assumed. If you pass a policy to this operation, the temporary
+-- security credentials that are returned by the operation have the permissions
+-- that are allowed by both the access policy of the role that is being assumed, /and/ the policy that you pass. This gives you a way to further restrict the
+-- permissions for the resulting temporary security credentials. You cannot use
+-- the passed policy to grant permissions that are in excess of those allowed by
+-- the access policy of the role that is being assumed. For more information,
+-- see <http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-assume-role.html Permissions for AssumeRoleWithSAML> in /Using Temporary Security Credentials/
+-- .
 --
 -- Before your application can call 'AssumeRoleWithSAML', you must configure your
 -- SAML identity provider (IdP) to issue the claims required by AWS.
@@ -133,8 +135,11 @@ assumeRoleWithSAML p1 p2 p3 = AssumeRoleWithSAML
 -- | The duration, in seconds, of the role session. The value can range from 900
 -- seconds (15 minutes) to 3600 seconds (1 hour). By default, the value is set
 -- to 3600 seconds. An expiration can also be specified in the SAML
--- authentication response's 'NotOnOrAfter' value. The actual expiration time is
--- whichever value is shorter.
+-- authentication response's 'SessionNotOnOrAfter' value. The actual expiration
+-- time is whichever value is shorter.
+--
+-- The maximum duration for a session is 1 hour, and the minimum duration is 15
+-- minutes, even if values outside this range are specified.
 arwsamlDurationSeconds :: Lens' AssumeRoleWithSAML (Maybe Natural)
 arwsamlDurationSeconds =
     lens _arwsamlDurationSeconds (\s a -> s { _arwsamlDurationSeconds = a })
@@ -150,6 +155,9 @@ arwsamlDurationSeconds =
 -- the access policy of the role that is being assumed. For more information,
 -- see <http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-assume-role.html Permissions for AssumeRoleWithSAML> in /Using Temporary Security Credentials/
 -- .
+--
+-- The policy must be 2048 bytes or shorter, and its packed size must be less
+-- than 450 bytes.
 arwsamlPolicy :: Lens' AssumeRoleWithSAML (Maybe Text)
 arwsamlPolicy = lens _arwsamlPolicy (\s a -> s { _arwsamlPolicy = a })
 

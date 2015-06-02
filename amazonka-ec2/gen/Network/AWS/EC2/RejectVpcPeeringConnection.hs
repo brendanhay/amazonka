@@ -72,6 +72,9 @@ rejectVpcPeeringConnection p1 = RejectVpcPeeringConnection
     , _rvpcDryRun                 = Nothing
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 rvpcDryRun :: Lens' RejectVpcPeeringConnection (Maybe Bool)
 rvpcDryRun = lens _rvpcDryRun (\s a -> s { _rvpcDryRun = a })
 

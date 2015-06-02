@@ -67,6 +67,9 @@ deleteNetworkInterface p1 = DeleteNetworkInterface
     , _dni2DryRun             = Nothing
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dni2DryRun :: Lens' DeleteNetworkInterface (Maybe Bool)
 dni2DryRun = lens _dni2DryRun (\s a -> s { _dni2DryRun = a })
 

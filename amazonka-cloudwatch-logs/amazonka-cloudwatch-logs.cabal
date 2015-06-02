@@ -1,5 +1,5 @@
 name:                  amazonka-cloudwatch-logs
-version:               0.3.4
+version:               0.3.5
 synopsis:              Amazon CloudWatch Logs SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -43,6 +43,7 @@ library
         , Network.AWS.CloudWatchLogs.DescribeLogGroups
         , Network.AWS.CloudWatchLogs.DescribeLogStreams
         , Network.AWS.CloudWatchLogs.DescribeMetricFilters
+        , Network.AWS.CloudWatchLogs.FilterLogEvents
         , Network.AWS.CloudWatchLogs.GetLogEvents
         , Network.AWS.CloudWatchLogs.PutLogEvents
         , Network.AWS.CloudWatchLogs.PutMetricFilter
@@ -53,5 +54,5 @@ library
     other-modules:
 
     build-depends:
-          amazonka-core == 0.3.4.*
+          amazonka-core == 0.3.5.*
         , base          >= 4.7     && < 5

@@ -1,5 +1,5 @@
 name:                  amazonka-glacier
-version:               0.3.4
+version:               0.3.5
 synopsis:              Amazon Glacier SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -43,11 +43,13 @@ library
         , Network.AWS.Glacier.CreateVault
         , Network.AWS.Glacier.DeleteArchive
         , Network.AWS.Glacier.DeleteVault
+        , Network.AWS.Glacier.DeleteVaultAccessPolicy
         , Network.AWS.Glacier.DeleteVaultNotifications
         , Network.AWS.Glacier.DescribeJob
         , Network.AWS.Glacier.DescribeVault
         , Network.AWS.Glacier.GetDataRetrievalPolicy
         , Network.AWS.Glacier.GetJobOutput
+        , Network.AWS.Glacier.GetVaultAccessPolicy
         , Network.AWS.Glacier.GetVaultNotifications
         , Network.AWS.Glacier.InitiateJob
         , Network.AWS.Glacier.InitiateMultipartUpload
@@ -56,6 +58,7 @@ library
         , Network.AWS.Glacier.ListParts
         , Network.AWS.Glacier.ListVaults
         , Network.AWS.Glacier.SetDataRetrievalPolicy
+        , Network.AWS.Glacier.SetVaultAccessPolicy
         , Network.AWS.Glacier.SetVaultNotifications
         , Network.AWS.Glacier.Types
         , Network.AWS.Glacier.UploadArchive
@@ -64,5 +67,5 @@ library
     other-modules:
 
     build-depends:
-          amazonka-core == 0.3.4.*
+          amazonka-core == 0.3.5.*
         , base          >= 4.7     && < 5

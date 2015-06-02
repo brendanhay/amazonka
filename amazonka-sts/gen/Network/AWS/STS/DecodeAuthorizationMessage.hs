@@ -30,10 +30,13 @@
 -- (an HTTP 403 response). Some AWS actions additionally return an encoded
 -- message that can provide details about this authorization failure.
 --
--- The message is encoded because the details of the authorization status can
--- constitute privileged information that the user who requested the action
--- should not see. To decode an authorization status message, a user must be
--- granted permissions via an IAM policy to request the 'DecodeAuthorizationMessage' ('sts:DecodeAuthorizationMessage') action.
+-- Only certain AWS actions return an encoded authorization message. The
+-- documentation for an individual action indicates whether that action returns
+-- an encoded message in addition to returning an HTTP code.  The message is
+-- encoded because the details of the authorization status can constitute
+-- privileged information that the user who requested the action should not see.
+-- To decode an authorization status message, a user must be granted permissions
+-- via an IAM policy to request the 'DecodeAuthorizationMessage' ('sts:DecodeAuthorizationMessage') action.
 --
 -- The decoded message includes the following type of information:
 --

@@ -22,13 +22,12 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Removes subnets from the set of configured subnets in the Amazon Virtual
--- Private Cloud (Amazon VPC) for the load balancer.
+-- | Removes the specified subnets from the set of configured subnets for the load
+-- balancer.
 --
--- After a subnet is removed all of the EC2 instances registered with the load
--- balancer that are in the removed subnet will go into the /OutOfService/ state.
--- When a subnet is removed, the load balancer will balance the traffic among
--- the remaining routable subnets for the load balancer.
+-- After a subnet is removed, all EC2 instances registered with the load
+-- balancer in the removed subnet go into the 'OutOfService' state. Then, the load
+-- balancer balances the traffic among the remaining routable subnets.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DetachLoadBalancerFromSubnets.html>
 module Network.AWS.ELB.DetachLoadBalancerFromSubnets
@@ -74,13 +73,12 @@ detachLoadBalancerFromSubnets p1 = DetachLoadBalancerFromSubnets
     , _dlbfsSubnets          = mempty
     }
 
--- | The name associated with the load balancer to be detached.
+-- | The name of the load balancer.
 dlbfsLoadBalancerName :: Lens' DetachLoadBalancerFromSubnets Text
 dlbfsLoadBalancerName =
     lens _dlbfsLoadBalancerName (\s a -> s { _dlbfsLoadBalancerName = a })
 
--- | A list of subnet IDs to remove from the set of configured subnets for the
--- load balancer.
+-- | The IDs of the subnets.
 dlbfsSubnets :: Lens' DetachLoadBalancerFromSubnets [Text]
 dlbfsSubnets = lens _dlbfsSubnets (\s a -> s { _dlbfsSubnets = a }) . _List
 
@@ -105,7 +103,7 @@ detachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse
     { _dlbfsrSubnets = mempty
     }
 
--- | A list of subnet IDs the load balancer is now attached to.
+-- | The IDs of the remaining subnets for the load balancer.
 dlbfsrSubnets :: Lens' DetachLoadBalancerFromSubnetsResponse [Text]
 dlbfsrSubnets = lens _dlbfsrSubnets (\s a -> s { _dlbfsrSubnets = a }) . _List
 

@@ -22,12 +22,10 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Returns the current state of the specified instances registered with the
--- specified load balancer. If no instances are specified, the state of all the
--- instances registered with the load balancer is returned.
---
--- You must provide the same account credentials as those that were used to
--- create the load balancer.
+-- | Describes the state of the specified instances registered with the specified
+-- load balancer. If no instances are specified, the call describes the state of
+-- all instances registered with the load balancer, not including any terminated
+-- instances.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeInstanceHealth.html>
 module Network.AWS.ELB.DescribeInstanceHealth
@@ -73,7 +71,7 @@ describeInstanceHealth p1 = DescribeInstanceHealth
     , _dihInstances        = mempty
     }
 
--- | A list of instance IDs whose states are being queried.
+-- | The IDs of the instances.
 dihInstances :: Lens' DescribeInstanceHealth [Instance]
 dihInstances = lens _dihInstances (\s a -> s { _dihInstances = a }) . _List
 
@@ -103,7 +101,7 @@ describeInstanceHealthResponse = DescribeInstanceHealthResponse
     { _dihrInstanceStates = mempty
     }
 
--- | A list containing health information for the specified instances.
+-- | Information about the health of the instances.
 dihrInstanceStates :: Lens' DescribeInstanceHealthResponse [InstanceState]
 dihrInstanceStates =
     lens _dihrInstanceStates (\s a -> s { _dihrInstanceStates = a })

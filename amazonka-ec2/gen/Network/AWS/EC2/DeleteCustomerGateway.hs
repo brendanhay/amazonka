@@ -72,6 +72,9 @@ dcg1CustomerGatewayId :: Lens' DeleteCustomerGateway Text
 dcg1CustomerGatewayId =
     lens _dcg1CustomerGatewayId (\s a -> s { _dcg1CustomerGatewayId = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dcg1DryRun :: Lens' DeleteCustomerGateway (Maybe Bool)
 dcg1DryRun = lens _dcg1DryRun (\s a -> s { _dcg1DryRun = a })
 

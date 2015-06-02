@@ -98,6 +98,7 @@ module Network.AWS.CloudFormation.Types
     , pdDefaultValue
     , pdDescription
     , pdNoEcho
+    , pdParameterConstraints
     , pdParameterKey
     , pdParameterType
 
@@ -120,6 +121,11 @@ module Network.AWS.CloudFormation.Types
     , oDescription
     , oOutputKey
     , oOutputValue
+
+    -- * ParameterConstraints
+    , ParameterConstraints
+    , parameterConstraints
+    , pcAllowedValues
 
     -- * StackResourceSummary
     , StackResourceSummary
@@ -206,7 +212,7 @@ instance AWSService CloudFormation where
               -> RESTError
               -> Bool
         check (statusCode -> s) (awsErrorCode -> e)
-            | s == 400 && "Throttling" == e = True -- Throttling
+            | s == 400 && (Just "Throttling") == e = True -- Throttling
             | s == 500  = True -- General Server Error
             | s == 509  = True -- Limit Exceeded
             | s == 503  = True -- Service Unavailable
@@ -801,12 +807,13 @@ instance ToQuery TemplateParameter where
         ]
 
 data ParameterDeclaration = ParameterDeclaration
-    { _pdDefaultValue  :: Maybe Text
-    , _pdDescription   :: Maybe Text
-    , _pdNoEcho        :: Maybe Bool
-    , _pdParameterKey  :: Maybe Text
-    , _pdParameterType :: Maybe Text
-    } deriving (Eq, Ord, Read, Show)
+    { _pdDefaultValue         :: Maybe Text
+    , _pdDescription          :: Maybe Text
+    , _pdNoEcho               :: Maybe Bool
+    , _pdParameterConstraints :: Maybe ParameterConstraints
+    , _pdParameterKey         :: Maybe Text
+    , _pdParameterType        :: Maybe Text
+    } deriving (Eq, Read, Show)
 
 -- | 'ParameterDeclaration' constructor.
 --
@@ -818,17 +825,20 @@ data ParameterDeclaration = ParameterDeclaration
 --
 -- * 'pdNoEcho' @::@ 'Maybe' 'Bool'
 --
+-- * 'pdParameterConstraints' @::@ 'Maybe' 'ParameterConstraints'
+--
 -- * 'pdParameterKey' @::@ 'Maybe' 'Text'
 --
 -- * 'pdParameterType' @::@ 'Maybe' 'Text'
 --
 parameterDeclaration :: ParameterDeclaration
 parameterDeclaration = ParameterDeclaration
-    { _pdParameterKey  = Nothing
-    , _pdDefaultValue  = Nothing
-    , _pdParameterType = Nothing
-    , _pdNoEcho        = Nothing
-    , _pdDescription   = Nothing
+    { _pdParameterKey         = Nothing
+    , _pdDefaultValue         = Nothing
+    , _pdParameterType        = Nothing
+    , _pdNoEcho               = Nothing
+    , _pdDescription          = Nothing
+    , _pdParameterConstraints = Nothing
     }
 
 -- | The default value of the parameter.
@@ -844,6 +854,11 @@ pdDescription = lens _pdDescription (\s a -> s { _pdDescription = a })
 pdNoEcho :: Lens' ParameterDeclaration (Maybe Bool)
 pdNoEcho = lens _pdNoEcho (\s a -> s { _pdNoEcho = a })
 
+-- | The criteria that AWS CloudFormation uses to validate parameter values.
+pdParameterConstraints :: Lens' ParameterDeclaration (Maybe ParameterConstraints)
+pdParameterConstraints =
+    lens _pdParameterConstraints (\s a -> s { _pdParameterConstraints = a })
+
 -- | The name that is associated with the parameter.
 pdParameterKey :: Lens' ParameterDeclaration (Maybe Text)
 pdParameterKey = lens _pdParameterKey (\s a -> s { _pdParameterKey = a })
@@ -857,16 +872,18 @@ instance FromXML ParameterDeclaration where
         <$> x .@? "DefaultValue"
         <*> x .@? "Description"
         <*> x .@? "NoEcho"
+        <*> x .@? "ParameterConstraints"
         <*> x .@? "ParameterKey"
         <*> x .@? "ParameterType"
 
 instance ToQuery ParameterDeclaration where
     toQuery ParameterDeclaration{..} = mconcat
-        [ "DefaultValue"  =? _pdDefaultValue
-        , "Description"   =? _pdDescription
-        , "NoEcho"        =? _pdNoEcho
-        , "ParameterKey"  =? _pdParameterKey
-        , "ParameterType" =? _pdParameterType
+        [ "DefaultValue"         =? _pdDefaultValue
+        , "Description"          =? _pdDescription
+        , "NoEcho"               =? _pdNoEcho
+        , "ParameterConstraints" =? _pdParameterConstraints
+        , "ParameterKey"         =? _pdParameterKey
+        , "ParameterType"        =? _pdParameterType
         ]
 
 data StackResource = StackResource
@@ -1033,6 +1050,40 @@ instance ToQuery Output where
         [ "Description" =? _oDescription
         , "OutputKey"   =? _oOutputKey
         , "OutputValue" =? _oOutputValue
+        ]
+
+newtype ParameterConstraints = ParameterConstraints
+    { _pcAllowedValues :: List "member" Text
+    } deriving (Eq, Ord, Read, Show, Monoid, Semigroup)
+
+instance GHC.Exts.IsList ParameterConstraints where
+    type Item ParameterConstraints = Text
+
+    fromList = ParameterConstraints . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _pcAllowedValues
+
+-- | 'ParameterConstraints' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'pcAllowedValues' @::@ ['Text']
+--
+parameterConstraints :: ParameterConstraints
+parameterConstraints = ParameterConstraints
+    { _pcAllowedValues = mempty
+    }
+
+-- | A list of values that are permitted for a parameter.
+pcAllowedValues :: Lens' ParameterConstraints [Text]
+pcAllowedValues = lens _pcAllowedValues (\s a -> s { _pcAllowedValues = a }) . _List
+
+instance FromXML ParameterConstraints where
+    parseXML x = ParameterConstraints
+        <$> x .@? "AllowedValues" .!@ mempty
+
+instance ToQuery ParameterConstraints where
+    toQuery ParameterConstraints{..} = mconcat
+        [ "AllowedValues" =? _pcAllowedValues
         ]
 
 data StackResourceSummary = StackResourceSummary
@@ -1394,7 +1445,9 @@ parameter = Parameter
     , _pUsePreviousValue = Nothing
     }
 
--- | The key associated with the parameter.
+-- | The key associated with the parameter. If you don't specify a key and value
+-- for a particular parameter, AWS CloudFormation uses the default value that is
+-- specified in your template.
 pParameterKey :: Lens' Parameter (Maybe Text)
 pParameterKey = lens _pParameterKey (\s a -> s { _pParameterKey = a })
 
@@ -1402,8 +1455,9 @@ pParameterKey = lens _pParameterKey (\s a -> s { _pParameterKey = a })
 pParameterValue :: Lens' Parameter (Maybe Text)
 pParameterValue = lens _pParameterValue (\s a -> s { _pParameterValue = a })
 
--- | During a stack update, use the existing parameter value that is being used
--- for the stack.
+-- | During a stack update, use the existing parameter value that the stack is
+-- using for a given parameter key. If you specify 'true', do not specify a
+-- parameter value.
 pUsePreviousValue :: Lens' Parameter (Maybe Bool)
 pUsePreviousValue =
     lens _pUsePreviousValue (\s a -> s { _pUsePreviousValue = a })

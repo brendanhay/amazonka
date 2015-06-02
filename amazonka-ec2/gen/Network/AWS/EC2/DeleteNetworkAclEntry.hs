@@ -79,6 +79,9 @@ deleteNetworkAclEntry p1 p2 p3 = DeleteNetworkAclEntry
     , _dnaeDryRun       = Nothing
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dnaeDryRun :: Lens' DeleteNetworkAclEntry (Maybe Bool)
 dnaeDryRun = lens _dnaeDryRun (\s a -> s { _dnaeDryRun = a })
 

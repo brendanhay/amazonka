@@ -90,7 +90,8 @@ srLogicalResourceId :: Lens' SignalResource Text
 srLogicalResourceId =
     lens _srLogicalResourceId (\s a -> s { _srLogicalResourceId = a })
 
--- | The stack name or ID that includes the resource that you want to signal.
+-- | The stack name or unique stack ID that includes the resource that you want to
+-- signal.
 srStackName :: Lens' SignalResource Text
 srStackName = lens _srStackName (\s a -> s { _srStackName = a })
 

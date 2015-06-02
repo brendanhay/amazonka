@@ -40,7 +40,9 @@ module Network.AWS.EC2
     , module Network.AWS.EC2.CancelBundleTask
     , module Network.AWS.EC2.CancelConversionTask
     , module Network.AWS.EC2.CancelExportTask
+    , module Network.AWS.EC2.CancelImportTask
     , module Network.AWS.EC2.CancelReservedInstancesListing
+    , module Network.AWS.EC2.CancelSpotFleetRequests
     , module Network.AWS.EC2.CancelSpotInstanceRequests
     , module Network.AWS.EC2.ConfirmProductInstance
     , module Network.AWS.EC2.CopyImage
@@ -65,6 +67,7 @@ module Network.AWS.EC2
     , module Network.AWS.EC2.CreateTags
     , module Network.AWS.EC2.CreateVolume
     , module Network.AWS.EC2.CreateVpc
+    , module Network.AWS.EC2.CreateVpcEndpoint
     , module Network.AWS.EC2.CreateVpcPeeringConnection
     , module Network.AWS.EC2.CreateVpnConnection
     , module Network.AWS.EC2.CreateVpnConnectionRoute
@@ -86,6 +89,7 @@ module Network.AWS.EC2
     , module Network.AWS.EC2.DeleteTags
     , module Network.AWS.EC2.DeleteVolume
     , module Network.AWS.EC2.DeleteVpc
+    , module Network.AWS.EC2.DeleteVpcEndpoints
     , module Network.AWS.EC2.DeleteVpcPeeringConnection
     , module Network.AWS.EC2.DeleteVpnConnection
     , module Network.AWS.EC2.DeleteVpnConnectionRoute
@@ -102,15 +106,19 @@ module Network.AWS.EC2
     , module Network.AWS.EC2.DescribeExportTasks
     , module Network.AWS.EC2.DescribeImageAttribute
     , module Network.AWS.EC2.DescribeImages
+    , module Network.AWS.EC2.DescribeImportImageTasks
+    , module Network.AWS.EC2.DescribeImportSnapshotTasks
     , module Network.AWS.EC2.DescribeInstanceAttribute
     , module Network.AWS.EC2.DescribeInstanceStatus
     , module Network.AWS.EC2.DescribeInstances
     , module Network.AWS.EC2.DescribeInternetGateways
     , module Network.AWS.EC2.DescribeKeyPairs
+    , module Network.AWS.EC2.DescribeMovingAddresses
     , module Network.AWS.EC2.DescribeNetworkAcls
     , module Network.AWS.EC2.DescribeNetworkInterfaceAttribute
     , module Network.AWS.EC2.DescribeNetworkInterfaces
     , module Network.AWS.EC2.DescribePlacementGroups
+    , module Network.AWS.EC2.DescribePrefixLists
     , module Network.AWS.EC2.DescribeRegions
     , module Network.AWS.EC2.DescribeReservedInstances
     , module Network.AWS.EC2.DescribeReservedInstancesListings
@@ -121,6 +129,9 @@ module Network.AWS.EC2
     , module Network.AWS.EC2.DescribeSnapshotAttribute
     , module Network.AWS.EC2.DescribeSnapshots
     , module Network.AWS.EC2.DescribeSpotDatafeedSubscription
+    , module Network.AWS.EC2.DescribeSpotFleetInstances
+    , module Network.AWS.EC2.DescribeSpotFleetRequestHistory
+    , module Network.AWS.EC2.DescribeSpotFleetRequests
     , module Network.AWS.EC2.DescribeSpotInstanceRequests
     , module Network.AWS.EC2.DescribeSpotPriceHistory
     , module Network.AWS.EC2.DescribeSubnets
@@ -130,6 +141,8 @@ module Network.AWS.EC2
     , module Network.AWS.EC2.DescribeVolumes
     , module Network.AWS.EC2.DescribeVpcAttribute
     , module Network.AWS.EC2.DescribeVpcClassicLink
+    , module Network.AWS.EC2.DescribeVpcEndpointServices
+    , module Network.AWS.EC2.DescribeVpcEndpoints
     , module Network.AWS.EC2.DescribeVpcPeeringConnections
     , module Network.AWS.EC2.DescribeVpcs
     , module Network.AWS.EC2.DescribeVpnConnections
@@ -148,8 +161,10 @@ module Network.AWS.EC2
     , module Network.AWS.EC2.EnableVpcClassicLink
     , module Network.AWS.EC2.GetConsoleOutput
     , module Network.AWS.EC2.GetPasswordData
+    , module Network.AWS.EC2.ImportImage
     , module Network.AWS.EC2.ImportInstance
     , module Network.AWS.EC2.ImportKeyPair
+    , module Network.AWS.EC2.ImportSnapshot
     , module Network.AWS.EC2.ImportVolume
     , module Network.AWS.EC2.ModifyImageAttribute
     , module Network.AWS.EC2.ModifyInstanceAttribute
@@ -159,7 +174,9 @@ module Network.AWS.EC2
     , module Network.AWS.EC2.ModifySubnetAttribute
     , module Network.AWS.EC2.ModifyVolumeAttribute
     , module Network.AWS.EC2.ModifyVpcAttribute
+    , module Network.AWS.EC2.ModifyVpcEndpoint
     , module Network.AWS.EC2.MonitorInstances
+    , module Network.AWS.EC2.MoveAddressToVpc
     , module Network.AWS.EC2.PurchaseReservedInstancesOffering
     , module Network.AWS.EC2.RebootInstances
     , module Network.AWS.EC2.RegisterImage
@@ -170,11 +187,13 @@ module Network.AWS.EC2
     , module Network.AWS.EC2.ReplaceRoute
     , module Network.AWS.EC2.ReplaceRouteTableAssociation
     , module Network.AWS.EC2.ReportInstanceStatus
+    , module Network.AWS.EC2.RequestSpotFleet
     , module Network.AWS.EC2.RequestSpotInstances
     , module Network.AWS.EC2.ResetImageAttribute
     , module Network.AWS.EC2.ResetInstanceAttribute
     , module Network.AWS.EC2.ResetNetworkInterfaceAttribute
     , module Network.AWS.EC2.ResetSnapshotAttribute
+    , module Network.AWS.EC2.RestoreAddressToClassic
     , module Network.AWS.EC2.RevokeSecurityGroupEgress
     , module Network.AWS.EC2.RevokeSecurityGroupIngress
     , module Network.AWS.EC2.RunInstances
@@ -204,7 +223,9 @@ import Network.AWS.EC2.BundleInstance
 import Network.AWS.EC2.CancelBundleTask
 import Network.AWS.EC2.CancelConversionTask
 import Network.AWS.EC2.CancelExportTask
+import Network.AWS.EC2.CancelImportTask
 import Network.AWS.EC2.CancelReservedInstancesListing
+import Network.AWS.EC2.CancelSpotFleetRequests
 import Network.AWS.EC2.CancelSpotInstanceRequests
 import Network.AWS.EC2.ConfirmProductInstance
 import Network.AWS.EC2.CopyImage
@@ -229,6 +250,7 @@ import Network.AWS.EC2.CreateSubnet
 import Network.AWS.EC2.CreateTags
 import Network.AWS.EC2.CreateVolume
 import Network.AWS.EC2.CreateVpc
+import Network.AWS.EC2.CreateVpcEndpoint
 import Network.AWS.EC2.CreateVpcPeeringConnection
 import Network.AWS.EC2.CreateVpnConnection
 import Network.AWS.EC2.CreateVpnConnectionRoute
@@ -250,6 +272,7 @@ import Network.AWS.EC2.DeleteSubnet
 import Network.AWS.EC2.DeleteTags
 import Network.AWS.EC2.DeleteVolume
 import Network.AWS.EC2.DeleteVpc
+import Network.AWS.EC2.DeleteVpcEndpoints
 import Network.AWS.EC2.DeleteVpcPeeringConnection
 import Network.AWS.EC2.DeleteVpnConnection
 import Network.AWS.EC2.DeleteVpnConnectionRoute
@@ -266,15 +289,19 @@ import Network.AWS.EC2.DescribeDhcpOptions
 import Network.AWS.EC2.DescribeExportTasks
 import Network.AWS.EC2.DescribeImageAttribute
 import Network.AWS.EC2.DescribeImages
+import Network.AWS.EC2.DescribeImportImageTasks
+import Network.AWS.EC2.DescribeImportSnapshotTasks
 import Network.AWS.EC2.DescribeInstanceAttribute
 import Network.AWS.EC2.DescribeInstanceStatus
 import Network.AWS.EC2.DescribeInstances
 import Network.AWS.EC2.DescribeInternetGateways
 import Network.AWS.EC2.DescribeKeyPairs
+import Network.AWS.EC2.DescribeMovingAddresses
 import Network.AWS.EC2.DescribeNetworkAcls
 import Network.AWS.EC2.DescribeNetworkInterfaceAttribute
 import Network.AWS.EC2.DescribeNetworkInterfaces
 import Network.AWS.EC2.DescribePlacementGroups
+import Network.AWS.EC2.DescribePrefixLists
 import Network.AWS.EC2.DescribeRegions
 import Network.AWS.EC2.DescribeReservedInstances
 import Network.AWS.EC2.DescribeReservedInstancesListings
@@ -285,6 +312,9 @@ import Network.AWS.EC2.DescribeSecurityGroups
 import Network.AWS.EC2.DescribeSnapshotAttribute
 import Network.AWS.EC2.DescribeSnapshots
 import Network.AWS.EC2.DescribeSpotDatafeedSubscription
+import Network.AWS.EC2.DescribeSpotFleetInstances
+import Network.AWS.EC2.DescribeSpotFleetRequestHistory
+import Network.AWS.EC2.DescribeSpotFleetRequests
 import Network.AWS.EC2.DescribeSpotInstanceRequests
 import Network.AWS.EC2.DescribeSpotPriceHistory
 import Network.AWS.EC2.DescribeSubnets
@@ -294,6 +324,8 @@ import Network.AWS.EC2.DescribeVolumeStatus
 import Network.AWS.EC2.DescribeVolumes
 import Network.AWS.EC2.DescribeVpcAttribute
 import Network.AWS.EC2.DescribeVpcClassicLink
+import Network.AWS.EC2.DescribeVpcEndpointServices
+import Network.AWS.EC2.DescribeVpcEndpoints
 import Network.AWS.EC2.DescribeVpcPeeringConnections
 import Network.AWS.EC2.DescribeVpcs
 import Network.AWS.EC2.DescribeVpnConnections
@@ -312,8 +344,10 @@ import Network.AWS.EC2.EnableVolumeIO
 import Network.AWS.EC2.EnableVpcClassicLink
 import Network.AWS.EC2.GetConsoleOutput
 import Network.AWS.EC2.GetPasswordData
+import Network.AWS.EC2.ImportImage
 import Network.AWS.EC2.ImportInstance
 import Network.AWS.EC2.ImportKeyPair
+import Network.AWS.EC2.ImportSnapshot
 import Network.AWS.EC2.ImportVolume
 import Network.AWS.EC2.ModifyImageAttribute
 import Network.AWS.EC2.ModifyInstanceAttribute
@@ -323,7 +357,9 @@ import Network.AWS.EC2.ModifySnapshotAttribute
 import Network.AWS.EC2.ModifySubnetAttribute
 import Network.AWS.EC2.ModifyVolumeAttribute
 import Network.AWS.EC2.ModifyVpcAttribute
+import Network.AWS.EC2.ModifyVpcEndpoint
 import Network.AWS.EC2.MonitorInstances
+import Network.AWS.EC2.MoveAddressToVpc
 import Network.AWS.EC2.PurchaseReservedInstancesOffering
 import Network.AWS.EC2.RebootInstances
 import Network.AWS.EC2.RegisterImage
@@ -334,11 +370,13 @@ import Network.AWS.EC2.ReplaceNetworkAclEntry
 import Network.AWS.EC2.ReplaceRoute
 import Network.AWS.EC2.ReplaceRouteTableAssociation
 import Network.AWS.EC2.ReportInstanceStatus
+import Network.AWS.EC2.RequestSpotFleet
 import Network.AWS.EC2.RequestSpotInstances
 import Network.AWS.EC2.ResetImageAttribute
 import Network.AWS.EC2.ResetInstanceAttribute
 import Network.AWS.EC2.ResetNetworkInterfaceAttribute
 import Network.AWS.EC2.ResetSnapshotAttribute
+import Network.AWS.EC2.RestoreAddressToClassic
 import Network.AWS.EC2.RevokeSecurityGroupEgress
 import Network.AWS.EC2.RevokeSecurityGroupIngress
 import Network.AWS.EC2.RunInstances

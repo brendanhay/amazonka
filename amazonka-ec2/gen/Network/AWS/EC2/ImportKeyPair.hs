@@ -28,7 +28,7 @@
 -- ImportKeyPair, you create the key pair and give AWS just the public key. The
 -- private key is never transferred between you and AWS.
 --
--- For more information about key pairs, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key Pairs> in the /Amazon ElasticCompute Cloud User Guide for Linux/.
+-- For more information about key pairs, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Key Pairs> in the /Amazon ElasticCompute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ImportKeyPair.html>
 module Network.AWS.EC2.ImportKeyPair
@@ -81,6 +81,9 @@ importKeyPair p1 p2 = ImportKeyPair
     , _ikpDryRun            = Nothing
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 ikpDryRun :: Lens' ImportKeyPair (Maybe Bool)
 ikpDryRun = lens _ikpDryRun (\s a -> s { _ikpDryRun = a })
 

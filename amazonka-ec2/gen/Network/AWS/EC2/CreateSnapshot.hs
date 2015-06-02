@@ -22,33 +22,32 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Creates a snapshot of an Amazon EBS volume and stores it in Amazon S3. You
--- can use snapshots for backups, to make copies of Amazon EBS volumes, and to
--- save data before shutting down an instance.
+-- | Creates a snapshot of an EBS volume and stores it in Amazon S3. You can use
+-- snapshots for backups, to make copies of EBS volumes, and to save data before
+-- shutting down an instance.
 --
 -- When a snapshot is created, any AWS Marketplace product codes that are
 -- associated with the source volume are propagated to the snapshot.
 --
 -- You can take a snapshot of an attached volume that is in use. However,
--- snapshots only capture data that has been written to your Amazon EBS volume
--- at the time the snapshot command is issued; this may exclude any data that
--- has been cached by any applications or the operating system. If you can pause
--- any file systems on the volume long enough to take a snapshot, your snapshot
--- should be complete. However, if you cannot pause all file writes to the
--- volume, you should unmount the volume from within the instance, issue the
--- snapshot command, and then remount the volume to ensure a consistent and
--- complete snapshot. You may remount and use your volume while the snapshot
--- status is 'pending'.
+-- snapshots only capture data that has been written to your EBS volume at the
+-- time the snapshot command is issued; this may exclude any data that has been
+-- cached by any applications or the operating system. If you can pause any file
+-- systems on the volume long enough to take a snapshot, your snapshot should be
+-- complete. However, if you cannot pause all file writes to the volume, you
+-- should unmount the volume from within the instance, issue the snapshot
+-- command, and then remount the volume to ensure a consistent and complete
+-- snapshot. You may remount and use your volume while the snapshot status is 'pending'.
 --
--- To create a snapshot for Amazon EBS volumes that serve as root devices, you
--- should stop the instance before taking the snapshot.
+-- To create a snapshot for EBS volumes that serve as root devices, you should
+-- stop the instance before taking the snapshot.
 --
 -- Snapshots that are taken from encrypted volumes are automatically encrypted.
 -- Volumes that are created from encrypted snapshots are also automatically
 -- encrypted. Your encrypted volumes and any associated snapshots always remain
 -- protected.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html Amazon Elastic Block Store> and <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBSEncryption> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html Amazon Elastic Block Store> and <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBSEncryption> in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateSnapshot.html>
 module Network.AWS.EC2.CreateSnapshot
@@ -114,10 +113,13 @@ createSnapshot p1 = CreateSnapshot
 cs2Description :: Lens' CreateSnapshot (Maybe Text)
 cs2Description = lens _cs2Description (\s a -> s { _cs2Description = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 cs2DryRun :: Lens' CreateSnapshot (Maybe Bool)
 cs2DryRun = lens _cs2DryRun (\s a -> s { _cs2DryRun = a })
 
--- | The ID of the Amazon EBS volume.
+-- | The ID of the EBS volume.
 cs2VolumeId :: Lens' CreateSnapshot Text
 cs2VolumeId = lens _cs2VolumeId (\s a -> s { _cs2VolumeId = a })
 
@@ -207,7 +209,7 @@ csr1KmsKeyId = lens _csr1KmsKeyId (\s a -> s { _csr1KmsKeyId = a })
 csr1OwnerAlias :: Lens' CreateSnapshotResponse (Maybe Text)
 csr1OwnerAlias = lens _csr1OwnerAlias (\s a -> s { _csr1OwnerAlias = a })
 
--- | The AWS account ID of the Amazon EBS snapshot owner.
+-- | The AWS account ID of the EBS snapshot owner.
 csr1OwnerId :: Lens' CreateSnapshotResponse Text
 csr1OwnerId = lens _csr1OwnerId (\s a -> s { _csr1OwnerId = a })
 

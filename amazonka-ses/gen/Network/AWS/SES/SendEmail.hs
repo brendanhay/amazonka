@@ -25,10 +25,11 @@
 -- | Composes an email message based on input data, and then immediately queues
 -- the message for sending.
 --
--- You can only send email from verified email addresses and domains. If you
--- have not requested production access to Amazon SES, you must also verify
--- every recipient email address except for the recipients provided by the
--- Amazon SES mailbox simulator. For more information, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Amazon SESDeveloper Guide>.  The total size of the message cannot exceed 10 MB.
+-- You can only send email from verified email addresses and domains. If your
+-- account is still in the Amazon SES sandbox, you must also verify every
+-- recipient email address except for the recipients provided by the Amazon SES
+-- mailbox simulator. For more information, go to the <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html Amazon SES Developer Guide>.
+-- The total size of the message cannot exceed 10 MB.
 --
 -- Amazon SES has a limit on the total number of recipients per message: The
 -- combined number of To:, CC: and BCC: email addresses cannot exceed 50. If you
@@ -120,7 +121,9 @@ seReplyToAddresses =
 -- | The email address to which bounces and complaints are to be forwarded when
 -- feedback forwarding is enabled. If the message cannot be delivered to the
 -- recipient, then an error message will be returned from the recipient's ISP;
--- this message will then be forwarded to the email address specified by the 'ReturnPath' parameter.
+-- this message will then be forwarded to the email address specified by the 'ReturnPath' parameter. The 'ReturnPath' parameter is never overwritten. This email address
+-- must be either individually verified with Amazon SES, or from a domain that
+-- has been verified with Amazon SES.
 seReturnPath :: Lens' SendEmail (Maybe Text)
 seReturnPath = lens _seReturnPath (\s a -> s { _seReturnPath = a })
 

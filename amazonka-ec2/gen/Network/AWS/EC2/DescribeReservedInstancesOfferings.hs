@@ -28,7 +28,7 @@
 -- errors, and you pay a lower usage rate than the rate charged for On-Demand
 -- instances for the actual time used.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html Reserved Instance Marketplace> in the /AmazonElastic Compute Cloud User Guide for Linux/.
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html Reserved Instance Marketplace> in the /AmazonElastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeReservedInstancesOfferings.html>
 module Network.AWS.EC2.DescribeReservedInstancesOfferings
@@ -139,6 +139,9 @@ drioAvailabilityZone :: Lens' DescribeReservedInstancesOfferings (Maybe Text)
 drioAvailabilityZone =
     lens _drioAvailabilityZone (\s a -> s { _drioAvailabilityZone = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 drioDryRun :: Lens' DescribeReservedInstancesOfferings (Maybe Bool)
 drioDryRun = lens _drioDryRun (\s a -> s { _drioDryRun = a })
 
@@ -185,7 +188,8 @@ drioInstanceTenancy =
     lens _drioInstanceTenancy (\s a -> s { _drioInstanceTenancy = a })
 
 -- | The instance type on which the Reserved Instance can be used. For more
--- information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud UserGuide for Linux/.
+-- information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Types> in the /Amazon Elastic Compute Cloud User Guide/
+-- .
 drioInstanceType :: Lens' DescribeReservedInstancesOfferings (Maybe InstanceType)
 drioInstanceType = lens _drioInstanceType (\s a -> s { _drioInstanceType = a })
 

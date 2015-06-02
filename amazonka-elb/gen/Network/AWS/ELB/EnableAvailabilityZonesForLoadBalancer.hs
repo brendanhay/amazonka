@@ -22,14 +22,13 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Adds one or more EC2 Availability Zones to the load balancer.
+-- | Adds the specified Availability Zones to the set of Availability Zones for
+-- the specified load balancer.
 --
 -- The load balancer evenly distributes requests across all its registered
 -- Availability Zones that contain instances.
 --
--- The new EC2 Availability Zones to be added must be in the same EC2 Region
--- as the Availability Zones for which the load balancer was created.  For more
--- information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_AddLBAvailabilityZone.html Expand a Load Balanced Application to an AdditionalAvailability Zone> in the /Elastic Load Balancing Developer Guide/.
+-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_AddLBAvailabilityZone.html Add Availability Zone> in the /Elastic LoadBalancing Developer Guide/.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_EnableAvailabilityZonesForLoadBalancer.html>
 module Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
@@ -75,14 +74,13 @@ enableAvailabilityZonesForLoadBalancer p1 = EnableAvailabilityZonesForLoadBalanc
     , _eazflbAvailabilityZones = mempty
     }
 
--- | A list of new Availability Zones for the load balancer. Each Availability
--- Zone must be in the same region as the load balancer.
+-- | The Availability Zones. These must be in the same region as the load balancer.
 eazflbAvailabilityZones :: Lens' EnableAvailabilityZonesForLoadBalancer [Text]
 eazflbAvailabilityZones =
     lens _eazflbAvailabilityZones (\s a -> s { _eazflbAvailabilityZones = a })
         . _List
 
--- | The name associated with the load balancer.
+-- | The name of the load balancer.
 eazflbLoadBalancerName :: Lens' EnableAvailabilityZonesForLoadBalancer Text
 eazflbLoadBalancerName =
     lens _eazflbLoadBalancerName (\s a -> s { _eazflbLoadBalancerName = a })
@@ -108,7 +106,7 @@ enableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesForLoadB
     { _eazflbrAvailabilityZones = mempty
     }
 
--- | An updated list of Availability Zones for the load balancer.
+-- | The updated list of Availability Zones for the load balancer.
 eazflbrAvailabilityZones :: Lens' EnableAvailabilityZonesForLoadBalancerResponse [Text]
 eazflbrAvailabilityZones =
     lens _eazflbrAvailabilityZones

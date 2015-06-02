@@ -102,8 +102,8 @@ spIamUserArn = lens _spIamUserArn (\s a -> s { _spIamUserArn = a })
 -- | The user's permission level, which must be set to one of the following
 -- strings. You cannot set your own permissions level.
 --
--- 'deny' 'show' 'deploy' 'manage' 'iam_only'  For more information on the permissions
--- associated with these levels, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>
+-- 'deny'   'show'   'deploy'   'manage'   'iam_only'   For more information on the
+-- permissions associated with these levels, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>
 spLevel :: Lens' SetPermission (Maybe Text)
 spLevel = lens _spLevel (\s a -> s { _spLevel = a })
 

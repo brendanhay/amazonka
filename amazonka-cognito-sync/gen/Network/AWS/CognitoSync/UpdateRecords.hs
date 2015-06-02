@@ -24,7 +24,7 @@
 
 -- | Posts updates to records and adds and deletes records for a dataset and user.
 --
--- 'UpdateRecords' can only be called with temporary user credentials provided by
+-- UpdateRecords can only be called with temporary user credentials provided by
 -- Cognito Identity. You cannot make this API call with developer credentials.
 --
 -- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_UpdateRecords.html>
@@ -100,8 +100,8 @@ updateRecords p1 p2 p3 p4 = UpdateRecords
     , _urClientContext    = Nothing
     }
 
--- | Intended to supply a device ID that will populate the 'lastModifiedBy' field
--- referenced in other methods. The 'ClientContext' field is not yet implemented.
+-- | Intended to supply a device ID that will populate the lastModifiedBy field
+-- referenced in other methods. The ClientContext field is not yet implemented.
 urClientContext :: Lens' UpdateRecords (Maybe Text)
 urClientContext = lens _urClientContext (\s a -> s { _urClientContext = a })
 

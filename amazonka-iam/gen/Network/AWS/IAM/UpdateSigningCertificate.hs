@@ -32,8 +32,6 @@
 -- action to manage root credentials even if the AWS account has no associated
 -- users.
 --
--- For information about rotating certificates, see <http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html Managing Keys andCertificates> in the /Using IAM/ guide.
---
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateSigningCertificate.html>
 module Network.AWS.IAM.UpdateSigningCertificate
     (

@@ -72,6 +72,9 @@ cancelBundleTask p1 = CancelBundleTask
 cbtBundleId :: Lens' CancelBundleTask Text
 cbtBundleId = lens _cbtBundleId (\s a -> s { _cbtBundleId = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 cbtDryRun :: Lens' CancelBundleTask (Maybe Bool)
 cbtDryRun = lens _cbtDryRun (\s a -> s { _cbtDryRun = a })
 
@@ -90,7 +93,7 @@ cancelBundleTaskResponse = CancelBundleTaskResponse
     { _cbtrBundleTask = Nothing
     }
 
--- | The bundle task.
+-- | Information about the bundle task.
 cbtrBundleTask :: Lens' CancelBundleTaskResponse (Maybe BundleTask)
 cbtrBundleTask = lens _cbtrBundleTask (\s a -> s { _cbtrBundleTask = a })
 

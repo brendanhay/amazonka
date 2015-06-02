@@ -25,7 +25,7 @@
 -- | Creates a security group.
 --
 -- A security group is for use with instances either in the EC2-Classic
--- platform or in a specific VPC. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html Amazon EC2 SecurityGroups> in the /Amazon Elastic Compute Cloud User Guide for Linux/ and <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html SecurityGroups for Your VPC> in the /Amazon Virtual Private Cloud User Guide/.
+-- platform or in a specific VPC. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html Amazon EC2 SecurityGroups> in the /Amazon Elastic Compute Cloud User Guide/ and <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html Security Groups forYour VPC> in the /Amazon Virtual Private Cloud User Guide/.
 --
 -- EC2-Classic: You can have up to 500 security groups.
 --
@@ -110,6 +110,9 @@ createSecurityGroup p1 p2 = CreateSecurityGroup
 csgDescription :: Lens' CreateSecurityGroup Text
 csgDescription = lens _csgDescription (\s a -> s { _csgDescription = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 csgDryRun :: Lens' CreateSecurityGroup (Maybe Bool)
 csgDryRun = lens _csgDryRun (\s a -> s { _csgDryRun = a })
 

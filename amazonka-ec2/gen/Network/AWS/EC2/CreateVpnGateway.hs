@@ -82,6 +82,9 @@ cvgAvailabilityZone :: Lens' CreateVpnGateway (Maybe Text)
 cvgAvailabilityZone =
     lens _cvgAvailabilityZone (\s a -> s { _cvgAvailabilityZone = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 cvgDryRun :: Lens' CreateVpnGateway (Maybe Bool)
 cvgDryRun = lens _cvgDryRun (\s a -> s { _cvgDryRun = a })
 

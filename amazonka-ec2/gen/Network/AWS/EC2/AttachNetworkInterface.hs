@@ -84,6 +84,9 @@ attachNetworkInterface p1 p2 p3 = AttachNetworkInterface
 aniDeviceIndex :: Lens' AttachNetworkInterface Int
 aniDeviceIndex = lens _aniDeviceIndex (\s a -> s { _aniDeviceIndex = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 aniDryRun :: Lens' AttachNetworkInterface (Maybe Bool)
 aniDryRun = lens _aniDryRun (\s a -> s { _aniDryRun = a })
 

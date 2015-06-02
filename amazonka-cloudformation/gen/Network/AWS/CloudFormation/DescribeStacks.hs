@@ -73,8 +73,8 @@ describeStacks = DescribeStacks
 ds1NextToken :: Lens' DescribeStacks (Maybe Text)
 ds1NextToken = lens _ds1NextToken (\s a -> s { _ds1NextToken = a })
 
--- | The name or the unique identifier associated with the stack, which are not
--- always interchangeable:
+-- | The name or the unique stack ID that is associated with the stack, which are
+-- not always interchangeable:
 --
 -- Running stacks: You can specify either the stack's name or its unique stack
 -- ID. Deleted stacks: You must specify the unique stack ID.  Default: There is

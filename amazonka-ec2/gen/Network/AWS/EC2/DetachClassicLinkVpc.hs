@@ -76,6 +76,9 @@ detachClassicLinkVpc p1 p2 = DetachClassicLinkVpc
     , _dclvDryRun     = Nothing
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dclvDryRun :: Lens' DetachClassicLinkVpc (Maybe Bool)
 dclvDryRun = lens _dclvDryRun (\s a -> s { _dclvDryRun = a })
 

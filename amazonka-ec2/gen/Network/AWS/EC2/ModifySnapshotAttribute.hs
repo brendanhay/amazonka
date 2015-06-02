@@ -28,7 +28,7 @@
 -- add and remove account IDs for a snapshot, you must use multiple API calls.
 --
 -- For more information on modifying snapshot permissions, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html Sharing Snapshots>
--- in the /Amazon Elastic Compute Cloud User Guide for Linux/.
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- Snapshots with AWS Marketplace product codes cannot be made public.
 --
@@ -111,6 +111,9 @@ msaCreateVolumePermission =
     lens _msaCreateVolumePermission
         (\s a -> s { _msaCreateVolumePermission = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 msaDryRun :: Lens' ModifySnapshotAttribute (Maybe Bool)
 msaDryRun = lens _msaDryRun (\s a -> s { _msaDryRun = a })
 

@@ -25,7 +25,7 @@
 -- | Gets usage information for an identity, including number of datasets and data
 -- usage.
 --
--- 'DescribeIdentityUsage' can be called with temporary user credentials provided
+-- DescribeIdentityUsage can be called with temporary user credentials provided
 -- by Cognito Identity or with developer credentials.
 --
 -- <http://docs.aws.amazon.com/cognitosync/latest/APIReference/API_DescribeIdentityUsage.html>

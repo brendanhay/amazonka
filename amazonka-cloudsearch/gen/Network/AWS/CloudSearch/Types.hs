@@ -334,7 +334,7 @@ instance AWSService CloudSearch where
               -> RESTError
               -> Bool
         check (statusCode -> s) (awsErrorCode -> e)
-            | s == 509 && "BandwidthLimitExceeded" == e = True -- Request Limit Exceeded
+            | s == 509 && (Just "BandwidthLimitExceeded") == e = True -- Request Limit Exceeded
             | s == 500  = True -- General Server Error
             | s == 509  = True -- Limit Exceeded
             | s == 503  = True -- Service Unavailable

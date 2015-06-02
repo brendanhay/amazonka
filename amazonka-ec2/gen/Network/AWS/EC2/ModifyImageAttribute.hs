@@ -119,6 +119,9 @@ miaAttribute = lens _miaAttribute (\s a -> s { _miaAttribute = a })
 miaDescription :: Lens' ModifyImageAttribute (Maybe AttributeValue)
 miaDescription = lens _miaDescription (\s a -> s { _miaDescription = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 miaDryRun :: Lens' ModifyImageAttribute (Maybe Bool)
 miaDryRun = lens _miaDryRun (\s a -> s { _miaDryRun = a })
 

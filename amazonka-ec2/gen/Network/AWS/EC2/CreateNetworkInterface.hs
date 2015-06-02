@@ -25,7 +25,7 @@
 -- | Creates a network interface in the specified subnet.
 --
 -- For more information about network interfaces, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html Elastic Network Interfaces>
--- in the /Amazon Elastic Compute Cloud User Guide for Linux/.
+-- in the /Amazon Elastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateNetworkInterface.html>
 module Network.AWS.EC2.CreateNetworkInterface
@@ -100,6 +100,9 @@ createNetworkInterface p1 = CreateNetworkInterface
 cniDescription :: Lens' CreateNetworkInterface (Maybe Text)
 cniDescription = lens _cniDescription (\s a -> s { _cniDescription = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 cniDryRun :: Lens' CreateNetworkInterface (Maybe Bool)
 cniDryRun = lens _cniDryRun (\s a -> s { _cniDryRun = a })
 
@@ -126,7 +129,7 @@ cniPrivateIpAddresses =
 -- option and specify more than one private IP address using 'privateIpAddresses'.
 --
 -- The number of IP addresses you can assign to a network interface varies by
--- instance type. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI Private IP Addresses Per ENI PerInstance Type> in the /Amazon Elastic Compute Cloud User Guide for Linux/.
+-- instance type. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI Private IP Addresses Per ENI PerInstance Type> in the /Amazon Elastic Compute Cloud User Guide/.
 cniSecondaryPrivateIpAddressCount :: Lens' CreateNetworkInterface (Maybe Int)
 cniSecondaryPrivateIpAddressCount =
     lens _cniSecondaryPrivateIpAddressCount

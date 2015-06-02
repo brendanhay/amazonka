@@ -128,10 +128,11 @@ updateStack p1 = UpdateStack
 -- that can affect permissions in your AWS account. For those stacks, you must
 -- explicitly acknowledge their capabilities by specifying this parameter.
 -- Currently, the only valid value is 'CAPABILITY_IAM', which is required for the
--- following resources: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html  AWS::CloudFormation::Stack>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html  AWS::IAM::AccessKey>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html AWS::IAM::Group>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html  AWS::IAM::InstanceProfile>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html  AWS::IAM::Policy>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html AWS::IAM::Role>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html  AWS::IAM::User>, and <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html  AWS::IAM::UserToGroupAddition>. If your
--- stack template contains these resources, we recommend that you review any
--- permissions associated with them. If you don't specify this parameter, this
--- action returns an InsufficientCapabilities error.
+-- following resources: <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html  AWS::IAM::AccessKey>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html  AWS::IAM::Group>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html AWS::IAM::InstanceProfile>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html  AWS::IAM::Policy>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html  AWS::IAM::Role>, <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html  AWS::IAM::User>
+-- , and <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html  AWS::IAM::UserToGroupAddition>. If your stack template contains these
+-- resources, we recommend that you review any permissions associated with them.
+-- If you don't specify this parameter, this action returns an
+-- InsufficientCapabilities error.
 usCapabilities :: Lens' UpdateStack [Capability]
 usCapabilities = lens _usCapabilities (\s a -> s { _usCapabilities = a }) . _List
 
@@ -142,13 +143,11 @@ usNotificationARNs =
         . _List
 
 -- | A list of 'Parameter' structures that specify input parameters for the stack.
+-- For more information, see the <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html Parameter> data type.
 usParameters :: Lens' UpdateStack [Parameter]
 usParameters = lens _usParameters (\s a -> s { _usParameters = a }) . _List
 
--- | The name or stack ID of the stack to update.
---
--- Must contain only alphanumeric characters (case sensitive) and start with
--- an alpha character. Maximum length of the name is 255 characters.
+-- | The name or unique stack ID of the stack to update.
 usStackName :: Lens' UpdateStack Text
 usStackName = lens _usStackName (\s a -> s { _usStackName = a })
 

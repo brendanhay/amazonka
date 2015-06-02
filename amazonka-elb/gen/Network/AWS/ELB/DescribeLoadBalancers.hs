@@ -22,12 +22,8 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Returns detailed configuration information for all the load balancers
--- created for the account. If you specify load balancer names, the action
--- returns configuration information of the specified load balancers.
---
--- In order to retrieve this information, you must provide the same account
--- credentials that was used to create the load balancer.
+-- | Describes the specified the load balancers. If no load balancers are
+-- specified, the call describes all of your load balancers.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeLoadBalancers.html>
 module Network.AWS.ELB.DescribeLoadBalancers
@@ -78,19 +74,19 @@ describeLoadBalancers = DescribeLoadBalancers
     , _dlbPageSize          = Nothing
     }
 
--- | A list of load balancer names associated with the account.
+-- | The names of the load balancers.
 dlbLoadBalancerNames :: Lens' DescribeLoadBalancers [Text]
 dlbLoadBalancerNames =
     lens _dlbLoadBalancerNames (\s a -> s { _dlbLoadBalancerNames = a })
         . _List
 
--- | An optional parameter used for pagination of results from this call. If
--- specified, the response includes only records beyond the marker.
+-- | The marker for the next set of results. (You received this marker from a
+-- previous call.)
 dlbMarker :: Lens' DescribeLoadBalancers (Maybe Text)
 dlbMarker = lens _dlbMarker (\s a -> s { _dlbMarker = a })
 
--- | The number of results returned in each page. The default is 400. You cannot
--- specify a page size greater than 400 or less than 1.
+-- | The maximum number of results to return with this call (a number from 1 to
+-- 400). The default is 400.
 dlbPageSize :: Lens' DescribeLoadBalancers (Maybe Natural)
 dlbPageSize = lens _dlbPageSize (\s a -> s { _dlbPageSize = a }) . mapping _Nat
 
@@ -113,15 +109,15 @@ describeLoadBalancersResponse = DescribeLoadBalancersResponse
     , _dlbrNextMarker               = Nothing
     }
 
--- | A list of load balancer description structures.
+-- | Information about the load balancers.
 dlbrLoadBalancerDescriptions :: Lens' DescribeLoadBalancersResponse [LoadBalancerDescription]
 dlbrLoadBalancerDescriptions =
     lens _dlbrLoadBalancerDescriptions
         (\s a -> s { _dlbrLoadBalancerDescriptions = a })
             . _List
 
--- | Specifies the value of next marker if the request returned more than one
--- page of results.
+-- | The marker to use when requesting the next set of results. If there are no
+-- additional results, the string is empty.
 dlbrNextMarker :: Lens' DescribeLoadBalancersResponse (Maybe Text)
 dlbrNextMarker = lens _dlbrNextMarker (\s a -> s { _dlbrNextMarker = a })
 

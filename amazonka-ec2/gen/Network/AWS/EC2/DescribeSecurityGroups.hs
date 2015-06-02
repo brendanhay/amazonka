@@ -25,7 +25,7 @@
 -- | Describes one or more of your security groups.
 --
 -- A security group is for use with instances either in the EC2-Classic
--- platform or in a specific VPC. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html Amazon EC2 SecurityGroups> in the /Amazon Elastic Compute Cloud User Guide for Linux/ and <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html SecurityGroups for Your VPC> in the /Amazon Virtual Private Cloud User Guide/.
+-- platform or in a specific VPC. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html Amazon EC2 SecurityGroups> in the /Amazon Elastic Compute Cloud User Guide/ and <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html Security Groups forYour VPC> in the /Amazon Virtual Private Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSecurityGroups.html>
 module Network.AWS.EC2.DescribeSecurityGroups
@@ -80,12 +80,18 @@ describeSecurityGroups = DescribeSecurityGroups
     , _dsg1Filters    = mempty
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dsg1DryRun :: Lens' DescribeSecurityGroups (Maybe Bool)
 dsg1DryRun = lens _dsg1DryRun (\s a -> s { _dsg1DryRun = a })
 
 -- | One or more filters.
 --
 -- 'description' - The description of the security group.
+--
+-- 'egress.ip-permission.prefix-list-id' - The ID (prefix) of the AWS service
+-- to which the security group allows access.
 --
 -- 'group-id' - The ID of the security group.
 --

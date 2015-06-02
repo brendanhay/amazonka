@@ -22,29 +22,22 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Creates a new load balancer.
+-- | Creates a load balancer.
 --
--- After the call has completed successfully, a new load balancer is created
--- with a unique Domain Name Service (DNS) name. The DNS name includes the name
--- of the AWS region in which the load balance was created. For example, if your
--- load balancer was created in the United States, the DNS name might end with
--- either of the following:
+-- If the call completes successfully, a new load balancer is created with a
+-- unique Domain Name Service (DNS) name. The DNS name includes the name of the
+-- AWS region in which the load balancer was created. For example, the DNS name
+-- might end with either of the following:
 --
--- /us-east-1.elb.amazonaws.com/ (for the Northern Virginia region)   /us-west-1.elb.amazonaws.com/ (for the Northern California region)   For information about the AWS regions
--- supported by Elastic Load Balancing, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#elb_region Regions and Endpoints>.
+-- 'us-east-1.elb.amazonaws.com'   'us-west-2.elb.amazonaws.com'   For
+-- information about the AWS regions supported by Elastic Load Balancing, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#elb_region Regions and Endpoints> in the /Amazon Web Services General Reference/.
 --
--- You can create up to 20 load balancers per region per account.
+-- You can create up to 20 load balancers per region per account. You can
+-- request an increase for the number of load balancers for your account. For
+-- more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-limits.html Elastic Load Balancing Limits> in the /Elastic LoadBalancing Developer Guide/.
 --
--- Elastic Load Balancing supports load balancing your Amazon EC2 instances
--- launched within any one of the following platforms:
---
--- /EC2-Classic/ For information on creating and managing your load balancers
--- in EC2-Classic, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/UserScenariosForEC2.html Deploy Elastic Load Balancing in Amazon EC2-Classic>.
---
--- /EC2-VPC/ For information on creating and managing your load balancers in
--- EC2-VPC, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/UserScenariosForVPC.html Deploy Elastic Load Balancing in Amazon VPC>.
---
---
+-- Elastic Load Balancing supports load balancing your EC2 instances launched
+-- in either the EC2-Classic or EC2-VPC platform. For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/UserScenariosForEC2.html Elastic Load Balancing in EC2-Classic> or <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/UserScenariosForVPC.html Elastic Load Balancing in a VPC> in the /Elastic Load Balancing DeveloperGuide/.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_CreateLoadBalancer.html>
 module Network.AWS.ELB.CreateLoadBalancer
@@ -116,60 +109,58 @@ createLoadBalancer p1 p2 = CreateLoadBalancer
     , _clbScheme            = Nothing
     }
 
--- | A list of Availability Zones.
+-- | One or more Availability Zones from the same region as the load balancer.
+-- Traffic is equally distributed across all specified Availability Zones.
 --
--- At least one Availability Zone must be specified. Specified Availability
--- Zones must be in the same EC2 Region as the load balancer. Traffic will be
--- equally distributed across all zones.
+-- You must specify at least one Availability Zone.
 --
--- You can later add more Availability Zones after the creation of the load
--- balancer by calling 'EnableAvailabilityZonesForLoadBalancer' action.
+-- You can add more Availability Zones after you create the load balancer using 'EnableAvailabilityZonesForLoadBalancer'.
 clbAvailabilityZones :: Lens' CreateLoadBalancer [Text]
 clbAvailabilityZones =
     lens _clbAvailabilityZones (\s a -> s { _clbAvailabilityZones = a })
         . _List
 
--- | A list of the following tuples: Protocol, LoadBalancerPort,
--- InstanceProtocol, InstancePort, and SSLCertificateId.
+-- | The listeners.
+--
+-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-listener-config.html Listener Configurations for Elastic Load Balancing>
+-- in the /Elastic Load Balancing Developer Guide/.
 clbListeners :: Lens' CreateLoadBalancer [Listener]
 clbListeners = lens _clbListeners (\s a -> s { _clbListeners = a }) . _List
 
--- | The name associated with the load balancer. The name must be unique within
--- your set of load balancers, must have a maximum of 32 characters, and must
--- only contain alphanumeric characters or hyphens.
+-- | The name of the load balancer.
+--
+-- This name must be unique within your AWS account, must have a maximum of 32
+-- characters, must contain only alphanumeric characters or hyphens, and cannot
+-- begin or end with a hyphen.
 clbLoadBalancerName :: Lens' CreateLoadBalancer Text
 clbLoadBalancerName =
     lens _clbLoadBalancerName (\s a -> s { _clbLoadBalancerName = a })
 
--- | The type of a load balancer.
+-- | The type of a load balancer. Valid only for load balancers in a VPC.
 --
 -- By default, Elastic Load Balancing creates an Internet-facing load balancer
 -- with a publicly resolvable DNS name, which resolves to public IP addresses.
--- For more information about Internet-facing and Internal load balancers, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/vpc-loadbalancer-types.html Internet-facing and Internal Load Balancers>.
+-- For more information about Internet-facing and Internal load balancers, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/vpc-loadbalancer-types.html Internet-facing and Internal Load Balancers> in the /Elastic Load Balancing Developer Guide/.
 --
--- Specify the value 'internal' for this option to create an internal load
--- balancer with a DNS name that resolves to private IP addresses.
---
--- This option is only available for load balancers created within EC2-VPC.
---
---
+-- Specify 'internal' to create an internal load balancer with a DNS name that
+-- resolves to private IP addresses.
 clbScheme :: Lens' CreateLoadBalancer (Maybe Text)
 clbScheme = lens _clbScheme (\s a -> s { _clbScheme = a })
 
--- | The security groups to assign to your load balancer within your VPC.
+-- | The IDs of the security groups to assign to the load balancer.
 clbSecurityGroups :: Lens' CreateLoadBalancer [Text]
 clbSecurityGroups =
     lens _clbSecurityGroups (\s a -> s { _clbSecurityGroups = a })
         . _List
 
--- | A list of subnet IDs in your VPC to attach to your load balancer. Specify
--- one subnet per Availability Zone.
+-- | The IDs of the subnets in your VPC to attach to the load balancer. Specify
+-- one subnet per Availability Zone specified in 'AvailabilityZones'.
 clbSubnets :: Lens' CreateLoadBalancer [Text]
 clbSubnets = lens _clbSubnets (\s a -> s { _clbSubnets = a }) . _List
 
 -- | A list of tags to assign to the load balancer.
 --
--- For more information about setting tags for your load balancer, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#tagging-elb Tagging>.
+-- For more information about tagging your load balancer, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#tagging-elb Tagging> in the /Elastic Load Balancing Developer Guide/.
 clbTags :: Lens' CreateLoadBalancer (NonEmpty Tag)
 clbTags = lens _clbTags (\s a -> s { _clbTags = a }) . _List1
 
@@ -188,7 +179,7 @@ createLoadBalancerResponse = CreateLoadBalancerResponse
     { _clbrDNSName = Nothing
     }
 
--- | The DNS name for the load balancer.
+-- | The DNS name of the load balancer.
 clbrDNSName :: Lens' CreateLoadBalancerResponse (Maybe Text)
 clbrDNSName = lens _clbrDNSName (\s a -> s { _clbrDNSName = a })
 

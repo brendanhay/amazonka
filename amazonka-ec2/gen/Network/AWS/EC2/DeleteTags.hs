@@ -25,7 +25,7 @@
 -- | Deletes the specified set of tags from the specified set of resources. This
 -- call is designed to follow a 'DescribeTags' request.
 --
--- For more information about tags, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Resources> in the /AmazonElastic Compute Cloud User Guide for Linux/.
+-- For more information about tags, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Resources> in the /AmazonElastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteTags.html>
 module Network.AWS.EC2.DeleteTags
@@ -73,6 +73,9 @@ deleteTags = DeleteTags
     , _dt1Tags      = mempty
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dt1DryRun :: Lens' DeleteTags (Maybe Bool)
 dt1DryRun = lens _dt1DryRun (\s a -> s { _dt1DryRun = a })
 

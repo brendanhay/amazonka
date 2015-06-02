@@ -42,6 +42,7 @@ module Network.AWS.CloudSearchDomains.Types
     -- * Hit
     , Hit
     , hit
+    , hitExprs
     , hitFields
     , hitHighlights
     , hitId
@@ -213,7 +214,8 @@ instance ToJSON QueryParser where
     toJSON = toJSONText
 
 data Hit = Hit
-    { _hitFields     :: Map Text (List "fields" Text)
+    { _hitExprs      :: Map Text Text
+    , _hitFields     :: Map Text (List "fields" Text)
     , _hitHighlights :: Map Text Text
     , _hitId         :: Maybe Text
     } deriving (Eq, Read, Show)
@@ -221,6 +223,8 @@ data Hit = Hit
 -- | 'Hit' constructor.
 --
 -- The fields accessible through corresponding lenses are:
+--
+-- * 'hitExprs' @::@ 'HashMap' 'Text' 'Text'
 --
 -- * 'hitFields' @::@ 'HashMap' 'Text' ['Text']
 --
@@ -232,8 +236,13 @@ hit :: Hit
 hit = Hit
     { _hitId         = Nothing
     , _hitFields     = mempty
+    , _hitExprs      = mempty
     , _hitHighlights = mempty
     }
+
+-- | The expressions returned from a document that matches the search request.
+hitExprs :: Lens' Hit (HashMap Text Text)
+hitExprs = lens _hitExprs (\s a -> s { _hitExprs = a }) . _Map
 
 -- | The fields returned from a document that matches the search request.
 hitFields :: Lens' Hit (HashMap Text [Text])
@@ -249,7 +258,8 @@ hitId = lens _hitId (\s a -> s { _hitId = a })
 
 instance FromJSON Hit where
     parseJSON = withObject "Hit" $ \o -> Hit
-        <$> o .:? "fields" .!= mempty
+        <$> o .:? "exprs" .!= mempty
+        <*> o .:? "fields" .!= mempty
         <*> o .:? "highlights" .!= mempty
         <*> o .:? "id"
 
@@ -257,6 +267,7 @@ instance ToJSON Hit where
     toJSON Hit{..} = object
         [ "id"         .= _hitId
         , "fields"     .= _hitFields
+        , "exprs"      .= _hitExprs
         , "highlights" .= _hitHighlights
         ]
 

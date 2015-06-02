@@ -186,7 +186,8 @@ caStackId = lens _caStackId (\s a -> s { _caStackId = a })
 -- | The app type. Each supported type is associated with a particular layer. For
 -- example, PHP applications are associated with a PHP layer. AWS OpsWorks
 -- deploys an application to those instances that are members of the
--- corresponding layer.
+-- corresponding layer. If your app isn't one of the standard types, or you
+-- prefer to implement your own Deploy recipes, specify 'other'.
 caType :: Lens' CreateApp AppType
 caType = lens _caType (\s a -> s { _caType = a })
 

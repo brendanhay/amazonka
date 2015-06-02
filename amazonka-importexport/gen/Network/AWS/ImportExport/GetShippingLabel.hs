@@ -22,9 +22,8 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | This operation returns information about a job, including where the job is in
--- the processing pipeline, the status of the results, and the signature value
--- associated with the job. You can only return information about jobs you own.
+-- | This operation generates a pre-paid UPS shipping label that you will use to
+-- ship your device to AWS for processing.
 --
 -- <http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebGetShippingLabel.html>
 module Network.AWS.ImportExport.GetShippingLabel

@@ -119,7 +119,7 @@
         "url": "http://docs.aws.amazon.com/elasticbeanstalk/latest/api/Welcome.html",
         "protocol": "query",
         "name": "Amazon Elastic Beanstalk",
-        "version": "0.3.4",
+        "version": "0.3.5",
         "description": "AWS Elastic Beanstalk is an easy-to-use service for deploying and scaling web\napplications and services developed with Java, .NET, PHP, Node.js, Python,\nRuby, and Docker on familiar servers such as Apache HTTP Server, Apache\nTomcat, Nginx, Passenger, and IIS 7.5/8. You can simply upload your code and\nElastic Beanstalk automatically handles the deployment, from capacity\nprovisioning, load balancing, auto-scaling to application health monitoring.\nAt the same time, you retain full control over the AWS resources powering\nyour application and can access the underlying resources at any time. There\nis no additional charge for Elastic Beanstalk - you pay only for the AWS\nresources needed to store and run your applications."
     },
     "types": {
@@ -1040,16 +1040,34 @@
                     "Read",
                     "Show"
                 ],
-                "fieldPad": 14,
+                "fieldPad": 16,
                 "ctor": "configurationOptionSetting",
                 "contents": [],
                 "payload": null,
                 "required": [],
                 "contentPad": 0,
                 "name": "ConfigurationOptionSetting",
-                "locationPad": 11,
+                "locationPad": 13,
                 "type": "record",
                 "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "cosResourceName",
+                        "name": "_cosResourceName",
+                        "shape": "ResourceName",
+                        "locationName": "ResourceName",
+                        "documentation": "-- | A unique resource name for a time-based scaling configuration option.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
                     {
                         "location": "querystring",
                         "iso": null,
@@ -1139,6 +1157,24 @@
                         "shape": "ConfigurationOptionName",
                         "locationName": "OptionName",
                         "documentation": "-- | The name of the configuration option.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "cosResourceName",
+                        "name": "_cosResourceName",
+                        "shape": "ResourceName",
+                        "locationName": "ResourceName",
+                        "documentation": "-- | A unique resource name for a time-based scaling configuration option.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1767,16 +1803,34 @@
                     "Read",
                     "Show"
                 ],
-                "fieldPad": 13,
+                "fieldPad": 15,
                 "ctor": "optionSpecification",
                 "contents": [],
                 "payload": null,
                 "required": [],
                 "contentPad": 0,
                 "name": "OptionSpecification",
-                "locationPad": 11,
+                "locationPad": 13,
                 "type": "record",
                 "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "osResourceName",
+                        "name": "_osResourceName",
+                        "shape": "ResourceName",
+                        "locationName": "ResourceName",
+                        "documentation": "-- | A unique resource name for a time-based scaling configuration option.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
                     {
                         "location": "querystring",
                         "iso": null,
@@ -1848,6 +1902,24 @@
                         "shape": "ConfigurationOptionName",
                         "locationName": "OptionName",
                         "documentation": "-- | The name of the configuration option.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "osResourceName",
+                        "name": "_osResourceName",
+                        "shape": "ResourceName",
+                        "locationName": "ResourceName",
+                        "documentation": "-- | A unique resource name for a time-based scaling configuration option.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -4105,7 +4177,7 @@
                         "name": "_ed1AbortableOperationInProgress",
                         "shape": "AbortableOperationInProgress",
                         "locationName": "AbortableOperationInProgress",
-                        "documentation": "-- | Lists in-progress environment updates and application version deployments\n-- that you can cancel.",
+                        "documentation": "-- | Indicates if there is an in-progress environment configuration update or\n-- application version deployment that you can cancel.\n--\n-- 'true:' There is an update in progress.\n--\n-- 'false:' There are no updates currently in progress.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -4179,7 +4251,7 @@
                         "name": "_ed1AbortableOperationInProgress",
                         "shape": "AbortableOperationInProgress",
                         "locationName": "AbortableOperationInProgress",
-                        "documentation": "-- | Lists in-progress environment updates and application version deployments\n-- that you can cancel.",
+                        "documentation": "-- | Indicates if there is an in-progress environment configuration update or\n-- application version deployment that you can cancel.\n--\n-- 'true:' There is an update in progress.\n--\n-- 'false:' There are no updates currently in progress.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -6647,7 +6719,7 @@
                         "name": "_cerAbortableOperationInProgress",
                         "shape": "AbortableOperationInProgress",
                         "locationName": "AbortableOperationInProgress",
-                        "documentation": "-- | Lists in-progress environment updates and application version deployments\n-- that you can cancel.",
+                        "documentation": "-- | Indicates if there is an in-progress environment configuration update or\n-- application version deployment that you can cancel.\n--\n-- 'true:' There is an update in progress.\n--\n-- 'false:' There are no updates currently in progress.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -6721,7 +6793,7 @@
                         "name": "_cerAbortableOperationInProgress",
                         "shape": "AbortableOperationInProgress",
                         "locationName": "AbortableOperationInProgress",
-                        "documentation": "-- | Lists in-progress environment updates and application version deployments\n-- that you can cancel.",
+                        "documentation": "-- | Indicates if there is an in-progress environment configuration update or\n-- application version deployment that you can cancel.\n--\n-- 'true:' There is an update in progress.\n--\n-- 'false:' There are no updates currently in progress.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -12005,7 +12077,7 @@
                         "name": "_terAbortableOperationInProgress",
                         "shape": "AbortableOperationInProgress",
                         "locationName": "AbortableOperationInProgress",
-                        "documentation": "-- | Lists in-progress environment updates and application version deployments\n-- that you can cancel.",
+                        "documentation": "-- | Indicates if there is an in-progress environment configuration update or\n-- application version deployment that you can cancel.\n--\n-- 'true:' There is an update in progress.\n--\n-- 'false:' There are no updates currently in progress.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -12079,7 +12151,7 @@
                         "name": "_terAbortableOperationInProgress",
                         "shape": "AbortableOperationInProgress",
                         "locationName": "AbortableOperationInProgress",
-                        "documentation": "-- | Lists in-progress environment updates and application version deployments\n-- that you can cancel.",
+                        "documentation": "-- | Indicates if there is an in-progress environment configuration update or\n-- application version deployment that you can cancel.\n--\n-- 'true:' There is an update in progress.\n--\n-- 'false:' There are no updates currently in progress.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -13878,7 +13950,7 @@
                         "name": "_uerAbortableOperationInProgress",
                         "shape": "AbortableOperationInProgress",
                         "locationName": "AbortableOperationInProgress",
-                        "documentation": "-- | Lists in-progress environment updates and application version deployments\n-- that you can cancel.",
+                        "documentation": "-- | Indicates if there is an in-progress environment configuration update or\n-- application version deployment that you can cancel.\n--\n-- 'true:' There is an update in progress.\n--\n-- 'false:' There are no updates currently in progress.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -13952,7 +14024,7 @@
                         "name": "_uerAbortableOperationInProgress",
                         "shape": "AbortableOperationInProgress",
                         "locationName": "AbortableOperationInProgress",
-                        "documentation": "-- | Lists in-progress environment updates and application version deployments\n-- that you can cancel.",
+                        "documentation": "-- | Indicates if there is an in-progress environment configuration update or\n-- application version deployment that you can cancel.\n--\n-- 'true:' There is an update in progress.\n--\n-- 'false:' There are no updates currently in progress.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -14386,7 +14458,7 @@
                         "name": "_ueTier",
                         "shape": "EnvironmentTier",
                         "locationName": "Tier",
-                        "documentation": "-- | This specifies the tier to use to update the environment.\n--\n-- Condition: You can only update the tier version for an environment. If you\n-- change the name of the type, AWS Elastic Beanstalk returns 'InvalidParameterValue' error.",
+                        "documentation": "-- | This specifies the tier to use to update the environment.\n--\n-- Condition: At this time, if you change the tier version, name, or type, AWS\n-- Elastic Beanstalk returns 'InvalidParameterValue' error.",
                         "typeExposed": "Maybe EnvironmentTier",
                         "type": "Maybe EnvironmentTier"
                     },
@@ -14622,7 +14694,7 @@
                         "name": "_ueTier",
                         "shape": "EnvironmentTier",
                         "locationName": "Tier",
-                        "documentation": "-- | This specifies the tier to use to update the environment.\n--\n-- Condition: You can only update the tier version for an environment. If you\n-- change the name of the type, AWS Elastic Beanstalk returns 'InvalidParameterValue' error.",
+                        "documentation": "-- | This specifies the tier to use to update the environment.\n--\n-- Condition: At this time, if you change the tier version, name, or type, AWS\n-- Elastic Beanstalk returns 'InvalidParameterValue' error.",
                         "typeExposed": "Maybe EnvironmentTier",
                         "type": "Maybe EnvironmentTier"
                     },

@@ -22,8 +22,8 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Lists the instance profiles that have the specified associated role. If
--- there are none, the action returns an empty list. For more information about
+-- | Lists the instance profiles that have the specified associated role. If there
+-- are none, the action returns an empty list. For more information about
 -- instance profiles, go to <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles>.
 --
 -- You can paginate the results using the 'MaxItems' and 'Marker' parameters.

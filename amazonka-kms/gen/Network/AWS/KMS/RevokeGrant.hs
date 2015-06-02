@@ -33,8 +33,8 @@ module Network.AWS.KMS.RevokeGrant
     -- ** Request constructor
     , revokeGrant
     -- ** Request lenses
-    , rgGrantId
-    , rgKeyId
+    , rg1GrantId
+    , rg1KeyId
 
     -- * Response
     , RevokeGrantResponse
@@ -49,37 +49,37 @@ import Network.AWS.KMS.Types
 import qualified GHC.Exts
 
 data RevokeGrant = RevokeGrant
-    { _rgGrantId :: Text
-    , _rgKeyId   :: Text
+    { _rg1GrantId :: Text
+    , _rg1KeyId   :: Text
     } deriving (Eq, Ord, Read, Show)
 
 -- | 'RevokeGrant' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rgGrantId' @::@ 'Text'
+-- * 'rg1GrantId' @::@ 'Text'
 --
--- * 'rgKeyId' @::@ 'Text'
+-- * 'rg1KeyId' @::@ 'Text'
 --
-revokeGrant :: Text -- ^ 'rgKeyId'
-            -> Text -- ^ 'rgGrantId'
+revokeGrant :: Text -- ^ 'rg1KeyId'
+            -> Text -- ^ 'rg1GrantId'
             -> RevokeGrant
 revokeGrant p1 p2 = RevokeGrant
-    { _rgKeyId   = p1
-    , _rgGrantId = p2
+    { _rg1KeyId   = p1
+    , _rg1GrantId = p2
     }
 
 -- | Identifier of the grant to be revoked.
-rgGrantId :: Lens' RevokeGrant Text
-rgGrantId = lens _rgGrantId (\s a -> s { _rgGrantId = a })
+rg1GrantId :: Lens' RevokeGrant Text
+rg1GrantId = lens _rg1GrantId (\s a -> s { _rg1GrantId = a })
 
 -- | A unique identifier for the customer master key associated with the grant.
 -- This value can be a globally unique identifier or the fully specified ARN to
 -- a key.  Key ARN Example -
--- arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012 Globally Unique Key ID Example - 12345678-1234-1234-123456789012
+-- arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012 Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012
 --
-rgKeyId :: Lens' RevokeGrant Text
-rgKeyId = lens _rgKeyId (\s a -> s { _rgKeyId = a })
+rg1KeyId :: Lens' RevokeGrant Text
+rg1KeyId = lens _rg1KeyId (\s a -> s { _rg1KeyId = a })
 
 data RevokeGrantResponse = RevokeGrantResponse
     deriving (Eq, Ord, Read, Show, Generic)
@@ -98,8 +98,8 @@ instance ToHeaders RevokeGrant
 
 instance ToJSON RevokeGrant where
     toJSON RevokeGrant{..} = object
-        [ "KeyId"   .= _rgKeyId
-        , "GrantId" .= _rgGrantId
+        [ "KeyId"   .= _rg1KeyId
+        , "GrantId" .= _rg1GrantId
         ]
 
 instance AWSRequest RevokeGrant where

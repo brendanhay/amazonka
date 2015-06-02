@@ -130,9 +130,9 @@ updateItem p1 = UpdateItem
     , _uiExpressionAttributeValues   = mempty
     }
 
--- | There is a newer parameter available. Use /UpdateExpression/ instead. Note
--- that if you use /AttributeUpdates/ and /UpdateExpression/ at the same time,
--- DynamoDB will return a /ValidationException/ exception.
+-- | This is a legacy parameter, for backward compatibility. New applications
+-- should use /UpdateExpression/ instead. Do not combine legacy parameters and
+-- expression parameters in a single API call; otherwise, DynamoDB will return a /ValidationException/ exception.
 --
 -- This parameter can be used for modifying top-level attributes; however, it
 -- does not support individual list or map elements.
@@ -230,15 +230,19 @@ uiAttributeUpdates =
 --
 -- Logical operators: 'AND | OR | NOT'
 --
--- For more information on condition expressions, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
+-- For more information on condition expressions, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
 -- in the /Amazon DynamoDB Developer Guide/.
+--
+-- /ConditionExpression/ replaces the legacy /ConditionalOperator/ and /Expected/
+-- parameters.
+--
 uiConditionExpression :: Lens' UpdateItem (Maybe Text)
 uiConditionExpression =
     lens _uiConditionExpression (\s a -> s { _uiConditionExpression = a })
 
--- | There is a newer parameter available. Use /ConditionExpression/ instead. Note
--- that if you use /ConditionalOperator/ and / ConditionExpression / at the same
--- time, DynamoDB will return a /ValidationException/ exception.
+-- | This is a legacy parameter, for backward compatibility. New applications
+-- should use /ConditionExpression/ instead. Do not combine legacy parameters and
+-- expression parameters in a single API call; otherwise, DynamoDB will return a /ValidationException/ exception.
 --
 -- A logical operator to apply to the conditions in the /Expected/ map:
 --
@@ -258,9 +262,10 @@ uiConditionalOperator :: Lens' UpdateItem (Maybe ConditionalOperator)
 uiConditionalOperator =
     lens _uiConditionalOperator (\s a -> s { _uiConditionalOperator = a })
 
--- | There is a newer parameter available. Use / ConditionExpression / instead.
--- Note that if you use /Expected/ and / ConditionExpression / at the same time,
--- DynamoDB will return a /ValidationException/ exception.
+-- | This is a legacy parameter, for backward compatibility. New applications
+-- should use / ConditionExpression / instead. Do not combine legacy parameters
+-- and expression parameters in a single API call; otherwise, DynamoDB will
+-- return a /ValidationException/ exception.
 --
 -- A map of attribute/condition pairs. /Expected/ provides a conditional block
 -- for the /UpdateItem/ operation.
@@ -469,9 +474,8 @@ uiExpected = lens _uiExpected (\s a -> s { _uiExpected = a }) . _Map
 -- 'Percentile'
 --
 -- The name of this attribute conflicts with a reserved word, so it cannot be
--- used directly in an expression. (For the complete list of reserved words, go
--- to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html Reserved Words> in the /Amazon DynamoDB Developer Guide/). To work around
--- this, you could specify the following for /ExpressionAttributeNames/:
+-- used directly in an expression. (For the complete list of reserved words, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html Reserved Words> in the /Amazon DynamoDB Developer Guide/). To work around this,
+-- you could specify the following for /ExpressionAttributeNames/:
 --
 -- '{"#P":"Percentile"}'
 --
@@ -482,7 +486,7 @@ uiExpected = lens _uiExpected (\s a -> s { _uiExpected = a }) . _Map
 -- Tokens that begin with the : character are /expression attribute values/,
 -- which are placeholders for the actual value at runtime.
 --
--- For more information on expression attribute names, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing ItemAttributes> in the /Amazon DynamoDB Developer Guide/.
+-- For more information on expression attribute names, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ExpressionPlaceholders.html Using Placeholdersfor Attribute Names and Values> in the /Amazon DynamoDB Developer Guide/.
 uiExpressionAttributeNames :: Lens' UpdateItem (HashMap Text Text)
 uiExpressionAttributeNames =
     lens _uiExpressionAttributeNames
@@ -504,7 +508,7 @@ uiExpressionAttributeNames =
 --
 -- 'ProductStatus IN (:avail, :back, :disc)'
 --
--- For more information on expression attribute values, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html SpecifyingConditions> in the /Amazon DynamoDB Developer Guide/.
+-- For more information on expression attribute values, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ExpressionPlaceholders.html Using Placeholdersfor Attribute Names and Values> in the /Amazon DynamoDB Developer Guide/.
 uiExpressionAttributeValues :: Lens' UpdateItem (HashMap Text AttributeValue)
 uiExpressionAttributeValues =
     lens _uiExpressionAttributeValues
@@ -622,7 +626,10 @@ uiTableName = lens _uiTableName (\s a -> s { _uiTableName = a })
 --
 -- You can have many actions in a single expression, such as the following: 'SET a=:value1, b=:value2 DELETE :value3, :value4, :value5'
 --
--- For more information on update expressions, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.Modifying.html Modifying Items andAttributes> in the /Amazon DynamoDB Developer Guide/.
+-- For more information on update expressions, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.Modifying.html Modifying Items andAttributes> in the /Amazon DynamoDB Developer Guide/.
+--
+-- /UpdateExpression/ replaces the legacy /AttributeUpdates/ parameter.
+--
 uiUpdateExpression :: Lens' UpdateItem (Maybe Text)
 uiUpdateExpression =
     lens _uiUpdateExpression (\s a -> s { _uiUpdateExpression = a })

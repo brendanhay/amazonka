@@ -58,6 +58,7 @@
             "Network.AWS.IAM.DetachUserPolicy",
             "Network.AWS.IAM.EnableMFADevice",
             "Network.AWS.IAM.GenerateCredentialReport",
+            "Network.AWS.IAM.GetAccessKeyLastUsed",
             "Network.AWS.IAM.GetAccountAuthorizationDetails",
             "Network.AWS.IAM.GetAccountPasswordPolicy",
             "Network.AWS.IAM.GetAccountSummary",
@@ -200,6 +201,7 @@
             "Network.AWS.IAM.DetachUserPolicy",
             "Network.AWS.IAM.EnableMFADevice",
             "Network.AWS.IAM.GenerateCredentialReport",
+            "Network.AWS.IAM.GetAccessKeyLastUsed",
             "Network.AWS.IAM.GetAccountAuthorizationDetails",
             "Network.AWS.IAM.GetAccountPasswordPolicy",
             "Network.AWS.IAM.GetAccountSummary",
@@ -265,7 +267,7 @@
         "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/Welcome.html",
         "protocol": "query",
         "name": "Amazon Identity and Access Management",
-        "version": "0.3.4",
+        "version": "0.3.5",
         "description": "AWS Identity and Access Management (IAM) enables you to securely control\naccess to AWS services and resources for your users. Using IAM, you can\ncreate and manage AWS users and groups and use permissions to allow and deny\ntheir access to AWS resources."
     },
     "types": {
@@ -1618,7 +1620,7 @@
                         "name": "_pvDocument",
                         "shape": "policyDocumentType",
                         "locationName": "Document",
-                        "documentation": "-- | The policy document.\n--\n-- The policy document is returned in the response to the 'GetPolicyVersion'\n-- operation. It is not included in the response to the 'ListPolicyVersions' or 'GetAccountAuthorizationDetails' operations.",
+                        "documentation": "-- | The policy document.\n--\n-- The policy document is returned in the response to the 'GetPolicyVersion' and 'GetAccountAuthorizationDetails' operations. It is not returned in the response to the 'CreatePolicyVersion' or 'ListPolicyVersions' operations.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1710,7 +1712,7 @@
                         "name": "_pvDocument",
                         "shape": "policyDocumentType",
                         "locationName": "Document",
-                        "documentation": "-- | The policy document.\n--\n-- The policy document is returned in the response to the 'GetPolicyVersion'\n-- operation. It is not included in the response to the 'ListPolicyVersions' or 'GetAccountAuthorizationDetails' operations.",
+                        "documentation": "-- | The policy document.\n--\n-- The policy document is returned in the response to the 'GetPolicyVersion' and 'GetAccountAuthorizationDetails' operations. It is not returned in the response to the 'CreatePolicyVersion' or 'ListPolicyVersions' operations.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2109,7 +2111,7 @@
                         "name": "_rdAssumeRolePolicyDocument",
                         "shape": "policyDocumentType",
                         "locationName": "AssumeRolePolicyDocument",
-                        "documentation": "-- | The trust policy that grants permission to assume the role.\n--\n-- The returned policy is URL-encoded according to \u003chttp://www.faqs.org/rfcs/rfc3986.html RFC 3986\u003e.",
+                        "documentation": "-- | The trust policy that grants permission to assume the role.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2201,7 +2203,7 @@
                         "name": "_rdAssumeRolePolicyDocument",
                         "shape": "policyDocumentType",
                         "locationName": "AssumeRolePolicyDocument",
-                        "documentation": "-- | The trust policy that grants permission to assume the role.\n--\n-- The returned policy is URL-encoded according to \u003chttp://www.faqs.org/rfcs/rfc3986.html RFC 3986\u003e.",
+                        "documentation": "-- | The trust policy that grants permission to assume the role.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3170,24 +3172,6 @@
                         "payload": false,
                         "flattened": false,
                         "required": true,
-                        "lens": "uPath",
-                        "name": "_uPath",
-                        "shape": "pathType",
-                        "locationName": "Path",
-                        "documentation": "-- | The path to the user. For more information about paths, see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers\u003e\n-- in the /Using IAM/ guide.",
-                        "typeExposed": "Text",
-                        "type": "Text"
-                    },
-                    {
-                        "location": "querystring",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "error",
-                        "monoid": false,
-                        "protocol": "query",
-                        "payload": false,
-                        "flattened": false,
-                        "required": true,
                         "lens": "uUserName",
                         "name": "_uUserName",
                         "shape": "userNameType",
@@ -3256,6 +3240,24 @@
                 "locationPad": 17,
                 "type": "record",
                 "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "uPath",
+                        "name": "_uPath",
+                        "shape": "pathType",
+                        "locationName": "Path",
+                        "documentation": "-- | The path to the user. For more information about paths, see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers\u003e\n-- in the /Using IAM/ guide.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
                     {
                         "location": "querystring",
                         "iso": null,
@@ -3334,19 +3336,19 @@
                         "location": "querystring",
                         "iso": null,
                         "lensMapping": null,
-                        "default": "error",
+                        "default": "Nothing",
                         "monoid": false,
                         "protocol": "query",
                         "payload": false,
                         "flattened": false,
-                        "required": true,
+                        "required": false,
                         "lens": "uPath",
                         "name": "_uPath",
                         "shape": "pathType",
                         "locationName": "Path",
                         "documentation": "-- | The path to the user. For more information about paths, see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers\u003e\n-- in the /Using IAM/ guide.",
-                        "typeExposed": "Text",
-                        "type": "Text"
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
                     },
                     {
                         "location": "querystring",
@@ -3435,7 +3437,7 @@
                         "name": "_pdPolicyDocument",
                         "shape": "policyDocumentType",
                         "locationName": "PolicyDocument",
-                        "documentation": "-- | The policy document.\n--\n-- The returned policy is URL-encoded according to \u003chttp://www.faqs.org/rfcs/rfc3986.html RFC 3986\u003e.",
+                        "documentation": "-- | The policy document.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3455,7 +3457,7 @@
                         "name": "_pdPolicyDocument",
                         "shape": "policyDocumentType",
                         "locationName": "PolicyDocument",
-                        "documentation": "-- | The policy document.\n--\n-- The returned policy is URL-encoded according to \u003chttp://www.faqs.org/rfcs/rfc3986.html RFC 3986\u003e.",
+                        "documentation": "-- | The policy document.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3748,7 +3750,7 @@
                         "name": "_rAssumeRolePolicyDocument",
                         "shape": "policyDocumentType",
                         "locationName": "AssumeRolePolicyDocument",
-                        "documentation": "-- | The policy that grants an entity permission to assume the role.\n--\n-- The returned policy is URL-encoded according to \u003chttp://www.faqs.org/rfcs/rfc3986.html RFC 3986\u003e.",
+                        "documentation": "-- | The policy that grants an entity permission to assume the role.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3786,7 +3788,7 @@
                         "name": "_rAssumeRolePolicyDocument",
                         "shape": "policyDocumentType",
                         "locationName": "AssumeRolePolicyDocument",
-                        "documentation": "-- | The policy that grants an entity permission to assume the role.\n--\n-- The returned policy is URL-encoded according to \u003chttp://www.faqs.org/rfcs/rfc3986.html RFC 3986\u003e.",
+                        "documentation": "-- | The policy that grants an entity permission to assume the role.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -5376,6 +5378,135 @@
                         "shape": "userNameType",
                         "locationName": "UserName",
                         "documentation": "-- | The name of the user the signing certificate is associated with.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show"
+                ],
+                "fieldPad": 17,
+                "ctor": "accessKeyLastUsed",
+                "contents": [],
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": "_Time",
+                        "lensMapping": "_Time",
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "akluLastUsedDate",
+                        "name": "_akluLastUsedDate",
+                        "shape": "dateType",
+                        "locationName": "LastUsedDate",
+                        "documentation": "-- | The date and time, in \u003chttp://www.iso.org/iso/iso8601 ISO 8601 date-time format\u003e, when the access key was most\n-- recently used.",
+                        "typeExposed": "UTCTime",
+                        "type": "ISO8601"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "akluServiceName",
+                        "name": "_akluServiceName",
+                        "shape": "stringType",
+                        "locationName": "ServiceName",
+                        "documentation": "-- | The name of the AWS service with which this access key was most recently used.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "akluRegion",
+                        "name": "_akluRegion",
+                        "shape": "stringType",
+                        "locationName": "Region",
+                        "documentation": "-- | The AWS region where this access key was most recently used.\n--\n-- For more information about AWS regions, see \u003chttp://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints\u003e in the\n-- Amazon Web Services General Reference.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "contentPad": 0,
+                "name": "AccessKeyLastUsed",
+                "locationPad": 13,
+                "type": "record",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": "_Time",
+                        "lensMapping": "_Time",
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "akluLastUsedDate",
+                        "name": "_akluLastUsedDate",
+                        "shape": "dateType",
+                        "locationName": "LastUsedDate",
+                        "documentation": "-- | The date and time, in \u003chttp://www.iso.org/iso/iso8601 ISO 8601 date-time format\u003e, when the access key was most\n-- recently used.",
+                        "typeExposed": "UTCTime",
+                        "type": "ISO8601"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "akluRegion",
+                        "name": "_akluRegion",
+                        "shape": "stringType",
+                        "locationName": "Region",
+                        "documentation": "-- | The AWS region where this access key was most recently used.\n--\n-- For more information about AWS regions, see \u003chttp://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints\u003e in the\n-- Amazon Web Services General Reference.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "akluServiceName",
+                        "name": "_akluServiceName",
+                        "shape": "stringType",
+                        "locationName": "ServiceName",
+                        "documentation": "-- | The name of the AWS service with which this access key was most recently used.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -8215,7 +8346,7 @@
                         "name": "_cpPolicyDocument",
                         "shape": "policyDocumentType",
                         "locationName": "PolicyDocument",
-                        "documentation": "-- | The policy document.\n--\n-- The policy must be URL-encoded according to \u003chttp://www.faqs.org/rfcs/rfc3986.html RFC 3986\u003e.",
+                        "documentation": "-- | The policy document.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -8340,7 +8471,7 @@
                         "name": "_cpPolicyDocument",
                         "shape": "policyDocumentType",
                         "locationName": "PolicyDocument",
-                        "documentation": "-- | The policy document.\n--\n-- The policy must be URL-encoded according to \u003chttp://www.faqs.org/rfcs/rfc3986.html RFC 3986\u003e.",
+                        "documentation": "-- | The policy document.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -8517,7 +8648,7 @@
                         "name": "_cpvPolicyDocument",
                         "shape": "policyDocumentType",
                         "locationName": "PolicyDocument",
-                        "documentation": "-- | The policy document.\n--\n-- The policy must be URL-encoded according to \u003chttp://www.faqs.org/rfcs/rfc3986.html RFC 3986\u003e.",
+                        "documentation": "-- | The policy document.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -8601,7 +8732,7 @@
                         "name": "_cpvPolicyDocument",
                         "shape": "policyDocumentType",
                         "locationName": "PolicyDocument",
-                        "documentation": "-- | The policy document.\n--\n-- The policy must be URL-encoded according to \u003chttp://www.faqs.org/rfcs/rfc3986.html RFC 3986\u003e.",
+                        "documentation": "-- | The policy document.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -8722,7 +8853,7 @@
             "pager": null,
             "name": "CreateRole",
             "method": "post",
-            "documentation": "-- | Creates a new role for your AWS account. For more information about roles,\n-- go to \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles\u003e. For information about limitations on role names and\n-- the number of roles you can create, go to \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities\u003e in the /Using IAM/ guide.\n--\n-- The example policy grants permission to an EC2 instance to assume the role.\n-- The policy is URL-encoded according to RFC 3986. For more information about\n-- RFC 3986, go to \u003chttp://www.faqs.org/rfcs/rfc3986.html http://www.faqs.org/rfcs/rfc3986.html\u003e.",
+            "documentation": "-- | Creates a new role for your AWS account. For more information about roles, go\n-- to \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles\u003e. For information about limitations on role names and\n-- the number of roles you can create, go to \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities\u003e in the /Using IAM/ guide.\n--\n-- The policy in the following example grants permission to an EC2 instance to\n-- assume the role.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -10418,7 +10549,7 @@
             "pager": null,
             "name": "DeleteInstanceProfile",
             "method": "post",
-            "documentation": "-- | Deletes the specified instance profile. The instance profile must not have\n-- an associated role.\n--\n-- Make sure you do not have any Amazon EC2 instances running with the\n-- instance profile you are about to delete. Deleting a role or instance profile\n-- that is associated with a running instance will break any applications\n-- running on the instance.   For more information about instance profiles, go\n-- to \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles\u003e.",
+            "documentation": "-- | Deletes the specified instance profile. The instance profile must not have an\n-- associated role.\n--\n-- Make sure you do not have any Amazon EC2 instances running with the\n-- instance profile you are about to delete. Deleting a role or instance profile\n-- that is associated with a running instance will break any applications\n-- running on the instance.  For more information about instance profiles, go to \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles\u003e.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -11138,7 +11269,7 @@
             "pager": null,
             "name": "DeleteRole",
             "method": "post",
-            "documentation": "-- | Deletes the specified role. The role must not have any policies attached.\n-- For more information about roles, go to \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles\u003e.\n--\n-- Make sure you do not have any Amazon EC2 instances running with the role\n-- you are about to delete. Deleting a role or instance profile that is\n-- associated with a running instance will break any applications running on the\n-- instance.",
+            "documentation": "-- | Deletes the specified role. The role must not have any policies attached. For\n-- more information about roles, go to \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles\u003e.\n--\n-- Make sure you do not have any Amazon EC2 instances running with the role you\n-- are about to delete. Deleting a role or instance profile that is associated\n-- with a running instance will break any applications running on the instance.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -13162,6 +13293,222 @@
                 ],
                 "streaming": false,
                 "style": "xml",
+                "fieldPad": 24,
+                "ctor": "getAccessKeyLastUsedResponse",
+                "headerPad": 0,
+                "contents": [],
+                "wrapper": false,
+                "protocol": "query",
+                "payload": null,
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "name": "GetAccessKeyLastUsedResponse",
+                "resultWrapper": "GetAccessKeyLastUsedResult",
+                "locationPad": 18,
+                "type": "record",
+                "headerAll": false,
+                "optional": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gaklurUserName",
+                        "name": "_gaklurUserName",
+                        "shape": "existingUserNameType",
+                        "locationName": "UserName",
+                        "documentation": "-- | The name of the AWS IAM user that owns this access key.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gaklurAccessKeyLastUsed",
+                        "name": "_gaklurAccessKeyLastUsed",
+                        "shape": "AccessKeyLastUsed",
+                        "locationName": "AccessKeyLastUsed",
+                        "documentation": "-- | Contains information about the last time the access key was used.",
+                        "typeExposed": "Maybe AccessKeyLastUsed",
+                        "type": "Maybe AccessKeyLastUsed"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gaklurAccessKeyLastUsed",
+                        "name": "_gaklurAccessKeyLastUsed",
+                        "shape": "AccessKeyLastUsed",
+                        "locationName": "AccessKeyLastUsed",
+                        "documentation": "-- | Contains information about the last time the access key was used.",
+                        "typeExposed": "Maybe AccessKeyLastUsed",
+                        "type": "Maybe AccessKeyLastUsed"
+                    },
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "monoid": false,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": false,
+                        "lens": "gaklurUserName",
+                        "name": "_gaklurUserName",
+                        "shape": "existingUserNameType",
+                        "locationName": "UserName",
+                        "documentation": "-- | The name of the AWS IAM user that owns this access key.",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "url": "http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccessKeyLastUsed.html",
+            "namespace": "Network.AWS.IAM.GetAccessKeyLastUsed",
+            "protocol": "query",
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.IAM.Types"
+            ],
+            "pager": null,
+            "name": "GetAccessKeyLastUsed",
+            "method": "post",
+            "documentation": "-- | Retrieves information about when the specified access key was last used. The\n-- information includes the date and time of last use, along with the AWS\n-- service and region that were specified in the last request made with that key.",
+            "documentationUrl": null,
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Read",
+                    "Show",
+                    "Monoid",
+                    "IsString"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "style": "query",
+                "fieldPad": 0,
+                "ctor": "getAccessKeyLastUsed",
+                "headerPad": 0,
+                "field": {
+                    "location": "querystring",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "error",
+                    "monoid": false,
+                    "protocol": "query",
+                    "payload": false,
+                    "flattened": false,
+                    "required": true,
+                    "lens": "gakluAccessKeyId",
+                    "name": "_gakluAccessKeyId",
+                    "shape": "accessKeyIdType",
+                    "locationName": "AccessKeyId",
+                    "documentation": "-- | The identifier of an access key.",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "contents": [],
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "protocol": "query",
+                "payload": null,
+                "required": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gakluAccessKeyId",
+                        "name": "_gakluAccessKeyId",
+                        "shape": "accessKeyIdType",
+                        "locationName": "AccessKeyId",
+                        "documentation": "-- | The identifier of an access key.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "contentPad": 0,
+                "queryPad": 12,
+                "name": "GetAccessKeyLastUsed",
+                "query": [
+                    {
+                        "field": "_gakluAccessKeyId",
+                        "locationName": "AccessKeyId",
+                        "type": "field"
+                    }
+                ],
+                "locationPad": 0,
+                "type": "newtype",
+                "queryAll": true,
+                "headerAll": false,
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "querystring",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "error",
+                        "monoid": false,
+                        "protocol": "query",
+                        "payload": false,
+                        "flattened": false,
+                        "required": true,
+                        "lens": "gakluAccessKeyId",
+                        "name": "_gakluAccessKeyId",
+                        "shape": "accessKeyIdType",
+                        "locationName": "AccessKeyId",
+                        "documentation": "-- | The identifier of an access key.",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "IAM",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Read",
+                    "Show"
+                ],
+                "streaming": false,
+                "style": "xml",
                 "fieldPad": 21,
                 "ctor": "getAccountAuthorizationDetailsResponse",
                 "headerPad": 0,
@@ -13409,7 +13756,7 @@
             "pager": null,
             "name": "GetAccountAuthorizationDetails",
             "method": "post",
-            "documentation": "-- | Retrieves information about all IAM users, groups, and roles in your account,\n-- including their relationships to one another and their policies. Use this API\n-- to obtain a snapshot of the configuration of IAM permissions (users, groups,\n-- roles, and policies) in your account.\n--\n-- You can optionally filter the results using the 'Filter' parameter. You can\n-- paginate the results using the 'MaxItems' and 'Marker' parameters.",
+            "documentation": "-- | Retrieves information about all IAM users, groups, roles, and policies in\n-- your account, including their relationships to one another. Use this API to\n-- obtain a snapshot of the configuration of IAM permissions (users, groups,\n-- roles, and policies) in your account.\n--\n-- You can optionally filter the results using the 'Filter' parameter. You can\n-- paginate the results using the 'MaxItems' and 'Marker' parameters.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -13668,7 +14015,7 @@
             "pager": null,
             "name": "GetAccountPasswordPolicy",
             "method": "post",
-            "documentation": "-- | Retrieves the password policy for the AWS account. For more information\n-- about using a password policy, go to \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html Managing an IAM Password Policy\u003e.",
+            "documentation": "-- | Retrieves the password policy for the AWS account. For more information about\n-- using a password policy, go to \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html Managing an IAM Password Policy\u003e.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -14948,7 +15295,7 @@
             "pager": null,
             "name": "GetLoginProfile",
             "method": "post",
-            "documentation": "-- | Retrieves the user name and password-creation date for the specified user.\n-- If the user has not been assigned a password, the action returns a 404 ('NoSuchEntity') error.",
+            "documentation": "-- | Retrieves the user name and password-creation date for the specified user. If\n-- the user has not been assigned a password, the action returns a 404 ('NoSuchEntity') error.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -15854,7 +16201,7 @@
             "pager": null,
             "name": "GetRole",
             "method": "post",
-            "documentation": "-- | Retrieves information about the specified role, including the role's path,\n-- GUID, ARN, and the policy granting permission to assume the role. For more\n-- information about ARNs, go to \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#Identifiers_ARNs ARNs\u003e. For more information about roles, go to \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles\u003e.\n--\n-- The returned policy is URL-encoded according to RFC 3986. For more\n-- information about RFC 3986, go to \u003chttp://www.faqs.org/rfcs/rfc3986.html http://www.faqs.org/rfcs/rfc3986.html\u003e.",
+            "documentation": "-- | Retrieves information about the specified role, including the role's path,\n-- GUID, ARN, and the policy granting permission to assume the role. For more\n-- information about ARNs, go to \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#Identifiers_ARNs ARNs\u003e. For more information about roles, go to \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles\u003e.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -20416,7 +20763,7 @@
             },
             "name": "ListInstanceProfiles",
             "method": "post",
-            "documentation": "-- | Lists the instance profiles that have the specified path prefix. If there\n-- are none, the action returns an empty list. For more information about\n-- instance profiles, go to \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles\u003e.\n--\n-- You can paginate the results using the 'MaxItems' and 'Marker' parameters.",
+            "documentation": "-- | Lists the instance profiles that have the specified path prefix. If there are\n-- none, the action returns an empty list. For more information about instance\n-- profiles, go to \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles\u003e.\n--\n-- You can paginate the results using the 'MaxItems' and 'Marker' parameters.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -20738,7 +21085,7 @@
             },
             "name": "ListInstanceProfilesForRole",
             "method": "post",
-            "documentation": "-- | Lists the instance profiles that have the specified associated role. If\n-- there are none, the action returns an empty list. For more information about\n-- instance profiles, go to \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles\u003e.\n--\n-- You can paginate the results using the 'MaxItems' and 'Marker' parameters.",
+            "documentation": "-- | Lists the instance profiles that have the specified associated role. If there\n-- are none, the action returns an empty list. For more information about\n-- instance profiles, go to \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles\u003e.\n--\n-- You can paginate the results using the 'MaxItems' and 'Marker' parameters.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -22548,7 +22895,7 @@
             },
             "name": "ListRoles",
             "method": "post",
-            "documentation": "-- | Lists the roles that have the specified path prefix. If there are none, the\n-- action returns an empty list. For more information about roles, go to \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Workingwith Roles\u003e.\n--\n-- You can paginate the results using the 'MaxItems' and 'Marker' parameters.\n--\n-- The returned policy is URL-encoded according to RFC 3986. For more\n-- information about RFC 3986, go to \u003chttp://www.faqs.org/rfcs/rfc3986.html http://www.faqs.org/rfcs/rfc3986.html\u003e.",
+            "documentation": "-- | Lists the roles that have the specified path prefix. If there are none, the\n-- action returns an empty list. For more information about roles, go to \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Workingwith Roles\u003e.\n--\n-- You can paginate the results using the 'MaxItems' and 'Marker' parameters.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -23325,7 +23672,7 @@
             },
             "name": "ListSigningCertificates",
             "method": "post",
-            "documentation": "-- | Returns information about the signing certificates associated with the\n-- specified user. If there are none, the action returns an empty list.\n--\n-- Although each user is limited to a small number of signing certificates,\n-- you can still paginate the results using the 'MaxItems' and 'Marker' parameters.\n--\n-- If the 'UserName' field is not specified, the user name is determined\n-- implicitly based on the AWS access key ID used to sign the request. Because\n-- this action works for access keys under the AWS account, you can use this\n-- action to manage root credentials even if the AWS account has no associated\n-- users.",
+            "documentation": "-- | Returns information about the signing certificates associated with the\n-- specified user. If there are none, the action returns an empty list.\n--\n-- Although each user is limited to a small number of signing certificates, you\n-- can still paginate the results using the 'MaxItems' and 'Marker' parameters.\n--\n-- If the 'UserName' field is not specified, the user name is determined\n-- implicitly based on the AWS access key ID used to sign the request. Because\n-- this action works for access keys under the AWS account, you can use this\n-- action to manage root credentials even if the AWS account has no associated\n-- users.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -23408,7 +23755,7 @@
                         "name": "_lsc1Marker",
                         "shape": "markerType",
                         "locationName": "Marker",
-                        "documentation": "-- | Use this only when paginating results, and only in a subsequent request\n-- after you've received a response where the results are truncated. Set it to\n-- the value of the 'Marker' element in the response you just received.",
+                        "documentation": "-- | Use this only when paginating results, and only in a subsequent request after\n-- you've received a response where the results are truncated. Set it to the\n-- value of the 'Marker' element in the response you just received.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -23446,7 +23793,7 @@
                         "name": "_lsc1Marker",
                         "shape": "markerType",
                         "locationName": "Marker",
-                        "documentation": "-- | Use this only when paginating results, and only in a subsequent request\n-- after you've received a response where the results are truncated. Set it to\n-- the value of the 'Marker' element in the response you just received.",
+                        "documentation": "-- | Use this only when paginating results, and only in a subsequent request after\n-- you've received a response where the results are truncated. Set it to the\n-- value of the 'Marker' element in the response you just received.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -26786,7 +27133,7 @@
             "pager": null,
             "name": "UpdateGroup",
             "method": "post",
-            "documentation": "-- | Updates the name and/or the path of the specified group.\n--\n-- You should understand the implications of changing a group's path or name.\n-- For more information, see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html Renaming Users and Groups\u003e in the /Using IAM/ guide.\n-- To change a group name the requester must have appropriate permissions on\n-- both the source object and the target object. For example, to change Managers\n-- to MGRs, the entity making the request must have permission on Managers and\n-- MGRs, or must have permission on all (*). For more information about\n-- permissions, see Permissions and Policies.",
+            "documentation": "-- | Updates the name and/or the path of the specified group.\n--\n-- You should understand the implications of changing a group's path or name.\n-- For more information, see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html Renaming Users and Groups\u003e in the /Using IAM/ guide.  To change a group name the requester must have appropriate permissions on both the source object and the target object. For example, to change Managers to MGRs, the entity making the request must have permission on Managers and MGRs, or must have permission on all (*). For more information about permissions, see\n-- Permissions and Policies.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -27572,7 +27919,7 @@
             "pager": null,
             "name": "UpdateServerCertificate",
             "method": "post",
-            "documentation": "-- | Updates the name and/or the path of the specified server certificate.\n--\n-- You should understand the implications of changing a server certificate's\n-- path or name. For more information, see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html Managing Server Certificates\u003e in the /Using IAM/ guide.   To change a server certificate name the requester must have\n-- appropriate permissions on both the source object and the target object. For\n-- example, to change the name from ProductionCert to ProdCert, the entity\n-- making the request must have permission on ProductionCert and ProdCert, or\n-- must have permission on all (*). For more information about permissions, see Permissions and Policies\n-- .",
+            "documentation": "-- | Updates the name and/or the path of the specified server certificate.\n--\n-- You should understand the implications of changing a server certificate's\n-- path or name. For more information, see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html Managing Server Certificates\u003e in the /Using IAM/ guide.  To change a server certificate name the requester must have\n-- appropriate permissions on both the source object and the target object. For\n-- example, to change the name from ProductionCert to ProdCert, the entity\n-- making the request must have permission on ProductionCert and ProdCert, or\n-- must have permission on all (*). For more information about permissions, see Permissions and Policies\n-- .",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -27774,7 +28121,7 @@
             "pager": null,
             "name": "UpdateSigningCertificate",
             "method": "post",
-            "documentation": "-- | Changes the status of the specified signing certificate from active to\n-- disabled, or vice versa. This action can be used to disable a user's signing\n-- certificate as part of a certificate rotation work flow.\n--\n-- If the 'UserName' field is not specified, the UserName is determined\n-- implicitly based on the AWS access key ID used to sign the request. Because\n-- this action works for access keys under the AWS account, you can use this\n-- action to manage root credentials even if the AWS account has no associated\n-- users.\n--\n-- For information about rotating certificates, see \u003chttp://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html Managing Keys andCertificates\u003e in the /Using IAM/ guide.",
+            "documentation": "-- | Changes the status of the specified signing certificate from active to\n-- disabled, or vice versa. This action can be used to disable a user's signing\n-- certificate as part of a certificate rotation work flow.\n--\n-- If the 'UserName' field is not specified, the UserName is determined\n-- implicitly based on the AWS access key ID used to sign the request. Because\n-- this action works for access keys under the AWS account, you can use this\n-- action to manage root credentials even if the AWS account has no associated\n-- users.",
             "documentationUrl": null,
             "request": {
                 "deriving": [

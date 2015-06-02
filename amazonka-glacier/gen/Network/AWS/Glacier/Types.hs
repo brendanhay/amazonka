@@ -131,6 +131,11 @@ module Network.AWS.Glacier.Types
     , gjdStatusMessage
     , gjdVaultARN
 
+    -- * VaultAccessPolicy
+    , VaultAccessPolicy
+    , vaultAccessPolicy
+    , vapPolicy
+
     -- * StatusCode
     , StatusCode (..)
     ) where
@@ -175,7 +180,7 @@ instance AWSService Glacier where
               -> JSONError
               -> Bool
         check (statusCode -> s) (awsErrorCode -> e)
-            | s == 400 && "ThrottlingException" == e = True -- Throttling
+            | s == 400 && (Just "ThrottlingException") == e = True -- Throttling
             | s == 500  = True -- General Server Error
             | s == 509  = True -- Limit Exceeded
             | s == 503  = True -- Service Unavailable
@@ -596,9 +601,15 @@ dataRetrievalRule = DataRetrievalRule
     , _drrBytesPerHour = Nothing
     }
 
+-- | The maximum number of bytes that can be retrieved in an hour.
+--
+-- This field is required only if the value of the Strategy field is 'BytesPerHour'. Your PUT operation will be rejected if the Strategy field is not set to 'BytesPerHour' and you set this field.
 drrBytesPerHour :: Lens' DataRetrievalRule (Maybe Integer)
 drrBytesPerHour = lens _drrBytesPerHour (\s a -> s { _drrBytesPerHour = a })
 
+-- | The type of data retrieval policy to set.
+--
+-- Valid values: BytesPerHour|FreeTier|None
 drrStrategy :: Lens' DataRetrievalRule (Maybe Text)
 drrStrategy = lens _drrStrategy (\s a -> s { _drrStrategy = a })
 
@@ -809,6 +820,8 @@ dataRetrievalPolicy = DataRetrievalPolicy
     { _drpRules = mempty
     }
 
+-- | The policy rule. Although this is a list type, currently there must be only
+-- one rule, which contains a Strategy field and optionally a BytesPerHour field.
 drpRules :: Lens' DataRetrievalPolicy [DataRetrievalRule]
 drpRules = lens _drpRules (\s a -> s { _drpRules = a }) . _List
 
@@ -1047,6 +1060,34 @@ instance ToJSON GlacierJobDescription where
         , "ArchiveSHA256TreeHash"        .= _gjdArchiveSHA256TreeHash
         , "RetrievalByteRange"           .= _gjdRetrievalByteRange
         , "InventoryRetrievalParameters" .= _gjdInventoryRetrievalParameters
+        ]
+
+newtype VaultAccessPolicy = VaultAccessPolicy
+    { _vapPolicy :: Maybe Text
+    } deriving (Eq, Ord, Read, Show, Monoid)
+
+-- | 'VaultAccessPolicy' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'vapPolicy' @::@ 'Maybe' 'Text'
+--
+vaultAccessPolicy :: VaultAccessPolicy
+vaultAccessPolicy = VaultAccessPolicy
+    { _vapPolicy = Nothing
+    }
+
+-- | The vault access policy.
+vapPolicy :: Lens' VaultAccessPolicy (Maybe Text)
+vapPolicy = lens _vapPolicy (\s a -> s { _vapPolicy = a })
+
+instance FromJSON VaultAccessPolicy where
+    parseJSON = withObject "VaultAccessPolicy" $ \o -> VaultAccessPolicy
+        <$> o .:? "Policy"
+
+instance ToJSON VaultAccessPolicy where
+    toJSON VaultAccessPolicy{..} = object
+        [ "Policy" .= _vapPolicy
         ]
 
 data StatusCode

@@ -31,11 +31,11 @@
 -- snapshots have been deleted, all active snapshots will have access to all the
 -- information needed to restore the volume.
 --
--- You cannot delete a snapshot of the root device of an Amazon EBS volume used
--- by a registered AMI. You must first de-register the AMI before you can delete
--- the snapshot.
+-- You cannot delete a snapshot of the root device of an EBS volume used by a
+-- registered AMI. You must first de-register the AMI before you can delete the
+-- snapshot.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-snapshot.html Deleting an Amazon EBS Snapshot> in the /AmazonElastic Compute Cloud User Guide for Linux/.
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-snapshot.html Deleting an Amazon EBS Snapshot> in the /AmazonElastic Compute Cloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteSnapshot.html>
 module Network.AWS.EC2.DeleteSnapshot
@@ -79,10 +79,13 @@ deleteSnapshot p1 = DeleteSnapshot
     , _ds3DryRun     = Nothing
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 ds3DryRun :: Lens' DeleteSnapshot (Maybe Bool)
 ds3DryRun = lens _ds3DryRun (\s a -> s { _ds3DryRun = a })
 
--- | The ID of the Amazon EBS snapshot.
+-- | The ID of the EBS snapshot.
 ds3SnapshotId :: Lens' DeleteSnapshot Text
 ds3SnapshotId = lens _ds3SnapshotId (\s a -> s { _ds3SnapshotId = a })
 

@@ -22,6 +22,7 @@ module Network.AWS.CloudWatchLogs
     , module Network.AWS.CloudWatchLogs.DescribeLogGroups
     , module Network.AWS.CloudWatchLogs.DescribeLogStreams
     , module Network.AWS.CloudWatchLogs.DescribeMetricFilters
+    , module Network.AWS.CloudWatchLogs.FilterLogEvents
     , module Network.AWS.CloudWatchLogs.GetLogEvents
     , module Network.AWS.CloudWatchLogs.PutLogEvents
     , module Network.AWS.CloudWatchLogs.PutMetricFilter
@@ -39,6 +40,7 @@ import Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
 import Network.AWS.CloudWatchLogs.DescribeLogGroups
 import Network.AWS.CloudWatchLogs.DescribeLogStreams
 import Network.AWS.CloudWatchLogs.DescribeMetricFilters
+import Network.AWS.CloudWatchLogs.FilterLogEvents
 import Network.AWS.CloudWatchLogs.GetLogEvents
 import Network.AWS.CloudWatchLogs.PutLogEvents
 import Network.AWS.CloudWatchLogs.PutMetricFilter

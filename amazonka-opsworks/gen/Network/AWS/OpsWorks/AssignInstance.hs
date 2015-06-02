@@ -22,12 +22,14 @@
 --
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
--- | Assign a registered instance to a custom layer. You cannot use this action
--- with instances that were created with AWS OpsWorks.
+-- | Assign a registered instance to a layer.
 --
--- Required Permissions: To use this action, an IAM user must have a Manage
--- permissions level for the stack or an attached policy that explicitly grants
--- permissions. For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing UserPermissions>.
+-- You can assign registered on-premises instances to any layer type. You can
+-- assign registered Amazon EC2 instances only to custom layers. You cannot use
+-- this action with instances that were created with AWS OpsWorks.  Required
+-- Permissions: To use this action, an IAM user must have a Manage permissions
+-- level for the stack or an attached policy that explicitly grants permissions.
+-- For more information on user permissions, see <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
 --
 -- <http://docs.aws.amazon.com/opsworks/latest/APIReference/API_AssignInstance.html>
 module Network.AWS.OpsWorks.AssignInstance

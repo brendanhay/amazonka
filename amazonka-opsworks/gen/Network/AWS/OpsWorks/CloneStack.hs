@@ -207,7 +207,7 @@ cs1CustomCookbooksSource =
 --
 -- '"{\"key1\": \"value1\", \"key2\": \"value2\",...}"'
 --
--- For more information on custom JSON, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration JSON>
+-- For more information on custom JSON, see <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the StackConfiguration Attributes>
 cs1CustomJson :: Lens' CloneStack (Maybe Text)
 cs1CustomJson = lens _cs1CustomJson (\s a -> s { _cs1CustomJson = a })
 
@@ -229,9 +229,8 @@ cs1DefaultInstanceProfileArn =
 
 -- | The stack's operating system, which must be set to one of the following.
 --
--- Standard operating systems: an Amazon Linux version such as 'Amazon Linux2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom AMIs: 'Custom'. You
--- specify the custom AMI you want to use when you create instances.   The
--- default option is the current Amazon Linux version.
+-- Standard Linux operating systems: an Amazon Linux version such as 'AmazonLinux 2014.09', 'Ubuntu 12.04 LTS', or 'Ubuntu 14.04 LTS'. Custom Linux AMIs: 'Custom'. You specify the custom AMI you want to use when you create instances. Microsoft Windows Server 2012 R2.
+-- The default option is the current Amazon Linux version.
 cs1DefaultOs :: Lens' CloneStack (Maybe Text)
 cs1DefaultOs = lens _cs1DefaultOs (\s a -> s { _cs1DefaultOs = a })
 
@@ -266,9 +265,8 @@ cs1DefaultSubnetId =
 -- theme is used to generate host names for the stack's instances. By default, 'HostnameTheme' is set to 'Layer_Dependent', which creates host names by appending integers to
 -- the layer's short name. The other themes are:
 --
--- 'Baked_Goods' 'Clouds' 'Europe_Cities' 'Fruits' 'Greek_Deities' 'Legendary_creatures_from_Japan' 'Planets_and_Moons' 'Roman_Deities' 'Scottish_Islands' 'US_Cities' 'Wild_Cats'  To
--- obtain a generated host name, call 'GetHostNameSuggestion', which returns a
--- host name based on the current theme.
+-- 'Baked_Goods'   'Clouds'   'Europe_Cities'   'Fruits'   'Greek_Deities'   'Legendary_creatures_from_Japan'   'Planets_and_Moons'   'Roman_Deities'   'Scottish_Islands'   'US_Cities'   'Wild_Cats'   To obtain a generated host name, call 'GetHostNameSuggestion', which returns
+-- a host name based on the current theme.
 cs1HostnameTheme :: Lens' CloneStack (Maybe Text)
 cs1HostnameTheme = lens _cs1HostnameTheme (\s a -> s { _cs1HostnameTheme = a })
 

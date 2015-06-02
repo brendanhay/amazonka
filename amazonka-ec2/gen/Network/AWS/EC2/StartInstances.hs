@@ -39,7 +39,7 @@
 -- Performing this operation on an instance that uses an instance store as its
 -- root device returns an error.
 --
--- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html Stopping Instances> in the /Amazon Elastic ComputeCloud User Guide for Linux/.
+-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html Stopping Instances> in the /Amazon Elastic ComputeCloud User Guide/.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-StartInstances.html>
 module Network.AWS.EC2.StartInstances
@@ -94,6 +94,9 @@ si1AdditionalInfo :: Lens' StartInstances (Maybe Text)
 si1AdditionalInfo =
     lens _si1AdditionalInfo (\s a -> s { _si1AdditionalInfo = a })
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 si1DryRun :: Lens' StartInstances (Maybe Bool)
 si1DryRun = lens _si1DryRun (\s a -> s { _si1DryRun = a })
 

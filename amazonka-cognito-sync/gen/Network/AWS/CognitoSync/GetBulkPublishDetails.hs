@@ -106,7 +106,7 @@ getBulkPublishDetailsResponse = GetBulkPublishDetailsResponse
     , _gbpdrFailureMessage          = Nothing
     }
 
--- | If 'BulkPublishStatus' is SUCCEEDED, the time the last bulk publish operation
+-- | If BulkPublishStatus is SUCCEEDED, the time the last bulk publish operation
 -- completed.
 gbpdrBulkPublishCompleteTime :: Lens' GetBulkPublishDetailsResponse (Maybe UTCTime)
 gbpdrBulkPublishCompleteTime =
@@ -121,16 +121,16 @@ gbpdrBulkPublishStartTime =
         (\s a -> s { _gbpdrBulkPublishStartTime = a })
             . mapping _Time
 
--- | Status of the last bulk publish operation, valid values are: 'NOT_STARTED' - No
+-- | Status of the last bulk publish operation, valid values are: NOT_STARTED - No
 -- bulk publish has been requested for this identity pool
 --
--- 'IN_PROGRESS' - Data is being published to the configured stream
+-- IN_PROGRESS - Data is being published to the configured stream
 --
--- 'SUCCEEDED' - All data for the identity pool has been published to the
+-- SUCCEEDED - All data for the identity pool has been published to the
 -- configured stream
 --
--- 'FAILED' - Some portion of the data has failed to publish, check 'FailureMessage'
--- for the cause.
+-- FAILED - Some portion of the data has failed to publish, check
+-- FailureMessage for the cause.
 gbpdrBulkPublishStatus :: Lens' GetBulkPublishDetailsResponse (Maybe BulkPublishStatus)
 gbpdrBulkPublishStatus =
     lens _gbpdrBulkPublishStatus (\s a -> s { _gbpdrBulkPublishStatus = a })

@@ -1,5 +1,5 @@
 name:                  amazonka-gen
-version:               0.3.4
+version:               0.3.5
 synopsis:              Amazonka Generator
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense

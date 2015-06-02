@@ -148,15 +148,19 @@ putItem p1 = PutItem
 --
 -- Logical operators: 'AND | OR | NOT'
 --
--- For more information on condition expressions, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
+-- For more information on condition expressions, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
 -- in the /Amazon DynamoDB Developer Guide/.
+--
+-- /ConditionExpression/ replaces the legacy /ConditionalOperator/ and /Expected/
+-- parameters.
+--
 piConditionExpression :: Lens' PutItem (Maybe Text)
 piConditionExpression =
     lens _piConditionExpression (\s a -> s { _piConditionExpression = a })
 
--- | There is a newer parameter available. Use /ConditionExpression/ instead. Note
--- that if you use /ConditionalOperator/ and / ConditionExpression / at the same
--- time, DynamoDB will return a /ValidationException/ exception.
+-- | This is a legacy parameter, for backward compatibility. New applications
+-- should use /ConditionExpression/ instead. Do not combine legacy parameters and
+-- expression parameters in a single API call; otherwise, DynamoDB will return a /ValidationException/ exception.
 --
 -- A logical operator to apply to the conditions in the /Expected/ map:
 --
@@ -176,9 +180,9 @@ piConditionalOperator :: Lens' PutItem (Maybe ConditionalOperator)
 piConditionalOperator =
     lens _piConditionalOperator (\s a -> s { _piConditionalOperator = a })
 
--- | There is a newer parameter available. Use /ConditionExpression/ instead. Note
--- that if you use /Expected/ and / ConditionExpression / at the same time, DynamoDB
--- will return a /ValidationException/ exception.
+-- | This is a legacy parameter, for backward compatibility. New applications
+-- should use /ConditionExpression/ instead. Do not combine legacy parameters and
+-- expression parameters in a single API call; otherwise, DynamoDB will return a /ValidationException/ exception.
 --
 -- A map of attribute/condition pairs. /Expected/ provides a conditional block
 -- for the /PutItem/ operation.
@@ -386,9 +390,8 @@ piExpected = lens _piExpected (\s a -> s { _piExpected = a }) . _Map
 -- 'Percentile'
 --
 -- The name of this attribute conflicts with a reserved word, so it cannot be
--- used directly in an expression. (For the complete list of reserved words, go
--- to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html Reserved Words> in the /Amazon DynamoDB Developer Guide/). To work around
--- this, you could specify the following for /ExpressionAttributeNames/:
+-- used directly in an expression. (For the complete list of reserved words, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html Reserved Words> in the /Amazon DynamoDB Developer Guide/). To work around this,
+-- you could specify the following for /ExpressionAttributeNames/:
 --
 -- '{"#P":"Percentile"}'
 --
@@ -399,7 +402,7 @@ piExpected = lens _piExpected (\s a -> s { _piExpected = a }) . _Map
 -- Tokens that begin with the : character are /expression attribute values/,
 -- which are placeholders for the actual value at runtime.
 --
--- For more information on expression attribute names, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing ItemAttributes> in the /Amazon DynamoDB Developer Guide/.
+-- For more information on expression attribute names, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ExpressionPlaceholders.html Using Placeholdersfor Attribute Names and Values> in the /Amazon DynamoDB Developer Guide/.
 piExpressionAttributeNames :: Lens' PutItem (HashMap Text Text)
 piExpressionAttributeNames =
     lens _piExpressionAttributeNames
@@ -421,7 +424,7 @@ piExpressionAttributeNames =
 --
 -- 'ProductStatus IN (:avail, :back, :disc)'
 --
--- For more information on expression attribute values, go to <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html SpecifyingConditions> in the /Amazon DynamoDB Developer Guide/.
+-- For more information on expression attribute values, see <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ExpressionPlaceholders.html Using Placeholdersfor Attribute Names and Values> in the /Amazon DynamoDB Developer Guide/.
 piExpressionAttributeValues :: Lens' PutItem (HashMap Text AttributeValue)
 piExpressionAttributeValues =
     lens _piExpressionAttributeValues

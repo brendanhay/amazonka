@@ -74,6 +74,9 @@ describeRegions = DescribeRegions
     , _dr1Filters     = mempty
     }
 
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have the
+-- required permissions, the error response is 'DryRunOperation'. Otherwise, it is 'UnauthorizedOperation'.
 dr1DryRun :: Lens' DescribeRegions (Maybe Bool)
 dr1DryRun = lens _dr1DryRun (\s a -> s { _dr1DryRun = a })
 

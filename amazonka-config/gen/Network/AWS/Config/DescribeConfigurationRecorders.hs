@@ -26,6 +26,10 @@
 -- recorder name is not specified, this action returns the names of all the
 -- configuration recorders associated with the account.
 --
+-- Currently, you can specify only one configuration recorder per account.
+--
+--
+--
 -- <http://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html>
 module Network.AWS.Config.DescribeConfigurationRecorders
     (

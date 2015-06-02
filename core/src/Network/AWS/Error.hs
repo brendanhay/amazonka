@@ -77,7 +77,7 @@ newtype ErrorCode = ErrorCode Text
     deriving (Eq, Ord, Show, FromXML, FromJSON, IsString, Generic)
 
 class AWSErrorCode a where
-    awsErrorCode :: a -> ErrorCode
+    awsErrorCode :: a -> Maybe ErrorCode
 
 data ErrorType
     = Receiver
@@ -96,7 +96,7 @@ instance FromXML ErrorType where
 data RESTError = RESTError
     { _restRequestId :: Text
     , _restType      :: Maybe ErrorType
-    , _restCode      :: ErrorCode
+    , _restCode      :: Maybe ErrorCode
     , _restMessage   :: Text
     } deriving (Eq, Show, Generic)
 
@@ -111,7 +111,7 @@ instance FromXML RESTError where
         f y = RESTError
             <$> x .@  "RequestId"
             <*> y .@? "Type"
-            <*> y .@  "Code"
+            <*> y .@? "Code"
             <*> y .@  "Message"
 
 restError :: FromXML (Er a)
@@ -130,7 +130,7 @@ restError f Service{..} s
 
 data JSONError = JSONError
     { _jsonType    :: Maybe Text
-    , _jsonCode    :: ErrorCode
+    , _jsonCode    :: Maybe ErrorCode
     , _jsonMessage :: Text
     } deriving (Eq, Show, Generic)
 
@@ -144,12 +144,12 @@ instance FromJSON JSONError where
       where
         rest o = JSONError
              <$> o .:? "Type"
-             <*> o .:  "Code"
+             <*> o .:? "Code"
              <*> o .:  "Message"
 
         post o = JSONError
              <$> o .:? "__type"
-             <*> o .:  "code"
+             <*> o .:? "code"
              <*> o .:  "message"
 
 jsonError :: FromJSON (Er a)

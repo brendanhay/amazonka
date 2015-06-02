@@ -108,11 +108,11 @@ dataType m s = case unwrap s of
             <$> plain (lensSig ts t f)
             <*> plain (lensDecl f)
 
-        mkInsts :: Either Error [Inst] -> Either Error (Map Text [LText.Text])
+        mkInsts :: Either Error [Inst] -> Either Error (Map Text LText.Text)
         mkInsts f = Map.fromList <$> (f >>= traverse mkInst)
 
-        mkInst :: Inst -> Either Error (Text, [LText.Text])
-        mkInst i = (instToText i,) <$> traverse plain (instanceExps proto i)
+        mkInst :: Inst -> Either Error (Text, LText.Text)
+        mkInst i = (instToText i,) <$> render (instanceD proto n i)
 
         fields :: [Field]
         fields = mkFields m p st

@@ -60,7 +60,7 @@ data Prod = Prod'
     , _prodLenses        :: [Fun]
     } deriving (Show)
 
-prodToJSON :: Prod -> Map Text [LText.Text] -> [Pair]
+prodToJSON :: ToJSON a => Prod -> Map Text a -> [Pair]
 prodToJSON Prod'{..} is =
     [ "type"          .= typ
     , "name"          .= _prodName
@@ -93,10 +93,10 @@ sumToJSON Sum'{..} is =
     ]
 
 data Data
-    = Prod Prod (Map Text [LText.Text])
+    = Prod Prod (Map Text LText.Text)
     | Sum  Sum  [Text]
     | Res  Prod Text [LText.Text]
-    | Req  Prod Text (Map Text [LText.Text])
+    | Req  Prod Text (Map Text LText.Text)
       deriving (Show)
 
 instance ToJSON Data where
@@ -107,7 +107,7 @@ instance ToJSON Data where
         Res p m fs -> object $
             [ "method" .= m
             , "fields" .= fs
-            ] ++ prodToJSON p mempty
+            ] ++ prodToJSON p (mempty :: Map Text [Text])
 
         Req p m is -> object $
             [ "method" .= m

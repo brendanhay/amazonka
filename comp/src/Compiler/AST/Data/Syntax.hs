@@ -34,8 +34,7 @@ import           Data.Monoid
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
 import qualified Language.Haskell.Exts        as Exts
-import           Language.Haskell.Exts.Build  (app, appFun, infixApp, lamE,
-                                               listE, paren, sfun)
+import           Language.Haskell.Exts.Build  hiding (pvar, var)
 import           Language.Haskell.Exts.SrcLoc (noLoc)
 import           Language.Haskell.Exts.Syntax hiding (Int, List, Lit, Var)
 
@@ -50,7 +49,7 @@ ctorSig ts n = TypeSig noLoc [n ^. smartCtorId . to ident]
     . filter (^. fieldRequired)
 
 ctorDecl :: Id -> [Field] -> Decl
-ctorDecl n fs = sfun noLoc name ps (UnGuardedRhs rhs) (BDecls [])
+ctorDecl n fs = sfun noLoc name ps (UnGuardedRhs rhs) noBinds
   where
     name :: Name
     name = n ^. smartCtorId . to ident
@@ -67,7 +66,7 @@ fieldUpdate f = FieldUpdate (f ^. fieldAccessor . to unqual) set'
   where
     set' | opt, f ^. fieldMonoid    = var "mempty"
          | opt                      = var "Nothing"
-         | Just v <- iso (typeOf f) = infixApp v (qop "#") p
+         | Just v <- iso (typeOf f) = infixApp v "#" p
          | otherwise                = p
 
     opt = not (f ^. fieldRequired)
@@ -80,7 +79,7 @@ lensSig ts t f = TypeSig noLoc [ident (f ^. fieldLens)] $
                  (external ts t)) (external ts (typeOf f))
 
 lensDecl :: Field -> Decl
-lensDecl f = sfun noLoc (ident l) [] (UnGuardedRhs rhs) (BDecls [])
+lensDecl f = sfun noLoc (ident l) [] (UnGuardedRhs rhs) noBinds
   where
     l = f ^. fieldLens
     a = f ^. fieldAccessor
@@ -109,31 +108,117 @@ recDecl ts n fs = QualConDecl noLoc [] [] $ RecDecl (ident (n ^. typeId)) (map g
     g f = ([f ^. fieldAccessor . to ident], internal ts f)
 
 responseExps :: Protocol -> [Field] -> [Exp]
-responseExps p = map go
+responseExps p =  const [] -- map go
   where
-    go f = case f ^. fieldLocation of
-        Just Headers     -> fromHeadersExp p f
-        Just Header      -> fromHeadersExp p f
-        Just StatusCode  -> app (var "pure") (var "s")
-        Just Body        -> app (var "pure") (var "x")
-        Nothing
-            | f ^. fieldPayload
-                         -> app (var "pure") (var "x")
-        _                ->
-            case p of
-                JSON     -> fromJSONExp p f
-                RestJSON -> fromJSONExp p f
-                _        -> fromXMLExp  p f
+    -- go f = case f ^. fieldLocation of
+    --     Just Headers     -> fromHeadersExp p f
+    --     Just Header      -> fromHeadersExp p f
+    --     Just StatusCode  -> app (var "pure") (var "s")
+    --     Just Body        -> app (var "pure") (var "x")
+    --     Nothing
+    --         | f ^. fieldPayload
+    --                      -> app (var "pure") (var "x")
+    --     _                ->
+    --         case p of
+    --             JSON     -> fromJSONExp p f
+    --             RestJSON -> fromJSONExp p f
+    --             _        -> fromXMLExp  p f
 
-instanceExps :: Protocol -> Inst -> [Exp]
-instanceExps p = \case
-    FromXML   fs -> map (fromXMLExp p) fs
-    ToXML     fs -> map (toXMLExp p) fs
-    ToElement f  -> [toXMLElementExp p f]
-    ToHeaders fs -> map (toHeadersExp p) fs
-    ToQuery   es -> map (either str (toQueryExp p)) es
-    ToPath    es -> [toPathExp es]
-    ToBody    f  -> [toBodyExp f]
+instanceD :: Protocol -> Id -> Inst -> Decl
+instanceD p n = \case
+    FromXML   fs -> fromXMLD   p n fs
+    FromJSON  fs -> fromJSOND  p n fs
+    ToElement f  -> toElementD p n f
+    ToXML     fs -> toXMLD     p n fs
+    _            -> fromXMLD   p n []
+
+    -- ToXML     fs -> toXMLExp        p fs
+    -- ToElement f  -> toXMLElementExp p f
+    -- ToHeaders fs -> toHeadersExp    p fs
+    -- ToQuery   es -> toQueryExp      p es
+    -- ToPath    es -> toPathExp         es
+    -- ToBody    f  -> toBodyExp         f
+
+fromXMLD :: Protocol -> Id -> [Field] -> Decl
+fromXMLD p n fs = InstDecl noLoc Nothing [] [] cls [tycon typ] [decl]
+  where
+    typ = n ^. typeId
+    cls = unqual "FromXML"
+    fun = pvar "parseXML"
+
+    decl = InsDecl (patBind noLoc fun exps)
+    exps = seqE (var typ) (map (fromXMLE p) fs)
+
+fromJSOND :: Protocol -> Id -> [Field] -> Decl
+fromJSOND p n fs = InstDecl noLoc Nothing [] [] cls [tycon typ] [decl]
+  where
+    typ = n ^. typeId
+    cls = unqual "FromJSON"
+    fun = pvar "parseJSON"
+
+    decl = InsDecl (patBind noLoc fun exps)
+    exps = seqE (var typ) (map (fromJSONE p) fs)
+
+toElementD :: Protocol -> Id -> [Field] -> Decl
+toElementD p n fs =
+
+toXMLD :: Protocol -> Id -> [Field] -> Decl
+toXMLD p n fs = InstDecl noLoc Nothing [] [] cls [tycon typ] [decl]
+  where
+    typ = n ^. typeId
+    cls = unqual "ToXML"
+    fun = ident "toXML"
+
+    decl  = InsDecl (FunBind [match])
+    match = Match noLoc fun [pat] Nothing rhs noBinds
+    pat   = PRec (unqual typ) [PFieldWildcard]
+    rhs   = UnGuardedRhs exps
+    exps  = seqE (var typ) (map (fromJSONE p) fs)
+
+seqE :: Exp -> [Exp] -> Exp
+seqE l []     = app (var "pure") l
+seqE l (r:rs) = infixApp l "<$>" (infixE r "<*>" rs)
+
+infixE :: Exp -> QOp -> [Exp] -> Exp
+infixE l _ []     = l
+infixE l o (r:rs) = infixE (infixApp l o r) o rs
+
+-- [InsDecl (PatBind (SrcLoc "<unknown>.hs" 1 32) (PVar (Ident "fromXML")) (UnGuardedRhs (Var (UnQual (Ident "mempty")))) noBinds)]
+-- data Decl = InstDecl SrcLoc (Maybe Overlap) [TyVarBind] Context QName [Type] [InstDecl]
+-- data InstDecl = InsDecl Decl
+
+fromXMLE, fromJSONE, fromHeadersE :: Protocol -> Field -> Exp
+fromXMLE     = decodeE (Dec ".@" ".@?" ".!@")
+fromJSONE    = decodeE (Dec ".:" ".:?" ".!=")
+fromHeadersE = decodeE (Dec ".#" ".#?" ".!#")
+
+toXMLE, toJSONE, toHeadersE, toQueryE :: Protocol -> Field -> Exp
+toXMLE     = encodeE (Enc "@=" "@@=")
+toJSONE    = encodeE (Enc ".=" ".=")
+toHeadersE = encodeE (Enc "=#" "=##")
+toQueryE   = encodeE (Enc "=:" "=:")
+
+-- toXMLElementExp :: Protocol -> Field -> Exp
+-- toXMLElementExp p f = appFun (var "mkElement")
+--     [ str name
+--     , var "$"
+--     , var "toXML"
+--     , var (f ^. fieldAccessor)
+--     ]
+--   where
+--     name | Just ns <- f ^. fieldNamespace = "{" <> ns <> "}" <> n
+--          | otherwise                      = n
+
+--     n = memberName p Input (f ^. fieldId) (f ^. fieldRef)
+
+-- toPathExp :: [Either Text Field] -> Exp
+-- toPathExp [Left t] = str t
+-- toPathExp fs       = app (var "mconcat") . listE $ map (either str go) fs
+--   where
+--     go = app (var "toText") . var . view fieldAccessor
+
+-- toBodyExp :: Field -> Exp
+-- toBodyExp f = var (f ^. fieldAccessor)
 
 data Dec = Dec
     { decodeOp      :: QOp
@@ -141,47 +226,9 @@ data Dec = Dec
     , decodeDefOp   :: QOp
     }
 
-data Enc = Enc
-    { encodeOp     :: QOp
-    , encodeListOp :: QOp
-    }
-
-fromXMLExp, fromJSONExp, fromHeadersExp :: Protocol -> Field -> Exp
-fromXMLExp     = decodeExp (Dec ".@" ".@?" ".!@")
-fromJSONExp    = decodeExp (Dec ".:" ".:?" ".!=")
-fromHeadersExp = decodeExp (Dec ".#" ".#?" ".!#")
-
-toXMLExp, toJSONExp, toHeadersExp, toQueryExp :: Protocol -> Field -> Exp
-toXMLExp     = encodeExp (Enc "@=" "@@=")
-toJSONExp    = encodeExp (Enc ".=" ".=")
-toHeadersExp = encodeExp (Enc "=#" "=##")
-toQueryExp   = encodeExp (Enc "=:" "=:")
-
-toXMLElementExp :: Protocol -> Field -> Exp
-toXMLElementExp p f = appFun (var "mkElement")
-    [ str name
-    , var "$"
-    , var "toXML"
-    , var (f ^. fieldAccessor)
-    ]
-  where
-    name | Just ns <- f ^. fieldNamespace = "{" <> ns <> "}" <> n
-         | otherwise                      = n
-
-    n = memberName p Input (f ^. fieldId) (f ^. fieldRef)
-
-toPathExp :: [Either Text Field] -> Exp
-toPathExp [Left t] = str t
-toPathExp fs       = app (var "mconcat") . listE $ map (either str go) fs
-  where
-    go = app (var "toText") . var . view fieldAccessor
-
-toBodyExp :: Field -> Exp
-toBodyExp f = var (f ^. fieldAccessor)
-
-decodeExp :: Dec -> Protocol -> Field -> Exp
-decodeExp o p f
-   | Just i <- m        = paren (infixApp monoid (qop ">>=") (parse i))
+decodeE :: Dec -> Protocol -> Field -> Exp
+decodeE o p f
+   | Just i <- m        = paren (infixApp monoid ">>=" (parse i))
    | f ^. fieldMonoid   = app (parse n) v
    | f ^. fieldRequired = infixApp v (decodeOp      o) n
    | otherwise          = infixApp v (decodeMaybeOp o) n
@@ -198,8 +245,13 @@ decodeExp o p f
 
     v = var "x"
 
-encodeExp :: Enc -> Protocol -> Field -> Exp
-encodeExp o p f
+data Enc = Enc
+    { encodeOp     :: QOp
+    , encodeListOp :: QOp
+    }
+
+encodeE :: Enc -> Protocol -> Field -> Exp
+encodeE o p f
     | Just i <- m  = infixApp n (encodeOp     o) (infixApp i (encodeListOp o) v)
     | fieldList1 f = infixApp n (encodeListOp o) v
     | fieldList  f = infixApp n (encodeListOp o) v
@@ -210,12 +262,7 @@ encodeExp o p f
 
     v = var (f ^. fieldAccessor)
 
--- decodeOp, decodeMaybeOp, decodeDefOp, encodeOp, encodeListOp :: (Stri, Char) -> QOp
--- decodeOp      (a, b) = Exts.op (Exts.sym [a, b])
--- decodeMaybeOp (a, b) = Exts.op (Exts.sym [a, b, '?'])
--- decodeDefOp   (a, b) = Exts.op (Exts.sym [a, '!', b])
--- encodeOp      (a, b) = Exts.op (Exts.sym [a, '='])
--- encodeListOp  (a, b) = Exts.op (Exts.sym [a, b, '='])
+
 
 memberNames :: Protocol -> Field -> (Exp, Maybe Exp)
 memberNames p f =
@@ -270,7 +317,7 @@ external ts (typeOf -> t) = case t of
     TMap       k v -> TyApp  (TyApp (tycon "HashMap") (external ts k)) (external ts v)
 
 mapping :: TType -> Exp -> Exp
-mapping t e = Fold.foldl' (\y -> InfixApp y (qop ".")) e (go t)
+mapping t e = infixE e "." (go t)
   where
     go = \case
         TSensitive x -> var "_Sensitive" : go x
@@ -313,8 +360,8 @@ pvar = Exts.pvar . ident
 var :: Text -> Exp
 var = Exts.var . ident
 
-qop :: Text -> QOp
-qop = Exts.op . Exts.sym . Text.unpack
+-- qop :: Text -> QOp
+-- qop = Exts.op . Exts.sym . Text.unpack
 
 param :: Int -> Name
 param = Ident . mappend "p" . show

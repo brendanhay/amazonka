@@ -19,7 +19,6 @@ module Compiler.Types.Ann where
 
 import           Compiler.TH
 import           Compiler.Types.Id
-import           Compiler.Types.URI
 import           Control.Comonad
 import           Control.Comonad.Cofree
 import           Control.Lens
@@ -115,41 +114,12 @@ instance Hashable Derive
 instance FromJSON Derive where
     parseJSON = gParseJSON' (spinal & ctor %~ (. Text.drop 1))
 
-data Related
-    = RShape Id Relation
-    | RReq   Id Relation (HTTP Identity)
-    | RRes   Id Relation
-      deriving (Show)
+data Related = Related
+    { _annId       :: Id
+    , _annRelation :: Relation
+    } deriving (Show)
 
-makePrisms ''Related
-
-relPairs :: Related -> (Id, Relation)
-relPairs = \case
-    RShape n r   -> (n, r)
-    RReq   n r _ -> (n, r)
-    RRes   n r   -> (n, r)
-
-class HasRelated a where
-    related     :: Lens' a Related
-    annId       :: Lens' a Id
-    annRelation :: Lens' a Relation
-
-    annId = related . lens (fst . relPairs) (flip f)
-      where
-        f n = \case
-            RShape _ r   -> RShape n r
-            RReq   _ r h -> RReq   n r h
-            RRes   _ r   -> RRes   n r
-
-    annRelation = related . lens (snd . relPairs) (flip f)
-      where
-        f r = \case
-            RShape n _   -> RShape n r
-            RReq   n _ h -> RReq   n r h
-            RRes   n _   -> RRes   n r
-
-instance HasRelated Related where
-    related = id
+makeClassy ''Related
 
 instance (Functor f, HasRelated a) => HasRelated (Cofree f a) where
     related = lens extract (flip (:<) . unwrap) . related
@@ -159,19 +129,6 @@ instance HasId Related where
 
 instance HasRelation Related where
     relation = annRelation
-
-mkRelShape :: HasRelation a => Id -> a -> Related
-mkRelShape n = RShape n . view relation
-
-mkRelOp :: HasRelation a => Direction -> Id -> HTTP Identity -> a -> Related
-mkRelOp Input  n h r = RReq n (r ^. relation) h
-mkRelOp Output n _ r = RRes n (r ^. relation)
-
--- isReq :: HasRelated a => a -> Bool
--- isReq = not . isn't _RReq . view related
-
--- isRes :: HasRelated a => a -> Bool
--- isRes = not . isn't _RRes . view related
 
 data Prefixed = Prefixed
     { _annRelated :: Related

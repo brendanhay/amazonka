@@ -3,8 +3,4 @@
   {% include "sum.ede" %}
 {% else %}
   {% include "product.ede" %}
-  {% for inst in shape.instances %}
-
-{{ inst.value }}
-  {% endfor %}
 {% endcase %}

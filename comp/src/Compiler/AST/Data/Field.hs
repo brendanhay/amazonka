@@ -25,7 +25,7 @@ import           Control.Comonad.Cofree
 import           Control.Lens
 import           Data.Function                (on)
 import qualified Data.HashSet                 as Set
-import           Data.List                    (sort)
+import           Data.List                    (sortBy)
 import           Data.Maybe
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
@@ -35,24 +35,16 @@ import           Language.Haskell.Exts.Syntax (Name (..))
 -- | Convenience type to package up some information from the struct with the
 -- related field, namely the memberId and the (Set.member required).
 data Field = Field
-    { _fieldId        :: Id    -- ^ The memberId from the struct members map.
+    { _fieldOrdinal   :: !Int
+    , _fieldId        :: Id    -- ^ The memberId from the struct members map.
     , _fieldRef       :: Ref   -- ^ The original struct member reference.
     , _fieldRequired  :: !Bool -- ^ Does the struct have this member in the required set.
     , _fieldPayload   :: !Bool -- ^ Does the struct have this memeber marked as the payload.
     , _fieldPrefix    :: Maybe Text
     , _fieldNamespace :: Maybe Text
-    } deriving (Show)
+    }
 
 makeLenses ''Field
-
-instance Eq Field where
-    (==) = on (==) _fieldId
-
--- | Ensures that streaming fields appear last in the parameter ordering,
--- but doesn't affect the rest of the order which is determined by parsing
--- of the JSON service definition.
-instance Ord Field where
-    compare = on compare streaming
 
 instance IsStreaming Field where
     streaming = streaming . _fieldRef
@@ -78,16 +70,22 @@ mkFields :: HasMetadata a f
          -> Maybe Text
          -> StructF (Shape Solved)
          -> [Field]
-mkFields m p st = sort $ map mk (st ^. members)
+mkFields m p st = sortFields $ zipWith mk [1..] (st ^. members)
   where
-    mk :: (Id, Ref) -> Field
-    mk (k, v) = Field k v req pay p ns
+    mk :: Int -> (Id, Ref) -> Field
+    mk i (k, v) = Field i k v req pay p ns
       where
         req = Set.member k (getRequired st)
         pay = Just k == st ^. payload
 
         ns  = (view xmlUri <$> v ^. refXMLNamespace)
           <|> (m ^. xmlNamespace)
+
+-- | Ensures that streaming fields appear last in the parameter ordering,
+-- but doesn't affect the rest of the order which is determined by parsing
+-- of the JSON service definition.
+sortFields :: [Field] -> [Field]
+sortFields = id -- zipWith (set fieldOrdinal) [1..] . sortBy (on compare streaming)
 
 fieldLens, fieldAccessor :: Getter Field Text
 fieldLens     = to (\f -> f ^. fieldId . lensId     (f ^. fieldPrefix))

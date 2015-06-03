@@ -43,17 +43,3 @@ import           {{ import.value }}
 {% include "_include/shape.ede" with shape = input %}
 
 {% include "_include/shape.ede" with shape = output %}
-
-instance AWSRequest {{ input.name }} where
-    type Sv {{ input.name }} = {{ serviceAbbrev }}
-    type Rs {{ input.name }} = {{ output.name }}
-
-    request  = {{ input.method }}
-    {% if output.fields | empty %}
-    response = responseNull (return {{ output.name}})
-    {% else %}
-    response = {{ output.method }} $ \h s x -> {{ output.name }}
-      {% for field in output.fields %}
-        {% include "_include/applicative.ede" %} {{ field.value }}
-      {% endfor %}
-    {% endif %}

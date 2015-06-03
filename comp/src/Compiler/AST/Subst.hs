@@ -109,7 +109,7 @@ substitute svc@Service{..} = do
     subst d n h Nothing  = do
         verify n "Failure attempting to substitute fresh shape"
         -- No Ref exists, safely insert an empty shape and return a related Ref.
-        save n (mkRelOp d n h (mkRelation mempty d) :< emptyStruct)
+        save n (Related n (mkRelation mempty d) :< emptyStruct)
         return $! Identity (emptyRef n)
 
     subst d n h (Just r) = do
@@ -120,7 +120,7 @@ substitute svc@Service{..} = do
             -- Insert override to rename the Ref/Shape to the desired name.
             then do
                 -- Ensure the annotation is updated.
-                save k (mkRelOp d k h x :< s)
+                save k (Related k (_annRelation x) :< s)
                 rename k n >> return (Identity r)
             -- Ref exists and is referred to by other shapes.
             else do
@@ -128,7 +128,7 @@ substitute svc@Service{..} = do
                 -- to prevent accidental override.
                 verify n "Failed attempting to copy existing shape"
                 -- Copy the shape by saving it under the desired name.
-                save n (mkRelOp d n h x :< s)
+                save n (x :< s)
                 memo %= Map.delete k
                 -- Update the Ref to point to the new wrapper.
                 return $! Identity (r & refShape .~ n)

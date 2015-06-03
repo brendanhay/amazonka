@@ -30,6 +30,7 @@ import           Control.Lens                 hiding (iso, mapping, op)
 import qualified Data.Foldable                as Fold
 import           Data.Function                ((&))
 import qualified Data.HashMap.Strict          as Map
+import           Data.List                    (nub)
 import           Data.Monoid
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
@@ -107,22 +108,42 @@ recDecl ts n fs = QualConDecl noLoc [] [] $ RecDecl (ident (n ^. typeId)) (map g
   where
     g f = ([f ^. fieldAccessor . to ident], internal ts f)
 
-responseExps :: Protocol -> [Field] -> [Exp]
-responseExps p =  const [] -- map go
+requestD :: HasMetadata a f
+         => a
+         -> HTTP Identity
+         -> (Id, [Inst])
+         -> (Id, [Field])
+         -> Decl
+requestD m h (a, as) (b, bs) = instD "AWSRequest" a
+    [ assocTyD a "Sv" (m ^. serviceAbbrev)
+    , assocTyD a "Rs" (b ^. typeId)
+    , funD "request"  (requestF h as)
+    , funD "response" (responseE (m ^. protocol) h b bs)
+    ]
+
+responseE :: Protocol -> HTTP Identity -> Id -> [Field] -> Exp
+responseE p h n fs = app (responseF p h fs) lam
   where
-    -- go f = case f ^. fieldLocation of
-    --     Just Headers     -> fromHeadersExp p f
-    --     Just Header      -> fromHeadersExp p f
-    --     Just StatusCode  -> app (var "pure") (var "s")
-    --     Just Body        -> app (var "pure") (var "x")
-    --     Nothing
-    --         | f ^. fieldPayload
-    --                      -> app (var "pure") (var "x")
-    --     _                ->
-    --         case p of
-    --             JSON     -> fromJSONExp p f
-    --             RestJSON -> fromJSONExp p f
-    --             _        -> fromXMLExp  p f
+    lam :: Exp
+    lam = lamE noLoc [pvar "s", pvar "h", pvar "x"] (dataE n $ map go fs)
+
+    go :: Field -> Exp
+    go x = case l of
+        Just Headers     -> parseHeadersE p x
+        Just Header      -> parseHeadersE p x
+        Just StatusCode  -> app (var "pure") (var "s")
+        Just Body        -> app (var "pure") (var "x")
+        Nothing      | b -> app (var "pure") (var "x")
+        _                -> proto x
+     where
+        l = x ^. fieldLocation
+        b = x ^. fieldPayload
+
+    proto :: Field -> Exp
+    proto = case p of
+        JSON     -> parseJSONE p
+        RestJSON -> parseJSONE p
+        _        -> parseXMLE  p
 
 instanceD :: Protocol -> Id -> Inst -> Decl
 instanceD p n = \case
@@ -130,77 +151,76 @@ instanceD p n = \case
     FromJSON  fs -> fromJSOND  p n fs
     ToElement f  -> toElementD p n f
     ToXML     fs -> toXMLD     p n fs
-    ToJSON    fs -> toJSOND   p n fs
+    ToJSON    fs -> toJSOND    p n fs
     ToHeaders fs -> toHeadersD p n fs
     ToPath    es -> toPathD      n es
     ToQuery   es -> toQueryD   p n es
-    ToBody    f  -> toBodyD    p n f
+    ToBody    f  -> toBodyD      n f
 
-fromXMLD :: Protocol -> Id -> [Field] -> Decl
-fromXMLD p n fs = instD "FromXML" n (funArgsD "parseXML" ["x"] exps)
-  where
-    exps = seqE (n ^. typeId . to var) (map (fromXMLE p) fs)
-
-fromJSOND :: Protocol -> Id -> [Field] -> Decl
-fromJSOND p n fs = instD "FromJSON" n (funArgsD "parseJSON" ["x"] exps)
-  where
-    exps = seqE (n ^. typeId . to var) (map (fromJSONE p) fs)
+fromXMLD, fromJSOND :: Protocol -> Id -> [Field] -> Decl
+fromXMLD  p n = decodeD "FromXML"  n "parseXML"  (dataE n) . map (parseXMLE  p)
+fromJSOND p n = decodeD "FromJSON" n "parseJSON" (dataE n) . map (parseJSONE p)
 
 toElementD :: Protocol -> Id -> Field -> Decl
-toElementD p n = instD "ToElement" n . funD "toElement" . toElementE p
+toElementD p n = instD1 "ToElement" n . funD "toElement" . toElementE p
 
-toXMLD :: Protocol -> Id -> [Field] -> Decl
-toXMLD p n fs = instD "ToXML" n (wildcardD n "toXML" exps)
-  where
-    exps  = listE (map (toXMLE p) fs)
-
-toJSOND :: Protocol -> Id -> [Field] -> Decl
-toJSOND p n fs = instD "ToJSON" n (wildcardD n "toJSON" exps)
-  where
-    exps  = listE (map (toJSONE p) fs)
-
-toHeadersD :: Protocol -> Id -> [Field] -> Decl
-toHeadersD p n fs = instD "ToHeaders" n decl
-  where
-    decl = wildcardD n "toHeaders" exps
-    exps = listE (map (toHeadersE p) fs)
+toXMLD, toJSOND :: Protocol -> Id -> [Field] -> Decl
+toXMLD     p n = encodeD "ToXML" n "toXML" (app (var "mconcat") . listE) . map (toXMLE p)
+toJSOND    p n = encodeD "ToJSON"    n "toJSON"    listE . map (toJSONE    p)
+toHeadersD p n = encodeD "ToHeaders" n "toHeaders" listE . map (toHeadersE p)
 
 toQueryD :: Protocol -> Id -> [Either Text Field] -> Decl
-toQueryD p n es = instD "ToQuery" n decl
-  where
-    decl = wildcardD n "toQuery" exps
-    exps = listE (map (toQueryE p) es)
+toQueryD p n = instD1 "ToQuery" n  . \case
+    [] -> constMemptyD "toQuery"
+    es -> wildcardD  n "toQuery" . listE $ map (toQueryE p) es
 
 toPathD :: Id -> [Either Text Field] -> Decl
-toPathD n es
-    | [Left t] <- es = ins (single t)
-    | otherwise      = ins multi
+toPathD n = instD1 "ToPath" n . \case
+    [Left t] -> funD fun . app (var "const") $ str t
+    es       -> wildcardD n fun . app (var "mconcat") . listE $ map toPathE es
   where
-    ins = instD "ToPath" n
     fun = "toPath"
 
-    single = funD fun . app (var "const") . str
-    multi  = wildcardD n fun . app (var "mconcat") . listE $ map toPathE es
+toBodyD :: Id -> Field -> Decl
+toBodyD n f = instD "ToBody" n [funD "toBody" (toBodyE f)]
 
-toBodyD :: Protocol -> Id -> Field -> Decl
-toBodyD p n = instD "ToBody" n . funD "toBody" . toBodyE
+instD1 :: Text -> Id -> InstDecl -> Decl
+instD1 c n = instD c n . (:[])
 
-instD :: Text -> Id -> InstDecl -> Decl
-instD c n d = InstDecl noLoc Nothing [] [] (unqual c) [n ^. typeId . to tycon] [d]
+instD :: Text -> Id -> [InstDecl] -> Decl
+instD c n = InstDecl noLoc Nothing [] [] (unqual c) [n ^. typeId . to tycon]
 
 funD :: Text -> Exp -> InstDecl
 funD f = InsDecl . patBind noLoc (pvar f)
 
 funArgsD :: Text -> [Text] -> Exp -> InstDecl
-funArgsD f as e =
-    InsDecl (sfun noLoc (ident f) (map ident as) (UnGuardedRhs e) noBinds)
+funArgsD f as e = InsDecl $
+    sfun noLoc (ident f) (map ident as) (UnGuardedRhs e) noBinds
 
-wildcardD :: Id -> Text -> Exp -> InstDecl
+-- wildcardD :: Id -> Text -> ([Exp] -> Exp) -> [Exp] -> InstDecl
+-- wildcardD n f rhs [] = funArgsD f [n ^. typeId] (rhs [])
 wildcardD n f e = InsDecl (FunBind [match])
   where
-    match = Match noLoc (ident f) [pat] Nothing rhs noBinds
+    match = Match noLoc (ident f) [pat] Nothing (UnGuardedRhs e) noBinds
     pat   = PRec (n ^. typeId . to unqual) [PFieldWildcard]
-    rhs   = UnGuardedRhs e
+
+assocTyD :: Id -> Text -> Text -> InstDecl
+assocTyD n x y = InsType noLoc (TyApp (tycon x) (n ^. typeId . to tycon)) (tycon y)
+
+decodeD c n f dec = instD1 c n . \case
+    [] -> funD f . app (var "const") $ dec []
+    es -> funArgsD f ["x"] (dec es)
+
+-- listEncodeD :: Text -> Id -> Text -> (Field -> Exp) -> Decl
+encodeD c n f enc = instD c n . (:[]) . \case
+    [] -> constMemptyD f
+    es -> wildcardD n f (enc es)
+
+constMemptyD :: Text -> InstDecl
+constMemptyD f = funArgsD f [] $ app (var "const") (var "mempty")
+
+dataE :: Id -> [Exp] -> Exp
+dataE n = seqE (n ^. typeId . to var)
 
 seqE :: Exp -> [Exp] -> Exp
 seqE l []     = app (var "pure") l
@@ -210,10 +230,10 @@ infixE :: Exp -> QOp -> [Exp] -> Exp
 infixE l _ []     = l
 infixE l o (r:rs) = infixE (infixApp l o r) o rs
 
-fromXMLE, fromJSONE, fromHeadersE :: Protocol -> Field -> Exp
-fromXMLE     = decodeE (Dec ".@" ".@?" ".!@")
-fromJSONE    = decodeE (Dec ".:" ".:?" ".!=")
-fromHeadersE = decodeE (Dec ".#" ".#?" ".!#")
+parseXMLE, parseJSONE, parseHeadersE :: Protocol -> Field -> Exp
+parseXMLE     = decodeE (Dec ".@" ".@?" ".!@")
+parseJSONE    = decodeE (Dec ".:" ".:?" ".!=")
+parseHeadersE = decodeE (Dec ".#" ".#?" ".!#")
 
 toXMLE, toJSONE, toHeadersE :: Protocol -> Field -> Exp
 toXMLE     = encodeE (Enc "@=" "@@=")
@@ -285,18 +305,20 @@ encodeE o p f
 
     v = var (f ^. fieldAccessor)
 
-memberNames :: Protocol -> Field -> (Exp, Maybe Exp)
-memberNames p f =
-    ( str  $  memberName p Input (f ^. fieldId) (f ^. fieldRef)
-    , str <$> item
-    )
+requestF :: HTTP Identity -> [Inst] -> Exp
+requestF h = var . mappend m . fromMaybe mempty . listToMaybe . mapMaybe f
   where
-    item = case unwrap (f ^. fieldRef . refAnn) of
-        List l -> listItemName p Input l
-        _      -> Nothing
+    f = \case
+        ToBody    {} -> Just "Body"
+        ToJSON    {} -> Just "JSON"
+        ToElement {} -> Just "XML"
+        _            -> Nothing
 
-responseFun :: Protocol -> [Field] -> Text
-responseFun p fs = "response" <> f
+    m = methodToText (h ^. method)
+
+-- FIXME: take method into account, such as HEAD responses
+responseF :: Protocol -> HTTP Identity -> [Field] -> Exp
+responseF p h fs = var ("response" <> f)
   where
     f | any (view fieldStream) fs = "Body"
       | otherwise                 =
@@ -308,10 +330,15 @@ responseFun p fs = "response" <> f
               Query    -> "XML"
               EC2      -> "XML"
 
-requestFun :: HTTP Identity -> [Field] -> Text
-requestFun h fs
-    | any (view fieldStream) fs = "stream"
-    | otherwise                 = methodToText (h ^. method)
+memberNames :: Protocol -> Field -> (Exp, Maybe Exp)
+memberNames p f =
+    ( str  $  memberName p Input (f ^. fieldId) (f ^. fieldRef)
+    , str <$> item
+    )
+  where
+    item = case unwrap (f ^. fieldRef . refAnn) of
+        List l -> listItemName p Input l
+        _      -> Nothing
 
 internal :: TypeOf a => Timestamp -> a -> Type
 internal ts (typeOf -> t) = case t of

@@ -41,7 +41,9 @@ import           GHC.Generics              (Generic)
 import           GHC.TypeLits
 import           Text.EDE                  (Template)
 
-data Fun = Fun Text Help LText.Text LText.Text
+type Rendered = LText.Text
+
+data Fun = Fun Text Help Rendered Rendered
     deriving (Show)
 
 instance ToJSON Fun where
@@ -55,14 +57,14 @@ instance ToJSON Fun where
 data Prod = Prod'
     { _prodName          :: Text
     , _prodDocumentation :: Maybe Help
-    , _prodDecl          :: LText.Text
+    , _prodDecl          :: Rendered
     , _prodCtor          :: Fun
     , _prodLenses        :: [Fun]
     } deriving (Show)
 
 prodToJSON :: ToJSON a => Prod -> Map Text a -> [Pair]
 prodToJSON Prod'{..} is =
-    [ "type"          .= typ
+    [ "type"          .= Text.pack "product"
     , "name"          .= _prodName
     , "constructor"   .= _prodCtor
     , "documentation" .= _prodDocumentation
@@ -70,15 +72,11 @@ prodToJSON Prod'{..} is =
     , "lenses"        .= _prodLenses
     , "instances"     .= is
     ]
-  where
-    typ :: Text
-    typ | null _prodLenses = "nullary"
-        | otherwise        = "product"
 
 data Sum = Sum'
     { _sumName          :: Text
     , _sumDocumentation :: Maybe Help
-    , _sumDecl          :: LText.Text
+    , _sumDecl          :: Rendered
     , _sumCtors         :: Map Text Text
     } deriving (Show)
 
@@ -93,25 +91,14 @@ sumToJSON Sum'{..} is =
     ]
 
 data Data
-    = Prod Prod (Map Text LText.Text)
+    = Prod Prod (Map Text Rendered)
     | Sum  Sum  [Text]
-    | Res  Prod Text [LText.Text]
-    | Req  Prod Text (Map Text LText.Text)
       deriving (Show)
 
 instance ToJSON Data where
     toJSON = \case
         Prod p is -> object (prodToJSON p is)
         Sum  s is -> object (sumToJSON  s is)
-
-        Res p m fs -> object $
-            [ "method" .= m
-            , "fields" .= fs
-            ] ++ prodToJSON p (mempty :: Map Text [Text])
-
-        Req p m is -> object $
-            [ "method" .= m
-            ] ++ prodToJSON p is
 
 instance ToJSON (Operation Identity Data) where
     toJSON o = object

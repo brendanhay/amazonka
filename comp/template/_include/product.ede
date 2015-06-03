@@ -24,3 +24,7 @@
 {{ lens.value.signature }}
 {{ lens.value.declaration }}
 {% endfor %}
+{% for inst in shape.instances %}
+
+{{ inst.value }}
+{% endfor %}

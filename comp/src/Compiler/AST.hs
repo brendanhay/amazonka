@@ -62,7 +62,7 @@ rewriteService cfg s = do
     elaborate (s ^. shapes)
         -- Annotate the comonadic tree with the associated
         -- bi/unidirectional (input/output/both) relation for shapes.
-        >>= traverse (pure . attach mkRelShape rs)
+        >>= traverse (pure . attach Related rs)
         -- Apply the override configuration to the service, and default any
         -- optional fields from the JSON where needed.
         >>= return . (\ss -> override (cfg ^. typeOverrides) (s { _shapes = ss }))
@@ -77,18 +77,20 @@ renderShapes :: Config
 renderShapes cfg svc = do
         -- Generate unique prefixes for struct (product) members and
         -- enum (sum) branches to avoid ambiguity.
-    (os, ss) <- prefixes (svc ^. shapes)
+    (x, y) <- prefixes (svc ^. shapes)
         -- Determine the appropriate Haskell AST type, auto deriveable instances,
         -- and fully rendered instances.
         >>= return . solve cfg
-        -- Convert the shape AST into a rendered Haskell AST declaration
-        >>= kvTraverseMaybe (const (dataType svc))
         -- Separate the operation input/output shapes from the .Types shapes.
         >>= separate (svc ^. operations)
 
+    -- Convert shape ASTs into a rendered Haskell AST declaration
+    xs <- traverse (operationData svc) x
+    ys <- kvTraverseMaybe (const (shapeData svc)) y
+
     return $! svc
-        { _operations = os
-        , _shapes     = ss
+        { _operations = xs
+        , _shapes     = ys
         }
 
 deprecate :: Service f a b -> Service f a b
@@ -139,18 +141,18 @@ type MemoS a = StateT (Map Id a) (Either Error)
 
 -- | Filter the ids representing operation input/outputs from the supplied map,
 -- and attach the associated shape to the appropriate operation.
-separate :: Show b => Map Id (Operation Identity (RefF a))
-         -> Map Id b
-         -> Either Error (Map Id (Operation Identity b), Map Id b)
+separate :: Show a => Map Id (Operation Identity (RefF b))
+         -> Map Id a
+         -> Either Error (Map Id (Operation Identity a), Map Id a)
 separate os ss = runStateT (traverse go os) ss
   where
     go :: Operation Identity (RefF a) -> MemoS b (Operation Identity b)
     go o = do
-        inp <- remove (o ^. input)
-        out <- remove (o ^. output)
+        x <- remove (o ^. inputName)
+        y <- remove (o ^. outputName)
         return $! o
-            { _opInput  = Identity inp
-            , _opOutput = Identity out
+            { _opInput  = Identity x
+            , _opOutput = Identity y
             }
 
     remove :: Id -> MemoS a a

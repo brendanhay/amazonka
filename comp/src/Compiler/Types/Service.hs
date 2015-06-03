@@ -131,7 +131,7 @@ data Location
     | URI
     | Querystring
     | StatusCode
-    | Body -- FIXME: !Bool streaming
+    | Body
       deriving (Eq, Show, Generic)
 
 instance FromJSON Location where
@@ -159,16 +159,14 @@ data RefF a = RefF
     , _refResultWrapper :: Maybe Text
     , _refQueryName     :: Maybe Text
     , _refStreaming     :: !Bool
---    , _refWrapper     :: !Bool
     , _refXMLAttribute  :: !Bool
     , _refXMLNamespace  :: Maybe XML
     } deriving (Show, Functor, Foldable, Traversable, Generic)
 
 makeLenses ''RefF
 
--- refDocumentation :: Getter Ref Help
--- refDocumentation = to $
---     fromMaybe "FIXME: Undocumented reference." . _refDocumentation'
+instance HasId (RefF a) where
+    identifier = identifier . _refShape
 
 instance FromJSON (RefF ()) where
     parseJSON = withObject "ref" $ \o -> RefF ()
@@ -360,9 +358,9 @@ makeLenses ''Operation
 operationNS :: Getter (Operation f a) NS
 operationNS = opName . typeId . to textToNS
 
-input, output :: Getter (Operation Identity (RefF a)) Id
-input  = opInput  . _Identity . refShape
-output = opOutput . _Identity . refShape
+inputName, outputName :: HasId a => Getter (Operation Identity a) Id
+inputName  = opInput  . _Identity . to identifier
+outputName = opOutput . _Identity . to identifier
 
 instance FromJSON (Operation Maybe (RefF ())) where
     parseJSON = withObject "operation" $ \o -> Operation

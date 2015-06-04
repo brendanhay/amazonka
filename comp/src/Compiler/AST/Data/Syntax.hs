@@ -23,6 +23,7 @@ import           Compiler.AST.Data.Instance
 import           Compiler.AST.TypeOf
 import           Compiler.Formatting
 import           Compiler.Protocol
+import           Compiler.Text
 import           Compiler.Types
 import           Control.Comonad.Cofree
 import           Control.Error
@@ -152,7 +153,7 @@ instanceD p n = \case
     ToElement f  -> toElementD p n f
     ToXML     fs -> toXMLD     p n fs
     ToJSON    fs -> toJSOND    p n fs
-    ToHeaders fs -> toHeadersD p n fs
+    ToHeaders es -> toHeadersD p n es
     ToPath    es -> toPathD      n es
     ToQuery   es -> toQueryD   p n es
     ToBody    f  -> toBodyD      n f
@@ -167,19 +168,21 @@ toElementD p n = instD1 "ToElement" n . funD "toElement" . toElementE p
 toXMLD, toJSOND :: Protocol -> Id -> [Field] -> Decl
 toXMLD     p n = encodeD "ToXML" n "toXML" (app (var "mconcat") . listE) . map (toXMLE p)
 toJSOND    p n = encodeD "ToJSON"    n "toJSON"    listE . map (toJSONE    p)
-toHeadersD p n = encodeD "ToHeaders" n "toHeaders" listE . map (toHeadersE p)
 
-toQueryD :: Protocol -> Id -> [Either Text Field] -> Decl
+toHeadersD :: Protocol -> Id -> [Either (Text, Text) Field] -> Decl
+toHeadersD p n = instD1 "ToHeaders" n  . \case
+    [] -> constMemptyD "toHeaders"
+    es -> wildcardD  n "toHeaders" . listE $ map (toHeadersE p) es
+
+toQueryD :: Protocol -> Id -> [Either (Text, Maybe Text) Field] -> Decl
 toQueryD p n = instD1 "ToQuery" n  . \case
     [] -> constMemptyD "toQuery"
     es -> wildcardD  n "toQuery" . listE $ map (toQueryE p) es
 
 toPathD :: Id -> [Either Text Field] -> Decl
 toPathD n = instD1 "ToPath" n . \case
-    [Left t] -> funD fun . app (var "const") $ str t
-    es       -> wildcardD n fun . app (var "mconcat") . listE $ map toPathE es
-  where
-    fun = "toPath"
+    [Left t] -> funD "toQuery" . app (var "const") $ str t
+    es       -> wildcardD n "toQuery" . app (var "mconcat") . listE $ map toPathE es
 
 toBodyD :: Id -> Field -> Decl
 toBodyD n f = instD "ToBody" n [funD "toBody" (toBodyE f)]
@@ -235,13 +238,9 @@ parseXMLE     = decodeE (Dec ".@" ".@?" ".!@")
 parseJSONE    = decodeE (Dec ".:" ".:?" ".!=")
 parseHeadersE = decodeE (Dec ".#" ".#?" ".!#")
 
-toXMLE, toJSONE, toHeadersE :: Protocol -> Field -> Exp
-toXMLE     = encodeE (Enc "@=" "@@=")
-toJSONE    = encodeE (Enc ".=" ".=")
-toHeadersE = encodeE (Enc "=#" "=##")
-
-toQueryE :: Protocol -> Either Text Field -> Exp
-toQueryE p = either str (encodeE (Enc "=:" "=:") p)
+toXMLE, toJSONE :: Protocol -> Field -> Exp
+toXMLE  = encodeE (Enc "@=" "@@=")
+toJSONE = encodeE (Enc ".=" ".=")
 
 toElementE :: Protocol -> Field -> Exp
 toElementE p f = appFun (var "mkElement")
@@ -256,6 +255,17 @@ toElementE p f = appFun (var "mkElement")
          | otherwise                      = n
 
     n = memberName p Input (f ^. fieldId) (f ^. fieldRef)
+
+toHeadersE :: Protocol -> Either (Text, Text) Field -> Exp
+toHeadersE p = either pair (encodeE (Enc "=#" "=##") p)
+  where
+    pair (k, v) = infixApp (str k) "=#" (str v)
+
+toQueryE :: Protocol -> Either (Text, Maybe Text) Field -> Exp
+toQueryE p = either pair (encodeE (Enc "=:" "=:") p)
+  where
+    pair (k, Nothing) = str k
+    pair (k, Just v)  = infixApp (str k) "=:" (str v)
 
 toPathE :: Either Text Field -> Exp
 toPathE = either str (app (var "toText") . var . view fieldAccessor)
@@ -306,26 +316,28 @@ encodeE o p f
     v = var (f ^. fieldAccessor)
 
 requestF :: HTTP Identity -> [Inst] -> Exp
-requestF h = var . mappend m . fromMaybe mempty . listToMaybe . mapMaybe f
+requestF h is = var v
   where
+    v = mappend (methodToText (h ^. method))
+      . fromMaybe mempty
+      . listToMaybe
+      $ mapMaybe f is
+
     f = \case
         ToBody    {} -> Just "Body"
         ToJSON    {} -> Just "JSON"
         ToElement {} -> Just "XML"
         _            -> Nothing
 
-    m = methodToText (h ^. method)
-
 -- FIXME: take method into account, such as HEAD responses
 responseF :: Protocol -> HTTP Identity -> [Field] -> Exp
-responseF p h fs = var ("response" <> f)
+responseF p h fs = var ("receive" <> f)
   where
     f | any (view fieldStream) fs = "Body"
       | otherwise                 =
           case p of
               JSON     -> "JSON"
               RestJSON -> "JSON"
-              XML      -> "XML"
               RestXML  -> "XML"
               Query    -> "XML"
               EC2      -> "XML"

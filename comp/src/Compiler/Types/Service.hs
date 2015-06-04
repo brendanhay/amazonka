@@ -89,7 +89,6 @@ instance ToJSON Timestamp where
 data Protocol
     = JSON
     | RestJSON
-    | XML
     | RestXML
     | Query
     | EC2
@@ -99,13 +98,17 @@ instance FromJSON Protocol where
     parseJSON = gParseJSON' spinal
 
 instance ToJSON Protocol where
-    toJSON = String . Text.pack . show
+    toJSON = String . \case
+        JSON     -> "JSON"
+        RestJSON -> "JSON"
+        RestXML  -> "XML"
+        Query    -> "Query"
+        EC2      -> "EC2"
 
 timestamp :: Protocol -> Timestamp
 timestamp = \case
     JSON     -> POSIX
     RestJSON -> POSIX
-    XML      -> ISO8601
     RestXML  -> ISO8601
     Query    -> ISO8601
     EC2      -> ISO8601

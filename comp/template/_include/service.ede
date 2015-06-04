@@ -9,13 +9,11 @@ instance AWSService {{ serviceAbbrev }} where
       where
         service' :: Service {{ serviceAbbrev }}
         service' = Service
-            { _svcAbbrev       = "{{ serviceAbbrev }}"
-            , _svcPrefix       = "{{ endpointPrefix }}"
-            , _svcVersion      = "{{ apiVersion }}"
-            , _svcTargetPrefix = {% if targetPrefix %}Just "{{ targetPrefix }}"{% else %}Nothing{% endif %}
-            , _svcJSONVersion  = {% if jsonVersion %}Just "{{ jsonVersion }}"{% else %}Nothing{% endif %}
-            , _svcHandle       = handle
-            , _svcRetry        = retry
+            { _svcAbbrev  = "{{ serviceAbbrev }}"
+            , _svcPrefix  = "{{ endpointPrefix }}"
+            , _svcVersion = "{{ apiVersion }}"
+            , _svcHandle  = handle
+            , _svcRetry   = retry
             }
 
         handle :: Status

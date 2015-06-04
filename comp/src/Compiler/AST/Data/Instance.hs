@@ -1,6 +1,7 @@
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RankNTypes        #-}
+{-# LANGUAGE TupleSections     #-}
 {-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Compiler.AST.Data.Instance
@@ -29,18 +30,14 @@ import           Data.Text               (Text)
 import qualified Data.Text               as Text
 import           Data.Text.Manipulate
 
--- FIXME: XML namespace requirement for ToElement
--- general tidy up of syntax/instance/data/annotations
--- build
-
 data Inst
     = FromXML   [Field]
     | FromJSON  [Field]
     | ToXML     [Field]
     | ToElement Field
     | ToJSON    [Field]
-    | ToQuery   [Either Text Field]
-    | ToHeaders [Field]
+    | ToHeaders [Either (Text, Text) Field]
+    | ToQuery   [Either (Text, Maybe Text) Field]
     | ToPath    [Either Text Field]
     | ToBody    Field
 
@@ -54,8 +51,8 @@ instToText = \case
     ToJSON    {} -> "ToJSON"
     ToXML     {} -> "ToXML"
     ToElement {} -> "ToElement"
-    ToQuery   {} -> "ToQuery"
     ToHeaders {} -> "ToHeaders"
+    ToQuery   {} -> "ToQuery"
     ToPath    {} -> "ToPath"
     ToBody    {} -> "ToBody"
 
@@ -72,7 +69,6 @@ shapeInsts p m fs = go m
     inp = \case
         JSON     -> ToJSON
         RestJSON -> ToJSON
-        XML      -> ToXML
         RestXML  -> ToXML
         Query    -> ToQuery . map Right
         EC2      -> ToQuery . map Right
@@ -81,39 +77,43 @@ shapeInsts p m fs = go m
     out = \case
         JSON     -> FromJSON
         RestJSON -> FromJSON
-        XML      -> FromXML
         RestXML  -> FromXML
         Query    -> FromXML
         EC2      -> FromXML
 
-requestInsts :: Protocol
+requestInsts :: HasMetadata a f
+             => a
              -> HTTP Identity
+             -> Id
              -> [Field]
              -> Either Error [Inst]
-requestInsts p h fs = do
-    path <- toPath
+requestInsts m h n fs = do
+    path' <- toPath
     concatQuery =<< replaceXML
-        ( [toHeaders, path]
+        ( [toHeaders, path']
        ++ maybeToList toBody
        ++ removeInsts (shapeInsts p (Uni Input) fields)
         )
   where
     toHeaders :: Inst
-    toHeaders = ToHeaders (satisfies [Header, Headers] fs)
+    toHeaders = ToHeaders
+         $ map Right (satisfies [Header, Headers] fs)
+        ++ map Left  protocolHeaders
 
     toPath :: Either Error Inst
-    toPath = ToPath <$> uriFields h uriPath fs
+    toPath = ToPath <$> uriFields h uriPath id fs
 
     toBody :: Maybe Inst
     toBody = ToBody <$> stream
 
     concatQuery :: [Inst] -> Either Error [Inst]
     concatQuery is = do
-        xs <- uriFields h uriQuery fs
+        xs <- uriFields h uriQuery (,Nothing) fs
         return $! merged xs : filter (not . f) is
       where
         merged xs =
             let ys = map Right (satisfies [Querystring] fs) <> xs
+                  ++ map Left  protocolQuery
              in case find f is of
                 Just (ToQuery zs) -> ToQuery (ys <> zs)
                 _                 -> ToQuery ys
@@ -146,14 +146,41 @@ requestInsts p h fs = do
     notLocated :: [Field]
     notLocated = satisfy (\l -> isNothing l || Just Body == l) fs
 
+    protocolHeaders :: [(Text, Text)]
+    protocolHeaders = case p of
+        JSON     -> t ++ c
+        RestJSON -> c
+        _        -> []
+      where
+        t = maybeToList $ ("X-Amz-Target",) <$> target
+        c = maybeToList $ ("Content-Type",) <$> content
+
+    protocolQuery :: [(Text, Maybe Text)]
+    protocolQuery = case p of
+        Query    -> [a, v]
+        EC2      -> [a, v]
+        _        -> []
+      where
+        a = ("Action",  Just action)
+        v = ("Version", Just version)
+
+    content = ("application/x-amz-json-" <>) <$> m ^. jsonVersion
+    target  = (<> ("." <> action))           <$> m ^. targetPrefix
+
+    action  = n ^. memberId
+    version = m ^. apiVersion
+
+    p = m ^. protocol
+
 uriFields :: (Foldable f, Traversable t)
           => s
           -> Getter s (t Segment)
+          -> (Text -> a)
           -> f Field
-          -> Either Error (t (Either Text Field))
-uriFields h l fs = traverse go (h ^. l)
+          -> Either Error (t (Either a Field))
+uriFields h l f fs = traverse go (h ^. l)
   where
-    go (Tok t) = return (Left t)
+    go (Tok t) = return $ Left (f t)
     go (Var v) = Right <$> note (missing v) (find ((v ==) . view fieldId) fs)
 
     missing = format ("Missing field corresponding to URI variable " % iprimary)

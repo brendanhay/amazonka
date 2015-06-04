@@ -1,7 +1,9 @@
 {-# LANGUAGE DeriveGeneric          #-}
 {-# LANGUAGE FlexibleInstances      #-}
 {-# LANGUAGE FunctionalDependencies #-}
+{-# LANGUAGE LambdaCase             #-}
 {-# LANGUAGE MultiParamTypeClasses  #-}
+{-# LANGUAGE OverloadedStrings      #-}
 {-# LANGUAGE StandaloneDeriving     #-}
 {-# LANGUAGE TemplateHaskell        #-}
 
@@ -82,7 +84,12 @@ instance FromJSON Method where
     parseJSON = gParseJSON' upper
 
 methodToText :: Method -> Text
-methodToText = Text.toLower . Text.pack . show
+methodToText = \case
+   GET    -> "get"
+   POST   -> "post"
+   HEAD   -> "head'"
+   PUT    -> "put"
+   DELETE -> "delete"
 
 data HTTP f = HTTP
     { _method       :: !Method

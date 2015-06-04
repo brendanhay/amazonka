@@ -35,7 +35,7 @@ module {{ moduleName }}
 import qualified GHC.Exts
 import           Network.AWS.Prelude
 import           Network.AWS.{{ serviceAbbrev }}.Types
-import           Network.AWS.Request.{{ protocol }}
+import           Network.AWS.Protocol.{{ protocol }}
 {% for import in operationImports %}
 import           {{ import.value }}
 {% endfor %}

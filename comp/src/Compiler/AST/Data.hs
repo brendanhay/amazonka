@@ -51,7 +51,7 @@ operationData m o = do
     (xd, xs) <- prodData m xa x
     (yd, ys) <- prodData m ya y
 
-    is       <- requestInsts p h xs
+    is       <- requestInsts m h xn xs
     cls      <- pp Print $ requestD m h (xn, is) (yn, ys)
     is'      <- Map.insert "AWSRequest" cls <$> renderInsts p xn is
 
@@ -158,7 +158,7 @@ data Ident
 
 pp :: Pretty a => Ident -> a -> Either Error LText.Text
 pp i d
-    | i == Indent = bimap e Build.toLazyText (reformat johanTibell Nothing p)
+--    | i == Indent = bimap e Build.toLazyText (reformat johanTibell Nothing p)
     | otherwise   = pure p
   where
     e = flip mappend (", when formatting datatype: " <> p) . LText.pack

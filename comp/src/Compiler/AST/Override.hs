@@ -121,7 +121,7 @@ overrideShape ovs n c@(_ :< s) = mayRemember
 
     require, optional :: ShapeF a -> ShapeF a
     require  = setRequired (<> _requiredFields)
-    optional = setRequired (`Set.difference` _optionalFields)
+    optional = setRequired (<> _optionalFields)
 
     prefix :: ShapeF a -> ShapeF a
     prefix =
@@ -134,7 +134,7 @@ overrideShape ovs n c@(_ :< s) = mayRemember
         rn <- use renamed
         let f k = fromMaybe k (Map.lookup k rn)
         return $! x
-                & _Struct . members . each . _1
+                & _Struct . members . kvTraversal
                %~ f
 
     retype :: ShapeF a -> MemoS (ShapeF a)

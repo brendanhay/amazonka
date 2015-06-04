@@ -22,9 +22,9 @@ import           Compiler.Types.Id
 import           Control.Comonad
 import           Control.Comonad.Cofree
 import           Control.Lens
+import           Data.Aeson
 import           Data.Hashable
 import qualified Data.HashSet           as Set
-import           Data.Jason             hiding (ToJSON (..))
 import           Data.Monoid
 import           Data.Text              (Text)
 import qualified Data.Text              as Text

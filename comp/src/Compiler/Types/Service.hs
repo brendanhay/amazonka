@@ -40,17 +40,13 @@ import           Compiler.Types.URI
 import           Control.Comonad
 import           Control.Comonad.Cofree
 import           Control.Lens           hiding ((.=))
-import           Data.Aeson             (ToJSON (..), object, (.=))
-import qualified Data.Aeson             as A
+import           Data.Aeson             hiding (Bool)
 import           Data.Bifunctor
 import qualified Data.HashMap.Strict    as Map
-import qualified Data.HashSet           as Set
-import           Data.Jason             hiding (Bool, ToJSON (..), object, (.=))
-import           Data.Jason.Types       (unObject)
+import           Data.List              (nub)
 import           Data.Monoid
 import           Data.Text              (Text)
 import qualified Data.Text              as Text
-import           Data.Traversable       (for)
 import           GHC.Generics           (Generic)
 import           Numeric.Natural
 
@@ -68,8 +64,8 @@ instance FromJSON Signature where
     parseJSON = gParseJSON' lower
 
 instance ToJSON Signature where
-    toJSON V2 = A.String "V2"
-    toJSON _  = A.String "V4"
+    toJSON V2 = String "V2"
+    toJSON _  = String "V4"
 
 data Timestamp
     = RFC822
@@ -103,7 +99,7 @@ instance FromJSON Protocol where
     parseJSON = gParseJSON' spinal
 
 instance ToJSON Protocol where
-    toJSON = A.String . Text.pack . show
+    toJSON = String . Text.pack . show
 
 timestamp :: Protocol -> Timestamp
 timestamp = \case
@@ -245,19 +241,10 @@ instance FromJSON (Info -> MapF ()) where
         v <- o .: "value"
         return $! \i -> MapF i k v
 
--- FIXME: Map shouldn't be used for struct fields to ensure ordering is the same as JSON,
--- due to the use of Jason.
---
--- Also a (simpler) Jason alternative would be nice.
-
--- FIXME: Parameterize Ref over a, which can be swapped out for the actual shape.
--- (Id -> Ref -> Shape) Forms a Field
-
---    { _members  :: [(Id, a)]
 data StructF a = StructF
     { _structInfo :: Info
-    , _members    :: [(Id, RefF a)]
-    , _required'  :: Set Id
+    , _members    :: Map Id (RefF a)
+    , _required'  :: [Id] -- ^ List so it can be used for ordering.
     , _payload    :: Maybe Id
     } deriving (Show, Functor, Foldable, Traversable)
 
@@ -267,27 +254,23 @@ instance HasInfo (StructF a) where
     info = structInfo
 
 instance HasRefs StructF where
-    references = traverseOf (members . each . _2)
+    references = traverseOf (members . each)
 
 instance FromJSON (Info -> StructF ()) where
     parseJSON = withObject "struct" $ \o -> do
-        ms <- o .:  "members" >>= parse
+        ms <- o .:  "members"
         r  <- o .:? "required" .!= mempty
         p  <- o .:? "payload"
         return $! \i -> StructF i (body p ms) r p
       where
-        parse (Object o) =
-            for (unObject o) $ \(k, v) ->
-                (mkId k,) <$> parseJSON v
-        parse _          = fail "Unexpected non-object for 'members'"
-
         -- This ensure that the field referenced by a possible
         -- "payload":<id> has a location set.
+        body :: Maybe Id -> Map Id (RefF a) -> Map Id (RefF a)
         body Nothing  = id
-        body (Just p) = map f
+        body (Just p) = Map.mapWithKey f
           where
-            f (n, r) | p == n    = (n, r & refLocation ?~ Body)
-                     | otherwise = (n, r)
+            f n r | p == n    = r & refLocation ?~ Body
+                  | otherwise = r
 
 data ShapeF a
     = Ptr    Info (Set Derive)
@@ -414,10 +397,10 @@ instance FromJSON (Metadata Maybe) where
         <*> o .:? "targetPrefix"
 
 instance ToJSON (Metadata Identity) where
-    toJSON m = A.Object (x <> y)
+    toJSON m = Object (x <> y)
       where
-        A.Object x = gToJSON' camel m
-        A.Object y = object
+        Object x = gToJSON' camel m
+        Object y = object
             [ "serviceError"         .= e
             , "serviceErrorFunction" .= f
             ]
@@ -454,11 +437,11 @@ instance IsStreaming (Shape a) where
 instance IsStreaming (RefF (Shape a)) where
     streaming r = _refStreaming r || streaming (_refAnn r)
 
-setRequired :: (Set Id -> Set Id) -> ShapeF a -> ShapeF a
-setRequired f = _Struct . required' %~ f
+setRequired :: ([Id] -> [Id]) -> ShapeF a -> ShapeF a
+setRequired f = _Struct . required' %~ nub . f
 
-getRequired :: StructF (Shape a) -> Set Id
-getRequired s = _required' s <> Set.fromList (concatMap f (_members s))
+getRequired :: StructF (Shape a) -> [Id]
+getRequired s = nub $ _required' s <> concatMap f (Map.toList $ _members s)
   where
     f (n, r)
         | streaming r = [n]

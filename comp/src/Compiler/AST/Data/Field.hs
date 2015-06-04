@@ -24,6 +24,7 @@ import           Control.Comonad
 import           Control.Comonad.Cofree
 import           Control.Lens
 import           Data.Function                (on)
+import qualified Data.HashMap.Strict          as Map
 import qualified Data.HashSet                 as Set
 import           Data.List                    (sortBy)
 import           Data.Maybe
@@ -70,22 +71,24 @@ mkFields :: HasMetadata a f
          -> Maybe Text
          -> StructF (Shape Solved)
          -> [Field]
-mkFields m p st = sortFields $ zipWith mk [1..] (st ^. members)
+mkFields m p st = sortFields rs $ zipWith mk [1..] $ Map.toList (st ^. members)
   where
     mk :: Int -> (Id, Ref) -> Field
     mk i (k, v) = Field i k v req pay p ns
       where
-        req = Set.member k (getRequired st)
+        req = k `elem` rs
         pay = Just k == st ^. payload
 
         ns  = (view xmlUri <$> v ^. refXMLNamespace)
           <|> (m ^. xmlNamespace)
 
+    rs = getRequired st
+
 -- | Ensures that streaming fields appear last in the parameter ordering,
 -- but doesn't affect the rest of the order which is determined by parsing
 -- of the JSON service definition.
-sortFields :: [Field] -> [Field]
-sortFields = id -- zipWith (set fieldOrdinal) [1..] . sortBy (on compare streaming)
+sortFields :: [Id] -> [Field] -> [Field]
+sortFields _ = id -- zipWith (set fieldOrdinal) [1..] . sortBy (on compare streaming)
 
 fieldLens, fieldAccessor :: Getter Field Text
 fieldLens     = to (\f -> f ^. fieldId . lensId     (f ^. fieldPrefix))

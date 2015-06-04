@@ -2,7 +2,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TemplateHaskell   #-}
-{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Compiler.TH
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -31,10 +30,8 @@ module Compiler.TH
 
 import           Compiler.Text
 import           Control.Lens
-import qualified Data.Aeson.TH        as A
-import qualified Data.Aeson.Types     as A
-import qualified Data.Jason.TH        as J
-import qualified Data.Jason.Types     as J
+import           Data.Aeson.TH
+import           Data.Aeson.Types
 import           Data.Text            (Text)
 import qualified Data.Text            as Text
 import qualified Data.Text.Manipulate as Text
@@ -48,11 +45,11 @@ data TH = TH
 
 makeLenses ''TH
 
-gParseJSON' :: (Generic a, J.GFromJSON (Rep a)) => TH -> J.Value -> J.Parser a
-gParseJSON' th = J.genericParseJSON (jason th)
+gParseJSON' :: (Generic a, GFromJSON (Rep a)) => TH -> Value -> Parser a
+gParseJSON' th = genericParseJSON (aeson th)
 
-gToJSON' :: (Generic a, A.GToJSON (Rep a)) => TH -> a -> A.Value
-gToJSON' th = A.genericToJSON (aeson th)
+gToJSON' :: (Generic a, GToJSON (Rep a)) => TH -> a -> Value
+gToJSON' th = genericToJSON (aeson th)
 
 upper, lower, spinal, camel :: TH
 upper  = TH Text.toUpper  Text.toUpper  False
@@ -60,32 +57,17 @@ lower  = TH Text.toLower  Text.toLower  False
 spinal = TH Text.toSpinal Text.toSpinal False
 camel  = TH Text.toCamel  Text.toCamel  False
 
-jason :: TH -> J.Options
-jason (options -> (f, g)) = J.defaultOptions
-    { J.constructorTagModifier = f
-    , J.fieldLabelModifier     = g
-    , J.allNullaryToStringTag  = True
-    , J.sumEncoding            =
-        J.defaultTaggedObject
-            { J.tagFieldName      = "type"
-            , J.contentsFieldName = "contents"
+aeson :: TH -> Options
+aeson TH{..} = defaultOptions
+    { constructorTagModifier = f _ctor
+    , fieldLabelModifier     = f _field
+    , allNullaryToStringTag  = True
+    , sumEncoding            =
+        defaultTaggedObject
+            { tagFieldName      = "type"
+            , contentsFieldName = "contents"
             }
     }
-
-aeson :: TH -> A.Options
-aeson (options -> (f, g)) = A.defaultOptions
-    { A.constructorTagModifier = f
-    , A.fieldLabelModifier     = g
-    , A.allNullaryToStringTag  = True
-    , A.sumEncoding            =
-        A.defaultTaggedObject
-            { A.tagFieldName      = "type"
-            , A.contentsFieldName = "contents"
-            }
-    }
-
-options :: TH -> (String -> String, String -> String)
-options TH{..} = (f _ctor, f _field)
   where
     f g = asText (g . camelAcronym . h . stripSuffix "'")
 

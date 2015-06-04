@@ -44,17 +44,13 @@ import           Compiler.Types.Service    as Types
 import           Compiler.Types.URI        as Types
 import           Control.Error
 import           Control.Lens              hiding ((.=))
-import           Data.Aeson                (ToJSON (..), object, (.=))
-import qualified Data.Aeson                as A
+import           Data.Aeson
 import           Data.Bifunctor
-import           Data.Jason                hiding (Bool, ToJSON (..), object,
-                                            (.=))
 import           Data.List                 (sortOn)
 import           Data.Monoid               hiding (Product, Sum)
 import           Data.Ord
 import qualified Data.SemVer               as SemVer
 import           Data.Text                 (Text)
-import qualified Data.Text                 as Text
 import qualified Data.Text.Lazy            as LText
 import qualified Data.Text.Lazy.Builder    as Build
 import           Data.Time
@@ -84,8 +80,8 @@ data Override = Override
     { _renamedTo      :: Maybe Id      -- ^ Rename type
     , _replacedBy     :: Maybe Replace -- ^ Existing type that supplants this type
     , _enumPrefix     :: Maybe Text    -- ^ Enum constructor prefix
-    , _requiredFields :: Set Id        -- ^ Required fields
-    , _optionalFields :: Set Id        -- ^ Optional fields
+    , _requiredFields :: [Id]          -- ^ Required fields
+    , _optionalFields :: [Id]          -- ^ Optional fields
     , _renamedFields  :: Map Id Id     -- ^ Rename fields
     } deriving (Eq, Show)
 
@@ -113,8 +109,8 @@ defaultOverride = Override
 newtype Version (v :: Symbol) = Version SemVer.Version
     deriving (Eq, Show)
 
-instance A.ToJSON (Version v) where
-    toJSON (Version v) = A.toJSON (SemVer.toText v)
+instance ToJSON (Version v) where
+    toJSON (Version v) = toJSON (SemVer.toText v)
 
 semver :: Format a (Version v -> a)
 semver = later (\(Version v) -> Build.fromText (SemVer.toText v))
@@ -175,10 +171,10 @@ instance HasVersions Library where
     versions = versions'
 
 instance ToJSON Library where
-    toJSON l = A.Object (x <> y)
+    toJSON l = Object (x <> y)
       where
-        A.Object y = toJSON (l ^. metadata)
-        A.Object x = object
+        Object y = toJSON (l ^. metadata)
+        Object x = object
             [ "referenceUrl"     .= (l ^. referenceUrl)
             , "operationUrl"     .= (l ^. operationUrl)
             , "description"      .= (l ^. documentation . asDesc)

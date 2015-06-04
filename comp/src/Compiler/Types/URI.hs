@@ -21,9 +21,9 @@ import           Compiler.TH
 import           Compiler.Types.Id
 import           Control.Applicative
 import           Control.Lens
+import           Data.Aeson
 import           Data.Attoparsec.Text (Parser)
 import qualified Data.Attoparsec.Text as Parse
-import           Data.Jason
 import           Data.Text            (Text)
 import qualified Data.Text            as Text
 import           GHC.Generics         (Generic)

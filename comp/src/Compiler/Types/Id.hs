@@ -39,11 +39,10 @@ import           Compiler.Text
 import           Control.Comonad
 import           Control.Comonad.Cofree
 import           Control.Lens
-import           Data.Aeson             (ToJSON (..))
+import           Data.Aeson
 import           Data.CaseInsensitive   (CI)
 import qualified Data.CaseInsensitive   as CI
 import           Data.Hashable
-import           Data.Jason             hiding (ToJSON (..))
 import           Data.Monoid
 import           Data.Text              (Text)
 import qualified Data.Text              as Text

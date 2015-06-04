@@ -12,8 +12,7 @@
 
 module Compiler.Types.NS where
 
-import           Data.Aeson                (ToJSON (..))
-import           Data.Jason                hiding (ToJSON (..))
+import           Data.Aeson
 import           Data.Monoid
 import           Data.String
 import           Data.Text                 (Text)

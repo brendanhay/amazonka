@@ -18,9 +18,8 @@ module Compiler.Types.Help
     ) where
 
 import           Control.Lens
-import           Data.Aeson         (ToJSON (..))
+import           Data.Aeson
 import           Data.Char          (isSpace)
-import           Data.Jason         hiding (ToJSON (..))
 import           Data.String
 import           Data.Text          (Text)
 import qualified Data.Text          as Text

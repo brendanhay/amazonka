@@ -18,33 +18,31 @@ import           Compiler.Types.Id
 import           Compiler.Types.Map
 import           Control.Lens
 import           Control.Monad
-import qualified Data.Aeson            as A
+import           Data.Aeson
+import           Data.Aeson.Types
 import           Data.Bifunctor
-import qualified Data.Jason            as J
-import qualified Data.Jason.Types      as J
 import           Data.Scientific       (floatingOrInteger)
-import           Data.String
 import           Data.String
 import qualified Language.Haskell.Exts as Exts
 import           Numeric.Natural
 
-instance J.FromJSON a => J.FromJSON (Map Id a) where
-    parseJSON = J.parseJSON >=> return . (kvTraversal %~ first mkId)
+instance FromJSON a => FromJSON (Map Id a) where
+    parseJSON = parseJSON >=> return . (kvTraversal %~ first mkId)
 
-instance J.FromJSON Natural where
-    parseJSON = J.withScientific "natural" (f . floatingOrInteger)
+instance FromJSON Natural where
+    parseJSON = withScientific "natural" (f . floatingOrInteger)
       where
-        f :: Either Double Integer -> J.Parser Natural
+        f :: Either Double Integer -> Parser Natural
         f (Left  e)     = fail ("Double when expecting Natural: " ++ show e)
         f (Right x)
             | x < 0     = fail ("Negative when expecting Natural: " ++ show x)
             | otherwise = pure (fromInteger x)
 
-instance A.ToJSON Natural where
-    toJSON = A.toJSON . toInteger
+instance ToJSON Natural where
+    toJSON = toJSON . toInteger
 
-instance A.ToJSON a => A.ToJSON (Identity a) where
-    toJSON = A.toJSON . runIdentity
+instance ToJSON a => ToJSON (Identity a) where
+    toJSON = toJSON . runIdentity
 
 instance IsString Exts.QOp where
     fromString = Exts.op . Exts.sym

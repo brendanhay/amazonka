@@ -1,6 +1,6 @@
 SHELL     := /usr/bin/env bash
 TOP       := ..
-DEPS      := vendor/botocore vendor/jason
+DEPS      := vendor/botocore
 MODEL_DIR := model
 OUT_DIR   := ..
 
@@ -97,7 +97,9 @@ compile: build
 build: $(MODEL_DIR)
 	cabal build $(addprefix -,$(findstring j,$(MAKEFLAGS)))
 
-deps: add-sources
+include ../share/stackage.mk
+
+deps: $(DEPS) cabal.sandbox.config # temporary cabal.config
 	cabal install $(CABAL_INSTALL_DEFARGS) --only-dependencies
 
 clean:
@@ -107,19 +109,11 @@ clean:
 full-clean: clean
 	rm -rf $(DEPS)
 
-include ../share/stackage.mk
-
-add-sources: $(DEPS) cabal.sandbox.config # temporary cabal.config
-	cabal sandbox add-source vendor/jason
-
 cabal.sandbox.config:
 	cabal sandbox init
 
 vendor/botocore:
 	git clone git@github.com:boto/botocore $@
-
-vendor/%:
-	git clone git@github.com:brendanhay/$*.git $@
 
 $(MODEL_DIR):
 	cp -rf vendor/botocore/botocore/data $@

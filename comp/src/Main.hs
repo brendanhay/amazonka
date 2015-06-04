@@ -20,7 +20,7 @@ module Main (main) where
 import qualified Compiler.AST              as AST
 import           Compiler.Formatting
 import           Compiler.IO
-import qualified Compiler.JSON             as JSON
+import qualified Compiler.JSON             as JS
 import qualified Compiler.Tree             as Tree
 import           Compiler.Types            hiding (info)
 import           Control.Error
@@ -173,23 +173,23 @@ main = do
 
             say ("Using version " % dateDash) (m ^. modelVersion)
 
-            cfg <- JSON.required (_optConfigs </> (m ^. configFile))
-                >>= hoistEither . JSON.parse
+            cfg <- JS.required (_optConfigs </> (m ^. configFile))
+                >>= hoistEither . JS.parse
 
             api <- sequence
-                [ JSON.optional (_optAnnexes </> (m ^. annexFile))
-                , JSON.required (m ^. serviceFile)
-                , JSON.optional (m ^. waitersFile)
-                , JSON.optional (m ^. pagersFile)
-                ] >>= hoistEither . JSON.parse . JSON.merge
+                [ JS.optional (_optAnnexes </> (m ^. annexFile))
+                , JS.required (m ^. serviceFile)
+                , JS.optional (m ^. waitersFile)
+                , JS.optional (m ^. pagersFile)
+                ] >>= hoistEither . JS.parse . JS.merge
 
             say ("Successfully parsed '" % stext % "' API definition")
                 (api ^. serviceFullName)
 
             lib <- hoistEither (AST.rewrite _optVersions cfg api)
 
-            dir <- Tree.fold (failure string . show) createDir writeLTFile
-                (Tree.populate _optOutput tmpl lib)
+            dir <- hoistEither (Tree.populate _optOutput tmpl lib)
+                >>= Tree.fold (failure string . show) createDir writeLTFile
 
             say ("Successfully rendered " % stext % "-" % semver % " package")
                 (lib ^. libraryName)

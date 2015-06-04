@@ -135,7 +135,7 @@ overrideShape ovs n c@(_ :< s) = mayRemember
         let f k = fromMaybe k (Map.lookup k rn)
         return $! x
                 & _Struct . members . kvTraversal
-               %~ f
+               %~ first f
 
     retype :: ShapeF a -> MemoS (ShapeF a)
     retype x = do

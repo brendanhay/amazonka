@@ -68,7 +68,6 @@ executable compile
         , hashable
         , haskell-src-exts
         , hindent
-        , jason
         , lens
         , mtl
         , optparse-applicative

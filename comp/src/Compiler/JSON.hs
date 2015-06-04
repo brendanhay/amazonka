@@ -13,6 +13,7 @@
 
 module Compiler.JSON where
 
+import           Compiler.Formatting
 import           Compiler.IO
 import           Compiler.Types
 import           Control.Error
@@ -25,6 +26,7 @@ import qualified Data.ByteString.Lazy as LBS
 import qualified Data.HashMap.Strict  as Map
 import           Data.List
 import qualified Data.Text.Lazy       as LText
+import qualified Text.EDE             as EDE
 
 required :: MonadIO m => Path -> EitherT Error m Object
 required = readBSFile >=> hoistEither . decode
@@ -32,6 +34,12 @@ required = readBSFile >=> hoistEither . decode
 optional :: MonadIO m => Path -> EitherT Error m Object
 optional f = readBSFile f `catchError` const (return "{}")
     >>= hoistEither . decode
+
+objectErr :: ToJSON a => String -> a -> Either Error Object
+objectErr n =
+      note (format ("Failed to extract JSON object from value " % string) n)
+    . EDE.fromValue
+    . toJSON
 
 decode :: ByteString -> Either Error Object
 decode = first LText.pack . eitherDecode' . LBS.fromStrict

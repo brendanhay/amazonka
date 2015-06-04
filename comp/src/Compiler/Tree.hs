@@ -24,9 +24,13 @@ module Compiler.Tree
     , populate
     ) where
 
+import qualified Compiler.JSON             as JS
 import           Compiler.Types
+import           Control.Error
 import           Control.Lens              (each, (^.), (^..))
+import           Control.Monad
 import           Data.Aeson                hiding (json)
+import           Data.Functor.Identity
 import qualified Data.HashMap.Strict       as Map
 import           Data.Monoid
 import           Data.Text                 (Text)
@@ -55,73 +59,84 @@ fold h g f (p :/ t) = (p :/) <$> go (decodeString p) t
           where
             d = x </> decodeString n
 
--- data OpM = OpM (Operation Identity (RefF ()))
-
--- environ :: Module -> Object
--- environ (Module ns x) = Map.insert "moduleName" (toJSON ns) env
---   where
---     Object env = toJSON x
-
 populate :: Path
          -> Templates
          -> Library
-         -> AnchoredDirTree LText.Text
-populate d Templates{..} l = encodeString d :/ dir lib
-    [ dir "src" []
-    , dir "examples"
+         -> Either Error (AnchoredDirTree LText.Text)
+populate d Templates{..} l = ((encodeString d :/) . dir lib) <$> layout
+  where
+    layout :: Either Error [DirTree LText.Text]
+    layout = traverse sequenceA
         [ dir "src" []
-        , file (lib <-> "examples.cabal") exampleCabalTemplate
-        , file "Makefile" exampleMakefileTemplate
-        ]
-    , dir "gen"
-        [ dir "Network"
-            [ dir "AWS"
-                [ dir abbrev $
-                    [ mod "Types" typesTemplate
-                    , mod "Waiters" waitersTemplate
-                    ] ++ map op (l ^.. operations . each)
-                , mod mempty tocTemplate
+        , dir "examples"
+            [ dir "src" []
+            , file (lib <-> "examples.cabal") exampleCabalTemplate
+            , file "Makefile" exampleMakefileTemplate
+            ]
+        , dir "gen"
+            [ dir "Network"
+                [ dir "AWS"
+                    [ dir svc $
+                        [ mod "Types" typesTemplate
+                        , mod "Waiters" waitersTemplate
+                        ] ++ map op (l ^.. operations . each)
+                    , mod mempty tocTemplate
+                    ]
                 ]
             ]
+        , file (lib <.> "cabal") cabalTemplate
+        , file "README.md" readmeTemplate
         ]
-    , file (lib <.> "cabal") cabalTemplate
-    , file "README.md" readmeTemplate
-    ]
-  where
-    abbrev = fromText (l ^. serviceAbbrev)
-    lib    = fromText (l ^. libraryName)
-    ns     = l ^. namespace
 
-    file = render env
+    svc, lib :: Path
+    svc = fromText (l ^. serviceAbbrev)
+    lib = fromText (l ^. libraryName)
 
-    op o = mod' (o ^. operationNS) (y <> x <> met) operationTemplate
+    ns :: NS
+    ns = l ^. namespace
+
+    env, met :: Value
+    env = toJSON l
+    met = toJSON (l ^. metadata)
+
+    file :: Path -> Template -> DirTree (Either Error LText.Text)
+    file p t = file' p t (pure env)
+
+    mod :: NS -> Template -> DirTree (Either Error LText.Text)
+    mod n t = module' (ns <> n) t (pure env)
+
+    op :: Operation Identity Data -> DirTree (Either Error LText.Text)
+    op o = module' n operationTemplate $ do
+        x <- JS.objectErr (show n) o
+        m <- JS.objectErr "metadata" met
+        return $! y <> x <> m
       where
-        Object x = toJSON o
-        Object y = object
+        n = o ^. operationNS
+        y = fromPairs
             [ "operationUrl"     .= (l ^. operationUrl)
             , "operationImports" .= (l ^. operationImports)
             ]
 
-    mod n = mod' n env
-
-    mod' n x = render (Map.insert "moduleName" (toJSON m) x) f
-      where
-        m = ns <> n
-        f = filename (nsToPath m)
-
-    Object env = toJSON l
-    Object met = toJSON (l ^. metadata)
-
 dir :: Path -> [DirTree a] -> DirTree a
 dir p = Dir (encodeString p)
 
-render :: Object -> Path -> Template -> DirTree LText.Text
-render o (encodeString -> f) x =
-    case eitherRender x o of
-        Right t -> File   f t
-        Left  e -> Failed f ex
-          where
-            ex = mkIOError userErrorType (e ++ "\nRender") Nothing (Just f)
+module' :: ToJSON a
+        => NS
+        -> Template
+        -> Either Error a
+        -> DirTree (Either Error LText.Text)
+module' ns t f = file' (filename $ nsToPath ns) t $
+    Map.insert "moduleName" (toJSON ns)
+       <$> (f >>= JS.objectErr (show ns))
+
+file' :: ToJSON a
+      => Path
+      -> Template
+      -> Either Error a
+      -> DirTree (Either Error LText.Text)
+file' (encodeString -> p) t f = File p $
+    f >>= JS.objectErr p
+      >>= fmapL LText.pack . eitherRender t
 
 (<->) :: Path -> Text -> Path
 a <-> b = fromText (toTextIgnore a <> "-" <> b)

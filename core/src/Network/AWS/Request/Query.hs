@@ -34,4 +34,3 @@ post a x = defaultRequest x & rqMethod .~ POST & rqQuery <>~ qry
 
     svc :: Service (Sv a)
     svc = service
-{-# INLINE post #-}

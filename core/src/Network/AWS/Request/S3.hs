@@ -26,30 +26,24 @@ import           Prelude                      hiding (head)
 
 get :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
 get = content . defaultRequest
-{-# INLINE get #-}
 
 delete :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
 delete x = get x & rqMethod .~ DELETE
-{-# INLINE delete #-}
 
 head :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
 head x = get x & rqMethod .~ HEAD
-{-# INLINE head #-}
 
 post :: (ToPath a, ToQuery a, ToHeaders a, ToElement a) => a -> Request a
 post x = put x & rqMethod .~ POST
-{-# INLINE post #-}
 
 put :: (ToPath a, ToQuery a, ToHeaders a, ToElement a) => a -> Request a
 put x = content $ get x & rqMethod .~ PUT & rqBody .~ toBody (encodeXML x)
-{-# INLINE put #-}
 
 stream :: (ToPath a, ToQuery a, ToHeaders a, ToBody a)
        => StdMethod
        -> a
        -> Request a
 stream m x = content $ get x & rqMethod .~ m & rqBody .~ toBody x
-{-# INLINE stream #-}
 
 content :: Request a -> Request a
 content rq = rq & rqHeaders %~ hdr hAMZContentSHA256 (bodyHash (rq ^. rqBody))

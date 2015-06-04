@@ -38,29 +38,22 @@ defaultRequest x = def
     & rqPath    .~ Text.encodeUtf8 (toPath x)
     & rqQuery   .~ toQuery x
     & rqHeaders .~ toHeaders x
-{-# INLINE defaultRequest #-}
 
 method :: Lens' HTTP.Request HTTP.Method
 method f x = f (HTTP.method x) <&> \y -> x { HTTP.method = y }
-{-# INLINE method #-}
 
 host :: Lens' HTTP.Request ByteString
 host f x = f (HTTP.host x) <&> \y -> x { HTTP.host = y }
-{-# INLINE host #-}
 
 path :: Lens' HTTP.Request ByteString
 path f x = f (HTTP.path x) <&> \y -> x { HTTP.path = y }
-{-# INLINE path #-}
 
 queryString :: Lens' HTTP.Request ByteString
 queryString f x = f (HTTP.queryString x) <&> \y -> x { HTTP.queryString = y }
-{-# INLINE queryString #-}
 
 requestBody :: Lens' HTTP.Request HTTP.RequestBody
 requestBody f x = f (HTTP.requestBody x) <&> \y -> x { HTTP.requestBody = y }
-{-# INLINE requestBody #-}
 
 requestHeaders :: Lens' HTTP.Request HTTP.RequestHeaders
 requestHeaders f x =
     f (HTTP.requestHeaders x) <&> \y -> x { HTTP.requestHeaders = y }
-{-# INLINE requestHeaders #-}

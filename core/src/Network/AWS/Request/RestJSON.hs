@@ -32,17 +32,14 @@ import           Network.HTTP.Types.Method
 
 get :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
 get = defaultRequest
-{-# INLINE get #-}
 
 delete :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
 delete x = get x & rqMethod .~ DELETE
-{-# INLINE delete #-}
 
 post :: (AWSService (Sv a), ToQuery a, ToPath a, ToHeaders a, ToJSON a)
      => a
      -> Request a
 post x = put x & rqMethod .~ POST
-{-# INLINE post #-}
 
 put :: forall a. (AWSService (Sv a), ToQuery a, ToPath a, ToHeaders a, ToJSON a)
     => a
@@ -56,14 +53,12 @@ put x = get x
 
     svc :: Service (Sv a)
     svc = service
-{-# INLINE put #-}
 
 stream :: (AWSService (Sv a), ToPath a, ToQuery a, ToHeaders a, ToBody a)
        => StdMethod
        -> a
        -> Request a
 stream m x = content $ get x & rqMethod .~ m & rqBody .~ toBody x
-{-# INLINE stream #-}
 
 content :: Request a -> Request a
 content rq = rq & rqHeaders %~ hdr hAMZContentSHA256 (bodyHash (rq ^. rqBody))

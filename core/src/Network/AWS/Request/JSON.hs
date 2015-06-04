@@ -16,15 +16,15 @@ module Network.AWS.Request.JSON
     ( post
     ) where
 
-import Control.Applicative
-import Control.Lens                 hiding (Action)
-import Data.Aeson
-import Data.Monoid
-import Network.AWS.Data
-import Network.AWS.Request.Internal
-import Network.AWS.Types
-import Network.HTTP.Types.Header
-import Network.HTTP.Types.Method
+import           Control.Applicative
+import           Control.Lens                 hiding (Action)
+import           Data.Aeson
+import           Data.Monoid
+import           Network.AWS.Data
+import           Network.AWS.Request.Internal
+import           Network.AWS.Types
+import           Network.HTTP.Types.Header
+import           Network.HTTP.Types.Method
 
 post :: forall a. (AWSService (Sv a), ToQuery a, ToPath a, ToHeaders a, ToJSON a)
      => Action
@@ -43,4 +43,3 @@ post a x = defaultRequest x
 
     svc :: Service (Sv a)
     svc = service
-{-# INLINE post #-}

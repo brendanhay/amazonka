@@ -4,7 +4,10 @@ DEPS      := vendor/botocore
 MODEL_DIR := model
 OUT_DIR   := ..
 
-CABAL_INSTALL_DEFARGS ?= -j --disable-documentation --disable-coverage
+CABAL_INSTALL_DEFARGS ?= -j \
+ --disable-documentation \
+ --disable-coverage \
+ --enable-profiling
 
 XML := \
  cloudfront \

@@ -50,7 +50,7 @@ executable compile
         , Compiler.Types.Service
         , Compiler.Types.URI
 
-    ghc-options:       -Wall -threaded
+    ghc-options:       -Wall -threaded -prof -fprof-auto -rtsopts
 
     build-depends:
           aeson

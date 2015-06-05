@@ -31,49 +31,49 @@ import           Filesystem.Path.CurrentOS
 import           System.IO
 import qualified Text.EDE                  as EDE
 
-run :: EitherT Error IO a -> IO a
+run :: ExceptT Error IO a -> IO a
 run = runScript . fmapLT LText.unpack
 
-io :: MonadIO m => IO a -> EitherT Error m a
+io :: MonadIO m => IO a -> ExceptT Error m a
 io = fmapLT (LText.pack . show) . syncIO
 
-title :: MonadIO m => Format (EitherT Error m ()) a -> a
+title :: MonadIO m => Format (ExceptT Error m ()) a -> a
 title m = runFormat m (io . LText.putStrLn . toLazyText)
 
-say :: MonadIO m => Format (EitherT Error m ()) a -> a
+say :: MonadIO m => Format (ExceptT Error m ()) a -> a
 say = title . (" -> " %)
 
-done :: MonadIO m => EitherT Error m ()
+done :: MonadIO m => ExceptT Error m ()
 done = title ""
 
-isFile :: MonadIO m => Path -> EitherT Error m Bool
+isFile :: MonadIO m => Path -> ExceptT Error m Bool
 isFile = io . FS.isFile
 
-listDir :: MonadIO m => Path -> EitherT Error m [Path]
+listDir :: MonadIO m => Path -> ExceptT Error m [Path]
 listDir = io . FS.listDirectory
 
-readBSFile :: MonadIO m => Path -> EitherT Error m ByteString
+readBSFile :: MonadIO m => Path -> ExceptT Error m ByteString
 readBSFile f = do
     p <- isFile f
     if p
         then say ("Reading "  % path) f >> io (FS.readFile f)
         else failure ("Missing " % path) f
 
-writeLTFile :: MonadIO m => Path -> LText.Text -> EitherT Error m ()
+writeLTFile :: MonadIO m => Path -> LText.Text -> ExceptT Error m ()
 writeLTFile f t = do
     say ("Writing " % path) f
     io . FS.withFile f FS.WriteMode $ \h -> do
         hSetEncoding  h utf8
         LText.hPutStr h t
 
-createDir :: MonadIO m => Path -> EitherT Error m ()
+createDir :: MonadIO m => Path -> ExceptT Error m ()
 createDir d = do
     p <- io (FS.isDirectory d)
     unless p $ do
         say ("Creating " % path) d
         io (FS.createTree d)
 
-copyDir :: MonadIO m => Path -> Path -> EitherT Error m ()
+copyDir :: MonadIO m => Path -> Path -> ExceptT Error m ()
 copyDir src dst = io (FS.listDirectory src >>= mapM_ copy)
   where
     copy f = do
@@ -84,12 +84,12 @@ copyDir src dst = io (FS.listDirectory src >>= mapM_ copy)
 readTemplate :: MonadIO m
              => Path
              -> Path
-             -> StateT (Map Text (EDE.Result EDE.Template)) (EitherT Error m) EDE.Template
+             -> StateT (Map Text (EDE.Result EDE.Template)) (ExceptT Error m) EDE.Template
 readTemplate d f = do
     let tmpl = d </> f
     lift (readBSFile tmpl)
         >>= EDE.parseWith EDE.defaultSyntax (load d) (toTextIgnore tmpl)
-        >>= EDE.result (lift . left . LText.pack . show) (lift . right)
+        >>= EDE.result (throwError . LText.pack . show) return
   where
     load p o k _ = lift (readBSFile x) >>= EDE.parseWith o (load (directory x)) k
       where

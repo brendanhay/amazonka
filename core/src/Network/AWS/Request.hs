@@ -16,8 +16,9 @@ module Network.AWS.Request
     , get
     , delete
     , head'
+
     , defaultRequest
-    , content
+    , contentSHA256
 
     -- * Lenses
     , method
@@ -52,8 +53,17 @@ defaultRequest x = def
     & rqQuery   .~ toQuery x
     & rqHeaders .~ toHeaders x
 
-content :: Request a -> Request a
-content rq = rq
+    hs = toHeader hAMZTarget   target
+      ++ toHeader hContentType content
+
+    target  = (\p -> p <> "." <> toBS a) <$> _svcTargetPrefix svc
+    content = ("application/x-amz-json-" <>) <$> _svcJSONVersion svc
+
+    svc :: Service (Sv a)
+    svc = service
+
+contentSHA256 :: Request a -> Request a
+contentSHA256 rq = rq
     & rqHeaders %~ hdr hAMZContentSHA256 (bodyHash (rq ^. rqBody))
 
 method :: Lens' HTTP.Request HTTP.Method

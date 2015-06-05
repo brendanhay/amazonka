@@ -28,10 +28,10 @@ import           Data.List
 import qualified Data.Text.Lazy       as LText
 import qualified Text.EDE             as EDE
 
-required :: MonadIO m => Path -> EitherT Error m Object
+required :: MonadIO m => Path -> ExceptT Error m Object
 required = readBSFile >=> hoistEither . decode
 
-optional :: MonadIO m => Path -> EitherT Error m Object
+optional :: MonadIO m => Path -> ExceptT Error m Object
 optional f = readBSFile f `catchError` const (return "{}")
     >>= hoistEither . decode
 

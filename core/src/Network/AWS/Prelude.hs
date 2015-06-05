@@ -83,7 +83,6 @@ import           Data.Monoid               as Export hiding (All, Any, Sum)
 import           Data.Tagged               as Export
 import           Network.AWS.Data          as Export hiding (Object, Query)
 import           Network.AWS.Pagination    as Export
-import           Network.AWS.Response      as Export
 import           Prelude                   as Export hiding (error, head)
 
 import           Control.Lens              as Export (Iso', Lens', Prism', iso,

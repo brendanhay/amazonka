@@ -30,6 +30,7 @@ import           Data.Bifunctor
 import qualified Data.HashMap.Strict    as Map
 import qualified Data.HashSet           as Set
 import           Data.Monoid
+import           Debug.Trace
 
 data Env = Env
     { _renamed  :: Map Id Id
@@ -148,7 +149,7 @@ overrideShape ovs n c@(_ :< s) = mayRemember
                %~ f _replaceName rp . f id rn
 
 env :: MonadState Env m => Getter Env (Map Id a) -> Id -> m (Maybe a)
-env l n = uses l (Map.lookup n)
+env l n = trace (show n) $ uses l (Map.lookup n)
 
 save :: Shape Related -> MemoS (Shape Related)
 save x = memo %= Map.insert (identifier x) x >> return x

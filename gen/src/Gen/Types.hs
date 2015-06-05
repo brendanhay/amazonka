@@ -60,7 +60,7 @@ currentLibraryVersion :: Version
 currentLibraryVersion = initial
     & major .~ 0
     & minor .~ 3
-    & patch .~ 5
+    & patch .~ 6
 
 class ToFilePath a where
     toFilePath :: a -> FilePath

@@ -1,5 +1,5 @@
 name:                  amazonka-workspaces-examples
-version:               0.3.5
+version:               0.3.6
 synopsis:              Amazon WorkSpaces SDK Examples
 homepage:              https://github.com/brendanhay/amazonka
 license:               MPL-2.0
@@ -20,9 +20,9 @@ library
         WorkSpaces
 
     build-depends:
-        amazonka      == 0.3.5.*
-      , amazonka-core == 0.3.5.*
-      , amazonka-workspaces == 0.3.5.*
+        amazonka      == 0.3.6.*
+      , amazonka-core == 0.3.6.*
+      , amazonka-workspaces == 0.3.6.*
       , base          >= 4.7     && < 5
       , bytestring    >= 0.9
       , conduit       >= 1.1

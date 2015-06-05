@@ -1,5 +1,5 @@
 name:                  amazonka-elasticache-examples
-version:               0.3.5
+version:               0.3.6
 synopsis:              Amazon ElastiCache SDK Examples
 homepage:              https://github.com/brendanhay/amazonka
 license:               MPL-2.0
@@ -20,9 +20,9 @@ library
         ElastiCache
 
     build-depends:
-        amazonka      == 0.3.5.*
-      , amazonka-core == 0.3.5.*
-      , amazonka-elasticache == 0.3.5.*
+        amazonka      == 0.3.6.*
+      , amazonka-core == 0.3.6.*
+      , amazonka-elasticache == 0.3.6.*
       , base          >= 4.7     && < 5
       , bytestring    >= 0.9
       , conduit       >= 1.1

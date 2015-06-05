@@ -1,5 +1,5 @@
 name:                  amazonka-cloudsearch-domains
-version:               0.3.5
+version:               0.3.6
 synopsis:              Amazon CloudSearch Domain SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
@@ -41,5 +41,5 @@ library
     other-modules:
 
     build-depends:
-          amazonka-core == 0.3.5.*
+          amazonka-core == 0.3.6.*
         , base          >= 4.7     && < 5

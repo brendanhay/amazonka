@@ -50,11 +50,11 @@ instance IsString Help where
     fromString = Raw . fromString
 
 instance FromJSON Help where
-    parseJSON = withText "help" (pure . Raw)
-    -- --either (fail . show) pure
-    --     . fmap Pan
-    --     . readHtml def
-    --     . Text.unpack
+    parseJSON = withText "help" $
+        either (fail . show) pure
+            . fmap Pan
+            . readHtml def
+            . Text.unpack
 
 instance ToJSON Help where
     toJSON = toJSON . mappend "-- |" . Text.drop 2 . wrap "-- " . flatten

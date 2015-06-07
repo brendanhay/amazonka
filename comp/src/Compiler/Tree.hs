@@ -111,7 +111,7 @@ populate d Templates{..} l = ((encodeString d :/) . dir lib) <$> layout
         m <- JS.objectErr "metadata" met
         return $! y <> x <> m
       where
-        n = o ^. operationNS
+        n = ns <> o ^. operationNS
         y = fromPairs
             [ "operationUrl"     .= (l ^. operationUrl)
             , "operationImports" .= (l ^. operationImports)

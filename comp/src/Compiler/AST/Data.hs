@@ -115,10 +115,6 @@ prodData m s st = (,fields) <$> mk
 
     decl = dataDecl n [recDecl ts n fields] (s ^. annDerive)
 
-    ts = m ^. timestampFormat . _Identity
-    n  = s ^. annId
-    r  = s ^. annRelation
-
     fields :: [Field]
     fields = mkFields m (s ^. annPrefix) st
 
@@ -144,6 +140,10 @@ prodData m s st = (,fields) <$> mk
         xs -> mappend "\n\n/See/: "
             . LText.intercalate ", "
             $ map (format ("'" % itype % "'")) xs
+
+    ts = m ^. timestampFormat . _Identity
+    n  = s ^. annId
+    r  = s ^. annRelation
 
 renderInsts :: Protocol -> Id -> [Inst] -> Either Error (Map Text LText.Text)
 renderInsts p n = fmap Map.fromList . traverse go

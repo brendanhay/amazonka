@@ -54,7 +54,6 @@ import           Data.Aeson
 import qualified Data.ByteString.Lazy       as LBS
 import           Data.ByteString.Lazy.Char8 (unpack)
 import           Data.String
-import           Data.Text                  (Text)
 import           GHC.Generics
 import           Network.AWS.Data.Text
 import           Network.AWS.Data.XML

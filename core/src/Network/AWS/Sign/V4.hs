@@ -83,10 +83,9 @@ instance AWSPresigner V4 where
             . pair (CI.original hAMZSignedHeaders) sh
             . pair (CI.original hAMZToken)         (toBS <$> _authToken a)
 
-        inp = rq & rqHeaders .~ []
+        inp  = rq & rqHeaders .~ []
 
         auth = mappend "&X-Amz-Signature=" . _mSignature
-
         hash = "UNSIGNED-PAYLOAD"
 
 instance AWSSigner V4 where

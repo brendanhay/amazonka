@@ -95,25 +95,19 @@ module Network.AWS.Types
 import           Control.Applicative
 import           Control.Concurrent           (ThreadId)
 import           Control.Exception            (Exception)
-import           Control.Lens                 hiding (Action)
+import           Control.Lens
 import           Control.Monad.IO.Class
 import           Control.Monad.Trans.Resource
 import qualified Crypto.Hash.SHA256           as SHA256
 import qualified Crypto.MAC.HMAC              as HMAC
 import           Data.Aeson                   hiding (Error)
-import           Data.ByteString              (ByteString)
-import qualified Data.ByteString              as BS
 import           Data.ByteString.Builder      (Builder)
-import qualified Data.CaseInsensitive         as CI
 import           Data.Conduit
 import           Data.Default.Class
 import           Data.Hashable
-import qualified Data.HashSet                 as Set
 import           Data.IORef
-import           Data.List                    (intersperse)
 import           Data.Monoid
 import           Data.String
-import           Data.Text                    (Text)
 import qualified Data.Text.Encoding           as Text
 import           Data.Time
 import           Data.Typeable
@@ -204,6 +198,13 @@ data Signed a v = Signed
     { _sgMeta    :: Meta v
     , _sgRequest :: ClientRequest
     }
+
+sgMeta :: Lens' (Signed a v) (Meta v)
+sgMeta f (Signed m rq) = f m <&> \y -> Signed y rq
+
+-- Lens' specifically since 'a' cannot be changed.
+sgRequest :: Lens' (Signed a v) ClientRequest
+sgRequest f (Signed m rq) = f rq <&> \y -> Signed m y
 
 class AWSSigner v where
     signed :: (AWSService (Sv a), v ~ Sg (Sv a))
@@ -399,4 +400,3 @@ clientRequest = def
 
 makePrisms ''ServiceError
 makeLenses ''Request
-makeLenses ''Signed

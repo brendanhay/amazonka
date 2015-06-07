@@ -27,8 +27,3 @@ instance AWSService {{ serviceAbbrev }} where
               -> {{ serviceError }}
               -> Bool
         check (statusCode -> s) (awsErrorCode -> e) = undefined
-{% if xmlNamespace %}
-
-ns :: Text
-ns = "{{ xmlNamespace }}"
-{% endif %}

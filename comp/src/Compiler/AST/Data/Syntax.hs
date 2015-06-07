@@ -329,7 +329,8 @@ requestF h is = var v
         ToElement {} -> Just "XML"
         _            -> Nothing
 
--- FIXME: take method into account, such as HEAD responses
+-- FIXME: take method into account for responses, such as HEAD etc, particuarly
+-- when the body might be totally empty.
 responseF :: Protocol -> HTTP Identity -> [Field] -> Exp
 responseF p h fs = var ("receive" <> f)
   where

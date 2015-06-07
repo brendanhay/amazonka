@@ -42,9 +42,6 @@ module {{ moduleName }}
   {% endfor %}
     ) where
 
-import qualified GHC.Exts
-import           Network.AWS.Prelude
-import           Network.AWS.Signing
 {% for import in typeImports %}
 import           {{ import.value }}
 {% endfor %}

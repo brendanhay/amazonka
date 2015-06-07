@@ -1,6 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 
--- Module      : Network.AWS.Data.Internal.URI
+-- Module      : Network.AWS.Data.Path
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -10,14 +10,23 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Data.Internal.URI
-    ( collapsePath
+module Network.AWS.Data.Path
+    ( ToPath (..)
+    , collapsePath
     ) where
 
 import           Data.ByteString.Char8 (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import qualified Data.Foldable         as Fold
 import           Data.Monoid
+import           Data.Text             (Text)
+
+class ToPath a where
+    toPath :: a -> Text
+--    toPath = const mempty
+
+instance ToPath Text where
+    toPath = id
 
 collapsePath :: ByteString -> ByteString
 collapsePath bs

@@ -2,7 +2,7 @@
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE OverloadedStrings #-}
 
--- Module      : Network.AWS.Data.Internal.Text
+-- Module      : Network.AWS.Data.Text
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -12,8 +12,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Data.Internal.Text
-    ( FromText (..)
+module Network.AWS.Data.Text
+    ( Text
+    , FromText (..)
     , fromText
     , takeLowerText
     , matchCI

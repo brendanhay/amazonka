@@ -3,7 +3,7 @@
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE OverloadedStrings #-}
 
--- Module      : Network.AWS.Data.Internal.Header
+-- Module      : Network.AWS.Data.Header
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -13,7 +13,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Data.Internal.Header where
+module Network.AWS.Data.Header where
 
 import           Data.ByteString.Char8                (ByteString)
 import qualified Data.ByteString.Char8                as BS
@@ -24,8 +24,8 @@ import qualified Data.HashMap.Strict                  as Map
 import           Data.Monoid
 import           Data.Text                            (Text)
 import qualified Data.Text.Encoding                   as Text
-import           Network.AWS.Data.Internal.ByteString
-import           Network.AWS.Data.Internal.Text
+import           Network.AWS.Data.ByteString
+import           Network.AWS.Data.Text
 import           Network.HTTP.Types
 
 infixl 7 .#, .#?

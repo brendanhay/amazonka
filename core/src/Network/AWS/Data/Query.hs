@@ -9,7 +9,7 @@
 {-# LANGUAGE TypeOperators       #-}
 {-# LANGUAGE ViewPatterns        #-}
 
--- Module      : Network.AWS.Data.Internal.Query
+-- Module      : Network.AWS.Data.Query
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -19,7 +19,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Data.Internal.Query where
+module Network.AWS.Data.Query where
     -- ( ToQuery (..)
     -- , renderQuery
 
@@ -31,18 +31,16 @@ module Network.AWS.Data.Internal.Query where
     -- ) where
 
 import           Control.Lens
-import           Data.ByteString                      (ByteString)
-import qualified Data.ByteString.Char8                as BS
+import qualified Data.ByteString.Char8       as BS
 import           Data.Data
 import           Data.Data.Lens
-import           Data.List                            (sort)
+import           Data.List                   (sort)
 import           Data.Monoid
 import           Data.String
-import           Data.Text                            (Text)
-import qualified Data.Text.Encoding                   as Text
-import           Network.AWS.Data.Internal.ByteString
-import           Network.AWS.Data.Internal.Text
-import           Network.HTTP.Types.URI               (urlEncode)
+import qualified Data.Text.Encoding          as Text
+import           Network.AWS.Data.ByteString
+import           Network.AWS.Data.Text
+import           Network.HTTP.Types.URI      (urlEncode)
 import           Numeric.Natural
 
 data Query
@@ -67,8 +65,6 @@ instance Plated Query where
 
 instance ToByteString Query where
     toBS = renderQuery
-
-instance ToBuilder Query
 
 instance ToText Query where
     toText = Text.decodeUtf8 . toBS

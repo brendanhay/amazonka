@@ -4,7 +4,7 @@
 {-# LANGUAGE TupleSections     #-}
 {-# LANGUAGE TypeFamilies      #-}
 
--- Module      : Network.AWS.Signaing.Internal.V2
+-- Module      : Network.AWS.Sign.V2
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -14,23 +14,25 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Signing.Internal.V2
+module Network.AWS.Sign.V2
     ( V2
     ) where
 
 import           Control.Applicative
 import           Control.Lens
-import           Data.ByteString              (ByteString)
-import qualified Data.ByteString.Base64       as Base64
-import qualified Data.ByteString.Char8        as BS
-import           Data.List                    (intersperse)
+import qualified Data.ByteString.Base64      as Base64
+import qualified Data.ByteString.Char8       as BS8
 import           Data.Monoid
 import           Data.Time
-import           Network.AWS.Data
-import           Network.AWS.Request.Internal
-import           Network.AWS.Signing.Internal
+import           Network.AWS.Data.Body
+import           Network.AWS.Data.ByteString
+import           Network.AWS.Data.Header
+import           Network.AWS.Data.Query
+import           Network.AWS.Data.Time
+import           Network.AWS.Endpoint
+import           Network.AWS.Request
 import           Network.AWS.Types
-import           Network.HTTP.Types           hiding (toQuery)
+import           Network.HTTP.Types          hiding (toQuery)
 
 data V2
 
@@ -39,13 +41,13 @@ data instance Meta V2 = Meta
     , _mTime      :: UTCTime
     }
 
-instance ToBuilder (Meta V2) where
-    build Meta{..} = mconcat $ intersperse "\n"
-        [ "[Version 2 Metadata] {"
-        , "  signature = " <> build _mSignature
-        , "  time      = " <> build _mTime
-        , "}"
-        ]
+-- instance ToBuilder (Meta V2) where
+--     build Meta{..} = mconcat $ intersperse "\n"
+--         [ "[Version 2 Metadata] {"
+--         , "  signature = " <> build _mSignature
+--         , "  time      = " <> build _mTime
+--         , "}"
+--         ]
 
 instance AWSSigner V2 where
     signed AuthEnv{..} r x@Request{..} t = Signed meta rq
@@ -71,7 +73,7 @@ instance AWSSigner V2 where
 
         signature = Base64.encode
             . hmacSHA256 (toBS _authSecret)
-            $ BS.intercalate "\n"
+            $ BS8.intercalate "\n"
                 [ meth
                 , _endpointHost
                 , _rqPath

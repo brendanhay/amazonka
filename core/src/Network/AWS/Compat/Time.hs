@@ -1,4 +1,6 @@
--- Module      : Network.AWS.Data.Internal.Path
+{-# LANGUAGE CPP #-}
+
+-- Module      : Network.AWS.Compat.Time
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -8,16 +10,15 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Data.Internal.Path
-    ( ToPath (..)
+module Network.AWS.Compat.Time
+    ( parseTime
     ) where
 
-import Data.Monoid
-import Data.Text   (Text)
+#if MIN_VERSION_time(1,5,0)
+import           Data.Time.Format (ParseTime, TimeLocale, parseTimeM)
 
-class ToPath a where
-    toPath :: a -> Text
-    toPath = const mempty
-
-instance ToPath Text where
-    toPath = id
+parseTime :: ParseTime a => TimeLocale -> String -> String -> Maybe a
+parseTime = parseTimeM True
+#else
+import           Data.Time.Format (parseTime)
+#endif

@@ -56,7 +56,8 @@ import           Data.ByteString.Lazy.Char8 (unpack)
 import           Data.String
 import           Data.Text                  (Text)
 import           GHC.Generics
-import           Network.AWS.Data
+import           Network.AWS.Data.Text
+import           Network.AWS.Data.XML
 import           Network.AWS.Types
 import           Network.HTTP.Types
 

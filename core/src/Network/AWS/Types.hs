@@ -1,10 +1,8 @@
-{-# LANGUAGE BangPatterns               #-}
 {-# LANGUAGE DefaultSignatures          #-}
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE FlexibleContexts           #-}
 {-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE GADTs                      #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE LambdaCase                 #-}
 {-# LANGUAGE OverloadedStrings          #-}
@@ -45,10 +43,6 @@ module Network.AWS.Types
     -- * Retries
     , Retry         (..)
 
-    -- * Endpoints
-    , Endpoint      (..)
-    , endpoint
-
     -- * Errors
     , ServiceError  (..)
     , _HttpError
@@ -63,10 +57,12 @@ module Network.AWS.Types
     , Meta
     , sgMeta
     , sgRequest
+    , sign
+    , presign
+    , hmacSHA256
 
     -- * Requests
     , AWSRequest    (..)
-    , AWSPager      (..)
     , Request       (..)
     , rqMethod
     , rqHeaders
@@ -102,6 +98,8 @@ import           Control.Exception            (Exception)
 import           Control.Lens                 hiding (Action)
 import           Control.Monad.IO.Class
 import           Control.Monad.Trans.Resource
+import qualified Crypto.Hash.SHA256           as SHA256
+import qualified Crypto.MAC.HMAC              as HMAC
 import           Data.Aeson                   hiding (Error)
 import           Data.ByteString              (ByteString)
 import qualified Data.ByteString              as BS
@@ -109,8 +107,8 @@ import           Data.ByteString.Builder      (Builder)
 import qualified Data.CaseInsensitive         as CI
 import           Data.Conduit
 import           Data.Default.Class
-import qualified Data.HashSet                 as Set
 import           Data.Hashable
+import qualified Data.HashSet                 as Set
 import           Data.IORef
 import           Data.List                    (intersperse)
 import           Data.Monoid
@@ -120,9 +118,13 @@ import qualified Data.Text.Encoding           as Text
 import           Data.Time
 import           Data.Typeable
 import           GHC.Generics
-import           Network.AWS.Data
-import qualified Network.HTTP.Client          as Client
+import           Network.AWS.Data.Body
+import           Network.AWS.Data.ByteString
+import           Network.AWS.Data.Query
+import           Network.AWS.Data.Text
+import           Network.AWS.Data.XML
 import           Network.HTTP.Client          hiding (Request, Response)
+import qualified Network.HTTP.Client          as Client
 import           Network.HTTP.Types.Header
 import           Network.HTTP.Types.Method
 import           Network.HTTP.Types.Status    (Status)
@@ -191,30 +193,17 @@ class (AWSService (Sv a), AWSSigner (Sg (Sv a))) => AWSRequest a where
              -> Either HttpException ClientResponse
              -> m (Response' a)
 
--- | Specify how an 'AWSRequest' and it's associated 'Rs' response can generate
--- a subsequent request, if available.
-class AWSRequest a => AWSPager a where
-    page :: a -> Rs a -> Maybe a
-
 -- | Signing metadata data specific to a signing algorithm.
 --
--- /Note:/ this is used for test and debug purposes, or is otherwise ignored.
+-- /Note:/ this is used for logging purposes, and is otherwise ignored.
 data family Meta v :: *
 
 -- | A signed 'ClientRequest' and associated metadata specific to the signing
 -- algorithm that was used.
-data Signed a v where
-    Signed :: ToBuilder (Meta v)
-           => { _sgMeta    :: Meta v
-              , _sgRequest :: ClientRequest
-              }
-           -> Signed a v
-
-sgMeta :: Lens' (Signed a v) (Meta v)
-sgMeta f (Signed m rq) = f m <&> \y -> Signed y rq
-
-sgRequest :: Lens' (Signed a v) ClientRequest
-sgRequest f (Signed m rq) = f rq <&> \y -> Signed m y
+data Signed a v = Signed
+    { _sgMeta    :: Meta v
+    , _sgRequest :: ClientRequest
+    }
 
 class AWSSigner v where
     signed :: (AWSService (Sv a), v ~ Sg (Sv a))
@@ -233,9 +222,29 @@ class AWSPresigner v where
               -> Integer
               -> Signed a v
 
+sign :: (MonadIO m, AWSRequest a, AWSSigner (Sg (Sv a)))
+     => Auth      -- ^ AWS authentication credentials.
+     -> Region    -- ^ AWS Region.
+     -> Request a -- ^ Request to sign.
+     -> UTCTime   -- ^ Signing time.
+     -> m (Signed a (Sg (Sv a)))
+sign a r rq t = withAuth a $ \e -> return (signed e r rq t)
+
+presign :: (MonadIO m, AWSRequest a, AWSPresigner (Sg (Sv a)))
+        => Auth      -- ^ AWS authentication credentials.
+        -> Region    -- ^ AWS Region.
+        -> Request a -- ^ Request to presign.
+        -> UTCTime   -- ^ Signing time.
+        -> Integer   -- ^ Expiry time in seconds.
+        -> m (Signed a (Sg (Sv a)))
+presign a r rq t ex = withAuth a $ \e -> return (presigned e r rq t ex)
+
+hmacSHA256 :: ByteString -> ByteString -> ByteString
+hmacSHA256 = HMAC.hmac SHA256.hash 64
+
 -- | Access key credential.
 newtype AccessKey = AccessKey ByteString
-    deriving (Eq, Show, IsString, ToText, ToByteString, ToBuilder)
+    deriving (Eq, Show, IsString, ToText, ToByteString)
 
 -- | Secret key credential.
 newtype SecretKey = SecretKey ByteString
@@ -263,116 +272,23 @@ instance FromJSON AuthEnv where
       where
         f g = fmap (g . Text.encodeUtf8)
 
-instance ToBuilder AuthEnv where
-    build AuthEnv{..} = mconcat $ intersperse "\n"
-        [ "[Amazonka Auth] {"
-        , "  access key     = " <> build _authAccess
-        , "  secret key     = ****"
-        , "  security token = " <> maybe "Nothing" (const "Just ****") _authToken
-        , "  expiry         = " <> build _authExpiry
-        , "}"
-        ]
-
 -- | An authorisation environment containing AWS credentials, and potentially
 -- a reference which can be refreshed out-of-band as temporary credentials expire.
 data Auth
     = Ref  ThreadId (IORef AuthEnv)
     | Auth AuthEnv
 
-instance ToBuilder Auth where
-    build (Ref t _) = "[Amazonka Auth] { <thread:" <> build (show t) <> "> }"
-    build (Auth  e) = build e
-
 withAuth :: MonadIO m => Auth -> (AuthEnv -> m a) -> m a
 withAuth (Auth  e) f = f e
 withAuth (Ref _ r) f = liftIO (readIORef r) >>= f
 
-data Endpoint = Endpoint
-    { _endpointHost  :: ByteString
-    , _endpointScope :: ByteString
-    } deriving (Eq, Show)
-
--- | Determine the full host address and credential scope for a 'Service' within
--- the specified 'Region'.
-endpoint :: Service a -> Region -> Endpoint
-endpoint Service{..} r = go (CI.mk _svcPrefix)
-  where
-    go = \case
-        "iam"
-            | china     -> region "iam.cn-north-1.amazonaws.com.cn"
-            | govcloud  -> region "iam.us-gov.amazonaws.com"
-            | otherwise -> global "iam.amazonaws.com"
-
-        "sdb"
-            | virginia  -> region "sdb.amazonaws.com"
-
-        "sts"
-            | china     -> region "sts.cn-north-1.amazonaws.com.cn"
-            | govcloud  -> region ("sts." <> reg <> ".amazonaws.com")
-            | otherwise -> global "sts.amazonaws.com"
-
-        "s3"
-            | virginia  -> global "s3.amazonaws.com"
-            | china     -> region ("s3." <> reg <> ".amazonaws.com.cn")
-            | s3        -> region ("s3-" <> reg <> ".amazonaws.com")
-
-        "rds"
-            | virginia  -> global "rds.amazonaws.com"
-
-        "route53"
-            | not china -> global "route53.amazonaws.com"
-
-        "emr"
-            | virginia  -> global "elasticmapreduce.us-east-1.amazonaws.com"
-            | otherwise -> region (reg <> ".elasticmapreduce.amazonaws.com")
-
-        "sqs"
-            | virginia  -> global "queue.amazonaws.com"
-            | china     -> region (reg <> ".queue.amazonaws.com.cn")
-
-        "importexport"
-            | not china -> region "importexport.amazonaws.com"
-
-        "cloudfront"
-            | not china -> global "cloudfront.amazonaws.com"
-
-        _   | china     -> region (_svcPrefix <> "." <> reg <> ".amazonaws.com.cn")
-            | otherwise -> region (_svcPrefix <> "." <> reg <> ".amazonaws.com")
-
-    virginia = r == NorthVirginia
-
-    s3 = r `Set.member` except
-
-    govcloud = "us-gov" `BS.isPrefixOf` reg
-    china    = "cn-"    `BS.isPrefixOf` reg
-
-    region h = Endpoint { _endpointHost = h, _endpointScope = reg }
-    global h = Endpoint { _endpointHost = h, _endpointScope = "us-east-1" }
-
-    reg = toBS r
-
-    except = Set.fromList
-        [ GovCloud
-        , GovCloudFIPS
-        , Ireland
-        , NorthCalifornia
-        , NorthVirginia
-        , Oregon
-        , SaoPaulo
-        , Singapore
-        , Sydney
-        , Tokyo
-        ]
-
 -- | Attributes specific to an AWS service.
 data Service a = Service
-    { _svcAbbrev       :: !Text
-    , _svcPrefix       :: !ByteString
-    , _svcVersion      :: !ByteString
-    , _svcTargetPrefix :: Maybe ByteString
-    , _svcJSONVersion  :: Maybe ByteString
-    , _svcHandle       :: Status -> Maybe (LazyByteString -> ServiceError (Er a))
-    , _svcRetry        :: Retry a
+    { _svcAbbrev  :: Text
+    , _svcPrefix  :: ByteString
+    , _svcVersion :: ByteString
+    , _svcHandle  :: Status -> Maybe (LazyByteString -> ServiceError (Er a))
+    , _svcRetry   :: Retry a
     }
 
 -- | Constants and predicates used to create a 'RetryPolicy'.
@@ -386,7 +302,7 @@ data Retry a = Exponential
 -- | An unsigned request.
 data Request a = Request
     { _rqMethod  :: !StdMethod
-    , _rqPath    :: !ByteString
+    , _rqPath    :: ByteString
     , _rqQuery   :: Query
     , _rqHeaders :: [Header]
     , _rqBody    :: RqBody
@@ -394,20 +310,6 @@ data Request a = Request
 
 instance Default (Request a) where
     def = Request GET "/" mempty mempty ""
-
-instance ToBuilder (Request a) where
-    build Request{..} = mconcat $ intersperse "\n"
-        [ "[Raw Request] {"
-        , "  method  = "  <> build _rqMethod
-        , "  path    = "  <> build _rqPath
-        , "  query   = "  <> build _rqQuery
-        , "  headers = "  <> build _rqHeaders
-        , "  body    = {"
-        , "    hash    = "  <> build (bodyHash _rqBody)
-        , "    payload =\n" <> build (_bdyBody _rqBody)
-        , "  }"
-        , "}"
-        ]
 
 -- | The sum of available AWS regions.
 data Region
@@ -463,7 +365,6 @@ instance ToText Region where
         SaoPaulo        -> "sa-east-1"
 
 instance ToByteString Region
-instance ToBuilder    Region
 
 instance FromXML Region where parseXML = parseXMLText "Region"
 instance ToXML   Region where toXML    = toXMLText
@@ -498,3 +399,4 @@ clientRequest = def
 
 makePrisms ''ServiceError
 makeLenses ''Request
+makeLenses ''Signed

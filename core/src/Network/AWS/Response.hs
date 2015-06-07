@@ -26,18 +26,15 @@ module Network.AWS.Response
     , bodyResponse
     ) where
 
-import           Control.Applicative
-import           Control.Monad
-import           Control.Monad.IO.Class
+-- import           Control.Monad.IO.Class
 import           Control.Monad.Trans.Resource
 import           Data.Aeson
 import           Data.Bifunctor
-import qualified Data.ByteString.Lazy         as LBS
 import           Data.Conduit
 import qualified Data.Conduit.Binary          as Conduit
 import           Data.Monoid
-import           Network.AWS.Data             (FromXML (..), LazyByteString,
-                                               build, decodeXML)
+import           Network.AWS.Data.ByteString
+import           Network.AWS.Data.XML
 import           Network.AWS.Types
 import           Network.HTTP.Client          hiding (Request, Response)
 import           Network.HTTP.Types
@@ -137,8 +134,8 @@ receive l f = const (either (return . Left . HttpError) success)
 
     svc = service :: Service (Sv a)
 
-sinkLbs :: MonadResource m => Logger -> ResponseBody -> m LBS.ByteString
+sinkLbs :: MonadResource m => Logger -> ResponseBody -> m LazyByteString
 sinkLbs l bdy = do
     lbs <- liftResourceT (bdy $$+- Conduit.sinkLbs)
-    liftIO $ l Trace ("[Client Response Body] {\n" <> build lbs <> "\n}")
+-- FIXME:    liftIO $ l Trace ("[Client Response Body] {\n" <> build lbs <> "\n}")
     return lbs

@@ -1,7 +1,7 @@
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE RankNTypes        #-}
 
--- Module      : Network.AWS.Pagination
+-- Module      : Network.AWS.Paginate
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -11,44 +11,51 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Pagination
-    ( more
+module Network.AWS.Paginate
+    ( AWSPage     (..)
+    , AWSContinue (..)
     , stop
     , index
     , choice
     ) where
 
 import           Control.Applicative
-import           Control.Lens        hiding (index)
-import           Data.HashMap.Strict (HashMap)
-import qualified Data.HashMap.Strict as Map
-import           Data.Text           (Text)
-import           Network.AWS.Data    (ToText(..))
+import           Control.Lens          hiding (index)
+import           Data.HashMap.Strict   (HashMap)
+import qualified Data.HashMap.Strict   as Map
+import           Data.Text             (Text)
+import           Network.AWS.Data.Text (ToText (..))
+import           Network.AWS.Types
+
+-- | Specify how an 'AWSRequest' and it's associated 'Rs' response can
+-- generate a subsequent request, if available.
+class AWSRequest a => AWSPage a where
+    page :: a -> Rs a -> Maybe a
 
 -- | Generalise IsTruncated and other optional/required
 -- response pagination fields.
-class AWSMore a where
-    more :: a -> Bool
+class AWSContinue a where
+    continue :: a -> Bool
 
-instance AWSMore Bool where
-    more = id
+instance AWSContinue Bool where
+    continue = id
 
-instance AWSMore (Maybe Bool) where
-    more (Just x) = x
-    more Nothing  = False
+instance AWSContinue (Maybe Bool) where
+    continue (Just x) = x
+    continue Nothing  = False
 
-instance AWSMore (Maybe Text) where
-    more (Just _) = True
-    more Nothing  = False
+instance AWSContinue (Maybe Text) where
+    continue (Just _) = True
+    continue Nothing  = False
 
-instance AWSMore [a] where
-    more = not . null
+instance AWSContinue [a] where
+    continue = not . null
 
-instance AWSMore (HashMap k v) where
-    more = not . Map.null
+instance AWSContinue (HashMap k v) where
+    continue = not . Map.null
 
-stop :: AWSMore a => a -> Bool
-stop = not . more
+stop :: AWSContinue a => a -> Bool
+stop = not . continue
 
 index :: ToText c => Getter a [b] -> Getter b c -> Getter a (Maybe Text)
 index f g = f . to lastMay . to (fmap (toText . view g))

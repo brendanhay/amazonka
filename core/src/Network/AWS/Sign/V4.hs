@@ -4,7 +4,7 @@
 {-# LANGUAGE TupleSections     #-}
 {-# LANGUAGE TypeFamilies      #-}
 
--- Module      : Network.AWS.Signing.Internal.V4
+-- Module      : Network.AWS.Sign.V4
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -14,27 +14,31 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Signing.Internal.V4
+module Network.AWS.Sign.V4
     ( V4
     ) where
 
 import           Control.Applicative
 import           Control.Lens
-import qualified Crypto.Hash.SHA256           as SHA256
-import           Data.ByteString              (ByteString)
-import qualified Data.ByteString.Base16       as Base16
-import qualified Data.ByteString.Char8        as BS
-import qualified Data.CaseInsensitive         as CI
-import qualified Data.Foldable                as Fold
-import           Data.Function                hiding ((&))
-import           Data.List                    (groupBy, intersperse, sortBy, sort)
+import qualified Crypto.Hash.SHA256          as SHA256
+import qualified Data.ByteString.Base16      as Base16
+import qualified Data.ByteString.Char8       as BS
+import qualified Data.CaseInsensitive        as CI
+import qualified Data.Foldable               as Fold
+import           Data.Function               hiding ((&))
+import           Data.List                   (groupBy, intersperse, sort,
+                                              sortBy)
 import           Data.Maybe
 import           Data.Monoid
 import           Data.Ord
-import           Data.Time
-import           Network.AWS.Data
-import           Network.AWS.Request.Internal
-import           Network.AWS.Signing.Internal
+import           Network.AWS.Data.Body
+import           Network.AWS.Data.ByteString
+import           Network.AWS.Data.Header
+import           Network.AWS.Data.Path
+import           Network.AWS.Data.Query
+import           Network.AWS.Data.Time
+import           Network.AWS.Endpoint
+import           Network.AWS.Request
 import           Network.AWS.Types
 import           Network.HTTP.Types.Header
 
@@ -50,20 +54,20 @@ data instance Meta V4 = Meta
     , _mTime      :: UTCTime
     }
 
-instance ToBuilder (Meta V4) where
-    build Meta{..} = mconcat $ intersperse "\n"
-        [ "[Version 4 Metadata] {"
-        , "  algorithm         = " <> build _mAlgorithm
-        , "  credential scope  = " <> build _mScope
-        , "  signed headers    = " <> build _mSigned
-        , "  canonical request = {"
-        , build _mCReq
-        , "  }"
-        , "  string to sign    = " <> build _mSTS
-        , "  signature         = " <> build _mSignature
-        , "  time              = " <> build _mTime
-        , "}"
-        ]
+-- instance ToBuilder (Meta V4) where
+--     build Meta{..} = mconcat $ intersperse "\n"
+--         [ "[Version 4 Metadata] {"
+--         , "  algorithm         = " <> build _mAlgorithm
+--         , "  credential scope  = " <> build _mScope
+--         , "  signed headers    = " <> build _mSigned
+--         , "  canonical request = {"
+--         , build _mCReq
+--         , "  }"
+--         , "  string to sign    = " <> build _mSTS
+--         , "  signature         = " <> build _mSignature
+--         , "  time              = " <> build _mTime
+--         , "}"
+--         ]
 
 instance AWSPresigner V4 where
     presigned a r rq t ex = out & sgRequest

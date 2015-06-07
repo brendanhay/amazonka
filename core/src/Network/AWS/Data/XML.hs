@@ -5,7 +5,7 @@
 {-# LANGUAGE OverloadedStrings   #-}
 {-# LANGUAGE ScopedTypeVariables #-}
 
--- Module      : Network.AWS.Data.Internal.XML
+-- Module      : Network.AWS.Data.XML
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -15,7 +15,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Data.Internal.XML where
+module Network.AWS.Data.XML where
     -- (
     -- -- * FromXML
     --   FromXML      (..)
@@ -53,8 +53,8 @@ import           Data.Maybe
 import           Data.Monoid
 import           Data.Text                            (Text)
 import           GHC.Exts
-import           Network.AWS.Data.Internal.ByteString
-import           Network.AWS.Data.Internal.Text
+import           Network.AWS.Data.ByteString
+import           Network.AWS.Data.Text
 import           Numeric.Natural
 import           Text.XML
 

@@ -38,40 +38,29 @@ library
     ghc-options:       -Wall
 
     exposed-modules:
-          Network.AWS.Data
+          Network.AWS.Compat.Locale
+        , Network.AWS.Compat.Time
+        , Network.AWS.Data.Base64
+        , Network.AWS.Data.Body
+        , Network.AWS.Data.ByteString
+        , Network.AWS.Data.Header
+        , Network.AWS.Data.JSON
+        , Network.AWS.Data.Numeric
+        , Network.AWS.Data.Path
+        , Network.AWS.Data.Query
+        , Network.AWS.Data.Sensitive
+        , Network.AWS.Data.Text
+        , Network.AWS.Data.Time
+        , Network.AWS.Data.XML
+        , Network.AWS.Endpoint
         , Network.AWS.Error
-        , Network.AWS.Pagination
-        , Network.AWS.Prelude
-        , Network.AWS.Request.JSON
-        , Network.AWS.Request.Query
-        , Network.AWS.Request.RestJSON
-        , Network.AWS.Request.RestXML
-        , Network.AWS.Request.S3
+        , Network.AWS.Paginate
+        , Network.AWS.Request
         , Network.AWS.Response
-        , Network.AWS.Signing
+        , Network.AWS.Sign.V2
+        , Network.AWS.Sign.V4
         , Network.AWS.Types
-        , Network.AWS.Waiters
-
-    other-modules:
-          Network.AWS.Compat.Internal.Locale
-        , Network.AWS.Compat.Internal.Time
-        , Network.AWS.Data.Internal.Base64
-        , Network.AWS.Data.Internal.Body
-        , Network.AWS.Data.Internal.ByteString
-        , Network.AWS.Data.Internal.Header
-        , Network.AWS.Data.Internal.JSON
-        , Network.AWS.Data.Internal.Numeric
-        , Network.AWS.Data.Internal.Path
-        , Network.AWS.Data.Internal.Query
-        , Network.AWS.Data.Internal.Sensitive
-        , Network.AWS.Data.Internal.Text
-        , Network.AWS.Data.Internal.Time
-        , Network.AWS.Data.Internal.URI
-        , Network.AWS.Data.Internal.XML
-        , Network.AWS.Request.Internal
-        , Network.AWS.Signing.Internal
-        , Network.AWS.Signing.Internal.V2
-        , Network.AWS.Signing.Internal.V4
+        , Network.AWS.Wait
 
     build-depends:
           aeson                >  0.7.0.6

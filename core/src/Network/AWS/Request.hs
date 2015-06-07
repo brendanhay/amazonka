@@ -13,9 +13,13 @@
 module Network.AWS.Request
     (
     -- * Requests
-    , get
+      head'
     , delete
-    , head'
+    , get
+    , postJSON
+    , postQuery
+    , putXML
+    , putBody
 
     , defaultRequest
     , contentSHA256
@@ -30,37 +34,59 @@ module Network.AWS.Request
     ) where
 
 import           Control.Lens
-import           Data.ByteString              (ByteString)
 import           Data.Default.Class
+import           Data.Monoid
 import qualified Data.Text.Encoding           as Text
-import           Network.AWS.Data
+import           Network.AWS.Data.Body
+import           Network.AWS.Data.ByteString
+import           Network.AWS.Data.Header
+import           Network.AWS.Data.JSON
+import           Network.AWS.Data.Path
+import           Network.AWS.Data.Query
+import           Network.AWS.Data.XML
 import           Network.AWS.Types
 import qualified Network.HTTP.Client.Internal as HTTP
+import           Network.HTTP.Types           (StdMethod (..))
 import qualified Network.HTTP.Types           as HTTP
 
-get :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
-get = content . defaultRequest
+head' :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
+head' x = get x & rqMethod .~ HEAD
 
 delete :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
 delete x = get x & rqMethod .~ DELETE
 
-head' :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
-head' x = get x & rqMethod .~ HEAD
+get :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
+get = contentSHA256 . defaultRequest
+
+postJSON :: (ToQuery a, ToPath a, ToHeaders a, ToJSON a) => a -> Request a
+postJSON x = defaultRequest x
+    & rqMethod .~ POST
+    & rqBody    .~ toBody (toJSON x)
+    & contentSHA256
+
+postQuery :: (ToQuery a, ToPath a, ToHeaders a) => a -> Request a
+postQuery x = defaultRequest x
+    & rqMethod .~ POST
+    & rqQuery <>~ toQuery x
+    & contentSHA256
+
+putXML :: (ToPath a, ToQuery a, ToHeaders a, ToElement a) => a -> Request a
+putXML x = defaultRequest x
+    & rqMethod .~ PUT
+    & rqBody   .~ toBody (encodeXML x)
+    & contentSHA256
+
+putBody :: (ToPath a, ToQuery a, ToHeaders a, ToBody a) => a -> Request a
+putBody x = defaultRequest x
+    & rqMethod .~ PUT
+    & rqBody   .~ toBody x
+    & contentSHA256
 
 defaultRequest :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
 defaultRequest x = def
     & rqPath    .~ Text.encodeUtf8 (toPath x)
     & rqQuery   .~ toQuery x
     & rqHeaders .~ toHeaders x
-
-    hs = toHeader hAMZTarget   target
-      ++ toHeader hContentType content
-
-    target  = (\p -> p <> "." <> toBS a) <$> _svcTargetPrefix svc
-    content = ("application/x-amz-json-" <>) <$> _svcJSONVersion svc
-
-    svc :: Service (Sv a)
-    svc = service
 
 contentSHA256 :: Request a -> Request a
 contentSHA256 rq = rq

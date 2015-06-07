@@ -8,7 +8,7 @@
 {-# LANGUAGE ScopedTypeVariables #-}
 {-# LANGUAGE StandaloneDeriving  #-}
 
--- Module      : Network.AWS.Data.Internal.Time
+-- Module      : Network.AWS.Data.Time
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -18,7 +18,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Data.Internal.Time
+module Network.AWS.Data.Time
     ( Format (..)
     , Time   (..)
     , _Time
@@ -38,23 +38,23 @@ module Network.AWS.Data.Internal.Time
 import           Control.Applicative
 import           Control.Lens
 import           Data.Aeson
-import           Data.Attoparsec.Text                 (Parser)
-import qualified Data.Attoparsec.Text                 as AText
-import qualified Data.ByteString.Char8                as BS
+import           Data.Attoparsec.Text        (Parser)
+import qualified Data.Attoparsec.Text        as AText
+import qualified Data.ByteString.Char8       as BS
 import           Data.Scientific
 import           Data.Tagged
-import qualified Data.Text                            as Text
-import           Data.Time                            (UTCTime)
+import qualified Data.Text                   as Text
+import           Data.Time                   (UTCTime)
 import           Data.Time.Clock.POSIX
-import           Data.Time.Format                     (formatTime)
-import           Network.AWS.Compat.Internal.Locale   (defaultTimeLocale,
-                                                       iso8601DateFormat)
-import           Network.AWS.Compat.Internal.Time     (parseTime)
-import           Network.AWS.Data.Internal.ByteString
-import           Network.AWS.Data.Internal.JSON
-import           Network.AWS.Data.Internal.Query
-import           Network.AWS.Data.Internal.Text
-import           Network.AWS.Data.Internal.XML
+import           Data.Time.Format            (formatTime)
+import           Network.AWS.Compat.Locale   (defaultTimeLocale,
+                                              iso8601DateFormat)
+import           Network.AWS.Compat.Time     (parseTime)
+import           Network.AWS.Data.ByteString
+import           Network.AWS.Data.JSON
+import           Network.AWS.Data.Query
+import           Network.AWS.Data.Text
+import           Network.AWS.Data.XML
 
 data Format
     = RFC822Format

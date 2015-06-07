@@ -1,6 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 
--- Module      : Network.AWS.Data.Internal.JSON
+-- Module      : Network.AWS.Data.JSON
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Data.Internal.JSON
+module Network.AWS.Data.JSON
     (
     -- * FromJSON
       FromJSON (..)
@@ -37,7 +37,7 @@ import           Data.Aeson                     (eitherDecode')
 import           Data.Aeson.Types
 import qualified Data.HashMap.Strict            as Map
 import           Data.Text                      (Text)
-import           Network.AWS.Data.Internal.Text
+import           Network.AWS.Data.Text
 
 parseJSONText :: FromText a => String -> Value -> Parser a
 parseJSONText n = withText n (either fail return . fromText)

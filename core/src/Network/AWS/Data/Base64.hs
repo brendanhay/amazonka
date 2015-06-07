@@ -1,7 +1,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 
--- Module      : Network.AWS.Data.Internal.Base64
+-- Module      : Network.AWS.Data.Base64
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -11,21 +11,22 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Data.Internal.Base64
-    ( Base64 (..)
+
+module Network.AWS.Data.Base64
+    ( Base64
     ) where
 
 import           Data.Aeson.Types
-import qualified Data.Attoparsec.Text                 as AText
-import           Data.ByteString                      (ByteString)
-import qualified Data.ByteString.Base64               as Base64
-import qualified Data.Text.Encoding                   as Text
+import qualified Data.Attoparsec.Text        as AText
+import           Data.ByteString             (ByteString)
+import qualified Data.ByteString.Base64      as Base64
+import qualified Data.Text.Encoding          as Text
 import           GHC.Generics
-import           Network.AWS.Data.Internal.ByteString
-import           Network.AWS.Data.Internal.JSON
-import           Network.AWS.Data.Internal.Query
-import           Network.AWS.Data.Internal.Text
-import           Network.AWS.Data.Internal.XML
+import           Network.AWS.Data.ByteString
+import           Network.AWS.Data.JSON
+import           Network.AWS.Data.Query
+import           Network.AWS.Data.Text
+import           Network.AWS.Data.XML
 
 -- | Base64 encoded binary data.
 --

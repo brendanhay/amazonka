@@ -2,7 +2,7 @@
 {-# LANGUAGE ScopedTypeVariables        #-}
 {-# LANGUAGE TemplateHaskell            #-}
 
--- Module      : Network.AWS.Data.Internal.Numeric
+-- Module      : Network.AWS.Data.Numeric
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -12,17 +12,17 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Data.Internal.Numeric where
+module Network.AWS.Data.Numeric where
 
 import Control.Lens.TH
 import Control.Monad
 import Data.Aeson.Types
 import Data.Monoid
 import Data.Scientific
-import Network.AWS.Data.Internal.ByteString
-import Network.AWS.Data.Internal.Query
-import Network.AWS.Data.Internal.Text
-import Network.AWS.Data.Internal.XML
+import Network.AWS.Data.ByteString
+import Network.AWS.Data.Query
+import Network.AWS.Data.Text
+import Network.AWS.Data.XML
 import Numeric.Natural
 
 newtype Nat = Nat { unNat :: Natural }

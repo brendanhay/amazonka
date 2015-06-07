@@ -1,6 +1,6 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 
--- Module      : Network.AWS.Data.Internal.Sensitive
+-- Module      : Network.AWS.Data.Sensitive
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -10,16 +10,16 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Data.Internal.Sensitive where
+module Network.AWS.Data.Sensitive where
 
 import Control.Lens
 import Data.Monoid
 import Data.String
-import Network.AWS.Data.Internal.ByteString
-import Network.AWS.Data.Internal.JSON
-import Network.AWS.Data.Internal.Query
-import Network.AWS.Data.Internal.Text
-import Network.AWS.Data.Internal.XML
+import Network.AWS.Data.ByteString
+import Network.AWS.Data.JSON
+import Network.AWS.Data.Query
+import Network.AWS.Data.Text
+import Network.AWS.Data.XML
 
 -- | read . show /= isomorphic
 newtype Sensitive a = Sensitive { desensitise :: a }

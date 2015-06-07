@@ -93,11 +93,23 @@ overrideShape :: Map Id Override
               -> Id
               -> Shape Related
               -> MemoS (Id, Shape Related)
-overrideShape ovs n c@(_ :< s) = mayRemember
+overrideShape ovs n c@(_ :< s) = doCache
   where
-    mayRemember = env memo     n >>= maybe mayRename        (return . (n,))
-    mayRename   = env renamed  n >>= maybe mayReplace       (\x -> overrideShape ovs x c)
-    mayReplace  = env replaced n >>= maybe ((n,) <$> shape) (fmap (n,) . pointer)
+    doCache = env memo n >>=
+        maybe doRename
+              (return . (n,))
+
+    doRename = do
+         m <- env renamed n
+         case m of
+             Nothing         -> doReplace
+             Just x
+                 | x == n    -> doReplace
+                 | otherwise -> overrideShape ovs x c
+
+    doReplace = env replaced n >>=
+        maybe ((n,) <$> shape)
+              (fmap (n,) . pointer)
 
     Override{..} = fromMaybe defaultOverride (Map.lookup n ovs)
 

@@ -31,7 +31,7 @@ library
     ghc-options:       -Wall
 
     exposed-modules:
-          {{ libraryNamespace }}
+          Network.AWS.{{ serviceAbbrev }}
       {% for module in exposedModules %}
         , {{ module.value }}
       {% endfor %}

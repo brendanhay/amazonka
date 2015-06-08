@@ -30,7 +30,6 @@ import           Control.Monad.Except  (throwError)
 import           Control.Monad.State
 import qualified Data.HashMap.Strict   as Map
 import qualified Data.HashSet          as Set
-import           Data.List             (sort)
 import           Data.Monoid
 
 -- FIXME: Relations need to be updated by the solving step.
@@ -41,16 +40,12 @@ rewrite :: Versions
         -> Config
         -> Service Maybe (RefF ()) (ShapeF ())
         -> Either Error Library
-rewrite v cfg s' = do
-    s <- rewriteService cfg (deprecate s') >>= renderShapes cfg
+rewrite v cfg s' = Library v cfg
+    <$> (rewriteService cfg (deprecate s')
+         >>= renderShapes cfg)
 
-    let ns     = NS ["Network", "AWS", s ^. serviceAbbrev]
-        other  = cfg ^. operationImports ++ cfg ^. typeImports
-        expose = ns <> "Types"
-               : ns <> "Waiters"
-               : map (mappend ns) (s ^.. operations . each . operationNS)
-
-    return $! Library v cfg s ns (sort expose) (sort other)
+deprecate :: Service f a b -> Service f a b
+deprecate = operations %~ Map.filter (not . view opDeprecated)
 
 rewriteService :: Config
                -> Service Maybe (RefF ()) (ShapeF ())
@@ -93,20 +88,12 @@ renderShapes cfg svc = do
         , _shapes     = ys
         }
 
-deprecate :: Service f a b -> Service f a b
-deprecate = operations %~ Map.filter (not . view opDeprecated)
-
 type MemoR = StateT (Map Id Relation) (Either Error)
-
--- FIXME:
--- Maybe make this more detailed and provide a map of which shapes are used
--- by which other shapes? This can be used to create
--- cross linked haddock markup like /See:/ Parent1, Parent2, etc.
 
 -- | Determine the relation for operation payloads, both input and output.
 --
 -- /Note:/ This currently doesn't operate over the free AST, since it's also
---used by 'setDefaults'.
+-- used by 'setDefaults'.
 relations :: Show b
           => Map Id (Operation Maybe (RefF a))
           -> Map Id (ShapeF b)

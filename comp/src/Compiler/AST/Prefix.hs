@@ -62,17 +62,17 @@ prefix = annotate Prefixed memo go
             Struct st -> Just <$> do
                 let hs = heuristics n
                     xs = keys (st ^. members)
-                uniq n hs xs
+                unique n hs xs
 
             Enum _ vs -> Just <$> do
                 let hs = mempty : heuristics n
                     xs = keys vs
-                uniq n hs xs
+                unique n hs xs
 
             _           -> return Nothing
 
-    uniq :: Text -> [CI Text] -> Set (CI Text) -> MemoP Text
-    uniq n [] xs = do
+    unique :: Text -> [CI Text] -> Set (CI Text) -> MemoP Text
+    unique n [] xs = do
         s <- use seen
         let hs  = heuristics n
             f x = sformat ("\n" % soriginal % " => " % shown) x (Map.lookup x s)
@@ -82,11 +82,11 @@ prefix = annotate Prefixed memo go
                     scomma)
                    n (Set.toList xs) (map f hs)
 
-    uniq n (h:hs) xs = do
+    unique n (h:hs) xs = do
         m <- uses seen (Map.lookup h)
         case m of
             Just ys | overlap ys xs
-                -> uniq n hs xs
+                -> unique n hs xs
             _   -> do
                 seen %= Map.insertWith (<>) h xs
                 return (CI.original h)

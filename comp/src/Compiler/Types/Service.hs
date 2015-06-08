@@ -10,6 +10,7 @@
 {-# LANGUAGE LambdaCase             #-}
 {-# LANGUAGE MultiParamTypeClasses  #-}
 {-# LANGUAGE OverloadedStrings      #-}
+{-# LANGUAGE RankNTypes             #-}
 {-# LANGUAGE RecordWildCards        #-}
 {-# LANGUAGE StandaloneDeriving     #-}
 {-# LANGUAGE TemplateHaskell        #-}
@@ -341,8 +342,8 @@ data Operation f a = Operation
 
 makeLenses ''Operation
 
-operationNS :: Getter (Operation f a) NS
-operationNS = opName . typeId . to textToNS
+operationNS :: NS -> Getter (Operation f a) NS
+operationNS ns = opName . typeId . to (mappend ns . textToNS)
 
 inputName, outputName :: HasId a => Getter (Operation Identity a) Id
 inputName  = opInput  . _Identity . to identifier

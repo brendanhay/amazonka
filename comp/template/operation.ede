@@ -32,9 +32,8 @@ module {{ moduleName }}
   {% endfor %}
     ) where
 
-import           Network.AWS.{{ serviceAbbrev }}.Types
-{% for import in operationImports %}
-import           {{ import.value }}
+{% for import in moduleImports %}
+import {{ import.value }}
 {% endfor %}
 
 {% include "_include/shape.ede" with shape = input %}

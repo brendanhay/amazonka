@@ -24,18 +24,6 @@ import           Compiler.Types
 import           Control.Comonad.Cofree
 import           Control.Lens           hiding (enum, mapping, (??))
 
--- FIXME: Work out imports from a tree of types?
-
--- class ImportsOf a where
-
--- instance ImportsOf (Shape Related) where
-
--- -- Normal operations imports
--- instance ImportsOf (Operation f ?) where
-
--- -- Types imports
--- instance Foldable f => ImportsOf (f (Shape Related)) where
-
 class TypeOf a where
     typeOf :: a -> TType
 

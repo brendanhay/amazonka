@@ -24,6 +24,7 @@ module Compiler.Tree
     , populate
     ) where
 
+import           Compiler.Import
 import qualified Compiler.JSON             as JS
 import           Compiler.Types
 import           Control.Error
@@ -38,7 +39,6 @@ import qualified Data.Text.Lazy            as LText
 import           Filesystem.Path.CurrentOS hiding (root)
 import           Prelude                   hiding (mod)
 import           System.Directory.Tree     hiding (file)
-import           System.IO.Error
 import           Text.EDE                  hiding (render)
 
 root :: AnchoredDirTree a -> Path
@@ -77,10 +77,10 @@ populate d Templates{..} l = ((encodeString d :/) . dir lib) <$> layout
             [ dir "Network"
                 [ dir "AWS"
                     [ dir svc $
-                        [ mod "Types" typesTemplate
-                        , mod "Waiters" waitersTemplate
+                        [ mod (l ^. typesNS) (typeImports l) typesTemplate
+                        , mod (l ^. waitersNS) (waiterImports l) waitersTemplate
                         ] ++ map op (l ^.. operations . each)
-                    , mod mempty tocTemplate
+                    , mod (l ^. libraryNS) mempty tocTemplate
                     ]
                 ]
             ]
@@ -92,42 +92,45 @@ populate d Templates{..} l = ((encodeString d :/) . dir lib) <$> layout
     svc = fromText (l ^. serviceAbbrev)
     lib = fromText (l ^. libraryName)
 
-    ns :: NS
-    ns = l ^. namespace
+    op :: Operation Identity Data -> DirTree (Either Error LText.Text)
+    op = operation' l operationTemplate
 
-    env, met :: Value
-    env = toJSON l
-    met = toJSON (l ^. metadata)
+    mod :: NS -> [NS] -> Template -> DirTree (Either Error LText.Text)
+    mod n is t = module' n is t (pure env)
 
     file :: Path -> Template -> DirTree (Either Error LText.Text)
     file p t = file' p t (pure env)
 
-    mod :: NS -> Template -> DirTree (Either Error LText.Text)
-    mod n t = module' (ns <> n) t (pure env)
+    env :: Value
+    env = toJSON l
 
-    op :: Operation Identity Data -> DirTree (Either Error LText.Text)
-    op o = module' n operationTemplate $ do
-        x <- JS.objectErr (show n) o
-        m <- JS.objectErr "metadata" met
-        return $! y <> x <> m
-      where
-        n = ns <> o ^. operationNS
-        y = fromPairs
-            [ "operationUrl"     .= (l ^. operationUrl)
-            , "operationImports" .= (l ^. operationImports)
-            ]
+operation' :: Library
+           -> Template
+           -> Operation Identity Data
+           -> DirTree (Either Error LText.Text)
+operation' l t o = module' n is t $ do
+    x <- JS.objectErr (show n) o
+    y <- JS.objectErr "metadata" (toJSON m)
+    return $! Map.insert "operationUrl" (toJSON u) (y <> x)
+  where
+    n  = o ^. operationNS (l ^. libraryNS)
+    m  = l ^. metadata
+    u  = l ^. operationUrl
 
-dir :: Path -> [DirTree a] -> DirTree a
-dir p = Dir (encodeString p)
+    is = operationImports l o
 
 module' :: ToJSON a
         => NS
+        -> [NS]
         -> Template
         -> Either Error a
         -> DirTree (Either Error LText.Text)
-module' ns t f = file' (filename $ nsToPath ns) t $
-    Map.insert "moduleName" (toJSON ns)
-       <$> (f >>= JS.objectErr (show ns))
+module' ns is t f = file' (filename $ nsToPath ns) t $ do
+    x <- f >>= JS.objectErr (show ns)
+    return $! x <> fromPairs
+        [ "moduleName"    .= ns
+        , "moduleImports" .= is
+        ]
 
 file' :: ToJSON a
       => Path
@@ -137,6 +140,9 @@ file' :: ToJSON a
 file' (encodeString -> p) t f = File p $
     f >>= JS.objectErr p
       >>= fmapL LText.pack . eitherRender t
+
+dir :: Path -> [DirTree a] -> DirTree a
+dir p = Dir (encodeString p)
 
 (<->) :: Path -> Text -> Path
 a <-> b = fromText (toTextIgnore a <> "-" <> b)

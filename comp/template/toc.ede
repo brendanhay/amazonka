@@ -4,17 +4,12 @@
 
 {{ documentation }}
 module {{ moduleName }}
-{% for module in exposedModules %}
-    {% if module.first %}( {% else %}, {% endif %}module {{ module.value }}
-{% endfor %}
-{% for module in otherModules %}
-    , module {{ module.value }}
-{% endfor %}
+    ( module Export
     ) where
 
-{% for module in exposedModules %}
-import {{ module.value }}
+{% for import in exposedModules %}
+import {{ import.value }} as Export
 {% endfor %}
 {% for module in otherModules %}
-import {{ module.value }}
+import {{ module.value }} as Export
 {% endfor %}

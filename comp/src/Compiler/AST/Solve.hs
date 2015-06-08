@@ -20,6 +20,7 @@ module Compiler.AST.Solve
 
 import           Compiler.AST.Cofree
 import           Compiler.AST.TypeOf
+import           Compiler.Import
 import           Compiler.Types
 import           Control.Arrow          ((&&&))
 import           Control.Comonad.Cofree
@@ -46,9 +47,9 @@ solve cfg = (`evalState` env) . traverse (annotate con id (pure . ann))
     env = replaced def cfg
       where
         def x =
-           ( x ^. replaceName . typeId . to TType
-           , x ^. replaceDeriving . to Set.toList
-           )
+           let t  = x ^. replaceName . typeId . to TType
+               ds = x ^. replaceDeriving . to Set.toList
+            in (t, ds)
 
     ann :: Shape Prefixed -> (TType, [Derive])
     ann x = (typeOf x, derive x)
@@ -58,7 +59,7 @@ solve cfg = (`evalState` env) . traverse (annotate con id (pure . ann))
 
 -- FIXME: Filter constraints based on info like min/max of lists etc.
 derive :: Shape a -> [Derive]
-derive (_ :< s) = nub . sort $ shape s
+derive (_ :< s) = uniq (shape s)
   where
     shape :: ShapeF (Shape a) -> [Derive]
     shape = \case

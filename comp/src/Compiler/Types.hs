@@ -46,7 +46,7 @@ import           Control.Error
 import           Control.Lens              hiding ((.=))
 import           Data.Aeson
 import           Data.Bifunctor
-import           Data.List                 (sortOn)
+import           Data.List                 (nub, sort, sortOn)
 import           Data.Monoid               hiding (Product, Sum)
 import           Data.Ord
 import qualified Data.SemVer               as SemVer
@@ -131,8 +131,8 @@ data Config = Config
     { _libraryName      :: Text
     , _referenceUrl     :: Text
     , _operationUrl     :: Text
-    , _operationImports :: [NS]
-    , _typeImports      :: [NS]
+    , _operationModules :: [NS]
+    , _typeModules      :: [NS]
     , _typeOverrides    :: Map Id Override
     }
 
@@ -143,17 +143,14 @@ instance FromJSON Config where
         <$> o .:  "libraryName"
         <*> o .:  "referenceUrl"
         <*> o .:  "operationUrl"
-        <*> o .:? "operationImports" .!= mempty
-        <*> o .:? "typeImports"      .!= mempty
+        <*> o .:? "operationModules" .!= mempty
+        <*> o .:? "typeModules"      .!= mempty
         <*> o .:? "typeOverrides"    .!= mempty
 
 data Library = Library
-    { _versions'      :: Versions
-    , _config'        :: Config
-    , _service'       :: Service Identity Data Data
-    , _namespace      :: NS
-    , _exposedModules :: [NS]
-    , _otherModules   :: [NS]
+    { _versions' :: Versions
+    , _config'   :: Config
+    , _service'  :: Service Identity Data Data
     } deriving (Generic)
 
 makeLenses ''Library
@@ -170,6 +167,21 @@ instance HasConfig Library where
 instance HasVersions Library where
     versions = versions'
 
+libraryNS, typesNS, waitersNS :: Getter Library NS
+libraryNS = serviceAbbrev . to (mappend "Network.AWS" . textToNS)
+typesNS   = libraryNS . to (<> "Types")
+waitersNS = libraryNS . to (<> "Waiters")
+
+otherModules, exposedModules :: Getter Library [NS]
+otherModules   = to (\l -> l ^. operationModules <> l ^. typeModules)
+exposedModules = to f
+  where
+    f x =
+        let ns = x ^. libraryNS
+         in x ^.  typesNS
+          : x ^.  waitersNS
+          : x ^.. operations . each . operationNS ns
+
 instance ToJSON Library where
     toJSON l = Object (x <> y)
       where
@@ -180,14 +192,15 @@ instance ToJSON Library where
             , "description"      .= (l ^. documentation . asDesc)
             , "documentation"    .= (l ^. documentation)
             , "libraryName"      .= (l ^. libraryName)
-            , "libraryNamespace" .= (l ^. namespace)
+            , "libraryNamespace" .= (l ^. libraryNS)
             , "libraryVersion"   .= (l ^. libraryVersion)
             , "clientVersion"    .= (l ^. clientVersion)
             , "coreVersion"      .= (l ^. coreVersion)
-            , "exposedModules"   .= (l ^. exposedModules)
-            , "otherModules"     .= (l ^. otherModules)
+            , "typeModules"      .= sort (l ^. typeModules)
+            , "operationModules" .= sort (l ^. operationModules)
+            , "exposedModules"   .= sort (l ^. exposedModules)
+            , "otherModules"     .= sort (l ^. otherModules)
             , "shapes"           .= (l ^. shapes & kvTraversal %~ first (^. typeId))
-            , "typeImports"      .= (l ^. typeImports)
             ]
 
 data Templates = Templates
@@ -228,3 +241,6 @@ loadModel p xs = uncurry (Model n) <$>
     parse d = (,d) <$> parseTimeM True defaultTimeLocale
         (iso8601DateFormat Nothing)
         (Path.encodeString (Path.filename d))
+
+uniq :: Ord a => [a] -> [a]
+uniq = sort . nub

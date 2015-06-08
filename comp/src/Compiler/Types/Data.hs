@@ -17,6 +17,7 @@ module Compiler.Types.Data where
 
 import           Compiler.Text
 import           Compiler.TH
+import           Compiler.Types.Ann
 import           Compiler.Types.Help
 import           Compiler.Types.Map
 import           Compiler.Types.URI

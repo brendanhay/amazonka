@@ -1,13 +1,9 @@
-{-# LANGUAGE DataKinds                  #-}
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE LambdaCase                 #-}
-{-# LANGUAGE NoImplicitPrelude          #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TypeFamilies               #-}
-{-# LANGUAGE ViewPatterns               #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE LambdaCase        #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE ViewPatterns      #-}
 
 {% include "_include/license.ede" %}
 --
@@ -37,13 +33,13 @@ module {{ moduleName }}
     {% endif %}
   {% endfor %}
 
-  {% for import in typeImports %}
-    , module {{ import.value }}
+  {% for module in typeModules %}
+    , module {{ module.value }}
   {% endfor %}
     ) where
 
-{% for import in typeImports %}
-import           {{ import.value }}
+{% for import in moduleImports %}
+import {{ import.value }}
 {% endfor %}
 
 {% include "_include/service.ede" %}

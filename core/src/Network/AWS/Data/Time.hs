@@ -1,3 +1,4 @@
+{-# LANGUAGE CPP           #-}
 {-# LANGUAGE DataKinds           #-}
 {-# LANGUAGE FlexibleContexts    #-}
 {-# LANGUAGE FlexibleInstances   #-}
@@ -47,14 +48,22 @@ import qualified Data.Text                   as Text
 import           Data.Time                   (UTCTime)
 import           Data.Time.Clock.POSIX
 import           Data.Time.Format            (formatTime)
-import           Network.AWS.Compat.Locale   (defaultTimeLocale,
-                                              iso8601DateFormat)
-import           Network.AWS.Compat.Time     (parseTime)
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.JSON
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.Text
 import           Network.AWS.Data.XML
+
+#if MIN_VERSION_time(1,5,0)
+import           Data.Time.Format (defaultTimeLocale, iso8601DateFormat)
+import           Data.Time.Format (ParseTime, TimeLocale, parseTimeM)
+
+parseTime :: ParseTime a => TimeLocale -> String -> String -> Maybe a
+parseTime = parseTimeM True
+#else
+import           Data.Time.Format (parseTime)
+import           System.Locale    (defaultTimeLocale, iso8601DateFormat)
+#endif
 
 data Format
     = RFC822Format

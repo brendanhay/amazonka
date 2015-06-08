@@ -3,7 +3,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RankNTypes        #-}
 
--- Module      : Network.AWS.Wait
+-- Module      : Network.AWS.Waiters
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -13,7 +13,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Wait
+module Network.AWS.Waiters
     (
     -- * Types
       Acceptor
@@ -41,7 +41,6 @@ import           Data.ByteString    (ByteString)
 import           Data.Maybe
 import           Data.Text          (Text)
 import qualified Data.Text          as Text
--- -- import Network.AWS.Data
 import           Network.AWS.Error
 import           Network.AWS.Types
 import           Network.HTTP.Types
@@ -56,7 +55,7 @@ data Accept
 
 -- | Timing and acceptance criteria to check fulfillment of a remote operation.
 data Wait a = Wait
-    { _waitName      :: !ByteString
+    { _waitName      :: ByteString
     , _waitAttempts  :: !Int
     , _waitDelay     :: !Int
     , _waitAcceptors :: [Acceptor a]

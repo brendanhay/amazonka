@@ -103,7 +103,7 @@ instance ToJSON Protocol where
         RestJSON -> "JSON"
         RestXML  -> "XML"
         Query    -> "Query"
-        EC2      -> "EC2"
+        EC2      -> "Query"
 
 timestamp :: Protocol -> Timestamp
 timestamp = \case
@@ -348,6 +348,9 @@ inputName, outputName :: HasId a => Getter (Operation Identity a) Id
 inputName  = opInput  . _Identity . to identifier
 outputName = opOutput . _Identity . to identifier
 
+instance HasHTTP (Operation f a) f where
+    hTTP = opHTTP
+
 instance FromJSON (Operation Maybe (RefF ())) where
     parseJSON = withObject "operation" $ \o -> Operation
         <$> o .:  "name"
@@ -357,8 +360,13 @@ instance FromJSON (Operation Maybe (RefF ())) where
         <*> o .:? "input"
         <*> o .:? "output"
 
-instance HasHTTP (Operation f a) f where
-    hTTP = opHTTP
+instance ToJSON a => ToJSON (Operation Identity a) where
+    toJSON o = object
+        [ "name"          .= (o ^. opName)
+        , "documentation" .= (o ^. opDocumentation)
+        , "input"         .= (o ^. opInput)
+        , "output"        .= (o ^. opOutput)
+        ]
 
 data Metadata f = Metadata
     { _protocol         :: !Protocol

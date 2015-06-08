@@ -19,7 +19,6 @@ import           Compiler.Text
 import           Compiler.TH
 import           Compiler.Types.Help
 import           Compiler.Types.Map
-import           Compiler.Types.Service
 import           Compiler.Types.URI
 import           Control.Error
 import           Control.Lens              hiding ((.=))
@@ -99,11 +98,3 @@ instance ToJSON Data where
     toJSON = \case
         Prod p is -> object (prodToJSON p is)
         Sum  s is -> object (sumToJSON  s is)
-
-instance ToJSON (Operation Identity Data) where
-    toJSON o = object
-        [ "name"          .= (o ^. opName)
-        , "documentation" .= (o ^. opDocumentation)
-        , "input"         .= (o ^. opInput)
-        , "output"        .= (o ^. opOutput)
-        ]

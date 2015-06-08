@@ -26,7 +26,7 @@ import           Control.Lens
 import           Data.Function                (on)
 import qualified Data.HashMap.Strict          as Map
 import qualified Data.HashSet                 as Set
-import           Data.List                    (sortBy)
+import           Data.List                    (findIndex, sortBy)
 import           Data.Maybe
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
@@ -88,7 +88,12 @@ mkFields m p st = sortFields rs $ zipWith mk [1..] $ Map.toList (st ^. members)
 -- but doesn't affect the rest of the order which is determined by parsing
 -- of the JSON service definition.
 sortFields :: [Id] -> [Field] -> [Field]
-sortFields _ = id -- zipWith (set fieldOrdinal) [1..] . sortBy (on compare streaming)
+sortFields xs = zipWith (set fieldOrdinal) [1..]
+    -- FIXME: optimisation
+    . sortBy (on compare streaming)
+    . sortBy (on compare idx)
+  where
+    idx x = fromMaybe (-1) $ findIndex (== _fieldId x) xs
 
 fieldLens, fieldAccessor :: Getter Field Text
 fieldLens     = to (\f -> f ^. fieldId . lensId     (f ^. fieldPrefix))

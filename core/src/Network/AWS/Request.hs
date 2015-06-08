@@ -16,11 +16,19 @@ module Network.AWS.Request
       head'
     , delete
     , get
+
+    -- ** Empty body
+    , post
+    , put
+
+    -- ** Specialised body
+    , postXML
     , postJSON
     , postQuery
     , putXML
     , putBody
 
+    -- ** Constructors
     , defaultRequest
     , contentSHA256
 
@@ -57,6 +65,16 @@ delete x = get x & rqMethod .~ DELETE
 
 get :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
 get = contentSHA256 . defaultRequest
+
+post :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
+post x = get x & rqMethod .~ POST
+
+put :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
+put x = get x & rqMethod .~ PUT
+
+postXML :: (ToQuery a, ToPath a, ToHeaders a, ToElement a) => a -> Request a
+postXML x = putXML x
+    & rqMethod .~ POST
 
 postJSON :: (ToQuery a, ToPath a, ToHeaders a, ToJSON a) => a -> Request a
 postJSON x = defaultRequest x

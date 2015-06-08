@@ -58,13 +58,29 @@ matchCI x y = AText.asciiCI x <* AText.endOfInput >> return y
 class FromText a where
     parser :: Parser a
 
-instance FromText Text       where parser = AText.takeText
-instance FromText ByteString where parser = Text.encodeUtf8 <$> AText.takeText
-instance FromText Int        where parser = AText.signed AText.decimal <* AText.endOfInput
-instance FromText Integer    where parser = AText.signed AText.decimal <* AText.endOfInput
-instance FromText Scientific where parser = AText.signed AText.scientific <* AText.endOfInput
-instance FromText Natural    where parser = AText.decimal <* AText.endOfInput
-instance FromText Double     where parser = AText.signed AText.rational <* AText.endOfInput
+instance FromText Text where
+   parser = AText.takeText
+
+instance FromText ByteString where
+   parser = Text.encodeUtf8 <$> AText.takeText
+
+instance FromText Char where
+    parser = AText.anyChar <* AText.endOfInput
+
+instance FromText Int where
+    parser = AText.signed AText.decimal <* AText.endOfInput
+
+instance FromText Integer where
+    parser = AText.signed AText.decimal <* AText.endOfInput
+
+instance FromText Scientific where
+    parser = AText.signed AText.scientific <* AText.endOfInput
+
+instance FromText Natural where
+    parser = AText.decimal <* AText.endOfInput
+
+instance FromText Double where
+    parser = AText.signed AText.rational <* AText.endOfInput
 
 instance FromText Bool where
     parser = matchCI "false" False <|> matchCI "true" True
@@ -89,6 +105,7 @@ instance ToText (Response a) where
 
 instance ToText Text       where toText = id
 instance ToText ByteString where toText = Text.decodeUtf8
+instance ToText Char       where toText = Text.singleton
 instance ToText Int        where toText = shortText . Build.decimal
 instance ToText Int64      where toText = shortText . Build.decimal
 instance ToText Integer    where toText = shortText . Build.decimal

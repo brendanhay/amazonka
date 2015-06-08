@@ -4,7 +4,7 @@
 {-# LANGUAGE TupleSections     #-}
 {-# LANGUAGE TypeFamilies      #-}
 
--- Module      : Network.AWS.Signing.V4
+-- Module      : Network.AWS.Sign.V4
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Signing.V4 where
+module Network.AWS.Sign.V4 where
 
 import           Control.Applicative
 import           Control.Lens
@@ -31,7 +31,7 @@ import           Data.Monoid
 import           Data.Ord
 import           Network.AWS.Data.Body
 import           Network.AWS.Data.ByteString
-import           Network.AWS.Data.Header
+import           Network.AWS.Data.Headers
 import           Network.AWS.Data.Path
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.Time

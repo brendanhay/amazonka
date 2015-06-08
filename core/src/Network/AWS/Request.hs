@@ -47,7 +47,7 @@ import           Data.Monoid
 import qualified Data.Text.Encoding           as Text
 import           Network.AWS.Data.Body
 import           Network.AWS.Data.ByteString
-import           Network.AWS.Data.Header
+import           Network.AWS.Data.Headers
 import           Network.AWS.Data.JSON
 import           Network.AWS.Data.Path
 import           Network.AWS.Data.Query

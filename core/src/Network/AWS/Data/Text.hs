@@ -60,11 +60,11 @@ class FromText a where
 
 instance FromText Text       where parser = AText.takeText
 instance FromText ByteString where parser = Text.encodeUtf8 <$> AText.takeText
-instance FromText Int        where parser = AText.signed AText.decimal
-instance FromText Integer    where parser = AText.signed AText.decimal
-instance FromText Scientific where parser = AText.signed AText.scientific
-instance FromText Natural    where parser = AText.decimal
-instance FromText Double     where parser = AText.signed AText.rational
+instance FromText Int        where parser = AText.signed AText.decimal <* AText.endOfInput
+instance FromText Integer    where parser = AText.signed AText.decimal <* AText.endOfInput
+instance FromText Scientific where parser = AText.signed AText.scientific <* AText.endOfInput
+instance FromText Natural    where parser = AText.decimal <* AText.endOfInput
+instance FromText Double     where parser = AText.signed AText.rational <* AText.endOfInput
 
 instance FromText Bool where
     parser = matchCI "false" False <|> matchCI "true" True

@@ -13,13 +13,14 @@ module Network.AWS.Prelude
     ) where
 
 import           Control.Applicative         as Export
-import           Control.Lens                as Export (Lens', lens)
+import           Control.Lens                as Export
 import           Data.Hashable               as Export
+import           Data.HashMap.Strict         as Export (HashMap)
 import           Data.Monoid                 as Export
 import           GHC.Generics                as Export (Generic)
 import           Network.AWS.Data.Base64     as Export
 import           Network.AWS.Data.ByteString as Export
-import           Network.AWS.Data.Header     as Export
+import           Network.AWS.Data.Headers    as Export
 import           Network.AWS.Data.Numeric    as Export
 import           Network.AWS.Data.Path       as Export
 import           Network.AWS.Data.Query      as Export
@@ -28,3 +29,4 @@ import           Network.AWS.Data.Text       as Export
 import           Network.AWS.Data.Time       as Export
 import           Network.AWS.Error           as Export
 import           Network.AWS.Types           as Export
+import           Network.HTTP.Types.Status   as Export

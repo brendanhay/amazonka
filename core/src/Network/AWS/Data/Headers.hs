@@ -2,8 +2,9 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TupleSections     #-}
 
--- Module      : Network.AWS.Data.Header
+-- Module      : Network.AWS.Data.Headers
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -13,17 +14,17 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Data.Header where
+module Network.AWS.Data.Headers where
 
-import           Data.ByteString.Char8                (ByteString)
-import qualified Data.ByteString.Char8                as BS
-import qualified Data.CaseInsensitive                 as CI
-import           Data.Foldable                        as Fold
-import           Data.HashMap.Strict                  (HashMap)
-import qualified Data.HashMap.Strict                  as Map
+import           Data.Bifunctor
+import qualified Data.ByteString             as BS
+import qualified Data.ByteString.Char8       as BS8
+import qualified Data.CaseInsensitive        as CI
+import           Data.Foldable               as Fold
+import           Data.HashMap.Strict         (HashMap)
+import qualified Data.HashMap.Strict         as Map
 import           Data.Monoid
-import           Data.Text                            (Text)
-import qualified Data.Text.Encoding                   as Text
+import qualified Data.Text.Encoding          as Text
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Text
 import           Network.HTTP.Types
@@ -33,7 +34,7 @@ infixl 7 .#, .#?
 (.#) :: FromText a => ResponseHeaders -> HeaderName -> Either String a
 hs .# k = hs .#? k >>= note
   where
-    note Nothing  = Left (BS.unpack $ "Unable to find header: " <> CI.original k)
+    note Nothing  = Left (BS8.unpack $ "Unable to find header: " <> CI.original k)
     note (Just x) = Right x
 
 (.#?) :: FromText a => ResponseHeaders -> HeaderName -> Either String (Maybe a)
@@ -42,7 +43,20 @@ hs .#? k =
           (fmap Just . fromText . Text.decodeUtf8)
           (k `lookup` hs)
 
-infixr 7 =# --, --=
+infixr 7 =#
+
+parseHeaders :: FromText a
+             => ByteString
+             -> ResponseHeaders
+             -> Either String (HashMap Text a)
+parseHeaders p = fmap Map.fromList . traverse g . filter f
+  where
+    f = BS.isPrefixOf p . CI.foldedCase . fst
+
+    g (k, v) = (Text.decodeUtf8 . BS.drop n $ CI.original k,) <$>
+        fromText (Text.decodeUtf8 v)
+
+    n = BS.length p
 
 (=#) :: ToHeader a => HeaderName -> a -> [Header]
 (=#) = toHeader
@@ -52,9 +66,6 @@ hdr k v hs = (k, v) : filter ((/= k) . fst) hs
 
 hdrs :: [Header] -> [Header] -> [Header]
 hdrs xs ys = Fold.foldr' (uncurry hdr) ys xs
-
--- toHeaderText :: ToText a => HeaderName -> a -> [Header]
--- toHeaderText k = toHeader k . toText
 
 class ToHeaders a where
     toHeaders :: a -> [Header]
@@ -72,11 +83,14 @@ instance ToHeader Text where
 instance ToHeader ByteString where
     toHeader k = toHeader k . Just
 
-instance ToByteString a => ToHeader (Maybe a) where
-    toHeader k = maybe [] (\v -> [(k, toBS v)])
+instance ToText a => ToHeader (Maybe a) where
+    toHeader k = maybe [] (toHeader k . toText)
 
-instance (ToByteString k, ToByteString v) => ToHeader (HashMap k v) where
-    toHeader p = map (\(k, v) -> (p <> CI.mk (toBS k), toBS v)) . Map.toList
+instance (ToByteString k, ToText v) => ToHeader (HashMap k v) where
+    toHeader p = map (bimap k v) . Map.toList
+      where
+        k = mappend p . CI.mk . toBS
+        v = Text.encodeUtf8 . toText
 
 hHost :: HeaderName
 hHost = "Host"

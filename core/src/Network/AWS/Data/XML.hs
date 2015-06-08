@@ -47,11 +47,11 @@ module Network.AWS.Data.XML where
 import           Control.Applicative
 import           Control.Monad
 import           Data.Default.Class
-import           Data.List.NonEmpty                   (NonEmpty (..))
-import qualified Data.List.NonEmpty                   as NonEmpty
+import           Data.List.NonEmpty          (NonEmpty (..))
+import qualified Data.List.NonEmpty          as NonEmpty
 import           Data.Maybe
 import           Data.Monoid
-import           Data.Text                            (Text)
+import           Data.Text                   (Text)
 import           GHC.Exts
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Text
@@ -85,11 +85,11 @@ parseList n = traverse parseXML . mapMaybe (childNodesOf n)
 infixr 7 @=, @@=
 
 (@=) :: ToXML a => Name -> a -> XML
-n @= x = One . NodeElement . mkElement n $ toXMLNodes x
+n @= x = One . NodeElement $ mkElement n x
 
 -- FIXME: This will not handle ze HashMaps, sir.
 (@@=) :: (IsList a, ToXML (Item a)) => Name -> a -> XML
-n @@= xs = Many . map (NodeElement . mkElement n . toXMLNodes) $ toList xs
+n @@= xs = Many . map (NodeElement . mkElement n) $ toList xs
 
 decodeXML :: FromXML a => LazyByteString -> Either String a
 decodeXML = either failure success . parseLBS def
@@ -125,6 +125,7 @@ instance FromXML a => FromXML (Maybe a) where
 instance FromXML Text where
     parseXML = fmap (fromMaybe mempty) . withContent "Text"
 
+instance FromXML Char    where parseXML = parseXMLText "Char"
 instance FromXML Int     where parseXML = parseXMLText "Int"
 instance FromXML Integer where parseXML = parseXMLText "Integer"
 instance FromXML Natural where parseXML = parseXMLText "Natural"
@@ -162,9 +163,6 @@ listXMLNodes = \case
 class ToXML a where
     toXML :: a -> XML
 
-    -- default toXML :: ToElement a => a -> [Node]
-    -- toXML = maybeToList . fmap NodeElement . toXMLRoot
-
 toXMLNodes :: ToXML a => a -> [Node]
 toXMLNodes = listXMLNodes . toXML
 
@@ -174,9 +172,6 @@ instance ToXML XML where
 instance ToXML a => ToXML (Maybe a) where
     toXML (Just x) = toXML x
     toXML Nothing  = None
-
--- instance ToXML a => ToXML [a] where
---     toXML = foldMap toXML
 
 instance ToXML Text    where toXML = toXMLText
 instance ToXML Int     where toXML = toXMLText
@@ -193,22 +188,8 @@ parseXMLText n = withContent n >=>
 toXMLText :: ToText a => a -> XML
 toXMLText = One . NodeContent . toText
 
--- mkNamespace :: Text -> Text -> [Node] -> Maybe Element
--- mkNamespacesnamespaced g l = Just . element (Name l (Just g) Nothing)
-
-mkElement :: Name -> [Node] -> Element
-mkElement n = Element n mempty
-
--- nodes :: Name -> [Node] -> [Node]
--- nodes n ns = [NodeElement (element n ns)]
-
--- -- extractRoot :: Text -> [Node] -> Maybe Element
--- -- extractRoot g ns =
--- --     case ns of
--- --         [NodeElement x] -> Just x { elementName = rename x }
--- --         _               -> Nothing
--- --   where
--- --     rename x = (elementName x) { nameNamespace = Just g }
+mkElement :: ToXML a => Name -> a -> Element
+mkElement n = Element n mempty . listXMLNodes . toXML
 
 withContent :: String -> [Node] -> Either String (Maybe Text)
 withContent k = \case

@@ -38,12 +38,10 @@ library
     ghc-options:       -Wall
 
     exposed-modules:
-          Network.AWS.Compat.Locale
-        , Network.AWS.Compat.Time
-        , Network.AWS.Data.Base64
+          Network.AWS.Data.Base64
         , Network.AWS.Data.Body
         , Network.AWS.Data.ByteString
-        , Network.AWS.Data.Header
+        , Network.AWS.Data.Headers
         , Network.AWS.Data.JSON
         , Network.AWS.Data.Numeric
         , Network.AWS.Data.Path
@@ -54,13 +52,14 @@ library
         , Network.AWS.Data.XML
         , Network.AWS.Endpoint
         , Network.AWS.Error
-        , Network.AWS.Paginate
+        , Network.AWS.Pagers
+        , Network.AWS.Prelude
         , Network.AWS.Request
         , Network.AWS.Response
         , Network.AWS.Sign.V2
         , Network.AWS.Sign.V4
         , Network.AWS.Types
-        , Network.AWS.Wait
+        , Network.AWS.Waiters
 
     build-depends:
           aeson                >  0.7.0.6

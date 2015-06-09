@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 
 -- Module      : Network.AWS.S3.Internal
@@ -17,9 +16,8 @@ module Network.AWS.S3.Internal
     ) where
 
 import           Data.String
-import           GHC.Generics
+import           Network.AWS.Data.XML
 import           Network.AWS.Prelude
-import           Network.AWS.Types   (Region)
 
 newtype BucketName = BucketName Text
     deriving
@@ -27,7 +25,6 @@ newtype BucketName = BucketName Text
         , Ord
         , Read
         , Show
-        , Generic
         , IsString
         , FromText
         , ToText
@@ -43,7 +40,6 @@ newtype ObjectKey = ObjectKey Text
         , Ord
         , Read
         , Show
-        , Generic
         , IsString
         , FromText
         , ToText
@@ -59,7 +55,6 @@ newtype ObjectVersionId = ObjectVersionId Text
         , Ord
         , Read
         , Show
-        , Generic
         , IsString
         , FromText
         , ToText
@@ -69,20 +64,18 @@ newtype ObjectVersionId = ObjectVersionId Text
         , ToQuery
         )
 
--- FIXME: This should gracefully handle the extra quotations of
--- etags parsed from headers.
 newtype ETag = ETag Text
     deriving
         ( Eq
         , Ord
         , Read
         , Show
-        , Generic
         , IsString
-        , FromText
         , ToText
         , ToByteString
-        , FromXML
         , ToXML
         , ToQuery
         )
+
+instance FromText ETag where
+    parser = quoted <|> AText.takeText

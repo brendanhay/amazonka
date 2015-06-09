@@ -23,6 +23,7 @@ module Compiler.AST.TypeOf
 import           Compiler.Types
 import           Control.Comonad.Cofree
 import           Control.Lens           hiding (enum, mapping, (??))
+import           Debug.Trace
 
 class TypeOf a where
     typeOf :: a -> TType
@@ -36,21 +37,20 @@ instance TypeOf Solved where
 instance HasId a => TypeOf (Shape a) where
     typeOf (x :< s) =
         let n = identifier x
-         in sensitive s $
-            case s of
-                Ptr    {}        -> TType  (n ^. typeId)
-                Struct {}        -> TType  (n ^. typeId)
-                Enum   {}        -> TType  (n ^. typeId)
-                List (ListF i e)
-                    | nonEmpty i -> TList1 (typeOf e)
-                    | otherwise  -> TList  (typeOf e)
-                Map (MapF _ k v) -> TMap   (typeOf k) (typeOf v)
-                Lit i l          ->
-                    case l of
-                        Int                -> natural i (TLit l)
-                        Long               -> natural i (TLit l)
-                        Blob | streaming i -> TStream
-                        _                  -> TLit l
+         in sensitive s $ case s of
+            Ptr    {}        -> TType  (n ^. typeId)
+            Struct {}        -> TType  (n ^. typeId)
+            Enum   {}        -> TType  (n ^. typeId)
+            List (ListF i e)
+                | nonEmpty i -> TList1 (typeOf e)
+                | otherwise  -> TList  (typeOf e)
+            Map (MapF _ k v) -> TMap   (typeOf k) (typeOf v)
+            Lit i l          ->
+                case l of
+                    Int                -> natural i (TLit l)
+                    Long               -> natural i (TLit l)
+                    Blob | streaming i -> TStream
+                    _                  -> TLit l
 
 instance HasId a => TypeOf (RefF (Shape a)) where
     typeOf r

@@ -16,7 +16,6 @@ module Compiler.Import
     ( operationImports
     , typeImports
     , waiterImports
-    , importsFor
     ) where
 
 import           Compiler.Types
@@ -26,46 +25,36 @@ import           Data.Maybe
 import           Data.Monoid         ((<>))
 
 operationImports :: Library -> Operation Identity Data -> [NS]
-operationImports l o = uniq $
-       "Network.AWS.Request"
-     : "Network.AWS.Response"
-     : "Network.AWS.Prelude"
-     : l ^. typesNS
-     : l ^. operationModules
-    <> importsFor o
+operationImports l o =
+      "Network.AWS.Request"
+    : "Network.AWS.Response"
+    : "Network.AWS.Prelude"
+    : protocolImport (l ^. protocol)
+    : l ^. typesNS
+    : l ^. operationModules
 
 typeImports :: Library -> [NS]
-typeImports l = uniq $
-       "Network.AWS.Prelude"
-     : l ^. typeModules
-    <> importsFor (l ^. signatureVersion)
-    <> concatMap importsFor (l ^. shapes)
+typeImports l =
+      "Network.AWS.Prelude"
+    : protocolImport  (l ^. protocol)
+    : signatureImport (l ^. signatureVersion)
+    : l ^. typeModules
 
 waiterImports :: Library -> [NS]
-waiterImports = view typeModules
+waiterImports l =
+    [ "Network.AWS.Prelude"
+    , l ^. typesNS
+    ]
 
-class ImportsFor a where
-    importsFor :: a -> [NS]
+signatureImport :: Signature -> NS
+signatureImport = \case
+    V2 -> "Network.AWS.Sign.V2"
+    _  -> "Network.AWS.Sign.V4"
 
-instance ImportsFor Signature where
-    importsFor = (:[]) . \case
-        V2 -> "Network.AWS.Sign.V2"
-        _  -> "Network.AWS.Sign.V4"
-
-instance ImportsFor Data where
-    importsFor = uniq . \case
-        Prod _ is -> mapMaybe instNS (Map.keys is)
-        Sum  _ is -> mapMaybe instNS is
-      where
-        instNS = \case
-            "FromJSON"  -> Just "Network.AWS.Data.JSON"
-            "ToJSON"    -> Just "Network.AWS.Data.JSON"
-            "FromXML"   -> Just "Network.AWS.Data.XML"
-            "ToXML"     -> Just "Network.AWS.Data.XML"
-            "ToElement" -> Just "Network.AWS.Data.XML"
-            _           -> Nothing
-
-instance ImportsFor (Operation Identity Data) where
-    importsFor o =
-          importsFor (o ^. opInput  . _Identity)
-       <> importsFor (o ^. opOutput . _Identity)
+protocolImport :: Protocol -> NS
+protocolImport = \case
+    JSON     -> "Network.AWS.Data.JSON"
+    RestJSON -> "Network.AWS.Data.JSON"
+    RestXML  -> "Network.AWS.Data.XML"
+    Query    -> "Network.AWS.Data.XML"
+    EC2      -> "Network.AWS.Data.XML"

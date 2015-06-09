@@ -22,15 +22,15 @@ import qualified Filesystem.Path.CurrentOS as Path
 newtype NS = NS [Text]
     deriving (Eq, Ord, Show)
 
-textToNS :: Text -> NS
-textToNS = NS . Text.splitOn "."
+mkNS :: Text -> NS
+mkNS = NS . Text.splitOn "."
 
 nsToPath :: NS -> Path.FilePath
 nsToPath (NS xs) = Path.fromText (Text.intercalate "/" xs) Path.<.> "hs"
 
 instance IsString NS where
     fromString "" = mempty
-    fromString s  = textToNS (fromString s)
+    fromString s  = mkNS (fromString s)
 
 instance Monoid NS where
     mempty = NS []
@@ -40,7 +40,7 @@ instance Monoid NS where
         | otherwise = NS (xs <> ys)
 
 instance FromJSON NS where
-    parseJSON = withText "namespace" (pure . textToNS)
+    parseJSON = withText "namespace" (pure . mkNS)
 
 instance ToJSON NS where
     toJSON (NS xs) = toJSON (Text.intercalate "." xs)

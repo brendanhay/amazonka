@@ -168,7 +168,7 @@ instance HasVersions Library where
     versions = versions'
 
 libraryNS, typesNS, waitersNS :: Getter Library NS
-libraryNS = serviceAbbrev . to (mappend "Network.AWS" . textToNS)
+libraryNS = serviceAbbrev . to (mappend "Network.AWS" . mkNS)
 typesNS   = libraryNS . to (<> "Types")
 waitersNS = libraryNS . to (<> "Waiters")
 

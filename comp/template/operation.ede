@@ -1,4 +1,6 @@
-{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE OverloadedStrings #-}
 
 {% include "_include/license.ede" %}
 --

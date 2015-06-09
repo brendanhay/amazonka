@@ -80,12 +80,12 @@ derive (_ :< s) = uniq (shape s)
         Time   -> base <> enum
         Bool   -> base <> enum
 
-    string = [DIsString]
-    num    = [DEnum, DNum, DIntegral, DReal]
-    frac   = [DRealFrac, DRealFloat]
+    string = [DOrd, DIsString]
+    num    = [DOrd, DEnum, DNum, DIntegral, DReal]
+    frac   = [DOrd, DRealFrac, DRealFloat]
     monoid = [DMonoid, DSemigroup]
-    enum   = [DEnum, DGeneric]
-    base   = [DEq, DOrd, DRead, DShow]
+    enum   = [DOrd, DEnum, DGeneric]
+    base   = [DEq, DRead, DShow]
 
 replaced :: (Replace -> a) -> Config -> Map Id a
 replaced f =

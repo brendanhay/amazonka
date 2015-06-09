@@ -37,6 +37,7 @@ import           Data.String
 import           Data.Text                    (Text)
 import qualified Data.Text.Lazy               as LText
 import qualified Data.Text.Lazy.Builder       as Build
+import           Debug.Trace
 import           HIndent
 import           Language.Haskell.Exts.Pretty
 
@@ -46,7 +47,11 @@ operationData :: HasMetadata a Identity
               -> Either Error (Operation Identity Data)
 operationData m o = do
     (xa, x)  <- struct (o ^. opInput  . _Identity)
-    (ya, y)  <- struct (o ^. opOutput . _Identity)
+    (ya', y)  <- struct (o ^. opOutput . _Identity)
+
+    let ya = if o ^. outputName == mkId "PutObjectResponse"
+                 then trace (show ya') ya'
+                 else ya'
 
     (xd, xs) <- prodData m xa x
     (yd, ys) <- prodData m ya y
@@ -116,7 +121,7 @@ prodData m s st = (,fields) <$> mk
     decl = dataDecl n [recDecl ts n fields] (s ^. annDerive)
 
     fields :: [Field]
-    fields = mkFields m (s ^. annPrefix) st
+    fields = mkFields m s st
 
     mkLens :: Field -> Either Error Fun
     mkLens f = Fun (f ^. fieldLens) (f ^. fieldHelp)

@@ -43,6 +43,7 @@ data Field = Field
     , _fieldPayload   :: !Bool -- ^ Does the struct have this memeber marked as the payload.
     , _fieldPrefix    :: Maybe Text
     , _fieldNamespace :: Maybe Text
+    , _fieldDirection :: Maybe Direction
     }
 
 makeLenses ''Field
@@ -68,13 +69,14 @@ instance HasInfo Field where
 -- the protocol/timestamp are passed in everywhere in the .Syntax module.
 mkFields :: HasMetadata a f
          => a
-         -> Maybe Text
+         -> Solved
          -> StructF (Shape Solved)
          -> [Field]
-mkFields m p st = sortFields rs $ zipWith mk [1..] $ Map.toList (st ^. members)
+mkFields m s st = sortFields rs $
+    zipWith mk [1..] $ Map.toList (st ^. members)
   where
     mk :: Int -> (Id, Ref) -> Field
-    mk i (k, v) = Field i k v req pay p ns
+    mk i (k, v) = Field i k v req pay p ns d
       where
         req = k `elem` rs
         pay = Just k == st ^. payload
@@ -83,6 +85,11 @@ mkFields m p st = sortFields rs $ zipWith mk [1..] $ Map.toList (st ^. members)
           <|> (m ^. xmlNamespace)
 
     rs = getRequired st
+
+    p = s ^. annPrefix
+    d = case s ^. relMode of
+        Uni x -> Just x
+        Bi    -> Nothing
 
 -- | Ensures that streaming fields appear last in the parameter ordering,
 -- but doesn't affect the rest of the order which is determined by parsing

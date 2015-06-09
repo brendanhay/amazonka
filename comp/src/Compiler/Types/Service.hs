@@ -343,7 +343,7 @@ data Operation f a = Operation
 makeLenses ''Operation
 
 operationNS :: NS -> Getter (Operation f a) NS
-operationNS ns = opName . typeId . to (mappend ns . textToNS)
+operationNS ns = opName . typeId . to (mappend ns . mkNS)
 
 inputName, outputName :: HasId a => Getter (Operation Identity a) Id
 inputName  = opInput  . _Identity . to identifier

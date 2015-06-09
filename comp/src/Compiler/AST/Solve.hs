@@ -31,6 +31,7 @@ import qualified Data.HashMap.Strict    as Map
 import qualified Data.HashSet           as Set
 import           Data.List              (intersect, nub, sort)
 import           Data.Monoid            hiding (Product, Sum)
+import           Debug.Trace
 
 -- Can just assume for the purposes of determing instances
 -- that if a Shape's relation contains no parents then it's
@@ -58,10 +59,12 @@ solve cfg = (`evalState` env) . traverse (annotate con id (pure . ann))
     con p (t, ds) = Solved p t ds
 
 -- FIXME: Filter constraints based on info like min/max of lists etc.
-derive :: Shape a -> [Derive]
-derive (_ :< s) = uniq (shape s)
+derive :: HasId a => Shape a -> [Derive]
+derive (a :< s)
+    | identifier a == mkId "NotificationConfiguration" = trace ("Deriving " ++ show (identifier a ^. typeId)) $ uniq (shape s)
+    | otherwise = uniq (shape s)
   where
-    shape :: ShapeF (Shape a) -> [Derive]
+    shape :: HasId a => ShapeF (Shape a) -> [Derive]
     shape = \case
         Ptr  _ ds -> base <> Set.toList ds
         Struct st -> foldr' (intersect . derive) base st

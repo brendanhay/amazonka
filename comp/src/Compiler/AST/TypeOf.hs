@@ -23,7 +23,6 @@ module Compiler.AST.TypeOf
 import           Compiler.Types
 import           Control.Comonad.Cofree
 import           Control.Lens           hiding (enum, mapping, (??))
-import           Debug.Trace
 
 class TypeOf a where
     typeOf :: a -> TType

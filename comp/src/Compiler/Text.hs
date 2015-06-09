@@ -52,7 +52,7 @@ stripSuffix :: Text -> Text -> Text
 stripSuffix p t = Text.strip . fromMaybe t $ p `Text.stripSuffix` t
 
 renameBranch :: Text -> (Text, Text)
-renameBranch = first (upperAcronym . Fold.foldMap g . Text.split f) . join (,)
+renameBranch = first (renameReserved . upperAcronym . Fold.foldMap g . Text.split f) . join (,)
   where
     f x = x == '-'
        || x == '.'
@@ -62,28 +62,29 @@ renameBranch = first (upperAcronym . Fold.foldMap g . Text.split f) . join (,)
        || x == '+'
        || x == ' '
        || x == '_'
+       || x == '('
+       || x == ')'
 
     g x | Text.length x <= 1    = x
         | isDigit (Text.last x) = Text.toUpper x
-        | otherwise             = upperHead (Text.toLower x)
+        | otherwise             = toPascal x
 
 renameReserved :: Text -> Text
 renameReserved x
-    | CI.mk x `Set.member` xs = x <> "'"
-    | otherwise               = x
+    | x `Set.member` xs = x <> "'"
+    | otherwise         = x
   where
-    xs = Set.fromList
-       . map (CI.mk . Text.pack)
-       $ [ "head"
-         , "tail"
-         , "delete"
-         , "filter"
-         , "true"
-         , "false"
-         , "map"
-         , "object"
-         , "get"
-         ] ++ reservedNames haskellDef
+    xs = Set.fromList $
+        [ "head"
+        , "tail"
+        , "delete"
+        , "filter"
+        , "true"
+        , "false"
+        , "map"
+        , "object"
+        , "get"
+        ] ++ map Text.pack (reservedNames haskellDef)
 
 upperAcronym :: Text -> Text
 upperAcronym x = Fold.foldl' (flip (uncurry RE.replaceAll)) x xs

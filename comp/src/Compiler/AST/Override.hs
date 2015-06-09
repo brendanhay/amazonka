@@ -30,6 +30,7 @@ import           Data.Bifunctor
 import qualified Data.HashMap.Strict    as Map
 import qualified Data.HashSet           as Set
 import           Data.Monoid
+import           Debug.Trace
 
 data Env = Env
     { _renamed  :: Map Id Id
@@ -68,25 +69,12 @@ override ovs svc = do
         ptr = Map.lookup (r ^. refShape)
 
     rename :: Map Id Id
-    rename =  vMapMaybe _renamedTo ovs
+    rename = vMapMaybe _renamedTo ovs
 
     replace :: Map Id Replace
     replace = vMapMaybe _replacedBy ovs
 
 type MemoS = State Env
-
-overrideAnn :: Id -> Related -> MemoS Related
-overrideAnn n r = do
-    rn <- use renamed
-    rp <- use replaced
-    return $! r
-        & annId      .~ n
-        & relParents %~ Set.map (f rn rp)
-  where
-    f rn rp k
-        | Just x <- Map.lookup k rn = f rn rp x
-        | Just x <- Map.lookup k rp = f rn rp (x ^. replaceName)
-        | otherwise                 = k
 
 overrideShape :: Map Id Override
               -> Id
@@ -114,15 +102,15 @@ overrideShape ovs n c@(_ :< s) = doCache
 
     pointer :: Replace -> MemoS (Shape Related)
     pointer r = do
-        d <- overrideAnn n (extract c)
-        save $ d :< Ptr (s ^. info) (r ^. replaceDeriving)
+        let a = extract c & annId .~ n
+        save $ a :< Ptr (s ^. info) (r ^. replaceDeriving)
 
     shape :: MemoS (Shape Related)
     shape = do
-       d <- overrideAnn n (extract c)
-       traverseOf references ref s
-           >>= rules
-           >>= save . (d :<)
+        let a = extract c & annId .~ n
+        traverseOf references ref s
+            >>= rules
+            >>= save . (a :<)
 
     ref :: RefF (Shape Related) -> MemoS (RefF (Shape Related))
     ref r = flip (set refAnn) r . snd <$>

@@ -29,14 +29,12 @@ operationImports l o =
       "Network.AWS.Request"
     : "Network.AWS.Response"
     : "Network.AWS.Prelude"
-    : protocolImport (l ^. protocol)
     : l ^. typesNS
     : l ^. operationModules
 
 typeImports :: Library -> [NS]
 typeImports l =
       "Network.AWS.Prelude"
-    : protocolImport  (l ^. protocol)
     : signatureImport (l ^. signatureVersion)
     : l ^. typeModules
 
@@ -50,11 +48,3 @@ signatureImport :: Signature -> NS
 signatureImport = \case
     V2 -> "Network.AWS.Sign.V2"
     _  -> "Network.AWS.Sign.V4"
-
-protocolImport :: Protocol -> NS
-protocolImport = \case
-    JSON     -> "Network.AWS.Data.JSON"
-    RestJSON -> "Network.AWS.Data.JSON"
-    RestXML  -> "Network.AWS.Data.XML"
-    Query    -> "Network.AWS.Data.XML"
-    EC2      -> "Network.AWS.Data.XML"

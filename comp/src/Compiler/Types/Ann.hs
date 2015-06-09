@@ -25,6 +25,7 @@ import           Control.Lens
 import           Data.Aeson
 import           Data.Hashable
 import qualified Data.HashSet           as Set
+import           Data.List              (nub)
 import           Data.Monoid
 import           Data.Text              (Text)
 import qualified Data.Text              as Text
@@ -39,7 +40,7 @@ data Direction
 
 data Mode
     = Bi
-    | Uni Direction
+    | Uni !Direction
       deriving (Eq, Show)
 
 instance Monoid Mode where
@@ -49,26 +50,29 @@ instance Monoid Mode where
     mappend _       _       = Bi
 
 data Relation = Relation
-    { _relParents :: Set Id
-    , _relMode    :: !Mode
+    { _relShared :: !Bool
+    , _relMode   :: !Mode
     } deriving (Eq, Show)
 
 makeClassy ''Relation
 
 instance Monoid Relation where
-    mempty      = Relation mempty mempty
+    mempty      = Relation False mempty
     mappend a b = Relation
-        (_relParents a <> _relParents b)
-        (_relMode    a <> _relMode    b)
+        (_relShared a || _relShared b)
+        (_relMode   a <> _relMode   b)
 
 instance (Functor f, HasRelation a) => HasRelation (Cofree f a) where
     relation = lens extract (flip (:<) . unwrap) . relation
 
-mkRelation :: Set Id -> Direction -> Relation
-mkRelation xs = Relation xs . Uni
+mkRelation :: [Id] -> Direction -> Relation
+mkRelation xs = Relation (not $ null xs) . Uni
 
 isShared :: HasRelation a => a -> Bool
-isShared = (> 1) . Set.size . view relParents
+isShared = view relShared
+
+isOrphan :: HasRelation a => a -> Bool
+isOrphan = not . view relShared
 
 data Lit
     = Int

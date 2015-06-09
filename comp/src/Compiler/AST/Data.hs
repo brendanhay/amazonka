@@ -28,6 +28,7 @@ import           Compiler.Protocol
 import           Compiler.Types
 import           Control.Comonad.Cofree
 import           Control.Lens                 hiding (enum, mapping, (??))
+import           Control.Monad
 import           Data.Bifunctor
 import           Data.Char                    (isSpace)
 import qualified Data.HashMap.Strict          as Map
@@ -47,22 +48,18 @@ operationData :: HasMetadata a Identity
               -> Either Error (Operation Identity Data)
 operationData m o = do
     (xa, x)  <- struct (o ^. opInput  . _Identity)
-    (ya', y)  <- struct (o ^. opOutput . _Identity)
-
-    let ya = if o ^. outputName == mkId "PutObjectResponse"
-                 then trace (show ya') ya'
-                 else ya'
+    (ya, y)  <- struct (o ^. opOutput . _Identity)
 
     (xd, xs) <- prodData m xa x
     (yd, ys) <- prodData m ya y
 
     is       <- requestInsts m h xn xs
-    cls      <- pp Print $ requestD m h (xn, is) (yn, ys)
+    cls      <- pp Print $ requestD m h (xn, is) (ya, yn, ys)
     is'      <- Map.insert "AWSRequest" cls <$> renderInsts p xn is
 
     return $! o
-        { _opInput  = Identity $ Prod xd is'
-        , _opOutput = Identity $ Prod yd mempty
+        { _opInput  = Identity $ Prod False xd is'
+        , _opOutput = Identity $ Prod (isShared ya) yd mempty
         }
   where
     struct (a :< Struct s) = Right (a, s)
@@ -79,12 +76,12 @@ shapeData :: HasMetadata a Identity
           => a
           -> Shape Solved
           -> Either Error (Maybe Data)
-shapeData m = \case
-    a :< Enum   i vs -> Just <$> sumData p a i vs
-    a :< Struct st   -> do
+shapeData m (a :< s) = case s of
+    Enum   i vs -> Just <$> sumData p a i vs
+    Struct st   -> do
         (d, fs) <- prodData m a st
         is      <- renderInsts p (a ^. annId) (shapeInsts p (a ^. relMode) fs)
-        return $! Just $ Prod d is
+        return $! Just $ Prod (isShared a) d is
     _                -> return Nothing
   where
     p = m ^. protocol
@@ -94,7 +91,7 @@ sumData :: Protocol
         -> Info
         -> Map Id Text
         -> Either Error Data
-sumData p s i vs = Sum <$> mk <*> (Map.keys <$> insts)
+sumData p s i vs = Sum (isShared s) <$> mk <*> (Map.keys <$> insts)
   where
     mk = Sum' (n ^. typeId) (i ^. infoDocumentation)
         <$> pp Indent decl
@@ -104,14 +101,14 @@ sumData p s i vs = Sum <$> mk <*> (Map.keys <$> insts)
     insts = renderInsts p n $ shapeInsts p (s ^. relMode) []
 
     n  = s ^. annId
-    bs = vs & kvTraversal %~ first (^. ctorId (s ^. annPrefix))
+    bs = vs & kvTraversal %~ first (^. branchId (s ^. annPrefix))
 
 prodData :: HasMetadata a Identity
          => a
          -> Solved
          -> StructF (Shape Solved)
          -> Either Error (Prod, [Field])
-prodData m s st = (,fields) <$> mk
+prodData m s st = (,fields) <$> trace ("protData " ++ show (identifier s)) mk
   where
     mk = Prod' (n ^. typeId) (st ^. infoDocumentation)
         <$> pp Indent decl
@@ -137,14 +134,14 @@ prodData m s st = (,fields) <$> mk
     mkHelp = fromString
         . LText.unpack
         $ format ("'" % itype % "' smart constructor.") n
-       <> mkSee
+--       <> mkSee
 
-    mkSee :: LText.Text
-    mkSee = case r ^. relParents . to Set.toList of
-        [] -> mempty
-        xs -> mappend "\n\n/See/: "
-            . LText.intercalate ", "
-            $ map (format ("'" % itype % "'")) xs
+    -- mkSee :: LText.Text
+    -- mkSee = case r ^. relParents of
+    --     [] -> mempty
+    --     xs -> mappend "\n\n/See/: "
+    --         . LText.intercalate ", "
+    --         $ map (format ("'" % itype % "'")) xs
 
     ts = m ^. timestampFormat . _Identity
     n  = s ^. annId

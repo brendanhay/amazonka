@@ -1,5 +1,6 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE LambdaCase        #-}
+{-# LANGUAGE MultiWayIf        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TemplateHaskell   #-}
@@ -27,6 +28,7 @@ import           Compiler.AST.Solve
 import           Compiler.Formatting
 import           Compiler.Protocol
 import           Compiler.Types
+import           Control.Comonad
 import           Control.Comonad.Cofree
 import           Control.Error
 import           Control.Lens
@@ -84,8 +86,8 @@ substitute svc@Service{..} = do
             { _opDocumentation =
                 _opDocumentation .! "FIXME: Undocumented operation."
             , _opHTTP          = h
-            , _opInput         = inp
-            , _opOutput        = out
+            , _opInput         = Identity inp
+            , _opOutput        = Identity out
             }
 
     http :: HTTP Maybe -> HTTP Identity
@@ -101,7 +103,7 @@ substitute svc@Service{..} = do
           -> Id
           -> HTTP Identity
           -> Maybe (RefF ())
-          -> MemoS Related (Identity (RefF ()))
+          -> MemoS Related (RefF ())
 
     -- FIXME: this could be a shared empty shape for void types which succeeds
     -- on de/serialisation for any protocol, and takes into account a successful
@@ -110,34 +112,37 @@ substitute svc@Service{..} = do
         verify n "Failure attempting to substitute fresh shape"
         -- No Ref exists, safely insert an empty shape and return a related Ref.
         save n (Related n (mkRelation mempty d) :< emptyStruct)
-        return $! Identity (emptyRef n)
+        return (emptyRef n)
 
     subst d n h (Just r) = do
         let k = r ^. refShape
         x :< s <- lift (safe k _shapes)
-        if not (isShared x)
-            -- Ref exists, and is not referred to by any other Shape.
-            -- Insert override to rename the Ref/Shape to the desired name.
-            then do
-                -- Ensure the annotation is updated.
-                save k (Related k (_annRelation x) :< s)
-                rename k n >> return (Identity r)
-            -- Ref exists and is referred to by other shapes.
-            else do
+        if | isShared x, d == Output -> return r
+           | isShared x -> do
                 -- Check that the desired name is not in use
                 -- to prevent accidental override.
                 verify n "Failed attempting to copy existing shape"
                 -- Copy the shape by saving it under the desired name.
                 save n (x :< s)
-                memo %= Map.delete k
                 -- Update the Ref to point to the new wrapper.
-                return $! Identity (r & refShape .~ n)
+                remove k n
+                return (r & refShape .~ n)
+           | otherwise -> do
+                -- Ref exists, and is not referred to by any other Shape.
+                -- Insert override to rename the Ref/Shape to the desired name.
+                -- Ensure the annotation is updated.
+                save k (Related k (_annRelation x) :< s)
+                rename k n
+                return r
 
 save :: Id -> Shape a -> MemoS a ()
 save n s = memo %= Map.insert n s
 
 rename :: Id -> Id -> MemoS a ()
 rename x y = overrides %= Map.insert x (defaultOverride & renamedTo ?~ y)
+
+remove :: Id -> Id -> MemoS a ()
+remove x y = overrides %= Map.insert x (defaultOverride & replacedBy ?~ Replace y mempty)
 
 safe :: Show a => Id -> Map Id a -> Either Error a
 safe n ss = note

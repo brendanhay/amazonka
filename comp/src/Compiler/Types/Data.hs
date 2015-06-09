@@ -62,8 +62,8 @@ data Prod = Prod'
     , _prodLenses        :: [Fun]
     } deriving (Show)
 
-prodToJSON :: ToJSON a => Prod -> Map Text a -> [Pair]
-prodToJSON Prod'{..} is =
+prodToJSON :: ToJSON a => Bool -> Prod -> Map Text a -> [Pair]
+prodToJSON s Prod'{..} is =
     [ "type"          .= Text.pack "product"
     , "name"          .= _prodName
     , "constructor"   .= _prodCtor
@@ -71,6 +71,7 @@ prodToJSON Prod'{..} is =
     , "declaration"   .= _prodDecl
     , "lenses"        .= _prodLenses
     , "instances"     .= is
+    , "shared"        .= s
     ]
 
 data Sum = Sum'
@@ -80,22 +81,23 @@ data Sum = Sum'
     , _sumCtors         :: Map Text Text
     } deriving (Show)
 
-sumToJSON :: Sum -> [Text] -> [Pair]
-sumToJSON Sum'{..} is =
+sumToJSON :: Bool -> Sum -> [Text] -> [Pair]
+sumToJSON s Sum'{..} is =
     [ "type"          .= Text.pack "sum"
     , "name"          .= _sumName
     , "constructors"  .= _sumCtors
     , "documentation" .= _sumDocumentation
     , "declaration"   .= _sumDecl
     , "instances"     .= is
+    , "shared"        .= s
     ]
 
 data Data
-    = Prod Prod (Map Text Rendered)
-    | Sum  Sum  [Text]
+    = Prod !Bool Prod (Map Text Rendered)
+    | Sum  !Bool Sum  [Text]
       deriving (Show)
 
 instance ToJSON Data where
     toJSON = \case
-        Prod p is -> object (prodToJSON p is)
-        Sum  s is -> object (sumToJSON  s is)
+        Prod s p  is -> object (prodToJSON s p is)
+        Sum  s st is -> object (sumToJSON  s st is)

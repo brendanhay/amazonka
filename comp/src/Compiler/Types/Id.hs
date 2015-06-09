@@ -25,6 +25,7 @@ module Compiler.Types.Id
     , memberId
     , typeId
     , ctorId
+    , branchId
     , smartCtorId
     , accessorId
     , lensId
@@ -95,8 +96,11 @@ memberId = ciId . to CI.original
 typeId :: Getter Id Text
 typeId = representation
 
-ctorId :: Maybe Text -> Getter Id Text
-ctorId p = typeId . to f
+ctorId :: Getter Id Text
+ctorId = typeId . to (`Text.snoc` '\'')
+
+branchId :: Maybe Text -> Getter Id Text
+branchId p = typeId . to f
   where
     f :: Text -> Text
     f | Just x <- p = mappend (upperHead x)

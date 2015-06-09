@@ -35,6 +35,7 @@ import           Data.List                    (nub)
 import           Data.Monoid
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
+import           Debug.Trace
 import qualified Language.Haskell.Exts        as Exts
 import           Language.Haskell.Exts.Build  hiding (pvar, var)
 import           Language.Haskell.Exts.SrcLoc (noLoc)
@@ -43,7 +44,7 @@ import           Language.Haskell.Exts.Syntax hiding (Int, List, Lit, Var)
 ctorSig :: Timestamp -> Id -> [Field] -> Decl
 ctorSig ts n = TypeSig noLoc [n ^. smartCtorId . to ident]
     . Fold.foldr' TyFun (n ^. typeId . to tycon)
-    . map (directed ts)
+    . map (external ts)
     . filter (^. fieldRequired)
 
 ctorDecl :: Id -> [Field] -> Decl
@@ -56,8 +57,8 @@ ctorDecl n fs = sfun noLoc name ps (UnGuardedRhs rhs) noBinds
     ps = map (view fieldParam) (filter (view fieldRequired) fs)
 
     rhs :: Exp
-    rhs | null fs   = var (n ^. typeId)
-        | otherwise = RecConstr (n ^. typeId . to unqual) (map fieldUpdate fs)
+    rhs | null fs   = var (n ^. ctorId)
+        | otherwise = RecConstr (n ^. ctorId . to unqual) (map fieldUpdate fs)
 
 fieldUpdate :: Field -> FieldUpdate
 fieldUpdate f = FieldUpdate (f ^. fieldAccessor . to unqual) set'
@@ -74,7 +75,7 @@ fieldUpdate f = FieldUpdate (f ^. fieldAccessor . to unqual) set'
 lensSig :: Timestamp -> TType -> Field -> Decl
 lensSig ts t f = TypeSig noLoc [ident (f ^. fieldLens)] $
     TyApp (TyApp (tycon "Lens'")
-                 (external ts t)) (directed ts f)
+                 (signature ts t)) (external ts f)
 
 lensDecl :: Field -> Decl
 lensDecl f = sfun noLoc (ident l) [] (UnGuardedRhs rhs) noBinds
@@ -100,9 +101,9 @@ conDecl :: Text -> QualConDecl
 conDecl n = QualConDecl noLoc [] [] (ConDecl (ident n) [])
 
 recDecl :: Timestamp -> Id -> [Field] -> QualConDecl
-recDecl _  n [] = conDecl (n ^. typeId)
+recDecl _  n [] = conDecl (n ^. ctorId)
 recDecl ts n fs = QualConDecl noLoc [] [] $
-    RecDecl (ident (n ^. typeId)) (map g fs)
+    RecDecl (ident (n ^. ctorId)) (map g fs)
   where
     g f = ([f ^. fieldAccessor . to ident], internal ts f)
 
@@ -110,36 +111,47 @@ requestD :: HasMetadata a f
          => a
          -> HTTP Identity
          -> (Id, [Inst])
-         -> (Id, [Field])
+         -> (Solved, Id, [Field])
          -> Decl
-requestD m h (a, as) (b, bs) = instD "AWSRequest" a
+requestD m h (a, as) (s, b, bs) = instD "AWSRequest" a
     [ assocTyD a "Sv" (m ^. serviceAbbrev)
     , assocTyD a "Rs" (b ^. typeId)
     , funD "request"  (requestF h as)
-    , funD "response" (responseE (m ^. protocol) h b bs)
+    , funD "response" (responseE (m ^. protocol) h s b [])
     ]
 
-responseE :: Protocol -> HTTP Identity -> Id -> [Field] -> Exp
-responseE p h n [] = app (responseF p h []) (n ^. typeId . to var)
-responseE p h n fs = app (responseF p h fs) lam
+responseE :: Protocol -> HTTP Identity -> Solved -> Id -> [Field] -> Exp
+responseE p h s n fs = app (responseF p h fs) bdy
   where
-    lam :: Exp
-    lam = lamE noLoc [pvar "s", pvar "h", pvar "x"] (dataE n $ map go fs)
+    bdy :: Exp
+    bdy | null fs    = n ^. ctorId . to var
+        | isShared s = lam parseAll
+        | otherwise  = ctorE n $ map parseField fs
 
-    go :: Field -> Exp
-    go x = case x ^. fieldLocation of
+    lam :: Exp -> Exp
+    lam = lamE noLoc [pvar "s", pvar "h", pvar "x"]
+
+    parseField :: Field -> Exp
+    parseField x = case x ^. fieldLocation of
         Just Headers        -> parseHeadersE p x
         Just Header         -> parseHeadersE p x
         Just StatusCode     -> app (var "pure") (var "s")
         Just Body    | body -> app (var "pure") (var "x")
         Nothing      | body -> app (var "pure") (var "x")
-        _                   -> proto x
+        _                   -> parseProto x
 
-    proto :: Field -> Exp
-    proto = case p of
+    parseProto :: Field -> Exp
+    parseProto = case p of
         JSON     -> parseJSONE p
         RestJSON -> parseJSONE p
         _        -> parseXMLE  p
+
+    parseAll :: Exp
+    parseAll = flip app (var "x") $
+        case p of
+            JSON     -> var "parseJSON"
+            RestJSON -> var "parseJSON"
+            _        -> var "parseXML"
 
     body = any (view fieldStream) fs
 
@@ -156,8 +168,8 @@ instanceD p n = \case
     ToBody    f  -> toBodyD      n f
 
 fromXMLD, fromJSOND :: Protocol -> Id -> [Field] -> Decl
-fromXMLD  p n = decodeD "FromXML"  n "parseXML"  (dataE n) . map (parseXMLE  p)
-fromJSOND p n = decodeD "FromJSON" n "parseJSON" (dataE n) . map (parseJSONE p)
+fromXMLD  p n = decodeD "FromXML"  n "parseXML"  (ctorE n) . map (parseXMLE  p)
+fromJSOND p n = decodeD "FromJSON" n "parseJSON" (ctorE n) . map (parseJSONE p)
 
 toElementD :: Protocol -> Id -> Field -> Decl
 toElementD p n = instD1 "ToElement" n . funD "toElement" . toElementE p
@@ -197,12 +209,11 @@ funArgsD :: Text -> [Text] -> Exp -> InstDecl
 funArgsD f as e = InsDecl $
     sfun noLoc (ident f) (map ident as) (UnGuardedRhs e) noBinds
 
--- wildcardD :: Id -> Text -> ([Exp] -> Exp) -> [Exp] -> InstDecl
--- wildcardD n f rhs [] = funArgsD f [n ^. typeId] (rhs [])
+wildcardD :: Id -> Text -> Exp -> InstDecl
 wildcardD n f e = InsDecl (FunBind [match])
   where
     match = Match noLoc (ident f) [pat] Nothing (UnGuardedRhs e) noBinds
-    pat   = PRec (n ^. typeId . to unqual) [PFieldWildcard]
+    pat   = PRec (n ^. ctorId . to unqual) [PFieldWildcard]
 
 assocTyD :: Id -> Text -> Text -> InstDecl
 assocTyD n x y = InsType noLoc (TyApp (tycon x) (n ^. typeId . to tycon)) (tycon y)
@@ -219,8 +230,8 @@ encodeD c n f enc = instD c n . (:[]) . \case
 constMemptyD :: Text -> InstDecl
 constMemptyD f = funArgsD f [] $ app (var "const") (var "mempty")
 
-dataE :: Id -> [Exp] -> Exp
-dataE n = seqE (n ^. typeId . to var)
+ctorE :: Id -> [Exp] -> Exp
+ctorE n = seqE (n ^. ctorId . to var)
 
 mconcatE :: [Exp] -> Exp
 mconcatE = app (var "mconcat") . listE
@@ -294,7 +305,7 @@ decodeE o p f
         | fieldList  f = app (var "parseList")  i
         | fieldMap   f = app (var "parseMap")   i
 
-    (n, m) = memberNames p f
+    (n, m) = memberNames p Output f
 
     v = var (decodeVar o)
 
@@ -311,7 +322,7 @@ encodeE o p f
 --    | fieldMap   f = infixApp n (encodeOp c) v
     | otherwise    = infixApp n (encodeOp     o) v
   where
-    (n, m) = memberNames p f
+    (n, m) = memberNames p Input f
 
     v = var (f ^. fieldAccessor)
 
@@ -344,48 +355,48 @@ responseF p h fs = var ("receive" <> f)
               Query    -> "XML"
               EC2      -> "XML"
 
-memberNames :: Protocol -> Field -> (Exp, Maybe Exp)
-memberNames p f =
-    ( str  $  memberName p Input (f ^. fieldId) (f ^. fieldRef)
+memberNames :: Protocol -> Direction -> Field -> (Exp, Maybe Exp)
+memberNames p d f =
+    ( str  $  memberName p d (f ^. fieldId) (f ^. fieldRef)
     , str <$> item
     )
   where
     item = case unwrap (f ^. fieldRef . refAnn) of
-        List l -> listItemName p Input l
+        List l -> listItemName p d l
         _      -> Nothing
 
-internal :: Timestamp -> Field -> Type
-internal ts f = case typeOf f of
-    TLit l   -> literal True ts l
-    TNatural -> tycon "Nat"
-    _        -> directed ts f
+signature :: Timestamp -> TType -> Type
+signature ts = directed False ts Nothing
 
--- FIXME: revisit streaming directions,
--- maybe do it through the Field TypeOf instance?
+internal, external :: Timestamp -> Field -> Type
+internal ts f = directed True  ts (f ^. fieldDirection) f
+external ts f = directed False ts (f ^. fieldDirection) f
 
--- TypeOf should probably then take into account the Mode/Direction.
-directed :: Timestamp -> Field -> Type
-directed ts f
-    | not (f ^. fieldStream) = external ts f
-    | otherwise =
-        case f ^. fieldDirection of
-            Nothing     -> external ts f
-            Just Input  -> tycon "RqBody"
-            Just Output -> tycon "RsBody"
-
-external :: TypeOf a => Timestamp -> a -> Type
-external ts (typeOf -> t) = case t of
+directed :: TypeOf a => Bool -> Timestamp -> Maybe Direction -> a -> Type
+directed i ts d (typeOf -> t) = case t of
     TType      x      -> tycon x
-    TLit       x      -> literal False ts x
-    TNatural          -> tycon "Natural"
-    TStream           -> tycon "Stream"
-    TMaybe     x      -> TyApp  (tycon "Maybe") (go x)
-    TSensitive x      -> go x
+    TLit       x      -> literal i ts x
+    TNatural          -> tycon nat
+    TStream           -> tycon stream
+    TSensitive x      -> sensitive (go x)
+    TMaybe     x      -> TyApp  (tycon "Maybe")     (go x)
     TList      x      -> TyList (go x)
-    TList1     x      -> TyApp  (tycon "NonEmpty") (go x)
+    TList1     x      -> TyApp  (tycon "NonEmpty")  (go x)
     TMap       k v    -> TyApp  (TyApp (tycon "HashMap") (go k)) (go v)
   where
-    go = external ts
+    go = directed i ts d
+
+    nat | i         = "Nat"
+        | otherwise = "Natural"
+
+    sensitive
+        | i         = TyApp (tycon "Sensitive")
+        | otherwise = id
+
+    stream = case d of
+        Nothing     -> "Stream"
+        Just Input  -> "RqBody"
+        Just Output -> "RsBody"
 
 mapping :: TType -> Exp -> Exp
 mapping t e = infixE e "." (go t)

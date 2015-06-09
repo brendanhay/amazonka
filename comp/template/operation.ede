@@ -40,4 +40,6 @@ import {{ import.value }}
 
 {% include "_include/shape.ede" with shape = input %}
 
-{% include "_include/shape.ede" with shape = output %}
+{% if !output.shared %}
+  {% include "_include/shape.ede" with shape = output %}
+{% endif %}

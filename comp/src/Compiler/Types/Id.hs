@@ -107,7 +107,7 @@ branchId p = typeId . to f
       | otherwise   = id
 
 smartCtorId :: Getter Id Text
-smartCtorId = typeId . to (lowerHead . lowerFirstAcronym . renameReserved)
+smartCtorId = typeId . to (renameReserved . lowerHead . lowerFirstAcronym)
 
 accessorId :: Maybe Text -> Getter Id Text
 accessorId p = accessor p . to (Text.cons '_')

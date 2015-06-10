@@ -444,7 +444,10 @@ instance IsStreaming Info where
     streaming = _infoStreaming
 
 instance IsStreaming (Shape a) where
-    streaming (_ :< s) = streaming (s ^. info)
+    streaming (_ :< s) = streaming s
+
+instance IsStreaming (ShapeF a) where
+    streaming s = streaming (s ^. info)
 
 instance IsStreaming (RefF (Shape a)) where
     streaming r = _refStreaming r || streaming (_refAnn r)

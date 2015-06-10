@@ -1,6 +1,5 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedLists   #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TupleSections     #-}
 
@@ -60,18 +59,18 @@ solve cfg = (`evalState` env) . traverse (annotate con id (pure . ann))
 
 -- FIXME: Filter constraints based on info like min/max of lists etc.
 derive :: HasId a => Shape a -> [Derive]
-derive (a :< s)
-    | identifier a == mkId "NotificationConfiguration" = trace ("Deriving " ++ show (identifier a ^. typeId)) $ uniq (shape s)
-    | otherwise = uniq (shape s)
+derive (a :< s) = uniq (shape s)
   where
     shape :: HasId a => ShapeF (Shape a) -> [Derive]
     shape = \case
         Ptr  _ ds -> base <> Set.toList ds
-        Struct st -> foldr' (intersect . derive) base st
-        List   {} -> base <> monoid
-        Map    {} -> base <> monoid
+        Struct st -> refs st
+        List   l  -> monoid <> refs l -- Think about how these should
+        Map    m  -> monoid <> refs m -- be intersected with a parent's.
         Enum   {} -> base <> enum
-        Lit  _  l -> lit l
+        Lit   i l
+            | streaming i -> [DShow]
+            | otherwise   -> lit l
 
     lit :: Lit -> [Derive]
     lit = \case
@@ -79,9 +78,12 @@ derive (a :< s)
         Long   -> base <> num
         Double -> base <> frac
         Text   -> base <> string
-        Blob   -> [DShow]
+        Blob   -> base
         Time   -> base <> enum
         Bool   -> base <> enum
+
+    refs :: (Foldable f, HasId a) => f (Shape a) -> [Derive]
+    refs = foldr' (intersect . derive) base
 
     string = [DOrd, DIsString]
     num    = [DOrd, DEnum, DNum, DIntegral, DReal]

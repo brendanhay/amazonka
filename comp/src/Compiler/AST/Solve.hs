@@ -30,7 +30,6 @@ import qualified Data.HashMap.Strict    as Map
 import qualified Data.HashSet           as Set
 import           Data.List              (intersect, nub, sort)
 import           Data.Monoid            hiding (Product, Sum)
-import           Debug.Trace
 
 -- Can just assume for the purposes of determing instances
 -- that if a Shape's relation contains no parents then it's

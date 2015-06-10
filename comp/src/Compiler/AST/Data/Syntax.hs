@@ -35,7 +35,6 @@ import           Data.List                    (nub)
 import           Data.Monoid
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
-import           Debug.Trace
 import qualified Language.Haskell.Exts        as Exts
 import           Language.Haskell.Exts.Build  hiding (pvar, var)
 import           Language.Haskell.Exts.SrcLoc (noLoc)

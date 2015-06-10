@@ -30,7 +30,6 @@ import           Data.Bifunctor
 import qualified Data.HashMap.Strict    as Map
 import qualified Data.HashSet           as Set
 import           Data.Monoid
-import           Debug.Trace
 
 data Env = Env
     { _renamed  :: Map Id Id

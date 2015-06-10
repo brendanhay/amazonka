@@ -38,7 +38,6 @@ import           Data.String
 import           Data.Text                    (Text)
 import qualified Data.Text.Lazy               as LText
 import qualified Data.Text.Lazy.Builder       as Build
-import           Debug.Trace
 import           HIndent
 import           Language.Haskell.Exts.Pretty
 
@@ -108,7 +107,7 @@ prodData :: HasMetadata a Identity
          -> Solved
          -> StructF (Shape Solved)
          -> Either Error (Prod, [Field])
-prodData m s st = (,fields) <$> trace ("protData " ++ show (identifier s)) mk
+prodData m s st = (,fields) <$> mk
   where
     mk = Prod' (n ^. typeId) (st ^. infoDocumentation)
         <$> pp Indent decl

@@ -32,7 +32,6 @@ import           Control.Monad.State
 import qualified Data.HashMap.Strict   as Map
 import qualified Data.HashSet          as Set
 import           Data.Monoid
-import           Debug.Trace
 
 -- FIXME: Relations need to be updated by the solving step.
 
@@ -85,9 +84,9 @@ renderShapes cfg svc = do
     xs <- traverse (operationData svc) x
     ys <- kvTraverseMaybe (const (shapeData svc)) (prune y)
 
-    return $! trace "svc" $ svc
-        { _operations = trace "operations" xs
-        , _shapes     = trace "shapes" ys
+    return $! svc
+        { _operations = xs
+        , _shapes     = ys
         }
 
 type MemoR = StateT (Map Id Relation) (Either Error)
@@ -151,12 +150,10 @@ separate os ss = runStateT (traverse go os) ss
         s <- get
         case Map.lookup n s of
             Just x  -> do
-                _ <- unless (isShared x) $ do
-                        if n == mkId "NotificationConfiguration"
-                           then trace (show n) $ return ()
-                           else modify (Map.delete n)
+                unless (isShared x) $
+                    modify (Map.delete n) -- FIXME: revisit sharing
                 return x
-            Nothing -> throwError $
-                format ("Failure attempting to remove operation wrapper " % iprimary %
-                        " from " % partial)
-                       n (n, Map.map (const ()) s)
+            Nothing -> do
+                let m = "Failure removing operation wrapper " % iprimary %
+                        " from " % partial
+                throwError $ format m n (n, Map.map (const ()) s)

@@ -39,7 +39,6 @@ import qualified Data.HashSet           as Set
 import           Data.List              (sort)
 import           Data.Monoid
 import qualified Data.Text.Lazy         as LText
-import           Debug.Trace
 
 data Env a = Env
     { _overrides :: Map Id Override

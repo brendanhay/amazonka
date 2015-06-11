@@ -2,7 +2,7 @@
     "referenceUrl": "http://docs.aws.amazon.com/Route53/latest/APIReference/Welcome.html",
     "operationUrl": "http://docs.aws.amazon.com/Route53/latest/APIReference/API_",
     "libraryName": "amazonka-route53",
-    "typeImports": [
+    "typeModules": [
         "Network.AWS.Route53.Internal"
     ],
     "typeOverrides": {

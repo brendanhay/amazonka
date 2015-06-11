@@ -121,7 +121,7 @@ fieldLocation :: Getter Field (Maybe Location)
 fieldLocation = fieldRef . refLocation
 
 fieldMonoid :: Getter Field Bool
-fieldMonoid = fieldAnn . to (elem DMonoid . view annDerive)
+fieldMonoid = fieldAnn . to (elem DMonoid . derivingOf)
 
 fieldStream :: Getter Field Bool
 fieldStream = to f

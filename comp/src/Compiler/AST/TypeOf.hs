@@ -1,7 +1,6 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedLists   #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TupleSections     #-}
 
@@ -17,12 +16,17 @@
 
 module Compiler.AST.TypeOf
     ( TypeOf (..)
+    , derivingOf
     , typeDefault
     ) where
 
 import           Compiler.Types
 import           Control.Comonad.Cofree
 import           Control.Lens           hiding (enum, mapping, (??))
+import           Data.Foldable          (foldr')
+import qualified Data.HashSet           as Set
+import           Data.List              (intersect)
+import           Data.Monoid
 
 class TypeOf a where
     typeOf :: a -> TType
@@ -34,27 +38,68 @@ instance TypeOf Solved where
     typeOf = view annType
 
 instance HasId a => TypeOf (Shape a) where
-    typeOf (x :< s) =
-        let n = identifier x
-         in sensitive s $ case s of
-            Ptr    {}        -> TType  (n ^. typeId)
-            Struct {}        -> TType  (n ^. typeId)
-            Enum   {}        -> TType  (n ^. typeId)
+    typeOf (x :< s) = sensitive s (shape s)
+      where
+        n = identifier x
+
+        shape = \case
+            Ptr    _ ds      -> TType  (n ^. typeId) (ptr ds)
+            Struct st        -> TType  (n ^. typeId) (struct st)
+            Enum   {}        -> TType  (n ^. typeId) enum
             List (ListF i e)
                 | nonEmpty i -> TList1 (typeOf e)
                 | otherwise  -> TList  (typeOf e)
             Map (MapF _ k v) -> TMap   (typeOf k) (typeOf v)
-            Lit i l          ->
-                case l of
-                    Int                -> natural i (TLit l)
-                    Long               -> natural i (TLit l)
-                    Blob | streaming i -> TStream
-                    _                  -> TLit l
+            Lit i l          -> lit i l
+
+        lit i = \case
+            Int                -> natural i (TLit Int)
+            Long               -> natural i (TLit Long)
+            Blob | streaming i -> TStream
+            l                  -> TLit l
+
+        ptr = uniq . mappend base . Set.toList
+
+        struct st
+            | streaming st = [DShow]
+            | otherwise    = uniq $
+                foldr' (intersect . derivingOf) base (st ^.. references)
 
 instance HasId a => TypeOf (RefF (Shape a)) where
     typeOf r
         | streaming r = TStream
         | otherwise   = typeOf (r ^. refAnn)
+
+derivingOf :: TypeOf a => a -> [Derive]
+derivingOf = uniq . typ . typeOf
+  where
+    typ = \case
+        TType      _ ds -> ds
+        TLit       l    -> lit l
+        TNatural        -> enum
+        TStream         -> [DShow]
+        TMaybe     t    -> typ t
+        TSensitive t    -> DShow : typ t
+        TList      e    -> monoid <> typ e
+        TList1     e    -> DSemigroup : typ e
+        TMap       k v  -> monoid <> intersect (typ k) (typ v)
+
+    lit = \case
+        Int    -> base <> num
+        Long   -> base <> num
+        Double -> base <> frac
+        Text   -> base <> string
+        Blob   -> base
+        Time   -> enum
+        Bool   -> enum
+
+string, num, frac, monoid, enum, base :: [Derive]
+string = [DOrd, DIsString]
+num    = [DOrd, DEnum, DNum, DIntegral, DReal]
+frac   = [DOrd, DRealFrac, DRealFloat]
+monoid = [DMonoid, DSemigroup]
+enum   = [DOrd, DEnum, DGeneric] <> base
+base   = [DEq, DRead, DShow]
 
 typeDefault :: TType -> Bool
 typeDefault = \case

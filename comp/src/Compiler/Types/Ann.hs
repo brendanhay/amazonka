@@ -24,6 +24,7 @@ import           Control.Comonad
 import           Control.Comonad.Cofree
 import           Control.Lens
 import           Data.Aeson
+import           Data.Function          (on)
 import           Data.Hashable
 import qualified Data.HashSet           as Set
 import           Data.List              (nub)
@@ -52,51 +53,32 @@ instance Monoid Mode where
     mappend _       _       = Bi
 
 data Relation = Relation
-    { _relShared :: Maybe Id
+    { _relShared :: !Int
     , _relMode   :: !Mode
     } deriving (Eq, Show)
 
 makeClassy ''Relation
 
 instance Monoid Relation where
-    mempty      = Relation Nothing mempty
-    mappend a b = Relation
-        (_relShared b <|> _relShared a)
-        (_relMode   b <>  _relMode   a)
+    mempty      = Relation 0 mempty
+    mappend a b = Relation (on add _relShared b a) (on (<>) _relMode b a)
+      where
+        add 0 0 = 2
+        add 1 0 = 2
+        add 0 1 = 2
+        add x y = x + y
 
 instance (Functor f, HasRelation a) => HasRelation (Cofree f a) where
     relation = lens extract (flip (:<) . unwrap) . relation
 
 mkRelation :: Maybe Id -> Direction -> Relation
-mkRelation p = Relation p . Uni
+mkRelation p = Relation (maybe 0 (const 1) p) . Uni
 
 isShared :: HasRelation a => a -> Bool
-isShared = isJust . view relShared
+isShared = (> 1) . view relShared
 
 isOrphan :: HasRelation a => a -> Bool
-isOrphan = isNothing . view relShared
-
-data Lit
-    = Int
-    | Long
-    | Double
-    | Text
-    | Blob
-    | Time
-    | Bool
-      deriving (Show)
-
-data TType
-    = TType      Text
-    | TLit       Lit
-    | TNatural
-    | TStream
-    | TMaybe     TType
-    | TSensitive TType
-    | TList      TType
-    | TList1     TType
-    | TMap       TType TType
-      deriving (Show)
+isOrphan = (== 0) . view relShared
 
 data Derive
     = DEq
@@ -119,6 +101,28 @@ instance Hashable Derive
 
 instance FromJSON Derive where
     parseJSON = gParseJSON' (spinal & ctor %~ (. Text.drop 1))
+
+data Lit
+    = Int
+    | Long
+    | Double
+    | Text
+    | Blob
+    | Time
+    | Bool
+      deriving (Show)
+
+data TType
+    = TType      Text [Derive]
+    | TLit       Lit
+    | TNatural
+    | TStream
+    | TMaybe     TType
+    | TSensitive TType
+    | TList      TType
+    | TList1     TType
+    | TMap       TType TType
+      deriving (Show)
 
 data Related = Related
     { _annId       :: Id
@@ -158,7 +162,6 @@ instance HasId Prefixed where
 data Solved = Solved
     { _annPrefixed :: Prefixed
     , _annType     :: TType
-    , _annDerive   :: [Derive]
     } deriving (Show)
 
 makeClassy ''Solved

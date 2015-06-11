@@ -1,4 +1,5 @@
 {-# LANGUAGE DataKinds              #-}
+{-# LANGUAGE DefaultSignatures      #-}
 {-# LANGUAGE DeriveFoldable         #-}
 {-# LANGUAGE DeriveFunctor          #-}
 {-# LANGUAGE DeriveGeneric          #-}
@@ -440,24 +441,28 @@ type Ref   = RefF (Shape Solved)
 class IsStreaming a where
     streaming :: a -> Bool
 
-instance IsStreaming Info where
-    streaming = _infoStreaming
+    default streaming :: HasInfo a => a -> Bool
+    streaming = view infoStreaming
 
-instance IsStreaming (Shape a) where
-    streaming (_ :< s) = streaming s
+instance IsStreaming Info
+instance IsStreaming (StructF a)
+instance IsStreaming (ShapeF  a)
+instance IsStreaming (Shape   a)
 
-instance IsStreaming (ShapeF a) where
-    streaming s = streaming (s ^. info)
-
-instance IsStreaming (RefF (Shape a)) where
+instance IsStreaming a => IsStreaming (RefF a) where
     streaming r = _refStreaming r || streaming (_refAnn r)
+
+instance IsStreaming TType where
+    streaming TStream = True
+    streaming _       = False
 
 setRequired :: ([Id] -> [Id]) -> ShapeF a -> ShapeF a
 setRequired f = _Struct . required' %~ nub . f
 
 getRequired :: StructF (Shape a) -> [Id]
-getRequired s = nub $ _required' s <> concatMap f (Map.toList $ _members s)
+getRequired s = nub $ _required' s <> concatMap f (Map.toList (s ^. members))
   where
     f (n, r)
-        | streaming r = [n]
-        | otherwise   = []
+        | streaming r                            = [n]
+        | Just i <- r ^. refAnn . infoMin, i > 0 = [n]
+        | otherwise                              = []

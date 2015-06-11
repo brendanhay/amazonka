@@ -21,10 +21,11 @@ import           Compiler.AST.Cofree
 import           Compiler.AST.Data
 import           Compiler.AST.Override
 import           Compiler.AST.Prefix
-import           Compiler.AST.Solve
 import           Compiler.AST.Subst
+import           Compiler.AST.TypeOf
 import           Compiler.Formatting
 import           Compiler.Types
+import           Control.Arrow
 import           Control.Error
 import           Control.Lens
 import           Control.Monad.Except  (throwError)
@@ -78,7 +79,7 @@ renderShapes cfg svc = do
         -- Separate the operation input/output shapes from the .Types shapes.
         >>= separate (svc ^. operations)
 
-    let prune = Map.filter (not . isOrphan)
+    let prune = id -- Map.filter (not . isOrphan)
 
     -- Convert shape ASTs into a rendered Haskell AST declaration,
     xs <- traverse (operationData svc) x
@@ -126,6 +127,26 @@ relations os ss = execStateT (traverse go os) mempty
                 n (n, ss))
         (Map.lookup n ss)
 
+-- FIXME: Necessary to update the Relation?
+solve :: (Traversable t)
+      => Config
+      -> t (Shape Prefixed)
+      -> t (Shape Solved)
+solve cfg = (`evalState` replaced def cfg)
+    . traverse (annotate Solved id (pure . typeOf))
+ where
+    def x = TType
+        (x ^. replaceName . typeId)
+        (x ^. replaceDeriving . to Set.toList)
+
+    replaced :: (Replace -> a) -> Config -> Map Id a
+    replaced f =
+          Map.fromList
+        . map (_replaceName &&& f)
+        . Map.elems
+        . vMapMaybe _replacedBy
+        . _typeOverrides
+
 type MemoS a = StateT (Map Id a) (Either Error)
 
 -- | Filter the ids representing operation input/outputs from the supplied map,
@@ -148,12 +169,10 @@ separate os ss = runStateT (traverse go os) ss
     remove :: HasRelation a => Direction -> Id -> MemoS a a
     remove d n = do
         s <- get
+        let m = "Failure separating operation wrapper " % iprimary %
+                " from " % partial
         case Map.lookup n s of
+            Nothing -> throwError $ format m n (n, Map.map (const ()) s)
             Just x  -> do
-                unless (isShared x) $
-                    modify (Map.delete n) -- FIXME: revisit sharing
-                return x
-            Nothing -> do
-                let m = "Failure removing operation wrapper " % iprimary %
-                        " from " % partial
-                throwError $ format m n (n, Map.map (const ()) s)
+               when (d == Input || not (isShared x)) $ modify (Map.delete n)
+               return x

@@ -23,6 +23,7 @@ module Compiler.AST.Data
 import           Compiler.AST.Data.Field
 import           Compiler.AST.Data.Instance
 import           Compiler.AST.Data.Syntax
+import           Compiler.AST.TypeOf
 import           Compiler.Formatting
 import           Compiler.Protocol
 import           Compiler.Types
@@ -96,7 +97,7 @@ sumData p s i vs = Sum (isShared s) <$> mk <*> (Map.keys <$> insts)
         <$> pp Indent decl
         <*> pure bs
 
-    decl  = dataDecl n (map conDecl (Map.keys bs)) (s ^. annDerive)
+    decl  = dataDecl n (map conDecl (Map.keys bs)) (derivingOf s)
     insts = renderInsts p n $ shapeInsts p (s ^. relMode) []
 
     n  = s ^. annId
@@ -114,7 +115,7 @@ prodData m s st = (,fields) <$> mk
         <*> mkCtor
         <*> traverse mkLens fields
 
-    decl = dataDecl n [recDecl ts n fields] (s ^. annDerive)
+    decl = dataDecl n [recDecl ts n fields] (derivingOf s)
 
     fields :: [Field]
     fields = mkFields m s st

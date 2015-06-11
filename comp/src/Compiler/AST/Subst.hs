@@ -24,7 +24,6 @@ import           Compiler.AST.Cofree
 import           Compiler.AST.Data
 import           Compiler.AST.Override
 import           Compiler.AST.Prefix
-import           Compiler.AST.Solve
 import           Compiler.Formatting
 import           Compiler.Protocol
 import           Compiler.Types
@@ -39,6 +38,7 @@ import qualified Data.HashSet           as Set
 import           Data.List              (sort)
 import           Data.Monoid
 import qualified Data.Text.Lazy         as LText
+import           Debug.Trace
 
 data Env a = Env
     { _overrides :: Map Id Override
@@ -122,7 +122,7 @@ substitute svc@Service{..} = do
                 -- to prevent accidental override.
                 verify n "Failed attempting to copy existing shape"
                 -- Copy the shape by saving it under the desired name.
-                save n (x :< s)
+                save n ((x & annId .~ n) :< s)
                 -- Update the Ref to point to the new wrapper.
                 remove k n
                 return (r & refShape .~ n)

@@ -110,7 +110,7 @@ substitute svc@Service{..} = do
     subst d n h Nothing  = do
         verify n "Failure attempting to substitute fresh shape"
         -- No Ref exists, safely insert an empty shape and return a related Ref.
-        save n (Related n (mkRelation mempty d) :< emptyStruct)
+        save n (Related n (mkRelation Nothing d) :< emptyStruct)
         return (emptyRef n)
 
     subst d n h (Just r) = do

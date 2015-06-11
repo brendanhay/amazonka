@@ -103,20 +103,20 @@ relations os ss = execStateT (traverse go os) mempty
   where
     -- FIXME: opName here is incorrect as a parent.
     go :: Operation Maybe (RefF a) -> MemoR ()
-    go o = count (o ^. opName) Input  (o ^? opInput  . _Just . refShape)
-        >> count (o ^. opName) Output (o ^? opOutput . _Just . refShape)
+    go o = count Nothing Input  (o ^? opInput  . _Just . refShape)
+        >> count Nothing Output (o ^? opOutput . _Just . refShape)
 
     -- | Inserts a valid relation containing an referring shape's id,
     -- and the direction the parent is used in.
-    count :: Id -> Direction -> Maybe Id -> MemoR ()
+    count :: Maybe Id -> Direction -> Maybe Id -> MemoR ()
     count _ _ Nothing  = pure ()
     count p d (Just n) = do
-        modify $ Map.insertWith (<>) n (mkRelation [p] d)
+        modify $ Map.insertWith (<>) n (mkRelation p d)
         s <- lift (safe n)
         shape n d s
 
     shape :: Id -> Direction -> ShapeF a -> MemoR ()
-    shape p d = mapM_ (count p d . Just . view refShape)
+    shape p d = mapM_ (count (Just p) d . Just . view refShape)
         . toListOf references
 
     safe n = note

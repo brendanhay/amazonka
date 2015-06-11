@@ -19,6 +19,7 @@ module Compiler.Types.Ann where
 
 import           Compiler.TH
 import           Compiler.Types.Id
+import           Control.Applicative
 import           Control.Comonad
 import           Control.Comonad.Cofree
 import           Control.Lens
@@ -26,6 +27,7 @@ import           Data.Aeson
 import           Data.Hashable
 import qualified Data.HashSet           as Set
 import           Data.List              (nub)
+import           Data.Maybe
 import           Data.Monoid
 import           Data.Text              (Text)
 import qualified Data.Text              as Text
@@ -50,29 +52,29 @@ instance Monoid Mode where
     mappend _       _       = Bi
 
 data Relation = Relation
-    { _relShared :: !Bool
+    { _relShared :: Maybe Id
     , _relMode   :: !Mode
     } deriving (Eq, Show)
 
 makeClassy ''Relation
 
 instance Monoid Relation where
-    mempty      = Relation False mempty
+    mempty      = Relation Nothing mempty
     mappend a b = Relation
-        (_relShared a || _relShared b)
-        (_relMode   a <> _relMode   b)
+        (_relShared b <|> _relShared a)
+        (_relMode   b <>  _relMode   a)
 
 instance (Functor f, HasRelation a) => HasRelation (Cofree f a) where
     relation = lens extract (flip (:<) . unwrap) . relation
 
-mkRelation :: [Id] -> Direction -> Relation
-mkRelation xs = Relation (not $ null xs) . Uni
+mkRelation :: Maybe Id -> Direction -> Relation
+mkRelation p = Relation p . Uni
 
 isShared :: HasRelation a => a -> Bool
-isShared = view relShared
+isShared = isJust . view relShared
 
 isOrphan :: HasRelation a => a -> Bool
-isOrphan = not . view relShared
+isOrphan = isNothing . view relShared
 
 data Lit
     = Int

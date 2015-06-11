@@ -116,7 +116,7 @@ requestD m h (a, as) (s, b, bs) = instD "AWSRequest" a
     [ assocTyD a "Sv" (m ^. serviceAbbrev)
     , assocTyD a "Rs" (b ^. typeId)
     , funD "request"  (requestF h as)
-    , funD "response" (responseE (m ^. protocol) h s b [])
+    , funD "response" (responseE (m ^. protocol) h s b bs)
     ]
 
 responseE :: Protocol -> HTTP Identity -> Solved -> Id -> [Field] -> Exp
@@ -125,7 +125,7 @@ responseE p h s n fs = app (responseF p h fs) bdy
     bdy :: Exp
     bdy | null fs    = n ^. ctorId . to var
         | isShared s = lam parseAll
-        | otherwise  = ctorE n $ map parseField fs
+        | otherwise  = lam . ctorE n $ map parseField fs
 
     lam :: Exp -> Exp
     lam = lamE noLoc [pvar "s", pvar "h", pvar "x"]
@@ -267,19 +267,22 @@ toElementE p f = appFun (var "mkElement")
 toHeadersE :: Protocol -> Either (Text, Text) Field -> Exp
 toHeadersE p = either pair (encodeE (Enc "=#" "=##") p)
   where
-    pair (k, v) = infixApp (str k) "=#" (str v)
+    pair (k, v) = infixApp (str k) "=#" (paren (str v))
 
 toQueryE :: Protocol -> Either (Text, Maybe Text) Field -> Exp
 toQueryE p = either pair (encodeE (Enc "=:" "=:") p)
   where
     pair (k, Nothing) = str k
-    pair (k, Just v)  = infixApp (str k) "=:" (str v)
+    pair (k, Just v)  = infixApp (str k) "=:" (impliesE (str v) (var "ByteString"))
 
 toPathE :: Either Text Field -> Exp
 toPathE = either str (app (var "toText") . var . view fieldAccessor)
 
 toBodyE :: Field -> Exp
 toBodyE f = var (f ^. fieldAccessor)
+
+impliesE :: Exp -> Exp -> Exp
+impliesE x y = paren (infixApp x "::" y)
 
 data Dec = Dec
     { decodeOp      :: QOp

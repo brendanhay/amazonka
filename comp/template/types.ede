@@ -32,8 +32,10 @@ module {{ moduleName }}
 
     {% endif %}
   {% endfor %}
-
   {% for module in typeModules %}
+    {% if module.first %}
+
+    {% endif %}
     , module {{ module.value }}
   {% endfor %}
     ) where

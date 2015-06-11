@@ -12,21 +12,25 @@ module Network.AWS.Prelude
     ( module Export
     ) where
 
-import           Control.Applicative         as Export
-import           Control.Lens                as Export
-import           Data.Hashable               as Export
+import           Control.Applicative         as Export ((<$>), (<*>), (<|>))
+import           Control.Lens                as Export (Lens', lens, mapping,
+                                                        ( # ))
+import           Data.Hashable               as Export (Hashable)
 import           Data.HashMap.Strict         as Export (HashMap)
-import           Data.Monoid                 as Export
+import           Data.List.NonEmpty          as Export (NonEmpty (..))
+import           Data.Monoid                 as Export (mconcat, mempty, (<>))
 import           GHC.Generics                as Export (Generic)
 import           Network.AWS.Data.Base64     as Export
 import           Network.AWS.Data.ByteString as Export
 import           Network.AWS.Data.Headers    as Export
+import           Network.AWS.Data.JSON       as Export
 import           Network.AWS.Data.Numeric    as Export
 import           Network.AWS.Data.Path       as Export
 import           Network.AWS.Data.Query      as Export
 import           Network.AWS.Data.Sensitive  as Export
 import           Network.AWS.Data.Text       as Export
 import           Network.AWS.Data.Time       as Export
+import           Network.AWS.Data.XML        as Export
 import           Network.AWS.Error           as Export
 import           Network.AWS.Types           as Export
-import           Network.HTTP.Types.Status   as Export
+import           Network.HTTP.Types.Status   as Export (Status (..))

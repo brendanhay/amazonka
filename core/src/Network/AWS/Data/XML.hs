@@ -132,9 +132,6 @@ instance FromXML Natural where parseXML = parseXMLText "Natural"
 instance FromXML Double  where parseXML = parseXMLText "Double"
 instance FromXML Bool    where parseXML = parseXMLText "Bool"
 
--- class ToXMLElemet a where
---     toXMLRoot :: a -> Element
-
 class ToElement a where
     toElement :: a -> Element
 

@@ -45,11 +45,11 @@ hs .#? k =
 
 infixr 7 =#
 
-parseHeaders :: FromText a
-             => ByteString
-             -> ResponseHeaders
-             -> Either String (HashMap Text a)
-parseHeaders p = fmap Map.fromList . traverse g . filter f
+parseMap :: FromText a
+         => ByteString
+         -> ResponseHeaders
+         -> Either String (HashMap Text a)
+parseMap p = fmap Map.fromList . traverse g . filter f
   where
     f = BS.isPrefixOf p . CI.foldedCase . fst
 
@@ -78,10 +78,10 @@ class ToHeader a where
     toHeader k = toHeader k . toText
 
 instance ToHeader Text where
-    toHeader k = toHeader k . Text.encodeUtf8
+    toHeader k v = [(k, Text.encodeUtf8 v)]
 
 instance ToHeader ByteString where
-    toHeader k = toHeader k . Just
+    toHeader k v = [(k, v)]
 
 instance ToText a => ToHeader (Maybe a) where
     toHeader k = maybe [] (toHeader k . toText)

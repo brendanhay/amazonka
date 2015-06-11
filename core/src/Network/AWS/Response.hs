@@ -29,6 +29,7 @@ import           Data.Bifunctor
 import           Data.Conduit
 import qualified Data.Conduit.Binary          as Conduit
 import           Data.Monoid
+import           Network.AWS.Data.Body
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.XML
 import           Network.AWS.Types
@@ -62,13 +63,13 @@ receiveJSON :: (MonadResource m, AWSService (Sv a))
 receiveJSON = deserialise eitherDecode'
 
 receiveBody :: (MonadResource m, AWSService (Sv a))
-            => (Int -> ResponseHeaders -> ResponseBody -> Either String (Rs a))
+            => (Int -> ResponseHeaders -> RsBody -> Either String (Rs a))
             -> Logger
             -> Request a
             -> Either HttpException ClientResponse
             -> m (Response' a)
 receiveBody f l = receive l $ \a s h x ->
-    return (SerializerError a `first` f s h x)
+    return (SerializerError a `first` f s h (RsBody x))
 
 deserialise :: (AWSService (Sv a), MonadResource m)
             => (LazyByteString -> Either String b)

@@ -73,7 +73,6 @@ module Network.AWS.Types
     -- * Responses
     , Response
     , Response'
-    , Empty         (..)
 
     -- * Logging
     , LogLevel      (..)
@@ -82,8 +81,8 @@ module Network.AWS.Types
     -- * Regions
     , Region        (..)
 
-    -- * Query Actions
-    , Action        (..)
+    -- * ETag
+    , ETag          (..)
 
     -- * Convenience
     , ClientRequest
@@ -101,6 +100,7 @@ import           Control.Monad.Trans.Resource
 import qualified Crypto.Hash.SHA256           as SHA256
 import qualified Crypto.MAC.HMAC              as HMAC
 import           Data.Aeson                   hiding (Error)
+import qualified Data.Attoparsec.Text         as AText
 import           Data.ByteString.Builder      (Builder)
 import           Data.Conduit
 import           Data.Default.Class
@@ -370,15 +370,24 @@ instance ToByteString Region
 instance FromXML Region where parseXML = parseXMLText "Region"
 instance ToXML   Region where toXML    = toXMLText
 
--- | A service's query action.
-newtype Action = Action Text
-    deriving (Eq, Ord, Show, IsString, ToText, ToByteString)
+newtype ETag = ETag Text
+    deriving
+        ( Eq
+        , Ord
+        , Read
+        , Show
+        , IsString
+        , ToText
+        , ToByteString
+        , ToXML
+        , ToQuery
+        )
 
-data Empty = Empty
-    deriving (Eq, Show)
+instance FromText ETag where
+    parser = ETag <$> (quoted <|> AText.takeText)
 
-instance ToJSON Empty where
-    toJSON = const Null
+instance FromXML ETag where
+    parseXML = parseXMLText "ETag"
 
 -- | A convenience alias to avoid type ambiguity.
 type ClientRequest = Client.Request

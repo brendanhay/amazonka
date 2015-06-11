@@ -34,6 +34,8 @@ import           Network.AWS.Data.XML
 newtype Base64 = Base64 { unBase64 :: ByteString }
     deriving (Eq, Read, Ord, Generic)
 
+-- FIXME: it's a bit of a misnomer to use a ByteString since
+-- the underlying serialisers (JSON, XML) use Text internally.
 instance FromText Base64 where
     parser = AText.takeText >>=
         either fail (return . Base64) . Base64.decode . Text.encodeUtf8

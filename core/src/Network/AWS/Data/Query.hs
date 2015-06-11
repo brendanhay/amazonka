@@ -2,6 +2,7 @@
 {-# LANGUAGE DeriveDataTypeable  #-}
 {-# LANGUAGE FlexibleContexts    #-}
 {-# LANGUAGE FlexibleInstances   #-}
+{-# LANGUAGE LambdaCase          #-}
 {-# LANGUAGE OverloadedStrings   #-}
 {-# LANGUAGE ScopedTypeVariables #-}
 {-# LANGUAGE TemplateHaskell     #-}
@@ -35,6 +36,8 @@ import qualified Data.ByteString.Char8       as BS
 import           Data.Data
 import           Data.Data.Lens
 import           Data.List                   (sort)
+import           Data.List.NonEmpty          (NonEmpty (..))
+import qualified Data.List.NonEmpty          as NonEmpty
 import           Data.Monoid
 import           Data.String
 import qualified Data.Text.Encoding          as Text
@@ -89,16 +92,19 @@ k =: v = Pair k (toQuery v)
 renderQuery :: Query -> ByteString
 renderQuery = intercalate . sort . enc Nothing
   where
-    enc k (List xs)   = concatMap (enc k) xs
-    enc k (Pair (urlEncode True -> k') x)
-        | Just n <- k = enc (Just $ n <> "." <> k') x
-        | otherwise   = enc (Just k') x
-    enc k (Value (Just (urlEncode True -> v)))
-        | Just n <- k = [n <> vsep <> v]
-        | otherwise   = [v <> vsep]
-    enc k _
-        | Just n <- k = [n <> vsep]
-        | otherwise   = []
+    enc k = \case
+        List xs           -> concatMap (enc k) xs
+
+        Pair (urlEncode True -> k') x
+            | Just n <- k -> enc (Just $ n <> "." <> k') x
+            | otherwise   -> enc (Just k')               x
+
+        Value (Just (urlEncode True -> v))
+            | Just n <- k -> [n <> vsep <> v]
+            | otherwise   -> [v <> vsep]
+
+        _   | Just n <- k -> [n <> vsep]
+            | otherwise   -> []
 
     intercalate []     = mempty
     intercalate [x]    = x
@@ -140,6 +146,9 @@ instance ToQuery a => ToQuery [a] where
     toQuery = List . zipWith (\n v -> toBS n =: toQuery v) idx
       where
         idx = [1..] :: [Integer]
+
+instance ToQuery a => ToQuery (NonEmpty a) where
+    toQuery = toQuery . NonEmpty.toList
 
 instance ToQuery Bool where
     toQuery True  = toQuery ("true"  :: ByteString)

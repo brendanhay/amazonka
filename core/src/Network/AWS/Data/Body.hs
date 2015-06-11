@@ -18,6 +18,7 @@ import           Control.Monad.Morph
 import           Control.Monad.Trans.Resource
 import           Crypto.Hash
 import           Data.Aeson
+import qualified Data.ByteString.Char8        as BS8
 import qualified Data.ByteString.Lazy         as LBS
 import qualified Data.ByteString.Lazy.Char8   as LBS8
 import           Data.Conduit
@@ -48,6 +49,9 @@ makeLenses ''RqBody
 
 bodyHash :: RqBody -> ByteString
 bodyHash = digestToHexByteString . _bdyHash
+
+instance Show RqBody where
+    show bdy = "RqBody { RequestBody " ++ BS8.unpack (bodyHash bdy) ++ " }"
 
 -- instance ToBuilder RqBody where
 --     build x@(RqBody _ b) = mconcat $ intersperse "\n"

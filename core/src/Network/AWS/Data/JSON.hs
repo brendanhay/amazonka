@@ -28,15 +28,14 @@ module Network.AWS.Data.JSON
     -- * ToJSON
     , ToJSON   (..)
     , toJSONText
-    , Object
     , object
     , (.=)
     ) where
 
-import           Data.Aeson                     (eitherDecode')
+import           Data.Aeson            (eitherDecode')
 import           Data.Aeson.Types
-import qualified Data.HashMap.Strict            as Map
-import           Data.Text                      (Text)
+import qualified Data.HashMap.Strict   as Map
+import           Data.Text             (Text)
 import           Network.AWS.Data.Text
 
 parseJSONText :: FromText a => String -> Value -> Parser a

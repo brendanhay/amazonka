@@ -75,10 +75,19 @@ ns .@? n =
 (.!@) :: Either String (Maybe a) -> a -> Either String a
 f .!@ x = fromMaybe x <$> f
 
-infixr 7 @=
+infixr 7 @=, @@=
 
 (@=) :: ToXML a => Name -> a -> XML
 n @= x = One . NodeElement $ mkElement n x
+
+(@@=) :: (IsList a, ToXML (Item a)) => Name -> a -> XML
+n @@= xs = Many . map (NodeElement . mkElement n) $ toList xs
+
+-- toXMLList1 :: (IsList a, ToXML (Item a)) => Name -> a -> XML
+-- toXMLList1 = toXMLList
+
+-- toXMLList :: (IsList a, ToXML (Item a)) => Maybe Name -> Name -> a -> XML
+-- toXMLList _ n = Many . map (NodeElement . mkElement n) . toList
 
 decodeXML :: FromXML a => LazyByteString -> Either String a
 decodeXML = either failure success . parseLBS def
@@ -196,12 +205,6 @@ parseXMLText :: FromText a => String -> [Node] -> Either String a
 parseXMLText n = withContent n >=>
     maybe (Left $ "empty node list, when expecting single node " ++ n)
         fromText
-
--- toXMLList :: (IsList a, ToXML (Item a)) => Maybe Name -> Name -> a -> XML
--- toXMLList _ n = Many . map (NodeElement . mkElement n) . toList
-
--- toXMLList1 :: (IsList a, ToXML (Item a)) => Name -> a -> XML
--- toXMLList1 = toXMLList
 
 toXMLText :: ToText a => a -> XML
 toXMLText = One . NodeContent . toText

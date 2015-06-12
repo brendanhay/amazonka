@@ -16,7 +16,7 @@ module Compiler.Protocol
     ( Names(..)
     , memberName
     , nestedNames
-    , protocolSuffix
+    , suffix
     ) where
 
 import           Compiler.Types
@@ -31,8 +31,8 @@ import           Data.Text              (Text)
 import qualified Data.Text              as Text
 import           Data.Text.Manipulate
 
-protocolSuffix :: Protocol -> Text
-protocolSuffix = \case
+suffix :: Protocol -> Text
+suffix = \case
     JSON     -> "JSON"
     RestJSON -> "JSON"
     RestXML  -> "XML"

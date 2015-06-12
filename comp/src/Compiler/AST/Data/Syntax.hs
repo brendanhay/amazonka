@@ -22,7 +22,8 @@ import           Compiler.AST.Data.Field
 import           Compiler.AST.Data.Instance
 import           Compiler.AST.TypeOf
 import           Compiler.Formatting
-import           Compiler.Protocol
+import           Compiler.Protocol            (Names (..))
+import qualified Compiler.Protocol            as Proto
 import           Compiler.Text
 import           Compiler.Types
 import           Control.Comonad
@@ -238,6 +239,113 @@ encodeD c n f enc = instD c n . (:[]) . \case
 constMemptyD :: Text -> InstDecl
 constMemptyD f = funArgsD f [] $ app (var "const") (var "mempty")
 
+pX, pXMay, pXDef, pJ, pJMay, pJDef, pH, pHMay :: QOp
+pX      = ".@"
+pXMay   = ".@?"
+pXDef   = ".!@"
+pJ      = ".:"
+pJMay   = ".:?"
+pJDef   = ".!="
+pH      = ".#"
+pHMay   = ".#?"
+
+pXMap, pXList, pXList1, pHMap :: Exp
+pXMap   = var "parseXMLMap"
+pXList  = var "parseXMLList"
+pXList1 = var "parseXMLList1"
+pHMap   = var "parseHeadersMap"
+
+toX, toXList, toJ, toQ, toH :: QOp
+toX     = "@="
+toXList = "@@="
+toJ     = ".="
+toQ     = "=:"
+toH     = "=#"
+
+toXMap, toQMap :: Exp
+toXMap  = var "toXMLMap"
+toQMap  = var "toQueryMap"
+
+parseXMLE :: Protocol -> Field -> Exp
+parseXMLE p f = case outputNames p f of
+    NMap  mn e k v             -> unflatE mn pXMap   [str e, str k, str v]
+    NList mn i
+        | f ^. fieldMonoid     -> unflatE mn pXList  [str i]
+        | otherwise            -> unflatE mn pXList1 [str i]
+    NName n
+        | f ^. fieldRequired   -> decodeE x pX    n
+        | otherwise            -> decodeE x pXMay n
+  where
+    unflatE Nothing  g xs = appFun g (xs ++ [x])
+    unflatE (Just n) g xs = paren $
+        infixApp (defaultMonoidE x n pXMay pXDef) ">>=" (appFun g xs)
+
+    x = var "x"
+
+parseJSONE :: Protocol -> Field -> Exp
+parseJSONE p f
+    | f ^. fieldMonoid   = defaultMonoidE x n pJMay pJDef
+    | f ^. fieldRequired = decodeE x pX    n
+    | otherwise          = decodeE x pXMay n
+  where
+    n = memberName p Output f
+    x = var "x"
+
+parseHeadersE :: Protocol -> Field -> Exp
+parseHeadersE p f
+    | TMap {} <- typeOf f = appFun pHMap [str n, h]
+    | f ^. fieldRequired  = decodeE h pH    n
+    | otherwise           = decodeE h pHMay n
+  where
+    n = memberName p Output f
+    h = var "h"
+
+toXMLE :: Protocol -> Field -> Exp
+toXMLE p f = case inputNames p f of
+    NMap  mn e k v -> flatE mn  toX $ appFun toXMap [str e, str k, str v, a]
+    NList mn i     -> flatE mn  toX $ encodeE i toXList a
+    NName n        -> encodeE n toX a
+  where
+    a = var (f ^. fieldAccessor)
+
+toElementE :: Protocol -> Field -> Exp
+toElementE p f = appFun (var "mkElement") [str ns, var ".", a]
+  where
+    ns | Just x <- f ^. fieldNamespace = "{" <> x <> "}" <> n
+       | otherwise                      = n
+
+    n = memberName p Input f
+    a = var (f ^. fieldAccessor)
+
+toJSONE :: Protocol -> Field -> Exp
+toJSONE p f = encodeE (memberName p Input f) toJ $ var (f ^. fieldAccessor)
+
+toHeadersE :: Protocol -> Either (Text, Text) Field -> Exp
+toHeadersE p = either pair field
+  where
+    pair (k, v) = encodeE k toH $ impliesE v (var "ByteString")
+
+    field f = encodeE (memberName p Input f) toH $ var (f ^. fieldAccessor)
+
+toQueryE :: Protocol -> Either (Text, Maybe Text) Field -> Exp
+toQueryE p = either pair field
+  where
+    pair (k, Nothing) = str k
+    pair (k, Just v)  = encodeE k toQ $ impliesE v (var "ByteString")
+
+    field f = case inputNames p f of
+        NMap  mn e k v -> flatE mn  toQ $ appFun toQMap [str e, str k, str v, a]
+        NList mn i     -> flatE mn  toQ $ encodeE i toQ a
+        NName n        -> encodeE n toQ a
+      where
+        a = var (f ^. fieldAccessor)
+
+toPathE :: Either Text Field -> Exp
+toPathE = either str (app (var "toText") . var . view fieldAccessor)
+
+toBodyE :: Field -> Exp
+toBodyE f = var (f ^. fieldAccessor)
+
 ctorE :: Id -> [Exp] -> Exp
 ctorE n = seqE (n ^. ctorId . to var)
 
@@ -252,116 +360,28 @@ infixE :: Exp -> QOp -> [Exp] -> Exp
 infixE l _ []     = l
 infixE l o (r:rs) = infixE (infixApp l o r) o rs
 
-parseXMLE, parseJSONE, parseHeadersE :: Protocol -> Field -> Exp
-parseXMLE     = decodeE (Dec ".@" ".@?" ".!@" (var "x") "XML")
-parseJSONE    = decodeE (Dec ".:" ".:?" ".!=" (var "x") "JSON")
-parseHeadersE = decodeE (Dec ".#" ".#?" ".!#" (var "h") "Headers")
+impliesE :: Text -> Exp -> Exp
+impliesE x y = paren (infixApp (str x) "::" y)
 
-toXMLE, toJSONE :: Protocol -> Field -> Exp
-toXMLE  = encodeE (Enc "@=" "XML")
-toJSONE = encodeE (Enc ".=" "JSON")
+flatE (Just n) o = encodeE n o
+flatE Nothing  _ = id
 
-toElementE :: Protocol -> Field -> Exp
-toElementE p f = appFun (var "mkElement")
-    [ str ns
-    , var "."
-    , var (f ^. fieldAccessor)
-    ]
-  where
-    ns | Just x <- f ^. fieldNamespace = "{" <> x <> "}" <> n
-       | otherwise                      = n
+defaultMonoidE :: Exp -> Text -> QOp -> QOp -> Exp
+defaultMonoidE v n dm dd =
+    infixApp (infixApp v dm (str n)) dd (var "mempty")
 
-    n = memberName p Input (f ^. fieldId) (f ^. fieldRef)
+encodeE :: Text -> QOp -> Exp -> Exp
+encodeE n o = infixApp (str n) o
 
-toHeadersE :: Protocol -> Either (Text, Text) Field -> Exp
-toHeadersE p = either pair (encodeE (Enc "=#" "Headers") p)
-  where
-    pair (k, v) = infixApp (str k) "=#" (impliesE (str v) (var ""))
+decodeE :: Exp -> QOp -> Text -> Exp
+decodeE v o = infixApp v o . str
 
-toQueryE :: Protocol -> Either (Text, Maybe Text) Field -> Exp
-toQueryE p = either pair (encodeE (Enc "=:" "Query") p)
-  where
-    pair (k, Nothing) = str k
-    pair (k, Just v)  = infixApp (str k) "=:" (impliesE (str v) (var "ByteString"))
+memberName :: Protocol -> Direction -> Field -> Text
+memberName p d f = Proto.memberName p d (f ^. fieldId) (f ^. fieldRef)
 
-toPathE :: Either Text Field -> Exp
-toPathE = either str (app (var "toText") . var . view fieldAccessor)
-
-toBodyE :: Field -> Exp
-toBodyE f = var (f ^. fieldAccessor)
-
-impliesE :: Exp -> Exp -> Exp
-impliesE x y = paren (infixApp x "::" y)
-
-data Dec = Dec
-    { decodeOp      :: QOp
-    , decodeMaybeOp :: QOp
-    , decodeDefOp   :: QOp
-    , decodeVar     :: Exp
-    , decodeSuffix  :: Text
-    }
-
-decodeE :: Dec -> Protocol -> Field -> Exp
-decodeE o p f = case names of
-    NMap  mn e k v             -> dec mn (decodeMapF   o) [str e, str k, str v]
-    NList mn i
-        | TList1 _ <- typeOf f -> dec mn (decodeList1F o) [str i]
-        | otherwise            -> dec mn (decodeListF  o) [str i]
-    NName (str -> n)
-        | f ^. fieldRequired   -> infixApp x (decodeOp o) n
-        | otherwise            -> infixApp x (decodeMaybeOp o) n
-  where
-    names = nestedNames p Output (f ^. fieldId) (f ^. fieldRef)
-
-    dec (Just n) fun xs = decodeMonoidE o n (appFun fun xs)
-    dec Nothing  fun xs = appFun fun $ xs ++ [x]
-
-    x = decodeVar o
-
-data Enc = Enc
-    { encodeOp     :: QOp
-    , encodeSuffix :: Text
-    }
-
-encodeE :: Enc -> Protocol -> Field -> Exp
-encodeE o p f = case names of
-    NMap  mn e k v' -> nest mn $ appFun (encodeMapF o) [str e, str k, str v', v]
-    NList mn i      -> nest mn (a i)
-    NName n         -> a n
-  where
-    names = nestedNames p Input (f ^. fieldId) (f ^. fieldRef)
-
-    nest (Just n) = infixApp (str n) (encodeOp o)
-    nest Nothing  = id
-
-    a n = infixApp (str n) (encodeOp o) v
-
-    v = var (f ^. fieldAccessor)
-
-maybeStrE :: Maybe Text -> Exp
-maybeStrE = maybe (var "Nothing") (paren . app (var "Just") . str)
-
-decodeMonoidE :: Dec -> Text -> Exp -> Exp
-decodeMonoidE o n = paren .
-    infixApp
-        (infixApp
-            (infixApp (decodeVar o)
-                      (decodeMaybeOp o)
-                      (str n))
-            (decodeDefOp o)
-            (var "mempty"))
-        ">>="
-
-decodeMapF, decodeListF, decodeList1F :: Dec -> Exp
-decodeMapF   e = var $ "parse" <> decodeSuffix e <> "Map"
-decodeListF  e = var $ "parse" <> decodeSuffix e <> "List"
-decodeList1F e = var $ "parse" <> decodeSuffix e <> "List1"
-
-encodeMapF :: Enc -> Exp
-encodeMapF e = var $ "to" <> encodeSuffix e <> "Map"
-
--- encodeListF  e = var $ "to" <> encodeSuffix e <> "List"
--- encodeList1F e = var $ "to" <> encodeSuffix e <> "List1"
+inputNames, outputNames :: Protocol -> Field -> Names
+inputNames  p f = Proto.nestedNames p Input  (f ^. fieldId) (f ^. fieldRef)
+outputNames p f = Proto.nestedNames p Output (f ^. fieldId) (f ^. fieldRef)
 
 requestF :: HTTP Identity -> [Inst] -> Exp
 requestF h is = var v
@@ -384,7 +404,7 @@ responseF p h r fs = wrapper ("receive" <> fun)
   where
     fun | null fs                   = "Null"
         | any (view fieldStream) fs = "Body"
-        | otherwise                 = protocolSuffix p
+        | otherwise                 = Proto.suffix p
 
     wrapper v
         | Just x <- r ^. refResultWrapper = app (var (v <> "Wrapper")) (str x)
@@ -466,9 +486,6 @@ pvar = Exts.pvar . ident
 
 var :: Text -> Exp
 var = Exts.var . ident
-
--- qop :: Text -> QOp
--- qop = Exts.op . Exts.sym . Text.unpack
 
 param :: Int -> Name
 param = Ident . mappend "p" . show

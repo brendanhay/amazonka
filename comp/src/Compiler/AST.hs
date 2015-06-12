@@ -153,17 +153,17 @@ type MemoS a = StateT (Map Id a) (Either Error)
 -- and attach the associated shape to the appropriate operation.
 separate :: (Show a, HasRelation a) => Map Id (Operation Identity (RefF b))
          -> Map Id a
-         -> Either Error (Map Id (Operation Identity a), Map Id a)
+         -> Either Error (Map Id (Operation Identity (RefF a)), Map Id a)
 separate os ss = runStateT (traverse go os) ss
   where
     go :: HasRelation b
-       => Operation Identity (RefF a) -> MemoS b (Operation Identity b)
+       => Operation Identity (RefF a) -> MemoS b (Operation Identity (RefF b))
     go o = do
         x <- remove Input  (o ^. inputName)
         y <- remove Output (o ^. outputName)
         return $! o
-            { _opInput  = Identity x
-            , _opOutput = Identity y
+            { _opInput  = Identity (o ^. opInput . _Identity  & refAnn .~ x)
+            , _opOutput = Identity (o ^. opOutput . _Identity & refAnn .~ y)
             }
 
     remove :: HasRelation a => Direction -> Id -> MemoS a a

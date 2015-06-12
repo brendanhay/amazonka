@@ -12,7 +12,12 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Compiler.Protocol where
+module Compiler.Protocol
+    ( Names(..)
+    , memberName
+    , nestedNames
+    , protocolSuffix
+    ) where
 
 import           Compiler.Types
 import           Control.Applicative
@@ -34,22 +39,33 @@ protocolSuffix = \case
     Query    -> "XML"
     EC2      -> "XML"
 
-mapNames :: Protocol
-         -> Direction
-         -> Id
-         -> RefF a
-         -> MapF a
-         -> (Maybe Text, Text, Text, Text)
+data Names
+    = NMap  (Maybe Text) Text Text Text
+    | NList (Maybe Text) Text
+    | NName Text
+
+memberName :: Protocol -> Direction -> Id -> RefF (Shape a) -> Text
+memberName p d n r =
+    case nestedNames p d n r of
+        NMap  mn e _ _ -> fromMaybe e mn
+        NList mn i     -> fromMaybe i mn
+        NName n        -> n
+
+nestedNames :: Protocol -> Direction -> Id -> RefF (Shape a) -> Names
+nestedNames p d n r =
+    case unwrap (r ^. refAnn) of
+        Map  m -> mapNames  p d n r m
+        List l -> listNames p d n r l
+        _      -> NName (name p d n r)
+
+mapNames :: Protocol -> Direction -> Id -> RefF a -> MapF a -> Names
 mapNames p d n r m
-    | m ^. infoFlattened = (Nothing,     member, key, value)
-    | otherwise          = (Just member, entry,  key, value)
+    | flatten p m = NMap Nothing   mn      kn vn
+    | otherwise   = NMap (Just mn) "entry" kn vn
   where
-    member = memberName p d n r
-
-    entry  = "entry"
-
-    key    = fromMaybe "key"   (m ^. mapKey   . refLocationName)
-    value  = fromMaybe "value" (m ^. mapValue . refLocationName)
+    mn = name p d n r
+    kn = fromMaybe "key"   (m ^. mapKey   . refLocationName)
+    vn = fromMaybe "value" (m ^. mapValue . refLocationName)
 
     -- Member, [entry, key, value]
 
@@ -70,29 +86,13 @@ mapNames p d n r m
     -- Query, input:
     -- MapArg.entry.1.key=key1&MapArg.entry.1.value=val1
 
-listNames :: Protocol
-          -> Direction
-          -> Id
-          -> RefF  a
-          -> ListF a
-          -> (Maybe Text, Text)
+listNames :: Protocol -> Direction -> Id -> RefF  a -> ListF a -> Names
 listNames p d n r l
-     | l ^. infoFlattened || p == EC2 = flat
-     | otherwise                      = nest
+     | flatten p l = NList Nothing   (fromMaybe mn ln)
+     | otherwise   = NList (Just mn) (fromMaybe "member" ln)
   where
-    flat =
-        ( Nothing
-        , fromMaybe mem (ref <|> item)
-        )
-
-    nest =
-        ( Just $ fromMaybe mem ref
-        , fromMaybe "member" item
-        )
-
-    mem  = n ^. memberId
-    ref  = r ^. refLocationName
-    item = l ^. listItem . refLocationName
+    mn = name p d n r
+    ln = l ^. listItem . refLocationName
 
      -- Member, [item]
 
@@ -120,12 +120,8 @@ listNames p d n r l
     -- go RestXML  False = Just item
 
 -- FIXME: Go through the other SDK's tests to ensure correctness.
-memberName :: Protocol
-           -> Direction
-           -> Id
-           -> RefF a
-           -> Text
-memberName p d n r = go p d
+name :: Protocol -> Direction -> Id -> RefF a -> Text
+name p d n r = go p d
   where
     go EC2 Input = upperHead $ fromMaybe key (r ^. refQueryName)
     go _   _     = key
@@ -133,3 +129,7 @@ memberName p d n r = go p d
     -- Use the locationName on the struct member if present,
     -- otherwise the struct member id.
     key = fromMaybe (n ^. memberId) (r ^. refLocationName)
+
+flatten :: HasInfo a => Protocol -> a -> Bool
+flatten EC2 _ = True
+flatten _   i = i ^. infoFlattened

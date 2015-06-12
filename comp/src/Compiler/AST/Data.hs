@@ -44,17 +44,17 @@ import           Language.Haskell.Exts.Pretty
 
 operationData :: HasMetadata a Identity
               => a
-              -> Operation Identity (Shape Solved)
+              -> Operation Identity Ref
               -> Either Error (Operation Identity Data)
 operationData m o = do
-    (xa, x)  <- struct (o ^. opInput  . _Identity)
-    (ya, y)  <- struct (o ^. opOutput . _Identity)
+    (xa, x)  <- struct (xr ^. refAnn)
+    (ya, y)  <- struct (yr ^. refAnn)
 
     (xd, xs) <- prodData m xa x
     (yd, ys) <- prodData m ya y
 
     is       <- requestInsts m h xn xs
-    cls      <- pp Print $ requestD m h (xn, is) (ya, yn, ys)
+    cls      <- pp Print $ requestD m h (xr, is) (yr, ys)
     is'      <- Map.insert "AWSRequest" cls <$> renderInsts p xn is
 
     return $! o
@@ -64,13 +64,15 @@ operationData m o = do
   where
     struct (a :< Struct s) = Right (a, s)
     struct _               = Left $
-        format ("Unexpected non-struct shape for operation " % stext)
-               (xn ^. typeId)
+        format ("Unexpected non-struct shape for operation " % iprimary)
+               xn
 
     p  = m ^. protocol
     h  = o ^. opHTTP
+
+    xr = o ^. opInput  . _Identity
+    yr = o ^. opOutput . _Identity
     xn = o ^. inputName
-    yn = o ^. outputName
 
 shapeData :: HasMetadata a Identity
           => a

@@ -25,6 +25,7 @@ import           Compiler.Formatting
 import           Compiler.Protocol
 import           Compiler.Text
 import           Compiler.Types
+import           Control.Comonad
 import           Control.Comonad.Cofree
 import           Control.Error
 import           Control.Lens                 hiding (iso, mapping, op)
@@ -35,6 +36,7 @@ import           Data.List                    (nub)
 import           Data.Monoid
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
+import           Debug.Trace
 import qualified Language.Haskell.Exts        as Exts
 import           Language.Haskell.Exts.Build  hiding (pvar, var)
 import           Language.Haskell.Exts.SrcLoc (noLoc)
@@ -109,19 +111,22 @@ recDecl ts n fs = QualConDecl noLoc [] [] $
 requestD :: HasMetadata a f
          => a
          -> HTTP Identity
-         -> (Id, [Inst])
-         -> (Solved, Id, [Field])
+         -> (Ref, [Inst])
+         -> (Ref, [Field])
          -> Decl
-requestD m h (a, as) (s, b, bs) = instD "AWSRequest" a
-    [ assocTyD a "Sv" (m ^. serviceAbbrev)
-    , assocTyD a "Rs" (b ^. typeId)
+requestD m h (a, as) (b, bs) = instD "AWSRequest" (identifier a)
+    [ assocTyD (identifier a) "Sv" (m ^. serviceAbbrev)
+    , assocTyD (identifier a) "Rs" (b ^. to identifier . typeId)
     , funD "request"  (requestF h as)
-    , funD "response" (responseE (m ^. protocol) h s b bs)
+    , funD "response" (responseE (m ^. protocol) h b bs)
     ]
 
-responseE :: Protocol -> HTTP Identity -> Solved -> Id -> [Field] -> Exp
-responseE p h s n fs = app (responseF p h fs) bdy
+responseE :: Protocol -> HTTP Identity -> Ref -> [Field] -> Exp
+responseE p h r fs = app (responseF p h fs) bdy
   where
+    n = r ^. to identifier
+    s = r ^. refAnn . to extract
+
     bdy :: Exp
     bdy | null fs    = n ^. ctorId . to var
         | isShared s = lam parseAll
@@ -143,14 +148,20 @@ responseE p h s n fs = app (responseF p h fs) bdy
     parseProto = case p of
         JSON     -> parseJSONE p
         RestJSON -> parseJSONE p
-        _        -> parseXMLE  p
+        _        -> parseXMLWrapper . parseXMLE p
 
     parseAll :: Exp
     parseAll = flip app (var "x") $
         case p of
             JSON     -> var "parseJSON"
             RestJSON -> var "parseJSON"
-            _        -> var "parseXML"
+            _        -> parseXMLWrapper (var "parseXML")
+
+    parseXMLWrapper :: Exp -> Exp
+    parseXMLWrapper e =
+        case r ^. refResultWrapper of
+            Nothing -> e
+            Just  x -> paren $ infixApp (infixApp (var "x") ".@" (str x)) ">>=" e
 
     body = any (view fieldStream) fs
 
@@ -248,33 +259,33 @@ infixE l _ []     = l
 infixE l o (r:rs) = infixE (infixApp l o r) o rs
 
 parseXMLE, parseJSONE, parseHeadersE :: Protocol -> Field -> Exp
-parseXMLE     = decodeE (Dec ".@" ".@?" ".!@" (var "x"))
-parseJSONE    = decodeE (Dec ".:" ".:?" ".!=" (var "x"))
-parseHeadersE = decodeE (Dec ".#" ".#?" ".!#" (var "h"))
+parseXMLE     = decodeE (Dec ".@" ".@?" ".!@" (var "x") "XML")
+parseJSONE    = decodeE (Dec ".:" ".:?" ".!=" (var "x") "JSON")
+parseHeadersE = decodeE (Dec ".#" ".#?" ".!#" (var "h") "Headers")
 
 toXMLE, toJSONE :: Protocol -> Field -> Exp
-toXMLE  = encodeE (Enc "@=" "@@=")
-toJSONE = encodeE (Enc ".=" ".=")
+toXMLE  = encodeE (Enc "@=" "XML")
+toJSONE = encodeE (Enc ".=" "JSON")
 
 toElementE :: Protocol -> Field -> Exp
 toElementE p f = appFun (var "mkElement")
-    [ str name
+    [ str ns
     , var "."
     , var (f ^. fieldAccessor)
     ]
   where
-    name | Just ns <- f ^. fieldNamespace = "{" <> ns <> "}" <> n
-         | otherwise                      = n
+    ns | Just x <- f ^. fieldNamespace = "{" <> x <> "}" <> n
+       | otherwise                      = n
 
     n = memberName p Input (f ^. fieldId) (f ^. fieldRef)
 
 toHeadersE :: Protocol -> Either (Text, Text) Field -> Exp
-toHeadersE p = either pair (encodeE (Enc "=#" "=##") p)
+toHeadersE p = either pair (encodeE (Enc "=#" "Headers") p)
   where
     pair (k, v) = infixApp (str k) "=#" (impliesE (str v) (var ""))
 
 toQueryE :: Protocol -> Either (Text, Maybe Text) Field -> Exp
-toQueryE p = either pair (encodeE (Enc "=:" "=:") p)
+toQueryE p = either pair (encodeE (Enc "=:" "Query") p)
   where
     pair (k, Nothing) = str k
     pair (k, Just v)  = infixApp (str k) "=:" (impliesE (str v) (var "ByteString"))
@@ -293,97 +304,58 @@ data Dec = Dec
     , decodeMaybeOp :: QOp
     , decodeDefOp   :: QOp
     , decodeVar     :: Exp
+    , decodeSuffix  :: Text
     }
-
-decodeE :: Dec -> Protocol -> Field -> Exp
-decodeE o p f = go (f ^. fieldRef . refAnn . to unwrap)
-  where
-    go = \case
-        Map  m                 -> decodeMapE  o p f m
-        List l                 -> decodeListE o p f l
-        _ | f ^. fieldRequired -> infixApp x (decodeOp      o) n
-          | otherwise          -> infixApp x (decodeMaybeOp o) n
-
-    n = str $ memberName p Output (f ^. fieldId) (f ^. fieldRef)
-    x = decodeVar o
-
-decodeMapE o p f m = case p of
-    RestJSON -> decodeDefaultE o n
-    JSON     -> decodeDefaultE o n
-    _        -> appFun (var "parseXMLMap") [maybeStrE mx, str e, str k, str v, decodeVar o]
-  where
-    (mx, e, k, v) = mapNames p Output (f ^. fieldId) (f ^. fieldRef) m
-
-    n = memberName p Output (f ^. fieldId) (f ^. fieldRef)
 
 -- FIXME: need to deal with result wrappers
 
-decodeListE o p f l = case p of
-    RestJSON -> decodeDefaultE o n
-    JSON     -> decodeDefaultE o n
-    _        -> appFun (var fun) [maybeStrE mx, str i, decodeVar o]
+decodeE :: Dec -> Protocol -> Field -> Exp
+decodeE o p f = case names of
+    NMap  mn e k v             -> dec (decodeMapF   o) mn [str e, str k, str v]
+    NList mn i
+        | TList1 _ <- typeOf f -> dec (decodeList1F o) mn [str i]
+        | otherwise            -> dec (decodeListF  o) mn [str i]
+    NName (str -> n)
+        | f ^. fieldRequired   -> infixApp x (decodeOp o) n
+        | otherwise            -> infixApp x (decodeMaybeOp o) n
   where
-    fun | TList1 _ <- typeOf f = "parseXMLList1"
-        | otherwise            = "parseXMLList"
+    names = nestedNames p Output (f ^. fieldId) (f ^. fieldRef)
 
-    (mx, i) = listNames p Output (f ^. fieldId) (f ^. fieldRef) l
+    dec fun n xs = appFun fun $ (maybeStrE n : xs) ++ [x]
 
-    n = memberName p Output (f ^. fieldId) (f ^. fieldRef)
+    x = decodeVar o
 
-decodeDefaultE o n = infixApp (decodeMaybeE o n) (decodeDefOp o) (var "mempty")
+data Enc = Enc
+    { encodeOp     :: QOp
+    , encodeSuffix :: Text
+    }
 
-decodeMaybeE o n = infixApp (decodeVar o) (decodeMaybeOp o) (var n)
+encodeE :: Enc -> Protocol -> Field -> Exp
+encodeE o p f = case names of
+    NMap  mn e k v'           -> enc (encodeMapF    o) mn [str e, str k, str v']
+    NList mn i
+        | TList1 _ <- typeOf f -> enc (encodeList1F o) mn [str i]
+        | otherwise            -> enc (encodeListF  o) mn [str i]
+    NName (str -> n)           -> infixApp n (encodeOp o) v
+  where
+    names = nestedNames p Input (f ^. fieldId) (f ^. fieldRef)
+
+    enc fun n xs = appFun fun $ (maybeStrE n : xs) ++ [v]
+
+    v = var (f ^. fieldAccessor)
 
 maybeStrE :: Maybe Text -> Exp
 maybeStrE = maybe (var "Nothing") (paren . app (var "Just") . str)
 
-       -- list l Nothing  = parse n
-    -- list l (Just i) = paren $
-    --     infixApp (infixApp x
-    --                        (decodeMaybeOp o)
-    --                        (infixApp n
-    --                                  (decodeDefOp o)
-    --                                  (var "mempty")))
-    --              ">>="
-    --              (parse i)
+decodeMapF, decodeListF, decodeList1F :: Dec -> Exp
+decodeMapF   e = var $ "parse" <> decodeSuffix e <> "Map"
+decodeListF  e = var $ "parse" <> decodeSuffix e <> "List"
+decodeList1F e = var $ "parse" <> decodeSuffix e <> "List1"
 
-    -- parse = app (var ("parse" <> protocolSuffix p <> fromMaybe mempty name))
-
-    -- name | fieldList1 f = Just "NonEmpty"
-    --      | fieldList  f = Just "List"
-    --      | fieldMap   f = Just "Map"
-    --      | otherwise    = Nothing
-
-    -- x = var (decodeVar o)
-
--- memberNames :: Protocol -> Direction -> Field -> (Exp, Maybe Exp)
--- memberNames p d f =
---     ( str  $  memberName p d (f ^. fieldId) (f ^. fieldRef)
---     , str <$> item
---     )
---   where
---     item = case unwrap (f ^. fieldRef . refAnn) of
---         List l -> listItemName p d l
---         Map  m
---         _      -> Nothing
-
-data Enc = Enc
-    { encodeOp     :: QOp
-    , encodeListOp :: QOp
-    }
-
-encodeE :: Enc -> Protocol -> Field -> Exp
-encodeE o p f
--- FIXME:
---    | Just i <- m  = infixApp n (encodeOp     o) (infixApp i (encodeListOp o) v) --
-    -- | fieldList1 f = infixApp n (encodeListOp o) v
-    -- | fieldList  f = infixApp n (encodeListOp o) v
---    | fieldMap   f = infixApp n (encodeOp c) v
-    | otherwise    = infixApp n (encodeOp     o) v
-  where
-    n = str $ memberName p Input (f ^. fieldId) (f ^. fieldRef)
-
-    v = var (f ^. fieldAccessor)
+encodeMapF, encodeListF, encodeList1F :: Enc -> Exp
+encodeMapF   e = var $ "to" <> encodeSuffix e <> "Map"
+encodeListF  e = var $ "to" <> encodeSuffix e <> "List"
+encodeList1F e = var $ "to" <> encodeSuffix e <> "List1"
 
 requestF :: HTTP Identity -> [Inst] -> Exp
 requestF h is = var v
@@ -496,3 +468,4 @@ unqual = UnQual . ident
 
 ident :: Text -> Name
 ident = Ident . Text.unpack
+

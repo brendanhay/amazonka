@@ -33,6 +33,7 @@ import           Network.AWS.Data.Text       as Export
 import           Network.AWS.Data.Time       as Export
 import           Network.AWS.Data.XML        as Export
 import           Network.AWS.Error           as Export
-import           Network.AWS.Types           as Export
+import           Network.AWS.Types           as Export hiding (AccessKey,
+                                                        SecretKey)
 import           Network.HTTP.Types.Status   as Export (Status (..))
 import           Numeric.Natural             as Export (Natural)

@@ -19,6 +19,7 @@ module Network.AWS.Response
     -- * Responses
       receiveNull
     , receiveXML
+    , receiveXMLWrapper
     , receiveJSON
     , receiveBody
     ) where
@@ -29,13 +30,14 @@ import           Data.Bifunctor
 import           Data.Conduit
 import qualified Data.Conduit.Binary          as Conduit
 import           Data.Monoid
+import           Data.Text                    (Text)
 import           Network.AWS.Data.Body
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.XML
 import           Network.AWS.Types
 import           Network.HTTP.Client          hiding (Request, Response)
 import           Network.HTTP.Types
-import           Text.XML                     (Node)
+import           Text.XML                     (Name, Node)
 
 receiveNull :: (MonadResource m, AWSService (Sv a))
             => Rs a
@@ -53,6 +55,15 @@ receiveXML :: (MonadResource m, AWSService (Sv a))
            -> Either HttpException ClientResponse
            -> m (Response' a)
 receiveXML = deserialise decodeXML
+
+receiveXMLWrapper :: (MonadResource m, AWSService (Sv a))
+                  => Text
+                  -> (Int -> ResponseHeaders -> [Node] -> Either String (Rs a))
+                  -> Logger
+                  -> Request a
+                  -> Either HttpException ClientResponse
+                  -> m (Response' a)
+receiveXMLWrapper n f = receiveXML (\s h x -> x .@ n >>= f s h)
 
 receiveJSON :: (MonadResource m, AWSService (Sv a))
             => (Int -> ResponseHeaders -> Object -> Either String (Rs a))

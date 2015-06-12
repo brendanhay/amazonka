@@ -122,7 +122,7 @@ requestD m h (a, as) (b, bs) = instD "AWSRequest" (identifier a)
     ]
 
 responseE :: Protocol -> HTTP Identity -> Ref -> [Field] -> Exp
-responseE p h r fs = app (responseF p h fs) bdy
+responseE p h r fs = app (responseF p h r fs) bdy
   where
     n = r ^. to identifier
     s = r ^. refAnn . to extract
@@ -148,20 +148,14 @@ responseE p h r fs = app (responseF p h fs) bdy
     parseProto = case p of
         JSON     -> parseJSONE p
         RestJSON -> parseJSONE p
-        _        -> parseXMLWrapper . parseXMLE p
+        _        -> parseXMLE  p
 
     parseAll :: Exp
     parseAll = flip app (var "x") $
         case p of
             JSON     -> var "parseJSON"
             RestJSON -> var "parseJSON"
-            _        -> parseXMLWrapper (var "parseXML")
-
-    parseXMLWrapper :: Exp -> Exp
-    parseXMLWrapper e =
-        case r ^. refResultWrapper of
-            Nothing -> e
-            Just  x -> paren $ infixApp (infixApp (var "x") ".@" (str x)) ">>=" e
+            _        -> var "parseXML"
 
     body = any (view fieldStream) fs
 
@@ -307,21 +301,20 @@ data Dec = Dec
     , decodeSuffix  :: Text
     }
 
--- FIXME: need to deal with result wrappers
-
 decodeE :: Dec -> Protocol -> Field -> Exp
 decodeE o p f = case names of
-    NMap  mn e k v             -> dec (decodeMapF   o) mn [str e, str k, str v]
+    NMap  mn e k v             -> dec mn (decodeMapF   o) [str e, str k, str v]
     NList mn i
-        | TList1 _ <- typeOf f -> dec (decodeList1F o) mn [str i]
-        | otherwise            -> dec (decodeListF  o) mn [str i]
+        | TList1 _ <- typeOf f -> dec mn (decodeList1F o) [str i]
+        | otherwise            -> dec mn (decodeListF  o) [str i]
     NName (str -> n)
         | f ^. fieldRequired   -> infixApp x (decodeOp o) n
         | otherwise            -> infixApp x (decodeMaybeOp o) n
   where
     names = nestedNames p Output (f ^. fieldId) (f ^. fieldRef)
 
-    dec fun n xs = appFun fun $ (maybeStrE n : xs) ++ [x]
+    dec (Just n) fun xs = decodeMonoidE o n (appFun fun xs)
+    dec Nothing  fun xs = appFun fun $ xs ++ [x]
 
     x = decodeVar o
 
@@ -332,30 +325,43 @@ data Enc = Enc
 
 encodeE :: Enc -> Protocol -> Field -> Exp
 encodeE o p f = case names of
-    NMap  mn e k v'           -> enc (encodeMapF    o) mn [str e, str k, str v']
-    NList mn i
-        | TList1 _ <- typeOf f -> enc (encodeList1F o) mn [str i]
-        | otherwise            -> enc (encodeListF  o) mn [str i]
-    NName (str -> n)           -> infixApp n (encodeOp o) v
+    NMap  mn e k v' -> nest mn $ appFun (encodeMapF o) [str e, str k, str v', v]
+    NList mn i      -> nest mn (a i)
+    NName n         -> a n
   where
     names = nestedNames p Input (f ^. fieldId) (f ^. fieldRef)
 
-    enc fun n xs = appFun fun $ (maybeStrE n : xs) ++ [v]
+    nest (Just n) = infixApp (str n) (encodeOp o)
+    nest Nothing  = id
+
+    a n = infixApp (str n) (encodeOp o) v
 
     v = var (f ^. fieldAccessor)
 
 maybeStrE :: Maybe Text -> Exp
 maybeStrE = maybe (var "Nothing") (paren . app (var "Just") . str)
 
+decodeMonoidE :: Dec -> Text -> Exp -> Exp
+decodeMonoidE o n = paren .
+    infixApp
+        (infixApp
+            (infixApp (decodeVar o)
+                      (decodeMaybeOp o)
+                      (str n))
+            (decodeDefOp o)
+            (var "mempty"))
+        ">>="
+
 decodeMapF, decodeListF, decodeList1F :: Dec -> Exp
 decodeMapF   e = var $ "parse" <> decodeSuffix e <> "Map"
 decodeListF  e = var $ "parse" <> decodeSuffix e <> "List"
 decodeList1F e = var $ "parse" <> decodeSuffix e <> "List1"
 
-encodeMapF, encodeListF, encodeList1F :: Enc -> Exp
-encodeMapF   e = var $ "to" <> encodeSuffix e <> "Map"
-encodeListF  e = var $ "to" <> encodeSuffix e <> "List"
-encodeList1F e = var $ "to" <> encodeSuffix e <> "List1"
+encodeMapF :: Enc -> Exp
+encodeMapF e = var $ "to" <> encodeSuffix e <> "Map"
+
+-- encodeListF  e = var $ "to" <> encodeSuffix e <> "List"
+-- encodeList1F e = var $ "to" <> encodeSuffix e <> "List1"
 
 requestF :: HTTP Identity -> [Inst] -> Exp
 requestF h is = var v
@@ -373,12 +379,16 @@ requestF h is = var v
 
 -- FIXME: take method into account for responses, such as HEAD etc, particuarly
 -- when the body might be totally empty.
-responseF :: Protocol -> HTTP Identity -> [Field] -> Exp
-responseF p h fs = var ("receive" <> f)
+responseF :: Protocol -> HTTP Identity -> RefF a -> [Field] -> Exp
+responseF p h r fs = wrapper ("receive" <> fun)
   where
-    f | null fs                   = "Null"
-      | any (view fieldStream) fs = "Body"
-      | otherwise                 = protocolSuffix p
+    fun | null fs                   = "Null"
+        | any (view fieldStream) fs = "Body"
+        | otherwise                 = protocolSuffix p
+
+    wrapper v
+        | Just x <- r ^. refResultWrapper = app (var (v <> "Wrapper")) (str x)
+        | otherwise                       = var v
 
 signature :: Timestamp -> TType -> Type
 signature ts = directed False ts Nothing

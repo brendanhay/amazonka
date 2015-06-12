@@ -21,6 +21,7 @@ import           Data.List.NonEmpty          as Export (NonEmpty (..))
 import           Data.Monoid                 as Export (mconcat, mempty, (<>))
 import           GHC.Generics                as Export (Generic)
 import           Network.AWS.Data.Base64     as Export
+import           Network.AWS.Data.Body       as Export
 import           Network.AWS.Data.ByteString as Export
 import           Network.AWS.Data.Headers    as Export
 import           Network.AWS.Data.JSON       as Export
@@ -34,3 +35,4 @@ import           Network.AWS.Data.XML        as Export
 import           Network.AWS.Error           as Export
 import           Network.AWS.Types           as Export
 import           Network.HTTP.Types.Status   as Export (Status (..))
+import           Numeric.Natural             as Export (Natural)

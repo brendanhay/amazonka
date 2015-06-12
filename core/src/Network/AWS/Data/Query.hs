@@ -35,6 +35,8 @@ import           Control.Lens
 import qualified Data.ByteString.Char8       as BS
 import           Data.Data
 import           Data.Data.Lens
+import           Data.HashMap.Strict         (HashMap)
+import qualified Data.HashMap.Strict         as Map
 import           Data.List                   (sort)
 import           Data.List.NonEmpty          (NonEmpty (..))
 import qualified Data.List.NonEmpty          as NonEmpty
@@ -112,6 +114,16 @@ renderQuery = intercalate . sort . enc Nothing
 
     ksep = "&"
     vsep = "="
+
+toQueryMap :: (ToQuery k, ToQuery v)
+           => ByteString
+           -> ByteString
+           -> ByteString
+           -> HashMap k v
+           -> Query
+toQueryMap e k v = Pair e . toQuery . map f . Map.toList
+  where
+    f (x, y) = List [k =: toQuery x, v =: toQuery y]
 
 class ToQuery a where
     toQuery :: a -> Query

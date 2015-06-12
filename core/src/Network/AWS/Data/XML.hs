@@ -47,6 +47,9 @@ module Network.AWS.Data.XML where
 import           Control.Applicative
 import           Control.Monad
 import           Data.Default.Class
+import           Data.Hashable
+import           Data.HashMap.Strict         (HashMap)
+import qualified Data.HashMap.Strict         as Map
 import           Data.List.NonEmpty          (NonEmpty (..))
 import qualified Data.List.NonEmpty          as NonEmpty
 import           Data.Maybe
@@ -72,24 +75,10 @@ ns .@? n =
 (.!@) :: Either String (Maybe a) -> a -> Either String a
 f .!@ x = fromMaybe x <$> f
 
-parseList1 :: FromXML a => Text -> [Node] -> Either String (NonEmpty a)
-parseList1 n ns = do
-    l <- parseList n ns
-    maybe (Left $ "Empty list when expecting at least one element: " ++ show n)
-          Right
-          (NonEmpty.nonEmpty l)
-
-parseList :: FromXML a => Text -> [Node] -> Either String [a]
-parseList n = traverse parseXML . mapMaybe (childNodesOf n)
-
-infixr 7 @=, @@=
+infixr 7 @=
 
 (@=) :: ToXML a => Name -> a -> XML
 n @= x = One . NodeElement $ mkElement n x
-
--- FIXME: This will not handle ze HashMaps, sir.
-(@@=) :: (IsList a, ToXML (Item a)) => Name -> a -> XML
-n @@= xs = Many . map (NodeElement . mkElement n) $ toList xs
 
 decodeXML :: FromXML a => LazyByteString -> Either String a
 decodeXML = either failure success . parseLBS def
@@ -177,10 +166,42 @@ instance ToXML Natural where toXML = toXMLText
 instance ToXML Double  where toXML = toXMLText
 instance ToXML Bool    where toXML = toXMLText
 
+parseXMLMap :: (Eq k, Hashable k, FromText k, FromXML v)
+            => Text
+            -> Text
+            -> Text
+            -> [Node]
+            -> Either String (HashMap k v)
+parseXMLMap e k v = fmap Map.fromList . traverse f . mapMaybe (childNodesOf e)
+  where
+    f ns = (,)
+       <$> (ns .@ k >>= fromText)
+       <*>  ns .@ v
+
+parseXMLList1 :: FromXML a
+              => Text
+              -> [Node]
+              -> Either String (NonEmpty a)
+parseXMLList1 n = parseXMLList n >=> maybe failure Right . NonEmpty.nonEmpty
+  where
+    failure = Left $ "Empty list when expecting at least one element: " ++ show n
+
+parseXMLList :: FromXML a
+             => Text
+             -> [Node]
+             -> Either String [a]
+parseXMLList n = traverse parseXML . mapMaybe (childNodesOf n)
+
 parseXMLText :: FromText a => String -> [Node] -> Either String a
 parseXMLText n = withContent n >=>
     maybe (Left $ "empty node list, when expecting single node " ++ n)
         fromText
+
+-- toXMLList :: (IsList a, ToXML (Item a)) => Maybe Name -> Name -> a -> XML
+-- toXMLList _ n = Many . map (NodeElement . mkElement n) . toList
+
+-- toXMLList1 :: (IsList a, ToXML (Item a)) => Name -> a -> XML
+-- toXMLList1 = toXMLList
 
 toXMLText :: ToText a => a -> XML
 toXMLText = One . NodeContent . toText

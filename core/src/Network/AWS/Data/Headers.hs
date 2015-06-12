@@ -45,11 +45,11 @@ hs .#? k =
 
 infixr 7 =#
 
-parseMap :: FromText a
-         => ByteString
-         -> ResponseHeaders
-         -> Either String (HashMap Text a)
-parseMap p = fmap Map.fromList . traverse g . filter f
+parseHeadersMap :: FromText a
+                => ByteString
+                -> ResponseHeaders
+                -> Either String (HashMap Text a)
+parseHeadersMap p = fmap Map.fromList . traverse g . filter f
   where
     f = BS.isPrefixOf p . CI.foldedCase . fst
 

@@ -24,6 +24,7 @@ module Network.AWS.Data.JSON
     , (.!=)
 
     -- ** Either String a
+    , eitherParseJSON
     , (.:>)
     , (.?>)
 

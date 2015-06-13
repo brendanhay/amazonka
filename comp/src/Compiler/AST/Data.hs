@@ -162,7 +162,7 @@ data Ident
 
 pp :: Pretty a => Ident -> a -> Either Error LText.Text
 pp i d
-    | i == Indent = bimap e Build.toLazyText (reformat johanTibell Nothing p)
+--    | i == Indent = bimap e Build.toLazyText (reformat johanTibell Nothing p)
     | otherwise   = pure p
   where
     e = flip mappend (", when formatting datatype: " <> p) . LText.pack

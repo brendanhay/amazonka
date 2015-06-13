@@ -126,7 +126,7 @@ requestInsts m h n fs = do
       where
         go (ToXML [])  = return Nothing
         go (ToXML [x]) = return (Just $ ToElement x)
-        go (ToXML _)   = Left "More than one field found for ToElement instance"
+        go (ToXML _)   = Left $ format ("Many candidates for ToElement in " % iprimary) n
         go x           = return (Just x)
 
     removeInsts :: [Inst] -> [Inst]
@@ -181,9 +181,17 @@ uriFields :: (Foldable f, Traversable t)
 uriFields h l f fs = traverse go (h ^. l)
   where
     go (Tok t) = return $ Left (f t)
-    go (Var v) = Right <$> note (missing v) (find ((v ==) . view fieldId) fs)
+    go (Var v) = Right <$> note missing (find match fs)
+      where
+        match f = v ^. memberId ==
+            fromMaybe (f ^. fieldId . memberId) (f ^. fieldRef . refLocationName)
 
-    missing = format ("Missing field corresponding to URI variable " % iprimary)
+        missing = format ("Missing field corresponding to URI variable "
+                         % iprimary % " in field names " % shown)
+                         v ids
+
+    ids :: [Text]
+    ids = foldMap ((:[]) . view (fieldId . memberId)) fs
 
 satisfies :: [Location] -> [Field] -> [Field]
 satisfies xs = satisfy (`elem` map Just xs)

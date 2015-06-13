@@ -495,4 +495,3 @@ unqual = UnQual . ident
 
 ident :: Text -> Name
 ident = Ident . Text.unpack
-

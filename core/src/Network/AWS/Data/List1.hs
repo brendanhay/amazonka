@@ -23,7 +23,6 @@ module Network.AWS.Data.List1
 import           Control.Lens         (makePrisms)
 import           Control.Monad
 import           Data.Aeson
-import           Data.Aeson.Types
 import           Data.List.NonEmpty   (NonEmpty (..))
 import qualified Data.List.NonEmpty   as NonEmpty
 import           Data.Text            (Text)
@@ -55,10 +54,12 @@ makePrisms ''List1
 instance FromJSON a => FromJSON (List1 a) where
     parseJSON = withArray "List1" (go >=> traverse parseJSON)
       where
-        go :: Array -> Parser (List1 Value)
         go = maybe (fail empty) (pure . List1)
            . NonEmpty.nonEmpty
            . toList
+
+instance ToJSON a => ToJSON (List1 a) where
+    toJSON = toJSON . toList
 
 parseXMLList1 :: FromXML a
               => Text

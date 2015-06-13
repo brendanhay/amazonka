@@ -9,35 +9,23 @@ CABAL_INSTALL_DEFARGS ?= -j \
  --disable-coverage \
  --enable-profiling
 
-XML := \
- cloudfront \
- route53 \
- s3
+define version =
+$(shell sed -n 's/^version: *\(.*\)$$/\1/p' $(1))
+endef
 
-QUERY := \
+VERSION        = $(call version,amazonka-compiler.cabal)
+CLIENT_VERSION = $(call version,$(TOP)/amazonka/amazonka.cabal)
+CORE_VERSION   = $(call version,$(TOP)/core/amazonka-core.cabal)
+
+MODELS ?= \
  autoscaling \
  cloudformation \
- cloudsearch \
- cloudwatch \
- ec2 \
- ecs \
- elasticache \
- elasticbeanstalk \
- elb \
- iam \
- importexport \
- rds \
- redshift \
- sdb \
- ses \
- sns \
- sqs \
- sts
-
-JSON := \
+ cloudfront \
  cloudhsm \
+ cloudsearch \
  cloudsearchdomain \
  cloudtrail \
+ cloudwatch \
  codedeploy \
  cognito-identity \
  cognito-sync \
@@ -46,31 +34,38 @@ JSON := \
  directconnect \
  ds \
  dynamodb \
+ ec2 \
+ ecs \
+ efs \
+ elasticache \
+ elasticbeanstalk \
  elastictranscoder \
+ elb \
  emr \
  glacier \
+ iam \
+ importexport \
  kinesis \
  kms \
  lambda \
  logs \
  machinelearning \
  opsworks \
+ rds \
+ redshift \
+ route53 \
  route53domains \
+ s3 \
+ sdb \
+ ses \
+ sns \
+ sqs \
  ssm \
  storagegateway \
+ sts \
  support \
  swf \
  workspaces
-
-MODELS ?= $(QUERY) $(XML) $(JSON)
-
-define version =
-$(shell sed -n 's/^version: *\(.*\)$$/\1/p' $(1))
-endef
-
-VERSION        = $(call version,amazonka-compiler.cabal)
-CLIENT_VERSION = $(call version,$(TOP)/amazonka/amazonka.cabal)
-CORE_VERSION  = $(call version,$(TOP)/core/amazonka-core.cabal)
 
 .PHONY: format compile
 

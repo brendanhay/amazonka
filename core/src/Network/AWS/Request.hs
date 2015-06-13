@@ -26,6 +26,7 @@ module Network.AWS.Request
     , postJSON
     , postQuery
     , putXML
+    , putJSON
     , putBody
 
     -- ** Constructors
@@ -73,14 +74,10 @@ put :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
 put x = get x & rqMethod .~ PUT
 
 postXML :: (ToQuery a, ToPath a, ToHeaders a, ToElement a) => a -> Request a
-postXML x = putXML x
-    & rqMethod .~ POST
+postXML x = putXML x & rqMethod .~ POST
 
 postJSON :: (ToQuery a, ToPath a, ToHeaders a, ToJSON a) => a -> Request a
-postJSON x = defaultRequest x
-    & rqMethod .~ POST
-    & rqBody    .~ toBody (toJSON x)
-    & contentSHA256
+postJSON x = putJSON x & rqMethod .~ POST
 
 postQuery :: (ToQuery a, ToPath a, ToHeaders a) => a -> Request a
 postQuery x = defaultRequest x
@@ -92,6 +89,12 @@ putXML :: (ToPath a, ToQuery a, ToHeaders a, ToElement a) => a -> Request a
 putXML x = defaultRequest x
     & rqMethod .~ PUT
     & rqBody   .~ toBody (encodeXML x)
+    & contentSHA256
+
+putJSON :: (ToQuery a, ToPath a, ToHeaders a, ToJSON a) => a -> Request a
+putJSON x = defaultRequest x
+    & rqMethod .~ PUT
+    & rqBody   .~ toBody (toJSON x)
     & contentSHA256
 
 putBody :: (ToPath a, ToQuery a, ToHeaders a, ToBody a) => a -> Request a

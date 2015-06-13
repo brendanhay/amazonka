@@ -162,7 +162,7 @@ separate os ss = runStateT (traverse go os) ss
         x <- remove Input  (o ^. inputName)
         y <- remove Output (o ^. outputName)
         return $! o
-            { _opInput  = Identity (o ^. opInput . _Identity  & refAnn .~ x)
+            { _opInput  = Identity (o ^. opInput  . _Identity & refAnn .~ x)
             , _opOutput = Identity (o ^. opOutput . _Identity & refAnn .~ y)
             }
 
@@ -174,5 +174,6 @@ separate os ss = runStateT (traverse go os) ss
         case Map.lookup n s of
             Nothing -> throwError $ format m n (Map.map (const ()) s)
             Just x  -> do
-               when (not (isShared x)) $ modify (Map.delete n)
-               return x
+                when (d == Input || not (isShared x)) $
+                    modify (Map.delete n)
+                return x

@@ -38,7 +38,6 @@ import qualified Data.HashSet           as Set
 import           Data.List              (sort)
 import           Data.Monoid
 import qualified Data.Text.Lazy         as LText
-import           Debug.Trace
 
 data Env a = Env
     { _overrides :: Map Id Override
@@ -116,17 +115,22 @@ substitute svc@Service{..} = do
     subst d n h (Just r) = do
         let k = r ^. refShape
         x :< s <- lift (safe k _shapes)
-        if | isShared x, d == Output -> return r
-           | isShared x -> do
+
+        if | isShared x, d == Input -> do
                 -- Check that the desired name is not in use
                 -- to prevent accidental override.
                 verify n "Failed attempting to copy existing shape"
                 -- Copy the shape by saving it under the desired name.
+--                save n (x :< s)
                 save n ((x & annId .~ n) :< s)
+--                save n (x :< s)
                 -- Update the Ref to point to the new wrapper.
-                remove k n
+--                remove k n
                 return (r & refShape .~ n)
-           | otherwise -> do
+
+           | isShared x -> return r
+
+           | otherwise  -> do
                 -- Ref exists, and is not referred to by any other Shape.
                 -- Insert override to rename the Ref/Shape to the desired name.
                 -- Ensure the annotation is updated.

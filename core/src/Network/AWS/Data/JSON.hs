@@ -31,6 +31,7 @@ module Network.AWS.Data.JSON
     -- * ToJSON
     , ToJSON   (..)
     , toJSONText
+    , Value    (Object)
     , object
     , (.=)
     ) where
@@ -50,9 +51,6 @@ toJSONText = String . toText
 
 eitherParseJSON :: FromJSON a => Object -> Either String a
 eitherParseJSON = parseEither parseJSON . Object
-
--- parseJSON   :: Value -> Parser a
--- parseEither :: (a -> Parser b) -> a -> Either String b
 
 (.:>) :: FromJSON a => Object -> Text -> Either String a
 (.:>) o k =

@@ -188,25 +188,63 @@ fromJSOND p n fs = instD1 "FromJSON" n with
 toElementD :: Id -> Maybe Text -> Text -> Decl
 toElementD n ns = instD1 "ToElement" n . funD "toElement" . toElementE ns
 
-toXMLD, toJSOND :: Protocol -> Id -> [Field] -> Decl
-toXMLD  p n = encodeD "ToXML"  n "toXML"  mconcatE . map (toXMLE p)
-toJSOND p n = encodeD "ToJSON" n "toJSON" (app (var "object") . listE) . map (toJSONE p)
+toXMLD :: Protocol -> Id -> [Field] -> Decl
+toXMLD p n = instD1 "ToXML" n
+    . wildcardD n "toXML" enc null
+    . map (Right . toXMLE p)
+  where
+    null = var "mempty"
+    enc  = mconcatE . map (either id id)
+
+toJSOND :: Protocol -> Id -> [Field] -> Decl
+toJSOND p n = instD1 "ToJSON" n
+    . wildcardD n "toJSON" enc null
+    . map (Right . toJSONE p)
+  where
+    null = paren $ app (var "Object") (var "mempty")
+    enc  = app (var "object")
+         . listE
+         . map (either id id)
 
 toHeadersD :: Protocol -> Id -> [Either (Text, Text) Field] -> Decl
-toHeadersD p n = instD1 "ToHeaders" n
-    . wildcardD n "toHeaders" (mconcatE . map (toHeadersE p))
+toHeadersD p n = instD1 "ToHeaders" n . wildcardD n "toHeaders" enc null
+  where
+    null = var "mempty"
+    enc  = mconcatE . map (toHeadersE p)
 
 toQueryD :: Protocol -> Id -> [Either (Text, Maybe Text) Field] -> Decl
-toQueryD p n = instD1 "ToQuery" n
-    . wildcardD n "toQuery" (mconcatE . map (toQueryE p))
+toQueryD p n = instD1 "ToQuery" n . wildcardD n "toQuery" enc null
+  where
+    null = var "mempty"
+    enc  = mconcatE . map (toQueryE p)
 
 toPathD :: Id -> [Either Text Field] -> Decl
 toPathD n = instD1 "ToPath" n . \case
     [Left t] -> funD "toPath" . app (var "const") $ str t
-    es       -> wildcardD n "toPath" (mconcatE . map toPathE) es
+    es       -> wildcardD n "toPath" enc null es
+  where
+    null = var "mempty"
+    enc  = mconcatE . map toPathE
 
 toBodyD :: Id -> Field -> Decl
 toBodyD n f = instD "ToBody" n [funD "toBody" (toBodyE f)]
+
+wildcardD :: Id
+          -> Text
+          -> ([Either a b] -> Exp)
+          -> Exp
+          -> [Either a b]
+          -> InstDecl
+wildcardD n f enc null = \case
+    []                        -> constD f null
+    es | not (any isRight es) -> funD f $ app (var "const") (enc es)
+       | otherwise            -> InsDecl (FunBind [match rec es])
+  where
+    match p es =
+        Match noLoc (ident f) [p] Nothing (UnGuardedRhs (enc es)) noBinds
+
+    ctor = PApp (n ^. ctorId . to unqual) []
+    rec  = PRec (n ^. ctorId . to unqual) [PFieldWildcard]
 
 instD1 :: Text -> Id -> InstDecl -> Decl
 instD1 c n = instD c n . (:[])
@@ -221,17 +259,6 @@ funArgsD :: Text -> [Text] -> Exp -> InstDecl
 funArgsD f as e = InsDecl $
     sfun noLoc (ident f) (map ident as) (UnGuardedRhs e) noBinds
 
-wildcardD :: Id -> Text -> ([Either a b] -> Exp) -> [Either a b] -> InstDecl
-wildcardD n f g = \case
-    []                        -> constMemptyD f
-    es | not (any isRight es) -> funD f $ app (var "const") (g es)
-       | otherwise            -> InsDecl (FunBind [match rec  es])
-  where
-    match p es = Match noLoc (ident f) [p] Nothing (UnGuardedRhs (g es)) noBinds
-
-    ctor = PApp (n ^. ctorId . to unqual) []
-    rec  = PRec (n ^. ctorId . to unqual) [PFieldWildcard]
-
 assocTyD :: Id -> Text -> Text -> InstDecl
 assocTyD n x y = InsType noLoc (TyApp (tycon x) (n ^. typeId . to tycon)) (tycon y)
 
@@ -240,13 +267,8 @@ decodeD c n f dec = instD1 c n . \case
     [] -> funD f . app (var "const") $ dec []
     es -> funArgsD f ["x"] (dec es)
 
-encodeD :: Text -> Id -> Text -> ([a] -> Exp) -> [a] -> Decl
-encodeD c n f enc = instD c n . (:[]) . \case
-    [] -> constMemptyD f
-    es -> wildcardD n f (enc . map (either id id)) (map Right es)
-
-constMemptyD :: Text -> InstDecl
-constMemptyD f = funArgsD f [] $ app (var "const") (var "mempty")
+constD :: Text -> Exp -> InstDecl
+constD f = funArgsD f [] . app (var "const")
 
 pX, pXMay, pXDef, pJ, pJMay, pJDef, pH, pHMay :: QOp
 pX      = ".@"

@@ -18,9 +18,12 @@ module Compiler.AST.Data.Instance where
 
 import           Compiler.AST.Data.Field
 import           Compiler.Formatting
+import           Compiler.Protocol
 import           Compiler.Types
+import           Control.Applicative
 import           Control.Error
 import           Control.Lens
+import           Control.Monad
 import           Data.Aeson
 import qualified Data.Foldable           as Fold
 import           Data.List               (deleteBy, find, partition)
@@ -34,7 +37,7 @@ data Inst
     = FromXML   [Field]
     | FromJSON  [Field]
     | ToXML     [Field]
-    | ToElement Field
+    | ToElement (Maybe Text) Text
     | ToJSON    [Field]
     | ToHeaders [Either (Text, Text) Field]
     | ToQuery   [Either (Text, Maybe Text) Field]
@@ -84,12 +87,12 @@ shapeInsts p m fs = go m
 requestInsts :: HasMetadata a f
              => a
              -> HTTP Identity
-             -> Id
+             -> Ref
              -> [Field]
              -> Either Error [Inst]
-requestInsts m h n fs = do
+requestInsts m h r fs = do
     path' <- toPath
-    concatQuery =<< replaceXML
+    concatQuery $ replaceXML
         ( [toHeaders, path']
        ++ maybeToList toBody
        ++ removeInsts (shapeInsts p (Uni Input) fields)
@@ -121,13 +124,26 @@ requestInsts m h n fs = do
         f ToQuery {} = True
         f _          = False
 
-    replaceXML :: [Inst] -> Either Error [Inst]
-    replaceXML = fmap catMaybes . traverse go
+    replaceXML :: [Inst] -> [Inst]
+    replaceXML is
+        | any isXML is = ToElement ns root : is
+        | otherwise    = is
       where
-        go (ToXML [])  = return Nothing
-        go (ToXML [x]) = return (Just $ ToElement x)
-        go (ToXML _)   = Left $ format ("Many candidates for ToElement in " % iprimary) n
-        go x           = return (Just x)
+        ns = m ^. xmlNamespace
+            <|> r ^? refXMLNamespace . _Just . xmlUri
+            <|> x ^? _Just . fieldRef . refXMLNamespace . _Just . xmlUri
+
+        root = fromMaybe (memberName p Input n r)
+              $ r ^. refLocationName
+            <|> x ^? _Just . fieldId . memberId
+
+        isXML ToXML{} = True
+        isXML _       = False
+
+        x = listToMaybe (mapMaybe go is)
+          where
+            go (ToXML [f]) = Just f
+            go _           = Nothing
 
     removeInsts :: [Inst] -> [Inst]
     removeInsts = mapMaybe go
@@ -171,6 +187,7 @@ requestInsts m h n fs = do
     version = m ^. apiVersion
 
     p = m ^. protocol
+    n = identifier r
 
 uriFields :: (Foldable f, Traversable t)
           => s

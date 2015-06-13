@@ -162,22 +162,23 @@ responseE p h r fs = app (responseF p h r fs) bdy
 
 instanceD :: Protocol -> Id -> Inst -> Decl
 instanceD p n = \case
-    FromXML   fs -> fromXMLD   p n fs
-    FromJSON  fs -> fromJSOND  p n fs
-    ToElement f  -> toElementD p n f
-    ToXML     fs -> toXMLD     p n fs
-    ToJSON    fs -> toJSOND    p n fs
-    ToHeaders es -> toHeadersD p n es
-    ToPath    es -> toPathD      n es
-    ToQuery   es -> toQueryD   p n es
-    ToBody    f  -> toBodyD      n f
+    FromXML   fs   -> fromXMLD   p n fs
+    FromJSON  fs   -> fromJSOND  p n fs
+    ToElement ns t -> toElementD   n ns t
+    ToXML     fs   -> toXMLD     p n fs
+    ToJSON    fs   -> toJSOND    p n fs
+    ToHeaders es   -> toHeadersD p n es
+    ToPath    es   -> toPathD      n es
+    ToQuery   es   -> toQueryD   p n es
+    ToBody    f    -> toBodyD      n f
 
+-- FIXME: merge D + E constructors where possible
 fromXMLD, fromJSOND :: Protocol -> Id -> [Field] -> Decl
 fromXMLD  p n = decodeD "FromXML"  n "parseXML"  (ctorE n) . map (parseXMLE  p)
 fromJSOND p n = decodeD "FromJSON" n "parseJSON" (ctorE n) . map (parseJSONE p)
 
-toElementD :: Protocol -> Id -> Field -> Decl
-toElementD p n = instD1 "ToElement" n . funD "toElement" . toElementE p
+toElementD :: Id -> Maybe Text -> Text -> Decl
+toElementD n ns = instD1 "ToElement" n . funD "toElement" . toElementE ns
 
 toXMLD, toJSOND :: Protocol -> Id -> [Field] -> Decl
 toXMLD  p n = encodeD "ToXML"  n "toXML"  mconcatE . map (toXMLE p)
@@ -308,14 +309,11 @@ toXMLE p f = case inputNames p f of
   where
     a = var (f ^. fieldAccessor)
 
-toElementE :: Protocol -> Field -> Exp
-toElementE p f = appFun (var "mkElement") [str ns, var ".", a]
+toElementE :: Maybe Text -> Text -> Exp
+toElementE ns n = appFun (var "mkElement") [str qual]
   where
-    ns | Just x <- f ^. fieldNamespace = "{" <> x <> "}" <> n
-       | otherwise                      = n
-
-    n = memberName p Input f
-    a = var (f ^. fieldAccessor)
+    qual | Just x <- ns = "{" <> x <> "}" <> n
+         | otherwise    = n
 
 toJSONE :: Protocol -> Field -> Exp
 toJSONE p f = encodeE (memberName p Input f) toJ $ var (f ^. fieldAccessor)
@@ -495,3 +493,4 @@ unqual = UnQual . ident
 
 ident :: Text -> Name
 ident = Ident . Text.unpack
+

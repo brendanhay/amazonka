@@ -53,7 +53,7 @@ operationData m o = do
     (xd, xs) <- prodData m xa x
     (yd, ys) <- prodData m ya y
 
-    is       <- requestInsts m h xn xs
+    is       <- requestInsts m h xr xs
     cls      <- pp Print $ requestD m h (xr, is) (yr, ys)
     is'      <- Map.insert "AWSRequest" cls <$> renderInsts p xn is
 
@@ -72,7 +72,7 @@ operationData m o = do
 
     xr = o ^. opInput  . _Identity
     yr = o ^. opOutput . _Identity
-    xn = o ^. inputName
+    xn = identifier xr
 
 shapeData :: HasMetadata a Identity
           => a

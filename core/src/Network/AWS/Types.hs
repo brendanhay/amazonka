@@ -81,9 +81,6 @@ module Network.AWS.Types
     -- * Regions
     , Region        (..)
 
-    -- * ETag
-    , ETag          (..)
-
     -- * Convenience
     , ClientRequest
     , ClientResponse
@@ -369,25 +366,6 @@ instance ToByteString Region
 
 instance FromXML Region where parseXML = parseXMLText "Region"
 instance ToXML   Region where toXML    = toXMLText
-
-newtype ETag = ETag Text
-    deriving
-        ( Eq
-        , Ord
-        , Read
-        , Show
-        , IsString
-        , ToText
-        , ToByteString
-        , ToXML
-        , ToQuery
-        )
-
-instance FromText ETag where
-    parser = ETag <$> (quoted <|> AText.takeText)
-
-instance FromXML ETag where
-    parseXML = parseXMLText "ETag"
 
 -- | A convenience alias to avoid type ambiguity.
 type ClientRequest = Client.Request

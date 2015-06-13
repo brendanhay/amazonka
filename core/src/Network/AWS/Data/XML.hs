@@ -123,12 +123,13 @@ instance FromXML a => FromXML (Maybe a) where
 instance FromXML Text where
     parseXML = fmap (fromMaybe mempty) . withContent "Text"
 
-instance FromXML Char    where parseXML = parseXMLText "Char"
-instance FromXML Int     where parseXML = parseXMLText "Int"
-instance FromXML Integer where parseXML = parseXMLText "Integer"
-instance FromXML Natural where parseXML = parseXMLText "Natural"
-instance FromXML Double  where parseXML = parseXMLText "Double"
-instance FromXML Bool    where parseXML = parseXMLText "Bool"
+instance FromXML Char       where parseXML = parseXMLText "Char"
+instance FromXML ByteString where parseXML = parseXMLText "ByteString"
+instance FromXML Int        where parseXML = parseXMLText "Int"
+instance FromXML Integer    where parseXML = parseXMLText "Integer"
+instance FromXML Natural    where parseXML = parseXMLText "Natural"
+instance FromXML Double     where parseXML = parseXMLText "Double"
+instance FromXML Bool       where parseXML = parseXMLText "Bool"
 
 class ToElement a where
     toElement :: a -> Element
@@ -168,12 +169,13 @@ instance ToXML a => ToXML (Maybe a) where
     toXML (Just x) = toXML x
     toXML Nothing  = None
 
-instance ToXML Text    where toXML = toXMLText
-instance ToXML Int     where toXML = toXMLText
-instance ToXML Integer where toXML = toXMLText
-instance ToXML Natural where toXML = toXMLText
-instance ToXML Double  where toXML = toXMLText
-instance ToXML Bool    where toXML = toXMLText
+instance ToXML Text       where toXML = toXMLText
+instance ToXML ByteString where toXML = toXMLText
+instance ToXML Int        where toXML = toXMLText
+instance ToXML Integer    where toXML = toXMLText
+instance ToXML Natural    where toXML = toXMLText
+instance ToXML Double     where toXML = toXMLText
+instance ToXML Bool       where toXML = toXMLText
 
 parseXMLMap :: (Eq k, Hashable k, FromText k, FromXML v)
             => Text

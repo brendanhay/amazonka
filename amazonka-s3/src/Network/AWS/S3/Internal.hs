@@ -64,18 +64,19 @@ newtype ObjectVersionId = ObjectVersionId Text
         , ToQuery
         )
 
-newtype ETag = ETag Text
+-- FIXME: Add the difference between weak + strong ETags and their respective
+-- equalities if necessary, see: https://github.com/brendanhay/amazonka/issues/76
+newtype ETag = ETag ByteString
     deriving
         ( Eq
         , Ord
         , Read
         , Show
         , IsString
+        , FromText
         , ToText
         , ToByteString
+        , FromXML
         , ToXML
         , ToQuery
         )
-
-instance FromText ETag where
-    parser = quoted <|> AText.takeText

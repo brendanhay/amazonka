@@ -18,7 +18,6 @@ module Network.AWS.Data.Text
     , fromText
     , takeLowerText
     , matchCI
-    , quoted
 
     , ToText   (..)
     , showText
@@ -55,20 +54,6 @@ takeLowerText = Text.toLower <$> AText.takeText
 
 matchCI :: Text -> a -> Parser a
 matchCI x y = AText.asciiCI x <* AText.endOfInput >> return y
-
-quoted :: Parser Text
-quoted = quote *> contents <* quote <* AText.endOfInput
-  where
-    quote = AText.char '"'
-        <|> fail "Unable to find double-quoted delimiter."
-
-    contents = mconcat <$> AText.many1 (nonEscape <|> escape)
-
-    nonEscape = AText.takeWhile1 (AText.notInClass "\\\"\0\n\r\v\t\b\f")
-
-    escape = do
-        d <- AText.char '\\'
-        Text.cons d <$> AText.takeWhile (AText.inClass "\\\"0nrvtbf")
 
 class FromText a where
     parser :: Parser a

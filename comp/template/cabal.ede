@@ -1,6 +1,6 @@
 name:                  {{ libraryName }}
 version:               {{ libraryVersion }}
-synopsis:              {{ serviceFullName }} SDK.
+synopsis:              {{ serviceFullName }}.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE

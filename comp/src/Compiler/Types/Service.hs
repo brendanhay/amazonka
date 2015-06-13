@@ -399,7 +399,7 @@ instance FromJSON (Metadata Maybe) where
     parseJSON = withObject "meta" $ \o -> Metadata
         <$> o .:  "protocol"
         <*> o .:  "serviceAbbreviation"
-        <*> o .:  "serviceFullName"
+        <*> (o .: "serviceFullName" <&> renameService)
         <*> o .:  "apiVersion"
         <*> o .:  "signatureVersion"
         <*> o .:  "endpointPrefix"

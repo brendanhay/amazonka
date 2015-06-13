@@ -51,6 +51,15 @@ stripPrefix p t = Text.strip . fromMaybe t $ p `Text.stripPrefix` t
 stripSuffix :: Text -> Text -> Text
 stripSuffix p t = Text.strip . fromMaybe t $ p `Text.stripSuffix` t
 
+renameService :: Text -> Text
+renameService =
+      mappend "Amazon "
+    . flip mappend " SDK"
+    . stripPrefix "Amazon"
+    . stripPrefix "AWS"
+    . stripPrefix "Service"
+    . stripSuffix "SDK"
+
 renameBranch :: Text -> (Text, Text)
 renameBranch = first (renameReserved . upperAcronym . Fold.foldMap g . Text.split f) . join (,)
   where

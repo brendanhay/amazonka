@@ -33,6 +33,7 @@ import           Control.Monad.State
 import qualified Data.HashMap.Strict   as Map
 import qualified Data.HashSet          as Set
 import           Data.Monoid
+import           Debug.Trace
 
 -- FIXME: Relations need to be updated by the solving step.
 
@@ -90,7 +91,7 @@ renderShapes cfg svc = do
         , _shapes     = ys
         }
 
-type MemoR = StateT (Map Id Relation) (Either Error)
+type MemoR = StateT (Map Id Relation, Set (Maybe Id, Id)) (Either Error)
 
 -- | Determine the relation for operation payloads, both input and output.
 --
@@ -100,7 +101,7 @@ relations :: Show b
           => Map Id (Operation Maybe (RefF a))
           -> Map Id (ShapeF b)
           -> Either Error (Map Id Relation)
-relations os ss = execStateT (traverse go os) mempty
+relations os ss = fst <$> execStateT (traverse go os) (mempty, mempty)
   where
     -- FIXME: opName here is incorrect as a parent.
     go :: Operation Maybe (RefF a) -> MemoR ()
@@ -111,14 +112,22 @@ relations os ss = execStateT (traverse go os) mempty
     -- and the direction the parent is used in.
     count :: Maybe Id -> Direction -> Maybe Id -> MemoR ()
     count _ _ Nothing  = pure ()
-    count p d (Just n) = do
-        modify $ Map.insertWith (<>) n (mkRelation p d)
+    count p d (Just n) = check p n $ do
+        _1 %= Map.insertWith (<>) n (mkRelation p d)
         s <- lift (safe n)
         shape n d s
 
     shape :: Id -> Direction -> ShapeF a -> MemoR ()
     shape p d = mapM_ (count (Just p) d . Just . view refShape)
         . toListOf references
+
+    -- Ensure cyclic dependencies are only check once.
+    check p n f = do
+        let k = (p, n)
+        m <- uses _2 (Set.member k)
+        if m
+            then pure ()
+            else _2 %= Set.insert k >> f
 
     safe n = note
         (format ("Missing shape "            % iprimary %

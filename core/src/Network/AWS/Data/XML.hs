@@ -78,16 +78,16 @@ f .!@ x = fromMaybe x <$> f
 infixr 7 @=, @@=
 
 (@=) :: ToXML a => Name -> a -> XML
-n @= x = One . NodeElement $ mkElement n x
+n @= x = XOne . NodeElement $ mkElement n x
 
 (@@=) :: (IsList a, ToXML (Item a)) => Name -> a -> XML
-n @@= xs = Many . map (NodeElement . mkElement n) $ toList xs
+n @@= xs = XMany . map (NodeElement . mkElement n) $ toList xs
 
 -- toXMLList1 :: (IsList a, ToXML (Item a)) => Name -> a -> XML
 -- toXMLList1 = toXMLList
 
 -- toXMLList :: (IsList a, ToXML (Item a)) => Maybe Name -> Name -> a -> XML
--- toXMLList _ n = Many . map (NodeElement . mkElement n) . toList
+-- toXMLList _ n = XMany . map (NodeElement . mkElement n) . toList
 
 decodeXML :: FromXML a => LazyByteString -> Either String a
 decodeXML = either failure success . parseLBS def
@@ -140,21 +140,21 @@ instance ToElement Element where
 -- | Provides a way to make the operators for ToXML instance
 -- declaration be consistent WRT to single nodes or lists of nodes.
 data XML
-    = None
-    | One  Node
-    | Many [Node]
+    = XNull
+    | XOne  Node
+    | XMany [Node]
       deriving (Show)
 
 instance Monoid XML where
-    mempty            = None
-    mappend None None = None
-    mappend a    b    = Many (listXMLNodes a <> listXMLNodes b)
+    mempty              = XNull
+    mappend XNull XNull = XNull
+    mappend a     b     = XMany (listXMLNodes a <> listXMLNodes b)
 
 listXMLNodes :: XML -> [Node]
 listXMLNodes = \case
-    None    -> []
-    One  n  -> [n]
-    Many ns -> ns
+    XNull    -> []
+    XOne  n  -> [n]
+    XMany ns -> ns
 
 class ToXML a where
     toXML :: a -> XML
@@ -167,7 +167,7 @@ instance ToXML XML where
 
 instance ToXML a => ToXML (Maybe a) where
     toXML (Just x) = toXML x
-    toXML Nothing  = None
+    toXML Nothing  = XNull
 
 instance ToXML Text       where toXML = toXMLText
 instance ToXML ByteString where toXML = toXMLText
@@ -201,7 +201,7 @@ parseXMLText n = withContent n >=>
         fromText
 
 toXMLText :: ToText a => a -> XML
-toXMLText = One . NodeContent . toText
+toXMLText = XOne . NodeContent . toText
 
 mkElement :: ToXML a => Name -> a -> Element
 mkElement n = Element n mempty . listXMLNodes . toXML

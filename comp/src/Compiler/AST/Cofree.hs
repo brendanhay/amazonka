@@ -22,8 +22,10 @@ import           Control.Comonad
 import           Control.Comonad.Cofree
 import           Control.Error
 import           Control.Lens
+import           Control.Monad.Except
 import           Control.Monad.State
 import qualified Data.HashMap.Strict    as Map
+import           Debug.Trace
 
 newtype Fix f = Fix (f (Fix f))
 
@@ -60,21 +62,31 @@ memoise :: (MonadState s m, HasId a)
         -> m b
 memoise l f x = uses l (Map.lookup n) >>= maybe go return
   where
-    n = identifier x
-
+    n  = identifier x
     go = do
         r <- f x
         l %= Map.insert n r
         return r
 
-elaborate :: Show a => Map Id (ShapeF a) -> Either Error (Map Id (Shape Id))
-elaborate m = Map.traverseWithKey shape m
-  where
-    shape :: Id -> ShapeF a -> Either Error (Shape Id)
-    shape n = fmap (n :<) . traverseOf references ref
+type MemoE = StateT (Map Id (Shape Id)) (Either Error)
 
-    ref :: RefF a -> Either Error (RefF (Shape Id))
-    ref r = flip (set refAnn) r <$> (safe n >>= shape n)
+elaborate :: Show a => Map Id (ShapeF a) -> Either Error (Map Id (Shape Id))
+elaborate m = evalStateT (Map.traverseWithKey (shape []) m) mempty
+  where
+    shape :: [Id] -> Id -> ShapeF a -> MemoE (Shape Id)
+    shape seen n s
+        | length seen > 6 = throwError $ depth  seen
+        | conseq seen     = return $! n :< Ptr (s ^. info) mempty
+        | otherwise       = do
+            ms <- gets (Map.lookup n)
+            case ms of
+                Just x -> return x
+                Nothing -> do
+                    x <- (n :<) <$> traverseOf references (ref seen) s
+                    modify (Map.insert n x)
+                    return x
+
+    ref seen r = flip (set refAnn) r <$> (lift (safe n) >>= shape (n : seen) n)
       where
         n = r ^. refShape
 
@@ -83,3 +95,11 @@ elaborate m = Map.traverseWithKey shape m
                  ", possible matches: " % partial)
                 n (n, m))
         (Map.lookup n m)
+
+    depth = format ("Too many cycles " % shown) . reverse . map (view memberId)
+
+    conseq (x:ys@(y:z:_))
+        | x == y    = True
+        | x == z    = True
+        | otherwise = conseq ys
+    conseq _        = False

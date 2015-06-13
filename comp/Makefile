@@ -17,6 +17,7 @@ VERSION        = $(call version,amazonka-compiler.cabal)
 CLIENT_VERSION = $(call version,$(TOP)/amazonka/amazonka.cabal)
 CORE_VERSION   = $(call version,$(TOP)/core/amazonka-core.cabal)
 
+# + dynamodb
 MODELS ?= \
  autoscaling \
  cloudformation \
@@ -33,7 +34,6 @@ MODELS ?= \
  datapipeline \
  directconnect \
  ds \
- dynamodb \
  ec2 \
  ecs \
  efs \

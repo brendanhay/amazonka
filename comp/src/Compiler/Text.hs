@@ -61,8 +61,13 @@ renameService =
     . stripSuffix "SDK"
 
 renameBranch :: Text -> (Text, Text)
-renameBranch = first (renameReserved . upperAcronym . Fold.foldMap g . Text.split f) . join (,)
+renameBranch = first go . join (,)
   where
+    go = renameReserved
+       . upperAcronym
+       . Fold.foldMap g
+       . Text.split f
+
     f x = x == '-'
        || x == '.'
        || x == ':'
@@ -75,7 +80,9 @@ renameBranch = first (renameReserved . upperAcronym . Fold.foldMap g . Text.spli
        || x == ')'
 
     g x | Text.length x <= 1    = x
+        | Text.length x <= 2    = Text.toUpper x
         | isDigit (Text.last x) = Text.toUpper x
+        | Text.all isUpper x    = toPascal (Text.toLower x)
         | otherwise             = toPascal x
 
 renameReserved :: Text -> Text
@@ -93,6 +100,9 @@ renameReserved x
         , "map"
         , "object"
         , "get"
+        , "GT"
+        , "LT"
+        , "EQ"
         ] ++ map Text.pack (reservedNames haskellDef)
 
 upperAcronym :: Text -> Text

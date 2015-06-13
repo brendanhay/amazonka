@@ -79,7 +79,7 @@ renderShapes cfg svc = do
         -- Separate the operation input/output shapes from the .Types shapes.
         >>= separate (svc ^. operations)
 
-    let prune = id -- Map.filter (not . isOrphan)
+    let prune = Map.filter (not . isOrphan)
 
     -- Convert shape ASTs into a rendered Haskell AST declaration,
     xs <- traverse (operationData svc) x
@@ -170,9 +170,9 @@ separate os ss = runStateT (traverse go os) ss
     remove d n = do
         s <- get
         let m = "Failure separating operation wrapper " % iprimary %
-                " from " % partial
+                " from " % shown
         case Map.lookup n s of
-            Nothing -> throwError $ format m n (n, Map.map (const ()) s)
+            Nothing -> throwError $ format m n (Map.map (const ()) s)
             Just x  -> do
-               when (d == Input || not (isShared x)) $ modify (Map.delete n)
+               when (not (isShared x)) $ modify (Map.delete n)
                return x

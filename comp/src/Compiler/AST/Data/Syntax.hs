@@ -147,15 +147,15 @@ responseE p h r fs = app (responseF p h r fs) bdy
 
     parseProto :: Field -> Exp
     parseProto = case p of
-        JSON     -> parseJSONE p
-        RestJSON -> parseJSONE p
+        JSON     -> parseJSONE p pJE pJEMay pJEDef
+        RestJSON -> parseJSONE p pJE pJEMay pJEDef
         _        -> parseXMLE  p
 
     parseAll :: Exp
     parseAll = flip app (var "x") $
         case p of
-            JSON     -> var "parseJSON"
-            RestJSON -> var "parseJSON"
+            JSON     -> var "eitherParseJSON"
+            RestJSON -> var "eitherParseJSON"
             _        -> var "parseXML"
 
     body = any (view fieldStream) fs
@@ -173,16 +173,24 @@ instanceD p n = \case
     ToBody    f    -> toBodyD      n f
 
 -- FIXME: merge D + E constructors where possible
-fromXMLD, fromJSOND :: Protocol -> Id -> [Field] -> Decl
-fromXMLD  p n = decodeD "FromXML"  n "parseXML"  (ctorE n) . map (parseXMLE  p)
-fromJSOND p n = decodeD "FromJSON" n "parseJSON" (ctorE n) . map (parseJSONE p)
+fromXMLD :: Protocol -> Id -> [Field] -> Decl
+fromXMLD p n = decodeD "FromXML" n "parseXML" (ctorE n) . map (parseXMLE p)
+
+fromJSOND :: Protocol -> Id -> [Field] -> Decl
+fromJSOND p n fs = instD1 "FromJSON" n with
+  where
+    with = funD "parseJSON" $
+        app (app (var "withObject") (n ^. typeId . to str))
+            (lamE noLoc [pvar "x"] es)
+
+    es = ctorE n $ map (parseJSONE p pJ pJMay pJDef) fs
 
 toElementD :: Id -> Maybe Text -> Text -> Decl
 toElementD n ns = instD1 "ToElement" n . funD "toElement" . toElementE ns
 
 toXMLD, toJSOND :: Protocol -> Id -> [Field] -> Decl
 toXMLD  p n = encodeD "ToXML"  n "toXML"  mconcatE . map (toXMLE p)
-toJSOND p n = encodeD "ToJSON" n "toJSON" listE . map (toJSONE p)
+toJSOND p n = encodeD "ToJSON" n "toJSON" (app (var "object") . listE) . map (toJSONE p)
 
 toHeadersD :: Protocol -> Id -> [Either (Text, Text) Field] -> Decl
 toHeadersD p n = instD1 "ToHeaders" n
@@ -247,6 +255,9 @@ pXDef   = ".!@"
 pJ      = ".:"
 pJMay   = ".:?"
 pJDef   = ".!="
+pJE     = ".:>"
+pJEMay  = ".?>"
+pJEDef  = pXDef
 pH      = ".#"
 pHMay   = ".#?"
 
@@ -283,11 +294,11 @@ parseXMLE p f = case outputNames p f of
 
     x = var "x"
 
-parseJSONE :: Protocol -> Field -> Exp
-parseJSONE p f
-    | f ^. fieldMonoid   = defaultMonoidE x n pJMay pJDef
-    | f ^. fieldRequired = decodeE x pX    n
-    | otherwise          = decodeE x pXMay n
+parseJSONE :: Protocol -> QOp -> QOp -> QOp -> Field -> Exp
+parseJSONE p d dm dd f
+    | f ^. fieldMonoid   = defaultMonoidE x n dm dd
+    | f ^. fieldRequired = decodeE x d  n
+    | otherwise          = decodeE x dm n
   where
     n = memberName p Output f
     x = var "x"
@@ -422,9 +433,9 @@ directed i ts d (typeOf -> t) = case t of
     TNatural          -> tycon nat
     TStream           -> tycon stream
     TSensitive x      -> sensitive (go x)
-    TMaybe     x      -> TyApp  (tycon "Maybe")     (go x)
+    TMaybe     x      -> TyApp  (tycon "Maybe") (go x)
     TList      x      -> TyList (go x)
-    TList1     x      -> TyApp  (tycon "NonEmpty")  (go x)
+    TList1     x      -> list1 (go x)
     TMap       k v    -> TyApp  (TyApp (tycon "HashMap") (go k)) (go v)
   where
     go = directed i ts d
@@ -435,6 +446,10 @@ directed i ts d (typeOf -> t) = case t of
     sensitive
         | i         = TyApp (tycon "Sensitive")
         | otherwise = id
+
+    list1
+        | i         = TyApp (tycon "List1")
+        | otherwise = TyApp (tycon "NonEmpty")
 
     stream = case d of
         Nothing     -> "Stream"
@@ -457,6 +472,7 @@ iso = \case
     TLit Time    -> Just (var "_Time")
     TNatural     -> Just (var "_Nat")
     TSensitive _ -> Just (var "_Sensitive")
+    TList1     _ -> Just (var "_List1")
     _            -> Nothing
 
 literal :: Bool -> Timestamp -> Lit -> Type
@@ -493,4 +509,3 @@ unqual = UnQual . ident
 
 ident :: Text -> Name
 ident = Ident . Text.unpack
-

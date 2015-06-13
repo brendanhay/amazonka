@@ -72,7 +72,7 @@ ns .@? n =
         Left _   -> Right Nothing
         Right xs -> parseXML xs
 
-(.!@) :: Either String (Maybe a) -> a -> Either String a
+(.!@) :: Either e (Maybe a) -> a -> Either e a
 f .!@ x = fromMaybe x <$> f
 
 infixr 7 @=, @@=
@@ -188,14 +188,6 @@ parseXMLMap e k v = fmap Map.fromList . traverse f . mapMaybe (childNodesOf e)
     f ns = (,)
        <$> (ns .@ k >>= fromText)
        <*>  ns .@ v
-
-parseXMLList1 :: FromXML a
-              => Text
-              -> [Node]
-              -> Either String (NonEmpty a)
-parseXMLList1 n = parseXMLList n >=> maybe failure Right . NonEmpty.nonEmpty
-  where
-    failure = Left $ "Empty list when expecting at least one element: " ++ show n
 
 parseXMLList :: FromXML a
              => Text

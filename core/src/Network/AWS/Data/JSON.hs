@@ -16,14 +16,16 @@ module Network.AWS.Data.JSON
       FromJSON (..)
     , parseJSONText
     , eitherDecode'
+
     -- ** Parser a
     , withObject
     , (.:)
     , (.:?)
     , (.!=)
+
     -- ** Either String a
     , (.:>)
-    , (.:?>)
+    , (.?>)
 
     -- * ToJSON
     , ToJSON   (..)
@@ -34,6 +36,7 @@ module Network.AWS.Data.JSON
 
 import           Data.Aeson            (eitherDecode')
 import           Data.Aeson.Types
+import           Data.ByteString.Lazy  (ByteString)
 import qualified Data.HashMap.Strict   as Map
 import           Data.Text             (Text)
 import           Network.AWS.Data.Text
@@ -44,14 +47,20 @@ parseJSONText n = withText n (either fail return . fromText)
 toJSONText :: ToText a => a -> Value
 toJSONText = String . toText
 
+eitherParseJSON :: FromJSON a => Object -> Either String a
+eitherParseJSON = parseEither parseJSON . Object
+
+-- parseJSON   :: Value -> Parser a
+-- parseEither :: (a -> Parser b) -> a -> Either String b
+
 (.:>) :: FromJSON a => Object -> Text -> Either String a
 (.:>) o k =
     case Map.lookup k o of
         Nothing -> Left $ "key " ++ show k ++ " not present"
         Just v  -> parseEither parseJSON v
 
-(.:?>) :: FromJSON a => Object -> Text -> Either String (Maybe a)
-(.:?>) o k =
+(.?>) :: FromJSON a => Object -> Text -> Either String (Maybe a)
+(.?>) o k =
     case Map.lookup k o of
         Nothing -> Right Nothing
         Just v  -> parseEither parseJSON v

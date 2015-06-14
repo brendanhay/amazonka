@@ -164,7 +164,7 @@ instanceD :: Protocol -> Id -> Inst -> Decl
 instanceD p n = \case
     FromXML   fs   -> fromXMLD   p n fs
     FromJSON  fs   -> fromJSOND  p n fs
-    ToElement ns t -> toElementD   n ns t
+    ToElement ns e -> toElementD p n ns e
     ToXML     fs   -> toXMLD     p n fs
     ToJSON    fs   -> toJSOND    p n fs
     ToHeaders es   -> toHeadersD p n es
@@ -185,8 +185,8 @@ fromJSOND p n fs = instD1 "FromJSON" n with
 
     es = ctorE n $ map (parseJSONE p pJ pJMay pJDef) fs
 
-toElementD :: Id -> Maybe Text -> Text -> Decl
-toElementD n ns = instD1 "ToElement" n . funD "toElement" . toElementE ns
+toElementD :: Protocol -> Id -> Maybe Text -> Either Text Field -> Decl
+toElementD p n ns = instD1 "ToElement" n . funD "toElement" . toElementE p ns
 
 toXMLD :: Protocol -> Id -> [Field] -> Decl
 toXMLD p n = instD1 "ToXML" n
@@ -342,11 +342,17 @@ toXMLE p f = case inputNames p f of
   where
     a = var (f ^. fieldAccessor)
 
-toElementE :: Maybe Text -> Text -> Exp
-toElementE ns n = appFun (var "mkElement") [str qual]
+toElementE :: Protocol -> Maybe Text -> Either Text Field -> Exp
+toElementE p ns = either (`root` []) element
   where
-    qual | Just x <- ns = "{" <> x <> "}" <> n
-         | otherwise    = n
+    root n = appFun (var "mkElement") . (str (qual n) :)
+
+    element f = root n [var ".", f ^. fieldAccessor . to var]
+      where
+        n = memberName p Input f
+
+    qual n | Just x <- ns = "{" <> x <> "}" <> n
+           | otherwise    = n
 
 toJSONE :: Protocol -> Field -> Exp
 toJSONE p f = encodeE (memberName p Input f) toJ $ var (f ^. fieldAccessor)

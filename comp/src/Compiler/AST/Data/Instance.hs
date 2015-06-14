@@ -24,6 +24,7 @@ import           Control.Applicative
 import           Control.Error
 import           Control.Lens
 import           Control.Monad
+import           Control.Monad.Except
 import           Data.Aeson
 import qualified Data.Foldable           as Fold
 import           Data.List               (deleteBy, find, partition)
@@ -38,7 +39,7 @@ data Inst
     = FromXML   [Field]
     | FromJSON  [Field]
     | ToXML     [Field]
-    | ToElement (Maybe Text) Text
+    | ToElement (Maybe Text) (Either Text Field)
     | ToJSON    [Field]
     | ToHeaders [Either (Text, Text) Field]
     | ToQuery   [Either (Text, Maybe Text) Field]
@@ -93,7 +94,7 @@ requestInsts :: HasMetadata a f
              -> Either Error [Inst]
 requestInsts m h r fs = do
     path' <- toPath
-    concatQuery $ replaceXML
+    concatQuery =<< replaceXML
         ( [toHeaders, path']
        ++ maybeToList toBody
        ++ removeInsts (shapeInsts p (Uni Input) fields)
@@ -125,26 +126,47 @@ requestInsts m h r fs = do
         f ToQuery {} = True
         f _          = False
 
-    replaceXML :: [Inst] -> [Inst]
+    replaceXML :: [Inst] -> Either Error [Inst]
     replaceXML is
-        | any isXML is = ToElement ns root : is
-        | otherwise    = is
+        | all nonEmptyXML is = return $! filter anyXML is
+        | otherwise          =
+            case ( r ^? refXMLNamespace . _Just . xmlUri
+                  , r ^. refLocationName
+                  , listToMaybe (mapMaybe findElement is)
+                  ) of
+
+            -- 1. If there's an xmlNamespace and/or locationName on the ref,
+            --    it should define separate ToXML + ToElement instances
+            (ns, Just e, _) ->
+                return $! ToElement (ns <|> m ^. xmlNamespace) (Left e) : is
+
+            -- 2. Otherwise, a single field should be found in the ToXML instance
+            -- and lifted to a single ToElement instance.
+            (_, _, Just f)  ->
+                return $! ToElement ns (Right f) : filter anyXML is
+              where
+                ns = m ^. xmlNamespace
+                 <|> f ^? fieldRef . refXMLNamespace . _Just . xmlUri
+
+            -- 3. Unknown.
+            (ns, e, f) -> throwError $
+                format ("Error determining root ToElement instance: " % iprimary %
+                        ", namespace: " % shown %
+                        ", locationName: " % shown)
+                       n ns e
       where
-        isXML (ToXML xs) = not (null xs)
-        isXML _          = False
+        nonEmptyXML = notXML True
+        anyXML      = notXML False
 
-        ns = m ^. xmlNamespace
-            <|> r ^? refXMLNamespace . _Just . xmlUri
-            <|> x ^? _Just . fieldRef . refXMLNamespace . _Just . xmlUri
+        notXML e = \case
+            ToXML [] -> e
+            ToXML {} -> False
+            _        -> True
 
-        root = fromMaybe (memberName p Input n r)
-              $ r ^. refLocationName
-            <|> x ^? _Just . fieldId . memberId
+        findElement = \case
+            ToXML [f] -> Just f
+            _         -> Nothing
 
-        x = listToMaybe (mapMaybe go is)
-          where
-            go (ToXML [f]) = Just f
-            go _           = Nothing
 
     removeInsts :: [Inst] -> [Inst]
     removeInsts = mapMaybe go

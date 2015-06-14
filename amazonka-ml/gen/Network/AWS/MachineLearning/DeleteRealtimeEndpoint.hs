@@ -64,7 +64,7 @@ instance AWSRequest DeleteRealtimeEndpoint where
           = receiveJSON
               (\ s h x ->
                  DeleteRealtimeEndpointResponse' <$>
-                   x .?> "RealtimeEndpointInfo" <*> x .:> "MLModelId")
+                   x .?> "RealtimeEndpointInfo" <*> x .?> "MLModelId")
 
 instance ToHeaders DeleteRealtimeEndpoint where
         toHeaders
@@ -93,11 +93,11 @@ instance ToQuery DeleteRealtimeEndpoint where
 -- * 'drerRealtimeEndpointInfo'
 --
 -- * 'drerMLModelId'
-data DeleteRealtimeEndpointResponse = DeleteRealtimeEndpointResponse'{_drerRealtimeEndpointInfo :: Maybe RealtimeEndpointInfo, _drerMLModelId :: Text} deriving (Eq, Read, Show)
+data DeleteRealtimeEndpointResponse = DeleteRealtimeEndpointResponse'{_drerRealtimeEndpointInfo :: Maybe RealtimeEndpointInfo, _drerMLModelId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DeleteRealtimeEndpointResponse' smart constructor.
-deleteRealtimeEndpointResponse :: Text -> DeleteRealtimeEndpointResponse
-deleteRealtimeEndpointResponse pMLModelId = DeleteRealtimeEndpointResponse'{_drerRealtimeEndpointInfo = Nothing, _drerMLModelId = pMLModelId};
+deleteRealtimeEndpointResponse :: DeleteRealtimeEndpointResponse
+deleteRealtimeEndpointResponse = DeleteRealtimeEndpointResponse'{_drerRealtimeEndpointInfo = Nothing, _drerMLModelId = Nothing};
 
 -- | The endpoint information of the @MLModel@
 drerRealtimeEndpointInfo :: Lens' DeleteRealtimeEndpointResponse (Maybe RealtimeEndpointInfo)
@@ -105,5 +105,5 @@ drerRealtimeEndpointInfo = lens _drerRealtimeEndpointInfo (\ s a -> s{_drerRealt
 
 -- | A user-supplied ID that uniquely identifies the @MLModel@. This value
 -- should be identical to the value of the @MLModelId@ in the request.
-drerMLModelId :: Lens' DeleteRealtimeEndpointResponse Text
+drerMLModelId :: Lens' DeleteRealtimeEndpointResponse (Maybe Text)
 drerMLModelId = lens _drerMLModelId (\ s a -> s{_drerMLModelId = a});

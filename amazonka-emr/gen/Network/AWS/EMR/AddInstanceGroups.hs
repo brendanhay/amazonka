@@ -51,8 +51,8 @@ import Network.AWS.EMR.Types
 data AddInstanceGroups = AddInstanceGroups'{_aigInstanceGroups :: [InstanceGroupConfig], _aigJobFlowId :: Text} deriving (Eq, Read, Show)
 
 -- | 'AddInstanceGroups' smart constructor.
-addInstanceGroups :: [InstanceGroupConfig] -> Text -> AddInstanceGroups
-addInstanceGroups pInstanceGroups pJobFlowId = AddInstanceGroups'{_aigInstanceGroups = pInstanceGroups, _aigJobFlowId = pJobFlowId};
+addInstanceGroups :: Text -> AddInstanceGroups
+addInstanceGroups pJobFlowId = AddInstanceGroups'{_aigInstanceGroups = mempty, _aigJobFlowId = pJobFlowId};
 
 -- | Instance Groups to add.
 aigInstanceGroups :: Lens' AddInstanceGroups [InstanceGroupConfig]
@@ -101,16 +101,16 @@ instance ToQuery AddInstanceGroups where
 -- * 'aigrJobFlowId'
 --
 -- * 'aigrInstanceGroupIds'
-data AddInstanceGroupsResponse = AddInstanceGroupsResponse'{_aigrJobFlowId :: Maybe Text, _aigrInstanceGroupIds :: [Text]} deriving (Eq, Read, Show)
+data AddInstanceGroupsResponse = AddInstanceGroupsResponse'{_aigrJobFlowId :: Maybe Text, _aigrInstanceGroupIds :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'AddInstanceGroupsResponse' smart constructor.
 addInstanceGroupsResponse :: AddInstanceGroupsResponse
-addInstanceGroupsResponse = AddInstanceGroupsResponse'{_aigrJobFlowId = Nothing, _aigrInstanceGroupIds = mempty};
+addInstanceGroupsResponse = AddInstanceGroupsResponse'{_aigrJobFlowId = Nothing, _aigrInstanceGroupIds = Nothing};
 
 -- | The job flow ID in which the instance groups are added.
 aigrJobFlowId :: Lens' AddInstanceGroupsResponse (Maybe Text)
 aigrJobFlowId = lens _aigrJobFlowId (\ s a -> s{_aigrJobFlowId = a});
 
 -- | Instance group IDs of the newly created instance groups.
-aigrInstanceGroupIds :: Lens' AddInstanceGroupsResponse [Text]
+aigrInstanceGroupIds :: Lens' AddInstanceGroupsResponse (Maybe [Text])
 aigrInstanceGroupIds = lens _aigrInstanceGroupIds (\ s a -> s{_aigrInstanceGroupIds = a});

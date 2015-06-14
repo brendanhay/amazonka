@@ -74,7 +74,7 @@ instance AWSRequest DeleteBandwidthRateLimit where
           = receiveJSON
               (\ s h x ->
                  DeleteBandwidthRateLimitResponse' <$>
-                   x .:> "GatewayARN")
+                   x .?> "GatewayARN")
 
 instance ToHeaders DeleteBandwidthRateLimit where
         toHeaders
@@ -103,12 +103,12 @@ instance ToQuery DeleteBandwidthRateLimit where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'delGatewayARN'
-newtype DeleteBandwidthRateLimitResponse = DeleteBandwidthRateLimitResponse'{_delGatewayARN :: Text} deriving (Eq, Read, Show)
+newtype DeleteBandwidthRateLimitResponse = DeleteBandwidthRateLimitResponse'{_delGatewayARN :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DeleteBandwidthRateLimitResponse' smart constructor.
-deleteBandwidthRateLimitResponse :: Text -> DeleteBandwidthRateLimitResponse
-deleteBandwidthRateLimitResponse pGatewayARN = DeleteBandwidthRateLimitResponse'{_delGatewayARN = pGatewayARN};
+deleteBandwidthRateLimitResponse :: DeleteBandwidthRateLimitResponse
+deleteBandwidthRateLimitResponse = DeleteBandwidthRateLimitResponse'{_delGatewayARN = Nothing};
 
 -- | FIXME: Undocumented member.
-delGatewayARN :: Lens' DeleteBandwidthRateLimitResponse Text
+delGatewayARN :: Lens' DeleteBandwidthRateLimitResponse (Maybe Text)
 delGatewayARN = lens _delGatewayARN (\ s a -> s{_delGatewayARN = a});

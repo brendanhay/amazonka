@@ -76,11 +76,11 @@ instance ToQuery DescribeLifecycleHookTypes where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dlhtrLifecycleHookTypes'
-newtype DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse'{_dlhtrLifecycleHookTypes :: [Text]} deriving (Eq, Read, Show)
+newtype DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse'{_dlhtrLifecycleHookTypes :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'DescribeLifecycleHookTypesResponse' smart constructor.
 describeLifecycleHookTypesResponse :: DescribeLifecycleHookTypesResponse
-describeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse'{_dlhtrLifecycleHookTypes = mempty};
+describeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse'{_dlhtrLifecycleHookTypes = Nothing};
 
 -- | One or more of the following notification types:
 --
@@ -88,5 +88,5 @@ describeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse'{_dlhtrL
 --
 -- -   @autoscaling:EC2_INSTANCE_TERMINATING@
 --
-dlhtrLifecycleHookTypes :: Lens' DescribeLifecycleHookTypesResponse [Text]
+dlhtrLifecycleHookTypes :: Lens' DescribeLifecycleHookTypesResponse (Maybe [Text])
 dlhtrLifecycleHookTypes = lens _dlhtrLifecycleHookTypes (\ s a -> s{_dlhtrLifecycleHookTypes = a});

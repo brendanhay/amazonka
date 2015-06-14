@@ -26,8 +26,8 @@ module Network.AWS.SSM.ListAssociations
     , listAssociations
     -- ** Request lenses
     , laNextToken
-    , laAssociationFilterList
     , laMaxResults
+    , laAssociationFilterList
 
     -- * Response
     , ListAssociationsResponse
@@ -49,30 +49,30 @@ import Network.AWS.SSM.Types
 --
 -- * 'laNextToken'
 --
--- * 'laAssociationFilterList'
---
 -- * 'laMaxResults'
-data ListAssociations = ListAssociations'{_laNextToken :: Maybe Text, _laAssociationFilterList :: List1 AssociationFilter, _laMaxResults :: Nat} deriving (Eq, Read, Show)
+--
+-- * 'laAssociationFilterList'
+data ListAssociations = ListAssociations'{_laNextToken :: Maybe Text, _laMaxResults :: Maybe Nat, _laAssociationFilterList :: List1 AssociationFilter} deriving (Eq, Read, Show)
 
 -- | 'ListAssociations' smart constructor.
-listAssociations :: NonEmpty AssociationFilter -> Natural -> ListAssociations
-listAssociations pAssociationFilterList pMaxResults = ListAssociations'{_laNextToken = Nothing, _laAssociationFilterList = _List1 # pAssociationFilterList, _laMaxResults = _Nat # pMaxResults};
+listAssociations :: NonEmpty AssociationFilter -> ListAssociations
+listAssociations pAssociationFilterList = ListAssociations'{_laNextToken = Nothing, _laMaxResults = Nothing, _laAssociationFilterList = _List1 # pAssociationFilterList};
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
 laNextToken :: Lens' ListAssociations (Maybe Text)
 laNextToken = lens _laNextToken (\ s a -> s{_laNextToken = a});
 
+-- | The maximum number of items to return for this call. The call also
+-- returns a token that you can specify in a subsequent call to get the
+-- next set of results.
+laMaxResults :: Lens' ListAssociations (Maybe Natural)
+laMaxResults = lens _laMaxResults (\ s a -> s{_laMaxResults = a}) . mapping _Nat;
+
 -- | One or more filters. Use a filter to return a more specific list of
 -- results.
 laAssociationFilterList :: Lens' ListAssociations (NonEmpty AssociationFilter)
 laAssociationFilterList = lens _laAssociationFilterList (\ s a -> s{_laAssociationFilterList = a}) . _List1;
-
--- | The maximum number of items to return for this call. The call also
--- returns a token that you can specify in a subsequent call to get the
--- next set of results.
-laMaxResults :: Lens' ListAssociations Natural
-laMaxResults = lens _laMaxResults (\ s a -> s{_laMaxResults = a}) . _Nat;
 
 instance AWSRequest ListAssociations where
         type Sv ListAssociations = SSM
@@ -98,8 +98,8 @@ instance ToJSON ListAssociations where
         toJSON ListAssociations'{..}
           = object
               ["NextToken" .= _laNextToken,
-               "AssociationFilterList" .= _laAssociationFilterList,
-               "MaxResults" .= _laMaxResults]
+               "MaxResults" .= _laMaxResults,
+               "AssociationFilterList" .= _laAssociationFilterList]
 
 instance ToPath ListAssociations where
         toPath = const "/"
@@ -114,11 +114,11 @@ instance ToQuery ListAssociations where
 -- * 'larNextToken'
 --
 -- * 'larAssociations'
-data ListAssociationsResponse = ListAssociationsResponse'{_larNextToken :: Maybe Text, _larAssociations :: [Association]} deriving (Eq, Read, Show)
+data ListAssociationsResponse = ListAssociationsResponse'{_larNextToken :: Maybe Text, _larAssociations :: Maybe [Association]} deriving (Eq, Read, Show)
 
 -- | 'ListAssociationsResponse' smart constructor.
 listAssociationsResponse :: ListAssociationsResponse
-listAssociationsResponse = ListAssociationsResponse'{_larNextToken = Nothing, _larAssociations = mempty};
+listAssociationsResponse = ListAssociationsResponse'{_larNextToken = Nothing, _larAssociations = Nothing};
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
@@ -126,5 +126,5 @@ larNextToken :: Lens' ListAssociationsResponse (Maybe Text)
 larNextToken = lens _larNextToken (\ s a -> s{_larNextToken = a});
 
 -- | The associations.
-larAssociations :: Lens' ListAssociationsResponse [Association]
+larAssociations :: Lens' ListAssociationsResponse (Maybe [Association])
 larAssociations = lens _larAssociations (\ s a -> s{_larAssociations = a});

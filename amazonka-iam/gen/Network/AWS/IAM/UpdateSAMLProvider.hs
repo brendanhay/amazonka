@@ -78,7 +78,7 @@ instance AWSRequest UpdateSAMLProvider where
           = receiveXMLWrapper "UpdateSAMLProviderResult"
               (\ s h x ->
                  UpdateSAMLProviderResponse' <$>
-                   x .@ "SAMLProviderArn")
+                   x .@? "SAMLProviderArn")
 
 instance ToHeaders UpdateSAMLProvider where
         toHeaders = const mempty
@@ -100,12 +100,12 @@ instance ToQuery UpdateSAMLProvider where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'usamlprSAMLProviderARN'
-newtype UpdateSAMLProviderResponse = UpdateSAMLProviderResponse'{_usamlprSAMLProviderARN :: Text} deriving (Eq, Read, Show)
+newtype UpdateSAMLProviderResponse = UpdateSAMLProviderResponse'{_usamlprSAMLProviderARN :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'UpdateSAMLProviderResponse' smart constructor.
-updateSAMLProviderResponse :: Text -> UpdateSAMLProviderResponse
-updateSAMLProviderResponse pSAMLProviderARN = UpdateSAMLProviderResponse'{_usamlprSAMLProviderARN = pSAMLProviderARN};
+updateSAMLProviderResponse :: UpdateSAMLProviderResponse
+updateSAMLProviderResponse = UpdateSAMLProviderResponse'{_usamlprSAMLProviderARN = Nothing};
 
 -- | The Amazon Resource Name (ARN) of the SAML provider that was updated.
-usamlprSAMLProviderARN :: Lens' UpdateSAMLProviderResponse Text
+usamlprSAMLProviderARN :: Lens' UpdateSAMLProviderResponse (Maybe Text)
 usamlprSAMLProviderARN = lens _usamlprSAMLProviderARN (\ s a -> s{_usamlprSAMLProviderARN = a});

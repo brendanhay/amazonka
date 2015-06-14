@@ -50,15 +50,15 @@ import Network.AWS.CloudHSM.Types
 -- * 'mhLabel'
 --
 -- * 'mhHapgARN'
-data ModifyHapg = ModifyHapg'{_mhPartitionSerialList :: [Text], _mhLabel :: Maybe Text, _mhHapgARN :: Text} deriving (Eq, Read, Show)
+data ModifyHapg = ModifyHapg'{_mhPartitionSerialList :: Maybe [Text], _mhLabel :: Maybe Text, _mhHapgARN :: Text} deriving (Eq, Read, Show)
 
 -- | 'ModifyHapg' smart constructor.
 modifyHapg :: Text -> ModifyHapg
-modifyHapg pHapgARN = ModifyHapg'{_mhPartitionSerialList = mempty, _mhLabel = Nothing, _mhHapgARN = pHapgARN};
+modifyHapg pHapgARN = ModifyHapg'{_mhPartitionSerialList = Nothing, _mhLabel = Nothing, _mhHapgARN = pHapgARN};
 
 -- | The list of partition serial numbers to make members of the
 -- high-availability partition group.
-mhPartitionSerialList :: Lens' ModifyHapg [Text]
+mhPartitionSerialList :: Lens' ModifyHapg (Maybe [Text])
 mhPartitionSerialList = lens _mhPartitionSerialList (\ s a -> s{_mhPartitionSerialList = a});
 
 -- | The new label for the high-availability partition group.

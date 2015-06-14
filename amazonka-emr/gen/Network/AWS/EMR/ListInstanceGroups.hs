@@ -102,16 +102,16 @@ instance ToQuery ListInstanceGroups where
 -- * 'ligrMarker'
 --
 -- * 'ligrInstanceGroups'
-data ListInstanceGroupsResponse = ListInstanceGroupsResponse'{_ligrMarker :: Maybe Text, _ligrInstanceGroups :: [InstanceGroup]} deriving (Eq, Read, Show)
+data ListInstanceGroupsResponse = ListInstanceGroupsResponse'{_ligrMarker :: Maybe Text, _ligrInstanceGroups :: Maybe [InstanceGroup]} deriving (Eq, Read, Show)
 
 -- | 'ListInstanceGroupsResponse' smart constructor.
 listInstanceGroupsResponse :: ListInstanceGroupsResponse
-listInstanceGroupsResponse = ListInstanceGroupsResponse'{_ligrMarker = Nothing, _ligrInstanceGroups = mempty};
+listInstanceGroupsResponse = ListInstanceGroupsResponse'{_ligrMarker = Nothing, _ligrInstanceGroups = Nothing};
 
 -- | The pagination token that indicates the next set of results to retrieve.
 ligrMarker :: Lens' ListInstanceGroupsResponse (Maybe Text)
 ligrMarker = lens _ligrMarker (\ s a -> s{_ligrMarker = a});
 
 -- | The list of instance groups for the cluster and given filters.
-ligrInstanceGroups :: Lens' ListInstanceGroupsResponse [InstanceGroup]
+ligrInstanceGroups :: Lens' ListInstanceGroupsResponse (Maybe [InstanceGroup])
 ligrInstanceGroups = lens _ligrInstanceGroups (\ s a -> s{_ligrInstanceGroups = a});

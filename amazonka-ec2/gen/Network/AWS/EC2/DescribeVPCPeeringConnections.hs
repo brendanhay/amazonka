@@ -50,11 +50,11 @@ import Network.AWS.EC2.Types
 -- * 'dvpcpcVPCPeeringConnectionIds'
 --
 -- * 'dvpcpcDryRun'
-data DescribeVPCPeeringConnections = DescribeVPCPeeringConnections'{_dvpcpcFilters :: [Filter], _dvpcpcVPCPeeringConnectionIds :: [Text], _dvpcpcDryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data DescribeVPCPeeringConnections = DescribeVPCPeeringConnections'{_dvpcpcFilters :: Maybe [Filter], _dvpcpcVPCPeeringConnectionIds :: Maybe [Text], _dvpcpcDryRun :: Maybe Bool} deriving (Eq, Read, Show)
 
 -- | 'DescribeVPCPeeringConnections' smart constructor.
 describeVPCPeeringConnections :: DescribeVPCPeeringConnections
-describeVPCPeeringConnections = DescribeVPCPeeringConnections'{_dvpcpcFilters = mempty, _dvpcpcVPCPeeringConnectionIds = mempty, _dvpcpcDryRun = Nothing};
+describeVPCPeeringConnections = DescribeVPCPeeringConnections'{_dvpcpcFilters = Nothing, _dvpcpcVPCPeeringConnectionIds = Nothing, _dvpcpcDryRun = Nothing};
 
 -- | One or more filters.
 --
@@ -99,13 +99,13 @@ describeVPCPeeringConnections = DescribeVPCPeeringConnections'{_dvpcpcFilters = 
 --
 -- -   @vpc-peering-connection-id@ - The ID of the VPC peering connection.
 --
-dvpcpcFilters :: Lens' DescribeVPCPeeringConnections [Filter]
+dvpcpcFilters :: Lens' DescribeVPCPeeringConnections (Maybe [Filter])
 dvpcpcFilters = lens _dvpcpcFilters (\ s a -> s{_dvpcpcFilters = a});
 
 -- | One or more VPC peering connection IDs.
 --
 -- Default: Describes all your VPC peering connections.
-dvpcpcVPCPeeringConnectionIds :: Lens' DescribeVPCPeeringConnections [Text]
+dvpcpcVPCPeeringConnectionIds :: Lens' DescribeVPCPeeringConnections (Maybe [Text])
 dvpcpcVPCPeeringConnectionIds = lens _dvpcpcVPCPeeringConnectionIds (\ s a -> s{_dvpcpcVPCPeeringConnectionIds = a});
 
 -- | Checks whether you have the required permissions for the action, without
@@ -149,12 +149,12 @@ instance ToQuery DescribeVPCPeeringConnections where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dvpcrVPCPeeringConnections'
-newtype DescribeVPCPeeringConnectionsResponse = DescribeVPCPeeringConnectionsResponse'{_dvpcrVPCPeeringConnections :: [VPCPeeringConnection]} deriving (Eq, Read, Show)
+newtype DescribeVPCPeeringConnectionsResponse = DescribeVPCPeeringConnectionsResponse'{_dvpcrVPCPeeringConnections :: Maybe [VPCPeeringConnection]} deriving (Eq, Read, Show)
 
 -- | 'DescribeVPCPeeringConnectionsResponse' smart constructor.
 describeVPCPeeringConnectionsResponse :: DescribeVPCPeeringConnectionsResponse
-describeVPCPeeringConnectionsResponse = DescribeVPCPeeringConnectionsResponse'{_dvpcrVPCPeeringConnections = mempty};
+describeVPCPeeringConnectionsResponse = DescribeVPCPeeringConnectionsResponse'{_dvpcrVPCPeeringConnections = Nothing};
 
 -- | Information about the VPC peering connections.
-dvpcrVPCPeeringConnections :: Lens' DescribeVPCPeeringConnectionsResponse [VPCPeeringConnection]
+dvpcrVPCPeeringConnections :: Lens' DescribeVPCPeeringConnectionsResponse (Maybe [VPCPeeringConnection])
 dvpcrVPCPeeringConnections = lens _dvpcrVPCPeeringConnections (\ s a -> s{_dvpcrVPCPeeringConnections = a});

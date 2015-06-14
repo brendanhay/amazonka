@@ -61,8 +61,8 @@ import Network.AWS.StorageGateway.Types
 data AddWorkingStorage = AddWorkingStorage'{_awsGatewayARN :: Text, _awsDiskIds :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'AddWorkingStorage' smart constructor.
-addWorkingStorage :: Text -> [Text] -> AddWorkingStorage
-addWorkingStorage pGatewayARN pDiskIds = AddWorkingStorage'{_awsGatewayARN = pGatewayARN, _awsDiskIds = pDiskIds};
+addWorkingStorage :: Text -> AddWorkingStorage
+addWorkingStorage pGatewayARN = AddWorkingStorage'{_awsGatewayARN = pGatewayARN, _awsDiskIds = mempty};
 
 -- | FIXME: Undocumented member.
 awsGatewayARN :: Lens' AddWorkingStorage Text
@@ -81,7 +81,7 @@ instance AWSRequest AddWorkingStorage where
         response
           = receiveJSON
               (\ s h x ->
-                 AddWorkingStorageResponse' <$> x .:> "GatewayARN")
+                 AddWorkingStorageResponse' <$> x .?> "GatewayARN")
 
 instance ToHeaders AddWorkingStorage where
         toHeaders
@@ -110,12 +110,12 @@ instance ToQuery AddWorkingStorage where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'awsrGatewayARN'
-newtype AddWorkingStorageResponse = AddWorkingStorageResponse'{_awsrGatewayARN :: Text} deriving (Eq, Read, Show)
+newtype AddWorkingStorageResponse = AddWorkingStorageResponse'{_awsrGatewayARN :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'AddWorkingStorageResponse' smart constructor.
-addWorkingStorageResponse :: Text -> AddWorkingStorageResponse
-addWorkingStorageResponse pGatewayARN = AddWorkingStorageResponse'{_awsrGatewayARN = pGatewayARN};
+addWorkingStorageResponse :: AddWorkingStorageResponse
+addWorkingStorageResponse = AddWorkingStorageResponse'{_awsrGatewayARN = Nothing};
 
 -- | FIXME: Undocumented member.
-awsrGatewayARN :: Lens' AddWorkingStorageResponse Text
+awsrGatewayARN :: Lens' AddWorkingStorageResponse (Maybe Text)
 awsrGatewayARN = lens _awsrGatewayARN (\ s a -> s{_awsrGatewayARN = a});

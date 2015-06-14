@@ -50,11 +50,11 @@ import Network.AWS.AutoScaling.Types
 -- * 'rpScalingProcesses'
 --
 -- * 'rpAutoScalingGroupName'
-data ResumeProcesses = ResumeProcesses'{_rpScalingProcesses :: [Text], _rpAutoScalingGroupName :: Text} deriving (Eq, Read, Show)
+data ResumeProcesses = ResumeProcesses'{_rpScalingProcesses :: Maybe [Text], _rpAutoScalingGroupName :: Text} deriving (Eq, Read, Show)
 
 -- | 'ResumeProcesses' smart constructor.
 resumeProcesses :: Text -> ResumeProcesses
-resumeProcesses pAutoScalingGroupName = ResumeProcesses'{_rpScalingProcesses = mempty, _rpAutoScalingGroupName = pAutoScalingGroupName};
+resumeProcesses pAutoScalingGroupName = ResumeProcesses'{_rpScalingProcesses = Nothing, _rpAutoScalingGroupName = pAutoScalingGroupName};
 
 -- | One or more of the following processes:
 --
@@ -66,7 +66,7 @@ resumeProcesses pAutoScalingGroupName = ResumeProcesses'{_rpScalingProcesses = m
 -- -   AlarmNotification
 -- -   ScheduledActions
 -- -   AddToLoadBalancer
-rpScalingProcesses :: Lens' ResumeProcesses [Text]
+rpScalingProcesses :: Lens' ResumeProcesses (Maybe [Text])
 rpScalingProcesses = lens _rpScalingProcesses (\ s a -> s{_rpScalingProcesses = a});
 
 -- | The name or Amazon Resource Name (ARN) of the Auto Scaling group.

@@ -154,11 +154,11 @@ instance ToQuery GetStatus where
 -- * 'gsrProgressMessage'
 --
 -- * 'gsrLocationMessage'
-data GetStatusResponse = GetStatusResponse'{_gsrCarrier :: Maybe Text, _gsrSignature :: Maybe Text, _gsrTrackingNumber :: Maybe Text, _gsrJobType :: Maybe JobType, _gsrJobId :: Maybe Text, _gsrSignatureFileContents :: Maybe Text, _gsrErrorCount :: Maybe Int, _gsrCurrentManifest :: Maybe Text, _gsrArtifactList :: [Artifact], _gsrLogBucket :: Maybe Text, _gsrCreationDate :: Maybe ISO8601, _gsrProgressCode :: Maybe Text, _gsrLocationCode :: Maybe Text, _gsrLogKey :: Maybe Text, _gsrProgressMessage :: Maybe Text, _gsrLocationMessage :: Maybe Text} deriving (Eq, Read, Show)
+data GetStatusResponse = GetStatusResponse'{_gsrCarrier :: Maybe Text, _gsrSignature :: Maybe Text, _gsrTrackingNumber :: Maybe Text, _gsrJobType :: Maybe JobType, _gsrJobId :: Maybe Text, _gsrSignatureFileContents :: Maybe Text, _gsrErrorCount :: Maybe Int, _gsrCurrentManifest :: Maybe Text, _gsrArtifactList :: Maybe [Artifact], _gsrLogBucket :: Maybe Text, _gsrCreationDate :: Maybe ISO8601, _gsrProgressCode :: Maybe Text, _gsrLocationCode :: Maybe Text, _gsrLogKey :: Maybe Text, _gsrProgressMessage :: Maybe Text, _gsrLocationMessage :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'GetStatusResponse' smart constructor.
 getStatusResponse :: GetStatusResponse
-getStatusResponse = GetStatusResponse'{_gsrCarrier = Nothing, _gsrSignature = Nothing, _gsrTrackingNumber = Nothing, _gsrJobType = Nothing, _gsrJobId = Nothing, _gsrSignatureFileContents = Nothing, _gsrErrorCount = Nothing, _gsrCurrentManifest = Nothing, _gsrArtifactList = mempty, _gsrLogBucket = Nothing, _gsrCreationDate = Nothing, _gsrProgressCode = Nothing, _gsrLocationCode = Nothing, _gsrLogKey = Nothing, _gsrProgressMessage = Nothing, _gsrLocationMessage = Nothing};
+getStatusResponse = GetStatusResponse'{_gsrCarrier = Nothing, _gsrSignature = Nothing, _gsrTrackingNumber = Nothing, _gsrJobType = Nothing, _gsrJobId = Nothing, _gsrSignatureFileContents = Nothing, _gsrErrorCount = Nothing, _gsrCurrentManifest = Nothing, _gsrArtifactList = Nothing, _gsrLogBucket = Nothing, _gsrCreationDate = Nothing, _gsrProgressCode = Nothing, _gsrLocationCode = Nothing, _gsrLogKey = Nothing, _gsrProgressMessage = Nothing, _gsrLocationMessage = Nothing};
 
 -- | FIXME: Undocumented member.
 gsrCarrier :: Lens' GetStatusResponse (Maybe Text)
@@ -193,7 +193,7 @@ gsrCurrentManifest :: Lens' GetStatusResponse (Maybe Text)
 gsrCurrentManifest = lens _gsrCurrentManifest (\ s a -> s{_gsrCurrentManifest = a});
 
 -- | FIXME: Undocumented member.
-gsrArtifactList :: Lens' GetStatusResponse [Artifact]
+gsrArtifactList :: Lens' GetStatusResponse (Maybe [Artifact])
 gsrArtifactList = lens _gsrArtifactList (\ s a -> s{_gsrArtifactList = a});
 
 -- | FIXME: Undocumented member.

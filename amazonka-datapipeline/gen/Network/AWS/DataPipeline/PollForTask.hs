@@ -38,9 +38,9 @@ module Network.AWS.DataPipeline.PollForTask
     -- ** Request constructor
     , pollForTask
     -- ** Request lenses
+    , pftHostname
     , pftInstanceIdentity
     , pftWorkerGroup
-    , pftHostname
 
     -- * Response
     , PollForTaskResponse
@@ -59,16 +59,20 @@ import Network.AWS.DataPipeline.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'pftHostname'
+--
 -- * 'pftInstanceIdentity'
 --
 -- * 'pftWorkerGroup'
---
--- * 'pftHostname'
-data PollForTask = PollForTask'{_pftInstanceIdentity :: Maybe InstanceIdentity, _pftWorkerGroup :: Text, _pftHostname :: Text} deriving (Eq, Read, Show)
+data PollForTask = PollForTask'{_pftHostname :: Maybe Text, _pftInstanceIdentity :: Maybe InstanceIdentity, _pftWorkerGroup :: Text} deriving (Eq, Read, Show)
 
 -- | 'PollForTask' smart constructor.
-pollForTask :: Text -> Text -> PollForTask
-pollForTask pWorkerGroup pHostname = PollForTask'{_pftInstanceIdentity = Nothing, _pftWorkerGroup = pWorkerGroup, _pftHostname = pHostname};
+pollForTask :: Text -> PollForTask
+pollForTask pWorkerGroup = PollForTask'{_pftHostname = Nothing, _pftInstanceIdentity = Nothing, _pftWorkerGroup = pWorkerGroup};
+
+-- | The public DNS name of the calling task runner.
+pftHostname :: Lens' PollForTask (Maybe Text)
+pftHostname = lens _pftHostname (\ s a -> s{_pftHostname = a});
 
 -- | Identity information for the EC2 instance that is hosting the task
 -- runner. You can get this value from the instance using
@@ -89,10 +93,6 @@ pftInstanceIdentity = lens _pftInstanceIdentity (\ s a -> s{_pftInstanceIdentity
 -- @workerGroup@; the string must be an exact, case-sensitive, match.
 pftWorkerGroup :: Lens' PollForTask Text
 pftWorkerGroup = lens _pftWorkerGroup (\ s a -> s{_pftWorkerGroup = a});
-
--- | The public DNS name of the calling task runner.
-pftHostname :: Lens' PollForTask Text
-pftHostname = lens _pftHostname (\ s a -> s{_pftHostname = a});
 
 instance AWSRequest PollForTask where
         type Sv PollForTask = DataPipeline
@@ -115,9 +115,9 @@ instance ToHeaders PollForTask where
 instance ToJSON PollForTask where
         toJSON PollForTask'{..}
           = object
-              ["instanceIdentity" .= _pftInstanceIdentity,
-               "workerGroup" .= _pftWorkerGroup,
-               "hostname" .= _pftHostname]
+              ["hostname" .= _pftHostname,
+               "instanceIdentity" .= _pftInstanceIdentity,
+               "workerGroup" .= _pftWorkerGroup]
 
 instance ToPath PollForTask where
         toPath = const "/"

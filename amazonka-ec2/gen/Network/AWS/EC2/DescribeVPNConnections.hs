@@ -54,11 +54,11 @@ import Network.AWS.EC2.Types
 -- * 'describeVPNConnectionIds'
 --
 -- * 'describeDryRun'
-data DescribeVPNConnections = DescribeVPNConnections'{_describeFilters :: [Filter], _describeVPNConnectionIds :: [Text], _describeDryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data DescribeVPNConnections = DescribeVPNConnections'{_describeFilters :: Maybe [Filter], _describeVPNConnectionIds :: Maybe [Text], _describeDryRun :: Maybe Bool} deriving (Eq, Read, Show)
 
 -- | 'DescribeVPNConnections' smart constructor.
 describeVPNConnections :: DescribeVPNConnections
-describeVPNConnections = DescribeVPNConnections'{_describeFilters = mempty, _describeVPNConnectionIds = mempty, _describeDryRun = Nothing};
+describeVPNConnections = DescribeVPNConnections'{_describeFilters = Nothing, _describeVPNConnectionIds = Nothing, _describeDryRun = Nothing};
 
 -- | One or more filters.
 --
@@ -103,13 +103,13 @@ describeVPNConnections = DescribeVPNConnections'{_describeFilters = mempty, _des
 -- -   @vpn-gateway-id@ - The ID of a virtual private gateway associated
 --     with the VPN connection.
 --
-describeFilters :: Lens' DescribeVPNConnections [Filter]
+describeFilters :: Lens' DescribeVPNConnections (Maybe [Filter])
 describeFilters = lens _describeFilters (\ s a -> s{_describeFilters = a});
 
 -- | One or more VPN connection IDs.
 --
 -- Default: Describes your VPN connections.
-describeVPNConnectionIds :: Lens' DescribeVPNConnections [Text]
+describeVPNConnectionIds :: Lens' DescribeVPNConnections (Maybe [Text])
 describeVPNConnectionIds = lens _describeVPNConnectionIds (\ s a -> s{_describeVPNConnectionIds = a});
 
 -- | Checks whether you have the required permissions for the action, without
@@ -151,12 +151,12 @@ instance ToQuery DescribeVPNConnections where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dvcrVPNConnections'
-newtype DescribeVPNConnectionsResponse = DescribeVPNConnectionsResponse'{_dvcrVPNConnections :: [VPNConnection]} deriving (Eq, Read, Show)
+newtype DescribeVPNConnectionsResponse = DescribeVPNConnectionsResponse'{_dvcrVPNConnections :: Maybe [VPNConnection]} deriving (Eq, Read, Show)
 
 -- | 'DescribeVPNConnectionsResponse' smart constructor.
 describeVPNConnectionsResponse :: DescribeVPNConnectionsResponse
-describeVPNConnectionsResponse = DescribeVPNConnectionsResponse'{_dvcrVPNConnections = mempty};
+describeVPNConnectionsResponse = DescribeVPNConnectionsResponse'{_dvcrVPNConnections = Nothing};
 
 -- | Information about one or more VPN connections.
-dvcrVPNConnections :: Lens' DescribeVPNConnectionsResponse [VPNConnection]
+dvcrVPNConnections :: Lens' DescribeVPNConnectionsResponse (Maybe [VPNConnection])
 dvcrVPNConnections = lens _dvcrVPNConnections (\ s a -> s{_dvcrVPNConnections = a});

@@ -74,7 +74,7 @@ instance AWSRequest GetKeyPolicy where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x -> GetKeyPolicyResponse' <$> x .:> "Policy")
+              (\ s h x -> GetKeyPolicyResponse' <$> x .?> "Policy")
 
 instance ToHeaders GetKeyPolicy where
         toHeaders
@@ -102,12 +102,12 @@ instance ToQuery GetKeyPolicy where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gkprPolicy'
-newtype GetKeyPolicyResponse = GetKeyPolicyResponse'{_gkprPolicy :: Text} deriving (Eq, Read, Show)
+newtype GetKeyPolicyResponse = GetKeyPolicyResponse'{_gkprPolicy :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'GetKeyPolicyResponse' smart constructor.
-getKeyPolicyResponse :: Text -> GetKeyPolicyResponse
-getKeyPolicyResponse pPolicy = GetKeyPolicyResponse'{_gkprPolicy = pPolicy};
+getKeyPolicyResponse :: GetKeyPolicyResponse
+getKeyPolicyResponse = GetKeyPolicyResponse'{_gkprPolicy = Nothing};
 
 -- | A policy document in JSON format.
-gkprPolicy :: Lens' GetKeyPolicyResponse Text
+gkprPolicy :: Lens' GetKeyPolicyResponse (Maybe Text)
 gkprPolicy = lens _gkprPolicy (\ s a -> s{_gkprPolicy = a});

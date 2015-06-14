@@ -28,9 +28,9 @@ module Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
     -- ** Request constructor
     , reportTaskRunnerHeartbeat
     -- ** Request lenses
+    , rtrhHostname
     , rtrhWorkerGroup
     , rtrhTaskrunnerId
-    , rtrhHostname
 
     -- * Response
     , ReportTaskRunnerHeartbeatResponse
@@ -49,16 +49,20 @@ import Network.AWS.DataPipeline.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'rtrhHostname'
+--
 -- * 'rtrhWorkerGroup'
 --
 -- * 'rtrhTaskrunnerId'
---
--- * 'rtrhHostname'
-data ReportTaskRunnerHeartbeat = ReportTaskRunnerHeartbeat'{_rtrhWorkerGroup :: Maybe Text, _rtrhTaskrunnerId :: Text, _rtrhHostname :: Text} deriving (Eq, Read, Show)
+data ReportTaskRunnerHeartbeat = ReportTaskRunnerHeartbeat'{_rtrhHostname :: Maybe Text, _rtrhWorkerGroup :: Maybe Text, _rtrhTaskrunnerId :: Text} deriving (Eq, Read, Show)
 
 -- | 'ReportTaskRunnerHeartbeat' smart constructor.
-reportTaskRunnerHeartbeat :: Text -> Text -> ReportTaskRunnerHeartbeat
-reportTaskRunnerHeartbeat pTaskrunnerId pHostname = ReportTaskRunnerHeartbeat'{_rtrhWorkerGroup = Nothing, _rtrhTaskrunnerId = pTaskrunnerId, _rtrhHostname = pHostname};
+reportTaskRunnerHeartbeat :: Text -> ReportTaskRunnerHeartbeat
+reportTaskRunnerHeartbeat pTaskrunnerId = ReportTaskRunnerHeartbeat'{_rtrhHostname = Nothing, _rtrhWorkerGroup = Nothing, _rtrhTaskrunnerId = pTaskrunnerId};
+
+-- | The public DNS name of the task runner.
+rtrhHostname :: Lens' ReportTaskRunnerHeartbeat (Maybe Text)
+rtrhHostname = lens _rtrhHostname (\ s a -> s{_rtrhHostname = a});
 
 -- | The type of task the task runner is configured to accept and process.
 -- The worker group is set as a field on objects in the pipeline when they
@@ -76,10 +80,6 @@ rtrhWorkerGroup = lens _rtrhWorkerGroup (\ s a -> s{_rtrhWorkerGroup = a});
 -- runner.
 rtrhTaskrunnerId :: Lens' ReportTaskRunnerHeartbeat Text
 rtrhTaskrunnerId = lens _rtrhTaskrunnerId (\ s a -> s{_rtrhTaskrunnerId = a});
-
--- | The public DNS name of the task runner.
-rtrhHostname :: Lens' ReportTaskRunnerHeartbeat Text
-rtrhHostname = lens _rtrhHostname (\ s a -> s{_rtrhHostname = a});
 
 instance AWSRequest ReportTaskRunnerHeartbeat where
         type Sv ReportTaskRunnerHeartbeat = DataPipeline
@@ -105,9 +105,9 @@ instance ToHeaders ReportTaskRunnerHeartbeat where
 instance ToJSON ReportTaskRunnerHeartbeat where
         toJSON ReportTaskRunnerHeartbeat'{..}
           = object
-              ["workerGroup" .= _rtrhWorkerGroup,
-               "taskrunnerId" .= _rtrhTaskrunnerId,
-               "hostname" .= _rtrhHostname]
+              ["hostname" .= _rtrhHostname,
+               "workerGroup" .= _rtrhWorkerGroup,
+               "taskrunnerId" .= _rtrhTaskrunnerId]
 
 instance ToPath ReportTaskRunnerHeartbeat where
         toPath = const "/"

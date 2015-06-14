@@ -125,11 +125,11 @@ instance ToQuery UpdateJob where
 -- * 'ujrWarningMessage'
 --
 -- * 'ujrArtifactList'
-data UpdateJobResponse = UpdateJobResponse'{_ujrSuccess :: Maybe Bool, _ujrWarningMessage :: Maybe Text, _ujrArtifactList :: [Artifact]} deriving (Eq, Read, Show)
+data UpdateJobResponse = UpdateJobResponse'{_ujrSuccess :: Maybe Bool, _ujrWarningMessage :: Maybe Text, _ujrArtifactList :: Maybe [Artifact]} deriving (Eq, Read, Show)
 
 -- | 'UpdateJobResponse' smart constructor.
 updateJobResponse :: UpdateJobResponse
-updateJobResponse = UpdateJobResponse'{_ujrSuccess = Nothing, _ujrWarningMessage = Nothing, _ujrArtifactList = mempty};
+updateJobResponse = UpdateJobResponse'{_ujrSuccess = Nothing, _ujrWarningMessage = Nothing, _ujrArtifactList = Nothing};
 
 -- | FIXME: Undocumented member.
 ujrSuccess :: Lens' UpdateJobResponse (Maybe Bool)
@@ -140,5 +140,5 @@ ujrWarningMessage :: Lens' UpdateJobResponse (Maybe Text)
 ujrWarningMessage = lens _ujrWarningMessage (\ s a -> s{_ujrWarningMessage = a});
 
 -- | FIXME: Undocumented member.
-ujrArtifactList :: Lens' UpdateJobResponse [Artifact]
+ujrArtifactList :: Lens' UpdateJobResponse (Maybe [Artifact])
 ujrArtifactList = lens _ujrArtifactList (\ s a -> s{_ujrArtifactList = a});

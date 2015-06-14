@@ -131,16 +131,16 @@ import Network.AWS.RDS.Types
 -- * 'cdiMasterUsername'
 --
 -- * 'cdiMasterUserPassword'
-data CreateDBInstance = CreateDBInstance'{_cdiDBSecurityGroups :: [Text], _cdiEngineVersion :: Maybe Text, _cdiStorageEncrypted :: Maybe Bool, _cdiAutoMinorVersionUpgrade :: Maybe Bool, _cdiPubliclyAccessible :: Maybe Bool, _cdiDBSubnetGroupName :: Maybe Text, _cdiIOPS :: Maybe Int, _cdiTDECredentialPassword :: Maybe Text, _cdiLicenseModel :: Maybe Text, _cdiPreferredMaintenanceWindow :: Maybe Text, _cdiCharacterSetName :: Maybe Text, _cdiPreferredBackupWindow :: Maybe Text, _cdiAvailabilityZone :: Maybe Text, _cdiBackupRetentionPeriod :: Maybe Int, _cdiKMSKeyId :: Maybe Text, _cdiDBParameterGroupName :: Maybe Text, _cdiVPCSecurityGroupIds :: [Text], _cdiMultiAZ :: Maybe Bool, _cdiTDECredentialARN :: Maybe Text, _cdiOptionGroupName :: Maybe Text, _cdiDBName :: Maybe Text, _cdiTags :: [Tag], _cdiPort :: Maybe Int, _cdiStorageType :: Maybe Text, _cdiDBInstanceIdentifier :: Text, _cdiAllocatedStorage :: Int, _cdiDBInstanceClass :: Text, _cdiEngine :: Text, _cdiMasterUsername :: Text, _cdiMasterUserPassword :: Text} deriving (Eq, Read, Show)
+data CreateDBInstance = CreateDBInstance'{_cdiDBSecurityGroups :: Maybe [Text], _cdiEngineVersion :: Maybe Text, _cdiStorageEncrypted :: Maybe Bool, _cdiAutoMinorVersionUpgrade :: Maybe Bool, _cdiPubliclyAccessible :: Maybe Bool, _cdiDBSubnetGroupName :: Maybe Text, _cdiIOPS :: Maybe Int, _cdiTDECredentialPassword :: Maybe Text, _cdiLicenseModel :: Maybe Text, _cdiPreferredMaintenanceWindow :: Maybe Text, _cdiCharacterSetName :: Maybe Text, _cdiPreferredBackupWindow :: Maybe Text, _cdiAvailabilityZone :: Maybe Text, _cdiBackupRetentionPeriod :: Maybe Int, _cdiKMSKeyId :: Maybe Text, _cdiDBParameterGroupName :: Maybe Text, _cdiVPCSecurityGroupIds :: Maybe [Text], _cdiMultiAZ :: Maybe Bool, _cdiTDECredentialARN :: Maybe Text, _cdiOptionGroupName :: Maybe Text, _cdiDBName :: Maybe Text, _cdiTags :: Maybe [Tag], _cdiPort :: Maybe Int, _cdiStorageType :: Maybe Text, _cdiDBInstanceIdentifier :: Text, _cdiAllocatedStorage :: Int, _cdiDBInstanceClass :: Text, _cdiEngine :: Text, _cdiMasterUsername :: Text, _cdiMasterUserPassword :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateDBInstance' smart constructor.
 createDBInstance :: Text -> Int -> Text -> Text -> Text -> Text -> CreateDBInstance
-createDBInstance pDBInstanceIdentifier pAllocatedStorage pDBInstanceClass pEngine pMasterUsername pMasterUserPassword = CreateDBInstance'{_cdiDBSecurityGroups = mempty, _cdiEngineVersion = Nothing, _cdiStorageEncrypted = Nothing, _cdiAutoMinorVersionUpgrade = Nothing, _cdiPubliclyAccessible = Nothing, _cdiDBSubnetGroupName = Nothing, _cdiIOPS = Nothing, _cdiTDECredentialPassword = Nothing, _cdiLicenseModel = Nothing, _cdiPreferredMaintenanceWindow = Nothing, _cdiCharacterSetName = Nothing, _cdiPreferredBackupWindow = Nothing, _cdiAvailabilityZone = Nothing, _cdiBackupRetentionPeriod = Nothing, _cdiKMSKeyId = Nothing, _cdiDBParameterGroupName = Nothing, _cdiVPCSecurityGroupIds = mempty, _cdiMultiAZ = Nothing, _cdiTDECredentialARN = Nothing, _cdiOptionGroupName = Nothing, _cdiDBName = Nothing, _cdiTags = mempty, _cdiPort = Nothing, _cdiStorageType = Nothing, _cdiDBInstanceIdentifier = pDBInstanceIdentifier, _cdiAllocatedStorage = pAllocatedStorage, _cdiDBInstanceClass = pDBInstanceClass, _cdiEngine = pEngine, _cdiMasterUsername = pMasterUsername, _cdiMasterUserPassword = pMasterUserPassword};
+createDBInstance pDBInstanceIdentifier pAllocatedStorage pDBInstanceClass pEngine pMasterUsername pMasterUserPassword = CreateDBInstance'{_cdiDBSecurityGroups = Nothing, _cdiEngineVersion = Nothing, _cdiStorageEncrypted = Nothing, _cdiAutoMinorVersionUpgrade = Nothing, _cdiPubliclyAccessible = Nothing, _cdiDBSubnetGroupName = Nothing, _cdiIOPS = Nothing, _cdiTDECredentialPassword = Nothing, _cdiLicenseModel = Nothing, _cdiPreferredMaintenanceWindow = Nothing, _cdiCharacterSetName = Nothing, _cdiPreferredBackupWindow = Nothing, _cdiAvailabilityZone = Nothing, _cdiBackupRetentionPeriod = Nothing, _cdiKMSKeyId = Nothing, _cdiDBParameterGroupName = Nothing, _cdiVPCSecurityGroupIds = Nothing, _cdiMultiAZ = Nothing, _cdiTDECredentialARN = Nothing, _cdiOptionGroupName = Nothing, _cdiDBName = Nothing, _cdiTags = Nothing, _cdiPort = Nothing, _cdiStorageType = Nothing, _cdiDBInstanceIdentifier = pDBInstanceIdentifier, _cdiAllocatedStorage = pAllocatedStorage, _cdiDBInstanceClass = pDBInstanceClass, _cdiEngine = pEngine, _cdiMasterUsername = pMasterUsername, _cdiMasterUserPassword = pMasterUserPassword};
 
 -- | A list of DB security groups to associate with this DB instance.
 --
 -- Default: The default DB security group for the database engine.
-cdiDBSecurityGroups :: Lens' CreateDBInstance [Text]
+cdiDBSecurityGroups :: Lens' CreateDBInstance (Maybe [Text])
 cdiDBSecurityGroups = lens _cdiDBSecurityGroups (\ s a -> s{_cdiDBSecurityGroups = a});
 
 -- | The version number of the database engine to use.
@@ -469,7 +469,7 @@ cdiDBParameterGroupName = lens _cdiDBParameterGroupName (\ s a -> s{_cdiDBParame
 --
 -- Default: The default EC2 VPC security group for the DB subnet group\'s
 -- VPC.
-cdiVPCSecurityGroupIds :: Lens' CreateDBInstance [Text]
+cdiVPCSecurityGroupIds :: Lens' CreateDBInstance (Maybe [Text])
 cdiVPCSecurityGroupIds = lens _cdiVPCSecurityGroupIds (\ s a -> s{_cdiVPCSecurityGroupIds = a});
 
 -- | Specifies if the DB instance is a Multi-AZ deployment. You cannot set
@@ -538,7 +538,7 @@ cdiDBName :: Lens' CreateDBInstance (Maybe Text)
 cdiDBName = lens _cdiDBName (\ s a -> s{_cdiDBName = a});
 
 -- | FIXME: Undocumented member.
-cdiTags :: Lens' CreateDBInstance [Tag]
+cdiTags :: Lens' CreateDBInstance (Maybe [Tag])
 cdiTags = lens _cdiTags (\ s a -> s{_cdiTags = a});
 
 -- | The port number on which the database accepts connections.

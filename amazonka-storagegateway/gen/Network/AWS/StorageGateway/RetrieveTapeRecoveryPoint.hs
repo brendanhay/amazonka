@@ -79,7 +79,7 @@ instance AWSRequest RetrieveTapeRecoveryPoint where
           = receiveJSON
               (\ s h x ->
                  RetrieveTapeRecoveryPointResponse' <$>
-                   x .:> "TapeARN")
+                   x .?> "TapeARN")
 
 instance ToHeaders RetrieveTapeRecoveryPoint where
         toHeaders
@@ -108,13 +108,13 @@ instance ToQuery RetrieveTapeRecoveryPoint where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rtrprTapeARN'
-newtype RetrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse'{_rtrprTapeARN :: Text} deriving (Eq, Read, Show)
+newtype RetrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse'{_rtrprTapeARN :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'RetrieveTapeRecoveryPointResponse' smart constructor.
-retrieveTapeRecoveryPointResponse :: Text -> RetrieveTapeRecoveryPointResponse
-retrieveTapeRecoveryPointResponse pTapeARN = RetrieveTapeRecoveryPointResponse'{_rtrprTapeARN = pTapeARN};
+retrieveTapeRecoveryPointResponse :: RetrieveTapeRecoveryPointResponse
+retrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse'{_rtrprTapeARN = Nothing};
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which the
 -- recovery point was retrieved.
-rtrprTapeARN :: Lens' RetrieveTapeRecoveryPointResponse Text
+rtrprTapeARN :: Lens' RetrieveTapeRecoveryPointResponse (Maybe Text)
 rtrprTapeARN = lens _rtrprTapeARN (\ s a -> s{_rtrprTapeARN = a});

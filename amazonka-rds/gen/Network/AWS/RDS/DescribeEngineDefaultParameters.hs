@@ -54,14 +54,14 @@ import Network.AWS.RDS.Types
 -- * 'dedpMarker'
 --
 -- * 'dedpDBParameterGroupFamily'
-data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'{_dedpFilters :: [Filter], _dedpMaxRecords :: Maybe Int, _dedpMarker :: Maybe Text, _dedpDBParameterGroupFamily :: Text} deriving (Eq, Read, Show)
+data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'{_dedpFilters :: Maybe [Filter], _dedpMaxRecords :: Maybe Int, _dedpMarker :: Maybe Text, _dedpDBParameterGroupFamily :: Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeEngineDefaultParameters' smart constructor.
 describeEngineDefaultParameters :: Text -> DescribeEngineDefaultParameters
-describeEngineDefaultParameters pDBParameterGroupFamily = DescribeEngineDefaultParameters'{_dedpFilters = mempty, _dedpMaxRecords = Nothing, _dedpMarker = Nothing, _dedpDBParameterGroupFamily = pDBParameterGroupFamily};
+describeEngineDefaultParameters pDBParameterGroupFamily = DescribeEngineDefaultParameters'{_dedpFilters = Nothing, _dedpMaxRecords = Nothing, _dedpMarker = Nothing, _dedpDBParameterGroupFamily = pDBParameterGroupFamily};
 
 -- | Not currently supported.
-dedpFilters :: Lens' DescribeEngineDefaultParameters [Filter]
+dedpFilters :: Lens' DescribeEngineDefaultParameters (Maybe [Filter])
 dedpFilters = lens _dedpFilters (\ s a -> s{_dedpFilters = a});
 
 -- | The maximum number of records to include in the response. If more

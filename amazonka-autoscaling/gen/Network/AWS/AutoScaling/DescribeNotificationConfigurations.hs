@@ -52,14 +52,14 @@ import Network.AWS.AutoScaling.Types
 -- * 'dncNextToken'
 --
 -- * 'dncMaxRecords'
-data DescribeNotificationConfigurations = DescribeNotificationConfigurations'{_dncAutoScalingGroupNames :: [Text], _dncNextToken :: Maybe Text, _dncMaxRecords :: Maybe Int} deriving (Eq, Read, Show)
+data DescribeNotificationConfigurations = DescribeNotificationConfigurations'{_dncAutoScalingGroupNames :: Maybe [Text], _dncNextToken :: Maybe Text, _dncMaxRecords :: Maybe Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeNotificationConfigurations' smart constructor.
 describeNotificationConfigurations :: DescribeNotificationConfigurations
-describeNotificationConfigurations = DescribeNotificationConfigurations'{_dncAutoScalingGroupNames = mempty, _dncNextToken = Nothing, _dncMaxRecords = Nothing};
+describeNotificationConfigurations = DescribeNotificationConfigurations'{_dncAutoScalingGroupNames = Nothing, _dncNextToken = Nothing, _dncMaxRecords = Nothing};
 
 -- | The name of the group.
-dncAutoScalingGroupNames :: Lens' DescribeNotificationConfigurations [Text]
+dncAutoScalingGroupNames :: Lens' DescribeNotificationConfigurations (Maybe [Text])
 dncAutoScalingGroupNames = lens _dncAutoScalingGroupNames (\ s a -> s{_dncAutoScalingGroupNames = a});
 
 -- | The token for the next set of items to return. (You received this token
@@ -117,8 +117,8 @@ instance ToQuery DescribeNotificationConfigurations
 data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurationsResponse'{_dncrNextToken :: Maybe Text, _dncrNotificationConfigurations :: [NotificationConfiguration]} deriving (Eq, Read, Show)
 
 -- | 'DescribeNotificationConfigurationsResponse' smart constructor.
-describeNotificationConfigurationsResponse :: [NotificationConfiguration] -> DescribeNotificationConfigurationsResponse
-describeNotificationConfigurationsResponse pNotificationConfigurations = DescribeNotificationConfigurationsResponse'{_dncrNextToken = Nothing, _dncrNotificationConfigurations = pNotificationConfigurations};
+describeNotificationConfigurationsResponse :: DescribeNotificationConfigurationsResponse
+describeNotificationConfigurationsResponse = DescribeNotificationConfigurationsResponse'{_dncrNextToken = Nothing, _dncrNotificationConfigurations = mempty};
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.

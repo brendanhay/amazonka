@@ -126,15 +126,15 @@ instance ToQuery ListTaskDefinitionFamilies where
 -- * 'ltdfrFamilies'
 --
 -- * 'ltdfrNextToken'
-data ListTaskDefinitionFamiliesResponse = ListTaskDefinitionFamiliesResponse'{_ltdfrFamilies :: [Text], _ltdfrNextToken :: Maybe Text} deriving (Eq, Read, Show)
+data ListTaskDefinitionFamiliesResponse = ListTaskDefinitionFamiliesResponse'{_ltdfrFamilies :: Maybe [Text], _ltdfrNextToken :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ListTaskDefinitionFamiliesResponse' smart constructor.
 listTaskDefinitionFamiliesResponse :: ListTaskDefinitionFamiliesResponse
-listTaskDefinitionFamiliesResponse = ListTaskDefinitionFamiliesResponse'{_ltdfrFamilies = mempty, _ltdfrNextToken = Nothing};
+listTaskDefinitionFamiliesResponse = ListTaskDefinitionFamiliesResponse'{_ltdfrFamilies = Nothing, _ltdfrNextToken = Nothing};
 
 -- | The list of task definition family names that match the
 -- @ListTaskDefinitionFamilies@ request.
-ltdfrFamilies :: Lens' ListTaskDefinitionFamiliesResponse [Text]
+ltdfrFamilies :: Lens' ListTaskDefinitionFamiliesResponse (Maybe [Text])
 ltdfrFamilies = lens _ltdfrFamilies (\ s a -> s{_ltdfrFamilies = a});
 
 -- | The @nextToken@ value to include in a future

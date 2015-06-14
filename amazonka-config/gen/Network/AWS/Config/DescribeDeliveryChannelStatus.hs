@@ -48,14 +48,14 @@ import Network.AWS.Config.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ddcsDeliveryChannelNames'
-newtype DescribeDeliveryChannelStatus = DescribeDeliveryChannelStatus'{_ddcsDeliveryChannelNames :: [Text]} deriving (Eq, Read, Show)
+newtype DescribeDeliveryChannelStatus = DescribeDeliveryChannelStatus'{_ddcsDeliveryChannelNames :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'DescribeDeliveryChannelStatus' smart constructor.
 describeDeliveryChannelStatus :: DescribeDeliveryChannelStatus
-describeDeliveryChannelStatus = DescribeDeliveryChannelStatus'{_ddcsDeliveryChannelNames = mempty};
+describeDeliveryChannelStatus = DescribeDeliveryChannelStatus'{_ddcsDeliveryChannelNames = Nothing};
 
 -- | A list of delivery channel names.
-ddcsDeliveryChannelNames :: Lens' DescribeDeliveryChannelStatus [Text]
+ddcsDeliveryChannelNames :: Lens' DescribeDeliveryChannelStatus (Maybe [Text])
 ddcsDeliveryChannelNames = lens _ddcsDeliveryChannelNames (\ s a -> s{_ddcsDeliveryChannelNames = a});
 
 instance AWSRequest DescribeDeliveryChannelStatus
@@ -97,12 +97,12 @@ instance ToQuery DescribeDeliveryChannelStatus where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ddcsrDeliveryChannelsStatus'
-newtype DescribeDeliveryChannelStatusResponse = DescribeDeliveryChannelStatusResponse'{_ddcsrDeliveryChannelsStatus :: [DeliveryChannelStatus]} deriving (Eq, Read, Show)
+newtype DescribeDeliveryChannelStatusResponse = DescribeDeliveryChannelStatusResponse'{_ddcsrDeliveryChannelsStatus :: Maybe [DeliveryChannelStatus]} deriving (Eq, Read, Show)
 
 -- | 'DescribeDeliveryChannelStatusResponse' smart constructor.
 describeDeliveryChannelStatusResponse :: DescribeDeliveryChannelStatusResponse
-describeDeliveryChannelStatusResponse = DescribeDeliveryChannelStatusResponse'{_ddcsrDeliveryChannelsStatus = mempty};
+describeDeliveryChannelStatusResponse = DescribeDeliveryChannelStatusResponse'{_ddcsrDeliveryChannelsStatus = Nothing};
 
 -- | A list that contains the status of a specified delivery channel.
-ddcsrDeliveryChannelsStatus :: Lens' DescribeDeliveryChannelStatusResponse [DeliveryChannelStatus]
+ddcsrDeliveryChannelsStatus :: Lens' DescribeDeliveryChannelStatusResponse (Maybe [DeliveryChannelStatus])
 ddcsrDeliveryChannelsStatus = lens _ddcsrDeliveryChannelsStatus (\ s a -> s{_ddcsrDeliveryChannelsStatus = a});

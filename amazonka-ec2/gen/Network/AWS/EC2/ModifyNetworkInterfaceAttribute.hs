@@ -58,17 +58,17 @@ import Network.AWS.EC2.Types
 -- * 'mniaDescription'
 --
 -- * 'mniaNetworkInterfaceId'
-data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute'{_mniaGroups :: [Text], _mniaSourceDestCheck :: Maybe AttributeBooleanValue, _mniaAttachment :: Maybe NetworkInterfaceAttachmentChanges, _mniaDryRun :: Maybe Bool, _mniaDescription :: Maybe AttributeValue, _mniaNetworkInterfaceId :: Text} deriving (Eq, Read, Show)
+data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute'{_mniaGroups :: Maybe [Text], _mniaSourceDestCheck :: Maybe AttributeBooleanValue, _mniaAttachment :: Maybe NetworkInterfaceAttachmentChanges, _mniaDryRun :: Maybe Bool, _mniaDescription :: Maybe AttributeValue, _mniaNetworkInterfaceId :: Text} deriving (Eq, Read, Show)
 
 -- | 'ModifyNetworkInterfaceAttribute' smart constructor.
 modifyNetworkInterfaceAttribute :: Text -> ModifyNetworkInterfaceAttribute
-modifyNetworkInterfaceAttribute pNetworkInterfaceId = ModifyNetworkInterfaceAttribute'{_mniaGroups = mempty, _mniaSourceDestCheck = Nothing, _mniaAttachment = Nothing, _mniaDryRun = Nothing, _mniaDescription = Nothing, _mniaNetworkInterfaceId = pNetworkInterfaceId};
+modifyNetworkInterfaceAttribute pNetworkInterfaceId = ModifyNetworkInterfaceAttribute'{_mniaGroups = Nothing, _mniaSourceDestCheck = Nothing, _mniaAttachment = Nothing, _mniaDryRun = Nothing, _mniaDescription = Nothing, _mniaNetworkInterfaceId = pNetworkInterfaceId};
 
 -- | Changes the security groups for the network interface. The new set of
 -- groups you specify replaces the current set. You must specify at least
 -- one group, even if it\'s just the default security group in the VPC. You
 -- must specify the ID of the security group, not the name.
-mniaGroups :: Lens' ModifyNetworkInterfaceAttribute [Text]
+mniaGroups :: Lens' ModifyNetworkInterfaceAttribute (Maybe [Text])
 mniaGroups = lens _mniaGroups (\ s a -> s{_mniaGroups = a});
 
 -- | Indicates whether source\/destination checking is enabled. A value of

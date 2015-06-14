@@ -35,18 +35,18 @@ module Network.AWS.CloudWatchLogs.DescribeLogStreams
     -- ** Request lenses
     , desOrderBy
     , desDescending
-    , desLogGroupName
     , desNextToken
     , desLogStreamNamePrefix
     , desLimit
+    , desLogGroupName
 
     -- * Response
     , DescribeLogStreamsResponse
     -- ** Response constructor
     , describeLogStreamsResponse
     -- ** Response lenses
-    , dlsrLogStreams
     , dlsrNextToken
+    , dlsrLogStreams
     ) where
 
 import Network.AWS.Request
@@ -62,18 +62,18 @@ import Network.AWS.CloudWatchLogs.Types
 --
 -- * 'desDescending'
 --
--- * 'desLogGroupName'
---
 -- * 'desNextToken'
 --
 -- * 'desLogStreamNamePrefix'
 --
 -- * 'desLimit'
-data DescribeLogStreams = DescribeLogStreams'{_desOrderBy :: Maybe OrderBy, _desDescending :: Maybe Bool, _desLogGroupName :: Text, _desNextToken :: Text, _desLogStreamNamePrefix :: Text, _desLimit :: Nat} deriving (Eq, Read, Show)
+--
+-- * 'desLogGroupName'
+data DescribeLogStreams = DescribeLogStreams'{_desOrderBy :: Maybe OrderBy, _desDescending :: Maybe Bool, _desNextToken :: Maybe Text, _desLogStreamNamePrefix :: Maybe Text, _desLimit :: Maybe Nat, _desLogGroupName :: Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeLogStreams' smart constructor.
-describeLogStreams :: Text -> Text -> Text -> Natural -> DescribeLogStreams
-describeLogStreams pLogGroupName pNextToken pLogStreamNamePrefix pLimit = DescribeLogStreams'{_desOrderBy = Nothing, _desDescending = Nothing, _desLogGroupName = pLogGroupName, _desNextToken = pNextToken, _desLogStreamNamePrefix = pLogStreamNamePrefix, _desLimit = _Nat # pLimit};
+describeLogStreams :: Text -> DescribeLogStreams
+describeLogStreams pLogGroupName = DescribeLogStreams'{_desOrderBy = Nothing, _desDescending = Nothing, _desNextToken = Nothing, _desLogStreamNamePrefix = Nothing, _desLimit = Nothing, _desLogGroupName = pLogGroupName};
 
 -- | Specifies what to order the returned log streams by. Valid arguments are
 -- \'LogStreamName\' or \'LastEventTime\'. If you don\'t specify a value,
@@ -88,26 +88,26 @@ desOrderBy = lens _desOrderBy (\ s a -> s{_desOrderBy = a});
 desDescending :: Lens' DescribeLogStreams (Maybe Bool)
 desDescending = lens _desDescending (\ s a -> s{_desDescending = a});
 
--- | The log group name for which log streams are to be listed.
-desLogGroupName :: Lens' DescribeLogStreams Text
-desLogGroupName = lens _desLogGroupName (\ s a -> s{_desLogGroupName = a});
-
 -- | A string token used for pagination that points to the next page of
 -- results. It must be a value obtained from the response of the previous
 -- @DescribeLogStreams@ request.
-desNextToken :: Lens' DescribeLogStreams Text
+desNextToken :: Lens' DescribeLogStreams (Maybe Text)
 desNextToken = lens _desNextToken (\ s a -> s{_desNextToken = a});
 
 -- | Will only return log streams that match the provided
 -- logStreamNamePrefix. If you don\'t specify a value, no prefix filter is
 -- applied.
-desLogStreamNamePrefix :: Lens' DescribeLogStreams Text
+desLogStreamNamePrefix :: Lens' DescribeLogStreams (Maybe Text)
 desLogStreamNamePrefix = lens _desLogStreamNamePrefix (\ s a -> s{_desLogStreamNamePrefix = a});
 
 -- | The maximum number of items returned in the response. If you don\'t
 -- specify a value, the request would return up to 50 items.
-desLimit :: Lens' DescribeLogStreams Natural
-desLimit = lens _desLimit (\ s a -> s{_desLimit = a}) . _Nat;
+desLimit :: Lens' DescribeLogStreams (Maybe Natural)
+desLimit = lens _desLimit (\ s a -> s{_desLimit = a}) . mapping _Nat;
+
+-- | The log group name for which log streams are to be listed.
+desLogGroupName :: Lens' DescribeLogStreams Text
+desLogGroupName = lens _desLogGroupName (\ s a -> s{_desLogGroupName = a});
 
 instance AWSRequest DescribeLogStreams where
         type Sv DescribeLogStreams = CloudWatchLogs
@@ -118,7 +118,7 @@ instance AWSRequest DescribeLogStreams where
           = receiveJSON
               (\ s h x ->
                  DescribeLogStreamsResponse' <$>
-                   x .?> "logStreams" .!@ mempty <*> x .:> "nextToken")
+                   x .?> "nextToken" <*> x .?> "logStreams" .!@ mempty)
 
 instance ToHeaders DescribeLogStreams where
         toHeaders
@@ -134,10 +134,10 @@ instance ToJSON DescribeLogStreams where
           = object
               ["orderBy" .= _desOrderBy,
                "descending" .= _desDescending,
-               "logGroupName" .= _desLogGroupName,
                "nextToken" .= _desNextToken,
                "logStreamNamePrefix" .= _desLogStreamNamePrefix,
-               "limit" .= _desLimit]
+               "limit" .= _desLimit,
+               "logGroupName" .= _desLogGroupName]
 
 instance ToPath DescribeLogStreams where
         toPath = const "/"
@@ -149,19 +149,19 @@ instance ToQuery DescribeLogStreams where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlsrLogStreams'
---
 -- * 'dlsrNextToken'
-data DescribeLogStreamsResponse = DescribeLogStreamsResponse'{_dlsrLogStreams :: [LogStream], _dlsrNextToken :: Text} deriving (Eq, Read, Show)
+--
+-- * 'dlsrLogStreams'
+data DescribeLogStreamsResponse = DescribeLogStreamsResponse'{_dlsrNextToken :: Maybe Text, _dlsrLogStreams :: Maybe [LogStream]} deriving (Eq, Read, Show)
 
 -- | 'DescribeLogStreamsResponse' smart constructor.
-describeLogStreamsResponse :: Text -> DescribeLogStreamsResponse
-describeLogStreamsResponse pNextToken = DescribeLogStreamsResponse'{_dlsrLogStreams = mempty, _dlsrNextToken = pNextToken};
+describeLogStreamsResponse :: DescribeLogStreamsResponse
+describeLogStreamsResponse = DescribeLogStreamsResponse'{_dlsrNextToken = Nothing, _dlsrLogStreams = Nothing};
 
 -- | FIXME: Undocumented member.
-dlsrLogStreams :: Lens' DescribeLogStreamsResponse [LogStream]
-dlsrLogStreams = lens _dlsrLogStreams (\ s a -> s{_dlsrLogStreams = a});
-
--- | FIXME: Undocumented member.
-dlsrNextToken :: Lens' DescribeLogStreamsResponse Text
+dlsrNextToken :: Lens' DescribeLogStreamsResponse (Maybe Text)
 dlsrNextToken = lens _dlsrNextToken (\ s a -> s{_dlsrNextToken = a});
+
+-- | FIXME: Undocumented member.
+dlsrLogStreams :: Lens' DescribeLogStreamsResponse (Maybe [LogStream])
+dlsrLogStreams = lens _dlsrLogStreams (\ s a -> s{_dlsrLogStreams = a});

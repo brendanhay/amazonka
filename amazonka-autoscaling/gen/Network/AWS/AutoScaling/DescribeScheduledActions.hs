@@ -30,8 +30,8 @@ module Network.AWS.AutoScaling.DescribeScheduledActions
     , desNextToken
     , desMaxRecords
     , desEndTime
-    , desScheduledActionNames
     , desAutoScalingGroupName
+    , desScheduledActionNames
 
     -- * Response
     , DescribeScheduledActionsResponse
@@ -59,14 +59,14 @@ import Network.AWS.AutoScaling.Types
 --
 -- * 'desEndTime'
 --
--- * 'desScheduledActionNames'
---
 -- * 'desAutoScalingGroupName'
-data DescribeScheduledActions = DescribeScheduledActions'{_desStartTime :: Maybe ISO8601, _desNextToken :: Maybe Text, _desMaxRecords :: Maybe Int, _desEndTime :: Maybe ISO8601, _desScheduledActionNames :: [Text], _desAutoScalingGroupName :: Text} deriving (Eq, Read, Show)
+--
+-- * 'desScheduledActionNames'
+data DescribeScheduledActions = DescribeScheduledActions'{_desStartTime :: Maybe ISO8601, _desNextToken :: Maybe Text, _desMaxRecords :: Maybe Int, _desEndTime :: Maybe ISO8601, _desAutoScalingGroupName :: Maybe Text, _desScheduledActionNames :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'DescribeScheduledActions' smart constructor.
-describeScheduledActions :: Text -> DescribeScheduledActions
-describeScheduledActions pAutoScalingGroupName = DescribeScheduledActions'{_desStartTime = Nothing, _desNextToken = Nothing, _desMaxRecords = Nothing, _desEndTime = Nothing, _desScheduledActionNames = mempty, _desAutoScalingGroupName = pAutoScalingGroupName};
+describeScheduledActions :: DescribeScheduledActions
+describeScheduledActions = DescribeScheduledActions'{_desStartTime = Nothing, _desNextToken = Nothing, _desMaxRecords = Nothing, _desEndTime = Nothing, _desAutoScalingGroupName = Nothing, _desScheduledActionNames = Nothing};
 
 -- | The earliest scheduled start time to return. If scheduled action names
 -- are provided, this parameter is ignored.
@@ -87,6 +87,10 @@ desMaxRecords = lens _desMaxRecords (\ s a -> s{_desMaxRecords = a});
 desEndTime :: Lens' DescribeScheduledActions (Maybe UTCTime)
 desEndTime = lens _desEndTime (\ s a -> s{_desEndTime = a}) . mapping _Time;
 
+-- | The name of the group.
+desAutoScalingGroupName :: Lens' DescribeScheduledActions (Maybe Text)
+desAutoScalingGroupName = lens _desAutoScalingGroupName (\ s a -> s{_desAutoScalingGroupName = a});
+
 -- | Describes one or more scheduled actions. If you omit this list, the call
 -- describes all scheduled actions. If you specify an unknown scheduled
 -- action it is ignored with no error.
@@ -95,12 +99,8 @@ desEndTime = lens _desEndTime (\ s a -> s{_desEndTime = a}) . mapping _Time;
 -- there are more items to return, the call returns a token. To get the
 -- next set of items, repeat the call with the returned token in the
 -- @NextToken@ parameter.
-desScheduledActionNames :: Lens' DescribeScheduledActions [Text]
+desScheduledActionNames :: Lens' DescribeScheduledActions (Maybe [Text])
 desScheduledActionNames = lens _desScheduledActionNames (\ s a -> s{_desScheduledActionNames = a});
-
--- | The name of the group.
-desAutoScalingGroupName :: Lens' DescribeScheduledActions Text
-desAutoScalingGroupName = lens _desAutoScalingGroupName (\ s a -> s{_desAutoScalingGroupName = a});
 
 instance AWSRequest DescribeScheduledActions where
         type Sv DescribeScheduledActions = AutoScaling
@@ -131,9 +131,9 @@ instance ToQuery DescribeScheduledActions where
                "NextToken" =: _desNextToken,
                "MaxRecords" =: _desMaxRecords,
                "EndTime" =: _desEndTime,
+               "AutoScalingGroupName" =: _desAutoScalingGroupName,
                "ScheduledActionNames" =:
-                 "member" =: _desScheduledActionNames,
-               "AutoScalingGroupName" =: _desAutoScalingGroupName]
+                 "member" =: _desScheduledActionNames]
 
 -- | /See:/ 'describeScheduledActionsResponse' smart constructor.
 --
@@ -142,14 +142,14 @@ instance ToQuery DescribeScheduledActions where
 -- * 'dsarScheduledUpdateGroupActions'
 --
 -- * 'dsarNextToken'
-data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse'{_dsarScheduledUpdateGroupActions :: [ScheduledUpdateGroupAction], _dsarNextToken :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse'{_dsarScheduledUpdateGroupActions :: Maybe [ScheduledUpdateGroupAction], _dsarNextToken :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeScheduledActionsResponse' smart constructor.
 describeScheduledActionsResponse :: DescribeScheduledActionsResponse
-describeScheduledActionsResponse = DescribeScheduledActionsResponse'{_dsarScheduledUpdateGroupActions = mempty, _dsarNextToken = Nothing};
+describeScheduledActionsResponse = DescribeScheduledActionsResponse'{_dsarScheduledUpdateGroupActions = Nothing, _dsarNextToken = Nothing};
 
 -- | The scheduled actions.
-dsarScheduledUpdateGroupActions :: Lens' DescribeScheduledActionsResponse [ScheduledUpdateGroupAction]
+dsarScheduledUpdateGroupActions :: Lens' DescribeScheduledActionsResponse (Maybe [ScheduledUpdateGroupAction])
 dsarScheduledUpdateGroupActions = lens _dsarScheduledUpdateGroupActions (\ s a -> s{_dsarScheduledUpdateGroupActions = a});
 
 -- | The token to use when requesting the next set of items. If there are no

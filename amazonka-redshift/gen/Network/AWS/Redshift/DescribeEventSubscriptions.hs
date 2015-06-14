@@ -122,14 +122,14 @@ instance ToQuery DescribeEventSubscriptions where
 -- * 'desrEventSubscriptionsList'
 --
 -- * 'desrMarker'
-data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse'{_desrEventSubscriptionsList :: [EventSubscription], _desrMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse'{_desrEventSubscriptionsList :: Maybe [EventSubscription], _desrMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeEventSubscriptionsResponse' smart constructor.
 describeEventSubscriptionsResponse :: DescribeEventSubscriptionsResponse
-describeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse'{_desrEventSubscriptionsList = mempty, _desrMarker = Nothing};
+describeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse'{_desrEventSubscriptionsList = Nothing, _desrMarker = Nothing};
 
 -- | A list of event subscriptions.
-desrEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse [EventSubscription]
+desrEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse (Maybe [EventSubscription])
 desrEventSubscriptionsList = lens _desrEventSubscriptionsList (\ s a -> s{_desrEventSubscriptionsList = a});
 
 -- | A value that indicates the starting point for the next set of response

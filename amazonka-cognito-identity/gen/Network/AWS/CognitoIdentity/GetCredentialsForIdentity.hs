@@ -53,16 +53,16 @@ import Network.AWS.CognitoIdentity.Types
 -- * 'gcfiLogins'
 --
 -- * 'gcfiIdentityId'
-data GetCredentialsForIdentity = GetCredentialsForIdentity'{_gcfiLogins :: HashMap Text Text, _gcfiIdentityId :: Text} deriving (Eq, Read, Show)
+data GetCredentialsForIdentity = GetCredentialsForIdentity'{_gcfiLogins :: Maybe (HashMap Text Text), _gcfiIdentityId :: Text} deriving (Eq, Read, Show)
 
 -- | 'GetCredentialsForIdentity' smart constructor.
 getCredentialsForIdentity :: Text -> GetCredentialsForIdentity
-getCredentialsForIdentity pIdentityId = GetCredentialsForIdentity'{_gcfiLogins = mempty, _gcfiIdentityId = pIdentityId};
+getCredentialsForIdentity pIdentityId = GetCredentialsForIdentity'{_gcfiLogins = Nothing, _gcfiIdentityId = pIdentityId};
 
 -- | A set of optional name-value pairs that map provider names to provider
 -- tokens.
-gcfiLogins :: Lens' GetCredentialsForIdentity (HashMap Text Text)
-gcfiLogins = lens _gcfiLogins (\ s a -> s{_gcfiLogins = a}) . _Coerce;
+gcfiLogins :: Lens' GetCredentialsForIdentity (Maybe (HashMap Text Text))
+gcfiLogins = lens _gcfiLogins (\ s a -> s{_gcfiLogins = a}) . mapping _Coerce;
 
 -- | A unique identifier in the format REGION:GUID.
 gcfiIdentityId :: Lens' GetCredentialsForIdentity Text
@@ -77,7 +77,7 @@ instance AWSRequest GetCredentialsForIdentity where
           = receiveJSON
               (\ s h x ->
                  GetCredentialsForIdentityResponse' <$>
-                   x .?> "Credentials" <*> x .:> "IdentityId")
+                   x .?> "Credentials" <*> x .?> "IdentityId")
 
 instance ToHeaders GetCredentialsForIdentity where
         toHeaders
@@ -108,16 +108,16 @@ instance ToQuery GetCredentialsForIdentity where
 -- * 'gcfirCredentials'
 --
 -- * 'gcfirIdentityId'
-data GetCredentialsForIdentityResponse = GetCredentialsForIdentityResponse'{_gcfirCredentials :: Maybe Credentials, _gcfirIdentityId :: Text} deriving (Eq, Read, Show)
+data GetCredentialsForIdentityResponse = GetCredentialsForIdentityResponse'{_gcfirCredentials :: Maybe Credentials, _gcfirIdentityId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'GetCredentialsForIdentityResponse' smart constructor.
-getCredentialsForIdentityResponse :: Text -> GetCredentialsForIdentityResponse
-getCredentialsForIdentityResponse pIdentityId = GetCredentialsForIdentityResponse'{_gcfirCredentials = Nothing, _gcfirIdentityId = pIdentityId};
+getCredentialsForIdentityResponse :: GetCredentialsForIdentityResponse
+getCredentialsForIdentityResponse = GetCredentialsForIdentityResponse'{_gcfirCredentials = Nothing, _gcfirIdentityId = Nothing};
 
 -- | Credentials for the the provided identity ID.
 gcfirCredentials :: Lens' GetCredentialsForIdentityResponse (Maybe Credentials)
 gcfirCredentials = lens _gcfirCredentials (\ s a -> s{_gcfirCredentials = a});
 
 -- | A unique identifier in the format REGION:GUID.
-gcfirIdentityId :: Lens' GetCredentialsForIdentityResponse Text
+gcfirIdentityId :: Lens' GetCredentialsForIdentityResponse (Maybe Text)
 gcfirIdentityId = lens _gcfirIdentityId (\ s a -> s{_gcfirIdentityId = a});

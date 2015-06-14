@@ -57,11 +57,11 @@ import Network.AWS.CloudSearch.Types
 -- * 'desSuggesterNames'
 --
 -- * 'desDomainName'
-data DescribeSuggesters = DescribeSuggesters'{_desDeployed :: Maybe Bool, _desSuggesterNames :: [Text], _desDomainName :: Text} deriving (Eq, Read, Show)
+data DescribeSuggesters = DescribeSuggesters'{_desDeployed :: Maybe Bool, _desSuggesterNames :: Maybe [Text], _desDomainName :: Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeSuggesters' smart constructor.
 describeSuggesters :: Text -> DescribeSuggesters
-describeSuggesters pDomainName = DescribeSuggesters'{_desDeployed = Nothing, _desSuggesterNames = mempty, _desDomainName = pDomainName};
+describeSuggesters pDomainName = DescribeSuggesters'{_desDeployed = Nothing, _desSuggesterNames = Nothing, _desDomainName = pDomainName};
 
 -- | Whether to display the deployed configuration (@true@) or include any
 -- pending changes (@false@). Defaults to @false@.
@@ -69,7 +69,7 @@ desDeployed :: Lens' DescribeSuggesters (Maybe Bool)
 desDeployed = lens _desDeployed (\ s a -> s{_desDeployed = a});
 
 -- | The suggesters you want to describe.
-desSuggesterNames :: Lens' DescribeSuggesters [Text]
+desSuggesterNames :: Lens' DescribeSuggesters (Maybe [Text])
 desSuggesterNames = lens _desSuggesterNames (\ s a -> s{_desSuggesterNames = a});
 
 -- | The name of the domain you want to describe.
@@ -111,8 +111,8 @@ instance ToQuery DescribeSuggesters where
 newtype DescribeSuggestersResponse = DescribeSuggestersResponse'{_dsrSuggesters :: [SuggesterStatus]} deriving (Eq, Read, Show)
 
 -- | 'DescribeSuggestersResponse' smart constructor.
-describeSuggestersResponse :: [SuggesterStatus] -> DescribeSuggestersResponse
-describeSuggestersResponse pSuggesters = DescribeSuggestersResponse'{_dsrSuggesters = pSuggesters};
+describeSuggestersResponse :: DescribeSuggestersResponse
+describeSuggestersResponse = DescribeSuggestersResponse'{_dsrSuggesters = mempty};
 
 -- | The suggesters configured for the domain specified in the request.
 dsrSuggesters :: Lens' DescribeSuggestersResponse [SuggesterStatus]

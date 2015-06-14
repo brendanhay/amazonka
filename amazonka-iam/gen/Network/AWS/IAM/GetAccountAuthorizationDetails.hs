@@ -30,9 +30,9 @@ module Network.AWS.IAM.GetAccountAuthorizationDetails
     -- ** Request constructor
     , getAccountAuthorizationDetails
     -- ** Request lenses
-    , gaadFilter
     , gaadMaxItems
     , gaadMarker
+    , gaadFilter
 
     -- * Response
     , GetAccountAuthorizationDetailsResponse
@@ -42,9 +42,9 @@ module Network.AWS.IAM.GetAccountAuthorizationDetails
     , gaadrRoleDetailList
     , gaadrGroupDetailList
     , gaadrUserDetailList
+    , gaadrMarker
     , gaadrIsTruncated
     , gaadrPolicies
-    , gaadrMarker
     ) where
 
 import Network.AWS.Request
@@ -56,35 +56,35 @@ import Network.AWS.IAM.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gaadFilter'
---
 -- * 'gaadMaxItems'
 --
 -- * 'gaadMarker'
-data GetAccountAuthorizationDetails = GetAccountAuthorizationDetails'{_gaadFilter :: [EntityType], _gaadMaxItems :: Nat, _gaadMarker :: Text} deriving (Eq, Read, Show)
+--
+-- * 'gaadFilter'
+data GetAccountAuthorizationDetails = GetAccountAuthorizationDetails'{_gaadMaxItems :: Maybe Nat, _gaadMarker :: Maybe Text, _gaadFilter :: Maybe [EntityType]} deriving (Eq, Read, Show)
 
 -- | 'GetAccountAuthorizationDetails' smart constructor.
-getAccountAuthorizationDetails :: Natural -> Text -> GetAccountAuthorizationDetails
-getAccountAuthorizationDetails pMaxItems pMarker = GetAccountAuthorizationDetails'{_gaadFilter = mempty, _gaadMaxItems = _Nat # pMaxItems, _gaadMarker = pMarker};
-
--- | A list of entity types (user, group, role, local managed policy, or AWS
--- managed policy) for filtering the results.
-gaadFilter :: Lens' GetAccountAuthorizationDetails [EntityType]
-gaadFilter = lens _gaadFilter (\ s a -> s{_gaadFilter = a});
+getAccountAuthorizationDetails :: GetAccountAuthorizationDetails
+getAccountAuthorizationDetails = GetAccountAuthorizationDetails'{_gaadMaxItems = Nothing, _gaadMarker = Nothing, _gaadFilter = Nothing};
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
 -- maximum you specify, the @IsTruncated@ response element is @true@. This
 -- parameter is optional. If you do not include it, it defaults to 100.
-gaadMaxItems :: Lens' GetAccountAuthorizationDetails Natural
-gaadMaxItems = lens _gaadMaxItems (\ s a -> s{_gaadMaxItems = a}) . _Nat;
+gaadMaxItems :: Lens' GetAccountAuthorizationDetails (Maybe Natural)
+gaadMaxItems = lens _gaadMaxItems (\ s a -> s{_gaadMaxItems = a}) . mapping _Nat;
 
 -- | Use this only when paginating results, and only in a subsequent request
 -- after you\'ve received a response where the results are truncated. Set
 -- it to the value of the @Marker@ element in the response you just
 -- received.
-gaadMarker :: Lens' GetAccountAuthorizationDetails Text
+gaadMarker :: Lens' GetAccountAuthorizationDetails (Maybe Text)
 gaadMarker = lens _gaadMarker (\ s a -> s{_gaadMarker = a});
+
+-- | A list of entity types (user, group, role, local managed policy, or AWS
+-- managed policy) for filtering the results.
+gaadFilter :: Lens' GetAccountAuthorizationDetails (Maybe [EntityType])
+gaadFilter = lens _gaadFilter (\ s a -> s{_gaadFilter = a});
 
 instance AWSRequest GetAccountAuthorizationDetails
          where
@@ -105,11 +105,11 @@ instance AWSRequest GetAccountAuthorizationDetails
                      <*>
                      (x .@? "UserDetailList" .!@ mempty >>=
                         parseXMLList "member")
+                     <*> x .@? "Marker"
                      <*> x .@? "IsTruncated"
                      <*>
                      (x .@? "Policies" .!@ mempty >>=
-                        parseXMLList "member")
-                     <*> x .@ "Marker")
+                        parseXMLList "member"))
 
 instance ToHeaders GetAccountAuthorizationDetails
          where
@@ -124,8 +124,8 @@ instance ToQuery GetAccountAuthorizationDetails where
               ["Action" =:
                  ("GetAccountAuthorizationDetails" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "Filter" =: "member" =: _gaadFilter,
-               "MaxItems" =: _gaadMaxItems, "Marker" =: _gaadMarker]
+               "MaxItems" =: _gaadMaxItems, "Marker" =: _gaadMarker,
+               "Filter" =: "member" =: _gaadFilter]
 
 -- | /See:/ 'getAccountAuthorizationDetailsResponse' smart constructor.
 --
@@ -137,28 +137,34 @@ instance ToQuery GetAccountAuthorizationDetails where
 --
 -- * 'gaadrUserDetailList'
 --
+-- * 'gaadrMarker'
+--
 -- * 'gaadrIsTruncated'
 --
 -- * 'gaadrPolicies'
---
--- * 'gaadrMarker'
-data GetAccountAuthorizationDetailsResponse = GetAccountAuthorizationDetailsResponse'{_gaadrRoleDetailList :: [RoleDetail], _gaadrGroupDetailList :: [GroupDetail], _gaadrUserDetailList :: [UserDetail], _gaadrIsTruncated :: Maybe Bool, _gaadrPolicies :: [ManagedPolicyDetail], _gaadrMarker :: Text} deriving (Eq, Read, Show)
+data GetAccountAuthorizationDetailsResponse = GetAccountAuthorizationDetailsResponse'{_gaadrRoleDetailList :: Maybe [RoleDetail], _gaadrGroupDetailList :: Maybe [GroupDetail], _gaadrUserDetailList :: Maybe [UserDetail], _gaadrMarker :: Maybe Text, _gaadrIsTruncated :: Maybe Bool, _gaadrPolicies :: Maybe [ManagedPolicyDetail]} deriving (Eq, Read, Show)
 
 -- | 'GetAccountAuthorizationDetailsResponse' smart constructor.
-getAccountAuthorizationDetailsResponse :: Text -> GetAccountAuthorizationDetailsResponse
-getAccountAuthorizationDetailsResponse pMarker = GetAccountAuthorizationDetailsResponse'{_gaadrRoleDetailList = mempty, _gaadrGroupDetailList = mempty, _gaadrUserDetailList = mempty, _gaadrIsTruncated = Nothing, _gaadrPolicies = mempty, _gaadrMarker = pMarker};
+getAccountAuthorizationDetailsResponse :: GetAccountAuthorizationDetailsResponse
+getAccountAuthorizationDetailsResponse = GetAccountAuthorizationDetailsResponse'{_gaadrRoleDetailList = Nothing, _gaadrGroupDetailList = Nothing, _gaadrUserDetailList = Nothing, _gaadrMarker = Nothing, _gaadrIsTruncated = Nothing, _gaadrPolicies = Nothing};
 
 -- | A list containing information about IAM roles.
-gaadrRoleDetailList :: Lens' GetAccountAuthorizationDetailsResponse [RoleDetail]
+gaadrRoleDetailList :: Lens' GetAccountAuthorizationDetailsResponse (Maybe [RoleDetail])
 gaadrRoleDetailList = lens _gaadrRoleDetailList (\ s a -> s{_gaadrRoleDetailList = a});
 
 -- | A list containing information about IAM groups.
-gaadrGroupDetailList :: Lens' GetAccountAuthorizationDetailsResponse [GroupDetail]
+gaadrGroupDetailList :: Lens' GetAccountAuthorizationDetailsResponse (Maybe [GroupDetail])
 gaadrGroupDetailList = lens _gaadrGroupDetailList (\ s a -> s{_gaadrGroupDetailList = a});
 
 -- | A list containing information about IAM users.
-gaadrUserDetailList :: Lens' GetAccountAuthorizationDetailsResponse [UserDetail]
+gaadrUserDetailList :: Lens' GetAccountAuthorizationDetailsResponse (Maybe [UserDetail])
 gaadrUserDetailList = lens _gaadrUserDetailList (\ s a -> s{_gaadrUserDetailList = a});
+
+-- | If @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+gaadrMarker :: Lens' GetAccountAuthorizationDetailsResponse (Maybe Text)
+gaadrMarker = lens _gaadrMarker (\ s a -> s{_gaadrMarker = a});
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
@@ -167,11 +173,5 @@ gaadrIsTruncated :: Lens' GetAccountAuthorizationDetailsResponse (Maybe Bool)
 gaadrIsTruncated = lens _gaadrIsTruncated (\ s a -> s{_gaadrIsTruncated = a});
 
 -- | A list containing information about managed policies.
-gaadrPolicies :: Lens' GetAccountAuthorizationDetailsResponse [ManagedPolicyDetail]
+gaadrPolicies :: Lens' GetAccountAuthorizationDetailsResponse (Maybe [ManagedPolicyDetail])
 gaadrPolicies = lens _gaadrPolicies (\ s a -> s{_gaadrPolicies = a});
-
--- | If @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
-gaadrMarker :: Lens' GetAccountAuthorizationDetailsResponse Text
-gaadrMarker = lens _gaadrMarker (\ s a -> s{_gaadrMarker = a});

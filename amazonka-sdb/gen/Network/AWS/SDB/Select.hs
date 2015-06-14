@@ -118,14 +118,14 @@ instance ToQuery Select where
 -- * 'srItems'
 --
 -- * 'srNextToken'
-data SelectResponse = SelectResponse'{_srItems :: [Item], _srNextToken :: Maybe Text} deriving (Eq, Read, Show)
+data SelectResponse = SelectResponse'{_srItems :: Maybe [Item], _srNextToken :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'SelectResponse' smart constructor.
 selectResponse :: SelectResponse
-selectResponse = SelectResponse'{_srItems = mempty, _srNextToken = Nothing};
+selectResponse = SelectResponse'{_srItems = Nothing, _srNextToken = Nothing};
 
 -- | A list of items that match the select expression.
-srItems :: Lens' SelectResponse [Item]
+srItems :: Lens' SelectResponse (Maybe [Item])
 srItems = lens _srItems (\ s a -> s{_srItems = a});
 
 -- | An opaque token indicating that more items than @MaxNumberOfItems@ were

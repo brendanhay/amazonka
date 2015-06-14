@@ -60,17 +60,17 @@ import Network.AWS.AutoScaling.Types
 -- * 'dtNextToken'
 --
 -- * 'dtMaxRecords'
-data DescribeTags = DescribeTags'{_dtFilters :: [Filter], _dtNextToken :: Maybe Text, _dtMaxRecords :: Maybe Int} deriving (Eq, Read, Show)
+data DescribeTags = DescribeTags'{_dtFilters :: Maybe [Filter], _dtNextToken :: Maybe Text, _dtMaxRecords :: Maybe Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeTags' smart constructor.
 describeTags :: DescribeTags
-describeTags = DescribeTags'{_dtFilters = mempty, _dtNextToken = Nothing, _dtMaxRecords = Nothing};
+describeTags = DescribeTags'{_dtFilters = Nothing, _dtNextToken = Nothing, _dtMaxRecords = Nothing};
 
 -- | The value of the filter type used to identify the tags to be returned.
 -- For example, you can filter so that tags are returned according to Auto
 -- Scaling group, the key and value, or whether the new tag will be applied
 -- to instances launched after the tag is created (PropagateAtLaunch).
-dtFilters :: Lens' DescribeTags [Filter]
+dtFilters :: Lens' DescribeTags (Maybe [Filter])
 dtFilters = lens _dtFilters (\ s a -> s{_dtFilters = a});
 
 -- | The token for the next set of items to return. (You received this token
@@ -115,11 +115,11 @@ instance ToQuery DescribeTags where
 -- * 'dtrNextToken'
 --
 -- * 'dtrTags'
-data DescribeTagsResponse = DescribeTagsResponse'{_dtrNextToken :: Maybe Text, _dtrTags :: [TagDescription]} deriving (Eq, Read, Show)
+data DescribeTagsResponse = DescribeTagsResponse'{_dtrNextToken :: Maybe Text, _dtrTags :: Maybe [TagDescription]} deriving (Eq, Read, Show)
 
 -- | 'DescribeTagsResponse' smart constructor.
 describeTagsResponse :: DescribeTagsResponse
-describeTagsResponse = DescribeTagsResponse'{_dtrNextToken = Nothing, _dtrTags = mempty};
+describeTagsResponse = DescribeTagsResponse'{_dtrNextToken = Nothing, _dtrTags = Nothing};
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
@@ -127,5 +127,5 @@ dtrNextToken :: Lens' DescribeTagsResponse (Maybe Text)
 dtrNextToken = lens _dtrNextToken (\ s a -> s{_dtrNextToken = a});
 
 -- | The tags.
-dtrTags :: Lens' DescribeTagsResponse [TagDescription]
+dtrTags :: Lens' DescribeTagsResponse (Maybe [TagDescription])
 dtrTags = lens _dtrTags (\ s a -> s{_dtrTags = a});

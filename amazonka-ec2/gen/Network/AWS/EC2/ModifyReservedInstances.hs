@@ -60,8 +60,8 @@ import Network.AWS.EC2.Types
 data ModifyReservedInstances = ModifyReservedInstances'{_mriClientToken :: Maybe Text, _mriReservedInstancesIds :: [Text], _mriTargetConfigurations :: [ReservedInstancesConfiguration]} deriving (Eq, Read, Show)
 
 -- | 'ModifyReservedInstances' smart constructor.
-modifyReservedInstances :: [Text] -> [ReservedInstancesConfiguration] -> ModifyReservedInstances
-modifyReservedInstances pReservedInstancesIds pTargetConfigurations = ModifyReservedInstances'{_mriClientToken = Nothing, _mriReservedInstancesIds = pReservedInstancesIds, _mriTargetConfigurations = pTargetConfigurations};
+modifyReservedInstances :: ModifyReservedInstances
+modifyReservedInstances = ModifyReservedInstances'{_mriClientToken = Nothing, _mriReservedInstancesIds = mempty, _mriTargetConfigurations = mempty};
 
 -- | A unique, case-sensitive token you provide to ensure idempotency of your
 -- modification request. For more information, see

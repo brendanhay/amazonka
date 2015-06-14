@@ -53,11 +53,11 @@ import Network.AWS.EC2.Types
 -- * 'delTags'
 --
 -- * 'delResources'
-data DeleteTags = DeleteTags'{_delDryRun :: Maybe Bool, _delTags :: [Tag], _delResources :: [Text]} deriving (Eq, Read, Show)
+data DeleteTags = DeleteTags'{_delDryRun :: Maybe Bool, _delTags :: Maybe [Tag], _delResources :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'DeleteTags' smart constructor.
-deleteTags :: [Text] -> DeleteTags
-deleteTags pResources = DeleteTags'{_delDryRun = Nothing, _delTags = mempty, _delResources = pResources};
+deleteTags :: DeleteTags
+deleteTags = DeleteTags'{_delDryRun = Nothing, _delTags = Nothing, _delResources = mempty};
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -70,7 +70,7 @@ delDryRun = lens _delDryRun (\ s a -> s{_delDryRun = a});
 -- the tag regardless of its value. If you specify this parameter with an
 -- empty string as the value, we delete the key only if its value is an
 -- empty string.
-delTags :: Lens' DeleteTags [Tag]
+delTags :: Lens' DeleteTags (Maybe [Tag])
 delTags = lens _delTags (\ s a -> s{_delTags = a});
 
 -- | The ID of the resource. For example, ami-1a2b3c4d. You can specify more

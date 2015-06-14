@@ -115,11 +115,11 @@ instance ToQuery ListEndpointsByPlatformApplication
 -- * 'lebparNextToken'
 --
 -- * 'lebparEndpoints'
-data ListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplicationResponse'{_lebparNextToken :: Maybe Text, _lebparEndpoints :: [Endpoint]} deriving (Eq, Read, Show)
+data ListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplicationResponse'{_lebparNextToken :: Maybe Text, _lebparEndpoints :: Maybe [Endpoint]} deriving (Eq, Read, Show)
 
 -- | 'ListEndpointsByPlatformApplicationResponse' smart constructor.
 listEndpointsByPlatformApplicationResponse :: ListEndpointsByPlatformApplicationResponse
-listEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplicationResponse'{_lebparNextToken = Nothing, _lebparEndpoints = mempty};
+listEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplicationResponse'{_lebparNextToken = Nothing, _lebparEndpoints = Nothing};
 
 -- | NextToken string is returned when calling
 -- ListEndpointsByPlatformApplication action if additional records are
@@ -128,5 +128,5 @@ lebparNextToken :: Lens' ListEndpointsByPlatformApplicationResponse (Maybe Text)
 lebparNextToken = lens _lebparNextToken (\ s a -> s{_lebparNextToken = a});
 
 -- | Endpoints returned for ListEndpointsByPlatformApplication action.
-lebparEndpoints :: Lens' ListEndpointsByPlatformApplicationResponse [Endpoint]
+lebparEndpoints :: Lens' ListEndpointsByPlatformApplicationResponse (Maybe [Endpoint])
 lebparEndpoints = lens _lebparEndpoints (\ s a -> s{_lebparEndpoints = a});

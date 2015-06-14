@@ -24,9 +24,9 @@ module Network.AWS.Kinesis.ListTagsForStream
     -- ** Request constructor
     , listTagsForStream
     -- ** Request lenses
-    , ltfsStreamName
     , ltfsLimit
     , ltfsExclusiveStartTagKey
+    , ltfsStreamName
 
     -- * Response
     , ListTagsForStreamResponse
@@ -46,33 +46,33 @@ import Network.AWS.Kinesis.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ltfsStreamName'
---
 -- * 'ltfsLimit'
 --
 -- * 'ltfsExclusiveStartTagKey'
-data ListTagsForStream = ListTagsForStream'{_ltfsStreamName :: Text, _ltfsLimit :: Nat, _ltfsExclusiveStartTagKey :: Text} deriving (Eq, Read, Show)
+--
+-- * 'ltfsStreamName'
+data ListTagsForStream = ListTagsForStream'{_ltfsLimit :: Maybe Nat, _ltfsExclusiveStartTagKey :: Maybe Text, _ltfsStreamName :: Text} deriving (Eq, Read, Show)
 
 -- | 'ListTagsForStream' smart constructor.
-listTagsForStream :: Text -> Natural -> Text -> ListTagsForStream
-listTagsForStream pStreamName pLimit pExclusiveStartTagKey = ListTagsForStream'{_ltfsStreamName = pStreamName, _ltfsLimit = _Nat # pLimit, _ltfsExclusiveStartTagKey = pExclusiveStartTagKey};
-
--- | The name of the stream.
-ltfsStreamName :: Lens' ListTagsForStream Text
-ltfsStreamName = lens _ltfsStreamName (\ s a -> s{_ltfsStreamName = a});
+listTagsForStream :: Text -> ListTagsForStream
+listTagsForStream pStreamName = ListTagsForStream'{_ltfsLimit = Nothing, _ltfsExclusiveStartTagKey = Nothing, _ltfsStreamName = pStreamName};
 
 -- | The number of tags to return. If this number is less than the total
 -- number of tags associated with the stream, @HasMoreTags@ is set to
 -- @true@. To list additional tags, set @ExclusiveStartTagKey@ to the last
 -- key in the response.
-ltfsLimit :: Lens' ListTagsForStream Natural
-ltfsLimit = lens _ltfsLimit (\ s a -> s{_ltfsLimit = a}) . _Nat;
+ltfsLimit :: Lens' ListTagsForStream (Maybe Natural)
+ltfsLimit = lens _ltfsLimit (\ s a -> s{_ltfsLimit = a}) . mapping _Nat;
 
 -- | The key to use as the starting point for the list of tags. If this
 -- parameter is set, @ListTagsForStream@ gets all tags that occur after
 -- @ExclusiveStartTagKey@.
-ltfsExclusiveStartTagKey :: Lens' ListTagsForStream Text
+ltfsExclusiveStartTagKey :: Lens' ListTagsForStream (Maybe Text)
 ltfsExclusiveStartTagKey = lens _ltfsExclusiveStartTagKey (\ s a -> s{_ltfsExclusiveStartTagKey = a});
+
+-- | The name of the stream.
+ltfsStreamName :: Lens' ListTagsForStream Text
+ltfsStreamName = lens _ltfsStreamName (\ s a -> s{_ltfsStreamName = a});
 
 instance AWSRequest ListTagsForStream where
         type Sv ListTagsForStream = Kinesis
@@ -96,9 +96,9 @@ instance ToHeaders ListTagsForStream where
 instance ToJSON ListTagsForStream where
         toJSON ListTagsForStream'{..}
           = object
-              ["StreamName" .= _ltfsStreamName,
-               "Limit" .= _ltfsLimit,
-               "ExclusiveStartTagKey" .= _ltfsExclusiveStartTagKey]
+              ["Limit" .= _ltfsLimit,
+               "ExclusiveStartTagKey" .= _ltfsExclusiveStartTagKey,
+               "StreamName" .= _ltfsStreamName]
 
 instance ToPath ListTagsForStream where
         toPath = const "/"
@@ -116,8 +116,8 @@ instance ToQuery ListTagsForStream where
 data ListTagsForStreamResponse = ListTagsForStreamResponse'{_ltfsrTags :: [Tag], _ltfsrHasMoreTags :: Bool} deriving (Eq, Read, Show)
 
 -- | 'ListTagsForStreamResponse' smart constructor.
-listTagsForStreamResponse :: [Tag] -> Bool -> ListTagsForStreamResponse
-listTagsForStreamResponse pTags pHasMoreTags = ListTagsForStreamResponse'{_ltfsrTags = pTags, _ltfsrHasMoreTags = pHasMoreTags};
+listTagsForStreamResponse :: Bool -> ListTagsForStreamResponse
+listTagsForStreamResponse pHasMoreTags = ListTagsForStreamResponse'{_ltfsrTags = mempty, _ltfsrHasMoreTags = pHasMoreTags};
 
 -- | A list of tags associated with @StreamName@, starting with the first tag
 -- after @ExclusiveStartTagKey@ and up to the specified @Limit@.

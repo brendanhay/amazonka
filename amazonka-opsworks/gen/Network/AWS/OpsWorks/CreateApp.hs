@@ -84,11 +84,11 @@ import Network.AWS.OpsWorks.Types
 -- * 'caName'
 --
 -- * 'caType'
-data CreateApp = CreateApp'{_caSSLConfiguration :: Maybe SSLConfiguration, _caShortname :: Maybe Text, _caEnableSSL :: Maybe Bool, _caEnvironment :: [EnvironmentVariable], _caDataSources :: [DataSource], _caAppSource :: Maybe Source, _caAttributes :: HashMap AppAttributesKeys Text, _caDomains :: [Text], _caDescription :: Maybe Text, _caStackId :: Text, _caName :: Text, _caType :: AppType} deriving (Eq, Read, Show)
+data CreateApp = CreateApp'{_caSSLConfiguration :: Maybe SSLConfiguration, _caShortname :: Maybe Text, _caEnableSSL :: Maybe Bool, _caEnvironment :: Maybe [EnvironmentVariable], _caDataSources :: Maybe [DataSource], _caAppSource :: Maybe Source, _caAttributes :: Maybe (HashMap AppAttributesKeys Text), _caDomains :: Maybe [Text], _caDescription :: Maybe Text, _caStackId :: Text, _caName :: Text, _caType :: AppType} deriving (Eq, Read, Show)
 
 -- | 'CreateApp' smart constructor.
 createApp :: Text -> Text -> AppType -> CreateApp
-createApp pStackId pName pType' = CreateApp'{_caSSLConfiguration = Nothing, _caShortname = Nothing, _caEnableSSL = Nothing, _caEnvironment = mempty, _caDataSources = mempty, _caAppSource = Nothing, _caAttributes = mempty, _caDomains = mempty, _caDescription = Nothing, _caStackId = pStackId, _caName = pName, _caType = pType'};
+createApp pStackId pName pType = CreateApp'{_caSSLConfiguration = Nothing, _caShortname = Nothing, _caEnableSSL = Nothing, _caEnvironment = Nothing, _caDataSources = Nothing, _caAppSource = Nothing, _caAttributes = Nothing, _caDomains = Nothing, _caDescription = Nothing, _caStackId = pStackId, _caName = pName, _caType = pType};
 
 -- | An @SslConfiguration@ object with the SSL configuration.
 caSSLConfiguration :: Lens' CreateApp (Maybe SSLConfiguration)
@@ -118,11 +118,11 @@ caEnableSSL = lens _caEnableSSL (\ s a -> s{_caEnableSSL = a});
 -- This parameter is supported only by Chef 11.10 stacks. If you have
 -- specified one or more environment variables, you cannot modify the
 -- stack\'s Chef version.
-caEnvironment :: Lens' CreateApp [EnvironmentVariable]
+caEnvironment :: Lens' CreateApp (Maybe [EnvironmentVariable])
 caEnvironment = lens _caEnvironment (\ s a -> s{_caEnvironment = a});
 
 -- | The app\'s data source.
-caDataSources :: Lens' CreateApp [DataSource]
+caDataSources :: Lens' CreateApp (Maybe [DataSource])
 caDataSources = lens _caDataSources (\ s a -> s{_caDataSources = a});
 
 -- | A @Source@ object that specifies the app repository.
@@ -131,12 +131,12 @@ caAppSource = lens _caAppSource (\ s a -> s{_caAppSource = a});
 
 -- | One or more user-defined key\/value pairs to be added to the stack
 -- attributes.
-caAttributes :: Lens' CreateApp (HashMap AppAttributesKeys Text)
-caAttributes = lens _caAttributes (\ s a -> s{_caAttributes = a}) . _Coerce;
+caAttributes :: Lens' CreateApp (Maybe (HashMap AppAttributesKeys Text))
+caAttributes = lens _caAttributes (\ s a -> s{_caAttributes = a}) . mapping _Coerce;
 
 -- | The app virtual host settings, with multiple domains separated by
 -- commas. For example: @\'www.example.com, example.com\'@
-caDomains :: Lens' CreateApp [Text]
+caDomains :: Lens' CreateApp (Maybe [Text])
 caDomains = lens _caDomains (\ s a -> s{_caDomains = a});
 
 -- | A description of the app.

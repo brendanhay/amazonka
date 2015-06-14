@@ -84,11 +84,11 @@ import Network.AWS.STS.Types
 -- * 'gstDurationSeconds'
 --
 -- * 'gstSerialNumber'
-data GetSessionToken = GetSessionToken'{_gstTokenCode :: Text, _gstDurationSeconds :: Nat, _gstSerialNumber :: Text} deriving (Eq, Read, Show)
+data GetSessionToken = GetSessionToken'{_gstTokenCode :: Maybe Text, _gstDurationSeconds :: Maybe Nat, _gstSerialNumber :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'GetSessionToken' smart constructor.
-getSessionToken :: Text -> Natural -> Text -> GetSessionToken
-getSessionToken pTokenCode pDurationSeconds pSerialNumber = GetSessionToken'{_gstTokenCode = pTokenCode, _gstDurationSeconds = _Nat # pDurationSeconds, _gstSerialNumber = pSerialNumber};
+getSessionToken :: GetSessionToken
+getSessionToken = GetSessionToken'{_gstTokenCode = Nothing, _gstDurationSeconds = Nothing, _gstSerialNumber = Nothing};
 
 -- | The value provided by the MFA device, if MFA is required. If any policy
 -- requires the IAM user to submit an MFA code, specify this value. If MFA
@@ -96,7 +96,7 @@ getSessionToken pTokenCode pDurationSeconds pSerialNumber = GetSessionToken'{_gs
 -- requesting a set of temporary security credentials, the user will
 -- receive an \"access denied\" response when requesting resources that
 -- require MFA authentication.
-gstTokenCode :: Lens' GetSessionToken Text
+gstTokenCode :: Lens' GetSessionToken (Maybe Text)
 gstTokenCode = lens _gstTokenCode (\ s a -> s{_gstTokenCode = a});
 
 -- | The duration, in seconds, that the credentials should remain valid.
@@ -105,8 +105,8 @@ gstTokenCode = lens _gstTokenCode (\ s a -> s{_gstTokenCode = a});
 -- the default. Sessions for AWS account owners are restricted to a maximum
 -- of 3600 seconds (one hour). If the duration is longer than one hour, the
 -- session for AWS account owners defaults to one hour.
-gstDurationSeconds :: Lens' GetSessionToken Natural
-gstDurationSeconds = lens _gstDurationSeconds (\ s a -> s{_gstDurationSeconds = a}) . _Nat;
+gstDurationSeconds :: Lens' GetSessionToken (Maybe Natural)
+gstDurationSeconds = lens _gstDurationSeconds (\ s a -> s{_gstDurationSeconds = a}) . mapping _Nat;
 
 -- | The identification number of the MFA device that is associated with the
 -- IAM user who is making the @GetSessionToken@ call. Specify this value if
@@ -116,7 +116,7 @@ gstDurationSeconds = lens _gstDurationSeconds (\ s a -> s{_gstDurationSeconds = 
 -- @arn:aws:iam::123456789012:mfa\/user@). You can find the device for an
 -- IAM user by going to the AWS Management Console and viewing the user\'s
 -- security credentials.
-gstSerialNumber :: Lens' GetSessionToken Text
+gstSerialNumber :: Lens' GetSessionToken (Maybe Text)
 gstSerialNumber = lens _gstSerialNumber (\ s a -> s{_gstSerialNumber = a});
 
 instance AWSRequest GetSessionToken where

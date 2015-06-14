@@ -56,8 +56,8 @@ import Network.AWS.ElasticFileSystem.Types
 data CreateTags = CreateTags'{_ctFileSystemId :: Text, _ctTags :: [Tag]} deriving (Eq, Read, Show)
 
 -- | 'CreateTags' smart constructor.
-createTags :: Text -> [Tag] -> CreateTags
-createTags pFileSystemId pTags = CreateTags'{_ctFileSystemId = pFileSystemId, _ctTags = pTags};
+createTags :: Text -> CreateTags
+createTags pFileSystemId = CreateTags'{_ctFileSystemId = pFileSystemId, _ctTags = mempty};
 
 -- | String. The ID of the file system whose tags you want to modify. This
 -- operation modifies only the tags and not the file system.

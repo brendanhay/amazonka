@@ -123,11 +123,11 @@ import Network.AWS.S3.Types
 -- * 'poKey'
 --
 -- * 'poBody'
-data PutObject = PutObject'{_poContentLength :: Maybe Int, _poExpires :: Maybe RFC822, _poSSECustomerAlgorithm :: Maybe Text, _poGrantReadACP :: Maybe Text, _poSSECustomerKey :: Maybe (Sensitive Text), _poRequestPayer :: Maybe RequestPayer, _poGrantWriteACP :: Maybe Text, _poWebsiteRedirectLocation :: Maybe Text, _poGrantRead :: Maybe Text, _poStorageClass :: Maybe StorageClass, _poContentEncoding :: Maybe Text, _poSSEKMSKeyId :: Maybe (Sensitive Text), _poGrantFullControl :: Maybe Text, _poSSECustomerKeyMD5 :: Maybe Text, _poMetadata :: HashMap Text Text, _poContentMD5 :: Maybe Text, _poCacheControl :: Maybe Text, _poContentLanguage :: Maybe Text, _poACL :: Maybe ObjectCannedACL, _poContentDisposition :: Maybe Text, _poServerSideEncryption :: Maybe ServerSideEncryption, _poContentType :: Maybe Text, _poBucket :: BucketName, _poKey :: ObjectKey, _poBody :: RqBody} deriving Show
+data PutObject = PutObject'{_poContentLength :: Maybe Int, _poExpires :: Maybe RFC822, _poSSECustomerAlgorithm :: Maybe Text, _poGrantReadACP :: Maybe Text, _poSSECustomerKey :: Maybe (Sensitive Text), _poRequestPayer :: Maybe RequestPayer, _poGrantWriteACP :: Maybe Text, _poWebsiteRedirectLocation :: Maybe Text, _poGrantRead :: Maybe Text, _poStorageClass :: Maybe StorageClass, _poContentEncoding :: Maybe Text, _poSSEKMSKeyId :: Maybe (Sensitive Text), _poGrantFullControl :: Maybe Text, _poSSECustomerKeyMD5 :: Maybe Text, _poMetadata :: Maybe (HashMap Text Text), _poContentMD5 :: Maybe Text, _poCacheControl :: Maybe Text, _poContentLanguage :: Maybe Text, _poACL :: Maybe ObjectCannedACL, _poContentDisposition :: Maybe Text, _poServerSideEncryption :: Maybe ServerSideEncryption, _poContentType :: Maybe Text, _poBucket :: BucketName, _poKey :: ObjectKey, _poBody :: RqBody} deriving Show
 
 -- | 'PutObject' smart constructor.
 putObject :: BucketName -> ObjectKey -> RqBody -> PutObject
-putObject pBucket pKey pBody = PutObject'{_poContentLength = Nothing, _poExpires = Nothing, _poSSECustomerAlgorithm = Nothing, _poGrantReadACP = Nothing, _poSSECustomerKey = Nothing, _poRequestPayer = Nothing, _poGrantWriteACP = Nothing, _poWebsiteRedirectLocation = Nothing, _poGrantRead = Nothing, _poStorageClass = Nothing, _poContentEncoding = Nothing, _poSSEKMSKeyId = Nothing, _poGrantFullControl = Nothing, _poSSECustomerKeyMD5 = Nothing, _poMetadata = mempty, _poContentMD5 = Nothing, _poCacheControl = Nothing, _poContentLanguage = Nothing, _poACL = Nothing, _poContentDisposition = Nothing, _poServerSideEncryption = Nothing, _poContentType = Nothing, _poBucket = pBucket, _poKey = pKey, _poBody = pBody};
+putObject pBucket pKey pBody = PutObject'{_poContentLength = Nothing, _poExpires = Nothing, _poSSECustomerAlgorithm = Nothing, _poGrantReadACP = Nothing, _poSSECustomerKey = Nothing, _poRequestPayer = Nothing, _poGrantWriteACP = Nothing, _poWebsiteRedirectLocation = Nothing, _poGrantRead = Nothing, _poStorageClass = Nothing, _poContentEncoding = Nothing, _poSSEKMSKeyId = Nothing, _poGrantFullControl = Nothing, _poSSECustomerKeyMD5 = Nothing, _poMetadata = Nothing, _poContentMD5 = Nothing, _poCacheControl = Nothing, _poContentLanguage = Nothing, _poACL = Nothing, _poContentDisposition = Nothing, _poServerSideEncryption = Nothing, _poContentType = Nothing, _poBucket = pBucket, _poKey = pKey, _poBody = pBody};
 
 -- | Size of the body in bytes. This parameter is useful when the size of the
 -- body cannot be determined automatically.
@@ -203,8 +203,8 @@ poSSECustomerKeyMD5 :: Lens' PutObject (Maybe Text)
 poSSECustomerKeyMD5 = lens _poSSECustomerKeyMD5 (\ s a -> s{_poSSECustomerKeyMD5 = a});
 
 -- | A map of metadata to store with the object in S3.
-poMetadata :: Lens' PutObject (HashMap Text Text)
-poMetadata = lens _poMetadata (\ s a -> s{_poMetadata = a}) . _Coerce;
+poMetadata :: Lens' PutObject (Maybe (HashMap Text Text))
+poMetadata = lens _poMetadata (\ s a -> s{_poMetadata = a}) . mapping _Coerce;
 
 -- | FIXME: Undocumented member.
 poContentMD5 :: Lens' PutObject (Maybe Text)

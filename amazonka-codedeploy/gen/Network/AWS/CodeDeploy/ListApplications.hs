@@ -96,11 +96,11 @@ instance ToQuery ListApplications where
 -- * 'larNextToken'
 --
 -- * 'larApplications'
-data ListApplicationsResponse = ListApplicationsResponse'{_larNextToken :: Maybe Text, _larApplications :: [Text]} deriving (Eq, Read, Show)
+data ListApplicationsResponse = ListApplicationsResponse'{_larNextToken :: Maybe Text, _larApplications :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'ListApplicationsResponse' smart constructor.
 listApplicationsResponse :: ListApplicationsResponse
-listApplicationsResponse = ListApplicationsResponse'{_larNextToken = Nothing, _larApplications = mempty};
+listApplicationsResponse = ListApplicationsResponse'{_larNextToken = Nothing, _larApplications = Nothing};
 
 -- | If the amount of information that is returned is significantly large, an
 -- identifier will also be returned, which can be used in a subsequent list
@@ -109,5 +109,5 @@ larNextToken :: Lens' ListApplicationsResponse (Maybe Text)
 larNextToken = lens _larNextToken (\ s a -> s{_larNextToken = a});
 
 -- | A list of application names.
-larApplications :: Lens' ListApplicationsResponse [Text]
+larApplications :: Lens' ListApplicationsResponse (Maybe [Text])
 larApplications = lens _larApplications (\ s a -> s{_larApplications = a});

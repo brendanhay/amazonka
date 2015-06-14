@@ -105,11 +105,11 @@ import Network.AWS.EMR.Types
 -- * 'rjfName'
 --
 -- * 'rjfInstances'
-data RunJobFlow = RunJobFlow'{_rjfAMIVersion :: Maybe Text, _rjfAdditionalInfo :: Maybe Text, _rjfJobFlowRole :: Maybe Text, _rjfSteps :: [StepConfig], _rjfBootstrapActions :: [BootstrapActionConfig], _rjfNewSupportedProducts :: [SupportedProductConfig], _rjfLogURI :: Maybe Text, _rjfSupportedProducts :: [Text], _rjfVisibleToAllUsers :: Maybe Bool, _rjfTags :: [Tag], _rjfServiceRole :: Maybe Text, _rjfName :: Text, _rjfInstances :: JobFlowInstancesConfig} deriving (Eq, Read, Show)
+data RunJobFlow = RunJobFlow'{_rjfAMIVersion :: Maybe Text, _rjfAdditionalInfo :: Maybe Text, _rjfJobFlowRole :: Maybe Text, _rjfSteps :: Maybe [StepConfig], _rjfBootstrapActions :: Maybe [BootstrapActionConfig], _rjfNewSupportedProducts :: Maybe [SupportedProductConfig], _rjfLogURI :: Maybe Text, _rjfSupportedProducts :: Maybe [Text], _rjfVisibleToAllUsers :: Maybe Bool, _rjfTags :: Maybe [Tag], _rjfServiceRole :: Maybe Text, _rjfName :: Text, _rjfInstances :: JobFlowInstancesConfig} deriving (Eq, Read, Show)
 
 -- | 'RunJobFlow' smart constructor.
 runJobFlow :: Text -> JobFlowInstancesConfig -> RunJobFlow
-runJobFlow pName pInstances = RunJobFlow'{_rjfAMIVersion = Nothing, _rjfAdditionalInfo = Nothing, _rjfJobFlowRole = Nothing, _rjfSteps = mempty, _rjfBootstrapActions = mempty, _rjfNewSupportedProducts = mempty, _rjfLogURI = Nothing, _rjfSupportedProducts = mempty, _rjfVisibleToAllUsers = Nothing, _rjfTags = mempty, _rjfServiceRole = Nothing, _rjfName = pName, _rjfInstances = pInstances};
+runJobFlow pName pInstances = RunJobFlow'{_rjfAMIVersion = Nothing, _rjfAdditionalInfo = Nothing, _rjfJobFlowRole = Nothing, _rjfSteps = Nothing, _rjfBootstrapActions = Nothing, _rjfNewSupportedProducts = Nothing, _rjfLogURI = Nothing, _rjfSupportedProducts = Nothing, _rjfVisibleToAllUsers = Nothing, _rjfTags = Nothing, _rjfServiceRole = Nothing, _rjfName = pName, _rjfInstances = pInstances};
 
 -- | The version of the Amazon Machine Image (AMI) to use when launching
 -- Amazon EC2 instances in the job flow. The following values are valid:
@@ -140,12 +140,12 @@ rjfJobFlowRole :: Lens' RunJobFlow (Maybe Text)
 rjfJobFlowRole = lens _rjfJobFlowRole (\ s a -> s{_rjfJobFlowRole = a});
 
 -- | A list of steps to be executed by the job flow.
-rjfSteps :: Lens' RunJobFlow [StepConfig]
+rjfSteps :: Lens' RunJobFlow (Maybe [StepConfig])
 rjfSteps = lens _rjfSteps (\ s a -> s{_rjfSteps = a});
 
 -- | A list of bootstrap actions that will be run before Hadoop is started on
 -- the cluster nodes.
-rjfBootstrapActions :: Lens' RunJobFlow [BootstrapActionConfig]
+rjfBootstrapActions :: Lens' RunJobFlow (Maybe [BootstrapActionConfig])
 rjfBootstrapActions = lens _rjfBootstrapActions (\ s a -> s{_rjfBootstrapActions = a});
 
 -- | A list of strings that indicates third-party software to use with the
@@ -160,7 +160,7 @@ rjfBootstrapActions = lens _rjfBootstrapActions (\ s a -> s{_rjfBootstrapActions
 -- -   \"mapr\" with the user arguments specifying \"--edition,m3\" or
 --     \"--edition,m5\" - launch the job flow using MapR M3 or M5 Edition
 --     respectively.
-rjfNewSupportedProducts :: Lens' RunJobFlow [SupportedProductConfig]
+rjfNewSupportedProducts :: Lens' RunJobFlow (Maybe [SupportedProductConfig])
 rjfNewSupportedProducts = lens _rjfNewSupportedProducts (\ s a -> s{_rjfNewSupportedProducts = a});
 
 -- | The location in Amazon S3 to write the log files of the job flow. If a
@@ -175,7 +175,7 @@ rjfLogURI = lens _rjfLogURI (\ s a -> s{_rjfLogURI = a});
 --
 -- -   \"mapr-m3\" - launch the job flow using MapR M3 Edition.
 -- -   \"mapr-m5\" - launch the job flow using MapR M5 Edition.
-rjfSupportedProducts :: Lens' RunJobFlow [Text]
+rjfSupportedProducts :: Lens' RunJobFlow (Maybe [Text])
 rjfSupportedProducts = lens _rjfSupportedProducts (\ s a -> s{_rjfSupportedProducts = a});
 
 -- | Whether the job flow is visible to all IAM users of the AWS account
@@ -188,7 +188,7 @@ rjfVisibleToAllUsers = lens _rjfVisibleToAllUsers (\ s a -> s{_rjfVisibleToAllUs
 
 -- | A list of tags to associate with a cluster and propagate to Amazon EC2
 -- instances.
-rjfTags :: Lens' RunJobFlow [Tag]
+rjfTags :: Lens' RunJobFlow (Maybe [Tag])
 rjfTags = lens _rjfTags (\ s a -> s{_rjfTags = a});
 
 -- | The IAM role that will be assumed by the Amazon EMR service to access

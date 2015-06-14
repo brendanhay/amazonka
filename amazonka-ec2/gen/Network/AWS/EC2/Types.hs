@@ -1659,14 +1659,14 @@ instance AWSService EC2 where
 -- * 'aaAttributeValues'
 --
 -- * 'aaAttributeName'
-data AccountAttribute = AccountAttribute'{_aaAttributeValues :: [AccountAttributeValue], _aaAttributeName :: Maybe Text} deriving (Eq, Read, Show)
+data AccountAttribute = AccountAttribute'{_aaAttributeValues :: Maybe [AccountAttributeValue], _aaAttributeName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'AccountAttribute' smart constructor.
 accountAttribute :: AccountAttribute
-accountAttribute = AccountAttribute'{_aaAttributeValues = mempty, _aaAttributeName = Nothing};
+accountAttribute = AccountAttribute'{_aaAttributeValues = Nothing, _aaAttributeName = Nothing};
 
 -- | One or more values for the account attribute.
-aaAttributeValues :: Lens' AccountAttribute [AccountAttributeValue]
+aaAttributeValues :: Lens' AccountAttribute (Maybe [AccountAttributeValue])
 aaAttributeValues = lens _aaAttributeValues (\ s a -> s{_aaAttributeValues = a});
 
 -- | The name of the account attribute.
@@ -1938,11 +1938,11 @@ instance ToQuery AttributeValue where
 -- * 'azZoneName'
 --
 -- * 'azMessages'
-data AvailabilityZone = AvailabilityZone'{_azRegionName :: Maybe Text, _azState :: Maybe AvailabilityZoneState, _azZoneName :: Maybe Text, _azMessages :: [AvailabilityZoneMessage]} deriving (Eq, Read, Show)
+data AvailabilityZone = AvailabilityZone'{_azRegionName :: Maybe Text, _azState :: Maybe AvailabilityZoneState, _azZoneName :: Maybe Text, _azMessages :: Maybe [AvailabilityZoneMessage]} deriving (Eq, Read, Show)
 
 -- | 'AvailabilityZone' smart constructor.
 availabilityZone :: AvailabilityZone
-availabilityZone = AvailabilityZone'{_azRegionName = Nothing, _azState = Nothing, _azZoneName = Nothing, _azMessages = mempty};
+availabilityZone = AvailabilityZone'{_azRegionName = Nothing, _azState = Nothing, _azZoneName = Nothing, _azMessages = Nothing};
 
 -- | The name of the region.
 azRegionName :: Lens' AvailabilityZone (Maybe Text)
@@ -1958,7 +1958,7 @@ azZoneName :: Lens' AvailabilityZone (Maybe Text)
 azZoneName = lens _azZoneName (\ s a -> s{_azZoneName = a});
 
 -- | Any messages about the Availability Zone.
-azMessages :: Lens' AvailabilityZone [AvailabilityZoneMessage]
+azMessages :: Lens' AvailabilityZone (Maybe [AvailabilityZoneMessage])
 azMessages = lens _azMessages (\ s a -> s{_azMessages = a});
 
 instance FromXML AvailabilityZone where
@@ -2410,18 +2410,18 @@ instance FromXML CancelledSpotInstanceRequest where
 -- * 'cliVPCId'
 --
 -- * 'cliTags'
-data ClassicLinkInstance = ClassicLinkInstance'{_cliInstanceId :: Maybe Text, _cliGroups :: [GroupIdentifier], _cliVPCId :: Maybe Text, _cliTags :: [Tag]} deriving (Eq, Read, Show)
+data ClassicLinkInstance = ClassicLinkInstance'{_cliInstanceId :: Maybe Text, _cliGroups :: Maybe [GroupIdentifier], _cliVPCId :: Maybe Text, _cliTags :: Maybe [Tag]} deriving (Eq, Read, Show)
 
 -- | 'ClassicLinkInstance' smart constructor.
 classicLinkInstance :: ClassicLinkInstance
-classicLinkInstance = ClassicLinkInstance'{_cliInstanceId = Nothing, _cliGroups = mempty, _cliVPCId = Nothing, _cliTags = mempty};
+classicLinkInstance = ClassicLinkInstance'{_cliInstanceId = Nothing, _cliGroups = Nothing, _cliVPCId = Nothing, _cliTags = Nothing};
 
 -- | The ID of the instance.
 cliInstanceId :: Lens' ClassicLinkInstance (Maybe Text)
 cliInstanceId = lens _cliInstanceId (\ s a -> s{_cliInstanceId = a});
 
 -- | A list of security groups.
-cliGroups :: Lens' ClassicLinkInstance [GroupIdentifier]
+cliGroups :: Lens' ClassicLinkInstance (Maybe [GroupIdentifier])
 cliGroups = lens _cliGroups (\ s a -> s{_cliGroups = a});
 
 -- | The ID of the VPC.
@@ -2429,7 +2429,7 @@ cliVPCId :: Lens' ClassicLinkInstance (Maybe Text)
 cliVPCId = lens _cliVPCId (\ s a -> s{_cliVPCId = a});
 
 -- | Any tags assigned to the instance.
-cliTags :: Lens' ClassicLinkInstance [Tag]
+cliTags :: Lens' ClassicLinkInstance (Maybe [Tag])
 cliTags = lens _cliTags (\ s a -> s{_cliTags = a});
 
 instance FromXML ClassicLinkInstance where
@@ -2514,11 +2514,11 @@ instance FromXML ContainerFormat where
 -- * 'ctConversionTaskId'
 --
 -- * 'ctState'
-data ConversionTask = ConversionTask'{_ctImportInstance :: Maybe ImportInstanceTaskDetails, _ctStatusMessage :: Maybe Text, _ctImportVolume :: Maybe ImportVolumeTaskDetails, _ctExpirationTime :: Maybe Text, _ctTags :: [Tag], _ctConversionTaskId :: Text, _ctState :: ConversionTaskState} deriving (Eq, Read, Show)
+data ConversionTask = ConversionTask'{_ctImportInstance :: Maybe ImportInstanceTaskDetails, _ctStatusMessage :: Maybe Text, _ctImportVolume :: Maybe ImportVolumeTaskDetails, _ctExpirationTime :: Maybe Text, _ctTags :: Maybe [Tag], _ctConversionTaskId :: Text, _ctState :: ConversionTaskState} deriving (Eq, Read, Show)
 
 -- | 'ConversionTask' smart constructor.
 conversionTask :: Text -> ConversionTaskState -> ConversionTask
-conversionTask pConversionTaskId pState = ConversionTask'{_ctImportInstance = Nothing, _ctStatusMessage = Nothing, _ctImportVolume = Nothing, _ctExpirationTime = Nothing, _ctTags = mempty, _ctConversionTaskId = pConversionTaskId, _ctState = pState};
+conversionTask pConversionTaskId pState = ConversionTask'{_ctImportInstance = Nothing, _ctStatusMessage = Nothing, _ctImportVolume = Nothing, _ctExpirationTime = Nothing, _ctTags = Nothing, _ctConversionTaskId = pConversionTaskId, _ctState = pState};
 
 -- | If the task is for importing an instance, this contains information
 -- about the import instance task.
@@ -2540,7 +2540,7 @@ ctExpirationTime :: Lens' ConversionTask (Maybe Text)
 ctExpirationTime = lens _ctExpirationTime (\ s a -> s{_ctExpirationTime = a});
 
 -- | Any tags assigned to the task.
-ctTags :: Lens' ConversionTask [Tag]
+ctTags :: Lens' ConversionTask (Maybe [Tag])
 ctTags = lens _ctTags (\ s a -> s{_ctTags = a});
 
 -- | The ID of the conversion task.
@@ -2625,20 +2625,20 @@ instance ToQuery CreateVolumePermission where
 -- * 'cvpmRemove'
 --
 -- * 'cvpmAdd'
-data CreateVolumePermissionModifications = CreateVolumePermissionModifications'{_cvpmRemove :: [CreateVolumePermission], _cvpmAdd :: [CreateVolumePermission]} deriving (Eq, Read, Show)
+data CreateVolumePermissionModifications = CreateVolumePermissionModifications'{_cvpmRemove :: Maybe [CreateVolumePermission], _cvpmAdd :: Maybe [CreateVolumePermission]} deriving (Eq, Read, Show)
 
 -- | 'CreateVolumePermissionModifications' smart constructor.
 createVolumePermissionModifications :: CreateVolumePermissionModifications
-createVolumePermissionModifications = CreateVolumePermissionModifications'{_cvpmRemove = mempty, _cvpmAdd = mempty};
+createVolumePermissionModifications = CreateVolumePermissionModifications'{_cvpmRemove = Nothing, _cvpmAdd = Nothing};
 
 -- | Removes a specific AWS account ID or group from a volume\'s list of
 -- create volume permissions.
-cvpmRemove :: Lens' CreateVolumePermissionModifications [CreateVolumePermission]
+cvpmRemove :: Lens' CreateVolumePermissionModifications (Maybe [CreateVolumePermission])
 cvpmRemove = lens _cvpmRemove (\ s a -> s{_cvpmRemove = a});
 
 -- | Adds a specific AWS account ID or group to a volume\'s list of create
 -- volume permissions.
-cvpmAdd :: Lens' CreateVolumePermissionModifications [CreateVolumePermission]
+cvpmAdd :: Lens' CreateVolumePermissionModifications (Maybe [CreateVolumePermission])
 cvpmAdd = lens _cvpmAdd (\ s a -> s{_cvpmAdd = a});
 
 instance ToQuery CreateVolumePermissionModifications
@@ -2679,11 +2679,11 @@ instance FromXML CurrencyCodeValues where
 -- * 'cgType'
 --
 -- * 'cgTags'
-data CustomerGateway = CustomerGateway'{_cgIPAddress :: Maybe Text, _cgState :: Maybe Text, _cgCustomerGatewayId :: Maybe Text, _cgBGPASN :: Maybe Text, _cgType :: Maybe Text, _cgTags :: [Tag]} deriving (Eq, Read, Show)
+data CustomerGateway = CustomerGateway'{_cgIPAddress :: Maybe Text, _cgState :: Maybe Text, _cgCustomerGatewayId :: Maybe Text, _cgBGPASN :: Maybe Text, _cgType :: Maybe Text, _cgTags :: Maybe [Tag]} deriving (Eq, Read, Show)
 
 -- | 'CustomerGateway' smart constructor.
 customerGateway :: CustomerGateway
-customerGateway = CustomerGateway'{_cgIPAddress = Nothing, _cgState = Nothing, _cgCustomerGatewayId = Nothing, _cgBGPASN = Nothing, _cgType = Nothing, _cgTags = mempty};
+customerGateway = CustomerGateway'{_cgIPAddress = Nothing, _cgState = Nothing, _cgCustomerGatewayId = Nothing, _cgBGPASN = Nothing, _cgType = Nothing, _cgTags = Nothing};
 
 -- | The Internet-routable IP address of the customer gateway\'s outside
 -- interface.
@@ -2709,7 +2709,7 @@ cgType :: Lens' CustomerGateway (Maybe Text)
 cgType = lens _cgType (\ s a -> s{_cgType = a});
 
 -- | Any tags assigned to the customer gateway.
-cgTags :: Lens' CustomerGateway [Tag]
+cgTags :: Lens' CustomerGateway (Maybe [Tag])
 cgTags = lens _cgTags (\ s a -> s{_cgTags = a});
 
 instance FromXML CustomerGateway where
@@ -2728,14 +2728,14 @@ instance FromXML CustomerGateway where
 -- * 'dcValues'
 --
 -- * 'dcKey'
-data DHCPConfiguration = DHCPConfiguration'{_dcValues :: [AttributeValue], _dcKey :: Maybe Text} deriving (Eq, Read, Show)
+data DHCPConfiguration = DHCPConfiguration'{_dcValues :: Maybe [AttributeValue], _dcKey :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DHCPConfiguration' smart constructor.
 dhcpConfiguration :: DHCPConfiguration
-dhcpConfiguration = DHCPConfiguration'{_dcValues = mempty, _dcKey = Nothing};
+dhcpConfiguration = DHCPConfiguration'{_dcValues = Nothing, _dcKey = Nothing};
 
 -- | One or more values for the DHCP option.
-dcValues :: Lens' DHCPConfiguration [AttributeValue]
+dcValues :: Lens' DHCPConfiguration (Maybe [AttributeValue])
 dcValues = lens _dcValues (\ s a -> s{_dcValues = a});
 
 -- | The name of a DHCP option.
@@ -2756,14 +2756,14 @@ instance FromXML DHCPConfiguration where
 -- * 'doDHCPOptionsId'
 --
 -- * 'doTags'
-data DHCPOptions = DHCPOptions'{_doDHCPConfigurations :: [DHCPConfiguration], _doDHCPOptionsId :: Maybe Text, _doTags :: [Tag]} deriving (Eq, Read, Show)
+data DHCPOptions = DHCPOptions'{_doDHCPConfigurations :: Maybe [DHCPConfiguration], _doDHCPOptionsId :: Maybe Text, _doTags :: Maybe [Tag]} deriving (Eq, Read, Show)
 
 -- | 'DHCPOptions' smart constructor.
 dhcpOptions :: DHCPOptions
-dhcpOptions = DHCPOptions'{_doDHCPConfigurations = mempty, _doDHCPOptionsId = Nothing, _doTags = mempty};
+dhcpOptions = DHCPOptions'{_doDHCPConfigurations = Nothing, _doDHCPOptionsId = Nothing, _doTags = Nothing};
 
 -- | One or more DHCP options in the set.
-doDHCPConfigurations :: Lens' DHCPOptions [DHCPConfiguration]
+doDHCPConfigurations :: Lens' DHCPOptions (Maybe [DHCPConfiguration])
 doDHCPConfigurations = lens _doDHCPConfigurations (\ s a -> s{_doDHCPConfigurations = a});
 
 -- | The ID of the set of DHCP options.
@@ -2771,7 +2771,7 @@ doDHCPOptionsId :: Lens' DHCPOptions (Maybe Text)
 doDHCPOptionsId = lens _doDHCPOptionsId (\ s a -> s{_doDHCPOptionsId = a});
 
 -- | Any tags assigned to the DHCP options set.
-doTags :: Lens' DHCPOptions [Tag]
+doTags :: Lens' DHCPOptions (Maybe [Tag])
 doTags = lens _doTags (\ s a -> s{_doTags = a});
 
 instance FromXML DHCPOptions where
@@ -3480,14 +3480,14 @@ instance ToQuery ExportToS3TaskSpecification where
 -- * 'filValues'
 --
 -- * 'filName'
-data Filter = Filter'{_filValues :: [Text], _filName :: Maybe Text} deriving (Eq, Read, Show)
+data Filter = Filter'{_filValues :: Maybe [Text], _filName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'Filter' smart constructor.
 filter' :: Filter
-filter' = Filter'{_filValues = mempty, _filName = Nothing};
+filter' = Filter'{_filValues = Nothing, _filName = Nothing};
 
 -- | One or more filter values. Filter values are case-sensitive.
-filValues :: Lens' Filter [Text]
+filValues :: Lens' Filter (Maybe [Text])
 filValues = lens _filValues (\ s a -> s{_filValues = a});
 
 -- | The name of the filter. Filter names are case-sensitive.
@@ -3713,11 +3713,11 @@ instance ToQuery ICMPTypeCode where
 -- * 'ipToPort'
 --
 -- * 'ipIPRanges'
-data IPPermission = IPPermission'{_ipFromPort :: Maybe Int, _ipUserIdGroupPairs :: [UserIdGroupPair], _ipPrefixListIds :: [PrefixListId], _ipIPProtocol :: Maybe Text, _ipToPort :: Maybe Int, _ipIPRanges :: [IPRange]} deriving (Eq, Read, Show)
+data IPPermission = IPPermission'{_ipFromPort :: Maybe Int, _ipUserIdGroupPairs :: Maybe [UserIdGroupPair], _ipPrefixListIds :: Maybe [PrefixListId], _ipIPProtocol :: Maybe Text, _ipToPort :: Maybe Int, _ipIPRanges :: Maybe [IPRange]} deriving (Eq, Read, Show)
 
 -- | 'IPPermission' smart constructor.
 ipPermission :: IPPermission
-ipPermission = IPPermission'{_ipFromPort = Nothing, _ipUserIdGroupPairs = mempty, _ipPrefixListIds = mempty, _ipIPProtocol = Nothing, _ipToPort = Nothing, _ipIPRanges = mempty};
+ipPermission = IPPermission'{_ipFromPort = Nothing, _ipUserIdGroupPairs = Nothing, _ipPrefixListIds = Nothing, _ipIPProtocol = Nothing, _ipToPort = Nothing, _ipIPRanges = Nothing};
 
 -- | The start of port range for the TCP and UDP protocols, or an ICMP type
 -- number. A value of @-1@ indicates all ICMP types.
@@ -3725,7 +3725,7 @@ ipFromPort :: Lens' IPPermission (Maybe Int)
 ipFromPort = lens _ipFromPort (\ s a -> s{_ipFromPort = a});
 
 -- | One or more security group and AWS account ID pairs.
-ipUserIdGroupPairs :: Lens' IPPermission [UserIdGroupPair]
+ipUserIdGroupPairs :: Lens' IPPermission (Maybe [UserIdGroupPair])
 ipUserIdGroupPairs = lens _ipUserIdGroupPairs (\ s a -> s{_ipUserIdGroupPairs = a});
 
 -- | (Valid for AuthorizeSecurityGroupEgress, RevokeSecurityGroupEgress and
@@ -3733,7 +3733,7 @@ ipUserIdGroupPairs = lens _ipUserIdGroupPairs (\ s a -> s{_ipUserIdGroupPairs = 
 -- service. In an AuthorizeSecurityGroupEgress request, this is the AWS
 -- service that you want to access through a VPC endpoint from instances
 -- associated with the security group.
-ipPrefixListIds :: Lens' IPPermission [PrefixListId]
+ipPrefixListIds :: Lens' IPPermission (Maybe [PrefixListId])
 ipPrefixListIds = lens _ipPrefixListIds (\ s a -> s{_ipPrefixListIds = a});
 
 -- | The protocol.
@@ -3754,7 +3754,7 @@ ipToPort :: Lens' IPPermission (Maybe Int)
 ipToPort = lens _ipToPort (\ s a -> s{_ipToPort = a});
 
 -- | One or more IP ranges.
-ipIPRanges :: Lens' IPPermission [IPRange]
+ipIPRanges :: Lens' IPPermission (Maybe [IPRange])
 ipIPRanges = lens _ipIPRanges (\ s a -> s{_ipIPRanges = a});
 
 instance FromXML IPPermission where
@@ -3847,11 +3847,11 @@ instance ToQuery IPRange where
 -- * 'imaTags'
 --
 -- * 'imaPublic'
-data Image = Image'{_imaVirtualizationType :: Maybe VirtualizationType, _imaHypervisor :: Maybe HypervisorType, _imaState :: Maybe ImageState, _imaPlatform :: Maybe PlatformValues, _imaImageLocation :: Maybe Text, _imaImageOwnerAlias :: Maybe Text, _imaRAMDiskId :: Maybe Text, _imaKernelId :: Maybe Text, _imaRootDeviceName :: Maybe Text, _imaSRIOVNetSupport :: Maybe Text, _imaOwnerId :: Maybe Text, _imaName :: Maybe Text, _imaImageType :: Maybe ImageTypeValues, _imaImageId :: Maybe Text, _imaCreationDate :: Maybe Text, _imaProductCodes :: [ProductCode], _imaArchitecture :: Maybe ArchitectureValues, _imaStateReason :: Maybe StateReason, _imaBlockDeviceMappings :: [BlockDeviceMapping], _imaRootDeviceType :: Maybe DeviceType, _imaDescription :: Maybe Text, _imaTags :: [Tag], _imaPublic :: Maybe Bool} deriving (Eq, Read, Show)
+data Image = Image'{_imaVirtualizationType :: Maybe VirtualizationType, _imaHypervisor :: Maybe HypervisorType, _imaState :: Maybe ImageState, _imaPlatform :: Maybe PlatformValues, _imaImageLocation :: Maybe Text, _imaImageOwnerAlias :: Maybe Text, _imaRAMDiskId :: Maybe Text, _imaKernelId :: Maybe Text, _imaRootDeviceName :: Maybe Text, _imaSRIOVNetSupport :: Maybe Text, _imaOwnerId :: Maybe Text, _imaName :: Maybe Text, _imaImageType :: Maybe ImageTypeValues, _imaImageId :: Maybe Text, _imaCreationDate :: Maybe Text, _imaProductCodes :: Maybe [ProductCode], _imaArchitecture :: Maybe ArchitectureValues, _imaStateReason :: Maybe StateReason, _imaBlockDeviceMappings :: Maybe [BlockDeviceMapping], _imaRootDeviceType :: Maybe DeviceType, _imaDescription :: Maybe Text, _imaTags :: Maybe [Tag], _imaPublic :: Maybe Bool} deriving (Eq, Read, Show)
 
 -- | 'Image' smart constructor.
 image :: Image
-image = Image'{_imaVirtualizationType = Nothing, _imaHypervisor = Nothing, _imaState = Nothing, _imaPlatform = Nothing, _imaImageLocation = Nothing, _imaImageOwnerAlias = Nothing, _imaRAMDiskId = Nothing, _imaKernelId = Nothing, _imaRootDeviceName = Nothing, _imaSRIOVNetSupport = Nothing, _imaOwnerId = Nothing, _imaName = Nothing, _imaImageType = Nothing, _imaImageId = Nothing, _imaCreationDate = Nothing, _imaProductCodes = mempty, _imaArchitecture = Nothing, _imaStateReason = Nothing, _imaBlockDeviceMappings = mempty, _imaRootDeviceType = Nothing, _imaDescription = Nothing, _imaTags = mempty, _imaPublic = Nothing};
+image = Image'{_imaVirtualizationType = Nothing, _imaHypervisor = Nothing, _imaState = Nothing, _imaPlatform = Nothing, _imaImageLocation = Nothing, _imaImageOwnerAlias = Nothing, _imaRAMDiskId = Nothing, _imaKernelId = Nothing, _imaRootDeviceName = Nothing, _imaSRIOVNetSupport = Nothing, _imaOwnerId = Nothing, _imaName = Nothing, _imaImageType = Nothing, _imaImageId = Nothing, _imaCreationDate = Nothing, _imaProductCodes = Nothing, _imaArchitecture = Nothing, _imaStateReason = Nothing, _imaBlockDeviceMappings = Nothing, _imaRootDeviceType = Nothing, _imaDescription = Nothing, _imaTags = Nothing, _imaPublic = Nothing};
 
 -- | The type of virtualization of the AMI.
 imaVirtualizationType :: Lens' Image (Maybe VirtualizationType)
@@ -3919,7 +3919,7 @@ imaCreationDate :: Lens' Image (Maybe Text)
 imaCreationDate = lens _imaCreationDate (\ s a -> s{_imaCreationDate = a});
 
 -- | Any product codes associated with the AMI.
-imaProductCodes :: Lens' Image [ProductCode]
+imaProductCodes :: Lens' Image (Maybe [ProductCode])
 imaProductCodes = lens _imaProductCodes (\ s a -> s{_imaProductCodes = a});
 
 -- | The architecture of the image.
@@ -3931,7 +3931,7 @@ imaStateReason :: Lens' Image (Maybe StateReason)
 imaStateReason = lens _imaStateReason (\ s a -> s{_imaStateReason = a});
 
 -- | Any block device mapping entries.
-imaBlockDeviceMappings :: Lens' Image [BlockDeviceMapping]
+imaBlockDeviceMappings :: Lens' Image (Maybe [BlockDeviceMapping])
 imaBlockDeviceMappings = lens _imaBlockDeviceMappings (\ s a -> s{_imaBlockDeviceMappings = a});
 
 -- | The type of root device used by the AMI. The AMI can use an EBS volume
@@ -3944,7 +3944,7 @@ imaDescription :: Lens' Image (Maybe Text)
 imaDescription = lens _imaDescription (\ s a -> s{_imaDescription = a});
 
 -- | Any tags assigned to the image.
-imaTags :: Lens' Image [Tag]
+imaTags :: Lens' Image (Maybe [Tag])
 imaTags = lens _imaTags (\ s a -> s{_imaTags = a});
 
 -- | Indicates whether the image has public launch permissions. The value is
@@ -4140,11 +4140,11 @@ instance FromXML ImageTypeValues where
 -- * 'iitArchitecture'
 --
 -- * 'iitDescription'
-data ImportImageTask = ImportImageTask'{_iitHypervisor :: Maybe Text, _iitPlatform :: Maybe Text, _iitProgress :: Maybe Text, _iitLicenseType :: Maybe Text, _iitSnapshotDetails :: [SnapshotDetail], _iitStatusMessage :: Maybe Text, _iitAddressStatus :: Maybe Text, _iitImageId :: Maybe Text, _iitImportTaskId :: Maybe Text, _iitArchitecture :: Maybe Text, _iitDescription :: Maybe Text} deriving (Eq, Read, Show)
+data ImportImageTask = ImportImageTask'{_iitHypervisor :: Maybe Text, _iitPlatform :: Maybe Text, _iitProgress :: Maybe Text, _iitLicenseType :: Maybe Text, _iitSnapshotDetails :: Maybe [SnapshotDetail], _iitStatusMessage :: Maybe Text, _iitAddressStatus :: Maybe Text, _iitImageId :: Maybe Text, _iitImportTaskId :: Maybe Text, _iitArchitecture :: Maybe Text, _iitDescription :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ImportImageTask' smart constructor.
 importImageTask :: ImportImageTask
-importImageTask = ImportImageTask'{_iitHypervisor = Nothing, _iitPlatform = Nothing, _iitProgress = Nothing, _iitLicenseType = Nothing, _iitSnapshotDetails = mempty, _iitStatusMessage = Nothing, _iitAddressStatus = Nothing, _iitImageId = Nothing, _iitImportTaskId = Nothing, _iitArchitecture = Nothing, _iitDescription = Nothing};
+importImageTask = ImportImageTask'{_iitHypervisor = Nothing, _iitPlatform = Nothing, _iitProgress = Nothing, _iitLicenseType = Nothing, _iitSnapshotDetails = Nothing, _iitStatusMessage = Nothing, _iitAddressStatus = Nothing, _iitImageId = Nothing, _iitImportTaskId = Nothing, _iitArchitecture = Nothing, _iitDescription = Nothing};
 
 -- | The target hypervisor for the import task.
 --
@@ -4165,7 +4165,7 @@ iitLicenseType :: Lens' ImportImageTask (Maybe Text)
 iitLicenseType = lens _iitLicenseType (\ s a -> s{_iitLicenseType = a});
 
 -- | Information about the snapshots.
-iitSnapshotDetails :: Lens' ImportImageTask [SnapshotDetail]
+iitSnapshotDetails :: Lens' ImportImageTask (Maybe [SnapshotDetail])
 iitSnapshotDetails = lens _iitSnapshotDetails (\ s a -> s{_iitSnapshotDetails = a});
 
 -- | A descriptive status message for the import image task.
@@ -4234,18 +4234,18 @@ instance FromXML ImportImageTask where
 -- * 'iilsArchitecture'
 --
 -- * 'iilsPlacement'
-data ImportInstanceLaunchSpecification = ImportInstanceLaunchSpecification'{_iilsAdditionalInfo :: Maybe Text, _iilsGroupNames :: [Text], _iilsSubnetId :: Maybe Text, _iilsGroupIds :: [Text], _iilsInstanceType :: Maybe InstanceType, _iilsUserData :: Maybe UserData, _iilsMonitoring :: Maybe Bool, _iilsInstanceInitiatedShutdownBehavior :: Maybe ShutdownBehavior, _iilsPrivateIPAddress :: Maybe Text, _iilsArchitecture :: Maybe ArchitectureValues, _iilsPlacement :: Maybe Placement} deriving (Eq, Read, Show)
+data ImportInstanceLaunchSpecification = ImportInstanceLaunchSpecification'{_iilsAdditionalInfo :: Maybe Text, _iilsGroupNames :: Maybe [Text], _iilsSubnetId :: Maybe Text, _iilsGroupIds :: Maybe [Text], _iilsInstanceType :: Maybe InstanceType, _iilsUserData :: Maybe UserData, _iilsMonitoring :: Maybe Bool, _iilsInstanceInitiatedShutdownBehavior :: Maybe ShutdownBehavior, _iilsPrivateIPAddress :: Maybe Text, _iilsArchitecture :: Maybe ArchitectureValues, _iilsPlacement :: Maybe Placement} deriving (Eq, Read, Show)
 
 -- | 'ImportInstanceLaunchSpecification' smart constructor.
 importInstanceLaunchSpecification :: ImportInstanceLaunchSpecification
-importInstanceLaunchSpecification = ImportInstanceLaunchSpecification'{_iilsAdditionalInfo = Nothing, _iilsGroupNames = mempty, _iilsSubnetId = Nothing, _iilsGroupIds = mempty, _iilsInstanceType = Nothing, _iilsUserData = Nothing, _iilsMonitoring = Nothing, _iilsInstanceInitiatedShutdownBehavior = Nothing, _iilsPrivateIPAddress = Nothing, _iilsArchitecture = Nothing, _iilsPlacement = Nothing};
+importInstanceLaunchSpecification = ImportInstanceLaunchSpecification'{_iilsAdditionalInfo = Nothing, _iilsGroupNames = Nothing, _iilsSubnetId = Nothing, _iilsGroupIds = Nothing, _iilsInstanceType = Nothing, _iilsUserData = Nothing, _iilsMonitoring = Nothing, _iilsInstanceInitiatedShutdownBehavior = Nothing, _iilsPrivateIPAddress = Nothing, _iilsArchitecture = Nothing, _iilsPlacement = Nothing};
 
 -- | Reserved.
 iilsAdditionalInfo :: Lens' ImportInstanceLaunchSpecification (Maybe Text)
 iilsAdditionalInfo = lens _iilsAdditionalInfo (\ s a -> s{_iilsAdditionalInfo = a});
 
 -- | One or more security group names.
-iilsGroupNames :: Lens' ImportInstanceLaunchSpecification [Text]
+iilsGroupNames :: Lens' ImportInstanceLaunchSpecification (Maybe [Text])
 iilsGroupNames = lens _iilsGroupNames (\ s a -> s{_iilsGroupNames = a});
 
 -- | [EC2-VPC] The ID of the subnet in which to launch the instance.
@@ -4253,7 +4253,7 @@ iilsSubnetId :: Lens' ImportInstanceLaunchSpecification (Maybe Text)
 iilsSubnetId = lens _iilsSubnetId (\ s a -> s{_iilsSubnetId = a});
 
 -- | One or more security group IDs.
-iilsGroupIds :: Lens' ImportInstanceLaunchSpecification [Text]
+iilsGroupIds :: Lens' ImportInstanceLaunchSpecification (Maybe [Text])
 iilsGroupIds = lens _iilsGroupIds (\ s a -> s{_iilsGroupIds = a});
 
 -- | The instance type. For more information about the instance types that
@@ -4321,8 +4321,8 @@ instance ToQuery ImportInstanceLaunchSpecification
 data ImportInstanceTaskDetails = ImportInstanceTaskDetails'{_iitdInstanceId :: Maybe Text, _iitdPlatform :: Maybe PlatformValues, _iitdDescription :: Maybe Text, _iitdVolumes :: [ImportInstanceVolumeDetailItem]} deriving (Eq, Read, Show)
 
 -- | 'ImportInstanceTaskDetails' smart constructor.
-importInstanceTaskDetails :: [ImportInstanceVolumeDetailItem] -> ImportInstanceTaskDetails
-importInstanceTaskDetails pVolumes = ImportInstanceTaskDetails'{_iitdInstanceId = Nothing, _iitdPlatform = Nothing, _iitdDescription = Nothing, _iitdVolumes = pVolumes};
+importInstanceTaskDetails :: ImportInstanceTaskDetails
+importInstanceTaskDetails = ImportInstanceTaskDetails'{_iitdInstanceId = Nothing, _iitdPlatform = Nothing, _iitdDescription = Nothing, _iitdVolumes = mempty};
 
 -- | The ID of the instance.
 iitdInstanceId :: Lens' ImportInstanceTaskDetails (Maybe Text)
@@ -4565,11 +4565,11 @@ instance FromXML ImportVolumeTaskDetails where
 -- * 'insTags'
 --
 -- * 'insPlacement'
-data Instance = Instance'{_insInstanceId :: Maybe Text, _insVirtualizationType :: Maybe VirtualizationType, _insPublicDNSName :: Maybe Text, _insHypervisor :: Maybe HypervisorType, _insState :: Maybe InstanceState, _insPlatform :: Maybe PlatformValues, _insSecurityGroups :: [GroupIdentifier], _insClientToken :: Maybe Text, _insSourceDestCheck :: Maybe Bool, _insLaunchTime :: Maybe ISO8601, _insVPCId :: Maybe Text, _insNetworkInterfaces :: [InstanceNetworkInterface], _insKeyName :: Maybe Text, _insRAMDiskId :: Maybe Text, _insKernelId :: Maybe Text, _insSubnetId :: Maybe Text, _insInstanceType :: Maybe InstanceType, _insRootDeviceName :: Maybe Text, _insEBSOptimized :: Maybe Bool, _insSRIOVNetSupport :: Maybe Text, _insStateTransitionReason :: Maybe Text, _insMonitoring :: Maybe Monitoring, _insIAMInstanceProfile :: Maybe IAMInstanceProfile, _insInstanceLifecycle :: Maybe InstanceLifecycleType, _insImageId :: Maybe Text, _insPrivateIPAddress :: Maybe Text, _insProductCodes :: [ProductCode], _insSpotInstanceRequestId :: Maybe Text, _insArchitecture :: Maybe ArchitectureValues, _insPrivateDNSName :: Maybe Text, _insStateReason :: Maybe StateReason, _insBlockDeviceMappings :: [InstanceBlockDeviceMapping], _insRootDeviceType :: Maybe DeviceType, _insPublicIPAddress :: Maybe Text, _insAMILaunchIndex :: Maybe Int, _insTags :: [Tag], _insPlacement :: Maybe Placement} deriving (Eq, Read, Show)
+data Instance = Instance'{_insInstanceId :: Maybe Text, _insVirtualizationType :: Maybe VirtualizationType, _insPublicDNSName :: Maybe Text, _insHypervisor :: Maybe HypervisorType, _insState :: Maybe InstanceState, _insPlatform :: Maybe PlatformValues, _insSecurityGroups :: Maybe [GroupIdentifier], _insClientToken :: Maybe Text, _insSourceDestCheck :: Maybe Bool, _insLaunchTime :: Maybe ISO8601, _insVPCId :: Maybe Text, _insNetworkInterfaces :: Maybe [InstanceNetworkInterface], _insKeyName :: Maybe Text, _insRAMDiskId :: Maybe Text, _insKernelId :: Maybe Text, _insSubnetId :: Maybe Text, _insInstanceType :: Maybe InstanceType, _insRootDeviceName :: Maybe Text, _insEBSOptimized :: Maybe Bool, _insSRIOVNetSupport :: Maybe Text, _insStateTransitionReason :: Maybe Text, _insMonitoring :: Maybe Monitoring, _insIAMInstanceProfile :: Maybe IAMInstanceProfile, _insInstanceLifecycle :: Maybe InstanceLifecycleType, _insImageId :: Maybe Text, _insPrivateIPAddress :: Maybe Text, _insProductCodes :: Maybe [ProductCode], _insSpotInstanceRequestId :: Maybe Text, _insArchitecture :: Maybe ArchitectureValues, _insPrivateDNSName :: Maybe Text, _insStateReason :: Maybe StateReason, _insBlockDeviceMappings :: Maybe [InstanceBlockDeviceMapping], _insRootDeviceType :: Maybe DeviceType, _insPublicIPAddress :: Maybe Text, _insAMILaunchIndex :: Maybe Int, _insTags :: Maybe [Tag], _insPlacement :: Maybe Placement} deriving (Eq, Read, Show)
 
 -- | 'Instance' smart constructor.
 instance' :: Instance
-instance' = Instance'{_insInstanceId = Nothing, _insVirtualizationType = Nothing, _insPublicDNSName = Nothing, _insHypervisor = Nothing, _insState = Nothing, _insPlatform = Nothing, _insSecurityGroups = mempty, _insClientToken = Nothing, _insSourceDestCheck = Nothing, _insLaunchTime = Nothing, _insVPCId = Nothing, _insNetworkInterfaces = mempty, _insKeyName = Nothing, _insRAMDiskId = Nothing, _insKernelId = Nothing, _insSubnetId = Nothing, _insInstanceType = Nothing, _insRootDeviceName = Nothing, _insEBSOptimized = Nothing, _insSRIOVNetSupport = Nothing, _insStateTransitionReason = Nothing, _insMonitoring = Nothing, _insIAMInstanceProfile = Nothing, _insInstanceLifecycle = Nothing, _insImageId = Nothing, _insPrivateIPAddress = Nothing, _insProductCodes = mempty, _insSpotInstanceRequestId = Nothing, _insArchitecture = Nothing, _insPrivateDNSName = Nothing, _insStateReason = Nothing, _insBlockDeviceMappings = mempty, _insRootDeviceType = Nothing, _insPublicIPAddress = Nothing, _insAMILaunchIndex = Nothing, _insTags = mempty, _insPlacement = Nothing};
+instance' = Instance'{_insInstanceId = Nothing, _insVirtualizationType = Nothing, _insPublicDNSName = Nothing, _insHypervisor = Nothing, _insState = Nothing, _insPlatform = Nothing, _insSecurityGroups = Nothing, _insClientToken = Nothing, _insSourceDestCheck = Nothing, _insLaunchTime = Nothing, _insVPCId = Nothing, _insNetworkInterfaces = Nothing, _insKeyName = Nothing, _insRAMDiskId = Nothing, _insKernelId = Nothing, _insSubnetId = Nothing, _insInstanceType = Nothing, _insRootDeviceName = Nothing, _insEBSOptimized = Nothing, _insSRIOVNetSupport = Nothing, _insStateTransitionReason = Nothing, _insMonitoring = Nothing, _insIAMInstanceProfile = Nothing, _insInstanceLifecycle = Nothing, _insImageId = Nothing, _insPrivateIPAddress = Nothing, _insProductCodes = Nothing, _insSpotInstanceRequestId = Nothing, _insArchitecture = Nothing, _insPrivateDNSName = Nothing, _insStateReason = Nothing, _insBlockDeviceMappings = Nothing, _insRootDeviceType = Nothing, _insPublicIPAddress = Nothing, _insAMILaunchIndex = Nothing, _insTags = Nothing, _insPlacement = Nothing};
 
 -- | The ID of the instance.
 insInstanceId :: Lens' Instance (Maybe Text)
@@ -4597,7 +4597,7 @@ insPlatform :: Lens' Instance (Maybe PlatformValues)
 insPlatform = lens _insPlatform (\ s a -> s{_insPlatform = a});
 
 -- | One or more security groups for the instance.
-insSecurityGroups :: Lens' Instance [GroupIdentifier]
+insSecurityGroups :: Lens' Instance (Maybe [GroupIdentifier])
 insSecurityGroups = lens _insSecurityGroups (\ s a -> s{_insSecurityGroups = a});
 
 -- | The idempotency token you provided when you launched the instance.
@@ -4623,7 +4623,7 @@ insVPCId :: Lens' Instance (Maybe Text)
 insVPCId = lens _insVPCId (\ s a -> s{_insVPCId = a});
 
 -- | [EC2-VPC] One or more network interfaces for the instance.
-insNetworkInterfaces :: Lens' Instance [InstanceNetworkInterface]
+insNetworkInterfaces :: Lens' Instance (Maybe [InstanceNetworkInterface])
 insNetworkInterfaces = lens _insNetworkInterfaces (\ s a -> s{_insNetworkInterfaces = a});
 
 -- | The name of the key pair, if this instance was launched with an
@@ -4689,7 +4689,7 @@ insPrivateIPAddress :: Lens' Instance (Maybe Text)
 insPrivateIPAddress = lens _insPrivateIPAddress (\ s a -> s{_insPrivateIPAddress = a});
 
 -- | The product codes attached to this instance.
-insProductCodes :: Lens' Instance [ProductCode]
+insProductCodes :: Lens' Instance (Maybe [ProductCode])
 insProductCodes = lens _insProductCodes (\ s a -> s{_insProductCodes = a});
 
 -- | The ID of the Spot Instance request.
@@ -4711,7 +4711,7 @@ insStateReason :: Lens' Instance (Maybe StateReason)
 insStateReason = lens _insStateReason (\ s a -> s{_insStateReason = a});
 
 -- | Any block device mapping entries for the instance.
-insBlockDeviceMappings :: Lens' Instance [InstanceBlockDeviceMapping]
+insBlockDeviceMappings :: Lens' Instance (Maybe [InstanceBlockDeviceMapping])
 insBlockDeviceMappings = lens _insBlockDeviceMappings (\ s a -> s{_insBlockDeviceMappings = a});
 
 -- | The root device type used by the AMI. The AMI can use an EBS volume or
@@ -4729,7 +4729,7 @@ insAMILaunchIndex :: Lens' Instance (Maybe Int)
 insAMILaunchIndex = lens _insAMILaunchIndex (\ s a -> s{_insAMILaunchIndex = a});
 
 -- | Any tags assigned to the instance.
-insTags :: Lens' Instance [Tag]
+insTags :: Lens' Instance (Maybe [Tag])
 insTags = lens _insTags (\ s a -> s{_insTags = a});
 
 -- | The location where the instance launched.
@@ -5014,18 +5014,18 @@ instance FromXML InstanceMonitoring where
 -- * 'iniDescription'
 --
 -- * 'iniAssociation'
-data InstanceNetworkInterface = InstanceNetworkInterface'{_iniPrivateIPAddresses :: [InstancePrivateIPAddress], _iniGroups :: [GroupIdentifier], _iniSourceDestCheck :: Maybe Bool, _iniVPCId :: Maybe Text, _iniNetworkInterfaceId :: Maybe Text, _iniSubnetId :: Maybe Text, _iniAttachment :: Maybe InstanceNetworkInterfaceAttachment, _iniMACAddress :: Maybe Text, _iniOwnerId :: Maybe Text, _iniAddressStatus :: Maybe NetworkInterfaceStatus, _iniPrivateIPAddress :: Maybe Text, _iniPrivateDNSName :: Maybe Text, _iniDescription :: Maybe Text, _iniAssociation :: Maybe InstanceNetworkInterfaceAssociation} deriving (Eq, Read, Show)
+data InstanceNetworkInterface = InstanceNetworkInterface'{_iniPrivateIPAddresses :: Maybe [InstancePrivateIPAddress], _iniGroups :: Maybe [GroupIdentifier], _iniSourceDestCheck :: Maybe Bool, _iniVPCId :: Maybe Text, _iniNetworkInterfaceId :: Maybe Text, _iniSubnetId :: Maybe Text, _iniAttachment :: Maybe InstanceNetworkInterfaceAttachment, _iniMACAddress :: Maybe Text, _iniOwnerId :: Maybe Text, _iniAddressStatus :: Maybe NetworkInterfaceStatus, _iniPrivateIPAddress :: Maybe Text, _iniPrivateDNSName :: Maybe Text, _iniDescription :: Maybe Text, _iniAssociation :: Maybe InstanceNetworkInterfaceAssociation} deriving (Eq, Read, Show)
 
 -- | 'InstanceNetworkInterface' smart constructor.
 instanceNetworkInterface :: InstanceNetworkInterface
-instanceNetworkInterface = InstanceNetworkInterface'{_iniPrivateIPAddresses = mempty, _iniGroups = mempty, _iniSourceDestCheck = Nothing, _iniVPCId = Nothing, _iniNetworkInterfaceId = Nothing, _iniSubnetId = Nothing, _iniAttachment = Nothing, _iniMACAddress = Nothing, _iniOwnerId = Nothing, _iniAddressStatus = Nothing, _iniPrivateIPAddress = Nothing, _iniPrivateDNSName = Nothing, _iniDescription = Nothing, _iniAssociation = Nothing};
+instanceNetworkInterface = InstanceNetworkInterface'{_iniPrivateIPAddresses = Nothing, _iniGroups = Nothing, _iniSourceDestCheck = Nothing, _iniVPCId = Nothing, _iniNetworkInterfaceId = Nothing, _iniSubnetId = Nothing, _iniAttachment = Nothing, _iniMACAddress = Nothing, _iniOwnerId = Nothing, _iniAddressStatus = Nothing, _iniPrivateIPAddress = Nothing, _iniPrivateDNSName = Nothing, _iniDescription = Nothing, _iniAssociation = Nothing};
 
 -- | The private IP addresses associated with the network interface.
-iniPrivateIPAddresses :: Lens' InstanceNetworkInterface [InstancePrivateIPAddress]
+iniPrivateIPAddresses :: Lens' InstanceNetworkInterface (Maybe [InstancePrivateIPAddress])
 iniPrivateIPAddresses = lens _iniPrivateIPAddresses (\ s a -> s{_iniPrivateIPAddresses = a});
 
 -- | One or more security groups.
-iniGroups :: Lens' InstanceNetworkInterface [GroupIdentifier]
+iniGroups :: Lens' InstanceNetworkInterface (Maybe [GroupIdentifier])
 iniGroups = lens _iniGroups (\ s a -> s{_iniGroups = a});
 
 -- | Indicates whether to validate network traffic to or from this network
@@ -5203,15 +5203,15 @@ instance FromXML InstanceNetworkInterfaceAttachment
 -- * 'inisDeviceIndex'
 --
 -- * 'inisDescription'
-data InstanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecification'{_inisPrivateIPAddresses :: [PrivateIPAddressSpecification], _inisDeleteOnTermination :: Maybe Bool, _inisGroups :: [Text], _inisAssociatePublicIPAddress :: Maybe Bool, _inisNetworkInterfaceId :: Maybe Text, _inisSubnetId :: Maybe Text, _inisPrivateIPAddress :: Maybe Text, _inisSecondaryPrivateIPAddressCount :: Maybe Int, _inisDeviceIndex :: Maybe Int, _inisDescription :: Maybe Text} deriving (Eq, Read, Show)
+data InstanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecification'{_inisPrivateIPAddresses :: Maybe [PrivateIPAddressSpecification], _inisDeleteOnTermination :: Maybe Bool, _inisGroups :: Maybe [Text], _inisAssociatePublicIPAddress :: Maybe Bool, _inisNetworkInterfaceId :: Maybe Text, _inisSubnetId :: Maybe Text, _inisPrivateIPAddress :: Maybe Text, _inisSecondaryPrivateIPAddressCount :: Maybe Int, _inisDeviceIndex :: Maybe Int, _inisDescription :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'InstanceNetworkInterfaceSpecification' smart constructor.
 instanceNetworkInterfaceSpecification :: InstanceNetworkInterfaceSpecification
-instanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecification'{_inisPrivateIPAddresses = mempty, _inisDeleteOnTermination = Nothing, _inisGroups = mempty, _inisAssociatePublicIPAddress = Nothing, _inisNetworkInterfaceId = Nothing, _inisSubnetId = Nothing, _inisPrivateIPAddress = Nothing, _inisSecondaryPrivateIPAddressCount = Nothing, _inisDeviceIndex = Nothing, _inisDescription = Nothing};
+instanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecification'{_inisPrivateIPAddresses = Nothing, _inisDeleteOnTermination = Nothing, _inisGroups = Nothing, _inisAssociatePublicIPAddress = Nothing, _inisNetworkInterfaceId = Nothing, _inisSubnetId = Nothing, _inisPrivateIPAddress = Nothing, _inisSecondaryPrivateIPAddressCount = Nothing, _inisDeviceIndex = Nothing, _inisDescription = Nothing};
 
 -- | One or more private IP addresses to assign to the network interface.
 -- Only one private IP address can be designated as primary.
-inisPrivateIPAddresses :: Lens' InstanceNetworkInterfaceSpecification [PrivateIPAddressSpecification]
+inisPrivateIPAddresses :: Lens' InstanceNetworkInterfaceSpecification (Maybe [PrivateIPAddressSpecification])
 inisPrivateIPAddresses = lens _inisPrivateIPAddresses (\ s a -> s{_inisPrivateIPAddresses = a});
 
 -- | If set to @true@, the interface is deleted when the instance is
@@ -5222,7 +5222,7 @@ inisDeleteOnTermination = lens _inisDeleteOnTermination (\ s a -> s{_inisDeleteO
 
 -- | The IDs of the security groups for the network interface. Applies only
 -- if creating a network interface when launching an instance.
-inisGroups :: Lens' InstanceNetworkInterfaceSpecification [Text]
+inisGroups :: Lens' InstanceNetworkInterfaceSpecification (Maybe [Text])
 inisGroups = lens _inisGroups (\ s a -> s{_inisGroups = a});
 
 -- | Indicates whether to assign a public IP address to an instance you
@@ -5453,11 +5453,11 @@ instance FromXML InstanceStateName where
 -- * 'isInstanceStatus'
 --
 -- * 'isInstanceState'
-data InstanceStatus = InstanceStatus'{_isInstanceId :: Maybe Text, _isSystemStatus :: Maybe InstanceStatusSummary, _isAvailabilityZone :: Maybe Text, _isEvents :: [InstanceStatusEvent], _isInstanceStatus :: Maybe InstanceStatusSummary, _isInstanceState :: Maybe InstanceState} deriving (Eq, Read, Show)
+data InstanceStatus = InstanceStatus'{_isInstanceId :: Maybe Text, _isSystemStatus :: Maybe InstanceStatusSummary, _isAvailabilityZone :: Maybe Text, _isEvents :: Maybe [InstanceStatusEvent], _isInstanceStatus :: Maybe InstanceStatusSummary, _isInstanceState :: Maybe InstanceState} deriving (Eq, Read, Show)
 
 -- | 'InstanceStatus' smart constructor.
 instanceStatus :: InstanceStatus
-instanceStatus = InstanceStatus'{_isInstanceId = Nothing, _isSystemStatus = Nothing, _isAvailabilityZone = Nothing, _isEvents = mempty, _isInstanceStatus = Nothing, _isInstanceState = Nothing};
+instanceStatus = InstanceStatus'{_isInstanceId = Nothing, _isSystemStatus = Nothing, _isAvailabilityZone = Nothing, _isEvents = Nothing, _isInstanceStatus = Nothing, _isInstanceState = Nothing};
 
 -- | The ID of the instance.
 isInstanceId :: Lens' InstanceStatus (Maybe Text)
@@ -5474,7 +5474,7 @@ isAvailabilityZone :: Lens' InstanceStatus (Maybe Text)
 isAvailabilityZone = lens _isAvailabilityZone (\ s a -> s{_isAvailabilityZone = a});
 
 -- | Any scheduled events associated with the instance.
-isEvents :: Lens' InstanceStatus [InstanceStatusEvent]
+isEvents :: Lens' InstanceStatus (Maybe [InstanceStatusEvent])
 isEvents = lens _isEvents (\ s a -> s{_isEvents = a});
 
 -- | Reports impaired functionality that stems from issues internal to the
@@ -5581,18 +5581,18 @@ instance FromXML InstanceStatusEvent where
 -- * 'issAddressStatus'
 --
 -- * 'issDetails'
-data InstanceStatusSummary = InstanceStatusSummary'{_issAddressStatus :: Maybe SummaryStatus, _issDetails :: [InstanceStatusDetails]} deriving (Eq, Read, Show)
+data InstanceStatusSummary = InstanceStatusSummary'{_issAddressStatus :: Maybe SummaryStatus, _issDetails :: Maybe [InstanceStatusDetails]} deriving (Eq, Read, Show)
 
 -- | 'InstanceStatusSummary' smart constructor.
 instanceStatusSummary :: InstanceStatusSummary
-instanceStatusSummary = InstanceStatusSummary'{_issAddressStatus = Nothing, _issDetails = mempty};
+instanceStatusSummary = InstanceStatusSummary'{_issAddressStatus = Nothing, _issDetails = Nothing};
 
 -- | The status.
 issAddressStatus :: Lens' InstanceStatusSummary (Maybe SummaryStatus)
 issAddressStatus = lens _issAddressStatus (\ s a -> s{_issAddressStatus = a});
 
 -- | The system instance health or application instance health.
-issDetails :: Lens' InstanceStatusSummary [InstanceStatusDetails]
+issDetails :: Lens' InstanceStatusSummary (Maybe [InstanceStatusDetails])
 issDetails = lens _issDetails (\ s a -> s{_issDetails = a});
 
 instance FromXML InstanceStatusSummary where
@@ -5719,14 +5719,14 @@ instance FromXML InstanceType where
 -- * 'igInternetGatewayId'
 --
 -- * 'igTags'
-data InternetGateway = InternetGateway'{_igAttachments :: [InternetGatewayAttachment], _igInternetGatewayId :: Maybe Text, _igTags :: [Tag]} deriving (Eq, Read, Show)
+data InternetGateway = InternetGateway'{_igAttachments :: Maybe [InternetGatewayAttachment], _igInternetGatewayId :: Maybe Text, _igTags :: Maybe [Tag]} deriving (Eq, Read, Show)
 
 -- | 'InternetGateway' smart constructor.
 internetGateway :: InternetGateway
-internetGateway = InternetGateway'{_igAttachments = mempty, _igInternetGatewayId = Nothing, _igTags = mempty};
+internetGateway = InternetGateway'{_igAttachments = Nothing, _igInternetGatewayId = Nothing, _igTags = Nothing};
 
 -- | Any VPCs attached to the Internet gateway.
-igAttachments :: Lens' InternetGateway [InternetGatewayAttachment]
+igAttachments :: Lens' InternetGateway (Maybe [InternetGatewayAttachment])
 igAttachments = lens _igAttachments (\ s a -> s{_igAttachments = a});
 
 -- | The ID of the Internet gateway.
@@ -5734,7 +5734,7 @@ igInternetGatewayId :: Lens' InternetGateway (Maybe Text)
 igInternetGatewayId = lens _igInternetGatewayId (\ s a -> s{_igInternetGatewayId = a});
 
 -- | Any tags assigned to the Internet gateway.
-igTags :: Lens' InternetGateway [Tag]
+igTags :: Lens' InternetGateway (Maybe [Tag])
 igTags = lens _igTags (\ s a -> s{_igTags = a});
 
 instance FromXML InternetGateway where
@@ -5836,19 +5836,19 @@ instance ToQuery LaunchPermission where
 -- * 'lpmRemove'
 --
 -- * 'lpmAdd'
-data LaunchPermissionModifications = LaunchPermissionModifications'{_lpmRemove :: [LaunchPermission], _lpmAdd :: [LaunchPermission]} deriving (Eq, Read, Show)
+data LaunchPermissionModifications = LaunchPermissionModifications'{_lpmRemove :: Maybe [LaunchPermission], _lpmAdd :: Maybe [LaunchPermission]} deriving (Eq, Read, Show)
 
 -- | 'LaunchPermissionModifications' smart constructor.
 launchPermissionModifications :: LaunchPermissionModifications
-launchPermissionModifications = LaunchPermissionModifications'{_lpmRemove = mempty, _lpmAdd = mempty};
+launchPermissionModifications = LaunchPermissionModifications'{_lpmRemove = Nothing, _lpmAdd = Nothing};
 
 -- | The AWS account ID to remove from the list of launch permissions for the
 -- AMI.
-lpmRemove :: Lens' LaunchPermissionModifications [LaunchPermission]
+lpmRemove :: Lens' LaunchPermissionModifications (Maybe [LaunchPermission])
 lpmRemove = lens _lpmRemove (\ s a -> s{_lpmRemove = a});
 
 -- | The AWS account ID to add to the list of launch permissions for the AMI.
-lpmAdd :: Lens' LaunchPermissionModifications [LaunchPermission]
+lpmAdd :: Lens' LaunchPermissionModifications (Maybe [LaunchPermission])
 lpmAdd = lens _lpmAdd (\ s a -> s{_lpmAdd = a});
 
 instance ToQuery LaunchPermissionModifications where
@@ -5888,21 +5888,21 @@ instance ToQuery LaunchPermissionModifications where
 -- * 'lsAddressingType'
 --
 -- * 'lsPlacement'
-data LaunchSpecification = LaunchSpecification'{_lsSecurityGroups :: [GroupIdentifier], _lsNetworkInterfaces :: [InstanceNetworkInterfaceSpecification], _lsKeyName :: Maybe Text, _lsRAMDiskId :: Maybe Text, _lsKernelId :: Maybe Text, _lsSubnetId :: Maybe Text, _lsInstanceType :: Maybe InstanceType, _lsEBSOptimized :: Maybe Bool, _lsUserData :: Maybe Text, _lsMonitoring :: Maybe RunInstancesMonitoringEnabled, _lsIAMInstanceProfile :: Maybe IAMInstanceProfileSpecification, _lsImageId :: Maybe Text, _lsBlockDeviceMappings :: [BlockDeviceMapping], _lsAddressingType :: Maybe Text, _lsPlacement :: Maybe SpotPlacement} deriving (Eq, Read, Show)
+data LaunchSpecification = LaunchSpecification'{_lsSecurityGroups :: Maybe [GroupIdentifier], _lsNetworkInterfaces :: Maybe [InstanceNetworkInterfaceSpecification], _lsKeyName :: Maybe Text, _lsRAMDiskId :: Maybe Text, _lsKernelId :: Maybe Text, _lsSubnetId :: Maybe Text, _lsInstanceType :: Maybe InstanceType, _lsEBSOptimized :: Maybe Bool, _lsUserData :: Maybe Text, _lsMonitoring :: Maybe RunInstancesMonitoringEnabled, _lsIAMInstanceProfile :: Maybe IAMInstanceProfileSpecification, _lsImageId :: Maybe Text, _lsBlockDeviceMappings :: Maybe [BlockDeviceMapping], _lsAddressingType :: Maybe Text, _lsPlacement :: Maybe SpotPlacement} deriving (Eq, Read, Show)
 
 -- | 'LaunchSpecification' smart constructor.
 launchSpecification :: LaunchSpecification
-launchSpecification = LaunchSpecification'{_lsSecurityGroups = mempty, _lsNetworkInterfaces = mempty, _lsKeyName = Nothing, _lsRAMDiskId = Nothing, _lsKernelId = Nothing, _lsSubnetId = Nothing, _lsInstanceType = Nothing, _lsEBSOptimized = Nothing, _lsUserData = Nothing, _lsMonitoring = Nothing, _lsIAMInstanceProfile = Nothing, _lsImageId = Nothing, _lsBlockDeviceMappings = mempty, _lsAddressingType = Nothing, _lsPlacement = Nothing};
+launchSpecification = LaunchSpecification'{_lsSecurityGroups = Nothing, _lsNetworkInterfaces = Nothing, _lsKeyName = Nothing, _lsRAMDiskId = Nothing, _lsKernelId = Nothing, _lsSubnetId = Nothing, _lsInstanceType = Nothing, _lsEBSOptimized = Nothing, _lsUserData = Nothing, _lsMonitoring = Nothing, _lsIAMInstanceProfile = Nothing, _lsImageId = Nothing, _lsBlockDeviceMappings = Nothing, _lsAddressingType = Nothing, _lsPlacement = Nothing};
 
 -- | One or more security groups. To request an instance in a nondefault VPC,
 -- you must specify the ID of the security group. To request an instance in
 -- EC2-Classic or a default VPC, you can specify the name or the ID of the
 -- security group.
-lsSecurityGroups :: Lens' LaunchSpecification [GroupIdentifier]
+lsSecurityGroups :: Lens' LaunchSpecification (Maybe [GroupIdentifier])
 lsSecurityGroups = lens _lsSecurityGroups (\ s a -> s{_lsSecurityGroups = a});
 
 -- | One or more network interfaces.
-lsNetworkInterfaces :: Lens' LaunchSpecification [InstanceNetworkInterfaceSpecification]
+lsNetworkInterfaces :: Lens' LaunchSpecification (Maybe [InstanceNetworkInterfaceSpecification])
 lsNetworkInterfaces = lens _lsNetworkInterfaces (\ s a -> s{_lsNetworkInterfaces = a});
 
 -- | The name of the key pair.
@@ -5952,7 +5952,7 @@ lsImageId :: Lens' LaunchSpecification (Maybe Text)
 lsImageId = lens _lsImageId (\ s a -> s{_lsImageId = a});
 
 -- | One or more block device mapping entries.
-lsBlockDeviceMappings :: Lens' LaunchSpecification [BlockDeviceMapping]
+lsBlockDeviceMappings :: Lens' LaunchSpecification (Maybe [BlockDeviceMapping])
 lsBlockDeviceMappings = lens _lsBlockDeviceMappings (\ s a -> s{_lsBlockDeviceMappings = a});
 
 -- | Deprecated.
@@ -6150,14 +6150,14 @@ instance FromXML MovingAddressStatus where
 -- * 'naIsDefault'
 --
 -- * 'naTags'
-data NetworkACL = NetworkACL'{_naEntries :: [NetworkACLEntry], _naNetworkACLId :: Maybe Text, _naVPCId :: Maybe Text, _naAssociations :: [NetworkACLAssociation], _naIsDefault :: Maybe Bool, _naTags :: [Tag]} deriving (Eq, Read, Show)
+data NetworkACL = NetworkACL'{_naEntries :: Maybe [NetworkACLEntry], _naNetworkACLId :: Maybe Text, _naVPCId :: Maybe Text, _naAssociations :: Maybe [NetworkACLAssociation], _naIsDefault :: Maybe Bool, _naTags :: Maybe [Tag]} deriving (Eq, Read, Show)
 
 -- | 'NetworkACL' smart constructor.
 networkACL :: NetworkACL
-networkACL = NetworkACL'{_naEntries = mempty, _naNetworkACLId = Nothing, _naVPCId = Nothing, _naAssociations = mempty, _naIsDefault = Nothing, _naTags = mempty};
+networkACL = NetworkACL'{_naEntries = Nothing, _naNetworkACLId = Nothing, _naVPCId = Nothing, _naAssociations = Nothing, _naIsDefault = Nothing, _naTags = Nothing};
 
 -- | One or more entries (rules) in the network ACL.
-naEntries :: Lens' NetworkACL [NetworkACLEntry]
+naEntries :: Lens' NetworkACL (Maybe [NetworkACLEntry])
 naEntries = lens _naEntries (\ s a -> s{_naEntries = a});
 
 -- | The ID of the network ACL.
@@ -6169,7 +6169,7 @@ naVPCId :: Lens' NetworkACL (Maybe Text)
 naVPCId = lens _naVPCId (\ s a -> s{_naVPCId = a});
 
 -- | Any associations between the network ACL and one or more subnets
-naAssociations :: Lens' NetworkACL [NetworkACLAssociation]
+naAssociations :: Lens' NetworkACL (Maybe [NetworkACLAssociation])
 naAssociations = lens _naAssociations (\ s a -> s{_naAssociations = a});
 
 -- | Indicates whether this is the default network ACL for the VPC.
@@ -6177,7 +6177,7 @@ naIsDefault :: Lens' NetworkACL (Maybe Bool)
 naIsDefault = lens _naIsDefault (\ s a -> s{_naIsDefault = a});
 
 -- | Any tags assigned to the network ACL.
-naTags :: Lens' NetworkACL [Tag]
+naTags :: Lens' NetworkACL (Maybe [Tag])
 naTags = lens _naTags (\ s a -> s{_naTags = a});
 
 instance FromXML NetworkACL where
@@ -6324,18 +6324,18 @@ instance FromXML NetworkACLEntry where
 -- * 'niDescription'
 --
 -- * 'niAssociation'
-data NetworkInterface = NetworkInterface'{_niPrivateIPAddresses :: [NetworkInterfacePrivateIPAddress], _niGroups :: [GroupIdentifier], _niSourceDestCheck :: Maybe Bool, _niTagSet :: [Tag], _niVPCId :: Maybe Text, _niRequesterManaged :: Maybe Bool, _niNetworkInterfaceId :: Maybe Text, _niSubnetId :: Maybe Text, _niAttachment :: Maybe NetworkInterfaceAttachment, _niMACAddress :: Maybe Text, _niOwnerId :: Maybe Text, _niAvailabilityZone :: Maybe Text, _niAddressStatus :: Maybe NetworkInterfaceStatus, _niPrivateIPAddress :: Maybe Text, _niPrivateDNSName :: Maybe Text, _niRequesterId :: Maybe Text, _niDescription :: Maybe Text, _niAssociation :: Maybe NetworkInterfaceAssociation} deriving (Eq, Read, Show)
+data NetworkInterface = NetworkInterface'{_niPrivateIPAddresses :: Maybe [NetworkInterfacePrivateIPAddress], _niGroups :: Maybe [GroupIdentifier], _niSourceDestCheck :: Maybe Bool, _niTagSet :: Maybe [Tag], _niVPCId :: Maybe Text, _niRequesterManaged :: Maybe Bool, _niNetworkInterfaceId :: Maybe Text, _niSubnetId :: Maybe Text, _niAttachment :: Maybe NetworkInterfaceAttachment, _niMACAddress :: Maybe Text, _niOwnerId :: Maybe Text, _niAvailabilityZone :: Maybe Text, _niAddressStatus :: Maybe NetworkInterfaceStatus, _niPrivateIPAddress :: Maybe Text, _niPrivateDNSName :: Maybe Text, _niRequesterId :: Maybe Text, _niDescription :: Maybe Text, _niAssociation :: Maybe NetworkInterfaceAssociation} deriving (Eq, Read, Show)
 
 -- | 'NetworkInterface' smart constructor.
 networkInterface :: NetworkInterface
-networkInterface = NetworkInterface'{_niPrivateIPAddresses = mempty, _niGroups = mempty, _niSourceDestCheck = Nothing, _niTagSet = mempty, _niVPCId = Nothing, _niRequesterManaged = Nothing, _niNetworkInterfaceId = Nothing, _niSubnetId = Nothing, _niAttachment = Nothing, _niMACAddress = Nothing, _niOwnerId = Nothing, _niAvailabilityZone = Nothing, _niAddressStatus = Nothing, _niPrivateIPAddress = Nothing, _niPrivateDNSName = Nothing, _niRequesterId = Nothing, _niDescription = Nothing, _niAssociation = Nothing};
+networkInterface = NetworkInterface'{_niPrivateIPAddresses = Nothing, _niGroups = Nothing, _niSourceDestCheck = Nothing, _niTagSet = Nothing, _niVPCId = Nothing, _niRequesterManaged = Nothing, _niNetworkInterfaceId = Nothing, _niSubnetId = Nothing, _niAttachment = Nothing, _niMACAddress = Nothing, _niOwnerId = Nothing, _niAvailabilityZone = Nothing, _niAddressStatus = Nothing, _niPrivateIPAddress = Nothing, _niPrivateDNSName = Nothing, _niRequesterId = Nothing, _niDescription = Nothing, _niAssociation = Nothing};
 
 -- | The private IP addresses associated with the network interface.
-niPrivateIPAddresses :: Lens' NetworkInterface [NetworkInterfacePrivateIPAddress]
+niPrivateIPAddresses :: Lens' NetworkInterface (Maybe [NetworkInterfacePrivateIPAddress])
 niPrivateIPAddresses = lens _niPrivateIPAddresses (\ s a -> s{_niPrivateIPAddresses = a});
 
 -- | Any security groups for the network interface.
-niGroups :: Lens' NetworkInterface [GroupIdentifier]
+niGroups :: Lens' NetworkInterface (Maybe [GroupIdentifier])
 niGroups = lens _niGroups (\ s a -> s{_niGroups = a});
 
 -- | Indicates whether traffic to or from the instance is validated.
@@ -6343,7 +6343,7 @@ niSourceDestCheck :: Lens' NetworkInterface (Maybe Bool)
 niSourceDestCheck = lens _niSourceDestCheck (\ s a -> s{_niSourceDestCheck = a});
 
 -- | Any tags assigned to the network interface.
-niTagSet :: Lens' NetworkInterface [Tag]
+niTagSet :: Lens' NetworkInterface (Maybe [Tag])
 niTagSet = lens _niTagSet (\ s a -> s{_niTagSet = a});
 
 -- | The ID of the VPC.
@@ -6658,14 +6658,14 @@ instance FromXML NetworkInterfaceStatus where
 -- * 'ndcValues'
 --
 -- * 'ndcKey'
-data NewDHCPConfiguration = NewDHCPConfiguration'{_ndcValues :: [Text], _ndcKey :: Maybe Text} deriving (Eq, Read, Show)
+data NewDHCPConfiguration = NewDHCPConfiguration'{_ndcValues :: Maybe [Text], _ndcKey :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'NewDHCPConfiguration' smart constructor.
 newDHCPConfiguration :: NewDHCPConfiguration
-newDHCPConfiguration = NewDHCPConfiguration'{_ndcValues = mempty, _ndcKey = Nothing};
+newDHCPConfiguration = NewDHCPConfiguration'{_ndcValues = Nothing, _ndcKey = Nothing};
 
 -- | FIXME: Undocumented member.
-ndcValues :: Lens' NewDHCPConfiguration [Text]
+ndcValues :: Lens' NewDHCPConfiguration (Maybe [Text])
 ndcValues = lens _ndcValues (\ s a -> s{_ndcValues = a});
 
 -- | FIXME: Undocumented member.
@@ -6895,14 +6895,14 @@ instance ToQuery PortRange where
 -- * 'plPrefixListId'
 --
 -- * 'plPrefixListName'
-data PrefixList = PrefixList'{_plCIDRs :: [Text], _plPrefixListId :: Maybe Text, _plPrefixListName :: Maybe Text} deriving (Eq, Read, Show)
+data PrefixList = PrefixList'{_plCIDRs :: Maybe [Text], _plPrefixListId :: Maybe Text, _plPrefixListName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'PrefixList' smart constructor.
 prefixList :: PrefixList
-prefixList = PrefixList'{_plCIDRs = mempty, _plPrefixListId = Nothing, _plPrefixListName = Nothing};
+prefixList = PrefixList'{_plCIDRs = Nothing, _plPrefixListId = Nothing, _plPrefixListName = Nothing};
 
 -- | The IP address range of the AWS service.
-plCIDRs :: Lens' PrefixList [Text]
+plCIDRs :: Lens' PrefixList (Maybe [Text])
 plCIDRs = lens _plCIDRs (\ s a -> s{_plCIDRs = a});
 
 -- | The ID of the prefix.
@@ -7326,22 +7326,22 @@ instance ToHeader ReportStatusType
 -- * 'rslsAddressingType'
 --
 -- * 'rslsPlacement'
-data RequestSpotLaunchSpecification = RequestSpotLaunchSpecification'{_rslsSecurityGroupIds :: [Text], _rslsSecurityGroups :: [Text], _rslsNetworkInterfaces :: [InstanceNetworkInterfaceSpecification], _rslsKeyName :: Maybe Text, _rslsRAMDiskId :: Maybe Text, _rslsKernelId :: Maybe Text, _rslsSubnetId :: Maybe Text, _rslsInstanceType :: Maybe InstanceType, _rslsEBSOptimized :: Maybe Bool, _rslsUserData :: Maybe Text, _rslsMonitoring :: Maybe RunInstancesMonitoringEnabled, _rslsIAMInstanceProfile :: Maybe IAMInstanceProfileSpecification, _rslsImageId :: Maybe Text, _rslsBlockDeviceMappings :: [BlockDeviceMapping], _rslsAddressingType :: Maybe Text, _rslsPlacement :: Maybe SpotPlacement} deriving (Eq, Read, Show)
+data RequestSpotLaunchSpecification = RequestSpotLaunchSpecification'{_rslsSecurityGroupIds :: Maybe [Text], _rslsSecurityGroups :: Maybe [Text], _rslsNetworkInterfaces :: Maybe [InstanceNetworkInterfaceSpecification], _rslsKeyName :: Maybe Text, _rslsRAMDiskId :: Maybe Text, _rslsKernelId :: Maybe Text, _rslsSubnetId :: Maybe Text, _rslsInstanceType :: Maybe InstanceType, _rslsEBSOptimized :: Maybe Bool, _rslsUserData :: Maybe Text, _rslsMonitoring :: Maybe RunInstancesMonitoringEnabled, _rslsIAMInstanceProfile :: Maybe IAMInstanceProfileSpecification, _rslsImageId :: Maybe Text, _rslsBlockDeviceMappings :: Maybe [BlockDeviceMapping], _rslsAddressingType :: Maybe Text, _rslsPlacement :: Maybe SpotPlacement} deriving (Eq, Read, Show)
 
 -- | 'RequestSpotLaunchSpecification' smart constructor.
 requestSpotLaunchSpecification :: RequestSpotLaunchSpecification
-requestSpotLaunchSpecification = RequestSpotLaunchSpecification'{_rslsSecurityGroupIds = mempty, _rslsSecurityGroups = mempty, _rslsNetworkInterfaces = mempty, _rslsKeyName = Nothing, _rslsRAMDiskId = Nothing, _rslsKernelId = Nothing, _rslsSubnetId = Nothing, _rslsInstanceType = Nothing, _rslsEBSOptimized = Nothing, _rslsUserData = Nothing, _rslsMonitoring = Nothing, _rslsIAMInstanceProfile = Nothing, _rslsImageId = Nothing, _rslsBlockDeviceMappings = mempty, _rslsAddressingType = Nothing, _rslsPlacement = Nothing};
+requestSpotLaunchSpecification = RequestSpotLaunchSpecification'{_rslsSecurityGroupIds = Nothing, _rslsSecurityGroups = Nothing, _rslsNetworkInterfaces = Nothing, _rslsKeyName = Nothing, _rslsRAMDiskId = Nothing, _rslsKernelId = Nothing, _rslsSubnetId = Nothing, _rslsInstanceType = Nothing, _rslsEBSOptimized = Nothing, _rslsUserData = Nothing, _rslsMonitoring = Nothing, _rslsIAMInstanceProfile = Nothing, _rslsImageId = Nothing, _rslsBlockDeviceMappings = Nothing, _rslsAddressingType = Nothing, _rslsPlacement = Nothing};
 
 -- | FIXME: Undocumented member.
-rslsSecurityGroupIds :: Lens' RequestSpotLaunchSpecification [Text]
+rslsSecurityGroupIds :: Lens' RequestSpotLaunchSpecification (Maybe [Text])
 rslsSecurityGroupIds = lens _rslsSecurityGroupIds (\ s a -> s{_rslsSecurityGroupIds = a});
 
 -- | FIXME: Undocumented member.
-rslsSecurityGroups :: Lens' RequestSpotLaunchSpecification [Text]
+rslsSecurityGroups :: Lens' RequestSpotLaunchSpecification (Maybe [Text])
 rslsSecurityGroups = lens _rslsSecurityGroups (\ s a -> s{_rslsSecurityGroups = a});
 
 -- | One or more network interfaces.
-rslsNetworkInterfaces :: Lens' RequestSpotLaunchSpecification [InstanceNetworkInterfaceSpecification]
+rslsNetworkInterfaces :: Lens' RequestSpotLaunchSpecification (Maybe [InstanceNetworkInterfaceSpecification])
 rslsNetworkInterfaces = lens _rslsNetworkInterfaces (\ s a -> s{_rslsNetworkInterfaces = a});
 
 -- | The name of the key pair.
@@ -7391,7 +7391,7 @@ rslsImageId :: Lens' RequestSpotLaunchSpecification (Maybe Text)
 rslsImageId = lens _rslsImageId (\ s a -> s{_rslsImageId = a});
 
 -- | One or more block device mapping entries.
-rslsBlockDeviceMappings :: Lens' RequestSpotLaunchSpecification [BlockDeviceMapping]
+rslsBlockDeviceMappings :: Lens' RequestSpotLaunchSpecification (Maybe [BlockDeviceMapping])
 rslsBlockDeviceMappings = lens _rslsBlockDeviceMappings (\ s a -> s{_rslsBlockDeviceMappings = a});
 
 -- | Deprecated.
@@ -7435,14 +7435,14 @@ instance ToQuery RequestSpotLaunchSpecification where
 -- * 'resReservationId'
 --
 -- * 'resRequesterId'
-data Reservation = Reservation'{_resGroups :: [GroupIdentifier], _resOwnerId :: Maybe Text, _resInstances :: [Instance], _resReservationId :: Maybe Text, _resRequesterId :: Maybe Text} deriving (Eq, Read, Show)
+data Reservation = Reservation'{_resGroups :: Maybe [GroupIdentifier], _resOwnerId :: Maybe Text, _resInstances :: Maybe [Instance], _resReservationId :: Maybe Text, _resRequesterId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'Reservation' smart constructor.
 reservation :: Reservation
-reservation = Reservation'{_resGroups = mempty, _resOwnerId = Nothing, _resInstances = mempty, _resReservationId = Nothing, _resRequesterId = Nothing};
+reservation = Reservation'{_resGroups = Nothing, _resOwnerId = Nothing, _resInstances = Nothing, _resReservationId = Nothing, _resRequesterId = Nothing};
 
 -- | One or more security groups.
-resGroups :: Lens' Reservation [GroupIdentifier]
+resGroups :: Lens' Reservation (Maybe [GroupIdentifier])
 resGroups = lens _resGroups (\ s a -> s{_resGroups = a});
 
 -- | The ID of the AWS account that owns the reservation.
@@ -7450,7 +7450,7 @@ resOwnerId :: Lens' Reservation (Maybe Text)
 resOwnerId = lens _resOwnerId (\ s a -> s{_resOwnerId = a});
 
 -- | One or more instances.
-resInstances :: Lens' Reservation [Instance]
+resInstances :: Lens' Reservation (Maybe [Instance])
 resInstances = lens _resInstances (\ s a -> s{_resInstances = a});
 
 -- | The ID of the reservation.
@@ -7558,11 +7558,11 @@ instance FromXML ReservedInstanceState where
 -- * 'riDuration'
 --
 -- * 'riTags'
-data ReservedInstances = ReservedInstances'{_riState :: Maybe ReservedInstanceState, _riCurrencyCode :: Maybe CurrencyCodeValues, _riInstanceCount :: Maybe Int, _riProductDescription :: Maybe RIProductDescription, _riStart :: Maybe ISO8601, _riInstanceType :: Maybe InstanceType, _riAvailabilityZone :: Maybe Text, _riEnd :: Maybe ISO8601, _riOfferingType :: Maybe OfferingTypeValues, _riUsagePrice :: Maybe Double, _riRecurringCharges :: [RecurringCharge], _riInstanceTenancy :: Maybe Tenancy, _riFixedPrice :: Maybe Double, _riReservedInstancesId :: Maybe Text, _riDuration :: Maybe Integer, _riTags :: [Tag]} deriving (Eq, Read, Show)
+data ReservedInstances = ReservedInstances'{_riState :: Maybe ReservedInstanceState, _riCurrencyCode :: Maybe CurrencyCodeValues, _riInstanceCount :: Maybe Int, _riProductDescription :: Maybe RIProductDescription, _riStart :: Maybe ISO8601, _riInstanceType :: Maybe InstanceType, _riAvailabilityZone :: Maybe Text, _riEnd :: Maybe ISO8601, _riOfferingType :: Maybe OfferingTypeValues, _riUsagePrice :: Maybe Double, _riRecurringCharges :: Maybe [RecurringCharge], _riInstanceTenancy :: Maybe Tenancy, _riFixedPrice :: Maybe Double, _riReservedInstancesId :: Maybe Text, _riDuration :: Maybe Integer, _riTags :: Maybe [Tag]} deriving (Eq, Read, Show)
 
 -- | 'ReservedInstances' smart constructor.
 reservedInstances :: ReservedInstances
-reservedInstances = ReservedInstances'{_riState = Nothing, _riCurrencyCode = Nothing, _riInstanceCount = Nothing, _riProductDescription = Nothing, _riStart = Nothing, _riInstanceType = Nothing, _riAvailabilityZone = Nothing, _riEnd = Nothing, _riOfferingType = Nothing, _riUsagePrice = Nothing, _riRecurringCharges = mempty, _riInstanceTenancy = Nothing, _riFixedPrice = Nothing, _riReservedInstancesId = Nothing, _riDuration = Nothing, _riTags = mempty};
+reservedInstances = ReservedInstances'{_riState = Nothing, _riCurrencyCode = Nothing, _riInstanceCount = Nothing, _riProductDescription = Nothing, _riStart = Nothing, _riInstanceType = Nothing, _riAvailabilityZone = Nothing, _riEnd = Nothing, _riOfferingType = Nothing, _riUsagePrice = Nothing, _riRecurringCharges = Nothing, _riInstanceTenancy = Nothing, _riFixedPrice = Nothing, _riReservedInstancesId = Nothing, _riDuration = Nothing, _riTags = Nothing};
 
 -- | The state of the Reserved Instance purchase.
 riState :: Lens' ReservedInstances (Maybe ReservedInstanceState)
@@ -7607,7 +7607,7 @@ riUsagePrice :: Lens' ReservedInstances (Maybe Double)
 riUsagePrice = lens _riUsagePrice (\ s a -> s{_riUsagePrice = a});
 
 -- | The recurring charge tag assigned to the resource.
-riRecurringCharges :: Lens' ReservedInstances [RecurringCharge]
+riRecurringCharges :: Lens' ReservedInstances (Maybe [RecurringCharge])
 riRecurringCharges = lens _riRecurringCharges (\ s a -> s{_riRecurringCharges = a});
 
 -- | The tenancy of the reserved instance.
@@ -7627,7 +7627,7 @@ riDuration :: Lens' ReservedInstances (Maybe Integer)
 riDuration = lens _riDuration (\ s a -> s{_riDuration = a});
 
 -- | Any tags assigned to the resource.
-riTags :: Lens' ReservedInstances [Tag]
+riTags :: Lens' ReservedInstances (Maybe [Tag])
 riTags = lens _riTags (\ s a -> s{_riTags = a});
 
 instance FromXML ReservedInstances where
@@ -7741,11 +7741,11 @@ instance FromXML ReservedInstancesId where
 -- * 'rilReservedInstancesListingId'
 --
 -- * 'rilTags'
-data ReservedInstancesListing = ReservedInstancesListing'{_rilClientToken :: Maybe Text, _rilUpdateDate :: Maybe ISO8601, _rilCreateDate :: Maybe ISO8601, _rilPriceSchedules :: [PriceSchedule], _rilStatusMessage :: Maybe Text, _rilAddressStatus :: Maybe ListingStatus, _rilReservedInstancesId :: Maybe Text, _rilInstanceCounts :: [InstanceCount], _rilReservedInstancesListingId :: Maybe Text, _rilTags :: [Tag]} deriving (Eq, Read, Show)
+data ReservedInstancesListing = ReservedInstancesListing'{_rilClientToken :: Maybe Text, _rilUpdateDate :: Maybe ISO8601, _rilCreateDate :: Maybe ISO8601, _rilPriceSchedules :: Maybe [PriceSchedule], _rilStatusMessage :: Maybe Text, _rilAddressStatus :: Maybe ListingStatus, _rilReservedInstancesId :: Maybe Text, _rilInstanceCounts :: Maybe [InstanceCount], _rilReservedInstancesListingId :: Maybe Text, _rilTags :: Maybe [Tag]} deriving (Eq, Read, Show)
 
 -- | 'ReservedInstancesListing' smart constructor.
 reservedInstancesListing :: ReservedInstancesListing
-reservedInstancesListing = ReservedInstancesListing'{_rilClientToken = Nothing, _rilUpdateDate = Nothing, _rilCreateDate = Nothing, _rilPriceSchedules = mempty, _rilStatusMessage = Nothing, _rilAddressStatus = Nothing, _rilReservedInstancesId = Nothing, _rilInstanceCounts = mempty, _rilReservedInstancesListingId = Nothing, _rilTags = mempty};
+reservedInstancesListing = ReservedInstancesListing'{_rilClientToken = Nothing, _rilUpdateDate = Nothing, _rilCreateDate = Nothing, _rilPriceSchedules = Nothing, _rilStatusMessage = Nothing, _rilAddressStatus = Nothing, _rilReservedInstancesId = Nothing, _rilInstanceCounts = Nothing, _rilReservedInstancesListingId = Nothing, _rilTags = Nothing};
 
 -- | A unique, case-sensitive key supplied by the client to ensure that the
 -- request is idempotent. For more information, see
@@ -7762,7 +7762,7 @@ rilCreateDate :: Lens' ReservedInstancesListing (Maybe UTCTime)
 rilCreateDate = lens _rilCreateDate (\ s a -> s{_rilCreateDate = a}) . mapping _Time;
 
 -- | The price of the Reserved Instance listing.
-rilPriceSchedules :: Lens' ReservedInstancesListing [PriceSchedule]
+rilPriceSchedules :: Lens' ReservedInstancesListing (Maybe [PriceSchedule])
 rilPriceSchedules = lens _rilPriceSchedules (\ s a -> s{_rilPriceSchedules = a});
 
 -- | The reason for the current status of the Reserved Instance listing. The
@@ -7779,7 +7779,7 @@ rilReservedInstancesId :: Lens' ReservedInstancesListing (Maybe Text)
 rilReservedInstancesId = lens _rilReservedInstancesId (\ s a -> s{_rilReservedInstancesId = a});
 
 -- | The number of instances in this state.
-rilInstanceCounts :: Lens' ReservedInstancesListing [InstanceCount]
+rilInstanceCounts :: Lens' ReservedInstancesListing (Maybe [InstanceCount])
 rilInstanceCounts = lens _rilInstanceCounts (\ s a -> s{_rilInstanceCounts = a});
 
 -- | The ID of the Reserved Instance listing.
@@ -7787,7 +7787,7 @@ rilReservedInstancesListingId :: Lens' ReservedInstancesListing (Maybe Text)
 rilReservedInstancesListingId = lens _rilReservedInstancesListingId (\ s a -> s{_rilReservedInstancesListingId = a});
 
 -- | Any tags assigned to the resource.
-rilTags :: Lens' ReservedInstancesListing [Tag]
+rilTags :: Lens' ReservedInstancesListing (Maybe [Tag])
 rilTags = lens _rilTags (\ s a -> s{_rilTags = a});
 
 instance FromXML ReservedInstancesListing where
@@ -7824,15 +7824,15 @@ instance FromXML ReservedInstancesListing where
 -- * 'rimReservedInstancesModificationId'
 --
 -- * 'rimReservedInstancesIds'
-data ReservedInstancesModification = ReservedInstancesModification'{_rimModificationResults :: [ReservedInstancesModificationResult], _rimClientToken :: Maybe Text, _rimUpdateDate :: Maybe ISO8601, _rimCreateDate :: Maybe ISO8601, _rimEffectiveDate :: Maybe ISO8601, _rimStatusMessage :: Maybe Text, _rimAddressStatus :: Maybe Text, _rimReservedInstancesModificationId :: Maybe Text, _rimReservedInstancesIds :: [ReservedInstancesId]} deriving (Eq, Read, Show)
+data ReservedInstancesModification = ReservedInstancesModification'{_rimModificationResults :: Maybe [ReservedInstancesModificationResult], _rimClientToken :: Maybe Text, _rimUpdateDate :: Maybe ISO8601, _rimCreateDate :: Maybe ISO8601, _rimEffectiveDate :: Maybe ISO8601, _rimStatusMessage :: Maybe Text, _rimAddressStatus :: Maybe Text, _rimReservedInstancesModificationId :: Maybe Text, _rimReservedInstancesIds :: Maybe [ReservedInstancesId]} deriving (Eq, Read, Show)
 
 -- | 'ReservedInstancesModification' smart constructor.
 reservedInstancesModification :: ReservedInstancesModification
-reservedInstancesModification = ReservedInstancesModification'{_rimModificationResults = mempty, _rimClientToken = Nothing, _rimUpdateDate = Nothing, _rimCreateDate = Nothing, _rimEffectiveDate = Nothing, _rimStatusMessage = Nothing, _rimAddressStatus = Nothing, _rimReservedInstancesModificationId = Nothing, _rimReservedInstancesIds = mempty};
+reservedInstancesModification = ReservedInstancesModification'{_rimModificationResults = Nothing, _rimClientToken = Nothing, _rimUpdateDate = Nothing, _rimCreateDate = Nothing, _rimEffectiveDate = Nothing, _rimStatusMessage = Nothing, _rimAddressStatus = Nothing, _rimReservedInstancesModificationId = Nothing, _rimReservedInstancesIds = Nothing};
 
 -- | Contains target configurations along with their corresponding new
 -- Reserved Instance IDs.
-rimModificationResults :: Lens' ReservedInstancesModification [ReservedInstancesModificationResult]
+rimModificationResults :: Lens' ReservedInstancesModification (Maybe [ReservedInstancesModificationResult])
 rimModificationResults = lens _rimModificationResults (\ s a -> s{_rimModificationResults = a});
 
 -- | A unique, case-sensitive key supplied by the client to ensure that the
@@ -7866,7 +7866,7 @@ rimReservedInstancesModificationId :: Lens' ReservedInstancesModification (Maybe
 rimReservedInstancesModificationId = lens _rimReservedInstancesModificationId (\ s a -> s{_rimReservedInstancesModificationId = a});
 
 -- | The IDs of one or more Reserved Instances.
-rimReservedInstancesIds :: Lens' ReservedInstancesModification [ReservedInstancesId]
+rimReservedInstancesIds :: Lens' ReservedInstancesModification (Maybe [ReservedInstancesId])
 rimReservedInstancesIds = lens _rimReservedInstancesIds (\ s a -> s{_rimReservedInstancesIds = a});
 
 instance FromXML ReservedInstancesModification where
@@ -7941,11 +7941,11 @@ instance FromXML ReservedInstancesModificationResult
 -- * 'rioFixedPrice'
 --
 -- * 'rioDuration'
-data ReservedInstancesOffering = ReservedInstancesOffering'{_rioMarketplace :: Maybe Bool, _rioCurrencyCode :: Maybe CurrencyCodeValues, _rioProductDescription :: Maybe RIProductDescription, _rioInstanceType :: Maybe InstanceType, _rioAvailabilityZone :: Maybe Text, _rioPricingDetails :: [PricingDetail], _rioOfferingType :: Maybe OfferingTypeValues, _rioUsagePrice :: Maybe Double, _rioRecurringCharges :: [RecurringCharge], _rioReservedInstancesOfferingId :: Maybe Text, _rioInstanceTenancy :: Maybe Tenancy, _rioFixedPrice :: Maybe Double, _rioDuration :: Maybe Integer} deriving (Eq, Read, Show)
+data ReservedInstancesOffering = ReservedInstancesOffering'{_rioMarketplace :: Maybe Bool, _rioCurrencyCode :: Maybe CurrencyCodeValues, _rioProductDescription :: Maybe RIProductDescription, _rioInstanceType :: Maybe InstanceType, _rioAvailabilityZone :: Maybe Text, _rioPricingDetails :: Maybe [PricingDetail], _rioOfferingType :: Maybe OfferingTypeValues, _rioUsagePrice :: Maybe Double, _rioRecurringCharges :: Maybe [RecurringCharge], _rioReservedInstancesOfferingId :: Maybe Text, _rioInstanceTenancy :: Maybe Tenancy, _rioFixedPrice :: Maybe Double, _rioDuration :: Maybe Integer} deriving (Eq, Read, Show)
 
 -- | 'ReservedInstancesOffering' smart constructor.
 reservedInstancesOffering :: ReservedInstancesOffering
-reservedInstancesOffering = ReservedInstancesOffering'{_rioMarketplace = Nothing, _rioCurrencyCode = Nothing, _rioProductDescription = Nothing, _rioInstanceType = Nothing, _rioAvailabilityZone = Nothing, _rioPricingDetails = mempty, _rioOfferingType = Nothing, _rioUsagePrice = Nothing, _rioRecurringCharges = mempty, _rioReservedInstancesOfferingId = Nothing, _rioInstanceTenancy = Nothing, _rioFixedPrice = Nothing, _rioDuration = Nothing};
+reservedInstancesOffering = ReservedInstancesOffering'{_rioMarketplace = Nothing, _rioCurrencyCode = Nothing, _rioProductDescription = Nothing, _rioInstanceType = Nothing, _rioAvailabilityZone = Nothing, _rioPricingDetails = Nothing, _rioOfferingType = Nothing, _rioUsagePrice = Nothing, _rioRecurringCharges = Nothing, _rioReservedInstancesOfferingId = Nothing, _rioInstanceTenancy = Nothing, _rioFixedPrice = Nothing, _rioDuration = Nothing};
 
 -- | Indicates whether the offering is available through the Reserved
 -- Instance Marketplace (resale) or AWS. If it\'s a Reserved Instance
@@ -7972,7 +7972,7 @@ rioAvailabilityZone :: Lens' ReservedInstancesOffering (Maybe Text)
 rioAvailabilityZone = lens _rioAvailabilityZone (\ s a -> s{_rioAvailabilityZone = a});
 
 -- | The pricing details of the Reserved Instance offering.
-rioPricingDetails :: Lens' ReservedInstancesOffering [PricingDetail]
+rioPricingDetails :: Lens' ReservedInstancesOffering (Maybe [PricingDetail])
 rioPricingDetails = lens _rioPricingDetails (\ s a -> s{_rioPricingDetails = a});
 
 -- | The Reserved Instance offering type.
@@ -7984,7 +7984,7 @@ rioUsagePrice :: Lens' ReservedInstancesOffering (Maybe Double)
 rioUsagePrice = lens _rioUsagePrice (\ s a -> s{_rioUsagePrice = a});
 
 -- | The recurring charge tag assigned to the resource.
-rioRecurringCharges :: Lens' ReservedInstancesOffering [RecurringCharge]
+rioRecurringCharges :: Lens' ReservedInstancesOffering (Maybe [RecurringCharge])
 rioRecurringCharges = lens _rioRecurringCharges (\ s a -> s{_rioRecurringCharges = a});
 
 -- | The ID of the Reserved Instance offering.
@@ -8226,14 +8226,14 @@ instance FromXML RouteState where
 -- * 'rtAssociations'
 --
 -- * 'rtTags'
-data RouteTable = RouteTable'{_rtRoutes :: [Route], _rtRouteTableId :: Maybe Text, _rtVPCId :: Maybe Text, _rtPropagatingVGWs :: [PropagatingVGW], _rtAssociations :: [RouteTableAssociation], _rtTags :: [Tag]} deriving (Eq, Read, Show)
+data RouteTable = RouteTable'{_rtRoutes :: Maybe [Route], _rtRouteTableId :: Maybe Text, _rtVPCId :: Maybe Text, _rtPropagatingVGWs :: Maybe [PropagatingVGW], _rtAssociations :: Maybe [RouteTableAssociation], _rtTags :: Maybe [Tag]} deriving (Eq, Read, Show)
 
 -- | 'RouteTable' smart constructor.
 routeTable :: RouteTable
-routeTable = RouteTable'{_rtRoutes = mempty, _rtRouteTableId = Nothing, _rtVPCId = Nothing, _rtPropagatingVGWs = mempty, _rtAssociations = mempty, _rtTags = mempty};
+routeTable = RouteTable'{_rtRoutes = Nothing, _rtRouteTableId = Nothing, _rtVPCId = Nothing, _rtPropagatingVGWs = Nothing, _rtAssociations = Nothing, _rtTags = Nothing};
 
 -- | The routes in the route table.
-rtRoutes :: Lens' RouteTable [Route]
+rtRoutes :: Lens' RouteTable (Maybe [Route])
 rtRoutes = lens _rtRoutes (\ s a -> s{_rtRoutes = a});
 
 -- | The ID of the route table.
@@ -8245,15 +8245,15 @@ rtVPCId :: Lens' RouteTable (Maybe Text)
 rtVPCId = lens _rtVPCId (\ s a -> s{_rtVPCId = a});
 
 -- | Any virtual private gateway (VGW) propagating routes.
-rtPropagatingVGWs :: Lens' RouteTable [PropagatingVGW]
+rtPropagatingVGWs :: Lens' RouteTable (Maybe [PropagatingVGW])
 rtPropagatingVGWs = lens _rtPropagatingVGWs (\ s a -> s{_rtPropagatingVGWs = a});
 
 -- | The associations between the route table and one or more subnets.
-rtAssociations :: Lens' RouteTable [RouteTableAssociation]
+rtAssociations :: Lens' RouteTable (Maybe [RouteTableAssociation])
 rtAssociations = lens _rtAssociations (\ s a -> s{_rtAssociations = a});
 
 -- | Any tags assigned to the route table.
-rtTags :: Lens' RouteTable [Tag]
+rtTags :: Lens' RouteTable (Maybe [Tag])
 rtTags = lens _rtTags (\ s a -> s{_rtTags = a});
 
 instance FromXML RouteTable where
@@ -8430,18 +8430,18 @@ instance ToQuery S3Storage where
 -- * 'sgDescription'
 --
 -- * 'sgTags'
-data SecurityGroup = SecurityGroup'{_sgVPCId :: Maybe Text, _sgIPPermissions :: [IPPermission], _sgOwnerId :: Maybe Text, _sgIPPermissionsEgress :: [IPPermission], _sgGroupId :: Maybe Text, _sgGroupName :: Maybe Text, _sgDescription :: Maybe Text, _sgTags :: [Tag]} deriving (Eq, Read, Show)
+data SecurityGroup = SecurityGroup'{_sgVPCId :: Maybe Text, _sgIPPermissions :: Maybe [IPPermission], _sgOwnerId :: Maybe Text, _sgIPPermissionsEgress :: Maybe [IPPermission], _sgGroupId :: Maybe Text, _sgGroupName :: Maybe Text, _sgDescription :: Maybe Text, _sgTags :: Maybe [Tag]} deriving (Eq, Read, Show)
 
 -- | 'SecurityGroup' smart constructor.
 securityGroup :: SecurityGroup
-securityGroup = SecurityGroup'{_sgVPCId = Nothing, _sgIPPermissions = mempty, _sgOwnerId = Nothing, _sgIPPermissionsEgress = mempty, _sgGroupId = Nothing, _sgGroupName = Nothing, _sgDescription = Nothing, _sgTags = mempty};
+securityGroup = SecurityGroup'{_sgVPCId = Nothing, _sgIPPermissions = Nothing, _sgOwnerId = Nothing, _sgIPPermissionsEgress = Nothing, _sgGroupId = Nothing, _sgGroupName = Nothing, _sgDescription = Nothing, _sgTags = Nothing};
 
 -- | [EC2-VPC] The ID of the VPC for the security group.
 sgVPCId :: Lens' SecurityGroup (Maybe Text)
 sgVPCId = lens _sgVPCId (\ s a -> s{_sgVPCId = a});
 
 -- | One or more inbound rules associated with the security group.
-sgIPPermissions :: Lens' SecurityGroup [IPPermission]
+sgIPPermissions :: Lens' SecurityGroup (Maybe [IPPermission])
 sgIPPermissions = lens _sgIPPermissions (\ s a -> s{_sgIPPermissions = a});
 
 -- | The AWS account ID of the owner of the security group.
@@ -8449,7 +8449,7 @@ sgOwnerId :: Lens' SecurityGroup (Maybe Text)
 sgOwnerId = lens _sgOwnerId (\ s a -> s{_sgOwnerId = a});
 
 -- | [EC2-VPC] One or more outbound rules associated with the security group.
-sgIPPermissionsEgress :: Lens' SecurityGroup [IPPermission]
+sgIPPermissionsEgress :: Lens' SecurityGroup (Maybe [IPPermission])
 sgIPPermissionsEgress = lens _sgIPPermissionsEgress (\ s a -> s{_sgIPPermissionsEgress = a});
 
 -- | The ID of the security group.
@@ -8465,7 +8465,7 @@ sgDescription :: Lens' SecurityGroup (Maybe Text)
 sgDescription = lens _sgDescription (\ s a -> s{_sgDescription = a});
 
 -- | Any tags assigned to the security group.
-sgTags :: Lens' SecurityGroup [Tag]
+sgTags :: Lens' SecurityGroup (Maybe [Tag])
 sgTags = lens _sgTags (\ s a -> s{_sgTags = a});
 
 instance FromXML SecurityGroup where
@@ -8523,11 +8523,11 @@ instance ToHeader ShutdownBehavior
 -- * 'snaSnapshotId'
 --
 -- * 'snaTags'
-data Snapshot = Snapshot'{_snaState :: Maybe SnapshotState, _snaOwnerAlias :: Maybe Text, _snaVolumeSize :: Maybe Int, _snaStartTime :: Maybe ISO8601, _snaProgress :: Maybe Text, _snaEncrypted :: Maybe Bool, _snaOwnerId :: Maybe Text, _snaKMSKeyId :: Maybe Text, _snaVolumeId :: Maybe Text, _snaDescription :: Maybe Text, _snaSnapshotId :: Maybe Text, _snaTags :: [Tag]} deriving (Eq, Read, Show)
+data Snapshot = Snapshot'{_snaState :: Maybe SnapshotState, _snaOwnerAlias :: Maybe Text, _snaVolumeSize :: Maybe Int, _snaStartTime :: Maybe ISO8601, _snaProgress :: Maybe Text, _snaEncrypted :: Maybe Bool, _snaOwnerId :: Maybe Text, _snaKMSKeyId :: Maybe Text, _snaVolumeId :: Maybe Text, _snaDescription :: Maybe Text, _snaSnapshotId :: Maybe Text, _snaTags :: Maybe [Tag]} deriving (Eq, Read, Show)
 
 -- | 'Snapshot' smart constructor.
 snapshot :: Snapshot
-snapshot = Snapshot'{_snaState = Nothing, _snaOwnerAlias = Nothing, _snaVolumeSize = Nothing, _snaStartTime = Nothing, _snaProgress = Nothing, _snaEncrypted = Nothing, _snaOwnerId = Nothing, _snaKMSKeyId = Nothing, _snaVolumeId = Nothing, _snaDescription = Nothing, _snaSnapshotId = Nothing, _snaTags = mempty};
+snapshot = Snapshot'{_snaState = Nothing, _snaOwnerAlias = Nothing, _snaVolumeSize = Nothing, _snaStartTime = Nothing, _snaProgress = Nothing, _snaEncrypted = Nothing, _snaOwnerId = Nothing, _snaKMSKeyId = Nothing, _snaVolumeId = Nothing, _snaDescription = Nothing, _snaSnapshotId = Nothing, _snaTags = Nothing};
 
 -- | The snapshot state.
 snaState :: Lens' Snapshot (Maybe SnapshotState)
@@ -8576,7 +8576,7 @@ snaSnapshotId :: Lens' Snapshot (Maybe Text)
 snaSnapshotId = lens _snaSnapshotId (\ s a -> s{_snaSnapshotId = a});
 
 -- | Any tags assigned to the snapshot.
-snaTags :: Lens' Snapshot [Tag]
+snaTags :: Lens' Snapshot (Maybe [Tag])
 snaTags = lens _snaTags (\ s a -> s{_snaTags = a});
 
 instance FromXML Snapshot where
@@ -9039,11 +9039,11 @@ instance ToQuery SpotFleetRequestConfigData where
 -- * 'sirTags'
 --
 -- * 'sirCreateTime'
-data SpotInstanceRequest = SpotInstanceRequest'{_sirInstanceId :: Maybe Text, _sirState :: Maybe SpotInstanceState, _sirProductDescription :: Maybe RIProductDescription, _sirSpotPrice :: Maybe Text, _sirAvailabilityZoneGroup :: Maybe Text, _sirLaunchSpecification :: Maybe LaunchSpecification, _sirLaunchedAvailabilityZone :: Maybe Text, _sirValidUntil :: Maybe ISO8601, _sirAddressStatus :: Maybe SpotInstanceStatus, _sirFault :: Maybe SpotInstanceStateFault, _sirLaunchGroup :: Maybe Text, _sirSpotInstanceRequestId :: Maybe Text, _sirType :: Maybe SpotInstanceType, _sirValidFrom :: Maybe ISO8601, _sirTags :: [Tag], _sirCreateTime :: Maybe ISO8601} deriving (Eq, Read, Show)
+data SpotInstanceRequest = SpotInstanceRequest'{_sirInstanceId :: Maybe Text, _sirState :: Maybe SpotInstanceState, _sirProductDescription :: Maybe RIProductDescription, _sirSpotPrice :: Maybe Text, _sirAvailabilityZoneGroup :: Maybe Text, _sirLaunchSpecification :: Maybe LaunchSpecification, _sirLaunchedAvailabilityZone :: Maybe Text, _sirValidUntil :: Maybe ISO8601, _sirAddressStatus :: Maybe SpotInstanceStatus, _sirFault :: Maybe SpotInstanceStateFault, _sirLaunchGroup :: Maybe Text, _sirSpotInstanceRequestId :: Maybe Text, _sirType :: Maybe SpotInstanceType, _sirValidFrom :: Maybe ISO8601, _sirTags :: Maybe [Tag], _sirCreateTime :: Maybe ISO8601} deriving (Eq, Read, Show)
 
 -- | 'SpotInstanceRequest' smart constructor.
 spotInstanceRequest :: SpotInstanceRequest
-spotInstanceRequest = SpotInstanceRequest'{_sirInstanceId = Nothing, _sirState = Nothing, _sirProductDescription = Nothing, _sirSpotPrice = Nothing, _sirAvailabilityZoneGroup = Nothing, _sirLaunchSpecification = Nothing, _sirLaunchedAvailabilityZone = Nothing, _sirValidUntil = Nothing, _sirAddressStatus = Nothing, _sirFault = Nothing, _sirLaunchGroup = Nothing, _sirSpotInstanceRequestId = Nothing, _sirType = Nothing, _sirValidFrom = Nothing, _sirTags = mempty, _sirCreateTime = Nothing};
+spotInstanceRequest = SpotInstanceRequest'{_sirInstanceId = Nothing, _sirState = Nothing, _sirProductDescription = Nothing, _sirSpotPrice = Nothing, _sirAvailabilityZoneGroup = Nothing, _sirLaunchSpecification = Nothing, _sirLaunchedAvailabilityZone = Nothing, _sirValidUntil = Nothing, _sirAddressStatus = Nothing, _sirFault = Nothing, _sirLaunchGroup = Nothing, _sirSpotInstanceRequestId = Nothing, _sirType = Nothing, _sirValidFrom = Nothing, _sirTags = Nothing, _sirCreateTime = Nothing};
 
 -- | The instance ID, if an instance has been launched to fulfill the Spot
 -- Instance request.
@@ -9119,7 +9119,7 @@ sirValidFrom :: Lens' SpotInstanceRequest (Maybe UTCTime)
 sirValidFrom = lens _sirValidFrom (\ s a -> s{_sirValidFrom = a}) . mapping _Time;
 
 -- | Any tags assigned to the resource.
-sirTags :: Lens' SpotInstanceRequest [Tag]
+sirTags :: Lens' SpotInstanceRequest (Maybe [Tag])
 sirTags = lens _sirTags (\ s a -> s{_sirTags = a});
 
 -- | The date and time when the Spot Instance request was created, in UTC
@@ -9487,11 +9487,11 @@ instance ToQuery Storage where
 -- * 'subDefaultForAz'
 --
 -- * 'subTags'
-data Subnet = Subnet'{_subState :: Maybe SubnetState, _subAvailableIPAddressCount :: Maybe Int, _subVPCId :: Maybe Text, _subSubnetId :: Maybe Text, _subAvailabilityZone :: Maybe Text, _subCIDRBlock :: Maybe Text, _subMapPublicIPOnLaunch :: Maybe Bool, _subDefaultForAz :: Maybe Bool, _subTags :: [Tag]} deriving (Eq, Read, Show)
+data Subnet = Subnet'{_subState :: Maybe SubnetState, _subAvailableIPAddressCount :: Maybe Int, _subVPCId :: Maybe Text, _subSubnetId :: Maybe Text, _subAvailabilityZone :: Maybe Text, _subCIDRBlock :: Maybe Text, _subMapPublicIPOnLaunch :: Maybe Bool, _subDefaultForAz :: Maybe Bool, _subTags :: Maybe [Tag]} deriving (Eq, Read, Show)
 
 -- | 'Subnet' smart constructor.
 subnet :: Subnet
-subnet = Subnet'{_subState = Nothing, _subAvailableIPAddressCount = Nothing, _subVPCId = Nothing, _subSubnetId = Nothing, _subAvailabilityZone = Nothing, _subCIDRBlock = Nothing, _subMapPublicIPOnLaunch = Nothing, _subDefaultForAz = Nothing, _subTags = mempty};
+subnet = Subnet'{_subState = Nothing, _subAvailableIPAddressCount = Nothing, _subVPCId = Nothing, _subSubnetId = Nothing, _subAvailabilityZone = Nothing, _subCIDRBlock = Nothing, _subMapPublicIPOnLaunch = Nothing, _subDefaultForAz = Nothing, _subTags = Nothing};
 
 -- | The current state of the subnet.
 subState :: Lens' Subnet (Maybe SubnetState)
@@ -9528,7 +9528,7 @@ subDefaultForAz :: Lens' Subnet (Maybe Bool)
 subDefaultForAz = lens _subDefaultForAz (\ s a -> s{_subDefaultForAz = a});
 
 -- | Any tags assigned to the subnet.
-subTags :: Lens' Subnet [Tag]
+subTags :: Lens' Subnet (Maybe [Tag])
 subTags = lens _subTags (\ s a -> s{_subTags = a});
 
 instance FromXML Subnet where
@@ -9929,11 +9929,11 @@ instance FromXML VGWTelemetry where
 -- * 'vpcIsDefault'
 --
 -- * 'vpcTags'
-data VPC = VPC'{_vpcState :: Maybe VPCState, _vpcVPCId :: Maybe Text, _vpcDHCPOptionsId :: Maybe Text, _vpcCIDRBlock :: Maybe Text, _vpcInstanceTenancy :: Maybe Tenancy, _vpcIsDefault :: Maybe Bool, _vpcTags :: [Tag]} deriving (Eq, Read, Show)
+data VPC = VPC'{_vpcState :: Maybe VPCState, _vpcVPCId :: Maybe Text, _vpcDHCPOptionsId :: Maybe Text, _vpcCIDRBlock :: Maybe Text, _vpcInstanceTenancy :: Maybe Tenancy, _vpcIsDefault :: Maybe Bool, _vpcTags :: Maybe [Tag]} deriving (Eq, Read, Show)
 
 -- | 'VPC' smart constructor.
 vpc :: VPC
-vpc = VPC'{_vpcState = Nothing, _vpcVPCId = Nothing, _vpcDHCPOptionsId = Nothing, _vpcCIDRBlock = Nothing, _vpcInstanceTenancy = Nothing, _vpcIsDefault = Nothing, _vpcTags = mempty};
+vpc = VPC'{_vpcState = Nothing, _vpcVPCId = Nothing, _vpcDHCPOptionsId = Nothing, _vpcCIDRBlock = Nothing, _vpcInstanceTenancy = Nothing, _vpcIsDefault = Nothing, _vpcTags = Nothing};
 
 -- | The current state of the VPC.
 vpcState :: Lens' VPC (Maybe VPCState)
@@ -9961,7 +9961,7 @@ vpcIsDefault :: Lens' VPC (Maybe Bool)
 vpcIsDefault = lens _vpcIsDefault (\ s a -> s{_vpcIsDefault = a});
 
 -- | Any tags assigned to the VPC.
-vpcTags :: Lens' VPC [Tag]
+vpcTags :: Lens' VPC (Maybe [Tag])
 vpcTags = lens _vpcTags (\ s a -> s{_vpcTags = a});
 
 instance FromXML VPC where
@@ -10025,18 +10025,18 @@ instance ToHeader VPCAttributeName
 -- * 'vclTags'
 --
 -- * 'vclClassicLinkEnabled'
-data VPCClassicLink = VPCClassicLink'{_vclVPCId :: Maybe Text, _vclTags :: [Tag], _vclClassicLinkEnabled :: Maybe Bool} deriving (Eq, Read, Show)
+data VPCClassicLink = VPCClassicLink'{_vclVPCId :: Maybe Text, _vclTags :: Maybe [Tag], _vclClassicLinkEnabled :: Maybe Bool} deriving (Eq, Read, Show)
 
 -- | 'VPCClassicLink' smart constructor.
 vpcClassicLink :: VPCClassicLink
-vpcClassicLink = VPCClassicLink'{_vclVPCId = Nothing, _vclTags = mempty, _vclClassicLinkEnabled = Nothing};
+vpcClassicLink = VPCClassicLink'{_vclVPCId = Nothing, _vclTags = Nothing, _vclClassicLinkEnabled = Nothing};
 
 -- | The ID of the VPC.
 vclVPCId :: Lens' VPCClassicLink (Maybe Text)
 vclVPCId = lens _vclVPCId (\ s a -> s{_vclVPCId = a});
 
 -- | Any tags assigned to the VPC.
-vclTags :: Lens' VPCClassicLink [Tag]
+vclTags :: Lens' VPCClassicLink (Maybe [Tag])
 vclTags = lens _vclTags (\ s a -> s{_vclTags = a});
 
 -- | Indicates whether the VPC is enabled for ClassicLink.
@@ -10066,11 +10066,11 @@ instance FromXML VPCClassicLink where
 -- * 'veVPCEndpointId'
 --
 -- * 'veRouteTableIds'
-data VPCEndpoint = VPCEndpoint'{_vePolicyDocument :: Maybe Text, _veState :: Maybe State, _veVPCId :: Maybe Text, _veCreationTimestamp :: Maybe ISO8601, _veServiceName :: Maybe Text, _veVPCEndpointId :: Maybe Text, _veRouteTableIds :: [Text]} deriving (Eq, Read, Show)
+data VPCEndpoint = VPCEndpoint'{_vePolicyDocument :: Maybe Text, _veState :: Maybe State, _veVPCId :: Maybe Text, _veCreationTimestamp :: Maybe ISO8601, _veServiceName :: Maybe Text, _veVPCEndpointId :: Maybe Text, _veRouteTableIds :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'VPCEndpoint' smart constructor.
 vpcEndpoint :: VPCEndpoint
-vpcEndpoint = VPCEndpoint'{_vePolicyDocument = Nothing, _veState = Nothing, _veVPCId = Nothing, _veCreationTimestamp = Nothing, _veServiceName = Nothing, _veVPCEndpointId = Nothing, _veRouteTableIds = mempty};
+vpcEndpoint = VPCEndpoint'{_vePolicyDocument = Nothing, _veState = Nothing, _veVPCId = Nothing, _veCreationTimestamp = Nothing, _veServiceName = Nothing, _veVPCEndpointId = Nothing, _veRouteTableIds = Nothing};
 
 -- | The policy document associated with the endpoint.
 vePolicyDocument :: Lens' VPCEndpoint (Maybe Text)
@@ -10097,7 +10097,7 @@ veVPCEndpointId :: Lens' VPCEndpoint (Maybe Text)
 veVPCEndpointId = lens _veVPCEndpointId (\ s a -> s{_veVPCEndpointId = a});
 
 -- | One or more route tables associated with the endpoint.
-veRouteTableIds :: Lens' VPCEndpoint [Text]
+veRouteTableIds :: Lens' VPCEndpoint (Maybe [Text])
 veRouteTableIds = lens _veRouteTableIds (\ s a -> s{_veRouteTableIds = a});
 
 instance FromXML VPCEndpoint where
@@ -10125,11 +10125,11 @@ instance FromXML VPCEndpoint where
 -- * 'vExpirationTime'
 --
 -- * 'vTags'
-data VPCPeeringConnection = VPCPeeringConnection'{_vVPCPeeringConnectionId :: Maybe Text, _vAccepterVPCInfo :: Maybe VPCPeeringConnectionVPCInfo, _vAddressStatus :: Maybe VPCPeeringConnectionStateReason, _vRequesterVPCInfo :: Maybe VPCPeeringConnectionVPCInfo, _vExpirationTime :: Maybe ISO8601, _vTags :: [Tag]} deriving (Eq, Read, Show)
+data VPCPeeringConnection = VPCPeeringConnection'{_vVPCPeeringConnectionId :: Maybe Text, _vAccepterVPCInfo :: Maybe VPCPeeringConnectionVPCInfo, _vAddressStatus :: Maybe VPCPeeringConnectionStateReason, _vRequesterVPCInfo :: Maybe VPCPeeringConnectionVPCInfo, _vExpirationTime :: Maybe ISO8601, _vTags :: Maybe [Tag]} deriving (Eq, Read, Show)
 
 -- | 'VPCPeeringConnection' smart constructor.
 vpcPeeringConnection :: VPCPeeringConnection
-vpcPeeringConnection = VPCPeeringConnection'{_vVPCPeeringConnectionId = Nothing, _vAccepterVPCInfo = Nothing, _vAddressStatus = Nothing, _vRequesterVPCInfo = Nothing, _vExpirationTime = Nothing, _vTags = mempty};
+vpcPeeringConnection = VPCPeeringConnection'{_vVPCPeeringConnectionId = Nothing, _vAccepterVPCInfo = Nothing, _vAddressStatus = Nothing, _vRequesterVPCInfo = Nothing, _vExpirationTime = Nothing, _vTags = Nothing};
 
 -- | The ID of the VPC peering connection.
 vVPCPeeringConnectionId :: Lens' VPCPeeringConnection (Maybe Text)
@@ -10152,7 +10152,7 @@ vExpirationTime :: Lens' VPCPeeringConnection (Maybe UTCTime)
 vExpirationTime = lens _vExpirationTime (\ s a -> s{_vExpirationTime = a}) . mapping _Time;
 
 -- | Any tags assigned to the resource.
-vTags :: Lens' VPCPeeringConnection [Tag]
+vTags :: Lens' VPCPeeringConnection (Maybe [Tag])
 vTags = lens _vTags (\ s a -> s{_vTags = a});
 
 instance FromXML VPCPeeringConnection where
@@ -10269,11 +10269,11 @@ instance FromXML VPCState where
 -- * 'vcVGWTelemetry'
 --
 -- * 'vcTags'
-data VPNConnection = VPNConnection'{_vcCustomerGatewayConfiguration :: Maybe Text, _vcState :: Maybe VPNState, _vcRoutes :: [VPNStaticRoute], _vcVPNGatewayId :: Maybe Text, _vcCustomerGatewayId :: Maybe Text, _vcOptions :: Maybe VPNConnectionOptions, _vcType :: Maybe GatewayType, _vcVPNConnectionId :: Maybe Text, _vcVGWTelemetry :: [VGWTelemetry], _vcTags :: [Tag]} deriving (Eq, Read, Show)
+data VPNConnection = VPNConnection'{_vcCustomerGatewayConfiguration :: Maybe Text, _vcState :: Maybe VPNState, _vcRoutes :: Maybe [VPNStaticRoute], _vcVPNGatewayId :: Maybe Text, _vcCustomerGatewayId :: Maybe Text, _vcOptions :: Maybe VPNConnectionOptions, _vcType :: Maybe GatewayType, _vcVPNConnectionId :: Maybe Text, _vcVGWTelemetry :: Maybe [VGWTelemetry], _vcTags :: Maybe [Tag]} deriving (Eq, Read, Show)
 
 -- | 'VPNConnection' smart constructor.
 vpnConnection :: VPNConnection
-vpnConnection = VPNConnection'{_vcCustomerGatewayConfiguration = Nothing, _vcState = Nothing, _vcRoutes = mempty, _vcVPNGatewayId = Nothing, _vcCustomerGatewayId = Nothing, _vcOptions = Nothing, _vcType = Nothing, _vcVPNConnectionId = Nothing, _vcVGWTelemetry = mempty, _vcTags = mempty};
+vpnConnection = VPNConnection'{_vcCustomerGatewayConfiguration = Nothing, _vcState = Nothing, _vcRoutes = Nothing, _vcVPNGatewayId = Nothing, _vcCustomerGatewayId = Nothing, _vcOptions = Nothing, _vcType = Nothing, _vcVPNConnectionId = Nothing, _vcVGWTelemetry = Nothing, _vcTags = Nothing};
 
 -- | The configuration information for the VPN connection\'s customer gateway
 -- (in the native XML format). This element is always present in the
@@ -10288,7 +10288,7 @@ vcState :: Lens' VPNConnection (Maybe VPNState)
 vcState = lens _vcState (\ s a -> s{_vcState = a});
 
 -- | The static routes associated with the VPN connection.
-vcRoutes :: Lens' VPNConnection [VPNStaticRoute]
+vcRoutes :: Lens' VPNConnection (Maybe [VPNStaticRoute])
 vcRoutes = lens _vcRoutes (\ s a -> s{_vcRoutes = a});
 
 -- | The ID of the virtual private gateway at the AWS side of the VPN
@@ -10313,11 +10313,11 @@ vcVPNConnectionId :: Lens' VPNConnection (Maybe Text)
 vcVPNConnectionId = lens _vcVPNConnectionId (\ s a -> s{_vcVPNConnectionId = a});
 
 -- | Information about the VPN tunnel.
-vcVGWTelemetry :: Lens' VPNConnection [VGWTelemetry]
+vcVGWTelemetry :: Lens' VPNConnection (Maybe [VGWTelemetry])
 vcVGWTelemetry = lens _vcVGWTelemetry (\ s a -> s{_vcVGWTelemetry = a});
 
 -- | Any tags assigned to the VPN connection.
-vcTags :: Lens' VPNConnection [Tag]
+vcTags :: Lens' VPNConnection (Maybe [Tag])
 vcTags = lens _vcTags (\ s a -> s{_vcTags = a});
 
 instance FromXML VPNConnection where
@@ -10391,14 +10391,14 @@ instance ToQuery VPNConnectionOptionsSpecification
 -- * 'vgType'
 --
 -- * 'vgTags'
-data VPNGateway = VPNGateway'{_vgVPCAttachments :: [VPCAttachment], _vgState :: Maybe VPNState, _vgVPNGatewayId :: Maybe Text, _vgAvailabilityZone :: Maybe Text, _vgType :: Maybe GatewayType, _vgTags :: [Tag]} deriving (Eq, Read, Show)
+data VPNGateway = VPNGateway'{_vgVPCAttachments :: Maybe [VPCAttachment], _vgState :: Maybe VPNState, _vgVPNGatewayId :: Maybe Text, _vgAvailabilityZone :: Maybe Text, _vgType :: Maybe GatewayType, _vgTags :: Maybe [Tag]} deriving (Eq, Read, Show)
 
 -- | 'VPNGateway' smart constructor.
 vpnGateway :: VPNGateway
-vpnGateway = VPNGateway'{_vgVPCAttachments = mempty, _vgState = Nothing, _vgVPNGatewayId = Nothing, _vgAvailabilityZone = Nothing, _vgType = Nothing, _vgTags = mempty};
+vpnGateway = VPNGateway'{_vgVPCAttachments = Nothing, _vgState = Nothing, _vgVPNGatewayId = Nothing, _vgAvailabilityZone = Nothing, _vgType = Nothing, _vgTags = Nothing};
 
 -- | Any VPCs attached to the virtual private gateway.
-vgVPCAttachments :: Lens' VPNGateway [VPCAttachment]
+vgVPCAttachments :: Lens' VPNGateway (Maybe [VPCAttachment])
 vgVPCAttachments = lens _vgVPCAttachments (\ s a -> s{_vgVPCAttachments = a});
 
 -- | The current state of the virtual private gateway.
@@ -10418,7 +10418,7 @@ vgType :: Lens' VPNGateway (Maybe GatewayType)
 vgType = lens _vgType (\ s a -> s{_vgType = a});
 
 -- | Any tags assigned to the virtual private gateway.
-vgTags :: Lens' VPNGateway [Tag]
+vgTags :: Lens' VPNGateway (Maybe [Tag])
 vgTags = lens _vgTags (\ s a -> s{_vgTags = a});
 
 instance FromXML VPNGateway where
@@ -10553,18 +10553,18 @@ instance FromXML VirtualizationType where
 -- * 'volTags'
 --
 -- * 'volCreateTime'
-data Volume = Volume'{_volState :: Maybe VolumeState, _volAttachments :: [VolumeAttachment], _volSize :: Maybe Int, _volIOPS :: Maybe Int, _volEncrypted :: Maybe Bool, _volAvailabilityZone :: Maybe Text, _volKMSKeyId :: Maybe Text, _volVolumeId :: Maybe Text, _volVolumeType :: Maybe VolumeType, _volSnapshotId :: Maybe Text, _volTags :: [Tag], _volCreateTime :: Maybe ISO8601} deriving (Eq, Read, Show)
+data Volume = Volume'{_volState :: Maybe VolumeState, _volAttachments :: Maybe [VolumeAttachment], _volSize :: Maybe Int, _volIOPS :: Maybe Int, _volEncrypted :: Maybe Bool, _volAvailabilityZone :: Maybe Text, _volKMSKeyId :: Maybe Text, _volVolumeId :: Maybe Text, _volVolumeType :: Maybe VolumeType, _volSnapshotId :: Maybe Text, _volTags :: Maybe [Tag], _volCreateTime :: Maybe ISO8601} deriving (Eq, Read, Show)
 
 -- | 'Volume' smart constructor.
 volume :: Volume
-volume = Volume'{_volState = Nothing, _volAttachments = mempty, _volSize = Nothing, _volIOPS = Nothing, _volEncrypted = Nothing, _volAvailabilityZone = Nothing, _volKMSKeyId = Nothing, _volVolumeId = Nothing, _volVolumeType = Nothing, _volSnapshotId = Nothing, _volTags = mempty, _volCreateTime = Nothing};
+volume = Volume'{_volState = Nothing, _volAttachments = Nothing, _volSize = Nothing, _volIOPS = Nothing, _volEncrypted = Nothing, _volAvailabilityZone = Nothing, _volKMSKeyId = Nothing, _volVolumeId = Nothing, _volVolumeType = Nothing, _volSnapshotId = Nothing, _volTags = Nothing, _volCreateTime = Nothing};
 
 -- | The volume state.
 volState :: Lens' Volume (Maybe VolumeState)
 volState = lens _volState (\ s a -> s{_volState = a});
 
 -- | Information about the volume attachments.
-volAttachments :: Lens' Volume [VolumeAttachment]
+volAttachments :: Lens' Volume (Maybe [VolumeAttachment])
 volAttachments = lens _volAttachments (\ s a -> s{_volAttachments = a});
 
 -- | The size of the volume, in GiBs.
@@ -10618,7 +10618,7 @@ volSnapshotId :: Lens' Volume (Maybe Text)
 volSnapshotId = lens _volSnapshotId (\ s a -> s{_volSnapshotId = a});
 
 -- | Any tags assigned to the volume.
-volTags :: Lens' Volume [Tag]
+volTags :: Lens' Volume (Maybe [Tag])
 volTags = lens _volTags (\ s a -> s{_volTags = a});
 
 -- | The time stamp when volume creation was initiated.
@@ -10902,18 +10902,18 @@ instance FromXML VolumeStatusEvent where
 -- * 'vsiAddressStatus'
 --
 -- * 'vsiDetails'
-data VolumeStatusInfo = VolumeStatusInfo'{_vsiAddressStatus :: Maybe VolumeStatusInfoStatus, _vsiDetails :: [VolumeStatusDetails]} deriving (Eq, Read, Show)
+data VolumeStatusInfo = VolumeStatusInfo'{_vsiAddressStatus :: Maybe VolumeStatusInfoStatus, _vsiDetails :: Maybe [VolumeStatusDetails]} deriving (Eq, Read, Show)
 
 -- | 'VolumeStatusInfo' smart constructor.
 volumeStatusInfo :: VolumeStatusInfo
-volumeStatusInfo = VolumeStatusInfo'{_vsiAddressStatus = Nothing, _vsiDetails = mempty};
+volumeStatusInfo = VolumeStatusInfo'{_vsiAddressStatus = Nothing, _vsiDetails = Nothing};
 
 -- | The status of the volume.
 vsiAddressStatus :: Lens' VolumeStatusInfo (Maybe VolumeStatusInfoStatus)
 vsiAddressStatus = lens _vsiAddressStatus (\ s a -> s{_vsiAddressStatus = a});
 
 -- | The details of the volume status.
-vsiDetails :: Lens' VolumeStatusInfo [VolumeStatusDetails]
+vsiDetails :: Lens' VolumeStatusInfo (Maybe [VolumeStatusDetails])
 vsiDetails = lens _vsiDetails (\ s a -> s{_vsiDetails = a});
 
 instance FromXML VolumeStatusInfo where
@@ -10956,18 +10956,18 @@ instance FromXML VolumeStatusInfoStatus where
 -- * 'vsiEvents'
 --
 -- * 'vsiVolumeId'
-data VolumeStatusItem = VolumeStatusItem'{_vsiVolumeStatus :: Maybe VolumeStatusInfo, _vsiActions :: [VolumeStatusAction], _vsiAvailabilityZone :: Maybe Text, _vsiEvents :: [VolumeStatusEvent], _vsiVolumeId :: Maybe Text} deriving (Eq, Read, Show)
+data VolumeStatusItem = VolumeStatusItem'{_vsiVolumeStatus :: Maybe VolumeStatusInfo, _vsiActions :: Maybe [VolumeStatusAction], _vsiAvailabilityZone :: Maybe Text, _vsiEvents :: Maybe [VolumeStatusEvent], _vsiVolumeId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'VolumeStatusItem' smart constructor.
 volumeStatusItem :: VolumeStatusItem
-volumeStatusItem = VolumeStatusItem'{_vsiVolumeStatus = Nothing, _vsiActions = mempty, _vsiAvailabilityZone = Nothing, _vsiEvents = mempty, _vsiVolumeId = Nothing};
+volumeStatusItem = VolumeStatusItem'{_vsiVolumeStatus = Nothing, _vsiActions = Nothing, _vsiAvailabilityZone = Nothing, _vsiEvents = Nothing, _vsiVolumeId = Nothing};
 
 -- | The volume status.
 vsiVolumeStatus :: Lens' VolumeStatusItem (Maybe VolumeStatusInfo)
 vsiVolumeStatus = lens _vsiVolumeStatus (\ s a -> s{_vsiVolumeStatus = a});
 
 -- | The details of the operation.
-vsiActions :: Lens' VolumeStatusItem [VolumeStatusAction]
+vsiActions :: Lens' VolumeStatusItem (Maybe [VolumeStatusAction])
 vsiActions = lens _vsiActions (\ s a -> s{_vsiActions = a});
 
 -- | The Availability Zone of the volume.
@@ -10975,7 +10975,7 @@ vsiAvailabilityZone :: Lens' VolumeStatusItem (Maybe Text)
 vsiAvailabilityZone = lens _vsiAvailabilityZone (\ s a -> s{_vsiAvailabilityZone = a});
 
 -- | A list of events associated with the volume.
-vsiEvents :: Lens' VolumeStatusItem [VolumeStatusEvent]
+vsiEvents :: Lens' VolumeStatusItem (Maybe [VolumeStatusEvent])
 vsiEvents = lens _vsiEvents (\ s a -> s{_vsiEvents = a});
 
 -- | The volume ID.

@@ -51,14 +51,14 @@ import Network.AWS.CloudSearch.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ddDomainNames'
-newtype DescribeDomains = DescribeDomains'{_ddDomainNames :: [Text]} deriving (Eq, Read, Show)
+newtype DescribeDomains = DescribeDomains'{_ddDomainNames :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'DescribeDomains' smart constructor.
 describeDomains :: DescribeDomains
-describeDomains = DescribeDomains'{_ddDomainNames = mempty};
+describeDomains = DescribeDomains'{_ddDomainNames = Nothing};
 
 -- | The names of the domains you want to include in the response.
-ddDomainNames :: Lens' DescribeDomains [Text]
+ddDomainNames :: Lens' DescribeDomains (Maybe [Text])
 ddDomainNames = lens _ddDomainNames (\ s a -> s{_ddDomainNames = a});
 
 instance AWSRequest DescribeDomains where
@@ -93,8 +93,8 @@ instance ToQuery DescribeDomains where
 newtype DescribeDomainsResponse = DescribeDomainsResponse'{_ddrDomainStatusList :: [DomainStatus]} deriving (Eq, Read, Show)
 
 -- | 'DescribeDomainsResponse' smart constructor.
-describeDomainsResponse :: [DomainStatus] -> DescribeDomainsResponse
-describeDomainsResponse pDomainStatusList = DescribeDomainsResponse'{_ddrDomainStatusList = pDomainStatusList};
+describeDomainsResponse :: DescribeDomainsResponse
+describeDomainsResponse = DescribeDomainsResponse'{_ddrDomainStatusList = mempty};
 
 -- | FIXME: Undocumented member.
 ddrDomainStatusList :: Lens' DescribeDomainsResponse [DomainStatus]

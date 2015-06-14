@@ -48,8 +48,8 @@ import Network.AWS.CodeDeploy.Types
 data AddTagsToOnPremisesInstances = AddTagsToOnPremisesInstances'{_attopiTags :: [Tag], _attopiInstanceNames :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'AddTagsToOnPremisesInstances' smart constructor.
-addTagsToOnPremisesInstances :: [Tag] -> [Text] -> AddTagsToOnPremisesInstances
-addTagsToOnPremisesInstances pTags pInstanceNames = AddTagsToOnPremisesInstances'{_attopiTags = pTags, _attopiInstanceNames = pInstanceNames};
+addTagsToOnPremisesInstances :: AddTagsToOnPremisesInstances
+addTagsToOnPremisesInstances = AddTagsToOnPremisesInstances'{_attopiTags = mempty, _attopiInstanceNames = mempty};
 
 -- | The tag key-value pairs to add to the on-premises instances.
 --

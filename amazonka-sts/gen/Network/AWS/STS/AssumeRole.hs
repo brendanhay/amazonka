@@ -101,13 +101,13 @@ module Network.AWS.STS.AssumeRole
     -- ** Request constructor
     , assumeRole
     -- ** Request lenses
-    , arRoleARN
-    , arRoleSessionName
     , arTokenCode
     , arDurationSeconds
     , arExternalId
     , arPolicy
     , arSerialNumber
+    , arRoleARN
+    , arRoleSessionName
 
     -- * Response
     , AssumeRoleResponse
@@ -128,10 +128,6 @@ import Network.AWS.STS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'arRoleARN'
---
--- * 'arRoleSessionName'
---
 -- * 'arTokenCode'
 --
 -- * 'arDurationSeconds'
@@ -141,34 +137,29 @@ import Network.AWS.STS.Types
 -- * 'arPolicy'
 --
 -- * 'arSerialNumber'
-data AssumeRole = AssumeRole'{_arRoleARN :: Text, _arRoleSessionName :: Text, _arTokenCode :: Text, _arDurationSeconds :: Nat, _arExternalId :: Text, _arPolicy :: Text, _arSerialNumber :: Text} deriving (Eq, Read, Show)
+--
+-- * 'arRoleARN'
+--
+-- * 'arRoleSessionName'
+data AssumeRole = AssumeRole'{_arTokenCode :: Maybe Text, _arDurationSeconds :: Maybe Nat, _arExternalId :: Maybe Text, _arPolicy :: Maybe Text, _arSerialNumber :: Maybe Text, _arRoleARN :: Text, _arRoleSessionName :: Text} deriving (Eq, Read, Show)
 
 -- | 'AssumeRole' smart constructor.
-assumeRole :: Text -> Text -> Text -> Natural -> Text -> Text -> Text -> AssumeRole
-assumeRole pRoleARN pRoleSessionName pTokenCode pDurationSeconds pExternalId pPolicy pSerialNumber = AssumeRole'{_arRoleARN = pRoleARN, _arRoleSessionName = pRoleSessionName, _arTokenCode = pTokenCode, _arDurationSeconds = _Nat # pDurationSeconds, _arExternalId = pExternalId, _arPolicy = pPolicy, _arSerialNumber = pSerialNumber};
-
--- | The Amazon Resource Name (ARN) of the role that the caller is assuming.
-arRoleARN :: Lens' AssumeRole Text
-arRoleARN = lens _arRoleARN (\ s a -> s{_arRoleARN = a});
-
--- | An identifier for the assumed role session. The session name is included
--- as part of the @AssumedRoleUser@.
-arRoleSessionName :: Lens' AssumeRole Text
-arRoleSessionName = lens _arRoleSessionName (\ s a -> s{_arRoleSessionName = a});
+assumeRole :: Text -> Text -> AssumeRole
+assumeRole pRoleARN pRoleSessionName = AssumeRole'{_arTokenCode = Nothing, _arDurationSeconds = Nothing, _arExternalId = Nothing, _arPolicy = Nothing, _arSerialNumber = Nothing, _arRoleARN = pRoleARN, _arRoleSessionName = pRoleSessionName};
 
 -- | The value provided by the MFA device, if the trust policy of the role
 -- being assumed requires MFA (that is, if the policy includes a condition
 -- that tests for MFA). If the role being assumed requires MFA and if the
 -- @TokenCode@ value is missing or expired, the @AssumeRole@ call returns
 -- an \"access denied\" error.
-arTokenCode :: Lens' AssumeRole Text
+arTokenCode :: Lens' AssumeRole (Maybe Text)
 arTokenCode = lens _arTokenCode (\ s a -> s{_arTokenCode = a});
 
 -- | The duration, in seconds, of the role session. The value can range from
 -- 900 seconds (15 minutes) to 3600 seconds (1 hour). By default, the value
 -- is set to 3600 seconds.
-arDurationSeconds :: Lens' AssumeRole Natural
-arDurationSeconds = lens _arDurationSeconds (\ s a -> s{_arDurationSeconds = a}) . _Nat;
+arDurationSeconds :: Lens' AssumeRole (Maybe Natural)
+arDurationSeconds = lens _arDurationSeconds (\ s a -> s{_arDurationSeconds = a}) . mapping _Nat;
 
 -- | A unique identifier that is used by third parties to assume a role in
 -- their customers\' accounts. For each role that the third party can
@@ -179,7 +170,7 @@ arDurationSeconds = lens _arDurationSeconds (\ s a -> s{_arDurationSeconds = a})
 -- customer who created it. For more information about the external ID, see
 -- <http://docs.aws.amazon.com/STS/latest/UsingSTS/sts-delegating-externalid.html About the External ID>
 -- in /Using Temporary Security Credentials/.
-arExternalId :: Lens' AssumeRole Text
+arExternalId :: Lens' AssumeRole (Maybe Text)
 arExternalId = lens _arExternalId (\ s a -> s{_arExternalId = a});
 
 -- | An IAM policy in JSON format.
@@ -194,7 +185,7 @@ arExternalId = lens _arExternalId (\ s a -> s{_arExternalId = a});
 -- the role that is being assumed. For more information, see
 -- <http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-assume-role.html Permissions for AssumeRole>
 -- in /Using Temporary Security Credentials/.
-arPolicy :: Lens' AssumeRole Text
+arPolicy :: Lens' AssumeRole (Maybe Text)
 arPolicy = lens _arPolicy (\ s a -> s{_arPolicy = a});
 
 -- | The identification number of the MFA device that is associated with the
@@ -204,8 +195,17 @@ arPolicy = lens _arPolicy (\ s a -> s{_arPolicy = a});
 -- hardware device (such as @GAHT12345678@) or an Amazon Resource Name
 -- (ARN) for a virtual device (such as
 -- @arn:aws:iam::123456789012:mfa\/user@).
-arSerialNumber :: Lens' AssumeRole Text
+arSerialNumber :: Lens' AssumeRole (Maybe Text)
 arSerialNumber = lens _arSerialNumber (\ s a -> s{_arSerialNumber = a});
+
+-- | The Amazon Resource Name (ARN) of the role that the caller is assuming.
+arRoleARN :: Lens' AssumeRole Text
+arRoleARN = lens _arRoleARN (\ s a -> s{_arRoleARN = a});
+
+-- | An identifier for the assumed role session. The session name is included
+-- as part of the @AssumedRoleUser@.
+arRoleSessionName :: Lens' AssumeRole Text
+arRoleSessionName = lens _arRoleSessionName (\ s a -> s{_arRoleSessionName = a});
 
 instance AWSRequest AssumeRole where
         type Sv AssumeRole = STS
@@ -229,12 +229,12 @@ instance ToQuery AssumeRole where
           = mconcat
               ["Action" =: ("AssumeRole" :: ByteString),
                "Version" =: ("2011-06-15" :: ByteString),
-               "RoleArn" =: _arRoleARN,
-               "RoleSessionName" =: _arRoleSessionName,
                "TokenCode" =: _arTokenCode,
                "DurationSeconds" =: _arDurationSeconds,
                "ExternalId" =: _arExternalId, "Policy" =: _arPolicy,
-               "SerialNumber" =: _arSerialNumber]
+               "SerialNumber" =: _arSerialNumber,
+               "RoleArn" =: _arRoleARN,
+               "RoleSessionName" =: _arRoleSessionName]
 
 -- | /See:/ 'assumeRoleResponse' smart constructor.
 --

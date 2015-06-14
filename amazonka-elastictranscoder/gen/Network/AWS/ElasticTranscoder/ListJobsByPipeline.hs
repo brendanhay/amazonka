@@ -111,11 +111,11 @@ instance ToQuery ListJobsByPipeline where
 -- * 'ljbprNextPageToken'
 --
 -- * 'ljbprJobs'
-data ListJobsByPipelineResponse = ListJobsByPipelineResponse'{_ljbprNextPageToken :: Maybe Text, _ljbprJobs :: [Job']} deriving (Eq, Read, Show)
+data ListJobsByPipelineResponse = ListJobsByPipelineResponse'{_ljbprNextPageToken :: Maybe Text, _ljbprJobs :: Maybe [Job']} deriving (Eq, Read, Show)
 
 -- | 'ListJobsByPipelineResponse' smart constructor.
 listJobsByPipelineResponse :: ListJobsByPipelineResponse
-listJobsByPipelineResponse = ListJobsByPipelineResponse'{_ljbprNextPageToken = Nothing, _ljbprJobs = mempty};
+listJobsByPipelineResponse = ListJobsByPipelineResponse'{_ljbprNextPageToken = Nothing, _ljbprJobs = Nothing};
 
 -- | A value that you use to access the second and subsequent pages of
 -- results, if any. When the jobs in the specified pipeline fit on one page
@@ -125,5 +125,5 @@ ljbprNextPageToken :: Lens' ListJobsByPipelineResponse (Maybe Text)
 ljbprNextPageToken = lens _ljbprNextPageToken (\ s a -> s{_ljbprNextPageToken = a});
 
 -- | An array of @Job@ objects that are in the specified pipeline.
-ljbprJobs :: Lens' ListJobsByPipelineResponse [Job']
+ljbprJobs :: Lens' ListJobsByPipelineResponse (Maybe [Job'])
 ljbprJobs = lens _ljbprJobs (\ s a -> s{_ljbprJobs = a});

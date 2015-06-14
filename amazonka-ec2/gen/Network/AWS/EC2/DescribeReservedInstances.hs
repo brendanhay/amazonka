@@ -57,11 +57,11 @@ import Network.AWS.EC2.Types
 -- * 'driReservedInstancesIds'
 --
 -- * 'driDryRun'
-data DescribeReservedInstances = DescribeReservedInstances'{_driFilters :: [Filter], _driOfferingType :: Maybe OfferingTypeValues, _driReservedInstancesIds :: [Text], _driDryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data DescribeReservedInstances = DescribeReservedInstances'{_driFilters :: Maybe [Filter], _driOfferingType :: Maybe OfferingTypeValues, _driReservedInstancesIds :: Maybe [Text], _driDryRun :: Maybe Bool} deriving (Eq, Read, Show)
 
 -- | 'DescribeReservedInstances' smart constructor.
 describeReservedInstances :: DescribeReservedInstances
-describeReservedInstances = DescribeReservedInstances'{_driFilters = mempty, _driOfferingType = Nothing, _driReservedInstancesIds = mempty, _driDryRun = Nothing};
+describeReservedInstances = DescribeReservedInstances'{_driFilters = Nothing, _driOfferingType = Nothing, _driReservedInstancesIds = Nothing, _driDryRun = Nothing};
 
 -- | One or more filters.
 --
@@ -109,7 +109,7 @@ describeReservedInstances = DescribeReservedInstances'{_driFilters = mempty, _dr
 -- -   @usage-price@ - The usage price of the Reserved Instance, per hour
 --     (for example, 0.84).
 --
-driFilters :: Lens' DescribeReservedInstances [Filter]
+driFilters :: Lens' DescribeReservedInstances (Maybe [Filter])
 driFilters = lens _driFilters (\ s a -> s{_driFilters = a});
 
 -- | The Reserved Instance offering type. If you are using tools that predate
@@ -122,7 +122,7 @@ driOfferingType = lens _driOfferingType (\ s a -> s{_driOfferingType = a});
 --
 -- Default: Describes all your Reserved Instances, or only those otherwise
 -- specified.
-driReservedInstancesIds :: Lens' DescribeReservedInstances [Text]
+driReservedInstancesIds :: Lens' DescribeReservedInstances (Maybe [Text])
 driReservedInstancesIds = lens _driReservedInstancesIds (\ s a -> s{_driReservedInstancesIds = a});
 
 -- | Checks whether you have the required permissions for the action, without
@@ -165,12 +165,12 @@ instance ToQuery DescribeReservedInstances where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'drirReservedInstances'
-newtype DescribeReservedInstancesResponse = DescribeReservedInstancesResponse'{_drirReservedInstances :: [ReservedInstances]} deriving (Eq, Read, Show)
+newtype DescribeReservedInstancesResponse = DescribeReservedInstancesResponse'{_drirReservedInstances :: Maybe [ReservedInstances]} deriving (Eq, Read, Show)
 
 -- | 'DescribeReservedInstancesResponse' smart constructor.
 describeReservedInstancesResponse :: DescribeReservedInstancesResponse
-describeReservedInstancesResponse = DescribeReservedInstancesResponse'{_drirReservedInstances = mempty};
+describeReservedInstancesResponse = DescribeReservedInstancesResponse'{_drirReservedInstances = Nothing};
 
 -- | A list of Reserved Instances.
-drirReservedInstances :: Lens' DescribeReservedInstancesResponse [ReservedInstances]
+drirReservedInstances :: Lens' DescribeReservedInstancesResponse (Maybe [ReservedInstances])
 drirReservedInstances = lens _drirReservedInstances (\ s a -> s{_drirReservedInstances = a});

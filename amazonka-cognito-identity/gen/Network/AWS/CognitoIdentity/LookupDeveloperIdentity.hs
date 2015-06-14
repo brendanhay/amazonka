@@ -35,20 +35,20 @@ module Network.AWS.CognitoIdentity.LookupDeveloperIdentity
     -- ** Request constructor
     , lookupDeveloperIdentity
     -- ** Request lenses
-    , ldiIdentityPoolId
     , ldiDeveloperUserIdentifier
     , ldiNextToken
     , ldiIdentityId
     , ldiMaxResults
+    , ldiIdentityPoolId
 
     -- * Response
     , LookupDeveloperIdentityResponse
     -- ** Response constructor
     , lookupDeveloperIdentityResponse
     -- ** Response lenses
-    , ldirDeveloperUserIdentifierList
     , ldirNextToken
     , ldirIdentityId
+    , ldirDeveloperUserIdentifierList
     ) where
 
 import Network.AWS.Request
@@ -60,8 +60,6 @@ import Network.AWS.CognitoIdentity.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldiIdentityPoolId'
---
 -- * 'ldiDeveloperUserIdentifier'
 --
 -- * 'ldiNextToken'
@@ -69,20 +67,18 @@ import Network.AWS.CognitoIdentity.Types
 -- * 'ldiIdentityId'
 --
 -- * 'ldiMaxResults'
-data LookupDeveloperIdentity = LookupDeveloperIdentity'{_ldiIdentityPoolId :: Text, _ldiDeveloperUserIdentifier :: Text, _ldiNextToken :: Text, _ldiIdentityId :: Text, _ldiMaxResults :: Nat} deriving (Eq, Read, Show)
+--
+-- * 'ldiIdentityPoolId'
+data LookupDeveloperIdentity = LookupDeveloperIdentity'{_ldiDeveloperUserIdentifier :: Maybe Text, _ldiNextToken :: Maybe Text, _ldiIdentityId :: Maybe Text, _ldiMaxResults :: Maybe Nat, _ldiIdentityPoolId :: Text} deriving (Eq, Read, Show)
 
 -- | 'LookupDeveloperIdentity' smart constructor.
-lookupDeveloperIdentity :: Text -> Text -> Text -> Text -> Natural -> LookupDeveloperIdentity
-lookupDeveloperIdentity pIdentityPoolId pDeveloperUserIdentifier pNextToken pIdentityId pMaxResults = LookupDeveloperIdentity'{_ldiIdentityPoolId = pIdentityPoolId, _ldiDeveloperUserIdentifier = pDeveloperUserIdentifier, _ldiNextToken = pNextToken, _ldiIdentityId = pIdentityId, _ldiMaxResults = _Nat # pMaxResults};
-
--- | An identity pool ID in the format REGION:GUID.
-ldiIdentityPoolId :: Lens' LookupDeveloperIdentity Text
-ldiIdentityPoolId = lens _ldiIdentityPoolId (\ s a -> s{_ldiIdentityPoolId = a});
+lookupDeveloperIdentity :: Text -> LookupDeveloperIdentity
+lookupDeveloperIdentity pIdentityPoolId = LookupDeveloperIdentity'{_ldiDeveloperUserIdentifier = Nothing, _ldiNextToken = Nothing, _ldiIdentityId = Nothing, _ldiMaxResults = Nothing, _ldiIdentityPoolId = pIdentityPoolId};
 
 -- | A unique ID used by your backend authentication process to identify a
 -- user. Typically, a developer identity provider would issue many
 -- developer user identifiers, in keeping with the number of users.
-ldiDeveloperUserIdentifier :: Lens' LookupDeveloperIdentity Text
+ldiDeveloperUserIdentifier :: Lens' LookupDeveloperIdentity (Maybe Text)
 ldiDeveloperUserIdentifier = lens _ldiDeveloperUserIdentifier (\ s a -> s{_ldiDeveloperUserIdentifier = a});
 
 -- | A pagination token. The first call you make will have @NextToken@ set to
@@ -91,16 +87,20 @@ ldiDeveloperUserIdentifier = lens _ldiDeveloperUserIdentifier (\ s a -> s{_ldiDe
 -- and there are 20 matches in the database. The service will return a
 -- pagination token as a part of the response. This token can be used to
 -- call the API again and get results starting from the 11th match.
-ldiNextToken :: Lens' LookupDeveloperIdentity Text
+ldiNextToken :: Lens' LookupDeveloperIdentity (Maybe Text)
 ldiNextToken = lens _ldiNextToken (\ s a -> s{_ldiNextToken = a});
 
 -- | A unique identifier in the format REGION:GUID.
-ldiIdentityId :: Lens' LookupDeveloperIdentity Text
+ldiIdentityId :: Lens' LookupDeveloperIdentity (Maybe Text)
 ldiIdentityId = lens _ldiIdentityId (\ s a -> s{_ldiIdentityId = a});
 
 -- | The maximum number of identities to return.
-ldiMaxResults :: Lens' LookupDeveloperIdentity Natural
-ldiMaxResults = lens _ldiMaxResults (\ s a -> s{_ldiMaxResults = a}) . _Nat;
+ldiMaxResults :: Lens' LookupDeveloperIdentity (Maybe Natural)
+ldiMaxResults = lens _ldiMaxResults (\ s a -> s{_ldiMaxResults = a}) . mapping _Nat;
+
+-- | An identity pool ID in the format REGION:GUID.
+ldiIdentityPoolId :: Lens' LookupDeveloperIdentity Text
+ldiIdentityPoolId = lens _ldiIdentityPoolId (\ s a -> s{_ldiIdentityPoolId = a});
 
 instance AWSRequest LookupDeveloperIdentity where
         type Sv LookupDeveloperIdentity = CognitoIdentity
@@ -111,9 +111,8 @@ instance AWSRequest LookupDeveloperIdentity where
           = receiveJSON
               (\ s h x ->
                  LookupDeveloperIdentityResponse' <$>
-                   x .?> "DeveloperUserIdentifierList" .!@ mempty <*>
-                     x .:> "NextToken"
-                     <*> x .:> "IdentityId")
+                   x .?> "NextToken" <*> x .?> "IdentityId" <*>
+                     x .?> "DeveloperUserIdentifierList" .!@ mempty)
 
 instance ToHeaders LookupDeveloperIdentity where
         toHeaders
@@ -128,12 +127,12 @@ instance ToHeaders LookupDeveloperIdentity where
 instance ToJSON LookupDeveloperIdentity where
         toJSON LookupDeveloperIdentity'{..}
           = object
-              ["IdentityPoolId" .= _ldiIdentityPoolId,
-               "DeveloperUserIdentifier" .=
+              ["DeveloperUserIdentifier" .=
                  _ldiDeveloperUserIdentifier,
                "NextToken" .= _ldiNextToken,
                "IdentityId" .= _ldiIdentityId,
-               "MaxResults" .= _ldiMaxResults]
+               "MaxResults" .= _ldiMaxResults,
+               "IdentityPoolId" .= _ldiIdentityPoolId]
 
 instance ToPath LookupDeveloperIdentity where
         toPath = const "/"
@@ -145,22 +144,16 @@ instance ToQuery LookupDeveloperIdentity where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldirDeveloperUserIdentifierList'
---
 -- * 'ldirNextToken'
 --
 -- * 'ldirIdentityId'
-data LookupDeveloperIdentityResponse = LookupDeveloperIdentityResponse'{_ldirDeveloperUserIdentifierList :: [Text], _ldirNextToken :: Text, _ldirIdentityId :: Text} deriving (Eq, Read, Show)
+--
+-- * 'ldirDeveloperUserIdentifierList'
+data LookupDeveloperIdentityResponse = LookupDeveloperIdentityResponse'{_ldirNextToken :: Maybe Text, _ldirIdentityId :: Maybe Text, _ldirDeveloperUserIdentifierList :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'LookupDeveloperIdentityResponse' smart constructor.
-lookupDeveloperIdentityResponse :: Text -> Text -> LookupDeveloperIdentityResponse
-lookupDeveloperIdentityResponse pNextToken pIdentityId = LookupDeveloperIdentityResponse'{_ldirDeveloperUserIdentifierList = mempty, _ldirNextToken = pNextToken, _ldirIdentityId = pIdentityId};
-
--- | This is the list of developer user identifiers associated with an
--- identity ID. Cognito supports the association of multiple developer user
--- identifiers with an identity ID.
-ldirDeveloperUserIdentifierList :: Lens' LookupDeveloperIdentityResponse [Text]
-ldirDeveloperUserIdentifierList = lens _ldirDeveloperUserIdentifierList (\ s a -> s{_ldirDeveloperUserIdentifierList = a});
+lookupDeveloperIdentityResponse :: LookupDeveloperIdentityResponse
+lookupDeveloperIdentityResponse = LookupDeveloperIdentityResponse'{_ldirNextToken = Nothing, _ldirIdentityId = Nothing, _ldirDeveloperUserIdentifierList = Nothing};
 
 -- | A pagination token. The first call you make will have @NextToken@ set to
 -- null. After that the service will return @NextToken@ values as needed.
@@ -168,9 +161,15 @@ ldirDeveloperUserIdentifierList = lens _ldirDeveloperUserIdentifierList (\ s a -
 -- and there are 20 matches in the database. The service will return a
 -- pagination token as a part of the response. This token can be used to
 -- call the API again and get results starting from the 11th match.
-ldirNextToken :: Lens' LookupDeveloperIdentityResponse Text
+ldirNextToken :: Lens' LookupDeveloperIdentityResponse (Maybe Text)
 ldirNextToken = lens _ldirNextToken (\ s a -> s{_ldirNextToken = a});
 
 -- | A unique identifier in the format REGION:GUID.
-ldirIdentityId :: Lens' LookupDeveloperIdentityResponse Text
+ldirIdentityId :: Lens' LookupDeveloperIdentityResponse (Maybe Text)
 ldirIdentityId = lens _ldirIdentityId (\ s a -> s{_ldirIdentityId = a});
+
+-- | This is the list of developer user identifiers associated with an
+-- identity ID. Cognito supports the association of multiple developer user
+-- identifiers with an identity ID.
+ldirDeveloperUserIdentifierList :: Lens' LookupDeveloperIdentityResponse (Maybe [Text])
+ldirDeveloperUserIdentifierList = lens _ldirDeveloperUserIdentifierList (\ s a -> s{_ldirDeveloperUserIdentifierList = a});

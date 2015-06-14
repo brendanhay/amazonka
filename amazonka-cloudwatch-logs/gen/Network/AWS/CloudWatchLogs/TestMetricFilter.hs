@@ -99,12 +99,12 @@ instance ToQuery TestMetricFilter where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'tmfrMatches'
-newtype TestMetricFilterResponse = TestMetricFilterResponse'{_tmfrMatches :: [MetricFilterMatchRecord]} deriving (Eq, Read, Show)
+newtype TestMetricFilterResponse = TestMetricFilterResponse'{_tmfrMatches :: Maybe [MetricFilterMatchRecord]} deriving (Eq, Read, Show)
 
 -- | 'TestMetricFilterResponse' smart constructor.
 testMetricFilterResponse :: TestMetricFilterResponse
-testMetricFilterResponse = TestMetricFilterResponse'{_tmfrMatches = mempty};
+testMetricFilterResponse = TestMetricFilterResponse'{_tmfrMatches = Nothing};
 
 -- | FIXME: Undocumented member.
-tmfrMatches :: Lens' TestMetricFilterResponse [MetricFilterMatchRecord]
+tmfrMatches :: Lens' TestMetricFilterResponse (Maybe [MetricFilterMatchRecord])
 tmfrMatches = lens _tmfrMatches (\ s a -> s{_tmfrMatches = a});

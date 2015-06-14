@@ -91,11 +91,11 @@ import Network.AWS.CloudWatch.Types
 -- * 'pmaThreshold'
 --
 -- * 'pmaComparisonOperator'
-data PutMetricAlarm = PutMetricAlarm'{_pmaAlarmDescription :: Maybe Text, _pmaOKActions :: [Text], _pmaActionsEnabled :: Maybe Bool, _pmaInsufficientDataActions :: [Text], _pmaDimensions :: [Dimension], _pmaAlarmActions :: [Text], _pmaUnit :: Maybe StandardUnit, _pmaAlarmName :: Text, _pmaMetricName :: Text, _pmaNamespace :: Text, _pmaStatistic :: Statistic, _pmaPeriod :: Nat, _pmaEvaluationPeriods :: Nat, _pmaThreshold :: Double, _pmaComparisonOperator :: ComparisonOperator} deriving (Eq, Read, Show)
+data PutMetricAlarm = PutMetricAlarm'{_pmaAlarmDescription :: Maybe Text, _pmaOKActions :: Maybe [Text], _pmaActionsEnabled :: Maybe Bool, _pmaInsufficientDataActions :: Maybe [Text], _pmaDimensions :: Maybe [Dimension], _pmaAlarmActions :: Maybe [Text], _pmaUnit :: Maybe StandardUnit, _pmaAlarmName :: Text, _pmaMetricName :: Text, _pmaNamespace :: Text, _pmaStatistic :: Statistic, _pmaPeriod :: Nat, _pmaEvaluationPeriods :: Nat, _pmaThreshold :: Double, _pmaComparisonOperator :: ComparisonOperator} deriving (Eq, Read, Show)
 
 -- | 'PutMetricAlarm' smart constructor.
 putMetricAlarm :: Text -> Text -> Text -> Statistic -> Natural -> Natural -> Double -> ComparisonOperator -> PutMetricAlarm
-putMetricAlarm pAlarmName pMetricName pNamespace pStatistic pPeriod pEvaluationPeriods pThreshold pComparisonOperator = PutMetricAlarm'{_pmaAlarmDescription = Nothing, _pmaOKActions = mempty, _pmaActionsEnabled = Nothing, _pmaInsufficientDataActions = mempty, _pmaDimensions = mempty, _pmaAlarmActions = mempty, _pmaUnit = Nothing, _pmaAlarmName = pAlarmName, _pmaMetricName = pMetricName, _pmaNamespace = pNamespace, _pmaStatistic = pStatistic, _pmaPeriod = _Nat # pPeriod, _pmaEvaluationPeriods = _Nat # pEvaluationPeriods, _pmaThreshold = pThreshold, _pmaComparisonOperator = pComparisonOperator};
+putMetricAlarm pAlarmName pMetricName pNamespace pStatistic pPeriod pEvaluationPeriods pThreshold pComparisonOperator = PutMetricAlarm'{_pmaAlarmDescription = Nothing, _pmaOKActions = Nothing, _pmaActionsEnabled = Nothing, _pmaInsufficientDataActions = Nothing, _pmaDimensions = Nothing, _pmaAlarmActions = Nothing, _pmaUnit = Nothing, _pmaAlarmName = pAlarmName, _pmaMetricName = pMetricName, _pmaNamespace = pNamespace, _pmaStatistic = pStatistic, _pmaPeriod = _Nat # pPeriod, _pmaEvaluationPeriods = _Nat # pEvaluationPeriods, _pmaThreshold = pThreshold, _pmaComparisonOperator = pComparisonOperator};
 
 -- | The description for the alarm.
 pmaAlarmDescription :: Lens' PutMetricAlarm (Maybe Text)
@@ -105,7 +105,7 @@ pmaAlarmDescription = lens _pmaAlarmDescription (\ s a -> s{_pmaAlarmDescription
 -- state from any other state. Each action is specified as an Amazon
 -- Resource Number (ARN). Currently the only action supported is publishing
 -- to an Amazon SNS topic or an Amazon Auto Scaling policy.
-pmaOKActions :: Lens' PutMetricAlarm [Text]
+pmaOKActions :: Lens' PutMetricAlarm (Maybe [Text])
 pmaOKActions = lens _pmaOKActions (\ s a -> s{_pmaOKActions = a});
 
 -- | Indicates whether or not actions should be executed during any changes
@@ -117,18 +117,18 @@ pmaActionsEnabled = lens _pmaActionsEnabled (\ s a -> s{_pmaActionsEnabled = a})
 -- @INSUFFICIENT_DATA@ state from any other state. Each action is specified
 -- as an Amazon Resource Number (ARN). Currently the only action supported
 -- is publishing to an Amazon SNS topic or an Amazon Auto Scaling policy.
-pmaInsufficientDataActions :: Lens' PutMetricAlarm [Text]
+pmaInsufficientDataActions :: Lens' PutMetricAlarm (Maybe [Text])
 pmaInsufficientDataActions = lens _pmaInsufficientDataActions (\ s a -> s{_pmaInsufficientDataActions = a});
 
 -- | The dimensions for the alarm\'s associated metric.
-pmaDimensions :: Lens' PutMetricAlarm [Dimension]
+pmaDimensions :: Lens' PutMetricAlarm (Maybe [Dimension])
 pmaDimensions = lens _pmaDimensions (\ s a -> s{_pmaDimensions = a});
 
 -- | The list of actions to execute when this alarm transitions into an
 -- @ALARM@ state from any other state. Each action is specified as an
 -- Amazon Resource Number (ARN). Currently the only action supported is
 -- publishing to an Amazon SNS topic or an Amazon Auto Scaling policy.
-pmaAlarmActions :: Lens' PutMetricAlarm [Text]
+pmaAlarmActions :: Lens' PutMetricAlarm (Maybe [Text])
 pmaAlarmActions = lens _pmaAlarmActions (\ s a -> s{_pmaAlarmActions = a});
 
 -- | The unit for the alarm\'s associated metric.

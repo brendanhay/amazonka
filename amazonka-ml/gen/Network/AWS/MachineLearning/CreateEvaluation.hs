@@ -103,7 +103,7 @@ instance AWSRequest CreateEvaluation where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateEvaluationResponse' <$> x .:> "EvaluationId")
+                 CreateEvaluationResponse' <$> x .?> "EvaluationId")
 
 instance ToHeaders CreateEvaluation where
         toHeaders
@@ -134,14 +134,14 @@ instance ToQuery CreateEvaluation where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cerEvaluationId'
-newtype CreateEvaluationResponse = CreateEvaluationResponse'{_cerEvaluationId :: Text} deriving (Eq, Read, Show)
+newtype CreateEvaluationResponse = CreateEvaluationResponse'{_cerEvaluationId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'CreateEvaluationResponse' smart constructor.
-createEvaluationResponse :: Text -> CreateEvaluationResponse
-createEvaluationResponse pEvaluationId = CreateEvaluationResponse'{_cerEvaluationId = pEvaluationId};
+createEvaluationResponse :: CreateEvaluationResponse
+createEvaluationResponse = CreateEvaluationResponse'{_cerEvaluationId = Nothing};
 
 -- | The user-supplied ID that uniquely identifies the @Evaluation@. This
 -- value should be identical to the value of the @EvaluationId@ in the
 -- request.
-cerEvaluationId :: Lens' CreateEvaluationResponse Text
+cerEvaluationId :: Lens' CreateEvaluationResponse (Maybe Text)
 cerEvaluationId = lens _cerEvaluationId (\ s a -> s{_cerEvaluationId = a});

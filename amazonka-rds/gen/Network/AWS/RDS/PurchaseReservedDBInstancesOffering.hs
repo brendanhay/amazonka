@@ -53,11 +53,11 @@ import Network.AWS.RDS.Types
 -- * 'prdioTags'
 --
 -- * 'prdioReservedDBInstancesOfferingId'
-data PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOffering'{_prdioDBInstanceCount :: Maybe Int, _prdioReservedDBInstanceId :: Maybe Text, _prdioTags :: [Tag], _prdioReservedDBInstancesOfferingId :: Text} deriving (Eq, Read, Show)
+data PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOffering'{_prdioDBInstanceCount :: Maybe Int, _prdioReservedDBInstanceId :: Maybe Text, _prdioTags :: Maybe [Tag], _prdioReservedDBInstancesOfferingId :: Text} deriving (Eq, Read, Show)
 
 -- | 'PurchaseReservedDBInstancesOffering' smart constructor.
 purchaseReservedDBInstancesOffering :: Text -> PurchaseReservedDBInstancesOffering
-purchaseReservedDBInstancesOffering pReservedDBInstancesOfferingId = PurchaseReservedDBInstancesOffering'{_prdioDBInstanceCount = Nothing, _prdioReservedDBInstanceId = Nothing, _prdioTags = mempty, _prdioReservedDBInstancesOfferingId = pReservedDBInstancesOfferingId};
+purchaseReservedDBInstancesOffering pReservedDBInstancesOfferingId = PurchaseReservedDBInstancesOffering'{_prdioDBInstanceCount = Nothing, _prdioReservedDBInstanceId = Nothing, _prdioTags = Nothing, _prdioReservedDBInstancesOfferingId = pReservedDBInstancesOfferingId};
 
 -- | The number of instances to reserve.
 --
@@ -72,7 +72,7 @@ prdioReservedDBInstanceId :: Lens' PurchaseReservedDBInstancesOffering (Maybe Te
 prdioReservedDBInstanceId = lens _prdioReservedDBInstanceId (\ s a -> s{_prdioReservedDBInstanceId = a});
 
 -- | FIXME: Undocumented member.
-prdioTags :: Lens' PurchaseReservedDBInstancesOffering [Tag]
+prdioTags :: Lens' PurchaseReservedDBInstancesOffering (Maybe [Tag])
 prdioTags = lens _prdioTags (\ s a -> s{_prdioTags = a});
 
 -- | The ID of the Reserved DB instance offering to purchase.

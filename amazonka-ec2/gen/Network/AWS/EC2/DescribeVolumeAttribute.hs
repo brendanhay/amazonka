@@ -114,14 +114,14 @@ instance ToQuery DescribeVolumeAttribute where
 -- * 'dvarVolumeId'
 --
 -- * 'dvarAutoEnableIO'
-data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse'{_dvarProductCodes :: [ProductCode], _dvarVolumeId :: Maybe Text, _dvarAutoEnableIO :: Maybe AttributeBooleanValue} deriving (Eq, Read, Show)
+data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse'{_dvarProductCodes :: Maybe [ProductCode], _dvarVolumeId :: Maybe Text, _dvarAutoEnableIO :: Maybe AttributeBooleanValue} deriving (Eq, Read, Show)
 
 -- | 'DescribeVolumeAttributeResponse' smart constructor.
 describeVolumeAttributeResponse :: DescribeVolumeAttributeResponse
-describeVolumeAttributeResponse = DescribeVolumeAttributeResponse'{_dvarProductCodes = mempty, _dvarVolumeId = Nothing, _dvarAutoEnableIO = Nothing};
+describeVolumeAttributeResponse = DescribeVolumeAttributeResponse'{_dvarProductCodes = Nothing, _dvarVolumeId = Nothing, _dvarAutoEnableIO = Nothing};
 
 -- | A list of product codes.
-dvarProductCodes :: Lens' DescribeVolumeAttributeResponse [ProductCode]
+dvarProductCodes :: Lens' DescribeVolumeAttributeResponse (Maybe [ProductCode])
 dvarProductCodes = lens _dvarProductCodes (\ s a -> s{_dvarProductCodes = a});
 
 -- | The ID of the volume.

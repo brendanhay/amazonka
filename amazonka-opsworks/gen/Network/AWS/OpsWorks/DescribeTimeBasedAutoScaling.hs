@@ -56,8 +56,8 @@ import Network.AWS.OpsWorks.Types
 newtype DescribeTimeBasedAutoScaling = DescribeTimeBasedAutoScaling'{_dtbasInstanceIds :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'DescribeTimeBasedAutoScaling' smart constructor.
-describeTimeBasedAutoScaling :: [Text] -> DescribeTimeBasedAutoScaling
-describeTimeBasedAutoScaling pInstanceIds = DescribeTimeBasedAutoScaling'{_dtbasInstanceIds = pInstanceIds};
+describeTimeBasedAutoScaling :: DescribeTimeBasedAutoScaling
+describeTimeBasedAutoScaling = DescribeTimeBasedAutoScaling'{_dtbasInstanceIds = mempty};
 
 -- | An array of instance IDs.
 dtbasInstanceIds :: Lens' DescribeTimeBasedAutoScaling [Text]
@@ -101,13 +101,13 @@ instance ToQuery DescribeTimeBasedAutoScaling where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dtbasrTimeBasedAutoScalingConfigurations'
-newtype DescribeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingResponse'{_dtbasrTimeBasedAutoScalingConfigurations :: [TimeBasedAutoScalingConfiguration]} deriving (Eq, Read, Show)
+newtype DescribeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingResponse'{_dtbasrTimeBasedAutoScalingConfigurations :: Maybe [TimeBasedAutoScalingConfiguration]} deriving (Eq, Read, Show)
 
 -- | 'DescribeTimeBasedAutoScalingResponse' smart constructor.
 describeTimeBasedAutoScalingResponse :: DescribeTimeBasedAutoScalingResponse
-describeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingResponse'{_dtbasrTimeBasedAutoScalingConfigurations = mempty};
+describeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingResponse'{_dtbasrTimeBasedAutoScalingConfigurations = Nothing};
 
 -- | An array of @TimeBasedAutoScalingConfiguration@ objects that describe
 -- the configuration for the specified instances.
-dtbasrTimeBasedAutoScalingConfigurations :: Lens' DescribeTimeBasedAutoScalingResponse [TimeBasedAutoScalingConfiguration]
+dtbasrTimeBasedAutoScalingConfigurations :: Lens' DescribeTimeBasedAutoScalingResponse (Maybe [TimeBasedAutoScalingConfiguration])
 dtbasrTimeBasedAutoScalingConfigurations = lens _dtbasrTimeBasedAutoScalingConfigurations (\ s a -> s{_dtbasrTimeBasedAutoScalingConfigurations = a});

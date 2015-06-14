@@ -51,8 +51,8 @@ import Network.AWS.RDS.Types
 data RemoveTagsFromResource = RemoveTagsFromResource'{_rtfrResourceName :: Text, _rtfrTagKeys :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'RemoveTagsFromResource' smart constructor.
-removeTagsFromResource :: Text -> [Text] -> RemoveTagsFromResource
-removeTagsFromResource pResourceName pTagKeys = RemoveTagsFromResource'{_rtfrResourceName = pResourceName, _rtfrTagKeys = pTagKeys};
+removeTagsFromResource :: Text -> RemoveTagsFromResource
+removeTagsFromResource pResourceName = RemoveTagsFromResource'{_rtfrResourceName = pResourceName, _rtfrTagKeys = mempty};
 
 -- | The Amazon RDS resource the tags will be removed from. This value is an
 -- Amazon Resource Name (ARN). For information about creating an ARN, see

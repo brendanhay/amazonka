@@ -61,8 +61,8 @@ import Network.AWS.ElastiCache.Types
 data AddTagsToResource = AddTagsToResource'{_attrResourceName :: Text, _attrTags :: [Tag]} deriving (Eq, Read, Show)
 
 -- | 'AddTagsToResource' smart constructor.
-addTagsToResource :: Text -> [Tag] -> AddTagsToResource
-addTagsToResource pResourceName pTags = AddTagsToResource'{_attrResourceName = pResourceName, _attrTags = pTags};
+addTagsToResource :: Text -> AddTagsToResource
+addTagsToResource pResourceName = AddTagsToResource'{_attrResourceName = pResourceName, _attrTags = mempty};
 
 -- | The name of the resource to which the tags are to be added, for example
 -- @arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster@.

@@ -59,8 +59,8 @@ import Network.AWS.EC2.Types
 data CancelSpotInstanceRequests = CancelSpotInstanceRequests'{_csirDryRun :: Maybe Bool, _csirSpotInstanceRequestIds :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'CancelSpotInstanceRequests' smart constructor.
-cancelSpotInstanceRequests :: [Text] -> CancelSpotInstanceRequests
-cancelSpotInstanceRequests pSpotInstanceRequestIds = CancelSpotInstanceRequests'{_csirDryRun = Nothing, _csirSpotInstanceRequestIds = pSpotInstanceRequestIds};
+cancelSpotInstanceRequests :: CancelSpotInstanceRequests
+cancelSpotInstanceRequests = CancelSpotInstanceRequests'{_csirDryRun = Nothing, _csirSpotInstanceRequestIds = mempty};
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -105,12 +105,12 @@ instance ToQuery CancelSpotInstanceRequests where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'csirrCancelledSpotInstanceRequests'
-newtype CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse'{_csirrCancelledSpotInstanceRequests :: [CancelledSpotInstanceRequest]} deriving (Eq, Read, Show)
+newtype CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse'{_csirrCancelledSpotInstanceRequests :: Maybe [CancelledSpotInstanceRequest]} deriving (Eq, Read, Show)
 
 -- | 'CancelSpotInstanceRequestsResponse' smart constructor.
 cancelSpotInstanceRequestsResponse :: CancelSpotInstanceRequestsResponse
-cancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse'{_csirrCancelledSpotInstanceRequests = mempty};
+cancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse'{_csirrCancelledSpotInstanceRequests = Nothing};
 
 -- | One or more Spot Instance requests.
-csirrCancelledSpotInstanceRequests :: Lens' CancelSpotInstanceRequestsResponse [CancelledSpotInstanceRequest]
+csirrCancelledSpotInstanceRequests :: Lens' CancelSpotInstanceRequestsResponse (Maybe [CancelledSpotInstanceRequest])
 csirrCancelledSpotInstanceRequests = lens _csirrCancelledSpotInstanceRequests (\ s a -> s{_csirrCancelledSpotInstanceRequests = a});

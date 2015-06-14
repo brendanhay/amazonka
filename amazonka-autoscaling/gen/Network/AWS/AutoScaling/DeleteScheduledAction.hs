@@ -24,8 +24,8 @@ module Network.AWS.AutoScaling.DeleteScheduledAction
     -- ** Request constructor
     , deleteScheduledAction
     -- ** Request lenses
-    , dsaScheduledActionName
     , dsaAutoScalingGroupName
+    , dsaScheduledActionName
 
     -- * Response
     , DeleteScheduledActionResponse
@@ -42,22 +42,22 @@ import Network.AWS.AutoScaling.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsaScheduledActionName'
---
 -- * 'dsaAutoScalingGroupName'
-data DeleteScheduledAction = DeleteScheduledAction'{_dsaScheduledActionName :: Text, _dsaAutoScalingGroupName :: Text} deriving (Eq, Read, Show)
+--
+-- * 'dsaScheduledActionName'
+data DeleteScheduledAction = DeleteScheduledAction'{_dsaAutoScalingGroupName :: Maybe Text, _dsaScheduledActionName :: Text} deriving (Eq, Read, Show)
 
 -- | 'DeleteScheduledAction' smart constructor.
-deleteScheduledAction :: Text -> Text -> DeleteScheduledAction
-deleteScheduledAction pScheduledActionName pAutoScalingGroupName = DeleteScheduledAction'{_dsaScheduledActionName = pScheduledActionName, _dsaAutoScalingGroupName = pAutoScalingGroupName};
+deleteScheduledAction :: Text -> DeleteScheduledAction
+deleteScheduledAction pScheduledActionName = DeleteScheduledAction'{_dsaAutoScalingGroupName = Nothing, _dsaScheduledActionName = pScheduledActionName};
+
+-- | The name of the Auto Scaling group.
+dsaAutoScalingGroupName :: Lens' DeleteScheduledAction (Maybe Text)
+dsaAutoScalingGroupName = lens _dsaAutoScalingGroupName (\ s a -> s{_dsaAutoScalingGroupName = a});
 
 -- | The name of the action to delete.
 dsaScheduledActionName :: Lens' DeleteScheduledAction Text
 dsaScheduledActionName = lens _dsaScheduledActionName (\ s a -> s{_dsaScheduledActionName = a});
-
--- | The name of the Auto Scaling group.
-dsaAutoScalingGroupName :: Lens' DeleteScheduledAction Text
-dsaAutoScalingGroupName = lens _dsaAutoScalingGroupName (\ s a -> s{_dsaAutoScalingGroupName = a});
 
 instance AWSRequest DeleteScheduledAction where
         type Sv DeleteScheduledAction = AutoScaling
@@ -77,8 +77,8 @@ instance ToQuery DeleteScheduledAction where
           = mconcat
               ["Action" =: ("DeleteScheduledAction" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
-               "ScheduledActionName" =: _dsaScheduledActionName,
-               "AutoScalingGroupName" =: _dsaAutoScalingGroupName]
+               "AutoScalingGroupName" =: _dsaAutoScalingGroupName,
+               "ScheduledActionName" =: _dsaScheduledActionName]
 
 -- | /See:/ 'deleteScheduledActionResponse' smart constructor.
 data DeleteScheduledActionResponse = DeleteScheduledActionResponse' deriving (Eq, Read, Show)

@@ -60,8 +60,8 @@ import Network.AWS.OpsWorks.Types
 data AssignInstance = AssignInstance'{_aiInstanceId :: Text, _aiLayerIds :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'AssignInstance' smart constructor.
-assignInstance :: Text -> [Text] -> AssignInstance
-assignInstance pInstanceId pLayerIds = AssignInstance'{_aiInstanceId = pInstanceId, _aiLayerIds = pLayerIds};
+assignInstance :: Text -> AssignInstance
+assignInstance pInstanceId = AssignInstance'{_aiInstanceId = pInstanceId, _aiLayerIds = mempty};
 
 -- | The instance ID.
 aiInstanceId :: Lens' AssignInstance Text

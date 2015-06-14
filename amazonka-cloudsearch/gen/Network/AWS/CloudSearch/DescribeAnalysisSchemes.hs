@@ -57,11 +57,11 @@ import Network.AWS.CloudSearch.Types
 -- * 'describeAnalysisSchemeNames'
 --
 -- * 'describeDomainName'
-data DescribeAnalysisSchemes = DescribeAnalysisSchemes'{_describeDeployed :: Maybe Bool, _describeAnalysisSchemeNames :: [Text], _describeDomainName :: Text} deriving (Eq, Read, Show)
+data DescribeAnalysisSchemes = DescribeAnalysisSchemes'{_describeDeployed :: Maybe Bool, _describeAnalysisSchemeNames :: Maybe [Text], _describeDomainName :: Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeAnalysisSchemes' smart constructor.
 describeAnalysisSchemes :: Text -> DescribeAnalysisSchemes
-describeAnalysisSchemes pDomainName = DescribeAnalysisSchemes'{_describeDeployed = Nothing, _describeAnalysisSchemeNames = mempty, _describeDomainName = pDomainName};
+describeAnalysisSchemes pDomainName = DescribeAnalysisSchemes'{_describeDeployed = Nothing, _describeAnalysisSchemeNames = Nothing, _describeDomainName = pDomainName};
 
 -- | Whether to display the deployed configuration (@true@) or include any
 -- pending changes (@false@). Defaults to @false@.
@@ -69,7 +69,7 @@ describeDeployed :: Lens' DescribeAnalysisSchemes (Maybe Bool)
 describeDeployed = lens _describeDeployed (\ s a -> s{_describeDeployed = a});
 
 -- | The analysis schemes you want to describe.
-describeAnalysisSchemeNames :: Lens' DescribeAnalysisSchemes [Text]
+describeAnalysisSchemeNames :: Lens' DescribeAnalysisSchemes (Maybe [Text])
 describeAnalysisSchemeNames = lens _describeAnalysisSchemeNames (\ s a -> s{_describeAnalysisSchemeNames = a});
 
 -- | The name of the domain you want to describe.
@@ -113,8 +113,8 @@ instance ToQuery DescribeAnalysisSchemes where
 newtype DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse'{_dasrAnalysisSchemes :: [AnalysisSchemeStatus]} deriving (Eq, Read, Show)
 
 -- | 'DescribeAnalysisSchemesResponse' smart constructor.
-describeAnalysisSchemesResponse :: [AnalysisSchemeStatus] -> DescribeAnalysisSchemesResponse
-describeAnalysisSchemesResponse pAnalysisSchemes = DescribeAnalysisSchemesResponse'{_dasrAnalysisSchemes = pAnalysisSchemes};
+describeAnalysisSchemesResponse :: DescribeAnalysisSchemesResponse
+describeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse'{_dasrAnalysisSchemes = mempty};
 
 -- | The analysis scheme descriptions.
 dasrAnalysisSchemes :: Lens' DescribeAnalysisSchemesResponse [AnalysisSchemeStatus]

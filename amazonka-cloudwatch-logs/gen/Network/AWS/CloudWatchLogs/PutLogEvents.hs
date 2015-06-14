@@ -41,10 +41,10 @@ module Network.AWS.CloudWatchLogs.PutLogEvents
     -- ** Request constructor
     , putLogEvents
     -- ** Request lenses
+    , pleSequenceToken
     , pleLogGroupName
     , pleLogStreamName
     , pleLogEvents
-    , pleSequenceToken
 
     -- * Response
     , PutLogEventsResponse
@@ -64,18 +64,23 @@ import Network.AWS.CloudWatchLogs.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'pleSequenceToken'
+--
 -- * 'pleLogGroupName'
 --
 -- * 'pleLogStreamName'
 --
 -- * 'pleLogEvents'
---
--- * 'pleSequenceToken'
-data PutLogEvents = PutLogEvents'{_pleLogGroupName :: Text, _pleLogStreamName :: Text, _pleLogEvents :: List1 InputLogEvent, _pleSequenceToken :: Text} deriving (Eq, Read, Show)
+data PutLogEvents = PutLogEvents'{_pleSequenceToken :: Maybe Text, _pleLogGroupName :: Text, _pleLogStreamName :: Text, _pleLogEvents :: List1 InputLogEvent} deriving (Eq, Read, Show)
 
 -- | 'PutLogEvents' smart constructor.
-putLogEvents :: Text -> Text -> NonEmpty InputLogEvent -> Text -> PutLogEvents
-putLogEvents pLogGroupName pLogStreamName pLogEvents pSequenceToken = PutLogEvents'{_pleLogGroupName = pLogGroupName, _pleLogStreamName = pLogStreamName, _pleLogEvents = _List1 # pLogEvents, _pleSequenceToken = pSequenceToken};
+putLogEvents :: Text -> Text -> NonEmpty InputLogEvent -> PutLogEvents
+putLogEvents pLogGroupName pLogStreamName pLogEvents = PutLogEvents'{_pleSequenceToken = Nothing, _pleLogGroupName = pLogGroupName, _pleLogStreamName = pLogStreamName, _pleLogEvents = _List1 # pLogEvents};
+
+-- | A string token that must be obtained from the response of the previous
+-- @PutLogEvents@ request.
+pleSequenceToken :: Lens' PutLogEvents (Maybe Text)
+pleSequenceToken = lens _pleSequenceToken (\ s a -> s{_pleSequenceToken = a});
 
 -- | The name of the log group to put log events to.
 pleLogGroupName :: Lens' PutLogEvents Text
@@ -89,11 +94,6 @@ pleLogStreamName = lens _pleLogStreamName (\ s a -> s{_pleLogStreamName = a});
 pleLogEvents :: Lens' PutLogEvents (NonEmpty InputLogEvent)
 pleLogEvents = lens _pleLogEvents (\ s a -> s{_pleLogEvents = a}) . _List1;
 
--- | A string token that must be obtained from the response of the previous
--- @PutLogEvents@ request.
-pleSequenceToken :: Lens' PutLogEvents Text
-pleSequenceToken = lens _pleSequenceToken (\ s a -> s{_pleSequenceToken = a});
-
 instance AWSRequest PutLogEvents where
         type Sv PutLogEvents = CloudWatchLogs
         type Rs PutLogEvents = PutLogEventsResponse
@@ -103,7 +103,7 @@ instance AWSRequest PutLogEvents where
               (\ s h x ->
                  PutLogEventsResponse' <$>
                    x .?> "rejectedLogEventsInfo" <*>
-                     x .:> "nextSequenceToken")
+                     x .?> "nextSequenceToken")
 
 instance ToHeaders PutLogEvents where
         toHeaders
@@ -117,10 +117,10 @@ instance ToHeaders PutLogEvents where
 instance ToJSON PutLogEvents where
         toJSON PutLogEvents'{..}
           = object
-              ["logGroupName" .= _pleLogGroupName,
+              ["sequenceToken" .= _pleSequenceToken,
+               "logGroupName" .= _pleLogGroupName,
                "logStreamName" .= _pleLogStreamName,
-               "logEvents" .= _pleLogEvents,
-               "sequenceToken" .= _pleSequenceToken]
+               "logEvents" .= _pleLogEvents]
 
 instance ToPath PutLogEvents where
         toPath = const "/"
@@ -135,16 +135,16 @@ instance ToQuery PutLogEvents where
 -- * 'plerRejectedLogEventsInfo'
 --
 -- * 'plerNextSequenceToken'
-data PutLogEventsResponse = PutLogEventsResponse'{_plerRejectedLogEventsInfo :: Maybe RejectedLogEventsInfo, _plerNextSequenceToken :: Text} deriving (Eq, Read, Show)
+data PutLogEventsResponse = PutLogEventsResponse'{_plerRejectedLogEventsInfo :: Maybe RejectedLogEventsInfo, _plerNextSequenceToken :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'PutLogEventsResponse' smart constructor.
-putLogEventsResponse :: Text -> PutLogEventsResponse
-putLogEventsResponse pNextSequenceToken = PutLogEventsResponse'{_plerRejectedLogEventsInfo = Nothing, _plerNextSequenceToken = pNextSequenceToken};
+putLogEventsResponse :: PutLogEventsResponse
+putLogEventsResponse = PutLogEventsResponse'{_plerRejectedLogEventsInfo = Nothing, _plerNextSequenceToken = Nothing};
 
 -- | FIXME: Undocumented member.
 plerRejectedLogEventsInfo :: Lens' PutLogEventsResponse (Maybe RejectedLogEventsInfo)
 plerRejectedLogEventsInfo = lens _plerRejectedLogEventsInfo (\ s a -> s{_plerRejectedLogEventsInfo = a});
 
 -- | FIXME: Undocumented member.
-plerNextSequenceToken :: Lens' PutLogEventsResponse Text
+plerNextSequenceToken :: Lens' PutLogEventsResponse (Maybe Text)
 plerNextSequenceToken = lens _plerNextSequenceToken (\ s a -> s{_plerNextSequenceToken = a});

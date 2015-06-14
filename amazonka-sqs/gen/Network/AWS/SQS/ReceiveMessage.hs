@@ -103,11 +103,11 @@ import Network.AWS.SQS.Types
 -- * 'rmMaxNumberOfMessages'
 --
 -- * 'rmQueueURL'
-data ReceiveMessage = ReceiveMessage'{_rmVisibilityTimeout :: Maybe Int, _rmMessageAttributeNames :: [Text], _rmWaitTimeSeconds :: Maybe Int, _rmAttributeNames :: [QueueAttributeName], _rmMaxNumberOfMessages :: Maybe Int, _rmQueueURL :: Text} deriving (Eq, Read, Show)
+data ReceiveMessage = ReceiveMessage'{_rmVisibilityTimeout :: Maybe Int, _rmMessageAttributeNames :: Maybe [Text], _rmWaitTimeSeconds :: Maybe Int, _rmAttributeNames :: Maybe [QueueAttributeName], _rmMaxNumberOfMessages :: Maybe Int, _rmQueueURL :: Text} deriving (Eq, Read, Show)
 
 -- | 'ReceiveMessage' smart constructor.
 receiveMessage :: Text -> ReceiveMessage
-receiveMessage pQueueURL = ReceiveMessage'{_rmVisibilityTimeout = Nothing, _rmMessageAttributeNames = mempty, _rmWaitTimeSeconds = Nothing, _rmAttributeNames = mempty, _rmMaxNumberOfMessages = Nothing, _rmQueueURL = pQueueURL};
+receiveMessage pQueueURL = ReceiveMessage'{_rmVisibilityTimeout = Nothing, _rmMessageAttributeNames = Nothing, _rmWaitTimeSeconds = Nothing, _rmAttributeNames = Nothing, _rmMaxNumberOfMessages = Nothing, _rmQueueURL = pQueueURL};
 
 -- | The duration (in seconds) that the received messages are hidden from
 -- subsequent retrieve requests after being retrieved by a @ReceiveMessage@
@@ -128,7 +128,7 @@ rmVisibilityTimeout = lens _rmVisibilityTimeout (\ s a -> s{_rmVisibilityTimeout
 -- receive, or you can return all of the attributes by specifying \"All\"
 -- or \".*\" in your request. You can also use \"foo.*\" to return all
 -- message attributes starting with the \"foo\" prefix.
-rmMessageAttributeNames :: Lens' ReceiveMessage [Text]
+rmMessageAttributeNames :: Lens' ReceiveMessage (Maybe [Text])
 rmMessageAttributeNames = lens _rmMessageAttributeNames (\ s a -> s{_rmMessageAttributeNames = a});
 
 -- | The duration (in seconds) for which the call will wait for a message to
@@ -152,7 +152,7 @@ rmWaitTimeSeconds = lens _rmWaitTimeSeconds (\ s a -> s{_rmWaitTimeSeconds = a})
 --     anonymous access is allowed) of the sender.
 -- -   @SentTimestamp@ - returns the time when the message was sent to the
 --     queue (epoch time in milliseconds).
-rmAttributeNames :: Lens' ReceiveMessage [QueueAttributeName]
+rmAttributeNames :: Lens' ReceiveMessage (Maybe [QueueAttributeName])
 rmAttributeNames = lens _rmAttributeNames (\ s a -> s{_rmAttributeNames = a});
 
 -- | The maximum number of messages to return. Amazon SQS never returns more
@@ -199,12 +199,12 @@ instance ToQuery ReceiveMessage where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rmrMessages'
-newtype ReceiveMessageResponse = ReceiveMessageResponse'{_rmrMessages :: [Message]} deriving (Eq, Read, Show)
+newtype ReceiveMessageResponse = ReceiveMessageResponse'{_rmrMessages :: Maybe [Message]} deriving (Eq, Read, Show)
 
 -- | 'ReceiveMessageResponse' smart constructor.
 receiveMessageResponse :: ReceiveMessageResponse
-receiveMessageResponse = ReceiveMessageResponse'{_rmrMessages = mempty};
+receiveMessageResponse = ReceiveMessageResponse'{_rmrMessages = Nothing};
 
 -- | A list of messages.
-rmrMessages :: Lens' ReceiveMessageResponse [Message]
+rmrMessages :: Lens' ReceiveMessageResponse (Maybe [Message])
 rmrMessages = lens _rmrMessages (\ s a -> s{_rmrMessages = a});

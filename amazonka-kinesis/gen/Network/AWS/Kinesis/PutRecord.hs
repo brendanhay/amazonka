@@ -102,7 +102,7 @@ data PutRecord = PutRecord'{_prExplicitHashKey :: Maybe Text, _prSequenceNumberF
 
 -- | 'PutRecord' smart constructor.
 putRecord :: Text -> Base64 -> Text -> PutRecord
-putRecord pStreamName pData' pPartitionKey = PutRecord'{_prExplicitHashKey = Nothing, _prSequenceNumberForOrdering = Nothing, _prStreamName = pStreamName, _prData = pData', _prPartitionKey = pPartitionKey};
+putRecord pStreamName pData pPartitionKey = PutRecord'{_prExplicitHashKey = Nothing, _prSequenceNumberForOrdering = Nothing, _prStreamName = pStreamName, _prData = pData, _prPartitionKey = pPartitionKey};
 
 -- | The hash value used to explicitly determine the shard the data record is
 -- assigned to by overriding the partition key hash.

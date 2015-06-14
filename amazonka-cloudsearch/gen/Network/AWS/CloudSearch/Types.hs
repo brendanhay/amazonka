@@ -76,12 +76,12 @@ module Network.AWS.CloudSearch.Types
     -- * DateOptions
     , DateOptions
     , dateOptions
+    , doSourceField
     , doReturnEnabled
     , doFacetEnabled
     , doSearchEnabled
     , doSortEnabled
     , doDefaultValue
-    , doSourceField
 
     -- * DocumentSuggesterOptions
     , DocumentSuggesterOptions
@@ -93,19 +93,19 @@ module Network.AWS.CloudSearch.Types
     -- * DomainStatus
     , DomainStatus
     , domainStatus
+    , dsSearchInstanceCount
     , dsSearchInstanceType
     , dsARN
     , dsDocService
     , dsCreated
     , dsSearchService
     , dsLimits
+    , dsSearchPartitionCount
     , dsDeleted
     , dsProcessing
     , dsDomainId
     , dsDomainName
     , dsRequiresIndexDocuments
-    , dsSearchInstanceCount
-    , dsSearchPartitionCount
 
     -- * DoubleArrayOptions
     , DoubleArrayOptions
@@ -119,12 +119,12 @@ module Network.AWS.CloudSearch.Types
     -- * DoubleOptions
     , DoubleOptions
     , doubleOptions
+    , douSourceField
     , douReturnEnabled
     , douFacetEnabled
     , douSearchEnabled
     , douSortEnabled
     , douDefaultValue
-    , douSourceField
 
     -- * Expression
     , Expression
@@ -176,22 +176,22 @@ module Network.AWS.CloudSearch.Types
     -- * IntOptions
     , IntOptions
     , intOptions
+    , ioSourceField
     , ioReturnEnabled
     , ioFacetEnabled
     , ioSearchEnabled
     , ioSortEnabled
     , ioDefaultValue
-    , ioSourceField
 
     -- * LatLonOptions
     , LatLonOptions
     , latLonOptions
+    , lloSourceField
     , lloReturnEnabled
     , lloFacetEnabled
     , lloSearchEnabled
     , lloSortEnabled
     , lloDefaultValue
-    , lloSourceField
 
     -- * Limits
     , Limits
@@ -211,12 +211,12 @@ module Network.AWS.CloudSearch.Types
     -- * LiteralOptions
     , LiteralOptions
     , literalOptions
+    , loSourceField
     , loReturnEnabled
     , loFacetEnabled
     , loSearchEnabled
     , loSortEnabled
     , loDefaultValue
-    , loSourceField
 
     -- * OptionState
     , OptionState (..)
@@ -278,12 +278,12 @@ module Network.AWS.CloudSearch.Types
     -- * TextOptions
     , TextOptions
     , textOptions
+    , toSourceField
     , toReturnEnabled
     , toAnalysisScheme
     , toHighlightEnabled
     , toSortEnabled
     , toDefaultValue
-    , toSourceField
     ) where
 
 import Network.AWS.Prelude
@@ -692,6 +692,8 @@ instance ToQuery DateArrayOptions where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'doSourceField'
+--
 -- * 'doReturnEnabled'
 --
 -- * 'doFacetEnabled'
@@ -701,13 +703,15 @@ instance ToQuery DateArrayOptions where
 -- * 'doSortEnabled'
 --
 -- * 'doDefaultValue'
---
--- * 'doSourceField'
-data DateOptions = DateOptions'{_doReturnEnabled :: Maybe Bool, _doFacetEnabled :: Maybe Bool, _doSearchEnabled :: Maybe Bool, _doSortEnabled :: Maybe Bool, _doDefaultValue :: Maybe Text, _doSourceField :: Text} deriving (Eq, Read, Show)
+data DateOptions = DateOptions'{_doSourceField :: Maybe Text, _doReturnEnabled :: Maybe Bool, _doFacetEnabled :: Maybe Bool, _doSearchEnabled :: Maybe Bool, _doSortEnabled :: Maybe Bool, _doDefaultValue :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DateOptions' smart constructor.
-dateOptions :: Text -> DateOptions
-dateOptions pSourceField = DateOptions'{_doReturnEnabled = Nothing, _doFacetEnabled = Nothing, _doSearchEnabled = Nothing, _doSortEnabled = Nothing, _doDefaultValue = Nothing, _doSourceField = pSourceField};
+dateOptions :: DateOptions
+dateOptions = DateOptions'{_doSourceField = Nothing, _doReturnEnabled = Nothing, _doFacetEnabled = Nothing, _doSearchEnabled = Nothing, _doSortEnabled = Nothing, _doDefaultValue = Nothing};
+
+-- | FIXME: Undocumented member.
+doSourceField :: Lens' DateOptions (Maybe Text)
+doSourceField = lens _doSourceField (\ s a -> s{_doSourceField = a});
 
 -- | Whether the contents of the field can be returned in the search results.
 doReturnEnabled :: Lens' DateOptions (Maybe Bool)
@@ -730,28 +734,24 @@ doSortEnabled = lens _doSortEnabled (\ s a -> s{_doSortEnabled = a});
 doDefaultValue :: Lens' DateOptions (Maybe Text)
 doDefaultValue = lens _doDefaultValue (\ s a -> s{_doDefaultValue = a});
 
--- | FIXME: Undocumented member.
-doSourceField :: Lens' DateOptions Text
-doSourceField = lens _doSourceField (\ s a -> s{_doSourceField = a});
-
 instance FromXML DateOptions where
         parseXML x
           = DateOptions' <$>
-              x .@? "ReturnEnabled" <*> x .@? "FacetEnabled" <*>
-                x .@? "SearchEnabled"
+              x .@? "SourceField" <*> x .@? "ReturnEnabled" <*>
+                x .@? "FacetEnabled"
+                <*> x .@? "SearchEnabled"
                 <*> x .@? "SortEnabled"
                 <*> x .@? "DefaultValue"
-                <*> x .@ "SourceField"
 
 instance ToQuery DateOptions where
         toQuery DateOptions'{..}
           = mconcat
-              ["ReturnEnabled" =: _doReturnEnabled,
+              ["SourceField" =: _doSourceField,
+               "ReturnEnabled" =: _doReturnEnabled,
                "FacetEnabled" =: _doFacetEnabled,
                "SearchEnabled" =: _doSearchEnabled,
                "SortEnabled" =: _doSortEnabled,
-               "DefaultValue" =: _doDefaultValue,
-               "SourceField" =: _doSourceField]
+               "DefaultValue" =: _doDefaultValue]
 
 -- | /See:/ 'documentSuggesterOptions' smart constructor.
 --
@@ -808,6 +808,8 @@ instance ToQuery DocumentSuggesterOptions where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'dsSearchInstanceCount'
+--
 -- * 'dsSearchInstanceType'
 --
 -- * 'dsARN'
@@ -820,6 +822,8 @@ instance ToQuery DocumentSuggesterOptions where
 --
 -- * 'dsLimits'
 --
+-- * 'dsSearchPartitionCount'
+--
 -- * 'dsDeleted'
 --
 -- * 'dsProcessing'
@@ -829,15 +833,16 @@ instance ToQuery DocumentSuggesterOptions where
 -- * 'dsDomainName'
 --
 -- * 'dsRequiresIndexDocuments'
---
--- * 'dsSearchInstanceCount'
---
--- * 'dsSearchPartitionCount'
-data DomainStatus = DomainStatus'{_dsSearchInstanceType :: Maybe Text, _dsARN :: Maybe Text, _dsDocService :: Maybe ServiceEndpoint, _dsCreated :: Maybe Bool, _dsSearchService :: Maybe ServiceEndpoint, _dsLimits :: Maybe Limits, _dsDeleted :: Maybe Bool, _dsProcessing :: Maybe Bool, _dsDomainId :: Text, _dsDomainName :: Text, _dsRequiresIndexDocuments :: Bool, _dsSearchInstanceCount :: Nat, _dsSearchPartitionCount :: Nat} deriving (Eq, Read, Show)
+data DomainStatus = DomainStatus'{_dsSearchInstanceCount :: Maybe Nat, _dsSearchInstanceType :: Maybe Text, _dsARN :: Maybe Text, _dsDocService :: Maybe ServiceEndpoint, _dsCreated :: Maybe Bool, _dsSearchService :: Maybe ServiceEndpoint, _dsLimits :: Maybe Limits, _dsSearchPartitionCount :: Maybe Nat, _dsDeleted :: Maybe Bool, _dsProcessing :: Maybe Bool, _dsDomainId :: Text, _dsDomainName :: Text, _dsRequiresIndexDocuments :: Bool} deriving (Eq, Read, Show)
 
 -- | 'DomainStatus' smart constructor.
-domainStatus :: Text -> Text -> Bool -> Natural -> Natural -> DomainStatus
-domainStatus pDomainId pDomainName pRequiresIndexDocuments pSearchInstanceCount pSearchPartitionCount = DomainStatus'{_dsSearchInstanceType = Nothing, _dsARN = Nothing, _dsDocService = Nothing, _dsCreated = Nothing, _dsSearchService = Nothing, _dsLimits = Nothing, _dsDeleted = Nothing, _dsProcessing = Nothing, _dsDomainId = pDomainId, _dsDomainName = pDomainName, _dsRequiresIndexDocuments = pRequiresIndexDocuments, _dsSearchInstanceCount = _Nat # pSearchInstanceCount, _dsSearchPartitionCount = _Nat # pSearchPartitionCount};
+domainStatus :: Text -> Text -> Bool -> DomainStatus
+domainStatus pDomainId pDomainName pRequiresIndexDocuments = DomainStatus'{_dsSearchInstanceCount = Nothing, _dsSearchInstanceType = Nothing, _dsARN = Nothing, _dsDocService = Nothing, _dsCreated = Nothing, _dsSearchService = Nothing, _dsLimits = Nothing, _dsSearchPartitionCount = Nothing, _dsDeleted = Nothing, _dsProcessing = Nothing, _dsDomainId = pDomainId, _dsDomainName = pDomainName, _dsRequiresIndexDocuments = pRequiresIndexDocuments};
+
+-- | The number of search instances that are available to process search
+-- requests.
+dsSearchInstanceCount :: Lens' DomainStatus (Maybe Natural)
+dsSearchInstanceCount = lens _dsSearchInstanceCount (\ s a -> s{_dsSearchInstanceCount = a}) . mapping _Nat;
 
 -- | The instance type that is being used to process search requests.
 dsSearchInstanceType :: Lens' DomainStatus (Maybe Text)
@@ -866,6 +871,10 @@ dsSearchService = lens _dsSearchService (\ s a -> s{_dsSearchService = a});
 dsLimits :: Lens' DomainStatus (Maybe Limits)
 dsLimits = lens _dsLimits (\ s a -> s{_dsLimits = a});
 
+-- | The number of partitions across which the search index is spread.
+dsSearchPartitionCount :: Lens' DomainStatus (Maybe Natural)
+dsSearchPartitionCount = lens _dsSearchPartitionCount (\ s a -> s{_dsSearchPartitionCount = a}) . mapping _Nat;
+
 -- | True if the search domain has been deleted. The system must clean up
 -- resources dedicated to the search domain when DeleteDomain is called.
 -- Newly deleted search domains are returned from DescribeDomains with a
@@ -892,30 +901,22 @@ dsDomainName = lens _dsDomainName (\ s a -> s{_dsDomainName = a});
 dsRequiresIndexDocuments :: Lens' DomainStatus Bool
 dsRequiresIndexDocuments = lens _dsRequiresIndexDocuments (\ s a -> s{_dsRequiresIndexDocuments = a});
 
--- | The number of search instances that are available to process search
--- requests.
-dsSearchInstanceCount :: Lens' DomainStatus Natural
-dsSearchInstanceCount = lens _dsSearchInstanceCount (\ s a -> s{_dsSearchInstanceCount = a}) . _Nat;
-
--- | The number of partitions across which the search index is spread.
-dsSearchPartitionCount :: Lens' DomainStatus Natural
-dsSearchPartitionCount = lens _dsSearchPartitionCount (\ s a -> s{_dsSearchPartitionCount = a}) . _Nat;
-
 instance FromXML DomainStatus where
         parseXML x
           = DomainStatus' <$>
-              x .@? "SearchInstanceType" <*> x .@? "ARN" <*>
-                x .@? "DocService"
+              x .@? "SearchInstanceCount" <*>
+                x .@? "SearchInstanceType"
+                <*> x .@? "ARN"
+                <*> x .@? "DocService"
                 <*> x .@? "Created"
                 <*> x .@? "SearchService"
                 <*> x .@? "Limits"
+                <*> x .@? "SearchPartitionCount"
                 <*> x .@? "Deleted"
                 <*> x .@? "Processing"
                 <*> x .@ "DomainId"
                 <*> x .@ "DomainName"
                 <*> x .@ "RequiresIndexDocuments"
-                <*> x .@ "SearchInstanceCount"
-                <*> x .@ "SearchPartitionCount"
 
 -- | /See:/ 'doubleArrayOptions' smart constructor.
 --
@@ -978,6 +979,8 @@ instance ToQuery DoubleArrayOptions where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'douSourceField'
+--
 -- * 'douReturnEnabled'
 --
 -- * 'douFacetEnabled'
@@ -987,13 +990,15 @@ instance ToQuery DoubleArrayOptions where
 -- * 'douSortEnabled'
 --
 -- * 'douDefaultValue'
---
--- * 'douSourceField'
-data DoubleOptions = DoubleOptions'{_douReturnEnabled :: Maybe Bool, _douFacetEnabled :: Maybe Bool, _douSearchEnabled :: Maybe Bool, _douSortEnabled :: Maybe Bool, _douDefaultValue :: Maybe Double, _douSourceField :: Text} deriving (Eq, Read, Show)
+data DoubleOptions = DoubleOptions'{_douSourceField :: Maybe Text, _douReturnEnabled :: Maybe Bool, _douFacetEnabled :: Maybe Bool, _douSearchEnabled :: Maybe Bool, _douSortEnabled :: Maybe Bool, _douDefaultValue :: Maybe Double} deriving (Eq, Read, Show)
 
 -- | 'DoubleOptions' smart constructor.
-doubleOptions :: Text -> DoubleOptions
-doubleOptions pSourceField = DoubleOptions'{_douReturnEnabled = Nothing, _douFacetEnabled = Nothing, _douSearchEnabled = Nothing, _douSortEnabled = Nothing, _douDefaultValue = Nothing, _douSourceField = pSourceField};
+doubleOptions :: DoubleOptions
+doubleOptions = DoubleOptions'{_douSourceField = Nothing, _douReturnEnabled = Nothing, _douFacetEnabled = Nothing, _douSearchEnabled = Nothing, _douSortEnabled = Nothing, _douDefaultValue = Nothing};
+
+-- | The name of the source field to map to the field.
+douSourceField :: Lens' DoubleOptions (Maybe Text)
+douSourceField = lens _douSourceField (\ s a -> s{_douSourceField = a});
 
 -- | Whether the contents of the field can be returned in the search results.
 douReturnEnabled :: Lens' DoubleOptions (Maybe Bool)
@@ -1017,28 +1022,24 @@ douSortEnabled = lens _douSortEnabled (\ s a -> s{_douSortEnabled = a});
 douDefaultValue :: Lens' DoubleOptions (Maybe Double)
 douDefaultValue = lens _douDefaultValue (\ s a -> s{_douDefaultValue = a});
 
--- | The name of the source field to map to the field.
-douSourceField :: Lens' DoubleOptions Text
-douSourceField = lens _douSourceField (\ s a -> s{_douSourceField = a});
-
 instance FromXML DoubleOptions where
         parseXML x
           = DoubleOptions' <$>
-              x .@? "ReturnEnabled" <*> x .@? "FacetEnabled" <*>
-                x .@? "SearchEnabled"
+              x .@? "SourceField" <*> x .@? "ReturnEnabled" <*>
+                x .@? "FacetEnabled"
+                <*> x .@? "SearchEnabled"
                 <*> x .@? "SortEnabled"
                 <*> x .@? "DefaultValue"
-                <*> x .@ "SourceField"
 
 instance ToQuery DoubleOptions where
         toQuery DoubleOptions'{..}
           = mconcat
-              ["ReturnEnabled" =: _douReturnEnabled,
+              ["SourceField" =: _douSourceField,
+               "ReturnEnabled" =: _douReturnEnabled,
                "FacetEnabled" =: _douFacetEnabled,
                "SearchEnabled" =: _douSearchEnabled,
                "SortEnabled" =: _douSortEnabled,
-               "DefaultValue" =: _douDefaultValue,
-               "SourceField" =: _douSourceField]
+               "DefaultValue" =: _douDefaultValue]
 
 -- | /See:/ 'expression' smart constructor.
 --
@@ -1358,6 +1359,8 @@ instance ToQuery IntArrayOptions where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'ioSourceField'
+--
 -- * 'ioReturnEnabled'
 --
 -- * 'ioFacetEnabled'
@@ -1367,13 +1370,15 @@ instance ToQuery IntArrayOptions where
 -- * 'ioSortEnabled'
 --
 -- * 'ioDefaultValue'
---
--- * 'ioSourceField'
-data IntOptions = IntOptions'{_ioReturnEnabled :: Maybe Bool, _ioFacetEnabled :: Maybe Bool, _ioSearchEnabled :: Maybe Bool, _ioSortEnabled :: Maybe Bool, _ioDefaultValue :: Maybe Integer, _ioSourceField :: Text} deriving (Eq, Read, Show)
+data IntOptions = IntOptions'{_ioSourceField :: Maybe Text, _ioReturnEnabled :: Maybe Bool, _ioFacetEnabled :: Maybe Bool, _ioSearchEnabled :: Maybe Bool, _ioSortEnabled :: Maybe Bool, _ioDefaultValue :: Maybe Integer} deriving (Eq, Read, Show)
 
 -- | 'IntOptions' smart constructor.
-intOptions :: Text -> IntOptions
-intOptions pSourceField = IntOptions'{_ioReturnEnabled = Nothing, _ioFacetEnabled = Nothing, _ioSearchEnabled = Nothing, _ioSortEnabled = Nothing, _ioDefaultValue = Nothing, _ioSourceField = pSourceField};
+intOptions :: IntOptions
+intOptions = IntOptions'{_ioSourceField = Nothing, _ioReturnEnabled = Nothing, _ioFacetEnabled = Nothing, _ioSearchEnabled = Nothing, _ioSortEnabled = Nothing, _ioDefaultValue = Nothing};
+
+-- | The name of the source field to map to the field.
+ioSourceField :: Lens' IntOptions (Maybe Text)
+ioSourceField = lens _ioSourceField (\ s a -> s{_ioSourceField = a});
 
 -- | Whether the contents of the field can be returned in the search results.
 ioReturnEnabled :: Lens' IntOptions (Maybe Bool)
@@ -1397,32 +1402,30 @@ ioSortEnabled = lens _ioSortEnabled (\ s a -> s{_ioSortEnabled = a});
 ioDefaultValue :: Lens' IntOptions (Maybe Integer)
 ioDefaultValue = lens _ioDefaultValue (\ s a -> s{_ioDefaultValue = a});
 
--- | The name of the source field to map to the field.
-ioSourceField :: Lens' IntOptions Text
-ioSourceField = lens _ioSourceField (\ s a -> s{_ioSourceField = a});
-
 instance FromXML IntOptions where
         parseXML x
           = IntOptions' <$>
-              x .@? "ReturnEnabled" <*> x .@? "FacetEnabled" <*>
-                x .@? "SearchEnabled"
+              x .@? "SourceField" <*> x .@? "ReturnEnabled" <*>
+                x .@? "FacetEnabled"
+                <*> x .@? "SearchEnabled"
                 <*> x .@? "SortEnabled"
                 <*> x .@? "DefaultValue"
-                <*> x .@ "SourceField"
 
 instance ToQuery IntOptions where
         toQuery IntOptions'{..}
           = mconcat
-              ["ReturnEnabled" =: _ioReturnEnabled,
+              ["SourceField" =: _ioSourceField,
+               "ReturnEnabled" =: _ioReturnEnabled,
                "FacetEnabled" =: _ioFacetEnabled,
                "SearchEnabled" =: _ioSearchEnabled,
                "SortEnabled" =: _ioSortEnabled,
-               "DefaultValue" =: _ioDefaultValue,
-               "SourceField" =: _ioSourceField]
+               "DefaultValue" =: _ioDefaultValue]
 
 -- | /See:/ 'latLonOptions' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
+--
+-- * 'lloSourceField'
 --
 -- * 'lloReturnEnabled'
 --
@@ -1433,13 +1436,15 @@ instance ToQuery IntOptions where
 -- * 'lloSortEnabled'
 --
 -- * 'lloDefaultValue'
---
--- * 'lloSourceField'
-data LatLonOptions = LatLonOptions'{_lloReturnEnabled :: Maybe Bool, _lloFacetEnabled :: Maybe Bool, _lloSearchEnabled :: Maybe Bool, _lloSortEnabled :: Maybe Bool, _lloDefaultValue :: Maybe Text, _lloSourceField :: Text} deriving (Eq, Read, Show)
+data LatLonOptions = LatLonOptions'{_lloSourceField :: Maybe Text, _lloReturnEnabled :: Maybe Bool, _lloFacetEnabled :: Maybe Bool, _lloSearchEnabled :: Maybe Bool, _lloSortEnabled :: Maybe Bool, _lloDefaultValue :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'LatLonOptions' smart constructor.
-latLonOptions :: Text -> LatLonOptions
-latLonOptions pSourceField = LatLonOptions'{_lloReturnEnabled = Nothing, _lloFacetEnabled = Nothing, _lloSearchEnabled = Nothing, _lloSortEnabled = Nothing, _lloDefaultValue = Nothing, _lloSourceField = pSourceField};
+latLonOptions :: LatLonOptions
+latLonOptions = LatLonOptions'{_lloSourceField = Nothing, _lloReturnEnabled = Nothing, _lloFacetEnabled = Nothing, _lloSearchEnabled = Nothing, _lloSortEnabled = Nothing, _lloDefaultValue = Nothing};
+
+-- | FIXME: Undocumented member.
+lloSourceField :: Lens' LatLonOptions (Maybe Text)
+lloSourceField = lens _lloSourceField (\ s a -> s{_lloSourceField = a});
 
 -- | Whether the contents of the field can be returned in the search results.
 lloReturnEnabled :: Lens' LatLonOptions (Maybe Bool)
@@ -1462,28 +1467,24 @@ lloSortEnabled = lens _lloSortEnabled (\ s a -> s{_lloSortEnabled = a});
 lloDefaultValue :: Lens' LatLonOptions (Maybe Text)
 lloDefaultValue = lens _lloDefaultValue (\ s a -> s{_lloDefaultValue = a});
 
--- | FIXME: Undocumented member.
-lloSourceField :: Lens' LatLonOptions Text
-lloSourceField = lens _lloSourceField (\ s a -> s{_lloSourceField = a});
-
 instance FromXML LatLonOptions where
         parseXML x
           = LatLonOptions' <$>
-              x .@? "ReturnEnabled" <*> x .@? "FacetEnabled" <*>
-                x .@? "SearchEnabled"
+              x .@? "SourceField" <*> x .@? "ReturnEnabled" <*>
+                x .@? "FacetEnabled"
+                <*> x .@? "SearchEnabled"
                 <*> x .@? "SortEnabled"
                 <*> x .@? "DefaultValue"
-                <*> x .@ "SourceField"
 
 instance ToQuery LatLonOptions where
         toQuery LatLonOptions'{..}
           = mconcat
-              ["ReturnEnabled" =: _lloReturnEnabled,
+              ["SourceField" =: _lloSourceField,
+               "ReturnEnabled" =: _lloReturnEnabled,
                "FacetEnabled" =: _lloFacetEnabled,
                "SearchEnabled" =: _lloSearchEnabled,
                "SortEnabled" =: _lloSortEnabled,
-               "DefaultValue" =: _lloDefaultValue,
-               "SourceField" =: _lloSourceField]
+               "DefaultValue" =: _lloDefaultValue]
 
 -- | /See:/ 'limits' smart constructor.
 --
@@ -1573,6 +1574,8 @@ instance ToQuery LiteralArrayOptions where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'loSourceField'
+--
 -- * 'loReturnEnabled'
 --
 -- * 'loFacetEnabled'
@@ -1582,13 +1585,15 @@ instance ToQuery LiteralArrayOptions where
 -- * 'loSortEnabled'
 --
 -- * 'loDefaultValue'
---
--- * 'loSourceField'
-data LiteralOptions = LiteralOptions'{_loReturnEnabled :: Maybe Bool, _loFacetEnabled :: Maybe Bool, _loSearchEnabled :: Maybe Bool, _loSortEnabled :: Maybe Bool, _loDefaultValue :: Maybe Text, _loSourceField :: Text} deriving (Eq, Read, Show)
+data LiteralOptions = LiteralOptions'{_loSourceField :: Maybe Text, _loReturnEnabled :: Maybe Bool, _loFacetEnabled :: Maybe Bool, _loSearchEnabled :: Maybe Bool, _loSortEnabled :: Maybe Bool, _loDefaultValue :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'LiteralOptions' smart constructor.
-literalOptions :: Text -> LiteralOptions
-literalOptions pSourceField = LiteralOptions'{_loReturnEnabled = Nothing, _loFacetEnabled = Nothing, _loSearchEnabled = Nothing, _loSortEnabled = Nothing, _loDefaultValue = Nothing, _loSourceField = pSourceField};
+literalOptions :: LiteralOptions
+literalOptions = LiteralOptions'{_loSourceField = Nothing, _loReturnEnabled = Nothing, _loFacetEnabled = Nothing, _loSearchEnabled = Nothing, _loSortEnabled = Nothing, _loDefaultValue = Nothing};
+
+-- | FIXME: Undocumented member.
+loSourceField :: Lens' LiteralOptions (Maybe Text)
+loSourceField = lens _loSourceField (\ s a -> s{_loSourceField = a});
 
 -- | Whether the contents of the field can be returned in the search results.
 loReturnEnabled :: Lens' LiteralOptions (Maybe Bool)
@@ -1611,28 +1616,24 @@ loSortEnabled = lens _loSortEnabled (\ s a -> s{_loSortEnabled = a});
 loDefaultValue :: Lens' LiteralOptions (Maybe Text)
 loDefaultValue = lens _loDefaultValue (\ s a -> s{_loDefaultValue = a});
 
--- | FIXME: Undocumented member.
-loSourceField :: Lens' LiteralOptions Text
-loSourceField = lens _loSourceField (\ s a -> s{_loSourceField = a});
-
 instance FromXML LiteralOptions where
         parseXML x
           = LiteralOptions' <$>
-              x .@? "ReturnEnabled" <*> x .@? "FacetEnabled" <*>
-                x .@? "SearchEnabled"
+              x .@? "SourceField" <*> x .@? "ReturnEnabled" <*>
+                x .@? "FacetEnabled"
+                <*> x .@? "SearchEnabled"
                 <*> x .@? "SortEnabled"
                 <*> x .@? "DefaultValue"
-                <*> x .@ "SourceField"
 
 instance ToQuery LiteralOptions where
         toQuery LiteralOptions'{..}
           = mconcat
-              ["ReturnEnabled" =: _loReturnEnabled,
+              ["SourceField" =: _loSourceField,
+               "ReturnEnabled" =: _loReturnEnabled,
                "FacetEnabled" =: _loFacetEnabled,
                "SearchEnabled" =: _loSearchEnabled,
                "SortEnabled" =: _loSortEnabled,
-               "DefaultValue" =: _loDefaultValue,
-               "SourceField" =: _loSourceField]
+               "DefaultValue" =: _loDefaultValue]
 
 data OptionState = FailedToValidate | Active | RequiresIndexDocuments | Processing deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -1980,6 +1981,8 @@ instance ToQuery TextArrayOptions where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'toSourceField'
+--
 -- * 'toReturnEnabled'
 --
 -- * 'toAnalysisScheme'
@@ -1989,13 +1992,15 @@ instance ToQuery TextArrayOptions where
 -- * 'toSortEnabled'
 --
 -- * 'toDefaultValue'
---
--- * 'toSourceField'
-data TextOptions = TextOptions'{_toReturnEnabled :: Maybe Bool, _toAnalysisScheme :: Maybe Text, _toHighlightEnabled :: Maybe Bool, _toSortEnabled :: Maybe Bool, _toDefaultValue :: Maybe Text, _toSourceField :: Text} deriving (Eq, Read, Show)
+data TextOptions = TextOptions'{_toSourceField :: Maybe Text, _toReturnEnabled :: Maybe Bool, _toAnalysisScheme :: Maybe Text, _toHighlightEnabled :: Maybe Bool, _toSortEnabled :: Maybe Bool, _toDefaultValue :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'TextOptions' smart constructor.
-textOptions :: Text -> TextOptions
-textOptions pSourceField = TextOptions'{_toReturnEnabled = Nothing, _toAnalysisScheme = Nothing, _toHighlightEnabled = Nothing, _toSortEnabled = Nothing, _toDefaultValue = Nothing, _toSourceField = pSourceField};
+textOptions :: TextOptions
+textOptions = TextOptions'{_toSourceField = Nothing, _toReturnEnabled = Nothing, _toAnalysisScheme = Nothing, _toHighlightEnabled = Nothing, _toSortEnabled = Nothing, _toDefaultValue = Nothing};
+
+-- | FIXME: Undocumented member.
+toSourceField :: Lens' TextOptions (Maybe Text)
+toSourceField = lens _toSourceField (\ s a -> s{_toSourceField = a});
 
 -- | Whether the contents of the field can be returned in the search results.
 toReturnEnabled :: Lens' TextOptions (Maybe Bool)
@@ -2018,25 +2023,21 @@ toSortEnabled = lens _toSortEnabled (\ s a -> s{_toSortEnabled = a});
 toDefaultValue :: Lens' TextOptions (Maybe Text)
 toDefaultValue = lens _toDefaultValue (\ s a -> s{_toDefaultValue = a});
 
--- | FIXME: Undocumented member.
-toSourceField :: Lens' TextOptions Text
-toSourceField = lens _toSourceField (\ s a -> s{_toSourceField = a});
-
 instance FromXML TextOptions where
         parseXML x
           = TextOptions' <$>
-              x .@? "ReturnEnabled" <*> x .@? "AnalysisScheme" <*>
-                x .@? "HighlightEnabled"
+              x .@? "SourceField" <*> x .@? "ReturnEnabled" <*>
+                x .@? "AnalysisScheme"
+                <*> x .@? "HighlightEnabled"
                 <*> x .@? "SortEnabled"
                 <*> x .@? "DefaultValue"
-                <*> x .@ "SourceField"
 
 instance ToQuery TextOptions where
         toQuery TextOptions'{..}
           = mconcat
-              ["ReturnEnabled" =: _toReturnEnabled,
+              ["SourceField" =: _toSourceField,
+               "ReturnEnabled" =: _toReturnEnabled,
                "AnalysisScheme" =: _toAnalysisScheme,
                "HighlightEnabled" =: _toHighlightEnabled,
                "SortEnabled" =: _toSortEnabled,
-               "DefaultValue" =: _toDefaultValue,
-               "SourceField" =: _toSourceField]
+               "DefaultValue" =: _toDefaultValue]

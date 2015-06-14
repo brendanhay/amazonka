@@ -47,20 +47,20 @@ import Network.AWS.ElasticBeanstalk.Types
 -- * 'dVersionLabels'
 --
 -- * 'dApplicationName'
-data DescribeApplicationVersions = DescribeApplicationVersions'{_dVersionLabels :: [Text], _dApplicationName :: Text} deriving (Eq, Read, Show)
+data DescribeApplicationVersions = DescribeApplicationVersions'{_dVersionLabels :: Maybe [Text], _dApplicationName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeApplicationVersions' smart constructor.
-describeApplicationVersions :: Text -> DescribeApplicationVersions
-describeApplicationVersions pApplicationName = DescribeApplicationVersions'{_dVersionLabels = mempty, _dApplicationName = pApplicationName};
+describeApplicationVersions :: DescribeApplicationVersions
+describeApplicationVersions = DescribeApplicationVersions'{_dVersionLabels = Nothing, _dApplicationName = Nothing};
 
 -- | If specified, restricts the returned descriptions to only include ones
 -- that have the specified version labels.
-dVersionLabels :: Lens' DescribeApplicationVersions [Text]
+dVersionLabels :: Lens' DescribeApplicationVersions (Maybe [Text])
 dVersionLabels = lens _dVersionLabels (\ s a -> s{_dVersionLabels = a});
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to only include ones that are associated with the specified application.
-dApplicationName :: Lens' DescribeApplicationVersions Text
+dApplicationName :: Lens' DescribeApplicationVersions (Maybe Text)
 dApplicationName = lens _dApplicationName (\ s a -> s{_dApplicationName = a});
 
 instance AWSRequest DescribeApplicationVersions where
@@ -97,12 +97,12 @@ instance ToQuery DescribeApplicationVersions where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'davrApplicationVersions'
-newtype DescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse'{_davrApplicationVersions :: [ApplicationVersionDescription]} deriving (Eq, Read, Show)
+newtype DescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse'{_davrApplicationVersions :: Maybe [ApplicationVersionDescription]} deriving (Eq, Read, Show)
 
 -- | 'DescribeApplicationVersionsResponse' smart constructor.
 describeApplicationVersionsResponse :: DescribeApplicationVersionsResponse
-describeApplicationVersionsResponse = DescribeApplicationVersionsResponse'{_davrApplicationVersions = mempty};
+describeApplicationVersionsResponse = DescribeApplicationVersionsResponse'{_davrApplicationVersions = Nothing};
 
 -- | A list of ApplicationVersionDescription .
-davrApplicationVersions :: Lens' DescribeApplicationVersionsResponse [ApplicationVersionDescription]
+davrApplicationVersions :: Lens' DescribeApplicationVersionsResponse (Maybe [ApplicationVersionDescription])
 davrApplicationVersions = lens _davrApplicationVersions (\ s a -> s{_davrApplicationVersions = a});

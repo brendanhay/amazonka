@@ -54,16 +54,16 @@ import Network.AWS.EC2.Types
 -- * 'dsFilters'
 --
 -- * 'dsDryRun'
-data DescribeSubnets = DescribeSubnets'{_dsSubnetIds :: [Text], _dsFilters :: [Filter], _dsDryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data DescribeSubnets = DescribeSubnets'{_dsSubnetIds :: Maybe [Text], _dsFilters :: Maybe [Filter], _dsDryRun :: Maybe Bool} deriving (Eq, Read, Show)
 
 -- | 'DescribeSubnets' smart constructor.
 describeSubnets :: DescribeSubnets
-describeSubnets = DescribeSubnets'{_dsSubnetIds = mempty, _dsFilters = mempty, _dsDryRun = Nothing};
+describeSubnets = DescribeSubnets'{_dsSubnetIds = Nothing, _dsFilters = Nothing, _dsDryRun = Nothing};
 
 -- | One or more subnet IDs.
 --
 -- Default: Describes all your subnets.
-dsSubnetIds :: Lens' DescribeSubnets [Text]
+dsSubnetIds :: Lens' DescribeSubnets (Maybe [Text])
 dsSubnetIds = lens _dsSubnetIds (\ s a -> s{_dsSubnetIds = a});
 
 -- | One or more filters.
@@ -103,7 +103,7 @@ dsSubnetIds = lens _dsSubnetIds (\ s a -> s{_dsSubnetIds = a});
 --
 -- -   @vpc-id@ - The ID of the VPC for the subnet.
 --
-dsFilters :: Lens' DescribeSubnets [Filter]
+dsFilters :: Lens' DescribeSubnets (Maybe [Filter])
 dsFilters = lens _dsFilters (\ s a -> s{_dsFilters = a});
 
 -- | Checks whether you have the required permissions for the action, without
@@ -141,12 +141,12 @@ instance ToQuery DescribeSubnets where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsrSubnets'
-newtype DescribeSubnetsResponse = DescribeSubnetsResponse'{_dsrSubnets :: [Subnet]} deriving (Eq, Read, Show)
+newtype DescribeSubnetsResponse = DescribeSubnetsResponse'{_dsrSubnets :: Maybe [Subnet]} deriving (Eq, Read, Show)
 
 -- | 'DescribeSubnetsResponse' smart constructor.
 describeSubnetsResponse :: DescribeSubnetsResponse
-describeSubnetsResponse = DescribeSubnetsResponse'{_dsrSubnets = mempty};
+describeSubnetsResponse = DescribeSubnetsResponse'{_dsrSubnets = Nothing};
 
 -- | Information about one or more subnets.
-dsrSubnets :: Lens' DescribeSubnetsResponse [Subnet]
+dsrSubnets :: Lens' DescribeSubnetsResponse (Maybe [Subnet])
 dsrSubnets = lens _dsrSubnets (\ s a -> s{_dsrSubnets = a});

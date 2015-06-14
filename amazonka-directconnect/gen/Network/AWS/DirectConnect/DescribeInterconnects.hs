@@ -93,12 +93,12 @@ instance ToQuery DescribeInterconnects where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dirDescribeInterconnectsResponse'
-newtype DescribeInterconnectsResponse = DescribeInterconnectsResponse'{_dirDescribeInterconnectsResponse :: [Interconnect]} deriving (Eq, Read, Show)
+newtype DescribeInterconnectsResponse = DescribeInterconnectsResponse'{_dirDescribeInterconnectsResponse :: Maybe [Interconnect]} deriving (Eq, Read, Show)
 
 -- | 'DescribeInterconnectsResponse' smart constructor.
 describeInterconnectsResponse :: DescribeInterconnectsResponse
-describeInterconnectsResponse = DescribeInterconnectsResponse'{_dirDescribeInterconnectsResponse = mempty};
+describeInterconnectsResponse = DescribeInterconnectsResponse'{_dirDescribeInterconnectsResponse = Nothing};
 
 -- | A list of interconnects.
-dirDescribeInterconnectsResponse :: Lens' DescribeInterconnectsResponse [Interconnect]
+dirDescribeInterconnectsResponse :: Lens' DescribeInterconnectsResponse (Maybe [Interconnect])
 dirDescribeInterconnectsResponse = lens _dirDescribeInterconnectsResponse (\ s a -> s{_dirDescribeInterconnectsResponse = a});

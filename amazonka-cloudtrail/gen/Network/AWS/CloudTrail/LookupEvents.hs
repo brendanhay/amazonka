@@ -71,11 +71,11 @@ import Network.AWS.CloudTrail.Types
 -- * 'leEndTime'
 --
 -- * 'leMaxResults'
-data LookupEvents = LookupEvents'{_leStartTime :: Maybe POSIX, _leLookupAttributes :: [LookupAttribute], _leNextToken :: Maybe Text, _leEndTime :: Maybe POSIX, _leMaxResults :: Nat} deriving (Eq, Read, Show)
+data LookupEvents = LookupEvents'{_leStartTime :: Maybe POSIX, _leLookupAttributes :: Maybe [LookupAttribute], _leNextToken :: Maybe Text, _leEndTime :: Maybe POSIX, _leMaxResults :: Maybe Nat} deriving (Eq, Read, Show)
 
 -- | 'LookupEvents' smart constructor.
-lookupEvents :: Natural -> LookupEvents
-lookupEvents pMaxResults = LookupEvents'{_leStartTime = Nothing, _leLookupAttributes = mempty, _leNextToken = Nothing, _leEndTime = Nothing, _leMaxResults = _Nat # pMaxResults};
+lookupEvents :: LookupEvents
+lookupEvents = LookupEvents'{_leStartTime = Nothing, _leLookupAttributes = Nothing, _leNextToken = Nothing, _leEndTime = Nothing, _leMaxResults = Nothing};
 
 -- | Specifies that only events that occur after or at the specified time are
 -- returned. If the specified start time is after the specified end time,
@@ -85,7 +85,7 @@ leStartTime = lens _leStartTime (\ s a -> s{_leStartTime = a}) . mapping _Time;
 
 -- | Contains a list of lookup attributes. Currently the list can contain
 -- only one item.
-leLookupAttributes :: Lens' LookupEvents [LookupAttribute]
+leLookupAttributes :: Lens' LookupEvents (Maybe [LookupAttribute])
 leLookupAttributes = lens _leLookupAttributes (\ s a -> s{_leLookupAttributes = a});
 
 -- | The token to use to get the next page of results after a previous API
@@ -104,8 +104,8 @@ leEndTime = lens _leEndTime (\ s a -> s{_leEndTime = a}) . mapping _Time;
 
 -- | The number of events to return. Possible values are 1 through 50. The
 -- default is 10.
-leMaxResults :: Lens' LookupEvents Natural
-leMaxResults = lens _leMaxResults (\ s a -> s{_leMaxResults = a}) . _Nat;
+leMaxResults :: Lens' LookupEvents (Maybe Natural)
+leMaxResults = lens _leMaxResults (\ s a -> s{_leMaxResults = a}) . mapping _Nat;
 
 instance AWSRequest LookupEvents where
         type Sv LookupEvents = CloudTrail
@@ -148,11 +148,11 @@ instance ToQuery LookupEvents where
 -- * 'lerNextToken'
 --
 -- * 'lerEvents'
-data LookupEventsResponse = LookupEventsResponse'{_lerNextToken :: Maybe Text, _lerEvents :: [Event]} deriving (Eq, Read, Show)
+data LookupEventsResponse = LookupEventsResponse'{_lerNextToken :: Maybe Text, _lerEvents :: Maybe [Event]} deriving (Eq, Read, Show)
 
 -- | 'LookupEventsResponse' smart constructor.
 lookupEventsResponse :: LookupEventsResponse
-lookupEventsResponse = LookupEventsResponse'{_lerNextToken = Nothing, _lerEvents = mempty};
+lookupEventsResponse = LookupEventsResponse'{_lerNextToken = Nothing, _lerEvents = Nothing};
 
 -- | The token to use to get the next page of results after a previous API
 -- call. If the token does not appear, there are no more results to return.
@@ -166,5 +166,5 @@ lerNextToken = lens _lerNextToken (\ s a -> s{_lerNextToken = a});
 -- | A list of events returned based on the lookup attributes specified and
 -- the CloudTrail event. The events list is sorted by time. The most recent
 -- event is listed first.
-lerEvents :: Lens' LookupEventsResponse [Event]
+lerEvents :: Lens' LookupEventsResponse (Maybe [Event])
 lerEvents = lens _lerEvents (\ s a -> s{_lerEvents = a});

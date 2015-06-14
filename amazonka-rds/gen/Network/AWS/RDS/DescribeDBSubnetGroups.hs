@@ -59,18 +59,18 @@ import Network.AWS.RDS.Types
 -- * 'ddsgMaxRecords'
 --
 -- * 'ddsgMarker'
-data DescribeDBSubnetGroups = DescribeDBSubnetGroups'{_ddsgDBSubnetGroupName :: Maybe Text, _ddsgFilters :: [Filter], _ddsgMaxRecords :: Maybe Int, _ddsgMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeDBSubnetGroups = DescribeDBSubnetGroups'{_ddsgDBSubnetGroupName :: Maybe Text, _ddsgFilters :: Maybe [Filter], _ddsgMaxRecords :: Maybe Int, _ddsgMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeDBSubnetGroups' smart constructor.
 describeDBSubnetGroups :: DescribeDBSubnetGroups
-describeDBSubnetGroups = DescribeDBSubnetGroups'{_ddsgDBSubnetGroupName = Nothing, _ddsgFilters = mempty, _ddsgMaxRecords = Nothing, _ddsgMarker = Nothing};
+describeDBSubnetGroups = DescribeDBSubnetGroups'{_ddsgDBSubnetGroupName = Nothing, _ddsgFilters = Nothing, _ddsgMaxRecords = Nothing, _ddsgMarker = Nothing};
 
 -- | The name of the DB subnet group to return details for.
 ddsgDBSubnetGroupName :: Lens' DescribeDBSubnetGroups (Maybe Text)
 ddsgDBSubnetGroupName = lens _ddsgDBSubnetGroupName (\ s a -> s{_ddsgDBSubnetGroupName = a});
 
 -- | This parameter is not currently supported.
-ddsgFilters :: Lens' DescribeDBSubnetGroups [Filter]
+ddsgFilters :: Lens' DescribeDBSubnetGroups (Maybe [Filter])
 ddsgFilters = lens _ddsgFilters (\ s a -> s{_ddsgFilters = a});
 
 -- | The maximum number of records to include in the response. If more
@@ -128,14 +128,14 @@ instance ToQuery DescribeDBSubnetGroups where
 -- * 'ddsgrDBSubnetGroups'
 --
 -- * 'ddsgrMarker'
-data DescribeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse'{_ddsgrDBSubnetGroups :: [DBSubnetGroup], _ddsgrMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse'{_ddsgrDBSubnetGroups :: Maybe [DBSubnetGroup], _ddsgrMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeDBSubnetGroupsResponse' smart constructor.
 describeDBSubnetGroupsResponse :: DescribeDBSubnetGroupsResponse
-describeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse'{_ddsgrDBSubnetGroups = mempty, _ddsgrMarker = Nothing};
+describeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse'{_ddsgrDBSubnetGroups = Nothing, _ddsgrMarker = Nothing};
 
 -- | A list of DBSubnetGroup instances.
-ddsgrDBSubnetGroups :: Lens' DescribeDBSubnetGroupsResponse [DBSubnetGroup]
+ddsgrDBSubnetGroups :: Lens' DescribeDBSubnetGroupsResponse (Maybe [DBSubnetGroup])
 ddsgrDBSubnetGroups = lens _ddsgrDBSubnetGroups (\ s a -> s{_ddsgrDBSubnetGroups = a});
 
 -- | An optional pagination token provided by a previous request. If this

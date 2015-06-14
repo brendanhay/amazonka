@@ -33,9 +33,9 @@ module Network.AWS.IAM.CreateRole
     -- ** Request constructor
     , createRole
     -- ** Request lenses
+    , crPath
     , crRoleName
     , crAssumeRolePolicyDocument
-    , crPath
 
     -- * Response
     , CreateRoleResponse
@@ -54,16 +54,25 @@ import Network.AWS.IAM.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'crPath'
+--
 -- * 'crRoleName'
 --
 -- * 'crAssumeRolePolicyDocument'
---
--- * 'crPath'
-data CreateRole = CreateRole'{_crRoleName :: Text, _crAssumeRolePolicyDocument :: Text, _crPath :: Text} deriving (Eq, Read, Show)
+data CreateRole = CreateRole'{_crPath :: Maybe Text, _crRoleName :: Text, _crAssumeRolePolicyDocument :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateRole' smart constructor.
-createRole :: Text -> Text -> Text -> CreateRole
-createRole pRoleName pAssumeRolePolicyDocument pPath = CreateRole'{_crRoleName = pRoleName, _crAssumeRolePolicyDocument = pAssumeRolePolicyDocument, _crPath = pPath};
+createRole :: Text -> Text -> CreateRole
+createRole pRoleName pAssumeRolePolicyDocument = CreateRole'{_crPath = Nothing, _crRoleName = pRoleName, _crAssumeRolePolicyDocument = pAssumeRolePolicyDocument};
+
+-- | The path to the role. For more information about paths, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
+-- in the /Using IAM/ guide.
+--
+-- This parameter is optional. If it is not included, it defaults to a
+-- slash (\/).
+crPath :: Lens' CreateRole (Maybe Text)
+crPath = lens _crPath (\ s a -> s{_crPath = a});
 
 -- | The name of the role to create.
 crRoleName :: Lens' CreateRole Text
@@ -72,15 +81,6 @@ crRoleName = lens _crRoleName (\ s a -> s{_crRoleName = a});
 -- | The policy that grants an entity permission to assume the role.
 crAssumeRolePolicyDocument :: Lens' CreateRole Text
 crAssumeRolePolicyDocument = lens _crAssumeRolePolicyDocument (\ s a -> s{_crAssumeRolePolicyDocument = a});
-
--- | The path to the role. For more information about paths, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
--- in the /Using IAM/ guide.
---
--- This parameter is optional. If it is not included, it defaults to a
--- slash (\/).
-crPath :: Lens' CreateRole Text
-crPath = lens _crPath (\ s a -> s{_crPath = a});
 
 instance AWSRequest CreateRole where
         type Sv CreateRole = IAM
@@ -101,10 +101,9 @@ instance ToQuery CreateRole where
           = mconcat
               ["Action" =: ("CreateRole" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "RoleName" =: _crRoleName,
+               "Path" =: _crPath, "RoleName" =: _crRoleName,
                "AssumeRolePolicyDocument" =:
-                 _crAssumeRolePolicyDocument,
-               "Path" =: _crPath]
+                 _crAssumeRolePolicyDocument]
 
 -- | /See:/ 'createRoleResponse' smart constructor.
 --

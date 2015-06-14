@@ -37,9 +37,9 @@ module Network.AWS.IAM.UpdateServerCertificate
     -- ** Request constructor
     , updateServerCertificate
     -- ** Request lenses
-    , updServerCertificateName
     , updNewServerCertificateName
     , updNewPath
+    , updServerCertificateName
 
     -- * Response
     , UpdateServerCertificateResponse
@@ -56,30 +56,30 @@ import Network.AWS.IAM.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'updServerCertificateName'
---
 -- * 'updNewServerCertificateName'
 --
 -- * 'updNewPath'
-data UpdateServerCertificate = UpdateServerCertificate'{_updServerCertificateName :: Text, _updNewServerCertificateName :: Text, _updNewPath :: Text} deriving (Eq, Read, Show)
+--
+-- * 'updServerCertificateName'
+data UpdateServerCertificate = UpdateServerCertificate'{_updNewServerCertificateName :: Maybe Text, _updNewPath :: Maybe Text, _updServerCertificateName :: Text} deriving (Eq, Read, Show)
 
 -- | 'UpdateServerCertificate' smart constructor.
-updateServerCertificate :: Text -> Text -> Text -> UpdateServerCertificate
-updateServerCertificate pServerCertificateName pNewServerCertificateName pNewPath = UpdateServerCertificate'{_updServerCertificateName = pServerCertificateName, _updNewServerCertificateName = pNewServerCertificateName, _updNewPath = pNewPath};
-
--- | The name of the server certificate that you want to update.
-updServerCertificateName :: Lens' UpdateServerCertificate Text
-updServerCertificateName = lens _updServerCertificateName (\ s a -> s{_updServerCertificateName = a});
+updateServerCertificate :: Text -> UpdateServerCertificate
+updateServerCertificate pServerCertificateName = UpdateServerCertificate'{_updNewServerCertificateName = Nothing, _updNewPath = Nothing, _updServerCertificateName = pServerCertificateName};
 
 -- | The new name for the server certificate. Include this only if you are
 -- updating the server certificate\'s name.
-updNewServerCertificateName :: Lens' UpdateServerCertificate Text
+updNewServerCertificateName :: Lens' UpdateServerCertificate (Maybe Text)
 updNewServerCertificateName = lens _updNewServerCertificateName (\ s a -> s{_updNewServerCertificateName = a});
 
 -- | The new path for the server certificate. Include this only if you are
 -- updating the server certificate\'s path.
-updNewPath :: Lens' UpdateServerCertificate Text
+updNewPath :: Lens' UpdateServerCertificate (Maybe Text)
 updNewPath = lens _updNewPath (\ s a -> s{_updNewPath = a});
+
+-- | The name of the server certificate that you want to update.
+updServerCertificateName :: Lens' UpdateServerCertificate Text
+updServerCertificateName = lens _updServerCertificateName (\ s a -> s{_updServerCertificateName = a});
 
 instance AWSRequest UpdateServerCertificate where
         type Sv UpdateServerCertificate = IAM
@@ -101,10 +101,10 @@ instance ToQuery UpdateServerCertificate where
               ["Action" =:
                  ("UpdateServerCertificate" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "ServerCertificateName" =: _updServerCertificateName,
                "NewServerCertificateName" =:
                  _updNewServerCertificateName,
-               "NewPath" =: _updNewPath]
+               "NewPath" =: _updNewPath,
+               "ServerCertificateName" =: _updServerCertificateName]
 
 -- | /See:/ 'updateServerCertificateResponse' smart constructor.
 data UpdateServerCertificateResponse = UpdateServerCertificateResponse' deriving (Eq, Read, Show)

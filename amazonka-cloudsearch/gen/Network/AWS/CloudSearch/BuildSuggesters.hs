@@ -85,12 +85,12 @@ instance ToQuery BuildSuggesters where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'bsrFieldNames'
-newtype BuildSuggestersResponse = BuildSuggestersResponse'{_bsrFieldNames :: [Text]} deriving (Eq, Read, Show)
+newtype BuildSuggestersResponse = BuildSuggestersResponse'{_bsrFieldNames :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'BuildSuggestersResponse' smart constructor.
 buildSuggestersResponse :: BuildSuggestersResponse
-buildSuggestersResponse = BuildSuggestersResponse'{_bsrFieldNames = mempty};
+buildSuggestersResponse = BuildSuggestersResponse'{_bsrFieldNames = Nothing};
 
 -- | FIXME: Undocumented member.
-bsrFieldNames :: Lens' BuildSuggestersResponse [Text]
+bsrFieldNames :: Lens' BuildSuggestersResponse (Maybe [Text])
 bsrFieldNames = lens _bsrFieldNames (\ s a -> s{_bsrFieldNames = a});

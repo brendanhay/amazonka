@@ -53,8 +53,8 @@ import Network.AWS.ECS.Types
 data DescribeContainerInstances = DescribeContainerInstances'{_dciCluster :: Maybe Text, _dciContainerInstances :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'DescribeContainerInstances' smart constructor.
-describeContainerInstances :: [Text] -> DescribeContainerInstances
-describeContainerInstances pContainerInstances = DescribeContainerInstances'{_dciCluster = Nothing, _dciContainerInstances = pContainerInstances};
+describeContainerInstances :: DescribeContainerInstances
+describeContainerInstances = DescribeContainerInstances'{_dciCluster = Nothing, _dciContainerInstances = mempty};
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the container instances you want to describe. If you do not
@@ -108,16 +108,16 @@ instance ToQuery DescribeContainerInstances where
 -- * 'dcirFailures'
 --
 -- * 'dcirContainerInstances'
-data DescribeContainerInstancesResponse = DescribeContainerInstancesResponse'{_dcirFailures :: [Failure], _dcirContainerInstances :: [ContainerInstance]} deriving (Eq, Read, Show)
+data DescribeContainerInstancesResponse = DescribeContainerInstancesResponse'{_dcirFailures :: Maybe [Failure], _dcirContainerInstances :: Maybe [ContainerInstance]} deriving (Eq, Read, Show)
 
 -- | 'DescribeContainerInstancesResponse' smart constructor.
 describeContainerInstancesResponse :: DescribeContainerInstancesResponse
-describeContainerInstancesResponse = DescribeContainerInstancesResponse'{_dcirFailures = mempty, _dcirContainerInstances = mempty};
+describeContainerInstancesResponse = DescribeContainerInstancesResponse'{_dcirFailures = Nothing, _dcirContainerInstances = Nothing};
 
 -- | FIXME: Undocumented member.
-dcirFailures :: Lens' DescribeContainerInstancesResponse [Failure]
+dcirFailures :: Lens' DescribeContainerInstancesResponse (Maybe [Failure])
 dcirFailures = lens _dcirFailures (\ s a -> s{_dcirFailures = a});
 
 -- | The list of container instances.
-dcirContainerInstances :: Lens' DescribeContainerInstancesResponse [ContainerInstance]
+dcirContainerInstances :: Lens' DescribeContainerInstancesResponse (Maybe [ContainerInstance])
 dcirContainerInstances = lens _dcirContainerInstances (\ s a -> s{_dcirContainerInstances = a});

@@ -56,8 +56,8 @@ import Network.AWS.ElastiCache.Types
 data CreateCacheSubnetGroup = CreateCacheSubnetGroup'{_ccsgCacheSubnetGroupName :: Text, _ccsgCacheSubnetGroupDescription :: Text, _ccsgSubnetIds :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'CreateCacheSubnetGroup' smart constructor.
-createCacheSubnetGroup :: Text -> Text -> [Text] -> CreateCacheSubnetGroup
-createCacheSubnetGroup pCacheSubnetGroupName pCacheSubnetGroupDescription pSubnetIds = CreateCacheSubnetGroup'{_ccsgCacheSubnetGroupName = pCacheSubnetGroupName, _ccsgCacheSubnetGroupDescription = pCacheSubnetGroupDescription, _ccsgSubnetIds = pSubnetIds};
+createCacheSubnetGroup :: Text -> Text -> CreateCacheSubnetGroup
+createCacheSubnetGroup pCacheSubnetGroupName pCacheSubnetGroupDescription = CreateCacheSubnetGroup'{_ccsgCacheSubnetGroupName = pCacheSubnetGroupName, _ccsgCacheSubnetGroupDescription = pCacheSubnetGroupDescription, _ccsgSubnetIds = mempty};
 
 -- | A name for the cache subnet group. This value is stored as a lowercase
 -- string.

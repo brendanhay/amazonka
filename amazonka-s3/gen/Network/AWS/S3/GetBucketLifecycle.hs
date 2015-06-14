@@ -80,12 +80,12 @@ instance ToQuery GetBucketLifecycle where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gblrRules'
-newtype GetBucketLifecycleResponse = GetBucketLifecycleResponse'{_gblrRules :: [Rule]} deriving (Eq, Read, Show)
+newtype GetBucketLifecycleResponse = GetBucketLifecycleResponse'{_gblrRules :: Maybe [Rule]} deriving (Eq, Read, Show)
 
 -- | 'GetBucketLifecycleResponse' smart constructor.
 getBucketLifecycleResponse :: GetBucketLifecycleResponse
-getBucketLifecycleResponse = GetBucketLifecycleResponse'{_gblrRules = mempty};
+getBucketLifecycleResponse = GetBucketLifecycleResponse'{_gblrRules = Nothing};
 
 -- | FIXME: Undocumented member.
-gblrRules :: Lens' GetBucketLifecycleResponse [Rule]
+gblrRules :: Lens' GetBucketLifecycleResponse (Maybe [Rule])
 gblrRules = lens _gblrRules (\ s a -> s{_gblrRules = a});

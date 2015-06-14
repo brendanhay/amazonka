@@ -53,8 +53,8 @@ import Network.AWS.StorageGateway.Types
 newtype DescribeCachediSCSIVolumes = DescribeCachediSCSIVolumes'{_dcscsivVolumeARNs :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'DescribeCachediSCSIVolumes' smart constructor.
-describeCachediSCSIVolumes :: [Text] -> DescribeCachediSCSIVolumes
-describeCachediSCSIVolumes pVolumeARNs = DescribeCachediSCSIVolumes'{_dcscsivVolumeARNs = pVolumeARNs};
+describeCachediSCSIVolumes :: DescribeCachediSCSIVolumes
+describeCachediSCSIVolumes = DescribeCachediSCSIVolumes'{_dcscsivVolumeARNs = mempty};
 
 -- | FIXME: Undocumented member.
 dcscsivVolumeARNs :: Lens' DescribeCachediSCSIVolumes [Text]
@@ -96,13 +96,13 @@ instance ToQuery DescribeCachediSCSIVolumes where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dcscsivrCachediSCSIVolumes'
-newtype DescribeCachediSCSIVolumesResponse = DescribeCachediSCSIVolumesResponse'{_dcscsivrCachediSCSIVolumes :: [CachediSCSIVolume]} deriving (Eq, Read, Show)
+newtype DescribeCachediSCSIVolumesResponse = DescribeCachediSCSIVolumesResponse'{_dcscsivrCachediSCSIVolumes :: Maybe [CachediSCSIVolume]} deriving (Eq, Read, Show)
 
 -- | 'DescribeCachediSCSIVolumesResponse' smart constructor.
 describeCachediSCSIVolumesResponse :: DescribeCachediSCSIVolumesResponse
-describeCachediSCSIVolumesResponse = DescribeCachediSCSIVolumesResponse'{_dcscsivrCachediSCSIVolumes = mempty};
+describeCachediSCSIVolumesResponse = DescribeCachediSCSIVolumesResponse'{_dcscsivrCachediSCSIVolumes = Nothing};
 
 -- | An array of objects where each object contains metadata about one cached
 -- volume.
-dcscsivrCachediSCSIVolumes :: Lens' DescribeCachediSCSIVolumesResponse [CachediSCSIVolume]
+dcscsivrCachediSCSIVolumes :: Lens' DescribeCachediSCSIVolumesResponse (Maybe [CachediSCSIVolume])
 dcscsivrCachediSCSIVolumes = lens _dcscsivrCachediSCSIVolumes (\ s a -> s{_dcscsivrCachediSCSIVolumes = a});

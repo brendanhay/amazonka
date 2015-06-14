@@ -109,15 +109,15 @@ import Network.AWS.EC2.Types
 -- * 'ds1DryRun'
 --
 -- * 'ds1MaxResults'
-data DescribeSnapshots = DescribeSnapshots'{_ds1OwnerIds :: [Text], _ds1Filters :: [Filter], _ds1NextToken :: Maybe Text, _ds1SnapshotIds :: [Text], _ds1RestorableByUserIds :: [Text], _ds1DryRun :: Maybe Bool, _ds1MaxResults :: Maybe Int} deriving (Eq, Read, Show)
+data DescribeSnapshots = DescribeSnapshots'{_ds1OwnerIds :: Maybe [Text], _ds1Filters :: Maybe [Filter], _ds1NextToken :: Maybe Text, _ds1SnapshotIds :: Maybe [Text], _ds1RestorableByUserIds :: Maybe [Text], _ds1DryRun :: Maybe Bool, _ds1MaxResults :: Maybe Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeSnapshots' smart constructor.
 describeSnapshots :: DescribeSnapshots
-describeSnapshots = DescribeSnapshots'{_ds1OwnerIds = mempty, _ds1Filters = mempty, _ds1NextToken = Nothing, _ds1SnapshotIds = mempty, _ds1RestorableByUserIds = mempty, _ds1DryRun = Nothing, _ds1MaxResults = Nothing};
+describeSnapshots = DescribeSnapshots'{_ds1OwnerIds = Nothing, _ds1Filters = Nothing, _ds1NextToken = Nothing, _ds1SnapshotIds = Nothing, _ds1RestorableByUserIds = Nothing, _ds1DryRun = Nothing, _ds1MaxResults = Nothing};
 
 -- | Returns the snapshots owned by the specified owner. Multiple owners can
 -- be specified.
-ds1OwnerIds :: Lens' DescribeSnapshots [Text]
+ds1OwnerIds :: Lens' DescribeSnapshots (Maybe [Text])
 ds1OwnerIds = lens _ds1OwnerIds (\ s a -> s{_ds1OwnerIds = a});
 
 -- | One or more filters.
@@ -157,7 +157,7 @@ ds1OwnerIds = lens _ds1OwnerIds (\ s a -> s{_ds1OwnerIds = a});
 --
 -- -   @volume-size@ - The size of the volume, in GiB.
 --
-ds1Filters :: Lens' DescribeSnapshots [Filter]
+ds1Filters :: Lens' DescribeSnapshots (Maybe [Filter])
 ds1Filters = lens _ds1Filters (\ s a -> s{_ds1Filters = a});
 
 -- | The @NextToken@ value returned from a previous paginated
@@ -171,11 +171,11 @@ ds1NextToken = lens _ds1NextToken (\ s a -> s{_ds1NextToken = a});
 -- | One or more snapshot IDs.
 --
 -- Default: Describes snapshots for which you have launch permissions.
-ds1SnapshotIds :: Lens' DescribeSnapshots [Text]
+ds1SnapshotIds :: Lens' DescribeSnapshots (Maybe [Text])
 ds1SnapshotIds = lens _ds1SnapshotIds (\ s a -> s{_ds1SnapshotIds = a});
 
 -- | One or more AWS accounts IDs that can create volumes from the snapshot.
-ds1RestorableByUserIds :: Lens' DescribeSnapshots [Text]
+ds1RestorableByUserIds :: Lens' DescribeSnapshots (Maybe [Text])
 ds1RestorableByUserIds = lens _ds1RestorableByUserIds (\ s a -> s{_ds1RestorableByUserIds = a});
 
 -- | Checks whether you have the required permissions for the action, without
@@ -233,11 +233,11 @@ instance ToQuery DescribeSnapshots where
 -- * 'dsrNextToken'
 --
 -- * 'dsrSnapshots'
-data DescribeSnapshotsResponse = DescribeSnapshotsResponse'{_dsrNextToken :: Maybe Text, _dsrSnapshots :: [Snapshot]} deriving (Eq, Read, Show)
+data DescribeSnapshotsResponse = DescribeSnapshotsResponse'{_dsrNextToken :: Maybe Text, _dsrSnapshots :: Maybe [Snapshot]} deriving (Eq, Read, Show)
 
 -- | 'DescribeSnapshotsResponse' smart constructor.
 describeSnapshotsResponse :: DescribeSnapshotsResponse
-describeSnapshotsResponse = DescribeSnapshotsResponse'{_dsrNextToken = Nothing, _dsrSnapshots = mempty};
+describeSnapshotsResponse = DescribeSnapshotsResponse'{_dsrNextToken = Nothing, _dsrSnapshots = Nothing};
 
 -- | The @NextToken@ value to include in a future @DescribeSnapshots@
 -- request. When the results of a @DescribeSnapshots@ request exceed
@@ -247,5 +247,5 @@ dsrNextToken :: Lens' DescribeSnapshotsResponse (Maybe Text)
 dsrNextToken = lens _dsrNextToken (\ s a -> s{_dsrNextToken = a});
 
 -- | Information about the snapshots.
-dsrSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
+dsrSnapshots :: Lens' DescribeSnapshotsResponse (Maybe [Snapshot])
 dsrSnapshots = lens _dsrSnapshots (\ s a -> s{_dsrSnapshots = a});

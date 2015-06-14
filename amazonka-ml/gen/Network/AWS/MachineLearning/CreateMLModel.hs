@@ -80,11 +80,11 @@ import Network.AWS.MachineLearning.Types
 -- * 'cmlmMLModelType'
 --
 -- * 'cmlmTrainingDataSourceId'
-data CreateMLModel = CreateMLModel'{_cmlmRecipe :: Maybe Text, _cmlmRecipeURI :: Maybe Text, _cmlmMLModelName :: Maybe Text, _cmlmParameters :: HashMap Text Text, _cmlmMLModelId :: Text, _cmlmMLModelType :: MLModelType, _cmlmTrainingDataSourceId :: Text} deriving (Eq, Read, Show)
+data CreateMLModel = CreateMLModel'{_cmlmRecipe :: Maybe Text, _cmlmRecipeURI :: Maybe Text, _cmlmMLModelName :: Maybe Text, _cmlmParameters :: Maybe (HashMap Text Text), _cmlmMLModelId :: Text, _cmlmMLModelType :: MLModelType, _cmlmTrainingDataSourceId :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateMLModel' smart constructor.
 createMLModel :: Text -> MLModelType -> Text -> CreateMLModel
-createMLModel pMLModelId pMLModelType pTrainingDataSourceId = CreateMLModel'{_cmlmRecipe = Nothing, _cmlmRecipeURI = Nothing, _cmlmMLModelName = Nothing, _cmlmParameters = mempty, _cmlmMLModelId = pMLModelId, _cmlmMLModelType = pMLModelType, _cmlmTrainingDataSourceId = pTrainingDataSourceId};
+createMLModel pMLModelId pMLModelType pTrainingDataSourceId = CreateMLModel'{_cmlmRecipe = Nothing, _cmlmRecipeURI = Nothing, _cmlmMLModelName = Nothing, _cmlmParameters = Nothing, _cmlmMLModelId = pMLModelId, _cmlmMLModelType = pMLModelType, _cmlmTrainingDataSourceId = pTrainingDataSourceId};
 
 -- | The data recipe for creating @MLModel@. You must specify either the
 -- recipe or its URI. If you don’t specify a recipe or its URI, Amazon ML
@@ -139,8 +139,8 @@ cmlmMLModelName = lens _cmlmMLModelName (\ s a -> s{_cmlmMLModelName = a});
 --     The value is an integer that ranges from 100000 to 2147483648. The
 --     default value is 33554432.
 --
-cmlmParameters :: Lens' CreateMLModel (HashMap Text Text)
-cmlmParameters = lens _cmlmParameters (\ s a -> s{_cmlmParameters = a}) . _Coerce;
+cmlmParameters :: Lens' CreateMLModel (Maybe (HashMap Text Text))
+cmlmParameters = lens _cmlmParameters (\ s a -> s{_cmlmParameters = a}) . mapping _Coerce;
 
 -- | A user-supplied ID that uniquely identifies the @MLModel@.
 cmlmMLModelId :: Lens' CreateMLModel Text
@@ -171,7 +171,7 @@ instance AWSRequest CreateMLModel where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateMLModelResponse' <$> x .:> "MLModelId")
+                 CreateMLModelResponse' <$> x .?> "MLModelId")
 
 instance ToHeaders CreateMLModel where
         toHeaders
@@ -204,13 +204,13 @@ instance ToQuery CreateMLModel where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cmlmrMLModelId'
-newtype CreateMLModelResponse = CreateMLModelResponse'{_cmlmrMLModelId :: Text} deriving (Eq, Read, Show)
+newtype CreateMLModelResponse = CreateMLModelResponse'{_cmlmrMLModelId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'CreateMLModelResponse' smart constructor.
-createMLModelResponse :: Text -> CreateMLModelResponse
-createMLModelResponse pMLModelId = CreateMLModelResponse'{_cmlmrMLModelId = pMLModelId};
+createMLModelResponse :: CreateMLModelResponse
+createMLModelResponse = CreateMLModelResponse'{_cmlmrMLModelId = Nothing};
 
 -- | A user-supplied ID that uniquely identifies the @MLModel@. This value
 -- should be identical to the value of the @MLModelId@ in the request.
-cmlmrMLModelId :: Lens' CreateMLModelResponse Text
+cmlmrMLModelId :: Lens' CreateMLModelResponse (Maybe Text)
 cmlmrMLModelId = lens _cmlmrMLModelId (\ s a -> s{_cmlmrMLModelId = a});

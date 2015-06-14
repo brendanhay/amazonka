@@ -39,8 +39,8 @@ module Network.AWS.Support.DescribeCommunications
     , dAfterTime
     , dNextToken
     , dBeforeTime
-    , dCaseId
     , dMaxResults
+    , dCaseId
 
     -- * Response
     , DescribeCommunicationsResponse
@@ -66,14 +66,14 @@ import Network.AWS.Support.Types
 --
 -- * 'dBeforeTime'
 --
--- * 'dCaseId'
---
 -- * 'dMaxResults'
-data DescribeCommunications = DescribeCommunications'{_dAfterTime :: Maybe Text, _dNextToken :: Maybe Text, _dBeforeTime :: Maybe Text, _dCaseId :: Text, _dMaxResults :: Nat} deriving (Eq, Read, Show)
+--
+-- * 'dCaseId'
+data DescribeCommunications = DescribeCommunications'{_dAfterTime :: Maybe Text, _dNextToken :: Maybe Text, _dBeforeTime :: Maybe Text, _dMaxResults :: Maybe Nat, _dCaseId :: Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeCommunications' smart constructor.
-describeCommunications :: Text -> Natural -> DescribeCommunications
-describeCommunications pCaseId pMaxResults = DescribeCommunications'{_dAfterTime = Nothing, _dNextToken = Nothing, _dBeforeTime = Nothing, _dCaseId = pCaseId, _dMaxResults = _Nat # pMaxResults};
+describeCommunications :: Text -> DescribeCommunications
+describeCommunications pCaseId = DescribeCommunications'{_dAfterTime = Nothing, _dNextToken = Nothing, _dBeforeTime = Nothing, _dMaxResults = Nothing, _dCaseId = pCaseId};
 
 -- | The start date for a filtered date search on support case
 -- communications. Case communications are available for 12 months after
@@ -90,15 +90,15 @@ dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
 dBeforeTime :: Lens' DescribeCommunications (Maybe Text)
 dBeforeTime = lens _dBeforeTime (\ s a -> s{_dBeforeTime = a});
 
+-- | The maximum number of results to return before paginating.
+dMaxResults :: Lens' DescribeCommunications (Maybe Natural)
+dMaxResults = lens _dMaxResults (\ s a -> s{_dMaxResults = a}) . mapping _Nat;
+
 -- | The AWS Support case ID requested or returned in the call. The case ID
 -- is an alphanumeric string formatted as shown in this example:
 -- case-/12345678910-2013-c4c1d2bf33c5cf47/
 dCaseId :: Lens' DescribeCommunications Text
 dCaseId = lens _dCaseId (\ s a -> s{_dCaseId = a});
-
--- | The maximum number of results to return before paginating.
-dMaxResults :: Lens' DescribeCommunications Natural
-dMaxResults = lens _dMaxResults (\ s a -> s{_dMaxResults = a}) . _Nat;
 
 instance AWSRequest DescribeCommunications where
         type Sv DescribeCommunications = Support
@@ -127,8 +127,8 @@ instance ToJSON DescribeCommunications where
           = object
               ["afterTime" .= _dAfterTime,
                "nextToken" .= _dNextToken,
-               "beforeTime" .= _dBeforeTime, "caseId" .= _dCaseId,
-               "maxResults" .= _dMaxResults]
+               "beforeTime" .= _dBeforeTime,
+               "maxResults" .= _dMaxResults, "caseId" .= _dCaseId]
 
 instance ToPath DescribeCommunications where
         toPath = const "/"
@@ -143,16 +143,16 @@ instance ToQuery DescribeCommunications where
 -- * 'dcrNextToken'
 --
 -- * 'dcrCommunications'
-data DescribeCommunicationsResponse = DescribeCommunicationsResponse'{_dcrNextToken :: Maybe Text, _dcrCommunications :: [Communication]} deriving (Eq, Read, Show)
+data DescribeCommunicationsResponse = DescribeCommunicationsResponse'{_dcrNextToken :: Maybe Text, _dcrCommunications :: Maybe [Communication]} deriving (Eq, Read, Show)
 
 -- | 'DescribeCommunicationsResponse' smart constructor.
 describeCommunicationsResponse :: DescribeCommunicationsResponse
-describeCommunicationsResponse = DescribeCommunicationsResponse'{_dcrNextToken = Nothing, _dcrCommunications = mempty};
+describeCommunicationsResponse = DescribeCommunicationsResponse'{_dcrNextToken = Nothing, _dcrCommunications = Nothing};
 
 -- | A resumption point for pagination.
 dcrNextToken :: Lens' DescribeCommunicationsResponse (Maybe Text)
 dcrNextToken = lens _dcrNextToken (\ s a -> s{_dcrNextToken = a});
 
 -- | The communications for the case.
-dcrCommunications :: Lens' DescribeCommunicationsResponse [Communication]
+dcrCommunications :: Lens' DescribeCommunicationsResponse (Maybe [Communication])
 dcrCommunications = lens _dcrCommunications (\ s a -> s{_dcrCommunications = a});

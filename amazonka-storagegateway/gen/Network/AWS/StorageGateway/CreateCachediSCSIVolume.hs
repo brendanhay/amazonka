@@ -112,7 +112,7 @@ instance AWSRequest CreateCachediSCSIVolume where
           = receiveJSON
               (\ s h x ->
                  CreateCachediSCSIVolumeResponse' <$>
-                   x .:> "TargetARN" <*> x .:> "VolumeARN")
+                   x .?> "TargetARN" <*> x .?> "VolumeARN")
 
 instance ToHeaders CreateCachediSCSIVolume where
         toHeaders
@@ -147,16 +147,16 @@ instance ToQuery CreateCachediSCSIVolume where
 -- * 'ccscsivrTargetARN'
 --
 -- * 'ccscsivrVolumeARN'
-data CreateCachediSCSIVolumeResponse = CreateCachediSCSIVolumeResponse'{_ccscsivrTargetARN :: Text, _ccscsivrVolumeARN :: Text} deriving (Eq, Read, Show)
+data CreateCachediSCSIVolumeResponse = CreateCachediSCSIVolumeResponse'{_ccscsivrTargetARN :: Maybe Text, _ccscsivrVolumeARN :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'CreateCachediSCSIVolumeResponse' smart constructor.
-createCachediSCSIVolumeResponse :: Text -> Text -> CreateCachediSCSIVolumeResponse
-createCachediSCSIVolumeResponse pTargetARN pVolumeARN = CreateCachediSCSIVolumeResponse'{_ccscsivrTargetARN = pTargetARN, _ccscsivrVolumeARN = pVolumeARN};
+createCachediSCSIVolumeResponse :: CreateCachediSCSIVolumeResponse
+createCachediSCSIVolumeResponse = CreateCachediSCSIVolumeResponse'{_ccscsivrTargetARN = Nothing, _ccscsivrVolumeARN = Nothing};
 
 -- | FIXME: Undocumented member.
-ccscsivrTargetARN :: Lens' CreateCachediSCSIVolumeResponse Text
+ccscsivrTargetARN :: Lens' CreateCachediSCSIVolumeResponse (Maybe Text)
 ccscsivrTargetARN = lens _ccscsivrTargetARN (\ s a -> s{_ccscsivrTargetARN = a});
 
 -- | FIXME: Undocumented member.
-ccscsivrVolumeARN :: Lens' CreateCachediSCSIVolumeResponse Text
+ccscsivrVolumeARN :: Lens' CreateCachediSCSIVolumeResponse (Maybe Text)
 ccscsivrVolumeARN = lens _ccscsivrVolumeARN (\ s a -> s{_ccscsivrVolumeARN = a});

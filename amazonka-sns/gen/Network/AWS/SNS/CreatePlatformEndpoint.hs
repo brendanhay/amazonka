@@ -68,11 +68,11 @@ import Network.AWS.SNS.Types
 -- * 'cpePlatformApplicationARN'
 --
 -- * 'cpeToken'
-data CreatePlatformEndpoint = CreatePlatformEndpoint'{_cpeCustomUserData :: Maybe Text, _cpeAttributes :: HashMap Text Text, _cpePlatformApplicationARN :: Text, _cpeToken :: Text} deriving (Eq, Read, Show)
+data CreatePlatformEndpoint = CreatePlatformEndpoint'{_cpeCustomUserData :: Maybe Text, _cpeAttributes :: Maybe (HashMap Text Text), _cpePlatformApplicationARN :: Text, _cpeToken :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreatePlatformEndpoint' smart constructor.
 createPlatformEndpoint :: Text -> Text -> CreatePlatformEndpoint
-createPlatformEndpoint pPlatformApplicationARN pToken = CreatePlatformEndpoint'{_cpeCustomUserData = Nothing, _cpeAttributes = mempty, _cpePlatformApplicationARN = pPlatformApplicationARN, _cpeToken = pToken};
+createPlatformEndpoint pPlatformApplicationARN pToken = CreatePlatformEndpoint'{_cpeCustomUserData = Nothing, _cpeAttributes = Nothing, _cpePlatformApplicationARN = pPlatformApplicationARN, _cpeToken = pToken};
 
 -- | Arbitrary user data to associate with the endpoint. Amazon SNS does not
 -- use this data. The data must be in UTF-8 format and less than 2KB.
@@ -81,8 +81,8 @@ cpeCustomUserData = lens _cpeCustomUserData (\ s a -> s{_cpeCustomUserData = a})
 
 -- | For a list of attributes, see
 -- <http://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html SetEndpointAttributes>.
-cpeAttributes :: Lens' CreatePlatformEndpoint (HashMap Text Text)
-cpeAttributes = lens _cpeAttributes (\ s a -> s{_cpeAttributes = a}) . _Coerce;
+cpeAttributes :: Lens' CreatePlatformEndpoint (Maybe (HashMap Text Text))
+cpeAttributes = lens _cpeAttributes (\ s a -> s{_cpeAttributes = a}) . mapping _Coerce;
 
 -- | PlatformApplicationArn returned from CreatePlatformApplication is used
 -- to create a an endpoint.

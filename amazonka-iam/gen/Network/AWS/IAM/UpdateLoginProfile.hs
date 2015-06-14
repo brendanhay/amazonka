@@ -29,9 +29,9 @@ module Network.AWS.IAM.UpdateLoginProfile
     -- ** Request constructor
     , updateLoginProfile
     -- ** Request lenses
+    , ulpPassword
     , ulpPasswordResetRequired
     , ulpUserName
-    , ulpPassword
 
     -- * Response
     , UpdateLoginProfileResponse
@@ -48,16 +48,20 @@ import Network.AWS.IAM.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'ulpPassword'
+--
 -- * 'ulpPasswordResetRequired'
 --
 -- * 'ulpUserName'
---
--- * 'ulpPassword'
-data UpdateLoginProfile = UpdateLoginProfile'{_ulpPasswordResetRequired :: Maybe Bool, _ulpUserName :: Text, _ulpPassword :: Sensitive Text} deriving (Eq, Read, Show)
+data UpdateLoginProfile = UpdateLoginProfile'{_ulpPassword :: Maybe (Sensitive Text), _ulpPasswordResetRequired :: Maybe Bool, _ulpUserName :: Text} deriving (Eq, Read, Show)
 
 -- | 'UpdateLoginProfile' smart constructor.
-updateLoginProfile :: Text -> Text -> UpdateLoginProfile
-updateLoginProfile pUserName pPassword = UpdateLoginProfile'{_ulpPasswordResetRequired = Nothing, _ulpUserName = pUserName, _ulpPassword = _Sensitive # pPassword};
+updateLoginProfile :: Text -> UpdateLoginProfile
+updateLoginProfile pUserName = UpdateLoginProfile'{_ulpPassword = Nothing, _ulpPasswordResetRequired = Nothing, _ulpUserName = pUserName};
+
+-- | The new password for the specified user.
+ulpPassword :: Lens' UpdateLoginProfile (Maybe Text)
+ulpPassword = lens _ulpPassword (\ s a -> s{_ulpPassword = a}) . mapping _Sensitive;
 
 -- | Require the specified user to set a new password on next sign-in.
 ulpPasswordResetRequired :: Lens' UpdateLoginProfile (Maybe Bool)
@@ -66,10 +70,6 @@ ulpPasswordResetRequired = lens _ulpPasswordResetRequired (\ s a -> s{_ulpPasswo
 -- | The name of the user whose password you want to update.
 ulpUserName :: Lens' UpdateLoginProfile Text
 ulpUserName = lens _ulpUserName (\ s a -> s{_ulpUserName = a});
-
--- | The new password for the specified user.
-ulpPassword :: Lens' UpdateLoginProfile Text
-ulpPassword = lens _ulpPassword (\ s a -> s{_ulpPassword = a}) . _Sensitive;
 
 instance AWSRequest UpdateLoginProfile where
         type Sv UpdateLoginProfile = IAM
@@ -89,9 +89,9 @@ instance ToQuery UpdateLoginProfile where
           = mconcat
               ["Action" =: ("UpdateLoginProfile" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
+               "Password" =: _ulpPassword,
                "PasswordResetRequired" =: _ulpPasswordResetRequired,
-               "UserName" =: _ulpUserName,
-               "Password" =: _ulpPassword]
+               "UserName" =: _ulpUserName]
 
 -- | /See:/ 'updateLoginProfileResponse' smart constructor.
 data UpdateLoginProfileResponse = UpdateLoginProfileResponse' deriving (Eq, Read, Show)

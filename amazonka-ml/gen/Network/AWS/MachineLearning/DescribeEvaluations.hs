@@ -32,10 +32,10 @@ module Network.AWS.MachineLearning.DescribeEvaluations
     , deNE
     , deNextToken
     , deSortOrder
+    , deLimit
     , deLT
     , deFilterVariable
     , deLE
-    , deLimit
 
     -- * Response
     , DescribeEvaluationsResponse
@@ -69,18 +69,18 @@ import Network.AWS.MachineLearning.Types
 --
 -- * 'deSortOrder'
 --
+-- * 'deLimit'
+--
 -- * 'deLT'
 --
 -- * 'deFilterVariable'
 --
 -- * 'deLE'
---
--- * 'deLimit'
-data DescribeEvaluations = DescribeEvaluations'{_deEQ :: Maybe Text, _deGE :: Maybe Text, _dePrefix :: Maybe Text, _deGT :: Maybe Text, _deNE :: Maybe Text, _deNextToken :: Maybe Text, _deSortOrder :: Maybe SortOrder, _deLT :: Maybe Text, _deFilterVariable :: Maybe EvaluationFilterVariable, _deLE :: Maybe Text, _deLimit :: Nat} deriving (Eq, Read, Show)
+data DescribeEvaluations = DescribeEvaluations'{_deEQ :: Maybe Text, _deGE :: Maybe Text, _dePrefix :: Maybe Text, _deGT :: Maybe Text, _deNE :: Maybe Text, _deNextToken :: Maybe Text, _deSortOrder :: Maybe SortOrder, _deLimit :: Maybe Nat, _deLT :: Maybe Text, _deFilterVariable :: Maybe EvaluationFilterVariable, _deLE :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeEvaluations' smart constructor.
-describeEvaluations :: Natural -> DescribeEvaluations
-describeEvaluations pLimit = DescribeEvaluations'{_deEQ = Nothing, _deGE = Nothing, _dePrefix = Nothing, _deGT = Nothing, _deNE = Nothing, _deNextToken = Nothing, _deSortOrder = Nothing, _deLT = Nothing, _deFilterVariable = Nothing, _deLE = Nothing, _deLimit = _Nat # pLimit};
+describeEvaluations :: DescribeEvaluations
+describeEvaluations = DescribeEvaluations'{_deEQ = Nothing, _deGE = Nothing, _dePrefix = Nothing, _deGT = Nothing, _deNE = Nothing, _deNextToken = Nothing, _deSortOrder = Nothing, _deLimit = Nothing, _deLT = Nothing, _deFilterVariable = Nothing, _deLE = Nothing};
 
 -- | The equal to operator. The @Evaluation@ results will have
 -- @FilterVariable@ values that exactly match the value specified with
@@ -136,6 +136,10 @@ deNextToken = lens _deNextToken (\ s a -> s{_deNextToken = a});
 deSortOrder :: Lens' DescribeEvaluations (Maybe SortOrder)
 deSortOrder = lens _deSortOrder (\ s a -> s{_deSortOrder = a});
 
+-- | The maximum number of @Evaluation@ to include in the result.
+deLimit :: Lens' DescribeEvaluations (Maybe Natural)
+deLimit = lens _deLimit (\ s a -> s{_deLimit = a}) . mapping _Nat;
+
 -- | The less than operator. The @Evaluation@ results will have
 -- @FilterVariable@ values that are less than the value specified with
 -- @LT@.
@@ -168,10 +172,6 @@ deFilterVariable = lens _deFilterVariable (\ s a -> s{_deFilterVariable = a});
 deLE :: Lens' DescribeEvaluations (Maybe Text)
 deLE = lens _deLE (\ s a -> s{_deLE = a});
 
--- | The maximum number of @Evaluation@ to include in the result.
-deLimit :: Lens' DescribeEvaluations Natural
-deLimit = lens _deLimit (\ s a -> s{_deLimit = a}) . _Nat;
-
 instance AWSRequest DescribeEvaluations where
         type Sv DescribeEvaluations = MachineLearning
         type Rs DescribeEvaluations =
@@ -199,9 +199,9 @@ instance ToJSON DescribeEvaluations where
               ["EQ" .= _deEQ, "GE" .= _deGE, "Prefix" .= _dePrefix,
                "GT" .= _deGT, "NE" .= _deNE,
                "NextToken" .= _deNextToken,
-               "SortOrder" .= _deSortOrder, "LT" .= _deLT,
-               "FilterVariable" .= _deFilterVariable, "LE" .= _deLE,
-               "Limit" .= _deLimit]
+               "SortOrder" .= _deSortOrder, "Limit" .= _deLimit,
+               "LT" .= _deLT, "FilterVariable" .= _deFilterVariable,
+               "LE" .= _deLE]
 
 instance ToPath DescribeEvaluations where
         toPath = const "/"
@@ -216,14 +216,14 @@ instance ToQuery DescribeEvaluations where
 -- * 'derResults'
 --
 -- * 'derNextToken'
-data DescribeEvaluationsResponse = DescribeEvaluationsResponse'{_derResults :: [Evaluation], _derNextToken :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeEvaluationsResponse = DescribeEvaluationsResponse'{_derResults :: Maybe [Evaluation], _derNextToken :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeEvaluationsResponse' smart constructor.
 describeEvaluationsResponse :: DescribeEvaluationsResponse
-describeEvaluationsResponse = DescribeEvaluationsResponse'{_derResults = mempty, _derNextToken = Nothing};
+describeEvaluationsResponse = DescribeEvaluationsResponse'{_derResults = Nothing, _derNextToken = Nothing};
 
 -- | A list of Evaluation that meet the search criteria.
-derResults :: Lens' DescribeEvaluationsResponse [Evaluation]
+derResults :: Lens' DescribeEvaluationsResponse (Maybe [Evaluation])
 derResults = lens _derResults (\ s a -> s{_derResults = a});
 
 -- | The ID of the next page in the paginated results that indicates at least

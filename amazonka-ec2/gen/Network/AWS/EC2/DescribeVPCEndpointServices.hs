@@ -113,14 +113,14 @@ instance ToQuery DescribeVPCEndpointServices where
 -- * 'dvesrServiceNames'
 --
 -- * 'dvesrNextToken'
-data DescribeVPCEndpointServicesResponse = DescribeVPCEndpointServicesResponse'{_dvesrServiceNames :: [Text], _dvesrNextToken :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeVPCEndpointServicesResponse = DescribeVPCEndpointServicesResponse'{_dvesrServiceNames :: Maybe [Text], _dvesrNextToken :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeVPCEndpointServicesResponse' smart constructor.
 describeVPCEndpointServicesResponse :: DescribeVPCEndpointServicesResponse
-describeVPCEndpointServicesResponse = DescribeVPCEndpointServicesResponse'{_dvesrServiceNames = mempty, _dvesrNextToken = Nothing};
+describeVPCEndpointServicesResponse = DescribeVPCEndpointServicesResponse'{_dvesrServiceNames = Nothing, _dvesrNextToken = Nothing};
 
 -- | A list of supported AWS services.
-dvesrServiceNames :: Lens' DescribeVPCEndpointServicesResponse [Text]
+dvesrServiceNames :: Lens' DescribeVPCEndpointServicesResponse (Maybe [Text])
 dvesrServiceNames = lens _dvesrServiceNames (\ s a -> s{_dvesrServiceNames = a});
 
 -- | The token to use when requesting the next set of items. If there are no

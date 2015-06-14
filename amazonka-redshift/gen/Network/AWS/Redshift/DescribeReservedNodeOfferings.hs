@@ -132,14 +132,14 @@ instance ToQuery DescribeReservedNodeOfferings where
 -- * 'drnorReservedNodeOfferings'
 --
 -- * 'drnorMarker'
-data DescribeReservedNodeOfferingsResponse = DescribeReservedNodeOfferingsResponse'{_drnorReservedNodeOfferings :: [ReservedNodeOffering], _drnorMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeReservedNodeOfferingsResponse = DescribeReservedNodeOfferingsResponse'{_drnorReservedNodeOfferings :: Maybe [ReservedNodeOffering], _drnorMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeReservedNodeOfferingsResponse' smart constructor.
 describeReservedNodeOfferingsResponse :: DescribeReservedNodeOfferingsResponse
-describeReservedNodeOfferingsResponse = DescribeReservedNodeOfferingsResponse'{_drnorReservedNodeOfferings = mempty, _drnorMarker = Nothing};
+describeReservedNodeOfferingsResponse = DescribeReservedNodeOfferingsResponse'{_drnorReservedNodeOfferings = Nothing, _drnorMarker = Nothing};
 
 -- | A list of reserved node offerings.
-drnorReservedNodeOfferings :: Lens' DescribeReservedNodeOfferingsResponse [ReservedNodeOffering]
+drnorReservedNodeOfferings :: Lens' DescribeReservedNodeOfferingsResponse (Maybe [ReservedNodeOffering])
 drnorReservedNodeOfferings = lens _drnorReservedNodeOfferings (\ s a -> s{_drnorReservedNodeOfferings = a});
 
 -- | A value that indicates the starting point for the next set of response

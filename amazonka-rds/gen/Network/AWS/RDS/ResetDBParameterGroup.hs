@@ -57,11 +57,11 @@ import Network.AWS.RDS.Types
 -- * 'rdpgParameters'
 --
 -- * 'rdpgDBParameterGroupName'
-data ResetDBParameterGroup = ResetDBParameterGroup'{_rdpgResetAllParameters :: Maybe Bool, _rdpgParameters :: [Parameter], _rdpgDBParameterGroupName :: Text} deriving (Eq, Read, Show)
+data ResetDBParameterGroup = ResetDBParameterGroup'{_rdpgResetAllParameters :: Maybe Bool, _rdpgParameters :: Maybe [Parameter], _rdpgDBParameterGroupName :: Text} deriving (Eq, Read, Show)
 
 -- | 'ResetDBParameterGroup' smart constructor.
 resetDBParameterGroup :: Text -> ResetDBParameterGroup
-resetDBParameterGroup pDBParameterGroupName = ResetDBParameterGroup'{_rdpgResetAllParameters = Nothing, _rdpgParameters = mempty, _rdpgDBParameterGroupName = pDBParameterGroupName};
+resetDBParameterGroup pDBParameterGroupName = ResetDBParameterGroup'{_rdpgResetAllParameters = Nothing, _rdpgParameters = Nothing, _rdpgDBParameterGroupName = pDBParameterGroupName};
 
 -- | Specifies whether (@true@) or not (@false@) to reset all parameters in
 -- the DB parameter group to default values.
@@ -86,7 +86,7 @@ rdpgResetAllParameters = lens _rdpgResetAllParameters (\ s a -> s{_rdpgResetAllP
 -- __Oracle__
 --
 -- Valid Values (for Apply method): @pending-reboot@
-rdpgParameters :: Lens' ResetDBParameterGroup [Parameter]
+rdpgParameters :: Lens' ResetDBParameterGroup (Maybe [Parameter])
 rdpgParameters = lens _rdpgParameters (\ s a -> s{_rdpgParameters = a});
 
 -- | The name of the DB parameter group.

@@ -45,8 +45,8 @@ import Network.AWS.AutoScaling.Types
 newtype DeleteTags = DeleteTags'{_dtTags :: [Tag]} deriving (Eq, Read, Show)
 
 -- | 'DeleteTags' smart constructor.
-deleteTags :: [Tag] -> DeleteTags
-deleteTags pTags = DeleteTags'{_dtTags = pTags};
+deleteTags :: DeleteTags
+deleteTags = DeleteTags'{_dtTags = mempty};
 
 -- | Each tag should be defined by its resource type, resource ID, key,
 -- value, and a propagate flag. Valid values are: Resource type =

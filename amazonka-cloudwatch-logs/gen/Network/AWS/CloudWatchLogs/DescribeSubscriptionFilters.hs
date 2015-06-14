@@ -31,10 +31,10 @@ module Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
     -- ** Request constructor
     , describeSubscriptionFilters
     -- ** Request lenses
-    , dsfLogGroupName
     , dsfFilterNamePrefix
     , dsfNextToken
     , dsfLimit
+    , dsfLogGroupName
 
     -- * Response
     , DescribeSubscriptionFiltersResponse
@@ -54,36 +54,36 @@ import Network.AWS.CloudWatchLogs.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsfLogGroupName'
---
 -- * 'dsfFilterNamePrefix'
 --
 -- * 'dsfNextToken'
 --
 -- * 'dsfLimit'
-data DescribeSubscriptionFilters = DescribeSubscriptionFilters'{_dsfLogGroupName :: Text, _dsfFilterNamePrefix :: Text, _dsfNextToken :: Text, _dsfLimit :: Nat} deriving (Eq, Read, Show)
+--
+-- * 'dsfLogGroupName'
+data DescribeSubscriptionFilters = DescribeSubscriptionFilters'{_dsfFilterNamePrefix :: Maybe Text, _dsfNextToken :: Maybe Text, _dsfLimit :: Maybe Nat, _dsfLogGroupName :: Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeSubscriptionFilters' smart constructor.
-describeSubscriptionFilters :: Text -> Text -> Text -> Natural -> DescribeSubscriptionFilters
-describeSubscriptionFilters pLogGroupName pFilterNamePrefix pNextToken pLimit = DescribeSubscriptionFilters'{_dsfLogGroupName = pLogGroupName, _dsfFilterNamePrefix = pFilterNamePrefix, _dsfNextToken = pNextToken, _dsfLimit = _Nat # pLimit};
-
--- | The log group name for which subscription filters are to be listed.
-dsfLogGroupName :: Lens' DescribeSubscriptionFilters Text
-dsfLogGroupName = lens _dsfLogGroupName (\ s a -> s{_dsfLogGroupName = a});
+describeSubscriptionFilters :: Text -> DescribeSubscriptionFilters
+describeSubscriptionFilters pLogGroupName = DescribeSubscriptionFilters'{_dsfFilterNamePrefix = Nothing, _dsfNextToken = Nothing, _dsfLimit = Nothing, _dsfLogGroupName = pLogGroupName};
 
 -- | Will only return subscription filters that match the provided
 -- filterNamePrefix. If you don\'t specify a value, no prefix filter is
 -- applied.
-dsfFilterNamePrefix :: Lens' DescribeSubscriptionFilters Text
+dsfFilterNamePrefix :: Lens' DescribeSubscriptionFilters (Maybe Text)
 dsfFilterNamePrefix = lens _dsfFilterNamePrefix (\ s a -> s{_dsfFilterNamePrefix = a});
 
 -- | FIXME: Undocumented member.
-dsfNextToken :: Lens' DescribeSubscriptionFilters Text
+dsfNextToken :: Lens' DescribeSubscriptionFilters (Maybe Text)
 dsfNextToken = lens _dsfNextToken (\ s a -> s{_dsfNextToken = a});
 
 -- | FIXME: Undocumented member.
-dsfLimit :: Lens' DescribeSubscriptionFilters Natural
-dsfLimit = lens _dsfLimit (\ s a -> s{_dsfLimit = a}) . _Nat;
+dsfLimit :: Lens' DescribeSubscriptionFilters (Maybe Natural)
+dsfLimit = lens _dsfLimit (\ s a -> s{_dsfLimit = a}) . mapping _Nat;
+
+-- | The log group name for which subscription filters are to be listed.
+dsfLogGroupName :: Lens' DescribeSubscriptionFilters Text
+dsfLogGroupName = lens _dsfLogGroupName (\ s a -> s{_dsfLogGroupName = a});
 
 instance AWSRequest DescribeSubscriptionFilters where
         type Sv DescribeSubscriptionFilters = CloudWatchLogs
@@ -95,7 +95,7 @@ instance AWSRequest DescribeSubscriptionFilters where
               (\ s h x ->
                  DescribeSubscriptionFiltersResponse' <$>
                    x .?> "subscriptionFilters" .!@ mempty <*>
-                     x .:> "nextToken")
+                     x .?> "nextToken")
 
 instance ToHeaders DescribeSubscriptionFilters where
         toHeaders
@@ -110,9 +110,9 @@ instance ToHeaders DescribeSubscriptionFilters where
 instance ToJSON DescribeSubscriptionFilters where
         toJSON DescribeSubscriptionFilters'{..}
           = object
-              ["logGroupName" .= _dsfLogGroupName,
-               "filterNamePrefix" .= _dsfFilterNamePrefix,
-               "nextToken" .= _dsfNextToken, "limit" .= _dsfLimit]
+              ["filterNamePrefix" .= _dsfFilterNamePrefix,
+               "nextToken" .= _dsfNextToken, "limit" .= _dsfLimit,
+               "logGroupName" .= _dsfLogGroupName]
 
 instance ToPath DescribeSubscriptionFilters where
         toPath = const "/"
@@ -127,16 +127,16 @@ instance ToQuery DescribeSubscriptionFilters where
 -- * 'dsfrSubscriptionFilters'
 --
 -- * 'dsfrNextToken'
-data DescribeSubscriptionFiltersResponse = DescribeSubscriptionFiltersResponse'{_dsfrSubscriptionFilters :: [SubscriptionFilter], _dsfrNextToken :: Text} deriving (Eq, Read, Show)
+data DescribeSubscriptionFiltersResponse = DescribeSubscriptionFiltersResponse'{_dsfrSubscriptionFilters :: Maybe [SubscriptionFilter], _dsfrNextToken :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeSubscriptionFiltersResponse' smart constructor.
-describeSubscriptionFiltersResponse :: Text -> DescribeSubscriptionFiltersResponse
-describeSubscriptionFiltersResponse pNextToken = DescribeSubscriptionFiltersResponse'{_dsfrSubscriptionFilters = mempty, _dsfrNextToken = pNextToken};
+describeSubscriptionFiltersResponse :: DescribeSubscriptionFiltersResponse
+describeSubscriptionFiltersResponse = DescribeSubscriptionFiltersResponse'{_dsfrSubscriptionFilters = Nothing, _dsfrNextToken = Nothing};
 
 -- | FIXME: Undocumented member.
-dsfrSubscriptionFilters :: Lens' DescribeSubscriptionFiltersResponse [SubscriptionFilter]
+dsfrSubscriptionFilters :: Lens' DescribeSubscriptionFiltersResponse (Maybe [SubscriptionFilter])
 dsfrSubscriptionFilters = lens _dsfrSubscriptionFilters (\ s a -> s{_dsfrSubscriptionFilters = a});
 
 -- | FIXME: Undocumented member.
-dsfrNextToken :: Lens' DescribeSubscriptionFiltersResponse Text
+dsfrNextToken :: Lens' DescribeSubscriptionFiltersResponse (Maybe Text)
 dsfrNextToken = lens _dsfrNextToken (\ s a -> s{_dsfrNextToken = a});

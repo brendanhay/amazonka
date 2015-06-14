@@ -56,8 +56,8 @@ import Network.AWS.CloudHSM.Types
 data GetConfig = GetConfig'{_gcClientARN :: Text, _gcClientVersion :: ClientVersion, _gcHapgList :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'GetConfig' smart constructor.
-getConfig :: Text -> ClientVersion -> [Text] -> GetConfig
-getConfig pClientARN pClientVersion pHapgList = GetConfig'{_gcClientARN = pClientARN, _gcClientVersion = pClientVersion, _gcHapgList = pHapgList};
+getConfig :: Text -> ClientVersion -> GetConfig
+getConfig pClientARN pClientVersion = GetConfig'{_gcClientARN = pClientARN, _gcClientVersion = pClientVersion, _gcHapgList = mempty};
 
 -- | The ARN of the client.
 gcClientARN :: Lens' GetConfig Text

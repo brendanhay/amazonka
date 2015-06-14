@@ -149,17 +149,17 @@ import Network.AWS.EC2.Types
 -- * 'runMinCount'
 --
 -- * 'runMaxCount'
-data RunInstances = RunInstances'{_runSecurityGroupIds :: [Text], _runAdditionalInfo :: Maybe Text, _runSecurityGroups :: [Text], _runClientToken :: Maybe Text, _runDisableAPITermination :: Maybe Bool, _runNetworkInterfaces :: [InstanceNetworkInterfaceSpecification], _runKeyName :: Maybe Text, _runRAMDiskId :: Maybe Text, _runKernelId :: Maybe Text, _runSubnetId :: Maybe Text, _runInstanceType :: Maybe InstanceType, _runEBSOptimized :: Maybe Bool, _runUserData :: Maybe Text, _runMonitoring :: Maybe RunInstancesMonitoringEnabled, _runIAMInstanceProfile :: Maybe IAMInstanceProfileSpecification, _runInstanceInitiatedShutdownBehavior :: Maybe ShutdownBehavior, _runPrivateIPAddress :: Maybe Text, _runBlockDeviceMappings :: [BlockDeviceMapping], _runDryRun :: Maybe Bool, _runPlacement :: Maybe Placement, _runImageId :: Text, _runMinCount :: Int, _runMaxCount :: Int} deriving (Eq, Read, Show)
+data RunInstances = RunInstances'{_runSecurityGroupIds :: Maybe [Text], _runAdditionalInfo :: Maybe Text, _runSecurityGroups :: Maybe [Text], _runClientToken :: Maybe Text, _runDisableAPITermination :: Maybe Bool, _runNetworkInterfaces :: Maybe [InstanceNetworkInterfaceSpecification], _runKeyName :: Maybe Text, _runRAMDiskId :: Maybe Text, _runKernelId :: Maybe Text, _runSubnetId :: Maybe Text, _runInstanceType :: Maybe InstanceType, _runEBSOptimized :: Maybe Bool, _runUserData :: Maybe Text, _runMonitoring :: Maybe RunInstancesMonitoringEnabled, _runIAMInstanceProfile :: Maybe IAMInstanceProfileSpecification, _runInstanceInitiatedShutdownBehavior :: Maybe ShutdownBehavior, _runPrivateIPAddress :: Maybe Text, _runBlockDeviceMappings :: Maybe [BlockDeviceMapping], _runDryRun :: Maybe Bool, _runPlacement :: Maybe Placement, _runImageId :: Text, _runMinCount :: Int, _runMaxCount :: Int} deriving (Eq, Read, Show)
 
 -- | 'RunInstances' smart constructor.
 runInstances :: Text -> Int -> Int -> RunInstances
-runInstances pImageId pMinCount pMaxCount = RunInstances'{_runSecurityGroupIds = mempty, _runAdditionalInfo = Nothing, _runSecurityGroups = mempty, _runClientToken = Nothing, _runDisableAPITermination = Nothing, _runNetworkInterfaces = mempty, _runKeyName = Nothing, _runRAMDiskId = Nothing, _runKernelId = Nothing, _runSubnetId = Nothing, _runInstanceType = Nothing, _runEBSOptimized = Nothing, _runUserData = Nothing, _runMonitoring = Nothing, _runIAMInstanceProfile = Nothing, _runInstanceInitiatedShutdownBehavior = Nothing, _runPrivateIPAddress = Nothing, _runBlockDeviceMappings = mempty, _runDryRun = Nothing, _runPlacement = Nothing, _runImageId = pImageId, _runMinCount = pMinCount, _runMaxCount = pMaxCount};
+runInstances pImageId pMinCount pMaxCount = RunInstances'{_runSecurityGroupIds = Nothing, _runAdditionalInfo = Nothing, _runSecurityGroups = Nothing, _runClientToken = Nothing, _runDisableAPITermination = Nothing, _runNetworkInterfaces = Nothing, _runKeyName = Nothing, _runRAMDiskId = Nothing, _runKernelId = Nothing, _runSubnetId = Nothing, _runInstanceType = Nothing, _runEBSOptimized = Nothing, _runUserData = Nothing, _runMonitoring = Nothing, _runIAMInstanceProfile = Nothing, _runInstanceInitiatedShutdownBehavior = Nothing, _runPrivateIPAddress = Nothing, _runBlockDeviceMappings = Nothing, _runDryRun = Nothing, _runPlacement = Nothing, _runImageId = pImageId, _runMinCount = pMinCount, _runMaxCount = pMaxCount};
 
 -- | One or more security group IDs. You can create a security group using
 -- CreateSecurityGroup.
 --
 -- Default: Amazon EC2 uses the default security group.
-runSecurityGroupIds :: Lens' RunInstances [Text]
+runSecurityGroupIds :: Lens' RunInstances (Maybe [Text])
 runSecurityGroupIds = lens _runSecurityGroupIds (\ s a -> s{_runSecurityGroupIds = a});
 
 -- | Reserved.
@@ -170,7 +170,7 @@ runAdditionalInfo = lens _runAdditionalInfo (\ s a -> s{_runAdditionalInfo = a})
 -- nondefault VPC, you must use security group IDs instead.
 --
 -- Default: Amazon EC2 uses the default security group.
-runSecurityGroups :: Lens' RunInstances [Text]
+runSecurityGroups :: Lens' RunInstances (Maybe [Text])
 runSecurityGroups = lens _runSecurityGroups (\ s a -> s{_runSecurityGroups = a});
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency
@@ -195,7 +195,7 @@ runDisableAPITermination :: Lens' RunInstances (Maybe Bool)
 runDisableAPITermination = lens _runDisableAPITermination (\ s a -> s{_runDisableAPITermination = a});
 
 -- | One or more network interfaces.
-runNetworkInterfaces :: Lens' RunInstances [InstanceNetworkInterfaceSpecification]
+runNetworkInterfaces :: Lens' RunInstances (Maybe [InstanceNetworkInterfaceSpecification])
 runNetworkInterfaces = lens _runNetworkInterfaces (\ s a -> s{_runNetworkInterfaces = a});
 
 -- | The name of the key pair. You can create a key pair using CreateKeyPair
@@ -281,7 +281,7 @@ runPrivateIPAddress :: Lens' RunInstances (Maybe Text)
 runPrivateIPAddress = lens _runPrivateIPAddress (\ s a -> s{_runPrivateIPAddress = a});
 
 -- | The block device mapping.
-runBlockDeviceMappings :: Lens' RunInstances [BlockDeviceMapping]
+runBlockDeviceMappings :: Lens' RunInstances (Maybe [BlockDeviceMapping])
 runBlockDeviceMappings = lens _runBlockDeviceMappings (\ s a -> s{_runBlockDeviceMappings = a});
 
 -- | Checks whether you have the required permissions for the action, without

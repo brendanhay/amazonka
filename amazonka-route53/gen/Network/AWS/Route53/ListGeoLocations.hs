@@ -38,8 +38,8 @@ module Network.AWS.Route53.ListGeoLocations
     -- ** Request constructor
     , listGeoLocations
     -- ** Request lenses
-    , lglMaxItems
     , lglStartSubdivisionCode
+    , lglMaxItems
     , lglStartCountryCode
     , lglStartContinentCode
 
@@ -48,12 +48,12 @@ module Network.AWS.Route53.ListGeoLocations
     -- ** Response constructor
     , listGeoLocationsResponse
     -- ** Response lenses
-    , lglrGeoLocationDetailsList
-    , lglrIsTruncated
-    , lglrMaxItems
     , lglrNextContinentCode
     , lglrNextCountryCode
     , lglrNextSubdivisionCode
+    , lglrGeoLocationDetailsList
+    , lglrIsTruncated
+    , lglrMaxItems
     ) where
 
 import Network.AWS.Request
@@ -65,37 +65,37 @@ import Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lglMaxItems'
---
 -- * 'lglStartSubdivisionCode'
+--
+-- * 'lglMaxItems'
 --
 -- * 'lglStartCountryCode'
 --
 -- * 'lglStartContinentCode'
-data ListGeoLocations = ListGeoLocations'{_lglMaxItems :: Maybe Text, _lglStartSubdivisionCode :: Text, _lglStartCountryCode :: Text, _lglStartContinentCode :: Text} deriving (Eq, Read, Show)
+data ListGeoLocations = ListGeoLocations'{_lglStartSubdivisionCode :: Maybe Text, _lglMaxItems :: Maybe Text, _lglStartCountryCode :: Maybe Text, _lglStartContinentCode :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ListGeoLocations' smart constructor.
-listGeoLocations :: Text -> Text -> Text -> ListGeoLocations
-listGeoLocations pStartSubdivisionCode pStartCountryCode pStartContinentCode = ListGeoLocations'{_lglMaxItems = Nothing, _lglStartSubdivisionCode = pStartSubdivisionCode, _lglStartCountryCode = pStartCountryCode, _lglStartContinentCode = pStartContinentCode};
-
--- | The maximum number of geo locations you want in the response body.
-lglMaxItems :: Lens' ListGeoLocations (Maybe Text)
-lglMaxItems = lens _lglMaxItems (\ s a -> s{_lglMaxItems = a});
+listGeoLocations :: ListGeoLocations
+listGeoLocations = ListGeoLocations'{_lglStartSubdivisionCode = Nothing, _lglMaxItems = Nothing, _lglStartCountryCode = Nothing, _lglStartContinentCode = Nothing};
 
 -- | The first subdivision code in the lexicographic ordering of geo
 -- locations that you want the @ListGeoLocations@ request to list.
 --
 -- Constraint: Specifying @SubdivisionCode@ without @CountryCode@ returns
 -- an InvalidInput error.
-lglStartSubdivisionCode :: Lens' ListGeoLocations Text
+lglStartSubdivisionCode :: Lens' ListGeoLocations (Maybe Text)
 lglStartSubdivisionCode = lens _lglStartSubdivisionCode (\ s a -> s{_lglStartSubdivisionCode = a});
+
+-- | The maximum number of geo locations you want in the response body.
+lglMaxItems :: Lens' ListGeoLocations (Maybe Text)
+lglMaxItems = lens _lglMaxItems (\ s a -> s{_lglMaxItems = a});
 
 -- | The first country code in the lexicographic ordering of geo locations
 -- that you want the @ListGeoLocations@ request to list.
 --
 -- The default geo location uses a @*@ for the country code. All other
 -- country codes follow the ISO 3166 two-character code.
-lglStartCountryCode :: Lens' ListGeoLocations Text
+lglStartCountryCode :: Lens' ListGeoLocations (Maybe Text)
 lglStartCountryCode = lens _lglStartCountryCode (\ s a -> s{_lglStartCountryCode = a});
 
 -- | The first continent code in the lexicographic ordering of geo locations
@@ -106,7 +106,7 @@ lglStartCountryCode = lens _lglStartCountryCode (\ s a -> s{_lglStartCountryCode
 --
 -- Constraint: Specifying @ContinentCode@ with either @CountryCode@ or
 -- @SubdivisionCode@ returns an InvalidInput error.
-lglStartContinentCode :: Lens' ListGeoLocations Text
+lglStartContinentCode :: Lens' ListGeoLocations (Maybe Text)
 lglStartContinentCode = lens _lglStartContinentCode (\ s a -> s{_lglStartContinentCode = a});
 
 instance AWSRequest ListGeoLocations where
@@ -117,13 +117,13 @@ instance AWSRequest ListGeoLocations where
           = receiveXML
               (\ s h x ->
                  ListGeoLocationsResponse' <$>
-                   (x .@? "GeoLocationDetailsList" .!@ mempty >>=
-                      parseXMLList "GeoLocationDetails")
+                   x .@? "NextContinentCode" <*> x .@? "NextCountryCode"
+                     <*> x .@? "NextSubdivisionCode"
+                     <*>
+                     (x .@? "GeoLocationDetailsList" .!@ mempty >>=
+                        parseXMLList "GeoLocationDetails")
                      <*> x .@ "IsTruncated"
-                     <*> x .@ "MaxItems"
-                     <*> x .@ "NextContinentCode"
-                     <*> x .@ "NextCountryCode"
-                     <*> x .@ "NextSubdivisionCode")
+                     <*> x .@ "MaxItems")
 
 instance ToHeaders ListGeoLocations where
         toHeaders = const mempty
@@ -134,8 +134,8 @@ instance ToPath ListGeoLocations where
 instance ToQuery ListGeoLocations where
         toQuery ListGeoLocations'{..}
           = mconcat
-              ["maxitems" =: _lglMaxItems,
-               "startsubdivisioncode" =: _lglStartSubdivisionCode,
+              ["startsubdivisioncode" =: _lglStartSubdivisionCode,
+               "maxitems" =: _lglMaxItems,
                "startcountrycode" =: _lglStartCountryCode,
                "startcontinentcode" =: _lglStartContinentCode]
 
@@ -143,22 +143,43 @@ instance ToQuery ListGeoLocations where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lglrGeoLocationDetailsList'
---
--- * 'lglrIsTruncated'
---
--- * 'lglrMaxItems'
---
 -- * 'lglrNextContinentCode'
 --
 -- * 'lglrNextCountryCode'
 --
 -- * 'lglrNextSubdivisionCode'
-data ListGeoLocationsResponse = ListGeoLocationsResponse'{_lglrGeoLocationDetailsList :: [GeoLocationDetails], _lglrIsTruncated :: Bool, _lglrMaxItems :: Text, _lglrNextContinentCode :: Text, _lglrNextCountryCode :: Text, _lglrNextSubdivisionCode :: Text} deriving (Eq, Read, Show)
+--
+-- * 'lglrGeoLocationDetailsList'
+--
+-- * 'lglrIsTruncated'
+--
+-- * 'lglrMaxItems'
+data ListGeoLocationsResponse = ListGeoLocationsResponse'{_lglrNextContinentCode :: Maybe Text, _lglrNextCountryCode :: Maybe Text, _lglrNextSubdivisionCode :: Maybe Text, _lglrGeoLocationDetailsList :: [GeoLocationDetails], _lglrIsTruncated :: Bool, _lglrMaxItems :: Text} deriving (Eq, Read, Show)
 
 -- | 'ListGeoLocationsResponse' smart constructor.
-listGeoLocationsResponse :: [GeoLocationDetails] -> Bool -> Text -> Text -> Text -> Text -> ListGeoLocationsResponse
-listGeoLocationsResponse pGeoLocationDetailsList pIsTruncated pMaxItems pNextContinentCode pNextCountryCode pNextSubdivisionCode = ListGeoLocationsResponse'{_lglrGeoLocationDetailsList = pGeoLocationDetailsList, _lglrIsTruncated = pIsTruncated, _lglrMaxItems = pMaxItems, _lglrNextContinentCode = pNextContinentCode, _lglrNextCountryCode = pNextCountryCode, _lglrNextSubdivisionCode = pNextSubdivisionCode};
+listGeoLocationsResponse :: Bool -> Text -> ListGeoLocationsResponse
+listGeoLocationsResponse pIsTruncated pMaxItems = ListGeoLocationsResponse'{_lglrNextContinentCode = Nothing, _lglrNextCountryCode = Nothing, _lglrNextSubdivisionCode = Nothing, _lglrGeoLocationDetailsList = mempty, _lglrIsTruncated = pIsTruncated, _lglrMaxItems = pMaxItems};
+
+-- | If the results were truncated, the continent code of the next geo
+-- location in the list. This element is present only if
+-- ListGeoLocationsResponse$IsTruncated is true and the next geo location
+-- to list is a continent location.
+lglrNextContinentCode :: Lens' ListGeoLocationsResponse (Maybe Text)
+lglrNextContinentCode = lens _lglrNextContinentCode (\ s a -> s{_lglrNextContinentCode = a});
+
+-- | If the results were truncated, the country code of the next geo location
+-- in the list. This element is present only if
+-- ListGeoLocationsResponse$IsTruncated is true and the next geo location
+-- to list is not a continent location.
+lglrNextCountryCode :: Lens' ListGeoLocationsResponse (Maybe Text)
+lglrNextCountryCode = lens _lglrNextCountryCode (\ s a -> s{_lglrNextCountryCode = a});
+
+-- | If the results were truncated, the subdivision code of the next geo
+-- location in the list. This element is present only if
+-- ListGeoLocationsResponse$IsTruncated is true and the next geo location
+-- has a subdivision.
+lglrNextSubdivisionCode :: Lens' ListGeoLocationsResponse (Maybe Text)
+lglrNextSubdivisionCode = lens _lglrNextSubdivisionCode (\ s a -> s{_lglrNextSubdivisionCode = a});
 
 -- | A complex type that contains information about the geo locations that
 -- are returned by the request.
@@ -180,24 +201,3 @@ lglrIsTruncated = lens _lglrIsTruncated (\ s a -> s{_lglrIsTruncated = a});
 -- @MaxItems@ is 100.
 lglrMaxItems :: Lens' ListGeoLocationsResponse Text
 lglrMaxItems = lens _lglrMaxItems (\ s a -> s{_lglrMaxItems = a});
-
--- | If the results were truncated, the continent code of the next geo
--- location in the list. This element is present only if
--- ListGeoLocationsResponse$IsTruncated is true and the next geo location
--- to list is a continent location.
-lglrNextContinentCode :: Lens' ListGeoLocationsResponse Text
-lglrNextContinentCode = lens _lglrNextContinentCode (\ s a -> s{_lglrNextContinentCode = a});
-
--- | If the results were truncated, the country code of the next geo location
--- in the list. This element is present only if
--- ListGeoLocationsResponse$IsTruncated is true and the next geo location
--- to list is not a continent location.
-lglrNextCountryCode :: Lens' ListGeoLocationsResponse Text
-lglrNextCountryCode = lens _lglrNextCountryCode (\ s a -> s{_lglrNextCountryCode = a});
-
--- | If the results were truncated, the subdivision code of the next geo
--- location in the list. This element is present only if
--- ListGeoLocationsResponse$IsTruncated is true and the next geo location
--- has a subdivision.
-lglrNextSubdivisionCode :: Lens' ListGeoLocationsResponse Text
-lglrNextSubdivisionCode = lens _lglrNextSubdivisionCode (\ s a -> s{_lglrNextSubdivisionCode = a});

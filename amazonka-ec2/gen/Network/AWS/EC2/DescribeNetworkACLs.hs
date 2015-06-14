@@ -54,11 +54,11 @@ import Network.AWS.EC2.Types
 -- * 'dnaclDryRun'
 --
 -- * 'dnaclNetworkACLIds'
-data DescribeNetworkACLs = DescribeNetworkACLs'{_dnaclFilters :: [Filter], _dnaclDryRun :: Maybe Bool, _dnaclNetworkACLIds :: [Text]} deriving (Eq, Read, Show)
+data DescribeNetworkACLs = DescribeNetworkACLs'{_dnaclFilters :: Maybe [Filter], _dnaclDryRun :: Maybe Bool, _dnaclNetworkACLIds :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'DescribeNetworkACLs' smart constructor.
 describeNetworkACLs :: DescribeNetworkACLs
-describeNetworkACLs = DescribeNetworkACLs'{_dnaclFilters = mempty, _dnaclDryRun = Nothing, _dnaclNetworkACLIds = mempty};
+describeNetworkACLs = DescribeNetworkACLs'{_dnaclFilters = Nothing, _dnaclDryRun = Nothing, _dnaclNetworkACLIds = Nothing};
 
 -- | One or more filters.
 --
@@ -116,7 +116,7 @@ describeNetworkACLs = DescribeNetworkACLs'{_dnaclFilters = mempty, _dnaclDryRun 
 --
 -- -   @vpc-id@ - The ID of the VPC for the network ACL.
 --
-dnaclFilters :: Lens' DescribeNetworkACLs [Filter]
+dnaclFilters :: Lens' DescribeNetworkACLs (Maybe [Filter])
 dnaclFilters = lens _dnaclFilters (\ s a -> s{_dnaclFilters = a});
 
 -- | Checks whether you have the required permissions for the action, without
@@ -129,7 +129,7 @@ dnaclDryRun = lens _dnaclDryRun (\ s a -> s{_dnaclDryRun = a});
 -- | One or more network ACL IDs.
 --
 -- Default: Describes all your network ACLs.
-dnaclNetworkACLIds :: Lens' DescribeNetworkACLs [Text]
+dnaclNetworkACLIds :: Lens' DescribeNetworkACLs (Maybe [Text])
 dnaclNetworkACLIds = lens _dnaclNetworkACLIds (\ s a -> s{_dnaclNetworkACLIds = a});
 
 instance AWSRequest DescribeNetworkACLs where
@@ -162,12 +162,12 @@ instance ToQuery DescribeNetworkACLs where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dnarNetworkACLs'
-newtype DescribeNetworkACLsResponse = DescribeNetworkACLsResponse'{_dnarNetworkACLs :: [NetworkACL]} deriving (Eq, Read, Show)
+newtype DescribeNetworkACLsResponse = DescribeNetworkACLsResponse'{_dnarNetworkACLs :: Maybe [NetworkACL]} deriving (Eq, Read, Show)
 
 -- | 'DescribeNetworkACLsResponse' smart constructor.
 describeNetworkACLsResponse :: DescribeNetworkACLsResponse
-describeNetworkACLsResponse = DescribeNetworkACLsResponse'{_dnarNetworkACLs = mempty};
+describeNetworkACLsResponse = DescribeNetworkACLsResponse'{_dnarNetworkACLs = Nothing};
 
 -- | Information about one or more network ACLs.
-dnarNetworkACLs :: Lens' DescribeNetworkACLsResponse [NetworkACL]
+dnarNetworkACLs :: Lens' DescribeNetworkACLsResponse (Maybe [NetworkACL])
 dnarNetworkACLs = lens _dnarNetworkACLs (\ s a -> s{_dnarNetworkACLs = a});

@@ -53,20 +53,20 @@ import Network.AWS.RDS.Types
 -- * 'mogApplyImmediately'
 --
 -- * 'mogOptionGroupName'
-data ModifyOptionGroup = ModifyOptionGroup'{_mogOptionsToInclude :: [OptionConfiguration], _mogOptionsToRemove :: [Text], _mogApplyImmediately :: Maybe Bool, _mogOptionGroupName :: Text} deriving (Eq, Read, Show)
+data ModifyOptionGroup = ModifyOptionGroup'{_mogOptionsToInclude :: Maybe [OptionConfiguration], _mogOptionsToRemove :: Maybe [Text], _mogApplyImmediately :: Maybe Bool, _mogOptionGroupName :: Text} deriving (Eq, Read, Show)
 
 -- | 'ModifyOptionGroup' smart constructor.
 modifyOptionGroup :: Text -> ModifyOptionGroup
-modifyOptionGroup pOptionGroupName = ModifyOptionGroup'{_mogOptionsToInclude = mempty, _mogOptionsToRemove = mempty, _mogApplyImmediately = Nothing, _mogOptionGroupName = pOptionGroupName};
+modifyOptionGroup pOptionGroupName = ModifyOptionGroup'{_mogOptionsToInclude = Nothing, _mogOptionsToRemove = Nothing, _mogApplyImmediately = Nothing, _mogOptionGroupName = pOptionGroupName};
 
 -- | Options in this list are added to the option group or, if already
 -- present, the specified configuration is used to update the existing
 -- configuration.
-mogOptionsToInclude :: Lens' ModifyOptionGroup [OptionConfiguration]
+mogOptionsToInclude :: Lens' ModifyOptionGroup (Maybe [OptionConfiguration])
 mogOptionsToInclude = lens _mogOptionsToInclude (\ s a -> s{_mogOptionsToInclude = a});
 
 -- | Options in this list are removed from the option group.
-mogOptionsToRemove :: Lens' ModifyOptionGroup [Text]
+mogOptionsToRemove :: Lens' ModifyOptionGroup (Maybe [Text])
 mogOptionsToRemove = lens _mogOptionsToRemove (\ s a -> s{_mogOptionsToRemove = a});
 
 -- | Indicates whether the changes should be applied immediately, or during

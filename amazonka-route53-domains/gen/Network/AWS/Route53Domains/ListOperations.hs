@@ -124,8 +124,8 @@ instance ToQuery ListOperations where
 data ListOperationsResponse = ListOperationsResponse'{_lorNextPageMarker :: Maybe Text, _lorOperations :: [OperationSummary]} deriving (Eq, Read, Show)
 
 -- | 'ListOperationsResponse' smart constructor.
-listOperationsResponse :: [OperationSummary] -> ListOperationsResponse
-listOperationsResponse pOperations = ListOperationsResponse'{_lorNextPageMarker = Nothing, _lorOperations = pOperations};
+listOperationsResponse :: ListOperationsResponse
+listOperationsResponse = ListOperationsResponse'{_lorNextPageMarker = Nothing, _lorOperations = mempty};
 
 -- | If there are more operations than you specified for @MaxItems@ in the
 -- request, submit another request and include the value of

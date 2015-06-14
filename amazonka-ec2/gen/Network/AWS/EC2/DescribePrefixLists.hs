@@ -61,11 +61,11 @@ import Network.AWS.EC2.Types
 -- * 'dplDryRun'
 --
 -- * 'dplMaxResults'
-data DescribePrefixLists = DescribePrefixLists'{_dplFilters :: [Filter], _dplNextToken :: Maybe Text, _dplPrefixListIds :: [Text], _dplDryRun :: Maybe Bool, _dplMaxResults :: Maybe Int} deriving (Eq, Read, Show)
+data DescribePrefixLists = DescribePrefixLists'{_dplFilters :: Maybe [Filter], _dplNextToken :: Maybe Text, _dplPrefixListIds :: Maybe [Text], _dplDryRun :: Maybe Bool, _dplMaxResults :: Maybe Int} deriving (Eq, Read, Show)
 
 -- | 'DescribePrefixLists' smart constructor.
 describePrefixLists :: DescribePrefixLists
-describePrefixLists = DescribePrefixLists'{_dplFilters = mempty, _dplNextToken = Nothing, _dplPrefixListIds = mempty, _dplDryRun = Nothing, _dplMaxResults = Nothing};
+describePrefixLists = DescribePrefixLists'{_dplFilters = Nothing, _dplNextToken = Nothing, _dplPrefixListIds = Nothing, _dplDryRun = Nothing, _dplMaxResults = Nothing};
 
 -- | One or more filters.
 --
@@ -73,7 +73,7 @@ describePrefixLists = DescribePrefixLists'{_dplFilters = mempty, _dplNextToken =
 --
 -- -   @prefix-list-name@: The name of a prefix list.
 --
-dplFilters :: Lens' DescribePrefixLists [Filter]
+dplFilters :: Lens' DescribePrefixLists (Maybe [Filter])
 dplFilters = lens _dplFilters (\ s a -> s{_dplFilters = a});
 
 -- | The token for the next set of items to return. (You received this token
@@ -82,7 +82,7 @@ dplNextToken :: Lens' DescribePrefixLists (Maybe Text)
 dplNextToken = lens _dplNextToken (\ s a -> s{_dplNextToken = a});
 
 -- | One or more prefix list IDs.
-dplPrefixListIds :: Lens' DescribePrefixLists [Text]
+dplPrefixListIds :: Lens' DescribePrefixLists (Maybe [Text])
 dplPrefixListIds = lens _dplPrefixListIds (\ s a -> s{_dplPrefixListIds = a});
 
 -- | Checks whether you have the required permissions for the action, without
@@ -135,11 +135,11 @@ instance ToQuery DescribePrefixLists where
 -- * 'dplrNextToken'
 --
 -- * 'dplrPrefixLists'
-data DescribePrefixListsResponse = DescribePrefixListsResponse'{_dplrNextToken :: Maybe Text, _dplrPrefixLists :: [PrefixList]} deriving (Eq, Read, Show)
+data DescribePrefixListsResponse = DescribePrefixListsResponse'{_dplrNextToken :: Maybe Text, _dplrPrefixLists :: Maybe [PrefixList]} deriving (Eq, Read, Show)
 
 -- | 'DescribePrefixListsResponse' smart constructor.
 describePrefixListsResponse :: DescribePrefixListsResponse
-describePrefixListsResponse = DescribePrefixListsResponse'{_dplrNextToken = Nothing, _dplrPrefixLists = mempty};
+describePrefixListsResponse = DescribePrefixListsResponse'{_dplrNextToken = Nothing, _dplrPrefixLists = Nothing};
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
@@ -147,5 +147,5 @@ dplrNextToken :: Lens' DescribePrefixListsResponse (Maybe Text)
 dplrNextToken = lens _dplrNextToken (\ s a -> s{_dplrNextToken = a});
 
 -- | All available prefix lists.
-dplrPrefixLists :: Lens' DescribePrefixListsResponse [PrefixList]
+dplrPrefixLists :: Lens' DescribePrefixListsResponse (Maybe [PrefixList])
 dplrPrefixLists = lens _dplrPrefixLists (\ s a -> s{_dplrPrefixLists = a});

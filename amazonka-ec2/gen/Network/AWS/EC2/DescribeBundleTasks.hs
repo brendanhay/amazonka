@@ -55,16 +55,16 @@ import Network.AWS.EC2.Types
 -- * 'dbtFilters'
 --
 -- * 'dbtDryRun'
-data DescribeBundleTasks = DescribeBundleTasks'{_dbtBundleIds :: [Text], _dbtFilters :: [Filter], _dbtDryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data DescribeBundleTasks = DescribeBundleTasks'{_dbtBundleIds :: Maybe [Text], _dbtFilters :: Maybe [Filter], _dbtDryRun :: Maybe Bool} deriving (Eq, Read, Show)
 
 -- | 'DescribeBundleTasks' smart constructor.
 describeBundleTasks :: DescribeBundleTasks
-describeBundleTasks = DescribeBundleTasks'{_dbtBundleIds = mempty, _dbtFilters = mempty, _dbtDryRun = Nothing};
+describeBundleTasks = DescribeBundleTasks'{_dbtBundleIds = Nothing, _dbtFilters = Nothing, _dbtDryRun = Nothing};
 
 -- | One or more bundle task IDs.
 --
 -- Default: Describes all your bundle tasks.
-dbtBundleIds :: Lens' DescribeBundleTasks [Text]
+dbtBundleIds :: Lens' DescribeBundleTasks (Maybe [Text])
 dbtBundleIds = lens _dbtBundleIds (\ s a -> s{_dbtBundleIds = a});
 
 -- | One or more filters.
@@ -92,7 +92,7 @@ dbtBundleIds = lens _dbtBundleIds (\ s a -> s{_dbtBundleIds = a});
 --
 -- -   @update-time@ - The time of the most recent update for the task.
 --
-dbtFilters :: Lens' DescribeBundleTasks [Filter]
+dbtFilters :: Lens' DescribeBundleTasks (Maybe [Filter])
 dbtFilters = lens _dbtFilters (\ s a -> s{_dbtFilters = a});
 
 -- | Checks whether you have the required permissions for the action, without
@@ -132,12 +132,12 @@ instance ToQuery DescribeBundleTasks where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dbtrBundleTasks'
-newtype DescribeBundleTasksResponse = DescribeBundleTasksResponse'{_dbtrBundleTasks :: [BundleTask]} deriving (Eq, Read, Show)
+newtype DescribeBundleTasksResponse = DescribeBundleTasksResponse'{_dbtrBundleTasks :: Maybe [BundleTask]} deriving (Eq, Read, Show)
 
 -- | 'DescribeBundleTasksResponse' smart constructor.
 describeBundleTasksResponse :: DescribeBundleTasksResponse
-describeBundleTasksResponse = DescribeBundleTasksResponse'{_dbtrBundleTasks = mempty};
+describeBundleTasksResponse = DescribeBundleTasksResponse'{_dbtrBundleTasks = Nothing};
 
 -- | Information about one or more bundle tasks.
-dbtrBundleTasks :: Lens' DescribeBundleTasksResponse [BundleTask]
+dbtrBundleTasks :: Lens' DescribeBundleTasksResponse (Maybe [BundleTask])
 dbtrBundleTasks = lens _dbtrBundleTasks (\ s a -> s{_dbtrBundleTasks = a});

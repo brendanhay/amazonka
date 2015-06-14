@@ -35,8 +35,8 @@ module Network.AWS.CloudHSM.DescribeLunaClient
     , dlcrClientARN
     , dlcrCertificateFingerprint
     , dlcrLastModifiedTimestamp
-    , dlcrLabel
     , dlcrCertificate
+    , dlcrLabel
     ) where
 
 import Network.AWS.Request
@@ -76,8 +76,8 @@ instance AWSRequest DescribeLunaClient where
                  DescribeLunaClientResponse' <$>
                    x .?> "ClientArn" <*> x .?> "CertificateFingerprint"
                      <*> x .?> "LastModifiedTimestamp"
-                     <*> x .?> "Label"
-                     <*> x .:> "Certificate")
+                     <*> x .?> "Certificate"
+                     <*> x .?> "Label")
 
 instance ToHeaders DescribeLunaClient where
         toHeaders
@@ -112,14 +112,14 @@ instance ToQuery DescribeLunaClient where
 --
 -- * 'dlcrLastModifiedTimestamp'
 --
--- * 'dlcrLabel'
---
 -- * 'dlcrCertificate'
-data DescribeLunaClientResponse = DescribeLunaClientResponse'{_dlcrClientARN :: Maybe Text, _dlcrCertificateFingerprint :: Maybe Text, _dlcrLastModifiedTimestamp :: Maybe Text, _dlcrLabel :: Maybe Text, _dlcrCertificate :: Text} deriving (Eq, Read, Show)
+--
+-- * 'dlcrLabel'
+data DescribeLunaClientResponse = DescribeLunaClientResponse'{_dlcrClientARN :: Maybe Text, _dlcrCertificateFingerprint :: Maybe Text, _dlcrLastModifiedTimestamp :: Maybe Text, _dlcrCertificate :: Maybe Text, _dlcrLabel :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeLunaClientResponse' smart constructor.
-describeLunaClientResponse :: Text -> DescribeLunaClientResponse
-describeLunaClientResponse pCertificate = DescribeLunaClientResponse'{_dlcrClientARN = Nothing, _dlcrCertificateFingerprint = Nothing, _dlcrLastModifiedTimestamp = Nothing, _dlcrLabel = Nothing, _dlcrCertificate = pCertificate};
+describeLunaClientResponse :: DescribeLunaClientResponse
+describeLunaClientResponse = DescribeLunaClientResponse'{_dlcrClientARN = Nothing, _dlcrCertificateFingerprint = Nothing, _dlcrLastModifiedTimestamp = Nothing, _dlcrCertificate = Nothing, _dlcrLabel = Nothing};
 
 -- | The ARN of the client.
 dlcrClientARN :: Lens' DescribeLunaClientResponse (Maybe Text)
@@ -133,10 +133,10 @@ dlcrCertificateFingerprint = lens _dlcrCertificateFingerprint (\ s a -> s{_dlcrC
 dlcrLastModifiedTimestamp :: Lens' DescribeLunaClientResponse (Maybe Text)
 dlcrLastModifiedTimestamp = lens _dlcrLastModifiedTimestamp (\ s a -> s{_dlcrLastModifiedTimestamp = a});
 
+-- | The certificate installed on the HSMs used by this client.
+dlcrCertificate :: Lens' DescribeLunaClientResponse (Maybe Text)
+dlcrCertificate = lens _dlcrCertificate (\ s a -> s{_dlcrCertificate = a});
+
 -- | The label of the client.
 dlcrLabel :: Lens' DescribeLunaClientResponse (Maybe Text)
 dlcrLabel = lens _dlcrLabel (\ s a -> s{_dlcrLabel = a});
-
--- | The certificate installed on the HSMs used by this client.
-dlcrCertificate :: Lens' DescribeLunaClientResponse Text
-dlcrCertificate = lens _dlcrCertificate (\ s a -> s{_dlcrCertificate = a});

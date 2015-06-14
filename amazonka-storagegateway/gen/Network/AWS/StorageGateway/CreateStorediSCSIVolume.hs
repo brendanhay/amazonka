@@ -48,9 +48,9 @@ module Network.AWS.StorageGateway.CreateStorediSCSIVolume
     -- ** Response constructor
     , createStorediSCSIVolumeResponse
     -- ** Response lenses
-    , csscsivrVolumeSizeInBytes
     , csscsivrTargetARN
     , csscsivrVolumeARN
+    , csscsivrVolumeSizeInBytes
     ) where
 
 import Network.AWS.Request
@@ -131,8 +131,8 @@ instance AWSRequest CreateStorediSCSIVolume where
           = receiveJSON
               (\ s h x ->
                  CreateStorediSCSIVolumeResponse' <$>
-                   x .?> "VolumeSizeInBytes" <*> x .:> "TargetARN" <*>
-                     x .:> "VolumeARN")
+                   x .?> "TargetARN" <*> x .?> "VolumeARN" <*>
+                     x .?> "VolumeSizeInBytes")
 
 instance ToHeaders CreateStorediSCSIVolume where
         toHeaders
@@ -165,26 +165,26 @@ instance ToQuery CreateStorediSCSIVolume where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csscsivrVolumeSizeInBytes'
---
 -- * 'csscsivrTargetARN'
 --
 -- * 'csscsivrVolumeARN'
-data CreateStorediSCSIVolumeResponse = CreateStorediSCSIVolumeResponse'{_csscsivrVolumeSizeInBytes :: Maybe Integer, _csscsivrTargetARN :: Text, _csscsivrVolumeARN :: Text} deriving (Eq, Read, Show)
+--
+-- * 'csscsivrVolumeSizeInBytes'
+data CreateStorediSCSIVolumeResponse = CreateStorediSCSIVolumeResponse'{_csscsivrTargetARN :: Maybe Text, _csscsivrVolumeARN :: Maybe Text, _csscsivrVolumeSizeInBytes :: Maybe Integer} deriving (Eq, Read, Show)
 
 -- | 'CreateStorediSCSIVolumeResponse' smart constructor.
-createStorediSCSIVolumeResponse :: Text -> Text -> CreateStorediSCSIVolumeResponse
-createStorediSCSIVolumeResponse pTargetARN pVolumeARN = CreateStorediSCSIVolumeResponse'{_csscsivrVolumeSizeInBytes = Nothing, _csscsivrTargetARN = pTargetARN, _csscsivrVolumeARN = pVolumeARN};
+createStorediSCSIVolumeResponse :: CreateStorediSCSIVolumeResponse
+createStorediSCSIVolumeResponse = CreateStorediSCSIVolumeResponse'{_csscsivrTargetARN = Nothing, _csscsivrVolumeARN = Nothing, _csscsivrVolumeSizeInBytes = Nothing};
+
+-- | he Amazon Resource Name (ARN) of the volume target that includes the
+-- iSCSI name that initiators can use to connect to the target.
+csscsivrTargetARN :: Lens' CreateStorediSCSIVolumeResponse (Maybe Text)
+csscsivrTargetARN = lens _csscsivrTargetARN (\ s a -> s{_csscsivrTargetARN = a});
+
+-- | The Amazon Resource Name (ARN) of the configured volume.
+csscsivrVolumeARN :: Lens' CreateStorediSCSIVolumeResponse (Maybe Text)
+csscsivrVolumeARN = lens _csscsivrVolumeARN (\ s a -> s{_csscsivrVolumeARN = a});
 
 -- | The size of the volume in bytes.
 csscsivrVolumeSizeInBytes :: Lens' CreateStorediSCSIVolumeResponse (Maybe Integer)
 csscsivrVolumeSizeInBytes = lens _csscsivrVolumeSizeInBytes (\ s a -> s{_csscsivrVolumeSizeInBytes = a});
-
--- | he Amazon Resource Name (ARN) of the volume target that includes the
--- iSCSI name that initiators can use to connect to the target.
-csscsivrTargetARN :: Lens' CreateStorediSCSIVolumeResponse Text
-csscsivrTargetARN = lens _csscsivrTargetARN (\ s a -> s{_csscsivrTargetARN = a});
-
--- | The Amazon Resource Name (ARN) of the configured volume.
-csscsivrVolumeARN :: Lens' CreateStorediSCSIVolumeResponse Text
-csscsivrVolumeARN = lens _csscsivrVolumeARN (\ s a -> s{_csscsivrVolumeARN = a});

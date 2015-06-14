@@ -55,8 +55,8 @@ import Network.AWS.CognitoIdentity.Types
 data UnlinkIdentity = UnlinkIdentity'{_uiIdentityId :: Text, _uiLogins :: HashMap Text Text, _uiLoginsToRemove :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'UnlinkIdentity' smart constructor.
-unlinkIdentity :: Text -> HashMap Text Text -> [Text] -> UnlinkIdentity
-unlinkIdentity pIdentityId pLogins pLoginsToRemove = UnlinkIdentity'{_uiIdentityId = pIdentityId, _uiLogins = _Coerce # pLogins, _uiLoginsToRemove = pLoginsToRemove};
+unlinkIdentity :: Text -> UnlinkIdentity
+unlinkIdentity pIdentityId = UnlinkIdentity'{_uiIdentityId = pIdentityId, _uiLogins = mempty, _uiLoginsToRemove = mempty};
 
 -- | A unique identifier in the format REGION:GUID.
 uiIdentityId :: Lens' UnlinkIdentity Text

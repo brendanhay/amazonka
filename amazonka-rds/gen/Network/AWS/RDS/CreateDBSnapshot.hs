@@ -51,14 +51,14 @@ import Network.AWS.RDS.Types
 -- * 'creDBSnapshotIdentifier'
 --
 -- * 'creDBInstanceIdentifier'
-data CreateDBSnapshot = CreateDBSnapshot'{_creTags :: [Tag], _creDBSnapshotIdentifier :: Text, _creDBInstanceIdentifier :: Text} deriving (Eq, Read, Show)
+data CreateDBSnapshot = CreateDBSnapshot'{_creTags :: Maybe [Tag], _creDBSnapshotIdentifier :: Text, _creDBInstanceIdentifier :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateDBSnapshot' smart constructor.
 createDBSnapshot :: Text -> Text -> CreateDBSnapshot
-createDBSnapshot pDBSnapshotIdentifier pDBInstanceIdentifier = CreateDBSnapshot'{_creTags = mempty, _creDBSnapshotIdentifier = pDBSnapshotIdentifier, _creDBInstanceIdentifier = pDBInstanceIdentifier};
+createDBSnapshot pDBSnapshotIdentifier pDBInstanceIdentifier = CreateDBSnapshot'{_creTags = Nothing, _creDBSnapshotIdentifier = pDBSnapshotIdentifier, _creDBInstanceIdentifier = pDBInstanceIdentifier};
 
 -- | FIXME: Undocumented member.
-creTags :: Lens' CreateDBSnapshot [Tag]
+creTags :: Lens' CreateDBSnapshot (Maybe [Tag])
 creTags = lens _creTags (\ s a -> s{_creTags = a});
 
 -- | The identifier for the DB snapshot.

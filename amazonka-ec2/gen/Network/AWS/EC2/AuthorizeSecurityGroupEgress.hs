@@ -87,11 +87,11 @@ import Network.AWS.EC2.Types
 -- * 'asgeDryRun'
 --
 -- * 'asgeGroupId'
-data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress'{_asgeFromPort :: Maybe Int, _asgeIPPermissions :: [IPPermission], _asgeIPProtocol :: Maybe Text, _asgeToPort :: Maybe Int, _asgeCIDRIP :: Maybe Text, _asgeSourceSecurityGroupOwnerId :: Maybe Text, _asgeSourceSecurityGroupName :: Maybe Text, _asgeDryRun :: Maybe Bool, _asgeGroupId :: Text} deriving (Eq, Read, Show)
+data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress'{_asgeFromPort :: Maybe Int, _asgeIPPermissions :: Maybe [IPPermission], _asgeIPProtocol :: Maybe Text, _asgeToPort :: Maybe Int, _asgeCIDRIP :: Maybe Text, _asgeSourceSecurityGroupOwnerId :: Maybe Text, _asgeSourceSecurityGroupName :: Maybe Text, _asgeDryRun :: Maybe Bool, _asgeGroupId :: Text} deriving (Eq, Read, Show)
 
 -- | 'AuthorizeSecurityGroupEgress' smart constructor.
 authorizeSecurityGroupEgress :: Text -> AuthorizeSecurityGroupEgress
-authorizeSecurityGroupEgress pGroupId = AuthorizeSecurityGroupEgress'{_asgeFromPort = Nothing, _asgeIPPermissions = mempty, _asgeIPProtocol = Nothing, _asgeToPort = Nothing, _asgeCIDRIP = Nothing, _asgeSourceSecurityGroupOwnerId = Nothing, _asgeSourceSecurityGroupName = Nothing, _asgeDryRun = Nothing, _asgeGroupId = pGroupId};
+authorizeSecurityGroupEgress pGroupId = AuthorizeSecurityGroupEgress'{_asgeFromPort = Nothing, _asgeIPPermissions = Nothing, _asgeIPProtocol = Nothing, _asgeToPort = Nothing, _asgeCIDRIP = Nothing, _asgeSourceSecurityGroupOwnerId = Nothing, _asgeSourceSecurityGroupName = Nothing, _asgeDryRun = Nothing, _asgeGroupId = pGroupId};
 
 -- | The start of port range for the TCP and UDP protocols, or an ICMP type
 -- number. For the ICMP type number, use @-1@ to specify all ICMP types.
@@ -100,7 +100,7 @@ asgeFromPort = lens _asgeFromPort (\ s a -> s{_asgeFromPort = a});
 
 -- | A set of IP permissions. You can\'t specify a destination security group
 -- and a CIDR IP address range.
-asgeIPPermissions :: Lens' AuthorizeSecurityGroupEgress [IPPermission]
+asgeIPPermissions :: Lens' AuthorizeSecurityGroupEgress (Maybe [IPPermission])
 asgeIPPermissions = lens _asgeIPPermissions (\ s a -> s{_asgeIPPermissions = a});
 
 -- | The IP protocol name (@tcp@, @udp@, @icmp@) or number (see

@@ -53,14 +53,14 @@ import Network.AWS.OpsWorks.Types
 -- * 'drdiRDSDBInstanceARNs'
 --
 -- * 'drdiStackId'
-data DescribeRDSDBInstances = DescribeRDSDBInstances'{_drdiRDSDBInstanceARNs :: [Text], _drdiStackId :: Text} deriving (Eq, Read, Show)
+data DescribeRDSDBInstances = DescribeRDSDBInstances'{_drdiRDSDBInstanceARNs :: Maybe [Text], _drdiStackId :: Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeRDSDBInstances' smart constructor.
 describeRDSDBInstances :: Text -> DescribeRDSDBInstances
-describeRDSDBInstances pStackId = DescribeRDSDBInstances'{_drdiRDSDBInstanceARNs = mempty, _drdiStackId = pStackId};
+describeRDSDBInstances pStackId = DescribeRDSDBInstances'{_drdiRDSDBInstanceARNs = Nothing, _drdiStackId = pStackId};
 
 -- | An array containing the ARNs of the instances to be described.
-drdiRDSDBInstanceARNs :: Lens' DescribeRDSDBInstances [Text]
+drdiRDSDBInstanceARNs :: Lens' DescribeRDSDBInstances (Maybe [Text])
 drdiRDSDBInstanceARNs = lens _drdiRDSDBInstanceARNs (\ s a -> s{_drdiRDSDBInstanceARNs = a});
 
 -- | The stack ID that the instances are registered with. The operation
@@ -106,12 +106,12 @@ instance ToQuery DescribeRDSDBInstances where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'drdirRDSDBInstances'
-newtype DescribeRDSDBInstancesResponse = DescribeRDSDBInstancesResponse'{_drdirRDSDBInstances :: [RDSDBInstance]} deriving (Eq, Read, Show)
+newtype DescribeRDSDBInstancesResponse = DescribeRDSDBInstancesResponse'{_drdirRDSDBInstances :: Maybe [RDSDBInstance]} deriving (Eq, Read, Show)
 
 -- | 'DescribeRDSDBInstancesResponse' smart constructor.
 describeRDSDBInstancesResponse :: DescribeRDSDBInstancesResponse
-describeRDSDBInstancesResponse = DescribeRDSDBInstancesResponse'{_drdirRDSDBInstances = mempty};
+describeRDSDBInstancesResponse = DescribeRDSDBInstancesResponse'{_drdirRDSDBInstances = Nothing};
 
 -- | An a array of @RdsDbInstance@ objects that describe the instances.
-drdirRDSDBInstances :: Lens' DescribeRDSDBInstancesResponse [RDSDBInstance]
+drdirRDSDBInstances :: Lens' DescribeRDSDBInstancesResponse (Maybe [RDSDBInstance])
 drdirRDSDBInstances = lens _drdirRDSDBInstances (\ s a -> s{_drdirRDSDBInstances = a});

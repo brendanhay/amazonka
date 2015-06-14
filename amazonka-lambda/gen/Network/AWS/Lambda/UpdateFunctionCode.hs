@@ -29,11 +29,11 @@ module Network.AWS.Lambda.UpdateFunctionCode
     -- ** Request constructor
     , updateFunctionCode
     -- ** Request lenses
-    , updZipFile
-    , updFunctionName
     , updS3ObjectVersion
     , updS3Key
+    , updZipFile
     , updS3Bucket
+    , updFunctionName
 
     -- * Response
     , FunctionConfiguration
@@ -41,15 +41,15 @@ module Network.AWS.Lambda.UpdateFunctionCode
     , functionConfiguration
     -- ** Response lenses
     , fcRuntime
+    , fcMemorySize
     , fcFunctionARN
     , fcRole
+    , fcFunctionName
     , fcCodeSize
     , fcHandler
+    , fcTimeout
     , fcLastModified
     , fcDescription
-    , fcMemorySize
-    , fcFunctionName
-    , fcTimeout
     ) where
 
 import Network.AWS.Request
@@ -61,24 +61,40 @@ import Network.AWS.Lambda.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'updZipFile'
---
--- * 'updFunctionName'
---
 -- * 'updS3ObjectVersion'
 --
 -- * 'updS3Key'
 --
+-- * 'updZipFile'
+--
 -- * 'updS3Bucket'
-data UpdateFunctionCode = UpdateFunctionCode'{_updZipFile :: Maybe Base64, _updFunctionName :: Text, _updS3ObjectVersion :: Text, _updS3Key :: Text, _updS3Bucket :: Text} deriving (Eq, Read, Show)
+--
+-- * 'updFunctionName'
+data UpdateFunctionCode = UpdateFunctionCode'{_updS3ObjectVersion :: Maybe Text, _updS3Key :: Maybe Text, _updZipFile :: Maybe Base64, _updS3Bucket :: Maybe Text, _updFunctionName :: Text} deriving (Eq, Read, Show)
 
 -- | 'UpdateFunctionCode' smart constructor.
-updateFunctionCode :: Text -> Text -> Text -> Text -> UpdateFunctionCode
-updateFunctionCode pFunctionName pS3ObjectVersion pS3Key pS3Bucket = UpdateFunctionCode'{_updZipFile = Nothing, _updFunctionName = pFunctionName, _updS3ObjectVersion = pS3ObjectVersion, _updS3Key = pS3Key, _updS3Bucket = pS3Bucket};
+updateFunctionCode :: Text -> UpdateFunctionCode
+updateFunctionCode pFunctionName = UpdateFunctionCode'{_updS3ObjectVersion = Nothing, _updS3Key = Nothing, _updZipFile = Nothing, _updS3Bucket = Nothing, _updFunctionName = pFunctionName};
+
+-- | The Amazon S3 object (the deployment package) version you want to
+-- upload.
+updS3ObjectVersion :: Lens' UpdateFunctionCode (Maybe Text)
+updS3ObjectVersion = lens _updS3ObjectVersion (\ s a -> s{_updS3ObjectVersion = a});
+
+-- | The Amazon S3 object (the deployment package) key name you want to
+-- upload.
+updS3Key :: Lens' UpdateFunctionCode (Maybe Text)
+updS3Key = lens _updS3Key (\ s a -> s{_updS3Key = a});
 
 -- | Based64-encoded .zip file containing your packaged source code.
 updZipFile :: Lens' UpdateFunctionCode (Maybe Base64)
 updZipFile = lens _updZipFile (\ s a -> s{_updZipFile = a});
+
+-- | Amazon S3 bucket name where the .zip file containing your deployment
+-- package is stored. This bucket must reside in the same AWS region where
+-- you are creating the Lambda function.
+updS3Bucket :: Lens' UpdateFunctionCode (Maybe Text)
+updS3Bucket = lens _updS3Bucket (\ s a -> s{_updS3Bucket = a});
 
 -- | The existing Lambda function name whose code you want to replace.
 --
@@ -93,22 +109,6 @@ updZipFile = lens _updZipFile (\ s a -> s{_updZipFile = a});
 updFunctionName :: Lens' UpdateFunctionCode Text
 updFunctionName = lens _updFunctionName (\ s a -> s{_updFunctionName = a});
 
--- | The Amazon S3 object (the deployment package) version you want to
--- upload.
-updS3ObjectVersion :: Lens' UpdateFunctionCode Text
-updS3ObjectVersion = lens _updS3ObjectVersion (\ s a -> s{_updS3ObjectVersion = a});
-
--- | The Amazon S3 object (the deployment package) key name you want to
--- upload.
-updS3Key :: Lens' UpdateFunctionCode Text
-updS3Key = lens _updS3Key (\ s a -> s{_updS3Key = a});
-
--- | Amazon S3 bucket name where the .zip file containing your deployment
--- package is stored. This bucket must reside in the same AWS region where
--- you are creating the Lambda function.
-updS3Bucket :: Lens' UpdateFunctionCode Text
-updS3Bucket = lens _updS3Bucket (\ s a -> s{_updS3Bucket = a});
-
 instance AWSRequest UpdateFunctionCode where
         type Sv UpdateFunctionCode = Lambda
         type Rs UpdateFunctionCode = FunctionConfiguration
@@ -121,9 +121,9 @@ instance ToHeaders UpdateFunctionCode where
 instance ToJSON UpdateFunctionCode where
         toJSON UpdateFunctionCode'{..}
           = object
-              ["ZipFile" .= _updZipFile,
-               "S3ObjectVersion" .= _updS3ObjectVersion,
-               "S3Key" .= _updS3Key, "S3Bucket" .= _updS3Bucket]
+              ["S3ObjectVersion" .= _updS3ObjectVersion,
+               "S3Key" .= _updS3Key, "ZipFile" .= _updZipFile,
+               "S3Bucket" .= _updS3Bucket]
 
 instance ToPath UpdateFunctionCode where
         toPath UpdateFunctionCode'{..}

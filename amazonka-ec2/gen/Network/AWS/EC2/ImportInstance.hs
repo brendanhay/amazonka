@@ -62,18 +62,18 @@ import Network.AWS.EC2.Types
 -- * 'iiDescription'
 --
 -- * 'iiPlatform'
-data ImportInstance = ImportInstance'{_iiLaunchSpecification :: Maybe ImportInstanceLaunchSpecification, _iiDiskImages :: [DiskImage], _iiDryRun :: Maybe Bool, _iiDescription :: Maybe Text, _iiPlatform :: PlatformValues} deriving (Eq, Read, Show)
+data ImportInstance = ImportInstance'{_iiLaunchSpecification :: Maybe ImportInstanceLaunchSpecification, _iiDiskImages :: Maybe [DiskImage], _iiDryRun :: Maybe Bool, _iiDescription :: Maybe Text, _iiPlatform :: PlatformValues} deriving (Eq, Read, Show)
 
 -- | 'ImportInstance' smart constructor.
 importInstance :: PlatformValues -> ImportInstance
-importInstance pPlatform = ImportInstance'{_iiLaunchSpecification = Nothing, _iiDiskImages = mempty, _iiDryRun = Nothing, _iiDescription = Nothing, _iiPlatform = pPlatform};
+importInstance pPlatform = ImportInstance'{_iiLaunchSpecification = Nothing, _iiDiskImages = Nothing, _iiDryRun = Nothing, _iiDescription = Nothing, _iiPlatform = pPlatform};
 
 -- | The launch specification.
 iiLaunchSpecification :: Lens' ImportInstance (Maybe ImportInstanceLaunchSpecification)
 iiLaunchSpecification = lens _iiLaunchSpecification (\ s a -> s{_iiLaunchSpecification = a});
 
 -- | The disk image.
-iiDiskImages :: Lens' ImportInstance [DiskImage]
+iiDiskImages :: Lens' ImportInstance (Maybe [DiskImage])
 iiDiskImages = lens _iiDiskImages (\ s a -> s{_iiDiskImages = a});
 
 -- | Checks whether you have the required permissions for the action, without

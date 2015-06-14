@@ -38,15 +38,15 @@ module Network.AWS.CloudFormation.UpdateStack
     -- ** Request lenses
     , usUsePreviousTemplate
     , usNotificationARNs
-    , usParameters
-    , usCapabilities
-    , usStackName
     , usStackPolicyBody
     , usStackPolicyDuringUpdateBody
     , usStackPolicyDuringUpdateURL
+    , usParameters
     , usStackPolicyURL
     , usTemplateBody
     , usTemplateURL
+    , usCapabilities
+    , usStackName
 
     -- * Response
     , UpdateStackResponse
@@ -69,28 +69,28 @@ import Network.AWS.CloudFormation.Types
 --
 -- * 'usNotificationARNs'
 --
--- * 'usParameters'
---
--- * 'usCapabilities'
---
--- * 'usStackName'
---
 -- * 'usStackPolicyBody'
 --
 -- * 'usStackPolicyDuringUpdateBody'
 --
 -- * 'usStackPolicyDuringUpdateURL'
 --
+-- * 'usParameters'
+--
 -- * 'usStackPolicyURL'
 --
 -- * 'usTemplateBody'
 --
 -- * 'usTemplateURL'
-data UpdateStack = UpdateStack'{_usUsePreviousTemplate :: Maybe Bool, _usNotificationARNs :: [Text], _usParameters :: [Parameter], _usCapabilities :: [Capability], _usStackName :: Text, _usStackPolicyBody :: Text, _usStackPolicyDuringUpdateBody :: Text, _usStackPolicyDuringUpdateURL :: Text, _usStackPolicyURL :: Text, _usTemplateBody :: Text, _usTemplateURL :: Text} deriving (Eq, Read, Show)
+--
+-- * 'usCapabilities'
+--
+-- * 'usStackName'
+data UpdateStack = UpdateStack'{_usUsePreviousTemplate :: Maybe Bool, _usNotificationARNs :: Maybe [Text], _usStackPolicyBody :: Maybe Text, _usStackPolicyDuringUpdateBody :: Maybe Text, _usStackPolicyDuringUpdateURL :: Maybe Text, _usParameters :: Maybe [Parameter], _usStackPolicyURL :: Maybe Text, _usTemplateBody :: Maybe Text, _usTemplateURL :: Maybe Text, _usCapabilities :: Maybe [Capability], _usStackName :: Text} deriving (Eq, Read, Show)
 
 -- | 'UpdateStack' smart constructor.
-updateStack :: Text -> Text -> Text -> Text -> Text -> Text -> Text -> UpdateStack
-updateStack pStackName pStackPolicyBody pStackPolicyDuringUpdateBody pStackPolicyDuringUpdateURL pStackPolicyURL pTemplateBody pTemplateURL = UpdateStack'{_usUsePreviousTemplate = Nothing, _usNotificationARNs = mempty, _usParameters = mempty, _usCapabilities = mempty, _usStackName = pStackName, _usStackPolicyBody = pStackPolicyBody, _usStackPolicyDuringUpdateBody = pStackPolicyDuringUpdateBody, _usStackPolicyDuringUpdateURL = pStackPolicyDuringUpdateURL, _usStackPolicyURL = pStackPolicyURL, _usTemplateBody = pTemplateBody, _usTemplateURL = pTemplateURL};
+updateStack :: Text -> UpdateStack
+updateStack pStackName = UpdateStack'{_usUsePreviousTemplate = Nothing, _usNotificationARNs = Nothing, _usStackPolicyBody = Nothing, _usStackPolicyDuringUpdateBody = Nothing, _usStackPolicyDuringUpdateURL = Nothing, _usParameters = Nothing, _usStackPolicyURL = Nothing, _usTemplateBody = Nothing, _usTemplateURL = Nothing, _usCapabilities = Nothing, _usStackName = pStackName};
 
 -- | Reuse the existing template that is associated with the stack that you
 -- are updating.
@@ -99,15 +99,82 @@ usUsePreviousTemplate = lens _usUsePreviousTemplate (\ s a -> s{_usUsePreviousTe
 
 -- | Update the ARNs for the Amazon SNS topics that are associated with the
 -- stack.
-usNotificationARNs :: Lens' UpdateStack [Text]
+usNotificationARNs :: Lens' UpdateStack (Maybe [Text])
 usNotificationARNs = lens _usNotificationARNs (\ s a -> s{_usNotificationARNs = a});
+
+-- | Structure containing a new stack policy body. You can specify either the
+-- @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
+--
+-- You might update the stack policy, for example, in order to protect a
+-- new resource that you created during a stack update. If you do not
+-- specify a stack policy, the current policy that is associated with the
+-- stack is unchanged.
+usStackPolicyBody :: Lens' UpdateStack (Maybe Text)
+usStackPolicyBody = lens _usStackPolicyBody (\ s a -> s{_usStackPolicyBody = a});
+
+-- | Structure containing the temporary overriding stack policy body. You can
+-- specify either the @StackPolicyDuringUpdateBody@ or the
+-- @StackPolicyDuringUpdateURL@ parameter, but not both.
+--
+-- If you want to update protected resources, specify a temporary
+-- overriding stack policy during this update. If you do not specify a
+-- stack policy, the current policy that is associated with the stack will
+-- be used.
+usStackPolicyDuringUpdateBody :: Lens' UpdateStack (Maybe Text)
+usStackPolicyDuringUpdateBody = lens _usStackPolicyDuringUpdateBody (\ s a -> s{_usStackPolicyDuringUpdateBody = a});
+
+-- | Location of a file containing the temporary overriding stack policy. The
+-- URL must point to a policy (max size: 16KB) located in an S3 bucket in
+-- the same region as the stack. You can specify either the
+-- @StackPolicyDuringUpdateBody@ or the @StackPolicyDuringUpdateURL@
+-- parameter, but not both.
+--
+-- If you want to update protected resources, specify a temporary
+-- overriding stack policy during this update. If you do not specify a
+-- stack policy, the current policy that is associated with the stack will
+-- be used.
+usStackPolicyDuringUpdateURL :: Lens' UpdateStack (Maybe Text)
+usStackPolicyDuringUpdateURL = lens _usStackPolicyDuringUpdateURL (\ s a -> s{_usStackPolicyDuringUpdateURL = a});
 
 -- | A list of @Parameter@ structures that specify input parameters for the
 -- stack. For more information, see the
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html Parameter>
 -- data type.
-usParameters :: Lens' UpdateStack [Parameter]
+usParameters :: Lens' UpdateStack (Maybe [Parameter])
 usParameters = lens _usParameters (\ s a -> s{_usParameters = a});
+
+-- | Location of a file containing the updated stack policy. The URL must
+-- point to a policy (max size: 16KB) located in an S3 bucket in the same
+-- region as the stack. You can specify either the @StackPolicyBody@ or the
+-- @StackPolicyURL@ parameter, but not both.
+--
+-- You might update the stack policy, for example, in order to protect a
+-- new resource that you created during a stack update. If you do not
+-- specify a stack policy, the current policy that is associated with the
+-- stack is unchanged.
+usStackPolicyURL :: Lens' UpdateStack (Maybe Text)
+usStackPolicyURL = lens _usStackPolicyURL (\ s a -> s{_usStackPolicyURL = a});
+
+-- | Structure containing the template body with a minimum length of 1 byte
+-- and a maximum length of 51,200 bytes. (For more information, go to
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
+-- in the AWS CloudFormation User Guide.)
+--
+-- Conditional: You must specify either the @TemplateBody@ or the
+-- @TemplateURL@ parameter, but not both.
+usTemplateBody :: Lens' UpdateStack (Maybe Text)
+usTemplateBody = lens _usTemplateBody (\ s a -> s{_usTemplateBody = a});
+
+-- | Location of file containing the template body. The URL must point to a
+-- template located in an S3 bucket in the same region as the stack. For
+-- more information, go to
+-- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
+-- in the AWS CloudFormation User Guide.
+--
+-- Conditional: You must specify either the @TemplateBody@ or the
+-- @TemplateURL@ parameter, but not both.
+usTemplateURL :: Lens' UpdateStack (Maybe Text)
+usTemplateURL = lens _usTemplateURL (\ s a -> s{_usTemplateURL = a});
 
 -- | A list of capabilities that you must specify before AWS CloudFormation
 -- can create or update certain stacks. Some stack templates might include
@@ -126,79 +193,12 @@ usParameters = lens _usParameters (\ s a -> s{_usParameters = a});
 -- If your stack template contains these resources, we recommend that you
 -- review any permissions associated with them. If you don\'t specify this
 -- parameter, this action returns an InsufficientCapabilities error.
-usCapabilities :: Lens' UpdateStack [Capability]
+usCapabilities :: Lens' UpdateStack (Maybe [Capability])
 usCapabilities = lens _usCapabilities (\ s a -> s{_usCapabilities = a});
 
 -- | The name or unique stack ID of the stack to update.
 usStackName :: Lens' UpdateStack Text
 usStackName = lens _usStackName (\ s a -> s{_usStackName = a});
-
--- | Structure containing a new stack policy body. You can specify either the
--- @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
---
--- You might update the stack policy, for example, in order to protect a
--- new resource that you created during a stack update. If you do not
--- specify a stack policy, the current policy that is associated with the
--- stack is unchanged.
-usStackPolicyBody :: Lens' UpdateStack Text
-usStackPolicyBody = lens _usStackPolicyBody (\ s a -> s{_usStackPolicyBody = a});
-
--- | Structure containing the temporary overriding stack policy body. You can
--- specify either the @StackPolicyDuringUpdateBody@ or the
--- @StackPolicyDuringUpdateURL@ parameter, but not both.
---
--- If you want to update protected resources, specify a temporary
--- overriding stack policy during this update. If you do not specify a
--- stack policy, the current policy that is associated with the stack will
--- be used.
-usStackPolicyDuringUpdateBody :: Lens' UpdateStack Text
-usStackPolicyDuringUpdateBody = lens _usStackPolicyDuringUpdateBody (\ s a -> s{_usStackPolicyDuringUpdateBody = a});
-
--- | Location of a file containing the temporary overriding stack policy. The
--- URL must point to a policy (max size: 16KB) located in an S3 bucket in
--- the same region as the stack. You can specify either the
--- @StackPolicyDuringUpdateBody@ or the @StackPolicyDuringUpdateURL@
--- parameter, but not both.
---
--- If you want to update protected resources, specify a temporary
--- overriding stack policy during this update. If you do not specify a
--- stack policy, the current policy that is associated with the stack will
--- be used.
-usStackPolicyDuringUpdateURL :: Lens' UpdateStack Text
-usStackPolicyDuringUpdateURL = lens _usStackPolicyDuringUpdateURL (\ s a -> s{_usStackPolicyDuringUpdateURL = a});
-
--- | Location of a file containing the updated stack policy. The URL must
--- point to a policy (max size: 16KB) located in an S3 bucket in the same
--- region as the stack. You can specify either the @StackPolicyBody@ or the
--- @StackPolicyURL@ parameter, but not both.
---
--- You might update the stack policy, for example, in order to protect a
--- new resource that you created during a stack update. If you do not
--- specify a stack policy, the current policy that is associated with the
--- stack is unchanged.
-usStackPolicyURL :: Lens' UpdateStack Text
-usStackPolicyURL = lens _usStackPolicyURL (\ s a -> s{_usStackPolicyURL = a});
-
--- | Structure containing the template body with a minimum length of 1 byte
--- and a maximum length of 51,200 bytes. (For more information, go to
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
--- in the AWS CloudFormation User Guide.)
---
--- Conditional: You must specify either the @TemplateBody@ or the
--- @TemplateURL@ parameter, but not both.
-usTemplateBody :: Lens' UpdateStack Text
-usTemplateBody = lens _usTemplateBody (\ s a -> s{_usTemplateBody = a});
-
--- | Location of file containing the template body. The URL must point to a
--- template located in an S3 bucket in the same region as the stack. For
--- more information, go to
--- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
--- in the AWS CloudFormation User Guide.
---
--- Conditional: You must specify either the @TemplateBody@ or the
--- @TemplateURL@ parameter, but not both.
-usTemplateURL :: Lens' UpdateStack Text
-usTemplateURL = lens _usTemplateURL (\ s a -> s{_usTemplateURL = a});
 
 instance AWSRequest UpdateStack where
         type Sv UpdateStack = CloudFormation
@@ -222,17 +222,17 @@ instance ToQuery UpdateStack where
                "UsePreviousTemplate" =: _usUsePreviousTemplate,
                "NotificationARNs" =:
                  "member" =: _usNotificationARNs,
-               "Parameters" =: "member" =: _usParameters,
-               "Capabilities" =: "member" =: _usCapabilities,
-               "StackName" =: _usStackName,
                "StackPolicyBody" =: _usStackPolicyBody,
                "StackPolicyDuringUpdateBody" =:
                  _usStackPolicyDuringUpdateBody,
                "StackPolicyDuringUpdateURL" =:
                  _usStackPolicyDuringUpdateURL,
+               "Parameters" =: "member" =: _usParameters,
                "StackPolicyURL" =: _usStackPolicyURL,
                "TemplateBody" =: _usTemplateBody,
-               "TemplateURL" =: _usTemplateURL]
+               "TemplateURL" =: _usTemplateURL,
+               "Capabilities" =: "member" =: _usCapabilities,
+               "StackName" =: _usStackName]
 
 -- | /See:/ 'updateStackResponse' smart constructor.
 --

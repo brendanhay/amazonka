@@ -56,14 +56,14 @@ import Network.AWS.RDS.Types
 -- * 'ddbsgMarker'
 --
 -- * 'ddbsgDBSecurityGroupName'
-data DescribeDBSecurityGroups = DescribeDBSecurityGroups'{_ddbsgFilters :: [Filter], _ddbsgMaxRecords :: Maybe Int, _ddbsgMarker :: Maybe Text, _ddbsgDBSecurityGroupName :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeDBSecurityGroups = DescribeDBSecurityGroups'{_ddbsgFilters :: Maybe [Filter], _ddbsgMaxRecords :: Maybe Int, _ddbsgMarker :: Maybe Text, _ddbsgDBSecurityGroupName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeDBSecurityGroups' smart constructor.
 describeDBSecurityGroups :: DescribeDBSecurityGroups
-describeDBSecurityGroups = DescribeDBSecurityGroups'{_ddbsgFilters = mempty, _ddbsgMaxRecords = Nothing, _ddbsgMarker = Nothing, _ddbsgDBSecurityGroupName = Nothing};
+describeDBSecurityGroups = DescribeDBSecurityGroups'{_ddbsgFilters = Nothing, _ddbsgMaxRecords = Nothing, _ddbsgMarker = Nothing, _ddbsgDBSecurityGroupName = Nothing};
 
 -- | This parameter is not currently supported.
-ddbsgFilters :: Lens' DescribeDBSecurityGroups [Filter]
+ddbsgFilters :: Lens' DescribeDBSecurityGroups (Maybe [Filter])
 ddbsgFilters = lens _ddbsgFilters (\ s a -> s{_ddbsgFilters = a});
 
 -- | The maximum number of records to include in the response. If more
@@ -125,14 +125,14 @@ instance ToQuery DescribeDBSecurityGroups where
 -- * 'desDBSecurityGroups'
 --
 -- * 'desMarker'
-data DescribeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse'{_desDBSecurityGroups :: [DBSecurityGroup], _desMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse'{_desDBSecurityGroups :: Maybe [DBSecurityGroup], _desMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeDBSecurityGroupsResponse' smart constructor.
 describeDBSecurityGroupsResponse :: DescribeDBSecurityGroupsResponse
-describeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse'{_desDBSecurityGroups = mempty, _desMarker = Nothing};
+describeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse'{_desDBSecurityGroups = Nothing, _desMarker = Nothing};
 
 -- | A list of DBSecurityGroup instances.
-desDBSecurityGroups :: Lens' DescribeDBSecurityGroupsResponse [DBSecurityGroup]
+desDBSecurityGroups :: Lens' DescribeDBSecurityGroupsResponse (Maybe [DBSecurityGroup])
 desDBSecurityGroups = lens _desDBSecurityGroups (\ s a -> s{_desDBSecurityGroups = a});
 
 -- | An optional pagination token provided by a previous request. If this

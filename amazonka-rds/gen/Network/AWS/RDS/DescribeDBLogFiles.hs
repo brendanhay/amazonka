@@ -63,11 +63,11 @@ import Network.AWS.RDS.Types
 -- * 'ddlfMarker'
 --
 -- * 'ddlfDBInstanceIdentifier'
-data DescribeDBLogFiles = DescribeDBLogFiles'{_ddlfFilenameContains :: Maybe Text, _ddlfFileSize :: Maybe Integer, _ddlfFileLastWritten :: Maybe Integer, _ddlfFilters :: [Filter], _ddlfMaxRecords :: Maybe Int, _ddlfMarker :: Maybe Text, _ddlfDBInstanceIdentifier :: Text} deriving (Eq, Read, Show)
+data DescribeDBLogFiles = DescribeDBLogFiles'{_ddlfFilenameContains :: Maybe Text, _ddlfFileSize :: Maybe Integer, _ddlfFileLastWritten :: Maybe Integer, _ddlfFilters :: Maybe [Filter], _ddlfMaxRecords :: Maybe Int, _ddlfMarker :: Maybe Text, _ddlfDBInstanceIdentifier :: Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeDBLogFiles' smart constructor.
 describeDBLogFiles :: Text -> DescribeDBLogFiles
-describeDBLogFiles pDBInstanceIdentifier = DescribeDBLogFiles'{_ddlfFilenameContains = Nothing, _ddlfFileSize = Nothing, _ddlfFileLastWritten = Nothing, _ddlfFilters = mempty, _ddlfMaxRecords = Nothing, _ddlfMarker = Nothing, _ddlfDBInstanceIdentifier = pDBInstanceIdentifier};
+describeDBLogFiles pDBInstanceIdentifier = DescribeDBLogFiles'{_ddlfFilenameContains = Nothing, _ddlfFileSize = Nothing, _ddlfFileLastWritten = Nothing, _ddlfFilters = Nothing, _ddlfMaxRecords = Nothing, _ddlfMarker = Nothing, _ddlfDBInstanceIdentifier = pDBInstanceIdentifier};
 
 -- | Filters the available log files for log file names that contain the
 -- specified string.
@@ -85,7 +85,7 @@ ddlfFileLastWritten :: Lens' DescribeDBLogFiles (Maybe Integer)
 ddlfFileLastWritten = lens _ddlfFileLastWritten (\ s a -> s{_ddlfFileLastWritten = a});
 
 -- | This parameter is not currently supported.
-ddlfFilters :: Lens' DescribeDBLogFiles [Filter]
+ddlfFilters :: Lens' DescribeDBLogFiles (Maybe [Filter])
 ddlfFilters = lens _ddlfFilters (\ s a -> s{_ddlfFilters = a});
 
 -- | The maximum number of records to include in the response. If more
@@ -151,14 +151,14 @@ instance ToQuery DescribeDBLogFiles where
 -- * 'ddlfrDescribeDBLogFiles'
 --
 -- * 'ddlfrMarker'
-data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse'{_ddlfrDescribeDBLogFiles :: [DescribeDBLogFilesDetails], _ddlfrMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse'{_ddlfrDescribeDBLogFiles :: Maybe [DescribeDBLogFilesDetails], _ddlfrMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeDBLogFilesResponse' smart constructor.
 describeDBLogFilesResponse :: DescribeDBLogFilesResponse
-describeDBLogFilesResponse = DescribeDBLogFilesResponse'{_ddlfrDescribeDBLogFiles = mempty, _ddlfrMarker = Nothing};
+describeDBLogFilesResponse = DescribeDBLogFilesResponse'{_ddlfrDescribeDBLogFiles = Nothing, _ddlfrMarker = Nothing};
 
 -- | The DB log files returned.
-ddlfrDescribeDBLogFiles :: Lens' DescribeDBLogFilesResponse [DescribeDBLogFilesDetails]
+ddlfrDescribeDBLogFiles :: Lens' DescribeDBLogFilesResponse (Maybe [DescribeDBLogFilesDetails])
 ddlfrDescribeDBLogFiles = lens _ddlfrDescribeDBLogFiles (\ s a -> s{_ddlfrDescribeDBLogFiles = a});
 
 -- | A pagination token that can be used in a subsequent DescribeDBLogFiles

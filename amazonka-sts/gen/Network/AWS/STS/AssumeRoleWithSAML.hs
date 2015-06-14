@@ -77,11 +77,11 @@ module Network.AWS.STS.AssumeRoleWithSAML
     -- ** Request constructor
     , assumeRoleWithSAML
     -- ** Request lenses
+    , arwsamlDurationSeconds
+    , arwsamlPolicy
     , arwsamlRoleARN
     , arwsamlPrincipalARN
     , arwsamlSAMLAssertion
-    , arwsamlDurationSeconds
-    , arwsamlPolicy
 
     -- * Response
     , AssumeRoleWithSAMLResponse
@@ -107,20 +107,49 @@ import Network.AWS.STS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'arwsamlDurationSeconds'
+--
+-- * 'arwsamlPolicy'
+--
 -- * 'arwsamlRoleARN'
 --
 -- * 'arwsamlPrincipalARN'
 --
 -- * 'arwsamlSAMLAssertion'
---
--- * 'arwsamlDurationSeconds'
---
--- * 'arwsamlPolicy'
-data AssumeRoleWithSAML = AssumeRoleWithSAML'{_arwsamlRoleARN :: Text, _arwsamlPrincipalARN :: Text, _arwsamlSAMLAssertion :: Text, _arwsamlDurationSeconds :: Nat, _arwsamlPolicy :: Text} deriving (Eq, Read, Show)
+data AssumeRoleWithSAML = AssumeRoleWithSAML'{_arwsamlDurationSeconds :: Maybe Nat, _arwsamlPolicy :: Maybe Text, _arwsamlRoleARN :: Text, _arwsamlPrincipalARN :: Text, _arwsamlSAMLAssertion :: Text} deriving (Eq, Read, Show)
 
 -- | 'AssumeRoleWithSAML' smart constructor.
-assumeRoleWithSAML :: Text -> Text -> Text -> Natural -> Text -> AssumeRoleWithSAML
-assumeRoleWithSAML pRoleARN pPrincipalARN pSAMLAssertion pDurationSeconds pPolicy = AssumeRoleWithSAML'{_arwsamlRoleARN = pRoleARN, _arwsamlPrincipalARN = pPrincipalARN, _arwsamlSAMLAssertion = pSAMLAssertion, _arwsamlDurationSeconds = _Nat # pDurationSeconds, _arwsamlPolicy = pPolicy};
+assumeRoleWithSAML :: Text -> Text -> Text -> AssumeRoleWithSAML
+assumeRoleWithSAML pRoleARN pPrincipalARN pSAMLAssertion = AssumeRoleWithSAML'{_arwsamlDurationSeconds = Nothing, _arwsamlPolicy = Nothing, _arwsamlRoleARN = pRoleARN, _arwsamlPrincipalARN = pPrincipalARN, _arwsamlSAMLAssertion = pSAMLAssertion};
+
+-- | The duration, in seconds, of the role session. The value can range from
+-- 900 seconds (15 minutes) to 3600 seconds (1 hour). By default, the value
+-- is set to 3600 seconds. An expiration can also be specified in the SAML
+-- authentication response\'s @SessionNotOnOrAfter@ value. The actual
+-- expiration time is whichever value is shorter.
+--
+-- The maximum duration for a session is 1 hour, and the minimum duration
+-- is 15 minutes, even if values outside this range are specified.
+arwsamlDurationSeconds :: Lens' AssumeRoleWithSAML (Maybe Natural)
+arwsamlDurationSeconds = lens _arwsamlDurationSeconds (\ s a -> s{_arwsamlDurationSeconds = a}) . mapping _Nat;
+
+-- | An IAM policy in JSON format.
+--
+-- The policy parameter is optional. If you pass a policy, the temporary
+-- security credentials that are returned by the operation have the
+-- permissions that are allowed by both the access policy of the role that
+-- is being assumed, /__and__/ the policy that you pass. This gives you a
+-- way to further restrict the permissions for the resulting temporary
+-- security credentials. You cannot use the passed policy to grant
+-- permissions that are in excess of those allowed by the access policy of
+-- the role that is being assumed. For more information, see
+-- <http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-assume-role.html Permissions for AssumeRoleWithSAML>
+-- in /Using Temporary Security Credentials/.
+--
+-- The policy must be 2048 bytes or shorter, and its packed size must be
+-- less than 450 bytes.
+arwsamlPolicy :: Lens' AssumeRoleWithSAML (Maybe Text)
+arwsamlPolicy = lens _arwsamlPolicy (\ s a -> s{_arwsamlPolicy = a});
 
 -- | The Amazon Resource Name (ARN) of the role that the caller is assuming.
 arwsamlRoleARN :: Lens' AssumeRoleWithSAML Text
@@ -138,35 +167,6 @@ arwsamlPrincipalARN = lens _arwsamlPrincipalARN (\ s a -> s{_arwsamlPrincipalARN
 -- in the /Using IAM/ guide.
 arwsamlSAMLAssertion :: Lens' AssumeRoleWithSAML Text
 arwsamlSAMLAssertion = lens _arwsamlSAMLAssertion (\ s a -> s{_arwsamlSAMLAssertion = a});
-
--- | The duration, in seconds, of the role session. The value can range from
--- 900 seconds (15 minutes) to 3600 seconds (1 hour). By default, the value
--- is set to 3600 seconds. An expiration can also be specified in the SAML
--- authentication response\'s @SessionNotOnOrAfter@ value. The actual
--- expiration time is whichever value is shorter.
---
--- The maximum duration for a session is 1 hour, and the minimum duration
--- is 15 minutes, even if values outside this range are specified.
-arwsamlDurationSeconds :: Lens' AssumeRoleWithSAML Natural
-arwsamlDurationSeconds = lens _arwsamlDurationSeconds (\ s a -> s{_arwsamlDurationSeconds = a}) . _Nat;
-
--- | An IAM policy in JSON format.
---
--- The policy parameter is optional. If you pass a policy, the temporary
--- security credentials that are returned by the operation have the
--- permissions that are allowed by both the access policy of the role that
--- is being assumed, /__and__/ the policy that you pass. This gives you a
--- way to further restrict the permissions for the resulting temporary
--- security credentials. You cannot use the passed policy to grant
--- permissions that are in excess of those allowed by the access policy of
--- the role that is being assumed. For more information, see
--- <http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-assume-role.html Permissions for AssumeRoleWithSAML>
--- in /Using Temporary Security Credentials/.
---
--- The policy must be 2048 bytes or shorter, and its packed size must be
--- less than 450 bytes.
-arwsamlPolicy :: Lens' AssumeRoleWithSAML Text
-arwsamlPolicy = lens _arwsamlPolicy (\ s a -> s{_arwsamlPolicy = a});
 
 instance AWSRequest AssumeRoleWithSAML where
         type Sv AssumeRoleWithSAML = STS
@@ -196,11 +196,11 @@ instance ToQuery AssumeRoleWithSAML where
           = mconcat
               ["Action" =: ("AssumeRoleWithSAML" :: ByteString),
                "Version" =: ("2011-06-15" :: ByteString),
+               "DurationSeconds" =: _arwsamlDurationSeconds,
+               "Policy" =: _arwsamlPolicy,
                "RoleArn" =: _arwsamlRoleARN,
                "PrincipalArn" =: _arwsamlPrincipalARN,
-               "SAMLAssertion" =: _arwsamlSAMLAssertion,
-               "DurationSeconds" =: _arwsamlDurationSeconds,
-               "Policy" =: _arwsamlPolicy]
+               "SAMLAssertion" =: _arwsamlSAMLAssertion]
 
 -- | /See:/ 'assumeRoleWithSAMLResponse' smart constructor.
 --

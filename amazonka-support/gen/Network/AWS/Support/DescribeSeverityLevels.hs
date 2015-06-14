@@ -95,13 +95,13 @@ instance ToQuery DescribeSeverityLevels where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dslrSeverityLevels'
-newtype DescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse'{_dslrSeverityLevels :: [SeverityLevel]} deriving (Eq, Read, Show)
+newtype DescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse'{_dslrSeverityLevels :: Maybe [SeverityLevel]} deriving (Eq, Read, Show)
 
 -- | 'DescribeSeverityLevelsResponse' smart constructor.
 describeSeverityLevelsResponse :: DescribeSeverityLevelsResponse
-describeSeverityLevelsResponse = DescribeSeverityLevelsResponse'{_dslrSeverityLevels = mempty};
+describeSeverityLevelsResponse = DescribeSeverityLevelsResponse'{_dslrSeverityLevels = Nothing};
 
 -- | The available severity levels for the support case. Available severity
 -- levels are defined by your service level agreement with AWS.
-dslrSeverityLevels :: Lens' DescribeSeverityLevelsResponse [SeverityLevel]
+dslrSeverityLevels :: Lens' DescribeSeverityLevelsResponse (Maybe [SeverityLevel])
 dslrSeverityLevels = lens _dslrSeverityLevels (\ s a -> s{_dslrSeverityLevels = a});

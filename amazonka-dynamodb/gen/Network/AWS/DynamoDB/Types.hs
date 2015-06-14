@@ -120,9 +120,9 @@ module Network.AWS.DynamoDB.Types
     , gsidProvisionedThroughput
     , gsidIndexStatus
     , gsidIndexSizeBytes
+    , gsidKeySchema
     , gsidProjection
     , gsidItemCount
-    , gsidKeySchema
     , gsidIndexName
 
     -- * GlobalSecondaryIndexUpdate
@@ -156,8 +156,8 @@ module Network.AWS.DynamoDB.Types
     , kaaProjectionExpression
     , kaaConsistentRead
     , kaaExpressionAttributeNames
-    , kaaKeys
     , kaaAttributesToGet
+    , kaaKeys
 
     -- * LocalSecondaryIndex
     , LocalSecondaryIndex
@@ -170,9 +170,9 @@ module Network.AWS.DynamoDB.Types
     , LocalSecondaryIndexDescription
     , localSecondaryIndexDescription
     , lsidIndexSizeBytes
+    , lsidKeySchema
     , lsidProjection
     , lsidItemCount
-    , lsidKeySchema
     , lsidIndexName
 
     -- * Projection
@@ -193,11 +193,11 @@ module Network.AWS.DynamoDB.Types
     -- * ProvisionedThroughputDescription
     , ProvisionedThroughputDescription
     , provisionedThroughputDescription
-    , ptdLastDecreaseDateTime
-    , ptdLastIncreaseDateTime
     , ptdReadCapacityUnits
+    , ptdLastDecreaseDateTime
     , ptdWriteCapacityUnits
     , ptdNumberOfDecreasesToday
+    , ptdLastIncreaseDateTime
 
     -- * PutRequest
     , PutRequest
@@ -226,11 +226,11 @@ module Network.AWS.DynamoDB.Types
     , tdAttributeDefinitions
     , tdTableSizeBytes
     , tdTableStatus
+    , tdKeySchema
     , tdGlobalSecondaryIndexes
     , tdLocalSecondaryIndexes
     , tdCreationDateTime
     , tdItemCount
-    , tdKeySchema
     , tdTableName
 
     -- * TableStatus
@@ -361,22 +361,22 @@ instance ToJSON AttributeDefinition where
 -- * 'avS'
 --
 -- * 'avBOOL'
-data AttributeValue = AttributeValue'{_avL :: [AttributeValue], _avM :: HashMap Text AttributeValue, _avNS :: [Text], _avNULL :: Maybe Bool, _avN :: Maybe Text, _avBS :: [Base64], _avB :: Maybe Base64, _avSS :: [Text], _avS :: Maybe Text, _avBOOL :: Maybe Bool} deriving (Eq, Read, Show)
+data AttributeValue = AttributeValue'{_avL :: Maybe [AttributeValue], _avM :: Maybe (HashMap Text AttributeValue), _avNS :: Maybe [Text], _avNULL :: Maybe Bool, _avN :: Maybe Text, _avBS :: Maybe [Base64], _avB :: Maybe Base64, _avSS :: Maybe [Text], _avS :: Maybe Text, _avBOOL :: Maybe Bool} deriving (Eq, Read, Show)
 
 -- | 'AttributeValue' smart constructor.
 attributeValue :: AttributeValue
-attributeValue = AttributeValue'{_avL = mempty, _avM = mempty, _avNS = mempty, _avNULL = Nothing, _avN = Nothing, _avBS = mempty, _avB = Nothing, _avSS = mempty, _avS = Nothing, _avBOOL = Nothing};
+attributeValue = AttributeValue'{_avL = Nothing, _avM = Nothing, _avNS = Nothing, _avNULL = Nothing, _avN = Nothing, _avBS = Nothing, _avB = Nothing, _avSS = Nothing, _avS = Nothing, _avBOOL = Nothing};
 
 -- | A List of attribute values.
-avL :: Lens' AttributeValue [AttributeValue]
+avL :: Lens' AttributeValue (Maybe [AttributeValue])
 avL = lens _avL (\ s a -> s{_avL = a});
 
 -- | A Map of attribute values.
-avM :: Lens' AttributeValue (HashMap Text AttributeValue)
-avM = lens _avM (\ s a -> s{_avM = a}) . _Coerce;
+avM :: Lens' AttributeValue (Maybe (HashMap Text AttributeValue))
+avM = lens _avM (\ s a -> s{_avM = a}) . mapping _Coerce;
 
 -- | A Number Set data type.
-avNS :: Lens' AttributeValue [Text]
+avNS :: Lens' AttributeValue (Maybe [Text])
 avNS = lens _avNS (\ s a -> s{_avNS = a});
 
 -- | A Null data type.
@@ -388,7 +388,7 @@ avN :: Lens' AttributeValue (Maybe Text)
 avN = lens _avN (\ s a -> s{_avN = a});
 
 -- | A Binary Set data type.
-avBS :: Lens' AttributeValue [Base64]
+avBS :: Lens' AttributeValue (Maybe [Base64])
 avBS = lens _avBS (\ s a -> s{_avBS = a});
 
 -- | A Binary data type.
@@ -396,7 +396,7 @@ avB :: Lens' AttributeValue (Maybe Base64)
 avB = lens _avB (\ s a -> s{_avB = a});
 
 -- | A String Set data type.
-avSS :: Lens' AttributeValue [Text]
+avSS :: Lens' AttributeValue (Maybe [Text])
 avSS = lens _avSS (\ s a -> s{_avSS = a});
 
 -- | A String data type.
@@ -596,11 +596,11 @@ instance ToJSON ComparisonOperator where
 -- * 'conAttributeValueList'
 --
 -- * 'conComparisonOperator'
-data Condition = Condition'{_conAttributeValueList :: [AttributeValue], _conComparisonOperator :: ComparisonOperator} deriving (Eq, Read, Show)
+data Condition = Condition'{_conAttributeValueList :: Maybe [AttributeValue], _conComparisonOperator :: ComparisonOperator} deriving (Eq, Read, Show)
 
 -- | 'Condition' smart constructor.
 condition :: ComparisonOperator -> Condition
-condition pComparisonOperator = Condition'{_conAttributeValueList = mempty, _conComparisonOperator = pComparisonOperator};
+condition pComparisonOperator = Condition'{_conAttributeValueList = Nothing, _conComparisonOperator = pComparisonOperator};
 
 -- | One or more values to evaluate against the supplied attribute. The
 -- number of values in the list depends on the /ComparisonOperator/ being
@@ -615,7 +615,7 @@ condition pComparisonOperator = Condition'{_conAttributeValueList = mempty, _con
 --
 -- For Binary, DynamoDB treats each byte of the binary data as unsigned
 -- when it compares binary values.
-conAttributeValueList :: Lens' Condition [AttributeValue]
+conAttributeValueList :: Lens' Condition (Maybe [AttributeValue])
 conAttributeValueList = lens _conAttributeValueList (\ s a -> s{_conAttributeValueList = a});
 
 -- | A comparator for evaluating attributes. For example, equals, greater
@@ -811,11 +811,11 @@ instance ToJSON ConditionalOperator where
 -- * 'ccTable'
 --
 -- * 'ccTableName'
-data ConsumedCapacity = ConsumedCapacity'{_ccCapacityUnits :: Maybe Double, _ccGlobalSecondaryIndexes :: HashMap Text Capacity, _ccLocalSecondaryIndexes :: HashMap Text Capacity, _ccTable :: Maybe Capacity, _ccTableName :: Text} deriving (Eq, Read, Show)
+data ConsumedCapacity = ConsumedCapacity'{_ccCapacityUnits :: Maybe Double, _ccGlobalSecondaryIndexes :: Maybe (HashMap Text Capacity), _ccLocalSecondaryIndexes :: Maybe (HashMap Text Capacity), _ccTable :: Maybe Capacity, _ccTableName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ConsumedCapacity' smart constructor.
-consumedCapacity :: Text -> ConsumedCapacity
-consumedCapacity pTableName = ConsumedCapacity'{_ccCapacityUnits = Nothing, _ccGlobalSecondaryIndexes = mempty, _ccLocalSecondaryIndexes = mempty, _ccTable = Nothing, _ccTableName = pTableName};
+consumedCapacity :: ConsumedCapacity
+consumedCapacity = ConsumedCapacity'{_ccCapacityUnits = Nothing, _ccGlobalSecondaryIndexes = Nothing, _ccLocalSecondaryIndexes = Nothing, _ccTable = Nothing, _ccTableName = Nothing};
 
 -- | The total number of capacity units consumed by the operation.
 ccCapacityUnits :: Lens' ConsumedCapacity (Maybe Double)
@@ -823,13 +823,13 @@ ccCapacityUnits = lens _ccCapacityUnits (\ s a -> s{_ccCapacityUnits = a});
 
 -- | The amount of throughput consumed on each global index affected by the
 -- operation.
-ccGlobalSecondaryIndexes :: Lens' ConsumedCapacity (HashMap Text Capacity)
-ccGlobalSecondaryIndexes = lens _ccGlobalSecondaryIndexes (\ s a -> s{_ccGlobalSecondaryIndexes = a}) . _Coerce;
+ccGlobalSecondaryIndexes :: Lens' ConsumedCapacity (Maybe (HashMap Text Capacity))
+ccGlobalSecondaryIndexes = lens _ccGlobalSecondaryIndexes (\ s a -> s{_ccGlobalSecondaryIndexes = a}) . mapping _Coerce;
 
 -- | The amount of throughput consumed on each local index affected by the
 -- operation.
-ccLocalSecondaryIndexes :: Lens' ConsumedCapacity (HashMap Text Capacity)
-ccLocalSecondaryIndexes = lens _ccLocalSecondaryIndexes (\ s a -> s{_ccLocalSecondaryIndexes = a}) . _Coerce;
+ccLocalSecondaryIndexes :: Lens' ConsumedCapacity (Maybe (HashMap Text Capacity))
+ccLocalSecondaryIndexes = lens _ccLocalSecondaryIndexes (\ s a -> s{_ccLocalSecondaryIndexes = a}) . mapping _Coerce;
 
 -- | The amount of throughput consumed on the table affected by the
 -- operation.
@@ -837,7 +837,7 @@ ccTable :: Lens' ConsumedCapacity (Maybe Capacity)
 ccTable = lens _ccTable (\ s a -> s{_ccTable = a});
 
 -- | The name of the table that was affected by the operation.
-ccTableName :: Lens' ConsumedCapacity Text
+ccTableName :: Lens' ConsumedCapacity (Maybe Text)
 ccTableName = lens _ccTableName (\ s a -> s{_ccTableName = a});
 
 instance FromJSON ConsumedCapacity where
@@ -849,7 +849,7 @@ instance FromJSON ConsumedCapacity where
                      x .:? "GlobalSecondaryIndexes" .!= mempty
                      <*> x .:? "LocalSecondaryIndexes" .!= mempty
                      <*> x .:? "Table"
-                     <*> x .: "TableName")
+                     <*> x .:? "TableName")
 
 -- | /See:/ 'createGlobalSecondaryIndexAction' smart constructor.
 --
@@ -922,8 +922,8 @@ instance ToJSON DeleteGlobalSecondaryIndexAction
 newtype DeleteRequest = DeleteRequest'{_drKey :: HashMap Text AttributeValue} deriving (Eq, Read, Show)
 
 -- | 'DeleteRequest' smart constructor.
-deleteRequest :: HashMap Text AttributeValue -> DeleteRequest
-deleteRequest pKey = DeleteRequest'{_drKey = _Coerce # pKey};
+deleteRequest :: DeleteRequest
+deleteRequest = DeleteRequest'{_drKey = mempty};
 
 -- | A map of attribute name to attribute values, representing the primary
 -- key of the item to delete. All of the table\'s primary key attributes
@@ -951,11 +951,11 @@ instance ToJSON DeleteRequest where
 -- * 'eavValue'
 --
 -- * 'eavComparisonOperator'
-data ExpectedAttributeValue = ExpectedAttributeValue'{_eavAttributeValueList :: [AttributeValue], _eavExists :: Maybe Bool, _eavValue :: Maybe AttributeValue, _eavComparisonOperator :: Maybe ComparisonOperator} deriving (Eq, Read, Show)
+data ExpectedAttributeValue = ExpectedAttributeValue'{_eavAttributeValueList :: Maybe [AttributeValue], _eavExists :: Maybe Bool, _eavValue :: Maybe AttributeValue, _eavComparisonOperator :: Maybe ComparisonOperator} deriving (Eq, Read, Show)
 
 -- | 'ExpectedAttributeValue' smart constructor.
 expectedAttributeValue :: ExpectedAttributeValue
-expectedAttributeValue = ExpectedAttributeValue'{_eavAttributeValueList = mempty, _eavExists = Nothing, _eavValue = Nothing, _eavComparisonOperator = Nothing};
+expectedAttributeValue = ExpectedAttributeValue'{_eavAttributeValueList = Nothing, _eavExists = Nothing, _eavValue = Nothing, _eavComparisonOperator = Nothing};
 
 -- | One or more values to evaluate against the supplied attribute. The
 -- number of values in the list depends on the /ComparisonOperator/ being
@@ -974,7 +974,7 @@ expectedAttributeValue = ExpectedAttributeValue'{_eavAttributeValueList = mempty
 -- For information on specifying data types in JSON, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataFormat.html JSON Data Format>
 -- in the /Amazon DynamoDB Developer Guide/.
-eavAttributeValueList :: Lens' ExpectedAttributeValue [AttributeValue]
+eavAttributeValueList :: Lens' ExpectedAttributeValue (Maybe [AttributeValue])
 eavAttributeValueList = lens _eavAttributeValueList (\ s a -> s{_eavAttributeValueList = a});
 
 -- | Causes DynamoDB to evaluate the value before attempting a conditional
@@ -1224,18 +1224,18 @@ instance ToJSON GlobalSecondaryIndex where
 --
 -- * 'gsidIndexSizeBytes'
 --
+-- * 'gsidKeySchema'
+--
 -- * 'gsidProjection'
 --
 -- * 'gsidItemCount'
 --
--- * 'gsidKeySchema'
---
 -- * 'gsidIndexName'
-data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription'{_gsidBackfilling :: Maybe Bool, _gsidProvisionedThroughput :: Maybe ProvisionedThroughputDescription, _gsidIndexStatus :: Maybe IndexStatus, _gsidIndexSizeBytes :: Maybe Integer, _gsidProjection :: Maybe Projection, _gsidItemCount :: Maybe Integer, _gsidKeySchema :: List1 KeySchemaElement, _gsidIndexName :: Text} deriving (Eq, Read, Show)
+data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription'{_gsidBackfilling :: Maybe Bool, _gsidProvisionedThroughput :: Maybe ProvisionedThroughputDescription, _gsidIndexStatus :: Maybe IndexStatus, _gsidIndexSizeBytes :: Maybe Integer, _gsidKeySchema :: Maybe (List1 KeySchemaElement), _gsidProjection :: Maybe Projection, _gsidItemCount :: Maybe Integer, _gsidIndexName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'GlobalSecondaryIndexDescription' smart constructor.
-globalSecondaryIndexDescription :: NonEmpty KeySchemaElement -> Text -> GlobalSecondaryIndexDescription
-globalSecondaryIndexDescription pKeySchema pIndexName = GlobalSecondaryIndexDescription'{_gsidBackfilling = Nothing, _gsidProvisionedThroughput = Nothing, _gsidIndexStatus = Nothing, _gsidIndexSizeBytes = Nothing, _gsidProjection = Nothing, _gsidItemCount = Nothing, _gsidKeySchema = _List1 # pKeySchema, _gsidIndexName = pIndexName};
+globalSecondaryIndexDescription :: GlobalSecondaryIndexDescription
+globalSecondaryIndexDescription = GlobalSecondaryIndexDescription'{_gsidBackfilling = Nothing, _gsidProvisionedThroughput = Nothing, _gsidIndexStatus = Nothing, _gsidIndexSizeBytes = Nothing, _gsidKeySchema = Nothing, _gsidProjection = Nothing, _gsidItemCount = Nothing, _gsidIndexName = Nothing};
 
 -- | Indicates whether the index is currently backfilling. /Backfilling/ is
 -- the process of reading items from the table and determining whether they
@@ -1272,6 +1272,11 @@ gsidIndexStatus = lens _gsidIndexStatus (\ s a -> s{_gsidIndexStatus = a});
 gsidIndexSizeBytes :: Lens' GlobalSecondaryIndexDescription (Maybe Integer)
 gsidIndexSizeBytes = lens _gsidIndexSizeBytes (\ s a -> s{_gsidIndexSizeBytes = a});
 
+-- | The complete key schema for the global secondary index, consisting of
+-- one or more pairs of attribute names and key types (@HASH@ or @RANGE@).
+gsidKeySchema :: Lens' GlobalSecondaryIndexDescription (Maybe (NonEmpty KeySchemaElement))
+gsidKeySchema = lens _gsidKeySchema (\ s a -> s{_gsidKeySchema = a}) . mapping _List1;
+
 -- | FIXME: Undocumented member.
 gsidProjection :: Lens' GlobalSecondaryIndexDescription (Maybe Projection)
 gsidProjection = lens _gsidProjection (\ s a -> s{_gsidProjection = a});
@@ -1282,13 +1287,8 @@ gsidProjection = lens _gsidProjection (\ s a -> s{_gsidProjection = a});
 gsidItemCount :: Lens' GlobalSecondaryIndexDescription (Maybe Integer)
 gsidItemCount = lens _gsidItemCount (\ s a -> s{_gsidItemCount = a});
 
--- | The complete key schema for the global secondary index, consisting of
--- one or more pairs of attribute names and key types (@HASH@ or @RANGE@).
-gsidKeySchema :: Lens' GlobalSecondaryIndexDescription (NonEmpty KeySchemaElement)
-gsidKeySchema = lens _gsidKeySchema (\ s a -> s{_gsidKeySchema = a}) . _List1;
-
 -- | The name of the global secondary index.
-gsidIndexName :: Lens' GlobalSecondaryIndexDescription Text
+gsidIndexName :: Lens' GlobalSecondaryIndexDescription (Maybe Text)
 gsidIndexName = lens _gsidIndexName (\ s a -> s{_gsidIndexName = a});
 
 instance FromJSON GlobalSecondaryIndexDescription
@@ -1300,10 +1300,10 @@ instance FromJSON GlobalSecondaryIndexDescription
                    x .:? "Backfilling" <*> x .:? "ProvisionedThroughput"
                      <*> x .:? "IndexStatus"
                      <*> x .:? "IndexSizeBytes"
+                     <*> x .:? "KeySchema"
                      <*> x .:? "Projection"
                      <*> x .:? "ItemCount"
-                     <*> x .: "KeySchema"
-                     <*> x .: "IndexName")
+                     <*> x .:? "IndexName")
 
 -- | /See:/ 'globalSecondaryIndexUpdate' smart constructor.
 --
@@ -1382,16 +1382,16 @@ instance FromJSON IndexStatus where
 -- * 'icmItemCollectionKey'
 --
 -- * 'icmSizeEstimateRangeGB'
-data ItemCollectionMetrics = ItemCollectionMetrics'{_icmItemCollectionKey :: HashMap Text AttributeValue, _icmSizeEstimateRangeGB :: [Double]} deriving (Eq, Read, Show)
+data ItemCollectionMetrics = ItemCollectionMetrics'{_icmItemCollectionKey :: Maybe (HashMap Text AttributeValue), _icmSizeEstimateRangeGB :: Maybe [Double]} deriving (Eq, Read, Show)
 
 -- | 'ItemCollectionMetrics' smart constructor.
 itemCollectionMetrics :: ItemCollectionMetrics
-itemCollectionMetrics = ItemCollectionMetrics'{_icmItemCollectionKey = mempty, _icmSizeEstimateRangeGB = mempty};
+itemCollectionMetrics = ItemCollectionMetrics'{_icmItemCollectionKey = Nothing, _icmSizeEstimateRangeGB = Nothing};
 
 -- | The hash key value of the item collection. This value is the same as the
 -- hash key of the item.
-icmItemCollectionKey :: Lens' ItemCollectionMetrics (HashMap Text AttributeValue)
-icmItemCollectionKey = lens _icmItemCollectionKey (\ s a -> s{_icmItemCollectionKey = a}) . _Coerce;
+icmItemCollectionKey :: Lens' ItemCollectionMetrics (Maybe (HashMap Text AttributeValue))
+icmItemCollectionKey = lens _icmItemCollectionKey (\ s a -> s{_icmItemCollectionKey = a}) . mapping _Coerce;
 
 -- | An estimate of item collection size, in gigabytes. This value is a
 -- two-element array containing a lower bound and an upper bound for the
@@ -1402,7 +1402,7 @@ icmItemCollectionKey = lens _icmItemCollectionKey (\ s a -> s{_icmItemCollection
 --
 -- The estimate is subject to change over time; therefore, do not rely on
 -- the precision or accuracy of the estimate.
-icmSizeEstimateRangeGB :: Lens' ItemCollectionMetrics [Double]
+icmSizeEstimateRangeGB :: Lens' ItemCollectionMetrics (Maybe [Double])
 icmSizeEstimateRangeGB = lens _icmSizeEstimateRangeGB (\ s a -> s{_icmSizeEstimateRangeGB = a});
 
 instance FromJSON ItemCollectionMetrics where
@@ -1481,14 +1481,14 @@ instance FromJSON KeyType where
 --
 -- * 'kaaExpressionAttributeNames'
 --
--- * 'kaaKeys'
---
 -- * 'kaaAttributesToGet'
-data KeysAndAttributes = KeysAndAttributes'{_kaaProjectionExpression :: Maybe Text, _kaaConsistentRead :: Maybe Bool, _kaaExpressionAttributeNames :: HashMap Text Text, _kaaKeys :: List1 (HashMap Text AttributeValue), _kaaAttributesToGet :: List1 Text} deriving (Eq, Read, Show)
+--
+-- * 'kaaKeys'
+data KeysAndAttributes = KeysAndAttributes'{_kaaProjectionExpression :: Maybe Text, _kaaConsistentRead :: Maybe Bool, _kaaExpressionAttributeNames :: Maybe (HashMap Text Text), _kaaAttributesToGet :: Maybe (List1 Text), _kaaKeys :: List1 (HashMap Text AttributeValue)} deriving (Eq, Read, Show)
 
 -- | 'KeysAndAttributes' smart constructor.
-keysAndAttributes :: NonEmpty (HashMap Text AttributeValue) -> NonEmpty Text -> KeysAndAttributes
-keysAndAttributes pKeys pAttributesToGet = KeysAndAttributes'{_kaaProjectionExpression = Nothing, _kaaConsistentRead = Nothing, _kaaExpressionAttributeNames = mempty, _kaaKeys = _List1 # pKeys, _kaaAttributesToGet = _List1 # pAttributesToGet};
+keysAndAttributes :: NonEmpty (HashMap Text AttributeValue) -> KeysAndAttributes
+keysAndAttributes pKeys = KeysAndAttributes'{_kaaProjectionExpression = Nothing, _kaaConsistentRead = Nothing, _kaaExpressionAttributeNames = Nothing, _kaaAttributesToGet = Nothing, _kaaKeys = _List1 # pKeys};
 
 -- | A string that identifies one or more attributes to retrieve from the
 -- table. These attributes can include scalars, sets, or elements of a JSON
@@ -1550,20 +1550,20 @@ kaaConsistentRead = lens _kaaConsistentRead (\ s a -> s{_kaaConsistentRead = a})
 -- For more information on expression attribute names, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ExpressionPlaceholders.html Using Placeholders for Attribute Names and Values>
 -- in the /Amazon DynamoDB Developer Guide/.
-kaaExpressionAttributeNames :: Lens' KeysAndAttributes (HashMap Text Text)
-kaaExpressionAttributeNames = lens _kaaExpressionAttributeNames (\ s a -> s{_kaaExpressionAttributeNames = a}) . _Coerce;
-
--- | The primary key attribute values that define the items and the
--- attributes associated with the items.
-kaaKeys :: Lens' KeysAndAttributes (NonEmpty (HashMap Text AttributeValue))
-kaaKeys = lens _kaaKeys (\ s a -> s{_kaaKeys = a}) . _List1;
+kaaExpressionAttributeNames :: Lens' KeysAndAttributes (Maybe (HashMap Text Text))
+kaaExpressionAttributeNames = lens _kaaExpressionAttributeNames (\ s a -> s{_kaaExpressionAttributeNames = a}) . mapping _Coerce;
 
 -- | One or more attributes to retrieve from the table or index. If no
 -- attribute names are specified then all attributes will be returned. If
 -- any of the specified attributes are not found, they will not appear in
 -- the result.
-kaaAttributesToGet :: Lens' KeysAndAttributes (NonEmpty Text)
-kaaAttributesToGet = lens _kaaAttributesToGet (\ s a -> s{_kaaAttributesToGet = a}) . _List1;
+kaaAttributesToGet :: Lens' KeysAndAttributes (Maybe (NonEmpty Text))
+kaaAttributesToGet = lens _kaaAttributesToGet (\ s a -> s{_kaaAttributesToGet = a}) . mapping _List1;
+
+-- | The primary key attribute values that define the items and the
+-- attributes associated with the items.
+kaaKeys :: Lens' KeysAndAttributes (NonEmpty (HashMap Text AttributeValue))
+kaaKeys = lens _kaaKeys (\ s a -> s{_kaaKeys = a}) . _List1;
 
 instance FromJSON KeysAndAttributes where
         parseJSON
@@ -1573,8 +1573,8 @@ instance FromJSON KeysAndAttributes where
                    x .:? "ProjectionExpression" <*>
                      x .:? "ConsistentRead"
                      <*> x .:? "ExpressionAttributeNames" .!= mempty
-                     <*> x .: "Keys"
-                     <*> x .: "AttributesToGet")
+                     <*> x .:? "AttributesToGet"
+                     <*> x .: "Keys")
 
 instance ToJSON KeysAndAttributes where
         toJSON KeysAndAttributes'{..}
@@ -1583,8 +1583,8 @@ instance ToJSON KeysAndAttributes where
                "ConsistentRead" .= _kaaConsistentRead,
                "ExpressionAttributeNames" .=
                  _kaaExpressionAttributeNames,
-               "Keys" .= _kaaKeys,
-               "AttributesToGet" .= _kaaAttributesToGet]
+               "AttributesToGet" .= _kaaAttributesToGet,
+               "Keys" .= _kaaKeys]
 
 -- | /See:/ 'localSecondaryIndex' smart constructor.
 --
@@ -1628,24 +1628,29 @@ instance ToJSON LocalSecondaryIndex where
 --
 -- * 'lsidIndexSizeBytes'
 --
+-- * 'lsidKeySchema'
+--
 -- * 'lsidProjection'
 --
 -- * 'lsidItemCount'
 --
--- * 'lsidKeySchema'
---
 -- * 'lsidIndexName'
-data LocalSecondaryIndexDescription = LocalSecondaryIndexDescription'{_lsidIndexSizeBytes :: Maybe Integer, _lsidProjection :: Maybe Projection, _lsidItemCount :: Maybe Integer, _lsidKeySchema :: List1 KeySchemaElement, _lsidIndexName :: Text} deriving (Eq, Read, Show)
+data LocalSecondaryIndexDescription = LocalSecondaryIndexDescription'{_lsidIndexSizeBytes :: Maybe Integer, _lsidKeySchema :: Maybe (List1 KeySchemaElement), _lsidProjection :: Maybe Projection, _lsidItemCount :: Maybe Integer, _lsidIndexName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'LocalSecondaryIndexDescription' smart constructor.
-localSecondaryIndexDescription :: NonEmpty KeySchemaElement -> Text -> LocalSecondaryIndexDescription
-localSecondaryIndexDescription pKeySchema pIndexName = LocalSecondaryIndexDescription'{_lsidIndexSizeBytes = Nothing, _lsidProjection = Nothing, _lsidItemCount = Nothing, _lsidKeySchema = _List1 # pKeySchema, _lsidIndexName = pIndexName};
+localSecondaryIndexDescription :: LocalSecondaryIndexDescription
+localSecondaryIndexDescription = LocalSecondaryIndexDescription'{_lsidIndexSizeBytes = Nothing, _lsidKeySchema = Nothing, _lsidProjection = Nothing, _lsidItemCount = Nothing, _lsidIndexName = Nothing};
 
 -- | The total size of the specified index, in bytes. DynamoDB updates this
 -- value approximately every six hours. Recent changes might not be
 -- reflected in this value.
 lsidIndexSizeBytes :: Lens' LocalSecondaryIndexDescription (Maybe Integer)
 lsidIndexSizeBytes = lens _lsidIndexSizeBytes (\ s a -> s{_lsidIndexSizeBytes = a});
+
+-- | The complete index key schema, which consists of one or more pairs of
+-- attribute names and key types (@HASH@ or @RANGE@).
+lsidKeySchema :: Lens' LocalSecondaryIndexDescription (Maybe (NonEmpty KeySchemaElement))
+lsidKeySchema = lens _lsidKeySchema (\ s a -> s{_lsidKeySchema = a}) . mapping _List1;
 
 -- | FIXME: Undocumented member.
 lsidProjection :: Lens' LocalSecondaryIndexDescription (Maybe Projection)
@@ -1657,13 +1662,8 @@ lsidProjection = lens _lsidProjection (\ s a -> s{_lsidProjection = a});
 lsidItemCount :: Lens' LocalSecondaryIndexDescription (Maybe Integer)
 lsidItemCount = lens _lsidItemCount (\ s a -> s{_lsidItemCount = a});
 
--- | The complete index key schema, which consists of one or more pairs of
--- attribute names and key types (@HASH@ or @RANGE@).
-lsidKeySchema :: Lens' LocalSecondaryIndexDescription (NonEmpty KeySchemaElement)
-lsidKeySchema = lens _lsidKeySchema (\ s a -> s{_lsidKeySchema = a}) . _List1;
-
 -- | Represents the name of the local secondary index.
-lsidIndexName :: Lens' LocalSecondaryIndexDescription Text
+lsidIndexName :: Lens' LocalSecondaryIndexDescription (Maybe Text)
 lsidIndexName = lens _lsidIndexName (\ s a -> s{_lsidIndexName = a});
 
 instance FromJSON LocalSecondaryIndexDescription
@@ -1672,10 +1672,10 @@ instance FromJSON LocalSecondaryIndexDescription
           = withObject "LocalSecondaryIndexDescription"
               (\ x ->
                  LocalSecondaryIndexDescription' <$>
-                   x .:? "IndexSizeBytes" <*> x .:? "Projection" <*>
-                     x .:? "ItemCount"
-                     <*> x .: "KeySchema"
-                     <*> x .: "IndexName")
+                   x .:? "IndexSizeBytes" <*> x .:? "KeySchema" <*>
+                     x .:? "Projection"
+                     <*> x .:? "ItemCount"
+                     <*> x .:? "IndexName")
 
 -- | /See:/ 'projection' smart constructor.
 --
@@ -1684,11 +1684,11 @@ instance FromJSON LocalSecondaryIndexDescription
 -- * 'proProjectionType'
 --
 -- * 'proNonKeyAttributes'
-data Projection = Projection'{_proProjectionType :: Maybe ProjectionType, _proNonKeyAttributes :: List1 Text} deriving (Eq, Read, Show)
+data Projection = Projection'{_proProjectionType :: Maybe ProjectionType, _proNonKeyAttributes :: Maybe (List1 Text)} deriving (Eq, Read, Show)
 
 -- | 'Projection' smart constructor.
-projection :: NonEmpty Text -> Projection
-projection pNonKeyAttributes = Projection'{_proProjectionType = Nothing, _proNonKeyAttributes = _List1 # pNonKeyAttributes};
+projection :: Projection
+projection = Projection'{_proProjectionType = Nothing, _proNonKeyAttributes = Nothing};
 
 -- | The set of attributes that are projected into the index:
 --
@@ -1711,15 +1711,15 @@ proProjectionType = lens _proProjectionType (\ s a -> s{_proProjectionType = a})
 -- summed across all of the local secondary indexes, must not exceed 20. If
 -- you project the same attribute into two different indexes, this counts
 -- as two distinct attributes when determining the total.
-proNonKeyAttributes :: Lens' Projection (NonEmpty Text)
-proNonKeyAttributes = lens _proNonKeyAttributes (\ s a -> s{_proNonKeyAttributes = a}) . _List1;
+proNonKeyAttributes :: Lens' Projection (Maybe (NonEmpty Text))
+proNonKeyAttributes = lens _proNonKeyAttributes (\ s a -> s{_proNonKeyAttributes = a}) . mapping _List1;
 
 instance FromJSON Projection where
         parseJSON
           = withObject "Projection"
               (\ x ->
                  Projection' <$>
-                   x .:? "ProjectionType" <*> x .: "NonKeyAttributes")
+                   x .:? "ProjectionType" <*> x .:? "NonKeyAttributes")
 
 instance ToJSON Projection where
         toJSON Projection'{..}
@@ -1790,51 +1790,51 @@ instance ToJSON ProvisionedThroughput where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ptdLastDecreaseDateTime'
---
--- * 'ptdLastIncreaseDateTime'
---
 -- * 'ptdReadCapacityUnits'
+--
+-- * 'ptdLastDecreaseDateTime'
 --
 -- * 'ptdWriteCapacityUnits'
 --
 -- * 'ptdNumberOfDecreasesToday'
-data ProvisionedThroughputDescription = ProvisionedThroughputDescription'{_ptdLastDecreaseDateTime :: Maybe POSIX, _ptdLastIncreaseDateTime :: Maybe POSIX, _ptdReadCapacityUnits :: Nat, _ptdWriteCapacityUnits :: Nat, _ptdNumberOfDecreasesToday :: Nat} deriving (Eq, Read, Show)
+--
+-- * 'ptdLastIncreaseDateTime'
+data ProvisionedThroughputDescription = ProvisionedThroughputDescription'{_ptdReadCapacityUnits :: Maybe Nat, _ptdLastDecreaseDateTime :: Maybe POSIX, _ptdWriteCapacityUnits :: Maybe Nat, _ptdNumberOfDecreasesToday :: Maybe Nat, _ptdLastIncreaseDateTime :: Maybe POSIX} deriving (Eq, Read, Show)
 
 -- | 'ProvisionedThroughputDescription' smart constructor.
-provisionedThroughputDescription :: Natural -> Natural -> Natural -> ProvisionedThroughputDescription
-provisionedThroughputDescription pReadCapacityUnits pWriteCapacityUnits pNumberOfDecreasesToday = ProvisionedThroughputDescription'{_ptdLastDecreaseDateTime = Nothing, _ptdLastIncreaseDateTime = Nothing, _ptdReadCapacityUnits = _Nat # pReadCapacityUnits, _ptdWriteCapacityUnits = _Nat # pWriteCapacityUnits, _ptdNumberOfDecreasesToday = _Nat # pNumberOfDecreasesToday};
-
--- | The date and time of the last provisioned throughput decrease for this
--- table.
-ptdLastDecreaseDateTime :: Lens' ProvisionedThroughputDescription (Maybe UTCTime)
-ptdLastDecreaseDateTime = lens _ptdLastDecreaseDateTime (\ s a -> s{_ptdLastDecreaseDateTime = a}) . mapping _Time;
-
--- | The date and time of the last provisioned throughput increase for this
--- table.
-ptdLastIncreaseDateTime :: Lens' ProvisionedThroughputDescription (Maybe UTCTime)
-ptdLastIncreaseDateTime = lens _ptdLastIncreaseDateTime (\ s a -> s{_ptdLastIncreaseDateTime = a}) . mapping _Time;
+provisionedThroughputDescription :: ProvisionedThroughputDescription
+provisionedThroughputDescription = ProvisionedThroughputDescription'{_ptdReadCapacityUnits = Nothing, _ptdLastDecreaseDateTime = Nothing, _ptdWriteCapacityUnits = Nothing, _ptdNumberOfDecreasesToday = Nothing, _ptdLastIncreaseDateTime = Nothing};
 
 -- | The maximum number of strongly consistent reads consumed per second
 -- before DynamoDB returns a /ThrottlingException/. Eventually consistent
 -- reads require less effort than strongly consistent reads, so a setting
 -- of 50 /ReadCapacityUnits/ per second provides 100 eventually consistent
 -- /ReadCapacityUnits/ per second.
-ptdReadCapacityUnits :: Lens' ProvisionedThroughputDescription Natural
-ptdReadCapacityUnits = lens _ptdReadCapacityUnits (\ s a -> s{_ptdReadCapacityUnits = a}) . _Nat;
+ptdReadCapacityUnits :: Lens' ProvisionedThroughputDescription (Maybe Natural)
+ptdReadCapacityUnits = lens _ptdReadCapacityUnits (\ s a -> s{_ptdReadCapacityUnits = a}) . mapping _Nat;
+
+-- | The date and time of the last provisioned throughput decrease for this
+-- table.
+ptdLastDecreaseDateTime :: Lens' ProvisionedThroughputDescription (Maybe UTCTime)
+ptdLastDecreaseDateTime = lens _ptdLastDecreaseDateTime (\ s a -> s{_ptdLastDecreaseDateTime = a}) . mapping _Time;
 
 -- | The maximum number of writes consumed per second before DynamoDB returns
 -- a /ThrottlingException/.
-ptdWriteCapacityUnits :: Lens' ProvisionedThroughputDescription Natural
-ptdWriteCapacityUnits = lens _ptdWriteCapacityUnits (\ s a -> s{_ptdWriteCapacityUnits = a}) . _Nat;
+ptdWriteCapacityUnits :: Lens' ProvisionedThroughputDescription (Maybe Natural)
+ptdWriteCapacityUnits = lens _ptdWriteCapacityUnits (\ s a -> s{_ptdWriteCapacityUnits = a}) . mapping _Nat;
 
 -- | The number of provisioned throughput decreases for this table during
 -- this UTC calendar day. For current maximums on provisioned throughput
 -- decreases, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Limits>
 -- in the /Amazon DynamoDB Developer Guide/.
-ptdNumberOfDecreasesToday :: Lens' ProvisionedThroughputDescription Natural
-ptdNumberOfDecreasesToday = lens _ptdNumberOfDecreasesToday (\ s a -> s{_ptdNumberOfDecreasesToday = a}) . _Nat;
+ptdNumberOfDecreasesToday :: Lens' ProvisionedThroughputDescription (Maybe Natural)
+ptdNumberOfDecreasesToday = lens _ptdNumberOfDecreasesToday (\ s a -> s{_ptdNumberOfDecreasesToday = a}) . mapping _Nat;
+
+-- | The date and time of the last provisioned throughput increase for this
+-- table.
+ptdLastIncreaseDateTime :: Lens' ProvisionedThroughputDescription (Maybe UTCTime)
+ptdLastIncreaseDateTime = lens _ptdLastIncreaseDateTime (\ s a -> s{_ptdLastIncreaseDateTime = a}) . mapping _Time;
 
 instance FromJSON ProvisionedThroughputDescription
          where
@@ -1842,11 +1842,11 @@ instance FromJSON ProvisionedThroughputDescription
           = withObject "ProvisionedThroughputDescription"
               (\ x ->
                  ProvisionedThroughputDescription' <$>
-                   x .:? "LastDecreaseDateTime" <*>
-                     x .:? "LastIncreaseDateTime"
-                     <*> x .: "ReadCapacityUnits"
-                     <*> x .: "WriteCapacityUnits"
-                     <*> x .: "NumberOfDecreasesToday")
+                   x .:? "ReadCapacityUnits" <*>
+                     x .:? "LastDecreaseDateTime"
+                     <*> x .:? "WriteCapacityUnits"
+                     <*> x .:? "NumberOfDecreasesToday"
+                     <*> x .:? "LastIncreaseDateTime")
 
 -- | /See:/ 'putRequest' smart constructor.
 --
@@ -1856,8 +1856,8 @@ instance FromJSON ProvisionedThroughputDescription
 newtype PutRequest = PutRequest'{_prItem :: HashMap Text AttributeValue} deriving (Eq, Read, Show)
 
 -- | 'PutRequest' smart constructor.
-putRequest :: HashMap Text AttributeValue -> PutRequest
-putRequest pItem = PutRequest'{_prItem = _Coerce # pItem};
+putRequest :: PutRequest
+putRequest = PutRequest'{_prItem = mempty};
 
 -- | A map of attribute name to attribute values, representing the primary
 -- key of an item to be processed by /PutItem/. All of the table\'s primary
@@ -2005,6 +2005,8 @@ instance ToJSON Select where
 --
 -- * 'tdTableStatus'
 --
+-- * 'tdKeySchema'
+--
 -- * 'tdGlobalSecondaryIndexes'
 --
 -- * 'tdLocalSecondaryIndexes'
@@ -2013,14 +2015,12 @@ instance ToJSON Select where
 --
 -- * 'tdItemCount'
 --
--- * 'tdKeySchema'
---
 -- * 'tdTableName'
-data TableDescription = TableDescription'{_tdProvisionedThroughput :: Maybe ProvisionedThroughputDescription, _tdAttributeDefinitions :: [AttributeDefinition], _tdTableSizeBytes :: Maybe Integer, _tdTableStatus :: Maybe TableStatus, _tdGlobalSecondaryIndexes :: [GlobalSecondaryIndexDescription], _tdLocalSecondaryIndexes :: [LocalSecondaryIndexDescription], _tdCreationDateTime :: Maybe POSIX, _tdItemCount :: Maybe Integer, _tdKeySchema :: List1 KeySchemaElement, _tdTableName :: Text} deriving (Eq, Read, Show)
+data TableDescription = TableDescription'{_tdProvisionedThroughput :: Maybe ProvisionedThroughputDescription, _tdAttributeDefinitions :: Maybe [AttributeDefinition], _tdTableSizeBytes :: Maybe Integer, _tdTableStatus :: Maybe TableStatus, _tdKeySchema :: Maybe (List1 KeySchemaElement), _tdGlobalSecondaryIndexes :: Maybe [GlobalSecondaryIndexDescription], _tdLocalSecondaryIndexes :: Maybe [LocalSecondaryIndexDescription], _tdCreationDateTime :: Maybe POSIX, _tdItemCount :: Maybe Integer, _tdTableName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'TableDescription' smart constructor.
-tableDescription :: NonEmpty KeySchemaElement -> Text -> TableDescription
-tableDescription pKeySchema pTableName = TableDescription'{_tdProvisionedThroughput = Nothing, _tdAttributeDefinitions = mempty, _tdTableSizeBytes = Nothing, _tdTableStatus = Nothing, _tdGlobalSecondaryIndexes = mempty, _tdLocalSecondaryIndexes = mempty, _tdCreationDateTime = Nothing, _tdItemCount = Nothing, _tdKeySchema = _List1 # pKeySchema, _tdTableName = pTableName};
+tableDescription :: TableDescription
+tableDescription = TableDescription'{_tdProvisionedThroughput = Nothing, _tdAttributeDefinitions = Nothing, _tdTableSizeBytes = Nothing, _tdTableStatus = Nothing, _tdKeySchema = Nothing, _tdGlobalSecondaryIndexes = Nothing, _tdLocalSecondaryIndexes = Nothing, _tdCreationDateTime = Nothing, _tdItemCount = Nothing, _tdTableName = Nothing};
 
 -- | The provisioned throughput settings for the table, consisting of read
 -- and write capacity units, along with data about increases and decreases.
@@ -2036,7 +2036,7 @@ tdProvisionedThroughput = lens _tdProvisionedThroughput (\ s a -> s{_tdProvision
 --
 -- -   /AttributeType/ - The data type for the attribute.
 --
-tdAttributeDefinitions :: Lens' TableDescription [AttributeDefinition]
+tdAttributeDefinitions :: Lens' TableDescription (Maybe [AttributeDefinition])
 tdAttributeDefinitions = lens _tdAttributeDefinitions (\ s a -> s{_tdAttributeDefinitions = a});
 
 -- | The total size of the specified table, in bytes. DynamoDB updates this
@@ -2057,6 +2057,20 @@ tdTableSizeBytes = lens _tdTableSizeBytes (\ s a -> s{_tdTableSizeBytes = a});
 --
 tdTableStatus :: Lens' TableDescription (Maybe TableStatus)
 tdTableStatus = lens _tdTableStatus (\ s a -> s{_tdTableStatus = a});
+
+-- | The primary key structure for the table. Each /KeySchemaElement/
+-- consists of:
+--
+-- -   /AttributeName/ - The name of the attribute.
+--
+-- -   /KeyType/ - The key type for the attribute. Can be either @HASH@ or
+--     @RANGE@.
+--
+-- For more information about primary keys, see
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey Primary Key>
+-- in the /Amazon DynamoDB Developer Guide/.
+tdKeySchema :: Lens' TableDescription (Maybe (NonEmpty KeySchemaElement))
+tdKeySchema = lens _tdKeySchema (\ s a -> s{_tdKeySchema = a}) . mapping _List1;
 
 -- | The global secondary indexes, if any, on the table. Each index is scoped
 -- to a given hash key value. Each element is composed of:
@@ -2123,7 +2137,7 @@ tdTableStatus = lens _tdTableStatus (\ s a -> s{_tdTableStatus = a});
 --
 -- If the table is in the @DELETING@ state, no information about indexes
 -- will be returned.
-tdGlobalSecondaryIndexes :: Lens' TableDescription [GlobalSecondaryIndexDescription]
+tdGlobalSecondaryIndexes :: Lens' TableDescription (Maybe [GlobalSecondaryIndexDescription])
 tdGlobalSecondaryIndexes = lens _tdGlobalSecondaryIndexes (\ s a -> s{_tdGlobalSecondaryIndexes = a});
 
 -- | Represents one or more local secondary indexes on the table. Each index
@@ -2173,7 +2187,7 @@ tdGlobalSecondaryIndexes = lens _tdGlobalSecondaryIndexes (\ s a -> s{_tdGlobalS
 --
 -- If the table is in the @DELETING@ state, no information about indexes
 -- will be returned.
-tdLocalSecondaryIndexes :: Lens' TableDescription [LocalSecondaryIndexDescription]
+tdLocalSecondaryIndexes :: Lens' TableDescription (Maybe [LocalSecondaryIndexDescription])
 tdLocalSecondaryIndexes = lens _tdLocalSecondaryIndexes (\ s a -> s{_tdLocalSecondaryIndexes = a});
 
 -- | The date and time when the table was created, in
@@ -2187,22 +2201,8 @@ tdCreationDateTime = lens _tdCreationDateTime (\ s a -> s{_tdCreationDateTime = 
 tdItemCount :: Lens' TableDescription (Maybe Integer)
 tdItemCount = lens _tdItemCount (\ s a -> s{_tdItemCount = a});
 
--- | The primary key structure for the table. Each /KeySchemaElement/
--- consists of:
---
--- -   /AttributeName/ - The name of the attribute.
---
--- -   /KeyType/ - The key type for the attribute. Can be either @HASH@ or
---     @RANGE@.
---
--- For more information about primary keys, see
--- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey Primary Key>
--- in the /Amazon DynamoDB Developer Guide/.
-tdKeySchema :: Lens' TableDescription (NonEmpty KeySchemaElement)
-tdKeySchema = lens _tdKeySchema (\ s a -> s{_tdKeySchema = a}) . _List1;
-
 -- | The name of the table.
-tdTableName :: Lens' TableDescription Text
+tdTableName :: Lens' TableDescription (Maybe Text)
 tdTableName = lens _tdTableName (\ s a -> s{_tdTableName = a});
 
 instance FromJSON TableDescription where
@@ -2214,12 +2214,12 @@ instance FromJSON TableDescription where
                      x .:? "AttributeDefinitions" .!= mempty
                      <*> x .:? "TableSizeBytes"
                      <*> x .:? "TableStatus"
+                     <*> x .:? "KeySchema"
                      <*> x .:? "GlobalSecondaryIndexes" .!= mempty
                      <*> x .:? "LocalSecondaryIndexes" .!= mempty
                      <*> x .:? "CreationDateTime"
                      <*> x .:? "ItemCount"
-                     <*> x .: "KeySchema"
-                     <*> x .: "TableName")
+                     <*> x .:? "TableName")
 
 data TableStatus = Deleting | Updating | Creating | Active deriving (Eq, Ord, Read, Show, Enum, Generic)
 

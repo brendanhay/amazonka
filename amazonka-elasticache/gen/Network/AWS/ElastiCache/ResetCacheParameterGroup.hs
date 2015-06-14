@@ -57,8 +57,8 @@ import Network.AWS.ElastiCache.Types
 data ResetCacheParameterGroup = ResetCacheParameterGroup'{_rcpgResetAllParameters :: Maybe Bool, _rcpgCacheParameterGroupName :: Text, _rcpgParameterNameValues :: [ParameterNameValue]} deriving (Eq, Read, Show)
 
 -- | 'ResetCacheParameterGroup' smart constructor.
-resetCacheParameterGroup :: Text -> [ParameterNameValue] -> ResetCacheParameterGroup
-resetCacheParameterGroup pCacheParameterGroupName pParameterNameValues = ResetCacheParameterGroup'{_rcpgResetAllParameters = Nothing, _rcpgCacheParameterGroupName = pCacheParameterGroupName, _rcpgParameterNameValues = pParameterNameValues};
+resetCacheParameterGroup :: Text -> ResetCacheParameterGroup
+resetCacheParameterGroup pCacheParameterGroupName = ResetCacheParameterGroup'{_rcpgResetAllParameters = Nothing, _rcpgCacheParameterGroupName = pCacheParameterGroupName, _rcpgParameterNameValues = mempty};
 
 -- | If /true/, all parameters in the cache parameter group will be reset to
 -- default values. If /false/, no such action occurs.

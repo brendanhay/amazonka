@@ -78,12 +78,12 @@ instance ToQuery GetBucketCORS where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gbcrCORSRules'
-newtype GetBucketCORSResponse = GetBucketCORSResponse'{_gbcrCORSRules :: [CORSRule]} deriving (Eq, Read, Show)
+newtype GetBucketCORSResponse = GetBucketCORSResponse'{_gbcrCORSRules :: Maybe [CORSRule]} deriving (Eq, Read, Show)
 
 -- | 'GetBucketCORSResponse' smart constructor.
 getBucketCORSResponse :: GetBucketCORSResponse
-getBucketCORSResponse = GetBucketCORSResponse'{_gbcrCORSRules = mempty};
+getBucketCORSResponse = GetBucketCORSResponse'{_gbcrCORSRules = Nothing};
 
 -- | FIXME: Undocumented member.
-gbcrCORSRules :: Lens' GetBucketCORSResponse [CORSRule]
+gbcrCORSRules :: Lens' GetBucketCORSResponse (Maybe [CORSRule])
 gbcrCORSRules = lens _gbcrCORSRules (\ s a -> s{_gbcrCORSRules = a});

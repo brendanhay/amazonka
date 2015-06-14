@@ -92,8 +92,8 @@ instance ToQuery ListDeadLetterSourceQueues where
 newtype ListDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse'{_ldlsqrQueueURLs :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'ListDeadLetterSourceQueuesResponse' smart constructor.
-listDeadLetterSourceQueuesResponse :: [Text] -> ListDeadLetterSourceQueuesResponse
-listDeadLetterSourceQueuesResponse pQueueURLs = ListDeadLetterSourceQueuesResponse'{_ldlsqrQueueURLs = pQueueURLs};
+listDeadLetterSourceQueuesResponse :: ListDeadLetterSourceQueuesResponse
+listDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse'{_ldlsqrQueueURLs = mempty};
 
 -- | A list of source queue URLs that have the RedrivePolicy queue attribute
 -- configured with a dead letter queue.

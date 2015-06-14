@@ -51,8 +51,8 @@ import Network.AWS.ElastiCache.Types
 data RemoveTagsFromResource = RemoveTagsFromResource'{_rtfrResourceName :: Text, _rtfrTagKeys :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'RemoveTagsFromResource' smart constructor.
-removeTagsFromResource :: Text -> [Text] -> RemoveTagsFromResource
-removeTagsFromResource pResourceName pTagKeys = RemoveTagsFromResource'{_rtfrResourceName = pResourceName, _rtfrTagKeys = pTagKeys};
+removeTagsFromResource :: Text -> RemoveTagsFromResource
+removeTagsFromResource pResourceName = RemoveTagsFromResource'{_rtfrResourceName = pResourceName, _rtfrTagKeys = mempty};
 
 -- | The name of the ElastiCache resource from which you want the listed tags
 -- removed, for example

@@ -77,8 +77,8 @@ import Network.AWS.EC2.Types
 data CreateReservedInstancesListing = CreateReservedInstancesListing'{_crilReservedInstancesId :: Text, _crilInstanceCount :: Int, _crilPriceSchedules :: [PriceScheduleSpecification], _crilClientToken :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateReservedInstancesListing' smart constructor.
-createReservedInstancesListing :: Text -> Int -> [PriceScheduleSpecification] -> Text -> CreateReservedInstancesListing
-createReservedInstancesListing pReservedInstancesId pInstanceCount pPriceSchedules pClientToken = CreateReservedInstancesListing'{_crilReservedInstancesId = pReservedInstancesId, _crilInstanceCount = pInstanceCount, _crilPriceSchedules = pPriceSchedules, _crilClientToken = pClientToken};
+createReservedInstancesListing :: Text -> Int -> Text -> CreateReservedInstancesListing
+createReservedInstancesListing pReservedInstancesId pInstanceCount pClientToken = CreateReservedInstancesListing'{_crilReservedInstancesId = pReservedInstancesId, _crilInstanceCount = pInstanceCount, _crilPriceSchedules = mempty, _crilClientToken = pClientToken};
 
 -- | The ID of the active Reserved Instance.
 crilReservedInstancesId :: Lens' CreateReservedInstancesListing Text
@@ -138,12 +138,12 @@ instance ToQuery CreateReservedInstancesListing where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'creReservedInstancesListings'
-newtype CreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse'{_creReservedInstancesListings :: [ReservedInstancesListing]} deriving (Eq, Read, Show)
+newtype CreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse'{_creReservedInstancesListings :: Maybe [ReservedInstancesListing]} deriving (Eq, Read, Show)
 
 -- | 'CreateReservedInstancesListingResponse' smart constructor.
 createReservedInstancesListingResponse :: CreateReservedInstancesListingResponse
-createReservedInstancesListingResponse = CreateReservedInstancesListingResponse'{_creReservedInstancesListings = mempty};
+createReservedInstancesListingResponse = CreateReservedInstancesListingResponse'{_creReservedInstancesListings = Nothing};
 
 -- | Information about the Reserved Instances listing.
-creReservedInstancesListings :: Lens' CreateReservedInstancesListingResponse [ReservedInstancesListing]
+creReservedInstancesListings :: Lens' CreateReservedInstancesListingResponse (Maybe [ReservedInstancesListing])
 creReservedInstancesListings = lens _creReservedInstancesListings (\ s a -> s{_creReservedInstancesListings = a});

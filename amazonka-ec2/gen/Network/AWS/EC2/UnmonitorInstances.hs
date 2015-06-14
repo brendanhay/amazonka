@@ -53,8 +53,8 @@ import Network.AWS.EC2.Types
 data UnmonitorInstances = UnmonitorInstances'{_uiDryRun :: Maybe Bool, _uiInstanceIds :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'UnmonitorInstances' smart constructor.
-unmonitorInstances :: [Text] -> UnmonitorInstances
-unmonitorInstances pInstanceIds = UnmonitorInstances'{_uiDryRun = Nothing, _uiInstanceIds = pInstanceIds};
+unmonitorInstances :: UnmonitorInstances
+unmonitorInstances = UnmonitorInstances'{_uiDryRun = Nothing, _uiInstanceIds = mempty};
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -97,12 +97,12 @@ instance ToQuery UnmonitorInstances where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'uirInstanceMonitorings'
-newtype UnmonitorInstancesResponse = UnmonitorInstancesResponse'{_uirInstanceMonitorings :: [InstanceMonitoring]} deriving (Eq, Read, Show)
+newtype UnmonitorInstancesResponse = UnmonitorInstancesResponse'{_uirInstanceMonitorings :: Maybe [InstanceMonitoring]} deriving (Eq, Read, Show)
 
 -- | 'UnmonitorInstancesResponse' smart constructor.
 unmonitorInstancesResponse :: UnmonitorInstancesResponse
-unmonitorInstancesResponse = UnmonitorInstancesResponse'{_uirInstanceMonitorings = mempty};
+unmonitorInstancesResponse = UnmonitorInstancesResponse'{_uirInstanceMonitorings = Nothing};
 
 -- | Monitoring information for one or more instances.
-uirInstanceMonitorings :: Lens' UnmonitorInstancesResponse [InstanceMonitoring]
+uirInstanceMonitorings :: Lens' UnmonitorInstancesResponse (Maybe [InstanceMonitoring])
 uirInstanceMonitorings = lens _uirInstanceMonitorings (\ s a -> s{_uirInstanceMonitorings = a});

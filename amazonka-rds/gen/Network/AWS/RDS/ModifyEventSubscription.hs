@@ -65,11 +65,11 @@ import Network.AWS.RDS.Types
 -- * 'mesEventCategories'
 --
 -- * 'mesSubscriptionName'
-data ModifyEventSubscription = ModifyEventSubscription'{_mesSNSTopicARN :: Maybe Text, _mesEnabled :: Maybe Bool, _mesSourceType :: Maybe Text, _mesEventCategories :: [Text], _mesSubscriptionName :: Text} deriving (Eq, Read, Show)
+data ModifyEventSubscription = ModifyEventSubscription'{_mesSNSTopicARN :: Maybe Text, _mesEnabled :: Maybe Bool, _mesSourceType :: Maybe Text, _mesEventCategories :: Maybe [Text], _mesSubscriptionName :: Text} deriving (Eq, Read, Show)
 
 -- | 'ModifyEventSubscription' smart constructor.
 modifyEventSubscription :: Text -> ModifyEventSubscription
-modifyEventSubscription pSubscriptionName = ModifyEventSubscription'{_mesSNSTopicARN = Nothing, _mesEnabled = Nothing, _mesSourceType = Nothing, _mesEventCategories = mempty, _mesSubscriptionName = pSubscriptionName};
+modifyEventSubscription pSubscriptionName = ModifyEventSubscription'{_mesSNSTopicARN = Nothing, _mesEnabled = Nothing, _mesSourceType = Nothing, _mesEventCategories = Nothing, _mesSubscriptionName = pSubscriptionName};
 
 -- | The Amazon Resource Name (ARN) of the SNS topic created for event
 -- notification. The ARN is created by Amazon SNS when you create a topic
@@ -96,7 +96,7 @@ mesSourceType = lens _mesSourceType (\ s a -> s{_mesSourceType = a});
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html Events>
 -- topic in the Amazon RDS User Guide or by using the
 -- __DescribeEventCategories__ action.
-mesEventCategories :: Lens' ModifyEventSubscription [Text]
+mesEventCategories :: Lens' ModifyEventSubscription (Maybe [Text])
 mesEventCategories = lens _mesEventCategories (\ s a -> s{_mesEventCategories = a});
 
 -- | The name of the RDS event notification subscription.

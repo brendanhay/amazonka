@@ -26,8 +26,8 @@ module Network.AWS.ELB.DescribeLoadBalancers
     , describeLoadBalancers
     -- ** Request lenses
     , dlbMarker
-    , dlbLoadBalancerNames
     , dlbPageSize
+    , dlbLoadBalancerNames
 
     -- * Response
     , DescribeLoadBalancersResponse
@@ -49,28 +49,28 @@ import Network.AWS.ELB.Types
 --
 -- * 'dlbMarker'
 --
--- * 'dlbLoadBalancerNames'
---
 -- * 'dlbPageSize'
-data DescribeLoadBalancers = DescribeLoadBalancers'{_dlbMarker :: Maybe Text, _dlbLoadBalancerNames :: [Text], _dlbPageSize :: Nat} deriving (Eq, Read, Show)
+--
+-- * 'dlbLoadBalancerNames'
+data DescribeLoadBalancers = DescribeLoadBalancers'{_dlbMarker :: Maybe Text, _dlbPageSize :: Maybe Nat, _dlbLoadBalancerNames :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'DescribeLoadBalancers' smart constructor.
-describeLoadBalancers :: Natural -> DescribeLoadBalancers
-describeLoadBalancers pPageSize = DescribeLoadBalancers'{_dlbMarker = Nothing, _dlbLoadBalancerNames = mempty, _dlbPageSize = _Nat # pPageSize};
+describeLoadBalancers :: DescribeLoadBalancers
+describeLoadBalancers = DescribeLoadBalancers'{_dlbMarker = Nothing, _dlbPageSize = Nothing, _dlbLoadBalancerNames = Nothing};
 
 -- | The marker for the next set of results. (You received this marker from a
 -- previous call.)
 dlbMarker :: Lens' DescribeLoadBalancers (Maybe Text)
 dlbMarker = lens _dlbMarker (\ s a -> s{_dlbMarker = a});
 
--- | The names of the load balancers.
-dlbLoadBalancerNames :: Lens' DescribeLoadBalancers [Text]
-dlbLoadBalancerNames = lens _dlbLoadBalancerNames (\ s a -> s{_dlbLoadBalancerNames = a});
-
 -- | The maximum number of results to return with this call (a number from 1
 -- to 400). The default is 400.
-dlbPageSize :: Lens' DescribeLoadBalancers Natural
-dlbPageSize = lens _dlbPageSize (\ s a -> s{_dlbPageSize = a}) . _Nat;
+dlbPageSize :: Lens' DescribeLoadBalancers (Maybe Natural)
+dlbPageSize = lens _dlbPageSize (\ s a -> s{_dlbPageSize = a}) . mapping _Nat;
+
+-- | The names of the load balancers.
+dlbLoadBalancerNames :: Lens' DescribeLoadBalancers (Maybe [Text])
+dlbLoadBalancerNames = lens _dlbLoadBalancerNames (\ s a -> s{_dlbLoadBalancerNames = a});
 
 instance AWSRequest DescribeLoadBalancers where
         type Sv DescribeLoadBalancers = ELB
@@ -96,10 +96,9 @@ instance ToQuery DescribeLoadBalancers where
           = mconcat
               ["Action" =: ("DescribeLoadBalancers" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
-               "Marker" =: _dlbMarker,
+               "Marker" =: _dlbMarker, "PageSize" =: _dlbPageSize,
                "LoadBalancerNames" =:
-                 "member" =: _dlbLoadBalancerNames,
-               "PageSize" =: _dlbPageSize]
+                 "member" =: _dlbLoadBalancerNames]
 
 -- | /See:/ 'describeLoadBalancersResponse' smart constructor.
 --
@@ -108,14 +107,14 @@ instance ToQuery DescribeLoadBalancers where
 -- * 'dlbrLoadBalancerDescriptions'
 --
 -- * 'dlbrNextMarker'
-data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'{_dlbrLoadBalancerDescriptions :: [LoadBalancerDescription], _dlbrNextMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'{_dlbrLoadBalancerDescriptions :: Maybe [LoadBalancerDescription], _dlbrNextMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeLoadBalancersResponse' smart constructor.
 describeLoadBalancersResponse :: DescribeLoadBalancersResponse
-describeLoadBalancersResponse = DescribeLoadBalancersResponse'{_dlbrLoadBalancerDescriptions = mempty, _dlbrNextMarker = Nothing};
+describeLoadBalancersResponse = DescribeLoadBalancersResponse'{_dlbrLoadBalancerDescriptions = Nothing, _dlbrNextMarker = Nothing};
 
 -- | Information about the load balancers.
-dlbrLoadBalancerDescriptions :: Lens' DescribeLoadBalancersResponse [LoadBalancerDescription]
+dlbrLoadBalancerDescriptions :: Lens' DescribeLoadBalancersResponse (Maybe [LoadBalancerDescription])
 dlbrLoadBalancerDescriptions = lens _dlbrLoadBalancerDescriptions (\ s a -> s{_dlbrLoadBalancerDescriptions = a});
 
 -- | The marker to use when requesting the next set of results. If there are

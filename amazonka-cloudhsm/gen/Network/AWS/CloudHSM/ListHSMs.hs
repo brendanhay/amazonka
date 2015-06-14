@@ -98,11 +98,11 @@ instance ToQuery ListHSMs where
 -- * 'lisNextToken'
 --
 -- * 'lisHSMList'
-data ListHSMsResponse = ListHSMsResponse'{_lisNextToken :: Maybe Text, _lisHSMList :: [Text]} deriving (Eq, Read, Show)
+data ListHSMsResponse = ListHSMsResponse'{_lisNextToken :: Maybe Text, _lisHSMList :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'ListHSMsResponse' smart constructor.
 listHSMsResponse :: ListHSMsResponse
-listHSMsResponse = ListHSMsResponse'{_lisNextToken = Nothing, _lisHSMList = mempty};
+listHSMsResponse = ListHSMsResponse'{_lisNextToken = Nothing, _lisHSMList = Nothing};
 
 -- | If not null, more results are available. Pass this value to ListHsms to
 -- retrieve the next set of items.
@@ -110,5 +110,5 @@ lisNextToken :: Lens' ListHSMsResponse (Maybe Text)
 lisNextToken = lens _lisNextToken (\ s a -> s{_lisNextToken = a});
 
 -- | The list of ARNs that identify the HSMs.
-lisHSMList :: Lens' ListHSMsResponse [Text]
+lisHSMList :: Lens' ListHSMsResponse (Maybe [Text])
 lisHSMList = lens _lisHSMList (\ s a -> s{_lisHSMList = a});

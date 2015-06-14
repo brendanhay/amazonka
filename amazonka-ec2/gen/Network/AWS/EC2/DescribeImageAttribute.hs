@@ -135,14 +135,14 @@ instance ToQuery DescribeImageAttribute where
 -- * 'diarBlockDeviceMappings'
 --
 -- * 'diarDescription'
-data DescribeImageAttributeResponse = DescribeImageAttributeResponse'{_diarLaunchPermissions :: [LaunchPermission], _diarRAMDiskId :: Maybe AttributeValue, _diarKernelId :: Maybe AttributeValue, _diarSRIOVNetSupport :: Maybe AttributeValue, _diarImageId :: Maybe Text, _diarProductCodes :: [ProductCode], _diarBlockDeviceMappings :: [BlockDeviceMapping], _diarDescription :: Maybe AttributeValue} deriving (Eq, Read, Show)
+data DescribeImageAttributeResponse = DescribeImageAttributeResponse'{_diarLaunchPermissions :: Maybe [LaunchPermission], _diarRAMDiskId :: Maybe AttributeValue, _diarKernelId :: Maybe AttributeValue, _diarSRIOVNetSupport :: Maybe AttributeValue, _diarImageId :: Maybe Text, _diarProductCodes :: Maybe [ProductCode], _diarBlockDeviceMappings :: Maybe [BlockDeviceMapping], _diarDescription :: Maybe AttributeValue} deriving (Eq, Read, Show)
 
 -- | 'DescribeImageAttributeResponse' smart constructor.
 describeImageAttributeResponse :: DescribeImageAttributeResponse
-describeImageAttributeResponse = DescribeImageAttributeResponse'{_diarLaunchPermissions = mempty, _diarRAMDiskId = Nothing, _diarKernelId = Nothing, _diarSRIOVNetSupport = Nothing, _diarImageId = Nothing, _diarProductCodes = mempty, _diarBlockDeviceMappings = mempty, _diarDescription = Nothing};
+describeImageAttributeResponse = DescribeImageAttributeResponse'{_diarLaunchPermissions = Nothing, _diarRAMDiskId = Nothing, _diarKernelId = Nothing, _diarSRIOVNetSupport = Nothing, _diarImageId = Nothing, _diarProductCodes = Nothing, _diarBlockDeviceMappings = Nothing, _diarDescription = Nothing};
 
 -- | One or more launch permissions.
-diarLaunchPermissions :: Lens' DescribeImageAttributeResponse [LaunchPermission]
+diarLaunchPermissions :: Lens' DescribeImageAttributeResponse (Maybe [LaunchPermission])
 diarLaunchPermissions = lens _diarLaunchPermissions (\ s a -> s{_diarLaunchPermissions = a});
 
 -- | The RAM disk ID.
@@ -162,11 +162,11 @@ diarImageId :: Lens' DescribeImageAttributeResponse (Maybe Text)
 diarImageId = lens _diarImageId (\ s a -> s{_diarImageId = a});
 
 -- | One or more product codes.
-diarProductCodes :: Lens' DescribeImageAttributeResponse [ProductCode]
+diarProductCodes :: Lens' DescribeImageAttributeResponse (Maybe [ProductCode])
 diarProductCodes = lens _diarProductCodes (\ s a -> s{_diarProductCodes = a});
 
 -- | One or more block device mapping entries.
-diarBlockDeviceMappings :: Lens' DescribeImageAttributeResponse [BlockDeviceMapping]
+diarBlockDeviceMappings :: Lens' DescribeImageAttributeResponse (Maybe [BlockDeviceMapping])
 diarBlockDeviceMappings = lens _diarBlockDeviceMappings (\ s a -> s{_diarBlockDeviceMappings = a});
 
 -- | A description for the AMI.

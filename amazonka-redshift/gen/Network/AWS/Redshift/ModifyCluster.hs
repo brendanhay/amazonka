@@ -99,11 +99,11 @@ import Network.AWS.Redshift.Types
 -- * 'mcClusterParameterGroupName'
 --
 -- * 'mcClusterIdentifier'
-data ModifyCluster = ModifyCluster'{_mcMasterUserPassword :: Maybe Text, _mcHSMConfigurationIdentifier :: Maybe Text, _mcClusterSecurityGroups :: [Text], _mcAutomatedSnapshotRetentionPeriod :: Maybe Int, _mcNumberOfNodes :: Maybe Int, _mcHSMClientCertificateIdentifier :: Maybe Text, _mcPreferredMaintenanceWindow :: Maybe Text, _mcVPCSecurityGroupIds :: [Text], _mcClusterType :: Maybe Text, _mcNewClusterIdentifier :: Maybe Text, _mcClusterVersion :: Maybe Text, _mcNodeType :: Maybe Text, _mcAllowVersionUpgrade :: Maybe Bool, _mcClusterParameterGroupName :: Maybe Text, _mcClusterIdentifier :: Text} deriving (Eq, Read, Show)
+data ModifyCluster = ModifyCluster'{_mcMasterUserPassword :: Maybe Text, _mcHSMConfigurationIdentifier :: Maybe Text, _mcClusterSecurityGroups :: Maybe [Text], _mcAutomatedSnapshotRetentionPeriod :: Maybe Int, _mcNumberOfNodes :: Maybe Int, _mcHSMClientCertificateIdentifier :: Maybe Text, _mcPreferredMaintenanceWindow :: Maybe Text, _mcVPCSecurityGroupIds :: Maybe [Text], _mcClusterType :: Maybe Text, _mcNewClusterIdentifier :: Maybe Text, _mcClusterVersion :: Maybe Text, _mcNodeType :: Maybe Text, _mcAllowVersionUpgrade :: Maybe Bool, _mcClusterParameterGroupName :: Maybe Text, _mcClusterIdentifier :: Text} deriving (Eq, Read, Show)
 
 -- | 'ModifyCluster' smart constructor.
 modifyCluster :: Text -> ModifyCluster
-modifyCluster pClusterIdentifier = ModifyCluster'{_mcMasterUserPassword = Nothing, _mcHSMConfigurationIdentifier = Nothing, _mcClusterSecurityGroups = mempty, _mcAutomatedSnapshotRetentionPeriod = Nothing, _mcNumberOfNodes = Nothing, _mcHSMClientCertificateIdentifier = Nothing, _mcPreferredMaintenanceWindow = Nothing, _mcVPCSecurityGroupIds = mempty, _mcClusterType = Nothing, _mcNewClusterIdentifier = Nothing, _mcClusterVersion = Nothing, _mcNodeType = Nothing, _mcAllowVersionUpgrade = Nothing, _mcClusterParameterGroupName = Nothing, _mcClusterIdentifier = pClusterIdentifier};
+modifyCluster pClusterIdentifier = ModifyCluster'{_mcMasterUserPassword = Nothing, _mcHSMConfigurationIdentifier = Nothing, _mcClusterSecurityGroups = Nothing, _mcAutomatedSnapshotRetentionPeriod = Nothing, _mcNumberOfNodes = Nothing, _mcHSMClientCertificateIdentifier = Nothing, _mcPreferredMaintenanceWindow = Nothing, _mcVPCSecurityGroupIds = Nothing, _mcClusterType = Nothing, _mcNewClusterIdentifier = Nothing, _mcClusterVersion = Nothing, _mcNodeType = Nothing, _mcAllowVersionUpgrade = Nothing, _mcClusterParameterGroupName = Nothing, _mcClusterIdentifier = pClusterIdentifier};
 
 -- | The new password for the cluster master user. This change is
 -- asynchronously applied as soon as possible. Between the time of the
@@ -145,7 +145,7 @@ mcHSMConfigurationIdentifier = lens _mcHSMConfigurationIdentifier (\ s a -> s{_m
 -- -   Must be 1 to 255 alphanumeric characters or hyphens
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
-mcClusterSecurityGroups :: Lens' ModifyCluster [Text]
+mcClusterSecurityGroups :: Lens' ModifyCluster (Maybe [Text])
 mcClusterSecurityGroups = lens _mcClusterSecurityGroups (\ s a -> s{_mcClusterSecurityGroups = a});
 
 -- | The number of days that automated snapshots are retained. If the value
@@ -204,7 +204,7 @@ mcPreferredMaintenanceWindow = lens _mcPreferredMaintenanceWindow (\ s a -> s{_m
 
 -- | A list of virtual private cloud (VPC) security groups to be associated
 -- with the cluster.
-mcVPCSecurityGroupIds :: Lens' ModifyCluster [Text]
+mcVPCSecurityGroupIds :: Lens' ModifyCluster (Maybe [Text])
 mcVPCSecurityGroupIds = lens _mcVPCSecurityGroupIds (\ s a -> s{_mcVPCSecurityGroupIds = a});
 
 -- | The new cluster type.

@@ -643,11 +643,11 @@ instance FromXML CharacterSet where
 -- * 'devDBParameterGroupFamily'
 --
 -- * 'devDBEngineDescription'
-data DBEngineVersion = DBEngineVersion'{_devDBEngineVersionDescription :: Maybe Text, _devEngineVersion :: Maybe Text, _devDefaultCharacterSet :: Maybe CharacterSet, _devSupportedCharacterSets :: [CharacterSet], _devEngine :: Maybe Text, _devDBParameterGroupFamily :: Maybe Text, _devDBEngineDescription :: Maybe Text} deriving (Eq, Read, Show)
+data DBEngineVersion = DBEngineVersion'{_devDBEngineVersionDescription :: Maybe Text, _devEngineVersion :: Maybe Text, _devDefaultCharacterSet :: Maybe CharacterSet, _devSupportedCharacterSets :: Maybe [CharacterSet], _devEngine :: Maybe Text, _devDBParameterGroupFamily :: Maybe Text, _devDBEngineDescription :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DBEngineVersion' smart constructor.
 dbEngineVersion :: DBEngineVersion
-dbEngineVersion = DBEngineVersion'{_devDBEngineVersionDescription = Nothing, _devEngineVersion = Nothing, _devDefaultCharacterSet = Nothing, _devSupportedCharacterSets = mempty, _devEngine = Nothing, _devDBParameterGroupFamily = Nothing, _devDBEngineDescription = Nothing};
+dbEngineVersion = DBEngineVersion'{_devDBEngineVersionDescription = Nothing, _devEngineVersion = Nothing, _devDefaultCharacterSet = Nothing, _devSupportedCharacterSets = Nothing, _devEngine = Nothing, _devDBParameterGroupFamily = Nothing, _devDBEngineDescription = Nothing};
 
 -- | The description of the database engine version.
 devDBEngineVersionDescription :: Lens' DBEngineVersion (Maybe Text)
@@ -665,7 +665,7 @@ devDefaultCharacterSet = lens _devDefaultCharacterSet (\ s a -> s{_devDefaultCha
 
 -- | A list of the character sets supported by this engine for the
 -- @CharacterSetName@ parameter of the CreateDBInstance API.
-devSupportedCharacterSets :: Lens' DBEngineVersion [CharacterSet]
+devSupportedCharacterSets :: Lens' DBEngineVersion (Maybe [CharacterSet])
 devSupportedCharacterSets = lens _devSupportedCharacterSets (\ s a -> s{_devSupportedCharacterSets = a});
 
 -- | The name of the database engine.
@@ -770,15 +770,15 @@ instance FromXML DBEngineVersion where
 -- * 'diDBName'
 --
 -- * 'diStorageType'
-data DBInstance = DBInstance'{_diDBSecurityGroups :: [DBSecurityGroupMembership], _diEngineVersion :: Maybe Text, _diStorageEncrypted :: Maybe Bool, _diAutoMinorVersionUpgrade :: Maybe Bool, _diMasterUsername :: Maybe Text, _diPubliclyAccessible :: Maybe Bool, _diReadReplicaDBInstanceIdentifiers :: [Text], _diIOPS :: Maybe Int, _diInstanceCreateTime :: Maybe ISO8601, _diReadReplicaSourceDBInstanceIdentifier :: Maybe Text, _diEngine :: Maybe Text, _diLatestRestorableTime :: Maybe ISO8601, _diDBInstanceClass :: Maybe Text, _diLicenseModel :: Maybe Text, _diPreferredMaintenanceWindow :: Maybe Text, _diCharacterSetName :: Maybe Text, _diDBInstanceIdentifier :: Maybe Text, _diCACertificateIdentifier :: Maybe Text, _diPreferredBackupWindow :: Maybe Text, _diAvailabilityZone :: Maybe Text, _diVPCSecurityGroups :: [VPCSecurityGroupMembership], _diBackupRetentionPeriod :: Maybe Int, _diKMSKeyId :: Maybe Text, _diDBSubnetGroup :: Maybe DBSubnetGroup, _diMultiAZ :: Maybe Bool, _diSecondaryAvailabilityZone :: Maybe Text, _diOptionGroupMemberships :: [OptionGroupMembership], _diDBiResourceId :: Maybe Text, _diAllocatedStorage :: Maybe Int, _diEndpoint :: Maybe Endpoint, _diDBParameterGroups :: [DBParameterGroupStatus], _diTDECredentialARN :: Maybe Text, _diDBInstanceStatus :: Maybe Text, _diPendingModifiedValues :: Maybe PendingModifiedValues, _diStatusInfos :: [DBInstanceStatusInfo], _diDBName :: Maybe Text, _diStorageType :: Maybe Text} deriving (Eq, Read, Show)
+data DBInstance = DBInstance'{_diDBSecurityGroups :: Maybe [DBSecurityGroupMembership], _diEngineVersion :: Maybe Text, _diStorageEncrypted :: Maybe Bool, _diAutoMinorVersionUpgrade :: Maybe Bool, _diMasterUsername :: Maybe Text, _diPubliclyAccessible :: Maybe Bool, _diReadReplicaDBInstanceIdentifiers :: Maybe [Text], _diIOPS :: Maybe Int, _diInstanceCreateTime :: Maybe ISO8601, _diReadReplicaSourceDBInstanceIdentifier :: Maybe Text, _diEngine :: Maybe Text, _diLatestRestorableTime :: Maybe ISO8601, _diDBInstanceClass :: Maybe Text, _diLicenseModel :: Maybe Text, _diPreferredMaintenanceWindow :: Maybe Text, _diCharacterSetName :: Maybe Text, _diDBInstanceIdentifier :: Maybe Text, _diCACertificateIdentifier :: Maybe Text, _diPreferredBackupWindow :: Maybe Text, _diAvailabilityZone :: Maybe Text, _diVPCSecurityGroups :: Maybe [VPCSecurityGroupMembership], _diBackupRetentionPeriod :: Maybe Int, _diKMSKeyId :: Maybe Text, _diDBSubnetGroup :: Maybe DBSubnetGroup, _diMultiAZ :: Maybe Bool, _diSecondaryAvailabilityZone :: Maybe Text, _diOptionGroupMemberships :: Maybe [OptionGroupMembership], _diDBiResourceId :: Maybe Text, _diAllocatedStorage :: Maybe Int, _diEndpoint :: Maybe Endpoint, _diDBParameterGroups :: Maybe [DBParameterGroupStatus], _diTDECredentialARN :: Maybe Text, _diDBInstanceStatus :: Maybe Text, _diPendingModifiedValues :: Maybe PendingModifiedValues, _diStatusInfos :: Maybe [DBInstanceStatusInfo], _diDBName :: Maybe Text, _diStorageType :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DBInstance' smart constructor.
 dbInstance :: DBInstance
-dbInstance = DBInstance'{_diDBSecurityGroups = mempty, _diEngineVersion = Nothing, _diStorageEncrypted = Nothing, _diAutoMinorVersionUpgrade = Nothing, _diMasterUsername = Nothing, _diPubliclyAccessible = Nothing, _diReadReplicaDBInstanceIdentifiers = mempty, _diIOPS = Nothing, _diInstanceCreateTime = Nothing, _diReadReplicaSourceDBInstanceIdentifier = Nothing, _diEngine = Nothing, _diLatestRestorableTime = Nothing, _diDBInstanceClass = Nothing, _diLicenseModel = Nothing, _diPreferredMaintenanceWindow = Nothing, _diCharacterSetName = Nothing, _diDBInstanceIdentifier = Nothing, _diCACertificateIdentifier = Nothing, _diPreferredBackupWindow = Nothing, _diAvailabilityZone = Nothing, _diVPCSecurityGroups = mempty, _diBackupRetentionPeriod = Nothing, _diKMSKeyId = Nothing, _diDBSubnetGroup = Nothing, _diMultiAZ = Nothing, _diSecondaryAvailabilityZone = Nothing, _diOptionGroupMemberships = mempty, _diDBiResourceId = Nothing, _diAllocatedStorage = Nothing, _diEndpoint = Nothing, _diDBParameterGroups = mempty, _diTDECredentialARN = Nothing, _diDBInstanceStatus = Nothing, _diPendingModifiedValues = Nothing, _diStatusInfos = mempty, _diDBName = Nothing, _diStorageType = Nothing};
+dbInstance = DBInstance'{_diDBSecurityGroups = Nothing, _diEngineVersion = Nothing, _diStorageEncrypted = Nothing, _diAutoMinorVersionUpgrade = Nothing, _diMasterUsername = Nothing, _diPubliclyAccessible = Nothing, _diReadReplicaDBInstanceIdentifiers = Nothing, _diIOPS = Nothing, _diInstanceCreateTime = Nothing, _diReadReplicaSourceDBInstanceIdentifier = Nothing, _diEngine = Nothing, _diLatestRestorableTime = Nothing, _diDBInstanceClass = Nothing, _diLicenseModel = Nothing, _diPreferredMaintenanceWindow = Nothing, _diCharacterSetName = Nothing, _diDBInstanceIdentifier = Nothing, _diCACertificateIdentifier = Nothing, _diPreferredBackupWindow = Nothing, _diAvailabilityZone = Nothing, _diVPCSecurityGroups = Nothing, _diBackupRetentionPeriod = Nothing, _diKMSKeyId = Nothing, _diDBSubnetGroup = Nothing, _diMultiAZ = Nothing, _diSecondaryAvailabilityZone = Nothing, _diOptionGroupMemberships = Nothing, _diDBiResourceId = Nothing, _diAllocatedStorage = Nothing, _diEndpoint = Nothing, _diDBParameterGroups = Nothing, _diTDECredentialARN = Nothing, _diDBInstanceStatus = Nothing, _diPendingModifiedValues = Nothing, _diStatusInfos = Nothing, _diDBName = Nothing, _diStorageType = Nothing};
 
 -- | Provides List of DB security group elements containing only
 -- @DBSecurityGroup.Name@ and @DBSecurityGroup.Status@ subelements.
-diDBSecurityGroups :: Lens' DBInstance [DBSecurityGroupMembership]
+diDBSecurityGroups :: Lens' DBInstance (Maybe [DBSecurityGroupMembership])
 diDBSecurityGroups = lens _diDBSecurityGroups (\ s a -> s{_diDBSecurityGroups = a});
 
 -- | Indicates the database engine version.
@@ -820,7 +820,7 @@ diPubliclyAccessible = lens _diPubliclyAccessible (\ s a -> s{_diPubliclyAccessi
 
 -- | Contains one or more identifiers of the Read Replicas associated with
 -- this DB instance.
-diReadReplicaDBInstanceIdentifiers :: Lens' DBInstance [Text]
+diReadReplicaDBInstanceIdentifiers :: Lens' DBInstance (Maybe [Text])
 diReadReplicaDBInstanceIdentifiers = lens _diReadReplicaDBInstanceIdentifiers (\ s a -> s{_diReadReplicaDBInstanceIdentifiers = a});
 
 -- | Specifies the Provisioned IOPS (I\/O operations per second) value.
@@ -887,7 +887,7 @@ diAvailabilityZone = lens _diAvailabilityZone (\ s a -> s{_diAvailabilityZone = 
 
 -- | Provides List of VPC security group elements that the DB instance
 -- belongs to.
-diVPCSecurityGroups :: Lens' DBInstance [VPCSecurityGroupMembership]
+diVPCSecurityGroups :: Lens' DBInstance (Maybe [VPCSecurityGroupMembership])
 diVPCSecurityGroups = lens _diVPCSecurityGroups (\ s a -> s{_diVPCSecurityGroups = a});
 
 -- | Specifies the number of days for which automatic DB snapshots are
@@ -916,7 +916,7 @@ diSecondaryAvailabilityZone :: Lens' DBInstance (Maybe Text)
 diSecondaryAvailabilityZone = lens _diSecondaryAvailabilityZone (\ s a -> s{_diSecondaryAvailabilityZone = a});
 
 -- | Provides the list of option group memberships for this DB instance.
-diOptionGroupMemberships :: Lens' DBInstance [OptionGroupMembership]
+diOptionGroupMemberships :: Lens' DBInstance (Maybe [OptionGroupMembership])
 diOptionGroupMemberships = lens _diOptionGroupMemberships (\ s a -> s{_diOptionGroupMemberships = a});
 
 -- | If @StorageEncrypted@ is true, the region-unique, immutable identifier
@@ -935,7 +935,7 @@ diEndpoint :: Lens' DBInstance (Maybe Endpoint)
 diEndpoint = lens _diEndpoint (\ s a -> s{_diEndpoint = a});
 
 -- | Provides the list of DB parameter groups applied to this DB instance.
-diDBParameterGroups :: Lens' DBInstance [DBParameterGroupStatus]
+diDBParameterGroups :: Lens' DBInstance (Maybe [DBParameterGroupStatus])
 diDBParameterGroups = lens _diDBParameterGroups (\ s a -> s{_diDBParameterGroups = a});
 
 -- | The ARN from the Key Store with which the instance is associated for TDE
@@ -955,7 +955,7 @@ diPendingModifiedValues = lens _diPendingModifiedValues (\ s a -> s{_diPendingMo
 
 -- | The status of a Read Replica. If the instance is not a Read Replica,
 -- this will be blank.
-diStatusInfos :: Lens' DBInstance [DBInstanceStatusInfo]
+diStatusInfos :: Lens' DBInstance (Maybe [DBInstanceStatusInfo])
 diStatusInfos = lens _diStatusInfos (\ s a -> s{_diStatusInfos = a});
 
 -- | The meaning of this parameter differs according to the database engine
@@ -1175,11 +1175,11 @@ instance FromXML DBParameterGroupStatus where
 -- * 'dsgEC2SecurityGroups'
 --
 -- * 'dsgDBSecurityGroupDescription'
-data DBSecurityGroup = DBSecurityGroup'{_dsgVPCId :: Maybe Text, _dsgOwnerId :: Maybe Text, _dsgIPRanges :: [IPRange], _dsgDBSecurityGroupName :: Maybe Text, _dsgEC2SecurityGroups :: [EC2SecurityGroup], _dsgDBSecurityGroupDescription :: Maybe Text} deriving (Eq, Read, Show)
+data DBSecurityGroup = DBSecurityGroup'{_dsgVPCId :: Maybe Text, _dsgOwnerId :: Maybe Text, _dsgIPRanges :: Maybe [IPRange], _dsgDBSecurityGroupName :: Maybe Text, _dsgEC2SecurityGroups :: Maybe [EC2SecurityGroup], _dsgDBSecurityGroupDescription :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DBSecurityGroup' smart constructor.
 dbSecurityGroup :: DBSecurityGroup
-dbSecurityGroup = DBSecurityGroup'{_dsgVPCId = Nothing, _dsgOwnerId = Nothing, _dsgIPRanges = mempty, _dsgDBSecurityGroupName = Nothing, _dsgEC2SecurityGroups = mempty, _dsgDBSecurityGroupDescription = Nothing};
+dbSecurityGroup = DBSecurityGroup'{_dsgVPCId = Nothing, _dsgOwnerId = Nothing, _dsgIPRanges = Nothing, _dsgDBSecurityGroupName = Nothing, _dsgEC2SecurityGroups = Nothing, _dsgDBSecurityGroupDescription = Nothing};
 
 -- | Provides the VpcId of the DB security group.
 dsgVPCId :: Lens' DBSecurityGroup (Maybe Text)
@@ -1190,7 +1190,7 @@ dsgOwnerId :: Lens' DBSecurityGroup (Maybe Text)
 dsgOwnerId = lens _dsgOwnerId (\ s a -> s{_dsgOwnerId = a});
 
 -- | Contains a list of IPRange elements.
-dsgIPRanges :: Lens' DBSecurityGroup [IPRange]
+dsgIPRanges :: Lens' DBSecurityGroup (Maybe [IPRange])
 dsgIPRanges = lens _dsgIPRanges (\ s a -> s{_dsgIPRanges = a});
 
 -- | Specifies the name of the DB security group.
@@ -1198,7 +1198,7 @@ dsgDBSecurityGroupName :: Lens' DBSecurityGroup (Maybe Text)
 dsgDBSecurityGroupName = lens _dsgDBSecurityGroupName (\ s a -> s{_dsgDBSecurityGroupName = a});
 
 -- | Contains a list of EC2SecurityGroup elements.
-dsgEC2SecurityGroups :: Lens' DBSecurityGroup [EC2SecurityGroup]
+dsgEC2SecurityGroups :: Lens' DBSecurityGroup (Maybe [EC2SecurityGroup])
 dsgEC2SecurityGroups = lens _dsgEC2SecurityGroups (\ s a -> s{_dsgEC2SecurityGroups = a});
 
 -- | Provides the description of the DB security group.
@@ -1428,11 +1428,11 @@ instance FromXML DBSnapshot where
 -- * 'dbsDBSubnetGroupDescription'
 --
 -- * 'dbsSubnetGroupStatus'
-data DBSubnetGroup = DBSubnetGroup'{_dbsDBSubnetGroupName :: Maybe Text, _dbsVPCId :: Maybe Text, _dbsSubnets :: [Subnet], _dbsDBSubnetGroupDescription :: Maybe Text, _dbsSubnetGroupStatus :: Maybe Text} deriving (Eq, Read, Show)
+data DBSubnetGroup = DBSubnetGroup'{_dbsDBSubnetGroupName :: Maybe Text, _dbsVPCId :: Maybe Text, _dbsSubnets :: Maybe [Subnet], _dbsDBSubnetGroupDescription :: Maybe Text, _dbsSubnetGroupStatus :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DBSubnetGroup' smart constructor.
 dbSubnetGroup :: DBSubnetGroup
-dbSubnetGroup = DBSubnetGroup'{_dbsDBSubnetGroupName = Nothing, _dbsVPCId = Nothing, _dbsSubnets = mempty, _dbsDBSubnetGroupDescription = Nothing, _dbsSubnetGroupStatus = Nothing};
+dbSubnetGroup = DBSubnetGroup'{_dbsDBSubnetGroupName = Nothing, _dbsVPCId = Nothing, _dbsSubnets = Nothing, _dbsDBSubnetGroupDescription = Nothing, _dbsSubnetGroupStatus = Nothing};
 
 -- | Specifies the name of the DB subnet group.
 dbsDBSubnetGroupName :: Lens' DBSubnetGroup (Maybe Text)
@@ -1443,7 +1443,7 @@ dbsVPCId :: Lens' DBSubnetGroup (Maybe Text)
 dbsVPCId = lens _dbsVPCId (\ s a -> s{_dbsVPCId = a});
 
 -- | Contains a list of Subnet elements.
-dbsSubnets :: Lens' DBSubnetGroup [Subnet]
+dbsSubnets :: Lens' DBSubnetGroup (Maybe [Subnet])
 dbsSubnets = lens _dbsSubnets (\ s a -> s{_dbsSubnets = a});
 
 -- | Provides the description of the DB subnet group.
@@ -1572,11 +1572,11 @@ instance FromXML Endpoint where
 -- * 'edParameters'
 --
 -- * 'edMarker'
-data EngineDefaults = EngineDefaults'{_edDBParameterGroupFamily :: Maybe Text, _edParameters :: [Parameter], _edMarker :: Maybe Text} deriving (Eq, Read, Show)
+data EngineDefaults = EngineDefaults'{_edDBParameterGroupFamily :: Maybe Text, _edParameters :: Maybe [Parameter], _edMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'EngineDefaults' smart constructor.
 engineDefaults :: EngineDefaults
-engineDefaults = EngineDefaults'{_edDBParameterGroupFamily = Nothing, _edParameters = mempty, _edMarker = Nothing};
+engineDefaults = EngineDefaults'{_edDBParameterGroupFamily = Nothing, _edParameters = Nothing, _edMarker = Nothing};
 
 -- | Specifies the name of the DB parameter group family which the engine
 -- default parameters apply to.
@@ -1584,7 +1584,7 @@ edDBParameterGroupFamily :: Lens' EngineDefaults (Maybe Text)
 edDBParameterGroupFamily = lens _edDBParameterGroupFamily (\ s a -> s{_edDBParameterGroupFamily = a});
 
 -- | Contains a list of engine default parameters.
-edParameters :: Lens' EngineDefaults [Parameter]
+edParameters :: Lens' EngineDefaults (Maybe [Parameter])
 edParameters = lens _edParameters (\ s a -> s{_edParameters = a});
 
 -- | An optional pagination token provided by a previous EngineDefaults
@@ -1614,11 +1614,11 @@ instance FromXML EngineDefaults where
 -- * 'eveEventCategories'
 --
 -- * 'eveMessage'
-data Event = Event'{_eveSourceType :: Maybe SourceType, _eveSourceIdentifier :: Maybe Text, _eveDate :: Maybe ISO8601, _eveEventCategories :: [Text], _eveMessage :: Maybe Text} deriving (Eq, Read, Show)
+data Event = Event'{_eveSourceType :: Maybe SourceType, _eveSourceIdentifier :: Maybe Text, _eveDate :: Maybe ISO8601, _eveEventCategories :: Maybe [Text], _eveMessage :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'Event' smart constructor.
 event :: Event
-event = Event'{_eveSourceType = Nothing, _eveSourceIdentifier = Nothing, _eveDate = Nothing, _eveEventCategories = mempty, _eveMessage = Nothing};
+event = Event'{_eveSourceType = Nothing, _eveSourceIdentifier = Nothing, _eveDate = Nothing, _eveEventCategories = Nothing, _eveMessage = Nothing};
 
 -- | Specifies the source type for this event.
 eveSourceType :: Lens' Event (Maybe SourceType)
@@ -1633,7 +1633,7 @@ eveDate :: Lens' Event (Maybe UTCTime)
 eveDate = lens _eveDate (\ s a -> s{_eveDate = a}) . mapping _Time;
 
 -- | Specifies the category for the event.
-eveEventCategories :: Lens' Event [Text]
+eveEventCategories :: Lens' Event (Maybe [Text])
 eveEventCategories = lens _eveEventCategories (\ s a -> s{_eveEventCategories = a});
 
 -- | Provides the text of this event.
@@ -1657,18 +1657,18 @@ instance FromXML Event where
 -- * 'ecmSourceType'
 --
 -- * 'ecmEventCategories'
-data EventCategoriesMap = EventCategoriesMap'{_ecmSourceType :: Maybe Text, _ecmEventCategories :: [Text]} deriving (Eq, Read, Show)
+data EventCategoriesMap = EventCategoriesMap'{_ecmSourceType :: Maybe Text, _ecmEventCategories :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'EventCategoriesMap' smart constructor.
 eventCategoriesMap :: EventCategoriesMap
-eventCategoriesMap = EventCategoriesMap'{_ecmSourceType = Nothing, _ecmEventCategories = mempty};
+eventCategoriesMap = EventCategoriesMap'{_ecmSourceType = Nothing, _ecmEventCategories = Nothing};
 
 -- | The source type that the returned categories belong to
 ecmSourceType :: Lens' EventCategoriesMap (Maybe Text)
 ecmSourceType = lens _ecmSourceType (\ s a -> s{_ecmSourceType = a});
 
 -- | The event categories for the specified source type
-ecmEventCategories :: Lens' EventCategoriesMap [Text]
+ecmEventCategories :: Lens' EventCategoriesMap (Maybe [Text])
 ecmEventCategories = lens _ecmEventCategories (\ s a -> s{_ecmEventCategories = a});
 
 instance FromXML EventCategoriesMap where
@@ -1699,11 +1699,11 @@ instance FromXML EventCategoriesMap where
 -- * 'esEventCategoriesList'
 --
 -- * 'esSourceIdsList'
-data EventSubscription = EventSubscription'{_esCustomerAWSId :: Maybe Text, _esStatus :: Maybe Text, _esCustSubscriptionId :: Maybe Text, _esSNSTopicARN :: Maybe Text, _esEnabled :: Maybe Bool, _esSourceType :: Maybe Text, _esSubscriptionCreationTime :: Maybe Text, _esEventCategoriesList :: [Text], _esSourceIdsList :: [Text]} deriving (Eq, Read, Show)
+data EventSubscription = EventSubscription'{_esCustomerAWSId :: Maybe Text, _esStatus :: Maybe Text, _esCustSubscriptionId :: Maybe Text, _esSNSTopicARN :: Maybe Text, _esEnabled :: Maybe Bool, _esSourceType :: Maybe Text, _esSubscriptionCreationTime :: Maybe Text, _esEventCategoriesList :: Maybe [Text], _esSourceIdsList :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'EventSubscription' smart constructor.
 eventSubscription :: EventSubscription
-eventSubscription = EventSubscription'{_esCustomerAWSId = Nothing, _esStatus = Nothing, _esCustSubscriptionId = Nothing, _esSNSTopicARN = Nothing, _esEnabled = Nothing, _esSourceType = Nothing, _esSubscriptionCreationTime = Nothing, _esEventCategoriesList = mempty, _esSourceIdsList = mempty};
+eventSubscription = EventSubscription'{_esCustomerAWSId = Nothing, _esStatus = Nothing, _esCustSubscriptionId = Nothing, _esSNSTopicARN = Nothing, _esEnabled = Nothing, _esSourceType = Nothing, _esSubscriptionCreationTime = Nothing, _esEventCategoriesList = Nothing, _esSourceIdsList = Nothing};
 
 -- | The AWS customer account associated with the RDS event notification
 -- subscription.
@@ -1745,11 +1745,11 @@ esSubscriptionCreationTime :: Lens' EventSubscription (Maybe Text)
 esSubscriptionCreationTime = lens _esSubscriptionCreationTime (\ s a -> s{_esSubscriptionCreationTime = a});
 
 -- | A list of event categories for the RDS event notification subscription.
-esEventCategoriesList :: Lens' EventSubscription [Text]
+esEventCategoriesList :: Lens' EventSubscription (Maybe [Text])
 esEventCategoriesList = lens _esEventCategoriesList (\ s a -> s{_esEventCategoriesList = a});
 
 -- | A list of source IDs for the RDS event notification subscription.
-esSourceIdsList :: Lens' EventSubscription [Text]
+esSourceIdsList :: Lens' EventSubscription (Maybe [Text])
 esSourceIdsList = lens _esSourceIdsList (\ s a -> s{_esSourceIdsList = a});
 
 instance FromXML EventSubscription where
@@ -1778,8 +1778,8 @@ instance FromXML EventSubscription where
 data Filter = Filter'{_filName :: Text, _filValues :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'Filter' smart constructor.
-filter' :: Text -> [Text] -> Filter
-filter' pName pValues = Filter'{_filName = pName, _filValues = pValues};
+filter' :: Text -> Filter
+filter' pName = Filter'{_filName = pName, _filValues = mempty};
 
 -- | This parameter is not currently supported.
 filName :: Lens' Filter Text
@@ -1840,11 +1840,11 @@ instance FromXML IPRange where
 -- * 'optDBSecurityGroupMemberships'
 --
 -- * 'optPort'
-data Option = Option'{_optOptionName :: Maybe Text, _optPermanent :: Maybe Bool, _optPersistent :: Maybe Bool, _optOptionDescription :: Maybe Text, _optOptionSettings :: [OptionSetting], _optVPCSecurityGroupMemberships :: [VPCSecurityGroupMembership], _optDBSecurityGroupMemberships :: [DBSecurityGroupMembership], _optPort :: Maybe Int} deriving (Eq, Read, Show)
+data Option = Option'{_optOptionName :: Maybe Text, _optPermanent :: Maybe Bool, _optPersistent :: Maybe Bool, _optOptionDescription :: Maybe Text, _optOptionSettings :: Maybe [OptionSetting], _optVPCSecurityGroupMemberships :: Maybe [VPCSecurityGroupMembership], _optDBSecurityGroupMemberships :: Maybe [DBSecurityGroupMembership], _optPort :: Maybe Int} deriving (Eq, Read, Show)
 
 -- | 'Option' smart constructor.
 option :: Option
-option = Option'{_optOptionName = Nothing, _optPermanent = Nothing, _optPersistent = Nothing, _optOptionDescription = Nothing, _optOptionSettings = mempty, _optVPCSecurityGroupMemberships = mempty, _optDBSecurityGroupMemberships = mempty, _optPort = Nothing};
+option = Option'{_optOptionName = Nothing, _optPermanent = Nothing, _optPersistent = Nothing, _optOptionDescription = Nothing, _optOptionSettings = Nothing, _optVPCSecurityGroupMemberships = Nothing, _optDBSecurityGroupMemberships = Nothing, _optPort = Nothing};
 
 -- | The name of the option.
 optOptionName :: Lens' Option (Maybe Text)
@@ -1863,17 +1863,17 @@ optOptionDescription :: Lens' Option (Maybe Text)
 optOptionDescription = lens _optOptionDescription (\ s a -> s{_optOptionDescription = a});
 
 -- | The option settings for this option.
-optOptionSettings :: Lens' Option [OptionSetting]
+optOptionSettings :: Lens' Option (Maybe [OptionSetting])
 optOptionSettings = lens _optOptionSettings (\ s a -> s{_optOptionSettings = a});
 
 -- | If the option requires access to a port, then this VPC security group
 -- allows access to the port.
-optVPCSecurityGroupMemberships :: Lens' Option [VPCSecurityGroupMembership]
+optVPCSecurityGroupMemberships :: Lens' Option (Maybe [VPCSecurityGroupMembership])
 optVPCSecurityGroupMemberships = lens _optVPCSecurityGroupMemberships (\ s a -> s{_optVPCSecurityGroupMemberships = a});
 
 -- | If the option requires access to a port, then this DB security group
 -- allows access to the port.
-optDBSecurityGroupMemberships :: Lens' Option [DBSecurityGroupMembership]
+optDBSecurityGroupMemberships :: Lens' Option (Maybe [DBSecurityGroupMembership])
 optDBSecurityGroupMemberships = lens _optDBSecurityGroupMemberships (\ s a -> s{_optDBSecurityGroupMemberships = a});
 
 -- | If required, the port configured for this option to use.
@@ -1910,22 +1910,22 @@ instance FromXML Option where
 -- * 'ocPort'
 --
 -- * 'ocOptionName'
-data OptionConfiguration = OptionConfiguration'{_ocOptionSettings :: [OptionSetting], _ocVPCSecurityGroupMemberships :: [Text], _ocDBSecurityGroupMemberships :: [Text], _ocPort :: Maybe Int, _ocOptionName :: Text} deriving (Eq, Read, Show)
+data OptionConfiguration = OptionConfiguration'{_ocOptionSettings :: Maybe [OptionSetting], _ocVPCSecurityGroupMemberships :: Maybe [Text], _ocDBSecurityGroupMemberships :: Maybe [Text], _ocPort :: Maybe Int, _ocOptionName :: Text} deriving (Eq, Read, Show)
 
 -- | 'OptionConfiguration' smart constructor.
 optionConfiguration :: Text -> OptionConfiguration
-optionConfiguration pOptionName = OptionConfiguration'{_ocOptionSettings = mempty, _ocVPCSecurityGroupMemberships = mempty, _ocDBSecurityGroupMemberships = mempty, _ocPort = Nothing, _ocOptionName = pOptionName};
+optionConfiguration pOptionName = OptionConfiguration'{_ocOptionSettings = Nothing, _ocVPCSecurityGroupMemberships = Nothing, _ocDBSecurityGroupMemberships = Nothing, _ocPort = Nothing, _ocOptionName = pOptionName};
 
 -- | The option settings to include in an option group.
-ocOptionSettings :: Lens' OptionConfiguration [OptionSetting]
+ocOptionSettings :: Lens' OptionConfiguration (Maybe [OptionSetting])
 ocOptionSettings = lens _ocOptionSettings (\ s a -> s{_ocOptionSettings = a});
 
 -- | A list of VpcSecurityGroupMemebrship name strings used for this option.
-ocVPCSecurityGroupMemberships :: Lens' OptionConfiguration [Text]
+ocVPCSecurityGroupMemberships :: Lens' OptionConfiguration (Maybe [Text])
 ocVPCSecurityGroupMemberships = lens _ocVPCSecurityGroupMemberships (\ s a -> s{_ocVPCSecurityGroupMemberships = a});
 
 -- | A list of DBSecurityGroupMemebrship name strings used for this option.
-ocDBSecurityGroupMemberships :: Lens' OptionConfiguration [Text]
+ocDBSecurityGroupMemberships :: Lens' OptionConfiguration (Maybe [Text])
 ocDBSecurityGroupMemberships = lens _ocDBSecurityGroupMemberships (\ s a -> s{_ocDBSecurityGroupMemberships = a});
 
 -- | The optional port for the option.
@@ -1966,11 +1966,11 @@ instance ToQuery OptionConfiguration where
 -- * 'ogOptions'
 --
 -- * 'ogOptionGroupName'
-data OptionGroup = OptionGroup'{_ogOptionGroupDescription :: Maybe Text, _ogVPCId :: Maybe Text, _ogAllowsVPCAndNonVPCInstanceMemberships :: Maybe Bool, _ogEngineName :: Maybe Text, _ogMajorEngineVersion :: Maybe Text, _ogOptions :: [Option], _ogOptionGroupName :: Maybe Text} deriving (Eq, Read, Show)
+data OptionGroup = OptionGroup'{_ogOptionGroupDescription :: Maybe Text, _ogVPCId :: Maybe Text, _ogAllowsVPCAndNonVPCInstanceMemberships :: Maybe Bool, _ogEngineName :: Maybe Text, _ogMajorEngineVersion :: Maybe Text, _ogOptions :: Maybe [Option], _ogOptionGroupName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'OptionGroup' smart constructor.
 optionGroup :: OptionGroup
-optionGroup = OptionGroup'{_ogOptionGroupDescription = Nothing, _ogVPCId = Nothing, _ogAllowsVPCAndNonVPCInstanceMemberships = Nothing, _ogEngineName = Nothing, _ogMajorEngineVersion = Nothing, _ogOptions = mempty, _ogOptionGroupName = Nothing};
+optionGroup = OptionGroup'{_ogOptionGroupDescription = Nothing, _ogVPCId = Nothing, _ogAllowsVPCAndNonVPCInstanceMemberships = Nothing, _ogEngineName = Nothing, _ogMajorEngineVersion = Nothing, _ogOptions = Nothing, _ogOptionGroupName = Nothing};
 
 -- | Provides a description of the option group.
 ogOptionGroupDescription :: Lens' OptionGroup (Maybe Text)
@@ -2000,7 +2000,7 @@ ogMajorEngineVersion :: Lens' OptionGroup (Maybe Text)
 ogMajorEngineVersion = lens _ogMajorEngineVersion (\ s a -> s{_ogMajorEngineVersion = a});
 
 -- | Indicates what options are available in the option group.
-ogOptions :: Lens' OptionGroup [Option]
+ogOptions :: Lens' OptionGroup (Maybe [Option])
 ogOptions = lens _ogOptions (\ s a -> s{_ogOptions = a});
 
 -- | Specifies the name of the option group.
@@ -2071,11 +2071,11 @@ instance FromXML OptionGroupMembership where
 -- * 'ogoOptionsDependedOn'
 --
 -- * 'ogoDescription'
-data OptionGroupOption = OptionGroupOption'{_ogoMinimumRequiredMinorEngineVersion :: Maybe Text, _ogoPermanent :: Maybe Bool, _ogoPersistent :: Maybe Bool, _ogoEngineName :: Maybe Text, _ogoName :: Maybe Text, _ogoMajorEngineVersion :: Maybe Text, _ogoDefaultPort :: Maybe Int, _ogoOptionGroupOptionSettings :: [OptionGroupOptionSetting], _ogoPortRequired :: Maybe Bool, _ogoOptionsDependedOn :: [Text], _ogoDescription :: Maybe Text} deriving (Eq, Read, Show)
+data OptionGroupOption = OptionGroupOption'{_ogoMinimumRequiredMinorEngineVersion :: Maybe Text, _ogoPermanent :: Maybe Bool, _ogoPersistent :: Maybe Bool, _ogoEngineName :: Maybe Text, _ogoName :: Maybe Text, _ogoMajorEngineVersion :: Maybe Text, _ogoDefaultPort :: Maybe Int, _ogoOptionGroupOptionSettings :: Maybe [OptionGroupOptionSetting], _ogoPortRequired :: Maybe Bool, _ogoOptionsDependedOn :: Maybe [Text], _ogoDescription :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'OptionGroupOption' smart constructor.
 optionGroupOption :: OptionGroupOption
-optionGroupOption = OptionGroupOption'{_ogoMinimumRequiredMinorEngineVersion = Nothing, _ogoPermanent = Nothing, _ogoPersistent = Nothing, _ogoEngineName = Nothing, _ogoName = Nothing, _ogoMajorEngineVersion = Nothing, _ogoDefaultPort = Nothing, _ogoOptionGroupOptionSettings = mempty, _ogoPortRequired = Nothing, _ogoOptionsDependedOn = mempty, _ogoDescription = Nothing};
+optionGroupOption = OptionGroupOption'{_ogoMinimumRequiredMinorEngineVersion = Nothing, _ogoPermanent = Nothing, _ogoPersistent = Nothing, _ogoEngineName = Nothing, _ogoName = Nothing, _ogoMajorEngineVersion = Nothing, _ogoDefaultPort = Nothing, _ogoOptionGroupOptionSettings = Nothing, _ogoPortRequired = Nothing, _ogoOptionsDependedOn = Nothing, _ogoDescription = Nothing};
 
 -- | The minimum required engine version for the option to be applied.
 ogoMinimumRequiredMinorEngineVersion :: Lens' OptionGroupOption (Maybe Text)
@@ -2113,7 +2113,7 @@ ogoDefaultPort = lens _ogoDefaultPort (\ s a -> s{_ogoDefaultPort = a});
 
 -- | Specifies the option settings that are available (and the default value)
 -- for each option in an option group.
-ogoOptionGroupOptionSettings :: Lens' OptionGroupOption [OptionGroupOptionSetting]
+ogoOptionGroupOptionSettings :: Lens' OptionGroupOption (Maybe [OptionGroupOptionSetting])
 ogoOptionGroupOptionSettings = lens _ogoOptionGroupOptionSettings (\ s a -> s{_ogoOptionGroupOptionSettings = a});
 
 -- | Specifies whether the option requires a port.
@@ -2121,7 +2121,7 @@ ogoPortRequired :: Lens' OptionGroupOption (Maybe Bool)
 ogoPortRequired = lens _ogoPortRequired (\ s a -> s{_ogoPortRequired = a});
 
 -- | List of all options that are prerequisites for this option.
-ogoOptionsDependedOn :: Lens' OptionGroupOption [Text]
+ogoOptionsDependedOn :: Lens' OptionGroupOption (Maybe [Text])
 ogoOptionsDependedOn = lens _ogoOptionsDependedOn (\ s a -> s{_ogoOptionsDependedOn = a});
 
 -- | The description of the option.
@@ -2314,11 +2314,11 @@ instance ToQuery OptionSetting where
 -- * 'odioVPC'
 --
 -- * 'odioStorageType'
-data OrderableDBInstanceOption = OrderableDBInstanceOption'{_odioEngineVersion :: Maybe Text, _odioMultiAZCapable :: Maybe Bool, _odioEngine :: Maybe Text, _odioSupportsIOPS :: Maybe Bool, _odioDBInstanceClass :: Maybe Text, _odioLicenseModel :: Maybe Text, _odioAvailabilityZones :: [AvailabilityZone], _odioReadReplicaCapable :: Maybe Bool, _odioSupportsStorageEncryption :: Maybe Bool, _odioVPC :: Maybe Bool, _odioStorageType :: Maybe Text} deriving (Eq, Read, Show)
+data OrderableDBInstanceOption = OrderableDBInstanceOption'{_odioEngineVersion :: Maybe Text, _odioMultiAZCapable :: Maybe Bool, _odioEngine :: Maybe Text, _odioSupportsIOPS :: Maybe Bool, _odioDBInstanceClass :: Maybe Text, _odioLicenseModel :: Maybe Text, _odioAvailabilityZones :: Maybe [AvailabilityZone], _odioReadReplicaCapable :: Maybe Bool, _odioSupportsStorageEncryption :: Maybe Bool, _odioVPC :: Maybe Bool, _odioStorageType :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'OrderableDBInstanceOption' smart constructor.
 orderableDBInstanceOption :: OrderableDBInstanceOption
-orderableDBInstanceOption = OrderableDBInstanceOption'{_odioEngineVersion = Nothing, _odioMultiAZCapable = Nothing, _odioEngine = Nothing, _odioSupportsIOPS = Nothing, _odioDBInstanceClass = Nothing, _odioLicenseModel = Nothing, _odioAvailabilityZones = mempty, _odioReadReplicaCapable = Nothing, _odioSupportsStorageEncryption = Nothing, _odioVPC = Nothing, _odioStorageType = Nothing};
+orderableDBInstanceOption = OrderableDBInstanceOption'{_odioEngineVersion = Nothing, _odioMultiAZCapable = Nothing, _odioEngine = Nothing, _odioSupportsIOPS = Nothing, _odioDBInstanceClass = Nothing, _odioLicenseModel = Nothing, _odioAvailabilityZones = Nothing, _odioReadReplicaCapable = Nothing, _odioSupportsStorageEncryption = Nothing, _odioVPC = Nothing, _odioStorageType = Nothing};
 
 -- | The engine version of the orderable DB instance.
 odioEngineVersion :: Lens' OrderableDBInstanceOption (Maybe Text)
@@ -2345,7 +2345,7 @@ odioLicenseModel :: Lens' OrderableDBInstanceOption (Maybe Text)
 odioLicenseModel = lens _odioLicenseModel (\ s a -> s{_odioLicenseModel = a});
 
 -- | A list of availability zones for the orderable DB instance.
-odioAvailabilityZones :: Lens' OrderableDBInstanceOption [AvailabilityZone]
+odioAvailabilityZones :: Lens' OrderableDBInstanceOption (Maybe [AvailabilityZone])
 odioAvailabilityZones = lens _odioAvailabilityZones (\ s a -> s{_odioAvailabilityZones = a});
 
 -- | Indicates whether this orderable DB instance can have a Read Replica.
@@ -2699,11 +2699,11 @@ instance FromXML RecurringCharge where
 -- * 'rdiFixedPrice'
 --
 -- * 'rdiDuration'
-data ReservedDBInstance = ReservedDBInstance'{_rdiDBInstanceCount :: Maybe Int, _rdiState :: Maybe Text, _rdiCurrencyCode :: Maybe Text, _rdiProductDescription :: Maybe Text, _rdiStartTime :: Maybe ISO8601, _rdiReservedDBInstanceId :: Maybe Text, _rdiDBInstanceClass :: Maybe Text, _rdiMultiAZ :: Maybe Bool, _rdiReservedDBInstancesOfferingId :: Maybe Text, _rdiOfferingType :: Maybe Text, _rdiUsagePrice :: Maybe Double, _rdiRecurringCharges :: [RecurringCharge], _rdiFixedPrice :: Maybe Double, _rdiDuration :: Maybe Int} deriving (Eq, Read, Show)
+data ReservedDBInstance = ReservedDBInstance'{_rdiDBInstanceCount :: Maybe Int, _rdiState :: Maybe Text, _rdiCurrencyCode :: Maybe Text, _rdiProductDescription :: Maybe Text, _rdiStartTime :: Maybe ISO8601, _rdiReservedDBInstanceId :: Maybe Text, _rdiDBInstanceClass :: Maybe Text, _rdiMultiAZ :: Maybe Bool, _rdiReservedDBInstancesOfferingId :: Maybe Text, _rdiOfferingType :: Maybe Text, _rdiUsagePrice :: Maybe Double, _rdiRecurringCharges :: Maybe [RecurringCharge], _rdiFixedPrice :: Maybe Double, _rdiDuration :: Maybe Int} deriving (Eq, Read, Show)
 
 -- | 'ReservedDBInstance' smart constructor.
 reservedDBInstance :: ReservedDBInstance
-reservedDBInstance = ReservedDBInstance'{_rdiDBInstanceCount = Nothing, _rdiState = Nothing, _rdiCurrencyCode = Nothing, _rdiProductDescription = Nothing, _rdiStartTime = Nothing, _rdiReservedDBInstanceId = Nothing, _rdiDBInstanceClass = Nothing, _rdiMultiAZ = Nothing, _rdiReservedDBInstancesOfferingId = Nothing, _rdiOfferingType = Nothing, _rdiUsagePrice = Nothing, _rdiRecurringCharges = mempty, _rdiFixedPrice = Nothing, _rdiDuration = Nothing};
+reservedDBInstance = ReservedDBInstance'{_rdiDBInstanceCount = Nothing, _rdiState = Nothing, _rdiCurrencyCode = Nothing, _rdiProductDescription = Nothing, _rdiStartTime = Nothing, _rdiReservedDBInstanceId = Nothing, _rdiDBInstanceClass = Nothing, _rdiMultiAZ = Nothing, _rdiReservedDBInstancesOfferingId = Nothing, _rdiOfferingType = Nothing, _rdiUsagePrice = Nothing, _rdiRecurringCharges = Nothing, _rdiFixedPrice = Nothing, _rdiDuration = Nothing};
 
 -- | The number of reserved DB instances.
 rdiDBInstanceCount :: Lens' ReservedDBInstance (Maybe Int)
@@ -2750,7 +2750,7 @@ rdiUsagePrice :: Lens' ReservedDBInstance (Maybe Double)
 rdiUsagePrice = lens _rdiUsagePrice (\ s a -> s{_rdiUsagePrice = a});
 
 -- | The recurring price charged to run this reserved DB instance.
-rdiRecurringCharges :: Lens' ReservedDBInstance [RecurringCharge]
+rdiRecurringCharges :: Lens' ReservedDBInstance (Maybe [RecurringCharge])
 rdiRecurringCharges = lens _rdiRecurringCharges (\ s a -> s{_rdiRecurringCharges = a});
 
 -- | The fixed price charged for this reserved DB instance.
@@ -2803,11 +2803,11 @@ instance FromXML ReservedDBInstance where
 -- * 'rdioFixedPrice'
 --
 -- * 'rdioDuration'
-data ReservedDBInstancesOffering = ReservedDBInstancesOffering'{_rdioCurrencyCode :: Maybe Text, _rdioProductDescription :: Maybe Text, _rdioDBInstanceClass :: Maybe Text, _rdioMultiAZ :: Maybe Bool, _rdioReservedDBInstancesOfferingId :: Maybe Text, _rdioOfferingType :: Maybe Text, _rdioUsagePrice :: Maybe Double, _rdioRecurringCharges :: [RecurringCharge], _rdioFixedPrice :: Maybe Double, _rdioDuration :: Maybe Int} deriving (Eq, Read, Show)
+data ReservedDBInstancesOffering = ReservedDBInstancesOffering'{_rdioCurrencyCode :: Maybe Text, _rdioProductDescription :: Maybe Text, _rdioDBInstanceClass :: Maybe Text, _rdioMultiAZ :: Maybe Bool, _rdioReservedDBInstancesOfferingId :: Maybe Text, _rdioOfferingType :: Maybe Text, _rdioUsagePrice :: Maybe Double, _rdioRecurringCharges :: Maybe [RecurringCharge], _rdioFixedPrice :: Maybe Double, _rdioDuration :: Maybe Int} deriving (Eq, Read, Show)
 
 -- | 'ReservedDBInstancesOffering' smart constructor.
 reservedDBInstancesOffering :: ReservedDBInstancesOffering
-reservedDBInstancesOffering = ReservedDBInstancesOffering'{_rdioCurrencyCode = Nothing, _rdioProductDescription = Nothing, _rdioDBInstanceClass = Nothing, _rdioMultiAZ = Nothing, _rdioReservedDBInstancesOfferingId = Nothing, _rdioOfferingType = Nothing, _rdioUsagePrice = Nothing, _rdioRecurringCharges = mempty, _rdioFixedPrice = Nothing, _rdioDuration = Nothing};
+reservedDBInstancesOffering = ReservedDBInstancesOffering'{_rdioCurrencyCode = Nothing, _rdioProductDescription = Nothing, _rdioDBInstanceClass = Nothing, _rdioMultiAZ = Nothing, _rdioReservedDBInstancesOfferingId = Nothing, _rdioOfferingType = Nothing, _rdioUsagePrice = Nothing, _rdioRecurringCharges = Nothing, _rdioFixedPrice = Nothing, _rdioDuration = Nothing};
 
 -- | The currency code for the reserved DB instance offering.
 rdioCurrencyCode :: Lens' ReservedDBInstancesOffering (Maybe Text)
@@ -2838,7 +2838,7 @@ rdioUsagePrice :: Lens' ReservedDBInstancesOffering (Maybe Double)
 rdioUsagePrice = lens _rdioUsagePrice (\ s a -> s{_rdioUsagePrice = a});
 
 -- | The recurring price charged to run this reserved DB instance.
-rdioRecurringCharges :: Lens' ReservedDBInstancesOffering [RecurringCharge]
+rdioRecurringCharges :: Lens' ReservedDBInstancesOffering (Maybe [RecurringCharge])
 rdioRecurringCharges = lens _rdioRecurringCharges (\ s a -> s{_rdioRecurringCharges = a});
 
 -- | The fixed price charged for this offering.
@@ -2871,15 +2871,15 @@ instance FromXML ReservedDBInstancesOffering where
 -- * 'rpmaPendingMaintenanceActionDetails'
 --
 -- * 'rpmaResourceIdentifier'
-data ResourcePendingMaintenanceActions = ResourcePendingMaintenanceActions'{_rpmaPendingMaintenanceActionDetails :: [PendingMaintenanceAction], _rpmaResourceIdentifier :: Maybe Text} deriving (Eq, Read, Show)
+data ResourcePendingMaintenanceActions = ResourcePendingMaintenanceActions'{_rpmaPendingMaintenanceActionDetails :: Maybe [PendingMaintenanceAction], _rpmaResourceIdentifier :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ResourcePendingMaintenanceActions' smart constructor.
 resourcePendingMaintenanceActions :: ResourcePendingMaintenanceActions
-resourcePendingMaintenanceActions = ResourcePendingMaintenanceActions'{_rpmaPendingMaintenanceActionDetails = mempty, _rpmaResourceIdentifier = Nothing};
+resourcePendingMaintenanceActions = ResourcePendingMaintenanceActions'{_rpmaPendingMaintenanceActionDetails = Nothing, _rpmaResourceIdentifier = Nothing};
 
 -- | A list that provides details about the pending maintenance actions for
 -- the resource.
-rpmaPendingMaintenanceActionDetails :: Lens' ResourcePendingMaintenanceActions [PendingMaintenanceAction]
+rpmaPendingMaintenanceActionDetails :: Lens' ResourcePendingMaintenanceActions (Maybe [PendingMaintenanceAction])
 rpmaPendingMaintenanceActionDetails = lens _rpmaPendingMaintenanceActionDetails (\ s a -> s{_rpmaPendingMaintenanceActionDetails = a});
 
 -- | The ARN of the resource that has pending maintenance actions.

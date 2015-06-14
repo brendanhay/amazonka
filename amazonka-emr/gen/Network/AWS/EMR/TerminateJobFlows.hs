@@ -54,8 +54,8 @@ import Network.AWS.EMR.Types
 newtype TerminateJobFlows = TerminateJobFlows'{_tjfJobFlowIds :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'TerminateJobFlows' smart constructor.
-terminateJobFlows :: [Text] -> TerminateJobFlows
-terminateJobFlows pJobFlowIds = TerminateJobFlows'{_tjfJobFlowIds = pJobFlowIds};
+terminateJobFlows :: TerminateJobFlows
+terminateJobFlows = TerminateJobFlows'{_tjfJobFlowIds = mempty};
 
 -- | A list of job flows to be shutdown.
 tjfJobFlowIds :: Lens' TerminateJobFlows [Text]

@@ -30,10 +30,10 @@ module Network.AWS.ElasticTranscoder.Types
     , artSizingPolicy
     , artMaxHeight
     , artAlbumArtFormat
+    , artInputKey
     , artPaddingPolicy
     , artEncryption
     , artMaxWidth
-    , artInputKey
 
     -- * AudioCodecOptions
     , AudioCodecOptions
@@ -64,8 +64,8 @@ module Network.AWS.ElasticTranscoder.Types
     , CaptionSource
     , captionSource
     , csTimeOffset
-    , csEncryption
     , csKey
+    , csEncryption
     , csLanguage
     , csLabel
 
@@ -90,11 +90,11 @@ module Network.AWS.ElasticTranscoder.Types
     , cjoComposition
     , cjoAlbumArt
     , cjoWatermarks
+    , cjoKey
     , cjoEncryption
     , cjoSegmentDuration
     , cjoThumbnailEncryption
     , cjoRotate
-    , cjoKey
 
     -- * CreateJobPlaylist
     , CreateJobPlaylist
@@ -102,8 +102,8 @@ module Network.AWS.ElasticTranscoder.Types
     , cjpPlayReadyDrm
     , cjpOutputKeys
     , cjpFormat
-    , cjpHlsContentProtection
     , cjpName
+    , cjpHlsContentProtection
 
     -- * DetectedProperties
     , DetectedProperties
@@ -159,11 +159,11 @@ module Network.AWS.ElasticTranscoder.Types
     , jiFrameRate
     , jiResolution
     , jiAspectRatio
+    , jiKey
     , jiDetectedProperties
     , jiEncryption
     , jiContainer
     , jiInterlaced
-    , jiKey
 
     -- * JobOutput
     , JobOutput
@@ -180,6 +180,7 @@ module Network.AWS.ElasticTranscoder.Types
     , joFileSize
     , joWatermarks
     , joWidth
+    , joKey
     , joEncryption
     , joId
     , joSegmentDuration
@@ -188,14 +189,13 @@ module Network.AWS.ElasticTranscoder.Types
     , joThumbnailEncryption
     , joDuration
     , joRotate
-    , joKey
 
     -- * JobWatermark
     , JobWatermark
     , jobWatermark
-    , jwEncryption
     , jwPresetWatermarkId
     , jwInputKey
+    , jwEncryption
 
     -- * Notifications
     , Notifications
@@ -221,11 +221,11 @@ module Network.AWS.ElasticTranscoder.Types
     , pipContentConfig
     , pipOutputBucket
     , pipRole
+    , pipName
     , pipAWSKMSKeyARN
     , pipId
     , pipThumbnailConfig
     , pipNotifications
-    , pipName
 
     -- * PipelineOutputConfig
     , PipelineOutputConfig
@@ -241,8 +241,8 @@ module Network.AWS.ElasticTranscoder.Types
     , prdKeyMD5
     , prdFormat
     , prdKey
-    , prdInitializationVector
     , prdLicenseAcquisitionURL
+    , prdInitializationVector
 
     -- * Playlist
     , Playlist
@@ -251,22 +251,22 @@ module Network.AWS.ElasticTranscoder.Types
     , plaStatus
     , plaOutputKeys
     , plaFormat
+    , plaName
     , plaHlsContentProtection
     , plaStatusDetail
-    , plaName
 
     -- * Preset
     , Preset
     , preset
     , preARN
     , preVideo
+    , preName
     , preThumbnails
     , preContainer
     , preId
     , preType
     , preAudio
     , preDescription
-    , preName
 
     -- * PresetWatermark
     , PresetWatermark
@@ -278,9 +278,9 @@ module Network.AWS.ElasticTranscoder.Types
     , pwOpacity
     , pwVerticalOffset
     , pwMaxWidth
+    , pwId
     , pwHorizontalAlign
     , pwTarget
-    , pwId
 
     -- * Thumbnails
     , Thumbnails
@@ -376,18 +376,18 @@ instance AWSService ElasticTranscoder where
 --
 -- * 'artAlbumArtFormat'
 --
+-- * 'artInputKey'
+--
 -- * 'artPaddingPolicy'
 --
 -- * 'artEncryption'
 --
 -- * 'artMaxWidth'
---
--- * 'artInputKey'
-data Artwork = Artwork'{_artSizingPolicy :: Maybe Text, _artMaxHeight :: Maybe Text, _artAlbumArtFormat :: Maybe Text, _artPaddingPolicy :: Maybe Text, _artEncryption :: Maybe Encryption, _artMaxWidth :: Maybe Text, _artInputKey :: Text} deriving (Eq, Read, Show)
+data Artwork = Artwork'{_artSizingPolicy :: Maybe Text, _artMaxHeight :: Maybe Text, _artAlbumArtFormat :: Maybe Text, _artInputKey :: Maybe Text, _artPaddingPolicy :: Maybe Text, _artEncryption :: Maybe Encryption, _artMaxWidth :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'Artwork' smart constructor.
-artwork :: Text -> Artwork
-artwork pInputKey = Artwork'{_artSizingPolicy = Nothing, _artMaxHeight = Nothing, _artAlbumArtFormat = Nothing, _artPaddingPolicy = Nothing, _artEncryption = Nothing, _artMaxWidth = Nothing, _artInputKey = pInputKey};
+artwork :: Artwork
+artwork = Artwork'{_artSizingPolicy = Nothing, _artMaxHeight = Nothing, _artAlbumArtFormat = Nothing, _artInputKey = Nothing, _artPaddingPolicy = Nothing, _artEncryption = Nothing, _artMaxWidth = Nothing};
 
 -- | Specify one of the following values to control scaling of the output
 -- album art:
@@ -429,6 +429,17 @@ artMaxHeight = lens _artMaxHeight (\ s a -> s{_artMaxHeight = a});
 artAlbumArtFormat :: Lens' Artwork (Maybe Text)
 artAlbumArtFormat = lens _artAlbumArtFormat (\ s a -> s{_artAlbumArtFormat = a});
 
+-- | The name of the file to be used as album art. To determine which Amazon
+-- S3 bucket contains the specified file, Elastic Transcoder checks the
+-- pipeline specified by @PipelineId@; the @InputBucket@ object in that
+-- pipeline identifies the bucket.
+--
+-- If the file name includes a prefix, for example, @cooking\/pie.jpg@,
+-- include the prefix in the key. If the file isn\'t in the specified
+-- bucket, Elastic Transcoder returns an error.
+artInputKey :: Lens' Artwork (Maybe Text)
+artInputKey = lens _artInputKey (\ s a -> s{_artInputKey = a});
+
 -- | When you set @PaddingPolicy@ to @Pad@, Elastic Transcoder may add white
 -- bars to the top and bottom and\/or left and right sides of the output
 -- album art to make the total size of the output art match the values that
@@ -447,17 +458,6 @@ artEncryption = lens _artEncryption (\ s a -> s{_artEncryption = a});
 artMaxWidth :: Lens' Artwork (Maybe Text)
 artMaxWidth = lens _artMaxWidth (\ s a -> s{_artMaxWidth = a});
 
--- | The name of the file to be used as album art. To determine which Amazon
--- S3 bucket contains the specified file, Elastic Transcoder checks the
--- pipeline specified by @PipelineId@; the @InputBucket@ object in that
--- pipeline identifies the bucket.
---
--- If the file name includes a prefix, for example, @cooking\/pie.jpg@,
--- include the prefix in the key. If the file isn\'t in the specified
--- bucket, Elastic Transcoder returns an error.
-artInputKey :: Lens' Artwork Text
-artInputKey = lens _artInputKey (\ s a -> s{_artInputKey = a});
-
 instance FromJSON Artwork where
         parseJSON
           = withObject "Artwork"
@@ -465,10 +465,10 @@ instance FromJSON Artwork where
                  Artwork' <$>
                    x .:? "SizingPolicy" <*> x .:? "MaxHeight" <*>
                      x .:? "AlbumArtFormat"
+                     <*> x .:? "InputKey"
                      <*> x .:? "PaddingPolicy"
                      <*> x .:? "Encryption"
-                     <*> x .:? "MaxWidth"
-                     <*> x .: "InputKey")
+                     <*> x .:? "MaxWidth")
 
 instance ToJSON Artwork where
         toJSON Artwork'{..}
@@ -476,10 +476,10 @@ instance ToJSON Artwork where
               ["SizingPolicy" .= _artSizingPolicy,
                "MaxHeight" .= _artMaxHeight,
                "AlbumArtFormat" .= _artAlbumArtFormat,
+               "InputKey" .= _artInputKey,
                "PaddingPolicy" .= _artPaddingPolicy,
                "Encryption" .= _artEncryption,
-               "MaxWidth" .= _artMaxWidth,
-               "InputKey" .= _artInputKey]
+               "MaxWidth" .= _artMaxWidth]
 
 -- | /See:/ 'audioCodecOptions' smart constructor.
 --
@@ -849,18 +849,18 @@ instance ToJSON CaptionFormat where
 --
 -- * 'csTimeOffset'
 --
--- * 'csEncryption'
---
 -- * 'csKey'
+--
+-- * 'csEncryption'
 --
 -- * 'csLanguage'
 --
 -- * 'csLabel'
-data CaptionSource = CaptionSource'{_csTimeOffset :: Maybe Text, _csEncryption :: Maybe Encryption, _csKey :: Text, _csLanguage :: Text, _csLabel :: Text} deriving (Eq, Read, Show)
+data CaptionSource = CaptionSource'{_csTimeOffset :: Maybe Text, _csKey :: Maybe Text, _csEncryption :: Maybe Encryption, _csLanguage :: Maybe Text, _csLabel :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'CaptionSource' smart constructor.
-captionSource :: Text -> Text -> Text -> CaptionSource
-captionSource pKey pLanguage pLabel = CaptionSource'{_csTimeOffset = Nothing, _csEncryption = Nothing, _csKey = pKey, _csLanguage = pLanguage, _csLabel = pLabel};
+captionSource :: CaptionSource
+captionSource = CaptionSource'{_csTimeOffset = Nothing, _csKey = Nothing, _csEncryption = Nothing, _csLanguage = Nothing, _csLabel = Nothing};
 
 -- | For clip generation or captions that do not start at the same time as
 -- the associated video file, the @TimeOffset@ tells Elastic Transcoder how
@@ -870,15 +870,15 @@ captionSource pKey pLanguage pLabel = CaptionSource'{_csTimeOffset = Nothing, _c
 csTimeOffset :: Lens' CaptionSource (Maybe Text)
 csTimeOffset = lens _csTimeOffset (\ s a -> s{_csTimeOffset = a});
 
+-- | The name of the sidecar caption file that you want Elastic Transcoder to
+-- include in the output file.
+csKey :: Lens' CaptionSource (Maybe Text)
+csKey = lens _csKey (\ s a -> s{_csKey = a});
+
 -- | The encryption settings, if any, that you want Elastic Transcoder to
 -- apply to your caption sources.
 csEncryption :: Lens' CaptionSource (Maybe Encryption)
 csEncryption = lens _csEncryption (\ s a -> s{_csEncryption = a});
-
--- | The name of the sidecar caption file that you want Elastic Transcoder to
--- include in the output file.
-csKey :: Lens' CaptionSource Text
-csKey = lens _csKey (\ s a -> s{_csKey = a});
 
 -- | A string that specifies the language of the caption. Specify this as one
 -- of:
@@ -889,13 +889,13 @@ csKey = lens _csKey (\ s a -> s{_csKey = a});
 --
 -- For more information on ISO language codes and language names, see the
 -- List of ISO 639-1 codes.
-csLanguage :: Lens' CaptionSource Text
+csLanguage :: Lens' CaptionSource (Maybe Text)
 csLanguage = lens _csLanguage (\ s a -> s{_csLanguage = a});
 
 -- | The label of the caption shown in the player when choosing a language.
 -- We recommend that you put the caption language name here, in the
 -- language of the captions.
-csLabel :: Lens' CaptionSource Text
+csLabel :: Lens' CaptionSource (Maybe Text)
 csLabel = lens _csLabel (\ s a -> s{_csLabel = a});
 
 instance FromJSON CaptionSource where
@@ -903,16 +903,16 @@ instance FromJSON CaptionSource where
           = withObject "CaptionSource"
               (\ x ->
                  CaptionSource' <$>
-                   x .:? "TimeOffset" <*> x .:? "Encryption" <*>
-                     x .: "Key"
-                     <*> x .: "Language"
-                     <*> x .: "Label")
+                   x .:? "TimeOffset" <*> x .:? "Key" <*>
+                     x .:? "Encryption"
+                     <*> x .:? "Language"
+                     <*> x .:? "Label")
 
 instance ToJSON CaptionSource where
         toJSON CaptionSource'{..}
           = object
-              ["TimeOffset" .= _csTimeOffset,
-               "Encryption" .= _csEncryption, "Key" .= _csKey,
+              ["TimeOffset" .= _csTimeOffset, "Key" .= _csKey,
+               "Encryption" .= _csEncryption,
                "Language" .= _csLanguage, "Label" .= _csLabel]
 
 -- | /See:/ 'captions' smart constructor.
@@ -924,11 +924,11 @@ instance ToJSON CaptionSource where
 -- * 'capCaptionSources'
 --
 -- * 'capCaptionFormats'
-data Captions = Captions'{_capMergePolicy :: Maybe Text, _capCaptionSources :: [CaptionSource], _capCaptionFormats :: [CaptionFormat]} deriving (Eq, Read, Show)
+data Captions = Captions'{_capMergePolicy :: Maybe Text, _capCaptionSources :: Maybe [CaptionSource], _capCaptionFormats :: Maybe [CaptionFormat]} deriving (Eq, Read, Show)
 
 -- | 'Captions' smart constructor.
 captions :: Captions
-captions = Captions'{_capMergePolicy = Nothing, _capCaptionSources = mempty, _capCaptionFormats = mempty};
+captions = Captions'{_capMergePolicy = Nothing, _capCaptionSources = Nothing, _capCaptionFormats = Nothing};
 
 -- | A policy that determines how Elastic Transcoder handles the existence of
 -- multiple captions.
@@ -955,12 +955,12 @@ capMergePolicy = lens _capMergePolicy (\ s a -> s{_capMergePolicy = a});
 
 -- | Source files for the input sidecar captions used during the transcoding
 -- process. To omit all sidecar captions, leave @CaptionSources@ blank.
-capCaptionSources :: Lens' Captions [CaptionSource]
+capCaptionSources :: Lens' Captions (Maybe [CaptionSource])
 capCaptionSources = lens _capCaptionSources (\ s a -> s{_capCaptionSources = a});
 
 -- | The array of file formats for the output captions. If you leave this
 -- value blank, Elastic Transcoder returns an error.
-capCaptionFormats :: Lens' Captions [CaptionFormat]
+capCaptionFormats :: Lens' Captions (Maybe [CaptionFormat])
 capCaptionFormats = lens _capCaptionFormats (\ s a -> s{_capCaptionFormats = a});
 
 instance FromJSON Captions where
@@ -1019,6 +1019,8 @@ instance ToJSON Clip where
 --
 -- * 'cjoWatermarks'
 --
+-- * 'cjoKey'
+--
 -- * 'cjoEncryption'
 --
 -- * 'cjoSegmentDuration'
@@ -1026,13 +1028,11 @@ instance ToJSON Clip where
 -- * 'cjoThumbnailEncryption'
 --
 -- * 'cjoRotate'
---
--- * 'cjoKey'
-data CreateJobOutput = CreateJobOutput'{_cjoThumbnailPattern :: Maybe Text, _cjoCaptions :: Maybe Captions, _cjoPresetId :: Maybe Text, _cjoComposition :: [Clip], _cjoAlbumArt :: Maybe JobAlbumArt, _cjoWatermarks :: [JobWatermark], _cjoEncryption :: Maybe Encryption, _cjoSegmentDuration :: Maybe Text, _cjoThumbnailEncryption :: Maybe Encryption, _cjoRotate :: Maybe Text, _cjoKey :: Text} deriving (Eq, Read, Show)
+data CreateJobOutput = CreateJobOutput'{_cjoThumbnailPattern :: Maybe Text, _cjoCaptions :: Maybe Captions, _cjoPresetId :: Maybe Text, _cjoComposition :: Maybe [Clip], _cjoAlbumArt :: Maybe JobAlbumArt, _cjoWatermarks :: Maybe [JobWatermark], _cjoKey :: Maybe Text, _cjoEncryption :: Maybe Encryption, _cjoSegmentDuration :: Maybe Text, _cjoThumbnailEncryption :: Maybe Encryption, _cjoRotate :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'CreateJobOutput' smart constructor.
-createJobOutput :: Text -> CreateJobOutput
-createJobOutput pKey = CreateJobOutput'{_cjoThumbnailPattern = Nothing, _cjoCaptions = Nothing, _cjoPresetId = Nothing, _cjoComposition = mempty, _cjoAlbumArt = Nothing, _cjoWatermarks = mempty, _cjoEncryption = Nothing, _cjoSegmentDuration = Nothing, _cjoThumbnailEncryption = Nothing, _cjoRotate = Nothing, _cjoKey = pKey};
+createJobOutput :: CreateJobOutput
+createJobOutput = CreateJobOutput'{_cjoThumbnailPattern = Nothing, _cjoCaptions = Nothing, _cjoPresetId = Nothing, _cjoComposition = Nothing, _cjoAlbumArt = Nothing, _cjoWatermarks = Nothing, _cjoKey = Nothing, _cjoEncryption = Nothing, _cjoSegmentDuration = Nothing, _cjoThumbnailEncryption = Nothing, _cjoRotate = Nothing};
 
 -- | Whether you want Elastic Transcoder to create thumbnails for your videos
 -- and, if so, how you want Elastic Transcoder to name the files.
@@ -1136,7 +1136,7 @@ cjoPresetId = lens _cjoPresetId (\ s a -> s{_cjoPresetId = a});
 -- clips that make up an output file. For the current release, you can only
 -- specify settings for a single clip per output file. The Composition
 -- object cannot be null.
-cjoComposition :: Lens' CreateJobOutput [Clip]
+cjoComposition :: Lens' CreateJobOutput (Maybe [Clip])
 cjoComposition = lens _cjoComposition (\ s a -> s{_cjoComposition = a});
 
 -- | Information about the album art that you want Elastic Transcoder to add
@@ -1150,8 +1150,15 @@ cjoAlbumArt = lens _cjoAlbumArt (\ s a -> s{_cjoAlbumArt = a});
 -- to the video during transcoding. You can specify up to four watermarks
 -- for each output. Settings for each watermark must be defined in the
 -- preset for the current output.
-cjoWatermarks :: Lens' CreateJobOutput [JobWatermark]
+cjoWatermarks :: Lens' CreateJobOutput (Maybe [JobWatermark])
 cjoWatermarks = lens _cjoWatermarks (\ s a -> s{_cjoWatermarks = a});
+
+-- | The name to assign to the transcoded file. Elastic Transcoder saves the
+-- file in the Amazon S3 bucket specified by the @OutputBucket@ object in
+-- the pipeline that is specified by the pipeline ID. If a file with the
+-- specified name already exists in the output bucket, the job fails.
+cjoKey :: Lens' CreateJobOutput (Maybe Text)
+cjoKey = lens _cjoKey (\ s a -> s{_cjoKey = a});
 
 -- | You can specify encryption settings for any output files that you want
 -- to use for a transcoding job. This includes the output file and any
@@ -1195,13 +1202,6 @@ cjoThumbnailEncryption = lens _cjoThumbnailEncryption (\ s a -> s{_cjoThumbnailE
 cjoRotate :: Lens' CreateJobOutput (Maybe Text)
 cjoRotate = lens _cjoRotate (\ s a -> s{_cjoRotate = a});
 
--- | The name to assign to the transcoded file. Elastic Transcoder saves the
--- file in the Amazon S3 bucket specified by the @OutputBucket@ object in
--- the pipeline that is specified by the pipeline ID. If a file with the
--- specified name already exists in the output bucket, the job fails.
-cjoKey :: Lens' CreateJobOutput Text
-cjoKey = lens _cjoKey (\ s a -> s{_cjoKey = a});
-
 instance ToJSON CreateJobOutput where
         toJSON CreateJobOutput'{..}
           = object
@@ -1210,11 +1210,11 @@ instance ToJSON CreateJobOutput where
                "PresetId" .= _cjoPresetId,
                "Composition" .= _cjoComposition,
                "AlbumArt" .= _cjoAlbumArt,
-               "Watermarks" .= _cjoWatermarks,
+               "Watermarks" .= _cjoWatermarks, "Key" .= _cjoKey,
                "Encryption" .= _cjoEncryption,
                "SegmentDuration" .= _cjoSegmentDuration,
                "ThumbnailEncryption" .= _cjoThumbnailEncryption,
-               "Rotate" .= _cjoRotate, "Key" .= _cjoKey]
+               "Rotate" .= _cjoRotate]
 
 -- | /See:/ 'createJobPlaylist' smart constructor.
 --
@@ -1226,14 +1226,14 @@ instance ToJSON CreateJobOutput where
 --
 -- * 'cjpFormat'
 --
--- * 'cjpHlsContentProtection'
---
 -- * 'cjpName'
-data CreateJobPlaylist = CreateJobPlaylist'{_cjpPlayReadyDrm :: Maybe PlayReadyDrm, _cjpOutputKeys :: [Text], _cjpFormat :: Maybe Text, _cjpHlsContentProtection :: Maybe HlsContentProtection, _cjpName :: Text} deriving (Eq, Read, Show)
+--
+-- * 'cjpHlsContentProtection'
+data CreateJobPlaylist = CreateJobPlaylist'{_cjpPlayReadyDrm :: Maybe PlayReadyDrm, _cjpOutputKeys :: Maybe [Text], _cjpFormat :: Maybe Text, _cjpName :: Maybe Text, _cjpHlsContentProtection :: Maybe HlsContentProtection} deriving (Eq, Read, Show)
 
 -- | 'CreateJobPlaylist' smart constructor.
-createJobPlaylist :: Text -> CreateJobPlaylist
-createJobPlaylist pName = CreateJobPlaylist'{_cjpPlayReadyDrm = Nothing, _cjpOutputKeys = mempty, _cjpFormat = Nothing, _cjpHlsContentProtection = Nothing, _cjpName = pName};
+createJobPlaylist :: CreateJobPlaylist
+createJobPlaylist = CreateJobPlaylist'{_cjpPlayReadyDrm = Nothing, _cjpOutputKeys = Nothing, _cjpFormat = Nothing, _cjpName = Nothing, _cjpHlsContentProtection = Nothing};
 
 -- | The DRM settings, if any, that you want Elastic Transcoder to apply to
 -- the output files associated with this playlist.
@@ -1280,18 +1280,13 @@ cjpPlayReadyDrm = lens _cjpPlayReadyDrm (\ s a -> s{_cjpPlayReadyDrm = a});
 -- outputs in the playlist. For @Smooth@ playlists, the @Audio:Profile@,
 -- @Video:Profile@, and @Video:FrameRate@ to @Video:KeyframesMaxDist@ ratio
 -- must be the same for all outputs.
-cjpOutputKeys :: Lens' CreateJobPlaylist [Text]
+cjpOutputKeys :: Lens' CreateJobPlaylist (Maybe [Text])
 cjpOutputKeys = lens _cjpOutputKeys (\ s a -> s{_cjpOutputKeys = a});
 
 -- | The format of the output playlist. Valid formats include @HLSv3@,
 -- @HLSv4@, and @Smooth@.
 cjpFormat :: Lens' CreateJobPlaylist (Maybe Text)
 cjpFormat = lens _cjpFormat (\ s a -> s{_cjpFormat = a});
-
--- | The HLS content protection settings, if any, that you want Elastic
--- Transcoder to apply to the output files associated with this playlist.
-cjpHlsContentProtection :: Lens' CreateJobPlaylist (Maybe HlsContentProtection)
-cjpHlsContentProtection = lens _cjpHlsContentProtection (\ s a -> s{_cjpHlsContentProtection = a});
 
 -- | The name that you want Elastic Transcoder to assign to the master
 -- playlist, for example, nyc-vacation.m3u8. If the name includes a @\/@
@@ -1303,17 +1298,21 @@ cjpHlsContentProtection = lens _cjpHlsContentProtection (\ s a -> s{_cjpHlsConte
 -- extension to the file name (@.m3u8@ for @HLSv3@ and @HLSv4@ playlists,
 -- and @.ism@ and @.ismc@ for @Smooth@ playlists). If you include a file
 -- extension in @Name@, the file name will have two extensions.
-cjpName :: Lens' CreateJobPlaylist Text
+cjpName :: Lens' CreateJobPlaylist (Maybe Text)
 cjpName = lens _cjpName (\ s a -> s{_cjpName = a});
+
+-- | The HLS content protection settings, if any, that you want Elastic
+-- Transcoder to apply to the output files associated with this playlist.
+cjpHlsContentProtection :: Lens' CreateJobPlaylist (Maybe HlsContentProtection)
+cjpHlsContentProtection = lens _cjpHlsContentProtection (\ s a -> s{_cjpHlsContentProtection = a});
 
 instance ToJSON CreateJobPlaylist where
         toJSON CreateJobPlaylist'{..}
           = object
               ["PlayReadyDrm" .= _cjpPlayReadyDrm,
                "OutputKeys" .= _cjpOutputKeys,
-               "Format" .= _cjpFormat,
-               "HlsContentProtection" .= _cjpHlsContentProtection,
-               "Name" .= _cjpName]
+               "Format" .= _cjpFormat, "Name" .= _cjpName,
+               "HlsContentProtection" .= _cjpHlsContentProtection]
 
 -- | /See:/ 'detectedProperties' smart constructor.
 --
@@ -1590,11 +1589,11 @@ instance ToJSON HlsContentProtection where
 -- * 'jobTiming'
 --
 -- * 'jobOutputKeyPrefix'
-data Job' = Job''{_jobStatus :: Maybe Text, _jobPipelineId :: Maybe Text, _jobARN :: Maybe Text, _jobInput :: Maybe JobInput, _jobOutputs :: [JobOutput], _jobUserMetadata :: HashMap Text Text, _jobOutput :: Maybe JobOutput, _jobId :: Maybe Text, _jobPlaylists :: [Playlist], _jobTiming :: Maybe Timing, _jobOutputKeyPrefix :: Text} deriving (Eq, Read, Show)
+data Job' = Job''{_jobStatus :: Maybe Text, _jobPipelineId :: Maybe Text, _jobARN :: Maybe Text, _jobInput :: Maybe JobInput, _jobOutputs :: Maybe [JobOutput], _jobUserMetadata :: Maybe (HashMap Text Text), _jobOutput :: Maybe JobOutput, _jobId :: Maybe Text, _jobPlaylists :: Maybe [Playlist], _jobTiming :: Maybe Timing, _jobOutputKeyPrefix :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'Job'' smart constructor.
-job' :: Text -> Job'
-job' pOutputKeyPrefix = Job''{_jobStatus = Nothing, _jobPipelineId = Nothing, _jobARN = Nothing, _jobInput = Nothing, _jobOutputs = mempty, _jobUserMetadata = mempty, _jobOutput = Nothing, _jobId = Nothing, _jobPlaylists = mempty, _jobTiming = Nothing, _jobOutputKeyPrefix = pOutputKeyPrefix};
+job' :: Job'
+job' = Job''{_jobStatus = Nothing, _jobPipelineId = Nothing, _jobARN = Nothing, _jobInput = Nothing, _jobOutputs = Nothing, _jobUserMetadata = Nothing, _jobOutput = Nothing, _jobId = Nothing, _jobPlaylists = Nothing, _jobTiming = Nothing, _jobOutputKeyPrefix = Nothing};
 
 -- | The status of the job: @Submitted@, @Progressing@, @Complete@,
 -- @Canceled@, or @Error@.
@@ -1627,7 +1626,7 @@ jobInput = lens _jobInput (\ s a -> s{_jobInput = a});
 -- If you specify more than one output for a job, Elastic Transcoder
 -- creates the files for each output in the order in which you specify them
 -- in the job.
-jobOutputs :: Lens' Job' [JobOutput]
+jobOutputs :: Lens' Job' (Maybe [JobOutput])
 jobOutputs = lens _jobOutputs (\ s a -> s{_jobOutputs = a});
 
 -- | User-defined metadata that you want to associate with an Elastic
@@ -1647,8 +1646,8 @@ jobOutputs = lens _jobOutputs (\ s a -> s{_jobOutputs = a});
 --
 -- -   The following symbols: @_.:\/=+-%\@@
 --
-jobUserMetadata :: Lens' Job' (HashMap Text Text)
-jobUserMetadata = lens _jobUserMetadata (\ s a -> s{_jobUserMetadata = a}) . _Coerce;
+jobUserMetadata :: Lens' Job' (Maybe (HashMap Text Text))
+jobUserMetadata = lens _jobUserMetadata (\ s a -> s{_jobUserMetadata = a}) . mapping _Coerce;
 
 -- | If you specified one output for a job, information about that output. If
 -- you specified multiple outputs for a job, the Output object lists
@@ -1675,7 +1674,7 @@ jobId = lens _jobId (\ s a -> s{_jobId = a});
 -- to create.
 --
 -- The maximum number of master playlists in a job is 30.
-jobPlaylists :: Lens' Job' [Playlist]
+jobPlaylists :: Lens' Job' (Maybe [Playlist])
 jobPlaylists = lens _jobPlaylists (\ s a -> s{_jobPlaylists = a});
 
 -- | Details about the timing of a job.
@@ -1686,7 +1685,7 @@ jobTiming = lens _jobTiming (\ s a -> s{_jobTiming = a});
 -- names of all files that this job creates, including output files,
 -- thumbnails, and playlists. We recommend that you add a \/ or some other
 -- delimiter to the end of the @OutputKeyPrefix@.
-jobOutputKeyPrefix :: Lens' Job' Text
+jobOutputKeyPrefix :: Lens' Job' (Maybe Text)
 jobOutputKeyPrefix = lens _jobOutputKeyPrefix (\ s a -> s{_jobOutputKeyPrefix = a});
 
 instance FromJSON Job' where
@@ -1702,7 +1701,7 @@ instance FromJSON Job' where
                      <*> x .:? "Id"
                      <*> x .:? "Playlists" .!= mempty
                      <*> x .:? "Timing"
-                     <*> x .: "OutputKeyPrefix")
+                     <*> x .:? "OutputKeyPrefix")
 
 -- | /See:/ 'jobAlbumArt' smart constructor.
 --
@@ -1711,11 +1710,11 @@ instance FromJSON Job' where
 -- * 'jaaMergePolicy'
 --
 -- * 'jaaArtwork'
-data JobAlbumArt = JobAlbumArt'{_jaaMergePolicy :: Maybe Text, _jaaArtwork :: [Artwork]} deriving (Eq, Read, Show)
+data JobAlbumArt = JobAlbumArt'{_jaaMergePolicy :: Maybe Text, _jaaArtwork :: Maybe [Artwork]} deriving (Eq, Read, Show)
 
 -- | 'JobAlbumArt' smart constructor.
 jobAlbumArt :: JobAlbumArt
-jobAlbumArt = JobAlbumArt'{_jaaMergePolicy = Nothing, _jaaArtwork = mempty};
+jobAlbumArt = JobAlbumArt'{_jaaMergePolicy = Nothing, _jaaArtwork = Nothing};
 
 -- | A policy that determines how Elastic Transcoder will handle the
 -- existence of multiple album artwork files.
@@ -1736,7 +1735,7 @@ jaaMergePolicy = lens _jaaMergePolicy (\ s a -> s{_jaaMergePolicy = a});
 -- | The file to be used as album art. There can be multiple artworks
 -- associated with an audio file, to a maximum of 20. Valid formats are
 -- @.jpg@ and @.png@
-jaaArtwork :: Lens' JobAlbumArt [Artwork]
+jaaArtwork :: Lens' JobAlbumArt (Maybe [Artwork])
 jaaArtwork = lens _jaaArtwork (\ s a -> s{_jaaArtwork = a});
 
 instance FromJSON JobAlbumArt where
@@ -1762,6 +1761,8 @@ instance ToJSON JobAlbumArt where
 --
 -- * 'jiAspectRatio'
 --
+-- * 'jiKey'
+--
 -- * 'jiDetectedProperties'
 --
 -- * 'jiEncryption'
@@ -1769,13 +1770,11 @@ instance ToJSON JobAlbumArt where
 -- * 'jiContainer'
 --
 -- * 'jiInterlaced'
---
--- * 'jiKey'
-data JobInput = JobInput'{_jiFrameRate :: Maybe Text, _jiResolution :: Maybe Text, _jiAspectRatio :: Maybe Text, _jiDetectedProperties :: Maybe DetectedProperties, _jiEncryption :: Maybe Encryption, _jiContainer :: Maybe Text, _jiInterlaced :: Maybe Text, _jiKey :: Text} deriving (Eq, Read, Show)
+data JobInput = JobInput'{_jiFrameRate :: Maybe Text, _jiResolution :: Maybe Text, _jiAspectRatio :: Maybe Text, _jiKey :: Maybe Text, _jiDetectedProperties :: Maybe DetectedProperties, _jiEncryption :: Maybe Encryption, _jiContainer :: Maybe Text, _jiInterlaced :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'JobInput' smart constructor.
-jobInput :: Text -> JobInput
-jobInput pKey = JobInput'{_jiFrameRate = Nothing, _jiResolution = Nothing, _jiAspectRatio = Nothing, _jiDetectedProperties = Nothing, _jiEncryption = Nothing, _jiContainer = Nothing, _jiInterlaced = Nothing, _jiKey = pKey};
+jobInput :: JobInput
+jobInput = JobInput'{_jiFrameRate = Nothing, _jiResolution = Nothing, _jiAspectRatio = Nothing, _jiKey = Nothing, _jiDetectedProperties = Nothing, _jiEncryption = Nothing, _jiContainer = Nothing, _jiInterlaced = Nothing};
 
 -- | The frame rate of the input file. If you want Elastic Transcoder to
 -- automatically detect the frame rate of the input file, specify @auto@.
@@ -1805,6 +1804,17 @@ jiResolution = lens _jiResolution (\ s a -> s{_jiResolution = a});
 -- automatic detection of the aspect ratio.
 jiAspectRatio :: Lens' JobInput (Maybe Text)
 jiAspectRatio = lens _jiAspectRatio (\ s a -> s{_jiAspectRatio = a});
+
+-- | The name of the file to transcode. Elsewhere in the body of the JSON
+-- block is the the ID of the pipeline to use for processing the job. The
+-- @InputBucket@ object in that pipeline tells Elastic Transcoder which
+-- Amazon S3 bucket to get the file from.
+--
+-- If the file name includes a prefix, such as @cooking\/lasagna.mpg@,
+-- include the prefix in the key. If the file isn\'t in the specified
+-- bucket, Elastic Transcoder returns an error.
+jiKey :: Lens' JobInput (Maybe Text)
+jiKey = lens _jiKey (\ s a -> s{_jiKey = a});
 
 -- | The detected properties of the input file.
 jiDetectedProperties :: Lens' JobInput (Maybe DetectedProperties)
@@ -1838,17 +1848,6 @@ jiContainer = lens _jiContainer (\ s a -> s{_jiContainer = a});
 jiInterlaced :: Lens' JobInput (Maybe Text)
 jiInterlaced = lens _jiInterlaced (\ s a -> s{_jiInterlaced = a});
 
--- | The name of the file to transcode. Elsewhere in the body of the JSON
--- block is the the ID of the pipeline to use for processing the job. The
--- @InputBucket@ object in that pipeline tells Elastic Transcoder which
--- Amazon S3 bucket to get the file from.
---
--- If the file name includes a prefix, such as @cooking\/lasagna.mpg@,
--- include the prefix in the key. If the file isn\'t in the specified
--- bucket, Elastic Transcoder returns an error.
-jiKey :: Lens' JobInput Text
-jiKey = lens _jiKey (\ s a -> s{_jiKey = a});
-
 instance FromJSON JobInput where
         parseJSON
           = withObject "JobInput"
@@ -1856,22 +1855,22 @@ instance FromJSON JobInput where
                  JobInput' <$>
                    x .:? "FrameRate" <*> x .:? "Resolution" <*>
                      x .:? "AspectRatio"
+                     <*> x .:? "Key"
                      <*> x .:? "DetectedProperties"
                      <*> x .:? "Encryption"
                      <*> x .:? "Container"
-                     <*> x .:? "Interlaced"
-                     <*> x .: "Key")
+                     <*> x .:? "Interlaced")
 
 instance ToJSON JobInput where
         toJSON JobInput'{..}
           = object
               ["FrameRate" .= _jiFrameRate,
                "Resolution" .= _jiResolution,
-               "AspectRatio" .= _jiAspectRatio,
+               "AspectRatio" .= _jiAspectRatio, "Key" .= _jiKey,
                "DetectedProperties" .= _jiDetectedProperties,
                "Encryption" .= _jiEncryption,
                "Container" .= _jiContainer,
-               "Interlaced" .= _jiInterlaced, "Key" .= _jiKey]
+               "Interlaced" .= _jiInterlaced]
 
 -- | /See:/ 'jobOutput' smart constructor.
 --
@@ -1901,6 +1900,8 @@ instance ToJSON JobInput where
 --
 -- * 'joWidth'
 --
+-- * 'joKey'
+--
 -- * 'joEncryption'
 --
 -- * 'joId'
@@ -1916,13 +1917,11 @@ instance ToJSON JobInput where
 -- * 'joDuration'
 --
 -- * 'joRotate'
---
--- * 'joKey'
-data JobOutput = JobOutput'{_joAppliedColorSpaceConversion :: Maybe Text, _joStatus :: Maybe Text, _joThumbnailPattern :: Maybe Text, _joHeight :: Maybe Int, _joFrameRate :: Maybe Text, _joCaptions :: Maybe Captions, _joPresetId :: Maybe Text, _joComposition :: [Clip], _joAlbumArt :: Maybe JobAlbumArt, _joFileSize :: Maybe Integer, _joWatermarks :: [JobWatermark], _joWidth :: Maybe Int, _joEncryption :: Maybe Encryption, _joId :: Maybe Text, _joSegmentDuration :: Maybe Text, _joStatusDetail :: Maybe Text, _joDurationMillis :: Maybe Integer, _joThumbnailEncryption :: Maybe Encryption, _joDuration :: Maybe Integer, _joRotate :: Maybe Text, _joKey :: Text} deriving (Eq, Read, Show)
+data JobOutput = JobOutput'{_joAppliedColorSpaceConversion :: Maybe Text, _joStatus :: Maybe Text, _joThumbnailPattern :: Maybe Text, _joHeight :: Maybe Int, _joFrameRate :: Maybe Text, _joCaptions :: Maybe Captions, _joPresetId :: Maybe Text, _joComposition :: Maybe [Clip], _joAlbumArt :: Maybe JobAlbumArt, _joFileSize :: Maybe Integer, _joWatermarks :: Maybe [JobWatermark], _joWidth :: Maybe Int, _joKey :: Maybe Text, _joEncryption :: Maybe Encryption, _joId :: Maybe Text, _joSegmentDuration :: Maybe Text, _joStatusDetail :: Maybe Text, _joDurationMillis :: Maybe Integer, _joThumbnailEncryption :: Maybe Encryption, _joDuration :: Maybe Integer, _joRotate :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'JobOutput' smart constructor.
-jobOutput :: Text -> JobOutput
-jobOutput pKey = JobOutput'{_joAppliedColorSpaceConversion = Nothing, _joStatus = Nothing, _joThumbnailPattern = Nothing, _joHeight = Nothing, _joFrameRate = Nothing, _joCaptions = Nothing, _joPresetId = Nothing, _joComposition = mempty, _joAlbumArt = Nothing, _joFileSize = Nothing, _joWatermarks = mempty, _joWidth = Nothing, _joEncryption = Nothing, _joId = Nothing, _joSegmentDuration = Nothing, _joStatusDetail = Nothing, _joDurationMillis = Nothing, _joThumbnailEncryption = Nothing, _joDuration = Nothing, _joRotate = Nothing, _joKey = pKey};
+jobOutput :: JobOutput
+jobOutput = JobOutput'{_joAppliedColorSpaceConversion = Nothing, _joStatus = Nothing, _joThumbnailPattern = Nothing, _joHeight = Nothing, _joFrameRate = Nothing, _joCaptions = Nothing, _joPresetId = Nothing, _joComposition = Nothing, _joAlbumArt = Nothing, _joFileSize = Nothing, _joWatermarks = Nothing, _joWidth = Nothing, _joKey = Nothing, _joEncryption = Nothing, _joId = Nothing, _joSegmentDuration = Nothing, _joStatusDetail = Nothing, _joDurationMillis = Nothing, _joThumbnailEncryption = Nothing, _joDuration = Nothing, _joRotate = Nothing};
 
 -- | If Elastic Transcoder used a preset with a @ColorSpaceConversionMode@ to
 -- transcode the output file, the @AppliedColorSpaceConversion@ parameter
@@ -2067,7 +2066,7 @@ joPresetId = lens _joPresetId (\ s a -> s{_joPresetId = a});
 -- clips that make up an output file. For the current release, you can only
 -- specify settings for a single clip per output file. The Composition
 -- object cannot be null.
-joComposition :: Lens' JobOutput [Clip]
+joComposition :: Lens' JobOutput (Maybe [Clip])
 joComposition = lens _joComposition (\ s a -> s{_joComposition = a});
 
 -- | The album art to be associated with the output file, if any.
@@ -2090,12 +2089,18 @@ joFileSize = lens _joFileSize (\ s a -> s{_joFileSize = a});
 -- Transcoder to place all watermarks in the same location, the second
 -- watermark that you add will cover the first one, the third one will
 -- cover the second, and the fourth one will cover the third.
-joWatermarks :: Lens' JobOutput [JobWatermark]
+joWatermarks :: Lens' JobOutput (Maybe [JobWatermark])
 joWatermarks = lens _joWatermarks (\ s a -> s{_joWatermarks = a});
 
 -- | Specifies the width of the output file in pixels.
 joWidth :: Lens' JobOutput (Maybe Int)
 joWidth = lens _joWidth (\ s a -> s{_joWidth = a});
+
+-- | The name to assign to the transcoded file. Elastic Transcoder saves the
+-- file in the Amazon S3 bucket specified by the @OutputBucket@ object in
+-- the pipeline that is specified by the pipeline ID.
+joKey :: Lens' JobOutput (Maybe Text)
+joKey = lens _joKey (\ s a -> s{_joKey = a});
 
 -- | The encryption settings, if any, that you want Elastic Transcoder to
 -- apply to your output files. If you choose to use encryption, you must
@@ -2160,12 +2165,6 @@ joDuration = lens _joDuration (\ s a -> s{_joDuration = a});
 joRotate :: Lens' JobOutput (Maybe Text)
 joRotate = lens _joRotate (\ s a -> s{_joRotate = a});
 
--- | The name to assign to the transcoded file. Elastic Transcoder saves the
--- file in the Amazon S3 bucket specified by the @OutputBucket@ object in
--- the pipeline that is specified by the pipeline ID.
-joKey :: Lens' JobOutput Text
-joKey = lens _joKey (\ s a -> s{_joKey = a});
-
 instance FromJSON JobOutput where
         parseJSON
           = withObject "JobOutput"
@@ -2183,6 +2182,7 @@ instance FromJSON JobOutput where
                      <*> x .:? "FileSize"
                      <*> x .:? "Watermarks" .!= mempty
                      <*> x .:? "Width"
+                     <*> x .:? "Key"
                      <*> x .:? "Encryption"
                      <*> x .:? "Id"
                      <*> x .:? "SegmentDuration"
@@ -2190,34 +2190,28 @@ instance FromJSON JobOutput where
                      <*> x .:? "DurationMillis"
                      <*> x .:? "ThumbnailEncryption"
                      <*> x .:? "Duration"
-                     <*> x .:? "Rotate"
-                     <*> x .: "Key")
+                     <*> x .:? "Rotate")
 
 -- | /See:/ 'jobWatermark' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'jwEncryption'
---
 -- * 'jwPresetWatermarkId'
 --
 -- * 'jwInputKey'
-data JobWatermark = JobWatermark'{_jwEncryption :: Maybe Encryption, _jwPresetWatermarkId :: Text, _jwInputKey :: Text} deriving (Eq, Read, Show)
+--
+-- * 'jwEncryption'
+data JobWatermark = JobWatermark'{_jwPresetWatermarkId :: Maybe Text, _jwInputKey :: Maybe Text, _jwEncryption :: Maybe Encryption} deriving (Eq, Read, Show)
 
 -- | 'JobWatermark' smart constructor.
-jobWatermark :: Text -> Text -> JobWatermark
-jobWatermark pPresetWatermarkId pInputKey = JobWatermark'{_jwEncryption = Nothing, _jwPresetWatermarkId = pPresetWatermarkId, _jwInputKey = pInputKey};
-
--- | The encryption settings, if any, that you want Elastic Transcoder to
--- apply to your watermarks.
-jwEncryption :: Lens' JobWatermark (Maybe Encryption)
-jwEncryption = lens _jwEncryption (\ s a -> s{_jwEncryption = a});
+jobWatermark :: JobWatermark
+jobWatermark = JobWatermark'{_jwPresetWatermarkId = Nothing, _jwInputKey = Nothing, _jwEncryption = Nothing};
 
 -- | The ID of the watermark settings that Elastic Transcoder uses to add
 -- watermarks to the video during transcoding. The settings are in the
 -- preset specified by Preset for the current output. In that preset, the
 -- value of Watermarks Id tells Elastic Transcoder which settings to use.
-jwPresetWatermarkId :: Lens' JobWatermark Text
+jwPresetWatermarkId :: Lens' JobWatermark (Maybe Text)
 jwPresetWatermarkId = lens _jwPresetWatermarkId (\ s a -> s{_jwPresetWatermarkId = a});
 
 -- | The name of the .png or .jpg file that you want to use for the
@@ -2228,23 +2222,28 @@ jwPresetWatermarkId = lens _jwPresetWatermarkId (\ s a -> s{_jwPresetWatermarkId
 -- If the file name includes a prefix, for example, __logos\/128x64.png__,
 -- include the prefix in the key. If the file isn\'t in the specified
 -- bucket, Elastic Transcoder returns an error.
-jwInputKey :: Lens' JobWatermark Text
+jwInputKey :: Lens' JobWatermark (Maybe Text)
 jwInputKey = lens _jwInputKey (\ s a -> s{_jwInputKey = a});
+
+-- | The encryption settings, if any, that you want Elastic Transcoder to
+-- apply to your watermarks.
+jwEncryption :: Lens' JobWatermark (Maybe Encryption)
+jwEncryption = lens _jwEncryption (\ s a -> s{_jwEncryption = a});
 
 instance FromJSON JobWatermark where
         parseJSON
           = withObject "JobWatermark"
               (\ x ->
                  JobWatermark' <$>
-                   x .:? "Encryption" <*> x .: "PresetWatermarkId" <*>
-                     x .: "InputKey")
+                   x .:? "PresetWatermarkId" <*> x .:? "InputKey" <*>
+                     x .:? "Encryption")
 
 instance ToJSON JobWatermark where
         toJSON JobWatermark'{..}
           = object
-              ["Encryption" .= _jwEncryption,
-               "PresetWatermarkId" .= _jwPresetWatermarkId,
-               "InputKey" .= _jwInputKey]
+              ["PresetWatermarkId" .= _jwPresetWatermarkId,
+               "InputKey" .= _jwInputKey,
+               "Encryption" .= _jwEncryption]
 
 -- | /See:/ 'notifications' smart constructor.
 --
@@ -2308,11 +2307,11 @@ instance ToJSON Notifications where
 -- * 'perGranteeType'
 --
 -- * 'perGrantee'
-data Permission = Permission'{_perAccess :: [Text], _perGranteeType :: Maybe Text, _perGrantee :: Text} deriving (Eq, Read, Show)
+data Permission = Permission'{_perAccess :: Maybe [Text], _perGranteeType :: Maybe Text, _perGrantee :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'Permission' smart constructor.
-permission :: Text -> Permission
-permission pGrantee = Permission'{_perAccess = mempty, _perGranteeType = Nothing, _perGrantee = pGrantee};
+permission :: Permission
+permission = Permission'{_perAccess = Nothing, _perGranteeType = Nothing, _perGrantee = Nothing};
 
 -- | The permission that you want to give to the AWS user that is listed in
 -- Grantee. Valid values include:
@@ -2326,7 +2325,7 @@ permission pGrantee = Permission'{_perAccess = mempty, _perGranteeType = Nothing
 -- -   @FULL_CONTROL@: The grantee has READ, READ_ACP, and WRITE_ACP
 --     permissions for the thumbnails that Elastic Transcoder adds to the
 --     Amazon S3 bucket.
-perAccess :: Lens' Permission [Text]
+perAccess :: Lens' Permission (Maybe [Text])
 perAccess = lens _perAccess (\ s a -> s{_perAccess = a});
 
 -- | The type of value that appears in the Grantee object:
@@ -2345,7 +2344,7 @@ perGranteeType = lens _perGranteeType (\ s a -> s{_perGranteeType = a});
 -- canonical user ID for an AWS account, an origin access identity for a
 -- CloudFront distribution, the registered email address of an AWS account,
 -- or a predefined Amazon S3 group.
-perGrantee :: Lens' Permission Text
+perGrantee :: Lens' Permission (Maybe Text)
 perGrantee = lens _perGrantee (\ s a -> s{_perGrantee = a});
 
 instance FromJSON Permission where
@@ -2354,7 +2353,7 @@ instance FromJSON Permission where
               (\ x ->
                  Permission' <$>
                    x .:? "Access" .!= mempty <*> x .:? "GranteeType" <*>
-                     x .: "Grantee")
+                     x .:? "Grantee")
 
 instance ToJSON Permission where
         toJSON Permission'{..}
@@ -2379,6 +2378,8 @@ instance ToJSON Permission where
 --
 -- * 'pipRole'
 --
+-- * 'pipName'
+--
 -- * 'pipAWSKMSKeyARN'
 --
 -- * 'pipId'
@@ -2386,13 +2387,11 @@ instance ToJSON Permission where
 -- * 'pipThumbnailConfig'
 --
 -- * 'pipNotifications'
---
--- * 'pipName'
-data Pipeline = Pipeline'{_pipStatus :: Maybe Text, _pipARN :: Maybe Text, _pipInputBucket :: Maybe Text, _pipContentConfig :: Maybe PipelineOutputConfig, _pipOutputBucket :: Maybe Text, _pipRole :: Maybe Text, _pipAWSKMSKeyARN :: Maybe Text, _pipId :: Maybe Text, _pipThumbnailConfig :: Maybe PipelineOutputConfig, _pipNotifications :: Maybe Notifications, _pipName :: Text} deriving (Eq, Read, Show)
+data Pipeline = Pipeline'{_pipStatus :: Maybe Text, _pipARN :: Maybe Text, _pipInputBucket :: Maybe Text, _pipContentConfig :: Maybe PipelineOutputConfig, _pipOutputBucket :: Maybe Text, _pipRole :: Maybe Text, _pipName :: Maybe Text, _pipAWSKMSKeyARN :: Maybe Text, _pipId :: Maybe Text, _pipThumbnailConfig :: Maybe PipelineOutputConfig, _pipNotifications :: Maybe Notifications} deriving (Eq, Read, Show)
 
 -- | 'Pipeline' smart constructor.
-pipeline :: Text -> Pipeline
-pipeline pName = Pipeline'{_pipStatus = Nothing, _pipARN = Nothing, _pipInputBucket = Nothing, _pipContentConfig = Nothing, _pipOutputBucket = Nothing, _pipRole = Nothing, _pipAWSKMSKeyARN = Nothing, _pipId = Nothing, _pipThumbnailConfig = Nothing, _pipNotifications = Nothing, _pipName = pName};
+pipeline :: Pipeline
+pipeline = Pipeline'{_pipStatus = Nothing, _pipARN = Nothing, _pipInputBucket = Nothing, _pipContentConfig = Nothing, _pipOutputBucket = Nothing, _pipRole = Nothing, _pipName = Nothing, _pipAWSKMSKeyARN = Nothing, _pipId = Nothing, _pipThumbnailConfig = Nothing, _pipNotifications = Nothing};
 
 -- | The current status of the pipeline:
 --
@@ -2459,6 +2458,13 @@ pipOutputBucket = lens _pipOutputBucket (\ s a -> s{_pipOutputBucket = a});
 -- uses to transcode jobs for this pipeline.
 pipRole :: Lens' Pipeline (Maybe Text)
 pipRole = lens _pipRole (\ s a -> s{_pipRole = a});
+
+-- | The name of the pipeline. We recommend that the name be unique within
+-- the AWS account, but uniqueness is not enforced.
+--
+-- Constraints: Maximum 40 characters
+pipName :: Lens' Pipeline (Maybe Text)
+pipName = lens _pipName (\ s a -> s{_pipName = a});
 
 -- | The AWS Key Management Service (AWS KMS) key that you want to use with
 -- this pipeline.
@@ -2537,13 +2543,6 @@ pipThumbnailConfig = lens _pipThumbnailConfig (\ s a -> s{_pipThumbnailConfig = 
 pipNotifications :: Lens' Pipeline (Maybe Notifications)
 pipNotifications = lens _pipNotifications (\ s a -> s{_pipNotifications = a});
 
--- | The name of the pipeline. We recommend that the name be unique within
--- the AWS account, but uniqueness is not enforced.
---
--- Constraints: Maximum 40 characters
-pipName :: Lens' Pipeline Text
-pipName = lens _pipName (\ s a -> s{_pipName = a});
-
 instance FromJSON Pipeline where
         parseJSON
           = withObject "Pipeline"
@@ -2554,11 +2553,11 @@ instance FromJSON Pipeline where
                      <*> x .:? "ContentConfig"
                      <*> x .:? "OutputBucket"
                      <*> x .:? "Role"
+                     <*> x .:? "Name"
                      <*> x .:? "AwsKmsKeyArn"
                      <*> x .:? "Id"
                      <*> x .:? "ThumbnailConfig"
-                     <*> x .:? "Notifications"
-                     <*> x .: "Name")
+                     <*> x .:? "Notifications")
 
 -- | /See:/ 'pipelineOutputConfig' smart constructor.
 --
@@ -2569,11 +2568,11 @@ instance FromJSON Pipeline where
 -- * 'pocStorageClass'
 --
 -- * 'pocPermissions'
-data PipelineOutputConfig = PipelineOutputConfig'{_pocBucket :: Maybe Text, _pocStorageClass :: Maybe Text, _pocPermissions :: [Permission]} deriving (Eq, Read, Show)
+data PipelineOutputConfig = PipelineOutputConfig'{_pocBucket :: Maybe Text, _pocStorageClass :: Maybe Text, _pocPermissions :: Maybe [Permission]} deriving (Eq, Read, Show)
 
 -- | 'PipelineOutputConfig' smart constructor.
 pipelineOutputConfig :: PipelineOutputConfig
-pipelineOutputConfig = PipelineOutputConfig'{_pocBucket = Nothing, _pocStorageClass = Nothing, _pocPermissions = mempty};
+pipelineOutputConfig = PipelineOutputConfig'{_pocBucket = Nothing, _pocStorageClass = Nothing, _pocPermissions = Nothing};
 
 -- | The Amazon S3 bucket in which you want Elastic Transcoder to save the
 -- transcoded files. Specify this value when all of the following are true:
@@ -2615,7 +2614,7 @@ pocStorageClass = lens _pocStorageClass (\ s a -> s{_pocStorageClass = a});
 -- If you omit @Permissions@, Elastic Transcoder grants full control over
 -- the transcoded files and playlists to the owner of the role specified by
 -- @Role@, and grants no other permissions to any other user or group.
-pocPermissions :: Lens' PipelineOutputConfig [Permission]
+pocPermissions :: Lens' PipelineOutputConfig (Maybe [Permission])
 pocPermissions = lens _pocPermissions (\ s a -> s{_pocPermissions = a});
 
 instance FromJSON PipelineOutputConfig where
@@ -2645,14 +2644,14 @@ instance ToJSON PipelineOutputConfig where
 --
 -- * 'prdKey'
 --
--- * 'prdInitializationVector'
---
 -- * 'prdLicenseAcquisitionURL'
-data PlayReadyDrm = PlayReadyDrm'{_prdKeyId :: Maybe Text, _prdKeyMD5 :: Maybe Text, _prdFormat :: Maybe Text, _prdKey :: Maybe Text, _prdInitializationVector :: Maybe Text, _prdLicenseAcquisitionURL :: Text} deriving (Eq, Read, Show)
+--
+-- * 'prdInitializationVector'
+data PlayReadyDrm = PlayReadyDrm'{_prdKeyId :: Maybe Text, _prdKeyMD5 :: Maybe Text, _prdFormat :: Maybe Text, _prdKey :: Maybe Text, _prdLicenseAcquisitionURL :: Maybe Text, _prdInitializationVector :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'PlayReadyDrm' smart constructor.
-playReadyDrm :: Text -> PlayReadyDrm
-playReadyDrm pLicenseAcquisitionURL = PlayReadyDrm'{_prdKeyId = Nothing, _prdKeyMD5 = Nothing, _prdFormat = Nothing, _prdKey = Nothing, _prdInitializationVector = Nothing, _prdLicenseAcquisitionURL = pLicenseAcquisitionURL};
+playReadyDrm :: PlayReadyDrm
+playReadyDrm = PlayReadyDrm'{_prdKeyId = Nothing, _prdKeyMD5 = Nothing, _prdFormat = Nothing, _prdKey = Nothing, _prdLicenseAcquisitionURL = Nothing, _prdInitializationVector = Nothing};
 
 -- | The ID for your DRM key, so that your DRM license provider knows which
 -- key to provide.
@@ -2686,6 +2685,16 @@ prdFormat = lens _prdFormat (\ s a -> s{_prdFormat = a});
 prdKey :: Lens' PlayReadyDrm (Maybe Text)
 prdKey = lens _prdKey (\ s a -> s{_prdKey = a});
 
+-- | The location of the license key required to play DRM content. The URL
+-- must be an absolute path, and is referenced by the PlayReady header. The
+-- PlayReady header is referenced in the protection header of the client
+-- manifest for Smooth Streaming outputs, and in the EXT-X-DXDRM and
+-- EXT-XDXDRMINFO metadata tags for HLS playlist outputs. An example URL
+-- looks like this:
+-- https:\/\/www.example.com\/exampleKey\/
+prdLicenseAcquisitionURL :: Lens' PlayReadyDrm (Maybe Text)
+prdLicenseAcquisitionURL = lens _prdLicenseAcquisitionURL (\ s a -> s{_prdLicenseAcquisitionURL = a});
+
 -- | The series of random bits created by a random bit generator, unique for
 -- every encryption operation, that you want Elastic Transcoder to use to
 -- encrypt your files. The initialization vector must be base64-encoded,
@@ -2695,16 +2704,6 @@ prdKey = lens _prdKey (\ s a -> s{_prdKey = a});
 prdInitializationVector :: Lens' PlayReadyDrm (Maybe Text)
 prdInitializationVector = lens _prdInitializationVector (\ s a -> s{_prdInitializationVector = a});
 
--- | The location of the license key required to play DRM content. The URL
--- must be an absolute path, and is referenced by the PlayReady header. The
--- PlayReady header is referenced in the protection header of the client
--- manifest for Smooth Streaming outputs, and in the EXT-X-DXDRM and
--- EXT-XDXDRMINFO metadata tags for HLS playlist outputs. An example URL
--- looks like this:
--- https:\/\/www.example.com\/exampleKey\/
-prdLicenseAcquisitionURL :: Lens' PlayReadyDrm Text
-prdLicenseAcquisitionURL = lens _prdLicenseAcquisitionURL (\ s a -> s{_prdLicenseAcquisitionURL = a});
-
 instance FromJSON PlayReadyDrm where
         parseJSON
           = withObject "PlayReadyDrm"
@@ -2712,16 +2711,16 @@ instance FromJSON PlayReadyDrm where
                  PlayReadyDrm' <$>
                    x .:? "KeyId" <*> x .:? "KeyMd5" <*> x .:? "Format"
                      <*> x .:? "Key"
-                     <*> x .:? "InitializationVector"
-                     <*> x .: "LicenseAcquisitionUrl")
+                     <*> x .:? "LicenseAcquisitionUrl"
+                     <*> x .:? "InitializationVector")
 
 instance ToJSON PlayReadyDrm where
         toJSON PlayReadyDrm'{..}
           = object
               ["KeyId" .= _prdKeyId, "KeyMd5" .= _prdKeyMD5,
                "Format" .= _prdFormat, "Key" .= _prdKey,
-               "InitializationVector" .= _prdInitializationVector,
-               "LicenseAcquisitionUrl" .= _prdLicenseAcquisitionURL]
+               "LicenseAcquisitionUrl" .= _prdLicenseAcquisitionURL,
+               "InitializationVector" .= _prdInitializationVector]
 
 -- | /See:/ 'playlist' smart constructor.
 --
@@ -2735,16 +2734,16 @@ instance ToJSON PlayReadyDrm where
 --
 -- * 'plaFormat'
 --
+-- * 'plaName'
+--
 -- * 'plaHlsContentProtection'
 --
 -- * 'plaStatusDetail'
---
--- * 'plaName'
-data Playlist = Playlist'{_plaPlayReadyDrm :: Maybe PlayReadyDrm, _plaStatus :: Maybe Text, _plaOutputKeys :: [Text], _plaFormat :: Maybe Text, _plaHlsContentProtection :: Maybe HlsContentProtection, _plaStatusDetail :: Maybe Text, _plaName :: Text} deriving (Eq, Read, Show)
+data Playlist = Playlist'{_plaPlayReadyDrm :: Maybe PlayReadyDrm, _plaStatus :: Maybe Text, _plaOutputKeys :: Maybe [Text], _plaFormat :: Maybe Text, _plaName :: Maybe Text, _plaHlsContentProtection :: Maybe HlsContentProtection, _plaStatusDetail :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'Playlist' smart constructor.
-playlist :: Text -> Playlist
-playlist pName = Playlist'{_plaPlayReadyDrm = Nothing, _plaStatus = Nothing, _plaOutputKeys = mempty, _plaFormat = Nothing, _plaHlsContentProtection = Nothing, _plaStatusDetail = Nothing, _plaName = pName};
+playlist :: Playlist
+playlist = Playlist'{_plaPlayReadyDrm = Nothing, _plaStatus = Nothing, _plaOutputKeys = Nothing, _plaFormat = Nothing, _plaName = Nothing, _plaHlsContentProtection = Nothing, _plaStatusDetail = Nothing};
 
 -- | The DRM settings, if any, that you want Elastic Transcoder to apply to
 -- the output files associated with this playlist.
@@ -2795,22 +2794,13 @@ plaStatus = lens _plaStatus (\ s a -> s{_plaStatus = a});
 -- outputs in the playlist. For @Smooth@ playlists, the @Audio:Profile@,
 -- @Video:Profile@, and @Video:FrameRate@ to @Video:KeyframesMaxDist@ ratio
 -- must be the same for all outputs.
-plaOutputKeys :: Lens' Playlist [Text]
+plaOutputKeys :: Lens' Playlist (Maybe [Text])
 plaOutputKeys = lens _plaOutputKeys (\ s a -> s{_plaOutputKeys = a});
 
 -- | The format of the output playlist. Valid formats include @HLSv3@,
 -- @HLSv4@, and @Smooth@.
 plaFormat :: Lens' Playlist (Maybe Text)
 plaFormat = lens _plaFormat (\ s a -> s{_plaFormat = a});
-
--- | The HLS content protection settings, if any, that you want Elastic
--- Transcoder to apply to the output files associated with this playlist.
-plaHlsContentProtection :: Lens' Playlist (Maybe HlsContentProtection)
-plaHlsContentProtection = lens _plaHlsContentProtection (\ s a -> s{_plaHlsContentProtection = a});
-
--- | Information that further explains the status.
-plaStatusDetail :: Lens' Playlist (Maybe Text)
-plaStatusDetail = lens _plaStatusDetail (\ s a -> s{_plaStatusDetail = a});
 
 -- | The name that you want Elastic Transcoder to assign to the master
 -- playlist, for example, nyc-vacation.m3u8. If the name includes a @\/@
@@ -2822,8 +2812,17 @@ plaStatusDetail = lens _plaStatusDetail (\ s a -> s{_plaStatusDetail = a});
 -- extension to the file name (@.m3u8@ for @HLSv3@ and @HLSv4@ playlists,
 -- and @.ism@ and @.ismc@ for @Smooth@ playlists). If you include a file
 -- extension in @Name@, the file name will have two extensions.
-plaName :: Lens' Playlist Text
+plaName :: Lens' Playlist (Maybe Text)
 plaName = lens _plaName (\ s a -> s{_plaName = a});
+
+-- | The HLS content protection settings, if any, that you want Elastic
+-- Transcoder to apply to the output files associated with this playlist.
+plaHlsContentProtection :: Lens' Playlist (Maybe HlsContentProtection)
+plaHlsContentProtection = lens _plaHlsContentProtection (\ s a -> s{_plaHlsContentProtection = a});
+
+-- | Information that further explains the status.
+plaStatusDetail :: Lens' Playlist (Maybe Text)
+plaStatusDetail = lens _plaStatusDetail (\ s a -> s{_plaStatusDetail = a});
 
 instance FromJSON Playlist where
         parseJSON
@@ -2833,9 +2832,9 @@ instance FromJSON Playlist where
                    x .:? "PlayReadyDrm" <*> x .:? "Status" <*>
                      x .:? "OutputKeys" .!= mempty
                      <*> x .:? "Format"
+                     <*> x .:? "Name"
                      <*> x .:? "HlsContentProtection"
-                     <*> x .:? "StatusDetail"
-                     <*> x .: "Name")
+                     <*> x .:? "StatusDetail")
 
 -- | /See:/ 'preset' smart constructor.
 --
@@ -2844,6 +2843,8 @@ instance FromJSON Playlist where
 -- * 'preARN'
 --
 -- * 'preVideo'
+--
+-- * 'preName'
 --
 -- * 'preThumbnails'
 --
@@ -2856,13 +2857,11 @@ instance FromJSON Playlist where
 -- * 'preAudio'
 --
 -- * 'preDescription'
---
--- * 'preName'
-data Preset = Preset'{_preARN :: Maybe Text, _preVideo :: Maybe VideoParameters, _preThumbnails :: Maybe Thumbnails, _preContainer :: Maybe Text, _preId :: Maybe Text, _preType :: Maybe Text, _preAudio :: Maybe AudioParameters, _preDescription :: Maybe Text, _preName :: Text} deriving (Eq, Read, Show)
+data Preset = Preset'{_preARN :: Maybe Text, _preVideo :: Maybe VideoParameters, _preName :: Maybe Text, _preThumbnails :: Maybe Thumbnails, _preContainer :: Maybe Text, _preId :: Maybe Text, _preType :: Maybe Text, _preAudio :: Maybe AudioParameters, _preDescription :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'Preset' smart constructor.
-preset :: Text -> Preset
-preset pName = Preset'{_preARN = Nothing, _preVideo = Nothing, _preThumbnails = Nothing, _preContainer = Nothing, _preId = Nothing, _preType = Nothing, _preAudio = Nothing, _preDescription = Nothing, _preName = pName};
+preset :: Preset
+preset = Preset'{_preARN = Nothing, _preVideo = Nothing, _preName = Nothing, _preThumbnails = Nothing, _preContainer = Nothing, _preId = Nothing, _preType = Nothing, _preAudio = Nothing, _preDescription = Nothing};
 
 -- | The Amazon Resource Name (ARN) for the preset.
 preARN :: Lens' Preset (Maybe Text)
@@ -2872,6 +2871,10 @@ preARN = lens _preARN (\ s a -> s{_preARN = a});
 -- preset values.
 preVideo :: Lens' Preset (Maybe VideoParameters)
 preVideo = lens _preVideo (\ s a -> s{_preVideo = a});
+
+-- | The name of the preset.
+preName :: Lens' Preset (Maybe Text)
+preName = lens _preName (\ s a -> s{_preName = a});
 
 -- | A section of the response body that provides information about the
 -- thumbnail preset values, if any.
@@ -2903,22 +2906,18 @@ preAudio = lens _preAudio (\ s a -> s{_preAudio = a});
 preDescription :: Lens' Preset (Maybe Text)
 preDescription = lens _preDescription (\ s a -> s{_preDescription = a});
 
--- | The name of the preset.
-preName :: Lens' Preset Text
-preName = lens _preName (\ s a -> s{_preName = a});
-
 instance FromJSON Preset where
         parseJSON
           = withObject "Preset"
               (\ x ->
                  Preset' <$>
-                   x .:? "Arn" <*> x .:? "Video" <*> x .:? "Thumbnails"
+                   x .:? "Arn" <*> x .:? "Video" <*> x .:? "Name" <*>
+                     x .:? "Thumbnails"
                      <*> x .:? "Container"
                      <*> x .:? "Id"
                      <*> x .:? "Type"
                      <*> x .:? "Audio"
-                     <*> x .:? "Description"
-                     <*> x .: "Name")
+                     <*> x .:? "Description")
 
 -- | /See:/ 'presetWatermark' smart constructor.
 --
@@ -2938,16 +2937,16 @@ instance FromJSON Preset where
 --
 -- * 'pwMaxWidth'
 --
+-- * 'pwId'
+--
 -- * 'pwHorizontalAlign'
 --
 -- * 'pwTarget'
---
--- * 'pwId'
-data PresetWatermark = PresetWatermark'{_pwVerticalAlign :: Maybe Text, _pwSizingPolicy :: Maybe Text, _pwMaxHeight :: Maybe Text, _pwHorizontalOffset :: Maybe Text, _pwOpacity :: Maybe Text, _pwVerticalOffset :: Maybe Text, _pwMaxWidth :: Maybe Text, _pwHorizontalAlign :: Maybe Text, _pwTarget :: Maybe Text, _pwId :: Text} deriving (Eq, Read, Show)
+data PresetWatermark = PresetWatermark'{_pwVerticalAlign :: Maybe Text, _pwSizingPolicy :: Maybe Text, _pwMaxHeight :: Maybe Text, _pwHorizontalOffset :: Maybe Text, _pwOpacity :: Maybe Text, _pwVerticalOffset :: Maybe Text, _pwMaxWidth :: Maybe Text, _pwId :: Maybe Text, _pwHorizontalAlign :: Maybe Text, _pwTarget :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'PresetWatermark' smart constructor.
-presetWatermark :: Text -> PresetWatermark
-presetWatermark pId = PresetWatermark'{_pwVerticalAlign = Nothing, _pwSizingPolicy = Nothing, _pwMaxHeight = Nothing, _pwHorizontalOffset = Nothing, _pwOpacity = Nothing, _pwVerticalOffset = Nothing, _pwMaxWidth = Nothing, _pwHorizontalAlign = Nothing, _pwTarget = Nothing, _pwId = pId};
+presetWatermark :: PresetWatermark
+presetWatermark = PresetWatermark'{_pwVerticalAlign = Nothing, _pwSizingPolicy = Nothing, _pwMaxHeight = Nothing, _pwHorizontalOffset = Nothing, _pwOpacity = Nothing, _pwVerticalOffset = Nothing, _pwMaxWidth = Nothing, _pwId = Nothing, _pwHorizontalAlign = Nothing, _pwTarget = Nothing};
 
 -- | The vertical position of the watermark unless you specify a non-zero
 -- value for @VerticalOffset@:
@@ -3067,6 +3066,11 @@ pwVerticalOffset = lens _pwVerticalOffset (\ s a -> s{_pwVerticalOffset = a});
 pwMaxWidth :: Lens' PresetWatermark (Maybe Text)
 pwMaxWidth = lens _pwMaxWidth (\ s a -> s{_pwMaxWidth = a});
 
+-- | A unique identifier for the settings for one watermark. The value of
+-- @Id@ can be up to 40 characters long.
+pwId :: Lens' PresetWatermark (Maybe Text)
+pwId = lens _pwId (\ s a -> s{_pwId = a});
+
 -- | The horizontal position of the watermark unless you specify a non-zero
 -- value for @HorizontalOffset@:
 --
@@ -3095,11 +3099,6 @@ pwHorizontalAlign = lens _pwHorizontalAlign (\ s a -> s{_pwHorizontalAlign = a})
 pwTarget :: Lens' PresetWatermark (Maybe Text)
 pwTarget = lens _pwTarget (\ s a -> s{_pwTarget = a});
 
--- | A unique identifier for the settings for one watermark. The value of
--- @Id@ can be up to 40 characters long.
-pwId :: Lens' PresetWatermark Text
-pwId = lens _pwId (\ s a -> s{_pwId = a});
-
 instance FromJSON PresetWatermark where
         parseJSON
           = withObject "PresetWatermark"
@@ -3111,9 +3110,9 @@ instance FromJSON PresetWatermark where
                      <*> x .:? "Opacity"
                      <*> x .:? "VerticalOffset"
                      <*> x .:? "MaxWidth"
+                     <*> x .:? "Id"
                      <*> x .:? "HorizontalAlign"
-                     <*> x .:? "Target"
-                     <*> x .: "Id")
+                     <*> x .:? "Target")
 
 instance ToJSON PresetWatermark where
         toJSON PresetWatermark'{..}
@@ -3124,9 +3123,9 @@ instance ToJSON PresetWatermark where
                "HorizontalOffset" .= _pwHorizontalOffset,
                "Opacity" .= _pwOpacity,
                "VerticalOffset" .= _pwVerticalOffset,
-               "MaxWidth" .= _pwMaxWidth,
+               "MaxWidth" .= _pwMaxWidth, "Id" .= _pwId,
                "HorizontalAlign" .= _pwHorizontalAlign,
-               "Target" .= _pwTarget, "Id" .= _pwId]
+               "Target" .= _pwTarget]
 
 -- | /See:/ 'thumbnails' smart constructor.
 --
@@ -3379,11 +3378,11 @@ instance FromJSON Timing where
 -- * 'vpFixedGOP'
 --
 -- * 'vpCodecOptions'
-data VideoParameters = VideoParameters'{_vpKeyframesMaxDist :: Maybe Text, _vpFrameRate :: Maybe Text, _vpSizingPolicy :: Maybe Text, _vpMaxFrameRate :: Maybe Text, _vpMaxHeight :: Maybe Text, _vpDisplayAspectRatio :: Maybe Text, _vpWatermarks :: [PresetWatermark], _vpCodec :: Maybe Text, _vpResolution :: Maybe Text, _vpPaddingPolicy :: Maybe Text, _vpAspectRatio :: Maybe Text, _vpMaxWidth :: Maybe Text, _vpBitRate :: Maybe Text, _vpFixedGOP :: Maybe Text, _vpCodecOptions :: HashMap Text Text} deriving (Eq, Read, Show)
+data VideoParameters = VideoParameters'{_vpKeyframesMaxDist :: Maybe Text, _vpFrameRate :: Maybe Text, _vpSizingPolicy :: Maybe Text, _vpMaxFrameRate :: Maybe Text, _vpMaxHeight :: Maybe Text, _vpDisplayAspectRatio :: Maybe Text, _vpWatermarks :: Maybe [PresetWatermark], _vpCodec :: Maybe Text, _vpResolution :: Maybe Text, _vpPaddingPolicy :: Maybe Text, _vpAspectRatio :: Maybe Text, _vpMaxWidth :: Maybe Text, _vpBitRate :: Maybe Text, _vpFixedGOP :: Maybe Text, _vpCodecOptions :: Maybe (HashMap Text Text)} deriving (Eq, Read, Show)
 
 -- | 'VideoParameters' smart constructor.
 videoParameters :: VideoParameters
-videoParameters = VideoParameters'{_vpKeyframesMaxDist = Nothing, _vpFrameRate = Nothing, _vpSizingPolicy = Nothing, _vpMaxFrameRate = Nothing, _vpMaxHeight = Nothing, _vpDisplayAspectRatio = Nothing, _vpWatermarks = mempty, _vpCodec = Nothing, _vpResolution = Nothing, _vpPaddingPolicy = Nothing, _vpAspectRatio = Nothing, _vpMaxWidth = Nothing, _vpBitRate = Nothing, _vpFixedGOP = Nothing, _vpCodecOptions = mempty};
+videoParameters = VideoParameters'{_vpKeyframesMaxDist = Nothing, _vpFrameRate = Nothing, _vpSizingPolicy = Nothing, _vpMaxFrameRate = Nothing, _vpMaxHeight = Nothing, _vpDisplayAspectRatio = Nothing, _vpWatermarks = Nothing, _vpCodec = Nothing, _vpResolution = Nothing, _vpPaddingPolicy = Nothing, _vpAspectRatio = Nothing, _vpMaxWidth = Nothing, _vpBitRate = Nothing, _vpFixedGOP = Nothing, _vpCodecOptions = Nothing};
 
 -- | Applicable only when the value of Video:Codec is one of @H.264@,
 -- @MPEG2@, or @VP8@.
@@ -3514,7 +3513,7 @@ vpDisplayAspectRatio = lens _vpDisplayAspectRatio (\ s a -> s{_vpDisplayAspectRa
 -- transcoded videos. You can specify fewer graphics in the job than you
 -- specify watermark settings in the preset, which allows you to use the
 -- same preset for up to four watermarks that have different dimensions.
-vpWatermarks :: Lens' VideoParameters [PresetWatermark]
+vpWatermarks :: Lens' VideoParameters (Maybe [PresetWatermark])
 vpWatermarks = lens _vpWatermarks (\ s a -> s{_vpWatermarks = a});
 
 -- | The video codec for the output file. Valid values include @gif@,
@@ -3777,8 +3776,8 @@ vpFixedGOP = lens _vpFixedGOP (\ s a -> s{_vpFixedGOP = a});
 --
 -- The number of times you want the output gif to loop. Valid values
 -- include @Infinite@ and integers between @0@ and @100@, inclusive.
-vpCodecOptions :: Lens' VideoParameters (HashMap Text Text)
-vpCodecOptions = lens _vpCodecOptions (\ s a -> s{_vpCodecOptions = a}) . _Coerce;
+vpCodecOptions :: Lens' VideoParameters (Maybe (HashMap Text Text))
+vpCodecOptions = lens _vpCodecOptions (\ s a -> s{_vpCodecOptions = a}) . mapping _Coerce;
 
 instance FromJSON VideoParameters where
         parseJSON

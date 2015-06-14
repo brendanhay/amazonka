@@ -80,8 +80,8 @@ import Network.AWS.ELB.Types
 data RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancer'{_riwlbLoadBalancerName :: Text, _riwlbInstances :: [Instance]} deriving (Eq, Read, Show)
 
 -- | 'RegisterInstancesWithLoadBalancer' smart constructor.
-registerInstancesWithLoadBalancer :: Text -> [Instance] -> RegisterInstancesWithLoadBalancer
-registerInstancesWithLoadBalancer pLoadBalancerName pInstances = RegisterInstancesWithLoadBalancer'{_riwlbLoadBalancerName = pLoadBalancerName, _riwlbInstances = pInstances};
+registerInstancesWithLoadBalancer :: Text -> RegisterInstancesWithLoadBalancer
+registerInstancesWithLoadBalancer pLoadBalancerName = RegisterInstancesWithLoadBalancer'{_riwlbLoadBalancerName = pLoadBalancerName, _riwlbInstances = mempty};
 
 -- | The name of the load balancer.
 riwlbLoadBalancerName :: Lens' RegisterInstancesWithLoadBalancer Text
@@ -128,12 +128,12 @@ instance ToQuery RegisterInstancesWithLoadBalancer
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'riwlbrInstances'
-newtype RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse'{_riwlbrInstances :: [Instance]} deriving (Eq, Read, Show)
+newtype RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse'{_riwlbrInstances :: Maybe [Instance]} deriving (Eq, Read, Show)
 
 -- | 'RegisterInstancesWithLoadBalancerResponse' smart constructor.
 registerInstancesWithLoadBalancerResponse :: RegisterInstancesWithLoadBalancerResponse
-registerInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse'{_riwlbrInstances = mempty};
+registerInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse'{_riwlbrInstances = Nothing};
 
 -- | The updated list of instances for the load balancer.
-riwlbrInstances :: Lens' RegisterInstancesWithLoadBalancerResponse [Instance]
+riwlbrInstances :: Lens' RegisterInstancesWithLoadBalancerResponse (Maybe [Instance])
 riwlbrInstances = lens _riwlbrInstances (\ s a -> s{_riwlbrInstances = a});

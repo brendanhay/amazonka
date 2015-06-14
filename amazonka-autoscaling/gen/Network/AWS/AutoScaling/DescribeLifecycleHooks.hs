@@ -47,14 +47,14 @@ import Network.AWS.AutoScaling.Types
 -- * 'dlhLifecycleHookNames'
 --
 -- * 'dlhAutoScalingGroupName'
-data DescribeLifecycleHooks = DescribeLifecycleHooks'{_dlhLifecycleHookNames :: [Text], _dlhAutoScalingGroupName :: Text} deriving (Eq, Read, Show)
+data DescribeLifecycleHooks = DescribeLifecycleHooks'{_dlhLifecycleHookNames :: Maybe [Text], _dlhAutoScalingGroupName :: Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeLifecycleHooks' smart constructor.
 describeLifecycleHooks :: Text -> DescribeLifecycleHooks
-describeLifecycleHooks pAutoScalingGroupName = DescribeLifecycleHooks'{_dlhLifecycleHookNames = mempty, _dlhAutoScalingGroupName = pAutoScalingGroupName};
+describeLifecycleHooks pAutoScalingGroupName = DescribeLifecycleHooks'{_dlhLifecycleHookNames = Nothing, _dlhAutoScalingGroupName = pAutoScalingGroupName};
 
 -- | The names of one or more lifecycle hooks.
-dlhLifecycleHookNames :: Lens' DescribeLifecycleHooks [Text]
+dlhLifecycleHookNames :: Lens' DescribeLifecycleHooks (Maybe [Text])
 dlhLifecycleHookNames = lens _dlhLifecycleHookNames (\ s a -> s{_dlhLifecycleHookNames = a});
 
 -- | The name of the group.
@@ -94,12 +94,12 @@ instance ToQuery DescribeLifecycleHooks where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dlhrLifecycleHooks'
-newtype DescribeLifecycleHooksResponse = DescribeLifecycleHooksResponse'{_dlhrLifecycleHooks :: [LifecycleHook]} deriving (Eq, Read, Show)
+newtype DescribeLifecycleHooksResponse = DescribeLifecycleHooksResponse'{_dlhrLifecycleHooks :: Maybe [LifecycleHook]} deriving (Eq, Read, Show)
 
 -- | 'DescribeLifecycleHooksResponse' smart constructor.
 describeLifecycleHooksResponse :: DescribeLifecycleHooksResponse
-describeLifecycleHooksResponse = DescribeLifecycleHooksResponse'{_dlhrLifecycleHooks = mempty};
+describeLifecycleHooksResponse = DescribeLifecycleHooksResponse'{_dlhrLifecycleHooks = Nothing};
 
 -- | The lifecycle hooks for the specified group.
-dlhrLifecycleHooks :: Lens' DescribeLifecycleHooksResponse [LifecycleHook]
+dlhrLifecycleHooks :: Lens' DescribeLifecycleHooksResponse (Maybe [LifecycleHook])
 dlhrLifecycleHooks = lens _dlhrLifecycleHooks (\ s a -> s{_dlhrLifecycleHooks = a});

@@ -67,8 +67,8 @@ import Network.AWS.EMR.Types
 data SetTerminationProtection = SetTerminationProtection'{_stpJobFlowIds :: [Text], _stpTerminationProtected :: Bool} deriving (Eq, Read, Show)
 
 -- | 'SetTerminationProtection' smart constructor.
-setTerminationProtection :: [Text] -> Bool -> SetTerminationProtection
-setTerminationProtection pJobFlowIds pTerminationProtected = SetTerminationProtection'{_stpJobFlowIds = pJobFlowIds, _stpTerminationProtected = pTerminationProtected};
+setTerminationProtection :: Bool -> SetTerminationProtection
+setTerminationProtection pTerminationProtected = SetTerminationProtection'{_stpJobFlowIds = mempty, _stpTerminationProtected = pTerminationProtected};
 
 -- | A list of strings that uniquely identify the job flows to protect. This
 -- identifier is returned by RunJobFlow and can also be obtained from

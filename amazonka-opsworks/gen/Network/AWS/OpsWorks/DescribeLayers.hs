@@ -55,16 +55,16 @@ import Network.AWS.OpsWorks.Types
 -- * 'dlLayerIds'
 --
 -- * 'dlStackId'
-data DescribeLayers = DescribeLayers'{_dlLayerIds :: [Text], _dlStackId :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeLayers = DescribeLayers'{_dlLayerIds :: Maybe [Text], _dlStackId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeLayers' smart constructor.
 describeLayers :: DescribeLayers
-describeLayers = DescribeLayers'{_dlLayerIds = mempty, _dlStackId = Nothing};
+describeLayers = DescribeLayers'{_dlLayerIds = Nothing, _dlStackId = Nothing};
 
 -- | An array of layer IDs that specify the layers to be described. If you
 -- omit this parameter, @DescribeLayers@ returns a description of every
 -- layer in the specified stack.
-dlLayerIds :: Lens' DescribeLayers [Text]
+dlLayerIds :: Lens' DescribeLayers (Maybe [Text])
 dlLayerIds = lens _dlLayerIds (\ s a -> s{_dlLayerIds = a});
 
 -- | The stack ID.
@@ -106,12 +106,12 @@ instance ToQuery DescribeLayers where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dlrLayers'
-newtype DescribeLayersResponse = DescribeLayersResponse'{_dlrLayers :: [Layer]} deriving (Eq, Read, Show)
+newtype DescribeLayersResponse = DescribeLayersResponse'{_dlrLayers :: Maybe [Layer]} deriving (Eq, Read, Show)
 
 -- | 'DescribeLayersResponse' smart constructor.
 describeLayersResponse :: DescribeLayersResponse
-describeLayersResponse = DescribeLayersResponse'{_dlrLayers = mempty};
+describeLayersResponse = DescribeLayersResponse'{_dlrLayers = Nothing};
 
 -- | An array of @Layer@ objects that describe the layers.
-dlrLayers :: Lens' DescribeLayersResponse [Layer]
+dlrLayers :: Lens' DescribeLayersResponse (Maybe [Layer])
 dlrLayers = lens _dlrLayers (\ s a -> s{_dlrLayers = a});

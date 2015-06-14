@@ -52,11 +52,11 @@ import Network.AWS.CodeDeploy.Types
 -- * 'ldiNextToken'
 --
 -- * 'ldiDeploymentId'
-data ListDeploymentInstances = ListDeploymentInstances'{_ldiInstanceStatusFilter :: [InstanceStatus], _ldiNextToken :: Maybe Text, _ldiDeploymentId :: Text} deriving (Eq, Read, Show)
+data ListDeploymentInstances = ListDeploymentInstances'{_ldiInstanceStatusFilter :: Maybe [InstanceStatus], _ldiNextToken :: Maybe Text, _ldiDeploymentId :: Text} deriving (Eq, Read, Show)
 
 -- | 'ListDeploymentInstances' smart constructor.
 listDeploymentInstances :: Text -> ListDeploymentInstances
-listDeploymentInstances pDeploymentId = ListDeploymentInstances'{_ldiInstanceStatusFilter = mempty, _ldiNextToken = Nothing, _ldiDeploymentId = pDeploymentId};
+listDeploymentInstances pDeploymentId = ListDeploymentInstances'{_ldiInstanceStatusFilter = Nothing, _ldiNextToken = Nothing, _ldiDeploymentId = pDeploymentId};
 
 -- | A subset of instances to list, by status:
 --
@@ -72,7 +72,7 @@ listDeploymentInstances pDeploymentId = ListDeploymentInstances'{_ldiInstanceSta
 --     deployments.
 -- -   Unknown: Include in the resulting list those instances with
 --     deployments in an unknown state.
-ldiInstanceStatusFilter :: Lens' ListDeploymentInstances [InstanceStatus]
+ldiInstanceStatusFilter :: Lens' ListDeploymentInstances (Maybe [InstanceStatus])
 ldiInstanceStatusFilter = lens _ldiInstanceStatusFilter (\ s a -> s{_ldiInstanceStatusFilter = a});
 
 -- | An identifier that was returned from the previous list deployment
@@ -127,11 +127,11 @@ instance ToQuery ListDeploymentInstances where
 -- * 'ldirNextToken'
 --
 -- * 'ldirInstancesList'
-data ListDeploymentInstancesResponse = ListDeploymentInstancesResponse'{_ldirNextToken :: Maybe Text, _ldirInstancesList :: [Text]} deriving (Eq, Read, Show)
+data ListDeploymentInstancesResponse = ListDeploymentInstancesResponse'{_ldirNextToken :: Maybe Text, _ldirInstancesList :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'ListDeploymentInstancesResponse' smart constructor.
 listDeploymentInstancesResponse :: ListDeploymentInstancesResponse
-listDeploymentInstancesResponse = ListDeploymentInstancesResponse'{_ldirNextToken = Nothing, _ldirInstancesList = mempty};
+listDeploymentInstancesResponse = ListDeploymentInstancesResponse'{_ldirNextToken = Nothing, _ldirInstancesList = Nothing};
 
 -- | If the amount of information that is returned is significantly large, an
 -- identifier will also be returned, which can be used in a subsequent list
@@ -141,5 +141,5 @@ ldirNextToken :: Lens' ListDeploymentInstancesResponse (Maybe Text)
 ldirNextToken = lens _ldirNextToken (\ s a -> s{_ldirNextToken = a});
 
 -- | A list of instances IDs.
-ldirInstancesList :: Lens' ListDeploymentInstancesResponse [Text]
+ldirInstancesList :: Lens' ListDeploymentInstancesResponse (Maybe [Text])
 ldirInstancesList = lens _ldirInstancesList (\ s a -> s{_ldirInstancesList = a});

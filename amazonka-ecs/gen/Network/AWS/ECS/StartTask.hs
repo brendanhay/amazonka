@@ -64,8 +64,8 @@ import Network.AWS.ECS.Types
 data StartTask = StartTask'{_staOverrides :: Maybe TaskOverride, _staCluster :: Maybe Text, _staStartedBy :: Maybe Text, _staTaskDefinition :: Text, _staContainerInstances :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'StartTask' smart constructor.
-startTask :: Text -> [Text] -> StartTask
-startTask pTaskDefinition pContainerInstances = StartTask'{_staOverrides = Nothing, _staCluster = Nothing, _staStartedBy = Nothing, _staTaskDefinition = pTaskDefinition, _staContainerInstances = pContainerInstances};
+startTask :: Text -> StartTask
+startTask pTaskDefinition = StartTask'{_staOverrides = Nothing, _staCluster = Nothing, _staStartedBy = Nothing, _staTaskDefinition = pTaskDefinition, _staContainerInstances = mempty};
 
 -- | A list of container overrides in JSON format that specify the name of a
 -- container in the specified task definition and the command it should run
@@ -147,17 +147,17 @@ instance ToQuery StartTask where
 -- * 'strFailures'
 --
 -- * 'strTasks'
-data StartTaskResponse = StartTaskResponse'{_strFailures :: [Failure], _strTasks :: [Task]} deriving (Eq, Read, Show)
+data StartTaskResponse = StartTaskResponse'{_strFailures :: Maybe [Failure], _strTasks :: Maybe [Task]} deriving (Eq, Read, Show)
 
 -- | 'StartTaskResponse' smart constructor.
 startTaskResponse :: StartTaskResponse
-startTaskResponse = StartTaskResponse'{_strFailures = mempty, _strTasks = mempty};
+startTaskResponse = StartTaskResponse'{_strFailures = Nothing, _strTasks = Nothing};
 
 -- | Any failed tasks from your @StartTask@ action are listed here.
-strFailures :: Lens' StartTaskResponse [Failure]
+strFailures :: Lens' StartTaskResponse (Maybe [Failure])
 strFailures = lens _strFailures (\ s a -> s{_strFailures = a});
 
 -- | A full description of the tasks that were started. Each task that was
 -- successfully placed on your container instances will be described here.
-strTasks :: Lens' StartTaskResponse [Task]
+strTasks :: Lens' StartTaskResponse (Maybe [Task])
 strTasks = lens _strTasks (\ s a -> s{_strTasks = a});

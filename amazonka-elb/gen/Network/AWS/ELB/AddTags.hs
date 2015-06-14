@@ -57,8 +57,8 @@ import Network.AWS.ELB.Types
 data AddTags = AddTags'{_atLoadBalancerNames :: [Text], _atTags :: List1 Tag} deriving (Eq, Read, Show)
 
 -- | 'AddTags' smart constructor.
-addTags :: [Text] -> NonEmpty Tag -> AddTags
-addTags pLoadBalancerNames pTags = AddTags'{_atLoadBalancerNames = pLoadBalancerNames, _atTags = _List1 # pTags};
+addTags :: NonEmpty Tag -> AddTags
+addTags pTags = AddTags'{_atLoadBalancerNames = mempty, _atTags = _List1 # pTags};
 
 -- | The name of the load balancer. You can specify one load balancer only.
 atLoadBalancerNames :: Lens' AddTags [Text]

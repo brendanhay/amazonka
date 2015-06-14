@@ -73,8 +73,8 @@ import Network.AWS.EC2.Types
 data StartInstances = StartInstances'{_staAdditionalInfo :: Maybe Text, _staDryRun :: Maybe Bool, _staInstanceIds :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'StartInstances' smart constructor.
-startInstances :: [Text] -> StartInstances
-startInstances pInstanceIds = StartInstances'{_staAdditionalInfo = Nothing, _staDryRun = Nothing, _staInstanceIds = pInstanceIds};
+startInstances :: StartInstances
+startInstances = StartInstances'{_staAdditionalInfo = Nothing, _staDryRun = Nothing, _staInstanceIds = mempty};
 
 -- | Reserved.
 staAdditionalInfo :: Lens' StartInstances (Maybe Text)
@@ -120,12 +120,12 @@ instance ToQuery StartInstances where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'sirStartingInstances'
-newtype StartInstancesResponse = StartInstancesResponse'{_sirStartingInstances :: [InstanceStateChange]} deriving (Eq, Read, Show)
+newtype StartInstancesResponse = StartInstancesResponse'{_sirStartingInstances :: Maybe [InstanceStateChange]} deriving (Eq, Read, Show)
 
 -- | 'StartInstancesResponse' smart constructor.
 startInstancesResponse :: StartInstancesResponse
-startInstancesResponse = StartInstancesResponse'{_sirStartingInstances = mempty};
+startInstancesResponse = StartInstancesResponse'{_sirStartingInstances = Nothing};
 
 -- | Information about one or more started instances.
-sirStartingInstances :: Lens' StartInstancesResponse [InstanceStateChange]
+sirStartingInstances :: Lens' StartInstancesResponse (Maybe [InstanceStateChange])
 sirStartingInstances = lens _sirStartingInstances (\ s a -> s{_sirStartingInstances = a});

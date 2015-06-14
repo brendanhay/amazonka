@@ -51,8 +51,8 @@ import Network.AWS.SNS.Types
 data SetPlatformApplicationAttributes = SetPlatformApplicationAttributes'{_spaaPlatformApplicationARN :: Text, _spaaAttributes :: HashMap Text Text} deriving (Eq, Read, Show)
 
 -- | 'SetPlatformApplicationAttributes' smart constructor.
-setPlatformApplicationAttributes :: Text -> HashMap Text Text -> SetPlatformApplicationAttributes
-setPlatformApplicationAttributes pPlatformApplicationARN pAttributes = SetPlatformApplicationAttributes'{_spaaPlatformApplicationARN = pPlatformApplicationARN, _spaaAttributes = _Coerce # pAttributes};
+setPlatformApplicationAttributes :: Text -> SetPlatformApplicationAttributes
+setPlatformApplicationAttributes pPlatformApplicationARN = SetPlatformApplicationAttributes'{_spaaPlatformApplicationARN = pPlatformApplicationARN, _spaaAttributes = mempty};
 
 -- | PlatformApplicationArn for SetPlatformApplicationAttributes action.
 spaaPlatformApplicationARN :: Lens' SetPlatformApplicationAttributes Text

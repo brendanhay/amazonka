@@ -65,14 +65,14 @@ import Network.AWS.ECS.Types
 -- * 'scscExitCode'
 --
 -- * 'scscTask'
-data SubmitContainerStateChange = SubmitContainerStateChange'{_scscNetworkBindings :: [NetworkBinding], _scscStatus :: Maybe Text, _scscCluster :: Maybe Text, _scscContainerName :: Maybe Text, _scscReason :: Maybe Text, _scscExitCode :: Maybe Int, _scscTask :: Maybe Text} deriving (Eq, Read, Show)
+data SubmitContainerStateChange = SubmitContainerStateChange'{_scscNetworkBindings :: Maybe [NetworkBinding], _scscStatus :: Maybe Text, _scscCluster :: Maybe Text, _scscContainerName :: Maybe Text, _scscReason :: Maybe Text, _scscExitCode :: Maybe Int, _scscTask :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'SubmitContainerStateChange' smart constructor.
 submitContainerStateChange :: SubmitContainerStateChange
-submitContainerStateChange = SubmitContainerStateChange'{_scscNetworkBindings = mempty, _scscStatus = Nothing, _scscCluster = Nothing, _scscContainerName = Nothing, _scscReason = Nothing, _scscExitCode = Nothing, _scscTask = Nothing};
+submitContainerStateChange = SubmitContainerStateChange'{_scscNetworkBindings = Nothing, _scscStatus = Nothing, _scscCluster = Nothing, _scscContainerName = Nothing, _scscReason = Nothing, _scscExitCode = Nothing, _scscTask = Nothing};
 
 -- | The network bindings of the container.
-scscNetworkBindings :: Lens' SubmitContainerStateChange [NetworkBinding]
+scscNetworkBindings :: Lens' SubmitContainerStateChange (Maybe [NetworkBinding])
 scscNetworkBindings = lens _scscNetworkBindings (\ s a -> s{_scscNetworkBindings = a});
 
 -- | The status of the state change request.

@@ -89,8 +89,8 @@ instance ToQuery GetHealthCheckStatus where
 newtype GetHealthCheckStatusResponse = GetHealthCheckStatusResponse'{_ghcsrHealthCheckObservations :: [HealthCheckObservation]} deriving (Eq, Read, Show)
 
 -- | 'GetHealthCheckStatusResponse' smart constructor.
-getHealthCheckStatusResponse :: [HealthCheckObservation] -> GetHealthCheckStatusResponse
-getHealthCheckStatusResponse pHealthCheckObservations = GetHealthCheckStatusResponse'{_ghcsrHealthCheckObservations = pHealthCheckObservations};
+getHealthCheckStatusResponse :: GetHealthCheckStatusResponse
+getHealthCheckStatusResponse = GetHealthCheckStatusResponse'{_ghcsrHealthCheckObservations = mempty};
 
 -- | A list that contains one @HealthCheckObservation@ element for each Route
 -- 53 health checker.

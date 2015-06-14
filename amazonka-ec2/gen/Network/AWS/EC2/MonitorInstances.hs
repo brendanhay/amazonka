@@ -53,8 +53,8 @@ import Network.AWS.EC2.Types
 data MonitorInstances = MonitorInstances'{_miDryRun :: Maybe Bool, _miInstanceIds :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'MonitorInstances' smart constructor.
-monitorInstances :: [Text] -> MonitorInstances
-monitorInstances pInstanceIds = MonitorInstances'{_miDryRun = Nothing, _miInstanceIds = pInstanceIds};
+monitorInstances :: MonitorInstances
+monitorInstances = MonitorInstances'{_miDryRun = Nothing, _miInstanceIds = mempty};
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -95,12 +95,12 @@ instance ToQuery MonitorInstances where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'mirInstanceMonitorings'
-newtype MonitorInstancesResponse = MonitorInstancesResponse'{_mirInstanceMonitorings :: [InstanceMonitoring]} deriving (Eq, Read, Show)
+newtype MonitorInstancesResponse = MonitorInstancesResponse'{_mirInstanceMonitorings :: Maybe [InstanceMonitoring]} deriving (Eq, Read, Show)
 
 -- | 'MonitorInstancesResponse' smart constructor.
 monitorInstancesResponse :: MonitorInstancesResponse
-monitorInstancesResponse = MonitorInstancesResponse'{_mirInstanceMonitorings = mempty};
+monitorInstancesResponse = MonitorInstancesResponse'{_mirInstanceMonitorings = Nothing};
 
 -- | Monitoring information for one or more instances.
-mirInstanceMonitorings :: Lens' MonitorInstancesResponse [InstanceMonitoring]
+mirInstanceMonitorings :: Lens' MonitorInstancesResponse (Maybe [InstanceMonitoring])
 mirInstanceMonitorings = lens _mirInstanceMonitorings (\ s a -> s{_mirInstanceMonitorings = a});

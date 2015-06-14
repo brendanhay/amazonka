@@ -76,8 +76,8 @@ import Network.AWS.SQS.Types
 data AddPermission = AddPermission'{_apQueueURL :: Text, _apLabel :: Text, _apAWSAccountIds :: [Text], _apActions :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'AddPermission' smart constructor.
-addPermission :: Text -> Text -> [Text] -> [Text] -> AddPermission
-addPermission pQueueURL pLabel pAWSAccountIds pActions = AddPermission'{_apQueueURL = pQueueURL, _apLabel = pLabel, _apAWSAccountIds = pAWSAccountIds, _apActions = pActions};
+addPermission :: Text -> Text -> AddPermission
+addPermission pQueueURL pLabel = AddPermission'{_apQueueURL = pQueueURL, _apLabel = pLabel, _apAWSAccountIds = mempty, _apActions = mempty};
 
 -- | The URL of the Amazon SQS queue to take action on.
 apQueueURL :: Lens' AddPermission Text

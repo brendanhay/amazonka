@@ -64,8 +64,8 @@ import Network.AWS.ElasticTranscoder.Types
 data TestRole = TestRole'{_trRole :: Text, _trInputBucket :: Text, _trOutputBucket :: Text, _trTopics :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'TestRole' smart constructor.
-testRole :: Text -> Text -> Text -> [Text] -> TestRole
-testRole pRole pInputBucket pOutputBucket pTopics = TestRole'{_trRole = pRole, _trInputBucket = pInputBucket, _trOutputBucket = pOutputBucket, _trTopics = pTopics};
+testRole :: Text -> Text -> Text -> TestRole
+testRole pRole pInputBucket pOutputBucket = TestRole'{_trRole = pRole, _trInputBucket = pInputBucket, _trOutputBucket = pOutputBucket, _trTopics = mempty};
 
 -- | The IAM Amazon Resource Name (ARN) for the role that you want Elastic
 -- Transcoder to test.
@@ -120,11 +120,11 @@ instance ToQuery TestRole where
 -- * 'trrSuccess'
 --
 -- * 'trrMessages'
-data TestRoleResponse = TestRoleResponse'{_trrSuccess :: Maybe Text, _trrMessages :: [Text]} deriving (Eq, Read, Show)
+data TestRoleResponse = TestRoleResponse'{_trrSuccess :: Maybe Text, _trrMessages :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'TestRoleResponse' smart constructor.
 testRoleResponse :: TestRoleResponse
-testRoleResponse = TestRoleResponse'{_trrSuccess = Nothing, _trrMessages = mempty};
+testRoleResponse = TestRoleResponse'{_trrSuccess = Nothing, _trrMessages = Nothing};
 
 -- | If the operation is successful, this value is @true@; otherwise, the
 -- value is @false@.
@@ -133,5 +133,5 @@ trrSuccess = lens _trrSuccess (\ s a -> s{_trrSuccess = a});
 
 -- | If the @Success@ element contains @false@, this value is an array of one
 -- or more error messages that were generated during the test process.
-trrMessages :: Lens' TestRoleResponse [Text]
+trrMessages :: Lens' TestRoleResponse (Maybe [Text])
 trrMessages = lens _trrMessages (\ s a -> s{_trrMessages = a});

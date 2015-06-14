@@ -55,12 +55,12 @@ module Network.AWS.OpsWorks.Types
     , AutoScalingThresholds
     , autoScalingThresholds
     , astInstanceCount
+    , astIgnoreMetricsTime
     , astLoadThreshold
+    , astThresholdsWaitTime
     , astAlarms
     , astMemoryThreshold
     , astCPUThreshold
-    , astIgnoreMetricsTime
-    , astThresholdsWaitTime
 
     -- * AutoScalingType
     , AutoScalingType (..)
@@ -552,11 +552,11 @@ instance AWSService OpsWorks where
 -- * 'appStackId'
 --
 -- * 'appDescription'
-data App = App'{_appSSLConfiguration :: Maybe SSLConfiguration, _appShortname :: Maybe Text, _appEnableSSL :: Maybe Bool, _appCreatedAt :: Maybe Text, _appEnvironment :: [EnvironmentVariable], _appDataSources :: [DataSource], _appAppId :: Maybe Text, _appAppSource :: Maybe Source, _appName :: Maybe Text, _appAttributes :: HashMap AppAttributesKeys Text, _appType :: Maybe AppType, _appDomains :: [Text], _appStackId :: Maybe Text, _appDescription :: Maybe Text} deriving (Eq, Read, Show)
+data App = App'{_appSSLConfiguration :: Maybe SSLConfiguration, _appShortname :: Maybe Text, _appEnableSSL :: Maybe Bool, _appCreatedAt :: Maybe Text, _appEnvironment :: Maybe [EnvironmentVariable], _appDataSources :: Maybe [DataSource], _appAppId :: Maybe Text, _appAppSource :: Maybe Source, _appName :: Maybe Text, _appAttributes :: Maybe (HashMap AppAttributesKeys Text), _appType :: Maybe AppType, _appDomains :: Maybe [Text], _appStackId :: Maybe Text, _appDescription :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'App' smart constructor.
 app :: App
-app = App'{_appSSLConfiguration = Nothing, _appShortname = Nothing, _appEnableSSL = Nothing, _appCreatedAt = Nothing, _appEnvironment = mempty, _appDataSources = mempty, _appAppId = Nothing, _appAppSource = Nothing, _appName = Nothing, _appAttributes = mempty, _appType = Nothing, _appDomains = mempty, _appStackId = Nothing, _appDescription = Nothing};
+app = App'{_appSSLConfiguration = Nothing, _appShortname = Nothing, _appEnableSSL = Nothing, _appCreatedAt = Nothing, _appEnvironment = Nothing, _appDataSources = Nothing, _appAppId = Nothing, _appAppSource = Nothing, _appName = Nothing, _appAttributes = Nothing, _appType = Nothing, _appDomains = Nothing, _appStackId = Nothing, _appDescription = Nothing};
 
 -- | An @SslConfiguration@ object with the SSL configuration.
 appSSLConfiguration :: Lens' App (Maybe SSLConfiguration)
@@ -586,11 +586,11 @@ appCreatedAt = lens _appCreatedAt (\ s a -> s{_appCreatedAt = a});
 -- KB (10240 Bytes). This limit should accommodate most if not all use
 -- cases, but if you do exceed it, you will cause an exception (API) with
 -- an \"Environment: is too large (maximum is 10KB)\" message.
-appEnvironment :: Lens' App [EnvironmentVariable]
+appEnvironment :: Lens' App (Maybe [EnvironmentVariable])
 appEnvironment = lens _appEnvironment (\ s a -> s{_appEnvironment = a});
 
 -- | The app\'s data sources.
-appDataSources :: Lens' App [DataSource]
+appDataSources :: Lens' App (Maybe [DataSource])
 appDataSources = lens _appDataSources (\ s a -> s{_appDataSources = a});
 
 -- | The app ID.
@@ -606,8 +606,8 @@ appName :: Lens' App (Maybe Text)
 appName = lens _appName (\ s a -> s{_appName = a});
 
 -- | The stack attributes.
-appAttributes :: Lens' App (HashMap AppAttributesKeys Text)
-appAttributes = lens _appAttributes (\ s a -> s{_appAttributes = a}) . _Coerce;
+appAttributes :: Lens' App (Maybe (HashMap AppAttributesKeys Text))
+appAttributes = lens _appAttributes (\ s a -> s{_appAttributes = a}) . mapping _Coerce;
 
 -- | The app type.
 appType :: Lens' App (Maybe AppType)
@@ -615,7 +615,7 @@ appType = lens _appType (\ s a -> s{_appType = a});
 
 -- | The app vhost settings with multiple domains separated by commas. For
 -- example: @\'www.example.com, example.com\'@
-appDomains :: Lens' App [Text]
+appDomains :: Lens' App (Maybe [Text])
 appDomains = lens _appDomains (\ s a -> s{_appDomains = a});
 
 -- | The app stack ID.
@@ -730,32 +730,48 @@ instance FromJSON Architecture where
 --
 -- * 'astInstanceCount'
 --
+-- * 'astIgnoreMetricsTime'
+--
 -- * 'astLoadThreshold'
+--
+-- * 'astThresholdsWaitTime'
 --
 -- * 'astAlarms'
 --
 -- * 'astMemoryThreshold'
 --
 -- * 'astCPUThreshold'
---
--- * 'astIgnoreMetricsTime'
---
--- * 'astThresholdsWaitTime'
-data AutoScalingThresholds = AutoScalingThresholds'{_astInstanceCount :: Maybe Int, _astLoadThreshold :: Maybe Double, _astAlarms :: [Text], _astMemoryThreshold :: Maybe Double, _astCPUThreshold :: Maybe Double, _astIgnoreMetricsTime :: Nat, _astThresholdsWaitTime :: Nat} deriving (Eq, Read, Show)
+data AutoScalingThresholds = AutoScalingThresholds'{_astInstanceCount :: Maybe Int, _astIgnoreMetricsTime :: Maybe Nat, _astLoadThreshold :: Maybe Double, _astThresholdsWaitTime :: Maybe Nat, _astAlarms :: Maybe [Text], _astMemoryThreshold :: Maybe Double, _astCPUThreshold :: Maybe Double} deriving (Eq, Read, Show)
 
 -- | 'AutoScalingThresholds' smart constructor.
-autoScalingThresholds :: Natural -> Natural -> AutoScalingThresholds
-autoScalingThresholds pIgnoreMetricsTime pThresholdsWaitTime = AutoScalingThresholds'{_astInstanceCount = Nothing, _astLoadThreshold = Nothing, _astAlarms = mempty, _astMemoryThreshold = Nothing, _astCPUThreshold = Nothing, _astIgnoreMetricsTime = _Nat # pIgnoreMetricsTime, _astThresholdsWaitTime = _Nat # pThresholdsWaitTime};
+autoScalingThresholds :: AutoScalingThresholds
+autoScalingThresholds = AutoScalingThresholds'{_astInstanceCount = Nothing, _astIgnoreMetricsTime = Nothing, _astLoadThreshold = Nothing, _astThresholdsWaitTime = Nothing, _astAlarms = Nothing, _astMemoryThreshold = Nothing, _astCPUThreshold = Nothing};
 
 -- | The number of instances to add or remove when the load exceeds a
 -- threshold.
 astInstanceCount :: Lens' AutoScalingThresholds (Maybe Int)
 astInstanceCount = lens _astInstanceCount (\ s a -> s{_astInstanceCount = a});
 
+-- | The amount of time (in minutes) after a scaling event occurs that AWS
+-- OpsWorks should ignore metrics and suppress additional scaling events.
+-- For example, AWS OpsWorks adds new instances following an upscaling
+-- event but the instances won\'t start reducing the load until they have
+-- been booted and configured. There is no point in raising additional
+-- scaling events during that operation, which typically takes several
+-- minutes. @IgnoreMetricsTime@ allows you to direct AWS OpsWorks to
+-- suppress scaling events long enough to get the new instances online.
+astIgnoreMetricsTime :: Lens' AutoScalingThresholds (Maybe Natural)
+astIgnoreMetricsTime = lens _astIgnoreMetricsTime (\ s a -> s{_astIgnoreMetricsTime = a}) . mapping _Nat;
+
 -- | The load threshold. For more information about how load is computed, see
 -- <http://en.wikipedia.org/wiki/Load_%28computing%29 Load (computing)>.
 astLoadThreshold :: Lens' AutoScalingThresholds (Maybe Double)
 astLoadThreshold = lens _astLoadThreshold (\ s a -> s{_astLoadThreshold = a});
+
+-- | The amount of time, in minutes, that the load must exceed a threshold
+-- before more instances are added or removed.
+astThresholdsWaitTime :: Lens' AutoScalingThresholds (Maybe Natural)
+astThresholdsWaitTime = lens _astThresholdsWaitTime (\ s a -> s{_astThresholdsWaitTime = a}) . mapping _Nat;
 
 -- | Custom Cloudwatch auto scaling alarms, to be used as thresholds. This
 -- parameter takes a list of up to five alarm names, which are case
@@ -766,7 +782,7 @@ astLoadThreshold = lens _astLoadThreshold (\ s a -> s{_astLoadThreshold = a});
 -- role for you when you first use this feature or you can edit the role
 -- manually. For more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-servicerole.html Allowing AWS OpsWorks to Act on Your Behalf>.
-astAlarms :: Lens' AutoScalingThresholds [Text]
+astAlarms :: Lens' AutoScalingThresholds (Maybe [Text])
 astAlarms = lens _astAlarms (\ s a -> s{_astAlarms = a});
 
 -- | The memory utilization threshold, as a percent of the available memory.
@@ -777,44 +793,28 @@ astMemoryThreshold = lens _astMemoryThreshold (\ s a -> s{_astMemoryThreshold = 
 astCPUThreshold :: Lens' AutoScalingThresholds (Maybe Double)
 astCPUThreshold = lens _astCPUThreshold (\ s a -> s{_astCPUThreshold = a});
 
--- | The amount of time (in minutes) after a scaling event occurs that AWS
--- OpsWorks should ignore metrics and suppress additional scaling events.
--- For example, AWS OpsWorks adds new instances following an upscaling
--- event but the instances won\'t start reducing the load until they have
--- been booted and configured. There is no point in raising additional
--- scaling events during that operation, which typically takes several
--- minutes. @IgnoreMetricsTime@ allows you to direct AWS OpsWorks to
--- suppress scaling events long enough to get the new instances online.
-astIgnoreMetricsTime :: Lens' AutoScalingThresholds Natural
-astIgnoreMetricsTime = lens _astIgnoreMetricsTime (\ s a -> s{_astIgnoreMetricsTime = a}) . _Nat;
-
--- | The amount of time, in minutes, that the load must exceed a threshold
--- before more instances are added or removed.
-astThresholdsWaitTime :: Lens' AutoScalingThresholds Natural
-astThresholdsWaitTime = lens _astThresholdsWaitTime (\ s a -> s{_astThresholdsWaitTime = a}) . _Nat;
-
 instance FromJSON AutoScalingThresholds where
         parseJSON
           = withObject "AutoScalingThresholds"
               (\ x ->
                  AutoScalingThresholds' <$>
-                   x .:? "InstanceCount" <*> x .:? "LoadThreshold" <*>
-                     x .:? "Alarms" .!= mempty
+                   x .:? "InstanceCount" <*> x .:? "IgnoreMetricsTime"
+                     <*> x .:? "LoadThreshold"
+                     <*> x .:? "ThresholdsWaitTime"
+                     <*> x .:? "Alarms" .!= mempty
                      <*> x .:? "MemoryThreshold"
-                     <*> x .:? "CpuThreshold"
-                     <*> x .: "IgnoreMetricsTime"
-                     <*> x .: "ThresholdsWaitTime")
+                     <*> x .:? "CpuThreshold")
 
 instance ToJSON AutoScalingThresholds where
         toJSON AutoScalingThresholds'{..}
           = object
               ["InstanceCount" .= _astInstanceCount,
+               "IgnoreMetricsTime" .= _astIgnoreMetricsTime,
                "LoadThreshold" .= _astLoadThreshold,
+               "ThresholdsWaitTime" .= _astThresholdsWaitTime,
                "Alarms" .= _astAlarms,
                "MemoryThreshold" .= _astMemoryThreshold,
-               "CpuThreshold" .= _astCPUThreshold,
-               "IgnoreMetricsTime" .= _astIgnoreMetricsTime,
-               "ThresholdsWaitTime" .= _astThresholdsWaitTime]
+               "CpuThreshold" .= _astCPUThreshold]
 
 data AutoScalingType = Timer | Load deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -1097,11 +1097,11 @@ instance ToJSON DataSource where
 -- * 'depComment'
 --
 -- * 'depDuration'
-data Deployment = Deployment'{_depDeploymentId :: Maybe Text, _depStatus :: Maybe Text, _depCommand :: Maybe DeploymentCommand, _depCreatedAt :: Maybe Text, _depCustomJSON :: Maybe Text, _depIAMUserARN :: Maybe Text, _depAppId :: Maybe Text, _depInstanceIds :: [Text], _depCompletedAt :: Maybe Text, _depStackId :: Maybe Text, _depComment :: Maybe Text, _depDuration :: Maybe Int} deriving (Eq, Read, Show)
+data Deployment = Deployment'{_depDeploymentId :: Maybe Text, _depStatus :: Maybe Text, _depCommand :: Maybe DeploymentCommand, _depCreatedAt :: Maybe Text, _depCustomJSON :: Maybe Text, _depIAMUserARN :: Maybe Text, _depAppId :: Maybe Text, _depInstanceIds :: Maybe [Text], _depCompletedAt :: Maybe Text, _depStackId :: Maybe Text, _depComment :: Maybe Text, _depDuration :: Maybe Int} deriving (Eq, Read, Show)
 
 -- | 'Deployment' smart constructor.
 deployment :: Deployment
-deployment = Deployment'{_depDeploymentId = Nothing, _depStatus = Nothing, _depCommand = Nothing, _depCreatedAt = Nothing, _depCustomJSON = Nothing, _depIAMUserARN = Nothing, _depAppId = Nothing, _depInstanceIds = mempty, _depCompletedAt = Nothing, _depStackId = Nothing, _depComment = Nothing, _depDuration = Nothing};
+deployment = Deployment'{_depDeploymentId = Nothing, _depStatus = Nothing, _depCommand = Nothing, _depCreatedAt = Nothing, _depCustomJSON = Nothing, _depIAMUserARN = Nothing, _depAppId = Nothing, _depInstanceIds = Nothing, _depCompletedAt = Nothing, _depStackId = Nothing, _depComment = Nothing, _depDuration = Nothing};
 
 -- | The deployment ID.
 depDeploymentId :: Lens' Deployment (Maybe Text)
@@ -1144,7 +1144,7 @@ depAppId :: Lens' Deployment (Maybe Text)
 depAppId = lens _depAppId (\ s a -> s{_depAppId = a});
 
 -- | The IDs of the target instances.
-depInstanceIds :: Lens' Deployment [Text]
+depInstanceIds :: Lens' Deployment (Maybe [Text])
 depInstanceIds = lens _depInstanceIds (\ s a -> s{_depInstanceIds = a});
 
 -- | Date when the deployment completed.
@@ -1187,11 +1187,11 @@ instance FromJSON Deployment where
 -- * 'dcArgs'
 --
 -- * 'dcName'
-data DeploymentCommand = DeploymentCommand'{_dcArgs :: HashMap Text [Text], _dcName :: DeploymentCommandName} deriving (Eq, Read, Show)
+data DeploymentCommand = DeploymentCommand'{_dcArgs :: Maybe (HashMap Text [Text]), _dcName :: DeploymentCommandName} deriving (Eq, Read, Show)
 
 -- | 'DeploymentCommand' smart constructor.
 deploymentCommand :: DeploymentCommandName -> DeploymentCommand
-deploymentCommand pName = DeploymentCommand'{_dcArgs = mempty, _dcName = pName};
+deploymentCommand pName = DeploymentCommand'{_dcArgs = Nothing, _dcName = pName};
 
 -- | The arguments of those commands that take arguments. It should be set to
 -- a JSON object with the following format:
@@ -1213,8 +1213,8 @@ deploymentCommand pName = DeploymentCommand'{_dcArgs = mempty, _dcName = pName};
 -- to the following.
 --
 -- @ { \"upgrade_os_to\":[\"Amazon Linux 2014.09\"], \"allow_reboot\":[\"true\"] } @
-dcArgs :: Lens' DeploymentCommand (HashMap Text [Text])
-dcArgs = lens _dcArgs (\ s a -> s{_dcArgs = a}) . _Coerce;
+dcArgs :: Lens' DeploymentCommand (Maybe (HashMap Text [Text]))
+dcArgs = lens _dcArgs (\ s a -> s{_dcArgs = a}) . mapping _Coerce;
 
 -- | Specifies the operation. You can specify only one command.
 --
@@ -1430,14 +1430,14 @@ instance FromJSON ElasticIP where
 -- * 'elbLayerId'
 --
 -- * 'elbDNSName'
-data ElasticLoadBalancer = ElasticLoadBalancer'{_elbSubnetIds :: [Text], _elbVPCId :: Maybe Text, _elbAvailabilityZones :: [Text], _elbRegion :: Maybe Text, _elbElasticLoadBalancerName :: Maybe Text, _elbEC2InstanceIds :: [Text], _elbStackId :: Maybe Text, _elbLayerId :: Maybe Text, _elbDNSName :: Maybe Text} deriving (Eq, Read, Show)
+data ElasticLoadBalancer = ElasticLoadBalancer'{_elbSubnetIds :: Maybe [Text], _elbVPCId :: Maybe Text, _elbAvailabilityZones :: Maybe [Text], _elbRegion :: Maybe Text, _elbElasticLoadBalancerName :: Maybe Text, _elbEC2InstanceIds :: Maybe [Text], _elbStackId :: Maybe Text, _elbLayerId :: Maybe Text, _elbDNSName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ElasticLoadBalancer' smart constructor.
 elasticLoadBalancer :: ElasticLoadBalancer
-elasticLoadBalancer = ElasticLoadBalancer'{_elbSubnetIds = mempty, _elbVPCId = Nothing, _elbAvailabilityZones = mempty, _elbRegion = Nothing, _elbElasticLoadBalancerName = Nothing, _elbEC2InstanceIds = mempty, _elbStackId = Nothing, _elbLayerId = Nothing, _elbDNSName = Nothing};
+elasticLoadBalancer = ElasticLoadBalancer'{_elbSubnetIds = Nothing, _elbVPCId = Nothing, _elbAvailabilityZones = Nothing, _elbRegion = Nothing, _elbElasticLoadBalancerName = Nothing, _elbEC2InstanceIds = Nothing, _elbStackId = Nothing, _elbLayerId = Nothing, _elbDNSName = Nothing};
 
 -- | A list of subnet IDs, if the stack is running in a VPC.
-elbSubnetIds :: Lens' ElasticLoadBalancer [Text]
+elbSubnetIds :: Lens' ElasticLoadBalancer (Maybe [Text])
 elbSubnetIds = lens _elbSubnetIds (\ s a -> s{_elbSubnetIds = a});
 
 -- | The VPC ID.
@@ -1445,7 +1445,7 @@ elbVPCId :: Lens' ElasticLoadBalancer (Maybe Text)
 elbVPCId = lens _elbVPCId (\ s a -> s{_elbVPCId = a});
 
 -- | A list of Availability Zones.
-elbAvailabilityZones :: Lens' ElasticLoadBalancer [Text]
+elbAvailabilityZones :: Lens' ElasticLoadBalancer (Maybe [Text])
 elbAvailabilityZones = lens _elbAvailabilityZones (\ s a -> s{_elbAvailabilityZones = a});
 
 -- | The instance\'s AWS region.
@@ -1458,7 +1458,7 @@ elbElasticLoadBalancerName = lens _elbElasticLoadBalancerName (\ s a -> s{_elbEl
 
 -- | A list of the EC2 instances that the Elastic Load Balancing instance is
 -- managing traffic for.
-elbEC2InstanceIds :: Lens' ElasticLoadBalancer [Text]
+elbEC2InstanceIds :: Lens' ElasticLoadBalancer (Maybe [Text])
 elbEC2InstanceIds = lens _elbEC2InstanceIds (\ s a -> s{_elbEC2InstanceIds = a});
 
 -- | The ID of the stack that the instance is associated with.
@@ -1608,11 +1608,11 @@ instance ToJSON EnvironmentVariable where
 -- * 'insBlockDeviceMappings'
 --
 -- * 'insRootDeviceType'
-data Instance = Instance'{_insInstanceId :: Maybe Text, _insPrivateIP :: Maybe Text, _insInstallUpdatesOnBoot :: Maybe Bool, _insReportedAgentVersion :: Maybe Text, _insStatus :: Maybe Text, _insPrivateDNS :: Maybe Text, _insVirtualizationType :: Maybe VirtualizationType, _insSecurityGroupIds :: [Text], _insSSHHostRsaKeyFingerprint :: Maybe Text, _insInstanceProfileARN :: Maybe Text, _insHostname :: Maybe Text, _insCreatedAt :: Maybe Text, _insSSHKeyName :: Maybe Text, _insEC2InstanceId :: Maybe Text, _insRootDeviceVolumeId :: Maybe Text, _insSubnetId :: Maybe Text, _insInstanceType :: Maybe Text, _insInfrastructureClass :: Maybe Text, _insEBSOptimized :: Maybe Bool, _insSSHHostDsaKeyFingerprint :: Maybe Text, _insElasticIP :: Maybe Text, _insOS :: Maybe Text, _insAvailabilityZone :: Maybe Text, _insLastServiceErrorId :: Maybe Text, _insAutoScalingType :: Maybe AutoScalingType, _insLayerIds :: [Text], _insArchitecture :: Maybe Architecture, _insPublicDNS :: Maybe Text, _insPublicIP :: Maybe Text, _insAMIId :: Maybe Text, _insReportedOS :: Maybe ReportedOS, _insStackId :: Maybe Text, _insRegisteredBy :: Maybe Text, _insBlockDeviceMappings :: [BlockDeviceMapping], _insRootDeviceType :: Maybe RootDeviceType} deriving (Eq, Read, Show)
+data Instance = Instance'{_insInstanceId :: Maybe Text, _insPrivateIP :: Maybe Text, _insInstallUpdatesOnBoot :: Maybe Bool, _insReportedAgentVersion :: Maybe Text, _insStatus :: Maybe Text, _insPrivateDNS :: Maybe Text, _insVirtualizationType :: Maybe VirtualizationType, _insSecurityGroupIds :: Maybe [Text], _insSSHHostRsaKeyFingerprint :: Maybe Text, _insInstanceProfileARN :: Maybe Text, _insHostname :: Maybe Text, _insCreatedAt :: Maybe Text, _insSSHKeyName :: Maybe Text, _insEC2InstanceId :: Maybe Text, _insRootDeviceVolumeId :: Maybe Text, _insSubnetId :: Maybe Text, _insInstanceType :: Maybe Text, _insInfrastructureClass :: Maybe Text, _insEBSOptimized :: Maybe Bool, _insSSHHostDsaKeyFingerprint :: Maybe Text, _insElasticIP :: Maybe Text, _insOS :: Maybe Text, _insAvailabilityZone :: Maybe Text, _insLastServiceErrorId :: Maybe Text, _insAutoScalingType :: Maybe AutoScalingType, _insLayerIds :: Maybe [Text], _insArchitecture :: Maybe Architecture, _insPublicDNS :: Maybe Text, _insPublicIP :: Maybe Text, _insAMIId :: Maybe Text, _insReportedOS :: Maybe ReportedOS, _insStackId :: Maybe Text, _insRegisteredBy :: Maybe Text, _insBlockDeviceMappings :: Maybe [BlockDeviceMapping], _insRootDeviceType :: Maybe RootDeviceType} deriving (Eq, Read, Show)
 
 -- | 'Instance' smart constructor.
 instance' :: Instance
-instance' = Instance'{_insInstanceId = Nothing, _insPrivateIP = Nothing, _insInstallUpdatesOnBoot = Nothing, _insReportedAgentVersion = Nothing, _insStatus = Nothing, _insPrivateDNS = Nothing, _insVirtualizationType = Nothing, _insSecurityGroupIds = mempty, _insSSHHostRsaKeyFingerprint = Nothing, _insInstanceProfileARN = Nothing, _insHostname = Nothing, _insCreatedAt = Nothing, _insSSHKeyName = Nothing, _insEC2InstanceId = Nothing, _insRootDeviceVolumeId = Nothing, _insSubnetId = Nothing, _insInstanceType = Nothing, _insInfrastructureClass = Nothing, _insEBSOptimized = Nothing, _insSSHHostDsaKeyFingerprint = Nothing, _insElasticIP = Nothing, _insOS = Nothing, _insAvailabilityZone = Nothing, _insLastServiceErrorId = Nothing, _insAutoScalingType = Nothing, _insLayerIds = mempty, _insArchitecture = Nothing, _insPublicDNS = Nothing, _insPublicIP = Nothing, _insAMIId = Nothing, _insReportedOS = Nothing, _insStackId = Nothing, _insRegisteredBy = Nothing, _insBlockDeviceMappings = mempty, _insRootDeviceType = Nothing};
+instance' = Instance'{_insInstanceId = Nothing, _insPrivateIP = Nothing, _insInstallUpdatesOnBoot = Nothing, _insReportedAgentVersion = Nothing, _insStatus = Nothing, _insPrivateDNS = Nothing, _insVirtualizationType = Nothing, _insSecurityGroupIds = Nothing, _insSSHHostRsaKeyFingerprint = Nothing, _insInstanceProfileARN = Nothing, _insHostname = Nothing, _insCreatedAt = Nothing, _insSSHKeyName = Nothing, _insEC2InstanceId = Nothing, _insRootDeviceVolumeId = Nothing, _insSubnetId = Nothing, _insInstanceType = Nothing, _insInfrastructureClass = Nothing, _insEBSOptimized = Nothing, _insSSHHostDsaKeyFingerprint = Nothing, _insElasticIP = Nothing, _insOS = Nothing, _insAvailabilityZone = Nothing, _insLastServiceErrorId = Nothing, _insAutoScalingType = Nothing, _insLayerIds = Nothing, _insArchitecture = Nothing, _insPublicDNS = Nothing, _insPublicIP = Nothing, _insAMIId = Nothing, _insReportedOS = Nothing, _insStackId = Nothing, _insRegisteredBy = Nothing, _insBlockDeviceMappings = Nothing, _insRootDeviceType = Nothing};
 
 -- | The instance ID.
 insInstanceId :: Lens' Instance (Maybe Text)
@@ -1666,7 +1666,7 @@ insVirtualizationType :: Lens' Instance (Maybe VirtualizationType)
 insVirtualizationType = lens _insVirtualizationType (\ s a -> s{_insVirtualizationType = a});
 
 -- | An array containing the instance security group IDs.
-insSecurityGroupIds :: Lens' Instance [Text]
+insSecurityGroupIds :: Lens' Instance (Maybe [Text])
 insSecurityGroupIds = lens _insSecurityGroupIds (\ s a -> s{_insSecurityGroupIds = a});
 
 -- | The SSH key\'s RSA fingerprint.
@@ -1749,7 +1749,7 @@ insAutoScalingType :: Lens' Instance (Maybe AutoScalingType)
 insAutoScalingType = lens _insAutoScalingType (\ s a -> s{_insAutoScalingType = a});
 
 -- | An array containing the instance layer IDs.
-insLayerIds :: Lens' Instance [Text]
+insLayerIds :: Lens' Instance (Maybe [Text])
 insLayerIds = lens _insLayerIds (\ s a -> s{_insLayerIds = a});
 
 -- | The instance architecture, \"i386\" or \"x86_64\".
@@ -1785,7 +1785,7 @@ insRegisteredBy = lens _insRegisteredBy (\ s a -> s{_insRegisteredBy = a});
 
 -- | An array of @BlockDeviceMapping@ objects that specify the instance\'s
 -- block device mappings.
-insBlockDeviceMappings :: Lens' Instance [BlockDeviceMapping]
+insBlockDeviceMappings :: Lens' Instance (Maybe [BlockDeviceMapping])
 insBlockDeviceMappings = lens _insBlockDeviceMappings (\ s a -> s{_insBlockDeviceMappings = a});
 
 -- | The instance\'s root device type. For more information, see
@@ -2051,11 +2051,11 @@ instance FromJSON InstancesCount where
 -- * 'layDefaultSecurityGroupNames'
 --
 -- * 'layAutoAssignElasticIPs'
-data Layer = Layer'{_layCustomInstanceProfileARN :: Maybe Text, _layInstallUpdatesOnBoot :: Maybe Bool, _layCustomSecurityGroupIds :: [Text], _layLifecycleEventConfiguration :: Maybe LifecycleEventConfiguration, _layShortname :: Maybe Text, _layCreatedAt :: Maybe Text, _layDefaultRecipes :: Maybe Recipes, _layCustomRecipes :: Maybe Recipes, _layVolumeConfigurations :: [VolumeConfiguration], _layEnableAutoHealing :: Maybe Bool, _layPackages :: [Text], _layName :: Maybe Text, _layAttributes :: HashMap LayerAttributesKeys Text, _layAutoAssignPublicIPs :: Maybe Bool, _layUseEBSOptimizedInstances :: Maybe Bool, _layType :: Maybe LayerType, _layStackId :: Maybe Text, _layLayerId :: Maybe Text, _layDefaultSecurityGroupNames :: [Text], _layAutoAssignElasticIPs :: Maybe Bool} deriving (Eq, Read, Show)
+data Layer = Layer'{_layCustomInstanceProfileARN :: Maybe Text, _layInstallUpdatesOnBoot :: Maybe Bool, _layCustomSecurityGroupIds :: Maybe [Text], _layLifecycleEventConfiguration :: Maybe LifecycleEventConfiguration, _layShortname :: Maybe Text, _layCreatedAt :: Maybe Text, _layDefaultRecipes :: Maybe Recipes, _layCustomRecipes :: Maybe Recipes, _layVolumeConfigurations :: Maybe [VolumeConfiguration], _layEnableAutoHealing :: Maybe Bool, _layPackages :: Maybe [Text], _layName :: Maybe Text, _layAttributes :: Maybe (HashMap LayerAttributesKeys Text), _layAutoAssignPublicIPs :: Maybe Bool, _layUseEBSOptimizedInstances :: Maybe Bool, _layType :: Maybe LayerType, _layStackId :: Maybe Text, _layLayerId :: Maybe Text, _layDefaultSecurityGroupNames :: Maybe [Text], _layAutoAssignElasticIPs :: Maybe Bool} deriving (Eq, Read, Show)
 
 -- | 'Layer' smart constructor.
 layer :: Layer
-layer = Layer'{_layCustomInstanceProfileARN = Nothing, _layInstallUpdatesOnBoot = Nothing, _layCustomSecurityGroupIds = mempty, _layLifecycleEventConfiguration = Nothing, _layShortname = Nothing, _layCreatedAt = Nothing, _layDefaultRecipes = Nothing, _layCustomRecipes = Nothing, _layVolumeConfigurations = mempty, _layEnableAutoHealing = Nothing, _layPackages = mempty, _layName = Nothing, _layAttributes = mempty, _layAutoAssignPublicIPs = Nothing, _layUseEBSOptimizedInstances = Nothing, _layType = Nothing, _layStackId = Nothing, _layLayerId = Nothing, _layDefaultSecurityGroupNames = mempty, _layAutoAssignElasticIPs = Nothing};
+layer = Layer'{_layCustomInstanceProfileARN = Nothing, _layInstallUpdatesOnBoot = Nothing, _layCustomSecurityGroupIds = Nothing, _layLifecycleEventConfiguration = Nothing, _layShortname = Nothing, _layCreatedAt = Nothing, _layDefaultRecipes = Nothing, _layCustomRecipes = Nothing, _layVolumeConfigurations = Nothing, _layEnableAutoHealing = Nothing, _layPackages = Nothing, _layName = Nothing, _layAttributes = Nothing, _layAutoAssignPublicIPs = Nothing, _layUseEBSOptimizedInstances = Nothing, _layType = Nothing, _layStackId = Nothing, _layLayerId = Nothing, _layDefaultSecurityGroupNames = Nothing, _layAutoAssignElasticIPs = Nothing};
 
 -- | The ARN of the default IAM profile to be used for the layer\'s EC2
 -- instances. For more information about IAM ARNs, see
@@ -2076,7 +2076,7 @@ layInstallUpdatesOnBoot :: Lens' Layer (Maybe Bool)
 layInstallUpdatesOnBoot = lens _layInstallUpdatesOnBoot (\ s a -> s{_layInstallUpdatesOnBoot = a});
 
 -- | An array containing the layer\'s custom security group IDs.
-layCustomSecurityGroupIds :: Lens' Layer [Text]
+layCustomSecurityGroupIds :: Lens' Layer (Maybe [Text])
 layCustomSecurityGroupIds = lens _layCustomSecurityGroupIds (\ s a -> s{_layCustomSecurityGroupIds = a});
 
 -- | A @LifeCycleEventConfiguration@ object that specifies the Shutdown event
@@ -2103,7 +2103,7 @@ layCustomRecipes = lens _layCustomRecipes (\ s a -> s{_layCustomRecipes = a});
 
 -- | A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS
 -- volumes.
-layVolumeConfigurations :: Lens' Layer [VolumeConfiguration]
+layVolumeConfigurations :: Lens' Layer (Maybe [VolumeConfiguration])
 layVolumeConfigurations = lens _layVolumeConfigurations (\ s a -> s{_layVolumeConfigurations = a});
 
 -- | Whether auto healing is disabled for the layer.
@@ -2111,7 +2111,7 @@ layEnableAutoHealing :: Lens' Layer (Maybe Bool)
 layEnableAutoHealing = lens _layEnableAutoHealing (\ s a -> s{_layEnableAutoHealing = a});
 
 -- | An array of @Package@ objects that describe the layer\'s packages.
-layPackages :: Lens' Layer [Text]
+layPackages :: Lens' Layer (Maybe [Text])
 layPackages = lens _layPackages (\ s a -> s{_layPackages = a});
 
 -- | The layer name.
@@ -2123,8 +2123,8 @@ layName = lens _layName (\ s a -> s{_layName = a});
 -- For the @HaproxyStatsPassword@, @MysqlRootPassword@, and
 -- @GangliaPassword@ attributes, AWS OpsWorks returns @*****FILTERED*****@
 -- instead of the actual value
-layAttributes :: Lens' Layer (HashMap LayerAttributesKeys Text)
-layAttributes = lens _layAttributes (\ s a -> s{_layAttributes = a}) . _Coerce;
+layAttributes :: Lens' Layer (Maybe (HashMap LayerAttributesKeys Text))
+layAttributes = lens _layAttributes (\ s a -> s{_layAttributes = a}) . mapping _Coerce;
 
 -- | For stacks that are running in a VPC, whether to automatically assign a
 -- public IP address to the layer\'s instances. For more information, see
@@ -2149,7 +2149,7 @@ layLayerId :: Lens' Layer (Maybe Text)
 layLayerId = lens _layLayerId (\ s a -> s{_layLayerId = a});
 
 -- | An array containing the layer\'s security group names.
-layDefaultSecurityGroupNames :: Lens' Layer [Text]
+layDefaultSecurityGroupNames :: Lens' Layer (Maybe [Text])
 layDefaultSecurityGroupNames = lens _layDefaultSecurityGroupNames (\ s a -> s{_layDefaultSecurityGroupNames = a});
 
 -- | Whether to automatically assign an
@@ -2624,30 +2624,30 @@ instance FromJSON RDSDBInstance where
 -- * 'recConfigure'
 --
 -- * 'recDeploy'
-data Recipes = Recipes'{_recSetup :: [Text], _recUndeploy :: [Text], _recShutdown :: [Text], _recConfigure :: [Text], _recDeploy :: [Text]} deriving (Eq, Read, Show)
+data Recipes = Recipes'{_recSetup :: Maybe [Text], _recUndeploy :: Maybe [Text], _recShutdown :: Maybe [Text], _recConfigure :: Maybe [Text], _recDeploy :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'Recipes' smart constructor.
 recipes :: Recipes
-recipes = Recipes'{_recSetup = mempty, _recUndeploy = mempty, _recShutdown = mempty, _recConfigure = mempty, _recDeploy = mempty};
+recipes = Recipes'{_recSetup = Nothing, _recUndeploy = Nothing, _recShutdown = Nothing, _recConfigure = Nothing, _recDeploy = Nothing};
 
 -- | An array of custom recipe names to be run following a @setup@ event.
-recSetup :: Lens' Recipes [Text]
+recSetup :: Lens' Recipes (Maybe [Text])
 recSetup = lens _recSetup (\ s a -> s{_recSetup = a});
 
 -- | An array of custom recipe names to be run following a @undeploy@ event.
-recUndeploy :: Lens' Recipes [Text]
+recUndeploy :: Lens' Recipes (Maybe [Text])
 recUndeploy = lens _recUndeploy (\ s a -> s{_recUndeploy = a});
 
 -- | An array of custom recipe names to be run following a @shutdown@ event.
-recShutdown :: Lens' Recipes [Text]
+recShutdown :: Lens' Recipes (Maybe [Text])
 recShutdown = lens _recShutdown (\ s a -> s{_recShutdown = a});
 
 -- | An array of custom recipe names to be run following a @configure@ event.
-recConfigure :: Lens' Recipes [Text]
+recConfigure :: Lens' Recipes (Maybe [Text])
 recConfigure = lens _recConfigure (\ s a -> s{_recConfigure = a});
 
 -- | An array of custom recipe names to be run following a @deploy@ event.
-recDeploy :: Lens' Recipes [Text]
+recDeploy :: Lens' Recipes (Maybe [Text])
 recDeploy = lens _recDeploy (\ s a -> s{_recDeploy = a});
 
 instance FromJSON Recipes where
@@ -3062,11 +3062,11 @@ instance FromJSON SourceType where
 -- * 'staStackId'
 --
 -- * 'staHostnameTheme'
-data Stack = Stack'{_staDefaultInstanceProfileARN :: Maybe Text, _staServiceRoleARN :: Maybe Text, _staARN :: Maybe Text, _staDefaultRootDeviceType :: Maybe RootDeviceType, _staCreatedAt :: Maybe Text, _staChefConfiguration :: Maybe ChefConfiguration, _staVPCId :: Maybe Text, _staDefaultSSHKeyName :: Maybe Text, _staCustomJSON :: Maybe Text, _staCustomCookbooksSource :: Maybe Source, _staDefaultAvailabilityZone :: Maybe Text, _staName :: Maybe Text, _staUseOpsworksSecurityGroups :: Maybe Bool, _staDefaultOS :: Maybe Text, _staAttributes :: HashMap StackAttributesKeys Text, _staUseCustomCookbooks :: Maybe Bool, _staDefaultSubnetId :: Maybe Text, _staRegion :: Maybe Text, _staConfigurationManager :: Maybe StackConfigurationManager, _staStackId :: Maybe Text, _staHostnameTheme :: Maybe Text} deriving (Eq, Read, Show)
+data Stack = Stack'{_staDefaultInstanceProfileARN :: Maybe Text, _staServiceRoleARN :: Maybe Text, _staARN :: Maybe Text, _staDefaultRootDeviceType :: Maybe RootDeviceType, _staCreatedAt :: Maybe Text, _staChefConfiguration :: Maybe ChefConfiguration, _staVPCId :: Maybe Text, _staDefaultSSHKeyName :: Maybe Text, _staCustomJSON :: Maybe Text, _staCustomCookbooksSource :: Maybe Source, _staDefaultAvailabilityZone :: Maybe Text, _staName :: Maybe Text, _staUseOpsworksSecurityGroups :: Maybe Bool, _staDefaultOS :: Maybe Text, _staAttributes :: Maybe (HashMap StackAttributesKeys Text), _staUseCustomCookbooks :: Maybe Bool, _staDefaultSubnetId :: Maybe Text, _staRegion :: Maybe Text, _staConfigurationManager :: Maybe StackConfigurationManager, _staStackId :: Maybe Text, _staHostnameTheme :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'Stack' smart constructor.
 stack :: Stack
-stack = Stack'{_staDefaultInstanceProfileARN = Nothing, _staServiceRoleARN = Nothing, _staARN = Nothing, _staDefaultRootDeviceType = Nothing, _staCreatedAt = Nothing, _staChefConfiguration = Nothing, _staVPCId = Nothing, _staDefaultSSHKeyName = Nothing, _staCustomJSON = Nothing, _staCustomCookbooksSource = Nothing, _staDefaultAvailabilityZone = Nothing, _staName = Nothing, _staUseOpsworksSecurityGroups = Nothing, _staDefaultOS = Nothing, _staAttributes = mempty, _staUseCustomCookbooks = Nothing, _staDefaultSubnetId = Nothing, _staRegion = Nothing, _staConfigurationManager = Nothing, _staStackId = Nothing, _staHostnameTheme = Nothing};
+stack = Stack'{_staDefaultInstanceProfileARN = Nothing, _staServiceRoleARN = Nothing, _staARN = Nothing, _staDefaultRootDeviceType = Nothing, _staCreatedAt = Nothing, _staChefConfiguration = Nothing, _staVPCId = Nothing, _staDefaultSSHKeyName = Nothing, _staCustomJSON = Nothing, _staCustomCookbooksSource = Nothing, _staDefaultAvailabilityZone = Nothing, _staName = Nothing, _staUseOpsworksSecurityGroups = Nothing, _staDefaultOS = Nothing, _staAttributes = Nothing, _staUseCustomCookbooks = Nothing, _staDefaultSubnetId = Nothing, _staRegion = Nothing, _staConfigurationManager = Nothing, _staStackId = Nothing, _staHostnameTheme = Nothing};
 
 -- | The ARN of an IAM profile that is the default profile for all of the
 -- stack\'s EC2 instances. For more information about IAM ARNs, see
@@ -3143,8 +3143,8 @@ staDefaultOS :: Lens' Stack (Maybe Text)
 staDefaultOS = lens _staDefaultOS (\ s a -> s{_staDefaultOS = a});
 
 -- | The stack\'s attributes.
-staAttributes :: Lens' Stack (HashMap StackAttributesKeys Text)
-staAttributes = lens _staAttributes (\ s a -> s{_staAttributes = a}) . _Coerce;
+staAttributes :: Lens' Stack (Maybe (HashMap StackAttributesKeys Text))
+staAttributes = lens _staAttributes (\ s a -> s{_staAttributes = a}) . mapping _Coerce;
 
 -- | Whether the stack uses custom cookbooks.
 staUseCustomCookbooks :: Lens' Stack (Maybe Bool)
@@ -3674,39 +3674,39 @@ instance FromJSON VolumeType where
 -- * 'wassSunday'
 --
 -- * 'wassTuesday'
-data WeeklyAutoScalingSchedule = WeeklyAutoScalingSchedule'{_wassThursday :: HashMap Text Text, _wassWednesday :: HashMap Text Text, _wassSaturday :: HashMap Text Text, _wassMonday :: HashMap Text Text, _wassFriday :: HashMap Text Text, _wassSunday :: HashMap Text Text, _wassTuesday :: HashMap Text Text} deriving (Eq, Read, Show)
+data WeeklyAutoScalingSchedule = WeeklyAutoScalingSchedule'{_wassThursday :: Maybe (HashMap Text Text), _wassWednesday :: Maybe (HashMap Text Text), _wassSaturday :: Maybe (HashMap Text Text), _wassMonday :: Maybe (HashMap Text Text), _wassFriday :: Maybe (HashMap Text Text), _wassSunday :: Maybe (HashMap Text Text), _wassTuesday :: Maybe (HashMap Text Text)} deriving (Eq, Read, Show)
 
 -- | 'WeeklyAutoScalingSchedule' smart constructor.
 weeklyAutoScalingSchedule :: WeeklyAutoScalingSchedule
-weeklyAutoScalingSchedule = WeeklyAutoScalingSchedule'{_wassThursday = mempty, _wassWednesday = mempty, _wassSaturday = mempty, _wassMonday = mempty, _wassFriday = mempty, _wassSunday = mempty, _wassTuesday = mempty};
+weeklyAutoScalingSchedule = WeeklyAutoScalingSchedule'{_wassThursday = Nothing, _wassWednesday = Nothing, _wassSaturday = Nothing, _wassMonday = Nothing, _wassFriday = Nothing, _wassSunday = Nothing, _wassTuesday = Nothing};
 
 -- | The schedule for Thursday.
-wassThursday :: Lens' WeeklyAutoScalingSchedule (HashMap Text Text)
-wassThursday = lens _wassThursday (\ s a -> s{_wassThursday = a}) . _Coerce;
+wassThursday :: Lens' WeeklyAutoScalingSchedule (Maybe (HashMap Text Text))
+wassThursday = lens _wassThursday (\ s a -> s{_wassThursday = a}) . mapping _Coerce;
 
 -- | The schedule for Wednesday.
-wassWednesday :: Lens' WeeklyAutoScalingSchedule (HashMap Text Text)
-wassWednesday = lens _wassWednesday (\ s a -> s{_wassWednesday = a}) . _Coerce;
+wassWednesday :: Lens' WeeklyAutoScalingSchedule (Maybe (HashMap Text Text))
+wassWednesday = lens _wassWednesday (\ s a -> s{_wassWednesday = a}) . mapping _Coerce;
 
 -- | The schedule for Saturday.
-wassSaturday :: Lens' WeeklyAutoScalingSchedule (HashMap Text Text)
-wassSaturday = lens _wassSaturday (\ s a -> s{_wassSaturday = a}) . _Coerce;
+wassSaturday :: Lens' WeeklyAutoScalingSchedule (Maybe (HashMap Text Text))
+wassSaturday = lens _wassSaturday (\ s a -> s{_wassSaturday = a}) . mapping _Coerce;
 
 -- | The schedule for Monday.
-wassMonday :: Lens' WeeklyAutoScalingSchedule (HashMap Text Text)
-wassMonday = lens _wassMonday (\ s a -> s{_wassMonday = a}) . _Coerce;
+wassMonday :: Lens' WeeklyAutoScalingSchedule (Maybe (HashMap Text Text))
+wassMonday = lens _wassMonday (\ s a -> s{_wassMonday = a}) . mapping _Coerce;
 
 -- | The schedule for Friday.
-wassFriday :: Lens' WeeklyAutoScalingSchedule (HashMap Text Text)
-wassFriday = lens _wassFriday (\ s a -> s{_wassFriday = a}) . _Coerce;
+wassFriday :: Lens' WeeklyAutoScalingSchedule (Maybe (HashMap Text Text))
+wassFriday = lens _wassFriday (\ s a -> s{_wassFriday = a}) . mapping _Coerce;
 
 -- | The schedule for Sunday.
-wassSunday :: Lens' WeeklyAutoScalingSchedule (HashMap Text Text)
-wassSunday = lens _wassSunday (\ s a -> s{_wassSunday = a}) . _Coerce;
+wassSunday :: Lens' WeeklyAutoScalingSchedule (Maybe (HashMap Text Text))
+wassSunday = lens _wassSunday (\ s a -> s{_wassSunday = a}) . mapping _Coerce;
 
 -- | The schedule for Tuesday.
-wassTuesday :: Lens' WeeklyAutoScalingSchedule (HashMap Text Text)
-wassTuesday = lens _wassTuesday (\ s a -> s{_wassTuesday = a}) . _Coerce;
+wassTuesday :: Lens' WeeklyAutoScalingSchedule (Maybe (HashMap Text Text))
+wassTuesday = lens _wassTuesday (\ s a -> s{_wassTuesday = a}) . mapping _Coerce;
 
 instance FromJSON WeeklyAutoScalingSchedule where
         parseJSON

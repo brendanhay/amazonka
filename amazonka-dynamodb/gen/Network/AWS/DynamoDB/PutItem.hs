@@ -100,11 +100,11 @@ import Network.AWS.DynamoDB.Types
 -- * 'piTableName'
 --
 -- * 'piItem'
-data PutItem = PutItem'{_piReturnValues :: Maybe ReturnValue, _piExpressionAttributeNames :: HashMap Text Text, _piReturnConsumedCapacity :: Maybe ReturnConsumedCapacity, _piExpressionAttributeValues :: HashMap Text AttributeValue, _piReturnItemCollectionMetrics :: Maybe ReturnItemCollectionMetrics, _piConditionExpression :: Maybe Text, _piConditionalOperator :: Maybe ConditionalOperator, _piExpected :: HashMap Text ExpectedAttributeValue, _piTableName :: Text, _piItem :: HashMap Text AttributeValue} deriving (Eq, Read, Show)
+data PutItem = PutItem'{_piReturnValues :: Maybe ReturnValue, _piExpressionAttributeNames :: Maybe (HashMap Text Text), _piReturnConsumedCapacity :: Maybe ReturnConsumedCapacity, _piExpressionAttributeValues :: Maybe (HashMap Text AttributeValue), _piReturnItemCollectionMetrics :: Maybe ReturnItemCollectionMetrics, _piConditionExpression :: Maybe Text, _piConditionalOperator :: Maybe ConditionalOperator, _piExpected :: Maybe (HashMap Text ExpectedAttributeValue), _piTableName :: Text, _piItem :: HashMap Text AttributeValue} deriving (Eq, Read, Show)
 
 -- | 'PutItem' smart constructor.
-putItem :: Text -> HashMap Text AttributeValue -> PutItem
-putItem pTableName pItem = PutItem'{_piReturnValues = Nothing, _piExpressionAttributeNames = mempty, _piReturnConsumedCapacity = Nothing, _piExpressionAttributeValues = mempty, _piReturnItemCollectionMetrics = Nothing, _piConditionExpression = Nothing, _piConditionalOperator = Nothing, _piExpected = mempty, _piTableName = pTableName, _piItem = _Coerce # pItem};
+putItem :: Text -> PutItem
+putItem pTableName = PutItem'{_piReturnValues = Nothing, _piExpressionAttributeNames = Nothing, _piReturnConsumedCapacity = Nothing, _piExpressionAttributeValues = Nothing, _piReturnItemCollectionMetrics = Nothing, _piConditionExpression = Nothing, _piConditionalOperator = Nothing, _piExpected = Nothing, _piTableName = pTableName, _piItem = mempty};
 
 -- | Use /ReturnValues/ if you want to get the item attributes as they
 -- appeared before they were updated with the /PutItem/ request. For
@@ -157,8 +157,8 @@ piReturnValues = lens _piReturnValues (\ s a -> s{_piReturnValues = a});
 -- For more information on expression attribute names, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ExpressionPlaceholders.html Using Placeholders for Attribute Names and Values>
 -- in the /Amazon DynamoDB Developer Guide/.
-piExpressionAttributeNames :: Lens' PutItem (HashMap Text Text)
-piExpressionAttributeNames = lens _piExpressionAttributeNames (\ s a -> s{_piExpressionAttributeNames = a}) . _Coerce;
+piExpressionAttributeNames :: Lens' PutItem (Maybe (HashMap Text Text))
+piExpressionAttributeNames = lens _piExpressionAttributeNames (\ s a -> s{_piExpressionAttributeNames = a}) . mapping _Coerce;
 
 -- | FIXME: Undocumented member.
 piReturnConsumedCapacity :: Lens' PutItem (Maybe ReturnConsumedCapacity)
@@ -183,8 +183,8 @@ piReturnConsumedCapacity = lens _piReturnConsumedCapacity (\ s a -> s{_piReturnC
 -- For more information on expression attribute values, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ExpressionPlaceholders.html Using Placeholders for Attribute Names and Values>
 -- in the /Amazon DynamoDB Developer Guide/.
-piExpressionAttributeValues :: Lens' PutItem (HashMap Text AttributeValue)
-piExpressionAttributeValues = lens _piExpressionAttributeValues (\ s a -> s{_piExpressionAttributeValues = a}) . _Coerce;
+piExpressionAttributeValues :: Lens' PutItem (Maybe (HashMap Text AttributeValue))
+piExpressionAttributeValues = lens _piExpressionAttributeValues (\ s a -> s{_piExpressionAttributeValues = a}) . mapping _Coerce;
 
 -- | A value that if set to @SIZE@, the response includes statistics about
 -- item collections, if any, that were modified during the operation are
@@ -460,8 +460,8 @@ piConditionalOperator = lens _piConditionalOperator (\ s a -> s{_piConditionalOp
 -- /AttributeValueList/ and /ComparisonOperator/. Note that if you use both
 -- sets of parameters at once, DynamoDB will return a /ValidationException/
 -- exception.
-piExpected :: Lens' PutItem (HashMap Text ExpectedAttributeValue)
-piExpected = lens _piExpected (\ s a -> s{_piExpected = a}) . _Coerce;
+piExpected :: Lens' PutItem (Maybe (HashMap Text ExpectedAttributeValue))
+piExpected = lens _piExpected (\ s a -> s{_piExpected = a}) . mapping _Coerce;
 
 -- | The name of the table to contain the item.
 piTableName :: Lens' PutItem Text
@@ -541,11 +541,11 @@ instance ToQuery PutItem where
 -- * 'pirItemCollectionMetrics'
 --
 -- * 'pirAttributes'
-data PutItemResponse = PutItemResponse'{_pirConsumedCapacity :: Maybe ConsumedCapacity, _pirItemCollectionMetrics :: Maybe ItemCollectionMetrics, _pirAttributes :: HashMap Text AttributeValue} deriving (Eq, Read, Show)
+data PutItemResponse = PutItemResponse'{_pirConsumedCapacity :: Maybe ConsumedCapacity, _pirItemCollectionMetrics :: Maybe ItemCollectionMetrics, _pirAttributes :: Maybe (HashMap Text AttributeValue)} deriving (Eq, Read, Show)
 
 -- | 'PutItemResponse' smart constructor.
 putItemResponse :: PutItemResponse
-putItemResponse = PutItemResponse'{_pirConsumedCapacity = Nothing, _pirItemCollectionMetrics = Nothing, _pirAttributes = mempty};
+putItemResponse = PutItemResponse'{_pirConsumedCapacity = Nothing, _pirItemCollectionMetrics = Nothing, _pirAttributes = Nothing};
 
 -- | FIXME: Undocumented member.
 pirConsumedCapacity :: Lens' PutItemResponse (Maybe ConsumedCapacity)
@@ -578,5 +578,5 @@ pirItemCollectionMetrics = lens _pirItemCollectionMetrics (\ s a -> s{_pirItemCo
 -- | The attribute values as they appeared before the /PutItem/ operation,
 -- but only if /ReturnValues/ is specified as @ALL_OLD@ in the request.
 -- Each element consists of an attribute name and an attribute value.
-pirAttributes :: Lens' PutItemResponse (HashMap Text AttributeValue)
-pirAttributes = lens _pirAttributes (\ s a -> s{_pirAttributes = a}) . _Coerce;
+pirAttributes :: Lens' PutItemResponse (Maybe (HashMap Text AttributeValue))
+pirAttributes = lens _pirAttributes (\ s a -> s{_pirAttributes = a}) . mapping _Coerce;

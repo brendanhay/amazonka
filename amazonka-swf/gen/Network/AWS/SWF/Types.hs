@@ -222,11 +222,11 @@ module Network.AWS.SWF.Types
     , canwedaTagList
     , canwedaTaskStartToCloseTimeout
     , canwedaInput
+    , canwedaWorkflowTypeVersion
     , canwedaExecutionStartToCloseTimeout
     , canwedaTaskList
     , canwedaTaskPriority
     , canwedaChildPolicy
-    , canwedaWorkflowTypeVersion
 
     -- * ContinueAsNewWorkflowExecutionFailedCause
     , ContinueAsNewWorkflowExecutionFailedCause (..)
@@ -2061,6 +2061,8 @@ instance FromJSON
 --
 -- * 'canwedaInput'
 --
+-- * 'canwedaWorkflowTypeVersion'
+--
 -- * 'canwedaExecutionStartToCloseTimeout'
 --
 -- * 'canwedaTaskList'
@@ -2068,19 +2070,17 @@ instance FromJSON
 -- * 'canwedaTaskPriority'
 --
 -- * 'canwedaChildPolicy'
---
--- * 'canwedaWorkflowTypeVersion'
-data ContinueAsNewWorkflowExecutionDecisionAttributes = ContinueAsNewWorkflowExecutionDecisionAttributes'{_canwedaTagList :: [Text], _canwedaTaskStartToCloseTimeout :: Maybe Text, _canwedaInput :: Maybe Text, _canwedaExecutionStartToCloseTimeout :: Maybe Text, _canwedaTaskList :: Maybe TaskList, _canwedaTaskPriority :: Maybe Text, _canwedaChildPolicy :: Maybe ChildPolicy, _canwedaWorkflowTypeVersion :: Text} deriving (Eq, Read, Show)
+data ContinueAsNewWorkflowExecutionDecisionAttributes = ContinueAsNewWorkflowExecutionDecisionAttributes'{_canwedaTagList :: Maybe [Text], _canwedaTaskStartToCloseTimeout :: Maybe Text, _canwedaInput :: Maybe Text, _canwedaWorkflowTypeVersion :: Maybe Text, _canwedaExecutionStartToCloseTimeout :: Maybe Text, _canwedaTaskList :: Maybe TaskList, _canwedaTaskPriority :: Maybe Text, _canwedaChildPolicy :: Maybe ChildPolicy} deriving (Eq, Read, Show)
 
 -- | 'ContinueAsNewWorkflowExecutionDecisionAttributes' smart constructor.
-continueAsNewWorkflowExecutionDecisionAttributes :: Text -> ContinueAsNewWorkflowExecutionDecisionAttributes
-continueAsNewWorkflowExecutionDecisionAttributes pWorkflowTypeVersion = ContinueAsNewWorkflowExecutionDecisionAttributes'{_canwedaTagList = mempty, _canwedaTaskStartToCloseTimeout = Nothing, _canwedaInput = Nothing, _canwedaExecutionStartToCloseTimeout = Nothing, _canwedaTaskList = Nothing, _canwedaTaskPriority = Nothing, _canwedaChildPolicy = Nothing, _canwedaWorkflowTypeVersion = pWorkflowTypeVersion};
+continueAsNewWorkflowExecutionDecisionAttributes :: ContinueAsNewWorkflowExecutionDecisionAttributes
+continueAsNewWorkflowExecutionDecisionAttributes = ContinueAsNewWorkflowExecutionDecisionAttributes'{_canwedaTagList = Nothing, _canwedaTaskStartToCloseTimeout = Nothing, _canwedaInput = Nothing, _canwedaWorkflowTypeVersion = Nothing, _canwedaExecutionStartToCloseTimeout = Nothing, _canwedaTaskList = Nothing, _canwedaTaskPriority = Nothing, _canwedaChildPolicy = Nothing};
 
 -- | The list of tags to associate with the new workflow execution. A maximum
 -- of 5 tags can be specified. You can list workflow executions with a
 -- specific tag by calling ListOpenWorkflowExecutions or
 -- ListClosedWorkflowExecutions and specifying a TagFilter.
-canwedaTagList :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes [Text]
+canwedaTagList :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe [Text])
 canwedaTagList = lens _canwedaTagList (\ s a -> s{_canwedaTagList = a});
 
 -- | Specifies the maximum duration of decision tasks for the new workflow
@@ -2101,6 +2101,10 @@ canwedaTaskStartToCloseTimeout = lens _canwedaTaskStartToCloseTimeout (\ s a -> 
 -- | The input provided to the new workflow execution.
 canwedaInput :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe Text)
 canwedaInput = lens _canwedaInput (\ s a -> s{_canwedaInput = a});
+
+-- | FIXME: Undocumented member.
+canwedaWorkflowTypeVersion :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe Text)
+canwedaWorkflowTypeVersion = lens _canwedaWorkflowTypeVersion (\ s a -> s{_canwedaWorkflowTypeVersion = a});
 
 -- | If set, specifies the total duration for this workflow execution. This
 -- overrides the @defaultExecutionStartToCloseTimeout@ specified when
@@ -2157,10 +2161,6 @@ canwedaTaskPriority = lens _canwedaTaskPriority (\ s a -> s{_canwedaTaskPriority
 canwedaChildPolicy :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe ChildPolicy)
 canwedaChildPolicy = lens _canwedaChildPolicy (\ s a -> s{_canwedaChildPolicy = a});
 
--- | FIXME: Undocumented member.
-canwedaWorkflowTypeVersion :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes Text
-canwedaWorkflowTypeVersion = lens _canwedaWorkflowTypeVersion (\ s a -> s{_canwedaWorkflowTypeVersion = a});
-
 instance ToJSON
          ContinueAsNewWorkflowExecutionDecisionAttributes
          where
@@ -2171,12 +2171,12 @@ instance ToJSON
                "taskStartToCloseTimeout" .=
                  _canwedaTaskStartToCloseTimeout,
                "input" .= _canwedaInput,
+               "workflowTypeVersion" .= _canwedaWorkflowTypeVersion,
                "executionStartToCloseTimeout" .=
                  _canwedaExecutionStartToCloseTimeout,
                "taskList" .= _canwedaTaskList,
                "taskPriority" .= _canwedaTaskPriority,
-               "childPolicy" .= _canwedaChildPolicy,
-               "workflowTypeVersion" .= _canwedaWorkflowTypeVersion]
+               "childPolicy" .= _canwedaChildPolicy]
 
 data ContinueAsNewWorkflowExecutionFailedCause = CANWEFCContinueASNewWorkflowExecutionRateExceeded | CANWEFCDefaultTaskListUndefined | CANWEFCWorkflowTypeDoesNotExist | CANWEFCDefaultExecutionStartTOCloseTimeoutUndefined | CANWEFCUnhandledDecision | CANWEFCOperationNotPermitted | CANWEFCDefaultChildPolicyUndefined | CANWEFCDefaultTaskStartTOCloseTimeoutUndefined | CANWEFCWorkflowTypeDeprecated deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -4418,11 +4418,11 @@ instance FromJSON
 -- * 'scwedaWorkflowType'
 --
 -- * 'scwedaWorkflowId'
-data StartChildWorkflowExecutionDecisionAttributes = StartChildWorkflowExecutionDecisionAttributes'{_scwedaControl :: Maybe Text, _scwedaTagList :: [Text], _scwedaTaskStartToCloseTimeout :: Maybe Text, _scwedaInput :: Maybe Text, _scwedaExecutionStartToCloseTimeout :: Maybe Text, _scwedaTaskList :: Maybe TaskList, _scwedaTaskPriority :: Maybe Text, _scwedaChildPolicy :: Maybe ChildPolicy, _scwedaWorkflowType :: WorkflowType, _scwedaWorkflowId :: Text} deriving (Eq, Read, Show)
+data StartChildWorkflowExecutionDecisionAttributes = StartChildWorkflowExecutionDecisionAttributes'{_scwedaControl :: Maybe Text, _scwedaTagList :: Maybe [Text], _scwedaTaskStartToCloseTimeout :: Maybe Text, _scwedaInput :: Maybe Text, _scwedaExecutionStartToCloseTimeout :: Maybe Text, _scwedaTaskList :: Maybe TaskList, _scwedaTaskPriority :: Maybe Text, _scwedaChildPolicy :: Maybe ChildPolicy, _scwedaWorkflowType :: WorkflowType, _scwedaWorkflowId :: Text} deriving (Eq, Read, Show)
 
 -- | 'StartChildWorkflowExecutionDecisionAttributes' smart constructor.
 startChildWorkflowExecutionDecisionAttributes :: WorkflowType -> Text -> StartChildWorkflowExecutionDecisionAttributes
-startChildWorkflowExecutionDecisionAttributes pWorkflowType pWorkflowId = StartChildWorkflowExecutionDecisionAttributes'{_scwedaControl = Nothing, _scwedaTagList = mempty, _scwedaTaskStartToCloseTimeout = Nothing, _scwedaInput = Nothing, _scwedaExecutionStartToCloseTimeout = Nothing, _scwedaTaskList = Nothing, _scwedaTaskPriority = Nothing, _scwedaChildPolicy = Nothing, _scwedaWorkflowType = pWorkflowType, _scwedaWorkflowId = pWorkflowId};
+startChildWorkflowExecutionDecisionAttributes pWorkflowType pWorkflowId = StartChildWorkflowExecutionDecisionAttributes'{_scwedaControl = Nothing, _scwedaTagList = Nothing, _scwedaTaskStartToCloseTimeout = Nothing, _scwedaInput = Nothing, _scwedaExecutionStartToCloseTimeout = Nothing, _scwedaTaskList = Nothing, _scwedaTaskPriority = Nothing, _scwedaChildPolicy = Nothing, _scwedaWorkflowType = pWorkflowType, _scwedaWorkflowId = pWorkflowId};
 
 -- | /Optional./ Data attached to the event that can be used by the decider
 -- in subsequent workflow tasks. This data is not sent to the child
@@ -4434,7 +4434,7 @@ scwedaControl = lens _scwedaControl (\ s a -> s{_scwedaControl = a});
 -- maximum of 5 tags can be specified. You can list workflow executions
 -- with a specific tag by calling ListOpenWorkflowExecutions or
 -- ListClosedWorkflowExecutions and specifying a TagFilter.
-scwedaTagList :: Lens' StartChildWorkflowExecutionDecisionAttributes [Text]
+scwedaTagList :: Lens' StartChildWorkflowExecutionDecisionAttributes (Maybe [Text])
 scwedaTagList = lens _scwedaTagList (\ s a -> s{_scwedaTagList = a});
 
 -- | Specifies the maximum duration of decision tasks for this workflow
@@ -4688,11 +4688,11 @@ instance FromJSON
 -- * 'scweieaDecisionTaskCompletedEventId'
 --
 -- * 'scweieaChildPolicy'
-data StartChildWorkflowExecutionInitiatedEventAttributes = StartChildWorkflowExecutionInitiatedEventAttributes'{_scweieaControl :: Maybe Text, _scweieaTagList :: [Text], _scweieaTaskStartToCloseTimeout :: Maybe Text, _scweieaInput :: Maybe Text, _scweieaExecutionStartToCloseTimeout :: Maybe Text, _scweieaTaskPriority :: Maybe Text, _scweieaWorkflowId :: Text, _scweieaWorkflowType :: WorkflowType, _scweieaTaskList :: TaskList, _scweieaDecisionTaskCompletedEventId :: Integer, _scweieaChildPolicy :: ChildPolicy} deriving (Eq, Read, Show)
+data StartChildWorkflowExecutionInitiatedEventAttributes = StartChildWorkflowExecutionInitiatedEventAttributes'{_scweieaControl :: Maybe Text, _scweieaTagList :: Maybe [Text], _scweieaTaskStartToCloseTimeout :: Maybe Text, _scweieaInput :: Maybe Text, _scweieaExecutionStartToCloseTimeout :: Maybe Text, _scweieaTaskPriority :: Maybe Text, _scweieaWorkflowId :: Text, _scweieaWorkflowType :: WorkflowType, _scweieaTaskList :: TaskList, _scweieaDecisionTaskCompletedEventId :: Integer, _scweieaChildPolicy :: ChildPolicy} deriving (Eq, Read, Show)
 
 -- | 'StartChildWorkflowExecutionInitiatedEventAttributes' smart constructor.
 startChildWorkflowExecutionInitiatedEventAttributes :: Text -> WorkflowType -> TaskList -> Integer -> ChildPolicy -> StartChildWorkflowExecutionInitiatedEventAttributes
-startChildWorkflowExecutionInitiatedEventAttributes pWorkflowId pWorkflowType pTaskList pDecisionTaskCompletedEventId pChildPolicy = StartChildWorkflowExecutionInitiatedEventAttributes'{_scweieaControl = Nothing, _scweieaTagList = mempty, _scweieaTaskStartToCloseTimeout = Nothing, _scweieaInput = Nothing, _scweieaExecutionStartToCloseTimeout = Nothing, _scweieaTaskPriority = Nothing, _scweieaWorkflowId = pWorkflowId, _scweieaWorkflowType = pWorkflowType, _scweieaTaskList = pTaskList, _scweieaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId, _scweieaChildPolicy = pChildPolicy};
+startChildWorkflowExecutionInitiatedEventAttributes pWorkflowId pWorkflowType pTaskList pDecisionTaskCompletedEventId pChildPolicy = StartChildWorkflowExecutionInitiatedEventAttributes'{_scweieaControl = Nothing, _scweieaTagList = Nothing, _scweieaTaskStartToCloseTimeout = Nothing, _scweieaInput = Nothing, _scweieaExecutionStartToCloseTimeout = Nothing, _scweieaTaskPriority = Nothing, _scweieaWorkflowId = pWorkflowId, _scweieaWorkflowType = pWorkflowType, _scweieaTaskList = pTaskList, _scweieaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId, _scweieaChildPolicy = pChildPolicy};
 
 -- | /Optional./ Data attached to the event that can be used by the decider
 -- in subsequent decision tasks. This data is not sent to the activity.
@@ -4700,7 +4700,7 @@ scweieaControl :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes (May
 scweieaControl = lens _scweieaControl (\ s a -> s{_scweieaControl = a});
 
 -- | The list of tags to associated with the child workflow execution.
-scweieaTagList :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes [Text]
+scweieaTagList :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Maybe [Text])
 scweieaTagList = lens _scweieaTagList (\ s a -> s{_scweieaTagList = a});
 
 -- | The maximum duration allowed for the decision tasks for this workflow
@@ -5334,14 +5334,14 @@ instance FromJSON WorkflowExecutionConfiguration
 -- * 'wecaneaChildPolicy'
 --
 -- * 'wecaneaWorkflowType'
-data WorkflowExecutionContinuedAsNewEventAttributes = WorkflowExecutionContinuedAsNewEventAttributes'{_wecaneaTagList :: [Text], _wecaneaTaskStartToCloseTimeout :: Maybe Text, _wecaneaInput :: Maybe Text, _wecaneaExecutionStartToCloseTimeout :: Maybe Text, _wecaneaTaskPriority :: Maybe Text, _wecaneaDecisionTaskCompletedEventId :: Integer, _wecaneaNewExecutionRunId :: Text, _wecaneaTaskList :: TaskList, _wecaneaChildPolicy :: ChildPolicy, _wecaneaWorkflowType :: WorkflowType} deriving (Eq, Read, Show)
+data WorkflowExecutionContinuedAsNewEventAttributes = WorkflowExecutionContinuedAsNewEventAttributes'{_wecaneaTagList :: Maybe [Text], _wecaneaTaskStartToCloseTimeout :: Maybe Text, _wecaneaInput :: Maybe Text, _wecaneaExecutionStartToCloseTimeout :: Maybe Text, _wecaneaTaskPriority :: Maybe Text, _wecaneaDecisionTaskCompletedEventId :: Integer, _wecaneaNewExecutionRunId :: Text, _wecaneaTaskList :: TaskList, _wecaneaChildPolicy :: ChildPolicy, _wecaneaWorkflowType :: WorkflowType} deriving (Eq, Read, Show)
 
 -- | 'WorkflowExecutionContinuedAsNewEventAttributes' smart constructor.
 workflowExecutionContinuedAsNewEventAttributes :: Integer -> Text -> TaskList -> ChildPolicy -> WorkflowType -> WorkflowExecutionContinuedAsNewEventAttributes
-workflowExecutionContinuedAsNewEventAttributes pDecisionTaskCompletedEventId pNewExecutionRunId pTaskList pChildPolicy pWorkflowType = WorkflowExecutionContinuedAsNewEventAttributes'{_wecaneaTagList = mempty, _wecaneaTaskStartToCloseTimeout = Nothing, _wecaneaInput = Nothing, _wecaneaExecutionStartToCloseTimeout = Nothing, _wecaneaTaskPriority = Nothing, _wecaneaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId, _wecaneaNewExecutionRunId = pNewExecutionRunId, _wecaneaTaskList = pTaskList, _wecaneaChildPolicy = pChildPolicy, _wecaneaWorkflowType = pWorkflowType};
+workflowExecutionContinuedAsNewEventAttributes pDecisionTaskCompletedEventId pNewExecutionRunId pTaskList pChildPolicy pWorkflowType = WorkflowExecutionContinuedAsNewEventAttributes'{_wecaneaTagList = Nothing, _wecaneaTaskStartToCloseTimeout = Nothing, _wecaneaInput = Nothing, _wecaneaExecutionStartToCloseTimeout = Nothing, _wecaneaTaskPriority = Nothing, _wecaneaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId, _wecaneaNewExecutionRunId = pNewExecutionRunId, _wecaneaTaskList = pTaskList, _wecaneaChildPolicy = pChildPolicy, _wecaneaWorkflowType = pWorkflowType};
 
 -- | The list of tags associated with the new workflow execution.
-wecaneaTagList :: Lens' WorkflowExecutionContinuedAsNewEventAttributes [Text]
+wecaneaTagList :: Lens' WorkflowExecutionContinuedAsNewEventAttributes (Maybe [Text])
 wecaneaTagList = lens _wecaneaTagList (\ s a -> s{_wecaneaTagList = a});
 
 -- | The maximum duration of decision tasks for the new workflow execution.
@@ -5529,11 +5529,11 @@ instance ToJSON WorkflowExecutionFilter where
 -- * 'weiStartTimestamp'
 --
 -- * 'weiExecutionStatus'
-data WorkflowExecutionInfo = WorkflowExecutionInfo'{_weiParent :: Maybe WorkflowExecution, _weiTagList :: [Text], _weiCloseStatus :: Maybe CloseStatus, _weiCloseTimestamp :: Maybe POSIX, _weiCancelRequested :: Maybe Bool, _weiExecution :: WorkflowExecution, _weiWorkflowType :: WorkflowType, _weiStartTimestamp :: POSIX, _weiExecutionStatus :: ExecutionStatus} deriving (Eq, Read, Show)
+data WorkflowExecutionInfo = WorkflowExecutionInfo'{_weiParent :: Maybe WorkflowExecution, _weiTagList :: Maybe [Text], _weiCloseStatus :: Maybe CloseStatus, _weiCloseTimestamp :: Maybe POSIX, _weiCancelRequested :: Maybe Bool, _weiExecution :: WorkflowExecution, _weiWorkflowType :: WorkflowType, _weiStartTimestamp :: POSIX, _weiExecutionStatus :: ExecutionStatus} deriving (Eq, Read, Show)
 
 -- | 'WorkflowExecutionInfo' smart constructor.
 workflowExecutionInfo :: WorkflowExecution -> WorkflowType -> UTCTime -> ExecutionStatus -> WorkflowExecutionInfo
-workflowExecutionInfo pExecution pWorkflowType pStartTimestamp pExecutionStatus = WorkflowExecutionInfo'{_weiParent = Nothing, _weiTagList = mempty, _weiCloseStatus = Nothing, _weiCloseTimestamp = Nothing, _weiCancelRequested = Nothing, _weiExecution = pExecution, _weiWorkflowType = pWorkflowType, _weiStartTimestamp = _Time # pStartTimestamp, _weiExecutionStatus = pExecutionStatus};
+workflowExecutionInfo pExecution pWorkflowType pStartTimestamp pExecutionStatus = WorkflowExecutionInfo'{_weiParent = Nothing, _weiTagList = Nothing, _weiCloseStatus = Nothing, _weiCloseTimestamp = Nothing, _weiCancelRequested = Nothing, _weiExecution = pExecution, _weiWorkflowType = pWorkflowType, _weiStartTimestamp = _Time # pStartTimestamp, _weiExecutionStatus = pExecutionStatus};
 
 -- | If this workflow execution is a child of another execution then contains
 -- the workflow execution that started this execution.
@@ -5543,7 +5543,7 @@ weiParent = lens _weiParent (\ s a -> s{_weiParent = a});
 -- | The list of tags associated with the workflow execution. Tags can be
 -- used to identify and list workflow executions of interest through the
 -- visibility APIs. A workflow execution can have a maximum of 5 tags.
-weiTagList :: Lens' WorkflowExecutionInfo [Text]
+weiTagList :: Lens' WorkflowExecutionInfo (Maybe [Text])
 weiTagList = lens _weiTagList (\ s a -> s{_weiTagList = a});
 
 -- | If the execution status is closed then this specifies how the execution
@@ -5612,8 +5612,8 @@ instance FromJSON WorkflowExecutionInfo where
 data WorkflowExecutionInfos = WorkflowExecutionInfos'{_weiNextPageToken :: Maybe Text, _weiExecutionInfos :: [WorkflowExecutionInfo]} deriving (Eq, Read, Show)
 
 -- | 'WorkflowExecutionInfos' smart constructor.
-workflowExecutionInfos :: [WorkflowExecutionInfo] -> WorkflowExecutionInfos
-workflowExecutionInfos pExecutionInfos = WorkflowExecutionInfos'{_weiNextPageToken = Nothing, _weiExecutionInfos = pExecutionInfos};
+workflowExecutionInfos :: WorkflowExecutionInfos
+workflowExecutionInfos = WorkflowExecutionInfos'{_weiNextPageToken = Nothing, _weiExecutionInfos = mempty};
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
 -- results available. To retrieve the next page of results, make the call
@@ -5760,11 +5760,11 @@ instance FromJSON
 -- * 'weseaTaskList'
 --
 -- * 'weseaWorkflowType'
-data WorkflowExecutionStartedEventAttributes = WorkflowExecutionStartedEventAttributes'{_weseaParentInitiatedEventId :: Maybe Integer, _weseaTagList :: [Text], _weseaTaskStartToCloseTimeout :: Maybe Text, _weseaInput :: Maybe Text, _weseaExecutionStartToCloseTimeout :: Maybe Text, _weseaTaskPriority :: Maybe Text, _weseaParentWorkflowExecution :: Maybe WorkflowExecution, _weseaContinuedExecutionRunId :: Maybe Text, _weseaChildPolicy :: ChildPolicy, _weseaTaskList :: TaskList, _weseaWorkflowType :: WorkflowType} deriving (Eq, Read, Show)
+data WorkflowExecutionStartedEventAttributes = WorkflowExecutionStartedEventAttributes'{_weseaParentInitiatedEventId :: Maybe Integer, _weseaTagList :: Maybe [Text], _weseaTaskStartToCloseTimeout :: Maybe Text, _weseaInput :: Maybe Text, _weseaExecutionStartToCloseTimeout :: Maybe Text, _weseaTaskPriority :: Maybe Text, _weseaParentWorkflowExecution :: Maybe WorkflowExecution, _weseaContinuedExecutionRunId :: Maybe Text, _weseaChildPolicy :: ChildPolicy, _weseaTaskList :: TaskList, _weseaWorkflowType :: WorkflowType} deriving (Eq, Read, Show)
 
 -- | 'WorkflowExecutionStartedEventAttributes' smart constructor.
 workflowExecutionStartedEventAttributes :: ChildPolicy -> TaskList -> WorkflowType -> WorkflowExecutionStartedEventAttributes
-workflowExecutionStartedEventAttributes pChildPolicy pTaskList pWorkflowType = WorkflowExecutionStartedEventAttributes'{_weseaParentInitiatedEventId = Nothing, _weseaTagList = mempty, _weseaTaskStartToCloseTimeout = Nothing, _weseaInput = Nothing, _weseaExecutionStartToCloseTimeout = Nothing, _weseaTaskPriority = Nothing, _weseaParentWorkflowExecution = Nothing, _weseaContinuedExecutionRunId = Nothing, _weseaChildPolicy = pChildPolicy, _weseaTaskList = pTaskList, _weseaWorkflowType = pWorkflowType};
+workflowExecutionStartedEventAttributes pChildPolicy pTaskList pWorkflowType = WorkflowExecutionStartedEventAttributes'{_weseaParentInitiatedEventId = Nothing, _weseaTagList = Nothing, _weseaTaskStartToCloseTimeout = Nothing, _weseaInput = Nothing, _weseaExecutionStartToCloseTimeout = Nothing, _weseaTaskPriority = Nothing, _weseaParentWorkflowExecution = Nothing, _weseaContinuedExecutionRunId = Nothing, _weseaChildPolicy = pChildPolicy, _weseaTaskList = pTaskList, _weseaWorkflowType = pWorkflowType};
 
 -- | The id of the @StartChildWorkflowExecutionInitiated@ event corresponding
 -- to the @StartChildWorkflowExecution@ Decision to start this workflow
@@ -5777,7 +5777,7 @@ weseaParentInitiatedEventId = lens _weseaParentInitiatedEventId (\ s a -> s{_wes
 
 -- | The list of tags associated with this workflow execution. An execution
 -- can have up to 5 tags.
-weseaTagList :: Lens' WorkflowExecutionStartedEventAttributes [Text]
+weseaTagList :: Lens' WorkflowExecutionStartedEventAttributes (Maybe [Text])
 weseaTagList = lens _weseaTagList (\ s a -> s{_weseaTagList = a});
 
 -- | The maximum duration of decision tasks for this workflow type.

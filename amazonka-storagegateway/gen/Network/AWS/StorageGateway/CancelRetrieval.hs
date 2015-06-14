@@ -71,7 +71,7 @@ instance AWSRequest CancelRetrieval where
         response
           = receiveJSON
               (\ s h x ->
-                 CancelRetrievalResponse' <$> x .:> "TapeARN")
+                 CancelRetrievalResponse' <$> x .?> "TapeARN")
 
 instance ToHeaders CancelRetrieval where
         toHeaders
@@ -100,13 +100,13 @@ instance ToQuery CancelRetrieval where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'crrTapeARN'
-newtype CancelRetrievalResponse = CancelRetrievalResponse'{_crrTapeARN :: Text} deriving (Eq, Read, Show)
+newtype CancelRetrievalResponse = CancelRetrievalResponse'{_crrTapeARN :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'CancelRetrievalResponse' smart constructor.
-cancelRetrievalResponse :: Text -> CancelRetrievalResponse
-cancelRetrievalResponse pTapeARN = CancelRetrievalResponse'{_crrTapeARN = pTapeARN};
+cancelRetrievalResponse :: CancelRetrievalResponse
+cancelRetrievalResponse = CancelRetrievalResponse'{_crrTapeARN = Nothing};
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which retrieval
 -- was canceled.
-crrTapeARN :: Lens' CancelRetrievalResponse Text
+crrTapeARN :: Lens' CancelRetrievalResponse (Maybe Text)
 crrTapeARN = lens _crrTapeARN (\ s a -> s{_crrTapeARN = a});

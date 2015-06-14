@@ -81,11 +81,11 @@ import Network.AWS.Redshift.Types
 -- * 'dtMaxRecords'
 --
 -- * 'dtMarker'
-data DescribeTags = DescribeTags'{_dtResourceType :: Maybe Text, _dtTagValues :: [Text], _dtResourceName :: Maybe Text, _dtTagKeys :: [Text], _dtMaxRecords :: Maybe Int, _dtMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeTags = DescribeTags'{_dtResourceType :: Maybe Text, _dtTagValues :: Maybe [Text], _dtResourceName :: Maybe Text, _dtTagKeys :: Maybe [Text], _dtMaxRecords :: Maybe Int, _dtMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeTags' smart constructor.
 describeTags :: DescribeTags
-describeTags = DescribeTags'{_dtResourceType = Nothing, _dtTagValues = mempty, _dtResourceName = Nothing, _dtTagKeys = mempty, _dtMaxRecords = Nothing, _dtMarker = Nothing};
+describeTags = DescribeTags'{_dtResourceType = Nothing, _dtTagValues = Nothing, _dtResourceName = Nothing, _dtTagKeys = Nothing, _dtMaxRecords = Nothing, _dtMarker = Nothing};
 
 -- | The type of resource with which you want to view tags. Valid resource
 -- types are:
@@ -113,7 +113,7 @@ dtResourceType = lens _dtResourceType (\ s a -> s{_dtResourceType = a});
 -- @admin@ and @test@. If you specify both of these tag values in the
 -- request, Amazon Redshift returns a response with all resources that have
 -- either or both of these tag values associated with them.
-dtTagValues :: Lens' DescribeTags [Text]
+dtTagValues :: Lens' DescribeTags (Maybe [Text])
 dtTagValues = lens _dtTagValues (\ s a -> s{_dtTagValues = a});
 
 -- | The Amazon Resource Name (ARN) for which you want to describe the tag or
@@ -127,7 +127,7 @@ dtResourceName = lens _dtResourceName (\ s a -> s{_dtResourceName = a});
 -- @environment@. If you specify both of these tag keys in the request,
 -- Amazon Redshift returns a response with all resources that have either
 -- or both of these tag keys associated with them.
-dtTagKeys :: Lens' DescribeTags [Text]
+dtTagKeys :: Lens' DescribeTags (Maybe [Text])
 dtTagKeys = lens _dtTagKeys (\ s a -> s{_dtTagKeys = a});
 
 -- | The maximum number or response records to return in each call. If the
@@ -183,11 +183,11 @@ instance ToQuery DescribeTags where
 -- * 'dtrMarker'
 --
 -- * 'dtrTaggedResources'
-data DescribeTagsResponse = DescribeTagsResponse'{_dtrMarker :: Maybe Text, _dtrTaggedResources :: [TaggedResource]} deriving (Eq, Read, Show)
+data DescribeTagsResponse = DescribeTagsResponse'{_dtrMarker :: Maybe Text, _dtrTaggedResources :: Maybe [TaggedResource]} deriving (Eq, Read, Show)
 
 -- | 'DescribeTagsResponse' smart constructor.
 describeTagsResponse :: DescribeTagsResponse
-describeTagsResponse = DescribeTagsResponse'{_dtrMarker = Nothing, _dtrTaggedResources = mempty};
+describeTagsResponse = DescribeTagsResponse'{_dtrMarker = Nothing, _dtrTaggedResources = Nothing};
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -199,5 +199,5 @@ dtrMarker :: Lens' DescribeTagsResponse (Maybe Text)
 dtrMarker = lens _dtrMarker (\ s a -> s{_dtrMarker = a});
 
 -- | A list of tags with their associated resources.
-dtrTaggedResources :: Lens' DescribeTagsResponse [TaggedResource]
+dtrTaggedResources :: Lens' DescribeTagsResponse (Maybe [TaggedResource])
 dtrTaggedResources = lens _dtrTaggedResources (\ s a -> s{_dtrTaggedResources = a});

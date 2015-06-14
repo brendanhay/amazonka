@@ -46,9 +46,9 @@ module Network.AWS.IAM.ListAccessKeys
     -- ** Response constructor
     , listAccessKeysResponse
     -- ** Response lenses
+    , lakrMarker
     , lakrIsTruncated
     , lakrAccessKeyMetadata
-    , lakrMarker
     ) where
 
 import Network.AWS.Request
@@ -65,14 +65,14 @@ import Network.AWS.IAM.Types
 -- * 'lakMaxItems'
 --
 -- * 'lakMarker'
-data ListAccessKeys = ListAccessKeys'{_lakUserName :: Text, _lakMaxItems :: Nat, _lakMarker :: Text} deriving (Eq, Read, Show)
+data ListAccessKeys = ListAccessKeys'{_lakUserName :: Maybe Text, _lakMaxItems :: Maybe Nat, _lakMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ListAccessKeys' smart constructor.
-listAccessKeys :: Text -> Natural -> Text -> ListAccessKeys
-listAccessKeys pUserName pMaxItems pMarker = ListAccessKeys'{_lakUserName = pUserName, _lakMaxItems = _Nat # pMaxItems, _lakMarker = pMarker};
+listAccessKeys :: ListAccessKeys
+listAccessKeys = ListAccessKeys'{_lakUserName = Nothing, _lakMaxItems = Nothing, _lakMarker = Nothing};
 
 -- | The name of the user.
-lakUserName :: Lens' ListAccessKeys Text
+lakUserName :: Lens' ListAccessKeys (Maybe Text)
 lakUserName = lens _lakUserName (\ s a -> s{_lakUserName = a});
 
 -- | Use this parameter only when paginating results to indicate the maximum
@@ -80,14 +80,14 @@ lakUserName = lens _lakUserName (\ s a -> s{_lakUserName = a});
 -- beyond the maximum you specify, the @IsTruncated@ response element is
 -- @true@. This parameter is optional. If you do not include it, it
 -- defaults to 100.
-lakMaxItems :: Lens' ListAccessKeys Natural
-lakMaxItems = lens _lakMaxItems (\ s a -> s{_lakMaxItems = a}) . _Nat;
+lakMaxItems :: Lens' ListAccessKeys (Maybe Natural)
+lakMaxItems = lens _lakMaxItems (\ s a -> s{_lakMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results, and only in a
 -- subsequent request after you\'ve received a response where the results
 -- are truncated. Set it to the value of the @Marker@ element in the
 -- response you just received.
-lakMarker :: Lens' ListAccessKeys Text
+lakMarker :: Lens' ListAccessKeys (Maybe Text)
 lakMarker = lens _lakMarker (\ s a -> s{_lakMarker = a});
 
 instance AWSRequest ListAccessKeys where
@@ -98,10 +98,9 @@ instance AWSRequest ListAccessKeys where
           = receiveXMLWrapper "ListAccessKeysResult"
               (\ s h x ->
                  ListAccessKeysResponse' <$>
-                   x .@? "IsTruncated" <*>
+                   x .@? "Marker" <*> x .@? "IsTruncated" <*>
                      (x .@? "AccessKeyMetadata" .!@ mempty >>=
-                        parseXMLList "member")
-                     <*> x .@ "Marker")
+                        parseXMLList "member"))
 
 instance ToHeaders ListAccessKeys where
         toHeaders = const mempty
@@ -121,16 +120,22 @@ instance ToQuery ListAccessKeys where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'lakrMarker'
+--
 -- * 'lakrIsTruncated'
 --
 -- * 'lakrAccessKeyMetadata'
---
--- * 'lakrMarker'
-data ListAccessKeysResponse = ListAccessKeysResponse'{_lakrIsTruncated :: Maybe Bool, _lakrAccessKeyMetadata :: [AccessKeyMetadata], _lakrMarker :: Text} deriving (Eq, Read, Show)
+data ListAccessKeysResponse = ListAccessKeysResponse'{_lakrMarker :: Maybe Text, _lakrIsTruncated :: Maybe Bool, _lakrAccessKeyMetadata :: [AccessKeyMetadata]} deriving (Eq, Read, Show)
 
 -- | 'ListAccessKeysResponse' smart constructor.
-listAccessKeysResponse :: [AccessKeyMetadata] -> Text -> ListAccessKeysResponse
-listAccessKeysResponse pAccessKeyMetadata pMarker = ListAccessKeysResponse'{_lakrIsTruncated = Nothing, _lakrAccessKeyMetadata = pAccessKeyMetadata, _lakrMarker = pMarker};
+listAccessKeysResponse :: ListAccessKeysResponse
+listAccessKeysResponse = ListAccessKeysResponse'{_lakrMarker = Nothing, _lakrIsTruncated = Nothing, _lakrAccessKeyMetadata = mempty};
+
+-- | If @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+lakrMarker :: Lens' ListAccessKeysResponse (Maybe Text)
+lakrMarker = lens _lakrMarker (\ s a -> s{_lakrMarker = a});
 
 -- | A flag that indicates whether there are more keys to list. If your
 -- results were truncated, you can make a subsequent pagination request
@@ -141,9 +146,3 @@ lakrIsTruncated = lens _lakrIsTruncated (\ s a -> s{_lakrIsTruncated = a});
 -- | A list of access key metadata.
 lakrAccessKeyMetadata :: Lens' ListAccessKeysResponse [AccessKeyMetadata]
 lakrAccessKeyMetadata = lens _lakrAccessKeyMetadata (\ s a -> s{_lakrAccessKeyMetadata = a});
-
--- | If @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
-lakrMarker :: Lens' ListAccessKeysResponse Text
-lakrMarker = lens _lakrMarker (\ s a -> s{_lakrMarker = a});

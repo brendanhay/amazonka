@@ -141,14 +141,14 @@ instance ToQuery DescribeClusterVersions where
 -- * 'dcvrClusterVersions'
 --
 -- * 'dcvrMarker'
-data DescribeClusterVersionsResponse = DescribeClusterVersionsResponse'{_dcvrClusterVersions :: [ClusterVersion], _dcvrMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeClusterVersionsResponse = DescribeClusterVersionsResponse'{_dcvrClusterVersions :: Maybe [ClusterVersion], _dcvrMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeClusterVersionsResponse' smart constructor.
 describeClusterVersionsResponse :: DescribeClusterVersionsResponse
-describeClusterVersionsResponse = DescribeClusterVersionsResponse'{_dcvrClusterVersions = mempty, _dcvrMarker = Nothing};
+describeClusterVersionsResponse = DescribeClusterVersionsResponse'{_dcvrClusterVersions = Nothing, _dcvrMarker = Nothing};
 
 -- | A list of @Version@ elements.
-dcvrClusterVersions :: Lens' DescribeClusterVersionsResponse [ClusterVersion]
+dcvrClusterVersions :: Lens' DescribeClusterVersionsResponse (Maybe [ClusterVersion])
 dcvrClusterVersions = lens _dcvrClusterVersions (\ s a -> s{_dcvrClusterVersions = a});
 
 -- | A value that indicates the starting point for the next set of response

@@ -55,15 +55,15 @@ import Network.AWS.CodeDeploy.Types
 -- * 'lopiNextToken'
 --
 -- * 'lopiRegistrationStatus'
-data ListOnPremisesInstances = ListOnPremisesInstances'{_lopiTagFilters :: [TagFilter], _lopiNextToken :: Maybe Text, _lopiRegistrationStatus :: Maybe RegistrationStatus} deriving (Eq, Read, Show)
+data ListOnPremisesInstances = ListOnPremisesInstances'{_lopiTagFilters :: Maybe [TagFilter], _lopiNextToken :: Maybe Text, _lopiRegistrationStatus :: Maybe RegistrationStatus} deriving (Eq, Read, Show)
 
 -- | 'ListOnPremisesInstances' smart constructor.
 listOnPremisesInstances :: ListOnPremisesInstances
-listOnPremisesInstances = ListOnPremisesInstances'{_lopiTagFilters = mempty, _lopiNextToken = Nothing, _lopiRegistrationStatus = Nothing};
+listOnPremisesInstances = ListOnPremisesInstances'{_lopiTagFilters = Nothing, _lopiNextToken = Nothing, _lopiRegistrationStatus = Nothing};
 
 -- | The on-premises instance tags that will be used to restrict the
 -- corresponding on-premises instance names that are returned.
-lopiTagFilters :: Lens' ListOnPremisesInstances [TagFilter]
+lopiTagFilters :: Lens' ListOnPremisesInstances (Maybe [TagFilter])
 lopiTagFilters = lens _lopiTagFilters (\ s a -> s{_lopiTagFilters = a});
 
 -- | An identifier that was returned from the previous list on-premises
@@ -123,11 +123,11 @@ instance ToQuery ListOnPremisesInstances where
 -- * 'lopirNextToken'
 --
 -- * 'lopirInstanceNames'
-data ListOnPremisesInstancesResponse = ListOnPremisesInstancesResponse'{_lopirNextToken :: Maybe Text, _lopirInstanceNames :: [Text]} deriving (Eq, Read, Show)
+data ListOnPremisesInstancesResponse = ListOnPremisesInstancesResponse'{_lopirNextToken :: Maybe Text, _lopirInstanceNames :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'ListOnPremisesInstancesResponse' smart constructor.
 listOnPremisesInstancesResponse :: ListOnPremisesInstancesResponse
-listOnPremisesInstancesResponse = ListOnPremisesInstancesResponse'{_lopirNextToken = Nothing, _lopirInstanceNames = mempty};
+listOnPremisesInstancesResponse = ListOnPremisesInstancesResponse'{_lopirNextToken = Nothing, _lopirInstanceNames = Nothing};
 
 -- | If the amount of information that is returned is significantly large, an
 -- identifier will also be returned, which can be used in a subsequent list
@@ -137,5 +137,5 @@ lopirNextToken :: Lens' ListOnPremisesInstancesResponse (Maybe Text)
 lopirNextToken = lens _lopirNextToken (\ s a -> s{_lopirNextToken = a});
 
 -- | The list of matching on-premises instance names.
-lopirInstanceNames :: Lens' ListOnPremisesInstancesResponse [Text]
+lopirInstanceNames :: Lens' ListOnPremisesInstancesResponse (Maybe [Text])
 lopirInstanceNames = lens _lopirInstanceNames (\ s a -> s{_lopirInstanceNames = a});

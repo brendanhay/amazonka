@@ -96,8 +96,8 @@ instance ToQuery ListTagsForDomain where
 newtype ListTagsForDomainResponse = ListTagsForDomainResponse'{_ltfdrTagList :: [Tag]} deriving (Eq, Read, Show)
 
 -- | 'ListTagsForDomainResponse' smart constructor.
-listTagsForDomainResponse :: [Tag] -> ListTagsForDomainResponse
-listTagsForDomainResponse pTagList = ListTagsForDomainResponse'{_ltfdrTagList = pTagList};
+listTagsForDomainResponse :: ListTagsForDomainResponse
+listTagsForDomainResponse = ListTagsForDomainResponse'{_ltfdrTagList = mempty};
 
 -- | A list of the tags that are associated with the specified domain.
 --

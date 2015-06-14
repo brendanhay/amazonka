@@ -199,11 +199,11 @@ instance ToQuery DescribeReservedCacheNodes where
 -- * 'drcnrMarker'
 --
 -- * 'drcnrReservedCacheNodes'
-data DescribeReservedCacheNodesResponse = DescribeReservedCacheNodesResponse'{_drcnrMarker :: Maybe Text, _drcnrReservedCacheNodes :: [ReservedCacheNode]} deriving (Eq, Read, Show)
+data DescribeReservedCacheNodesResponse = DescribeReservedCacheNodesResponse'{_drcnrMarker :: Maybe Text, _drcnrReservedCacheNodes :: Maybe [ReservedCacheNode]} deriving (Eq, Read, Show)
 
 -- | 'DescribeReservedCacheNodesResponse' smart constructor.
 describeReservedCacheNodesResponse :: DescribeReservedCacheNodesResponse
-describeReservedCacheNodesResponse = DescribeReservedCacheNodesResponse'{_drcnrMarker = Nothing, _drcnrReservedCacheNodes = mempty};
+describeReservedCacheNodesResponse = DescribeReservedCacheNodesResponse'{_drcnrMarker = Nothing, _drcnrReservedCacheNodes = Nothing};
 
 -- | Provides an identifier to allow retrieval of paginated results.
 drcnrMarker :: Lens' DescribeReservedCacheNodesResponse (Maybe Text)
@@ -211,5 +211,5 @@ drcnrMarker = lens _drcnrMarker (\ s a -> s{_drcnrMarker = a});
 
 -- | A list of reserved cache nodes. Each element in the list contains
 -- detailed information about one node.
-drcnrReservedCacheNodes :: Lens' DescribeReservedCacheNodesResponse [ReservedCacheNode]
+drcnrReservedCacheNodes :: Lens' DescribeReservedCacheNodesResponse (Maybe [ReservedCacheNode])
 drcnrReservedCacheNodes = lens _drcnrReservedCacheNodes (\ s a -> s{_drcnrReservedCacheNodes = a});

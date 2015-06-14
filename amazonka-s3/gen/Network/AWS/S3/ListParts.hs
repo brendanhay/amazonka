@@ -164,14 +164,14 @@ instance ToQuery ListParts where
 -- * 'lprPartNumberMarker'
 --
 -- * 'lprUploadId'
-data ListPartsResponse = ListPartsResponse'{_lprParts :: [Part], _lprRequestCharged :: Maybe RequestCharged, _lprMaxParts :: Maybe Int, _lprInitiator :: Maybe Initiator, _lprBucket :: Maybe BucketName, _lprNextPartNumberMarker :: Maybe Int, _lprOwner :: Maybe Owner, _lprKey :: Maybe ObjectKey, _lprStorageClass :: Maybe StorageClass, _lprIsTruncated :: Maybe Bool, _lprPartNumberMarker :: Maybe Int, _lprUploadId :: Maybe Text} deriving (Eq, Read, Show)
+data ListPartsResponse = ListPartsResponse'{_lprParts :: Maybe [Part], _lprRequestCharged :: Maybe RequestCharged, _lprMaxParts :: Maybe Int, _lprInitiator :: Maybe Initiator, _lprBucket :: Maybe BucketName, _lprNextPartNumberMarker :: Maybe Int, _lprOwner :: Maybe Owner, _lprKey :: Maybe ObjectKey, _lprStorageClass :: Maybe StorageClass, _lprIsTruncated :: Maybe Bool, _lprPartNumberMarker :: Maybe Int, _lprUploadId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ListPartsResponse' smart constructor.
 listPartsResponse :: ListPartsResponse
-listPartsResponse = ListPartsResponse'{_lprParts = mempty, _lprRequestCharged = Nothing, _lprMaxParts = Nothing, _lprInitiator = Nothing, _lprBucket = Nothing, _lprNextPartNumberMarker = Nothing, _lprOwner = Nothing, _lprKey = Nothing, _lprStorageClass = Nothing, _lprIsTruncated = Nothing, _lprPartNumberMarker = Nothing, _lprUploadId = Nothing};
+listPartsResponse = ListPartsResponse'{_lprParts = Nothing, _lprRequestCharged = Nothing, _lprMaxParts = Nothing, _lprInitiator = Nothing, _lprBucket = Nothing, _lprNextPartNumberMarker = Nothing, _lprOwner = Nothing, _lprKey = Nothing, _lprStorageClass = Nothing, _lprIsTruncated = Nothing, _lprPartNumberMarker = Nothing, _lprUploadId = Nothing};
 
 -- | FIXME: Undocumented member.
-lprParts :: Lens' ListPartsResponse [Part]
+lprParts :: Lens' ListPartsResponse (Maybe [Part])
 lprParts = lens _lprParts (\ s a -> s{_lprParts = a});
 
 -- | FIXME: Undocumented member.

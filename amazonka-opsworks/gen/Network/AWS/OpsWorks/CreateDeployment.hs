@@ -68,11 +68,11 @@ import Network.AWS.OpsWorks.Types
 -- * 'cdStackId'
 --
 -- * 'cdCommand'
-data CreateDeployment = CreateDeployment'{_cdCustomJSON :: Maybe Text, _cdAppId :: Maybe Text, _cdInstanceIds :: [Text], _cdComment :: Maybe Text, _cdStackId :: Text, _cdCommand :: DeploymentCommand} deriving (Eq, Read, Show)
+data CreateDeployment = CreateDeployment'{_cdCustomJSON :: Maybe Text, _cdAppId :: Maybe Text, _cdInstanceIds :: Maybe [Text], _cdComment :: Maybe Text, _cdStackId :: Text, _cdCommand :: DeploymentCommand} deriving (Eq, Read, Show)
 
 -- | 'CreateDeployment' smart constructor.
 createDeployment :: Text -> DeploymentCommand -> CreateDeployment
-createDeployment pStackId pCommand = CreateDeployment'{_cdCustomJSON = Nothing, _cdAppId = Nothing, _cdInstanceIds = mempty, _cdComment = Nothing, _cdStackId = pStackId, _cdCommand = pCommand};
+createDeployment pStackId pCommand = CreateDeployment'{_cdCustomJSON = Nothing, _cdAppId = Nothing, _cdInstanceIds = Nothing, _cdComment = Nothing, _cdStackId = pStackId, _cdCommand = pCommand};
 
 -- | A string that contains user-defined, custom JSON. It is used to override
 -- the corresponding default stack configuration JSON values. The string
@@ -92,7 +92,7 @@ cdAppId :: Lens' CreateDeployment (Maybe Text)
 cdAppId = lens _cdAppId (\ s a -> s{_cdAppId = a});
 
 -- | The instance IDs for the deployment targets.
-cdInstanceIds :: Lens' CreateDeployment [Text]
+cdInstanceIds :: Lens' CreateDeployment (Maybe [Text])
 cdInstanceIds = lens _cdInstanceIds (\ s a -> s{_cdInstanceIds = a});
 
 -- | A user-defined comment.

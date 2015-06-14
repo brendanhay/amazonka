@@ -203,12 +203,12 @@ instance ToQuery RequestSpotInstances where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rsirSpotInstanceRequests'
-newtype RequestSpotInstancesResponse = RequestSpotInstancesResponse'{_rsirSpotInstanceRequests :: [SpotInstanceRequest]} deriving (Eq, Read, Show)
+newtype RequestSpotInstancesResponse = RequestSpotInstancesResponse'{_rsirSpotInstanceRequests :: Maybe [SpotInstanceRequest]} deriving (Eq, Read, Show)
 
 -- | 'RequestSpotInstancesResponse' smart constructor.
 requestSpotInstancesResponse :: RequestSpotInstancesResponse
-requestSpotInstancesResponse = RequestSpotInstancesResponse'{_rsirSpotInstanceRequests = mempty};
+requestSpotInstancesResponse = RequestSpotInstancesResponse'{_rsirSpotInstanceRequests = Nothing};
 
 -- | One or more Spot Instance requests.
-rsirSpotInstanceRequests :: Lens' RequestSpotInstancesResponse [SpotInstanceRequest]
+rsirSpotInstanceRequests :: Lens' RequestSpotInstancesResponse (Maybe [SpotInstanceRequest])
 rsirSpotInstanceRequests = lens _rsirSpotInstanceRequests (\ s a -> s{_rsirSpotInstanceRequests = a});

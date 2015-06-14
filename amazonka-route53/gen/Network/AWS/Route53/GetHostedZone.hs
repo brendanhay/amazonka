@@ -34,9 +34,9 @@ module Network.AWS.Route53.GetHostedZone
     -- ** Response constructor
     , getHostedZoneResponse
     -- ** Response lenses
+    , ghzrVPCs
     , ghzrDelegationSet
     , ghzrHostedZone
-    , ghzrVPCs
     ) where
 
 import Network.AWS.Request
@@ -68,8 +68,9 @@ instance AWSRequest GetHostedZone where
           = receiveXML
               (\ s h x ->
                  GetHostedZoneResponse' <$>
-                   x .@? "DelegationSet" <*> x .@ "HostedZone" <*>
-                     (x .@? "VPCs" .!@ mempty >>= parseXMLList1 "VPC"))
+                   (x .@? "VPCs" .!@ mempty >>= parseXMLList1 "VPC") <*>
+                     x .@? "DelegationSet"
+                     <*> x .@ "HostedZone")
 
 instance ToHeaders GetHostedZone where
         toHeaders = const mempty
@@ -85,16 +86,21 @@ instance ToQuery GetHostedZone where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'ghzrVPCs'
+--
 -- * 'ghzrDelegationSet'
 --
 -- * 'ghzrHostedZone'
---
--- * 'ghzrVPCs'
-data GetHostedZoneResponse = GetHostedZoneResponse'{_ghzrDelegationSet :: Maybe DelegationSet, _ghzrHostedZone :: HostedZone, _ghzrVPCs :: List1 VPC} deriving (Eq, Read, Show)
+data GetHostedZoneResponse = GetHostedZoneResponse'{_ghzrVPCs :: Maybe (List1 VPC), _ghzrDelegationSet :: Maybe DelegationSet, _ghzrHostedZone :: HostedZone} deriving (Eq, Read, Show)
 
 -- | 'GetHostedZoneResponse' smart constructor.
-getHostedZoneResponse :: HostedZone -> NonEmpty VPC -> GetHostedZoneResponse
-getHostedZoneResponse pHostedZone pVPCs = GetHostedZoneResponse'{_ghzrDelegationSet = Nothing, _ghzrHostedZone = pHostedZone, _ghzrVPCs = _List1 # pVPCs};
+getHostedZoneResponse :: HostedZone -> GetHostedZoneResponse
+getHostedZoneResponse pHostedZone = GetHostedZoneResponse'{_ghzrVPCs = Nothing, _ghzrDelegationSet = Nothing, _ghzrHostedZone = pHostedZone};
+
+-- | A complex type that contains information about VPCs associated with the
+-- specified hosted zone.
+ghzrVPCs :: Lens' GetHostedZoneResponse (Maybe (NonEmpty VPC))
+ghzrVPCs = lens _ghzrVPCs (\ s a -> s{_ghzrVPCs = a}) . mapping _List1;
 
 -- | A complex type that contains information about the name servers for the
 -- specified hosted zone.
@@ -105,8 +111,3 @@ ghzrDelegationSet = lens _ghzrDelegationSet (\ s a -> s{_ghzrDelegationSet = a})
 -- zone.
 ghzrHostedZone :: Lens' GetHostedZoneResponse HostedZone
 ghzrHostedZone = lens _ghzrHostedZone (\ s a -> s{_ghzrHostedZone = a});
-
--- | A complex type that contains information about VPCs associated with the
--- specified hosted zone.
-ghzrVPCs :: Lens' GetHostedZoneResponse (NonEmpty VPC)
-ghzrVPCs = lens _ghzrVPCs (\ s a -> s{_ghzrVPCs = a}) . _List1;

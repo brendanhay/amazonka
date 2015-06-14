@@ -55,9 +55,9 @@ module Network.AWS.ELB.CreateLoadBalancer
     , clbSubnets
     , clbAvailabilityZones
     , clbScheme
+    , clbTags
     , clbLoadBalancerName
     , clbListeners
-    , clbTags
 
     -- * Response
     , CreateLoadBalancerResponse
@@ -84,25 +84,25 @@ import Network.AWS.ELB.Types
 --
 -- * 'clbScheme'
 --
+-- * 'clbTags'
+--
 -- * 'clbLoadBalancerName'
 --
 -- * 'clbListeners'
---
--- * 'clbTags'
-data CreateLoadBalancer = CreateLoadBalancer'{_clbSecurityGroups :: [Text], _clbSubnets :: [Text], _clbAvailabilityZones :: [Text], _clbScheme :: Maybe Text, _clbLoadBalancerName :: Text, _clbListeners :: [Listener], _clbTags :: List1 Tag} deriving (Eq, Read, Show)
+data CreateLoadBalancer = CreateLoadBalancer'{_clbSecurityGroups :: Maybe [Text], _clbSubnets :: Maybe [Text], _clbAvailabilityZones :: Maybe [Text], _clbScheme :: Maybe Text, _clbTags :: Maybe (List1 Tag), _clbLoadBalancerName :: Text, _clbListeners :: [Listener]} deriving (Eq, Read, Show)
 
 -- | 'CreateLoadBalancer' smart constructor.
-createLoadBalancer :: Text -> [Listener] -> NonEmpty Tag -> CreateLoadBalancer
-createLoadBalancer pLoadBalancerName pListeners pTags = CreateLoadBalancer'{_clbSecurityGroups = mempty, _clbSubnets = mempty, _clbAvailabilityZones = mempty, _clbScheme = Nothing, _clbLoadBalancerName = pLoadBalancerName, _clbListeners = pListeners, _clbTags = _List1 # pTags};
+createLoadBalancer :: Text -> CreateLoadBalancer
+createLoadBalancer pLoadBalancerName = CreateLoadBalancer'{_clbSecurityGroups = Nothing, _clbSubnets = Nothing, _clbAvailabilityZones = Nothing, _clbScheme = Nothing, _clbTags = Nothing, _clbLoadBalancerName = pLoadBalancerName, _clbListeners = mempty};
 
 -- | The IDs of the security groups to assign to the load balancer.
-clbSecurityGroups :: Lens' CreateLoadBalancer [Text]
+clbSecurityGroups :: Lens' CreateLoadBalancer (Maybe [Text])
 clbSecurityGroups = lens _clbSecurityGroups (\ s a -> s{_clbSecurityGroups = a});
 
 -- | The IDs of the subnets in your VPC to attach to the load balancer.
 -- Specify one subnet per Availability Zone specified in
 -- @AvailabilityZones@.
-clbSubnets :: Lens' CreateLoadBalancer [Text]
+clbSubnets :: Lens' CreateLoadBalancer (Maybe [Text])
 clbSubnets = lens _clbSubnets (\ s a -> s{_clbSubnets = a});
 
 -- | One or more Availability Zones from the same region as the load
@@ -113,7 +113,7 @@ clbSubnets = lens _clbSubnets (\ s a -> s{_clbSubnets = a});
 --
 -- You can add more Availability Zones after you create the load balancer
 -- using EnableAvailabilityZonesForLoadBalancer.
-clbAvailabilityZones :: Lens' CreateLoadBalancer [Text]
+clbAvailabilityZones :: Lens' CreateLoadBalancer (Maybe [Text])
 clbAvailabilityZones = lens _clbAvailabilityZones (\ s a -> s{_clbAvailabilityZones = a});
 
 -- | The type of a load balancer. Valid only for load balancers in a VPC.
@@ -130,6 +130,14 @@ clbAvailabilityZones = lens _clbAvailabilityZones (\ s a -> s{_clbAvailabilityZo
 clbScheme :: Lens' CreateLoadBalancer (Maybe Text)
 clbScheme = lens _clbScheme (\ s a -> s{_clbScheme = a});
 
+-- | A list of tags to assign to the load balancer.
+--
+-- For more information about tagging your load balancer, see
+-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#tagging-elb Tagging>
+-- in the /Elastic Load Balancing Developer Guide/.
+clbTags :: Lens' CreateLoadBalancer (Maybe (NonEmpty Tag))
+clbTags = lens _clbTags (\ s a -> s{_clbTags = a}) . mapping _List1;
+
 -- | The name of the load balancer.
 --
 -- This name must be unique within your AWS account, must have a maximum of
@@ -145,14 +153,6 @@ clbLoadBalancerName = lens _clbLoadBalancerName (\ s a -> s{_clbLoadBalancerName
 -- in the /Elastic Load Balancing Developer Guide/.
 clbListeners :: Lens' CreateLoadBalancer [Listener]
 clbListeners = lens _clbListeners (\ s a -> s{_clbListeners = a});
-
--- | A list of tags to assign to the load balancer.
---
--- For more information about tagging your load balancer, see
--- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#tagging-elb Tagging>
--- in the /Elastic Load Balancing Developer Guide/.
-clbTags :: Lens' CreateLoadBalancer (NonEmpty Tag)
-clbTags = lens _clbTags (\ s a -> s{_clbTags = a}) . _List1;
 
 instance AWSRequest CreateLoadBalancer where
         type Sv CreateLoadBalancer = ELB
@@ -180,9 +180,9 @@ instance ToQuery CreateLoadBalancer where
                "AvailabilityZones" =:
                  "member" =: _clbAvailabilityZones,
                "Scheme" =: _clbScheme,
+               "Tags" =: "member" =: _clbTags,
                "LoadBalancerName" =: _clbLoadBalancerName,
-               "Listeners" =: "member" =: _clbListeners,
-               "Tags" =: "member" =: _clbTags]
+               "Listeners" =: "member" =: _clbListeners]
 
 -- | /See:/ 'createLoadBalancerResponse' smart constructor.
 --

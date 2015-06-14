@@ -61,11 +61,11 @@ import Network.AWS.EC2.Types
 -- * 'mveDryRun'
 --
 -- * 'mveVPCEndpointId'
-data ModifyVPCEndpoint = ModifyVPCEndpoint'{_mvePolicyDocument :: Maybe Text, _mveRemoveRouteTableIds :: [Text], _mveResetPolicy :: Maybe Bool, _mveAddRouteTableIds :: [Text], _mveDryRun :: Maybe Bool, _mveVPCEndpointId :: Text} deriving (Eq, Read, Show)
+data ModifyVPCEndpoint = ModifyVPCEndpoint'{_mvePolicyDocument :: Maybe Text, _mveRemoveRouteTableIds :: Maybe [Text], _mveResetPolicy :: Maybe Bool, _mveAddRouteTableIds :: Maybe [Text], _mveDryRun :: Maybe Bool, _mveVPCEndpointId :: Text} deriving (Eq, Read, Show)
 
 -- | 'ModifyVPCEndpoint' smart constructor.
 modifyVPCEndpoint :: Text -> ModifyVPCEndpoint
-modifyVPCEndpoint pVPCEndpointId = ModifyVPCEndpoint'{_mvePolicyDocument = Nothing, _mveRemoveRouteTableIds = mempty, _mveResetPolicy = Nothing, _mveAddRouteTableIds = mempty, _mveDryRun = Nothing, _mveVPCEndpointId = pVPCEndpointId};
+modifyVPCEndpoint pVPCEndpointId = ModifyVPCEndpoint'{_mvePolicyDocument = Nothing, _mveRemoveRouteTableIds = Nothing, _mveResetPolicy = Nothing, _mveAddRouteTableIds = Nothing, _mveDryRun = Nothing, _mveVPCEndpointId = pVPCEndpointId};
 
 -- | A policy document to attach to the endpoint. The policy must be in valid
 -- JSON format.
@@ -73,7 +73,7 @@ mvePolicyDocument :: Lens' ModifyVPCEndpoint (Maybe Text)
 mvePolicyDocument = lens _mvePolicyDocument (\ s a -> s{_mvePolicyDocument = a});
 
 -- | One or more route table IDs to disassociate from the endpoint.
-mveRemoveRouteTableIds :: Lens' ModifyVPCEndpoint [Text]
+mveRemoveRouteTableIds :: Lens' ModifyVPCEndpoint (Maybe [Text])
 mveRemoveRouteTableIds = lens _mveRemoveRouteTableIds (\ s a -> s{_mveRemoveRouteTableIds = a});
 
 -- | Specify @true@ to reset the policy document to the default policy. The
@@ -82,7 +82,7 @@ mveResetPolicy :: Lens' ModifyVPCEndpoint (Maybe Bool)
 mveResetPolicy = lens _mveResetPolicy (\ s a -> s{_mveResetPolicy = a});
 
 -- | One or more route tables IDs to associate with the endpoint.
-mveAddRouteTableIds :: Lens' ModifyVPCEndpoint [Text]
+mveAddRouteTableIds :: Lens' ModifyVPCEndpoint (Maybe [Text])
 mveAddRouteTableIds = lens _mveAddRouteTableIds (\ s a -> s{_mveAddRouteTableIds = a});
 
 -- | Checks whether you have the required permissions for the action, without

@@ -29,8 +29,8 @@ module Network.AWS.KMS.CreateKey
     , createKey
     -- ** Request lenses
     , ckKeyUsage
-    , ckDescription
     , ckPolicy
+    , ckDescription
 
     -- * Response
     , CreateKeyResponse
@@ -51,14 +51,14 @@ import Network.AWS.KMS.Types
 --
 -- * 'ckKeyUsage'
 --
--- * 'ckDescription'
---
 -- * 'ckPolicy'
-data CreateKey = CreateKey'{_ckKeyUsage :: Maybe KeyUsageType, _ckDescription :: Maybe Text, _ckPolicy :: Text} deriving (Eq, Read, Show)
+--
+-- * 'ckDescription'
+data CreateKey = CreateKey'{_ckKeyUsage :: Maybe KeyUsageType, _ckPolicy :: Maybe Text, _ckDescription :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'CreateKey' smart constructor.
-createKey :: Text -> CreateKey
-createKey pPolicy = CreateKey'{_ckKeyUsage = Nothing, _ckDescription = Nothing, _ckPolicy = pPolicy};
+createKey :: CreateKey
+createKey = CreateKey'{_ckKeyUsage = Nothing, _ckPolicy = Nothing, _ckDescription = Nothing};
 
 -- | Specifies the intended use of the key. Currently this defaults to
 -- ENCRYPT\/DECRYPT, and only symmetric encryption and decryption are
@@ -66,15 +66,15 @@ createKey pPolicy = CreateKey'{_ckKeyUsage = Nothing, _ckDescription = Nothing, 
 ckKeyUsage :: Lens' CreateKey (Maybe KeyUsageType)
 ckKeyUsage = lens _ckKeyUsage (\ s a -> s{_ckKeyUsage = a});
 
+-- | Policy to be attached to the key. This is required and delegates back to
+-- the account. The key is the root of trust.
+ckPolicy :: Lens' CreateKey (Maybe Text)
+ckPolicy = lens _ckPolicy (\ s a -> s{_ckPolicy = a});
+
 -- | Description of the key. We recommend that you choose a description that
 -- helps your customer decide whether the key is appropriate for a task.
 ckDescription :: Lens' CreateKey (Maybe Text)
 ckDescription = lens _ckDescription (\ s a -> s{_ckDescription = a});
-
--- | Policy to be attached to the key. This is required and delegates back to
--- the account. The key is the root of trust.
-ckPolicy :: Lens' CreateKey Text
-ckPolicy = lens _ckPolicy (\ s a -> s{_ckPolicy = a});
 
 instance AWSRequest CreateKey where
         type Sv CreateKey = KMS
@@ -97,9 +97,8 @@ instance ToHeaders CreateKey where
 instance ToJSON CreateKey where
         toJSON CreateKey'{..}
           = object
-              ["KeyUsage" .= _ckKeyUsage,
-               "Description" .= _ckDescription,
-               "Policy" .= _ckPolicy]
+              ["KeyUsage" .= _ckKeyUsage, "Policy" .= _ckPolicy,
+               "Description" .= _ckDescription]
 
 instance ToPath CreateKey where
         toPath = const "/"

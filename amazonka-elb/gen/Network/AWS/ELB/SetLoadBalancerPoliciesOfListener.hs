@@ -53,8 +53,8 @@ import Network.AWS.ELB.Types
 data SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListener'{_slbpolLoadBalancerName :: Text, _slbpolLoadBalancerPort :: Int, _slbpolPolicyNames :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'SetLoadBalancerPoliciesOfListener' smart constructor.
-setLoadBalancerPoliciesOfListener :: Text -> Int -> [Text] -> SetLoadBalancerPoliciesOfListener
-setLoadBalancerPoliciesOfListener pLoadBalancerName pLoadBalancerPort pPolicyNames = SetLoadBalancerPoliciesOfListener'{_slbpolLoadBalancerName = pLoadBalancerName, _slbpolLoadBalancerPort = pLoadBalancerPort, _slbpolPolicyNames = pPolicyNames};
+setLoadBalancerPoliciesOfListener :: Text -> Int -> SetLoadBalancerPoliciesOfListener
+setLoadBalancerPoliciesOfListener pLoadBalancerName pLoadBalancerPort = SetLoadBalancerPoliciesOfListener'{_slbpolLoadBalancerName = pLoadBalancerName, _slbpolLoadBalancerPort = pLoadBalancerPort, _slbpolPolicyNames = mempty};
 
 -- | The name of the load balancer.
 slbpolLoadBalancerName :: Lens' SetLoadBalancerPoliciesOfListener Text

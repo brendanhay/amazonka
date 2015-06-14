@@ -83,12 +83,12 @@ instance ToQuery ListVerifiedEmailAddresses where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lvearVerifiedEmailAddresses'
-newtype ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse'{_lvearVerifiedEmailAddresses :: [Text]} deriving (Eq, Read, Show)
+newtype ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse'{_lvearVerifiedEmailAddresses :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'ListVerifiedEmailAddressesResponse' smart constructor.
 listVerifiedEmailAddressesResponse :: ListVerifiedEmailAddressesResponse
-listVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse'{_lvearVerifiedEmailAddresses = mempty};
+listVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse'{_lvearVerifiedEmailAddresses = Nothing};
 
 -- | A list of email addresses that have been verified.
-lvearVerifiedEmailAddresses :: Lens' ListVerifiedEmailAddressesResponse [Text]
+lvearVerifiedEmailAddresses :: Lens' ListVerifiedEmailAddressesResponse (Maybe [Text])
 lvearVerifiedEmailAddresses = lens _lvearVerifiedEmailAddresses (\ s a -> s{_lvearVerifiedEmailAddresses = a});

@@ -79,11 +79,11 @@ import Network.AWS.EC2.Types
 -- * 'rsgiSourceSecurityGroupName'
 --
 -- * 'rsgiDryRun'
-data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress'{_rsgiFromPort :: Maybe Int, _rsgiIPPermissions :: [IPPermission], _rsgiIPProtocol :: Maybe Text, _rsgiGroupId :: Maybe Text, _rsgiToPort :: Maybe Int, _rsgiCIDRIP :: Maybe Text, _rsgiGroupName :: Maybe Text, _rsgiSourceSecurityGroupOwnerId :: Maybe Text, _rsgiSourceSecurityGroupName :: Maybe Text, _rsgiDryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress'{_rsgiFromPort :: Maybe Int, _rsgiIPPermissions :: Maybe [IPPermission], _rsgiIPProtocol :: Maybe Text, _rsgiGroupId :: Maybe Text, _rsgiToPort :: Maybe Int, _rsgiCIDRIP :: Maybe Text, _rsgiGroupName :: Maybe Text, _rsgiSourceSecurityGroupOwnerId :: Maybe Text, _rsgiSourceSecurityGroupName :: Maybe Text, _rsgiDryRun :: Maybe Bool} deriving (Eq, Read, Show)
 
 -- | 'RevokeSecurityGroupIngress' smart constructor.
 revokeSecurityGroupIngress :: RevokeSecurityGroupIngress
-revokeSecurityGroupIngress = RevokeSecurityGroupIngress'{_rsgiFromPort = Nothing, _rsgiIPPermissions = mempty, _rsgiIPProtocol = Nothing, _rsgiGroupId = Nothing, _rsgiToPort = Nothing, _rsgiCIDRIP = Nothing, _rsgiGroupName = Nothing, _rsgiSourceSecurityGroupOwnerId = Nothing, _rsgiSourceSecurityGroupName = Nothing, _rsgiDryRun = Nothing};
+revokeSecurityGroupIngress = RevokeSecurityGroupIngress'{_rsgiFromPort = Nothing, _rsgiIPPermissions = Nothing, _rsgiIPProtocol = Nothing, _rsgiGroupId = Nothing, _rsgiToPort = Nothing, _rsgiCIDRIP = Nothing, _rsgiGroupName = Nothing, _rsgiSourceSecurityGroupOwnerId = Nothing, _rsgiSourceSecurityGroupName = Nothing, _rsgiDryRun = Nothing};
 
 -- | The start of port range for the TCP and UDP protocols, or an ICMP type
 -- number. For the ICMP type number, use @-1@ to specify all ICMP types.
@@ -92,7 +92,7 @@ rsgiFromPort = lens _rsgiFromPort (\ s a -> s{_rsgiFromPort = a});
 
 -- | A set of IP permissions. You can\'t specify a source security group and
 -- a CIDR IP address range.
-rsgiIPPermissions :: Lens' RevokeSecurityGroupIngress [IPPermission]
+rsgiIPPermissions :: Lens' RevokeSecurityGroupIngress (Maybe [IPPermission])
 rsgiIPPermissions = lens _rsgiIPPermissions (\ s a -> s{_rsgiIPPermissions = a});
 
 -- | The IP protocol name (@tcp@, @udp@, @icmp@) or number (see

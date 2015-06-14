@@ -55,14 +55,14 @@ import Network.AWS.ELB.Types
 -- * 'dlbpPolicyNames'
 --
 -- * 'dlbpLoadBalancerName'
-data DescribeLoadBalancerPolicies = DescribeLoadBalancerPolicies'{_dlbpPolicyNames :: [Text], _dlbpLoadBalancerName :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeLoadBalancerPolicies = DescribeLoadBalancerPolicies'{_dlbpPolicyNames :: Maybe [Text], _dlbpLoadBalancerName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeLoadBalancerPolicies' smart constructor.
 describeLoadBalancerPolicies :: DescribeLoadBalancerPolicies
-describeLoadBalancerPolicies = DescribeLoadBalancerPolicies'{_dlbpPolicyNames = mempty, _dlbpLoadBalancerName = Nothing};
+describeLoadBalancerPolicies = DescribeLoadBalancerPolicies'{_dlbpPolicyNames = Nothing, _dlbpLoadBalancerName = Nothing};
 
 -- | The names of the policies.
-dlbpPolicyNames :: Lens' DescribeLoadBalancerPolicies [Text]
+dlbpPolicyNames :: Lens' DescribeLoadBalancerPolicies (Maybe [Text])
 dlbpPolicyNames = lens _dlbpPolicyNames (\ s a -> s{_dlbpPolicyNames = a});
 
 -- | The name of the load balancer.
@@ -103,12 +103,12 @@ instance ToQuery DescribeLoadBalancerPolicies where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dlbprPolicyDescriptions'
-newtype DescribeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse'{_dlbprPolicyDescriptions :: [PolicyDescription]} deriving (Eq, Read, Show)
+newtype DescribeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse'{_dlbprPolicyDescriptions :: Maybe [PolicyDescription]} deriving (Eq, Read, Show)
 
 -- | 'DescribeLoadBalancerPoliciesResponse' smart constructor.
 describeLoadBalancerPoliciesResponse :: DescribeLoadBalancerPoliciesResponse
-describeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse'{_dlbprPolicyDescriptions = mempty};
+describeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse'{_dlbprPolicyDescriptions = Nothing};
 
 -- | Information about the policies.
-dlbprPolicyDescriptions :: Lens' DescribeLoadBalancerPoliciesResponse [PolicyDescription]
+dlbprPolicyDescriptions :: Lens' DescribeLoadBalancerPoliciesResponse (Maybe [PolicyDescription])
 dlbprPolicyDescriptions = lens _dlbprPolicyDescriptions (\ s a -> s{_dlbprPolicyDescriptions = a});

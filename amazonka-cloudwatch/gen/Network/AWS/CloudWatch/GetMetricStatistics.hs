@@ -94,14 +94,14 @@ import Network.AWS.CloudWatch.Types
 -- * 'gmsPeriod'
 --
 -- * 'gmsStatistics'
-data GetMetricStatistics = GetMetricStatistics'{_gmsDimensions :: [Dimension], _gmsUnit :: Maybe StandardUnit, _gmsNamespace :: Text, _gmsMetricName :: Text, _gmsStartTime :: ISO8601, _gmsEndTime :: ISO8601, _gmsPeriod :: Nat, _gmsStatistics :: List1 Statistic} deriving (Eq, Read, Show)
+data GetMetricStatistics = GetMetricStatistics'{_gmsDimensions :: Maybe [Dimension], _gmsUnit :: Maybe StandardUnit, _gmsNamespace :: Text, _gmsMetricName :: Text, _gmsStartTime :: ISO8601, _gmsEndTime :: ISO8601, _gmsPeriod :: Nat, _gmsStatistics :: List1 Statistic} deriving (Eq, Read, Show)
 
 -- | 'GetMetricStatistics' smart constructor.
 getMetricStatistics :: Text -> Text -> UTCTime -> UTCTime -> Natural -> NonEmpty Statistic -> GetMetricStatistics
-getMetricStatistics pNamespace pMetricName pStartTime pEndTime pPeriod pStatistics = GetMetricStatistics'{_gmsDimensions = mempty, _gmsUnit = Nothing, _gmsNamespace = pNamespace, _gmsMetricName = pMetricName, _gmsStartTime = _Time # pStartTime, _gmsEndTime = _Time # pEndTime, _gmsPeriod = _Nat # pPeriod, _gmsStatistics = _List1 # pStatistics};
+getMetricStatistics pNamespace pMetricName pStartTime pEndTime pPeriod pStatistics = GetMetricStatistics'{_gmsDimensions = Nothing, _gmsUnit = Nothing, _gmsNamespace = pNamespace, _gmsMetricName = pMetricName, _gmsStartTime = _Time # pStartTime, _gmsEndTime = _Time # pEndTime, _gmsPeriod = _Nat # pPeriod, _gmsStatistics = _List1 # pStatistics};
 
 -- | A list of dimensions describing qualities of the metric.
-gmsDimensions :: Lens' GetMetricStatistics [Dimension]
+gmsDimensions :: Lens' GetMetricStatistics (Maybe [Dimension])
 gmsDimensions = lens _gmsDimensions (\ s a -> s{_gmsDimensions = a});
 
 -- | The unit for the metric.
@@ -181,14 +181,14 @@ instance ToQuery GetMetricStatistics where
 -- * 'gmsrDatapoints'
 --
 -- * 'gmsrLabel'
-data GetMetricStatisticsResponse = GetMetricStatisticsResponse'{_gmsrDatapoints :: [Datapoint], _gmsrLabel :: Maybe Text} deriving (Eq, Read, Show)
+data GetMetricStatisticsResponse = GetMetricStatisticsResponse'{_gmsrDatapoints :: Maybe [Datapoint], _gmsrLabel :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'GetMetricStatisticsResponse' smart constructor.
 getMetricStatisticsResponse :: GetMetricStatisticsResponse
-getMetricStatisticsResponse = GetMetricStatisticsResponse'{_gmsrDatapoints = mempty, _gmsrLabel = Nothing};
+getMetricStatisticsResponse = GetMetricStatisticsResponse'{_gmsrDatapoints = Nothing, _gmsrLabel = Nothing};
 
 -- | The datapoints for the specified metric.
-gmsrDatapoints :: Lens' GetMetricStatisticsResponse [Datapoint]
+gmsrDatapoints :: Lens' GetMetricStatisticsResponse (Maybe [Datapoint])
 gmsrDatapoints = lens _gmsrDatapoints (\ s a -> s{_gmsrDatapoints = a});
 
 -- | A label describing the specified metric.

@@ -56,11 +56,11 @@ import Network.AWS.OpsWorks.Types
 -- * 'dseServiceErrorIds'
 --
 -- * 'dseStackId'
-data DescribeServiceErrors = DescribeServiceErrors'{_dseInstanceId :: Maybe Text, _dseServiceErrorIds :: [Text], _dseStackId :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeServiceErrors = DescribeServiceErrors'{_dseInstanceId :: Maybe Text, _dseServiceErrorIds :: Maybe [Text], _dseStackId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeServiceErrors' smart constructor.
 describeServiceErrors :: DescribeServiceErrors
-describeServiceErrors = DescribeServiceErrors'{_dseInstanceId = Nothing, _dseServiceErrorIds = mempty, _dseStackId = Nothing};
+describeServiceErrors = DescribeServiceErrors'{_dseInstanceId = Nothing, _dseServiceErrorIds = Nothing, _dseStackId = Nothing};
 
 -- | The instance ID. If you use this parameter, @DescribeServiceErrors@
 -- returns descriptions of the errors associated with the specified
@@ -71,7 +71,7 @@ dseInstanceId = lens _dseInstanceId (\ s a -> s{_dseInstanceId = a});
 -- | An array of service error IDs. If you use this parameter,
 -- @DescribeServiceErrors@ returns descriptions of the specified errors.
 -- Otherwise, it returns a description of every error.
-dseServiceErrorIds :: Lens' DescribeServiceErrors [Text]
+dseServiceErrorIds :: Lens' DescribeServiceErrors (Maybe [Text])
 dseServiceErrorIds = lens _dseServiceErrorIds (\ s a -> s{_dseServiceErrorIds = a});
 
 -- | The stack ID. If you use this parameter, @DescribeServiceErrors@ returns
@@ -118,13 +118,13 @@ instance ToQuery DescribeServiceErrors where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dserServiceErrors'
-newtype DescribeServiceErrorsResponse = DescribeServiceErrorsResponse'{_dserServiceErrors :: [ServiceError']} deriving (Eq, Read, Show)
+newtype DescribeServiceErrorsResponse = DescribeServiceErrorsResponse'{_dserServiceErrors :: Maybe [ServiceError']} deriving (Eq, Read, Show)
 
 -- | 'DescribeServiceErrorsResponse' smart constructor.
 describeServiceErrorsResponse :: DescribeServiceErrorsResponse
-describeServiceErrorsResponse = DescribeServiceErrorsResponse'{_dserServiceErrors = mempty};
+describeServiceErrorsResponse = DescribeServiceErrorsResponse'{_dserServiceErrors = Nothing};
 
 -- | An array of @ServiceError@ objects that describe the specified service
 -- errors.
-dserServiceErrors :: Lens' DescribeServiceErrorsResponse [ServiceError']
+dserServiceErrors :: Lens' DescribeServiceErrorsResponse (Maybe [ServiceError'])
 dserServiceErrors = lens _dserServiceErrors (\ s a -> s{_dserServiceErrors = a});

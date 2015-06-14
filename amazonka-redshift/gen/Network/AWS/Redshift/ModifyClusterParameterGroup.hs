@@ -55,8 +55,8 @@ import Network.AWS.Redshift.Types
 data ModifyClusterParameterGroup = ModifyClusterParameterGroup'{_mcpgParameterGroupName :: Text, _mcpgParameters :: [Parameter]} deriving (Eq, Read, Show)
 
 -- | 'ModifyClusterParameterGroup' smart constructor.
-modifyClusterParameterGroup :: Text -> [Parameter] -> ModifyClusterParameterGroup
-modifyClusterParameterGroup pParameterGroupName pParameters = ModifyClusterParameterGroup'{_mcpgParameterGroupName = pParameterGroupName, _mcpgParameters = pParameters};
+modifyClusterParameterGroup :: Text -> ModifyClusterParameterGroup
+modifyClusterParameterGroup pParameterGroupName = ModifyClusterParameterGroup'{_mcpgParameterGroupName = pParameterGroupName, _mcpgParameters = mempty};
 
 -- | The name of the parameter group to be modified.
 mcpgParameterGroupName :: Lens' ModifyClusterParameterGroup Text

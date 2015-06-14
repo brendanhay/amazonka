@@ -82,11 +82,11 @@ instance ToQuery ReadPipeline where
 -- * 'rprWarnings'
 --
 -- * 'rprPipeline'
-data ReadPipelineResponse = ReadPipelineResponse'{_rprWarnings :: [Warning], _rprPipeline :: Maybe Pipeline} deriving (Eq, Read, Show)
+data ReadPipelineResponse = ReadPipelineResponse'{_rprWarnings :: Maybe [Warning], _rprPipeline :: Maybe Pipeline} deriving (Eq, Read, Show)
 
 -- | 'ReadPipelineResponse' smart constructor.
 readPipelineResponse :: ReadPipelineResponse
-readPipelineResponse = ReadPipelineResponse'{_rprWarnings = mempty, _rprPipeline = Nothing};
+readPipelineResponse = ReadPipelineResponse'{_rprWarnings = Nothing, _rprPipeline = Nothing};
 
 -- | Elastic Transcoder returns a warning if the resources used by your
 -- pipeline are not in the same region as the pipeline.
@@ -94,7 +94,7 @@ readPipelineResponse = ReadPipelineResponse'{_rprWarnings = mempty, _rprPipeline
 -- Using resources in the same region, such as your Amazon S3 buckets,
 -- Amazon SNS notification topics, and AWS KMS key, reduces processing time
 -- and prevents cross-regional charges.
-rprWarnings :: Lens' ReadPipelineResponse [Warning]
+rprWarnings :: Lens' ReadPipelineResponse (Maybe [Warning])
 rprWarnings = lens _rprWarnings (\ s a -> s{_rprWarnings = a});
 
 -- | A section of the response body that provides information about the

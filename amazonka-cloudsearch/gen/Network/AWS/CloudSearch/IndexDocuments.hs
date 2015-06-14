@@ -85,12 +85,12 @@ instance ToQuery IndexDocuments where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'idrFieldNames'
-newtype IndexDocumentsResponse = IndexDocumentsResponse'{_idrFieldNames :: [Text]} deriving (Eq, Read, Show)
+newtype IndexDocumentsResponse = IndexDocumentsResponse'{_idrFieldNames :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'IndexDocumentsResponse' smart constructor.
 indexDocumentsResponse :: IndexDocumentsResponse
-indexDocumentsResponse = IndexDocumentsResponse'{_idrFieldNames = mempty};
+indexDocumentsResponse = IndexDocumentsResponse'{_idrFieldNames = Nothing};
 
 -- | The names of the fields that are currently being indexed.
-idrFieldNames :: Lens' IndexDocumentsResponse [Text]
+idrFieldNames :: Lens' IndexDocumentsResponse (Maybe [Text])
 idrFieldNames = lens _idrFieldNames (\ s a -> s{_idrFieldNames = a});

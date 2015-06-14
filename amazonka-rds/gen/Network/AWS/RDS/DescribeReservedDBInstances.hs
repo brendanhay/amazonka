@@ -73,11 +73,11 @@ import Network.AWS.RDS.Types
 -- * 'drdiOfferingType'
 --
 -- * 'drdiDuration'
-data DescribeReservedDBInstances = DescribeReservedDBInstances'{_drdiProductDescription :: Maybe Text, _drdiFilters :: [Filter], _drdiReservedDBInstanceId :: Maybe Text, _drdiDBInstanceClass :: Maybe Text, _drdiMaxRecords :: Maybe Int, _drdiMultiAZ :: Maybe Bool, _drdiMarker :: Maybe Text, _drdiReservedDBInstancesOfferingId :: Maybe Text, _drdiOfferingType :: Maybe Text, _drdiDuration :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeReservedDBInstances = DescribeReservedDBInstances'{_drdiProductDescription :: Maybe Text, _drdiFilters :: Maybe [Filter], _drdiReservedDBInstanceId :: Maybe Text, _drdiDBInstanceClass :: Maybe Text, _drdiMaxRecords :: Maybe Int, _drdiMultiAZ :: Maybe Bool, _drdiMarker :: Maybe Text, _drdiReservedDBInstancesOfferingId :: Maybe Text, _drdiOfferingType :: Maybe Text, _drdiDuration :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeReservedDBInstances' smart constructor.
 describeReservedDBInstances :: DescribeReservedDBInstances
-describeReservedDBInstances = DescribeReservedDBInstances'{_drdiProductDescription = Nothing, _drdiFilters = mempty, _drdiReservedDBInstanceId = Nothing, _drdiDBInstanceClass = Nothing, _drdiMaxRecords = Nothing, _drdiMultiAZ = Nothing, _drdiMarker = Nothing, _drdiReservedDBInstancesOfferingId = Nothing, _drdiOfferingType = Nothing, _drdiDuration = Nothing};
+describeReservedDBInstances = DescribeReservedDBInstances'{_drdiProductDescription = Nothing, _drdiFilters = Nothing, _drdiReservedDBInstanceId = Nothing, _drdiDBInstanceClass = Nothing, _drdiMaxRecords = Nothing, _drdiMultiAZ = Nothing, _drdiMarker = Nothing, _drdiReservedDBInstancesOfferingId = Nothing, _drdiOfferingType = Nothing, _drdiDuration = Nothing};
 
 -- | The product description filter value. Specify this parameter to show
 -- only those reservations matching the specified product description.
@@ -85,7 +85,7 @@ drdiProductDescription :: Lens' DescribeReservedDBInstances (Maybe Text)
 drdiProductDescription = lens _drdiProductDescription (\ s a -> s{_drdiProductDescription = a});
 
 -- | This parameter is not currently supported.
-drdiFilters :: Lens' DescribeReservedDBInstances [Filter]
+drdiFilters :: Lens' DescribeReservedDBInstances (Maybe [Filter])
 drdiFilters = lens _drdiFilters (\ s a -> s{_drdiFilters = a});
 
 -- | The reserved DB instance identifier filter value. Specify this parameter
@@ -184,14 +184,14 @@ instance ToQuery DescribeReservedDBInstances where
 -- * 'drdirReservedDBInstances'
 --
 -- * 'drdirMarker'
-data DescribeReservedDBInstancesResponse = DescribeReservedDBInstancesResponse'{_drdirReservedDBInstances :: [ReservedDBInstance], _drdirMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeReservedDBInstancesResponse = DescribeReservedDBInstancesResponse'{_drdirReservedDBInstances :: Maybe [ReservedDBInstance], _drdirMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeReservedDBInstancesResponse' smart constructor.
 describeReservedDBInstancesResponse :: DescribeReservedDBInstancesResponse
-describeReservedDBInstancesResponse = DescribeReservedDBInstancesResponse'{_drdirReservedDBInstances = mempty, _drdirMarker = Nothing};
+describeReservedDBInstancesResponse = DescribeReservedDBInstancesResponse'{_drdirReservedDBInstances = Nothing, _drdirMarker = Nothing};
 
 -- | A list of reserved DB instances.
-drdirReservedDBInstances :: Lens' DescribeReservedDBInstancesResponse [ReservedDBInstance]
+drdirReservedDBInstances :: Lens' DescribeReservedDBInstancesResponse (Maybe [ReservedDBInstance])
 drdirReservedDBInstances = lens _drdirReservedDBInstances (\ s a -> s{_drdirReservedDBInstances = a});
 
 -- | An optional pagination token provided by a previous request. If this

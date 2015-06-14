@@ -51,8 +51,8 @@ import Network.AWS.ECS.Types
 data DescribeServices = DescribeServices'{_desCluster :: Maybe Text, _desServices :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'DescribeServices' smart constructor.
-describeServices :: [Text] -> DescribeServices
-describeServices pServices = DescribeServices'{_desCluster = Nothing, _desServices = pServices};
+describeServices :: DescribeServices
+describeServices = DescribeServices'{_desCluster = Nothing, _desServices = mempty};
 
 -- | The name of the cluster that hosts the service you want to describe.
 desCluster :: Lens' DescribeServices (Maybe Text)
@@ -102,16 +102,16 @@ instance ToQuery DescribeServices where
 -- * 'dsrFailures'
 --
 -- * 'dsrServices'
-data DescribeServicesResponse = DescribeServicesResponse'{_dsrFailures :: [Failure], _dsrServices :: [ContainerService]} deriving (Eq, Read, Show)
+data DescribeServicesResponse = DescribeServicesResponse'{_dsrFailures :: Maybe [Failure], _dsrServices :: Maybe [ContainerService]} deriving (Eq, Read, Show)
 
 -- | 'DescribeServicesResponse' smart constructor.
 describeServicesResponse :: DescribeServicesResponse
-describeServicesResponse = DescribeServicesResponse'{_dsrFailures = mempty, _dsrServices = mempty};
+describeServicesResponse = DescribeServicesResponse'{_dsrFailures = Nothing, _dsrServices = Nothing};
 
 -- | Any failures associated with the call.
-dsrFailures :: Lens' DescribeServicesResponse [Failure]
+dsrFailures :: Lens' DescribeServicesResponse (Maybe [Failure])
 dsrFailures = lens _dsrFailures (\ s a -> s{_dsrFailures = a});
 
 -- | The list of services described.
-dsrServices :: Lens' DescribeServicesResponse [ContainerService]
+dsrServices :: Lens' DescribeServicesResponse (Maybe [ContainerService])
 dsrServices = lens _dsrServices (\ s a -> s{_dsrServices = a});

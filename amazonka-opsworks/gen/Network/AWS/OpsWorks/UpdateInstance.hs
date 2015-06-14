@@ -78,11 +78,11 @@ import Network.AWS.OpsWorks.Types
 -- * 'uiAMIId'
 --
 -- * 'uiInstanceId'
-data UpdateInstance = UpdateInstance'{_uiInstallUpdatesOnBoot :: Maybe Bool, _uiHostname :: Maybe Text, _uiSSHKeyName :: Maybe Text, _uiInstanceType :: Maybe Text, _uiEBSOptimized :: Maybe Bool, _uiOS :: Maybe Text, _uiAutoScalingType :: Maybe AutoScalingType, _uiLayerIds :: [Text], _uiArchitecture :: Maybe Architecture, _uiAMIId :: Maybe Text, _uiInstanceId :: Text} deriving (Eq, Read, Show)
+data UpdateInstance = UpdateInstance'{_uiInstallUpdatesOnBoot :: Maybe Bool, _uiHostname :: Maybe Text, _uiSSHKeyName :: Maybe Text, _uiInstanceType :: Maybe Text, _uiEBSOptimized :: Maybe Bool, _uiOS :: Maybe Text, _uiAutoScalingType :: Maybe AutoScalingType, _uiLayerIds :: Maybe [Text], _uiArchitecture :: Maybe Architecture, _uiAMIId :: Maybe Text, _uiInstanceId :: Text} deriving (Eq, Read, Show)
 
 -- | 'UpdateInstance' smart constructor.
 updateInstance :: Text -> UpdateInstance
-updateInstance pInstanceId = UpdateInstance'{_uiInstallUpdatesOnBoot = Nothing, _uiHostname = Nothing, _uiSSHKeyName = Nothing, _uiInstanceType = Nothing, _uiEBSOptimized = Nothing, _uiOS = Nothing, _uiAutoScalingType = Nothing, _uiLayerIds = mempty, _uiArchitecture = Nothing, _uiAMIId = Nothing, _uiInstanceId = pInstanceId};
+updateInstance pInstanceId = UpdateInstance'{_uiInstallUpdatesOnBoot = Nothing, _uiHostname = Nothing, _uiSSHKeyName = Nothing, _uiInstanceType = Nothing, _uiEBSOptimized = Nothing, _uiOS = Nothing, _uiAutoScalingType = Nothing, _uiLayerIds = Nothing, _uiArchitecture = Nothing, _uiAMIId = Nothing, _uiInstanceId = pInstanceId};
 
 -- | Whether to install operating system and package updates when the
 -- instance boots. The default value is @true@. To control when updates are
@@ -144,7 +144,7 @@ uiAutoScalingType :: Lens' UpdateInstance (Maybe AutoScalingType)
 uiAutoScalingType = lens _uiAutoScalingType (\ s a -> s{_uiAutoScalingType = a});
 
 -- | The instance\'s layer IDs.
-uiLayerIds :: Lens' UpdateInstance [Text]
+uiLayerIds :: Lens' UpdateInstance (Maybe [Text])
 uiLayerIds = lens _uiLayerIds (\ s a -> s{_uiLayerIds = a});
 
 -- | The instance architecture. Instance types do not necessarily support

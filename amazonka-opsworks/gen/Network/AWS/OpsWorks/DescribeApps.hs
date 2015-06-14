@@ -55,16 +55,16 @@ import Network.AWS.OpsWorks.Types
 -- * 'daAppIds'
 --
 -- * 'daStackId'
-data DescribeApps = DescribeApps'{_daAppIds :: [Text], _daStackId :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeApps = DescribeApps'{_daAppIds :: Maybe [Text], _daStackId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeApps' smart constructor.
 describeApps :: DescribeApps
-describeApps = DescribeApps'{_daAppIds = mempty, _daStackId = Nothing};
+describeApps = DescribeApps'{_daAppIds = Nothing, _daStackId = Nothing};
 
 -- | An array of app IDs for the apps to be described. If you use this
 -- parameter, @DescribeApps@ returns a description of the specified apps.
 -- Otherwise, it returns a description of every app.
-daAppIds :: Lens' DescribeApps [Text]
+daAppIds :: Lens' DescribeApps (Maybe [Text])
 daAppIds = lens _daAppIds (\ s a -> s{_daAppIds = a});
 
 -- | The app stack ID. If you use this parameter, @DescribeApps@ returns a
@@ -106,12 +106,12 @@ instance ToQuery DescribeApps where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'darApps'
-newtype DescribeAppsResponse = DescribeAppsResponse'{_darApps :: [App]} deriving (Eq, Read, Show)
+newtype DescribeAppsResponse = DescribeAppsResponse'{_darApps :: Maybe [App]} deriving (Eq, Read, Show)
 
 -- | 'DescribeAppsResponse' smart constructor.
 describeAppsResponse :: DescribeAppsResponse
-describeAppsResponse = DescribeAppsResponse'{_darApps = mempty};
+describeAppsResponse = DescribeAppsResponse'{_darApps = Nothing};
 
 -- | An array of @App@ objects that describe the specified apps.
-darApps :: Lens' DescribeAppsResponse [App]
+darApps :: Lens' DescribeAppsResponse (Maybe [App])
 darApps = lens _darApps (\ s a -> s{_darApps = a});

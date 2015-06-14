@@ -126,15 +126,15 @@ instance ToQuery ListTaskDefinitions where
 -- * 'ltdrTaskDefinitionARNs'
 --
 -- * 'ltdrNextToken'
-data ListTaskDefinitionsResponse = ListTaskDefinitionsResponse'{_ltdrTaskDefinitionARNs :: [Text], _ltdrNextToken :: Maybe Text} deriving (Eq, Read, Show)
+data ListTaskDefinitionsResponse = ListTaskDefinitionsResponse'{_ltdrTaskDefinitionARNs :: Maybe [Text], _ltdrNextToken :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ListTaskDefinitionsResponse' smart constructor.
 listTaskDefinitionsResponse :: ListTaskDefinitionsResponse
-listTaskDefinitionsResponse = ListTaskDefinitionsResponse'{_ltdrTaskDefinitionARNs = mempty, _ltdrNextToken = Nothing};
+listTaskDefinitionsResponse = ListTaskDefinitionsResponse'{_ltdrTaskDefinitionARNs = Nothing, _ltdrNextToken = Nothing};
 
 -- | The list of task definition Amazon Resource Name (ARN) entries for the
 -- @ListTaskDefintions@ request.
-ltdrTaskDefinitionARNs :: Lens' ListTaskDefinitionsResponse [Text]
+ltdrTaskDefinitionARNs :: Lens' ListTaskDefinitionsResponse (Maybe [Text])
 ltdrTaskDefinitionARNs = lens _ltdrTaskDefinitionARNs (\ s a -> s{_ltdrTaskDefinitionARNs = a});
 
 -- | The @nextToken@ value to include in a future @ListTaskDefinitions@

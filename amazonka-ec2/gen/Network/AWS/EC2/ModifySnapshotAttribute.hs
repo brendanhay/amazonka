@@ -70,18 +70,18 @@ import Network.AWS.EC2.Types
 -- * 'msaDryRun'
 --
 -- * 'msaSnapshotId'
-data ModifySnapshotAttribute = ModifySnapshotAttribute'{_msaAttribute :: Maybe SnapshotAttributeName, _msaUserIds :: [Text], _msaCreateVolumePermission :: Maybe CreateVolumePermissionModifications, _msaGroupNames :: [Text], _msaOperationType :: Maybe Text, _msaDryRun :: Maybe Bool, _msaSnapshotId :: Text} deriving (Eq, Read, Show)
+data ModifySnapshotAttribute = ModifySnapshotAttribute'{_msaAttribute :: Maybe SnapshotAttributeName, _msaUserIds :: Maybe [Text], _msaCreateVolumePermission :: Maybe CreateVolumePermissionModifications, _msaGroupNames :: Maybe [Text], _msaOperationType :: Maybe Text, _msaDryRun :: Maybe Bool, _msaSnapshotId :: Text} deriving (Eq, Read, Show)
 
 -- | 'ModifySnapshotAttribute' smart constructor.
 modifySnapshotAttribute :: Text -> ModifySnapshotAttribute
-modifySnapshotAttribute pSnapshotId = ModifySnapshotAttribute'{_msaAttribute = Nothing, _msaUserIds = mempty, _msaCreateVolumePermission = Nothing, _msaGroupNames = mempty, _msaOperationType = Nothing, _msaDryRun = Nothing, _msaSnapshotId = pSnapshotId};
+modifySnapshotAttribute pSnapshotId = ModifySnapshotAttribute'{_msaAttribute = Nothing, _msaUserIds = Nothing, _msaCreateVolumePermission = Nothing, _msaGroupNames = Nothing, _msaOperationType = Nothing, _msaDryRun = Nothing, _msaSnapshotId = pSnapshotId};
 
 -- | The snapshot attribute to modify.
 msaAttribute :: Lens' ModifySnapshotAttribute (Maybe SnapshotAttributeName)
 msaAttribute = lens _msaAttribute (\ s a -> s{_msaAttribute = a});
 
 -- | The account ID to modify for the snapshot.
-msaUserIds :: Lens' ModifySnapshotAttribute [Text]
+msaUserIds :: Lens' ModifySnapshotAttribute (Maybe [Text])
 msaUserIds = lens _msaUserIds (\ s a -> s{_msaUserIds = a});
 
 -- | A JSON representation of the snapshot attribute modification.
@@ -89,7 +89,7 @@ msaCreateVolumePermission :: Lens' ModifySnapshotAttribute (Maybe CreateVolumePe
 msaCreateVolumePermission = lens _msaCreateVolumePermission (\ s a -> s{_msaCreateVolumePermission = a});
 
 -- | The group to modify for the snapshot.
-msaGroupNames :: Lens' ModifySnapshotAttribute [Text]
+msaGroupNames :: Lens' ModifySnapshotAttribute (Maybe [Text])
 msaGroupNames = lens _msaGroupNames (\ s a -> s{_msaGroupNames = a});
 
 -- | The type of operation to perform to the attribute.

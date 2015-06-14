@@ -32,10 +32,10 @@ module Network.AWS.MachineLearning.DescribeBatchPredictions
     , dbpNE
     , dbpNextToken
     , dbpSortOrder
+    , dbpLimit
     , dbpLT
     , dbpFilterVariable
     , dbpLE
-    , dbpLimit
 
     -- * Response
     , DescribeBatchPredictionsResponse
@@ -69,18 +69,18 @@ import Network.AWS.MachineLearning.Types
 --
 -- * 'dbpSortOrder'
 --
+-- * 'dbpLimit'
+--
 -- * 'dbpLT'
 --
 -- * 'dbpFilterVariable'
 --
 -- * 'dbpLE'
---
--- * 'dbpLimit'
-data DescribeBatchPredictions = DescribeBatchPredictions'{_dbpEQ :: Maybe Text, _dbpGE :: Maybe Text, _dbpPrefix :: Maybe Text, _dbpGT :: Maybe Text, _dbpNE :: Maybe Text, _dbpNextToken :: Maybe Text, _dbpSortOrder :: Maybe SortOrder, _dbpLT :: Maybe Text, _dbpFilterVariable :: Maybe BatchPredictionFilterVariable, _dbpLE :: Maybe Text, _dbpLimit :: Nat} deriving (Eq, Read, Show)
+data DescribeBatchPredictions = DescribeBatchPredictions'{_dbpEQ :: Maybe Text, _dbpGE :: Maybe Text, _dbpPrefix :: Maybe Text, _dbpGT :: Maybe Text, _dbpNE :: Maybe Text, _dbpNextToken :: Maybe Text, _dbpSortOrder :: Maybe SortOrder, _dbpLimit :: Maybe Nat, _dbpLT :: Maybe Text, _dbpFilterVariable :: Maybe BatchPredictionFilterVariable, _dbpLE :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeBatchPredictions' smart constructor.
-describeBatchPredictions :: Natural -> DescribeBatchPredictions
-describeBatchPredictions pLimit = DescribeBatchPredictions'{_dbpEQ = Nothing, _dbpGE = Nothing, _dbpPrefix = Nothing, _dbpGT = Nothing, _dbpNE = Nothing, _dbpNextToken = Nothing, _dbpSortOrder = Nothing, _dbpLT = Nothing, _dbpFilterVariable = Nothing, _dbpLE = Nothing, _dbpLimit = _Nat # pLimit};
+describeBatchPredictions :: DescribeBatchPredictions
+describeBatchPredictions = DescribeBatchPredictions'{_dbpEQ = Nothing, _dbpGE = Nothing, _dbpPrefix = Nothing, _dbpGT = Nothing, _dbpNE = Nothing, _dbpNextToken = Nothing, _dbpSortOrder = Nothing, _dbpLimit = Nothing, _dbpLT = Nothing, _dbpFilterVariable = Nothing, _dbpLE = Nothing};
 
 -- | The equal to operator. The @BatchPrediction@ results will have
 -- @FilterVariable@ values that exactly match the value specified with
@@ -136,6 +136,11 @@ dbpNextToken = lens _dbpNextToken (\ s a -> s{_dbpNextToken = a});
 dbpSortOrder :: Lens' DescribeBatchPredictions (Maybe SortOrder)
 dbpSortOrder = lens _dbpSortOrder (\ s a -> s{_dbpSortOrder = a});
 
+-- | The number of pages of information to include in the result. The range
+-- of acceptable values is 1 through 100. The default value is 100.
+dbpLimit :: Lens' DescribeBatchPredictions (Maybe Natural)
+dbpLimit = lens _dbpLimit (\ s a -> s{_dbpLimit = a}) . mapping _Nat;
+
 -- | The less than operator. The @BatchPrediction@ results will have
 -- @FilterVariable@ values that are less than the value specified with
 -- @LT@.
@@ -168,11 +173,6 @@ dbpFilterVariable = lens _dbpFilterVariable (\ s a -> s{_dbpFilterVariable = a})
 dbpLE :: Lens' DescribeBatchPredictions (Maybe Text)
 dbpLE = lens _dbpLE (\ s a -> s{_dbpLE = a});
 
--- | The number of pages of information to include in the result. The range
--- of acceptable values is 1 through 100. The default value is 100.
-dbpLimit :: Lens' DescribeBatchPredictions Natural
-dbpLimit = lens _dbpLimit (\ s a -> s{_dbpLimit = a}) . _Nat;
-
 instance AWSRequest DescribeBatchPredictions where
         type Sv DescribeBatchPredictions = MachineLearning
         type Rs DescribeBatchPredictions =
@@ -200,9 +200,10 @@ instance ToJSON DescribeBatchPredictions where
               ["EQ" .= _dbpEQ, "GE" .= _dbpGE,
                "Prefix" .= _dbpPrefix, "GT" .= _dbpGT,
                "NE" .= _dbpNE, "NextToken" .= _dbpNextToken,
-               "SortOrder" .= _dbpSortOrder, "LT" .= _dbpLT,
+               "SortOrder" .= _dbpSortOrder, "Limit" .= _dbpLimit,
+               "LT" .= _dbpLT,
                "FilterVariable" .= _dbpFilterVariable,
-               "LE" .= _dbpLE, "Limit" .= _dbpLimit]
+               "LE" .= _dbpLE]
 
 instance ToPath DescribeBatchPredictions where
         toPath = const "/"
@@ -217,14 +218,14 @@ instance ToQuery DescribeBatchPredictions where
 -- * 'dbprResults'
 --
 -- * 'dbprNextToken'
-data DescribeBatchPredictionsResponse = DescribeBatchPredictionsResponse'{_dbprResults :: [BatchPrediction], _dbprNextToken :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeBatchPredictionsResponse = DescribeBatchPredictionsResponse'{_dbprResults :: Maybe [BatchPrediction], _dbprNextToken :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeBatchPredictionsResponse' smart constructor.
 describeBatchPredictionsResponse :: DescribeBatchPredictionsResponse
-describeBatchPredictionsResponse = DescribeBatchPredictionsResponse'{_dbprResults = mempty, _dbprNextToken = Nothing};
+describeBatchPredictionsResponse = DescribeBatchPredictionsResponse'{_dbprResults = Nothing, _dbprNextToken = Nothing};
 
 -- | A list of BatchPrediction objects that meet the search criteria.
-dbprResults :: Lens' DescribeBatchPredictionsResponse [BatchPrediction]
+dbprResults :: Lens' DescribeBatchPredictionsResponse (Maybe [BatchPrediction])
 dbprResults = lens _dbprResults (\ s a -> s{_dbprResults = a});
 
 -- | The ID of the next page in the paginated results that indicates at least

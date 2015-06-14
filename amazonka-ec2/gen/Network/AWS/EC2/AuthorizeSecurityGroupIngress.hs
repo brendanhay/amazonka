@@ -89,11 +89,11 @@ import Network.AWS.EC2.Types
 -- * 'asgiSourceSecurityGroupName'
 --
 -- * 'asgiDryRun'
-data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress'{_asgiFromPort :: Maybe Int, _asgiIPPermissions :: [IPPermission], _asgiIPProtocol :: Maybe Text, _asgiGroupId :: Maybe Text, _asgiToPort :: Maybe Int, _asgiCIDRIP :: Maybe Text, _asgiGroupName :: Maybe Text, _asgiSourceSecurityGroupOwnerId :: Maybe Text, _asgiSourceSecurityGroupName :: Maybe Text, _asgiDryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress'{_asgiFromPort :: Maybe Int, _asgiIPPermissions :: Maybe [IPPermission], _asgiIPProtocol :: Maybe Text, _asgiGroupId :: Maybe Text, _asgiToPort :: Maybe Int, _asgiCIDRIP :: Maybe Text, _asgiGroupName :: Maybe Text, _asgiSourceSecurityGroupOwnerId :: Maybe Text, _asgiSourceSecurityGroupName :: Maybe Text, _asgiDryRun :: Maybe Bool} deriving (Eq, Read, Show)
 
 -- | 'AuthorizeSecurityGroupIngress' smart constructor.
 authorizeSecurityGroupIngress :: AuthorizeSecurityGroupIngress
-authorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress'{_asgiFromPort = Nothing, _asgiIPPermissions = mempty, _asgiIPProtocol = Nothing, _asgiGroupId = Nothing, _asgiToPort = Nothing, _asgiCIDRIP = Nothing, _asgiGroupName = Nothing, _asgiSourceSecurityGroupOwnerId = Nothing, _asgiSourceSecurityGroupName = Nothing, _asgiDryRun = Nothing};
+authorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress'{_asgiFromPort = Nothing, _asgiIPPermissions = Nothing, _asgiIPProtocol = Nothing, _asgiGroupId = Nothing, _asgiToPort = Nothing, _asgiCIDRIP = Nothing, _asgiGroupName = Nothing, _asgiSourceSecurityGroupOwnerId = Nothing, _asgiSourceSecurityGroupName = Nothing, _asgiDryRun = Nothing};
 
 -- | The start of port range for the TCP and UDP protocols, or an ICMP type
 -- number. For the ICMP type number, use @-1@ to specify all ICMP types.
@@ -102,7 +102,7 @@ asgiFromPort = lens _asgiFromPort (\ s a -> s{_asgiFromPort = a});
 
 -- | A set of IP permissions. Can be used to specify multiple rules in a
 -- single command.
-asgiIPPermissions :: Lens' AuthorizeSecurityGroupIngress [IPPermission]
+asgiIPPermissions :: Lens' AuthorizeSecurityGroupIngress (Maybe [IPPermission])
 asgiIPPermissions = lens _asgiIPPermissions (\ s a -> s{_asgiIPPermissions = a});
 
 -- | The IP protocol name (@tcp@, @udp@, @icmp@) or number (see

@@ -147,15 +147,15 @@ instance ToQuery DescribeCacheClusters where
 -- * 'dccrCacheClusters'
 --
 -- * 'dccrMarker'
-data DescribeCacheClustersResponse = DescribeCacheClustersResponse'{_dccrCacheClusters :: [CacheCluster], _dccrMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeCacheClustersResponse = DescribeCacheClustersResponse'{_dccrCacheClusters :: Maybe [CacheCluster], _dccrMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeCacheClustersResponse' smart constructor.
 describeCacheClustersResponse :: DescribeCacheClustersResponse
-describeCacheClustersResponse = DescribeCacheClustersResponse'{_dccrCacheClusters = mempty, _dccrMarker = Nothing};
+describeCacheClustersResponse = DescribeCacheClustersResponse'{_dccrCacheClusters = Nothing, _dccrMarker = Nothing};
 
 -- | A list of cache clusters. Each item in the list contains detailed
 -- information about one cache cluster.
-dccrCacheClusters :: Lens' DescribeCacheClustersResponse [CacheCluster]
+dccrCacheClusters :: Lens' DescribeCacheClustersResponse (Maybe [CacheCluster])
 dccrCacheClusters = lens _dccrCacheClusters (\ s a -> s{_dccrCacheClusters = a});
 
 -- | Provides an identifier to allow retrieval of paginated results.

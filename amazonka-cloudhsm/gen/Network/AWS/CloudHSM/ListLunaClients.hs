@@ -101,8 +101,8 @@ instance ToQuery ListLunaClients where
 data ListLunaClientsResponse = ListLunaClientsResponse'{_llcrNextToken :: Maybe Text, _llcrClientList :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'ListLunaClientsResponse' smart constructor.
-listLunaClientsResponse :: [Text] -> ListLunaClientsResponse
-listLunaClientsResponse pClientList = ListLunaClientsResponse'{_llcrNextToken = Nothing, _llcrClientList = pClientList};
+listLunaClientsResponse :: ListLunaClientsResponse
+listLunaClientsResponse = ListLunaClientsResponse'{_llcrNextToken = Nothing, _llcrClientList = mempty};
 
 -- | If not null, more results are available. Pass this to ListLunaClients to
 -- retrieve the next set of items.

@@ -57,14 +57,14 @@ import Network.AWS.Redshift.Types
 -- * 'chccTags'
 --
 -- * 'chccHSMClientCertificateIdentifier'
-data CreateHSMClientCertificate = CreateHSMClientCertificate'{_chccTags :: [Tag], _chccHSMClientCertificateIdentifier :: Text} deriving (Eq, Read, Show)
+data CreateHSMClientCertificate = CreateHSMClientCertificate'{_chccTags :: Maybe [Tag], _chccHSMClientCertificateIdentifier :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateHSMClientCertificate' smart constructor.
 createHSMClientCertificate :: Text -> CreateHSMClientCertificate
-createHSMClientCertificate pHSMClientCertificateIdentifier = CreateHSMClientCertificate'{_chccTags = mempty, _chccHSMClientCertificateIdentifier = pHSMClientCertificateIdentifier};
+createHSMClientCertificate pHSMClientCertificateIdentifier = CreateHSMClientCertificate'{_chccTags = Nothing, _chccHSMClientCertificateIdentifier = pHSMClientCertificateIdentifier};
 
 -- | A list of tag instances.
-chccTags :: Lens' CreateHSMClientCertificate [Tag]
+chccTags :: Lens' CreateHSMClientCertificate (Maybe [Tag])
 chccTags = lens _chccTags (\ s a -> s{_chccTags = a});
 
 -- | The identifier to be assigned to the new HSM client certificate that the

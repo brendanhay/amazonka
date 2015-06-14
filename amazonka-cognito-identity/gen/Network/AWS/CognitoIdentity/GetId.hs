@@ -29,9 +29,9 @@ module Network.AWS.CognitoIdentity.GetId
     -- ** Request constructor
     , getId
     -- ** Request lenses
+    , giAccountId
     , giLogins
     , giIdentityPoolId
-    , giAccountId
 
     -- * Response
     , GetIdResponse
@@ -50,16 +50,20 @@ import Network.AWS.CognitoIdentity.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'giAccountId'
+--
 -- * 'giLogins'
 --
 -- * 'giIdentityPoolId'
---
--- * 'giAccountId'
-data GetId = GetId'{_giLogins :: HashMap Text Text, _giIdentityPoolId :: Text, _giAccountId :: Text} deriving (Eq, Read, Show)
+data GetId = GetId'{_giAccountId :: Maybe Text, _giLogins :: Maybe (HashMap Text Text), _giIdentityPoolId :: Text} deriving (Eq, Read, Show)
 
 -- | 'GetId' smart constructor.
-getId :: Text -> Text -> GetId
-getId pIdentityPoolId pAccountId = GetId'{_giLogins = mempty, _giIdentityPoolId = pIdentityPoolId, _giAccountId = pAccountId};
+getId :: Text -> GetId
+getId pIdentityPoolId = GetId'{_giAccountId = Nothing, _giLogins = Nothing, _giIdentityPoolId = pIdentityPoolId};
+
+-- | A standard AWS account ID (9+ digits).
+giAccountId :: Lens' GetId (Maybe Text)
+giAccountId = lens _giAccountId (\ s a -> s{_giAccountId = a});
 
 -- | A set of optional name-value pairs that map provider names to provider
 -- tokens.
@@ -71,16 +75,12 @@ getId pIdentityPoolId pAccountId = GetId'{_giLogins = mempty, _giIdentityPoolId 
 -- -   Amazon: @www.amazon.com@
 -- -   Twitter: @www.twitter.com@
 -- -   Digits: @www.digits.com@
-giLogins :: Lens' GetId (HashMap Text Text)
-giLogins = lens _giLogins (\ s a -> s{_giLogins = a}) . _Coerce;
+giLogins :: Lens' GetId (Maybe (HashMap Text Text))
+giLogins = lens _giLogins (\ s a -> s{_giLogins = a}) . mapping _Coerce;
 
 -- | An identity pool ID in the format REGION:GUID.
 giIdentityPoolId :: Lens' GetId Text
 giIdentityPoolId = lens _giIdentityPoolId (\ s a -> s{_giIdentityPoolId = a});
-
--- | A standard AWS account ID (9+ digits).
-giAccountId :: Lens' GetId Text
-giAccountId = lens _giAccountId (\ s a -> s{_giAccountId = a});
 
 instance AWSRequest GetId where
         type Sv GetId = CognitoIdentity
@@ -88,7 +88,7 @@ instance AWSRequest GetId where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x -> GetIdResponse' <$> x .:> "IdentityId")
+              (\ s h x -> GetIdResponse' <$> x .?> "IdentityId")
 
 instance ToHeaders GetId where
         toHeaders
@@ -102,9 +102,8 @@ instance ToHeaders GetId where
 instance ToJSON GetId where
         toJSON GetId'{..}
           = object
-              ["Logins" .= _giLogins,
-               "IdentityPoolId" .= _giIdentityPoolId,
-               "AccountId" .= _giAccountId]
+              ["AccountId" .= _giAccountId, "Logins" .= _giLogins,
+               "IdentityPoolId" .= _giIdentityPoolId]
 
 instance ToPath GetId where
         toPath = const "/"
@@ -117,12 +116,12 @@ instance ToQuery GetId where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'girIdentityId'
-newtype GetIdResponse = GetIdResponse'{_girIdentityId :: Text} deriving (Eq, Read, Show)
+newtype GetIdResponse = GetIdResponse'{_girIdentityId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'GetIdResponse' smart constructor.
-getIdResponse :: Text -> GetIdResponse
-getIdResponse pIdentityId = GetIdResponse'{_girIdentityId = pIdentityId};
+getIdResponse :: GetIdResponse
+getIdResponse = GetIdResponse'{_girIdentityId = Nothing};
 
 -- | A unique identifier in the format REGION:GUID.
-girIdentityId :: Lens' GetIdResponse Text
+girIdentityId :: Lens' GetIdResponse (Maybe Text)
 girIdentityId = lens _girIdentityId (\ s a -> s{_girIdentityId = a});

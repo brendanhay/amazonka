@@ -25,16 +25,16 @@ module Network.AWS.CloudFormation.DescribeStacks
     -- ** Request constructor
     , describeStacks
     -- ** Request lenses
-    , desStackName
     , desNextToken
+    , desStackName
 
     -- * Response
     , DescribeStacksResponse
     -- ** Response constructor
     , describeStacksResponse
     -- ** Response lenses
-    , dsrStacks
     , dsrNextToken
+    , dsrStacks
     ) where
 
 import Network.AWS.Request
@@ -46,14 +46,19 @@ import Network.AWS.CloudFormation.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desStackName'
---
 -- * 'desNextToken'
-data DescribeStacks = DescribeStacks'{_desStackName :: Maybe Text, _desNextToken :: Text} deriving (Eq, Read, Show)
+--
+-- * 'desStackName'
+data DescribeStacks = DescribeStacks'{_desNextToken :: Maybe Text, _desStackName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeStacks' smart constructor.
-describeStacks :: Text -> DescribeStacks
-describeStacks pNextToken = DescribeStacks'{_desStackName = Nothing, _desNextToken = pNextToken};
+describeStacks :: DescribeStacks
+describeStacks = DescribeStacks'{_desNextToken = Nothing, _desStackName = Nothing};
+
+-- | String that identifies the start of the next list of stacks, if there is
+-- one.
+desNextToken :: Lens' DescribeStacks (Maybe Text)
+desNextToken = lens _desNextToken (\ s a -> s{_desNextToken = a});
 
 -- | The name or the unique stack ID that is associated with the stack, which
 -- are not always interchangeable:
@@ -66,11 +71,6 @@ describeStacks pNextToken = DescribeStacks'{_desStackName = Nothing, _desNextTok
 desStackName :: Lens' DescribeStacks (Maybe Text)
 desStackName = lens _desStackName (\ s a -> s{_desStackName = a});
 
--- | String that identifies the start of the next list of stacks, if there is
--- one.
-desNextToken :: Lens' DescribeStacks Text
-desNextToken = lens _desNextToken (\ s a -> s{_desNextToken = a});
-
 instance AWSRequest DescribeStacks where
         type Sv DescribeStacks = CloudFormation
         type Rs DescribeStacks = DescribeStacksResponse
@@ -79,8 +79,9 @@ instance AWSRequest DescribeStacks where
           = receiveXMLWrapper "DescribeStacksResult"
               (\ s h x ->
                  DescribeStacksResponse' <$>
-                   (x .@? "Stacks" .!@ mempty >>= parseXMLList "member")
-                     <*> x .@ "NextToken")
+                   x .@? "NextToken" <*>
+                     (x .@? "Stacks" .!@ mempty >>=
+                        parseXMLList "member"))
 
 instance ToHeaders DescribeStacks where
         toHeaders = const mempty
@@ -93,27 +94,27 @@ instance ToQuery DescribeStacks where
           = mconcat
               ["Action" =: ("DescribeStacks" :: ByteString),
                "Version" =: ("2010-05-15" :: ByteString),
-               "StackName" =: _desStackName,
-               "NextToken" =: _desNextToken]
+               "NextToken" =: _desNextToken,
+               "StackName" =: _desStackName]
 
 -- | /See:/ 'describeStacksResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrStacks'
---
 -- * 'dsrNextToken'
-data DescribeStacksResponse = DescribeStacksResponse'{_dsrStacks :: [Stack], _dsrNextToken :: Text} deriving (Eq, Read, Show)
+--
+-- * 'dsrStacks'
+data DescribeStacksResponse = DescribeStacksResponse'{_dsrNextToken :: Maybe Text, _dsrStacks :: Maybe [Stack]} deriving (Eq, Read, Show)
 
 -- | 'DescribeStacksResponse' smart constructor.
-describeStacksResponse :: Text -> DescribeStacksResponse
-describeStacksResponse pNextToken = DescribeStacksResponse'{_dsrStacks = mempty, _dsrNextToken = pNextToken};
-
--- | A list of stack structures.
-dsrStacks :: Lens' DescribeStacksResponse [Stack]
-dsrStacks = lens _dsrStacks (\ s a -> s{_dsrStacks = a});
+describeStacksResponse :: DescribeStacksResponse
+describeStacksResponse = DescribeStacksResponse'{_dsrNextToken = Nothing, _dsrStacks = Nothing};
 
 -- | String that identifies the start of the next list of stacks, if there is
 -- one.
-dsrNextToken :: Lens' DescribeStacksResponse Text
+dsrNextToken :: Lens' DescribeStacksResponse (Maybe Text)
 dsrNextToken = lens _dsrNextToken (\ s a -> s{_dsrNextToken = a});
+
+-- | A list of stack structures.
+dsrStacks :: Lens' DescribeStacksResponse (Maybe [Stack])
+dsrStacks = lens _dsrStacks (\ s a -> s{_dsrStacks = a});

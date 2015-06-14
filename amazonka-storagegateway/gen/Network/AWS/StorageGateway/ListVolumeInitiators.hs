@@ -93,13 +93,13 @@ instance ToQuery ListVolumeInitiators where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lvirInitiators'
-newtype ListVolumeInitiatorsResponse = ListVolumeInitiatorsResponse'{_lvirInitiators :: [Text]} deriving (Eq, Read, Show)
+newtype ListVolumeInitiatorsResponse = ListVolumeInitiatorsResponse'{_lvirInitiators :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'ListVolumeInitiatorsResponse' smart constructor.
 listVolumeInitiatorsResponse :: ListVolumeInitiatorsResponse
-listVolumeInitiatorsResponse = ListVolumeInitiatorsResponse'{_lvirInitiators = mempty};
+listVolumeInitiatorsResponse = ListVolumeInitiatorsResponse'{_lvirInitiators = Nothing};
 
 -- | The host names and port numbers of all iSCSI initiators that are
 -- connected to the gateway.
-lvirInitiators :: Lens' ListVolumeInitiatorsResponse [Text]
+lvirInitiators :: Lens' ListVolumeInitiatorsResponse (Maybe [Text])
 lvirInitiators = lens _lvirInitiators (\ s a -> s{_lvirInitiators = a});

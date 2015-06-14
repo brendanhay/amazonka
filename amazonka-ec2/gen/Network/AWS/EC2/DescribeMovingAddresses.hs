@@ -60,14 +60,14 @@ import Network.AWS.EC2.Types
 -- * 'dmaDryRun'
 --
 -- * 'dmaMaxResults'
-data DescribeMovingAddresses = DescribeMovingAddresses'{_dmaPublicIPs :: [Text], _dmaFilters :: [Filter], _dmaNextToken :: Maybe Text, _dmaDryRun :: Maybe Bool, _dmaMaxResults :: Maybe Int} deriving (Eq, Read, Show)
+data DescribeMovingAddresses = DescribeMovingAddresses'{_dmaPublicIPs :: Maybe [Text], _dmaFilters :: Maybe [Filter], _dmaNextToken :: Maybe Text, _dmaDryRun :: Maybe Bool, _dmaMaxResults :: Maybe Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeMovingAddresses' smart constructor.
 describeMovingAddresses :: DescribeMovingAddresses
-describeMovingAddresses = DescribeMovingAddresses'{_dmaPublicIPs = mempty, _dmaFilters = mempty, _dmaNextToken = Nothing, _dmaDryRun = Nothing, _dmaMaxResults = Nothing};
+describeMovingAddresses = DescribeMovingAddresses'{_dmaPublicIPs = Nothing, _dmaFilters = Nothing, _dmaNextToken = Nothing, _dmaDryRun = Nothing, _dmaMaxResults = Nothing};
 
 -- | One or more Elastic IP addresses.
-dmaPublicIPs :: Lens' DescribeMovingAddresses [Text]
+dmaPublicIPs :: Lens' DescribeMovingAddresses (Maybe [Text])
 dmaPublicIPs = lens _dmaPublicIPs (\ s a -> s{_dmaPublicIPs = a});
 
 -- | One or more filters.
@@ -75,7 +75,7 @@ dmaPublicIPs = lens _dmaPublicIPs (\ s a -> s{_dmaPublicIPs = a});
 -- -   @moving-status@ - The status of the Elastic IP address
 --     (@MovingToVpc@ | @RestoringToClassic@).
 --
-dmaFilters :: Lens' DescribeMovingAddresses [Filter]
+dmaFilters :: Lens' DescribeMovingAddresses (Maybe [Filter])
 dmaFilters = lens _dmaFilters (\ s a -> s{_dmaFilters = a});
 
 -- | The token to use to retrieve the next page of results.
@@ -133,14 +133,14 @@ instance ToQuery DescribeMovingAddresses where
 -- * 'dmarMovingAddressStatuses'
 --
 -- * 'dmarNextToken'
-data DescribeMovingAddressesResponse = DescribeMovingAddressesResponse'{_dmarMovingAddressStatuses :: [MovingAddressStatus], _dmarNextToken :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeMovingAddressesResponse = DescribeMovingAddressesResponse'{_dmarMovingAddressStatuses :: Maybe [MovingAddressStatus], _dmarNextToken :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeMovingAddressesResponse' smart constructor.
 describeMovingAddressesResponse :: DescribeMovingAddressesResponse
-describeMovingAddressesResponse = DescribeMovingAddressesResponse'{_dmarMovingAddressStatuses = mempty, _dmarNextToken = Nothing};
+describeMovingAddressesResponse = DescribeMovingAddressesResponse'{_dmarMovingAddressStatuses = Nothing, _dmarNextToken = Nothing};
 
 -- | The status for each Elastic IP address.
-dmarMovingAddressStatuses :: Lens' DescribeMovingAddressesResponse [MovingAddressStatus]
+dmarMovingAddressStatuses :: Lens' DescribeMovingAddressesResponse (Maybe [MovingAddressStatus])
 dmarMovingAddressStatuses = lens _dmarMovingAddressStatuses (\ s a -> s{_dmarMovingAddressStatuses = a});
 
 -- | The token to use to retrieve the next page of results. This value is

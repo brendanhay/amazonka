@@ -52,8 +52,8 @@ module Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
     , createSnapshotFromVolumeRecoveryPointResponse
     -- ** Response lenses
     , csfvrprVolumeRecoveryPointTime
-    , csfvrprSnapshotId
     , csfvrprVolumeARN
+    , csfvrprSnapshotId
     ) where
 
 import Network.AWS.Request
@@ -93,9 +93,8 @@ instance AWSRequest
           = receiveJSON
               (\ s h x ->
                  CreateSnapshotFromVolumeRecoveryPointResponse' <$>
-                   x .?> "VolumeRecoveryPointTime" <*>
-                     x .?> "SnapshotId"
-                     <*> x .:> "VolumeARN")
+                   x .?> "VolumeRecoveryPointTime" <*> x .?> "VolumeARN"
+                     <*> x .?> "SnapshotId")
 
 instance ToHeaders
          CreateSnapshotFromVolumeRecoveryPoint where
@@ -129,23 +128,23 @@ instance ToQuery
 --
 -- * 'csfvrprVolumeRecoveryPointTime'
 --
--- * 'csfvrprSnapshotId'
---
 -- * 'csfvrprVolumeARN'
-data CreateSnapshotFromVolumeRecoveryPointResponse = CreateSnapshotFromVolumeRecoveryPointResponse'{_csfvrprVolumeRecoveryPointTime :: Maybe Text, _csfvrprSnapshotId :: Maybe Text, _csfvrprVolumeARN :: Text} deriving (Eq, Read, Show)
+--
+-- * 'csfvrprSnapshotId'
+data CreateSnapshotFromVolumeRecoveryPointResponse = CreateSnapshotFromVolumeRecoveryPointResponse'{_csfvrprVolumeRecoveryPointTime :: Maybe Text, _csfvrprVolumeARN :: Maybe Text, _csfvrprSnapshotId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'CreateSnapshotFromVolumeRecoveryPointResponse' smart constructor.
-createSnapshotFromVolumeRecoveryPointResponse :: Text -> CreateSnapshotFromVolumeRecoveryPointResponse
-createSnapshotFromVolumeRecoveryPointResponse pVolumeARN = CreateSnapshotFromVolumeRecoveryPointResponse'{_csfvrprVolumeRecoveryPointTime = Nothing, _csfvrprSnapshotId = Nothing, _csfvrprVolumeARN = pVolumeARN};
+createSnapshotFromVolumeRecoveryPointResponse :: CreateSnapshotFromVolumeRecoveryPointResponse
+createSnapshotFromVolumeRecoveryPointResponse = CreateSnapshotFromVolumeRecoveryPointResponse'{_csfvrprVolumeRecoveryPointTime = Nothing, _csfvrprVolumeARN = Nothing, _csfvrprSnapshotId = Nothing};
 
 -- | FIXME: Undocumented member.
 csfvrprVolumeRecoveryPointTime :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe Text)
 csfvrprVolumeRecoveryPointTime = lens _csfvrprVolumeRecoveryPointTime (\ s a -> s{_csfvrprVolumeRecoveryPointTime = a});
 
 -- | FIXME: Undocumented member.
-csfvrprSnapshotId :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe Text)
-csfvrprSnapshotId = lens _csfvrprSnapshotId (\ s a -> s{_csfvrprSnapshotId = a});
+csfvrprVolumeARN :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe Text)
+csfvrprVolumeARN = lens _csfvrprVolumeARN (\ s a -> s{_csfvrprVolumeARN = a});
 
 -- | FIXME: Undocumented member.
-csfvrprVolumeARN :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse Text
-csfvrprVolumeARN = lens _csfvrprVolumeARN (\ s a -> s{_csfvrprVolumeARN = a});
+csfvrprSnapshotId :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe Text)
+csfvrprSnapshotId = lens _csfvrprSnapshotId (\ s a -> s{_csfvrprSnapshotId = a});

@@ -95,8 +95,8 @@ import Network.AWS.SDB.Types
 data BatchPutAttributes = BatchPutAttributes'{_bpaDomainName :: Text, _bpaItems :: [ReplaceableItem]} deriving (Eq, Read, Show)
 
 -- | 'BatchPutAttributes' smart constructor.
-batchPutAttributes :: Text -> [ReplaceableItem] -> BatchPutAttributes
-batchPutAttributes pDomainName pItems = BatchPutAttributes'{_bpaDomainName = pDomainName, _bpaItems = pItems};
+batchPutAttributes :: Text -> BatchPutAttributes
+batchPutAttributes pDomainName = BatchPutAttributes'{_bpaDomainName = pDomainName, _bpaItems = mempty};
 
 -- | The name of the domain in which the attributes are being stored.
 bpaDomainName :: Lens' BatchPutAttributes Text

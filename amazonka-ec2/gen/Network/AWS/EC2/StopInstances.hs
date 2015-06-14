@@ -86,8 +86,8 @@ import Network.AWS.EC2.Types
 data StopInstances = StopInstances'{_siForce :: Maybe Bool, _siDryRun :: Maybe Bool, _siInstanceIds :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'StopInstances' smart constructor.
-stopInstances :: [Text] -> StopInstances
-stopInstances pInstanceIds = StopInstances'{_siForce = Nothing, _siDryRun = Nothing, _siInstanceIds = pInstanceIds};
+stopInstances :: StopInstances
+stopInstances = StopInstances'{_siForce = Nothing, _siDryRun = Nothing, _siInstanceIds = mempty};
 
 -- | Forces the instances to stop. The instances do not have an opportunity
 -- to flush file system caches or file system metadata. If you use this
@@ -137,12 +137,12 @@ instance ToQuery StopInstances where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'sirStoppingInstances'
-newtype StopInstancesResponse = StopInstancesResponse'{_sirStoppingInstances :: [InstanceStateChange]} deriving (Eq, Read, Show)
+newtype StopInstancesResponse = StopInstancesResponse'{_sirStoppingInstances :: Maybe [InstanceStateChange]} deriving (Eq, Read, Show)
 
 -- | 'StopInstancesResponse' smart constructor.
 stopInstancesResponse :: StopInstancesResponse
-stopInstancesResponse = StopInstancesResponse'{_sirStoppingInstances = mempty};
+stopInstancesResponse = StopInstancesResponse'{_sirStoppingInstances = Nothing};
 
 -- | Information about one or more stopped instances.
-sirStoppingInstances :: Lens' StopInstancesResponse [InstanceStateChange]
+sirStoppingInstances :: Lens' StopInstancesResponse (Maybe [InstanceStateChange])
 sirStoppingInstances = lens _sirStoppingInstances (\ s a -> s{_sirStoppingInstances = a});

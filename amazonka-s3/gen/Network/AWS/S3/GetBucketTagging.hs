@@ -82,8 +82,8 @@ instance ToQuery GetBucketTagging where
 newtype GetBucketTaggingResponse = GetBucketTaggingResponse'{_gbtrTagSet :: [Tag]} deriving (Eq, Read, Show)
 
 -- | 'GetBucketTaggingResponse' smart constructor.
-getBucketTaggingResponse :: [Tag] -> GetBucketTaggingResponse
-getBucketTaggingResponse pTagSet = GetBucketTaggingResponse'{_gbtrTagSet = pTagSet};
+getBucketTaggingResponse :: GetBucketTaggingResponse
+getBucketTaggingResponse = GetBucketTaggingResponse'{_gbtrTagSet = mempty};
 
 -- | FIXME: Undocumented member.
 gbtrTagSet :: Lens' GetBucketTaggingResponse [Tag]

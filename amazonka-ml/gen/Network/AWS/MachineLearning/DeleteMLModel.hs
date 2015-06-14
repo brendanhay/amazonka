@@ -68,7 +68,7 @@ instance AWSRequest DeleteMLModel where
         response
           = receiveJSON
               (\ s h x ->
-                 DeleteMLModelResponse' <$> x .:> "MLModelId")
+                 DeleteMLModelResponse' <$> x .?> "MLModelId")
 
 instance ToHeaders DeleteMLModel where
         toHeaders
@@ -94,13 +94,13 @@ instance ToQuery DeleteMLModel where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dmlmrMLModelId'
-newtype DeleteMLModelResponse = DeleteMLModelResponse'{_dmlmrMLModelId :: Text} deriving (Eq, Read, Show)
+newtype DeleteMLModelResponse = DeleteMLModelResponse'{_dmlmrMLModelId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DeleteMLModelResponse' smart constructor.
-deleteMLModelResponse :: Text -> DeleteMLModelResponse
-deleteMLModelResponse pMLModelId = DeleteMLModelResponse'{_dmlmrMLModelId = pMLModelId};
+deleteMLModelResponse :: DeleteMLModelResponse
+deleteMLModelResponse = DeleteMLModelResponse'{_dmlmrMLModelId = Nothing};
 
 -- | A user-supplied ID that uniquely identifies the @MLModel@. This value
 -- should be identical to the value of the @MLModelID@ in the request.
-dmlmrMLModelId :: Lens' DeleteMLModelResponse Text
+dmlmrMLModelId :: Lens' DeleteMLModelResponse (Maybe Text)
 dmlmrMLModelId = lens _dmlmrMLModelId (\ s a -> s{_dmlmrMLModelId = a});

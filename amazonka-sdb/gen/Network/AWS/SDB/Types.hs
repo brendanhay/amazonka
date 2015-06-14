@@ -155,14 +155,14 @@ instance ToQuery Attribute where
 -- * 'diAttributes'
 --
 -- * 'diName'
-data DeletableItem = DeletableItem'{_diAttributes :: [Attribute], _diName :: Text} deriving (Eq, Read, Show)
+data DeletableItem = DeletableItem'{_diAttributes :: Maybe [Attribute], _diName :: Text} deriving (Eq, Read, Show)
 
 -- | 'DeletableItem' smart constructor.
 deletableItem :: Text -> DeletableItem
-deletableItem pName = DeletableItem'{_diAttributes = mempty, _diName = pName};
+deletableItem pName = DeletableItem'{_diAttributes = Nothing, _diName = pName};
 
 -- | FIXME: Undocumented member.
-diAttributes :: Lens' DeletableItem [Attribute]
+diAttributes :: Lens' DeletableItem (Maybe [Attribute])
 diAttributes = lens _diAttributes (\ s a -> s{_diAttributes = a});
 
 -- | FIXME: Undocumented member.
@@ -186,8 +186,8 @@ instance ToQuery DeletableItem where
 data Item = Item'{_iteAlternateNameEncoding :: Maybe Text, _iteName :: Text, _iteAttributes :: [Attribute]} deriving (Eq, Read, Show)
 
 -- | 'Item' smart constructor.
-item :: Text -> [Attribute] -> Item
-item pName pAttributes = Item'{_iteAlternateNameEncoding = Nothing, _iteName = pName, _iteAttributes = pAttributes};
+item :: Text -> Item
+item pName = Item'{_iteAlternateNameEncoding = Nothing, _iteName = pName, _iteAttributes = mempty};
 
 -- |
 iteAlternateNameEncoding :: Lens' Item (Maybe Text)
@@ -251,8 +251,8 @@ instance ToQuery ReplaceableAttribute where
 data ReplaceableItem = ReplaceableItem'{_riName :: Text, _riAttributes :: [ReplaceableAttribute]} deriving (Eq, Read, Show)
 
 -- | 'ReplaceableItem' smart constructor.
-replaceableItem :: Text -> [ReplaceableAttribute] -> ReplaceableItem
-replaceableItem pName pAttributes = ReplaceableItem'{_riName = pName, _riAttributes = pAttributes};
+replaceableItem :: Text -> ReplaceableItem
+replaceableItem pName = ReplaceableItem'{_riName = pName, _riAttributes = mempty};
 
 -- | The name of the replaceable item.
 riName :: Lens' ReplaceableItem Text

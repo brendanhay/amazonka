@@ -43,16 +43,16 @@ module Network.AWS.MachineLearning.GetMLModel
     , gmlmrRecipe
     , gmlmrInputDataLocationS3
     , gmlmrSizeInBytes
+    , gmlmrMLModelId
     , gmlmrSchema
     , gmlmrScoreThreshold
     , gmlmrName
     , gmlmrCreatedByIAMUser
     , gmlmrLogURI
     , gmlmrEndpointInfo
+    , gmlmrTrainingDataSourceId
     , gmlmrMessage
     , gmlmrMLModelType
-    , gmlmrMLModelId
-    , gmlmrTrainingDataSourceId
     ) where
 
 import Network.AWS.Request
@@ -101,16 +101,16 @@ instance AWSRequest GetMLModel where
                      <*> x .?> "Recipe"
                      <*> x .?> "InputDataLocationS3"
                      <*> x .?> "SizeInBytes"
+                     <*> x .?> "MLModelId"
                      <*> x .?> "Schema"
                      <*> x .?> "ScoreThreshold"
                      <*> x .?> "Name"
                      <*> x .?> "CreatedByIamUser"
                      <*> x .?> "LogUri"
                      <*> x .?> "EndpointInfo"
+                     <*> x .?> "TrainingDataSourceId"
                      <*> x .?> "Message"
-                     <*> x .?> "MLModelType"
-                     <*> x .:> "MLModelId"
-                     <*> x .:> "TrainingDataSourceId")
+                     <*> x .?> "MLModelType")
 
 instance ToHeaders GetMLModel where
         toHeaders
@@ -153,6 +153,8 @@ instance ToQuery GetMLModel where
 --
 -- * 'gmlmrSizeInBytes'
 --
+-- * 'gmlmrMLModelId'
+--
 -- * 'gmlmrSchema'
 --
 -- * 'gmlmrScoreThreshold'
@@ -165,18 +167,16 @@ instance ToQuery GetMLModel where
 --
 -- * 'gmlmrEndpointInfo'
 --
+-- * 'gmlmrTrainingDataSourceId'
+--
 -- * 'gmlmrMessage'
 --
 -- * 'gmlmrMLModelType'
---
--- * 'gmlmrMLModelId'
---
--- * 'gmlmrTrainingDataSourceId'
-data GetMLModelResponse = GetMLModelResponse'{_gmlmrStatus :: Maybe EntityStatus, _gmlmrTrainingParameters :: HashMap Text Text, _gmlmrLastUpdatedAt :: Maybe POSIX, _gmlmrCreatedAt :: Maybe POSIX, _gmlmrScoreThresholdLastUpdatedAt :: Maybe POSIX, _gmlmrRecipe :: Maybe Text, _gmlmrInputDataLocationS3 :: Maybe Text, _gmlmrSizeInBytes :: Maybe Integer, _gmlmrSchema :: Maybe Text, _gmlmrScoreThreshold :: Maybe Double, _gmlmrName :: Maybe Text, _gmlmrCreatedByIAMUser :: Maybe Text, _gmlmrLogURI :: Maybe Text, _gmlmrEndpointInfo :: Maybe RealtimeEndpointInfo, _gmlmrMessage :: Maybe Text, _gmlmrMLModelType :: Maybe MLModelType, _gmlmrMLModelId :: Text, _gmlmrTrainingDataSourceId :: Text} deriving (Eq, Read, Show)
+data GetMLModelResponse = GetMLModelResponse'{_gmlmrStatus :: Maybe EntityStatus, _gmlmrTrainingParameters :: Maybe (HashMap Text Text), _gmlmrLastUpdatedAt :: Maybe POSIX, _gmlmrCreatedAt :: Maybe POSIX, _gmlmrScoreThresholdLastUpdatedAt :: Maybe POSIX, _gmlmrRecipe :: Maybe Text, _gmlmrInputDataLocationS3 :: Maybe Text, _gmlmrSizeInBytes :: Maybe Integer, _gmlmrMLModelId :: Maybe Text, _gmlmrSchema :: Maybe Text, _gmlmrScoreThreshold :: Maybe Double, _gmlmrName :: Maybe Text, _gmlmrCreatedByIAMUser :: Maybe Text, _gmlmrLogURI :: Maybe Text, _gmlmrEndpointInfo :: Maybe RealtimeEndpointInfo, _gmlmrTrainingDataSourceId :: Maybe Text, _gmlmrMessage :: Maybe Text, _gmlmrMLModelType :: Maybe MLModelType} deriving (Eq, Read, Show)
 
 -- | 'GetMLModelResponse' smart constructor.
-getMLModelResponse :: Text -> Text -> GetMLModelResponse
-getMLModelResponse pMLModelId pTrainingDataSourceId = GetMLModelResponse'{_gmlmrStatus = Nothing, _gmlmrTrainingParameters = mempty, _gmlmrLastUpdatedAt = Nothing, _gmlmrCreatedAt = Nothing, _gmlmrScoreThresholdLastUpdatedAt = Nothing, _gmlmrRecipe = Nothing, _gmlmrInputDataLocationS3 = Nothing, _gmlmrSizeInBytes = Nothing, _gmlmrSchema = Nothing, _gmlmrScoreThreshold = Nothing, _gmlmrName = Nothing, _gmlmrCreatedByIAMUser = Nothing, _gmlmrLogURI = Nothing, _gmlmrEndpointInfo = Nothing, _gmlmrMessage = Nothing, _gmlmrMLModelType = Nothing, _gmlmrMLModelId = pMLModelId, _gmlmrTrainingDataSourceId = pTrainingDataSourceId};
+getMLModelResponse :: GetMLModelResponse
+getMLModelResponse = GetMLModelResponse'{_gmlmrStatus = Nothing, _gmlmrTrainingParameters = Nothing, _gmlmrLastUpdatedAt = Nothing, _gmlmrCreatedAt = Nothing, _gmlmrScoreThresholdLastUpdatedAt = Nothing, _gmlmrRecipe = Nothing, _gmlmrInputDataLocationS3 = Nothing, _gmlmrSizeInBytes = Nothing, _gmlmrMLModelId = Nothing, _gmlmrSchema = Nothing, _gmlmrScoreThreshold = Nothing, _gmlmrName = Nothing, _gmlmrCreatedByIAMUser = Nothing, _gmlmrLogURI = Nothing, _gmlmrEndpointInfo = Nothing, _gmlmrTrainingDataSourceId = Nothing, _gmlmrMessage = Nothing, _gmlmrMLModelType = Nothing};
 
 -- | The current status of the @MLModel@. This element can have one of the
 -- following values:
@@ -226,8 +226,8 @@ gmlmrStatus = lens _gmlmrStatus (\ s a -> s{_gmlmrStatus = a});
 --     The value is an integer that ranges from 100000 to 2147483648. The
 --     default value is 33554432.
 --
-gmlmrTrainingParameters :: Lens' GetMLModelResponse (HashMap Text Text)
-gmlmrTrainingParameters = lens _gmlmrTrainingParameters (\ s a -> s{_gmlmrTrainingParameters = a}) . _Coerce;
+gmlmrTrainingParameters :: Lens' GetMLModelResponse (Maybe (HashMap Text Text))
+gmlmrTrainingParameters = lens _gmlmrTrainingParameters (\ s a -> s{_gmlmrTrainingParameters = a}) . mapping _Coerce;
 
 -- | The time of the most recent edit to the @MLModel@. The time is expressed
 -- in epoch time.
@@ -263,6 +263,10 @@ gmlmrInputDataLocationS3 = lens _gmlmrInputDataLocationS3 (\ s a -> s{_gmlmrInpu
 -- | FIXME: Undocumented member.
 gmlmrSizeInBytes :: Lens' GetMLModelResponse (Maybe Integer)
 gmlmrSizeInBytes = lens _gmlmrSizeInBytes (\ s a -> s{_gmlmrSizeInBytes = a});
+
+-- | The MLModel ID which is same as the @MLModelId@ in the request.
+gmlmrMLModelId :: Lens' GetMLModelResponse (Maybe Text)
+gmlmrMLModelId = lens _gmlmrMLModelId (\ s a -> s{_gmlmrMLModelId = a});
 
 -- | The schema used by all of the data files referenced by the @DataSource@.
 --
@@ -300,6 +304,10 @@ gmlmrLogURI = lens _gmlmrLogURI (\ s a -> s{_gmlmrLogURI = a});
 gmlmrEndpointInfo :: Lens' GetMLModelResponse (Maybe RealtimeEndpointInfo)
 gmlmrEndpointInfo = lens _gmlmrEndpointInfo (\ s a -> s{_gmlmrEndpointInfo = a});
 
+-- | The ID of the training @DataSource@.
+gmlmrTrainingDataSourceId :: Lens' GetMLModelResponse (Maybe Text)
+gmlmrTrainingDataSourceId = lens _gmlmrTrainingDataSourceId (\ s a -> s{_gmlmrTrainingDataSourceId = a});
+
 -- | Description of the most recent details about accessing the @MLModel@.
 gmlmrMessage :: Lens' GetMLModelResponse (Maybe Text)
 gmlmrMessage = lens _gmlmrMessage (\ s a -> s{_gmlmrMessage = a});
@@ -315,11 +323,3 @@ gmlmrMessage = lens _gmlmrMessage (\ s a -> s{_gmlmrMessage = a});
 --     \"Is this a HIGH, LOW or MEDIUM risk trade?\"
 gmlmrMLModelType :: Lens' GetMLModelResponse (Maybe MLModelType)
 gmlmrMLModelType = lens _gmlmrMLModelType (\ s a -> s{_gmlmrMLModelType = a});
-
--- | The MLModel ID which is same as the @MLModelId@ in the request.
-gmlmrMLModelId :: Lens' GetMLModelResponse Text
-gmlmrMLModelId = lens _gmlmrMLModelId (\ s a -> s{_gmlmrMLModelId = a});
-
--- | The ID of the training @DataSource@.
-gmlmrTrainingDataSourceId :: Lens' GetMLModelResponse Text
-gmlmrTrainingDataSourceId = lens _gmlmrTrainingDataSourceId (\ s a -> s{_gmlmrTrainingDataSourceId = a});

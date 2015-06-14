@@ -51,8 +51,8 @@ import Network.AWS.SNS.Types
 data SetEndpointAttributes = SetEndpointAttributes'{_seaEndpointARN :: Text, _seaAttributes :: HashMap Text Text} deriving (Eq, Read, Show)
 
 -- | 'SetEndpointAttributes' smart constructor.
-setEndpointAttributes :: Text -> HashMap Text Text -> SetEndpointAttributes
-setEndpointAttributes pEndpointARN pAttributes = SetEndpointAttributes'{_seaEndpointARN = pEndpointARN, _seaAttributes = _Coerce # pAttributes};
+setEndpointAttributes :: Text -> SetEndpointAttributes
+setEndpointAttributes pEndpointARN = SetEndpointAttributes'{_seaEndpointARN = pEndpointARN, _seaAttributes = mempty};
 
 -- | EndpointArn used for SetEndpointAttributes action.
 seaEndpointARN :: Lens' SetEndpointAttributes Text

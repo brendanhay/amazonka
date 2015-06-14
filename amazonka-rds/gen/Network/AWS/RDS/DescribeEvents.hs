@@ -73,11 +73,11 @@ import Network.AWS.RDS.Types
 -- * 'deMarker'
 --
 -- * 'deDuration'
-data DescribeEvents = DescribeEvents'{_deStartTime :: Maybe ISO8601, _deSourceType :: Maybe SourceType, _deFilters :: [Filter], _deSourceIdentifier :: Maybe Text, _deMaxRecords :: Maybe Int, _deEventCategories :: [Text], _deEndTime :: Maybe ISO8601, _deMarker :: Maybe Text, _deDuration :: Maybe Int} deriving (Eq, Read, Show)
+data DescribeEvents = DescribeEvents'{_deStartTime :: Maybe ISO8601, _deSourceType :: Maybe SourceType, _deFilters :: Maybe [Filter], _deSourceIdentifier :: Maybe Text, _deMaxRecords :: Maybe Int, _deEventCategories :: Maybe [Text], _deEndTime :: Maybe ISO8601, _deMarker :: Maybe Text, _deDuration :: Maybe Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeEvents' smart constructor.
 describeEvents :: DescribeEvents
-describeEvents = DescribeEvents'{_deStartTime = Nothing, _deSourceType = Nothing, _deFilters = mempty, _deSourceIdentifier = Nothing, _deMaxRecords = Nothing, _deEventCategories = mempty, _deEndTime = Nothing, _deMarker = Nothing, _deDuration = Nothing};
+describeEvents = DescribeEvents'{_deStartTime = Nothing, _deSourceType = Nothing, _deFilters = Nothing, _deSourceIdentifier = Nothing, _deMaxRecords = Nothing, _deEventCategories = Nothing, _deEndTime = Nothing, _deMarker = Nothing, _deDuration = Nothing};
 
 -- | The beginning of the time interval to retrieve events for, specified in
 -- ISO 8601 format. For more information about ISO 8601, go to the
@@ -93,7 +93,7 @@ deSourceType :: Lens' DescribeEvents (Maybe SourceType)
 deSourceType = lens _deSourceType (\ s a -> s{_deSourceType = a});
 
 -- | This parameter is not currently supported.
-deFilters :: Lens' DescribeEvents [Filter]
+deFilters :: Lens' DescribeEvents (Maybe [Filter])
 deFilters = lens _deFilters (\ s a -> s{_deFilters = a});
 
 -- | The identifier of the event source for which events will be returned. If
@@ -127,7 +127,7 @@ deMaxRecords = lens _deMaxRecords (\ s a -> s{_deMaxRecords = a});
 
 -- | A list of event categories that trigger notifications for a event
 -- notification subscription.
-deEventCategories :: Lens' DescribeEvents [Text]
+deEventCategories :: Lens' DescribeEvents (Maybe [Text])
 deEventCategories = lens _deEventCategories (\ s a -> s{_deEventCategories = a});
 
 -- | The end of the time interval for which to retrieve events, specified in
@@ -189,14 +189,14 @@ instance ToQuery DescribeEvents where
 -- * 'derEvents'
 --
 -- * 'derMarker'
-data DescribeEventsResponse = DescribeEventsResponse'{_derEvents :: [Event], _derMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeEventsResponse = DescribeEventsResponse'{_derEvents :: Maybe [Event], _derMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeEventsResponse' smart constructor.
 describeEventsResponse :: DescribeEventsResponse
-describeEventsResponse = DescribeEventsResponse'{_derEvents = mempty, _derMarker = Nothing};
+describeEventsResponse = DescribeEventsResponse'{_derEvents = Nothing, _derMarker = Nothing};
 
 -- | A list of Event instances.
-derEvents :: Lens' DescribeEventsResponse [Event]
+derEvents :: Lens' DescribeEventsResponse (Maybe [Event])
 derEvents = lens _derEvents (\ s a -> s{_derEvents = a});
 
 -- | An optional pagination token provided by a previous Events request. If

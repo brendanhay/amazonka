@@ -27,9 +27,9 @@ module Network.AWS.DataPipeline.Types
     -- * Field
     , Field
     , field
+    , fieRefValue
     , fieStringValue
     , fieKey
-    , fieRefValue
 
     -- * InstanceIdentity
     , InstanceIdentity
@@ -106,10 +106,10 @@ module Network.AWS.DataPipeline.Types
     -- * TaskObject
     , TaskObject
     , taskObject
-    , toObjects
     , toPipelineId
     , toTaskId
     , toAttemptId
+    , toObjects
 
     -- * TaskStatus
     , TaskStatus (..)
@@ -117,8 +117,8 @@ module Network.AWS.DataPipeline.Types
     -- * ValidationError
     , ValidationError
     , validationError
-    , veErrors
     , veId
+    , veErrors
 
     -- * ValidationWarning
     , ValidationWarning
@@ -164,16 +164,20 @@ instance AWSService DataPipeline where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'fieRefValue'
+--
 -- * 'fieStringValue'
 --
 -- * 'fieKey'
---
--- * 'fieRefValue'
-data Field = Field'{_fieStringValue :: Maybe Text, _fieKey :: Text, _fieRefValue :: Text} deriving (Eq, Read, Show)
+data Field = Field'{_fieRefValue :: Maybe Text, _fieStringValue :: Maybe Text, _fieKey :: Text} deriving (Eq, Read, Show)
 
 -- | 'Field' smart constructor.
-field :: Text -> Text -> Field
-field pKey pRefValue = Field'{_fieStringValue = Nothing, _fieKey = pKey, _fieRefValue = pRefValue};
+field :: Text -> Field
+field pKey = Field'{_fieRefValue = Nothing, _fieStringValue = Nothing, _fieKey = pKey};
+
+-- | The field value, expressed as the identifier of another object.
+fieRefValue :: Lens' Field (Maybe Text)
+fieRefValue = lens _fieRefValue (\ s a -> s{_fieRefValue = a});
 
 -- | The field value, expressed as a String.
 fieStringValue :: Lens' Field (Maybe Text)
@@ -183,23 +187,19 @@ fieStringValue = lens _fieStringValue (\ s a -> s{_fieStringValue = a});
 fieKey :: Lens' Field Text
 fieKey = lens _fieKey (\ s a -> s{_fieKey = a});
 
--- | The field value, expressed as the identifier of another object.
-fieRefValue :: Lens' Field Text
-fieRefValue = lens _fieRefValue (\ s a -> s{_fieRefValue = a});
-
 instance FromJSON Field where
         parseJSON
           = withObject "Field"
               (\ x ->
                  Field' <$>
-                   x .:? "stringValue" <*> x .: "key" <*>
-                     x .: "refValue")
+                   x .:? "refValue" <*> x .:? "stringValue" <*>
+                     x .: "key")
 
 instance ToJSON Field where
         toJSON Field'{..}
           = object
-              ["stringValue" .= _fieStringValue, "key" .= _fieKey,
-               "refValue" .= _fieRefValue]
+              ["refValue" .= _fieRefValue,
+               "stringValue" .= _fieStringValue, "key" .= _fieKey]
 
 -- | /See:/ 'instanceIdentity' smart constructor.
 --
@@ -238,14 +238,14 @@ instance ToJSON InstanceIdentity where
 -- * 'opeValues'
 --
 -- * 'opeType'
-data Operator = Operator'{_opeValues :: [Text], _opeType :: Maybe OperatorType} deriving (Eq, Read, Show)
+data Operator = Operator'{_opeValues :: Maybe [Text], _opeType :: Maybe OperatorType} deriving (Eq, Read, Show)
 
 -- | 'Operator' smart constructor.
 operator :: Operator
-operator = Operator'{_opeValues = mempty, _opeType = Nothing};
+operator = Operator'{_opeValues = Nothing, _opeType = Nothing};
 
 -- | The value that the actual field value will be compared with.
-opeValues :: Lens' Operator [Text]
+opeValues :: Lens' Operator (Maybe [Text])
 opeValues = lens _opeValues (\ s a -> s{_opeValues = a});
 
 -- | The logical operation to be performed: equal (@EQ@), equal reference
@@ -357,8 +357,8 @@ instance ToJSON ParameterAttribute where
 data ParameterObject = ParameterObject'{_poId :: Text, _poAttributes :: [ParameterAttribute]} deriving (Eq, Read, Show)
 
 -- | 'ParameterObject' smart constructor.
-parameterObject :: Text -> [ParameterAttribute] -> ParameterObject
-parameterObject pId pAttributes = ParameterObject'{_poId = pId, _poAttributes = pAttributes};
+parameterObject :: Text -> ParameterObject
+parameterObject pId = ParameterObject'{_poId = pId, _poAttributes = mempty};
 
 -- | The ID of the parameter object.
 poId :: Lens' ParameterObject Text
@@ -425,11 +425,11 @@ instance ToJSON ParameterValue where
 -- * 'pdName'
 --
 -- * 'pdFields'
-data PipelineDescription = PipelineDescription'{_pdDescription :: Maybe Text, _pdTags :: [Tag], _pdPipelineId :: Text, _pdName :: Text, _pdFields :: [Field]} deriving (Eq, Read, Show)
+data PipelineDescription = PipelineDescription'{_pdDescription :: Maybe Text, _pdTags :: Maybe [Tag], _pdPipelineId :: Text, _pdName :: Text, _pdFields :: [Field]} deriving (Eq, Read, Show)
 
 -- | 'PipelineDescription' smart constructor.
-pipelineDescription :: Text -> Text -> [Field] -> PipelineDescription
-pipelineDescription pPipelineId pName pFields = PipelineDescription'{_pdDescription = Nothing, _pdTags = mempty, _pdPipelineId = pPipelineId, _pdName = pName, _pdFields = pFields};
+pipelineDescription :: Text -> Text -> PipelineDescription
+pipelineDescription pPipelineId pName = PipelineDescription'{_pdDescription = Nothing, _pdTags = Nothing, _pdPipelineId = pPipelineId, _pdName = pName, _pdFields = mempty};
 
 -- | Description of the pipeline.
 pdDescription :: Lens' PipelineDescription (Maybe Text)
@@ -439,7 +439,7 @@ pdDescription = lens _pdDescription (\ s a -> s{_pdDescription = a});
 -- access to pipelines. For more information, see
 -- <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines>
 -- in the /AWS Data Pipeline Developer Guide/.
-pdTags :: Lens' PipelineDescription [Tag]
+pdTags :: Lens' PipelineDescription (Maybe [Tag])
 pdTags = lens _pdTags (\ s a -> s{_pdTags = a});
 
 -- | The pipeline identifier that was assigned by AWS Data Pipeline. This is
@@ -473,26 +473,26 @@ instance FromJSON PipelineDescription where
 -- * 'pinName'
 --
 -- * 'pinId'
-data PipelineIdName = PipelineIdName'{_pinName :: Text, _pinId :: Text} deriving (Eq, Read, Show)
+data PipelineIdName = PipelineIdName'{_pinName :: Maybe Text, _pinId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'PipelineIdName' smart constructor.
-pipelineIdName :: Text -> Text -> PipelineIdName
-pipelineIdName pName pId = PipelineIdName'{_pinName = pName, _pinId = pId};
+pipelineIdName :: PipelineIdName
+pipelineIdName = PipelineIdName'{_pinName = Nothing, _pinId = Nothing};
 
 -- | The name of the pipeline.
-pinName :: Lens' PipelineIdName Text
+pinName :: Lens' PipelineIdName (Maybe Text)
 pinName = lens _pinName (\ s a -> s{_pinName = a});
 
 -- | The ID of the pipeline that was assigned by AWS Data Pipeline. This is a
 -- string of the form @df-297EG78HU43EEXAMPLE@.
-pinId :: Lens' PipelineIdName Text
+pinId :: Lens' PipelineIdName (Maybe Text)
 pinId = lens _pinId (\ s a -> s{_pinId = a});
 
 instance FromJSON PipelineIdName where
         parseJSON
           = withObject "PipelineIdName"
               (\ x ->
-                 PipelineIdName' <$> x .: "name" <*> x .: "id")
+                 PipelineIdName' <$> x .:? "name" <*> x .:? "id")
 
 -- | /See:/ 'pipelineObject' smart constructor.
 --
@@ -506,8 +506,8 @@ instance FromJSON PipelineIdName where
 data PipelineObject = PipelineObject'{_pipId :: Text, _pipName :: Text, _pipFields :: [Field]} deriving (Eq, Read, Show)
 
 -- | 'PipelineObject' smart constructor.
-pipelineObject :: Text -> Text -> [Field] -> PipelineObject
-pipelineObject pId pName pFields = PipelineObject'{_pipId = pId, _pipName = pName, _pipFields = pFields};
+pipelineObject :: Text -> Text -> PipelineObject
+pipelineObject pId pName = PipelineObject'{_pipId = pId, _pipName = pName, _pipFields = mempty};
 
 -- | The ID of the object.
 pipId :: Lens' PipelineObject Text
@@ -540,15 +540,15 @@ instance ToJSON PipelineObject where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'queSelectors'
-newtype Query = Query'{_queSelectors :: [Selector]} deriving (Eq, Read, Show)
+newtype Query = Query'{_queSelectors :: Maybe [Selector]} deriving (Eq, Read, Show)
 
 -- | 'Query' smart constructor.
 query :: Query
-query = Query'{_queSelectors = mempty};
+query = Query'{_queSelectors = Nothing};
 
 -- | List of selectors that define the query. An object must satisfy all of
 -- the selectors to match the query.
-queSelectors :: Lens' Query [Selector]
+queSelectors :: Lens' Query (Maybe [Selector])
 queSelectors = lens _queSelectors (\ s a -> s{_queSelectors = a});
 
 instance ToJSON Query where
@@ -624,46 +624,46 @@ instance ToJSON Tag where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'toObjects'
---
 -- * 'toPipelineId'
 --
 -- * 'toTaskId'
 --
 -- * 'toAttemptId'
-data TaskObject = TaskObject'{_toObjects :: HashMap Text PipelineObject, _toPipelineId :: Text, _toTaskId :: Text, _toAttemptId :: Text} deriving (Eq, Read, Show)
+--
+-- * 'toObjects'
+data TaskObject = TaskObject'{_toPipelineId :: Maybe Text, _toTaskId :: Maybe Text, _toAttemptId :: Maybe Text, _toObjects :: Maybe (HashMap Text PipelineObject)} deriving (Eq, Read, Show)
 
 -- | 'TaskObject' smart constructor.
-taskObject :: Text -> Text -> Text -> TaskObject
-taskObject pPipelineId pTaskId pAttemptId = TaskObject'{_toObjects = mempty, _toPipelineId = pPipelineId, _toTaskId = pTaskId, _toAttemptId = pAttemptId};
-
--- | Connection information for the location where the task runner will
--- publish the output of the task.
-toObjects :: Lens' TaskObject (HashMap Text PipelineObject)
-toObjects = lens _toObjects (\ s a -> s{_toObjects = a}) . _Coerce;
+taskObject :: TaskObject
+taskObject = TaskObject'{_toPipelineId = Nothing, _toTaskId = Nothing, _toAttemptId = Nothing, _toObjects = Nothing};
 
 -- | The ID of the pipeline that provided the task.
-toPipelineId :: Lens' TaskObject Text
+toPipelineId :: Lens' TaskObject (Maybe Text)
 toPipelineId = lens _toPipelineId (\ s a -> s{_toPipelineId = a});
 
 -- | An internal identifier for the task. This ID is passed to the
 -- SetTaskStatus and ReportTaskProgress actions.
-toTaskId :: Lens' TaskObject Text
+toTaskId :: Lens' TaskObject (Maybe Text)
 toTaskId = lens _toTaskId (\ s a -> s{_toTaskId = a});
 
 -- | The ID of the pipeline task attempt object. AWS Data Pipeline uses this
 -- value to track how many times a task is attempted.
-toAttemptId :: Lens' TaskObject Text
+toAttemptId :: Lens' TaskObject (Maybe Text)
 toAttemptId = lens _toAttemptId (\ s a -> s{_toAttemptId = a});
+
+-- | Connection information for the location where the task runner will
+-- publish the output of the task.
+toObjects :: Lens' TaskObject (Maybe (HashMap Text PipelineObject))
+toObjects = lens _toObjects (\ s a -> s{_toObjects = a}) . mapping _Coerce;
 
 instance FromJSON TaskObject where
         parseJSON
           = withObject "TaskObject"
               (\ x ->
                  TaskObject' <$>
-                   x .:? "objects" .!= mempty <*> x .: "pipelineId" <*>
-                     x .: "taskId"
-                     <*> x .: "attemptId")
+                   x .:? "pipelineId" <*> x .:? "taskId" <*>
+                     x .:? "attemptId"
+                     <*> x .:? "objects" .!= mempty)
 
 data TaskStatus = False | Finished | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -691,29 +691,29 @@ instance ToJSON TaskStatus where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'veErrors'
---
 -- * 'veId'
-data ValidationError = ValidationError'{_veErrors :: [Text], _veId :: Text} deriving (Eq, Read, Show)
+--
+-- * 'veErrors'
+data ValidationError = ValidationError'{_veId :: Maybe Text, _veErrors :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'ValidationError' smart constructor.
-validationError :: Text -> ValidationError
-validationError pId = ValidationError'{_veErrors = mempty, _veId = pId};
-
--- | A description of the validation error.
-veErrors :: Lens' ValidationError [Text]
-veErrors = lens _veErrors (\ s a -> s{_veErrors = a});
+validationError :: ValidationError
+validationError = ValidationError'{_veId = Nothing, _veErrors = Nothing};
 
 -- | The identifier of the object that contains the validation error.
-veId :: Lens' ValidationError Text
+veId :: Lens' ValidationError (Maybe Text)
 veId = lens _veId (\ s a -> s{_veId = a});
+
+-- | A description of the validation error.
+veErrors :: Lens' ValidationError (Maybe [Text])
+veErrors = lens _veErrors (\ s a -> s{_veErrors = a});
 
 instance FromJSON ValidationError where
         parseJSON
           = withObject "ValidationError"
               (\ x ->
                  ValidationError' <$>
-                   x .:? "errors" .!= mempty <*> x .: "id")
+                   x .:? "id" <*> x .:? "errors" .!= mempty)
 
 -- | /See:/ 'validationWarning' smart constructor.
 --
@@ -722,18 +722,18 @@ instance FromJSON ValidationError where
 -- * 'vwWarnings'
 --
 -- * 'vwId'
-data ValidationWarning = ValidationWarning'{_vwWarnings :: [Text], _vwId :: Text} deriving (Eq, Read, Show)
+data ValidationWarning = ValidationWarning'{_vwWarnings :: Maybe [Text], _vwId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ValidationWarning' smart constructor.
-validationWarning :: Text -> ValidationWarning
-validationWarning pId = ValidationWarning'{_vwWarnings = mempty, _vwId = pId};
+validationWarning :: ValidationWarning
+validationWarning = ValidationWarning'{_vwWarnings = Nothing, _vwId = Nothing};
 
 -- | A description of the validation warning.
-vwWarnings :: Lens' ValidationWarning [Text]
+vwWarnings :: Lens' ValidationWarning (Maybe [Text])
 vwWarnings = lens _vwWarnings (\ s a -> s{_vwWarnings = a});
 
 -- | The identifier of the object that contains the validation warning.
-vwId :: Lens' ValidationWarning Text
+vwId :: Lens' ValidationWarning (Maybe Text)
 vwId = lens _vwId (\ s a -> s{_vwId = a});
 
 instance FromJSON ValidationWarning where
@@ -741,4 +741,4 @@ instance FromJSON ValidationWarning where
           = withObject "ValidationWarning"
               (\ x ->
                  ValidationWarning' <$>
-                   x .:? "warnings" .!= mempty <*> x .: "id")
+                   x .:? "warnings" .!= mempty <*> x .:? "id")

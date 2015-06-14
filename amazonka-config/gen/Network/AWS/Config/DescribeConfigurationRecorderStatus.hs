@@ -48,16 +48,16 @@ import Network.AWS.Config.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dcrsConfigurationRecorderNames'
-newtype DescribeConfigurationRecorderStatus = DescribeConfigurationRecorderStatus'{_dcrsConfigurationRecorderNames :: [Text]} deriving (Eq, Read, Show)
+newtype DescribeConfigurationRecorderStatus = DescribeConfigurationRecorderStatus'{_dcrsConfigurationRecorderNames :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'DescribeConfigurationRecorderStatus' smart constructor.
 describeConfigurationRecorderStatus :: DescribeConfigurationRecorderStatus
-describeConfigurationRecorderStatus = DescribeConfigurationRecorderStatus'{_dcrsConfigurationRecorderNames = mempty};
+describeConfigurationRecorderStatus = DescribeConfigurationRecorderStatus'{_dcrsConfigurationRecorderNames = Nothing};
 
 -- | The name(s) of the configuration recorder. If the name is not specified,
 -- the action returns the current status of all the configuration recorders
 -- associated with the account.
-dcrsConfigurationRecorderNames :: Lens' DescribeConfigurationRecorderStatus [Text]
+dcrsConfigurationRecorderNames :: Lens' DescribeConfigurationRecorderStatus (Maybe [Text])
 dcrsConfigurationRecorderNames = lens _dcrsConfigurationRecorderNames (\ s a -> s{_dcrsConfigurationRecorderNames = a});
 
 instance AWSRequest
@@ -103,12 +103,12 @@ instance ToQuery DescribeConfigurationRecorderStatus
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dcrsrConfigurationRecordersStatus'
-newtype DescribeConfigurationRecorderStatusResponse = DescribeConfigurationRecorderStatusResponse'{_dcrsrConfigurationRecordersStatus :: [ConfigurationRecorderStatus]} deriving (Eq, Read, Show)
+newtype DescribeConfigurationRecorderStatusResponse = DescribeConfigurationRecorderStatusResponse'{_dcrsrConfigurationRecordersStatus :: Maybe [ConfigurationRecorderStatus]} deriving (Eq, Read, Show)
 
 -- | 'DescribeConfigurationRecorderStatusResponse' smart constructor.
 describeConfigurationRecorderStatusResponse :: DescribeConfigurationRecorderStatusResponse
-describeConfigurationRecorderStatusResponse = DescribeConfigurationRecorderStatusResponse'{_dcrsrConfigurationRecordersStatus = mempty};
+describeConfigurationRecorderStatusResponse = DescribeConfigurationRecorderStatusResponse'{_dcrsrConfigurationRecordersStatus = Nothing};
 
 -- | A list that contains status of the specified recorders.
-dcrsrConfigurationRecordersStatus :: Lens' DescribeConfigurationRecorderStatusResponse [ConfigurationRecorderStatus]
+dcrsrConfigurationRecordersStatus :: Lens' DescribeConfigurationRecorderStatusResponse (Maybe [ConfigurationRecorderStatus])
 dcrsrConfigurationRecordersStatus = lens _dcrsrConfigurationRecordersStatus (\ s a -> s{_dcrsrConfigurationRecordersStatus = a});

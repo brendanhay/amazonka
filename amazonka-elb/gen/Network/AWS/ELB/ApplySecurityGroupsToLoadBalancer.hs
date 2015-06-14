@@ -56,8 +56,8 @@ import Network.AWS.ELB.Types
 data ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancer'{_asgtlbLoadBalancerName :: Text, _asgtlbSecurityGroups :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'ApplySecurityGroupsToLoadBalancer' smart constructor.
-applySecurityGroupsToLoadBalancer :: Text -> [Text] -> ApplySecurityGroupsToLoadBalancer
-applySecurityGroupsToLoadBalancer pLoadBalancerName pSecurityGroups = ApplySecurityGroupsToLoadBalancer'{_asgtlbLoadBalancerName = pLoadBalancerName, _asgtlbSecurityGroups = pSecurityGroups};
+applySecurityGroupsToLoadBalancer :: Text -> ApplySecurityGroupsToLoadBalancer
+applySecurityGroupsToLoadBalancer pLoadBalancerName = ApplySecurityGroupsToLoadBalancer'{_asgtlbLoadBalancerName = pLoadBalancerName, _asgtlbSecurityGroups = mempty};
 
 -- | The name of the load balancer.
 asgtlbLoadBalancerName :: Lens' ApplySecurityGroupsToLoadBalancer Text
@@ -106,12 +106,12 @@ instance ToQuery ApplySecurityGroupsToLoadBalancer
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'asgtlbrSecurityGroups'
-newtype ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse'{_asgtlbrSecurityGroups :: [Text]} deriving (Eq, Read, Show)
+newtype ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse'{_asgtlbrSecurityGroups :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'ApplySecurityGroupsToLoadBalancerResponse' smart constructor.
 applySecurityGroupsToLoadBalancerResponse :: ApplySecurityGroupsToLoadBalancerResponse
-applySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse'{_asgtlbrSecurityGroups = mempty};
+applySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse'{_asgtlbrSecurityGroups = Nothing};
 
 -- | The IDs of the security groups associated with the load balancer.
-asgtlbrSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancerResponse [Text]
+asgtlbrSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancerResponse (Maybe [Text])
 asgtlbrSecurityGroups = lens _asgtlbrSecurityGroups (\ s a -> s{_asgtlbrSecurityGroups = a});

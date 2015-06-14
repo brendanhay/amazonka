@@ -85,12 +85,12 @@ instance ToQuery DescribeVirtualGateways where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dvgrDescribeVirtualGatewaysResponse'
-newtype DescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse'{_dvgrDescribeVirtualGatewaysResponse :: [VirtualGateway]} deriving (Eq, Read, Show)
+newtype DescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse'{_dvgrDescribeVirtualGatewaysResponse :: Maybe [VirtualGateway]} deriving (Eq, Read, Show)
 
 -- | 'DescribeVirtualGatewaysResponse' smart constructor.
 describeVirtualGatewaysResponse :: DescribeVirtualGatewaysResponse
-describeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse'{_dvgrDescribeVirtualGatewaysResponse = mempty};
+describeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse'{_dvgrDescribeVirtualGatewaysResponse = Nothing};
 
 -- | A list of virtual private gateways.
-dvgrDescribeVirtualGatewaysResponse :: Lens' DescribeVirtualGatewaysResponse [VirtualGateway]
+dvgrDescribeVirtualGatewaysResponse :: Lens' DescribeVirtualGatewaysResponse (Maybe [VirtualGateway])
 dvgrDescribeVirtualGatewaysResponse = lens _dvgrDescribeVirtualGatewaysResponse (\ s a -> s{_dvgrDescribeVirtualGatewaysResponse = a});

@@ -90,11 +90,11 @@ instance ToQuery ListSubscriptions where
 -- * 'lsrNextToken'
 --
 -- * 'lsrSubscriptions'
-data ListSubscriptionsResponse = ListSubscriptionsResponse'{_lsrNextToken :: Maybe Text, _lsrSubscriptions :: [Subscription]} deriving (Eq, Read, Show)
+data ListSubscriptionsResponse = ListSubscriptionsResponse'{_lsrNextToken :: Maybe Text, _lsrSubscriptions :: Maybe [Subscription]} deriving (Eq, Read, Show)
 
 -- | 'ListSubscriptionsResponse' smart constructor.
 listSubscriptionsResponse :: ListSubscriptionsResponse
-listSubscriptionsResponse = ListSubscriptionsResponse'{_lsrNextToken = Nothing, _lsrSubscriptions = mempty};
+listSubscriptionsResponse = ListSubscriptionsResponse'{_lsrNextToken = Nothing, _lsrSubscriptions = Nothing};
 
 -- | Token to pass along to the next @ListSubscriptions@ request. This
 -- element is returned if there are more subscriptions to retrieve.
@@ -102,5 +102,5 @@ lsrNextToken :: Lens' ListSubscriptionsResponse (Maybe Text)
 lsrNextToken = lens _lsrNextToken (\ s a -> s{_lsrNextToken = a});
 
 -- | A list of subscriptions.
-lsrSubscriptions :: Lens' ListSubscriptionsResponse [Subscription]
+lsrSubscriptions :: Lens' ListSubscriptionsResponse (Maybe [Subscription])
 lsrSubscriptions = lens _lsrSubscriptions (\ s a -> s{_lsrSubscriptions = a});

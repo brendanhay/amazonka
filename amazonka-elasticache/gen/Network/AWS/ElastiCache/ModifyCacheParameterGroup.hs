@@ -52,8 +52,8 @@ import Network.AWS.ElastiCache.Types
 data ModifyCacheParameterGroup = ModifyCacheParameterGroup'{_mcpgCacheParameterGroupName :: Text, _mcpgParameterNameValues :: [ParameterNameValue]} deriving (Eq, Read, Show)
 
 -- | 'ModifyCacheParameterGroup' smart constructor.
-modifyCacheParameterGroup :: Text -> [ParameterNameValue] -> ModifyCacheParameterGroup
-modifyCacheParameterGroup pCacheParameterGroupName pParameterNameValues = ModifyCacheParameterGroup'{_mcpgCacheParameterGroupName = pCacheParameterGroupName, _mcpgParameterNameValues = pParameterNameValues};
+modifyCacheParameterGroup :: Text -> ModifyCacheParameterGroup
+modifyCacheParameterGroup pCacheParameterGroupName = ModifyCacheParameterGroup'{_mcpgCacheParameterGroupName = pCacheParameterGroupName, _mcpgParameterNameValues = mempty};
 
 -- | The name of the cache parameter group to modify.
 mcpgCacheParameterGroupName :: Lens' ModifyCacheParameterGroup Text

@@ -101,11 +101,11 @@ instance ToQuery ListSubscriptionsByTopic where
 -- * 'lsbtrNextToken'
 --
 -- * 'lsbtrSubscriptions'
-data ListSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse'{_lsbtrNextToken :: Maybe Text, _lsbtrSubscriptions :: [Subscription]} deriving (Eq, Read, Show)
+data ListSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse'{_lsbtrNextToken :: Maybe Text, _lsbtrSubscriptions :: Maybe [Subscription]} deriving (Eq, Read, Show)
 
 -- | 'ListSubscriptionsByTopicResponse' smart constructor.
 listSubscriptionsByTopicResponse :: ListSubscriptionsByTopicResponse
-listSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse'{_lsbtrNextToken = Nothing, _lsbtrSubscriptions = mempty};
+listSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse'{_lsbtrNextToken = Nothing, _lsbtrSubscriptions = Nothing};
 
 -- | Token to pass along to the next @ListSubscriptionsByTopic@ request. This
 -- element is returned if there are more subscriptions to retrieve.
@@ -113,5 +113,5 @@ lsbtrNextToken :: Lens' ListSubscriptionsByTopicResponse (Maybe Text)
 lsbtrNextToken = lens _lsbtrNextToken (\ s a -> s{_lsbtrNextToken = a});
 
 -- | A list of subscriptions.
-lsbtrSubscriptions :: Lens' ListSubscriptionsByTopicResponse [Subscription]
+lsbtrSubscriptions :: Lens' ListSubscriptionsByTopicResponse (Maybe [Subscription])
 lsbtrSubscriptions = lens _lsbtrSubscriptions (\ s a -> s{_lsbtrSubscriptions = a});

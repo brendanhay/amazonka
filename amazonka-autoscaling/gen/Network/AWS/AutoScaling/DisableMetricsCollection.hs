@@ -46,11 +46,11 @@ import Network.AWS.AutoScaling.Types
 -- * 'dmcMetrics'
 --
 -- * 'dmcAutoScalingGroupName'
-data DisableMetricsCollection = DisableMetricsCollection'{_dmcMetrics :: [Text], _dmcAutoScalingGroupName :: Text} deriving (Eq, Read, Show)
+data DisableMetricsCollection = DisableMetricsCollection'{_dmcMetrics :: Maybe [Text], _dmcAutoScalingGroupName :: Text} deriving (Eq, Read, Show)
 
 -- | 'DisableMetricsCollection' smart constructor.
 disableMetricsCollection :: Text -> DisableMetricsCollection
-disableMetricsCollection pAutoScalingGroupName = DisableMetricsCollection'{_dmcMetrics = mempty, _dmcAutoScalingGroupName = pAutoScalingGroupName};
+disableMetricsCollection pAutoScalingGroupName = DisableMetricsCollection'{_dmcMetrics = Nothing, _dmcAutoScalingGroupName = pAutoScalingGroupName};
 
 -- | One or more of the following metrics:
 --
@@ -71,7 +71,7 @@ disableMetricsCollection pAutoScalingGroupName = DisableMetricsCollection'{_dmcM
 -- -   GroupTotalInstances
 --
 -- If you omit this parameter, all metrics are disabled.
-dmcMetrics :: Lens' DisableMetricsCollection [Text]
+dmcMetrics :: Lens' DisableMetricsCollection (Maybe [Text])
 dmcMetrics = lens _dmcMetrics (\ s a -> s{_dmcMetrics = a});
 
 -- | The name or Amazon Resource Name (ARN) of the group.

@@ -66,7 +66,7 @@ instance AWSRequest GetIdentityPoolRoles where
           = receiveJSON
               (\ s h x ->
                  GetIdentityPoolRolesResponse' <$>
-                   x .?> "Roles" .!@ mempty <*> x .:> "IdentityPoolId")
+                   x .?> "Roles" .!@ mempty <*> x .?> "IdentityPoolId")
 
 instance ToHeaders GetIdentityPoolRoles where
         toHeaders
@@ -95,17 +95,17 @@ instance ToQuery GetIdentityPoolRoles where
 -- * 'giprrRoles'
 --
 -- * 'giprrIdentityPoolId'
-data GetIdentityPoolRolesResponse = GetIdentityPoolRolesResponse'{_giprrRoles :: HashMap Text Text, _giprrIdentityPoolId :: Text} deriving (Eq, Read, Show)
+data GetIdentityPoolRolesResponse = GetIdentityPoolRolesResponse'{_giprrRoles :: Maybe (HashMap Text Text), _giprrIdentityPoolId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'GetIdentityPoolRolesResponse' smart constructor.
-getIdentityPoolRolesResponse :: Text -> GetIdentityPoolRolesResponse
-getIdentityPoolRolesResponse pIdentityPoolId = GetIdentityPoolRolesResponse'{_giprrRoles = mempty, _giprrIdentityPoolId = pIdentityPoolId};
+getIdentityPoolRolesResponse :: GetIdentityPoolRolesResponse
+getIdentityPoolRolesResponse = GetIdentityPoolRolesResponse'{_giprrRoles = Nothing, _giprrIdentityPoolId = Nothing};
 
 -- | The map of roles associated with this pool. Currently only authenticated
 -- and unauthenticated roles are supported.
-giprrRoles :: Lens' GetIdentityPoolRolesResponse (HashMap Text Text)
-giprrRoles = lens _giprrRoles (\ s a -> s{_giprrRoles = a}) . _Coerce;
+giprrRoles :: Lens' GetIdentityPoolRolesResponse (Maybe (HashMap Text Text))
+giprrRoles = lens _giprrRoles (\ s a -> s{_giprrRoles = a}) . mapping _Coerce;
 
 -- | An identity pool ID in the format REGION:GUID.
-giprrIdentityPoolId :: Lens' GetIdentityPoolRolesResponse Text
+giprrIdentityPoolId :: Lens' GetIdentityPoolRolesResponse (Maybe Text)
 giprrIdentityPoolId = lens _giprrIdentityPoolId (\ s a -> s{_giprrIdentityPoolId = a});

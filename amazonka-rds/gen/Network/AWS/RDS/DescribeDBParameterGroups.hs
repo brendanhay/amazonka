@@ -56,14 +56,14 @@ import Network.AWS.RDS.Types
 -- * 'ddpgMaxRecords'
 --
 -- * 'ddpgMarker'
-data DescribeDBParameterGroups = DescribeDBParameterGroups'{_ddpgFilters :: [Filter], _ddpgDBParameterGroupName :: Maybe Text, _ddpgMaxRecords :: Maybe Int, _ddpgMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeDBParameterGroups = DescribeDBParameterGroups'{_ddpgFilters :: Maybe [Filter], _ddpgDBParameterGroupName :: Maybe Text, _ddpgMaxRecords :: Maybe Int, _ddpgMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeDBParameterGroups' smart constructor.
 describeDBParameterGroups :: DescribeDBParameterGroups
-describeDBParameterGroups = DescribeDBParameterGroups'{_ddpgFilters = mempty, _ddpgDBParameterGroupName = Nothing, _ddpgMaxRecords = Nothing, _ddpgMarker = Nothing};
+describeDBParameterGroups = DescribeDBParameterGroups'{_ddpgFilters = Nothing, _ddpgDBParameterGroupName = Nothing, _ddpgMaxRecords = Nothing, _ddpgMarker = Nothing};
 
 -- | This parameter is not currently supported.
-ddpgFilters :: Lens' DescribeDBParameterGroups [Filter]
+ddpgFilters :: Lens' DescribeDBParameterGroups (Maybe [Filter])
 ddpgFilters = lens _ddpgFilters (\ s a -> s{_ddpgFilters = a});
 
 -- | The name of a specific DB parameter group to return details for.
@@ -131,11 +131,11 @@ instance ToQuery DescribeDBParameterGroups where
 -- * 'ddpgrMarker'
 --
 -- * 'ddpgrDBParameterGroups'
-data DescribeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse'{_ddpgrMarker :: Maybe Text, _ddpgrDBParameterGroups :: [DBParameterGroup]} deriving (Eq, Read, Show)
+data DescribeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse'{_ddpgrMarker :: Maybe Text, _ddpgrDBParameterGroups :: Maybe [DBParameterGroup]} deriving (Eq, Read, Show)
 
 -- | 'DescribeDBParameterGroupsResponse' smart constructor.
 describeDBParameterGroupsResponse :: DescribeDBParameterGroupsResponse
-describeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse'{_ddpgrMarker = Nothing, _ddpgrDBParameterGroups = mempty};
+describeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse'{_ddpgrMarker = Nothing, _ddpgrDBParameterGroups = Nothing};
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
@@ -144,5 +144,5 @@ ddpgrMarker :: Lens' DescribeDBParameterGroupsResponse (Maybe Text)
 ddpgrMarker = lens _ddpgrMarker (\ s a -> s{_ddpgrMarker = a});
 
 -- | A list of DBParameterGroup instances.
-ddpgrDBParameterGroups :: Lens' DescribeDBParameterGroupsResponse [DBParameterGroup]
+ddpgrDBParameterGroups :: Lens' DescribeDBParameterGroupsResponse (Maybe [DBParameterGroup])
 ddpgrDBParameterGroups = lens _ddpgrDBParameterGroups (\ s a -> s{_ddpgrDBParameterGroups = a});

@@ -146,17 +146,17 @@ instance ToQuery RunTask where
 -- * 'rtrFailures'
 --
 -- * 'rtrTasks'
-data RunTaskResponse = RunTaskResponse'{_rtrFailures :: [Failure], _rtrTasks :: [Task]} deriving (Eq, Read, Show)
+data RunTaskResponse = RunTaskResponse'{_rtrFailures :: Maybe [Failure], _rtrTasks :: Maybe [Task]} deriving (Eq, Read, Show)
 
 -- | 'RunTaskResponse' smart constructor.
 runTaskResponse :: RunTaskResponse
-runTaskResponse = RunTaskResponse'{_rtrFailures = mempty, _rtrTasks = mempty};
+runTaskResponse = RunTaskResponse'{_rtrFailures = Nothing, _rtrTasks = Nothing};
 
 -- | Any failed tasks from your @RunTask@ action are listed here.
-rtrFailures :: Lens' RunTaskResponse [Failure]
+rtrFailures :: Lens' RunTaskResponse (Maybe [Failure])
 rtrFailures = lens _rtrFailures (\ s a -> s{_rtrFailures = a});
 
 -- | A full description of the tasks that were run. Each task that was
 -- successfully placed on your cluster will be described here.
-rtrTasks :: Lens' RunTaskResponse [Task]
+rtrTasks :: Lens' RunTaskResponse (Maybe [Task])
 rtrTasks = lens _rtrTasks (\ s a -> s{_rtrTasks = a});

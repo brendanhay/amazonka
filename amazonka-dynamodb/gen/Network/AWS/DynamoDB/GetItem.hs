@@ -34,10 +34,10 @@ module Network.AWS.DynamoDB.GetItem
     , giProjectionExpression
     , giConsistentRead
     , giExpressionAttributeNames
+    , giAttributesToGet
     , giReturnConsumedCapacity
     , giTableName
     , giKey
-    , giAttributesToGet
 
     -- * Response
     , GetItemResponse
@@ -63,18 +63,18 @@ import Network.AWS.DynamoDB.Types
 --
 -- * 'giExpressionAttributeNames'
 --
+-- * 'giAttributesToGet'
+--
 -- * 'giReturnConsumedCapacity'
 --
 -- * 'giTableName'
 --
 -- * 'giKey'
---
--- * 'giAttributesToGet'
-data GetItem = GetItem'{_giProjectionExpression :: Maybe Text, _giConsistentRead :: Maybe Bool, _giExpressionAttributeNames :: HashMap Text Text, _giReturnConsumedCapacity :: Maybe ReturnConsumedCapacity, _giTableName :: Text, _giKey :: HashMap Text AttributeValue, _giAttributesToGet :: List1 Text} deriving (Eq, Read, Show)
+data GetItem = GetItem'{_giProjectionExpression :: Maybe Text, _giConsistentRead :: Maybe Bool, _giExpressionAttributeNames :: Maybe (HashMap Text Text), _giAttributesToGet :: Maybe (List1 Text), _giReturnConsumedCapacity :: Maybe ReturnConsumedCapacity, _giTableName :: Text, _giKey :: HashMap Text AttributeValue} deriving (Eq, Read, Show)
 
 -- | 'GetItem' smart constructor.
-getItem :: Text -> HashMap Text AttributeValue -> NonEmpty Text -> GetItem
-getItem pTableName pKey pAttributesToGet = GetItem'{_giProjectionExpression = Nothing, _giConsistentRead = Nothing, _giExpressionAttributeNames = mempty, _giReturnConsumedCapacity = Nothing, _giTableName = pTableName, _giKey = _Coerce # pKey, _giAttributesToGet = _List1 # pAttributesToGet};
+getItem :: Text -> GetItem
+getItem pTableName = GetItem'{_giProjectionExpression = Nothing, _giConsistentRead = Nothing, _giExpressionAttributeNames = Nothing, _giAttributesToGet = Nothing, _giReturnConsumedCapacity = Nothing, _giTableName = pTableName, _giKey = mempty};
 
 -- | A string that identifies one or more attributes to retrieve from the
 -- table. These attributes can include scalars, sets, or elements of a JSON
@@ -134,8 +134,26 @@ giConsistentRead = lens _giConsistentRead (\ s a -> s{_giConsistentRead = a});
 -- For more information on expression attribute names, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ExpressionPlaceholders.html Using Placeholders for Attribute Names and Values>
 -- in the /Amazon DynamoDB Developer Guide/.
-giExpressionAttributeNames :: Lens' GetItem (HashMap Text Text)
-giExpressionAttributeNames = lens _giExpressionAttributeNames (\ s a -> s{_giExpressionAttributeNames = a}) . _Coerce;
+giExpressionAttributeNames :: Lens' GetItem (Maybe (HashMap Text Text))
+giExpressionAttributeNames = lens _giExpressionAttributeNames (\ s a -> s{_giExpressionAttributeNames = a}) . mapping _Coerce;
+
+-- | This is a legacy parameter, for backward compatibility. New applications
+-- should use /ProjectionExpression/ instead. Do not combine legacy
+-- parameters and expression parameters in a single API call; otherwise,
+-- DynamoDB will return a /ValidationException/ exception.
+--
+-- This parameter allows you to retrieve attributes of type List or Map;
+-- however, it cannot retrieve individual elements within a List or a Map.
+--
+-- The names of one or more attributes to retrieve. If no attribute names
+-- are provided, then all attributes will be returned. If any of the
+-- requested attributes are not found, they will not appear in the result.
+--
+-- Note that /AttributesToGet/ has no effect on provisioned throughput
+-- consumption. DynamoDB determines capacity units consumed based on item
+-- size, not on the amount of data that is returned to an application.
+giAttributesToGet :: Lens' GetItem (Maybe (NonEmpty Text))
+giAttributesToGet = lens _giAttributesToGet (\ s a -> s{_giAttributesToGet = a}) . mapping _List1;
 
 -- | FIXME: Undocumented member.
 giReturnConsumedCapacity :: Lens' GetItem (Maybe ReturnConsumedCapacity)
@@ -154,24 +172,6 @@ giTableName = lens _giTableName (\ s a -> s{_giTableName = a});
 -- the hash attribute and the range attribute.
 giKey :: Lens' GetItem (HashMap Text AttributeValue)
 giKey = lens _giKey (\ s a -> s{_giKey = a}) . _Coerce;
-
--- | This is a legacy parameter, for backward compatibility. New applications
--- should use /ProjectionExpression/ instead. Do not combine legacy
--- parameters and expression parameters in a single API call; otherwise,
--- DynamoDB will return a /ValidationException/ exception.
---
--- This parameter allows you to retrieve attributes of type List or Map;
--- however, it cannot retrieve individual elements within a List or a Map.
---
--- The names of one or more attributes to retrieve. If no attribute names
--- are provided, then all attributes will be returned. If any of the
--- requested attributes are not found, they will not appear in the result.
---
--- Note that /AttributesToGet/ has no effect on provisioned throughput
--- consumption. DynamoDB determines capacity units consumed based on item
--- size, not on the amount of data that is returned to an application.
-giAttributesToGet :: Lens' GetItem (NonEmpty Text)
-giAttributesToGet = lens _giAttributesToGet (\ s a -> s{_giAttributesToGet = a}) . _List1;
 
 instance AWSRequest GetItem where
         type Sv GetItem = DynamoDB
@@ -199,10 +199,10 @@ instance ToJSON GetItem where
                "ConsistentRead" .= _giConsistentRead,
                "ExpressionAttributeNames" .=
                  _giExpressionAttributeNames,
+               "AttributesToGet" .= _giAttributesToGet,
                "ReturnConsumedCapacity" .=
                  _giReturnConsumedCapacity,
-               "TableName" .= _giTableName, "Key" .= _giKey,
-               "AttributesToGet" .= _giAttributesToGet]
+               "TableName" .= _giTableName, "Key" .= _giKey]
 
 instance ToPath GetItem where
         toPath = const "/"
@@ -217,11 +217,11 @@ instance ToQuery GetItem where
 -- * 'girConsumedCapacity'
 --
 -- * 'girItem'
-data GetItemResponse = GetItemResponse'{_girConsumedCapacity :: Maybe ConsumedCapacity, _girItem :: HashMap Text AttributeValue} deriving (Eq, Read, Show)
+data GetItemResponse = GetItemResponse'{_girConsumedCapacity :: Maybe ConsumedCapacity, _girItem :: Maybe (HashMap Text AttributeValue)} deriving (Eq, Read, Show)
 
 -- | 'GetItemResponse' smart constructor.
 getItemResponse :: GetItemResponse
-getItemResponse = GetItemResponse'{_girConsumedCapacity = Nothing, _girItem = mempty};
+getItemResponse = GetItemResponse'{_girConsumedCapacity = Nothing, _girItem = Nothing};
 
 -- | FIXME: Undocumented member.
 girConsumedCapacity :: Lens' GetItemResponse (Maybe ConsumedCapacity)
@@ -229,5 +229,5 @@ girConsumedCapacity = lens _girConsumedCapacity (\ s a -> s{_girConsumedCapacity
 
 -- | A map of attribute names to /AttributeValue/ objects, as specified by
 -- /AttributesToGet/.
-girItem :: Lens' GetItemResponse (HashMap Text AttributeValue)
-girItem = lens _girItem (\ s a -> s{_girItem = a}) . _Coerce;
+girItem :: Lens' GetItemResponse (Maybe (HashMap Text AttributeValue))
+girItem = lens _girItem (\ s a -> s{_girItem = a}) . mapping _Coerce;

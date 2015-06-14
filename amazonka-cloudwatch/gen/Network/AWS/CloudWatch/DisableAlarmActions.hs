@@ -47,8 +47,8 @@ import Network.AWS.CloudWatch.Types
 newtype DisableAlarmActions = DisableAlarmActions'{_daaAlarmNames :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'DisableAlarmActions' smart constructor.
-disableAlarmActions :: [Text] -> DisableAlarmActions
-disableAlarmActions pAlarmNames = DisableAlarmActions'{_daaAlarmNames = pAlarmNames};
+disableAlarmActions :: DisableAlarmActions
+disableAlarmActions = DisableAlarmActions'{_daaAlarmNames = mempty};
 
 -- | The names of the alarms to disable actions for.
 daaAlarmNames :: Lens' DisableAlarmActions [Text]

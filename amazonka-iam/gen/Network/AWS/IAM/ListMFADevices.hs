@@ -39,9 +39,9 @@ module Network.AWS.IAM.ListMFADevices
     -- ** Response constructor
     , listMFADevicesResponse
     -- ** Response lenses
+    , lmdrMarker
     , lmdrIsTruncated
     , lmdrMFADevices
-    , lmdrMarker
     ) where
 
 import Network.AWS.Request
@@ -58,14 +58,14 @@ import Network.AWS.IAM.Types
 -- * 'lmdMaxItems'
 --
 -- * 'lmdMarker'
-data ListMFADevices = ListMFADevices'{_lmdUserName :: Text, _lmdMaxItems :: Nat, _lmdMarker :: Text} deriving (Eq, Read, Show)
+data ListMFADevices = ListMFADevices'{_lmdUserName :: Maybe Text, _lmdMaxItems :: Maybe Nat, _lmdMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ListMFADevices' smart constructor.
-listMFADevices :: Text -> Natural -> Text -> ListMFADevices
-listMFADevices pUserName pMaxItems pMarker = ListMFADevices'{_lmdUserName = pUserName, _lmdMaxItems = _Nat # pMaxItems, _lmdMarker = pMarker};
+listMFADevices :: ListMFADevices
+listMFADevices = ListMFADevices'{_lmdUserName = Nothing, _lmdMaxItems = Nothing, _lmdMarker = Nothing};
 
 -- | The name of the user whose MFA devices you want to list.
-lmdUserName :: Lens' ListMFADevices Text
+lmdUserName :: Lens' ListMFADevices (Maybe Text)
 lmdUserName = lens _lmdUserName (\ s a -> s{_lmdUserName = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
@@ -73,14 +73,14 @@ lmdUserName = lens _lmdUserName (\ s a -> s{_lmdUserName = a});
 -- devices beyond the maximum you specify, the @IsTruncated@ response
 -- element is @true@. This parameter is optional. If you do not include it,
 -- it defaults to 100.
-lmdMaxItems :: Lens' ListMFADevices Natural
-lmdMaxItems = lens _lmdMaxItems (\ s a -> s{_lmdMaxItems = a}) . _Nat;
+lmdMaxItems :: Lens' ListMFADevices (Maybe Natural)
+lmdMaxItems = lens _lmdMaxItems (\ s a -> s{_lmdMaxItems = a}) . mapping _Nat;
 
 -- | Use this only when paginating results, and only in a subsequent request
 -- after you\'ve received a response where the results are truncated. Set
 -- it to the value of the @Marker@ element in the response you just
 -- received.
-lmdMarker :: Lens' ListMFADevices Text
+lmdMarker :: Lens' ListMFADevices (Maybe Text)
 lmdMarker = lens _lmdMarker (\ s a -> s{_lmdMarker = a});
 
 instance AWSRequest ListMFADevices where
@@ -91,10 +91,9 @@ instance AWSRequest ListMFADevices where
           = receiveXMLWrapper "ListMFADevicesResult"
               (\ s h x ->
                  ListMFADevicesResponse' <$>
-                   x .@? "IsTruncated" <*>
+                   x .@? "Marker" <*> x .@? "IsTruncated" <*>
                      (x .@? "MFADevices" .!@ mempty >>=
-                        parseXMLList "member")
-                     <*> x .@ "Marker")
+                        parseXMLList "member"))
 
 instance ToHeaders ListMFADevices where
         toHeaders = const mempty
@@ -114,16 +113,22 @@ instance ToQuery ListMFADevices where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'lmdrMarker'
+--
 -- * 'lmdrIsTruncated'
 --
 -- * 'lmdrMFADevices'
---
--- * 'lmdrMarker'
-data ListMFADevicesResponse = ListMFADevicesResponse'{_lmdrIsTruncated :: Maybe Bool, _lmdrMFADevices :: [MFADevice], _lmdrMarker :: Text} deriving (Eq, Read, Show)
+data ListMFADevicesResponse = ListMFADevicesResponse'{_lmdrMarker :: Maybe Text, _lmdrIsTruncated :: Maybe Bool, _lmdrMFADevices :: [MFADevice]} deriving (Eq, Read, Show)
 
 -- | 'ListMFADevicesResponse' smart constructor.
-listMFADevicesResponse :: [MFADevice] -> Text -> ListMFADevicesResponse
-listMFADevicesResponse pMFADevices pMarker = ListMFADevicesResponse'{_lmdrIsTruncated = Nothing, _lmdrMFADevices = pMFADevices, _lmdrMarker = pMarker};
+listMFADevicesResponse :: ListMFADevicesResponse
+listMFADevicesResponse = ListMFADevicesResponse'{_lmdrMarker = Nothing, _lmdrIsTruncated = Nothing, _lmdrMFADevices = mempty};
+
+-- | If @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+lmdrMarker :: Lens' ListMFADevicesResponse (Maybe Text)
+lmdrMarker = lens _lmdrMarker (\ s a -> s{_lmdrMarker = a});
 
 -- | A flag that indicates whether there are more MFA devices to list. If
 -- your results were truncated, you can make a subsequent pagination
@@ -135,9 +140,3 @@ lmdrIsTruncated = lens _lmdrIsTruncated (\ s a -> s{_lmdrIsTruncated = a});
 -- | A list of MFA devices.
 lmdrMFADevices :: Lens' ListMFADevicesResponse [MFADevice]
 lmdrMFADevices = lens _lmdrMFADevices (\ s a -> s{_lmdrMFADevices = a});
-
--- | If @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
-lmdrMarker :: Lens' ListMFADevicesResponse Text
-lmdrMarker = lens _lmdrMarker (\ s a -> s{_lmdrMarker = a});

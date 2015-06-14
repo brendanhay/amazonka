@@ -98,15 +98,15 @@ instance AWSService SNS where
 -- * 'endAttributes'
 --
 -- * 'endEndpointARN'
-data Endpoint = Endpoint'{_endAttributes :: HashMap Text Text, _endEndpointARN :: Maybe Text} deriving (Eq, Read, Show)
+data Endpoint = Endpoint'{_endAttributes :: Maybe (HashMap Text Text), _endEndpointARN :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'Endpoint' smart constructor.
 endpoint :: Endpoint
-endpoint = Endpoint'{_endAttributes = mempty, _endEndpointARN = Nothing};
+endpoint = Endpoint'{_endAttributes = Nothing, _endEndpointARN = Nothing};
 
 -- | Attributes for endpoint.
-endAttributes :: Lens' Endpoint (HashMap Text Text)
-endAttributes = lens _endAttributes (\ s a -> s{_endAttributes = a}) . _Coerce;
+endAttributes :: Lens' Endpoint (Maybe (HashMap Text Text))
+endAttributes = lens _endAttributes (\ s a -> s{_endAttributes = a}) . mapping _Coerce;
 
 -- | EndpointArn for mobile app and device.
 endEndpointARN :: Lens' Endpoint (Maybe Text)
@@ -172,19 +172,19 @@ instance ToQuery MessageAttributeValue where
 -- * 'paPlatformApplicationARN'
 --
 -- * 'paAttributes'
-data PlatformApplication = PlatformApplication'{_paPlatformApplicationARN :: Maybe Text, _paAttributes :: HashMap Text Text} deriving (Eq, Read, Show)
+data PlatformApplication = PlatformApplication'{_paPlatformApplicationARN :: Maybe Text, _paAttributes :: Maybe (HashMap Text Text)} deriving (Eq, Read, Show)
 
 -- | 'PlatformApplication' smart constructor.
 platformApplication :: PlatformApplication
-platformApplication = PlatformApplication'{_paPlatformApplicationARN = Nothing, _paAttributes = mempty};
+platformApplication = PlatformApplication'{_paPlatformApplicationARN = Nothing, _paAttributes = Nothing};
 
 -- | PlatformApplicationArn for platform application object.
 paPlatformApplicationARN :: Lens' PlatformApplication (Maybe Text)
 paPlatformApplicationARN = lens _paPlatformApplicationARN (\ s a -> s{_paPlatformApplicationARN = a});
 
 -- | Attributes for platform application object.
-paAttributes :: Lens' PlatformApplication (HashMap Text Text)
-paAttributes = lens _paAttributes (\ s a -> s{_paAttributes = a}) . _Coerce;
+paAttributes :: Lens' PlatformApplication (Maybe (HashMap Text Text))
+paAttributes = lens _paAttributes (\ s a -> s{_paAttributes = a}) . mapping _Coerce;
 
 instance FromXML PlatformApplication where
         parseXML x

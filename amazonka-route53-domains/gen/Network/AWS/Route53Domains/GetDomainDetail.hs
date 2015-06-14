@@ -179,11 +179,11 @@ instance ToQuery GetDomainDetail where
 -- * 'gddrRegistrantContact'
 --
 -- * 'gddrTechContact'
-data GetDomainDetailResponse = GetDomainDetailResponse'{_gddrTechPrivacy :: Maybe Bool, _gddrDNSSec :: Maybe Text, _gddrWhoIsServer :: Maybe Text, _gddrRegistryDomainId :: Maybe Text, _gddrRegistrantPrivacy :: Maybe Bool, _gddrUpdatedDate :: Maybe POSIX, _gddrAdminPrivacy :: Maybe Bool, _gddrAbuseContactEmail :: Maybe Text, _gddrRegistrarURL :: Maybe Text, _gddrAutoRenew :: Maybe Bool, _gddrAbuseContactPhone :: Maybe Text, _gddrExpirationDate :: Maybe POSIX, _gddrCreationDate :: Maybe POSIX, _gddrRegistrarName :: Maybe Text, _gddrStatusList :: [Text], _gddrReseller :: Maybe Text, _gddrDomainName :: Text, _gddrNameservers :: [Nameserver], _gddrAdminContact :: Sensitive ContactDetail, _gddrRegistrantContact :: Sensitive ContactDetail, _gddrTechContact :: Sensitive ContactDetail} deriving (Eq, Read, Show)
+data GetDomainDetailResponse = GetDomainDetailResponse'{_gddrTechPrivacy :: Maybe Bool, _gddrDNSSec :: Maybe Text, _gddrWhoIsServer :: Maybe Text, _gddrRegistryDomainId :: Maybe Text, _gddrRegistrantPrivacy :: Maybe Bool, _gddrUpdatedDate :: Maybe POSIX, _gddrAdminPrivacy :: Maybe Bool, _gddrAbuseContactEmail :: Maybe Text, _gddrRegistrarURL :: Maybe Text, _gddrAutoRenew :: Maybe Bool, _gddrAbuseContactPhone :: Maybe Text, _gddrExpirationDate :: Maybe POSIX, _gddrCreationDate :: Maybe POSIX, _gddrRegistrarName :: Maybe Text, _gddrStatusList :: Maybe [Text], _gddrReseller :: Maybe Text, _gddrDomainName :: Text, _gddrNameservers :: [Nameserver], _gddrAdminContact :: Sensitive ContactDetail, _gddrRegistrantContact :: Sensitive ContactDetail, _gddrTechContact :: Sensitive ContactDetail} deriving (Eq, Read, Show)
 
 -- | 'GetDomainDetailResponse' smart constructor.
-getDomainDetailResponse :: Text -> [Nameserver] -> ContactDetail -> ContactDetail -> ContactDetail -> GetDomainDetailResponse
-getDomainDetailResponse pDomainName pNameservers pAdminContact pRegistrantContact pTechContact = GetDomainDetailResponse'{_gddrTechPrivacy = Nothing, _gddrDNSSec = Nothing, _gddrWhoIsServer = Nothing, _gddrRegistryDomainId = Nothing, _gddrRegistrantPrivacy = Nothing, _gddrUpdatedDate = Nothing, _gddrAdminPrivacy = Nothing, _gddrAbuseContactEmail = Nothing, _gddrRegistrarURL = Nothing, _gddrAutoRenew = Nothing, _gddrAbuseContactPhone = Nothing, _gddrExpirationDate = Nothing, _gddrCreationDate = Nothing, _gddrRegistrarName = Nothing, _gddrStatusList = mempty, _gddrReseller = Nothing, _gddrDomainName = pDomainName, _gddrNameservers = pNameservers, _gddrAdminContact = _Sensitive # pAdminContact, _gddrRegistrantContact = _Sensitive # pRegistrantContact, _gddrTechContact = _Sensitive # pTechContact};
+getDomainDetailResponse :: Text -> ContactDetail -> ContactDetail -> ContactDetail -> GetDomainDetailResponse
+getDomainDetailResponse pDomainName pAdminContact pRegistrantContact pTechContact = GetDomainDetailResponse'{_gddrTechPrivacy = Nothing, _gddrDNSSec = Nothing, _gddrWhoIsServer = Nothing, _gddrRegistryDomainId = Nothing, _gddrRegistrantPrivacy = Nothing, _gddrUpdatedDate = Nothing, _gddrAdminPrivacy = Nothing, _gddrAbuseContactEmail = Nothing, _gddrRegistrarURL = Nothing, _gddrAutoRenew = Nothing, _gddrAbuseContactPhone = Nothing, _gddrExpirationDate = Nothing, _gddrCreationDate = Nothing, _gddrRegistrarName = Nothing, _gddrStatusList = Nothing, _gddrReseller = Nothing, _gddrDomainName = pDomainName, _gddrNameservers = mempty, _gddrAdminContact = _Sensitive # pAdminContact, _gddrRegistrantContact = _Sensitive # pRegistrantContact, _gddrTechContact = _Sensitive # pTechContact};
 
 -- | Specifies whether contact information for the tech contact is concealed
 -- from WHOIS queries. If the value is @true@, WHOIS (\"who is\") queries
@@ -293,7 +293,7 @@ gddrRegistrarName = lens _gddrRegistrarName (\ s a -> s{_gddrRegistrarName = a})
 -- searches sometimes return an old version of the document.)
 --
 -- Type: Array of String
-gddrStatusList :: Lens' GetDomainDetailResponse [Text]
+gddrStatusList :: Lens' GetDomainDetailResponse (Maybe [Text])
 gddrStatusList = lens _gddrStatusList (\ s a -> s{_gddrStatusList = a});
 
 -- | Reseller of the domain. Domains registered or transferred using Amazon

@@ -53,14 +53,14 @@ import Network.AWS.RDS.Types
 -- * 'cdpgTargetDBParameterGroupIdentifier'
 --
 -- * 'cdpgTargetDBParameterGroupDescription'
-data CopyDBParameterGroup = CopyDBParameterGroup'{_cdpgTags :: [Tag], _cdpgSourceDBParameterGroupIdentifier :: Text, _cdpgTargetDBParameterGroupIdentifier :: Text, _cdpgTargetDBParameterGroupDescription :: Text} deriving (Eq, Read, Show)
+data CopyDBParameterGroup = CopyDBParameterGroup'{_cdpgTags :: Maybe [Tag], _cdpgSourceDBParameterGroupIdentifier :: Text, _cdpgTargetDBParameterGroupIdentifier :: Text, _cdpgTargetDBParameterGroupDescription :: Text} deriving (Eq, Read, Show)
 
 -- | 'CopyDBParameterGroup' smart constructor.
 copyDBParameterGroup :: Text -> Text -> Text -> CopyDBParameterGroup
-copyDBParameterGroup pSourceDBParameterGroupIdentifier pTargetDBParameterGroupIdentifier pTargetDBParameterGroupDescription = CopyDBParameterGroup'{_cdpgTags = mempty, _cdpgSourceDBParameterGroupIdentifier = pSourceDBParameterGroupIdentifier, _cdpgTargetDBParameterGroupIdentifier = pTargetDBParameterGroupIdentifier, _cdpgTargetDBParameterGroupDescription = pTargetDBParameterGroupDescription};
+copyDBParameterGroup pSourceDBParameterGroupIdentifier pTargetDBParameterGroupIdentifier pTargetDBParameterGroupDescription = CopyDBParameterGroup'{_cdpgTags = Nothing, _cdpgSourceDBParameterGroupIdentifier = pSourceDBParameterGroupIdentifier, _cdpgTargetDBParameterGroupIdentifier = pTargetDBParameterGroupIdentifier, _cdpgTargetDBParameterGroupDescription = pTargetDBParameterGroupDescription};
 
 -- | FIXME: Undocumented member.
-cdpgTags :: Lens' CopyDBParameterGroup [Tag]
+cdpgTags :: Lens' CopyDBParameterGroup (Maybe [Tag])
 cdpgTags = lens _cdpgTags (\ s a -> s{_cdpgTags = a});
 
 -- | The identifier or ARN for the source DB parameter group.

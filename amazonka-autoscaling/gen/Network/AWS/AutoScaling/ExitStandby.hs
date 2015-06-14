@@ -51,14 +51,14 @@ import Network.AWS.AutoScaling.Types
 -- * 'exiInstanceIds'
 --
 -- * 'exiAutoScalingGroupName'
-data ExitStandby = ExitStandby'{_exiInstanceIds :: [Text], _exiAutoScalingGroupName :: Text} deriving (Eq, Read, Show)
+data ExitStandby = ExitStandby'{_exiInstanceIds :: Maybe [Text], _exiAutoScalingGroupName :: Text} deriving (Eq, Read, Show)
 
 -- | 'ExitStandby' smart constructor.
 exitStandby :: Text -> ExitStandby
-exitStandby pAutoScalingGroupName = ExitStandby'{_exiInstanceIds = mempty, _exiAutoScalingGroupName = pAutoScalingGroupName};
+exitStandby pAutoScalingGroupName = ExitStandby'{_exiInstanceIds = Nothing, _exiAutoScalingGroupName = pAutoScalingGroupName};
 
 -- | One or more instance IDs. You must specify at least one instance ID.
-exiInstanceIds :: Lens' ExitStandby [Text]
+exiInstanceIds :: Lens' ExitStandby (Maybe [Text])
 exiInstanceIds = lens _exiInstanceIds (\ s a -> s{_exiInstanceIds = a});
 
 -- | The name of the Auto Scaling group.
@@ -95,12 +95,12 @@ instance ToQuery ExitStandby where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'exiActivities'
-newtype ExitStandbyResponse = ExitStandbyResponse'{_exiActivities :: [Activity]} deriving (Eq, Read, Show)
+newtype ExitStandbyResponse = ExitStandbyResponse'{_exiActivities :: Maybe [Activity]} deriving (Eq, Read, Show)
 
 -- | 'ExitStandbyResponse' smart constructor.
 exitStandbyResponse :: ExitStandbyResponse
-exitStandbyResponse = ExitStandbyResponse'{_exiActivities = mempty};
+exitStandbyResponse = ExitStandbyResponse'{_exiActivities = Nothing};
 
 -- | The activities related to moving instances out of @Standby@ mode.
-exiActivities :: Lens' ExitStandbyResponse [Activity]
+exiActivities :: Lens' ExitStandbyResponse (Maybe [Activity])
 exiActivities = lens _exiActivities (\ s a -> s{_exiActivities = a});

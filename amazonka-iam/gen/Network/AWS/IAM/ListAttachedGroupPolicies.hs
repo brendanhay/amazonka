@@ -37,9 +37,9 @@ module Network.AWS.IAM.ListAttachedGroupPolicies
     , listAttachedGroupPolicies
     -- ** Request lenses
     , lagpPathPrefix
-    , lagpGroupName
     , lagpMaxItems
     , lagpMarker
+    , lagpGroupName
 
     -- * Response
     , ListAttachedGroupPoliciesResponse
@@ -47,8 +47,8 @@ module Network.AWS.IAM.ListAttachedGroupPolicies
     , listAttachedGroupPoliciesResponse
     -- ** Response lenses
     , lagprAttachedPolicies
-    , lagprIsTruncated
     , lagprMarker
+    , lagprIsTruncated
     ) where
 
 import Network.AWS.Request
@@ -62,16 +62,16 @@ import Network.AWS.IAM.Types
 --
 -- * 'lagpPathPrefix'
 --
--- * 'lagpGroupName'
---
 -- * 'lagpMaxItems'
 --
 -- * 'lagpMarker'
-data ListAttachedGroupPolicies = ListAttachedGroupPolicies'{_lagpPathPrefix :: Maybe Text, _lagpGroupName :: Text, _lagpMaxItems :: Nat, _lagpMarker :: Text} deriving (Eq, Read, Show)
+--
+-- * 'lagpGroupName'
+data ListAttachedGroupPolicies = ListAttachedGroupPolicies'{_lagpPathPrefix :: Maybe Text, _lagpMaxItems :: Maybe Nat, _lagpMarker :: Maybe Text, _lagpGroupName :: Text} deriving (Eq, Read, Show)
 
 -- | 'ListAttachedGroupPolicies' smart constructor.
-listAttachedGroupPolicies :: Text -> Natural -> Text -> ListAttachedGroupPolicies
-listAttachedGroupPolicies pGroupName pMaxItems pMarker = ListAttachedGroupPolicies'{_lagpPathPrefix = Nothing, _lagpGroupName = pGroupName, _lagpMaxItems = _Nat # pMaxItems, _lagpMarker = pMarker};
+listAttachedGroupPolicies :: Text -> ListAttachedGroupPolicies
+listAttachedGroupPolicies pGroupName = ListAttachedGroupPolicies'{_lagpPathPrefix = Nothing, _lagpMaxItems = Nothing, _lagpMarker = Nothing, _lagpGroupName = pGroupName};
 
 -- | The path prefix for filtering the results. This parameter is optional.
 -- If it is not included, it defaults to a slash (\/), listing all
@@ -79,25 +79,25 @@ listAttachedGroupPolicies pGroupName pMaxItems pMarker = ListAttachedGroupPolici
 lagpPathPrefix :: Lens' ListAttachedGroupPolicies (Maybe Text)
 lagpPathPrefix = lens _lagpPathPrefix (\ s a -> s{_lagpPathPrefix = a});
 
--- | The name (friendly name, not ARN) of the group to list attached policies
--- for.
-lagpGroupName :: Lens' ListAttachedGroupPolicies Text
-lagpGroupName = lens _lagpGroupName (\ s a -> s{_lagpGroupName = a});
-
 -- | Use this only when paginating results to indicate the maximum number of
 -- policies you want in the response. If there are additional policies
 -- beyond the maximum you specify, the @IsTruncated@ response element is
 -- @true@. This parameter is optional. If you do not include it, it
 -- defaults to 100.
-lagpMaxItems :: Lens' ListAttachedGroupPolicies Natural
-lagpMaxItems = lens _lagpMaxItems (\ s a -> s{_lagpMaxItems = a}) . _Nat;
+lagpMaxItems :: Lens' ListAttachedGroupPolicies (Maybe Natural)
+lagpMaxItems = lens _lagpMaxItems (\ s a -> s{_lagpMaxItems = a}) . mapping _Nat;
 
 -- | Use this only when paginating results, and only in a subsequent request
 -- after you\'ve received a response where the results are truncated. Set
 -- it to the value of the @Marker@ element in the response you just
 -- received.
-lagpMarker :: Lens' ListAttachedGroupPolicies Text
+lagpMarker :: Lens' ListAttachedGroupPolicies (Maybe Text)
 lagpMarker = lens _lagpMarker (\ s a -> s{_lagpMarker = a});
+
+-- | The name (friendly name, not ARN) of the group to list attached policies
+-- for.
+lagpGroupName :: Lens' ListAttachedGroupPolicies Text
+lagpGroupName = lens _lagpGroupName (\ s a -> s{_lagpGroupName = a});
 
 instance AWSRequest ListAttachedGroupPolicies where
         type Sv ListAttachedGroupPolicies = IAM
@@ -110,8 +110,8 @@ instance AWSRequest ListAttachedGroupPolicies where
                  ListAttachedGroupPoliciesResponse' <$>
                    (x .@? "AttachedPolicies" .!@ mempty >>=
                       parseXMLList "member")
-                     <*> x .@? "IsTruncated"
-                     <*> x .@ "Marker")
+                     <*> x .@? "Marker"
+                     <*> x .@? "IsTruncated")
 
 instance ToHeaders ListAttachedGroupPolicies where
         toHeaders = const mempty
@@ -126,8 +126,8 @@ instance ToQuery ListAttachedGroupPolicies where
                  ("ListAttachedGroupPolicies" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
                "PathPrefix" =: _lagpPathPrefix,
-               "GroupName" =: _lagpGroupName,
-               "MaxItems" =: _lagpMaxItems, "Marker" =: _lagpMarker]
+               "MaxItems" =: _lagpMaxItems, "Marker" =: _lagpMarker,
+               "GroupName" =: _lagpGroupName]
 
 -- | /See:/ 'listAttachedGroupPoliciesResponse' smart constructor.
 --
@@ -135,18 +135,24 @@ instance ToQuery ListAttachedGroupPolicies where
 --
 -- * 'lagprAttachedPolicies'
 --
--- * 'lagprIsTruncated'
---
 -- * 'lagprMarker'
-data ListAttachedGroupPoliciesResponse = ListAttachedGroupPoliciesResponse'{_lagprAttachedPolicies :: [AttachedPolicy], _lagprIsTruncated :: Maybe Bool, _lagprMarker :: Text} deriving (Eq, Read, Show)
+--
+-- * 'lagprIsTruncated'
+data ListAttachedGroupPoliciesResponse = ListAttachedGroupPoliciesResponse'{_lagprAttachedPolicies :: Maybe [AttachedPolicy], _lagprMarker :: Maybe Text, _lagprIsTruncated :: Maybe Bool} deriving (Eq, Read, Show)
 
 -- | 'ListAttachedGroupPoliciesResponse' smart constructor.
-listAttachedGroupPoliciesResponse :: Text -> ListAttachedGroupPoliciesResponse
-listAttachedGroupPoliciesResponse pMarker = ListAttachedGroupPoliciesResponse'{_lagprAttachedPolicies = mempty, _lagprIsTruncated = Nothing, _lagprMarker = pMarker};
+listAttachedGroupPoliciesResponse :: ListAttachedGroupPoliciesResponse
+listAttachedGroupPoliciesResponse = ListAttachedGroupPoliciesResponse'{_lagprAttachedPolicies = Nothing, _lagprMarker = Nothing, _lagprIsTruncated = Nothing};
 
 -- | A list of the attached policies.
-lagprAttachedPolicies :: Lens' ListAttachedGroupPoliciesResponse [AttachedPolicy]
+lagprAttachedPolicies :: Lens' ListAttachedGroupPoliciesResponse (Maybe [AttachedPolicy])
 lagprAttachedPolicies = lens _lagprAttachedPolicies (\ s a -> s{_lagprAttachedPolicies = a});
+
+-- | If @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+lagprMarker :: Lens' ListAttachedGroupPoliciesResponse (Maybe Text)
+lagprMarker = lens _lagprMarker (\ s a -> s{_lagprMarker = a});
 
 -- | A flag that indicates whether there are more policies to list. If your
 -- results were truncated, you can make a subsequent pagination request
@@ -154,9 +160,3 @@ lagprAttachedPolicies = lens _lagprAttachedPolicies (\ s a -> s{_lagprAttachedPo
 -- list.
 lagprIsTruncated :: Lens' ListAttachedGroupPoliciesResponse (Maybe Bool)
 lagprIsTruncated = lens _lagprIsTruncated (\ s a -> s{_lagprIsTruncated = a});
-
--- | If @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
-lagprMarker :: Lens' ListAttachedGroupPoliciesResponse Text
-lagprMarker = lens _lagprMarker (\ s a -> s{_lagprMarker = a});

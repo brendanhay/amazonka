@@ -107,8 +107,8 @@ instance ToXML ListTagsForResources where
 newtype ListTagsForResourcesResponse = ListTagsForResourcesResponse'{_ltfrrResourceTagSets :: [ResourceTagSet]} deriving (Eq, Read, Show)
 
 -- | 'ListTagsForResourcesResponse' smart constructor.
-listTagsForResourcesResponse :: [ResourceTagSet] -> ListTagsForResourcesResponse
-listTagsForResourcesResponse pResourceTagSets = ListTagsForResourcesResponse'{_ltfrrResourceTagSets = pResourceTagSets};
+listTagsForResourcesResponse :: ListTagsForResourcesResponse
+listTagsForResourcesResponse = ListTagsForResourcesResponse'{_ltfrrResourceTagSets = mempty};
 
 -- | A list of @ResourceTagSet@s containing tags associated with the
 -- specified resources.

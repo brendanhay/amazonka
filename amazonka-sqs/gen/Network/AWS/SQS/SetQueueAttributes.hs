@@ -55,8 +55,8 @@ import Network.AWS.SQS.Types
 data SetQueueAttributes = SetQueueAttributes'{_sqaQueueURL :: Text, _sqaAttributes :: HashMap QueueAttributeName Text} deriving (Eq, Read, Show)
 
 -- | 'SetQueueAttributes' smart constructor.
-setQueueAttributes :: Text -> HashMap QueueAttributeName Text -> SetQueueAttributes
-setQueueAttributes pQueueURL pAttributes = SetQueueAttributes'{_sqaQueueURL = pQueueURL, _sqaAttributes = _Coerce # pAttributes};
+setQueueAttributes :: Text -> SetQueueAttributes
+setQueueAttributes pQueueURL = SetQueueAttributes'{_sqaQueueURL = pQueueURL, _sqaAttributes = mempty};
 
 -- | The URL of the Amazon SQS queue to take action on.
 sqaQueueURL :: Lens' SetQueueAttributes Text

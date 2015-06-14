@@ -51,8 +51,8 @@ import Network.AWS.CognitoSync.Types
 data SetCognitoEvents = SetCognitoEvents'{_sceIdentityPoolId :: Text, _sceEvents :: HashMap Text Text} deriving (Eq, Read, Show)
 
 -- | 'SetCognitoEvents' smart constructor.
-setCognitoEvents :: Text -> HashMap Text Text -> SetCognitoEvents
-setCognitoEvents pIdentityPoolId pEvents = SetCognitoEvents'{_sceIdentityPoolId = pIdentityPoolId, _sceEvents = _Coerce # pEvents};
+setCognitoEvents :: Text -> SetCognitoEvents
+setCognitoEvents pIdentityPoolId = SetCognitoEvents'{_sceIdentityPoolId = pIdentityPoolId, _sceEvents = mempty};
 
 -- | The Cognito Identity Pool to use when configuring Cognito Events
 sceIdentityPoolId :: Lens' SetCognitoEvents Text

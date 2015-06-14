@@ -85,12 +85,12 @@ instance ToQuery ListQueues where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lqrQueueURLs'
-newtype ListQueuesResponse = ListQueuesResponse'{_lqrQueueURLs :: [Text]} deriving (Eq, Read, Show)
+newtype ListQueuesResponse = ListQueuesResponse'{_lqrQueueURLs :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'ListQueuesResponse' smart constructor.
 listQueuesResponse :: ListQueuesResponse
-listQueuesResponse = ListQueuesResponse'{_lqrQueueURLs = mempty};
+listQueuesResponse = ListQueuesResponse'{_lqrQueueURLs = Nothing};
 
 -- | A list of queue URLs, up to 1000 entries.
-lqrQueueURLs :: Lens' ListQueuesResponse [Text]
+lqrQueueURLs :: Lens' ListQueuesResponse (Maybe [Text])
 lqrQueueURLs = lens _lqrQueueURLs (\ s a -> s{_lqrQueueURLs = a});

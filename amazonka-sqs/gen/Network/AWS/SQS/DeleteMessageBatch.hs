@@ -65,8 +65,8 @@ import Network.AWS.SQS.Types
 data DeleteMessageBatch = DeleteMessageBatch'{_dmbQueueURL :: Text, _dmbEntries :: [DeleteMessageBatchRequestEntry]} deriving (Eq, Read, Show)
 
 -- | 'DeleteMessageBatch' smart constructor.
-deleteMessageBatch :: Text -> [DeleteMessageBatchRequestEntry] -> DeleteMessageBatch
-deleteMessageBatch pQueueURL pEntries = DeleteMessageBatch'{_dmbQueueURL = pQueueURL, _dmbEntries = pEntries};
+deleteMessageBatch :: Text -> DeleteMessageBatch
+deleteMessageBatch pQueueURL = DeleteMessageBatch'{_dmbQueueURL = pQueueURL, _dmbEntries = mempty};
 
 -- | The URL of the Amazon SQS queue to take action on.
 dmbQueueURL :: Lens' DeleteMessageBatch Text
@@ -112,8 +112,8 @@ instance ToQuery DeleteMessageBatch where
 data DeleteMessageBatchResponse = DeleteMessageBatchResponse'{_dmbrSuccessful :: [DeleteMessageBatchResultEntry], _dmbrFailed :: [BatchResultErrorEntry]} deriving (Eq, Read, Show)
 
 -- | 'DeleteMessageBatchResponse' smart constructor.
-deleteMessageBatchResponse :: [DeleteMessageBatchResultEntry] -> [BatchResultErrorEntry] -> DeleteMessageBatchResponse
-deleteMessageBatchResponse pSuccessful pFailed = DeleteMessageBatchResponse'{_dmbrSuccessful = pSuccessful, _dmbrFailed = pFailed};
+deleteMessageBatchResponse :: DeleteMessageBatchResponse
+deleteMessageBatchResponse = DeleteMessageBatchResponse'{_dmbrSuccessful = mempty, _dmbrFailed = mempty};
 
 -- | A list of DeleteMessageBatchResultEntry items.
 dmbrSuccessful :: Lens' DeleteMessageBatchResponse [DeleteMessageBatchResultEntry]

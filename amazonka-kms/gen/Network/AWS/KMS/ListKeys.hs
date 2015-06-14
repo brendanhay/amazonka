@@ -49,25 +49,25 @@ import Network.AWS.KMS.Types
 -- * 'lkMarker'
 --
 -- * 'lkLimit'
-data ListKeys = ListKeys'{_lkMarker :: Text, _lkLimit :: Nat} deriving (Eq, Read, Show)
+data ListKeys = ListKeys'{_lkMarker :: Maybe Text, _lkLimit :: Maybe Nat} deriving (Eq, Read, Show)
 
 -- | 'ListKeys' smart constructor.
-listKeys :: Text -> Natural -> ListKeys
-listKeys pMarker pLimit = ListKeys'{_lkMarker = pMarker, _lkLimit = _Nat # pLimit};
+listKeys :: ListKeys
+listKeys = ListKeys'{_lkMarker = Nothing, _lkLimit = Nothing};
 
 -- | Use this parameter only when paginating results, and only in a
 -- subsequent request after you\'ve received a response where the results
 -- are truncated. Set it to the value of the @NextMarker@ in the response
 -- you just received.
-lkMarker :: Lens' ListKeys Text
+lkMarker :: Lens' ListKeys (Maybe Text)
 lkMarker = lens _lkMarker (\ s a -> s{_lkMarker = a});
 
 -- | Specify this parameter only when paginating results to indicate the
 -- maximum number of keys you want listed in the response. If there are
 -- additional keys beyond the maximum you specify, the @Truncated@ response
 -- element will be set to @true.@
-lkLimit :: Lens' ListKeys Natural
-lkLimit = lens _lkLimit (\ s a -> s{_lkLimit = a}) . _Nat;
+lkLimit :: Lens' ListKeys (Maybe Natural)
+lkLimit = lens _lkLimit (\ s a -> s{_lkLimit = a}) . mapping _Nat;
 
 instance AWSRequest ListKeys where
         type Sv ListKeys = KMS
@@ -78,7 +78,7 @@ instance AWSRequest ListKeys where
               (\ s h x ->
                  ListKeysResponse' <$>
                    x .?> "Truncated" <*> x .?> "Keys" .!@ mempty <*>
-                     x .:> "NextMarker")
+                     x .?> "NextMarker")
 
 instance ToHeaders ListKeys where
         toHeaders
@@ -108,11 +108,11 @@ instance ToQuery ListKeys where
 -- * 'lkrKeys'
 --
 -- * 'lkrNextMarker'
-data ListKeysResponse = ListKeysResponse'{_lkrTruncated :: Maybe Bool, _lkrKeys :: [KeyListEntry], _lkrNextMarker :: Text} deriving (Eq, Read, Show)
+data ListKeysResponse = ListKeysResponse'{_lkrTruncated :: Maybe Bool, _lkrKeys :: Maybe [KeyListEntry], _lkrNextMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ListKeysResponse' smart constructor.
-listKeysResponse :: Text -> ListKeysResponse
-listKeysResponse pNextMarker = ListKeysResponse'{_lkrTruncated = Nothing, _lkrKeys = mempty, _lkrNextMarker = pNextMarker};
+listKeysResponse :: ListKeysResponse
+listKeysResponse = ListKeysResponse'{_lkrTruncated = Nothing, _lkrKeys = Nothing, _lkrNextMarker = Nothing};
 
 -- | A flag that indicates whether there are more items in the list. If your
 -- results were truncated, you can make a subsequent pagination request
@@ -121,11 +121,11 @@ lkrTruncated :: Lens' ListKeysResponse (Maybe Bool)
 lkrTruncated = lens _lkrTruncated (\ s a -> s{_lkrTruncated = a});
 
 -- | A list of keys.
-lkrKeys :: Lens' ListKeysResponse [KeyListEntry]
+lkrKeys :: Lens' ListKeysResponse (Maybe [KeyListEntry])
 lkrKeys = lens _lkrKeys (\ s a -> s{_lkrKeys = a});
 
 -- | If @Truncated@ is true, this value is present and contains the value to
 -- use for the @Marker@ request parameter in a subsequent pagination
 -- request.
-lkrNextMarker :: Lens' ListKeysResponse Text
+lkrNextMarker :: Lens' ListKeysResponse (Maybe Text)
 lkrNextMarker = lens _lkrNextMarker (\ s a -> s{_lkrNextMarker = a});

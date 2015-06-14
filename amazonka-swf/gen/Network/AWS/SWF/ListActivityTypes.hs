@@ -49,10 +49,10 @@ module Network.AWS.SWF.ListActivityTypes
     -- ** Request lenses
     , latNextPageToken
     , latReverseOrder
+    , latName
     , latMaximumPageSize
     , latDomain
     , latRegistrationStatus
-    , latName
 
     -- * Response
     , ListActivityTypesResponse
@@ -76,18 +76,18 @@ import Network.AWS.SWF.Types
 --
 -- * 'latReverseOrder'
 --
+-- * 'latName'
+--
 -- * 'latMaximumPageSize'
 --
 -- * 'latDomain'
 --
 -- * 'latRegistrationStatus'
---
--- * 'latName'
-data ListActivityTypes = ListActivityTypes'{_latNextPageToken :: Maybe Text, _latReverseOrder :: Maybe Bool, _latMaximumPageSize :: Maybe Nat, _latDomain :: Text, _latRegistrationStatus :: RegistrationStatus, _latName :: Text} deriving (Eq, Read, Show)
+data ListActivityTypes = ListActivityTypes'{_latNextPageToken :: Maybe Text, _latReverseOrder :: Maybe Bool, _latName :: Maybe Text, _latMaximumPageSize :: Maybe Nat, _latDomain :: Text, _latRegistrationStatus :: RegistrationStatus} deriving (Eq, Read, Show)
 
 -- | 'ListActivityTypes' smart constructor.
-listActivityTypes :: Text -> RegistrationStatus -> Text -> ListActivityTypes
-listActivityTypes pDomain pRegistrationStatus pName = ListActivityTypes'{_latNextPageToken = Nothing, _latReverseOrder = Nothing, _latMaximumPageSize = Nothing, _latDomain = pDomain, _latRegistrationStatus = pRegistrationStatus, _latName = pName};
+listActivityTypes :: Text -> RegistrationStatus -> ListActivityTypes
+listActivityTypes pDomain pRegistrationStatus = ListActivityTypes'{_latNextPageToken = Nothing, _latReverseOrder = Nothing, _latName = Nothing, _latMaximumPageSize = Nothing, _latDomain = pDomain, _latRegistrationStatus = pRegistrationStatus};
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
 -- results available. To retrieve the next page of results, make the call
@@ -104,6 +104,10 @@ latNextPageToken = lens _latNextPageToken (\ s a -> s{_latNextPageToken = a});
 -- the activity types.
 latReverseOrder :: Lens' ListActivityTypes (Maybe Bool)
 latReverseOrder = lens _latReverseOrder (\ s a -> s{_latReverseOrder = a});
+
+-- | If specified, only lists the activity types that have this name.
+latName :: Lens' ListActivityTypes (Maybe Text)
+latName = lens _latName (\ s a -> s{_latName = a});
 
 -- | The maximum number of results that will be returned per call.
 -- @nextPageToken@ can be used to obtain futher pages of results. The
@@ -122,10 +126,6 @@ latDomain = lens _latDomain (\ s a -> s{_latDomain = a});
 -- | Specifies the registration status of the activity types to list.
 latRegistrationStatus :: Lens' ListActivityTypes RegistrationStatus
 latRegistrationStatus = lens _latRegistrationStatus (\ s a -> s{_latRegistrationStatus = a});
-
--- | If specified, only lists the activity types that have this name.
-latName :: Lens' ListActivityTypes Text
-latName = lens _latName (\ s a -> s{_latName = a});
 
 instance AWSRequest ListActivityTypes where
         type Sv ListActivityTypes = SWF
@@ -153,10 +153,10 @@ instance ToJSON ListActivityTypes where
           = object
               ["nextPageToken" .= _latNextPageToken,
                "reverseOrder" .= _latReverseOrder,
+               "name" .= _latName,
                "maximumPageSize" .= _latMaximumPageSize,
                "domain" .= _latDomain,
-               "registrationStatus" .= _latRegistrationStatus,
-               "name" .= _latName]
+               "registrationStatus" .= _latRegistrationStatus]
 
 instance ToPath ListActivityTypes where
         toPath = const "/"
@@ -174,8 +174,8 @@ instance ToQuery ListActivityTypes where
 data ListActivityTypesResponse = ListActivityTypesResponse'{_latrNextPageToken :: Maybe Text, _latrTypeInfos :: [ActivityTypeInfo]} deriving (Eq, Read, Show)
 
 -- | 'ListActivityTypesResponse' smart constructor.
-listActivityTypesResponse :: [ActivityTypeInfo] -> ListActivityTypesResponse
-listActivityTypesResponse pTypeInfos = ListActivityTypesResponse'{_latrNextPageToken = Nothing, _latrTypeInfos = pTypeInfos};
+listActivityTypesResponse :: ListActivityTypesResponse
+listActivityTypesResponse = ListActivityTypesResponse'{_latrNextPageToken = Nothing, _latrTypeInfos = mempty};
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
 -- results available. To retrieve the next page of results, make the call

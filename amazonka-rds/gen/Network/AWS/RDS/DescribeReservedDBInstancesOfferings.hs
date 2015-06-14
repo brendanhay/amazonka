@@ -69,11 +69,11 @@ import Network.AWS.RDS.Types
 -- * 'drdioOfferingType'
 --
 -- * 'drdioDuration'
-data DescribeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferings'{_drdioProductDescription :: Maybe Text, _drdioFilters :: [Filter], _drdioDBInstanceClass :: Maybe Text, _drdioMaxRecords :: Maybe Int, _drdioMultiAZ :: Maybe Bool, _drdioMarker :: Maybe Text, _drdioReservedDBInstancesOfferingId :: Maybe Text, _drdioOfferingType :: Maybe Text, _drdioDuration :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferings'{_drdioProductDescription :: Maybe Text, _drdioFilters :: Maybe [Filter], _drdioDBInstanceClass :: Maybe Text, _drdioMaxRecords :: Maybe Int, _drdioMultiAZ :: Maybe Bool, _drdioMarker :: Maybe Text, _drdioReservedDBInstancesOfferingId :: Maybe Text, _drdioOfferingType :: Maybe Text, _drdioDuration :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeReservedDBInstancesOfferings' smart constructor.
 describeReservedDBInstancesOfferings :: DescribeReservedDBInstancesOfferings
-describeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferings'{_drdioProductDescription = Nothing, _drdioFilters = mempty, _drdioDBInstanceClass = Nothing, _drdioMaxRecords = Nothing, _drdioMultiAZ = Nothing, _drdioMarker = Nothing, _drdioReservedDBInstancesOfferingId = Nothing, _drdioOfferingType = Nothing, _drdioDuration = Nothing};
+describeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferings'{_drdioProductDescription = Nothing, _drdioFilters = Nothing, _drdioDBInstanceClass = Nothing, _drdioMaxRecords = Nothing, _drdioMultiAZ = Nothing, _drdioMarker = Nothing, _drdioReservedDBInstancesOfferingId = Nothing, _drdioOfferingType = Nothing, _drdioDuration = Nothing};
 
 -- | Product description filter value. Specify this parameter to show only
 -- the available offerings matching the specified product description.
@@ -81,7 +81,7 @@ drdioProductDescription :: Lens' DescribeReservedDBInstancesOfferings (Maybe Tex
 drdioProductDescription = lens _drdioProductDescription (\ s a -> s{_drdioProductDescription = a});
 
 -- | This parameter is not currently supported.
-drdioFilters :: Lens' DescribeReservedDBInstancesOfferings [Filter]
+drdioFilters :: Lens' DescribeReservedDBInstancesOfferings (Maybe [Filter])
 drdioFilters = lens _drdioFilters (\ s a -> s{_drdioFilters = a});
 
 -- | The DB instance class filter value. Specify this parameter to show only
@@ -182,11 +182,11 @@ instance ToQuery DescribeReservedDBInstancesOfferings
 -- * 'drdiorMarker'
 --
 -- * 'drdiorReservedDBInstancesOfferings'
-data DescribeReservedDBInstancesOfferingsResponse = DescribeReservedDBInstancesOfferingsResponse'{_drdiorMarker :: Maybe Text, _drdiorReservedDBInstancesOfferings :: [ReservedDBInstancesOffering]} deriving (Eq, Read, Show)
+data DescribeReservedDBInstancesOfferingsResponse = DescribeReservedDBInstancesOfferingsResponse'{_drdiorMarker :: Maybe Text, _drdiorReservedDBInstancesOfferings :: Maybe [ReservedDBInstancesOffering]} deriving (Eq, Read, Show)
 
 -- | 'DescribeReservedDBInstancesOfferingsResponse' smart constructor.
 describeReservedDBInstancesOfferingsResponse :: DescribeReservedDBInstancesOfferingsResponse
-describeReservedDBInstancesOfferingsResponse = DescribeReservedDBInstancesOfferingsResponse'{_drdiorMarker = Nothing, _drdiorReservedDBInstancesOfferings = mempty};
+describeReservedDBInstancesOfferingsResponse = DescribeReservedDBInstancesOfferingsResponse'{_drdiorMarker = Nothing, _drdiorReservedDBInstancesOfferings = Nothing};
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
@@ -195,5 +195,5 @@ drdiorMarker :: Lens' DescribeReservedDBInstancesOfferingsResponse (Maybe Text)
 drdiorMarker = lens _drdiorMarker (\ s a -> s{_drdiorMarker = a});
 
 -- | A list of reserved DB instance offerings.
-drdiorReservedDBInstancesOfferings :: Lens' DescribeReservedDBInstancesOfferingsResponse [ReservedDBInstancesOffering]
+drdiorReservedDBInstancesOfferings :: Lens' DescribeReservedDBInstancesOfferingsResponse (Maybe [ReservedDBInstancesOffering])
 drdiorReservedDBInstancesOfferings = lens _drdiorReservedDBInstancesOfferings (\ s a -> s{_drdiorReservedDBInstancesOfferings = a});

@@ -54,11 +54,11 @@ import Network.AWS.EC2.Types
 -- * 'dvpngDryRun'
 --
 -- * 'dvpngVPNGatewayIds'
-data DescribeVPNGateways = DescribeVPNGateways'{_dvpngFilters :: [Filter], _dvpngDryRun :: Maybe Bool, _dvpngVPNGatewayIds :: [Text]} deriving (Eq, Read, Show)
+data DescribeVPNGateways = DescribeVPNGateways'{_dvpngFilters :: Maybe [Filter], _dvpngDryRun :: Maybe Bool, _dvpngVPNGatewayIds :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'DescribeVPNGateways' smart constructor.
 describeVPNGateways :: DescribeVPNGateways
-describeVPNGateways = DescribeVPNGateways'{_dvpngFilters = mempty, _dvpngDryRun = Nothing, _dvpngVPNGatewayIds = mempty};
+describeVPNGateways = DescribeVPNGateways'{_dvpngFilters = Nothing, _dvpngDryRun = Nothing, _dvpngVPNGatewayIds = Nothing};
 
 -- | One or more filters.
 --
@@ -93,7 +93,7 @@ describeVPNGateways = DescribeVPNGateways'{_dvpngFilters = mempty, _dvpngDryRun 
 --
 -- -   @vpn-gateway-id@ - The ID of the virtual private gateway.
 --
-dvpngFilters :: Lens' DescribeVPNGateways [Filter]
+dvpngFilters :: Lens' DescribeVPNGateways (Maybe [Filter])
 dvpngFilters = lens _dvpngFilters (\ s a -> s{_dvpngFilters = a});
 
 -- | Checks whether you have the required permissions for the action, without
@@ -106,7 +106,7 @@ dvpngDryRun = lens _dvpngDryRun (\ s a -> s{_dvpngDryRun = a});
 -- | One or more virtual private gateway IDs.
 --
 -- Default: Describes all your virtual private gateways.
-dvpngVPNGatewayIds :: Lens' DescribeVPNGateways [Text]
+dvpngVPNGatewayIds :: Lens' DescribeVPNGateways (Maybe [Text])
 dvpngVPNGatewayIds = lens _dvpngVPNGatewayIds (\ s a -> s{_dvpngVPNGatewayIds = a});
 
 instance AWSRequest DescribeVPNGateways where
@@ -139,12 +139,12 @@ instance ToQuery DescribeVPNGateways where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dvgrVPNGateways'
-newtype DescribeVPNGatewaysResponse = DescribeVPNGatewaysResponse'{_dvgrVPNGateways :: [VPNGateway]} deriving (Eq, Read, Show)
+newtype DescribeVPNGatewaysResponse = DescribeVPNGatewaysResponse'{_dvgrVPNGateways :: Maybe [VPNGateway]} deriving (Eq, Read, Show)
 
 -- | 'DescribeVPNGatewaysResponse' smart constructor.
 describeVPNGatewaysResponse :: DescribeVPNGatewaysResponse
-describeVPNGatewaysResponse = DescribeVPNGatewaysResponse'{_dvgrVPNGateways = mempty};
+describeVPNGatewaysResponse = DescribeVPNGatewaysResponse'{_dvgrVPNGateways = Nothing};
 
 -- | Information about one or more virtual private gateways.
-dvgrVPNGateways :: Lens' DescribeVPNGatewaysResponse [VPNGateway]
+dvgrVPNGateways :: Lens' DescribeVPNGatewaysResponse (Maybe [VPNGateway])
 dvgrVPNGateways = lens _dvgrVPNGateways (\ s a -> s{_dvgrVPNGateways = a});

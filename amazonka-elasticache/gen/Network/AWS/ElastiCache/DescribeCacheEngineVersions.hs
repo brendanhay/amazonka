@@ -151,15 +151,15 @@ instance ToQuery DescribeCacheEngineVersions where
 -- * 'dcevrCacheEngineVersions'
 --
 -- * 'dcevrMarker'
-data DescribeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse'{_dcevrCacheEngineVersions :: [CacheEngineVersion], _dcevrMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse'{_dcevrCacheEngineVersions :: Maybe [CacheEngineVersion], _dcevrMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeCacheEngineVersionsResponse' smart constructor.
 describeCacheEngineVersionsResponse :: DescribeCacheEngineVersionsResponse
-describeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse'{_dcevrCacheEngineVersions = mempty, _dcevrMarker = Nothing};
+describeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse'{_dcevrCacheEngineVersions = Nothing, _dcevrMarker = Nothing};
 
 -- | A list of cache engine version details. Each element in the list
 -- contains detailed information about one cache engine version.
-dcevrCacheEngineVersions :: Lens' DescribeCacheEngineVersionsResponse [CacheEngineVersion]
+dcevrCacheEngineVersions :: Lens' DescribeCacheEngineVersionsResponse (Maybe [CacheEngineVersion])
 dcevrCacheEngineVersions = lens _dcevrCacheEngineVersions (\ s a -> s{_dcevrCacheEngineVersions = a});
 
 -- | Provides an identifier to allow retrieval of paginated results.

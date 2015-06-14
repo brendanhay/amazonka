@@ -56,14 +56,14 @@ import Network.AWS.ELB.Types
 -- * 'clbpPolicyName'
 --
 -- * 'clbpPolicyTypeName'
-data CreateLoadBalancerPolicy = CreateLoadBalancerPolicy'{_clbpPolicyAttributes :: [PolicyAttribute], _clbpLoadBalancerName :: Text, _clbpPolicyName :: Text, _clbpPolicyTypeName :: Text} deriving (Eq, Read, Show)
+data CreateLoadBalancerPolicy = CreateLoadBalancerPolicy'{_clbpPolicyAttributes :: Maybe [PolicyAttribute], _clbpLoadBalancerName :: Text, _clbpPolicyName :: Text, _clbpPolicyTypeName :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateLoadBalancerPolicy' smart constructor.
 createLoadBalancerPolicy :: Text -> Text -> Text -> CreateLoadBalancerPolicy
-createLoadBalancerPolicy pLoadBalancerName pPolicyName pPolicyTypeName = CreateLoadBalancerPolicy'{_clbpPolicyAttributes = mempty, _clbpLoadBalancerName = pLoadBalancerName, _clbpPolicyName = pPolicyName, _clbpPolicyTypeName = pPolicyTypeName};
+createLoadBalancerPolicy pLoadBalancerName pPolicyName pPolicyTypeName = CreateLoadBalancerPolicy'{_clbpPolicyAttributes = Nothing, _clbpLoadBalancerName = pLoadBalancerName, _clbpPolicyName = pPolicyName, _clbpPolicyTypeName = pPolicyTypeName};
 
 -- | The attributes for the policy.
-clbpPolicyAttributes :: Lens' CreateLoadBalancerPolicy [PolicyAttribute]
+clbpPolicyAttributes :: Lens' CreateLoadBalancerPolicy (Maybe [PolicyAttribute])
 clbpPolicyAttributes = lens _clbpPolicyAttributes (\ s a -> s{_clbpPolicyAttributes = a});
 
 -- | The name of the load balancer.

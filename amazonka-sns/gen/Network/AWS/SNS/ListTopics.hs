@@ -89,14 +89,14 @@ instance ToQuery ListTopics where
 -- * 'ltrTopics'
 --
 -- * 'ltrNextToken'
-data ListTopicsResponse = ListTopicsResponse'{_ltrTopics :: [Topic], _ltrNextToken :: Maybe Text} deriving (Eq, Read, Show)
+data ListTopicsResponse = ListTopicsResponse'{_ltrTopics :: Maybe [Topic], _ltrNextToken :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ListTopicsResponse' smart constructor.
 listTopicsResponse :: ListTopicsResponse
-listTopicsResponse = ListTopicsResponse'{_ltrTopics = mempty, _ltrNextToken = Nothing};
+listTopicsResponse = ListTopicsResponse'{_ltrTopics = Nothing, _ltrNextToken = Nothing};
 
 -- | A list of topic ARNs.
-ltrTopics :: Lens' ListTopicsResponse [Topic]
+ltrTopics :: Lens' ListTopicsResponse (Maybe [Topic])
 ltrTopics = lens _ltrTopics (\ s a -> s{_ltrTopics = a});
 
 -- | Token to pass along to the next @ListTopics@ request. This element is

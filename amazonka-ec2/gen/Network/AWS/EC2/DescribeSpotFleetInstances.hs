@@ -124,8 +124,8 @@ instance ToQuery DescribeSpotFleetInstances where
 data DescribeSpotFleetInstancesResponse = DescribeSpotFleetInstancesResponse'{_dsfirNextToken :: Maybe Text, _dsfirSpotFleetRequestId :: Text, _dsfirActiveInstances :: [ActiveInstance]} deriving (Eq, Read, Show)
 
 -- | 'DescribeSpotFleetInstancesResponse' smart constructor.
-describeSpotFleetInstancesResponse :: Text -> [ActiveInstance] -> DescribeSpotFleetInstancesResponse
-describeSpotFleetInstancesResponse pSpotFleetRequestId pActiveInstances = DescribeSpotFleetInstancesResponse'{_dsfirNextToken = Nothing, _dsfirSpotFleetRequestId = pSpotFleetRequestId, _dsfirActiveInstances = pActiveInstances};
+describeSpotFleetInstancesResponse :: Text -> DescribeSpotFleetInstancesResponse
+describeSpotFleetInstancesResponse pSpotFleetRequestId = DescribeSpotFleetInstancesResponse'{_dsfirNextToken = Nothing, _dsfirSpotFleetRequestId = pSpotFleetRequestId, _dsfirActiveInstances = mempty};
 
 -- | The token required to retrieve the next set of results. This value is
 -- @null@ when there are no more results to return.

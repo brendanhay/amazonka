@@ -67,14 +67,14 @@ import Network.AWS.EC2.Types
 -- * 'daaAttributeNames'
 --
 -- * 'daaDryRun'
-data DescribeAccountAttributes = DescribeAccountAttributes'{_daaAttributeNames :: [AccountAttributeName], _daaDryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data DescribeAccountAttributes = DescribeAccountAttributes'{_daaAttributeNames :: Maybe [AccountAttributeName], _daaDryRun :: Maybe Bool} deriving (Eq, Read, Show)
 
 -- | 'DescribeAccountAttributes' smart constructor.
 describeAccountAttributes :: DescribeAccountAttributes
-describeAccountAttributes = DescribeAccountAttributes'{_daaAttributeNames = mempty, _daaDryRun = Nothing};
+describeAccountAttributes = DescribeAccountAttributes'{_daaAttributeNames = Nothing, _daaDryRun = Nothing};
 
 -- | One or more account attribute names.
-daaAttributeNames :: Lens' DescribeAccountAttributes [AccountAttributeName]
+daaAttributeNames :: Lens' DescribeAccountAttributes (Maybe [AccountAttributeName])
 daaAttributeNames = lens _daaAttributeNames (\ s a -> s{_daaAttributeNames = a});
 
 -- | Checks whether you have the required permissions for the action, without
@@ -115,12 +115,12 @@ instance ToQuery DescribeAccountAttributes where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'daarAccountAttributes'
-newtype DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'{_daarAccountAttributes :: [AccountAttribute]} deriving (Eq, Read, Show)
+newtype DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'{_daarAccountAttributes :: Maybe [AccountAttribute]} deriving (Eq, Read, Show)
 
 -- | 'DescribeAccountAttributesResponse' smart constructor.
 describeAccountAttributesResponse :: DescribeAccountAttributesResponse
-describeAccountAttributesResponse = DescribeAccountAttributesResponse'{_daarAccountAttributes = mempty};
+describeAccountAttributesResponse = DescribeAccountAttributesResponse'{_daarAccountAttributes = Nothing};
 
 -- | Information about one or more account attributes.
-daarAccountAttributes :: Lens' DescribeAccountAttributesResponse [AccountAttribute]
+daarAccountAttributes :: Lens' DescribeAccountAttributesResponse (Maybe [AccountAttribute])
 daarAccountAttributes = lens _daarAccountAttributes (\ s a -> s{_daarAccountAttributes = a});

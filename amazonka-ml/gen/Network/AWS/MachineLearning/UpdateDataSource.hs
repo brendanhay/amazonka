@@ -72,7 +72,7 @@ instance AWSRequest UpdateDataSource where
         response
           = receiveJSON
               (\ s h x ->
-                 UpdateDataSourceResponse' <$> x .:> "DataSourceId")
+                 UpdateDataSourceResponse' <$> x .?> "DataSourceId")
 
 instance ToHeaders UpdateDataSource where
         toHeaders
@@ -100,13 +100,13 @@ instance ToQuery UpdateDataSource where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'udsrDataSourceId'
-newtype UpdateDataSourceResponse = UpdateDataSourceResponse'{_udsrDataSourceId :: Text} deriving (Eq, Read, Show)
+newtype UpdateDataSourceResponse = UpdateDataSourceResponse'{_udsrDataSourceId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'UpdateDataSourceResponse' smart constructor.
-updateDataSourceResponse :: Text -> UpdateDataSourceResponse
-updateDataSourceResponse pDataSourceId = UpdateDataSourceResponse'{_udsrDataSourceId = pDataSourceId};
+updateDataSourceResponse :: UpdateDataSourceResponse
+updateDataSourceResponse = UpdateDataSourceResponse'{_udsrDataSourceId = Nothing};
 
 -- | The ID assigned to the @DataSource@ during creation. This value should
 -- be identical to the value of the @DataSourceID@ in the request.
-udsrDataSourceId :: Lens' UpdateDataSourceResponse Text
+udsrDataSourceId :: Lens' UpdateDataSourceResponse (Maybe Text)
 udsrDataSourceId = lens _udsrDataSourceId (\ s a -> s{_udsrDataSourceId = a});

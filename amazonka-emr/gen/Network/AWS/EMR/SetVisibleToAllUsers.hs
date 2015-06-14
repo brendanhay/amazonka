@@ -53,8 +53,8 @@ import Network.AWS.EMR.Types
 data SetVisibleToAllUsers = SetVisibleToAllUsers'{_svtauJobFlowIds :: [Text], _svtauVisibleToAllUsers :: Bool} deriving (Eq, Read, Show)
 
 -- | 'SetVisibleToAllUsers' smart constructor.
-setVisibleToAllUsers :: [Text] -> Bool -> SetVisibleToAllUsers
-setVisibleToAllUsers pJobFlowIds pVisibleToAllUsers = SetVisibleToAllUsers'{_svtauJobFlowIds = pJobFlowIds, _svtauVisibleToAllUsers = pVisibleToAllUsers};
+setVisibleToAllUsers :: Bool -> SetVisibleToAllUsers
+setVisibleToAllUsers pVisibleToAllUsers = SetVisibleToAllUsers'{_svtauJobFlowIds = mempty, _svtauVisibleToAllUsers = pVisibleToAllUsers};
 
 -- | Identifiers of the job flows to receive the new visibility setting.
 svtauJobFlowIds :: Lens' SetVisibleToAllUsers [Text]

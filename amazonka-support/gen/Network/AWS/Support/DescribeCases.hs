@@ -83,11 +83,11 @@ import Network.AWS.Support.Types
 -- * 'dcLanguage'
 --
 -- * 'dcMaxResults'
-data DescribeCases = DescribeCases'{_dcIncludeResolvedCases :: Maybe Bool, _dcCaseIdList :: [Text], _dcAfterTime :: Maybe Text, _dcNextToken :: Maybe Text, _dcBeforeTime :: Maybe Text, _dcIncludeCommunications :: Maybe Bool, _dcDisplayId :: Maybe Text, _dcLanguage :: Maybe Text, _dcMaxResults :: Nat} deriving (Eq, Read, Show)
+data DescribeCases = DescribeCases'{_dcIncludeResolvedCases :: Maybe Bool, _dcCaseIdList :: Maybe [Text], _dcAfterTime :: Maybe Text, _dcNextToken :: Maybe Text, _dcBeforeTime :: Maybe Text, _dcIncludeCommunications :: Maybe Bool, _dcDisplayId :: Maybe Text, _dcLanguage :: Maybe Text, _dcMaxResults :: Maybe Nat} deriving (Eq, Read, Show)
 
 -- | 'DescribeCases' smart constructor.
-describeCases :: Natural -> DescribeCases
-describeCases pMaxResults = DescribeCases'{_dcIncludeResolvedCases = Nothing, _dcCaseIdList = mempty, _dcAfterTime = Nothing, _dcNextToken = Nothing, _dcBeforeTime = Nothing, _dcIncludeCommunications = Nothing, _dcDisplayId = Nothing, _dcLanguage = Nothing, _dcMaxResults = _Nat # pMaxResults};
+describeCases :: DescribeCases
+describeCases = DescribeCases'{_dcIncludeResolvedCases = Nothing, _dcCaseIdList = Nothing, _dcAfterTime = Nothing, _dcNextToken = Nothing, _dcBeforeTime = Nothing, _dcIncludeCommunications = Nothing, _dcDisplayId = Nothing, _dcLanguage = Nothing, _dcMaxResults = Nothing};
 
 -- | Specifies whether resolved support cases should be included in the
 -- DescribeCases results. The default is /false/.
@@ -96,7 +96,7 @@ dcIncludeResolvedCases = lens _dcIncludeResolvedCases (\ s a -> s{_dcIncludeReso
 
 -- | A list of ID numbers of the support cases you want returned. The maximum
 -- number of cases is 100.
-dcCaseIdList :: Lens' DescribeCases [Text]
+dcCaseIdList :: Lens' DescribeCases (Maybe [Text])
 dcCaseIdList = lens _dcCaseIdList (\ s a -> s{_dcCaseIdList = a});
 
 -- | The start date for a filtered date search on support case
@@ -131,8 +131,8 @@ dcLanguage :: Lens' DescribeCases (Maybe Text)
 dcLanguage = lens _dcLanguage (\ s a -> s{_dcLanguage = a});
 
 -- | The maximum number of results to return before paginating.
-dcMaxResults :: Lens' DescribeCases Natural
-dcMaxResults = lens _dcMaxResults (\ s a -> s{_dcMaxResults = a}) . _Nat;
+dcMaxResults :: Lens' DescribeCases (Maybe Natural)
+dcMaxResults = lens _dcMaxResults (\ s a -> s{_dcMaxResults = a}) . mapping _Nat;
 
 instance AWSRequest DescribeCases where
         type Sv DescribeCases = Support
@@ -179,14 +179,14 @@ instance ToQuery DescribeCases where
 -- * 'desCases'
 --
 -- * 'desNextToken'
-data DescribeCasesResponse = DescribeCasesResponse'{_desCases :: [CaseDetails], _desNextToken :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeCasesResponse = DescribeCasesResponse'{_desCases :: Maybe [CaseDetails], _desNextToken :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeCasesResponse' smart constructor.
 describeCasesResponse :: DescribeCasesResponse
-describeCasesResponse = DescribeCasesResponse'{_desCases = mempty, _desNextToken = Nothing};
+describeCasesResponse = DescribeCasesResponse'{_desCases = Nothing, _desNextToken = Nothing};
 
 -- | The details for the cases that match the request.
-desCases :: Lens' DescribeCasesResponse [CaseDetails]
+desCases :: Lens' DescribeCasesResponse (Maybe [CaseDetails])
 desCases = lens _desCases (\ s a -> s{_desCases = a});
 
 -- | A resumption point for pagination.

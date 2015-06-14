@@ -78,11 +78,11 @@ instance ToQuery GetAccountSummary where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gasrSummaryMap'
-newtype GetAccountSummaryResponse = GetAccountSummaryResponse'{_gasrSummaryMap :: HashMap SummaryKeyType Int} deriving (Eq, Read, Show)
+newtype GetAccountSummaryResponse = GetAccountSummaryResponse'{_gasrSummaryMap :: Maybe (HashMap SummaryKeyType Int)} deriving (Eq, Read, Show)
 
 -- | 'GetAccountSummaryResponse' smart constructor.
 getAccountSummaryResponse :: GetAccountSummaryResponse
-getAccountSummaryResponse = GetAccountSummaryResponse'{_gasrSummaryMap = mempty};
+getAccountSummaryResponse = GetAccountSummaryResponse'{_gasrSummaryMap = Nothing};
 
 -- | A set of key value pairs containing information about IAM entity usage
 -- and IAM quotas.
@@ -237,5 +237,5 @@ getAccountSummaryResponse = GetAccountSummaryResponse'{_gasrSummaryMap = mempty}
 --     The maximum number of policy versions allowed for each managed
 --     policy.
 --
-gasrSummaryMap :: Lens' GetAccountSummaryResponse (HashMap SummaryKeyType Int)
-gasrSummaryMap = lens _gasrSummaryMap (\ s a -> s{_gasrSummaryMap = a}) . _Coerce;
+gasrSummaryMap :: Lens' GetAccountSummaryResponse (Maybe (HashMap SummaryKeyType Int))
+gasrSummaryMap = lens _gasrSummaryMap (\ s a -> s{_gasrSummaryMap = a}) . mapping _Coerce;

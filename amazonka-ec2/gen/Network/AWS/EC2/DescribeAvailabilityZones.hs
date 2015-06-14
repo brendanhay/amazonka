@@ -58,14 +58,14 @@ import Network.AWS.EC2.Types
 -- * 'dazFilters'
 --
 -- * 'dazDryRun'
-data DescribeAvailabilityZones = DescribeAvailabilityZones'{_dazZoneNames :: [Text], _dazFilters :: [Filter], _dazDryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data DescribeAvailabilityZones = DescribeAvailabilityZones'{_dazZoneNames :: Maybe [Text], _dazFilters :: Maybe [Filter], _dazDryRun :: Maybe Bool} deriving (Eq, Read, Show)
 
 -- | 'DescribeAvailabilityZones' smart constructor.
 describeAvailabilityZones :: DescribeAvailabilityZones
-describeAvailabilityZones = DescribeAvailabilityZones'{_dazZoneNames = mempty, _dazFilters = mempty, _dazDryRun = Nothing};
+describeAvailabilityZones = DescribeAvailabilityZones'{_dazZoneNames = Nothing, _dazFilters = Nothing, _dazDryRun = Nothing};
 
 -- | The names of one or more Availability Zones.
-dazZoneNames :: Lens' DescribeAvailabilityZones [Text]
+dazZoneNames :: Lens' DescribeAvailabilityZones (Maybe [Text])
 dazZoneNames = lens _dazZoneNames (\ s a -> s{_dazZoneNames = a});
 
 -- | One or more filters.
@@ -81,7 +81,7 @@ dazZoneNames = lens _dazZoneNames (\ s a -> s{_dazZoneNames = a});
 -- -   @zone-name@ - The name of the Availability Zone (for example,
 --     @us-east-1a@).
 --
-dazFilters :: Lens' DescribeAvailabilityZones [Filter]
+dazFilters :: Lens' DescribeAvailabilityZones (Maybe [Filter])
 dazFilters = lens _dazFilters (\ s a -> s{_dazFilters = a});
 
 -- | Checks whether you have the required permissions for the action, without
@@ -122,12 +122,12 @@ instance ToQuery DescribeAvailabilityZones where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dazrAvailabilityZones'
-newtype DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse'{_dazrAvailabilityZones :: [AvailabilityZone]} deriving (Eq, Read, Show)
+newtype DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse'{_dazrAvailabilityZones :: Maybe [AvailabilityZone]} deriving (Eq, Read, Show)
 
 -- | 'DescribeAvailabilityZonesResponse' smart constructor.
 describeAvailabilityZonesResponse :: DescribeAvailabilityZonesResponse
-describeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse'{_dazrAvailabilityZones = mempty};
+describeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse'{_dazrAvailabilityZones = Nothing};
 
 -- | Information about one or more Availability Zones.
-dazrAvailabilityZones :: Lens' DescribeAvailabilityZonesResponse [AvailabilityZone]
+dazrAvailabilityZones :: Lens' DescribeAvailabilityZonesResponse (Maybe [AvailabilityZone])
 dazrAvailabilityZones = lens _dazrAvailabilityZones (\ s a -> s{_dazrAvailabilityZones = a});

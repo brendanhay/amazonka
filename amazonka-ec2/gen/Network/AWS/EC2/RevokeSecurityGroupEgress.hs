@@ -76,11 +76,11 @@ import Network.AWS.EC2.Types
 -- * 'rsgeDryRun'
 --
 -- * 'rsgeGroupId'
-data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress'{_rsgeFromPort :: Maybe Int, _rsgeIPPermissions :: [IPPermission], _rsgeIPProtocol :: Maybe Text, _rsgeToPort :: Maybe Int, _rsgeCIDRIP :: Maybe Text, _rsgeSourceSecurityGroupOwnerId :: Maybe Text, _rsgeSourceSecurityGroupName :: Maybe Text, _rsgeDryRun :: Maybe Bool, _rsgeGroupId :: Text} deriving (Eq, Read, Show)
+data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress'{_rsgeFromPort :: Maybe Int, _rsgeIPPermissions :: Maybe [IPPermission], _rsgeIPProtocol :: Maybe Text, _rsgeToPort :: Maybe Int, _rsgeCIDRIP :: Maybe Text, _rsgeSourceSecurityGroupOwnerId :: Maybe Text, _rsgeSourceSecurityGroupName :: Maybe Text, _rsgeDryRun :: Maybe Bool, _rsgeGroupId :: Text} deriving (Eq, Read, Show)
 
 -- | 'RevokeSecurityGroupEgress' smart constructor.
 revokeSecurityGroupEgress :: Text -> RevokeSecurityGroupEgress
-revokeSecurityGroupEgress pGroupId = RevokeSecurityGroupEgress'{_rsgeFromPort = Nothing, _rsgeIPPermissions = mempty, _rsgeIPProtocol = Nothing, _rsgeToPort = Nothing, _rsgeCIDRIP = Nothing, _rsgeSourceSecurityGroupOwnerId = Nothing, _rsgeSourceSecurityGroupName = Nothing, _rsgeDryRun = Nothing, _rsgeGroupId = pGroupId};
+revokeSecurityGroupEgress pGroupId = RevokeSecurityGroupEgress'{_rsgeFromPort = Nothing, _rsgeIPPermissions = Nothing, _rsgeIPProtocol = Nothing, _rsgeToPort = Nothing, _rsgeCIDRIP = Nothing, _rsgeSourceSecurityGroupOwnerId = Nothing, _rsgeSourceSecurityGroupName = Nothing, _rsgeDryRun = Nothing, _rsgeGroupId = pGroupId};
 
 -- | The start of port range for the TCP and UDP protocols, or an ICMP type
 -- number. For the ICMP type number, use @-1@ to specify all ICMP types.
@@ -89,7 +89,7 @@ rsgeFromPort = lens _rsgeFromPort (\ s a -> s{_rsgeFromPort = a});
 
 -- | A set of IP permissions. You can\'t specify a destination security group
 -- and a CIDR IP address range.
-rsgeIPPermissions :: Lens' RevokeSecurityGroupEgress [IPPermission]
+rsgeIPPermissions :: Lens' RevokeSecurityGroupEgress (Maybe [IPPermission])
 rsgeIPPermissions = lens _rsgeIPPermissions (\ s a -> s{_rsgeIPPermissions = a});
 
 -- | The IP protocol name (@tcp@, @udp@, @icmp@) or number (see

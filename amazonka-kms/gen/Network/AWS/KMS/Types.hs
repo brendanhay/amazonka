@@ -43,12 +43,12 @@ module Network.AWS.KMS.Types
     -- * GrantListEntry
     , GrantListEntry
     , grantListEntry
-    , gleConstraints
-    , gleOperations
     , gleRetiringPrincipal
     , gleIssuingAccount
     , gleGrantId
+    , gleConstraints
     , gleGranteePrincipal
+    , gleOperations
 
     -- * GrantOperation
     , GrantOperation (..)
@@ -62,13 +62,13 @@ module Network.AWS.KMS.Types
     -- * KeyMetadata
     , KeyMetadata
     , keyMetadata
+    , kmARN
     , kmEnabled
     , kmAWSAccountId
     , kmKeyUsage
     , kmCreationDate
     , kmDescription
     , kmKeyId
-    , kmARN
 
     -- * KeyUsageType
     , KeyUsageType (..)
@@ -116,22 +116,22 @@ instance AWSService KMS where
 -- * 'aleAliasName'
 --
 -- * 'aleAliasARN'
-data AliasListEntry = AliasListEntry'{_aleTargetKeyId :: Text, _aleAliasName :: Text, _aleAliasARN :: Text} deriving (Eq, Read, Show)
+data AliasListEntry = AliasListEntry'{_aleTargetKeyId :: Maybe Text, _aleAliasName :: Maybe Text, _aleAliasARN :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'AliasListEntry' smart constructor.
-aliasListEntry :: Text -> Text -> Text -> AliasListEntry
-aliasListEntry pTargetKeyId pAliasName pAliasARN = AliasListEntry'{_aleTargetKeyId = pTargetKeyId, _aleAliasName = pAliasName, _aleAliasARN = pAliasARN};
+aliasListEntry :: AliasListEntry
+aliasListEntry = AliasListEntry'{_aleTargetKeyId = Nothing, _aleAliasName = Nothing, _aleAliasARN = Nothing};
 
 -- | String that contains the key identifier pointed to by the alias.
-aleTargetKeyId :: Lens' AliasListEntry Text
+aleTargetKeyId :: Lens' AliasListEntry (Maybe Text)
 aleTargetKeyId = lens _aleTargetKeyId (\ s a -> s{_aleTargetKeyId = a});
 
 -- | String that contains the alias.
-aleAliasName :: Lens' AliasListEntry Text
+aleAliasName :: Lens' AliasListEntry (Maybe Text)
 aleAliasName = lens _aleAliasName (\ s a -> s{_aleAliasName = a});
 
 -- | String that contains the key ARN.
-aleAliasARN :: Lens' AliasListEntry Text
+aleAliasARN :: Lens' AliasListEntry (Maybe Text)
 aleAliasARN = lens _aleAliasARN (\ s a -> s{_aleAliasARN = a});
 
 instance FromJSON AliasListEntry where
@@ -139,8 +139,8 @@ instance FromJSON AliasListEntry where
           = withObject "AliasListEntry"
               (\ x ->
                  AliasListEntry' <$>
-                   x .: "TargetKeyId" <*> x .: "AliasName" <*>
-                     x .: "AliasArn")
+                   x .:? "TargetKeyId" <*> x .:? "AliasName" <*>
+                     x .:? "AliasArn")
 
 data DataKeySpec = AES128 | AES256 deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -169,20 +169,20 @@ instance ToJSON DataKeySpec where
 -- * 'gcEncryptionContextEquals'
 --
 -- * 'gcEncryptionContextSubset'
-data GrantConstraints = GrantConstraints'{_gcEncryptionContextEquals :: HashMap Text Text, _gcEncryptionContextSubset :: HashMap Text Text} deriving (Eq, Read, Show)
+data GrantConstraints = GrantConstraints'{_gcEncryptionContextEquals :: Maybe (HashMap Text Text), _gcEncryptionContextSubset :: Maybe (HashMap Text Text)} deriving (Eq, Read, Show)
 
 -- | 'GrantConstraints' smart constructor.
 grantConstraints :: GrantConstraints
-grantConstraints = GrantConstraints'{_gcEncryptionContextEquals = mempty, _gcEncryptionContextSubset = mempty};
+grantConstraints = GrantConstraints'{_gcEncryptionContextEquals = Nothing, _gcEncryptionContextSubset = Nothing};
 
 -- | The constraint contains additional key\/value pairs that serve to
 -- further limit the grant.
-gcEncryptionContextEquals :: Lens' GrantConstraints (HashMap Text Text)
-gcEncryptionContextEquals = lens _gcEncryptionContextEquals (\ s a -> s{_gcEncryptionContextEquals = a}) . _Coerce;
+gcEncryptionContextEquals :: Lens' GrantConstraints (Maybe (HashMap Text Text))
+gcEncryptionContextEquals = lens _gcEncryptionContextEquals (\ s a -> s{_gcEncryptionContextEquals = a}) . mapping _Coerce;
 
 -- | The constraint equals the full encryption context.
-gcEncryptionContextSubset :: Lens' GrantConstraints (HashMap Text Text)
-gcEncryptionContextSubset = lens _gcEncryptionContextSubset (\ s a -> s{_gcEncryptionContextSubset = a}) . _Coerce;
+gcEncryptionContextSubset :: Lens' GrantConstraints (Maybe (HashMap Text Text))
+gcEncryptionContextSubset = lens _gcEncryptionContextSubset (\ s a -> s{_gcEncryptionContextSubset = a}) . mapping _Coerce;
 
 instance FromJSON GrantConstraints where
         parseJSON
@@ -204,27 +204,43 @@ instance ToJSON GrantConstraints where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gleConstraints'
---
--- * 'gleOperations'
---
 -- * 'gleRetiringPrincipal'
 --
 -- * 'gleIssuingAccount'
 --
 -- * 'gleGrantId'
 --
+-- * 'gleConstraints'
+--
 -- * 'gleGranteePrincipal'
-data GrantListEntry = GrantListEntry'{_gleConstraints :: Maybe GrantConstraints, _gleOperations :: [GrantOperation], _gleRetiringPrincipal :: Text, _gleIssuingAccount :: Text, _gleGrantId :: Text, _gleGranteePrincipal :: Text} deriving (Eq, Read, Show)
+--
+-- * 'gleOperations'
+data GrantListEntry = GrantListEntry'{_gleRetiringPrincipal :: Maybe Text, _gleIssuingAccount :: Maybe Text, _gleGrantId :: Maybe Text, _gleConstraints :: Maybe GrantConstraints, _gleGranteePrincipal :: Maybe Text, _gleOperations :: Maybe [GrantOperation]} deriving (Eq, Read, Show)
 
 -- | 'GrantListEntry' smart constructor.
-grantListEntry :: Text -> Text -> Text -> Text -> GrantListEntry
-grantListEntry pRetiringPrincipal pIssuingAccount pGrantId pGranteePrincipal = GrantListEntry'{_gleConstraints = Nothing, _gleOperations = mempty, _gleRetiringPrincipal = pRetiringPrincipal, _gleIssuingAccount = pIssuingAccount, _gleGrantId = pGrantId, _gleGranteePrincipal = pGranteePrincipal};
+grantListEntry :: GrantListEntry
+grantListEntry = GrantListEntry'{_gleRetiringPrincipal = Nothing, _gleIssuingAccount = Nothing, _gleGrantId = Nothing, _gleConstraints = Nothing, _gleGranteePrincipal = Nothing, _gleOperations = Nothing};
+
+-- | The principal that can retire the account.
+gleRetiringPrincipal :: Lens' GrantListEntry (Maybe Text)
+gleRetiringPrincipal = lens _gleRetiringPrincipal (\ s a -> s{_gleRetiringPrincipal = a});
+
+-- | The account under which the grant was issued.
+gleIssuingAccount :: Lens' GrantListEntry (Maybe Text)
+gleIssuingAccount = lens _gleIssuingAccount (\ s a -> s{_gleIssuingAccount = a});
+
+-- | Unique grant identifier.
+gleGrantId :: Lens' GrantListEntry (Maybe Text)
+gleGrantId = lens _gleGrantId (\ s a -> s{_gleGrantId = a});
 
 -- | Specifies the conditions under which the actions specified by the
 -- @Operations@ parameter are allowed.
 gleConstraints :: Lens' GrantListEntry (Maybe GrantConstraints)
 gleConstraints = lens _gleConstraints (\ s a -> s{_gleConstraints = a});
+
+-- | The principal that receives the grant permission.
+gleGranteePrincipal :: Lens' GrantListEntry (Maybe Text)
+gleGranteePrincipal = lens _gleGranteePrincipal (\ s a -> s{_gleGranteePrincipal = a});
 
 -- | List of operations permitted by the grant. This can be any combination
 -- of one or more of the following values:
@@ -236,35 +252,19 @@ gleConstraints = lens _gleConstraints (\ s a -> s{_gleConstraints = a});
 -- 5.  ReEncryptFrom
 -- 6.  ReEncryptTo
 -- 7.  CreateGrant
-gleOperations :: Lens' GrantListEntry [GrantOperation]
+gleOperations :: Lens' GrantListEntry (Maybe [GrantOperation])
 gleOperations = lens _gleOperations (\ s a -> s{_gleOperations = a});
-
--- | The principal that can retire the account.
-gleRetiringPrincipal :: Lens' GrantListEntry Text
-gleRetiringPrincipal = lens _gleRetiringPrincipal (\ s a -> s{_gleRetiringPrincipal = a});
-
--- | The account under which the grant was issued.
-gleIssuingAccount :: Lens' GrantListEntry Text
-gleIssuingAccount = lens _gleIssuingAccount (\ s a -> s{_gleIssuingAccount = a});
-
--- | Unique grant identifier.
-gleGrantId :: Lens' GrantListEntry Text
-gleGrantId = lens _gleGrantId (\ s a -> s{_gleGrantId = a});
-
--- | The principal that receives the grant permission.
-gleGranteePrincipal :: Lens' GrantListEntry Text
-gleGranteePrincipal = lens _gleGranteePrincipal (\ s a -> s{_gleGranteePrincipal = a});
 
 instance FromJSON GrantListEntry where
         parseJSON
           = withObject "GrantListEntry"
               (\ x ->
                  GrantListEntry' <$>
-                   x .:? "Constraints" <*> x .:? "Operations" .!= mempty
-                     <*> x .: "RetiringPrincipal"
-                     <*> x .: "IssuingAccount"
-                     <*> x .: "GrantId"
-                     <*> x .: "GranteePrincipal")
+                   x .:? "RetiringPrincipal" <*> x .:? "IssuingAccount"
+                     <*> x .:? "GrantId"
+                     <*> x .:? "Constraints"
+                     <*> x .:? "GranteePrincipal"
+                     <*> x .:? "Operations" .!= mempty)
 
 data GrantOperation = Encrypt | GenerateDataKeyWithoutPlaintext | CreateGrant | RetireGrant | GenerateDataKey | Decrypt | ReEncryptTo | ReEncryptFrom deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -308,29 +308,31 @@ instance FromJSON GrantOperation where
 -- * 'kleKeyARN'
 --
 -- * 'kleKeyId'
-data KeyListEntry = KeyListEntry'{_kleKeyARN :: Text, _kleKeyId :: Text} deriving (Eq, Read, Show)
+data KeyListEntry = KeyListEntry'{_kleKeyARN :: Maybe Text, _kleKeyId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'KeyListEntry' smart constructor.
-keyListEntry :: Text -> Text -> KeyListEntry
-keyListEntry pKeyARN pKeyId = KeyListEntry'{_kleKeyARN = pKeyARN, _kleKeyId = pKeyId};
+keyListEntry :: KeyListEntry
+keyListEntry = KeyListEntry'{_kleKeyARN = Nothing, _kleKeyId = Nothing};
 
 -- | ARN of the key.
-kleKeyARN :: Lens' KeyListEntry Text
+kleKeyARN :: Lens' KeyListEntry (Maybe Text)
 kleKeyARN = lens _kleKeyARN (\ s a -> s{_kleKeyARN = a});
 
 -- | Unique identifier of the key.
-kleKeyId :: Lens' KeyListEntry Text
+kleKeyId :: Lens' KeyListEntry (Maybe Text)
 kleKeyId = lens _kleKeyId (\ s a -> s{_kleKeyId = a});
 
 instance FromJSON KeyListEntry where
         parseJSON
           = withObject "KeyListEntry"
               (\ x ->
-                 KeyListEntry' <$> x .: "KeyArn" <*> x .: "KeyId")
+                 KeyListEntry' <$> x .:? "KeyArn" <*> x .:? "KeyId")
 
 -- | /See:/ 'keyMetadata' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
+--
+-- * 'kmARN'
 --
 -- * 'kmEnabled'
 --
@@ -343,13 +345,15 @@ instance FromJSON KeyListEntry where
 -- * 'kmDescription'
 --
 -- * 'kmKeyId'
---
--- * 'kmARN'
-data KeyMetadata = KeyMetadata'{_kmEnabled :: Maybe Bool, _kmAWSAccountId :: Maybe Text, _kmKeyUsage :: Maybe KeyUsageType, _kmCreationDate :: Maybe POSIX, _kmDescription :: Maybe Text, _kmKeyId :: Text, _kmARN :: Text} deriving (Eq, Read, Show)
+data KeyMetadata = KeyMetadata'{_kmARN :: Maybe Text, _kmEnabled :: Maybe Bool, _kmAWSAccountId :: Maybe Text, _kmKeyUsage :: Maybe KeyUsageType, _kmCreationDate :: Maybe POSIX, _kmDescription :: Maybe Text, _kmKeyId :: Text} deriving (Eq, Read, Show)
 
 -- | 'KeyMetadata' smart constructor.
-keyMetadata :: Text -> Text -> KeyMetadata
-keyMetadata pKeyId pARN = KeyMetadata'{_kmEnabled = Nothing, _kmAWSAccountId = Nothing, _kmKeyUsage = Nothing, _kmCreationDate = Nothing, _kmDescription = Nothing, _kmKeyId = pKeyId, _kmARN = pARN};
+keyMetadata :: Text -> KeyMetadata
+keyMetadata pKeyId = KeyMetadata'{_kmARN = Nothing, _kmEnabled = Nothing, _kmAWSAccountId = Nothing, _kmKeyUsage = Nothing, _kmCreationDate = Nothing, _kmDescription = Nothing, _kmKeyId = pKeyId};
+
+-- | Key ARN (Amazon Resource Name).
+kmARN :: Lens' KeyMetadata (Maybe Text)
+kmARN = lens _kmARN (\ s a -> s{_kmARN = a});
 
 -- | Value that specifies whether the key is enabled.
 kmEnabled :: Lens' KeyMetadata (Maybe Bool)
@@ -375,21 +379,17 @@ kmDescription = lens _kmDescription (\ s a -> s{_kmDescription = a});
 kmKeyId :: Lens' KeyMetadata Text
 kmKeyId = lens _kmKeyId (\ s a -> s{_kmKeyId = a});
 
--- | Key ARN (Amazon Resource Name).
-kmARN :: Lens' KeyMetadata Text
-kmARN = lens _kmARN (\ s a -> s{_kmARN = a});
-
 instance FromJSON KeyMetadata where
         parseJSON
           = withObject "KeyMetadata"
               (\ x ->
                  KeyMetadata' <$>
-                   x .:? "Enabled" <*> x .:? "AWSAccountId" <*>
-                     x .:? "KeyUsage"
+                   x .:? "Arn" <*> x .:? "Enabled" <*>
+                     x .:? "AWSAccountId"
+                     <*> x .:? "KeyUsage"
                      <*> x .:? "CreationDate"
                      <*> x .:? "Description"
-                     <*> x .: "KeyId"
-                     <*> x .: "Arn")
+                     <*> x .: "KeyId")
 
 data KeyUsageType = EncryptDecrypt deriving (Eq, Ord, Read, Show, Enum, Generic)
 

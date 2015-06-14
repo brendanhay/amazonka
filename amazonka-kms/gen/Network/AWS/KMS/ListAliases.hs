@@ -49,25 +49,25 @@ import Network.AWS.KMS.Types
 -- * 'laMarker'
 --
 -- * 'laLimit'
-data ListAliases = ListAliases'{_laMarker :: Text, _laLimit :: Nat} deriving (Eq, Read, Show)
+data ListAliases = ListAliases'{_laMarker :: Maybe Text, _laLimit :: Maybe Nat} deriving (Eq, Read, Show)
 
 -- | 'ListAliases' smart constructor.
-listAliases :: Text -> Natural -> ListAliases
-listAliases pMarker pLimit = ListAliases'{_laMarker = pMarker, _laLimit = _Nat # pLimit};
+listAliases :: ListAliases
+listAliases = ListAliases'{_laMarker = Nothing, _laLimit = Nothing};
 
 -- | Use this parameter when paginating results, and only in a subsequent
 -- request after you\'ve received a response where the results are
 -- truncated. Set it to the value of the @NextMarker@ element in the
 -- response you just received.
-laMarker :: Lens' ListAliases Text
+laMarker :: Lens' ListAliases (Maybe Text)
 laMarker = lens _laMarker (\ s a -> s{_laMarker = a});
 
 -- | Specify this parameter when paginating results to indicate the maximum
 -- number of aliases you want in each response. If there are additional
 -- aliases beyond the maximum you specify, the @Truncated@ response element
 -- will be set to @true.@
-laLimit :: Lens' ListAliases Natural
-laLimit = lens _laLimit (\ s a -> s{_laLimit = a}) . _Nat;
+laLimit :: Lens' ListAliases (Maybe Natural)
+laLimit = lens _laLimit (\ s a -> s{_laLimit = a}) . mapping _Nat;
 
 instance AWSRequest ListAliases where
         type Sv ListAliases = KMS
@@ -78,7 +78,7 @@ instance AWSRequest ListAliases where
               (\ s h x ->
                  ListAliasesResponse' <$>
                    x .?> "Truncated" <*> x .?> "Aliases" .!@ mempty <*>
-                     x .:> "NextMarker")
+                     x .?> "NextMarker")
 
 instance ToHeaders ListAliases where
         toHeaders
@@ -108,11 +108,11 @@ instance ToQuery ListAliases where
 -- * 'larAliases'
 --
 -- * 'larNextMarker'
-data ListAliasesResponse = ListAliasesResponse'{_larTruncated :: Maybe Bool, _larAliases :: [AliasListEntry], _larNextMarker :: Text} deriving (Eq, Read, Show)
+data ListAliasesResponse = ListAliasesResponse'{_larTruncated :: Maybe Bool, _larAliases :: Maybe [AliasListEntry], _larNextMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ListAliasesResponse' smart constructor.
-listAliasesResponse :: Text -> ListAliasesResponse
-listAliasesResponse pNextMarker = ListAliasesResponse'{_larTruncated = Nothing, _larAliases = mempty, _larNextMarker = pNextMarker};
+listAliasesResponse :: ListAliasesResponse
+listAliasesResponse = ListAliasesResponse'{_larTruncated = Nothing, _larAliases = Nothing, _larNextMarker = Nothing};
 
 -- | A flag that indicates whether there are more items in the list. If your
 -- results were truncated, you can make a subsequent pagination request
@@ -122,11 +122,11 @@ larTruncated :: Lens' ListAliasesResponse (Maybe Bool)
 larTruncated = lens _larTruncated (\ s a -> s{_larTruncated = a});
 
 -- | A list of key aliases in the user\'s account.
-larAliases :: Lens' ListAliasesResponse [AliasListEntry]
+larAliases :: Lens' ListAliasesResponse (Maybe [AliasListEntry])
 larAliases = lens _larAliases (\ s a -> s{_larAliases = a});
 
 -- | If @Truncated@ is true, this value is present and contains the value to
 -- use for the @Marker@ request parameter in a subsequent pagination
 -- request.
-larNextMarker :: Lens' ListAliasesResponse Text
+larNextMarker :: Lens' ListAliasesResponse (Maybe Text)
 larNextMarker = lens _larNextMarker (\ s a -> s{_larNextMarker = a});

@@ -53,14 +53,14 @@ import Network.AWS.EC2.Types
 -- * 'dr1Filters'
 --
 -- * 'dr1DryRun'
-data DescribeRegions = DescribeRegions'{_dr1RegionNames :: [Text], _dr1Filters :: [Filter], _dr1DryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data DescribeRegions = DescribeRegions'{_dr1RegionNames :: Maybe [Text], _dr1Filters :: Maybe [Filter], _dr1DryRun :: Maybe Bool} deriving (Eq, Read, Show)
 
 -- | 'DescribeRegions' smart constructor.
 describeRegions :: DescribeRegions
-describeRegions = DescribeRegions'{_dr1RegionNames = mempty, _dr1Filters = mempty, _dr1DryRun = Nothing};
+describeRegions = DescribeRegions'{_dr1RegionNames = Nothing, _dr1Filters = Nothing, _dr1DryRun = Nothing};
 
 -- | The names of one or more regions.
-dr1RegionNames :: Lens' DescribeRegions [Text]
+dr1RegionNames :: Lens' DescribeRegions (Maybe [Text])
 dr1RegionNames = lens _dr1RegionNames (\ s a -> s{_dr1RegionNames = a});
 
 -- | One or more filters.
@@ -70,7 +70,7 @@ dr1RegionNames = lens _dr1RegionNames (\ s a -> s{_dr1RegionNames = a});
 --
 -- -   @region-name@ - The name of the region (for example, @us-east-1@).
 --
-dr1Filters :: Lens' DescribeRegions [Filter]
+dr1Filters :: Lens' DescribeRegions (Maybe [Filter])
 dr1Filters = lens _dr1Filters (\ s a -> s{_dr1Filters = a});
 
 -- | Checks whether you have the required permissions for the action, without
@@ -108,12 +108,12 @@ instance ToQuery DescribeRegions where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'drrRegions'
-newtype DescribeRegionsResponse = DescribeRegionsResponse'{_drrRegions :: [RegionInfo]} deriving (Eq, Read, Show)
+newtype DescribeRegionsResponse = DescribeRegionsResponse'{_drrRegions :: Maybe [RegionInfo]} deriving (Eq, Read, Show)
 
 -- | 'DescribeRegionsResponse' smart constructor.
 describeRegionsResponse :: DescribeRegionsResponse
-describeRegionsResponse = DescribeRegionsResponse'{_drrRegions = mempty};
+describeRegionsResponse = DescribeRegionsResponse'{_drrRegions = Nothing};
 
 -- | Information about one or more regions.
-drrRegions :: Lens' DescribeRegionsResponse [RegionInfo]
+drrRegions :: Lens' DescribeRegionsResponse (Maybe [RegionInfo])
 drrRegions = lens _drrRegions (\ s a -> s{_drrRegions = a});

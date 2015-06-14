@@ -58,16 +58,16 @@ import Network.AWS.EC2.Types
 -- * 'daDryRun'
 --
 -- * 'daAllocationIds'
-data DescribeAddresses = DescribeAddresses'{_daPublicIPs :: [Text], _daFilters :: [Filter], _daDryRun :: Maybe Bool, _daAllocationIds :: [Text]} deriving (Eq, Read, Show)
+data DescribeAddresses = DescribeAddresses'{_daPublicIPs :: Maybe [Text], _daFilters :: Maybe [Filter], _daDryRun :: Maybe Bool, _daAllocationIds :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'DescribeAddresses' smart constructor.
 describeAddresses :: DescribeAddresses
-describeAddresses = DescribeAddresses'{_daPublicIPs = mempty, _daFilters = mempty, _daDryRun = Nothing, _daAllocationIds = mempty};
+describeAddresses = DescribeAddresses'{_daPublicIPs = Nothing, _daFilters = Nothing, _daDryRun = Nothing, _daAllocationIds = Nothing};
 
 -- | [EC2-Classic] One or more Elastic IP addresses.
 --
 -- Default: Describes all your Elastic IP addresses.
-daPublicIPs :: Lens' DescribeAddresses [Text]
+daPublicIPs :: Lens' DescribeAddresses (Maybe [Text])
 daPublicIPs = lens _daPublicIPs (\ s a -> s{_daPublicIPs = a});
 
 -- | One or more filters. Filter names and values are case-sensitive.
@@ -92,7 +92,7 @@ daPublicIPs = lens _daPublicIPs (\ s a -> s{_daPublicIPs = a});
 --
 -- -   @public-ip@ - The Elastic IP address.
 --
-daFilters :: Lens' DescribeAddresses [Filter]
+daFilters :: Lens' DescribeAddresses (Maybe [Filter])
 daFilters = lens _daFilters (\ s a -> s{_daFilters = a});
 
 -- | Checks whether you have the required permissions for the action, without
@@ -105,7 +105,7 @@ daDryRun = lens _daDryRun (\ s a -> s{_daDryRun = a});
 -- | [EC2-VPC] One or more allocation IDs.
 --
 -- Default: Describes all your Elastic IP addresses.
-daAllocationIds :: Lens' DescribeAddresses [Text]
+daAllocationIds :: Lens' DescribeAddresses (Maybe [Text])
 daAllocationIds = lens _daAllocationIds (\ s a -> s{_daAllocationIds = a});
 
 instance AWSRequest DescribeAddresses where
@@ -137,12 +137,12 @@ instance ToQuery DescribeAddresses where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'darAddresses'
-newtype DescribeAddressesResponse = DescribeAddressesResponse'{_darAddresses :: [Address]} deriving (Eq, Read, Show)
+newtype DescribeAddressesResponse = DescribeAddressesResponse'{_darAddresses :: Maybe [Address]} deriving (Eq, Read, Show)
 
 -- | 'DescribeAddressesResponse' smart constructor.
 describeAddressesResponse :: DescribeAddressesResponse
-describeAddressesResponse = DescribeAddressesResponse'{_darAddresses = mempty};
+describeAddressesResponse = DescribeAddressesResponse'{_darAddresses = Nothing};
 
 -- | Information about one or more Elastic IP addresses.
-darAddresses :: Lens' DescribeAddressesResponse [Address]
+darAddresses :: Lens' DescribeAddressesResponse (Maybe [Address])
 darAddresses = lens _darAddresses (\ s a -> s{_darAddresses = a});

@@ -59,11 +59,11 @@ import Network.AWS.RDS.Types
 -- * 'dMaxRecords'
 --
 -- * 'dMarker'
-data DescribeEventSubscriptions = DescribeEventSubscriptions'{_dSubscriptionName :: Maybe Text, _dFilters :: [Filter], _dMaxRecords :: Maybe Int, _dMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeEventSubscriptions = DescribeEventSubscriptions'{_dSubscriptionName :: Maybe Text, _dFilters :: Maybe [Filter], _dMaxRecords :: Maybe Int, _dMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeEventSubscriptions' smart constructor.
 describeEventSubscriptions :: DescribeEventSubscriptions
-describeEventSubscriptions = DescribeEventSubscriptions'{_dSubscriptionName = Nothing, _dFilters = mempty, _dMaxRecords = Nothing, _dMarker = Nothing};
+describeEventSubscriptions = DescribeEventSubscriptions'{_dSubscriptionName = Nothing, _dFilters = Nothing, _dMaxRecords = Nothing, _dMarker = Nothing};
 
 -- | The name of the RDS event notification subscription you want to
 -- describe.
@@ -71,7 +71,7 @@ dSubscriptionName :: Lens' DescribeEventSubscriptions (Maybe Text)
 dSubscriptionName = lens _dSubscriptionName (\ s a -> s{_dSubscriptionName = a});
 
 -- | This parameter is not currently supported.
-dFilters :: Lens' DescribeEventSubscriptions [Filter]
+dFilters :: Lens' DescribeEventSubscriptions (Maybe [Filter])
 dFilters = lens _dFilters (\ s a -> s{_dFilters = a});
 
 -- | The maximum number of records to include in the response. If more
@@ -129,14 +129,14 @@ instance ToQuery DescribeEventSubscriptions where
 -- * 'desrEventSubscriptionsList'
 --
 -- * 'desrMarker'
-data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse'{_desrEventSubscriptionsList :: [EventSubscription], _desrMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse'{_desrEventSubscriptionsList :: Maybe [EventSubscription], _desrMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeEventSubscriptionsResponse' smart constructor.
 describeEventSubscriptionsResponse :: DescribeEventSubscriptionsResponse
-describeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse'{_desrEventSubscriptionsList = mempty, _desrMarker = Nothing};
+describeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse'{_desrEventSubscriptionsList = Nothing, _desrMarker = Nothing};
 
 -- | A list of EventSubscriptions data types.
-desrEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse [EventSubscription]
+desrEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse (Maybe [EventSubscription])
 desrEventSubscriptionsList = lens _desrEventSubscriptionsList (\ s a -> s{_desrEventSubscriptionsList = a});
 
 -- | An optional pagination token provided by a previous

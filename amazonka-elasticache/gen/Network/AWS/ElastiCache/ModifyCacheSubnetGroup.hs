@@ -51,14 +51,14 @@ import Network.AWS.ElastiCache.Types
 -- * 'mcsgCacheSubnetGroupDescription'
 --
 -- * 'mcsgCacheSubnetGroupName'
-data ModifyCacheSubnetGroup = ModifyCacheSubnetGroup'{_mcsgSubnetIds :: [Text], _mcsgCacheSubnetGroupDescription :: Maybe Text, _mcsgCacheSubnetGroupName :: Text} deriving (Eq, Read, Show)
+data ModifyCacheSubnetGroup = ModifyCacheSubnetGroup'{_mcsgSubnetIds :: Maybe [Text], _mcsgCacheSubnetGroupDescription :: Maybe Text, _mcsgCacheSubnetGroupName :: Text} deriving (Eq, Read, Show)
 
 -- | 'ModifyCacheSubnetGroup' smart constructor.
 modifyCacheSubnetGroup :: Text -> ModifyCacheSubnetGroup
-modifyCacheSubnetGroup pCacheSubnetGroupName = ModifyCacheSubnetGroup'{_mcsgSubnetIds = mempty, _mcsgCacheSubnetGroupDescription = Nothing, _mcsgCacheSubnetGroupName = pCacheSubnetGroupName};
+modifyCacheSubnetGroup pCacheSubnetGroupName = ModifyCacheSubnetGroup'{_mcsgSubnetIds = Nothing, _mcsgCacheSubnetGroupDescription = Nothing, _mcsgCacheSubnetGroupName = pCacheSubnetGroupName};
 
 -- | The EC2 subnet IDs for the cache subnet group.
-mcsgSubnetIds :: Lens' ModifyCacheSubnetGroup [Text]
+mcsgSubnetIds :: Lens' ModifyCacheSubnetGroup (Maybe [Text])
 mcsgSubnetIds = lens _mcsgSubnetIds (\ s a -> s{_mcsgSubnetIds = a});
 
 -- | A description for the cache subnet group.

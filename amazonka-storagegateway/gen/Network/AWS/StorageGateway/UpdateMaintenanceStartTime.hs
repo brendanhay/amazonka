@@ -90,7 +90,7 @@ instance AWSRequest UpdateMaintenanceStartTime where
           = receiveJSON
               (\ s h x ->
                  UpdateMaintenanceStartTimeResponse' <$>
-                   x .:> "GatewayARN")
+                   x .?> "GatewayARN")
 
 instance ToHeaders UpdateMaintenanceStartTime where
         toHeaders
@@ -121,12 +121,12 @@ instance ToQuery UpdateMaintenanceStartTime where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'umstrGatewayARN'
-newtype UpdateMaintenanceStartTimeResponse = UpdateMaintenanceStartTimeResponse'{_umstrGatewayARN :: Text} deriving (Eq, Read, Show)
+newtype UpdateMaintenanceStartTimeResponse = UpdateMaintenanceStartTimeResponse'{_umstrGatewayARN :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'UpdateMaintenanceStartTimeResponse' smart constructor.
-updateMaintenanceStartTimeResponse :: Text -> UpdateMaintenanceStartTimeResponse
-updateMaintenanceStartTimeResponse pGatewayARN = UpdateMaintenanceStartTimeResponse'{_umstrGatewayARN = pGatewayARN};
+updateMaintenanceStartTimeResponse :: UpdateMaintenanceStartTimeResponse
+updateMaintenanceStartTimeResponse = UpdateMaintenanceStartTimeResponse'{_umstrGatewayARN = Nothing};
 
 -- | FIXME: Undocumented member.
-umstrGatewayARN :: Lens' UpdateMaintenanceStartTimeResponse Text
+umstrGatewayARN :: Lens' UpdateMaintenanceStartTimeResponse (Maybe Text)
 umstrGatewayARN = lens _umstrGatewayARN (\ s a -> s{_umstrGatewayARN = a});

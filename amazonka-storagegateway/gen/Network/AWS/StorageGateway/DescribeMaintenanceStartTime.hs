@@ -33,11 +33,11 @@ module Network.AWS.StorageGateway.DescribeMaintenanceStartTime
     -- ** Response constructor
     , describeMaintenanceStartTimeResponse
     -- ** Response lenses
+    , dmstrGatewayARN
     , dmstrMinuteOfHour
     , dmstrHourOfDay
-    , dmstrDayOfWeek
-    , dmstrGatewayARN
     , dmstrTimezone
+    , dmstrDayOfWeek
     ) where
 
 import Network.AWS.Request
@@ -70,10 +70,10 @@ instance AWSRequest DescribeMaintenanceStartTime
           = receiveJSON
               (\ s h x ->
                  DescribeMaintenanceStartTimeResponse' <$>
-                   x .?> "MinuteOfHour" <*> x .?> "HourOfDay" <*>
-                     x .?> "DayOfWeek"
-                     <*> x .:> "GatewayARN"
-                     <*> x .:> "Timezone")
+                   x .?> "GatewayARN" <*> x .?> "MinuteOfHour" <*>
+                     x .?> "HourOfDay"
+                     <*> x .?> "Timezone"
+                     <*> x .?> "DayOfWeek")
 
 instance ToHeaders DescribeMaintenanceStartTime where
         toHeaders
@@ -99,20 +99,24 @@ instance ToQuery DescribeMaintenanceStartTime where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'dmstrGatewayARN'
+--
 -- * 'dmstrMinuteOfHour'
 --
 -- * 'dmstrHourOfDay'
 --
--- * 'dmstrDayOfWeek'
---
--- * 'dmstrGatewayARN'
---
 -- * 'dmstrTimezone'
-data DescribeMaintenanceStartTimeResponse = DescribeMaintenanceStartTimeResponse'{_dmstrMinuteOfHour :: Maybe Nat, _dmstrHourOfDay :: Maybe Nat, _dmstrDayOfWeek :: Maybe Nat, _dmstrGatewayARN :: Text, _dmstrTimezone :: Text} deriving (Eq, Read, Show)
+--
+-- * 'dmstrDayOfWeek'
+data DescribeMaintenanceStartTimeResponse = DescribeMaintenanceStartTimeResponse'{_dmstrGatewayARN :: Maybe Text, _dmstrMinuteOfHour :: Maybe Nat, _dmstrHourOfDay :: Maybe Nat, _dmstrTimezone :: Maybe Text, _dmstrDayOfWeek :: Maybe Nat} deriving (Eq, Read, Show)
 
 -- | 'DescribeMaintenanceStartTimeResponse' smart constructor.
-describeMaintenanceStartTimeResponse :: Text -> Text -> DescribeMaintenanceStartTimeResponse
-describeMaintenanceStartTimeResponse pGatewayARN pTimezone = DescribeMaintenanceStartTimeResponse'{_dmstrMinuteOfHour = Nothing, _dmstrHourOfDay = Nothing, _dmstrDayOfWeek = Nothing, _dmstrGatewayARN = pGatewayARN, _dmstrTimezone = pTimezone};
+describeMaintenanceStartTimeResponse :: DescribeMaintenanceStartTimeResponse
+describeMaintenanceStartTimeResponse = DescribeMaintenanceStartTimeResponse'{_dmstrGatewayARN = Nothing, _dmstrMinuteOfHour = Nothing, _dmstrHourOfDay = Nothing, _dmstrTimezone = Nothing, _dmstrDayOfWeek = Nothing};
+
+-- | FIXME: Undocumented member.
+dmstrGatewayARN :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Text)
+dmstrGatewayARN = lens _dmstrGatewayARN (\ s a -> s{_dmstrGatewayARN = a});
 
 -- | FIXME: Undocumented member.
 dmstrMinuteOfHour :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Natural)
@@ -123,13 +127,9 @@ dmstrHourOfDay :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Natural)
 dmstrHourOfDay = lens _dmstrHourOfDay (\ s a -> s{_dmstrHourOfDay = a}) . mapping _Nat;
 
 -- | FIXME: Undocumented member.
+dmstrTimezone :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Text)
+dmstrTimezone = lens _dmstrTimezone (\ s a -> s{_dmstrTimezone = a});
+
+-- | FIXME: Undocumented member.
 dmstrDayOfWeek :: Lens' DescribeMaintenanceStartTimeResponse (Maybe Natural)
 dmstrDayOfWeek = lens _dmstrDayOfWeek (\ s a -> s{_dmstrDayOfWeek = a}) . mapping _Nat;
-
--- | FIXME: Undocumented member.
-dmstrGatewayARN :: Lens' DescribeMaintenanceStartTimeResponse Text
-dmstrGatewayARN = lens _dmstrGatewayARN (\ s a -> s{_dmstrGatewayARN = a});
-
--- | FIXME: Undocumented member.
-dmstrTimezone :: Lens' DescribeMaintenanceStartTimeResponse Text
-dmstrTimezone = lens _dmstrTimezone (\ s a -> s{_dmstrTimezone = a});

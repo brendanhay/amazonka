@@ -127,8 +127,8 @@ instance ToQuery ListDomains where
 data ListDomainsResponse = ListDomainsResponse'{_ldrNextPageMarker :: Maybe Text, _ldrDomains :: [DomainSummary]} deriving (Eq, Read, Show)
 
 -- | 'ListDomainsResponse' smart constructor.
-listDomainsResponse :: [DomainSummary] -> ListDomainsResponse
-listDomainsResponse pDomains = ListDomainsResponse'{_ldrNextPageMarker = Nothing, _ldrDomains = pDomains};
+listDomainsResponse :: ListDomainsResponse
+listDomainsResponse = ListDomainsResponse'{_ldrNextPageMarker = Nothing, _ldrDomains = mempty};
 
 -- | If there are more domains than you specified for @MaxItems@ in the
 -- request, submit another request and include the value of

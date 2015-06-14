@@ -97,11 +97,11 @@ instance ToQuery ListPresets where
 -- * 'lisNextPageToken'
 --
 -- * 'lisPresets'
-data ListPresetsResponse = ListPresetsResponse'{_lisNextPageToken :: Maybe Text, _lisPresets :: [Preset]} deriving (Eq, Read, Show)
+data ListPresetsResponse = ListPresetsResponse'{_lisNextPageToken :: Maybe Text, _lisPresets :: Maybe [Preset]} deriving (Eq, Read, Show)
 
 -- | 'ListPresetsResponse' smart constructor.
 listPresetsResponse :: ListPresetsResponse
-listPresetsResponse = ListPresetsResponse'{_lisNextPageToken = Nothing, _lisPresets = mempty};
+listPresetsResponse = ListPresetsResponse'{_lisNextPageToken = Nothing, _lisPresets = Nothing};
 
 -- | A value that you use to access the second and subsequent pages of
 -- results, if any. When the presets fit on one page or when you\'ve
@@ -111,5 +111,5 @@ lisNextPageToken :: Lens' ListPresetsResponse (Maybe Text)
 lisNextPageToken = lens _lisNextPageToken (\ s a -> s{_lisNextPageToken = a});
 
 -- | An array of @Preset@ objects.
-lisPresets :: Lens' ListPresetsResponse [Preset]
+lisPresets :: Lens' ListPresetsResponse (Maybe [Preset])
 lisPresets = lens _lisPresets (\ s a -> s{_lisPresets = a});

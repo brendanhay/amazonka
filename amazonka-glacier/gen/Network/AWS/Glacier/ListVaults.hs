@@ -128,11 +128,11 @@ instance ToQuery ListVaults where
 -- * 'lvrMarker'
 --
 -- * 'lvrVaultList'
-data ListVaultsResponse = ListVaultsResponse'{_lvrMarker :: Maybe Text, _lvrVaultList :: [DescribeVaultOutput]} deriving (Eq, Read, Show)
+data ListVaultsResponse = ListVaultsResponse'{_lvrMarker :: Maybe Text, _lvrVaultList :: Maybe [DescribeVaultOutput]} deriving (Eq, Read, Show)
 
 -- | 'ListVaultsResponse' smart constructor.
 listVaultsResponse :: ListVaultsResponse
-listVaultsResponse = ListVaultsResponse'{_lvrMarker = Nothing, _lvrVaultList = mempty};
+listVaultsResponse = ListVaultsResponse'{_lvrMarker = Nothing, _lvrVaultList = Nothing};
 
 -- | The vault ARN at which to continue pagination of the results. You use
 -- the marker in another List Vaults request to obtain more vaults in the
@@ -141,5 +141,5 @@ lvrMarker :: Lens' ListVaultsResponse (Maybe Text)
 lvrMarker = lens _lvrMarker (\ s a -> s{_lvrMarker = a});
 
 -- | List of vaults.
-lvrVaultList :: Lens' ListVaultsResponse [DescribeVaultOutput]
+lvrVaultList :: Lens' ListVaultsResponse (Maybe [DescribeVaultOutput])
 lvrVaultList = lens _lvrVaultList (\ s a -> s{_lvrVaultList = a});

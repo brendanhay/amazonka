@@ -101,14 +101,14 @@ instance ToQuery ListDomains where
 -- * 'ldrDomainNames'
 --
 -- * 'ldrNextToken'
-data ListDomainsResponse = ListDomainsResponse'{_ldrDomainNames :: [Text], _ldrNextToken :: Maybe Text} deriving (Eq, Read, Show)
+data ListDomainsResponse = ListDomainsResponse'{_ldrDomainNames :: Maybe [Text], _ldrNextToken :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ListDomainsResponse' smart constructor.
 listDomainsResponse :: ListDomainsResponse
-listDomainsResponse = ListDomainsResponse'{_ldrDomainNames = mempty, _ldrNextToken = Nothing};
+listDomainsResponse = ListDomainsResponse'{_ldrDomainNames = Nothing, _ldrNextToken = Nothing};
 
 -- | A list of domain names that match the expression.
-ldrDomainNames :: Lens' ListDomainsResponse [Text]
+ldrDomainNames :: Lens' ListDomainsResponse (Maybe [Text])
 ldrDomainNames = lens _ldrDomainNames (\ s a -> s{_ldrDomainNames = a});
 
 -- | An opaque token indicating that there are more domains than the

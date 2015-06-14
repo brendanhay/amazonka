@@ -36,9 +36,9 @@ module Network.AWS.IAM.UpdateUser
     -- ** Request constructor
     , updateUser
     -- ** Request lenses
-    , uuUserName
     , uuNewUserName
     , uuNewPath
+    , uuUserName
 
     -- * Response
     , UpdateUserResponse
@@ -55,31 +55,31 @@ import Network.AWS.IAM.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uuUserName'
---
 -- * 'uuNewUserName'
 --
 -- * 'uuNewPath'
-data UpdateUser = UpdateUser'{_uuUserName :: Text, _uuNewUserName :: Text, _uuNewPath :: Text} deriving (Eq, Read, Show)
+--
+-- * 'uuUserName'
+data UpdateUser = UpdateUser'{_uuNewUserName :: Maybe Text, _uuNewPath :: Maybe Text, _uuUserName :: Text} deriving (Eq, Read, Show)
 
 -- | 'UpdateUser' smart constructor.
-updateUser :: Text -> Text -> Text -> UpdateUser
-updateUser pUserName pNewUserName pNewPath = UpdateUser'{_uuUserName = pUserName, _uuNewUserName = pNewUserName, _uuNewPath = pNewPath};
+updateUser :: Text -> UpdateUser
+updateUser pUserName = UpdateUser'{_uuNewUserName = Nothing, _uuNewPath = Nothing, _uuUserName = pUserName};
+
+-- | New name for the user. Include this parameter only if you\'re changing
+-- the user\'s name.
+uuNewUserName :: Lens' UpdateUser (Maybe Text)
+uuNewUserName = lens _uuNewUserName (\ s a -> s{_uuNewUserName = a});
+
+-- | New path for the user. Include this parameter only if you\'re changing
+-- the user\'s path.
+uuNewPath :: Lens' UpdateUser (Maybe Text)
+uuNewPath = lens _uuNewPath (\ s a -> s{_uuNewPath = a});
 
 -- | Name of the user to update. If you\'re changing the name of the user,
 -- this is the original user name.
 uuUserName :: Lens' UpdateUser Text
 uuUserName = lens _uuUserName (\ s a -> s{_uuUserName = a});
-
--- | New name for the user. Include this parameter only if you\'re changing
--- the user\'s name.
-uuNewUserName :: Lens' UpdateUser Text
-uuNewUserName = lens _uuNewUserName (\ s a -> s{_uuNewUserName = a});
-
--- | New path for the user. Include this parameter only if you\'re changing
--- the user\'s path.
-uuNewPath :: Lens' UpdateUser Text
-uuNewPath = lens _uuNewPath (\ s a -> s{_uuNewPath = a});
 
 instance AWSRequest UpdateUser where
         type Sv UpdateUser = IAM
@@ -98,9 +98,8 @@ instance ToQuery UpdateUser where
           = mconcat
               ["Action" =: ("UpdateUser" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _uuUserName,
                "NewUserName" =: _uuNewUserName,
-               "NewPath" =: _uuNewPath]
+               "NewPath" =: _uuNewPath, "UserName" =: _uuUserName]
 
 -- | /See:/ 'updateUserResponse' smart constructor.
 data UpdateUserResponse = UpdateUserResponse' deriving (Eq, Read, Show)

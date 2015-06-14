@@ -75,12 +75,12 @@ instance ToQuery DescribeAdjustmentTypes where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'datrAdjustmentTypes'
-newtype DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse'{_datrAdjustmentTypes :: [AdjustmentType]} deriving (Eq, Read, Show)
+newtype DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse'{_datrAdjustmentTypes :: Maybe [AdjustmentType]} deriving (Eq, Read, Show)
 
 -- | 'DescribeAdjustmentTypesResponse' smart constructor.
 describeAdjustmentTypesResponse :: DescribeAdjustmentTypesResponse
-describeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse'{_datrAdjustmentTypes = mempty};
+describeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse'{_datrAdjustmentTypes = Nothing};
 
 -- | The policy adjustment types.
-datrAdjustmentTypes :: Lens' DescribeAdjustmentTypesResponse [AdjustmentType]
+datrAdjustmentTypes :: Lens' DescribeAdjustmentTypesResponse (Maybe [AdjustmentType])
 datrAdjustmentTypes = lens _datrAdjustmentTypes (\ s a -> s{_datrAdjustmentTypes = a});

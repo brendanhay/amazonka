@@ -30,9 +30,9 @@ module Network.AWS.ElasticFileSystem.DescribeTags
     -- ** Request constructor
     , describeTags
     -- ** Request lenses
+    , dtMaxItems
     , dtMarker
     , dtFileSystemId
-    , dtMaxItems
 
     -- * Response
     , DescribeTagsResponse
@@ -53,16 +53,21 @@ import Network.AWS.ElasticFileSystem.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'dtMaxItems'
+--
 -- * 'dtMarker'
 --
 -- * 'dtFileSystemId'
---
--- * 'dtMaxItems'
-data DescribeTags = DescribeTags'{_dtMarker :: Maybe Text, _dtFileSystemId :: Text, _dtMaxItems :: Nat} deriving (Eq, Read, Show)
+data DescribeTags = DescribeTags'{_dtMaxItems :: Maybe Nat, _dtMarker :: Maybe Text, _dtFileSystemId :: Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeTags' smart constructor.
-describeTags :: Text -> Natural -> DescribeTags
-describeTags pFileSystemId pMaxItems = DescribeTags'{_dtMarker = Nothing, _dtFileSystemId = pFileSystemId, _dtMaxItems = _Nat # pMaxItems};
+describeTags :: Text -> DescribeTags
+describeTags pFileSystemId = DescribeTags'{_dtMaxItems = Nothing, _dtMarker = Nothing, _dtFileSystemId = pFileSystemId};
+
+-- | Optional. Maximum number of file system tags to return in the response.
+-- It must be an integer with a value greater than zero.
+dtMaxItems :: Lens' DescribeTags (Maybe Natural)
+dtMaxItems = lens _dtMaxItems (\ s a -> s{_dtMaxItems = a}) . mapping _Nat;
 
 -- | Optional. String. Opaque pagination token returned from a previous
 -- @DescribeTags@ operation. If present, it specifies to continue the list
@@ -73,11 +78,6 @@ dtMarker = lens _dtMarker (\ s a -> s{_dtMarker = a});
 -- | The ID of the file system whose tag set you want to retrieve.
 dtFileSystemId :: Lens' DescribeTags Text
 dtFileSystemId = lens _dtFileSystemId (\ s a -> s{_dtFileSystemId = a});
-
--- | Optional. Maximum number of file system tags to return in the response.
--- It must be an integer with a value greater than zero.
-dtMaxItems :: Lens' DescribeTags Natural
-dtMaxItems = lens _dtMaxItems (\ s a -> s{_dtMaxItems = a}) . _Nat;
 
 instance AWSRequest DescribeTags where
         type Sv DescribeTags = ElasticFileSystem
@@ -101,7 +101,7 @@ instance ToPath DescribeTags where
 instance ToQuery DescribeTags where
         toQuery DescribeTags'{..}
           = mconcat
-              ["Marker" =: _dtMarker, "MaxItems" =: _dtMaxItems]
+              ["MaxItems" =: _dtMaxItems, "Marker" =: _dtMarker]
 
 -- | /See:/ 'describeTagsResponse' smart constructor.
 --
@@ -115,8 +115,8 @@ instance ToQuery DescribeTags where
 data DescribeTagsResponse = DescribeTagsResponse'{_dtrMarker :: Maybe Text, _dtrNextMarker :: Maybe Text, _dtrTags :: [Tag]} deriving (Eq, Read, Show)
 
 -- | 'DescribeTagsResponse' smart constructor.
-describeTagsResponse :: [Tag] -> DescribeTagsResponse
-describeTagsResponse pTags = DescribeTagsResponse'{_dtrMarker = Nothing, _dtrNextMarker = Nothing, _dtrTags = pTags};
+describeTagsResponse :: DescribeTagsResponse
+describeTagsResponse = DescribeTagsResponse'{_dtrMarker = Nothing, _dtrNextMarker = Nothing, _dtrTags = mempty};
 
 -- | If the request included a @Marker@, the response returns that value in
 -- this field.

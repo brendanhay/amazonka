@@ -29,8 +29,8 @@ module Network.AWS.IAM.CreateUser
     -- ** Request constructor
     , createUser
     -- ** Request lenses
-    , cuUserName
     , cuPath
+    , cuUserName
 
     -- * Response
     , CreateUserResponse
@@ -49,18 +49,14 @@ import Network.AWS.IAM.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cuUserName'
---
 -- * 'cuPath'
-data CreateUser = CreateUser'{_cuUserName :: Text, _cuPath :: Text} deriving (Eq, Read, Show)
+--
+-- * 'cuUserName'
+data CreateUser = CreateUser'{_cuPath :: Maybe Text, _cuUserName :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateUser' smart constructor.
-createUser :: Text -> Text -> CreateUser
-createUser pUserName pPath = CreateUser'{_cuUserName = pUserName, _cuPath = pPath};
-
--- | The name of the user to create.
-cuUserName :: Lens' CreateUser Text
-cuUserName = lens _cuUserName (\ s a -> s{_cuUserName = a});
+createUser :: Text -> CreateUser
+createUser pUserName = CreateUser'{_cuPath = Nothing, _cuUserName = pUserName};
 
 -- | The path for the user name. For more information about paths, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
@@ -68,8 +64,12 @@ cuUserName = lens _cuUserName (\ s a -> s{_cuUserName = a});
 --
 -- This parameter is optional. If it is not included, it defaults to a
 -- slash (\/).
-cuPath :: Lens' CreateUser Text
+cuPath :: Lens' CreateUser (Maybe Text)
 cuPath = lens _cuPath (\ s a -> s{_cuPath = a});
+
+-- | The name of the user to create.
+cuUserName :: Lens' CreateUser Text
+cuUserName = lens _cuUserName (\ s a -> s{_cuUserName = a});
 
 instance AWSRequest CreateUser where
         type Sv CreateUser = IAM
@@ -90,7 +90,7 @@ instance ToQuery CreateUser where
           = mconcat
               ["Action" =: ("CreateUser" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _cuUserName, "Path" =: _cuPath]
+               "Path" =: _cuPath, "UserName" =: _cuUserName]
 
 -- | /See:/ 'createUserResponse' smart constructor.
 --

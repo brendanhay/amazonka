@@ -52,9 +52,9 @@ module Network.AWS.ElasticFileSystem.DescribeFileSystems
     , describeFileSystems
     -- ** Request lenses
     , dfsFileSystemId
-    , dfsMarker
     , dfsMaxItems
     , dfsCreationToken
+    , dfsMarker
 
     -- * Response
     , DescribeFileSystemsResponse
@@ -77,40 +77,40 @@ import Network.AWS.ElasticFileSystem.Types
 --
 -- * 'dfsFileSystemId'
 --
--- * 'dfsMarker'
---
 -- * 'dfsMaxItems'
 --
 -- * 'dfsCreationToken'
-data DescribeFileSystems = DescribeFileSystems'{_dfsFileSystemId :: Maybe Text, _dfsMarker :: Maybe Text, _dfsMaxItems :: Nat, _dfsCreationToken :: Text} deriving (Eq, Read, Show)
+--
+-- * 'dfsMarker'
+data DescribeFileSystems = DescribeFileSystems'{_dfsFileSystemId :: Maybe Text, _dfsMaxItems :: Maybe Nat, _dfsCreationToken :: Maybe Text, _dfsMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeFileSystems' smart constructor.
-describeFileSystems :: Natural -> Text -> DescribeFileSystems
-describeFileSystems pMaxItems pCreationToken = DescribeFileSystems'{_dfsFileSystemId = Nothing, _dfsMarker = Nothing, _dfsMaxItems = _Nat # pMaxItems, _dfsCreationToken = pCreationToken};
+describeFileSystems :: DescribeFileSystems
+describeFileSystems = DescribeFileSystems'{_dfsFileSystemId = Nothing, _dfsMaxItems = Nothing, _dfsCreationToken = Nothing, _dfsMarker = Nothing};
 
 -- | Optional string. File system ID whose description you want to retrieve.
 dfsFileSystemId :: Lens' DescribeFileSystems (Maybe Text)
 dfsFileSystemId = lens _dfsFileSystemId (\ s a -> s{_dfsFileSystemId = a});
-
--- | Optional string. Opaque pagination token returned from a previous
--- @DescribeFileSystems@ operation. If present, specifies to continue the
--- list from where the returning call had left off.
-dfsMarker :: Lens' DescribeFileSystems (Maybe Text)
-dfsMarker = lens _dfsMarker (\ s a -> s{_dfsMarker = a});
 
 -- | Optional integer. Specifies the maximum number of file systems to return
 -- in the response. This parameter value must be greater than 0. The number
 -- of items Amazon EFS returns will be the minimum of the @MaxItems@
 -- parameter specified in the request and the service\'s internal maximum
 -- number of items per page.
-dfsMaxItems :: Lens' DescribeFileSystems Natural
-dfsMaxItems = lens _dfsMaxItems (\ s a -> s{_dfsMaxItems = a}) . _Nat;
+dfsMaxItems :: Lens' DescribeFileSystems (Maybe Natural)
+dfsMaxItems = lens _dfsMaxItems (\ s a -> s{_dfsMaxItems = a}) . mapping _Nat;
 
 -- | Optional string. Restricts the list to the file system with this
 -- creation token (you specify a creation token at the time of creating an
 -- Amazon EFS file system).
-dfsCreationToken :: Lens' DescribeFileSystems Text
+dfsCreationToken :: Lens' DescribeFileSystems (Maybe Text)
 dfsCreationToken = lens _dfsCreationToken (\ s a -> s{_dfsCreationToken = a});
+
+-- | Optional string. Opaque pagination token returned from a previous
+-- @DescribeFileSystems@ operation. If present, specifies to continue the
+-- list from where the returning call had left off.
+dfsMarker :: Lens' DescribeFileSystems (Maybe Text)
+dfsMarker = lens _dfsMarker (\ s a -> s{_dfsMarker = a});
 
 instance AWSRequest DescribeFileSystems where
         type Sv DescribeFileSystems = ElasticFileSystem
@@ -134,8 +134,9 @@ instance ToQuery DescribeFileSystems where
         toQuery DescribeFileSystems'{..}
           = mconcat
               ["FileSystemId" =: _dfsFileSystemId,
-               "Marker" =: _dfsMarker, "MaxItems" =: _dfsMaxItems,
-               "CreationToken" =: _dfsCreationToken]
+               "MaxItems" =: _dfsMaxItems,
+               "CreationToken" =: _dfsCreationToken,
+               "Marker" =: _dfsMarker]
 
 -- | /See:/ 'describeFileSystemsResponse' smart constructor.
 --
@@ -146,14 +147,14 @@ instance ToQuery DescribeFileSystems where
 -- * 'dfsrMarker'
 --
 -- * 'dfsrNextMarker'
-data DescribeFileSystemsResponse = DescribeFileSystemsResponse'{_dfsrFileSystems :: [FileSystemDescription], _dfsrMarker :: Maybe Text, _dfsrNextMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeFileSystemsResponse = DescribeFileSystemsResponse'{_dfsrFileSystems :: Maybe [FileSystemDescription], _dfsrMarker :: Maybe Text, _dfsrNextMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeFileSystemsResponse' smart constructor.
 describeFileSystemsResponse :: DescribeFileSystemsResponse
-describeFileSystemsResponse = DescribeFileSystemsResponse'{_dfsrFileSystems = mempty, _dfsrMarker = Nothing, _dfsrNextMarker = Nothing};
+describeFileSystemsResponse = DescribeFileSystemsResponse'{_dfsrFileSystems = Nothing, _dfsrMarker = Nothing, _dfsrNextMarker = Nothing};
 
 -- | An array of file system descriptions.
-dfsrFileSystems :: Lens' DescribeFileSystemsResponse [FileSystemDescription]
+dfsrFileSystems :: Lens' DescribeFileSystemsResponse (Maybe [FileSystemDescription])
 dfsrFileSystems = lens _dfsrFileSystems (\ s a -> s{_dfsrFileSystems = a});
 
 -- | A string, present if provided by caller in the request.

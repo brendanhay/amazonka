@@ -73,11 +73,11 @@ import Network.AWS.Redshift.Types
 -- * 'dcsgMaxRecords'
 --
 -- * 'dcsgMarker'
-data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups'{_dcsgTagValues :: [Text], _dcsgTagKeys :: [Text], _dcsgClusterSecurityGroupName :: Maybe Text, _dcsgMaxRecords :: Maybe Int, _dcsgMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups'{_dcsgTagValues :: Maybe [Text], _dcsgTagKeys :: Maybe [Text], _dcsgClusterSecurityGroupName :: Maybe Text, _dcsgMaxRecords :: Maybe Int, _dcsgMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeClusterSecurityGroups' smart constructor.
 describeClusterSecurityGroups :: DescribeClusterSecurityGroups
-describeClusterSecurityGroups = DescribeClusterSecurityGroups'{_dcsgTagValues = mempty, _dcsgTagKeys = mempty, _dcsgClusterSecurityGroupName = Nothing, _dcsgMaxRecords = Nothing, _dcsgMarker = Nothing};
+describeClusterSecurityGroups = DescribeClusterSecurityGroups'{_dcsgTagValues = Nothing, _dcsgTagKeys = Nothing, _dcsgClusterSecurityGroupName = Nothing, _dcsgMaxRecords = Nothing, _dcsgMarker = Nothing};
 
 -- | A tag value or values for which you want to return all matching cluster
 -- security groups that are associated with the specified tag value or
@@ -86,7 +86,7 @@ describeClusterSecurityGroups = DescribeClusterSecurityGroups'{_dcsgTagValues = 
 -- these tag values in the request, Amazon Redshift returns a response with
 -- the security groups that have either or both of these tag values
 -- associated with them.
-dcsgTagValues :: Lens' DescribeClusterSecurityGroups [Text]
+dcsgTagValues :: Lens' DescribeClusterSecurityGroups (Maybe [Text])
 dcsgTagValues = lens _dcsgTagValues (\ s a -> s{_dcsgTagValues = a});
 
 -- | A tag key or keys for which you want to return all matching cluster
@@ -95,7 +95,7 @@ dcsgTagValues = lens _dcsgTagValues (\ s a -> s{_dcsgTagValues = a});
 -- called @owner@ and @environment@. If you specify both of these tag keys
 -- in the request, Amazon Redshift returns a response with the security
 -- groups that have either or both of these tag keys associated with them.
-dcsgTagKeys :: Lens' DescribeClusterSecurityGroups [Text]
+dcsgTagKeys :: Lens' DescribeClusterSecurityGroups (Maybe [Text])
 dcsgTagKeys = lens _dcsgTagKeys (\ s a -> s{_dcsgTagKeys = a});
 
 -- | The name of a cluster security group for which you are requesting
@@ -172,14 +172,14 @@ instance ToQuery DescribeClusterSecurityGroups where
 -- * 'dcsgr1ClusterSecurityGroups'
 --
 -- * 'dcsgr1Marker'
-data DescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse'{_dcsgr1ClusterSecurityGroups :: [ClusterSecurityGroup], _dcsgr1Marker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse'{_dcsgr1ClusterSecurityGroups :: Maybe [ClusterSecurityGroup], _dcsgr1Marker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeClusterSecurityGroupsResponse' smart constructor.
 describeClusterSecurityGroupsResponse :: DescribeClusterSecurityGroupsResponse
-describeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse'{_dcsgr1ClusterSecurityGroups = mempty, _dcsgr1Marker = Nothing};
+describeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse'{_dcsgr1ClusterSecurityGroups = Nothing, _dcsgr1Marker = Nothing};
 
 -- | A list of ClusterSecurityGroup instances.
-dcsgr1ClusterSecurityGroups :: Lens' DescribeClusterSecurityGroupsResponse [ClusterSecurityGroup]
+dcsgr1ClusterSecurityGroups :: Lens' DescribeClusterSecurityGroupsResponse (Maybe [ClusterSecurityGroup])
 dcsgr1ClusterSecurityGroups = lens _dcsgr1ClusterSecurityGroups (\ s a -> s{_dcsgr1ClusterSecurityGroups = a});
 
 -- | A value that indicates the starting point for the next set of response

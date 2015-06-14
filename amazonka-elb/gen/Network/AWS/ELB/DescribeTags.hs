@@ -84,12 +84,12 @@ instance ToQuery DescribeTags where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dtrTagDescriptions'
-newtype DescribeTagsResponse = DescribeTagsResponse'{_dtrTagDescriptions :: [TagDescription]} deriving (Eq, Read, Show)
+newtype DescribeTagsResponse = DescribeTagsResponse'{_dtrTagDescriptions :: Maybe [TagDescription]} deriving (Eq, Read, Show)
 
 -- | 'DescribeTagsResponse' smart constructor.
 describeTagsResponse :: DescribeTagsResponse
-describeTagsResponse = DescribeTagsResponse'{_dtrTagDescriptions = mempty};
+describeTagsResponse = DescribeTagsResponse'{_dtrTagDescriptions = Nothing};
 
 -- | Information about the tags.
-dtrTagDescriptions :: Lens' DescribeTagsResponse [TagDescription]
+dtrTagDescriptions :: Lens' DescribeTagsResponse (Maybe [TagDescription])
 dtrTagDescriptions = lens _dtrTagDescriptions (\ s a -> s{_dtrTagDescriptions = a});

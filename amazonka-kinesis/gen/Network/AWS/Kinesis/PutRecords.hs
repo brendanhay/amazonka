@@ -90,8 +90,8 @@ module Network.AWS.Kinesis.PutRecords
     -- ** Response constructor
     , putRecordsResponse
     -- ** Response lenses
-    , prrRecords
     , prrFailedRecordCount
+    , prrRecords
     ) where
 
 import Network.AWS.Request
@@ -128,7 +128,7 @@ instance AWSRequest PutRecords where
           = receiveJSON
               (\ s h x ->
                  PutRecordsResponse' <$>
-                   x .:> "Records" <*> x .:> "FailedRecordCount")
+                   x .?> "FailedRecordCount" <*> x .:> "Records")
 
 instance ToHeaders PutRecords where
         toHeaders
@@ -155,14 +155,19 @@ instance ToQuery PutRecords where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'prrRecords'
---
 -- * 'prrFailedRecordCount'
-data PutRecordsResponse = PutRecordsResponse'{_prrRecords :: List1 PutRecordsResultEntry, _prrFailedRecordCount :: Nat} deriving (Eq, Read, Show)
+--
+-- * 'prrRecords'
+data PutRecordsResponse = PutRecordsResponse'{_prrFailedRecordCount :: Maybe Nat, _prrRecords :: List1 PutRecordsResultEntry} deriving (Eq, Read, Show)
 
 -- | 'PutRecordsResponse' smart constructor.
-putRecordsResponse :: NonEmpty PutRecordsResultEntry -> Natural -> PutRecordsResponse
-putRecordsResponse pRecords pFailedRecordCount = PutRecordsResponse'{_prrRecords = _List1 # pRecords, _prrFailedRecordCount = _Nat # pFailedRecordCount};
+putRecordsResponse :: NonEmpty PutRecordsResultEntry -> PutRecordsResponse
+putRecordsResponse pRecords = PutRecordsResponse'{_prrFailedRecordCount = Nothing, _prrRecords = _List1 # pRecords};
+
+-- | The number of unsuccessfully processed records in a @PutRecords@
+-- request.
+prrFailedRecordCount :: Lens' PutRecordsResponse (Maybe Natural)
+prrFailedRecordCount = lens _prrFailedRecordCount (\ s a -> s{_prrFailedRecordCount = a}) . mapping _Nat;
 
 -- | An array of successfully and unsuccessfully processed record results,
 -- correlated with the request by natural ordering. A record that is
@@ -172,8 +177,3 @@ putRecordsResponse pRecords pFailedRecordCount = PutRecordsResponse'{_prrRecords
 -- @ErrorMessage@ in the result.
 prrRecords :: Lens' PutRecordsResponse (NonEmpty PutRecordsResultEntry)
 prrRecords = lens _prrRecords (\ s a -> s{_prrRecords = a}) . _List1;
-
--- | The number of unsuccessfully processed records in a @PutRecords@
--- request.
-prrFailedRecordCount :: Lens' PutRecordsResponse Natural
-prrFailedRecordCount = lens _prrFailedRecordCount (\ s a -> s{_prrFailedRecordCount = a}) . _Nat;

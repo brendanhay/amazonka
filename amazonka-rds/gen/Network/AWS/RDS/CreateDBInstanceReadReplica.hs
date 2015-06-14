@@ -85,11 +85,11 @@ import Network.AWS.RDS.Types
 -- * 'cdirrDBInstanceIdentifier'
 --
 -- * 'cdirrSourceDBInstanceIdentifier'
-data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'{_cdirrAutoMinorVersionUpgrade :: Maybe Bool, _cdirrPubliclyAccessible :: Maybe Bool, _cdirrDBSubnetGroupName :: Maybe Text, _cdirrIOPS :: Maybe Int, _cdirrDBInstanceClass :: Maybe Text, _cdirrAvailabilityZone :: Maybe Text, _cdirrOptionGroupName :: Maybe Text, _cdirrTags :: [Tag], _cdirrPort :: Maybe Int, _cdirrStorageType :: Maybe Text, _cdirrDBInstanceIdentifier :: Text, _cdirrSourceDBInstanceIdentifier :: Text} deriving (Eq, Read, Show)
+data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'{_cdirrAutoMinorVersionUpgrade :: Maybe Bool, _cdirrPubliclyAccessible :: Maybe Bool, _cdirrDBSubnetGroupName :: Maybe Text, _cdirrIOPS :: Maybe Int, _cdirrDBInstanceClass :: Maybe Text, _cdirrAvailabilityZone :: Maybe Text, _cdirrOptionGroupName :: Maybe Text, _cdirrTags :: Maybe [Tag], _cdirrPort :: Maybe Int, _cdirrStorageType :: Maybe Text, _cdirrDBInstanceIdentifier :: Text, _cdirrSourceDBInstanceIdentifier :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateDBInstanceReadReplica' smart constructor.
 createDBInstanceReadReplica :: Text -> Text -> CreateDBInstanceReadReplica
-createDBInstanceReadReplica pDBInstanceIdentifier pSourceDBInstanceIdentifier = CreateDBInstanceReadReplica'{_cdirrAutoMinorVersionUpgrade = Nothing, _cdirrPubliclyAccessible = Nothing, _cdirrDBSubnetGroupName = Nothing, _cdirrIOPS = Nothing, _cdirrDBInstanceClass = Nothing, _cdirrAvailabilityZone = Nothing, _cdirrOptionGroupName = Nothing, _cdirrTags = mempty, _cdirrPort = Nothing, _cdirrStorageType = Nothing, _cdirrDBInstanceIdentifier = pDBInstanceIdentifier, _cdirrSourceDBInstanceIdentifier = pSourceDBInstanceIdentifier};
+createDBInstanceReadReplica pDBInstanceIdentifier pSourceDBInstanceIdentifier = CreateDBInstanceReadReplica'{_cdirrAutoMinorVersionUpgrade = Nothing, _cdirrPubliclyAccessible = Nothing, _cdirrDBSubnetGroupName = Nothing, _cdirrIOPS = Nothing, _cdirrDBInstanceClass = Nothing, _cdirrAvailabilityZone = Nothing, _cdirrOptionGroupName = Nothing, _cdirrTags = Nothing, _cdirrPort = Nothing, _cdirrStorageType = Nothing, _cdirrDBInstanceIdentifier = pDBInstanceIdentifier, _cdirrSourceDBInstanceIdentifier = pSourceDBInstanceIdentifier};
 
 -- | Indicates that minor engine upgrades will be applied automatically to
 -- the Read Replica during the maintenance window.
@@ -169,7 +169,7 @@ cdirrOptionGroupName :: Lens' CreateDBInstanceReadReplica (Maybe Text)
 cdirrOptionGroupName = lens _cdirrOptionGroupName (\ s a -> s{_cdirrOptionGroupName = a});
 
 -- | FIXME: Undocumented member.
-cdirrTags :: Lens' CreateDBInstanceReadReplica [Tag]
+cdirrTags :: Lens' CreateDBInstanceReadReplica (Maybe [Tag])
 cdirrTags = lens _cdirrTags (\ s a -> s{_cdirrTags = a});
 
 -- | The port number that the DB instance uses for connections.

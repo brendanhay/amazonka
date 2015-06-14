@@ -61,8 +61,8 @@ module Network.AWS.Route53.Types
     , DelegationSet
     , delegationSet
     , dsId
-    , dsNameServers
     , dsCallerReference
+    , dsNameServers
 
     -- * Failover
     , Failover (..)
@@ -96,13 +96,13 @@ module Network.AWS.Route53.Types
     , HealthCheckConfig
     , healthCheckConfig
     , hccIPAddress
+    , hccFailureThreshold
     , hccSearchString
     , hccResourcePath
     , hccFullyQualifiedDomainName
-    , hccType
-    , hccFailureThreshold
     , hccRequestInterval
     , hccPort
+    , hccType
 
     -- * HealthCheckObservation
     , HealthCheckObservation
@@ -142,14 +142,14 @@ module Network.AWS.Route53.Types
     , rrsTTL
     , rrsAliasTarget
     , rrsWeight
+    , rrsSetIdentifier
     , rrsFailover
     , rrsHealthCheckId
+    , rrsRegion
     , rrsGeoLocation
     , rrsName
     , rrsType
     , rrsResourceRecords
-    , rrsSetIdentifier
-    , rrsRegion
 
     -- * ResourceTagSet
     , ResourceTagSet
@@ -176,8 +176,8 @@ module Network.AWS.Route53.Types
     -- * VPC
     , VPC
     , vpc
-    , vpcVPCId
     , vpcVPCRegion
+    , vpcVPCId
 
     -- * VPCRegion
     , VPCRegion (..)
@@ -439,18 +439,22 @@ instance FromXML ChangeStatus where
 --
 -- * 'dsId'
 --
--- * 'dsNameServers'
---
 -- * 'dsCallerReference'
-data DelegationSet = DelegationSet'{_dsId :: Maybe Text, _dsNameServers :: List1 Text, _dsCallerReference :: Text} deriving (Eq, Read, Show)
+--
+-- * 'dsNameServers'
+data DelegationSet = DelegationSet'{_dsId :: Maybe Text, _dsCallerReference :: Maybe Text, _dsNameServers :: List1 Text} deriving (Eq, Read, Show)
 
 -- | 'DelegationSet' smart constructor.
-delegationSet :: NonEmpty Text -> Text -> DelegationSet
-delegationSet pNameServers pCallerReference = DelegationSet'{_dsId = Nothing, _dsNameServers = _List1 # pNameServers, _dsCallerReference = pCallerReference};
+delegationSet :: NonEmpty Text -> DelegationSet
+delegationSet pNameServers = DelegationSet'{_dsId = Nothing, _dsCallerReference = Nothing, _dsNameServers = _List1 # pNameServers};
 
 -- | FIXME: Undocumented member.
 dsId :: Lens' DelegationSet (Maybe Text)
 dsId = lens _dsId (\ s a -> s{_dsId = a});
+
+-- | FIXME: Undocumented member.
+dsCallerReference :: Lens' DelegationSet (Maybe Text)
+dsCallerReference = lens _dsCallerReference (\ s a -> s{_dsCallerReference = a});
 
 -- | A complex type that contains the authoritative name servers for the
 -- hosted zone. Use the method provided by your domain registrar to add an
@@ -459,17 +463,12 @@ dsId = lens _dsId (\ s a -> s{_dsId = a});
 dsNameServers :: Lens' DelegationSet (NonEmpty Text)
 dsNameServers = lens _dsNameServers (\ s a -> s{_dsNameServers = a}) . _List1;
 
--- | FIXME: Undocumented member.
-dsCallerReference :: Lens' DelegationSet Text
-dsCallerReference = lens _dsCallerReference (\ s a -> s{_dsCallerReference = a});
-
 instance FromXML DelegationSet where
         parseXML x
           = DelegationSet' <$>
-              x .@? "Id" <*>
+              x .@? "Id" <*> x .@? "CallerReference" <*>
                 (x .@? "NameServers" .!@ mempty >>=
                    parseXMLList1 "NameServer")
-                <*> x .@ "CallerReference"
 
 data Failover = Secondary | Primary deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -503,18 +502,18 @@ instance ToXML Failover where
 -- * 'glCountryCode'
 --
 -- * 'glContinentCode'
-data GeoLocation = GeoLocation'{_glSubdivisionCode :: Text, _glCountryCode :: Text, _glContinentCode :: Text} deriving (Eq, Read, Show)
+data GeoLocation = GeoLocation'{_glSubdivisionCode :: Maybe Text, _glCountryCode :: Maybe Text, _glContinentCode :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'GeoLocation' smart constructor.
-geoLocation :: Text -> Text -> Text -> GeoLocation
-geoLocation pSubdivisionCode pCountryCode pContinentCode = GeoLocation'{_glSubdivisionCode = pSubdivisionCode, _glCountryCode = pCountryCode, _glContinentCode = pContinentCode};
+geoLocation :: GeoLocation
+geoLocation = GeoLocation'{_glSubdivisionCode = Nothing, _glCountryCode = Nothing, _glContinentCode = Nothing};
 
 -- | The code for a country\'s subdivision (e.g., a province of Canada). A
 -- subdivision code is only valid with the appropriate country code.
 --
 -- Constraint: Specifying @SubdivisionCode@ without @CountryCode@ returns
 -- an InvalidInput error.
-glSubdivisionCode :: Lens' GeoLocation Text
+glSubdivisionCode :: Lens' GeoLocation (Maybe Text)
 glSubdivisionCode = lens _glSubdivisionCode (\ s a -> s{_glSubdivisionCode = a});
 
 -- | The code for a country geo location. The default location uses \'*\' for
@@ -523,7 +522,7 @@ glSubdivisionCode = lens _glSubdivisionCode (\ s a -> s{_glSubdivisionCode = a})
 --
 -- The default geo location uses a @*@ for the country code. All other
 -- country codes follow the ISO 3166 two-character code.
-glCountryCode :: Lens' GeoLocation Text
+glCountryCode :: Lens' GeoLocation (Maybe Text)
 glCountryCode = lens _glCountryCode (\ s a -> s{_glCountryCode = a});
 
 -- | The code for a continent geo location. Note: only continent locations
@@ -533,14 +532,14 @@ glCountryCode = lens _glCountryCode (\ s a -> s{_glCountryCode = a});
 --
 -- Constraint: Specifying @ContinentCode@ with either @CountryCode@ or
 -- @SubdivisionCode@ returns an InvalidInput error.
-glContinentCode :: Lens' GeoLocation Text
+glContinentCode :: Lens' GeoLocation (Maybe Text)
 glContinentCode = lens _glContinentCode (\ s a -> s{_glContinentCode = a});
 
 instance FromXML GeoLocation where
         parseXML x
           = GeoLocation' <$>
-              x .@ "SubdivisionCode" <*> x .@ "CountryCode" <*>
-                x .@ "ContinentCode"
+              x .@? "SubdivisionCode" <*> x .@? "CountryCode" <*>
+                x .@? "ContinentCode"
 
 instance ToXML GeoLocation where
         toXML GeoLocation'{..}
@@ -564,25 +563,25 @@ instance ToXML GeoLocation where
 -- * 'gldContinentCode'
 --
 -- * 'gldContinentName'
-data GeoLocationDetails = GeoLocationDetails'{_gldSubdivisionName :: Text, _gldSubdivisionCode :: Text, _gldCountryName :: Text, _gldCountryCode :: Text, _gldContinentCode :: Text, _gldContinentName :: Text} deriving (Eq, Read, Show)
+data GeoLocationDetails = GeoLocationDetails'{_gldSubdivisionName :: Maybe Text, _gldSubdivisionCode :: Maybe Text, _gldCountryName :: Maybe Text, _gldCountryCode :: Maybe Text, _gldContinentCode :: Maybe Text, _gldContinentName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'GeoLocationDetails' smart constructor.
-geoLocationDetails :: Text -> Text -> Text -> Text -> Text -> Text -> GeoLocationDetails
-geoLocationDetails pSubdivisionName pSubdivisionCode pCountryName pCountryCode pContinentCode pContinentName = GeoLocationDetails'{_gldSubdivisionName = pSubdivisionName, _gldSubdivisionCode = pSubdivisionCode, _gldCountryName = pCountryName, _gldCountryCode = pCountryCode, _gldContinentCode = pContinentCode, _gldContinentName = pContinentName};
+geoLocationDetails :: GeoLocationDetails
+geoLocationDetails = GeoLocationDetails'{_gldSubdivisionName = Nothing, _gldSubdivisionCode = Nothing, _gldCountryName = Nothing, _gldCountryCode = Nothing, _gldContinentCode = Nothing, _gldContinentName = Nothing};
 
 -- | The name of the subdivision. This element is only present if
 -- @SubdivisionCode@ is also present.
-gldSubdivisionName :: Lens' GeoLocationDetails Text
+gldSubdivisionName :: Lens' GeoLocationDetails (Maybe Text)
 gldSubdivisionName = lens _gldSubdivisionName (\ s a -> s{_gldSubdivisionName = a});
 
 -- | The code for a country\'s subdivision (e.g., a province of Canada). A
 -- subdivision code is only valid with the appropriate country code.
-gldSubdivisionCode :: Lens' GeoLocationDetails Text
+gldSubdivisionCode :: Lens' GeoLocationDetails (Maybe Text)
 gldSubdivisionCode = lens _gldSubdivisionCode (\ s a -> s{_gldSubdivisionCode = a});
 
 -- | The name of the country. This element is only present if @CountryCode@
 -- is also present.
-gldCountryName :: Lens' GeoLocationDetails Text
+gldCountryName :: Lens' GeoLocationDetails (Maybe Text)
 gldCountryName = lens _gldCountryName (\ s a -> s{_gldCountryName = a});
 
 -- | The code for a country geo location. The default location uses \'*\' for
@@ -591,27 +590,27 @@ gldCountryName = lens _gldCountryName (\ s a -> s{_gldCountryName = a});
 --
 -- The default geo location uses a @*@ for the country code. All other
 -- country codes follow the ISO 3166 two-character code.
-gldCountryCode :: Lens' GeoLocationDetails Text
+gldCountryCode :: Lens' GeoLocationDetails (Maybe Text)
 gldCountryCode = lens _gldCountryCode (\ s a -> s{_gldCountryCode = a});
 
 -- | The code for a continent geo location. Note: only continent locations
 -- have a continent code.
-gldContinentCode :: Lens' GeoLocationDetails Text
+gldContinentCode :: Lens' GeoLocationDetails (Maybe Text)
 gldContinentCode = lens _gldContinentCode (\ s a -> s{_gldContinentCode = a});
 
 -- | The name of the continent. This element is only present if
 -- @ContinentCode@ is also present.
-gldContinentName :: Lens' GeoLocationDetails Text
+gldContinentName :: Lens' GeoLocationDetails (Maybe Text)
 gldContinentName = lens _gldContinentName (\ s a -> s{_gldContinentName = a});
 
 instance FromXML GeoLocationDetails where
         parseXML x
           = GeoLocationDetails' <$>
-              x .@ "SubdivisionName" <*> x .@ "SubdivisionCode" <*>
-                x .@ "CountryName"
-                <*> x .@ "CountryCode"
-                <*> x .@ "ContinentCode"
-                <*> x .@ "ContinentName"
+              x .@? "SubdivisionName" <*> x .@? "SubdivisionCode"
+                <*> x .@? "CountryName"
+                <*> x .@? "CountryCode"
+                <*> x .@? "ContinentCode"
+                <*> x .@? "ContinentName"
 
 -- | /See:/ 'healthCheck' smart constructor.
 --
@@ -661,28 +660,38 @@ instance FromXML HealthCheck where
 --
 -- * 'hccIPAddress'
 --
+-- * 'hccFailureThreshold'
+--
 -- * 'hccSearchString'
 --
 -- * 'hccResourcePath'
 --
 -- * 'hccFullyQualifiedDomainName'
 --
--- * 'hccType'
---
--- * 'hccFailureThreshold'
---
 -- * 'hccRequestInterval'
 --
 -- * 'hccPort'
-data HealthCheckConfig = HealthCheckConfig'{_hccIPAddress :: Maybe Text, _hccSearchString :: Maybe Text, _hccResourcePath :: Maybe Text, _hccFullyQualifiedDomainName :: Maybe Text, _hccType :: HealthCheckType, _hccFailureThreshold :: Nat, _hccRequestInterval :: Nat, _hccPort :: Nat} deriving (Eq, Read, Show)
+--
+-- * 'hccType'
+data HealthCheckConfig = HealthCheckConfig'{_hccIPAddress :: Maybe Text, _hccFailureThreshold :: Maybe Nat, _hccSearchString :: Maybe Text, _hccResourcePath :: Maybe Text, _hccFullyQualifiedDomainName :: Maybe Text, _hccRequestInterval :: Maybe Nat, _hccPort :: Maybe Nat, _hccType :: HealthCheckType} deriving (Eq, Read, Show)
 
 -- | 'HealthCheckConfig' smart constructor.
-healthCheckConfig :: HealthCheckType -> Natural -> Natural -> Natural -> HealthCheckConfig
-healthCheckConfig pType' pFailureThreshold pRequestInterval pPort = HealthCheckConfig'{_hccIPAddress = Nothing, _hccSearchString = Nothing, _hccResourcePath = Nothing, _hccFullyQualifiedDomainName = Nothing, _hccType = pType', _hccFailureThreshold = _Nat # pFailureThreshold, _hccRequestInterval = _Nat # pRequestInterval, _hccPort = _Nat # pPort};
+healthCheckConfig :: HealthCheckType -> HealthCheckConfig
+healthCheckConfig pType = HealthCheckConfig'{_hccIPAddress = Nothing, _hccFailureThreshold = Nothing, _hccSearchString = Nothing, _hccResourcePath = Nothing, _hccFullyQualifiedDomainName = Nothing, _hccRequestInterval = Nothing, _hccPort = Nothing, _hccType = pType};
 
 -- | IP Address of the instance being checked.
 hccIPAddress :: Lens' HealthCheckConfig (Maybe Text)
 hccIPAddress = lens _hccIPAddress (\ s a -> s{_hccIPAddress = a});
+
+-- | The number of consecutive health checks that an endpoint must pass or
+-- fail for Route 53 to change the current status of the endpoint from
+-- unhealthy to healthy or vice versa.
+--
+-- Valid values are integers between 1 and 10. For more information, see
+-- \"How Amazon Route 53 Determines Whether an Endpoint Is Healthy\" in the
+-- Amazon Route 53 Developer Guide.
+hccFailureThreshold :: Lens' HealthCheckConfig (Maybe Natural)
+hccFailureThreshold = lens _hccFailureThreshold (\ s a -> s{_hccFailureThreshold = a}) . mapping _Nat;
 
 -- | A string to search for in the body of a health check response. Required
 -- for HTTP_STR_MATCH and HTTPS_STR_MATCH health checks.
@@ -699,60 +708,49 @@ hccResourcePath = lens _hccResourcePath (\ s a -> s{_hccResourcePath = a});
 hccFullyQualifiedDomainName :: Lens' HealthCheckConfig (Maybe Text)
 hccFullyQualifiedDomainName = lens _hccFullyQualifiedDomainName (\ s a -> s{_hccFullyQualifiedDomainName = a});
 
--- | The type of health check to be performed. Currently supported types are
--- TCP, HTTP, HTTPS, HTTP_STR_MATCH, and HTTPS_STR_MATCH.
-hccType :: Lens' HealthCheckConfig HealthCheckType
-hccType = lens _hccType (\ s a -> s{_hccType = a});
-
--- | The number of consecutive health checks that an endpoint must pass or
--- fail for Route 53 to change the current status of the endpoint from
--- unhealthy to healthy or vice versa.
---
--- Valid values are integers between 1 and 10. For more information, see
--- \"How Amazon Route 53 Determines Whether an Endpoint Is Healthy\" in the
--- Amazon Route 53 Developer Guide.
-hccFailureThreshold :: Lens' HealthCheckConfig Natural
-hccFailureThreshold = lens _hccFailureThreshold (\ s a -> s{_hccFailureThreshold = a}) . _Nat;
-
 -- | The number of seconds between the time that Route 53 gets a response
 -- from your endpoint and the time that it sends the next health-check
 -- request.
 --
 -- Each Route 53 health checker makes requests at this interval. Valid
 -- values are 10 and 30. The default value is 30.
-hccRequestInterval :: Lens' HealthCheckConfig Natural
-hccRequestInterval = lens _hccRequestInterval (\ s a -> s{_hccRequestInterval = a}) . _Nat;
+hccRequestInterval :: Lens' HealthCheckConfig (Maybe Natural)
+hccRequestInterval = lens _hccRequestInterval (\ s a -> s{_hccRequestInterval = a}) . mapping _Nat;
 
 -- | Port on which connection will be opened to the instance to health check.
 -- For HTTP and HTTP_STR_MATCH this defaults to 80 if the port is not
 -- specified. For HTTPS and HTTPS_STR_MATCH this defaults to 443 if the
 -- port is not specified.
-hccPort :: Lens' HealthCheckConfig Natural
-hccPort = lens _hccPort (\ s a -> s{_hccPort = a}) . _Nat;
+hccPort :: Lens' HealthCheckConfig (Maybe Natural)
+hccPort = lens _hccPort (\ s a -> s{_hccPort = a}) . mapping _Nat;
+
+-- | The type of health check to be performed. Currently supported types are
+-- TCP, HTTP, HTTPS, HTTP_STR_MATCH, and HTTPS_STR_MATCH.
+hccType :: Lens' HealthCheckConfig HealthCheckType
+hccType = lens _hccType (\ s a -> s{_hccType = a});
 
 instance FromXML HealthCheckConfig where
         parseXML x
           = HealthCheckConfig' <$>
-              x .@? "IPAddress" <*> x .@? "SearchString" <*>
-                x .@? "ResourcePath"
+              x .@? "IPAddress" <*> x .@? "FailureThreshold" <*>
+                x .@? "SearchString"
+                <*> x .@? "ResourcePath"
                 <*> x .@? "FullyQualifiedDomainName"
+                <*> x .@? "RequestInterval"
+                <*> x .@? "Port"
                 <*> x .@ "Type"
-                <*> x .@ "FailureThreshold"
-                <*> x .@ "RequestInterval"
-                <*> x .@ "Port"
 
 instance ToXML HealthCheckConfig where
         toXML HealthCheckConfig'{..}
           = mconcat
               ["IPAddress" @= _hccIPAddress,
+               "FailureThreshold" @= _hccFailureThreshold,
                "SearchString" @= _hccSearchString,
                "ResourcePath" @= _hccResourcePath,
                "FullyQualifiedDomainName" @=
                  _hccFullyQualifiedDomainName,
-               "Type" @= _hccType,
-               "FailureThreshold" @= _hccFailureThreshold,
                "RequestInterval" @= _hccRequestInterval,
-               "Port" @= _hccPort]
+               "Port" @= _hccPort, "Type" @= _hccType]
 
 -- | /See:/ 'healthCheckObservation' smart constructor.
 --
@@ -972,9 +970,13 @@ instance ToXML ResourceRecord where
 --
 -- * 'rrsWeight'
 --
+-- * 'rrsSetIdentifier'
+--
 -- * 'rrsFailover'
 --
 -- * 'rrsHealthCheckId'
+--
+-- * 'rrsRegion'
 --
 -- * 'rrsGeoLocation'
 --
@@ -983,15 +985,11 @@ instance ToXML ResourceRecord where
 -- * 'rrsType'
 --
 -- * 'rrsResourceRecords'
---
--- * 'rrsSetIdentifier'
---
--- * 'rrsRegion'
-data ResourceRecordSet = ResourceRecordSet'{_rrsTTL :: Maybe Nat, _rrsAliasTarget :: Maybe AliasTarget, _rrsWeight :: Maybe Nat, _rrsFailover :: Maybe Failover, _rrsHealthCheckId :: Maybe Text, _rrsGeoLocation :: Maybe GeoLocation, _rrsName :: Text, _rrsType :: RecordType, _rrsResourceRecords :: List1 ResourceRecord, _rrsSetIdentifier :: Text, _rrsRegion :: Region} deriving (Eq, Read, Show)
+data ResourceRecordSet = ResourceRecordSet'{_rrsTTL :: Maybe Nat, _rrsAliasTarget :: Maybe AliasTarget, _rrsWeight :: Maybe Nat, _rrsSetIdentifier :: Maybe Text, _rrsFailover :: Maybe Failover, _rrsHealthCheckId :: Maybe Text, _rrsRegion :: Maybe Region, _rrsGeoLocation :: Maybe GeoLocation, _rrsName :: Text, _rrsType :: RecordType, _rrsResourceRecords :: List1 ResourceRecord} deriving (Eq, Read, Show)
 
 -- | 'ResourceRecordSet' smart constructor.
-resourceRecordSet :: Text -> RecordType -> NonEmpty ResourceRecord -> Text -> Region -> ResourceRecordSet
-resourceRecordSet pName pType' pResourceRecords pSetIdentifier pRegion = ResourceRecordSet'{_rrsTTL = Nothing, _rrsAliasTarget = Nothing, _rrsWeight = Nothing, _rrsFailover = Nothing, _rrsHealthCheckId = Nothing, _rrsGeoLocation = Nothing, _rrsName = pName, _rrsType = pType', _rrsResourceRecords = _List1 # pResourceRecords, _rrsSetIdentifier = pSetIdentifier, _rrsRegion = pRegion};
+resourceRecordSet :: Text -> RecordType -> NonEmpty ResourceRecord -> ResourceRecordSet
+resourceRecordSet pName pType pResourceRecords = ResourceRecordSet'{_rrsTTL = Nothing, _rrsAliasTarget = Nothing, _rrsWeight = Nothing, _rrsSetIdentifier = Nothing, _rrsFailover = Nothing, _rrsHealthCheckId = Nothing, _rrsRegion = Nothing, _rrsGeoLocation = Nothing, _rrsName = pName, _rrsType = pType, _rrsResourceRecords = _List1 # pResourceRecords};
 
 -- | The cache time to live for the current resource record set.
 rrsTTL :: Lens' ResourceRecordSet (Maybe Natural)
@@ -1008,6 +1006,12 @@ rrsAliasTarget = lens _rrsAliasTarget (\ s a -> s{_rrsAliasTarget = a});
 -- the associated location.
 rrsWeight :: Lens' ResourceRecordSet (Maybe Natural)
 rrsWeight = lens _rrsWeight (\ s a -> s{_rrsWeight = a}) . mapping _Nat;
+
+-- | /Weighted, Latency, Geo, and Failover resource record sets only:/ An
+-- identifier that differentiates among multiple resource record sets that
+-- have the same combination of DNS name and type.
+rrsSetIdentifier :: Lens' ResourceRecordSet (Maybe Text)
+rrsSetIdentifier = lens _rrsSetIdentifier (\ s a -> s{_rrsSetIdentifier = a});
 
 -- | /Failover resource record sets only:/ Among resource record sets that
 -- have the same combination of DNS name and type, a value that indicates
@@ -1035,6 +1039,12 @@ rrsFailover = lens _rrsFailover (\ s a -> s{_rrsFailover = a});
 rrsHealthCheckId :: Lens' ResourceRecordSet (Maybe Text)
 rrsHealthCheckId = lens _rrsHealthCheckId (\ s a -> s{_rrsHealthCheckId = a});
 
+-- | /Latency-based resource record sets only:/ Among resource record sets
+-- that have the same combination of DNS name and type, a value that
+-- specifies the AWS region for the current resource record set.
+rrsRegion :: Lens' ResourceRecordSet (Maybe Region)
+rrsRegion = lens _rrsRegion (\ s a -> s{_rrsRegion = a});
+
 -- | /Geo location resource record sets only:/ Among resource record sets
 -- that have the same combination of DNS name and type, a value that
 -- specifies the geo location for the current resource record set.
@@ -1054,46 +1064,35 @@ rrsType = lens _rrsType (\ s a -> s{_rrsType = a});
 rrsResourceRecords :: Lens' ResourceRecordSet (NonEmpty ResourceRecord)
 rrsResourceRecords = lens _rrsResourceRecords (\ s a -> s{_rrsResourceRecords = a}) . _List1;
 
--- | /Weighted, Latency, Geo, and Failover resource record sets only:/ An
--- identifier that differentiates among multiple resource record sets that
--- have the same combination of DNS name and type.
-rrsSetIdentifier :: Lens' ResourceRecordSet Text
-rrsSetIdentifier = lens _rrsSetIdentifier (\ s a -> s{_rrsSetIdentifier = a});
-
--- | /Latency-based resource record sets only:/ Among resource record sets
--- that have the same combination of DNS name and type, a value that
--- specifies the AWS region for the current resource record set.
-rrsRegion :: Lens' ResourceRecordSet Region
-rrsRegion = lens _rrsRegion (\ s a -> s{_rrsRegion = a});
-
 instance FromXML ResourceRecordSet where
         parseXML x
           = ResourceRecordSet' <$>
               x .@? "TTL" <*> x .@? "AliasTarget" <*>
                 x .@? "Weight"
+                <*> x .@? "SetIdentifier"
                 <*> x .@? "Failover"
                 <*> x .@? "HealthCheckId"
+                <*> x .@? "Region"
                 <*> x .@? "GeoLocation"
                 <*> x .@ "Name"
                 <*> x .@ "Type"
                 <*>
                 (x .@? "ResourceRecords" .!@ mempty >>=
                    parseXMLList1 "ResourceRecord")
-                <*> x .@ "SetIdentifier"
-                <*> x .@ "Region"
 
 instance ToXML ResourceRecordSet where
         toXML ResourceRecordSet'{..}
           = mconcat
               ["TTL" @= _rrsTTL, "AliasTarget" @= _rrsAliasTarget,
-               "Weight" @= _rrsWeight, "Failover" @= _rrsFailover,
+               "Weight" @= _rrsWeight,
+               "SetIdentifier" @= _rrsSetIdentifier,
+               "Failover" @= _rrsFailover,
                "HealthCheckId" @= _rrsHealthCheckId,
+               "Region" @= _rrsRegion,
                "GeoLocation" @= _rrsGeoLocation, "Name" @= _rrsName,
                "Type" @= _rrsType,
                "ResourceRecords" @=
-                 "ResourceRecord" @@= _rrsResourceRecords,
-               "SetIdentifier" @= _rrsSetIdentifier,
-               "Region" @= _rrsRegion]
+                 "ResourceRecord" @@= _rrsResourceRecords]
 
 -- | /See:/ 'resourceTagSet' smart constructor.
 --
@@ -1104,11 +1103,11 @@ instance ToXML ResourceRecordSet where
 -- * 'rtsResourceType'
 --
 -- * 'rtsTags'
-data ResourceTagSet = ResourceTagSet'{_rtsResourceId :: Maybe Text, _rtsResourceType :: Maybe TagResourceType, _rtsTags :: List1 Tag} deriving (Eq, Read, Show)
+data ResourceTagSet = ResourceTagSet'{_rtsResourceId :: Maybe Text, _rtsResourceType :: Maybe TagResourceType, _rtsTags :: Maybe (List1 Tag)} deriving (Eq, Read, Show)
 
 -- | 'ResourceTagSet' smart constructor.
-resourceTagSet :: NonEmpty Tag -> ResourceTagSet
-resourceTagSet pTags = ResourceTagSet'{_rtsResourceId = Nothing, _rtsResourceType = Nothing, _rtsTags = _List1 # pTags};
+resourceTagSet :: ResourceTagSet
+resourceTagSet = ResourceTagSet'{_rtsResourceId = Nothing, _rtsResourceType = Nothing, _rtsTags = Nothing};
 
 -- | The ID for the specified resource.
 rtsResourceId :: Lens' ResourceTagSet (Maybe Text)
@@ -1123,8 +1122,8 @@ rtsResourceType :: Lens' ResourceTagSet (Maybe TagResourceType)
 rtsResourceType = lens _rtsResourceType (\ s a -> s{_rtsResourceType = a});
 
 -- | The tags associated with the specified resource.
-rtsTags :: Lens' ResourceTagSet (NonEmpty Tag)
-rtsTags = lens _rtsTags (\ s a -> s{_rtsTags = a}) . _List1;
+rtsTags :: Lens' ResourceTagSet (Maybe (NonEmpty Tag))
+rtsTags = lens _rtsTags (\ s a -> s{_rtsTags = a}) . mapping _List1;
 
 instance FromXML ResourceTagSet where
         parseXML x
@@ -1217,31 +1216,31 @@ instance ToXML TagResourceType where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'vpcVPCId'
---
 -- * 'vpcVPCRegion'
-data VPC = VPC'{_vpcVPCId :: Maybe Text, _vpcVPCRegion :: VPCRegion} deriving (Eq, Read, Show)
+--
+-- * 'vpcVPCId'
+data VPC = VPC'{_vpcVPCRegion :: Maybe VPCRegion, _vpcVPCId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'VPC' smart constructor.
-vpc :: VPCRegion -> VPC
-vpc pVPCRegion = VPC'{_vpcVPCId = Nothing, _vpcVPCRegion = pVPCRegion};
+vpc :: VPC
+vpc = VPC'{_vpcVPCRegion = Nothing, _vpcVPCId = Nothing};
+
+-- | FIXME: Undocumented member.
+vpcVPCRegion :: Lens' VPC (Maybe VPCRegion)
+vpcVPCRegion = lens _vpcVPCRegion (\ s a -> s{_vpcVPCRegion = a});
 
 -- | FIXME: Undocumented member.
 vpcVPCId :: Lens' VPC (Maybe Text)
 vpcVPCId = lens _vpcVPCId (\ s a -> s{_vpcVPCId = a});
 
--- | FIXME: Undocumented member.
-vpcVPCRegion :: Lens' VPC VPCRegion
-vpcVPCRegion = lens _vpcVPCRegion (\ s a -> s{_vpcVPCRegion = a});
-
 instance FromXML VPC where
         parseXML x
-          = VPC' <$> x .@? "VPCId" <*> x .@ "VPCRegion"
+          = VPC' <$> x .@? "VPCRegion" <*> x .@? "VPCId"
 
 instance ToXML VPC where
         toXML VPC'{..}
           = mconcat
-              ["VPCId" @= _vpcVPCId, "VPCRegion" @= _vpcVPCRegion]
+              ["VPCRegion" @= _vpcVPCRegion, "VPCId" @= _vpcVPCId]
 
 data VPCRegion = APNortheast1 | SAEast1 | CNNorth1 | USWest2 | EUWest1 | USEast1 | USWest1 | EUCentral1 | APSoutheast2 | APSoutheast1 deriving (Eq, Ord, Read, Show, Enum, Generic)
 

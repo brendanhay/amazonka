@@ -109,11 +109,11 @@ import Network.AWS.ElastiCache.Types
 -- * 'cccPort'
 --
 -- * 'cccCacheClusterId'
-data CreateCacheCluster = CreateCacheCluster'{_cccCacheNodeType :: Maybe Text, _cccEngineVersion :: Maybe Text, _cccSecurityGroupIds :: [Text], _cccAutoMinorVersionUpgrade :: Maybe Bool, _cccSnapshotARNs :: [Text], _cccCacheParameterGroupName :: Maybe Text, _cccSnapshotWindow :: Maybe Text, _cccEngine :: Maybe Text, _cccPreferredAvailabilityZones :: [Text], _cccPreferredMaintenanceWindow :: Maybe Text, _cccCacheSubnetGroupName :: Maybe Text, _cccPreferredAvailabilityZone :: Maybe Text, _cccSnapshotRetentionLimit :: Maybe Int, _cccAZMode :: Maybe AZMode, _cccSnapshotName :: Maybe Text, _cccReplicationGroupId :: Maybe Text, _cccNotificationTopicARN :: Maybe Text, _cccTags :: [Tag], _cccNumCacheNodes :: Maybe Int, _cccCacheSecurityGroupNames :: [Text], _cccPort :: Maybe Int, _cccCacheClusterId :: Text} deriving (Eq, Read, Show)
+data CreateCacheCluster = CreateCacheCluster'{_cccCacheNodeType :: Maybe Text, _cccEngineVersion :: Maybe Text, _cccSecurityGroupIds :: Maybe [Text], _cccAutoMinorVersionUpgrade :: Maybe Bool, _cccSnapshotARNs :: Maybe [Text], _cccCacheParameterGroupName :: Maybe Text, _cccSnapshotWindow :: Maybe Text, _cccEngine :: Maybe Text, _cccPreferredAvailabilityZones :: Maybe [Text], _cccPreferredMaintenanceWindow :: Maybe Text, _cccCacheSubnetGroupName :: Maybe Text, _cccPreferredAvailabilityZone :: Maybe Text, _cccSnapshotRetentionLimit :: Maybe Int, _cccAZMode :: Maybe AZMode, _cccSnapshotName :: Maybe Text, _cccReplicationGroupId :: Maybe Text, _cccNotificationTopicARN :: Maybe Text, _cccTags :: Maybe [Tag], _cccNumCacheNodes :: Maybe Int, _cccCacheSecurityGroupNames :: Maybe [Text], _cccPort :: Maybe Int, _cccCacheClusterId :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateCacheCluster' smart constructor.
 createCacheCluster :: Text -> CreateCacheCluster
-createCacheCluster pCacheClusterId = CreateCacheCluster'{_cccCacheNodeType = Nothing, _cccEngineVersion = Nothing, _cccSecurityGroupIds = mempty, _cccAutoMinorVersionUpgrade = Nothing, _cccSnapshotARNs = mempty, _cccCacheParameterGroupName = Nothing, _cccSnapshotWindow = Nothing, _cccEngine = Nothing, _cccPreferredAvailabilityZones = mempty, _cccPreferredMaintenanceWindow = Nothing, _cccCacheSubnetGroupName = Nothing, _cccPreferredAvailabilityZone = Nothing, _cccSnapshotRetentionLimit = Nothing, _cccAZMode = Nothing, _cccSnapshotName = Nothing, _cccReplicationGroupId = Nothing, _cccNotificationTopicARN = Nothing, _cccTags = mempty, _cccNumCacheNodes = Nothing, _cccCacheSecurityGroupNames = mempty, _cccPort = Nothing, _cccCacheClusterId = pCacheClusterId};
+createCacheCluster pCacheClusterId = CreateCacheCluster'{_cccCacheNodeType = Nothing, _cccEngineVersion = Nothing, _cccSecurityGroupIds = Nothing, _cccAutoMinorVersionUpgrade = Nothing, _cccSnapshotARNs = Nothing, _cccCacheParameterGroupName = Nothing, _cccSnapshotWindow = Nothing, _cccEngine = Nothing, _cccPreferredAvailabilityZones = Nothing, _cccPreferredMaintenanceWindow = Nothing, _cccCacheSubnetGroupName = Nothing, _cccPreferredAvailabilityZone = Nothing, _cccSnapshotRetentionLimit = Nothing, _cccAZMode = Nothing, _cccSnapshotName = Nothing, _cccReplicationGroupId = Nothing, _cccNotificationTopicARN = Nothing, _cccTags = Nothing, _cccNumCacheNodes = Nothing, _cccCacheSecurityGroupNames = Nothing, _cccPort = Nothing, _cccCacheClusterId = pCacheClusterId};
 
 -- | The compute and memory capacity of the nodes in the node group.
 --
@@ -159,7 +159,7 @@ cccEngineVersion = lens _cccEngineVersion (\ s a -> s{_cccEngineVersion = a});
 --
 -- Use this parameter only when you are creating a cache cluster in an
 -- Amazon Virtual Private Cloud (VPC).
-cccSecurityGroupIds :: Lens' CreateCacheCluster [Text]
+cccSecurityGroupIds :: Lens' CreateCacheCluster (Maybe [Text])
 cccSecurityGroupIds = lens _cccSecurityGroupIds (\ s a -> s{_cccSecurityGroupIds = a});
 
 -- | This parameter is currently disabled.
@@ -175,7 +175,7 @@ cccAutoMinorVersionUpgrade = lens _cccAutoMinorVersionUpgrade (\ s a -> s{_cccAu
 -- @redis@.
 --
 -- Example of an Amazon S3 ARN: @arn:aws:s3:::my_bucket\/snapshot1.rdb@
-cccSnapshotARNs :: Lens' CreateCacheCluster [Text]
+cccSnapshotARNs :: Lens' CreateCacheCluster (Maybe [Text])
 cccSnapshotARNs = lens _cccSnapshotARNs (\ s a -> s{_cccSnapshotARNs = a});
 
 -- | The name of the parameter group to associate with this cache cluster. If
@@ -229,7 +229,7 @@ cccEngine = lens _cccEngine (\ s a -> s{_cccEngine = a});
 --
 -- Example: All three Memcached nodes in one Availability Zone:
 -- @PreferredAvailabilityZones.member.1=us-west-2a&PreferredAvailabilityZones.member.2=us-west-2a&PreferredAvailabilityZones.member.3=us-west-2a@
-cccPreferredAvailabilityZones :: Lens' CreateCacheCluster [Text]
+cccPreferredAvailabilityZones :: Lens' CreateCacheCluster (Maybe [Text])
 cccPreferredAvailabilityZones = lens _cccPreferredAvailabilityZones (\ s a -> s{_cccPreferredAvailabilityZones = a});
 
 -- | Specifies the weekly time range during which maintenance on the cache
@@ -324,7 +324,7 @@ cccNotificationTopicARN = lens _cccNotificationTopicARN (\ s a -> s{_cccNotifica
 
 -- | A list of cost allocation tags to be added to this resource. A tag is a
 -- key-value pair. A tag key must be accompanied by a tag value.
-cccTags :: Lens' CreateCacheCluster [Tag]
+cccTags :: Lens' CreateCacheCluster (Maybe [Tag])
 cccTags = lens _cccTags (\ s a -> s{_cccTags = a});
 
 -- | The initial number of cache nodes that the cache cluster will have.
@@ -342,7 +342,7 @@ cccNumCacheNodes = lens _cccNumCacheNodes (\ s a -> s{_cccNumCacheNodes = a});
 --
 -- Use this parameter only when you are creating a cache cluster outside of
 -- an Amazon Virtual Private Cloud (VPC).
-cccCacheSecurityGroupNames :: Lens' CreateCacheCluster [Text]
+cccCacheSecurityGroupNames :: Lens' CreateCacheCluster (Maybe [Text])
 cccCacheSecurityGroupNames = lens _cccCacheSecurityGroupNames (\ s a -> s{_cccCacheSecurityGroupNames = a});
 
 -- | The port number on which each of the cache nodes will accept

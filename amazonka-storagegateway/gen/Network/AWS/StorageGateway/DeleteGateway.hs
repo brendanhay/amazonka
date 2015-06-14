@@ -78,7 +78,7 @@ instance AWSRequest DeleteGateway where
         response
           = receiveJSON
               (\ s h x ->
-                 DeleteGatewayResponse' <$> x .:> "GatewayARN")
+                 DeleteGatewayResponse' <$> x .?> "GatewayARN")
 
 instance ToHeaders DeleteGateway where
         toHeaders
@@ -105,12 +105,12 @@ instance ToQuery DeleteGateway where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dgrGatewayARN'
-newtype DeleteGatewayResponse = DeleteGatewayResponse'{_dgrGatewayARN :: Text} deriving (Eq, Read, Show)
+newtype DeleteGatewayResponse = DeleteGatewayResponse'{_dgrGatewayARN :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DeleteGatewayResponse' smart constructor.
-deleteGatewayResponse :: Text -> DeleteGatewayResponse
-deleteGatewayResponse pGatewayARN = DeleteGatewayResponse'{_dgrGatewayARN = pGatewayARN};
+deleteGatewayResponse :: DeleteGatewayResponse
+deleteGatewayResponse = DeleteGatewayResponse'{_dgrGatewayARN = Nothing};
 
 -- | FIXME: Undocumented member.
-dgrGatewayARN :: Lens' DeleteGatewayResponse Text
+dgrGatewayARN :: Lens' DeleteGatewayResponse (Maybe Text)
 dgrGatewayARN = lens _dgrGatewayARN (\ s a -> s{_dgrGatewayARN = a});

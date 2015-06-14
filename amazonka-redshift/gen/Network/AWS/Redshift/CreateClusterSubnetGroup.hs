@@ -59,14 +59,14 @@ import Network.AWS.Redshift.Types
 -- * 'ccsgDescription'
 --
 -- * 'ccsgSubnetIds'
-data CreateClusterSubnetGroup = CreateClusterSubnetGroup'{_ccsgTags :: [Tag], _ccsgClusterSubnetGroupName :: Text, _ccsgDescription :: Text, _ccsgSubnetIds :: [Text]} deriving (Eq, Read, Show)
+data CreateClusterSubnetGroup = CreateClusterSubnetGroup'{_ccsgTags :: Maybe [Tag], _ccsgClusterSubnetGroupName :: Text, _ccsgDescription :: Text, _ccsgSubnetIds :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'CreateClusterSubnetGroup' smart constructor.
-createClusterSubnetGroup :: Text -> Text -> [Text] -> CreateClusterSubnetGroup
-createClusterSubnetGroup pClusterSubnetGroupName pDescription pSubnetIds = CreateClusterSubnetGroup'{_ccsgTags = mempty, _ccsgClusterSubnetGroupName = pClusterSubnetGroupName, _ccsgDescription = pDescription, _ccsgSubnetIds = pSubnetIds};
+createClusterSubnetGroup :: Text -> Text -> CreateClusterSubnetGroup
+createClusterSubnetGroup pClusterSubnetGroupName pDescription = CreateClusterSubnetGroup'{_ccsgTags = Nothing, _ccsgClusterSubnetGroupName = pClusterSubnetGroupName, _ccsgDescription = pDescription, _ccsgSubnetIds = mempty};
 
 -- | A list of tag instances.
-ccsgTags :: Lens' CreateClusterSubnetGroup [Tag]
+ccsgTags :: Lens' CreateClusterSubnetGroup (Maybe [Tag])
 ccsgTags = lens _ccsgTags (\ s a -> s{_ccsgTags = a});
 
 -- | The name for the subnet group. Amazon Redshift stores the value as a

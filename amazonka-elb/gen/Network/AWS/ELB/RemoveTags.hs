@@ -48,8 +48,8 @@ import Network.AWS.ELB.Types
 data RemoveTags = RemoveTags'{_rtLoadBalancerNames :: [Text], _rtTags :: List1 TagKeyOnly} deriving (Eq, Read, Show)
 
 -- | 'RemoveTags' smart constructor.
-removeTags :: [Text] -> NonEmpty TagKeyOnly -> RemoveTags
-removeTags pLoadBalancerNames pTags = RemoveTags'{_rtLoadBalancerNames = pLoadBalancerNames, _rtTags = _List1 # pTags};
+removeTags :: NonEmpty TagKeyOnly -> RemoveTags
+removeTags pTags = RemoveTags'{_rtLoadBalancerNames = mempty, _rtTags = _List1 # pTags};
 
 -- | The name of the load balancer. You can specify a maximum of one load
 -- balancer name.

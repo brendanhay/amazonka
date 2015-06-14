@@ -50,8 +50,8 @@ import Network.AWS.StorageGateway.Types
 newtype DescribeStorediSCSIVolumes = DescribeStorediSCSIVolumes'{_dsscsivVolumeARNs :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'DescribeStorediSCSIVolumes' smart constructor.
-describeStorediSCSIVolumes :: [Text] -> DescribeStorediSCSIVolumes
-describeStorediSCSIVolumes pVolumeARNs = DescribeStorediSCSIVolumes'{_dsscsivVolumeARNs = pVolumeARNs};
+describeStorediSCSIVolumes :: DescribeStorediSCSIVolumes
+describeStorediSCSIVolumes = DescribeStorediSCSIVolumes'{_dsscsivVolumeARNs = mempty};
 
 -- | An array of strings where each string represents the Amazon Resource
 -- Name (ARN) of a stored volume. All of the specified stored volumes must
@@ -95,12 +95,12 @@ instance ToQuery DescribeStorediSCSIVolumes where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsscsivrStorediSCSIVolumes'
-newtype DescribeStorediSCSIVolumesResponse = DescribeStorediSCSIVolumesResponse'{_dsscsivrStorediSCSIVolumes :: [StorediSCSIVolume]} deriving (Eq, Read, Show)
+newtype DescribeStorediSCSIVolumesResponse = DescribeStorediSCSIVolumesResponse'{_dsscsivrStorediSCSIVolumes :: Maybe [StorediSCSIVolume]} deriving (Eq, Read, Show)
 
 -- | 'DescribeStorediSCSIVolumesResponse' smart constructor.
 describeStorediSCSIVolumesResponse :: DescribeStorediSCSIVolumesResponse
-describeStorediSCSIVolumesResponse = DescribeStorediSCSIVolumesResponse'{_dsscsivrStorediSCSIVolumes = mempty};
+describeStorediSCSIVolumesResponse = DescribeStorediSCSIVolumesResponse'{_dsscsivrStorediSCSIVolumes = Nothing};
 
 -- | FIXME: Undocumented member.
-dsscsivrStorediSCSIVolumes :: Lens' DescribeStorediSCSIVolumesResponse [StorediSCSIVolume]
+dsscsivrStorediSCSIVolumes :: Lens' DescribeStorediSCSIVolumesResponse (Maybe [StorediSCSIVolume])
 dsscsivrStorediSCSIVolumes = lens _dsscsivrStorediSCSIVolumes (\ s a -> s{_dsscsivrStorediSCSIVolumes = a});

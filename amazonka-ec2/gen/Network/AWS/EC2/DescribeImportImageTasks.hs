@@ -58,18 +58,18 @@ import Network.AWS.EC2.Types
 -- * 'diitDryRun'
 --
 -- * 'diitMaxResults'
-data DescribeImportImageTasks = DescribeImportImageTasks'{_diitFilters :: [Filter], _diitImportTaskIds :: [Text], _diitNextToken :: Maybe Text, _diitDryRun :: Maybe Bool, _diitMaxResults :: Maybe Int} deriving (Eq, Read, Show)
+data DescribeImportImageTasks = DescribeImportImageTasks'{_diitFilters :: Maybe [Filter], _diitImportTaskIds :: Maybe [Text], _diitNextToken :: Maybe Text, _diitDryRun :: Maybe Bool, _diitMaxResults :: Maybe Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeImportImageTasks' smart constructor.
 describeImportImageTasks :: DescribeImportImageTasks
-describeImportImageTasks = DescribeImportImageTasks'{_diitFilters = mempty, _diitImportTaskIds = mempty, _diitNextToken = Nothing, _diitDryRun = Nothing, _diitMaxResults = Nothing};
+describeImportImageTasks = DescribeImportImageTasks'{_diitFilters = Nothing, _diitImportTaskIds = Nothing, _diitNextToken = Nothing, _diitDryRun = Nothing, _diitMaxResults = Nothing};
 
 -- | One or more filters.
-diitFilters :: Lens' DescribeImportImageTasks [Filter]
+diitFilters :: Lens' DescribeImportImageTasks (Maybe [Filter])
 diitFilters = lens _diitFilters (\ s a -> s{_diitFilters = a});
 
 -- | A list of import image task IDs.
-diitImportTaskIds :: Lens' DescribeImportImageTasks [Text]
+diitImportTaskIds :: Lens' DescribeImportImageTasks (Maybe [Text])
 diitImportTaskIds = lens _diitImportTaskIds (\ s a -> s{_diitImportTaskIds = a});
 
 -- | A token that indicates the next page of results.
@@ -123,15 +123,15 @@ instance ToQuery DescribeImportImageTasks where
 -- * 'diitrImportImageTasks'
 --
 -- * 'diitrNextToken'
-data DescribeImportImageTasksResponse = DescribeImportImageTasksResponse'{_diitrImportImageTasks :: [ImportImageTask], _diitrNextToken :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeImportImageTasksResponse = DescribeImportImageTasksResponse'{_diitrImportImageTasks :: Maybe [ImportImageTask], _diitrNextToken :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeImportImageTasksResponse' smart constructor.
 describeImportImageTasksResponse :: DescribeImportImageTasksResponse
-describeImportImageTasksResponse = DescribeImportImageTasksResponse'{_diitrImportImageTasks = mempty, _diitrNextToken = Nothing};
+describeImportImageTasksResponse = DescribeImportImageTasksResponse'{_diitrImportImageTasks = Nothing, _diitrNextToken = Nothing};
 
 -- | A list of zero or more import image tasks that are currently active or
 -- were completed or canceled in the previous 7 days.
-diitrImportImageTasks :: Lens' DescribeImportImageTasksResponse [ImportImageTask]
+diitrImportImageTasks :: Lens' DescribeImportImageTasksResponse (Maybe [ImportImageTask])
 diitrImportImageTasks = lens _diitrImportImageTasks (\ s a -> s{_diitrImportImageTasks = a});
 
 -- | The token to use to get the next page of results. This value is @null@

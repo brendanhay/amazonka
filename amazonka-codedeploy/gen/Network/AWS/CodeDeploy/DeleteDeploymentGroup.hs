@@ -100,11 +100,11 @@ instance ToQuery DeleteDeploymentGroup where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ddgrHooksNotCleanedUp'
-newtype DeleteDeploymentGroupResponse = DeleteDeploymentGroupResponse'{_ddgrHooksNotCleanedUp :: [AutoScalingGroup]} deriving (Eq, Read, Show)
+newtype DeleteDeploymentGroupResponse = DeleteDeploymentGroupResponse'{_ddgrHooksNotCleanedUp :: Maybe [AutoScalingGroup]} deriving (Eq, Read, Show)
 
 -- | 'DeleteDeploymentGroupResponse' smart constructor.
 deleteDeploymentGroupResponse :: DeleteDeploymentGroupResponse
-deleteDeploymentGroupResponse = DeleteDeploymentGroupResponse'{_ddgrHooksNotCleanedUp = mempty};
+deleteDeploymentGroupResponse = DeleteDeploymentGroupResponse'{_ddgrHooksNotCleanedUp = Nothing};
 
 -- | If the output contains no data, and the corresponding deployment group
 -- contained at least one Auto Scaling group, AWS CodeDeploy successfully
@@ -112,5 +112,5 @@ deleteDeploymentGroupResponse = DeleteDeploymentGroupResponse'{_ddgrHooksNotClea
 -- Amazon EC2 instances in the Auto Scaling. If the output does contain
 -- data, AWS CodeDeploy could not remove some Auto Scaling lifecycle event
 -- hooks from the Amazon EC2 instances in the Auto Scaling group.
-ddgrHooksNotCleanedUp :: Lens' DeleteDeploymentGroupResponse [AutoScalingGroup]
+ddgrHooksNotCleanedUp :: Lens' DeleteDeploymentGroupResponse (Maybe [AutoScalingGroup])
 ddgrHooksNotCleanedUp = lens _ddgrHooksNotCleanedUp (\ s a -> s{_ddgrHooksNotCleanedUp = a});

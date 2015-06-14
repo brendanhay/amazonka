@@ -45,14 +45,14 @@ import Network.AWS.EMR.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'migInstanceGroups'
-newtype ModifyInstanceGroups = ModifyInstanceGroups'{_migInstanceGroups :: [InstanceGroupModifyConfig]} deriving (Eq, Read, Show)
+newtype ModifyInstanceGroups = ModifyInstanceGroups'{_migInstanceGroups :: Maybe [InstanceGroupModifyConfig]} deriving (Eq, Read, Show)
 
 -- | 'ModifyInstanceGroups' smart constructor.
 modifyInstanceGroups :: ModifyInstanceGroups
-modifyInstanceGroups = ModifyInstanceGroups'{_migInstanceGroups = mempty};
+modifyInstanceGroups = ModifyInstanceGroups'{_migInstanceGroups = Nothing};
 
 -- | Instance groups to change.
-migInstanceGroups :: Lens' ModifyInstanceGroups [InstanceGroupModifyConfig]
+migInstanceGroups :: Lens' ModifyInstanceGroups (Maybe [InstanceGroupModifyConfig])
 migInstanceGroups = lens _migInstanceGroups (\ s a -> s{_migInstanceGroups = a});
 
 instance AWSRequest ModifyInstanceGroups where

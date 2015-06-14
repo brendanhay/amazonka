@@ -29,8 +29,8 @@ module Network.AWS.Lambda.ListFunctions
     -- ** Request constructor
     , listFunctions
     -- ** Request lenses
-    , lfMarker
     , lfMaxItems
+    , lfMarker
 
     -- * Response
     , ListFunctionsResponse
@@ -50,25 +50,25 @@ import Network.AWS.Lambda.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lfMarker'
---
 -- * 'lfMaxItems'
-data ListFunctions = ListFunctions'{_lfMarker :: Maybe Text, _lfMaxItems :: Nat} deriving (Eq, Read, Show)
+--
+-- * 'lfMarker'
+data ListFunctions = ListFunctions'{_lfMaxItems :: Maybe Nat, _lfMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ListFunctions' smart constructor.
-listFunctions :: Natural -> ListFunctions
-listFunctions pMaxItems = ListFunctions'{_lfMarker = Nothing, _lfMaxItems = _Nat # pMaxItems};
+listFunctions :: ListFunctions
+listFunctions = ListFunctions'{_lfMaxItems = Nothing, _lfMarker = Nothing};
+
+-- | Optional integer. Specifies the maximum number of AWS Lambda functions
+-- to return in response. This parameter value must be greater than 0.
+lfMaxItems :: Lens' ListFunctions (Maybe Natural)
+lfMaxItems = lens _lfMaxItems (\ s a -> s{_lfMaxItems = a}) . mapping _Nat;
 
 -- | Optional string. An opaque pagination token returned from a previous
 -- @ListFunctions@ operation. If present, indicates where to continue the
 -- listing.
 lfMarker :: Lens' ListFunctions (Maybe Text)
 lfMarker = lens _lfMarker (\ s a -> s{_lfMarker = a});
-
--- | Optional integer. Specifies the maximum number of AWS Lambda functions
--- to return in response. This parameter value must be greater than 0.
-lfMaxItems :: Lens' ListFunctions Natural
-lfMaxItems = lens _lfMaxItems (\ s a -> s{_lfMaxItems = a}) . _Nat;
 
 instance AWSRequest ListFunctions where
         type Sv ListFunctions = Lambda
@@ -89,7 +89,7 @@ instance ToPath ListFunctions where
 instance ToQuery ListFunctions where
         toQuery ListFunctions'{..}
           = mconcat
-              ["Marker" =: _lfMarker, "MaxItems" =: _lfMaxItems]
+              ["MaxItems" =: _lfMaxItems, "Marker" =: _lfMarker]
 
 -- | /See:/ 'listFunctionsResponse' smart constructor.
 --
@@ -98,16 +98,16 @@ instance ToQuery ListFunctions where
 -- * 'lfrNextMarker'
 --
 -- * 'lfrFunctions'
-data ListFunctionsResponse = ListFunctionsResponse'{_lfrNextMarker :: Maybe Text, _lfrFunctions :: [FunctionConfiguration]} deriving (Eq, Read, Show)
+data ListFunctionsResponse = ListFunctionsResponse'{_lfrNextMarker :: Maybe Text, _lfrFunctions :: Maybe [FunctionConfiguration]} deriving (Eq, Read, Show)
 
 -- | 'ListFunctionsResponse' smart constructor.
 listFunctionsResponse :: ListFunctionsResponse
-listFunctionsResponse = ListFunctionsResponse'{_lfrNextMarker = Nothing, _lfrFunctions = mempty};
+listFunctionsResponse = ListFunctionsResponse'{_lfrNextMarker = Nothing, _lfrFunctions = Nothing};
 
 -- | A string, present if there are more functions.
 lfrNextMarker :: Lens' ListFunctionsResponse (Maybe Text)
 lfrNextMarker = lens _lfrNextMarker (\ s a -> s{_lfrNextMarker = a});
 
 -- | A list of Lambda functions.
-lfrFunctions :: Lens' ListFunctionsResponse [FunctionConfiguration]
+lfrFunctions :: Lens' ListFunctionsResponse (Maybe [FunctionConfiguration])
 lfrFunctions = lens _lfrFunctions (\ s a -> s{_lfrFunctions = a});

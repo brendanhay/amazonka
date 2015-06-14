@@ -70,8 +70,8 @@ import Network.AWS.RDS.Types
 data ModifyDBParameterGroup = ModifyDBParameterGroup'{_mdpgDBParameterGroupName :: Text, _mdpgParameters :: [Parameter]} deriving (Eq, Read, Show)
 
 -- | 'ModifyDBParameterGroup' smart constructor.
-modifyDBParameterGroup :: Text -> [Parameter] -> ModifyDBParameterGroup
-modifyDBParameterGroup pDBParameterGroupName pParameters = ModifyDBParameterGroup'{_mdpgDBParameterGroupName = pDBParameterGroupName, _mdpgParameters = pParameters};
+modifyDBParameterGroup :: Text -> ModifyDBParameterGroup
+modifyDBParameterGroup pDBParameterGroupName = ModifyDBParameterGroup'{_mdpgDBParameterGroupName = pDBParameterGroupName, _mdpgParameters = mempty};
 
 -- | The name of the DB parameter group.
 --

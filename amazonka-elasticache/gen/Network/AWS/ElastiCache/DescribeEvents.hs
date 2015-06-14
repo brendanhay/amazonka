@@ -155,15 +155,15 @@ instance ToQuery DescribeEvents where
 -- * 'derEvents'
 --
 -- * 'derMarker'
-data DescribeEventsResponse = DescribeEventsResponse'{_derEvents :: [Event], _derMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeEventsResponse = DescribeEventsResponse'{_derEvents :: Maybe [Event], _derMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeEventsResponse' smart constructor.
 describeEventsResponse :: DescribeEventsResponse
-describeEventsResponse = DescribeEventsResponse'{_derEvents = mempty, _derMarker = Nothing};
+describeEventsResponse = DescribeEventsResponse'{_derEvents = Nothing, _derMarker = Nothing};
 
 -- | A list of events. Each element in the list contains detailed information
 -- about one event.
-derEvents :: Lens' DescribeEventsResponse [Event]
+derEvents :: Lens' DescribeEventsResponse (Maybe [Event])
 derEvents = lens _derEvents (\ s a -> s{_derEvents = a});
 
 -- | Provides an identifier to allow retrieval of paginated results.

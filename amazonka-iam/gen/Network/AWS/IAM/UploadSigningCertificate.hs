@@ -43,8 +43,8 @@ module Network.AWS.IAM.UploadSigningCertificate
     -- ** Request constructor
     , uploadSigningCertificate
     -- ** Request lenses
-    , uplCertificateBody
     , uplUserName
+    , uplCertificateBody
 
     -- * Response
     , UploadSigningCertificateResponse
@@ -63,22 +63,22 @@ import Network.AWS.IAM.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uplCertificateBody'
---
 -- * 'uplUserName'
-data UploadSigningCertificate = UploadSigningCertificate'{_uplCertificateBody :: Text, _uplUserName :: Text} deriving (Eq, Read, Show)
+--
+-- * 'uplCertificateBody'
+data UploadSigningCertificate = UploadSigningCertificate'{_uplUserName :: Maybe Text, _uplCertificateBody :: Text} deriving (Eq, Read, Show)
 
 -- | 'UploadSigningCertificate' smart constructor.
-uploadSigningCertificate :: Text -> Text -> UploadSigningCertificate
-uploadSigningCertificate pCertificateBody pUserName = UploadSigningCertificate'{_uplCertificateBody = pCertificateBody, _uplUserName = pUserName};
+uploadSigningCertificate :: Text -> UploadSigningCertificate
+uploadSigningCertificate pCertificateBody = UploadSigningCertificate'{_uplUserName = Nothing, _uplCertificateBody = pCertificateBody};
+
+-- | The name of the user the signing certificate is for.
+uplUserName :: Lens' UploadSigningCertificate (Maybe Text)
+uplUserName = lens _uplUserName (\ s a -> s{_uplUserName = a});
 
 -- | The contents of the signing certificate.
 uplCertificateBody :: Lens' UploadSigningCertificate Text
 uplCertificateBody = lens _uplCertificateBody (\ s a -> s{_uplCertificateBody = a});
-
--- | The name of the user the signing certificate is for.
-uplUserName :: Lens' UploadSigningCertificate Text
-uplUserName = lens _uplUserName (\ s a -> s{_uplUserName = a});
 
 instance AWSRequest UploadSigningCertificate where
         type Sv UploadSigningCertificate = IAM
@@ -103,8 +103,8 @@ instance ToQuery UploadSigningCertificate where
               ["Action" =:
                  ("UploadSigningCertificate" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "CertificateBody" =: _uplCertificateBody,
-               "UserName" =: _uplUserName]
+               "UserName" =: _uplUserName,
+               "CertificateBody" =: _uplCertificateBody]
 
 -- | /See:/ 'uploadSigningCertificateResponse' smart constructor.
 --

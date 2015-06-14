@@ -69,7 +69,7 @@ instance AWSRequest DeleteEvaluation where
         response
           = receiveJSON
               (\ s h x ->
-                 DeleteEvaluationResponse' <$> x .:> "EvaluationId")
+                 DeleteEvaluationResponse' <$> x .?> "EvaluationId")
 
 instance ToHeaders DeleteEvaluation where
         toHeaders
@@ -95,13 +95,13 @@ instance ToQuery DeleteEvaluation where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'derEvaluationId'
-newtype DeleteEvaluationResponse = DeleteEvaluationResponse'{_derEvaluationId :: Text} deriving (Eq, Read, Show)
+newtype DeleteEvaluationResponse = DeleteEvaluationResponse'{_derEvaluationId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DeleteEvaluationResponse' smart constructor.
-deleteEvaluationResponse :: Text -> DeleteEvaluationResponse
-deleteEvaluationResponse pEvaluationId = DeleteEvaluationResponse'{_derEvaluationId = pEvaluationId};
+deleteEvaluationResponse :: DeleteEvaluationResponse
+deleteEvaluationResponse = DeleteEvaluationResponse'{_derEvaluationId = Nothing};
 
 -- | A user-supplied ID that uniquely identifies the @Evaluation@. This value
 -- should be identical to the value of the @EvaluationId@ in the request.
-derEvaluationId :: Lens' DeleteEvaluationResponse Text
+derEvaluationId :: Lens' DeleteEvaluationResponse (Maybe Text)
 derEvaluationId = lens _derEvaluationId (\ s a -> s{_derEvaluationId = a});

@@ -48,8 +48,8 @@ import Network.AWS.ELB.Types
 data DeleteLoadBalancerListeners = DeleteLoadBalancerListeners'{_dlblLoadBalancerName :: Text, _dlblLoadBalancerPorts :: [Int]} deriving (Eq, Read, Show)
 
 -- | 'DeleteLoadBalancerListeners' smart constructor.
-deleteLoadBalancerListeners :: Text -> [Int] -> DeleteLoadBalancerListeners
-deleteLoadBalancerListeners pLoadBalancerName pLoadBalancerPorts = DeleteLoadBalancerListeners'{_dlblLoadBalancerName = pLoadBalancerName, _dlblLoadBalancerPorts = pLoadBalancerPorts};
+deleteLoadBalancerListeners :: Text -> DeleteLoadBalancerListeners
+deleteLoadBalancerListeners pLoadBalancerName = DeleteLoadBalancerListeners'{_dlblLoadBalancerName = pLoadBalancerName, _dlblLoadBalancerPorts = mempty};
 
 -- | The name of the load balancer.
 dlblLoadBalancerName :: Lens' DeleteLoadBalancerListeners Text

@@ -32,9 +32,9 @@ module Network.AWS.IAM.GetOpenIDConnectProvider
     , getOpenIDConnectProviderResponse
     -- ** Response lenses
     , goidcprCreateDate
+    , goidcprURL
     , goidcprThumbprintList
     , goidcprClientIDList
-    , goidcprURL
     ) where
 
 import Network.AWS.Request
@@ -68,13 +68,12 @@ instance AWSRequest GetOpenIDConnectProvider where
           = receiveXMLWrapper "GetOpenIDConnectProviderResult"
               (\ s h x ->
                  GetOpenIDConnectProviderResponse' <$>
-                   x .@? "CreateDate" <*>
+                   x .@? "CreateDate" <*> x .@? "Url" <*>
                      (x .@? "ThumbprintList" .!@ mempty >>=
                         parseXMLList "member")
                      <*>
                      (x .@? "ClientIDList" .!@ mempty >>=
-                        parseXMLList "member")
-                     <*> x .@ "Url")
+                        parseXMLList "member"))
 
 instance ToHeaders GetOpenIDConnectProvider where
         toHeaders = const mempty
@@ -97,35 +96,35 @@ instance ToQuery GetOpenIDConnectProvider where
 --
 -- * 'goidcprCreateDate'
 --
+-- * 'goidcprURL'
+--
 -- * 'goidcprThumbprintList'
 --
 -- * 'goidcprClientIDList'
---
--- * 'goidcprURL'
-data GetOpenIDConnectProviderResponse = GetOpenIDConnectProviderResponse'{_goidcprCreateDate :: Maybe ISO8601, _goidcprThumbprintList :: [Text], _goidcprClientIDList :: [Text], _goidcprURL :: Text} deriving (Eq, Read, Show)
+data GetOpenIDConnectProviderResponse = GetOpenIDConnectProviderResponse'{_goidcprCreateDate :: Maybe ISO8601, _goidcprURL :: Maybe Text, _goidcprThumbprintList :: Maybe [Text], _goidcprClientIDList :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'GetOpenIDConnectProviderResponse' smart constructor.
-getOpenIDConnectProviderResponse :: Text -> GetOpenIDConnectProviderResponse
-getOpenIDConnectProviderResponse pURL = GetOpenIDConnectProviderResponse'{_goidcprCreateDate = Nothing, _goidcprThumbprintList = mempty, _goidcprClientIDList = mempty, _goidcprURL = pURL};
+getOpenIDConnectProviderResponse :: GetOpenIDConnectProviderResponse
+getOpenIDConnectProviderResponse = GetOpenIDConnectProviderResponse'{_goidcprCreateDate = Nothing, _goidcprURL = Nothing, _goidcprThumbprintList = Nothing, _goidcprClientIDList = Nothing};
 
 -- | The date and time when the IAM OpenID Connect provider entity was
 -- created in the AWS account.
 goidcprCreateDate :: Lens' GetOpenIDConnectProviderResponse (Maybe UTCTime)
 goidcprCreateDate = lens _goidcprCreateDate (\ s a -> s{_goidcprCreateDate = a}) . mapping _Time;
 
+-- | The URL that the IAM OpenID Connect provider is associated with. For
+-- more information, see CreateOpenIDConnectProvider.
+goidcprURL :: Lens' GetOpenIDConnectProviderResponse (Maybe Text)
+goidcprURL = lens _goidcprURL (\ s a -> s{_goidcprURL = a});
+
 -- | A list of certificate thumbprints that are associated with the specified
 -- IAM OpenID Connect provider. For more information, see
 -- CreateOpenIDConnectProvider.
-goidcprThumbprintList :: Lens' GetOpenIDConnectProviderResponse [Text]
+goidcprThumbprintList :: Lens' GetOpenIDConnectProviderResponse (Maybe [Text])
 goidcprThumbprintList = lens _goidcprThumbprintList (\ s a -> s{_goidcprThumbprintList = a});
 
 -- | A list of client IDs (also known as audiences) that are associated with
 -- the specified IAM OpenID Connect provider. For more information, see
 -- CreateOpenIDConnectProvider.
-goidcprClientIDList :: Lens' GetOpenIDConnectProviderResponse [Text]
+goidcprClientIDList :: Lens' GetOpenIDConnectProviderResponse (Maybe [Text])
 goidcprClientIDList = lens _goidcprClientIDList (\ s a -> s{_goidcprClientIDList = a});
-
--- | The URL that the IAM OpenID Connect provider is associated with. For
--- more information, see CreateOpenIDConnectProvider.
-goidcprURL :: Lens' GetOpenIDConnectProviderResponse Text
-goidcprURL = lens _goidcprURL (\ s a -> s{_goidcprURL = a});

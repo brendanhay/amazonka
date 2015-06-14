@@ -84,7 +84,7 @@ instance AWSRequest ShutdownGateway where
         response
           = receiveJSON
               (\ s h x ->
-                 ShutdownGatewayResponse' <$> x .:> "GatewayARN")
+                 ShutdownGatewayResponse' <$> x .?> "GatewayARN")
 
 instance ToHeaders ShutdownGateway where
         toHeaders
@@ -111,12 +111,12 @@ instance ToQuery ShutdownGateway where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'sgrGatewayARN'
-newtype ShutdownGatewayResponse = ShutdownGatewayResponse'{_sgrGatewayARN :: Text} deriving (Eq, Read, Show)
+newtype ShutdownGatewayResponse = ShutdownGatewayResponse'{_sgrGatewayARN :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ShutdownGatewayResponse' smart constructor.
-shutdownGatewayResponse :: Text -> ShutdownGatewayResponse
-shutdownGatewayResponse pGatewayARN = ShutdownGatewayResponse'{_sgrGatewayARN = pGatewayARN};
+shutdownGatewayResponse :: ShutdownGatewayResponse
+shutdownGatewayResponse = ShutdownGatewayResponse'{_sgrGatewayARN = Nothing};
 
 -- | FIXME: Undocumented member.
-sgrGatewayARN :: Lens' ShutdownGatewayResponse Text
+sgrGatewayARN :: Lens' ShutdownGatewayResponse (Maybe Text)
 sgrGatewayARN = lens _sgrGatewayARN (\ s a -> s{_sgrGatewayARN = a});

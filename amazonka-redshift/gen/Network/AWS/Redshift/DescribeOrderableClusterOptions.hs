@@ -147,11 +147,11 @@ instance ToQuery DescribeOrderableClusterOptions
 -- * 'docorMarker'
 --
 -- * 'docorOrderableClusterOptions'
-data DescribeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsResponse'{_docorMarker :: Maybe Text, _docorOrderableClusterOptions :: [OrderableClusterOption]} deriving (Eq, Read, Show)
+data DescribeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsResponse'{_docorMarker :: Maybe Text, _docorOrderableClusterOptions :: Maybe [OrderableClusterOption]} deriving (Eq, Read, Show)
 
 -- | 'DescribeOrderableClusterOptionsResponse' smart constructor.
 describeOrderableClusterOptionsResponse :: DescribeOrderableClusterOptionsResponse
-describeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsResponse'{_docorMarker = Nothing, _docorOrderableClusterOptions = mempty};
+describeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsResponse'{_docorMarker = Nothing, _docorOrderableClusterOptions = Nothing};
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -164,5 +164,5 @@ docorMarker = lens _docorMarker (\ s a -> s{_docorMarker = a});
 
 -- | An OrderableClusterOption structure containing information about
 -- orderable options for the Cluster.
-docorOrderableClusterOptions :: Lens' DescribeOrderableClusterOptionsResponse [OrderableClusterOption]
+docorOrderableClusterOptions :: Lens' DescribeOrderableClusterOptionsResponse (Maybe [OrderableClusterOption])
 docorOrderableClusterOptions = lens _docorOrderableClusterOptions (\ s a -> s{_docorOrderableClusterOptions = a});

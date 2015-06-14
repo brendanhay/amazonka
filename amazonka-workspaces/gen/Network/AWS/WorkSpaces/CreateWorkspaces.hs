@@ -95,15 +95,15 @@ instance ToQuery CreateWorkspaces where
 -- * 'cwrFailedRequests'
 --
 -- * 'cwrPendingRequests'
-data CreateWorkspacesResponse = CreateWorkspacesResponse'{_cwrFailedRequests :: [FailedCreateWorkspaceRequest], _cwrPendingRequests :: [Workspace]} deriving (Eq, Read, Show)
+data CreateWorkspacesResponse = CreateWorkspacesResponse'{_cwrFailedRequests :: Maybe [FailedCreateWorkspaceRequest], _cwrPendingRequests :: Maybe [Workspace]} deriving (Eq, Read, Show)
 
 -- | 'CreateWorkspacesResponse' smart constructor.
 createWorkspacesResponse :: CreateWorkspacesResponse
-createWorkspacesResponse = CreateWorkspacesResponse'{_cwrFailedRequests = mempty, _cwrPendingRequests = mempty};
+createWorkspacesResponse = CreateWorkspacesResponse'{_cwrFailedRequests = Nothing, _cwrPendingRequests = Nothing};
 
 -- | An array of structures that represent the WorkSpaces that could not be
 -- created.
-cwrFailedRequests :: Lens' CreateWorkspacesResponse [FailedCreateWorkspaceRequest]
+cwrFailedRequests :: Lens' CreateWorkspacesResponse (Maybe [FailedCreateWorkspaceRequest])
 cwrFailedRequests = lens _cwrFailedRequests (\ s a -> s{_cwrFailedRequests = a});
 
 -- | An array of structures that represent the WorkSpaces that were created.
@@ -111,5 +111,5 @@ cwrFailedRequests = lens _cwrFailedRequests (\ s a -> s{_cwrFailedRequests = a})
 -- Because this operation is asynchronous, the identifier in @WorkspaceId@
 -- is not immediately available. If you immediately call DescribeWorkspaces
 -- with this identifier, no information will be returned.
-cwrPendingRequests :: Lens' CreateWorkspacesResponse [Workspace]
+cwrPendingRequests :: Lens' CreateWorkspacesResponse (Maybe [Workspace])
 cwrPendingRequests = lens _cwrPendingRequests (\ s a -> s{_cwrPendingRequests = a});

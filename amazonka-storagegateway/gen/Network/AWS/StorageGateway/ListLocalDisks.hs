@@ -40,8 +40,8 @@ module Network.AWS.StorageGateway.ListLocalDisks
     -- ** Response constructor
     , listLocalDisksResponse
     -- ** Response lenses
-    , lldrDisks
     , lldrGatewayARN
+    , lldrDisks
     ) where
 
 import Network.AWS.Request
@@ -72,7 +72,7 @@ instance AWSRequest ListLocalDisks where
           = receiveJSON
               (\ s h x ->
                  ListLocalDisksResponse' <$>
-                   x .?> "Disks" .!@ mempty <*> x .:> "GatewayARN")
+                   x .?> "GatewayARN" <*> x .?> "Disks" .!@ mempty)
 
 instance ToHeaders ListLocalDisks where
         toHeaders
@@ -98,19 +98,19 @@ instance ToQuery ListLocalDisks where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lldrDisks'
---
 -- * 'lldrGatewayARN'
-data ListLocalDisksResponse = ListLocalDisksResponse'{_lldrDisks :: [Disk], _lldrGatewayARN :: Text} deriving (Eq, Read, Show)
+--
+-- * 'lldrDisks'
+data ListLocalDisksResponse = ListLocalDisksResponse'{_lldrGatewayARN :: Maybe Text, _lldrDisks :: Maybe [Disk]} deriving (Eq, Read, Show)
 
 -- | 'ListLocalDisksResponse' smart constructor.
-listLocalDisksResponse :: Text -> ListLocalDisksResponse
-listLocalDisksResponse pGatewayARN = ListLocalDisksResponse'{_lldrDisks = mempty, _lldrGatewayARN = pGatewayARN};
+listLocalDisksResponse :: ListLocalDisksResponse
+listLocalDisksResponse = ListLocalDisksResponse'{_lldrGatewayARN = Nothing, _lldrDisks = Nothing};
 
 -- | FIXME: Undocumented member.
-lldrDisks :: Lens' ListLocalDisksResponse [Disk]
-lldrDisks = lens _lldrDisks (\ s a -> s{_lldrDisks = a});
-
--- | FIXME: Undocumented member.
-lldrGatewayARN :: Lens' ListLocalDisksResponse Text
+lldrGatewayARN :: Lens' ListLocalDisksResponse (Maybe Text)
 lldrGatewayARN = lens _lldrGatewayARN (\ s a -> s{_lldrGatewayARN = a});
+
+-- | FIXME: Undocumented member.
+lldrDisks :: Lens' ListLocalDisksResponse (Maybe [Disk])
+lldrDisks = lens _lldrDisks (\ s a -> s{_lldrDisks = a});

@@ -61,11 +61,11 @@ import Network.AWS.OpsWorks.Types
 -- * 'dvRAIDArrayId'
 --
 -- * 'dvStackId'
-data DescribeVolumes = DescribeVolumes'{_dvInstanceId :: Maybe Text, _dvVolumeIds :: [Text], _dvRAIDArrayId :: Maybe Text, _dvStackId :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeVolumes = DescribeVolumes'{_dvInstanceId :: Maybe Text, _dvVolumeIds :: Maybe [Text], _dvRAIDArrayId :: Maybe Text, _dvStackId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeVolumes' smart constructor.
 describeVolumes :: DescribeVolumes
-describeVolumes = DescribeVolumes'{_dvInstanceId = Nothing, _dvVolumeIds = mempty, _dvRAIDArrayId = Nothing, _dvStackId = Nothing};
+describeVolumes = DescribeVolumes'{_dvInstanceId = Nothing, _dvVolumeIds = Nothing, _dvRAIDArrayId = Nothing, _dvStackId = Nothing};
 
 -- | The instance ID. If you use this parameter, @DescribeVolumes@ returns
 -- descriptions of the volumes associated with the specified instance.
@@ -75,7 +75,7 @@ dvInstanceId = lens _dvInstanceId (\ s a -> s{_dvInstanceId = a});
 -- | Am array of volume IDs. If you use this parameter, @DescribeVolumes@
 -- returns descriptions of the specified volumes. Otherwise, it returns a
 -- description of every volume.
-dvVolumeIds :: Lens' DescribeVolumes [Text]
+dvVolumeIds :: Lens' DescribeVolumes (Maybe [Text])
 dvVolumeIds = lens _dvVolumeIds (\ s a -> s{_dvVolumeIds = a});
 
 -- | The RAID array ID. If you use this parameter, @DescribeVolumes@ returns
@@ -126,12 +126,12 @@ instance ToQuery DescribeVolumes where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dvrVolumes'
-newtype DescribeVolumesResponse = DescribeVolumesResponse'{_dvrVolumes :: [Volume]} deriving (Eq, Read, Show)
+newtype DescribeVolumesResponse = DescribeVolumesResponse'{_dvrVolumes :: Maybe [Volume]} deriving (Eq, Read, Show)
 
 -- | 'DescribeVolumesResponse' smart constructor.
 describeVolumesResponse :: DescribeVolumesResponse
-describeVolumesResponse = DescribeVolumesResponse'{_dvrVolumes = mempty};
+describeVolumesResponse = DescribeVolumesResponse'{_dvrVolumes = Nothing};
 
 -- | An array of volume IDs.
-dvrVolumes :: Lens' DescribeVolumesResponse [Volume]
+dvrVolumes :: Lens' DescribeVolumesResponse (Maybe [Volume])
 dvrVolumes = lens _dvrVolumes (\ s a -> s{_dvrVolumes = a});

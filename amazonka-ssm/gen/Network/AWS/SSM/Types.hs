@@ -33,9 +33,9 @@ module Network.AWS.SSM.Types
     -- * AssociationDescription
     , AssociationDescription
     , associationDescription
+    , adInstanceId
     , adStatus
     , adDate
-    , adInstanceId
     , adName
 
     -- * AssociationFilter
@@ -140,42 +140,46 @@ instance AWSService SSM where
 -- * 'assInstanceId'
 --
 -- * 'assName'
-data Association = Association'{_assInstanceId :: Text, _assName :: Text} deriving (Eq, Read, Show)
+data Association = Association'{_assInstanceId :: Maybe Text, _assName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'Association' smart constructor.
-association :: Text -> Text -> Association
-association pInstanceId pName = Association'{_assInstanceId = pInstanceId, _assName = pName};
+association :: Association
+association = Association'{_assInstanceId = Nothing, _assName = Nothing};
 
 -- | The ID of the instance.
-assInstanceId :: Lens' Association Text
+assInstanceId :: Lens' Association (Maybe Text)
 assInstanceId = lens _assInstanceId (\ s a -> s{_assInstanceId = a});
 
 -- | The name of the configuration document.
-assName :: Lens' Association Text
+assName :: Lens' Association (Maybe Text)
 assName = lens _assName (\ s a -> s{_assName = a});
 
 instance FromJSON Association where
         parseJSON
           = withObject "Association"
               (\ x ->
-                 Association' <$> x .: "InstanceId" <*> x .: "Name")
+                 Association' <$> x .:? "InstanceId" <*> x .:? "Name")
 
 -- | /See:/ 'associationDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'adInstanceId'
+--
 -- * 'adStatus'
 --
 -- * 'adDate'
 --
--- * 'adInstanceId'
---
 -- * 'adName'
-data AssociationDescription = AssociationDescription'{_adStatus :: Maybe AssociationStatus, _adDate :: Maybe POSIX, _adInstanceId :: Text, _adName :: Text} deriving (Eq, Read, Show)
+data AssociationDescription = AssociationDescription'{_adInstanceId :: Maybe Text, _adStatus :: Maybe AssociationStatus, _adDate :: Maybe POSIX, _adName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'AssociationDescription' smart constructor.
-associationDescription :: Text -> Text -> AssociationDescription
-associationDescription pInstanceId pName = AssociationDescription'{_adStatus = Nothing, _adDate = Nothing, _adInstanceId = pInstanceId, _adName = pName};
+associationDescription :: AssociationDescription
+associationDescription = AssociationDescription'{_adInstanceId = Nothing, _adStatus = Nothing, _adDate = Nothing, _adName = Nothing};
+
+-- | The ID of the instance.
+adInstanceId :: Lens' AssociationDescription (Maybe Text)
+adInstanceId = lens _adInstanceId (\ s a -> s{_adInstanceId = a});
 
 -- | The association status.
 adStatus :: Lens' AssociationDescription (Maybe AssociationStatus)
@@ -185,12 +189,8 @@ adStatus = lens _adStatus (\ s a -> s{_adStatus = a});
 adDate :: Lens' AssociationDescription (Maybe UTCTime)
 adDate = lens _adDate (\ s a -> s{_adDate = a}) . mapping _Time;
 
--- | The ID of the instance.
-adInstanceId :: Lens' AssociationDescription Text
-adInstanceId = lens _adInstanceId (\ s a -> s{_adInstanceId = a});
-
 -- | The name of the configuration document.
-adName :: Lens' AssociationDescription Text
+adName :: Lens' AssociationDescription (Maybe Text)
 adName = lens _adName (\ s a -> s{_adName = a});
 
 instance FromJSON AssociationDescription where
@@ -198,8 +198,9 @@ instance FromJSON AssociationDescription where
           = withObject "AssociationDescription"
               (\ x ->
                  AssociationDescription' <$>
-                   x .:? "Status" <*> x .:? "Date" <*> x .: "InstanceId"
-                     <*> x .: "Name")
+                   x .:? "InstanceId" <*> x .:? "Status" <*>
+                     x .:? "Date"
+                     <*> x .:? "Name")
 
 -- | /See:/ 'associationFilter' smart constructor.
 --
@@ -327,18 +328,18 @@ instance FromJSON AssociationStatusName where
 -- * 'cabreInstanceId'
 --
 -- * 'cabreName'
-data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'{_cabreInstanceId :: Text, _cabreName :: Text} deriving (Eq, Read, Show)
+data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'{_cabreInstanceId :: Maybe Text, _cabreName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'CreateAssociationBatchRequestEntry' smart constructor.
-createAssociationBatchRequestEntry :: Text -> Text -> CreateAssociationBatchRequestEntry
-createAssociationBatchRequestEntry pInstanceId pName = CreateAssociationBatchRequestEntry'{_cabreInstanceId = pInstanceId, _cabreName = pName};
+createAssociationBatchRequestEntry :: CreateAssociationBatchRequestEntry
+createAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'{_cabreInstanceId = Nothing, _cabreName = Nothing};
 
 -- | The ID of the instance.
-cabreInstanceId :: Lens' CreateAssociationBatchRequestEntry Text
+cabreInstanceId :: Lens' CreateAssociationBatchRequestEntry (Maybe Text)
 cabreInstanceId = lens _cabreInstanceId (\ s a -> s{_cabreInstanceId = a});
 
 -- | The name of the configuration document.
-cabreName :: Lens' CreateAssociationBatchRequestEntry Text
+cabreName :: Lens' CreateAssociationBatchRequestEntry (Maybe Text)
 cabreName = lens _cabreName (\ s a -> s{_cabreName = a});
 
 instance FromJSON CreateAssociationBatchRequestEntry
@@ -347,7 +348,7 @@ instance FromJSON CreateAssociationBatchRequestEntry
           = withObject "CreateAssociationBatchRequestEntry"
               (\ x ->
                  CreateAssociationBatchRequestEntry' <$>
-                   x .: "InstanceId" <*> x .: "Name")
+                   x .:? "InstanceId" <*> x .:? "Name")
 
 instance ToJSON CreateAssociationBatchRequestEntry
          where
@@ -367,11 +368,11 @@ instance ToJSON CreateAssociationBatchRequestEntry
 -- * 'docCreatedDate'
 --
 -- * 'docName'
-data DocumentDescription = DocumentDescription'{_docStatus :: Maybe DocumentStatus, _docSha1 :: Maybe Text, _docCreatedDate :: Maybe POSIX, _docName :: Text} deriving (Eq, Read, Show)
+data DocumentDescription = DocumentDescription'{_docStatus :: Maybe DocumentStatus, _docSha1 :: Maybe Text, _docCreatedDate :: Maybe POSIX, _docName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DocumentDescription' smart constructor.
-documentDescription :: Text -> DocumentDescription
-documentDescription pName = DocumentDescription'{_docStatus = Nothing, _docSha1 = Nothing, _docCreatedDate = Nothing, _docName = pName};
+documentDescription :: DocumentDescription
+documentDescription = DocumentDescription'{_docStatus = Nothing, _docSha1 = Nothing, _docCreatedDate = Nothing, _docName = Nothing};
 
 -- | The status of the configuration document.
 docStatus :: Lens' DocumentDescription (Maybe DocumentStatus)
@@ -387,7 +388,7 @@ docCreatedDate :: Lens' DocumentDescription (Maybe UTCTime)
 docCreatedDate = lens _docCreatedDate (\ s a -> s{_docCreatedDate = a}) . mapping _Time;
 
 -- | The name of the configuration document.
-docName :: Lens' DocumentDescription Text
+docName :: Lens' DocumentDescription (Maybe Text)
 docName = lens _docName (\ s a -> s{_docName = a});
 
 instance FromJSON DocumentDescription where
@@ -397,7 +398,7 @@ instance FromJSON DocumentDescription where
                  DocumentDescription' <$>
                    x .:? "Status" <*> x .:? "Sha1" <*>
                      x .:? "CreatedDate"
-                     <*> x .: "Name")
+                     <*> x .:? "Name")
 
 -- | /See:/ 'documentFilter' smart constructor.
 --
@@ -447,20 +448,20 @@ instance ToJSON DocumentFilterKey where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'diName'
-newtype DocumentIdentifier = DocumentIdentifier'{_diName :: Text} deriving (Eq, Read, Show)
+newtype DocumentIdentifier = DocumentIdentifier'{_diName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DocumentIdentifier' smart constructor.
-documentIdentifier :: Text -> DocumentIdentifier
-documentIdentifier pName = DocumentIdentifier'{_diName = pName};
+documentIdentifier :: DocumentIdentifier
+documentIdentifier = DocumentIdentifier'{_diName = Nothing};
 
 -- | The name of the configuration document.
-diName :: Lens' DocumentIdentifier Text
+diName :: Lens' DocumentIdentifier (Maybe Text)
 diName = lens _diName (\ s a -> s{_diName = a});
 
 instance FromJSON DocumentIdentifier where
         parseJSON
           = withObject "DocumentIdentifier"
-              (\ x -> DocumentIdentifier' <$> x .: "Name")
+              (\ x -> DocumentIdentifier' <$> x .:? "Name")
 
 data DocumentStatus = Deleting | Creating | Active deriving (Eq, Ord, Read, Show, Enum, Generic)
 

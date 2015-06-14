@@ -82,11 +82,11 @@ instance ToQuery DescribeAutoScalingNotificationTypes
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dasntrAutoScalingNotificationTypes'
-newtype DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse'{_dasntrAutoScalingNotificationTypes :: [Text]} deriving (Eq, Read, Show)
+newtype DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse'{_dasntrAutoScalingNotificationTypes :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'DescribeAutoScalingNotificationTypesResponse' smart constructor.
 describeAutoScalingNotificationTypesResponse :: DescribeAutoScalingNotificationTypesResponse
-describeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse'{_dasntrAutoScalingNotificationTypes = mempty};
+describeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse'{_dasntrAutoScalingNotificationTypes = Nothing};
 
 -- | One or more of the following notification types:
 --
@@ -100,5 +100,5 @@ describeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTy
 --
 -- -   @autoscaling:TEST_NOTIFICATION@
 --
-dasntrAutoScalingNotificationTypes :: Lens' DescribeAutoScalingNotificationTypesResponse [Text]
+dasntrAutoScalingNotificationTypes :: Lens' DescribeAutoScalingNotificationTypesResponse (Maybe [Text])
 dasntrAutoScalingNotificationTypes = lens _dasntrAutoScalingNotificationTypes (\ s a -> s{_dasntrAutoScalingNotificationTypes = a});

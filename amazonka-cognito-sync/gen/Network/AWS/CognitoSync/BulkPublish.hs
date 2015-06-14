@@ -67,7 +67,7 @@ instance AWSRequest BulkPublish where
         response
           = receiveJSON
               (\ s h x ->
-                 BulkPublishResponse' <$> x .:> "IdentityPoolId")
+                 BulkPublishResponse' <$> x .?> "IdentityPoolId")
 
 instance ToHeaders BulkPublish where
         toHeaders
@@ -93,14 +93,14 @@ instance ToQuery BulkPublish where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'bprIdentityPoolId'
-newtype BulkPublishResponse = BulkPublishResponse'{_bprIdentityPoolId :: Text} deriving (Eq, Read, Show)
+newtype BulkPublishResponse = BulkPublishResponse'{_bprIdentityPoolId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'BulkPublishResponse' smart constructor.
-bulkPublishResponse :: Text -> BulkPublishResponse
-bulkPublishResponse pIdentityPoolId = BulkPublishResponse'{_bprIdentityPoolId = pIdentityPoolId};
+bulkPublishResponse :: BulkPublishResponse
+bulkPublishResponse = BulkPublishResponse'{_bprIdentityPoolId = Nothing};
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-bprIdentityPoolId :: Lens' BulkPublishResponse Text
+bprIdentityPoolId :: Lens' BulkPublishResponse (Maybe Text)
 bprIdentityPoolId = lens _bprIdentityPoolId (\ s a -> s{_bprIdentityPoolId = a});

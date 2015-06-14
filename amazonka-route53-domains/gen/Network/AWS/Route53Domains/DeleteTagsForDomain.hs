@@ -51,8 +51,8 @@ import Network.AWS.Route53Domains.Types
 data DeleteTagsForDomain = DeleteTagsForDomain'{_dtfdDomainName :: Text, _dtfdTagsToDelete :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'DeleteTagsForDomain' smart constructor.
-deleteTagsForDomain :: Text -> [Text] -> DeleteTagsForDomain
-deleteTagsForDomain pDomainName pTagsToDelete = DeleteTagsForDomain'{_dtfdDomainName = pDomainName, _dtfdTagsToDelete = pTagsToDelete};
+deleteTagsForDomain :: Text -> DeleteTagsForDomain
+deleteTagsForDomain pDomainName = DeleteTagsForDomain'{_dtfdDomainName = pDomainName, _dtfdTagsToDelete = mempty};
 
 -- | The domain for which you want to delete one or more tags.
 --

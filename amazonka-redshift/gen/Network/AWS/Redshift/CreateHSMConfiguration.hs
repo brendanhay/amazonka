@@ -71,14 +71,14 @@ import Network.AWS.Redshift.Types
 -- * 'chcHSMPartitionPassword'
 --
 -- * 'chcHSMServerPublicCertificate'
-data CreateHSMConfiguration = CreateHSMConfiguration'{_chcTags :: [Tag], _chcHSMConfigurationIdentifier :: Text, _chcDescription :: Text, _chcHSMIPAddress :: Text, _chcHSMPartitionName :: Text, _chcHSMPartitionPassword :: Text, _chcHSMServerPublicCertificate :: Text} deriving (Eq, Read, Show)
+data CreateHSMConfiguration = CreateHSMConfiguration'{_chcTags :: Maybe [Tag], _chcHSMConfigurationIdentifier :: Text, _chcDescription :: Text, _chcHSMIPAddress :: Text, _chcHSMPartitionName :: Text, _chcHSMPartitionPassword :: Text, _chcHSMServerPublicCertificate :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateHSMConfiguration' smart constructor.
 createHSMConfiguration :: Text -> Text -> Text -> Text -> Text -> Text -> CreateHSMConfiguration
-createHSMConfiguration pHSMConfigurationIdentifier pDescription pHSMIPAddress pHSMPartitionName pHSMPartitionPassword pHSMServerPublicCertificate = CreateHSMConfiguration'{_chcTags = mempty, _chcHSMConfigurationIdentifier = pHSMConfigurationIdentifier, _chcDescription = pDescription, _chcHSMIPAddress = pHSMIPAddress, _chcHSMPartitionName = pHSMPartitionName, _chcHSMPartitionPassword = pHSMPartitionPassword, _chcHSMServerPublicCertificate = pHSMServerPublicCertificate};
+createHSMConfiguration pHSMConfigurationIdentifier pDescription pHSMIPAddress pHSMPartitionName pHSMPartitionPassword pHSMServerPublicCertificate = CreateHSMConfiguration'{_chcTags = Nothing, _chcHSMConfigurationIdentifier = pHSMConfigurationIdentifier, _chcDescription = pDescription, _chcHSMIPAddress = pHSMIPAddress, _chcHSMPartitionName = pHSMPartitionName, _chcHSMPartitionPassword = pHSMPartitionPassword, _chcHSMServerPublicCertificate = pHSMServerPublicCertificate};
 
 -- | A list of tag instances.
-chcTags :: Lens' CreateHSMConfiguration [Tag]
+chcTags :: Lens' CreateHSMConfiguration (Maybe [Tag])
 chcTags = lens _chcTags (\ s a -> s{_chcTags = a});
 
 -- | The identifier to be assigned to the new Amazon Redshift HSM

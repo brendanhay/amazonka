@@ -125,15 +125,15 @@ instance ToQuery ListContainerInstances where
 -- * 'lcirContainerInstanceARNs'
 --
 -- * 'lcirNextToken'
-data ListContainerInstancesResponse = ListContainerInstancesResponse'{_lcirContainerInstanceARNs :: [Text], _lcirNextToken :: Maybe Text} deriving (Eq, Read, Show)
+data ListContainerInstancesResponse = ListContainerInstancesResponse'{_lcirContainerInstanceARNs :: Maybe [Text], _lcirNextToken :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ListContainerInstancesResponse' smart constructor.
 listContainerInstancesResponse :: ListContainerInstancesResponse
-listContainerInstancesResponse = ListContainerInstancesResponse'{_lcirContainerInstanceARNs = mempty, _lcirNextToken = Nothing};
+listContainerInstancesResponse = ListContainerInstancesResponse'{_lcirContainerInstanceARNs = Nothing, _lcirNextToken = Nothing};
 
 -- | The list of container instance full Amazon Resource Name (ARN) entries
 -- for each container instance associated with the specified cluster.
-lcirContainerInstanceARNs :: Lens' ListContainerInstancesResponse [Text]
+lcirContainerInstanceARNs :: Lens' ListContainerInstancesResponse (Maybe [Text])
 lcirContainerInstanceARNs = lens _lcirContainerInstanceARNs (\ s a -> s{_lcirContainerInstanceARNs = a});
 
 -- | The @nextToken@ value to include in a future @ListContainerInstances@

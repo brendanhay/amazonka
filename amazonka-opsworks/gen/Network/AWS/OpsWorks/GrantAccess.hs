@@ -26,8 +26,8 @@ module Network.AWS.OpsWorks.GrantAccess
     -- ** Request constructor
     , grantAccess
     -- ** Request lenses
-    , gaInstanceId
     , gaValidForInMinutes
+    , gaInstanceId
 
     -- * Response
     , GrantAccessResponse
@@ -46,25 +46,25 @@ import Network.AWS.OpsWorks.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gaInstanceId'
---
 -- * 'gaValidForInMinutes'
-data GrantAccess = GrantAccess'{_gaInstanceId :: Text, _gaValidForInMinutes :: Nat} deriving (Eq, Read, Show)
+--
+-- * 'gaInstanceId'
+data GrantAccess = GrantAccess'{_gaValidForInMinutes :: Maybe Nat, _gaInstanceId :: Text} deriving (Eq, Read, Show)
 
 -- | 'GrantAccess' smart constructor.
-grantAccess :: Text -> Natural -> GrantAccess
-grantAccess pInstanceId pValidForInMinutes = GrantAccess'{_gaInstanceId = pInstanceId, _gaValidForInMinutes = _Nat # pValidForInMinutes};
-
--- | The instance\'s AWS OpsWorks ID.
-gaInstanceId :: Lens' GrantAccess Text
-gaInstanceId = lens _gaInstanceId (\ s a -> s{_gaInstanceId = a});
+grantAccess :: Text -> GrantAccess
+grantAccess pInstanceId = GrantAccess'{_gaValidForInMinutes = Nothing, _gaInstanceId = pInstanceId};
 
 -- | The length of time (in minutes) that the grant is valid. When the grant
 -- expires at the end of this period, the user will no longer be able to
 -- use the credentials to log in. If the user is logged in at the time, he
 -- or she automatically will be logged out.
-gaValidForInMinutes :: Lens' GrantAccess Natural
-gaValidForInMinutes = lens _gaValidForInMinutes (\ s a -> s{_gaValidForInMinutes = a}) . _Nat;
+gaValidForInMinutes :: Lens' GrantAccess (Maybe Natural)
+gaValidForInMinutes = lens _gaValidForInMinutes (\ s a -> s{_gaValidForInMinutes = a}) . mapping _Nat;
+
+-- | The instance\'s AWS OpsWorks ID.
+gaInstanceId :: Lens' GrantAccess Text
+gaInstanceId = lens _gaInstanceId (\ s a -> s{_gaInstanceId = a});
 
 instance AWSRequest GrantAccess where
         type Sv GrantAccess = OpsWorks
@@ -87,8 +87,8 @@ instance ToHeaders GrantAccess where
 instance ToJSON GrantAccess where
         toJSON GrantAccess'{..}
           = object
-              ["InstanceId" .= _gaInstanceId,
-               "ValidForInMinutes" .= _gaValidForInMinutes]
+              ["ValidForInMinutes" .= _gaValidForInMinutes,
+               "InstanceId" .= _gaInstanceId]
 
 instance ToPath GrantAccess where
         toPath = const "/"

@@ -59,11 +59,11 @@ import Network.AWS.SDB.Types
 -- * 'gaDomainName'
 --
 -- * 'gaItemName'
-data GetAttributes = GetAttributes'{_gaConsistentRead :: Maybe Bool, _gaAttributeNames :: [Text], _gaDomainName :: Text, _gaItemName :: Text} deriving (Eq, Read, Show)
+data GetAttributes = GetAttributes'{_gaConsistentRead :: Maybe Bool, _gaAttributeNames :: Maybe [Text], _gaDomainName :: Text, _gaItemName :: Text} deriving (Eq, Read, Show)
 
 -- | 'GetAttributes' smart constructor.
 getAttributes :: Text -> Text -> GetAttributes
-getAttributes pDomainName pItemName = GetAttributes'{_gaConsistentRead = Nothing, _gaAttributeNames = mempty, _gaDomainName = pDomainName, _gaItemName = pItemName};
+getAttributes pDomainName pItemName = GetAttributes'{_gaConsistentRead = Nothing, _gaAttributeNames = Nothing, _gaDomainName = pDomainName, _gaItemName = pItemName};
 
 -- | Determines whether or not strong consistency should be enforced when
 -- data is read from SimpleDB. If @true@, any data previously written to
@@ -74,7 +74,7 @@ gaConsistentRead :: Lens' GetAttributes (Maybe Bool)
 gaConsistentRead = lens _gaConsistentRead (\ s a -> s{_gaConsistentRead = a});
 
 -- | The names of the attributes.
-gaAttributeNames :: Lens' GetAttributes [Text]
+gaAttributeNames :: Lens' GetAttributes (Maybe [Text])
 gaAttributeNames = lens _gaAttributeNames (\ s a -> s{_gaAttributeNames = a});
 
 -- | The name of the domain in which to perform the operation.
@@ -116,12 +116,12 @@ instance ToQuery GetAttributes where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'garAttributes'
-newtype GetAttributesResponse = GetAttributesResponse'{_garAttributes :: [Attribute]} deriving (Eq, Read, Show)
+newtype GetAttributesResponse = GetAttributesResponse'{_garAttributes :: Maybe [Attribute]} deriving (Eq, Read, Show)
 
 -- | 'GetAttributesResponse' smart constructor.
 getAttributesResponse :: GetAttributesResponse
-getAttributesResponse = GetAttributesResponse'{_garAttributes = mempty};
+getAttributesResponse = GetAttributesResponse'{_garAttributes = Nothing};
 
 -- | The list of attributes returned by the operation.
-garAttributes :: Lens' GetAttributesResponse [Attribute]
+garAttributes :: Lens' GetAttributesResponse (Maybe [Attribute])
 garAttributes = lens _garAttributes (\ s a -> s{_garAttributes = a});

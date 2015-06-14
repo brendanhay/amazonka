@@ -51,8 +51,8 @@ import Network.AWS.EMR.Types
 data AddTags = AddTags'{_atResourceId :: Text, _atTags :: [Tag]} deriving (Eq, Read, Show)
 
 -- | 'AddTags' smart constructor.
-addTags :: Text -> [Tag] -> AddTags
-addTags pResourceId pTags = AddTags'{_atResourceId = pResourceId, _atTags = pTags};
+addTags :: Text -> AddTags
+addTags pResourceId = AddTags'{_atResourceId = pResourceId, _atTags = mempty};
 
 -- | The Amazon EMR resource identifier to which tags will be added. This
 -- value must be a cluster identifier.

@@ -28,24 +28,24 @@ module Network.AWS.AutoScaling.CreateLaunchConfiguration
     -- ** Request constructor
     , createLaunchConfiguration
     -- ** Request lenses
+    , clcInstanceId
     , clcSecurityGroups
     , clcAssociatePublicIPAddress
     , clcInstanceMonitoring
-    , clcClassicLinkVPCSecurityGroups
-    , clcEBSOptimized
-    , clcUserData
-    , clcBlockDeviceMappings
-    , clcLaunchConfigurationName
-    , clcInstanceId
     , clcSpotPrice
     , clcKeyName
+    , clcClassicLinkVPCSecurityGroups
     , clcRAMDiskId
     , clcKernelId
     , clcInstanceType
+    , clcEBSOptimized
+    , clcUserData
     , clcClassicLinkVPCId
     , clcIAMInstanceProfile
     , clcImageId
     , clcPlacementTenancy
+    , clcBlockDeviceMappings
+    , clcLaunchConfigurationName
 
     -- * Response
     , CreateLaunchConfigurationResponse
@@ -62,33 +62,29 @@ import Network.AWS.AutoScaling.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'clcInstanceId'
+--
 -- * 'clcSecurityGroups'
 --
 -- * 'clcAssociatePublicIPAddress'
 --
 -- * 'clcInstanceMonitoring'
 --
--- * 'clcClassicLinkVPCSecurityGroups'
---
--- * 'clcEBSOptimized'
---
--- * 'clcUserData'
---
--- * 'clcBlockDeviceMappings'
---
--- * 'clcLaunchConfigurationName'
---
--- * 'clcInstanceId'
---
 -- * 'clcSpotPrice'
 --
 -- * 'clcKeyName'
+--
+-- * 'clcClassicLinkVPCSecurityGroups'
 --
 -- * 'clcRAMDiskId'
 --
 -- * 'clcKernelId'
 --
 -- * 'clcInstanceType'
+--
+-- * 'clcEBSOptimized'
+--
+-- * 'clcUserData'
 --
 -- * 'clcClassicLinkVPCId'
 --
@@ -97,11 +93,29 @@ import Network.AWS.AutoScaling.Types
 -- * 'clcImageId'
 --
 -- * 'clcPlacementTenancy'
-data CreateLaunchConfiguration = CreateLaunchConfiguration'{_clcSecurityGroups :: [Text], _clcAssociatePublicIPAddress :: Maybe Bool, _clcInstanceMonitoring :: Maybe InstanceMonitoring, _clcClassicLinkVPCSecurityGroups :: [Text], _clcEBSOptimized :: Maybe Bool, _clcUserData :: Maybe Text, _clcBlockDeviceMappings :: [BlockDeviceMapping], _clcLaunchConfigurationName :: Text, _clcInstanceId :: Text, _clcSpotPrice :: Text, _clcKeyName :: Text, _clcRAMDiskId :: Text, _clcKernelId :: Text, _clcInstanceType :: Text, _clcClassicLinkVPCId :: Text, _clcIAMInstanceProfile :: Text, _clcImageId :: Text, _clcPlacementTenancy :: Text} deriving (Eq, Read, Show)
+--
+-- * 'clcBlockDeviceMappings'
+--
+-- * 'clcLaunchConfigurationName'
+data CreateLaunchConfiguration = CreateLaunchConfiguration'{_clcInstanceId :: Maybe Text, _clcSecurityGroups :: Maybe [Text], _clcAssociatePublicIPAddress :: Maybe Bool, _clcInstanceMonitoring :: Maybe InstanceMonitoring, _clcSpotPrice :: Maybe Text, _clcKeyName :: Maybe Text, _clcClassicLinkVPCSecurityGroups :: Maybe [Text], _clcRAMDiskId :: Maybe Text, _clcKernelId :: Maybe Text, _clcInstanceType :: Maybe Text, _clcEBSOptimized :: Maybe Bool, _clcUserData :: Maybe Text, _clcClassicLinkVPCId :: Maybe Text, _clcIAMInstanceProfile :: Maybe Text, _clcImageId :: Maybe Text, _clcPlacementTenancy :: Maybe Text, _clcBlockDeviceMappings :: Maybe [BlockDeviceMapping], _clcLaunchConfigurationName :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateLaunchConfiguration' smart constructor.
-createLaunchConfiguration :: Text -> Text -> Text -> Text -> Text -> Text -> Text -> Text -> Text -> Text -> Text -> CreateLaunchConfiguration
-createLaunchConfiguration pLaunchConfigurationName pInstanceId pSpotPrice pKeyName pRAMDiskId pKernelId pInstanceType pClassicLinkVPCId pIAMInstanceProfile pImageId pPlacementTenancy = CreateLaunchConfiguration'{_clcSecurityGroups = mempty, _clcAssociatePublicIPAddress = Nothing, _clcInstanceMonitoring = Nothing, _clcClassicLinkVPCSecurityGroups = mempty, _clcEBSOptimized = Nothing, _clcUserData = Nothing, _clcBlockDeviceMappings = mempty, _clcLaunchConfigurationName = pLaunchConfigurationName, _clcInstanceId = pInstanceId, _clcSpotPrice = pSpotPrice, _clcKeyName = pKeyName, _clcRAMDiskId = pRAMDiskId, _clcKernelId = pKernelId, _clcInstanceType = pInstanceType, _clcClassicLinkVPCId = pClassicLinkVPCId, _clcIAMInstanceProfile = pIAMInstanceProfile, _clcImageId = pImageId, _clcPlacementTenancy = pPlacementTenancy};
+createLaunchConfiguration :: Text -> CreateLaunchConfiguration
+createLaunchConfiguration pLaunchConfigurationName = CreateLaunchConfiguration'{_clcInstanceId = Nothing, _clcSecurityGroups = Nothing, _clcAssociatePublicIPAddress = Nothing, _clcInstanceMonitoring = Nothing, _clcSpotPrice = Nothing, _clcKeyName = Nothing, _clcClassicLinkVPCSecurityGroups = Nothing, _clcRAMDiskId = Nothing, _clcKernelId = Nothing, _clcInstanceType = Nothing, _clcEBSOptimized = Nothing, _clcUserData = Nothing, _clcClassicLinkVPCId = Nothing, _clcIAMInstanceProfile = Nothing, _clcImageId = Nothing, _clcPlacementTenancy = Nothing, _clcBlockDeviceMappings = Nothing, _clcLaunchConfigurationName = pLaunchConfigurationName};
+
+-- | The ID of the EC2 instance to use to create the launch configuration.
+--
+-- The new launch configuration derives attributes from the instance, with
+-- the exception of the block device mapping.
+--
+-- To create a launch configuration with a block device mapping or override
+-- any other instance attributes, specify them as part of the same request.
+--
+-- For more information, see
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/create-lc-with-instanceID.html Create a Launch Configuration Using an EC2 Instance>
+-- in the /Auto Scaling Developer Guide/.
+clcInstanceId :: Lens' CreateLaunchConfiguration (Maybe Text)
+clcInstanceId = lens _clcInstanceId (\ s a -> s{_clcInstanceId = a});
 
 -- | One or more security groups with which to associate the instances.
 --
@@ -115,7 +129,7 @@ createLaunchConfiguration pLaunchConfigurationName pInstanceId pSpotPrice pKeyNa
 -- more information, see
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html Security Groups for Your VPC>
 -- in the /Amazon Virtual Private Cloud User Guide/.
-clcSecurityGroups :: Lens' CreateLaunchConfiguration [Text]
+clcSecurityGroups :: Lens' CreateLaunchConfiguration (Maybe [Text])
 clcSecurityGroups = lens _clcSecurityGroups (\ s a -> s{_clcSecurityGroups = a});
 
 -- | Used for groups that launch instances into a virtual private cloud
@@ -148,13 +162,42 @@ clcAssociatePublicIPAddress = lens _clcAssociatePublicIPAddress (\ s a -> s{_clc
 clcInstanceMonitoring :: Lens' CreateLaunchConfiguration (Maybe InstanceMonitoring)
 clcInstanceMonitoring = lens _clcInstanceMonitoring (\ s a -> s{_clcInstanceMonitoring = a});
 
+-- | The maximum hourly price to be paid for any Spot Instance launched to
+-- fulfill the request. Spot Instances are launched when the price you
+-- specify exceeds the current Spot market price. For more information, see
+-- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US-SpotInstances.html Launch Spot Instances in Your Auto Scaling Group>
+-- in the /Auto Scaling Developer Guide/.
+clcSpotPrice :: Lens' CreateLaunchConfiguration (Maybe Text)
+clcSpotPrice = lens _clcSpotPrice (\ s a -> s{_clcSpotPrice = a});
+
+-- | The name of the key pair. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Amazon EC2 Key Pairs>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+clcKeyName :: Lens' CreateLaunchConfiguration (Maybe Text)
+clcKeyName = lens _clcKeyName (\ s a -> s{_clcKeyName = a});
+
 -- | The IDs of one or more security groups for the VPC specified in
 -- @ClassicLinkVPCId@. This parameter is required if @ClassicLinkVPCId@ is
 -- specified, and cannot be used otherwise. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
-clcClassicLinkVPCSecurityGroups :: Lens' CreateLaunchConfiguration [Text]
+clcClassicLinkVPCSecurityGroups :: Lens' CreateLaunchConfiguration (Maybe [Text])
 clcClassicLinkVPCSecurityGroups = lens _clcClassicLinkVPCSecurityGroups (\ s a -> s{_clcClassicLinkVPCSecurityGroups = a});
+
+-- | The ID of the RAM disk associated with the Amazon EC2 AMI.
+clcRAMDiskId :: Lens' CreateLaunchConfiguration (Maybe Text)
+clcRAMDiskId = lens _clcRAMDiskId (\ s a -> s{_clcRAMDiskId = a});
+
+-- | The ID of the kernel associated with the Amazon EC2 AMI.
+clcKernelId :: Lens' CreateLaunchConfiguration (Maybe Text)
+clcKernelId = lens _clcKernelId (\ s a -> s{_clcKernelId = a});
+
+-- | The instance type of the Amazon EC2 instance. For information about
+-- available Amazon EC2 instance types, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes Available Instance Types>
+-- in the /Amazon Elastic Cloud Compute User Guide./
+clcInstanceType :: Lens' CreateLaunchConfiguration (Maybe Text)
+clcInstanceType = lens _clcInstanceType (\ s a -> s{_clcInstanceType = a});
 
 -- | Indicates whether the instance is optimized for Amazon EBS I\/O. By
 -- default, the instance is not optimized for EBS I\/O. The optimization
@@ -177,67 +220,12 @@ clcEBSOptimized = lens _clcEBSOptimized (\ s a -> s{_clcEBSOptimized = a});
 clcUserData :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcUserData = lens _clcUserData (\ s a -> s{_clcUserData = a});
 
--- | One or more mappings that specify how block devices are exposed to the
--- instance. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html Block Device Mapping>
--- in the /Amazon Elastic Compute Cloud User Guide/.
-clcBlockDeviceMappings :: Lens' CreateLaunchConfiguration [BlockDeviceMapping]
-clcBlockDeviceMappings = lens _clcBlockDeviceMappings (\ s a -> s{_clcBlockDeviceMappings = a});
-
--- | The name of the launch configuration. This name must be unique within
--- the scope of your AWS account.
-clcLaunchConfigurationName :: Lens' CreateLaunchConfiguration Text
-clcLaunchConfigurationName = lens _clcLaunchConfigurationName (\ s a -> s{_clcLaunchConfigurationName = a});
-
--- | The ID of the EC2 instance to use to create the launch configuration.
---
--- The new launch configuration derives attributes from the instance, with
--- the exception of the block device mapping.
---
--- To create a launch configuration with a block device mapping or override
--- any other instance attributes, specify them as part of the same request.
---
--- For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/create-lc-with-instanceID.html Create a Launch Configuration Using an EC2 Instance>
--- in the /Auto Scaling Developer Guide/.
-clcInstanceId :: Lens' CreateLaunchConfiguration Text
-clcInstanceId = lens _clcInstanceId (\ s a -> s{_clcInstanceId = a});
-
--- | The maximum hourly price to be paid for any Spot Instance launched to
--- fulfill the request. Spot Instances are launched when the price you
--- specify exceeds the current Spot market price. For more information, see
--- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US-SpotInstances.html Launch Spot Instances in Your Auto Scaling Group>
--- in the /Auto Scaling Developer Guide/.
-clcSpotPrice :: Lens' CreateLaunchConfiguration Text
-clcSpotPrice = lens _clcSpotPrice (\ s a -> s{_clcSpotPrice = a});
-
--- | The name of the key pair. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Amazon EC2 Key Pairs>
--- in the /Amazon Elastic Compute Cloud User Guide/.
-clcKeyName :: Lens' CreateLaunchConfiguration Text
-clcKeyName = lens _clcKeyName (\ s a -> s{_clcKeyName = a});
-
--- | The ID of the RAM disk associated with the Amazon EC2 AMI.
-clcRAMDiskId :: Lens' CreateLaunchConfiguration Text
-clcRAMDiskId = lens _clcRAMDiskId (\ s a -> s{_clcRAMDiskId = a});
-
--- | The ID of the kernel associated with the Amazon EC2 AMI.
-clcKernelId :: Lens' CreateLaunchConfiguration Text
-clcKernelId = lens _clcKernelId (\ s a -> s{_clcKernelId = a});
-
--- | The instance type of the Amazon EC2 instance. For information about
--- available Amazon EC2 instance types, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes Available Instance Types>
--- in the /Amazon Elastic Cloud Compute User Guide./
-clcInstanceType :: Lens' CreateLaunchConfiguration Text
-clcInstanceType = lens _clcInstanceType (\ s a -> s{_clcInstanceType = a});
-
 -- | The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances
 -- to. This parameter can only be used if you are launching EC2-Classic
 -- instances. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
-clcClassicLinkVPCId :: Lens' CreateLaunchConfiguration Text
+clcClassicLinkVPCId :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcClassicLinkVPCId = lens _clcClassicLinkVPCId (\ s a -> s{_clcClassicLinkVPCId = a});
 
 -- | The name or the Amazon Resource Name (ARN) of the instance profile
@@ -250,14 +238,14 @@ clcClassicLinkVPCId = lens _clcClassicLinkVPCId (\ s a -> s{_clcClassicLinkVPCId
 -- see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-iam-role.html Launch Auto Scaling Instances with an IAM Role>
 -- in the /Auto Scaling Developer Guide/.
-clcIAMInstanceProfile :: Lens' CreateLaunchConfiguration Text
+clcIAMInstanceProfile :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcIAMInstanceProfile = lens _clcIAMInstanceProfile (\ s a -> s{_clcIAMInstanceProfile = a});
 
 -- | The ID of the Amazon Machine Image (AMI) to use to launch your EC2
 -- instances. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html Finding an AMI>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
-clcImageId :: Lens' CreateLaunchConfiguration Text
+clcImageId :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcImageId = lens _clcImageId (\ s a -> s{_clcImageId = a});
 
 -- | The tenancy of the instance. An instance with a tenancy of @dedicated@
@@ -276,8 +264,20 @@ clcImageId = lens _clcImageId (\ s a -> s{_clcImageId = a});
 -- in the /Auto Scaling Developer Guide/.
 --
 -- Valid values: @default@ | @dedicated@
-clcPlacementTenancy :: Lens' CreateLaunchConfiguration Text
+clcPlacementTenancy :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcPlacementTenancy = lens _clcPlacementTenancy (\ s a -> s{_clcPlacementTenancy = a});
+
+-- | One or more mappings that specify how block devices are exposed to the
+-- instance. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html Block Device Mapping>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+clcBlockDeviceMappings :: Lens' CreateLaunchConfiguration (Maybe [BlockDeviceMapping])
+clcBlockDeviceMappings = lens _clcBlockDeviceMappings (\ s a -> s{_clcBlockDeviceMappings = a});
+
+-- | The name of the launch configuration. This name must be unique within
+-- the scope of your AWS account.
+clcLaunchConfigurationName :: Lens' CreateLaunchConfiguration Text
+clcLaunchConfigurationName = lens _clcLaunchConfigurationName (\ s a -> s{_clcLaunchConfigurationName = a});
 
 instance AWSRequest CreateLaunchConfiguration where
         type Sv CreateLaunchConfiguration = AutoScaling
@@ -299,28 +299,28 @@ instance ToQuery CreateLaunchConfiguration where
               ["Action" =:
                  ("CreateLaunchConfiguration" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
+               "InstanceId" =: _clcInstanceId,
                "SecurityGroups" =: "member" =: _clcSecurityGroups,
                "AssociatePublicIpAddress" =:
                  _clcAssociatePublicIPAddress,
                "InstanceMonitoring" =: _clcInstanceMonitoring,
-               "ClassicLinkVPCSecurityGroups" =:
-                 "member" =: _clcClassicLinkVPCSecurityGroups,
-               "EbsOptimized" =: _clcEBSOptimized,
-               "UserData" =: _clcUserData,
-               "BlockDeviceMappings" =:
-                 "member" =: _clcBlockDeviceMappings,
-               "LaunchConfigurationName" =:
-                 _clcLaunchConfigurationName,
-               "InstanceId" =: _clcInstanceId,
                "SpotPrice" =: _clcSpotPrice,
                "KeyName" =: _clcKeyName,
+               "ClassicLinkVPCSecurityGroups" =:
+                 "member" =: _clcClassicLinkVPCSecurityGroups,
                "RamdiskId" =: _clcRAMDiskId,
                "KernelId" =: _clcKernelId,
                "InstanceType" =: _clcInstanceType,
+               "EbsOptimized" =: _clcEBSOptimized,
+               "UserData" =: _clcUserData,
                "ClassicLinkVPCId" =: _clcClassicLinkVPCId,
                "IamInstanceProfile" =: _clcIAMInstanceProfile,
                "ImageId" =: _clcImageId,
-               "PlacementTenancy" =: _clcPlacementTenancy]
+               "PlacementTenancy" =: _clcPlacementTenancy,
+               "BlockDeviceMappings" =:
+                 "member" =: _clcBlockDeviceMappings,
+               "LaunchConfigurationName" =:
+                 _clcLaunchConfigurationName]
 
 -- | /See:/ 'createLaunchConfigurationResponse' smart constructor.
 data CreateLaunchConfigurationResponse = CreateLaunchConfigurationResponse' deriving (Eq, Read, Show)

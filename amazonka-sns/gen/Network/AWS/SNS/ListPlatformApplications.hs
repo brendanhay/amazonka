@@ -99,15 +99,15 @@ instance ToQuery ListPlatformApplications where
 -- * 'lparPlatformApplications'
 --
 -- * 'lparNextToken'
-data ListPlatformApplicationsResponse = ListPlatformApplicationsResponse'{_lparPlatformApplications :: [PlatformApplication], _lparNextToken :: Maybe Text} deriving (Eq, Read, Show)
+data ListPlatformApplicationsResponse = ListPlatformApplicationsResponse'{_lparPlatformApplications :: Maybe [PlatformApplication], _lparNextToken :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ListPlatformApplicationsResponse' smart constructor.
 listPlatformApplicationsResponse :: ListPlatformApplicationsResponse
-listPlatformApplicationsResponse = ListPlatformApplicationsResponse'{_lparPlatformApplications = mempty, _lparNextToken = Nothing};
+listPlatformApplicationsResponse = ListPlatformApplicationsResponse'{_lparPlatformApplications = Nothing, _lparNextToken = Nothing};
 
 -- | Platform applications returned when calling ListPlatformApplications
 -- action.
-lparPlatformApplications :: Lens' ListPlatformApplicationsResponse [PlatformApplication]
+lparPlatformApplications :: Lens' ListPlatformApplicationsResponse (Maybe [PlatformApplication])
 lparPlatformApplications = lens _lparPlatformApplications (\ s a -> s{_lparPlatformApplications = a});
 
 -- | NextToken string is returned when calling ListPlatformApplications

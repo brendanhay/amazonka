@@ -122,8 +122,8 @@ instance ToQuery ListReusableDelegationSets where
 data ListReusableDelegationSetsResponse = ListReusableDelegationSetsResponse'{_lrdsrNextMarker :: Maybe Text, _lrdsrDelegationSets :: [DelegationSet], _lrdsrMarker :: Text, _lrdsrIsTruncated :: Bool, _lrdsrMaxItems :: Text} deriving (Eq, Read, Show)
 
 -- | 'ListReusableDelegationSetsResponse' smart constructor.
-listReusableDelegationSetsResponse :: [DelegationSet] -> Text -> Bool -> Text -> ListReusableDelegationSetsResponse
-listReusableDelegationSetsResponse pDelegationSets pMarker pIsTruncated pMaxItems = ListReusableDelegationSetsResponse'{_lrdsrNextMarker = Nothing, _lrdsrDelegationSets = pDelegationSets, _lrdsrMarker = pMarker, _lrdsrIsTruncated = pIsTruncated, _lrdsrMaxItems = pMaxItems};
+listReusableDelegationSetsResponse :: Text -> Bool -> Text -> ListReusableDelegationSetsResponse
+listReusableDelegationSetsResponse pMarker pIsTruncated pMaxItems = ListReusableDelegationSetsResponse'{_lrdsrNextMarker = Nothing, _lrdsrDelegationSets = mempty, _lrdsrMarker = pMarker, _lrdsrIsTruncated = pIsTruncated, _lrdsrMaxItems = pMaxItems};
 
 -- | Indicates where to continue listing reusable delegation sets. If
 -- ListReusableDelegationSetsResponse$IsTruncated is @true@, make another

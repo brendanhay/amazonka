@@ -95,11 +95,11 @@ import Network.AWS.EC2.Types
 -- * 'riDescription'
 --
 -- * 'riName'
-data RegisterImage = RegisterImage'{_riVirtualizationType :: Maybe Text, _riImageLocation :: Maybe Text, _riRAMDiskId :: Maybe Text, _riKernelId :: Maybe Text, _riRootDeviceName :: Maybe Text, _riSRIOVNetSupport :: Maybe Text, _riArchitecture :: Maybe ArchitectureValues, _riBlockDeviceMappings :: [BlockDeviceMapping], _riDryRun :: Maybe Bool, _riDescription :: Maybe Text, _riName :: Text} deriving (Eq, Read, Show)
+data RegisterImage = RegisterImage'{_riVirtualizationType :: Maybe Text, _riImageLocation :: Maybe Text, _riRAMDiskId :: Maybe Text, _riKernelId :: Maybe Text, _riRootDeviceName :: Maybe Text, _riSRIOVNetSupport :: Maybe Text, _riArchitecture :: Maybe ArchitectureValues, _riBlockDeviceMappings :: Maybe [BlockDeviceMapping], _riDryRun :: Maybe Bool, _riDescription :: Maybe Text, _riName :: Text} deriving (Eq, Read, Show)
 
 -- | 'RegisterImage' smart constructor.
 registerImage :: Text -> RegisterImage
-registerImage pName = RegisterImage'{_riVirtualizationType = Nothing, _riImageLocation = Nothing, _riRAMDiskId = Nothing, _riKernelId = Nothing, _riRootDeviceName = Nothing, _riSRIOVNetSupport = Nothing, _riArchitecture = Nothing, _riBlockDeviceMappings = mempty, _riDryRun = Nothing, _riDescription = Nothing, _riName = pName};
+registerImage pName = RegisterImage'{_riVirtualizationType = Nothing, _riImageLocation = Nothing, _riRAMDiskId = Nothing, _riKernelId = Nothing, _riRootDeviceName = Nothing, _riSRIOVNetSupport = Nothing, _riArchitecture = Nothing, _riBlockDeviceMappings = Nothing, _riDryRun = Nothing, _riDescription = Nothing, _riName = pName};
 
 -- | The type of virtualization.
 --
@@ -142,7 +142,7 @@ riArchitecture :: Lens' RegisterImage (Maybe ArchitectureValues)
 riArchitecture = lens _riArchitecture (\ s a -> s{_riArchitecture = a});
 
 -- | One or more block device mapping entries.
-riBlockDeviceMappings :: Lens' RegisterImage [BlockDeviceMapping]
+riBlockDeviceMappings :: Lens' RegisterImage (Maybe [BlockDeviceMapping])
 riBlockDeviceMappings = lens _riBlockDeviceMappings (\ s a -> s{_riBlockDeviceMappings = a});
 
 -- | Checks whether you have the required permissions for the action, without

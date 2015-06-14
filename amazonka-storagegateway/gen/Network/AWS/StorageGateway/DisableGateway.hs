@@ -68,7 +68,7 @@ instance AWSRequest DisableGateway where
         response
           = receiveJSON
               (\ s h x ->
-                 DisableGatewayResponse' <$> x .:> "GatewayARN")
+                 DisableGatewayResponse' <$> x .?> "GatewayARN")
 
 instance ToHeaders DisableGateway where
         toHeaders
@@ -95,12 +95,12 @@ instance ToQuery DisableGateway where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dGatewayARN'
-newtype DisableGatewayResponse = DisableGatewayResponse'{_dGatewayARN :: Text} deriving (Eq, Read, Show)
+newtype DisableGatewayResponse = DisableGatewayResponse'{_dGatewayARN :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DisableGatewayResponse' smart constructor.
-disableGatewayResponse :: Text -> DisableGatewayResponse
-disableGatewayResponse pGatewayARN = DisableGatewayResponse'{_dGatewayARN = pGatewayARN};
+disableGatewayResponse :: DisableGatewayResponse
+disableGatewayResponse = DisableGatewayResponse'{_dGatewayARN = Nothing};
 
 -- | The unique Amazon Resource Name of the disabled gateway.
-dGatewayARN :: Lens' DisableGatewayResponse Text
+dGatewayARN :: Lens' DisableGatewayResponse (Maybe Text)
 dGatewayARN = lens _dGatewayARN (\ s a -> s{_dGatewayARN = a});

@@ -56,17 +56,17 @@ module Network.AWS.DynamoDB.Query
     , queQueryFilter
     , queConsistentRead
     , queExpressionAttributeNames
+    , queAttributesToGet
     , queReturnConsumedCapacity
     , queExpressionAttributeValues
     , queScanIndexForward
+    , queLimit
     , queSelect
     , queConditionalOperator
     , queKeyConditionExpression
     , queExclusiveStartKey
-    , queTableName
-    , queAttributesToGet
-    , queLimit
     , queIndexName
+    , queTableName
 
     -- * Response
     , QueryResponse
@@ -101,11 +101,15 @@ import Network.AWS.DynamoDB.Types
 --
 -- * 'queExpressionAttributeNames'
 --
+-- * 'queAttributesToGet'
+--
 -- * 'queReturnConsumedCapacity'
 --
 -- * 'queExpressionAttributeValues'
 --
 -- * 'queScanIndexForward'
+--
+-- * 'queLimit'
 --
 -- * 'queSelect'
 --
@@ -115,18 +119,14 @@ import Network.AWS.DynamoDB.Types
 --
 -- * 'queExclusiveStartKey'
 --
--- * 'queTableName'
---
--- * 'queAttributesToGet'
---
--- * 'queLimit'
---
 -- * 'queIndexName'
-data Query = Query'{_queProjectionExpression :: Maybe Text, _queKeyConditions :: HashMap Text Condition, _queFilterExpression :: Maybe Text, _queQueryFilter :: HashMap Text Condition, _queConsistentRead :: Maybe Bool, _queExpressionAttributeNames :: HashMap Text Text, _queReturnConsumedCapacity :: Maybe ReturnConsumedCapacity, _queExpressionAttributeValues :: HashMap Text AttributeValue, _queScanIndexForward :: Maybe Bool, _queSelect :: Maybe Select, _queConditionalOperator :: Maybe ConditionalOperator, _queKeyConditionExpression :: Maybe Text, _queExclusiveStartKey :: HashMap Text AttributeValue, _queTableName :: Text, _queAttributesToGet :: List1 Text, _queLimit :: Nat, _queIndexName :: Text} deriving (Eq, Read, Show)
+--
+-- * 'queTableName'
+data Query = Query'{_queProjectionExpression :: Maybe Text, _queKeyConditions :: Maybe (HashMap Text Condition), _queFilterExpression :: Maybe Text, _queQueryFilter :: Maybe (HashMap Text Condition), _queConsistentRead :: Maybe Bool, _queExpressionAttributeNames :: Maybe (HashMap Text Text), _queAttributesToGet :: Maybe (List1 Text), _queReturnConsumedCapacity :: Maybe ReturnConsumedCapacity, _queExpressionAttributeValues :: Maybe (HashMap Text AttributeValue), _queScanIndexForward :: Maybe Bool, _queLimit :: Maybe Nat, _queSelect :: Maybe Select, _queConditionalOperator :: Maybe ConditionalOperator, _queKeyConditionExpression :: Maybe Text, _queExclusiveStartKey :: Maybe (HashMap Text AttributeValue), _queIndexName :: Maybe Text, _queTableName :: Text} deriving (Eq, Read, Show)
 
 -- | 'Query' smart constructor.
-query :: Text -> NonEmpty Text -> Natural -> Text -> Query
-query pTableName pAttributesToGet pLimit pIndexName = Query'{_queProjectionExpression = Nothing, _queKeyConditions = mempty, _queFilterExpression = Nothing, _queQueryFilter = mempty, _queConsistentRead = Nothing, _queExpressionAttributeNames = mempty, _queReturnConsumedCapacity = Nothing, _queExpressionAttributeValues = mempty, _queScanIndexForward = Nothing, _queSelect = Nothing, _queConditionalOperator = Nothing, _queKeyConditionExpression = Nothing, _queExclusiveStartKey = mempty, _queTableName = pTableName, _queAttributesToGet = _List1 # pAttributesToGet, _queLimit = _Nat # pLimit, _queIndexName = pIndexName};
+query :: Text -> Query
+query pTableName = Query'{_queProjectionExpression = Nothing, _queKeyConditions = Nothing, _queFilterExpression = Nothing, _queQueryFilter = Nothing, _queConsistentRead = Nothing, _queExpressionAttributeNames = Nothing, _queAttributesToGet = Nothing, _queReturnConsumedCapacity = Nothing, _queExpressionAttributeValues = Nothing, _queScanIndexForward = Nothing, _queLimit = Nothing, _queSelect = Nothing, _queConditionalOperator = Nothing, _queKeyConditionExpression = Nothing, _queExclusiveStartKey = Nothing, _queIndexName = Nothing, _queTableName = pTableName};
 
 -- | A string that identifies one or more attributes to retrieve from the
 -- table. These attributes can include scalars, sets, or elements of a JSON
@@ -263,8 +263,8 @@ queProjectionExpression = lens _queProjectionExpression (\ s a -> s{_queProjecti
 -- For usage examples of /AttributeValueList/ and /ComparisonOperator/, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html Legacy Conditional Parameters>
 -- in the /Amazon DynamoDB Developer Guide/.
-queKeyConditions :: Lens' Query (HashMap Text Condition)
-queKeyConditions = lens _queKeyConditions (\ s a -> s{_queKeyConditions = a}) . _Coerce;
+queKeyConditions :: Lens' Query (Maybe (HashMap Text Condition))
+queKeyConditions = lens _queKeyConditions (\ s a -> s{_queKeyConditions = a}) . mapping _Coerce;
 
 -- | A string that contains conditions that DynamoDB applies after the
 -- /Query/ operation, but before the data is returned to you. Items that do
@@ -338,8 +338,8 @@ queFilterExpression = lens _queFilterExpression (\ s a -> s{_queFilterExpression
 --     <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Condition.html Condition>
 --     data type.
 --
-queQueryFilter :: Lens' Query (HashMap Text Condition)
-queQueryFilter = lens _queQueryFilter (\ s a -> s{_queQueryFilter = a}) . _Coerce;
+queQueryFilter :: Lens' Query (Maybe (HashMap Text Condition))
+queQueryFilter = lens _queQueryFilter (\ s a -> s{_queQueryFilter = a}) . mapping _Coerce;
 
 -- | A value that if set to @true@, then the operation uses strongly
 -- consistent reads; otherwise, eventually consistent reads are used.
@@ -387,8 +387,42 @@ queConsistentRead = lens _queConsistentRead (\ s a -> s{_queConsistentRead = a})
 -- For more information on expression attribute names, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ExpressionPlaceholders.html Using Placeholders for Attribute Names and Values>
 -- in the /Amazon DynamoDB Developer Guide/.
-queExpressionAttributeNames :: Lens' Query (HashMap Text Text)
-queExpressionAttributeNames = lens _queExpressionAttributeNames (\ s a -> s{_queExpressionAttributeNames = a}) . _Coerce;
+queExpressionAttributeNames :: Lens' Query (Maybe (HashMap Text Text))
+queExpressionAttributeNames = lens _queExpressionAttributeNames (\ s a -> s{_queExpressionAttributeNames = a}) . mapping _Coerce;
+
+-- | This is a legacy parameter, for backward compatibility. New applications
+-- should use /ProjectionExpression/ instead. Do not combine legacy
+-- parameters and expression parameters in a single API call; otherwise,
+-- DynamoDB will return a /ValidationException/ exception.
+--
+-- This parameter allows you to retrieve attributes of type List or Map;
+-- however, it cannot retrieve individual elements within a List or a Map.
+--
+-- The names of one or more attributes to retrieve. If no attribute names
+-- are provided, then all attributes will be returned. If any of the
+-- requested attributes are not found, they will not appear in the result.
+--
+-- Note that /AttributesToGet/ has no effect on provisioned throughput
+-- consumption. DynamoDB determines capacity units consumed based on item
+-- size, not on the amount of data that is returned to an application.
+--
+-- You cannot use both /AttributesToGet/ and /Select/ together in a /Query/
+-- request, /unless/ the value for /Select/ is @SPECIFIC_ATTRIBUTES@. (This
+-- usage is equivalent to specifying /AttributesToGet/ without any value
+-- for /Select/.)
+--
+-- If you query a local secondary index and request only attributes that
+-- are projected into that index, the operation will read only the index
+-- and not the table. If any of the requested attributes are not projected
+-- into the local secondary index, DynamoDB will fetch each of these
+-- attributes from the parent table. This extra fetching incurs additional
+-- throughput cost and latency.
+--
+-- If you query a global secondary index, you can only request attributes
+-- that are projected into the index. Global secondary index queries cannot
+-- fetch attributes from the parent table.
+queAttributesToGet :: Lens' Query (Maybe (NonEmpty Text))
+queAttributesToGet = lens _queAttributesToGet (\ s a -> s{_queAttributesToGet = a}) . mapping _List1;
 
 -- | FIXME: Undocumented member.
 queReturnConsumedCapacity :: Lens' Query (Maybe ReturnConsumedCapacity)
@@ -413,8 +447,8 @@ queReturnConsumedCapacity = lens _queReturnConsumedCapacity (\ s a -> s{_queRetu
 -- For more information on expression attribute values, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ExpressionPlaceholders.html Using Placeholders for Attribute Names and Values>
 -- in the /Amazon DynamoDB Developer Guide/.
-queExpressionAttributeValues :: Lens' Query (HashMap Text AttributeValue)
-queExpressionAttributeValues = lens _queExpressionAttributeValues (\ s a -> s{_queExpressionAttributeValues = a}) . _Coerce;
+queExpressionAttributeValues :: Lens' Query (Maybe (HashMap Text AttributeValue))
+queExpressionAttributeValues = lens _queExpressionAttributeValues (\ s a -> s{_queExpressionAttributeValues = a}) . mapping _Coerce;
 
 -- | A value that specifies ascending (true) or descending (false) traversal
 -- of the index. DynamoDB returns results reflecting the requested order
@@ -427,6 +461,21 @@ queExpressionAttributeValues = lens _queExpressionAttributeValues (\ s a -> s{_q
 -- ascending order.
 queScanIndexForward :: Lens' Query (Maybe Bool)
 queScanIndexForward = lens _queScanIndexForward (\ s a -> s{_queScanIndexForward = a});
+
+-- | The maximum number of items to evaluate (not necessarily the number of
+-- matching items). If DynamoDB processes the number of items up to the
+-- limit while processing the results, it stops the operation and returns
+-- the matching values up to that point, and a key in /LastEvaluatedKey/ to
+-- apply in a subsequent operation, so that you can pick up where you left
+-- off. Also, if the processed data set size exceeds 1 MB before DynamoDB
+-- reaches this limit, it stops the operation and returns the matching
+-- values up to the limit, and a key in /LastEvaluatedKey/ to apply in a
+-- subsequent operation to continue the operation. For more information,
+-- see
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html Query and Scan>
+-- in the /Amazon DynamoDB Developer Guide/.
+queLimit :: Lens' Query (Maybe Natural)
+queLimit = lens _queLimit (\ s a -> s{_queLimit = a}) . mapping _Nat;
 
 -- | The attributes to be returned in the result. You can retrieve all item
 -- attributes, specific item attributes, the count of matching items, or in
@@ -579,67 +628,18 @@ queKeyConditionExpression = lens _queKeyConditionExpression (\ s a -> s{_queKeyC
 --
 -- The data type for /ExclusiveStartKey/ must be String, Number or Binary.
 -- No set data types are allowed.
-queExclusiveStartKey :: Lens' Query (HashMap Text AttributeValue)
-queExclusiveStartKey = lens _queExclusiveStartKey (\ s a -> s{_queExclusiveStartKey = a}) . _Coerce;
-
--- | The name of the table containing the requested items.
-queTableName :: Lens' Query Text
-queTableName = lens _queTableName (\ s a -> s{_queTableName = a});
-
--- | This is a legacy parameter, for backward compatibility. New applications
--- should use /ProjectionExpression/ instead. Do not combine legacy
--- parameters and expression parameters in a single API call; otherwise,
--- DynamoDB will return a /ValidationException/ exception.
---
--- This parameter allows you to retrieve attributes of type List or Map;
--- however, it cannot retrieve individual elements within a List or a Map.
---
--- The names of one or more attributes to retrieve. If no attribute names
--- are provided, then all attributes will be returned. If any of the
--- requested attributes are not found, they will not appear in the result.
---
--- Note that /AttributesToGet/ has no effect on provisioned throughput
--- consumption. DynamoDB determines capacity units consumed based on item
--- size, not on the amount of data that is returned to an application.
---
--- You cannot use both /AttributesToGet/ and /Select/ together in a /Query/
--- request, /unless/ the value for /Select/ is @SPECIFIC_ATTRIBUTES@. (This
--- usage is equivalent to specifying /AttributesToGet/ without any value
--- for /Select/.)
---
--- If you query a local secondary index and request only attributes that
--- are projected into that index, the operation will read only the index
--- and not the table. If any of the requested attributes are not projected
--- into the local secondary index, DynamoDB will fetch each of these
--- attributes from the parent table. This extra fetching incurs additional
--- throughput cost and latency.
---
--- If you query a global secondary index, you can only request attributes
--- that are projected into the index. Global secondary index queries cannot
--- fetch attributes from the parent table.
-queAttributesToGet :: Lens' Query (NonEmpty Text)
-queAttributesToGet = lens _queAttributesToGet (\ s a -> s{_queAttributesToGet = a}) . _List1;
-
--- | The maximum number of items to evaluate (not necessarily the number of
--- matching items). If DynamoDB processes the number of items up to the
--- limit while processing the results, it stops the operation and returns
--- the matching values up to that point, and a key in /LastEvaluatedKey/ to
--- apply in a subsequent operation, so that you can pick up where you left
--- off. Also, if the processed data set size exceeds 1 MB before DynamoDB
--- reaches this limit, it stops the operation and returns the matching
--- values up to the limit, and a key in /LastEvaluatedKey/ to apply in a
--- subsequent operation to continue the operation. For more information,
--- see
--- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html Query and Scan>
--- in the /Amazon DynamoDB Developer Guide/.
-queLimit :: Lens' Query Natural
-queLimit = lens _queLimit (\ s a -> s{_queLimit = a}) . _Nat;
+queExclusiveStartKey :: Lens' Query (Maybe (HashMap Text AttributeValue))
+queExclusiveStartKey = lens _queExclusiveStartKey (\ s a -> s{_queExclusiveStartKey = a}) . mapping _Coerce;
 
 -- | The name of an index to query. This index can be any local secondary
 -- index or global secondary index on the table. Note that if you use the
 -- /IndexName/ parameter, you must also provide /TableName./
-queIndexName :: Lens' Query Text
+queIndexName :: Lens' Query (Maybe Text)
 queIndexName = lens _queIndexName (\ s a -> s{_queIndexName = a});
+
+-- | The name of the table containing the requested items.
+queTableName :: Lens' Query Text
+queTableName = lens _queTableName (\ s a -> s{_queTableName = a});
 
 instance AWSRequest Query where
         type Sv Query = DynamoDB
@@ -673,19 +673,19 @@ instance ToJSON Query where
                "ConsistentRead" .= _queConsistentRead,
                "ExpressionAttributeNames" .=
                  _queExpressionAttributeNames,
+               "AttributesToGet" .= _queAttributesToGet,
                "ReturnConsumedCapacity" .=
                  _queReturnConsumedCapacity,
                "ExpressionAttributeValues" .=
                  _queExpressionAttributeValues,
                "ScanIndexForward" .= _queScanIndexForward,
-               "Select" .= _queSelect,
+               "Limit" .= _queLimit, "Select" .= _queSelect,
                "ConditionalOperator" .= _queConditionalOperator,
                "KeyConditionExpression" .=
                  _queKeyConditionExpression,
                "ExclusiveStartKey" .= _queExclusiveStartKey,
-               "TableName" .= _queTableName,
-               "AttributesToGet" .= _queAttributesToGet,
-               "Limit" .= _queLimit, "IndexName" .= _queIndexName]
+               "IndexName" .= _queIndexName,
+               "TableName" .= _queTableName]
 
 instance ToPath Query where
         toPath = const "/"
@@ -706,11 +706,11 @@ instance ToQuery Query where
 -- * 'qrItems'
 --
 -- * 'qrConsumedCapacity'
-data QueryResponse = QueryResponse'{_qrLastEvaluatedKey :: HashMap Text AttributeValue, _qrCount :: Maybe Int, _qrScannedCount :: Maybe Int, _qrItems :: [HashMap Text AttributeValue], _qrConsumedCapacity :: Maybe ConsumedCapacity} deriving (Eq, Read, Show)
+data QueryResponse = QueryResponse'{_qrLastEvaluatedKey :: Maybe (HashMap Text AttributeValue), _qrCount :: Maybe Int, _qrScannedCount :: Maybe Int, _qrItems :: Maybe [HashMap Text AttributeValue], _qrConsumedCapacity :: Maybe ConsumedCapacity} deriving (Eq, Read, Show)
 
 -- | 'QueryResponse' smart constructor.
 queryResponse :: QueryResponse
-queryResponse = QueryResponse'{_qrLastEvaluatedKey = mempty, _qrCount = Nothing, _qrScannedCount = Nothing, _qrItems = mempty, _qrConsumedCapacity = Nothing};
+queryResponse = QueryResponse'{_qrLastEvaluatedKey = Nothing, _qrCount = Nothing, _qrScannedCount = Nothing, _qrItems = Nothing, _qrConsumedCapacity = Nothing};
 
 -- | The primary key of the item where the operation stopped, inclusive of
 -- the previous result set. Use this value to start a new operation,
@@ -722,8 +722,8 @@ queryResponse = QueryResponse'{_qrLastEvaluatedKey = mempty, _qrCount = Nothing,
 -- If /LastEvaluatedKey/ is not empty, it does not necessarily mean that
 -- there is more data in the result set. The only way to know when you have
 -- reached the end of the result set is when /LastEvaluatedKey/ is empty.
-qrLastEvaluatedKey :: Lens' QueryResponse (HashMap Text AttributeValue)
-qrLastEvaluatedKey = lens _qrLastEvaluatedKey (\ s a -> s{_qrLastEvaluatedKey = a}) . _Coerce;
+qrLastEvaluatedKey :: Lens' QueryResponse (Maybe (HashMap Text AttributeValue))
+qrLastEvaluatedKey = lens _qrLastEvaluatedKey (\ s a -> s{_qrLastEvaluatedKey = a}) . mapping _Coerce;
 
 -- | The number of items in the response.
 --
@@ -750,8 +750,8 @@ qrScannedCount = lens _qrScannedCount (\ s a -> s{_qrScannedCount = a});
 -- | An array of item attributes that match the query criteria. Each element
 -- in this array consists of an attribute name and the value for that
 -- attribute.
-qrItems :: Lens' QueryResponse [HashMap Text AttributeValue]
-qrItems = lens _qrItems (\ s a -> s{_qrItems = a}) . _Coerce;
+qrItems :: Lens' QueryResponse (Maybe [HashMap Text AttributeValue])
+qrItems = lens _qrItems (\ s a -> s{_qrItems = a}) . mapping _Coerce;
 
 -- | FIXME: Undocumented member.
 qrConsumedCapacity :: Lens' QueryResponse (Maybe ConsumedCapacity)

@@ -106,11 +106,11 @@ instance ToQuery DescribePermissions where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dprPermissions'
-newtype DescribePermissionsResponse = DescribePermissionsResponse'{_dprPermissions :: [Permission]} deriving (Eq, Read, Show)
+newtype DescribePermissionsResponse = DescribePermissionsResponse'{_dprPermissions :: Maybe [Permission]} deriving (Eq, Read, Show)
 
 -- | 'DescribePermissionsResponse' smart constructor.
 describePermissionsResponse :: DescribePermissionsResponse
-describePermissionsResponse = DescribePermissionsResponse'{_dprPermissions = mempty};
+describePermissionsResponse = DescribePermissionsResponse'{_dprPermissions = Nothing};
 
 -- | An array of @Permission@ objects that describe the stack permissions.
 --
@@ -122,5 +122,5 @@ describePermissionsResponse = DescribePermissionsResponse'{_dprPermissions = mem
 -- -   If the request contains a stack ID and an IAM ARN, the array
 --     contains a single @Permission@ object with permissions for the
 --     specified stack and IAM ARN.
-dprPermissions :: Lens' DescribePermissionsResponse [Permission]
+dprPermissions :: Lens' DescribePermissionsResponse (Maybe [Permission])
 dprPermissions = lens _dprPermissions (\ s a -> s{_dprPermissions = a});

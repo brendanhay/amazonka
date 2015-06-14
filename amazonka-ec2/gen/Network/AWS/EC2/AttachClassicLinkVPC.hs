@@ -68,8 +68,8 @@ import Network.AWS.EC2.Types
 data AttachClassicLinkVPC = AttachClassicLinkVPC'{_aclvDryRun :: Maybe Bool, _aclvInstanceId :: Text, _aclvVPCId :: Text, _aclvGroups :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'AttachClassicLinkVPC' smart constructor.
-attachClassicLinkVPC :: Text -> Text -> [Text] -> AttachClassicLinkVPC
-attachClassicLinkVPC pInstanceId pVPCId pGroups = AttachClassicLinkVPC'{_aclvDryRun = Nothing, _aclvInstanceId = pInstanceId, _aclvVPCId = pVPCId, _aclvGroups = pGroups};
+attachClassicLinkVPC :: Text -> Text -> AttachClassicLinkVPC
+attachClassicLinkVPC pInstanceId pVPCId = AttachClassicLinkVPC'{_aclvDryRun = Nothing, _aclvInstanceId = pInstanceId, _aclvVPCId = pVPCId, _aclvGroups = mempty};
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have

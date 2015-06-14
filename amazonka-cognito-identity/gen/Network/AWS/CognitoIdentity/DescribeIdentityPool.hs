@@ -35,11 +35,11 @@ module Network.AWS.CognitoIdentity.DescribeIdentityPool
     , identityPool
     -- ** Response lenses
     , ipSupportedLoginProviders
+    , ipDeveloperProviderName
     , ipOpenIdConnectProviderARNs
     , ipIdentityPoolId
     , ipIdentityPoolName
     , ipAllowUnauthenticatedIdentities
-    , ipDeveloperProviderName
     ) where
 
 import Network.AWS.Request

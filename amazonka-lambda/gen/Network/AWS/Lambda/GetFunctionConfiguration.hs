@@ -37,15 +37,15 @@ module Network.AWS.Lambda.GetFunctionConfiguration
     , functionConfiguration
     -- ** Response lenses
     , fcRuntime
+    , fcMemorySize
     , fcFunctionARN
     , fcRole
+    , fcFunctionName
     , fcCodeSize
     , fcHandler
+    , fcTimeout
     , fcLastModified
     , fcDescription
-    , fcMemorySize
-    , fcFunctionName
-    , fcTimeout
     ) where
 
 import Network.AWS.Request

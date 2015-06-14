@@ -120,11 +120,11 @@ instance ToQuery DescribeHapg where
 -- * 'dhrHapgARN'
 --
 -- * 'dhrLabel'
-data DescribeHapgResponse = DescribeHapgResponse'{_dhrState :: Maybe CloudHSMObjectState, _dhrLastModifiedTimestamp :: Maybe Text, _dhrHSMsPendingRegistration :: [Text], _dhrHapgSerial :: Maybe Text, _dhrHSMsPendingDeletion :: [Text], _dhrHSMsLastActionFailed :: [Text], _dhrPartitionSerialList :: [Text], _dhrHapgARN :: Maybe Text, _dhrLabel :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeHapgResponse = DescribeHapgResponse'{_dhrState :: Maybe CloudHSMObjectState, _dhrLastModifiedTimestamp :: Maybe Text, _dhrHSMsPendingRegistration :: Maybe [Text], _dhrHapgSerial :: Maybe Text, _dhrHSMsPendingDeletion :: Maybe [Text], _dhrHSMsLastActionFailed :: Maybe [Text], _dhrPartitionSerialList :: Maybe [Text], _dhrHapgARN :: Maybe Text, _dhrLabel :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeHapgResponse' smart constructor.
 describeHapgResponse :: DescribeHapgResponse
-describeHapgResponse = DescribeHapgResponse'{_dhrState = Nothing, _dhrLastModifiedTimestamp = Nothing, _dhrHSMsPendingRegistration = mempty, _dhrHapgSerial = Nothing, _dhrHSMsPendingDeletion = mempty, _dhrHSMsLastActionFailed = mempty, _dhrPartitionSerialList = mempty, _dhrHapgARN = Nothing, _dhrLabel = Nothing};
+describeHapgResponse = DescribeHapgResponse'{_dhrState = Nothing, _dhrLastModifiedTimestamp = Nothing, _dhrHSMsPendingRegistration = Nothing, _dhrHapgSerial = Nothing, _dhrHSMsPendingDeletion = Nothing, _dhrHSMsLastActionFailed = Nothing, _dhrPartitionSerialList = Nothing, _dhrHapgARN = Nothing, _dhrLabel = Nothing};
 
 -- | The state of the high-availability partition group.
 dhrState :: Lens' DescribeHapgResponse (Maybe CloudHSMObjectState)
@@ -136,7 +136,7 @@ dhrLastModifiedTimestamp :: Lens' DescribeHapgResponse (Maybe Text)
 dhrLastModifiedTimestamp = lens _dhrLastModifiedTimestamp (\ s a -> s{_dhrLastModifiedTimestamp = a});
 
 -- | FIXME: Undocumented member.
-dhrHSMsPendingRegistration :: Lens' DescribeHapgResponse [Text]
+dhrHSMsPendingRegistration :: Lens' DescribeHapgResponse (Maybe [Text])
 dhrHSMsPendingRegistration = lens _dhrHSMsPendingRegistration (\ s a -> s{_dhrHSMsPendingRegistration = a});
 
 -- | The serial number of the high-availability partition group.
@@ -144,16 +144,16 @@ dhrHapgSerial :: Lens' DescribeHapgResponse (Maybe Text)
 dhrHapgSerial = lens _dhrHapgSerial (\ s a -> s{_dhrHapgSerial = a});
 
 -- | FIXME: Undocumented member.
-dhrHSMsPendingDeletion :: Lens' DescribeHapgResponse [Text]
+dhrHSMsPendingDeletion :: Lens' DescribeHapgResponse (Maybe [Text])
 dhrHSMsPendingDeletion = lens _dhrHSMsPendingDeletion (\ s a -> s{_dhrHSMsPendingDeletion = a});
 
 -- | FIXME: Undocumented member.
-dhrHSMsLastActionFailed :: Lens' DescribeHapgResponse [Text]
+dhrHSMsLastActionFailed :: Lens' DescribeHapgResponse (Maybe [Text])
 dhrHSMsLastActionFailed = lens _dhrHSMsLastActionFailed (\ s a -> s{_dhrHSMsLastActionFailed = a});
 
 -- | The list of partition serial numbers that belong to the
 -- high-availability partition group.
-dhrPartitionSerialList :: Lens' DescribeHapgResponse [Text]
+dhrPartitionSerialList :: Lens' DescribeHapgResponse (Maybe [Text])
 dhrPartitionSerialList = lens _dhrPartitionSerialList (\ s a -> s{_dhrPartitionSerialList = a});
 
 -- | The ARN of the high-availability partition group.

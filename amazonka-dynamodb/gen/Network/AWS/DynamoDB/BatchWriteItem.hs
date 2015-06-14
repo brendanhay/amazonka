@@ -131,8 +131,8 @@ import Network.AWS.DynamoDB.Types
 data BatchWriteItem = BatchWriteItem'{_bwiReturnConsumedCapacity :: Maybe ReturnConsumedCapacity, _bwiReturnItemCollectionMetrics :: Maybe ReturnItemCollectionMetrics, _bwiRequestItems :: HashMap Text (List1 WriteRequest)} deriving (Eq, Read, Show)
 
 -- | 'BatchWriteItem' smart constructor.
-batchWriteItem :: HashMap Text (NonEmpty WriteRequest) -> BatchWriteItem
-batchWriteItem pRequestItems = BatchWriteItem'{_bwiReturnConsumedCapacity = Nothing, _bwiReturnItemCollectionMetrics = Nothing, _bwiRequestItems = _Coerce # pRequestItems};
+batchWriteItem :: BatchWriteItem
+batchWriteItem = BatchWriteItem'{_bwiReturnConsumedCapacity = Nothing, _bwiReturnItemCollectionMetrics = Nothing, _bwiRequestItems = mempty};
 
 -- | FIXME: Undocumented member.
 bwiReturnConsumedCapacity :: Lens' BatchWriteItem (Maybe ReturnConsumedCapacity)
@@ -222,11 +222,11 @@ instance ToQuery BatchWriteItem where
 -- * 'bwirItemCollectionMetrics'
 --
 -- * 'bwirUnprocessedItems'
-data BatchWriteItemResponse = BatchWriteItemResponse'{_bwirConsumedCapacity :: [ConsumedCapacity], _bwirItemCollectionMetrics :: HashMap Text [ItemCollectionMetrics], _bwirUnprocessedItems :: HashMap Text (List1 WriteRequest)} deriving (Eq, Read, Show)
+data BatchWriteItemResponse = BatchWriteItemResponse'{_bwirConsumedCapacity :: Maybe [ConsumedCapacity], _bwirItemCollectionMetrics :: Maybe (HashMap Text [ItemCollectionMetrics]), _bwirUnprocessedItems :: Maybe (HashMap Text (List1 WriteRequest))} deriving (Eq, Read, Show)
 
 -- | 'BatchWriteItemResponse' smart constructor.
-batchWriteItemResponse :: HashMap Text (NonEmpty WriteRequest) -> BatchWriteItemResponse
-batchWriteItemResponse pUnprocessedItems = BatchWriteItemResponse'{_bwirConsumedCapacity = mempty, _bwirItemCollectionMetrics = mempty, _bwirUnprocessedItems = _Coerce # pUnprocessedItems};
+batchWriteItemResponse :: BatchWriteItemResponse
+batchWriteItemResponse = BatchWriteItemResponse'{_bwirConsumedCapacity = Nothing, _bwirItemCollectionMetrics = Nothing, _bwirUnprocessedItems = Nothing};
 
 -- | The capacity units consumed by the operation.
 --
@@ -236,7 +236,7 @@ batchWriteItemResponse pUnprocessedItems = BatchWriteItemResponse'{_bwirConsumed
 --
 -- -   /CapacityUnits/ - The total number of capacity units consumed.
 --
-bwirConsumedCapacity :: Lens' BatchWriteItemResponse [ConsumedCapacity]
+bwirConsumedCapacity :: Lens' BatchWriteItemResponse (Maybe [ConsumedCapacity])
 bwirConsumedCapacity = lens _bwirConsumedCapacity (\ s a -> s{_bwirConsumedCapacity = a});
 
 -- | A list of tables that were processed by /BatchWriteItem/ and, for each
@@ -259,8 +259,8 @@ bwirConsumedCapacity = lens _bwirConsumedCapacity (\ s a -> s{_bwirConsumedCapac
 --     The estimate is subject to change over time; therefore, do not rely
 --     on the precision or accuracy of the estimate.
 --
-bwirItemCollectionMetrics :: Lens' BatchWriteItemResponse (HashMap Text [ItemCollectionMetrics])
-bwirItemCollectionMetrics = lens _bwirItemCollectionMetrics (\ s a -> s{_bwirItemCollectionMetrics = a}) . _Coerce;
+bwirItemCollectionMetrics :: Lens' BatchWriteItemResponse (Maybe (HashMap Text [ItemCollectionMetrics]))
+bwirItemCollectionMetrics = lens _bwirItemCollectionMetrics (\ s a -> s{_bwirItemCollectionMetrics = a}) . mapping _Coerce;
 
 -- | A map of tables and requests against those tables that were not
 -- processed. The /UnprocessedItems/ value is in the same form as
@@ -295,5 +295,5 @@ bwirItemCollectionMetrics = lens _bwirItemCollectionMetrics (\ s a -> s{_bwirIte
 --
 -- If there are no unprocessed items remaining, the response contains an
 -- empty /UnprocessedItems/ map.
-bwirUnprocessedItems :: Lens' BatchWriteItemResponse (HashMap Text (NonEmpty WriteRequest))
-bwirUnprocessedItems = lens _bwirUnprocessedItems (\ s a -> s{_bwirUnprocessedItems = a}) . _Coerce;
+bwirUnprocessedItems :: Lens' BatchWriteItemResponse (Maybe (HashMap Text (NonEmpty WriteRequest)))
+bwirUnprocessedItems = lens _bwirUnprocessedItems (\ s a -> s{_bwirUnprocessedItems = a}) . mapping _Coerce;

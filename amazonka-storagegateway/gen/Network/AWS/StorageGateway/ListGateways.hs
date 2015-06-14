@@ -43,8 +43,8 @@ module Network.AWS.StorageGateway.ListGateways
     -- ** Response constructor
     , listGatewaysResponse
     -- ** Response lenses
-    , lgrGateways
     , lgrMarker
+    , lgrGateways
     ) where
 
 import Network.AWS.Request
@@ -59,21 +59,21 @@ import Network.AWS.StorageGateway.Types
 -- * 'lgMarker'
 --
 -- * 'lgLimit'
-data ListGateways = ListGateways'{_lgMarker :: Text, _lgLimit :: Nat} deriving (Eq, Read, Show)
+data ListGateways = ListGateways'{_lgMarker :: Maybe Text, _lgLimit :: Maybe Nat} deriving (Eq, Read, Show)
 
 -- | 'ListGateways' smart constructor.
-listGateways :: Text -> Natural -> ListGateways
-listGateways pMarker pLimit = ListGateways'{_lgMarker = pMarker, _lgLimit = _Nat # pLimit};
+listGateways :: ListGateways
+listGateways = ListGateways'{_lgMarker = Nothing, _lgLimit = Nothing};
 
 -- | An opaque string that indicates the position at which to begin the
 -- returned list of gateways.
-lgMarker :: Lens' ListGateways Text
+lgMarker :: Lens' ListGateways (Maybe Text)
 lgMarker = lens _lgMarker (\ s a -> s{_lgMarker = a});
 
 -- | Specifies that the list of gateways returned be limited to the specified
 -- number of items.
-lgLimit :: Lens' ListGateways Natural
-lgLimit = lens _lgLimit (\ s a -> s{_lgLimit = a}) . _Nat;
+lgLimit :: Lens' ListGateways (Maybe Natural)
+lgLimit = lens _lgLimit (\ s a -> s{_lgLimit = a}) . mapping _Nat;
 
 instance AWSRequest ListGateways where
         type Sv ListGateways = StorageGateway
@@ -83,7 +83,7 @@ instance AWSRequest ListGateways where
           = receiveJSON
               (\ s h x ->
                  ListGatewaysResponse' <$>
-                   x .?> "Gateways" .!@ mempty <*> x .:> "Marker")
+                   x .?> "Marker" <*> x .?> "Gateways" .!@ mempty)
 
 instance ToHeaders ListGateways where
         toHeaders
@@ -109,19 +109,19 @@ instance ToQuery ListGateways where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lgrGateways'
---
 -- * 'lgrMarker'
-data ListGatewaysResponse = ListGatewaysResponse'{_lgrGateways :: [GatewayInfo], _lgrMarker :: Text} deriving (Eq, Read, Show)
+--
+-- * 'lgrGateways'
+data ListGatewaysResponse = ListGatewaysResponse'{_lgrMarker :: Maybe Text, _lgrGateways :: Maybe [GatewayInfo]} deriving (Eq, Read, Show)
 
 -- | 'ListGatewaysResponse' smart constructor.
-listGatewaysResponse :: Text -> ListGatewaysResponse
-listGatewaysResponse pMarker = ListGatewaysResponse'{_lgrGateways = mempty, _lgrMarker = pMarker};
+listGatewaysResponse :: ListGatewaysResponse
+listGatewaysResponse = ListGatewaysResponse'{_lgrMarker = Nothing, _lgrGateways = Nothing};
 
 -- | FIXME: Undocumented member.
-lgrGateways :: Lens' ListGatewaysResponse [GatewayInfo]
-lgrGateways = lens _lgrGateways (\ s a -> s{_lgrGateways = a});
-
--- | FIXME: Undocumented member.
-lgrMarker :: Lens' ListGatewaysResponse Text
+lgrMarker :: Lens' ListGatewaysResponse (Maybe Text)
 lgrMarker = lens _lgrMarker (\ s a -> s{_lgrMarker = a});
+
+-- | FIXME: Undocumented member.
+lgrGateways :: Lens' ListGatewaysResponse (Maybe [GatewayInfo])
+lgrGateways = lens _lgrGateways (\ s a -> s{_lgrGateways = a});

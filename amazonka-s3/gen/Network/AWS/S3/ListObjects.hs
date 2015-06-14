@@ -157,14 +157,14 @@ instance ToQuery ListObjects where
 -- * 'lorIsTruncated'
 --
 -- * 'lorDelimiter'
-data ListObjectsResponse = ListObjectsResponse'{_lorContents :: [Object], _lorPrefix :: Maybe Text, _lorEncodingType :: Maybe EncodingType, _lorCommonPrefixes :: [CommonPrefix], _lorName :: Maybe BucketName, _lorMarker :: Maybe Text, _lorNextMarker :: Maybe Text, _lorMaxKeys :: Maybe Int, _lorIsTruncated :: Maybe Bool, _lorDelimiter :: Maybe Char} deriving (Eq, Read, Show)
+data ListObjectsResponse = ListObjectsResponse'{_lorContents :: Maybe [Object], _lorPrefix :: Maybe Text, _lorEncodingType :: Maybe EncodingType, _lorCommonPrefixes :: Maybe [CommonPrefix], _lorName :: Maybe BucketName, _lorMarker :: Maybe Text, _lorNextMarker :: Maybe Text, _lorMaxKeys :: Maybe Int, _lorIsTruncated :: Maybe Bool, _lorDelimiter :: Maybe Char} deriving (Eq, Read, Show)
 
 -- | 'ListObjectsResponse' smart constructor.
 listObjectsResponse :: ListObjectsResponse
-listObjectsResponse = ListObjectsResponse'{_lorContents = mempty, _lorPrefix = Nothing, _lorEncodingType = Nothing, _lorCommonPrefixes = mempty, _lorName = Nothing, _lorMarker = Nothing, _lorNextMarker = Nothing, _lorMaxKeys = Nothing, _lorIsTruncated = Nothing, _lorDelimiter = Nothing};
+listObjectsResponse = ListObjectsResponse'{_lorContents = Nothing, _lorPrefix = Nothing, _lorEncodingType = Nothing, _lorCommonPrefixes = Nothing, _lorName = Nothing, _lorMarker = Nothing, _lorNextMarker = Nothing, _lorMaxKeys = Nothing, _lorIsTruncated = Nothing, _lorDelimiter = Nothing};
 
 -- | FIXME: Undocumented member.
-lorContents :: Lens' ListObjectsResponse [Object]
+lorContents :: Lens' ListObjectsResponse (Maybe [Object])
 lorContents = lens _lorContents (\ s a -> s{_lorContents = a});
 
 -- | FIXME: Undocumented member.
@@ -176,7 +176,7 @@ lorEncodingType :: Lens' ListObjectsResponse (Maybe EncodingType)
 lorEncodingType = lens _lorEncodingType (\ s a -> s{_lorEncodingType = a});
 
 -- | FIXME: Undocumented member.
-lorCommonPrefixes :: Lens' ListObjectsResponse [CommonPrefix]
+lorCommonPrefixes :: Lens' ListObjectsResponse (Maybe [CommonPrefix])
 lorCommonPrefixes = lens _lorCommonPrefixes (\ s a -> s{_lorCommonPrefixes = a});
 
 -- | FIXME: Undocumented member.

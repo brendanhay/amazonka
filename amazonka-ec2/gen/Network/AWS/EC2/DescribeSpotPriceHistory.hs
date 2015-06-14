@@ -79,14 +79,14 @@ import Network.AWS.EC2.Types
 -- * 'dsphDryRun'
 --
 -- * 'dsphMaxResults'
-data DescribeSpotPriceHistory = DescribeSpotPriceHistory'{_dsphInstanceTypes :: [InstanceType], _dsphStartTime :: Maybe ISO8601, _dsphFilters :: [Filter], _dsphNextToken :: Maybe Text, _dsphAvailabilityZone :: Maybe Text, _dsphEndTime :: Maybe ISO8601, _dsphProductDescriptions :: [Text], _dsphDryRun :: Maybe Bool, _dsphMaxResults :: Maybe Int} deriving (Eq, Read, Show)
+data DescribeSpotPriceHistory = DescribeSpotPriceHistory'{_dsphInstanceTypes :: Maybe [InstanceType], _dsphStartTime :: Maybe ISO8601, _dsphFilters :: Maybe [Filter], _dsphNextToken :: Maybe Text, _dsphAvailabilityZone :: Maybe Text, _dsphEndTime :: Maybe ISO8601, _dsphProductDescriptions :: Maybe [Text], _dsphDryRun :: Maybe Bool, _dsphMaxResults :: Maybe Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeSpotPriceHistory' smart constructor.
 describeSpotPriceHistory :: DescribeSpotPriceHistory
-describeSpotPriceHistory = DescribeSpotPriceHistory'{_dsphInstanceTypes = mempty, _dsphStartTime = Nothing, _dsphFilters = mempty, _dsphNextToken = Nothing, _dsphAvailabilityZone = Nothing, _dsphEndTime = Nothing, _dsphProductDescriptions = mempty, _dsphDryRun = Nothing, _dsphMaxResults = Nothing};
+describeSpotPriceHistory = DescribeSpotPriceHistory'{_dsphInstanceTypes = Nothing, _dsphStartTime = Nothing, _dsphFilters = Nothing, _dsphNextToken = Nothing, _dsphAvailabilityZone = Nothing, _dsphEndTime = Nothing, _dsphProductDescriptions = Nothing, _dsphDryRun = Nothing, _dsphMaxResults = Nothing};
 
 -- | Filters the results by the specified instance types.
-dsphInstanceTypes :: Lens' DescribeSpotPriceHistory [InstanceType]
+dsphInstanceTypes :: Lens' DescribeSpotPriceHistory (Maybe [InstanceType])
 dsphInstanceTypes = lens _dsphInstanceTypes (\ s a -> s{_dsphInstanceTypes = a});
 
 -- | The date and time, up to the past 90 days, from which to start
@@ -115,7 +115,7 @@ dsphStartTime = lens _dsphStartTime (\ s a -> s{_dsphStartTime = a}) . mapping _
 --     wildcards (* and ?). Greater than or less than comparison is not
 --     supported.
 --
-dsphFilters :: Lens' DescribeSpotPriceHistory [Filter]
+dsphFilters :: Lens' DescribeSpotPriceHistory (Maybe [Filter])
 dsphFilters = lens _dsphFilters (\ s a -> s{_dsphFilters = a});
 
 -- | The token for the next set of results.
@@ -133,7 +133,7 @@ dsphEndTime :: Lens' DescribeSpotPriceHistory (Maybe UTCTime)
 dsphEndTime = lens _dsphEndTime (\ s a -> s{_dsphEndTime = a}) . mapping _Time;
 
 -- | Filters the results by the specified basic product descriptions.
-dsphProductDescriptions :: Lens' DescribeSpotPriceHistory [Text]
+dsphProductDescriptions :: Lens' DescribeSpotPriceHistory (Maybe [Text])
 dsphProductDescriptions = lens _dsphProductDescriptions (\ s a -> s{_dsphProductDescriptions = a});
 
 -- | Checks whether you have the required permissions for the action, without
@@ -190,11 +190,11 @@ instance ToQuery DescribeSpotPriceHistory where
 -- * 'dsphrNextToken'
 --
 -- * 'dsphrSpotPriceHistory'
-data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse'{_dsphrNextToken :: Maybe Text, _dsphrSpotPriceHistory :: [SpotPrice]} deriving (Eq, Read, Show)
+data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse'{_dsphrNextToken :: Maybe Text, _dsphrSpotPriceHistory :: Maybe [SpotPrice]} deriving (Eq, Read, Show)
 
 -- | 'DescribeSpotPriceHistoryResponse' smart constructor.
 describeSpotPriceHistoryResponse :: DescribeSpotPriceHistoryResponse
-describeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse'{_dsphrNextToken = Nothing, _dsphrSpotPriceHistory = mempty};
+describeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse'{_dsphrNextToken = Nothing, _dsphrSpotPriceHistory = Nothing};
 
 -- | The token required to retrieve the next set of results. This value is
 -- @null@ when there are no more results to return.
@@ -202,5 +202,5 @@ dsphrNextToken :: Lens' DescribeSpotPriceHistoryResponse (Maybe Text)
 dsphrNextToken = lens _dsphrNextToken (\ s a -> s{_dsphrNextToken = a});
 
 -- | The historical Spot Prices.
-dsphrSpotPriceHistory :: Lens' DescribeSpotPriceHistoryResponse [SpotPrice]
+dsphrSpotPriceHistory :: Lens' DescribeSpotPriceHistoryResponse (Maybe [SpotPrice])
 dsphrSpotPriceHistory = lens _dsphrSpotPriceHistory (\ s a -> s{_dsphrSpotPriceHistory = a});

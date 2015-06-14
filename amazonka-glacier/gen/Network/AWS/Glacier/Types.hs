@@ -229,16 +229,16 @@ instance FromJSON ArchiveCreationOutput where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'drpRules'
-newtype DataRetrievalPolicy = DataRetrievalPolicy'{_drpRules :: [DataRetrievalRule]} deriving (Eq, Read, Show)
+newtype DataRetrievalPolicy = DataRetrievalPolicy'{_drpRules :: Maybe [DataRetrievalRule]} deriving (Eq, Read, Show)
 
 -- | 'DataRetrievalPolicy' smart constructor.
 dataRetrievalPolicy :: DataRetrievalPolicy
-dataRetrievalPolicy = DataRetrievalPolicy'{_drpRules = mempty};
+dataRetrievalPolicy = DataRetrievalPolicy'{_drpRules = Nothing};
 
 -- | The policy rule. Although this is a list type, currently there must be
 -- only one rule, which contains a Strategy field and optionally a
 -- BytesPerHour field.
-drpRules :: Lens' DataRetrievalPolicy [DataRetrievalRule]
+drpRules :: Lens' DataRetrievalPolicy (Maybe [DataRetrievalRule])
 drpRules = lens _drpRules (\ s a -> s{_drpRules = a});
 
 instance FromJSON DataRetrievalPolicy where
@@ -853,11 +853,11 @@ instance ToJSON VaultAccessPolicy where
 -- * 'vncSNSTopic'
 --
 -- * 'vncEvents'
-data VaultNotificationConfig = VaultNotificationConfig'{_vncSNSTopic :: Maybe Text, _vncEvents :: [Text]} deriving (Eq, Read, Show)
+data VaultNotificationConfig = VaultNotificationConfig'{_vncSNSTopic :: Maybe Text, _vncEvents :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'VaultNotificationConfig' smart constructor.
 vaultNotificationConfig :: VaultNotificationConfig
-vaultNotificationConfig = VaultNotificationConfig'{_vncSNSTopic = Nothing, _vncEvents = mempty};
+vaultNotificationConfig = VaultNotificationConfig'{_vncSNSTopic = Nothing, _vncEvents = Nothing};
 
 -- | The Amazon Simple Notification Service (Amazon SNS) topic Amazon
 -- Resource Name (ARN).
@@ -866,7 +866,7 @@ vncSNSTopic = lens _vncSNSTopic (\ s a -> s{_vncSNSTopic = a});
 
 -- | A list of one or more events for which Amazon Glacier will send a
 -- notification to the specified Amazon SNS topic.
-vncEvents :: Lens' VaultNotificationConfig [Text]
+vncEvents :: Lens' VaultNotificationConfig (Maybe [Text])
 vncEvents = lens _vncEvents (\ s a -> s{_vncEvents = a});
 
 instance FromJSON VaultNotificationConfig where

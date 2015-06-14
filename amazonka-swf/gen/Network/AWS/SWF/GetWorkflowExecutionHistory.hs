@@ -166,8 +166,8 @@ instance ToQuery GetWorkflowExecutionHistory where
 data GetWorkflowExecutionHistoryResponse = GetWorkflowExecutionHistoryResponse'{_gwehrNextPageToken :: Maybe Text, _gwehrEvents :: [HistoryEvent]} deriving (Eq, Read, Show)
 
 -- | 'GetWorkflowExecutionHistoryResponse' smart constructor.
-getWorkflowExecutionHistoryResponse :: [HistoryEvent] -> GetWorkflowExecutionHistoryResponse
-getWorkflowExecutionHistoryResponse pEvents = GetWorkflowExecutionHistoryResponse'{_gwehrNextPageToken = Nothing, _gwehrEvents = pEvents};
+getWorkflowExecutionHistoryResponse :: GetWorkflowExecutionHistoryResponse
+getWorkflowExecutionHistoryResponse = GetWorkflowExecutionHistoryResponse'{_gwehrNextPageToken = Nothing, _gwehrEvents = mempty};
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
 -- results available. To retrieve the next page of results, make the call

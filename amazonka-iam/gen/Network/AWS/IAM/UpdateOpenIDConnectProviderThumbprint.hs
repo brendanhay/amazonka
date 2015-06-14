@@ -64,8 +64,8 @@ import Network.AWS.IAM.Types
 data UpdateOpenIDConnectProviderThumbprint = UpdateOpenIDConnectProviderThumbprint'{_uoidcptOpenIDConnectProviderARN :: Text, _uoidcptThumbprintList :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'UpdateOpenIDConnectProviderThumbprint' smart constructor.
-updateOpenIDConnectProviderThumbprint :: Text -> [Text] -> UpdateOpenIDConnectProviderThumbprint
-updateOpenIDConnectProviderThumbprint pOpenIDConnectProviderARN pThumbprintList = UpdateOpenIDConnectProviderThumbprint'{_uoidcptOpenIDConnectProviderARN = pOpenIDConnectProviderARN, _uoidcptThumbprintList = pThumbprintList};
+updateOpenIDConnectProviderThumbprint :: Text -> UpdateOpenIDConnectProviderThumbprint
+updateOpenIDConnectProviderThumbprint pOpenIDConnectProviderARN = UpdateOpenIDConnectProviderThumbprint'{_uoidcptOpenIDConnectProviderARN = pOpenIDConnectProviderARN, _uoidcptThumbprintList = mempty};
 
 -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider
 -- to update the thumbprint for. You can get a list of OIDC provider ARNs

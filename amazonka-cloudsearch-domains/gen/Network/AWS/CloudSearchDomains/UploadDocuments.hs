@@ -132,11 +132,11 @@ instance ToQuery UploadDocuments where
 -- * 'udrWarnings'
 --
 -- * 'udrDeletes'
-data UploadDocumentsResponse = UploadDocumentsResponse'{_udrStatus :: Maybe Text, _udrAdds :: Maybe Integer, _udrWarnings :: [DocumentServiceWarning], _udrDeletes :: Maybe Integer} deriving (Eq, Read, Show)
+data UploadDocumentsResponse = UploadDocumentsResponse'{_udrStatus :: Maybe Text, _udrAdds :: Maybe Integer, _udrWarnings :: Maybe [DocumentServiceWarning], _udrDeletes :: Maybe Integer} deriving (Eq, Read, Show)
 
 -- | 'UploadDocumentsResponse' smart constructor.
 uploadDocumentsResponse :: UploadDocumentsResponse
-uploadDocumentsResponse = UploadDocumentsResponse'{_udrStatus = Nothing, _udrAdds = Nothing, _udrWarnings = mempty, _udrDeletes = Nothing};
+uploadDocumentsResponse = UploadDocumentsResponse'{_udrStatus = Nothing, _udrAdds = Nothing, _udrWarnings = Nothing, _udrDeletes = Nothing};
 
 -- | The status of an @UploadDocumentsRequest@.
 udrStatus :: Lens' UploadDocumentsResponse (Maybe Text)
@@ -148,7 +148,7 @@ udrAdds = lens _udrAdds (\ s a -> s{_udrAdds = a});
 
 -- | Any warnings returned by the document service about the documents being
 -- uploaded.
-udrWarnings :: Lens' UploadDocumentsResponse [DocumentServiceWarning]
+udrWarnings :: Lens' UploadDocumentsResponse (Maybe [DocumentServiceWarning])
 udrWarnings = lens _udrWarnings (\ s a -> s{_udrWarnings = a});
 
 -- | The number of documents that were deleted from the search domain.

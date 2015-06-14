@@ -57,14 +57,14 @@ import Network.AWS.AutoScaling.Types
 -- * 'dasgNextToken'
 --
 -- * 'dasgMaxRecords'
-data DescribeAutoScalingGroups = DescribeAutoScalingGroups'{_dasgAutoScalingGroupNames :: [Text], _dasgNextToken :: Maybe Text, _dasgMaxRecords :: Maybe Int} deriving (Eq, Read, Show)
+data DescribeAutoScalingGroups = DescribeAutoScalingGroups'{_dasgAutoScalingGroupNames :: Maybe [Text], _dasgNextToken :: Maybe Text, _dasgMaxRecords :: Maybe Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeAutoScalingGroups' smart constructor.
 describeAutoScalingGroups :: DescribeAutoScalingGroups
-describeAutoScalingGroups = DescribeAutoScalingGroups'{_dasgAutoScalingGroupNames = mempty, _dasgNextToken = Nothing, _dasgMaxRecords = Nothing};
+describeAutoScalingGroups = DescribeAutoScalingGroups'{_dasgAutoScalingGroupNames = Nothing, _dasgNextToken = Nothing, _dasgMaxRecords = Nothing};
 
 -- | The group names.
-dasgAutoScalingGroupNames :: Lens' DescribeAutoScalingGroups [Text]
+dasgAutoScalingGroupNames :: Lens' DescribeAutoScalingGroups (Maybe [Text])
 dasgAutoScalingGroupNames = lens _dasgAutoScalingGroupNames (\ s a -> s{_dasgAutoScalingGroupNames = a});
 
 -- | The token for the next set of items to return. (You received this token
@@ -116,8 +116,8 @@ instance ToQuery DescribeAutoScalingGroups where
 data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse'{_dasgrNextToken :: Maybe Text, _dasgrAutoScalingGroups :: [AutoScalingGroup]} deriving (Eq, Read, Show)
 
 -- | 'DescribeAutoScalingGroupsResponse' smart constructor.
-describeAutoScalingGroupsResponse :: [AutoScalingGroup] -> DescribeAutoScalingGroupsResponse
-describeAutoScalingGroupsResponse pAutoScalingGroups = DescribeAutoScalingGroupsResponse'{_dasgrNextToken = Nothing, _dasgrAutoScalingGroups = pAutoScalingGroups};
+describeAutoScalingGroupsResponse :: DescribeAutoScalingGroupsResponse
+describeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse'{_dasgrNextToken = Nothing, _dasgrAutoScalingGroups = mempty};
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.

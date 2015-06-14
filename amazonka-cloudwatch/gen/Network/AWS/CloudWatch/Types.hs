@@ -27,10 +27,10 @@ module Network.AWS.CloudWatch.Types
     -- * AlarmHistoryItem
     , AlarmHistoryItem
     , alarmHistoryItem
-    , ahiHistoryItemType
-    , ahiTimestamp
     , ahiAlarmName
+    , ahiHistoryItemType
     , ahiHistoryData
+    , ahiTimestamp
     , ahiHistorySummary
 
     -- * ComparisonOperator
@@ -56,8 +56,8 @@ module Network.AWS.CloudWatch.Types
     -- * DimensionFilter
     , DimensionFilter
     , dimensionFilter
-    , dfName
     , dfValue
+    , dfName
 
     -- * HistoryItemType
     , HistoryItemType (..)
@@ -65,15 +65,20 @@ module Network.AWS.CloudWatch.Types
     -- * Metric
     , Metric
     , metric
-    , metDimensions
     , metMetricName
     , metNamespace
+    , metDimensions
 
     -- * MetricAlarm
     , MetricAlarm
     , metricAlarm
+    , maAlarmName
     , maStateUpdatedTimestamp
     , maAlarmDescription
+    , maPeriod
+    , maEvaluationPeriods
+    , maMetricName
+    , maNamespace
     , maOKActions
     , maComparisonOperator
     , maStateValue
@@ -84,15 +89,10 @@ module Network.AWS.CloudWatch.Types
     , maDimensions
     , maStateReasonData
     , maStateReason
+    , maAlarmARN
     , maAlarmActions
     , maStatistic
     , maUnit
-    , maAlarmName
-    , maPeriod
-    , maEvaluationPeriods
-    , maMetricName
-    , maNamespace
-    , maAlarmARN
 
     -- * MetricDatum
     , MetricDatum
@@ -159,24 +159,32 @@ instance AWSService CloudWatch where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ahiHistoryItemType'
---
--- * 'ahiTimestamp'
---
 -- * 'ahiAlarmName'
+--
+-- * 'ahiHistoryItemType'
 --
 -- * 'ahiHistoryData'
 --
+-- * 'ahiTimestamp'
+--
 -- * 'ahiHistorySummary'
-data AlarmHistoryItem = AlarmHistoryItem'{_ahiHistoryItemType :: Maybe HistoryItemType, _ahiTimestamp :: Maybe ISO8601, _ahiAlarmName :: Text, _ahiHistoryData :: Text, _ahiHistorySummary :: Text} deriving (Eq, Read, Show)
+data AlarmHistoryItem = AlarmHistoryItem'{_ahiAlarmName :: Maybe Text, _ahiHistoryItemType :: Maybe HistoryItemType, _ahiHistoryData :: Maybe Text, _ahiTimestamp :: Maybe ISO8601, _ahiHistorySummary :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'AlarmHistoryItem' smart constructor.
-alarmHistoryItem :: Text -> Text -> Text -> AlarmHistoryItem
-alarmHistoryItem pAlarmName pHistoryData pHistorySummary = AlarmHistoryItem'{_ahiHistoryItemType = Nothing, _ahiTimestamp = Nothing, _ahiAlarmName = pAlarmName, _ahiHistoryData = pHistoryData, _ahiHistorySummary = pHistorySummary};
+alarmHistoryItem :: AlarmHistoryItem
+alarmHistoryItem = AlarmHistoryItem'{_ahiAlarmName = Nothing, _ahiHistoryItemType = Nothing, _ahiHistoryData = Nothing, _ahiTimestamp = Nothing, _ahiHistorySummary = Nothing};
+
+-- | The descriptive name for the alarm.
+ahiAlarmName :: Lens' AlarmHistoryItem (Maybe Text)
+ahiAlarmName = lens _ahiAlarmName (\ s a -> s{_ahiAlarmName = a});
 
 -- | The type of alarm history item.
 ahiHistoryItemType :: Lens' AlarmHistoryItem (Maybe HistoryItemType)
 ahiHistoryItemType = lens _ahiHistoryItemType (\ s a -> s{_ahiHistoryItemType = a});
+
+-- | Machine-readable data about the alarm in JSON format.
+ahiHistoryData :: Lens' AlarmHistoryItem (Maybe Text)
+ahiHistoryData = lens _ahiHistoryData (\ s a -> s{_ahiHistoryData = a});
 
 -- | The time stamp for the alarm history item. Amazon CloudWatch uses
 -- Coordinated Universal Time (UTC) when returning time stamps, which do
@@ -187,25 +195,17 @@ ahiHistoryItemType = lens _ahiHistoryItemType (\ s a -> s{_ahiHistoryItemType = 
 ahiTimestamp :: Lens' AlarmHistoryItem (Maybe UTCTime)
 ahiTimestamp = lens _ahiTimestamp (\ s a -> s{_ahiTimestamp = a}) . mapping _Time;
 
--- | The descriptive name for the alarm.
-ahiAlarmName :: Lens' AlarmHistoryItem Text
-ahiAlarmName = lens _ahiAlarmName (\ s a -> s{_ahiAlarmName = a});
-
--- | Machine-readable data about the alarm in JSON format.
-ahiHistoryData :: Lens' AlarmHistoryItem Text
-ahiHistoryData = lens _ahiHistoryData (\ s a -> s{_ahiHistoryData = a});
-
 -- | A human-readable summary of the alarm history.
-ahiHistorySummary :: Lens' AlarmHistoryItem Text
+ahiHistorySummary :: Lens' AlarmHistoryItem (Maybe Text)
 ahiHistorySummary = lens _ahiHistorySummary (\ s a -> s{_ahiHistorySummary = a});
 
 instance FromXML AlarmHistoryItem where
         parseXML x
           = AlarmHistoryItem' <$>
-              x .@? "HistoryItemType" <*> x .@? "Timestamp" <*>
-                x .@ "AlarmName"
-                <*> x .@ "HistoryData"
-                <*> x .@ "HistorySummary"
+              x .@? "AlarmName" <*> x .@? "HistoryItemType" <*>
+                x .@? "HistoryData"
+                <*> x .@? "Timestamp"
+                <*> x .@? "HistorySummary"
 
 data ComparisonOperator = GreaterThanOrEqualToThreshold | GreaterThanThreshold | LessThanOrEqualToThreshold | LessThanThreshold deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -331,26 +331,26 @@ instance ToQuery Dimension where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dfName'
---
 -- * 'dfValue'
-data DimensionFilter = DimensionFilter'{_dfName :: Text, _dfValue :: Text} deriving (Eq, Read, Show)
+--
+-- * 'dfName'
+data DimensionFilter = DimensionFilter'{_dfValue :: Maybe Text, _dfName :: Text} deriving (Eq, Read, Show)
 
 -- | 'DimensionFilter' smart constructor.
-dimensionFilter :: Text -> Text -> DimensionFilter
-dimensionFilter pName pValue = DimensionFilter'{_dfName = pName, _dfValue = pValue};
+dimensionFilter :: Text -> DimensionFilter
+dimensionFilter pName = DimensionFilter'{_dfValue = Nothing, _dfName = pName};
+
+-- | The value of the dimension to be matched.
+dfValue :: Lens' DimensionFilter (Maybe Text)
+dfValue = lens _dfValue (\ s a -> s{_dfValue = a});
 
 -- | The dimension name to be matched.
 dfName :: Lens' DimensionFilter Text
 dfName = lens _dfName (\ s a -> s{_dfName = a});
 
--- | The value of the dimension to be matched.
-dfValue :: Lens' DimensionFilter Text
-dfValue = lens _dfValue (\ s a -> s{_dfValue = a});
-
 instance ToQuery DimensionFilter where
         toQuery DimensionFilter'{..}
-          = mconcat ["Name" =: _dfName, "Value" =: _dfValue]
+          = mconcat ["Value" =: _dfValue, "Name" =: _dfName]
 
 data HistoryItemType = StateUpdate | Action | ConfigurationUpdate deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -378,44 +378,53 @@ instance FromXML HistoryItemType where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'metDimensions'
---
 -- * 'metMetricName'
 --
 -- * 'metNamespace'
-data Metric = Metric'{_metDimensions :: [Dimension], _metMetricName :: Text, _metNamespace :: Text} deriving (Eq, Read, Show)
+--
+-- * 'metDimensions'
+data Metric = Metric'{_metMetricName :: Maybe Text, _metNamespace :: Maybe Text, _metDimensions :: Maybe [Dimension]} deriving (Eq, Read, Show)
 
 -- | 'Metric' smart constructor.
-metric :: Text -> Text -> Metric
-metric pMetricName pNamespace = Metric'{_metDimensions = mempty, _metMetricName = pMetricName, _metNamespace = pNamespace};
-
--- | A list of dimensions associated with the metric.
-metDimensions :: Lens' Metric [Dimension]
-metDimensions = lens _metDimensions (\ s a -> s{_metDimensions = a});
+metric :: Metric
+metric = Metric'{_metMetricName = Nothing, _metNamespace = Nothing, _metDimensions = Nothing};
 
 -- | The name of the metric.
-metMetricName :: Lens' Metric Text
+metMetricName :: Lens' Metric (Maybe Text)
 metMetricName = lens _metMetricName (\ s a -> s{_metMetricName = a});
 
 -- | The namespace of the metric.
-metNamespace :: Lens' Metric Text
+metNamespace :: Lens' Metric (Maybe Text)
 metNamespace = lens _metNamespace (\ s a -> s{_metNamespace = a});
+
+-- | A list of dimensions associated with the metric.
+metDimensions :: Lens' Metric (Maybe [Dimension])
+metDimensions = lens _metDimensions (\ s a -> s{_metDimensions = a});
 
 instance FromXML Metric where
         parseXML x
           = Metric' <$>
-              (x .@? "Dimensions" .!@ mempty >>=
-                 parseXMLList "member")
-                <*> x .@ "MetricName"
-                <*> x .@ "Namespace"
+              x .@? "MetricName" <*> x .@? "Namespace" <*>
+                (x .@? "Dimensions" .!@ mempty >>=
+                   parseXMLList "member")
 
 -- | /See:/ 'metricAlarm' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'maAlarmName'
+--
 -- * 'maStateUpdatedTimestamp'
 --
 -- * 'maAlarmDescription'
+--
+-- * 'maPeriod'
+--
+-- * 'maEvaluationPeriods'
+--
+-- * 'maMetricName'
+--
+-- * 'maNamespace'
 --
 -- * 'maOKActions'
 --
@@ -437,28 +446,22 @@ instance FromXML Metric where
 --
 -- * 'maStateReason'
 --
+-- * 'maAlarmARN'
+--
 -- * 'maAlarmActions'
 --
 -- * 'maStatistic'
 --
 -- * 'maUnit'
---
--- * 'maAlarmName'
---
--- * 'maPeriod'
---
--- * 'maEvaluationPeriods'
---
--- * 'maMetricName'
---
--- * 'maNamespace'
---
--- * 'maAlarmARN'
-data MetricAlarm = MetricAlarm'{_maStateUpdatedTimestamp :: Maybe ISO8601, _maAlarmDescription :: Maybe Text, _maOKActions :: [Text], _maComparisonOperator :: Maybe ComparisonOperator, _maStateValue :: Maybe StateValue, _maThreshold :: Maybe Double, _maActionsEnabled :: Maybe Bool, _maAlarmConfigurationUpdatedTimestamp :: Maybe ISO8601, _maInsufficientDataActions :: [Text], _maDimensions :: [Dimension], _maStateReasonData :: Maybe Text, _maStateReason :: Maybe Text, _maAlarmActions :: [Text], _maStatistic :: Maybe Statistic, _maUnit :: Maybe StandardUnit, _maAlarmName :: Text, _maPeriod :: Nat, _maEvaluationPeriods :: Nat, _maMetricName :: Text, _maNamespace :: Text, _maAlarmARN :: Text} deriving (Eq, Read, Show)
+data MetricAlarm = MetricAlarm'{_maAlarmName :: Maybe Text, _maStateUpdatedTimestamp :: Maybe ISO8601, _maAlarmDescription :: Maybe Text, _maPeriod :: Maybe Nat, _maEvaluationPeriods :: Maybe Nat, _maMetricName :: Maybe Text, _maNamespace :: Maybe Text, _maOKActions :: Maybe [Text], _maComparisonOperator :: Maybe ComparisonOperator, _maStateValue :: Maybe StateValue, _maThreshold :: Maybe Double, _maActionsEnabled :: Maybe Bool, _maAlarmConfigurationUpdatedTimestamp :: Maybe ISO8601, _maInsufficientDataActions :: Maybe [Text], _maDimensions :: Maybe [Dimension], _maStateReasonData :: Maybe Text, _maStateReason :: Maybe Text, _maAlarmARN :: Maybe Text, _maAlarmActions :: Maybe [Text], _maStatistic :: Maybe Statistic, _maUnit :: Maybe StandardUnit} deriving (Eq, Read, Show)
 
 -- | 'MetricAlarm' smart constructor.
-metricAlarm :: Text -> Natural -> Natural -> Text -> Text -> Text -> MetricAlarm
-metricAlarm pAlarmName pPeriod pEvaluationPeriods pMetricName pNamespace pAlarmARN = MetricAlarm'{_maStateUpdatedTimestamp = Nothing, _maAlarmDescription = Nothing, _maOKActions = mempty, _maComparisonOperator = Nothing, _maStateValue = Nothing, _maThreshold = Nothing, _maActionsEnabled = Nothing, _maAlarmConfigurationUpdatedTimestamp = Nothing, _maInsufficientDataActions = mempty, _maDimensions = mempty, _maStateReasonData = Nothing, _maStateReason = Nothing, _maAlarmActions = mempty, _maStatistic = Nothing, _maUnit = Nothing, _maAlarmName = pAlarmName, _maPeriod = _Nat # pPeriod, _maEvaluationPeriods = _Nat # pEvaluationPeriods, _maMetricName = pMetricName, _maNamespace = pNamespace, _maAlarmARN = pAlarmARN};
+metricAlarm :: MetricAlarm
+metricAlarm = MetricAlarm'{_maAlarmName = Nothing, _maStateUpdatedTimestamp = Nothing, _maAlarmDescription = Nothing, _maPeriod = Nothing, _maEvaluationPeriods = Nothing, _maMetricName = Nothing, _maNamespace = Nothing, _maOKActions = Nothing, _maComparisonOperator = Nothing, _maStateValue = Nothing, _maThreshold = Nothing, _maActionsEnabled = Nothing, _maAlarmConfigurationUpdatedTimestamp = Nothing, _maInsufficientDataActions = Nothing, _maDimensions = Nothing, _maStateReasonData = Nothing, _maStateReason = Nothing, _maAlarmARN = Nothing, _maAlarmActions = Nothing, _maStatistic = Nothing, _maUnit = Nothing};
+
+-- | The name of the alarm.
+maAlarmName :: Lens' MetricAlarm (Maybe Text)
+maAlarmName = lens _maAlarmName (\ s a -> s{_maAlarmName = a});
 
 -- | The time stamp of the last update to the alarm\'s state. Amazon
 -- CloudWatch uses Coordinated Universal Time (UTC) when returning time
@@ -473,11 +476,28 @@ maStateUpdatedTimestamp = lens _maStateUpdatedTimestamp (\ s a -> s{_maStateUpda
 maAlarmDescription :: Lens' MetricAlarm (Maybe Text)
 maAlarmDescription = lens _maAlarmDescription (\ s a -> s{_maAlarmDescription = a});
 
+-- | The period in seconds over which the statistic is applied.
+maPeriod :: Lens' MetricAlarm (Maybe Natural)
+maPeriod = lens _maPeriod (\ s a -> s{_maPeriod = a}) . mapping _Nat;
+
+-- | The number of periods over which data is compared to the specified
+-- threshold.
+maEvaluationPeriods :: Lens' MetricAlarm (Maybe Natural)
+maEvaluationPeriods = lens _maEvaluationPeriods (\ s a -> s{_maEvaluationPeriods = a}) . mapping _Nat;
+
+-- | The name of the alarm\'s metric.
+maMetricName :: Lens' MetricAlarm (Maybe Text)
+maMetricName = lens _maMetricName (\ s a -> s{_maMetricName = a});
+
+-- | The namespace of alarm\'s associated metric.
+maNamespace :: Lens' MetricAlarm (Maybe Text)
+maNamespace = lens _maNamespace (\ s a -> s{_maNamespace = a});
+
 -- | The list of actions to execute when this alarm transitions into an @OK@
 -- state from any other state. Each action is specified as an Amazon
 -- Resource Number (ARN). Currently the only actions supported are
 -- publishing to an Amazon SNS topic and triggering an Auto Scaling policy.
-maOKActions :: Lens' MetricAlarm [Text]
+maOKActions :: Lens' MetricAlarm (Maybe [Text])
 maOKActions = lens _maOKActions (\ s a -> s{_maOKActions = a});
 
 -- | The arithmetic operation to use when comparing the specified @Statistic@
@@ -515,11 +535,11 @@ maAlarmConfigurationUpdatedTimestamp = lens _maAlarmConfigurationUpdatedTimestam
 -- policy.
 --
 -- The current WSDL lists this attribute as @UnknownActions@.
-maInsufficientDataActions :: Lens' MetricAlarm [Text]
+maInsufficientDataActions :: Lens' MetricAlarm (Maybe [Text])
 maInsufficientDataActions = lens _maInsufficientDataActions (\ s a -> s{_maInsufficientDataActions = a});
 
 -- | The list of dimensions associated with the alarm\'s associated metric.
-maDimensions :: Lens' MetricAlarm [Dimension]
+maDimensions :: Lens' MetricAlarm (Maybe [Dimension])
 maDimensions = lens _maDimensions (\ s a -> s{_maDimensions = a});
 
 -- | An explanation for the alarm\'s state in machine-readable JSON format
@@ -530,11 +550,15 @@ maStateReasonData = lens _maStateReasonData (\ s a -> s{_maStateReasonData = a})
 maStateReason :: Lens' MetricAlarm (Maybe Text)
 maStateReason = lens _maStateReason (\ s a -> s{_maStateReason = a});
 
+-- | The Amazon Resource Name (ARN) of the alarm.
+maAlarmARN :: Lens' MetricAlarm (Maybe Text)
+maAlarmARN = lens _maAlarmARN (\ s a -> s{_maAlarmARN = a});
+
 -- | The list of actions to execute when this alarm transitions into an
 -- @ALARM@ state from any other state. Each action is specified as an
 -- Amazon Resource Number (ARN). Currently the only actions supported are
 -- publishing to an Amazon SNS topic and triggering an Auto Scaling policy.
-maAlarmActions :: Lens' MetricAlarm [Text]
+maAlarmActions :: Lens' MetricAlarm (Maybe [Text])
 maAlarmActions = lens _maAlarmActions (\ s a -> s{_maAlarmActions = a});
 
 -- | The statistic to apply to the alarm\'s associated metric.
@@ -545,36 +569,15 @@ maStatistic = lens _maStatistic (\ s a -> s{_maStatistic = a});
 maUnit :: Lens' MetricAlarm (Maybe StandardUnit)
 maUnit = lens _maUnit (\ s a -> s{_maUnit = a});
 
--- | The name of the alarm.
-maAlarmName :: Lens' MetricAlarm Text
-maAlarmName = lens _maAlarmName (\ s a -> s{_maAlarmName = a});
-
--- | The period in seconds over which the statistic is applied.
-maPeriod :: Lens' MetricAlarm Natural
-maPeriod = lens _maPeriod (\ s a -> s{_maPeriod = a}) . _Nat;
-
--- | The number of periods over which data is compared to the specified
--- threshold.
-maEvaluationPeriods :: Lens' MetricAlarm Natural
-maEvaluationPeriods = lens _maEvaluationPeriods (\ s a -> s{_maEvaluationPeriods = a}) . _Nat;
-
--- | The name of the alarm\'s metric.
-maMetricName :: Lens' MetricAlarm Text
-maMetricName = lens _maMetricName (\ s a -> s{_maMetricName = a});
-
--- | The namespace of alarm\'s associated metric.
-maNamespace :: Lens' MetricAlarm Text
-maNamespace = lens _maNamespace (\ s a -> s{_maNamespace = a});
-
--- | The Amazon Resource Name (ARN) of the alarm.
-maAlarmARN :: Lens' MetricAlarm Text
-maAlarmARN = lens _maAlarmARN (\ s a -> s{_maAlarmARN = a});
-
 instance FromXML MetricAlarm where
         parseXML x
           = MetricAlarm' <$>
-              x .@? "StateUpdatedTimestamp" <*>
-                x .@? "AlarmDescription"
+              x .@? "AlarmName" <*> x .@? "StateUpdatedTimestamp"
+                <*> x .@? "AlarmDescription"
+                <*> x .@? "Period"
+                <*> x .@? "EvaluationPeriods"
+                <*> x .@? "MetricName"
+                <*> x .@? "Namespace"
                 <*>
                 (x .@? "OKActions" .!@ mempty >>=
                    parseXMLList "member")
@@ -591,17 +594,12 @@ instance FromXML MetricAlarm where
                    parseXMLList "member")
                 <*> x .@? "StateReasonData"
                 <*> x .@? "StateReason"
+                <*> x .@? "AlarmArn"
                 <*>
                 (x .@? "AlarmActions" .!@ mempty >>=
                    parseXMLList "member")
                 <*> x .@? "Statistic"
                 <*> x .@? "Unit"
-                <*> x .@ "AlarmName"
-                <*> x .@ "Period"
-                <*> x .@ "EvaluationPeriods"
-                <*> x .@ "MetricName"
-                <*> x .@ "Namespace"
-                <*> x .@ "AlarmArn"
 
 -- | /See:/ 'metricDatum' smart constructor.
 --
@@ -618,11 +616,11 @@ instance FromXML MetricAlarm where
 -- * 'mdUnit'
 --
 -- * 'mdMetricName'
-data MetricDatum = MetricDatum'{_mdValue :: Maybe Double, _mdDimensions :: [Dimension], _mdTimestamp :: Maybe ISO8601, _mdStatisticValues :: Maybe StatisticSet, _mdUnit :: Maybe StandardUnit, _mdMetricName :: Text} deriving (Eq, Read, Show)
+data MetricDatum = MetricDatum'{_mdValue :: Maybe Double, _mdDimensions :: Maybe [Dimension], _mdTimestamp :: Maybe ISO8601, _mdStatisticValues :: Maybe StatisticSet, _mdUnit :: Maybe StandardUnit, _mdMetricName :: Text} deriving (Eq, Read, Show)
 
 -- | 'MetricDatum' smart constructor.
 metricDatum :: Text -> MetricDatum
-metricDatum pMetricName = MetricDatum'{_mdValue = Nothing, _mdDimensions = mempty, _mdTimestamp = Nothing, _mdStatisticValues = Nothing, _mdUnit = Nothing, _mdMetricName = pMetricName};
+metricDatum pMetricName = MetricDatum'{_mdValue = Nothing, _mdDimensions = Nothing, _mdTimestamp = Nothing, _mdStatisticValues = Nothing, _mdUnit = Nothing, _mdMetricName = pMetricName};
 
 -- | The value for the metric.
 --
@@ -637,7 +635,7 @@ mdValue = lens _mdValue (\ s a -> s{_mdValue = a});
 -- | A list of dimensions associated with the metric. Note, when using the
 -- Dimensions value in a query, you need to append .member.N to it (e.g.,
 -- Dimensions.member.N).
-mdDimensions :: Lens' MetricDatum [Dimension]
+mdDimensions :: Lens' MetricDatum (Maybe [Dimension])
 mdDimensions = lens _mdDimensions (\ s a -> s{_mdDimensions = a});
 
 -- | The time stamp used for the metric. If not specified, the default value

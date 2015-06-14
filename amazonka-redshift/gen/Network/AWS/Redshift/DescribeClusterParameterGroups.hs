@@ -75,11 +75,11 @@ import Network.AWS.Redshift.Types
 -- * 'dcpgMarker'
 --
 -- * 'dcpgParameterGroupName'
-data DescribeClusterParameterGroups = DescribeClusterParameterGroups'{_dcpgTagValues :: [Text], _dcpgTagKeys :: [Text], _dcpgMaxRecords :: Maybe Int, _dcpgMarker :: Maybe Text, _dcpgParameterGroupName :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeClusterParameterGroups = DescribeClusterParameterGroups'{_dcpgTagValues :: Maybe [Text], _dcpgTagKeys :: Maybe [Text], _dcpgMaxRecords :: Maybe Int, _dcpgMarker :: Maybe Text, _dcpgParameterGroupName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeClusterParameterGroups' smart constructor.
 describeClusterParameterGroups :: DescribeClusterParameterGroups
-describeClusterParameterGroups = DescribeClusterParameterGroups'{_dcpgTagValues = mempty, _dcpgTagKeys = mempty, _dcpgMaxRecords = Nothing, _dcpgMarker = Nothing, _dcpgParameterGroupName = Nothing};
+describeClusterParameterGroups = DescribeClusterParameterGroups'{_dcpgTagValues = Nothing, _dcpgTagKeys = Nothing, _dcpgMaxRecords = Nothing, _dcpgMarker = Nothing, _dcpgParameterGroupName = Nothing};
 
 -- | A tag value or values for which you want to return all matching cluster
 -- parameter groups that are associated with the specified tag value or
@@ -88,7 +88,7 @@ describeClusterParameterGroups = DescribeClusterParameterGroups'{_dcpgTagValues 
 -- these tag values in the request, Amazon Redshift returns a response with
 -- the parameter groups that have either or both of these tag values
 -- associated with them.
-dcpgTagValues :: Lens' DescribeClusterParameterGroups [Text]
+dcpgTagValues :: Lens' DescribeClusterParameterGroups (Maybe [Text])
 dcpgTagValues = lens _dcpgTagValues (\ s a -> s{_dcpgTagValues = a});
 
 -- | A tag key or keys for which you want to return all matching cluster
@@ -98,7 +98,7 @@ dcpgTagValues = lens _dcpgTagValues (\ s a -> s{_dcpgTagValues = a});
 -- keys in the request, Amazon Redshift returns a response with the
 -- parameter groups that have either or both of these tag keys associated
 -- with them.
-dcpgTagKeys :: Lens' DescribeClusterParameterGroups [Text]
+dcpgTagKeys :: Lens' DescribeClusterParameterGroups (Maybe [Text])
 dcpgTagKeys = lens _dcpgTagKeys (\ s a -> s{_dcpgTagKeys = a});
 
 -- | The maximum number of response records to return in each call. If the
@@ -170,11 +170,11 @@ instance ToQuery DescribeClusterParameterGroups where
 -- * 'dcpgrMarker'
 --
 -- * 'dcpgrParameterGroups'
-data DescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResponse'{_dcpgrMarker :: Maybe Text, _dcpgrParameterGroups :: [ClusterParameterGroup]} deriving (Eq, Read, Show)
+data DescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResponse'{_dcpgrMarker :: Maybe Text, _dcpgrParameterGroups :: Maybe [ClusterParameterGroup]} deriving (Eq, Read, Show)
 
 -- | 'DescribeClusterParameterGroupsResponse' smart constructor.
 describeClusterParameterGroupsResponse :: DescribeClusterParameterGroupsResponse
-describeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResponse'{_dcpgrMarker = Nothing, _dcpgrParameterGroups = mempty};
+describeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResponse'{_dcpgrMarker = Nothing, _dcpgrParameterGroups = Nothing};
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -187,5 +187,5 @@ dcpgrMarker = lens _dcpgrMarker (\ s a -> s{_dcpgrMarker = a});
 
 -- | A list of ClusterParameterGroup instances. Each instance describes one
 -- cluster parameter group.
-dcpgrParameterGroups :: Lens' DescribeClusterParameterGroupsResponse [ClusterParameterGroup]
+dcpgrParameterGroups :: Lens' DescribeClusterParameterGroupsResponse (Maybe [ClusterParameterGroup])
 dcpgrParameterGroups = lens _dcpgrParameterGroups (\ s a -> s{_dcpgrParameterGroups = a});

@@ -306,11 +306,11 @@ instance ToQuery CreatePipeline where
 -- * 'cprWarnings'
 --
 -- * 'cprPipeline'
-data CreatePipelineResponse = CreatePipelineResponse'{_cprWarnings :: [Warning], _cprPipeline :: Maybe Pipeline} deriving (Eq, Read, Show)
+data CreatePipelineResponse = CreatePipelineResponse'{_cprWarnings :: Maybe [Warning], _cprPipeline :: Maybe Pipeline} deriving (Eq, Read, Show)
 
 -- | 'CreatePipelineResponse' smart constructor.
 createPipelineResponse :: CreatePipelineResponse
-createPipelineResponse = CreatePipelineResponse'{_cprWarnings = mempty, _cprPipeline = Nothing};
+createPipelineResponse = CreatePipelineResponse'{_cprWarnings = Nothing, _cprPipeline = Nothing};
 
 -- | Elastic Transcoder returns a warning if the resources used by your
 -- pipeline are not in the same region as the pipeline.
@@ -318,7 +318,7 @@ createPipelineResponse = CreatePipelineResponse'{_cprWarnings = mempty, _cprPipe
 -- Using resources in the same region, such as your Amazon S3 buckets,
 -- Amazon SNS notification topics, and AWS KMS key, reduces processing time
 -- and prevents cross-regional charges.
-cprWarnings :: Lens' CreatePipelineResponse [Warning]
+cprWarnings :: Lens' CreatePipelineResponse (Maybe [Warning])
 cprWarnings = lens _cprWarnings (\ s a -> s{_cprWarnings = a});
 
 -- | A section of the response body that provides information about the

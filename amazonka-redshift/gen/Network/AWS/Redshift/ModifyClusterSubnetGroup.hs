@@ -55,8 +55,8 @@ import Network.AWS.Redshift.Types
 data ModifyClusterSubnetGroup = ModifyClusterSubnetGroup'{_mcsgDescription :: Maybe Text, _mcsgClusterSubnetGroupName :: Text, _mcsgSubnetIds :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'ModifyClusterSubnetGroup' smart constructor.
-modifyClusterSubnetGroup :: Text -> [Text] -> ModifyClusterSubnetGroup
-modifyClusterSubnetGroup pClusterSubnetGroupName pSubnetIds = ModifyClusterSubnetGroup'{_mcsgDescription = Nothing, _mcsgClusterSubnetGroupName = pClusterSubnetGroupName, _mcsgSubnetIds = pSubnetIds};
+modifyClusterSubnetGroup :: Text -> ModifyClusterSubnetGroup
+modifyClusterSubnetGroup pClusterSubnetGroupName = ModifyClusterSubnetGroup'{_mcsgDescription = Nothing, _mcsgClusterSubnetGroupName = pClusterSubnetGroupName, _mcsgSubnetIds = mempty};
 
 -- | A text description of the subnet group to be modified.
 mcsgDescription :: Lens' ModifyClusterSubnetGroup (Maybe Text)

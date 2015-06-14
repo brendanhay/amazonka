@@ -53,8 +53,8 @@ import Network.AWS.AutoScaling.Types
 newtype CreateOrUpdateTags = CreateOrUpdateTags'{_coutTags :: [Tag]} deriving (Eq, Read, Show)
 
 -- | 'CreateOrUpdateTags' smart constructor.
-createOrUpdateTags :: [Tag] -> CreateOrUpdateTags
-createOrUpdateTags pTags = CreateOrUpdateTags'{_coutTags = pTags};
+createOrUpdateTags :: CreateOrUpdateTags
+createOrUpdateTags = CreateOrUpdateTags'{_coutTags = mempty};
 
 -- | The tag to be created or updated. Each tag should be defined by its
 -- resource type, resource ID, key, value, and a propagate flag. The

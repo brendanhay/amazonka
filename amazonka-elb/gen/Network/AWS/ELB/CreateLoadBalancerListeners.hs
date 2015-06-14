@@ -55,8 +55,8 @@ import Network.AWS.ELB.Types
 data CreateLoadBalancerListeners = CreateLoadBalancerListeners'{_clblLoadBalancerName :: Text, _clblListeners :: [Listener]} deriving (Eq, Read, Show)
 
 -- | 'CreateLoadBalancerListeners' smart constructor.
-createLoadBalancerListeners :: Text -> [Listener] -> CreateLoadBalancerListeners
-createLoadBalancerListeners pLoadBalancerName pListeners = CreateLoadBalancerListeners'{_clblLoadBalancerName = pLoadBalancerName, _clblListeners = pListeners};
+createLoadBalancerListeners :: Text -> CreateLoadBalancerListeners
+createLoadBalancerListeners pLoadBalancerName = CreateLoadBalancerListeners'{_clblLoadBalancerName = pLoadBalancerName, _clblListeners = mempty};
 
 -- | The name of the load balancer.
 clblLoadBalancerName :: Lens' CreateLoadBalancerListeners Text

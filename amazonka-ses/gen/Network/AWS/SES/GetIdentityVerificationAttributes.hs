@@ -52,8 +52,8 @@ import Network.AWS.SES.Types
 newtype GetIdentityVerificationAttributes = GetIdentityVerificationAttributes'{_givaIdentities :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'GetIdentityVerificationAttributes' smart constructor.
-getIdentityVerificationAttributes :: [Text] -> GetIdentityVerificationAttributes
-getIdentityVerificationAttributes pIdentities = GetIdentityVerificationAttributes'{_givaIdentities = pIdentities};
+getIdentityVerificationAttributes :: GetIdentityVerificationAttributes
+getIdentityVerificationAttributes = GetIdentityVerificationAttributes'{_givaIdentities = mempty};
 
 -- | A list of identities.
 givaIdentities :: Lens' GetIdentityVerificationAttributes [Text]
@@ -98,8 +98,8 @@ instance ToQuery GetIdentityVerificationAttributes
 newtype GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttributesResponse'{_givarVerificationAttributes :: HashMap Text IdentityVerificationAttributes} deriving (Eq, Read, Show)
 
 -- | 'GetIdentityVerificationAttributesResponse' smart constructor.
-getIdentityVerificationAttributesResponse :: HashMap Text IdentityVerificationAttributes -> GetIdentityVerificationAttributesResponse
-getIdentityVerificationAttributesResponse pVerificationAttributes = GetIdentityVerificationAttributesResponse'{_givarVerificationAttributes = _Coerce # pVerificationAttributes};
+getIdentityVerificationAttributesResponse :: GetIdentityVerificationAttributesResponse
+getIdentityVerificationAttributesResponse = GetIdentityVerificationAttributesResponse'{_givarVerificationAttributes = mempty};
 
 -- | A map of Identities to IdentityVerificationAttributes objects.
 givarVerificationAttributes :: Lens' GetIdentityVerificationAttributesResponse (HashMap Text IdentityVerificationAttributes)

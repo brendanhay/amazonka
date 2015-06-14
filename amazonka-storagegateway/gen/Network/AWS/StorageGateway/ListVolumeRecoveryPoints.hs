@@ -72,7 +72,7 @@ instance AWSRequest ListVolumeRecoveryPoints where
               (\ s h x ->
                  ListVolumeRecoveryPointsResponse' <$>
                    x .?> "VolumeRecoveryPointInfos" .!@ mempty <*>
-                     x .:> "GatewayARN")
+                     x .?> "GatewayARN")
 
 instance ToHeaders ListVolumeRecoveryPoints where
         toHeaders
@@ -101,16 +101,16 @@ instance ToQuery ListVolumeRecoveryPoints where
 -- * 'lvrprVolumeRecoveryPointInfos'
 --
 -- * 'lvrprGatewayARN'
-data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse'{_lvrprVolumeRecoveryPointInfos :: [VolumeRecoveryPointInfo], _lvrprGatewayARN :: Text} deriving (Eq, Read, Show)
+data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse'{_lvrprVolumeRecoveryPointInfos :: Maybe [VolumeRecoveryPointInfo], _lvrprGatewayARN :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ListVolumeRecoveryPointsResponse' smart constructor.
-listVolumeRecoveryPointsResponse :: Text -> ListVolumeRecoveryPointsResponse
-listVolumeRecoveryPointsResponse pGatewayARN = ListVolumeRecoveryPointsResponse'{_lvrprVolumeRecoveryPointInfos = mempty, _lvrprGatewayARN = pGatewayARN};
+listVolumeRecoveryPointsResponse :: ListVolumeRecoveryPointsResponse
+listVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse'{_lvrprVolumeRecoveryPointInfos = Nothing, _lvrprGatewayARN = Nothing};
 
 -- | FIXME: Undocumented member.
-lvrprVolumeRecoveryPointInfos :: Lens' ListVolumeRecoveryPointsResponse [VolumeRecoveryPointInfo]
+lvrprVolumeRecoveryPointInfos :: Lens' ListVolumeRecoveryPointsResponse (Maybe [VolumeRecoveryPointInfo])
 lvrprVolumeRecoveryPointInfos = lens _lvrprVolumeRecoveryPointInfos (\ s a -> s{_lvrprVolumeRecoveryPointInfos = a});
 
 -- | FIXME: Undocumented member.
-lvrprGatewayARN :: Lens' ListVolumeRecoveryPointsResponse Text
+lvrprGatewayARN :: Lens' ListVolumeRecoveryPointsResponse (Maybe Text)
 lvrprGatewayARN = lens _lvrprGatewayARN (\ s a -> s{_lvrprGatewayARN = a});

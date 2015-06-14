@@ -40,9 +40,9 @@ module Network.AWS.Lambda.GetEventSourceMapping
     , esmcState
     , esmcUUID
     , esmcLastProcessingResult
+    , esmcBatchSize
     , esmcStateTransitionReason
     , esmcLastModified
-    , esmcBatchSize
     ) where
 
 import Network.AWS.Request

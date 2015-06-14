@@ -28,6 +28,7 @@ module Network.AWS.AutoScaling.Types
     , Activity
     , activity
     , actProgress
+    , actStatusMessage
     , actDetails
     , actEndTime
     , actDescription
@@ -36,7 +37,6 @@ module Network.AWS.AutoScaling.Types
     , actCause
     , actStartTime
     , actStatusCode
-    , actStatusMessage
 
     -- * AdjustmentType
     , AdjustmentType
@@ -52,11 +52,15 @@ module Network.AWS.AutoScaling.Types
     -- * AutoScalingGroup
     , AutoScalingGroup
     , autoScalingGroup
+    , asgStatus
     , asgTerminationPolicies
     , asgHealthCheckGracePeriod
+    , asgVPCZoneIdentifier
     , asgEnabledMetrics
     , asgInstances
+    , asgAutoScalingGroupARN
     , asgSuspendedProcesses
+    , asgPlacementGroup
     , asgLoadBalancerNames
     , asgTags
     , asgAutoScalingGroupName
@@ -68,10 +72,6 @@ module Network.AWS.AutoScaling.Types
     , asgAvailabilityZones
     , asgHealthCheckType
     , asgCreatedTime
-    , asgStatus
-    , asgVPCZoneIdentifier
-    , asgAutoScalingGroupARN
-    , asgPlacementGroup
 
     -- * AutoScalingInstanceDetails
     , AutoScalingInstanceDetails
@@ -86,10 +86,10 @@ module Network.AWS.AutoScaling.Types
     -- * BlockDeviceMapping
     , BlockDeviceMapping
     , blockDeviceMapping
+    , bdmVirtualName
     , bdmNoDevice
     , bdmEBS
     , bdmDeviceName
-    , bdmVirtualName
 
     -- * EBS
     , EBS
@@ -132,34 +132,34 @@ module Network.AWS.AutoScaling.Types
     , lcSecurityGroups
     , lcAssociatePublicIPAddress
     , lcInstanceMonitoring
+    , lcSpotPrice
+    , lcKeyName
     , lcClassicLinkVPCSecurityGroups
+    , lcRAMDiskId
+    , lcKernelId
     , lcEBSOptimized
     , lcUserData
+    , lcClassicLinkVPCId
+    , lcIAMInstanceProfile
+    , lcLaunchConfigurationARN
+    , lcPlacementTenancy
     , lcBlockDeviceMappings
     , lcLaunchConfigurationName
     , lcImageId
     , lcInstanceType
     , lcCreatedTime
-    , lcSpotPrice
-    , lcKeyName
-    , lcRAMDiskId
-    , lcKernelId
-    , lcClassicLinkVPCId
-    , lcIAMInstanceProfile
-    , lcLaunchConfigurationARN
-    , lcPlacementTenancy
 
     -- * LifecycleHook
     , LifecycleHook
     , lifecycleHook
     , lhDefaultResult
-    , lhHeartbeatTimeout
-    , lhGlobalTimeout
-    , lhLifecycleTransition
     , lhLifecycleHookName
+    , lhHeartbeatTimeout
     , lhAutoScalingGroupName
     , lhNotificationMetadata
+    , lhGlobalTimeout
     , lhRoleARN
+    , lhLifecycleTransition
     , lhNotificationTargetARN
 
     -- * LifecycleState
@@ -194,13 +194,13 @@ module Network.AWS.AutoScaling.Types
     , ScalingPolicy
     , scalingPolicy
     , scaMinAdjustmentStep
-    , scaScalingAdjustment
-    , scaCooldown
-    , scaAlarms
     , scaPolicyName
     , scaAdjustmentType
+    , scaScalingAdjustment
     , scaAutoScalingGroupName
+    , scaCooldown
     , scaPolicyARN
+    , scaAlarms
 
     -- * ScalingProcessQuery
     , ScalingProcessQuery
@@ -211,15 +211,15 @@ module Network.AWS.AutoScaling.Types
     -- * ScheduledUpdateGroupAction
     , ScheduledUpdateGroupAction
     , scheduledUpdateGroupAction
+    , sugaScheduledActionARN
     , sugaTime
     , sugaStartTime
+    , sugaScheduledActionName
     , sugaMaxSize
     , sugaDesiredCapacity
+    , sugaRecurrence
     , sugaMinSize
     , sugaEndTime
-    , sugaScheduledActionARN
-    , sugaScheduledActionName
-    , sugaRecurrence
     , sugaAutoScalingGroupName
 
     -- * SuspendedProcess
@@ -286,6 +286,8 @@ instance AWSService AutoScaling where
 --
 -- * 'actProgress'
 --
+-- * 'actStatusMessage'
+--
 -- * 'actDetails'
 --
 -- * 'actEndTime'
@@ -301,17 +303,19 @@ instance AWSService AutoScaling where
 -- * 'actStartTime'
 --
 -- * 'actStatusCode'
---
--- * 'actStatusMessage'
-data Activity = Activity'{_actProgress :: Maybe Int, _actDetails :: Maybe Text, _actEndTime :: Maybe ISO8601, _actDescription :: Maybe Text, _actActivityId :: Text, _actAutoScalingGroupName :: Text, _actCause :: Text, _actStartTime :: ISO8601, _actStatusCode :: ScalingActivityStatusCode, _actStatusMessage :: Text} deriving (Eq, Read, Show)
+data Activity = Activity'{_actProgress :: Maybe Int, _actStatusMessage :: Maybe Text, _actDetails :: Maybe Text, _actEndTime :: Maybe ISO8601, _actDescription :: Maybe Text, _actActivityId :: Text, _actAutoScalingGroupName :: Text, _actCause :: Text, _actStartTime :: ISO8601, _actStatusCode :: ScalingActivityStatusCode} deriving (Eq, Read, Show)
 
 -- | 'Activity' smart constructor.
-activity :: Text -> Text -> Text -> UTCTime -> ScalingActivityStatusCode -> Text -> Activity
-activity pActivityId pAutoScalingGroupName pCause pStartTime pStatusCode pStatusMessage = Activity'{_actProgress = Nothing, _actDetails = Nothing, _actEndTime = Nothing, _actDescription = Nothing, _actActivityId = pActivityId, _actAutoScalingGroupName = pAutoScalingGroupName, _actCause = pCause, _actStartTime = _Time # pStartTime, _actStatusCode = pStatusCode, _actStatusMessage = pStatusMessage};
+activity :: Text -> Text -> Text -> UTCTime -> ScalingActivityStatusCode -> Activity
+activity pActivityId pAutoScalingGroupName pCause pStartTime pStatusCode = Activity'{_actProgress = Nothing, _actStatusMessage = Nothing, _actDetails = Nothing, _actEndTime = Nothing, _actDescription = Nothing, _actActivityId = pActivityId, _actAutoScalingGroupName = pAutoScalingGroupName, _actCause = pCause, _actStartTime = _Time # pStartTime, _actStatusCode = pStatusCode};
 
 -- | A value between 0 and 100 that indicates the progress of the activity.
 actProgress :: Lens' Activity (Maybe Int)
 actProgress = lens _actProgress (\ s a -> s{_actProgress = a});
+
+-- | A friendly, more verbose description of the activity status.
+actStatusMessage :: Lens' Activity (Maybe Text)
+actStatusMessage = lens _actStatusMessage (\ s a -> s{_actStatusMessage = a});
 
 -- | The details about the scaling activity.
 actDetails :: Lens' Activity (Maybe Text)
@@ -345,33 +349,29 @@ actStartTime = lens _actStartTime (\ s a -> s{_actStartTime = a}) . _Time;
 actStatusCode :: Lens' Activity ScalingActivityStatusCode
 actStatusCode = lens _actStatusCode (\ s a -> s{_actStatusCode = a});
 
--- | A friendly, more verbose description of the activity status.
-actStatusMessage :: Lens' Activity Text
-actStatusMessage = lens _actStatusMessage (\ s a -> s{_actStatusMessage = a});
-
 instance FromXML Activity where
         parseXML x
           = Activity' <$>
-              x .@? "Progress" <*> x .@? "Details" <*>
-                x .@? "EndTime"
+              x .@? "Progress" <*> x .@? "StatusMessage" <*>
+                x .@? "Details"
+                <*> x .@? "EndTime"
                 <*> x .@? "Description"
                 <*> x .@ "ActivityId"
                 <*> x .@ "AutoScalingGroupName"
                 <*> x .@ "Cause"
                 <*> x .@ "StartTime"
                 <*> x .@ "StatusCode"
-                <*> x .@ "StatusMessage"
 
 -- | /See:/ 'adjustmentType' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'atAdjustmentType'
-newtype AdjustmentType = AdjustmentType'{_atAdjustmentType :: Text} deriving (Eq, Read, Show)
+newtype AdjustmentType = AdjustmentType'{_atAdjustmentType :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'AdjustmentType' smart constructor.
-adjustmentType :: Text -> AdjustmentType
-adjustmentType pAdjustmentType = AdjustmentType'{_atAdjustmentType = pAdjustmentType};
+adjustmentType :: AdjustmentType
+adjustmentType = AdjustmentType'{_atAdjustmentType = Nothing};
 
 -- | The policy adjustment type. The valid values are @ChangeInCapacity@,
 -- @ExactCapacity@, and @PercentChangeInCapacity@.
@@ -379,12 +379,12 @@ adjustmentType pAdjustmentType = AdjustmentType'{_atAdjustmentType = pAdjustment
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html Dynamic Scaling>
 -- in the /Auto Scaling Developer Guide/.
-atAdjustmentType :: Lens' AdjustmentType Text
+atAdjustmentType :: Lens' AdjustmentType (Maybe Text)
 atAdjustmentType = lens _atAdjustmentType (\ s a -> s{_atAdjustmentType = a});
 
 instance FromXML AdjustmentType where
         parseXML x
-          = AdjustmentType' <$> x .@ "AdjustmentType"
+          = AdjustmentType' <$> x .@? "AdjustmentType"
 
 -- | /See:/ 'alarm' smart constructor.
 --
@@ -393,37 +393,45 @@ instance FromXML AdjustmentType where
 -- * 'alaAlarmName'
 --
 -- * 'alaAlarmARN'
-data Alarm = Alarm'{_alaAlarmName :: Text, _alaAlarmARN :: Text} deriving (Eq, Read, Show)
+data Alarm = Alarm'{_alaAlarmName :: Maybe Text, _alaAlarmARN :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'Alarm' smart constructor.
-alarm :: Text -> Text -> Alarm
-alarm pAlarmName pAlarmARN = Alarm'{_alaAlarmName = pAlarmName, _alaAlarmARN = pAlarmARN};
+alarm :: Alarm
+alarm = Alarm'{_alaAlarmName = Nothing, _alaAlarmARN = Nothing};
 
 -- | The name of the alarm.
-alaAlarmName :: Lens' Alarm Text
+alaAlarmName :: Lens' Alarm (Maybe Text)
 alaAlarmName = lens _alaAlarmName (\ s a -> s{_alaAlarmName = a});
 
 -- | The Amazon Resource Name (ARN) of the alarm.
-alaAlarmARN :: Lens' Alarm Text
+alaAlarmARN :: Lens' Alarm (Maybe Text)
 alaAlarmARN = lens _alaAlarmARN (\ s a -> s{_alaAlarmARN = a});
 
 instance FromXML Alarm where
         parseXML x
-          = Alarm' <$> x .@ "AlarmName" <*> x .@ "AlarmARN"
+          = Alarm' <$> x .@? "AlarmName" <*> x .@? "AlarmARN"
 
 -- | /See:/ 'autoScalingGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'asgStatus'
+--
 -- * 'asgTerminationPolicies'
 --
 -- * 'asgHealthCheckGracePeriod'
+--
+-- * 'asgVPCZoneIdentifier'
 --
 -- * 'asgEnabledMetrics'
 --
 -- * 'asgInstances'
 --
+-- * 'asgAutoScalingGroupARN'
+--
 -- * 'asgSuspendedProcesses'
+--
+-- * 'asgPlacementGroup'
 --
 -- * 'asgLoadBalancerNames'
 --
@@ -446,22 +454,19 @@ instance FromXML Alarm where
 -- * 'asgHealthCheckType'
 --
 -- * 'asgCreatedTime'
---
--- * 'asgStatus'
---
--- * 'asgVPCZoneIdentifier'
---
--- * 'asgAutoScalingGroupARN'
---
--- * 'asgPlacementGroup'
-data AutoScalingGroup = AutoScalingGroup'{_asgTerminationPolicies :: [Text], _asgHealthCheckGracePeriod :: Maybe Int, _asgEnabledMetrics :: [EnabledMetric], _asgInstances :: [Instance], _asgSuspendedProcesses :: [SuspendedProcess], _asgLoadBalancerNames :: [Text], _asgTags :: [TagDescription], _asgAutoScalingGroupName :: Text, _asgLaunchConfigurationName :: Text, _asgMinSize :: Int, _asgMaxSize :: Int, _asgDesiredCapacity :: Int, _asgDefaultCooldown :: Int, _asgAvailabilityZones :: List1 Text, _asgHealthCheckType :: Text, _asgCreatedTime :: ISO8601, _asgStatus :: Text, _asgVPCZoneIdentifier :: Text, _asgAutoScalingGroupARN :: Text, _asgPlacementGroup :: Text} deriving (Eq, Read, Show)
+data AutoScalingGroup = AutoScalingGroup'{_asgStatus :: Maybe Text, _asgTerminationPolicies :: Maybe [Text], _asgHealthCheckGracePeriod :: Maybe Int, _asgVPCZoneIdentifier :: Maybe Text, _asgEnabledMetrics :: Maybe [EnabledMetric], _asgInstances :: Maybe [Instance], _asgAutoScalingGroupARN :: Maybe Text, _asgSuspendedProcesses :: Maybe [SuspendedProcess], _asgPlacementGroup :: Maybe Text, _asgLoadBalancerNames :: Maybe [Text], _asgTags :: Maybe [TagDescription], _asgAutoScalingGroupName :: Text, _asgLaunchConfigurationName :: Text, _asgMinSize :: Int, _asgMaxSize :: Int, _asgDesiredCapacity :: Int, _asgDefaultCooldown :: Int, _asgAvailabilityZones :: List1 Text, _asgHealthCheckType :: Text, _asgCreatedTime :: ISO8601} deriving (Eq, Read, Show)
 
 -- | 'AutoScalingGroup' smart constructor.
-autoScalingGroup :: Text -> Text -> Int -> Int -> Int -> Int -> NonEmpty Text -> Text -> UTCTime -> Text -> Text -> Text -> Text -> AutoScalingGroup
-autoScalingGroup pAutoScalingGroupName pLaunchConfigurationName pMinSize pMaxSize pDesiredCapacity pDefaultCooldown pAvailabilityZones pHealthCheckType pCreatedTime pStatus pVPCZoneIdentifier pAutoScalingGroupARN pPlacementGroup = AutoScalingGroup'{_asgTerminationPolicies = mempty, _asgHealthCheckGracePeriod = Nothing, _asgEnabledMetrics = mempty, _asgInstances = mempty, _asgSuspendedProcesses = mempty, _asgLoadBalancerNames = mempty, _asgTags = mempty, _asgAutoScalingGroupName = pAutoScalingGroupName, _asgLaunchConfigurationName = pLaunchConfigurationName, _asgMinSize = pMinSize, _asgMaxSize = pMaxSize, _asgDesiredCapacity = pDesiredCapacity, _asgDefaultCooldown = pDefaultCooldown, _asgAvailabilityZones = _List1 # pAvailabilityZones, _asgHealthCheckType = pHealthCheckType, _asgCreatedTime = _Time # pCreatedTime, _asgStatus = pStatus, _asgVPCZoneIdentifier = pVPCZoneIdentifier, _asgAutoScalingGroupARN = pAutoScalingGroupARN, _asgPlacementGroup = pPlacementGroup};
+autoScalingGroup :: Text -> Text -> Int -> Int -> Int -> Int -> NonEmpty Text -> Text -> UTCTime -> AutoScalingGroup
+autoScalingGroup pAutoScalingGroupName pLaunchConfigurationName pMinSize pMaxSize pDesiredCapacity pDefaultCooldown pAvailabilityZones pHealthCheckType pCreatedTime = AutoScalingGroup'{_asgStatus = Nothing, _asgTerminationPolicies = Nothing, _asgHealthCheckGracePeriod = Nothing, _asgVPCZoneIdentifier = Nothing, _asgEnabledMetrics = Nothing, _asgInstances = Nothing, _asgAutoScalingGroupARN = Nothing, _asgSuspendedProcesses = Nothing, _asgPlacementGroup = Nothing, _asgLoadBalancerNames = Nothing, _asgTags = Nothing, _asgAutoScalingGroupName = pAutoScalingGroupName, _asgLaunchConfigurationName = pLaunchConfigurationName, _asgMinSize = pMinSize, _asgMaxSize = pMaxSize, _asgDesiredCapacity = pDesiredCapacity, _asgDefaultCooldown = pDefaultCooldown, _asgAvailabilityZones = _List1 # pAvailabilityZones, _asgHealthCheckType = pHealthCheckType, _asgCreatedTime = _Time # pCreatedTime};
+
+-- | The current state of the Auto Scaling group when a
+-- DeleteAutoScalingGroup action is in progress.
+asgStatus :: Lens' AutoScalingGroup (Maybe Text)
+asgStatus = lens _asgStatus (\ s a -> s{_asgStatus = a});
 
 -- | The termination policies for this Auto Scaling group.
-asgTerminationPolicies :: Lens' AutoScalingGroup [Text]
+asgTerminationPolicies :: Lens' AutoScalingGroup (Maybe [Text])
 asgTerminationPolicies = lens _asgTerminationPolicies (\ s a -> s{_asgTerminationPolicies = a});
 
 -- | The amount of time that Auto Scaling waits before checking an
@@ -470,24 +475,42 @@ asgTerminationPolicies = lens _asgTerminationPolicies (\ s a -> s{_asgTerminatio
 asgHealthCheckGracePeriod :: Lens' AutoScalingGroup (Maybe Int)
 asgHealthCheckGracePeriod = lens _asgHealthCheckGracePeriod (\ s a -> s{_asgHealthCheckGracePeriod = a});
 
+-- | One or more subnet IDs, if applicable, separated by commas.
+--
+-- If you specify @VPCZoneIdentifier@ and @AvailabilityZones@, ensure that
+-- the Availability Zones of the subnets match the values for
+-- @AvailabilityZones@.
+asgVPCZoneIdentifier :: Lens' AutoScalingGroup (Maybe Text)
+asgVPCZoneIdentifier = lens _asgVPCZoneIdentifier (\ s a -> s{_asgVPCZoneIdentifier = a});
+
 -- | The metrics enabled for this Auto Scaling group.
-asgEnabledMetrics :: Lens' AutoScalingGroup [EnabledMetric]
+asgEnabledMetrics :: Lens' AutoScalingGroup (Maybe [EnabledMetric])
 asgEnabledMetrics = lens _asgEnabledMetrics (\ s a -> s{_asgEnabledMetrics = a});
 
 -- | The EC2 instances associated with the group.
-asgInstances :: Lens' AutoScalingGroup [Instance]
+asgInstances :: Lens' AutoScalingGroup (Maybe [Instance])
 asgInstances = lens _asgInstances (\ s a -> s{_asgInstances = a});
 
+-- | The Amazon Resource Name (ARN) of the group.
+asgAutoScalingGroupARN :: Lens' AutoScalingGroup (Maybe Text)
+asgAutoScalingGroupARN = lens _asgAutoScalingGroupARN (\ s a -> s{_asgAutoScalingGroupARN = a});
+
 -- | The suspended processes associated with the group.
-asgSuspendedProcesses :: Lens' AutoScalingGroup [SuspendedProcess]
+asgSuspendedProcesses :: Lens' AutoScalingGroup (Maybe [SuspendedProcess])
 asgSuspendedProcesses = lens _asgSuspendedProcesses (\ s a -> s{_asgSuspendedProcesses = a});
 
+-- | The name of the placement group into which you\'ll launch your
+-- instances, if any. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups>.
+asgPlacementGroup :: Lens' AutoScalingGroup (Maybe Text)
+asgPlacementGroup = lens _asgPlacementGroup (\ s a -> s{_asgPlacementGroup = a});
+
 -- | One or more load balancers associated with the group.
-asgLoadBalancerNames :: Lens' AutoScalingGroup [Text]
+asgLoadBalancerNames :: Lens' AutoScalingGroup (Maybe [Text])
 asgLoadBalancerNames = lens _asgLoadBalancerNames (\ s a -> s{_asgLoadBalancerNames = a});
 
 -- | The tags for the Auto Scaling group.
-asgTags :: Lens' AutoScalingGroup [TagDescription]
+asgTags :: Lens' AutoScalingGroup (Maybe [TagDescription])
 asgTags = lens _asgTags (\ s a -> s{_asgTags = a});
 
 -- | The name of the group.
@@ -528,44 +551,25 @@ asgHealthCheckType = lens _asgHealthCheckType (\ s a -> s{_asgHealthCheckType = 
 asgCreatedTime :: Lens' AutoScalingGroup UTCTime
 asgCreatedTime = lens _asgCreatedTime (\ s a -> s{_asgCreatedTime = a}) . _Time;
 
--- | The current state of the Auto Scaling group when a
--- DeleteAutoScalingGroup action is in progress.
-asgStatus :: Lens' AutoScalingGroup Text
-asgStatus = lens _asgStatus (\ s a -> s{_asgStatus = a});
-
--- | One or more subnet IDs, if applicable, separated by commas.
---
--- If you specify @VPCZoneIdentifier@ and @AvailabilityZones@, ensure that
--- the Availability Zones of the subnets match the values for
--- @AvailabilityZones@.
-asgVPCZoneIdentifier :: Lens' AutoScalingGroup Text
-asgVPCZoneIdentifier = lens _asgVPCZoneIdentifier (\ s a -> s{_asgVPCZoneIdentifier = a});
-
--- | The Amazon Resource Name (ARN) of the group.
-asgAutoScalingGroupARN :: Lens' AutoScalingGroup Text
-asgAutoScalingGroupARN = lens _asgAutoScalingGroupARN (\ s a -> s{_asgAutoScalingGroupARN = a});
-
--- | The name of the placement group into which you\'ll launch your
--- instances, if any. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups>.
-asgPlacementGroup :: Lens' AutoScalingGroup Text
-asgPlacementGroup = lens _asgPlacementGroup (\ s a -> s{_asgPlacementGroup = a});
-
 instance FromXML AutoScalingGroup where
         parseXML x
           = AutoScalingGroup' <$>
-              (x .@? "TerminationPolicies" .!@ mempty >>=
-                 parseXMLList "member")
+              x .@? "Status" <*>
+                (x .@? "TerminationPolicies" .!@ mempty >>=
+                   parseXMLList "member")
                 <*> x .@? "HealthCheckGracePeriod"
+                <*> x .@? "VPCZoneIdentifier"
                 <*>
                 (x .@? "EnabledMetrics" .!@ mempty >>=
                    parseXMLList "member")
                 <*>
                 (x .@? "Instances" .!@ mempty >>=
                    parseXMLList "member")
+                <*> x .@? "AutoScalingGroupARN"
                 <*>
                 (x .@? "SuspendedProcesses" .!@ mempty >>=
                    parseXMLList "member")
+                <*> x .@? "PlacementGroup"
                 <*>
                 (x .@? "LoadBalancerNames" .!@ mempty >>=
                    parseXMLList "member")
@@ -582,10 +586,6 @@ instance FromXML AutoScalingGroup where
                    parseXMLList1 "member")
                 <*> x .@ "HealthCheckType"
                 <*> x .@ "CreatedTime"
-                <*> x .@ "Status"
-                <*> x .@ "VPCZoneIdentifier"
-                <*> x .@ "AutoScalingGroupARN"
-                <*> x .@ "PlacementGroup"
 
 -- | /See:/ 'autoScalingInstanceDetails' smart constructor.
 --
@@ -649,18 +649,22 @@ instance FromXML AutoScalingInstanceDetails where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'bdmVirtualName'
+--
 -- * 'bdmNoDevice'
 --
 -- * 'bdmEBS'
 --
 -- * 'bdmDeviceName'
---
--- * 'bdmVirtualName'
-data BlockDeviceMapping = BlockDeviceMapping'{_bdmNoDevice :: Maybe Bool, _bdmEBS :: Maybe EBS, _bdmDeviceName :: Text, _bdmVirtualName :: Text} deriving (Eq, Read, Show)
+data BlockDeviceMapping = BlockDeviceMapping'{_bdmVirtualName :: Maybe Text, _bdmNoDevice :: Maybe Bool, _bdmEBS :: Maybe EBS, _bdmDeviceName :: Text} deriving (Eq, Read, Show)
 
 -- | 'BlockDeviceMapping' smart constructor.
-blockDeviceMapping :: Text -> Text -> BlockDeviceMapping
-blockDeviceMapping pDeviceName pVirtualName = BlockDeviceMapping'{_bdmNoDevice = Nothing, _bdmEBS = Nothing, _bdmDeviceName = pDeviceName, _bdmVirtualName = pVirtualName};
+blockDeviceMapping :: Text -> BlockDeviceMapping
+blockDeviceMapping pDeviceName = BlockDeviceMapping'{_bdmVirtualName = Nothing, _bdmNoDevice = Nothing, _bdmEBS = Nothing, _bdmDeviceName = pDeviceName};
+
+-- | The name of the virtual device, @ephemeral0@ to @ephemeral3@.
+bdmVirtualName :: Lens' BlockDeviceMapping (Maybe Text)
+bdmVirtualName = lens _bdmVirtualName (\ s a -> s{_bdmVirtualName = a});
 
 -- | Suppresses a device mapping.
 --
@@ -679,23 +683,19 @@ bdmEBS = lens _bdmEBS (\ s a -> s{_bdmEBS = a});
 bdmDeviceName :: Lens' BlockDeviceMapping Text
 bdmDeviceName = lens _bdmDeviceName (\ s a -> s{_bdmDeviceName = a});
 
--- | The name of the virtual device, @ephemeral0@ to @ephemeral3@.
-bdmVirtualName :: Lens' BlockDeviceMapping Text
-bdmVirtualName = lens _bdmVirtualName (\ s a -> s{_bdmVirtualName = a});
-
 instance FromXML BlockDeviceMapping where
         parseXML x
           = BlockDeviceMapping' <$>
-              x .@? "NoDevice" <*> x .@? "Ebs" <*>
-                x .@ "DeviceName"
-                <*> x .@ "VirtualName"
+              x .@? "VirtualName" <*> x .@? "NoDevice" <*>
+                x .@? "Ebs"
+                <*> x .@ "DeviceName"
 
 instance ToQuery BlockDeviceMapping where
         toQuery BlockDeviceMapping'{..}
           = mconcat
-              ["NoDevice" =: _bdmNoDevice, "Ebs" =: _bdmEBS,
-               "DeviceName" =: _bdmDeviceName,
-               "VirtualName" =: _bdmVirtualName]
+              ["VirtualName" =: _bdmVirtualName,
+               "NoDevice" =: _bdmNoDevice, "Ebs" =: _bdmEBS,
+               "DeviceName" =: _bdmDeviceName]
 
 -- | /See:/ 'ebs' smart constructor.
 --
@@ -710,11 +710,11 @@ instance ToQuery BlockDeviceMapping where
 -- * 'ebsVolumeType'
 --
 -- * 'ebsSnapshotId'
-data EBS = EBS'{_ebsDeleteOnTermination :: Maybe Bool, _ebsVolumeSize :: Nat, _ebsIOPS :: Nat, _ebsVolumeType :: Text, _ebsSnapshotId :: Text} deriving (Eq, Read, Show)
+data EBS = EBS'{_ebsDeleteOnTermination :: Maybe Bool, _ebsVolumeSize :: Maybe Nat, _ebsIOPS :: Maybe Nat, _ebsVolumeType :: Maybe Text, _ebsSnapshotId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'EBS' smart constructor.
-ebs :: Natural -> Natural -> Text -> Text -> EBS
-ebs pVolumeSize pIOPS pVolumeType pSnapshotId = EBS'{_ebsDeleteOnTermination = Nothing, _ebsVolumeSize = _Nat # pVolumeSize, _ebsIOPS = _Nat # pIOPS, _ebsVolumeType = pVolumeType, _ebsSnapshotId = pSnapshotId};
+ebs :: EBS
+ebs = EBS'{_ebsDeleteOnTermination = Nothing, _ebsVolumeSize = Nothing, _ebsIOPS = Nothing, _ebsVolumeType = Nothing, _ebsSnapshotId = Nothing};
 
 -- | Indicates whether to delete the volume on instance termination.
 --
@@ -732,8 +732,8 @@ ebsDeleteOnTermination = lens _ebsDeleteOnTermination (\ s a -> s{_ebsDeleteOnTe
 -- volume size, the default is the size of the snapshot.
 --
 -- Required: Required when the volume type is @io1@.
-ebsVolumeSize :: Lens' EBS Natural
-ebsVolumeSize = lens _ebsVolumeSize (\ s a -> s{_ebsVolumeSize = a}) . _Nat;
+ebsVolumeSize :: Lens' EBS (Maybe Natural)
+ebsVolumeSize = lens _ebsVolumeSize (\ s a -> s{_ebsVolumeSize = a}) . mapping _Nat;
 
 -- | For Provisioned IOPS (SSD) volumes only. The number of I\/O operations
 -- per second (IOPS) to provision for the volume.
@@ -741,28 +741,28 @@ ebsVolumeSize = lens _ebsVolumeSize (\ s a -> s{_ebsVolumeSize = a}) . _Nat;
 -- Valid values: Range is 100 to 4000.
 --
 -- Default: None
-ebsIOPS :: Lens' EBS Natural
-ebsIOPS = lens _ebsIOPS (\ s a -> s{_ebsIOPS = a}) . _Nat;
+ebsIOPS :: Lens' EBS (Maybe Natural)
+ebsIOPS = lens _ebsIOPS (\ s a -> s{_ebsIOPS = a}) . mapping _Nat;
 
 -- | The volume type.
 --
 -- Valid values: @standard | io1 | gp2@
 --
 -- Default: @standard@
-ebsVolumeType :: Lens' EBS Text
+ebsVolumeType :: Lens' EBS (Maybe Text)
 ebsVolumeType = lens _ebsVolumeType (\ s a -> s{_ebsVolumeType = a});
 
 -- | The ID of the snapshot.
-ebsSnapshotId :: Lens' EBS Text
+ebsSnapshotId :: Lens' EBS (Maybe Text)
 ebsSnapshotId = lens _ebsSnapshotId (\ s a -> s{_ebsSnapshotId = a});
 
 instance FromXML EBS where
         parseXML x
           = EBS' <$>
-              x .@? "DeleteOnTermination" <*> x .@ "VolumeSize" <*>
-                x .@ "Iops"
-                <*> x .@ "VolumeType"
-                <*> x .@ "SnapshotId"
+              x .@? "DeleteOnTermination" <*> x .@? "VolumeSize"
+                <*> x .@? "Iops"
+                <*> x .@? "VolumeType"
+                <*> x .@? "SnapshotId"
 
 instance ToQuery EBS where
         toQuery EBS'{..}
@@ -779,24 +779,24 @@ instance ToQuery EBS where
 -- * 'emGranularity'
 --
 -- * 'emMetric'
-data EnabledMetric = EnabledMetric'{_emGranularity :: Text, _emMetric :: Text} deriving (Eq, Read, Show)
+data EnabledMetric = EnabledMetric'{_emGranularity :: Maybe Text, _emMetric :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'EnabledMetric' smart constructor.
-enabledMetric :: Text -> Text -> EnabledMetric
-enabledMetric pGranularity pMetric = EnabledMetric'{_emGranularity = pGranularity, _emMetric = pMetric};
+enabledMetric :: EnabledMetric
+enabledMetric = EnabledMetric'{_emGranularity = Nothing, _emMetric = Nothing};
 
 -- | The granularity of the metric.
-emGranularity :: Lens' EnabledMetric Text
+emGranularity :: Lens' EnabledMetric (Maybe Text)
 emGranularity = lens _emGranularity (\ s a -> s{_emGranularity = a});
 
 -- | The name of the metric.
-emMetric :: Lens' EnabledMetric Text
+emMetric :: Lens' EnabledMetric (Maybe Text)
 emMetric = lens _emMetric (\ s a -> s{_emMetric = a});
 
 instance FromXML EnabledMetric where
         parseXML x
           = EnabledMetric' <$>
-              x .@ "Granularity" <*> x .@ "Metric"
+              x .@? "Granularity" <*> x .@? "Metric"
 
 -- | /See:/ 'filter'' smart constructor.
 --
@@ -805,14 +805,14 @@ instance FromXML EnabledMetric where
 -- * 'filValues'
 --
 -- * 'filName'
-data Filter = Filter'{_filValues :: [Text], _filName :: Text} deriving (Eq, Read, Show)
+data Filter = Filter'{_filValues :: Maybe [Text], _filName :: Text} deriving (Eq, Read, Show)
 
 -- | 'Filter' smart constructor.
 filter' :: Text -> Filter
-filter' pName = Filter'{_filValues = mempty, _filName = pName};
+filter' pName = Filter'{_filValues = Nothing, _filName = pName};
 
 -- | The value of the filter.
-filValues :: Lens' Filter [Text]
+filValues :: Lens' Filter (Maybe [Text])
 filValues = lens _filValues (\ s a -> s{_filValues = a});
 
 -- | The name of the filter. The valid values are: @\"auto-scaling-group\"@,
@@ -907,11 +907,27 @@ instance ToQuery InstanceMonitoring where
 --
 -- * 'lcInstanceMonitoring'
 --
+-- * 'lcSpotPrice'
+--
+-- * 'lcKeyName'
+--
 -- * 'lcClassicLinkVPCSecurityGroups'
+--
+-- * 'lcRAMDiskId'
+--
+-- * 'lcKernelId'
 --
 -- * 'lcEBSOptimized'
 --
 -- * 'lcUserData'
+--
+-- * 'lcClassicLinkVPCId'
+--
+-- * 'lcIAMInstanceProfile'
+--
+-- * 'lcLaunchConfigurationARN'
+--
+-- * 'lcPlacementTenancy'
 --
 -- * 'lcBlockDeviceMappings'
 --
@@ -922,30 +938,14 @@ instance ToQuery InstanceMonitoring where
 -- * 'lcInstanceType'
 --
 -- * 'lcCreatedTime'
---
--- * 'lcSpotPrice'
---
--- * 'lcKeyName'
---
--- * 'lcRAMDiskId'
---
--- * 'lcKernelId'
---
--- * 'lcClassicLinkVPCId'
---
--- * 'lcIAMInstanceProfile'
---
--- * 'lcLaunchConfigurationARN'
---
--- * 'lcPlacementTenancy'
-data LaunchConfiguration = LaunchConfiguration'{_lcSecurityGroups :: [Text], _lcAssociatePublicIPAddress :: Maybe Bool, _lcInstanceMonitoring :: Maybe InstanceMonitoring, _lcClassicLinkVPCSecurityGroups :: [Text], _lcEBSOptimized :: Maybe Bool, _lcUserData :: Maybe Text, _lcBlockDeviceMappings :: [BlockDeviceMapping], _lcLaunchConfigurationName :: Text, _lcImageId :: Text, _lcInstanceType :: Text, _lcCreatedTime :: ISO8601, _lcSpotPrice :: Text, _lcKeyName :: Text, _lcRAMDiskId :: Text, _lcKernelId :: Text, _lcClassicLinkVPCId :: Text, _lcIAMInstanceProfile :: Text, _lcLaunchConfigurationARN :: Text, _lcPlacementTenancy :: Text} deriving (Eq, Read, Show)
+data LaunchConfiguration = LaunchConfiguration'{_lcSecurityGroups :: Maybe [Text], _lcAssociatePublicIPAddress :: Maybe Bool, _lcInstanceMonitoring :: Maybe InstanceMonitoring, _lcSpotPrice :: Maybe Text, _lcKeyName :: Maybe Text, _lcClassicLinkVPCSecurityGroups :: Maybe [Text], _lcRAMDiskId :: Maybe Text, _lcKernelId :: Maybe Text, _lcEBSOptimized :: Maybe Bool, _lcUserData :: Maybe Text, _lcClassicLinkVPCId :: Maybe Text, _lcIAMInstanceProfile :: Maybe Text, _lcLaunchConfigurationARN :: Maybe Text, _lcPlacementTenancy :: Maybe Text, _lcBlockDeviceMappings :: Maybe [BlockDeviceMapping], _lcLaunchConfigurationName :: Text, _lcImageId :: Text, _lcInstanceType :: Text, _lcCreatedTime :: ISO8601} deriving (Eq, Read, Show)
 
 -- | 'LaunchConfiguration' smart constructor.
-launchConfiguration :: Text -> Text -> Text -> UTCTime -> Text -> Text -> Text -> Text -> Text -> Text -> Text -> Text -> LaunchConfiguration
-launchConfiguration pLaunchConfigurationName pImageId pInstanceType pCreatedTime pSpotPrice pKeyName pRAMDiskId pKernelId pClassicLinkVPCId pIAMInstanceProfile pLaunchConfigurationARN pPlacementTenancy = LaunchConfiguration'{_lcSecurityGroups = mempty, _lcAssociatePublicIPAddress = Nothing, _lcInstanceMonitoring = Nothing, _lcClassicLinkVPCSecurityGroups = mempty, _lcEBSOptimized = Nothing, _lcUserData = Nothing, _lcBlockDeviceMappings = mempty, _lcLaunchConfigurationName = pLaunchConfigurationName, _lcImageId = pImageId, _lcInstanceType = pInstanceType, _lcCreatedTime = _Time # pCreatedTime, _lcSpotPrice = pSpotPrice, _lcKeyName = pKeyName, _lcRAMDiskId = pRAMDiskId, _lcKernelId = pKernelId, _lcClassicLinkVPCId = pClassicLinkVPCId, _lcIAMInstanceProfile = pIAMInstanceProfile, _lcLaunchConfigurationARN = pLaunchConfigurationARN, _lcPlacementTenancy = pPlacementTenancy};
+launchConfiguration :: Text -> Text -> Text -> UTCTime -> LaunchConfiguration
+launchConfiguration pLaunchConfigurationName pImageId pInstanceType pCreatedTime = LaunchConfiguration'{_lcSecurityGroups = Nothing, _lcAssociatePublicIPAddress = Nothing, _lcInstanceMonitoring = Nothing, _lcSpotPrice = Nothing, _lcKeyName = Nothing, _lcClassicLinkVPCSecurityGroups = Nothing, _lcRAMDiskId = Nothing, _lcKernelId = Nothing, _lcEBSOptimized = Nothing, _lcUserData = Nothing, _lcClassicLinkVPCId = Nothing, _lcIAMInstanceProfile = Nothing, _lcLaunchConfigurationARN = Nothing, _lcPlacementTenancy = Nothing, _lcBlockDeviceMappings = Nothing, _lcLaunchConfigurationName = pLaunchConfigurationName, _lcImageId = pImageId, _lcInstanceType = pInstanceType, _lcCreatedTime = _Time # pCreatedTime};
 
 -- | The security groups to associate with the EC2 instances.
-lcSecurityGroups :: Lens' LaunchConfiguration [Text]
+lcSecurityGroups :: Lens' LaunchConfiguration (Maybe [Text])
 lcSecurityGroups = lens _lcSecurityGroups (\ s a -> s{_lcSecurityGroups = a});
 
 -- | Specifies whether the EC2 instances are associated with a public IP
@@ -958,13 +958,29 @@ lcAssociatePublicIPAddress = lens _lcAssociatePublicIPAddress (\ s a -> s{_lcAss
 lcInstanceMonitoring :: Lens' LaunchConfiguration (Maybe InstanceMonitoring)
 lcInstanceMonitoring = lens _lcInstanceMonitoring (\ s a -> s{_lcInstanceMonitoring = a});
 
+-- | The price to bid when launching Spot Instances.
+lcSpotPrice :: Lens' LaunchConfiguration (Maybe Text)
+lcSpotPrice = lens _lcSpotPrice (\ s a -> s{_lcSpotPrice = a});
+
+-- | The name of the key pair.
+lcKeyName :: Lens' LaunchConfiguration (Maybe Text)
+lcKeyName = lens _lcKeyName (\ s a -> s{_lcKeyName = a});
+
 -- | The IDs of one or more security groups for the VPC specified in
 -- @ClassicLinkVPCId@. This parameter is required if @ClassicLinkVPCId@ is
 -- specified, and cannot be used otherwise. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
-lcClassicLinkVPCSecurityGroups :: Lens' LaunchConfiguration [Text]
+lcClassicLinkVPCSecurityGroups :: Lens' LaunchConfiguration (Maybe [Text])
 lcClassicLinkVPCSecurityGroups = lens _lcClassicLinkVPCSecurityGroups (\ s a -> s{_lcClassicLinkVPCSecurityGroups = a});
+
+-- | The ID of the RAM disk associated with the AMI.
+lcRAMDiskId :: Lens' LaunchConfiguration (Maybe Text)
+lcRAMDiskId = lens _lcRAMDiskId (\ s a -> s{_lcRAMDiskId = a});
+
+-- | The ID of the kernel associated with the AMI.
+lcKernelId :: Lens' LaunchConfiguration (Maybe Text)
+lcKernelId = lens _lcKernelId (\ s a -> s{_lcKernelId = a});
 
 -- | Controls whether the instance is optimized for EBS I\/O (@true@) or not
 -- (@false@).
@@ -975,10 +991,33 @@ lcEBSOptimized = lens _lcEBSOptimized (\ s a -> s{_lcEBSOptimized = a});
 lcUserData :: Lens' LaunchConfiguration (Maybe Text)
 lcUserData = lens _lcUserData (\ s a -> s{_lcUserData = a});
 
+-- | The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances
+-- to. This parameter can only be used if you are launching EC2-Classic
+-- instances. For more information, see
+-- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink>
+-- in the /Amazon Elastic Compute Cloud User Guide/.
+lcClassicLinkVPCId :: Lens' LaunchConfiguration (Maybe Text)
+lcClassicLinkVPCId = lens _lcClassicLinkVPCId (\ s a -> s{_lcClassicLinkVPCId = a});
+
+-- | The name or Amazon Resource Name (ARN) of the instance profile
+-- associated with the IAM role for the instance.
+lcIAMInstanceProfile :: Lens' LaunchConfiguration (Maybe Text)
+lcIAMInstanceProfile = lens _lcIAMInstanceProfile (\ s a -> s{_lcIAMInstanceProfile = a});
+
+-- | The Amazon Resource Name (ARN) of the launch configuration.
+lcLaunchConfigurationARN :: Lens' LaunchConfiguration (Maybe Text)
+lcLaunchConfigurationARN = lens _lcLaunchConfigurationARN (\ s a -> s{_lcLaunchConfigurationARN = a});
+
+-- | The tenancy of the instance, either @default@ or @dedicated@. An
+-- instance with @dedicated@ tenancy runs in an isolated, single-tenant
+-- hardware and can only be launched in a VPC.
+lcPlacementTenancy :: Lens' LaunchConfiguration (Maybe Text)
+lcPlacementTenancy = lens _lcPlacementTenancy (\ s a -> s{_lcPlacementTenancy = a});
+
 -- | A block device mapping that specifies how block devices are exposed to
 -- the instance. Each mapping is made up of a @virtualName@ and a
 -- @deviceName@.
-lcBlockDeviceMappings :: Lens' LaunchConfiguration [BlockDeviceMapping]
+lcBlockDeviceMappings :: Lens' LaunchConfiguration (Maybe [BlockDeviceMapping])
 lcBlockDeviceMappings = lens _lcBlockDeviceMappings (\ s a -> s{_lcBlockDeviceMappings = a});
 
 -- | The name of the launch configuration.
@@ -997,45 +1036,6 @@ lcInstanceType = lens _lcInstanceType (\ s a -> s{_lcInstanceType = a});
 lcCreatedTime :: Lens' LaunchConfiguration UTCTime
 lcCreatedTime = lens _lcCreatedTime (\ s a -> s{_lcCreatedTime = a}) . _Time;
 
--- | The price to bid when launching Spot Instances.
-lcSpotPrice :: Lens' LaunchConfiguration Text
-lcSpotPrice = lens _lcSpotPrice (\ s a -> s{_lcSpotPrice = a});
-
--- | The name of the key pair.
-lcKeyName :: Lens' LaunchConfiguration Text
-lcKeyName = lens _lcKeyName (\ s a -> s{_lcKeyName = a});
-
--- | The ID of the RAM disk associated with the AMI.
-lcRAMDiskId :: Lens' LaunchConfiguration Text
-lcRAMDiskId = lens _lcRAMDiskId (\ s a -> s{_lcRAMDiskId = a});
-
--- | The ID of the kernel associated with the AMI.
-lcKernelId :: Lens' LaunchConfiguration Text
-lcKernelId = lens _lcKernelId (\ s a -> s{_lcKernelId = a});
-
--- | The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances
--- to. This parameter can only be used if you are launching EC2-Classic
--- instances. For more information, see
--- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink>
--- in the /Amazon Elastic Compute Cloud User Guide/.
-lcClassicLinkVPCId :: Lens' LaunchConfiguration Text
-lcClassicLinkVPCId = lens _lcClassicLinkVPCId (\ s a -> s{_lcClassicLinkVPCId = a});
-
--- | The name or Amazon Resource Name (ARN) of the instance profile
--- associated with the IAM role for the instance.
-lcIAMInstanceProfile :: Lens' LaunchConfiguration Text
-lcIAMInstanceProfile = lens _lcIAMInstanceProfile (\ s a -> s{_lcIAMInstanceProfile = a});
-
--- | The Amazon Resource Name (ARN) of the launch configuration.
-lcLaunchConfigurationARN :: Lens' LaunchConfiguration Text
-lcLaunchConfigurationARN = lens _lcLaunchConfigurationARN (\ s a -> s{_lcLaunchConfigurationARN = a});
-
--- | The tenancy of the instance, either @default@ or @dedicated@. An
--- instance with @dedicated@ tenancy runs in an isolated, single-tenant
--- hardware and can only be launched in a VPC.
-lcPlacementTenancy :: Lens' LaunchConfiguration Text
-lcPlacementTenancy = lens _lcPlacementTenancy (\ s a -> s{_lcPlacementTenancy = a});
-
 instance FromXML LaunchConfiguration where
         parseXML x
           = LaunchConfiguration' <$>
@@ -1043,11 +1043,19 @@ instance FromXML LaunchConfiguration where
                  parseXMLList "member")
                 <*> x .@? "AssociatePublicIpAddress"
                 <*> x .@? "InstanceMonitoring"
+                <*> x .@? "SpotPrice"
+                <*> x .@? "KeyName"
                 <*>
                 (x .@? "ClassicLinkVPCSecurityGroups" .!@ mempty >>=
                    parseXMLList "member")
+                <*> x .@? "RamdiskId"
+                <*> x .@? "KernelId"
                 <*> x .@? "EbsOptimized"
                 <*> x .@? "UserData"
+                <*> x .@? "ClassicLinkVPCId"
+                <*> x .@? "IamInstanceProfile"
+                <*> x .@? "LaunchConfigurationARN"
+                <*> x .@? "PlacementTenancy"
                 <*>
                 (x .@? "BlockDeviceMappings" .!@ mempty >>=
                    parseXMLList "member")
@@ -1055,14 +1063,6 @@ instance FromXML LaunchConfiguration where
                 <*> x .@ "ImageId"
                 <*> x .@ "InstanceType"
                 <*> x .@ "CreatedTime"
-                <*> x .@ "SpotPrice"
-                <*> x .@ "KeyName"
-                <*> x .@ "RamdiskId"
-                <*> x .@ "KernelId"
-                <*> x .@ "ClassicLinkVPCId"
-                <*> x .@ "IamInstanceProfile"
-                <*> x .@ "LaunchConfigurationARN"
-                <*> x .@ "PlacementTenancy"
 
 -- | /See:/ 'lifecycleHook' smart constructor.
 --
@@ -1070,32 +1070,36 @@ instance FromXML LaunchConfiguration where
 --
 -- * 'lhDefaultResult'
 --
--- * 'lhHeartbeatTimeout'
---
--- * 'lhGlobalTimeout'
---
--- * 'lhLifecycleTransition'
---
 -- * 'lhLifecycleHookName'
+--
+-- * 'lhHeartbeatTimeout'
 --
 -- * 'lhAutoScalingGroupName'
 --
 -- * 'lhNotificationMetadata'
 --
+-- * 'lhGlobalTimeout'
+--
 -- * 'lhRoleARN'
 --
+-- * 'lhLifecycleTransition'
+--
 -- * 'lhNotificationTargetARN'
-data LifecycleHook = LifecycleHook'{_lhDefaultResult :: Maybe Text, _lhHeartbeatTimeout :: Maybe Int, _lhGlobalTimeout :: Maybe Int, _lhLifecycleTransition :: Maybe Text, _lhLifecycleHookName :: Text, _lhAutoScalingGroupName :: Text, _lhNotificationMetadata :: Text, _lhRoleARN :: Text, _lhNotificationTargetARN :: Text} deriving (Eq, Read, Show)
+data LifecycleHook = LifecycleHook'{_lhDefaultResult :: Maybe Text, _lhLifecycleHookName :: Maybe Text, _lhHeartbeatTimeout :: Maybe Int, _lhAutoScalingGroupName :: Maybe Text, _lhNotificationMetadata :: Maybe Text, _lhGlobalTimeout :: Maybe Int, _lhRoleARN :: Maybe Text, _lhLifecycleTransition :: Maybe Text, _lhNotificationTargetARN :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'LifecycleHook' smart constructor.
-lifecycleHook :: Text -> Text -> Text -> Text -> Text -> LifecycleHook
-lifecycleHook pLifecycleHookName pAutoScalingGroupName pNotificationMetadata pRoleARN pNotificationTargetARN = LifecycleHook'{_lhDefaultResult = Nothing, _lhHeartbeatTimeout = Nothing, _lhGlobalTimeout = Nothing, _lhLifecycleTransition = Nothing, _lhLifecycleHookName = pLifecycleHookName, _lhAutoScalingGroupName = pAutoScalingGroupName, _lhNotificationMetadata = pNotificationMetadata, _lhRoleARN = pRoleARN, _lhNotificationTargetARN = pNotificationTargetARN};
+lifecycleHook :: LifecycleHook
+lifecycleHook = LifecycleHook'{_lhDefaultResult = Nothing, _lhLifecycleHookName = Nothing, _lhHeartbeatTimeout = Nothing, _lhAutoScalingGroupName = Nothing, _lhNotificationMetadata = Nothing, _lhGlobalTimeout = Nothing, _lhRoleARN = Nothing, _lhLifecycleTransition = Nothing, _lhNotificationTargetARN = Nothing};
 
 -- | Defines the action the Auto Scaling group should take when the lifecycle
 -- hook timeout elapses or if an unexpected failure occurs. The valid
 -- values are @CONTINUE@ and @ABANDON@. The default value is @CONTINUE@.
 lhDefaultResult :: Lens' LifecycleHook (Maybe Text)
 lhDefaultResult = lens _lhDefaultResult (\ s a -> s{_lhDefaultResult = a});
+
+-- | The name of the lifecycle hook.
+lhLifecycleHookName :: Lens' LifecycleHook (Maybe Text)
+lhLifecycleHookName = lens _lhLifecycleHookName (\ s a -> s{_lhLifecycleHookName = a});
 
 -- | The amount of time that can elapse before the lifecycle hook times out.
 -- When the lifecycle hook times out, Auto Scaling performs the action
@@ -1104,33 +1108,29 @@ lhDefaultResult = lens _lhDefaultResult (\ s a -> s{_lhDefaultResult = a});
 lhHeartbeatTimeout :: Lens' LifecycleHook (Maybe Int)
 lhHeartbeatTimeout = lens _lhHeartbeatTimeout (\ s a -> s{_lhHeartbeatTimeout = a});
 
+-- | The name of the Auto Scaling group for the lifecycle hook.
+lhAutoScalingGroupName :: Lens' LifecycleHook (Maybe Text)
+lhAutoScalingGroupName = lens _lhAutoScalingGroupName (\ s a -> s{_lhAutoScalingGroupName = a});
+
+-- | Additional information that you want to include any time Auto Scaling
+-- sends a message to the notification target.
+lhNotificationMetadata :: Lens' LifecycleHook (Maybe Text)
+lhNotificationMetadata = lens _lhNotificationMetadata (\ s a -> s{_lhNotificationMetadata = a});
+
 -- | The maximum length of time an instance can remain in a @Pending:Wait@ or
 -- @Terminating:Wait@ state. Currently, this value is set at 48 hours.
 lhGlobalTimeout :: Lens' LifecycleHook (Maybe Int)
 lhGlobalTimeout = lens _lhGlobalTimeout (\ s a -> s{_lhGlobalTimeout = a});
 
+-- | The ARN of the IAM role that allows the Auto Scaling group to publish to
+-- the specified notification target.
+lhRoleARN :: Lens' LifecycleHook (Maybe Text)
+lhRoleARN = lens _lhRoleARN (\ s a -> s{_lhRoleARN = a});
+
 -- | The state of the EC2 instance to which you want to attach the lifecycle
 -- hook. For a list of lifecycle hook types, see DescribeLifecycleHooks.
 lhLifecycleTransition :: Lens' LifecycleHook (Maybe Text)
 lhLifecycleTransition = lens _lhLifecycleTransition (\ s a -> s{_lhLifecycleTransition = a});
-
--- | The name of the lifecycle hook.
-lhLifecycleHookName :: Lens' LifecycleHook Text
-lhLifecycleHookName = lens _lhLifecycleHookName (\ s a -> s{_lhLifecycleHookName = a});
-
--- | The name of the Auto Scaling group for the lifecycle hook.
-lhAutoScalingGroupName :: Lens' LifecycleHook Text
-lhAutoScalingGroupName = lens _lhAutoScalingGroupName (\ s a -> s{_lhAutoScalingGroupName = a});
-
--- | Additional information that you want to include any time Auto Scaling
--- sends a message to the notification target.
-lhNotificationMetadata :: Lens' LifecycleHook Text
-lhNotificationMetadata = lens _lhNotificationMetadata (\ s a -> s{_lhNotificationMetadata = a});
-
--- | The ARN of the IAM role that allows the Auto Scaling group to publish to
--- the specified notification target.
-lhRoleARN :: Lens' LifecycleHook Text
-lhRoleARN = lens _lhRoleARN (\ s a -> s{_lhRoleARN = a});
 
 -- | The ARN of the notification target that Auto Scaling uses to notify you
 -- when an instance is in the transition state for the lifecycle hook. This
@@ -1144,20 +1144,20 @@ lhRoleARN = lens _lhRoleARN (\ s a -> s{_lhRoleARN = a});
 -- -   EC2 instance ID
 -- -   Lifecycle transition
 -- -   Notification metadata
-lhNotificationTargetARN :: Lens' LifecycleHook Text
+lhNotificationTargetARN :: Lens' LifecycleHook (Maybe Text)
 lhNotificationTargetARN = lens _lhNotificationTargetARN (\ s a -> s{_lhNotificationTargetARN = a});
 
 instance FromXML LifecycleHook where
         parseXML x
           = LifecycleHook' <$>
-              x .@? "DefaultResult" <*> x .@? "HeartbeatTimeout"
+              x .@? "DefaultResult" <*> x .@? "LifecycleHookName"
+                <*> x .@? "HeartbeatTimeout"
+                <*> x .@? "AutoScalingGroupName"
+                <*> x .@? "NotificationMetadata"
                 <*> x .@? "GlobalTimeout"
+                <*> x .@? "RoleARN"
                 <*> x .@? "LifecycleTransition"
-                <*> x .@ "LifecycleHookName"
-                <*> x .@ "AutoScalingGroupName"
-                <*> x .@ "NotificationMetadata"
-                <*> x .@ "RoleARN"
-                <*> x .@ "NotificationTargetARN"
+                <*> x .@? "NotificationTargetARN"
 
 data LifecycleState = PendingWait | Terminating | TerminatingWait | Pending | Standby | EnteringStandby | InService | Detached | Detaching | Quarantined | PendingProceed | Terminated | TerminatingProceed deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -1206,37 +1206,37 @@ instance FromXML LifecycleState where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'mctMetric'
-newtype MetricCollectionType = MetricCollectionType'{_mctMetric :: Text} deriving (Eq, Read, Show)
+newtype MetricCollectionType = MetricCollectionType'{_mctMetric :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'MetricCollectionType' smart constructor.
-metricCollectionType :: Text -> MetricCollectionType
-metricCollectionType pMetric = MetricCollectionType'{_mctMetric = pMetric};
+metricCollectionType :: MetricCollectionType
+metricCollectionType = MetricCollectionType'{_mctMetric = Nothing};
 
 -- | The metric.
-mctMetric :: Lens' MetricCollectionType Text
+mctMetric :: Lens' MetricCollectionType (Maybe Text)
 mctMetric = lens _mctMetric (\ s a -> s{_mctMetric = a});
 
 instance FromXML MetricCollectionType where
-        parseXML x = MetricCollectionType' <$> x .@ "Metric"
+        parseXML x = MetricCollectionType' <$> x .@? "Metric"
 
 -- | /See:/ 'metricGranularityType' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'mgtGranularity'
-newtype MetricGranularityType = MetricGranularityType'{_mgtGranularity :: Text} deriving (Eq, Read, Show)
+newtype MetricGranularityType = MetricGranularityType'{_mgtGranularity :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'MetricGranularityType' smart constructor.
-metricGranularityType :: Text -> MetricGranularityType
-metricGranularityType pGranularity = MetricGranularityType'{_mgtGranularity = pGranularity};
+metricGranularityType :: MetricGranularityType
+metricGranularityType = MetricGranularityType'{_mgtGranularity = Nothing};
 
 -- | The granularity.
-mgtGranularity :: Lens' MetricGranularityType Text
+mgtGranularity :: Lens' MetricGranularityType (Maybe Text)
 mgtGranularity = lens _mgtGranularity (\ s a -> s{_mgtGranularity = a});
 
 instance FromXML MetricGranularityType where
         parseXML x
-          = MetricGranularityType' <$> x .@ "Granularity"
+          = MetricGranularityType' <$> x .@? "Granularity"
 
 -- | /See:/ 'notificationConfiguration' smart constructor.
 --
@@ -1247,30 +1247,30 @@ instance FromXML MetricGranularityType where
 -- * 'ncAutoScalingGroupName'
 --
 -- * 'ncNotificationType'
-data NotificationConfiguration = NotificationConfiguration'{_ncTopicARN :: Text, _ncAutoScalingGroupName :: Text, _ncNotificationType :: Text} deriving (Eq, Read, Show)
+data NotificationConfiguration = NotificationConfiguration'{_ncTopicARN :: Maybe Text, _ncAutoScalingGroupName :: Maybe Text, _ncNotificationType :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'NotificationConfiguration' smart constructor.
-notificationConfiguration :: Text -> Text -> Text -> NotificationConfiguration
-notificationConfiguration pTopicARN pAutoScalingGroupName pNotificationType = NotificationConfiguration'{_ncTopicARN = pTopicARN, _ncAutoScalingGroupName = pAutoScalingGroupName, _ncNotificationType = pNotificationType};
+notificationConfiguration :: NotificationConfiguration
+notificationConfiguration = NotificationConfiguration'{_ncTopicARN = Nothing, _ncAutoScalingGroupName = Nothing, _ncNotificationType = Nothing};
 
 -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
 -- (SNS) topic.
-ncTopicARN :: Lens' NotificationConfiguration Text
+ncTopicARN :: Lens' NotificationConfiguration (Maybe Text)
 ncTopicARN = lens _ncTopicARN (\ s a -> s{_ncTopicARN = a});
 
 -- | The name of the group.
-ncAutoScalingGroupName :: Lens' NotificationConfiguration Text
+ncAutoScalingGroupName :: Lens' NotificationConfiguration (Maybe Text)
 ncAutoScalingGroupName = lens _ncAutoScalingGroupName (\ s a -> s{_ncAutoScalingGroupName = a});
 
 -- | The types of events for an action to start.
-ncNotificationType :: Lens' NotificationConfiguration Text
+ncNotificationType :: Lens' NotificationConfiguration (Maybe Text)
 ncNotificationType = lens _ncNotificationType (\ s a -> s{_ncNotificationType = a});
 
 instance FromXML NotificationConfiguration where
         parseXML x
           = NotificationConfiguration' <$>
-              x .@ "TopicARN" <*> x .@ "AutoScalingGroupName" <*>
-                x .@ "NotificationType"
+              x .@? "TopicARN" <*> x .@? "AutoScalingGroupName" <*>
+                x .@? "NotificationType"
 
 -- | /See:/ 'processType' smart constructor.
 --
@@ -1332,29 +1332,39 @@ instance FromXML ScalingActivityStatusCode where
 --
 -- * 'scaMinAdjustmentStep'
 --
--- * 'scaScalingAdjustment'
---
--- * 'scaCooldown'
---
--- * 'scaAlarms'
---
 -- * 'scaPolicyName'
 --
 -- * 'scaAdjustmentType'
 --
+-- * 'scaScalingAdjustment'
+--
 -- * 'scaAutoScalingGroupName'
 --
+-- * 'scaCooldown'
+--
 -- * 'scaPolicyARN'
-data ScalingPolicy = ScalingPolicy'{_scaMinAdjustmentStep :: Maybe Int, _scaScalingAdjustment :: Maybe Int, _scaCooldown :: Maybe Int, _scaAlarms :: [Alarm], _scaPolicyName :: Text, _scaAdjustmentType :: Text, _scaAutoScalingGroupName :: Text, _scaPolicyARN :: Text} deriving (Eq, Read, Show)
+--
+-- * 'scaAlarms'
+data ScalingPolicy = ScalingPolicy'{_scaMinAdjustmentStep :: Maybe Int, _scaPolicyName :: Maybe Text, _scaAdjustmentType :: Maybe Text, _scaScalingAdjustment :: Maybe Int, _scaAutoScalingGroupName :: Maybe Text, _scaCooldown :: Maybe Int, _scaPolicyARN :: Maybe Text, _scaAlarms :: Maybe [Alarm]} deriving (Eq, Read, Show)
 
 -- | 'ScalingPolicy' smart constructor.
-scalingPolicy :: Text -> Text -> Text -> Text -> ScalingPolicy
-scalingPolicy pPolicyName pAdjustmentType pAutoScalingGroupName pPolicyARN = ScalingPolicy'{_scaMinAdjustmentStep = Nothing, _scaScalingAdjustment = Nothing, _scaCooldown = Nothing, _scaAlarms = mempty, _scaPolicyName = pPolicyName, _scaAdjustmentType = pAdjustmentType, _scaAutoScalingGroupName = pAutoScalingGroupName, _scaPolicyARN = pPolicyARN};
+scalingPolicy :: ScalingPolicy
+scalingPolicy = ScalingPolicy'{_scaMinAdjustmentStep = Nothing, _scaPolicyName = Nothing, _scaAdjustmentType = Nothing, _scaScalingAdjustment = Nothing, _scaAutoScalingGroupName = Nothing, _scaCooldown = Nothing, _scaPolicyARN = Nothing, _scaAlarms = Nothing};
 
 -- | Changes the @DesiredCapacity@ of the Auto Scaling group by at least the
 -- specified number of instances.
 scaMinAdjustmentStep :: Lens' ScalingPolicy (Maybe Int)
 scaMinAdjustmentStep = lens _scaMinAdjustmentStep (\ s a -> s{_scaMinAdjustmentStep = a});
+
+-- | The name of the scaling policy.
+scaPolicyName :: Lens' ScalingPolicy (Maybe Text)
+scaPolicyName = lens _scaPolicyName (\ s a -> s{_scaPolicyName = a});
+
+-- | Specifies whether the @ScalingAdjustment@ is an absolute number or a
+-- percentage of the current capacity. Valid values are @ChangeInCapacity@,
+-- @ExactCapacity@, and @PercentChangeInCapacity@.
+scaAdjustmentType :: Lens' ScalingPolicy (Maybe Text)
+scaAdjustmentType = lens _scaAdjustmentType (\ s a -> s{_scaAdjustmentType = a});
 
 -- | The number associated with the specified adjustment type. A positive
 -- value adds to the current capacity and a negative value removes from the
@@ -1362,45 +1372,34 @@ scaMinAdjustmentStep = lens _scaMinAdjustmentStep (\ s a -> s{_scaMinAdjustmentS
 scaScalingAdjustment :: Lens' ScalingPolicy (Maybe Int)
 scaScalingAdjustment = lens _scaScalingAdjustment (\ s a -> s{_scaScalingAdjustment = a});
 
+-- | The name of the Auto Scaling group associated with this scaling policy.
+scaAutoScalingGroupName :: Lens' ScalingPolicy (Maybe Text)
+scaAutoScalingGroupName = lens _scaAutoScalingGroupName (\ s a -> s{_scaAutoScalingGroupName = a});
+
 -- | The amount of time, in seconds, after a scaling activity completes
 -- before any further trigger-related scaling activities can start.
 scaCooldown :: Lens' ScalingPolicy (Maybe Int)
 scaCooldown = lens _scaCooldown (\ s a -> s{_scaCooldown = a});
 
--- | The CloudWatch Alarms related to the policy.
-scaAlarms :: Lens' ScalingPolicy [Alarm]
-scaAlarms = lens _scaAlarms (\ s a -> s{_scaAlarms = a});
-
--- | The name of the scaling policy.
-scaPolicyName :: Lens' ScalingPolicy Text
-scaPolicyName = lens _scaPolicyName (\ s a -> s{_scaPolicyName = a});
-
--- | Specifies whether the @ScalingAdjustment@ is an absolute number or a
--- percentage of the current capacity. Valid values are @ChangeInCapacity@,
--- @ExactCapacity@, and @PercentChangeInCapacity@.
-scaAdjustmentType :: Lens' ScalingPolicy Text
-scaAdjustmentType = lens _scaAdjustmentType (\ s a -> s{_scaAdjustmentType = a});
-
--- | The name of the Auto Scaling group associated with this scaling policy.
-scaAutoScalingGroupName :: Lens' ScalingPolicy Text
-scaAutoScalingGroupName = lens _scaAutoScalingGroupName (\ s a -> s{_scaAutoScalingGroupName = a});
-
 -- | The Amazon Resource Name (ARN) of the policy.
-scaPolicyARN :: Lens' ScalingPolicy Text
+scaPolicyARN :: Lens' ScalingPolicy (Maybe Text)
 scaPolicyARN = lens _scaPolicyARN (\ s a -> s{_scaPolicyARN = a});
+
+-- | The CloudWatch Alarms related to the policy.
+scaAlarms :: Lens' ScalingPolicy (Maybe [Alarm])
+scaAlarms = lens _scaAlarms (\ s a -> s{_scaAlarms = a});
 
 instance FromXML ScalingPolicy where
         parseXML x
           = ScalingPolicy' <$>
-              x .@? "MinAdjustmentStep" <*>
-                x .@? "ScalingAdjustment"
+              x .@? "MinAdjustmentStep" <*> x .@? "PolicyName" <*>
+                x .@? "AdjustmentType"
+                <*> x .@? "ScalingAdjustment"
+                <*> x .@? "AutoScalingGroupName"
                 <*> x .@? "Cooldown"
+                <*> x .@? "PolicyARN"
                 <*>
                 (x .@? "Alarms" .!@ mempty >>= parseXMLList "member")
-                <*> x .@ "PolicyName"
-                <*> x .@ "AdjustmentType"
-                <*> x .@ "AutoScalingGroupName"
-                <*> x .@ "PolicyARN"
 
 -- | /See:/ 'scalingProcessQuery' smart constructor.
 --
@@ -1409,11 +1408,11 @@ instance FromXML ScalingPolicy where
 -- * 'spqScalingProcesses'
 --
 -- * 'spqAutoScalingGroupName'
-data ScalingProcessQuery = ScalingProcessQuery'{_spqScalingProcesses :: [Text], _spqAutoScalingGroupName :: Text} deriving (Eq, Read, Show)
+data ScalingProcessQuery = ScalingProcessQuery'{_spqScalingProcesses :: Maybe [Text], _spqAutoScalingGroupName :: Text} deriving (Eq, Read, Show)
 
 -- | 'ScalingProcessQuery' smart constructor.
 scalingProcessQuery :: Text -> ScalingProcessQuery
-scalingProcessQuery pAutoScalingGroupName = ScalingProcessQuery'{_spqScalingProcesses = mempty, _spqAutoScalingGroupName = pAutoScalingGroupName};
+scalingProcessQuery pAutoScalingGroupName = ScalingProcessQuery'{_spqScalingProcesses = Nothing, _spqAutoScalingGroupName = pAutoScalingGroupName};
 
 -- | One or more of the following processes:
 --
@@ -1425,7 +1424,7 @@ scalingProcessQuery pAutoScalingGroupName = ScalingProcessQuery'{_spqScalingProc
 -- -   AlarmNotification
 -- -   ScheduledActions
 -- -   AddToLoadBalancer
-spqScalingProcesses :: Lens' ScalingProcessQuery [Text]
+spqScalingProcesses :: Lens' ScalingProcessQuery (Maybe [Text])
 spqScalingProcesses = lens _spqScalingProcesses (\ s a -> s{_spqScalingProcesses = a});
 
 -- | The name or Amazon Resource Name (ARN) of the Auto Scaling group.
@@ -1443,30 +1442,34 @@ instance ToQuery ScalingProcessQuery where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'sugaScheduledActionARN'
+--
 -- * 'sugaTime'
 --
 -- * 'sugaStartTime'
+--
+-- * 'sugaScheduledActionName'
 --
 -- * 'sugaMaxSize'
 --
 -- * 'sugaDesiredCapacity'
 --
+-- * 'sugaRecurrence'
+--
 -- * 'sugaMinSize'
 --
 -- * 'sugaEndTime'
 --
--- * 'sugaScheduledActionARN'
---
--- * 'sugaScheduledActionName'
---
--- * 'sugaRecurrence'
---
 -- * 'sugaAutoScalingGroupName'
-data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction'{_sugaTime :: Maybe ISO8601, _sugaStartTime :: Maybe ISO8601, _sugaMaxSize :: Maybe Int, _sugaDesiredCapacity :: Maybe Int, _sugaMinSize :: Maybe Int, _sugaEndTime :: Maybe ISO8601, _sugaScheduledActionARN :: Text, _sugaScheduledActionName :: Text, _sugaRecurrence :: Text, _sugaAutoScalingGroupName :: Text} deriving (Eq, Read, Show)
+data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction'{_sugaScheduledActionARN :: Maybe Text, _sugaTime :: Maybe ISO8601, _sugaStartTime :: Maybe ISO8601, _sugaScheduledActionName :: Maybe Text, _sugaMaxSize :: Maybe Int, _sugaDesiredCapacity :: Maybe Int, _sugaRecurrence :: Maybe Text, _sugaMinSize :: Maybe Int, _sugaEndTime :: Maybe ISO8601, _sugaAutoScalingGroupName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ScheduledUpdateGroupAction' smart constructor.
-scheduledUpdateGroupAction :: Text -> Text -> Text -> Text -> ScheduledUpdateGroupAction
-scheduledUpdateGroupAction pScheduledActionARN pScheduledActionName pRecurrence pAutoScalingGroupName = ScheduledUpdateGroupAction'{_sugaTime = Nothing, _sugaStartTime = Nothing, _sugaMaxSize = Nothing, _sugaDesiredCapacity = Nothing, _sugaMinSize = Nothing, _sugaEndTime = Nothing, _sugaScheduledActionARN = pScheduledActionARN, _sugaScheduledActionName = pScheduledActionName, _sugaRecurrence = pRecurrence, _sugaAutoScalingGroupName = pAutoScalingGroupName};
+scheduledUpdateGroupAction :: ScheduledUpdateGroupAction
+scheduledUpdateGroupAction = ScheduledUpdateGroupAction'{_sugaScheduledActionARN = Nothing, _sugaTime = Nothing, _sugaStartTime = Nothing, _sugaScheduledActionName = Nothing, _sugaMaxSize = Nothing, _sugaDesiredCapacity = Nothing, _sugaRecurrence = Nothing, _sugaMinSize = Nothing, _sugaEndTime = Nothing, _sugaAutoScalingGroupName = Nothing};
+
+-- | The Amazon Resource Name (ARN) of the scheduled action.
+sugaScheduledActionARN :: Lens' ScheduledUpdateGroupAction (Maybe Text)
+sugaScheduledActionARN = lens _sugaScheduledActionARN (\ s a -> s{_sugaScheduledActionARN = a});
 
 -- | @Time@ is deprecated.
 --
@@ -1483,6 +1486,10 @@ sugaTime = lens _sugaTime (\ s a -> s{_sugaTime = a}) . mapping _Time;
 sugaStartTime :: Lens' ScheduledUpdateGroupAction (Maybe UTCTime)
 sugaStartTime = lens _sugaStartTime (\ s a -> s{_sugaStartTime = a}) . mapping _Time;
 
+-- | The name of the scheduled action.
+sugaScheduledActionName :: Lens' ScheduledUpdateGroupAction (Maybe Text)
+sugaScheduledActionName = lens _sugaScheduledActionName (\ s a -> s{_sugaScheduledActionName = a});
+
 -- | The maximum size of the group.
 sugaMaxSize :: Lens' ScheduledUpdateGroupAction (Maybe Int)
 sugaMaxSize = lens _sugaMaxSize (\ s a -> s{_sugaMaxSize = a});
@@ -1490,6 +1497,10 @@ sugaMaxSize = lens _sugaMaxSize (\ s a -> s{_sugaMaxSize = a});
 -- | The number of instances you prefer to maintain in the group.
 sugaDesiredCapacity :: Lens' ScheduledUpdateGroupAction (Maybe Int)
 sugaDesiredCapacity = lens _sugaDesiredCapacity (\ s a -> s{_sugaDesiredCapacity = a});
+
+-- | The regular schedule that an action occurs.
+sugaRecurrence :: Lens' ScheduledUpdateGroupAction (Maybe Text)
+sugaRecurrence = lens _sugaRecurrence (\ s a -> s{_sugaRecurrence = a});
 
 -- | The minimum size of the group.
 sugaMinSize :: Lens' ScheduledUpdateGroupAction (Maybe Int)
@@ -1500,34 +1511,22 @@ sugaMinSize = lens _sugaMinSize (\ s a -> s{_sugaMinSize = a});
 sugaEndTime :: Lens' ScheduledUpdateGroupAction (Maybe UTCTime)
 sugaEndTime = lens _sugaEndTime (\ s a -> s{_sugaEndTime = a}) . mapping _Time;
 
--- | The Amazon Resource Name (ARN) of the scheduled action.
-sugaScheduledActionARN :: Lens' ScheduledUpdateGroupAction Text
-sugaScheduledActionARN = lens _sugaScheduledActionARN (\ s a -> s{_sugaScheduledActionARN = a});
-
--- | The name of the scheduled action.
-sugaScheduledActionName :: Lens' ScheduledUpdateGroupAction Text
-sugaScheduledActionName = lens _sugaScheduledActionName (\ s a -> s{_sugaScheduledActionName = a});
-
--- | The regular schedule that an action occurs.
-sugaRecurrence :: Lens' ScheduledUpdateGroupAction Text
-sugaRecurrence = lens _sugaRecurrence (\ s a -> s{_sugaRecurrence = a});
-
 -- | The name of the group.
-sugaAutoScalingGroupName :: Lens' ScheduledUpdateGroupAction Text
+sugaAutoScalingGroupName :: Lens' ScheduledUpdateGroupAction (Maybe Text)
 sugaAutoScalingGroupName = lens _sugaAutoScalingGroupName (\ s a -> s{_sugaAutoScalingGroupName = a});
 
 instance FromXML ScheduledUpdateGroupAction where
         parseXML x
           = ScheduledUpdateGroupAction' <$>
-              x .@? "Time" <*> x .@? "StartTime" <*>
-                x .@? "MaxSize"
+              x .@? "ScheduledActionARN" <*> x .@? "Time" <*>
+                x .@? "StartTime"
+                <*> x .@? "ScheduledActionName"
+                <*> x .@? "MaxSize"
                 <*> x .@? "DesiredCapacity"
+                <*> x .@? "Recurrence"
                 <*> x .@? "MinSize"
                 <*> x .@? "EndTime"
-                <*> x .@ "ScheduledActionARN"
-                <*> x .@ "ScheduledActionName"
-                <*> x .@ "Recurrence"
-                <*> x .@ "AutoScalingGroupName"
+                <*> x .@? "AutoScalingGroupName"
 
 -- | /See:/ 'suspendedProcess' smart constructor.
 --
@@ -1536,24 +1535,24 @@ instance FromXML ScheduledUpdateGroupAction where
 -- * 'spProcessName'
 --
 -- * 'spSuspensionReason'
-data SuspendedProcess = SuspendedProcess'{_spProcessName :: Text, _spSuspensionReason :: Text} deriving (Eq, Read, Show)
+data SuspendedProcess = SuspendedProcess'{_spProcessName :: Maybe Text, _spSuspensionReason :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'SuspendedProcess' smart constructor.
-suspendedProcess :: Text -> Text -> SuspendedProcess
-suspendedProcess pProcessName pSuspensionReason = SuspendedProcess'{_spProcessName = pProcessName, _spSuspensionReason = pSuspensionReason};
+suspendedProcess :: SuspendedProcess
+suspendedProcess = SuspendedProcess'{_spProcessName = Nothing, _spSuspensionReason = Nothing};
 
 -- | The name of the suspended process.
-spProcessName :: Lens' SuspendedProcess Text
+spProcessName :: Lens' SuspendedProcess (Maybe Text)
 spProcessName = lens _spProcessName (\ s a -> s{_spProcessName = a});
 
 -- | The reason that the process was suspended.
-spSuspensionReason :: Lens' SuspendedProcess Text
+spSuspensionReason :: Lens' SuspendedProcess (Maybe Text)
 spSuspensionReason = lens _spSuspensionReason (\ s a -> s{_spSuspensionReason = a});
 
 instance FromXML SuspendedProcess where
         parseXML x
           = SuspendedProcess' <$>
-              x .@ "ProcessName" <*> x .@ "SuspensionReason"
+              x .@? "ProcessName" <*> x .@? "SuspensionReason"
 
 -- | /See:/ 'tag' smart constructor.
 --

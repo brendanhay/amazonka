@@ -60,7 +60,7 @@ data CreateVPNGateway = CreateVPNGateway'{_cvgAvailabilityZone :: Maybe Text, _c
 
 -- | 'CreateVPNGateway' smart constructor.
 createVPNGateway :: GatewayType -> CreateVPNGateway
-createVPNGateway pType' = CreateVPNGateway'{_cvgAvailabilityZone = Nothing, _cvgDryRun = Nothing, _cvgType = pType'};
+createVPNGateway pType = CreateVPNGateway'{_cvgAvailabilityZone = Nothing, _cvgDryRun = Nothing, _cvgType = pType};
 
 -- | The Availability Zone for the virtual private gateway.
 cvgAvailabilityZone :: Lens' CreateVPNGateway (Maybe Text)

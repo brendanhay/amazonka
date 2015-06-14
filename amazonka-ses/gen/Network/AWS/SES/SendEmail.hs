@@ -77,11 +77,11 @@ import Network.AWS.SES.Types
 -- * 'seDestination'
 --
 -- * 'seMessage'
-data SendEmail = SendEmail'{_seReturnPath :: Maybe Text, _seReplyToAddresses :: [Text], _seSource :: Text, _seDestination :: Destination, _seMessage :: Message} deriving (Eq, Read, Show)
+data SendEmail = SendEmail'{_seReturnPath :: Maybe Text, _seReplyToAddresses :: Maybe [Text], _seSource :: Text, _seDestination :: Destination, _seMessage :: Message} deriving (Eq, Read, Show)
 
 -- | 'SendEmail' smart constructor.
 sendEmail :: Text -> Destination -> Message -> SendEmail
-sendEmail pSource pDestination pMessage = SendEmail'{_seReturnPath = Nothing, _seReplyToAddresses = mempty, _seSource = pSource, _seDestination = pDestination, _seMessage = pMessage};
+sendEmail pSource pDestination pMessage = SendEmail'{_seReturnPath = Nothing, _seReplyToAddresses = Nothing, _seSource = pSource, _seDestination = pDestination, _seMessage = pMessage};
 
 -- | The email address to which bounces and complaints are to be forwarded
 -- when feedback forwarding is enabled. If the message cannot be delivered
@@ -96,7 +96,7 @@ seReturnPath = lens _seReturnPath (\ s a -> s{_seReturnPath = a});
 
 -- | The reply-to email address(es) for the message. If the recipient replies
 -- to the message, each reply-to address will receive the reply.
-seReplyToAddresses :: Lens' SendEmail [Text]
+seReplyToAddresses :: Lens' SendEmail (Maybe [Text])
 seReplyToAddresses = lens _seReplyToAddresses (\ s a -> s{_seReplyToAddresses = a});
 
 -- | The identity\'s email address.

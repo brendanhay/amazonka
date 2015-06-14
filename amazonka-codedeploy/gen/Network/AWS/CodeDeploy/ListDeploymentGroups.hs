@@ -34,8 +34,8 @@ module Network.AWS.CodeDeploy.ListDeploymentGroups
     , listDeploymentGroupsResponse
     -- ** Response lenses
     , ldgrNextToken
-    , ldgrDeploymentGroups
     , ldgrApplicationName
+    , ldgrDeploymentGroups
     ) where
 
 import Network.AWS.Request
@@ -76,9 +76,8 @@ instance AWSRequest ListDeploymentGroups where
           = receiveJSON
               (\ s h x ->
                  ListDeploymentGroupsResponse' <$>
-                   x .?> "nextToken" <*>
-                     x .?> "deploymentGroups" .!@ mempty
-                     <*> x .:> "applicationName")
+                   x .?> "nextToken" <*> x .?> "applicationName" <*>
+                     x .?> "deploymentGroups" .!@ mempty)
 
 instance ToHeaders ListDeploymentGroups where
         toHeaders
@@ -108,14 +107,14 @@ instance ToQuery ListDeploymentGroups where
 --
 -- * 'ldgrNextToken'
 --
--- * 'ldgrDeploymentGroups'
---
 -- * 'ldgrApplicationName'
-data ListDeploymentGroupsResponse = ListDeploymentGroupsResponse'{_ldgrNextToken :: Maybe Text, _ldgrDeploymentGroups :: [Text], _ldgrApplicationName :: Text} deriving (Eq, Read, Show)
+--
+-- * 'ldgrDeploymentGroups'
+data ListDeploymentGroupsResponse = ListDeploymentGroupsResponse'{_ldgrNextToken :: Maybe Text, _ldgrApplicationName :: Maybe Text, _ldgrDeploymentGroups :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'ListDeploymentGroupsResponse' smart constructor.
-listDeploymentGroupsResponse :: Text -> ListDeploymentGroupsResponse
-listDeploymentGroupsResponse pApplicationName = ListDeploymentGroupsResponse'{_ldgrNextToken = Nothing, _ldgrDeploymentGroups = mempty, _ldgrApplicationName = pApplicationName};
+listDeploymentGroupsResponse :: ListDeploymentGroupsResponse
+listDeploymentGroupsResponse = ListDeploymentGroupsResponse'{_ldgrNextToken = Nothing, _ldgrApplicationName = Nothing, _ldgrDeploymentGroups = Nothing};
 
 -- | If the amount of information that is returned is significantly large, an
 -- identifier will also be returned, which can be used in a subsequent list
@@ -124,10 +123,10 @@ listDeploymentGroupsResponse pApplicationName = ListDeploymentGroupsResponse'{_l
 ldgrNextToken :: Lens' ListDeploymentGroupsResponse (Maybe Text)
 ldgrNextToken = lens _ldgrNextToken (\ s a -> s{_ldgrNextToken = a});
 
--- | A list of corresponding deployment group names.
-ldgrDeploymentGroups :: Lens' ListDeploymentGroupsResponse [Text]
-ldgrDeploymentGroups = lens _ldgrDeploymentGroups (\ s a -> s{_ldgrDeploymentGroups = a});
-
 -- | The application name.
-ldgrApplicationName :: Lens' ListDeploymentGroupsResponse Text
+ldgrApplicationName :: Lens' ListDeploymentGroupsResponse (Maybe Text)
 ldgrApplicationName = lens _ldgrApplicationName (\ s a -> s{_ldgrApplicationName = a});
+
+-- | A list of corresponding deployment group names.
+ldgrDeploymentGroups :: Lens' ListDeploymentGroupsResponse (Maybe [Text])
+ldgrDeploymentGroups = lens _ldgrDeploymentGroups (\ s a -> s{_ldgrDeploymentGroups = a});

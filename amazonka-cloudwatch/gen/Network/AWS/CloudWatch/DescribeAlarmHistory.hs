@@ -26,11 +26,11 @@ module Network.AWS.CloudWatch.DescribeAlarmHistory
     -- ** Request constructor
     , describeAlarmHistory
     -- ** Request lenses
+    , dahAlarmName
     , dahHistoryItemType
     , dahEndDate
     , dahStartDate
     , dahNextToken
-    , dahAlarmName
     , dahMaxRecords
 
     -- * Response
@@ -51,6 +51,8 @@ import Network.AWS.CloudWatch.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'dahAlarmName'
+--
 -- * 'dahHistoryItemType'
 --
 -- * 'dahEndDate'
@@ -59,14 +61,16 @@ import Network.AWS.CloudWatch.Types
 --
 -- * 'dahNextToken'
 --
--- * 'dahAlarmName'
---
 -- * 'dahMaxRecords'
-data DescribeAlarmHistory = DescribeAlarmHistory'{_dahHistoryItemType :: Maybe HistoryItemType, _dahEndDate :: Maybe ISO8601, _dahStartDate :: Maybe ISO8601, _dahNextToken :: Maybe Text, _dahAlarmName :: Text, _dahMaxRecords :: Nat} deriving (Eq, Read, Show)
+data DescribeAlarmHistory = DescribeAlarmHistory'{_dahAlarmName :: Maybe Text, _dahHistoryItemType :: Maybe HistoryItemType, _dahEndDate :: Maybe ISO8601, _dahStartDate :: Maybe ISO8601, _dahNextToken :: Maybe Text, _dahMaxRecords :: Maybe Nat} deriving (Eq, Read, Show)
 
 -- | 'DescribeAlarmHistory' smart constructor.
-describeAlarmHistory :: Text -> Natural -> DescribeAlarmHistory
-describeAlarmHistory pAlarmName pMaxRecords = DescribeAlarmHistory'{_dahHistoryItemType = Nothing, _dahEndDate = Nothing, _dahStartDate = Nothing, _dahNextToken = Nothing, _dahAlarmName = pAlarmName, _dahMaxRecords = _Nat # pMaxRecords};
+describeAlarmHistory :: DescribeAlarmHistory
+describeAlarmHistory = DescribeAlarmHistory'{_dahAlarmName = Nothing, _dahHistoryItemType = Nothing, _dahEndDate = Nothing, _dahStartDate = Nothing, _dahNextToken = Nothing, _dahMaxRecords = Nothing};
+
+-- | The name of the alarm.
+dahAlarmName :: Lens' DescribeAlarmHistory (Maybe Text)
+dahAlarmName = lens _dahAlarmName (\ s a -> s{_dahAlarmName = a});
 
 -- | The type of alarm histories to retrieve.
 dahHistoryItemType :: Lens' DescribeAlarmHistory (Maybe HistoryItemType)
@@ -85,13 +89,9 @@ dahStartDate = lens _dahStartDate (\ s a -> s{_dahStartDate = a}) . mapping _Tim
 dahNextToken :: Lens' DescribeAlarmHistory (Maybe Text)
 dahNextToken = lens _dahNextToken (\ s a -> s{_dahNextToken = a});
 
--- | The name of the alarm.
-dahAlarmName :: Lens' DescribeAlarmHistory Text
-dahAlarmName = lens _dahAlarmName (\ s a -> s{_dahAlarmName = a});
-
 -- | The maximum number of alarm history records to retrieve.
-dahMaxRecords :: Lens' DescribeAlarmHistory Natural
-dahMaxRecords = lens _dahMaxRecords (\ s a -> s{_dahMaxRecords = a}) . _Nat;
+dahMaxRecords :: Lens' DescribeAlarmHistory (Maybe Natural)
+dahMaxRecords = lens _dahMaxRecords (\ s a -> s{_dahMaxRecords = a}) . mapping _Nat;
 
 instance AWSRequest DescribeAlarmHistory where
         type Sv DescribeAlarmHistory = CloudWatch
@@ -117,11 +117,11 @@ instance ToQuery DescribeAlarmHistory where
           = mconcat
               ["Action" =: ("DescribeAlarmHistory" :: ByteString),
                "Version" =: ("2010-08-01" :: ByteString),
+               "AlarmName" =: _dahAlarmName,
                "HistoryItemType" =: _dahHistoryItemType,
                "EndDate" =: _dahEndDate,
                "StartDate" =: _dahStartDate,
                "NextToken" =: _dahNextToken,
-               "AlarmName" =: _dahAlarmName,
                "MaxRecords" =: _dahMaxRecords]
 
 -- | /See:/ 'describeAlarmHistoryResponse' smart constructor.
@@ -131,14 +131,14 @@ instance ToQuery DescribeAlarmHistory where
 -- * 'dahrAlarmHistoryItems'
 --
 -- * 'dahrNextToken'
-data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse'{_dahrAlarmHistoryItems :: [AlarmHistoryItem], _dahrNextToken :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse'{_dahrAlarmHistoryItems :: Maybe [AlarmHistoryItem], _dahrNextToken :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeAlarmHistoryResponse' smart constructor.
 describeAlarmHistoryResponse :: DescribeAlarmHistoryResponse
-describeAlarmHistoryResponse = DescribeAlarmHistoryResponse'{_dahrAlarmHistoryItems = mempty, _dahrNextToken = Nothing};
+describeAlarmHistoryResponse = DescribeAlarmHistoryResponse'{_dahrAlarmHistoryItems = Nothing, _dahrNextToken = Nothing};
 
 -- | A list of alarm histories in JSON format.
-dahrAlarmHistoryItems :: Lens' DescribeAlarmHistoryResponse [AlarmHistoryItem]
+dahrAlarmHistoryItems :: Lens' DescribeAlarmHistoryResponse (Maybe [AlarmHistoryItem])
 dahrAlarmHistoryItems = lens _dahrAlarmHistoryItems (\ s a -> s{_dahrAlarmHistoryItems = a});
 
 -- | A string that marks the start of the next batch of returned results.

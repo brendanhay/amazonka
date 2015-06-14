@@ -70,8 +70,8 @@ import Network.AWS.EC2.Types
 data ReportInstanceStatus = ReportInstanceStatus'{_risStartTime :: Maybe ISO8601, _risAddressStatus :: Maybe ReportStatusType, _risEndTime :: Maybe ISO8601, _risDryRun :: Maybe Bool, _risDescription :: Maybe Text, _risInstances :: [Text], _risReasonCodes :: [ReportInstanceReasonCodes]} deriving (Eq, Read, Show)
 
 -- | 'ReportInstanceStatus' smart constructor.
-reportInstanceStatus :: [Text] -> [ReportInstanceReasonCodes] -> ReportInstanceStatus
-reportInstanceStatus pInstances pReasonCodes = ReportInstanceStatus'{_risStartTime = Nothing, _risAddressStatus = Nothing, _risEndTime = Nothing, _risDryRun = Nothing, _risDescription = Nothing, _risInstances = pInstances, _risReasonCodes = pReasonCodes};
+reportInstanceStatus :: ReportInstanceStatus
+reportInstanceStatus = ReportInstanceStatus'{_risStartTime = Nothing, _risAddressStatus = Nothing, _risEndTime = Nothing, _risDryRun = Nothing, _risDescription = Nothing, _risInstances = mempty, _risReasonCodes = mempty};
 
 -- | The time at which the reported instance health state began.
 risStartTime :: Lens' ReportInstanceStatus (Maybe UTCTime)

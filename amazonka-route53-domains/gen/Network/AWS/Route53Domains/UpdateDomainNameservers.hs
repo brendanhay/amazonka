@@ -61,8 +61,8 @@ import Network.AWS.Route53Domains.Types
 data UpdateDomainNameservers = UpdateDomainNameservers'{_udnFIAuthKey :: Maybe Text, _udnDomainName :: Text, _udnNameservers :: [Nameserver]} deriving (Eq, Read, Show)
 
 -- | 'UpdateDomainNameservers' smart constructor.
-updateDomainNameservers :: Text -> [Nameserver] -> UpdateDomainNameservers
-updateDomainNameservers pDomainName pNameservers = UpdateDomainNameservers'{_udnFIAuthKey = Nothing, _udnDomainName = pDomainName, _udnNameservers = pNameservers};
+updateDomainNameservers :: Text -> UpdateDomainNameservers
+updateDomainNameservers pDomainName = UpdateDomainNameservers'{_udnFIAuthKey = Nothing, _udnDomainName = pDomainName, _udnNameservers = mempty};
 
 -- | The authorization key for .fi domains
 udnFIAuthKey :: Lens' UpdateDomainNameservers (Maybe Text)

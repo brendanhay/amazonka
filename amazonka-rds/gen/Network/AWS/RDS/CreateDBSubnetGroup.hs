@@ -54,14 +54,14 @@ import Network.AWS.RDS.Types
 -- * 'createDBSubnetGroupDescription'
 --
 -- * 'createSubnetIds'
-data CreateDBSubnetGroup = CreateDBSubnetGroup'{_createTags :: [Tag], _createDBSubnetGroupName :: Text, _createDBSubnetGroupDescription :: Text, _createSubnetIds :: [Text]} deriving (Eq, Read, Show)
+data CreateDBSubnetGroup = CreateDBSubnetGroup'{_createTags :: Maybe [Tag], _createDBSubnetGroupName :: Text, _createDBSubnetGroupDescription :: Text, _createSubnetIds :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'CreateDBSubnetGroup' smart constructor.
-createDBSubnetGroup :: Text -> Text -> [Text] -> CreateDBSubnetGroup
-createDBSubnetGroup pDBSubnetGroupName pDBSubnetGroupDescription pSubnetIds = CreateDBSubnetGroup'{_createTags = mempty, _createDBSubnetGroupName = pDBSubnetGroupName, _createDBSubnetGroupDescription = pDBSubnetGroupDescription, _createSubnetIds = pSubnetIds};
+createDBSubnetGroup :: Text -> Text -> CreateDBSubnetGroup
+createDBSubnetGroup pDBSubnetGroupName pDBSubnetGroupDescription = CreateDBSubnetGroup'{_createTags = Nothing, _createDBSubnetGroupName = pDBSubnetGroupName, _createDBSubnetGroupDescription = pDBSubnetGroupDescription, _createSubnetIds = mempty};
 
 -- | FIXME: Undocumented member.
-createTags :: Lens' CreateDBSubnetGroup [Tag]
+createTags :: Lens' CreateDBSubnetGroup (Maybe [Tag])
 createTags = lens _createTags (\ s a -> s{_createTags = a});
 
 -- | The name for the DB subnet group. This value is stored as a lowercase

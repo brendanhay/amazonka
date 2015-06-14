@@ -290,17 +290,17 @@ instance FromXML DeleteMessageBatchResultEntry where
 -- * 'mesReceiptHandle'
 --
 -- * 'mesMD5OfMessageAttributes'
-data Message = Message'{_mesMessageAttributes :: HashMap Text MessageAttributeValue, _mesMD5OfBody :: Maybe Text, _mesBody :: Maybe Text, _mesAttributes :: HashMap QueueAttributeName Text, _mesMessageId :: Maybe Text, _mesReceiptHandle :: Maybe Text, _mesMD5OfMessageAttributes :: Maybe Text} deriving (Eq, Read, Show)
+data Message = Message'{_mesMessageAttributes :: Maybe (HashMap Text MessageAttributeValue), _mesMD5OfBody :: Maybe Text, _mesBody :: Maybe Text, _mesAttributes :: Maybe (HashMap QueueAttributeName Text), _mesMessageId :: Maybe Text, _mesReceiptHandle :: Maybe Text, _mesMD5OfMessageAttributes :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'Message' smart constructor.
 message :: Message
-message = Message'{_mesMessageAttributes = mempty, _mesMD5OfBody = Nothing, _mesBody = Nothing, _mesAttributes = mempty, _mesMessageId = Nothing, _mesReceiptHandle = Nothing, _mesMD5OfMessageAttributes = Nothing};
+message = Message'{_mesMessageAttributes = Nothing, _mesMD5OfBody = Nothing, _mesBody = Nothing, _mesAttributes = Nothing, _mesMessageId = Nothing, _mesReceiptHandle = Nothing, _mesMD5OfMessageAttributes = Nothing};
 
 -- | Each message attribute consists of a Name, Type, and Value. For more
 -- information, see
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV Message Attribute Items>.
-mesMessageAttributes :: Lens' Message (HashMap Text MessageAttributeValue)
-mesMessageAttributes = lens _mesMessageAttributes (\ s a -> s{_mesMessageAttributes = a}) . _Coerce;
+mesMessageAttributes :: Lens' Message (Maybe (HashMap Text MessageAttributeValue))
+mesMessageAttributes = lens _mesMessageAttributes (\ s a -> s{_mesMessageAttributes = a}) . mapping _Coerce;
 
 -- | An MD5 digest of the non-URL-encoded message body string.
 mesMD5OfBody :: Lens' Message (Maybe Text)
@@ -315,8 +315,8 @@ mesBody = lens _mesBody (\ s a -> s{_mesBody = a});
 -- @ApproximateFirstReceiveTimestamp@ are each returned as an integer
 -- representing the <http://en.wikipedia.org/wiki/Unix_time epoch time> in
 -- milliseconds.
-mesAttributes :: Lens' Message (HashMap QueueAttributeName Text)
-mesAttributes = lens _mesAttributes (\ s a -> s{_mesAttributes = a}) . _Coerce;
+mesAttributes :: Lens' Message (Maybe (HashMap QueueAttributeName Text))
+mesAttributes = lens _mesAttributes (\ s a -> s{_mesAttributes = a}) . mapping _Coerce;
 
 -- | A unique identifier for the message. Message IDs are considered unique
 -- across all AWS accounts for an extended period of time.
@@ -361,11 +361,11 @@ instance FromXML Message where
 -- * 'mavBinaryListValues'
 --
 -- * 'mavDataType'
-data MessageAttributeValue = MessageAttributeValue'{_mavBinaryValue :: Maybe Base64, _mavStringListValues :: [Text], _mavStringValue :: Maybe Text, _mavBinaryListValues :: [Base64], _mavDataType :: Text} deriving (Eq, Read, Show)
+data MessageAttributeValue = MessageAttributeValue'{_mavBinaryValue :: Maybe Base64, _mavStringListValues :: Maybe [Text], _mavStringValue :: Maybe Text, _mavBinaryListValues :: Maybe [Base64], _mavDataType :: Text} deriving (Eq, Read, Show)
 
 -- | 'MessageAttributeValue' smart constructor.
 messageAttributeValue :: Text -> MessageAttributeValue
-messageAttributeValue pDataType = MessageAttributeValue'{_mavBinaryValue = Nothing, _mavStringListValues = mempty, _mavStringValue = Nothing, _mavBinaryListValues = mempty, _mavDataType = pDataType};
+messageAttributeValue pDataType = MessageAttributeValue'{_mavBinaryValue = Nothing, _mavStringListValues = Nothing, _mavStringValue = Nothing, _mavBinaryListValues = Nothing, _mavDataType = pDataType};
 
 -- | Binary type attributes can store any binary data, for example,
 -- compressed data, encrypted data, or images.
@@ -373,7 +373,7 @@ mavBinaryValue :: Lens' MessageAttributeValue (Maybe Base64)
 mavBinaryValue = lens _mavBinaryValue (\ s a -> s{_mavBinaryValue = a});
 
 -- | Not implemented. Reserved for future use.
-mavStringListValues :: Lens' MessageAttributeValue [Text]
+mavStringListValues :: Lens' MessageAttributeValue (Maybe [Text])
 mavStringListValues = lens _mavStringListValues (\ s a -> s{_mavStringListValues = a});
 
 -- | Strings are Unicode with UTF8 binary encoding. For a list of code
@@ -383,7 +383,7 @@ mavStringValue :: Lens' MessageAttributeValue (Maybe Text)
 mavStringValue = lens _mavStringValue (\ s a -> s{_mavStringValue = a});
 
 -- | Not implemented. Reserved for future use.
-mavBinaryListValues :: Lens' MessageAttributeValue [Base64]
+mavBinaryListValues :: Lens' MessageAttributeValue (Maybe [Base64])
 mavBinaryListValues = lens _mavBinaryListValues (\ s a -> s{_mavBinaryListValues = a});
 
 -- | Amazon SQS supports the following logical data types: String, Number,
@@ -469,17 +469,17 @@ instance FromXML QueueAttributeName where
 -- * 'senId'
 --
 -- * 'senMessageBody'
-data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry'{_senMessageAttributes :: HashMap Text MessageAttributeValue, _senDelaySeconds :: Maybe Int, _senId :: Text, _senMessageBody :: Text} deriving (Eq, Read, Show)
+data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry'{_senMessageAttributes :: Maybe (HashMap Text MessageAttributeValue), _senDelaySeconds :: Maybe Int, _senId :: Text, _senMessageBody :: Text} deriving (Eq, Read, Show)
 
 -- | 'SendMessageBatchRequestEntry' smart constructor.
 sendMessageBatchRequestEntry :: Text -> Text -> SendMessageBatchRequestEntry
-sendMessageBatchRequestEntry pId pMessageBody = SendMessageBatchRequestEntry'{_senMessageAttributes = mempty, _senDelaySeconds = Nothing, _senId = pId, _senMessageBody = pMessageBody};
+sendMessageBatchRequestEntry pId pMessageBody = SendMessageBatchRequestEntry'{_senMessageAttributes = Nothing, _senDelaySeconds = Nothing, _senId = pId, _senMessageBody = pMessageBody};
 
 -- | Each message attribute consists of a Name, Type, and Value. For more
 -- information, see
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV Message Attribute Items>.
-senMessageAttributes :: Lens' SendMessageBatchRequestEntry (HashMap Text MessageAttributeValue)
-senMessageAttributes = lens _senMessageAttributes (\ s a -> s{_senMessageAttributes = a}) . _Coerce;
+senMessageAttributes :: Lens' SendMessageBatchRequestEntry (Maybe (HashMap Text MessageAttributeValue))
+senMessageAttributes = lens _senMessageAttributes (\ s a -> s{_senMessageAttributes = a}) . mapping _Coerce;
 
 -- | The number of seconds for which the message has to be delayed.
 senDelaySeconds :: Lens' SendMessageBatchRequestEntry (Maybe Int)

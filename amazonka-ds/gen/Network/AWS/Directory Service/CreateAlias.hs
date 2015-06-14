@@ -78,7 +78,7 @@ instance AWSRequest CreateAlias where
           = receiveJSON
               (\ s h x ->
                  CreateAliasResponse' <$>
-                   x .?> "DirectoryId" <*> x .:> "Alias")
+                   x .?> "DirectoryId" <*> x .?> "Alias")
 
 instance ToHeaders CreateAlias where
         toHeaders
@@ -109,16 +109,16 @@ instance ToQuery CreateAlias where
 -- * 'carDirectoryId'
 --
 -- * 'carAlias'
-data CreateAliasResponse = CreateAliasResponse'{_carDirectoryId :: Maybe Text, _carAlias :: Text} deriving (Eq, Read, Show)
+data CreateAliasResponse = CreateAliasResponse'{_carDirectoryId :: Maybe Text, _carAlias :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'CreateAliasResponse' smart constructor.
-createAliasResponse :: Text -> CreateAliasResponse
-createAliasResponse pAlias = CreateAliasResponse'{_carDirectoryId = Nothing, _carAlias = pAlias};
+createAliasResponse :: CreateAliasResponse
+createAliasResponse = CreateAliasResponse'{_carDirectoryId = Nothing, _carAlias = Nothing};
 
 -- | The identifier of the directory.
 carDirectoryId :: Lens' CreateAliasResponse (Maybe Text)
 carDirectoryId = lens _carDirectoryId (\ s a -> s{_carDirectoryId = a});
 
 -- | The alias for the directory.
-carAlias :: Lens' CreateAliasResponse Text
+carAlias :: Lens' CreateAliasResponse (Maybe Text)
 carAlias = lens _carAlias (\ s a -> s{_carAlias = a});

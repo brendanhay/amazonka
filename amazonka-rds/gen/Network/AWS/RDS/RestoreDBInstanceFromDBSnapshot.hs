@@ -108,11 +108,11 @@ import Network.AWS.RDS.Types
 -- * 'rdifdsDBInstanceIdentifier'
 --
 -- * 'rdifdsDBSnapshotIdentifier'
-data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'{_rdifdsAutoMinorVersionUpgrade :: Maybe Bool, _rdifdsPubliclyAccessible :: Maybe Bool, _rdifdsDBSubnetGroupName :: Maybe Text, _rdifdsIOPS :: Maybe Int, _rdifdsEngine :: Maybe Text, _rdifdsTDECredentialPassword :: Maybe Text, _rdifdsDBInstanceClass :: Maybe Text, _rdifdsLicenseModel :: Maybe Text, _rdifdsAvailabilityZone :: Maybe Text, _rdifdsMultiAZ :: Maybe Bool, _rdifdsTDECredentialARN :: Maybe Text, _rdifdsOptionGroupName :: Maybe Text, _rdifdsDBName :: Maybe Text, _rdifdsTags :: [Tag], _rdifdsPort :: Maybe Int, _rdifdsStorageType :: Maybe Text, _rdifdsDBInstanceIdentifier :: Text, _rdifdsDBSnapshotIdentifier :: Text} deriving (Eq, Read, Show)
+data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'{_rdifdsAutoMinorVersionUpgrade :: Maybe Bool, _rdifdsPubliclyAccessible :: Maybe Bool, _rdifdsDBSubnetGroupName :: Maybe Text, _rdifdsIOPS :: Maybe Int, _rdifdsEngine :: Maybe Text, _rdifdsTDECredentialPassword :: Maybe Text, _rdifdsDBInstanceClass :: Maybe Text, _rdifdsLicenseModel :: Maybe Text, _rdifdsAvailabilityZone :: Maybe Text, _rdifdsMultiAZ :: Maybe Bool, _rdifdsTDECredentialARN :: Maybe Text, _rdifdsOptionGroupName :: Maybe Text, _rdifdsDBName :: Maybe Text, _rdifdsTags :: Maybe [Tag], _rdifdsPort :: Maybe Int, _rdifdsStorageType :: Maybe Text, _rdifdsDBInstanceIdentifier :: Text, _rdifdsDBSnapshotIdentifier :: Text} deriving (Eq, Read, Show)
 
 -- | 'RestoreDBInstanceFromDBSnapshot' smart constructor.
 restoreDBInstanceFromDBSnapshot :: Text -> Text -> RestoreDBInstanceFromDBSnapshot
-restoreDBInstanceFromDBSnapshot pDBInstanceIdentifier pDBSnapshotIdentifier = RestoreDBInstanceFromDBSnapshot'{_rdifdsAutoMinorVersionUpgrade = Nothing, _rdifdsPubliclyAccessible = Nothing, _rdifdsDBSubnetGroupName = Nothing, _rdifdsIOPS = Nothing, _rdifdsEngine = Nothing, _rdifdsTDECredentialPassword = Nothing, _rdifdsDBInstanceClass = Nothing, _rdifdsLicenseModel = Nothing, _rdifdsAvailabilityZone = Nothing, _rdifdsMultiAZ = Nothing, _rdifdsTDECredentialARN = Nothing, _rdifdsOptionGroupName = Nothing, _rdifdsDBName = Nothing, _rdifdsTags = mempty, _rdifdsPort = Nothing, _rdifdsStorageType = Nothing, _rdifdsDBInstanceIdentifier = pDBInstanceIdentifier, _rdifdsDBSnapshotIdentifier = pDBSnapshotIdentifier};
+restoreDBInstanceFromDBSnapshot pDBInstanceIdentifier pDBSnapshotIdentifier = RestoreDBInstanceFromDBSnapshot'{_rdifdsAutoMinorVersionUpgrade = Nothing, _rdifdsPubliclyAccessible = Nothing, _rdifdsDBSubnetGroupName = Nothing, _rdifdsIOPS = Nothing, _rdifdsEngine = Nothing, _rdifdsTDECredentialPassword = Nothing, _rdifdsDBInstanceClass = Nothing, _rdifdsLicenseModel = Nothing, _rdifdsAvailabilityZone = Nothing, _rdifdsMultiAZ = Nothing, _rdifdsTDECredentialARN = Nothing, _rdifdsOptionGroupName = Nothing, _rdifdsDBName = Nothing, _rdifdsTags = Nothing, _rdifdsPort = Nothing, _rdifdsStorageType = Nothing, _rdifdsDBInstanceIdentifier = pDBInstanceIdentifier, _rdifdsDBSnapshotIdentifier = pDBSnapshotIdentifier};
 
 -- | Indicates that minor version upgrades will be applied automatically to
 -- the DB instance during the maintenance window.
@@ -232,7 +232,7 @@ rdifdsDBName :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
 rdifdsDBName = lens _rdifdsDBName (\ s a -> s{_rdifdsDBName = a});
 
 -- | FIXME: Undocumented member.
-rdifdsTags :: Lens' RestoreDBInstanceFromDBSnapshot [Tag]
+rdifdsTags :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe [Tag])
 rdifdsTags = lens _rdifdsTags (\ s a -> s{_rdifdsTags = a});
 
 -- | The port number on which the database accepts connections.

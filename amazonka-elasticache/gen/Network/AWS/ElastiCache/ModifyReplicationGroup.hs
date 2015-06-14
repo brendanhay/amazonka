@@ -90,11 +90,11 @@ import Network.AWS.ElastiCache.Types
 -- * 'mrgCacheSecurityGroupNames'
 --
 -- * 'mrgReplicationGroupId'
-data ModifyReplicationGroup = ModifyReplicationGroup'{_mrgAutomaticFailoverEnabled :: Maybe Bool, _mrgEngineVersion :: Maybe Text, _mrgSnapshottingClusterId :: Maybe Text, _mrgSecurityGroupIds :: [Text], _mrgAutoMinorVersionUpgrade :: Maybe Bool, _mrgReplicationGroupDescription :: Maybe Text, _mrgCacheParameterGroupName :: Maybe Text, _mrgSnapshotWindow :: Maybe Text, _mrgPrimaryClusterId :: Maybe Text, _mrgPreferredMaintenanceWindow :: Maybe Text, _mrgSnapshotRetentionLimit :: Maybe Int, _mrgNotificationTopicStatus :: Maybe Text, _mrgApplyImmediately :: Maybe Bool, _mrgNotificationTopicARN :: Maybe Text, _mrgCacheSecurityGroupNames :: [Text], _mrgReplicationGroupId :: Text} deriving (Eq, Read, Show)
+data ModifyReplicationGroup = ModifyReplicationGroup'{_mrgAutomaticFailoverEnabled :: Maybe Bool, _mrgEngineVersion :: Maybe Text, _mrgSnapshottingClusterId :: Maybe Text, _mrgSecurityGroupIds :: Maybe [Text], _mrgAutoMinorVersionUpgrade :: Maybe Bool, _mrgReplicationGroupDescription :: Maybe Text, _mrgCacheParameterGroupName :: Maybe Text, _mrgSnapshotWindow :: Maybe Text, _mrgPrimaryClusterId :: Maybe Text, _mrgPreferredMaintenanceWindow :: Maybe Text, _mrgSnapshotRetentionLimit :: Maybe Int, _mrgNotificationTopicStatus :: Maybe Text, _mrgApplyImmediately :: Maybe Bool, _mrgNotificationTopicARN :: Maybe Text, _mrgCacheSecurityGroupNames :: Maybe [Text], _mrgReplicationGroupId :: Text} deriving (Eq, Read, Show)
 
 -- | 'ModifyReplicationGroup' smart constructor.
 modifyReplicationGroup :: Text -> ModifyReplicationGroup
-modifyReplicationGroup pReplicationGroupId = ModifyReplicationGroup'{_mrgAutomaticFailoverEnabled = Nothing, _mrgEngineVersion = Nothing, _mrgSnapshottingClusterId = Nothing, _mrgSecurityGroupIds = mempty, _mrgAutoMinorVersionUpgrade = Nothing, _mrgReplicationGroupDescription = Nothing, _mrgCacheParameterGroupName = Nothing, _mrgSnapshotWindow = Nothing, _mrgPrimaryClusterId = Nothing, _mrgPreferredMaintenanceWindow = Nothing, _mrgSnapshotRetentionLimit = Nothing, _mrgNotificationTopicStatus = Nothing, _mrgApplyImmediately = Nothing, _mrgNotificationTopicARN = Nothing, _mrgCacheSecurityGroupNames = mempty, _mrgReplicationGroupId = pReplicationGroupId};
+modifyReplicationGroup pReplicationGroupId = ModifyReplicationGroup'{_mrgAutomaticFailoverEnabled = Nothing, _mrgEngineVersion = Nothing, _mrgSnapshottingClusterId = Nothing, _mrgSecurityGroupIds = Nothing, _mrgAutoMinorVersionUpgrade = Nothing, _mrgReplicationGroupDescription = Nothing, _mrgCacheParameterGroupName = Nothing, _mrgSnapshotWindow = Nothing, _mrgPrimaryClusterId = Nothing, _mrgPreferredMaintenanceWindow = Nothing, _mrgSnapshotRetentionLimit = Nothing, _mrgNotificationTopicStatus = Nothing, _mrgApplyImmediately = Nothing, _mrgNotificationTopicARN = Nothing, _mrgCacheSecurityGroupNames = Nothing, _mrgReplicationGroupId = pReplicationGroupId};
 
 -- | Whether a read replica will be automatically promoted to read\/write
 -- primary if the existing primary encounters a failure.
@@ -123,7 +123,7 @@ mrgSnapshottingClusterId = lens _mrgSnapshottingClusterId (\ s a -> s{_mrgSnapsh
 --
 -- This parameter can be used only with replication group containing cache
 -- clusters running in an Amazon Virtual Private Cloud (VPC).
-mrgSecurityGroupIds :: Lens' ModifyReplicationGroup [Text]
+mrgSecurityGroupIds :: Lens' ModifyReplicationGroup (Maybe [Text])
 mrgSecurityGroupIds = lens _mrgSecurityGroupIds (\ s a -> s{_mrgSecurityGroupIds = a});
 
 -- | This parameter is currently disabled.
@@ -225,7 +225,7 @@ mrgNotificationTopicARN = lens _mrgNotificationTopicARN (\ s a -> s{_mrgNotifica
 --
 -- Constraints: Must contain no more than 255 alphanumeric characters. Must
 -- not be \"Default\".
-mrgCacheSecurityGroupNames :: Lens' ModifyReplicationGroup [Text]
+mrgCacheSecurityGroupNames :: Lens' ModifyReplicationGroup (Maybe [Text])
 mrgCacheSecurityGroupNames = lens _mrgCacheSecurityGroupNames (\ s a -> s{_mrgCacheSecurityGroupNames = a});
 
 -- | The identifier of the replication group to modify.

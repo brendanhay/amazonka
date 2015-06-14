@@ -66,18 +66,18 @@ import Network.AWS.EC2.Types
 -- * 'cniDescription'
 --
 -- * 'cniSubnetId'
-data CreateNetworkInterface = CreateNetworkInterface'{_cniPrivateIPAddresses :: [PrivateIPAddressSpecification], _cniGroups :: [Text], _cniPrivateIPAddress :: Maybe Text, _cniSecondaryPrivateIPAddressCount :: Maybe Int, _cniDryRun :: Maybe Bool, _cniDescription :: Maybe Text, _cniSubnetId :: Text} deriving (Eq, Read, Show)
+data CreateNetworkInterface = CreateNetworkInterface'{_cniPrivateIPAddresses :: Maybe [PrivateIPAddressSpecification], _cniGroups :: Maybe [Text], _cniPrivateIPAddress :: Maybe Text, _cniSecondaryPrivateIPAddressCount :: Maybe Int, _cniDryRun :: Maybe Bool, _cniDescription :: Maybe Text, _cniSubnetId :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateNetworkInterface' smart constructor.
 createNetworkInterface :: Text -> CreateNetworkInterface
-createNetworkInterface pSubnetId = CreateNetworkInterface'{_cniPrivateIPAddresses = mempty, _cniGroups = mempty, _cniPrivateIPAddress = Nothing, _cniSecondaryPrivateIPAddressCount = Nothing, _cniDryRun = Nothing, _cniDescription = Nothing, _cniSubnetId = pSubnetId};
+createNetworkInterface pSubnetId = CreateNetworkInterface'{_cniPrivateIPAddresses = Nothing, _cniGroups = Nothing, _cniPrivateIPAddress = Nothing, _cniSecondaryPrivateIPAddressCount = Nothing, _cniDryRun = Nothing, _cniDescription = Nothing, _cniSubnetId = pSubnetId};
 
 -- | One or more private IP addresses.
-cniPrivateIPAddresses :: Lens' CreateNetworkInterface [PrivateIPAddressSpecification]
+cniPrivateIPAddresses :: Lens' CreateNetworkInterface (Maybe [PrivateIPAddressSpecification])
 cniPrivateIPAddresses = lens _cniPrivateIPAddresses (\ s a -> s{_cniPrivateIPAddresses = a});
 
 -- | The IDs of one or more security groups.
-cniGroups :: Lens' CreateNetworkInterface [Text]
+cniGroups :: Lens' CreateNetworkInterface (Maybe [Text])
 cniGroups = lens _cniGroups (\ s a -> s{_cniGroups = a});
 
 -- | The primary private IP address of the network interface. If you don\'t

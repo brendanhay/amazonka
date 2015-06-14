@@ -74,7 +74,7 @@ instance AWSRequest GetTemplate where
         response
           = receiveXMLWrapper "GetTemplateResult"
               (\ s h x ->
-                 GetTemplateResponse' <$> x .@ "TemplateBody")
+                 GetTemplateResponse' <$> x .@? "TemplateBody")
 
 instance ToHeaders GetTemplate where
         toHeaders = const mempty
@@ -94,14 +94,14 @@ instance ToQuery GetTemplate where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gtrTemplateBody'
-newtype GetTemplateResponse = GetTemplateResponse'{_gtrTemplateBody :: Text} deriving (Eq, Read, Show)
+newtype GetTemplateResponse = GetTemplateResponse'{_gtrTemplateBody :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'GetTemplateResponse' smart constructor.
-getTemplateResponse :: Text -> GetTemplateResponse
-getTemplateResponse pTemplateBody = GetTemplateResponse'{_gtrTemplateBody = pTemplateBody};
+getTemplateResponse :: GetTemplateResponse
+getTemplateResponse = GetTemplateResponse'{_gtrTemplateBody = Nothing};
 
 -- | Structure containing the template body. (For more information, go to
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
 -- in the AWS CloudFormation User Guide.)
-gtrTemplateBody :: Lens' GetTemplateResponse Text
+gtrTemplateBody :: Lens' GetTemplateResponse (Maybe Text)
 gtrTemplateBody = lens _gtrTemplateBody (\ s a -> s{_gtrTemplateBody = a});

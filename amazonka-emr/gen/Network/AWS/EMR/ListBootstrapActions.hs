@@ -105,14 +105,14 @@ instance ToQuery ListBootstrapActions where
 -- * 'lbarBootstrapActions'
 --
 -- * 'lbarMarker'
-data ListBootstrapActionsResponse = ListBootstrapActionsResponse'{_lbarBootstrapActions :: [Command], _lbarMarker :: Maybe Text} deriving (Eq, Read, Show)
+data ListBootstrapActionsResponse = ListBootstrapActionsResponse'{_lbarBootstrapActions :: Maybe [Command], _lbarMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ListBootstrapActionsResponse' smart constructor.
 listBootstrapActionsResponse :: ListBootstrapActionsResponse
-listBootstrapActionsResponse = ListBootstrapActionsResponse'{_lbarBootstrapActions = mempty, _lbarMarker = Nothing};
+listBootstrapActionsResponse = ListBootstrapActionsResponse'{_lbarBootstrapActions = Nothing, _lbarMarker = Nothing};
 
 -- | The bootstrap actions associated with the cluster .
-lbarBootstrapActions :: Lens' ListBootstrapActionsResponse [Command]
+lbarBootstrapActions :: Lens' ListBootstrapActionsResponse (Maybe [Command])
 lbarBootstrapActions = lens _lbarBootstrapActions (\ s a -> s{_lbarBootstrapActions = a});
 
 -- | The pagination token that indicates the next set of results to retrieve

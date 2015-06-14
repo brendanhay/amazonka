@@ -34,9 +34,9 @@ module Network.AWS.StorageGateway.DescribeGatewayInformation
     -- ** Response constructor
     , describeGatewayInformationResponse
     -- ** Response lenses
-    , dgirGatewayNetworkInterfaces
     , dgirGatewayState
     , dgirGatewayARN
+    , dgirGatewayNetworkInterfaces
     , dgirNextUpdateAvailabilityDate
     , dgirLastSoftwareUpdate
     , dgirGatewayId
@@ -73,14 +73,13 @@ instance AWSRequest DescribeGatewayInformation where
           = receiveJSON
               (\ s h x ->
                  DescribeGatewayInformationResponse' <$>
-                   x .?> "GatewayNetworkInterfaces" .!@ mempty <*>
-                     x .:> "GatewayState"
-                     <*> x .:> "GatewayARN"
-                     <*> x .:> "NextUpdateAvailabilityDate"
-                     <*> x .:> "LastSoftwareUpdate"
-                     <*> x .:> "GatewayId"
-                     <*> x .:> "GatewayType"
-                     <*> x .:> "GatewayTimezone")
+                   x .?> "GatewayState" <*> x .?> "GatewayARN" <*>
+                     x .?> "GatewayNetworkInterfaces" .!@ mempty
+                     <*> x .?> "NextUpdateAvailabilityDate"
+                     <*> x .?> "LastSoftwareUpdate"
+                     <*> x .?> "GatewayId"
+                     <*> x .?> "GatewayType"
+                     <*> x .?> "GatewayTimezone")
 
 instance ToHeaders DescribeGatewayInformation where
         toHeaders
@@ -106,11 +105,11 @@ instance ToQuery DescribeGatewayInformation where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dgirGatewayNetworkInterfaces'
---
 -- * 'dgirGatewayState'
 --
 -- * 'dgirGatewayARN'
+--
+-- * 'dgirGatewayNetworkInterfaces'
 --
 -- * 'dgirNextUpdateAvailabilityDate'
 --
@@ -121,46 +120,46 @@ instance ToQuery DescribeGatewayInformation where
 -- * 'dgirGatewayType'
 --
 -- * 'dgirGatewayTimezone'
-data DescribeGatewayInformationResponse = DescribeGatewayInformationResponse'{_dgirGatewayNetworkInterfaces :: [NetworkInterface], _dgirGatewayState :: Text, _dgirGatewayARN :: Text, _dgirNextUpdateAvailabilityDate :: Text, _dgirLastSoftwareUpdate :: Text, _dgirGatewayId :: Text, _dgirGatewayType :: Text, _dgirGatewayTimezone :: Text} deriving (Eq, Read, Show)
+data DescribeGatewayInformationResponse = DescribeGatewayInformationResponse'{_dgirGatewayState :: Maybe Text, _dgirGatewayARN :: Maybe Text, _dgirGatewayNetworkInterfaces :: Maybe [NetworkInterface], _dgirNextUpdateAvailabilityDate :: Maybe Text, _dgirLastSoftwareUpdate :: Maybe Text, _dgirGatewayId :: Maybe Text, _dgirGatewayType :: Maybe Text, _dgirGatewayTimezone :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeGatewayInformationResponse' smart constructor.
-describeGatewayInformationResponse :: Text -> Text -> Text -> Text -> Text -> Text -> Text -> DescribeGatewayInformationResponse
-describeGatewayInformationResponse pGatewayState pGatewayARN pNextUpdateAvailabilityDate pLastSoftwareUpdate pGatewayId pGatewayType pGatewayTimezone = DescribeGatewayInformationResponse'{_dgirGatewayNetworkInterfaces = mempty, _dgirGatewayState = pGatewayState, _dgirGatewayARN = pGatewayARN, _dgirNextUpdateAvailabilityDate = pNextUpdateAvailabilityDate, _dgirLastSoftwareUpdate = pLastSoftwareUpdate, _dgirGatewayId = pGatewayId, _dgirGatewayType = pGatewayType, _dgirGatewayTimezone = pGatewayTimezone};
-
--- | A NetworkInterface array that contains descriptions of the gateway
--- network interfaces.
-dgirGatewayNetworkInterfaces :: Lens' DescribeGatewayInformationResponse [NetworkInterface]
-dgirGatewayNetworkInterfaces = lens _dgirGatewayNetworkInterfaces (\ s a -> s{_dgirGatewayNetworkInterfaces = a});
+describeGatewayInformationResponse :: DescribeGatewayInformationResponse
+describeGatewayInformationResponse = DescribeGatewayInformationResponse'{_dgirGatewayState = Nothing, _dgirGatewayARN = Nothing, _dgirGatewayNetworkInterfaces = Nothing, _dgirNextUpdateAvailabilityDate = Nothing, _dgirLastSoftwareUpdate = Nothing, _dgirGatewayId = Nothing, _dgirGatewayType = Nothing, _dgirGatewayTimezone = Nothing};
 
 -- | One of the values that indicates the operating state of the gateway.
-dgirGatewayState :: Lens' DescribeGatewayInformationResponse Text
+dgirGatewayState :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirGatewayState = lens _dgirGatewayState (\ s a -> s{_dgirGatewayState = a});
 
 -- | FIXME: Undocumented member.
-dgirGatewayARN :: Lens' DescribeGatewayInformationResponse Text
+dgirGatewayARN :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirGatewayARN = lens _dgirGatewayARN (\ s a -> s{_dgirGatewayARN = a});
+
+-- | A NetworkInterface array that contains descriptions of the gateway
+-- network interfaces.
+dgirGatewayNetworkInterfaces :: Lens' DescribeGatewayInformationResponse (Maybe [NetworkInterface])
+dgirGatewayNetworkInterfaces = lens _dgirGatewayNetworkInterfaces (\ s a -> s{_dgirGatewayNetworkInterfaces = a});
 
 -- | The date on which an update to the gateway is available. This date is in
 -- the time zone of the gateway. If the gateway is not available for an
 -- update this field is not returned in the response.
-dgirNextUpdateAvailabilityDate :: Lens' DescribeGatewayInformationResponse Text
+dgirNextUpdateAvailabilityDate :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirNextUpdateAvailabilityDate = lens _dgirNextUpdateAvailabilityDate (\ s a -> s{_dgirNextUpdateAvailabilityDate = a});
 
 -- | The date on which the last software update was applied to the gateway.
 -- If the gateway has never been updated, this field does not return a
 -- value in the response.
-dgirLastSoftwareUpdate :: Lens' DescribeGatewayInformationResponse Text
+dgirLastSoftwareUpdate :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirLastSoftwareUpdate = lens _dgirLastSoftwareUpdate (\ s a -> s{_dgirLastSoftwareUpdate = a});
 
 -- | The gateway ID.
-dgirGatewayId :: Lens' DescribeGatewayInformationResponse Text
+dgirGatewayId :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirGatewayId = lens _dgirGatewayId (\ s a -> s{_dgirGatewayId = a});
 
 -- | The type of the gateway.
-dgirGatewayType :: Lens' DescribeGatewayInformationResponse Text
+dgirGatewayType :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirGatewayType = lens _dgirGatewayType (\ s a -> s{_dgirGatewayType = a});
 
 -- | One of the values that indicates the time zone configured for the
 -- gateway.
-dgirGatewayTimezone :: Lens' DescribeGatewayInformationResponse Text
+dgirGatewayTimezone :: Lens' DescribeGatewayInformationResponse (Maybe Text)
 dgirGatewayTimezone = lens _dgirGatewayTimezone (\ s a -> s{_dgirGatewayTimezone = a});

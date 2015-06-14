@@ -56,8 +56,8 @@ import Network.AWS.DataPipeline.Types
 data SetStatus = SetStatus'{_ssPipelineId :: Text, _ssObjectIds :: [Text], _ssStatus :: Text} deriving (Eq, Read, Show)
 
 -- | 'SetStatus' smart constructor.
-setStatus :: Text -> [Text] -> Text -> SetStatus
-setStatus pPipelineId pObjectIds pStatus = SetStatus'{_ssPipelineId = pPipelineId, _ssObjectIds = pObjectIds, _ssStatus = pStatus};
+setStatus :: Text -> Text -> SetStatus
+setStatus pPipelineId pStatus = SetStatus'{_ssPipelineId = pPipelineId, _ssObjectIds = mempty, _ssStatus = pStatus};
 
 -- | The ID of the pipeline that contains the objects.
 ssPipelineId :: Lens' SetStatus Text

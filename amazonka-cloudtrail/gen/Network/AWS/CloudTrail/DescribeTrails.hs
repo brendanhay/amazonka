@@ -45,14 +45,14 @@ import Network.AWS.CloudTrail.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dtTrailNameList'
-newtype DescribeTrails = DescribeTrails'{_dtTrailNameList :: [Text]} deriving (Eq, Read, Show)
+newtype DescribeTrails = DescribeTrails'{_dtTrailNameList :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'DescribeTrails' smart constructor.
 describeTrails :: DescribeTrails
-describeTrails = DescribeTrails'{_dtTrailNameList = mempty};
+describeTrails = DescribeTrails'{_dtTrailNameList = Nothing};
 
 -- | The trail returned.
-dtTrailNameList :: Lens' DescribeTrails [Text]
+dtTrailNameList :: Lens' DescribeTrails (Maybe [Text])
 dtTrailNameList = lens _dtTrailNameList (\ s a -> s{_dtTrailNameList = a});
 
 instance AWSRequest DescribeTrails where
@@ -90,12 +90,12 @@ instance ToQuery DescribeTrails where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dtrTrailList'
-newtype DescribeTrailsResponse = DescribeTrailsResponse'{_dtrTrailList :: [Trail]} deriving (Eq, Read, Show)
+newtype DescribeTrailsResponse = DescribeTrailsResponse'{_dtrTrailList :: Maybe [Trail]} deriving (Eq, Read, Show)
 
 -- | 'DescribeTrailsResponse' smart constructor.
 describeTrailsResponse :: DescribeTrailsResponse
-describeTrailsResponse = DescribeTrailsResponse'{_dtrTrailList = mempty};
+describeTrailsResponse = DescribeTrailsResponse'{_dtrTrailList = Nothing};
 
 -- | The list of trails.
-dtrTrailList :: Lens' DescribeTrailsResponse [Trail]
+dtrTrailList :: Lens' DescribeTrailsResponse (Maybe [Trail])
 dtrTrailList = lens _dtrTrailList (\ s a -> s{_dtrTrailList = a});

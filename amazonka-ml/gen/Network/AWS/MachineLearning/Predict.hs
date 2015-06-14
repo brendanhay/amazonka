@@ -59,8 +59,8 @@ import Network.AWS.MachineLearning.Types
 data Predict = Predict'{_preMLModelId :: Text, _preRecord :: HashMap Text Text, _prePredictEndpoint :: Text} deriving (Eq, Read, Show)
 
 -- | 'Predict' smart constructor.
-predict :: Text -> HashMap Text Text -> Text -> Predict
-predict pMLModelId pRecord pPredictEndpoint = Predict'{_preMLModelId = pMLModelId, _preRecord = _Coerce # pRecord, _prePredictEndpoint = pPredictEndpoint};
+predict :: Text -> Text -> Predict
+predict pMLModelId pPredictEndpoint = Predict'{_preMLModelId = pMLModelId, _preRecord = mempty, _prePredictEndpoint = pPredictEndpoint};
 
 -- | A unique identifier of the @MLModel@.
 preMLModelId :: Lens' Predict Text

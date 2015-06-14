@@ -55,14 +55,14 @@ import Network.AWS.RDS.Types
 -- * 'dcMaxRecords'
 --
 -- * 'dcMarker'
-data DescribeCertificates = DescribeCertificates'{_dcFilters :: [Filter], _dcCertificateIdentifier :: Maybe Text, _dcMaxRecords :: Maybe Int, _dcMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeCertificates = DescribeCertificates'{_dcFilters :: Maybe [Filter], _dcCertificateIdentifier :: Maybe Text, _dcMaxRecords :: Maybe Int, _dcMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeCertificates' smart constructor.
 describeCertificates :: DescribeCertificates
-describeCertificates = DescribeCertificates'{_dcFilters = mempty, _dcCertificateIdentifier = Nothing, _dcMaxRecords = Nothing, _dcMarker = Nothing};
+describeCertificates = DescribeCertificates'{_dcFilters = Nothing, _dcCertificateIdentifier = Nothing, _dcMaxRecords = Nothing, _dcMarker = Nothing};
 
 -- | This parameter is not currently supported.
-dcFilters :: Lens' DescribeCertificates [Filter]
+dcFilters :: Lens' DescribeCertificates (Maybe [Filter])
 dcFilters = lens _dcFilters (\ s a -> s{_dcFilters = a});
 
 -- | The user-supplied certificate identifier. If this parameter is
@@ -129,14 +129,14 @@ instance ToQuery DescribeCertificates where
 -- * 'dcrCertificates'
 --
 -- * 'dcrMarker'
-data DescribeCertificatesResponse = DescribeCertificatesResponse'{_dcrCertificates :: [Certificate], _dcrMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeCertificatesResponse = DescribeCertificatesResponse'{_dcrCertificates :: Maybe [Certificate], _dcrMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeCertificatesResponse' smart constructor.
 describeCertificatesResponse :: DescribeCertificatesResponse
-describeCertificatesResponse = DescribeCertificatesResponse'{_dcrCertificates = mempty, _dcrMarker = Nothing};
+describeCertificatesResponse = DescribeCertificatesResponse'{_dcrCertificates = Nothing, _dcrMarker = Nothing};
 
 -- | The list of Certificate objects for the AWS account.
-dcrCertificates :: Lens' DescribeCertificatesResponse [Certificate]
+dcrCertificates :: Lens' DescribeCertificatesResponse (Maybe [Certificate])
 dcrCertificates = lens _dcrCertificates (\ s a -> s{_dcrCertificates = a});
 
 -- | An optional pagination token provided by a previous DescribeCertificates

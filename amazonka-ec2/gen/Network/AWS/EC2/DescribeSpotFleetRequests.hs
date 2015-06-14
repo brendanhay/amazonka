@@ -54,14 +54,14 @@ import Network.AWS.EC2.Types
 -- * 'dsfrDryRun'
 --
 -- * 'dsfrMaxResults'
-data DescribeSpotFleetRequests = DescribeSpotFleetRequests'{_dsfrSpotFleetRequestIds :: [Text], _dsfrNextToken :: Maybe Text, _dsfrDryRun :: Maybe Bool, _dsfrMaxResults :: Maybe Int} deriving (Eq, Read, Show)
+data DescribeSpotFleetRequests = DescribeSpotFleetRequests'{_dsfrSpotFleetRequestIds :: Maybe [Text], _dsfrNextToken :: Maybe Text, _dsfrDryRun :: Maybe Bool, _dsfrMaxResults :: Maybe Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeSpotFleetRequests' smart constructor.
 describeSpotFleetRequests :: DescribeSpotFleetRequests
-describeSpotFleetRequests = DescribeSpotFleetRequests'{_dsfrSpotFleetRequestIds = mempty, _dsfrNextToken = Nothing, _dsfrDryRun = Nothing, _dsfrMaxResults = Nothing};
+describeSpotFleetRequests = DescribeSpotFleetRequests'{_dsfrSpotFleetRequestIds = Nothing, _dsfrNextToken = Nothing, _dsfrDryRun = Nothing, _dsfrMaxResults = Nothing};
 
 -- | The IDs of the Spot fleet requests.
-dsfrSpotFleetRequestIds :: Lens' DescribeSpotFleetRequests [Text]
+dsfrSpotFleetRequestIds :: Lens' DescribeSpotFleetRequests (Maybe [Text])
 dsfrSpotFleetRequestIds = lens _dsfrSpotFleetRequestIds (\ s a -> s{_dsfrSpotFleetRequestIds = a});
 
 -- | The token for the next set of results.
@@ -120,8 +120,8 @@ instance ToQuery DescribeSpotFleetRequests where
 data DescribeSpotFleetRequestsResponse = DescribeSpotFleetRequestsResponse'{_dsfrrNextToken :: Maybe Text, _dsfrrSpotFleetRequestConfigs :: [SpotFleetRequestConfig]} deriving (Eq, Read, Show)
 
 -- | 'DescribeSpotFleetRequestsResponse' smart constructor.
-describeSpotFleetRequestsResponse :: [SpotFleetRequestConfig] -> DescribeSpotFleetRequestsResponse
-describeSpotFleetRequestsResponse pSpotFleetRequestConfigs = DescribeSpotFleetRequestsResponse'{_dsfrrNextToken = Nothing, _dsfrrSpotFleetRequestConfigs = pSpotFleetRequestConfigs};
+describeSpotFleetRequestsResponse :: DescribeSpotFleetRequestsResponse
+describeSpotFleetRequestsResponse = DescribeSpotFleetRequestsResponse'{_dsfrrNextToken = Nothing, _dsfrrSpotFleetRequestConfigs = mempty};
 
 -- | The token required to retrieve the next set of results. This value is
 -- @null@ when there are no more results to return.

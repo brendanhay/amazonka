@@ -44,15 +44,15 @@ import Network.AWS.ElasticBeanstalk.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'daApplicationNames'
-newtype DescribeApplications = DescribeApplications'{_daApplicationNames :: [Text]} deriving (Eq, Read, Show)
+newtype DescribeApplications = DescribeApplications'{_daApplicationNames :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'DescribeApplications' smart constructor.
 describeApplications :: DescribeApplications
-describeApplications = DescribeApplications'{_daApplicationNames = mempty};
+describeApplications = DescribeApplications'{_daApplicationNames = Nothing};
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to only include those with the specified names.
-daApplicationNames :: Lens' DescribeApplications [Text]
+daApplicationNames :: Lens' DescribeApplications (Maybe [Text])
 daApplicationNames = lens _daApplicationNames (\ s a -> s{_daApplicationNames = a});
 
 instance AWSRequest DescribeApplications where
@@ -86,12 +86,12 @@ instance ToQuery DescribeApplications where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'darApplications'
-newtype DescribeApplicationsResponse = DescribeApplicationsResponse'{_darApplications :: [ApplicationDescription]} deriving (Eq, Read, Show)
+newtype DescribeApplicationsResponse = DescribeApplicationsResponse'{_darApplications :: Maybe [ApplicationDescription]} deriving (Eq, Read, Show)
 
 -- | 'DescribeApplicationsResponse' smart constructor.
 describeApplicationsResponse :: DescribeApplicationsResponse
-describeApplicationsResponse = DescribeApplicationsResponse'{_darApplications = mempty};
+describeApplicationsResponse = DescribeApplicationsResponse'{_darApplications = Nothing};
 
 -- | This parameter contains a list of ApplicationDescription.
-darApplications :: Lens' DescribeApplicationsResponse [ApplicationDescription]
+darApplications :: Lens' DescribeApplicationsResponse (Maybe [ApplicationDescription])
 darApplications = lens _darApplications (\ s a -> s{_darApplications = a});

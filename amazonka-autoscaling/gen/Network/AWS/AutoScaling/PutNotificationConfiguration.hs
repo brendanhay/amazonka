@@ -59,8 +59,8 @@ import Network.AWS.AutoScaling.Types
 data PutNotificationConfiguration = PutNotificationConfiguration'{_pncAutoScalingGroupName :: Text, _pncTopicARN :: Text, _pncNotificationTypes :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'PutNotificationConfiguration' smart constructor.
-putNotificationConfiguration :: Text -> Text -> [Text] -> PutNotificationConfiguration
-putNotificationConfiguration pAutoScalingGroupName pTopicARN pNotificationTypes = PutNotificationConfiguration'{_pncAutoScalingGroupName = pAutoScalingGroupName, _pncTopicARN = pTopicARN, _pncNotificationTypes = pNotificationTypes};
+putNotificationConfiguration :: Text -> Text -> PutNotificationConfiguration
+putNotificationConfiguration pAutoScalingGroupName pTopicARN = PutNotificationConfiguration'{_pncAutoScalingGroupName = pAutoScalingGroupName, _pncTopicARN = pTopicARN, _pncNotificationTypes = mempty};
 
 -- | The name of the Auto Scaling group.
 pncAutoScalingGroupName :: Lens' PutNotificationConfiguration Text

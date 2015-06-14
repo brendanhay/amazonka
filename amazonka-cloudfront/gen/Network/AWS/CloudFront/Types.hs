@@ -290,8 +290,8 @@ module Network.AWS.CloudFront.Types
     -- * Origins
     , Origins
     , origins
-    , oriQuantity
     , oriItems
+    , oriQuantity
 
     -- * Paths
     , Paths
@@ -441,17 +441,17 @@ instance AWSService CloudFront where
 -- * 'atsEnabled'
 --
 -- * 'atsQuantity'
-data ActiveTrustedSigners = ActiveTrustedSigners'{_atsItems :: [Signer], _atsEnabled :: Bool, _atsQuantity :: Int} deriving (Eq, Read, Show)
+data ActiveTrustedSigners = ActiveTrustedSigners'{_atsItems :: Maybe [Signer], _atsEnabled :: Bool, _atsQuantity :: Int} deriving (Eq, Read, Show)
 
 -- | 'ActiveTrustedSigners' smart constructor.
 activeTrustedSigners :: Bool -> Int -> ActiveTrustedSigners
-activeTrustedSigners pEnabled pQuantity = ActiveTrustedSigners'{_atsItems = mempty, _atsEnabled = pEnabled, _atsQuantity = pQuantity};
+activeTrustedSigners pEnabled pQuantity = ActiveTrustedSigners'{_atsItems = Nothing, _atsEnabled = pEnabled, _atsQuantity = pQuantity};
 
 -- | A complex type that contains one Signer complex type for each unique
 -- trusted signer that is specified in the TrustedSigners complex type,
 -- including trusted signers in the default cache behavior and in all of
 -- the other cache behaviors.
-atsItems :: Lens' ActiveTrustedSigners [Signer]
+atsItems :: Lens' ActiveTrustedSigners (Maybe [Signer])
 atsItems = lens _atsItems (\ s a -> s{_atsItems = a});
 
 -- | Each active trusted signer.
@@ -478,15 +478,15 @@ instance FromXML ActiveTrustedSigners where
 -- * 'aliItems'
 --
 -- * 'aliQuantity'
-data Aliases = Aliases'{_aliItems :: [Text], _aliQuantity :: Int} deriving (Eq, Read, Show)
+data Aliases = Aliases'{_aliItems :: Maybe [Text], _aliQuantity :: Int} deriving (Eq, Read, Show)
 
 -- | 'Aliases' smart constructor.
 aliases :: Int -> Aliases
-aliases pQuantity = Aliases'{_aliItems = mempty, _aliQuantity = pQuantity};
+aliases pQuantity = Aliases'{_aliItems = Nothing, _aliQuantity = pQuantity};
 
 -- | Optional: A complex type that contains CNAME elements, if any, for this
 -- distribution. If Quantity is 0, you can omit Items.
-aliItems :: Lens' Aliases [Text]
+aliItems :: Lens' Aliases (Maybe [Text])
 aliItems = lens _aliItems (\ s a -> s{_aliItems = a});
 
 -- | The number of CNAMEs, if any, for this distribution.
@@ -517,8 +517,8 @@ instance ToXML Aliases where
 data AllowedMethods = AllowedMethods'{_amCachedMethods :: Maybe CachedMethods, _amQuantity :: Int, _amItems :: [Method]} deriving (Eq, Read, Show)
 
 -- | 'AllowedMethods' smart constructor.
-allowedMethods :: Int -> [Method] -> AllowedMethods
-allowedMethods pQuantity pItems = AllowedMethods'{_amCachedMethods = Nothing, _amQuantity = pQuantity, _amItems = pItems};
+allowedMethods :: Int -> AllowedMethods
+allowedMethods pQuantity = AllowedMethods'{_amCachedMethods = Nothing, _amQuantity = pQuantity, _amItems = mempty};
 
 -- | FIXME: Undocumented member.
 amCachedMethods :: Lens' AllowedMethods (Maybe CachedMethods)
@@ -669,15 +669,15 @@ instance ToXML CacheBehavior where
 -- * 'cbItems'
 --
 -- * 'cbQuantity'
-data CacheBehaviors = CacheBehaviors'{_cbItems :: [CacheBehavior], _cbQuantity :: Int} deriving (Eq, Read, Show)
+data CacheBehaviors = CacheBehaviors'{_cbItems :: Maybe [CacheBehavior], _cbQuantity :: Int} deriving (Eq, Read, Show)
 
 -- | 'CacheBehaviors' smart constructor.
 cacheBehaviors :: Int -> CacheBehaviors
-cacheBehaviors pQuantity = CacheBehaviors'{_cbItems = mempty, _cbQuantity = pQuantity};
+cacheBehaviors pQuantity = CacheBehaviors'{_cbItems = Nothing, _cbQuantity = pQuantity};
 
 -- | Optional: A complex type that contains cache behaviors for this
 -- distribution. If Quantity is 0, you can omit Items.
-cbItems :: Lens' CacheBehaviors [CacheBehavior]
+cbItems :: Lens' CacheBehaviors (Maybe [CacheBehavior])
 cbItems = lens _cbItems (\ s a -> s{_cbItems = a});
 
 -- | The number of cache behaviors for this distribution.
@@ -707,8 +707,8 @@ instance ToXML CacheBehaviors where
 data CachedMethods = CachedMethods'{_cmQuantity :: Int, _cmItems :: [Method]} deriving (Eq, Read, Show)
 
 -- | 'CachedMethods' smart constructor.
-cachedMethods :: Int -> [Method] -> CachedMethods
-cachedMethods pQuantity pItems = CachedMethods'{_cmQuantity = pQuantity, _cmItems = pItems};
+cachedMethods :: Int -> CachedMethods
+cachedMethods pQuantity = CachedMethods'{_cmQuantity = pQuantity, _cmItems = mempty};
 
 -- | The number of HTTP methods for which you want CloudFront to cache
 -- responses. Valid values are 2 (for caching responses to GET and HEAD
@@ -830,16 +830,16 @@ instance ToXML CloudFrontOriginAccessIdentityConfig
 -- * 'cfoailIsTruncated'
 --
 -- * 'cfoailQuantity'
-data CloudFrontOriginAccessIdentityList = CloudFrontOriginAccessIdentityList'{_cfoailItems :: [CloudFrontOriginAccessIdentitySummary], _cfoailNextMarker :: Maybe Text, _cfoailMarker :: Text, _cfoailMaxItems :: Int, _cfoailIsTruncated :: Bool, _cfoailQuantity :: Int} deriving (Eq, Read, Show)
+data CloudFrontOriginAccessIdentityList = CloudFrontOriginAccessIdentityList'{_cfoailItems :: Maybe [CloudFrontOriginAccessIdentitySummary], _cfoailNextMarker :: Maybe Text, _cfoailMarker :: Text, _cfoailMaxItems :: Int, _cfoailIsTruncated :: Bool, _cfoailQuantity :: Int} deriving (Eq, Read, Show)
 
 -- | 'CloudFrontOriginAccessIdentityList' smart constructor.
 cloudFrontOriginAccessIdentityList :: Text -> Int -> Bool -> Int -> CloudFrontOriginAccessIdentityList
-cloudFrontOriginAccessIdentityList pMarker pMaxItems pIsTruncated pQuantity = CloudFrontOriginAccessIdentityList'{_cfoailItems = mempty, _cfoailNextMarker = Nothing, _cfoailMarker = pMarker, _cfoailMaxItems = pMaxItems, _cfoailIsTruncated = pIsTruncated, _cfoailQuantity = pQuantity};
+cloudFrontOriginAccessIdentityList pMarker pMaxItems pIsTruncated pQuantity = CloudFrontOriginAccessIdentityList'{_cfoailItems = Nothing, _cfoailNextMarker = Nothing, _cfoailMarker = pMarker, _cfoailMaxItems = pMaxItems, _cfoailIsTruncated = pIsTruncated, _cfoailQuantity = pQuantity};
 
 -- | A complex type that contains one CloudFrontOriginAccessIdentitySummary
 -- element for each origin access identity that was created by the current
 -- AWS account.
-cfoailItems :: Lens' CloudFrontOriginAccessIdentityList [CloudFrontOriginAccessIdentitySummary]
+cfoailItems :: Lens' CloudFrontOriginAccessIdentityList (Maybe [CloudFrontOriginAccessIdentitySummary])
 cfoailItems = lens _cfoailItems (\ s a -> s{_cfoailItems = a});
 
 -- | If IsTruncated is true, this element is present and contains the value
@@ -924,15 +924,15 @@ instance FromXML
 -- * 'cnItems'
 --
 -- * 'cnQuantity'
-data CookieNames = CookieNames'{_cnItems :: [Text], _cnQuantity :: Int} deriving (Eq, Read, Show)
+data CookieNames = CookieNames'{_cnItems :: Maybe [Text], _cnQuantity :: Int} deriving (Eq, Read, Show)
 
 -- | 'CookieNames' smart constructor.
 cookieNames :: Int -> CookieNames
-cookieNames pQuantity = CookieNames'{_cnItems = mempty, _cnQuantity = pQuantity};
+cookieNames pQuantity = CookieNames'{_cnItems = Nothing, _cnQuantity = pQuantity};
 
 -- | Optional: A complex type that contains whitelisted cookies for this
 -- cache behavior. If Quantity is 0, you can omit Items.
-cnItems :: Lens' CookieNames [Text]
+cnItems :: Lens' CookieNames (Maybe [Text])
 cnItems = lens _cnItems (\ s a -> s{_cnItems = a});
 
 -- | The number of whitelisted cookies for this cache behavior.
@@ -1055,15 +1055,15 @@ instance ToXML CustomErrorResponse where
 -- * 'cerItems'
 --
 -- * 'cerQuantity'
-data CustomErrorResponses = CustomErrorResponses'{_cerItems :: [CustomErrorResponse], _cerQuantity :: Int} deriving (Eq, Read, Show)
+data CustomErrorResponses = CustomErrorResponses'{_cerItems :: Maybe [CustomErrorResponse], _cerQuantity :: Int} deriving (Eq, Read, Show)
 
 -- | 'CustomErrorResponses' smart constructor.
 customErrorResponses :: Int -> CustomErrorResponses
-customErrorResponses pQuantity = CustomErrorResponses'{_cerItems = mempty, _cerQuantity = pQuantity};
+customErrorResponses pQuantity = CustomErrorResponses'{_cerItems = Nothing, _cerQuantity = pQuantity};
 
 -- | Optional: A complex type that contains custom error responses for this
 -- distribution. If Quantity is 0, you can omit Items.
-cerItems :: Lens' CustomErrorResponses [CustomErrorResponse]
+cerItems :: Lens' CustomErrorResponses (Maybe [CustomErrorResponse])
 cerItems = lens _cerItems (\ s a -> s{_cerItems = a});
 
 -- | The number of custom error responses for this distribution.
@@ -1454,15 +1454,15 @@ instance ToXML DistributionConfig where
 -- * 'dlIsTruncated'
 --
 -- * 'dlQuantity'
-data DistributionList = DistributionList'{_dlItems :: [DistributionSummary], _dlNextMarker :: Maybe Text, _dlMarker :: Text, _dlMaxItems :: Int, _dlIsTruncated :: Bool, _dlQuantity :: Int} deriving (Eq, Read, Show)
+data DistributionList = DistributionList'{_dlItems :: Maybe [DistributionSummary], _dlNextMarker :: Maybe Text, _dlMarker :: Text, _dlMaxItems :: Int, _dlIsTruncated :: Bool, _dlQuantity :: Int} deriving (Eq, Read, Show)
 
 -- | 'DistributionList' smart constructor.
 distributionList :: Text -> Int -> Bool -> Int -> DistributionList
-distributionList pMarker pMaxItems pIsTruncated pQuantity = DistributionList'{_dlItems = mempty, _dlNextMarker = Nothing, _dlMarker = pMarker, _dlMaxItems = pMaxItems, _dlIsTruncated = pIsTruncated, _dlQuantity = pQuantity};
+distributionList pMarker pMaxItems pIsTruncated pQuantity = DistributionList'{_dlItems = Nothing, _dlNextMarker = Nothing, _dlMarker = pMarker, _dlMaxItems = pMaxItems, _dlIsTruncated = pIsTruncated, _dlQuantity = pQuantity};
 
 -- | A complex type that contains one DistributionSummary element for each
 -- distribution that was created by the current AWS account.
-dlItems :: Lens' DistributionList [DistributionSummary]
+dlItems :: Lens' DistributionList (Maybe [DistributionSummary])
 dlItems = lens _dlItems (\ s a -> s{_dlItems = a});
 
 -- | If IsTruncated is true, this element is present and contains the value
@@ -1673,11 +1673,11 @@ instance ToXML ForwardedValues where
 -- * 'grRestrictionType'
 --
 -- * 'grQuantity'
-data GeoRestriction = GeoRestriction'{_grItems :: [Text], _grRestrictionType :: GeoRestrictionType, _grQuantity :: Int} deriving (Eq, Read, Show)
+data GeoRestriction = GeoRestriction'{_grItems :: Maybe [Text], _grRestrictionType :: GeoRestrictionType, _grQuantity :: Int} deriving (Eq, Read, Show)
 
 -- | 'GeoRestriction' smart constructor.
 geoRestriction :: GeoRestrictionType -> Int -> GeoRestriction
-geoRestriction pRestrictionType pQuantity = GeoRestriction'{_grItems = mempty, _grRestrictionType = pRestrictionType, _grQuantity = pQuantity};
+geoRestriction pRestrictionType pQuantity = GeoRestriction'{_grItems = Nothing, _grRestrictionType = pRestrictionType, _grQuantity = pQuantity};
 
 -- | A complex type that contains a Location element for each country in
 -- which you want CloudFront either to distribute your content (whitelist)
@@ -1689,7 +1689,7 @@ geoRestriction pRestrictionType pQuantity = GeoRestriction'{_grItems = mempty, _
 -- 3166-1-alpha-2 code on the International Organization for
 -- Standardization website. You can also refer to the country list in the
 -- CloudFront console, which includes both country names and codes.
-grItems :: Lens' GeoRestriction [Text]
+grItems :: Lens' GeoRestriction (Maybe [Text])
 grItems = lens _grItems (\ s a -> s{_grItems = a});
 
 -- | The method that you want to use to restrict distribution of your content
@@ -1755,16 +1755,16 @@ instance ToXML GeoRestrictionType where
 -- * 'heaItems'
 --
 -- * 'heaQuantity'
-data Headers = Headers'{_heaItems :: [Text], _heaQuantity :: Int} deriving (Eq, Read, Show)
+data Headers = Headers'{_heaItems :: Maybe [Text], _heaQuantity :: Int} deriving (Eq, Read, Show)
 
 -- | 'Headers' smart constructor.
 headers :: Int -> Headers
-headers pQuantity = Headers'{_heaItems = mempty, _heaQuantity = pQuantity};
+headers pQuantity = Headers'{_heaItems = Nothing, _heaQuantity = pQuantity};
 
 -- | Optional: A complex type that contains a Name element for each header
 -- that you want CloudFront to forward to the origin and to vary on for
 -- this cache behavior. If Quantity is 0, omit Items.
-heaItems :: Lens' Headers [Text]
+heaItems :: Lens' Headers (Maybe [Text])
 heaItems = lens _heaItems (\ s a -> s{_heaItems = a});
 
 -- | The number of different headers that you want CloudFront to forward to
@@ -1892,15 +1892,15 @@ instance ToXML InvalidationBatch where
 -- * 'ilIsTruncated'
 --
 -- * 'ilQuantity'
-data InvalidationList = InvalidationList'{_ilItems :: [InvalidationSummary], _ilNextMarker :: Maybe Text, _ilMarker :: Text, _ilMaxItems :: Int, _ilIsTruncated :: Bool, _ilQuantity :: Int} deriving (Eq, Read, Show)
+data InvalidationList = InvalidationList'{_ilItems :: Maybe [InvalidationSummary], _ilNextMarker :: Maybe Text, _ilMarker :: Text, _ilMaxItems :: Int, _ilIsTruncated :: Bool, _ilQuantity :: Int} deriving (Eq, Read, Show)
 
 -- | 'InvalidationList' smart constructor.
 invalidationList :: Text -> Int -> Bool -> Int -> InvalidationList
-invalidationList pMarker pMaxItems pIsTruncated pQuantity = InvalidationList'{_ilItems = mempty, _ilNextMarker = Nothing, _ilMarker = pMarker, _ilMaxItems = pMaxItems, _ilIsTruncated = pIsTruncated, _ilQuantity = pQuantity};
+invalidationList pMarker pMaxItems pIsTruncated pQuantity = InvalidationList'{_ilItems = Nothing, _ilNextMarker = Nothing, _ilMarker = pMarker, _ilMaxItems = pMaxItems, _ilIsTruncated = pIsTruncated, _ilQuantity = pQuantity};
 
 -- | A complex type that contains one InvalidationSummary element for each
 -- invalidation batch that was created by the current AWS account.
-ilItems :: Lens' InvalidationList [InvalidationSummary]
+ilItems :: Lens' InvalidationList (Maybe [InvalidationSummary])
 ilItems = lens _ilItems (\ s a -> s{_ilItems = a});
 
 -- | If IsTruncated is true, this element is present and contains the value
@@ -2004,15 +2004,15 @@ instance ToXML ItemSelection where
 -- * 'kpiItems'
 --
 -- * 'kpiQuantity'
-data KeyPairIds = KeyPairIds'{_kpiItems :: [Text], _kpiQuantity :: Int} deriving (Eq, Read, Show)
+data KeyPairIds = KeyPairIds'{_kpiItems :: Maybe [Text], _kpiQuantity :: Int} deriving (Eq, Read, Show)
 
 -- | 'KeyPairIds' smart constructor.
 keyPairIds :: Int -> KeyPairIds
-keyPairIds pQuantity = KeyPairIds'{_kpiItems = mempty, _kpiQuantity = pQuantity};
+keyPairIds pQuantity = KeyPairIds'{_kpiItems = Nothing, _kpiQuantity = pQuantity};
 
 -- | A complex type that lists the active CloudFront key pairs, if any, that
 -- are associated with AwsAccountNumber.
-kpiItems :: Lens' KeyPairIds [Text]
+kpiItems :: Lens' KeyPairIds (Maybe [Text])
 kpiItems = lens _kpiItems (\ s a -> s{_kpiItems = a});
 
 -- | The number of active CloudFront key pairs for AwsAccountNumber.
@@ -2240,34 +2240,34 @@ instance ToXML OriginProtocolPolicy where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'oriQuantity'
---
 -- * 'oriItems'
-data Origins = Origins'{_oriQuantity :: Int, _oriItems :: List1 Origin} deriving (Eq, Read, Show)
+--
+-- * 'oriQuantity'
+data Origins = Origins'{_oriItems :: Maybe (List1 Origin), _oriQuantity :: Int} deriving (Eq, Read, Show)
 
 -- | 'Origins' smart constructor.
-origins :: Int -> NonEmpty Origin -> Origins
-origins pQuantity pItems = Origins'{_oriQuantity = pQuantity, _oriItems = _List1 # pItems};
+origins :: Int -> Origins
+origins pQuantity = Origins'{_oriItems = Nothing, _oriQuantity = pQuantity};
+
+-- | A complex type that contains origins for this distribution.
+oriItems :: Lens' Origins (Maybe (NonEmpty Origin))
+oriItems = lens _oriItems (\ s a -> s{_oriItems = a}) . mapping _List1;
 
 -- | The number of origins for this distribution.
 oriQuantity :: Lens' Origins Int
 oriQuantity = lens _oriQuantity (\ s a -> s{_oriQuantity = a});
 
--- | A complex type that contains origins for this distribution.
-oriItems :: Lens' Origins (NonEmpty Origin)
-oriItems = lens _oriItems (\ s a -> s{_oriItems = a}) . _List1;
-
 instance FromXML Origins where
         parseXML x
           = Origins' <$>
-              x .@ "Quantity" <*>
-                (x .@? "Items" .!@ mempty >>= parseXMLList1 "Origin")
+              (x .@? "Items" .!@ mempty >>= parseXMLList1 "Origin")
+                <*> x .@ "Quantity"
 
 instance ToXML Origins where
         toXML Origins'{..}
           = mconcat
-              ["Quantity" @= _oriQuantity,
-               "Items" @= "Origin" @@= _oriItems]
+              ["Items" @= "Origin" @@= _oriItems,
+               "Quantity" @= _oriQuantity]
 
 -- | /See:/ 'paths' smart constructor.
 --
@@ -2276,15 +2276,15 @@ instance ToXML Origins where
 -- * 'patItems'
 --
 -- * 'patQuantity'
-data Paths = Paths'{_patItems :: [Text], _patQuantity :: Int} deriving (Eq, Read, Show)
+data Paths = Paths'{_patItems :: Maybe [Text], _patQuantity :: Int} deriving (Eq, Read, Show)
 
 -- | 'Paths' smart constructor.
 paths :: Int -> Paths
-paths pQuantity = Paths'{_patItems = mempty, _patQuantity = pQuantity};
+paths pQuantity = Paths'{_patItems = Nothing, _patQuantity = pQuantity};
 
 -- | A complex type that contains a list of the objects that you want to
 -- invalidate.
-patItems :: Lens' Paths [Text]
+patItems :: Lens' Paths (Maybe [Text])
 patItems = lens _patItems (\ s a -> s{_patItems = a});
 
 -- | The number of objects that you want to invalidate.
@@ -2656,15 +2656,15 @@ instance ToXML StreamingDistributionConfig where
 -- * 'sdlIsTruncated'
 --
 -- * 'sdlQuantity'
-data StreamingDistributionList = StreamingDistributionList'{_sdlItems :: [StreamingDistributionSummary], _sdlNextMarker :: Maybe Text, _sdlMarker :: Text, _sdlMaxItems :: Int, _sdlIsTruncated :: Bool, _sdlQuantity :: Int} deriving (Eq, Read, Show)
+data StreamingDistributionList = StreamingDistributionList'{_sdlItems :: Maybe [StreamingDistributionSummary], _sdlNextMarker :: Maybe Text, _sdlMarker :: Text, _sdlMaxItems :: Int, _sdlIsTruncated :: Bool, _sdlQuantity :: Int} deriving (Eq, Read, Show)
 
 -- | 'StreamingDistributionList' smart constructor.
 streamingDistributionList :: Text -> Int -> Bool -> Int -> StreamingDistributionList
-streamingDistributionList pMarker pMaxItems pIsTruncated pQuantity = StreamingDistributionList'{_sdlItems = mempty, _sdlNextMarker = Nothing, _sdlMarker = pMarker, _sdlMaxItems = pMaxItems, _sdlIsTruncated = pIsTruncated, _sdlQuantity = pQuantity};
+streamingDistributionList pMarker pMaxItems pIsTruncated pQuantity = StreamingDistributionList'{_sdlItems = Nothing, _sdlNextMarker = Nothing, _sdlMarker = pMarker, _sdlMaxItems = pMaxItems, _sdlIsTruncated = pIsTruncated, _sdlQuantity = pQuantity};
 
 -- | A complex type that contains one StreamingDistributionSummary element
 -- for each distribution that was created by the current AWS account.
-sdlItems :: Lens' StreamingDistributionList [StreamingDistributionSummary]
+sdlItems :: Lens' StreamingDistributionList (Maybe [StreamingDistributionSummary])
 sdlItems = lens _sdlItems (\ s a -> s{_sdlItems = a});
 
 -- | If IsTruncated is true, this element is present and contains the value
@@ -2860,15 +2860,15 @@ instance ToXML StreamingLoggingConfig where
 -- * 'tsEnabled'
 --
 -- * 'tsQuantity'
-data TrustedSigners = TrustedSigners'{_tsItems :: [Text], _tsEnabled :: Bool, _tsQuantity :: Int} deriving (Eq, Read, Show)
+data TrustedSigners = TrustedSigners'{_tsItems :: Maybe [Text], _tsEnabled :: Bool, _tsQuantity :: Int} deriving (Eq, Read, Show)
 
 -- | 'TrustedSigners' smart constructor.
 trustedSigners :: Bool -> Int -> TrustedSigners
-trustedSigners pEnabled pQuantity = TrustedSigners'{_tsItems = mempty, _tsEnabled = pEnabled, _tsQuantity = pQuantity};
+trustedSigners pEnabled pQuantity = TrustedSigners'{_tsItems = Nothing, _tsEnabled = pEnabled, _tsQuantity = pQuantity};
 
 -- | Optional: A complex type that contains trusted signers for this cache
 -- behavior. If Quantity is 0, you can omit Items.
-tsItems :: Lens' TrustedSigners [Text]
+tsItems :: Lens' TrustedSigners (Maybe [Text])
 tsItems = lens _tsItems (\ s a -> s{_tsItems = a});
 
 -- | Specifies whether you want to require end users to use signed URLs to

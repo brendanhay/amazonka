@@ -97,11 +97,11 @@ instance ToQuery ListDeploymentConfigs where
 -- * 'ldcrNextToken'
 --
 -- * 'ldcrDeploymentConfigsList'
-data ListDeploymentConfigsResponse = ListDeploymentConfigsResponse'{_ldcrNextToken :: Maybe Text, _ldcrDeploymentConfigsList :: [Text]} deriving (Eq, Read, Show)
+data ListDeploymentConfigsResponse = ListDeploymentConfigsResponse'{_ldcrNextToken :: Maybe Text, _ldcrDeploymentConfigsList :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'ListDeploymentConfigsResponse' smart constructor.
 listDeploymentConfigsResponse :: ListDeploymentConfigsResponse
-listDeploymentConfigsResponse = ListDeploymentConfigsResponse'{_ldcrNextToken = Nothing, _ldcrDeploymentConfigsList = mempty};
+listDeploymentConfigsResponse = ListDeploymentConfigsResponse'{_ldcrNextToken = Nothing, _ldcrDeploymentConfigsList = Nothing};
 
 -- | If the amount of information that is returned is significantly large, an
 -- identifier will also be returned, which can be used in a subsequent list
@@ -112,5 +112,5 @@ ldcrNextToken = lens _ldcrNextToken (\ s a -> s{_ldcrNextToken = a});
 
 -- | A list of deployment configurations, including the built-in
 -- configurations such as CodeDeployDefault.OneAtATime.
-ldcrDeploymentConfigsList :: Lens' ListDeploymentConfigsResponse [Text]
+ldcrDeploymentConfigsList :: Lens' ListDeploymentConfigsResponse (Maybe [Text])
 ldcrDeploymentConfigsList = lens _ldcrDeploymentConfigsList (\ s a -> s{_ldcrDeploymentConfigsList = a});

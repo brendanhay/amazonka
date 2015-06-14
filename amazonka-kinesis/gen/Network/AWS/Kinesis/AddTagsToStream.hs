@@ -52,8 +52,8 @@ import Network.AWS.Kinesis.Types
 data AddTagsToStream = AddTagsToStream'{_attsStreamName :: Text, _attsTags :: HashMap Text Text} deriving (Eq, Read, Show)
 
 -- | 'AddTagsToStream' smart constructor.
-addTagsToStream :: Text -> HashMap Text Text -> AddTagsToStream
-addTagsToStream pStreamName pTags = AddTagsToStream'{_attsStreamName = pStreamName, _attsTags = _Coerce # pTags};
+addTagsToStream :: Text -> AddTagsToStream
+addTagsToStream pStreamName = AddTagsToStream'{_attsStreamName = pStreamName, _attsTags = mempty};
 
 -- | The name of the stream.
 attsStreamName :: Lens' AddTagsToStream Text

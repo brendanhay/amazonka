@@ -102,7 +102,7 @@ instance AWSRequest CreateSAMLProvider where
           = receiveXMLWrapper "CreateSAMLProviderResult"
               (\ s h x ->
                  CreateSAMLProviderResponse' <$>
-                   x .@ "SAMLProviderArn")
+                   x .@? "SAMLProviderArn")
 
 instance ToHeaders CreateSAMLProvider where
         toHeaders = const mempty
@@ -124,12 +124,12 @@ instance ToQuery CreateSAMLProvider where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'csamlprSAMLProviderARN'
-newtype CreateSAMLProviderResponse = CreateSAMLProviderResponse'{_csamlprSAMLProviderARN :: Text} deriving (Eq, Read, Show)
+newtype CreateSAMLProviderResponse = CreateSAMLProviderResponse'{_csamlprSAMLProviderARN :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'CreateSAMLProviderResponse' smart constructor.
-createSAMLProviderResponse :: Text -> CreateSAMLProviderResponse
-createSAMLProviderResponse pSAMLProviderARN = CreateSAMLProviderResponse'{_csamlprSAMLProviderARN = pSAMLProviderARN};
+createSAMLProviderResponse :: CreateSAMLProviderResponse
+createSAMLProviderResponse = CreateSAMLProviderResponse'{_csamlprSAMLProviderARN = Nothing};
 
 -- | The Amazon Resource Name (ARN) of the SAML provider.
-csamlprSAMLProviderARN :: Lens' CreateSAMLProviderResponse Text
+csamlprSAMLProviderARN :: Lens' CreateSAMLProviderResponse (Maybe Text)
 csamlprSAMLProviderARN = lens _csamlprSAMLProviderARN (\ s a -> s{_csamlprSAMLProviderARN = a});

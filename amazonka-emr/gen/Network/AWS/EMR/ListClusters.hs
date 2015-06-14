@@ -58,11 +58,11 @@ import Network.AWS.EMR.Types
 -- * 'lcClusterStates'
 --
 -- * 'lcCreatedBefore'
-data ListClusters = ListClusters'{_lcCreatedAfter :: Maybe POSIX, _lcMarker :: Maybe Text, _lcClusterStates :: [ClusterState], _lcCreatedBefore :: Maybe POSIX} deriving (Eq, Read, Show)
+data ListClusters = ListClusters'{_lcCreatedAfter :: Maybe POSIX, _lcMarker :: Maybe Text, _lcClusterStates :: Maybe [ClusterState], _lcCreatedBefore :: Maybe POSIX} deriving (Eq, Read, Show)
 
 -- | 'ListClusters' smart constructor.
 listClusters :: ListClusters
-listClusters = ListClusters'{_lcCreatedAfter = Nothing, _lcMarker = Nothing, _lcClusterStates = mempty, _lcCreatedBefore = Nothing};
+listClusters = ListClusters'{_lcCreatedAfter = Nothing, _lcMarker = Nothing, _lcClusterStates = Nothing, _lcCreatedBefore = Nothing};
 
 -- | The creation date and time beginning value filter for listing clusters .
 lcCreatedAfter :: Lens' ListClusters (Maybe UTCTime)
@@ -73,7 +73,7 @@ lcMarker :: Lens' ListClusters (Maybe Text)
 lcMarker = lens _lcMarker (\ s a -> s{_lcMarker = a});
 
 -- | The cluster state filters to apply when listing clusters.
-lcClusterStates :: Lens' ListClusters [ClusterState]
+lcClusterStates :: Lens' ListClusters (Maybe [ClusterState])
 lcClusterStates = lens _lcClusterStates (\ s a -> s{_lcClusterStates = a});
 
 -- | The creation date and time end value filter for listing clusters .
@@ -120,16 +120,16 @@ instance ToQuery ListClusters where
 -- * 'lcrMarker'
 --
 -- * 'lcrClusters'
-data ListClustersResponse = ListClustersResponse'{_lcrMarker :: Maybe Text, _lcrClusters :: [ClusterSummary]} deriving (Eq, Read, Show)
+data ListClustersResponse = ListClustersResponse'{_lcrMarker :: Maybe Text, _lcrClusters :: Maybe [ClusterSummary]} deriving (Eq, Read, Show)
 
 -- | 'ListClustersResponse' smart constructor.
 listClustersResponse :: ListClustersResponse
-listClustersResponse = ListClustersResponse'{_lcrMarker = Nothing, _lcrClusters = mempty};
+listClustersResponse = ListClustersResponse'{_lcrMarker = Nothing, _lcrClusters = Nothing};
 
 -- | The pagination token that indicates the next set of results to retrieve.
 lcrMarker :: Lens' ListClustersResponse (Maybe Text)
 lcrMarker = lens _lcrMarker (\ s a -> s{_lcrMarker = a});
 
 -- | The list of clusters for the account based on the given filters.
-lcrClusters :: Lens' ListClustersResponse [ClusterSummary]
+lcrClusters :: Lens' ListClustersResponse (Maybe [ClusterSummary])
 lcrClusters = lens _lcrClusters (\ s a -> s{_lcrClusters = a});

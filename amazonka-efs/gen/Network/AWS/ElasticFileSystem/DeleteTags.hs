@@ -56,8 +56,8 @@ import Network.AWS.ElasticFileSystem.Types
 data DeleteTags = DeleteTags'{_delFileSystemId :: Text, _delTagKeys :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'DeleteTags' smart constructor.
-deleteTags :: Text -> [Text] -> DeleteTags
-deleteTags pFileSystemId pTagKeys = DeleteTags'{_delFileSystemId = pFileSystemId, _delTagKeys = pTagKeys};
+deleteTags :: Text -> DeleteTags
+deleteTags pFileSystemId = DeleteTags'{_delFileSystemId = pFileSystemId, _delTagKeys = mempty};
 
 -- | String. The ID of the file system whose tags you want to delete.
 delFileSystemId :: Lens' DeleteTags Text

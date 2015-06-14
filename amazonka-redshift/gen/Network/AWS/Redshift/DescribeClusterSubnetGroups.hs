@@ -70,11 +70,11 @@ import Network.AWS.Redshift.Types
 -- * 'dMaxRecords'
 --
 -- * 'dMarker'
-data DescribeClusterSubnetGroups = DescribeClusterSubnetGroups'{_dTagValues :: [Text], _dTagKeys :: [Text], _dClusterSubnetGroupName :: Maybe Text, _dMaxRecords :: Maybe Int, _dMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeClusterSubnetGroups = DescribeClusterSubnetGroups'{_dTagValues :: Maybe [Text], _dTagKeys :: Maybe [Text], _dClusterSubnetGroupName :: Maybe Text, _dMaxRecords :: Maybe Int, _dMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeClusterSubnetGroups' smart constructor.
 describeClusterSubnetGroups :: DescribeClusterSubnetGroups
-describeClusterSubnetGroups = DescribeClusterSubnetGroups'{_dTagValues = mempty, _dTagKeys = mempty, _dClusterSubnetGroupName = Nothing, _dMaxRecords = Nothing, _dMarker = Nothing};
+describeClusterSubnetGroups = DescribeClusterSubnetGroups'{_dTagValues = Nothing, _dTagKeys = Nothing, _dClusterSubnetGroupName = Nothing, _dMaxRecords = Nothing, _dMarker = Nothing};
 
 -- | A tag value or values for which you want to return all matching cluster
 -- subnet groups that are associated with the specified tag value or
@@ -83,7 +83,7 @@ describeClusterSubnetGroups = DescribeClusterSubnetGroups'{_dTagValues = mempty,
 -- values in the request, Amazon Redshift returns a response with the
 -- subnet groups that have either or both of these tag values associated
 -- with them.
-dTagValues :: Lens' DescribeClusterSubnetGroups [Text]
+dTagValues :: Lens' DescribeClusterSubnetGroups (Maybe [Text])
 dTagValues = lens _dTagValues (\ s a -> s{_dTagValues = a});
 
 -- | A tag key or keys for which you want to return all matching cluster
@@ -92,7 +92,7 @@ dTagValues = lens _dTagValues (\ s a -> s{_dTagValues = a});
 -- called @owner@ and @environment@. If you specify both of these tag keys
 -- in the request, Amazon Redshift returns a response with the subnet
 -- groups that have either or both of these tag keys associated with them.
-dTagKeys :: Lens' DescribeClusterSubnetGroups [Text]
+dTagKeys :: Lens' DescribeClusterSubnetGroups (Maybe [Text])
 dTagKeys = lens _dTagKeys (\ s a -> s{_dTagKeys = a});
 
 -- | The name of the cluster subnet group for which information is requested.
@@ -158,14 +158,14 @@ instance ToQuery DescribeClusterSubnetGroups where
 -- * 'dcsgrClusterSubnetGroups'
 --
 -- * 'dcsgrMarker'
-data DescribeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse'{_dcsgrClusterSubnetGroups :: [ClusterSubnetGroup], _dcsgrMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse'{_dcsgrClusterSubnetGroups :: Maybe [ClusterSubnetGroup], _dcsgrMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeClusterSubnetGroupsResponse' smart constructor.
 describeClusterSubnetGroupsResponse :: DescribeClusterSubnetGroupsResponse
-describeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse'{_dcsgrClusterSubnetGroups = mempty, _dcsgrMarker = Nothing};
+describeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse'{_dcsgrClusterSubnetGroups = Nothing, _dcsgrMarker = Nothing};
 
 -- | A list of ClusterSubnetGroup instances.
-dcsgrClusterSubnetGroups :: Lens' DescribeClusterSubnetGroupsResponse [ClusterSubnetGroup]
+dcsgrClusterSubnetGroups :: Lens' DescribeClusterSubnetGroupsResponse (Maybe [ClusterSubnetGroup])
 dcsgrClusterSubnetGroups = lens _dcsgrClusterSubnetGroups (\ s a -> s{_dcsgrClusterSubnetGroups = a});
 
 -- | A value that indicates the starting point for the next set of response

@@ -60,14 +60,14 @@ import Network.AWS.RDS.Types
 -- * 'dogMarker'
 --
 -- * 'dogOptionGroupName'
-data DescribeOptionGroups = DescribeOptionGroups'{_dogFilters :: [Filter], _dogEngineName :: Maybe Text, _dogMajorEngineVersion :: Maybe Text, _dogMaxRecords :: Maybe Int, _dogMarker :: Maybe Text, _dogOptionGroupName :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeOptionGroups = DescribeOptionGroups'{_dogFilters :: Maybe [Filter], _dogEngineName :: Maybe Text, _dogMajorEngineVersion :: Maybe Text, _dogMaxRecords :: Maybe Int, _dogMarker :: Maybe Text, _dogOptionGroupName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeOptionGroups' smart constructor.
 describeOptionGroups :: DescribeOptionGroups
-describeOptionGroups = DescribeOptionGroups'{_dogFilters = mempty, _dogEngineName = Nothing, _dogMajorEngineVersion = Nothing, _dogMaxRecords = Nothing, _dogMarker = Nothing, _dogOptionGroupName = Nothing};
+describeOptionGroups = DescribeOptionGroups'{_dogFilters = Nothing, _dogEngineName = Nothing, _dogMajorEngineVersion = Nothing, _dogMaxRecords = Nothing, _dogMarker = Nothing, _dogOptionGroupName = Nothing};
 
 -- | This parameter is not currently supported.
-dogFilters :: Lens' DescribeOptionGroups [Filter]
+dogFilters :: Lens' DescribeOptionGroups (Maybe [Filter])
 dogFilters = lens _dogFilters (\ s a -> s{_dogFilters = a});
 
 -- | Filters the list of option groups to only include groups associated with
@@ -141,11 +141,11 @@ instance ToQuery DescribeOptionGroups where
 -- * 'dogrMarker'
 --
 -- * 'dogrOptionGroupsList'
-data DescribeOptionGroupsResponse = DescribeOptionGroupsResponse'{_dogrMarker :: Maybe Text, _dogrOptionGroupsList :: [OptionGroup]} deriving (Eq, Read, Show)
+data DescribeOptionGroupsResponse = DescribeOptionGroupsResponse'{_dogrMarker :: Maybe Text, _dogrOptionGroupsList :: Maybe [OptionGroup]} deriving (Eq, Read, Show)
 
 -- | 'DescribeOptionGroupsResponse' smart constructor.
 describeOptionGroupsResponse :: DescribeOptionGroupsResponse
-describeOptionGroupsResponse = DescribeOptionGroupsResponse'{_dogrMarker = Nothing, _dogrOptionGroupsList = mempty};
+describeOptionGroupsResponse = DescribeOptionGroupsResponse'{_dogrMarker = Nothing, _dogrOptionGroupsList = Nothing};
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
@@ -154,5 +154,5 @@ dogrMarker :: Lens' DescribeOptionGroupsResponse (Maybe Text)
 dogrMarker = lens _dogrMarker (\ s a -> s{_dogrMarker = a});
 
 -- | List of option groups.
-dogrOptionGroupsList :: Lens' DescribeOptionGroupsResponse [OptionGroup]
+dogrOptionGroupsList :: Lens' DescribeOptionGroupsResponse (Maybe [OptionGroup])
 dogrOptionGroupsList = lens _dogrOptionGroupsList (\ s a -> s{_dogrOptionGroupsList = a});

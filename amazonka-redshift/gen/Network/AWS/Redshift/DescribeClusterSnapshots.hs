@@ -88,11 +88,11 @@ import Network.AWS.Redshift.Types
 -- * 'desMarker'
 --
 -- * 'desOwnerAccount'
-data DescribeClusterSnapshots = DescribeClusterSnapshots'{_desSnapshotIdentifier :: Maybe Text, _desTagValues :: [Text], _desStartTime :: Maybe ISO8601, _desTagKeys :: [Text], _desClusterIdentifier :: Maybe Text, _desSnapshotType :: Maybe Text, _desMaxRecords :: Maybe Int, _desEndTime :: Maybe ISO8601, _desMarker :: Maybe Text, _desOwnerAccount :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeClusterSnapshots = DescribeClusterSnapshots'{_desSnapshotIdentifier :: Maybe Text, _desTagValues :: Maybe [Text], _desStartTime :: Maybe ISO8601, _desTagKeys :: Maybe [Text], _desClusterIdentifier :: Maybe Text, _desSnapshotType :: Maybe Text, _desMaxRecords :: Maybe Int, _desEndTime :: Maybe ISO8601, _desMarker :: Maybe Text, _desOwnerAccount :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeClusterSnapshots' smart constructor.
 describeClusterSnapshots :: DescribeClusterSnapshots
-describeClusterSnapshots = DescribeClusterSnapshots'{_desSnapshotIdentifier = Nothing, _desTagValues = mempty, _desStartTime = Nothing, _desTagKeys = mempty, _desClusterIdentifier = Nothing, _desSnapshotType = Nothing, _desMaxRecords = Nothing, _desEndTime = Nothing, _desMarker = Nothing, _desOwnerAccount = Nothing};
+describeClusterSnapshots = DescribeClusterSnapshots'{_desSnapshotIdentifier = Nothing, _desTagValues = Nothing, _desStartTime = Nothing, _desTagKeys = Nothing, _desClusterIdentifier = Nothing, _desSnapshotType = Nothing, _desMaxRecords = Nothing, _desEndTime = Nothing, _desMarker = Nothing, _desOwnerAccount = Nothing};
 
 -- | The snapshot identifier of the snapshot about which to return
 -- information.
@@ -105,7 +105,7 @@ desSnapshotIdentifier = lens _desSnapshotIdentifier (\ s a -> s{_desSnapshotIden
 -- called @admin@ and @test@. If you specify both of these tag values in
 -- the request, Amazon Redshift returns a response with the snapshots that
 -- have either or both of these tag values associated with them.
-desTagValues :: Lens' DescribeClusterSnapshots [Text]
+desTagValues :: Lens' DescribeClusterSnapshots (Maybe [Text])
 desTagValues = lens _desTagValues (\ s a -> s{_desTagValues = a});
 
 -- | A value that requests only snapshots created at or after the specified
@@ -123,7 +123,7 @@ desStartTime = lens _desStartTime (\ s a -> s{_desStartTime = a}) . mapping _Tim
 -- called @owner@ and @environment@. If you specify both of these tag keys
 -- in the request, Amazon Redshift returns a response with the snapshots
 -- that have either or both of these tag keys associated with them.
-desTagKeys :: Lens' DescribeClusterSnapshots [Text]
+desTagKeys :: Lens' DescribeClusterSnapshots (Maybe [Text])
 desTagKeys = lens _desTagKeys (\ s a -> s{_desTagKeys = a});
 
 -- | The identifier of the cluster for which information about snapshots is
@@ -217,14 +217,14 @@ instance ToQuery DescribeClusterSnapshots where
 -- * 'dcsrSnapshots'
 --
 -- * 'dcsrMarker'
-data DescribeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse'{_dcsrSnapshots :: [Snapshot], _dcsrMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse'{_dcsrSnapshots :: Maybe [Snapshot], _dcsrMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeClusterSnapshotsResponse' smart constructor.
 describeClusterSnapshotsResponse :: DescribeClusterSnapshotsResponse
-describeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse'{_dcsrSnapshots = mempty, _dcsrMarker = Nothing};
+describeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse'{_dcsrSnapshots = Nothing, _dcsrMarker = Nothing};
 
 -- | A list of Snapshot instances.
-dcsrSnapshots :: Lens' DescribeClusterSnapshotsResponse [Snapshot]
+dcsrSnapshots :: Lens' DescribeClusterSnapshotsResponse (Maybe [Snapshot])
 dcsrSnapshots = lens _dcsrSnapshots (\ s a -> s{_dcsrSnapshots = a});
 
 -- | A value that indicates the starting point for the next set of response

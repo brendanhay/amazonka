@@ -73,7 +73,7 @@ instance AWSRequest ResetCache where
         response
           = receiveJSON
               (\ s h x ->
-                 ResetCacheResponse' <$> x .:> "GatewayARN")
+                 ResetCacheResponse' <$> x .?> "GatewayARN")
 
 instance ToHeaders ResetCache where
         toHeaders
@@ -99,12 +99,12 @@ instance ToQuery ResetCache where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rcrGatewayARN'
-newtype ResetCacheResponse = ResetCacheResponse'{_rcrGatewayARN :: Text} deriving (Eq, Read, Show)
+newtype ResetCacheResponse = ResetCacheResponse'{_rcrGatewayARN :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ResetCacheResponse' smart constructor.
-resetCacheResponse :: Text -> ResetCacheResponse
-resetCacheResponse pGatewayARN = ResetCacheResponse'{_rcrGatewayARN = pGatewayARN};
+resetCacheResponse :: ResetCacheResponse
+resetCacheResponse = ResetCacheResponse'{_rcrGatewayARN = Nothing};
 
 -- | FIXME: Undocumented member.
-rcrGatewayARN :: Lens' ResetCacheResponse Text
+rcrGatewayARN :: Lens' ResetCacheResponse (Maybe Text)
 rcrGatewayARN = lens _rcrGatewayARN (\ s a -> s{_rcrGatewayARN = a});

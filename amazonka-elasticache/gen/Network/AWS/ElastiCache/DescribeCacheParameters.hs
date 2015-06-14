@@ -131,19 +131,19 @@ instance ToQuery DescribeCacheParameters where
 -- * 'dcprParameters'
 --
 -- * 'dcprMarker'
-data DescribeCacheParametersResponse = DescribeCacheParametersResponse'{_dcprCacheNodeTypeSpecificParameters :: [CacheNodeTypeSpecificParameter], _dcprParameters :: [Parameter], _dcprMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeCacheParametersResponse = DescribeCacheParametersResponse'{_dcprCacheNodeTypeSpecificParameters :: Maybe [CacheNodeTypeSpecificParameter], _dcprParameters :: Maybe [Parameter], _dcprMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeCacheParametersResponse' smart constructor.
 describeCacheParametersResponse :: DescribeCacheParametersResponse
-describeCacheParametersResponse = DescribeCacheParametersResponse'{_dcprCacheNodeTypeSpecificParameters = mempty, _dcprParameters = mempty, _dcprMarker = Nothing};
+describeCacheParametersResponse = DescribeCacheParametersResponse'{_dcprCacheNodeTypeSpecificParameters = Nothing, _dcprParameters = Nothing, _dcprMarker = Nothing};
 
 -- | A list of parameters specific to a particular cache node type. Each
 -- element in the list contains detailed information about one parameter.
-dcprCacheNodeTypeSpecificParameters :: Lens' DescribeCacheParametersResponse [CacheNodeTypeSpecificParameter]
+dcprCacheNodeTypeSpecificParameters :: Lens' DescribeCacheParametersResponse (Maybe [CacheNodeTypeSpecificParameter])
 dcprCacheNodeTypeSpecificParameters = lens _dcprCacheNodeTypeSpecificParameters (\ s a -> s{_dcprCacheNodeTypeSpecificParameters = a});
 
 -- | A list of Parameter instances.
-dcprParameters :: Lens' DescribeCacheParametersResponse [Parameter]
+dcprParameters :: Lens' DescribeCacheParametersResponse (Maybe [Parameter])
 dcprParameters = lens _dcprParameters (\ s a -> s{_dcprParameters = a});
 
 -- | Provides an identifier to allow retrieval of paginated results.

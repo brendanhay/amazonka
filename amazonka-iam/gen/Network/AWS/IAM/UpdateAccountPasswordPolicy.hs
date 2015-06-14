@@ -34,14 +34,14 @@ module Network.AWS.IAM.UpdateAccountPasswordPolicy
     , updateAccountPasswordPolicy
     -- ** Request lenses
     , uappRequireNumbers
+    , uappMinimumPasswordLength
+    , uappPasswordReusePrevention
     , uappRequireLowercaseCharacters
+    , uappMaxPasswordAge
     , uappHardExpiry
     , uappRequireSymbols
     , uappRequireUppercaseCharacters
     , uappAllowUsersToChangePassword
-    , uappMinimumPasswordLength
-    , uappPasswordReusePrevention
-    , uappMaxPasswordAge
 
     -- * Response
     , UpdateAccountPasswordPolicyResponse
@@ -60,7 +60,13 @@ import Network.AWS.IAM.Types
 --
 -- * 'uappRequireNumbers'
 --
+-- * 'uappMinimumPasswordLength'
+--
+-- * 'uappPasswordReusePrevention'
+--
 -- * 'uappRequireLowercaseCharacters'
+--
+-- * 'uappMaxPasswordAge'
 --
 -- * 'uappHardExpiry'
 --
@@ -69,17 +75,11 @@ import Network.AWS.IAM.Types
 -- * 'uappRequireUppercaseCharacters'
 --
 -- * 'uappAllowUsersToChangePassword'
---
--- * 'uappMinimumPasswordLength'
---
--- * 'uappPasswordReusePrevention'
---
--- * 'uappMaxPasswordAge'
-data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy'{_uappRequireNumbers :: Maybe Bool, _uappRequireLowercaseCharacters :: Maybe Bool, _uappHardExpiry :: Maybe Bool, _uappRequireSymbols :: Maybe Bool, _uappRequireUppercaseCharacters :: Maybe Bool, _uappAllowUsersToChangePassword :: Maybe Bool, _uappMinimumPasswordLength :: Nat, _uappPasswordReusePrevention :: Nat, _uappMaxPasswordAge :: Nat} deriving (Eq, Read, Show)
+data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy'{_uappRequireNumbers :: Maybe Bool, _uappMinimumPasswordLength :: Maybe Nat, _uappPasswordReusePrevention :: Maybe Nat, _uappRequireLowercaseCharacters :: Maybe Bool, _uappMaxPasswordAge :: Maybe Nat, _uappHardExpiry :: Maybe Bool, _uappRequireSymbols :: Maybe Bool, _uappRequireUppercaseCharacters :: Maybe Bool, _uappAllowUsersToChangePassword :: Maybe Bool} deriving (Eq, Read, Show)
 
 -- | 'UpdateAccountPasswordPolicy' smart constructor.
-updateAccountPasswordPolicy :: Natural -> Natural -> Natural -> UpdateAccountPasswordPolicy
-updateAccountPasswordPolicy pMinimumPasswordLength pPasswordReusePrevention pMaxPasswordAge = UpdateAccountPasswordPolicy'{_uappRequireNumbers = Nothing, _uappRequireLowercaseCharacters = Nothing, _uappHardExpiry = Nothing, _uappRequireSymbols = Nothing, _uappRequireUppercaseCharacters = Nothing, _uappAllowUsersToChangePassword = Nothing, _uappMinimumPasswordLength = _Nat # pMinimumPasswordLength, _uappPasswordReusePrevention = _Nat # pPasswordReusePrevention, _uappMaxPasswordAge = _Nat # pMaxPasswordAge};
+updateAccountPasswordPolicy :: UpdateAccountPasswordPolicy
+updateAccountPasswordPolicy = UpdateAccountPasswordPolicy'{_uappRequireNumbers = Nothing, _uappMinimumPasswordLength = Nothing, _uappPasswordReusePrevention = Nothing, _uappRequireLowercaseCharacters = Nothing, _uappMaxPasswordAge = Nothing, _uappHardExpiry = Nothing, _uappRequireSymbols = Nothing, _uappRequireUppercaseCharacters = Nothing, _uappAllowUsersToChangePassword = Nothing};
 
 -- | Specifies whether IAM user passwords must contain at least one numeric
 -- character (0 to 9).
@@ -88,12 +88,33 @@ updateAccountPasswordPolicy pMinimumPasswordLength pPasswordReusePrevention pMax
 uappRequireNumbers :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
 uappRequireNumbers = lens _uappRequireNumbers (\ s a -> s{_uappRequireNumbers = a});
 
+-- | The minimum number of characters allowed in an IAM user password.
+--
+-- Default value: 6
+uappMinimumPasswordLength :: Lens' UpdateAccountPasswordPolicy (Maybe Natural)
+uappMinimumPasswordLength = lens _uappMinimumPasswordLength (\ s a -> s{_uappMinimumPasswordLength = a}) . mapping _Nat;
+
+-- | Specifies the number of previous passwords that IAM users are prevented
+-- from reusing. The default value of 0 means IAM users are not prevented
+-- from reusing previous passwords.
+--
+-- Default value: 0
+uappPasswordReusePrevention :: Lens' UpdateAccountPasswordPolicy (Maybe Natural)
+uappPasswordReusePrevention = lens _uappPasswordReusePrevention (\ s a -> s{_uappPasswordReusePrevention = a}) . mapping _Nat;
+
 -- | Specifies whether IAM user passwords must contain at least one lowercase
 -- character from the ISO basic Latin alphabet (a to z).
 --
 -- Default value: false
 uappRequireLowercaseCharacters :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
 uappRequireLowercaseCharacters = lens _uappRequireLowercaseCharacters (\ s a -> s{_uappRequireLowercaseCharacters = a});
+
+-- | The number of days that an IAM user password is valid. The default value
+-- of 0 means IAM user passwords never expire.
+--
+-- Default value: 0
+uappMaxPasswordAge :: Lens' UpdateAccountPasswordPolicy (Maybe Natural)
+uappMaxPasswordAge = lens _uappMaxPasswordAge (\ s a -> s{_uappMaxPasswordAge = a}) . mapping _Nat;
 
 -- | Prevents IAM users from setting a new password after their password has
 -- expired.
@@ -127,27 +148,6 @@ uappRequireUppercaseCharacters = lens _uappRequireUppercaseCharacters (\ s a -> 
 uappAllowUsersToChangePassword :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
 uappAllowUsersToChangePassword = lens _uappAllowUsersToChangePassword (\ s a -> s{_uappAllowUsersToChangePassword = a});
 
--- | The minimum number of characters allowed in an IAM user password.
---
--- Default value: 6
-uappMinimumPasswordLength :: Lens' UpdateAccountPasswordPolicy Natural
-uappMinimumPasswordLength = lens _uappMinimumPasswordLength (\ s a -> s{_uappMinimumPasswordLength = a}) . _Nat;
-
--- | Specifies the number of previous passwords that IAM users are prevented
--- from reusing. The default value of 0 means IAM users are not prevented
--- from reusing previous passwords.
---
--- Default value: 0
-uappPasswordReusePrevention :: Lens' UpdateAccountPasswordPolicy Natural
-uappPasswordReusePrevention = lens _uappPasswordReusePrevention (\ s a -> s{_uappPasswordReusePrevention = a}) . _Nat;
-
--- | The number of days that an IAM user password is valid. The default value
--- of 0 means IAM user passwords never expire.
---
--- Default value: 0
-uappMaxPasswordAge :: Lens' UpdateAccountPasswordPolicy Natural
-uappMaxPasswordAge = lens _uappMaxPasswordAge (\ s a -> s{_uappMaxPasswordAge = a}) . _Nat;
-
 instance AWSRequest UpdateAccountPasswordPolicy where
         type Sv UpdateAccountPasswordPolicy = IAM
         type Rs UpdateAccountPasswordPolicy =
@@ -169,19 +169,19 @@ instance ToQuery UpdateAccountPasswordPolicy where
                  ("UpdateAccountPasswordPolicy" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
                "RequireNumbers" =: _uappRequireNumbers,
+               "MinimumPasswordLength" =:
+                 _uappMinimumPasswordLength,
+               "PasswordReusePrevention" =:
+                 _uappPasswordReusePrevention,
                "RequireLowercaseCharacters" =:
                  _uappRequireLowercaseCharacters,
+               "MaxPasswordAge" =: _uappMaxPasswordAge,
                "HardExpiry" =: _uappHardExpiry,
                "RequireSymbols" =: _uappRequireSymbols,
                "RequireUppercaseCharacters" =:
                  _uappRequireUppercaseCharacters,
                "AllowUsersToChangePassword" =:
-                 _uappAllowUsersToChangePassword,
-               "MinimumPasswordLength" =:
-                 _uappMinimumPasswordLength,
-               "PasswordReusePrevention" =:
-                 _uappPasswordReusePrevention,
-               "MaxPasswordAge" =: _uappMaxPasswordAge]
+                 _uappAllowUsersToChangePassword]
 
 -- | /See:/ 'updateAccountPasswordPolicyResponse' smart constructor.
 data UpdateAccountPasswordPolicyResponse = UpdateAccountPasswordPolicyResponse' deriving (Eq, Read, Show)

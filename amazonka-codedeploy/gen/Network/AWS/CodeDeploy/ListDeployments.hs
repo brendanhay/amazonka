@@ -58,11 +58,11 @@ import Network.AWS.CodeDeploy.Types
 -- * 'ldApplicationName'
 --
 -- * 'ldDeploymentGroupName'
-data ListDeployments = ListDeployments'{_ldCreateTimeRange :: Maybe TimeRange, _ldNextToken :: Maybe Text, _ldIncludeOnlyStatuses :: [DeploymentStatus], _ldApplicationName :: Text, _ldDeploymentGroupName :: Text} deriving (Eq, Read, Show)
+data ListDeployments = ListDeployments'{_ldCreateTimeRange :: Maybe TimeRange, _ldNextToken :: Maybe Text, _ldIncludeOnlyStatuses :: Maybe [DeploymentStatus], _ldApplicationName :: Maybe Text, _ldDeploymentGroupName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ListDeployments' smart constructor.
-listDeployments :: Text -> Text -> ListDeployments
-listDeployments pApplicationName pDeploymentGroupName = ListDeployments'{_ldCreateTimeRange = Nothing, _ldNextToken = Nothing, _ldIncludeOnlyStatuses = mempty, _ldApplicationName = pApplicationName, _ldDeploymentGroupName = pDeploymentGroupName};
+listDeployments :: ListDeployments
+listDeployments = ListDeployments'{_ldCreateTimeRange = Nothing, _ldNextToken = Nothing, _ldIncludeOnlyStatuses = Nothing, _ldApplicationName = Nothing, _ldDeploymentGroupName = Nothing};
 
 -- | A deployment creation start- and end-time range for returning a subset
 -- of the list of deployments.
@@ -82,16 +82,16 @@ ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a});
 -- -   Succeeded: Include in the resulting list succeeded deployments.
 -- -   Failed: Include in the resulting list failed deployments.
 -- -   Aborted: Include in the resulting list aborted deployments.
-ldIncludeOnlyStatuses :: Lens' ListDeployments [DeploymentStatus]
+ldIncludeOnlyStatuses :: Lens' ListDeployments (Maybe [DeploymentStatus])
 ldIncludeOnlyStatuses = lens _ldIncludeOnlyStatuses (\ s a -> s{_ldIncludeOnlyStatuses = a});
 
 -- | The name of an existing AWS CodeDeploy application associated with the
 -- applicable IAM user or AWS account.
-ldApplicationName :: Lens' ListDeployments Text
+ldApplicationName :: Lens' ListDeployments (Maybe Text)
 ldApplicationName = lens _ldApplicationName (\ s a -> s{_ldApplicationName = a});
 
 -- | The name of an existing deployment group for the specified application.
-ldDeploymentGroupName :: Lens' ListDeployments Text
+ldDeploymentGroupName :: Lens' ListDeployments (Maybe Text)
 ldDeploymentGroupName = lens _ldDeploymentGroupName (\ s a -> s{_ldDeploymentGroupName = a});
 
 instance AWSRequest ListDeployments where
@@ -136,11 +136,11 @@ instance ToQuery ListDeployments where
 -- * 'ldrNextToken'
 --
 -- * 'ldrDeployments'
-data ListDeploymentsResponse = ListDeploymentsResponse'{_ldrNextToken :: Maybe Text, _ldrDeployments :: [Text]} deriving (Eq, Read, Show)
+data ListDeploymentsResponse = ListDeploymentsResponse'{_ldrNextToken :: Maybe Text, _ldrDeployments :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'ListDeploymentsResponse' smart constructor.
 listDeploymentsResponse :: ListDeploymentsResponse
-listDeploymentsResponse = ListDeploymentsResponse'{_ldrNextToken = Nothing, _ldrDeployments = mempty};
+listDeploymentsResponse = ListDeploymentsResponse'{_ldrNextToken = Nothing, _ldrDeployments = Nothing};
 
 -- | If the amount of information that is returned is significantly large, an
 -- identifier will also be returned, which can be used in a subsequent list
@@ -149,5 +149,5 @@ ldrNextToken :: Lens' ListDeploymentsResponse (Maybe Text)
 ldrNextToken = lens _ldrNextToken (\ s a -> s{_ldrNextToken = a});
 
 -- | A list of deployment IDs.
-ldrDeployments :: Lens' ListDeploymentsResponse [Text]
+ldrDeployments :: Lens' ListDeploymentsResponse (Maybe [Text])
 ldrDeployments = lens _ldrDeployments (\ s a -> s{_ldrDeployments = a});

@@ -67,9 +67,9 @@ module Network.AWS.Route53.ListResourceRecordSets
     -- ** Request lenses
     , lrrsStartRecordName
     , lrrsStartRecordType
+    , lrrsStartRecordIdentifier
     , lrrsMaxItems
     , lrrsHostedZoneId
-    , lrrsStartRecordIdentifier
 
     -- * Response
     , ListResourceRecordSetsResponse
@@ -78,10 +78,10 @@ module Network.AWS.Route53.ListResourceRecordSets
     -- ** Response lenses
     , lrrsrNextRecordType
     , lrrsrNextRecordName
+    , lrrsrNextRecordIdentifier
     , lrrsrResourceRecordSets
     , lrrsrIsTruncated
     , lrrsrMaxItems
-    , lrrsrNextRecordIdentifier
     ) where
 
 import Network.AWS.Request
@@ -97,16 +97,16 @@ import Network.AWS.Route53.Types
 --
 -- * 'lrrsStartRecordType'
 --
+-- * 'lrrsStartRecordIdentifier'
+--
 -- * 'lrrsMaxItems'
 --
 -- * 'lrrsHostedZoneId'
---
--- * 'lrrsStartRecordIdentifier'
-data ListResourceRecordSets = ListResourceRecordSets'{_lrrsStartRecordName :: Maybe Text, _lrrsStartRecordType :: Maybe RecordType, _lrrsMaxItems :: Maybe Text, _lrrsHostedZoneId :: Text, _lrrsStartRecordIdentifier :: Text} deriving (Eq, Read, Show)
+data ListResourceRecordSets = ListResourceRecordSets'{_lrrsStartRecordName :: Maybe Text, _lrrsStartRecordType :: Maybe RecordType, _lrrsStartRecordIdentifier :: Maybe Text, _lrrsMaxItems :: Maybe Text, _lrrsHostedZoneId :: Text} deriving (Eq, Read, Show)
 
 -- | 'ListResourceRecordSets' smart constructor.
-listResourceRecordSets :: Text -> Text -> ListResourceRecordSets
-listResourceRecordSets pHostedZoneId pStartRecordIdentifier = ListResourceRecordSets'{_lrrsStartRecordName = Nothing, _lrrsStartRecordType = Nothing, _lrrsMaxItems = Nothing, _lrrsHostedZoneId = pHostedZoneId, _lrrsStartRecordIdentifier = pStartRecordIdentifier};
+listResourceRecordSets :: Text -> ListResourceRecordSets
+listResourceRecordSets pHostedZoneId = ListResourceRecordSets'{_lrrsStartRecordName = Nothing, _lrrsStartRecordType = Nothing, _lrrsStartRecordIdentifier = Nothing, _lrrsMaxItems = Nothing, _lrrsHostedZoneId = pHostedZoneId};
 
 -- | The first name in the lexicographic ordering of domain names that you
 -- want the @ListResourceRecordSets@ request to list.
@@ -129,6 +129,14 @@ lrrsStartRecordName = lens _lrrsStartRecordName (\ s a -> s{_lrrsStartRecordName
 lrrsStartRecordType :: Lens' ListResourceRecordSets (Maybe RecordType)
 lrrsStartRecordType = lens _lrrsStartRecordType (\ s a -> s{_lrrsStartRecordType = a});
 
+-- | /Weighted resource record sets only:/ If results were truncated for a
+-- given DNS name and type, specify the value of
+-- @ListResourceRecordSetsResponse$NextRecordIdentifier@ from the previous
+-- response to get the next resource record set that has the current DNS
+-- name and type.
+lrrsStartRecordIdentifier :: Lens' ListResourceRecordSets (Maybe Text)
+lrrsStartRecordIdentifier = lens _lrrsStartRecordIdentifier (\ s a -> s{_lrrsStartRecordIdentifier = a});
+
 -- | The maximum number of records you want in the response body.
 lrrsMaxItems :: Lens' ListResourceRecordSets (Maybe Text)
 lrrsMaxItems = lens _lrrsMaxItems (\ s a -> s{_lrrsMaxItems = a});
@@ -137,14 +145,6 @@ lrrsMaxItems = lens _lrrsMaxItems (\ s a -> s{_lrrsMaxItems = a});
 -- you want to get.
 lrrsHostedZoneId :: Lens' ListResourceRecordSets Text
 lrrsHostedZoneId = lens _lrrsHostedZoneId (\ s a -> s{_lrrsHostedZoneId = a});
-
--- | /Weighted resource record sets only:/ If results were truncated for a
--- given DNS name and type, specify the value of
--- @ListResourceRecordSetsResponse$NextRecordIdentifier@ from the previous
--- response to get the next resource record set that has the current DNS
--- name and type.
-lrrsStartRecordIdentifier :: Lens' ListResourceRecordSets Text
-lrrsStartRecordIdentifier = lens _lrrsStartRecordIdentifier (\ s a -> s{_lrrsStartRecordIdentifier = a});
 
 instance AWSRequest ListResourceRecordSets where
         type Sv ListResourceRecordSets = Route53
@@ -156,11 +156,12 @@ instance AWSRequest ListResourceRecordSets where
               (\ s h x ->
                  ListResourceRecordSetsResponse' <$>
                    x .@? "NextRecordType" <*> x .@? "NextRecordName" <*>
+                     x .@? "NextRecordIdentifier"
+                     <*>
                      (x .@? "ResourceRecordSets" .!@ mempty >>=
                         parseXMLList "ResourceRecordSet")
                      <*> x .@ "IsTruncated"
-                     <*> x .@ "MaxItems"
-                     <*> x .@ "NextRecordIdentifier")
+                     <*> x .@ "MaxItems")
 
 instance ToHeaders ListResourceRecordSets where
         toHeaders = const mempty
@@ -176,8 +177,8 @@ instance ToQuery ListResourceRecordSets where
           = mconcat
               ["name" =: _lrrsStartRecordName,
                "type" =: _lrrsStartRecordType,
-               "maxitems" =: _lrrsMaxItems,
-               "identifier" =: _lrrsStartRecordIdentifier]
+               "identifier" =: _lrrsStartRecordIdentifier,
+               "maxitems" =: _lrrsMaxItems]
 
 -- | /See:/ 'listResourceRecordSetsResponse' smart constructor.
 --
@@ -187,18 +188,18 @@ instance ToQuery ListResourceRecordSets where
 --
 -- * 'lrrsrNextRecordName'
 --
+-- * 'lrrsrNextRecordIdentifier'
+--
 -- * 'lrrsrResourceRecordSets'
 --
 -- * 'lrrsrIsTruncated'
 --
 -- * 'lrrsrMaxItems'
---
--- * 'lrrsrNextRecordIdentifier'
-data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse'{_lrrsrNextRecordType :: Maybe RecordType, _lrrsrNextRecordName :: Maybe Text, _lrrsrResourceRecordSets :: [ResourceRecordSet], _lrrsrIsTruncated :: Bool, _lrrsrMaxItems :: Text, _lrrsrNextRecordIdentifier :: Text} deriving (Eq, Read, Show)
+data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse'{_lrrsrNextRecordType :: Maybe RecordType, _lrrsrNextRecordName :: Maybe Text, _lrrsrNextRecordIdentifier :: Maybe Text, _lrrsrResourceRecordSets :: [ResourceRecordSet], _lrrsrIsTruncated :: Bool, _lrrsrMaxItems :: Text} deriving (Eq, Read, Show)
 
 -- | 'ListResourceRecordSetsResponse' smart constructor.
-listResourceRecordSetsResponse :: [ResourceRecordSet] -> Bool -> Text -> Text -> ListResourceRecordSetsResponse
-listResourceRecordSetsResponse pResourceRecordSets pIsTruncated pMaxItems pNextRecordIdentifier = ListResourceRecordSetsResponse'{_lrrsrNextRecordType = Nothing, _lrrsrNextRecordName = Nothing, _lrrsrResourceRecordSets = pResourceRecordSets, _lrrsrIsTruncated = pIsTruncated, _lrrsrMaxItems = pMaxItems, _lrrsrNextRecordIdentifier = pNextRecordIdentifier};
+listResourceRecordSetsResponse :: Bool -> Text -> ListResourceRecordSetsResponse
+listResourceRecordSetsResponse pIsTruncated pMaxItems = ListResourceRecordSetsResponse'{_lrrsrNextRecordType = Nothing, _lrrsrNextRecordName = Nothing, _lrrsrNextRecordIdentifier = Nothing, _lrrsrResourceRecordSets = mempty, _lrrsrIsTruncated = pIsTruncated, _lrrsrMaxItems = pMaxItems};
 
 -- | If the results were truncated, the type of the next record in the list.
 -- This element is present only if
@@ -211,6 +212,12 @@ lrrsrNextRecordType = lens _lrrsrNextRecordType (\ s a -> s{_lrrsrNextRecordType
 -- ListResourceRecordSetsResponse$IsTruncated is true.
 lrrsrNextRecordName :: Lens' ListResourceRecordSetsResponse (Maybe Text)
 lrrsrNextRecordName = lens _lrrsrNextRecordName (\ s a -> s{_lrrsrNextRecordName = a});
+
+-- | /Weighted resource record sets only:/ If results were truncated for a
+-- given DNS name and type, the value of @SetIdentifier@ for the next
+-- resource record set that has the current DNS name and type.
+lrrsrNextRecordIdentifier :: Lens' ListResourceRecordSetsResponse (Maybe Text)
+lrrsrNextRecordIdentifier = lens _lrrsrNextRecordIdentifier (\ s a -> s{_lrrsrNextRecordIdentifier = a});
 
 -- | A complex type that contains information about the resource record sets
 -- that are returned by the request.
@@ -230,9 +237,3 @@ lrrsrIsTruncated = lens _lrrsrIsTruncated (\ s a -> s{_lrrsrIsTruncated = a});
 -- @MaxItems@ is 100.
 lrrsrMaxItems :: Lens' ListResourceRecordSetsResponse Text
 lrrsrMaxItems = lens _lrrsrMaxItems (\ s a -> s{_lrrsrMaxItems = a});
-
--- | /Weighted resource record sets only:/ If results were truncated for a
--- given DNS name and type, the value of @SetIdentifier@ for the next
--- resource record set that has the current DNS name and type.
-lrrsrNextRecordIdentifier :: Lens' ListResourceRecordSetsResponse Text
-lrrsrNextRecordIdentifier = lens _lrrsrNextRecordIdentifier (\ s a -> s{_lrrsrNextRecordIdentifier = a});

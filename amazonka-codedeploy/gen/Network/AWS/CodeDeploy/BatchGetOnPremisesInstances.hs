@@ -44,14 +44,14 @@ import Network.AWS.CodeDeploy.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'bgopiInstanceNames'
-newtype BatchGetOnPremisesInstances = BatchGetOnPremisesInstances'{_bgopiInstanceNames :: [Text]} deriving (Eq, Read, Show)
+newtype BatchGetOnPremisesInstances = BatchGetOnPremisesInstances'{_bgopiInstanceNames :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'BatchGetOnPremisesInstances' smart constructor.
 batchGetOnPremisesInstances :: BatchGetOnPremisesInstances
-batchGetOnPremisesInstances = BatchGetOnPremisesInstances'{_bgopiInstanceNames = mempty};
+batchGetOnPremisesInstances = BatchGetOnPremisesInstances'{_bgopiInstanceNames = Nothing};
 
 -- | The names of the on-premises instances to get information about.
-bgopiInstanceNames :: Lens' BatchGetOnPremisesInstances [Text]
+bgopiInstanceNames :: Lens' BatchGetOnPremisesInstances (Maybe [Text])
 bgopiInstanceNames = lens _bgopiInstanceNames (\ s a -> s{_bgopiInstanceNames = a});
 
 instance AWSRequest BatchGetOnPremisesInstances where
@@ -90,12 +90,12 @@ instance ToQuery BatchGetOnPremisesInstances where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'bgopirInstanceInfos'
-newtype BatchGetOnPremisesInstancesResponse = BatchGetOnPremisesInstancesResponse'{_bgopirInstanceInfos :: [InstanceInfo]} deriving (Eq, Read, Show)
+newtype BatchGetOnPremisesInstancesResponse = BatchGetOnPremisesInstancesResponse'{_bgopirInstanceInfos :: Maybe [InstanceInfo]} deriving (Eq, Read, Show)
 
 -- | 'BatchGetOnPremisesInstancesResponse' smart constructor.
 batchGetOnPremisesInstancesResponse :: BatchGetOnPremisesInstancesResponse
-batchGetOnPremisesInstancesResponse = BatchGetOnPremisesInstancesResponse'{_bgopirInstanceInfos = mempty};
+batchGetOnPremisesInstancesResponse = BatchGetOnPremisesInstancesResponse'{_bgopirInstanceInfos = Nothing};
 
 -- | Information about the on-premises instances.
-bgopirInstanceInfos :: Lens' BatchGetOnPremisesInstancesResponse [InstanceInfo]
+bgopirInstanceInfos :: Lens' BatchGetOnPremisesInstancesResponse (Maybe [InstanceInfo])
 bgopirInstanceInfos = lens _bgopirInstanceInfos (\ s a -> s{_bgopirInstanceInfos = a});

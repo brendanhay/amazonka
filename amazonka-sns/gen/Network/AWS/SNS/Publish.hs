@@ -69,15 +69,15 @@ import Network.AWS.SNS.Types
 -- * 'pubMessageStructure'
 --
 -- * 'pubMessage'
-data Publish = Publish'{_pubMessageAttributes :: HashMap Text MessageAttributeValue, _pubTargetARN :: Maybe Text, _pubSubject :: Maybe Text, _pubTopicARN :: Maybe Text, _pubMessageStructure :: Maybe Text, _pubMessage :: Text} deriving (Eq, Read, Show)
+data Publish = Publish'{_pubMessageAttributes :: Maybe (HashMap Text MessageAttributeValue), _pubTargetARN :: Maybe Text, _pubSubject :: Maybe Text, _pubTopicARN :: Maybe Text, _pubMessageStructure :: Maybe Text, _pubMessage :: Text} deriving (Eq, Read, Show)
 
 -- | 'Publish' smart constructor.
 publish :: Text -> Publish
-publish pMessage = Publish'{_pubMessageAttributes = mempty, _pubTargetARN = Nothing, _pubSubject = Nothing, _pubTopicARN = Nothing, _pubMessageStructure = Nothing, _pubMessage = pMessage};
+publish pMessage = Publish'{_pubMessageAttributes = Nothing, _pubTargetARN = Nothing, _pubSubject = Nothing, _pubTopicARN = Nothing, _pubMessageStructure = Nothing, _pubMessage = pMessage};
 
 -- | Message attributes for Publish action.
-pubMessageAttributes :: Lens' Publish (HashMap Text MessageAttributeValue)
-pubMessageAttributes = lens _pubMessageAttributes (\ s a -> s{_pubMessageAttributes = a}) . _Coerce;
+pubMessageAttributes :: Lens' Publish (Maybe (HashMap Text MessageAttributeValue))
+pubMessageAttributes = lens _pubMessageAttributes (\ s a -> s{_pubMessageAttributes = a}) . mapping _Coerce;
 
 -- | Either TopicArn or EndpointArn, but not both.
 pubTargetARN :: Lens' Publish (Maybe Text)

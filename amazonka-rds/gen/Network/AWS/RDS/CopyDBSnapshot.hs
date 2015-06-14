@@ -51,14 +51,14 @@ import Network.AWS.RDS.Types
 -- * 'cdsSourceDBSnapshotIdentifier'
 --
 -- * 'cdsTargetDBSnapshotIdentifier'
-data CopyDBSnapshot = CopyDBSnapshot'{_cdsTags :: [Tag], _cdsSourceDBSnapshotIdentifier :: Text, _cdsTargetDBSnapshotIdentifier :: Text} deriving (Eq, Read, Show)
+data CopyDBSnapshot = CopyDBSnapshot'{_cdsTags :: Maybe [Tag], _cdsSourceDBSnapshotIdentifier :: Text, _cdsTargetDBSnapshotIdentifier :: Text} deriving (Eq, Read, Show)
 
 -- | 'CopyDBSnapshot' smart constructor.
 copyDBSnapshot :: Text -> Text -> CopyDBSnapshot
-copyDBSnapshot pSourceDBSnapshotIdentifier pTargetDBSnapshotIdentifier = CopyDBSnapshot'{_cdsTags = mempty, _cdsSourceDBSnapshotIdentifier = pSourceDBSnapshotIdentifier, _cdsTargetDBSnapshotIdentifier = pTargetDBSnapshotIdentifier};
+copyDBSnapshot pSourceDBSnapshotIdentifier pTargetDBSnapshotIdentifier = CopyDBSnapshot'{_cdsTags = Nothing, _cdsSourceDBSnapshotIdentifier = pSourceDBSnapshotIdentifier, _cdsTargetDBSnapshotIdentifier = pTargetDBSnapshotIdentifier};
 
 -- | FIXME: Undocumented member.
-cdsTags :: Lens' CopyDBSnapshot [Tag]
+cdsTags :: Lens' CopyDBSnapshot (Maybe [Tag])
 cdsTags = lens _cdsTags (\ s a -> s{_cdsTags = a});
 
 -- | The identifier for the source DB snapshot.

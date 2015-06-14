@@ -80,14 +80,14 @@ instance ToQuery DescribeAccountAttributes where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'daarAccountQuotas'
-newtype DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'{_daarAccountQuotas :: [AccountQuota]} deriving (Eq, Read, Show)
+newtype DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'{_daarAccountQuotas :: Maybe [AccountQuota]} deriving (Eq, Read, Show)
 
 -- | 'DescribeAccountAttributesResponse' smart constructor.
 describeAccountAttributesResponse :: DescribeAccountAttributesResponse
-describeAccountAttributesResponse = DescribeAccountAttributesResponse'{_daarAccountQuotas = mempty};
+describeAccountAttributesResponse = DescribeAccountAttributesResponse'{_daarAccountQuotas = Nothing};
 
 -- | A list of AccountQuota objects. Within this list, each quota has a name,
 -- a count of usage toward the quota maximum, and a maximum value for the
 -- quota.
-daarAccountQuotas :: Lens' DescribeAccountAttributesResponse [AccountQuota]
+daarAccountQuotas :: Lens' DescribeAccountAttributesResponse (Maybe [AccountQuota])
 daarAccountQuotas = lens _daarAccountQuotas (\ s a -> s{_daarAccountQuotas = a});

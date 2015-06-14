@@ -34,8 +34,8 @@ module Network.AWS.IAM.GetAccessKeyLastUsed
     -- ** Response constructor
     , getAccessKeyLastUsedResponse
     -- ** Response lenses
-    , gaklurAccessKeyLastUsed
     , gaklurUserName
+    , gaklurAccessKeyLastUsed
     ) where
 
 import Network.AWS.Request
@@ -67,7 +67,7 @@ instance AWSRequest GetAccessKeyLastUsed where
           = receiveXMLWrapper "GetAccessKeyLastUsedResult"
               (\ s h x ->
                  GetAccessKeyLastUsedResponse' <$>
-                   x .@? "AccessKeyLastUsed" <*> x .@ "UserName")
+                   x .@? "UserName" <*> x .@? "AccessKeyLastUsed")
 
 instance ToHeaders GetAccessKeyLastUsed where
         toHeaders = const mempty
@@ -86,19 +86,19 @@ instance ToQuery GetAccessKeyLastUsed where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gaklurAccessKeyLastUsed'
---
 -- * 'gaklurUserName'
-data GetAccessKeyLastUsedResponse = GetAccessKeyLastUsedResponse'{_gaklurAccessKeyLastUsed :: Maybe AccessKeyLastUsed, _gaklurUserName :: Text} deriving (Eq, Read, Show)
+--
+-- * 'gaklurAccessKeyLastUsed'
+data GetAccessKeyLastUsedResponse = GetAccessKeyLastUsedResponse'{_gaklurUserName :: Maybe Text, _gaklurAccessKeyLastUsed :: Maybe AccessKeyLastUsed} deriving (Eq, Read, Show)
 
 -- | 'GetAccessKeyLastUsedResponse' smart constructor.
-getAccessKeyLastUsedResponse :: Text -> GetAccessKeyLastUsedResponse
-getAccessKeyLastUsedResponse pUserName = GetAccessKeyLastUsedResponse'{_gaklurAccessKeyLastUsed = Nothing, _gaklurUserName = pUserName};
+getAccessKeyLastUsedResponse :: GetAccessKeyLastUsedResponse
+getAccessKeyLastUsedResponse = GetAccessKeyLastUsedResponse'{_gaklurUserName = Nothing, _gaklurAccessKeyLastUsed = Nothing};
+
+-- | The name of the AWS IAM user that owns this access key.
+gaklurUserName :: Lens' GetAccessKeyLastUsedResponse (Maybe Text)
+gaklurUserName = lens _gaklurUserName (\ s a -> s{_gaklurUserName = a});
 
 -- | Contains information about the last time the access key was used.
 gaklurAccessKeyLastUsed :: Lens' GetAccessKeyLastUsedResponse (Maybe AccessKeyLastUsed)
 gaklurAccessKeyLastUsed = lens _gaklurAccessKeyLastUsed (\ s a -> s{_gaklurAccessKeyLastUsed = a});
-
--- | The name of the AWS IAM user that owns this access key.
-gaklurUserName :: Lens' GetAccessKeyLastUsedResponse Text
-gaklurUserName = lens _gaklurUserName (\ s a -> s{_gaklurUserName = a});

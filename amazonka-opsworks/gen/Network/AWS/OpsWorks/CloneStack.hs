@@ -110,14 +110,14 @@ import Network.AWS.OpsWorks.Types
 -- * 'cloSourceStackId'
 --
 -- * 'cloServiceRoleARN'
-data CloneStack = CloneStack'{_cloCloneAppIds :: [Text], _cloDefaultInstanceProfileARN :: Maybe Text, _cloDefaultRootDeviceType :: Maybe RootDeviceType, _cloChefConfiguration :: Maybe ChefConfiguration, _cloVPCId :: Maybe Text, _cloDefaultSSHKeyName :: Maybe Text, _cloCustomJSON :: Maybe Text, _cloClonePermissions :: Maybe Bool, _cloCustomCookbooksSource :: Maybe Source, _cloDefaultAvailabilityZone :: Maybe Text, _cloName :: Maybe Text, _cloUseOpsworksSecurityGroups :: Maybe Bool, _cloDefaultOS :: Maybe Text, _cloAttributes :: HashMap StackAttributesKeys Text, _cloUseCustomCookbooks :: Maybe Bool, _cloDefaultSubnetId :: Maybe Text, _cloRegion :: Maybe Text, _cloConfigurationManager :: Maybe StackConfigurationManager, _cloHostnameTheme :: Maybe Text, _cloSourceStackId :: Text, _cloServiceRoleARN :: Text} deriving (Eq, Read, Show)
+data CloneStack = CloneStack'{_cloCloneAppIds :: Maybe [Text], _cloDefaultInstanceProfileARN :: Maybe Text, _cloDefaultRootDeviceType :: Maybe RootDeviceType, _cloChefConfiguration :: Maybe ChefConfiguration, _cloVPCId :: Maybe Text, _cloDefaultSSHKeyName :: Maybe Text, _cloCustomJSON :: Maybe Text, _cloClonePermissions :: Maybe Bool, _cloCustomCookbooksSource :: Maybe Source, _cloDefaultAvailabilityZone :: Maybe Text, _cloName :: Maybe Text, _cloUseOpsworksSecurityGroups :: Maybe Bool, _cloDefaultOS :: Maybe Text, _cloAttributes :: Maybe (HashMap StackAttributesKeys Text), _cloUseCustomCookbooks :: Maybe Bool, _cloDefaultSubnetId :: Maybe Text, _cloRegion :: Maybe Text, _cloConfigurationManager :: Maybe StackConfigurationManager, _cloHostnameTheme :: Maybe Text, _cloSourceStackId :: Text, _cloServiceRoleARN :: Text} deriving (Eq, Read, Show)
 
 -- | 'CloneStack' smart constructor.
 cloneStack :: Text -> Text -> CloneStack
-cloneStack pSourceStackId pServiceRoleARN = CloneStack'{_cloCloneAppIds = mempty, _cloDefaultInstanceProfileARN = Nothing, _cloDefaultRootDeviceType = Nothing, _cloChefConfiguration = Nothing, _cloVPCId = Nothing, _cloDefaultSSHKeyName = Nothing, _cloCustomJSON = Nothing, _cloClonePermissions = Nothing, _cloCustomCookbooksSource = Nothing, _cloDefaultAvailabilityZone = Nothing, _cloName = Nothing, _cloUseOpsworksSecurityGroups = Nothing, _cloDefaultOS = Nothing, _cloAttributes = mempty, _cloUseCustomCookbooks = Nothing, _cloDefaultSubnetId = Nothing, _cloRegion = Nothing, _cloConfigurationManager = Nothing, _cloHostnameTheme = Nothing, _cloSourceStackId = pSourceStackId, _cloServiceRoleARN = pServiceRoleARN};
+cloneStack pSourceStackId pServiceRoleARN = CloneStack'{_cloCloneAppIds = Nothing, _cloDefaultInstanceProfileARN = Nothing, _cloDefaultRootDeviceType = Nothing, _cloChefConfiguration = Nothing, _cloVPCId = Nothing, _cloDefaultSSHKeyName = Nothing, _cloCustomJSON = Nothing, _cloClonePermissions = Nothing, _cloCustomCookbooksSource = Nothing, _cloDefaultAvailabilityZone = Nothing, _cloName = Nothing, _cloUseOpsworksSecurityGroups = Nothing, _cloDefaultOS = Nothing, _cloAttributes = Nothing, _cloUseCustomCookbooks = Nothing, _cloDefaultSubnetId = Nothing, _cloRegion = Nothing, _cloConfigurationManager = Nothing, _cloHostnameTheme = Nothing, _cloSourceStackId = pSourceStackId, _cloServiceRoleARN = pServiceRoleARN};
 
 -- | A list of source stack app IDs to be included in the cloned stack.
-cloCloneAppIds :: Lens' CloneStack [Text]
+cloCloneAppIds :: Lens' CloneStack (Maybe [Text])
 cloCloneAppIds = lens _cloCloneAppIds (\ s a -> s{_cloCloneAppIds = a});
 
 -- | The ARN of an IAM profile that is the default profile for all of the
@@ -253,8 +253,8 @@ cloDefaultOS = lens _cloDefaultOS (\ s a -> s{_cloDefaultOS = a});
 
 -- | A list of stack attributes and values as key\/value pairs to be added to
 -- the cloned stack.
-cloAttributes :: Lens' CloneStack (HashMap StackAttributesKeys Text)
-cloAttributes = lens _cloAttributes (\ s a -> s{_cloAttributes = a}) . _Coerce;
+cloAttributes :: Lens' CloneStack (Maybe (HashMap StackAttributesKeys Text))
+cloAttributes = lens _cloAttributes (\ s a -> s{_cloAttributes = a}) . mapping _Coerce;
 
 -- | Whether to use custom cookbooks.
 cloUseCustomCookbooks :: Lens' CloneStack (Maybe Bool)

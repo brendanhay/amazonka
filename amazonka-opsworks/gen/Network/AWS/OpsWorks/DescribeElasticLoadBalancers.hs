@@ -55,15 +55,15 @@ import Network.AWS.OpsWorks.Types
 -- * 'delbLayerIds'
 --
 -- * 'delbStackId'
-data DescribeElasticLoadBalancers = DescribeElasticLoadBalancers'{_delbLayerIds :: [Text], _delbStackId :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeElasticLoadBalancers = DescribeElasticLoadBalancers'{_delbLayerIds :: Maybe [Text], _delbStackId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeElasticLoadBalancers' smart constructor.
 describeElasticLoadBalancers :: DescribeElasticLoadBalancers
-describeElasticLoadBalancers = DescribeElasticLoadBalancers'{_delbLayerIds = mempty, _delbStackId = Nothing};
+describeElasticLoadBalancers = DescribeElasticLoadBalancers'{_delbLayerIds = Nothing, _delbStackId = Nothing};
 
 -- | A list of layer IDs. The action describes the Elastic Load Balancing
 -- instances for the specified layers.
-delbLayerIds :: Lens' DescribeElasticLoadBalancers [Text]
+delbLayerIds :: Lens' DescribeElasticLoadBalancers (Maybe [Text])
 delbLayerIds = lens _delbLayerIds (\ s a -> s{_delbLayerIds = a});
 
 -- | A stack ID. The action describes the stack\'s Elastic Load Balancing
@@ -110,13 +110,13 @@ instance ToQuery DescribeElasticLoadBalancers where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'delbrElasticLoadBalancers'
-newtype DescribeElasticLoadBalancersResponse = DescribeElasticLoadBalancersResponse'{_delbrElasticLoadBalancers :: [ElasticLoadBalancer]} deriving (Eq, Read, Show)
+newtype DescribeElasticLoadBalancersResponse = DescribeElasticLoadBalancersResponse'{_delbrElasticLoadBalancers :: Maybe [ElasticLoadBalancer]} deriving (Eq, Read, Show)
 
 -- | 'DescribeElasticLoadBalancersResponse' smart constructor.
 describeElasticLoadBalancersResponse :: DescribeElasticLoadBalancersResponse
-describeElasticLoadBalancersResponse = DescribeElasticLoadBalancersResponse'{_delbrElasticLoadBalancers = mempty};
+describeElasticLoadBalancersResponse = DescribeElasticLoadBalancersResponse'{_delbrElasticLoadBalancers = Nothing};
 
 -- | A list of @ElasticLoadBalancer@ objects that describe the specified
 -- Elastic Load Balancing instances.
-delbrElasticLoadBalancers :: Lens' DescribeElasticLoadBalancersResponse [ElasticLoadBalancer]
+delbrElasticLoadBalancers :: Lens' DescribeElasticLoadBalancersResponse (Maybe [ElasticLoadBalancer])
 delbrElasticLoadBalancers = lens _delbrElasticLoadBalancers (\ s a -> s{_delbrElasticLoadBalancers = a});

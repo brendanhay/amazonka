@@ -81,29 +81,31 @@ module Network.AWS.WorkSpaces.Types
     , worDirectoryId
     , worIPAddress
     , worState
+    , worUserName
     , worSubnetId
     , worBundleId
     , worErrorCode
     , worWorkspaceId
     , worErrorMessage
-    , worUserName
 
     -- * WorkspaceBundle
     , WorkspaceBundle
     , workspaceBundle
     , wbOwner
     , wbBundleId
+    , wbName
     , wbComputeType
     , wbUserStorage
     , wbDescription
-    , wbName
 
     -- * WorkspaceDirectory
     , WorkspaceDirectory
     , workspaceDirectory
+    , wdRegistrationCode
     , wdIAMRoleId
     , wdDirectoryId
     , wdState
+    , wdCustomerUserName
     , wdSubnetIds
     , wdAlias
     , wdDirectoryType
@@ -111,8 +113,6 @@ module Network.AWS.WorkSpaces.Types
     , wdWorkspaceCreationProperties
     , wdDNSIPAddresses
     , wdDirectoryName
-    , wdRegistrationCode
-    , wdCustomerUserName
 
     -- * WorkspaceDirectoryState
     , WorkspaceDirectoryState (..)
@@ -393,20 +393,20 @@ instance ToJSON TerminateRequest where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'usCapacity'
-newtype UserStorage = UserStorage'{_usCapacity :: Text} deriving (Eq, Read, Show)
+newtype UserStorage = UserStorage'{_usCapacity :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'UserStorage' smart constructor.
-userStorage :: Text -> UserStorage
-userStorage pCapacity = UserStorage'{_usCapacity = pCapacity};
+userStorage :: UserStorage
+userStorage = UserStorage'{_usCapacity = Nothing};
 
 -- | The amount of user storage for the bundle.
-usCapacity :: Lens' UserStorage Text
+usCapacity :: Lens' UserStorage (Maybe Text)
 usCapacity = lens _usCapacity (\ s a -> s{_usCapacity = a});
 
 instance FromJSON UserStorage where
         parseJSON
           = withObject "UserStorage"
-              (\ x -> UserStorage' <$> x .: "Capacity")
+              (\ x -> UserStorage' <$> x .:? "Capacity")
 
 -- | /See:/ 'workspace' smart constructor.
 --
@@ -418,6 +418,8 @@ instance FromJSON UserStorage where
 --
 -- * 'worState'
 --
+-- * 'worUserName'
+--
 -- * 'worSubnetId'
 --
 -- * 'worBundleId'
@@ -427,13 +429,11 @@ instance FromJSON UserStorage where
 -- * 'worWorkspaceId'
 --
 -- * 'worErrorMessage'
---
--- * 'worUserName'
-data Workspace = Workspace'{_worDirectoryId :: Maybe Text, _worIPAddress :: Maybe Text, _worState :: Maybe WorkspaceState, _worSubnetId :: Maybe Text, _worBundleId :: Maybe Text, _worErrorCode :: Maybe Text, _worWorkspaceId :: Maybe Text, _worErrorMessage :: Maybe Text, _worUserName :: Text} deriving (Eq, Read, Show)
+data Workspace = Workspace'{_worDirectoryId :: Maybe Text, _worIPAddress :: Maybe Text, _worState :: Maybe WorkspaceState, _worUserName :: Maybe Text, _worSubnetId :: Maybe Text, _worBundleId :: Maybe Text, _worErrorCode :: Maybe Text, _worWorkspaceId :: Maybe Text, _worErrorMessage :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'Workspace' smart constructor.
-workspace :: Text -> Workspace
-workspace pUserName = Workspace'{_worDirectoryId = Nothing, _worIPAddress = Nothing, _worState = Nothing, _worSubnetId = Nothing, _worBundleId = Nothing, _worErrorCode = Nothing, _worWorkspaceId = Nothing, _worErrorMessage = Nothing, _worUserName = pUserName};
+workspace :: Workspace
+workspace = Workspace'{_worDirectoryId = Nothing, _worIPAddress = Nothing, _worState = Nothing, _worUserName = Nothing, _worSubnetId = Nothing, _worBundleId = Nothing, _worErrorCode = Nothing, _worWorkspaceId = Nothing, _worErrorMessage = Nothing};
 
 -- | The identifier of the AWS Directory Service directory that the WorkSpace
 -- belongs to.
@@ -447,6 +447,10 @@ worIPAddress = lens _worIPAddress (\ s a -> s{_worIPAddress = a});
 -- | The operational state of the WorkSpace.
 worState :: Lens' Workspace (Maybe WorkspaceState)
 worState = lens _worState (\ s a -> s{_worState = a});
+
+-- | The user that the WorkSpace is assigned to.
+worUserName :: Lens' Workspace (Maybe Text)
+worUserName = lens _worUserName (\ s a -> s{_worUserName = a});
 
 -- | The identifier of the subnet that the WorkSpace is in.
 worSubnetId :: Lens' Workspace (Maybe Text)
@@ -469,10 +473,6 @@ worWorkspaceId = lens _worWorkspaceId (\ s a -> s{_worWorkspaceId = a});
 worErrorMessage :: Lens' Workspace (Maybe Text)
 worErrorMessage = lens _worErrorMessage (\ s a -> s{_worErrorMessage = a});
 
--- | The user that the WorkSpace is assigned to.
-worUserName :: Lens' Workspace Text
-worUserName = lens _worUserName (\ s a -> s{_worUserName = a});
-
 instance FromJSON Workspace where
         parseJSON
           = withObject "Workspace"
@@ -480,12 +480,12 @@ instance FromJSON Workspace where
                  Workspace' <$>
                    x .:? "DirectoryId" <*> x .:? "IpAddress" <*>
                      x .:? "State"
+                     <*> x .:? "UserName"
                      <*> x .:? "SubnetId"
                      <*> x .:? "BundleId"
                      <*> x .:? "ErrorCode"
                      <*> x .:? "WorkspaceId"
-                     <*> x .:? "ErrorMessage"
-                     <*> x .: "UserName")
+                     <*> x .:? "ErrorMessage")
 
 -- | /See:/ 'workspaceBundle' smart constructor.
 --
@@ -495,18 +495,18 @@ instance FromJSON Workspace where
 --
 -- * 'wbBundleId'
 --
+-- * 'wbName'
+--
 -- * 'wbComputeType'
 --
 -- * 'wbUserStorage'
 --
 -- * 'wbDescription'
---
--- * 'wbName'
-data WorkspaceBundle = WorkspaceBundle'{_wbOwner :: Maybe Text, _wbBundleId :: Maybe Text, _wbComputeType :: Maybe ComputeType, _wbUserStorage :: Maybe UserStorage, _wbDescription :: Maybe Text, _wbName :: Text} deriving (Eq, Read, Show)
+data WorkspaceBundle = WorkspaceBundle'{_wbOwner :: Maybe Text, _wbBundleId :: Maybe Text, _wbName :: Maybe Text, _wbComputeType :: Maybe ComputeType, _wbUserStorage :: Maybe UserStorage, _wbDescription :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'WorkspaceBundle' smart constructor.
-workspaceBundle :: Text -> WorkspaceBundle
-workspaceBundle pName = WorkspaceBundle'{_wbOwner = Nothing, _wbBundleId = Nothing, _wbComputeType = Nothing, _wbUserStorage = Nothing, _wbDescription = Nothing, _wbName = pName};
+workspaceBundle :: WorkspaceBundle
+workspaceBundle = WorkspaceBundle'{_wbOwner = Nothing, _wbBundleId = Nothing, _wbName = Nothing, _wbComputeType = Nothing, _wbUserStorage = Nothing, _wbDescription = Nothing};
 
 -- | The owner of the bundle. This contains the owner\'s account identifier,
 -- or @AMAZON@ if the bundle is provided by AWS.
@@ -516,6 +516,10 @@ wbOwner = lens _wbOwner (\ s a -> s{_wbOwner = a});
 -- | The bundle identifier.
 wbBundleId :: Lens' WorkspaceBundle (Maybe Text)
 wbBundleId = lens _wbBundleId (\ s a -> s{_wbBundleId = a});
+
+-- | The name of the bundle.
+wbName :: Lens' WorkspaceBundle (Maybe Text)
+wbName = lens _wbName (\ s a -> s{_wbName = a});
 
 -- | A ComputeType object that specifies the compute type for the bundle.
 wbComputeType :: Lens' WorkspaceBundle (Maybe ComputeType)
@@ -530,30 +534,29 @@ wbUserStorage = lens _wbUserStorage (\ s a -> s{_wbUserStorage = a});
 wbDescription :: Lens' WorkspaceBundle (Maybe Text)
 wbDescription = lens _wbDescription (\ s a -> s{_wbDescription = a});
 
--- | The name of the bundle.
-wbName :: Lens' WorkspaceBundle Text
-wbName = lens _wbName (\ s a -> s{_wbName = a});
-
 instance FromJSON WorkspaceBundle where
         parseJSON
           = withObject "WorkspaceBundle"
               (\ x ->
                  WorkspaceBundle' <$>
-                   x .:? "Owner" <*> x .:? "BundleId" <*>
-                     x .:? "ComputeType"
+                   x .:? "Owner" <*> x .:? "BundleId" <*> x .:? "Name"
+                     <*> x .:? "ComputeType"
                      <*> x .:? "UserStorage"
-                     <*> x .:? "Description"
-                     <*> x .: "Name")
+                     <*> x .:? "Description")
 
 -- | /See:/ 'workspaceDirectory' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
+--
+-- * 'wdRegistrationCode'
 --
 -- * 'wdIAMRoleId'
 --
 -- * 'wdDirectoryId'
 --
 -- * 'wdState'
+--
+-- * 'wdCustomerUserName'
 --
 -- * 'wdSubnetIds'
 --
@@ -568,15 +571,17 @@ instance FromJSON WorkspaceBundle where
 -- * 'wdDNSIPAddresses'
 --
 -- * 'wdDirectoryName'
---
--- * 'wdRegistrationCode'
---
--- * 'wdCustomerUserName'
-data WorkspaceDirectory = WorkspaceDirectory'{_wdIAMRoleId :: Maybe Text, _wdDirectoryId :: Maybe Text, _wdState :: Maybe WorkspaceDirectoryState, _wdSubnetIds :: [Text], _wdAlias :: Maybe Text, _wdDirectoryType :: Maybe WorkspaceDirectoryType, _wdWorkspaceSecurityGroupId :: Maybe Text, _wdWorkspaceCreationProperties :: Maybe DefaultWorkspaceCreationProperties, _wdDNSIPAddresses :: [Text], _wdDirectoryName :: Maybe Text, _wdRegistrationCode :: Text, _wdCustomerUserName :: Text} deriving (Eq, Read, Show)
+data WorkspaceDirectory = WorkspaceDirectory'{_wdRegistrationCode :: Maybe Text, _wdIAMRoleId :: Maybe Text, _wdDirectoryId :: Maybe Text, _wdState :: Maybe WorkspaceDirectoryState, _wdCustomerUserName :: Maybe Text, _wdSubnetIds :: Maybe [Text], _wdAlias :: Maybe Text, _wdDirectoryType :: Maybe WorkspaceDirectoryType, _wdWorkspaceSecurityGroupId :: Maybe Text, _wdWorkspaceCreationProperties :: Maybe DefaultWorkspaceCreationProperties, _wdDNSIPAddresses :: Maybe [Text], _wdDirectoryName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'WorkspaceDirectory' smart constructor.
-workspaceDirectory :: Text -> Text -> WorkspaceDirectory
-workspaceDirectory pRegistrationCode pCustomerUserName = WorkspaceDirectory'{_wdIAMRoleId = Nothing, _wdDirectoryId = Nothing, _wdState = Nothing, _wdSubnetIds = mempty, _wdAlias = Nothing, _wdDirectoryType = Nothing, _wdWorkspaceSecurityGroupId = Nothing, _wdWorkspaceCreationProperties = Nothing, _wdDNSIPAddresses = mempty, _wdDirectoryName = Nothing, _wdRegistrationCode = pRegistrationCode, _wdCustomerUserName = pCustomerUserName};
+workspaceDirectory :: WorkspaceDirectory
+workspaceDirectory = WorkspaceDirectory'{_wdRegistrationCode = Nothing, _wdIAMRoleId = Nothing, _wdDirectoryId = Nothing, _wdState = Nothing, _wdCustomerUserName = Nothing, _wdSubnetIds = Nothing, _wdAlias = Nothing, _wdDirectoryType = Nothing, _wdWorkspaceSecurityGroupId = Nothing, _wdWorkspaceCreationProperties = Nothing, _wdDNSIPAddresses = Nothing, _wdDirectoryName = Nothing};
+
+-- | The registration code for the directory. This is the code that users
+-- enter in their Amazon WorkSpaces client application to connect to the
+-- directory.
+wdRegistrationCode :: Lens' WorkspaceDirectory (Maybe Text)
+wdRegistrationCode = lens _wdRegistrationCode (\ s a -> s{_wdRegistrationCode = a});
 
 -- | The identifier of the IAM role. This is the role that allows Amazon
 -- WorkSpaces to make calls to other services, such as Amazon EC2, on your
@@ -592,9 +597,13 @@ wdDirectoryId = lens _wdDirectoryId (\ s a -> s{_wdDirectoryId = a});
 wdState :: Lens' WorkspaceDirectory (Maybe WorkspaceDirectoryState)
 wdState = lens _wdState (\ s a -> s{_wdState = a});
 
+-- | The user name for the service account.
+wdCustomerUserName :: Lens' WorkspaceDirectory (Maybe Text)
+wdCustomerUserName = lens _wdCustomerUserName (\ s a -> s{_wdCustomerUserName = a});
+
 -- | An array of strings that contains the identifiers of the subnets used
 -- with the directory.
-wdSubnetIds :: Lens' WorkspaceDirectory [Text]
+wdSubnetIds :: Lens' WorkspaceDirectory (Maybe [Text])
 wdSubnetIds = lens _wdSubnetIds (\ s a -> s{_wdSubnetIds = a});
 
 -- | The directory alias.
@@ -616,39 +625,29 @@ wdWorkspaceCreationProperties = lens _wdWorkspaceCreationProperties (\ s a -> s{
 
 -- | An array of strings that contains the IP addresses of the DNS servers
 -- for the directory.
-wdDNSIPAddresses :: Lens' WorkspaceDirectory [Text]
+wdDNSIPAddresses :: Lens' WorkspaceDirectory (Maybe [Text])
 wdDNSIPAddresses = lens _wdDNSIPAddresses (\ s a -> s{_wdDNSIPAddresses = a});
 
 -- | The name of the directory.
 wdDirectoryName :: Lens' WorkspaceDirectory (Maybe Text)
 wdDirectoryName = lens _wdDirectoryName (\ s a -> s{_wdDirectoryName = a});
 
--- | The registration code for the directory. This is the code that users
--- enter in their Amazon WorkSpaces client application to connect to the
--- directory.
-wdRegistrationCode :: Lens' WorkspaceDirectory Text
-wdRegistrationCode = lens _wdRegistrationCode (\ s a -> s{_wdRegistrationCode = a});
-
--- | The user name for the service account.
-wdCustomerUserName :: Lens' WorkspaceDirectory Text
-wdCustomerUserName = lens _wdCustomerUserName (\ s a -> s{_wdCustomerUserName = a});
-
 instance FromJSON WorkspaceDirectory where
         parseJSON
           = withObject "WorkspaceDirectory"
               (\ x ->
                  WorkspaceDirectory' <$>
-                   x .:? "IamRoleId" <*> x .:? "DirectoryId" <*>
-                     x .:? "State"
+                   x .:? "RegistrationCode" <*> x .:? "IamRoleId" <*>
+                     x .:? "DirectoryId"
+                     <*> x .:? "State"
+                     <*> x .:? "CustomerUserName"
                      <*> x .:? "SubnetIds" .!= mempty
                      <*> x .:? "Alias"
                      <*> x .:? "DirectoryType"
                      <*> x .:? "WorkspaceSecurityGroupId"
                      <*> x .:? "WorkspaceCreationProperties"
                      <*> x .:? "DnsIpAddresses" .!= mempty
-                     <*> x .:? "DirectoryName"
-                     <*> x .: "RegistrationCode"
-                     <*> x .: "CustomerUserName")
+                     <*> x .:? "DirectoryName")
 
 data WorkspaceDirectoryState = Deregistering | Error | Registered | Registering | Deregistered deriving (Eq, Ord, Read, Show, Enum, Generic)
 

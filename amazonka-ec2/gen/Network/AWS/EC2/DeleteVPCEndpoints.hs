@@ -52,8 +52,8 @@ import Network.AWS.EC2.Types
 data DeleteVPCEndpoints = DeleteVPCEndpoints'{_dveDryRun :: Maybe Bool, _dveVPCEndpointIds :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'DeleteVPCEndpoints' smart constructor.
-deleteVPCEndpoints :: [Text] -> DeleteVPCEndpoints
-deleteVPCEndpoints pVPCEndpointIds = DeleteVPCEndpoints'{_dveDryRun = Nothing, _dveVPCEndpointIds = pVPCEndpointIds};
+deleteVPCEndpoints :: DeleteVPCEndpoints
+deleteVPCEndpoints = DeleteVPCEndpoints'{_dveDryRun = Nothing, _dveVPCEndpointIds = mempty};
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -95,12 +95,12 @@ instance ToQuery DeleteVPCEndpoints where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dverUnsuccessful'
-newtype DeleteVPCEndpointsResponse = DeleteVPCEndpointsResponse'{_dverUnsuccessful :: [UnsuccessfulItem]} deriving (Eq, Read, Show)
+newtype DeleteVPCEndpointsResponse = DeleteVPCEndpointsResponse'{_dverUnsuccessful :: Maybe [UnsuccessfulItem]} deriving (Eq, Read, Show)
 
 -- | 'DeleteVPCEndpointsResponse' smart constructor.
 deleteVPCEndpointsResponse :: DeleteVPCEndpointsResponse
-deleteVPCEndpointsResponse = DeleteVPCEndpointsResponse'{_dverUnsuccessful = mempty};
+deleteVPCEndpointsResponse = DeleteVPCEndpointsResponse'{_dverUnsuccessful = Nothing};
 
 -- | Information about the endpoints that were not successfully deleted.
-dverUnsuccessful :: Lens' DeleteVPCEndpointsResponse [UnsuccessfulItem]
+dverUnsuccessful :: Lens' DeleteVPCEndpointsResponse (Maybe [UnsuccessfulItem])
 dverUnsuccessful = lens _dverUnsuccessful (\ s a -> s{_dverUnsuccessful = a});

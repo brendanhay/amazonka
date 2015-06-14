@@ -42,6 +42,7 @@ module Network.AWS.MachineLearning.GetDataSource
     , gdsrLastUpdatedAt
     , gdsrCreatedAt
     , gdsrRDSMetadata
+    , gdsrDataSourceId
     , gdsrDataSizeInBytes
     , gdsrDataSourceSchema
     , gdsrName
@@ -51,9 +52,8 @@ module Network.AWS.MachineLearning.GetDataSource
     , gdsrComputeStatistics
     , gdsrMessage
     , gdsrRedshiftMetadata
-    , gdsrDataRearrangement
-    , gdsrDataSourceId
     , gdsrRoleARN
+    , gdsrDataRearrangement
     ) where
 
 import Network.AWS.Request
@@ -99,6 +99,7 @@ instance AWSRequest GetDataSource where
                      x .?> "LastUpdatedAt"
                      <*> x .?> "CreatedAt"
                      <*> x .?> "RDSMetadata"
+                     <*> x .?> "DataSourceId"
                      <*> x .?> "DataSizeInBytes"
                      <*> x .?> "DataSourceSchema"
                      <*> x .?> "Name"
@@ -108,9 +109,8 @@ instance AWSRequest GetDataSource where
                      <*> x .?> "ComputeStatistics"
                      <*> x .?> "Message"
                      <*> x .?> "RedshiftMetadata"
-                     <*> x .?> "DataRearrangement"
-                     <*> x .:> "DataSourceId"
-                     <*> x .:> "RoleARN")
+                     <*> x .?> "RoleARN"
+                     <*> x .?> "DataRearrangement")
 
 instance ToHeaders GetDataSource where
         toHeaders
@@ -147,6 +147,8 @@ instance ToQuery GetDataSource where
 --
 -- * 'gdsrRDSMetadata'
 --
+-- * 'gdsrDataSourceId'
+--
 -- * 'gdsrDataSizeInBytes'
 --
 -- * 'gdsrDataSourceSchema'
@@ -165,16 +167,14 @@ instance ToQuery GetDataSource where
 --
 -- * 'gdsrRedshiftMetadata'
 --
--- * 'gdsrDataRearrangement'
---
--- * 'gdsrDataSourceId'
---
 -- * 'gdsrRoleARN'
-data GetDataSourceResponse = GetDataSourceResponse'{_gdsrStatus :: Maybe EntityStatus, _gdsrNumberOfFiles :: Maybe Integer, _gdsrLastUpdatedAt :: Maybe POSIX, _gdsrCreatedAt :: Maybe POSIX, _gdsrRDSMetadata :: Maybe RDSMetadata, _gdsrDataSizeInBytes :: Maybe Integer, _gdsrDataSourceSchema :: Maybe Text, _gdsrName :: Maybe Text, _gdsrCreatedByIAMUser :: Maybe Text, _gdsrLogURI :: Maybe Text, _gdsrDataLocationS3 :: Maybe Text, _gdsrComputeStatistics :: Maybe Bool, _gdsrMessage :: Maybe Text, _gdsrRedshiftMetadata :: Maybe RedshiftMetadata, _gdsrDataRearrangement :: Maybe Text, _gdsrDataSourceId :: Text, _gdsrRoleARN :: Text} deriving (Eq, Read, Show)
+--
+-- * 'gdsrDataRearrangement'
+data GetDataSourceResponse = GetDataSourceResponse'{_gdsrStatus :: Maybe EntityStatus, _gdsrNumberOfFiles :: Maybe Integer, _gdsrLastUpdatedAt :: Maybe POSIX, _gdsrCreatedAt :: Maybe POSIX, _gdsrRDSMetadata :: Maybe RDSMetadata, _gdsrDataSourceId :: Maybe Text, _gdsrDataSizeInBytes :: Maybe Integer, _gdsrDataSourceSchema :: Maybe Text, _gdsrName :: Maybe Text, _gdsrCreatedByIAMUser :: Maybe Text, _gdsrLogURI :: Maybe Text, _gdsrDataLocationS3 :: Maybe Text, _gdsrComputeStatistics :: Maybe Bool, _gdsrMessage :: Maybe Text, _gdsrRedshiftMetadata :: Maybe RedshiftMetadata, _gdsrRoleARN :: Maybe Text, _gdsrDataRearrangement :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'GetDataSourceResponse' smart constructor.
-getDataSourceResponse :: Text -> Text -> GetDataSourceResponse
-getDataSourceResponse pDataSourceId pRoleARN = GetDataSourceResponse'{_gdsrStatus = Nothing, _gdsrNumberOfFiles = Nothing, _gdsrLastUpdatedAt = Nothing, _gdsrCreatedAt = Nothing, _gdsrRDSMetadata = Nothing, _gdsrDataSizeInBytes = Nothing, _gdsrDataSourceSchema = Nothing, _gdsrName = Nothing, _gdsrCreatedByIAMUser = Nothing, _gdsrLogURI = Nothing, _gdsrDataLocationS3 = Nothing, _gdsrComputeStatistics = Nothing, _gdsrMessage = Nothing, _gdsrRedshiftMetadata = Nothing, _gdsrDataRearrangement = Nothing, _gdsrDataSourceId = pDataSourceId, _gdsrRoleARN = pRoleARN};
+getDataSourceResponse :: GetDataSourceResponse
+getDataSourceResponse = GetDataSourceResponse'{_gdsrStatus = Nothing, _gdsrNumberOfFiles = Nothing, _gdsrLastUpdatedAt = Nothing, _gdsrCreatedAt = Nothing, _gdsrRDSMetadata = Nothing, _gdsrDataSourceId = Nothing, _gdsrDataSizeInBytes = Nothing, _gdsrDataSourceSchema = Nothing, _gdsrName = Nothing, _gdsrCreatedByIAMUser = Nothing, _gdsrLogURI = Nothing, _gdsrDataLocationS3 = Nothing, _gdsrComputeStatistics = Nothing, _gdsrMessage = Nothing, _gdsrRedshiftMetadata = Nothing, _gdsrRoleARN = Nothing, _gdsrDataRearrangement = Nothing};
 
 -- | The current status of the @DataSource@. This element can have one of the
 -- following values:
@@ -206,6 +206,11 @@ gdsrCreatedAt = lens _gdsrCreatedAt (\ s a -> s{_gdsrCreatedAt = a}) . mapping _
 -- | FIXME: Undocumented member.
 gdsrRDSMetadata :: Lens' GetDataSourceResponse (Maybe RDSMetadata)
 gdsrRDSMetadata = lens _gdsrRDSMetadata (\ s a -> s{_gdsrRDSMetadata = a});
+
+-- | The ID assigned to the @DataSource@ at creation. This value should be
+-- identical to the value of the @DataSourceId@ in the request.
+gdsrDataSourceId :: Lens' GetDataSourceResponse (Maybe Text)
+gdsrDataSourceId = lens _gdsrDataSourceId (\ s a -> s{_gdsrDataSourceId = a});
 
 -- | The total size of observations in the data files.
 gdsrDataSizeInBytes :: Lens' GetDataSourceResponse (Maybe Integer)
@@ -253,16 +258,11 @@ gdsrMessage = lens _gdsrMessage (\ s a -> s{_gdsrMessage = a});
 gdsrRedshiftMetadata :: Lens' GetDataSourceResponse (Maybe RedshiftMetadata)
 gdsrRedshiftMetadata = lens _gdsrRedshiftMetadata (\ s a -> s{_gdsrRedshiftMetadata = a});
 
+-- | FIXME: Undocumented member.
+gdsrRoleARN :: Lens' GetDataSourceResponse (Maybe Text)
+gdsrRoleARN = lens _gdsrRoleARN (\ s a -> s{_gdsrRoleARN = a});
+
 -- | A JSON string that captures the splitting rearrangement requirement of
 -- the @DataSource@.
 gdsrDataRearrangement :: Lens' GetDataSourceResponse (Maybe Text)
 gdsrDataRearrangement = lens _gdsrDataRearrangement (\ s a -> s{_gdsrDataRearrangement = a});
-
--- | The ID assigned to the @DataSource@ at creation. This value should be
--- identical to the value of the @DataSourceId@ in the request.
-gdsrDataSourceId :: Lens' GetDataSourceResponse Text
-gdsrDataSourceId = lens _gdsrDataSourceId (\ s a -> s{_gdsrDataSourceId = a});
-
--- | FIXME: Undocumented member.
-gdsrRoleARN :: Lens' GetDataSourceResponse Text
-gdsrRoleARN = lens _gdsrRoleARN (\ s a -> s{_gdsrRoleARN = a});

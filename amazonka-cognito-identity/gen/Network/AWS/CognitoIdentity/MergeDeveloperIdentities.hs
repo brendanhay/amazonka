@@ -100,7 +100,7 @@ instance AWSRequest MergeDeveloperIdentities where
           = receiveJSON
               (\ s h x ->
                  MergeDeveloperIdentitiesResponse' <$>
-                   x .:> "IdentityId")
+                   x .?> "IdentityId")
 
 instance ToHeaders MergeDeveloperIdentities where
         toHeaders
@@ -132,12 +132,12 @@ instance ToQuery MergeDeveloperIdentities where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'mdirIdentityId'
-newtype MergeDeveloperIdentitiesResponse = MergeDeveloperIdentitiesResponse'{_mdirIdentityId :: Text} deriving (Eq, Read, Show)
+newtype MergeDeveloperIdentitiesResponse = MergeDeveloperIdentitiesResponse'{_mdirIdentityId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'MergeDeveloperIdentitiesResponse' smart constructor.
-mergeDeveloperIdentitiesResponse :: Text -> MergeDeveloperIdentitiesResponse
-mergeDeveloperIdentitiesResponse pIdentityId = MergeDeveloperIdentitiesResponse'{_mdirIdentityId = pIdentityId};
+mergeDeveloperIdentitiesResponse :: MergeDeveloperIdentitiesResponse
+mergeDeveloperIdentitiesResponse = MergeDeveloperIdentitiesResponse'{_mdirIdentityId = Nothing};
 
 -- | A unique identifier in the format REGION:GUID.
-mdirIdentityId :: Lens' MergeDeveloperIdentitiesResponse Text
+mdirIdentityId :: Lens' MergeDeveloperIdentitiesResponse (Maybe Text)
 mdirIdentityId = lens _mdirIdentityId (\ s a -> s{_mdirIdentityId = a});

@@ -118,15 +118,15 @@ instance ToQuery DescribeCacheSecurityGroups where
 -- * 'describeCacheSecurityGroups'
 --
 -- * 'describeMarker'
-data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse'{_describeCacheSecurityGroups :: [CacheSecurityGroup], _describeMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse'{_describeCacheSecurityGroups :: Maybe [CacheSecurityGroup], _describeMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeCacheSecurityGroupsResponse' smart constructor.
 describeCacheSecurityGroupsResponse :: DescribeCacheSecurityGroupsResponse
-describeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse'{_describeCacheSecurityGroups = mempty, _describeMarker = Nothing};
+describeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse'{_describeCacheSecurityGroups = Nothing, _describeMarker = Nothing};
 
 -- | A list of cache security groups. Each element in the list contains
 -- detailed information about one group.
-describeCacheSecurityGroups :: Lens' DescribeCacheSecurityGroupsResponse [CacheSecurityGroup]
+describeCacheSecurityGroups :: Lens' DescribeCacheSecurityGroupsResponse (Maybe [CacheSecurityGroup])
 describeCacheSecurityGroups = lens _describeCacheSecurityGroups (\ s a -> s{_describeCacheSecurityGroups = a});
 
 -- | Provides an identifier to allow retrieval of paginated results.

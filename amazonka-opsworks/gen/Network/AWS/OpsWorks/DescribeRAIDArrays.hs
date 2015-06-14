@@ -58,11 +58,11 @@ import Network.AWS.OpsWorks.Types
 -- * 'draRAIDArrayIds'
 --
 -- * 'draStackId'
-data DescribeRAIDArrays = DescribeRAIDArrays'{_draInstanceId :: Maybe Text, _draRAIDArrayIds :: [Text], _draStackId :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeRAIDArrays = DescribeRAIDArrays'{_draInstanceId :: Maybe Text, _draRAIDArrayIds :: Maybe [Text], _draStackId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeRAIDArrays' smart constructor.
 describeRAIDArrays :: DescribeRAIDArrays
-describeRAIDArrays = DescribeRAIDArrays'{_draInstanceId = Nothing, _draRAIDArrayIds = mempty, _draStackId = Nothing};
+describeRAIDArrays = DescribeRAIDArrays'{_draInstanceId = Nothing, _draRAIDArrayIds = Nothing, _draStackId = Nothing};
 
 -- | The instance ID. If you use this parameter, @DescribeRaidArrays@ returns
 -- descriptions of the RAID arrays associated with the specified instance.
@@ -72,7 +72,7 @@ draInstanceId = lens _draInstanceId (\ s a -> s{_draInstanceId = a});
 -- | An array of RAID array IDs. If you use this parameter,
 -- @DescribeRaidArrays@ returns descriptions of the specified arrays.
 -- Otherwise, it returns a description of every array.
-draRAIDArrayIds :: Lens' DescribeRAIDArrays [Text]
+draRAIDArrayIds :: Lens' DescribeRAIDArrays (Maybe [Text])
 draRAIDArrayIds = lens _draRAIDArrayIds (\ s a -> s{_draRAIDArrayIds = a});
 
 -- | The stack ID.
@@ -118,12 +118,12 @@ instance ToQuery DescribeRAIDArrays where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'drarRAIDArrays'
-newtype DescribeRAIDArraysResponse = DescribeRAIDArraysResponse'{_drarRAIDArrays :: [RAIDArray]} deriving (Eq, Read, Show)
+newtype DescribeRAIDArraysResponse = DescribeRAIDArraysResponse'{_drarRAIDArrays :: Maybe [RAIDArray]} deriving (Eq, Read, Show)
 
 -- | 'DescribeRAIDArraysResponse' smart constructor.
 describeRAIDArraysResponse :: DescribeRAIDArraysResponse
-describeRAIDArraysResponse = DescribeRAIDArraysResponse'{_drarRAIDArrays = mempty};
+describeRAIDArraysResponse = DescribeRAIDArraysResponse'{_drarRAIDArrays = Nothing};
 
 -- | A @RaidArrays@ object that describes the specified RAID arrays.
-drarRAIDArrays :: Lens' DescribeRAIDArraysResponse [RAIDArray]
+drarRAIDArrays :: Lens' DescribeRAIDArraysResponse (Maybe [RAIDArray])
 drarRAIDArrays = lens _drarRAIDArrays (\ s a -> s{_drarRAIDArrays = a});

@@ -54,11 +54,11 @@ import Network.AWS.EC2.Types
 -- * 'ddoDHCPOptionsIds'
 --
 -- * 'ddoDryRun'
-data DescribeDHCPOptions = DescribeDHCPOptions'{_ddoFilters :: [Filter], _ddoDHCPOptionsIds :: [Text], _ddoDryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data DescribeDHCPOptions = DescribeDHCPOptions'{_ddoFilters :: Maybe [Filter], _ddoDHCPOptionsIds :: Maybe [Text], _ddoDryRun :: Maybe Bool} deriving (Eq, Read, Show)
 
 -- | 'DescribeDHCPOptions' smart constructor.
 describeDHCPOptions :: DescribeDHCPOptions
-describeDHCPOptions = DescribeDHCPOptions'{_ddoFilters = mempty, _ddoDHCPOptionsIds = mempty, _ddoDryRun = Nothing};
+describeDHCPOptions = DescribeDHCPOptions'{_ddoFilters = Nothing, _ddoDHCPOptionsIds = Nothing, _ddoDryRun = Nothing};
 
 -- | One or more filters.
 --
@@ -82,13 +82,13 @@ describeDHCPOptions = DescribeDHCPOptions'{_ddoFilters = mempty, _ddoDHCPOptions
 -- -   @tag-value@ - The value of a tag assigned to the resource. This
 --     filter is independent of the @tag-key@ filter.
 --
-ddoFilters :: Lens' DescribeDHCPOptions [Filter]
+ddoFilters :: Lens' DescribeDHCPOptions (Maybe [Filter])
 ddoFilters = lens _ddoFilters (\ s a -> s{_ddoFilters = a});
 
 -- | The IDs of one or more DHCP options sets.
 --
 -- Default: Describes all your DHCP options sets.
-ddoDHCPOptionsIds :: Lens' DescribeDHCPOptions [Text]
+ddoDHCPOptionsIds :: Lens' DescribeDHCPOptions (Maybe [Text])
 ddoDHCPOptionsIds = lens _ddoDHCPOptionsIds (\ s a -> s{_ddoDHCPOptionsIds = a});
 
 -- | Checks whether you have the required permissions for the action, without
@@ -129,12 +129,12 @@ instance ToQuery DescribeDHCPOptions where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ddorDHCPOptions'
-newtype DescribeDHCPOptionsResponse = DescribeDHCPOptionsResponse'{_ddorDHCPOptions :: [DHCPOptions]} deriving (Eq, Read, Show)
+newtype DescribeDHCPOptionsResponse = DescribeDHCPOptionsResponse'{_ddorDHCPOptions :: Maybe [DHCPOptions]} deriving (Eq, Read, Show)
 
 -- | 'DescribeDHCPOptionsResponse' smart constructor.
 describeDHCPOptionsResponse :: DescribeDHCPOptionsResponse
-describeDHCPOptionsResponse = DescribeDHCPOptionsResponse'{_ddorDHCPOptions = mempty};
+describeDHCPOptionsResponse = DescribeDHCPOptionsResponse'{_ddorDHCPOptions = Nothing};
 
 -- | Information about one or more DHCP options sets.
-ddorDHCPOptions :: Lens' DescribeDHCPOptionsResponse [DHCPOptions]
+ddorDHCPOptions :: Lens' DescribeDHCPOptionsResponse (Maybe [DHCPOptions])
 ddorDHCPOptions = lens _ddorDHCPOptions (\ s a -> s{_ddorDHCPOptions = a});

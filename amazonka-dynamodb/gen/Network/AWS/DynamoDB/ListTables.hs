@@ -34,8 +34,8 @@ module Network.AWS.DynamoDB.ListTables
     -- ** Response constructor
     , listTablesResponse
     -- ** Response lenses
-    , ltrTableNames
     , ltrLastEvaluatedTableName
+    , ltrTableNames
     ) where
 
 import Network.AWS.Request
@@ -50,22 +50,22 @@ import Network.AWS.DynamoDB.Types
 -- * 'ltExclusiveStartTableName'
 --
 -- * 'ltLimit'
-data ListTables = ListTables'{_ltExclusiveStartTableName :: Text, _ltLimit :: Nat} deriving (Eq, Read, Show)
+data ListTables = ListTables'{_ltExclusiveStartTableName :: Maybe Text, _ltLimit :: Maybe Nat} deriving (Eq, Read, Show)
 
 -- | 'ListTables' smart constructor.
-listTables :: Text -> Natural -> ListTables
-listTables pExclusiveStartTableName pLimit = ListTables'{_ltExclusiveStartTableName = pExclusiveStartTableName, _ltLimit = _Nat # pLimit};
+listTables :: ListTables
+listTables = ListTables'{_ltExclusiveStartTableName = Nothing, _ltLimit = Nothing};
 
 -- | The first table name that this operation will evaluate. Use the value
 -- that was returned for /LastEvaluatedTableName/ in a previous operation,
 -- so that you can obtain the next page of results.
-ltExclusiveStartTableName :: Lens' ListTables Text
+ltExclusiveStartTableName :: Lens' ListTables (Maybe Text)
 ltExclusiveStartTableName = lens _ltExclusiveStartTableName (\ s a -> s{_ltExclusiveStartTableName = a});
 
 -- | A maximum number of table names to return. If this parameter is not
 -- specified, the limit is 100.
-ltLimit :: Lens' ListTables Natural
-ltLimit = lens _ltLimit (\ s a -> s{_ltLimit = a}) . _Nat;
+ltLimit :: Lens' ListTables (Maybe Natural)
+ltLimit = lens _ltLimit (\ s a -> s{_ltLimit = a}) . mapping _Nat;
 
 instance AWSRequest ListTables where
         type Sv ListTables = DynamoDB
@@ -75,8 +75,8 @@ instance AWSRequest ListTables where
           = receiveJSON
               (\ s h x ->
                  ListTablesResponse' <$>
-                   x .?> "TableNames" .!@ mempty <*>
-                     x .:> "LastEvaluatedTableName")
+                   x .?> "LastEvaluatedTableName" <*>
+                     x .?> "TableNames" .!@ mempty)
 
 instance ToHeaders ListTables where
         toHeaders
@@ -104,23 +104,14 @@ instance ToQuery ListTables where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ltrTableNames'
---
 -- * 'ltrLastEvaluatedTableName'
-data ListTablesResponse = ListTablesResponse'{_ltrTableNames :: [Text], _ltrLastEvaluatedTableName :: Text} deriving (Eq, Read, Show)
+--
+-- * 'ltrTableNames'
+data ListTablesResponse = ListTablesResponse'{_ltrLastEvaluatedTableName :: Maybe Text, _ltrTableNames :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'ListTablesResponse' smart constructor.
-listTablesResponse :: Text -> ListTablesResponse
-listTablesResponse pLastEvaluatedTableName = ListTablesResponse'{_ltrTableNames = mempty, _ltrLastEvaluatedTableName = pLastEvaluatedTableName};
-
--- | The names of the tables associated with the current account at the
--- current endpoint. The maximum size of this array is 100.
---
--- If /LastEvaluatedTableName/ also appears in the output, you can use this
--- value as the /ExclusiveStartTableName/ parameter in a subsequent
--- /ListTables/ request and obtain the next page of results.
-ltrTableNames :: Lens' ListTablesResponse [Text]
-ltrTableNames = lens _ltrTableNames (\ s a -> s{_ltrTableNames = a});
+listTablesResponse :: ListTablesResponse
+listTablesResponse = ListTablesResponse'{_ltrLastEvaluatedTableName = Nothing, _ltrTableNames = Nothing};
 
 -- | The name of the last table in the current page of results. Use this
 -- value as the /ExclusiveStartTableName/ in a new request to obtain the
@@ -128,5 +119,14 @@ ltrTableNames = lens _ltrTableNames (\ s a -> s{_ltrTableNames = a});
 --
 -- If you do not receive a /LastEvaluatedTableName/ value in the response,
 -- this means that there are no more table names to be retrieved.
-ltrLastEvaluatedTableName :: Lens' ListTablesResponse Text
+ltrLastEvaluatedTableName :: Lens' ListTablesResponse (Maybe Text)
 ltrLastEvaluatedTableName = lens _ltrLastEvaluatedTableName (\ s a -> s{_ltrLastEvaluatedTableName = a});
+
+-- | The names of the tables associated with the current account at the
+-- current endpoint. The maximum size of this array is 100.
+--
+-- If /LastEvaluatedTableName/ also appears in the output, you can use this
+-- value as the /ExclusiveStartTableName/ parameter in a subsequent
+-- /ListTables/ request and obtain the next page of results.
+ltrTableNames :: Lens' ListTablesResponse (Maybe [Text])
+ltrTableNames = lens _ltrTableNames (\ s a -> s{_ltrTableNames = a});

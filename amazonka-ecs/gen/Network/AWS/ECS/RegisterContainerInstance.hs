@@ -60,11 +60,11 @@ import Network.AWS.ECS.Types
 -- * 'rciVersionInfo'
 --
 -- * 'rciTotalResources'
-data RegisterContainerInstance = RegisterContainerInstance'{_rciInstanceIdentityDocumentSignature :: Maybe Text, _rciCluster :: Maybe Text, _rciInstanceIdentityDocument :: Maybe Text, _rciVersionInfo :: Maybe VersionInfo, _rciTotalResources :: [Resource]} deriving (Eq, Read, Show)
+data RegisterContainerInstance = RegisterContainerInstance'{_rciInstanceIdentityDocumentSignature :: Maybe Text, _rciCluster :: Maybe Text, _rciInstanceIdentityDocument :: Maybe Text, _rciVersionInfo :: Maybe VersionInfo, _rciTotalResources :: Maybe [Resource]} deriving (Eq, Read, Show)
 
 -- | 'RegisterContainerInstance' smart constructor.
 registerContainerInstance :: RegisterContainerInstance
-registerContainerInstance = RegisterContainerInstance'{_rciInstanceIdentityDocumentSignature = Nothing, _rciCluster = Nothing, _rciInstanceIdentityDocument = Nothing, _rciVersionInfo = Nothing, _rciTotalResources = mempty};
+registerContainerInstance = RegisterContainerInstance'{_rciInstanceIdentityDocumentSignature = Nothing, _rciCluster = Nothing, _rciInstanceIdentityDocument = Nothing, _rciVersionInfo = Nothing, _rciTotalResources = Nothing};
 
 -- | FIXME: Undocumented member.
 rciInstanceIdentityDocumentSignature :: Lens' RegisterContainerInstance (Maybe Text)
@@ -85,7 +85,7 @@ rciVersionInfo :: Lens' RegisterContainerInstance (Maybe VersionInfo)
 rciVersionInfo = lens _rciVersionInfo (\ s a -> s{_rciVersionInfo = a});
 
 -- | FIXME: Undocumented member.
-rciTotalResources :: Lens' RegisterContainerInstance [Resource]
+rciTotalResources :: Lens' RegisterContainerInstance (Maybe [Resource])
 rciTotalResources = lens _rciTotalResources (\ s a -> s{_rciTotalResources = a});
 
 instance AWSRequest RegisterContainerInstance where

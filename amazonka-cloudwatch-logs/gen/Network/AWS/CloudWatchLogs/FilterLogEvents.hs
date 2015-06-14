@@ -39,13 +39,13 @@ module Network.AWS.CloudWatchLogs.FilterLogEvents
     , filterLogEvents
     -- ** Request lenses
     , fleStartTime
+    , fleLogStreamNames
+    , fleNextToken
     , fleEndTime
+    , fleLimit
     , fleFilterPattern
     , fleInterleaved
     , fleLogGroupName
-    , fleLogStreamNames
-    , fleNextToken
-    , fleLimit
 
     -- * Response
     , FilterLogEventsResponse
@@ -53,8 +53,8 @@ module Network.AWS.CloudWatchLogs.FilterLogEvents
     , filterLogEventsResponse
     -- ** Response lenses
     , flerSearchedLogStreams
-    , flerEvents
     , flerNextToken
+    , flerEvents
     ) where
 
 import Network.AWS.Request
@@ -68,24 +68,24 @@ import Network.AWS.CloudWatchLogs.Types
 --
 -- * 'fleStartTime'
 --
+-- * 'fleLogStreamNames'
+--
+-- * 'fleNextToken'
+--
 -- * 'fleEndTime'
+--
+-- * 'fleLimit'
 --
 -- * 'fleFilterPattern'
 --
 -- * 'fleInterleaved'
 --
 -- * 'fleLogGroupName'
---
--- * 'fleLogStreamNames'
---
--- * 'fleNextToken'
---
--- * 'fleLimit'
-data FilterLogEvents = FilterLogEvents'{_fleStartTime :: Maybe Nat, _fleEndTime :: Maybe Nat, _fleFilterPattern :: Maybe Text, _fleInterleaved :: Maybe Bool, _fleLogGroupName :: Text, _fleLogStreamNames :: List1 Text, _fleNextToken :: Text, _fleLimit :: Nat} deriving (Eq, Read, Show)
+data FilterLogEvents = FilterLogEvents'{_fleStartTime :: Maybe Nat, _fleLogStreamNames :: Maybe (List1 Text), _fleNextToken :: Maybe Text, _fleEndTime :: Maybe Nat, _fleLimit :: Maybe Nat, _fleFilterPattern :: Maybe Text, _fleInterleaved :: Maybe Bool, _fleLogGroupName :: Text} deriving (Eq, Read, Show)
 
 -- | 'FilterLogEvents' smart constructor.
-filterLogEvents :: Text -> NonEmpty Text -> Text -> Natural -> FilterLogEvents
-filterLogEvents pLogGroupName pLogStreamNames pNextToken pLimit = FilterLogEvents'{_fleStartTime = Nothing, _fleEndTime = Nothing, _fleFilterPattern = Nothing, _fleInterleaved = Nothing, _fleLogGroupName = pLogGroupName, _fleLogStreamNames = _List1 # pLogStreamNames, _fleNextToken = pNextToken, _fleLimit = _Nat # pLimit};
+filterLogEvents :: Text -> FilterLogEvents
+filterLogEvents pLogGroupName = FilterLogEvents'{_fleStartTime = Nothing, _fleLogStreamNames = Nothing, _fleNextToken = Nothing, _fleEndTime = Nothing, _fleLimit = Nothing, _fleFilterPattern = Nothing, _fleInterleaved = Nothing, _fleLogGroupName = pLogGroupName};
 
 -- | A unix timestamp indicating the start time of the range for the request.
 -- If provided, events with a timestamp prior to this time will not be
@@ -93,11 +93,26 @@ filterLogEvents pLogGroupName pLogStreamNames pNextToken pLimit = FilterLogEvent
 fleStartTime :: Lens' FilterLogEvents (Maybe Natural)
 fleStartTime = lens _fleStartTime (\ s a -> s{_fleStartTime = a}) . mapping _Nat;
 
+-- | Optional list of log stream names within the specified log group to
+-- search. Defaults to all the log streams in the log group.
+fleLogStreamNames :: Lens' FilterLogEvents (Maybe (NonEmpty Text))
+fleLogStreamNames = lens _fleLogStreamNames (\ s a -> s{_fleLogStreamNames = a}) . mapping _List1;
+
+-- | A pagination token obtained from a @FilterLogEvents@ response to
+-- continue paginating the FilterLogEvents results.
+fleNextToken :: Lens' FilterLogEvents (Maybe Text)
+fleNextToken = lens _fleNextToken (\ s a -> s{_fleNextToken = a});
+
 -- | A unix timestamp indicating the end time of the range for the request.
 -- If provided, events with a timestamp later than this time will not be
 -- returned.
 fleEndTime :: Lens' FilterLogEvents (Maybe Natural)
 fleEndTime = lens _fleEndTime (\ s a -> s{_fleEndTime = a}) . mapping _Nat;
+
+-- | The maximum number of events to return in a page of results. Default is
+-- 10,000 events.
+fleLimit :: Lens' FilterLogEvents (Maybe Natural)
+fleLimit = lens _fleLimit (\ s a -> s{_fleLimit = a}) . mapping _Nat;
 
 -- | A valid CloudWatch Logs filter pattern to use for filtering the
 -- response. If not provided, all the events are matched.
@@ -116,21 +131,6 @@ fleInterleaved = lens _fleInterleaved (\ s a -> s{_fleInterleaved = a});
 fleLogGroupName :: Lens' FilterLogEvents Text
 fleLogGroupName = lens _fleLogGroupName (\ s a -> s{_fleLogGroupName = a});
 
--- | Optional list of log stream names within the specified log group to
--- search. Defaults to all the log streams in the log group.
-fleLogStreamNames :: Lens' FilterLogEvents (NonEmpty Text)
-fleLogStreamNames = lens _fleLogStreamNames (\ s a -> s{_fleLogStreamNames = a}) . _List1;
-
--- | A pagination token obtained from a @FilterLogEvents@ response to
--- continue paginating the FilterLogEvents results.
-fleNextToken :: Lens' FilterLogEvents Text
-fleNextToken = lens _fleNextToken (\ s a -> s{_fleNextToken = a});
-
--- | The maximum number of events to return in a page of results. Default is
--- 10,000 events.
-fleLimit :: Lens' FilterLogEvents Natural
-fleLimit = lens _fleLimit (\ s a -> s{_fleLimit = a}) . _Nat;
-
 instance AWSRequest FilterLogEvents where
         type Sv FilterLogEvents = CloudWatchLogs
         type Rs FilterLogEvents = FilterLogEventsResponse
@@ -140,8 +140,8 @@ instance AWSRequest FilterLogEvents where
               (\ s h x ->
                  FilterLogEventsResponse' <$>
                    x .?> "searchedLogStreams" .!@ mempty <*>
-                     x .?> "events" .!@ mempty
-                     <*> x .:> "nextToken")
+                     x .?> "nextToken"
+                     <*> x .?> "events" .!@ mempty)
 
 instance ToHeaders FilterLogEvents where
         toHeaders
@@ -156,12 +156,12 @@ instance ToJSON FilterLogEvents where
         toJSON FilterLogEvents'{..}
           = object
               ["startTime" .= _fleStartTime,
-               "endTime" .= _fleEndTime,
+               "logStreamNames" .= _fleLogStreamNames,
+               "nextToken" .= _fleNextToken,
+               "endTime" .= _fleEndTime, "limit" .= _fleLimit,
                "filterPattern" .= _fleFilterPattern,
                "interleaved" .= _fleInterleaved,
-               "logGroupName" .= _fleLogGroupName,
-               "logStreamNames" .= _fleLogStreamNames,
-               "nextToken" .= _fleNextToken, "limit" .= _fleLimit]
+               "logGroupName" .= _fleLogGroupName]
 
 instance ToPath FilterLogEvents where
         toPath = const "/"
@@ -175,27 +175,27 @@ instance ToQuery FilterLogEvents where
 --
 -- * 'flerSearchedLogStreams'
 --
--- * 'flerEvents'
---
 -- * 'flerNextToken'
-data FilterLogEventsResponse = FilterLogEventsResponse'{_flerSearchedLogStreams :: [SearchedLogStream], _flerEvents :: [FilteredLogEvent], _flerNextToken :: Text} deriving (Eq, Read, Show)
+--
+-- * 'flerEvents'
+data FilterLogEventsResponse = FilterLogEventsResponse'{_flerSearchedLogStreams :: Maybe [SearchedLogStream], _flerNextToken :: Maybe Text, _flerEvents :: Maybe [FilteredLogEvent]} deriving (Eq, Read, Show)
 
 -- | 'FilterLogEventsResponse' smart constructor.
-filterLogEventsResponse :: Text -> FilterLogEventsResponse
-filterLogEventsResponse pNextToken = FilterLogEventsResponse'{_flerSearchedLogStreams = mempty, _flerEvents = mempty, _flerNextToken = pNextToken};
+filterLogEventsResponse :: FilterLogEventsResponse
+filterLogEventsResponse = FilterLogEventsResponse'{_flerSearchedLogStreams = Nothing, _flerNextToken = Nothing, _flerEvents = Nothing};
 
 -- | A list of @SearchedLogStream@ objects indicating which log streams have
 -- been searched in this request and whether each has been searched
 -- completely or still has more to be paginated.
-flerSearchedLogStreams :: Lens' FilterLogEventsResponse [SearchedLogStream]
+flerSearchedLogStreams :: Lens' FilterLogEventsResponse (Maybe [SearchedLogStream])
 flerSearchedLogStreams = lens _flerSearchedLogStreams (\ s a -> s{_flerSearchedLogStreams = a});
-
--- | A list of @FilteredLogEvent@ objects representing the matched events
--- from the request.
-flerEvents :: Lens' FilterLogEventsResponse [FilteredLogEvent]
-flerEvents = lens _flerEvents (\ s a -> s{_flerEvents = a});
 
 -- | A pagination token obtained from a @FilterLogEvents@ response to
 -- continue paginating the FilterLogEvents results.
-flerNextToken :: Lens' FilterLogEventsResponse Text
+flerNextToken :: Lens' FilterLogEventsResponse (Maybe Text)
 flerNextToken = lens _flerNextToken (\ s a -> s{_flerNextToken = a});
+
+-- | A list of @FilteredLogEvent@ objects representing the matched events
+-- from the request.
+flerEvents :: Lens' FilterLogEventsResponse (Maybe [FilteredLogEvent])
+flerEvents = lens _flerEvents (\ s a -> s{_flerEvents = a});

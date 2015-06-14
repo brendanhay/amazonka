@@ -230,8 +230,8 @@ instance ToQuery PollForDecisionTask where
 data PollForDecisionTaskResponse = PollForDecisionTaskResponse'{_pfdtrNextPageToken :: Maybe Text, _pfdtrPreviousStartedEventId :: Maybe Integer, _pfdtrTaskToken :: Text, _pfdtrStartedEventId :: Integer, _pfdtrWorkflowExecution :: WorkflowExecution, _pfdtrWorkflowType :: WorkflowType, _pfdtrEvents :: [HistoryEvent]} deriving (Eq, Read, Show)
 
 -- | 'PollForDecisionTaskResponse' smart constructor.
-pollForDecisionTaskResponse :: Text -> Integer -> WorkflowExecution -> WorkflowType -> [HistoryEvent] -> PollForDecisionTaskResponse
-pollForDecisionTaskResponse pTaskToken pStartedEventId pWorkflowExecution pWorkflowType pEvents = PollForDecisionTaskResponse'{_pfdtrNextPageToken = Nothing, _pfdtrPreviousStartedEventId = Nothing, _pfdtrTaskToken = pTaskToken, _pfdtrStartedEventId = pStartedEventId, _pfdtrWorkflowExecution = pWorkflowExecution, _pfdtrWorkflowType = pWorkflowType, _pfdtrEvents = pEvents};
+pollForDecisionTaskResponse :: Text -> Integer -> WorkflowExecution -> WorkflowType -> PollForDecisionTaskResponse
+pollForDecisionTaskResponse pTaskToken pStartedEventId pWorkflowExecution pWorkflowType = PollForDecisionTaskResponse'{_pfdtrNextPageToken = Nothing, _pfdtrPreviousStartedEventId = Nothing, _pfdtrTaskToken = pTaskToken, _pfdtrStartedEventId = pStartedEventId, _pfdtrWorkflowExecution = pWorkflowExecution, _pfdtrWorkflowType = pWorkflowType, _pfdtrEvents = mempty};
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
 -- results available. To retrieve the next page of results, make the call

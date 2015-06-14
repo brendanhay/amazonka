@@ -48,11 +48,11 @@ import Network.AWS.Route53Domains.Types
 -- * 'utfdTagsToUpdate'
 --
 -- * 'utfdDomainName'
-data UpdateTagsForDomain = UpdateTagsForDomain'{_utfdTagsToUpdate :: [Tag], _utfdDomainName :: Text} deriving (Eq, Read, Show)
+data UpdateTagsForDomain = UpdateTagsForDomain'{_utfdTagsToUpdate :: Maybe [Tag], _utfdDomainName :: Text} deriving (Eq, Read, Show)
 
 -- | 'UpdateTagsForDomain' smart constructor.
 updateTagsForDomain :: Text -> UpdateTagsForDomain
-updateTagsForDomain pDomainName = UpdateTagsForDomain'{_utfdTagsToUpdate = mempty, _utfdDomainName = pDomainName};
+updateTagsForDomain pDomainName = UpdateTagsForDomain'{_utfdTagsToUpdate = Nothing, _utfdDomainName = pDomainName};
 
 -- | A list of the tag keys and values that you want to add or update. If you
 -- specify a key that already exists, the corresponding value will be
@@ -98,7 +98,7 @@ updateTagsForDomain pDomainName = UpdateTagsForDomain'{_utfdTagsToUpdate = mempt
 --
 --     Required: Yes
 --
-utfdTagsToUpdate :: Lens' UpdateTagsForDomain [Tag]
+utfdTagsToUpdate :: Lens' UpdateTagsForDomain (Maybe [Tag])
 utfdTagsToUpdate = lens _utfdTagsToUpdate (\ s a -> s{_utfdTagsToUpdate = a});
 
 -- | The domain for which you want to add or update tags.

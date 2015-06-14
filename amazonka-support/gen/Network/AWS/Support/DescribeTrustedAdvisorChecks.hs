@@ -101,8 +101,8 @@ instance ToQuery DescribeTrustedAdvisorChecks where
 newtype DescribeTrustedAdvisorChecksResponse = DescribeTrustedAdvisorChecksResponse'{_dtacrChecks :: [TrustedAdvisorCheckDescription]} deriving (Eq, Read, Show)
 
 -- | 'DescribeTrustedAdvisorChecksResponse' smart constructor.
-describeTrustedAdvisorChecksResponse :: [TrustedAdvisorCheckDescription] -> DescribeTrustedAdvisorChecksResponse
-describeTrustedAdvisorChecksResponse pChecks = DescribeTrustedAdvisorChecksResponse'{_dtacrChecks = pChecks};
+describeTrustedAdvisorChecksResponse :: DescribeTrustedAdvisorChecksResponse
+describeTrustedAdvisorChecksResponse = DescribeTrustedAdvisorChecksResponse'{_dtacrChecks = mempty};
 
 -- | Information about all available Trusted Advisor checks.
 dtacrChecks :: Lens' DescribeTrustedAdvisorChecksResponse [TrustedAdvisorCheckDescription]

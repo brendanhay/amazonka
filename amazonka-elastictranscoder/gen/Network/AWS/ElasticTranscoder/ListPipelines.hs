@@ -97,11 +97,11 @@ instance ToQuery ListPipelines where
 -- * 'lprNextPageToken'
 --
 -- * 'lprPipelines'
-data ListPipelinesResponse = ListPipelinesResponse'{_lprNextPageToken :: Maybe Text, _lprPipelines :: [Pipeline]} deriving (Eq, Read, Show)
+data ListPipelinesResponse = ListPipelinesResponse'{_lprNextPageToken :: Maybe Text, _lprPipelines :: Maybe [Pipeline]} deriving (Eq, Read, Show)
 
 -- | 'ListPipelinesResponse' smart constructor.
 listPipelinesResponse :: ListPipelinesResponse
-listPipelinesResponse = ListPipelinesResponse'{_lprNextPageToken = Nothing, _lprPipelines = mempty};
+listPipelinesResponse = ListPipelinesResponse'{_lprNextPageToken = Nothing, _lprPipelines = Nothing};
 
 -- | A value that you use to access the second and subsequent pages of
 -- results, if any. When the pipelines fit on one page or when you\'ve
@@ -111,5 +111,5 @@ lprNextPageToken :: Lens' ListPipelinesResponse (Maybe Text)
 lprNextPageToken = lens _lprNextPageToken (\ s a -> s{_lprNextPageToken = a});
 
 -- | An array of @Pipeline@ objects.
-lprPipelines :: Lens' ListPipelinesResponse [Pipeline]
+lprPipelines :: Lens' ListPipelinesResponse (Maybe [Pipeline])
 lprPipelines = lens _lprPipelines (\ s a -> s{_lprPipelines = a});

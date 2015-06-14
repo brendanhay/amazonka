@@ -61,11 +61,11 @@ import Network.AWS.KMS.Types
 -- * 'rgGrantId'
 --
 -- * 'rgGrantToken'
-data RetireGrant = RetireGrant'{_rgKeyId :: Text, _rgGrantId :: Text, _rgGrantToken :: Text} deriving (Eq, Read, Show)
+data RetireGrant = RetireGrant'{_rgKeyId :: Maybe Text, _rgGrantId :: Maybe Text, _rgGrantToken :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'RetireGrant' smart constructor.
-retireGrant :: Text -> Text -> Text -> RetireGrant
-retireGrant pKeyId pGrantId pGrantToken = RetireGrant'{_rgKeyId = pKeyId, _rgGrantId = pGrantId, _rgGrantToken = pGrantToken};
+retireGrant :: RetireGrant
+retireGrant = RetireGrant'{_rgKeyId = Nothing, _rgGrantId = Nothing, _rgGrantToken = Nothing};
 
 -- | A unique identifier for the customer master key associated with the
 -- grant. This value can be a globally unique identifier or a fully
@@ -75,7 +75,7 @@ retireGrant pKeyId pGrantId pGrantToken = RetireGrant'{_rgKeyId = pKeyId, _rgGra
 --     arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
 -- -   Globally Unique Key ID Example -
 --     12345678-1234-1234-1234-123456789012
-rgKeyId :: Lens' RetireGrant Text
+rgKeyId :: Lens' RetireGrant (Maybe Text)
 rgKeyId = lens _rgKeyId (\ s a -> s{_rgKeyId = a});
 
 -- | Unique identifier of the grant to be retired. The grant ID is returned
@@ -83,11 +83,11 @@ rgKeyId = lens _rgKeyId (\ s a -> s{_rgKeyId = a});
 --
 -- -   Grant ID Example -
 --     0123456789012345678901234567890123456789012345678901234567890123
-rgGrantId :: Lens' RetireGrant Text
+rgGrantId :: Lens' RetireGrant (Maybe Text)
 rgGrantId = lens _rgGrantId (\ s a -> s{_rgGrantId = a});
 
 -- | Token that identifies the grant to be retired.
-rgGrantToken :: Lens' RetireGrant Text
+rgGrantToken :: Lens' RetireGrant (Maybe Text)
 rgGrantToken = lens _rgGrantToken (\ s a -> s{_rgGrantToken = a});
 
 instance AWSRequest RetireGrant where

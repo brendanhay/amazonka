@@ -50,16 +50,16 @@ import Network.AWS.OpsWorks.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsStackIds'
-newtype DescribeStacks = DescribeStacks'{_dsStackIds :: [Text]} deriving (Eq, Read, Show)
+newtype DescribeStacks = DescribeStacks'{_dsStackIds :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'DescribeStacks' smart constructor.
 describeStacks :: DescribeStacks
-describeStacks = DescribeStacks'{_dsStackIds = mempty};
+describeStacks = DescribeStacks'{_dsStackIds = Nothing};
 
 -- | An array of stack IDs that specify the stacks to be described. If you
 -- omit this parameter, @DescribeStacks@ returns a description of every
 -- stack.
-dsStackIds :: Lens' DescribeStacks [Text]
+dsStackIds :: Lens' DescribeStacks (Maybe [Text])
 dsStackIds = lens _dsStackIds (\ s a -> s{_dsStackIds = a});
 
 instance AWSRequest DescribeStacks where
@@ -96,12 +96,12 @@ instance ToQuery DescribeStacks where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsrStacks'
-newtype DescribeStacksResponse = DescribeStacksResponse'{_dsrStacks :: [Stack]} deriving (Eq, Read, Show)
+newtype DescribeStacksResponse = DescribeStacksResponse'{_dsrStacks :: Maybe [Stack]} deriving (Eq, Read, Show)
 
 -- | 'DescribeStacksResponse' smart constructor.
 describeStacksResponse :: DescribeStacksResponse
-describeStacksResponse = DescribeStacksResponse'{_dsrStacks = mempty};
+describeStacksResponse = DescribeStacksResponse'{_dsrStacks = Nothing};
 
 -- | An array of @Stack@ objects that describe the stacks.
-dsrStacks :: Lens' DescribeStacksResponse [Stack]
+dsrStacks :: Lens' DescribeStacksResponse (Maybe [Stack])
 dsrStacks = lens _dsrStacks (\ s a -> s{_dsrStacks = a});

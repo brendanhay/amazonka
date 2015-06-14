@@ -58,11 +58,11 @@ import Network.AWS.EC2.Types
 -- * 'dtDryRun'
 --
 -- * 'dtMaxResults'
-data DescribeTags = DescribeTags'{_dtFilters :: [Filter], _dtNextToken :: Maybe Text, _dtDryRun :: Maybe Bool, _dtMaxResults :: Maybe Int} deriving (Eq, Read, Show)
+data DescribeTags = DescribeTags'{_dtFilters :: Maybe [Filter], _dtNextToken :: Maybe Text, _dtDryRun :: Maybe Bool, _dtMaxResults :: Maybe Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeTags' smart constructor.
 describeTags :: DescribeTags
-describeTags = DescribeTags'{_dtFilters = mempty, _dtNextToken = Nothing, _dtDryRun = Nothing, _dtMaxResults = Nothing};
+describeTags = DescribeTags'{_dtFilters = Nothing, _dtNextToken = Nothing, _dtDryRun = Nothing, _dtMaxResults = Nothing};
 
 -- | One or more filters.
 --
@@ -79,7 +79,7 @@ describeTags = DescribeTags'{_dtFilters = mempty, _dtNextToken = Nothing, _dtDry
 --
 -- -   @value@ - The tag value.
 --
-dtFilters :: Lens' DescribeTags [Filter]
+dtFilters :: Lens' DescribeTags (Maybe [Filter])
 dtFilters = lens _dtFilters (\ s a -> s{_dtFilters = a});
 
 -- | The token to retrieve the next page of results.
@@ -132,11 +132,11 @@ instance ToQuery DescribeTags where
 -- * 'dtrNextToken'
 --
 -- * 'dtrTags'
-data DescribeTagsResponse = DescribeTagsResponse'{_dtrNextToken :: Maybe Text, _dtrTags :: [TagDescription]} deriving (Eq, Read, Show)
+data DescribeTagsResponse = DescribeTagsResponse'{_dtrNextToken :: Maybe Text, _dtrTags :: Maybe [TagDescription]} deriving (Eq, Read, Show)
 
 -- | 'DescribeTagsResponse' smart constructor.
 describeTagsResponse :: DescribeTagsResponse
-describeTagsResponse = DescribeTagsResponse'{_dtrNextToken = Nothing, _dtrTags = mempty};
+describeTagsResponse = DescribeTagsResponse'{_dtrNextToken = Nothing, _dtrTags = Nothing};
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return..
@@ -144,5 +144,5 @@ dtrNextToken :: Lens' DescribeTagsResponse (Maybe Text)
 dtrNextToken = lens _dtrNextToken (\ s a -> s{_dtrNextToken = a});
 
 -- | A list of tags.
-dtrTags :: Lens' DescribeTagsResponse [TagDescription]
+dtrTags :: Lens' DescribeTagsResponse (Maybe [TagDescription])
 dtrTags = lens _dtrTags (\ s a -> s{_dtrTags = a});

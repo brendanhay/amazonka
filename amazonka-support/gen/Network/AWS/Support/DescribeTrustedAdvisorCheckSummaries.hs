@@ -51,8 +51,8 @@ import Network.AWS.Support.Types
 newtype DescribeTrustedAdvisorCheckSummaries = DescribeTrustedAdvisorCheckSummaries'{_dtacsCheckIds :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'DescribeTrustedAdvisorCheckSummaries' smart constructor.
-describeTrustedAdvisorCheckSummaries :: [Text] -> DescribeTrustedAdvisorCheckSummaries
-describeTrustedAdvisorCheckSummaries pCheckIds = DescribeTrustedAdvisorCheckSummaries'{_dtacsCheckIds = pCheckIds};
+describeTrustedAdvisorCheckSummaries :: DescribeTrustedAdvisorCheckSummaries
+describeTrustedAdvisorCheckSummaries = DescribeTrustedAdvisorCheckSummaries'{_dtacsCheckIds = mempty};
 
 -- | The IDs of the Trusted Advisor checks.
 dtacsCheckIds :: Lens' DescribeTrustedAdvisorCheckSummaries [Text]
@@ -103,8 +103,8 @@ instance ToQuery DescribeTrustedAdvisorCheckSummaries
 newtype DescribeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorCheckSummariesResponse'{_dtacsrSummaries :: [TrustedAdvisorCheckSummary]} deriving (Eq, Read, Show)
 
 -- | 'DescribeTrustedAdvisorCheckSummariesResponse' smart constructor.
-describeTrustedAdvisorCheckSummariesResponse :: [TrustedAdvisorCheckSummary] -> DescribeTrustedAdvisorCheckSummariesResponse
-describeTrustedAdvisorCheckSummariesResponse pSummaries = DescribeTrustedAdvisorCheckSummariesResponse'{_dtacsrSummaries = pSummaries};
+describeTrustedAdvisorCheckSummariesResponse :: DescribeTrustedAdvisorCheckSummariesResponse
+describeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorCheckSummariesResponse'{_dtacsrSummaries = mempty};
 
 -- | The summary information for the requested Trusted Advisor checks.
 dtacsrSummaries :: Lens' DescribeTrustedAdvisorCheckSummariesResponse [TrustedAdvisorCheckSummary]

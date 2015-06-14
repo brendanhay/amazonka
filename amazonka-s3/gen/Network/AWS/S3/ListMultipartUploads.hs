@@ -178,11 +178,11 @@ instance ToQuery ListMultipartUploads where
 -- * 'lmurNextUploadIdMarker'
 --
 -- * 'lmurDelimiter'
-data ListMultipartUploadsResponse = ListMultipartUploadsResponse'{_lmurKeyMarker :: Maybe Text, _lmurPrefix :: Maybe Text, _lmurEncodingType :: Maybe EncodingType, _lmurCommonPrefixes :: [CommonPrefix], _lmurBucket :: Maybe BucketName, _lmurMaxUploads :: Maybe Int, _lmurUploadIdMarker :: Maybe Text, _lmurNextKeyMarker :: Maybe Text, _lmurUploads :: [MultipartUpload], _lmurIsTruncated :: Maybe Bool, _lmurNextUploadIdMarker :: Maybe Text, _lmurDelimiter :: Maybe Char} deriving (Eq, Read, Show)
+data ListMultipartUploadsResponse = ListMultipartUploadsResponse'{_lmurKeyMarker :: Maybe Text, _lmurPrefix :: Maybe Text, _lmurEncodingType :: Maybe EncodingType, _lmurCommonPrefixes :: Maybe [CommonPrefix], _lmurBucket :: Maybe BucketName, _lmurMaxUploads :: Maybe Int, _lmurUploadIdMarker :: Maybe Text, _lmurNextKeyMarker :: Maybe Text, _lmurUploads :: Maybe [MultipartUpload], _lmurIsTruncated :: Maybe Bool, _lmurNextUploadIdMarker :: Maybe Text, _lmurDelimiter :: Maybe Char} deriving (Eq, Read, Show)
 
 -- | 'ListMultipartUploadsResponse' smart constructor.
 listMultipartUploadsResponse :: ListMultipartUploadsResponse
-listMultipartUploadsResponse = ListMultipartUploadsResponse'{_lmurKeyMarker = Nothing, _lmurPrefix = Nothing, _lmurEncodingType = Nothing, _lmurCommonPrefixes = mempty, _lmurBucket = Nothing, _lmurMaxUploads = Nothing, _lmurUploadIdMarker = Nothing, _lmurNextKeyMarker = Nothing, _lmurUploads = mempty, _lmurIsTruncated = Nothing, _lmurNextUploadIdMarker = Nothing, _lmurDelimiter = Nothing};
+listMultipartUploadsResponse = ListMultipartUploadsResponse'{_lmurKeyMarker = Nothing, _lmurPrefix = Nothing, _lmurEncodingType = Nothing, _lmurCommonPrefixes = Nothing, _lmurBucket = Nothing, _lmurMaxUploads = Nothing, _lmurUploadIdMarker = Nothing, _lmurNextKeyMarker = Nothing, _lmurUploads = Nothing, _lmurIsTruncated = Nothing, _lmurNextUploadIdMarker = Nothing, _lmurDelimiter = Nothing};
 
 -- | The key at or after which the listing began.
 lmurKeyMarker :: Lens' ListMultipartUploadsResponse (Maybe Text)
@@ -199,7 +199,7 @@ lmurEncodingType :: Lens' ListMultipartUploadsResponse (Maybe EncodingType)
 lmurEncodingType = lens _lmurEncodingType (\ s a -> s{_lmurEncodingType = a});
 
 -- | FIXME: Undocumented member.
-lmurCommonPrefixes :: Lens' ListMultipartUploadsResponse [CommonPrefix]
+lmurCommonPrefixes :: Lens' ListMultipartUploadsResponse (Maybe [CommonPrefix])
 lmurCommonPrefixes = lens _lmurCommonPrefixes (\ s a -> s{_lmurCommonPrefixes = a});
 
 -- | Name of the bucket to which the multipart upload was initiated.
@@ -221,7 +221,7 @@ lmurNextKeyMarker :: Lens' ListMultipartUploadsResponse (Maybe Text)
 lmurNextKeyMarker = lens _lmurNextKeyMarker (\ s a -> s{_lmurNextKeyMarker = a});
 
 -- | FIXME: Undocumented member.
-lmurUploads :: Lens' ListMultipartUploadsResponse [MultipartUpload]
+lmurUploads :: Lens' ListMultipartUploadsResponse (Maybe [MultipartUpload])
 lmurUploads = lens _lmurUploads (\ s a -> s{_lmurUploads = a});
 
 -- | Indicates whether the returned list of multipart uploads is truncated. A

@@ -57,14 +57,14 @@ import Network.AWS.RDS.Types
 -- * 'ddpSource'
 --
 -- * 'ddpDBParameterGroupName'
-data DescribeDBParameters = DescribeDBParameters'{_ddpFilters :: [Filter], _ddpMaxRecords :: Maybe Int, _ddpMarker :: Maybe Text, _ddpSource :: Maybe Text, _ddpDBParameterGroupName :: Text} deriving (Eq, Read, Show)
+data DescribeDBParameters = DescribeDBParameters'{_ddpFilters :: Maybe [Filter], _ddpMaxRecords :: Maybe Int, _ddpMarker :: Maybe Text, _ddpSource :: Maybe Text, _ddpDBParameterGroupName :: Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeDBParameters' smart constructor.
 describeDBParameters :: Text -> DescribeDBParameters
-describeDBParameters pDBParameterGroupName = DescribeDBParameters'{_ddpFilters = mempty, _ddpMaxRecords = Nothing, _ddpMarker = Nothing, _ddpSource = Nothing, _ddpDBParameterGroupName = pDBParameterGroupName};
+describeDBParameters pDBParameterGroupName = DescribeDBParameters'{_ddpFilters = Nothing, _ddpMaxRecords = Nothing, _ddpMarker = Nothing, _ddpSource = Nothing, _ddpDBParameterGroupName = pDBParameterGroupName};
 
 -- | This parameter is not currently supported.
-ddpFilters :: Lens' DescribeDBParameters [Filter]
+ddpFilters :: Lens' DescribeDBParameters (Maybe [Filter])
 ddpFilters = lens _ddpFilters (\ s a -> s{_ddpFilters = a});
 
 -- | The maximum number of records to include in the response. If more
@@ -139,14 +139,14 @@ instance ToQuery DescribeDBParameters where
 -- * 'ddprParameters'
 --
 -- * 'ddprMarker'
-data DescribeDBParametersResponse = DescribeDBParametersResponse'{_ddprParameters :: [Parameter], _ddprMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeDBParametersResponse = DescribeDBParametersResponse'{_ddprParameters :: Maybe [Parameter], _ddprMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeDBParametersResponse' smart constructor.
 describeDBParametersResponse :: DescribeDBParametersResponse
-describeDBParametersResponse = DescribeDBParametersResponse'{_ddprParameters = mempty, _ddprMarker = Nothing};
+describeDBParametersResponse = DescribeDBParametersResponse'{_ddprParameters = Nothing, _ddprMarker = Nothing};
 
 -- | A list of Parameter values.
-ddprParameters :: Lens' DescribeDBParametersResponse [Parameter]
+ddprParameters :: Lens' DescribeDBParametersResponse (Maybe [Parameter])
 ddprParameters = lens _ddprParameters (\ s a -> s{_ddprParameters = a});
 
 -- | An optional pagination token provided by a previous request. If this

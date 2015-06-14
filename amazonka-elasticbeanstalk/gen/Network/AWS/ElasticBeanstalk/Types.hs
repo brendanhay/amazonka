@@ -30,9 +30,9 @@ module Network.AWS.ElasticBeanstalk.Types
     , adDateUpdated
     , adVersions
     , adDateCreated
+    , adApplicationName
     , adConfigurationTemplates
     , adDescription
-    , adApplicationName
 
     -- * ApplicationDescriptionMessage
     , ApplicationDescriptionMessage
@@ -44,10 +44,10 @@ module Network.AWS.ElasticBeanstalk.Types
     , applicationVersionDescription
     , avdDateUpdated
     , avdSourceBundle
-    , avdDateCreated
-    , avdDescription
     , avdVersionLabel
+    , avdDateCreated
     , avdApplicationName
+    , avdDescription
 
     -- * ApplicationVersionDescriptionMessage
     , ApplicationVersionDescriptionMessage
@@ -81,9 +81,9 @@ module Network.AWS.ElasticBeanstalk.Types
     , ConfigurationOptionSetting
     , configurationOptionSetting
     , cosOptionName
+    , cosResourceName
     , cosValue
     , cosNamespace
-    , cosResourceName
 
     -- * ConfigurationOptionValueType
     , ConfigurationOptionValueType (..)
@@ -91,35 +91,35 @@ module Network.AWS.ElasticBeanstalk.Types
     -- * ConfigurationSettingsDescription
     , ConfigurationSettingsDescription
     , configurationSettingsDescription
+    , csdTemplateName
     , csdOptionSettings
     , csdDateUpdated
     , csdDateCreated
+    , csdEnvironmentName
+    , csdApplicationName
     , csdDeploymentStatus
     , csdSolutionStackName
     , csdDescription
-    , csdTemplateName
-    , csdEnvironmentName
-    , csdApplicationName
 
     -- * EnvironmentDescription
     , EnvironmentDescription
     , environmentDescription
+    , envCNAME
     , envStatus
+    , envTemplateName
     , envAbortableOperationInProgress
     , envEndpointURL
     , envDateUpdated
     , envResources
     , envHealth
+    , envVersionLabel
     , envDateCreated
     , envTier
+    , envEnvironmentName
+    , envApplicationName
     , envEnvironmentId
     , envSolutionStackName
     , envDescription
-    , envCNAME
-    , envTemplateName
-    , envVersionLabel
-    , envEnvironmentName
-    , envApplicationName
 
     -- * EnvironmentHealth
     , EnvironmentHealth (..)
@@ -142,9 +142,9 @@ module Network.AWS.ElasticBeanstalk.Types
     , erdTriggers
     , erdLoadBalancers
     , erdInstances
+    , erdEnvironmentName
     , erdLaunchConfigurations
     , erdAutoScalingGroups
-    , erdEnvironmentName
 
     -- * EnvironmentResourcesDescription
     , EnvironmentResourcesDescription
@@ -165,13 +165,13 @@ module Network.AWS.ElasticBeanstalk.Types
     , EventDescription
     , eventDescription
     , edRequestId
-    , edSeverity
-    , edEventDate
-    , edMessage
     , edTemplateName
+    , edSeverity
     , edVersionLabel
     , edEnvironmentName
     , edApplicationName
+    , edEventDate
+    , edMessage
 
     -- * EventSeverity
     , EventSeverity (..)
@@ -214,8 +214,8 @@ module Network.AWS.ElasticBeanstalk.Types
     , OptionSpecification
     , optionSpecification
     , osOptionName
-    , osNamespace
     , osResourceName
+    , osNamespace
 
     -- * Queue
     , Queue
@@ -307,41 +307,41 @@ instance AWSService ElasticBeanstalk where
 --
 -- * 'adDateCreated'
 --
+-- * 'adApplicationName'
+--
 -- * 'adConfigurationTemplates'
 --
 -- * 'adDescription'
---
--- * 'adApplicationName'
-data ApplicationDescription = ApplicationDescription'{_adDateUpdated :: Maybe ISO8601, _adVersions :: [Text], _adDateCreated :: Maybe ISO8601, _adConfigurationTemplates :: [Text], _adDescription :: Maybe Text, _adApplicationName :: Text} deriving (Eq, Read, Show)
+data ApplicationDescription = ApplicationDescription'{_adDateUpdated :: Maybe ISO8601, _adVersions :: Maybe [Text], _adDateCreated :: Maybe ISO8601, _adApplicationName :: Maybe Text, _adConfigurationTemplates :: Maybe [Text], _adDescription :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ApplicationDescription' smart constructor.
-applicationDescription :: Text -> ApplicationDescription
-applicationDescription pApplicationName = ApplicationDescription'{_adDateUpdated = Nothing, _adVersions = mempty, _adDateCreated = Nothing, _adConfigurationTemplates = mempty, _adDescription = Nothing, _adApplicationName = pApplicationName};
+applicationDescription :: ApplicationDescription
+applicationDescription = ApplicationDescription'{_adDateUpdated = Nothing, _adVersions = Nothing, _adDateCreated = Nothing, _adApplicationName = Nothing, _adConfigurationTemplates = Nothing, _adDescription = Nothing};
 
 -- | The date when the application was last modified.
 adDateUpdated :: Lens' ApplicationDescription (Maybe UTCTime)
 adDateUpdated = lens _adDateUpdated (\ s a -> s{_adDateUpdated = a}) . mapping _Time;
 
 -- | The names of the versions for this application.
-adVersions :: Lens' ApplicationDescription [Text]
+adVersions :: Lens' ApplicationDescription (Maybe [Text])
 adVersions = lens _adVersions (\ s a -> s{_adVersions = a});
 
 -- | The date when the application was created.
 adDateCreated :: Lens' ApplicationDescription (Maybe UTCTime)
 adDateCreated = lens _adDateCreated (\ s a -> s{_adDateCreated = a}) . mapping _Time;
 
+-- | The name of the application.
+adApplicationName :: Lens' ApplicationDescription (Maybe Text)
+adApplicationName = lens _adApplicationName (\ s a -> s{_adApplicationName = a});
+
 -- | The names of the configuration templates associated with this
 -- application.
-adConfigurationTemplates :: Lens' ApplicationDescription [Text]
+adConfigurationTemplates :: Lens' ApplicationDescription (Maybe [Text])
 adConfigurationTemplates = lens _adConfigurationTemplates (\ s a -> s{_adConfigurationTemplates = a});
 
 -- | User-defined description of the application.
 adDescription :: Lens' ApplicationDescription (Maybe Text)
 adDescription = lens _adDescription (\ s a -> s{_adDescription = a});
-
--- | The name of the application.
-adApplicationName :: Lens' ApplicationDescription Text
-adApplicationName = lens _adApplicationName (\ s a -> s{_adApplicationName = a});
 
 instance FromXML ApplicationDescription where
         parseXML x
@@ -350,11 +350,11 @@ instance FromXML ApplicationDescription where
                 (x .@? "Versions" .!@ mempty >>=
                    parseXMLList "member")
                 <*> x .@? "DateCreated"
+                <*> x .@? "ApplicationName"
                 <*>
                 (x .@? "ConfigurationTemplates" .!@ mempty >>=
                    parseXMLList "member")
                 <*> x .@? "Description"
-                <*> x .@ "ApplicationName"
 
 -- | /See:/ 'applicationDescriptionMessage' smart constructor.
 --
@@ -384,18 +384,18 @@ instance FromXML ApplicationDescriptionMessage where
 --
 -- * 'avdSourceBundle'
 --
--- * 'avdDateCreated'
---
--- * 'avdDescription'
---
 -- * 'avdVersionLabel'
 --
+-- * 'avdDateCreated'
+--
 -- * 'avdApplicationName'
-data ApplicationVersionDescription = ApplicationVersionDescription'{_avdDateUpdated :: Maybe ISO8601, _avdSourceBundle :: Maybe S3Location, _avdDateCreated :: Maybe ISO8601, _avdDescription :: Maybe Text, _avdVersionLabel :: Text, _avdApplicationName :: Text} deriving (Eq, Read, Show)
+--
+-- * 'avdDescription'
+data ApplicationVersionDescription = ApplicationVersionDescription'{_avdDateUpdated :: Maybe ISO8601, _avdSourceBundle :: Maybe S3Location, _avdVersionLabel :: Maybe Text, _avdDateCreated :: Maybe ISO8601, _avdApplicationName :: Maybe Text, _avdDescription :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ApplicationVersionDescription' smart constructor.
-applicationVersionDescription :: Text -> Text -> ApplicationVersionDescription
-applicationVersionDescription pVersionLabel pApplicationName = ApplicationVersionDescription'{_avdDateUpdated = Nothing, _avdSourceBundle = Nothing, _avdDateCreated = Nothing, _avdDescription = Nothing, _avdVersionLabel = pVersionLabel, _avdApplicationName = pApplicationName};
+applicationVersionDescription :: ApplicationVersionDescription
+applicationVersionDescription = ApplicationVersionDescription'{_avdDateUpdated = Nothing, _avdSourceBundle = Nothing, _avdVersionLabel = Nothing, _avdDateCreated = Nothing, _avdApplicationName = Nothing, _avdDescription = Nothing};
 
 -- | The last modified date of the application version.
 avdDateUpdated :: Lens' ApplicationVersionDescription (Maybe UTCTime)
@@ -405,30 +405,30 @@ avdDateUpdated = lens _avdDateUpdated (\ s a -> s{_avdDateUpdated = a}) . mappin
 avdSourceBundle :: Lens' ApplicationVersionDescription (Maybe S3Location)
 avdSourceBundle = lens _avdSourceBundle (\ s a -> s{_avdSourceBundle = a});
 
+-- | A label uniquely identifying the version for the associated application.
+avdVersionLabel :: Lens' ApplicationVersionDescription (Maybe Text)
+avdVersionLabel = lens _avdVersionLabel (\ s a -> s{_avdVersionLabel = a});
+
 -- | The creation date of the application version.
 avdDateCreated :: Lens' ApplicationVersionDescription (Maybe UTCTime)
 avdDateCreated = lens _avdDateCreated (\ s a -> s{_avdDateCreated = a}) . mapping _Time;
+
+-- | The name of the application associated with this release.
+avdApplicationName :: Lens' ApplicationVersionDescription (Maybe Text)
+avdApplicationName = lens _avdApplicationName (\ s a -> s{_avdApplicationName = a});
 
 -- | The description of this application version.
 avdDescription :: Lens' ApplicationVersionDescription (Maybe Text)
 avdDescription = lens _avdDescription (\ s a -> s{_avdDescription = a});
 
--- | A label uniquely identifying the version for the associated application.
-avdVersionLabel :: Lens' ApplicationVersionDescription Text
-avdVersionLabel = lens _avdVersionLabel (\ s a -> s{_avdVersionLabel = a});
-
--- | The name of the application associated with this release.
-avdApplicationName :: Lens' ApplicationVersionDescription Text
-avdApplicationName = lens _avdApplicationName (\ s a -> s{_avdApplicationName = a});
-
 instance FromXML ApplicationVersionDescription where
         parseXML x
           = ApplicationVersionDescription' <$>
               x .@? "DateUpdated" <*> x .@? "SourceBundle" <*>
-                x .@? "DateCreated"
+                x .@? "VersionLabel"
+                <*> x .@? "DateCreated"
+                <*> x .@? "ApplicationName"
                 <*> x .@? "Description"
-                <*> x .@ "VersionLabel"
-                <*> x .@ "ApplicationName"
 
 -- | /See:/ 'applicationVersionDescriptionMessage' smart constructor.
 --
@@ -516,11 +516,11 @@ instance FromXML ConfigurationDeploymentStatus where
 -- * 'codValueType'
 --
 -- * 'codMinValue'
-data ConfigurationOptionDescription = ConfigurationOptionDescription'{_codMaxValue :: Maybe Int, _codRegex :: Maybe OptionRestrictionRegex, _codUserDefined :: Maybe Bool, _codMaxLength :: Maybe Int, _codValueOptions :: [Text], _codNamespace :: Maybe Text, _codName :: Maybe Text, _codChangeSeverity :: Maybe Text, _codDefaultValue :: Maybe Text, _codValueType :: Maybe ConfigurationOptionValueType, _codMinValue :: Maybe Int} deriving (Eq, Read, Show)
+data ConfigurationOptionDescription = ConfigurationOptionDescription'{_codMaxValue :: Maybe Int, _codRegex :: Maybe OptionRestrictionRegex, _codUserDefined :: Maybe Bool, _codMaxLength :: Maybe Int, _codValueOptions :: Maybe [Text], _codNamespace :: Maybe Text, _codName :: Maybe Text, _codChangeSeverity :: Maybe Text, _codDefaultValue :: Maybe Text, _codValueType :: Maybe ConfigurationOptionValueType, _codMinValue :: Maybe Int} deriving (Eq, Read, Show)
 
 -- | 'ConfigurationOptionDescription' smart constructor.
 configurationOptionDescription :: ConfigurationOptionDescription
-configurationOptionDescription = ConfigurationOptionDescription'{_codMaxValue = Nothing, _codRegex = Nothing, _codUserDefined = Nothing, _codMaxLength = Nothing, _codValueOptions = mempty, _codNamespace = Nothing, _codName = Nothing, _codChangeSeverity = Nothing, _codDefaultValue = Nothing, _codValueType = Nothing, _codMinValue = Nothing};
+configurationOptionDescription = ConfigurationOptionDescription'{_codMaxValue = Nothing, _codRegex = Nothing, _codUserDefined = Nothing, _codMaxLength = Nothing, _codValueOptions = Nothing, _codNamespace = Nothing, _codName = Nothing, _codChangeSeverity = Nothing, _codDefaultValue = Nothing, _codValueType = Nothing, _codMinValue = Nothing};
 
 -- | If specified, the configuration option must be a numeric value less than
 -- this value.
@@ -560,7 +560,7 @@ codMaxLength = lens _codMaxLength (\ s a -> s{_codMaxLength = a});
 
 -- | If specified, values for the configuration option are selected from this
 -- list.
-codValueOptions :: Lens' ConfigurationOptionDescription [Text]
+codValueOptions :: Lens' ConfigurationOptionDescription (Maybe [Text])
 codValueOptions = lens _codValueOptions (\ s a -> s{_codValueOptions = a});
 
 -- | A unique namespace identifying the option\'s associated AWS resource.
@@ -649,20 +649,24 @@ instance FromXML ConfigurationOptionDescription where
 --
 -- * 'cosOptionName'
 --
+-- * 'cosResourceName'
+--
 -- * 'cosValue'
 --
 -- * 'cosNamespace'
---
--- * 'cosResourceName'
-data ConfigurationOptionSetting = ConfigurationOptionSetting'{_cosOptionName :: Maybe Text, _cosValue :: Maybe Text, _cosNamespace :: Maybe Text, _cosResourceName :: Text} deriving (Eq, Read, Show)
+data ConfigurationOptionSetting = ConfigurationOptionSetting'{_cosOptionName :: Maybe Text, _cosResourceName :: Maybe Text, _cosValue :: Maybe Text, _cosNamespace :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ConfigurationOptionSetting' smart constructor.
-configurationOptionSetting :: Text -> ConfigurationOptionSetting
-configurationOptionSetting pResourceName = ConfigurationOptionSetting'{_cosOptionName = Nothing, _cosValue = Nothing, _cosNamespace = Nothing, _cosResourceName = pResourceName};
+configurationOptionSetting :: ConfigurationOptionSetting
+configurationOptionSetting = ConfigurationOptionSetting'{_cosOptionName = Nothing, _cosResourceName = Nothing, _cosValue = Nothing, _cosNamespace = Nothing};
 
 -- | The name of the configuration option.
 cosOptionName :: Lens' ConfigurationOptionSetting (Maybe Text)
 cosOptionName = lens _cosOptionName (\ s a -> s{_cosOptionName = a});
+
+-- | A unique resource name for a time-based scaling configuration option.
+cosResourceName :: Lens' ConfigurationOptionSetting (Maybe Text)
+cosResourceName = lens _cosResourceName (\ s a -> s{_cosResourceName = a});
 
 -- | The current value for the configuration option.
 cosValue :: Lens' ConfigurationOptionSetting (Maybe Text)
@@ -672,23 +676,19 @@ cosValue = lens _cosValue (\ s a -> s{_cosValue = a});
 cosNamespace :: Lens' ConfigurationOptionSetting (Maybe Text)
 cosNamespace = lens _cosNamespace (\ s a -> s{_cosNamespace = a});
 
--- | A unique resource name for a time-based scaling configuration option.
-cosResourceName :: Lens' ConfigurationOptionSetting Text
-cosResourceName = lens _cosResourceName (\ s a -> s{_cosResourceName = a});
-
 instance FromXML ConfigurationOptionSetting where
         parseXML x
           = ConfigurationOptionSetting' <$>
-              x .@? "OptionName" <*> x .@? "Value" <*>
-                x .@? "Namespace"
-                <*> x .@ "ResourceName"
+              x .@? "OptionName" <*> x .@? "ResourceName" <*>
+                x .@? "Value"
+                <*> x .@? "Namespace"
 
 instance ToQuery ConfigurationOptionSetting where
         toQuery ConfigurationOptionSetting'{..}
           = mconcat
               ["OptionName" =: _cosOptionName,
-               "Value" =: _cosValue, "Namespace" =: _cosNamespace,
-               "ResourceName" =: _cosResourceName]
+               "ResourceName" =: _cosResourceName,
+               "Value" =: _cosValue, "Namespace" =: _cosNamespace]
 
 data ConfigurationOptionValueType = List | Scalar deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -714,32 +714,37 @@ instance FromXML ConfigurationOptionValueType where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'csdTemplateName'
+--
 -- * 'csdOptionSettings'
 --
 -- * 'csdDateUpdated'
 --
 -- * 'csdDateCreated'
 --
+-- * 'csdEnvironmentName'
+--
+-- * 'csdApplicationName'
+--
 -- * 'csdDeploymentStatus'
 --
 -- * 'csdSolutionStackName'
 --
 -- * 'csdDescription'
---
--- * 'csdTemplateName'
---
--- * 'csdEnvironmentName'
---
--- * 'csdApplicationName'
-data ConfigurationSettingsDescription = ConfigurationSettingsDescription'{_csdOptionSettings :: [ConfigurationOptionSetting], _csdDateUpdated :: Maybe ISO8601, _csdDateCreated :: Maybe ISO8601, _csdDeploymentStatus :: Maybe ConfigurationDeploymentStatus, _csdSolutionStackName :: Maybe Text, _csdDescription :: Maybe Text, _csdTemplateName :: Text, _csdEnvironmentName :: Text, _csdApplicationName :: Text} deriving (Eq, Read, Show)
+data ConfigurationSettingsDescription = ConfigurationSettingsDescription'{_csdTemplateName :: Maybe Text, _csdOptionSettings :: Maybe [ConfigurationOptionSetting], _csdDateUpdated :: Maybe ISO8601, _csdDateCreated :: Maybe ISO8601, _csdEnvironmentName :: Maybe Text, _csdApplicationName :: Maybe Text, _csdDeploymentStatus :: Maybe ConfigurationDeploymentStatus, _csdSolutionStackName :: Maybe Text, _csdDescription :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ConfigurationSettingsDescription' smart constructor.
-configurationSettingsDescription :: Text -> Text -> Text -> ConfigurationSettingsDescription
-configurationSettingsDescription pTemplateName pEnvironmentName pApplicationName = ConfigurationSettingsDescription'{_csdOptionSettings = mempty, _csdDateUpdated = Nothing, _csdDateCreated = Nothing, _csdDeploymentStatus = Nothing, _csdSolutionStackName = Nothing, _csdDescription = Nothing, _csdTemplateName = pTemplateName, _csdEnvironmentName = pEnvironmentName, _csdApplicationName = pApplicationName};
+configurationSettingsDescription :: ConfigurationSettingsDescription
+configurationSettingsDescription = ConfigurationSettingsDescription'{_csdTemplateName = Nothing, _csdOptionSettings = Nothing, _csdDateUpdated = Nothing, _csdDateCreated = Nothing, _csdEnvironmentName = Nothing, _csdApplicationName = Nothing, _csdDeploymentStatus = Nothing, _csdSolutionStackName = Nothing, _csdDescription = Nothing};
+
+-- | If not @null@, the name of the configuration template for this
+-- configuration set.
+csdTemplateName :: Lens' ConfigurationSettingsDescription (Maybe Text)
+csdTemplateName = lens _csdTemplateName (\ s a -> s{_csdTemplateName = a});
 
 -- | A list of the configuration options and their values in this
 -- configuration set.
-csdOptionSettings :: Lens' ConfigurationSettingsDescription [ConfigurationOptionSetting]
+csdOptionSettings :: Lens' ConfigurationSettingsDescription (Maybe [ConfigurationOptionSetting])
 csdOptionSettings = lens _csdOptionSettings (\ s a -> s{_csdOptionSettings = a});
 
 -- | The date (in UTC time) when this configuration set was last modified.
@@ -749,6 +754,14 @@ csdDateUpdated = lens _csdDateUpdated (\ s a -> s{_csdDateUpdated = a}) . mappin
 -- | The date (in UTC time) when this configuration set was created.
 csdDateCreated :: Lens' ConfigurationSettingsDescription (Maybe UTCTime)
 csdDateCreated = lens _csdDateCreated (\ s a -> s{_csdDateCreated = a}) . mapping _Time;
+
+-- | If not @null@, the name of the environment for this configuration set.
+csdEnvironmentName :: Lens' ConfigurationSettingsDescription (Maybe Text)
+csdEnvironmentName = lens _csdEnvironmentName (\ s a -> s{_csdEnvironmentName = a});
+
+-- | The name of the application associated with this configuration set.
+csdApplicationName :: Lens' ConfigurationSettingsDescription (Maybe Text)
+csdApplicationName = lens _csdApplicationName (\ s a -> s{_csdApplicationName = a});
 
 -- | If this configuration set is associated with an environment, the
 -- @DeploymentStatus@ parameter indicates the deployment status of this
@@ -784,39 +797,30 @@ csdSolutionStackName = lens _csdSolutionStackName (\ s a -> s{_csdSolutionStackN
 csdDescription :: Lens' ConfigurationSettingsDescription (Maybe Text)
 csdDescription = lens _csdDescription (\ s a -> s{_csdDescription = a});
 
--- | If not @null@, the name of the configuration template for this
--- configuration set.
-csdTemplateName :: Lens' ConfigurationSettingsDescription Text
-csdTemplateName = lens _csdTemplateName (\ s a -> s{_csdTemplateName = a});
-
--- | If not @null@, the name of the environment for this configuration set.
-csdEnvironmentName :: Lens' ConfigurationSettingsDescription Text
-csdEnvironmentName = lens _csdEnvironmentName (\ s a -> s{_csdEnvironmentName = a});
-
--- | The name of the application associated with this configuration set.
-csdApplicationName :: Lens' ConfigurationSettingsDescription Text
-csdApplicationName = lens _csdApplicationName (\ s a -> s{_csdApplicationName = a});
-
 instance FromXML ConfigurationSettingsDescription
          where
         parseXML x
           = ConfigurationSettingsDescription' <$>
-              (x .@? "OptionSettings" .!@ mempty >>=
-                 parseXMLList "member")
+              x .@? "TemplateName" <*>
+                (x .@? "OptionSettings" .!@ mempty >>=
+                   parseXMLList "member")
                 <*> x .@? "DateUpdated"
                 <*> x .@? "DateCreated"
+                <*> x .@? "EnvironmentName"
+                <*> x .@? "ApplicationName"
                 <*> x .@? "DeploymentStatus"
                 <*> x .@? "SolutionStackName"
                 <*> x .@? "Description"
-                <*> x .@ "TemplateName"
-                <*> x .@ "EnvironmentName"
-                <*> x .@ "ApplicationName"
 
 -- | /See:/ 'environmentDescription' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'envCNAME'
+--
 -- * 'envStatus'
+--
+-- * 'envTemplateName'
 --
 -- * 'envAbortableOperationInProgress'
 --
@@ -828,30 +832,30 @@ instance FromXML ConfigurationSettingsDescription
 --
 -- * 'envHealth'
 --
+-- * 'envVersionLabel'
+--
 -- * 'envDateCreated'
 --
 -- * 'envTier'
+--
+-- * 'envEnvironmentName'
+--
+-- * 'envApplicationName'
 --
 -- * 'envEnvironmentId'
 --
 -- * 'envSolutionStackName'
 --
 -- * 'envDescription'
---
--- * 'envCNAME'
---
--- * 'envTemplateName'
---
--- * 'envVersionLabel'
---
--- * 'envEnvironmentName'
---
--- * 'envApplicationName'
-data EnvironmentDescription = EnvironmentDescription'{_envStatus :: Maybe EnvironmentStatus, _envAbortableOperationInProgress :: Maybe Bool, _envEndpointURL :: Maybe Text, _envDateUpdated :: Maybe ISO8601, _envResources :: Maybe EnvironmentResourcesDescription, _envHealth :: Maybe EnvironmentHealth, _envDateCreated :: Maybe ISO8601, _envTier :: Maybe EnvironmentTier, _envEnvironmentId :: Maybe Text, _envSolutionStackName :: Maybe Text, _envDescription :: Maybe Text, _envCNAME :: Text, _envTemplateName :: Text, _envVersionLabel :: Text, _envEnvironmentName :: Text, _envApplicationName :: Text} deriving (Eq, Read, Show)
+data EnvironmentDescription = EnvironmentDescription'{_envCNAME :: Maybe Text, _envStatus :: Maybe EnvironmentStatus, _envTemplateName :: Maybe Text, _envAbortableOperationInProgress :: Maybe Bool, _envEndpointURL :: Maybe Text, _envDateUpdated :: Maybe ISO8601, _envResources :: Maybe EnvironmentResourcesDescription, _envHealth :: Maybe EnvironmentHealth, _envVersionLabel :: Maybe Text, _envDateCreated :: Maybe ISO8601, _envTier :: Maybe EnvironmentTier, _envEnvironmentName :: Maybe Text, _envApplicationName :: Maybe Text, _envEnvironmentId :: Maybe Text, _envSolutionStackName :: Maybe Text, _envDescription :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'EnvironmentDescription' smart constructor.
-environmentDescription :: Text -> Text -> Text -> Text -> Text -> EnvironmentDescription
-environmentDescription pCNAME pTemplateName pVersionLabel pEnvironmentName pApplicationName = EnvironmentDescription'{_envStatus = Nothing, _envAbortableOperationInProgress = Nothing, _envEndpointURL = Nothing, _envDateUpdated = Nothing, _envResources = Nothing, _envHealth = Nothing, _envDateCreated = Nothing, _envTier = Nothing, _envEnvironmentId = Nothing, _envSolutionStackName = Nothing, _envDescription = Nothing, _envCNAME = pCNAME, _envTemplateName = pTemplateName, _envVersionLabel = pVersionLabel, _envEnvironmentName = pEnvironmentName, _envApplicationName = pApplicationName};
+environmentDescription :: EnvironmentDescription
+environmentDescription = EnvironmentDescription'{_envCNAME = Nothing, _envStatus = Nothing, _envTemplateName = Nothing, _envAbortableOperationInProgress = Nothing, _envEndpointURL = Nothing, _envDateUpdated = Nothing, _envResources = Nothing, _envHealth = Nothing, _envVersionLabel = Nothing, _envDateCreated = Nothing, _envTier = Nothing, _envEnvironmentName = Nothing, _envApplicationName = Nothing, _envEnvironmentId = Nothing, _envSolutionStackName = Nothing, _envDescription = Nothing};
+
+-- | The URL to the CNAME for this environment.
+envCNAME :: Lens' EnvironmentDescription (Maybe Text)
+envCNAME = lens _envCNAME (\ s a -> s{_envCNAME = a});
 
 -- | The current operational status of the environment:
 --
@@ -864,6 +868,11 @@ environmentDescription pCNAME pTemplateName pVersionLabel pEnvironmentName pAppl
 -- -   @Terminated@: Environment is not running.
 envStatus :: Lens' EnvironmentDescription (Maybe EnvironmentStatus)
 envStatus = lens _envStatus (\ s a -> s{_envStatus = a});
+
+-- | The name of the configuration template used to originally launch this
+-- environment.
+envTemplateName :: Lens' EnvironmentDescription (Maybe Text)
+envTemplateName = lens _envTemplateName (\ s a -> s{_envTemplateName = a});
 
 -- | Indicates if there is an in-progress environment configuration update or
 -- application version deployment that you can cancel.
@@ -912,6 +921,10 @@ envResources = lens _envResources (\ s a -> s{_envResources = a});
 envHealth :: Lens' EnvironmentDescription (Maybe EnvironmentHealth)
 envHealth = lens _envHealth (\ s a -> s{_envHealth = a});
 
+-- | The application version deployed in this environment.
+envVersionLabel :: Lens' EnvironmentDescription (Maybe Text)
+envVersionLabel = lens _envVersionLabel (\ s a -> s{_envVersionLabel = a});
+
 -- | The creation date for this environment.
 envDateCreated :: Lens' EnvironmentDescription (Maybe UTCTime)
 envDateCreated = lens _envDateCreated (\ s a -> s{_envDateCreated = a}) . mapping _Time;
@@ -919,6 +932,14 @@ envDateCreated = lens _envDateCreated (\ s a -> s{_envDateCreated = a}) . mappin
 -- | Describes the current tier of this environment.
 envTier :: Lens' EnvironmentDescription (Maybe EnvironmentTier)
 envTier = lens _envTier (\ s a -> s{_envTier = a});
+
+-- | The name of this environment.
+envEnvironmentName :: Lens' EnvironmentDescription (Maybe Text)
+envEnvironmentName = lens _envEnvironmentName (\ s a -> s{_envEnvironmentName = a});
+
+-- | The name of the application associated with this environment.
+envApplicationName :: Lens' EnvironmentDescription (Maybe Text)
+envApplicationName = lens _envApplicationName (\ s a -> s{_envApplicationName = a});
 
 -- | The ID of this environment.
 envEnvironmentId :: Lens' EnvironmentDescription (Maybe Text)
@@ -932,46 +953,24 @@ envSolutionStackName = lens _envSolutionStackName (\ s a -> s{_envSolutionStackN
 envDescription :: Lens' EnvironmentDescription (Maybe Text)
 envDescription = lens _envDescription (\ s a -> s{_envDescription = a});
 
--- | The URL to the CNAME for this environment.
-envCNAME :: Lens' EnvironmentDescription Text
-envCNAME = lens _envCNAME (\ s a -> s{_envCNAME = a});
-
--- | The name of the configuration template used to originally launch this
--- environment.
-envTemplateName :: Lens' EnvironmentDescription Text
-envTemplateName = lens _envTemplateName (\ s a -> s{_envTemplateName = a});
-
--- | The application version deployed in this environment.
-envVersionLabel :: Lens' EnvironmentDescription Text
-envVersionLabel = lens _envVersionLabel (\ s a -> s{_envVersionLabel = a});
-
--- | The name of this environment.
-envEnvironmentName :: Lens' EnvironmentDescription Text
-envEnvironmentName = lens _envEnvironmentName (\ s a -> s{_envEnvironmentName = a});
-
--- | The name of the application associated with this environment.
-envApplicationName :: Lens' EnvironmentDescription Text
-envApplicationName = lens _envApplicationName (\ s a -> s{_envApplicationName = a});
-
 instance FromXML EnvironmentDescription where
         parseXML x
           = EnvironmentDescription' <$>
-              x .@? "Status" <*>
-                x .@? "AbortableOperationInProgress"
+              x .@? "CNAME" <*> x .@? "Status" <*>
+                x .@? "TemplateName"
+                <*> x .@? "AbortableOperationInProgress"
                 <*> x .@? "EndpointURL"
                 <*> x .@? "DateUpdated"
                 <*> x .@? "Resources"
                 <*> x .@? "Health"
+                <*> x .@? "VersionLabel"
                 <*> x .@? "DateCreated"
                 <*> x .@? "Tier"
+                <*> x .@? "EnvironmentName"
+                <*> x .@? "ApplicationName"
                 <*> x .@? "EnvironmentId"
                 <*> x .@? "SolutionStackName"
                 <*> x .@? "Description"
-                <*> x .@ "CNAME"
-                <*> x .@ "TemplateName"
-                <*> x .@ "VersionLabel"
-                <*> x .@ "EnvironmentName"
-                <*> x .@ "ApplicationName"
 
 data EnvironmentHealth = Red | Yellow | Green | Grey deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -1069,44 +1068,44 @@ instance FromXML EnvironmentInfoType where
 --
 -- * 'erdInstances'
 --
+-- * 'erdEnvironmentName'
+--
 -- * 'erdLaunchConfigurations'
 --
 -- * 'erdAutoScalingGroups'
---
--- * 'erdEnvironmentName'
-data EnvironmentResourceDescription = EnvironmentResourceDescription'{_erdQueues :: [Queue], _erdTriggers :: [Trigger], _erdLoadBalancers :: [LoadBalancer], _erdInstances :: [Instance], _erdLaunchConfigurations :: [LaunchConfiguration], _erdAutoScalingGroups :: [AutoScalingGroup], _erdEnvironmentName :: Text} deriving (Eq, Read, Show)
+data EnvironmentResourceDescription = EnvironmentResourceDescription'{_erdQueues :: Maybe [Queue], _erdTriggers :: Maybe [Trigger], _erdLoadBalancers :: Maybe [LoadBalancer], _erdInstances :: Maybe [Instance], _erdEnvironmentName :: Maybe Text, _erdLaunchConfigurations :: Maybe [LaunchConfiguration], _erdAutoScalingGroups :: Maybe [AutoScalingGroup]} deriving (Eq, Read, Show)
 
 -- | 'EnvironmentResourceDescription' smart constructor.
-environmentResourceDescription :: Text -> EnvironmentResourceDescription
-environmentResourceDescription pEnvironmentName = EnvironmentResourceDescription'{_erdQueues = mempty, _erdTriggers = mempty, _erdLoadBalancers = mempty, _erdInstances = mempty, _erdLaunchConfigurations = mempty, _erdAutoScalingGroups = mempty, _erdEnvironmentName = pEnvironmentName};
+environmentResourceDescription :: EnvironmentResourceDescription
+environmentResourceDescription = EnvironmentResourceDescription'{_erdQueues = Nothing, _erdTriggers = Nothing, _erdLoadBalancers = Nothing, _erdInstances = Nothing, _erdEnvironmentName = Nothing, _erdLaunchConfigurations = Nothing, _erdAutoScalingGroups = Nothing};
 
 -- | The queues used by this environment.
-erdQueues :: Lens' EnvironmentResourceDescription [Queue]
+erdQueues :: Lens' EnvironmentResourceDescription (Maybe [Queue])
 erdQueues = lens _erdQueues (\ s a -> s{_erdQueues = a});
 
 -- | The @AutoScaling@ triggers in use by this environment.
-erdTriggers :: Lens' EnvironmentResourceDescription [Trigger]
+erdTriggers :: Lens' EnvironmentResourceDescription (Maybe [Trigger])
 erdTriggers = lens _erdTriggers (\ s a -> s{_erdTriggers = a});
 
 -- | The LoadBalancers in use by this environment.
-erdLoadBalancers :: Lens' EnvironmentResourceDescription [LoadBalancer]
+erdLoadBalancers :: Lens' EnvironmentResourceDescription (Maybe [LoadBalancer])
 erdLoadBalancers = lens _erdLoadBalancers (\ s a -> s{_erdLoadBalancers = a});
 
 -- | The Amazon EC2 instances used by this environment.
-erdInstances :: Lens' EnvironmentResourceDescription [Instance]
+erdInstances :: Lens' EnvironmentResourceDescription (Maybe [Instance])
 erdInstances = lens _erdInstances (\ s a -> s{_erdInstances = a});
 
+-- | The name of the environment.
+erdEnvironmentName :: Lens' EnvironmentResourceDescription (Maybe Text)
+erdEnvironmentName = lens _erdEnvironmentName (\ s a -> s{_erdEnvironmentName = a});
+
 -- | The Auto Scaling launch configurations in use by this environment.
-erdLaunchConfigurations :: Lens' EnvironmentResourceDescription [LaunchConfiguration]
+erdLaunchConfigurations :: Lens' EnvironmentResourceDescription (Maybe [LaunchConfiguration])
 erdLaunchConfigurations = lens _erdLaunchConfigurations (\ s a -> s{_erdLaunchConfigurations = a});
 
 -- | The @AutoScalingGroups@ used by this environment.
-erdAutoScalingGroups :: Lens' EnvironmentResourceDescription [AutoScalingGroup]
+erdAutoScalingGroups :: Lens' EnvironmentResourceDescription (Maybe [AutoScalingGroup])
 erdAutoScalingGroups = lens _erdAutoScalingGroups (\ s a -> s{_erdAutoScalingGroups = a});
-
--- | The name of the environment.
-erdEnvironmentName :: Lens' EnvironmentResourceDescription Text
-erdEnvironmentName = lens _erdEnvironmentName (\ s a -> s{_erdEnvironmentName = a});
 
 instance FromXML EnvironmentResourceDescription where
         parseXML x
@@ -1121,13 +1120,13 @@ instance FromXML EnvironmentResourceDescription where
                 <*>
                 (x .@? "Instances" .!@ mempty >>=
                    parseXMLList "member")
+                <*> x .@? "EnvironmentName"
                 <*>
                 (x .@? "LaunchConfigurations" .!@ mempty >>=
                    parseXMLList "member")
                 <*>
                 (x .@? "AutoScalingGroups" .!@ mempty >>=
                    parseXMLList "member")
-                <*> x .@ "EnvironmentName"
 
 -- | /See:/ 'environmentResourcesDescription' smart constructor.
 --
@@ -1220,32 +1219,49 @@ instance ToQuery EnvironmentTier where
 --
 -- * 'edRequestId'
 --
--- * 'edSeverity'
---
--- * 'edEventDate'
---
--- * 'edMessage'
---
 -- * 'edTemplateName'
+--
+-- * 'edSeverity'
 --
 -- * 'edVersionLabel'
 --
 -- * 'edEnvironmentName'
 --
 -- * 'edApplicationName'
-data EventDescription = EventDescription'{_edRequestId :: Maybe Text, _edSeverity :: Maybe EventSeverity, _edEventDate :: Maybe ISO8601, _edMessage :: Maybe Text, _edTemplateName :: Text, _edVersionLabel :: Text, _edEnvironmentName :: Text, _edApplicationName :: Text} deriving (Eq, Read, Show)
+--
+-- * 'edEventDate'
+--
+-- * 'edMessage'
+data EventDescription = EventDescription'{_edRequestId :: Maybe Text, _edTemplateName :: Maybe Text, _edSeverity :: Maybe EventSeverity, _edVersionLabel :: Maybe Text, _edEnvironmentName :: Maybe Text, _edApplicationName :: Maybe Text, _edEventDate :: Maybe ISO8601, _edMessage :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'EventDescription' smart constructor.
-eventDescription :: Text -> Text -> Text -> Text -> EventDescription
-eventDescription pTemplateName pVersionLabel pEnvironmentName pApplicationName = EventDescription'{_edRequestId = Nothing, _edSeverity = Nothing, _edEventDate = Nothing, _edMessage = Nothing, _edTemplateName = pTemplateName, _edVersionLabel = pVersionLabel, _edEnvironmentName = pEnvironmentName, _edApplicationName = pApplicationName};
+eventDescription :: EventDescription
+eventDescription = EventDescription'{_edRequestId = Nothing, _edTemplateName = Nothing, _edSeverity = Nothing, _edVersionLabel = Nothing, _edEnvironmentName = Nothing, _edApplicationName = Nothing, _edEventDate = Nothing, _edMessage = Nothing};
 
 -- | The web service request ID for the activity of this event.
 edRequestId :: Lens' EventDescription (Maybe Text)
 edRequestId = lens _edRequestId (\ s a -> s{_edRequestId = a});
 
+-- | The name of the configuration associated with this event.
+edTemplateName :: Lens' EventDescription (Maybe Text)
+edTemplateName = lens _edTemplateName (\ s a -> s{_edTemplateName = a});
+
 -- | The severity level of this event.
 edSeverity :: Lens' EventDescription (Maybe EventSeverity)
 edSeverity = lens _edSeverity (\ s a -> s{_edSeverity = a});
+
+-- | The release label for the application version associated with this
+-- event.
+edVersionLabel :: Lens' EventDescription (Maybe Text)
+edVersionLabel = lens _edVersionLabel (\ s a -> s{_edVersionLabel = a});
+
+-- | The name of the environment associated with this event.
+edEnvironmentName :: Lens' EventDescription (Maybe Text)
+edEnvironmentName = lens _edEnvironmentName (\ s a -> s{_edEnvironmentName = a});
+
+-- | The application associated with the event.
+edApplicationName :: Lens' EventDescription (Maybe Text)
+edApplicationName = lens _edApplicationName (\ s a -> s{_edApplicationName = a});
 
 -- | The date when the event occurred.
 edEventDate :: Lens' EventDescription (Maybe UTCTime)
@@ -1255,33 +1271,16 @@ edEventDate = lens _edEventDate (\ s a -> s{_edEventDate = a}) . mapping _Time;
 edMessage :: Lens' EventDescription (Maybe Text)
 edMessage = lens _edMessage (\ s a -> s{_edMessage = a});
 
--- | The name of the configuration associated with this event.
-edTemplateName :: Lens' EventDescription Text
-edTemplateName = lens _edTemplateName (\ s a -> s{_edTemplateName = a});
-
--- | The release label for the application version associated with this
--- event.
-edVersionLabel :: Lens' EventDescription Text
-edVersionLabel = lens _edVersionLabel (\ s a -> s{_edVersionLabel = a});
-
--- | The name of the environment associated with this event.
-edEnvironmentName :: Lens' EventDescription Text
-edEnvironmentName = lens _edEnvironmentName (\ s a -> s{_edEnvironmentName = a});
-
--- | The application associated with the event.
-edApplicationName :: Lens' EventDescription Text
-edApplicationName = lens _edApplicationName (\ s a -> s{_edApplicationName = a});
-
 instance FromXML EventDescription where
         parseXML x
           = EventDescription' <$>
-              x .@? "RequestId" <*> x .@? "Severity" <*>
-                x .@? "EventDate"
+              x .@? "RequestId" <*> x .@? "TemplateName" <*>
+                x .@? "Severity"
+                <*> x .@? "VersionLabel"
+                <*> x .@? "EnvironmentName"
+                <*> x .@? "ApplicationName"
+                <*> x .@? "EventDate"
                 <*> x .@? "Message"
-                <*> x .@ "TemplateName"
-                <*> x .@ "VersionLabel"
-                <*> x .@ "EnvironmentName"
-                <*> x .@ "ApplicationName"
 
 data EventSeverity = Error | Fatal | Debug | Warn | Info | Trace deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -1399,11 +1398,11 @@ instance FromXML LoadBalancer where
 -- * 'lbdDomain'
 --
 -- * 'lbdListeners'
-data LoadBalancerDescription = LoadBalancerDescription'{_lbdLoadBalancerName :: Maybe Text, _lbdDomain :: Maybe Text, _lbdListeners :: [Listener]} deriving (Eq, Read, Show)
+data LoadBalancerDescription = LoadBalancerDescription'{_lbdLoadBalancerName :: Maybe Text, _lbdDomain :: Maybe Text, _lbdListeners :: Maybe [Listener]} deriving (Eq, Read, Show)
 
 -- | 'LoadBalancerDescription' smart constructor.
 loadBalancerDescription :: LoadBalancerDescription
-loadBalancerDescription = LoadBalancerDescription'{_lbdLoadBalancerName = Nothing, _lbdDomain = Nothing, _lbdListeners = mempty};
+loadBalancerDescription = LoadBalancerDescription'{_lbdLoadBalancerName = Nothing, _lbdDomain = Nothing, _lbdListeners = Nothing};
 
 -- | The name of the LoadBalancer.
 lbdLoadBalancerName :: Lens' LoadBalancerDescription (Maybe Text)
@@ -1414,7 +1413,7 @@ lbdDomain :: Lens' LoadBalancerDescription (Maybe Text)
 lbdDomain = lens _lbdDomain (\ s a -> s{_lbdDomain = a});
 
 -- | A list of Listeners used by the LoadBalancer.
-lbdListeners :: Lens' LoadBalancerDescription [Listener]
+lbdListeners :: Lens' LoadBalancerDescription (Maybe [Listener])
 lbdListeners = lens _lbdListeners (\ s a -> s{_lbdListeners = a});
 
 instance FromXML LoadBalancerDescription where
@@ -1457,33 +1456,33 @@ instance FromXML OptionRestrictionRegex where
 --
 -- * 'osOptionName'
 --
--- * 'osNamespace'
---
 -- * 'osResourceName'
-data OptionSpecification = OptionSpecification'{_osOptionName :: Maybe Text, _osNamespace :: Maybe Text, _osResourceName :: Text} deriving (Eq, Read, Show)
+--
+-- * 'osNamespace'
+data OptionSpecification = OptionSpecification'{_osOptionName :: Maybe Text, _osResourceName :: Maybe Text, _osNamespace :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'OptionSpecification' smart constructor.
-optionSpecification :: Text -> OptionSpecification
-optionSpecification pResourceName = OptionSpecification'{_osOptionName = Nothing, _osNamespace = Nothing, _osResourceName = pResourceName};
+optionSpecification :: OptionSpecification
+optionSpecification = OptionSpecification'{_osOptionName = Nothing, _osResourceName = Nothing, _osNamespace = Nothing};
 
 -- | The name of the configuration option.
 osOptionName :: Lens' OptionSpecification (Maybe Text)
 osOptionName = lens _osOptionName (\ s a -> s{_osOptionName = a});
 
+-- | A unique resource name for a time-based scaling configuration option.
+osResourceName :: Lens' OptionSpecification (Maybe Text)
+osResourceName = lens _osResourceName (\ s a -> s{_osResourceName = a});
+
 -- | A unique namespace identifying the option\'s associated AWS resource.
 osNamespace :: Lens' OptionSpecification (Maybe Text)
 osNamespace = lens _osNamespace (\ s a -> s{_osNamespace = a});
-
--- | A unique resource name for a time-based scaling configuration option.
-osResourceName :: Lens' OptionSpecification Text
-osResourceName = lens _osResourceName (\ s a -> s{_osResourceName = a});
 
 instance ToQuery OptionSpecification where
         toQuery OptionSpecification'{..}
           = mconcat
               ["OptionName" =: _osOptionName,
-               "Namespace" =: _osNamespace,
-               "ResourceName" =: _osResourceName]
+               "ResourceName" =: _osResourceName,
+               "Namespace" =: _osNamespace]
 
 -- | /See:/ 'queue' smart constructor.
 --
@@ -1546,14 +1545,14 @@ instance ToQuery S3Location where
 -- * 'ssdPermittedFileTypes'
 --
 -- * 'ssdSolutionStackName'
-data SolutionStackDescription = SolutionStackDescription'{_ssdPermittedFileTypes :: [Text], _ssdSolutionStackName :: Maybe Text} deriving (Eq, Read, Show)
+data SolutionStackDescription = SolutionStackDescription'{_ssdPermittedFileTypes :: Maybe [Text], _ssdSolutionStackName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'SolutionStackDescription' smart constructor.
 solutionStackDescription :: SolutionStackDescription
-solutionStackDescription = SolutionStackDescription'{_ssdPermittedFileTypes = mempty, _ssdSolutionStackName = Nothing};
+solutionStackDescription = SolutionStackDescription'{_ssdPermittedFileTypes = Nothing, _ssdSolutionStackName = Nothing};
 
 -- | The permitted file types allowed for a solution stack.
-ssdPermittedFileTypes :: Lens' SolutionStackDescription [Text]
+ssdPermittedFileTypes :: Lens' SolutionStackDescription (Maybe [Text])
 ssdPermittedFileTypes = lens _ssdPermittedFileTypes (\ s a -> s{_ssdPermittedFileTypes = a});
 
 -- | The name of the solution stack.
@@ -1574,18 +1573,18 @@ instance FromXML SolutionStackDescription where
 -- * 'scTemplateName'
 --
 -- * 'scApplicationName'
-data SourceConfiguration = SourceConfiguration'{_scTemplateName :: Text, _scApplicationName :: Text} deriving (Eq, Read, Show)
+data SourceConfiguration = SourceConfiguration'{_scTemplateName :: Maybe Text, _scApplicationName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'SourceConfiguration' smart constructor.
-sourceConfiguration :: Text -> Text -> SourceConfiguration
-sourceConfiguration pTemplateName pApplicationName = SourceConfiguration'{_scTemplateName = pTemplateName, _scApplicationName = pApplicationName};
+sourceConfiguration :: SourceConfiguration
+sourceConfiguration = SourceConfiguration'{_scTemplateName = Nothing, _scApplicationName = Nothing};
 
 -- | The name of the configuration template.
-scTemplateName :: Lens' SourceConfiguration Text
+scTemplateName :: Lens' SourceConfiguration (Maybe Text)
 scTemplateName = lens _scTemplateName (\ s a -> s{_scTemplateName = a});
 
 -- | The name of the application associated with the configuration.
-scApplicationName :: Lens' SourceConfiguration Text
+scApplicationName :: Lens' SourceConfiguration (Maybe Text)
 scApplicationName = lens _scApplicationName (\ s a -> s{_scApplicationName = a});
 
 instance ToQuery SourceConfiguration where
@@ -1601,18 +1600,18 @@ instance ToQuery SourceConfiguration where
 -- * 'tagValue'
 --
 -- * 'tagKey'
-data Tag = Tag'{_tagValue :: Text, _tagKey :: Text} deriving (Eq, Read, Show)
+data Tag = Tag'{_tagValue :: Maybe Text, _tagKey :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'Tag' smart constructor.
-tag :: Text -> Text -> Tag
-tag pValue pKey = Tag'{_tagValue = pValue, _tagKey = pKey};
+tag :: Tag
+tag = Tag'{_tagValue = Nothing, _tagKey = Nothing};
 
 -- | The value of the tag.
-tagValue :: Lens' Tag Text
+tagValue :: Lens' Tag (Maybe Text)
 tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
 
 -- | The key of the tag.
-tagKey :: Lens' Tag Text
+tagKey :: Lens' Tag (Maybe Text)
 tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 
 instance ToQuery Tag where

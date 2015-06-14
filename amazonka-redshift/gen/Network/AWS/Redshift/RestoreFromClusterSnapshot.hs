@@ -108,11 +108,11 @@ import Network.AWS.Redshift.Types
 -- * 'rfcsClusterIdentifier'
 --
 -- * 'rfcsSnapshotIdentifier'
-data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'{_rfcsPubliclyAccessible :: Maybe Bool, _rfcsHSMConfigurationIdentifier :: Maybe Text, _rfcsSnapshotClusterIdentifier :: Maybe Text, _rfcsClusterSecurityGroups :: [Text], _rfcsAutomatedSnapshotRetentionPeriod :: Maybe Int, _rfcsHSMClientCertificateIdentifier :: Maybe Text, _rfcsClusterSubnetGroupName :: Maybe Text, _rfcsElasticIP :: Maybe Text, _rfcsPreferredMaintenanceWindow :: Maybe Text, _rfcsAvailabilityZone :: Maybe Text, _rfcsKMSKeyId :: Maybe Text, _rfcsVPCSecurityGroupIds :: [Text], _rfcsOwnerAccount :: Maybe Text, _rfcsAllowVersionUpgrade :: Maybe Bool, _rfcsClusterParameterGroupName :: Maybe Text, _rfcsPort :: Maybe Int, _rfcsClusterIdentifier :: Text, _rfcsSnapshotIdentifier :: Text} deriving (Eq, Read, Show)
+data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'{_rfcsPubliclyAccessible :: Maybe Bool, _rfcsHSMConfigurationIdentifier :: Maybe Text, _rfcsSnapshotClusterIdentifier :: Maybe Text, _rfcsClusterSecurityGroups :: Maybe [Text], _rfcsAutomatedSnapshotRetentionPeriod :: Maybe Int, _rfcsHSMClientCertificateIdentifier :: Maybe Text, _rfcsClusterSubnetGroupName :: Maybe Text, _rfcsElasticIP :: Maybe Text, _rfcsPreferredMaintenanceWindow :: Maybe Text, _rfcsAvailabilityZone :: Maybe Text, _rfcsKMSKeyId :: Maybe Text, _rfcsVPCSecurityGroupIds :: Maybe [Text], _rfcsOwnerAccount :: Maybe Text, _rfcsAllowVersionUpgrade :: Maybe Bool, _rfcsClusterParameterGroupName :: Maybe Text, _rfcsPort :: Maybe Int, _rfcsClusterIdentifier :: Text, _rfcsSnapshotIdentifier :: Text} deriving (Eq, Read, Show)
 
 -- | 'RestoreFromClusterSnapshot' smart constructor.
 restoreFromClusterSnapshot :: Text -> Text -> RestoreFromClusterSnapshot
-restoreFromClusterSnapshot pClusterIdentifier pSnapshotIdentifier = RestoreFromClusterSnapshot'{_rfcsPubliclyAccessible = Nothing, _rfcsHSMConfigurationIdentifier = Nothing, _rfcsSnapshotClusterIdentifier = Nothing, _rfcsClusterSecurityGroups = mempty, _rfcsAutomatedSnapshotRetentionPeriod = Nothing, _rfcsHSMClientCertificateIdentifier = Nothing, _rfcsClusterSubnetGroupName = Nothing, _rfcsElasticIP = Nothing, _rfcsPreferredMaintenanceWindow = Nothing, _rfcsAvailabilityZone = Nothing, _rfcsKMSKeyId = Nothing, _rfcsVPCSecurityGroupIds = mempty, _rfcsOwnerAccount = Nothing, _rfcsAllowVersionUpgrade = Nothing, _rfcsClusterParameterGroupName = Nothing, _rfcsPort = Nothing, _rfcsClusterIdentifier = pClusterIdentifier, _rfcsSnapshotIdentifier = pSnapshotIdentifier};
+restoreFromClusterSnapshot pClusterIdentifier pSnapshotIdentifier = RestoreFromClusterSnapshot'{_rfcsPubliclyAccessible = Nothing, _rfcsHSMConfigurationIdentifier = Nothing, _rfcsSnapshotClusterIdentifier = Nothing, _rfcsClusterSecurityGroups = Nothing, _rfcsAutomatedSnapshotRetentionPeriod = Nothing, _rfcsHSMClientCertificateIdentifier = Nothing, _rfcsClusterSubnetGroupName = Nothing, _rfcsElasticIP = Nothing, _rfcsPreferredMaintenanceWindow = Nothing, _rfcsAvailabilityZone = Nothing, _rfcsKMSKeyId = Nothing, _rfcsVPCSecurityGroupIds = Nothing, _rfcsOwnerAccount = Nothing, _rfcsAllowVersionUpgrade = Nothing, _rfcsClusterParameterGroupName = Nothing, _rfcsPort = Nothing, _rfcsClusterIdentifier = pClusterIdentifier, _rfcsSnapshotIdentifier = pSnapshotIdentifier};
 
 -- | If @true@, the cluster can be accessed from a public network.
 rfcsPubliclyAccessible :: Lens' RestoreFromClusterSnapshot (Maybe Bool)
@@ -136,7 +136,7 @@ rfcsSnapshotClusterIdentifier = lens _rfcsSnapshotClusterIdentifier (\ s a -> s{
 -- Default: The default cluster security group for Amazon Redshift.
 --
 -- Cluster security groups only apply to clusters outside of VPCs.
-rfcsClusterSecurityGroups :: Lens' RestoreFromClusterSnapshot [Text]
+rfcsClusterSecurityGroups :: Lens' RestoreFromClusterSnapshot (Maybe [Text])
 rfcsClusterSecurityGroups = lens _rfcsClusterSecurityGroups (\ s a -> s{_rfcsClusterSecurityGroups = a});
 
 -- | The number of days that automated snapshots are retained. If the value
@@ -203,7 +203,7 @@ rfcsKMSKeyId = lens _rfcsKMSKeyId (\ s a -> s{_rfcsKMSKeyId = a});
 -- Default: The default VPC security group is associated with the cluster.
 --
 -- VPC security groups only apply to clusters in VPCs.
-rfcsVPCSecurityGroupIds :: Lens' RestoreFromClusterSnapshot [Text]
+rfcsVPCSecurityGroupIds :: Lens' RestoreFromClusterSnapshot (Maybe [Text])
 rfcsVPCSecurityGroupIds = lens _rfcsVPCSecurityGroupIds (\ s a -> s{_rfcsVPCSecurityGroupIds = a});
 
 -- | The AWS customer account used to create or copy the snapshot. Required

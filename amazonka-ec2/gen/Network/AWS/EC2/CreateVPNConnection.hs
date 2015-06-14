@@ -76,7 +76,7 @@ data CreateVPNConnection = CreateVPNConnection'{_cvcOptions :: Maybe VPNConnecti
 
 -- | 'CreateVPNConnection' smart constructor.
 createVPNConnection :: Text -> Text -> Text -> CreateVPNConnection
-createVPNConnection pType' pCustomerGatewayId pVPNGatewayId = CreateVPNConnection'{_cvcOptions = Nothing, _cvcDryRun = Nothing, _cvcType = pType', _cvcCustomerGatewayId = pCustomerGatewayId, _cvcVPNGatewayId = pVPNGatewayId};
+createVPNConnection pType pCustomerGatewayId pVPNGatewayId = CreateVPNConnection'{_cvcOptions = Nothing, _cvcDryRun = Nothing, _cvcType = pType, _cvcCustomerGatewayId = pCustomerGatewayId, _cvcVPNGatewayId = pVPNGatewayId};
 
 -- | Indicates whether the VPN connection requires static routes. If you are
 -- creating a VPN connection for a device that does not support BGP, you

@@ -54,18 +54,18 @@ import Network.AWS.EMR.Types
 -- * 'lsMarker'
 --
 -- * 'lsClusterId'
-data ListSteps = ListSteps'{_lsStepIds :: [Text], _lsStepStates :: [StepState], _lsMarker :: Maybe Text, _lsClusterId :: Text} deriving (Eq, Read, Show)
+data ListSteps = ListSteps'{_lsStepIds :: Maybe [Text], _lsStepStates :: Maybe [StepState], _lsMarker :: Maybe Text, _lsClusterId :: Text} deriving (Eq, Read, Show)
 
 -- | 'ListSteps' smart constructor.
 listSteps :: Text -> ListSteps
-listSteps pClusterId = ListSteps'{_lsStepIds = mempty, _lsStepStates = mempty, _lsMarker = Nothing, _lsClusterId = pClusterId};
+listSteps pClusterId = ListSteps'{_lsStepIds = Nothing, _lsStepStates = Nothing, _lsMarker = Nothing, _lsClusterId = pClusterId};
 
 -- | The filter to limit the step list based on the identifier of the steps.
-lsStepIds :: Lens' ListSteps [Text]
+lsStepIds :: Lens' ListSteps (Maybe [Text])
 lsStepIds = lens _lsStepIds (\ s a -> s{_lsStepIds = a});
 
 -- | The filter to limit the step list based on certain states.
-lsStepStates :: Lens' ListSteps [StepState]
+lsStepStates :: Lens' ListSteps (Maybe [StepState])
 lsStepStates = lens _lsStepStates (\ s a -> s{_lsStepStates = a});
 
 -- | The pagination token that indicates the next set of results to retrieve.
@@ -115,14 +115,14 @@ instance ToQuery ListSteps where
 -- * 'lsrSteps'
 --
 -- * 'lsrMarker'
-data ListStepsResponse = ListStepsResponse'{_lsrSteps :: [StepSummary], _lsrMarker :: Maybe Text} deriving (Eq, Read, Show)
+data ListStepsResponse = ListStepsResponse'{_lsrSteps :: Maybe [StepSummary], _lsrMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ListStepsResponse' smart constructor.
 listStepsResponse :: ListStepsResponse
-listStepsResponse = ListStepsResponse'{_lsrSteps = mempty, _lsrMarker = Nothing};
+listStepsResponse = ListStepsResponse'{_lsrSteps = Nothing, _lsrMarker = Nothing};
 
 -- | The filtered list of steps for the cluster.
-lsrSteps :: Lens' ListStepsResponse [StepSummary]
+lsrSteps :: Lens' ListStepsResponse (Maybe [StepSummary])
 lsrSteps = lens _lsrSteps (\ s a -> s{_lsrSteps = a});
 
 -- | The pagination token that indicates the next set of results to retrieve.

@@ -44,15 +44,15 @@ import Network.AWS.CodeDeploy.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'bgaApplicationNames'
-newtype BatchGetApplications = BatchGetApplications'{_bgaApplicationNames :: [Text]} deriving (Eq, Read, Show)
+newtype BatchGetApplications = BatchGetApplications'{_bgaApplicationNames :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'BatchGetApplications' smart constructor.
 batchGetApplications :: BatchGetApplications
-batchGetApplications = BatchGetApplications'{_bgaApplicationNames = mempty};
+batchGetApplications = BatchGetApplications'{_bgaApplicationNames = Nothing};
 
 -- | A list of application names, with multiple application names separated
 -- by spaces.
-bgaApplicationNames :: Lens' BatchGetApplications [Text]
+bgaApplicationNames :: Lens' BatchGetApplications (Maybe [Text])
 bgaApplicationNames = lens _bgaApplicationNames (\ s a -> s{_bgaApplicationNames = a});
 
 instance AWSRequest BatchGetApplications where
@@ -91,12 +91,12 @@ instance ToQuery BatchGetApplications where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'bgarApplicationsInfo'
-newtype BatchGetApplicationsResponse = BatchGetApplicationsResponse'{_bgarApplicationsInfo :: [ApplicationInfo]} deriving (Eq, Read, Show)
+newtype BatchGetApplicationsResponse = BatchGetApplicationsResponse'{_bgarApplicationsInfo :: Maybe [ApplicationInfo]} deriving (Eq, Read, Show)
 
 -- | 'BatchGetApplicationsResponse' smart constructor.
 batchGetApplicationsResponse :: BatchGetApplicationsResponse
-batchGetApplicationsResponse = BatchGetApplicationsResponse'{_bgarApplicationsInfo = mempty};
+batchGetApplicationsResponse = BatchGetApplicationsResponse'{_bgarApplicationsInfo = Nothing};
 
 -- | Information about the applications.
-bgarApplicationsInfo :: Lens' BatchGetApplicationsResponse [ApplicationInfo]
+bgarApplicationsInfo :: Lens' BatchGetApplicationsResponse (Maybe [ApplicationInfo])
 bgarApplicationsInfo = lens _bgarApplicationsInfo (\ s a -> s{_bgarApplicationsInfo = a});

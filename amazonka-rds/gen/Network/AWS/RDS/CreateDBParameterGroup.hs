@@ -75,14 +75,14 @@ import Network.AWS.RDS.Types
 -- * 'cDBParameterGroupFamily'
 --
 -- * 'cDescription'
-data CreateDBParameterGroup = CreateDBParameterGroup'{_cTags :: [Tag], _cDBParameterGroupName :: Text, _cDBParameterGroupFamily :: Text, _cDescription :: Text} deriving (Eq, Read, Show)
+data CreateDBParameterGroup = CreateDBParameterGroup'{_cTags :: Maybe [Tag], _cDBParameterGroupName :: Text, _cDBParameterGroupFamily :: Text, _cDescription :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateDBParameterGroup' smart constructor.
 createDBParameterGroup :: Text -> Text -> Text -> CreateDBParameterGroup
-createDBParameterGroup pDBParameterGroupName pDBParameterGroupFamily pDescription = CreateDBParameterGroup'{_cTags = mempty, _cDBParameterGroupName = pDBParameterGroupName, _cDBParameterGroupFamily = pDBParameterGroupFamily, _cDescription = pDescription};
+createDBParameterGroup pDBParameterGroupName pDBParameterGroupFamily pDescription = CreateDBParameterGroup'{_cTags = Nothing, _cDBParameterGroupName = pDBParameterGroupName, _cDBParameterGroupFamily = pDBParameterGroupFamily, _cDescription = pDescription};
 
 -- | FIXME: Undocumented member.
-cTags :: Lens' CreateDBParameterGroup [Tag]
+cTags :: Lens' CreateDBParameterGroup (Maybe [Tag])
 cTags = lens _cTags (\ s a -> s{_cTags = a});
 
 -- | The name of the DB parameter group.

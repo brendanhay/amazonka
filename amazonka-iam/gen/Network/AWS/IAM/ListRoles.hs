@@ -39,9 +39,9 @@ module Network.AWS.IAM.ListRoles
     -- ** Response constructor
     , listRolesResponse
     -- ** Response lenses
+    , lrrMarker
     , lrrIsTruncated
     , lrrRoles
-    , lrrMarker
     ) where
 
 import Network.AWS.Request
@@ -58,11 +58,11 @@ import Network.AWS.IAM.Types
 -- * 'lrMaxItems'
 --
 -- * 'lrMarker'
-data ListRoles = ListRoles'{_lrPathPrefix :: Text, _lrMaxItems :: Nat, _lrMarker :: Text} deriving (Eq, Read, Show)
+data ListRoles = ListRoles'{_lrPathPrefix :: Maybe Text, _lrMaxItems :: Maybe Nat, _lrMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ListRoles' smart constructor.
-listRoles :: Text -> Natural -> Text -> ListRoles
-listRoles pPathPrefix pMaxItems pMarker = ListRoles'{_lrPathPrefix = pPathPrefix, _lrMaxItems = _Nat # pMaxItems, _lrMarker = pMarker};
+listRoles :: ListRoles
+listRoles = ListRoles'{_lrPathPrefix = Nothing, _lrMaxItems = Nothing, _lrMarker = Nothing};
 
 -- | The path prefix for filtering the results. For example, the prefix
 -- @\/application_abc\/component_xyz\/@ gets all roles whose path starts
@@ -70,7 +70,7 @@ listRoles pPathPrefix pMaxItems pMarker = ListRoles'{_lrPathPrefix = pPathPrefix
 --
 -- This parameter is optional. If it is not included, it defaults to a
 -- slash (\/), listing all roles.
-lrPathPrefix :: Lens' ListRoles Text
+lrPathPrefix :: Lens' ListRoles (Maybe Text)
 lrPathPrefix = lens _lrPathPrefix (\ s a -> s{_lrPathPrefix = a});
 
 -- | Use this parameter only when paginating results to indicate the maximum
@@ -78,14 +78,14 @@ lrPathPrefix = lens _lrPathPrefix (\ s a -> s{_lrPathPrefix = a});
 -- beyond the maximum you specify, the @IsTruncated@ response element is
 -- @true@. This parameter is optional. If you do not include it, it
 -- defaults to 100.
-lrMaxItems :: Lens' ListRoles Natural
-lrMaxItems = lens _lrMaxItems (\ s a -> s{_lrMaxItems = a}) . _Nat;
+lrMaxItems :: Lens' ListRoles (Maybe Natural)
+lrMaxItems = lens _lrMaxItems (\ s a -> s{_lrMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results, and only in a
 -- subsequent request after you\'ve received a response where the results
 -- are truncated. Set it to the value of the @Marker@ element in the
 -- response you just received.
-lrMarker :: Lens' ListRoles Text
+lrMarker :: Lens' ListRoles (Maybe Text)
 lrMarker = lens _lrMarker (\ s a -> s{_lrMarker = a});
 
 instance AWSRequest ListRoles where
@@ -96,9 +96,8 @@ instance AWSRequest ListRoles where
           = receiveXMLWrapper "ListRolesResult"
               (\ s h x ->
                  ListRolesResponse' <$>
-                   x .@? "IsTruncated" <*>
-                     (x .@? "Roles" .!@ mempty >>= parseXMLList "member")
-                     <*> x .@ "Marker")
+                   x .@? "Marker" <*> x .@? "IsTruncated" <*>
+                     (x .@? "Roles" .!@ mempty >>= parseXMLList "member"))
 
 instance ToHeaders ListRoles where
         toHeaders = const mempty
@@ -118,16 +117,22 @@ instance ToQuery ListRoles where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'lrrMarker'
+--
 -- * 'lrrIsTruncated'
 --
 -- * 'lrrRoles'
---
--- * 'lrrMarker'
-data ListRolesResponse = ListRolesResponse'{_lrrIsTruncated :: Maybe Bool, _lrrRoles :: [Role], _lrrMarker :: Text} deriving (Eq, Read, Show)
+data ListRolesResponse = ListRolesResponse'{_lrrMarker :: Maybe Text, _lrrIsTruncated :: Maybe Bool, _lrrRoles :: [Role]} deriving (Eq, Read, Show)
 
 -- | 'ListRolesResponse' smart constructor.
-listRolesResponse :: [Role] -> Text -> ListRolesResponse
-listRolesResponse pRoles pMarker = ListRolesResponse'{_lrrIsTruncated = Nothing, _lrrRoles = pRoles, _lrrMarker = pMarker};
+listRolesResponse :: ListRolesResponse
+listRolesResponse = ListRolesResponse'{_lrrMarker = Nothing, _lrrIsTruncated = Nothing, _lrrRoles = mempty};
+
+-- | If @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+lrrMarker :: Lens' ListRolesResponse (Maybe Text)
+lrrMarker = lens _lrrMarker (\ s a -> s{_lrrMarker = a});
 
 -- | A flag that indicates whether there are more roles to list. If your
 -- results were truncated, you can make a subsequent pagination request
@@ -138,9 +143,3 @@ lrrIsTruncated = lens _lrrIsTruncated (\ s a -> s{_lrrIsTruncated = a});
 -- | A list of roles.
 lrrRoles :: Lens' ListRolesResponse [Role]
 lrrRoles = lens _lrrRoles (\ s a -> s{_lrrRoles = a});
-
--- | If @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
-lrrMarker :: Lens' ListRolesResponse Text
-lrrMarker = lens _lrrMarker (\ s a -> s{_lrrMarker = a});

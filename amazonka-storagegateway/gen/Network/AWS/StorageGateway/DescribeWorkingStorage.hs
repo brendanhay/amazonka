@@ -41,10 +41,10 @@ module Network.AWS.StorageGateway.DescribeWorkingStorage
     -- ** Response constructor
     , describeWorkingStorageResponse
     -- ** Response lenses
+    , dwsrGatewayARN
     , dwsrDiskIds
     , dwsrWorkingStorageAllocatedInBytes
     , dwsrWorkingStorageUsedInBytes
-    , dwsrGatewayARN
     ) where
 
 import Network.AWS.Request
@@ -76,10 +76,9 @@ instance AWSRequest DescribeWorkingStorage where
           = receiveJSON
               (\ s h x ->
                  DescribeWorkingStorageResponse' <$>
-                   x .?> "DiskIds" .!@ mempty <*>
+                   x .?> "GatewayARN" <*> x .?> "DiskIds" .!@ mempty <*>
                      x .?> "WorkingStorageAllocatedInBytes"
-                     <*> x .?> "WorkingStorageUsedInBytes"
-                     <*> x .:> "GatewayARN")
+                     <*> x .?> "WorkingStorageUsedInBytes")
 
 instance ToHeaders DescribeWorkingStorage where
         toHeaders
@@ -105,24 +104,28 @@ instance ToQuery DescribeWorkingStorage where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'dwsrGatewayARN'
+--
 -- * 'dwsrDiskIds'
 --
 -- * 'dwsrWorkingStorageAllocatedInBytes'
 --
 -- * 'dwsrWorkingStorageUsedInBytes'
---
--- * 'dwsrGatewayARN'
-data DescribeWorkingStorageResponse = DescribeWorkingStorageResponse'{_dwsrDiskIds :: [Text], _dwsrWorkingStorageAllocatedInBytes :: Maybe Integer, _dwsrWorkingStorageUsedInBytes :: Maybe Integer, _dwsrGatewayARN :: Text} deriving (Eq, Read, Show)
+data DescribeWorkingStorageResponse = DescribeWorkingStorageResponse'{_dwsrGatewayARN :: Maybe Text, _dwsrDiskIds :: Maybe [Text], _dwsrWorkingStorageAllocatedInBytes :: Maybe Integer, _dwsrWorkingStorageUsedInBytes :: Maybe Integer} deriving (Eq, Read, Show)
 
 -- | 'DescribeWorkingStorageResponse' smart constructor.
-describeWorkingStorageResponse :: Text -> DescribeWorkingStorageResponse
-describeWorkingStorageResponse pGatewayARN = DescribeWorkingStorageResponse'{_dwsrDiskIds = mempty, _dwsrWorkingStorageAllocatedInBytes = Nothing, _dwsrWorkingStorageUsedInBytes = Nothing, _dwsrGatewayARN = pGatewayARN};
+describeWorkingStorageResponse :: DescribeWorkingStorageResponse
+describeWorkingStorageResponse = DescribeWorkingStorageResponse'{_dwsrGatewayARN = Nothing, _dwsrDiskIds = Nothing, _dwsrWorkingStorageAllocatedInBytes = Nothing, _dwsrWorkingStorageUsedInBytes = Nothing};
+
+-- | FIXME: Undocumented member.
+dwsrGatewayARN :: Lens' DescribeWorkingStorageResponse (Maybe Text)
+dwsrGatewayARN = lens _dwsrGatewayARN (\ s a -> s{_dwsrGatewayARN = a});
 
 -- | An array of the gateway\'s local disk IDs that are configured as working
 -- storage. Each local disk ID is specified as a string (minimum length of
 -- 1 and maximum length of 300). If no local disks are configured as
 -- working storage, then the DiskIds array is empty.
-dwsrDiskIds :: Lens' DescribeWorkingStorageResponse [Text]
+dwsrDiskIds :: Lens' DescribeWorkingStorageResponse (Maybe [Text])
 dwsrDiskIds = lens _dwsrDiskIds (\ s a -> s{_dwsrDiskIds = a});
 
 -- | The total working storage in bytes allocated for the gateway. If no
@@ -134,7 +137,3 @@ dwsrWorkingStorageAllocatedInBytes = lens _dwsrWorkingStorageAllocatedInBytes (\
 -- storage is configured for the gateway, this field returns 0.
 dwsrWorkingStorageUsedInBytes :: Lens' DescribeWorkingStorageResponse (Maybe Integer)
 dwsrWorkingStorageUsedInBytes = lens _dwsrWorkingStorageUsedInBytes (\ s a -> s{_dwsrWorkingStorageUsedInBytes = a});
-
--- | FIXME: Undocumented member.
-dwsrGatewayARN :: Lens' DescribeWorkingStorageResponse Text
-dwsrGatewayARN = lens _dwsrGatewayARN (\ s a -> s{_dwsrGatewayARN = a});

@@ -91,12 +91,12 @@ instance ToQuery DescribeEventCategories where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'decrEventCategoriesMapList'
-newtype DescribeEventCategoriesResponse = DescribeEventCategoriesResponse'{_decrEventCategoriesMapList :: [EventCategoriesMap]} deriving (Eq, Read, Show)
+newtype DescribeEventCategoriesResponse = DescribeEventCategoriesResponse'{_decrEventCategoriesMapList :: Maybe [EventCategoriesMap]} deriving (Eq, Read, Show)
 
 -- | 'DescribeEventCategoriesResponse' smart constructor.
 describeEventCategoriesResponse :: DescribeEventCategoriesResponse
-describeEventCategoriesResponse = DescribeEventCategoriesResponse'{_decrEventCategoriesMapList = mempty};
+describeEventCategoriesResponse = DescribeEventCategoriesResponse'{_decrEventCategoriesMapList = Nothing};
 
 -- | A list of event categories descriptions.
-decrEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse [EventCategoriesMap]
+decrEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse (Maybe [EventCategoriesMap])
 decrEventCategoriesMapList = lens _decrEventCategoriesMapList (\ s a -> s{_decrEventCategoriesMapList = a});

@@ -29,8 +29,8 @@ module Network.AWS.CodeDeploy.Types
     , applicationInfo
     , aiLinkedToGitHub
     , aiApplicationId
-    , aiCreateTime
     , aiApplicationName
+    , aiCreateTime
 
     -- * ApplicationRevisionSortBy
     , ApplicationRevisionSortBy (..)
@@ -47,10 +47,10 @@ module Network.AWS.CodeDeploy.Types
     -- * DeploymentConfigInfo
     , DeploymentConfigInfo
     , deploymentConfigInfo
+    , dciDeploymentConfigName
     , dciMinimumHealthyHosts
     , dciDeploymentConfigId
     , dciCreateTime
-    , dciDeploymentConfigName
 
     -- * DeploymentCreator
     , DeploymentCreator (..)
@@ -59,13 +59,13 @@ module Network.AWS.CodeDeploy.Types
     , DeploymentGroupInfo
     , deploymentGroupInfo
     , dgiServiceRoleARN
+    , dgiDeploymentConfigName
     , dgiTargetRevision
     , dgiEc2TagFilters
     , dgiOnPremisesInstanceTagFilters
+    , dgiApplicationName
     , dgiDeploymentGroupId
     , dgiAutoScalingGroups
-    , dgiDeploymentConfigName
-    , dgiApplicationName
     , dgiDeploymentGroupName
 
     -- * DeploymentInfo
@@ -74,17 +74,17 @@ module Network.AWS.CodeDeploy.Types
     , diDeploymentId
     , diCreator
     , diStatus
+    , diDeploymentConfigName
     , diStartTime
     , diCompleteTime
     , diErrorInformation
     , diDeploymentOverview
+    , diApplicationName
     , diRevision
     , diDescription
     , diIgnoreApplicationStopFailures
-    , diCreateTime
-    , diDeploymentConfigName
-    , diApplicationName
     , diDeploymentGroupName
+    , diCreateTime
 
     -- * DeploymentOverview
     , DeploymentOverview
@@ -281,14 +281,14 @@ instance AWSService CodeDeploy where
 --
 -- * 'aiApplicationId'
 --
--- * 'aiCreateTime'
---
 -- * 'aiApplicationName'
-data ApplicationInfo = ApplicationInfo'{_aiLinkedToGitHub :: Maybe Bool, _aiApplicationId :: Maybe Text, _aiCreateTime :: Maybe POSIX, _aiApplicationName :: Text} deriving (Eq, Read, Show)
+--
+-- * 'aiCreateTime'
+data ApplicationInfo = ApplicationInfo'{_aiLinkedToGitHub :: Maybe Bool, _aiApplicationId :: Maybe Text, _aiApplicationName :: Maybe Text, _aiCreateTime :: Maybe POSIX} deriving (Eq, Read, Show)
 
 -- | 'ApplicationInfo' smart constructor.
-applicationInfo :: Text -> ApplicationInfo
-applicationInfo pApplicationName = ApplicationInfo'{_aiLinkedToGitHub = Nothing, _aiApplicationId = Nothing, _aiCreateTime = Nothing, _aiApplicationName = pApplicationName};
+applicationInfo :: ApplicationInfo
+applicationInfo = ApplicationInfo'{_aiLinkedToGitHub = Nothing, _aiApplicationId = Nothing, _aiApplicationName = Nothing, _aiCreateTime = Nothing};
 
 -- | True if the user has authenticated with GitHub for the specified
 -- application; otherwise, false.
@@ -299,13 +299,13 @@ aiLinkedToGitHub = lens _aiLinkedToGitHub (\ s a -> s{_aiLinkedToGitHub = a});
 aiApplicationId :: Lens' ApplicationInfo (Maybe Text)
 aiApplicationId = lens _aiApplicationId (\ s a -> s{_aiApplicationId = a});
 
+-- | The application name.
+aiApplicationName :: Lens' ApplicationInfo (Maybe Text)
+aiApplicationName = lens _aiApplicationName (\ s a -> s{_aiApplicationName = a});
+
 -- | The time that the application was created.
 aiCreateTime :: Lens' ApplicationInfo (Maybe UTCTime)
 aiCreateTime = lens _aiCreateTime (\ s a -> s{_aiCreateTime = a}) . mapping _Time;
-
--- | The application name.
-aiApplicationName :: Lens' ApplicationInfo Text
-aiApplicationName = lens _aiApplicationName (\ s a -> s{_aiApplicationName = a});
 
 instance FromJSON ApplicationInfo where
         parseJSON
@@ -313,8 +313,8 @@ instance FromJSON ApplicationInfo where
               (\ x ->
                  ApplicationInfo' <$>
                    x .:? "linkedToGitHub" <*> x .:? "applicationId" <*>
-                     x .:? "createTime"
-                     <*> x .: "applicationName")
+                     x .:? "applicationName"
+                     <*> x .:? "createTime")
 
 data ApplicationRevisionSortBy = RegisterTime | FirstUsedTime | LastUsedTime deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -394,18 +394,22 @@ instance FromJSON BundleType where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'dciDeploymentConfigName'
+--
 -- * 'dciMinimumHealthyHosts'
 --
 -- * 'dciDeploymentConfigId'
 --
 -- * 'dciCreateTime'
---
--- * 'dciDeploymentConfigName'
-data DeploymentConfigInfo = DeploymentConfigInfo'{_dciMinimumHealthyHosts :: Maybe MinimumHealthyHosts, _dciDeploymentConfigId :: Maybe Text, _dciCreateTime :: Maybe POSIX, _dciDeploymentConfigName :: Text} deriving (Eq, Read, Show)
+data DeploymentConfigInfo = DeploymentConfigInfo'{_dciDeploymentConfigName :: Maybe Text, _dciMinimumHealthyHosts :: Maybe MinimumHealthyHosts, _dciDeploymentConfigId :: Maybe Text, _dciCreateTime :: Maybe POSIX} deriving (Eq, Read, Show)
 
 -- | 'DeploymentConfigInfo' smart constructor.
-deploymentConfigInfo :: Text -> DeploymentConfigInfo
-deploymentConfigInfo pDeploymentConfigName = DeploymentConfigInfo'{_dciMinimumHealthyHosts = Nothing, _dciDeploymentConfigId = Nothing, _dciCreateTime = Nothing, _dciDeploymentConfigName = pDeploymentConfigName};
+deploymentConfigInfo :: DeploymentConfigInfo
+deploymentConfigInfo = DeploymentConfigInfo'{_dciDeploymentConfigName = Nothing, _dciMinimumHealthyHosts = Nothing, _dciDeploymentConfigId = Nothing, _dciCreateTime = Nothing};
+
+-- | The deployment configuration name.
+dciDeploymentConfigName :: Lens' DeploymentConfigInfo (Maybe Text)
+dciDeploymentConfigName = lens _dciDeploymentConfigName (\ s a -> s{_dciDeploymentConfigName = a});
 
 -- | Information about the number or percentage of minimum healthy instances.
 dciMinimumHealthyHosts :: Lens' DeploymentConfigInfo (Maybe MinimumHealthyHosts)
@@ -419,19 +423,15 @@ dciDeploymentConfigId = lens _dciDeploymentConfigId (\ s a -> s{_dciDeploymentCo
 dciCreateTime :: Lens' DeploymentConfigInfo (Maybe UTCTime)
 dciCreateTime = lens _dciCreateTime (\ s a -> s{_dciCreateTime = a}) . mapping _Time;
 
--- | The deployment configuration name.
-dciDeploymentConfigName :: Lens' DeploymentConfigInfo Text
-dciDeploymentConfigName = lens _dciDeploymentConfigName (\ s a -> s{_dciDeploymentConfigName = a});
-
 instance FromJSON DeploymentConfigInfo where
         parseJSON
           = withObject "DeploymentConfigInfo"
               (\ x ->
                  DeploymentConfigInfo' <$>
-                   x .:? "minimumHealthyHosts" <*>
-                     x .:? "deploymentConfigId"
-                     <*> x .:? "createTime"
-                     <*> x .: "deploymentConfigName")
+                   x .:? "deploymentConfigName" <*>
+                     x .:? "minimumHealthyHosts"
+                     <*> x .:? "deploymentConfigId"
+                     <*> x .:? "createTime")
 
 data DeploymentCreator = Autoscaling | User deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -459,30 +459,34 @@ instance FromJSON DeploymentCreator where
 --
 -- * 'dgiServiceRoleARN'
 --
+-- * 'dgiDeploymentConfigName'
+--
 -- * 'dgiTargetRevision'
 --
 -- * 'dgiEc2TagFilters'
 --
 -- * 'dgiOnPremisesInstanceTagFilters'
 --
+-- * 'dgiApplicationName'
+--
 -- * 'dgiDeploymentGroupId'
 --
 -- * 'dgiAutoScalingGroups'
 --
--- * 'dgiDeploymentConfigName'
---
--- * 'dgiApplicationName'
---
 -- * 'dgiDeploymentGroupName'
-data DeploymentGroupInfo = DeploymentGroupInfo'{_dgiServiceRoleARN :: Maybe Text, _dgiTargetRevision :: Maybe RevisionLocation, _dgiEc2TagFilters :: [EC2TagFilter], _dgiOnPremisesInstanceTagFilters :: [TagFilter], _dgiDeploymentGroupId :: Maybe Text, _dgiAutoScalingGroups :: [AutoScalingGroup], _dgiDeploymentConfigName :: Text, _dgiApplicationName :: Text, _dgiDeploymentGroupName :: Text} deriving (Eq, Read, Show)
+data DeploymentGroupInfo = DeploymentGroupInfo'{_dgiServiceRoleARN :: Maybe Text, _dgiDeploymentConfigName :: Maybe Text, _dgiTargetRevision :: Maybe RevisionLocation, _dgiEc2TagFilters :: Maybe [EC2TagFilter], _dgiOnPremisesInstanceTagFilters :: Maybe [TagFilter], _dgiApplicationName :: Maybe Text, _dgiDeploymentGroupId :: Maybe Text, _dgiAutoScalingGroups :: Maybe [AutoScalingGroup], _dgiDeploymentGroupName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DeploymentGroupInfo' smart constructor.
-deploymentGroupInfo :: Text -> Text -> Text -> DeploymentGroupInfo
-deploymentGroupInfo pDeploymentConfigName pApplicationName pDeploymentGroupName = DeploymentGroupInfo'{_dgiServiceRoleARN = Nothing, _dgiTargetRevision = Nothing, _dgiEc2TagFilters = mempty, _dgiOnPremisesInstanceTagFilters = mempty, _dgiDeploymentGroupId = Nothing, _dgiAutoScalingGroups = mempty, _dgiDeploymentConfigName = pDeploymentConfigName, _dgiApplicationName = pApplicationName, _dgiDeploymentGroupName = pDeploymentGroupName};
+deploymentGroupInfo :: DeploymentGroupInfo
+deploymentGroupInfo = DeploymentGroupInfo'{_dgiServiceRoleARN = Nothing, _dgiDeploymentConfigName = Nothing, _dgiTargetRevision = Nothing, _dgiEc2TagFilters = Nothing, _dgiOnPremisesInstanceTagFilters = Nothing, _dgiApplicationName = Nothing, _dgiDeploymentGroupId = Nothing, _dgiAutoScalingGroups = Nothing, _dgiDeploymentGroupName = Nothing};
 
 -- | A service role ARN.
 dgiServiceRoleARN :: Lens' DeploymentGroupInfo (Maybe Text)
 dgiServiceRoleARN = lens _dgiServiceRoleARN (\ s a -> s{_dgiServiceRoleARN = a});
+
+-- | The deployment configuration name.
+dgiDeploymentConfigName :: Lens' DeploymentGroupInfo (Maybe Text)
+dgiDeploymentConfigName = lens _dgiDeploymentConfigName (\ s a -> s{_dgiDeploymentConfigName = a});
 
 -- | Information about the deployment group\'s target revision, including the
 -- revision\'s type and its location.
@@ -490,31 +494,27 @@ dgiTargetRevision :: Lens' DeploymentGroupInfo (Maybe RevisionLocation)
 dgiTargetRevision = lens _dgiTargetRevision (\ s a -> s{_dgiTargetRevision = a});
 
 -- | The Amazon EC2 tags to filter on.
-dgiEc2TagFilters :: Lens' DeploymentGroupInfo [EC2TagFilter]
+dgiEc2TagFilters :: Lens' DeploymentGroupInfo (Maybe [EC2TagFilter])
 dgiEc2TagFilters = lens _dgiEc2TagFilters (\ s a -> s{_dgiEc2TagFilters = a});
 
 -- | The on-premises instance tags to filter on.
-dgiOnPremisesInstanceTagFilters :: Lens' DeploymentGroupInfo [TagFilter]
+dgiOnPremisesInstanceTagFilters :: Lens' DeploymentGroupInfo (Maybe [TagFilter])
 dgiOnPremisesInstanceTagFilters = lens _dgiOnPremisesInstanceTagFilters (\ s a -> s{_dgiOnPremisesInstanceTagFilters = a});
+
+-- | The application name.
+dgiApplicationName :: Lens' DeploymentGroupInfo (Maybe Text)
+dgiApplicationName = lens _dgiApplicationName (\ s a -> s{_dgiApplicationName = a});
 
 -- | The deployment group ID.
 dgiDeploymentGroupId :: Lens' DeploymentGroupInfo (Maybe Text)
 dgiDeploymentGroupId = lens _dgiDeploymentGroupId (\ s a -> s{_dgiDeploymentGroupId = a});
 
 -- | A list of associated Auto Scaling groups.
-dgiAutoScalingGroups :: Lens' DeploymentGroupInfo [AutoScalingGroup]
+dgiAutoScalingGroups :: Lens' DeploymentGroupInfo (Maybe [AutoScalingGroup])
 dgiAutoScalingGroups = lens _dgiAutoScalingGroups (\ s a -> s{_dgiAutoScalingGroups = a});
 
--- | The deployment configuration name.
-dgiDeploymentConfigName :: Lens' DeploymentGroupInfo Text
-dgiDeploymentConfigName = lens _dgiDeploymentConfigName (\ s a -> s{_dgiDeploymentConfigName = a});
-
--- | The application name.
-dgiApplicationName :: Lens' DeploymentGroupInfo Text
-dgiApplicationName = lens _dgiApplicationName (\ s a -> s{_dgiApplicationName = a});
-
 -- | The deployment group name.
-dgiDeploymentGroupName :: Lens' DeploymentGroupInfo Text
+dgiDeploymentGroupName :: Lens' DeploymentGroupInfo (Maybe Text)
 dgiDeploymentGroupName = lens _dgiDeploymentGroupName (\ s a -> s{_dgiDeploymentGroupName = a});
 
 instance FromJSON DeploymentGroupInfo where
@@ -522,14 +522,15 @@ instance FromJSON DeploymentGroupInfo where
           = withObject "DeploymentGroupInfo"
               (\ x ->
                  DeploymentGroupInfo' <$>
-                   x .:? "serviceRoleArn" <*> x .:? "targetRevision" <*>
-                     x .:? "ec2TagFilters" .!= mempty
+                   x .:? "serviceRoleArn" <*>
+                     x .:? "deploymentConfigName"
+                     <*> x .:? "targetRevision"
+                     <*> x .:? "ec2TagFilters" .!= mempty
                      <*> x .:? "onPremisesInstanceTagFilters" .!= mempty
+                     <*> x .:? "applicationName"
                      <*> x .:? "deploymentGroupId"
                      <*> x .:? "autoScalingGroups" .!= mempty
-                     <*> x .: "deploymentConfigName"
-                     <*> x .: "applicationName"
-                     <*> x .: "deploymentGroupName")
+                     <*> x .:? "deploymentGroupName")
 
 -- | /See:/ 'deploymentInfo' smart constructor.
 --
@@ -541,6 +542,8 @@ instance FromJSON DeploymentGroupInfo where
 --
 -- * 'diStatus'
 --
+-- * 'diDeploymentConfigName'
+--
 -- * 'diStartTime'
 --
 -- * 'diCompleteTime'
@@ -549,24 +552,22 @@ instance FromJSON DeploymentGroupInfo where
 --
 -- * 'diDeploymentOverview'
 --
+-- * 'diApplicationName'
+--
 -- * 'diRevision'
 --
 -- * 'diDescription'
 --
 -- * 'diIgnoreApplicationStopFailures'
 --
--- * 'diCreateTime'
---
--- * 'diDeploymentConfigName'
---
--- * 'diApplicationName'
---
 -- * 'diDeploymentGroupName'
-data DeploymentInfo = DeploymentInfo'{_diDeploymentId :: Maybe Text, _diCreator :: Maybe DeploymentCreator, _diStatus :: Maybe DeploymentStatus, _diStartTime :: Maybe POSIX, _diCompleteTime :: Maybe POSIX, _diErrorInformation :: Maybe ErrorInformation, _diDeploymentOverview :: Maybe DeploymentOverview, _diRevision :: Maybe RevisionLocation, _diDescription :: Maybe Text, _diIgnoreApplicationStopFailures :: Maybe Bool, _diCreateTime :: Maybe POSIX, _diDeploymentConfigName :: Text, _diApplicationName :: Text, _diDeploymentGroupName :: Text} deriving (Eq, Read, Show)
+--
+-- * 'diCreateTime'
+data DeploymentInfo = DeploymentInfo'{_diDeploymentId :: Maybe Text, _diCreator :: Maybe DeploymentCreator, _diStatus :: Maybe DeploymentStatus, _diDeploymentConfigName :: Maybe Text, _diStartTime :: Maybe POSIX, _diCompleteTime :: Maybe POSIX, _diErrorInformation :: Maybe ErrorInformation, _diDeploymentOverview :: Maybe DeploymentOverview, _diApplicationName :: Maybe Text, _diRevision :: Maybe RevisionLocation, _diDescription :: Maybe Text, _diIgnoreApplicationStopFailures :: Maybe Bool, _diDeploymentGroupName :: Maybe Text, _diCreateTime :: Maybe POSIX} deriving (Eq, Read, Show)
 
 -- | 'DeploymentInfo' smart constructor.
-deploymentInfo :: Text -> Text -> Text -> DeploymentInfo
-deploymentInfo pDeploymentConfigName pApplicationName pDeploymentGroupName = DeploymentInfo'{_diDeploymentId = Nothing, _diCreator = Nothing, _diStatus = Nothing, _diStartTime = Nothing, _diCompleteTime = Nothing, _diErrorInformation = Nothing, _diDeploymentOverview = Nothing, _diRevision = Nothing, _diDescription = Nothing, _diIgnoreApplicationStopFailures = Nothing, _diCreateTime = Nothing, _diDeploymentConfigName = pDeploymentConfigName, _diApplicationName = pApplicationName, _diDeploymentGroupName = pDeploymentGroupName};
+deploymentInfo :: DeploymentInfo
+deploymentInfo = DeploymentInfo'{_diDeploymentId = Nothing, _diCreator = Nothing, _diStatus = Nothing, _diDeploymentConfigName = Nothing, _diStartTime = Nothing, _diCompleteTime = Nothing, _diErrorInformation = Nothing, _diDeploymentOverview = Nothing, _diApplicationName = Nothing, _diRevision = Nothing, _diDescription = Nothing, _diIgnoreApplicationStopFailures = Nothing, _diDeploymentGroupName = Nothing, _diCreateTime = Nothing};
 
 -- | The deployment ID.
 diDeploymentId :: Lens' DeploymentInfo (Maybe Text)
@@ -582,6 +583,10 @@ diCreator = lens _diCreator (\ s a -> s{_diCreator = a});
 -- | The current state of the deployment as a whole.
 diStatus :: Lens' DeploymentInfo (Maybe DeploymentStatus)
 diStatus = lens _diStatus (\ s a -> s{_diStatus = a});
+
+-- | The deployment configuration name.
+diDeploymentConfigName :: Lens' DeploymentInfo (Maybe Text)
+diDeploymentConfigName = lens _diDeploymentConfigName (\ s a -> s{_diDeploymentConfigName = a});
 
 -- | A timestamp indicating when the deployment began deploying to the
 -- deployment group.
@@ -605,6 +610,10 @@ diErrorInformation = lens _diErrorInformation (\ s a -> s{_diErrorInformation = 
 diDeploymentOverview :: Lens' DeploymentInfo (Maybe DeploymentOverview)
 diDeploymentOverview = lens _diDeploymentOverview (\ s a -> s{_diDeploymentOverview = a});
 
+-- | The application name.
+diApplicationName :: Lens' DeploymentInfo (Maybe Text)
+diApplicationName = lens _diApplicationName (\ s a -> s{_diApplicationName = a});
+
 -- | Information about the location of application artifacts that are stored
 -- and the service to retrieve them from.
 diRevision :: Lens' DeploymentInfo (Maybe RevisionLocation)
@@ -626,21 +635,13 @@ diDescription = lens _diDescription (\ s a -> s{_diDescription = a});
 diIgnoreApplicationStopFailures :: Lens' DeploymentInfo (Maybe Bool)
 diIgnoreApplicationStopFailures = lens _diIgnoreApplicationStopFailures (\ s a -> s{_diIgnoreApplicationStopFailures = a});
 
+-- | The deployment group name.
+diDeploymentGroupName :: Lens' DeploymentInfo (Maybe Text)
+diDeploymentGroupName = lens _diDeploymentGroupName (\ s a -> s{_diDeploymentGroupName = a});
+
 -- | A timestamp indicating when the deployment was created.
 diCreateTime :: Lens' DeploymentInfo (Maybe UTCTime)
 diCreateTime = lens _diCreateTime (\ s a -> s{_diCreateTime = a}) . mapping _Time;
-
--- | The deployment configuration name.
-diDeploymentConfigName :: Lens' DeploymentInfo Text
-diDeploymentConfigName = lens _diDeploymentConfigName (\ s a -> s{_diDeploymentConfigName = a});
-
--- | The application name.
-diApplicationName :: Lens' DeploymentInfo Text
-diApplicationName = lens _diApplicationName (\ s a -> s{_diApplicationName = a});
-
--- | The deployment group name.
-diDeploymentGroupName :: Lens' DeploymentInfo Text
-diDeploymentGroupName = lens _diDeploymentGroupName (\ s a -> s{_diDeploymentGroupName = a});
 
 instance FromJSON DeploymentInfo where
         parseJSON
@@ -649,17 +650,17 @@ instance FromJSON DeploymentInfo where
                  DeploymentInfo' <$>
                    x .:? "deploymentId" <*> x .:? "creator" <*>
                      x .:? "status"
+                     <*> x .:? "deploymentConfigName"
                      <*> x .:? "startTime"
                      <*> x .:? "completeTime"
                      <*> x .:? "errorInformation"
                      <*> x .:? "deploymentOverview"
+                     <*> x .:? "applicationName"
                      <*> x .:? "revision"
                      <*> x .:? "description"
                      <*> x .:? "ignoreApplicationStopFailures"
-                     <*> x .:? "createTime"
-                     <*> x .: "deploymentConfigName"
-                     <*> x .: "applicationName"
-                     <*> x .: "deploymentGroupName")
+                     <*> x .:? "deploymentGroupName"
+                     <*> x .:? "createTime")
 
 -- | /See:/ 'deploymentOverview' smart constructor.
 --
@@ -974,11 +975,11 @@ instance FromJSON ErrorInformation where
 -- * 'griLastUsedTime'
 --
 -- * 'griDescription'
-data GenericRevisionInfo = GenericRevisionInfo'{_griRegisterTime :: Maybe POSIX, _griFirstUsedTime :: Maybe POSIX, _griDeploymentGroups :: [Text], _griLastUsedTime :: Maybe POSIX, _griDescription :: Maybe Text} deriving (Eq, Read, Show)
+data GenericRevisionInfo = GenericRevisionInfo'{_griRegisterTime :: Maybe POSIX, _griFirstUsedTime :: Maybe POSIX, _griDeploymentGroups :: Maybe [Text], _griLastUsedTime :: Maybe POSIX, _griDescription :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'GenericRevisionInfo' smart constructor.
 genericRevisionInfo :: GenericRevisionInfo
-genericRevisionInfo = GenericRevisionInfo'{_griRegisterTime = Nothing, _griFirstUsedTime = Nothing, _griDeploymentGroups = mempty, _griLastUsedTime = Nothing, _griDescription = Nothing};
+genericRevisionInfo = GenericRevisionInfo'{_griRegisterTime = Nothing, _griFirstUsedTime = Nothing, _griDeploymentGroups = Nothing, _griLastUsedTime = Nothing, _griDescription = Nothing};
 
 -- | When the revision was registered with AWS CodeDeploy.
 griRegisterTime :: Lens' GenericRevisionInfo (Maybe UTCTime)
@@ -989,7 +990,7 @@ griFirstUsedTime :: Lens' GenericRevisionInfo (Maybe UTCTime)
 griFirstUsedTime = lens _griFirstUsedTime (\ s a -> s{_griFirstUsedTime = a}) . mapping _Time;
 
 -- | A list of deployment groups that use this revision.
-griDeploymentGroups :: Lens' GenericRevisionInfo [Text]
+griDeploymentGroups :: Lens' GenericRevisionInfo (Maybe [Text])
 griDeploymentGroups = lens _griDeploymentGroups (\ s a -> s{_griDeploymentGroups = a});
 
 -- | When the revision was last used by AWS CodeDeploy.
@@ -1064,11 +1065,11 @@ instance ToJSON GitHubLocation where
 -- * 'iiInstanceName'
 --
 -- * 'iiTags'
-data InstanceInfo = InstanceInfo'{_iiInstanceARN :: Maybe Text, _iiRegisterTime :: Maybe POSIX, _iiDeregisterTime :: Maybe POSIX, _iiIamUserARN :: Maybe Text, _iiInstanceName :: Maybe Text, _iiTags :: [Tag]} deriving (Eq, Read, Show)
+data InstanceInfo = InstanceInfo'{_iiInstanceARN :: Maybe Text, _iiRegisterTime :: Maybe POSIX, _iiDeregisterTime :: Maybe POSIX, _iiIamUserARN :: Maybe Text, _iiInstanceName :: Maybe Text, _iiTags :: Maybe [Tag]} deriving (Eq, Read, Show)
 
 -- | 'InstanceInfo' smart constructor.
 instanceInfo :: InstanceInfo
-instanceInfo = InstanceInfo'{_iiInstanceARN = Nothing, _iiRegisterTime = Nothing, _iiDeregisterTime = Nothing, _iiIamUserARN = Nothing, _iiInstanceName = Nothing, _iiTags = mempty};
+instanceInfo = InstanceInfo'{_iiInstanceARN = Nothing, _iiRegisterTime = Nothing, _iiDeregisterTime = Nothing, _iiIamUserARN = Nothing, _iiInstanceName = Nothing, _iiTags = Nothing};
 
 -- | The ARN of the on-premises instance.
 iiInstanceARN :: Lens' InstanceInfo (Maybe Text)
@@ -1092,7 +1093,7 @@ iiInstanceName :: Lens' InstanceInfo (Maybe Text)
 iiInstanceName = lens _iiInstanceName (\ s a -> s{_iiInstanceName = a});
 
 -- | The tags that are currently associated with the on-premises instance.
-iiTags :: Lens' InstanceInfo [Tag]
+iiTags :: Lens' InstanceInfo (Maybe [Tag])
 iiTags = lens _iiTags (\ s a -> s{_iiTags = a});
 
 instance FromJSON InstanceInfo where
@@ -1150,11 +1151,11 @@ instance FromJSON InstanceStatus where
 -- * 'isLastUpdatedAt'
 --
 -- * 'isLifecycleEvents'
-data InstanceSummary = InstanceSummary'{_isInstanceId :: Maybe Text, _isDeploymentId :: Maybe Text, _isStatus :: Maybe InstanceStatus, _isLastUpdatedAt :: Maybe POSIX, _isLifecycleEvents :: [LifecycleEvent]} deriving (Eq, Read, Show)
+data InstanceSummary = InstanceSummary'{_isInstanceId :: Maybe Text, _isDeploymentId :: Maybe Text, _isStatus :: Maybe InstanceStatus, _isLastUpdatedAt :: Maybe POSIX, _isLifecycleEvents :: Maybe [LifecycleEvent]} deriving (Eq, Read, Show)
 
 -- | 'InstanceSummary' smart constructor.
 instanceSummary :: InstanceSummary
-instanceSummary = InstanceSummary'{_isInstanceId = Nothing, _isDeploymentId = Nothing, _isStatus = Nothing, _isLastUpdatedAt = Nothing, _isLifecycleEvents = mempty};
+instanceSummary = InstanceSummary'{_isInstanceId = Nothing, _isDeploymentId = Nothing, _isStatus = Nothing, _isLastUpdatedAt = Nothing, _isLifecycleEvents = Nothing};
 
 -- | The instance ID.
 isInstanceId :: Lens' InstanceSummary (Maybe Text)
@@ -1180,7 +1181,7 @@ isLastUpdatedAt :: Lens' InstanceSummary (Maybe UTCTime)
 isLastUpdatedAt = lens _isLastUpdatedAt (\ s a -> s{_isLastUpdatedAt = a}) . mapping _Time;
 
 -- | A list of lifecycle events for this instance.
-isLifecycleEvents :: Lens' InstanceSummary [LifecycleEvent]
+isLifecycleEvents :: Lens' InstanceSummary (Maybe [LifecycleEvent])
 isLifecycleEvents = lens _isLifecycleEvents (\ s a -> s{_isLifecycleEvents = a});
 
 instance FromJSON InstanceSummary where

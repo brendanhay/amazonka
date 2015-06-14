@@ -72,7 +72,7 @@ instance AWSRequest DeleteBatchPrediction where
           = receiveJSON
               (\ s h x ->
                  DeleteBatchPredictionResponse' <$>
-                   x .:> "BatchPredictionId")
+                   x .?> "BatchPredictionId")
 
 instance ToHeaders DeleteBatchPrediction where
         toHeaders
@@ -100,14 +100,14 @@ instance ToQuery DeleteBatchPrediction where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dbprBatchPredictionId'
-newtype DeleteBatchPredictionResponse = DeleteBatchPredictionResponse'{_dbprBatchPredictionId :: Text} deriving (Eq, Read, Show)
+newtype DeleteBatchPredictionResponse = DeleteBatchPredictionResponse'{_dbprBatchPredictionId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DeleteBatchPredictionResponse' smart constructor.
-deleteBatchPredictionResponse :: Text -> DeleteBatchPredictionResponse
-deleteBatchPredictionResponse pBatchPredictionId = DeleteBatchPredictionResponse'{_dbprBatchPredictionId = pBatchPredictionId};
+deleteBatchPredictionResponse :: DeleteBatchPredictionResponse
+deleteBatchPredictionResponse = DeleteBatchPredictionResponse'{_dbprBatchPredictionId = Nothing};
 
 -- | A user-supplied ID that uniquely identifies the @BatchPrediction@. This
 -- value should be identical to the value of the @BatchPredictionID@ in the
 -- request.
-dbprBatchPredictionId :: Lens' DeleteBatchPredictionResponse Text
+dbprBatchPredictionId :: Lens' DeleteBatchPredictionResponse (Maybe Text)
 dbprBatchPredictionId = lens _dbprBatchPredictionId (\ s a -> s{_dbprBatchPredictionId = a});

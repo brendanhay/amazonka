@@ -120,11 +120,11 @@ import Network.AWS.S3.Types
 -- * 'cmuBucket'
 --
 -- * 'cmuKey'
-data CreateMultipartUpload = CreateMultipartUpload'{_cmuExpires :: Maybe RFC822, _cmuSSECustomerAlgorithm :: Maybe Text, _cmuGrantReadACP :: Maybe Text, _cmuSSECustomerKey :: Maybe (Sensitive Text), _cmuRequestPayer :: Maybe RequestPayer, _cmuGrantWriteACP :: Maybe Text, _cmuWebsiteRedirectLocation :: Maybe Text, _cmuGrantRead :: Maybe Text, _cmuStorageClass :: Maybe StorageClass, _cmuContentEncoding :: Maybe Text, _cmuSSEKMSKeyId :: Maybe (Sensitive Text), _cmuGrantFullControl :: Maybe Text, _cmuSSECustomerKeyMD5 :: Maybe Text, _cmuMetadata :: HashMap Text Text, _cmuCacheControl :: Maybe Text, _cmuContentLanguage :: Maybe Text, _cmuACL :: Maybe ObjectCannedACL, _cmuContentDisposition :: Maybe Text, _cmuServerSideEncryption :: Maybe ServerSideEncryption, _cmuContentType :: Maybe Text, _cmuBucket :: BucketName, _cmuKey :: ObjectKey} deriving (Eq, Read, Show)
+data CreateMultipartUpload = CreateMultipartUpload'{_cmuExpires :: Maybe RFC822, _cmuSSECustomerAlgorithm :: Maybe Text, _cmuGrantReadACP :: Maybe Text, _cmuSSECustomerKey :: Maybe (Sensitive Text), _cmuRequestPayer :: Maybe RequestPayer, _cmuGrantWriteACP :: Maybe Text, _cmuWebsiteRedirectLocation :: Maybe Text, _cmuGrantRead :: Maybe Text, _cmuStorageClass :: Maybe StorageClass, _cmuContentEncoding :: Maybe Text, _cmuSSEKMSKeyId :: Maybe (Sensitive Text), _cmuGrantFullControl :: Maybe Text, _cmuSSECustomerKeyMD5 :: Maybe Text, _cmuMetadata :: Maybe (HashMap Text Text), _cmuCacheControl :: Maybe Text, _cmuContentLanguage :: Maybe Text, _cmuACL :: Maybe ObjectCannedACL, _cmuContentDisposition :: Maybe Text, _cmuServerSideEncryption :: Maybe ServerSideEncryption, _cmuContentType :: Maybe Text, _cmuBucket :: BucketName, _cmuKey :: ObjectKey} deriving (Eq, Read, Show)
 
 -- | 'CreateMultipartUpload' smart constructor.
 createMultipartUpload :: BucketName -> ObjectKey -> CreateMultipartUpload
-createMultipartUpload pBucket pKey = CreateMultipartUpload'{_cmuExpires = Nothing, _cmuSSECustomerAlgorithm = Nothing, _cmuGrantReadACP = Nothing, _cmuSSECustomerKey = Nothing, _cmuRequestPayer = Nothing, _cmuGrantWriteACP = Nothing, _cmuWebsiteRedirectLocation = Nothing, _cmuGrantRead = Nothing, _cmuStorageClass = Nothing, _cmuContentEncoding = Nothing, _cmuSSEKMSKeyId = Nothing, _cmuGrantFullControl = Nothing, _cmuSSECustomerKeyMD5 = Nothing, _cmuMetadata = mempty, _cmuCacheControl = Nothing, _cmuContentLanguage = Nothing, _cmuACL = Nothing, _cmuContentDisposition = Nothing, _cmuServerSideEncryption = Nothing, _cmuContentType = Nothing, _cmuBucket = pBucket, _cmuKey = pKey};
+createMultipartUpload pBucket pKey = CreateMultipartUpload'{_cmuExpires = Nothing, _cmuSSECustomerAlgorithm = Nothing, _cmuGrantReadACP = Nothing, _cmuSSECustomerKey = Nothing, _cmuRequestPayer = Nothing, _cmuGrantWriteACP = Nothing, _cmuWebsiteRedirectLocation = Nothing, _cmuGrantRead = Nothing, _cmuStorageClass = Nothing, _cmuContentEncoding = Nothing, _cmuSSEKMSKeyId = Nothing, _cmuGrantFullControl = Nothing, _cmuSSECustomerKeyMD5 = Nothing, _cmuMetadata = Nothing, _cmuCacheControl = Nothing, _cmuContentLanguage = Nothing, _cmuACL = Nothing, _cmuContentDisposition = Nothing, _cmuServerSideEncryption = Nothing, _cmuContentType = Nothing, _cmuBucket = pBucket, _cmuKey = pKey};
 
 -- | The date and time at which the object is no longer cacheable.
 cmuExpires :: Lens' CreateMultipartUpload (Maybe UTCTime)
@@ -195,8 +195,8 @@ cmuSSECustomerKeyMD5 :: Lens' CreateMultipartUpload (Maybe Text)
 cmuSSECustomerKeyMD5 = lens _cmuSSECustomerKeyMD5 (\ s a -> s{_cmuSSECustomerKeyMD5 = a});
 
 -- | A map of metadata to store with the object in S3.
-cmuMetadata :: Lens' CreateMultipartUpload (HashMap Text Text)
-cmuMetadata = lens _cmuMetadata (\ s a -> s{_cmuMetadata = a}) . _Coerce;
+cmuMetadata :: Lens' CreateMultipartUpload (Maybe (HashMap Text Text))
+cmuMetadata = lens _cmuMetadata (\ s a -> s{_cmuMetadata = a}) . mapping _Coerce;
 
 -- | Specifies caching behavior along the request\/reply chain.
 cmuCacheControl :: Lens' CreateMultipartUpload (Maybe Text)

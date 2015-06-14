@@ -172,14 +172,14 @@ instance ToQuery ListParts where
 -- * 'lprMarker'
 --
 -- * 'lprCreationDate'
-data ListPartsResponse = ListPartsResponse'{_lprParts :: [PartListElement], _lprMultipartUploadId :: Maybe Text, _lprArchiveDescription :: Maybe Text, _lprPartSizeInBytes :: Maybe Integer, _lprVaultARN :: Maybe Text, _lprMarker :: Maybe Text, _lprCreationDate :: Maybe Text} deriving (Eq, Read, Show)
+data ListPartsResponse = ListPartsResponse'{_lprParts :: Maybe [PartListElement], _lprMultipartUploadId :: Maybe Text, _lprArchiveDescription :: Maybe Text, _lprPartSizeInBytes :: Maybe Integer, _lprVaultARN :: Maybe Text, _lprMarker :: Maybe Text, _lprCreationDate :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ListPartsResponse' smart constructor.
 listPartsResponse :: ListPartsResponse
-listPartsResponse = ListPartsResponse'{_lprParts = mempty, _lprMultipartUploadId = Nothing, _lprArchiveDescription = Nothing, _lprPartSizeInBytes = Nothing, _lprVaultARN = Nothing, _lprMarker = Nothing, _lprCreationDate = Nothing};
+listPartsResponse = ListPartsResponse'{_lprParts = Nothing, _lprMultipartUploadId = Nothing, _lprArchiveDescription = Nothing, _lprPartSizeInBytes = Nothing, _lprVaultARN = Nothing, _lprMarker = Nothing, _lprCreationDate = Nothing};
 
 -- | A list of the part sizes of the multipart upload.
-lprParts :: Lens' ListPartsResponse [PartListElement]
+lprParts :: Lens' ListPartsResponse (Maybe [PartListElement])
 lprParts = lens _lprParts (\ s a -> s{_lprParts = a});
 
 -- | The ID of the upload to which the parts are associated.

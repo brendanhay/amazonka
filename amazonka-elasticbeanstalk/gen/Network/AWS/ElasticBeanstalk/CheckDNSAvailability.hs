@@ -31,8 +31,8 @@ module Network.AWS.ElasticBeanstalk.CheckDNSAvailability
     -- ** Response constructor
     , checkDNSAvailabilityResponse
     -- ** Response lenses
-    , cdarAvailable
     , cdarFullyQualifiedCNAME
+    , cdarAvailable
     ) where
 
 import Network.AWS.Request
@@ -64,7 +64,7 @@ instance AWSRequest CheckDNSAvailability where
           = receiveXMLWrapper "CheckDNSAvailabilityResult"
               (\ s h x ->
                  CheckDNSAvailabilityResponse' <$>
-                   x .@? "Available" <*> x .@ "FullyQualifiedCNAME")
+                   x .@? "FullyQualifiedCNAME" <*> x .@? "Available")
 
 instance ToHeaders CheckDNSAvailability where
         toHeaders = const mempty
@@ -83,14 +83,19 @@ instance ToQuery CheckDNSAvailability where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdarAvailable'
---
 -- * 'cdarFullyQualifiedCNAME'
-data CheckDNSAvailabilityResponse = CheckDNSAvailabilityResponse'{_cdarAvailable :: Maybe Bool, _cdarFullyQualifiedCNAME :: Text} deriving (Eq, Read, Show)
+--
+-- * 'cdarAvailable'
+data CheckDNSAvailabilityResponse = CheckDNSAvailabilityResponse'{_cdarFullyQualifiedCNAME :: Maybe Text, _cdarAvailable :: Maybe Bool} deriving (Eq, Read, Show)
 
 -- | 'CheckDNSAvailabilityResponse' smart constructor.
-checkDNSAvailabilityResponse :: Text -> CheckDNSAvailabilityResponse
-checkDNSAvailabilityResponse pFullyQualifiedCNAME = CheckDNSAvailabilityResponse'{_cdarAvailable = Nothing, _cdarFullyQualifiedCNAME = pFullyQualifiedCNAME};
+checkDNSAvailabilityResponse :: CheckDNSAvailabilityResponse
+checkDNSAvailabilityResponse = CheckDNSAvailabilityResponse'{_cdarFullyQualifiedCNAME = Nothing, _cdarAvailable = Nothing};
+
+-- | The fully qualified CNAME to reserve when CreateEnvironment is called
+-- with the provided prefix.
+cdarFullyQualifiedCNAME :: Lens' CheckDNSAvailabilityResponse (Maybe Text)
+cdarFullyQualifiedCNAME = lens _cdarFullyQualifiedCNAME (\ s a -> s{_cdarFullyQualifiedCNAME = a});
 
 -- | Indicates if the specified CNAME is available:
 --
@@ -102,8 +107,3 @@ checkDNSAvailabilityResponse pFullyQualifiedCNAME = CheckDNSAvailabilityResponse
 -- -   @false@ : The CNAME is not available.
 cdarAvailable :: Lens' CheckDNSAvailabilityResponse (Maybe Bool)
 cdarAvailable = lens _cdarAvailable (\ s a -> s{_cdarAvailable = a});
-
--- | The fully qualified CNAME to reserve when CreateEnvironment is called
--- with the provided prefix.
-cdarFullyQualifiedCNAME :: Lens' CheckDNSAvailabilityResponse Text
-cdarFullyQualifiedCNAME = lens _cdarFullyQualifiedCNAME (\ s a -> s{_cdarFullyQualifiedCNAME = a});

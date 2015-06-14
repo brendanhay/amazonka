@@ -106,16 +106,16 @@ instance ToQuery DescribeStackProvisioningParameters
 -- * 'dspprAgentInstallerURL'
 --
 -- * 'dspprParameters'
-data DescribeStackProvisioningParametersResponse = DescribeStackProvisioningParametersResponse'{_dspprAgentInstallerURL :: Maybe Text, _dspprParameters :: HashMap Text Text} deriving (Eq, Read, Show)
+data DescribeStackProvisioningParametersResponse = DescribeStackProvisioningParametersResponse'{_dspprAgentInstallerURL :: Maybe Text, _dspprParameters :: Maybe (HashMap Text Text)} deriving (Eq, Read, Show)
 
 -- | 'DescribeStackProvisioningParametersResponse' smart constructor.
 describeStackProvisioningParametersResponse :: DescribeStackProvisioningParametersResponse
-describeStackProvisioningParametersResponse = DescribeStackProvisioningParametersResponse'{_dspprAgentInstallerURL = Nothing, _dspprParameters = mempty};
+describeStackProvisioningParametersResponse = DescribeStackProvisioningParametersResponse'{_dspprAgentInstallerURL = Nothing, _dspprParameters = Nothing};
 
 -- | The AWS OpsWorks agent installer\'s URL.
 dspprAgentInstallerURL :: Lens' DescribeStackProvisioningParametersResponse (Maybe Text)
 dspprAgentInstallerURL = lens _dspprAgentInstallerURL (\ s a -> s{_dspprAgentInstallerURL = a});
 
 -- | An embedded object that contains the provisioning parameters.
-dspprParameters :: Lens' DescribeStackProvisioningParametersResponse (HashMap Text Text)
-dspprParameters = lens _dspprParameters (\ s a -> s{_dspprParameters = a}) . _Coerce;
+dspprParameters :: Lens' DescribeStackProvisioningParametersResponse (Maybe (HashMap Text Text))
+dspprParameters = lens _dspprParameters (\ s a -> s{_dspprParameters = a}) . mapping _Coerce;

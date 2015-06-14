@@ -24,10 +24,10 @@ module Network.AWS.Route53.ChangeTagsForResource
     -- ** Request constructor
     , changeTagsForResource
     -- ** Request lenses
-    , ctfrResourceType
-    , ctfrResourceId
     , ctfrRemoveTagKeys
     , ctfrAddTags
+    , ctfrResourceType
+    , ctfrResourceId
 
     -- * Response
     , ChangeTagsForResourceResponse
@@ -44,18 +44,29 @@ import Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ctfrResourceType'
---
--- * 'ctfrResourceId'
---
 -- * 'ctfrRemoveTagKeys'
 --
 -- * 'ctfrAddTags'
-data ChangeTagsForResource = ChangeTagsForResource'{_ctfrResourceType :: TagResourceType, _ctfrResourceId :: Text, _ctfrRemoveTagKeys :: List1 Text, _ctfrAddTags :: List1 Tag} deriving (Eq, Read, Show)
+--
+-- * 'ctfrResourceType'
+--
+-- * 'ctfrResourceId'
+data ChangeTagsForResource = ChangeTagsForResource'{_ctfrRemoveTagKeys :: Maybe (List1 Text), _ctfrAddTags :: Maybe (List1 Tag), _ctfrResourceType :: TagResourceType, _ctfrResourceId :: Text} deriving (Eq, Read, Show)
 
 -- | 'ChangeTagsForResource' smart constructor.
-changeTagsForResource :: TagResourceType -> Text -> NonEmpty Text -> NonEmpty Tag -> ChangeTagsForResource
-changeTagsForResource pResourceType pResourceId pRemoveTagKeys pAddTags = ChangeTagsForResource'{_ctfrResourceType = pResourceType, _ctfrResourceId = pResourceId, _ctfrRemoveTagKeys = _List1 # pRemoveTagKeys, _ctfrAddTags = _List1 # pAddTags};
+changeTagsForResource :: TagResourceType -> Text -> ChangeTagsForResource
+changeTagsForResource pResourceType pResourceId = ChangeTagsForResource'{_ctfrRemoveTagKeys = Nothing, _ctfrAddTags = Nothing, _ctfrResourceType = pResourceType, _ctfrResourceId = pResourceId};
+
+-- | A list of @Tag@ keys that you want to remove from the specified
+-- resource.
+ctfrRemoveTagKeys :: Lens' ChangeTagsForResource (Maybe (NonEmpty Text))
+ctfrRemoveTagKeys = lens _ctfrRemoveTagKeys (\ s a -> s{_ctfrRemoveTagKeys = a}) . mapping _List1;
+
+-- | A complex type that contains a list of @Tag@ elements. Each @Tag@
+-- element identifies a tag that you want to add or update for the
+-- specified resource.
+ctfrAddTags :: Lens' ChangeTagsForResource (Maybe (NonEmpty Tag))
+ctfrAddTags = lens _ctfrAddTags (\ s a -> s{_ctfrAddTags = a}) . mapping _List1;
 
 -- | The type of the resource.
 --
@@ -69,17 +80,6 @@ ctfrResourceType = lens _ctfrResourceType (\ s a -> s{_ctfrResourceType = a});
 -- tags.
 ctfrResourceId :: Lens' ChangeTagsForResource Text
 ctfrResourceId = lens _ctfrResourceId (\ s a -> s{_ctfrResourceId = a});
-
--- | A list of @Tag@ keys that you want to remove from the specified
--- resource.
-ctfrRemoveTagKeys :: Lens' ChangeTagsForResource (NonEmpty Text)
-ctfrRemoveTagKeys = lens _ctfrRemoveTagKeys (\ s a -> s{_ctfrRemoveTagKeys = a}) . _List1;
-
--- | A complex type that contains a list of @Tag@ elements. Each @Tag@
--- element identifies a tag that you want to add or update for the
--- specified resource.
-ctfrAddTags :: Lens' ChangeTagsForResource (NonEmpty Tag)
-ctfrAddTags = lens _ctfrAddTags (\ s a -> s{_ctfrAddTags = a}) . _List1;
 
 instance AWSRequest ChangeTagsForResource where
         type Sv ChangeTagsForResource = Route53

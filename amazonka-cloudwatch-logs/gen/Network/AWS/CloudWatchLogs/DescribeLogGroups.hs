@@ -59,27 +59,27 @@ import Network.AWS.CloudWatchLogs.Types
 -- * 'dlgLogGroupNamePrefix'
 --
 -- * 'dlgLimit'
-data DescribeLogGroups = DescribeLogGroups'{_dlgNextToken :: Text, _dlgLogGroupNamePrefix :: Text, _dlgLimit :: Nat} deriving (Eq, Read, Show)
+data DescribeLogGroups = DescribeLogGroups'{_dlgNextToken :: Maybe Text, _dlgLogGroupNamePrefix :: Maybe Text, _dlgLimit :: Maybe Nat} deriving (Eq, Read, Show)
 
 -- | 'DescribeLogGroups' smart constructor.
-describeLogGroups :: Text -> Text -> Natural -> DescribeLogGroups
-describeLogGroups pNextToken pLogGroupNamePrefix pLimit = DescribeLogGroups'{_dlgNextToken = pNextToken, _dlgLogGroupNamePrefix = pLogGroupNamePrefix, _dlgLimit = _Nat # pLimit};
+describeLogGroups :: DescribeLogGroups
+describeLogGroups = DescribeLogGroups'{_dlgNextToken = Nothing, _dlgLogGroupNamePrefix = Nothing, _dlgLimit = Nothing};
 
 -- | A string token used for pagination that points to the next page of
 -- results. It must be a value obtained from the response of the previous
 -- @DescribeLogGroups@ request.
-dlgNextToken :: Lens' DescribeLogGroups Text
+dlgNextToken :: Lens' DescribeLogGroups (Maybe Text)
 dlgNextToken = lens _dlgNextToken (\ s a -> s{_dlgNextToken = a});
 
 -- | Will only return log groups that match the provided logGroupNamePrefix.
 -- If you don\'t specify a value, no prefix filter is applied.
-dlgLogGroupNamePrefix :: Lens' DescribeLogGroups Text
+dlgLogGroupNamePrefix :: Lens' DescribeLogGroups (Maybe Text)
 dlgLogGroupNamePrefix = lens _dlgLogGroupNamePrefix (\ s a -> s{_dlgLogGroupNamePrefix = a});
 
 -- | The maximum number of items returned in the response. If you don\'t
 -- specify a value, the request would return up to 50 items.
-dlgLimit :: Lens' DescribeLogGroups Natural
-dlgLimit = lens _dlgLimit (\ s a -> s{_dlgLimit = a}) . _Nat;
+dlgLimit :: Lens' DescribeLogGroups (Maybe Natural)
+dlgLimit = lens _dlgLimit (\ s a -> s{_dlgLimit = a}) . mapping _Nat;
 
 instance AWSRequest DescribeLogGroups where
         type Sv DescribeLogGroups = CloudWatchLogs
@@ -89,7 +89,7 @@ instance AWSRequest DescribeLogGroups where
           = receiveJSON
               (\ s h x ->
                  DescribeLogGroupsResponse' <$>
-                   x .?> "logGroups" .!@ mempty <*> x .:> "nextToken")
+                   x .?> "logGroups" .!@ mempty <*> x .?> "nextToken")
 
 instance ToHeaders DescribeLogGroups where
         toHeaders
@@ -120,16 +120,16 @@ instance ToQuery DescribeLogGroups where
 -- * 'dlgrLogGroups'
 --
 -- * 'dlgrNextToken'
-data DescribeLogGroupsResponse = DescribeLogGroupsResponse'{_dlgrLogGroups :: [LogGroup], _dlgrNextToken :: Text} deriving (Eq, Read, Show)
+data DescribeLogGroupsResponse = DescribeLogGroupsResponse'{_dlgrLogGroups :: Maybe [LogGroup], _dlgrNextToken :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeLogGroupsResponse' smart constructor.
-describeLogGroupsResponse :: Text -> DescribeLogGroupsResponse
-describeLogGroupsResponse pNextToken = DescribeLogGroupsResponse'{_dlgrLogGroups = mempty, _dlgrNextToken = pNextToken};
+describeLogGroupsResponse :: DescribeLogGroupsResponse
+describeLogGroupsResponse = DescribeLogGroupsResponse'{_dlgrLogGroups = Nothing, _dlgrNextToken = Nothing};
 
 -- | FIXME: Undocumented member.
-dlgrLogGroups :: Lens' DescribeLogGroupsResponse [LogGroup]
+dlgrLogGroups :: Lens' DescribeLogGroupsResponse (Maybe [LogGroup])
 dlgrLogGroups = lens _dlgrLogGroups (\ s a -> s{_dlgrLogGroups = a});
 
 -- | FIXME: Undocumented member.
-dlgrNextToken :: Lens' DescribeLogGroupsResponse Text
+dlgrNextToken :: Lens' DescribeLogGroupsResponse (Maybe Text)
 dlgrNextToken = lens _dlgrNextToken (\ s a -> s{_dlgrNextToken = a});

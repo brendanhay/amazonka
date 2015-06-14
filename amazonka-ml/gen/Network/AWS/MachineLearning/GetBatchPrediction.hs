@@ -36,14 +36,14 @@ module Network.AWS.MachineLearning.GetBatchPrediction
     , gbprLastUpdatedAt
     , gbprCreatedAt
     , gbprInputDataLocationS3
+    , gbprMLModelId
+    , gbprBatchPredictionDataSourceId
+    , gbprBatchPredictionId
     , gbprName
     , gbprCreatedByIAMUser
     , gbprLogURI
     , gbprMessage
     , gbprOutputURI
-    , gbprMLModelId
-    , gbprBatchPredictionDataSourceId
-    , gbprBatchPredictionId
     ) where
 
 import Network.AWS.Request
@@ -78,14 +78,14 @@ instance AWSRequest GetBatchPrediction where
                    x .?> "Status" <*> x .?> "LastUpdatedAt" <*>
                      x .?> "CreatedAt"
                      <*> x .?> "InputDataLocationS3"
+                     <*> x .?> "MLModelId"
+                     <*> x .?> "BatchPredictionDataSourceId"
+                     <*> x .?> "BatchPredictionId"
                      <*> x .?> "Name"
                      <*> x .?> "CreatedByIamUser"
                      <*> x .?> "LogUri"
                      <*> x .?> "Message"
-                     <*> x .?> "OutputUri"
-                     <*> x .:> "MLModelId"
-                     <*> x .:> "BatchPredictionDataSourceId"
-                     <*> x .:> "BatchPredictionId")
+                     <*> x .?> "OutputUri")
 
 instance ToHeaders GetBatchPrediction where
         toHeaders
@@ -120,6 +120,12 @@ instance ToQuery GetBatchPrediction where
 --
 -- * 'gbprInputDataLocationS3'
 --
+-- * 'gbprMLModelId'
+--
+-- * 'gbprBatchPredictionDataSourceId'
+--
+-- * 'gbprBatchPredictionId'
+--
 -- * 'gbprName'
 --
 -- * 'gbprCreatedByIAMUser'
@@ -129,17 +135,11 @@ instance ToQuery GetBatchPrediction where
 -- * 'gbprMessage'
 --
 -- * 'gbprOutputURI'
---
--- * 'gbprMLModelId'
---
--- * 'gbprBatchPredictionDataSourceId'
---
--- * 'gbprBatchPredictionId'
-data GetBatchPredictionResponse = GetBatchPredictionResponse'{_gbprStatus :: Maybe EntityStatus, _gbprLastUpdatedAt :: Maybe POSIX, _gbprCreatedAt :: Maybe POSIX, _gbprInputDataLocationS3 :: Maybe Text, _gbprName :: Maybe Text, _gbprCreatedByIAMUser :: Maybe Text, _gbprLogURI :: Maybe Text, _gbprMessage :: Maybe Text, _gbprOutputURI :: Maybe Text, _gbprMLModelId :: Text, _gbprBatchPredictionDataSourceId :: Text, _gbprBatchPredictionId :: Text} deriving (Eq, Read, Show)
+data GetBatchPredictionResponse = GetBatchPredictionResponse'{_gbprStatus :: Maybe EntityStatus, _gbprLastUpdatedAt :: Maybe POSIX, _gbprCreatedAt :: Maybe POSIX, _gbprInputDataLocationS3 :: Maybe Text, _gbprMLModelId :: Maybe Text, _gbprBatchPredictionDataSourceId :: Maybe Text, _gbprBatchPredictionId :: Maybe Text, _gbprName :: Maybe Text, _gbprCreatedByIAMUser :: Maybe Text, _gbprLogURI :: Maybe Text, _gbprMessage :: Maybe Text, _gbprOutputURI :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'GetBatchPredictionResponse' smart constructor.
-getBatchPredictionResponse :: Text -> Text -> Text -> GetBatchPredictionResponse
-getBatchPredictionResponse pMLModelId pBatchPredictionDataSourceId pBatchPredictionId = GetBatchPredictionResponse'{_gbprStatus = Nothing, _gbprLastUpdatedAt = Nothing, _gbprCreatedAt = Nothing, _gbprInputDataLocationS3 = Nothing, _gbprName = Nothing, _gbprCreatedByIAMUser = Nothing, _gbprLogURI = Nothing, _gbprMessage = Nothing, _gbprOutputURI = Nothing, _gbprMLModelId = pMLModelId, _gbprBatchPredictionDataSourceId = pBatchPredictionDataSourceId, _gbprBatchPredictionId = pBatchPredictionId};
+getBatchPredictionResponse :: GetBatchPredictionResponse
+getBatchPredictionResponse = GetBatchPredictionResponse'{_gbprStatus = Nothing, _gbprLastUpdatedAt = Nothing, _gbprCreatedAt = Nothing, _gbprInputDataLocationS3 = Nothing, _gbprMLModelId = Nothing, _gbprBatchPredictionDataSourceId = Nothing, _gbprBatchPredictionId = Nothing, _gbprName = Nothing, _gbprCreatedByIAMUser = Nothing, _gbprLogURI = Nothing, _gbprMessage = Nothing, _gbprOutputURI = Nothing};
 
 -- | The status of the @BatchPrediction@, which can be one of the following
 -- values:
@@ -170,6 +170,21 @@ gbprCreatedAt = lens _gbprCreatedAt (\ s a -> s{_gbprCreatedAt = a}) . mapping _
 gbprInputDataLocationS3 :: Lens' GetBatchPredictionResponse (Maybe Text)
 gbprInputDataLocationS3 = lens _gbprInputDataLocationS3 (\ s a -> s{_gbprInputDataLocationS3 = a});
 
+-- | The ID of the @MLModel@ that generated predictions for the
+-- @BatchPrediction@ request.
+gbprMLModelId :: Lens' GetBatchPredictionResponse (Maybe Text)
+gbprMLModelId = lens _gbprMLModelId (\ s a -> s{_gbprMLModelId = a});
+
+-- | The ID of the @DataSource@ that was used to create the
+-- @BatchPrediction@.
+gbprBatchPredictionDataSourceId :: Lens' GetBatchPredictionResponse (Maybe Text)
+gbprBatchPredictionDataSourceId = lens _gbprBatchPredictionDataSourceId (\ s a -> s{_gbprBatchPredictionDataSourceId = a});
+
+-- | An ID assigned to the @BatchPrediction@ at creation. This value should
+-- be identical to the value of the @BatchPredictionID@ in the request.
+gbprBatchPredictionId :: Lens' GetBatchPredictionResponse (Maybe Text)
+gbprBatchPredictionId = lens _gbprBatchPredictionId (\ s a -> s{_gbprBatchPredictionId = a});
+
 -- | A user-supplied name or description of the @BatchPrediction@.
 gbprName :: Lens' GetBatchPredictionResponse (Maybe Text)
 gbprName = lens _gbprName (\ s a -> s{_gbprName = a});
@@ -194,18 +209,3 @@ gbprMessage = lens _gbprMessage (\ s a -> s{_gbprMessage = a});
 -- operation results.
 gbprOutputURI :: Lens' GetBatchPredictionResponse (Maybe Text)
 gbprOutputURI = lens _gbprOutputURI (\ s a -> s{_gbprOutputURI = a});
-
--- | The ID of the @MLModel@ that generated predictions for the
--- @BatchPrediction@ request.
-gbprMLModelId :: Lens' GetBatchPredictionResponse Text
-gbprMLModelId = lens _gbprMLModelId (\ s a -> s{_gbprMLModelId = a});
-
--- | The ID of the @DataSource@ that was used to create the
--- @BatchPrediction@.
-gbprBatchPredictionDataSourceId :: Lens' GetBatchPredictionResponse Text
-gbprBatchPredictionDataSourceId = lens _gbprBatchPredictionDataSourceId (\ s a -> s{_gbprBatchPredictionDataSourceId = a});
-
--- | An ID assigned to the @BatchPrediction@ at creation. This value should
--- be identical to the value of the @BatchPredictionID@ in the request.
-gbprBatchPredictionId :: Lens' GetBatchPredictionResponse Text
-gbprBatchPredictionId = lens _gbprBatchPredictionId (\ s a -> s{_gbprBatchPredictionId = a});

@@ -327,14 +327,14 @@ instance FromJSON Cluster where
 -- * 'conName'
 --
 -- * 'conExitCode'
-data Container = Container'{_conNetworkBindings :: [NetworkBinding], _conContainerARN :: Maybe Text, _conTaskARN :: Maybe Text, _conLastStatus :: Maybe Text, _conReason :: Maybe Text, _conName :: Maybe Text, _conExitCode :: Maybe Int} deriving (Eq, Read, Show)
+data Container = Container'{_conNetworkBindings :: Maybe [NetworkBinding], _conContainerARN :: Maybe Text, _conTaskARN :: Maybe Text, _conLastStatus :: Maybe Text, _conReason :: Maybe Text, _conName :: Maybe Text, _conExitCode :: Maybe Int} deriving (Eq, Read, Show)
 
 -- | 'Container' smart constructor.
 container :: Container
-container = Container'{_conNetworkBindings = mempty, _conContainerARN = Nothing, _conTaskARN = Nothing, _conLastStatus = Nothing, _conReason = Nothing, _conName = Nothing, _conExitCode = Nothing};
+container = Container'{_conNetworkBindings = Nothing, _conContainerARN = Nothing, _conTaskARN = Nothing, _conLastStatus = Nothing, _conReason = Nothing, _conName = Nothing, _conExitCode = Nothing};
 
 -- | FIXME: Undocumented member.
-conNetworkBindings :: Lens' Container [NetworkBinding]
+conNetworkBindings :: Lens' Container (Maybe [NetworkBinding])
 conNetworkBindings = lens _conNetworkBindings (\ s a -> s{_conNetworkBindings = a});
 
 -- | The Amazon Resource Name (ARN) of the container.
@@ -402,11 +402,11 @@ instance FromJSON Container where
 -- * 'cdEssential'
 --
 -- * 'cdCpu'
-data ContainerDefinition = ContainerDefinition'{_cdImage :: Maybe Text, _cdCommand :: [Text], _cdVolumesFrom :: [VolumeFrom], _cdEnvironment :: [KeyValuePair], _cdEntryPoint :: [Text], _cdPortMappings :: [PortMapping], _cdMemory :: Maybe Int, _cdName :: Maybe Text, _cdMountPoints :: [MountPoint], _cdLinks :: [Text], _cdEssential :: Maybe Bool, _cdCpu :: Maybe Int} deriving (Eq, Read, Show)
+data ContainerDefinition = ContainerDefinition'{_cdImage :: Maybe Text, _cdCommand :: Maybe [Text], _cdVolumesFrom :: Maybe [VolumeFrom], _cdEnvironment :: Maybe [KeyValuePair], _cdEntryPoint :: Maybe [Text], _cdPortMappings :: Maybe [PortMapping], _cdMemory :: Maybe Int, _cdName :: Maybe Text, _cdMountPoints :: Maybe [MountPoint], _cdLinks :: Maybe [Text], _cdEssential :: Maybe Bool, _cdCpu :: Maybe Int} deriving (Eq, Read, Show)
 
 -- | 'ContainerDefinition' smart constructor.
 containerDefinition :: ContainerDefinition
-containerDefinition = ContainerDefinition'{_cdImage = Nothing, _cdCommand = mempty, _cdVolumesFrom = mempty, _cdEnvironment = mempty, _cdEntryPoint = mempty, _cdPortMappings = mempty, _cdMemory = Nothing, _cdName = Nothing, _cdMountPoints = mempty, _cdLinks = mempty, _cdEssential = Nothing, _cdCpu = Nothing};
+containerDefinition = ContainerDefinition'{_cdImage = Nothing, _cdCommand = Nothing, _cdVolumesFrom = Nothing, _cdEnvironment = Nothing, _cdEntryPoint = Nothing, _cdPortMappings = Nothing, _cdMemory = Nothing, _cdName = Nothing, _cdMountPoints = Nothing, _cdLinks = Nothing, _cdEssential = Nothing, _cdCpu = Nothing};
 
 -- | The image used to start a container. This string is passed directly to
 -- the Docker daemon. Images in the Docker Hub registry are available by
@@ -418,15 +418,15 @@ cdImage = lens _cdImage (\ s a -> s{_cdImage = a});
 -- | The @CMD@ that is passed to the container. For more information on the
 -- Docker @CMD@ parameter, see
 -- <https://docs.docker.com/reference/builder/#cmd>.
-cdCommand :: Lens' ContainerDefinition [Text]
+cdCommand :: Lens' ContainerDefinition (Maybe [Text])
 cdCommand = lens _cdCommand (\ s a -> s{_cdCommand = a});
 
 -- | Data volumes to mount from another container.
-cdVolumesFrom :: Lens' ContainerDefinition [VolumeFrom]
+cdVolumesFrom :: Lens' ContainerDefinition (Maybe [VolumeFrom])
 cdVolumesFrom = lens _cdVolumesFrom (\ s a -> s{_cdVolumesFrom = a});
 
 -- | The environment variables to pass to a container.
-cdEnvironment :: Lens' ContainerDefinition [KeyValuePair]
+cdEnvironment :: Lens' ContainerDefinition (Maybe [KeyValuePair])
 cdEnvironment = lens _cdEnvironment (\ s a -> s{_cdEnvironment = a});
 
 -- | Early versions of the Amazon ECS container agent do not properly handle
@@ -437,11 +437,11 @@ cdEnvironment = lens _cdEnvironment (\ s a -> s{_cdEnvironment = a});
 -- The @ENTRYPOINT@ that is passed to the container. For more information
 -- on the Docker @ENTRYPOINT@ parameter, see
 -- <https://docs.docker.com/reference/builder/#entrypoint>.
-cdEntryPoint :: Lens' ContainerDefinition [Text]
+cdEntryPoint :: Lens' ContainerDefinition (Maybe [Text])
 cdEntryPoint = lens _cdEntryPoint (\ s a -> s{_cdEntryPoint = a});
 
 -- | The list of port mappings for the container.
-cdPortMappings :: Lens' ContainerDefinition [PortMapping]
+cdPortMappings :: Lens' ContainerDefinition (Maybe [PortMapping])
 cdPortMappings = lens _cdPortMappings (\ s a -> s{_cdPortMappings = a});
 
 -- | The number of MiB of memory reserved for the container. Docker will
@@ -456,14 +456,14 @@ cdName :: Lens' ContainerDefinition (Maybe Text)
 cdName = lens _cdName (\ s a -> s{_cdName = a});
 
 -- | The mount points for data volumes in your container.
-cdMountPoints :: Lens' ContainerDefinition [MountPoint]
+cdMountPoints :: Lens' ContainerDefinition (Maybe [MountPoint])
 cdMountPoints = lens _cdMountPoints (\ s a -> s{_cdMountPoints = a});
 
 -- | The @link@ parameter allows containers to communicate with each other
 -- without the need for port mappings, using the @name@ parameter. For more
 -- information on linking Docker containers, see
 -- <https://docs.docker.com/userguide/dockerlinks/>.
-cdLinks :: Lens' ContainerDefinition [Text]
+cdLinks :: Lens' ContainerDefinition (Maybe [Text])
 cdLinks = lens _cdLinks (\ s a -> s{_cdLinks = a});
 
 -- | If the @essential@ parameter of a container is marked as @true@, the
@@ -526,11 +526,11 @@ instance ToJSON ContainerDefinition where
 -- * 'ciPendingTasksCount'
 --
 -- * 'ciRegisteredResources'
-data ContainerInstance = ContainerInstance'{_ciStatus :: Maybe Text, _ciRunningTasksCount :: Maybe Int, _ciRemainingResources :: [Resource], _ciEc2InstanceId :: Maybe Text, _ciContainerInstanceARN :: Maybe Text, _ciAgentConnected :: Maybe Bool, _ciPendingTasksCount :: Maybe Int, _ciRegisteredResources :: [Resource]} deriving (Eq, Read, Show)
+data ContainerInstance = ContainerInstance'{_ciStatus :: Maybe Text, _ciRunningTasksCount :: Maybe Int, _ciRemainingResources :: Maybe [Resource], _ciEc2InstanceId :: Maybe Text, _ciContainerInstanceARN :: Maybe Text, _ciAgentConnected :: Maybe Bool, _ciPendingTasksCount :: Maybe Int, _ciRegisteredResources :: Maybe [Resource]} deriving (Eq, Read, Show)
 
 -- | 'ContainerInstance' smart constructor.
 containerInstance :: ContainerInstance
-containerInstance = ContainerInstance'{_ciStatus = Nothing, _ciRunningTasksCount = Nothing, _ciRemainingResources = mempty, _ciEc2InstanceId = Nothing, _ciContainerInstanceARN = Nothing, _ciAgentConnected = Nothing, _ciPendingTasksCount = Nothing, _ciRegisteredResources = mempty};
+containerInstance = ContainerInstance'{_ciStatus = Nothing, _ciRunningTasksCount = Nothing, _ciRemainingResources = Nothing, _ciEc2InstanceId = Nothing, _ciContainerInstanceARN = Nothing, _ciAgentConnected = Nothing, _ciPendingTasksCount = Nothing, _ciRegisteredResources = Nothing};
 
 -- | The status of the container instance. The valid values are @ACTIVE@ or
 -- @INACTIVE@. @ACTIVE@ indicates that the container instance can accept
@@ -545,7 +545,7 @@ ciRunningTasksCount = lens _ciRunningTasksCount (\ s a -> s{_ciRunningTasksCount
 
 -- | The remaining resources of the container instance that are available for
 -- new tasks.
-ciRemainingResources :: Lens' ContainerInstance [Resource]
+ciRemainingResources :: Lens' ContainerInstance (Maybe [Resource])
 ciRemainingResources = lens _ciRemainingResources (\ s a -> s{_ciRemainingResources = a});
 
 -- | The Amazon EC2 instance ID of the container instance.
@@ -575,7 +575,7 @@ ciPendingTasksCount = lens _ciPendingTasksCount (\ s a -> s{_ciPendingTasksCount
 
 -- | The registered resources on the container instance that are in use by
 -- current tasks.
-ciRegisteredResources :: Lens' ContainerInstance [Resource]
+ciRegisteredResources :: Lens' ContainerInstance (Maybe [Resource])
 ciRegisteredResources = lens _ciRegisteredResources (\ s a -> s{_ciRegisteredResources = a});
 
 instance FromJSON ContainerInstance where
@@ -598,15 +598,15 @@ instance FromJSON ContainerInstance where
 -- * 'coCommand'
 --
 -- * 'coName'
-data ContainerOverride = ContainerOverride'{_coCommand :: [Text], _coName :: Maybe Text} deriving (Eq, Read, Show)
+data ContainerOverride = ContainerOverride'{_coCommand :: Maybe [Text], _coName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ContainerOverride' smart constructor.
 containerOverride :: ContainerOverride
-containerOverride = ContainerOverride'{_coCommand = mempty, _coName = Nothing};
+containerOverride = ContainerOverride'{_coCommand = Nothing, _coName = Nothing};
 
 -- | The command to send to the container that overrides the default command
 -- from the Docker image or the task definition.
-coCommand :: Lens' ContainerOverride [Text]
+coCommand :: Lens' ContainerOverride (Maybe [Text])
 coCommand = lens _coCommand (\ s a -> s{_coCommand = a});
 
 -- | The name of the container that receives the override.
@@ -651,11 +651,11 @@ instance ToJSON ContainerOverride where
 -- * 'csServiceARN'
 --
 -- * 'csRoleARN'
-data ContainerService = ContainerService'{_csStatus :: Maybe Text, _csRunningCount :: Maybe Int, _csClusterARN :: Maybe Text, _csDesiredCount :: Maybe Int, _csLoadBalancers :: [LoadBalancer], _csPendingCount :: Maybe Int, _csEvents :: [ServiceEvent], _csServiceName :: Maybe Text, _csDeployments :: [Deployment], _csTaskDefinition :: Maybe Text, _csServiceARN :: Maybe Text, _csRoleARN :: Maybe Text} deriving (Eq, Read, Show)
+data ContainerService = ContainerService'{_csStatus :: Maybe Text, _csRunningCount :: Maybe Int, _csClusterARN :: Maybe Text, _csDesiredCount :: Maybe Int, _csLoadBalancers :: Maybe [LoadBalancer], _csPendingCount :: Maybe Int, _csEvents :: Maybe [ServiceEvent], _csServiceName :: Maybe Text, _csDeployments :: Maybe [Deployment], _csTaskDefinition :: Maybe Text, _csServiceARN :: Maybe Text, _csRoleARN :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ContainerService' smart constructor.
 containerService :: ContainerService
-containerService = ContainerService'{_csStatus = Nothing, _csRunningCount = Nothing, _csClusterARN = Nothing, _csDesiredCount = Nothing, _csLoadBalancers = mempty, _csPendingCount = Nothing, _csEvents = mempty, _csServiceName = Nothing, _csDeployments = mempty, _csTaskDefinition = Nothing, _csServiceARN = Nothing, _csRoleARN = Nothing};
+containerService = ContainerService'{_csStatus = Nothing, _csRunningCount = Nothing, _csClusterARN = Nothing, _csDesiredCount = Nothing, _csLoadBalancers = Nothing, _csPendingCount = Nothing, _csEvents = Nothing, _csServiceName = Nothing, _csDeployments = Nothing, _csTaskDefinition = Nothing, _csServiceARN = Nothing, _csRoleARN = Nothing};
 
 -- | The status of the service. The valid values are @ACTIVE@, @DRAINING@, or
 -- @INACTIVE@.
@@ -680,7 +680,7 @@ csDesiredCount = lens _csDesiredCount (\ s a -> s{_csDesiredCount = a});
 -- | A list of load balancer objects, containing the load balancer name, the
 -- container name (as it appears in a container definition), and the
 -- container port to access from the load balancer.
-csLoadBalancers :: Lens' ContainerService [LoadBalancer]
+csLoadBalancers :: Lens' ContainerService (Maybe [LoadBalancer])
 csLoadBalancers = lens _csLoadBalancers (\ s a -> s{_csLoadBalancers = a});
 
 -- | The number of tasks in the cluster that are in the @PENDING@ state.
@@ -689,7 +689,7 @@ csPendingCount = lens _csPendingCount (\ s a -> s{_csPendingCount = a});
 
 -- | The event stream for your service. A maximum of 100 of the latest events
 -- are displayed.
-csEvents :: Lens' ContainerService [ServiceEvent]
+csEvents :: Lens' ContainerService (Maybe [ServiceEvent])
 csEvents = lens _csEvents (\ s a -> s{_csEvents = a});
 
 -- | A user-generated string that you can use to identify your service.
@@ -697,7 +697,7 @@ csServiceName :: Lens' ContainerService (Maybe Text)
 csServiceName = lens _csServiceName (\ s a -> s{_csServiceName = a});
 
 -- | The current state of deployments for the service.
-csDeployments :: Lens' ContainerService [Deployment]
+csDeployments :: Lens' ContainerService (Maybe [Deployment])
 csDeployments = lens _csDeployments (\ s a -> s{_csDeployments = a});
 
 -- | The task definition to use for tasks in the service. This value is
@@ -1091,15 +1091,15 @@ instance ToJSON PortMapping where
 -- * 'resName'
 --
 -- * 'resType'
-data Resource = Resource'{_resStringSetValue :: [Text], _resIntegerValue :: Maybe Int, _resDoubleValue :: Maybe Double, _resLongValue :: Maybe Integer, _resName :: Maybe Text, _resType :: Maybe Text} deriving (Eq, Read, Show)
+data Resource = Resource'{_resStringSetValue :: Maybe [Text], _resIntegerValue :: Maybe Int, _resDoubleValue :: Maybe Double, _resLongValue :: Maybe Integer, _resName :: Maybe Text, _resType :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'Resource' smart constructor.
 resource :: Resource
-resource = Resource'{_resStringSetValue = mempty, _resIntegerValue = Nothing, _resDoubleValue = Nothing, _resLongValue = Nothing, _resName = Nothing, _resType = Nothing};
+resource = Resource'{_resStringSetValue = Nothing, _resIntegerValue = Nothing, _resDoubleValue = Nothing, _resLongValue = Nothing, _resName = Nothing, _resType = Nothing};
 
 -- | When the @stringSetValue@ type is set, the value of the resource must be
 -- a string type.
-resStringSetValue :: Lens' Resource [Text]
+resStringSetValue :: Lens' Resource (Maybe [Text])
 resStringSetValue = lens _resStringSetValue (\ s a -> s{_resStringSetValue = a});
 
 -- | When the @integerValue@ type is set, the value of the resource must be
@@ -1203,11 +1203,11 @@ instance FromJSON ServiceEvent where
 -- * 'tasStartedBy'
 --
 -- * 'tasTaskDefinitionARN'
-data Task = Task'{_tasDesiredStatus :: Maybe Text, _tasClusterARN :: Maybe Text, _tasOverrides :: Maybe TaskOverride, _tasTaskARN :: Maybe Text, _tasContainerInstanceARN :: Maybe Text, _tasLastStatus :: Maybe Text, _tasContainers :: [Container], _tasStartedBy :: Maybe Text, _tasTaskDefinitionARN :: Maybe Text} deriving (Eq, Read, Show)
+data Task = Task'{_tasDesiredStatus :: Maybe Text, _tasClusterARN :: Maybe Text, _tasOverrides :: Maybe TaskOverride, _tasTaskARN :: Maybe Text, _tasContainerInstanceARN :: Maybe Text, _tasLastStatus :: Maybe Text, _tasContainers :: Maybe [Container], _tasStartedBy :: Maybe Text, _tasTaskDefinitionARN :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'Task' smart constructor.
 task :: Task
-task = Task'{_tasDesiredStatus = Nothing, _tasClusterARN = Nothing, _tasOverrides = Nothing, _tasTaskARN = Nothing, _tasContainerInstanceARN = Nothing, _tasLastStatus = Nothing, _tasContainers = mempty, _tasStartedBy = Nothing, _tasTaskDefinitionARN = Nothing};
+task = Task'{_tasDesiredStatus = Nothing, _tasClusterARN = Nothing, _tasOverrides = Nothing, _tasTaskARN = Nothing, _tasContainerInstanceARN = Nothing, _tasLastStatus = Nothing, _tasContainers = Nothing, _tasStartedBy = Nothing, _tasTaskDefinitionARN = Nothing};
 
 -- | The desired status of the task.
 tasDesiredStatus :: Lens' Task (Maybe Text)
@@ -1236,7 +1236,7 @@ tasLastStatus :: Lens' Task (Maybe Text)
 tasLastStatus = lens _tasLastStatus (\ s a -> s{_tasLastStatus = a});
 
 -- | The containers associated with the task.
-tasContainers :: Lens' Task [Container]
+tasContainers :: Lens' Task (Maybe [Container])
 tasContainers = lens _tasContainers (\ s a -> s{_tasContainers = a});
 
 -- | The tag specified when a task is started. If the task is started by an
@@ -1277,11 +1277,11 @@ instance FromJSON Task where
 -- * 'tdRevision'
 --
 -- * 'tdVolumes'
-data TaskDefinition = TaskDefinition'{_tdFamily :: Maybe Text, _tdContainerDefinitions :: [ContainerDefinition], _tdTaskDefinitionARN :: Maybe Text, _tdRevision :: Maybe Int, _tdVolumes :: [Volume]} deriving (Eq, Read, Show)
+data TaskDefinition = TaskDefinition'{_tdFamily :: Maybe Text, _tdContainerDefinitions :: Maybe [ContainerDefinition], _tdTaskDefinitionARN :: Maybe Text, _tdRevision :: Maybe Int, _tdVolumes :: Maybe [Volume]} deriving (Eq, Read, Show)
 
 -- | 'TaskDefinition' smart constructor.
 taskDefinition :: TaskDefinition
-taskDefinition = TaskDefinition'{_tdFamily = Nothing, _tdContainerDefinitions = mempty, _tdTaskDefinitionARN = Nothing, _tdRevision = Nothing, _tdVolumes = mempty};
+taskDefinition = TaskDefinition'{_tdFamily = Nothing, _tdContainerDefinitions = Nothing, _tdTaskDefinitionARN = Nothing, _tdRevision = Nothing, _tdVolumes = Nothing};
 
 -- | The family of your task definition. You can think of the @family@ as the
 -- name of your task definition.
@@ -1293,7 +1293,7 @@ tdFamily = lens _tdFamily (\ s a -> s{_tdFamily = a});
 -- container definition parameters and defaults, see
 -- <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Amazon ECS Task Definitions>
 -- in the /Amazon EC2 Container Service Developer Guide/.
-tdContainerDefinitions :: Lens' TaskDefinition [ContainerDefinition]
+tdContainerDefinitions :: Lens' TaskDefinition (Maybe [ContainerDefinition])
 tdContainerDefinitions = lens _tdContainerDefinitions (\ s a -> s{_tdContainerDefinitions = a});
 
 -- | The full Amazon Resource Name (ARN) of the of the task definition.
@@ -1312,7 +1312,7 @@ tdRevision = lens _tdRevision (\ s a -> s{_tdRevision = a});
 -- parameters and defaults, see
 -- <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Amazon ECS Task Definitions>
 -- in the /Amazon EC2 Container Service Developer Guide/.
-tdVolumes :: Lens' TaskDefinition [Volume]
+tdVolumes :: Lens' TaskDefinition (Maybe [Volume])
 tdVolumes = lens _tdVolumes (\ s a -> s{_tdVolumes = a});
 
 instance FromJSON TaskDefinition where
@@ -1331,14 +1331,14 @@ instance FromJSON TaskDefinition where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'toContainerOverrides'
-newtype TaskOverride = TaskOverride'{_toContainerOverrides :: [ContainerOverride]} deriving (Eq, Read, Show)
+newtype TaskOverride = TaskOverride'{_toContainerOverrides :: Maybe [ContainerOverride]} deriving (Eq, Read, Show)
 
 -- | 'TaskOverride' smart constructor.
 taskOverride :: TaskOverride
-taskOverride = TaskOverride'{_toContainerOverrides = mempty};
+taskOverride = TaskOverride'{_toContainerOverrides = Nothing};
 
 -- | One or more container overrides sent to a task.
-toContainerOverrides :: Lens' TaskOverride [ContainerOverride]
+toContainerOverrides :: Lens' TaskOverride (Maybe [ContainerOverride])
 toContainerOverrides = lens _toContainerOverrides (\ s a -> s{_toContainerOverrides = a});
 
 instance FromJSON TaskOverride where

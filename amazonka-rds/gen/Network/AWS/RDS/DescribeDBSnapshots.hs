@@ -60,14 +60,14 @@ import Network.AWS.RDS.Types
 -- * 'ddsMaxRecords'
 --
 -- * 'ddsMarker'
-data DescribeDBSnapshots = DescribeDBSnapshots'{_ddsFilters :: [Filter], _ddsDBSnapshotIdentifier :: Maybe Text, _ddsSnapshotType :: Maybe Text, _ddsDBInstanceIdentifier :: Maybe Text, _ddsMaxRecords :: Maybe Int, _ddsMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeDBSnapshots = DescribeDBSnapshots'{_ddsFilters :: Maybe [Filter], _ddsDBSnapshotIdentifier :: Maybe Text, _ddsSnapshotType :: Maybe Text, _ddsDBInstanceIdentifier :: Maybe Text, _ddsMaxRecords :: Maybe Int, _ddsMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeDBSnapshots' smart constructor.
 describeDBSnapshots :: DescribeDBSnapshots
-describeDBSnapshots = DescribeDBSnapshots'{_ddsFilters = mempty, _ddsDBSnapshotIdentifier = Nothing, _ddsSnapshotType = Nothing, _ddsDBInstanceIdentifier = Nothing, _ddsMaxRecords = Nothing, _ddsMarker = Nothing};
+describeDBSnapshots = DescribeDBSnapshots'{_ddsFilters = Nothing, _ddsDBSnapshotIdentifier = Nothing, _ddsSnapshotType = Nothing, _ddsDBInstanceIdentifier = Nothing, _ddsMaxRecords = Nothing, _ddsMarker = Nothing};
 
 -- | This parameter is not currently supported.
-ddsFilters :: Lens' DescribeDBSnapshots [Filter]
+ddsFilters :: Lens' DescribeDBSnapshots (Maybe [Filter])
 ddsFilters = lens _ddsFilters (\ s a -> s{_ddsFilters = a});
 
 -- | A specific DB snapshot identifier to describe. Cannot be used in
@@ -158,11 +158,11 @@ instance ToQuery DescribeDBSnapshots where
 -- * 'ddsrMarker'
 --
 -- * 'ddsrDBSnapshots'
-data DescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse'{_ddsrMarker :: Maybe Text, _ddsrDBSnapshots :: [DBSnapshot]} deriving (Eq, Read, Show)
+data DescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse'{_ddsrMarker :: Maybe Text, _ddsrDBSnapshots :: Maybe [DBSnapshot]} deriving (Eq, Read, Show)
 
 -- | 'DescribeDBSnapshotsResponse' smart constructor.
 describeDBSnapshotsResponse :: DescribeDBSnapshotsResponse
-describeDBSnapshotsResponse = DescribeDBSnapshotsResponse'{_ddsrMarker = Nothing, _ddsrDBSnapshots = mempty};
+describeDBSnapshotsResponse = DescribeDBSnapshotsResponse'{_ddsrMarker = Nothing, _ddsrDBSnapshots = Nothing};
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
@@ -171,5 +171,5 @@ ddsrMarker :: Lens' DescribeDBSnapshotsResponse (Maybe Text)
 ddsrMarker = lens _ddsrMarker (\ s a -> s{_ddsrMarker = a});
 
 -- | A list of DBSnapshot instances.
-ddsrDBSnapshots :: Lens' DescribeDBSnapshotsResponse [DBSnapshot]
+ddsrDBSnapshots :: Lens' DescribeDBSnapshotsResponse (Maybe [DBSnapshot])
 ddsrDBSnapshots = lens _ddsrDBSnapshots (\ s a -> s{_ddsrDBSnapshots = a});

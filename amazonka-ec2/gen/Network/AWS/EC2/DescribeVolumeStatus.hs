@@ -95,11 +95,11 @@ import Network.AWS.EC2.Types
 -- * 'dvsDryRun'
 --
 -- * 'dvsMaxResults'
-data DescribeVolumeStatus = DescribeVolumeStatus'{_dvsFilters :: [Filter], _dvsVolumeIds :: [Text], _dvsNextToken :: Maybe Text, _dvsDryRun :: Maybe Bool, _dvsMaxResults :: Maybe Int} deriving (Eq, Read, Show)
+data DescribeVolumeStatus = DescribeVolumeStatus'{_dvsFilters :: Maybe [Filter], _dvsVolumeIds :: Maybe [Text], _dvsNextToken :: Maybe Text, _dvsDryRun :: Maybe Bool, _dvsMaxResults :: Maybe Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeVolumeStatus' smart constructor.
 describeVolumeStatus :: DescribeVolumeStatus
-describeVolumeStatus = DescribeVolumeStatus'{_dvsFilters = mempty, _dvsVolumeIds = mempty, _dvsNextToken = Nothing, _dvsDryRun = Nothing, _dvsMaxResults = Nothing};
+describeVolumeStatus = DescribeVolumeStatus'{_dvsFilters = Nothing, _dvsVolumeIds = Nothing, _dvsNextToken = Nothing, _dvsDryRun = Nothing, _dvsMaxResults = Nothing};
 
 -- | One or more filters.
 --
@@ -135,13 +135,13 @@ describeVolumeStatus = DescribeVolumeStatus'{_dvsFilters = mempty, _dvsVolumeIds
 -- -   @volume-status.status@ - The status of the volume (@ok@ | @impaired@
 --     | @warning@ | @insufficient-data@).
 --
-dvsFilters :: Lens' DescribeVolumeStatus [Filter]
+dvsFilters :: Lens' DescribeVolumeStatus (Maybe [Filter])
 dvsFilters = lens _dvsFilters (\ s a -> s{_dvsFilters = a});
 
 -- | One or more volume IDs.
 --
 -- Default: Describes all your volumes.
-dvsVolumeIds :: Lens' DescribeVolumeStatus [Text]
+dvsVolumeIds :: Lens' DescribeVolumeStatus (Maybe [Text])
 dvsVolumeIds = lens _dvsVolumeIds (\ s a -> s{_dvsVolumeIds = a});
 
 -- | The @NextToken@ value to include in a future @DescribeVolumeStatus@
@@ -203,11 +203,11 @@ instance ToQuery DescribeVolumeStatus where
 -- * 'dvsrNextToken'
 --
 -- * 'dvsrVolumeStatuses'
-data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse'{_dvsrNextToken :: Maybe Text, _dvsrVolumeStatuses :: [VolumeStatusItem]} deriving (Eq, Read, Show)
+data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse'{_dvsrNextToken :: Maybe Text, _dvsrVolumeStatuses :: Maybe [VolumeStatusItem]} deriving (Eq, Read, Show)
 
 -- | 'DescribeVolumeStatusResponse' smart constructor.
 describeVolumeStatusResponse :: DescribeVolumeStatusResponse
-describeVolumeStatusResponse = DescribeVolumeStatusResponse'{_dvsrNextToken = Nothing, _dvsrVolumeStatuses = mempty};
+describeVolumeStatusResponse = DescribeVolumeStatusResponse'{_dvsrNextToken = Nothing, _dvsrVolumeStatuses = Nothing};
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
@@ -215,5 +215,5 @@ dvsrNextToken :: Lens' DescribeVolumeStatusResponse (Maybe Text)
 dvsrNextToken = lens _dvsrNextToken (\ s a -> s{_dvsrNextToken = a});
 
 -- | A list of volumes.
-dvsrVolumeStatuses :: Lens' DescribeVolumeStatusResponse [VolumeStatusItem]
+dvsrVolumeStatuses :: Lens' DescribeVolumeStatusResponse (Maybe [VolumeStatusItem])
 dvsrVolumeStatuses = lens _dvsrVolumeStatuses (\ s a -> s{_dvsrVolumeStatuses = a});

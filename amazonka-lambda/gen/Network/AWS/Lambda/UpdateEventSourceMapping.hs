@@ -32,9 +32,9 @@ module Network.AWS.Lambda.UpdateEventSourceMapping
     , updateEventSourceMapping
     -- ** Request lenses
     , uesmEnabled
-    , uesmUUID
     , uesmBatchSize
     , uesmFunctionName
+    , uesmUUID
 
     -- * Response
     , EventSourceMappingConfiguration
@@ -46,9 +46,9 @@ module Network.AWS.Lambda.UpdateEventSourceMapping
     , esmcState
     , esmcUUID
     , esmcLastProcessingResult
+    , esmcBatchSize
     , esmcStateTransitionReason
     , esmcLastModified
-    , esmcBatchSize
     ) where
 
 import Network.AWS.Request
@@ -62,30 +62,26 @@ import Network.AWS.Lambda.Types
 --
 -- * 'uesmEnabled'
 --
--- * 'uesmUUID'
---
 -- * 'uesmBatchSize'
 --
 -- * 'uesmFunctionName'
-data UpdateEventSourceMapping = UpdateEventSourceMapping'{_uesmEnabled :: Maybe Bool, _uesmUUID :: Text, _uesmBatchSize :: Nat, _uesmFunctionName :: Text} deriving (Eq, Read, Show)
+--
+-- * 'uesmUUID'
+data UpdateEventSourceMapping = UpdateEventSourceMapping'{_uesmEnabled :: Maybe Bool, _uesmBatchSize :: Maybe Nat, _uesmFunctionName :: Maybe Text, _uesmUUID :: Text} deriving (Eq, Read, Show)
 
 -- | 'UpdateEventSourceMapping' smart constructor.
-updateEventSourceMapping :: Text -> Natural -> Text -> UpdateEventSourceMapping
-updateEventSourceMapping pUUID pBatchSize pFunctionName = UpdateEventSourceMapping'{_uesmEnabled = Nothing, _uesmUUID = pUUID, _uesmBatchSize = _Nat # pBatchSize, _uesmFunctionName = pFunctionName};
+updateEventSourceMapping :: Text -> UpdateEventSourceMapping
+updateEventSourceMapping pUUID = UpdateEventSourceMapping'{_uesmEnabled = Nothing, _uesmBatchSize = Nothing, _uesmFunctionName = Nothing, _uesmUUID = pUUID};
 
 -- | Specifies whether AWS Lambda should actively poll the stream or not. If
 -- disabled, AWS Lambda will not poll the stream.
 uesmEnabled :: Lens' UpdateEventSourceMapping (Maybe Bool)
 uesmEnabled = lens _uesmEnabled (\ s a -> s{_uesmEnabled = a});
 
--- | The event source mapping identifier.
-uesmUUID :: Lens' UpdateEventSourceMapping Text
-uesmUUID = lens _uesmUUID (\ s a -> s{_uesmUUID = a});
-
 -- | The maximum number of stream records that can be sent to your Lambda
 -- function for a single invocation.
-uesmBatchSize :: Lens' UpdateEventSourceMapping Natural
-uesmBatchSize = lens _uesmBatchSize (\ s a -> s{_uesmBatchSize = a}) . _Nat;
+uesmBatchSize :: Lens' UpdateEventSourceMapping (Maybe Natural)
+uesmBatchSize = lens _uesmBatchSize (\ s a -> s{_uesmBatchSize = a}) . mapping _Nat;
 
 -- | The Lambda function to which you want the stream records sent.
 --
@@ -97,8 +93,12 @@ uesmBatchSize = lens _uesmBatchSize (\ s a -> s{_uesmBatchSize = a}) . _Nat;
 -- \"account-id:Thumbnail\"). Note that the length constraint applies only
 -- to the ARN. If you specify only the function name, it is limited to 64
 -- character in length.
-uesmFunctionName :: Lens' UpdateEventSourceMapping Text
+uesmFunctionName :: Lens' UpdateEventSourceMapping (Maybe Text)
 uesmFunctionName = lens _uesmFunctionName (\ s a -> s{_uesmFunctionName = a});
+
+-- | The event source mapping identifier.
+uesmUUID :: Lens' UpdateEventSourceMapping Text
+uesmUUID = lens _uesmUUID (\ s a -> s{_uesmUUID = a});
 
 instance AWSRequest UpdateEventSourceMapping where
         type Sv UpdateEventSourceMapping = Lambda

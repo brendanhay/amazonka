@@ -111,13 +111,13 @@ instance ToQuery RebuildWorkspaces where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rwrFailedRequests'
-newtype RebuildWorkspacesResponse = RebuildWorkspacesResponse'{_rwrFailedRequests :: [FailedWorkspaceChangeRequest]} deriving (Eq, Read, Show)
+newtype RebuildWorkspacesResponse = RebuildWorkspacesResponse'{_rwrFailedRequests :: Maybe [FailedWorkspaceChangeRequest]} deriving (Eq, Read, Show)
 
 -- | 'RebuildWorkspacesResponse' smart constructor.
 rebuildWorkspacesResponse :: RebuildWorkspacesResponse
-rebuildWorkspacesResponse = RebuildWorkspacesResponse'{_rwrFailedRequests = mempty};
+rebuildWorkspacesResponse = RebuildWorkspacesResponse'{_rwrFailedRequests = Nothing};
 
 -- | An array of structures that represent any WorkSpaces that could not be
 -- rebuilt.
-rwrFailedRequests :: Lens' RebuildWorkspacesResponse [FailedWorkspaceChangeRequest]
+rwrFailedRequests :: Lens' RebuildWorkspacesResponse (Maybe [FailedWorkspaceChangeRequest])
 rwrFailedRequests = lens _rwrFailedRequests (\ s a -> s{_rwrFailedRequests = a});

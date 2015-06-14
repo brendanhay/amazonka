@@ -157,16 +157,16 @@ instance ToQuery GetResourceConfigHistory where
 -- * 'grchrNextToken'
 --
 -- * 'grchrConfigurationItems'
-data GetResourceConfigHistoryResponse = GetResourceConfigHistoryResponse'{_grchrNextToken :: Maybe Text, _grchrConfigurationItems :: [ConfigurationItem]} deriving (Eq, Read, Show)
+data GetResourceConfigHistoryResponse = GetResourceConfigHistoryResponse'{_grchrNextToken :: Maybe Text, _grchrConfigurationItems :: Maybe [ConfigurationItem]} deriving (Eq, Read, Show)
 
 -- | 'GetResourceConfigHistoryResponse' smart constructor.
 getResourceConfigHistoryResponse :: GetResourceConfigHistoryResponse
-getResourceConfigHistoryResponse = GetResourceConfigHistoryResponse'{_grchrNextToken = Nothing, _grchrConfigurationItems = mempty};
+getResourceConfigHistoryResponse = GetResourceConfigHistoryResponse'{_grchrNextToken = Nothing, _grchrConfigurationItems = Nothing};
 
 -- | A token used for pagination of results.
 grchrNextToken :: Lens' GetResourceConfigHistoryResponse (Maybe Text)
 grchrNextToken = lens _grchrNextToken (\ s a -> s{_grchrNextToken = a});
 
 -- | A list that contains the configuration history of one or more resources.
-grchrConfigurationItems :: Lens' GetResourceConfigHistoryResponse [ConfigurationItem]
+grchrConfigurationItems :: Lens' GetResourceConfigHistoryResponse (Maybe [ConfigurationItem])
 grchrConfigurationItems = lens _grchrConfigurationItems (\ s a -> s{_grchrConfigurationItems = a});

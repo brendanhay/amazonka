@@ -52,11 +52,11 @@ import Network.AWS.AutoScaling.Types
 -- * 'emcAutoScalingGroupName'
 --
 -- * 'emcGranularity'
-data EnableMetricsCollection = EnableMetricsCollection'{_emcMetrics :: [Text], _emcAutoScalingGroupName :: Text, _emcGranularity :: Text} deriving (Eq, Read, Show)
+data EnableMetricsCollection = EnableMetricsCollection'{_emcMetrics :: Maybe [Text], _emcAutoScalingGroupName :: Text, _emcGranularity :: Text} deriving (Eq, Read, Show)
 
 -- | 'EnableMetricsCollection' smart constructor.
 enableMetricsCollection :: Text -> Text -> EnableMetricsCollection
-enableMetricsCollection pAutoScalingGroupName pGranularity = EnableMetricsCollection'{_emcMetrics = mempty, _emcAutoScalingGroupName = pAutoScalingGroupName, _emcGranularity = pGranularity};
+enableMetricsCollection pAutoScalingGroupName pGranularity = EnableMetricsCollection'{_emcMetrics = Nothing, _emcAutoScalingGroupName = pAutoScalingGroupName, _emcGranularity = pGranularity};
 
 -- | One or more of the following metrics:
 --
@@ -80,7 +80,7 @@ enableMetricsCollection pAutoScalingGroupName pGranularity = EnableMetricsCollec
 --
 -- The @GroupStandbyInstances@ metric is not returned by default. You must
 -- explicitly request it when calling EnableMetricsCollection.
-emcMetrics :: Lens' EnableMetricsCollection [Text]
+emcMetrics :: Lens' EnableMetricsCollection (Maybe [Text])
 emcMetrics = lens _emcMetrics (\ s a -> s{_emcMetrics = a});
 
 -- | The name or ARN of the Auto Scaling group.

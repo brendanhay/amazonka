@@ -89,8 +89,8 @@ import Network.AWS.SDB.Types
 data PutAttributes = PutAttributes'{_paExpected :: Maybe UpdateCondition, _paDomainName :: Text, _paItemName :: Text, _paAttributes :: [ReplaceableAttribute]} deriving (Eq, Read, Show)
 
 -- | 'PutAttributes' smart constructor.
-putAttributes :: Text -> Text -> [ReplaceableAttribute] -> PutAttributes
-putAttributes pDomainName pItemName pAttributes = PutAttributes'{_paExpected = Nothing, _paDomainName = pDomainName, _paItemName = pItemName, _paAttributes = pAttributes};
+putAttributes :: Text -> Text -> PutAttributes
+putAttributes pDomainName pItemName = PutAttributes'{_paExpected = Nothing, _paDomainName = pDomainName, _paItemName = pItemName, _paAttributes = mempty};
 
 -- | The update condition which, if specified, determines whether the
 -- specified attributes will be updated or not. The update condition must

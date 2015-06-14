@@ -293,14 +293,14 @@ instance FromJSON ConnectionState where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'conConnections'
-newtype Connections = Connections'{_conConnections :: [Connection]} deriving (Eq, Read, Show)
+newtype Connections = Connections'{_conConnections :: Maybe [Connection]} deriving (Eq, Read, Show)
 
 -- | 'Connections' smart constructor.
 connections :: Connections
-connections = Connections'{_conConnections = mempty};
+connections = Connections'{_conConnections = Nothing};
 
 -- | A list of connections.
-conConnections :: Lens' Connections [Connection]
+conConnections :: Lens' Connections (Maybe [Connection])
 conConnections = lens _conConnections (\ s a -> s{_conConnections = a});
 
 instance FromJSON Connections where
@@ -558,8 +558,8 @@ instance ToJSON NewPrivateVirtualInterfaceAllocation
 data NewPublicVirtualInterface = NewPublicVirtualInterface'{_npviAuthKey :: Maybe Text, _npviVirtualInterfaceName :: Text, _npviVlan :: Int, _npviAsn :: Int, _npviAmazonAddress :: Text, _npviCustomerAddress :: Text, _npviRouteFilterPrefixes :: [RouteFilterPrefix]} deriving (Eq, Read, Show)
 
 -- | 'NewPublicVirtualInterface' smart constructor.
-newPublicVirtualInterface :: Text -> Int -> Int -> Text -> Text -> [RouteFilterPrefix] -> NewPublicVirtualInterface
-newPublicVirtualInterface pVirtualInterfaceName pVlan pAsn pAmazonAddress pCustomerAddress pRouteFilterPrefixes = NewPublicVirtualInterface'{_npviAuthKey = Nothing, _npviVirtualInterfaceName = pVirtualInterfaceName, _npviVlan = pVlan, _npviAsn = pAsn, _npviAmazonAddress = pAmazonAddress, _npviCustomerAddress = pCustomerAddress, _npviRouteFilterPrefixes = pRouteFilterPrefixes};
+newPublicVirtualInterface :: Text -> Int -> Int -> Text -> Text -> NewPublicVirtualInterface
+newPublicVirtualInterface pVirtualInterfaceName pVlan pAsn pAmazonAddress pCustomerAddress = NewPublicVirtualInterface'{_npviAuthKey = Nothing, _npviVirtualInterfaceName = pVirtualInterfaceName, _npviVlan = pVlan, _npviAsn = pAsn, _npviAmazonAddress = pAmazonAddress, _npviCustomerAddress = pCustomerAddress, _npviRouteFilterPrefixes = mempty};
 
 -- | FIXME: Undocumented member.
 npviAuthKey :: Lens' NewPublicVirtualInterface (Maybe Text)
@@ -619,8 +619,8 @@ instance ToJSON NewPublicVirtualInterface where
 data NewPublicVirtualInterfaceAllocation = NewPublicVirtualInterfaceAllocation'{_nAuthKey :: Maybe Text, _nVirtualInterfaceName :: Text, _nVlan :: Int, _nAsn :: Int, _nAmazonAddress :: Text, _nCustomerAddress :: Text, _nRouteFilterPrefixes :: [RouteFilterPrefix]} deriving (Eq, Read, Show)
 
 -- | 'NewPublicVirtualInterfaceAllocation' smart constructor.
-newPublicVirtualInterfaceAllocation :: Text -> Int -> Int -> Text -> Text -> [RouteFilterPrefix] -> NewPublicVirtualInterfaceAllocation
-newPublicVirtualInterfaceAllocation pVirtualInterfaceName pVlan pAsn pAmazonAddress pCustomerAddress pRouteFilterPrefixes = NewPublicVirtualInterfaceAllocation'{_nAuthKey = Nothing, _nVirtualInterfaceName = pVirtualInterfaceName, _nVlan = pVlan, _nAsn = pAsn, _nAmazonAddress = pAmazonAddress, _nCustomerAddress = pCustomerAddress, _nRouteFilterPrefixes = pRouteFilterPrefixes};
+newPublicVirtualInterfaceAllocation :: Text -> Int -> Int -> Text -> Text -> NewPublicVirtualInterfaceAllocation
+newPublicVirtualInterfaceAllocation pVirtualInterfaceName pVlan pAsn pAmazonAddress pCustomerAddress = NewPublicVirtualInterfaceAllocation'{_nAuthKey = Nothing, _nVirtualInterfaceName = pVirtualInterfaceName, _nVlan = pVlan, _nAsn = pAsn, _nAmazonAddress = pAmazonAddress, _nCustomerAddress = pCustomerAddress, _nRouteFilterPrefixes = mempty};
 
 -- | FIXME: Undocumented member.
 nAuthKey :: Lens' NewPublicVirtualInterfaceAllocation (Maybe Text)
@@ -750,18 +750,18 @@ instance FromJSON VirtualGateway where
 -- * 'viVirtualInterfaceName'
 --
 -- * 'viVirtualInterfaceId'
-data VirtualInterface = VirtualInterface'{_viVirtualGatewayId :: Maybe Text, _viRouteFilterPrefixes :: [RouteFilterPrefix], _viCustomerAddress :: Maybe Text, _viVlan :: Maybe Int, _viLocation :: Maybe Text, _viAmazonAddress :: Maybe Text, _viVirtualInterfaceState :: Maybe VirtualInterfaceState, _viConnectionId :: Maybe Text, _viAsn :: Maybe Int, _viVirtualInterfaceType :: Maybe Text, _viAuthKey :: Maybe Text, _viCustomerRouterConfig :: Maybe Text, _viOwnerAccount :: Maybe Text, _viVirtualInterfaceName :: Maybe Text, _viVirtualInterfaceId :: Maybe Text} deriving (Eq, Read, Show)
+data VirtualInterface = VirtualInterface'{_viVirtualGatewayId :: Maybe Text, _viRouteFilterPrefixes :: Maybe [RouteFilterPrefix], _viCustomerAddress :: Maybe Text, _viVlan :: Maybe Int, _viLocation :: Maybe Text, _viAmazonAddress :: Maybe Text, _viVirtualInterfaceState :: Maybe VirtualInterfaceState, _viConnectionId :: Maybe Text, _viAsn :: Maybe Int, _viVirtualInterfaceType :: Maybe Text, _viAuthKey :: Maybe Text, _viCustomerRouterConfig :: Maybe Text, _viOwnerAccount :: Maybe Text, _viVirtualInterfaceName :: Maybe Text, _viVirtualInterfaceId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'VirtualInterface' smart constructor.
 virtualInterface :: VirtualInterface
-virtualInterface = VirtualInterface'{_viVirtualGatewayId = Nothing, _viRouteFilterPrefixes = mempty, _viCustomerAddress = Nothing, _viVlan = Nothing, _viLocation = Nothing, _viAmazonAddress = Nothing, _viVirtualInterfaceState = Nothing, _viConnectionId = Nothing, _viAsn = Nothing, _viVirtualInterfaceType = Nothing, _viAuthKey = Nothing, _viCustomerRouterConfig = Nothing, _viOwnerAccount = Nothing, _viVirtualInterfaceName = Nothing, _viVirtualInterfaceId = Nothing};
+virtualInterface = VirtualInterface'{_viVirtualGatewayId = Nothing, _viRouteFilterPrefixes = Nothing, _viCustomerAddress = Nothing, _viVlan = Nothing, _viLocation = Nothing, _viAmazonAddress = Nothing, _viVirtualInterfaceState = Nothing, _viConnectionId = Nothing, _viAsn = Nothing, _viVirtualInterfaceType = Nothing, _viAuthKey = Nothing, _viCustomerRouterConfig = Nothing, _viOwnerAccount = Nothing, _viVirtualInterfaceName = Nothing, _viVirtualInterfaceId = Nothing};
 
 -- | FIXME: Undocumented member.
 viVirtualGatewayId :: Lens' VirtualInterface (Maybe Text)
 viVirtualGatewayId = lens _viVirtualGatewayId (\ s a -> s{_viVirtualGatewayId = a});
 
 -- | FIXME: Undocumented member.
-viRouteFilterPrefixes :: Lens' VirtualInterface [RouteFilterPrefix]
+viRouteFilterPrefixes :: Lens' VirtualInterface (Maybe [RouteFilterPrefix])
 viRouteFilterPrefixes = lens _viRouteFilterPrefixes (\ s a -> s{_viRouteFilterPrefixes = a});
 
 -- | FIXME: Undocumented member.

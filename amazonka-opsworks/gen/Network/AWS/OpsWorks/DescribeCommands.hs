@@ -58,11 +58,11 @@ import Network.AWS.OpsWorks.Types
 -- * 'dcDeploymentId'
 --
 -- * 'dcCommandIds'
-data DescribeCommands = DescribeCommands'{_dcInstanceId :: Maybe Text, _dcDeploymentId :: Maybe Text, _dcCommandIds :: [Text]} deriving (Eq, Read, Show)
+data DescribeCommands = DescribeCommands'{_dcInstanceId :: Maybe Text, _dcDeploymentId :: Maybe Text, _dcCommandIds :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'DescribeCommands' smart constructor.
 describeCommands :: DescribeCommands
-describeCommands = DescribeCommands'{_dcInstanceId = Nothing, _dcDeploymentId = Nothing, _dcCommandIds = mempty};
+describeCommands = DescribeCommands'{_dcInstanceId = Nothing, _dcDeploymentId = Nothing, _dcCommandIds = Nothing};
 
 -- | The instance ID. If you include this parameter, @DescribeCommands@
 -- returns a description of the commands associated with the specified
@@ -79,7 +79,7 @@ dcDeploymentId = lens _dcDeploymentId (\ s a -> s{_dcDeploymentId = a});
 -- | An array of command IDs. If you include this parameter,
 -- @DescribeCommands@ returns a description of the specified commands.
 -- Otherwise, it returns a description of every command.
-dcCommandIds :: Lens' DescribeCommands [Text]
+dcCommandIds :: Lens' DescribeCommands (Maybe [Text])
 dcCommandIds = lens _dcCommandIds (\ s a -> s{_dcCommandIds = a});
 
 instance AWSRequest DescribeCommands where
@@ -119,13 +119,13 @@ instance ToQuery DescribeCommands where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dcrCommands'
-newtype DescribeCommandsResponse = DescribeCommandsResponse'{_dcrCommands :: [Command]} deriving (Eq, Read, Show)
+newtype DescribeCommandsResponse = DescribeCommandsResponse'{_dcrCommands :: Maybe [Command]} deriving (Eq, Read, Show)
 
 -- | 'DescribeCommandsResponse' smart constructor.
 describeCommandsResponse :: DescribeCommandsResponse
-describeCommandsResponse = DescribeCommandsResponse'{_dcrCommands = mempty};
+describeCommandsResponse = DescribeCommandsResponse'{_dcrCommands = Nothing};
 
 -- | An array of @Command@ objects that describe each of the specified
 -- commands.
-dcrCommands :: Lens' DescribeCommandsResponse [Command]
+dcrCommands :: Lens' DescribeCommandsResponse (Maybe [Command])
 dcrCommands = lens _dcrCommands (\ s a -> s{_dcrCommands = a});

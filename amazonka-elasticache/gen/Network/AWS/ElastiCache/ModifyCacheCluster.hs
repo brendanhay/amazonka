@@ -92,11 +92,11 @@ import Network.AWS.ElastiCache.Types
 -- * 'mccCacheSecurityGroupNames'
 --
 -- * 'mccCacheClusterId'
-data ModifyCacheCluster = ModifyCacheCluster'{_mccEngineVersion :: Maybe Text, _mccSecurityGroupIds :: [Text], _mccAutoMinorVersionUpgrade :: Maybe Bool, _mccCacheParameterGroupName :: Maybe Text, _mccNewAvailabilityZones :: [Text], _mccSnapshotWindow :: Maybe Text, _mccPreferredMaintenanceWindow :: Maybe Text, _mccCacheNodeIdsToRemove :: [Text], _mccSnapshotRetentionLimit :: Maybe Int, _mccAZMode :: Maybe AZMode, _mccNotificationTopicStatus :: Maybe Text, _mccApplyImmediately :: Maybe Bool, _mccNotificationTopicARN :: Maybe Text, _mccNumCacheNodes :: Maybe Int, _mccCacheSecurityGroupNames :: [Text], _mccCacheClusterId :: Text} deriving (Eq, Read, Show)
+data ModifyCacheCluster = ModifyCacheCluster'{_mccEngineVersion :: Maybe Text, _mccSecurityGroupIds :: Maybe [Text], _mccAutoMinorVersionUpgrade :: Maybe Bool, _mccCacheParameterGroupName :: Maybe Text, _mccNewAvailabilityZones :: Maybe [Text], _mccSnapshotWindow :: Maybe Text, _mccPreferredMaintenanceWindow :: Maybe Text, _mccCacheNodeIdsToRemove :: Maybe [Text], _mccSnapshotRetentionLimit :: Maybe Int, _mccAZMode :: Maybe AZMode, _mccNotificationTopicStatus :: Maybe Text, _mccApplyImmediately :: Maybe Bool, _mccNotificationTopicARN :: Maybe Text, _mccNumCacheNodes :: Maybe Int, _mccCacheSecurityGroupNames :: Maybe [Text], _mccCacheClusterId :: Text} deriving (Eq, Read, Show)
 
 -- | 'ModifyCacheCluster' smart constructor.
 modifyCacheCluster :: Text -> ModifyCacheCluster
-modifyCacheCluster pCacheClusterId = ModifyCacheCluster'{_mccEngineVersion = Nothing, _mccSecurityGroupIds = mempty, _mccAutoMinorVersionUpgrade = Nothing, _mccCacheParameterGroupName = Nothing, _mccNewAvailabilityZones = mempty, _mccSnapshotWindow = Nothing, _mccPreferredMaintenanceWindow = Nothing, _mccCacheNodeIdsToRemove = mempty, _mccSnapshotRetentionLimit = Nothing, _mccAZMode = Nothing, _mccNotificationTopicStatus = Nothing, _mccApplyImmediately = Nothing, _mccNotificationTopicARN = Nothing, _mccNumCacheNodes = Nothing, _mccCacheSecurityGroupNames = mempty, _mccCacheClusterId = pCacheClusterId};
+modifyCacheCluster pCacheClusterId = ModifyCacheCluster'{_mccEngineVersion = Nothing, _mccSecurityGroupIds = Nothing, _mccAutoMinorVersionUpgrade = Nothing, _mccCacheParameterGroupName = Nothing, _mccNewAvailabilityZones = Nothing, _mccSnapshotWindow = Nothing, _mccPreferredMaintenanceWindow = Nothing, _mccCacheNodeIdsToRemove = Nothing, _mccSnapshotRetentionLimit = Nothing, _mccAZMode = Nothing, _mccNotificationTopicStatus = Nothing, _mccApplyImmediately = Nothing, _mccNotificationTopicARN = Nothing, _mccNumCacheNodes = Nothing, _mccCacheSecurityGroupNames = Nothing, _mccCacheClusterId = pCacheClusterId};
 
 -- | The upgraded version of the cache engine to be run on the cache nodes.
 mccEngineVersion :: Lens' ModifyCacheCluster (Maybe Text)
@@ -106,7 +106,7 @@ mccEngineVersion = lens _mccEngineVersion (\ s a -> s{_mccEngineVersion = a});
 --
 -- This parameter can be used only with clusters that are created in an
 -- Amazon Virtual Private Cloud (VPC).
-mccSecurityGroupIds :: Lens' ModifyCacheCluster [Text]
+mccSecurityGroupIds :: Lens' ModifyCacheCluster (Maybe [Text])
 mccSecurityGroupIds = lens _mccSecurityGroupIds (\ s a -> s{_mccSecurityGroupIds = a});
 
 -- | This parameter is currently disabled.
@@ -171,7 +171,7 @@ mccCacheParameterGroupName = lens _mccCacheParameterGroupName (\ s a -> s{_mccCa
 --
 -- Example:
 -- @NewAvailabilityZones.member.1=us-west-2a&NewAvailabilityZones.member.2=us-west-2b&NewAvailabilityZones.member.3=us-west-2c@
-mccNewAvailabilityZones :: Lens' ModifyCacheCluster [Text]
+mccNewAvailabilityZones :: Lens' ModifyCacheCluster (Maybe [Text])
 mccNewAvailabilityZones = lens _mccNewAvailabilityZones (\ s a -> s{_mccNewAvailabilityZones = a});
 
 -- | The daily time range (in UTC) during which ElastiCache will begin taking
@@ -207,7 +207,7 @@ mccPreferredMaintenanceWindow = lens _mccPreferredMaintenanceWindow (\ s a -> s{
 -- For example: If you have 3 active cache nodes, 7 pending cache nodes,
 -- and the number of cache nodes in this @ModifyCacheCluser@ call is 5, you
 -- must list 2 (7 - 5) cache node IDs to remove.
-mccCacheNodeIdsToRemove :: Lens' ModifyCacheCluster [Text]
+mccCacheNodeIdsToRemove :: Lens' ModifyCacheCluster (Maybe [Text])
 mccCacheNodeIdsToRemove = lens _mccCacheNodeIdsToRemove (\ s a -> s{_mccCacheNodeIdsToRemove = a});
 
 -- | The number of days for which ElastiCache will retain automatic cache
@@ -318,7 +318,7 @@ mccNumCacheNodes = lens _mccNumCacheNodes (\ s a -> s{_mccNumCacheNodes = a});
 --
 -- Constraints: Must contain no more than 255 alphanumeric characters. Must
 -- not be \"Default\".
-mccCacheSecurityGroupNames :: Lens' ModifyCacheCluster [Text]
+mccCacheSecurityGroupNames :: Lens' ModifyCacheCluster (Maybe [Text])
 mccCacheSecurityGroupNames = lens _mccCacheSecurityGroupNames (\ s a -> s{_mccCacheSecurityGroupNames = a});
 
 -- | The cache cluster identifier. This value is stored as a lowercase

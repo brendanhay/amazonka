@@ -30,18 +30,18 @@ module Network.AWS.IAM.ListInstanceProfilesForRole
     -- ** Request constructor
     , listInstanceProfilesForRole
     -- ** Request lenses
-    , lipfrRoleName
     , lipfrMaxItems
     , lipfrMarker
+    , lipfrRoleName
 
     -- * Response
     , ListInstanceProfilesForRoleResponse
     -- ** Response constructor
     , listInstanceProfilesForRoleResponse
     -- ** Response lenses
+    , lipfrrMarker
     , lipfrrIsTruncated
     , lipfrrInstanceProfiles
-    , lipfrrMarker
     ) where
 
 import Network.AWS.Request
@@ -53,35 +53,35 @@ import Network.AWS.IAM.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lipfrRoleName'
---
 -- * 'lipfrMaxItems'
 --
 -- * 'lipfrMarker'
-data ListInstanceProfilesForRole = ListInstanceProfilesForRole'{_lipfrRoleName :: Text, _lipfrMaxItems :: Nat, _lipfrMarker :: Text} deriving (Eq, Read, Show)
+--
+-- * 'lipfrRoleName'
+data ListInstanceProfilesForRole = ListInstanceProfilesForRole'{_lipfrMaxItems :: Maybe Nat, _lipfrMarker :: Maybe Text, _lipfrRoleName :: Text} deriving (Eq, Read, Show)
 
 -- | 'ListInstanceProfilesForRole' smart constructor.
-listInstanceProfilesForRole :: Text -> Natural -> Text -> ListInstanceProfilesForRole
-listInstanceProfilesForRole pRoleName pMaxItems pMarker = ListInstanceProfilesForRole'{_lipfrRoleName = pRoleName, _lipfrMaxItems = _Nat # pMaxItems, _lipfrMarker = pMarker};
-
--- | The name of the role to list instance profiles for.
-lipfrRoleName :: Lens' ListInstanceProfilesForRole Text
-lipfrRoleName = lens _lipfrRoleName (\ s a -> s{_lipfrRoleName = a});
+listInstanceProfilesForRole :: Text -> ListInstanceProfilesForRole
+listInstanceProfilesForRole pRoleName = ListInstanceProfilesForRole'{_lipfrMaxItems = Nothing, _lipfrMarker = Nothing, _lipfrRoleName = pRoleName};
 
 -- | Use this parameter only when paginating results to indicate the maximum
 -- number of instance profiles you want in the response. If there are
 -- additional instance profiles beyond the maximum you specify, the
 -- @IsTruncated@ response element is @true@. This parameter is optional. If
 -- you do not include it, it defaults to 100.
-lipfrMaxItems :: Lens' ListInstanceProfilesForRole Natural
-lipfrMaxItems = lens _lipfrMaxItems (\ s a -> s{_lipfrMaxItems = a}) . _Nat;
+lipfrMaxItems :: Lens' ListInstanceProfilesForRole (Maybe Natural)
+lipfrMaxItems = lens _lipfrMaxItems (\ s a -> s{_lipfrMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results, and only in a
 -- subsequent request after you\'ve received a response where the results
 -- are truncated. Set it to the value of the @Marker@ element in the
 -- response you just received.
-lipfrMarker :: Lens' ListInstanceProfilesForRole Text
+lipfrMarker :: Lens' ListInstanceProfilesForRole (Maybe Text)
 lipfrMarker = lens _lipfrMarker (\ s a -> s{_lipfrMarker = a});
+
+-- | The name of the role to list instance profiles for.
+lipfrRoleName :: Lens' ListInstanceProfilesForRole Text
+lipfrRoleName = lens _lipfrRoleName (\ s a -> s{_lipfrRoleName = a});
 
 instance AWSRequest ListInstanceProfilesForRole where
         type Sv ListInstanceProfilesForRole = IAM
@@ -93,10 +93,9 @@ instance AWSRequest ListInstanceProfilesForRole where
               "ListInstanceProfilesForRoleResult"
               (\ s h x ->
                  ListInstanceProfilesForRoleResponse' <$>
-                   x .@? "IsTruncated" <*>
+                   x .@? "Marker" <*> x .@? "IsTruncated" <*>
                      (x .@? "InstanceProfiles" .!@ mempty >>=
-                        parseXMLList "member")
-                     <*> x .@ "Marker")
+                        parseXMLList "member"))
 
 instance ToHeaders ListInstanceProfilesForRole where
         toHeaders = const mempty
@@ -110,24 +109,30 @@ instance ToQuery ListInstanceProfilesForRole where
               ["Action" =:
                  ("ListInstanceProfilesForRole" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "RoleName" =: _lipfrRoleName,
                "MaxItems" =: _lipfrMaxItems,
-               "Marker" =: _lipfrMarker]
+               "Marker" =: _lipfrMarker,
+               "RoleName" =: _lipfrRoleName]
 
 -- | /See:/ 'listInstanceProfilesForRoleResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'lipfrrMarker'
+--
 -- * 'lipfrrIsTruncated'
 --
 -- * 'lipfrrInstanceProfiles'
---
--- * 'lipfrrMarker'
-data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse'{_lipfrrIsTruncated :: Maybe Bool, _lipfrrInstanceProfiles :: [InstanceProfile], _lipfrrMarker :: Text} deriving (Eq, Read, Show)
+data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse'{_lipfrrMarker :: Maybe Text, _lipfrrIsTruncated :: Maybe Bool, _lipfrrInstanceProfiles :: [InstanceProfile]} deriving (Eq, Read, Show)
 
 -- | 'ListInstanceProfilesForRoleResponse' smart constructor.
-listInstanceProfilesForRoleResponse :: [InstanceProfile] -> Text -> ListInstanceProfilesForRoleResponse
-listInstanceProfilesForRoleResponse pInstanceProfiles pMarker = ListInstanceProfilesForRoleResponse'{_lipfrrIsTruncated = Nothing, _lipfrrInstanceProfiles = pInstanceProfiles, _lipfrrMarker = pMarker};
+listInstanceProfilesForRoleResponse :: ListInstanceProfilesForRoleResponse
+listInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse'{_lipfrrMarker = Nothing, _lipfrrIsTruncated = Nothing, _lipfrrInstanceProfiles = mempty};
+
+-- | If @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+lipfrrMarker :: Lens' ListInstanceProfilesForRoleResponse (Maybe Text)
+lipfrrMarker = lens _lipfrrMarker (\ s a -> s{_lipfrrMarker = a});
 
 -- | A flag that indicates whether there are more instance profiles to list.
 -- If your results were truncated, you can make a subsequent pagination
@@ -139,9 +144,3 @@ lipfrrIsTruncated = lens _lipfrrIsTruncated (\ s a -> s{_lipfrrIsTruncated = a})
 -- | A list of instance profiles.
 lipfrrInstanceProfiles :: Lens' ListInstanceProfilesForRoleResponse [InstanceProfile]
 lipfrrInstanceProfiles = lens _lipfrrInstanceProfiles (\ s a -> s{_lipfrrInstanceProfiles = a});
-
--- | If @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
-lipfrrMarker :: Lens' ListInstanceProfilesForRoleResponse Text
-lipfrrMarker = lens _lipfrrMarker (\ s a -> s{_lipfrrMarker = a});

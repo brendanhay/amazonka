@@ -77,8 +77,8 @@ instance ToQuery GetCheckerIPRanges where
 newtype GetCheckerIPRangesResponse = GetCheckerIPRangesResponse'{_gcirrCheckerIPRanges :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'GetCheckerIPRangesResponse' smart constructor.
-getCheckerIPRangesResponse :: [Text] -> GetCheckerIPRangesResponse
-getCheckerIPRangesResponse pCheckerIPRanges = GetCheckerIPRangesResponse'{_gcirrCheckerIPRanges = pCheckerIPRanges};
+getCheckerIPRangesResponse :: GetCheckerIPRangesResponse
+getCheckerIPRangesResponse = GetCheckerIPRangesResponse'{_gcirrCheckerIPRanges = mempty};
 
 -- | A complex type that contains sorted list of IP ranges in CIDR format for
 -- Amazon Route 53 health checkers.

@@ -79,12 +79,12 @@ instance ToQuery GetSendStatistics where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gssrSendDataPoints'
-newtype GetSendStatisticsResponse = GetSendStatisticsResponse'{_gssrSendDataPoints :: [SendDataPoint]} deriving (Eq, Read, Show)
+newtype GetSendStatisticsResponse = GetSendStatisticsResponse'{_gssrSendDataPoints :: Maybe [SendDataPoint]} deriving (Eq, Read, Show)
 
 -- | 'GetSendStatisticsResponse' smart constructor.
 getSendStatisticsResponse :: GetSendStatisticsResponse
-getSendStatisticsResponse = GetSendStatisticsResponse'{_gssrSendDataPoints = mempty};
+getSendStatisticsResponse = GetSendStatisticsResponse'{_gssrSendDataPoints = Nothing};
 
 -- | A list of data points, each of which represents 15 minutes of activity.
-gssrSendDataPoints :: Lens' GetSendStatisticsResponse [SendDataPoint]
+gssrSendDataPoints :: Lens' GetSendStatisticsResponse (Maybe [SendDataPoint])
 gssrSendDataPoints = lens _gssrSendDataPoints (\ s a -> s{_gssrSendDataPoints = a});

@@ -52,14 +52,14 @@ import Network.AWS.CloudFormation.Types
 -- * 'etcTemplateBody'
 --
 -- * 'etcTemplateURL'
-data EstimateTemplateCost = EstimateTemplateCost'{_etcParameters :: [Parameter], _etcTemplateBody :: Text, _etcTemplateURL :: Text} deriving (Eq, Read, Show)
+data EstimateTemplateCost = EstimateTemplateCost'{_etcParameters :: Maybe [Parameter], _etcTemplateBody :: Maybe Text, _etcTemplateURL :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'EstimateTemplateCost' smart constructor.
-estimateTemplateCost :: Text -> Text -> EstimateTemplateCost
-estimateTemplateCost pTemplateBody pTemplateURL = EstimateTemplateCost'{_etcParameters = mempty, _etcTemplateBody = pTemplateBody, _etcTemplateURL = pTemplateURL};
+estimateTemplateCost :: EstimateTemplateCost
+estimateTemplateCost = EstimateTemplateCost'{_etcParameters = Nothing, _etcTemplateBody = Nothing, _etcTemplateURL = Nothing};
 
 -- | A list of @Parameter@ structures that specify input parameters.
-etcParameters :: Lens' EstimateTemplateCost [Parameter]
+etcParameters :: Lens' EstimateTemplateCost (Maybe [Parameter])
 etcParameters = lens _etcParameters (\ s a -> s{_etcParameters = a});
 
 -- | Structure containing the template body with a minimum length of 1 byte
@@ -69,7 +69,7 @@ etcParameters = lens _etcParameters (\ s a -> s{_etcParameters = a});
 --
 -- Conditional: You must pass @TemplateBody@ or @TemplateURL@. If both are
 -- passed, only @TemplateBody@ is used.
-etcTemplateBody :: Lens' EstimateTemplateCost Text
+etcTemplateBody :: Lens' EstimateTemplateCost (Maybe Text)
 etcTemplateBody = lens _etcTemplateBody (\ s a -> s{_etcTemplateBody = a});
 
 -- | Location of file containing the template body. The URL must point to a
@@ -80,7 +80,7 @@ etcTemplateBody = lens _etcTemplateBody (\ s a -> s{_etcTemplateBody = a});
 --
 -- Conditional: You must pass @TemplateURL@ or @TemplateBody@. If both are
 -- passed, only @TemplateBody@ is used.
-etcTemplateURL :: Lens' EstimateTemplateCost Text
+etcTemplateURL :: Lens' EstimateTemplateCost (Maybe Text)
 etcTemplateURL = lens _etcTemplateURL (\ s a -> s{_etcTemplateURL = a});
 
 instance AWSRequest EstimateTemplateCost where

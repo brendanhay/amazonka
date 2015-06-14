@@ -57,8 +57,8 @@ import Network.AWS.StorageGateway.Types
 data AddCache = AddCache'{_acGatewayARN :: Text, _acDiskIds :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'AddCache' smart constructor.
-addCache :: Text -> [Text] -> AddCache
-addCache pGatewayARN pDiskIds = AddCache'{_acGatewayARN = pGatewayARN, _acDiskIds = pDiskIds};
+addCache :: Text -> AddCache
+addCache pGatewayARN = AddCache'{_acGatewayARN = pGatewayARN, _acDiskIds = mempty};
 
 -- | FIXME: Undocumented member.
 acGatewayARN :: Lens' AddCache Text
@@ -74,7 +74,7 @@ instance AWSRequest AddCache where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x -> AddCacheResponse' <$> x .:> "GatewayARN")
+              (\ s h x -> AddCacheResponse' <$> x .?> "GatewayARN")
 
 instance ToHeaders AddCache where
         toHeaders
@@ -102,12 +102,12 @@ instance ToQuery AddCache where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'acrGatewayARN'
-newtype AddCacheResponse = AddCacheResponse'{_acrGatewayARN :: Text} deriving (Eq, Read, Show)
+newtype AddCacheResponse = AddCacheResponse'{_acrGatewayARN :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'AddCacheResponse' smart constructor.
-addCacheResponse :: Text -> AddCacheResponse
-addCacheResponse pGatewayARN = AddCacheResponse'{_acrGatewayARN = pGatewayARN};
+addCacheResponse :: AddCacheResponse
+addCacheResponse = AddCacheResponse'{_acrGatewayARN = Nothing};
 
 -- | FIXME: Undocumented member.
-acrGatewayARN :: Lens' AddCacheResponse Text
+acrGatewayARN :: Lens' AddCacheResponse (Maybe Text)
 acrGatewayARN = lens _acrGatewayARN (\ s a -> s{_acrGatewayARN = a});

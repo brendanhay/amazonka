@@ -78,14 +78,14 @@ instance ToQuery DescribeTerminationPolicyTypes where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dtptrTerminationPolicyTypes'
-newtype DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse'{_dtptrTerminationPolicyTypes :: [Text]} deriving (Eq, Read, Show)
+newtype DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse'{_dtptrTerminationPolicyTypes :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'DescribeTerminationPolicyTypesResponse' smart constructor.
 describeTerminationPolicyTypesResponse :: DescribeTerminationPolicyTypesResponse
-describeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse'{_dtptrTerminationPolicyTypes = mempty};
+describeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse'{_dtptrTerminationPolicyTypes = Nothing};
 
 -- | The Termination policies supported by Auto Scaling. They are:
 -- @OldestInstance@, @OldestLaunchConfiguration@, @NewestInstance@,
 -- @ClosestToNextInstanceHour@, and @Default@.
-dtptrTerminationPolicyTypes :: Lens' DescribeTerminationPolicyTypesResponse [Text]
+dtptrTerminationPolicyTypes :: Lens' DescribeTerminationPolicyTypesResponse (Maybe [Text])
 dtptrTerminationPolicyTypes = lens _dtptrTerminationPolicyTypes (\ s a -> s{_dtptrTerminationPolicyTypes = a});

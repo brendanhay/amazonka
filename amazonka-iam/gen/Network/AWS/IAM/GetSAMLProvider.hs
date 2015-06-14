@@ -70,7 +70,7 @@ instance AWSRequest GetSAMLProvider where
               (\ s h x ->
                  GetSAMLProviderResponse' <$>
                    x .@? "CreateDate" <*> x .@? "ValidUntil" <*>
-                     x .@ "SAMLMetadataDocument")
+                     x .@? "SAMLMetadataDocument")
 
 instance ToHeaders GetSAMLProvider where
         toHeaders = const mempty
@@ -94,11 +94,11 @@ instance ToQuery GetSAMLProvider where
 -- * 'gsamlprValidUntil'
 --
 -- * 'gsamlprSAMLMetadataDocument'
-data GetSAMLProviderResponse = GetSAMLProviderResponse'{_gsamlprCreateDate :: Maybe ISO8601, _gsamlprValidUntil :: Maybe ISO8601, _gsamlprSAMLMetadataDocument :: Text} deriving (Eq, Read, Show)
+data GetSAMLProviderResponse = GetSAMLProviderResponse'{_gsamlprCreateDate :: Maybe ISO8601, _gsamlprValidUntil :: Maybe ISO8601, _gsamlprSAMLMetadataDocument :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'GetSAMLProviderResponse' smart constructor.
-getSAMLProviderResponse :: Text -> GetSAMLProviderResponse
-getSAMLProviderResponse pSAMLMetadataDocument = GetSAMLProviderResponse'{_gsamlprCreateDate = Nothing, _gsamlprValidUntil = Nothing, _gsamlprSAMLMetadataDocument = pSAMLMetadataDocument};
+getSAMLProviderResponse :: GetSAMLProviderResponse
+getSAMLProviderResponse = GetSAMLProviderResponse'{_gsamlprCreateDate = Nothing, _gsamlprValidUntil = Nothing, _gsamlprSAMLMetadataDocument = Nothing};
 
 -- | The date and time when the SAML provider was created.
 gsamlprCreateDate :: Lens' GetSAMLProviderResponse (Maybe UTCTime)
@@ -110,5 +110,5 @@ gsamlprValidUntil = lens _gsamlprValidUntil (\ s a -> s{_gsamlprValidUntil = a})
 
 -- | The XML metadata document that includes information about an identity
 -- provider.
-gsamlprSAMLMetadataDocument :: Lens' GetSAMLProviderResponse Text
+gsamlprSAMLMetadataDocument :: Lens' GetSAMLProviderResponse (Maybe Text)
 gsamlprSAMLMetadataDocument = lens _gsamlprSAMLMetadataDocument (\ s a -> s{_gsamlprSAMLMetadataDocument = a});

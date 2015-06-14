@@ -84,7 +84,7 @@ instance AWSRequest RegisterDevice where
         response
           = receiveJSON
               (\ s h x ->
-                 RegisterDeviceResponse' <$> x .:> "DeviceId")
+                 RegisterDeviceResponse' <$> x .?> "DeviceId")
 
 instance ToHeaders RegisterDevice where
         toHeaders
@@ -112,12 +112,12 @@ instance ToQuery RegisterDevice where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rdrDeviceId'
-newtype RegisterDeviceResponse = RegisterDeviceResponse'{_rdrDeviceId :: Text} deriving (Eq, Read, Show)
+newtype RegisterDeviceResponse = RegisterDeviceResponse'{_rdrDeviceId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'RegisterDeviceResponse' smart constructor.
-registerDeviceResponse :: Text -> RegisterDeviceResponse
-registerDeviceResponse pDeviceId = RegisterDeviceResponse'{_rdrDeviceId = pDeviceId};
+registerDeviceResponse :: RegisterDeviceResponse
+registerDeviceResponse = RegisterDeviceResponse'{_rdrDeviceId = Nothing};
 
 -- | The unique ID generated for this device by Cognito.
-rdrDeviceId :: Lens' RegisterDeviceResponse Text
+rdrDeviceId :: Lens' RegisterDeviceResponse (Maybe Text)
 rdrDeviceId = lens _rdrDeviceId (\ s a -> s{_rdrDeviceId = a});

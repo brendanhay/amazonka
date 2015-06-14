@@ -73,9 +73,9 @@ instance AWSRequest DescribeBandwidthRateLimit where
           = receiveJSON
               (\ s h x ->
                  DescribeBandwidthRateLimitResponse' <$>
-                   x .:> "GatewayARN" <*>
-                     x .:> "AverageUploadRateLimitInBitsPerSec"
-                     <*> x .:> "AverageDownloadRateLimitInBitsPerSec")
+                   x .?> "GatewayARN" <*>
+                     x .?> "AverageUploadRateLimitInBitsPerSec"
+                     <*> x .?> "AverageDownloadRateLimitInBitsPerSec")
 
 instance ToHeaders DescribeBandwidthRateLimit where
         toHeaders
@@ -106,22 +106,22 @@ instance ToQuery DescribeBandwidthRateLimit where
 -- * 'dbrlrAverageUploadRateLimitInBitsPerSec'
 --
 -- * 'dbrlrAverageDownloadRateLimitInBitsPerSec'
-data DescribeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse'{_dbrlrGatewayARN :: Text, _dbrlrAverageUploadRateLimitInBitsPerSec :: Nat, _dbrlrAverageDownloadRateLimitInBitsPerSec :: Nat} deriving (Eq, Read, Show)
+data DescribeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse'{_dbrlrGatewayARN :: Maybe Text, _dbrlrAverageUploadRateLimitInBitsPerSec :: Maybe Nat, _dbrlrAverageDownloadRateLimitInBitsPerSec :: Maybe Nat} deriving (Eq, Read, Show)
 
 -- | 'DescribeBandwidthRateLimitResponse' smart constructor.
-describeBandwidthRateLimitResponse :: Text -> Natural -> Natural -> DescribeBandwidthRateLimitResponse
-describeBandwidthRateLimitResponse pGatewayARN pAverageUploadRateLimitInBitsPerSec pAverageDownloadRateLimitInBitsPerSec = DescribeBandwidthRateLimitResponse'{_dbrlrGatewayARN = pGatewayARN, _dbrlrAverageUploadRateLimitInBitsPerSec = _Nat # pAverageUploadRateLimitInBitsPerSec, _dbrlrAverageDownloadRateLimitInBitsPerSec = _Nat # pAverageDownloadRateLimitInBitsPerSec};
+describeBandwidthRateLimitResponse :: DescribeBandwidthRateLimitResponse
+describeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse'{_dbrlrGatewayARN = Nothing, _dbrlrAverageUploadRateLimitInBitsPerSec = Nothing, _dbrlrAverageDownloadRateLimitInBitsPerSec = Nothing};
 
 -- | FIXME: Undocumented member.
-dbrlrGatewayARN :: Lens' DescribeBandwidthRateLimitResponse Text
+dbrlrGatewayARN :: Lens' DescribeBandwidthRateLimitResponse (Maybe Text)
 dbrlrGatewayARN = lens _dbrlrGatewayARN (\ s a -> s{_dbrlrGatewayARN = a});
 
 -- | The average upload bandwidth rate limit in bits per second. This field
 -- does not appear in the response if the upload rate limit is not set.
-dbrlrAverageUploadRateLimitInBitsPerSec :: Lens' DescribeBandwidthRateLimitResponse Natural
-dbrlrAverageUploadRateLimitInBitsPerSec = lens _dbrlrAverageUploadRateLimitInBitsPerSec (\ s a -> s{_dbrlrAverageUploadRateLimitInBitsPerSec = a}) . _Nat;
+dbrlrAverageUploadRateLimitInBitsPerSec :: Lens' DescribeBandwidthRateLimitResponse (Maybe Natural)
+dbrlrAverageUploadRateLimitInBitsPerSec = lens _dbrlrAverageUploadRateLimitInBitsPerSec (\ s a -> s{_dbrlrAverageUploadRateLimitInBitsPerSec = a}) . mapping _Nat;
 
 -- | The average download bandwidth rate limit in bits per second. This field
 -- does not appear in the response if the download rate limit is not set.
-dbrlrAverageDownloadRateLimitInBitsPerSec :: Lens' DescribeBandwidthRateLimitResponse Natural
-dbrlrAverageDownloadRateLimitInBitsPerSec = lens _dbrlrAverageDownloadRateLimitInBitsPerSec (\ s a -> s{_dbrlrAverageDownloadRateLimitInBitsPerSec = a}) . _Nat;
+dbrlrAverageDownloadRateLimitInBitsPerSec :: Lens' DescribeBandwidthRateLimitResponse (Maybe Natural)
+dbrlrAverageDownloadRateLimitInBitsPerSec = lens _dbrlrAverageDownloadRateLimitInBitsPerSec (\ s a -> s{_dbrlrAverageDownloadRateLimitInBitsPerSec = a}) . mapping _Nat;

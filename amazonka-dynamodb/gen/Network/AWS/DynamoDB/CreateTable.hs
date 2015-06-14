@@ -76,11 +76,11 @@ import Network.AWS.DynamoDB.Types
 -- * 'ctKeySchema'
 --
 -- * 'ctProvisionedThroughput'
-data CreateTable = CreateTable'{_ctGlobalSecondaryIndexes :: [GlobalSecondaryIndex], _ctLocalSecondaryIndexes :: [LocalSecondaryIndex], _ctAttributeDefinitions :: [AttributeDefinition], _ctTableName :: Text, _ctKeySchema :: List1 KeySchemaElement, _ctProvisionedThroughput :: ProvisionedThroughput} deriving (Eq, Read, Show)
+data CreateTable = CreateTable'{_ctGlobalSecondaryIndexes :: Maybe [GlobalSecondaryIndex], _ctLocalSecondaryIndexes :: Maybe [LocalSecondaryIndex], _ctAttributeDefinitions :: [AttributeDefinition], _ctTableName :: Text, _ctKeySchema :: List1 KeySchemaElement, _ctProvisionedThroughput :: ProvisionedThroughput} deriving (Eq, Read, Show)
 
 -- | 'CreateTable' smart constructor.
-createTable :: [AttributeDefinition] -> Text -> NonEmpty KeySchemaElement -> ProvisionedThroughput -> CreateTable
-createTable pAttributeDefinitions pTableName pKeySchema pProvisionedThroughput = CreateTable'{_ctGlobalSecondaryIndexes = mempty, _ctLocalSecondaryIndexes = mempty, _ctAttributeDefinitions = pAttributeDefinitions, _ctTableName = pTableName, _ctKeySchema = _List1 # pKeySchema, _ctProvisionedThroughput = pProvisionedThroughput};
+createTable :: Text -> NonEmpty KeySchemaElement -> ProvisionedThroughput -> CreateTable
+createTable pTableName pKeySchema pProvisionedThroughput = CreateTable'{_ctGlobalSecondaryIndexes = Nothing, _ctLocalSecondaryIndexes = Nothing, _ctAttributeDefinitions = mempty, _ctTableName = pTableName, _ctKeySchema = _List1 # pKeySchema, _ctProvisionedThroughput = pProvisionedThroughput};
 
 -- | One or more global secondary indexes (the maximum is five) to be created
 -- on the table. Each global secondary index in the array includes the
@@ -120,7 +120,7 @@ createTable pAttributeDefinitions pTableName pKeySchema pProvisionedThroughput =
 --     the global secondary index, consisting of read and write capacity
 --     units.
 --
-ctGlobalSecondaryIndexes :: Lens' CreateTable [GlobalSecondaryIndex]
+ctGlobalSecondaryIndexes :: Lens' CreateTable (Maybe [GlobalSecondaryIndex])
 ctGlobalSecondaryIndexes = lens _ctGlobalSecondaryIndexes (\ s a -> s{_ctGlobalSecondaryIndexes = a});
 
 -- | One or more local secondary indexes (the maximum is five) to be created
@@ -161,7 +161,7 @@ ctGlobalSecondaryIndexes = lens _ctGlobalSecondaryIndexes (\ s a -> s{_ctGlobalS
 --         project the same attribute into two different indexes, this
 --         counts as two distinct attributes when determining the total.
 --
-ctLocalSecondaryIndexes :: Lens' CreateTable [LocalSecondaryIndex]
+ctLocalSecondaryIndexes :: Lens' CreateTable (Maybe [LocalSecondaryIndex])
 ctLocalSecondaryIndexes = lens _ctLocalSecondaryIndexes (\ s a -> s{_ctLocalSecondaryIndexes = a});
 
 -- | An array of attributes that describe the key schema for the table and

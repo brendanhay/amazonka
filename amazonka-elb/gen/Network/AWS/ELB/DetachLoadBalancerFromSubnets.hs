@@ -56,8 +56,8 @@ import Network.AWS.ELB.Types
 data DetachLoadBalancerFromSubnets = DetachLoadBalancerFromSubnets'{_dlbfsLoadBalancerName :: Text, _dlbfsSubnets :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'DetachLoadBalancerFromSubnets' smart constructor.
-detachLoadBalancerFromSubnets :: Text -> [Text] -> DetachLoadBalancerFromSubnets
-detachLoadBalancerFromSubnets pLoadBalancerName pSubnets = DetachLoadBalancerFromSubnets'{_dlbfsLoadBalancerName = pLoadBalancerName, _dlbfsSubnets = pSubnets};
+detachLoadBalancerFromSubnets :: Text -> DetachLoadBalancerFromSubnets
+detachLoadBalancerFromSubnets pLoadBalancerName = DetachLoadBalancerFromSubnets'{_dlbfsLoadBalancerName = pLoadBalancerName, _dlbfsSubnets = mempty};
 
 -- | The name of the load balancer.
 dlbfsLoadBalancerName :: Lens' DetachLoadBalancerFromSubnets Text
@@ -102,12 +102,12 @@ instance ToQuery DetachLoadBalancerFromSubnets where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dlbfsrSubnets'
-newtype DetachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse'{_dlbfsrSubnets :: [Text]} deriving (Eq, Read, Show)
+newtype DetachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse'{_dlbfsrSubnets :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'DetachLoadBalancerFromSubnetsResponse' smart constructor.
 detachLoadBalancerFromSubnetsResponse :: DetachLoadBalancerFromSubnetsResponse
-detachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse'{_dlbfsrSubnets = mempty};
+detachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse'{_dlbfsrSubnets = Nothing};
 
 -- | The IDs of the remaining subnets for the load balancer.
-dlbfsrSubnets :: Lens' DetachLoadBalancerFromSubnetsResponse [Text]
+dlbfsrSubnets :: Lens' DetachLoadBalancerFromSubnetsResponse (Maybe [Text])
 dlbfsrSubnets = lens _dlbfsrSubnets (\ s a -> s{_dlbfsrSubnets = a});

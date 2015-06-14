@@ -88,8 +88,8 @@ import Network.AWS.EC2.Types
 data CreateDHCPOptions = CreateDHCPOptions'{_cdoDryRun :: Maybe Bool, _cdoDHCPConfigurations :: [NewDHCPConfiguration]} deriving (Eq, Read, Show)
 
 -- | 'CreateDHCPOptions' smart constructor.
-createDHCPOptions :: [NewDHCPConfiguration] -> CreateDHCPOptions
-createDHCPOptions pDHCPConfigurations = CreateDHCPOptions'{_cdoDryRun = Nothing, _cdoDHCPConfigurations = pDHCPConfigurations};
+createDHCPOptions :: CreateDHCPOptions
+createDHCPOptions = CreateDHCPOptions'{_cdoDryRun = Nothing, _cdoDHCPConfigurations = mempty};
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have

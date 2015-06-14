@@ -53,17 +53,17 @@ import Network.AWS.EC2.Types
 -- * 'dpg1Filters'
 --
 -- * 'dpg1DryRun'
-data DescribePlacementGroups = DescribePlacementGroups'{_dpg1GroupNames :: [Text], _dpg1Filters :: [Filter], _dpg1DryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data DescribePlacementGroups = DescribePlacementGroups'{_dpg1GroupNames :: Maybe [Text], _dpg1Filters :: Maybe [Filter], _dpg1DryRun :: Maybe Bool} deriving (Eq, Read, Show)
 
 -- | 'DescribePlacementGroups' smart constructor.
 describePlacementGroups :: DescribePlacementGroups
-describePlacementGroups = DescribePlacementGroups'{_dpg1GroupNames = mempty, _dpg1Filters = mempty, _dpg1DryRun = Nothing};
+describePlacementGroups = DescribePlacementGroups'{_dpg1GroupNames = Nothing, _dpg1Filters = Nothing, _dpg1DryRun = Nothing};
 
 -- | One or more placement group names.
 --
 -- Default: Describes all your placement groups, or only those otherwise
 -- specified.
-dpg1GroupNames :: Lens' DescribePlacementGroups [Text]
+dpg1GroupNames :: Lens' DescribePlacementGroups (Maybe [Text])
 dpg1GroupNames = lens _dpg1GroupNames (\ s a -> s{_dpg1GroupNames = a});
 
 -- | One or more filters.
@@ -75,7 +75,7 @@ dpg1GroupNames = lens _dpg1GroupNames (\ s a -> s{_dpg1GroupNames = a});
 --
 -- -   @strategy@ - The strategy of the placement group (@cluster@).
 --
-dpg1Filters :: Lens' DescribePlacementGroups [Filter]
+dpg1Filters :: Lens' DescribePlacementGroups (Maybe [Filter])
 dpg1Filters = lens _dpg1Filters (\ s a -> s{_dpg1Filters = a});
 
 -- | Checks whether you have the required permissions for the action, without
@@ -116,12 +116,12 @@ instance ToQuery DescribePlacementGroups where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dpgrPlacementGroups'
-newtype DescribePlacementGroupsResponse = DescribePlacementGroupsResponse'{_dpgrPlacementGroups :: [PlacementGroup]} deriving (Eq, Read, Show)
+newtype DescribePlacementGroupsResponse = DescribePlacementGroupsResponse'{_dpgrPlacementGroups :: Maybe [PlacementGroup]} deriving (Eq, Read, Show)
 
 -- | 'DescribePlacementGroupsResponse' smart constructor.
 describePlacementGroupsResponse :: DescribePlacementGroupsResponse
-describePlacementGroupsResponse = DescribePlacementGroupsResponse'{_dpgrPlacementGroups = mempty};
+describePlacementGroupsResponse = DescribePlacementGroupsResponse'{_dpgrPlacementGroups = Nothing};
 
 -- | One or more placement groups.
-dpgrPlacementGroups :: Lens' DescribePlacementGroupsResponse [PlacementGroup]
+dpgrPlacementGroups :: Lens' DescribePlacementGroupsResponse (Maybe [PlacementGroup])
 dpgrPlacementGroups = lens _dpgrPlacementGroups (\ s a -> s{_dpgrPlacementGroups = a});

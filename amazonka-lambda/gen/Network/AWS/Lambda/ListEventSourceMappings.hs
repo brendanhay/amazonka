@@ -34,8 +34,8 @@ module Network.AWS.Lambda.ListEventSourceMappings
     , listEventSourceMappings
     -- ** Request lenses
     , lesmEventSourceARN
-    , lesmMarker
     , lesmMaxItems
+    , lesmMarker
     , lesmFunctionName
 
     -- * Response
@@ -58,31 +58,31 @@ import Network.AWS.Lambda.Types
 --
 -- * 'lesmEventSourceARN'
 --
--- * 'lesmMarker'
---
 -- * 'lesmMaxItems'
 --
+-- * 'lesmMarker'
+--
 -- * 'lesmFunctionName'
-data ListEventSourceMappings = ListEventSourceMappings'{_lesmEventSourceARN :: Maybe Text, _lesmMarker :: Maybe Text, _lesmMaxItems :: Nat, _lesmFunctionName :: Text} deriving (Eq, Read, Show)
+data ListEventSourceMappings = ListEventSourceMappings'{_lesmEventSourceARN :: Maybe Text, _lesmMaxItems :: Maybe Nat, _lesmMarker :: Maybe Text, _lesmFunctionName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ListEventSourceMappings' smart constructor.
-listEventSourceMappings :: Natural -> Text -> ListEventSourceMappings
-listEventSourceMappings pMaxItems pFunctionName = ListEventSourceMappings'{_lesmEventSourceARN = Nothing, _lesmMarker = Nothing, _lesmMaxItems = _Nat # pMaxItems, _lesmFunctionName = pFunctionName};
+listEventSourceMappings :: ListEventSourceMappings
+listEventSourceMappings = ListEventSourceMappings'{_lesmEventSourceARN = Nothing, _lesmMaxItems = Nothing, _lesmMarker = Nothing, _lesmFunctionName = Nothing};
 
 -- | The Amazon Resource Name (ARN) of the Amazon Kinesis stream.
 lesmEventSourceARN :: Lens' ListEventSourceMappings (Maybe Text)
 lesmEventSourceARN = lens _lesmEventSourceARN (\ s a -> s{_lesmEventSourceARN = a});
+
+-- | Optional integer. Specifies the maximum number of event sources to
+-- return in response. This value must be greater than 0.
+lesmMaxItems :: Lens' ListEventSourceMappings (Maybe Natural)
+lesmMaxItems = lens _lesmMaxItems (\ s a -> s{_lesmMaxItems = a}) . mapping _Nat;
 
 -- | Optional string. An opaque pagination token returned from a previous
 -- @ListEventSourceMappings@ operation. If present, specifies to continue
 -- the list from where the returning call left off.
 lesmMarker :: Lens' ListEventSourceMappings (Maybe Text)
 lesmMarker = lens _lesmMarker (\ s a -> s{_lesmMarker = a});
-
--- | Optional integer. Specifies the maximum number of event sources to
--- return in response. This value must be greater than 0.
-lesmMaxItems :: Lens' ListEventSourceMappings Natural
-lesmMaxItems = lens _lesmMaxItems (\ s a -> s{_lesmMaxItems = a}) . _Nat;
 
 -- | The name of the Lambda function.
 --
@@ -94,7 +94,7 @@ lesmMaxItems = lens _lesmMaxItems (\ s a -> s{_lesmMaxItems = a}) . _Nat;
 -- \"account-id:Thumbnail\"). Note that the length constraint applies only
 -- to the ARN. If you specify only the function name, it is limited to 64
 -- character in length.
-lesmFunctionName :: Lens' ListEventSourceMappings Text
+lesmFunctionName :: Lens' ListEventSourceMappings (Maybe Text)
 lesmFunctionName = lens _lesmFunctionName (\ s a -> s{_lesmFunctionName = a});
 
 instance AWSRequest ListEventSourceMappings where
@@ -119,7 +119,7 @@ instance ToQuery ListEventSourceMappings where
         toQuery ListEventSourceMappings'{..}
           = mconcat
               ["EventSourceArn" =: _lesmEventSourceARN,
-               "Marker" =: _lesmMarker, "MaxItems" =: _lesmMaxItems,
+               "MaxItems" =: _lesmMaxItems, "Marker" =: _lesmMarker,
                "FunctionName" =: _lesmFunctionName]
 
 -- | /See:/ 'listEventSourceMappingsResponse' smart constructor.
@@ -129,14 +129,14 @@ instance ToQuery ListEventSourceMappings where
 -- * 'lesmrEventSourceMappings'
 --
 -- * 'lesmrNextMarker'
-data ListEventSourceMappingsResponse = ListEventSourceMappingsResponse'{_lesmrEventSourceMappings :: [EventSourceMappingConfiguration], _lesmrNextMarker :: Maybe Text} deriving (Eq, Read, Show)
+data ListEventSourceMappingsResponse = ListEventSourceMappingsResponse'{_lesmrEventSourceMappings :: Maybe [EventSourceMappingConfiguration], _lesmrNextMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ListEventSourceMappingsResponse' smart constructor.
 listEventSourceMappingsResponse :: ListEventSourceMappingsResponse
-listEventSourceMappingsResponse = ListEventSourceMappingsResponse'{_lesmrEventSourceMappings = mempty, _lesmrNextMarker = Nothing};
+listEventSourceMappingsResponse = ListEventSourceMappingsResponse'{_lesmrEventSourceMappings = Nothing, _lesmrNextMarker = Nothing};
 
 -- | An array of @EventSourceMappingConfiguration@ objects.
-lesmrEventSourceMappings :: Lens' ListEventSourceMappingsResponse [EventSourceMappingConfiguration]
+lesmrEventSourceMappings :: Lens' ListEventSourceMappingsResponse (Maybe [EventSourceMappingConfiguration])
 lesmrEventSourceMappings = lens _lesmrEventSourceMappings (\ s a -> s{_lesmrEventSourceMappings = a});
 
 -- | A string, present if there are more event source mappings.

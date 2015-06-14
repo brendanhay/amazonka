@@ -60,15 +60,15 @@ import Network.AWS.SDB.Types
 -- * 'daDomainName'
 --
 -- * 'daItemName'
-data DeleteAttributes = DeleteAttributes'{_daAttributes :: [Attribute], _daExpected :: Maybe UpdateCondition, _daDomainName :: Text, _daItemName :: Text} deriving (Eq, Read, Show)
+data DeleteAttributes = DeleteAttributes'{_daAttributes :: Maybe [Attribute], _daExpected :: Maybe UpdateCondition, _daDomainName :: Text, _daItemName :: Text} deriving (Eq, Read, Show)
 
 -- | 'DeleteAttributes' smart constructor.
 deleteAttributes :: Text -> Text -> DeleteAttributes
-deleteAttributes pDomainName pItemName = DeleteAttributes'{_daAttributes = mempty, _daExpected = Nothing, _daDomainName = pDomainName, _daItemName = pItemName};
+deleteAttributes pDomainName pItemName = DeleteAttributes'{_daAttributes = Nothing, _daExpected = Nothing, _daDomainName = pDomainName, _daItemName = pItemName};
 
 -- | A list of Attributes. Similar to columns on a spreadsheet, attributes
 -- represent categories of data that can be assigned to items.
-daAttributes :: Lens' DeleteAttributes [Attribute]
+daAttributes :: Lens' DeleteAttributes (Maybe [Attribute])
 daAttributes = lens _daAttributes (\ s a -> s{_daAttributes = a});
 
 -- | The update condition which, if specified, determines whether the

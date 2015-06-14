@@ -110,20 +110,20 @@ instance ToQuery GetPipelineDefinition where
 -- * 'gpdrParameterObjects'
 --
 -- * 'gpdrParameterValues'
-data GetPipelineDefinitionResponse = GetPipelineDefinitionResponse'{_gpdrPipelineObjects :: [PipelineObject], _gpdrParameterObjects :: [ParameterObject], _gpdrParameterValues :: [ParameterValue]} deriving (Eq, Read, Show)
+data GetPipelineDefinitionResponse = GetPipelineDefinitionResponse'{_gpdrPipelineObjects :: Maybe [PipelineObject], _gpdrParameterObjects :: Maybe [ParameterObject], _gpdrParameterValues :: Maybe [ParameterValue]} deriving (Eq, Read, Show)
 
 -- | 'GetPipelineDefinitionResponse' smart constructor.
 getPipelineDefinitionResponse :: GetPipelineDefinitionResponse
-getPipelineDefinitionResponse = GetPipelineDefinitionResponse'{_gpdrPipelineObjects = mempty, _gpdrParameterObjects = mempty, _gpdrParameterValues = mempty};
+getPipelineDefinitionResponse = GetPipelineDefinitionResponse'{_gpdrPipelineObjects = Nothing, _gpdrParameterObjects = Nothing, _gpdrParameterValues = Nothing};
 
 -- | The objects defined in the pipeline.
-gpdrPipelineObjects :: Lens' GetPipelineDefinitionResponse [PipelineObject]
+gpdrPipelineObjects :: Lens' GetPipelineDefinitionResponse (Maybe [PipelineObject])
 gpdrPipelineObjects = lens _gpdrPipelineObjects (\ s a -> s{_gpdrPipelineObjects = a});
 
 -- | The parameter objects used in the pipeline definition.
-gpdrParameterObjects :: Lens' GetPipelineDefinitionResponse [ParameterObject]
+gpdrParameterObjects :: Lens' GetPipelineDefinitionResponse (Maybe [ParameterObject])
 gpdrParameterObjects = lens _gpdrParameterObjects (\ s a -> s{_gpdrParameterObjects = a});
 
 -- | The parameter values used in the pipeline definition.
-gpdrParameterValues :: Lens' GetPipelineDefinitionResponse [ParameterValue]
+gpdrParameterValues :: Lens' GetPipelineDefinitionResponse (Maybe [ParameterValue])
 gpdrParameterValues = lens _gpdrParameterValues (\ s a -> s{_gpdrParameterValues = a});

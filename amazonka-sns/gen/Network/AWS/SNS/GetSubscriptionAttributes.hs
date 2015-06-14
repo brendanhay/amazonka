@@ -85,11 +85,11 @@ instance ToQuery GetSubscriptionAttributes where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gsarAttributes'
-newtype GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse'{_gsarAttributes :: HashMap Text Text} deriving (Eq, Read, Show)
+newtype GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse'{_gsarAttributes :: Maybe (HashMap Text Text)} deriving (Eq, Read, Show)
 
 -- | 'GetSubscriptionAttributesResponse' smart constructor.
 getSubscriptionAttributesResponse :: GetSubscriptionAttributesResponse
-getSubscriptionAttributesResponse = GetSubscriptionAttributesResponse'{_gsarAttributes = mempty};
+getSubscriptionAttributesResponse = GetSubscriptionAttributesResponse'{_gsarAttributes = Nothing};
 
 -- | A map of the subscription\'s attributes. Attributes in this map include
 -- the following:
@@ -104,5 +104,5 @@ getSubscriptionAttributesResponse = GetSubscriptionAttributesResponse'{_gsarAttr
 -- -   @EffectiveDeliveryPolicy@ -- the JSON serialization of the effective
 --     delivery policy that takes into account the topic delivery policy
 --     and account system defaults
-gsarAttributes :: Lens' GetSubscriptionAttributesResponse (HashMap Text Text)
-gsarAttributes = lens _gsarAttributes (\ s a -> s{_gsarAttributes = a}) . _Coerce;
+gsarAttributes :: Lens' GetSubscriptionAttributesResponse (Maybe (HashMap Text Text))
+gsarAttributes = lens _gsarAttributes (\ s a -> s{_gsarAttributes = a}) . mapping _Coerce;

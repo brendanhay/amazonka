@@ -78,10 +78,10 @@ module Network.AWS.CloudFormation.Types
     , staCapabilities
     , staDescription
     , staTags
+    , staTimeoutInMinutes
     , staStackName
     , staCreationTime
     , staStackStatus
-    , staTimeoutInMinutes
 
     -- * StackEvent
     , StackEvent
@@ -316,14 +316,14 @@ instance ToQuery Parameter where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'pcAllowedValues'
-newtype ParameterConstraints = ParameterConstraints'{_pcAllowedValues :: [Text]} deriving (Eq, Read, Show)
+newtype ParameterConstraints = ParameterConstraints'{_pcAllowedValues :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'ParameterConstraints' smart constructor.
 parameterConstraints :: ParameterConstraints
-parameterConstraints = ParameterConstraints'{_pcAllowedValues = mempty};
+parameterConstraints = ParameterConstraints'{_pcAllowedValues = Nothing};
 
 -- | A list of values that are permitted for a parameter.
-pcAllowedValues :: Lens' ParameterConstraints [Text]
+pcAllowedValues :: Lens' ParameterConstraints (Maybe [Text])
 pcAllowedValues = lens _pcAllowedValues (\ s a -> s{_pcAllowedValues = a});
 
 instance FromXML ParameterConstraints where
@@ -464,18 +464,18 @@ instance FromXML ResourceStatus where
 --
 -- * 'staTags'
 --
+-- * 'staTimeoutInMinutes'
+--
 -- * 'staStackName'
 --
 -- * 'staCreationTime'
 --
 -- * 'staStackStatus'
---
--- * 'staTimeoutInMinutes'
-data Stack = Stack'{_staDisableRollback :: Maybe Bool, _staLastUpdatedTime :: Maybe ISO8601, _staNotificationARNs :: [Text], _staStackStatusReason :: Maybe Text, _staOutputs :: [Output], _staParameters :: [Parameter], _staStackId :: Maybe Text, _staCapabilities :: [Capability], _staDescription :: Maybe Text, _staTags :: [Tag], _staStackName :: Text, _staCreationTime :: ISO8601, _staStackStatus :: StackStatus, _staTimeoutInMinutes :: Nat} deriving (Eq, Read, Show)
+data Stack = Stack'{_staDisableRollback :: Maybe Bool, _staLastUpdatedTime :: Maybe ISO8601, _staNotificationARNs :: Maybe [Text], _staStackStatusReason :: Maybe Text, _staOutputs :: Maybe [Output], _staParameters :: Maybe [Parameter], _staStackId :: Maybe Text, _staCapabilities :: Maybe [Capability], _staDescription :: Maybe Text, _staTags :: Maybe [Tag], _staTimeoutInMinutes :: Maybe Nat, _staStackName :: Text, _staCreationTime :: ISO8601, _staStackStatus :: StackStatus} deriving (Eq, Read, Show)
 
 -- | 'Stack' smart constructor.
-stack :: Text -> UTCTime -> StackStatus -> Natural -> Stack
-stack pStackName pCreationTime pStackStatus pTimeoutInMinutes = Stack'{_staDisableRollback = Nothing, _staLastUpdatedTime = Nothing, _staNotificationARNs = mempty, _staStackStatusReason = Nothing, _staOutputs = mempty, _staParameters = mempty, _staStackId = Nothing, _staCapabilities = mempty, _staDescription = Nothing, _staTags = mempty, _staStackName = pStackName, _staCreationTime = _Time # pCreationTime, _staStackStatus = pStackStatus, _staTimeoutInMinutes = _Nat # pTimeoutInMinutes};
+stack :: Text -> UTCTime -> StackStatus -> Stack
+stack pStackName pCreationTime pStackStatus = Stack'{_staDisableRollback = Nothing, _staLastUpdatedTime = Nothing, _staNotificationARNs = Nothing, _staStackStatusReason = Nothing, _staOutputs = Nothing, _staParameters = Nothing, _staStackId = Nothing, _staCapabilities = Nothing, _staDescription = Nothing, _staTags = Nothing, _staTimeoutInMinutes = Nothing, _staStackName = pStackName, _staCreationTime = _Time # pCreationTime, _staStackStatus = pStackStatus};
 
 -- | Boolean to enable or disable rollback on stack creation failures:
 --
@@ -490,7 +490,7 @@ staLastUpdatedTime :: Lens' Stack (Maybe UTCTime)
 staLastUpdatedTime = lens _staLastUpdatedTime (\ s a -> s{_staLastUpdatedTime = a}) . mapping _Time;
 
 -- | SNS topic ARNs to which stack related events are published.
-staNotificationARNs :: Lens' Stack [Text]
+staNotificationARNs :: Lens' Stack (Maybe [Text])
 staNotificationARNs = lens _staNotificationARNs (\ s a -> s{_staNotificationARNs = a});
 
 -- | Success\/failure message associated with the stack status.
@@ -498,11 +498,11 @@ staStackStatusReason :: Lens' Stack (Maybe Text)
 staStackStatusReason = lens _staStackStatusReason (\ s a -> s{_staStackStatusReason = a});
 
 -- | A list of output structures.
-staOutputs :: Lens' Stack [Output]
+staOutputs :: Lens' Stack (Maybe [Output])
 staOutputs = lens _staOutputs (\ s a -> s{_staOutputs = a});
 
 -- | A list of @Parameter@ structures.
-staParameters :: Lens' Stack [Parameter]
+staParameters :: Lens' Stack (Maybe [Parameter])
 staParameters = lens _staParameters (\ s a -> s{_staParameters = a});
 
 -- | Unique identifier of the stack.
@@ -510,7 +510,7 @@ staStackId :: Lens' Stack (Maybe Text)
 staStackId = lens _staStackId (\ s a -> s{_staStackId = a});
 
 -- | The capabilities allowed in the stack.
-staCapabilities :: Lens' Stack [Capability]
+staCapabilities :: Lens' Stack (Maybe [Capability])
 staCapabilities = lens _staCapabilities (\ s a -> s{_staCapabilities = a});
 
 -- | User defined description associated with the stack.
@@ -518,8 +518,12 @@ staDescription :: Lens' Stack (Maybe Text)
 staDescription = lens _staDescription (\ s a -> s{_staDescription = a});
 
 -- | A list of @Tag@s that specify cost allocation information for the stack.
-staTags :: Lens' Stack [Tag]
+staTags :: Lens' Stack (Maybe [Tag])
 staTags = lens _staTags (\ s a -> s{_staTags = a});
+
+-- | The amount of time within which stack creation should complete.
+staTimeoutInMinutes :: Lens' Stack (Maybe Natural)
+staTimeoutInMinutes = lens _staTimeoutInMinutes (\ s a -> s{_staTimeoutInMinutes = a}) . mapping _Nat;
 
 -- | The name associated with the stack.
 staStackName :: Lens' Stack Text
@@ -532,10 +536,6 @@ staCreationTime = lens _staCreationTime (\ s a -> s{_staCreationTime = a}) . _Ti
 -- | Current status of the stack.
 staStackStatus :: Lens' Stack StackStatus
 staStackStatus = lens _staStackStatus (\ s a -> s{_staStackStatus = a});
-
--- | The amount of time within which stack creation should complete.
-staTimeoutInMinutes :: Lens' Stack Natural
-staTimeoutInMinutes = lens _staTimeoutInMinutes (\ s a -> s{_staTimeoutInMinutes = a}) . _Nat;
 
 instance FromXML Stack where
         parseXML x
@@ -558,10 +558,10 @@ instance FromXML Stack where
                 <*> x .@? "Description"
                 <*>
                 (x .@? "Tags" .!@ mempty >>= parseXMLList "member")
+                <*> x .@? "TimeoutInMinutes"
                 <*> x .@ "StackName"
                 <*> x .@ "CreationTime"
                 <*> x .@ "StackStatus"
-                <*> x .@ "TimeoutInMinutes"
 
 -- | /See:/ 'stackEvent' smart constructor.
 --

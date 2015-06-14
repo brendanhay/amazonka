@@ -27,11 +27,11 @@ module Network.AWS.CognitoIdentity.UpdateIdentityPool
     , updateIdentityPool
     -- ** Request lenses
     , uipSupportedLoginProviders
+    , uipDeveloperProviderName
     , uipOpenIdConnectProviderARNs
     , uipIdentityPoolId
     , uipIdentityPoolName
     , uipAllowUnauthenticatedIdentities
-    , uipDeveloperProviderName
 
     -- * Response
     , IdentityPool
@@ -39,11 +39,11 @@ module Network.AWS.CognitoIdentity.UpdateIdentityPool
     , identityPool
     -- ** Response lenses
     , ipSupportedLoginProviders
+    , ipDeveloperProviderName
     , ipOpenIdConnectProviderARNs
     , ipIdentityPoolId
     , ipIdentityPoolName
     , ipAllowUnauthenticatedIdentities
-    , ipDeveloperProviderName
     ) where
 
 import Network.AWS.Request
@@ -57,6 +57,8 @@ import Network.AWS.CognitoIdentity.Types
 --
 -- * 'uipSupportedLoginProviders'
 --
+-- * 'uipDeveloperProviderName'
+--
 -- * 'uipOpenIdConnectProviderARNs'
 --
 -- * 'uipIdentityPoolId'
@@ -64,20 +66,22 @@ import Network.AWS.CognitoIdentity.Types
 -- * 'uipIdentityPoolName'
 --
 -- * 'uipAllowUnauthenticatedIdentities'
---
--- * 'uipDeveloperProviderName'
-data UpdateIdentityPool = UpdateIdentityPool'{_uipSupportedLoginProviders :: HashMap Text Text, _uipOpenIdConnectProviderARNs :: [Text], _uipIdentityPoolId :: Text, _uipIdentityPoolName :: Text, _uipAllowUnauthenticatedIdentities :: Bool, _uipDeveloperProviderName :: Text} deriving (Eq, Read, Show)
+data UpdateIdentityPool = UpdateIdentityPool'{_uipSupportedLoginProviders :: Maybe (HashMap Text Text), _uipDeveloperProviderName :: Maybe Text, _uipOpenIdConnectProviderARNs :: Maybe [Text], _uipIdentityPoolId :: Text, _uipIdentityPoolName :: Text, _uipAllowUnauthenticatedIdentities :: Bool} deriving (Eq, Read, Show)
 
 -- | 'UpdateIdentityPool' smart constructor.
-updateIdentityPool :: Text -> Text -> Bool -> Text -> UpdateIdentityPool
-updateIdentityPool pIdentityPoolId pIdentityPoolName pAllowUnauthenticatedIdentities pDeveloperProviderName = UpdateIdentityPool'{_uipSupportedLoginProviders = mempty, _uipOpenIdConnectProviderARNs = mempty, _uipIdentityPoolId = pIdentityPoolId, _uipIdentityPoolName = pIdentityPoolName, _uipAllowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities, _uipDeveloperProviderName = pDeveloperProviderName};
+updateIdentityPool :: Text -> Text -> Bool -> UpdateIdentityPool
+updateIdentityPool pIdentityPoolId pIdentityPoolName pAllowUnauthenticatedIdentities = UpdateIdentityPool'{_uipSupportedLoginProviders = Nothing, _uipDeveloperProviderName = Nothing, _uipOpenIdConnectProviderARNs = Nothing, _uipIdentityPoolId = pIdentityPoolId, _uipIdentityPoolName = pIdentityPoolName, _uipAllowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities};
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
-uipSupportedLoginProviders :: Lens' UpdateIdentityPool (HashMap Text Text)
-uipSupportedLoginProviders = lens _uipSupportedLoginProviders (\ s a -> s{_uipSupportedLoginProviders = a}) . _Coerce;
+uipSupportedLoginProviders :: Lens' UpdateIdentityPool (Maybe (HashMap Text Text))
+uipSupportedLoginProviders = lens _uipSupportedLoginProviders (\ s a -> s{_uipSupportedLoginProviders = a}) . mapping _Coerce;
+
+-- | The \"domain\" by which Cognito will refer to your users.
+uipDeveloperProviderName :: Lens' UpdateIdentityPool (Maybe Text)
+uipDeveloperProviderName = lens _uipDeveloperProviderName (\ s a -> s{_uipDeveloperProviderName = a});
 
 -- | A list of OpendID Connect provider ARNs.
-uipOpenIdConnectProviderARNs :: Lens' UpdateIdentityPool [Text]
+uipOpenIdConnectProviderARNs :: Lens' UpdateIdentityPool (Maybe [Text])
 uipOpenIdConnectProviderARNs = lens _uipOpenIdConnectProviderARNs (\ s a -> s{_uipOpenIdConnectProviderARNs = a});
 
 -- | An identity pool ID in the format REGION:GUID.
@@ -91,10 +95,6 @@ uipIdentityPoolName = lens _uipIdentityPoolName (\ s a -> s{_uipIdentityPoolName
 -- | TRUE if the identity pool supports unauthenticated logins.
 uipAllowUnauthenticatedIdentities :: Lens' UpdateIdentityPool Bool
 uipAllowUnauthenticatedIdentities = lens _uipAllowUnauthenticatedIdentities (\ s a -> s{_uipAllowUnauthenticatedIdentities = a});
-
--- | The \"domain\" by which Cognito will refer to your users.
-uipDeveloperProviderName :: Lens' UpdateIdentityPool Text
-uipDeveloperProviderName = lens _uipDeveloperProviderName (\ s a -> s{_uipDeveloperProviderName = a});
 
 instance AWSRequest UpdateIdentityPool where
         type Sv UpdateIdentityPool = CognitoIdentity
@@ -117,13 +117,13 @@ instance ToJSON UpdateIdentityPool where
           = object
               ["SupportedLoginProviders" .=
                  _uipSupportedLoginProviders,
+               "DeveloperProviderName" .= _uipDeveloperProviderName,
                "OpenIdConnectProviderARNs" .=
                  _uipOpenIdConnectProviderARNs,
                "IdentityPoolId" .= _uipIdentityPoolId,
                "IdentityPoolName" .= _uipIdentityPoolName,
                "AllowUnauthenticatedIdentities" .=
-                 _uipAllowUnauthenticatedIdentities,
-               "DeveloperProviderName" .= _uipDeveloperProviderName]
+                 _uipAllowUnauthenticatedIdentities]
 
 instance ToPath UpdateIdentityPool where
         toPath = const "/"

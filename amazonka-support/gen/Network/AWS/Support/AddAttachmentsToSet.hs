@@ -61,8 +61,8 @@ import Network.AWS.Support.Types
 data AddAttachmentsToSet = AddAttachmentsToSet'{_aatsAttachmentSetId :: Maybe Text, _aatsAttachments :: [Attachment]} deriving (Eq, Read, Show)
 
 -- | 'AddAttachmentsToSet' smart constructor.
-addAttachmentsToSet :: [Attachment] -> AddAttachmentsToSet
-addAttachmentsToSet pAttachments = AddAttachmentsToSet'{_aatsAttachmentSetId = Nothing, _aatsAttachments = pAttachments};
+addAttachmentsToSet :: AddAttachmentsToSet
+addAttachmentsToSet = AddAttachmentsToSet'{_aatsAttachmentSetId = Nothing, _aatsAttachments = mempty};
 
 -- | The ID of the attachment set. If an @AttachmentSetId@ is not specified,
 -- a new attachment set is created, and the ID of the set is returned in

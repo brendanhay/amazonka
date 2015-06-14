@@ -112,15 +112,15 @@ instance ToQuery ListClusters where
 -- * 'lcrClusterARNs'
 --
 -- * 'lcrNextToken'
-data ListClustersResponse = ListClustersResponse'{_lcrClusterARNs :: [Text], _lcrNextToken :: Maybe Text} deriving (Eq, Read, Show)
+data ListClustersResponse = ListClustersResponse'{_lcrClusterARNs :: Maybe [Text], _lcrNextToken :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ListClustersResponse' smart constructor.
 listClustersResponse :: ListClustersResponse
-listClustersResponse = ListClustersResponse'{_lcrClusterARNs = mempty, _lcrNextToken = Nothing};
+listClustersResponse = ListClustersResponse'{_lcrClusterARNs = Nothing, _lcrNextToken = Nothing};
 
 -- | The list of full Amazon Resource Name (ARN) entries for each cluster
 -- associated with your account.
-lcrClusterARNs :: Lens' ListClustersResponse [Text]
+lcrClusterARNs :: Lens' ListClustersResponse (Maybe [Text])
 lcrClusterARNs = lens _lcrClusterARNs (\ s a -> s{_lcrClusterARNs = a});
 
 -- | The @nextToken@ value to include in a future @ListClusters@ request.

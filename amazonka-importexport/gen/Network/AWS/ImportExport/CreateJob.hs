@@ -140,11 +140,11 @@ instance ToQuery CreateJob where
 -- * 'cjrWarningMessage'
 --
 -- * 'cjrArtifactList'
-data CreateJobResponse = CreateJobResponse'{_cjrSignature :: Maybe Text, _cjrJobType :: Maybe JobType, _cjrJobId :: Maybe Text, _cjrSignatureFileContents :: Maybe Text, _cjrWarningMessage :: Maybe Text, _cjrArtifactList :: [Artifact]} deriving (Eq, Read, Show)
+data CreateJobResponse = CreateJobResponse'{_cjrSignature :: Maybe Text, _cjrJobType :: Maybe JobType, _cjrJobId :: Maybe Text, _cjrSignatureFileContents :: Maybe Text, _cjrWarningMessage :: Maybe Text, _cjrArtifactList :: Maybe [Artifact]} deriving (Eq, Read, Show)
 
 -- | 'CreateJobResponse' smart constructor.
 createJobResponse :: CreateJobResponse
-createJobResponse = CreateJobResponse'{_cjrSignature = Nothing, _cjrJobType = Nothing, _cjrJobId = Nothing, _cjrSignatureFileContents = Nothing, _cjrWarningMessage = Nothing, _cjrArtifactList = mempty};
+createJobResponse = CreateJobResponse'{_cjrSignature = Nothing, _cjrJobType = Nothing, _cjrJobId = Nothing, _cjrSignatureFileContents = Nothing, _cjrWarningMessage = Nothing, _cjrArtifactList = Nothing};
 
 -- | FIXME: Undocumented member.
 cjrSignature :: Lens' CreateJobResponse (Maybe Text)
@@ -167,5 +167,5 @@ cjrWarningMessage :: Lens' CreateJobResponse (Maybe Text)
 cjrWarningMessage = lens _cjrWarningMessage (\ s a -> s{_cjrWarningMessage = a});
 
 -- | FIXME: Undocumented member.
-cjrArtifactList :: Lens' CreateJobResponse [Artifact]
+cjrArtifactList :: Lens' CreateJobResponse (Maybe [Artifact])
 cjrArtifactList = lens _cjrArtifactList (\ s a -> s{_cjrArtifactList = a});

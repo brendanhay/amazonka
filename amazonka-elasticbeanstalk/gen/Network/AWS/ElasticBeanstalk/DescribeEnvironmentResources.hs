@@ -24,8 +24,8 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
     -- ** Request constructor
     , describeEnvironmentResources
     -- ** Request lenses
-    , derEnvironmentId
     , derEnvironmentName
+    , derEnvironmentId
 
     -- * Response
     , DescribeEnvironmentResourcesResponse
@@ -44,14 +44,22 @@ import Network.AWS.ElasticBeanstalk.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'derEnvironmentId'
---
 -- * 'derEnvironmentName'
-data DescribeEnvironmentResources = DescribeEnvironmentResources'{_derEnvironmentId :: Maybe Text, _derEnvironmentName :: Text} deriving (Eq, Read, Show)
+--
+-- * 'derEnvironmentId'
+data DescribeEnvironmentResources = DescribeEnvironmentResources'{_derEnvironmentName :: Maybe Text, _derEnvironmentId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeEnvironmentResources' smart constructor.
-describeEnvironmentResources :: Text -> DescribeEnvironmentResources
-describeEnvironmentResources pEnvironmentName = DescribeEnvironmentResources'{_derEnvironmentId = Nothing, _derEnvironmentName = pEnvironmentName};
+describeEnvironmentResources :: DescribeEnvironmentResources
+describeEnvironmentResources = DescribeEnvironmentResources'{_derEnvironmentName = Nothing, _derEnvironmentId = Nothing};
+
+-- | The name of the environment to retrieve AWS resource usage data.
+--
+-- Condition: You must specify either this or an EnvironmentId, or both. If
+-- you do not specify either, AWS Elastic Beanstalk returns
+-- @MissingRequiredParameter@ error.
+derEnvironmentName :: Lens' DescribeEnvironmentResources (Maybe Text)
+derEnvironmentName = lens _derEnvironmentName (\ s a -> s{_derEnvironmentName = a});
 
 -- | The ID of the environment to retrieve AWS resource usage data.
 --
@@ -60,14 +68,6 @@ describeEnvironmentResources pEnvironmentName = DescribeEnvironmentResources'{_d
 -- @MissingRequiredParameter@ error.
 derEnvironmentId :: Lens' DescribeEnvironmentResources (Maybe Text)
 derEnvironmentId = lens _derEnvironmentId (\ s a -> s{_derEnvironmentId = a});
-
--- | The name of the environment to retrieve AWS resource usage data.
---
--- Condition: You must specify either this or an EnvironmentId, or both. If
--- you do not specify either, AWS Elastic Beanstalk returns
--- @MissingRequiredParameter@ error.
-derEnvironmentName :: Lens' DescribeEnvironmentResources Text
-derEnvironmentName = lens _derEnvironmentName (\ s a -> s{_derEnvironmentName = a});
 
 instance AWSRequest DescribeEnvironmentResources
          where
@@ -95,8 +95,8 @@ instance ToQuery DescribeEnvironmentResources where
               ["Action" =:
                  ("DescribeEnvironmentResources" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "EnvironmentId" =: _derEnvironmentId,
-               "EnvironmentName" =: _derEnvironmentName]
+               "EnvironmentName" =: _derEnvironmentName,
+               "EnvironmentId" =: _derEnvironmentId]
 
 -- | /See:/ 'describeEnvironmentResourcesResponse' smart constructor.
 --

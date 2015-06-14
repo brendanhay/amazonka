@@ -136,7 +136,7 @@ instance AWSRequest CreateDataSourceFromS3 where
           = receiveJSON
               (\ s h x ->
                  CreateDataSourceFromS3Response' <$>
-                   x .:> "DataSourceId")
+                   x .?> "DataSourceId")
 
 instance ToHeaders CreateDataSourceFromS3 where
         toHeaders
@@ -167,13 +167,13 @@ instance ToQuery CreateDataSourceFromS3 where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cdsfsrDataSourceId'
-newtype CreateDataSourceFromS3Response = CreateDataSourceFromS3Response'{_cdsfsrDataSourceId :: Text} deriving (Eq, Read, Show)
+newtype CreateDataSourceFromS3Response = CreateDataSourceFromS3Response'{_cdsfsrDataSourceId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'CreateDataSourceFromS3Response' smart constructor.
-createDataSourceFromS3Response :: Text -> CreateDataSourceFromS3Response
-createDataSourceFromS3Response pDataSourceId = CreateDataSourceFromS3Response'{_cdsfsrDataSourceId = pDataSourceId};
+createDataSourceFromS3Response :: CreateDataSourceFromS3Response
+createDataSourceFromS3Response = CreateDataSourceFromS3Response'{_cdsfsrDataSourceId = Nothing};
 
 -- | A user-supplied ID that uniquely identifies the datasource. This value
 -- should be identical to the value of the @DataSourceID@ in the request.
-cdsfsrDataSourceId :: Lens' CreateDataSourceFromS3Response Text
+cdsfsrDataSourceId :: Lens' CreateDataSourceFromS3Response (Maybe Text)
 cdsfsrDataSourceId = lens _cdsfsrDataSourceId (\ s a -> s{_cdsfsrDataSourceId = a});

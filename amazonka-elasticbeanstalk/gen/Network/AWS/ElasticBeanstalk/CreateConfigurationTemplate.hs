@@ -45,15 +45,15 @@ module Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
     -- ** Response constructor
     , configurationSettingsDescription
     -- ** Response lenses
+    , csdTemplateName
     , csdOptionSettings
     , csdDateUpdated
     , csdDateCreated
+    , csdEnvironmentName
+    , csdApplicationName
     , csdDeploymentStatus
     , csdSolutionStackName
     , csdDescription
-    , csdTemplateName
-    , csdEnvironmentName
-    , csdApplicationName
     ) where
 
 import Network.AWS.Request
@@ -78,16 +78,16 @@ import Network.AWS.ElasticBeanstalk.Types
 -- * 'cctApplicationName'
 --
 -- * 'cctTemplateName'
-data CreateConfigurationTemplate = CreateConfigurationTemplate'{_cctOptionSettings :: [ConfigurationOptionSetting], _cctSourceConfiguration :: Maybe SourceConfiguration, _cctEnvironmentId :: Maybe Text, _cctSolutionStackName :: Maybe Text, _cctDescription :: Maybe Text, _cctApplicationName :: Text, _cctTemplateName :: Text} deriving (Eq, Read, Show)
+data CreateConfigurationTemplate = CreateConfigurationTemplate'{_cctOptionSettings :: Maybe [ConfigurationOptionSetting], _cctSourceConfiguration :: Maybe SourceConfiguration, _cctEnvironmentId :: Maybe Text, _cctSolutionStackName :: Maybe Text, _cctDescription :: Maybe Text, _cctApplicationName :: Text, _cctTemplateName :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateConfigurationTemplate' smart constructor.
 createConfigurationTemplate :: Text -> Text -> CreateConfigurationTemplate
-createConfigurationTemplate pApplicationName pTemplateName = CreateConfigurationTemplate'{_cctOptionSettings = mempty, _cctSourceConfiguration = Nothing, _cctEnvironmentId = Nothing, _cctSolutionStackName = Nothing, _cctDescription = Nothing, _cctApplicationName = pApplicationName, _cctTemplateName = pTemplateName};
+createConfigurationTemplate pApplicationName pTemplateName = CreateConfigurationTemplate'{_cctOptionSettings = Nothing, _cctSourceConfiguration = Nothing, _cctEnvironmentId = Nothing, _cctSolutionStackName = Nothing, _cctDescription = Nothing, _cctApplicationName = pApplicationName, _cctTemplateName = pTemplateName};
 
 -- | If specified, AWS Elastic Beanstalk sets the specified configuration
 -- option to the requested value. The new value overrides the value
 -- obtained from the solution stack or the source configuration template.
-cctOptionSettings :: Lens' CreateConfigurationTemplate [ConfigurationOptionSetting]
+cctOptionSettings :: Lens' CreateConfigurationTemplate (Maybe [ConfigurationOptionSetting])
 cctOptionSettings = lens _cctOptionSettings (\ s a -> s{_cctOptionSettings = a});
 
 -- | If specified, AWS Elastic Beanstalk uses the configuration values from

@@ -25,30 +25,30 @@ module Network.AWS.ElasticBeanstalk.TerminateEnvironment
     , terminateEnvironment
     -- ** Request lenses
     , teTerminateResources
-    , teEnvironmentId
     , teEnvironmentName
+    , teEnvironmentId
 
     -- * Response
     , EnvironmentDescription
     -- ** Response constructor
     , environmentDescription
     -- ** Response lenses
+    , envCNAME
     , envStatus
+    , envTemplateName
     , envAbortableOperationInProgress
     , envEndpointURL
     , envDateUpdated
     , envResources
     , envHealth
+    , envVersionLabel
     , envDateCreated
     , envTier
+    , envEnvironmentName
+    , envApplicationName
     , envEnvironmentId
     , envSolutionStackName
     , envDescription
-    , envCNAME
-    , envTemplateName
-    , envVersionLabel
-    , envEnvironmentName
-    , envApplicationName
     ) where
 
 import Network.AWS.Request
@@ -62,14 +62,14 @@ import Network.AWS.ElasticBeanstalk.Types
 --
 -- * 'teTerminateResources'
 --
--- * 'teEnvironmentId'
---
 -- * 'teEnvironmentName'
-data TerminateEnvironment = TerminateEnvironment'{_teTerminateResources :: Maybe Bool, _teEnvironmentId :: Maybe Text, _teEnvironmentName :: Text} deriving (Eq, Read, Show)
+--
+-- * 'teEnvironmentId'
+data TerminateEnvironment = TerminateEnvironment'{_teTerminateResources :: Maybe Bool, _teEnvironmentName :: Maybe Text, _teEnvironmentId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'TerminateEnvironment' smart constructor.
-terminateEnvironment :: Text -> TerminateEnvironment
-terminateEnvironment pEnvironmentName = TerminateEnvironment'{_teTerminateResources = Nothing, _teEnvironmentId = Nothing, _teEnvironmentName = pEnvironmentName};
+terminateEnvironment :: TerminateEnvironment
+terminateEnvironment = TerminateEnvironment'{_teTerminateResources = Nothing, _teEnvironmentName = Nothing, _teEnvironmentId = Nothing};
 
 -- | Indicates whether the associated AWS resources should shut down when the
 -- environment is terminated:
@@ -95,6 +95,14 @@ terminateEnvironment pEnvironmentName = TerminateEnvironment'{_teTerminateResour
 teTerminateResources :: Lens' TerminateEnvironment (Maybe Bool)
 teTerminateResources = lens _teTerminateResources (\ s a -> s{_teTerminateResources = a});
 
+-- | The name of the environment to terminate.
+--
+-- Condition: You must specify either this or an EnvironmentId, or both. If
+-- you do not specify either, AWS Elastic Beanstalk returns
+-- @MissingRequiredParameter@ error.
+teEnvironmentName :: Lens' TerminateEnvironment (Maybe Text)
+teEnvironmentName = lens _teEnvironmentName (\ s a -> s{_teEnvironmentName = a});
+
 -- | The ID of the environment to terminate.
 --
 -- Condition: You must specify either this or an EnvironmentName, or both.
@@ -102,14 +110,6 @@ teTerminateResources = lens _teTerminateResources (\ s a -> s{_teTerminateResour
 -- @MissingRequiredParameter@ error.
 teEnvironmentId :: Lens' TerminateEnvironment (Maybe Text)
 teEnvironmentId = lens _teEnvironmentId (\ s a -> s{_teEnvironmentId = a});
-
--- | The name of the environment to terminate.
---
--- Condition: You must specify either this or an EnvironmentId, or both. If
--- you do not specify either, AWS Elastic Beanstalk returns
--- @MissingRequiredParameter@ error.
-teEnvironmentName :: Lens' TerminateEnvironment Text
-teEnvironmentName = lens _teEnvironmentName (\ s a -> s{_teEnvironmentName = a});
 
 instance AWSRequest TerminateEnvironment where
         type Sv TerminateEnvironment = ElasticBeanstalk
@@ -131,5 +131,5 @@ instance ToQuery TerminateEnvironment where
               ["Action" =: ("TerminateEnvironment" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
                "TerminateResources" =: _teTerminateResources,
-               "EnvironmentId" =: _teEnvironmentId,
-               "EnvironmentName" =: _teEnvironmentName]
+               "EnvironmentName" =: _teEnvironmentName,
+               "EnvironmentId" =: _teEnvironmentId]

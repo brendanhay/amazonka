@@ -67,8 +67,8 @@ import Network.AWS.SES.Types
 newtype GetIdentityDkimAttributes = GetIdentityDkimAttributes'{_gidaIdentities :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'GetIdentityDkimAttributes' smart constructor.
-getIdentityDkimAttributes :: [Text] -> GetIdentityDkimAttributes
-getIdentityDkimAttributes pIdentities = GetIdentityDkimAttributes'{_gidaIdentities = pIdentities};
+getIdentityDkimAttributes :: GetIdentityDkimAttributes
+getIdentityDkimAttributes = GetIdentityDkimAttributes'{_gidaIdentities = mempty};
 
 -- | A list of one or more verified identities - email addresses, domains, or
 -- both.
@@ -109,8 +109,8 @@ instance ToQuery GetIdentityDkimAttributes where
 newtype GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse'{_gidarDkimAttributes :: HashMap Text IdentityDkimAttributes} deriving (Eq, Read, Show)
 
 -- | 'GetIdentityDkimAttributesResponse' smart constructor.
-getIdentityDkimAttributesResponse :: HashMap Text IdentityDkimAttributes -> GetIdentityDkimAttributesResponse
-getIdentityDkimAttributesResponse pDkimAttributes = GetIdentityDkimAttributesResponse'{_gidarDkimAttributes = _Coerce # pDkimAttributes};
+getIdentityDkimAttributesResponse :: GetIdentityDkimAttributesResponse
+getIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse'{_gidarDkimAttributes = mempty};
 
 -- | The DKIM attributes for an email address or a domain.
 gidarDkimAttributes :: Lens' GetIdentityDkimAttributesResponse (HashMap Text IdentityDkimAttributes)

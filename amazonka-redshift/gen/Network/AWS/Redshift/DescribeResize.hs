@@ -143,11 +143,11 @@ instance ToQuery DescribeResize where
 -- * 'drrElapsedTimeInSeconds'
 --
 -- * 'drrTargetClusterType'
-data DescribeResizeResponse = DescribeResizeResponse'{_drrEstimatedTimeToCompletionInSeconds :: Maybe Integer, _drrStatus :: Maybe Text, _drrImportTablesNotStarted :: [Text], _drrAvgResizeRateInMegaBytesPerSecond :: Maybe Double, _drrTargetNumberOfNodes :: Maybe Int, _drrTargetNodeType :: Maybe Text, _drrImportTablesInProgress :: [Text], _drrImportTablesCompleted :: [Text], _drrProgressInMegaBytes :: Maybe Integer, _drrTotalResizeDataInMegaBytes :: Maybe Integer, _drrElapsedTimeInSeconds :: Maybe Integer, _drrTargetClusterType :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeResizeResponse = DescribeResizeResponse'{_drrEstimatedTimeToCompletionInSeconds :: Maybe Integer, _drrStatus :: Maybe Text, _drrImportTablesNotStarted :: Maybe [Text], _drrAvgResizeRateInMegaBytesPerSecond :: Maybe Double, _drrTargetNumberOfNodes :: Maybe Int, _drrTargetNodeType :: Maybe Text, _drrImportTablesInProgress :: Maybe [Text], _drrImportTablesCompleted :: Maybe [Text], _drrProgressInMegaBytes :: Maybe Integer, _drrTotalResizeDataInMegaBytes :: Maybe Integer, _drrElapsedTimeInSeconds :: Maybe Integer, _drrTargetClusterType :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeResizeResponse' smart constructor.
 describeResizeResponse :: DescribeResizeResponse
-describeResizeResponse = DescribeResizeResponse'{_drrEstimatedTimeToCompletionInSeconds = Nothing, _drrStatus = Nothing, _drrImportTablesNotStarted = mempty, _drrAvgResizeRateInMegaBytesPerSecond = Nothing, _drrTargetNumberOfNodes = Nothing, _drrTargetNodeType = Nothing, _drrImportTablesInProgress = mempty, _drrImportTablesCompleted = mempty, _drrProgressInMegaBytes = Nothing, _drrTotalResizeDataInMegaBytes = Nothing, _drrElapsedTimeInSeconds = Nothing, _drrTargetClusterType = Nothing};
+describeResizeResponse = DescribeResizeResponse'{_drrEstimatedTimeToCompletionInSeconds = Nothing, _drrStatus = Nothing, _drrImportTablesNotStarted = Nothing, _drrAvgResizeRateInMegaBytesPerSecond = Nothing, _drrTargetNumberOfNodes = Nothing, _drrTargetNodeType = Nothing, _drrImportTablesInProgress = Nothing, _drrImportTablesCompleted = Nothing, _drrProgressInMegaBytes = Nothing, _drrTotalResizeDataInMegaBytes = Nothing, _drrElapsedTimeInSeconds = Nothing, _drrTargetClusterType = Nothing};
 
 -- | The estimated time remaining, in seconds, until the resize operation is
 -- complete. This value is calculated based on the average resize rate and
@@ -165,7 +165,7 @@ drrStatus = lens _drrStatus (\ s a -> s{_drrStatus = a});
 -- | The names of tables that have not been yet imported.
 --
 -- Valid Values: List of table names
-drrImportTablesNotStarted :: Lens' DescribeResizeResponse [Text]
+drrImportTablesNotStarted :: Lens' DescribeResizeResponse (Maybe [Text])
 drrImportTablesNotStarted = lens _drrImportTablesNotStarted (\ s a -> s{_drrImportTablesNotStarted = a});
 
 -- | The average rate of the resize operation over the last few minutes,
@@ -187,13 +187,13 @@ drrTargetNodeType = lens _drrTargetNodeType (\ s a -> s{_drrTargetNodeType = a})
 -- | The names of tables that are being currently imported.
 --
 -- Valid Values: List of table names.
-drrImportTablesInProgress :: Lens' DescribeResizeResponse [Text]
+drrImportTablesInProgress :: Lens' DescribeResizeResponse (Maybe [Text])
 drrImportTablesInProgress = lens _drrImportTablesInProgress (\ s a -> s{_drrImportTablesInProgress = a});
 
 -- | The names of tables that have been completely imported .
 --
 -- Valid Values: List of table names.
-drrImportTablesCompleted :: Lens' DescribeResizeResponse [Text]
+drrImportTablesCompleted :: Lens' DescribeResizeResponse (Maybe [Text])
 drrImportTablesCompleted = lens _drrImportTablesCompleted (\ s a -> s{_drrImportTablesCompleted = a});
 
 -- | While the resize operation is in progress, this value shows the current

@@ -87,11 +87,11 @@ import Network.AWS.DynamoDB.Types
 -- * 'diTableName'
 --
 -- * 'diKey'
-data DeleteItem = DeleteItem'{_diReturnValues :: Maybe ReturnValue, _diExpressionAttributeNames :: HashMap Text Text, _diReturnConsumedCapacity :: Maybe ReturnConsumedCapacity, _diExpressionAttributeValues :: HashMap Text AttributeValue, _diReturnItemCollectionMetrics :: Maybe ReturnItemCollectionMetrics, _diConditionExpression :: Maybe Text, _diConditionalOperator :: Maybe ConditionalOperator, _diExpected :: HashMap Text ExpectedAttributeValue, _diTableName :: Text, _diKey :: HashMap Text AttributeValue} deriving (Eq, Read, Show)
+data DeleteItem = DeleteItem'{_diReturnValues :: Maybe ReturnValue, _diExpressionAttributeNames :: Maybe (HashMap Text Text), _diReturnConsumedCapacity :: Maybe ReturnConsumedCapacity, _diExpressionAttributeValues :: Maybe (HashMap Text AttributeValue), _diReturnItemCollectionMetrics :: Maybe ReturnItemCollectionMetrics, _diConditionExpression :: Maybe Text, _diConditionalOperator :: Maybe ConditionalOperator, _diExpected :: Maybe (HashMap Text ExpectedAttributeValue), _diTableName :: Text, _diKey :: HashMap Text AttributeValue} deriving (Eq, Read, Show)
 
 -- | 'DeleteItem' smart constructor.
-deleteItem :: Text -> HashMap Text AttributeValue -> DeleteItem
-deleteItem pTableName pKey = DeleteItem'{_diReturnValues = Nothing, _diExpressionAttributeNames = mempty, _diReturnConsumedCapacity = Nothing, _diExpressionAttributeValues = mempty, _diReturnItemCollectionMetrics = Nothing, _diConditionExpression = Nothing, _diConditionalOperator = Nothing, _diExpected = mempty, _diTableName = pTableName, _diKey = _Coerce # pKey};
+deleteItem :: Text -> DeleteItem
+deleteItem pTableName = DeleteItem'{_diReturnValues = Nothing, _diExpressionAttributeNames = Nothing, _diReturnConsumedCapacity = Nothing, _diExpressionAttributeValues = Nothing, _diReturnItemCollectionMetrics = Nothing, _diConditionExpression = Nothing, _diConditionalOperator = Nothing, _diExpected = Nothing, _diTableName = pTableName, _diKey = mempty};
 
 -- | Use /ReturnValues/ if you want to get the item attributes as they
 -- appeared before they were deleted. For /DeleteItem/, the valid values
@@ -143,8 +143,8 @@ diReturnValues = lens _diReturnValues (\ s a -> s{_diReturnValues = a});
 -- For more information on expression attribute names, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ExpressionPlaceholders.html Using Placeholders for Attribute Names and Values>
 -- in the /Amazon DynamoDB Developer Guide/.
-diExpressionAttributeNames :: Lens' DeleteItem (HashMap Text Text)
-diExpressionAttributeNames = lens _diExpressionAttributeNames (\ s a -> s{_diExpressionAttributeNames = a}) . _Coerce;
+diExpressionAttributeNames :: Lens' DeleteItem (Maybe (HashMap Text Text))
+diExpressionAttributeNames = lens _diExpressionAttributeNames (\ s a -> s{_diExpressionAttributeNames = a}) . mapping _Coerce;
 
 -- | FIXME: Undocumented member.
 diReturnConsumedCapacity :: Lens' DeleteItem (Maybe ReturnConsumedCapacity)
@@ -169,8 +169,8 @@ diReturnConsumedCapacity = lens _diReturnConsumedCapacity (\ s a -> s{_diReturnC
 -- For more information on expression attribute values, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ExpressionPlaceholders.html Using Placeholders for Attribute Names and Values>
 -- in the /Amazon DynamoDB Developer Guide/.
-diExpressionAttributeValues :: Lens' DeleteItem (HashMap Text AttributeValue)
-diExpressionAttributeValues = lens _diExpressionAttributeValues (\ s a -> s{_diExpressionAttributeValues = a}) . _Coerce;
+diExpressionAttributeValues :: Lens' DeleteItem (Maybe (HashMap Text AttributeValue))
+diExpressionAttributeValues = lens _diExpressionAttributeValues (\ s a -> s{_diExpressionAttributeValues = a}) . mapping _Coerce;
 
 -- | A value that if set to @SIZE@, the response includes statistics about
 -- item collections, if any, that were modified during the operation are
@@ -446,8 +446,8 @@ diConditionalOperator = lens _diConditionalOperator (\ s a -> s{_diConditionalOp
 -- exception.
 --
 -- This parameter does not support attributes of type List or Map.
-diExpected :: Lens' DeleteItem (HashMap Text ExpectedAttributeValue)
-diExpected = lens _diExpected (\ s a -> s{_diExpected = a}) . _Coerce;
+diExpected :: Lens' DeleteItem (Maybe (HashMap Text ExpectedAttributeValue))
+diExpected = lens _diExpected (\ s a -> s{_diExpected = a}) . mapping _Coerce;
 
 -- | The name of the table from which to delete the item.
 diTableName :: Lens' DeleteItem Text
@@ -516,11 +516,11 @@ instance ToQuery DeleteItem where
 -- * 'dirItemCollectionMetrics'
 --
 -- * 'dirAttributes'
-data DeleteItemResponse = DeleteItemResponse'{_dirConsumedCapacity :: Maybe ConsumedCapacity, _dirItemCollectionMetrics :: Maybe ItemCollectionMetrics, _dirAttributes :: HashMap Text AttributeValue} deriving (Eq, Read, Show)
+data DeleteItemResponse = DeleteItemResponse'{_dirConsumedCapacity :: Maybe ConsumedCapacity, _dirItemCollectionMetrics :: Maybe ItemCollectionMetrics, _dirAttributes :: Maybe (HashMap Text AttributeValue)} deriving (Eq, Read, Show)
 
 -- | 'DeleteItemResponse' smart constructor.
 deleteItemResponse :: DeleteItemResponse
-deleteItemResponse = DeleteItemResponse'{_dirConsumedCapacity = Nothing, _dirItemCollectionMetrics = Nothing, _dirAttributes = mempty};
+deleteItemResponse = DeleteItemResponse'{_dirConsumedCapacity = Nothing, _dirItemCollectionMetrics = Nothing, _dirAttributes = Nothing};
 
 -- | FIXME: Undocumented member.
 dirConsumedCapacity :: Lens' DeleteItemResponse (Maybe ConsumedCapacity)
@@ -554,5 +554,5 @@ dirItemCollectionMetrics = lens _dirItemCollectionMetrics (\ s a -> s{_dirItemCo
 -- item as it appeared before the /DeleteItem/ operation. This map appears
 -- in the response only if /ReturnValues/ was specified as @ALL_OLD@ in the
 -- request.
-dirAttributes :: Lens' DeleteItemResponse (HashMap Text AttributeValue)
-dirAttributes = lens _dirAttributes (\ s a -> s{_dirAttributes = a}) . _Coerce;
+dirAttributes :: Lens' DeleteItemResponse (Maybe (HashMap Text AttributeValue))
+dirAttributes = lens _dirAttributes (\ s a -> s{_dirAttributes = a}) . mapping _Coerce;

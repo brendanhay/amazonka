@@ -28,18 +28,18 @@ module Network.AWS.StorageGateway.DescribeVTLDevices
     -- ** Request constructor
     , describeVTLDevices
     -- ** Request lenses
-    , dvtldVTLDeviceARNs
-    , dvtldGatewayARN
     , dvtldMarker
     , dvtldLimit
+    , dvtldVTLDeviceARNs
+    , dvtldGatewayARN
 
     -- * Response
     , DescribeVTLDevicesResponse
     -- ** Response constructor
     , describeVTLDevicesResponse
     -- ** Response lenses
-    , dvtldrVTLDevices
     , dvtldrGatewayARN
+    , dvtldrVTLDevices
     , dvtldrMarker
     ) where
 
@@ -52,18 +52,28 @@ import Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvtldVTLDeviceARNs'
---
--- * 'dvtldGatewayARN'
---
 -- * 'dvtldMarker'
 --
 -- * 'dvtldLimit'
-data DescribeVTLDevices = DescribeVTLDevices'{_dvtldVTLDeviceARNs :: [Text], _dvtldGatewayARN :: Text, _dvtldMarker :: Text, _dvtldLimit :: Nat} deriving (Eq, Read, Show)
+--
+-- * 'dvtldVTLDeviceARNs'
+--
+-- * 'dvtldGatewayARN'
+data DescribeVTLDevices = DescribeVTLDevices'{_dvtldMarker :: Maybe Text, _dvtldLimit :: Maybe Nat, _dvtldVTLDeviceARNs :: Maybe [Text], _dvtldGatewayARN :: Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeVTLDevices' smart constructor.
-describeVTLDevices :: Text -> Text -> Natural -> DescribeVTLDevices
-describeVTLDevices pGatewayARN pMarker pLimit = DescribeVTLDevices'{_dvtldVTLDeviceARNs = mempty, _dvtldGatewayARN = pGatewayARN, _dvtldMarker = pMarker, _dvtldLimit = _Nat # pLimit};
+describeVTLDevices :: Text -> DescribeVTLDevices
+describeVTLDevices pGatewayARN = DescribeVTLDevices'{_dvtldMarker = Nothing, _dvtldLimit = Nothing, _dvtldVTLDeviceARNs = Nothing, _dvtldGatewayARN = pGatewayARN};
+
+-- | An opaque string that indicates the position at which to begin
+-- describing the VTL devices.
+dvtldMarker :: Lens' DescribeVTLDevices (Maybe Text)
+dvtldMarker = lens _dvtldMarker (\ s a -> s{_dvtldMarker = a});
+
+-- | Specifies that the number of VTL devices described be limited to the
+-- specified number.
+dvtldLimit :: Lens' DescribeVTLDevices (Maybe Natural)
+dvtldLimit = lens _dvtldLimit (\ s a -> s{_dvtldLimit = a}) . mapping _Nat;
 
 -- | An array of strings, where each string represents the Amazon Resource
 -- Name (ARN) of a VTL device.
@@ -71,22 +81,12 @@ describeVTLDevices pGatewayARN pMarker pLimit = DescribeVTLDevices'{_dvtldVTLDev
 -- All of the specified VTL devices must be from the same gateway. If no
 -- VTL devices are specified, the result will contain all devices on the
 -- specified gateway.
-dvtldVTLDeviceARNs :: Lens' DescribeVTLDevices [Text]
+dvtldVTLDeviceARNs :: Lens' DescribeVTLDevices (Maybe [Text])
 dvtldVTLDeviceARNs = lens _dvtldVTLDeviceARNs (\ s a -> s{_dvtldVTLDeviceARNs = a});
 
 -- | FIXME: Undocumented member.
 dvtldGatewayARN :: Lens' DescribeVTLDevices Text
 dvtldGatewayARN = lens _dvtldGatewayARN (\ s a -> s{_dvtldGatewayARN = a});
-
--- | An opaque string that indicates the position at which to begin
--- describing the VTL devices.
-dvtldMarker :: Lens' DescribeVTLDevices Text
-dvtldMarker = lens _dvtldMarker (\ s a -> s{_dvtldMarker = a});
-
--- | Specifies that the number of VTL devices described be limited to the
--- specified number.
-dvtldLimit :: Lens' DescribeVTLDevices Natural
-dvtldLimit = lens _dvtldLimit (\ s a -> s{_dvtldLimit = a}) . _Nat;
 
 instance AWSRequest DescribeVTLDevices where
         type Sv DescribeVTLDevices = StorageGateway
@@ -97,8 +97,8 @@ instance AWSRequest DescribeVTLDevices where
           = receiveJSON
               (\ s h x ->
                  DescribeVTLDevicesResponse' <$>
-                   x .?> "VTLDevices" .!@ mempty <*> x .:> "GatewayARN"
-                     <*> x .:> "Marker")
+                   x .?> "GatewayARN" <*> x .?> "VTLDevices" .!@ mempty
+                     <*> x .?> "Marker")
 
 instance ToHeaders DescribeVTLDevices where
         toHeaders
@@ -113,9 +113,9 @@ instance ToHeaders DescribeVTLDevices where
 instance ToJSON DescribeVTLDevices where
         toJSON DescribeVTLDevices'{..}
           = object
-              ["VTLDeviceARNs" .= _dvtldVTLDeviceARNs,
-               "GatewayARN" .= _dvtldGatewayARN,
-               "Marker" .= _dvtldMarker, "Limit" .= _dvtldLimit]
+              ["Marker" .= _dvtldMarker, "Limit" .= _dvtldLimit,
+               "VTLDeviceARNs" .= _dvtldVTLDeviceARNs,
+               "GatewayARN" .= _dvtldGatewayARN]
 
 instance ToPath DescribeVTLDevices where
         toPath = const "/"
@@ -127,30 +127,30 @@ instance ToQuery DescribeVTLDevices where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvtldrVTLDevices'
---
 -- * 'dvtldrGatewayARN'
 --
+-- * 'dvtldrVTLDevices'
+--
 -- * 'dvtldrMarker'
-data DescribeVTLDevicesResponse = DescribeVTLDevicesResponse'{_dvtldrVTLDevices :: [VTLDevice], _dvtldrGatewayARN :: Text, _dvtldrMarker :: Text} deriving (Eq, Read, Show)
+data DescribeVTLDevicesResponse = DescribeVTLDevicesResponse'{_dvtldrGatewayARN :: Maybe Text, _dvtldrVTLDevices :: Maybe [VTLDevice], _dvtldrMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeVTLDevicesResponse' smart constructor.
-describeVTLDevicesResponse :: Text -> Text -> DescribeVTLDevicesResponse
-describeVTLDevicesResponse pGatewayARN pMarker = DescribeVTLDevicesResponse'{_dvtldrVTLDevices = mempty, _dvtldrGatewayARN = pGatewayARN, _dvtldrMarker = pMarker};
+describeVTLDevicesResponse :: DescribeVTLDevicesResponse
+describeVTLDevicesResponse = DescribeVTLDevicesResponse'{_dvtldrGatewayARN = Nothing, _dvtldrVTLDevices = Nothing, _dvtldrMarker = Nothing};
+
+-- | FIXME: Undocumented member.
+dvtldrGatewayARN :: Lens' DescribeVTLDevicesResponse (Maybe Text)
+dvtldrGatewayARN = lens _dvtldrGatewayARN (\ s a -> s{_dvtldrGatewayARN = a});
 
 -- | An array of VTL device objects composed of the Amazon Resource Name(ARN)
 -- of the VTL devices.
-dvtldrVTLDevices :: Lens' DescribeVTLDevicesResponse [VTLDevice]
+dvtldrVTLDevices :: Lens' DescribeVTLDevicesResponse (Maybe [VTLDevice])
 dvtldrVTLDevices = lens _dvtldrVTLDevices (\ s a -> s{_dvtldrVTLDevices = a});
-
--- | FIXME: Undocumented member.
-dvtldrGatewayARN :: Lens' DescribeVTLDevicesResponse Text
-dvtldrGatewayARN = lens _dvtldrGatewayARN (\ s a -> s{_dvtldrGatewayARN = a});
 
 -- | An opaque string that indicates the position at which the VTL devices
 -- that were fetched for description ended. Use the marker in your next
 -- request to fetch the next set of VTL devices in the list. If there are
 -- no more VTL devices to describe, this field does not appear in the
 -- response.
-dvtldrMarker :: Lens' DescribeVTLDevicesResponse Text
+dvtldrMarker :: Lens' DescribeVTLDevicesResponse (Maybe Text)
 dvtldrMarker = lens _dvtldrMarker (\ s a -> s{_dvtldrMarker = a});

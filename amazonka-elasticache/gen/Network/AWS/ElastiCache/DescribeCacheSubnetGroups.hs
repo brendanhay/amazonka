@@ -116,11 +116,11 @@ instance ToQuery DescribeCacheSubnetGroups where
 -- * 'dcsgrMarker'
 --
 -- * 'dcsgrCacheSubnetGroups'
-data DescribeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse'{_dcsgrMarker :: Maybe Text, _dcsgrCacheSubnetGroups :: [CacheSubnetGroup]} deriving (Eq, Read, Show)
+data DescribeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse'{_dcsgrMarker :: Maybe Text, _dcsgrCacheSubnetGroups :: Maybe [CacheSubnetGroup]} deriving (Eq, Read, Show)
 
 -- | 'DescribeCacheSubnetGroupsResponse' smart constructor.
 describeCacheSubnetGroupsResponse :: DescribeCacheSubnetGroupsResponse
-describeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse'{_dcsgrMarker = Nothing, _dcsgrCacheSubnetGroups = mempty};
+describeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse'{_dcsgrMarker = Nothing, _dcsgrCacheSubnetGroups = Nothing};
 
 -- | Provides an identifier to allow retrieval of paginated results.
 dcsgrMarker :: Lens' DescribeCacheSubnetGroupsResponse (Maybe Text)
@@ -128,5 +128,5 @@ dcsgrMarker = lens _dcsgrMarker (\ s a -> s{_dcsgrMarker = a});
 
 -- | A list of cache subnet groups. Each element in the list contains
 -- detailed information about one group.
-dcsgrCacheSubnetGroups :: Lens' DescribeCacheSubnetGroupsResponse [CacheSubnetGroup]
+dcsgrCacheSubnetGroups :: Lens' DescribeCacheSubnetGroupsResponse (Maybe [CacheSubnetGroup])
 dcsgrCacheSubnetGroups = lens _dcsgrCacheSubnetGroups (\ s a -> s{_dcsgrCacheSubnetGroups = a});

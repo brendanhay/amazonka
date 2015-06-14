@@ -24,12 +24,12 @@ module Network.AWS.CodeDeploy.CreateDeployment
     -- ** Request constructor
     , createDeployment
     -- ** Request lenses
+    , cdDeploymentConfigName
     , cdRevision
     , cdDescription
     , cdIgnoreApplicationStopFailures
-    , cdApplicationName
-    , cdDeploymentConfigName
     , cdDeploymentGroupName
+    , cdApplicationName
 
     -- * Response
     , CreateDeploymentResponse
@@ -48,22 +48,32 @@ import Network.AWS.CodeDeploy.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'cdDeploymentConfigName'
+--
 -- * 'cdRevision'
 --
 -- * 'cdDescription'
 --
 -- * 'cdIgnoreApplicationStopFailures'
 --
--- * 'cdApplicationName'
---
--- * 'cdDeploymentConfigName'
---
 -- * 'cdDeploymentGroupName'
-data CreateDeployment = CreateDeployment'{_cdRevision :: Maybe RevisionLocation, _cdDescription :: Maybe Text, _cdIgnoreApplicationStopFailures :: Maybe Bool, _cdApplicationName :: Text, _cdDeploymentConfigName :: Text, _cdDeploymentGroupName :: Text} deriving (Eq, Read, Show)
+--
+-- * 'cdApplicationName'
+data CreateDeployment = CreateDeployment'{_cdDeploymentConfigName :: Maybe Text, _cdRevision :: Maybe RevisionLocation, _cdDescription :: Maybe Text, _cdIgnoreApplicationStopFailures :: Maybe Bool, _cdDeploymentGroupName :: Maybe Text, _cdApplicationName :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateDeployment' smart constructor.
-createDeployment :: Text -> Text -> Text -> CreateDeployment
-createDeployment pApplicationName pDeploymentConfigName pDeploymentGroupName = CreateDeployment'{_cdRevision = Nothing, _cdDescription = Nothing, _cdIgnoreApplicationStopFailures = Nothing, _cdApplicationName = pApplicationName, _cdDeploymentConfigName = pDeploymentConfigName, _cdDeploymentGroupName = pDeploymentGroupName};
+createDeployment :: Text -> CreateDeployment
+createDeployment pApplicationName = CreateDeployment'{_cdDeploymentConfigName = Nothing, _cdRevision = Nothing, _cdDescription = Nothing, _cdIgnoreApplicationStopFailures = Nothing, _cdDeploymentGroupName = Nothing, _cdApplicationName = pApplicationName};
+
+-- | The name of an existing deployment configuration associated with the
+-- applicable IAM user or AWS account.
+--
+-- If not specified, the value configured in the deployment group will be
+-- used as the default. If the deployment group does not have a deployment
+-- configuration associated with it, then CodeDeployDefault.OneAtATime will
+-- be used by default.
+cdDeploymentConfigName :: Lens' CreateDeployment (Maybe Text)
+cdDeploymentConfigName = lens _cdDeploymentConfigName (\ s a -> s{_cdDeploymentConfigName = a});
 
 -- | The type of revision to deploy, along with information about the
 -- revision\'s location.
@@ -87,24 +97,14 @@ cdDescription = lens _cdDescription (\ s a -> s{_cdDescription = a});
 cdIgnoreApplicationStopFailures :: Lens' CreateDeployment (Maybe Bool)
 cdIgnoreApplicationStopFailures = lens _cdIgnoreApplicationStopFailures (\ s a -> s{_cdIgnoreApplicationStopFailures = a});
 
+-- | The deployment group\'s name.
+cdDeploymentGroupName :: Lens' CreateDeployment (Maybe Text)
+cdDeploymentGroupName = lens _cdDeploymentGroupName (\ s a -> s{_cdDeploymentGroupName = a});
+
 -- | The name of an existing AWS CodeDeploy application associated with the
 -- applicable IAM user or AWS account.
 cdApplicationName :: Lens' CreateDeployment Text
 cdApplicationName = lens _cdApplicationName (\ s a -> s{_cdApplicationName = a});
-
--- | The name of an existing deployment configuration associated with the
--- applicable IAM user or AWS account.
---
--- If not specified, the value configured in the deployment group will be
--- used as the default. If the deployment group does not have a deployment
--- configuration associated with it, then CodeDeployDefault.OneAtATime will
--- be used by default.
-cdDeploymentConfigName :: Lens' CreateDeployment Text
-cdDeploymentConfigName = lens _cdDeploymentConfigName (\ s a -> s{_cdDeploymentConfigName = a});
-
--- | The deployment group\'s name.
-cdDeploymentGroupName :: Lens' CreateDeployment Text
-cdDeploymentGroupName = lens _cdDeploymentGroupName (\ s a -> s{_cdDeploymentGroupName = a});
 
 instance AWSRequest CreateDeployment where
         type Sv CreateDeployment = CodeDeploy
@@ -128,13 +128,13 @@ instance ToHeaders CreateDeployment where
 instance ToJSON CreateDeployment where
         toJSON CreateDeployment'{..}
           = object
-              ["revision" .= _cdRevision,
+              ["deploymentConfigName" .= _cdDeploymentConfigName,
+               "revision" .= _cdRevision,
                "description" .= _cdDescription,
                "ignoreApplicationStopFailures" .=
                  _cdIgnoreApplicationStopFailures,
-               "applicationName" .= _cdApplicationName,
-               "deploymentConfigName" .= _cdDeploymentConfigName,
-               "deploymentGroupName" .= _cdDeploymentGroupName]
+               "deploymentGroupName" .= _cdDeploymentGroupName,
+               "applicationName" .= _cdApplicationName]
 
 instance ToPath CreateDeployment where
         toPath = const "/"

@@ -38,9 +38,9 @@ module Network.AWS.IAM.ListAccountAliases
     -- ** Response constructor
     , listAccountAliasesResponse
     -- ** Response lenses
+    , laarMarker
     , laarIsTruncated
     , laarAccountAliases
-    , laarMarker
     ) where
 
 import Network.AWS.Request
@@ -55,25 +55,25 @@ import Network.AWS.IAM.Types
 -- * 'laaMaxItems'
 --
 -- * 'laaMarker'
-data ListAccountAliases = ListAccountAliases'{_laaMaxItems :: Nat, _laaMarker :: Text} deriving (Eq, Read, Show)
+data ListAccountAliases = ListAccountAliases'{_laaMaxItems :: Maybe Nat, _laaMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ListAccountAliases' smart constructor.
-listAccountAliases :: Natural -> Text -> ListAccountAliases
-listAccountAliases pMaxItems pMarker = ListAccountAliases'{_laaMaxItems = _Nat # pMaxItems, _laaMarker = pMarker};
+listAccountAliases :: ListAccountAliases
+listAccountAliases = ListAccountAliases'{_laaMaxItems = Nothing, _laaMarker = Nothing};
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- account aliases you want in the response. If there are additional
 -- account aliases beyond the maximum you specify, the @IsTruncated@
 -- response element is @true@. This parameter is optional. If you do not
 -- include it, it defaults to 100.
-laaMaxItems :: Lens' ListAccountAliases Natural
-laaMaxItems = lens _laaMaxItems (\ s a -> s{_laaMaxItems = a}) . _Nat;
+laaMaxItems :: Lens' ListAccountAliases (Maybe Natural)
+laaMaxItems = lens _laaMaxItems (\ s a -> s{_laaMaxItems = a}) . mapping _Nat;
 
 -- | Use this only when paginating results, and only in a subsequent request
 -- after you\'ve received a response where the results are truncated. Set
 -- it to the value of the @Marker@ element in the response you just
 -- received.
-laaMarker :: Lens' ListAccountAliases Text
+laaMarker :: Lens' ListAccountAliases (Maybe Text)
 laaMarker = lens _laaMarker (\ s a -> s{_laaMarker = a});
 
 instance AWSRequest ListAccountAliases where
@@ -85,10 +85,9 @@ instance AWSRequest ListAccountAliases where
           = receiveXMLWrapper "ListAccountAliasesResult"
               (\ s h x ->
                  ListAccountAliasesResponse' <$>
-                   x .@? "IsTruncated" <*>
+                   x .@? "Marker" <*> x .@? "IsTruncated" <*>
                      (x .@? "AccountAliases" .!@ mempty >>=
-                        parseXMLList "member")
-                     <*> x .@ "Marker")
+                        parseXMLList "member"))
 
 instance ToHeaders ListAccountAliases where
         toHeaders = const mempty
@@ -107,16 +106,23 @@ instance ToQuery ListAccountAliases where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'laarMarker'
+--
 -- * 'laarIsTruncated'
 --
 -- * 'laarAccountAliases'
---
--- * 'laarMarker'
-data ListAccountAliasesResponse = ListAccountAliasesResponse'{_laarIsTruncated :: Maybe Bool, _laarAccountAliases :: [Text], _laarMarker :: Text} deriving (Eq, Read, Show)
+data ListAccountAliasesResponse = ListAccountAliasesResponse'{_laarMarker :: Maybe Text, _laarIsTruncated :: Maybe Bool, _laarAccountAliases :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'ListAccountAliasesResponse' smart constructor.
-listAccountAliasesResponse :: [Text] -> Text -> ListAccountAliasesResponse
-listAccountAliasesResponse pAccountAliases pMarker = ListAccountAliasesResponse'{_laarIsTruncated = Nothing, _laarAccountAliases = pAccountAliases, _laarMarker = pMarker};
+listAccountAliasesResponse :: ListAccountAliasesResponse
+listAccountAliasesResponse = ListAccountAliasesResponse'{_laarMarker = Nothing, _laarIsTruncated = Nothing, _laarAccountAliases = mempty};
+
+-- | Use this only when paginating results, and only in a subsequent request
+-- after you\'ve received a response where the results are truncated. Set
+-- it to the value of the @Marker@ element in the response you just
+-- received.
+laarMarker :: Lens' ListAccountAliasesResponse (Maybe Text)
+laarMarker = lens _laarMarker (\ s a -> s{_laarMarker = a});
 
 -- | A flag that indicates whether there are more account aliases to list. If
 -- your results were truncated, you can make a subsequent pagination
@@ -128,10 +134,3 @@ laarIsTruncated = lens _laarIsTruncated (\ s a -> s{_laarIsTruncated = a});
 -- | A list of aliases associated with the account.
 laarAccountAliases :: Lens' ListAccountAliasesResponse [Text]
 laarAccountAliases = lens _laarAccountAliases (\ s a -> s{_laarAccountAliases = a});
-
--- | Use this only when paginating results, and only in a subsequent request
--- after you\'ve received a response where the results are truncated. Set
--- it to the value of the @Marker@ element in the response you just
--- received.
-laarMarker :: Lens' ListAccountAliasesResponse Text
-laarMarker = lens _laarMarker (\ s a -> s{_laarMarker = a});

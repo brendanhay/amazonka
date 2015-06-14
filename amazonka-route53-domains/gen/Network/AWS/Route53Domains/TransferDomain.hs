@@ -102,11 +102,11 @@ import Network.AWS.Route53Domains.Types
 -- * 'tdRegistrantContact'
 --
 -- * 'tdTechContact'
-data TransferDomain = TransferDomain'{_tdPrivacyProtectTechContact :: Maybe Bool, _tdPrivacyProtectRegistrantContact :: Maybe Bool, _tdAutoRenew :: Maybe Bool, _tdPrivacyProtectAdminContact :: Maybe Bool, _tdIDNLangCode :: Maybe Text, _tdAuthCode :: Maybe (Sensitive Text), _tdNameservers :: [Nameserver], _tdDomainName :: Text, _tdDurationInYears :: Nat, _tdAdminContact :: Sensitive ContactDetail, _tdRegistrantContact :: Sensitive ContactDetail, _tdTechContact :: Sensitive ContactDetail} deriving (Eq, Read, Show)
+data TransferDomain = TransferDomain'{_tdPrivacyProtectTechContact :: Maybe Bool, _tdPrivacyProtectRegistrantContact :: Maybe Bool, _tdAutoRenew :: Maybe Bool, _tdPrivacyProtectAdminContact :: Maybe Bool, _tdIDNLangCode :: Maybe Text, _tdAuthCode :: Maybe (Sensitive Text), _tdNameservers :: Maybe [Nameserver], _tdDomainName :: Text, _tdDurationInYears :: Nat, _tdAdminContact :: Sensitive ContactDetail, _tdRegistrantContact :: Sensitive ContactDetail, _tdTechContact :: Sensitive ContactDetail} deriving (Eq, Read, Show)
 
 -- | 'TransferDomain' smart constructor.
 transferDomain :: Text -> Natural -> ContactDetail -> ContactDetail -> ContactDetail -> TransferDomain
-transferDomain pDomainName pDurationInYears pAdminContact pRegistrantContact pTechContact = TransferDomain'{_tdPrivacyProtectTechContact = Nothing, _tdPrivacyProtectRegistrantContact = Nothing, _tdAutoRenew = Nothing, _tdPrivacyProtectAdminContact = Nothing, _tdIDNLangCode = Nothing, _tdAuthCode = Nothing, _tdNameservers = mempty, _tdDomainName = pDomainName, _tdDurationInYears = _Nat # pDurationInYears, _tdAdminContact = _Sensitive # pAdminContact, _tdRegistrantContact = _Sensitive # pRegistrantContact, _tdTechContact = _Sensitive # pTechContact};
+transferDomain pDomainName pDurationInYears pAdminContact pRegistrantContact pTechContact = TransferDomain'{_tdPrivacyProtectTechContact = Nothing, _tdPrivacyProtectRegistrantContact = Nothing, _tdAutoRenew = Nothing, _tdPrivacyProtectAdminContact = Nothing, _tdIDNLangCode = Nothing, _tdAuthCode = Nothing, _tdNameservers = Nothing, _tdDomainName = pDomainName, _tdDurationInYears = _Nat # pDurationInYears, _tdAdminContact = _Sensitive # pAdminContact, _tdRegistrantContact = _Sensitive # pRegistrantContact, _tdTechContact = _Sensitive # pTechContact};
 
 -- | Whether you want to conceal contact information from WHOIS queries. If
 -- you specify true, WHOIS (\"who is\") queries will return contact
@@ -186,7 +186,7 @@ tdAuthCode = lens _tdAuthCode (\ s a -> s{_tdAuthCode = a}) . mapping _Sensitive
 -- Children: @GlueIps@, @Name@
 --
 -- Required: No
-tdNameservers :: Lens' TransferDomain [Nameserver]
+tdNameservers :: Lens' TransferDomain (Maybe [Nameserver])
 tdNameservers = lens _tdNameservers (\ s a -> s{_tdNameservers = a});
 
 -- | The name of a domain.

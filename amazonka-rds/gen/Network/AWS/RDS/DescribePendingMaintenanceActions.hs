@@ -55,11 +55,11 @@ import Network.AWS.RDS.Types
 -- * 'dpmaMarker'
 --
 -- * 'dpmaResourceIdentifier'
-data DescribePendingMaintenanceActions = DescribePendingMaintenanceActions'{_dpmaFilters :: [Filter], _dpmaMaxRecords :: Maybe Int, _dpmaMarker :: Maybe Text, _dpmaResourceIdentifier :: Maybe Text} deriving (Eq, Read, Show)
+data DescribePendingMaintenanceActions = DescribePendingMaintenanceActions'{_dpmaFilters :: Maybe [Filter], _dpmaMaxRecords :: Maybe Int, _dpmaMarker :: Maybe Text, _dpmaResourceIdentifier :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribePendingMaintenanceActions' smart constructor.
 describePendingMaintenanceActions :: DescribePendingMaintenanceActions
-describePendingMaintenanceActions = DescribePendingMaintenanceActions'{_dpmaFilters = mempty, _dpmaMaxRecords = Nothing, _dpmaMarker = Nothing, _dpmaResourceIdentifier = Nothing};
+describePendingMaintenanceActions = DescribePendingMaintenanceActions'{_dpmaFilters = Nothing, _dpmaMaxRecords = Nothing, _dpmaMarker = Nothing, _dpmaResourceIdentifier = Nothing};
 
 -- | A filter that specifies one or more resources to return pending
 -- maintenance actions for.
@@ -70,7 +70,7 @@ describePendingMaintenanceActions = DescribePendingMaintenanceActions'{_dpmaFilt
 --     Amazon Resource Names (ARNs). The results list will only include
 --     pending maintenance actions for the DB instances identified by these
 --     ARNs.
-dpmaFilters :: Lens' DescribePendingMaintenanceActions [Filter]
+dpmaFilters :: Lens' DescribePendingMaintenanceActions (Maybe [Filter])
 dpmaFilters = lens _dpmaFilters (\ s a -> s{_dpmaFilters = a});
 
 -- | The maximum number of records to include in the response. If more
@@ -137,14 +137,14 @@ instance ToQuery DescribePendingMaintenanceActions
 -- * 'dpmarPendingMaintenanceActions'
 --
 -- * 'dpmarMarker'
-data DescribePendingMaintenanceActionsResponse = DescribePendingMaintenanceActionsResponse'{_dpmarPendingMaintenanceActions :: [ResourcePendingMaintenanceActions], _dpmarMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribePendingMaintenanceActionsResponse = DescribePendingMaintenanceActionsResponse'{_dpmarPendingMaintenanceActions :: Maybe [ResourcePendingMaintenanceActions], _dpmarMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribePendingMaintenanceActionsResponse' smart constructor.
 describePendingMaintenanceActionsResponse :: DescribePendingMaintenanceActionsResponse
-describePendingMaintenanceActionsResponse = DescribePendingMaintenanceActionsResponse'{_dpmarPendingMaintenanceActions = mempty, _dpmarMarker = Nothing};
+describePendingMaintenanceActionsResponse = DescribePendingMaintenanceActionsResponse'{_dpmarPendingMaintenanceActions = Nothing, _dpmarMarker = Nothing};
 
 -- | A list of the pending maintenance actions for the resource.
-dpmarPendingMaintenanceActions :: Lens' DescribePendingMaintenanceActionsResponse [ResourcePendingMaintenanceActions]
+dpmarPendingMaintenanceActions :: Lens' DescribePendingMaintenanceActionsResponse (Maybe [ResourcePendingMaintenanceActions])
 dpmarPendingMaintenanceActions = lens _dpmarPendingMaintenanceActions (\ s a -> s{_dpmarPendingMaintenanceActions = a});
 
 -- | An optional pagination token provided by a previous

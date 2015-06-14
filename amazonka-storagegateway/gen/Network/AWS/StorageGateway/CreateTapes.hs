@@ -138,13 +138,13 @@ instance ToQuery CreateTapes where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ctrTapeARNs'
-newtype CreateTapesResponse = CreateTapesResponse'{_ctrTapeARNs :: [Text]} deriving (Eq, Read, Show)
+newtype CreateTapesResponse = CreateTapesResponse'{_ctrTapeARNs :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'CreateTapesResponse' smart constructor.
 createTapesResponse :: CreateTapesResponse
-createTapesResponse = CreateTapesResponse'{_ctrTapeARNs = mempty};
+createTapesResponse = CreateTapesResponse'{_ctrTapeARNs = Nothing};
 
 -- | A list of unique Amazon Resource Named (ARN) the represents the virtual
 -- tapes that were created.
-ctrTapeARNs :: Lens' CreateTapesResponse [Text]
+ctrTapeARNs :: Lens' CreateTapesResponse (Maybe [Text])
 ctrTapeARNs = lens _ctrTapeARNs (\ s a -> s{_ctrTapeARNs = a});

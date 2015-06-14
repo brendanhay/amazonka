@@ -100,8 +100,8 @@ instance ToQuery DescribeMountTargetSecurityGroups
 newtype DescribeMountTargetSecurityGroupsResponse = DescribeMountTargetSecurityGroupsResponse'{_dmtsgrSecurityGroups :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'DescribeMountTargetSecurityGroupsResponse' smart constructor.
-describeMountTargetSecurityGroupsResponse :: [Text] -> DescribeMountTargetSecurityGroupsResponse
-describeMountTargetSecurityGroupsResponse pSecurityGroups = DescribeMountTargetSecurityGroupsResponse'{_dmtsgrSecurityGroups = pSecurityGroups};
+describeMountTargetSecurityGroupsResponse :: DescribeMountTargetSecurityGroupsResponse
+describeMountTargetSecurityGroupsResponse = DescribeMountTargetSecurityGroupsResponse'{_dmtsgrSecurityGroups = mempty};
 
 -- | An array of security groups.
 dmtsgrSecurityGroups :: Lens' DescribeMountTargetSecurityGroupsResponse [Text]

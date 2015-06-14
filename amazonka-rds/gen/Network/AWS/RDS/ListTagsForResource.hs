@@ -50,14 +50,14 @@ import Network.AWS.RDS.Types
 -- * 'ltfrFilters'
 --
 -- * 'ltfrResourceName'
-data ListTagsForResource = ListTagsForResource'{_ltfrFilters :: [Filter], _ltfrResourceName :: Text} deriving (Eq, Read, Show)
+data ListTagsForResource = ListTagsForResource'{_ltfrFilters :: Maybe [Filter], _ltfrResourceName :: Text} deriving (Eq, Read, Show)
 
 -- | 'ListTagsForResource' smart constructor.
 listTagsForResource :: Text -> ListTagsForResource
-listTagsForResource pResourceName = ListTagsForResource'{_ltfrFilters = mempty, _ltfrResourceName = pResourceName};
+listTagsForResource pResourceName = ListTagsForResource'{_ltfrFilters = Nothing, _ltfrResourceName = pResourceName};
 
 -- | This parameter is not currently supported.
-ltfrFilters :: Lens' ListTagsForResource [Filter]
+ltfrFilters :: Lens' ListTagsForResource (Maybe [Filter])
 ltfrFilters = lens _ltfrFilters (\ s a -> s{_ltfrFilters = a});
 
 -- | The Amazon RDS resource with tags to be listed. This value is an Amazon
@@ -96,12 +96,12 @@ instance ToQuery ListTagsForResource where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ltfrrTagList'
-newtype ListTagsForResourceResponse = ListTagsForResourceResponse'{_ltfrrTagList :: [Tag]} deriving (Eq, Read, Show)
+newtype ListTagsForResourceResponse = ListTagsForResourceResponse'{_ltfrrTagList :: Maybe [Tag]} deriving (Eq, Read, Show)
 
 -- | 'ListTagsForResourceResponse' smart constructor.
 listTagsForResourceResponse :: ListTagsForResourceResponse
-listTagsForResourceResponse = ListTagsForResourceResponse'{_ltfrrTagList = mempty};
+listTagsForResourceResponse = ListTagsForResourceResponse'{_ltfrrTagList = Nothing};
 
 -- | List of tags returned by the ListTagsForResource operation.
-ltfrrTagList :: Lens' ListTagsForResourceResponse [Tag]
+ltfrrTagList :: Lens' ListTagsForResourceResponse (Maybe [Tag])
 ltfrrTagList = lens _ltfrrTagList (\ s a -> s{_ltfrrTagList = a});

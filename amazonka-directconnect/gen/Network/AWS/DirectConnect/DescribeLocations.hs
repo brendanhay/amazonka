@@ -79,12 +79,12 @@ instance ToQuery DescribeLocations where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dlrDescribeLocationsResponse'
-newtype DescribeLocationsResponse = DescribeLocationsResponse'{_dlrDescribeLocationsResponse :: [Location]} deriving (Eq, Read, Show)
+newtype DescribeLocationsResponse = DescribeLocationsResponse'{_dlrDescribeLocationsResponse :: Maybe [Location]} deriving (Eq, Read, Show)
 
 -- | 'DescribeLocationsResponse' smart constructor.
 describeLocationsResponse :: DescribeLocationsResponse
-describeLocationsResponse = DescribeLocationsResponse'{_dlrDescribeLocationsResponse = mempty};
+describeLocationsResponse = DescribeLocationsResponse'{_dlrDescribeLocationsResponse = Nothing};
 
 -- | FIXME: Undocumented member.
-dlrDescribeLocationsResponse :: Lens' DescribeLocationsResponse [Location]
+dlrDescribeLocationsResponse :: Lens' DescribeLocationsResponse (Maybe [Location])
 dlrDescribeLocationsResponse = lens _dlrDescribeLocationsResponse (\ s a -> s{_dlrDescribeLocationsResponse = a});

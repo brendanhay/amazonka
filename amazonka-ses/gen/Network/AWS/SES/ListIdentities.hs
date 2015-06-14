@@ -112,8 +112,8 @@ instance ToQuery ListIdentities where
 data ListIdentitiesResponse = ListIdentitiesResponse'{_lirNextToken :: Maybe Text, _lirIdentities :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'ListIdentitiesResponse' smart constructor.
-listIdentitiesResponse :: [Text] -> ListIdentitiesResponse
-listIdentitiesResponse pIdentities = ListIdentitiesResponse'{_lirNextToken = Nothing, _lirIdentities = pIdentities};
+listIdentitiesResponse :: ListIdentitiesResponse
+listIdentitiesResponse = ListIdentitiesResponse'{_lirNextToken = Nothing, _lirIdentities = mempty};
 
 -- | The token used for pagination.
 lirNextToken :: Lens' ListIdentitiesResponse (Maybe Text)

@@ -126,11 +126,11 @@ instance ToQuery ListDatasets where
 -- * 'ldrNextToken'
 --
 -- * 'ldrDatasets'
-data ListDatasetsResponse = ListDatasetsResponse'{_ldrCount :: Maybe Int, _ldrNextToken :: Maybe Text, _ldrDatasets :: [Dataset]} deriving (Eq, Read, Show)
+data ListDatasetsResponse = ListDatasetsResponse'{_ldrCount :: Maybe Int, _ldrNextToken :: Maybe Text, _ldrDatasets :: Maybe [Dataset]} deriving (Eq, Read, Show)
 
 -- | 'ListDatasetsResponse' smart constructor.
 listDatasetsResponse :: ListDatasetsResponse
-listDatasetsResponse = ListDatasetsResponse'{_ldrCount = Nothing, _ldrNextToken = Nothing, _ldrDatasets = mempty};
+listDatasetsResponse = ListDatasetsResponse'{_ldrCount = Nothing, _ldrNextToken = Nothing, _ldrDatasets = Nothing};
 
 -- | Number of datasets returned.
 ldrCount :: Lens' ListDatasetsResponse (Maybe Int)
@@ -141,5 +141,5 @@ ldrNextToken :: Lens' ListDatasetsResponse (Maybe Text)
 ldrNextToken = lens _ldrNextToken (\ s a -> s{_ldrNextToken = a});
 
 -- | A set of datasets.
-ldrDatasets :: Lens' ListDatasetsResponse [Dataset]
+ldrDatasets :: Lens' ListDatasetsResponse (Maybe [Dataset])
 ldrDatasets = lens _ldrDatasets (\ s a -> s{_ldrDatasets = a});

@@ -74,8 +74,8 @@ import Network.AWS.EMR.Types
 data AddJobFlowSteps = AddJobFlowSteps'{_ajfsJobFlowId :: Text, _ajfsSteps :: [StepConfig]} deriving (Eq, Read, Show)
 
 -- | 'AddJobFlowSteps' smart constructor.
-addJobFlowSteps :: Text -> [StepConfig] -> AddJobFlowSteps
-addJobFlowSteps pJobFlowId pSteps = AddJobFlowSteps'{_ajfsJobFlowId = pJobFlowId, _ajfsSteps = pSteps};
+addJobFlowSteps :: Text -> AddJobFlowSteps
+addJobFlowSteps pJobFlowId = AddJobFlowSteps'{_ajfsJobFlowId = pJobFlowId, _ajfsSteps = mempty};
 
 -- | A string that uniquely identifies the job flow. This identifier is
 -- returned by RunJobFlow and can also be obtained from ListClusters.
@@ -122,12 +122,12 @@ instance ToQuery AddJobFlowSteps where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ajfsrStepIds'
-newtype AddJobFlowStepsResponse = AddJobFlowStepsResponse'{_ajfsrStepIds :: [Text]} deriving (Eq, Read, Show)
+newtype AddJobFlowStepsResponse = AddJobFlowStepsResponse'{_ajfsrStepIds :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'AddJobFlowStepsResponse' smart constructor.
 addJobFlowStepsResponse :: AddJobFlowStepsResponse
-addJobFlowStepsResponse = AddJobFlowStepsResponse'{_ajfsrStepIds = mempty};
+addJobFlowStepsResponse = AddJobFlowStepsResponse'{_ajfsrStepIds = Nothing};
 
 -- | The identifiers of the list of steps added to the job flow.
-ajfsrStepIds :: Lens' AddJobFlowStepsResponse [Text]
+ajfsrStepIds :: Lens' AddJobFlowStepsResponse (Maybe [Text])
 ajfsrStepIds = lens _ajfsrStepIds (\ s a -> s{_ajfsrStepIds = a});

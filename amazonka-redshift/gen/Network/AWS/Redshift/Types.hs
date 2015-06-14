@@ -513,11 +513,11 @@ instance FromXML AvailabilityZone where
 -- * 'cluTags'
 --
 -- * 'cluClusterNodes'
-data Cluster = Cluster'{_cluRestoreStatus :: Maybe RestoreStatus, _cluClusterSnapshotCopyStatus :: Maybe ClusterSnapshotCopyStatus, _cluClusterRevisionNumber :: Maybe Text, _cluMasterUsername :: Maybe Text, _cluPubliclyAccessible :: Maybe Bool, _cluVPCId :: Maybe Text, _cluClusterSecurityGroups :: [ClusterSecurityGroupMembership], _cluAutomatedSnapshotRetentionPeriod :: Maybe Int, _cluEncrypted :: Maybe Bool, _cluClusterIdentifier :: Maybe Text, _cluNumberOfNodes :: Maybe Int, _cluClusterSubnetGroupName :: Maybe Text, _cluPreferredMaintenanceWindow :: Maybe Text, _cluModifyStatus :: Maybe Text, _cluClusterPublicKey :: Maybe Text, _cluClusterParameterGroups :: [ClusterParameterGroupStatus], _cluAvailabilityZone :: Maybe Text, _cluVPCSecurityGroups :: [VPCSecurityGroupMembership], _cluKMSKeyId :: Maybe Text, _cluHSMStatus :: Maybe HSMStatus, _cluElasticIPStatus :: Maybe ElasticIPStatus, _cluClusterVersion :: Maybe Text, _cluNodeType :: Maybe Text, _cluEndpoint :: Maybe Endpoint, _cluClusterCreateTime :: Maybe ISO8601, _cluAllowVersionUpgrade :: Maybe Bool, _cluPendingModifiedValues :: Maybe PendingModifiedValues, _cluClusterStatus :: Maybe Text, _cluDBName :: Maybe Text, _cluTags :: [Tag], _cluClusterNodes :: [ClusterNode]} deriving (Eq, Read, Show)
+data Cluster = Cluster'{_cluRestoreStatus :: Maybe RestoreStatus, _cluClusterSnapshotCopyStatus :: Maybe ClusterSnapshotCopyStatus, _cluClusterRevisionNumber :: Maybe Text, _cluMasterUsername :: Maybe Text, _cluPubliclyAccessible :: Maybe Bool, _cluVPCId :: Maybe Text, _cluClusterSecurityGroups :: Maybe [ClusterSecurityGroupMembership], _cluAutomatedSnapshotRetentionPeriod :: Maybe Int, _cluEncrypted :: Maybe Bool, _cluClusterIdentifier :: Maybe Text, _cluNumberOfNodes :: Maybe Int, _cluClusterSubnetGroupName :: Maybe Text, _cluPreferredMaintenanceWindow :: Maybe Text, _cluModifyStatus :: Maybe Text, _cluClusterPublicKey :: Maybe Text, _cluClusterParameterGroups :: Maybe [ClusterParameterGroupStatus], _cluAvailabilityZone :: Maybe Text, _cluVPCSecurityGroups :: Maybe [VPCSecurityGroupMembership], _cluKMSKeyId :: Maybe Text, _cluHSMStatus :: Maybe HSMStatus, _cluElasticIPStatus :: Maybe ElasticIPStatus, _cluClusterVersion :: Maybe Text, _cluNodeType :: Maybe Text, _cluEndpoint :: Maybe Endpoint, _cluClusterCreateTime :: Maybe ISO8601, _cluAllowVersionUpgrade :: Maybe Bool, _cluPendingModifiedValues :: Maybe PendingModifiedValues, _cluClusterStatus :: Maybe Text, _cluDBName :: Maybe Text, _cluTags :: Maybe [Tag], _cluClusterNodes :: Maybe [ClusterNode]} deriving (Eq, Read, Show)
 
 -- | 'Cluster' smart constructor.
 cluster :: Cluster
-cluster = Cluster'{_cluRestoreStatus = Nothing, _cluClusterSnapshotCopyStatus = Nothing, _cluClusterRevisionNumber = Nothing, _cluMasterUsername = Nothing, _cluPubliclyAccessible = Nothing, _cluVPCId = Nothing, _cluClusterSecurityGroups = mempty, _cluAutomatedSnapshotRetentionPeriod = Nothing, _cluEncrypted = Nothing, _cluClusterIdentifier = Nothing, _cluNumberOfNodes = Nothing, _cluClusterSubnetGroupName = Nothing, _cluPreferredMaintenanceWindow = Nothing, _cluModifyStatus = Nothing, _cluClusterPublicKey = Nothing, _cluClusterParameterGroups = mempty, _cluAvailabilityZone = Nothing, _cluVPCSecurityGroups = mempty, _cluKMSKeyId = Nothing, _cluHSMStatus = Nothing, _cluElasticIPStatus = Nothing, _cluClusterVersion = Nothing, _cluNodeType = Nothing, _cluEndpoint = Nothing, _cluClusterCreateTime = Nothing, _cluAllowVersionUpgrade = Nothing, _cluPendingModifiedValues = Nothing, _cluClusterStatus = Nothing, _cluDBName = Nothing, _cluTags = mempty, _cluClusterNodes = mempty};
+cluster = Cluster'{_cluRestoreStatus = Nothing, _cluClusterSnapshotCopyStatus = Nothing, _cluClusterRevisionNumber = Nothing, _cluMasterUsername = Nothing, _cluPubliclyAccessible = Nothing, _cluVPCId = Nothing, _cluClusterSecurityGroups = Nothing, _cluAutomatedSnapshotRetentionPeriod = Nothing, _cluEncrypted = Nothing, _cluClusterIdentifier = Nothing, _cluNumberOfNodes = Nothing, _cluClusterSubnetGroupName = Nothing, _cluPreferredMaintenanceWindow = Nothing, _cluModifyStatus = Nothing, _cluClusterPublicKey = Nothing, _cluClusterParameterGroups = Nothing, _cluAvailabilityZone = Nothing, _cluVPCSecurityGroups = Nothing, _cluKMSKeyId = Nothing, _cluHSMStatus = Nothing, _cluElasticIPStatus = Nothing, _cluClusterVersion = Nothing, _cluNodeType = Nothing, _cluEndpoint = Nothing, _cluClusterCreateTime = Nothing, _cluAllowVersionUpgrade = Nothing, _cluPendingModifiedValues = Nothing, _cluClusterStatus = Nothing, _cluDBName = Nothing, _cluTags = Nothing, _cluClusterNodes = Nothing};
 
 -- | Describes the status of a cluster restore action. Returns null if the
 -- cluster was not created by restoring a snapshot.
@@ -554,7 +554,7 @@ cluVPCId = lens _cluVPCId (\ s a -> s{_cluVPCId = a});
 -- Cluster security groups are used when the cluster is not created in a
 -- VPC. Clusters that are created in a VPC use VPC security groups, which
 -- are listed by the __VpcSecurityGroups__ parameter.
-cluClusterSecurityGroups :: Lens' Cluster [ClusterSecurityGroupMembership]
+cluClusterSecurityGroups :: Lens' Cluster (Maybe [ClusterSecurityGroupMembership])
 cluClusterSecurityGroups = lens _cluClusterSecurityGroups (\ s a -> s{_cluClusterSecurityGroups = a});
 
 -- | The number of days that automatic cluster snapshots are retained.
@@ -593,7 +593,7 @@ cluClusterPublicKey = lens _cluClusterPublicKey (\ s a -> s{_cluClusterPublicKey
 
 -- | The list of cluster parameter groups that are associated with this
 -- cluster.
-cluClusterParameterGroups :: Lens' Cluster [ClusterParameterGroupStatus]
+cluClusterParameterGroups :: Lens' Cluster (Maybe [ClusterParameterGroupStatus])
 cluClusterParameterGroups = lens _cluClusterParameterGroups (\ s a -> s{_cluClusterParameterGroups = a});
 
 -- | The name of the Availability Zone in which the cluster is located.
@@ -603,7 +603,7 @@ cluAvailabilityZone = lens _cluAvailabilityZone (\ s a -> s{_cluAvailabilityZone
 -- | A list of Virtual Private Cloud (VPC) security groups that are
 -- associated with the cluster. This parameter is returned only if the
 -- cluster is in a VPC.
-cluVPCSecurityGroups :: Lens' Cluster [VPCSecurityGroupMembership]
+cluVPCSecurityGroups :: Lens' Cluster (Maybe [VPCSecurityGroupMembership])
 cluVPCSecurityGroups = lens _cluVPCSecurityGroups (\ s a -> s{_cluVPCSecurityGroups = a});
 
 -- | The AWS Key Management Service (KMS) key ID of the encryption key used
@@ -662,11 +662,11 @@ cluDBName :: Lens' Cluster (Maybe Text)
 cluDBName = lens _cluDBName (\ s a -> s{_cluDBName = a});
 
 -- | The list of tags for the cluster.
-cluTags :: Lens' Cluster [Tag]
+cluTags :: Lens' Cluster (Maybe [Tag])
 cluTags = lens _cluTags (\ s a -> s{_cluTags = a});
 
 -- | The nodes in a cluster.
-cluClusterNodes :: Lens' Cluster [ClusterNode]
+cluClusterNodes :: Lens' Cluster (Maybe [ClusterNode])
 cluClusterNodes = lens _cluClusterNodes (\ s a -> s{_cluClusterNodes = a});
 
 instance FromXML Cluster where
@@ -756,11 +756,11 @@ instance FromXML ClusterNode where
 -- * 'cpgParameterGroupName'
 --
 -- * 'cpgTags'
-data ClusterParameterGroup = ClusterParameterGroup'{_cpgParameterGroupFamily :: Maybe Text, _cpgDescription :: Maybe Text, _cpgParameterGroupName :: Maybe Text, _cpgTags :: [Tag]} deriving (Eq, Read, Show)
+data ClusterParameterGroup = ClusterParameterGroup'{_cpgParameterGroupFamily :: Maybe Text, _cpgDescription :: Maybe Text, _cpgParameterGroupName :: Maybe Text, _cpgTags :: Maybe [Tag]} deriving (Eq, Read, Show)
 
 -- | 'ClusterParameterGroup' smart constructor.
 clusterParameterGroup :: ClusterParameterGroup
-clusterParameterGroup = ClusterParameterGroup'{_cpgParameterGroupFamily = Nothing, _cpgDescription = Nothing, _cpgParameterGroupName = Nothing, _cpgTags = mempty};
+clusterParameterGroup = ClusterParameterGroup'{_cpgParameterGroupFamily = Nothing, _cpgDescription = Nothing, _cpgParameterGroupName = Nothing, _cpgTags = Nothing};
 
 -- | The name of the cluster parameter group family that this cluster
 -- parameter group is compatible with.
@@ -776,7 +776,7 @@ cpgParameterGroupName :: Lens' ClusterParameterGroup (Maybe Text)
 cpgParameterGroupName = lens _cpgParameterGroupName (\ s a -> s{_cpgParameterGroupName = a});
 
 -- | The list of tags for the cluster parameter group.
-cpgTags :: Lens' ClusterParameterGroup [Tag]
+cpgTags :: Lens' ClusterParameterGroup (Maybe [Tag])
 cpgTags = lens _cpgTags (\ s a -> s{_cpgTags = a});
 
 instance FromXML ClusterParameterGroup where
@@ -856,11 +856,11 @@ instance FromXML ClusterParameterGroupStatus where
 -- * 'cDescription'
 --
 -- * 'cTags'
-data ClusterSecurityGroup = ClusterSecurityGroup'{_cClusterSecurityGroupName :: Maybe Text, _cIPRanges :: [IPRange], _cEC2SecurityGroups :: [EC2SecurityGroup], _cDescription :: Maybe Text, _cTags :: [Tag]} deriving (Eq, Read, Show)
+data ClusterSecurityGroup = ClusterSecurityGroup'{_cClusterSecurityGroupName :: Maybe Text, _cIPRanges :: Maybe [IPRange], _cEC2SecurityGroups :: Maybe [EC2SecurityGroup], _cDescription :: Maybe Text, _cTags :: Maybe [Tag]} deriving (Eq, Read, Show)
 
 -- | 'ClusterSecurityGroup' smart constructor.
 clusterSecurityGroup :: ClusterSecurityGroup
-clusterSecurityGroup = ClusterSecurityGroup'{_cClusterSecurityGroupName = Nothing, _cIPRanges = mempty, _cEC2SecurityGroups = mempty, _cDescription = Nothing, _cTags = mempty};
+clusterSecurityGroup = ClusterSecurityGroup'{_cClusterSecurityGroupName = Nothing, _cIPRanges = Nothing, _cEC2SecurityGroups = Nothing, _cDescription = Nothing, _cTags = Nothing};
 
 -- | The name of the cluster security group to which the operation was
 -- applied.
@@ -869,12 +869,12 @@ cClusterSecurityGroupName = lens _cClusterSecurityGroupName (\ s a -> s{_cCluste
 
 -- | A list of IP ranges (CIDR blocks) that are permitted to access clusters
 -- associated with this cluster security group.
-cIPRanges :: Lens' ClusterSecurityGroup [IPRange]
+cIPRanges :: Lens' ClusterSecurityGroup (Maybe [IPRange])
 cIPRanges = lens _cIPRanges (\ s a -> s{_cIPRanges = a});
 
 -- | A list of EC2 security groups that are permitted to access clusters
 -- associated with this cluster security group.
-cEC2SecurityGroups :: Lens' ClusterSecurityGroup [EC2SecurityGroup]
+cEC2SecurityGroups :: Lens' ClusterSecurityGroup (Maybe [EC2SecurityGroup])
 cEC2SecurityGroups = lens _cEC2SecurityGroups (\ s a -> s{_cEC2SecurityGroups = a});
 
 -- | A description of the security group.
@@ -882,7 +882,7 @@ cDescription :: Lens' ClusterSecurityGroup (Maybe Text)
 cDescription = lens _cDescription (\ s a -> s{_cDescription = a});
 
 -- | The list of tags for the cluster security group.
-cTags :: Lens' ClusterSecurityGroup [Tag]
+cTags :: Lens' ClusterSecurityGroup (Maybe [Tag])
 cTags = lens _cTags (\ s a -> s{_cTags = a});
 
 instance FromXML ClusterSecurityGroup where
@@ -966,18 +966,18 @@ instance FromXML ClusterSnapshotCopyStatus where
 -- * 'csgDescription'
 --
 -- * 'csgTags'
-data ClusterSubnetGroup = ClusterSubnetGroup'{_csgVPCId :: Maybe Text, _csgSubnets :: [Subnet], _csgClusterSubnetGroupName :: Maybe Text, _csgSubnetGroupStatus :: Maybe Text, _csgDescription :: Maybe Text, _csgTags :: [Tag]} deriving (Eq, Read, Show)
+data ClusterSubnetGroup = ClusterSubnetGroup'{_csgVPCId :: Maybe Text, _csgSubnets :: Maybe [Subnet], _csgClusterSubnetGroupName :: Maybe Text, _csgSubnetGroupStatus :: Maybe Text, _csgDescription :: Maybe Text, _csgTags :: Maybe [Tag]} deriving (Eq, Read, Show)
 
 -- | 'ClusterSubnetGroup' smart constructor.
 clusterSubnetGroup :: ClusterSubnetGroup
-clusterSubnetGroup = ClusterSubnetGroup'{_csgVPCId = Nothing, _csgSubnets = mempty, _csgClusterSubnetGroupName = Nothing, _csgSubnetGroupStatus = Nothing, _csgDescription = Nothing, _csgTags = mempty};
+clusterSubnetGroup = ClusterSubnetGroup'{_csgVPCId = Nothing, _csgSubnets = Nothing, _csgClusterSubnetGroupName = Nothing, _csgSubnetGroupStatus = Nothing, _csgDescription = Nothing, _csgTags = Nothing};
 
 -- | The VPC ID of the cluster subnet group.
 csgVPCId :: Lens' ClusterSubnetGroup (Maybe Text)
 csgVPCId = lens _csgVPCId (\ s a -> s{_csgVPCId = a});
 
 -- | A list of the VPC Subnet elements.
-csgSubnets :: Lens' ClusterSubnetGroup [Subnet]
+csgSubnets :: Lens' ClusterSubnetGroup (Maybe [Subnet])
 csgSubnets = lens _csgSubnets (\ s a -> s{_csgSubnets = a});
 
 -- | The name of the cluster subnet group.
@@ -994,7 +994,7 @@ csgDescription :: Lens' ClusterSubnetGroup (Maybe Text)
 csgDescription = lens _csgDescription (\ s a -> s{_csgDescription = a});
 
 -- | The list of tags for the cluster subnet group.
-csgTags :: Lens' ClusterSubnetGroup [Tag]
+csgTags :: Lens' ClusterSubnetGroup (Maybe [Tag])
 csgTags = lens _csgTags (\ s a -> s{_csgTags = a});
 
 instance FromXML ClusterSubnetGroup where
@@ -1051,14 +1051,14 @@ instance FromXML ClusterVersion where
 -- * 'dcpMarker'
 --
 -- * 'dcpParameterGroupFamily'
-data DefaultClusterParameters = DefaultClusterParameters'{_dcpParameters :: [Parameter], _dcpMarker :: Maybe Text, _dcpParameterGroupFamily :: Maybe Text} deriving (Eq, Read, Show)
+data DefaultClusterParameters = DefaultClusterParameters'{_dcpParameters :: Maybe [Parameter], _dcpMarker :: Maybe Text, _dcpParameterGroupFamily :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DefaultClusterParameters' smart constructor.
 defaultClusterParameters :: DefaultClusterParameters
-defaultClusterParameters = DefaultClusterParameters'{_dcpParameters = mempty, _dcpMarker = Nothing, _dcpParameterGroupFamily = Nothing};
+defaultClusterParameters = DefaultClusterParameters'{_dcpParameters = Nothing, _dcpMarker = Nothing, _dcpParameterGroupFamily = Nothing};
 
 -- | The list of cluster default parameters.
-dcpParameters :: Lens' DefaultClusterParameters [Parameter]
+dcpParameters :: Lens' DefaultClusterParameters (Maybe [Parameter])
 dcpParameters = lens _dcpParameters (\ s a -> s{_dcpParameters = a});
 
 -- | A value that indicates the starting point for the next set of response
@@ -1094,11 +1094,11 @@ instance FromXML DefaultClusterParameters where
 -- * 'esgEC2SecurityGroupName'
 --
 -- * 'esgTags'
-data EC2SecurityGroup = EC2SecurityGroup'{_esgStatus :: Maybe Text, _esgEC2SecurityGroupOwnerId :: Maybe Text, _esgEC2SecurityGroupName :: Maybe Text, _esgTags :: [Tag]} deriving (Eq, Read, Show)
+data EC2SecurityGroup = EC2SecurityGroup'{_esgStatus :: Maybe Text, _esgEC2SecurityGroupOwnerId :: Maybe Text, _esgEC2SecurityGroupName :: Maybe Text, _esgTags :: Maybe [Tag]} deriving (Eq, Read, Show)
 
 -- | 'EC2SecurityGroup' smart constructor.
 ec2SecurityGroup :: EC2SecurityGroup
-ec2SecurityGroup = EC2SecurityGroup'{_esgStatus = Nothing, _esgEC2SecurityGroupOwnerId = Nothing, _esgEC2SecurityGroupName = Nothing, _esgTags = mempty};
+ec2SecurityGroup = EC2SecurityGroup'{_esgStatus = Nothing, _esgEC2SecurityGroupOwnerId = Nothing, _esgEC2SecurityGroupName = Nothing, _esgTags = Nothing};
 
 -- | The status of the EC2 security group.
 esgStatus :: Lens' EC2SecurityGroup (Maybe Text)
@@ -1114,7 +1114,7 @@ esgEC2SecurityGroupName :: Lens' EC2SecurityGroup (Maybe Text)
 esgEC2SecurityGroupName = lens _esgEC2SecurityGroupName (\ s a -> s{_esgEC2SecurityGroupName = a});
 
 -- | The list of tags for the EC2 security group.
-esgTags :: Lens' EC2SecurityGroup [Tag]
+esgTags :: Lens' EC2SecurityGroup (Maybe [Tag])
 esgTags = lens _esgTags (\ s a -> s{_esgTags = a});
 
 instance FromXML EC2SecurityGroup where
@@ -1192,11 +1192,11 @@ instance FromXML Endpoint where
 -- * 'eveMessage'
 --
 -- * 'eveEventId'
-data Event = Event'{_eveSourceType :: Maybe SourceType, _eveSeverity :: Maybe Text, _eveSourceIdentifier :: Maybe Text, _eveDate :: Maybe ISO8601, _eveEventCategories :: [Text], _eveMessage :: Maybe Text, _eveEventId :: Maybe Text} deriving (Eq, Read, Show)
+data Event = Event'{_eveSourceType :: Maybe SourceType, _eveSeverity :: Maybe Text, _eveSourceIdentifier :: Maybe Text, _eveDate :: Maybe ISO8601, _eveEventCategories :: Maybe [Text], _eveMessage :: Maybe Text, _eveEventId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'Event' smart constructor.
 event :: Event
-event = Event'{_eveSourceType = Nothing, _eveSeverity = Nothing, _eveSourceIdentifier = Nothing, _eveDate = Nothing, _eveEventCategories = mempty, _eveMessage = Nothing, _eveEventId = Nothing};
+event = Event'{_eveSourceType = Nothing, _eveSeverity = Nothing, _eveSourceIdentifier = Nothing, _eveDate = Nothing, _eveEventCategories = Nothing, _eveMessage = Nothing, _eveEventId = Nothing};
 
 -- | The source type for this event.
 eveSourceType :: Lens' Event (Maybe SourceType)
@@ -1217,7 +1217,7 @@ eveDate :: Lens' Event (Maybe UTCTime)
 eveDate = lens _eveDate (\ s a -> s{_eveDate = a}) . mapping _Time;
 
 -- | A list of the event categories.
-eveEventCategories :: Lens' Event [Text]
+eveEventCategories :: Lens' Event (Maybe [Text])
 eveEventCategories = lens _eveEventCategories (\ s a -> s{_eveEventCategories = a});
 
 -- | The text of this event.
@@ -1247,11 +1247,11 @@ instance FromXML Event where
 -- * 'ecmSourceType'
 --
 -- * 'ecmEvents'
-data EventCategoriesMap = EventCategoriesMap'{_ecmSourceType :: Maybe Text, _ecmEvents :: [EventInfoMap]} deriving (Eq, Read, Show)
+data EventCategoriesMap = EventCategoriesMap'{_ecmSourceType :: Maybe Text, _ecmEvents :: Maybe [EventInfoMap]} deriving (Eq, Read, Show)
 
 -- | 'EventCategoriesMap' smart constructor.
 eventCategoriesMap :: EventCategoriesMap
-eventCategoriesMap = EventCategoriesMap'{_ecmSourceType = Nothing, _ecmEvents = mempty};
+eventCategoriesMap = EventCategoriesMap'{_ecmSourceType = Nothing, _ecmEvents = Nothing};
 
 -- | The Amazon Redshift source type, such as cluster or cluster-snapshot,
 -- that the returned categories belong to.
@@ -1259,7 +1259,7 @@ ecmSourceType :: Lens' EventCategoriesMap (Maybe Text)
 ecmSourceType = lens _ecmSourceType (\ s a -> s{_ecmSourceType = a});
 
 -- | The events in the event category.
-ecmEvents :: Lens' EventCategoriesMap [EventInfoMap]
+ecmEvents :: Lens' EventCategoriesMap (Maybe [EventInfoMap])
 ecmEvents = lens _ecmEvents (\ s a -> s{_ecmEvents = a});
 
 instance FromXML EventCategoriesMap where
@@ -1280,11 +1280,11 @@ instance FromXML EventCategoriesMap where
 -- * 'eimEventCategories'
 --
 -- * 'eimEventId'
-data EventInfoMap = EventInfoMap'{_eimEventDescription :: Maybe Text, _eimSeverity :: Maybe Text, _eimEventCategories :: [Text], _eimEventId :: Maybe Text} deriving (Eq, Read, Show)
+data EventInfoMap = EventInfoMap'{_eimEventDescription :: Maybe Text, _eimSeverity :: Maybe Text, _eimEventCategories :: Maybe [Text], _eimEventId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'EventInfoMap' smart constructor.
 eventInfoMap :: EventInfoMap
-eventInfoMap = EventInfoMap'{_eimEventDescription = Nothing, _eimSeverity = Nothing, _eimEventCategories = mempty, _eimEventId = Nothing};
+eventInfoMap = EventInfoMap'{_eimEventDescription = Nothing, _eimSeverity = Nothing, _eimEventCategories = Nothing, _eimEventId = Nothing};
 
 -- | The description of an Amazon Redshift event.
 eimEventDescription :: Lens' EventInfoMap (Maybe Text)
@@ -1297,7 +1297,7 @@ eimSeverity :: Lens' EventInfoMap (Maybe Text)
 eimSeverity = lens _eimSeverity (\ s a -> s{_eimSeverity = a});
 
 -- | The category of an Amazon Redshift event.
-eimEventCategories :: Lens' EventInfoMap [Text]
+eimEventCategories :: Lens' EventInfoMap (Maybe [Text])
 eimEventCategories = lens _eimEventCategories (\ s a -> s{_eimEventCategories = a});
 
 -- | The identifier of an Amazon Redshift event.
@@ -1337,11 +1337,11 @@ instance FromXML EventInfoMap where
 -- * 'esSourceIdsList'
 --
 -- * 'esTags'
-data EventSubscription = EventSubscription'{_esCustomerAWSId :: Maybe Text, _esStatus :: Maybe Text, _esCustSubscriptionId :: Maybe Text, _esSNSTopicARN :: Maybe Text, _esEnabled :: Maybe Bool, _esSourceType :: Maybe Text, _esSeverity :: Maybe Text, _esSubscriptionCreationTime :: Maybe ISO8601, _esEventCategoriesList :: [Text], _esSourceIdsList :: [Text], _esTags :: [Tag]} deriving (Eq, Read, Show)
+data EventSubscription = EventSubscription'{_esCustomerAWSId :: Maybe Text, _esStatus :: Maybe Text, _esCustSubscriptionId :: Maybe Text, _esSNSTopicARN :: Maybe Text, _esEnabled :: Maybe Bool, _esSourceType :: Maybe Text, _esSeverity :: Maybe Text, _esSubscriptionCreationTime :: Maybe ISO8601, _esEventCategoriesList :: Maybe [Text], _esSourceIdsList :: Maybe [Text], _esTags :: Maybe [Tag]} deriving (Eq, Read, Show)
 
 -- | 'EventSubscription' smart constructor.
 eventSubscription :: EventSubscription
-eventSubscription = EventSubscription'{_esCustomerAWSId = Nothing, _esStatus = Nothing, _esCustSubscriptionId = Nothing, _esSNSTopicARN = Nothing, _esEnabled = Nothing, _esSourceType = Nothing, _esSeverity = Nothing, _esSubscriptionCreationTime = Nothing, _esEventCategoriesList = mempty, _esSourceIdsList = mempty, _esTags = mempty};
+eventSubscription = EventSubscription'{_esCustomerAWSId = Nothing, _esStatus = Nothing, _esCustSubscriptionId = Nothing, _esSNSTopicARN = Nothing, _esEnabled = Nothing, _esSourceType = Nothing, _esSeverity = Nothing, _esSubscriptionCreationTime = Nothing, _esEventCategoriesList = Nothing, _esSourceIdsList = Nothing, _esTags = Nothing};
 
 -- | The AWS customer account associated with the Amazon Redshift event
 -- notification subscription.
@@ -1396,16 +1396,16 @@ esSubscriptionCreationTime = lens _esSubscriptionCreationTime (\ s a -> s{_esSub
 -- notification subscription.
 --
 -- Values: Configuration, Management, Monitoring, Security
-esEventCategoriesList :: Lens' EventSubscription [Text]
+esEventCategoriesList :: Lens' EventSubscription (Maybe [Text])
 esEventCategoriesList = lens _esEventCategoriesList (\ s a -> s{_esEventCategoriesList = a});
 
 -- | A list of the sources that publish events to the Amazon Redshift event
 -- notification subscription.
-esSourceIdsList :: Lens' EventSubscription [Text]
+esSourceIdsList :: Lens' EventSubscription (Maybe [Text])
 esSourceIdsList = lens _esSourceIdsList (\ s a -> s{_esSourceIdsList = a});
 
 -- | The list of tags for the event subscription.
-esTags :: Lens' EventSubscription [Tag]
+esTags :: Lens' EventSubscription (Maybe [Tag])
 esTags = lens _esTags (\ s a -> s{_esTags = a});
 
 instance FromXML EventSubscription where
@@ -1435,11 +1435,11 @@ instance FromXML EventSubscription where
 -- * 'hccHSMClientCertificatePublicKey'
 --
 -- * 'hccTags'
-data HSMClientCertificate = HSMClientCertificate'{_hccHSMClientCertificateIdentifier :: Maybe Text, _hccHSMClientCertificatePublicKey :: Maybe Text, _hccTags :: [Tag]} deriving (Eq, Read, Show)
+data HSMClientCertificate = HSMClientCertificate'{_hccHSMClientCertificateIdentifier :: Maybe Text, _hccHSMClientCertificatePublicKey :: Maybe Text, _hccTags :: Maybe [Tag]} deriving (Eq, Read, Show)
 
 -- | 'HSMClientCertificate' smart constructor.
 hsmClientCertificate :: HSMClientCertificate
-hsmClientCertificate = HSMClientCertificate'{_hccHSMClientCertificateIdentifier = Nothing, _hccHSMClientCertificatePublicKey = Nothing, _hccTags = mempty};
+hsmClientCertificate = HSMClientCertificate'{_hccHSMClientCertificateIdentifier = Nothing, _hccHSMClientCertificatePublicKey = Nothing, _hccTags = Nothing};
 
 -- | The identifier of the HSM client certificate.
 hccHSMClientCertificateIdentifier :: Lens' HSMClientCertificate (Maybe Text)
@@ -1451,7 +1451,7 @@ hccHSMClientCertificatePublicKey :: Lens' HSMClientCertificate (Maybe Text)
 hccHSMClientCertificatePublicKey = lens _hccHSMClientCertificatePublicKey (\ s a -> s{_hccHSMClientCertificatePublicKey = a});
 
 -- | The list of tags for the HSM client certificate.
-hccTags :: Lens' HSMClientCertificate [Tag]
+hccTags :: Lens' HSMClientCertificate (Maybe [Tag])
 hccTags = lens _hccTags (\ s a -> s{_hccTags = a});
 
 instance FromXML HSMClientCertificate where
@@ -1474,11 +1474,11 @@ instance FromXML HSMClientCertificate where
 -- * 'hcHSMIPAddress'
 --
 -- * 'hcTags'
-data HSMConfiguration = HSMConfiguration'{_hcHSMConfigurationIdentifier :: Maybe Text, _hcHSMPartitionName :: Maybe Text, _hcDescription :: Maybe Text, _hcHSMIPAddress :: Maybe Text, _hcTags :: [Tag]} deriving (Eq, Read, Show)
+data HSMConfiguration = HSMConfiguration'{_hcHSMConfigurationIdentifier :: Maybe Text, _hcHSMPartitionName :: Maybe Text, _hcDescription :: Maybe Text, _hcHSMIPAddress :: Maybe Text, _hcTags :: Maybe [Tag]} deriving (Eq, Read, Show)
 
 -- | 'HSMConfiguration' smart constructor.
 hsmConfiguration :: HSMConfiguration
-hsmConfiguration = HSMConfiguration'{_hcHSMConfigurationIdentifier = Nothing, _hcHSMPartitionName = Nothing, _hcDescription = Nothing, _hcHSMIPAddress = Nothing, _hcTags = mempty};
+hsmConfiguration = HSMConfiguration'{_hcHSMConfigurationIdentifier = Nothing, _hcHSMPartitionName = Nothing, _hcDescription = Nothing, _hcHSMIPAddress = Nothing, _hcTags = Nothing};
 
 -- | The name of the Amazon Redshift HSM configuration.
 hcHSMConfigurationIdentifier :: Lens' HSMConfiguration (Maybe Text)
@@ -1499,7 +1499,7 @@ hcHSMIPAddress :: Lens' HSMConfiguration (Maybe Text)
 hcHSMIPAddress = lens _hcHSMIPAddress (\ s a -> s{_hcHSMIPAddress = a});
 
 -- | The list of tags for the HSM configuration.
-hcTags :: Lens' HSMConfiguration [Tag]
+hcTags :: Lens' HSMConfiguration (Maybe [Tag])
 hcTags = lens _hcTags (\ s a -> s{_hcTags = a});
 
 instance FromXML HSMConfiguration where
@@ -1559,11 +1559,11 @@ instance FromXML HSMStatus where
 -- * 'irCIDRIP'
 --
 -- * 'irTags'
-data IPRange = IPRange'{_irStatus :: Maybe Text, _irCIDRIP :: Maybe Text, _irTags :: [Tag]} deriving (Eq, Read, Show)
+data IPRange = IPRange'{_irStatus :: Maybe Text, _irCIDRIP :: Maybe Text, _irTags :: Maybe [Tag]} deriving (Eq, Read, Show)
 
 -- | 'IPRange' smart constructor.
 ipRange :: IPRange
-ipRange = IPRange'{_irStatus = Nothing, _irCIDRIP = Nothing, _irTags = mempty};
+ipRange = IPRange'{_irStatus = Nothing, _irCIDRIP = Nothing, _irTags = Nothing};
 
 -- | The status of the IP range, for example, \"authorized\".
 irStatus :: Lens' IPRange (Maybe Text)
@@ -1574,7 +1574,7 @@ irCIDRIP :: Lens' IPRange (Maybe Text)
 irCIDRIP = lens _irCIDRIP (\ s a -> s{_irCIDRIP = a});
 
 -- | The list of tags for the IP range.
-irTags :: Lens' IPRange [Tag]
+irTags :: Lens' IPRange (Maybe [Tag])
 irTags = lens _irTags (\ s a -> s{_irTags = a});
 
 instance FromXML IPRange where
@@ -1649,14 +1649,14 @@ instance FromXML LoggingStatus where
 -- * 'ocoClusterVersion'
 --
 -- * 'ocoNodeType'
-data OrderableClusterOption = OrderableClusterOption'{_ocoAvailabilityZones :: [AvailabilityZone], _ocoClusterType :: Maybe Text, _ocoClusterVersion :: Maybe Text, _ocoNodeType :: Maybe Text} deriving (Eq, Read, Show)
+data OrderableClusterOption = OrderableClusterOption'{_ocoAvailabilityZones :: Maybe [AvailabilityZone], _ocoClusterType :: Maybe Text, _ocoClusterVersion :: Maybe Text, _ocoNodeType :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'OrderableClusterOption' smart constructor.
 orderableClusterOption :: OrderableClusterOption
-orderableClusterOption = OrderableClusterOption'{_ocoAvailabilityZones = mempty, _ocoClusterType = Nothing, _ocoClusterVersion = Nothing, _ocoNodeType = Nothing};
+orderableClusterOption = OrderableClusterOption'{_ocoAvailabilityZones = Nothing, _ocoClusterType = Nothing, _ocoClusterVersion = Nothing, _ocoNodeType = Nothing};
 
 -- | A list of availability zones for the orderable cluster.
-ocoAvailabilityZones :: Lens' OrderableClusterOption [AvailabilityZone]
+ocoAvailabilityZones :: Lens' OrderableClusterOption (Maybe [AvailabilityZone])
 ocoAvailabilityZones = lens _ocoAvailabilityZones (\ s a -> s{_ocoAvailabilityZones = a});
 
 -- | The cluster type, for example @multi-node@.
@@ -1882,11 +1882,11 @@ instance FromXML RecurringCharge where
 -- * 'rnFixedPrice'
 --
 -- * 'rnDuration'
-data ReservedNode = ReservedNode'{_rnState :: Maybe Text, _rnCurrencyCode :: Maybe Text, _rnStartTime :: Maybe ISO8601, _rnNodeCount :: Maybe Int, _rnReservedNodeOfferingId :: Maybe Text, _rnReservedNodeId :: Maybe Text, _rnOfferingType :: Maybe Text, _rnUsagePrice :: Maybe Double, _rnNodeType :: Maybe Text, _rnRecurringCharges :: [RecurringCharge], _rnFixedPrice :: Maybe Double, _rnDuration :: Maybe Int} deriving (Eq, Read, Show)
+data ReservedNode = ReservedNode'{_rnState :: Maybe Text, _rnCurrencyCode :: Maybe Text, _rnStartTime :: Maybe ISO8601, _rnNodeCount :: Maybe Int, _rnReservedNodeOfferingId :: Maybe Text, _rnReservedNodeId :: Maybe Text, _rnOfferingType :: Maybe Text, _rnUsagePrice :: Maybe Double, _rnNodeType :: Maybe Text, _rnRecurringCharges :: Maybe [RecurringCharge], _rnFixedPrice :: Maybe Double, _rnDuration :: Maybe Int} deriving (Eq, Read, Show)
 
 -- | 'ReservedNode' smart constructor.
 reservedNode :: ReservedNode
-reservedNode = ReservedNode'{_rnState = Nothing, _rnCurrencyCode = Nothing, _rnStartTime = Nothing, _rnNodeCount = Nothing, _rnReservedNodeOfferingId = Nothing, _rnReservedNodeId = Nothing, _rnOfferingType = Nothing, _rnUsagePrice = Nothing, _rnNodeType = Nothing, _rnRecurringCharges = mempty, _rnFixedPrice = Nothing, _rnDuration = Nothing};
+reservedNode = ReservedNode'{_rnState = Nothing, _rnCurrencyCode = Nothing, _rnStartTime = Nothing, _rnNodeCount = Nothing, _rnReservedNodeOfferingId = Nothing, _rnReservedNodeId = Nothing, _rnOfferingType = Nothing, _rnUsagePrice = Nothing, _rnNodeType = Nothing, _rnRecurringCharges = Nothing, _rnFixedPrice = Nothing, _rnDuration = Nothing};
 
 -- | The state of the reserved compute node.
 --
@@ -1935,7 +1935,7 @@ rnNodeType :: Lens' ReservedNode (Maybe Text)
 rnNodeType = lens _rnNodeType (\ s a -> s{_rnNodeType = a});
 
 -- | The recurring charges for the reserved node.
-rnRecurringCharges :: Lens' ReservedNode [RecurringCharge]
+rnRecurringCharges :: Lens' ReservedNode (Maybe [RecurringCharge])
 rnRecurringCharges = lens _rnRecurringCharges (\ s a -> s{_rnRecurringCharges = a});
 
 -- | The fixed cost Amazon Redshift charged you for this reserved node.
@@ -1982,11 +1982,11 @@ instance FromXML ReservedNode where
 -- * 'rnoFixedPrice'
 --
 -- * 'rnoDuration'
-data ReservedNodeOffering = ReservedNodeOffering'{_rnoCurrencyCode :: Maybe Text, _rnoReservedNodeOfferingId :: Maybe Text, _rnoOfferingType :: Maybe Text, _rnoUsagePrice :: Maybe Double, _rnoNodeType :: Maybe Text, _rnoRecurringCharges :: [RecurringCharge], _rnoFixedPrice :: Maybe Double, _rnoDuration :: Maybe Int} deriving (Eq, Read, Show)
+data ReservedNodeOffering = ReservedNodeOffering'{_rnoCurrencyCode :: Maybe Text, _rnoReservedNodeOfferingId :: Maybe Text, _rnoOfferingType :: Maybe Text, _rnoUsagePrice :: Maybe Double, _rnoNodeType :: Maybe Text, _rnoRecurringCharges :: Maybe [RecurringCharge], _rnoFixedPrice :: Maybe Double, _rnoDuration :: Maybe Int} deriving (Eq, Read, Show)
 
 -- | 'ReservedNodeOffering' smart constructor.
 reservedNodeOffering :: ReservedNodeOffering
-reservedNodeOffering = ReservedNodeOffering'{_rnoCurrencyCode = Nothing, _rnoReservedNodeOfferingId = Nothing, _rnoOfferingType = Nothing, _rnoUsagePrice = Nothing, _rnoNodeType = Nothing, _rnoRecurringCharges = mempty, _rnoFixedPrice = Nothing, _rnoDuration = Nothing};
+reservedNodeOffering = ReservedNodeOffering'{_rnoCurrencyCode = Nothing, _rnoReservedNodeOfferingId = Nothing, _rnoOfferingType = Nothing, _rnoUsagePrice = Nothing, _rnoNodeType = Nothing, _rnoRecurringCharges = Nothing, _rnoFixedPrice = Nothing, _rnoDuration = Nothing};
 
 -- | The currency code for the compute nodes offering.
 rnoCurrencyCode :: Lens' ReservedNodeOffering (Maybe Text)
@@ -2013,7 +2013,7 @@ rnoNodeType = lens _rnoNodeType (\ s a -> s{_rnoNodeType = a});
 -- | The charge to your account regardless of whether you are creating any
 -- clusters using the node offering. Recurring charges are only in effect
 -- for heavy-utilization reserved nodes.
-rnoRecurringCharges :: Lens' ReservedNodeOffering [RecurringCharge]
+rnoRecurringCharges :: Lens' ReservedNodeOffering (Maybe [RecurringCharge])
 rnoRecurringCharges = lens _rnoRecurringCharges (\ s a -> s{_rnoRecurringCharges = a});
 
 -- | The upfront fixed charge you will pay to purchase the specific reserved
@@ -2156,11 +2156,11 @@ instance FromXML RestoreStatus where
 -- * 'snaActualIncrementalBackupSizeInMegaBytes'
 --
 -- * 'snaPort'
-data Snapshot = Snapshot'{_snaStatus :: Maybe Text, _snaAccountsWithRestoreAccess :: [AccountWithRestoreAccess], _snaSnapshotIdentifier :: Maybe Text, _snaEncryptedWithHSM :: Maybe Bool, _snaMasterUsername :: Maybe Text, _snaSourceRegion :: Maybe Text, _snaVPCId :: Maybe Text, _snaBackupProgressInMegaBytes :: Maybe Double, _snaEncrypted :: Maybe Bool, _snaClusterIdentifier :: Maybe Text, _snaNumberOfNodes :: Maybe Int, _snaSnapshotType :: Maybe Text, _snaAvailabilityZone :: Maybe Text, _snaKMSKeyId :: Maybe Text, _snaCurrentBackupRateInMegaBytesPerSecond :: Maybe Double, _snaSnapshotCreateTime :: Maybe ISO8601, _snaClusterVersion :: Maybe Text, _snaOwnerAccount :: Maybe Text, _snaNodeType :: Maybe Text, _snaClusterCreateTime :: Maybe ISO8601, _snaElapsedTimeInSeconds :: Maybe Integer, _snaEstimatedSecondsToCompletion :: Maybe Integer, _snaTotalBackupSizeInMegaBytes :: Maybe Double, _snaDBName :: Maybe Text, _snaTags :: [Tag], _snaActualIncrementalBackupSizeInMegaBytes :: Maybe Double, _snaPort :: Maybe Int} deriving (Eq, Read, Show)
+data Snapshot = Snapshot'{_snaStatus :: Maybe Text, _snaAccountsWithRestoreAccess :: Maybe [AccountWithRestoreAccess], _snaSnapshotIdentifier :: Maybe Text, _snaEncryptedWithHSM :: Maybe Bool, _snaMasterUsername :: Maybe Text, _snaSourceRegion :: Maybe Text, _snaVPCId :: Maybe Text, _snaBackupProgressInMegaBytes :: Maybe Double, _snaEncrypted :: Maybe Bool, _snaClusterIdentifier :: Maybe Text, _snaNumberOfNodes :: Maybe Int, _snaSnapshotType :: Maybe Text, _snaAvailabilityZone :: Maybe Text, _snaKMSKeyId :: Maybe Text, _snaCurrentBackupRateInMegaBytesPerSecond :: Maybe Double, _snaSnapshotCreateTime :: Maybe ISO8601, _snaClusterVersion :: Maybe Text, _snaOwnerAccount :: Maybe Text, _snaNodeType :: Maybe Text, _snaClusterCreateTime :: Maybe ISO8601, _snaElapsedTimeInSeconds :: Maybe Integer, _snaEstimatedSecondsToCompletion :: Maybe Integer, _snaTotalBackupSizeInMegaBytes :: Maybe Double, _snaDBName :: Maybe Text, _snaTags :: Maybe [Tag], _snaActualIncrementalBackupSizeInMegaBytes :: Maybe Double, _snaPort :: Maybe Int} deriving (Eq, Read, Show)
 
 -- | 'Snapshot' smart constructor.
 snapshot :: Snapshot
-snapshot = Snapshot'{_snaStatus = Nothing, _snaAccountsWithRestoreAccess = mempty, _snaSnapshotIdentifier = Nothing, _snaEncryptedWithHSM = Nothing, _snaMasterUsername = Nothing, _snaSourceRegion = Nothing, _snaVPCId = Nothing, _snaBackupProgressInMegaBytes = Nothing, _snaEncrypted = Nothing, _snaClusterIdentifier = Nothing, _snaNumberOfNodes = Nothing, _snaSnapshotType = Nothing, _snaAvailabilityZone = Nothing, _snaKMSKeyId = Nothing, _snaCurrentBackupRateInMegaBytesPerSecond = Nothing, _snaSnapshotCreateTime = Nothing, _snaClusterVersion = Nothing, _snaOwnerAccount = Nothing, _snaNodeType = Nothing, _snaClusterCreateTime = Nothing, _snaElapsedTimeInSeconds = Nothing, _snaEstimatedSecondsToCompletion = Nothing, _snaTotalBackupSizeInMegaBytes = Nothing, _snaDBName = Nothing, _snaTags = mempty, _snaActualIncrementalBackupSizeInMegaBytes = Nothing, _snaPort = Nothing};
+snapshot = Snapshot'{_snaStatus = Nothing, _snaAccountsWithRestoreAccess = Nothing, _snaSnapshotIdentifier = Nothing, _snaEncryptedWithHSM = Nothing, _snaMasterUsername = Nothing, _snaSourceRegion = Nothing, _snaVPCId = Nothing, _snaBackupProgressInMegaBytes = Nothing, _snaEncrypted = Nothing, _snaClusterIdentifier = Nothing, _snaNumberOfNodes = Nothing, _snaSnapshotType = Nothing, _snaAvailabilityZone = Nothing, _snaKMSKeyId = Nothing, _snaCurrentBackupRateInMegaBytesPerSecond = Nothing, _snaSnapshotCreateTime = Nothing, _snaClusterVersion = Nothing, _snaOwnerAccount = Nothing, _snaNodeType = Nothing, _snaClusterCreateTime = Nothing, _snaElapsedTimeInSeconds = Nothing, _snaEstimatedSecondsToCompletion = Nothing, _snaTotalBackupSizeInMegaBytes = Nothing, _snaDBName = Nothing, _snaTags = Nothing, _snaActualIncrementalBackupSizeInMegaBytes = Nothing, _snaPort = Nothing};
 
 -- | The snapshot status. The value of the status depends on the API
 -- operation used.
@@ -2176,7 +2176,7 @@ snaStatus = lens _snaStatus (\ s a -> s{_snaStatus = a});
 -- | A list of the AWS customer accounts authorized to restore the snapshot.
 -- Returns @null@ if no accounts are authorized. Visible only to the
 -- snapshot owner.
-snaAccountsWithRestoreAccess :: Lens' Snapshot [AccountWithRestoreAccess]
+snaAccountsWithRestoreAccess :: Lens' Snapshot (Maybe [AccountWithRestoreAccess])
 snaAccountsWithRestoreAccess = lens _snaAccountsWithRestoreAccess (\ s a -> s{_snaAccountsWithRestoreAccess = a});
 
 -- | The snapshot identifier that is provided in the request.
@@ -2284,7 +2284,7 @@ snaDBName :: Lens' Snapshot (Maybe Text)
 snaDBName = lens _snaDBName (\ s a -> s{_snaDBName = a});
 
 -- | The list of tags for the cluster snapshot.
-snaTags :: Lens' Snapshot [Tag]
+snaTags :: Lens' Snapshot (Maybe [Tag])
 snaTags = lens _snaTags (\ s a -> s{_snaTags = a});
 
 -- | The size of the incremental backup.

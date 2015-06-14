@@ -120,11 +120,11 @@ import Network.AWS.Redshift.Types
 -- * 'ccMasterUsername'
 --
 -- * 'ccMasterUserPassword'
-data CreateCluster = CreateCluster'{_ccPubliclyAccessible :: Maybe Bool, _ccHSMConfigurationIdentifier :: Maybe Text, _ccClusterSecurityGroups :: [Text], _ccAutomatedSnapshotRetentionPeriod :: Maybe Int, _ccEncrypted :: Maybe Bool, _ccNumberOfNodes :: Maybe Int, _ccHSMClientCertificateIdentifier :: Maybe Text, _ccClusterSubnetGroupName :: Maybe Text, _ccElasticIP :: Maybe Text, _ccPreferredMaintenanceWindow :: Maybe Text, _ccAvailabilityZone :: Maybe Text, _ccKMSKeyId :: Maybe Text, _ccVPCSecurityGroupIds :: [Text], _ccClusterType :: Maybe Text, _ccClusterVersion :: Maybe Text, _ccAllowVersionUpgrade :: Maybe Bool, _ccClusterParameterGroupName :: Maybe Text, _ccDBName :: Maybe Text, _ccTags :: [Tag], _ccPort :: Maybe Int, _ccClusterIdentifier :: Text, _ccNodeType :: Text, _ccMasterUsername :: Text, _ccMasterUserPassword :: Text} deriving (Eq, Read, Show)
+data CreateCluster = CreateCluster'{_ccPubliclyAccessible :: Maybe Bool, _ccHSMConfigurationIdentifier :: Maybe Text, _ccClusterSecurityGroups :: Maybe [Text], _ccAutomatedSnapshotRetentionPeriod :: Maybe Int, _ccEncrypted :: Maybe Bool, _ccNumberOfNodes :: Maybe Int, _ccHSMClientCertificateIdentifier :: Maybe Text, _ccClusterSubnetGroupName :: Maybe Text, _ccElasticIP :: Maybe Text, _ccPreferredMaintenanceWindow :: Maybe Text, _ccAvailabilityZone :: Maybe Text, _ccKMSKeyId :: Maybe Text, _ccVPCSecurityGroupIds :: Maybe [Text], _ccClusterType :: Maybe Text, _ccClusterVersion :: Maybe Text, _ccAllowVersionUpgrade :: Maybe Bool, _ccClusterParameterGroupName :: Maybe Text, _ccDBName :: Maybe Text, _ccTags :: Maybe [Tag], _ccPort :: Maybe Int, _ccClusterIdentifier :: Text, _ccNodeType :: Text, _ccMasterUsername :: Text, _ccMasterUserPassword :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateCluster' smart constructor.
 createCluster :: Text -> Text -> Text -> Text -> CreateCluster
-createCluster pClusterIdentifier pNodeType pMasterUsername pMasterUserPassword = CreateCluster'{_ccPubliclyAccessible = Nothing, _ccHSMConfigurationIdentifier = Nothing, _ccClusterSecurityGroups = mempty, _ccAutomatedSnapshotRetentionPeriod = Nothing, _ccEncrypted = Nothing, _ccNumberOfNodes = Nothing, _ccHSMClientCertificateIdentifier = Nothing, _ccClusterSubnetGroupName = Nothing, _ccElasticIP = Nothing, _ccPreferredMaintenanceWindow = Nothing, _ccAvailabilityZone = Nothing, _ccKMSKeyId = Nothing, _ccVPCSecurityGroupIds = mempty, _ccClusterType = Nothing, _ccClusterVersion = Nothing, _ccAllowVersionUpgrade = Nothing, _ccClusterParameterGroupName = Nothing, _ccDBName = Nothing, _ccTags = mempty, _ccPort = Nothing, _ccClusterIdentifier = pClusterIdentifier, _ccNodeType = pNodeType, _ccMasterUsername = pMasterUsername, _ccMasterUserPassword = pMasterUserPassword};
+createCluster pClusterIdentifier pNodeType pMasterUsername pMasterUserPassword = CreateCluster'{_ccPubliclyAccessible = Nothing, _ccHSMConfigurationIdentifier = Nothing, _ccClusterSecurityGroups = Nothing, _ccAutomatedSnapshotRetentionPeriod = Nothing, _ccEncrypted = Nothing, _ccNumberOfNodes = Nothing, _ccHSMClientCertificateIdentifier = Nothing, _ccClusterSubnetGroupName = Nothing, _ccElasticIP = Nothing, _ccPreferredMaintenanceWindow = Nothing, _ccAvailabilityZone = Nothing, _ccKMSKeyId = Nothing, _ccVPCSecurityGroupIds = Nothing, _ccClusterType = Nothing, _ccClusterVersion = Nothing, _ccAllowVersionUpgrade = Nothing, _ccClusterParameterGroupName = Nothing, _ccDBName = Nothing, _ccTags = Nothing, _ccPort = Nothing, _ccClusterIdentifier = pClusterIdentifier, _ccNodeType = pNodeType, _ccMasterUsername = pMasterUsername, _ccMasterUserPassword = pMasterUserPassword};
 
 -- | If @true@, the cluster can be accessed from a public network.
 ccPubliclyAccessible :: Lens' CreateCluster (Maybe Bool)
@@ -139,7 +139,7 @@ ccHSMConfigurationIdentifier = lens _ccHSMConfigurationIdentifier (\ s a -> s{_c
 -- | A list of security groups to be associated with this cluster.
 --
 -- Default: The default cluster security group for Amazon Redshift.
-ccClusterSecurityGroups :: Lens' CreateCluster [Text]
+ccClusterSecurityGroups :: Lens' CreateCluster (Maybe [Text])
 ccClusterSecurityGroups = lens _ccClusterSecurityGroups (\ s a -> s{_ccClusterSecurityGroups = a});
 
 -- | The number of days that automated snapshots are retained. If the value
@@ -239,7 +239,7 @@ ccKMSKeyId = lens _ccKMSKeyId (\ s a -> s{_ccKMSKeyId = a});
 -- with the cluster.
 --
 -- Default: The default VPC security group is associated with the cluster.
-ccVPCSecurityGroupIds :: Lens' CreateCluster [Text]
+ccVPCSecurityGroupIds :: Lens' CreateCluster (Maybe [Text])
 ccVPCSecurityGroupIds = lens _ccVPCSecurityGroupIds (\ s a -> s{_ccVPCSecurityGroupIds = a});
 
 -- | The type of the cluster. When cluster type is specified as
@@ -313,7 +313,7 @@ ccDBName :: Lens' CreateCluster (Maybe Text)
 ccDBName = lens _ccDBName (\ s a -> s{_ccDBName = a});
 
 -- | A list of tag instances.
-ccTags :: Lens' CreateCluster [Tag]
+ccTags :: Lens' CreateCluster (Maybe [Tag])
 ccTags = lens _ccTags (\ s a -> s{_ccTags = a});
 
 -- | The port number on which the cluster accepts incoming connections.

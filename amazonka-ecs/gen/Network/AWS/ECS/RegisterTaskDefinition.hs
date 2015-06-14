@@ -55,15 +55,15 @@ import Network.AWS.ECS.Types
 -- * 'rtdFamily'
 --
 -- * 'rtdContainerDefinitions'
-data RegisterTaskDefinition = RegisterTaskDefinition'{_rtdVolumes :: [Volume], _rtdFamily :: Text, _rtdContainerDefinitions :: [ContainerDefinition]} deriving (Eq, Read, Show)
+data RegisterTaskDefinition = RegisterTaskDefinition'{_rtdVolumes :: Maybe [Volume], _rtdFamily :: Text, _rtdContainerDefinitions :: [ContainerDefinition]} deriving (Eq, Read, Show)
 
 -- | 'RegisterTaskDefinition' smart constructor.
-registerTaskDefinition :: Text -> [ContainerDefinition] -> RegisterTaskDefinition
-registerTaskDefinition pFamily pContainerDefinitions = RegisterTaskDefinition'{_rtdVolumes = mempty, _rtdFamily = pFamily, _rtdContainerDefinitions = pContainerDefinitions};
+registerTaskDefinition :: Text -> RegisterTaskDefinition
+registerTaskDefinition pFamily = RegisterTaskDefinition'{_rtdVolumes = Nothing, _rtdFamily = pFamily, _rtdContainerDefinitions = mempty};
 
 -- | A list of volume definitions in JSON format that containers in your task
 -- may use.
-rtdVolumes :: Lens' RegisterTaskDefinition [Volume]
+rtdVolumes :: Lens' RegisterTaskDefinition (Maybe [Volume])
 rtdVolumes = lens _rtdVolumes (\ s a -> s{_rtdVolumes = a});
 
 -- | You must specify a @family@ for a task definition, which allows you to

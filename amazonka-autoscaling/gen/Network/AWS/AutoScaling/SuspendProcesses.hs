@@ -57,11 +57,11 @@ import Network.AWS.AutoScaling.Types
 -- * 'spScalingProcesses'
 --
 -- * 'spAutoScalingGroupName'
-data SuspendProcesses = SuspendProcesses'{_spScalingProcesses :: [Text], _spAutoScalingGroupName :: Text} deriving (Eq, Read, Show)
+data SuspendProcesses = SuspendProcesses'{_spScalingProcesses :: Maybe [Text], _spAutoScalingGroupName :: Text} deriving (Eq, Read, Show)
 
 -- | 'SuspendProcesses' smart constructor.
 suspendProcesses :: Text -> SuspendProcesses
-suspendProcesses pAutoScalingGroupName = SuspendProcesses'{_spScalingProcesses = mempty, _spAutoScalingGroupName = pAutoScalingGroupName};
+suspendProcesses pAutoScalingGroupName = SuspendProcesses'{_spScalingProcesses = Nothing, _spAutoScalingGroupName = pAutoScalingGroupName};
 
 -- | One or more of the following processes:
 --
@@ -73,7 +73,7 @@ suspendProcesses pAutoScalingGroupName = SuspendProcesses'{_spScalingProcesses =
 -- -   AlarmNotification
 -- -   ScheduledActions
 -- -   AddToLoadBalancer
-spScalingProcesses :: Lens' SuspendProcesses [Text]
+spScalingProcesses :: Lens' SuspendProcesses (Maybe [Text])
 spScalingProcesses = lens _spScalingProcesses (\ s a -> s{_spScalingProcesses = a});
 
 -- | The name or Amazon Resource Name (ARN) of the Auto Scaling group.

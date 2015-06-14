@@ -67,8 +67,8 @@ import Network.AWS.SNS.Types
 data CreatePlatformApplication = CreatePlatformApplication'{_cpaName :: Text, _cpaPlatform :: Text, _cpaAttributes :: HashMap Text Text} deriving (Eq, Read, Show)
 
 -- | 'CreatePlatformApplication' smart constructor.
-createPlatformApplication :: Text -> Text -> HashMap Text Text -> CreatePlatformApplication
-createPlatformApplication pName pPlatform pAttributes = CreatePlatformApplication'{_cpaName = pName, _cpaPlatform = pPlatform, _cpaAttributes = _Coerce # pAttributes};
+createPlatformApplication :: Text -> Text -> CreatePlatformApplication
+createPlatformApplication pName pPlatform = CreatePlatformApplication'{_cpaName = pName, _cpaPlatform = pPlatform, _cpaAttributes = mempty};
 
 -- | Application names must be made up of only uppercase and lowercase ASCII
 -- letters, numbers, underscores, hyphens, and periods, and must be between

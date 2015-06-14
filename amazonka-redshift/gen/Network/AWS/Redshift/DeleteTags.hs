@@ -49,8 +49,8 @@ import Network.AWS.Redshift.Types
 data DeleteTags = DeleteTags'{_delResourceName :: Text, _delTagKeys :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'DeleteTags' smart constructor.
-deleteTags :: Text -> [Text] -> DeleteTags
-deleteTags pResourceName pTagKeys = DeleteTags'{_delResourceName = pResourceName, _delTagKeys = pTagKeys};
+deleteTags :: Text -> DeleteTags
+deleteTags pResourceName = DeleteTags'{_delResourceName = pResourceName, _delTagKeys = mempty};
 
 -- | The Amazon Resource Name (ARN) from which you want to remove the tag or
 -- tags. For example, @arn:aws:redshift:us-east-1:123456789:cluster:t1@.

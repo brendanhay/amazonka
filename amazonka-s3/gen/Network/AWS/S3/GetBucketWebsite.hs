@@ -93,11 +93,11 @@ instance ToQuery GetBucketWebsite where
 -- * 'gbwrRoutingRules'
 --
 -- * 'gbwrIndexDocument'
-data GetBucketWebsiteResponse = GetBucketWebsiteResponse'{_gbwrRedirectAllRequestsTo :: Maybe RedirectAllRequestsTo, _gbwrErrorDocument :: Maybe ErrorDocument, _gbwrRoutingRules :: [RoutingRule], _gbwrIndexDocument :: Maybe IndexDocument} deriving (Eq, Read, Show)
+data GetBucketWebsiteResponse = GetBucketWebsiteResponse'{_gbwrRedirectAllRequestsTo :: Maybe RedirectAllRequestsTo, _gbwrErrorDocument :: Maybe ErrorDocument, _gbwrRoutingRules :: Maybe [RoutingRule], _gbwrIndexDocument :: Maybe IndexDocument} deriving (Eq, Read, Show)
 
 -- | 'GetBucketWebsiteResponse' smart constructor.
 getBucketWebsiteResponse :: GetBucketWebsiteResponse
-getBucketWebsiteResponse = GetBucketWebsiteResponse'{_gbwrRedirectAllRequestsTo = Nothing, _gbwrErrorDocument = Nothing, _gbwrRoutingRules = mempty, _gbwrIndexDocument = Nothing};
+getBucketWebsiteResponse = GetBucketWebsiteResponse'{_gbwrRedirectAllRequestsTo = Nothing, _gbwrErrorDocument = Nothing, _gbwrRoutingRules = Nothing, _gbwrIndexDocument = Nothing};
 
 -- | FIXME: Undocumented member.
 gbwrRedirectAllRequestsTo :: Lens' GetBucketWebsiteResponse (Maybe RedirectAllRequestsTo)
@@ -108,7 +108,7 @@ gbwrErrorDocument :: Lens' GetBucketWebsiteResponse (Maybe ErrorDocument)
 gbwrErrorDocument = lens _gbwrErrorDocument (\ s a -> s{_gbwrErrorDocument = a});
 
 -- | FIXME: Undocumented member.
-gbwrRoutingRules :: Lens' GetBucketWebsiteResponse [RoutingRule]
+gbwrRoutingRules :: Lens' GetBucketWebsiteResponse (Maybe [RoutingRule])
 gbwrRoutingRules = lens _gbwrRoutingRules (\ s a -> s{_gbwrRoutingRules = a});
 
 -- | FIXME: Undocumented member.

@@ -354,26 +354,26 @@ instance FromXML AppCookieStickinessPolicy where
 -- * 'bsdPolicyNames'
 --
 -- * 'bsdInstancePort'
-data BackendServerDescription = BackendServerDescription'{_bsdPolicyNames :: [Text], _bsdInstancePort :: Nat} deriving (Eq, Read, Show)
+data BackendServerDescription = BackendServerDescription'{_bsdPolicyNames :: Maybe [Text], _bsdInstancePort :: Maybe Nat} deriving (Eq, Read, Show)
 
 -- | 'BackendServerDescription' smart constructor.
-backendServerDescription :: Natural -> BackendServerDescription
-backendServerDescription pInstancePort = BackendServerDescription'{_bsdPolicyNames = mempty, _bsdInstancePort = _Nat # pInstancePort};
+backendServerDescription :: BackendServerDescription
+backendServerDescription = BackendServerDescription'{_bsdPolicyNames = Nothing, _bsdInstancePort = Nothing};
 
 -- | The names of the policies enabled for the back-end server.
-bsdPolicyNames :: Lens' BackendServerDescription [Text]
+bsdPolicyNames :: Lens' BackendServerDescription (Maybe [Text])
 bsdPolicyNames = lens _bsdPolicyNames (\ s a -> s{_bsdPolicyNames = a});
 
 -- | The port on which the back-end server is listening.
-bsdInstancePort :: Lens' BackendServerDescription Natural
-bsdInstancePort = lens _bsdInstancePort (\ s a -> s{_bsdInstancePort = a}) . _Nat;
+bsdInstancePort :: Lens' BackendServerDescription (Maybe Natural)
+bsdInstancePort = lens _bsdInstancePort (\ s a -> s{_bsdInstancePort = a}) . mapping _Nat;
 
 instance FromXML BackendServerDescription where
         parseXML x
           = BackendServerDescription' <$>
               (x .@? "PolicyNames" .!@ mempty >>=
                  parseXMLList "member")
-                <*> x .@ "InstancePort"
+                <*> x .@? "InstancePort"
 
 -- | /See:/ 'connectionDraining' smart constructor.
 --
@@ -733,14 +733,14 @@ instance ToQuery Listener where
 -- * 'ldPolicyNames'
 --
 -- * 'ldListener'
-data ListenerDescription = ListenerDescription'{_ldPolicyNames :: [Text], _ldListener :: Maybe Listener} deriving (Eq, Read, Show)
+data ListenerDescription = ListenerDescription'{_ldPolicyNames :: Maybe [Text], _ldListener :: Maybe Listener} deriving (Eq, Read, Show)
 
 -- | 'ListenerDescription' smart constructor.
 listenerDescription :: ListenerDescription
-listenerDescription = ListenerDescription'{_ldPolicyNames = mempty, _ldListener = Nothing};
+listenerDescription = ListenerDescription'{_ldPolicyNames = Nothing, _ldListener = Nothing};
 
 -- | The policies. If there are no policies enabled, the list is empty.
-ldPolicyNames :: Lens' ListenerDescription [Text]
+ldPolicyNames :: Lens' ListenerDescription (Maybe [Text])
 ldPolicyNames = lens _ldPolicyNames (\ s a -> s{_ldPolicyNames = a});
 
 -- | FIXME: Undocumented member.
@@ -767,11 +767,11 @@ instance FromXML ListenerDescription where
 -- * 'lbaConnectionSettings'
 --
 -- * 'lbaConnectionDraining'
-data LoadBalancerAttributes = LoadBalancerAttributes'{_lbaCrossZoneLoadBalancing :: Maybe CrossZoneLoadBalancing, _lbaAccessLog :: Maybe AccessLog, _lbaAdditionalAttributes :: [AdditionalAttribute], _lbaConnectionSettings :: Maybe ConnectionSettings, _lbaConnectionDraining :: Maybe ConnectionDraining} deriving (Eq, Read, Show)
+data LoadBalancerAttributes = LoadBalancerAttributes'{_lbaCrossZoneLoadBalancing :: Maybe CrossZoneLoadBalancing, _lbaAccessLog :: Maybe AccessLog, _lbaAdditionalAttributes :: Maybe [AdditionalAttribute], _lbaConnectionSettings :: Maybe ConnectionSettings, _lbaConnectionDraining :: Maybe ConnectionDraining} deriving (Eq, Read, Show)
 
 -- | 'LoadBalancerAttributes' smart constructor.
 loadBalancerAttributes :: LoadBalancerAttributes
-loadBalancerAttributes = LoadBalancerAttributes'{_lbaCrossZoneLoadBalancing = Nothing, _lbaAccessLog = Nothing, _lbaAdditionalAttributes = mempty, _lbaConnectionSettings = Nothing, _lbaConnectionDraining = Nothing};
+loadBalancerAttributes = LoadBalancerAttributes'{_lbaCrossZoneLoadBalancing = Nothing, _lbaAccessLog = Nothing, _lbaAdditionalAttributes = Nothing, _lbaConnectionSettings = Nothing, _lbaConnectionDraining = Nothing};
 
 -- | If enabled, the load balancer routes the request traffic evenly across
 -- all back-end instances regardless of the Availability Zones.
@@ -793,7 +793,7 @@ lbaAccessLog :: Lens' LoadBalancerAttributes (Maybe AccessLog)
 lbaAccessLog = lens _lbaAccessLog (\ s a -> s{_lbaAccessLog = a});
 
 -- | This parameter is reserved.
-lbaAdditionalAttributes :: Lens' LoadBalancerAttributes [AdditionalAttribute]
+lbaAdditionalAttributes :: Lens' LoadBalancerAttributes (Maybe [AdditionalAttribute])
 lbaAdditionalAttributes = lens _lbaAdditionalAttributes (\ s a -> s{_lbaAdditionalAttributes = a});
 
 -- | If enabled, the load balancer allows the connections to remain idle (no
@@ -873,11 +873,11 @@ instance ToQuery LoadBalancerAttributes where
 -- * 'lbdDNSName'
 --
 -- * 'lbdPolicies'
-data LoadBalancerDescription = LoadBalancerDescription'{_lbdSourceSecurityGroup :: Maybe SourceSecurityGroup, _lbdHealthCheck :: Maybe HealthCheck, _lbdCanonicalHostedZoneName :: Maybe Text, _lbdSecurityGroups :: [Text], _lbdLoadBalancerName :: Maybe Text, _lbdCreatedTime :: Maybe ISO8601, _lbdVPCId :: Maybe Text, _lbdSubnets :: [Text], _lbdAvailabilityZones :: [Text], _lbdBackendServerDescriptions :: [BackendServerDescription], _lbdCanonicalHostedZoneNameID :: Maybe Text, _lbdInstances :: [Instance], _lbdScheme :: Maybe Text, _lbdListenerDescriptions :: [ListenerDescription], _lbdDNSName :: Maybe Text, _lbdPolicies :: Maybe Policies} deriving (Eq, Read, Show)
+data LoadBalancerDescription = LoadBalancerDescription'{_lbdSourceSecurityGroup :: Maybe SourceSecurityGroup, _lbdHealthCheck :: Maybe HealthCheck, _lbdCanonicalHostedZoneName :: Maybe Text, _lbdSecurityGroups :: Maybe [Text], _lbdLoadBalancerName :: Maybe Text, _lbdCreatedTime :: Maybe ISO8601, _lbdVPCId :: Maybe Text, _lbdSubnets :: Maybe [Text], _lbdAvailabilityZones :: Maybe [Text], _lbdBackendServerDescriptions :: Maybe [BackendServerDescription], _lbdCanonicalHostedZoneNameID :: Maybe Text, _lbdInstances :: Maybe [Instance], _lbdScheme :: Maybe Text, _lbdListenerDescriptions :: Maybe [ListenerDescription], _lbdDNSName :: Maybe Text, _lbdPolicies :: Maybe Policies} deriving (Eq, Read, Show)
 
 -- | 'LoadBalancerDescription' smart constructor.
 loadBalancerDescription :: LoadBalancerDescription
-loadBalancerDescription = LoadBalancerDescription'{_lbdSourceSecurityGroup = Nothing, _lbdHealthCheck = Nothing, _lbdCanonicalHostedZoneName = Nothing, _lbdSecurityGroups = mempty, _lbdLoadBalancerName = Nothing, _lbdCreatedTime = Nothing, _lbdVPCId = Nothing, _lbdSubnets = mempty, _lbdAvailabilityZones = mempty, _lbdBackendServerDescriptions = mempty, _lbdCanonicalHostedZoneNameID = Nothing, _lbdInstances = mempty, _lbdScheme = Nothing, _lbdListenerDescriptions = mempty, _lbdDNSName = Nothing, _lbdPolicies = Nothing};
+loadBalancerDescription = LoadBalancerDescription'{_lbdSourceSecurityGroup = Nothing, _lbdHealthCheck = Nothing, _lbdCanonicalHostedZoneName = Nothing, _lbdSecurityGroups = Nothing, _lbdLoadBalancerName = Nothing, _lbdCreatedTime = Nothing, _lbdVPCId = Nothing, _lbdSubnets = Nothing, _lbdAvailabilityZones = Nothing, _lbdBackendServerDescriptions = Nothing, _lbdCanonicalHostedZoneNameID = Nothing, _lbdInstances = Nothing, _lbdScheme = Nothing, _lbdListenerDescriptions = Nothing, _lbdDNSName = Nothing, _lbdPolicies = Nothing};
 
 -- | The security group that you can use as part of your inbound rules for
 -- your load balancer\'s back-end application instances. To only allow
@@ -901,7 +901,7 @@ lbdCanonicalHostedZoneName = lens _lbdCanonicalHostedZoneName (\ s a -> s{_lbdCa
 
 -- | The security groups for the load balancer. Valid only for load balancers
 -- in a VPC.
-lbdSecurityGroups :: Lens' LoadBalancerDescription [Text]
+lbdSecurityGroups :: Lens' LoadBalancerDescription (Maybe [Text])
 lbdSecurityGroups = lens _lbdSecurityGroups (\ s a -> s{_lbdSecurityGroups = a});
 
 -- | The name of the load balancer.
@@ -917,15 +917,15 @@ lbdVPCId :: Lens' LoadBalancerDescription (Maybe Text)
 lbdVPCId = lens _lbdVPCId (\ s a -> s{_lbdVPCId = a});
 
 -- | The IDs of the subnets for the load balancer.
-lbdSubnets :: Lens' LoadBalancerDescription [Text]
+lbdSubnets :: Lens' LoadBalancerDescription (Maybe [Text])
 lbdSubnets = lens _lbdSubnets (\ s a -> s{_lbdSubnets = a});
 
 -- | The Availability Zones for the load balancer.
-lbdAvailabilityZones :: Lens' LoadBalancerDescription [Text]
+lbdAvailabilityZones :: Lens' LoadBalancerDescription (Maybe [Text])
 lbdAvailabilityZones = lens _lbdAvailabilityZones (\ s a -> s{_lbdAvailabilityZones = a});
 
 -- | Information about the back-end servers.
-lbdBackendServerDescriptions :: Lens' LoadBalancerDescription [BackendServerDescription]
+lbdBackendServerDescriptions :: Lens' LoadBalancerDescription (Maybe [BackendServerDescription])
 lbdBackendServerDescriptions = lens _lbdBackendServerDescriptions (\ s a -> s{_lbdBackendServerDescriptions = a});
 
 -- | The ID of the Amazon Route 53 hosted zone name associated with the load
@@ -934,7 +934,7 @@ lbdCanonicalHostedZoneNameID :: Lens' LoadBalancerDescription (Maybe Text)
 lbdCanonicalHostedZoneNameID = lens _lbdCanonicalHostedZoneNameID (\ s a -> s{_lbdCanonicalHostedZoneNameID = a});
 
 -- | The IDs of the instances for the load balancer.
-lbdInstances :: Lens' LoadBalancerDescription [Instance]
+lbdInstances :: Lens' LoadBalancerDescription (Maybe [Instance])
 lbdInstances = lens _lbdInstances (\ s a -> s{_lbdInstances = a});
 
 -- | The type of load balancer. Valid only for load balancers in a VPC.
@@ -948,7 +948,7 @@ lbdScheme :: Lens' LoadBalancerDescription (Maybe Text)
 lbdScheme = lens _lbdScheme (\ s a -> s{_lbdScheme = a});
 
 -- | The listeners for the load balancer.
-lbdListenerDescriptions :: Lens' LoadBalancerDescription [ListenerDescription]
+lbdListenerDescriptions :: Lens' LoadBalancerDescription (Maybe [ListenerDescription])
 lbdListenerDescriptions = lens _lbdListenerDescriptions (\ s a -> s{_lbdListenerDescriptions = a});
 
 -- | The external DNS name of the load balancer.
@@ -999,22 +999,22 @@ instance FromXML LoadBalancerDescription where
 -- * 'polLBCookieStickinessPolicies'
 --
 -- * 'polAppCookieStickinessPolicies'
-data Policies = Policies'{_polOtherPolicies :: [Text], _polLBCookieStickinessPolicies :: [LBCookieStickinessPolicy], _polAppCookieStickinessPolicies :: [AppCookieStickinessPolicy]} deriving (Eq, Read, Show)
+data Policies = Policies'{_polOtherPolicies :: Maybe [Text], _polLBCookieStickinessPolicies :: Maybe [LBCookieStickinessPolicy], _polAppCookieStickinessPolicies :: Maybe [AppCookieStickinessPolicy]} deriving (Eq, Read, Show)
 
 -- | 'Policies' smart constructor.
 policies :: Policies
-policies = Policies'{_polOtherPolicies = mempty, _polLBCookieStickinessPolicies = mempty, _polAppCookieStickinessPolicies = mempty};
+policies = Policies'{_polOtherPolicies = Nothing, _polLBCookieStickinessPolicies = Nothing, _polAppCookieStickinessPolicies = Nothing};
 
 -- | The policies other than the stickiness policies.
-polOtherPolicies :: Lens' Policies [Text]
+polOtherPolicies :: Lens' Policies (Maybe [Text])
 polOtherPolicies = lens _polOtherPolicies (\ s a -> s{_polOtherPolicies = a});
 
 -- | The stickiness policies created using CreateLBCookieStickinessPolicy.
-polLBCookieStickinessPolicies :: Lens' Policies [LBCookieStickinessPolicy]
+polLBCookieStickinessPolicies :: Lens' Policies (Maybe [LBCookieStickinessPolicy])
 polLBCookieStickinessPolicies = lens _polLBCookieStickinessPolicies (\ s a -> s{_polLBCookieStickinessPolicies = a});
 
 -- | The stickiness policies created using CreateAppCookieStickinessPolicy.
-polAppCookieStickinessPolicies :: Lens' Policies [AppCookieStickinessPolicy]
+polAppCookieStickinessPolicies :: Lens' Policies (Maybe [AppCookieStickinessPolicy])
 polAppCookieStickinessPolicies = lens _polAppCookieStickinessPolicies (\ s a -> s{_polAppCookieStickinessPolicies = a});
 
 instance FromXML Policies where
@@ -1145,18 +1145,18 @@ instance FromXML PolicyAttributeTypeDescription where
 -- * 'pdPolicyAttributeDescriptions'
 --
 -- * 'pdPolicyTypeName'
-data PolicyDescription = PolicyDescription'{_pdPolicyName :: Maybe Text, _pdPolicyAttributeDescriptions :: [PolicyAttributeDescription], _pdPolicyTypeName :: Maybe Text} deriving (Eq, Read, Show)
+data PolicyDescription = PolicyDescription'{_pdPolicyName :: Maybe Text, _pdPolicyAttributeDescriptions :: Maybe [PolicyAttributeDescription], _pdPolicyTypeName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'PolicyDescription' smart constructor.
 policyDescription :: PolicyDescription
-policyDescription = PolicyDescription'{_pdPolicyName = Nothing, _pdPolicyAttributeDescriptions = mempty, _pdPolicyTypeName = Nothing};
+policyDescription = PolicyDescription'{_pdPolicyName = Nothing, _pdPolicyAttributeDescriptions = Nothing, _pdPolicyTypeName = Nothing};
 
 -- | The name of the policy.
 pdPolicyName :: Lens' PolicyDescription (Maybe Text)
 pdPolicyName = lens _pdPolicyName (\ s a -> s{_pdPolicyName = a});
 
 -- | The policy attributes.
-pdPolicyAttributeDescriptions :: Lens' PolicyDescription [PolicyAttributeDescription]
+pdPolicyAttributeDescriptions :: Lens' PolicyDescription (Maybe [PolicyAttributeDescription])
 pdPolicyAttributeDescriptions = lens _pdPolicyAttributeDescriptions (\ s a -> s{_pdPolicyAttributeDescriptions = a});
 
 -- | The name of the policy type.
@@ -1180,11 +1180,11 @@ instance FromXML PolicyDescription where
 -- * 'ptdDescription'
 --
 -- * 'ptdPolicyAttributeTypeDescriptions'
-data PolicyTypeDescription = PolicyTypeDescription'{_ptdPolicyTypeName :: Maybe Text, _ptdDescription :: Maybe Text, _ptdPolicyAttributeTypeDescriptions :: [PolicyAttributeTypeDescription]} deriving (Eq, Read, Show)
+data PolicyTypeDescription = PolicyTypeDescription'{_ptdPolicyTypeName :: Maybe Text, _ptdDescription :: Maybe Text, _ptdPolicyAttributeTypeDescriptions :: Maybe [PolicyAttributeTypeDescription]} deriving (Eq, Read, Show)
 
 -- | 'PolicyTypeDescription' smart constructor.
 policyTypeDescription :: PolicyTypeDescription
-policyTypeDescription = PolicyTypeDescription'{_ptdPolicyTypeName = Nothing, _ptdDescription = Nothing, _ptdPolicyAttributeTypeDescriptions = mempty};
+policyTypeDescription = PolicyTypeDescription'{_ptdPolicyTypeName = Nothing, _ptdDescription = Nothing, _ptdPolicyAttributeTypeDescriptions = Nothing};
 
 -- | The name of the policy type.
 ptdPolicyTypeName :: Lens' PolicyTypeDescription (Maybe Text)
@@ -1196,7 +1196,7 @@ ptdDescription = lens _ptdDescription (\ s a -> s{_ptdDescription = a});
 
 -- | The description of the policy attributes associated with the policies
 -- defined by Elastic Load Balancing.
-ptdPolicyAttributeTypeDescriptions :: Lens' PolicyTypeDescription [PolicyAttributeTypeDescription]
+ptdPolicyAttributeTypeDescriptions :: Lens' PolicyTypeDescription (Maybe [PolicyAttributeTypeDescription])
 ptdPolicyAttributeTypeDescriptions = lens _ptdPolicyAttributeTypeDescriptions (\ s a -> s{_ptdPolicyAttributeTypeDescriptions = a});
 
 instance FromXML PolicyTypeDescription where
@@ -1267,19 +1267,19 @@ instance ToQuery Tag where
 -- * 'tdLoadBalancerName'
 --
 -- * 'tdTags'
-data TagDescription = TagDescription'{_tdLoadBalancerName :: Maybe Text, _tdTags :: List1 Tag} deriving (Eq, Read, Show)
+data TagDescription = TagDescription'{_tdLoadBalancerName :: Maybe Text, _tdTags :: Maybe (List1 Tag)} deriving (Eq, Read, Show)
 
 -- | 'TagDescription' smart constructor.
-tagDescription :: NonEmpty Tag -> TagDescription
-tagDescription pTags = TagDescription'{_tdLoadBalancerName = Nothing, _tdTags = _List1 # pTags};
+tagDescription :: TagDescription
+tagDescription = TagDescription'{_tdLoadBalancerName = Nothing, _tdTags = Nothing};
 
 -- | The name of the load balancer.
 tdLoadBalancerName :: Lens' TagDescription (Maybe Text)
 tdLoadBalancerName = lens _tdLoadBalancerName (\ s a -> s{_tdLoadBalancerName = a});
 
 -- | The tags.
-tdTags :: Lens' TagDescription (NonEmpty Tag)
-tdTags = lens _tdTags (\ s a -> s{_tdTags = a}) . _List1;
+tdTags :: Lens' TagDescription (Maybe (NonEmpty Tag))
+tdTags = lens _tdTags (\ s a -> s{_tdTags = a}) . mapping _List1;
 
 instance FromXML TagDescription where
         parseXML x
@@ -1292,14 +1292,14 @@ instance FromXML TagDescription where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'tkoKey'
-newtype TagKeyOnly = TagKeyOnly'{_tkoKey :: Text} deriving (Eq, Read, Show)
+newtype TagKeyOnly = TagKeyOnly'{_tkoKey :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'TagKeyOnly' smart constructor.
-tagKeyOnly :: Text -> TagKeyOnly
-tagKeyOnly pKey = TagKeyOnly'{_tkoKey = pKey};
+tagKeyOnly :: TagKeyOnly
+tagKeyOnly = TagKeyOnly'{_tkoKey = Nothing};
 
 -- | The name of the key.
-tkoKey :: Lens' TagKeyOnly Text
+tkoKey :: Lens' TagKeyOnly (Maybe Text)
 tkoKey = lens _tkoKey (\ s a -> s{_tkoKey = a});
 
 instance ToQuery TagKeyOnly where

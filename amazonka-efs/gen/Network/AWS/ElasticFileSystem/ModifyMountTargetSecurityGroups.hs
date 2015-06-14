@@ -60,14 +60,14 @@ import Network.AWS.ElasticFileSystem.Types
 -- * 'mmtsgSecurityGroups'
 --
 -- * 'mmtsgMountTargetId'
-data ModifyMountTargetSecurityGroups = ModifyMountTargetSecurityGroups'{_mmtsgSecurityGroups :: [Text], _mmtsgMountTargetId :: Text} deriving (Eq, Read, Show)
+data ModifyMountTargetSecurityGroups = ModifyMountTargetSecurityGroups'{_mmtsgSecurityGroups :: Maybe [Text], _mmtsgMountTargetId :: Text} deriving (Eq, Read, Show)
 
 -- | 'ModifyMountTargetSecurityGroups' smart constructor.
 modifyMountTargetSecurityGroups :: Text -> ModifyMountTargetSecurityGroups
-modifyMountTargetSecurityGroups pMountTargetId = ModifyMountTargetSecurityGroups'{_mmtsgSecurityGroups = mempty, _mmtsgMountTargetId = pMountTargetId};
+modifyMountTargetSecurityGroups pMountTargetId = ModifyMountTargetSecurityGroups'{_mmtsgSecurityGroups = Nothing, _mmtsgMountTargetId = pMountTargetId};
 
 -- | An array of up to five VPC security group IDs.
-mmtsgSecurityGroups :: Lens' ModifyMountTargetSecurityGroups [Text]
+mmtsgSecurityGroups :: Lens' ModifyMountTargetSecurityGroups (Maybe [Text])
 mmtsgSecurityGroups = lens _mmtsgSecurityGroups (\ s a -> s{_mmtsgSecurityGroups = a});
 
 -- | The ID of the mount target whose security groups you want to modify.

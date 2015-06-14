@@ -48,14 +48,14 @@ import Network.AWS.Config.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dcrConfigurationRecorderNames'
-newtype DescribeConfigurationRecorders = DescribeConfigurationRecorders'{_dcrConfigurationRecorderNames :: [Text]} deriving (Eq, Read, Show)
+newtype DescribeConfigurationRecorders = DescribeConfigurationRecorders'{_dcrConfigurationRecorderNames :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'DescribeConfigurationRecorders' smart constructor.
 describeConfigurationRecorders :: DescribeConfigurationRecorders
-describeConfigurationRecorders = DescribeConfigurationRecorders'{_dcrConfigurationRecorderNames = mempty};
+describeConfigurationRecorders = DescribeConfigurationRecorders'{_dcrConfigurationRecorderNames = Nothing};
 
 -- | A list of configuration recorder names.
-dcrConfigurationRecorderNames :: Lens' DescribeConfigurationRecorders [Text]
+dcrConfigurationRecorderNames :: Lens' DescribeConfigurationRecorders (Maybe [Text])
 dcrConfigurationRecorderNames = lens _dcrConfigurationRecorderNames (\ s a -> s{_dcrConfigurationRecorderNames = a});
 
 instance AWSRequest DescribeConfigurationRecorders
@@ -98,13 +98,13 @@ instance ToQuery DescribeConfigurationRecorders where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dcrrConfigurationRecorders'
-newtype DescribeConfigurationRecordersResponse = DescribeConfigurationRecordersResponse'{_dcrrConfigurationRecorders :: [ConfigurationRecorder]} deriving (Eq, Read, Show)
+newtype DescribeConfigurationRecordersResponse = DescribeConfigurationRecordersResponse'{_dcrrConfigurationRecorders :: Maybe [ConfigurationRecorder]} deriving (Eq, Read, Show)
 
 -- | 'DescribeConfigurationRecordersResponse' smart constructor.
 describeConfigurationRecordersResponse :: DescribeConfigurationRecordersResponse
-describeConfigurationRecordersResponse = DescribeConfigurationRecordersResponse'{_dcrrConfigurationRecorders = mempty};
+describeConfigurationRecordersResponse = DescribeConfigurationRecordersResponse'{_dcrrConfigurationRecorders = Nothing};
 
 -- | A list that contains the descriptions of the specified configuration
 -- recorders.
-dcrrConfigurationRecorders :: Lens' DescribeConfigurationRecordersResponse [ConfigurationRecorder]
+dcrrConfigurationRecorders :: Lens' DescribeConfigurationRecordersResponse (Maybe [ConfigurationRecorder])
 dcrrConfigurationRecorders = lens _dcrrConfigurationRecorders (\ s a -> s{_dcrrConfigurationRecorders = a});

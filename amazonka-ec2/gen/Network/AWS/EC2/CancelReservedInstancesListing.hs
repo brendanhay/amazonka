@@ -92,12 +92,12 @@ instance ToQuery CancelReservedInstancesListing where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'crilrReservedInstancesListings'
-newtype CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse'{_crilrReservedInstancesListings :: [ReservedInstancesListing]} deriving (Eq, Read, Show)
+newtype CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse'{_crilrReservedInstancesListings :: Maybe [ReservedInstancesListing]} deriving (Eq, Read, Show)
 
 -- | 'CancelReservedInstancesListingResponse' smart constructor.
 cancelReservedInstancesListingResponse :: CancelReservedInstancesListingResponse
-cancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse'{_crilrReservedInstancesListings = mempty};
+cancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse'{_crilrReservedInstancesListings = Nothing};
 
 -- | The Reserved Instance listing.
-crilrReservedInstancesListings :: Lens' CancelReservedInstancesListingResponse [ReservedInstancesListing]
+crilrReservedInstancesListings :: Lens' CancelReservedInstancesListingResponse (Maybe [ReservedInstancesListing])
 crilrReservedInstancesListings = lens _crilrReservedInstancesListings (\ s a -> s{_crilrReservedInstancesListings = a});

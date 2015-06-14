@@ -32,10 +32,10 @@ module Network.AWS.MachineLearning.DescribeDataSources
     , ddsNE
     , ddsNextToken
     , ddsSortOrder
+    , ddsLimit
     , ddsLT
     , ddsFilterVariable
     , ddsLE
-    , ddsLimit
 
     -- * Response
     , DescribeDataSourcesResponse
@@ -69,18 +69,18 @@ import Network.AWS.MachineLearning.Types
 --
 -- * 'ddsSortOrder'
 --
+-- * 'ddsLimit'
+--
 -- * 'ddsLT'
 --
 -- * 'ddsFilterVariable'
 --
 -- * 'ddsLE'
---
--- * 'ddsLimit'
-data DescribeDataSources = DescribeDataSources'{_ddsEQ :: Maybe Text, _ddsGE :: Maybe Text, _ddsPrefix :: Maybe Text, _ddsGT :: Maybe Text, _ddsNE :: Maybe Text, _ddsNextToken :: Maybe Text, _ddsSortOrder :: Maybe SortOrder, _ddsLT :: Maybe Text, _ddsFilterVariable :: Maybe DataSourceFilterVariable, _ddsLE :: Maybe Text, _ddsLimit :: Nat} deriving (Eq, Read, Show)
+data DescribeDataSources = DescribeDataSources'{_ddsEQ :: Maybe Text, _ddsGE :: Maybe Text, _ddsPrefix :: Maybe Text, _ddsGT :: Maybe Text, _ddsNE :: Maybe Text, _ddsNextToken :: Maybe Text, _ddsSortOrder :: Maybe SortOrder, _ddsLimit :: Maybe Nat, _ddsLT :: Maybe Text, _ddsFilterVariable :: Maybe DataSourceFilterVariable, _ddsLE :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeDataSources' smart constructor.
-describeDataSources :: Natural -> DescribeDataSources
-describeDataSources pLimit = DescribeDataSources'{_ddsEQ = Nothing, _ddsGE = Nothing, _ddsPrefix = Nothing, _ddsGT = Nothing, _ddsNE = Nothing, _ddsNextToken = Nothing, _ddsSortOrder = Nothing, _ddsLT = Nothing, _ddsFilterVariable = Nothing, _ddsLE = Nothing, _ddsLimit = _Nat # pLimit};
+describeDataSources :: DescribeDataSources
+describeDataSources = DescribeDataSources'{_ddsEQ = Nothing, _ddsGE = Nothing, _ddsPrefix = Nothing, _ddsGT = Nothing, _ddsNE = Nothing, _ddsNextToken = Nothing, _ddsSortOrder = Nothing, _ddsLimit = Nothing, _ddsLT = Nothing, _ddsFilterVariable = Nothing, _ddsLE = Nothing};
 
 -- | The equal to operator. The @DataSource@ results will have
 -- @FilterVariable@ values that exactly match the value specified with
@@ -136,6 +136,10 @@ ddsNextToken = lens _ddsNextToken (\ s a -> s{_ddsNextToken = a});
 ddsSortOrder :: Lens' DescribeDataSources (Maybe SortOrder)
 ddsSortOrder = lens _ddsSortOrder (\ s a -> s{_ddsSortOrder = a});
 
+-- | The maximum number of @DataSource@ to include in the result.
+ddsLimit :: Lens' DescribeDataSources (Maybe Natural)
+ddsLimit = lens _ddsLimit (\ s a -> s{_ddsLimit = a}) . mapping _Nat;
+
 -- | The less than operator. The @DataSource@ results will have
 -- @FilterVariable@ values that are less than the value specified with
 -- @LT@.
@@ -162,10 +166,6 @@ ddsFilterVariable = lens _ddsFilterVariable (\ s a -> s{_ddsFilterVariable = a})
 -- specified with @LE@.
 ddsLE :: Lens' DescribeDataSources (Maybe Text)
 ddsLE = lens _ddsLE (\ s a -> s{_ddsLE = a});
-
--- | The maximum number of @DataSource@ to include in the result.
-ddsLimit :: Lens' DescribeDataSources Natural
-ddsLimit = lens _ddsLimit (\ s a -> s{_ddsLimit = a}) . _Nat;
 
 instance AWSRequest DescribeDataSources where
         type Sv DescribeDataSources = MachineLearning
@@ -194,9 +194,10 @@ instance ToJSON DescribeDataSources where
               ["EQ" .= _ddsEQ, "GE" .= _ddsGE,
                "Prefix" .= _ddsPrefix, "GT" .= _ddsGT,
                "NE" .= _ddsNE, "NextToken" .= _ddsNextToken,
-               "SortOrder" .= _ddsSortOrder, "LT" .= _ddsLT,
+               "SortOrder" .= _ddsSortOrder, "Limit" .= _ddsLimit,
+               "LT" .= _ddsLT,
                "FilterVariable" .= _ddsFilterVariable,
-               "LE" .= _ddsLE, "Limit" .= _ddsLimit]
+               "LE" .= _ddsLE]
 
 instance ToPath DescribeDataSources where
         toPath = const "/"
@@ -211,14 +212,14 @@ instance ToQuery DescribeDataSources where
 -- * 'ddsrResults'
 --
 -- * 'ddsrNextToken'
-data DescribeDataSourcesResponse = DescribeDataSourcesResponse'{_ddsrResults :: [DataSource], _ddsrNextToken :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeDataSourcesResponse = DescribeDataSourcesResponse'{_ddsrResults :: Maybe [DataSource], _ddsrNextToken :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeDataSourcesResponse' smart constructor.
 describeDataSourcesResponse :: DescribeDataSourcesResponse
-describeDataSourcesResponse = DescribeDataSourcesResponse'{_ddsrResults = mempty, _ddsrNextToken = Nothing};
+describeDataSourcesResponse = DescribeDataSourcesResponse'{_ddsrResults = Nothing, _ddsrNextToken = Nothing};
 
 -- | A list of @DataSource@ that meet the search criteria.
-ddsrResults :: Lens' DescribeDataSourcesResponse [DataSource]
+ddsrResults :: Lens' DescribeDataSourcesResponse (Maybe [DataSource])
 ddsrResults = lens _ddsrResults (\ s a -> s{_ddsrResults = a});
 
 -- | An ID of the next page in the paginated results that indicates at least

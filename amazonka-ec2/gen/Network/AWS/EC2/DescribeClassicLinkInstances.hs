@@ -60,11 +60,11 @@ import Network.AWS.EC2.Types
 -- * 'dcliDryRun'
 --
 -- * 'dcliMaxResults'
-data DescribeClassicLinkInstances = DescribeClassicLinkInstances'{_dcliFilters :: [Filter], _dcliNextToken :: Maybe Text, _dcliInstanceIds :: [Text], _dcliDryRun :: Maybe Bool, _dcliMaxResults :: Maybe Int} deriving (Eq, Read, Show)
+data DescribeClassicLinkInstances = DescribeClassicLinkInstances'{_dcliFilters :: Maybe [Filter], _dcliNextToken :: Maybe Text, _dcliInstanceIds :: Maybe [Text], _dcliDryRun :: Maybe Bool, _dcliMaxResults :: Maybe Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeClassicLinkInstances' smart constructor.
 describeClassicLinkInstances :: DescribeClassicLinkInstances
-describeClassicLinkInstances = DescribeClassicLinkInstances'{_dcliFilters = mempty, _dcliNextToken = Nothing, _dcliInstanceIds = mempty, _dcliDryRun = Nothing, _dcliMaxResults = Nothing};
+describeClassicLinkInstances = DescribeClassicLinkInstances'{_dcliFilters = Nothing, _dcliNextToken = Nothing, _dcliInstanceIds = Nothing, _dcliDryRun = Nothing, _dcliMaxResults = Nothing};
 
 -- | One or more filters.
 --
@@ -89,7 +89,7 @@ describeClassicLinkInstances = DescribeClassicLinkInstances'{_dcliFilters = memp
 --
 -- -   @vpc-id@ - The ID of the VPC that the instance is linked to.
 --
-dcliFilters :: Lens' DescribeClassicLinkInstances [Filter]
+dcliFilters :: Lens' DescribeClassicLinkInstances (Maybe [Filter])
 dcliFilters = lens _dcliFilters (\ s a -> s{_dcliFilters = a});
 
 -- | The token to retrieve the next page of results.
@@ -98,7 +98,7 @@ dcliNextToken = lens _dcliNextToken (\ s a -> s{_dcliNextToken = a});
 
 -- | One or more instance IDs. Must be instances linked to a VPC through
 -- ClassicLink.
-dcliInstanceIds :: Lens' DescribeClassicLinkInstances [Text]
+dcliInstanceIds :: Lens' DescribeClassicLinkInstances (Maybe [Text])
 dcliInstanceIds = lens _dcliInstanceIds (\ s a -> s{_dcliInstanceIds = a});
 
 -- | Checks whether you have the required permissions for the action, without
@@ -157,11 +157,11 @@ instance ToQuery DescribeClassicLinkInstances where
 -- * 'dclirNextToken'
 --
 -- * 'dclirInstances'
-data DescribeClassicLinkInstancesResponse = DescribeClassicLinkInstancesResponse'{_dclirNextToken :: Maybe Text, _dclirInstances :: [ClassicLinkInstance]} deriving (Eq, Read, Show)
+data DescribeClassicLinkInstancesResponse = DescribeClassicLinkInstancesResponse'{_dclirNextToken :: Maybe Text, _dclirInstances :: Maybe [ClassicLinkInstance]} deriving (Eq, Read, Show)
 
 -- | 'DescribeClassicLinkInstancesResponse' smart constructor.
 describeClassicLinkInstancesResponse :: DescribeClassicLinkInstancesResponse
-describeClassicLinkInstancesResponse = DescribeClassicLinkInstancesResponse'{_dclirNextToken = Nothing, _dclirInstances = mempty};
+describeClassicLinkInstancesResponse = DescribeClassicLinkInstancesResponse'{_dclirNextToken = Nothing, _dclirInstances = Nothing};
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
@@ -169,5 +169,5 @@ dclirNextToken :: Lens' DescribeClassicLinkInstancesResponse (Maybe Text)
 dclirNextToken = lens _dclirNextToken (\ s a -> s{_dclirNextToken = a});
 
 -- | Information about one or more linked EC2-Classic instances.
-dclirInstances :: Lens' DescribeClassicLinkInstancesResponse [ClassicLinkInstance]
+dclirInstances :: Lens' DescribeClassicLinkInstancesResponse (Maybe [ClassicLinkInstance])
 dclirInstances = lens _dclirInstances (\ s a -> s{_dclirInstances = a});

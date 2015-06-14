@@ -36,9 +36,9 @@ module Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
     -- ** Request constructor
     , describeConfigurationSettings
     -- ** Request lenses
-    , dcsApplicationName
     , dcsTemplateName
     , dcsEnvironmentName
+    , dcsApplicationName
 
     -- * Response
     , DescribeConfigurationSettingsResponse
@@ -57,20 +57,16 @@ import Network.AWS.ElasticBeanstalk.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcsApplicationName'
---
 -- * 'dcsTemplateName'
 --
 -- * 'dcsEnvironmentName'
-data DescribeConfigurationSettings = DescribeConfigurationSettings'{_dcsApplicationName :: Text, _dcsTemplateName :: Text, _dcsEnvironmentName :: Text} deriving (Eq, Read, Show)
+--
+-- * 'dcsApplicationName'
+data DescribeConfigurationSettings = DescribeConfigurationSettings'{_dcsTemplateName :: Maybe Text, _dcsEnvironmentName :: Maybe Text, _dcsApplicationName :: Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeConfigurationSettings' smart constructor.
-describeConfigurationSettings :: Text -> Text -> Text -> DescribeConfigurationSettings
-describeConfigurationSettings pApplicationName pTemplateName pEnvironmentName = DescribeConfigurationSettings'{_dcsApplicationName = pApplicationName, _dcsTemplateName = pTemplateName, _dcsEnvironmentName = pEnvironmentName};
-
--- | The application for the environment or configuration template.
-dcsApplicationName :: Lens' DescribeConfigurationSettings Text
-dcsApplicationName = lens _dcsApplicationName (\ s a -> s{_dcsApplicationName = a});
+describeConfigurationSettings :: Text -> DescribeConfigurationSettings
+describeConfigurationSettings pApplicationName = DescribeConfigurationSettings'{_dcsTemplateName = Nothing, _dcsEnvironmentName = Nothing, _dcsApplicationName = pApplicationName};
 
 -- | The name of the configuration template to describe.
 --
@@ -79,7 +75,7 @@ dcsApplicationName = lens _dcsApplicationName (\ s a -> s{_dcsApplicationName = 
 -- Beanstalk returns an @InvalidParameterCombination@ error. If you do not
 -- specify either, AWS Elastic Beanstalk returns a
 -- @MissingRequiredParameter@ error.
-dcsTemplateName :: Lens' DescribeConfigurationSettings Text
+dcsTemplateName :: Lens' DescribeConfigurationSettings (Maybe Text)
 dcsTemplateName = lens _dcsTemplateName (\ s a -> s{_dcsTemplateName = a});
 
 -- | The name of the environment to describe.
@@ -88,8 +84,12 @@ dcsTemplateName = lens _dcsTemplateName (\ s a -> s{_dcsTemplateName = a});
 -- If you specify both, AWS Elastic Beanstalk returns an
 -- @InvalidParameterCombination@ error. If you do not specify either, AWS
 -- Elastic Beanstalk returns @MissingRequiredParameter@ error.
-dcsEnvironmentName :: Lens' DescribeConfigurationSettings Text
+dcsEnvironmentName :: Lens' DescribeConfigurationSettings (Maybe Text)
 dcsEnvironmentName = lens _dcsEnvironmentName (\ s a -> s{_dcsEnvironmentName = a});
+
+-- | The application for the environment or configuration template.
+dcsApplicationName :: Lens' DescribeConfigurationSettings Text
+dcsApplicationName = lens _dcsApplicationName (\ s a -> s{_dcsApplicationName = a});
 
 instance AWSRequest DescribeConfigurationSettings
          where
@@ -119,21 +119,21 @@ instance ToQuery DescribeConfigurationSettings where
               ["Action" =:
                  ("DescribeConfigurationSettings" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "ApplicationName" =: _dcsApplicationName,
                "TemplateName" =: _dcsTemplateName,
-               "EnvironmentName" =: _dcsEnvironmentName]
+               "EnvironmentName" =: _dcsEnvironmentName,
+               "ApplicationName" =: _dcsApplicationName]
 
 -- | /See:/ 'describeConfigurationSettingsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dcsrConfigurationSettings'
-newtype DescribeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse'{_dcsrConfigurationSettings :: [ConfigurationSettingsDescription]} deriving (Eq, Read, Show)
+newtype DescribeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse'{_dcsrConfigurationSettings :: Maybe [ConfigurationSettingsDescription]} deriving (Eq, Read, Show)
 
 -- | 'DescribeConfigurationSettingsResponse' smart constructor.
 describeConfigurationSettingsResponse :: DescribeConfigurationSettingsResponse
-describeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse'{_dcsrConfigurationSettings = mempty};
+describeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse'{_dcsrConfigurationSettings = Nothing};
 
 -- | A list of ConfigurationSettingsDescription.
-dcsrConfigurationSettings :: Lens' DescribeConfigurationSettingsResponse [ConfigurationSettingsDescription]
+dcsrConfigurationSettings :: Lens' DescribeConfigurationSettingsResponse (Maybe [ConfigurationSettingsDescription])
 dcsrConfigurationSettings = lens _dcsrConfigurationSettings (\ s a -> s{_dcsrConfigurationSettings = a});

@@ -58,11 +58,11 @@ import Network.AWS.EC2.Types
 -- * 'drimReservedInstancesModificationIds'
 --
 -- * 'drimNextToken'
-data DescribeReservedInstancesModifications = DescribeReservedInstancesModifications'{_drimFilters :: [Filter], _drimReservedInstancesModificationIds :: [Text], _drimNextToken :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeReservedInstancesModifications = DescribeReservedInstancesModifications'{_drimFilters :: Maybe [Filter], _drimReservedInstancesModificationIds :: Maybe [Text], _drimNextToken :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeReservedInstancesModifications' smart constructor.
 describeReservedInstancesModifications :: DescribeReservedInstancesModifications
-describeReservedInstancesModifications = DescribeReservedInstancesModifications'{_drimFilters = mempty, _drimReservedInstancesModificationIds = mempty, _drimNextToken = Nothing};
+describeReservedInstancesModifications = DescribeReservedInstancesModifications'{_drimFilters = Nothing, _drimReservedInstancesModificationIds = Nothing, _drimNextToken = Nothing};
 
 -- | One or more filters.
 --
@@ -102,11 +102,11 @@ describeReservedInstancesModifications = DescribeReservedInstancesModifications'
 -- -   @update-date@ - The time when the modification request was last
 --     updated.
 --
-drimFilters :: Lens' DescribeReservedInstancesModifications [Filter]
+drimFilters :: Lens' DescribeReservedInstancesModifications (Maybe [Filter])
 drimFilters = lens _drimFilters (\ s a -> s{_drimFilters = a});
 
 -- | IDs for the submitted modification request.
-drimReservedInstancesModificationIds :: Lens' DescribeReservedInstancesModifications [Text]
+drimReservedInstancesModificationIds :: Lens' DescribeReservedInstancesModifications (Maybe [Text])
 drimReservedInstancesModificationIds = lens _drimReservedInstancesModificationIds (\ s a -> s{_drimReservedInstancesModificationIds = a});
 
 -- | The token to retrieve the next page of results.
@@ -153,11 +153,11 @@ instance ToQuery
 -- * 'drimrNextToken'
 --
 -- * 'drimrReservedInstancesModifications'
-data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResponse'{_drimrNextToken :: Maybe Text, _drimrReservedInstancesModifications :: [ReservedInstancesModification]} deriving (Eq, Read, Show)
+data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResponse'{_drimrNextToken :: Maybe Text, _drimrReservedInstancesModifications :: Maybe [ReservedInstancesModification]} deriving (Eq, Read, Show)
 
 -- | 'DescribeReservedInstancesModificationsResponse' smart constructor.
 describeReservedInstancesModificationsResponse :: DescribeReservedInstancesModificationsResponse
-describeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResponse'{_drimrNextToken = Nothing, _drimrReservedInstancesModifications = mempty};
+describeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResponse'{_drimrNextToken = Nothing, _drimrReservedInstancesModifications = Nothing};
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
@@ -165,5 +165,5 @@ drimrNextToken :: Lens' DescribeReservedInstancesModificationsResponse (Maybe Te
 drimrNextToken = lens _drimrNextToken (\ s a -> s{_drimrNextToken = a});
 
 -- | The Reserved Instance modification information.
-drimrReservedInstancesModifications :: Lens' DescribeReservedInstancesModificationsResponse [ReservedInstancesModification]
+drimrReservedInstancesModifications :: Lens' DescribeReservedInstancesModificationsResponse (Maybe [ReservedInstancesModification])
 drimrReservedInstancesModifications = lens _drimrReservedInstancesModifications (\ s a -> s{_drimrReservedInstancesModifications = a});

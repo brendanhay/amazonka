@@ -54,8 +54,8 @@ import Network.AWS.RDS.Types
 data AddTagsToResource = AddTagsToResource'{_attrResourceName :: Text, _attrTags :: [Tag]} deriving (Eq, Read, Show)
 
 -- | 'AddTagsToResource' smart constructor.
-addTagsToResource :: Text -> [Tag] -> AddTagsToResource
-addTagsToResource pResourceName pTags = AddTagsToResource'{_attrResourceName = pResourceName, _attrTags = pTags};
+addTagsToResource :: Text -> AddTagsToResource
+addTagsToResource pResourceName = AddTagsToResource'{_attrResourceName = pResourceName, _attrTags = mempty};
 
 -- | The Amazon RDS resource the tags will be added to. This value is an
 -- Amazon Resource Name (ARN). For information about creating an ARN, see

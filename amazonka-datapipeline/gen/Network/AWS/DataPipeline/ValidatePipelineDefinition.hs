@@ -56,18 +56,18 @@ import Network.AWS.DataPipeline.Types
 -- * 'vpdPipelineId'
 --
 -- * 'vpdPipelineObjects'
-data ValidatePipelineDefinition = ValidatePipelineDefinition'{_vpdParameterObjects :: [ParameterObject], _vpdParameterValues :: [ParameterValue], _vpdPipelineId :: Text, _vpdPipelineObjects :: [PipelineObject]} deriving (Eq, Read, Show)
+data ValidatePipelineDefinition = ValidatePipelineDefinition'{_vpdParameterObjects :: Maybe [ParameterObject], _vpdParameterValues :: Maybe [ParameterValue], _vpdPipelineId :: Text, _vpdPipelineObjects :: [PipelineObject]} deriving (Eq, Read, Show)
 
 -- | 'ValidatePipelineDefinition' smart constructor.
-validatePipelineDefinition :: Text -> [PipelineObject] -> ValidatePipelineDefinition
-validatePipelineDefinition pPipelineId pPipelineObjects = ValidatePipelineDefinition'{_vpdParameterObjects = mempty, _vpdParameterValues = mempty, _vpdPipelineId = pPipelineId, _vpdPipelineObjects = pPipelineObjects};
+validatePipelineDefinition :: Text -> ValidatePipelineDefinition
+validatePipelineDefinition pPipelineId = ValidatePipelineDefinition'{_vpdParameterObjects = Nothing, _vpdParameterValues = Nothing, _vpdPipelineId = pPipelineId, _vpdPipelineObjects = mempty};
 
 -- | The parameter objects used with the pipeline.
-vpdParameterObjects :: Lens' ValidatePipelineDefinition [ParameterObject]
+vpdParameterObjects :: Lens' ValidatePipelineDefinition (Maybe [ParameterObject])
 vpdParameterObjects = lens _vpdParameterObjects (\ s a -> s{_vpdParameterObjects = a});
 
 -- | The parameter values used with the pipeline.
-vpdParameterValues :: Lens' ValidatePipelineDefinition [ParameterValue]
+vpdParameterValues :: Lens' ValidatePipelineDefinition (Maybe [ParameterValue])
 vpdParameterValues = lens _vpdParameterValues (\ s a -> s{_vpdParameterValues = a});
 
 -- | The ID of the pipeline.
@@ -125,18 +125,18 @@ instance ToQuery ValidatePipelineDefinition where
 -- * 'vpdrValidationWarnings'
 --
 -- * 'vpdrErrored'
-data ValidatePipelineDefinitionResponse = ValidatePipelineDefinitionResponse'{_vpdrValidationErrors :: [ValidationError], _vpdrValidationWarnings :: [ValidationWarning], _vpdrErrored :: Bool} deriving (Eq, Read, Show)
+data ValidatePipelineDefinitionResponse = ValidatePipelineDefinitionResponse'{_vpdrValidationErrors :: Maybe [ValidationError], _vpdrValidationWarnings :: Maybe [ValidationWarning], _vpdrErrored :: Bool} deriving (Eq, Read, Show)
 
 -- | 'ValidatePipelineDefinitionResponse' smart constructor.
 validatePipelineDefinitionResponse :: Bool -> ValidatePipelineDefinitionResponse
-validatePipelineDefinitionResponse pErrored = ValidatePipelineDefinitionResponse'{_vpdrValidationErrors = mempty, _vpdrValidationWarnings = mempty, _vpdrErrored = pErrored};
+validatePipelineDefinitionResponse pErrored = ValidatePipelineDefinitionResponse'{_vpdrValidationErrors = Nothing, _vpdrValidationWarnings = Nothing, _vpdrErrored = pErrored};
 
 -- | Any validation errors that were found.
-vpdrValidationErrors :: Lens' ValidatePipelineDefinitionResponse [ValidationError]
+vpdrValidationErrors :: Lens' ValidatePipelineDefinitionResponse (Maybe [ValidationError])
 vpdrValidationErrors = lens _vpdrValidationErrors (\ s a -> s{_vpdrValidationErrors = a});
 
 -- | Any validation warnings that were found.
-vpdrValidationWarnings :: Lens' ValidatePipelineDefinitionResponse [ValidationWarning]
+vpdrValidationWarnings :: Lens' ValidatePipelineDefinitionResponse (Maybe [ValidationWarning])
 vpdrValidationWarnings = lens _vpdrValidationWarnings (\ s a -> s{_vpdrValidationWarnings = a});
 
 -- | Indicates whether there were validation errors.

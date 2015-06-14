@@ -48,8 +48,8 @@ import Network.AWS.CodeDeploy.Types
 data RemoveTagsFromOnPremisesInstances = RemoveTagsFromOnPremisesInstances'{_rtfopiTags :: [Tag], _rtfopiInstanceNames :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'RemoveTagsFromOnPremisesInstances' smart constructor.
-removeTagsFromOnPremisesInstances :: [Tag] -> [Text] -> RemoveTagsFromOnPremisesInstances
-removeTagsFromOnPremisesInstances pTags pInstanceNames = RemoveTagsFromOnPremisesInstances'{_rtfopiTags = pTags, _rtfopiInstanceNames = pInstanceNames};
+removeTagsFromOnPremisesInstances :: RemoveTagsFromOnPremisesInstances
+removeTagsFromOnPremisesInstances = RemoveTagsFromOnPremisesInstances'{_rtfopiTags = mempty, _rtfopiInstanceNames = mempty};
 
 -- | The tag key-value pairs to remove from the on-premises instances.
 rtfopiTags :: Lens' RemoveTagsFromOnPremisesInstances [Tag]

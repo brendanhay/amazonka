@@ -35,9 +35,9 @@ module Network.AWS.ElasticTranscoder.CreateJob
     , cjUserMetadata
     , cjOutput
     , cjPlaylists
+    , cjOutputKeyPrefix
     , cjPipelineId
     , cjInput
-    , cjOutputKeyPrefix
 
     -- * Response
     , CreateJobResponse
@@ -64,21 +64,21 @@ import Network.AWS.ElasticTranscoder.Types
 --
 -- * 'cjPlaylists'
 --
+-- * 'cjOutputKeyPrefix'
+--
 -- * 'cjPipelineId'
 --
 -- * 'cjInput'
---
--- * 'cjOutputKeyPrefix'
-data CreateJob = CreateJob'{_cjOutputs :: [CreateJobOutput], _cjUserMetadata :: HashMap Text Text, _cjOutput :: Maybe CreateJobOutput, _cjPlaylists :: [CreateJobPlaylist], _cjPipelineId :: Text, _cjInput :: JobInput, _cjOutputKeyPrefix :: Text} deriving (Eq, Read, Show)
+data CreateJob = CreateJob'{_cjOutputs :: Maybe [CreateJobOutput], _cjUserMetadata :: Maybe (HashMap Text Text), _cjOutput :: Maybe CreateJobOutput, _cjPlaylists :: Maybe [CreateJobPlaylist], _cjOutputKeyPrefix :: Maybe Text, _cjPipelineId :: Text, _cjInput :: JobInput} deriving (Eq, Read, Show)
 
 -- | 'CreateJob' smart constructor.
-createJob :: Text -> JobInput -> Text -> CreateJob
-createJob pPipelineId pInput pOutputKeyPrefix = CreateJob'{_cjOutputs = mempty, _cjUserMetadata = mempty, _cjOutput = Nothing, _cjPlaylists = mempty, _cjPipelineId = pPipelineId, _cjInput = pInput, _cjOutputKeyPrefix = pOutputKeyPrefix};
+createJob :: Text -> JobInput -> CreateJob
+createJob pPipelineId pInput = CreateJob'{_cjOutputs = Nothing, _cjUserMetadata = Nothing, _cjOutput = Nothing, _cjPlaylists = Nothing, _cjOutputKeyPrefix = Nothing, _cjPipelineId = pPipelineId, _cjInput = pInput};
 
 -- | A section of the request body that provides information about the
 -- transcoded (target) files. We recommend that you use the @Outputs@
 -- syntax instead of the @Output@ syntax.
-cjOutputs :: Lens' CreateJob [CreateJobOutput]
+cjOutputs :: Lens' CreateJob (Maybe [CreateJobOutput])
 cjOutputs = lens _cjOutputs (\ s a -> s{_cjOutputs = a});
 
 -- | User-defined metadata that you want to associate with an Elastic
@@ -86,8 +86,8 @@ cjOutputs = lens _cjOutputs (\ s a -> s{_cjOutputs = a});
 -- add up to 10 @key\/value@ pairs per job. Elastic Transcoder does not
 -- guarantee that @key\/value@ pairs will be returned in the same order in
 -- which you specify them.
-cjUserMetadata :: Lens' CreateJob (HashMap Text Text)
-cjUserMetadata = lens _cjUserMetadata (\ s a -> s{_cjUserMetadata = a}) . _Coerce;
+cjUserMetadata :: Lens' CreateJob (Maybe (HashMap Text Text))
+cjUserMetadata = lens _cjUserMetadata (\ s a -> s{_cjUserMetadata = a}) . mapping _Coerce;
 
 -- | FIXME: Undocumented member.
 cjOutput :: Lens' CreateJob (Maybe CreateJobOutput)
@@ -98,8 +98,14 @@ cjOutput = lens _cjOutput (\ s a -> s{_cjOutput = a});
 -- about the master playlists that you want Elastic Transcoder to create.
 --
 -- The maximum number of master playlists in a job is 30.
-cjPlaylists :: Lens' CreateJob [CreateJobPlaylist]
+cjPlaylists :: Lens' CreateJob (Maybe [CreateJobPlaylist])
 cjPlaylists = lens _cjPlaylists (\ s a -> s{_cjPlaylists = a});
+
+-- | The value, if any, that you want Elastic Transcoder to prepend to the
+-- names of all files that this job creates, including output files,
+-- thumbnails, and playlists.
+cjOutputKeyPrefix :: Lens' CreateJob (Maybe Text)
+cjOutputKeyPrefix = lens _cjOutputKeyPrefix (\ s a -> s{_cjOutputKeyPrefix = a});
 
 -- | The @Id@ of the pipeline that you want Elastic Transcoder to use for
 -- transcoding. The pipeline determines several settings, including the
@@ -113,12 +119,6 @@ cjPipelineId = lens _cjPipelineId (\ s a -> s{_cjPipelineId = a});
 -- that is being transcoded.
 cjInput :: Lens' CreateJob JobInput
 cjInput = lens _cjInput (\ s a -> s{_cjInput = a});
-
--- | The value, if any, that you want Elastic Transcoder to prepend to the
--- names of all files that this job creates, including output files,
--- thumbnails, and playlists.
-cjOutputKeyPrefix :: Lens' CreateJob Text
-cjOutputKeyPrefix = lens _cjOutputKeyPrefix (\ s a -> s{_cjOutputKeyPrefix = a});
 
 instance AWSRequest CreateJob where
         type Sv CreateJob = ElasticTranscoder
@@ -137,8 +137,8 @@ instance ToJSON CreateJob where
               ["Outputs" .= _cjOutputs,
                "UserMetadata" .= _cjUserMetadata,
                "Output" .= _cjOutput, "Playlists" .= _cjPlaylists,
-               "PipelineId" .= _cjPipelineId, "Input" .= _cjInput,
-               "OutputKeyPrefix" .= _cjOutputKeyPrefix]
+               "OutputKeyPrefix" .= _cjOutputKeyPrefix,
+               "PipelineId" .= _cjPipelineId, "Input" .= _cjInput]
 
 instance ToPath CreateJob where
         toPath = const "/2012-09-25/jobs"

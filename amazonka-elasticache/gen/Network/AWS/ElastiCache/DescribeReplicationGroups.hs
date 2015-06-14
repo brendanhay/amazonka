@@ -120,11 +120,11 @@ instance ToQuery DescribeReplicationGroups where
 -- * 'drgrMarker'
 --
 -- * 'drgrReplicationGroups'
-data DescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse'{_drgrMarker :: Maybe Text, _drgrReplicationGroups :: [ReplicationGroup]} deriving (Eq, Read, Show)
+data DescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse'{_drgrMarker :: Maybe Text, _drgrReplicationGroups :: Maybe [ReplicationGroup]} deriving (Eq, Read, Show)
 
 -- | 'DescribeReplicationGroupsResponse' smart constructor.
 describeReplicationGroupsResponse :: DescribeReplicationGroupsResponse
-describeReplicationGroupsResponse = DescribeReplicationGroupsResponse'{_drgrMarker = Nothing, _drgrReplicationGroups = mempty};
+describeReplicationGroupsResponse = DescribeReplicationGroupsResponse'{_drgrMarker = Nothing, _drgrReplicationGroups = Nothing};
 
 -- | Provides an identifier to allow retrieval of paginated results.
 drgrMarker :: Lens' DescribeReplicationGroupsResponse (Maybe Text)
@@ -132,5 +132,5 @@ drgrMarker = lens _drgrMarker (\ s a -> s{_drgrMarker = a});
 
 -- | A list of replication groups. Each item in the list contains detailed
 -- information about one replication group.
-drgrReplicationGroups :: Lens' DescribeReplicationGroupsResponse [ReplicationGroup]
+drgrReplicationGroups :: Lens' DescribeReplicationGroupsResponse (Maybe [ReplicationGroup])
 drgrReplicationGroups = lens _drgrReplicationGroups (\ s a -> s{_drgrReplicationGroups = a});

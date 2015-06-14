@@ -177,11 +177,11 @@ instance ToQuery ListObjectVersions where
 -- * 'lovrIsTruncated'
 --
 -- * 'lovrDelimiter'
-data ListObjectVersionsResponse = ListObjectVersionsResponse'{_lovrNextVersionIdMarker :: Maybe Text, _lovrKeyMarker :: Maybe Text, _lovrPrefix :: Maybe Text, _lovrDeleteMarkers :: [DeleteMarkerEntry], _lovrEncodingType :: Maybe EncodingType, _lovrCommonPrefixes :: [CommonPrefix], _lovrVersions :: [ObjectVersion], _lovrName :: Maybe BucketName, _lovrNextKeyMarker :: Maybe Text, _lovrVersionIdMarker :: Maybe Text, _lovrMaxKeys :: Maybe Int, _lovrIsTruncated :: Maybe Bool, _lovrDelimiter :: Maybe Char} deriving (Eq, Read, Show)
+data ListObjectVersionsResponse = ListObjectVersionsResponse'{_lovrNextVersionIdMarker :: Maybe Text, _lovrKeyMarker :: Maybe Text, _lovrPrefix :: Maybe Text, _lovrDeleteMarkers :: Maybe [DeleteMarkerEntry], _lovrEncodingType :: Maybe EncodingType, _lovrCommonPrefixes :: Maybe [CommonPrefix], _lovrVersions :: Maybe [ObjectVersion], _lovrName :: Maybe BucketName, _lovrNextKeyMarker :: Maybe Text, _lovrVersionIdMarker :: Maybe Text, _lovrMaxKeys :: Maybe Int, _lovrIsTruncated :: Maybe Bool, _lovrDelimiter :: Maybe Char} deriving (Eq, Read, Show)
 
 -- | 'ListObjectVersionsResponse' smart constructor.
 listObjectVersionsResponse :: ListObjectVersionsResponse
-listObjectVersionsResponse = ListObjectVersionsResponse'{_lovrNextVersionIdMarker = Nothing, _lovrKeyMarker = Nothing, _lovrPrefix = Nothing, _lovrDeleteMarkers = mempty, _lovrEncodingType = Nothing, _lovrCommonPrefixes = mempty, _lovrVersions = mempty, _lovrName = Nothing, _lovrNextKeyMarker = Nothing, _lovrVersionIdMarker = Nothing, _lovrMaxKeys = Nothing, _lovrIsTruncated = Nothing, _lovrDelimiter = Nothing};
+listObjectVersionsResponse = ListObjectVersionsResponse'{_lovrNextVersionIdMarker = Nothing, _lovrKeyMarker = Nothing, _lovrPrefix = Nothing, _lovrDeleteMarkers = Nothing, _lovrEncodingType = Nothing, _lovrCommonPrefixes = Nothing, _lovrVersions = Nothing, _lovrName = Nothing, _lovrNextKeyMarker = Nothing, _lovrVersionIdMarker = Nothing, _lovrMaxKeys = Nothing, _lovrIsTruncated = Nothing, _lovrDelimiter = Nothing};
 
 -- | Use this value for the next version id marker parameter in a subsequent
 -- request.
@@ -197,7 +197,7 @@ lovrPrefix :: Lens' ListObjectVersionsResponse (Maybe Text)
 lovrPrefix = lens _lovrPrefix (\ s a -> s{_lovrPrefix = a});
 
 -- | FIXME: Undocumented member.
-lovrDeleteMarkers :: Lens' ListObjectVersionsResponse [DeleteMarkerEntry]
+lovrDeleteMarkers :: Lens' ListObjectVersionsResponse (Maybe [DeleteMarkerEntry])
 lovrDeleteMarkers = lens _lovrDeleteMarkers (\ s a -> s{_lovrDeleteMarkers = a});
 
 -- | Encoding type used by Amazon S3 to encode object keys in the response.
@@ -205,11 +205,11 @@ lovrEncodingType :: Lens' ListObjectVersionsResponse (Maybe EncodingType)
 lovrEncodingType = lens _lovrEncodingType (\ s a -> s{_lovrEncodingType = a});
 
 -- | FIXME: Undocumented member.
-lovrCommonPrefixes :: Lens' ListObjectVersionsResponse [CommonPrefix]
+lovrCommonPrefixes :: Lens' ListObjectVersionsResponse (Maybe [CommonPrefix])
 lovrCommonPrefixes = lens _lovrCommonPrefixes (\ s a -> s{_lovrCommonPrefixes = a});
 
 -- | FIXME: Undocumented member.
-lovrVersions :: Lens' ListObjectVersionsResponse [ObjectVersion]
+lovrVersions :: Lens' ListObjectVersionsResponse (Maybe [ObjectVersion])
 lovrVersions = lens _lovrVersions (\ s a -> s{_lovrVersions = a});
 
 -- | FIXME: Undocumented member.

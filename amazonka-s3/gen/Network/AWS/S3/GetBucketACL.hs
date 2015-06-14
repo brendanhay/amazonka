@@ -84,14 +84,14 @@ instance ToQuery GetBucketACL where
 -- * 'gbarGrants'
 --
 -- * 'gbarOwner'
-data GetBucketACLResponse = GetBucketACLResponse'{_gbarGrants :: [Grant], _gbarOwner :: Maybe Owner} deriving (Eq, Read, Show)
+data GetBucketACLResponse = GetBucketACLResponse'{_gbarGrants :: Maybe [Grant], _gbarOwner :: Maybe Owner} deriving (Eq, Read, Show)
 
 -- | 'GetBucketACLResponse' smart constructor.
 getBucketACLResponse :: GetBucketACLResponse
-getBucketACLResponse = GetBucketACLResponse'{_gbarGrants = mempty, _gbarOwner = Nothing};
+getBucketACLResponse = GetBucketACLResponse'{_gbarGrants = Nothing, _gbarOwner = Nothing};
 
 -- | A list of grants.
-gbarGrants :: Lens' GetBucketACLResponse [Grant]
+gbarGrants :: Lens' GetBucketACLResponse (Maybe [Grant])
 gbarGrants = lens _gbarGrants (\ s a -> s{_gbarGrants = a});
 
 -- | FIXME: Undocumented member.

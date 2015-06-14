@@ -50,11 +50,11 @@ import Network.AWS.EC2.Types
 -- * 'dvclVPCIds'
 --
 -- * 'dvclDryRun'
-data DescribeVPCClassicLink = DescribeVPCClassicLink'{_dvclFilters :: [Filter], _dvclVPCIds :: [Text], _dvclDryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data DescribeVPCClassicLink = DescribeVPCClassicLink'{_dvclFilters :: Maybe [Filter], _dvclVPCIds :: Maybe [Text], _dvclDryRun :: Maybe Bool} deriving (Eq, Read, Show)
 
 -- | 'DescribeVPCClassicLink' smart constructor.
 describeVPCClassicLink :: DescribeVPCClassicLink
-describeVPCClassicLink = DescribeVPCClassicLink'{_dvclFilters = mempty, _dvclVPCIds = mempty, _dvclDryRun = Nothing};
+describeVPCClassicLink = DescribeVPCClassicLink'{_dvclFilters = Nothing, _dvclVPCIds = Nothing, _dvclDryRun = Nothing};
 
 -- | One or more filters.
 --
@@ -75,11 +75,11 @@ describeVPCClassicLink = DescribeVPCClassicLink'{_dvclFilters = mempty, _dvclVPC
 -- -   @tag-value@ - The value of a tag assigned to the resource. This
 --     filter is independent of the @tag-key@ filter.
 --
-dvclFilters :: Lens' DescribeVPCClassicLink [Filter]
+dvclFilters :: Lens' DescribeVPCClassicLink (Maybe [Filter])
 dvclFilters = lens _dvclFilters (\ s a -> s{_dvclFilters = a});
 
 -- | One or more VPCs for which you want to describe the ClassicLink status.
-dvclVPCIds :: Lens' DescribeVPCClassicLink [Text]
+dvclVPCIds :: Lens' DescribeVPCClassicLink (Maybe [Text])
 dvclVPCIds = lens _dvclVPCIds (\ s a -> s{_dvclVPCIds = a});
 
 -- | Checks whether you have the required permissions for the action, without
@@ -120,12 +120,12 @@ instance ToQuery DescribeVPCClassicLink where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dvclrVPCs'
-newtype DescribeVPCClassicLinkResponse = DescribeVPCClassicLinkResponse'{_dvclrVPCs :: [VPCClassicLink]} deriving (Eq, Read, Show)
+newtype DescribeVPCClassicLinkResponse = DescribeVPCClassicLinkResponse'{_dvclrVPCs :: Maybe [VPCClassicLink]} deriving (Eq, Read, Show)
 
 -- | 'DescribeVPCClassicLinkResponse' smart constructor.
 describeVPCClassicLinkResponse :: DescribeVPCClassicLinkResponse
-describeVPCClassicLinkResponse = DescribeVPCClassicLinkResponse'{_dvclrVPCs = mempty};
+describeVPCClassicLinkResponse = DescribeVPCClassicLinkResponse'{_dvclrVPCs = Nothing};
 
 -- | The ClassicLink status of one or more VPCs.
-dvclrVPCs :: Lens' DescribeVPCClassicLinkResponse [VPCClassicLink]
+dvclrVPCs :: Lens' DescribeVPCClassicLinkResponse (Maybe [VPCClassicLink])
 dvclrVPCs = lens _dvclrVPCs (\ s a -> s{_dvclrVPCs = a});

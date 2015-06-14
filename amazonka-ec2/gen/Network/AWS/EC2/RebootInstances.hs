@@ -58,8 +58,8 @@ import Network.AWS.EC2.Types
 data RebootInstances = RebootInstances'{_rebDryRun :: Maybe Bool, _rebInstanceIds :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'RebootInstances' smart constructor.
-rebootInstances :: [Text] -> RebootInstances
-rebootInstances pInstanceIds = RebootInstances'{_rebDryRun = Nothing, _rebInstanceIds = pInstanceIds};
+rebootInstances :: RebootInstances
+rebootInstances = RebootInstances'{_rebDryRun = Nothing, _rebInstanceIds = mempty};
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have

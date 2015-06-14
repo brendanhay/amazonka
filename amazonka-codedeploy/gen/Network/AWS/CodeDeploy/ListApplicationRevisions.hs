@@ -172,11 +172,11 @@ instance ToQuery ListApplicationRevisions where
 -- * 'larrNextToken'
 --
 -- * 'larrRevisions'
-data ListApplicationRevisionsResponse = ListApplicationRevisionsResponse'{_larrNextToken :: Maybe Text, _larrRevisions :: [RevisionLocation]} deriving (Eq, Read, Show)
+data ListApplicationRevisionsResponse = ListApplicationRevisionsResponse'{_larrNextToken :: Maybe Text, _larrRevisions :: Maybe [RevisionLocation]} deriving (Eq, Read, Show)
 
 -- | 'ListApplicationRevisionsResponse' smart constructor.
 listApplicationRevisionsResponse :: ListApplicationRevisionsResponse
-listApplicationRevisionsResponse = ListApplicationRevisionsResponse'{_larrNextToken = Nothing, _larrRevisions = mempty};
+listApplicationRevisionsResponse = ListApplicationRevisionsResponse'{_larrNextToken = Nothing, _larrRevisions = Nothing};
 
 -- | If the amount of information that is returned is significantly large, an
 -- identifier will also be returned, which can be used in a subsequent list
@@ -186,5 +186,5 @@ larrNextToken :: Lens' ListApplicationRevisionsResponse (Maybe Text)
 larrNextToken = lens _larrNextToken (\ s a -> s{_larrNextToken = a});
 
 -- | A list of revision locations that contain the matching revisions.
-larrRevisions :: Lens' ListApplicationRevisionsResponse [RevisionLocation]
+larrRevisions :: Lens' ListApplicationRevisionsResponse (Maybe [RevisionLocation])
 larrRevisions = lens _larrRevisions (\ s a -> s{_larrRevisions = a});

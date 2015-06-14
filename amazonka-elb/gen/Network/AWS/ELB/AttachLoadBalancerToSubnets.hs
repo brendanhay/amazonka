@@ -56,8 +56,8 @@ import Network.AWS.ELB.Types
 data AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnets'{_albtsLoadBalancerName :: Text, _albtsSubnets :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'AttachLoadBalancerToSubnets' smart constructor.
-attachLoadBalancerToSubnets :: Text -> [Text] -> AttachLoadBalancerToSubnets
-attachLoadBalancerToSubnets pLoadBalancerName pSubnets = AttachLoadBalancerToSubnets'{_albtsLoadBalancerName = pLoadBalancerName, _albtsSubnets = pSubnets};
+attachLoadBalancerToSubnets :: Text -> AttachLoadBalancerToSubnets
+attachLoadBalancerToSubnets pLoadBalancerName = AttachLoadBalancerToSubnets'{_albtsLoadBalancerName = pLoadBalancerName, _albtsSubnets = mempty};
 
 -- | The name of the load balancer.
 albtsLoadBalancerName :: Lens' AttachLoadBalancerToSubnets Text
@@ -101,12 +101,12 @@ instance ToQuery AttachLoadBalancerToSubnets where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'albtsrSubnets'
-newtype AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse'{_albtsrSubnets :: [Text]} deriving (Eq, Read, Show)
+newtype AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse'{_albtsrSubnets :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'AttachLoadBalancerToSubnetsResponse' smart constructor.
 attachLoadBalancerToSubnetsResponse :: AttachLoadBalancerToSubnetsResponse
-attachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse'{_albtsrSubnets = mempty};
+attachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse'{_albtsrSubnets = Nothing};
 
 -- | The IDs of the subnets attached to the load balancer.
-albtsrSubnets :: Lens' AttachLoadBalancerToSubnetsResponse [Text]
+albtsrSubnets :: Lens' AttachLoadBalancerToSubnetsResponse (Maybe [Text])
 albtsrSubnets = lens _albtsrSubnets (\ s a -> s{_albtsrSubnets = a});

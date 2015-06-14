@@ -78,7 +78,7 @@ instance AWSRequest UpdateGatewaySoftwareNow where
           = receiveJSON
               (\ s h x ->
                  UpdateGatewaySoftwareNowResponse' <$>
-                   x .:> "GatewayARN")
+                   x .?> "GatewayARN")
 
 instance ToHeaders UpdateGatewaySoftwareNow where
         toHeaders
@@ -105,12 +105,12 @@ instance ToQuery UpdateGatewaySoftwareNow where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ugsnrGatewayARN'
-newtype UpdateGatewaySoftwareNowResponse = UpdateGatewaySoftwareNowResponse'{_ugsnrGatewayARN :: Text} deriving (Eq, Read, Show)
+newtype UpdateGatewaySoftwareNowResponse = UpdateGatewaySoftwareNowResponse'{_ugsnrGatewayARN :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'UpdateGatewaySoftwareNowResponse' smart constructor.
-updateGatewaySoftwareNowResponse :: Text -> UpdateGatewaySoftwareNowResponse
-updateGatewaySoftwareNowResponse pGatewayARN = UpdateGatewaySoftwareNowResponse'{_ugsnrGatewayARN = pGatewayARN};
+updateGatewaySoftwareNowResponse :: UpdateGatewaySoftwareNowResponse
+updateGatewaySoftwareNowResponse = UpdateGatewaySoftwareNowResponse'{_ugsnrGatewayARN = Nothing};
 
 -- | FIXME: Undocumented member.
-ugsnrGatewayARN :: Lens' UpdateGatewaySoftwareNowResponse Text
+ugsnrGatewayARN :: Lens' UpdateGatewaySoftwareNowResponse (Maybe Text)
 ugsnrGatewayARN = lens _ugsnrGatewayARN (\ s a -> s{_ugsnrGatewayARN = a});

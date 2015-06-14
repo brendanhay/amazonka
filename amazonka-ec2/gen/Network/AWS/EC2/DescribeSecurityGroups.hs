@@ -60,11 +60,11 @@ import Network.AWS.EC2.Types
 -- * 'dsg1GroupIds'
 --
 -- * 'dsg1DryRun'
-data DescribeSecurityGroups = DescribeSecurityGroups'{_dsg1GroupNames :: [Text], _dsg1Filters :: [Filter], _dsg1GroupIds :: [Text], _dsg1DryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data DescribeSecurityGroups = DescribeSecurityGroups'{_dsg1GroupNames :: Maybe [Text], _dsg1Filters :: Maybe [Filter], _dsg1GroupIds :: Maybe [Text], _dsg1DryRun :: Maybe Bool} deriving (Eq, Read, Show)
 
 -- | 'DescribeSecurityGroups' smart constructor.
 describeSecurityGroups :: DescribeSecurityGroups
-describeSecurityGroups = DescribeSecurityGroups'{_dsg1GroupNames = mempty, _dsg1Filters = mempty, _dsg1GroupIds = mempty, _dsg1DryRun = Nothing};
+describeSecurityGroups = DescribeSecurityGroups'{_dsg1GroupNames = Nothing, _dsg1Filters = Nothing, _dsg1GroupIds = Nothing, _dsg1DryRun = Nothing};
 
 -- | [EC2-Classic and default VPC only] One or more security group names. You
 -- can specify either the security group name or the security group ID. For
@@ -72,7 +72,7 @@ describeSecurityGroups = DescribeSecurityGroups'{_dsg1GroupNames = mempty, _dsg1
 -- describe security groups by name.
 --
 -- Default: Describes all your security groups.
-dsg1GroupNames :: Lens' DescribeSecurityGroups [Text]
+dsg1GroupNames :: Lens' DescribeSecurityGroups (Maybe [Text])
 dsg1GroupNames = lens _dsg1GroupNames (\ s a -> s{_dsg1GroupNames = a});
 
 -- | One or more filters.
@@ -116,14 +116,14 @@ dsg1GroupNames = lens _dsg1GroupNames (\ s a -> s{_dsg1GroupNames = a});
 -- -   @vpc-id@ - The ID of the VPC specified when the security group was
 --     created.
 --
-dsg1Filters :: Lens' DescribeSecurityGroups [Filter]
+dsg1Filters :: Lens' DescribeSecurityGroups (Maybe [Filter])
 dsg1Filters = lens _dsg1Filters (\ s a -> s{_dsg1Filters = a});
 
 -- | One or more security group IDs. Required for security groups in a
 -- nondefault VPC.
 --
 -- Default: Describes all your security groups.
-dsg1GroupIds :: Lens' DescribeSecurityGroups [Text]
+dsg1GroupIds :: Lens' DescribeSecurityGroups (Maybe [Text])
 dsg1GroupIds = lens _dsg1GroupIds (\ s a -> s{_dsg1GroupIds = a});
 
 -- | Checks whether you have the required permissions for the action, without
@@ -165,12 +165,12 @@ instance ToQuery DescribeSecurityGroups where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsgrSecurityGroups'
-newtype DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse'{_dsgrSecurityGroups :: [SecurityGroup]} deriving (Eq, Read, Show)
+newtype DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse'{_dsgrSecurityGroups :: Maybe [SecurityGroup]} deriving (Eq, Read, Show)
 
 -- | 'DescribeSecurityGroupsResponse' smart constructor.
 describeSecurityGroupsResponse :: DescribeSecurityGroupsResponse
-describeSecurityGroupsResponse = DescribeSecurityGroupsResponse'{_dsgrSecurityGroups = mempty};
+describeSecurityGroupsResponse = DescribeSecurityGroupsResponse'{_dsgrSecurityGroups = Nothing};
 
 -- | Information about one or more security groups.
-dsgrSecurityGroups :: Lens' DescribeSecurityGroupsResponse [SecurityGroup]
+dsgrSecurityGroups :: Lens' DescribeSecurityGroupsResponse (Maybe [SecurityGroup])
 dsgrSecurityGroups = lens _dsgrSecurityGroups (\ s a -> s{_dsgrSecurityGroups = a});

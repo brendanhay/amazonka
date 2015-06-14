@@ -31,8 +31,8 @@ module Network.AWS.IAM.CreateInstanceProfile
     -- ** Request constructor
     , createInstanceProfile
     -- ** Request lenses
-    , cipInstanceProfileName
     , cipPath
+    , cipInstanceProfileName
 
     -- * Response
     , CreateInstanceProfileResponse
@@ -51,18 +51,14 @@ import Network.AWS.IAM.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cipInstanceProfileName'
---
 -- * 'cipPath'
-data CreateInstanceProfile = CreateInstanceProfile'{_cipInstanceProfileName :: Text, _cipPath :: Text} deriving (Eq, Read, Show)
+--
+-- * 'cipInstanceProfileName'
+data CreateInstanceProfile = CreateInstanceProfile'{_cipPath :: Maybe Text, _cipInstanceProfileName :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateInstanceProfile' smart constructor.
-createInstanceProfile :: Text -> Text -> CreateInstanceProfile
-createInstanceProfile pInstanceProfileName pPath = CreateInstanceProfile'{_cipInstanceProfileName = pInstanceProfileName, _cipPath = pPath};
-
--- | The name of the instance profile to create.
-cipInstanceProfileName :: Lens' CreateInstanceProfile Text
-cipInstanceProfileName = lens _cipInstanceProfileName (\ s a -> s{_cipInstanceProfileName = a});
+createInstanceProfile :: Text -> CreateInstanceProfile
+createInstanceProfile pInstanceProfileName = CreateInstanceProfile'{_cipPath = Nothing, _cipInstanceProfileName = pInstanceProfileName};
 
 -- | The path to the instance profile. For more information about paths, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
@@ -70,8 +66,12 @@ cipInstanceProfileName = lens _cipInstanceProfileName (\ s a -> s{_cipInstancePr
 --
 -- This parameter is optional. If it is not included, it defaults to a
 -- slash (\/).
-cipPath :: Lens' CreateInstanceProfile Text
+cipPath :: Lens' CreateInstanceProfile (Maybe Text)
 cipPath = lens _cipPath (\ s a -> s{_cipPath = a});
+
+-- | The name of the instance profile to create.
+cipInstanceProfileName :: Lens' CreateInstanceProfile Text
+cipInstanceProfileName = lens _cipInstanceProfileName (\ s a -> s{_cipInstanceProfileName = a});
 
 instance AWSRequest CreateInstanceProfile where
         type Sv CreateInstanceProfile = IAM
@@ -95,8 +95,8 @@ instance ToQuery CreateInstanceProfile where
           = mconcat
               ["Action" =: ("CreateInstanceProfile" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "InstanceProfileName" =: _cipInstanceProfileName,
-               "Path" =: _cipPath]
+               "Path" =: _cipPath,
+               "InstanceProfileName" =: _cipInstanceProfileName]
 
 -- | /See:/ 'createInstanceProfileResponse' smart constructor.
 --

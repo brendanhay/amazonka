@@ -156,11 +156,11 @@ instance ToQuery ListDomains where
 -- * 'ldrNextPageToken'
 --
 -- * 'ldrListDomainsResponse'
-data ListDomainsResponse = ListDomainsResponse'{_ldrNextPageToken :: Maybe Text, _ldrListDomainsResponse :: [DomainInfo]} deriving (Eq, Read, Show)
+data ListDomainsResponse = ListDomainsResponse'{_ldrNextPageToken :: Maybe Text, _ldrListDomainsResponse :: Maybe [DomainInfo]} deriving (Eq, Read, Show)
 
 -- | 'ListDomainsResponse' smart constructor.
 listDomainsResponse :: ListDomainsResponse
-listDomainsResponse = ListDomainsResponse'{_ldrNextPageToken = Nothing, _ldrListDomainsResponse = mempty};
+listDomainsResponse = ListDomainsResponse'{_ldrNextPageToken = Nothing, _ldrListDomainsResponse = Nothing};
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
 -- results available. To retrieve the next page of results, make the call
@@ -173,5 +173,5 @@ ldrNextPageToken :: Lens' ListDomainsResponse (Maybe Text)
 ldrNextPageToken = lens _ldrNextPageToken (\ s a -> s{_ldrNextPageToken = a});
 
 -- | A list of DomainInfo structures.
-ldrListDomainsResponse :: Lens' ListDomainsResponse [DomainInfo]
+ldrListDomainsResponse :: Lens' ListDomainsResponse (Maybe [DomainInfo])
 ldrListDomainsResponse = lens _ldrListDomainsResponse (\ s a -> s{_ldrListDomainsResponse = a});

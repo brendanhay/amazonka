@@ -36,9 +36,9 @@ module Network.AWS.IAM.UpdateAccessKey
     -- ** Request constructor
     , updateAccessKey
     -- ** Request lenses
+    , uakUserName
     , uakAccessKeyId
     , uakStatus
-    , uakUserName
 
     -- * Response
     , UpdateAccessKeyResponse
@@ -55,16 +55,20 @@ import Network.AWS.IAM.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'uakUserName'
+--
 -- * 'uakAccessKeyId'
 --
 -- * 'uakStatus'
---
--- * 'uakUserName'
-data UpdateAccessKey = UpdateAccessKey'{_uakAccessKeyId :: Text, _uakStatus :: StatusType, _uakUserName :: Text} deriving (Eq, Read, Show)
+data UpdateAccessKey = UpdateAccessKey'{_uakUserName :: Maybe Text, _uakAccessKeyId :: Text, _uakStatus :: StatusType} deriving (Eq, Read, Show)
 
 -- | 'UpdateAccessKey' smart constructor.
-updateAccessKey :: Text -> StatusType -> Text -> UpdateAccessKey
-updateAccessKey pAccessKeyId pStatus pUserName = UpdateAccessKey'{_uakAccessKeyId = pAccessKeyId, _uakStatus = pStatus, _uakUserName = pUserName};
+updateAccessKey :: Text -> StatusType -> UpdateAccessKey
+updateAccessKey pAccessKeyId pStatus = UpdateAccessKey'{_uakUserName = Nothing, _uakAccessKeyId = pAccessKeyId, _uakStatus = pStatus};
+
+-- | The name of the user whose key you want to update.
+uakUserName :: Lens' UpdateAccessKey (Maybe Text)
+uakUserName = lens _uakUserName (\ s a -> s{_uakUserName = a});
 
 -- | The access key ID of the secret access key you want to update.
 uakAccessKeyId :: Lens' UpdateAccessKey Text
@@ -75,10 +79,6 @@ uakAccessKeyId = lens _uakAccessKeyId (\ s a -> s{_uakAccessKeyId = a});
 -- cannot be used.
 uakStatus :: Lens' UpdateAccessKey StatusType
 uakStatus = lens _uakStatus (\ s a -> s{_uakStatus = a});
-
--- | The name of the user whose key you want to update.
-uakUserName :: Lens' UpdateAccessKey Text
-uakUserName = lens _uakUserName (\ s a -> s{_uakUserName = a});
 
 instance AWSRequest UpdateAccessKey where
         type Sv UpdateAccessKey = IAM
@@ -97,8 +97,9 @@ instance ToQuery UpdateAccessKey where
           = mconcat
               ["Action" =: ("UpdateAccessKey" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
+               "UserName" =: _uakUserName,
                "AccessKeyId" =: _uakAccessKeyId,
-               "Status" =: _uakStatus, "UserName" =: _uakUserName]
+               "Status" =: _uakStatus]
 
 -- | /See:/ 'updateAccessKeyResponse' smart constructor.
 data UpdateAccessKeyResponse = UpdateAccessKeyResponse' deriving (Eq, Read, Show)

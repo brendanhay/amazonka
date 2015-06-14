@@ -56,11 +56,11 @@ import Network.AWS.CloudSearch.Types
 -- * 'difFieldNames'
 --
 -- * 'difDomainName'
-data DescribeIndexFields = DescribeIndexFields'{_difDeployed :: Maybe Bool, _difFieldNames :: [Text], _difDomainName :: Text} deriving (Eq, Read, Show)
+data DescribeIndexFields = DescribeIndexFields'{_difDeployed :: Maybe Bool, _difFieldNames :: Maybe [Text], _difDomainName :: Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeIndexFields' smart constructor.
 describeIndexFields :: Text -> DescribeIndexFields
-describeIndexFields pDomainName = DescribeIndexFields'{_difDeployed = Nothing, _difFieldNames = mempty, _difDomainName = pDomainName};
+describeIndexFields pDomainName = DescribeIndexFields'{_difDeployed = Nothing, _difFieldNames = Nothing, _difDomainName = pDomainName};
 
 -- | Whether to display the deployed configuration (@true@) or include any
 -- pending changes (@false@). Defaults to @false@.
@@ -69,7 +69,7 @@ difDeployed = lens _difDeployed (\ s a -> s{_difDeployed = a});
 
 -- | A list of the index fields you want to describe. If not specified,
 -- information is returned for all configured index fields.
-difFieldNames :: Lens' DescribeIndexFields [Text]
+difFieldNames :: Lens' DescribeIndexFields (Maybe [Text])
 difFieldNames = lens _difFieldNames (\ s a -> s{_difFieldNames = a});
 
 -- | The name of the domain you want to describe.
@@ -111,8 +111,8 @@ instance ToQuery DescribeIndexFields where
 newtype DescribeIndexFieldsResponse = DescribeIndexFieldsResponse'{_difrIndexFields :: [IndexFieldStatus]} deriving (Eq, Read, Show)
 
 -- | 'DescribeIndexFieldsResponse' smart constructor.
-describeIndexFieldsResponse :: [IndexFieldStatus] -> DescribeIndexFieldsResponse
-describeIndexFieldsResponse pIndexFields = DescribeIndexFieldsResponse'{_difrIndexFields = pIndexFields};
+describeIndexFieldsResponse :: DescribeIndexFieldsResponse
+describeIndexFieldsResponse = DescribeIndexFieldsResponse'{_difrIndexFields = mempty};
 
 -- | The index fields configured for the domain.
 difrIndexFields :: Lens' DescribeIndexFieldsResponse [IndexFieldStatus]

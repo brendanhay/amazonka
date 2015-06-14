@@ -158,11 +158,11 @@ import Network.AWS.ElasticFileSystem.Types
 -- * 'cmtFileSystemId'
 --
 -- * 'cmtSubnetId'
-data CreateMountTarget = CreateMountTarget'{_cmtIPAddress :: Maybe Text, _cmtSecurityGroups :: [Text], _cmtFileSystemId :: Text, _cmtSubnetId :: Text} deriving (Eq, Read, Show)
+data CreateMountTarget = CreateMountTarget'{_cmtIPAddress :: Maybe Text, _cmtSecurityGroups :: Maybe [Text], _cmtFileSystemId :: Text, _cmtSubnetId :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateMountTarget' smart constructor.
 createMountTarget :: Text -> Text -> CreateMountTarget
-createMountTarget pFileSystemId pSubnetId = CreateMountTarget'{_cmtIPAddress = Nothing, _cmtSecurityGroups = mempty, _cmtFileSystemId = pFileSystemId, _cmtSubnetId = pSubnetId};
+createMountTarget pFileSystemId pSubnetId = CreateMountTarget'{_cmtIPAddress = Nothing, _cmtSecurityGroups = Nothing, _cmtFileSystemId = pFileSystemId, _cmtSubnetId = pSubnetId};
 
 -- | A valid IPv4 address within the address range of the specified subnet.
 cmtIPAddress :: Lens' CreateMountTarget (Maybe Text)
@@ -170,7 +170,7 @@ cmtIPAddress = lens _cmtIPAddress (\ s a -> s{_cmtIPAddress = a});
 
 -- | Up to 5 VPC security group IDs, of the form \"sg-xxxxxxxx\". These must
 -- be for the same VPC as subnet specified.
-cmtSecurityGroups :: Lens' CreateMountTarget [Text]
+cmtSecurityGroups :: Lens' CreateMountTarget (Maybe [Text])
 cmtSecurityGroups = lens _cmtSecurityGroups (\ s a -> s{_cmtSecurityGroups = a});
 
 -- | The ID of the file system for which to create the mount target.

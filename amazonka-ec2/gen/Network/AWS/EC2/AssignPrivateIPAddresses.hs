@@ -63,11 +63,11 @@ import Network.AWS.EC2.Types
 -- * 'apiaSecondaryPrivateIPAddressCount'
 --
 -- * 'apiaNetworkInterfaceId'
-data AssignPrivateIPAddresses = AssignPrivateIPAddresses'{_apiaPrivateIPAddresses :: [Text], _apiaAllowReassignment :: Maybe Bool, _apiaSecondaryPrivateIPAddressCount :: Maybe Int, _apiaNetworkInterfaceId :: Text} deriving (Eq, Read, Show)
+data AssignPrivateIPAddresses = AssignPrivateIPAddresses'{_apiaPrivateIPAddresses :: Maybe [Text], _apiaAllowReassignment :: Maybe Bool, _apiaSecondaryPrivateIPAddressCount :: Maybe Int, _apiaNetworkInterfaceId :: Text} deriving (Eq, Read, Show)
 
 -- | 'AssignPrivateIPAddresses' smart constructor.
 assignPrivateIPAddresses :: Text -> AssignPrivateIPAddresses
-assignPrivateIPAddresses pNetworkInterfaceId = AssignPrivateIPAddresses'{_apiaPrivateIPAddresses = mempty, _apiaAllowReassignment = Nothing, _apiaSecondaryPrivateIPAddressCount = Nothing, _apiaNetworkInterfaceId = pNetworkInterfaceId};
+assignPrivateIPAddresses pNetworkInterfaceId = AssignPrivateIPAddresses'{_apiaPrivateIPAddresses = Nothing, _apiaAllowReassignment = Nothing, _apiaSecondaryPrivateIPAddressCount = Nothing, _apiaNetworkInterfaceId = pNetworkInterfaceId};
 
 -- | One or more IP addresses to be assigned as a secondary private IP
 -- address to the network interface. You can\'t specify this parameter when
@@ -75,7 +75,7 @@ assignPrivateIPAddresses pNetworkInterfaceId = AssignPrivateIPAddresses'{_apiaPr
 --
 -- If you don\'t specify an IP address, Amazon EC2 automatically selects an
 -- IP address within the subnet range.
-apiaPrivateIPAddresses :: Lens' AssignPrivateIPAddresses [Text]
+apiaPrivateIPAddresses :: Lens' AssignPrivateIPAddresses (Maybe [Text])
 apiaPrivateIPAddresses = lens _apiaPrivateIPAddresses (\ s a -> s{_apiaPrivateIPAddresses = a});
 
 -- | Indicates whether to allow an IP address that is already assigned to

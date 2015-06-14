@@ -29,9 +29,9 @@ module Network.AWS.ElasticFileSystem.DescribeMountTargets
     -- ** Request constructor
     , describeMountTargets
     -- ** Request lenses
+    , dmtMaxItems
     , dmtMarker
     , dmtFileSystemId
-    , dmtMaxItems
 
     -- * Response
     , DescribeMountTargetsResponse
@@ -52,16 +52,21 @@ import Network.AWS.ElasticFileSystem.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'dmtMaxItems'
+--
 -- * 'dmtMarker'
 --
 -- * 'dmtFileSystemId'
---
--- * 'dmtMaxItems'
-data DescribeMountTargets = DescribeMountTargets'{_dmtMarker :: Maybe Text, _dmtFileSystemId :: Text, _dmtMaxItems :: Nat} deriving (Eq, Read, Show)
+data DescribeMountTargets = DescribeMountTargets'{_dmtMaxItems :: Maybe Nat, _dmtMarker :: Maybe Text, _dmtFileSystemId :: Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeMountTargets' smart constructor.
-describeMountTargets :: Text -> Natural -> DescribeMountTargets
-describeMountTargets pFileSystemId pMaxItems = DescribeMountTargets'{_dmtMarker = Nothing, _dmtFileSystemId = pFileSystemId, _dmtMaxItems = _Nat # pMaxItems};
+describeMountTargets :: Text -> DescribeMountTargets
+describeMountTargets pFileSystemId = DescribeMountTargets'{_dmtMaxItems = Nothing, _dmtMarker = Nothing, _dmtFileSystemId = pFileSystemId};
+
+-- | Optional. Maximum number of mount targets to return in the response. It
+-- must be an integer with a value greater than zero.
+dmtMaxItems :: Lens' DescribeMountTargets (Maybe Natural)
+dmtMaxItems = lens _dmtMaxItems (\ s a -> s{_dmtMaxItems = a}) . mapping _Nat;
 
 -- | Optional. String. Opaque pagination token returned from a previous
 -- @DescribeMountTargets@ operation. If present, it specifies to continue
@@ -72,11 +77,6 @@ dmtMarker = lens _dmtMarker (\ s a -> s{_dmtMarker = a});
 -- | String. The ID of the file system whose mount targets you want to list.
 dmtFileSystemId :: Lens' DescribeMountTargets Text
 dmtFileSystemId = lens _dmtFileSystemId (\ s a -> s{_dmtFileSystemId = a});
-
--- | Optional. Maximum number of mount targets to return in the response. It
--- must be an integer with a value greater than zero.
-dmtMaxItems :: Lens' DescribeMountTargets Natural
-dmtMaxItems = lens _dmtMaxItems (\ s a -> s{_dmtMaxItems = a}) . _Nat;
 
 instance AWSRequest DescribeMountTargets where
         type Sv DescribeMountTargets = ElasticFileSystem
@@ -99,9 +99,8 @@ instance ToPath DescribeMountTargets where
 instance ToQuery DescribeMountTargets where
         toQuery DescribeMountTargets'{..}
           = mconcat
-              ["Marker" =: _dmtMarker,
-               "FileSystemId" =: _dmtFileSystemId,
-               "MaxItems" =: _dmtMaxItems]
+              ["MaxItems" =: _dmtMaxItems, "Marker" =: _dmtMarker,
+               "FileSystemId" =: _dmtFileSystemId]
 
 -- | /See:/ 'describeMountTargetsResponse' smart constructor.
 --
@@ -112,15 +111,15 @@ instance ToQuery DescribeMountTargets where
 -- * 'dmtrMarker'
 --
 -- * 'dmtrNextMarker'
-data DescribeMountTargetsResponse = DescribeMountTargetsResponse'{_dmtrMountTargets :: [MountTargetDescription], _dmtrMarker :: Maybe Text, _dmtrNextMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeMountTargetsResponse = DescribeMountTargetsResponse'{_dmtrMountTargets :: Maybe [MountTargetDescription], _dmtrMarker :: Maybe Text, _dmtrNextMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeMountTargetsResponse' smart constructor.
 describeMountTargetsResponse :: DescribeMountTargetsResponse
-describeMountTargetsResponse = DescribeMountTargetsResponse'{_dmtrMountTargets = mempty, _dmtrMarker = Nothing, _dmtrNextMarker = Nothing};
+describeMountTargetsResponse = DescribeMountTargetsResponse'{_dmtrMountTargets = Nothing, _dmtrMarker = Nothing, _dmtrNextMarker = Nothing};
 
 -- | Returns the file system\'s mount targets as an array of
 -- @MountTargetDescription@ objects.
-dmtrMountTargets :: Lens' DescribeMountTargetsResponse [MountTargetDescription]
+dmtrMountTargets :: Lens' DescribeMountTargetsResponse (Maybe [MountTargetDescription])
 dmtrMountTargets = lens _dmtrMountTargets (\ s a -> s{_dmtrMountTargets = a});
 
 -- | If the request included the @Marker@, the response returns that value in

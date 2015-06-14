@@ -75,11 +75,11 @@ import Network.AWS.SQS.Types
 -- * 'cqAttributes'
 --
 -- * 'cqQueueName'
-data CreateQueue = CreateQueue'{_cqAttributes :: HashMap QueueAttributeName Text, _cqQueueName :: Text} deriving (Eq, Read, Show)
+data CreateQueue = CreateQueue'{_cqAttributes :: Maybe (HashMap QueueAttributeName Text), _cqQueueName :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateQueue' smart constructor.
 createQueue :: Text -> CreateQueue
-createQueue pQueueName = CreateQueue'{_cqAttributes = mempty, _cqQueueName = pQueueName};
+createQueue pQueueName = CreateQueue'{_cqAttributes = Nothing, _cqQueueName = pQueueName};
 
 -- | A map of attributes with their corresponding values.
 --
@@ -109,8 +109,8 @@ createQueue pQueueName = CreateQueue'{_cqAttributes = mempty, _cqQueueName = pQu
 --     is 30. For more information about visibility timeout, see
 --     <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html Visibility Timeout>
 --     in the /Amazon SQS Developer Guide/.
-cqAttributes :: Lens' CreateQueue (HashMap QueueAttributeName Text)
-cqAttributes = lens _cqAttributes (\ s a -> s{_cqAttributes = a}) . _Coerce;
+cqAttributes :: Lens' CreateQueue (Maybe (HashMap QueueAttributeName Text))
+cqAttributes = lens _cqAttributes (\ s a -> s{_cqAttributes = a}) . mapping _Coerce;
 
 -- | The name for the queue to be created.
 cqQueueName :: Lens' CreateQueue Text

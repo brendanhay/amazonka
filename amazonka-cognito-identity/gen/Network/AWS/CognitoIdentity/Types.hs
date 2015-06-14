@@ -47,11 +47,11 @@ module Network.AWS.CognitoIdentity.Types
     , IdentityPool
     , identityPool
     , ipSupportedLoginProviders
+    , ipDeveloperProviderName
     , ipOpenIdConnectProviderARNs
     , ipIdentityPoolId
     , ipIdentityPoolName
     , ipAllowUnauthenticatedIdentities
-    , ipDeveloperProviderName
 
     -- * IdentityPoolShortDescription
     , IdentityPoolShortDescription
@@ -172,11 +172,11 @@ instance FromJSON Credentials where
 -- * 'idLogins'
 --
 -- * 'idIdentityId'
-data IdentityDescription = IdentityDescription'{_idLastModifiedDate :: Maybe POSIX, _idCreationDate :: Maybe POSIX, _idLogins :: [Text], _idIdentityId :: Text} deriving (Eq, Read, Show)
+data IdentityDescription = IdentityDescription'{_idLastModifiedDate :: Maybe POSIX, _idCreationDate :: Maybe POSIX, _idLogins :: Maybe [Text], _idIdentityId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'IdentityDescription' smart constructor.
-identityDescription :: Text -> IdentityDescription
-identityDescription pIdentityId = IdentityDescription'{_idLastModifiedDate = Nothing, _idCreationDate = Nothing, _idLogins = mempty, _idIdentityId = pIdentityId};
+identityDescription :: IdentityDescription
+identityDescription = IdentityDescription'{_idLastModifiedDate = Nothing, _idCreationDate = Nothing, _idLogins = Nothing, _idIdentityId = Nothing};
 
 -- | Date on which the identity was last modified.
 idLastModifiedDate :: Lens' IdentityDescription (Maybe UTCTime)
@@ -188,11 +188,11 @@ idCreationDate = lens _idCreationDate (\ s a -> s{_idCreationDate = a}) . mappin
 
 -- | A set of optional name-value pairs that map provider names to provider
 -- tokens.
-idLogins :: Lens' IdentityDescription [Text]
+idLogins :: Lens' IdentityDescription (Maybe [Text])
 idLogins = lens _idLogins (\ s a -> s{_idLogins = a});
 
 -- | A unique identifier in the format REGION:GUID.
-idIdentityId :: Lens' IdentityDescription Text
+idIdentityId :: Lens' IdentityDescription (Maybe Text)
 idIdentityId = lens _idIdentityId (\ s a -> s{_idIdentityId = a});
 
 instance FromJSON IdentityDescription where
@@ -202,13 +202,15 @@ instance FromJSON IdentityDescription where
                  IdentityDescription' <$>
                    x .:? "LastModifiedDate" <*> x .:? "CreationDate" <*>
                      x .:? "Logins" .!= mempty
-                     <*> x .: "IdentityId")
+                     <*> x .:? "IdentityId")
 
 -- | /See:/ 'identityPool' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ipSupportedLoginProviders'
+--
+-- * 'ipDeveloperProviderName'
 --
 -- * 'ipOpenIdConnectProviderARNs'
 --
@@ -217,20 +219,22 @@ instance FromJSON IdentityDescription where
 -- * 'ipIdentityPoolName'
 --
 -- * 'ipAllowUnauthenticatedIdentities'
---
--- * 'ipDeveloperProviderName'
-data IdentityPool = IdentityPool'{_ipSupportedLoginProviders :: HashMap Text Text, _ipOpenIdConnectProviderARNs :: [Text], _ipIdentityPoolId :: Text, _ipIdentityPoolName :: Text, _ipAllowUnauthenticatedIdentities :: Bool, _ipDeveloperProviderName :: Text} deriving (Eq, Read, Show)
+data IdentityPool = IdentityPool'{_ipSupportedLoginProviders :: Maybe (HashMap Text Text), _ipDeveloperProviderName :: Maybe Text, _ipOpenIdConnectProviderARNs :: Maybe [Text], _ipIdentityPoolId :: Text, _ipIdentityPoolName :: Text, _ipAllowUnauthenticatedIdentities :: Bool} deriving (Eq, Read, Show)
 
 -- | 'IdentityPool' smart constructor.
-identityPool :: Text -> Text -> Bool -> Text -> IdentityPool
-identityPool pIdentityPoolId pIdentityPoolName pAllowUnauthenticatedIdentities pDeveloperProviderName = IdentityPool'{_ipSupportedLoginProviders = mempty, _ipOpenIdConnectProviderARNs = mempty, _ipIdentityPoolId = pIdentityPoolId, _ipIdentityPoolName = pIdentityPoolName, _ipAllowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities, _ipDeveloperProviderName = pDeveloperProviderName};
+identityPool :: Text -> Text -> Bool -> IdentityPool
+identityPool pIdentityPoolId pIdentityPoolName pAllowUnauthenticatedIdentities = IdentityPool'{_ipSupportedLoginProviders = Nothing, _ipDeveloperProviderName = Nothing, _ipOpenIdConnectProviderARNs = Nothing, _ipIdentityPoolId = pIdentityPoolId, _ipIdentityPoolName = pIdentityPoolName, _ipAllowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities};
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
-ipSupportedLoginProviders :: Lens' IdentityPool (HashMap Text Text)
-ipSupportedLoginProviders = lens _ipSupportedLoginProviders (\ s a -> s{_ipSupportedLoginProviders = a}) . _Coerce;
+ipSupportedLoginProviders :: Lens' IdentityPool (Maybe (HashMap Text Text))
+ipSupportedLoginProviders = lens _ipSupportedLoginProviders (\ s a -> s{_ipSupportedLoginProviders = a}) . mapping _Coerce;
+
+-- | The \"domain\" by which Cognito will refer to your users.
+ipDeveloperProviderName :: Lens' IdentityPool (Maybe Text)
+ipDeveloperProviderName = lens _ipDeveloperProviderName (\ s a -> s{_ipDeveloperProviderName = a});
 
 -- | A list of OpendID Connect provider ARNs.
-ipOpenIdConnectProviderARNs :: Lens' IdentityPool [Text]
+ipOpenIdConnectProviderARNs :: Lens' IdentityPool (Maybe [Text])
 ipOpenIdConnectProviderARNs = lens _ipOpenIdConnectProviderARNs (\ s a -> s{_ipOpenIdConnectProviderARNs = a});
 
 -- | An identity pool ID in the format REGION:GUID.
@@ -245,34 +249,30 @@ ipIdentityPoolName = lens _ipIdentityPoolName (\ s a -> s{_ipIdentityPoolName = 
 ipAllowUnauthenticatedIdentities :: Lens' IdentityPool Bool
 ipAllowUnauthenticatedIdentities = lens _ipAllowUnauthenticatedIdentities (\ s a -> s{_ipAllowUnauthenticatedIdentities = a});
 
--- | The \"domain\" by which Cognito will refer to your users.
-ipDeveloperProviderName :: Lens' IdentityPool Text
-ipDeveloperProviderName = lens _ipDeveloperProviderName (\ s a -> s{_ipDeveloperProviderName = a});
-
 instance FromJSON IdentityPool where
         parseJSON
           = withObject "IdentityPool"
               (\ x ->
                  IdentityPool' <$>
                    x .:? "SupportedLoginProviders" .!= mempty <*>
-                     x .:? "OpenIdConnectProviderARNs" .!= mempty
+                     x .:? "DeveloperProviderName"
+                     <*> x .:? "OpenIdConnectProviderARNs" .!= mempty
                      <*> x .: "IdentityPoolId"
                      <*> x .: "IdentityPoolName"
-                     <*> x .: "AllowUnauthenticatedIdentities"
-                     <*> x .: "DeveloperProviderName")
+                     <*> x .: "AllowUnauthenticatedIdentities")
 
 instance ToJSON IdentityPool where
         toJSON IdentityPool'{..}
           = object
               ["SupportedLoginProviders" .=
                  _ipSupportedLoginProviders,
+               "DeveloperProviderName" .= _ipDeveloperProviderName,
                "OpenIdConnectProviderARNs" .=
                  _ipOpenIdConnectProviderARNs,
                "IdentityPoolId" .= _ipIdentityPoolId,
                "IdentityPoolName" .= _ipIdentityPoolName,
                "AllowUnauthenticatedIdentities" .=
-                 _ipAllowUnauthenticatedIdentities,
-               "DeveloperProviderName" .= _ipDeveloperProviderName]
+                 _ipAllowUnauthenticatedIdentities]
 
 -- | /See:/ 'identityPoolShortDescription' smart constructor.
 --
@@ -281,18 +281,18 @@ instance ToJSON IdentityPool where
 -- * 'ipsdIdentityPoolId'
 --
 -- * 'ipsdIdentityPoolName'
-data IdentityPoolShortDescription = IdentityPoolShortDescription'{_ipsdIdentityPoolId :: Text, _ipsdIdentityPoolName :: Text} deriving (Eq, Read, Show)
+data IdentityPoolShortDescription = IdentityPoolShortDescription'{_ipsdIdentityPoolId :: Maybe Text, _ipsdIdentityPoolName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'IdentityPoolShortDescription' smart constructor.
-identityPoolShortDescription :: Text -> Text -> IdentityPoolShortDescription
-identityPoolShortDescription pIdentityPoolId pIdentityPoolName = IdentityPoolShortDescription'{_ipsdIdentityPoolId = pIdentityPoolId, _ipsdIdentityPoolName = pIdentityPoolName};
+identityPoolShortDescription :: IdentityPoolShortDescription
+identityPoolShortDescription = IdentityPoolShortDescription'{_ipsdIdentityPoolId = Nothing, _ipsdIdentityPoolName = Nothing};
 
 -- | An identity pool ID in the format REGION:GUID.
-ipsdIdentityPoolId :: Lens' IdentityPoolShortDescription Text
+ipsdIdentityPoolId :: Lens' IdentityPoolShortDescription (Maybe Text)
 ipsdIdentityPoolId = lens _ipsdIdentityPoolId (\ s a -> s{_ipsdIdentityPoolId = a});
 
 -- | A string that you provide.
-ipsdIdentityPoolName :: Lens' IdentityPoolShortDescription Text
+ipsdIdentityPoolName :: Lens' IdentityPoolShortDescription (Maybe Text)
 ipsdIdentityPoolName = lens _ipsdIdentityPoolName (\ s a -> s{_ipsdIdentityPoolName = a});
 
 instance FromJSON IdentityPoolShortDescription where
@@ -300,7 +300,7 @@ instance FromJSON IdentityPoolShortDescription where
           = withObject "IdentityPoolShortDescription"
               (\ x ->
                  IdentityPoolShortDescription' <$>
-                   x .: "IdentityPoolId" <*> x .: "IdentityPoolName")
+                   x .:? "IdentityPoolId" <*> x .:? "IdentityPoolName")
 
 -- | /See:/ 'unprocessedIdentityId' smart constructor.
 --
@@ -309,18 +309,18 @@ instance FromJSON IdentityPoolShortDescription where
 -- * 'uiiCognitoErrorCode'
 --
 -- * 'uiiIdentityId'
-data UnprocessedIdentityId = UnprocessedIdentityId'{_uiiCognitoErrorCode :: Maybe CognitoErrorCode, _uiiIdentityId :: Text} deriving (Eq, Read, Show)
+data UnprocessedIdentityId = UnprocessedIdentityId'{_uiiCognitoErrorCode :: Maybe CognitoErrorCode, _uiiIdentityId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'UnprocessedIdentityId' smart constructor.
-unprocessedIdentityId :: Text -> UnprocessedIdentityId
-unprocessedIdentityId pIdentityId = UnprocessedIdentityId'{_uiiCognitoErrorCode = Nothing, _uiiIdentityId = pIdentityId};
+unprocessedIdentityId :: UnprocessedIdentityId
+unprocessedIdentityId = UnprocessedIdentityId'{_uiiCognitoErrorCode = Nothing, _uiiIdentityId = Nothing};
 
 -- | The error code indicating the type of error that occurred.
 uiiCognitoErrorCode :: Lens' UnprocessedIdentityId (Maybe CognitoErrorCode)
 uiiCognitoErrorCode = lens _uiiCognitoErrorCode (\ s a -> s{_uiiCognitoErrorCode = a});
 
 -- | A unique identifier in the format REGION:GUID.
-uiiIdentityId :: Lens' UnprocessedIdentityId Text
+uiiIdentityId :: Lens' UnprocessedIdentityId (Maybe Text)
 uiiIdentityId = lens _uiiIdentityId (\ s a -> s{_uiiIdentityId = a});
 
 instance FromJSON UnprocessedIdentityId where
@@ -328,4 +328,4 @@ instance FromJSON UnprocessedIdentityId where
           = withObject "UnprocessedIdentityId"
               (\ x ->
                  UnprocessedIdentityId' <$>
-                   x .:? "CognitoErrorCode" <*> x .: "IdentityId")
+                   x .:? "CognitoErrorCode" <*> x .:? "IdentityId")

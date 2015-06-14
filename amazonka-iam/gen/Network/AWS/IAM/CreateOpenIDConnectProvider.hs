@@ -67,11 +67,11 @@ import Network.AWS.IAM.Types
 -- * 'coidcpURL'
 --
 -- * 'coidcpThumbprintList'
-data CreateOpenIDConnectProvider = CreateOpenIDConnectProvider'{_coidcpClientIDList :: [Text], _coidcpURL :: Text, _coidcpThumbprintList :: [Text]} deriving (Eq, Read, Show)
+data CreateOpenIDConnectProvider = CreateOpenIDConnectProvider'{_coidcpClientIDList :: Maybe [Text], _coidcpURL :: Text, _coidcpThumbprintList :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'CreateOpenIDConnectProvider' smart constructor.
-createOpenIDConnectProvider :: Text -> [Text] -> CreateOpenIDConnectProvider
-createOpenIDConnectProvider pURL pThumbprintList = CreateOpenIDConnectProvider'{_coidcpClientIDList = mempty, _coidcpURL = pURL, _coidcpThumbprintList = pThumbprintList};
+createOpenIDConnectProvider :: Text -> CreateOpenIDConnectProvider
+createOpenIDConnectProvider pURL = CreateOpenIDConnectProvider'{_coidcpClientIDList = Nothing, _coidcpURL = pURL, _coidcpThumbprintList = mempty};
 
 -- | A list of client IDs (also known as audiences). When a mobile or web app
 -- registers with an OpenID Connect provider, they establish a value that
@@ -86,7 +86,7 @@ createOpenIDConnectProvider pURL pThumbprintList = CreateOpenIDConnectProvider'{
 -- There is no defined format for a client ID. The
 -- @CreateOpenIDConnectProviderRequest@ action accepts client IDs up to 255
 -- characters long.
-coidcpClientIDList :: Lens' CreateOpenIDConnectProvider [Text]
+coidcpClientIDList :: Lens' CreateOpenIDConnectProvider (Maybe [Text])
 coidcpClientIDList = lens _coidcpClientIDList (\ s a -> s{_coidcpClientIDList = a});
 
 -- | The URL of the identity provider. The URL must begin with \"https:\/\/\"
@@ -136,7 +136,7 @@ instance AWSRequest CreateOpenIDConnectProvider where
               "CreateOpenIDConnectProviderResult"
               (\ s h x ->
                  CreateOpenIDConnectProviderResponse' <$>
-                   x .@ "OpenIDConnectProviderArn")
+                   x .@? "OpenIDConnectProviderArn")
 
 instance ToHeaders CreateOpenIDConnectProvider where
         toHeaders = const mempty
@@ -160,13 +160,13 @@ instance ToQuery CreateOpenIDConnectProvider where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'coidcprOpenIDConnectProviderARN'
-newtype CreateOpenIDConnectProviderResponse = CreateOpenIDConnectProviderResponse'{_coidcprOpenIDConnectProviderARN :: Text} deriving (Eq, Read, Show)
+newtype CreateOpenIDConnectProviderResponse = CreateOpenIDConnectProviderResponse'{_coidcprOpenIDConnectProviderARN :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'CreateOpenIDConnectProviderResponse' smart constructor.
-createOpenIDConnectProviderResponse :: Text -> CreateOpenIDConnectProviderResponse
-createOpenIDConnectProviderResponse pOpenIDConnectProviderARN = CreateOpenIDConnectProviderResponse'{_coidcprOpenIDConnectProviderARN = pOpenIDConnectProviderARN};
+createOpenIDConnectProviderResponse :: CreateOpenIDConnectProviderResponse
+createOpenIDConnectProviderResponse = CreateOpenIDConnectProviderResponse'{_coidcprOpenIDConnectProviderARN = Nothing};
 
 -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect provider that
 -- was created. For more information, see OpenIDConnectProviderListEntry.
-coidcprOpenIDConnectProviderARN :: Lens' CreateOpenIDConnectProviderResponse Text
+coidcprOpenIDConnectProviderARN :: Lens' CreateOpenIDConnectProviderResponse (Maybe Text)
 coidcprOpenIDConnectProviderARN = lens _coidcprOpenIDConnectProviderARN (\ s a -> s{_coidcprOpenIDConnectProviderARN = a});

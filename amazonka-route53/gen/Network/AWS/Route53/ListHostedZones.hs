@@ -127,8 +127,8 @@ instance ToQuery ListHostedZones where
 data ListHostedZonesResponse = ListHostedZonesResponse'{_lhzrNextMarker :: Maybe Text, _lhzrHostedZones :: [HostedZone], _lhzrMarker :: Text, _lhzrIsTruncated :: Bool, _lhzrMaxItems :: Text} deriving (Eq, Read, Show)
 
 -- | 'ListHostedZonesResponse' smart constructor.
-listHostedZonesResponse :: [HostedZone] -> Text -> Bool -> Text -> ListHostedZonesResponse
-listHostedZonesResponse pHostedZones pMarker pIsTruncated pMaxItems = ListHostedZonesResponse'{_lhzrNextMarker = Nothing, _lhzrHostedZones = pHostedZones, _lhzrMarker = pMarker, _lhzrIsTruncated = pIsTruncated, _lhzrMaxItems = pMaxItems};
+listHostedZonesResponse :: Text -> Bool -> Text -> ListHostedZonesResponse
+listHostedZonesResponse pMarker pIsTruncated pMaxItems = ListHostedZonesResponse'{_lhzrNextMarker = Nothing, _lhzrHostedZones = mempty, _lhzrMarker = pMarker, _lhzrIsTruncated = pIsTruncated, _lhzrMaxItems = pMaxItems};
 
 -- | Indicates where to continue listing hosted zones. If
 -- ListHostedZonesResponse$IsTruncated is @true@, make another request to

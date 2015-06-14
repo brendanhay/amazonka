@@ -33,9 +33,9 @@ module Network.AWS.WorkSpaces.DescribeWorkspaces
     , describeWorkspaces
     -- ** Request lenses
     , dwDirectoryId
-    , dwBundleId
     , dwWorkspaceIds
     , dwUserName
+    , dwBundleId
     , dwNextToken
     , dwLimit
 
@@ -44,8 +44,8 @@ module Network.AWS.WorkSpaces.DescribeWorkspaces
     -- ** Response constructor
     , describeWorkspacesResponse
     -- ** Response lenses
-    , dwrWorkspaces
     , dwrNextToken
+    , dwrWorkspaces
     ) where
 
 import Network.AWS.Request
@@ -59,20 +59,20 @@ import Network.AWS.WorkSpaces.Types
 --
 -- * 'dwDirectoryId'
 --
--- * 'dwBundleId'
---
 -- * 'dwWorkspaceIds'
 --
 -- * 'dwUserName'
 --
+-- * 'dwBundleId'
+--
 -- * 'dwNextToken'
 --
 -- * 'dwLimit'
-data DescribeWorkspaces = DescribeWorkspaces'{_dwDirectoryId :: Maybe Text, _dwBundleId :: Maybe Text, _dwWorkspaceIds :: List1 Text, _dwUserName :: Text, _dwNextToken :: Text, _dwLimit :: Nat} deriving (Eq, Read, Show)
+data DescribeWorkspaces = DescribeWorkspaces'{_dwDirectoryId :: Maybe Text, _dwWorkspaceIds :: Maybe (List1 Text), _dwUserName :: Maybe Text, _dwBundleId :: Maybe Text, _dwNextToken :: Maybe Text, _dwLimit :: Maybe Nat} deriving (Eq, Read, Show)
 
 -- | 'DescribeWorkspaces' smart constructor.
-describeWorkspaces :: NonEmpty Text -> Text -> Text -> Natural -> DescribeWorkspaces
-describeWorkspaces pWorkspaceIds pUserName pNextToken pLimit = DescribeWorkspaces'{_dwDirectoryId = Nothing, _dwBundleId = Nothing, _dwWorkspaceIds = _List1 # pWorkspaceIds, _dwUserName = pUserName, _dwNextToken = pNextToken, _dwLimit = _Nat # pLimit};
+describeWorkspaces :: DescribeWorkspaces
+describeWorkspaces = DescribeWorkspaces'{_dwDirectoryId = Nothing, _dwWorkspaceIds = Nothing, _dwUserName = Nothing, _dwBundleId = Nothing, _dwNextToken = Nothing, _dwLimit = Nothing};
 
 -- | Specifies the directory identifier to which to limit the WorkSpaces.
 -- Optionally, you can specify a specific directory user with the
@@ -80,12 +80,6 @@ describeWorkspaces pWorkspaceIds pUserName pNextToken pLimit = DescribeWorkspace
 -- filter parameter.
 dwDirectoryId :: Lens' DescribeWorkspaces (Maybe Text)
 dwDirectoryId = lens _dwDirectoryId (\ s a -> s{_dwDirectoryId = a});
-
--- | The identifier of a bundle to obtain the WorkSpaces for. All WorkSpaces
--- that are created from this bundle will be retrieved. This parameter
--- cannot be combined with any other filter parameter.
-dwBundleId :: Lens' DescribeWorkspaces (Maybe Text)
-dwBundleId = lens _dwBundleId (\ s a -> s{_dwBundleId = a});
 
 -- | An array of strings that contain the identifiers of the WorkSpaces for
 -- which to retrieve information. This parameter cannot be combined with
@@ -95,22 +89,28 @@ dwBundleId = lens _dwBundleId (\ s a -> s{_dwBundleId = a});
 -- returned by CreateWorkspaces is not immediately available. If you
 -- immediately call DescribeWorkspaces with this identifier, no information
 -- will be returned.
-dwWorkspaceIds :: Lens' DescribeWorkspaces (NonEmpty Text)
-dwWorkspaceIds = lens _dwWorkspaceIds (\ s a -> s{_dwWorkspaceIds = a}) . _List1;
+dwWorkspaceIds :: Lens' DescribeWorkspaces (Maybe (NonEmpty Text))
+dwWorkspaceIds = lens _dwWorkspaceIds (\ s a -> s{_dwWorkspaceIds = a}) . mapping _List1;
 
 -- | Used with the @DirectoryId@ parameter to specify the directory user for
 -- which to obtain the WorkSpace.
-dwUserName :: Lens' DescribeWorkspaces Text
+dwUserName :: Lens' DescribeWorkspaces (Maybe Text)
 dwUserName = lens _dwUserName (\ s a -> s{_dwUserName = a});
+
+-- | The identifier of a bundle to obtain the WorkSpaces for. All WorkSpaces
+-- that are created from this bundle will be retrieved. This parameter
+-- cannot be combined with any other filter parameter.
+dwBundleId :: Lens' DescribeWorkspaces (Maybe Text)
+dwBundleId = lens _dwBundleId (\ s a -> s{_dwBundleId = a});
 
 -- | The @NextToken@ value from a previous call to this operation. Pass null
 -- if this is the first call.
-dwNextToken :: Lens' DescribeWorkspaces Text
+dwNextToken :: Lens' DescribeWorkspaces (Maybe Text)
 dwNextToken = lens _dwNextToken (\ s a -> s{_dwNextToken = a});
 
 -- | The maximum number of items to return.
-dwLimit :: Lens' DescribeWorkspaces Natural
-dwLimit = lens _dwLimit (\ s a -> s{_dwLimit = a}) . _Nat;
+dwLimit :: Lens' DescribeWorkspaces (Maybe Natural)
+dwLimit = lens _dwLimit (\ s a -> s{_dwLimit = a}) . mapping _Nat;
 
 instance AWSRequest DescribeWorkspaces where
         type Sv DescribeWorkspaces = WorkSpaces
@@ -121,7 +121,7 @@ instance AWSRequest DescribeWorkspaces where
           = receiveJSON
               (\ s h x ->
                  DescribeWorkspacesResponse' <$>
-                   x .?> "Workspaces" .!@ mempty <*> x .:> "NextToken")
+                   x .?> "NextToken" <*> x .?> "Workspaces" .!@ mempty)
 
 instance ToHeaders DescribeWorkspaces where
         toHeaders
@@ -137,9 +137,8 @@ instance ToJSON DescribeWorkspaces where
         toJSON DescribeWorkspaces'{..}
           = object
               ["DirectoryId" .= _dwDirectoryId,
-               "BundleId" .= _dwBundleId,
                "WorkspaceIds" .= _dwWorkspaceIds,
-               "UserName" .= _dwUserName,
+               "UserName" .= _dwUserName, "BundleId" .= _dwBundleId,
                "NextToken" .= _dwNextToken, "Limit" .= _dwLimit]
 
 instance ToPath DescribeWorkspaces where
@@ -152,26 +151,26 @@ instance ToQuery DescribeWorkspaces where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dwrWorkspaces'
---
 -- * 'dwrNextToken'
-data DescribeWorkspacesResponse = DescribeWorkspacesResponse'{_dwrWorkspaces :: [Workspace], _dwrNextToken :: Text} deriving (Eq, Read, Show)
+--
+-- * 'dwrWorkspaces'
+data DescribeWorkspacesResponse = DescribeWorkspacesResponse'{_dwrNextToken :: Maybe Text, _dwrWorkspaces :: Maybe [Workspace]} deriving (Eq, Read, Show)
 
 -- | 'DescribeWorkspacesResponse' smart constructor.
-describeWorkspacesResponse :: Text -> DescribeWorkspacesResponse
-describeWorkspacesResponse pNextToken = DescribeWorkspacesResponse'{_dwrWorkspaces = mempty, _dwrNextToken = pNextToken};
+describeWorkspacesResponse :: DescribeWorkspacesResponse
+describeWorkspacesResponse = DescribeWorkspacesResponse'{_dwrNextToken = Nothing, _dwrWorkspaces = Nothing};
+
+-- | If not null, more results are available. Pass this value for the
+-- @NextToken@ parameter in a subsequent call to this operation to retrieve
+-- the next set of items. This token is valid for one day and must be used
+-- within that timeframe.
+dwrNextToken :: Lens' DescribeWorkspacesResponse (Maybe Text)
+dwrNextToken = lens _dwrNextToken (\ s a -> s{_dwrNextToken = a});
 
 -- | An array of structures that contain the information about the
 -- WorkSpaces.
 --
 -- Because the CreateWorkspaces operation is asynchronous, some of this
 -- information may be incomplete for a newly-created WorkSpace.
-dwrWorkspaces :: Lens' DescribeWorkspacesResponse [Workspace]
+dwrWorkspaces :: Lens' DescribeWorkspacesResponse (Maybe [Workspace])
 dwrWorkspaces = lens _dwrWorkspaces (\ s a -> s{_dwrWorkspaces = a});
-
--- | If not null, more results are available. Pass this value for the
--- @NextToken@ parameter in a subsequent call to this operation to retrieve
--- the next set of items. This token is valid for one day and must be used
--- within that timeframe.
-dwrNextToken :: Lens' DescribeWorkspacesResponse Text
-dwrNextToken = lens _dwrNextToken (\ s a -> s{_dwrNextToken = a});

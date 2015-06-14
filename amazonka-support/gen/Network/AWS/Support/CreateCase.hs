@@ -110,11 +110,11 @@ import Network.AWS.Support.Types
 -- * 'ccSubject'
 --
 -- * 'ccCommunicationBody'
-data CreateCase = CreateCase'{_ccSeverityCode :: Maybe Text, _ccIssueType :: Maybe Text, _ccCcEmailAddresses :: [Text], _ccLanguage :: Maybe Text, _ccCategoryCode :: Maybe Text, _ccServiceCode :: Maybe Text, _ccAttachmentSetId :: Maybe Text, _ccSubject :: Text, _ccCommunicationBody :: Text} deriving (Eq, Read, Show)
+data CreateCase = CreateCase'{_ccSeverityCode :: Maybe Text, _ccIssueType :: Maybe Text, _ccCcEmailAddresses :: Maybe [Text], _ccLanguage :: Maybe Text, _ccCategoryCode :: Maybe Text, _ccServiceCode :: Maybe Text, _ccAttachmentSetId :: Maybe Text, _ccSubject :: Text, _ccCommunicationBody :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateCase' smart constructor.
 createCase :: Text -> Text -> CreateCase
-createCase pSubject pCommunicationBody = CreateCase'{_ccSeverityCode = Nothing, _ccIssueType = Nothing, _ccCcEmailAddresses = mempty, _ccLanguage = Nothing, _ccCategoryCode = Nothing, _ccServiceCode = Nothing, _ccAttachmentSetId = Nothing, _ccSubject = pSubject, _ccCommunicationBody = pCommunicationBody};
+createCase pSubject pCommunicationBody = CreateCase'{_ccSeverityCode = Nothing, _ccIssueType = Nothing, _ccCcEmailAddresses = Nothing, _ccLanguage = Nothing, _ccCategoryCode = Nothing, _ccServiceCode = Nothing, _ccAttachmentSetId = Nothing, _ccSubject = pSubject, _ccCommunicationBody = pCommunicationBody};
 
 -- | The code for the severity level returned by the call to
 -- DescribeSeverityLevels.
@@ -133,7 +133,7 @@ ccIssueType = lens _ccIssueType (\ s a -> s{_ccIssueType = a});
 
 -- | A list of email addresses that AWS Support copies on case
 -- correspondence.
-ccCcEmailAddresses :: Lens' CreateCase [Text]
+ccCcEmailAddresses :: Lens' CreateCase (Maybe [Text])
 ccCcEmailAddresses = lens _ccCcEmailAddresses (\ s a -> s{_ccCcEmailAddresses = a});
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS

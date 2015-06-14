@@ -28,8 +28,8 @@ module Network.AWS.CloudFormation.ListStacks
     -- ** Request constructor
     , listStacks
     -- ** Request lenses
-    , lsStackStatusFilter
     , lsNextToken
+    , lsStackStatusFilter
 
     -- * Response
     , ListStacksResponse
@@ -49,28 +49,28 @@ import Network.AWS.CloudFormation.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lsStackStatusFilter'
---
 -- * 'lsNextToken'
-data ListStacks = ListStacks'{_lsStackStatusFilter :: [StackStatus], _lsNextToken :: Text} deriving (Eq, Read, Show)
+--
+-- * 'lsStackStatusFilter'
+data ListStacks = ListStacks'{_lsNextToken :: Maybe Text, _lsStackStatusFilter :: Maybe [StackStatus]} deriving (Eq, Read, Show)
 
 -- | 'ListStacks' smart constructor.
-listStacks :: Text -> ListStacks
-listStacks pNextToken = ListStacks'{_lsStackStatusFilter = mempty, _lsNextToken = pNextToken};
-
--- | Stack status to use as a filter. Specify one or more stack status codes
--- to list only stacks with the specified status codes. For a complete list
--- of stack status codes, see the @StackStatus@ parameter of the Stack data
--- type.
-lsStackStatusFilter :: Lens' ListStacks [StackStatus]
-lsStackStatusFilter = lens _lsStackStatusFilter (\ s a -> s{_lsStackStatusFilter = a});
+listStacks :: ListStacks
+listStacks = ListStacks'{_lsNextToken = Nothing, _lsStackStatusFilter = Nothing};
 
 -- | String that identifies the start of the next list of stacks, if there is
 -- one.
 --
 -- Default: There is no default value.
-lsNextToken :: Lens' ListStacks Text
+lsNextToken :: Lens' ListStacks (Maybe Text)
 lsNextToken = lens _lsNextToken (\ s a -> s{_lsNextToken = a});
+
+-- | Stack status to use as a filter. Specify one or more stack status codes
+-- to list only stacks with the specified status codes. For a complete list
+-- of stack status codes, see the @StackStatus@ parameter of the Stack data
+-- type.
+lsStackStatusFilter :: Lens' ListStacks (Maybe [StackStatus])
+lsStackStatusFilter = lens _lsStackStatusFilter (\ s a -> s{_lsStackStatusFilter = a});
 
 instance AWSRequest ListStacks where
         type Sv ListStacks = CloudFormation
@@ -82,7 +82,7 @@ instance AWSRequest ListStacks where
                  ListStacksResponse' <$>
                    (x .@? "StackSummaries" .!@ mempty >>=
                       parseXMLList "member")
-                     <*> x .@ "NextToken")
+                     <*> x .@? "NextToken")
 
 instance ToHeaders ListStacks where
         toHeaders = const mempty
@@ -95,9 +95,9 @@ instance ToQuery ListStacks where
           = mconcat
               ["Action" =: ("ListStacks" :: ByteString),
                "Version" =: ("2010-05-15" :: ByteString),
+               "NextToken" =: _lsNextToken,
                "StackStatusFilter" =:
-                 "member" =: _lsStackStatusFilter,
-               "NextToken" =: _lsNextToken]
+                 "member" =: _lsStackStatusFilter]
 
 -- | /See:/ 'listStacksResponse' smart constructor.
 --
@@ -106,18 +106,18 @@ instance ToQuery ListStacks where
 -- * 'lisStackSummaries'
 --
 -- * 'lisNextToken'
-data ListStacksResponse = ListStacksResponse'{_lisStackSummaries :: [StackSummary], _lisNextToken :: Text} deriving (Eq, Read, Show)
+data ListStacksResponse = ListStacksResponse'{_lisStackSummaries :: Maybe [StackSummary], _lisNextToken :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ListStacksResponse' smart constructor.
-listStacksResponse :: Text -> ListStacksResponse
-listStacksResponse pNextToken = ListStacksResponse'{_lisStackSummaries = mempty, _lisNextToken = pNextToken};
+listStacksResponse :: ListStacksResponse
+listStacksResponse = ListStacksResponse'{_lisStackSummaries = Nothing, _lisNextToken = Nothing};
 
 -- | A list of @StackSummary@ structures containing information about the
 -- specified stacks.
-lisStackSummaries :: Lens' ListStacksResponse [StackSummary]
+lisStackSummaries :: Lens' ListStacksResponse (Maybe [StackSummary])
 lisStackSummaries = lens _lisStackSummaries (\ s a -> s{_lisStackSummaries = a});
 
 -- | String that identifies the start of the next list of stacks, if there is
 -- one.
-lisNextToken :: Lens' ListStacksResponse Text
+lisNextToken :: Lens' ListStacksResponse (Maybe Text)
 lisNextToken = lens _lisNextToken (\ s a -> s{_lisNextToken = a});

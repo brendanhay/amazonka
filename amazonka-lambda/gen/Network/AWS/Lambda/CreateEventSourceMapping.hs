@@ -44,10 +44,10 @@ module Network.AWS.Lambda.CreateEventSourceMapping
     , createEventSourceMapping
     -- ** Request lenses
     , cesmEnabled
+    , cesmBatchSize
     , cesmEventSourceARN
     , cesmFunctionName
     , cesmStartingPosition
-    , cesmBatchSize
 
     -- * Response
     , EventSourceMappingConfiguration
@@ -59,9 +59,9 @@ module Network.AWS.Lambda.CreateEventSourceMapping
     , esmcState
     , esmcUUID
     , esmcLastProcessingResult
+    , esmcBatchSize
     , esmcStateTransitionReason
     , esmcLastModified
-    , esmcBatchSize
     ) where
 
 import Network.AWS.Request
@@ -75,22 +75,29 @@ import Network.AWS.Lambda.Types
 --
 -- * 'cesmEnabled'
 --
+-- * 'cesmBatchSize'
+--
 -- * 'cesmEventSourceARN'
 --
 -- * 'cesmFunctionName'
 --
 -- * 'cesmStartingPosition'
---
--- * 'cesmBatchSize'
-data CreateEventSourceMapping = CreateEventSourceMapping'{_cesmEnabled :: Maybe Bool, _cesmEventSourceARN :: Text, _cesmFunctionName :: Text, _cesmStartingPosition :: EventSourcePosition, _cesmBatchSize :: Nat} deriving (Eq, Read, Show)
+data CreateEventSourceMapping = CreateEventSourceMapping'{_cesmEnabled :: Maybe Bool, _cesmBatchSize :: Maybe Nat, _cesmEventSourceARN :: Text, _cesmFunctionName :: Text, _cesmStartingPosition :: EventSourcePosition} deriving (Eq, Read, Show)
 
 -- | 'CreateEventSourceMapping' smart constructor.
-createEventSourceMapping :: Text -> Text -> EventSourcePosition -> Natural -> CreateEventSourceMapping
-createEventSourceMapping pEventSourceARN pFunctionName pStartingPosition pBatchSize = CreateEventSourceMapping'{_cesmEnabled = Nothing, _cesmEventSourceARN = pEventSourceARN, _cesmFunctionName = pFunctionName, _cesmStartingPosition = pStartingPosition, _cesmBatchSize = _Nat # pBatchSize};
+createEventSourceMapping :: Text -> Text -> EventSourcePosition -> CreateEventSourceMapping
+createEventSourceMapping pEventSourceARN pFunctionName pStartingPosition = CreateEventSourceMapping'{_cesmEnabled = Nothing, _cesmBatchSize = Nothing, _cesmEventSourceARN = pEventSourceARN, _cesmFunctionName = pFunctionName, _cesmStartingPosition = pStartingPosition};
 
 -- | Indicates whether AWS Lambda should begin polling the event source.
 cesmEnabled :: Lens' CreateEventSourceMapping (Maybe Bool)
 cesmEnabled = lens _cesmEnabled (\ s a -> s{_cesmEnabled = a});
+
+-- | The largest number of records that AWS Lambda will retrieve from your
+-- event source at the time of invoking your function. Your function
+-- receives an event with all the retrieved records. The default is 100
+-- records.
+cesmBatchSize :: Lens' CreateEventSourceMapping (Maybe Natural)
+cesmBatchSize = lens _cesmBatchSize (\ s a -> s{_cesmBatchSize = a}) . mapping _Nat;
 
 -- | The Amazon Resource Name (ARN) of the Amazon Kinesis or the Amazon
 -- DynamoDB stream that is the event source. Any record added to this
@@ -121,13 +128,6 @@ cesmFunctionName = lens _cesmFunctionName (\ s a -> s{_cesmFunctionName = a});
 cesmStartingPosition :: Lens' CreateEventSourceMapping EventSourcePosition
 cesmStartingPosition = lens _cesmStartingPosition (\ s a -> s{_cesmStartingPosition = a});
 
--- | The largest number of records that AWS Lambda will retrieve from your
--- event source at the time of invoking your function. Your function
--- receives an event with all the retrieved records. The default is 100
--- records.
-cesmBatchSize :: Lens' CreateEventSourceMapping Natural
-cesmBatchSize = lens _cesmBatchSize (\ s a -> s{_cesmBatchSize = a}) . _Nat;
-
 instance AWSRequest CreateEventSourceMapping where
         type Sv CreateEventSourceMapping = Lambda
         type Rs CreateEventSourceMapping =
@@ -142,10 +142,10 @@ instance ToJSON CreateEventSourceMapping where
         toJSON CreateEventSourceMapping'{..}
           = object
               ["Enabled" .= _cesmEnabled,
+               "BatchSize" .= _cesmBatchSize,
                "EventSourceArn" .= _cesmEventSourceARN,
                "FunctionName" .= _cesmFunctionName,
-               "StartingPosition" .= _cesmStartingPosition,
-               "BatchSize" .= _cesmBatchSize]
+               "StartingPosition" .= _cesmStartingPosition]
 
 instance ToPath CreateEventSourceMapping where
         toPath = const "/2015-03-31/event-source-mappings/"

@@ -82,11 +82,11 @@ import Network.AWS.EC2.Types
 -- * 'impClientData'
 --
 -- * 'impDiskContainers'
-data ImportImage = ImportImage'{_impHypervisor :: Maybe Text, _impPlatform :: Maybe Text, _impClientToken :: Maybe Text, _impLicenseType :: Maybe Text, _impRoleName :: Maybe Text, _impArchitecture :: Maybe Text, _impDryRun :: Maybe Bool, _impDescription :: Maybe Text, _impClientData :: Maybe ClientData, _impDiskContainers :: [ImageDiskContainer]} deriving (Eq, Read, Show)
+data ImportImage = ImportImage'{_impHypervisor :: Maybe Text, _impPlatform :: Maybe Text, _impClientToken :: Maybe Text, _impLicenseType :: Maybe Text, _impRoleName :: Maybe Text, _impArchitecture :: Maybe Text, _impDryRun :: Maybe Bool, _impDescription :: Maybe Text, _impClientData :: Maybe ClientData, _impDiskContainers :: Maybe [ImageDiskContainer]} deriving (Eq, Read, Show)
 
 -- | 'ImportImage' smart constructor.
 importImage :: ImportImage
-importImage = ImportImage'{_impHypervisor = Nothing, _impPlatform = Nothing, _impClientToken = Nothing, _impLicenseType = Nothing, _impRoleName = Nothing, _impArchitecture = Nothing, _impDryRun = Nothing, _impDescription = Nothing, _impClientData = Nothing, _impDiskContainers = mempty};
+importImage = ImportImage'{_impHypervisor = Nothing, _impPlatform = Nothing, _impClientToken = Nothing, _impLicenseType = Nothing, _impRoleName = Nothing, _impArchitecture = Nothing, _impDryRun = Nothing, _impDescription = Nothing, _impClientData = Nothing, _impDiskContainers = Nothing};
 
 -- | The target hypervisor platform.
 --
@@ -144,7 +144,7 @@ impClientData :: Lens' ImportImage (Maybe ClientData)
 impClientData = lens _impClientData (\ s a -> s{_impClientData = a});
 
 -- | Information about the disk containers.
-impDiskContainers :: Lens' ImportImage [ImageDiskContainer]
+impDiskContainers :: Lens' ImportImage (Maybe [ImageDiskContainer])
 impDiskContainers = lens _impDiskContainers (\ s a -> s{_impDiskContainers = a});
 
 instance AWSRequest ImportImage where
@@ -213,11 +213,11 @@ instance ToQuery ImportImage where
 -- * 'iirArchitecture'
 --
 -- * 'iirDescription'
-data ImportImageResponse = ImportImageResponse'{_iirHypervisor :: Maybe Text, _iirPlatform :: Maybe Text, _iirProgress :: Maybe Text, _iirLicenseType :: Maybe Text, _iirSnapshotDetails :: [SnapshotDetail], _iirStatusMessage :: Maybe Text, _iirAddressStatus :: Maybe Text, _iirImageId :: Maybe Text, _iirImportTaskId :: Maybe Text, _iirArchitecture :: Maybe Text, _iirDescription :: Maybe Text} deriving (Eq, Read, Show)
+data ImportImageResponse = ImportImageResponse'{_iirHypervisor :: Maybe Text, _iirPlatform :: Maybe Text, _iirProgress :: Maybe Text, _iirLicenseType :: Maybe Text, _iirSnapshotDetails :: Maybe [SnapshotDetail], _iirStatusMessage :: Maybe Text, _iirAddressStatus :: Maybe Text, _iirImageId :: Maybe Text, _iirImportTaskId :: Maybe Text, _iirArchitecture :: Maybe Text, _iirDescription :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ImportImageResponse' smart constructor.
 importImageResponse :: ImportImageResponse
-importImageResponse = ImportImageResponse'{_iirHypervisor = Nothing, _iirPlatform = Nothing, _iirProgress = Nothing, _iirLicenseType = Nothing, _iirSnapshotDetails = mempty, _iirStatusMessage = Nothing, _iirAddressStatus = Nothing, _iirImageId = Nothing, _iirImportTaskId = Nothing, _iirArchitecture = Nothing, _iirDescription = Nothing};
+importImageResponse = ImportImageResponse'{_iirHypervisor = Nothing, _iirPlatform = Nothing, _iirProgress = Nothing, _iirLicenseType = Nothing, _iirSnapshotDetails = Nothing, _iirStatusMessage = Nothing, _iirAddressStatus = Nothing, _iirImageId = Nothing, _iirImportTaskId = Nothing, _iirArchitecture = Nothing, _iirDescription = Nothing};
 
 -- | The target hypervisor of the import task.
 iirHypervisor :: Lens' ImportImageResponse (Maybe Text)
@@ -236,7 +236,7 @@ iirLicenseType :: Lens' ImportImageResponse (Maybe Text)
 iirLicenseType = lens _iirLicenseType (\ s a -> s{_iirLicenseType = a});
 
 -- | Information about the snapshots.
-iirSnapshotDetails :: Lens' ImportImageResponse [SnapshotDetail]
+iirSnapshotDetails :: Lens' ImportImageResponse (Maybe [SnapshotDetail])
 iirSnapshotDetails = lens _iirSnapshotDetails (\ s a -> s{_iirSnapshotDetails = a});
 
 -- | A detailed status message of the import task.

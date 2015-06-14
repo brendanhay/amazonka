@@ -108,11 +108,11 @@ instance ToQuery ListJobsByStatus where
 -- * 'ljbsrNextPageToken'
 --
 -- * 'ljbsrJobs'
-data ListJobsByStatusResponse = ListJobsByStatusResponse'{_ljbsrNextPageToken :: Maybe Text, _ljbsrJobs :: [Job']} deriving (Eq, Read, Show)
+data ListJobsByStatusResponse = ListJobsByStatusResponse'{_ljbsrNextPageToken :: Maybe Text, _ljbsrJobs :: Maybe [Job']} deriving (Eq, Read, Show)
 
 -- | 'ListJobsByStatusResponse' smart constructor.
 listJobsByStatusResponse :: ListJobsByStatusResponse
-listJobsByStatusResponse = ListJobsByStatusResponse'{_ljbsrNextPageToken = Nothing, _ljbsrJobs = mempty};
+listJobsByStatusResponse = ListJobsByStatusResponse'{_ljbsrNextPageToken = Nothing, _ljbsrJobs = Nothing};
 
 -- | A value that you use to access the second and subsequent pages of
 -- results, if any. When the jobs in the specified pipeline fit on one page
@@ -122,5 +122,5 @@ ljbsrNextPageToken :: Lens' ListJobsByStatusResponse (Maybe Text)
 ljbsrNextPageToken = lens _ljbsrNextPageToken (\ s a -> s{_ljbsrNextPageToken = a});
 
 -- | An array of @Job@ objects that have the specified status.
-ljbsrJobs :: Lens' ListJobsByStatusResponse [Job']
+ljbsrJobs :: Lens' ListJobsByStatusResponse (Maybe [Job'])
 ljbsrJobs = lens _ljbsrJobs (\ s a -> s{_ljbsrJobs = a});

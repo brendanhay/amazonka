@@ -55,8 +55,8 @@ import Network.AWS.OpsWorks.Types
 newtype DescribeLoadBasedAutoScaling = DescribeLoadBasedAutoScaling'{_dlbasLayerIds :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'DescribeLoadBasedAutoScaling' smart constructor.
-describeLoadBasedAutoScaling :: [Text] -> DescribeLoadBasedAutoScaling
-describeLoadBasedAutoScaling pLayerIds = DescribeLoadBasedAutoScaling'{_dlbasLayerIds = pLayerIds};
+describeLoadBasedAutoScaling :: DescribeLoadBasedAutoScaling
+describeLoadBasedAutoScaling = DescribeLoadBasedAutoScaling'{_dlbasLayerIds = mempty};
 
 -- | An array of layer IDs.
 dlbasLayerIds :: Lens' DescribeLoadBasedAutoScaling [Text]
@@ -100,13 +100,13 @@ instance ToQuery DescribeLoadBasedAutoScaling where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dlbasrLoadBasedAutoScalingConfigurations'
-newtype DescribeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse'{_dlbasrLoadBasedAutoScalingConfigurations :: [LoadBasedAutoScalingConfiguration]} deriving (Eq, Read, Show)
+newtype DescribeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse'{_dlbasrLoadBasedAutoScalingConfigurations :: Maybe [LoadBasedAutoScalingConfiguration]} deriving (Eq, Read, Show)
 
 -- | 'DescribeLoadBasedAutoScalingResponse' smart constructor.
 describeLoadBasedAutoScalingResponse :: DescribeLoadBasedAutoScalingResponse
-describeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse'{_dlbasrLoadBasedAutoScalingConfigurations = mempty};
+describeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse'{_dlbasrLoadBasedAutoScalingConfigurations = Nothing};
 
 -- | An array of @LoadBasedAutoScalingConfiguration@ objects that describe
 -- each layer\'s configuration.
-dlbasrLoadBasedAutoScalingConfigurations :: Lens' DescribeLoadBasedAutoScalingResponse [LoadBasedAutoScalingConfiguration]
+dlbasrLoadBasedAutoScalingConfigurations :: Lens' DescribeLoadBasedAutoScalingResponse (Maybe [LoadBasedAutoScalingConfiguration])
 dlbasrLoadBasedAutoScalingConfigurations = lens _dlbasrLoadBasedAutoScalingConfigurations (\ s a -> s{_dlbasrLoadBasedAutoScalingConfigurations = a});

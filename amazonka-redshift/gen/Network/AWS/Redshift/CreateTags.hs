@@ -55,8 +55,8 @@ import Network.AWS.Redshift.Types
 data CreateTags = CreateTags'{_ctResourceName :: Text, _ctTags :: [Tag]} deriving (Eq, Read, Show)
 
 -- | 'CreateTags' smart constructor.
-createTags :: Text -> [Tag] -> CreateTags
-createTags pResourceName pTags = CreateTags'{_ctResourceName = pResourceName, _ctTags = pTags};
+createTags :: Text -> CreateTags
+createTags pResourceName = CreateTags'{_ctResourceName = pResourceName, _ctTags = mempty};
 
 -- | The Amazon Resource Name (ARN) to which you want to add the tag or tags.
 -- For example, @arn:aws:redshift:us-east-1:123456789:cluster:t1@.

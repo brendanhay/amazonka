@@ -103,11 +103,11 @@ import Network.AWS.OpsWorks.Types
 -- * 'clName'
 --
 -- * 'clShortname'
-data CreateLayer = CreateLayer'{_clCustomInstanceProfileARN :: Maybe Text, _clInstallUpdatesOnBoot :: Maybe Bool, _clCustomSecurityGroupIds :: [Text], _clLifecycleEventConfiguration :: Maybe LifecycleEventConfiguration, _clCustomRecipes :: Maybe Recipes, _clVolumeConfigurations :: [VolumeConfiguration], _clEnableAutoHealing :: Maybe Bool, _clPackages :: [Text], _clAttributes :: HashMap LayerAttributesKeys Text, _clAutoAssignPublicIPs :: Maybe Bool, _clUseEBSOptimizedInstances :: Maybe Bool, _clAutoAssignElasticIPs :: Maybe Bool, _clStackId :: Text, _clType :: LayerType, _clName :: Text, _clShortname :: Text} deriving (Eq, Read, Show)
+data CreateLayer = CreateLayer'{_clCustomInstanceProfileARN :: Maybe Text, _clInstallUpdatesOnBoot :: Maybe Bool, _clCustomSecurityGroupIds :: Maybe [Text], _clLifecycleEventConfiguration :: Maybe LifecycleEventConfiguration, _clCustomRecipes :: Maybe Recipes, _clVolumeConfigurations :: Maybe [VolumeConfiguration], _clEnableAutoHealing :: Maybe Bool, _clPackages :: Maybe [Text], _clAttributes :: Maybe (HashMap LayerAttributesKeys Text), _clAutoAssignPublicIPs :: Maybe Bool, _clUseEBSOptimizedInstances :: Maybe Bool, _clAutoAssignElasticIPs :: Maybe Bool, _clStackId :: Text, _clType :: LayerType, _clName :: Text, _clShortname :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateLayer' smart constructor.
 createLayer :: Text -> LayerType -> Text -> Text -> CreateLayer
-createLayer pStackId pType' pName pShortname = CreateLayer'{_clCustomInstanceProfileARN = Nothing, _clInstallUpdatesOnBoot = Nothing, _clCustomSecurityGroupIds = mempty, _clLifecycleEventConfiguration = Nothing, _clCustomRecipes = Nothing, _clVolumeConfigurations = mempty, _clEnableAutoHealing = Nothing, _clPackages = mempty, _clAttributes = mempty, _clAutoAssignPublicIPs = Nothing, _clUseEBSOptimizedInstances = Nothing, _clAutoAssignElasticIPs = Nothing, _clStackId = pStackId, _clType = pType', _clName = pName, _clShortname = pShortname};
+createLayer pStackId pType pName pShortname = CreateLayer'{_clCustomInstanceProfileARN = Nothing, _clInstallUpdatesOnBoot = Nothing, _clCustomSecurityGroupIds = Nothing, _clLifecycleEventConfiguration = Nothing, _clCustomRecipes = Nothing, _clVolumeConfigurations = Nothing, _clEnableAutoHealing = Nothing, _clPackages = Nothing, _clAttributes = Nothing, _clAutoAssignPublicIPs = Nothing, _clUseEBSOptimizedInstances = Nothing, _clAutoAssignElasticIPs = Nothing, _clStackId = pStackId, _clType = pType, _clName = pName, _clShortname = pShortname};
 
 -- | The ARN of an IAM profile that to be used for the layer\'s EC2
 -- instances. For more information about IAM ARNs, see
@@ -128,7 +128,7 @@ clInstallUpdatesOnBoot :: Lens' CreateLayer (Maybe Bool)
 clInstallUpdatesOnBoot = lens _clInstallUpdatesOnBoot (\ s a -> s{_clInstallUpdatesOnBoot = a});
 
 -- | An array containing the layer custom security group IDs.
-clCustomSecurityGroupIds :: Lens' CreateLayer [Text]
+clCustomSecurityGroupIds :: Lens' CreateLayer (Maybe [Text])
 clCustomSecurityGroupIds = lens _clCustomSecurityGroupIds (\ s a -> s{_clCustomSecurityGroupIds = a});
 
 -- | A LifeCycleEventConfiguration object that you can use to configure the
@@ -143,7 +143,7 @@ clCustomRecipes = lens _clCustomRecipes (\ s a -> s{_clCustomRecipes = a});
 
 -- | A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS
 -- volumes.
-clVolumeConfigurations :: Lens' CreateLayer [VolumeConfiguration]
+clVolumeConfigurations :: Lens' CreateLayer (Maybe [VolumeConfiguration])
 clVolumeConfigurations = lens _clVolumeConfigurations (\ s a -> s{_clVolumeConfigurations = a});
 
 -- | Whether to disable auto healing for the layer.
@@ -151,13 +151,13 @@ clEnableAutoHealing :: Lens' CreateLayer (Maybe Bool)
 clEnableAutoHealing = lens _clEnableAutoHealing (\ s a -> s{_clEnableAutoHealing = a});
 
 -- | An array of @Package@ objects that describe the layer packages.
-clPackages :: Lens' CreateLayer [Text]
+clPackages :: Lens' CreateLayer (Maybe [Text])
 clPackages = lens _clPackages (\ s a -> s{_clPackages = a});
 
 -- | One or more user-defined key\/value pairs to be added to the stack
 -- attributes.
-clAttributes :: Lens' CreateLayer (HashMap LayerAttributesKeys Text)
-clAttributes = lens _clAttributes (\ s a -> s{_clAttributes = a}) . _Coerce;
+clAttributes :: Lens' CreateLayer (Maybe (HashMap LayerAttributesKeys Text))
+clAttributes = lens _clAttributes (\ s a -> s{_clAttributes = a}) . mapping _Coerce;
 
 -- | For stacks that are running in a VPC, whether to automatically assign a
 -- public IP address to the layer\'s instances. For more information, see

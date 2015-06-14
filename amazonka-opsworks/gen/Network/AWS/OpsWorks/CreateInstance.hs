@@ -96,11 +96,11 @@ import Network.AWS.OpsWorks.Types
 -- * 'ciLayerIds'
 --
 -- * 'ciInstanceType'
-data CreateInstance = CreateInstance'{_ciInstallUpdatesOnBoot :: Maybe Bool, _ciVirtualizationType :: Maybe Text, _ciHostname :: Maybe Text, _ciSSHKeyName :: Maybe Text, _ciSubnetId :: Maybe Text, _ciEBSOptimized :: Maybe Bool, _ciOS :: Maybe Text, _ciAvailabilityZone :: Maybe Text, _ciAutoScalingType :: Maybe AutoScalingType, _ciArchitecture :: Maybe Architecture, _ciAMIId :: Maybe Text, _ciBlockDeviceMappings :: [BlockDeviceMapping], _ciRootDeviceType :: Maybe RootDeviceType, _ciStackId :: Text, _ciLayerIds :: [Text], _ciInstanceType :: Text} deriving (Eq, Read, Show)
+data CreateInstance = CreateInstance'{_ciInstallUpdatesOnBoot :: Maybe Bool, _ciVirtualizationType :: Maybe Text, _ciHostname :: Maybe Text, _ciSSHKeyName :: Maybe Text, _ciSubnetId :: Maybe Text, _ciEBSOptimized :: Maybe Bool, _ciOS :: Maybe Text, _ciAvailabilityZone :: Maybe Text, _ciAutoScalingType :: Maybe AutoScalingType, _ciArchitecture :: Maybe Architecture, _ciAMIId :: Maybe Text, _ciBlockDeviceMappings :: Maybe [BlockDeviceMapping], _ciRootDeviceType :: Maybe RootDeviceType, _ciStackId :: Text, _ciLayerIds :: [Text], _ciInstanceType :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateInstance' smart constructor.
-createInstance :: Text -> [Text] -> Text -> CreateInstance
-createInstance pStackId pLayerIds pInstanceType = CreateInstance'{_ciInstallUpdatesOnBoot = Nothing, _ciVirtualizationType = Nothing, _ciHostname = Nothing, _ciSSHKeyName = Nothing, _ciSubnetId = Nothing, _ciEBSOptimized = Nothing, _ciOS = Nothing, _ciAvailabilityZone = Nothing, _ciAutoScalingType = Nothing, _ciArchitecture = Nothing, _ciAMIId = Nothing, _ciBlockDeviceMappings = mempty, _ciRootDeviceType = Nothing, _ciStackId = pStackId, _ciLayerIds = pLayerIds, _ciInstanceType = pInstanceType};
+createInstance :: Text -> Text -> CreateInstance
+createInstance pStackId pInstanceType = CreateInstance'{_ciInstallUpdatesOnBoot = Nothing, _ciVirtualizationType = Nothing, _ciHostname = Nothing, _ciSSHKeyName = Nothing, _ciSubnetId = Nothing, _ciEBSOptimized = Nothing, _ciOS = Nothing, _ciAvailabilityZone = Nothing, _ciAutoScalingType = Nothing, _ciArchitecture = Nothing, _ciAMIId = Nothing, _ciBlockDeviceMappings = Nothing, _ciRootDeviceType = Nothing, _ciStackId = pStackId, _ciLayerIds = mempty, _ciInstanceType = pInstanceType};
 
 -- | Whether to install operating system and package updates when the
 -- instance boots. The default value is @true@. To control when updates are
@@ -186,7 +186,7 @@ ciAMIId = lens _ciAMIId (\ s a -> s{_ciAMIId = a});
 -- | An array of @BlockDeviceMapping@ objects that specify the instance\'s
 -- block devices. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html Block Device Mapping>.
-ciBlockDeviceMappings :: Lens' CreateInstance [BlockDeviceMapping]
+ciBlockDeviceMappings :: Lens' CreateInstance (Maybe [BlockDeviceMapping])
 ciBlockDeviceMappings = lens _ciBlockDeviceMappings (\ s a -> s{_ciBlockDeviceMappings = a});
 
 -- | The instance root device type. For more information, see

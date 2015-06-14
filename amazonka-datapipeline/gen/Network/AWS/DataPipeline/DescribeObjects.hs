@@ -60,8 +60,8 @@ import Network.AWS.DataPipeline.Types
 data DescribeObjects = DescribeObjects'{_doEvaluateExpressions :: Maybe Bool, _doMarker :: Maybe Text, _doPipelineId :: Text, _doObjectIds :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'DescribeObjects' smart constructor.
-describeObjects :: Text -> [Text] -> DescribeObjects
-describeObjects pPipelineId pObjectIds = DescribeObjects'{_doEvaluateExpressions = Nothing, _doMarker = Nothing, _doPipelineId = pPipelineId, _doObjectIds = pObjectIds};
+describeObjects :: Text -> DescribeObjects
+describeObjects pPipelineId = DescribeObjects'{_doEvaluateExpressions = Nothing, _doMarker = Nothing, _doPipelineId = pPipelineId, _doObjectIds = mempty};
 
 -- | Indicates whether any expressions in the object should be evaluated when
 -- the object descriptions are returned.
@@ -130,8 +130,8 @@ instance ToQuery DescribeObjects where
 data DescribeObjectsResponse = DescribeObjectsResponse'{_dorHasMoreResults :: Maybe Bool, _dorMarker :: Maybe Text, _dorPipelineObjects :: [PipelineObject]} deriving (Eq, Read, Show)
 
 -- | 'DescribeObjectsResponse' smart constructor.
-describeObjectsResponse :: [PipelineObject] -> DescribeObjectsResponse
-describeObjectsResponse pPipelineObjects = DescribeObjectsResponse'{_dorHasMoreResults = Nothing, _dorMarker = Nothing, _dorPipelineObjects = pPipelineObjects};
+describeObjectsResponse :: DescribeObjectsResponse
+describeObjectsResponse = DescribeObjectsResponse'{_dorHasMoreResults = Nothing, _dorMarker = Nothing, _dorPipelineObjects = mempty};
 
 -- | Indicates whether there are more results to return.
 dorHasMoreResults :: Lens' DescribeObjectsResponse (Maybe Bool)

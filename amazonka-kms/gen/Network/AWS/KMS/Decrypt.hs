@@ -65,22 +65,22 @@ import Network.AWS.KMS.Types
 -- * 'decGrantTokens'
 --
 -- * 'decCiphertextBlob'
-data Decrypt = Decrypt'{_decEncryptionContext :: HashMap Text Text, _decGrantTokens :: [Text], _decCiphertextBlob :: Base64} deriving (Eq, Read, Show)
+data Decrypt = Decrypt'{_decEncryptionContext :: Maybe (HashMap Text Text), _decGrantTokens :: Maybe [Text], _decCiphertextBlob :: Base64} deriving (Eq, Read, Show)
 
 -- | 'Decrypt' smart constructor.
 decrypt :: Base64 -> Decrypt
-decrypt pCiphertextBlob = Decrypt'{_decEncryptionContext = mempty, _decGrantTokens = mempty, _decCiphertextBlob = pCiphertextBlob};
+decrypt pCiphertextBlob = Decrypt'{_decEncryptionContext = Nothing, _decGrantTokens = Nothing, _decCiphertextBlob = pCiphertextBlob};
 
 -- | The encryption context. If this was specified in the Encrypt function,
 -- it must be specified here or the decryption operation will fail. For
 -- more information, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html Encryption Context>.
-decEncryptionContext :: Lens' Decrypt (HashMap Text Text)
-decEncryptionContext = lens _decEncryptionContext (\ s a -> s{_decEncryptionContext = a}) . _Coerce;
+decEncryptionContext :: Lens' Decrypt (Maybe (HashMap Text Text))
+decEncryptionContext = lens _decEncryptionContext (\ s a -> s{_decEncryptionContext = a}) . mapping _Coerce;
 
 -- | For more information, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.
-decGrantTokens :: Lens' Decrypt [Text]
+decGrantTokens :: Lens' Decrypt (Maybe [Text])
 decGrantTokens = lens _decGrantTokens (\ s a -> s{_decGrantTokens = a});
 
 -- | Ciphertext to be decrypted. The blob includes metadata.
@@ -95,7 +95,7 @@ instance AWSRequest Decrypt where
           = receiveJSON
               (\ s h x ->
                  DecryptResponse' <$>
-                   x .:> "KeyId" <*> x .:> "Plaintext")
+                   x .?> "KeyId" <*> x .?> "Plaintext")
 
 instance ToHeaders Decrypt where
         toHeaders
@@ -126,18 +126,18 @@ instance ToQuery Decrypt where
 -- * 'drKeyId'
 --
 -- * 'drPlaintext'
-data DecryptResponse = DecryptResponse'{_drKeyId :: Text, _drPlaintext :: Sensitive Base64} deriving (Eq, Read, Show)
+data DecryptResponse = DecryptResponse'{_drKeyId :: Maybe Text, _drPlaintext :: Maybe (Sensitive Base64)} deriving (Eq, Read, Show)
 
 -- | 'DecryptResponse' smart constructor.
-decryptResponse :: Text -> Base64 -> DecryptResponse
-decryptResponse pKeyId pPlaintext = DecryptResponse'{_drKeyId = pKeyId, _drPlaintext = _Sensitive # pPlaintext};
+decryptResponse :: DecryptResponse
+decryptResponse = DecryptResponse'{_drKeyId = Nothing, _drPlaintext = Nothing};
 
 -- | ARN of the key used to perform the decryption. This value is returned if
 -- no errors are encountered during the operation.
-drKeyId :: Lens' DecryptResponse Text
+drKeyId :: Lens' DecryptResponse (Maybe Text)
 drKeyId = lens _drKeyId (\ s a -> s{_drKeyId = a});
 
 -- | Decrypted plaintext data. This value may not be returned if the customer
 -- master key is not available or if you didn\'t have permission to use it.
-drPlaintext :: Lens' DecryptResponse Base64
-drPlaintext = lens _drPlaintext (\ s a -> s{_drPlaintext = a}) . _Sensitive;
+drPlaintext :: Lens' DecryptResponse (Maybe Base64)
+drPlaintext = lens _drPlaintext (\ s a -> s{_drPlaintext = a}) . mapping _Sensitive;

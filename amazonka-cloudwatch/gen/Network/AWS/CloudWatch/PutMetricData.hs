@@ -65,8 +65,8 @@ import Network.AWS.CloudWatch.Types
 data PutMetricData = PutMetricData'{_pmdNamespace :: Text, _pmdMetricData :: [MetricDatum]} deriving (Eq, Read, Show)
 
 -- | 'PutMetricData' smart constructor.
-putMetricData :: Text -> [MetricDatum] -> PutMetricData
-putMetricData pNamespace pMetricData = PutMetricData'{_pmdNamespace = pNamespace, _pmdMetricData = pMetricData};
+putMetricData :: Text -> PutMetricData
+putMetricData pNamespace = PutMetricData'{_pmdNamespace = pNamespace, _pmdMetricData = mempty};
 
 -- | The namespace for the metric data.
 pmdNamespace :: Lens' PutMetricData Text

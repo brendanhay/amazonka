@@ -93,13 +93,13 @@ instance ToQuery DeleteIdentities where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dirUnprocessedIdentityIds'
-newtype DeleteIdentitiesResponse = DeleteIdentitiesResponse'{_dirUnprocessedIdentityIds :: [UnprocessedIdentityId]} deriving (Eq, Read, Show)
+newtype DeleteIdentitiesResponse = DeleteIdentitiesResponse'{_dirUnprocessedIdentityIds :: Maybe [UnprocessedIdentityId]} deriving (Eq, Read, Show)
 
 -- | 'DeleteIdentitiesResponse' smart constructor.
 deleteIdentitiesResponse :: DeleteIdentitiesResponse
-deleteIdentitiesResponse = DeleteIdentitiesResponse'{_dirUnprocessedIdentityIds = mempty};
+deleteIdentitiesResponse = DeleteIdentitiesResponse'{_dirUnprocessedIdentityIds = Nothing};
 
 -- | An array of UnprocessedIdentityId objects, each of which contains an
 -- ErrorCode and IdentityId.
-dirUnprocessedIdentityIds :: Lens' DeleteIdentitiesResponse [UnprocessedIdentityId]
+dirUnprocessedIdentityIds :: Lens' DeleteIdentitiesResponse (Maybe [UnprocessedIdentityId])
 dirUnprocessedIdentityIds = lens _dirUnprocessedIdentityIds (\ s a -> s{_dirUnprocessedIdentityIds = a});

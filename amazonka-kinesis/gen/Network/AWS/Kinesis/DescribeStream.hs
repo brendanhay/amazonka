@@ -46,9 +46,9 @@ module Network.AWS.Kinesis.DescribeStream
     -- ** Request constructor
     , describeStream
     -- ** Request lenses
-    , desStreamName
     , desExclusiveStartShardId
     , desLimit
+    , desStreamName
 
     -- * Response
     , DescribeStreamResponse
@@ -67,28 +67,28 @@ import Network.AWS.Kinesis.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desStreamName'
---
 -- * 'desExclusiveStartShardId'
 --
 -- * 'desLimit'
-data DescribeStream = DescribeStream'{_desStreamName :: Text, _desExclusiveStartShardId :: Text, _desLimit :: Nat} deriving (Eq, Read, Show)
+--
+-- * 'desStreamName'
+data DescribeStream = DescribeStream'{_desExclusiveStartShardId :: Maybe Text, _desLimit :: Maybe Nat, _desStreamName :: Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeStream' smart constructor.
-describeStream :: Text -> Text -> Natural -> DescribeStream
-describeStream pStreamName pExclusiveStartShardId pLimit = DescribeStream'{_desStreamName = pStreamName, _desExclusiveStartShardId = pExclusiveStartShardId, _desLimit = _Nat # pLimit};
+describeStream :: Text -> DescribeStream
+describeStream pStreamName = DescribeStream'{_desExclusiveStartShardId = Nothing, _desLimit = Nothing, _desStreamName = pStreamName};
+
+-- | The shard ID of the shard to start with.
+desExclusiveStartShardId :: Lens' DescribeStream (Maybe Text)
+desExclusiveStartShardId = lens _desExclusiveStartShardId (\ s a -> s{_desExclusiveStartShardId = a});
+
+-- | The maximum number of shards to return.
+desLimit :: Lens' DescribeStream (Maybe Natural)
+desLimit = lens _desLimit (\ s a -> s{_desLimit = a}) . mapping _Nat;
 
 -- | The name of the stream to describe.
 desStreamName :: Lens' DescribeStream Text
 desStreamName = lens _desStreamName (\ s a -> s{_desStreamName = a});
-
--- | The shard ID of the shard to start with.
-desExclusiveStartShardId :: Lens' DescribeStream Text
-desExclusiveStartShardId = lens _desExclusiveStartShardId (\ s a -> s{_desExclusiveStartShardId = a});
-
--- | The maximum number of shards to return.
-desLimit :: Lens' DescribeStream Natural
-desLimit = lens _desLimit (\ s a -> s{_desLimit = a}) . _Nat;
 
 instance AWSRequest DescribeStream where
         type Sv DescribeStream = Kinesis
@@ -112,9 +112,9 @@ instance ToHeaders DescribeStream where
 instance ToJSON DescribeStream where
         toJSON DescribeStream'{..}
           = object
-              ["StreamName" .= _desStreamName,
-               "ExclusiveStartShardId" .= _desExclusiveStartShardId,
-               "Limit" .= _desLimit]
+              ["ExclusiveStartShardId" .=
+                 _desExclusiveStartShardId,
+               "Limit" .= _desLimit, "StreamName" .= _desStreamName]
 
 instance ToPath DescribeStream where
         toPath = const "/"

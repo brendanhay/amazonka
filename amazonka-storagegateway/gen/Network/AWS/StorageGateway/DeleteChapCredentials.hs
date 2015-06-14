@@ -74,7 +74,7 @@ instance AWSRequest DeleteChapCredentials where
           = receiveJSON
               (\ s h x ->
                  DeleteChapCredentialsResponse' <$>
-                   x .:> "TargetARN" <*> x .:> "InitiatorName")
+                   x .?> "TargetARN" <*> x .?> "InitiatorName")
 
 instance ToHeaders DeleteChapCredentials where
         toHeaders
@@ -105,16 +105,16 @@ instance ToQuery DeleteChapCredentials where
 -- * 'dccrTargetARN'
 --
 -- * 'dccrInitiatorName'
-data DeleteChapCredentialsResponse = DeleteChapCredentialsResponse'{_dccrTargetARN :: Text, _dccrInitiatorName :: Text} deriving (Eq, Read, Show)
+data DeleteChapCredentialsResponse = DeleteChapCredentialsResponse'{_dccrTargetARN :: Maybe Text, _dccrInitiatorName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DeleteChapCredentialsResponse' smart constructor.
-deleteChapCredentialsResponse :: Text -> Text -> DeleteChapCredentialsResponse
-deleteChapCredentialsResponse pTargetARN pInitiatorName = DeleteChapCredentialsResponse'{_dccrTargetARN = pTargetARN, _dccrInitiatorName = pInitiatorName};
+deleteChapCredentialsResponse :: DeleteChapCredentialsResponse
+deleteChapCredentialsResponse = DeleteChapCredentialsResponse'{_dccrTargetARN = Nothing, _dccrInitiatorName = Nothing};
 
 -- | The Amazon Resource Name (ARN) of the target.
-dccrTargetARN :: Lens' DeleteChapCredentialsResponse Text
+dccrTargetARN :: Lens' DeleteChapCredentialsResponse (Maybe Text)
 dccrTargetARN = lens _dccrTargetARN (\ s a -> s{_dccrTargetARN = a});
 
 -- | The iSCSI initiator that connects to the target.
-dccrInitiatorName :: Lens' DeleteChapCredentialsResponse Text
+dccrInitiatorName :: Lens' DeleteChapCredentialsResponse (Maybe Text)
 dccrInitiatorName = lens _dccrInitiatorName (\ s a -> s{_dccrInitiatorName = a});

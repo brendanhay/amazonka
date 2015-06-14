@@ -159,11 +159,11 @@ instance AWSService Route53Domains where
 -- * 'cdCountryCode'
 --
 -- * 'cdContactType'
-data ContactDetail = ContactDetail'{_cdOrganizationName :: Maybe Text, _cdEmail :: Maybe Text, _cdFax :: Maybe Text, _cdState :: Maybe Text, _cdLastName :: Maybe Text, _cdExtraParams :: [ExtraParam], _cdZipCode :: Maybe Text, _cdAddressLine1 :: Maybe Text, _cdCity :: Maybe Text, _cdPhoneNumber :: Maybe Text, _cdAddressLine2 :: Maybe Text, _cdFirstName :: Maybe Text, _cdCountryCode :: Maybe CountryCode, _cdContactType :: Maybe ContactType} deriving (Eq, Read, Show)
+data ContactDetail = ContactDetail'{_cdOrganizationName :: Maybe Text, _cdEmail :: Maybe Text, _cdFax :: Maybe Text, _cdState :: Maybe Text, _cdLastName :: Maybe Text, _cdExtraParams :: Maybe [ExtraParam], _cdZipCode :: Maybe Text, _cdAddressLine1 :: Maybe Text, _cdCity :: Maybe Text, _cdPhoneNumber :: Maybe Text, _cdAddressLine2 :: Maybe Text, _cdFirstName :: Maybe Text, _cdCountryCode :: Maybe CountryCode, _cdContactType :: Maybe ContactType} deriving (Eq, Read, Show)
 
 -- | 'ContactDetail' smart constructor.
 contactDetail :: ContactDetail
-contactDetail = ContactDetail'{_cdOrganizationName = Nothing, _cdEmail = Nothing, _cdFax = Nothing, _cdState = Nothing, _cdLastName = Nothing, _cdExtraParams = mempty, _cdZipCode = Nothing, _cdAddressLine1 = Nothing, _cdCity = Nothing, _cdPhoneNumber = Nothing, _cdAddressLine2 = Nothing, _cdFirstName = Nothing, _cdCountryCode = Nothing, _cdContactType = Nothing};
+contactDetail = ContactDetail'{_cdOrganizationName = Nothing, _cdEmail = Nothing, _cdFax = Nothing, _cdState = Nothing, _cdLastName = Nothing, _cdExtraParams = Nothing, _cdZipCode = Nothing, _cdAddressLine1 = Nothing, _cdCity = Nothing, _cdPhoneNumber = Nothing, _cdAddressLine2 = Nothing, _cdFirstName = Nothing, _cdCountryCode = Nothing, _cdContactType = Nothing};
 
 -- | Name of the organization for contact types other than @PERSON@.
 --
@@ -249,7 +249,7 @@ cdLastName = lens _cdLastName (\ s a -> s{_cdLastName = a});
 -- Children: @Name@, @Value@
 --
 -- Required: No
-cdExtraParams :: Lens' ContactDetail [ExtraParam]
+cdExtraParams :: Lens' ContactDetail (Maybe [ExtraParam])
 cdExtraParams = lens _cdExtraParams (\ s a -> s{_cdExtraParams = a});
 
 -- | The zip or postal code of the contact\'s address.
@@ -1120,11 +1120,11 @@ instance FromJSON ExtraParamName where
 -- * 'namGlueIPs'
 --
 -- * 'namName'
-data Nameserver = Nameserver'{_namGlueIPs :: [Text], _namName :: Text} deriving (Eq, Read, Show)
+data Nameserver = Nameserver'{_namGlueIPs :: Maybe [Text], _namName :: Text} deriving (Eq, Read, Show)
 
 -- | 'Nameserver' smart constructor.
 nameserver :: Text -> Nameserver
-nameserver pName = Nameserver'{_namGlueIPs = mempty, _namName = pName};
+nameserver pName = Nameserver'{_namGlueIPs = Nothing, _namName = pName};
 
 -- | Glue IP address of a name server entry. Glue IP addresses are required
 -- only when the name of the name server is a subdomain of the domain. For
@@ -1137,7 +1137,7 @@ nameserver pName = Nameserver'{_namGlueIPs = mempty, _namName = pName};
 -- Constraints: The list can contain only one IPv4 and one IPv6 address.
 --
 -- Parent: @Nameservers@
-namGlueIPs :: Lens' Nameserver [Text]
+namGlueIPs :: Lens' Nameserver (Maybe [Text])
 namGlueIPs = lens _namGlueIPs (\ s a -> s{_namGlueIPs = a});
 
 -- | The fully qualified host name of the name server.
@@ -1203,7 +1203,7 @@ data OperationSummary = OperationSummary'{_osOperationId :: Text, _osStatus :: O
 
 -- | 'OperationSummary' smart constructor.
 operationSummary :: Text -> OperationStatus -> OperationType -> UTCTime -> OperationSummary
-operationSummary pOperationId pStatus pType' pSubmittedDate = OperationSummary'{_osOperationId = pOperationId, _osStatus = pStatus, _osType = pType', _osSubmittedDate = _Time # pSubmittedDate};
+operationSummary pOperationId pStatus pType pSubmittedDate = OperationSummary'{_osOperationId = pOperationId, _osStatus = pStatus, _osType = pType, _osSubmittedDate = _Time # pSubmittedDate};
 
 -- | Identifier returned to track the requested action.
 --

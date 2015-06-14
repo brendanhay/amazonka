@@ -58,15 +58,15 @@ import Network.AWS.DataPipeline.Types
 -- * 'rtpFields'
 --
 -- * 'rtpTaskId'
-data ReportTaskProgress = ReportTaskProgress'{_rtpFields :: [Field], _rtpTaskId :: Text} deriving (Eq, Read, Show)
+data ReportTaskProgress = ReportTaskProgress'{_rtpFields :: Maybe [Field], _rtpTaskId :: Text} deriving (Eq, Read, Show)
 
 -- | 'ReportTaskProgress' smart constructor.
 reportTaskProgress :: Text -> ReportTaskProgress
-reportTaskProgress pTaskId = ReportTaskProgress'{_rtpFields = mempty, _rtpTaskId = pTaskId};
+reportTaskProgress pTaskId = ReportTaskProgress'{_rtpFields = Nothing, _rtpTaskId = pTaskId};
 
 -- | Key-value pairs that define the properties of the
 -- ReportTaskProgressInput object.
-rtpFields :: Lens' ReportTaskProgress [Field]
+rtpFields :: Lens' ReportTaskProgress (Maybe [Field])
 rtpFields = lens _rtpFields (\ s a -> s{_rtpFields = a});
 
 -- | The ID of the task assigned to the task runner. This value is provided

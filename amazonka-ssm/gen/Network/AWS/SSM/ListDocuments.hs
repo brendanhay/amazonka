@@ -24,8 +24,8 @@ module Network.AWS.SSM.ListDocuments
     -- ** Request constructor
     , listDocuments
     -- ** Request lenses
-    , ldNextToken
     , ldDocumentFilterList
+    , ldNextToken
     , ldMaxResults
 
     -- * Response
@@ -46,32 +46,32 @@ import Network.AWS.SSM.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldNextToken'
---
 -- * 'ldDocumentFilterList'
 --
+-- * 'ldNextToken'
+--
 -- * 'ldMaxResults'
-data ListDocuments = ListDocuments'{_ldNextToken :: Maybe Text, _ldDocumentFilterList :: List1 DocumentFilter, _ldMaxResults :: Nat} deriving (Eq, Read, Show)
+data ListDocuments = ListDocuments'{_ldDocumentFilterList :: Maybe (List1 DocumentFilter), _ldNextToken :: Maybe Text, _ldMaxResults :: Maybe Nat} deriving (Eq, Read, Show)
 
 -- | 'ListDocuments' smart constructor.
-listDocuments :: NonEmpty DocumentFilter -> Natural -> ListDocuments
-listDocuments pDocumentFilterList pMaxResults = ListDocuments'{_ldNextToken = Nothing, _ldDocumentFilterList = _List1 # pDocumentFilterList, _ldMaxResults = _Nat # pMaxResults};
+listDocuments :: ListDocuments
+listDocuments = ListDocuments'{_ldDocumentFilterList = Nothing, _ldNextToken = Nothing, _ldMaxResults = Nothing};
+
+-- | One or more filters. Use a filter to return a more specific list of
+-- results.
+ldDocumentFilterList :: Lens' ListDocuments (Maybe (NonEmpty DocumentFilter))
+ldDocumentFilterList = lens _ldDocumentFilterList (\ s a -> s{_ldDocumentFilterList = a}) . mapping _List1;
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
 ldNextToken :: Lens' ListDocuments (Maybe Text)
 ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a});
 
--- | One or more filters. Use a filter to return a more specific list of
--- results.
-ldDocumentFilterList :: Lens' ListDocuments (NonEmpty DocumentFilter)
-ldDocumentFilterList = lens _ldDocumentFilterList (\ s a -> s{_ldDocumentFilterList = a}) . _List1;
-
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
-ldMaxResults :: Lens' ListDocuments Natural
-ldMaxResults = lens _ldMaxResults (\ s a -> s{_ldMaxResults = a}) . _Nat;
+ldMaxResults :: Lens' ListDocuments (Maybe Natural)
+ldMaxResults = lens _ldMaxResults (\ s a -> s{_ldMaxResults = a}) . mapping _Nat;
 
 instance AWSRequest ListDocuments where
         type Sv ListDocuments = SSM
@@ -96,8 +96,8 @@ instance ToHeaders ListDocuments where
 instance ToJSON ListDocuments where
         toJSON ListDocuments'{..}
           = object
-              ["NextToken" .= _ldNextToken,
-               "DocumentFilterList" .= _ldDocumentFilterList,
+              ["DocumentFilterList" .= _ldDocumentFilterList,
+               "NextToken" .= _ldNextToken,
                "MaxResults" .= _ldMaxResults]
 
 instance ToPath ListDocuments where
@@ -113,14 +113,14 @@ instance ToQuery ListDocuments where
 -- * 'ldrDocumentIdentifiers'
 --
 -- * 'ldrNextToken'
-data ListDocumentsResponse = ListDocumentsResponse'{_ldrDocumentIdentifiers :: [DocumentIdentifier], _ldrNextToken :: Maybe Text} deriving (Eq, Read, Show)
+data ListDocumentsResponse = ListDocumentsResponse'{_ldrDocumentIdentifiers :: Maybe [DocumentIdentifier], _ldrNextToken :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ListDocumentsResponse' smart constructor.
 listDocumentsResponse :: ListDocumentsResponse
-listDocumentsResponse = ListDocumentsResponse'{_ldrDocumentIdentifiers = mempty, _ldrNextToken = Nothing};
+listDocumentsResponse = ListDocumentsResponse'{_ldrDocumentIdentifiers = Nothing, _ldrNextToken = Nothing};
 
 -- | The names of the configuration documents.
-ldrDocumentIdentifiers :: Lens' ListDocumentsResponse [DocumentIdentifier]
+ldrDocumentIdentifiers :: Lens' ListDocumentsResponse (Maybe [DocumentIdentifier])
 ldrDocumentIdentifiers = lens _ldrDocumentIdentifiers (\ s a -> s{_ldrDocumentIdentifiers = a});
 
 -- | The token to use when requesting the next set of items. If there are no

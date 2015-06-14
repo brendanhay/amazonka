@@ -51,14 +51,14 @@ import Network.AWS.RDS.Types
 -- * 'cdsgDBSecurityGroupName'
 --
 -- * 'cdsgDBSecurityGroupDescription'
-data CreateDBSecurityGroup = CreateDBSecurityGroup'{_cdsgTags :: [Tag], _cdsgDBSecurityGroupName :: Text, _cdsgDBSecurityGroupDescription :: Text} deriving (Eq, Read, Show)
+data CreateDBSecurityGroup = CreateDBSecurityGroup'{_cdsgTags :: Maybe [Tag], _cdsgDBSecurityGroupName :: Text, _cdsgDBSecurityGroupDescription :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateDBSecurityGroup' smart constructor.
 createDBSecurityGroup :: Text -> Text -> CreateDBSecurityGroup
-createDBSecurityGroup pDBSecurityGroupName pDBSecurityGroupDescription = CreateDBSecurityGroup'{_cdsgTags = mempty, _cdsgDBSecurityGroupName = pDBSecurityGroupName, _cdsgDBSecurityGroupDescription = pDBSecurityGroupDescription};
+createDBSecurityGroup pDBSecurityGroupName pDBSecurityGroupDescription = CreateDBSecurityGroup'{_cdsgTags = Nothing, _cdsgDBSecurityGroupName = pDBSecurityGroupName, _cdsgDBSecurityGroupDescription = pDBSecurityGroupDescription};
 
 -- | FIXME: Undocumented member.
-cdsgTags :: Lens' CreateDBSecurityGroup [Tag]
+cdsgTags :: Lens' CreateDBSecurityGroup (Maybe [Tag])
 cdsgTags = lens _cdsgTags (\ s a -> s{_cdsgTags = a});
 
 -- | The name for the DB security group. This value is stored as a lowercase

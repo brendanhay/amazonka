@@ -160,7 +160,7 @@ instance AWSRequest CreateDataSourceFromRDS where
           = receiveJSON
               (\ s h x ->
                  CreateDataSourceFromRDSResponse' <$>
-                   x .:> "DataSourceId")
+                   x .?> "DataSourceId")
 
 instance ToHeaders CreateDataSourceFromRDS where
         toHeaders
@@ -191,13 +191,13 @@ instance ToQuery CreateDataSourceFromRDS where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cDataSourceId'
-newtype CreateDataSourceFromRDSResponse = CreateDataSourceFromRDSResponse'{_cDataSourceId :: Text} deriving (Eq, Read, Show)
+newtype CreateDataSourceFromRDSResponse = CreateDataSourceFromRDSResponse'{_cDataSourceId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'CreateDataSourceFromRDSResponse' smart constructor.
-createDataSourceFromRDSResponse :: Text -> CreateDataSourceFromRDSResponse
-createDataSourceFromRDSResponse pDataSourceId = CreateDataSourceFromRDSResponse'{_cDataSourceId = pDataSourceId};
+createDataSourceFromRDSResponse :: CreateDataSourceFromRDSResponse
+createDataSourceFromRDSResponse = CreateDataSourceFromRDSResponse'{_cDataSourceId = Nothing};
 
 -- | A user-supplied ID that uniquely identifies the datasource. This value
 -- should be identical to the value of the @DataSourceID@ in the request.
-cDataSourceId :: Lens' CreateDataSourceFromRDSResponse Text
+cDataSourceId :: Lens' CreateDataSourceFromRDSResponse (Maybe Text)
 cDataSourceId = lens _cDataSourceId (\ s a -> s{_cDataSourceId = a});

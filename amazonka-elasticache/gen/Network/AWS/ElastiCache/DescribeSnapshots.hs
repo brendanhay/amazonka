@@ -135,15 +135,15 @@ instance ToQuery DescribeSnapshots where
 -- * 'dsrSnapshots'
 --
 -- * 'dsrMarker'
-data DescribeSnapshotsResponse = DescribeSnapshotsResponse'{_dsrSnapshots :: [Snapshot], _dsrMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeSnapshotsResponse = DescribeSnapshotsResponse'{_dsrSnapshots :: Maybe [Snapshot], _dsrMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeSnapshotsResponse' smart constructor.
 describeSnapshotsResponse :: DescribeSnapshotsResponse
-describeSnapshotsResponse = DescribeSnapshotsResponse'{_dsrSnapshots = mempty, _dsrMarker = Nothing};
+describeSnapshotsResponse = DescribeSnapshotsResponse'{_dsrSnapshots = Nothing, _dsrMarker = Nothing};
 
 -- | A list of snapshots. Each item in the list contains detailed information
 -- about one snapshot.
-dsrSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
+dsrSnapshots :: Lens' DescribeSnapshotsResponse (Maybe [Snapshot])
 dsrSnapshots = lens _dsrSnapshots (\ s a -> s{_dsrSnapshots = a});
 
 -- | An optional marker returned from a prior request. Use this marker for

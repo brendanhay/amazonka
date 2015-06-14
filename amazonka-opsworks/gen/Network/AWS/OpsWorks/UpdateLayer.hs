@@ -90,11 +90,11 @@ import Network.AWS.OpsWorks.Types
 -- * 'ulAutoAssignElasticIPs'
 --
 -- * 'ulLayerId'
-data UpdateLayer = UpdateLayer'{_ulCustomInstanceProfileARN :: Maybe Text, _ulInstallUpdatesOnBoot :: Maybe Bool, _ulCustomSecurityGroupIds :: [Text], _ulLifecycleEventConfiguration :: Maybe LifecycleEventConfiguration, _ulShortname :: Maybe Text, _ulCustomRecipes :: Maybe Recipes, _ulVolumeConfigurations :: [VolumeConfiguration], _ulEnableAutoHealing :: Maybe Bool, _ulPackages :: [Text], _ulName :: Maybe Text, _ulAttributes :: HashMap LayerAttributesKeys Text, _ulAutoAssignPublicIPs :: Maybe Bool, _ulUseEBSOptimizedInstances :: Maybe Bool, _ulAutoAssignElasticIPs :: Maybe Bool, _ulLayerId :: Text} deriving (Eq, Read, Show)
+data UpdateLayer = UpdateLayer'{_ulCustomInstanceProfileARN :: Maybe Text, _ulInstallUpdatesOnBoot :: Maybe Bool, _ulCustomSecurityGroupIds :: Maybe [Text], _ulLifecycleEventConfiguration :: Maybe LifecycleEventConfiguration, _ulShortname :: Maybe Text, _ulCustomRecipes :: Maybe Recipes, _ulVolumeConfigurations :: Maybe [VolumeConfiguration], _ulEnableAutoHealing :: Maybe Bool, _ulPackages :: Maybe [Text], _ulName :: Maybe Text, _ulAttributes :: Maybe (HashMap LayerAttributesKeys Text), _ulAutoAssignPublicIPs :: Maybe Bool, _ulUseEBSOptimizedInstances :: Maybe Bool, _ulAutoAssignElasticIPs :: Maybe Bool, _ulLayerId :: Text} deriving (Eq, Read, Show)
 
 -- | 'UpdateLayer' smart constructor.
 updateLayer :: Text -> UpdateLayer
-updateLayer pLayerId = UpdateLayer'{_ulCustomInstanceProfileARN = Nothing, _ulInstallUpdatesOnBoot = Nothing, _ulCustomSecurityGroupIds = mempty, _ulLifecycleEventConfiguration = Nothing, _ulShortname = Nothing, _ulCustomRecipes = Nothing, _ulVolumeConfigurations = mempty, _ulEnableAutoHealing = Nothing, _ulPackages = mempty, _ulName = Nothing, _ulAttributes = mempty, _ulAutoAssignPublicIPs = Nothing, _ulUseEBSOptimizedInstances = Nothing, _ulAutoAssignElasticIPs = Nothing, _ulLayerId = pLayerId};
+updateLayer pLayerId = UpdateLayer'{_ulCustomInstanceProfileARN = Nothing, _ulInstallUpdatesOnBoot = Nothing, _ulCustomSecurityGroupIds = Nothing, _ulLifecycleEventConfiguration = Nothing, _ulShortname = Nothing, _ulCustomRecipes = Nothing, _ulVolumeConfigurations = Nothing, _ulEnableAutoHealing = Nothing, _ulPackages = Nothing, _ulName = Nothing, _ulAttributes = Nothing, _ulAutoAssignPublicIPs = Nothing, _ulUseEBSOptimizedInstances = Nothing, _ulAutoAssignElasticIPs = Nothing, _ulLayerId = pLayerId};
 
 -- | The ARN of an IAM profile to be used for all of the layer\'s EC2
 -- instances. For more information about IAM ARNs, see
@@ -115,7 +115,7 @@ ulInstallUpdatesOnBoot :: Lens' UpdateLayer (Maybe Bool)
 ulInstallUpdatesOnBoot = lens _ulInstallUpdatesOnBoot (\ s a -> s{_ulInstallUpdatesOnBoot = a});
 
 -- | An array containing the layer\'s custom security group IDs.
-ulCustomSecurityGroupIds :: Lens' UpdateLayer [Text]
+ulCustomSecurityGroupIds :: Lens' UpdateLayer (Maybe [Text])
 ulCustomSecurityGroupIds = lens _ulCustomSecurityGroupIds (\ s a -> s{_ulCustomSecurityGroupIds = a});
 
 -- |
@@ -141,7 +141,7 @@ ulCustomRecipes = lens _ulCustomRecipes (\ s a -> s{_ulCustomRecipes = a});
 
 -- | A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS
 -- volumes.
-ulVolumeConfigurations :: Lens' UpdateLayer [VolumeConfiguration]
+ulVolumeConfigurations :: Lens' UpdateLayer (Maybe [VolumeConfiguration])
 ulVolumeConfigurations = lens _ulVolumeConfigurations (\ s a -> s{_ulVolumeConfigurations = a});
 
 -- | Whether to disable auto healing for the layer.
@@ -149,7 +149,7 @@ ulEnableAutoHealing :: Lens' UpdateLayer (Maybe Bool)
 ulEnableAutoHealing = lens _ulEnableAutoHealing (\ s a -> s{_ulEnableAutoHealing = a});
 
 -- | An array of @Package@ objects that describe the layer\'s packages.
-ulPackages :: Lens' UpdateLayer [Text]
+ulPackages :: Lens' UpdateLayer (Maybe [Text])
 ulPackages = lens _ulPackages (\ s a -> s{_ulPackages = a});
 
 -- | The layer name, which is used by the console.
@@ -158,8 +158,8 @@ ulName = lens _ulName (\ s a -> s{_ulName = a});
 
 -- | One or more user-defined key\/value pairs to be added to the stack
 -- attributes.
-ulAttributes :: Lens' UpdateLayer (HashMap LayerAttributesKeys Text)
-ulAttributes = lens _ulAttributes (\ s a -> s{_ulAttributes = a}) . _Coerce;
+ulAttributes :: Lens' UpdateLayer (Maybe (HashMap LayerAttributesKeys Text))
+ulAttributes = lens _ulAttributes (\ s a -> s{_ulAttributes = a}) . mapping _Coerce;
 
 -- | For stacks that are running in a VPC, whether to automatically assign a
 -- public IP address to the layer\'s instances. For more information, see

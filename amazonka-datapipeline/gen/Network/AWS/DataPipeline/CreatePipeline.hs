@@ -54,11 +54,11 @@ import Network.AWS.DataPipeline.Types
 -- * 'cpName'
 --
 -- * 'cpUniqueId'
-data CreatePipeline = CreatePipeline'{_cpDescription :: Maybe Text, _cpTags :: [Tag], _cpName :: Text, _cpUniqueId :: Text} deriving (Eq, Read, Show)
+data CreatePipeline = CreatePipeline'{_cpDescription :: Maybe Text, _cpTags :: Maybe [Tag], _cpName :: Text, _cpUniqueId :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreatePipeline' smart constructor.
 createPipeline :: Text -> Text -> CreatePipeline
-createPipeline pName pUniqueId = CreatePipeline'{_cpDescription = Nothing, _cpTags = mempty, _cpName = pName, _cpUniqueId = pUniqueId};
+createPipeline pName pUniqueId = CreatePipeline'{_cpDescription = Nothing, _cpTags = Nothing, _cpName = pName, _cpUniqueId = pUniqueId};
 
 -- | The description for the pipeline.
 cpDescription :: Lens' CreatePipeline (Maybe Text)
@@ -68,7 +68,7 @@ cpDescription = lens _cpDescription (\ s a -> s{_cpDescription = a});
 -- control access to pipelines. For more information, see
 -- <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines>
 -- in the /AWS Data Pipeline Developer Guide/.
-cpTags :: Lens' CreatePipeline [Tag]
+cpTags :: Lens' CreatePipeline (Maybe [Tag])
 cpTags = lens _cpTags (\ s a -> s{_cpTags = a});
 
 -- | The name for the pipeline. You can use the same name for multiple

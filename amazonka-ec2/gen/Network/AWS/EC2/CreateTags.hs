@@ -58,8 +58,8 @@ import Network.AWS.EC2.Types
 data CreateTags = CreateTags'{_creDryRun :: Maybe Bool, _creResources :: [Text], _creTags :: [Tag]} deriving (Eq, Read, Show)
 
 -- | 'CreateTags' smart constructor.
-createTags :: [Text] -> [Tag] -> CreateTags
-createTags pResources pTags = CreateTags'{_creDryRun = Nothing, _creResources = pResources, _creTags = pTags};
+createTags :: CreateTags
+createTags = CreateTags'{_creDryRun = Nothing, _creResources = mempty, _creTags = mempty};
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have

@@ -57,18 +57,18 @@ import Network.AWS.EC2.Types
 -- * 'distDryRun'
 --
 -- * 'distMaxResults'
-data DescribeImportSnapshotTasks = DescribeImportSnapshotTasks'{_distFilters :: [Filter], _distImportTaskIds :: [Text], _distNextToken :: Maybe Text, _distDryRun :: Maybe Bool, _distMaxResults :: Maybe Int} deriving (Eq, Read, Show)
+data DescribeImportSnapshotTasks = DescribeImportSnapshotTasks'{_distFilters :: Maybe [Filter], _distImportTaskIds :: Maybe [Text], _distNextToken :: Maybe Text, _distDryRun :: Maybe Bool, _distMaxResults :: Maybe Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeImportSnapshotTasks' smart constructor.
 describeImportSnapshotTasks :: DescribeImportSnapshotTasks
-describeImportSnapshotTasks = DescribeImportSnapshotTasks'{_distFilters = mempty, _distImportTaskIds = mempty, _distNextToken = Nothing, _distDryRun = Nothing, _distMaxResults = Nothing};
+describeImportSnapshotTasks = DescribeImportSnapshotTasks'{_distFilters = Nothing, _distImportTaskIds = Nothing, _distNextToken = Nothing, _distDryRun = Nothing, _distMaxResults = Nothing};
 
 -- | One or more filters.
-distFilters :: Lens' DescribeImportSnapshotTasks [Filter]
+distFilters :: Lens' DescribeImportSnapshotTasks (Maybe [Filter])
 distFilters = lens _distFilters (\ s a -> s{_distFilters = a});
 
 -- | A list of import snapshot task IDs.
-distImportTaskIds :: Lens' DescribeImportSnapshotTasks [Text]
+distImportTaskIds :: Lens' DescribeImportSnapshotTasks (Maybe [Text])
 distImportTaskIds = lens _distImportTaskIds (\ s a -> s{_distImportTaskIds = a});
 
 -- | A token that indicates the next page of results.
@@ -122,11 +122,11 @@ instance ToQuery DescribeImportSnapshotTasks where
 -- * 'distrNextToken'
 --
 -- * 'distrImportSnapshotTasks'
-data DescribeImportSnapshotTasksResponse = DescribeImportSnapshotTasksResponse'{_distrNextToken :: Maybe Text, _distrImportSnapshotTasks :: [ImportSnapshotTask]} deriving (Eq, Read, Show)
+data DescribeImportSnapshotTasksResponse = DescribeImportSnapshotTasksResponse'{_distrNextToken :: Maybe Text, _distrImportSnapshotTasks :: Maybe [ImportSnapshotTask]} deriving (Eq, Read, Show)
 
 -- | 'DescribeImportSnapshotTasksResponse' smart constructor.
 describeImportSnapshotTasksResponse :: DescribeImportSnapshotTasksResponse
-describeImportSnapshotTasksResponse = DescribeImportSnapshotTasksResponse'{_distrNextToken = Nothing, _distrImportSnapshotTasks = mempty};
+describeImportSnapshotTasksResponse = DescribeImportSnapshotTasksResponse'{_distrNextToken = Nothing, _distrImportSnapshotTasks = Nothing};
 
 -- | The token to use to get the next page of results. This value is @null@
 -- when there are no more results to return.
@@ -135,5 +135,5 @@ distrNextToken = lens _distrNextToken (\ s a -> s{_distrNextToken = a});
 
 -- | A list of zero or more import snapshot tasks that are currently active
 -- or were completed or canceled in the previous 7 days.
-distrImportSnapshotTasks :: Lens' DescribeImportSnapshotTasksResponse [ImportSnapshotTask]
+distrImportSnapshotTasks :: Lens' DescribeImportSnapshotTasksResponse (Maybe [ImportSnapshotTask])
 distrImportSnapshotTasks = lens _distrImportSnapshotTasks (\ s a -> s{_distrImportSnapshotTasks = a});

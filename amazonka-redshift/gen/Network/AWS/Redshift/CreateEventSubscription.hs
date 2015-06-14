@@ -88,11 +88,11 @@ import Network.AWS.Redshift.Types
 -- * 'cesSubscriptionName'
 --
 -- * 'cesSNSTopicARN'
-data CreateEventSubscription = CreateEventSubscription'{_cesEnabled :: Maybe Bool, _cesSourceType :: Maybe Text, _cesSeverity :: Maybe Text, _cesEventCategories :: [Text], _cesSourceIds :: [Text], _cesTags :: [Tag], _cesSubscriptionName :: Text, _cesSNSTopicARN :: Text} deriving (Eq, Read, Show)
+data CreateEventSubscription = CreateEventSubscription'{_cesEnabled :: Maybe Bool, _cesSourceType :: Maybe Text, _cesSeverity :: Maybe Text, _cesEventCategories :: Maybe [Text], _cesSourceIds :: Maybe [Text], _cesTags :: Maybe [Tag], _cesSubscriptionName :: Text, _cesSNSTopicARN :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateEventSubscription' smart constructor.
 createEventSubscription :: Text -> Text -> CreateEventSubscription
-createEventSubscription pSubscriptionName pSNSTopicARN = CreateEventSubscription'{_cesEnabled = Nothing, _cesSourceType = Nothing, _cesSeverity = Nothing, _cesEventCategories = mempty, _cesSourceIds = mempty, _cesTags = mempty, _cesSubscriptionName = pSubscriptionName, _cesSNSTopicARN = pSNSTopicARN};
+createEventSubscription pSubscriptionName pSNSTopicARN = CreateEventSubscription'{_cesEnabled = Nothing, _cesSourceType = Nothing, _cesSeverity = Nothing, _cesEventCategories = Nothing, _cesSourceIds = Nothing, _cesTags = Nothing, _cesSubscriptionName = pSubscriptionName, _cesSNSTopicARN = pSNSTopicARN};
 
 -- | A Boolean value; set to @true@ to activate the subscription, set to
 -- @false@ to create the subscription but not active it.
@@ -121,7 +121,7 @@ cesSeverity = lens _cesSeverity (\ s a -> s{_cesSeverity = a});
 -- event notification subscription.
 --
 -- Values: Configuration, Management, Monitoring, Security
-cesEventCategories :: Lens' CreateEventSubscription [Text]
+cesEventCategories :: Lens' CreateEventSubscription (Maybe [Text])
 cesEventCategories = lens _cesEventCategories (\ s a -> s{_cesEventCategories = a});
 
 -- | A list of one or more identifiers of Amazon Redshift source objects. All
@@ -133,11 +133,11 @@ cesEventCategories = lens _cesEventCategories (\ s a -> s{_cesEventCategories = 
 -- Example: my-cluster-1, my-cluster-2
 --
 -- Example: my-snapshot-20131010
-cesSourceIds :: Lens' CreateEventSubscription [Text]
+cesSourceIds :: Lens' CreateEventSubscription (Maybe [Text])
 cesSourceIds = lens _cesSourceIds (\ s a -> s{_cesSourceIds = a});
 
 -- | A list of tag instances.
-cesTags :: Lens' CreateEventSubscription [Tag]
+cesTags :: Lens' CreateEventSubscription (Maybe [Tag])
 cesTags = lens _cesTags (\ s a -> s{_cesTags = a});
 
 -- | The name of the event subscription to be created.

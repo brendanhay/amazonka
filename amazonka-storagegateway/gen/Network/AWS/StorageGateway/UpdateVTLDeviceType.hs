@@ -75,7 +75,7 @@ instance AWSRequest UpdateVTLDeviceType where
           = receiveJSON
               (\ s h x ->
                  UpdateVTLDeviceTypeResponse' <$>
-                   x .:> "VTLDeviceARN")
+                   x .?> "VTLDeviceARN")
 
 instance ToHeaders UpdateVTLDeviceType where
         toHeaders
@@ -104,12 +104,12 @@ instance ToQuery UpdateVTLDeviceType where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'uvtldtrVTLDeviceARN'
-newtype UpdateVTLDeviceTypeResponse = UpdateVTLDeviceTypeResponse'{_uvtldtrVTLDeviceARN :: Text} deriving (Eq, Read, Show)
+newtype UpdateVTLDeviceTypeResponse = UpdateVTLDeviceTypeResponse'{_uvtldtrVTLDeviceARN :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'UpdateVTLDeviceTypeResponse' smart constructor.
-updateVTLDeviceTypeResponse :: Text -> UpdateVTLDeviceTypeResponse
-updateVTLDeviceTypeResponse pVTLDeviceARN = UpdateVTLDeviceTypeResponse'{_uvtldtrVTLDeviceARN = pVTLDeviceARN};
+updateVTLDeviceTypeResponse :: UpdateVTLDeviceTypeResponse
+updateVTLDeviceTypeResponse = UpdateVTLDeviceTypeResponse'{_uvtldtrVTLDeviceARN = Nothing};
 
 -- | The Amazon Resource Name (ARN) of the medium changer you have selected.
-uvtldtrVTLDeviceARN :: Lens' UpdateVTLDeviceTypeResponse Text
+uvtldtrVTLDeviceARN :: Lens' UpdateVTLDeviceTypeResponse (Maybe Text)
 uvtldtrVTLDeviceARN = lens _uvtldtrVTLDeviceARN (\ s a -> s{_uvtldtrVTLDeviceARN = a});

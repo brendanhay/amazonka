@@ -55,14 +55,14 @@ import Network.AWS.Redshift.Types
 -- * 'creClusterSecurityGroupName'
 --
 -- * 'creDescription'
-data CreateClusterSecurityGroup = CreateClusterSecurityGroup'{_creTags :: [Tag], _creClusterSecurityGroupName :: Text, _creDescription :: Text} deriving (Eq, Read, Show)
+data CreateClusterSecurityGroup = CreateClusterSecurityGroup'{_creTags :: Maybe [Tag], _creClusterSecurityGroupName :: Text, _creDescription :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateClusterSecurityGroup' smart constructor.
 createClusterSecurityGroup :: Text -> Text -> CreateClusterSecurityGroup
-createClusterSecurityGroup pClusterSecurityGroupName pDescription = CreateClusterSecurityGroup'{_creTags = mempty, _creClusterSecurityGroupName = pClusterSecurityGroupName, _creDescription = pDescription};
+createClusterSecurityGroup pClusterSecurityGroupName pDescription = CreateClusterSecurityGroup'{_creTags = Nothing, _creClusterSecurityGroupName = pClusterSecurityGroupName, _creDescription = pDescription};
 
 -- | A list of tag instances.
-creTags :: Lens' CreateClusterSecurityGroup [Tag]
+creTags :: Lens' CreateClusterSecurityGroup (Maybe [Tag])
 creTags = lens _creTags (\ s a -> s{_creTags = a});
 
 -- | The name for the security group. Amazon Redshift stores the value as a

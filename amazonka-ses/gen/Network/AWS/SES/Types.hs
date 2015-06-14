@@ -167,7 +167,7 @@ data Content = Content'{_conCharset :: Maybe Text, _conData :: Text} deriving (E
 
 -- | 'Content' smart constructor.
 content :: Text -> Content
-content pData' = Content'{_conCharset = Nothing, _conData = pData'};
+content pData = Content'{_conCharset = Nothing, _conData = pData};
 
 -- | The character set of the content.
 conCharset :: Lens' Content (Maybe Text)
@@ -191,22 +191,22 @@ instance ToQuery Content where
 -- * 'desCCAddresses'
 --
 -- * 'desToAddresses'
-data Destination = Destination'{_desBCCAddresses :: [Text], _desCCAddresses :: [Text], _desToAddresses :: [Text]} deriving (Eq, Read, Show)
+data Destination = Destination'{_desBCCAddresses :: Maybe [Text], _desCCAddresses :: Maybe [Text], _desToAddresses :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'Destination' smart constructor.
 destination :: Destination
-destination = Destination'{_desBCCAddresses = mempty, _desCCAddresses = mempty, _desToAddresses = mempty};
+destination = Destination'{_desBCCAddresses = Nothing, _desCCAddresses = Nothing, _desToAddresses = Nothing};
 
 -- | The BCC: field(s) of the message.
-desBCCAddresses :: Lens' Destination [Text]
+desBCCAddresses :: Lens' Destination (Maybe [Text])
 desBCCAddresses = lens _desBCCAddresses (\ s a -> s{_desBCCAddresses = a});
 
 -- | The CC: field(s) of the message.
-desCCAddresses :: Lens' Destination [Text]
+desCCAddresses :: Lens' Destination (Maybe [Text])
 desCCAddresses = lens _desCCAddresses (\ s a -> s{_desCCAddresses = a});
 
 -- | The To: field(s) of the message.
-desToAddresses :: Lens' Destination [Text]
+desToAddresses :: Lens' Destination (Maybe [Text])
 desToAddresses = lens _desToAddresses (\ s a -> s{_desToAddresses = a});
 
 instance ToQuery Destination where
@@ -225,11 +225,11 @@ instance ToQuery Destination where
 -- * 'idaDkimEnabled'
 --
 -- * 'idaDkimVerificationStatus'
-data IdentityDkimAttributes = IdentityDkimAttributes'{_idaDkimTokens :: [Text], _idaDkimEnabled :: Bool, _idaDkimVerificationStatus :: VerificationStatus} deriving (Eq, Read, Show)
+data IdentityDkimAttributes = IdentityDkimAttributes'{_idaDkimTokens :: Maybe [Text], _idaDkimEnabled :: Bool, _idaDkimVerificationStatus :: VerificationStatus} deriving (Eq, Read, Show)
 
 -- | 'IdentityDkimAttributes' smart constructor.
 identityDkimAttributes :: Bool -> VerificationStatus -> IdentityDkimAttributes
-identityDkimAttributes pDkimEnabled pDkimVerificationStatus = IdentityDkimAttributes'{_idaDkimTokens = mempty, _idaDkimEnabled = pDkimEnabled, _idaDkimVerificationStatus = pDkimVerificationStatus};
+identityDkimAttributes pDkimEnabled pDkimVerificationStatus = IdentityDkimAttributes'{_idaDkimTokens = Nothing, _idaDkimEnabled = pDkimEnabled, _idaDkimVerificationStatus = pDkimVerificationStatus};
 
 -- | A set of character strings that represent the domain\'s identity. Using
 -- these tokens, you will need to create DNS CNAME records that point to
@@ -242,7 +242,7 @@ identityDkimAttributes pDkimEnabled pDkimVerificationStatus = IdentityDkimAttrib
 -- For more information about creating DNS records using DKIM tokens, go to
 -- the
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide>.
-idaDkimTokens :: Lens' IdentityDkimAttributes [Text]
+idaDkimTokens :: Lens' IdentityDkimAttributes (Maybe [Text])
 idaDkimTokens = lens _idaDkimTokens (\ s a -> s{_idaDkimTokens = a});
 
 -- | True if DKIM signing is enabled for email sent from the identity; false
@@ -412,7 +412,7 @@ newtype RawMessage = RawMessage'{_rmData :: Base64} deriving (Eq, Read, Show)
 
 -- | 'RawMessage' smart constructor.
 rawMessage :: Base64 -> RawMessage
-rawMessage pData' = RawMessage'{_rmData = pData'};
+rawMessage pData = RawMessage'{_rmData = pData};
 
 -- | The raw data of the message. The client must ensure that the message
 -- format complies with Internet email standards regarding email header

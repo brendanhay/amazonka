@@ -50,11 +50,11 @@ import Network.AWS.EC2.Types
 -- * 'desInternetGatewayIds'
 --
 -- * 'desDryRun'
-data DescribeInternetGateways = DescribeInternetGateways'{_desFilters :: [Filter], _desInternetGatewayIds :: [Text], _desDryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data DescribeInternetGateways = DescribeInternetGateways'{_desFilters :: Maybe [Filter], _desInternetGatewayIds :: Maybe [Text], _desDryRun :: Maybe Bool} deriving (Eq, Read, Show)
 
 -- | 'DescribeInternetGateways' smart constructor.
 describeInternetGateways :: DescribeInternetGateways
-describeInternetGateways = DescribeInternetGateways'{_desFilters = mempty, _desInternetGatewayIds = mempty, _desDryRun = Nothing};
+describeInternetGateways = DescribeInternetGateways'{_desFilters = Nothing, _desInternetGatewayIds = Nothing, _desDryRun = Nothing};
 
 -- | One or more filters.
 --
@@ -80,13 +80,13 @@ describeInternetGateways = DescribeInternetGateways'{_desFilters = mempty, _desI
 -- -   @tag-value@ - The value of a tag assigned to the resource. This
 --     filter is independent of the @tag-key@ filter.
 --
-desFilters :: Lens' DescribeInternetGateways [Filter]
+desFilters :: Lens' DescribeInternetGateways (Maybe [Filter])
 desFilters = lens _desFilters (\ s a -> s{_desFilters = a});
 
 -- | One or more Internet gateway IDs.
 --
 -- Default: Describes all your Internet gateways.
-desInternetGatewayIds :: Lens' DescribeInternetGateways [Text]
+desInternetGatewayIds :: Lens' DescribeInternetGateways (Maybe [Text])
 desInternetGatewayIds = lens _desInternetGatewayIds (\ s a -> s{_desInternetGatewayIds = a});
 
 -- | Checks whether you have the required permissions for the action, without
@@ -128,12 +128,12 @@ instance ToQuery DescribeInternetGateways where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'digrInternetGateways'
-newtype DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse'{_digrInternetGateways :: [InternetGateway]} deriving (Eq, Read, Show)
+newtype DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse'{_digrInternetGateways :: Maybe [InternetGateway]} deriving (Eq, Read, Show)
 
 -- | 'DescribeInternetGatewaysResponse' smart constructor.
 describeInternetGatewaysResponse :: DescribeInternetGatewaysResponse
-describeInternetGatewaysResponse = DescribeInternetGatewaysResponse'{_digrInternetGateways = mempty};
+describeInternetGatewaysResponse = DescribeInternetGatewaysResponse'{_digrInternetGateways = Nothing};
 
 -- | Information about one or more Internet gateways.
-digrInternetGateways :: Lens' DescribeInternetGatewaysResponse [InternetGateway]
+digrInternetGateways :: Lens' DescribeInternetGatewaysResponse (Maybe [InternetGateway])
 digrInternetGateways = lens _digrInternetGateways (\ s a -> s{_digrInternetGateways = a});

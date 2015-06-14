@@ -54,11 +54,11 @@ import Network.AWS.EC2.Types
 -- * 'drt2DryRun'
 --
 -- * 'drt2RouteTableIds'
-data DescribeRouteTables = DescribeRouteTables'{_drt2Filters :: [Filter], _drt2DryRun :: Maybe Bool, _drt2RouteTableIds :: [Text]} deriving (Eq, Read, Show)
+data DescribeRouteTables = DescribeRouteTables'{_drt2Filters :: Maybe [Filter], _drt2DryRun :: Maybe Bool, _drt2RouteTableIds :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'DescribeRouteTables' smart constructor.
 describeRouteTables :: DescribeRouteTables
-describeRouteTables = DescribeRouteTables'{_drt2Filters = mempty, _drt2DryRun = Nothing, _drt2RouteTableIds = mempty};
+describeRouteTables = DescribeRouteTables'{_drt2Filters = Nothing, _drt2DryRun = Nothing, _drt2RouteTableIds = Nothing};
 
 -- | One or more filters.
 --
@@ -120,7 +120,7 @@ describeRouteTables = DescribeRouteTables'{_drt2Filters = mempty, _drt2DryRun = 
 --
 -- -   @vpc-id@ - The ID of the VPC for the route table.
 --
-drt2Filters :: Lens' DescribeRouteTables [Filter]
+drt2Filters :: Lens' DescribeRouteTables (Maybe [Filter])
 drt2Filters = lens _drt2Filters (\ s a -> s{_drt2Filters = a});
 
 -- | Checks whether you have the required permissions for the action, without
@@ -133,7 +133,7 @@ drt2DryRun = lens _drt2DryRun (\ s a -> s{_drt2DryRun = a});
 -- | One or more route table IDs.
 --
 -- Default: Describes all your route tables.
-drt2RouteTableIds :: Lens' DescribeRouteTables [Text]
+drt2RouteTableIds :: Lens' DescribeRouteTables (Maybe [Text])
 drt2RouteTableIds = lens _drt2RouteTableIds (\ s a -> s{_drt2RouteTableIds = a});
 
 instance AWSRequest DescribeRouteTables where
@@ -166,12 +166,12 @@ instance ToQuery DescribeRouteTables where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'drtrRouteTables'
-newtype DescribeRouteTablesResponse = DescribeRouteTablesResponse'{_drtrRouteTables :: [RouteTable]} deriving (Eq, Read, Show)
+newtype DescribeRouteTablesResponse = DescribeRouteTablesResponse'{_drtrRouteTables :: Maybe [RouteTable]} deriving (Eq, Read, Show)
 
 -- | 'DescribeRouteTablesResponse' smart constructor.
 describeRouteTablesResponse :: DescribeRouteTablesResponse
-describeRouteTablesResponse = DescribeRouteTablesResponse'{_drtrRouteTables = mempty};
+describeRouteTablesResponse = DescribeRouteTablesResponse'{_drtrRouteTables = Nothing};
 
 -- | Information about one or more route tables.
-drtrRouteTables :: Lens' DescribeRouteTablesResponse [RouteTable]
+drtrRouteTables :: Lens' DescribeRouteTablesResponse (Maybe [RouteTable])
 drtrRouteTables = lens _drtrRouteTables (\ s a -> s{_drtrRouteTables = a});

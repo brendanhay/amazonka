@@ -164,11 +164,11 @@ instance ToQuery ListTasks where
 -- * 'ltrNextToken'
 --
 -- * 'ltrTaskARNs'
-data ListTasksResponse = ListTasksResponse'{_ltrNextToken :: Maybe Text, _ltrTaskARNs :: [Text]} deriving (Eq, Read, Show)
+data ListTasksResponse = ListTasksResponse'{_ltrNextToken :: Maybe Text, _ltrTaskARNs :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'ListTasksResponse' smart constructor.
 listTasksResponse :: ListTasksResponse
-listTasksResponse = ListTasksResponse'{_ltrNextToken = Nothing, _ltrTaskARNs = mempty};
+listTasksResponse = ListTasksResponse'{_ltrNextToken = Nothing, _ltrTaskARNs = Nothing};
 
 -- | The @nextToken@ value to include in a future @ListTasks@ request. When
 -- the results of a @ListTasks@ request exceed @maxResults@, this value can
@@ -179,5 +179,5 @@ ltrNextToken = lens _ltrNextToken (\ s a -> s{_ltrNextToken = a});
 
 -- | The list of task Amazon Resource Name (ARN) entries for the @ListTasks@
 -- request.
-ltrTaskARNs :: Lens' ListTasksResponse [Text]
+ltrTaskARNs :: Lens' ListTasksResponse (Maybe [Text])
 ltrTaskARNs = lens _ltrTaskARNs (\ s a -> s{_ltrTaskARNs = a});

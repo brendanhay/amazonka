@@ -145,8 +145,8 @@ instance ToQuery ListHostedZonesByName where
 data ListHostedZonesByNameResponse = ListHostedZonesByNameResponse'{_lhzbnrHostedZoneId :: Maybe Text, _lhzbnrNextHostedZoneId :: Maybe Text, _lhzbnrDNSName :: Maybe Text, _lhzbnrNextDNSName :: Maybe Text, _lhzbnrHostedZones :: [HostedZone], _lhzbnrIsTruncated :: Bool, _lhzbnrMaxItems :: Text} deriving (Eq, Read, Show)
 
 -- | 'ListHostedZonesByNameResponse' smart constructor.
-listHostedZonesByNameResponse :: [HostedZone] -> Bool -> Text -> ListHostedZonesByNameResponse
-listHostedZonesByNameResponse pHostedZones pIsTruncated pMaxItems = ListHostedZonesByNameResponse'{_lhzbnrHostedZoneId = Nothing, _lhzbnrNextHostedZoneId = Nothing, _lhzbnrDNSName = Nothing, _lhzbnrNextDNSName = Nothing, _lhzbnrHostedZones = pHostedZones, _lhzbnrIsTruncated = pIsTruncated, _lhzbnrMaxItems = pMaxItems};
+listHostedZonesByNameResponse :: Bool -> Text -> ListHostedZonesByNameResponse
+listHostedZonesByNameResponse pIsTruncated pMaxItems = ListHostedZonesByNameResponse'{_lhzbnrHostedZoneId = Nothing, _lhzbnrNextHostedZoneId = Nothing, _lhzbnrDNSName = Nothing, _lhzbnrNextDNSName = Nothing, _lhzbnrHostedZones = mempty, _lhzbnrIsTruncated = pIsTruncated, _lhzbnrMaxItems = pMaxItems};
 
 -- | The @HostedZoneId@ value sent in the request.
 lhzbnrHostedZoneId :: Lens' ListHostedZonesByNameResponse (Maybe Text)

@@ -106,14 +106,14 @@ instance ToQuery ListJobs where
 -- * 'ljrJobs'
 --
 -- * 'ljrIsTruncated'
-data ListJobsResponse = ListJobsResponse'{_ljrJobs :: [Job], _ljrIsTruncated :: Maybe Bool} deriving (Eq, Read, Show)
+data ListJobsResponse = ListJobsResponse'{_ljrJobs :: Maybe [Job], _ljrIsTruncated :: Maybe Bool} deriving (Eq, Read, Show)
 
 -- | 'ListJobsResponse' smart constructor.
 listJobsResponse :: ListJobsResponse
-listJobsResponse = ListJobsResponse'{_ljrJobs = mempty, _ljrIsTruncated = Nothing};
+listJobsResponse = ListJobsResponse'{_ljrJobs = Nothing, _ljrIsTruncated = Nothing};
 
 -- | FIXME: Undocumented member.
-ljrJobs :: Lens' ListJobsResponse [Job]
+ljrJobs :: Lens' ListJobsResponse (Maybe [Job])
 ljrJobs = lens _ljrJobs (\ s a -> s{_ljrJobs = a});
 
 -- | FIXME: Undocumented member.

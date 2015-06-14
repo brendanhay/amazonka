@@ -49,8 +49,8 @@ import Network.AWS.EC2.Types
 data UnassignPrivateIPAddresses = UnassignPrivateIPAddresses'{_upiaNetworkInterfaceId :: Text, _upiaPrivateIPAddresses :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'UnassignPrivateIPAddresses' smart constructor.
-unassignPrivateIPAddresses :: Text -> [Text] -> UnassignPrivateIPAddresses
-unassignPrivateIPAddresses pNetworkInterfaceId pPrivateIPAddresses = UnassignPrivateIPAddresses'{_upiaNetworkInterfaceId = pNetworkInterfaceId, _upiaPrivateIPAddresses = pPrivateIPAddresses};
+unassignPrivateIPAddresses :: Text -> UnassignPrivateIPAddresses
+unassignPrivateIPAddresses pNetworkInterfaceId = UnassignPrivateIPAddresses'{_upiaNetworkInterfaceId = pNetworkInterfaceId, _upiaPrivateIPAddresses = mempty};
 
 -- | The ID of the network interface.
 upiaNetworkInterfaceId :: Lens' UnassignPrivateIPAddresses Text

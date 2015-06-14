@@ -83,11 +83,11 @@ import Network.AWS.EC2.Types
 -- * 'dis1DryRun'
 --
 -- * 'dis1MaxResults'
-data DescribeInstanceStatus = DescribeInstanceStatus'{_dis1IncludeAllInstances :: Maybe Bool, _dis1Filters :: [Filter], _dis1NextToken :: Maybe Text, _dis1InstanceIds :: [Text], _dis1DryRun :: Maybe Bool, _dis1MaxResults :: Maybe Int} deriving (Eq, Read, Show)
+data DescribeInstanceStatus = DescribeInstanceStatus'{_dis1IncludeAllInstances :: Maybe Bool, _dis1Filters :: Maybe [Filter], _dis1NextToken :: Maybe Text, _dis1InstanceIds :: Maybe [Text], _dis1DryRun :: Maybe Bool, _dis1MaxResults :: Maybe Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeInstanceStatus' smart constructor.
 describeInstanceStatus :: DescribeInstanceStatus
-describeInstanceStatus = DescribeInstanceStatus'{_dis1IncludeAllInstances = Nothing, _dis1Filters = mempty, _dis1NextToken = Nothing, _dis1InstanceIds = mempty, _dis1DryRun = Nothing, _dis1MaxResults = Nothing};
+describeInstanceStatus = DescribeInstanceStatus'{_dis1IncludeAllInstances = Nothing, _dis1Filters = Nothing, _dis1NextToken = Nothing, _dis1InstanceIds = Nothing, _dis1DryRun = Nothing, _dis1MaxResults = Nothing};
 
 -- | When @true@, includes the health status for all instances. When @false@,
 -- includes the health status for running instances only.
@@ -138,7 +138,7 @@ dis1IncludeAllInstances = lens _dis1IncludeAllInstances (\ s a -> s{_dis1Include
 --     @impaired@ | @initializing@ | @insufficient-data@ |
 --     @not-applicable@).
 --
-dis1Filters :: Lens' DescribeInstanceStatus [Filter]
+dis1Filters :: Lens' DescribeInstanceStatus (Maybe [Filter])
 dis1Filters = lens _dis1Filters (\ s a -> s{_dis1Filters = a});
 
 -- | The token to retrieve the next page of results.
@@ -150,7 +150,7 @@ dis1NextToken = lens _dis1NextToken (\ s a -> s{_dis1NextToken = a});
 -- Default: Describes all your instances.
 --
 -- Constraints: Maximum 100 explicitly specified instance IDs.
-dis1InstanceIds :: Lens' DescribeInstanceStatus [Text]
+dis1InstanceIds :: Lens' DescribeInstanceStatus (Maybe [Text])
 dis1InstanceIds = lens _dis1InstanceIds (\ s a -> s{_dis1InstanceIds = a});
 
 -- | Checks whether you have the required permissions for the action, without
@@ -206,14 +206,14 @@ instance ToQuery DescribeInstanceStatus where
 -- * 'disrInstanceStatuses'
 --
 -- * 'disrNextToken'
-data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse'{_disrInstanceStatuses :: [InstanceStatus], _disrNextToken :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse'{_disrInstanceStatuses :: Maybe [InstanceStatus], _disrNextToken :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeInstanceStatusResponse' smart constructor.
 describeInstanceStatusResponse :: DescribeInstanceStatusResponse
-describeInstanceStatusResponse = DescribeInstanceStatusResponse'{_disrInstanceStatuses = mempty, _disrNextToken = Nothing};
+describeInstanceStatusResponse = DescribeInstanceStatusResponse'{_disrInstanceStatuses = Nothing, _disrNextToken = Nothing};
 
 -- | One or more instance status descriptions.
-disrInstanceStatuses :: Lens' DescribeInstanceStatusResponse [InstanceStatus]
+disrInstanceStatuses :: Lens' DescribeInstanceStatusResponse (Maybe [InstanceStatus])
 disrInstanceStatuses = lens _disrInstanceStatuses (\ s a -> s{_disrInstanceStatuses = a});
 
 -- | The token to use to retrieve the next page of results. This value is

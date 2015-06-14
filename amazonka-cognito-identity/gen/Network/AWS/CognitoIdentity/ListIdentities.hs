@@ -27,18 +27,18 @@ module Network.AWS.CognitoIdentity.ListIdentities
     , listIdentities
     -- ** Request lenses
     , liHideDisabled
+    , liNextToken
     , liIdentityPoolId
     , liMaxResults
-    , liNextToken
 
     -- * Response
     , ListIdentitiesResponse
     -- ** Response constructor
     , listIdentitiesResponse
     -- ** Response lenses
-    , lirIdentities
     , lirIdentityPoolId
     , lirNextToken
+    , lirIdentities
     ) where
 
 import Network.AWS.Request
@@ -52,22 +52,26 @@ import Network.AWS.CognitoIdentity.Types
 --
 -- * 'liHideDisabled'
 --
+-- * 'liNextToken'
+--
 -- * 'liIdentityPoolId'
 --
 -- * 'liMaxResults'
---
--- * 'liNextToken'
-data ListIdentities = ListIdentities'{_liHideDisabled :: Maybe Bool, _liIdentityPoolId :: Text, _liMaxResults :: Nat, _liNextToken :: Text} deriving (Eq, Read, Show)
+data ListIdentities = ListIdentities'{_liHideDisabled :: Maybe Bool, _liNextToken :: Maybe Text, _liIdentityPoolId :: Text, _liMaxResults :: Nat} deriving (Eq, Read, Show)
 
 -- | 'ListIdentities' smart constructor.
-listIdentities :: Text -> Natural -> Text -> ListIdentities
-listIdentities pIdentityPoolId pMaxResults pNextToken = ListIdentities'{_liHideDisabled = Nothing, _liIdentityPoolId = pIdentityPoolId, _liMaxResults = _Nat # pMaxResults, _liNextToken = pNextToken};
+listIdentities :: Text -> Natural -> ListIdentities
+listIdentities pIdentityPoolId pMaxResults = ListIdentities'{_liHideDisabled = Nothing, _liNextToken = Nothing, _liIdentityPoolId = pIdentityPoolId, _liMaxResults = _Nat # pMaxResults};
 
 -- | An optional boolean parameter that allows you to hide disabled
 -- identities. If omitted, the ListIdentities API will include disabled
 -- identities in the response.
 liHideDisabled :: Lens' ListIdentities (Maybe Bool)
 liHideDisabled = lens _liHideDisabled (\ s a -> s{_liHideDisabled = a});
+
+-- | A pagination token.
+liNextToken :: Lens' ListIdentities (Maybe Text)
+liNextToken = lens _liNextToken (\ s a -> s{_liNextToken = a});
 
 -- | An identity pool ID in the format REGION:GUID.
 liIdentityPoolId :: Lens' ListIdentities Text
@@ -77,10 +81,6 @@ liIdentityPoolId = lens _liIdentityPoolId (\ s a -> s{_liIdentityPoolId = a});
 liMaxResults :: Lens' ListIdentities Natural
 liMaxResults = lens _liMaxResults (\ s a -> s{_liMaxResults = a}) . _Nat;
 
--- | A pagination token.
-liNextToken :: Lens' ListIdentities Text
-liNextToken = lens _liNextToken (\ s a -> s{_liNextToken = a});
-
 instance AWSRequest ListIdentities where
         type Sv ListIdentities = CognitoIdentity
         type Rs ListIdentities = ListIdentitiesResponse
@@ -89,9 +89,8 @@ instance AWSRequest ListIdentities where
           = receiveJSON
               (\ s h x ->
                  ListIdentitiesResponse' <$>
-                   x .?> "Identities" .!@ mempty <*>
-                     x .:> "IdentityPoolId"
-                     <*> x .:> "NextToken")
+                   x .?> "IdentityPoolId" <*> x .?> "NextToken" <*>
+                     x .?> "Identities" .!@ mempty)
 
 instance ToHeaders ListIdentities where
         toHeaders
@@ -107,9 +106,9 @@ instance ToJSON ListIdentities where
         toJSON ListIdentities'{..}
           = object
               ["HideDisabled" .= _liHideDisabled,
+               "NextToken" .= _liNextToken,
                "IdentityPoolId" .= _liIdentityPoolId,
-               "MaxResults" .= _liMaxResults,
-               "NextToken" .= _liNextToken]
+               "MaxResults" .= _liMaxResults]
 
 instance ToPath ListIdentities where
         toPath = const "/"
@@ -121,25 +120,25 @@ instance ToQuery ListIdentities where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lirIdentities'
---
 -- * 'lirIdentityPoolId'
 --
 -- * 'lirNextToken'
-data ListIdentitiesResponse = ListIdentitiesResponse'{_lirIdentities :: [IdentityDescription], _lirIdentityPoolId :: Text, _lirNextToken :: Text} deriving (Eq, Read, Show)
+--
+-- * 'lirIdentities'
+data ListIdentitiesResponse = ListIdentitiesResponse'{_lirIdentityPoolId :: Maybe Text, _lirNextToken :: Maybe Text, _lirIdentities :: Maybe [IdentityDescription]} deriving (Eq, Read, Show)
 
 -- | 'ListIdentitiesResponse' smart constructor.
-listIdentitiesResponse :: Text -> Text -> ListIdentitiesResponse
-listIdentitiesResponse pIdentityPoolId pNextToken = ListIdentitiesResponse'{_lirIdentities = mempty, _lirIdentityPoolId = pIdentityPoolId, _lirNextToken = pNextToken};
-
--- | An object containing a set of identities and associated mappings.
-lirIdentities :: Lens' ListIdentitiesResponse [IdentityDescription]
-lirIdentities = lens _lirIdentities (\ s a -> s{_lirIdentities = a});
+listIdentitiesResponse :: ListIdentitiesResponse
+listIdentitiesResponse = ListIdentitiesResponse'{_lirIdentityPoolId = Nothing, _lirNextToken = Nothing, _lirIdentities = Nothing};
 
 -- | An identity pool ID in the format REGION:GUID.
-lirIdentityPoolId :: Lens' ListIdentitiesResponse Text
+lirIdentityPoolId :: Lens' ListIdentitiesResponse (Maybe Text)
 lirIdentityPoolId = lens _lirIdentityPoolId (\ s a -> s{_lirIdentityPoolId = a});
 
 -- | A pagination token.
-lirNextToken :: Lens' ListIdentitiesResponse Text
+lirNextToken :: Lens' ListIdentitiesResponse (Maybe Text)
 lirNextToken = lens _lirNextToken (\ s a -> s{_lirNextToken = a});
+
+-- | An object containing a set of identities and associated mappings.
+lirIdentities :: Lens' ListIdentitiesResponse (Maybe [IdentityDescription])
+lirIdentities = lens _lirIdentities (\ s a -> s{_lirIdentities = a});

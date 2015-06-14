@@ -48,8 +48,8 @@ import Network.AWS.DataPipeline.Types
 data AddTags = AddTags'{_atPipelineId :: Text, _atTags :: [Tag]} deriving (Eq, Read, Show)
 
 -- | 'AddTags' smart constructor.
-addTags :: Text -> [Tag] -> AddTags
-addTags pPipelineId pTags = AddTags'{_atPipelineId = pPipelineId, _atTags = pTags};
+addTags :: Text -> AddTags
+addTags pPipelineId = AddTags'{_atPipelineId = pPipelineId, _atTags = mempty};
 
 -- | The ID of the pipeline.
 atPipelineId :: Lens' AddTags Text

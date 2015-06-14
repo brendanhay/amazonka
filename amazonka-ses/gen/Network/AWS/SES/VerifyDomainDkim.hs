@@ -101,8 +101,8 @@ instance ToQuery VerifyDomainDkim where
 newtype VerifyDomainDkimResponse = VerifyDomainDkimResponse'{_vddrDkimTokens :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'VerifyDomainDkimResponse' smart constructor.
-verifyDomainDkimResponse :: [Text] -> VerifyDomainDkimResponse
-verifyDomainDkimResponse pDkimTokens = VerifyDomainDkimResponse'{_vddrDkimTokens = pDkimTokens};
+verifyDomainDkimResponse :: VerifyDomainDkimResponse
+verifyDomainDkimResponse = VerifyDomainDkimResponse'{_vddrDkimTokens = mempty};
 
 -- | A set of character strings that represent the domain\'s identity. If the
 -- identity is an email address, the tokens represent the domain of that

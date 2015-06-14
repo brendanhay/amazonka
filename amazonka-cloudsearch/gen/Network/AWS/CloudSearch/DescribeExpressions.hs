@@ -56,11 +56,11 @@ import Network.AWS.CloudSearch.Types
 -- * 'deExpressionNames'
 --
 -- * 'deDomainName'
-data DescribeExpressions = DescribeExpressions'{_deDeployed :: Maybe Bool, _deExpressionNames :: [Text], _deDomainName :: Text} deriving (Eq, Read, Show)
+data DescribeExpressions = DescribeExpressions'{_deDeployed :: Maybe Bool, _deExpressionNames :: Maybe [Text], _deDomainName :: Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeExpressions' smart constructor.
 describeExpressions :: Text -> DescribeExpressions
-describeExpressions pDomainName = DescribeExpressions'{_deDeployed = Nothing, _deExpressionNames = mempty, _deDomainName = pDomainName};
+describeExpressions pDomainName = DescribeExpressions'{_deDeployed = Nothing, _deExpressionNames = Nothing, _deDomainName = pDomainName};
 
 -- | Whether to display the deployed configuration (@true@) or include any
 -- pending changes (@false@). Defaults to @false@.
@@ -69,7 +69,7 @@ deDeployed = lens _deDeployed (\ s a -> s{_deDeployed = a});
 
 -- | Limits the @DescribeExpressions@ response to the specified expressions.
 -- If not specified, all expressions are shown.
-deExpressionNames :: Lens' DescribeExpressions [Text]
+deExpressionNames :: Lens' DescribeExpressions (Maybe [Text])
 deExpressionNames = lens _deExpressionNames (\ s a -> s{_deExpressionNames = a});
 
 -- | The name of the domain you want to describe.
@@ -111,8 +111,8 @@ instance ToQuery DescribeExpressions where
 newtype DescribeExpressionsResponse = DescribeExpressionsResponse'{_derExpressions :: [ExpressionStatus]} deriving (Eq, Read, Show)
 
 -- | 'DescribeExpressionsResponse' smart constructor.
-describeExpressionsResponse :: [ExpressionStatus] -> DescribeExpressionsResponse
-describeExpressionsResponse pExpressions = DescribeExpressionsResponse'{_derExpressions = pExpressions};
+describeExpressionsResponse :: DescribeExpressionsResponse
+describeExpressionsResponse = DescribeExpressionsResponse'{_derExpressions = mempty};
 
 -- | The expressions configured for the domain.
 derExpressions :: Lens' DescribeExpressionsResponse [ExpressionStatus]

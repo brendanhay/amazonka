@@ -62,11 +62,11 @@ import Network.AWS.Redshift.Types
 -- * 'mesSourceIds'
 --
 -- * 'mesSubscriptionName'
-data ModifyEventSubscription = ModifyEventSubscription'{_mesSNSTopicARN :: Maybe Text, _mesEnabled :: Maybe Bool, _mesSourceType :: Maybe Text, _mesSeverity :: Maybe Text, _mesEventCategories :: [Text], _mesSourceIds :: [Text], _mesSubscriptionName :: Text} deriving (Eq, Read, Show)
+data ModifyEventSubscription = ModifyEventSubscription'{_mesSNSTopicARN :: Maybe Text, _mesEnabled :: Maybe Bool, _mesSourceType :: Maybe Text, _mesSeverity :: Maybe Text, _mesEventCategories :: Maybe [Text], _mesSourceIds :: Maybe [Text], _mesSubscriptionName :: Text} deriving (Eq, Read, Show)
 
 -- | 'ModifyEventSubscription' smart constructor.
 modifyEventSubscription :: Text -> ModifyEventSubscription
-modifyEventSubscription pSubscriptionName = ModifyEventSubscription'{_mesSNSTopicARN = Nothing, _mesEnabled = Nothing, _mesSourceType = Nothing, _mesSeverity = Nothing, _mesEventCategories = mempty, _mesSourceIds = mempty, _mesSubscriptionName = pSubscriptionName};
+modifyEventSubscription pSubscriptionName = ModifyEventSubscription'{_mesSNSTopicARN = Nothing, _mesEnabled = Nothing, _mesSourceType = Nothing, _mesSeverity = Nothing, _mesEventCategories = Nothing, _mesSourceIds = Nothing, _mesSubscriptionName = pSubscriptionName};
 
 -- | The Amazon Resource Name (ARN) of the SNS topic to be used by the event
 -- notification subscription.
@@ -100,7 +100,7 @@ mesSeverity = lens _mesSeverity (\ s a -> s{_mesSeverity = a});
 -- event notification subscription.
 --
 -- Values: Configuration, Management, Monitoring, Security
-mesEventCategories :: Lens' ModifyEventSubscription [Text]
+mesEventCategories :: Lens' ModifyEventSubscription (Maybe [Text])
 mesEventCategories = lens _mesEventCategories (\ s a -> s{_mesEventCategories = a});
 
 -- | A list of one or more identifiers of Amazon Redshift source objects. All
@@ -112,7 +112,7 @@ mesEventCategories = lens _mesEventCategories (\ s a -> s{_mesEventCategories = 
 -- Example: my-cluster-1, my-cluster-2
 --
 -- Example: my-snapshot-20131010
-mesSourceIds :: Lens' ModifyEventSubscription [Text]
+mesSourceIds :: Lens' ModifyEventSubscription (Maybe [Text])
 mesSourceIds = lens _mesSourceIds (\ s a -> s{_mesSourceIds = a});
 
 -- | The name of the modified Amazon Redshift event notification

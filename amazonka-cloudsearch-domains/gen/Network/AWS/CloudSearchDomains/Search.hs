@@ -490,19 +490,19 @@ instance ToQuery Search where
 -- * 'seaFacets'
 --
 -- * 'seaHits'
-data SearchResponse = SearchResponse'{_seaStatus :: Maybe SearchStatus, _seaFacets :: HashMap Text BucketInfo, _seaHits :: Maybe Hits} deriving (Eq, Read, Show)
+data SearchResponse = SearchResponse'{_seaStatus :: Maybe SearchStatus, _seaFacets :: Maybe (HashMap Text BucketInfo), _seaHits :: Maybe Hits} deriving (Eq, Read, Show)
 
 -- | 'SearchResponse' smart constructor.
 searchResponse :: SearchResponse
-searchResponse = SearchResponse'{_seaStatus = Nothing, _seaFacets = mempty, _seaHits = Nothing};
+searchResponse = SearchResponse'{_seaStatus = Nothing, _seaFacets = Nothing, _seaHits = Nothing};
 
 -- | The status information returned for the search request.
 seaStatus :: Lens' SearchResponse (Maybe SearchStatus)
 seaStatus = lens _seaStatus (\ s a -> s{_seaStatus = a});
 
 -- | The requested facet information.
-seaFacets :: Lens' SearchResponse (HashMap Text BucketInfo)
-seaFacets = lens _seaFacets (\ s a -> s{_seaFacets = a}) . _Coerce;
+seaFacets :: Lens' SearchResponse (Maybe (HashMap Text BucketInfo))
+seaFacets = lens _seaFacets (\ s a -> s{_seaFacets = a}) . mapping _Coerce;
 
 -- | The documents that match the search criteria.
 seaHits :: Lens' SearchResponse (Maybe Hits)

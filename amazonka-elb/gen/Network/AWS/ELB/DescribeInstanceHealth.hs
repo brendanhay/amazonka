@@ -50,14 +50,14 @@ import Network.AWS.ELB.Types
 -- * 'dihInstances'
 --
 -- * 'dihLoadBalancerName'
-data DescribeInstanceHealth = DescribeInstanceHealth'{_dihInstances :: [Instance], _dihLoadBalancerName :: Text} deriving (Eq, Read, Show)
+data DescribeInstanceHealth = DescribeInstanceHealth'{_dihInstances :: Maybe [Instance], _dihLoadBalancerName :: Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeInstanceHealth' smart constructor.
 describeInstanceHealth :: Text -> DescribeInstanceHealth
-describeInstanceHealth pLoadBalancerName = DescribeInstanceHealth'{_dihInstances = mempty, _dihLoadBalancerName = pLoadBalancerName};
+describeInstanceHealth pLoadBalancerName = DescribeInstanceHealth'{_dihInstances = Nothing, _dihLoadBalancerName = pLoadBalancerName};
 
 -- | The IDs of the instances.
-dihInstances :: Lens' DescribeInstanceHealth [Instance]
+dihInstances :: Lens' DescribeInstanceHealth (Maybe [Instance])
 dihInstances = lens _dihInstances (\ s a -> s{_dihInstances = a});
 
 -- | The name of the load balancer.
@@ -96,12 +96,12 @@ instance ToQuery DescribeInstanceHealth where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dihrInstanceStates'
-newtype DescribeInstanceHealthResponse = DescribeInstanceHealthResponse'{_dihrInstanceStates :: [InstanceState]} deriving (Eq, Read, Show)
+newtype DescribeInstanceHealthResponse = DescribeInstanceHealthResponse'{_dihrInstanceStates :: Maybe [InstanceState]} deriving (Eq, Read, Show)
 
 -- | 'DescribeInstanceHealthResponse' smart constructor.
 describeInstanceHealthResponse :: DescribeInstanceHealthResponse
-describeInstanceHealthResponse = DescribeInstanceHealthResponse'{_dihrInstanceStates = mempty};
+describeInstanceHealthResponse = DescribeInstanceHealthResponse'{_dihrInstanceStates = Nothing};
 
 -- | Information about the health of the instances.
-dihrInstanceStates :: Lens' DescribeInstanceHealthResponse [InstanceState]
+dihrInstanceStates :: Lens' DescribeInstanceHealthResponse (Maybe [InstanceState])
 dihrInstanceStates = lens _dihrInstanceStates (\ s a -> s{_dihrInstanceStates = a});

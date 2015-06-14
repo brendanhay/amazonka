@@ -73,7 +73,7 @@ instance AWSRequest UpdateBatchPrediction where
           = receiveJSON
               (\ s h x ->
                  UpdateBatchPredictionResponse' <$>
-                   x .:> "BatchPredictionId")
+                   x .?> "BatchPredictionId")
 
 instance ToHeaders UpdateBatchPrediction where
         toHeaders
@@ -102,14 +102,14 @@ instance ToQuery UpdateBatchPrediction where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ubprBatchPredictionId'
-newtype UpdateBatchPredictionResponse = UpdateBatchPredictionResponse'{_ubprBatchPredictionId :: Text} deriving (Eq, Read, Show)
+newtype UpdateBatchPredictionResponse = UpdateBatchPredictionResponse'{_ubprBatchPredictionId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'UpdateBatchPredictionResponse' smart constructor.
-updateBatchPredictionResponse :: Text -> UpdateBatchPredictionResponse
-updateBatchPredictionResponse pBatchPredictionId = UpdateBatchPredictionResponse'{_ubprBatchPredictionId = pBatchPredictionId};
+updateBatchPredictionResponse :: UpdateBatchPredictionResponse
+updateBatchPredictionResponse = UpdateBatchPredictionResponse'{_ubprBatchPredictionId = Nothing};
 
 -- | The ID assigned to the @BatchPrediction@ during creation. This value
 -- should be identical to the value of the @BatchPredictionId@ in the
 -- request.
-ubprBatchPredictionId :: Lens' UpdateBatchPredictionResponse Text
+ubprBatchPredictionId :: Lens' UpdateBatchPredictionResponse (Maybe Text)
 ubprBatchPredictionId = lens _ubprBatchPredictionId (\ s a -> s{_ubprBatchPredictionId = a});

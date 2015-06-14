@@ -143,15 +143,15 @@ instance ToQuery DescribeClusterParameters where
 -- * 'dcprParameters'
 --
 -- * 'dcprMarker'
-data DescribeClusterParametersResponse = DescribeClusterParametersResponse'{_dcprParameters :: [Parameter], _dcprMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeClusterParametersResponse = DescribeClusterParametersResponse'{_dcprParameters :: Maybe [Parameter], _dcprMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeClusterParametersResponse' smart constructor.
 describeClusterParametersResponse :: DescribeClusterParametersResponse
-describeClusterParametersResponse = DescribeClusterParametersResponse'{_dcprParameters = mempty, _dcprMarker = Nothing};
+describeClusterParametersResponse = DescribeClusterParametersResponse'{_dcprParameters = Nothing, _dcprMarker = Nothing};
 
 -- | A list of Parameter instances. Each instance lists the parameters of one
 -- cluster parameter group.
-dcprParameters :: Lens' DescribeClusterParametersResponse [Parameter]
+dcprParameters :: Lens' DescribeClusterParametersResponse (Maybe [Parameter])
 dcprParameters = lens _dcprParameters (\ s a -> s{_dcprParameters = a});
 
 -- | A value that indicates the starting point for the next set of response

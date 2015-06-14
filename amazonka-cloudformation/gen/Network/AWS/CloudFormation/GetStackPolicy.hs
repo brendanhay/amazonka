@@ -63,7 +63,7 @@ instance AWSRequest GetStackPolicy where
         response
           = receiveXMLWrapper "GetStackPolicyResult"
               (\ s h x ->
-                 GetStackPolicyResponse' <$> x .@ "StackPolicyBody")
+                 GetStackPolicyResponse' <$> x .@? "StackPolicyBody")
 
 instance ToHeaders GetStackPolicy where
         toHeaders = const mempty
@@ -83,14 +83,14 @@ instance ToQuery GetStackPolicy where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gsprStackPolicyBody'
-newtype GetStackPolicyResponse = GetStackPolicyResponse'{_gsprStackPolicyBody :: Text} deriving (Eq, Read, Show)
+newtype GetStackPolicyResponse = GetStackPolicyResponse'{_gsprStackPolicyBody :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'GetStackPolicyResponse' smart constructor.
-getStackPolicyResponse :: Text -> GetStackPolicyResponse
-getStackPolicyResponse pStackPolicyBody = GetStackPolicyResponse'{_gsprStackPolicyBody = pStackPolicyBody};
+getStackPolicyResponse :: GetStackPolicyResponse
+getStackPolicyResponse = GetStackPolicyResponse'{_gsprStackPolicyBody = Nothing};
 
 -- | Structure containing the stack policy body. (For more information, go to
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources>
 -- in the AWS CloudFormation User Guide.)
-gsprStackPolicyBody :: Lens' GetStackPolicyResponse Text
+gsprStackPolicyBody :: Lens' GetStackPolicyResponse (Maybe Text)
 gsprStackPolicyBody = lens _gsprStackPolicyBody (\ s a -> s{_gsprStackPolicyBody = a});

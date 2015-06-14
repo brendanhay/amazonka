@@ -154,14 +154,14 @@ instance FromJSON Bucket where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'biBuckets'
-newtype BucketInfo = BucketInfo'{_biBuckets :: [Bucket]} deriving (Eq, Read, Show)
+newtype BucketInfo = BucketInfo'{_biBuckets :: Maybe [Bucket]} deriving (Eq, Read, Show)
 
 -- | 'BucketInfo' smart constructor.
 bucketInfo :: BucketInfo
-bucketInfo = BucketInfo'{_biBuckets = mempty};
+bucketInfo = BucketInfo'{_biBuckets = Nothing};
 
 -- | A list of the calculated facet values and counts.
-biBuckets :: Lens' BucketInfo [Bucket]
+biBuckets :: Lens' BucketInfo (Maybe [Bucket])
 biBuckets = lens _biBuckets (\ s a -> s{_biBuckets = a});
 
 instance FromJSON BucketInfo where
@@ -220,28 +220,28 @@ instance FromJSON DocumentServiceWarning where
 -- * 'hitHighlights'
 --
 -- * 'hitFields'
-data Hit = Hit'{_hitExprs :: HashMap Text Text, _hitId :: Maybe Text, _hitHighlights :: HashMap Text Text, _hitFields :: HashMap Text [Text]} deriving (Eq, Read, Show)
+data Hit = Hit'{_hitExprs :: Maybe (HashMap Text Text), _hitId :: Maybe Text, _hitHighlights :: Maybe (HashMap Text Text), _hitFields :: Maybe (HashMap Text [Text])} deriving (Eq, Read, Show)
 
 -- | 'Hit' smart constructor.
 hit :: Hit
-hit = Hit'{_hitExprs = mempty, _hitId = Nothing, _hitHighlights = mempty, _hitFields = mempty};
+hit = Hit'{_hitExprs = Nothing, _hitId = Nothing, _hitHighlights = Nothing, _hitFields = Nothing};
 
 -- | The expressions returned from a document that matches the search
 -- request.
-hitExprs :: Lens' Hit (HashMap Text Text)
-hitExprs = lens _hitExprs (\ s a -> s{_hitExprs = a}) . _Coerce;
+hitExprs :: Lens' Hit (Maybe (HashMap Text Text))
+hitExprs = lens _hitExprs (\ s a -> s{_hitExprs = a}) . mapping _Coerce;
 
 -- | The document ID of a document that matches the search request.
 hitId :: Lens' Hit (Maybe Text)
 hitId = lens _hitId (\ s a -> s{_hitId = a});
 
 -- | The highlights returned from a document that matches the search request.
-hitHighlights :: Lens' Hit (HashMap Text Text)
-hitHighlights = lens _hitHighlights (\ s a -> s{_hitHighlights = a}) . _Coerce;
+hitHighlights :: Lens' Hit (Maybe (HashMap Text Text))
+hitHighlights = lens _hitHighlights (\ s a -> s{_hitHighlights = a}) . mapping _Coerce;
 
 -- | The fields returned from a document that matches the search request.
-hitFields :: Lens' Hit (HashMap Text [Text])
-hitFields = lens _hitFields (\ s a -> s{_hitFields = a}) . _Coerce;
+hitFields :: Lens' Hit (Maybe (HashMap Text [Text]))
+hitFields = lens _hitFields (\ s a -> s{_hitFields = a}) . mapping _Coerce;
 
 instance FromJSON Hit where
         parseJSON
@@ -263,11 +263,11 @@ instance FromJSON Hit where
 -- * 'hitStart'
 --
 -- * 'hitFound'
-data Hits = Hits'{_hitCursor :: Maybe Text, _hitHit :: [Hit], _hitStart :: Maybe Integer, _hitFound :: Maybe Integer} deriving (Eq, Read, Show)
+data Hits = Hits'{_hitCursor :: Maybe Text, _hitHit :: Maybe [Hit], _hitStart :: Maybe Integer, _hitFound :: Maybe Integer} deriving (Eq, Read, Show)
 
 -- | 'Hits' smart constructor.
 hits :: Hits
-hits = Hits'{_hitCursor = Nothing, _hitHit = mempty, _hitStart = Nothing, _hitFound = Nothing};
+hits = Hits'{_hitCursor = Nothing, _hitHit = Nothing, _hitStart = Nothing, _hitFound = Nothing};
 
 -- | A cursor that can be used to retrieve the next set of matching documents
 -- when you want to page through a large result set.
@@ -275,7 +275,7 @@ hitCursor :: Lens' Hits (Maybe Text)
 hitCursor = lens _hitCursor (\ s a -> s{_hitCursor = a});
 
 -- | A document that matches the search request.
-hitHit :: Lens' Hits [Hit]
+hitHit :: Lens' Hits (Maybe [Hit])
 hitHit = lens _hitHit (\ s a -> s{_hitHit = a});
 
 -- | The index of the first matching document.
@@ -355,18 +355,18 @@ instance FromJSON SearchStatus where
 -- * 'smSuggestions'
 --
 -- * 'smQuery'
-data SuggestModel = SuggestModel'{_smFound :: Maybe Integer, _smSuggestions :: [SuggestionMatch], _smQuery :: Maybe Text} deriving (Eq, Read, Show)
+data SuggestModel = SuggestModel'{_smFound :: Maybe Integer, _smSuggestions :: Maybe [SuggestionMatch], _smQuery :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'SuggestModel' smart constructor.
 suggestModel :: SuggestModel
-suggestModel = SuggestModel'{_smFound = Nothing, _smSuggestions = mempty, _smQuery = Nothing};
+suggestModel = SuggestModel'{_smFound = Nothing, _smSuggestions = Nothing, _smQuery = Nothing};
 
 -- | The number of documents that were found to match the query string.
 smFound :: Lens' SuggestModel (Maybe Integer)
 smFound = lens _smFound (\ s a -> s{_smFound = a});
 
 -- | The documents that match the query string.
-smSuggestions :: Lens' SuggestModel [SuggestionMatch]
+smSuggestions :: Lens' SuggestModel (Maybe [SuggestionMatch])
 smSuggestions = lens _smSuggestions (\ s a -> s{_smSuggestions = a});
 
 -- | The query string specified in the suggest request.

@@ -37,9 +37,9 @@ module Network.AWS.IAM.ListAttachedUserPolicies
     , listAttachedUserPolicies
     -- ** Request lenses
     , laupPathPrefix
-    , laupUserName
     , laupMaxItems
     , laupMarker
+    , laupUserName
 
     -- * Response
     , ListAttachedUserPoliciesResponse
@@ -47,8 +47,8 @@ module Network.AWS.IAM.ListAttachedUserPolicies
     , listAttachedUserPoliciesResponse
     -- ** Response lenses
     , lauprAttachedPolicies
-    , lauprIsTruncated
     , lauprMarker
+    , lauprIsTruncated
     ) where
 
 import Network.AWS.Request
@@ -62,16 +62,16 @@ import Network.AWS.IAM.Types
 --
 -- * 'laupPathPrefix'
 --
--- * 'laupUserName'
---
 -- * 'laupMaxItems'
 --
 -- * 'laupMarker'
-data ListAttachedUserPolicies = ListAttachedUserPolicies'{_laupPathPrefix :: Maybe Text, _laupUserName :: Text, _laupMaxItems :: Nat, _laupMarker :: Text} deriving (Eq, Read, Show)
+--
+-- * 'laupUserName'
+data ListAttachedUserPolicies = ListAttachedUserPolicies'{_laupPathPrefix :: Maybe Text, _laupMaxItems :: Maybe Nat, _laupMarker :: Maybe Text, _laupUserName :: Text} deriving (Eq, Read, Show)
 
 -- | 'ListAttachedUserPolicies' smart constructor.
-listAttachedUserPolicies :: Text -> Natural -> Text -> ListAttachedUserPolicies
-listAttachedUserPolicies pUserName pMaxItems pMarker = ListAttachedUserPolicies'{_laupPathPrefix = Nothing, _laupUserName = pUserName, _laupMaxItems = _Nat # pMaxItems, _laupMarker = pMarker};
+listAttachedUserPolicies :: Text -> ListAttachedUserPolicies
+listAttachedUserPolicies pUserName = ListAttachedUserPolicies'{_laupPathPrefix = Nothing, _laupMaxItems = Nothing, _laupMarker = Nothing, _laupUserName = pUserName};
 
 -- | The path prefix for filtering the results. This parameter is optional.
 -- If it is not included, it defaults to a slash (\/), listing all
@@ -79,25 +79,25 @@ listAttachedUserPolicies pUserName pMaxItems pMarker = ListAttachedUserPolicies'
 laupPathPrefix :: Lens' ListAttachedUserPolicies (Maybe Text)
 laupPathPrefix = lens _laupPathPrefix (\ s a -> s{_laupPathPrefix = a});
 
--- | The name (friendly name, not ARN) of the user to list attached policies
--- for.
-laupUserName :: Lens' ListAttachedUserPolicies Text
-laupUserName = lens _laupUserName (\ s a -> s{_laupUserName = a});
-
 -- | Use this only when paginating results to indicate the maximum number of
 -- policies you want in the response. If there are additional policies
 -- beyond the maximum you specify, the @IsTruncated@ response element is
 -- @true@. This parameter is optional. If you do not include it, it
 -- defaults to 100.
-laupMaxItems :: Lens' ListAttachedUserPolicies Natural
-laupMaxItems = lens _laupMaxItems (\ s a -> s{_laupMaxItems = a}) . _Nat;
+laupMaxItems :: Lens' ListAttachedUserPolicies (Maybe Natural)
+laupMaxItems = lens _laupMaxItems (\ s a -> s{_laupMaxItems = a}) . mapping _Nat;
 
 -- | Use this only when paginating results, and only in a subsequent request
 -- after you\'ve received a response where the results are truncated. Set
 -- it to the value of the @Marker@ element in the response you just
 -- received.
-laupMarker :: Lens' ListAttachedUserPolicies Text
+laupMarker :: Lens' ListAttachedUserPolicies (Maybe Text)
 laupMarker = lens _laupMarker (\ s a -> s{_laupMarker = a});
+
+-- | The name (friendly name, not ARN) of the user to list attached policies
+-- for.
+laupUserName :: Lens' ListAttachedUserPolicies Text
+laupUserName = lens _laupUserName (\ s a -> s{_laupUserName = a});
 
 instance AWSRequest ListAttachedUserPolicies where
         type Sv ListAttachedUserPolicies = IAM
@@ -110,8 +110,8 @@ instance AWSRequest ListAttachedUserPolicies where
                  ListAttachedUserPoliciesResponse' <$>
                    (x .@? "AttachedPolicies" .!@ mempty >>=
                       parseXMLList "member")
-                     <*> x .@? "IsTruncated"
-                     <*> x .@ "Marker")
+                     <*> x .@? "Marker"
+                     <*> x .@? "IsTruncated")
 
 instance ToHeaders ListAttachedUserPolicies where
         toHeaders = const mempty
@@ -126,8 +126,8 @@ instance ToQuery ListAttachedUserPolicies where
                  ("ListAttachedUserPolicies" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
                "PathPrefix" =: _laupPathPrefix,
-               "UserName" =: _laupUserName,
-               "MaxItems" =: _laupMaxItems, "Marker" =: _laupMarker]
+               "MaxItems" =: _laupMaxItems, "Marker" =: _laupMarker,
+               "UserName" =: _laupUserName]
 
 -- | /See:/ 'listAttachedUserPoliciesResponse' smart constructor.
 --
@@ -135,18 +135,24 @@ instance ToQuery ListAttachedUserPolicies where
 --
 -- * 'lauprAttachedPolicies'
 --
--- * 'lauprIsTruncated'
---
 -- * 'lauprMarker'
-data ListAttachedUserPoliciesResponse = ListAttachedUserPoliciesResponse'{_lauprAttachedPolicies :: [AttachedPolicy], _lauprIsTruncated :: Maybe Bool, _lauprMarker :: Text} deriving (Eq, Read, Show)
+--
+-- * 'lauprIsTruncated'
+data ListAttachedUserPoliciesResponse = ListAttachedUserPoliciesResponse'{_lauprAttachedPolicies :: Maybe [AttachedPolicy], _lauprMarker :: Maybe Text, _lauprIsTruncated :: Maybe Bool} deriving (Eq, Read, Show)
 
 -- | 'ListAttachedUserPoliciesResponse' smart constructor.
-listAttachedUserPoliciesResponse :: Text -> ListAttachedUserPoliciesResponse
-listAttachedUserPoliciesResponse pMarker = ListAttachedUserPoliciesResponse'{_lauprAttachedPolicies = mempty, _lauprIsTruncated = Nothing, _lauprMarker = pMarker};
+listAttachedUserPoliciesResponse :: ListAttachedUserPoliciesResponse
+listAttachedUserPoliciesResponse = ListAttachedUserPoliciesResponse'{_lauprAttachedPolicies = Nothing, _lauprMarker = Nothing, _lauprIsTruncated = Nothing};
 
 -- | A list of the attached policies.
-lauprAttachedPolicies :: Lens' ListAttachedUserPoliciesResponse [AttachedPolicy]
+lauprAttachedPolicies :: Lens' ListAttachedUserPoliciesResponse (Maybe [AttachedPolicy])
 lauprAttachedPolicies = lens _lauprAttachedPolicies (\ s a -> s{_lauprAttachedPolicies = a});
+
+-- | If @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+lauprMarker :: Lens' ListAttachedUserPoliciesResponse (Maybe Text)
+lauprMarker = lens _lauprMarker (\ s a -> s{_lauprMarker = a});
 
 -- | A flag that indicates whether there are more policies to list. If your
 -- results were truncated, you can make a subsequent pagination request
@@ -154,9 +160,3 @@ lauprAttachedPolicies = lens _lauprAttachedPolicies (\ s a -> s{_lauprAttachedPo
 -- list.
 lauprIsTruncated :: Lens' ListAttachedUserPoliciesResponse (Maybe Bool)
 lauprIsTruncated = lens _lauprIsTruncated (\ s a -> s{_lauprIsTruncated = a});
-
--- | If @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
-lauprMarker :: Lens' ListAttachedUserPoliciesResponse Text
-lauprMarker = lens _lauprMarker (\ s a -> s{_lauprMarker = a});

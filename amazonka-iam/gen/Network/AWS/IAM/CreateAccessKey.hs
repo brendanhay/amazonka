@@ -61,14 +61,14 @@ import Network.AWS.IAM.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cakUserName'
-newtype CreateAccessKey = CreateAccessKey'{_cakUserName :: Text} deriving (Eq, Read, Show)
+newtype CreateAccessKey = CreateAccessKey'{_cakUserName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'CreateAccessKey' smart constructor.
-createAccessKey :: Text -> CreateAccessKey
-createAccessKey pUserName = CreateAccessKey'{_cakUserName = pUserName};
+createAccessKey :: CreateAccessKey
+createAccessKey = CreateAccessKey'{_cakUserName = Nothing};
 
 -- | The user name that the new key will belong to.
-cakUserName :: Lens' CreateAccessKey Text
+cakUserName :: Lens' CreateAccessKey (Maybe Text)
 cakUserName = lens _cakUserName (\ s a -> s{_cakUserName = a});
 
 instance AWSRequest CreateAccessKey where

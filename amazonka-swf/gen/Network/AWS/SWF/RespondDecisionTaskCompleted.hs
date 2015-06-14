@@ -65,16 +65,16 @@ import Network.AWS.SWF.Types
 -- * 'rdtcExecutionContext'
 --
 -- * 'rdtcTaskToken'
-data RespondDecisionTaskCompleted = RespondDecisionTaskCompleted'{_rdtcDecisions :: [Decision], _rdtcExecutionContext :: Maybe Text, _rdtcTaskToken :: Text} deriving (Eq, Read, Show)
+data RespondDecisionTaskCompleted = RespondDecisionTaskCompleted'{_rdtcDecisions :: Maybe [Decision], _rdtcExecutionContext :: Maybe Text, _rdtcTaskToken :: Text} deriving (Eq, Read, Show)
 
 -- | 'RespondDecisionTaskCompleted' smart constructor.
 respondDecisionTaskCompleted :: Text -> RespondDecisionTaskCompleted
-respondDecisionTaskCompleted pTaskToken = RespondDecisionTaskCompleted'{_rdtcDecisions = mempty, _rdtcExecutionContext = Nothing, _rdtcTaskToken = pTaskToken};
+respondDecisionTaskCompleted pTaskToken = RespondDecisionTaskCompleted'{_rdtcDecisions = Nothing, _rdtcExecutionContext = Nothing, _rdtcTaskToken = pTaskToken};
 
 -- | The list of decisions (possibly empty) made by the decider while
 -- processing this decision task. See the docs for the Decision structure
 -- for details.
-rdtcDecisions :: Lens' RespondDecisionTaskCompleted [Decision]
+rdtcDecisions :: Lens' RespondDecisionTaskCompleted (Maybe [Decision])
 rdtcDecisions = lens _rdtcDecisions (\ s a -> s{_rdtcDecisions = a});
 
 -- | User defined context to add to workflow execution.

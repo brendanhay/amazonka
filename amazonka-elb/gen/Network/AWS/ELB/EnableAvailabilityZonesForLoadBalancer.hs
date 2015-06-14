@@ -58,8 +58,8 @@ import Network.AWS.ELB.Types
 data EnableAvailabilityZonesForLoadBalancer = EnableAvailabilityZonesForLoadBalancer'{_eazflbLoadBalancerName :: Text, _eazflbAvailabilityZones :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'EnableAvailabilityZonesForLoadBalancer' smart constructor.
-enableAvailabilityZonesForLoadBalancer :: Text -> [Text] -> EnableAvailabilityZonesForLoadBalancer
-enableAvailabilityZonesForLoadBalancer pLoadBalancerName pAvailabilityZones = EnableAvailabilityZonesForLoadBalancer'{_eazflbLoadBalancerName = pLoadBalancerName, _eazflbAvailabilityZones = pAvailabilityZones};
+enableAvailabilityZonesForLoadBalancer :: Text -> EnableAvailabilityZonesForLoadBalancer
+enableAvailabilityZonesForLoadBalancer pLoadBalancerName = EnableAvailabilityZonesForLoadBalancer'{_eazflbLoadBalancerName = pLoadBalancerName, _eazflbAvailabilityZones = mempty};
 
 -- | The name of the load balancer.
 eazflbLoadBalancerName :: Lens' EnableAvailabilityZonesForLoadBalancer Text
@@ -109,12 +109,12 @@ instance ToQuery
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'eazflbrAvailabilityZones'
-newtype EnableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesForLoadBalancerResponse'{_eazflbrAvailabilityZones :: [Text]} deriving (Eq, Read, Show)
+newtype EnableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesForLoadBalancerResponse'{_eazflbrAvailabilityZones :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'EnableAvailabilityZonesForLoadBalancerResponse' smart constructor.
 enableAvailabilityZonesForLoadBalancerResponse :: EnableAvailabilityZonesForLoadBalancerResponse
-enableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesForLoadBalancerResponse'{_eazflbrAvailabilityZones = mempty};
+enableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesForLoadBalancerResponse'{_eazflbrAvailabilityZones = Nothing};
 
 -- | The updated list of Availability Zones for the load balancer.
-eazflbrAvailabilityZones :: Lens' EnableAvailabilityZonesForLoadBalancerResponse [Text]
+eazflbrAvailabilityZones :: Lens' EnableAvailabilityZonesForLoadBalancerResponse (Maybe [Text])
 eazflbrAvailabilityZones = lens _eazflbrAvailabilityZones (\ s a -> s{_eazflbrAvailabilityZones = a});

@@ -67,8 +67,8 @@ import Network.AWS.SQS.Types
 data ChangeMessageVisibilityBatch = ChangeMessageVisibilityBatch'{_cmvbQueueURL :: Text, _cmvbEntries :: [ChangeMessageVisibilityBatchRequestEntry]} deriving (Eq, Read, Show)
 
 -- | 'ChangeMessageVisibilityBatch' smart constructor.
-changeMessageVisibilityBatch :: Text -> [ChangeMessageVisibilityBatchRequestEntry] -> ChangeMessageVisibilityBatch
-changeMessageVisibilityBatch pQueueURL pEntries = ChangeMessageVisibilityBatch'{_cmvbQueueURL = pQueueURL, _cmvbEntries = pEntries};
+changeMessageVisibilityBatch :: Text -> ChangeMessageVisibilityBatch
+changeMessageVisibilityBatch pQueueURL = ChangeMessageVisibilityBatch'{_cmvbQueueURL = pQueueURL, _cmvbEntries = mempty};
 
 -- | The URL of the Amazon SQS queue to take action on.
 cmvbQueueURL :: Lens' ChangeMessageVisibilityBatch Text
@@ -121,8 +121,8 @@ instance ToQuery ChangeMessageVisibilityBatch where
 data ChangeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse'{_cmvbrSuccessful :: [ChangeMessageVisibilityBatchResultEntry], _cmvbrFailed :: [BatchResultErrorEntry]} deriving (Eq, Read, Show)
 
 -- | 'ChangeMessageVisibilityBatchResponse' smart constructor.
-changeMessageVisibilityBatchResponse :: [ChangeMessageVisibilityBatchResultEntry] -> [BatchResultErrorEntry] -> ChangeMessageVisibilityBatchResponse
-changeMessageVisibilityBatchResponse pSuccessful pFailed = ChangeMessageVisibilityBatchResponse'{_cmvbrSuccessful = pSuccessful, _cmvbrFailed = pFailed};
+changeMessageVisibilityBatchResponse :: ChangeMessageVisibilityBatchResponse
+changeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse'{_cmvbrSuccessful = mempty, _cmvbrFailed = mempty};
 
 -- | A list of ChangeMessageVisibilityBatchResultEntry items.
 cmvbrSuccessful :: Lens' ChangeMessageVisibilityBatchResponse [ChangeMessageVisibilityBatchResultEntry]

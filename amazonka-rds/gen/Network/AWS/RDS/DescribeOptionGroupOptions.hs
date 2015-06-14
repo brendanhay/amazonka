@@ -57,14 +57,14 @@ import Network.AWS.RDS.Types
 -- * 'dogoMarker'
 --
 -- * 'dogoEngineName'
-data DescribeOptionGroupOptions = DescribeOptionGroupOptions'{_dogoFilters :: [Filter], _dogoMajorEngineVersion :: Maybe Text, _dogoMaxRecords :: Maybe Int, _dogoMarker :: Maybe Text, _dogoEngineName :: Text} deriving (Eq, Read, Show)
+data DescribeOptionGroupOptions = DescribeOptionGroupOptions'{_dogoFilters :: Maybe [Filter], _dogoMajorEngineVersion :: Maybe Text, _dogoMaxRecords :: Maybe Int, _dogoMarker :: Maybe Text, _dogoEngineName :: Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeOptionGroupOptions' smart constructor.
 describeOptionGroupOptions :: Text -> DescribeOptionGroupOptions
-describeOptionGroupOptions pEngineName = DescribeOptionGroupOptions'{_dogoFilters = mempty, _dogoMajorEngineVersion = Nothing, _dogoMaxRecords = Nothing, _dogoMarker = Nothing, _dogoEngineName = pEngineName};
+describeOptionGroupOptions pEngineName = DescribeOptionGroupOptions'{_dogoFilters = Nothing, _dogoMajorEngineVersion = Nothing, _dogoMaxRecords = Nothing, _dogoMarker = Nothing, _dogoEngineName = pEngineName};
 
 -- | This parameter is not currently supported.
-dogoFilters :: Lens' DescribeOptionGroupOptions [Filter]
+dogoFilters :: Lens' DescribeOptionGroupOptions (Maybe [Filter])
 dogoFilters = lens _dogoFilters (\ s a -> s{_dogoFilters = a});
 
 -- | If specified, filters the results to include only options for the
@@ -133,14 +133,14 @@ instance ToQuery DescribeOptionGroupOptions where
 -- * 'dogorOptionGroupOptions'
 --
 -- * 'dogorMarker'
-data DescribeOptionGroupOptionsResponse = DescribeOptionGroupOptionsResponse'{_dogorOptionGroupOptions :: [OptionGroupOption], _dogorMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeOptionGroupOptionsResponse = DescribeOptionGroupOptionsResponse'{_dogorOptionGroupOptions :: Maybe [OptionGroupOption], _dogorMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeOptionGroupOptionsResponse' smart constructor.
 describeOptionGroupOptionsResponse :: DescribeOptionGroupOptionsResponse
-describeOptionGroupOptionsResponse = DescribeOptionGroupOptionsResponse'{_dogorOptionGroupOptions = mempty, _dogorMarker = Nothing};
+describeOptionGroupOptionsResponse = DescribeOptionGroupOptionsResponse'{_dogorOptionGroupOptions = Nothing, _dogorMarker = Nothing};
 
 -- | FIXME: Undocumented member.
-dogorOptionGroupOptions :: Lens' DescribeOptionGroupOptionsResponse [OptionGroupOption]
+dogorOptionGroupOptions :: Lens' DescribeOptionGroupOptionsResponse (Maybe [OptionGroupOption])
 dogorOptionGroupOptions = lens _dogorOptionGroupOptions (\ s a -> s{_dogorOptionGroupOptions = a});
 
 -- | An optional pagination token provided by a previous request. If this

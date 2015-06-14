@@ -30,8 +30,8 @@ module Network.AWS.IAM.DeleteAccessKey
     -- ** Request constructor
     , deleteAccessKey
     -- ** Request lenses
-    , dakAccessKeyId
     , dakUserName
+    , dakAccessKeyId
 
     -- * Response
     , DeleteAccessKeyResponse
@@ -48,23 +48,23 @@ import Network.AWS.IAM.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dakAccessKeyId'
---
 -- * 'dakUserName'
-data DeleteAccessKey = DeleteAccessKey'{_dakAccessKeyId :: Text, _dakUserName :: Text} deriving (Eq, Read, Show)
+--
+-- * 'dakAccessKeyId'
+data DeleteAccessKey = DeleteAccessKey'{_dakUserName :: Maybe Text, _dakAccessKeyId :: Text} deriving (Eq, Read, Show)
 
 -- | 'DeleteAccessKey' smart constructor.
-deleteAccessKey :: Text -> Text -> DeleteAccessKey
-deleteAccessKey pAccessKeyId pUserName = DeleteAccessKey'{_dakAccessKeyId = pAccessKeyId, _dakUserName = pUserName};
+deleteAccessKey :: Text -> DeleteAccessKey
+deleteAccessKey pAccessKeyId = DeleteAccessKey'{_dakUserName = Nothing, _dakAccessKeyId = pAccessKeyId};
+
+-- | The name of the user whose key you want to delete.
+dakUserName :: Lens' DeleteAccessKey (Maybe Text)
+dakUserName = lens _dakUserName (\ s a -> s{_dakUserName = a});
 
 -- | The access key ID for the access key ID and secret access key you want
 -- to delete.
 dakAccessKeyId :: Lens' DeleteAccessKey Text
 dakAccessKeyId = lens _dakAccessKeyId (\ s a -> s{_dakAccessKeyId = a});
-
--- | The name of the user whose key you want to delete.
-dakUserName :: Lens' DeleteAccessKey Text
-dakUserName = lens _dakUserName (\ s a -> s{_dakUserName = a});
 
 instance AWSRequest DeleteAccessKey where
         type Sv DeleteAccessKey = IAM
@@ -83,8 +83,8 @@ instance ToQuery DeleteAccessKey where
           = mconcat
               ["Action" =: ("DeleteAccessKey" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "AccessKeyId" =: _dakAccessKeyId,
-               "UserName" =: _dakUserName]
+               "UserName" =: _dakUserName,
+               "AccessKeyId" =: _dakAccessKeyId]
 
 -- | /See:/ 'deleteAccessKeyResponse' smart constructor.
 data DeleteAccessKeyResponse = DeleteAccessKeyResponse' deriving (Eq, Read, Show)

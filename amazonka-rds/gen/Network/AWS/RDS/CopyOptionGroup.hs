@@ -53,14 +53,14 @@ import Network.AWS.RDS.Types
 -- * 'copTargetOptionGroupIdentifier'
 --
 -- * 'copTargetOptionGroupDescription'
-data CopyOptionGroup = CopyOptionGroup'{_copTags :: [Tag], _copSourceOptionGroupIdentifier :: Text, _copTargetOptionGroupIdentifier :: Text, _copTargetOptionGroupDescription :: Text} deriving (Eq, Read, Show)
+data CopyOptionGroup = CopyOptionGroup'{_copTags :: Maybe [Tag], _copSourceOptionGroupIdentifier :: Text, _copTargetOptionGroupIdentifier :: Text, _copTargetOptionGroupDescription :: Text} deriving (Eq, Read, Show)
 
 -- | 'CopyOptionGroup' smart constructor.
 copyOptionGroup :: Text -> Text -> Text -> CopyOptionGroup
-copyOptionGroup pSourceOptionGroupIdentifier pTargetOptionGroupIdentifier pTargetOptionGroupDescription = CopyOptionGroup'{_copTags = mempty, _copSourceOptionGroupIdentifier = pSourceOptionGroupIdentifier, _copTargetOptionGroupIdentifier = pTargetOptionGroupIdentifier, _copTargetOptionGroupDescription = pTargetOptionGroupDescription};
+copyOptionGroup pSourceOptionGroupIdentifier pTargetOptionGroupIdentifier pTargetOptionGroupDescription = CopyOptionGroup'{_copTags = Nothing, _copSourceOptionGroupIdentifier = pSourceOptionGroupIdentifier, _copTargetOptionGroupIdentifier = pTargetOptionGroupIdentifier, _copTargetOptionGroupDescription = pTargetOptionGroupDescription};
 
 -- | FIXME: Undocumented member.
-copTags :: Lens' CopyOptionGroup [Tag]
+copTags :: Lens' CopyOptionGroup (Maybe [Tag])
 copTags = lens _copTags (\ s a -> s{_copTags = a});
 
 -- | The identifier or ARN for the source option group.

@@ -54,15 +54,15 @@ import Network.AWS.AutoScaling.Types
 -- * 'esAutoScalingGroupName'
 --
 -- * 'esShouldDecrementDesiredCapacity'
-data EnterStandby = EnterStandby'{_esInstanceIds :: [Text], _esAutoScalingGroupName :: Text, _esShouldDecrementDesiredCapacity :: Bool} deriving (Eq, Read, Show)
+data EnterStandby = EnterStandby'{_esInstanceIds :: Maybe [Text], _esAutoScalingGroupName :: Text, _esShouldDecrementDesiredCapacity :: Bool} deriving (Eq, Read, Show)
 
 -- | 'EnterStandby' smart constructor.
 enterStandby :: Text -> Bool -> EnterStandby
-enterStandby pAutoScalingGroupName pShouldDecrementDesiredCapacity = EnterStandby'{_esInstanceIds = mempty, _esAutoScalingGroupName = pAutoScalingGroupName, _esShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity};
+enterStandby pAutoScalingGroupName pShouldDecrementDesiredCapacity = EnterStandby'{_esInstanceIds = Nothing, _esAutoScalingGroupName = pAutoScalingGroupName, _esShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity};
 
 -- | One or more instances to move into @Standby@ mode. You must specify at
 -- least one instance ID.
-esInstanceIds :: Lens' EnterStandby [Text]
+esInstanceIds :: Lens' EnterStandby (Maybe [Text])
 esInstanceIds = lens _esInstanceIds (\ s a -> s{_esInstanceIds = a});
 
 -- | The name of the Auto Scaling group.
@@ -108,12 +108,12 @@ instance ToQuery EnterStandby where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'esrActivities'
-newtype EnterStandbyResponse = EnterStandbyResponse'{_esrActivities :: [Activity]} deriving (Eq, Read, Show)
+newtype EnterStandbyResponse = EnterStandbyResponse'{_esrActivities :: Maybe [Activity]} deriving (Eq, Read, Show)
 
 -- | 'EnterStandbyResponse' smart constructor.
 enterStandbyResponse :: EnterStandbyResponse
-enterStandbyResponse = EnterStandbyResponse'{_esrActivities = mempty};
+enterStandbyResponse = EnterStandbyResponse'{_esrActivities = Nothing};
 
 -- | The activities related to moving instances into @Standby@ mode.
-esrActivities :: Lens' EnterStandbyResponse [Activity]
+esrActivities :: Lens' EnterStandbyResponse (Maybe [Activity])
 esrActivities = lens _esrActivities (\ s a -> s{_esrActivities = a});

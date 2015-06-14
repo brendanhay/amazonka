@@ -54,8 +54,8 @@ import Network.AWS.SES.Types
 newtype GetIdentityNotificationAttributes = GetIdentityNotificationAttributes'{_ginaIdentities :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'GetIdentityNotificationAttributes' smart constructor.
-getIdentityNotificationAttributes :: [Text] -> GetIdentityNotificationAttributes
-getIdentityNotificationAttributes pIdentities = GetIdentityNotificationAttributes'{_ginaIdentities = pIdentities};
+getIdentityNotificationAttributes :: GetIdentityNotificationAttributes
+getIdentityNotificationAttributes = GetIdentityNotificationAttributes'{_ginaIdentities = mempty};
 
 -- | A list of one or more identities.
 ginaIdentities :: Lens' GetIdentityNotificationAttributes [Text]
@@ -100,8 +100,8 @@ instance ToQuery GetIdentityNotificationAttributes
 newtype GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttributesResponse'{_ginarNotificationAttributes :: HashMap Text IdentityNotificationAttributes} deriving (Eq, Read, Show)
 
 -- | 'GetIdentityNotificationAttributesResponse' smart constructor.
-getIdentityNotificationAttributesResponse :: HashMap Text IdentityNotificationAttributes -> GetIdentityNotificationAttributesResponse
-getIdentityNotificationAttributesResponse pNotificationAttributes = GetIdentityNotificationAttributesResponse'{_ginarNotificationAttributes = _Coerce # pNotificationAttributes};
+getIdentityNotificationAttributesResponse :: GetIdentityNotificationAttributesResponse
+getIdentityNotificationAttributesResponse = GetIdentityNotificationAttributesResponse'{_ginarNotificationAttributes = mempty};
 
 -- | A map of Identity to IdentityNotificationAttributes.
 ginarNotificationAttributes :: Lens' GetIdentityNotificationAttributesResponse (HashMap Text IdentityNotificationAttributes)

@@ -102,8 +102,8 @@ instance ToQuery ListPipelines where
 data ListPipelinesResponse = ListPipelinesResponse'{_lprHasMoreResults :: Maybe Bool, _lprMarker :: Maybe Text, _lprPipelineIdList :: [PipelineIdName]} deriving (Eq, Read, Show)
 
 -- | 'ListPipelinesResponse' smart constructor.
-listPipelinesResponse :: [PipelineIdName] -> ListPipelinesResponse
-listPipelinesResponse pPipelineIdList = ListPipelinesResponse'{_lprHasMoreResults = Nothing, _lprMarker = Nothing, _lprPipelineIdList = pPipelineIdList};
+listPipelinesResponse :: ListPipelinesResponse
+listPipelinesResponse = ListPipelinesResponse'{_lprHasMoreResults = Nothing, _lprMarker = Nothing, _lprPipelineIdList = mempty};
 
 -- | Indicates whether there are more results that can be obtained by a
 -- subsequent call.

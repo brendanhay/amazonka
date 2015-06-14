@@ -63,7 +63,7 @@ instance AWSRequest GetDocument where
           = receiveJSON
               (\ s h x ->
                  GetDocumentResponse' <$>
-                   x .:> "Content" <*> x .:> "Name")
+                   x .?> "Content" <*> x .?> "Name")
 
 instance ToHeaders GetDocument where
         toHeaders
@@ -90,16 +90,16 @@ instance ToQuery GetDocument where
 -- * 'gdrContent'
 --
 -- * 'gdrName'
-data GetDocumentResponse = GetDocumentResponse'{_gdrContent :: Text, _gdrName :: Text} deriving (Eq, Read, Show)
+data GetDocumentResponse = GetDocumentResponse'{_gdrContent :: Maybe Text, _gdrName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'GetDocumentResponse' smart constructor.
-getDocumentResponse :: Text -> Text -> GetDocumentResponse
-getDocumentResponse pContent pName = GetDocumentResponse'{_gdrContent = pContent, _gdrName = pName};
+getDocumentResponse :: GetDocumentResponse
+getDocumentResponse = GetDocumentResponse'{_gdrContent = Nothing, _gdrName = Nothing};
 
 -- | The contents of the configuration document.
-gdrContent :: Lens' GetDocumentResponse Text
+gdrContent :: Lens' GetDocumentResponse (Maybe Text)
 gdrContent = lens _gdrContent (\ s a -> s{_gdrContent = a});
 
 -- | The name of the configuration document.
-gdrName :: Lens' GetDocumentResponse Text
+gdrName :: Lens' GetDocumentResponse (Maybe Text)
 gdrName = lens _gdrName (\ s a -> s{_gdrName = a});

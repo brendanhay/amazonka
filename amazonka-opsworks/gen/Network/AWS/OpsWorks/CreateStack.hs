@@ -101,11 +101,11 @@ import Network.AWS.OpsWorks.Types
 -- * 'csServiceRoleARN'
 --
 -- * 'csDefaultInstanceProfileARN'
-data CreateStack = CreateStack'{_csDefaultRootDeviceType :: Maybe RootDeviceType, _csChefConfiguration :: Maybe ChefConfiguration, _csVPCId :: Maybe Text, _csDefaultSSHKeyName :: Maybe Text, _csCustomJSON :: Maybe Text, _csCustomCookbooksSource :: Maybe Source, _csDefaultAvailabilityZone :: Maybe Text, _csUseOpsworksSecurityGroups :: Maybe Bool, _csDefaultOS :: Maybe Text, _csAttributes :: HashMap StackAttributesKeys Text, _csUseCustomCookbooks :: Maybe Bool, _csDefaultSubnetId :: Maybe Text, _csConfigurationManager :: Maybe StackConfigurationManager, _csHostnameTheme :: Maybe Text, _csName :: Text, _csRegion :: Text, _csServiceRoleARN :: Text, _csDefaultInstanceProfileARN :: Text} deriving (Eq, Read, Show)
+data CreateStack = CreateStack'{_csDefaultRootDeviceType :: Maybe RootDeviceType, _csChefConfiguration :: Maybe ChefConfiguration, _csVPCId :: Maybe Text, _csDefaultSSHKeyName :: Maybe Text, _csCustomJSON :: Maybe Text, _csCustomCookbooksSource :: Maybe Source, _csDefaultAvailabilityZone :: Maybe Text, _csUseOpsworksSecurityGroups :: Maybe Bool, _csDefaultOS :: Maybe Text, _csAttributes :: Maybe (HashMap StackAttributesKeys Text), _csUseCustomCookbooks :: Maybe Bool, _csDefaultSubnetId :: Maybe Text, _csConfigurationManager :: Maybe StackConfigurationManager, _csHostnameTheme :: Maybe Text, _csName :: Text, _csRegion :: Text, _csServiceRoleARN :: Text, _csDefaultInstanceProfileARN :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateStack' smart constructor.
 createStack :: Text -> Text -> Text -> Text -> CreateStack
-createStack pName pRegion pServiceRoleARN pDefaultInstanceProfileARN = CreateStack'{_csDefaultRootDeviceType = Nothing, _csChefConfiguration = Nothing, _csVPCId = Nothing, _csDefaultSSHKeyName = Nothing, _csCustomJSON = Nothing, _csCustomCookbooksSource = Nothing, _csDefaultAvailabilityZone = Nothing, _csUseOpsworksSecurityGroups = Nothing, _csDefaultOS = Nothing, _csAttributes = mempty, _csUseCustomCookbooks = Nothing, _csDefaultSubnetId = Nothing, _csConfigurationManager = Nothing, _csHostnameTheme = Nothing, _csName = pName, _csRegion = pRegion, _csServiceRoleARN = pServiceRoleARN, _csDefaultInstanceProfileARN = pDefaultInstanceProfileARN};
+createStack pName pRegion pServiceRoleARN pDefaultInstanceProfileARN = CreateStack'{_csDefaultRootDeviceType = Nothing, _csChefConfiguration = Nothing, _csVPCId = Nothing, _csDefaultSSHKeyName = Nothing, _csCustomJSON = Nothing, _csCustomCookbooksSource = Nothing, _csDefaultAvailabilityZone = Nothing, _csUseOpsworksSecurityGroups = Nothing, _csDefaultOS = Nothing, _csAttributes = Nothing, _csUseCustomCookbooks = Nothing, _csDefaultSubnetId = Nothing, _csConfigurationManager = Nothing, _csHostnameTheme = Nothing, _csName = pName, _csRegion = pRegion, _csServiceRoleARN = pServiceRoleARN, _csDefaultInstanceProfileARN = pDefaultInstanceProfileARN};
 
 -- | The default root device type. This value is used by default for all
 -- instances in the stack, but you can override it when you create an
@@ -227,8 +227,8 @@ csDefaultOS = lens _csDefaultOS (\ s a -> s{_csDefaultOS = a});
 
 -- | One or more user-defined key\/value pairs to be added to the stack
 -- attributes.
-csAttributes :: Lens' CreateStack (HashMap StackAttributesKeys Text)
-csAttributes = lens _csAttributes (\ s a -> s{_csAttributes = a}) . _Coerce;
+csAttributes :: Lens' CreateStack (Maybe (HashMap StackAttributesKeys Text))
+csAttributes = lens _csAttributes (\ s a -> s{_csAttributes = a}) . mapping _Coerce;
 
 -- | Whether the stack uses custom cookbooks.
 csUseCustomCookbooks :: Lens' CreateStack (Maybe Bool)

@@ -92,11 +92,11 @@ import Network.AWS.EC2.Types
 -- * 'drioMaxResults'
 --
 -- * 'drioMaxInstanceCount'
-data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings'{_drioMaxDuration :: Maybe Integer, _drioProductDescription :: Maybe RIProductDescription, _drioIncludeMarketplace :: Maybe Bool, _drioFilters :: [Filter], _drioInstanceType :: Maybe InstanceType, _drioNextToken :: Maybe Text, _drioMinDuration :: Maybe Integer, _drioAvailabilityZone :: Maybe Text, _drioOfferingType :: Maybe OfferingTypeValues, _drioReservedInstancesOfferingIds :: [Text], _drioInstanceTenancy :: Maybe Tenancy, _drioDryRun :: Maybe Bool, _drioMaxResults :: Maybe Int, _drioMaxInstanceCount :: Maybe Int} deriving (Eq, Read, Show)
+data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings'{_drioMaxDuration :: Maybe Integer, _drioProductDescription :: Maybe RIProductDescription, _drioIncludeMarketplace :: Maybe Bool, _drioFilters :: Maybe [Filter], _drioInstanceType :: Maybe InstanceType, _drioNextToken :: Maybe Text, _drioMinDuration :: Maybe Integer, _drioAvailabilityZone :: Maybe Text, _drioOfferingType :: Maybe OfferingTypeValues, _drioReservedInstancesOfferingIds :: Maybe [Text], _drioInstanceTenancy :: Maybe Tenancy, _drioDryRun :: Maybe Bool, _drioMaxResults :: Maybe Int, _drioMaxInstanceCount :: Maybe Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeReservedInstancesOfferings' smart constructor.
 describeReservedInstancesOfferings :: DescribeReservedInstancesOfferings
-describeReservedInstancesOfferings = DescribeReservedInstancesOfferings'{_drioMaxDuration = Nothing, _drioProductDescription = Nothing, _drioIncludeMarketplace = Nothing, _drioFilters = mempty, _drioInstanceType = Nothing, _drioNextToken = Nothing, _drioMinDuration = Nothing, _drioAvailabilityZone = Nothing, _drioOfferingType = Nothing, _drioReservedInstancesOfferingIds = mempty, _drioInstanceTenancy = Nothing, _drioDryRun = Nothing, _drioMaxResults = Nothing, _drioMaxInstanceCount = Nothing};
+describeReservedInstancesOfferings = DescribeReservedInstancesOfferings'{_drioMaxDuration = Nothing, _drioProductDescription = Nothing, _drioIncludeMarketplace = Nothing, _drioFilters = Nothing, _drioInstanceType = Nothing, _drioNextToken = Nothing, _drioMinDuration = Nothing, _drioAvailabilityZone = Nothing, _drioOfferingType = Nothing, _drioReservedInstancesOfferingIds = Nothing, _drioInstanceTenancy = Nothing, _drioDryRun = Nothing, _drioMaxResults = Nothing, _drioMaxInstanceCount = Nothing};
 
 -- | The maximum duration (in seconds) to filter when searching for
 -- offerings.
@@ -143,7 +143,7 @@ drioIncludeMarketplace = lens _drioIncludeMarketplace (\ s a -> s{_drioIncludeMa
 -- -   @usage-price@ - The usage price of the Reserved Instance, per hour
 --     (for example, 0.84).
 --
-drioFilters :: Lens' DescribeReservedInstancesOfferings [Filter]
+drioFilters :: Lens' DescribeReservedInstancesOfferings (Maybe [Filter])
 drioFilters = lens _drioFilters (\ s a -> s{_drioFilters = a});
 
 -- | The instance type on which the Reserved Instance can be used. For more
@@ -175,7 +175,7 @@ drioOfferingType :: Lens' DescribeReservedInstancesOfferings (Maybe OfferingType
 drioOfferingType = lens _drioOfferingType (\ s a -> s{_drioOfferingType = a});
 
 -- | One or more Reserved Instances offering IDs.
-drioReservedInstancesOfferingIds :: Lens' DescribeReservedInstancesOfferings [Text]
+drioReservedInstancesOfferingIds :: Lens' DescribeReservedInstancesOfferings (Maybe [Text])
 drioReservedInstancesOfferingIds = lens _drioReservedInstancesOfferingIds (\ s a -> s{_drioReservedInstancesOfferingIds = a});
 
 -- | The tenancy of the Reserved Instance offering. A Reserved Instance with
@@ -258,11 +258,11 @@ instance ToQuery DescribeReservedInstancesOfferings
 -- * 'driorNextToken'
 --
 -- * 'driorReservedInstancesOfferings'
-data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse'{_driorNextToken :: Maybe Text, _driorReservedInstancesOfferings :: [ReservedInstancesOffering]} deriving (Eq, Read, Show)
+data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse'{_driorNextToken :: Maybe Text, _driorReservedInstancesOfferings :: Maybe [ReservedInstancesOffering]} deriving (Eq, Read, Show)
 
 -- | 'DescribeReservedInstancesOfferingsResponse' smart constructor.
 describeReservedInstancesOfferingsResponse :: DescribeReservedInstancesOfferingsResponse
-describeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse'{_driorNextToken = Nothing, _driorReservedInstancesOfferings = mempty};
+describeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse'{_driorNextToken = Nothing, _driorReservedInstancesOfferings = Nothing};
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
@@ -270,5 +270,5 @@ driorNextToken :: Lens' DescribeReservedInstancesOfferingsResponse (Maybe Text)
 driorNextToken = lens _driorNextToken (\ s a -> s{_driorNextToken = a});
 
 -- | A list of Reserved Instances offerings.
-driorReservedInstancesOfferings :: Lens' DescribeReservedInstancesOfferingsResponse [ReservedInstancesOffering]
+driorReservedInstancesOfferings :: Lens' DescribeReservedInstancesOfferingsResponse (Maybe [ReservedInstancesOffering])
 driorReservedInstancesOfferings = lens _driorReservedInstancesOfferings (\ s a -> s{_driorReservedInstancesOfferings = a});

@@ -54,16 +54,16 @@ import Network.AWS.EC2.Types
 -- * 'dcgFilters'
 --
 -- * 'dcgDryRun'
-data DescribeCustomerGateways = DescribeCustomerGateways'{_dcgCustomerGatewayIds :: [Text], _dcgFilters :: [Filter], _dcgDryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data DescribeCustomerGateways = DescribeCustomerGateways'{_dcgCustomerGatewayIds :: Maybe [Text], _dcgFilters :: Maybe [Filter], _dcgDryRun :: Maybe Bool} deriving (Eq, Read, Show)
 
 -- | 'DescribeCustomerGateways' smart constructor.
 describeCustomerGateways :: DescribeCustomerGateways
-describeCustomerGateways = DescribeCustomerGateways'{_dcgCustomerGatewayIds = mempty, _dcgFilters = mempty, _dcgDryRun = Nothing};
+describeCustomerGateways = DescribeCustomerGateways'{_dcgCustomerGatewayIds = Nothing, _dcgFilters = Nothing, _dcgDryRun = Nothing};
 
 -- | One or more customer gateway IDs.
 --
 -- Default: Describes all your customer gateways.
-dcgCustomerGatewayIds :: Lens' DescribeCustomerGateways [Text]
+dcgCustomerGatewayIds :: Lens' DescribeCustomerGateways (Maybe [Text])
 dcgCustomerGatewayIds = lens _dcgCustomerGatewayIds (\ s a -> s{_dcgCustomerGatewayIds = a});
 
 -- | One or more filters.
@@ -96,7 +96,7 @@ dcgCustomerGatewayIds = lens _dcgCustomerGatewayIds (\ s a -> s{_dcgCustomerGate
 -- -   @tag-value@ - The value of a tag assigned to the resource. This
 --     filter is independent of the @tag-key@ filter.
 --
-dcgFilters :: Lens' DescribeCustomerGateways [Filter]
+dcgFilters :: Lens' DescribeCustomerGateways (Maybe [Filter])
 dcgFilters = lens _dcgFilters (\ s a -> s{_dcgFilters = a});
 
 -- | Checks whether you have the required permissions for the action, without
@@ -137,12 +137,12 @@ instance ToQuery DescribeCustomerGateways where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dcgrCustomerGateways'
-newtype DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse'{_dcgrCustomerGateways :: [CustomerGateway]} deriving (Eq, Read, Show)
+newtype DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse'{_dcgrCustomerGateways :: Maybe [CustomerGateway]} deriving (Eq, Read, Show)
 
 -- | 'DescribeCustomerGatewaysResponse' smart constructor.
 describeCustomerGatewaysResponse :: DescribeCustomerGatewaysResponse
-describeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse'{_dcgrCustomerGateways = mempty};
+describeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse'{_dcgrCustomerGateways = Nothing};
 
 -- | Information about one or more customer gateways.
-dcgrCustomerGateways :: Lens' DescribeCustomerGatewaysResponse [CustomerGateway]
+dcgrCustomerGateways :: Lens' DescribeCustomerGatewaysResponse (Maybe [CustomerGateway])
 dcgrCustomerGateways = lens _dcgrCustomerGateways (\ s a -> s{_dcgrCustomerGateways = a});

@@ -40,10 +40,10 @@ module Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
     -- ** Request constructor
     , getOpenIdTokenForDeveloperIdentity
     -- ** Request lenses
-    , goitfdiIdentityPoolId
-    , goitfdiLogins
     , goitfdiTokenDuration
     , goitfdiIdentityId
+    , goitfdiIdentityPoolId
+    , goitfdiLogins
 
     -- * Response
     , GetOpenIdTokenForDeveloperIdentityResponse
@@ -63,18 +63,34 @@ import Network.AWS.CognitoIdentity.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'goitfdiIdentityPoolId'
---
--- * 'goitfdiLogins'
---
 -- * 'goitfdiTokenDuration'
 --
 -- * 'goitfdiIdentityId'
-data GetOpenIdTokenForDeveloperIdentity = GetOpenIdTokenForDeveloperIdentity'{_goitfdiIdentityPoolId :: Text, _goitfdiLogins :: HashMap Text Text, _goitfdiTokenDuration :: Nat, _goitfdiIdentityId :: Text} deriving (Eq, Read, Show)
+--
+-- * 'goitfdiIdentityPoolId'
+--
+-- * 'goitfdiLogins'
+data GetOpenIdTokenForDeveloperIdentity = GetOpenIdTokenForDeveloperIdentity'{_goitfdiTokenDuration :: Maybe Nat, _goitfdiIdentityId :: Maybe Text, _goitfdiIdentityPoolId :: Text, _goitfdiLogins :: HashMap Text Text} deriving (Eq, Read, Show)
 
 -- | 'GetOpenIdTokenForDeveloperIdentity' smart constructor.
-getOpenIdTokenForDeveloperIdentity :: Text -> HashMap Text Text -> Natural -> Text -> GetOpenIdTokenForDeveloperIdentity
-getOpenIdTokenForDeveloperIdentity pIdentityPoolId pLogins pTokenDuration pIdentityId = GetOpenIdTokenForDeveloperIdentity'{_goitfdiIdentityPoolId = pIdentityPoolId, _goitfdiLogins = _Coerce # pLogins, _goitfdiTokenDuration = _Nat # pTokenDuration, _goitfdiIdentityId = pIdentityId};
+getOpenIdTokenForDeveloperIdentity :: Text -> GetOpenIdTokenForDeveloperIdentity
+getOpenIdTokenForDeveloperIdentity pIdentityPoolId = GetOpenIdTokenForDeveloperIdentity'{_goitfdiTokenDuration = Nothing, _goitfdiIdentityId = Nothing, _goitfdiIdentityPoolId = pIdentityPoolId, _goitfdiLogins = mempty};
+
+-- | The expiration time of the token, in seconds. You can specify a custom
+-- expiration time for the token so that you can cache it. If you don\'t
+-- provide an expiration time, the token is valid for 15 minutes. You can
+-- exchange the token with Amazon STS for temporary AWS credentials, which
+-- are valid for a maximum of one hour. The maximum token duration you can
+-- set is 24 hours. You should take care in setting the expiration time for
+-- a token, as there are significant security implications: an attacker
+-- could use a leaked token to access your AWS resources for the token\'s
+-- duration.
+goitfdiTokenDuration :: Lens' GetOpenIdTokenForDeveloperIdentity (Maybe Natural)
+goitfdiTokenDuration = lens _goitfdiTokenDuration (\ s a -> s{_goitfdiTokenDuration = a}) . mapping _Nat;
+
+-- | A unique identifier in the format REGION:GUID.
+goitfdiIdentityId :: Lens' GetOpenIdTokenForDeveloperIdentity (Maybe Text)
+goitfdiIdentityId = lens _goitfdiIdentityId (\ s a -> s{_goitfdiIdentityId = a});
 
 -- | An identity pool ID in the format REGION:GUID.
 goitfdiIdentityPoolId :: Lens' GetOpenIdTokenForDeveloperIdentity Text
@@ -93,22 +109,6 @@ goitfdiIdentityPoolId = lens _goitfdiIdentityPoolId (\ s a -> s{_goitfdiIdentity
 goitfdiLogins :: Lens' GetOpenIdTokenForDeveloperIdentity (HashMap Text Text)
 goitfdiLogins = lens _goitfdiLogins (\ s a -> s{_goitfdiLogins = a}) . _Coerce;
 
--- | The expiration time of the token, in seconds. You can specify a custom
--- expiration time for the token so that you can cache it. If you don\'t
--- provide an expiration time, the token is valid for 15 minutes. You can
--- exchange the token with Amazon STS for temporary AWS credentials, which
--- are valid for a maximum of one hour. The maximum token duration you can
--- set is 24 hours. You should take care in setting the expiration time for
--- a token, as there are significant security implications: an attacker
--- could use a leaked token to access your AWS resources for the token\'s
--- duration.
-goitfdiTokenDuration :: Lens' GetOpenIdTokenForDeveloperIdentity Natural
-goitfdiTokenDuration = lens _goitfdiTokenDuration (\ s a -> s{_goitfdiTokenDuration = a}) . _Nat;
-
--- | A unique identifier in the format REGION:GUID.
-goitfdiIdentityId :: Lens' GetOpenIdTokenForDeveloperIdentity Text
-goitfdiIdentityId = lens _goitfdiIdentityId (\ s a -> s{_goitfdiIdentityId = a});
-
 instance AWSRequest
          GetOpenIdTokenForDeveloperIdentity where
         type Sv GetOpenIdTokenForDeveloperIdentity =
@@ -120,7 +120,7 @@ instance AWSRequest
           = receiveJSON
               (\ s h x ->
                  GetOpenIdTokenForDeveloperIdentityResponse' <$>
-                   x .?> "Token" <*> x .:> "IdentityId")
+                   x .?> "Token" <*> x .?> "IdentityId")
 
 instance ToHeaders GetOpenIdTokenForDeveloperIdentity
          where
@@ -137,10 +137,10 @@ instance ToJSON GetOpenIdTokenForDeveloperIdentity
          where
         toJSON GetOpenIdTokenForDeveloperIdentity'{..}
           = object
-              ["IdentityPoolId" .= _goitfdiIdentityPoolId,
-               "Logins" .= _goitfdiLogins,
-               "TokenDuration" .= _goitfdiTokenDuration,
-               "IdentityId" .= _goitfdiIdentityId]
+              ["TokenDuration" .= _goitfdiTokenDuration,
+               "IdentityId" .= _goitfdiIdentityId,
+               "IdentityPoolId" .= _goitfdiIdentityPoolId,
+               "Logins" .= _goitfdiLogins]
 
 instance ToPath GetOpenIdTokenForDeveloperIdentity
          where
@@ -157,16 +157,16 @@ instance ToQuery GetOpenIdTokenForDeveloperIdentity
 -- * 'goitfdirToken'
 --
 -- * 'goitfdirIdentityId'
-data GetOpenIdTokenForDeveloperIdentityResponse = GetOpenIdTokenForDeveloperIdentityResponse'{_goitfdirToken :: Maybe Text, _goitfdirIdentityId :: Text} deriving (Eq, Read, Show)
+data GetOpenIdTokenForDeveloperIdentityResponse = GetOpenIdTokenForDeveloperIdentityResponse'{_goitfdirToken :: Maybe Text, _goitfdirIdentityId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'GetOpenIdTokenForDeveloperIdentityResponse' smart constructor.
-getOpenIdTokenForDeveloperIdentityResponse :: Text -> GetOpenIdTokenForDeveloperIdentityResponse
-getOpenIdTokenForDeveloperIdentityResponse pIdentityId = GetOpenIdTokenForDeveloperIdentityResponse'{_goitfdirToken = Nothing, _goitfdirIdentityId = pIdentityId};
+getOpenIdTokenForDeveloperIdentityResponse :: GetOpenIdTokenForDeveloperIdentityResponse
+getOpenIdTokenForDeveloperIdentityResponse = GetOpenIdTokenForDeveloperIdentityResponse'{_goitfdirToken = Nothing, _goitfdirIdentityId = Nothing};
 
 -- | An OpenID token.
 goitfdirToken :: Lens' GetOpenIdTokenForDeveloperIdentityResponse (Maybe Text)
 goitfdirToken = lens _goitfdirToken (\ s a -> s{_goitfdirToken = a});
 
 -- | A unique identifier in the format REGION:GUID.
-goitfdirIdentityId :: Lens' GetOpenIdTokenForDeveloperIdentityResponse Text
+goitfdirIdentityId :: Lens' GetOpenIdTokenForDeveloperIdentityResponse (Maybe Text)
 goitfdirIdentityId = lens _goitfdirIdentityId (\ s a -> s{_goitfdirIdentityId = a});

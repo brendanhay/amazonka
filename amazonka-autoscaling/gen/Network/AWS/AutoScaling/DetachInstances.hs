@@ -56,14 +56,14 @@ import Network.AWS.AutoScaling.Types
 -- * 'diAutoScalingGroupName'
 --
 -- * 'diShouldDecrementDesiredCapacity'
-data DetachInstances = DetachInstances'{_diInstanceIds :: [Text], _diAutoScalingGroupName :: Text, _diShouldDecrementDesiredCapacity :: Bool} deriving (Eq, Read, Show)
+data DetachInstances = DetachInstances'{_diInstanceIds :: Maybe [Text], _diAutoScalingGroupName :: Text, _diShouldDecrementDesiredCapacity :: Bool} deriving (Eq, Read, Show)
 
 -- | 'DetachInstances' smart constructor.
 detachInstances :: Text -> Bool -> DetachInstances
-detachInstances pAutoScalingGroupName pShouldDecrementDesiredCapacity = DetachInstances'{_diInstanceIds = mempty, _diAutoScalingGroupName = pAutoScalingGroupName, _diShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity};
+detachInstances pAutoScalingGroupName pShouldDecrementDesiredCapacity = DetachInstances'{_diInstanceIds = Nothing, _diAutoScalingGroupName = pAutoScalingGroupName, _diShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity};
 
 -- | One or more instance IDs.
-diInstanceIds :: Lens' DetachInstances [Text]
+diInstanceIds :: Lens' DetachInstances (Maybe [Text])
 diInstanceIds = lens _diInstanceIds (\ s a -> s{_diInstanceIds = a});
 
 -- | The name of the group.
@@ -107,13 +107,13 @@ instance ToQuery DetachInstances where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dirActivities'
-newtype DetachInstancesResponse = DetachInstancesResponse'{_dirActivities :: [Activity]} deriving (Eq, Read, Show)
+newtype DetachInstancesResponse = DetachInstancesResponse'{_dirActivities :: Maybe [Activity]} deriving (Eq, Read, Show)
 
 -- | 'DetachInstancesResponse' smart constructor.
 detachInstancesResponse :: DetachInstancesResponse
-detachInstancesResponse = DetachInstancesResponse'{_dirActivities = mempty};
+detachInstancesResponse = DetachInstancesResponse'{_dirActivities = Nothing};
 
 -- | The activities related to detaching the instances from the Auto Scaling
 -- group.
-dirActivities :: Lens' DetachInstancesResponse [Activity]
+dirActivities :: Lens' DetachInstancesResponse (Maybe [Activity])
 dirActivities = lens _dirActivities (\ s a -> s{_dirActivities = a});

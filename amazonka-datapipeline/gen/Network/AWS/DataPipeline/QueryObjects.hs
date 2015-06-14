@@ -135,11 +135,11 @@ instance ToQuery QueryObjects where
 -- * 'qorIds'
 --
 -- * 'qorMarker'
-data QueryObjectsResponse = QueryObjectsResponse'{_qorHasMoreResults :: Maybe Bool, _qorIds :: [Text], _qorMarker :: Maybe Text} deriving (Eq, Read, Show)
+data QueryObjectsResponse = QueryObjectsResponse'{_qorHasMoreResults :: Maybe Bool, _qorIds :: Maybe [Text], _qorMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'QueryObjectsResponse' smart constructor.
 queryObjectsResponse :: QueryObjectsResponse
-queryObjectsResponse = QueryObjectsResponse'{_qorHasMoreResults = Nothing, _qorIds = mempty, _qorMarker = Nothing};
+queryObjectsResponse = QueryObjectsResponse'{_qorHasMoreResults = Nothing, _qorIds = Nothing, _qorMarker = Nothing};
 
 -- | Indicates whether there are more results that can be obtained by a
 -- subsequent call.
@@ -147,7 +147,7 @@ qorHasMoreResults :: Lens' QueryObjectsResponse (Maybe Bool)
 qorHasMoreResults = lens _qorHasMoreResults (\ s a -> s{_qorHasMoreResults = a});
 
 -- | The identifiers that match the query selectors.
-qorIds :: Lens' QueryObjectsResponse [Text]
+qorIds :: Lens' QueryObjectsResponse (Maybe [Text])
 qorIds = lens _qorIds (\ s a -> s{_qorIds = a});
 
 -- | The starting point for the next page of results. To view the next page

@@ -78,15 +78,15 @@ import Network.AWS.SES.Types
 -- * 'sreSource'
 --
 -- * 'sreRawMessage'
-data SendRawEmail = SendRawEmail'{_sreDestinations :: [Text], _sreSource :: Maybe Text, _sreRawMessage :: RawMessage} deriving (Eq, Read, Show)
+data SendRawEmail = SendRawEmail'{_sreDestinations :: Maybe [Text], _sreSource :: Maybe Text, _sreRawMessage :: RawMessage} deriving (Eq, Read, Show)
 
 -- | 'SendRawEmail' smart constructor.
 sendRawEmail :: RawMessage -> SendRawEmail
-sendRawEmail pRawMessage = SendRawEmail'{_sreDestinations = mempty, _sreSource = Nothing, _sreRawMessage = pRawMessage};
+sendRawEmail pRawMessage = SendRawEmail'{_sreDestinations = Nothing, _sreSource = Nothing, _sreRawMessage = pRawMessage};
 
 -- | A list of destinations for the message, consisting of To:, CC:, and BCC:
 -- addresses.
-sreDestinations :: Lens' SendRawEmail [Text]
+sreDestinations :: Lens' SendRawEmail (Maybe [Text])
 sreDestinations = lens _sreDestinations (\ s a -> s{_sreDestinations = a});
 
 -- | The identity\'s email address. If you do not provide a value for this

@@ -34,8 +34,8 @@ module Network.AWS.AutoScaling.DescribeScalingActivities
     -- ** Request lenses
     , dsa1NextToken
     , dsa1MaxRecords
-    , dsa1ActivityIds
     , dsa1AutoScalingGroupName
+    , dsa1ActivityIds
 
     -- * Response
     , DescribeScalingActivitiesResponse
@@ -59,14 +59,14 @@ import Network.AWS.AutoScaling.Types
 --
 -- * 'dsa1MaxRecords'
 --
--- * 'dsa1ActivityIds'
---
 -- * 'dsa1AutoScalingGroupName'
-data DescribeScalingActivities = DescribeScalingActivities'{_dsa1NextToken :: Maybe Text, _dsa1MaxRecords :: Maybe Int, _dsa1ActivityIds :: [Text], _dsa1AutoScalingGroupName :: Text} deriving (Eq, Read, Show)
+--
+-- * 'dsa1ActivityIds'
+data DescribeScalingActivities = DescribeScalingActivities'{_dsa1NextToken :: Maybe Text, _dsa1MaxRecords :: Maybe Int, _dsa1AutoScalingGroupName :: Maybe Text, _dsa1ActivityIds :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'DescribeScalingActivities' smart constructor.
-describeScalingActivities :: Text -> DescribeScalingActivities
-describeScalingActivities pAutoScalingGroupName = DescribeScalingActivities'{_dsa1NextToken = Nothing, _dsa1MaxRecords = Nothing, _dsa1ActivityIds = mempty, _dsa1AutoScalingGroupName = pAutoScalingGroupName};
+describeScalingActivities :: DescribeScalingActivities
+describeScalingActivities = DescribeScalingActivities'{_dsa1NextToken = Nothing, _dsa1MaxRecords = Nothing, _dsa1AutoScalingGroupName = Nothing, _dsa1ActivityIds = Nothing};
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
@@ -77,18 +77,18 @@ dsa1NextToken = lens _dsa1NextToken (\ s a -> s{_dsa1NextToken = a});
 dsa1MaxRecords :: Lens' DescribeScalingActivities (Maybe Int)
 dsa1MaxRecords = lens _dsa1MaxRecords (\ s a -> s{_dsa1MaxRecords = a});
 
+-- | The name of the group.
+dsa1AutoScalingGroupName :: Lens' DescribeScalingActivities (Maybe Text)
+dsa1AutoScalingGroupName = lens _dsa1AutoScalingGroupName (\ s a -> s{_dsa1AutoScalingGroupName = a});
+
 -- | A list containing the activity IDs of the desired scaling activities. If
 -- this list is omitted, all activities are described. If an
 -- @AutoScalingGroupName@ is provided, the results are limited to that
 -- group. The list of requested activities cannot contain more than 50
 -- items. If unknown activities are requested, they are ignored with no
 -- error.
-dsa1ActivityIds :: Lens' DescribeScalingActivities [Text]
+dsa1ActivityIds :: Lens' DescribeScalingActivities (Maybe [Text])
 dsa1ActivityIds = lens _dsa1ActivityIds (\ s a -> s{_dsa1ActivityIds = a});
-
--- | The name of the group.
-dsa1AutoScalingGroupName :: Lens' DescribeScalingActivities Text
-dsa1AutoScalingGroupName = lens _dsa1AutoScalingGroupName (\ s a -> s{_dsa1AutoScalingGroupName = a});
 
 instance AWSRequest DescribeScalingActivities where
         type Sv DescribeScalingActivities = AutoScaling
@@ -117,8 +117,8 @@ instance ToQuery DescribeScalingActivities where
                "Version" =: ("2011-01-01" :: ByteString),
                "NextToken" =: _dsa1NextToken,
                "MaxRecords" =: _dsa1MaxRecords,
-               "ActivityIds" =: "member" =: _dsa1ActivityIds,
-               "AutoScalingGroupName" =: _dsa1AutoScalingGroupName]
+               "AutoScalingGroupName" =: _dsa1AutoScalingGroupName,
+               "ActivityIds" =: "member" =: _dsa1ActivityIds]
 
 -- | /See:/ 'describeScalingActivitiesResponse' smart constructor.
 --
@@ -130,8 +130,8 @@ instance ToQuery DescribeScalingActivities where
 data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse'{_dNextToken :: Maybe Text, _dActivities :: [Activity]} deriving (Eq, Read, Show)
 
 -- | 'DescribeScalingActivitiesResponse' smart constructor.
-describeScalingActivitiesResponse :: [Activity] -> DescribeScalingActivitiesResponse
-describeScalingActivitiesResponse pActivities = DescribeScalingActivitiesResponse'{_dNextToken = Nothing, _dActivities = pActivities};
+describeScalingActivitiesResponse :: DescribeScalingActivitiesResponse
+describeScalingActivitiesResponse = DescribeScalingActivitiesResponse'{_dNextToken = Nothing, _dActivities = mempty};
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.

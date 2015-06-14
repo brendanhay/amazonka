@@ -55,14 +55,14 @@ import Network.AWS.RDS.Types
 -- * 'describeMaxRecords'
 --
 -- * 'describeMarker'
-data DescribeDBInstances = DescribeDBInstances'{_describeFilters :: [Filter], _describeDBInstanceIdentifier :: Maybe Text, _describeMaxRecords :: Maybe Int, _describeMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeDBInstances = DescribeDBInstances'{_describeFilters :: Maybe [Filter], _describeDBInstanceIdentifier :: Maybe Text, _describeMaxRecords :: Maybe Int, _describeMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeDBInstances' smart constructor.
 describeDBInstances :: DescribeDBInstances
-describeDBInstances = DescribeDBInstances'{_describeFilters = mempty, _describeDBInstanceIdentifier = Nothing, _describeMaxRecords = Nothing, _describeMarker = Nothing};
+describeDBInstances = DescribeDBInstances'{_describeFilters = Nothing, _describeDBInstanceIdentifier = Nothing, _describeMaxRecords = Nothing, _describeMarker = Nothing};
 
 -- | This parameter is not currently supported.
-describeFilters :: Lens' DescribeDBInstances [Filter]
+describeFilters :: Lens' DescribeDBInstances (Maybe [Filter])
 describeFilters = lens _describeFilters (\ s a -> s{_describeFilters = a});
 
 -- | The user-supplied instance identifier. If this parameter is specified,
@@ -131,14 +131,14 @@ instance ToQuery DescribeDBInstances where
 -- * 'ddirDBInstances'
 --
 -- * 'ddirMarker'
-data DescribeDBInstancesResponse = DescribeDBInstancesResponse'{_ddirDBInstances :: [DBInstance], _ddirMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeDBInstancesResponse = DescribeDBInstancesResponse'{_ddirDBInstances :: Maybe [DBInstance], _ddirMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeDBInstancesResponse' smart constructor.
 describeDBInstancesResponse :: DescribeDBInstancesResponse
-describeDBInstancesResponse = DescribeDBInstancesResponse'{_ddirDBInstances = mempty, _ddirMarker = Nothing};
+describeDBInstancesResponse = DescribeDBInstancesResponse'{_ddirDBInstances = Nothing, _ddirMarker = Nothing};
 
 -- | A list of DBInstance instances.
-ddirDBInstances :: Lens' DescribeDBInstancesResponse [DBInstance]
+ddirDBInstances :: Lens' DescribeDBInstancesResponse (Maybe [DBInstance])
 ddirDBInstances = lens _ddirDBInstances (\ s a -> s{_ddirDBInstances = a});
 
 -- | An optional pagination token provided by a previous request. If this

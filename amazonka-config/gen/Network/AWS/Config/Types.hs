@@ -69,8 +69,8 @@ module Network.AWS.Config.Types
     -- * ConfigurationRecorder
     , ConfigurationRecorder
     , configurationRecorder
-    , crRoleARN
     , crName
+    , crRoleARN
 
     -- * ConfigurationRecorderStatus
     , ConfigurationRecorderStatus
@@ -89,8 +89,8 @@ module Network.AWS.Config.Types
     , deliveryChannel
     , dcS3KeyPrefix
     , dcSnsTopicARN
-    , dcS3BucketName
     , dcName
+    , dcS3BucketName
 
     -- * DeliveryChannelStatus
     , DeliveryChannelStatus
@@ -295,11 +295,11 @@ instance FromJSON ConfigStreamDeliveryInfo where
 -- * 'ciConfigurationItemMD5Hash'
 --
 -- * 'ciTags'
-data ConfigurationItem = ConfigurationItem'{_ciResourceId :: Maybe Text, _ciConfigurationStateId :: Maybe Text, _ciResourceType :: Maybe ResourceType, _ciArn :: Maybe Text, _ciResourceCreationTime :: Maybe POSIX, _ciConfigurationItemStatus :: Maybe ConfigurationItemStatus, _ciAccountId :: Maybe Text, _ciConfigurationItemCaptureTime :: Maybe POSIX, _ciAvailabilityZone :: Maybe Text, _ciRelationships :: [Relationship], _ciVersion :: Maybe Text, _ciRelatedEvents :: [Text], _ciConfiguration :: Maybe Text, _ciConfigurationItemMD5Hash :: Maybe Text, _ciTags :: HashMap Text Text} deriving (Eq, Read, Show)
+data ConfigurationItem = ConfigurationItem'{_ciResourceId :: Maybe Text, _ciConfigurationStateId :: Maybe Text, _ciResourceType :: Maybe ResourceType, _ciArn :: Maybe Text, _ciResourceCreationTime :: Maybe POSIX, _ciConfigurationItemStatus :: Maybe ConfigurationItemStatus, _ciAccountId :: Maybe Text, _ciConfigurationItemCaptureTime :: Maybe POSIX, _ciAvailabilityZone :: Maybe Text, _ciRelationships :: Maybe [Relationship], _ciVersion :: Maybe Text, _ciRelatedEvents :: Maybe [Text], _ciConfiguration :: Maybe Text, _ciConfigurationItemMD5Hash :: Maybe Text, _ciTags :: Maybe (HashMap Text Text)} deriving (Eq, Read, Show)
 
 -- | 'ConfigurationItem' smart constructor.
 configurationItem :: ConfigurationItem
-configurationItem = ConfigurationItem'{_ciResourceId = Nothing, _ciConfigurationStateId = Nothing, _ciResourceType = Nothing, _ciArn = Nothing, _ciResourceCreationTime = Nothing, _ciConfigurationItemStatus = Nothing, _ciAccountId = Nothing, _ciConfigurationItemCaptureTime = Nothing, _ciAvailabilityZone = Nothing, _ciRelationships = mempty, _ciVersion = Nothing, _ciRelatedEvents = mempty, _ciConfiguration = Nothing, _ciConfigurationItemMD5Hash = Nothing, _ciTags = mempty};
+configurationItem = ConfigurationItem'{_ciResourceId = Nothing, _ciConfigurationStateId = Nothing, _ciResourceType = Nothing, _ciArn = Nothing, _ciResourceCreationTime = Nothing, _ciConfigurationItemStatus = Nothing, _ciAccountId = Nothing, _ciConfigurationItemCaptureTime = Nothing, _ciAvailabilityZone = Nothing, _ciRelationships = Nothing, _ciVersion = Nothing, _ciRelatedEvents = Nothing, _ciConfiguration = Nothing, _ciConfigurationItemMD5Hash = Nothing, _ciTags = Nothing};
 
 -- | The ID of the resource (for example., @sg-xxxxxx@).
 ciResourceId :: Lens' ConfigurationItem (Maybe Text)
@@ -339,7 +339,7 @@ ciAvailabilityZone :: Lens' ConfigurationItem (Maybe Text)
 ciAvailabilityZone = lens _ciAvailabilityZone (\ s a -> s{_ciAvailabilityZone = a});
 
 -- | A list of related AWS resources.
-ciRelationships :: Lens' ConfigurationItem [Relationship]
+ciRelationships :: Lens' ConfigurationItem (Maybe [Relationship])
 ciRelationships = lens _ciRelationships (\ s a -> s{_ciRelationships = a});
 
 -- | The version number of the resource configuration.
@@ -355,7 +355,7 @@ ciVersion = lens _ciVersion (\ s a -> s{_ciVersion = a});
 --
 -- An empty field indicates that the current configuration was not
 -- initiated by any event.
-ciRelatedEvents :: Lens' ConfigurationItem [Text]
+ciRelatedEvents :: Lens' ConfigurationItem (Maybe [Text])
 ciRelatedEvents = lens _ciRelatedEvents (\ s a -> s{_ciRelatedEvents = a});
 
 -- | The description of the resource configuration.
@@ -370,8 +370,8 @@ ciConfigurationItemMD5Hash :: Lens' ConfigurationItem (Maybe Text)
 ciConfigurationItemMD5Hash = lens _ciConfigurationItemMD5Hash (\ s a -> s{_ciConfigurationItemMD5Hash = a});
 
 -- | A mapping of key value tags associated with the resource.
-ciTags :: Lens' ConfigurationItem (HashMap Text Text)
-ciTags = lens _ciTags (\ s a -> s{_ciTags = a}) . _Coerce;
+ciTags :: Lens' ConfigurationItem (Maybe (HashMap Text Text))
+ciTags = lens _ciTags (\ s a -> s{_ciTags = a}) . mapping _Coerce;
 
 instance FromJSON ConfigurationItem where
         parseJSON
@@ -421,36 +421,36 @@ instance FromJSON ConfigurationItemStatus where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crRoleARN'
---
 -- * 'crName'
-data ConfigurationRecorder = ConfigurationRecorder'{_crRoleARN :: Maybe Text, _crName :: Text} deriving (Eq, Read, Show)
+--
+-- * 'crRoleARN'
+data ConfigurationRecorder = ConfigurationRecorder'{_crName :: Maybe Text, _crRoleARN :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ConfigurationRecorder' smart constructor.
-configurationRecorder :: Text -> ConfigurationRecorder
-configurationRecorder pName = ConfigurationRecorder'{_crRoleARN = Nothing, _crName = pName};
+configurationRecorder :: ConfigurationRecorder
+configurationRecorder = ConfigurationRecorder'{_crName = Nothing, _crRoleARN = Nothing};
+
+-- | The name of the recorder. By default, AWS Config automatically assigns
+-- the name \"default\" when creating the configuration recorder. You
+-- cannot change the assigned name.
+crName :: Lens' ConfigurationRecorder (Maybe Text)
+crName = lens _crName (\ s a -> s{_crName = a});
 
 -- | Amazon Resource Name (ARN) of the IAM role used to describe the AWS
 -- resources associated with the account.
 crRoleARN :: Lens' ConfigurationRecorder (Maybe Text)
 crRoleARN = lens _crRoleARN (\ s a -> s{_crRoleARN = a});
 
--- | The name of the recorder. By default, AWS Config automatically assigns
--- the name \"default\" when creating the configuration recorder. You
--- cannot change the assigned name.
-crName :: Lens' ConfigurationRecorder Text
-crName = lens _crName (\ s a -> s{_crName = a});
-
 instance FromJSON ConfigurationRecorder where
         parseJSON
           = withObject "ConfigurationRecorder"
               (\ x ->
                  ConfigurationRecorder' <$>
-                   x .:? "roleARN" <*> x .: "name")
+                   x .:? "name" <*> x .:? "roleARN")
 
 instance ToJSON ConfigurationRecorder where
         toJSON ConfigurationRecorder'{..}
-          = object ["roleARN" .= _crRoleARN, "name" .= _crName]
+          = object ["name" .= _crName, "roleARN" .= _crRoleARN]
 
 -- | /See:/ 'configurationRecorderStatus' smart constructor.
 --
@@ -530,14 +530,14 @@ instance FromJSON ConfigurationRecorderStatus where
 --
 -- * 'dcSnsTopicARN'
 --
--- * 'dcS3BucketName'
---
 -- * 'dcName'
-data DeliveryChannel = DeliveryChannel'{_dcS3KeyPrefix :: Maybe Text, _dcSnsTopicARN :: Maybe Text, _dcS3BucketName :: Maybe Text, _dcName :: Text} deriving (Eq, Read, Show)
+--
+-- * 'dcS3BucketName'
+data DeliveryChannel = DeliveryChannel'{_dcS3KeyPrefix :: Maybe Text, _dcSnsTopicARN :: Maybe Text, _dcName :: Maybe Text, _dcS3BucketName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DeliveryChannel' smart constructor.
-deliveryChannel :: Text -> DeliveryChannel
-deliveryChannel pName = DeliveryChannel'{_dcS3KeyPrefix = Nothing, _dcSnsTopicARN = Nothing, _dcS3BucketName = Nothing, _dcName = pName};
+deliveryChannel :: DeliveryChannel
+deliveryChannel = DeliveryChannel'{_dcS3KeyPrefix = Nothing, _dcSnsTopicARN = Nothing, _dcName = Nothing, _dcS3BucketName = Nothing};
 
 -- | The prefix for the specified Amazon S3 bucket.
 dcS3KeyPrefix :: Lens' DeliveryChannel (Maybe Text)
@@ -548,16 +548,16 @@ dcS3KeyPrefix = lens _dcS3KeyPrefix (\ s a -> s{_dcS3KeyPrefix = a});
 dcSnsTopicARN :: Lens' DeliveryChannel (Maybe Text)
 dcSnsTopicARN = lens _dcSnsTopicARN (\ s a -> s{_dcSnsTopicARN = a});
 
+-- | The name of the delivery channel. By default, AWS Config automatically
+-- assigns the name \"default\" when creating the delivery channel. You
+-- cannot change the assigned name.
+dcName :: Lens' DeliveryChannel (Maybe Text)
+dcName = lens _dcName (\ s a -> s{_dcName = a});
+
 -- | The name of the Amazon S3 bucket used to store configuration history for
 -- the delivery channel.
 dcS3BucketName :: Lens' DeliveryChannel (Maybe Text)
 dcS3BucketName = lens _dcS3BucketName (\ s a -> s{_dcS3BucketName = a});
-
--- | The name of the delivery channel. By default, AWS Config automatically
--- assigns the name \"default\" when creating the delivery channel. You
--- cannot change the assigned name.
-dcName :: Lens' DeliveryChannel Text
-dcName = lens _dcName (\ s a -> s{_dcName = a});
 
 instance FromJSON DeliveryChannel where
         parseJSON
@@ -565,15 +565,15 @@ instance FromJSON DeliveryChannel where
               (\ x ->
                  DeliveryChannel' <$>
                    x .:? "s3KeyPrefix" <*> x .:? "snsTopicARN" <*>
-                     x .:? "s3BucketName"
-                     <*> x .: "name")
+                     x .:? "name"
+                     <*> x .:? "s3BucketName")
 
 instance ToJSON DeliveryChannel where
         toJSON DeliveryChannel'{..}
           = object
               ["s3KeyPrefix" .= _dcS3KeyPrefix,
-               "snsTopicARN" .= _dcSnsTopicARN,
-               "s3BucketName" .= _dcS3BucketName, "name" .= _dcName]
+               "snsTopicARN" .= _dcSnsTopicARN, "name" .= _dcName,
+               "s3BucketName" .= _dcS3BucketName]
 
 -- | /See:/ 'deliveryChannelStatus' smart constructor.
 --

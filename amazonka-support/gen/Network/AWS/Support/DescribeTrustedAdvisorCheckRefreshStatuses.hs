@@ -49,8 +49,8 @@ import Network.AWS.Support.Types
 newtype DescribeTrustedAdvisorCheckRefreshStatuses = DescribeTrustedAdvisorCheckRefreshStatuses'{_dtacrsCheckIds :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'DescribeTrustedAdvisorCheckRefreshStatuses' smart constructor.
-describeTrustedAdvisorCheckRefreshStatuses :: [Text] -> DescribeTrustedAdvisorCheckRefreshStatuses
-describeTrustedAdvisorCheckRefreshStatuses pCheckIds = DescribeTrustedAdvisorCheckRefreshStatuses'{_dtacrsCheckIds = pCheckIds};
+describeTrustedAdvisorCheckRefreshStatuses :: DescribeTrustedAdvisorCheckRefreshStatuses
+describeTrustedAdvisorCheckRefreshStatuses = DescribeTrustedAdvisorCheckRefreshStatuses'{_dtacrsCheckIds = mempty};
 
 -- | The IDs of the Trusted Advisor checks.
 dtacrsCheckIds :: Lens' DescribeTrustedAdvisorCheckRefreshStatuses [Text]
@@ -102,8 +102,8 @@ instance ToQuery
 newtype DescribeTrustedAdvisorCheckRefreshStatusesResponse = DescribeTrustedAdvisorCheckRefreshStatusesResponse'{_dtacrsrStatuses :: [TrustedAdvisorCheckRefreshStatus]} deriving (Eq, Read, Show)
 
 -- | 'DescribeTrustedAdvisorCheckRefreshStatusesResponse' smart constructor.
-describeTrustedAdvisorCheckRefreshStatusesResponse :: [TrustedAdvisorCheckRefreshStatus] -> DescribeTrustedAdvisorCheckRefreshStatusesResponse
-describeTrustedAdvisorCheckRefreshStatusesResponse pStatuses = DescribeTrustedAdvisorCheckRefreshStatusesResponse'{_dtacrsrStatuses = pStatuses};
+describeTrustedAdvisorCheckRefreshStatusesResponse :: DescribeTrustedAdvisorCheckRefreshStatusesResponse
+describeTrustedAdvisorCheckRefreshStatusesResponse = DescribeTrustedAdvisorCheckRefreshStatusesResponse'{_dtacrsrStatuses = mempty};
 
 -- | The refresh status of the specified Trusted Advisor checks.
 dtacrsrStatuses :: Lens' DescribeTrustedAdvisorCheckRefreshStatusesResponse [TrustedAdvisorCheckRefreshStatus]

@@ -44,16 +44,16 @@ import Network.AWS.KMS.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'grNumberOfBytes'
-newtype GenerateRandom = GenerateRandom'{_grNumberOfBytes :: Nat} deriving (Eq, Read, Show)
+newtype GenerateRandom = GenerateRandom'{_grNumberOfBytes :: Maybe Nat} deriving (Eq, Read, Show)
 
 -- | 'GenerateRandom' smart constructor.
-generateRandom :: Natural -> GenerateRandom
-generateRandom pNumberOfBytes = GenerateRandom'{_grNumberOfBytes = _Nat # pNumberOfBytes};
+generateRandom :: GenerateRandom
+generateRandom = GenerateRandom'{_grNumberOfBytes = Nothing};
 
 -- | Integer that contains the number of bytes to generate. Common values are
 -- 128, 256, 512, 1024 and so on. The current limit is 1024 bytes.
-grNumberOfBytes :: Lens' GenerateRandom Natural
-grNumberOfBytes = lens _grNumberOfBytes (\ s a -> s{_grNumberOfBytes = a}) . _Nat;
+grNumberOfBytes :: Lens' GenerateRandom (Maybe Natural)
+grNumberOfBytes = lens _grNumberOfBytes (\ s a -> s{_grNumberOfBytes = a}) . mapping _Nat;
 
 instance AWSRequest GenerateRandom where
         type Sv GenerateRandom = KMS
@@ -62,7 +62,7 @@ instance AWSRequest GenerateRandom where
         response
           = receiveJSON
               (\ s h x ->
-                 GenerateRandomResponse' <$> x .:> "Plaintext")
+                 GenerateRandomResponse' <$> x .?> "Plaintext")
 
 instance ToHeaders GenerateRandom where
         toHeaders
@@ -88,12 +88,12 @@ instance ToQuery GenerateRandom where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'grrPlaintext'
-newtype GenerateRandomResponse = GenerateRandomResponse'{_grrPlaintext :: Sensitive Base64} deriving (Eq, Read, Show)
+newtype GenerateRandomResponse = GenerateRandomResponse'{_grrPlaintext :: Maybe (Sensitive Base64)} deriving (Eq, Read, Show)
 
 -- | 'GenerateRandomResponse' smart constructor.
-generateRandomResponse :: Base64 -> GenerateRandomResponse
-generateRandomResponse pPlaintext = GenerateRandomResponse'{_grrPlaintext = _Sensitive # pPlaintext};
+generateRandomResponse :: GenerateRandomResponse
+generateRandomResponse = GenerateRandomResponse'{_grrPlaintext = Nothing};
 
 -- | Plaintext that contains the unpredictable byte string.
-grrPlaintext :: Lens' GenerateRandomResponse Base64
-grrPlaintext = lens _grrPlaintext (\ s a -> s{_grrPlaintext = a}) . _Sensitive;
+grrPlaintext :: Lens' GenerateRandomResponse (Maybe Base64)
+grrPlaintext = lens _grrPlaintext (\ s a -> s{_grrPlaintext = a}) . mapping _Sensitive;

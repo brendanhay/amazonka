@@ -109,11 +109,11 @@ import Network.AWS.RDS.Types
 -- * 'mdiStorageType'
 --
 -- * 'mdiDBInstanceIdentifier'
-data ModifyDBInstance = ModifyDBInstance'{_mdiDBSecurityGroups :: [Text], _mdiEngineVersion :: Maybe Text, _mdiAutoMinorVersionUpgrade :: Maybe Bool, _mdiMasterUserPassword :: Maybe Text, _mdiIOPS :: Maybe Int, _mdiAllowMajorVersionUpgrade :: Maybe Bool, _mdiNewDBInstanceIdentifier :: Maybe Text, _mdiTDECredentialPassword :: Maybe Text, _mdiDBInstanceClass :: Maybe Text, _mdiPreferredMaintenanceWindow :: Maybe Text, _mdiCACertificateIdentifier :: Maybe Text, _mdiPreferredBackupWindow :: Maybe Text, _mdiBackupRetentionPeriod :: Maybe Int, _mdiDBParameterGroupName :: Maybe Text, _mdiVPCSecurityGroupIds :: [Text], _mdiMultiAZ :: Maybe Bool, _mdiAllocatedStorage :: Maybe Int, _mdiApplyImmediately :: Maybe Bool, _mdiTDECredentialARN :: Maybe Text, _mdiOptionGroupName :: Maybe Text, _mdiStorageType :: Maybe Text, _mdiDBInstanceIdentifier :: Text} deriving (Eq, Read, Show)
+data ModifyDBInstance = ModifyDBInstance'{_mdiDBSecurityGroups :: Maybe [Text], _mdiEngineVersion :: Maybe Text, _mdiAutoMinorVersionUpgrade :: Maybe Bool, _mdiMasterUserPassword :: Maybe Text, _mdiIOPS :: Maybe Int, _mdiAllowMajorVersionUpgrade :: Maybe Bool, _mdiNewDBInstanceIdentifier :: Maybe Text, _mdiTDECredentialPassword :: Maybe Text, _mdiDBInstanceClass :: Maybe Text, _mdiPreferredMaintenanceWindow :: Maybe Text, _mdiCACertificateIdentifier :: Maybe Text, _mdiPreferredBackupWindow :: Maybe Text, _mdiBackupRetentionPeriod :: Maybe Int, _mdiDBParameterGroupName :: Maybe Text, _mdiVPCSecurityGroupIds :: Maybe [Text], _mdiMultiAZ :: Maybe Bool, _mdiAllocatedStorage :: Maybe Int, _mdiApplyImmediately :: Maybe Bool, _mdiTDECredentialARN :: Maybe Text, _mdiOptionGroupName :: Maybe Text, _mdiStorageType :: Maybe Text, _mdiDBInstanceIdentifier :: Text} deriving (Eq, Read, Show)
 
 -- | 'ModifyDBInstance' smart constructor.
 modifyDBInstance :: Text -> ModifyDBInstance
-modifyDBInstance pDBInstanceIdentifier = ModifyDBInstance'{_mdiDBSecurityGroups = mempty, _mdiEngineVersion = Nothing, _mdiAutoMinorVersionUpgrade = Nothing, _mdiMasterUserPassword = Nothing, _mdiIOPS = Nothing, _mdiAllowMajorVersionUpgrade = Nothing, _mdiNewDBInstanceIdentifier = Nothing, _mdiTDECredentialPassword = Nothing, _mdiDBInstanceClass = Nothing, _mdiPreferredMaintenanceWindow = Nothing, _mdiCACertificateIdentifier = Nothing, _mdiPreferredBackupWindow = Nothing, _mdiBackupRetentionPeriod = Nothing, _mdiDBParameterGroupName = Nothing, _mdiVPCSecurityGroupIds = mempty, _mdiMultiAZ = Nothing, _mdiAllocatedStorage = Nothing, _mdiApplyImmediately = Nothing, _mdiTDECredentialARN = Nothing, _mdiOptionGroupName = Nothing, _mdiStorageType = Nothing, _mdiDBInstanceIdentifier = pDBInstanceIdentifier};
+modifyDBInstance pDBInstanceIdentifier = ModifyDBInstance'{_mdiDBSecurityGroups = Nothing, _mdiEngineVersion = Nothing, _mdiAutoMinorVersionUpgrade = Nothing, _mdiMasterUserPassword = Nothing, _mdiIOPS = Nothing, _mdiAllowMajorVersionUpgrade = Nothing, _mdiNewDBInstanceIdentifier = Nothing, _mdiTDECredentialPassword = Nothing, _mdiDBInstanceClass = Nothing, _mdiPreferredMaintenanceWindow = Nothing, _mdiCACertificateIdentifier = Nothing, _mdiPreferredBackupWindow = Nothing, _mdiBackupRetentionPeriod = Nothing, _mdiDBParameterGroupName = Nothing, _mdiVPCSecurityGroupIds = Nothing, _mdiMultiAZ = Nothing, _mdiAllocatedStorage = Nothing, _mdiApplyImmediately = Nothing, _mdiTDECredentialARN = Nothing, _mdiOptionGroupName = Nothing, _mdiStorageType = Nothing, _mdiDBInstanceIdentifier = pDBInstanceIdentifier};
 
 -- | A list of DB security groups to authorize on this DB instance. Changing
 -- this setting does not result in an outage and the change is
@@ -124,7 +124,7 @@ modifyDBInstance pDBInstanceIdentifier = ModifyDBInstance'{_mdiDBSecurityGroups 
 -- -   Must be 1 to 255 alphanumeric characters
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
-mdiDBSecurityGroups :: Lens' ModifyDBInstance [Text]
+mdiDBSecurityGroups :: Lens' ModifyDBInstance (Maybe [Text])
 mdiDBSecurityGroups = lens _mdiDBSecurityGroups (\ s a -> s{_mdiDBSecurityGroups = a});
 
 -- | The version number of the database engine to upgrade to. Changing this
@@ -340,7 +340,7 @@ mdiDBParameterGroupName = lens _mdiDBParameterGroupName (\ s a -> s{_mdiDBParame
 -- -   Must be 1 to 255 alphanumeric characters
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
-mdiVPCSecurityGroupIds :: Lens' ModifyDBInstance [Text]
+mdiVPCSecurityGroupIds :: Lens' ModifyDBInstance (Maybe [Text])
 mdiVPCSecurityGroupIds = lens _mdiVPCSecurityGroupIds (\ s a -> s{_mdiVPCSecurityGroupIds = a});
 
 -- | Specifies if the DB instance is a Multi-AZ deployment. Changing this

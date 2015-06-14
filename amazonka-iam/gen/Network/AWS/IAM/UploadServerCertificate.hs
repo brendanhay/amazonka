@@ -41,11 +41,11 @@ module Network.AWS.IAM.UploadServerCertificate
     -- ** Request constructor
     , uploadServerCertificate
     -- ** Request lenses
+    , uscPath
+    , uscCertificateChain
     , uscServerCertificateName
     , uscCertificateBody
     , uscPrivateKey
-    , uscPath
-    , uscCertificateChain
 
     -- * Response
     , UploadServerCertificateResponse
@@ -64,33 +64,20 @@ import Network.AWS.IAM.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'uscPath'
+--
+-- * 'uscCertificateChain'
+--
 -- * 'uscServerCertificateName'
 --
 -- * 'uscCertificateBody'
 --
 -- * 'uscPrivateKey'
---
--- * 'uscPath'
---
--- * 'uscCertificateChain'
-data UploadServerCertificate = UploadServerCertificate'{_uscServerCertificateName :: Text, _uscCertificateBody :: Text, _uscPrivateKey :: Sensitive Text, _uscPath :: Text, _uscCertificateChain :: Text} deriving (Eq, Read, Show)
+data UploadServerCertificate = UploadServerCertificate'{_uscPath :: Maybe Text, _uscCertificateChain :: Maybe Text, _uscServerCertificateName :: Text, _uscCertificateBody :: Text, _uscPrivateKey :: Sensitive Text} deriving (Eq, Read, Show)
 
 -- | 'UploadServerCertificate' smart constructor.
-uploadServerCertificate :: Text -> Text -> Text -> Text -> Text -> UploadServerCertificate
-uploadServerCertificate pServerCertificateName pCertificateBody pPrivateKey pPath pCertificateChain = UploadServerCertificate'{_uscServerCertificateName = pServerCertificateName, _uscCertificateBody = pCertificateBody, _uscPrivateKey = _Sensitive # pPrivateKey, _uscPath = pPath, _uscCertificateChain = pCertificateChain};
-
--- | The name for the server certificate. Do not include the path in this
--- value.
-uscServerCertificateName :: Lens' UploadServerCertificate Text
-uscServerCertificateName = lens _uscServerCertificateName (\ s a -> s{_uscServerCertificateName = a});
-
--- | The contents of the public key certificate in PEM-encoded format.
-uscCertificateBody :: Lens' UploadServerCertificate Text
-uscCertificateBody = lens _uscCertificateBody (\ s a -> s{_uscCertificateBody = a});
-
--- | The contents of the private key in PEM-encoded format.
-uscPrivateKey :: Lens' UploadServerCertificate Text
-uscPrivateKey = lens _uscPrivateKey (\ s a -> s{_uscPrivateKey = a}) . _Sensitive;
+uploadServerCertificate :: Text -> Text -> Text -> UploadServerCertificate
+uploadServerCertificate pServerCertificateName pCertificateBody pPrivateKey = UploadServerCertificate'{_uscPath = Nothing, _uscCertificateChain = Nothing, _uscServerCertificateName = pServerCertificateName, _uscCertificateBody = pCertificateBody, _uscPrivateKey = _Sensitive # pPrivateKey};
 
 -- | The path for the server certificate. For more information about paths,
 -- see
@@ -104,13 +91,26 @@ uscPrivateKey = lens _uscPrivateKey (\ s a -> s{_uscPrivateKey = a}) . _Sensitiv
 -- Amazon CloudFront distributions, you must specify a path using the
 -- @--path@ option. The path must begin with @\/cloudfront@ and must
 -- include a trailing slash (for example, @\/cloudfront\/test\/@).
-uscPath :: Lens' UploadServerCertificate Text
+uscPath :: Lens' UploadServerCertificate (Maybe Text)
 uscPath = lens _uscPath (\ s a -> s{_uscPath = a});
 
 -- | The contents of the certificate chain. This is typically a concatenation
 -- of the PEM-encoded public key certificates of the chain.
-uscCertificateChain :: Lens' UploadServerCertificate Text
+uscCertificateChain :: Lens' UploadServerCertificate (Maybe Text)
 uscCertificateChain = lens _uscCertificateChain (\ s a -> s{_uscCertificateChain = a});
+
+-- | The name for the server certificate. Do not include the path in this
+-- value.
+uscServerCertificateName :: Lens' UploadServerCertificate Text
+uscServerCertificateName = lens _uscServerCertificateName (\ s a -> s{_uscServerCertificateName = a});
+
+-- | The contents of the public key certificate in PEM-encoded format.
+uscCertificateBody :: Lens' UploadServerCertificate Text
+uscCertificateBody = lens _uscCertificateBody (\ s a -> s{_uscCertificateBody = a});
+
+-- | The contents of the private key in PEM-encoded format.
+uscPrivateKey :: Lens' UploadServerCertificate Text
+uscPrivateKey = lens _uscPrivateKey (\ s a -> s{_uscPrivateKey = a}) . _Sensitive;
 
 instance AWSRequest UploadServerCertificate where
         type Sv UploadServerCertificate = IAM
@@ -135,10 +135,11 @@ instance ToQuery UploadServerCertificate where
               ["Action" =:
                  ("UploadServerCertificate" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
+               "Path" =: _uscPath,
+               "CertificateChain" =: _uscCertificateChain,
                "ServerCertificateName" =: _uscServerCertificateName,
                "CertificateBody" =: _uscCertificateBody,
-               "PrivateKey" =: _uscPrivateKey, "Path" =: _uscPath,
-               "CertificateChain" =: _uscCertificateChain]
+               "PrivateKey" =: _uscPrivateKey]
 
 -- | /See:/ 'uploadServerCertificateResponse' smart constructor.
 --

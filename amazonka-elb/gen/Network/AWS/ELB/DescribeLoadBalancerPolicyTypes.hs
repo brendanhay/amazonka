@@ -47,15 +47,15 @@ import Network.AWS.ELB.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dlbptPolicyTypeNames'
-newtype DescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes'{_dlbptPolicyTypeNames :: [Text]} deriving (Eq, Read, Show)
+newtype DescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes'{_dlbptPolicyTypeNames :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'DescribeLoadBalancerPolicyTypes' smart constructor.
 describeLoadBalancerPolicyTypes :: DescribeLoadBalancerPolicyTypes
-describeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes'{_dlbptPolicyTypeNames = mempty};
+describeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes'{_dlbptPolicyTypeNames = Nothing};
 
 -- | The names of the policy types. If no names are specified, describes all
 -- policy types defined by Elastic Load Balancing.
-dlbptPolicyTypeNames :: Lens' DescribeLoadBalancerPolicyTypes [Text]
+dlbptPolicyTypeNames :: Lens' DescribeLoadBalancerPolicyTypes (Maybe [Text])
 dlbptPolicyTypeNames = lens _dlbptPolicyTypeNames (\ s a -> s{_dlbptPolicyTypeNames = a});
 
 instance AWSRequest DescribeLoadBalancerPolicyTypes
@@ -94,12 +94,12 @@ instance ToQuery DescribeLoadBalancerPolicyTypes
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dlbptrPolicyTypeDescriptions'
-newtype DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse'{_dlbptrPolicyTypeDescriptions :: [PolicyTypeDescription]} deriving (Eq, Read, Show)
+newtype DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse'{_dlbptrPolicyTypeDescriptions :: Maybe [PolicyTypeDescription]} deriving (Eq, Read, Show)
 
 -- | 'DescribeLoadBalancerPolicyTypesResponse' smart constructor.
 describeLoadBalancerPolicyTypesResponse :: DescribeLoadBalancerPolicyTypesResponse
-describeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse'{_dlbptrPolicyTypeDescriptions = mempty};
+describeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse'{_dlbptrPolicyTypeDescriptions = Nothing};
 
 -- | Information about the policy types.
-dlbptrPolicyTypeDescriptions :: Lens' DescribeLoadBalancerPolicyTypesResponse [PolicyTypeDescription]
+dlbptrPolicyTypeDescriptions :: Lens' DescribeLoadBalancerPolicyTypesResponse (Maybe [PolicyTypeDescription])
 dlbptrPolicyTypeDescriptions = lens _dlbptrPolicyTypeDescriptions (\ s a -> s{_dlbptrPolicyTypeDescriptions = a});

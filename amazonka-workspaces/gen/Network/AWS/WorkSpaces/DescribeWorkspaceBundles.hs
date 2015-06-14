@@ -33,8 +33,8 @@ module Network.AWS.WorkSpaces.DescribeWorkspaceBundles
     -- ** Request constructor
     , describeWorkspaceBundles
     -- ** Request lenses
-    , dwbOwner
     , dwbBundleIds
+    , dwbOwner
     , dwbNextToken
 
     -- * Response
@@ -55,16 +55,22 @@ import Network.AWS.WorkSpaces.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dwbOwner'
---
 -- * 'dwbBundleIds'
 --
+-- * 'dwbOwner'
+--
 -- * 'dwbNextToken'
-data DescribeWorkspaceBundles = DescribeWorkspaceBundles'{_dwbOwner :: Maybe Text, _dwbBundleIds :: List1 Text, _dwbNextToken :: Text} deriving (Eq, Read, Show)
+data DescribeWorkspaceBundles = DescribeWorkspaceBundles'{_dwbBundleIds :: Maybe (List1 Text), _dwbOwner :: Maybe Text, _dwbNextToken :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeWorkspaceBundles' smart constructor.
-describeWorkspaceBundles :: NonEmpty Text -> Text -> DescribeWorkspaceBundles
-describeWorkspaceBundles pBundleIds pNextToken = DescribeWorkspaceBundles'{_dwbOwner = Nothing, _dwbBundleIds = _List1 # pBundleIds, _dwbNextToken = pNextToken};
+describeWorkspaceBundles :: DescribeWorkspaceBundles
+describeWorkspaceBundles = DescribeWorkspaceBundles'{_dwbBundleIds = Nothing, _dwbOwner = Nothing, _dwbNextToken = Nothing};
+
+-- | An array of strings that contains the identifiers of the bundles to
+-- retrieve. This parameter cannot be combined with any other filter
+-- parameter.
+dwbBundleIds :: Lens' DescribeWorkspaceBundles (Maybe (NonEmpty Text))
+dwbBundleIds = lens _dwbBundleIds (\ s a -> s{_dwbBundleIds = a}) . mapping _List1;
 
 -- | The owner of the bundles to retrieve. This parameter cannot be combined
 -- with any other filter parameter.
@@ -77,15 +83,9 @@ describeWorkspaceBundles pBundleIds pNextToken = DescribeWorkspaceBundles'{_dwbO
 dwbOwner :: Lens' DescribeWorkspaceBundles (Maybe Text)
 dwbOwner = lens _dwbOwner (\ s a -> s{_dwbOwner = a});
 
--- | An array of strings that contains the identifiers of the bundles to
--- retrieve. This parameter cannot be combined with any other filter
--- parameter.
-dwbBundleIds :: Lens' DescribeWorkspaceBundles (NonEmpty Text)
-dwbBundleIds = lens _dwbBundleIds (\ s a -> s{_dwbBundleIds = a}) . _List1;
-
 -- | The @NextToken@ value from a previous call to this operation. Pass null
 -- if this is the first call.
-dwbNextToken :: Lens' DescribeWorkspaceBundles Text
+dwbNextToken :: Lens' DescribeWorkspaceBundles (Maybe Text)
 dwbNextToken = lens _dwbNextToken (\ s a -> s{_dwbNextToken = a});
 
 instance AWSRequest DescribeWorkspaceBundles where
@@ -97,7 +97,7 @@ instance AWSRequest DescribeWorkspaceBundles where
           = receiveJSON
               (\ s h x ->
                  DescribeWorkspaceBundlesResponse' <$>
-                   x .?> "Bundles" .!@ mempty <*> x .:> "NextToken")
+                   x .?> "Bundles" .!@ mempty <*> x .?> "NextToken")
 
 instance ToHeaders DescribeWorkspaceBundles where
         toHeaders
@@ -112,7 +112,7 @@ instance ToHeaders DescribeWorkspaceBundles where
 instance ToJSON DescribeWorkspaceBundles where
         toJSON DescribeWorkspaceBundles'{..}
           = object
-              ["Owner" .= _dwbOwner, "BundleIds" .= _dwbBundleIds,
+              ["BundleIds" .= _dwbBundleIds, "Owner" .= _dwbOwner,
                "NextToken" .= _dwbNextToken]
 
 instance ToPath DescribeWorkspaceBundles where
@@ -128,19 +128,19 @@ instance ToQuery DescribeWorkspaceBundles where
 -- * 'dwbrBundles'
 --
 -- * 'dwbrNextToken'
-data DescribeWorkspaceBundlesResponse = DescribeWorkspaceBundlesResponse'{_dwbrBundles :: [WorkspaceBundle], _dwbrNextToken :: Text} deriving (Eq, Read, Show)
+data DescribeWorkspaceBundlesResponse = DescribeWorkspaceBundlesResponse'{_dwbrBundles :: Maybe [WorkspaceBundle], _dwbrNextToken :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeWorkspaceBundlesResponse' smart constructor.
-describeWorkspaceBundlesResponse :: Text -> DescribeWorkspaceBundlesResponse
-describeWorkspaceBundlesResponse pNextToken = DescribeWorkspaceBundlesResponse'{_dwbrBundles = mempty, _dwbrNextToken = pNextToken};
+describeWorkspaceBundlesResponse :: DescribeWorkspaceBundlesResponse
+describeWorkspaceBundlesResponse = DescribeWorkspaceBundlesResponse'{_dwbrBundles = Nothing, _dwbrNextToken = Nothing};
 
 -- | An array of structures that contain information about the bundles.
-dwbrBundles :: Lens' DescribeWorkspaceBundlesResponse [WorkspaceBundle]
+dwbrBundles :: Lens' DescribeWorkspaceBundlesResponse (Maybe [WorkspaceBundle])
 dwbrBundles = lens _dwbrBundles (\ s a -> s{_dwbrBundles = a});
 
 -- | If not null, more results are available. Pass this value for the
 -- @NextToken@ parameter in a subsequent call to this operation to retrieve
 -- the next set of items. This token is valid for one day and must be used
 -- within that timeframe.
-dwbrNextToken :: Lens' DescribeWorkspaceBundlesResponse Text
+dwbrNextToken :: Lens' DescribeWorkspaceBundlesResponse (Maybe Text)
 dwbrNextToken = lens _dwbrNextToken (\ s a -> s{_dwbrNextToken = a});

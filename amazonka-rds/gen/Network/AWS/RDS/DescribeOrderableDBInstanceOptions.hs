@@ -67,11 +67,11 @@ import Network.AWS.RDS.Types
 -- * 'dodioVPC'
 --
 -- * 'dodioEngine'
-data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions'{_dodioEngineVersion :: Maybe Text, _dodioFilters :: [Filter], _dodioDBInstanceClass :: Maybe Text, _dodioLicenseModel :: Maybe Text, _dodioMaxRecords :: Maybe Int, _dodioMarker :: Maybe Text, _dodioVPC :: Maybe Bool, _dodioEngine :: Text} deriving (Eq, Read, Show)
+data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions'{_dodioEngineVersion :: Maybe Text, _dodioFilters :: Maybe [Filter], _dodioDBInstanceClass :: Maybe Text, _dodioLicenseModel :: Maybe Text, _dodioMaxRecords :: Maybe Int, _dodioMarker :: Maybe Text, _dodioVPC :: Maybe Bool, _dodioEngine :: Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeOrderableDBInstanceOptions' smart constructor.
 describeOrderableDBInstanceOptions :: Text -> DescribeOrderableDBInstanceOptions
-describeOrderableDBInstanceOptions pEngine = DescribeOrderableDBInstanceOptions'{_dodioEngineVersion = Nothing, _dodioFilters = mempty, _dodioDBInstanceClass = Nothing, _dodioLicenseModel = Nothing, _dodioMaxRecords = Nothing, _dodioMarker = Nothing, _dodioVPC = Nothing, _dodioEngine = pEngine};
+describeOrderableDBInstanceOptions pEngine = DescribeOrderableDBInstanceOptions'{_dodioEngineVersion = Nothing, _dodioFilters = Nothing, _dodioDBInstanceClass = Nothing, _dodioLicenseModel = Nothing, _dodioMaxRecords = Nothing, _dodioMarker = Nothing, _dodioVPC = Nothing, _dodioEngine = pEngine};
 
 -- | The engine version filter value. Specify this parameter to show only the
 -- available offerings matching the specified engine version.
@@ -79,7 +79,7 @@ dodioEngineVersion :: Lens' DescribeOrderableDBInstanceOptions (Maybe Text)
 dodioEngineVersion = lens _dodioEngineVersion (\ s a -> s{_dodioEngineVersion = a});
 
 -- | This parameter is not currently supported.
-dodioFilters :: Lens' DescribeOrderableDBInstanceOptions [Filter]
+dodioFilters :: Lens' DescribeOrderableDBInstanceOptions (Maybe [Filter])
 dodioFilters = lens _dodioFilters (\ s a -> s{_dodioFilters = a});
 
 -- | The DB instance class filter value. Specify this parameter to show only
@@ -164,15 +164,15 @@ instance ToQuery DescribeOrderableDBInstanceOptions
 -- * 'dodiorOrderableDBInstanceOptions'
 --
 -- * 'dodiorMarker'
-data DescribeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOptionsResponse'{_dodiorOrderableDBInstanceOptions :: [OrderableDBInstanceOption], _dodiorMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOptionsResponse'{_dodiorOrderableDBInstanceOptions :: Maybe [OrderableDBInstanceOption], _dodiorMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeOrderableDBInstanceOptionsResponse' smart constructor.
 describeOrderableDBInstanceOptionsResponse :: DescribeOrderableDBInstanceOptionsResponse
-describeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOptionsResponse'{_dodiorOrderableDBInstanceOptions = mempty, _dodiorMarker = Nothing};
+describeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOptionsResponse'{_dodiorOrderableDBInstanceOptions = Nothing, _dodiorMarker = Nothing};
 
 -- | An OrderableDBInstanceOption structure containing information about
 -- orderable options for the DB instance.
-dodiorOrderableDBInstanceOptions :: Lens' DescribeOrderableDBInstanceOptionsResponse [OrderableDBInstanceOption]
+dodiorOrderableDBInstanceOptions :: Lens' DescribeOrderableDBInstanceOptionsResponse (Maybe [OrderableDBInstanceOption])
 dodiorOrderableDBInstanceOptions = lens _dodiorOrderableDBInstanceOptions (\ s a -> s{_dodiorOrderableDBInstanceOptions = a});
 
 -- | An optional pagination token provided by a previous

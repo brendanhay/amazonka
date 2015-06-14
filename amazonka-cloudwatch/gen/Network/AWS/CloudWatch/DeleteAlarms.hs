@@ -46,8 +46,8 @@ import Network.AWS.CloudWatch.Types
 newtype DeleteAlarms = DeleteAlarms'{_delAlarmNames :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'DeleteAlarms' smart constructor.
-deleteAlarms :: [Text] -> DeleteAlarms
-deleteAlarms pAlarmNames = DeleteAlarms'{_delAlarmNames = pAlarmNames};
+deleteAlarms :: DeleteAlarms
+deleteAlarms = DeleteAlarms'{_delAlarmNames = mempty};
 
 -- | A list of alarms to be deleted.
 delAlarmNames :: Lens' DeleteAlarms [Text]

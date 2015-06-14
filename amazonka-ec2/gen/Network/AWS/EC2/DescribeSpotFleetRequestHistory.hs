@@ -157,8 +157,8 @@ instance ToQuery DescribeSpotFleetRequestHistory
 data DescribeSpotFleetRequestHistoryResponse = DescribeSpotFleetRequestHistoryResponse'{_dsfrhrNextToken :: Maybe Text, _dsfrhrSpotFleetRequestId :: Text, _dsfrhrStartTime :: ISO8601, _dsfrhrLastEvaluatedTime :: ISO8601, _dsfrhrHistoryRecords :: [HistoryRecord]} deriving (Eq, Read, Show)
 
 -- | 'DescribeSpotFleetRequestHistoryResponse' smart constructor.
-describeSpotFleetRequestHistoryResponse :: Text -> UTCTime -> UTCTime -> [HistoryRecord] -> DescribeSpotFleetRequestHistoryResponse
-describeSpotFleetRequestHistoryResponse pSpotFleetRequestId pStartTime pLastEvaluatedTime pHistoryRecords = DescribeSpotFleetRequestHistoryResponse'{_dsfrhrNextToken = Nothing, _dsfrhrSpotFleetRequestId = pSpotFleetRequestId, _dsfrhrStartTime = _Time # pStartTime, _dsfrhrLastEvaluatedTime = _Time # pLastEvaluatedTime, _dsfrhrHistoryRecords = pHistoryRecords};
+describeSpotFleetRequestHistoryResponse :: Text -> UTCTime -> UTCTime -> DescribeSpotFleetRequestHistoryResponse
+describeSpotFleetRequestHistoryResponse pSpotFleetRequestId pStartTime pLastEvaluatedTime = DescribeSpotFleetRequestHistoryResponse'{_dsfrhrNextToken = Nothing, _dsfrhrSpotFleetRequestId = pSpotFleetRequestId, _dsfrhrStartTime = _Time # pStartTime, _dsfrhrLastEvaluatedTime = _Time # pLastEvaluatedTime, _dsfrhrHistoryRecords = mempty};
 
 -- | The token required to retrieve the next set of results. This value is
 -- @null@ when there are no more results to return.

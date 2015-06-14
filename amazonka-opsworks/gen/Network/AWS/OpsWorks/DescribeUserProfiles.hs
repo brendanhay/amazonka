@@ -49,14 +49,14 @@ import Network.AWS.OpsWorks.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dupIAMUserARNs'
-newtype DescribeUserProfiles = DescribeUserProfiles'{_dupIAMUserARNs :: [Text]} deriving (Eq, Read, Show)
+newtype DescribeUserProfiles = DescribeUserProfiles'{_dupIAMUserARNs :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'DescribeUserProfiles' smart constructor.
 describeUserProfiles :: DescribeUserProfiles
-describeUserProfiles = DescribeUserProfiles'{_dupIAMUserARNs = mempty};
+describeUserProfiles = DescribeUserProfiles'{_dupIAMUserARNs = Nothing};
 
 -- | An array of IAM user ARNs that identify the users to be described.
-dupIAMUserARNs :: Lens' DescribeUserProfiles [Text]
+dupIAMUserARNs :: Lens' DescribeUserProfiles (Maybe [Text])
 dupIAMUserARNs = lens _dupIAMUserARNs (\ s a -> s{_dupIAMUserARNs = a});
 
 instance AWSRequest DescribeUserProfiles where
@@ -95,12 +95,12 @@ instance ToQuery DescribeUserProfiles where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'duprUserProfiles'
-newtype DescribeUserProfilesResponse = DescribeUserProfilesResponse'{_duprUserProfiles :: [UserProfile]} deriving (Eq, Read, Show)
+newtype DescribeUserProfilesResponse = DescribeUserProfilesResponse'{_duprUserProfiles :: Maybe [UserProfile]} deriving (Eq, Read, Show)
 
 -- | 'DescribeUserProfilesResponse' smart constructor.
 describeUserProfilesResponse :: DescribeUserProfilesResponse
-describeUserProfilesResponse = DescribeUserProfilesResponse'{_duprUserProfiles = mempty};
+describeUserProfilesResponse = DescribeUserProfilesResponse'{_duprUserProfiles = Nothing};
 
 -- | A @Users@ object that describes the specified users.
-duprUserProfiles :: Lens' DescribeUserProfilesResponse [UserProfile]
+duprUserProfiles :: Lens' DescribeUserProfilesResponse (Maybe [UserProfile])
 duprUserProfiles = lens _duprUserProfiles (\ s a -> s{_duprUserProfiles = a});

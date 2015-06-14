@@ -180,11 +180,11 @@ instance ToQuery DescribeHSM where
 -- * 'desEniIP'
 --
 -- * 'desHSMType'
-data DescribeHSMResponse = DescribeHSMResponse'{_desIAMRoleARN :: Maybe Text, _desStatus :: Maybe HSMStatus, _desEniId :: Maybe Text, _desSubscriptionEndDate :: Maybe Text, _desVPCId :: Maybe Text, _desSSHKeyLastUpdated :: Maybe Text, _desServerCertURI :: Maybe Text, _desSubscriptionType :: Maybe SubscriptionType, _desStatusDetails :: Maybe Text, _desSSHPublicKey :: Maybe Text, _desSubnetId :: Maybe Text, _desPartitions :: [Text], _desAvailabilityZone :: Maybe Text, _desSubscriptionStartDate :: Maybe Text, _desServerCertLastUpdated :: Maybe Text, _desSoftwareVersion :: Maybe Text, _desSerialNumber :: Maybe Text, _desVendorName :: Maybe Text, _desHSMARN :: Maybe Text, _desEniIP :: Maybe Text, _desHSMType :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeHSMResponse = DescribeHSMResponse'{_desIAMRoleARN :: Maybe Text, _desStatus :: Maybe HSMStatus, _desEniId :: Maybe Text, _desSubscriptionEndDate :: Maybe Text, _desVPCId :: Maybe Text, _desSSHKeyLastUpdated :: Maybe Text, _desServerCertURI :: Maybe Text, _desSubscriptionType :: Maybe SubscriptionType, _desStatusDetails :: Maybe Text, _desSSHPublicKey :: Maybe Text, _desSubnetId :: Maybe Text, _desPartitions :: Maybe [Text], _desAvailabilityZone :: Maybe Text, _desSubscriptionStartDate :: Maybe Text, _desServerCertLastUpdated :: Maybe Text, _desSoftwareVersion :: Maybe Text, _desSerialNumber :: Maybe Text, _desVendorName :: Maybe Text, _desHSMARN :: Maybe Text, _desEniIP :: Maybe Text, _desHSMType :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeHSMResponse' smart constructor.
 describeHSMResponse :: DescribeHSMResponse
-describeHSMResponse = DescribeHSMResponse'{_desIAMRoleARN = Nothing, _desStatus = Nothing, _desEniId = Nothing, _desSubscriptionEndDate = Nothing, _desVPCId = Nothing, _desSSHKeyLastUpdated = Nothing, _desServerCertURI = Nothing, _desSubscriptionType = Nothing, _desStatusDetails = Nothing, _desSSHPublicKey = Nothing, _desSubnetId = Nothing, _desPartitions = mempty, _desAvailabilityZone = Nothing, _desSubscriptionStartDate = Nothing, _desServerCertLastUpdated = Nothing, _desSoftwareVersion = Nothing, _desSerialNumber = Nothing, _desVendorName = Nothing, _desHSMARN = Nothing, _desEniIP = Nothing, _desHSMType = Nothing};
+describeHSMResponse = DescribeHSMResponse'{_desIAMRoleARN = Nothing, _desStatus = Nothing, _desEniId = Nothing, _desSubscriptionEndDate = Nothing, _desVPCId = Nothing, _desSSHKeyLastUpdated = Nothing, _desServerCertURI = Nothing, _desSubscriptionType = Nothing, _desStatusDetails = Nothing, _desSSHPublicKey = Nothing, _desSubnetId = Nothing, _desPartitions = Nothing, _desAvailabilityZone = Nothing, _desSubscriptionStartDate = Nothing, _desServerCertLastUpdated = Nothing, _desSoftwareVersion = Nothing, _desSerialNumber = Nothing, _desVendorName = Nothing, _desHSMARN = Nothing, _desEniIP = Nothing, _desHSMType = Nothing};
 
 -- | The ARN of the IAM role assigned to the HSM.
 desIAMRoleARN :: Lens' DescribeHSMResponse (Maybe Text)
@@ -232,7 +232,7 @@ desSubnetId :: Lens' DescribeHSMResponse (Maybe Text)
 desSubnetId = lens _desSubnetId (\ s a -> s{_desSubnetId = a});
 
 -- | The list of partitions on the HSM.
-desPartitions :: Lens' DescribeHSMResponse [Text]
+desPartitions :: Lens' DescribeHSMResponse (Maybe [Text])
 desPartitions = lens _desPartitions (\ s a -> s{_desPartitions = a});
 
 -- | The Availability Zone that the HSM is in.

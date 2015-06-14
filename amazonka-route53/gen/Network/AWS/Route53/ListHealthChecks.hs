@@ -119,8 +119,8 @@ instance ToQuery ListHealthChecks where
 data ListHealthChecksResponse = ListHealthChecksResponse'{_lhcrNextMarker :: Maybe Text, _lhcrHealthChecks :: [HealthCheck], _lhcrMarker :: Text, _lhcrIsTruncated :: Bool, _lhcrMaxItems :: Text} deriving (Eq, Read, Show)
 
 -- | 'ListHealthChecksResponse' smart constructor.
-listHealthChecksResponse :: [HealthCheck] -> Text -> Bool -> Text -> ListHealthChecksResponse
-listHealthChecksResponse pHealthChecks pMarker pIsTruncated pMaxItems = ListHealthChecksResponse'{_lhcrNextMarker = Nothing, _lhcrHealthChecks = pHealthChecks, _lhcrMarker = pMarker, _lhcrIsTruncated = pIsTruncated, _lhcrMaxItems = pMaxItems};
+listHealthChecksResponse :: Text -> Bool -> Text -> ListHealthChecksResponse
+listHealthChecksResponse pMarker pIsTruncated pMaxItems = ListHealthChecksResponse'{_lhcrNextMarker = Nothing, _lhcrHealthChecks = mempty, _lhcrMarker = pMarker, _lhcrIsTruncated = pIsTruncated, _lhcrMaxItems = pMaxItems};
 
 -- | Indicates where to continue listing health checks. If
 -- ListHealthChecksResponse$IsTruncated is @true@, make another request to

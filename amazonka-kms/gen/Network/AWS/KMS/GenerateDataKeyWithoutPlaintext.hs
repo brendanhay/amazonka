@@ -30,9 +30,9 @@ module Network.AWS.KMS.GenerateDataKeyWithoutPlaintext
     -- ** Request lenses
     , gdkwpKeySpec
     , gdkwpEncryptionContext
+    , gdkwpNumberOfBytes
     , gdkwpGrantTokens
     , gdkwpKeyId
-    , gdkwpNumberOfBytes
 
     -- * Response
     , GenerateDataKeyWithoutPlaintextResponse
@@ -56,16 +56,16 @@ import Network.AWS.KMS.Types
 --
 -- * 'gdkwpEncryptionContext'
 --
+-- * 'gdkwpNumberOfBytes'
+--
 -- * 'gdkwpGrantTokens'
 --
 -- * 'gdkwpKeyId'
---
--- * 'gdkwpNumberOfBytes'
-data GenerateDataKeyWithoutPlaintext = GenerateDataKeyWithoutPlaintext'{_gdkwpKeySpec :: Maybe DataKeySpec, _gdkwpEncryptionContext :: HashMap Text Text, _gdkwpGrantTokens :: [Text], _gdkwpKeyId :: Text, _gdkwpNumberOfBytes :: Nat} deriving (Eq, Read, Show)
+data GenerateDataKeyWithoutPlaintext = GenerateDataKeyWithoutPlaintext'{_gdkwpKeySpec :: Maybe DataKeySpec, _gdkwpEncryptionContext :: Maybe (HashMap Text Text), _gdkwpNumberOfBytes :: Maybe Nat, _gdkwpGrantTokens :: Maybe [Text], _gdkwpKeyId :: Text} deriving (Eq, Read, Show)
 
 -- | 'GenerateDataKeyWithoutPlaintext' smart constructor.
-generateDataKeyWithoutPlaintext :: Text -> Natural -> GenerateDataKeyWithoutPlaintext
-generateDataKeyWithoutPlaintext pKeyId pNumberOfBytes = GenerateDataKeyWithoutPlaintext'{_gdkwpKeySpec = Nothing, _gdkwpEncryptionContext = mempty, _gdkwpGrantTokens = mempty, _gdkwpKeyId = pKeyId, _gdkwpNumberOfBytes = _Nat # pNumberOfBytes};
+generateDataKeyWithoutPlaintext :: Text -> GenerateDataKeyWithoutPlaintext
+generateDataKeyWithoutPlaintext pKeyId = GenerateDataKeyWithoutPlaintext'{_gdkwpKeySpec = Nothing, _gdkwpEncryptionContext = Nothing, _gdkwpNumberOfBytes = Nothing, _gdkwpGrantTokens = Nothing, _gdkwpKeyId = pKeyId};
 
 -- | Value that identifies the encryption algorithm and key size. Currently
 -- this can be AES_128 or AES_256.
@@ -74,12 +74,18 @@ gdkwpKeySpec = lens _gdkwpKeySpec (\ s a -> s{_gdkwpKeySpec = a});
 
 -- | Name:value pair that contains additional data to be authenticated during
 -- the encryption and decryption processes.
-gdkwpEncryptionContext :: Lens' GenerateDataKeyWithoutPlaintext (HashMap Text Text)
-gdkwpEncryptionContext = lens _gdkwpEncryptionContext (\ s a -> s{_gdkwpEncryptionContext = a}) . _Coerce;
+gdkwpEncryptionContext :: Lens' GenerateDataKeyWithoutPlaintext (Maybe (HashMap Text Text))
+gdkwpEncryptionContext = lens _gdkwpEncryptionContext (\ s a -> s{_gdkwpEncryptionContext = a}) . mapping _Coerce;
+
+-- | Integer that contains the number of bytes to generate. Common values are
+-- 128, 256, 512, 1024 and so on. We recommend that you use the @KeySpec@
+-- parameter instead.
+gdkwpNumberOfBytes :: Lens' GenerateDataKeyWithoutPlaintext (Maybe Natural)
+gdkwpNumberOfBytes = lens _gdkwpNumberOfBytes (\ s a -> s{_gdkwpNumberOfBytes = a}) . mapping _Nat;
 
 -- | For more information, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.
-gdkwpGrantTokens :: Lens' GenerateDataKeyWithoutPlaintext [Text]
+gdkwpGrantTokens :: Lens' GenerateDataKeyWithoutPlaintext (Maybe [Text])
 gdkwpGrantTokens = lens _gdkwpGrantTokens (\ s a -> s{_gdkwpGrantTokens = a});
 
 -- | A unique identifier for the customer master key. This value can be a
@@ -96,12 +102,6 @@ gdkwpGrantTokens = lens _gdkwpGrantTokens (\ s a -> s{_gdkwpGrantTokens = a});
 gdkwpKeyId :: Lens' GenerateDataKeyWithoutPlaintext Text
 gdkwpKeyId = lens _gdkwpKeyId (\ s a -> s{_gdkwpKeyId = a});
 
--- | Integer that contains the number of bytes to generate. Common values are
--- 128, 256, 512, 1024 and so on. We recommend that you use the @KeySpec@
--- parameter instead.
-gdkwpNumberOfBytes :: Lens' GenerateDataKeyWithoutPlaintext Natural
-gdkwpNumberOfBytes = lens _gdkwpNumberOfBytes (\ s a -> s{_gdkwpNumberOfBytes = a}) . _Nat;
-
 instance AWSRequest GenerateDataKeyWithoutPlaintext
          where
         type Sv GenerateDataKeyWithoutPlaintext = KMS
@@ -112,7 +112,7 @@ instance AWSRequest GenerateDataKeyWithoutPlaintext
           = receiveJSON
               (\ s h x ->
                  GenerateDataKeyWithoutPlaintextResponse' <$>
-                   x .:> "KeyId" <*> x .:> "CiphertextBlob")
+                   x .?> "KeyId" <*> x .?> "CiphertextBlob")
 
 instance ToHeaders GenerateDataKeyWithoutPlaintext
          where
@@ -130,9 +130,9 @@ instance ToJSON GenerateDataKeyWithoutPlaintext where
           = object
               ["KeySpec" .= _gdkwpKeySpec,
                "EncryptionContext" .= _gdkwpEncryptionContext,
+               "NumberOfBytes" .= _gdkwpNumberOfBytes,
                "GrantTokens" .= _gdkwpGrantTokens,
-               "KeyId" .= _gdkwpKeyId,
-               "NumberOfBytes" .= _gdkwpNumberOfBytes]
+               "KeyId" .= _gdkwpKeyId]
 
 instance ToPath GenerateDataKeyWithoutPlaintext where
         toPath = const "/"
@@ -148,15 +148,15 @@ instance ToQuery GenerateDataKeyWithoutPlaintext
 -- * 'gdkwprKeyId'
 --
 -- * 'gdkwprCiphertextBlob'
-data GenerateDataKeyWithoutPlaintextResponse = GenerateDataKeyWithoutPlaintextResponse'{_gdkwprKeyId :: Text, _gdkwprCiphertextBlob :: Base64} deriving (Eq, Read, Show)
+data GenerateDataKeyWithoutPlaintextResponse = GenerateDataKeyWithoutPlaintextResponse'{_gdkwprKeyId :: Maybe Text, _gdkwprCiphertextBlob :: Maybe Base64} deriving (Eq, Read, Show)
 
 -- | 'GenerateDataKeyWithoutPlaintextResponse' smart constructor.
-generateDataKeyWithoutPlaintextResponse :: Text -> Base64 -> GenerateDataKeyWithoutPlaintextResponse
-generateDataKeyWithoutPlaintextResponse pKeyId pCiphertextBlob = GenerateDataKeyWithoutPlaintextResponse'{_gdkwprKeyId = pKeyId, _gdkwprCiphertextBlob = pCiphertextBlob};
+generateDataKeyWithoutPlaintextResponse :: GenerateDataKeyWithoutPlaintextResponse
+generateDataKeyWithoutPlaintextResponse = GenerateDataKeyWithoutPlaintextResponse'{_gdkwprKeyId = Nothing, _gdkwprCiphertextBlob = Nothing};
 
 -- | System generated unique identifier of the key to be used to decrypt the
 -- encrypted copy of the data key.
-gdkwprKeyId :: Lens' GenerateDataKeyWithoutPlaintextResponse Text
+gdkwprKeyId :: Lens' GenerateDataKeyWithoutPlaintextResponse (Maybe Text)
 gdkwprKeyId = lens _gdkwprKeyId (\ s a -> s{_gdkwprKeyId = a});
 
 -- | Ciphertext that contains the wrapped data key. You must store the blob
@@ -165,5 +165,5 @@ gdkwprKeyId = lens _gdkwprKeyId (\ s a -> s{_gdkwprKeyId = a});
 --
 -- If you are using the CLI, the value is Base64 encoded. Otherwise, it is
 -- not encoded.
-gdkwprCiphertextBlob :: Lens' GenerateDataKeyWithoutPlaintextResponse Base64
+gdkwprCiphertextBlob :: Lens' GenerateDataKeyWithoutPlaintextResponse (Maybe Base64)
 gdkwprCiphertextBlob = lens _gdkwprCiphertextBlob (\ s a -> s{_gdkwprCiphertextBlob = a});

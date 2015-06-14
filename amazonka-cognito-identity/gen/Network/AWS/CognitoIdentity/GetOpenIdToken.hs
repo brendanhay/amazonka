@@ -54,19 +54,19 @@ import Network.AWS.CognitoIdentity.Types
 -- * 'goitLogins'
 --
 -- * 'goitIdentityId'
-data GetOpenIdToken = GetOpenIdToken'{_goitLogins :: HashMap Text Text, _goitIdentityId :: Text} deriving (Eq, Read, Show)
+data GetOpenIdToken = GetOpenIdToken'{_goitLogins :: Maybe (HashMap Text Text), _goitIdentityId :: Text} deriving (Eq, Read, Show)
 
 -- | 'GetOpenIdToken' smart constructor.
 getOpenIdToken :: Text -> GetOpenIdToken
-getOpenIdToken pIdentityId = GetOpenIdToken'{_goitLogins = mempty, _goitIdentityId = pIdentityId};
+getOpenIdToken pIdentityId = GetOpenIdToken'{_goitLogins = Nothing, _goitIdentityId = pIdentityId};
 
 -- | A set of optional name-value pairs that map provider names to provider
 -- tokens. When using graph.facebook.com and www.amazon.com, supply the
 -- access_token returned from the provider\'s authflow. For
 -- accounts.google.com or any other OpenId Connect provider, always include
 -- the id_token.
-goitLogins :: Lens' GetOpenIdToken (HashMap Text Text)
-goitLogins = lens _goitLogins (\ s a -> s{_goitLogins = a}) . _Coerce;
+goitLogins :: Lens' GetOpenIdToken (Maybe (HashMap Text Text))
+goitLogins = lens _goitLogins (\ s a -> s{_goitLogins = a}) . mapping _Coerce;
 
 -- | A unique identifier in the format REGION:GUID.
 goitIdentityId :: Lens' GetOpenIdToken Text
@@ -80,7 +80,7 @@ instance AWSRequest GetOpenIdToken where
           = receiveJSON
               (\ s h x ->
                  GetOpenIdTokenResponse' <$>
-                   x .?> "Token" <*> x .:> "IdentityId")
+                   x .?> "Token" <*> x .?> "IdentityId")
 
 instance ToHeaders GetOpenIdToken where
         toHeaders
@@ -111,11 +111,11 @@ instance ToQuery GetOpenIdToken where
 -- * 'goitrToken'
 --
 -- * 'goitrIdentityId'
-data GetOpenIdTokenResponse = GetOpenIdTokenResponse'{_goitrToken :: Maybe Text, _goitrIdentityId :: Text} deriving (Eq, Read, Show)
+data GetOpenIdTokenResponse = GetOpenIdTokenResponse'{_goitrToken :: Maybe Text, _goitrIdentityId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'GetOpenIdTokenResponse' smart constructor.
-getOpenIdTokenResponse :: Text -> GetOpenIdTokenResponse
-getOpenIdTokenResponse pIdentityId = GetOpenIdTokenResponse'{_goitrToken = Nothing, _goitrIdentityId = pIdentityId};
+getOpenIdTokenResponse :: GetOpenIdTokenResponse
+getOpenIdTokenResponse = GetOpenIdTokenResponse'{_goitrToken = Nothing, _goitrIdentityId = Nothing};
 
 -- | An OpenID token, valid for 15 minutes.
 goitrToken :: Lens' GetOpenIdTokenResponse (Maybe Text)
@@ -123,5 +123,5 @@ goitrToken = lens _goitrToken (\ s a -> s{_goitrToken = a});
 
 -- | A unique identifier in the format REGION:GUID. Note that the IdentityId
 -- returned may not match the one passed on input.
-goitrIdentityId :: Lens' GetOpenIdTokenResponse Text
+goitrIdentityId :: Lens' GetOpenIdTokenResponse (Maybe Text)
 goitrIdentityId = lens _goitrIdentityId (\ s a -> s{_goitrIdentityId = a});

@@ -73,7 +73,7 @@ instance AWSRequest DeleteSnapshotSchedule where
           = receiveJSON
               (\ s h x ->
                  DeleteSnapshotScheduleResponse' <$>
-                   x .:> "VolumeARN")
+                   x .?> "VolumeARN")
 
 instance ToHeaders DeleteSnapshotSchedule where
         toHeaders
@@ -100,12 +100,12 @@ instance ToQuery DeleteSnapshotSchedule where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dVolumeARN'
-newtype DeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse'{_dVolumeARN :: Text} deriving (Eq, Read, Show)
+newtype DeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse'{_dVolumeARN :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DeleteSnapshotScheduleResponse' smart constructor.
-deleteSnapshotScheduleResponse :: Text -> DeleteSnapshotScheduleResponse
-deleteSnapshotScheduleResponse pVolumeARN = DeleteSnapshotScheduleResponse'{_dVolumeARN = pVolumeARN};
+deleteSnapshotScheduleResponse :: DeleteSnapshotScheduleResponse
+deleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse'{_dVolumeARN = Nothing};
 
 -- | FIXME: Undocumented member.
-dVolumeARN :: Lens' DeleteSnapshotScheduleResponse Text
+dVolumeARN :: Lens' DeleteSnapshotScheduleResponse (Maybe Text)
 dVolumeARN = lens _dVolumeARN (\ s a -> s{_dVolumeARN = a});

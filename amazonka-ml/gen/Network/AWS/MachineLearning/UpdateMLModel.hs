@@ -84,7 +84,7 @@ instance AWSRequest UpdateMLModel where
         response
           = receiveJSON
               (\ s h x ->
-                 UpdateMLModelResponse' <$> x .:> "MLModelId")
+                 UpdateMLModelResponse' <$> x .?> "MLModelId")
 
 instance ToHeaders UpdateMLModel where
         toHeaders
@@ -113,13 +113,13 @@ instance ToQuery UpdateMLModel where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'umlmrMLModelId'
-newtype UpdateMLModelResponse = UpdateMLModelResponse'{_umlmrMLModelId :: Text} deriving (Eq, Read, Show)
+newtype UpdateMLModelResponse = UpdateMLModelResponse'{_umlmrMLModelId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'UpdateMLModelResponse' smart constructor.
-updateMLModelResponse :: Text -> UpdateMLModelResponse
-updateMLModelResponse pMLModelId = UpdateMLModelResponse'{_umlmrMLModelId = pMLModelId};
+updateMLModelResponse :: UpdateMLModelResponse
+updateMLModelResponse = UpdateMLModelResponse'{_umlmrMLModelId = Nothing};
 
 -- | The ID assigned to the @MLModel@ during creation. This value should be
 -- identical to the value of the @MLModelID@ in the request.
-umlmrMLModelId :: Lens' UpdateMLModelResponse Text
+umlmrMLModelId :: Lens' UpdateMLModelResponse (Maybe Text)
 umlmrMLModelId = lens _umlmrMLModelId (\ s a -> s{_umlmrMLModelId = a});

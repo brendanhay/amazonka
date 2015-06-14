@@ -54,8 +54,8 @@ import Network.AWS.RDS.Types
 data ModifyDBSubnetGroup = ModifyDBSubnetGroup'{_mdsgDBSubnetGroupDescription :: Maybe Text, _mdsgDBSubnetGroupName :: Text, _mdsgSubnetIds :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'ModifyDBSubnetGroup' smart constructor.
-modifyDBSubnetGroup :: Text -> [Text] -> ModifyDBSubnetGroup
-modifyDBSubnetGroup pDBSubnetGroupName pSubnetIds = ModifyDBSubnetGroup'{_mdsgDBSubnetGroupDescription = Nothing, _mdsgDBSubnetGroupName = pDBSubnetGroupName, _mdsgSubnetIds = pSubnetIds};
+modifyDBSubnetGroup :: Text -> ModifyDBSubnetGroup
+modifyDBSubnetGroup pDBSubnetGroupName = ModifyDBSubnetGroup'{_mdsgDBSubnetGroupDescription = Nothing, _mdsgDBSubnetGroupName = pDBSubnetGroupName, _mdsgSubnetIds = mempty};
 
 -- | The description for the DB subnet group.
 mdsgDBSubnetGroupDescription :: Lens' ModifyDBSubnetGroup (Maybe Text)

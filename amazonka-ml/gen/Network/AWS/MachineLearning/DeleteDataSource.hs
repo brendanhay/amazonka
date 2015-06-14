@@ -69,7 +69,7 @@ instance AWSRequest DeleteDataSource where
         response
           = receiveJSON
               (\ s h x ->
-                 DeleteDataSourceResponse' <$> x .:> "DataSourceId")
+                 DeleteDataSourceResponse' <$> x .?> "DataSourceId")
 
 instance ToHeaders DeleteDataSource where
         toHeaders
@@ -95,13 +95,13 @@ instance ToQuery DeleteDataSource where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ddsrDataSourceId'
-newtype DeleteDataSourceResponse = DeleteDataSourceResponse'{_ddsrDataSourceId :: Text} deriving (Eq, Read, Show)
+newtype DeleteDataSourceResponse = DeleteDataSourceResponse'{_ddsrDataSourceId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DeleteDataSourceResponse' smart constructor.
-deleteDataSourceResponse :: Text -> DeleteDataSourceResponse
-deleteDataSourceResponse pDataSourceId = DeleteDataSourceResponse'{_ddsrDataSourceId = pDataSourceId};
+deleteDataSourceResponse :: DeleteDataSourceResponse
+deleteDataSourceResponse = DeleteDataSourceResponse'{_ddsrDataSourceId = Nothing};
 
 -- | A user-supplied ID that uniquely identifies the @DataSource@. This value
 -- should be identical to the value of the @DataSourceID@ in the request.
-ddsrDataSourceId :: Lens' DeleteDataSourceResponse Text
+ddsrDataSourceId :: Lens' DeleteDataSourceResponse (Maybe Text)
 ddsrDataSourceId = lens _ddsrDataSourceId (\ s a -> s{_ddsrDataSourceId = a});

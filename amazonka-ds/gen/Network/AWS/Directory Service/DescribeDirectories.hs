@@ -64,11 +64,11 @@ import Network.AWS.Directory Service.Types
 -- * 'ddDirectoryIds'
 --
 -- * 'ddLimit'
-data DescribeDirectories = DescribeDirectories'{_ddNextToken :: Maybe Text, _ddDirectoryIds :: [Text], _ddLimit :: Maybe Nat} deriving (Eq, Read, Show)
+data DescribeDirectories = DescribeDirectories'{_ddNextToken :: Maybe Text, _ddDirectoryIds :: Maybe [Text], _ddLimit :: Maybe Nat} deriving (Eq, Read, Show)
 
 -- | 'DescribeDirectories' smart constructor.
 describeDirectories :: DescribeDirectories
-describeDirectories = DescribeDirectories'{_ddNextToken = Nothing, _ddDirectoryIds = mempty, _ddLimit = Nothing};
+describeDirectories = DescribeDirectories'{_ddNextToken = Nothing, _ddDirectoryIds = Nothing, _ddLimit = Nothing};
 
 -- | The /DescribeDirectoriesResult.NextToken/ value from a previous call to
 -- DescribeDirectories. Pass null if this is the first call.
@@ -80,7 +80,7 @@ ddNextToken = lens _ddNextToken (\ s a -> s{_ddNextToken = a});
 -- account are returned.
 --
 -- An empty list results in an @InvalidParameterException@ being thrown.
-ddDirectoryIds :: Lens' DescribeDirectories [Text]
+ddDirectoryIds :: Lens' DescribeDirectories (Maybe [Text])
 ddDirectoryIds = lens _ddDirectoryIds (\ s a -> s{_ddDirectoryIds = a});
 
 -- | The maximum number of items to return. If this value is zero, the
@@ -131,11 +131,11 @@ instance ToQuery DescribeDirectories where
 -- * 'ddrDirectoryDescriptions'
 --
 -- * 'ddrNextToken'
-data DescribeDirectoriesResponse = DescribeDirectoriesResponse'{_ddrDirectoryDescriptions :: [DirectoryDescription], _ddrNextToken :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeDirectoriesResponse = DescribeDirectoriesResponse'{_ddrDirectoryDescriptions :: Maybe [DirectoryDescription], _ddrNextToken :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeDirectoriesResponse' smart constructor.
 describeDirectoriesResponse :: DescribeDirectoriesResponse
-describeDirectoriesResponse = DescribeDirectoriesResponse'{_ddrDirectoryDescriptions = mempty, _ddrNextToken = Nothing};
+describeDirectoriesResponse = DescribeDirectoriesResponse'{_ddrDirectoryDescriptions = Nothing, _ddrNextToken = Nothing};
 
 -- | The list of DirectoryDescription objects that were retrieved.
 --
@@ -143,7 +143,7 @@ describeDirectoriesResponse = DescribeDirectoriesResponse'{_ddrDirectoryDescript
 -- specified in the /Limit/ member of the request. This occurs if there are
 -- less than the requested number of items left to retrieve, or if the
 -- limitations of the operation have been exceeded.
-ddrDirectoryDescriptions :: Lens' DescribeDirectoriesResponse [DirectoryDescription]
+ddrDirectoryDescriptions :: Lens' DescribeDirectoriesResponse (Maybe [DirectoryDescription])
 ddrDirectoryDescriptions = lens _ddrDirectoryDescriptions (\ s a -> s{_ddrDirectoryDescriptions = a});
 
 -- | If not null, more results are available. Pass this value for the

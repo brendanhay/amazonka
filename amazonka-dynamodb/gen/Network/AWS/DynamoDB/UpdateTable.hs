@@ -72,11 +72,11 @@ import Network.AWS.DynamoDB.Types
 -- * 'utGlobalSecondaryIndexUpdates'
 --
 -- * 'utTableName'
-data UpdateTable = UpdateTable'{_utProvisionedThroughput :: Maybe ProvisionedThroughput, _utAttributeDefinitions :: [AttributeDefinition], _utGlobalSecondaryIndexUpdates :: [GlobalSecondaryIndexUpdate], _utTableName :: Text} deriving (Eq, Read, Show)
+data UpdateTable = UpdateTable'{_utProvisionedThroughput :: Maybe ProvisionedThroughput, _utAttributeDefinitions :: Maybe [AttributeDefinition], _utGlobalSecondaryIndexUpdates :: Maybe [GlobalSecondaryIndexUpdate], _utTableName :: Text} deriving (Eq, Read, Show)
 
 -- | 'UpdateTable' smart constructor.
 updateTable :: Text -> UpdateTable
-updateTable pTableName = UpdateTable'{_utProvisionedThroughput = Nothing, _utAttributeDefinitions = mempty, _utGlobalSecondaryIndexUpdates = mempty, _utTableName = pTableName};
+updateTable pTableName = UpdateTable'{_utProvisionedThroughput = Nothing, _utAttributeDefinitions = Nothing, _utGlobalSecondaryIndexUpdates = Nothing, _utTableName = pTableName};
 
 -- | FIXME: Undocumented member.
 utProvisionedThroughput :: Lens' UpdateTable (Maybe ProvisionedThroughput)
@@ -85,7 +85,7 @@ utProvisionedThroughput = lens _utProvisionedThroughput (\ s a -> s{_utProvision
 -- | An array of attributes that describe the key schema for the table and
 -- indexes. If you are adding a new global secondary index to the table,
 -- /AttributeDefinitions/ must include the key element(s) of the new index.
-utAttributeDefinitions :: Lens' UpdateTable [AttributeDefinition]
+utAttributeDefinitions :: Lens' UpdateTable (Maybe [AttributeDefinition])
 utAttributeDefinitions = lens _utAttributeDefinitions (\ s a -> s{_utAttributeDefinitions = a});
 
 -- | An array of one or more global secondary indexes for the table. For each
@@ -98,7 +98,7 @@ utAttributeDefinitions = lens _utAttributeDefinitions (\ s a -> s{_utAttributeDe
 --
 -- -   /Delete/ - remove a global secondary index from the table.
 --
-utGlobalSecondaryIndexUpdates :: Lens' UpdateTable [GlobalSecondaryIndexUpdate]
+utGlobalSecondaryIndexUpdates :: Lens' UpdateTable (Maybe [GlobalSecondaryIndexUpdate])
 utGlobalSecondaryIndexUpdates = lens _utGlobalSecondaryIndexUpdates (\ s a -> s{_utGlobalSecondaryIndexUpdates = a});
 
 -- | The name of the table to be updated.

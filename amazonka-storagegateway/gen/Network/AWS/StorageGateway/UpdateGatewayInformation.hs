@@ -26,9 +26,9 @@ module Network.AWS.StorageGateway.UpdateGatewayInformation
     -- ** Request constructor
     , updateGatewayInformation
     -- ** Request lenses
-    , ugiGatewayARN
     , ugiGatewayName
     , ugiGatewayTimezone
+    , ugiGatewayARN
 
     -- * Response
     , UpdateGatewayInformationResponse
@@ -47,28 +47,28 @@ import Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ugiGatewayARN'
---
 -- * 'ugiGatewayName'
 --
 -- * 'ugiGatewayTimezone'
-data UpdateGatewayInformation = UpdateGatewayInformation'{_ugiGatewayARN :: Text, _ugiGatewayName :: Text, _ugiGatewayTimezone :: Text} deriving (Eq, Read, Show)
+--
+-- * 'ugiGatewayARN'
+data UpdateGatewayInformation = UpdateGatewayInformation'{_ugiGatewayName :: Maybe Text, _ugiGatewayTimezone :: Maybe Text, _ugiGatewayARN :: Text} deriving (Eq, Read, Show)
 
 -- | 'UpdateGatewayInformation' smart constructor.
-updateGatewayInformation :: Text -> Text -> Text -> UpdateGatewayInformation
-updateGatewayInformation pGatewayARN pGatewayName pGatewayTimezone = UpdateGatewayInformation'{_ugiGatewayARN = pGatewayARN, _ugiGatewayName = pGatewayName, _ugiGatewayTimezone = pGatewayTimezone};
+updateGatewayInformation :: Text -> UpdateGatewayInformation
+updateGatewayInformation pGatewayARN = UpdateGatewayInformation'{_ugiGatewayName = Nothing, _ugiGatewayTimezone = Nothing, _ugiGatewayARN = pGatewayARN};
+
+-- | FIXME: Undocumented member.
+ugiGatewayName :: Lens' UpdateGatewayInformation (Maybe Text)
+ugiGatewayName = lens _ugiGatewayName (\ s a -> s{_ugiGatewayName = a});
+
+-- | FIXME: Undocumented member.
+ugiGatewayTimezone :: Lens' UpdateGatewayInformation (Maybe Text)
+ugiGatewayTimezone = lens _ugiGatewayTimezone (\ s a -> s{_ugiGatewayTimezone = a});
 
 -- | FIXME: Undocumented member.
 ugiGatewayARN :: Lens' UpdateGatewayInformation Text
 ugiGatewayARN = lens _ugiGatewayARN (\ s a -> s{_ugiGatewayARN = a});
-
--- | FIXME: Undocumented member.
-ugiGatewayName :: Lens' UpdateGatewayInformation Text
-ugiGatewayName = lens _ugiGatewayName (\ s a -> s{_ugiGatewayName = a});
-
--- | FIXME: Undocumented member.
-ugiGatewayTimezone :: Lens' UpdateGatewayInformation Text
-ugiGatewayTimezone = lens _ugiGatewayTimezone (\ s a -> s{_ugiGatewayTimezone = a});
 
 instance AWSRequest UpdateGatewayInformation where
         type Sv UpdateGatewayInformation = StorageGateway
@@ -79,7 +79,7 @@ instance AWSRequest UpdateGatewayInformation where
           = receiveJSON
               (\ s h x ->
                  UpdateGatewayInformationResponse' <$>
-                   x .:> "GatewayARN")
+                   x .?> "GatewayARN")
 
 instance ToHeaders UpdateGatewayInformation where
         toHeaders
@@ -94,9 +94,9 @@ instance ToHeaders UpdateGatewayInformation where
 instance ToJSON UpdateGatewayInformation where
         toJSON UpdateGatewayInformation'{..}
           = object
-              ["GatewayARN" .= _ugiGatewayARN,
-               "GatewayName" .= _ugiGatewayName,
-               "GatewayTimezone" .= _ugiGatewayTimezone]
+              ["GatewayName" .= _ugiGatewayName,
+               "GatewayTimezone" .= _ugiGatewayTimezone,
+               "GatewayARN" .= _ugiGatewayARN]
 
 instance ToPath UpdateGatewayInformation where
         toPath = const "/"
@@ -109,12 +109,12 @@ instance ToQuery UpdateGatewayInformation where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ugirGatewayARN'
-newtype UpdateGatewayInformationResponse = UpdateGatewayInformationResponse'{_ugirGatewayARN :: Text} deriving (Eq, Read, Show)
+newtype UpdateGatewayInformationResponse = UpdateGatewayInformationResponse'{_ugirGatewayARN :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'UpdateGatewayInformationResponse' smart constructor.
-updateGatewayInformationResponse :: Text -> UpdateGatewayInformationResponse
-updateGatewayInformationResponse pGatewayARN = UpdateGatewayInformationResponse'{_ugirGatewayARN = pGatewayARN};
+updateGatewayInformationResponse :: UpdateGatewayInformationResponse
+updateGatewayInformationResponse = UpdateGatewayInformationResponse'{_ugirGatewayARN = Nothing};
 
 -- | FIXME: Undocumented member.
-ugirGatewayARN :: Lens' UpdateGatewayInformationResponse Text
+ugirGatewayARN :: Lens' UpdateGatewayInformationResponse (Maybe Text)
 ugirGatewayARN = lens _ugirGatewayARN (\ s a -> s{_ugirGatewayARN = a});

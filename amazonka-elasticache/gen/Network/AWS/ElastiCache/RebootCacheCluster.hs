@@ -60,8 +60,8 @@ import Network.AWS.ElastiCache.Types
 data RebootCacheCluster = RebootCacheCluster'{_rccCacheClusterId :: Text, _rccCacheNodeIdsToReboot :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'RebootCacheCluster' smart constructor.
-rebootCacheCluster :: Text -> [Text] -> RebootCacheCluster
-rebootCacheCluster pCacheClusterId pCacheNodeIdsToReboot = RebootCacheCluster'{_rccCacheClusterId = pCacheClusterId, _rccCacheNodeIdsToReboot = pCacheNodeIdsToReboot};
+rebootCacheCluster :: Text -> RebootCacheCluster
+rebootCacheCluster pCacheClusterId = RebootCacheCluster'{_rccCacheClusterId = pCacheClusterId, _rccCacheNodeIdsToReboot = mempty};
 
 -- | The cache cluster identifier. This parameter is stored as a lowercase
 -- string.

@@ -55,11 +55,11 @@ import Network.AWS.DataPipeline.Types
 -- * 'apParameterValues'
 --
 -- * 'apPipelineId'
-data ActivatePipeline = ActivatePipeline'{_apStartTimestamp :: Maybe POSIX, _apParameterValues :: [ParameterValue], _apPipelineId :: Text} deriving (Eq, Read, Show)
+data ActivatePipeline = ActivatePipeline'{_apStartTimestamp :: Maybe POSIX, _apParameterValues :: Maybe [ParameterValue], _apPipelineId :: Text} deriving (Eq, Read, Show)
 
 -- | 'ActivatePipeline' smart constructor.
 activatePipeline :: Text -> ActivatePipeline
-activatePipeline pPipelineId = ActivatePipeline'{_apStartTimestamp = Nothing, _apParameterValues = mempty, _apPipelineId = pPipelineId};
+activatePipeline pPipelineId = ActivatePipeline'{_apStartTimestamp = Nothing, _apParameterValues = Nothing, _apPipelineId = pPipelineId};
 
 -- | The date and time to resume the pipeline. By default, the pipeline
 -- resumes from the last completed execution.
@@ -67,7 +67,7 @@ apStartTimestamp :: Lens' ActivatePipeline (Maybe UTCTime)
 apStartTimestamp = lens _apStartTimestamp (\ s a -> s{_apStartTimestamp = a}) . mapping _Time;
 
 -- | A list of parameter values to pass to the pipeline at activation.
-apParameterValues :: Lens' ActivatePipeline [ParameterValue]
+apParameterValues :: Lens' ActivatePipeline (Maybe [ParameterValue])
 apParameterValues = lens _apParameterValues (\ s a -> s{_apParameterValues = a});
 
 -- | The ID of the pipeline.

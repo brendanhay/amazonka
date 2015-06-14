@@ -59,11 +59,11 @@ import Network.AWS.OpsWorks.Types
 -- * 'deiIPs'
 --
 -- * 'deiStackId'
-data DescribeElasticIPs = DescribeElasticIPs'{_deiInstanceId :: Maybe Text, _deiIPs :: [Text], _deiStackId :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeElasticIPs = DescribeElasticIPs'{_deiInstanceId :: Maybe Text, _deiIPs :: Maybe [Text], _deiStackId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeElasticIPs' smart constructor.
 describeElasticIPs :: DescribeElasticIPs
-describeElasticIPs = DescribeElasticIPs'{_deiInstanceId = Nothing, _deiIPs = mempty, _deiStackId = Nothing};
+describeElasticIPs = DescribeElasticIPs'{_deiInstanceId = Nothing, _deiIPs = Nothing, _deiStackId = Nothing};
 
 -- | The instance ID. If you include this parameter, @DescribeElasticIps@
 -- returns a description of the Elastic IP addresses associated with the
@@ -75,7 +75,7 @@ deiInstanceId = lens _deiInstanceId (\ s a -> s{_deiInstanceId = a});
 -- parameter, @DescribeElasticIps@ returns a description of the specified
 -- Elastic IP addresses. Otherwise, it returns a description of every
 -- Elastic IP address.
-deiIPs :: Lens' DescribeElasticIPs [Text]
+deiIPs :: Lens' DescribeElasticIPs (Maybe [Text])
 deiIPs = lens _deiIPs (\ s a -> s{_deiIPs = a});
 
 -- | A stack ID. If you include this parameter, @DescribeElasticIps@ returns
@@ -122,13 +122,13 @@ instance ToQuery DescribeElasticIPs where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'deirElasticIPs'
-newtype DescribeElasticIPsResponse = DescribeElasticIPsResponse'{_deirElasticIPs :: [ElasticIP]} deriving (Eq, Read, Show)
+newtype DescribeElasticIPsResponse = DescribeElasticIPsResponse'{_deirElasticIPs :: Maybe [ElasticIP]} deriving (Eq, Read, Show)
 
 -- | 'DescribeElasticIPsResponse' smart constructor.
 describeElasticIPsResponse :: DescribeElasticIPsResponse
-describeElasticIPsResponse = DescribeElasticIPsResponse'{_deirElasticIPs = mempty};
+describeElasticIPsResponse = DescribeElasticIPsResponse'{_deirElasticIPs = Nothing};
 
 -- | An @ElasticIps@ object that describes the specified Elastic IP
 -- addresses.
-deirElasticIPs :: Lens' DescribeElasticIPsResponse [ElasticIP]
+deirElasticIPs :: Lens' DescribeElasticIPsResponse (Maybe [ElasticIP])
 deirElasticIPs = lens _deirElasticIPs (\ s a -> s{_deirElasticIPs = a});

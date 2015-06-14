@@ -118,11 +118,11 @@ import Network.AWS.ElastiCache.Types
 -- * 'crgReplicationGroupId'
 --
 -- * 'crgReplicationGroupDescription'
-data CreateReplicationGroup = CreateReplicationGroup'{_crgAutomaticFailoverEnabled :: Maybe Bool, _crgCacheNodeType :: Maybe Text, _crgEngineVersion :: Maybe Text, _crgSecurityGroupIds :: [Text], _crgAutoMinorVersionUpgrade :: Maybe Bool, _crgSnapshotARNs :: [Text], _crgCacheParameterGroupName :: Maybe Text, _crgSnapshotWindow :: Maybe Text, _crgPrimaryClusterId :: Maybe Text, _crgEngine :: Maybe Text, _crgPreferredMaintenanceWindow :: Maybe Text, _crgCacheSubnetGroupName :: Maybe Text, _crgSnapshotRetentionLimit :: Maybe Int, _crgSnapshotName :: Maybe Text, _crgPreferredCacheClusterAZs :: [Text], _crgNumCacheClusters :: Maybe Int, _crgNotificationTopicARN :: Maybe Text, _crgTags :: [Tag], _crgCacheSecurityGroupNames :: [Text], _crgPort :: Maybe Int, _crgReplicationGroupId :: Text, _crgReplicationGroupDescription :: Text} deriving (Eq, Read, Show)
+data CreateReplicationGroup = CreateReplicationGroup'{_crgAutomaticFailoverEnabled :: Maybe Bool, _crgCacheNodeType :: Maybe Text, _crgEngineVersion :: Maybe Text, _crgSecurityGroupIds :: Maybe [Text], _crgAutoMinorVersionUpgrade :: Maybe Bool, _crgSnapshotARNs :: Maybe [Text], _crgCacheParameterGroupName :: Maybe Text, _crgSnapshotWindow :: Maybe Text, _crgPrimaryClusterId :: Maybe Text, _crgEngine :: Maybe Text, _crgPreferredMaintenanceWindow :: Maybe Text, _crgCacheSubnetGroupName :: Maybe Text, _crgSnapshotRetentionLimit :: Maybe Int, _crgSnapshotName :: Maybe Text, _crgPreferredCacheClusterAZs :: Maybe [Text], _crgNumCacheClusters :: Maybe Int, _crgNotificationTopicARN :: Maybe Text, _crgTags :: Maybe [Tag], _crgCacheSecurityGroupNames :: Maybe [Text], _crgPort :: Maybe Int, _crgReplicationGroupId :: Text, _crgReplicationGroupDescription :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateReplicationGroup' smart constructor.
 createReplicationGroup :: Text -> Text -> CreateReplicationGroup
-createReplicationGroup pReplicationGroupId pReplicationGroupDescription = CreateReplicationGroup'{_crgAutomaticFailoverEnabled = Nothing, _crgCacheNodeType = Nothing, _crgEngineVersion = Nothing, _crgSecurityGroupIds = mempty, _crgAutoMinorVersionUpgrade = Nothing, _crgSnapshotARNs = mempty, _crgCacheParameterGroupName = Nothing, _crgSnapshotWindow = Nothing, _crgPrimaryClusterId = Nothing, _crgEngine = Nothing, _crgPreferredMaintenanceWindow = Nothing, _crgCacheSubnetGroupName = Nothing, _crgSnapshotRetentionLimit = Nothing, _crgSnapshotName = Nothing, _crgPreferredCacheClusterAZs = mempty, _crgNumCacheClusters = Nothing, _crgNotificationTopicARN = Nothing, _crgTags = mempty, _crgCacheSecurityGroupNames = mempty, _crgPort = Nothing, _crgReplicationGroupId = pReplicationGroupId, _crgReplicationGroupDescription = pReplicationGroupDescription};
+createReplicationGroup pReplicationGroupId pReplicationGroupDescription = CreateReplicationGroup'{_crgAutomaticFailoverEnabled = Nothing, _crgCacheNodeType = Nothing, _crgEngineVersion = Nothing, _crgSecurityGroupIds = Nothing, _crgAutoMinorVersionUpgrade = Nothing, _crgSnapshotARNs = Nothing, _crgCacheParameterGroupName = Nothing, _crgSnapshotWindow = Nothing, _crgPrimaryClusterId = Nothing, _crgEngine = Nothing, _crgPreferredMaintenanceWindow = Nothing, _crgCacheSubnetGroupName = Nothing, _crgSnapshotRetentionLimit = Nothing, _crgSnapshotName = Nothing, _crgPreferredCacheClusterAZs = Nothing, _crgNumCacheClusters = Nothing, _crgNotificationTopicARN = Nothing, _crgTags = Nothing, _crgCacheSecurityGroupNames = Nothing, _crgPort = Nothing, _crgReplicationGroupId = pReplicationGroupId, _crgReplicationGroupDescription = pReplicationGroupDescription};
 
 -- | Specifies whether a read-only replica will be automatically promoted to
 -- read\/write primary if the existing primary fails.
@@ -184,7 +184,7 @@ crgEngineVersion = lens _crgEngineVersion (\ s a -> s{_crgEngineVersion = a});
 --
 -- Use this parameter only when you are creating a replication group in an
 -- Amazon Virtual Private Cloud (VPC).
-crgSecurityGroupIds :: Lens' CreateReplicationGroup [Text]
+crgSecurityGroupIds :: Lens' CreateReplicationGroup (Maybe [Text])
 crgSecurityGroupIds = lens _crgSecurityGroupIds (\ s a -> s{_crgSecurityGroupIds = a});
 
 -- | This parameter is currently disabled.
@@ -200,7 +200,7 @@ crgAutoMinorVersionUpgrade = lens _crgAutoMinorVersionUpgrade (\ s a -> s{_crgAu
 -- @redis@.
 --
 -- Example of an Amazon S3 ARN: @arn:aws:s3:::my_bucket\/snapshot1.rdb@
-crgSnapshotARNs :: Lens' CreateReplicationGroup [Text]
+crgSnapshotARNs :: Lens' CreateReplicationGroup (Maybe [Text])
 crgSnapshotARNs = lens _crgSnapshotARNs (\ s a -> s{_crgSnapshotARNs = a});
 
 -- | The name of the parameter group to associate with this replication
@@ -297,7 +297,7 @@ crgSnapshotName = lens _crgSnapshotName (\ s a -> s{_crgSnapshotName = a});
 -- PreferredAvailabilityZones.member.1=us-west-2a
 -- PreferredAvailabilityZones.member.2=us-west-2c
 -- PreferredAvailabilityZones.member.3=us-west-2c
-crgPreferredCacheClusterAZs :: Lens' CreateReplicationGroup [Text]
+crgPreferredCacheClusterAZs :: Lens' CreateReplicationGroup (Maybe [Text])
 crgPreferredCacheClusterAZs = lens _crgPreferredCacheClusterAZs (\ s a -> s{_crgPreferredCacheClusterAZs = a});
 
 -- | The number of cache clusters this replication group will initially have.
@@ -321,12 +321,12 @@ crgNotificationTopicARN = lens _crgNotificationTopicARN (\ s a -> s{_crgNotifica
 
 -- | A list of cost allocation tags to be added to this resource. A tag is a
 -- key-value pair. A tag key must be accompanied by a tag value.
-crgTags :: Lens' CreateReplicationGroup [Tag]
+crgTags :: Lens' CreateReplicationGroup (Maybe [Tag])
 crgTags = lens _crgTags (\ s a -> s{_crgTags = a});
 
 -- | A list of cache security group names to associate with this replication
 -- group.
-crgCacheSecurityGroupNames :: Lens' CreateReplicationGroup [Text]
+crgCacheSecurityGroupNames :: Lens' CreateReplicationGroup (Maybe [Text])
 crgCacheSecurityGroupNames = lens _crgCacheSecurityGroupNames (\ s a -> s{_crgCacheSecurityGroupNames = a});
 
 -- | The port number on which each member of the replication group will

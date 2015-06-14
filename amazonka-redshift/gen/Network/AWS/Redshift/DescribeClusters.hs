@@ -72,11 +72,11 @@ import Network.AWS.Redshift.Types
 -- * 'dcMaxRecords'
 --
 -- * 'dcMarker'
-data DescribeClusters = DescribeClusters'{_dcTagValues :: [Text], _dcTagKeys :: [Text], _dcClusterIdentifier :: Maybe Text, _dcMaxRecords :: Maybe Int, _dcMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeClusters = DescribeClusters'{_dcTagValues :: Maybe [Text], _dcTagKeys :: Maybe [Text], _dcClusterIdentifier :: Maybe Text, _dcMaxRecords :: Maybe Int, _dcMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeClusters' smart constructor.
 describeClusters :: DescribeClusters
-describeClusters = DescribeClusters'{_dcTagValues = mempty, _dcTagKeys = mempty, _dcClusterIdentifier = Nothing, _dcMaxRecords = Nothing, _dcMarker = Nothing};
+describeClusters = DescribeClusters'{_dcTagValues = Nothing, _dcTagKeys = Nothing, _dcClusterIdentifier = Nothing, _dcMaxRecords = Nothing, _dcMarker = Nothing};
 
 -- | A tag value or values for which you want to return all matching clusters
 -- that are associated with the specified tag value or values. For example,
@@ -84,7 +84,7 @@ describeClusters = DescribeClusters'{_dcTagValues = mempty, _dcTagKeys = mempty,
 -- @admin@ and @test@. If you specify both of these tag values in the
 -- request, Amazon Redshift returns a response with the clusters that have
 -- either or both of these tag values associated with them.
-dcTagValues :: Lens' DescribeClusters [Text]
+dcTagValues :: Lens' DescribeClusters (Maybe [Text])
 dcTagValues = lens _dcTagValues (\ s a -> s{_dcTagValues = a});
 
 -- | A tag key or keys for which you want to return all matching clusters
@@ -93,7 +93,7 @@ dcTagValues = lens _dcTagValues (\ s a -> s{_dcTagValues = a});
 -- @environment@. If you specify both of these tag keys in the request,
 -- Amazon Redshift returns a response with the clusters that have either or
 -- both of these tag keys associated with them.
-dcTagKeys :: Lens' DescribeClusters [Text]
+dcTagKeys :: Lens' DescribeClusters (Maybe [Text])
 dcTagKeys = lens _dcTagKeys (\ s a -> s{_dcTagKeys = a});
 
 -- | The unique identifier of a cluster whose properties you are requesting.
@@ -162,11 +162,11 @@ instance ToQuery DescribeClusters where
 -- * 'dcrMarker'
 --
 -- * 'dcrClusters'
-data DescribeClustersResponse = DescribeClustersResponse'{_dcrMarker :: Maybe Text, _dcrClusters :: [Cluster]} deriving (Eq, Read, Show)
+data DescribeClustersResponse = DescribeClustersResponse'{_dcrMarker :: Maybe Text, _dcrClusters :: Maybe [Cluster]} deriving (Eq, Read, Show)
 
 -- | 'DescribeClustersResponse' smart constructor.
 describeClustersResponse :: DescribeClustersResponse
-describeClustersResponse = DescribeClustersResponse'{_dcrMarker = Nothing, _dcrClusters = mempty};
+describeClustersResponse = DescribeClustersResponse'{_dcrMarker = Nothing, _dcrClusters = Nothing};
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -178,5 +178,5 @@ dcrMarker :: Lens' DescribeClustersResponse (Maybe Text)
 dcrMarker = lens _dcrMarker (\ s a -> s{_dcrMarker = a});
 
 -- | A list of Cluster objects, where each object describes one cluster.
-dcrClusters :: Lens' DescribeClustersResponse [Cluster]
+dcrClusters :: Lens' DescribeClustersResponse (Maybe [Cluster])
 dcrClusters = lens _dcrClusters (\ s a -> s{_dcrClusters = a});

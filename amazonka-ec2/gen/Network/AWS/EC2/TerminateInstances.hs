@@ -73,8 +73,8 @@ import Network.AWS.EC2.Types
 data TerminateInstances = TerminateInstances'{_tiDryRun :: Maybe Bool, _tiInstanceIds :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'TerminateInstances' smart constructor.
-terminateInstances :: [Text] -> TerminateInstances
-terminateInstances pInstanceIds = TerminateInstances'{_tiDryRun = Nothing, _tiInstanceIds = pInstanceIds};
+terminateInstances :: TerminateInstances
+terminateInstances = TerminateInstances'{_tiDryRun = Nothing, _tiInstanceIds = mempty};
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -117,12 +117,12 @@ instance ToQuery TerminateInstances where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'tirTerminatingInstances'
-newtype TerminateInstancesResponse = TerminateInstancesResponse'{_tirTerminatingInstances :: [InstanceStateChange]} deriving (Eq, Read, Show)
+newtype TerminateInstancesResponse = TerminateInstancesResponse'{_tirTerminatingInstances :: Maybe [InstanceStateChange]} deriving (Eq, Read, Show)
 
 -- | 'TerminateInstancesResponse' smart constructor.
 terminateInstancesResponse :: TerminateInstancesResponse
-terminateInstancesResponse = TerminateInstancesResponse'{_tirTerminatingInstances = mempty};
+terminateInstancesResponse = TerminateInstancesResponse'{_tirTerminatingInstances = Nothing};
 
 -- | Information about one or more terminated instances.
-tirTerminatingInstances :: Lens' TerminateInstancesResponse [InstanceStateChange]
+tirTerminatingInstances :: Lens' TerminateInstancesResponse (Maybe [InstanceStateChange])
 tirTerminatingInstances = lens _tirTerminatingInstances (\ s a -> s{_tirTerminatingInstances = a});

@@ -65,11 +65,11 @@ import Network.AWS.CloudFormation.Types
 -- * 'gtsTemplateURL'
 --
 -- * 'gtsStackName'
-data GetTemplateSummary = GetTemplateSummary'{_gtsTemplateBody :: Text, _gtsTemplateURL :: Text, _gtsStackName :: Text} deriving (Eq, Read, Show)
+data GetTemplateSummary = GetTemplateSummary'{_gtsTemplateBody :: Maybe Text, _gtsTemplateURL :: Maybe Text, _gtsStackName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'GetTemplateSummary' smart constructor.
-getTemplateSummary :: Text -> Text -> Text -> GetTemplateSummary
-getTemplateSummary pTemplateBody pTemplateURL pStackName = GetTemplateSummary'{_gtsTemplateBody = pTemplateBody, _gtsTemplateURL = pTemplateURL, _gtsStackName = pStackName};
+getTemplateSummary :: GetTemplateSummary
+getTemplateSummary = GetTemplateSummary'{_gtsTemplateBody = Nothing, _gtsTemplateURL = Nothing, _gtsStackName = Nothing};
 
 -- | Structure containing the template body with a minimum length of 1 byte
 -- and a maximum length of 51,200 bytes. For more information about
@@ -79,7 +79,7 @@ getTemplateSummary pTemplateBody pTemplateURL pStackName = GetTemplateSummary'{_
 --
 -- Conditional: You must specify only one of the following parameters:
 -- @StackName@, @TemplateBody@, or @TemplateURL@.
-gtsTemplateBody :: Lens' GetTemplateSummary Text
+gtsTemplateBody :: Lens' GetTemplateSummary (Maybe Text)
 gtsTemplateBody = lens _gtsTemplateBody (\ s a -> s{_gtsTemplateBody = a});
 
 -- | Location of file containing the template body. The URL must point to a
@@ -90,7 +90,7 @@ gtsTemplateBody = lens _gtsTemplateBody (\ s a -> s{_gtsTemplateBody = a});
 --
 -- Conditional: You must specify only one of the following parameters:
 -- @StackName@, @TemplateBody@, or @TemplateURL@.
-gtsTemplateURL :: Lens' GetTemplateSummary Text
+gtsTemplateURL :: Lens' GetTemplateSummary (Maybe Text)
 gtsTemplateURL = lens _gtsTemplateURL (\ s a -> s{_gtsTemplateURL = a});
 
 -- | The name or the stack ID that is associated with the stack, which are
@@ -100,7 +100,7 @@ gtsTemplateURL = lens _gtsTemplateURL (\ s a -> s{_gtsTemplateURL = a});
 --
 -- Conditional: You must specify only one of the following parameters:
 -- @StackName@, @TemplateBody@, or @TemplateURL@.
-gtsStackName :: Lens' GetTemplateSummary Text
+gtsStackName :: Lens' GetTemplateSummary (Maybe Text)
 gtsStackName = lens _gtsStackName (\ s a -> s{_gtsStackName = a});
 
 instance AWSRequest GetTemplateSummary where
@@ -152,11 +152,11 @@ instance ToQuery GetTemplateSummary where
 -- * 'gtsrCapabilities'
 --
 -- * 'gtsrDescription'
-data GetTemplateSummaryResponse = GetTemplateSummaryResponse'{_gtsrVersion :: Maybe Text, _gtsrParameters :: [ParameterDeclaration], _gtsrCapabilitiesReason :: Maybe Text, _gtsrMetadata :: Maybe Text, _gtsrCapabilities :: [Capability], _gtsrDescription :: Maybe Text} deriving (Eq, Read, Show)
+data GetTemplateSummaryResponse = GetTemplateSummaryResponse'{_gtsrVersion :: Maybe Text, _gtsrParameters :: Maybe [ParameterDeclaration], _gtsrCapabilitiesReason :: Maybe Text, _gtsrMetadata :: Maybe Text, _gtsrCapabilities :: Maybe [Capability], _gtsrDescription :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'GetTemplateSummaryResponse' smart constructor.
 getTemplateSummaryResponse :: GetTemplateSummaryResponse
-getTemplateSummaryResponse = GetTemplateSummaryResponse'{_gtsrVersion = Nothing, _gtsrParameters = mempty, _gtsrCapabilitiesReason = Nothing, _gtsrMetadata = Nothing, _gtsrCapabilities = mempty, _gtsrDescription = Nothing};
+getTemplateSummaryResponse = GetTemplateSummaryResponse'{_gtsrVersion = Nothing, _gtsrParameters = Nothing, _gtsrCapabilitiesReason = Nothing, _gtsrMetadata = Nothing, _gtsrCapabilities = Nothing, _gtsrDescription = Nothing};
 
 -- | The AWS template format version, which identifies the capabilities of
 -- the template.
@@ -165,7 +165,7 @@ gtsrVersion = lens _gtsrVersion (\ s a -> s{_gtsrVersion = a});
 
 -- | A list of parameter declarations that describe various properties for
 -- each parameter.
-gtsrParameters :: Lens' GetTemplateSummaryResponse [ParameterDeclaration]
+gtsrParameters :: Lens' GetTemplateSummaryResponse (Maybe [ParameterDeclaration])
 gtsrParameters = lens _gtsrParameters (\ s a -> s{_gtsrParameters = a});
 
 -- | The list of resources that generated the values in the @Capabilities@
@@ -183,7 +183,7 @@ gtsrMetadata = lens _gtsrMetadata (\ s a -> s{_gtsrMetadata = a});
 -- value for this parameter when you use the CreateStack or UpdateStack
 -- actions with your template; otherwise, those actions return an
 -- InsufficientCapabilities error.
-gtsrCapabilities :: Lens' GetTemplateSummaryResponse [Capability]
+gtsrCapabilities :: Lens' GetTemplateSummaryResponse (Maybe [Capability])
 gtsrCapabilities = lens _gtsrCapabilities (\ s a -> s{_gtsrCapabilities = a});
 
 -- | The value that is defined in the @Description@ property of the template.

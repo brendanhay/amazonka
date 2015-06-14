@@ -65,11 +65,11 @@ import Network.AWS.ECS.Types
 -- * 'creTaskDefinition'
 --
 -- * 'creServiceName'
-data CreateService = CreateService'{_creCluster :: Maybe Text, _creClientToken :: Maybe Text, _creDesiredCount :: Maybe Int, _creLoadBalancers :: [LoadBalancer], _creRole :: Maybe Text, _creTaskDefinition :: Maybe Text, _creServiceName :: Text} deriving (Eq, Read, Show)
+data CreateService = CreateService'{_creCluster :: Maybe Text, _creClientToken :: Maybe Text, _creDesiredCount :: Maybe Int, _creLoadBalancers :: Maybe [LoadBalancer], _creRole :: Maybe Text, _creTaskDefinition :: Maybe Text, _creServiceName :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateService' smart constructor.
 createService :: Text -> CreateService
-createService pServiceName = CreateService'{_creCluster = Nothing, _creClientToken = Nothing, _creDesiredCount = Nothing, _creLoadBalancers = mempty, _creRole = Nothing, _creTaskDefinition = Nothing, _creServiceName = pServiceName};
+createService pServiceName = CreateService'{_creCluster = Nothing, _creClientToken = Nothing, _creDesiredCount = Nothing, _creLoadBalancers = Nothing, _creRole = Nothing, _creTaskDefinition = Nothing, _creServiceName = pServiceName};
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- you want to run your service on. If you do not specify a cluster, the
@@ -90,7 +90,7 @@ creDesiredCount = lens _creDesiredCount (\ s a -> s{_creDesiredCount = a});
 -- | A list of load balancer objects, containing the load balancer name, the
 -- container name (as it appears in a container definition), and the
 -- container port to access from the load balancer.
-creLoadBalancers :: Lens' CreateService [LoadBalancer]
+creLoadBalancers :: Lens' CreateService (Maybe [LoadBalancer])
 creLoadBalancers = lens _creLoadBalancers (\ s a -> s{_creLoadBalancers = a});
 
 -- | The name or full Amazon Resource Name (ARN) of the IAM role that allows

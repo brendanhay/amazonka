@@ -27,16 +27,16 @@ module Network.AWS.CloudFormation.ListStackResources
     -- ** Request constructor
     , listStackResources
     -- ** Request lenses
-    , lsrStackName
     , lsrNextToken
+    , lsrStackName
 
     -- * Response
     , ListStackResourcesResponse
     -- ** Response constructor
     , listStackResourcesResponse
     -- ** Response lenses
-    , lsrrStackResourceSummaries
     , lsrrNextToken
+    , lsrrStackResourceSummaries
     ) where
 
 import Network.AWS.Request
@@ -48,14 +48,21 @@ import Network.AWS.CloudFormation.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lsrStackName'
---
 -- * 'lsrNextToken'
-data ListStackResources = ListStackResources'{_lsrStackName :: Text, _lsrNextToken :: Text} deriving (Eq, Read, Show)
+--
+-- * 'lsrStackName'
+data ListStackResources = ListStackResources'{_lsrNextToken :: Maybe Text, _lsrStackName :: Text} deriving (Eq, Read, Show)
 
 -- | 'ListStackResources' smart constructor.
-listStackResources :: Text -> Text -> ListStackResources
-listStackResources pStackName pNextToken = ListStackResources'{_lsrStackName = pStackName, _lsrNextToken = pNextToken};
+listStackResources :: Text -> ListStackResources
+listStackResources pStackName = ListStackResources'{_lsrNextToken = Nothing, _lsrStackName = pStackName};
+
+-- | String that identifies the start of the next list of stack resource
+-- summaries, if there is one.
+--
+-- Default: There is no default value.
+lsrNextToken :: Lens' ListStackResources (Maybe Text)
+lsrNextToken = lens _lsrNextToken (\ s a -> s{_lsrNextToken = a});
 
 -- | The name or the unique stack ID that is associated with the stack, which
 -- are not always interchangeable:
@@ -68,13 +75,6 @@ listStackResources pStackName pNextToken = ListStackResources'{_lsrStackName = p
 lsrStackName :: Lens' ListStackResources Text
 lsrStackName = lens _lsrStackName (\ s a -> s{_lsrStackName = a});
 
--- | String that identifies the start of the next list of stack resource
--- summaries, if there is one.
---
--- Default: There is no default value.
-lsrNextToken :: Lens' ListStackResources Text
-lsrNextToken = lens _lsrNextToken (\ s a -> s{_lsrNextToken = a});
-
 instance AWSRequest ListStackResources where
         type Sv ListStackResources = CloudFormation
         type Rs ListStackResources =
@@ -84,9 +84,9 @@ instance AWSRequest ListStackResources where
           = receiveXMLWrapper "ListStackResourcesResult"
               (\ s h x ->
                  ListStackResourcesResponse' <$>
-                   (x .@? "StackResourceSummaries" .!@ mempty >>=
-                      parseXMLList "member")
-                     <*> x .@ "NextToken")
+                   x .@? "NextToken" <*>
+                     (x .@? "StackResourceSummaries" .!@ mempty >>=
+                        parseXMLList "member"))
 
 instance ToHeaders ListStackResources where
         toHeaders = const mempty
@@ -99,27 +99,27 @@ instance ToQuery ListStackResources where
           = mconcat
               ["Action" =: ("ListStackResources" :: ByteString),
                "Version" =: ("2010-05-15" :: ByteString),
-               "StackName" =: _lsrStackName,
-               "NextToken" =: _lsrNextToken]
+               "NextToken" =: _lsrNextToken,
+               "StackName" =: _lsrStackName]
 
 -- | /See:/ 'listStackResourcesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lsrrStackResourceSummaries'
---
 -- * 'lsrrNextToken'
-data ListStackResourcesResponse = ListStackResourcesResponse'{_lsrrStackResourceSummaries :: [StackResourceSummary], _lsrrNextToken :: Text} deriving (Eq, Read, Show)
+--
+-- * 'lsrrStackResourceSummaries'
+data ListStackResourcesResponse = ListStackResourcesResponse'{_lsrrNextToken :: Maybe Text, _lsrrStackResourceSummaries :: Maybe [StackResourceSummary]} deriving (Eq, Read, Show)
 
 -- | 'ListStackResourcesResponse' smart constructor.
-listStackResourcesResponse :: Text -> ListStackResourcesResponse
-listStackResourcesResponse pNextToken = ListStackResourcesResponse'{_lsrrStackResourceSummaries = mempty, _lsrrNextToken = pNextToken};
-
--- | A list of @StackResourceSummary@ structures.
-lsrrStackResourceSummaries :: Lens' ListStackResourcesResponse [StackResourceSummary]
-lsrrStackResourceSummaries = lens _lsrrStackResourceSummaries (\ s a -> s{_lsrrStackResourceSummaries = a});
+listStackResourcesResponse :: ListStackResourcesResponse
+listStackResourcesResponse = ListStackResourcesResponse'{_lsrrNextToken = Nothing, _lsrrStackResourceSummaries = Nothing};
 
 -- | String that identifies the start of the next list of stack resources, if
 -- there is one.
-lsrrNextToken :: Lens' ListStackResourcesResponse Text
+lsrrNextToken :: Lens' ListStackResourcesResponse (Maybe Text)
 lsrrNextToken = lens _lsrrNextToken (\ s a -> s{_lsrrNextToken = a});
+
+-- | A list of @StackResourceSummary@ structures.
+lsrrStackResourceSummaries :: Lens' ListStackResourcesResponse (Maybe [StackResourceSummary])
+lsrrStackResourceSummaries = lens _lsrrStackResourceSummaries (\ s a -> s{_lsrrStackResourceSummaries = a});

@@ -48,14 +48,14 @@ import Network.AWS.Config.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ddcDeliveryChannelNames'
-newtype DescribeDeliveryChannels = DescribeDeliveryChannels'{_ddcDeliveryChannelNames :: [Text]} deriving (Eq, Read, Show)
+newtype DescribeDeliveryChannels = DescribeDeliveryChannels'{_ddcDeliveryChannelNames :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'DescribeDeliveryChannels' smart constructor.
 describeDeliveryChannels :: DescribeDeliveryChannels
-describeDeliveryChannels = DescribeDeliveryChannels'{_ddcDeliveryChannelNames = mempty};
+describeDeliveryChannels = DescribeDeliveryChannels'{_ddcDeliveryChannelNames = Nothing};
 
 -- | A list of delivery channel names.
-ddcDeliveryChannelNames :: Lens' DescribeDeliveryChannels [Text]
+ddcDeliveryChannelNames :: Lens' DescribeDeliveryChannels (Maybe [Text])
 ddcDeliveryChannelNames = lens _ddcDeliveryChannelNames (\ s a -> s{_ddcDeliveryChannelNames = a});
 
 instance AWSRequest DescribeDeliveryChannels where
@@ -95,12 +95,12 @@ instance ToQuery DescribeDeliveryChannels where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ddcrDeliveryChannels'
-newtype DescribeDeliveryChannelsResponse = DescribeDeliveryChannelsResponse'{_ddcrDeliveryChannels :: [DeliveryChannel]} deriving (Eq, Read, Show)
+newtype DescribeDeliveryChannelsResponse = DescribeDeliveryChannelsResponse'{_ddcrDeliveryChannels :: Maybe [DeliveryChannel]} deriving (Eq, Read, Show)
 
 -- | 'DescribeDeliveryChannelsResponse' smart constructor.
 describeDeliveryChannelsResponse :: DescribeDeliveryChannelsResponse
-describeDeliveryChannelsResponse = DescribeDeliveryChannelsResponse'{_ddcrDeliveryChannels = mempty};
+describeDeliveryChannelsResponse = DescribeDeliveryChannelsResponse'{_ddcrDeliveryChannels = Nothing};
 
 -- | A list that contains the descriptions of the specified delivery channel.
-ddcrDeliveryChannels :: Lens' DescribeDeliveryChannelsResponse [DeliveryChannel]
+ddcrDeliveryChannels :: Lens' DescribeDeliveryChannelsResponse (Maybe [DeliveryChannel])
 ddcrDeliveryChannels = lens _ddcrDeliveryChannels (\ s a -> s{_ddcrDeliveryChannels = a});

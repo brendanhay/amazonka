@@ -143,12 +143,12 @@ instance ToQuery DescribeStackResources where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsrrStackResources'
-newtype DescribeStackResourcesResponse = DescribeStackResourcesResponse'{_dsrrStackResources :: [StackResource]} deriving (Eq, Read, Show)
+newtype DescribeStackResourcesResponse = DescribeStackResourcesResponse'{_dsrrStackResources :: Maybe [StackResource]} deriving (Eq, Read, Show)
 
 -- | 'DescribeStackResourcesResponse' smart constructor.
 describeStackResourcesResponse :: DescribeStackResourcesResponse
-describeStackResourcesResponse = DescribeStackResourcesResponse'{_dsrrStackResources = mempty};
+describeStackResourcesResponse = DescribeStackResourcesResponse'{_dsrrStackResources = Nothing};
 
 -- | A list of @StackResource@ structures.
-dsrrStackResources :: Lens' DescribeStackResourcesResponse [StackResource]
+dsrrStackResources :: Lens' DescribeStackResourcesResponse (Maybe [StackResource])
 dsrrStackResources = lens _dsrrStackResources (\ s a -> s{_dsrrStackResources = a});

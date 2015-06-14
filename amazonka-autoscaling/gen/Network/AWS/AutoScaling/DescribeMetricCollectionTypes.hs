@@ -88,11 +88,11 @@ instance ToQuery DescribeMetricCollectionTypes where
 -- * 'dmctrMetrics'
 --
 -- * 'dmctrGranularities'
-data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse'{_dmctrMetrics :: [MetricCollectionType], _dmctrGranularities :: [MetricGranularityType]} deriving (Eq, Read, Show)
+data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse'{_dmctrMetrics :: Maybe [MetricCollectionType], _dmctrGranularities :: Maybe [MetricGranularityType]} deriving (Eq, Read, Show)
 
 -- | 'DescribeMetricCollectionTypesResponse' smart constructor.
 describeMetricCollectionTypesResponse :: DescribeMetricCollectionTypesResponse
-describeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse'{_dmctrMetrics = mempty, _dmctrGranularities = mempty};
+describeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse'{_dmctrMetrics = Nothing, _dmctrGranularities = Nothing};
 
 -- | One or more of the following metrics:
 --
@@ -114,9 +114,9 @@ describeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse'{_
 --
 -- The @GroupStandbyInstances@ metric is not returned by default. You must
 -- explicitly request it when calling EnableMetricsCollection.
-dmctrMetrics :: Lens' DescribeMetricCollectionTypesResponse [MetricCollectionType]
+dmctrMetrics :: Lens' DescribeMetricCollectionTypesResponse (Maybe [MetricCollectionType])
 dmctrMetrics = lens _dmctrMetrics (\ s a -> s{_dmctrMetrics = a});
 
 -- | The granularities for the listed metrics.
-dmctrGranularities :: Lens' DescribeMetricCollectionTypesResponse [MetricGranularityType]
+dmctrGranularities :: Lens' DescribeMetricCollectionTypesResponse (Maybe [MetricGranularityType])
 dmctrGranularities = lens _dmctrGranularities (\ s a -> s{_dmctrGranularities = a});

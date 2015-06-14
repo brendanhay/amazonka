@@ -58,14 +58,14 @@ import Network.AWS.EMR.Types
 -- * 'liInstanceGroupId'
 --
 -- * 'liClusterId'
-data ListInstances = ListInstances'{_liInstanceGroupTypes :: [InstanceGroupType], _liMarker :: Maybe Text, _liInstanceGroupId :: Maybe Text, _liClusterId :: Text} deriving (Eq, Read, Show)
+data ListInstances = ListInstances'{_liInstanceGroupTypes :: Maybe [InstanceGroupType], _liMarker :: Maybe Text, _liInstanceGroupId :: Maybe Text, _liClusterId :: Text} deriving (Eq, Read, Show)
 
 -- | 'ListInstances' smart constructor.
 listInstances :: Text -> ListInstances
-listInstances pClusterId = ListInstances'{_liInstanceGroupTypes = mempty, _liMarker = Nothing, _liInstanceGroupId = Nothing, _liClusterId = pClusterId};
+listInstances pClusterId = ListInstances'{_liInstanceGroupTypes = Nothing, _liMarker = Nothing, _liInstanceGroupId = Nothing, _liClusterId = pClusterId};
 
 -- | The type of instance group for which to list the instances.
-liInstanceGroupTypes :: Lens' ListInstances [InstanceGroupType]
+liInstanceGroupTypes :: Lens' ListInstances (Maybe [InstanceGroupType])
 liInstanceGroupTypes = lens _liInstanceGroupTypes (\ s a -> s{_liInstanceGroupTypes = a});
 
 -- | The pagination token that indicates the next set of results to retrieve.
@@ -120,14 +120,14 @@ instance ToQuery ListInstances where
 -- * 'lirInstances'
 --
 -- * 'lirMarker'
-data ListInstancesResponse = ListInstancesResponse'{_lirInstances :: [Instance], _lirMarker :: Maybe Text} deriving (Eq, Read, Show)
+data ListInstancesResponse = ListInstancesResponse'{_lirInstances :: Maybe [Instance], _lirMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ListInstancesResponse' smart constructor.
 listInstancesResponse :: ListInstancesResponse
-listInstancesResponse = ListInstancesResponse'{_lirInstances = mempty, _lirMarker = Nothing};
+listInstancesResponse = ListInstancesResponse'{_lirInstances = Nothing, _lirMarker = Nothing};
 
 -- | The list of instances for the cluster and given filters.
-lirInstances :: Lens' ListInstancesResponse [Instance]
+lirInstances :: Lens' ListInstancesResponse (Maybe [Instance])
 lirInstances = lens _lirInstances (\ s a -> s{_lirInstances = a});
 
 -- | The pagination token that indicates the next set of results to retrieve.

@@ -50,11 +50,11 @@ import Network.AWS.EC2.Types
 -- * 'dv1VPCIds'
 --
 -- * 'dv1DryRun'
-data DescribeVPCs = DescribeVPCs'{_dv1Filters :: [Filter], _dv1VPCIds :: [Text], _dv1DryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data DescribeVPCs = DescribeVPCs'{_dv1Filters :: Maybe [Filter], _dv1VPCIds :: Maybe [Text], _dv1DryRun :: Maybe Bool} deriving (Eq, Read, Show)
 
 -- | 'DescribeVPCs' smart constructor.
 describeVPCs :: DescribeVPCs
-describeVPCs = DescribeVPCs'{_dv1Filters = mempty, _dv1VPCIds = mempty, _dv1DryRun = Nothing};
+describeVPCs = DescribeVPCs'{_dv1Filters = Nothing, _dv1VPCIds = Nothing, _dv1DryRun = Nothing};
 
 -- | One or more filters.
 --
@@ -85,13 +85,13 @@ describeVPCs = DescribeVPCs'{_dv1Filters = mempty, _dv1VPCIds = mempty, _dv1DryR
 --
 -- -   @vpc-id@ - The ID of the VPC.
 --
-dv1Filters :: Lens' DescribeVPCs [Filter]
+dv1Filters :: Lens' DescribeVPCs (Maybe [Filter])
 dv1Filters = lens _dv1Filters (\ s a -> s{_dv1Filters = a});
 
 -- | One or more VPC IDs.
 --
 -- Default: Describes all your VPCs.
-dv1VPCIds :: Lens' DescribeVPCs [Text]
+dv1VPCIds :: Lens' DescribeVPCs (Maybe [Text])
 dv1VPCIds = lens _dv1VPCIds (\ s a -> s{_dv1VPCIds = a});
 
 -- | Checks whether you have the required permissions for the action, without
@@ -129,12 +129,12 @@ instance ToQuery DescribeVPCs where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dvrVPCs'
-newtype DescribeVPCsResponse = DescribeVPCsResponse'{_dvrVPCs :: [VPC]} deriving (Eq, Read, Show)
+newtype DescribeVPCsResponse = DescribeVPCsResponse'{_dvrVPCs :: Maybe [VPC]} deriving (Eq, Read, Show)
 
 -- | 'DescribeVPCsResponse' smart constructor.
 describeVPCsResponse :: DescribeVPCsResponse
-describeVPCsResponse = DescribeVPCsResponse'{_dvrVPCs = mempty};
+describeVPCsResponse = DescribeVPCsResponse'{_dvrVPCs = Nothing};
 
 -- | Information about one or more VPCs.
-dvrVPCs :: Lens' DescribeVPCsResponse [VPC]
+dvrVPCs :: Lens' DescribeVPCsResponse (Maybe [VPC])
 dvrVPCs = lens _dvrVPCs (\ s a -> s{_dvrVPCs = a});

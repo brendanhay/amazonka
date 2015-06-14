@@ -72,13 +72,13 @@ module Network.AWS.IAM.Types
     -- * GroupDetail
     , GroupDetail
     , groupDetail
-    , gdCreateDate
-    , gdGroupPolicyList
-    , gdAttachedManagedPolicies
     , gdARN
     , gdPath
+    , gdCreateDate
     , gdGroupId
+    , gdGroupPolicyList
     , gdGroupName
+    , gdAttachedManagedPolicies
 
     -- * InstanceProfile
     , InstanceProfile
@@ -107,17 +107,17 @@ module Network.AWS.IAM.Types
     -- * ManagedPolicyDetail
     , ManagedPolicyDetail
     , managedPolicyDetail
+    , mpdPolicyName
+    , mpdARN
     , mpdPath
     , mpdUpdateDate
+    , mpdPolicyId
     , mpdCreateDate
     , mpdPolicyVersionList
     , mpdIsAttachable
     , mpdDefaultVersionId
     , mpdAttachmentCount
     , mpdDescription
-    , mpdPolicyName
-    , mpdARN
-    , mpdPolicyId
 
     -- * OpenIDConnectProviderListEntry
     , OpenIDConnectProviderListEntry
@@ -129,28 +129,28 @@ module Network.AWS.IAM.Types
     , passwordPolicy
     , ppExpirePasswords
     , ppRequireNumbers
+    , ppMinimumPasswordLength
+    , ppPasswordReusePrevention
     , ppRequireLowercaseCharacters
+    , ppMaxPasswordAge
     , ppHardExpiry
     , ppRequireSymbols
     , ppRequireUppercaseCharacters
     , ppAllowUsersToChangePassword
-    , ppMinimumPasswordLength
-    , ppPasswordReusePrevention
-    , ppMaxPasswordAge
 
     -- * Policy
     , Policy
     , policy
+    , polPolicyName
+    , polARN
     , polPath
     , polUpdateDate
+    , polPolicyId
     , polCreateDate
     , polIsAttachable
     , polDefaultVersionId
     , polAttachmentCount
     , polDescription
-    , polPolicyName
-    , polARN
-    , polPolicyId
 
     -- * PolicyDetail
     , PolicyDetail
@@ -181,8 +181,8 @@ module Network.AWS.IAM.Types
     , policyVersion
     , pvVersionId
     , pvCreateDate
-    , pvIsDefaultVersion
     , pvDocument
+    , pvIsDefaultVersion
 
     -- * ReportFormatType
     , ReportFormatType (..)
@@ -193,39 +193,39 @@ module Network.AWS.IAM.Types
     -- * Role
     , Role
     , role
+    , rolAssumeRolePolicyDocument
     , rolPath
     , rolRoleName
     , rolRoleId
     , rolARN
     , rolCreateDate
-    , rolAssumeRolePolicyDocument
 
     -- * RoleDetail
     , RoleDetail
     , roleDetail
-    , rdInstanceProfileList
-    , rdCreateDate
-    , rdRolePolicyList
-    , rdAttachedManagedPolicies
     , rdAssumeRolePolicyDocument
     , rdARN
     , rdPath
+    , rdInstanceProfileList
+    , rdCreateDate
     , rdRoleName
     , rdRoleId
+    , rdRolePolicyList
+    , rdAttachedManagedPolicies
 
     -- * SAMLProviderListEntry
     , SAMLProviderListEntry
     , sAMLProviderListEntry
+    , samlpleARN
     , samlpleCreateDate
     , samlpleValidUntil
-    , samlpleARN
 
     -- * ServerCertificate
     , ServerCertificate
     , serverCertificate
+    , serCertificateChain
     , serServerCertificateMetadata
     , serCertificateBody
-    , serCertificateChain
 
     -- * ServerCertificateMetadata
     , ServerCertificateMetadata
@@ -265,14 +265,14 @@ module Network.AWS.IAM.Types
     -- * UserDetail
     , UserDetail
     , userDetail
-    , udGroupList
-    , udCreateDate
-    , udUserPolicyList
-    , udAttachedManagedPolicies
     , udARN
     , udPath
+    , udGroupList
+    , udCreateDate
     , udUserName
     , udUserId
+    , udUserPolicyList
+    , udAttachedManagedPolicies
 
     -- * VirtualMFADevice
     , VirtualMFADevice
@@ -416,11 +416,11 @@ instance FromXML AccessKeyLastUsed where
 -- * 'akmUserName'
 --
 -- * 'akmAccessKeyId'
-data AccessKeyMetadata = AccessKeyMetadata'{_akmStatus :: Maybe StatusType, _akmCreateDate :: Maybe ISO8601, _akmUserName :: Text, _akmAccessKeyId :: Text} deriving (Eq, Read, Show)
+data AccessKeyMetadata = AccessKeyMetadata'{_akmStatus :: Maybe StatusType, _akmCreateDate :: Maybe ISO8601, _akmUserName :: Maybe Text, _akmAccessKeyId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'AccessKeyMetadata' smart constructor.
-accessKeyMetadata :: Text -> Text -> AccessKeyMetadata
-accessKeyMetadata pUserName pAccessKeyId = AccessKeyMetadata'{_akmStatus = Nothing, _akmCreateDate = Nothing, _akmUserName = pUserName, _akmAccessKeyId = pAccessKeyId};
+accessKeyMetadata :: AccessKeyMetadata
+accessKeyMetadata = AccessKeyMetadata'{_akmStatus = Nothing, _akmCreateDate = Nothing, _akmUserName = Nothing, _akmAccessKeyId = Nothing};
 
 -- | The status of the access key. @Active@ means the key is valid for API
 -- calls; @Inactive@ means it is not.
@@ -432,19 +432,19 @@ akmCreateDate :: Lens' AccessKeyMetadata (Maybe UTCTime)
 akmCreateDate = lens _akmCreateDate (\ s a -> s{_akmCreateDate = a}) . mapping _Time;
 
 -- | The name of the IAM user that the key is associated with.
-akmUserName :: Lens' AccessKeyMetadata Text
+akmUserName :: Lens' AccessKeyMetadata (Maybe Text)
 akmUserName = lens _akmUserName (\ s a -> s{_akmUserName = a});
 
 -- | The ID for this access key.
-akmAccessKeyId :: Lens' AccessKeyMetadata Text
+akmAccessKeyId :: Lens' AccessKeyMetadata (Maybe Text)
 akmAccessKeyId = lens _akmAccessKeyId (\ s a -> s{_akmAccessKeyId = a});
 
 instance FromXML AccessKeyMetadata where
         parseXML x
           = AccessKeyMetadata' <$>
               x .@? "Status" <*> x .@? "CreateDate" <*>
-                x .@ "UserName"
-                <*> x .@ "AccessKeyId"
+                x .@? "UserName"
+                <*> x .@? "AccessKeyId"
 
 data AssignmentStatusType = Assigned | Unassigned | Any deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -472,24 +472,24 @@ instance ToHeader AssignmentStatusType
 -- * 'apPolicyName'
 --
 -- * 'apPolicyARN'
-data AttachedPolicy = AttachedPolicy'{_apPolicyName :: Text, _apPolicyARN :: Text} deriving (Eq, Read, Show)
+data AttachedPolicy = AttachedPolicy'{_apPolicyName :: Maybe Text, _apPolicyARN :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'AttachedPolicy' smart constructor.
-attachedPolicy :: Text -> Text -> AttachedPolicy
-attachedPolicy pPolicyName pPolicyARN = AttachedPolicy'{_apPolicyName = pPolicyName, _apPolicyARN = pPolicyARN};
+attachedPolicy :: AttachedPolicy
+attachedPolicy = AttachedPolicy'{_apPolicyName = Nothing, _apPolicyARN = Nothing};
 
 -- | The friendly name of the attached policy.
-apPolicyName :: Lens' AttachedPolicy Text
+apPolicyName :: Lens' AttachedPolicy (Maybe Text)
 apPolicyName = lens _apPolicyName (\ s a -> s{_apPolicyName = a});
 
 -- | FIXME: Undocumented member.
-apPolicyARN :: Lens' AttachedPolicy Text
+apPolicyARN :: Lens' AttachedPolicy (Maybe Text)
 apPolicyARN = lens _apPolicyARN (\ s a -> s{_apPolicyARN = a});
 
 instance FromXML AttachedPolicy where
         parseXML x
           = AttachedPolicy' <$>
-              x .@ "PolicyName" <*> x .@ "PolicyArn"
+              x .@? "PolicyName" <*> x .@? "PolicyArn"
 
 data EntityType = Group | LocalManagedPolicy | AWSManagedPolicy | User | Role deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -574,24 +574,34 @@ instance FromXML Group where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdCreateDate'
---
--- * 'gdGroupPolicyList'
---
--- * 'gdAttachedManagedPolicies'
---
 -- * 'gdARN'
 --
 -- * 'gdPath'
 --
+-- * 'gdCreateDate'
+--
 -- * 'gdGroupId'
 --
+-- * 'gdGroupPolicyList'
+--
 -- * 'gdGroupName'
-data GroupDetail = GroupDetail'{_gdCreateDate :: Maybe ISO8601, _gdGroupPolicyList :: [PolicyDetail], _gdAttachedManagedPolicies :: [AttachedPolicy], _gdARN :: Text, _gdPath :: Text, _gdGroupId :: Text, _gdGroupName :: Text} deriving (Eq, Read, Show)
+--
+-- * 'gdAttachedManagedPolicies'
+data GroupDetail = GroupDetail'{_gdARN :: Maybe Text, _gdPath :: Maybe Text, _gdCreateDate :: Maybe ISO8601, _gdGroupId :: Maybe Text, _gdGroupPolicyList :: Maybe [PolicyDetail], _gdGroupName :: Maybe Text, _gdAttachedManagedPolicies :: Maybe [AttachedPolicy]} deriving (Eq, Read, Show)
 
 -- | 'GroupDetail' smart constructor.
-groupDetail :: Text -> Text -> Text -> Text -> GroupDetail
-groupDetail pARN pPath pGroupId pGroupName = GroupDetail'{_gdCreateDate = Nothing, _gdGroupPolicyList = mempty, _gdAttachedManagedPolicies = mempty, _gdARN = pARN, _gdPath = pPath, _gdGroupId = pGroupId, _gdGroupName = pGroupName};
+groupDetail :: GroupDetail
+groupDetail = GroupDetail'{_gdARN = Nothing, _gdPath = Nothing, _gdCreateDate = Nothing, _gdGroupId = Nothing, _gdGroupPolicyList = Nothing, _gdGroupName = Nothing, _gdAttachedManagedPolicies = Nothing};
+
+-- | FIXME: Undocumented member.
+gdARN :: Lens' GroupDetail (Maybe Text)
+gdARN = lens _gdARN (\ s a -> s{_gdARN = a});
+
+-- | The path to the group. For more information about paths, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
+-- in the /Using IAM/ guide.
+gdPath :: Lens' GroupDetail (Maybe Text)
+gdPath = lens _gdPath (\ s a -> s{_gdPath = a});
 
 -- | The date and time, in
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
@@ -599,48 +609,37 @@ groupDetail pARN pPath pGroupId pGroupName = GroupDetail'{_gdCreateDate = Nothin
 gdCreateDate :: Lens' GroupDetail (Maybe UTCTime)
 gdCreateDate = lens _gdCreateDate (\ s a -> s{_gdCreateDate = a}) . mapping _Time;
 
--- | A list of the inline policies embedded in the group.
-gdGroupPolicyList :: Lens' GroupDetail [PolicyDetail]
-gdGroupPolicyList = lens _gdGroupPolicyList (\ s a -> s{_gdGroupPolicyList = a});
-
--- | A list of the managed policies attached to the group.
-gdAttachedManagedPolicies :: Lens' GroupDetail [AttachedPolicy]
-gdAttachedManagedPolicies = lens _gdAttachedManagedPolicies (\ s a -> s{_gdAttachedManagedPolicies = a});
-
--- | FIXME: Undocumented member.
-gdARN :: Lens' GroupDetail Text
-gdARN = lens _gdARN (\ s a -> s{_gdARN = a});
-
--- | The path to the group. For more information about paths, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
--- in the /Using IAM/ guide.
-gdPath :: Lens' GroupDetail Text
-gdPath = lens _gdPath (\ s a -> s{_gdPath = a});
-
 -- | The stable and unique string identifying the group. For more information
 -- about IDs, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
 -- in the /Using IAM/ guide.
-gdGroupId :: Lens' GroupDetail Text
+gdGroupId :: Lens' GroupDetail (Maybe Text)
 gdGroupId = lens _gdGroupId (\ s a -> s{_gdGroupId = a});
 
+-- | A list of the inline policies embedded in the group.
+gdGroupPolicyList :: Lens' GroupDetail (Maybe [PolicyDetail])
+gdGroupPolicyList = lens _gdGroupPolicyList (\ s a -> s{_gdGroupPolicyList = a});
+
 -- | The friendly name that identifies the group.
-gdGroupName :: Lens' GroupDetail Text
+gdGroupName :: Lens' GroupDetail (Maybe Text)
 gdGroupName = lens _gdGroupName (\ s a -> s{_gdGroupName = a});
+
+-- | A list of the managed policies attached to the group.
+gdAttachedManagedPolicies :: Lens' GroupDetail (Maybe [AttachedPolicy])
+gdAttachedManagedPolicies = lens _gdAttachedManagedPolicies (\ s a -> s{_gdAttachedManagedPolicies = a});
 
 instance FromXML GroupDetail where
         parseXML x
           = GroupDetail' <$>
-              x .@? "CreateDate" <*>
+              x .@? "Arn" <*> x .@? "Path" <*> x .@? "CreateDate"
+                <*> x .@? "GroupId"
+                <*>
                 (x .@? "GroupPolicyList" .!@ mempty >>=
                    parseXMLList "member")
+                <*> x .@? "GroupName"
                 <*>
                 (x .@? "AttachedManagedPolicies" .!@ mempty >>=
                    parseXMLList "member")
-                <*> x .@ "Arn"
-                <*> x .@ "Path"
-                <*> x .@ "GroupId"
-                <*> x .@ "GroupName"
 
 -- | /See:/ 'instanceProfile' smart constructor.
 --
@@ -660,8 +659,8 @@ instance FromXML GroupDetail where
 data InstanceProfile = InstanceProfile'{_ipPath :: Text, _ipInstanceProfileName :: Text, _ipInstanceProfileId :: Text, _ipARN :: Text, _ipCreateDate :: ISO8601, _ipRoles :: [Role]} deriving (Eq, Read, Show)
 
 -- | 'InstanceProfile' smart constructor.
-instanceProfile :: Text -> Text -> Text -> Text -> UTCTime -> [Role] -> InstanceProfile
-instanceProfile pPath pInstanceProfileName pInstanceProfileId pARN pCreateDate pRoles = InstanceProfile'{_ipPath = pPath, _ipInstanceProfileName = pInstanceProfileName, _ipInstanceProfileId = pInstanceProfileId, _ipARN = pARN, _ipCreateDate = _Time # pCreateDate, _ipRoles = pRoles};
+instanceProfile :: Text -> Text -> Text -> Text -> UTCTime -> InstanceProfile
+instanceProfile pPath pInstanceProfileName pInstanceProfileId pARN pCreateDate = InstanceProfile'{_ipPath = pPath, _ipInstanceProfileName = pInstanceProfileName, _ipInstanceProfileId = pInstanceProfileId, _ipARN = pARN, _ipCreateDate = _Time # pCreateDate, _ipRoles = mempty};
 
 -- | The path to the instance profile. For more information about paths, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
@@ -778,9 +777,15 @@ instance FromXML MFADevice where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'mpdPolicyName'
+--
+-- * 'mpdARN'
+--
 -- * 'mpdPath'
 --
 -- * 'mpdUpdateDate'
+--
+-- * 'mpdPolicyId'
 --
 -- * 'mpdCreateDate'
 --
@@ -793,17 +798,19 @@ instance FromXML MFADevice where
 -- * 'mpdAttachmentCount'
 --
 -- * 'mpdDescription'
---
--- * 'mpdPolicyName'
---
--- * 'mpdARN'
---
--- * 'mpdPolicyId'
-data ManagedPolicyDetail = ManagedPolicyDetail'{_mpdPath :: Maybe Text, _mpdUpdateDate :: Maybe ISO8601, _mpdCreateDate :: Maybe ISO8601, _mpdPolicyVersionList :: [PolicyVersion], _mpdIsAttachable :: Maybe Bool, _mpdDefaultVersionId :: Maybe Text, _mpdAttachmentCount :: Maybe Int, _mpdDescription :: Maybe Text, _mpdPolicyName :: Text, _mpdARN :: Text, _mpdPolicyId :: Text} deriving (Eq, Read, Show)
+data ManagedPolicyDetail = ManagedPolicyDetail'{_mpdPolicyName :: Maybe Text, _mpdARN :: Maybe Text, _mpdPath :: Maybe Text, _mpdUpdateDate :: Maybe ISO8601, _mpdPolicyId :: Maybe Text, _mpdCreateDate :: Maybe ISO8601, _mpdPolicyVersionList :: Maybe [PolicyVersion], _mpdIsAttachable :: Maybe Bool, _mpdDefaultVersionId :: Maybe Text, _mpdAttachmentCount :: Maybe Int, _mpdDescription :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ManagedPolicyDetail' smart constructor.
-managedPolicyDetail :: Text -> Text -> Text -> ManagedPolicyDetail
-managedPolicyDetail pPolicyName pARN pPolicyId = ManagedPolicyDetail'{_mpdPath = Nothing, _mpdUpdateDate = Nothing, _mpdCreateDate = Nothing, _mpdPolicyVersionList = mempty, _mpdIsAttachable = Nothing, _mpdDefaultVersionId = Nothing, _mpdAttachmentCount = Nothing, _mpdDescription = Nothing, _mpdPolicyName = pPolicyName, _mpdARN = pARN, _mpdPolicyId = pPolicyId};
+managedPolicyDetail :: ManagedPolicyDetail
+managedPolicyDetail = ManagedPolicyDetail'{_mpdPolicyName = Nothing, _mpdARN = Nothing, _mpdPath = Nothing, _mpdUpdateDate = Nothing, _mpdPolicyId = Nothing, _mpdCreateDate = Nothing, _mpdPolicyVersionList = Nothing, _mpdIsAttachable = Nothing, _mpdDefaultVersionId = Nothing, _mpdAttachmentCount = Nothing, _mpdDescription = Nothing};
+
+-- | The friendly name (not ARN) identifying the policy.
+mpdPolicyName :: Lens' ManagedPolicyDetail (Maybe Text)
+mpdPolicyName = lens _mpdPolicyName (\ s a -> s{_mpdPolicyName = a});
+
+-- | FIXME: Undocumented member.
+mpdARN :: Lens' ManagedPolicyDetail (Maybe Text)
+mpdARN = lens _mpdARN (\ s a -> s{_mpdARN = a});
 
 -- | The path to the policy.
 --
@@ -824,6 +831,14 @@ mpdPath = lens _mpdPath (\ s a -> s{_mpdPath = a});
 mpdUpdateDate :: Lens' ManagedPolicyDetail (Maybe UTCTime)
 mpdUpdateDate = lens _mpdUpdateDate (\ s a -> s{_mpdUpdateDate = a}) . mapping _Time;
 
+-- | The stable and unique string identifying the policy.
+--
+-- For more information about IDs, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
+-- in the /Using IAM/ guide.
+mpdPolicyId :: Lens' ManagedPolicyDetail (Maybe Text)
+mpdPolicyId = lens _mpdPolicyId (\ s a -> s{_mpdPolicyId = a});
+
 -- | The date and time, in
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
 -- policy was created.
@@ -831,7 +846,7 @@ mpdCreateDate :: Lens' ManagedPolicyDetail (Maybe UTCTime)
 mpdCreateDate = lens _mpdCreateDate (\ s a -> s{_mpdCreateDate = a}) . mapping _Time;
 
 -- | A list containing information about the versions of the policy.
-mpdPolicyVersionList :: Lens' ManagedPolicyDetail [PolicyVersion]
+mpdPolicyVersionList :: Lens' ManagedPolicyDetail (Maybe [PolicyVersion])
 mpdPolicyVersionList = lens _mpdPolicyVersionList (\ s a -> s{_mpdPolicyVersionList = a});
 
 -- | Specifies whether the policy can be attached to an IAM user, group, or
@@ -857,27 +872,13 @@ mpdAttachmentCount = lens _mpdAttachmentCount (\ s a -> s{_mpdAttachmentCount = 
 mpdDescription :: Lens' ManagedPolicyDetail (Maybe Text)
 mpdDescription = lens _mpdDescription (\ s a -> s{_mpdDescription = a});
 
--- | The friendly name (not ARN) identifying the policy.
-mpdPolicyName :: Lens' ManagedPolicyDetail Text
-mpdPolicyName = lens _mpdPolicyName (\ s a -> s{_mpdPolicyName = a});
-
--- | FIXME: Undocumented member.
-mpdARN :: Lens' ManagedPolicyDetail Text
-mpdARN = lens _mpdARN (\ s a -> s{_mpdARN = a});
-
--- | The stable and unique string identifying the policy.
---
--- For more information about IDs, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
--- in the /Using IAM/ guide.
-mpdPolicyId :: Lens' ManagedPolicyDetail Text
-mpdPolicyId = lens _mpdPolicyId (\ s a -> s{_mpdPolicyId = a});
-
 instance FromXML ManagedPolicyDetail where
         parseXML x
           = ManagedPolicyDetail' <$>
-              x .@? "Path" <*> x .@? "UpdateDate" <*>
-                x .@? "CreateDate"
+              x .@? "PolicyName" <*> x .@? "Arn" <*> x .@? "Path"
+                <*> x .@? "UpdateDate"
+                <*> x .@? "PolicyId"
+                <*> x .@? "CreateDate"
                 <*>
                 (x .@? "PolicyVersionList" .!@ mempty >>=
                    parseXMLList "member")
@@ -885,28 +886,25 @@ instance FromXML ManagedPolicyDetail where
                 <*> x .@? "DefaultVersionId"
                 <*> x .@? "AttachmentCount"
                 <*> x .@? "Description"
-                <*> x .@ "PolicyName"
-                <*> x .@ "Arn"
-                <*> x .@ "PolicyId"
 
 -- | /See:/ 'openIDConnectProviderListEntry' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'oidcpleARN'
-newtype OpenIDConnectProviderListEntry = OpenIDConnectProviderListEntry'{_oidcpleARN :: Text} deriving (Eq, Read, Show)
+newtype OpenIDConnectProviderListEntry = OpenIDConnectProviderListEntry'{_oidcpleARN :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'OpenIDConnectProviderListEntry' smart constructor.
-openIDConnectProviderListEntry :: Text -> OpenIDConnectProviderListEntry
-openIDConnectProviderListEntry pARN = OpenIDConnectProviderListEntry'{_oidcpleARN = pARN};
+openIDConnectProviderListEntry :: OpenIDConnectProviderListEntry
+openIDConnectProviderListEntry = OpenIDConnectProviderListEntry'{_oidcpleARN = Nothing};
 
 -- | FIXME: Undocumented member.
-oidcpleARN :: Lens' OpenIDConnectProviderListEntry Text
+oidcpleARN :: Lens' OpenIDConnectProviderListEntry (Maybe Text)
 oidcpleARN = lens _oidcpleARN (\ s a -> s{_oidcpleARN = a});
 
 instance FromXML OpenIDConnectProviderListEntry where
         parseXML x
-          = OpenIDConnectProviderListEntry' <$> x .@ "Arn"
+          = OpenIDConnectProviderListEntry' <$> x .@? "Arn"
 
 -- | /See:/ 'passwordPolicy' smart constructor.
 --
@@ -916,7 +914,13 @@ instance FromXML OpenIDConnectProviderListEntry where
 --
 -- * 'ppRequireNumbers'
 --
+-- * 'ppMinimumPasswordLength'
+--
+-- * 'ppPasswordReusePrevention'
+--
 -- * 'ppRequireLowercaseCharacters'
+--
+-- * 'ppMaxPasswordAge'
 --
 -- * 'ppHardExpiry'
 --
@@ -925,17 +929,11 @@ instance FromXML OpenIDConnectProviderListEntry where
 -- * 'ppRequireUppercaseCharacters'
 --
 -- * 'ppAllowUsersToChangePassword'
---
--- * 'ppMinimumPasswordLength'
---
--- * 'ppPasswordReusePrevention'
---
--- * 'ppMaxPasswordAge'
-data PasswordPolicy = PasswordPolicy'{_ppExpirePasswords :: Maybe Bool, _ppRequireNumbers :: Maybe Bool, _ppRequireLowercaseCharacters :: Maybe Bool, _ppHardExpiry :: Maybe Bool, _ppRequireSymbols :: Maybe Bool, _ppRequireUppercaseCharacters :: Maybe Bool, _ppAllowUsersToChangePassword :: Maybe Bool, _ppMinimumPasswordLength :: Nat, _ppPasswordReusePrevention :: Nat, _ppMaxPasswordAge :: Nat} deriving (Eq, Read, Show)
+data PasswordPolicy = PasswordPolicy'{_ppExpirePasswords :: Maybe Bool, _ppRequireNumbers :: Maybe Bool, _ppMinimumPasswordLength :: Maybe Nat, _ppPasswordReusePrevention :: Maybe Nat, _ppRequireLowercaseCharacters :: Maybe Bool, _ppMaxPasswordAge :: Maybe Nat, _ppHardExpiry :: Maybe Bool, _ppRequireSymbols :: Maybe Bool, _ppRequireUppercaseCharacters :: Maybe Bool, _ppAllowUsersToChangePassword :: Maybe Bool} deriving (Eq, Read, Show)
 
 -- | 'PasswordPolicy' smart constructor.
-passwordPolicy :: Natural -> Natural -> Natural -> PasswordPolicy
-passwordPolicy pMinimumPasswordLength pPasswordReusePrevention pMaxPasswordAge = PasswordPolicy'{_ppExpirePasswords = Nothing, _ppRequireNumbers = Nothing, _ppRequireLowercaseCharacters = Nothing, _ppHardExpiry = Nothing, _ppRequireSymbols = Nothing, _ppRequireUppercaseCharacters = Nothing, _ppAllowUsersToChangePassword = Nothing, _ppMinimumPasswordLength = _Nat # pMinimumPasswordLength, _ppPasswordReusePrevention = _Nat # pPasswordReusePrevention, _ppMaxPasswordAge = _Nat # pMaxPasswordAge};
+passwordPolicy :: PasswordPolicy
+passwordPolicy = PasswordPolicy'{_ppExpirePasswords = Nothing, _ppRequireNumbers = Nothing, _ppMinimumPasswordLength = Nothing, _ppPasswordReusePrevention = Nothing, _ppRequireLowercaseCharacters = Nothing, _ppMaxPasswordAge = Nothing, _ppHardExpiry = Nothing, _ppRequireSymbols = Nothing, _ppRequireUppercaseCharacters = Nothing, _ppAllowUsersToChangePassword = Nothing};
 
 -- | Specifies whether IAM users are required to change their password after
 -- a specified number of days.
@@ -946,10 +944,23 @@ ppExpirePasswords = lens _ppExpirePasswords (\ s a -> s{_ppExpirePasswords = a})
 ppRequireNumbers :: Lens' PasswordPolicy (Maybe Bool)
 ppRequireNumbers = lens _ppRequireNumbers (\ s a -> s{_ppRequireNumbers = a});
 
+-- | Minimum length to require for IAM user passwords.
+ppMinimumPasswordLength :: Lens' PasswordPolicy (Maybe Natural)
+ppMinimumPasswordLength = lens _ppMinimumPasswordLength (\ s a -> s{_ppMinimumPasswordLength = a}) . mapping _Nat;
+
+-- | Specifies the number of previous passwords that IAM users are prevented
+-- from reusing.
+ppPasswordReusePrevention :: Lens' PasswordPolicy (Maybe Natural)
+ppPasswordReusePrevention = lens _ppPasswordReusePrevention (\ s a -> s{_ppPasswordReusePrevention = a}) . mapping _Nat;
+
 -- | Specifies whether to require lowercase characters for IAM user
 -- passwords.
 ppRequireLowercaseCharacters :: Lens' PasswordPolicy (Maybe Bool)
 ppRequireLowercaseCharacters = lens _ppRequireLowercaseCharacters (\ s a -> s{_ppRequireLowercaseCharacters = a});
+
+-- | The number of days that an IAM user password is valid.
+ppMaxPasswordAge :: Lens' PasswordPolicy (Maybe Natural)
+ppMaxPasswordAge = lens _ppMaxPasswordAge (\ s a -> s{_ppMaxPasswordAge = a}) . mapping _Nat;
 
 -- | Specifies whether IAM users are prevented from setting a new password
 -- after their password has expired.
@@ -969,39 +980,32 @@ ppRequireUppercaseCharacters = lens _ppRequireUppercaseCharacters (\ s a -> s{_p
 ppAllowUsersToChangePassword :: Lens' PasswordPolicy (Maybe Bool)
 ppAllowUsersToChangePassword = lens _ppAllowUsersToChangePassword (\ s a -> s{_ppAllowUsersToChangePassword = a});
 
--- | Minimum length to require for IAM user passwords.
-ppMinimumPasswordLength :: Lens' PasswordPolicy Natural
-ppMinimumPasswordLength = lens _ppMinimumPasswordLength (\ s a -> s{_ppMinimumPasswordLength = a}) . _Nat;
-
--- | Specifies the number of previous passwords that IAM users are prevented
--- from reusing.
-ppPasswordReusePrevention :: Lens' PasswordPolicy Natural
-ppPasswordReusePrevention = lens _ppPasswordReusePrevention (\ s a -> s{_ppPasswordReusePrevention = a}) . _Nat;
-
--- | The number of days that an IAM user password is valid.
-ppMaxPasswordAge :: Lens' PasswordPolicy Natural
-ppMaxPasswordAge = lens _ppMaxPasswordAge (\ s a -> s{_ppMaxPasswordAge = a}) . _Nat;
-
 instance FromXML PasswordPolicy where
         parseXML x
           = PasswordPolicy' <$>
               x .@? "ExpirePasswords" <*> x .@? "RequireNumbers"
+                <*> x .@? "MinimumPasswordLength"
+                <*> x .@? "PasswordReusePrevention"
                 <*> x .@? "RequireLowercaseCharacters"
+                <*> x .@? "MaxPasswordAge"
                 <*> x .@? "HardExpiry"
                 <*> x .@? "RequireSymbols"
                 <*> x .@? "RequireUppercaseCharacters"
                 <*> x .@? "AllowUsersToChangePassword"
-                <*> x .@ "MinimumPasswordLength"
-                <*> x .@ "PasswordReusePrevention"
-                <*> x .@ "MaxPasswordAge"
 
 -- | /See:/ 'policy' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'polPolicyName'
+--
+-- * 'polARN'
+--
 -- * 'polPath'
 --
 -- * 'polUpdateDate'
+--
+-- * 'polPolicyId'
 --
 -- * 'polCreateDate'
 --
@@ -1012,17 +1016,19 @@ instance FromXML PasswordPolicy where
 -- * 'polAttachmentCount'
 --
 -- * 'polDescription'
---
--- * 'polPolicyName'
---
--- * 'polARN'
---
--- * 'polPolicyId'
-data Policy = Policy'{_polPath :: Maybe Text, _polUpdateDate :: Maybe ISO8601, _polCreateDate :: Maybe ISO8601, _polIsAttachable :: Maybe Bool, _polDefaultVersionId :: Maybe Text, _polAttachmentCount :: Maybe Int, _polDescription :: Maybe Text, _polPolicyName :: Text, _polARN :: Text, _polPolicyId :: Text} deriving (Eq, Read, Show)
+data Policy = Policy'{_polPolicyName :: Maybe Text, _polARN :: Maybe Text, _polPath :: Maybe Text, _polUpdateDate :: Maybe ISO8601, _polPolicyId :: Maybe Text, _polCreateDate :: Maybe ISO8601, _polIsAttachable :: Maybe Bool, _polDefaultVersionId :: Maybe Text, _polAttachmentCount :: Maybe Int, _polDescription :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'Policy' smart constructor.
-policy :: Text -> Text -> Text -> Policy
-policy pPolicyName pARN pPolicyId = Policy'{_polPath = Nothing, _polUpdateDate = Nothing, _polCreateDate = Nothing, _polIsAttachable = Nothing, _polDefaultVersionId = Nothing, _polAttachmentCount = Nothing, _polDescription = Nothing, _polPolicyName = pPolicyName, _polARN = pARN, _polPolicyId = pPolicyId};
+policy :: Policy
+policy = Policy'{_polPolicyName = Nothing, _polARN = Nothing, _polPath = Nothing, _polUpdateDate = Nothing, _polPolicyId = Nothing, _polCreateDate = Nothing, _polIsAttachable = Nothing, _polDefaultVersionId = Nothing, _polAttachmentCount = Nothing, _polDescription = Nothing};
+
+-- | The friendly name (not ARN) identifying the policy.
+polPolicyName :: Lens' Policy (Maybe Text)
+polPolicyName = lens _polPolicyName (\ s a -> s{_polPolicyName = a});
+
+-- | FIXME: Undocumented member.
+polARN :: Lens' Policy (Maybe Text)
+polARN = lens _polARN (\ s a -> s{_polARN = a});
 
 -- | The path to the policy.
 --
@@ -1042,6 +1048,14 @@ polPath = lens _polPath (\ s a -> s{_polPath = a});
 -- policy version was created.
 polUpdateDate :: Lens' Policy (Maybe UTCTime)
 polUpdateDate = lens _polUpdateDate (\ s a -> s{_polUpdateDate = a}) . mapping _Time;
+
+-- | The stable and unique string identifying the policy.
+--
+-- For more information about IDs, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
+-- in the /Using IAM/ guide.
+polPolicyId :: Lens' Policy (Maybe Text)
+polPolicyId = lens _polPolicyId (\ s a -> s{_polPolicyId = a});
 
 -- | The date and time, in
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
@@ -1071,34 +1085,17 @@ polAttachmentCount = lens _polAttachmentCount (\ s a -> s{_polAttachmentCount = 
 polDescription :: Lens' Policy (Maybe Text)
 polDescription = lens _polDescription (\ s a -> s{_polDescription = a});
 
--- | The friendly name (not ARN) identifying the policy.
-polPolicyName :: Lens' Policy Text
-polPolicyName = lens _polPolicyName (\ s a -> s{_polPolicyName = a});
-
--- | FIXME: Undocumented member.
-polARN :: Lens' Policy Text
-polARN = lens _polARN (\ s a -> s{_polARN = a});
-
--- | The stable and unique string identifying the policy.
---
--- For more information about IDs, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
--- in the /Using IAM/ guide.
-polPolicyId :: Lens' Policy Text
-polPolicyId = lens _polPolicyId (\ s a -> s{_polPolicyId = a});
-
 instance FromXML Policy where
         parseXML x
           = Policy' <$>
-              x .@? "Path" <*> x .@? "UpdateDate" <*>
-                x .@? "CreateDate"
+              x .@? "PolicyName" <*> x .@? "Arn" <*> x .@? "Path"
+                <*> x .@? "UpdateDate"
+                <*> x .@? "PolicyId"
+                <*> x .@? "CreateDate"
                 <*> x .@? "IsAttachable"
                 <*> x .@? "DefaultVersionId"
                 <*> x .@? "AttachmentCount"
                 <*> x .@? "Description"
-                <*> x .@ "PolicyName"
-                <*> x .@ "Arn"
-                <*> x .@ "PolicyId"
 
 -- | /See:/ 'policyDetail' smart constructor.
 --
@@ -1107,60 +1104,60 @@ instance FromXML Policy where
 -- * 'pdPolicyDocument'
 --
 -- * 'pdPolicyName'
-data PolicyDetail = PolicyDetail'{_pdPolicyDocument :: Text, _pdPolicyName :: Text} deriving (Eq, Read, Show)
+data PolicyDetail = PolicyDetail'{_pdPolicyDocument :: Maybe Text, _pdPolicyName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'PolicyDetail' smart constructor.
-policyDetail :: Text -> Text -> PolicyDetail
-policyDetail pPolicyDocument pPolicyName = PolicyDetail'{_pdPolicyDocument = pPolicyDocument, _pdPolicyName = pPolicyName};
+policyDetail :: PolicyDetail
+policyDetail = PolicyDetail'{_pdPolicyDocument = Nothing, _pdPolicyName = Nothing};
 
 -- | The policy document.
-pdPolicyDocument :: Lens' PolicyDetail Text
+pdPolicyDocument :: Lens' PolicyDetail (Maybe Text)
 pdPolicyDocument = lens _pdPolicyDocument (\ s a -> s{_pdPolicyDocument = a});
 
 -- | The name of the policy.
-pdPolicyName :: Lens' PolicyDetail Text
+pdPolicyName :: Lens' PolicyDetail (Maybe Text)
 pdPolicyName = lens _pdPolicyName (\ s a -> s{_pdPolicyName = a});
 
 instance FromXML PolicyDetail where
         parseXML x
           = PolicyDetail' <$>
-              x .@ "PolicyDocument" <*> x .@ "PolicyName"
+              x .@? "PolicyDocument" <*> x .@? "PolicyName"
 
 -- | /See:/ 'policyGroup' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'pgGroupName'
-newtype PolicyGroup = PolicyGroup'{_pgGroupName :: Text} deriving (Eq, Read, Show)
+newtype PolicyGroup = PolicyGroup'{_pgGroupName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'PolicyGroup' smart constructor.
-policyGroup :: Text -> PolicyGroup
-policyGroup pGroupName = PolicyGroup'{_pgGroupName = pGroupName};
+policyGroup :: PolicyGroup
+policyGroup = PolicyGroup'{_pgGroupName = Nothing};
 
 -- | The name (friendly name, not ARN) identifying the group.
-pgGroupName :: Lens' PolicyGroup Text
+pgGroupName :: Lens' PolicyGroup (Maybe Text)
 pgGroupName = lens _pgGroupName (\ s a -> s{_pgGroupName = a});
 
 instance FromXML PolicyGroup where
-        parseXML x = PolicyGroup' <$> x .@ "GroupName"
+        parseXML x = PolicyGroup' <$> x .@? "GroupName"
 
 -- | /See:/ 'policyRole' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'prRoleName'
-newtype PolicyRole = PolicyRole'{_prRoleName :: Text} deriving (Eq, Read, Show)
+newtype PolicyRole = PolicyRole'{_prRoleName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'PolicyRole' smart constructor.
-policyRole :: Text -> PolicyRole
-policyRole pRoleName = PolicyRole'{_prRoleName = pRoleName};
+policyRole :: PolicyRole
+policyRole = PolicyRole'{_prRoleName = Nothing};
 
 -- | The name (friendly name, not ARN) identifying the role.
-prRoleName :: Lens' PolicyRole Text
+prRoleName :: Lens' PolicyRole (Maybe Text)
 prRoleName = lens _prRoleName (\ s a -> s{_prRoleName = a});
 
 instance FromXML PolicyRole where
-        parseXML x = PolicyRole' <$> x .@ "RoleName"
+        parseXML x = PolicyRole' <$> x .@? "RoleName"
 
 data PolicyScopeType = AWS | Local | All deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -1186,18 +1183,18 @@ instance ToHeader PolicyScopeType
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'puUserName'
-newtype PolicyUser = PolicyUser'{_puUserName :: Text} deriving (Eq, Read, Show)
+newtype PolicyUser = PolicyUser'{_puUserName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'PolicyUser' smart constructor.
-policyUser :: Text -> PolicyUser
-policyUser pUserName = PolicyUser'{_puUserName = pUserName};
+policyUser :: PolicyUser
+policyUser = PolicyUser'{_puUserName = Nothing};
 
 -- | The name (friendly name, not ARN) identifying the user.
-puUserName :: Lens' PolicyUser Text
+puUserName :: Lens' PolicyUser (Maybe Text)
 puUserName = lens _puUserName (\ s a -> s{_puUserName = a});
 
 instance FromXML PolicyUser where
-        parseXML x = PolicyUser' <$> x .@ "UserName"
+        parseXML x = PolicyUser' <$> x .@? "UserName"
 
 -- | /See:/ 'policyVersion' smart constructor.
 --
@@ -1207,14 +1204,14 @@ instance FromXML PolicyUser where
 --
 -- * 'pvCreateDate'
 --
--- * 'pvIsDefaultVersion'
---
 -- * 'pvDocument'
-data PolicyVersion = PolicyVersion'{_pvVersionId :: Maybe Text, _pvCreateDate :: Maybe ISO8601, _pvIsDefaultVersion :: Maybe Bool, _pvDocument :: Text} deriving (Eq, Read, Show)
+--
+-- * 'pvIsDefaultVersion'
+data PolicyVersion = PolicyVersion'{_pvVersionId :: Maybe Text, _pvCreateDate :: Maybe ISO8601, _pvDocument :: Maybe Text, _pvIsDefaultVersion :: Maybe Bool} deriving (Eq, Read, Show)
 
 -- | 'PolicyVersion' smart constructor.
-policyVersion :: Text -> PolicyVersion
-policyVersion pDocument = PolicyVersion'{_pvVersionId = Nothing, _pvCreateDate = Nothing, _pvIsDefaultVersion = Nothing, _pvDocument = pDocument};
+policyVersion :: PolicyVersion
+policyVersion = PolicyVersion'{_pvVersionId = Nothing, _pvCreateDate = Nothing, _pvDocument = Nothing, _pvIsDefaultVersion = Nothing};
 
 -- | The identifier for the policy version.
 --
@@ -1229,25 +1226,25 @@ pvVersionId = lens _pvVersionId (\ s a -> s{_pvVersionId = a});
 pvCreateDate :: Lens' PolicyVersion (Maybe UTCTime)
 pvCreateDate = lens _pvCreateDate (\ s a -> s{_pvCreateDate = a}) . mapping _Time;
 
--- | Specifies whether the policy version is set as the policy\'s default
--- version.
-pvIsDefaultVersion :: Lens' PolicyVersion (Maybe Bool)
-pvIsDefaultVersion = lens _pvIsDefaultVersion (\ s a -> s{_pvIsDefaultVersion = a});
-
 -- | The policy document.
 --
 -- The policy document is returned in the response to the GetPolicyVersion
 -- and GetAccountAuthorizationDetails operations. It is not returned in the
 -- response to the CreatePolicyVersion or ListPolicyVersions operations.
-pvDocument :: Lens' PolicyVersion Text
+pvDocument :: Lens' PolicyVersion (Maybe Text)
 pvDocument = lens _pvDocument (\ s a -> s{_pvDocument = a});
+
+-- | Specifies whether the policy version is set as the policy\'s default
+-- version.
+pvIsDefaultVersion :: Lens' PolicyVersion (Maybe Bool)
+pvIsDefaultVersion = lens _pvIsDefaultVersion (\ s a -> s{_pvIsDefaultVersion = a});
 
 instance FromXML PolicyVersion where
         parseXML x
           = PolicyVersion' <$>
               x .@? "VersionId" <*> x .@? "CreateDate" <*>
-                x .@? "IsDefaultVersion"
-                <*> x .@ "Document"
+                x .@? "Document"
+                <*> x .@? "IsDefaultVersion"
 
 data ReportFormatType = TextCSV deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -1293,6 +1290,8 @@ instance FromXML ReportStateType where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'rolAssumeRolePolicyDocument'
+--
 -- * 'rolPath'
 --
 -- * 'rolRoleName'
@@ -1302,13 +1301,15 @@ instance FromXML ReportStateType where
 -- * 'rolARN'
 --
 -- * 'rolCreateDate'
---
--- * 'rolAssumeRolePolicyDocument'
-data Role = Role'{_rolPath :: Text, _rolRoleName :: Text, _rolRoleId :: Text, _rolARN :: Text, _rolCreateDate :: ISO8601, _rolAssumeRolePolicyDocument :: Text} deriving (Eq, Read, Show)
+data Role = Role'{_rolAssumeRolePolicyDocument :: Maybe Text, _rolPath :: Text, _rolRoleName :: Text, _rolRoleId :: Text, _rolARN :: Text, _rolCreateDate :: ISO8601} deriving (Eq, Read, Show)
 
 -- | 'Role' smart constructor.
-role :: Text -> Text -> Text -> Text -> UTCTime -> Text -> Role
-role pPath pRoleName pRoleId pARN pCreateDate pAssumeRolePolicyDocument = Role'{_rolPath = pPath, _rolRoleName = pRoleName, _rolRoleId = pRoleId, _rolARN = pARN, _rolCreateDate = _Time # pCreateDate, _rolAssumeRolePolicyDocument = pAssumeRolePolicyDocument};
+role :: Text -> Text -> Text -> Text -> UTCTime -> Role
+role pPath pRoleName pRoleId pARN pCreateDate = Role'{_rolAssumeRolePolicyDocument = Nothing, _rolPath = pPath, _rolRoleName = pRoleName, _rolRoleId = pRoleId, _rolARN = pARN, _rolCreateDate = _Time # pCreateDate};
+
+-- | The policy that grants an entity permission to assume the role.
+rolAssumeRolePolicyDocument :: Lens' Role (Maybe Text)
+rolAssumeRolePolicyDocument = lens _rolAssumeRolePolicyDocument (\ s a -> s{_rolAssumeRolePolicyDocument = a});
 
 -- | The path to the role. For more information about paths, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
@@ -1340,29 +1341,18 @@ rolARN = lens _rolARN (\ s a -> s{_rolARN = a});
 rolCreateDate :: Lens' Role UTCTime
 rolCreateDate = lens _rolCreateDate (\ s a -> s{_rolCreateDate = a}) . _Time;
 
--- | The policy that grants an entity permission to assume the role.
-rolAssumeRolePolicyDocument :: Lens' Role Text
-rolAssumeRolePolicyDocument = lens _rolAssumeRolePolicyDocument (\ s a -> s{_rolAssumeRolePolicyDocument = a});
-
 instance FromXML Role where
         parseXML x
           = Role' <$>
-              x .@ "Path" <*> x .@ "RoleName" <*> x .@ "RoleId" <*>
-                x .@ "Arn"
+              x .@? "AssumeRolePolicyDocument" <*> x .@ "Path" <*>
+                x .@ "RoleName"
+                <*> x .@ "RoleId"
+                <*> x .@ "Arn"
                 <*> x .@ "CreateDate"
-                <*> x .@ "AssumeRolePolicyDocument"
 
 -- | /See:/ 'roleDetail' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
---
--- * 'rdInstanceProfileList'
---
--- * 'rdCreateDate'
---
--- * 'rdRolePolicyList'
---
--- * 'rdAttachedManagedPolicies'
 --
 -- * 'rdAssumeRolePolicyDocument'
 --
@@ -1370,17 +1360,39 @@ instance FromXML Role where
 --
 -- * 'rdPath'
 --
+-- * 'rdInstanceProfileList'
+--
+-- * 'rdCreateDate'
+--
 -- * 'rdRoleName'
 --
 -- * 'rdRoleId'
-data RoleDetail = RoleDetail'{_rdInstanceProfileList :: [InstanceProfile], _rdCreateDate :: Maybe ISO8601, _rdRolePolicyList :: [PolicyDetail], _rdAttachedManagedPolicies :: [AttachedPolicy], _rdAssumeRolePolicyDocument :: Text, _rdARN :: Text, _rdPath :: Text, _rdRoleName :: Text, _rdRoleId :: Text} deriving (Eq, Read, Show)
+--
+-- * 'rdRolePolicyList'
+--
+-- * 'rdAttachedManagedPolicies'
+data RoleDetail = RoleDetail'{_rdAssumeRolePolicyDocument :: Maybe Text, _rdARN :: Maybe Text, _rdPath :: Maybe Text, _rdInstanceProfileList :: Maybe [InstanceProfile], _rdCreateDate :: Maybe ISO8601, _rdRoleName :: Maybe Text, _rdRoleId :: Maybe Text, _rdRolePolicyList :: Maybe [PolicyDetail], _rdAttachedManagedPolicies :: Maybe [AttachedPolicy]} deriving (Eq, Read, Show)
 
 -- | 'RoleDetail' smart constructor.
-roleDetail :: Text -> Text -> Text -> Text -> Text -> RoleDetail
-roleDetail pAssumeRolePolicyDocument pARN pPath pRoleName pRoleId = RoleDetail'{_rdInstanceProfileList = mempty, _rdCreateDate = Nothing, _rdRolePolicyList = mempty, _rdAttachedManagedPolicies = mempty, _rdAssumeRolePolicyDocument = pAssumeRolePolicyDocument, _rdARN = pARN, _rdPath = pPath, _rdRoleName = pRoleName, _rdRoleId = pRoleId};
+roleDetail :: RoleDetail
+roleDetail = RoleDetail'{_rdAssumeRolePolicyDocument = Nothing, _rdARN = Nothing, _rdPath = Nothing, _rdInstanceProfileList = Nothing, _rdCreateDate = Nothing, _rdRoleName = Nothing, _rdRoleId = Nothing, _rdRolePolicyList = Nothing, _rdAttachedManagedPolicies = Nothing};
+
+-- | The trust policy that grants permission to assume the role.
+rdAssumeRolePolicyDocument :: Lens' RoleDetail (Maybe Text)
+rdAssumeRolePolicyDocument = lens _rdAssumeRolePolicyDocument (\ s a -> s{_rdAssumeRolePolicyDocument = a});
 
 -- | FIXME: Undocumented member.
-rdInstanceProfileList :: Lens' RoleDetail [InstanceProfile]
+rdARN :: Lens' RoleDetail (Maybe Text)
+rdARN = lens _rdARN (\ s a -> s{_rdARN = a});
+
+-- | The path to the role. For more information about paths, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
+-- in the /Using IAM/ guide.
+rdPath :: Lens' RoleDetail (Maybe Text)
+rdPath = lens _rdPath (\ s a -> s{_rdPath = a});
+
+-- | FIXME: Undocumented member.
+rdInstanceProfileList :: Lens' RoleDetail (Maybe [InstanceProfile])
 rdInstanceProfileList = lens _rdInstanceProfileList (\ s a -> s{_rdInstanceProfileList = a});
 
 -- | The date and time, in
@@ -1389,73 +1401,63 @@ rdInstanceProfileList = lens _rdInstanceProfileList (\ s a -> s{_rdInstanceProfi
 rdCreateDate :: Lens' RoleDetail (Maybe UTCTime)
 rdCreateDate = lens _rdCreateDate (\ s a -> s{_rdCreateDate = a}) . mapping _Time;
 
--- | A list of inline policies embedded in the role. These policies are the
--- role\'s access (permissions) policies.
-rdRolePolicyList :: Lens' RoleDetail [PolicyDetail]
-rdRolePolicyList = lens _rdRolePolicyList (\ s a -> s{_rdRolePolicyList = a});
-
--- | A list of managed policies attached to the role. These policies are the
--- role\'s access (permissions) policies.
-rdAttachedManagedPolicies :: Lens' RoleDetail [AttachedPolicy]
-rdAttachedManagedPolicies = lens _rdAttachedManagedPolicies (\ s a -> s{_rdAttachedManagedPolicies = a});
-
--- | The trust policy that grants permission to assume the role.
-rdAssumeRolePolicyDocument :: Lens' RoleDetail Text
-rdAssumeRolePolicyDocument = lens _rdAssumeRolePolicyDocument (\ s a -> s{_rdAssumeRolePolicyDocument = a});
-
--- | FIXME: Undocumented member.
-rdARN :: Lens' RoleDetail Text
-rdARN = lens _rdARN (\ s a -> s{_rdARN = a});
-
--- | The path to the role. For more information about paths, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
--- in the /Using IAM/ guide.
-rdPath :: Lens' RoleDetail Text
-rdPath = lens _rdPath (\ s a -> s{_rdPath = a});
-
 -- | The friendly name that identifies the role.
-rdRoleName :: Lens' RoleDetail Text
+rdRoleName :: Lens' RoleDetail (Maybe Text)
 rdRoleName = lens _rdRoleName (\ s a -> s{_rdRoleName = a});
 
 -- | The stable and unique string identifying the role. For more information
 -- about IDs, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
 -- in the /Using IAM/ guide.
-rdRoleId :: Lens' RoleDetail Text
+rdRoleId :: Lens' RoleDetail (Maybe Text)
 rdRoleId = lens _rdRoleId (\ s a -> s{_rdRoleId = a});
+
+-- | A list of inline policies embedded in the role. These policies are the
+-- role\'s access (permissions) policies.
+rdRolePolicyList :: Lens' RoleDetail (Maybe [PolicyDetail])
+rdRolePolicyList = lens _rdRolePolicyList (\ s a -> s{_rdRolePolicyList = a});
+
+-- | A list of managed policies attached to the role. These policies are the
+-- role\'s access (permissions) policies.
+rdAttachedManagedPolicies :: Lens' RoleDetail (Maybe [AttachedPolicy])
+rdAttachedManagedPolicies = lens _rdAttachedManagedPolicies (\ s a -> s{_rdAttachedManagedPolicies = a});
 
 instance FromXML RoleDetail where
         parseXML x
           = RoleDetail' <$>
-              (x .@? "InstanceProfileList" .!@ mempty >>=
-                 parseXMLList "member")
+              x .@? "AssumeRolePolicyDocument" <*> x .@? "Arn" <*>
+                x .@? "Path"
+                <*>
+                (x .@? "InstanceProfileList" .!@ mempty >>=
+                   parseXMLList "member")
                 <*> x .@? "CreateDate"
+                <*> x .@? "RoleName"
+                <*> x .@? "RoleId"
                 <*>
                 (x .@? "RolePolicyList" .!@ mempty >>=
                    parseXMLList "member")
                 <*>
                 (x .@? "AttachedManagedPolicies" .!@ mempty >>=
                    parseXMLList "member")
-                <*> x .@ "AssumeRolePolicyDocument"
-                <*> x .@ "Arn"
-                <*> x .@ "Path"
-                <*> x .@ "RoleName"
-                <*> x .@ "RoleId"
 
 -- | /See:/ 'sAMLProviderListEntry' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'samlpleARN'
+--
 -- * 'samlpleCreateDate'
 --
 -- * 'samlpleValidUntil'
---
--- * 'samlpleARN'
-data SAMLProviderListEntry = SAMLProviderListEntry'{_samlpleCreateDate :: Maybe ISO8601, _samlpleValidUntil :: Maybe ISO8601, _samlpleARN :: Text} deriving (Eq, Read, Show)
+data SAMLProviderListEntry = SAMLProviderListEntry'{_samlpleARN :: Maybe Text, _samlpleCreateDate :: Maybe ISO8601, _samlpleValidUntil :: Maybe ISO8601} deriving (Eq, Read, Show)
 
 -- | 'SAMLProviderListEntry' smart constructor.
-sAMLProviderListEntry :: Text -> SAMLProviderListEntry
-sAMLProviderListEntry pARN = SAMLProviderListEntry'{_samlpleCreateDate = Nothing, _samlpleValidUntil = Nothing, _samlpleARN = pARN};
+sAMLProviderListEntry :: SAMLProviderListEntry
+sAMLProviderListEntry = SAMLProviderListEntry'{_samlpleARN = Nothing, _samlpleCreateDate = Nothing, _samlpleValidUntil = Nothing};
+
+-- | The Amazon Resource Name (ARN) of the SAML provider.
+samlpleARN :: Lens' SAMLProviderListEntry (Maybe Text)
+samlpleARN = lens _samlpleARN (\ s a -> s{_samlpleARN = a});
 
 -- | The date and time when the SAML provider was created.
 samlpleCreateDate :: Lens' SAMLProviderListEntry (Maybe UTCTime)
@@ -1465,30 +1467,30 @@ samlpleCreateDate = lens _samlpleCreateDate (\ s a -> s{_samlpleCreateDate = a})
 samlpleValidUntil :: Lens' SAMLProviderListEntry (Maybe UTCTime)
 samlpleValidUntil = lens _samlpleValidUntil (\ s a -> s{_samlpleValidUntil = a}) . mapping _Time;
 
--- | The Amazon Resource Name (ARN) of the SAML provider.
-samlpleARN :: Lens' SAMLProviderListEntry Text
-samlpleARN = lens _samlpleARN (\ s a -> s{_samlpleARN = a});
-
 instance FromXML SAMLProviderListEntry where
         parseXML x
           = SAMLProviderListEntry' <$>
-              x .@? "CreateDate" <*> x .@? "ValidUntil" <*>
-                x .@ "Arn"
+              x .@? "Arn" <*> x .@? "CreateDate" <*>
+                x .@? "ValidUntil"
 
 -- | /See:/ 'serverCertificate' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'serCertificateChain'
+--
 -- * 'serServerCertificateMetadata'
 --
 -- * 'serCertificateBody'
---
--- * 'serCertificateChain'
-data ServerCertificate = ServerCertificate'{_serServerCertificateMetadata :: ServerCertificateMetadata, _serCertificateBody :: Text, _serCertificateChain :: Text} deriving (Eq, Read, Show)
+data ServerCertificate = ServerCertificate'{_serCertificateChain :: Maybe Text, _serServerCertificateMetadata :: ServerCertificateMetadata, _serCertificateBody :: Text} deriving (Eq, Read, Show)
 
 -- | 'ServerCertificate' smart constructor.
-serverCertificate :: ServerCertificateMetadata -> Text -> Text -> ServerCertificate
-serverCertificate pServerCertificateMetadata pCertificateBody pCertificateChain = ServerCertificate'{_serServerCertificateMetadata = pServerCertificateMetadata, _serCertificateBody = pCertificateBody, _serCertificateChain = pCertificateChain};
+serverCertificate :: ServerCertificateMetadata -> Text -> ServerCertificate
+serverCertificate pServerCertificateMetadata pCertificateBody = ServerCertificate'{_serCertificateChain = Nothing, _serServerCertificateMetadata = pServerCertificateMetadata, _serCertificateBody = pCertificateBody};
+
+-- | The contents of the public key certificate chain.
+serCertificateChain :: Lens' ServerCertificate (Maybe Text)
+serCertificateChain = lens _serCertificateChain (\ s a -> s{_serCertificateChain = a});
 
 -- | The meta information of the server certificate, such as its name, path,
 -- ID, and ARN.
@@ -1499,16 +1501,12 @@ serServerCertificateMetadata = lens _serServerCertificateMetadata (\ s a -> s{_s
 serCertificateBody :: Lens' ServerCertificate Text
 serCertificateBody = lens _serCertificateBody (\ s a -> s{_serCertificateBody = a});
 
--- | The contents of the public key certificate chain.
-serCertificateChain :: Lens' ServerCertificate Text
-serCertificateChain = lens _serCertificateChain (\ s a -> s{_serCertificateChain = a});
-
 instance FromXML ServerCertificate where
         parseXML x
           = ServerCertificate' <$>
-              x .@ "ServerCertificateMetadata" <*>
-                x .@ "CertificateBody"
-                <*> x .@ "CertificateChain"
+              x .@? "CertificateChain" <*>
+                x .@ "ServerCertificateMetadata"
+                <*> x .@ "CertificateBody"
 
 -- | /See:/ 'serverCertificateMetadata' smart constructor.
 --
@@ -1787,29 +1785,39 @@ instance FromXML User where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'udGroupList'
---
--- * 'udCreateDate'
---
--- * 'udUserPolicyList'
---
--- * 'udAttachedManagedPolicies'
---
 -- * 'udARN'
 --
 -- * 'udPath'
 --
+-- * 'udGroupList'
+--
+-- * 'udCreateDate'
+--
 -- * 'udUserName'
 --
 -- * 'udUserId'
-data UserDetail = UserDetail'{_udGroupList :: [Text], _udCreateDate :: Maybe ISO8601, _udUserPolicyList :: [PolicyDetail], _udAttachedManagedPolicies :: [AttachedPolicy], _udARN :: Text, _udPath :: Text, _udUserName :: Text, _udUserId :: Text} deriving (Eq, Read, Show)
+--
+-- * 'udUserPolicyList'
+--
+-- * 'udAttachedManagedPolicies'
+data UserDetail = UserDetail'{_udARN :: Maybe Text, _udPath :: Maybe Text, _udGroupList :: Maybe [Text], _udCreateDate :: Maybe ISO8601, _udUserName :: Maybe Text, _udUserId :: Maybe Text, _udUserPolicyList :: Maybe [PolicyDetail], _udAttachedManagedPolicies :: Maybe [AttachedPolicy]} deriving (Eq, Read, Show)
 
 -- | 'UserDetail' smart constructor.
-userDetail :: Text -> Text -> Text -> Text -> UserDetail
-userDetail pARN pPath pUserName pUserId = UserDetail'{_udGroupList = mempty, _udCreateDate = Nothing, _udUserPolicyList = mempty, _udAttachedManagedPolicies = mempty, _udARN = pARN, _udPath = pPath, _udUserName = pUserName, _udUserId = pUserId};
+userDetail :: UserDetail
+userDetail = UserDetail'{_udARN = Nothing, _udPath = Nothing, _udGroupList = Nothing, _udCreateDate = Nothing, _udUserName = Nothing, _udUserId = Nothing, _udUserPolicyList = Nothing, _udAttachedManagedPolicies = Nothing};
+
+-- | FIXME: Undocumented member.
+udARN :: Lens' UserDetail (Maybe Text)
+udARN = lens _udARN (\ s a -> s{_udARN = a});
+
+-- | The path to the user. For more information about paths, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
+-- in the /Using IAM/ guide.
+udPath :: Lens' UserDetail (Maybe Text)
+udPath = lens _udPath (\ s a -> s{_udPath = a});
 
 -- | A list of IAM groups that the user is in.
-udGroupList :: Lens' UserDetail [Text]
+udGroupList :: Lens' UserDetail (Maybe [Text])
 udGroupList = lens _udGroupList (\ s a -> s{_udGroupList = a});
 
 -- | The date and time, in
@@ -1818,51 +1826,40 @@ udGroupList = lens _udGroupList (\ s a -> s{_udGroupList = a});
 udCreateDate :: Lens' UserDetail (Maybe UTCTime)
 udCreateDate = lens _udCreateDate (\ s a -> s{_udCreateDate = a}) . mapping _Time;
 
--- | A list of the inline policies embedded in the user.
-udUserPolicyList :: Lens' UserDetail [PolicyDetail]
-udUserPolicyList = lens _udUserPolicyList (\ s a -> s{_udUserPolicyList = a});
-
--- | A list of the managed policies attached to the user.
-udAttachedManagedPolicies :: Lens' UserDetail [AttachedPolicy]
-udAttachedManagedPolicies = lens _udAttachedManagedPolicies (\ s a -> s{_udAttachedManagedPolicies = a});
-
--- | FIXME: Undocumented member.
-udARN :: Lens' UserDetail Text
-udARN = lens _udARN (\ s a -> s{_udARN = a});
-
--- | The path to the user. For more information about paths, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
--- in the /Using IAM/ guide.
-udPath :: Lens' UserDetail Text
-udPath = lens _udPath (\ s a -> s{_udPath = a});
-
 -- | The friendly name identifying the user.
-udUserName :: Lens' UserDetail Text
+udUserName :: Lens' UserDetail (Maybe Text)
 udUserName = lens _udUserName (\ s a -> s{_udUserName = a});
 
 -- | The stable and unique string identifying the user. For more information
 -- about IDs, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
 -- in the /Using IAM/ guide.
-udUserId :: Lens' UserDetail Text
+udUserId :: Lens' UserDetail (Maybe Text)
 udUserId = lens _udUserId (\ s a -> s{_udUserId = a});
+
+-- | A list of the inline policies embedded in the user.
+udUserPolicyList :: Lens' UserDetail (Maybe [PolicyDetail])
+udUserPolicyList = lens _udUserPolicyList (\ s a -> s{_udUserPolicyList = a});
+
+-- | A list of the managed policies attached to the user.
+udAttachedManagedPolicies :: Lens' UserDetail (Maybe [AttachedPolicy])
+udAttachedManagedPolicies = lens _udAttachedManagedPolicies (\ s a -> s{_udAttachedManagedPolicies = a});
 
 instance FromXML UserDetail where
         parseXML x
           = UserDetail' <$>
-              (x .@? "GroupList" .!@ mempty >>=
-                 parseXMLList "member")
+              x .@? "Arn" <*> x .@? "Path" <*>
+                (x .@? "GroupList" .!@ mempty >>=
+                   parseXMLList "member")
                 <*> x .@? "CreateDate"
+                <*> x .@? "UserName"
+                <*> x .@? "UserId"
                 <*>
                 (x .@? "UserPolicyList" .!@ mempty >>=
                    parseXMLList "member")
                 <*>
                 (x .@? "AttachedManagedPolicies" .!@ mempty >>=
                    parseXMLList "member")
-                <*> x .@ "Arn"
-                <*> x .@ "Path"
-                <*> x .@ "UserName"
-                <*> x .@ "UserId"
 
 -- | /See:/ 'virtualMFADevice' smart constructor.
 --

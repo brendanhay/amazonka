@@ -69,7 +69,7 @@ instance AWSRequest DeleteTape where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x -> DeleteTapeResponse' <$> x .:> "TapeARN")
+              (\ s h x -> DeleteTapeResponse' <$> x .?> "TapeARN")
 
 instance ToHeaders DeleteTape where
         toHeaders
@@ -97,12 +97,12 @@ instance ToQuery DeleteTape where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dtrTapeARN'
-newtype DeleteTapeResponse = DeleteTapeResponse'{_dtrTapeARN :: Text} deriving (Eq, Read, Show)
+newtype DeleteTapeResponse = DeleteTapeResponse'{_dtrTapeARN :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DeleteTapeResponse' smart constructor.
-deleteTapeResponse :: Text -> DeleteTapeResponse
-deleteTapeResponse pTapeARN = DeleteTapeResponse'{_dtrTapeARN = pTapeARN};
+deleteTapeResponse :: DeleteTapeResponse
+deleteTapeResponse = DeleteTapeResponse'{_dtrTapeARN = Nothing};
 
 -- | The Amazon Resource Name (ARN) of the deleted virtual tape.
-dtrTapeARN :: Lens' DeleteTapeResponse Text
+dtrTapeARN :: Lens' DeleteTapeResponse (Maybe Text)
 dtrTapeARN = lens _dtrTapeARN (\ s a -> s{_dtrTapeARN = a});

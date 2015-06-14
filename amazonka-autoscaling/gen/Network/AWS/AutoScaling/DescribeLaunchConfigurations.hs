@@ -57,14 +57,14 @@ import Network.AWS.AutoScaling.Types
 -- * 'dlcNextToken'
 --
 -- * 'dlcMaxRecords'
-data DescribeLaunchConfigurations = DescribeLaunchConfigurations'{_dlcLaunchConfigurationNames :: [Text], _dlcNextToken :: Maybe Text, _dlcMaxRecords :: Maybe Int} deriving (Eq, Read, Show)
+data DescribeLaunchConfigurations = DescribeLaunchConfigurations'{_dlcLaunchConfigurationNames :: Maybe [Text], _dlcNextToken :: Maybe Text, _dlcMaxRecords :: Maybe Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeLaunchConfigurations' smart constructor.
 describeLaunchConfigurations :: DescribeLaunchConfigurations
-describeLaunchConfigurations = DescribeLaunchConfigurations'{_dlcLaunchConfigurationNames = mempty, _dlcNextToken = Nothing, _dlcMaxRecords = Nothing};
+describeLaunchConfigurations = DescribeLaunchConfigurations'{_dlcLaunchConfigurationNames = Nothing, _dlcNextToken = Nothing, _dlcMaxRecords = Nothing};
 
 -- | The launch configuration names.
-dlcLaunchConfigurationNames :: Lens' DescribeLaunchConfigurations [Text]
+dlcLaunchConfigurationNames :: Lens' DescribeLaunchConfigurations (Maybe [Text])
 dlcLaunchConfigurationNames = lens _dlcLaunchConfigurationNames (\ s a -> s{_dlcLaunchConfigurationNames = a});
 
 -- | The token for the next set of items to return. (You received this token
@@ -119,8 +119,8 @@ instance ToQuery DescribeLaunchConfigurations where
 data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse'{_dlcrNextToken :: Maybe Text, _dlcrLaunchConfigurations :: [LaunchConfiguration]} deriving (Eq, Read, Show)
 
 -- | 'DescribeLaunchConfigurationsResponse' smart constructor.
-describeLaunchConfigurationsResponse :: [LaunchConfiguration] -> DescribeLaunchConfigurationsResponse
-describeLaunchConfigurationsResponse pLaunchConfigurations = DescribeLaunchConfigurationsResponse'{_dlcrNextToken = Nothing, _dlcrLaunchConfigurations = pLaunchConfigurations};
+describeLaunchConfigurationsResponse :: DescribeLaunchConfigurationsResponse
+describeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse'{_dlcrNextToken = Nothing, _dlcrLaunchConfigurations = mempty};
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.

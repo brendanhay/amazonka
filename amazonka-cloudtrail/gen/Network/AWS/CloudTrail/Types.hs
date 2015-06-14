@@ -109,11 +109,11 @@ instance AWSService CloudTrail where
 -- * 'eveEventName'
 --
 -- * 'eveEventId'
-data Event = Event'{_eveUsername :: Maybe Text, _eveEventTime :: Maybe POSIX, _eveResources :: [Resource], _eveCloudTrailEvent :: Maybe Text, _eveEventName :: Maybe Text, _eveEventId :: Maybe Text} deriving (Eq, Read, Show)
+data Event = Event'{_eveUsername :: Maybe Text, _eveEventTime :: Maybe POSIX, _eveResources :: Maybe [Resource], _eveCloudTrailEvent :: Maybe Text, _eveEventName :: Maybe Text, _eveEventId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'Event' smart constructor.
 event :: Event
-event = Event'{_eveUsername = Nothing, _eveEventTime = Nothing, _eveResources = mempty, _eveCloudTrailEvent = Nothing, _eveEventName = Nothing, _eveEventId = Nothing};
+event = Event'{_eveUsername = Nothing, _eveEventTime = Nothing, _eveResources = Nothing, _eveCloudTrailEvent = Nothing, _eveEventName = Nothing, _eveEventId = Nothing};
 
 -- | A user name or role name of the requester that called the API in the
 -- event returned.
@@ -125,7 +125,7 @@ eveEventTime :: Lens' Event (Maybe UTCTime)
 eveEventTime = lens _eveEventTime (\ s a -> s{_eveEventTime = a}) . mapping _Time;
 
 -- | A list of resources referenced by the event returned.
-eveResources :: Lens' Event [Resource]
+eveResources :: Lens' Event (Maybe [Resource])
 eveResources = lens _eveResources (\ s a -> s{_eveResources = a});
 
 -- | A JSON string that contains a representation of the event returned.

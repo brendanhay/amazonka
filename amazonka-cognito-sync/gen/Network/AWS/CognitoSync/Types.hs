@@ -40,26 +40,26 @@ module Network.AWS.CognitoSync.Types
     , datLastModifiedDate
     , datNumRecords
     , datDataStorage
+    , datDatasetName
     , datCreationDate
     , datLastModifiedBy
-    , datDatasetName
     , datIdentityId
 
     -- * IdentityPoolUsage
     , IdentityPoolUsage
     , identityPoolUsage
     , ipuLastModifiedDate
+    , ipuIdentityPoolId
     , ipuDataStorage
     , ipuSyncSessionsCount
-    , ipuIdentityPoolId
 
     -- * IdentityUsage
     , IdentityUsage
     , identityUsage
     , iuLastModifiedDate
+    , iuIdentityPoolId
     , iuDatasetCount
     , iuDataStorage
-    , iuIdentityPoolId
     , iuIdentityId
 
     -- * Operation
@@ -81,8 +81,8 @@ module Network.AWS.CognitoSync.Types
     , recLastModifiedDate
     , recDeviceLastModifiedDate
     , recValue
-    , recLastModifiedBy
     , recKey
+    , recLastModifiedBy
 
     -- * RecordPatch
     , RecordPatch
@@ -163,11 +163,11 @@ instance FromJSON BulkPublishStatus where
 -- * 'csStreamName'
 --
 -- * 'csRoleARN'
-data CognitoStreams = CognitoStreams'{_csStreamingStatus :: Maybe StreamingStatus, _csStreamName :: Text, _csRoleARN :: Text} deriving (Eq, Read, Show)
+data CognitoStreams = CognitoStreams'{_csStreamingStatus :: Maybe StreamingStatus, _csStreamName :: Maybe Text, _csRoleARN :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'CognitoStreams' smart constructor.
-cognitoStreams :: Text -> Text -> CognitoStreams
-cognitoStreams pStreamName pRoleARN = CognitoStreams'{_csStreamingStatus = Nothing, _csStreamName = pStreamName, _csRoleARN = pRoleARN};
+cognitoStreams :: CognitoStreams
+cognitoStreams = CognitoStreams'{_csStreamingStatus = Nothing, _csStreamName = Nothing, _csRoleARN = Nothing};
 
 -- | Status of the Cognito streams. Valid values are:
 --
@@ -180,13 +180,13 @@ csStreamingStatus = lens _csStreamingStatus (\ s a -> s{_csStreamingStatus = a})
 
 -- | The name of the Cognito stream to receive updates. This stream must be
 -- in the developers account and in the same region as the identity pool.
-csStreamName :: Lens' CognitoStreams Text
+csStreamName :: Lens' CognitoStreams (Maybe Text)
 csStreamName = lens _csStreamName (\ s a -> s{_csStreamName = a});
 
 -- | The ARN of the role Amazon Cognito can assume in order to publish to the
 -- stream. This role must grant access to Amazon Cognito (cognito-sync) to
 -- invoke PutRecord on your Cognito stream.
-csRoleARN :: Lens' CognitoStreams Text
+csRoleARN :: Lens' CognitoStreams (Maybe Text)
 csRoleARN = lens _csRoleARN (\ s a -> s{_csRoleARN = a});
 
 instance FromJSON CognitoStreams where
@@ -194,8 +194,8 @@ instance FromJSON CognitoStreams where
           = withObject "CognitoStreams"
               (\ x ->
                  CognitoStreams' <$>
-                   x .:? "StreamingStatus" <*> x .: "StreamName" <*>
-                     x .: "RoleArn")
+                   x .:? "StreamingStatus" <*> x .:? "StreamName" <*>
+                     x .:? "RoleArn")
 
 instance ToJSON CognitoStreams where
         toJSON CognitoStreams'{..}
@@ -214,18 +214,18 @@ instance ToJSON CognitoStreams where
 --
 -- * 'datDataStorage'
 --
+-- * 'datDatasetName'
+--
 -- * 'datCreationDate'
 --
 -- * 'datLastModifiedBy'
 --
--- * 'datDatasetName'
---
 -- * 'datIdentityId'
-data Dataset = Dataset'{_datLastModifiedDate :: Maybe POSIX, _datNumRecords :: Maybe Integer, _datDataStorage :: Maybe Integer, _datCreationDate :: Maybe POSIX, _datLastModifiedBy :: Maybe Text, _datDatasetName :: Text, _datIdentityId :: Text} deriving (Eq, Read, Show)
+data Dataset = Dataset'{_datLastModifiedDate :: Maybe POSIX, _datNumRecords :: Maybe Integer, _datDataStorage :: Maybe Integer, _datDatasetName :: Maybe Text, _datCreationDate :: Maybe POSIX, _datLastModifiedBy :: Maybe Text, _datIdentityId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'Dataset' smart constructor.
-dataset :: Text -> Text -> Dataset
-dataset pDatasetName pIdentityId = Dataset'{_datLastModifiedDate = Nothing, _datNumRecords = Nothing, _datDataStorage = Nothing, _datCreationDate = Nothing, _datLastModifiedBy = Nothing, _datDatasetName = pDatasetName, _datIdentityId = pIdentityId};
+dataset :: Dataset
+dataset = Dataset'{_datLastModifiedDate = Nothing, _datNumRecords = Nothing, _datDataStorage = Nothing, _datDatasetName = Nothing, _datCreationDate = Nothing, _datLastModifiedBy = Nothing, _datIdentityId = Nothing};
 
 -- | Date when the dataset was last modified.
 datLastModifiedDate :: Lens' Dataset (Maybe UTCTime)
@@ -239,6 +239,11 @@ datNumRecords = lens _datNumRecords (\ s a -> s{_datNumRecords = a});
 datDataStorage :: Lens' Dataset (Maybe Integer)
 datDataStorage = lens _datDataStorage (\ s a -> s{_datDataStorage = a});
 
+-- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
+-- \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
+datDatasetName :: Lens' Dataset (Maybe Text)
+datDatasetName = lens _datDatasetName (\ s a -> s{_datDatasetName = a});
+
 -- | Date on which the dataset was created.
 datCreationDate :: Lens' Dataset (Maybe UTCTime)
 datCreationDate = lens _datCreationDate (\ s a -> s{_datCreationDate = a}) . mapping _Time;
@@ -247,15 +252,10 @@ datCreationDate = lens _datCreationDate (\ s a -> s{_datCreationDate = a}) . map
 datLastModifiedBy :: Lens' Dataset (Maybe Text)
 datLastModifiedBy = lens _datLastModifiedBy (\ s a -> s{_datLastModifiedBy = a});
 
--- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
--- \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
-datDatasetName :: Lens' Dataset Text
-datDatasetName = lens _datDatasetName (\ s a -> s{_datDatasetName = a});
-
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-datIdentityId :: Lens' Dataset Text
+datIdentityId :: Lens' Dataset (Maybe Text)
 datIdentityId = lens _datIdentityId (\ s a -> s{_datIdentityId = a});
 
 instance FromJSON Dataset where
@@ -265,10 +265,10 @@ instance FromJSON Dataset where
                  Dataset' <$>
                    x .:? "LastModifiedDate" <*> x .:? "NumRecords" <*>
                      x .:? "DataStorage"
+                     <*> x .:? "DatasetName"
                      <*> x .:? "CreationDate"
                      <*> x .:? "LastModifiedBy"
-                     <*> x .: "DatasetName"
-                     <*> x .: "IdentityId")
+                     <*> x .:? "IdentityId")
 
 -- | /See:/ 'identityPoolUsage' smart constructor.
 --
@@ -276,20 +276,26 @@ instance FromJSON Dataset where
 --
 -- * 'ipuLastModifiedDate'
 --
+-- * 'ipuIdentityPoolId'
+--
 -- * 'ipuDataStorage'
 --
 -- * 'ipuSyncSessionsCount'
---
--- * 'ipuIdentityPoolId'
-data IdentityPoolUsage = IdentityPoolUsage'{_ipuLastModifiedDate :: Maybe POSIX, _ipuDataStorage :: Maybe Integer, _ipuSyncSessionsCount :: Maybe Integer, _ipuIdentityPoolId :: Text} deriving (Eq, Read, Show)
+data IdentityPoolUsage = IdentityPoolUsage'{_ipuLastModifiedDate :: Maybe POSIX, _ipuIdentityPoolId :: Maybe Text, _ipuDataStorage :: Maybe Integer, _ipuSyncSessionsCount :: Maybe Integer} deriving (Eq, Read, Show)
 
 -- | 'IdentityPoolUsage' smart constructor.
-identityPoolUsage :: Text -> IdentityPoolUsage
-identityPoolUsage pIdentityPoolId = IdentityPoolUsage'{_ipuLastModifiedDate = Nothing, _ipuDataStorage = Nothing, _ipuSyncSessionsCount = Nothing, _ipuIdentityPoolId = pIdentityPoolId};
+identityPoolUsage :: IdentityPoolUsage
+identityPoolUsage = IdentityPoolUsage'{_ipuLastModifiedDate = Nothing, _ipuIdentityPoolId = Nothing, _ipuDataStorage = Nothing, _ipuSyncSessionsCount = Nothing};
 
 -- | Date on which the identity pool was last modified.
 ipuLastModifiedDate :: Lens' IdentityPoolUsage (Maybe UTCTime)
 ipuLastModifiedDate = lens _ipuLastModifiedDate (\ s a -> s{_ipuLastModifiedDate = a}) . mapping _Time;
+
+-- | A name-spaced GUID (for example,
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+-- Cognito. GUID generation is unique within a region.
+ipuIdentityPoolId :: Lens' IdentityPoolUsage (Maybe Text)
+ipuIdentityPoolId = lens _ipuIdentityPoolId (\ s a -> s{_ipuIdentityPoolId = a});
 
 -- | Data storage information for the identity pool.
 ipuDataStorage :: Lens' IdentityPoolUsage (Maybe Integer)
@@ -299,20 +305,14 @@ ipuDataStorage = lens _ipuDataStorage (\ s a -> s{_ipuDataStorage = a});
 ipuSyncSessionsCount :: Lens' IdentityPoolUsage (Maybe Integer)
 ipuSyncSessionsCount = lens _ipuSyncSessionsCount (\ s a -> s{_ipuSyncSessionsCount = a});
 
--- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. GUID generation is unique within a region.
-ipuIdentityPoolId :: Lens' IdentityPoolUsage Text
-ipuIdentityPoolId = lens _ipuIdentityPoolId (\ s a -> s{_ipuIdentityPoolId = a});
-
 instance FromJSON IdentityPoolUsage where
         parseJSON
           = withObject "IdentityPoolUsage"
               (\ x ->
                  IdentityPoolUsage' <$>
-                   x .:? "LastModifiedDate" <*> x .:? "DataStorage" <*>
-                     x .:? "SyncSessionsCount"
-                     <*> x .: "IdentityPoolId")
+                   x .:? "LastModifiedDate" <*> x .:? "IdentityPoolId"
+                     <*> x .:? "DataStorage"
+                     <*> x .:? "SyncSessionsCount")
 
 -- | /See:/ 'identityUsage' smart constructor.
 --
@@ -320,22 +320,28 @@ instance FromJSON IdentityPoolUsage where
 --
 -- * 'iuLastModifiedDate'
 --
+-- * 'iuIdentityPoolId'
+--
 -- * 'iuDatasetCount'
 --
 -- * 'iuDataStorage'
 --
--- * 'iuIdentityPoolId'
---
 -- * 'iuIdentityId'
-data IdentityUsage = IdentityUsage'{_iuLastModifiedDate :: Maybe POSIX, _iuDatasetCount :: Maybe Int, _iuDataStorage :: Maybe Integer, _iuIdentityPoolId :: Text, _iuIdentityId :: Text} deriving (Eq, Read, Show)
+data IdentityUsage = IdentityUsage'{_iuLastModifiedDate :: Maybe POSIX, _iuIdentityPoolId :: Maybe Text, _iuDatasetCount :: Maybe Int, _iuDataStorage :: Maybe Integer, _iuIdentityId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'IdentityUsage' smart constructor.
-identityUsage :: Text -> Text -> IdentityUsage
-identityUsage pIdentityPoolId pIdentityId = IdentityUsage'{_iuLastModifiedDate = Nothing, _iuDatasetCount = Nothing, _iuDataStorage = Nothing, _iuIdentityPoolId = pIdentityPoolId, _iuIdentityId = pIdentityId};
+identityUsage :: IdentityUsage
+identityUsage = IdentityUsage'{_iuLastModifiedDate = Nothing, _iuIdentityPoolId = Nothing, _iuDatasetCount = Nothing, _iuDataStorage = Nothing, _iuIdentityId = Nothing};
 
 -- | Date on which the identity was last modified.
 iuLastModifiedDate :: Lens' IdentityUsage (Maybe UTCTime)
 iuLastModifiedDate = lens _iuLastModifiedDate (\ s a -> s{_iuLastModifiedDate = a}) . mapping _Time;
+
+-- | A name-spaced GUID (for example,
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+-- Cognito. GUID generation is unique within a region.
+iuIdentityPoolId :: Lens' IdentityUsage (Maybe Text)
+iuIdentityPoolId = lens _iuIdentityPoolId (\ s a -> s{_iuIdentityPoolId = a});
 
 -- | Number of datasets for the identity.
 iuDatasetCount :: Lens' IdentityUsage (Maybe Int)
@@ -348,13 +354,7 @@ iuDataStorage = lens _iuDataStorage (\ s a -> s{_iuDataStorage = a});
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-iuIdentityPoolId :: Lens' IdentityUsage Text
-iuIdentityPoolId = lens _iuIdentityPoolId (\ s a -> s{_iuIdentityPoolId = a});
-
--- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. GUID generation is unique within a region.
-iuIdentityId :: Lens' IdentityUsage Text
+iuIdentityId :: Lens' IdentityUsage (Maybe Text)
 iuIdentityId = lens _iuIdentityId (\ s a -> s{_iuIdentityId = a});
 
 instance FromJSON IdentityUsage where
@@ -362,10 +362,10 @@ instance FromJSON IdentityUsage where
           = withObject "IdentityUsage"
               (\ x ->
                  IdentityUsage' <$>
-                   x .:? "LastModifiedDate" <*> x .:? "DatasetCount" <*>
-                     x .:? "DataStorage"
-                     <*> x .: "IdentityPoolId"
-                     <*> x .: "IdentityId")
+                   x .:? "LastModifiedDate" <*> x .:? "IdentityPoolId"
+                     <*> x .:? "DatasetCount"
+                     <*> x .:? "DataStorage"
+                     <*> x .:? "IdentityId")
 
 data Operation = Replace | Remove deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -418,19 +418,19 @@ instance ToJSON Platform where
 -- * 'psApplicationARNs'
 --
 -- * 'psRoleARN'
-data PushSync = PushSync'{_psApplicationARNs :: [Text], _psRoleARN :: Text} deriving (Eq, Read, Show)
+data PushSync = PushSync'{_psApplicationARNs :: Maybe [Text], _psRoleARN :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'PushSync' smart constructor.
-pushSync :: Text -> PushSync
-pushSync pRoleARN = PushSync'{_psApplicationARNs = mempty, _psRoleARN = pRoleARN};
+pushSync :: PushSync
+pushSync = PushSync'{_psApplicationARNs = Nothing, _psRoleARN = Nothing};
 
 -- | List of SNS platform application ARNs that could be used by clients.
-psApplicationARNs :: Lens' PushSync [Text]
+psApplicationARNs :: Lens' PushSync (Maybe [Text])
 psApplicationARNs = lens _psApplicationARNs (\ s a -> s{_psApplicationARNs = a});
 
 -- | A role configured to allow Cognito to call SNS on behalf of the
 -- developer.
-psRoleARN :: Lens' PushSync Text
+psRoleARN :: Lens' PushSync (Maybe Text)
 psRoleARN = lens _psRoleARN (\ s a -> s{_psRoleARN = a});
 
 instance FromJSON PushSync where
@@ -439,7 +439,7 @@ instance FromJSON PushSync where
               (\ x ->
                  PushSync' <$>
                    x .:? "ApplicationArns" .!= mempty <*>
-                     x .: "RoleArn")
+                     x .:? "RoleArn")
 
 instance ToJSON PushSync where
         toJSON PushSync'{..}
@@ -459,14 +459,14 @@ instance ToJSON PushSync where
 --
 -- * 'recValue'
 --
--- * 'recLastModifiedBy'
---
 -- * 'recKey'
-data Record = Record'{_recSyncCount :: Maybe Integer, _recLastModifiedDate :: Maybe POSIX, _recDeviceLastModifiedDate :: Maybe POSIX, _recValue :: Maybe Text, _recLastModifiedBy :: Maybe Text, _recKey :: Text} deriving (Eq, Read, Show)
+--
+-- * 'recLastModifiedBy'
+data Record = Record'{_recSyncCount :: Maybe Integer, _recLastModifiedDate :: Maybe POSIX, _recDeviceLastModifiedDate :: Maybe POSIX, _recValue :: Maybe Text, _recKey :: Maybe Text, _recLastModifiedBy :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'Record' smart constructor.
-record :: Text -> Record
-record pKey = Record'{_recSyncCount = Nothing, _recLastModifiedDate = Nothing, _recDeviceLastModifiedDate = Nothing, _recValue = Nothing, _recLastModifiedBy = Nothing, _recKey = pKey};
+record :: Record
+record = Record'{_recSyncCount = Nothing, _recLastModifiedDate = Nothing, _recDeviceLastModifiedDate = Nothing, _recValue = Nothing, _recKey = Nothing, _recLastModifiedBy = Nothing};
 
 -- | The server sync count for this record.
 recSyncCount :: Lens' Record (Maybe Integer)
@@ -484,13 +484,13 @@ recDeviceLastModifiedDate = lens _recDeviceLastModifiedDate (\ s a -> s{_recDevi
 recValue :: Lens' Record (Maybe Text)
 recValue = lens _recValue (\ s a -> s{_recValue = a});
 
+-- | The key for the record.
+recKey :: Lens' Record (Maybe Text)
+recKey = lens _recKey (\ s a -> s{_recKey = a});
+
 -- | The user\/device that made the last change to this record.
 recLastModifiedBy :: Lens' Record (Maybe Text)
 recLastModifiedBy = lens _recLastModifiedBy (\ s a -> s{_recLastModifiedBy = a});
-
--- | The key for the record.
-recKey :: Lens' Record Text
-recKey = lens _recKey (\ s a -> s{_recKey = a});
 
 instance FromJSON Record where
         parseJSON
@@ -500,8 +500,8 @@ instance FromJSON Record where
                    x .:? "SyncCount" <*> x .:? "LastModifiedDate" <*>
                      x .:? "DeviceLastModifiedDate"
                      <*> x .:? "Value"
-                     <*> x .:? "LastModifiedBy"
-                     <*> x .: "Key")
+                     <*> x .:? "Key"
+                     <*> x .:? "LastModifiedBy")
 
 -- | /See:/ 'recordPatch' smart constructor.
 --

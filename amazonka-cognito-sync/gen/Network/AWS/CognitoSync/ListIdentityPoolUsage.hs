@@ -109,14 +109,14 @@ instance ToQuery ListIdentityPoolUsage where
 -- * 'lipurNextToken'
 --
 -- * 'lipurMaxResults'
-data ListIdentityPoolUsageResponse = ListIdentityPoolUsageResponse'{_lipurIdentityPoolUsages :: [IdentityPoolUsage], _lipurCount :: Maybe Int, _lipurNextToken :: Maybe Text, _lipurMaxResults :: Maybe Int} deriving (Eq, Read, Show)
+data ListIdentityPoolUsageResponse = ListIdentityPoolUsageResponse'{_lipurIdentityPoolUsages :: Maybe [IdentityPoolUsage], _lipurCount :: Maybe Int, _lipurNextToken :: Maybe Text, _lipurMaxResults :: Maybe Int} deriving (Eq, Read, Show)
 
 -- | 'ListIdentityPoolUsageResponse' smart constructor.
 listIdentityPoolUsageResponse :: ListIdentityPoolUsageResponse
-listIdentityPoolUsageResponse = ListIdentityPoolUsageResponse'{_lipurIdentityPoolUsages = mempty, _lipurCount = Nothing, _lipurNextToken = Nothing, _lipurMaxResults = Nothing};
+listIdentityPoolUsageResponse = ListIdentityPoolUsageResponse'{_lipurIdentityPoolUsages = Nothing, _lipurCount = Nothing, _lipurNextToken = Nothing, _lipurMaxResults = Nothing};
 
 -- | Usage information for the identity pools.
-lipurIdentityPoolUsages :: Lens' ListIdentityPoolUsageResponse [IdentityPoolUsage]
+lipurIdentityPoolUsages :: Lens' ListIdentityPoolUsageResponse (Maybe [IdentityPoolUsage])
 lipurIdentityPoolUsages = lens _lipurIdentityPoolUsages (\ s a -> s{_lipurIdentityPoolUsages = a});
 
 -- | Total number of identities for the identity pool.

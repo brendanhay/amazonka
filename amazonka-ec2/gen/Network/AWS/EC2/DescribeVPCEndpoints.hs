@@ -57,11 +57,11 @@ import Network.AWS.EC2.Types
 -- * 'dvpceDryRun'
 --
 -- * 'dvpceMaxResults'
-data DescribeVPCEndpoints = DescribeVPCEndpoints'{_dvpceFilters :: [Filter], _dvpceNextToken :: Maybe Text, _dvpceVPCEndpointIds :: [Text], _dvpceDryRun :: Maybe Bool, _dvpceMaxResults :: Maybe Int} deriving (Eq, Read, Show)
+data DescribeVPCEndpoints = DescribeVPCEndpoints'{_dvpceFilters :: Maybe [Filter], _dvpceNextToken :: Maybe Text, _dvpceVPCEndpointIds :: Maybe [Text], _dvpceDryRun :: Maybe Bool, _dvpceMaxResults :: Maybe Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeVPCEndpoints' smart constructor.
 describeVPCEndpoints :: DescribeVPCEndpoints
-describeVPCEndpoints = DescribeVPCEndpoints'{_dvpceFilters = mempty, _dvpceNextToken = Nothing, _dvpceVPCEndpointIds = mempty, _dvpceDryRun = Nothing, _dvpceMaxResults = Nothing};
+describeVPCEndpoints = DescribeVPCEndpoints'{_dvpceFilters = Nothing, _dvpceNextToken = Nothing, _dvpceVPCEndpointIds = Nothing, _dvpceDryRun = Nothing, _dvpceMaxResults = Nothing};
 
 -- | One or more filters.
 --
@@ -74,7 +74,7 @@ describeVPCEndpoints = DescribeVPCEndpoints'{_dvpceFilters = mempty, _dvpceNextT
 -- -   @vpc-endpoint-state@: The state of the endpoint. (@pending@ |
 --     @available@ | @deleting@ | @deleted@)
 --
-dvpceFilters :: Lens' DescribeVPCEndpoints [Filter]
+dvpceFilters :: Lens' DescribeVPCEndpoints (Maybe [Filter])
 dvpceFilters = lens _dvpceFilters (\ s a -> s{_dvpceFilters = a});
 
 -- | The token for the next set of items to return. (You received this token
@@ -83,7 +83,7 @@ dvpceNextToken :: Lens' DescribeVPCEndpoints (Maybe Text)
 dvpceNextToken = lens _dvpceNextToken (\ s a -> s{_dvpceNextToken = a});
 
 -- | One or more endpoint IDs.
-dvpceVPCEndpointIds :: Lens' DescribeVPCEndpoints [Text]
+dvpceVPCEndpointIds :: Lens' DescribeVPCEndpoints (Maybe [Text])
 dvpceVPCEndpointIds = lens _dvpceVPCEndpointIds (\ s a -> s{_dvpceVPCEndpointIds = a});
 
 -- | Checks whether you have the required permissions for the action, without
@@ -137,11 +137,11 @@ instance ToQuery DescribeVPCEndpoints where
 -- * 'dverNextToken'
 --
 -- * 'dverVPCEndpoints'
-data DescribeVPCEndpointsResponse = DescribeVPCEndpointsResponse'{_dverNextToken :: Maybe Text, _dverVPCEndpoints :: [VPCEndpoint]} deriving (Eq, Read, Show)
+data DescribeVPCEndpointsResponse = DescribeVPCEndpointsResponse'{_dverNextToken :: Maybe Text, _dverVPCEndpoints :: Maybe [VPCEndpoint]} deriving (Eq, Read, Show)
 
 -- | 'DescribeVPCEndpointsResponse' smart constructor.
 describeVPCEndpointsResponse :: DescribeVPCEndpointsResponse
-describeVPCEndpointsResponse = DescribeVPCEndpointsResponse'{_dverNextToken = Nothing, _dverVPCEndpoints = mempty};
+describeVPCEndpointsResponse = DescribeVPCEndpointsResponse'{_dverNextToken = Nothing, _dverVPCEndpoints = Nothing};
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
@@ -149,5 +149,5 @@ dverNextToken :: Lens' DescribeVPCEndpointsResponse (Maybe Text)
 dverNextToken = lens _dverNextToken (\ s a -> s{_dverNextToken = a});
 
 -- | Information about the endpoints.
-dverVPCEndpoints :: Lens' DescribeVPCEndpointsResponse [VPCEndpoint]
+dverVPCEndpoints :: Lens' DescribeVPCEndpointsResponse (Maybe [VPCEndpoint])
 dverVPCEndpoints = lens _dverVPCEndpoints (\ s a -> s{_dverVPCEndpoints = a});

@@ -83,16 +83,16 @@ instance ToQuery ListAvailableSolutionStacks where
 -- * 'lassrSolutionStacks'
 --
 -- * 'lassrSolutionStackDetails'
-data ListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse'{_lassrSolutionStacks :: [Text], _lassrSolutionStackDetails :: [SolutionStackDescription]} deriving (Eq, Read, Show)
+data ListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse'{_lassrSolutionStacks :: Maybe [Text], _lassrSolutionStackDetails :: Maybe [SolutionStackDescription]} deriving (Eq, Read, Show)
 
 -- | 'ListAvailableSolutionStacksResponse' smart constructor.
 listAvailableSolutionStacksResponse :: ListAvailableSolutionStacksResponse
-listAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse'{_lassrSolutionStacks = mempty, _lassrSolutionStackDetails = mempty};
+listAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse'{_lassrSolutionStacks = Nothing, _lassrSolutionStackDetails = Nothing};
 
 -- | A list of available solution stacks.
-lassrSolutionStacks :: Lens' ListAvailableSolutionStacksResponse [Text]
+lassrSolutionStacks :: Lens' ListAvailableSolutionStacksResponse (Maybe [Text])
 lassrSolutionStacks = lens _lassrSolutionStacks (\ s a -> s{_lassrSolutionStacks = a});
 
 -- | A list of available solution stacks and their SolutionStackDescription.
-lassrSolutionStackDetails :: Lens' ListAvailableSolutionStacksResponse [SolutionStackDescription]
+lassrSolutionStackDetails :: Lens' ListAvailableSolutionStacksResponse (Maybe [SolutionStackDescription])
 lassrSolutionStackDetails = lens _lassrSolutionStackDetails (\ s a -> s{_lassrSolutionStackDetails = a});

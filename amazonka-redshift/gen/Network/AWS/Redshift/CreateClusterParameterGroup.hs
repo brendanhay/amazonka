@@ -64,14 +64,14 @@ import Network.AWS.Redshift.Types
 -- * 'ccpgParameterGroupFamily'
 --
 -- * 'ccpgDescription'
-data CreateClusterParameterGroup = CreateClusterParameterGroup'{_ccpgTags :: [Tag], _ccpgParameterGroupName :: Text, _ccpgParameterGroupFamily :: Text, _ccpgDescription :: Text} deriving (Eq, Read, Show)
+data CreateClusterParameterGroup = CreateClusterParameterGroup'{_ccpgTags :: Maybe [Tag], _ccpgParameterGroupName :: Text, _ccpgParameterGroupFamily :: Text, _ccpgDescription :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateClusterParameterGroup' smart constructor.
 createClusterParameterGroup :: Text -> Text -> Text -> CreateClusterParameterGroup
-createClusterParameterGroup pParameterGroupName pParameterGroupFamily pDescription = CreateClusterParameterGroup'{_ccpgTags = mempty, _ccpgParameterGroupName = pParameterGroupName, _ccpgParameterGroupFamily = pParameterGroupFamily, _ccpgDescription = pDescription};
+createClusterParameterGroup pParameterGroupName pParameterGroupFamily pDescription = CreateClusterParameterGroup'{_ccpgTags = Nothing, _ccpgParameterGroupName = pParameterGroupName, _ccpgParameterGroupFamily = pParameterGroupFamily, _ccpgDescription = pDescription};
 
 -- | A list of tag instances.
-ccpgTags :: Lens' CreateClusterParameterGroup [Tag]
+ccpgTags :: Lens' CreateClusterParameterGroup (Maybe [Tag])
 ccpgTags = lens _ccpgTags (\ s a -> s{_ccpgTags = a});
 
 -- | The name of the cluster parameter group.

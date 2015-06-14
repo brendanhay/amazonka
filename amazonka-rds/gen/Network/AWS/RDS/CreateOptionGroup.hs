@@ -56,14 +56,14 @@ import Network.AWS.RDS.Types
 -- * 'cogMajorEngineVersion'
 --
 -- * 'cogOptionGroupDescription'
-data CreateOptionGroup = CreateOptionGroup'{_cogTags :: [Tag], _cogOptionGroupName :: Text, _cogEngineName :: Text, _cogMajorEngineVersion :: Text, _cogOptionGroupDescription :: Text} deriving (Eq, Read, Show)
+data CreateOptionGroup = CreateOptionGroup'{_cogTags :: Maybe [Tag], _cogOptionGroupName :: Text, _cogEngineName :: Text, _cogMajorEngineVersion :: Text, _cogOptionGroupDescription :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateOptionGroup' smart constructor.
 createOptionGroup :: Text -> Text -> Text -> Text -> CreateOptionGroup
-createOptionGroup pOptionGroupName pEngineName pMajorEngineVersion pOptionGroupDescription = CreateOptionGroup'{_cogTags = mempty, _cogOptionGroupName = pOptionGroupName, _cogEngineName = pEngineName, _cogMajorEngineVersion = pMajorEngineVersion, _cogOptionGroupDescription = pOptionGroupDescription};
+createOptionGroup pOptionGroupName pEngineName pMajorEngineVersion pOptionGroupDescription = CreateOptionGroup'{_cogTags = Nothing, _cogOptionGroupName = pOptionGroupName, _cogEngineName = pEngineName, _cogMajorEngineVersion = pMajorEngineVersion, _cogOptionGroupDescription = pOptionGroupDescription};
 
 -- | FIXME: Undocumented member.
-cogTags :: Lens' CreateOptionGroup [Tag]
+cogTags :: Lens' CreateOptionGroup (Maybe [Tag])
 cogTags = lens _cogTags (\ s a -> s{_cogTags = a});
 
 -- | Specifies the name of the option group to be created.

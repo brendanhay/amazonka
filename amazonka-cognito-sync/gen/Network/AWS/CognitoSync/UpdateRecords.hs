@@ -30,12 +30,12 @@ module Network.AWS.CognitoSync.UpdateRecords
     , updateRecords
     -- ** Request lenses
     , urRecordPatches
+    , urDeviceId
     , urClientContext
     , urIdentityPoolId
     , urIdentityId
     , urDatasetName
     , urSyncSessionToken
-    , urDeviceId
 
     -- * Response
     , UpdateRecordsResponse
@@ -56,6 +56,8 @@ import Network.AWS.CognitoSync.Types
 --
 -- * 'urRecordPatches'
 --
+-- * 'urDeviceId'
+--
 -- * 'urClientContext'
 --
 -- * 'urIdentityPoolId'
@@ -65,17 +67,19 @@ import Network.AWS.CognitoSync.Types
 -- * 'urDatasetName'
 --
 -- * 'urSyncSessionToken'
---
--- * 'urDeviceId'
-data UpdateRecords = UpdateRecords'{_urRecordPatches :: [RecordPatch], _urClientContext :: Maybe Text, _urIdentityPoolId :: Text, _urIdentityId :: Text, _urDatasetName :: Text, _urSyncSessionToken :: Text, _urDeviceId :: Text} deriving (Eq, Read, Show)
+data UpdateRecords = UpdateRecords'{_urRecordPatches :: Maybe [RecordPatch], _urDeviceId :: Maybe Text, _urClientContext :: Maybe Text, _urIdentityPoolId :: Text, _urIdentityId :: Text, _urDatasetName :: Text, _urSyncSessionToken :: Text} deriving (Eq, Read, Show)
 
 -- | 'UpdateRecords' smart constructor.
-updateRecords :: Text -> Text -> Text -> Text -> Text -> UpdateRecords
-updateRecords pIdentityPoolId pIdentityId pDatasetName pSyncSessionToken pDeviceId = UpdateRecords'{_urRecordPatches = mempty, _urClientContext = Nothing, _urIdentityPoolId = pIdentityPoolId, _urIdentityId = pIdentityId, _urDatasetName = pDatasetName, _urSyncSessionToken = pSyncSessionToken, _urDeviceId = pDeviceId};
+updateRecords :: Text -> Text -> Text -> Text -> UpdateRecords
+updateRecords pIdentityPoolId pIdentityId pDatasetName pSyncSessionToken = UpdateRecords'{_urRecordPatches = Nothing, _urDeviceId = Nothing, _urClientContext = Nothing, _urIdentityPoolId = pIdentityPoolId, _urIdentityId = pIdentityId, _urDatasetName = pDatasetName, _urSyncSessionToken = pSyncSessionToken};
 
 -- | A list of patch operations.
-urRecordPatches :: Lens' UpdateRecords [RecordPatch]
+urRecordPatches :: Lens' UpdateRecords (Maybe [RecordPatch])
 urRecordPatches = lens _urRecordPatches (\ s a -> s{_urRecordPatches = a});
+
+-- | The unique ID generated for this device by Cognito.
+urDeviceId :: Lens' UpdateRecords (Maybe Text)
+urDeviceId = lens _urDeviceId (\ s a -> s{_urDeviceId = a});
 
 -- | Intended to supply a device ID that will populate the lastModifiedBy
 -- field referenced in other methods. The ClientContext field is not yet
@@ -105,10 +109,6 @@ urDatasetName = lens _urDatasetName (\ s a -> s{_urDatasetName = a});
 urSyncSessionToken :: Lens' UpdateRecords Text
 urSyncSessionToken = lens _urSyncSessionToken (\ s a -> s{_urSyncSessionToken = a});
 
--- | The unique ID generated for this device by Cognito.
-urDeviceId :: Lens' UpdateRecords Text
-urDeviceId = lens _urDeviceId (\ s a -> s{_urDeviceId = a});
-
 instance AWSRequest UpdateRecords where
         type Sv UpdateRecords = CognitoSync
         type Rs UpdateRecords = UpdateRecordsResponse
@@ -130,8 +130,8 @@ instance ToJSON UpdateRecords where
         toJSON UpdateRecords'{..}
           = object
               ["RecordPatches" .= _urRecordPatches,
-               "SyncSessionToken" .= _urSyncSessionToken,
-               "DeviceId" .= _urDeviceId]
+               "DeviceId" .= _urDeviceId,
+               "SyncSessionToken" .= _urSyncSessionToken]
 
 instance ToPath UpdateRecords where
         toPath UpdateRecords'{..}
@@ -148,12 +148,12 @@ instance ToQuery UpdateRecords where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'urrRecords'
-newtype UpdateRecordsResponse = UpdateRecordsResponse'{_urrRecords :: [Record]} deriving (Eq, Read, Show)
+newtype UpdateRecordsResponse = UpdateRecordsResponse'{_urrRecords :: Maybe [Record]} deriving (Eq, Read, Show)
 
 -- | 'UpdateRecordsResponse' smart constructor.
 updateRecordsResponse :: UpdateRecordsResponse
-updateRecordsResponse = UpdateRecordsResponse'{_urrRecords = mempty};
+updateRecordsResponse = UpdateRecordsResponse'{_urrRecords = Nothing};
 
 -- | A list of records that have been updated.
-urrRecords :: Lens' UpdateRecordsResponse [Record]
+urrRecords :: Lens' UpdateRecordsResponse (Maybe [Record])
 urrRecords = lens _urrRecords (\ s a -> s{_urrRecords = a});

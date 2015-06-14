@@ -74,14 +74,14 @@ instance ToQuery ListBuckets where
 -- * 'lbrBuckets'
 --
 -- * 'lbrOwner'
-data ListBucketsResponse = ListBucketsResponse'{_lbrBuckets :: [Bucket], _lbrOwner :: Maybe Owner} deriving (Eq, Read, Show)
+data ListBucketsResponse = ListBucketsResponse'{_lbrBuckets :: Maybe [Bucket], _lbrOwner :: Maybe Owner} deriving (Eq, Read, Show)
 
 -- | 'ListBucketsResponse' smart constructor.
 listBucketsResponse :: ListBucketsResponse
-listBucketsResponse = ListBucketsResponse'{_lbrBuckets = mempty, _lbrOwner = Nothing};
+listBucketsResponse = ListBucketsResponse'{_lbrBuckets = Nothing, _lbrOwner = Nothing};
 
 -- | FIXME: Undocumented member.
-lbrBuckets :: Lens' ListBucketsResponse [Bucket]
+lbrBuckets :: Lens' ListBucketsResponse (Maybe [Bucket])
 lbrBuckets = lens _lbrBuckets (\ s a -> s{_lbrBuckets = a});
 
 -- | FIXME: Undocumented member.

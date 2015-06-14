@@ -34,13 +34,13 @@ module Network.AWS.MachineLearning.Types
     , bpLastUpdatedAt
     , bpCreatedAt
     , bpInputDataLocationS3
+    , bpMLModelId
+    , bpBatchPredictionDataSourceId
+    , bpBatchPredictionId
     , bpName
     , bpCreatedByIAMUser
     , bpMessage
     , bpOutputURI
-    , bpMLModelId
-    , bpBatchPredictionDataSourceId
-    , bpBatchPredictionId
 
     -- * BatchPredictionFilterVariable
     , BatchPredictionFilterVariable (..)
@@ -53,6 +53,7 @@ module Network.AWS.MachineLearning.Types
     , dsLastUpdatedAt
     , dsCreatedAt
     , dsRDSMetadata
+    , dsDataSourceId
     , dsDataSizeInBytes
     , dsName
     , dsCreatedByIAMUser
@@ -60,9 +61,8 @@ module Network.AWS.MachineLearning.Types
     , dsComputeStatistics
     , dsMessage
     , dsRedshiftMetadata
-    , dsDataRearrangement
-    , dsDataSourceId
     , dsRoleARN
+    , dsDataRearrangement
 
     -- * DataSourceFilterVariable
     , DataSourceFilterVariable (..)
@@ -81,10 +81,10 @@ module Network.AWS.MachineLearning.Types
     , evaLastUpdatedAt
     , evaCreatedAt
     , evaInputDataLocationS3
+    , evaMLModelId
     , evaName
     , evaCreatedByIAMUser
     , evaMessage
-    , evaMLModelId
     , evaEvaluationId
     , evaEvaluationDataSourceId
 
@@ -101,15 +101,15 @@ module Network.AWS.MachineLearning.Types
     , mlmScoreThresholdLastUpdatedAt
     , mlmInputDataLocationS3
     , mlmSizeInBytes
+    , mlmMLModelId
     , mlmScoreThreshold
     , mlmName
     , mlmAlgorithm
     , mlmCreatedByIAMUser
     , mlmEndpointInfo
+    , mlmTrainingDataSourceId
     , mlmMessage
     , mlmMLModelType
-    , mlmMLModelId
-    , mlmTrainingDataSourceId
 
     -- * MLModelFilterVariable
     , MLModelFilterVariable (..)
@@ -126,9 +126,9 @@ module Network.AWS.MachineLearning.Types
     , Prediction
     , prediction
     , prePredictedValue
+    , prePredictedLabel
     , prePredictedScores
     , preDetails
-    , prePredictedLabel
 
     -- * RDSDataSpec
     , RDSDataSpec
@@ -160,9 +160,9 @@ module Network.AWS.MachineLearning.Types
     -- * RDSMetadata
     , RDSMetadata
     , rdsMetadata
-    , rmDatabase
     , rmSelectSqlQuery
     , rmDataPipelineId
+    , rmDatabase
     , rmDatabaseUserName
     , rmResourceRole
     , rmServiceRole
@@ -204,8 +204,8 @@ module Network.AWS.MachineLearning.Types
     -- * RedshiftMetadata
     , RedshiftMetadata
     , redshiftMetadata
-    , redRedshiftDatabase
     , redSelectSqlQuery
+    , redRedshiftDatabase
     , redDatabaseUserName
 
     -- * S3DataSpec
@@ -283,6 +283,12 @@ instance FromJSON Algorithm where
 --
 -- * 'bpInputDataLocationS3'
 --
+-- * 'bpMLModelId'
+--
+-- * 'bpBatchPredictionDataSourceId'
+--
+-- * 'bpBatchPredictionId'
+--
 -- * 'bpName'
 --
 -- * 'bpCreatedByIAMUser'
@@ -290,17 +296,11 @@ instance FromJSON Algorithm where
 -- * 'bpMessage'
 --
 -- * 'bpOutputURI'
---
--- * 'bpMLModelId'
---
--- * 'bpBatchPredictionDataSourceId'
---
--- * 'bpBatchPredictionId'
-data BatchPrediction = BatchPrediction'{_bpStatus :: Maybe EntityStatus, _bpLastUpdatedAt :: Maybe POSIX, _bpCreatedAt :: Maybe POSIX, _bpInputDataLocationS3 :: Maybe Text, _bpName :: Maybe Text, _bpCreatedByIAMUser :: Maybe Text, _bpMessage :: Maybe Text, _bpOutputURI :: Maybe Text, _bpMLModelId :: Text, _bpBatchPredictionDataSourceId :: Text, _bpBatchPredictionId :: Text} deriving (Eq, Read, Show)
+data BatchPrediction = BatchPrediction'{_bpStatus :: Maybe EntityStatus, _bpLastUpdatedAt :: Maybe POSIX, _bpCreatedAt :: Maybe POSIX, _bpInputDataLocationS3 :: Maybe Text, _bpMLModelId :: Maybe Text, _bpBatchPredictionDataSourceId :: Maybe Text, _bpBatchPredictionId :: Maybe Text, _bpName :: Maybe Text, _bpCreatedByIAMUser :: Maybe Text, _bpMessage :: Maybe Text, _bpOutputURI :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'BatchPrediction' smart constructor.
-batchPrediction :: Text -> Text -> Text -> BatchPrediction
-batchPrediction pMLModelId pBatchPredictionDataSourceId pBatchPredictionId = BatchPrediction'{_bpStatus = Nothing, _bpLastUpdatedAt = Nothing, _bpCreatedAt = Nothing, _bpInputDataLocationS3 = Nothing, _bpName = Nothing, _bpCreatedByIAMUser = Nothing, _bpMessage = Nothing, _bpOutputURI = Nothing, _bpMLModelId = pMLModelId, _bpBatchPredictionDataSourceId = pBatchPredictionDataSourceId, _bpBatchPredictionId = pBatchPredictionId};
+batchPrediction :: BatchPrediction
+batchPrediction = BatchPrediction'{_bpStatus = Nothing, _bpLastUpdatedAt = Nothing, _bpCreatedAt = Nothing, _bpInputDataLocationS3 = Nothing, _bpMLModelId = Nothing, _bpBatchPredictionDataSourceId = Nothing, _bpBatchPredictionId = Nothing, _bpName = Nothing, _bpCreatedByIAMUser = Nothing, _bpMessage = Nothing, _bpOutputURI = Nothing};
 
 -- | The status of the @BatchPrediction@. This element can have one of the
 -- following values:
@@ -331,6 +331,21 @@ bpCreatedAt = lens _bpCreatedAt (\ s a -> s{_bpCreatedAt = a}) . mapping _Time;
 bpInputDataLocationS3 :: Lens' BatchPrediction (Maybe Text)
 bpInputDataLocationS3 = lens _bpInputDataLocationS3 (\ s a -> s{_bpInputDataLocationS3 = a});
 
+-- | The ID of the @MLModel@ that generated predictions for the
+-- @BatchPrediction@ request.
+bpMLModelId :: Lens' BatchPrediction (Maybe Text)
+bpMLModelId = lens _bpMLModelId (\ s a -> s{_bpMLModelId = a});
+
+-- | The ID of the @DataSource@ that points to the group of observations to
+-- predict.
+bpBatchPredictionDataSourceId :: Lens' BatchPrediction (Maybe Text)
+bpBatchPredictionDataSourceId = lens _bpBatchPredictionDataSourceId (\ s a -> s{_bpBatchPredictionDataSourceId = a});
+
+-- | The ID assigned to the @BatchPrediction@ at creation. This value should
+-- be identical to the value of the @BatchPredictionID@ in the request.
+bpBatchPredictionId :: Lens' BatchPrediction (Maybe Text)
+bpBatchPredictionId = lens _bpBatchPredictionId (\ s a -> s{_bpBatchPredictionId = a});
+
 -- | A user-supplied name or description of the @BatchPrediction@.
 bpName :: Lens' BatchPrediction (Maybe Text)
 bpName = lens _bpName (\ s a -> s{_bpName = a});
@@ -353,21 +368,6 @@ bpMessage = lens _bpMessage (\ s a -> s{_bpMessage = a});
 bpOutputURI :: Lens' BatchPrediction (Maybe Text)
 bpOutputURI = lens _bpOutputURI (\ s a -> s{_bpOutputURI = a});
 
--- | The ID of the @MLModel@ that generated predictions for the
--- @BatchPrediction@ request.
-bpMLModelId :: Lens' BatchPrediction Text
-bpMLModelId = lens _bpMLModelId (\ s a -> s{_bpMLModelId = a});
-
--- | The ID of the @DataSource@ that points to the group of observations to
--- predict.
-bpBatchPredictionDataSourceId :: Lens' BatchPrediction Text
-bpBatchPredictionDataSourceId = lens _bpBatchPredictionDataSourceId (\ s a -> s{_bpBatchPredictionDataSourceId = a});
-
--- | The ID assigned to the @BatchPrediction@ at creation. This value should
--- be identical to the value of the @BatchPredictionID@ in the request.
-bpBatchPredictionId :: Lens' BatchPrediction Text
-bpBatchPredictionId = lens _bpBatchPredictionId (\ s a -> s{_bpBatchPredictionId = a});
-
 instance FromJSON BatchPrediction where
         parseJSON
           = withObject "BatchPrediction"
@@ -376,13 +376,13 @@ instance FromJSON BatchPrediction where
                    x .:? "Status" <*> x .:? "LastUpdatedAt" <*>
                      x .:? "CreatedAt"
                      <*> x .:? "InputDataLocationS3"
+                     <*> x .:? "MLModelId"
+                     <*> x .:? "BatchPredictionDataSourceId"
+                     <*> x .:? "BatchPredictionId"
                      <*> x .:? "Name"
                      <*> x .:? "CreatedByIamUser"
                      <*> x .:? "Message"
-                     <*> x .:? "OutputUri"
-                     <*> x .: "MLModelId"
-                     <*> x .: "BatchPredictionDataSourceId"
-                     <*> x .: "BatchPredictionId")
+                     <*> x .:? "OutputUri")
 
 data BatchPredictionFilterVariable = BatchDataSourceId | BatchMLModelId | BatchIAMUser | BatchStatus | BatchCreatedAt | BatchDataURI | BatchName | BatchLastUpdatedAt deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -430,6 +430,8 @@ instance ToJSON BatchPredictionFilterVariable where
 --
 -- * 'dsRDSMetadata'
 --
+-- * 'dsDataSourceId'
+--
 -- * 'dsDataSizeInBytes'
 --
 -- * 'dsName'
@@ -444,16 +446,14 @@ instance ToJSON BatchPredictionFilterVariable where
 --
 -- * 'dsRedshiftMetadata'
 --
--- * 'dsDataRearrangement'
---
--- * 'dsDataSourceId'
---
 -- * 'dsRoleARN'
-data DataSource = DataSource'{_dsStatus :: Maybe EntityStatus, _dsNumberOfFiles :: Maybe Integer, _dsLastUpdatedAt :: Maybe POSIX, _dsCreatedAt :: Maybe POSIX, _dsRDSMetadata :: Maybe RDSMetadata, _dsDataSizeInBytes :: Maybe Integer, _dsName :: Maybe Text, _dsCreatedByIAMUser :: Maybe Text, _dsDataLocationS3 :: Maybe Text, _dsComputeStatistics :: Maybe Bool, _dsMessage :: Maybe Text, _dsRedshiftMetadata :: Maybe RedshiftMetadata, _dsDataRearrangement :: Maybe Text, _dsDataSourceId :: Text, _dsRoleARN :: Text} deriving (Eq, Read, Show)
+--
+-- * 'dsDataRearrangement'
+data DataSource = DataSource'{_dsStatus :: Maybe EntityStatus, _dsNumberOfFiles :: Maybe Integer, _dsLastUpdatedAt :: Maybe POSIX, _dsCreatedAt :: Maybe POSIX, _dsRDSMetadata :: Maybe RDSMetadata, _dsDataSourceId :: Maybe Text, _dsDataSizeInBytes :: Maybe Integer, _dsName :: Maybe Text, _dsCreatedByIAMUser :: Maybe Text, _dsDataLocationS3 :: Maybe Text, _dsComputeStatistics :: Maybe Bool, _dsMessage :: Maybe Text, _dsRedshiftMetadata :: Maybe RedshiftMetadata, _dsRoleARN :: Maybe Text, _dsDataRearrangement :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DataSource' smart constructor.
-dataSource :: Text -> Text -> DataSource
-dataSource pDataSourceId pRoleARN = DataSource'{_dsStatus = Nothing, _dsNumberOfFiles = Nothing, _dsLastUpdatedAt = Nothing, _dsCreatedAt = Nothing, _dsRDSMetadata = Nothing, _dsDataSizeInBytes = Nothing, _dsName = Nothing, _dsCreatedByIAMUser = Nothing, _dsDataLocationS3 = Nothing, _dsComputeStatistics = Nothing, _dsMessage = Nothing, _dsRedshiftMetadata = Nothing, _dsDataRearrangement = Nothing, _dsDataSourceId = pDataSourceId, _dsRoleARN = pRoleARN};
+dataSource :: DataSource
+dataSource = DataSource'{_dsStatus = Nothing, _dsNumberOfFiles = Nothing, _dsLastUpdatedAt = Nothing, _dsCreatedAt = Nothing, _dsRDSMetadata = Nothing, _dsDataSourceId = Nothing, _dsDataSizeInBytes = Nothing, _dsName = Nothing, _dsCreatedByIAMUser = Nothing, _dsDataLocationS3 = Nothing, _dsComputeStatistics = Nothing, _dsMessage = Nothing, _dsRedshiftMetadata = Nothing, _dsRoleARN = Nothing, _dsDataRearrangement = Nothing};
 
 -- | The current status of the @DataSource@. This element can have one of the
 -- following values:
@@ -485,6 +485,10 @@ dsCreatedAt = lens _dsCreatedAt (\ s a -> s{_dsCreatedAt = a}) . mapping _Time;
 -- | FIXME: Undocumented member.
 dsRDSMetadata :: Lens' DataSource (Maybe RDSMetadata)
 dsRDSMetadata = lens _dsRDSMetadata (\ s a -> s{_dsRDSMetadata = a});
+
+-- | The ID that is assigned to the @DataSource@ during creation.
+dsDataSourceId :: Lens' DataSource (Maybe Text)
+dsDataSourceId = lens _dsDataSourceId (\ s a -> s{_dsDataSourceId = a});
 
 -- | The total number of observations contained in the data files that the
 -- @DataSource@ references.
@@ -520,18 +524,14 @@ dsMessage = lens _dsMessage (\ s a -> s{_dsMessage = a});
 dsRedshiftMetadata :: Lens' DataSource (Maybe RedshiftMetadata)
 dsRedshiftMetadata = lens _dsRedshiftMetadata (\ s a -> s{_dsRedshiftMetadata = a});
 
+-- | FIXME: Undocumented member.
+dsRoleARN :: Lens' DataSource (Maybe Text)
+dsRoleARN = lens _dsRoleARN (\ s a -> s{_dsRoleARN = a});
+
 -- | A JSON string that represents the splitting requirement of a
 -- @Datasource@.
 dsDataRearrangement :: Lens' DataSource (Maybe Text)
 dsDataRearrangement = lens _dsDataRearrangement (\ s a -> s{_dsDataRearrangement = a});
-
--- | The ID that is assigned to the @DataSource@ during creation.
-dsDataSourceId :: Lens' DataSource Text
-dsDataSourceId = lens _dsDataSourceId (\ s a -> s{_dsDataSourceId = a});
-
--- | FIXME: Undocumented member.
-dsRoleARN :: Lens' DataSource Text
-dsRoleARN = lens _dsRoleARN (\ s a -> s{_dsRoleARN = a});
 
 instance FromJSON DataSource where
         parseJSON
@@ -542,6 +542,7 @@ instance FromJSON DataSource where
                      x .:? "LastUpdatedAt"
                      <*> x .:? "CreatedAt"
                      <*> x .:? "RDSMetadata"
+                     <*> x .:? "DataSourceId"
                      <*> x .:? "DataSizeInBytes"
                      <*> x .:? "Name"
                      <*> x .:? "CreatedByIamUser"
@@ -549,9 +550,8 @@ instance FromJSON DataSource where
                      <*> x .:? "ComputeStatistics"
                      <*> x .:? "Message"
                      <*> x .:? "RedshiftMetadata"
-                     <*> x .:? "DataRearrangement"
-                     <*> x .: "DataSourceId"
-                     <*> x .: "RoleARN")
+                     <*> x .:? "RoleARN"
+                     <*> x .:? "DataRearrangement")
 
 data DataSourceFilterVariable = DSFVDataStatus | DSFVDataDATALOCATIONS3 | DSFVDataCreatedAt | DSFVDataLastUpdatedAt | DSFVDataName | DSFVDataIAMUser deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -641,22 +641,22 @@ instance FromJSON EntityStatus where
 --
 -- * 'evaInputDataLocationS3'
 --
+-- * 'evaMLModelId'
+--
 -- * 'evaName'
 --
 -- * 'evaCreatedByIAMUser'
 --
 -- * 'evaMessage'
 --
--- * 'evaMLModelId'
---
 -- * 'evaEvaluationId'
 --
 -- * 'evaEvaluationDataSourceId'
-data Evaluation = Evaluation'{_evaStatus :: Maybe EntityStatus, _evaPerformanceMetrics :: Maybe PerformanceMetrics, _evaLastUpdatedAt :: Maybe POSIX, _evaCreatedAt :: Maybe POSIX, _evaInputDataLocationS3 :: Maybe Text, _evaName :: Maybe Text, _evaCreatedByIAMUser :: Maybe Text, _evaMessage :: Maybe Text, _evaMLModelId :: Text, _evaEvaluationId :: Text, _evaEvaluationDataSourceId :: Text} deriving (Eq, Read, Show)
+data Evaluation = Evaluation'{_evaStatus :: Maybe EntityStatus, _evaPerformanceMetrics :: Maybe PerformanceMetrics, _evaLastUpdatedAt :: Maybe POSIX, _evaCreatedAt :: Maybe POSIX, _evaInputDataLocationS3 :: Maybe Text, _evaMLModelId :: Maybe Text, _evaName :: Maybe Text, _evaCreatedByIAMUser :: Maybe Text, _evaMessage :: Maybe Text, _evaEvaluationId :: Maybe Text, _evaEvaluationDataSourceId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'Evaluation' smart constructor.
-evaluation :: Text -> Text -> Text -> Evaluation
-evaluation pMLModelId pEvaluationId pEvaluationDataSourceId = Evaluation'{_evaStatus = Nothing, _evaPerformanceMetrics = Nothing, _evaLastUpdatedAt = Nothing, _evaCreatedAt = Nothing, _evaInputDataLocationS3 = Nothing, _evaName = Nothing, _evaCreatedByIAMUser = Nothing, _evaMessage = Nothing, _evaMLModelId = pMLModelId, _evaEvaluationId = pEvaluationId, _evaEvaluationDataSourceId = pEvaluationDataSourceId};
+evaluation :: Evaluation
+evaluation = Evaluation'{_evaStatus = Nothing, _evaPerformanceMetrics = Nothing, _evaLastUpdatedAt = Nothing, _evaCreatedAt = Nothing, _evaInputDataLocationS3 = Nothing, _evaMLModelId = Nothing, _evaName = Nothing, _evaCreatedByIAMUser = Nothing, _evaMessage = Nothing, _evaEvaluationId = Nothing, _evaEvaluationDataSourceId = Nothing};
 
 -- | The status of the evaluation. This element can have one of the following
 -- values:
@@ -706,6 +706,10 @@ evaCreatedAt = lens _evaCreatedAt (\ s a -> s{_evaCreatedAt = a}) . mapping _Tim
 evaInputDataLocationS3 :: Lens' Evaluation (Maybe Text)
 evaInputDataLocationS3 = lens _evaInputDataLocationS3 (\ s a -> s{_evaInputDataLocationS3 = a});
 
+-- | The ID of the @MLModel@ that is the focus of the evaluation.
+evaMLModelId :: Lens' Evaluation (Maybe Text)
+evaMLModelId = lens _evaMLModelId (\ s a -> s{_evaMLModelId = a});
+
 -- | A user-supplied name or description of the @Evaluation@.
 evaName :: Lens' Evaluation (Maybe Text)
 evaName = lens _evaName (\ s a -> s{_evaName = a});
@@ -720,16 +724,12 @@ evaCreatedByIAMUser = lens _evaCreatedByIAMUser (\ s a -> s{_evaCreatedByIAMUser
 evaMessage :: Lens' Evaluation (Maybe Text)
 evaMessage = lens _evaMessage (\ s a -> s{_evaMessage = a});
 
--- | The ID of the @MLModel@ that is the focus of the evaluation.
-evaMLModelId :: Lens' Evaluation Text
-evaMLModelId = lens _evaMLModelId (\ s a -> s{_evaMLModelId = a});
-
 -- | The ID that is assigned to the @Evaluation@ at creation.
-evaEvaluationId :: Lens' Evaluation Text
+evaEvaluationId :: Lens' Evaluation (Maybe Text)
 evaEvaluationId = lens _evaEvaluationId (\ s a -> s{_evaEvaluationId = a});
 
 -- | The ID of the @DataSource@ that is used to evaluate the @MLModel@.
-evaEvaluationDataSourceId :: Lens' Evaluation Text
+evaEvaluationDataSourceId :: Lens' Evaluation (Maybe Text)
 evaEvaluationDataSourceId = lens _evaEvaluationDataSourceId (\ s a -> s{_evaEvaluationDataSourceId = a});
 
 instance FromJSON Evaluation where
@@ -741,12 +741,12 @@ instance FromJSON Evaluation where
                      x .:? "LastUpdatedAt"
                      <*> x .:? "CreatedAt"
                      <*> x .:? "InputDataLocationS3"
+                     <*> x .:? "MLModelId"
                      <*> x .:? "Name"
                      <*> x .:? "CreatedByIamUser"
                      <*> x .:? "Message"
-                     <*> x .: "MLModelId"
-                     <*> x .: "EvaluationId"
-                     <*> x .: "EvaluationDataSourceId")
+                     <*> x .:? "EvaluationId"
+                     <*> x .:? "EvaluationDataSourceId")
 
 data EvaluationFilterVariable = EFVEvalStatus | EFVEvalDataURI | EFVEvalDataSourceId | EFVEvalCreatedAt | EFVEvalName | EFVEvalIAMUser | EFVEvalMLModelId | EFVEvalLastUpdatedAt deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -798,6 +798,8 @@ instance ToJSON EvaluationFilterVariable where
 --
 -- * 'mlmSizeInBytes'
 --
+-- * 'mlmMLModelId'
+--
 -- * 'mlmScoreThreshold'
 --
 -- * 'mlmName'
@@ -808,18 +810,16 @@ instance ToJSON EvaluationFilterVariable where
 --
 -- * 'mlmEndpointInfo'
 --
+-- * 'mlmTrainingDataSourceId'
+--
 -- * 'mlmMessage'
 --
 -- * 'mlmMLModelType'
---
--- * 'mlmMLModelId'
---
--- * 'mlmTrainingDataSourceId'
-data MLModel = MLModel'{_mlmStatus :: Maybe EntityStatus, _mlmTrainingParameters :: HashMap Text Text, _mlmLastUpdatedAt :: Maybe POSIX, _mlmCreatedAt :: Maybe POSIX, _mlmScoreThresholdLastUpdatedAt :: Maybe POSIX, _mlmInputDataLocationS3 :: Maybe Text, _mlmSizeInBytes :: Maybe Integer, _mlmScoreThreshold :: Maybe Double, _mlmName :: Maybe Text, _mlmAlgorithm :: Maybe Algorithm, _mlmCreatedByIAMUser :: Maybe Text, _mlmEndpointInfo :: Maybe RealtimeEndpointInfo, _mlmMessage :: Maybe Text, _mlmMLModelType :: Maybe MLModelType, _mlmMLModelId :: Text, _mlmTrainingDataSourceId :: Text} deriving (Eq, Read, Show)
+data MLModel = MLModel'{_mlmStatus :: Maybe EntityStatus, _mlmTrainingParameters :: Maybe (HashMap Text Text), _mlmLastUpdatedAt :: Maybe POSIX, _mlmCreatedAt :: Maybe POSIX, _mlmScoreThresholdLastUpdatedAt :: Maybe POSIX, _mlmInputDataLocationS3 :: Maybe Text, _mlmSizeInBytes :: Maybe Integer, _mlmMLModelId :: Maybe Text, _mlmScoreThreshold :: Maybe Double, _mlmName :: Maybe Text, _mlmAlgorithm :: Maybe Algorithm, _mlmCreatedByIAMUser :: Maybe Text, _mlmEndpointInfo :: Maybe RealtimeEndpointInfo, _mlmTrainingDataSourceId :: Maybe Text, _mlmMessage :: Maybe Text, _mlmMLModelType :: Maybe MLModelType} deriving (Eq, Read, Show)
 
 -- | 'MLModel' smart constructor.
-mLModel :: Text -> Text -> MLModel
-mLModel pMLModelId pTrainingDataSourceId = MLModel'{_mlmStatus = Nothing, _mlmTrainingParameters = mempty, _mlmLastUpdatedAt = Nothing, _mlmCreatedAt = Nothing, _mlmScoreThresholdLastUpdatedAt = Nothing, _mlmInputDataLocationS3 = Nothing, _mlmSizeInBytes = Nothing, _mlmScoreThreshold = Nothing, _mlmName = Nothing, _mlmAlgorithm = Nothing, _mlmCreatedByIAMUser = Nothing, _mlmEndpointInfo = Nothing, _mlmMessage = Nothing, _mlmMLModelType = Nothing, _mlmMLModelId = pMLModelId, _mlmTrainingDataSourceId = pTrainingDataSourceId};
+mLModel :: MLModel
+mLModel = MLModel'{_mlmStatus = Nothing, _mlmTrainingParameters = Nothing, _mlmLastUpdatedAt = Nothing, _mlmCreatedAt = Nothing, _mlmScoreThresholdLastUpdatedAt = Nothing, _mlmInputDataLocationS3 = Nothing, _mlmSizeInBytes = Nothing, _mlmMLModelId = Nothing, _mlmScoreThreshold = Nothing, _mlmName = Nothing, _mlmAlgorithm = Nothing, _mlmCreatedByIAMUser = Nothing, _mlmEndpointInfo = Nothing, _mlmTrainingDataSourceId = Nothing, _mlmMessage = Nothing, _mlmMLModelType = Nothing};
 
 -- | The current status of an @MLModel@. This element can have one of the
 -- following values:
@@ -870,8 +870,8 @@ mlmStatus = lens _mlmStatus (\ s a -> s{_mlmStatus = a});
 --     The value is an integer that ranges from 100000 to 2147483648. The
 --     default value is 33554432.
 --
-mlmTrainingParameters :: Lens' MLModel (HashMap Text Text)
-mlmTrainingParameters = lens _mlmTrainingParameters (\ s a -> s{_mlmTrainingParameters = a}) . _Coerce;
+mlmTrainingParameters :: Lens' MLModel (Maybe (HashMap Text Text))
+mlmTrainingParameters = lens _mlmTrainingParameters (\ s a -> s{_mlmTrainingParameters = a}) . mapping _Coerce;
 
 -- | The time of the most recent edit to the @MLModel@. The time is expressed
 -- in epoch time.
@@ -896,6 +896,10 @@ mlmInputDataLocationS3 = lens _mlmInputDataLocationS3 (\ s a -> s{_mlmInputDataL
 -- | FIXME: Undocumented member.
 mlmSizeInBytes :: Lens' MLModel (Maybe Integer)
 mlmSizeInBytes = lens _mlmSizeInBytes (\ s a -> s{_mlmSizeInBytes = a});
+
+-- | The ID assigned to the @MLModel@ at creation.
+mlmMLModelId :: Lens' MLModel (Maybe Text)
+mlmMLModelId = lens _mlmMLModelId (\ s a -> s{_mlmMLModelId = a});
 
 -- | FIXME: Undocumented member.
 mlmScoreThreshold :: Lens' MLModel (Maybe Double)
@@ -923,6 +927,11 @@ mlmCreatedByIAMUser = lens _mlmCreatedByIAMUser (\ s a -> s{_mlmCreatedByIAMUser
 mlmEndpointInfo :: Lens' MLModel (Maybe RealtimeEndpointInfo)
 mlmEndpointInfo = lens _mlmEndpointInfo (\ s a -> s{_mlmEndpointInfo = a});
 
+-- | The ID of the training @DataSource@. The CreateMLModel operation uses
+-- the @TrainingDataSourceId@.
+mlmTrainingDataSourceId :: Lens' MLModel (Maybe Text)
+mlmTrainingDataSourceId = lens _mlmTrainingDataSourceId (\ s a -> s{_mlmTrainingDataSourceId = a});
+
 -- | A description of the most recent details about accessing the @MLModel@.
 mlmMessage :: Lens' MLModel (Maybe Text)
 mlmMessage = lens _mlmMessage (\ s a -> s{_mlmMessage = a});
@@ -939,15 +948,6 @@ mlmMessage = lens _mlmMessage (\ s a -> s{_mlmMessage = a});
 mlmMLModelType :: Lens' MLModel (Maybe MLModelType)
 mlmMLModelType = lens _mlmMLModelType (\ s a -> s{_mlmMLModelType = a});
 
--- | The ID assigned to the @MLModel@ at creation.
-mlmMLModelId :: Lens' MLModel Text
-mlmMLModelId = lens _mlmMLModelId (\ s a -> s{_mlmMLModelId = a});
-
--- | The ID of the training @DataSource@. The CreateMLModel operation uses
--- the @TrainingDataSourceId@.
-mlmTrainingDataSourceId :: Lens' MLModel Text
-mlmTrainingDataSourceId = lens _mlmTrainingDataSourceId (\ s a -> s{_mlmTrainingDataSourceId = a});
-
 instance FromJSON MLModel where
         parseJSON
           = withObject "MLModel"
@@ -960,15 +960,15 @@ instance FromJSON MLModel where
                      <*> x .:? "ScoreThresholdLastUpdatedAt"
                      <*> x .:? "InputDataLocationS3"
                      <*> x .:? "SizeInBytes"
+                     <*> x .:? "MLModelId"
                      <*> x .:? "ScoreThreshold"
                      <*> x .:? "Name"
                      <*> x .:? "Algorithm"
                      <*> x .:? "CreatedByIamUser"
                      <*> x .:? "EndpointInfo"
+                     <*> x .:? "TrainingDataSourceId"
                      <*> x .:? "Message"
-                     <*> x .:? "MLModelType"
-                     <*> x .: "MLModelId"
-                     <*> x .: "TrainingDataSourceId")
+                     <*> x .:? "MLModelType")
 
 data MLModelFilterVariable = MLMFVRealtimeEndpointStatus | MLMFVMLModelType | MLMFVTrainingDataURI | MLMFVStatus | MLMFVIAMUser | MLMFVCreatedAt | MLMFVTrainingDataSourceId | MLMFVAlgorithm | MLMFVName | MLMFVLastUpdatedAt deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -1036,15 +1036,15 @@ instance FromJSON MLModelType where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'pmProperties'
-newtype PerformanceMetrics = PerformanceMetrics'{_pmProperties :: HashMap Text Text} deriving (Eq, Read, Show)
+newtype PerformanceMetrics = PerformanceMetrics'{_pmProperties :: Maybe (HashMap Text Text)} deriving (Eq, Read, Show)
 
 -- | 'PerformanceMetrics' smart constructor.
 performanceMetrics :: PerformanceMetrics
-performanceMetrics = PerformanceMetrics'{_pmProperties = mempty};
+performanceMetrics = PerformanceMetrics'{_pmProperties = Nothing};
 
 -- | FIXME: Undocumented member.
-pmProperties :: Lens' PerformanceMetrics (HashMap Text Text)
-pmProperties = lens _pmProperties (\ s a -> s{_pmProperties = a}) . _Coerce;
+pmProperties :: Lens' PerformanceMetrics (Maybe (HashMap Text Text))
+pmProperties = lens _pmProperties (\ s a -> s{_pmProperties = a}) . mapping _Coerce;
 
 instance FromJSON PerformanceMetrics where
         parseJSON
@@ -1059,42 +1059,41 @@ instance FromJSON PerformanceMetrics where
 --
 -- * 'prePredictedValue'
 --
+-- * 'prePredictedLabel'
+--
 -- * 'prePredictedScores'
 --
 -- * 'preDetails'
---
--- * 'prePredictedLabel'
-data Prediction = Prediction'{_prePredictedValue :: Maybe Double, _prePredictedScores :: HashMap Text Double, _preDetails :: HashMap DetailsAttributes Text, _prePredictedLabel :: Text} deriving (Eq, Read, Show)
+data Prediction = Prediction'{_prePredictedValue :: Maybe Double, _prePredictedLabel :: Maybe Text, _prePredictedScores :: Maybe (HashMap Text Double), _preDetails :: Maybe (HashMap DetailsAttributes Text)} deriving (Eq, Read, Show)
 
 -- | 'Prediction' smart constructor.
-prediction :: Text -> Prediction
-prediction pPredictedLabel = Prediction'{_prePredictedValue = Nothing, _prePredictedScores = mempty, _preDetails = mempty, _prePredictedLabel = pPredictedLabel};
+prediction :: Prediction
+prediction = Prediction'{_prePredictedValue = Nothing, _prePredictedLabel = Nothing, _prePredictedScores = Nothing, _preDetails = Nothing};
 
 -- | The prediction value for REGRESSION @MLModel@.
 prePredictedValue :: Lens' Prediction (Maybe Double)
 prePredictedValue = lens _prePredictedValue (\ s a -> s{_prePredictedValue = a});
 
--- | FIXME: Undocumented member.
-prePredictedScores :: Lens' Prediction (HashMap Text Double)
-prePredictedScores = lens _prePredictedScores (\ s a -> s{_prePredictedScores = a}) . _Coerce;
-
--- | FIXME: Undocumented member.
-preDetails :: Lens' Prediction (HashMap DetailsAttributes Text)
-preDetails = lens _preDetails (\ s a -> s{_preDetails = a}) . _Coerce;
-
 -- | The prediction label for either a BINARY or MULTICLASS @MLModel@.
-prePredictedLabel :: Lens' Prediction Text
+prePredictedLabel :: Lens' Prediction (Maybe Text)
 prePredictedLabel = lens _prePredictedLabel (\ s a -> s{_prePredictedLabel = a});
+
+-- | FIXME: Undocumented member.
+prePredictedScores :: Lens' Prediction (Maybe (HashMap Text Double))
+prePredictedScores = lens _prePredictedScores (\ s a -> s{_prePredictedScores = a}) . mapping _Coerce;
+
+-- | FIXME: Undocumented member.
+preDetails :: Lens' Prediction (Maybe (HashMap DetailsAttributes Text))
+preDetails = lens _preDetails (\ s a -> s{_preDetails = a}) . mapping _Coerce;
 
 instance FromJSON Prediction where
         parseJSON
           = withObject "Prediction"
               (\ x ->
                  Prediction' <$>
-                   x .:? "predictedValue" <*>
+                   x .:? "predictedValue" <*> x .:? "predictedLabel" <*>
                      x .:? "predictedScores" .!= mempty
-                     <*> x .:? "details" .!= mempty
-                     <*> x .: "predictedLabel")
+                     <*> x .:? "details" .!= mempty)
 
 -- | /See:/ 'rdsDataSpec' smart constructor.
 --
@@ -1124,8 +1123,8 @@ instance FromJSON Prediction where
 data RDSDataSpec = RDSDataSpec'{_rDataSchemaURI :: Maybe Text, _rDataSchema :: Maybe Text, _rDataRearrangement :: Maybe Text, _rDatabaseInformation :: RDSDatabase, _rSelectSqlQuery :: Text, _rDatabaseCredentials :: RDSDatabaseCredentials, _rS3StagingLocation :: Text, _rResourceRole :: Text, _rServiceRole :: Text, _rSubnetId :: Text, _rSecurityGroupIds :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'RDSDataSpec' smart constructor.
-rdsDataSpec :: RDSDatabase -> Text -> RDSDatabaseCredentials -> Text -> Text -> Text -> Text -> [Text] -> RDSDataSpec
-rdsDataSpec pDatabaseInformation pSelectSqlQuery pDatabaseCredentials pS3StagingLocation pResourceRole pServiceRole pSubnetId pSecurityGroupIds = RDSDataSpec'{_rDataSchemaURI = Nothing, _rDataSchema = Nothing, _rDataRearrangement = Nothing, _rDatabaseInformation = pDatabaseInformation, _rSelectSqlQuery = pSelectSqlQuery, _rDatabaseCredentials = pDatabaseCredentials, _rS3StagingLocation = pS3StagingLocation, _rResourceRole = pResourceRole, _rServiceRole = pServiceRole, _rSubnetId = pSubnetId, _rSecurityGroupIds = pSecurityGroupIds};
+rdsDataSpec :: RDSDatabase -> Text -> RDSDatabaseCredentials -> Text -> Text -> Text -> Text -> RDSDataSpec
+rdsDataSpec pDatabaseInformation pSelectSqlQuery pDatabaseCredentials pS3StagingLocation pResourceRole pServiceRole pSubnetId = RDSDataSpec'{_rDataSchemaURI = Nothing, _rDataSchema = Nothing, _rDataRearrangement = Nothing, _rDatabaseInformation = pDatabaseInformation, _rSelectSqlQuery = pSelectSqlQuery, _rDatabaseCredentials = pDatabaseCredentials, _rS3StagingLocation = pS3StagingLocation, _rResourceRole = pResourceRole, _rServiceRole = pServiceRole, _rSubnetId = pSubnetId, _rSecurityGroupIds = mempty};
 
 -- | The Amazon S3 location of the @DataSchema@.
 rDataSchemaURI :: Lens' RDSDataSpec (Maybe Text)
@@ -1273,40 +1272,40 @@ instance ToJSON RDSDatabaseCredentials where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rmDatabase'
---
 -- * 'rmSelectSqlQuery'
 --
 -- * 'rmDataPipelineId'
+--
+-- * 'rmDatabase'
 --
 -- * 'rmDatabaseUserName'
 --
 -- * 'rmResourceRole'
 --
 -- * 'rmServiceRole'
-data RDSMetadata = RDSMetadata'{_rmDatabase :: Maybe RDSDatabase, _rmSelectSqlQuery :: Text, _rmDataPipelineId :: Text, _rmDatabaseUserName :: Text, _rmResourceRole :: Text, _rmServiceRole :: Text} deriving (Eq, Read, Show)
+data RDSMetadata = RDSMetadata'{_rmSelectSqlQuery :: Maybe Text, _rmDataPipelineId :: Maybe Text, _rmDatabase :: Maybe RDSDatabase, _rmDatabaseUserName :: Maybe Text, _rmResourceRole :: Maybe Text, _rmServiceRole :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'RDSMetadata' smart constructor.
-rdsMetadata :: Text -> Text -> Text -> Text -> Text -> RDSMetadata
-rdsMetadata pSelectSqlQuery pDataPipelineId pDatabaseUserName pResourceRole pServiceRole = RDSMetadata'{_rmDatabase = Nothing, _rmSelectSqlQuery = pSelectSqlQuery, _rmDataPipelineId = pDataPipelineId, _rmDatabaseUserName = pDatabaseUserName, _rmResourceRole = pResourceRole, _rmServiceRole = pServiceRole};
-
--- | The database details required to connect to an Amazon RDS.
-rmDatabase :: Lens' RDSMetadata (Maybe RDSDatabase)
-rmDatabase = lens _rmDatabase (\ s a -> s{_rmDatabase = a});
+rdsMetadata :: RDSMetadata
+rdsMetadata = RDSMetadata'{_rmSelectSqlQuery = Nothing, _rmDataPipelineId = Nothing, _rmDatabase = Nothing, _rmDatabaseUserName = Nothing, _rmResourceRole = Nothing, _rmServiceRole = Nothing};
 
 -- | The SQL query that is supplied during CreateDataSourceFromRDS. Returns
 -- only if @Verbose@ is true in @GetDataSourceInput@.
-rmSelectSqlQuery :: Lens' RDSMetadata Text
+rmSelectSqlQuery :: Lens' RDSMetadata (Maybe Text)
 rmSelectSqlQuery = lens _rmSelectSqlQuery (\ s a -> s{_rmSelectSqlQuery = a});
 
 -- | The ID of the Data Pipeline instance that is used to carry to copy data
 -- from Amazon RDS to Amazon S3. You can use the ID to find details about
 -- the instance in the Data Pipeline console.
-rmDataPipelineId :: Lens' RDSMetadata Text
+rmDataPipelineId :: Lens' RDSMetadata (Maybe Text)
 rmDataPipelineId = lens _rmDataPipelineId (\ s a -> s{_rmDataPipelineId = a});
 
+-- | The database details required to connect to an Amazon RDS.
+rmDatabase :: Lens' RDSMetadata (Maybe RDSDatabase)
+rmDatabase = lens _rmDatabase (\ s a -> s{_rmDatabase = a});
+
 -- | FIXME: Undocumented member.
-rmDatabaseUserName :: Lens' RDSMetadata Text
+rmDatabaseUserName :: Lens' RDSMetadata (Maybe Text)
 rmDatabaseUserName = lens _rmDatabaseUserName (\ s a -> s{_rmDatabaseUserName = a});
 
 -- | The role (DataPipelineDefaultResourceRole) assumed by an Amazon EC2
@@ -1314,7 +1313,7 @@ rmDatabaseUserName = lens _rmDatabaseUserName (\ s a -> s{_rmDatabaseUserName = 
 -- more information, see
 -- <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates>
 -- for data pipelines.
-rmResourceRole :: Lens' RDSMetadata Text
+rmResourceRole :: Lens' RDSMetadata (Maybe Text)
 rmResourceRole = lens _rmResourceRole (\ s a -> s{_rmResourceRole = a});
 
 -- | The role (DataPipelineDefaultRole) assumed by the Data Pipeline service
@@ -1322,7 +1321,7 @@ rmResourceRole = lens _rmResourceRole (\ s a -> s{_rmResourceRole = a});
 -- For more information, see
 -- <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates>
 -- for data pipelines.
-rmServiceRole :: Lens' RDSMetadata Text
+rmServiceRole :: Lens' RDSMetadata (Maybe Text)
 rmServiceRole = lens _rmServiceRole (\ s a -> s{_rmServiceRole = a});
 
 instance FromJSON RDSMetadata where
@@ -1330,11 +1329,11 @@ instance FromJSON RDSMetadata where
           = withObject "RDSMetadata"
               (\ x ->
                  RDSMetadata' <$>
-                   x .:? "Database" <*> x .: "SelectSqlQuery" <*>
-                     x .: "DataPipelineId"
-                     <*> x .: "DatabaseUserName"
-                     <*> x .: "ResourceRole"
-                     <*> x .: "ServiceRole")
+                   x .:? "SelectSqlQuery" <*> x .:? "DataPipelineId" <*>
+                     x .:? "Database"
+                     <*> x .:? "DatabaseUserName"
+                     <*> x .:? "ResourceRole"
+                     <*> x .:? "ServiceRole")
 
 -- | /See:/ 'realtimeEndpointInfo' smart constructor.
 --
@@ -1546,28 +1545,28 @@ instance ToJSON RedshiftDatabaseCredentials where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'redRedshiftDatabase'
---
 -- * 'redSelectSqlQuery'
 --
+-- * 'redRedshiftDatabase'
+--
 -- * 'redDatabaseUserName'
-data RedshiftMetadata = RedshiftMetadata'{_redRedshiftDatabase :: Maybe RedshiftDatabase, _redSelectSqlQuery :: Text, _redDatabaseUserName :: Text} deriving (Eq, Read, Show)
+data RedshiftMetadata = RedshiftMetadata'{_redSelectSqlQuery :: Maybe Text, _redRedshiftDatabase :: Maybe RedshiftDatabase, _redDatabaseUserName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'RedshiftMetadata' smart constructor.
-redshiftMetadata :: Text -> Text -> RedshiftMetadata
-redshiftMetadata pSelectSqlQuery pDatabaseUserName = RedshiftMetadata'{_redRedshiftDatabase = Nothing, _redSelectSqlQuery = pSelectSqlQuery, _redDatabaseUserName = pDatabaseUserName};
+redshiftMetadata :: RedshiftMetadata
+redshiftMetadata = RedshiftMetadata'{_redSelectSqlQuery = Nothing, _redRedshiftDatabase = Nothing, _redDatabaseUserName = Nothing};
+
+-- | The SQL query that is specified during CreateDataSourceFromRedshift.
+-- Returns only if @Verbose@ is true in GetDataSourceInput.
+redSelectSqlQuery :: Lens' RedshiftMetadata (Maybe Text)
+redSelectSqlQuery = lens _redSelectSqlQuery (\ s a -> s{_redSelectSqlQuery = a});
 
 -- | FIXME: Undocumented member.
 redRedshiftDatabase :: Lens' RedshiftMetadata (Maybe RedshiftDatabase)
 redRedshiftDatabase = lens _redRedshiftDatabase (\ s a -> s{_redRedshiftDatabase = a});
 
--- | The SQL query that is specified during CreateDataSourceFromRedshift.
--- Returns only if @Verbose@ is true in GetDataSourceInput.
-redSelectSqlQuery :: Lens' RedshiftMetadata Text
-redSelectSqlQuery = lens _redSelectSqlQuery (\ s a -> s{_redSelectSqlQuery = a});
-
 -- | FIXME: Undocumented member.
-redDatabaseUserName :: Lens' RedshiftMetadata Text
+redDatabaseUserName :: Lens' RedshiftMetadata (Maybe Text)
 redDatabaseUserName = lens _redDatabaseUserName (\ s a -> s{_redDatabaseUserName = a});
 
 instance FromJSON RedshiftMetadata where
@@ -1575,8 +1574,8 @@ instance FromJSON RedshiftMetadata where
           = withObject "RedshiftMetadata"
               (\ x ->
                  RedshiftMetadata' <$>
-                   x .:? "RedshiftDatabase" <*> x .: "SelectSqlQuery"
-                     <*> x .: "DatabaseUserName")
+                   x .:? "SelectSqlQuery" <*> x .:? "RedshiftDatabase"
+                     <*> x .:? "DatabaseUserName")
 
 -- | /See:/ 's3DataSpec' smart constructor.
 --

@@ -102,13 +102,13 @@ instance ToQuery TerminateWorkspaces where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'twrFailedRequests'
-newtype TerminateWorkspacesResponse = TerminateWorkspacesResponse'{_twrFailedRequests :: [FailedWorkspaceChangeRequest]} deriving (Eq, Read, Show)
+newtype TerminateWorkspacesResponse = TerminateWorkspacesResponse'{_twrFailedRequests :: Maybe [FailedWorkspaceChangeRequest]} deriving (Eq, Read, Show)
 
 -- | 'TerminateWorkspacesResponse' smart constructor.
 terminateWorkspacesResponse :: TerminateWorkspacesResponse
-terminateWorkspacesResponse = TerminateWorkspacesResponse'{_twrFailedRequests = mempty};
+terminateWorkspacesResponse = TerminateWorkspacesResponse'{_twrFailedRequests = Nothing};
 
 -- | An array of structures that represent any WorkSpaces that could not be
 -- terminated.
-twrFailedRequests :: Lens' TerminateWorkspacesResponse [FailedWorkspaceChangeRequest]
+twrFailedRequests :: Lens' TerminateWorkspacesResponse (Maybe [FailedWorkspaceChangeRequest])
 twrFailedRequests = lens _twrFailedRequests (\ s a -> s{_twrFailedRequests = a});

@@ -95,14 +95,14 @@ import Network.AWS.SQS.Types
 -- * 'gqaAttributeNames'
 --
 -- * 'gqaQueueURL'
-data GetQueueAttributes = GetQueueAttributes'{_gqaAttributeNames :: [QueueAttributeName], _gqaQueueURL :: Text} deriving (Eq, Read, Show)
+data GetQueueAttributes = GetQueueAttributes'{_gqaAttributeNames :: Maybe [QueueAttributeName], _gqaQueueURL :: Text} deriving (Eq, Read, Show)
 
 -- | 'GetQueueAttributes' smart constructor.
 getQueueAttributes :: Text -> GetQueueAttributes
-getQueueAttributes pQueueURL = GetQueueAttributes'{_gqaAttributeNames = mempty, _gqaQueueURL = pQueueURL};
+getQueueAttributes pQueueURL = GetQueueAttributes'{_gqaAttributeNames = Nothing, _gqaQueueURL = pQueueURL};
 
 -- | A list of attributes to retrieve information for.
-gqaAttributeNames :: Lens' GetQueueAttributes [QueueAttributeName]
+gqaAttributeNames :: Lens' GetQueueAttributes (Maybe [QueueAttributeName])
 gqaAttributeNames = lens _gqaAttributeNames (\ s a -> s{_gqaAttributeNames = a});
 
 -- | The URL of the Amazon SQS queue to take action on.
@@ -139,12 +139,12 @@ instance ToQuery GetQueueAttributes where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gqarAttributes'
-newtype GetQueueAttributesResponse = GetQueueAttributesResponse'{_gqarAttributes :: HashMap QueueAttributeName Text} deriving (Eq, Read, Show)
+newtype GetQueueAttributesResponse = GetQueueAttributesResponse'{_gqarAttributes :: Maybe (HashMap QueueAttributeName Text)} deriving (Eq, Read, Show)
 
 -- | 'GetQueueAttributesResponse' smart constructor.
 getQueueAttributesResponse :: GetQueueAttributesResponse
-getQueueAttributesResponse = GetQueueAttributesResponse'{_gqarAttributes = mempty};
+getQueueAttributesResponse = GetQueueAttributesResponse'{_gqarAttributes = Nothing};
 
 -- | A map of attributes to the respective values.
-gqarAttributes :: Lens' GetQueueAttributesResponse (HashMap QueueAttributeName Text)
-gqarAttributes = lens _gqarAttributes (\ s a -> s{_gqarAttributes = a}) . _Coerce;
+gqarAttributes :: Lens' GetQueueAttributesResponse (Maybe (HashMap QueueAttributeName Text))
+gqarAttributes = lens _gqarAttributes (\ s a -> s{_gqarAttributes = a}) . mapping _Coerce;

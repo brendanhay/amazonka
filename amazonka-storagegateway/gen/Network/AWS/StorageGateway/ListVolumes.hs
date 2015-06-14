@@ -34,18 +34,18 @@ module Network.AWS.StorageGateway.ListVolumes
     -- ** Request constructor
     , listVolumes
     -- ** Request lenses
-    , lvGatewayARN
     , lvMarker
     , lvLimit
+    , lvGatewayARN
 
     -- * Response
     , ListVolumesResponse
     -- ** Response constructor
     , listVolumesResponse
     -- ** Response lenses
-    , lvrVolumeInfos
     , lvrGatewayARN
     , lvrMarker
+    , lvrVolumeInfos
     ) where
 
 import Network.AWS.Request
@@ -57,31 +57,31 @@ import Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lvGatewayARN'
---
 -- * 'lvMarker'
 --
 -- * 'lvLimit'
-data ListVolumes = ListVolumes'{_lvGatewayARN :: Text, _lvMarker :: Text, _lvLimit :: Nat} deriving (Eq, Read, Show)
+--
+-- * 'lvGatewayARN'
+data ListVolumes = ListVolumes'{_lvMarker :: Maybe Text, _lvLimit :: Maybe Nat, _lvGatewayARN :: Text} deriving (Eq, Read, Show)
 
 -- | 'ListVolumes' smart constructor.
-listVolumes :: Text -> Text -> Natural -> ListVolumes
-listVolumes pGatewayARN pMarker pLimit = ListVolumes'{_lvGatewayARN = pGatewayARN, _lvMarker = pMarker, _lvLimit = _Nat # pLimit};
-
--- | FIXME: Undocumented member.
-lvGatewayARN :: Lens' ListVolumes Text
-lvGatewayARN = lens _lvGatewayARN (\ s a -> s{_lvGatewayARN = a});
+listVolumes :: Text -> ListVolumes
+listVolumes pGatewayARN = ListVolumes'{_lvMarker = Nothing, _lvLimit = Nothing, _lvGatewayARN = pGatewayARN};
 
 -- | A string that indicates the position at which to begin the returned list
 -- of volumes. Obtain the marker from the response of a previous List iSCSI
 -- Volumes request.
-lvMarker :: Lens' ListVolumes Text
+lvMarker :: Lens' ListVolumes (Maybe Text)
 lvMarker = lens _lvMarker (\ s a -> s{_lvMarker = a});
 
 -- | Specifies that the list of volumes returned be limited to the specified
 -- number of items.
-lvLimit :: Lens' ListVolumes Natural
-lvLimit = lens _lvLimit (\ s a -> s{_lvLimit = a}) . _Nat;
+lvLimit :: Lens' ListVolumes (Maybe Natural)
+lvLimit = lens _lvLimit (\ s a -> s{_lvLimit = a}) . mapping _Nat;
+
+-- | FIXME: Undocumented member.
+lvGatewayARN :: Lens' ListVolumes Text
+lvGatewayARN = lens _lvGatewayARN (\ s a -> s{_lvGatewayARN = a});
 
 instance AWSRequest ListVolumes where
         type Sv ListVolumes = StorageGateway
@@ -91,8 +91,8 @@ instance AWSRequest ListVolumes where
           = receiveJSON
               (\ s h x ->
                  ListVolumesResponse' <$>
-                   x .?> "VolumeInfos" .!@ mempty <*> x .:> "GatewayARN"
-                     <*> x .:> "Marker")
+                   x .?> "GatewayARN" <*> x .?> "Marker" <*>
+                     x .?> "VolumeInfos" .!@ mempty)
 
 instance ToHeaders ListVolumes where
         toHeaders
@@ -107,8 +107,8 @@ instance ToHeaders ListVolumes where
 instance ToJSON ListVolumes where
         toJSON ListVolumes'{..}
           = object
-              ["GatewayARN" .= _lvGatewayARN,
-               "Marker" .= _lvMarker, "Limit" .= _lvLimit]
+              ["Marker" .= _lvMarker, "Limit" .= _lvLimit,
+               "GatewayARN" .= _lvGatewayARN]
 
 instance ToPath ListVolumes where
         toPath = const "/"
@@ -120,25 +120,25 @@ instance ToQuery ListVolumes where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lvrVolumeInfos'
---
 -- * 'lvrGatewayARN'
 --
 -- * 'lvrMarker'
-data ListVolumesResponse = ListVolumesResponse'{_lvrVolumeInfos :: [VolumeInfo], _lvrGatewayARN :: Text, _lvrMarker :: Text} deriving (Eq, Read, Show)
+--
+-- * 'lvrVolumeInfos'
+data ListVolumesResponse = ListVolumesResponse'{_lvrGatewayARN :: Maybe Text, _lvrMarker :: Maybe Text, _lvrVolumeInfos :: Maybe [VolumeInfo]} deriving (Eq, Read, Show)
 
 -- | 'ListVolumesResponse' smart constructor.
-listVolumesResponse :: Text -> Text -> ListVolumesResponse
-listVolumesResponse pGatewayARN pMarker = ListVolumesResponse'{_lvrVolumeInfos = mempty, _lvrGatewayARN = pGatewayARN, _lvrMarker = pMarker};
+listVolumesResponse :: ListVolumesResponse
+listVolumesResponse = ListVolumesResponse'{_lvrGatewayARN = Nothing, _lvrMarker = Nothing, _lvrVolumeInfos = Nothing};
 
 -- | FIXME: Undocumented member.
-lvrVolumeInfos :: Lens' ListVolumesResponse [VolumeInfo]
-lvrVolumeInfos = lens _lvrVolumeInfos (\ s a -> s{_lvrVolumeInfos = a});
-
--- | FIXME: Undocumented member.
-lvrGatewayARN :: Lens' ListVolumesResponse Text
+lvrGatewayARN :: Lens' ListVolumesResponse (Maybe Text)
 lvrGatewayARN = lens _lvrGatewayARN (\ s a -> s{_lvrGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-lvrMarker :: Lens' ListVolumesResponse Text
+lvrMarker :: Lens' ListVolumesResponse (Maybe Text)
 lvrMarker = lens _lvrMarker (\ s a -> s{_lvrMarker = a});
+
+-- | FIXME: Undocumented member.
+lvrVolumeInfos :: Lens' ListVolumesResponse (Maybe [VolumeInfo])
+lvrVolumeInfos = lens _lvrVolumeInfos (\ s a -> s{_lvrVolumeInfos = a});

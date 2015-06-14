@@ -56,8 +56,8 @@ import Network.AWS.StorageGateway.Types
 data AddUploadBuffer = AddUploadBuffer'{_aubGatewayARN :: Text, _aubDiskIds :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'AddUploadBuffer' smart constructor.
-addUploadBuffer :: Text -> [Text] -> AddUploadBuffer
-addUploadBuffer pGatewayARN pDiskIds = AddUploadBuffer'{_aubGatewayARN = pGatewayARN, _aubDiskIds = pDiskIds};
+addUploadBuffer :: Text -> AddUploadBuffer
+addUploadBuffer pGatewayARN = AddUploadBuffer'{_aubGatewayARN = pGatewayARN, _aubDiskIds = mempty};
 
 -- | FIXME: Undocumented member.
 aubGatewayARN :: Lens' AddUploadBuffer Text
@@ -74,7 +74,7 @@ instance AWSRequest AddUploadBuffer where
         response
           = receiveJSON
               (\ s h x ->
-                 AddUploadBufferResponse' <$> x .:> "GatewayARN")
+                 AddUploadBufferResponse' <$> x .?> "GatewayARN")
 
 instance ToHeaders AddUploadBuffer where
         toHeaders
@@ -103,12 +103,12 @@ instance ToQuery AddUploadBuffer where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'aubrGatewayARN'
-newtype AddUploadBufferResponse = AddUploadBufferResponse'{_aubrGatewayARN :: Text} deriving (Eq, Read, Show)
+newtype AddUploadBufferResponse = AddUploadBufferResponse'{_aubrGatewayARN :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'AddUploadBufferResponse' smart constructor.
-addUploadBufferResponse :: Text -> AddUploadBufferResponse
-addUploadBufferResponse pGatewayARN = AddUploadBufferResponse'{_aubrGatewayARN = pGatewayARN};
+addUploadBufferResponse :: AddUploadBufferResponse
+addUploadBufferResponse = AddUploadBufferResponse'{_aubrGatewayARN = Nothing};
 
 -- | FIXME: Undocumented member.
-aubrGatewayARN :: Lens' AddUploadBufferResponse Text
+aubrGatewayARN :: Lens' AddUploadBufferResponse (Maybe Text)
 aubrGatewayARN = lens _aubrGatewayARN (\ s a -> s{_aubrGatewayARN = a});

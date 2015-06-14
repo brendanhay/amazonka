@@ -85,9 +85,9 @@ module Network.AWS.DynamoDB.BatchGetItem
     -- ** Response constructor
     , batchGetItemResponse
     -- ** Response lenses
+    , bgirUnprocessedKeys
     , bgirResponses
     , bgirConsumedCapacity
-    , bgirUnprocessedKeys
     ) where
 
 import Network.AWS.Request
@@ -105,8 +105,8 @@ import Network.AWS.DynamoDB.Types
 data BatchGetItem = BatchGetItem'{_bgiReturnConsumedCapacity :: Maybe ReturnConsumedCapacity, _bgiRequestItems :: HashMap Text KeysAndAttributes} deriving (Eq, Read, Show)
 
 -- | 'BatchGetItem' smart constructor.
-batchGetItem :: HashMap Text KeysAndAttributes -> BatchGetItem
-batchGetItem pRequestItems = BatchGetItem'{_bgiReturnConsumedCapacity = Nothing, _bgiRequestItems = _Coerce # pRequestItems};
+batchGetItem :: BatchGetItem
+batchGetItem = BatchGetItem'{_bgiReturnConsumedCapacity = Nothing, _bgiRequestItems = mempty};
 
 -- | FIXME: Undocumented member.
 bgiReturnConsumedCapacity :: Lens' BatchGetItem (Maybe ReturnConsumedCapacity)
@@ -213,9 +213,9 @@ instance AWSRequest BatchGetItem where
           = receiveJSON
               (\ s h x ->
                  BatchGetItemResponse' <$>
-                   x .?> "Responses" .!@ mempty <*>
-                     x .?> "ConsumedCapacity" .!@ mempty
-                     <*> x .?> "UnprocessedKeys" .!@ mempty)
+                   x .?> "UnprocessedKeys" .!@ mempty <*>
+                     x .?> "Responses" .!@ mempty
+                     <*> x .?> "ConsumedCapacity" .!@ mempty)
 
 instance ToHeaders BatchGetItem where
         toHeaders
@@ -243,33 +243,16 @@ instance ToQuery BatchGetItem where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'bgirUnprocessedKeys'
+--
 -- * 'bgirResponses'
 --
 -- * 'bgirConsumedCapacity'
---
--- * 'bgirUnprocessedKeys'
-data BatchGetItemResponse = BatchGetItemResponse'{_bgirResponses :: HashMap Text [HashMap Text AttributeValue], _bgirConsumedCapacity :: [ConsumedCapacity], _bgirUnprocessedKeys :: HashMap Text KeysAndAttributes} deriving (Eq, Read, Show)
+data BatchGetItemResponse = BatchGetItemResponse'{_bgirUnprocessedKeys :: Maybe (HashMap Text KeysAndAttributes), _bgirResponses :: Maybe (HashMap Text [HashMap Text AttributeValue]), _bgirConsumedCapacity :: Maybe [ConsumedCapacity]} deriving (Eq, Read, Show)
 
 -- | 'BatchGetItemResponse' smart constructor.
-batchGetItemResponse :: HashMap Text KeysAndAttributes -> BatchGetItemResponse
-batchGetItemResponse pUnprocessedKeys = BatchGetItemResponse'{_bgirResponses = mempty, _bgirConsumedCapacity = mempty, _bgirUnprocessedKeys = _Coerce # pUnprocessedKeys};
-
--- | A map of table name to a list of items. Each object in /Responses/
--- consists of a table name, along with a map of attribute data consisting
--- of the data type and attribute value.
-bgirResponses :: Lens' BatchGetItemResponse (HashMap Text [HashMap Text AttributeValue])
-bgirResponses = lens _bgirResponses (\ s a -> s{_bgirResponses = a}) . _Coerce;
-
--- | The read capacity units consumed by the operation.
---
--- Each element consists of:
---
--- -   /TableName/ - The table that consumed the provisioned throughput.
---
--- -   /CapacityUnits/ - The total number of capacity units consumed.
---
-bgirConsumedCapacity :: Lens' BatchGetItemResponse [ConsumedCapacity]
-bgirConsumedCapacity = lens _bgirConsumedCapacity (\ s a -> s{_bgirConsumedCapacity = a});
+batchGetItemResponse :: BatchGetItemResponse
+batchGetItemResponse = BatchGetItemResponse'{_bgirUnprocessedKeys = Nothing, _bgirResponses = Nothing, _bgirConsumedCapacity = Nothing};
 
 -- | A map of tables and their respective keys that were not processed with
 -- the current response. The /UnprocessedKeys/ value is in the same form as
@@ -292,5 +275,22 @@ bgirConsumedCapacity = lens _bgirConsumedCapacity (\ s a -> s{_bgirConsumedCapac
 --
 -- If there are no unprocessed keys remaining, the response contains an
 -- empty /UnprocessedKeys/ map.
-bgirUnprocessedKeys :: Lens' BatchGetItemResponse (HashMap Text KeysAndAttributes)
-bgirUnprocessedKeys = lens _bgirUnprocessedKeys (\ s a -> s{_bgirUnprocessedKeys = a}) . _Coerce;
+bgirUnprocessedKeys :: Lens' BatchGetItemResponse (Maybe (HashMap Text KeysAndAttributes))
+bgirUnprocessedKeys = lens _bgirUnprocessedKeys (\ s a -> s{_bgirUnprocessedKeys = a}) . mapping _Coerce;
+
+-- | A map of table name to a list of items. Each object in /Responses/
+-- consists of a table name, along with a map of attribute data consisting
+-- of the data type and attribute value.
+bgirResponses :: Lens' BatchGetItemResponse (Maybe (HashMap Text [HashMap Text AttributeValue]))
+bgirResponses = lens _bgirResponses (\ s a -> s{_bgirResponses = a}) . mapping _Coerce;
+
+-- | The read capacity units consumed by the operation.
+--
+-- Each element consists of:
+--
+-- -   /TableName/ - The table that consumed the provisioned throughput.
+--
+-- -   /CapacityUnits/ - The total number of capacity units consumed.
+--
+bgirConsumedCapacity :: Lens' BatchGetItemResponse (Maybe [ConsumedCapacity])
+bgirConsumedCapacity = lens _bgirConsumedCapacity (\ s a -> s{_bgirConsumedCapacity = a});

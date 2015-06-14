@@ -115,7 +115,7 @@ instance AWSRequest CreateBatchPrediction where
           = receiveJSON
               (\ s h x ->
                  CreateBatchPredictionResponse' <$>
-                   x .:> "BatchPredictionId")
+                   x .?> "BatchPredictionId")
 
 instance ToHeaders CreateBatchPrediction where
         toHeaders
@@ -148,14 +148,14 @@ instance ToQuery CreateBatchPrediction where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cbprBatchPredictionId'
-newtype CreateBatchPredictionResponse = CreateBatchPredictionResponse'{_cbprBatchPredictionId :: Text} deriving (Eq, Read, Show)
+newtype CreateBatchPredictionResponse = CreateBatchPredictionResponse'{_cbprBatchPredictionId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'CreateBatchPredictionResponse' smart constructor.
-createBatchPredictionResponse :: Text -> CreateBatchPredictionResponse
-createBatchPredictionResponse pBatchPredictionId = CreateBatchPredictionResponse'{_cbprBatchPredictionId = pBatchPredictionId};
+createBatchPredictionResponse :: CreateBatchPredictionResponse
+createBatchPredictionResponse = CreateBatchPredictionResponse'{_cbprBatchPredictionId = Nothing};
 
 -- | A user-supplied ID that uniquely identifies the @BatchPrediction@. This
 -- value is identical to the value of the @BatchPredictionId@ in the
 -- request.
-cbprBatchPredictionId :: Lens' CreateBatchPredictionResponse Text
+cbprBatchPredictionId :: Lens' CreateBatchPredictionResponse (Maybe Text)
 cbprBatchPredictionId = lens _cbprBatchPredictionId (\ s a -> s{_cbprBatchPredictionId = a});

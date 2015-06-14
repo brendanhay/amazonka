@@ -25,8 +25,8 @@ module Network.AWS.AutoScaling.ExecutePolicy
     , executePolicy
     -- ** Request lenses
     , epHonorCooldown
-    , epPolicyName
     , epAutoScalingGroupName
+    , epPolicyName
 
     -- * Response
     , ExecutePolicyResponse
@@ -45,14 +45,14 @@ import Network.AWS.AutoScaling.Types
 --
 -- * 'epHonorCooldown'
 --
--- * 'epPolicyName'
---
 -- * 'epAutoScalingGroupName'
-data ExecutePolicy = ExecutePolicy'{_epHonorCooldown :: Maybe Bool, _epPolicyName :: Text, _epAutoScalingGroupName :: Text} deriving (Eq, Read, Show)
+--
+-- * 'epPolicyName'
+data ExecutePolicy = ExecutePolicy'{_epHonorCooldown :: Maybe Bool, _epAutoScalingGroupName :: Maybe Text, _epPolicyName :: Text} deriving (Eq, Read, Show)
 
 -- | 'ExecutePolicy' smart constructor.
-executePolicy :: Text -> Text -> ExecutePolicy
-executePolicy pPolicyName pAutoScalingGroupName = ExecutePolicy'{_epHonorCooldown = Nothing, _epPolicyName = pPolicyName, _epAutoScalingGroupName = pAutoScalingGroupName};
+executePolicy :: Text -> ExecutePolicy
+executePolicy pPolicyName = ExecutePolicy'{_epHonorCooldown = Nothing, _epAutoScalingGroupName = Nothing, _epPolicyName = pPolicyName};
 
 -- | Set to @True@ if you want Auto Scaling to wait for the cooldown period
 -- associated with the Auto Scaling group to complete before executing the
@@ -68,13 +68,13 @@ executePolicy pPolicyName pAutoScalingGroupName = ExecutePolicy'{_epHonorCooldow
 epHonorCooldown :: Lens' ExecutePolicy (Maybe Bool)
 epHonorCooldown = lens _epHonorCooldown (\ s a -> s{_epHonorCooldown = a});
 
+-- | The name or Amazon Resource Name (ARN) of the Auto Scaling group.
+epAutoScalingGroupName :: Lens' ExecutePolicy (Maybe Text)
+epAutoScalingGroupName = lens _epAutoScalingGroupName (\ s a -> s{_epAutoScalingGroupName = a});
+
 -- | The name or ARN of the policy.
 epPolicyName :: Lens' ExecutePolicy Text
 epPolicyName = lens _epPolicyName (\ s a -> s{_epPolicyName = a});
-
--- | The name or Amazon Resource Name (ARN) of the Auto Scaling group.
-epAutoScalingGroupName :: Lens' ExecutePolicy Text
-epAutoScalingGroupName = lens _epAutoScalingGroupName (\ s a -> s{_epAutoScalingGroupName = a});
 
 instance AWSRequest ExecutePolicy where
         type Sv ExecutePolicy = AutoScaling
@@ -94,8 +94,8 @@ instance ToQuery ExecutePolicy where
               ["Action" =: ("ExecutePolicy" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
                "HonorCooldown" =: _epHonorCooldown,
-               "PolicyName" =: _epPolicyName,
-               "AutoScalingGroupName" =: _epAutoScalingGroupName]
+               "AutoScalingGroupName" =: _epAutoScalingGroupName,
+               "PolicyName" =: _epPolicyName]
 
 -- | /See:/ 'executePolicyResponse' smart constructor.
 data ExecutePolicyResponse = ExecutePolicyResponse' deriving (Eq, Read, Show)

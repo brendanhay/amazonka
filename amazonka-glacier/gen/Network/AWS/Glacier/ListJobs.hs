@@ -177,11 +177,11 @@ instance ToQuery ListJobs where
 -- * 'ljrMarker'
 --
 -- * 'ljrJobList'
-data ListJobsResponse = ListJobsResponse'{_ljrMarker :: Maybe Text, _ljrJobList :: [GlacierJobDescription]} deriving (Eq, Read, Show)
+data ListJobsResponse = ListJobsResponse'{_ljrMarker :: Maybe Text, _ljrJobList :: Maybe [GlacierJobDescription]} deriving (Eq, Read, Show)
 
 -- | 'ListJobsResponse' smart constructor.
 listJobsResponse :: ListJobsResponse
-listJobsResponse = ListJobsResponse'{_ljrMarker = Nothing, _ljrJobList = mempty};
+listJobsResponse = ListJobsResponse'{_ljrMarker = Nothing, _ljrJobList = Nothing};
 
 -- | An opaque string that represents where to continue pagination of the
 -- results. You use this value in a new List Jobs request to obtain more
@@ -191,5 +191,5 @@ ljrMarker = lens _ljrMarker (\ s a -> s{_ljrMarker = a});
 
 -- | A list of job objects. Each job object contains metadata describing the
 -- job.
-ljrJobList :: Lens' ListJobsResponse [GlacierJobDescription]
+ljrJobList :: Lens' ListJobsResponse (Maybe [GlacierJobDescription])
 ljrJobList = lens _ljrJobList (\ s a -> s{_ljrJobList = a});

@@ -119,7 +119,7 @@ instance AWSRequest PutScalingPolicy where
         response
           = receiveXMLWrapper "PutScalingPolicyResult"
               (\ s h x ->
-                 PutScalingPolicyResponse' <$> x .@ "PolicyARN")
+                 PutScalingPolicyResponse' <$> x .@? "PolicyARN")
 
 instance ToHeaders PutScalingPolicy where
         toHeaders = const mempty
@@ -144,12 +144,12 @@ instance ToQuery PutScalingPolicy where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'psprPolicyARN'
-newtype PutScalingPolicyResponse = PutScalingPolicyResponse'{_psprPolicyARN :: Text} deriving (Eq, Read, Show)
+newtype PutScalingPolicyResponse = PutScalingPolicyResponse'{_psprPolicyARN :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'PutScalingPolicyResponse' smart constructor.
-putScalingPolicyResponse :: Text -> PutScalingPolicyResponse
-putScalingPolicyResponse pPolicyARN = PutScalingPolicyResponse'{_psprPolicyARN = pPolicyARN};
+putScalingPolicyResponse :: PutScalingPolicyResponse
+putScalingPolicyResponse = PutScalingPolicyResponse'{_psprPolicyARN = Nothing};
 
 -- | The Amazon Resource Name (ARN) of the policy.
-psprPolicyARN :: Lens' PutScalingPolicyResponse Text
+psprPolicyARN :: Lens' PutScalingPolicyResponse (Maybe Text)
 psprPolicyARN = lens _psprPolicyARN (\ s a -> s{_psprPolicyARN = a});

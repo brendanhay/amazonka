@@ -111,12 +111,12 @@ instance ToQuery DescribeVirtualInterfaces where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dvirDescribeVirtualInterfacesResponse'
-newtype DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse'{_dvirDescribeVirtualInterfacesResponse :: [VirtualInterface]} deriving (Eq, Read, Show)
+newtype DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse'{_dvirDescribeVirtualInterfacesResponse :: Maybe [VirtualInterface]} deriving (Eq, Read, Show)
 
 -- | 'DescribeVirtualInterfacesResponse' smart constructor.
 describeVirtualInterfacesResponse :: DescribeVirtualInterfacesResponse
-describeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse'{_dvirDescribeVirtualInterfacesResponse = mempty};
+describeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse'{_dvirDescribeVirtualInterfacesResponse = Nothing};
 
 -- | A list of virtual interfaces.
-dvirDescribeVirtualInterfacesResponse :: Lens' DescribeVirtualInterfacesResponse [VirtualInterface]
+dvirDescribeVirtualInterfacesResponse :: Lens' DescribeVirtualInterfacesResponse (Maybe [VirtualInterface])
 dvirDescribeVirtualInterfacesResponse = lens _dvirDescribeVirtualInterfacesResponse (\ s a -> s{_dvirDescribeVirtualInterfacesResponse = a});

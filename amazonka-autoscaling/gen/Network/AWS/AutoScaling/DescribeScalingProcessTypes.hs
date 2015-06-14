@@ -77,12 +77,12 @@ instance ToQuery DescribeScalingProcessTypes where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsptrProcesses'
-newtype DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse'{_dsptrProcesses :: [ProcessType]} deriving (Eq, Read, Show)
+newtype DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse'{_dsptrProcesses :: Maybe [ProcessType]} deriving (Eq, Read, Show)
 
 -- | 'DescribeScalingProcessTypesResponse' smart constructor.
 describeScalingProcessTypesResponse :: DescribeScalingProcessTypesResponse
-describeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse'{_dsptrProcesses = mempty};
+describeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse'{_dsptrProcesses = Nothing};
 
 -- | The names of the process types.
-dsptrProcesses :: Lens' DescribeScalingProcessTypesResponse [ProcessType]
+dsptrProcesses :: Lens' DescribeScalingProcessTypesResponse (Maybe [ProcessType])
 dsptrProcesses = lens _dsptrProcesses (\ s a -> s{_dsptrProcesses = a});

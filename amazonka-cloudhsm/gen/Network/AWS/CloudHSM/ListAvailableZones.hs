@@ -79,13 +79,13 @@ instance ToQuery ListAvailableZones where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lazrAZList'
-newtype ListAvailableZonesResponse = ListAvailableZonesResponse'{_lazrAZList :: [Text]} deriving (Eq, Read, Show)
+newtype ListAvailableZonesResponse = ListAvailableZonesResponse'{_lazrAZList :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'ListAvailableZonesResponse' smart constructor.
 listAvailableZonesResponse :: ListAvailableZonesResponse
-listAvailableZonesResponse = ListAvailableZonesResponse'{_lazrAZList = mempty};
+listAvailableZonesResponse = ListAvailableZonesResponse'{_lazrAZList = Nothing};
 
 -- | The list of Availability Zones that have available AWS CloudHSM
 -- capacity.
-lazrAZList :: Lens' ListAvailableZonesResponse [Text]
+lazrAZList :: Lens' ListAvailableZonesResponse (Maybe [Text])
 lazrAZList = lens _lazrAZList (\ s a -> s{_lazrAZList = a});

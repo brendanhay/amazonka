@@ -59,8 +59,8 @@ import Network.AWS.ELB.Types
 data DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancer'{_diflbLoadBalancerName :: Text, _diflbInstances :: [Instance]} deriving (Eq, Read, Show)
 
 -- | 'DeregisterInstancesFromLoadBalancer' smart constructor.
-deregisterInstancesFromLoadBalancer :: Text -> [Instance] -> DeregisterInstancesFromLoadBalancer
-deregisterInstancesFromLoadBalancer pLoadBalancerName pInstances = DeregisterInstancesFromLoadBalancer'{_diflbLoadBalancerName = pLoadBalancerName, _diflbInstances = pInstances};
+deregisterInstancesFromLoadBalancer :: Text -> DeregisterInstancesFromLoadBalancer
+deregisterInstancesFromLoadBalancer pLoadBalancerName = DeregisterInstancesFromLoadBalancer'{_diflbLoadBalancerName = pLoadBalancerName, _diflbInstances = mempty};
 
 -- | The name of the load balancer.
 diflbLoadBalancerName :: Lens' DeregisterInstancesFromLoadBalancer Text
@@ -108,12 +108,12 @@ instance ToQuery DeregisterInstancesFromLoadBalancer
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'diflbrInstances'
-newtype DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse'{_diflbrInstances :: [Instance]} deriving (Eq, Read, Show)
+newtype DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse'{_diflbrInstances :: Maybe [Instance]} deriving (Eq, Read, Show)
 
 -- | 'DeregisterInstancesFromLoadBalancerResponse' smart constructor.
 deregisterInstancesFromLoadBalancerResponse :: DeregisterInstancesFromLoadBalancerResponse
-deregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse'{_diflbrInstances = mempty};
+deregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse'{_diflbrInstances = Nothing};
 
 -- | The remaining instances registered with the load balancer.
-diflbrInstances :: Lens' DeregisterInstancesFromLoadBalancerResponse [Instance]
+diflbrInstances :: Lens' DeregisterInstancesFromLoadBalancerResponse (Maybe [Instance])
 diflbrInstances = lens _diflbrInstances (\ s a -> s{_diflbrInstances = a});

@@ -52,18 +52,18 @@ import Network.AWS.Route53.Types
 -- * 'gglCountryCode'
 --
 -- * 'gglContinentCode'
-data GetGeoLocation = GetGeoLocation'{_gglSubdivisionCode :: Text, _gglCountryCode :: Text, _gglContinentCode :: Text} deriving (Eq, Read, Show)
+data GetGeoLocation = GetGeoLocation'{_gglSubdivisionCode :: Maybe Text, _gglCountryCode :: Maybe Text, _gglContinentCode :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'GetGeoLocation' smart constructor.
-getGeoLocation :: Text -> Text -> Text -> GetGeoLocation
-getGeoLocation pSubdivisionCode pCountryCode pContinentCode = GetGeoLocation'{_gglSubdivisionCode = pSubdivisionCode, _gglCountryCode = pCountryCode, _gglContinentCode = pContinentCode};
+getGeoLocation :: GetGeoLocation
+getGeoLocation = GetGeoLocation'{_gglSubdivisionCode = Nothing, _gglCountryCode = Nothing, _gglContinentCode = Nothing};
 
 -- | The code for a country\'s subdivision (e.g., a province of Canada). A
 -- subdivision code is only valid with the appropriate country code.
 --
 -- Constraint: Specifying @SubdivisionCode@ without @CountryCode@ returns
 -- an InvalidInput error.
-gglSubdivisionCode :: Lens' GetGeoLocation Text
+gglSubdivisionCode :: Lens' GetGeoLocation (Maybe Text)
 gglSubdivisionCode = lens _gglSubdivisionCode (\ s a -> s{_gglSubdivisionCode = a});
 
 -- | The code for a country geo location. The default location uses \'*\' for
@@ -72,7 +72,7 @@ gglSubdivisionCode = lens _gglSubdivisionCode (\ s a -> s{_gglSubdivisionCode = 
 --
 -- The default geo location uses a @*@ for the country code. All other
 -- country codes follow the ISO 3166 two-character code.
-gglCountryCode :: Lens' GetGeoLocation Text
+gglCountryCode :: Lens' GetGeoLocation (Maybe Text)
 gglCountryCode = lens _gglCountryCode (\ s a -> s{_gglCountryCode = a});
 
 -- | The code for a continent geo location. Note: only continent locations
@@ -82,7 +82,7 @@ gglCountryCode = lens _gglCountryCode (\ s a -> s{_gglCountryCode = a});
 --
 -- Constraint: Specifying @ContinentCode@ with either @CountryCode@ or
 -- @SubdivisionCode@ returns an InvalidInput error.
-gglContinentCode :: Lens' GetGeoLocation Text
+gglContinentCode :: Lens' GetGeoLocation (Maybe Text)
 gglContinentCode = lens _gglContinentCode (\ s a -> s{_gglContinentCode = a});
 
 instance AWSRequest GetGeoLocation where

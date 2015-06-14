@@ -55,8 +55,8 @@ import Network.AWS.SNS.Types
 data AddPermission = AddPermission'{_apTopicARN :: Text, _apLabel :: Text, _apAWSAccountId :: [Text], _apActionName :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'AddPermission' smart constructor.
-addPermission :: Text -> Text -> [Text] -> [Text] -> AddPermission
-addPermission pTopicARN pLabel pAWSAccountId pActionName = AddPermission'{_apTopicARN = pTopicARN, _apLabel = pLabel, _apAWSAccountId = pAWSAccountId, _apActionName = pActionName};
+addPermission :: Text -> Text -> AddPermission
+addPermission pTopicARN pLabel = AddPermission'{_apTopicARN = pTopicARN, _apLabel = pLabel, _apAWSAccountId = mempty, _apActionName = mempty};
 
 -- | The ARN of the topic whose access control policy you wish to modify.
 apTopicARN :: Lens' AddPermission Text

@@ -72,7 +72,7 @@ instance AWSRequest UpdateEvaluation where
         response
           = receiveJSON
               (\ s h x ->
-                 UpdateEvaluationResponse' <$> x .:> "EvaluationId")
+                 UpdateEvaluationResponse' <$> x .?> "EvaluationId")
 
 instance ToHeaders UpdateEvaluation where
         toHeaders
@@ -100,13 +100,13 @@ instance ToQuery UpdateEvaluation where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'uerEvaluationId'
-newtype UpdateEvaluationResponse = UpdateEvaluationResponse'{_uerEvaluationId :: Text} deriving (Eq, Read, Show)
+newtype UpdateEvaluationResponse = UpdateEvaluationResponse'{_uerEvaluationId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'UpdateEvaluationResponse' smart constructor.
-updateEvaluationResponse :: Text -> UpdateEvaluationResponse
-updateEvaluationResponse pEvaluationId = UpdateEvaluationResponse'{_uerEvaluationId = pEvaluationId};
+updateEvaluationResponse :: UpdateEvaluationResponse
+updateEvaluationResponse = UpdateEvaluationResponse'{_uerEvaluationId = Nothing};
 
 -- | The ID assigned to the @Evaluation@ during creation. This value should
 -- be identical to the value of the @Evaluation@ in the request.
-uerEvaluationId :: Lens' UpdateEvaluationResponse Text
+uerEvaluationId :: Lens' UpdateEvaluationResponse (Maybe Text)
 uerEvaluationId = lens _uerEvaluationId (\ s a -> s{_uerEvaluationId = a});

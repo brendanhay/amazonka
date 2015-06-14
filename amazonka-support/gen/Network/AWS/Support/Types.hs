@@ -271,11 +271,11 @@ instance FromJSON AttachmentDetails where
 -- * 'cdTimeCreated'
 --
 -- * 'cdServiceCode'
-data CaseDetails = CaseDetails'{_cdSubject :: Maybe Text, _cdStatus :: Maybe Text, _cdRecentCommunications :: Maybe RecentCaseCommunications, _cdSeverityCode :: Maybe Text, _cdCaseId :: Maybe Text, _cdCcEmailAddresses :: [Text], _cdDisplayId :: Maybe Text, _cdSubmittedBy :: Maybe Text, _cdLanguage :: Maybe Text, _cdCategoryCode :: Maybe Text, _cdTimeCreated :: Maybe Text, _cdServiceCode :: Maybe Text} deriving (Eq, Read, Show)
+data CaseDetails = CaseDetails'{_cdSubject :: Maybe Text, _cdStatus :: Maybe Text, _cdRecentCommunications :: Maybe RecentCaseCommunications, _cdSeverityCode :: Maybe Text, _cdCaseId :: Maybe Text, _cdCcEmailAddresses :: Maybe [Text], _cdDisplayId :: Maybe Text, _cdSubmittedBy :: Maybe Text, _cdLanguage :: Maybe Text, _cdCategoryCode :: Maybe Text, _cdTimeCreated :: Maybe Text, _cdServiceCode :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'CaseDetails' smart constructor.
 caseDetails :: CaseDetails
-caseDetails = CaseDetails'{_cdSubject = Nothing, _cdStatus = Nothing, _cdRecentCommunications = Nothing, _cdSeverityCode = Nothing, _cdCaseId = Nothing, _cdCcEmailAddresses = mempty, _cdDisplayId = Nothing, _cdSubmittedBy = Nothing, _cdLanguage = Nothing, _cdCategoryCode = Nothing, _cdTimeCreated = Nothing, _cdServiceCode = Nothing};
+caseDetails = CaseDetails'{_cdSubject = Nothing, _cdStatus = Nothing, _cdRecentCommunications = Nothing, _cdSeverityCode = Nothing, _cdCaseId = Nothing, _cdCcEmailAddresses = Nothing, _cdDisplayId = Nothing, _cdSubmittedBy = Nothing, _cdLanguage = Nothing, _cdCategoryCode = Nothing, _cdTimeCreated = Nothing, _cdServiceCode = Nothing};
 
 -- | The subject line for the case in the AWS Support Center.
 cdSubject :: Lens' CaseDetails (Maybe Text)
@@ -304,7 +304,7 @@ cdCaseId :: Lens' CaseDetails (Maybe Text)
 cdCaseId = lens _cdCaseId (\ s a -> s{_cdCaseId = a});
 
 -- | The email addresses that receive copies of communication about the case.
-cdCcEmailAddresses :: Lens' CaseDetails [Text]
+cdCcEmailAddresses :: Lens' CaseDetails (Maybe [Text])
 cdCcEmailAddresses = lens _cdCcEmailAddresses (\ s a -> s{_cdCcEmailAddresses = a});
 
 -- | The ID displayed for the case in the AWS Support Center. This is a
@@ -391,11 +391,11 @@ instance FromJSON Category where
 -- * 'comTimeCreated'
 --
 -- * 'comAttachmentSet'
-data Communication = Communication'{_comBody :: Maybe Text, _comCaseId :: Maybe Text, _comSubmittedBy :: Maybe Text, _comTimeCreated :: Maybe Text, _comAttachmentSet :: [AttachmentDetails]} deriving (Eq, Read, Show)
+data Communication = Communication'{_comBody :: Maybe Text, _comCaseId :: Maybe Text, _comSubmittedBy :: Maybe Text, _comTimeCreated :: Maybe Text, _comAttachmentSet :: Maybe [AttachmentDetails]} deriving (Eq, Read, Show)
 
 -- | 'Communication' smart constructor.
 communication :: Communication
-communication = Communication'{_comBody = Nothing, _comCaseId = Nothing, _comSubmittedBy = Nothing, _comTimeCreated = Nothing, _comAttachmentSet = mempty};
+communication = Communication'{_comBody = Nothing, _comCaseId = Nothing, _comSubmittedBy = Nothing, _comTimeCreated = Nothing, _comAttachmentSet = Nothing};
 
 -- | The text of the communication between the customer and AWS Support.
 comBody :: Lens' Communication (Maybe Text)
@@ -416,7 +416,7 @@ comTimeCreated :: Lens' Communication (Maybe Text)
 comTimeCreated = lens _comTimeCreated (\ s a -> s{_comTimeCreated = a});
 
 -- | Information about the attachments to the case communication.
-comAttachmentSet :: Lens' Communication [AttachmentDetails]
+comAttachmentSet :: Lens' Communication (Maybe [AttachmentDetails])
 comAttachmentSet = lens _comAttachmentSet (\ s a -> s{_comAttachmentSet = a});
 
 instance FromJSON Communication where
@@ -436,18 +436,18 @@ instance FromJSON Communication where
 -- * 'rccNextToken'
 --
 -- * 'rccCommunications'
-data RecentCaseCommunications = RecentCaseCommunications'{_rccNextToken :: Maybe Text, _rccCommunications :: [Communication]} deriving (Eq, Read, Show)
+data RecentCaseCommunications = RecentCaseCommunications'{_rccNextToken :: Maybe Text, _rccCommunications :: Maybe [Communication]} deriving (Eq, Read, Show)
 
 -- | 'RecentCaseCommunications' smart constructor.
 recentCaseCommunications :: RecentCaseCommunications
-recentCaseCommunications = RecentCaseCommunications'{_rccNextToken = Nothing, _rccCommunications = mempty};
+recentCaseCommunications = RecentCaseCommunications'{_rccNextToken = Nothing, _rccCommunications = Nothing};
 
 -- | A resumption point for pagination.
 rccNextToken :: Lens' RecentCaseCommunications (Maybe Text)
 rccNextToken = lens _rccNextToken (\ s a -> s{_rccNextToken = a});
 
 -- | The five most recent communications associated with the case.
-rccCommunications :: Lens' RecentCaseCommunications [Communication]
+rccCommunications :: Lens' RecentCaseCommunications (Maybe [Communication])
 rccCommunications = lens _rccCommunications (\ s a -> s{_rccCommunications = a});
 
 instance FromJSON RecentCaseCommunications where
@@ -497,17 +497,17 @@ instance FromJSON SeverityLevel where
 -- * 'ssName'
 --
 -- * 'ssCode'
-data SupportService = SupportService'{_ssCategories :: [Category], _ssName :: Maybe Text, _ssCode :: Maybe Text} deriving (Eq, Read, Show)
+data SupportService = SupportService'{_ssCategories :: Maybe [Category], _ssName :: Maybe Text, _ssCode :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'SupportService' smart constructor.
 supportService :: SupportService
-supportService = SupportService'{_ssCategories = mempty, _ssName = Nothing, _ssCode = Nothing};
+supportService = SupportService'{_ssCategories = Nothing, _ssName = Nothing, _ssCode = Nothing};
 
 -- | A list of categories that describe the type of support issue a case
 -- describes. Categories consist of a category name and a category code.
 -- Category names and codes are passed to AWS Support when you call
 -- CreateCase.
-ssCategories :: Lens' SupportService [Category]
+ssCategories :: Lens' SupportService (Maybe [Category])
 ssCategories = lens _ssCategories (\ s a -> s{_ssCategories = a});
 
 -- | The friendly name for an AWS service. The @Code@ element contains the
@@ -568,8 +568,8 @@ instance FromJSON
 data TrustedAdvisorCheckDescription = TrustedAdvisorCheckDescription'{_tacdId :: Text, _tacdName :: Text, _tacdDescription :: Text, _tacdCategory :: Text, _tacdMetadata :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'TrustedAdvisorCheckDescription' smart constructor.
-trustedAdvisorCheckDescription :: Text -> Text -> Text -> Text -> [Text] -> TrustedAdvisorCheckDescription
-trustedAdvisorCheckDescription pId pName pDescription pCategory pMetadata = TrustedAdvisorCheckDescription'{_tacdId = pId, _tacdName = pName, _tacdDescription = pDescription, _tacdCategory = pCategory, _tacdMetadata = pMetadata};
+trustedAdvisorCheckDescription :: Text -> Text -> Text -> Text -> TrustedAdvisorCheckDescription
+trustedAdvisorCheckDescription pId pName pDescription pCategory = TrustedAdvisorCheckDescription'{_tacdId = pId, _tacdName = pName, _tacdDescription = pDescription, _tacdCategory = pCategory, _tacdMetadata = mempty};
 
 -- | The unique identifier for the Trusted Advisor check.
 tacdId :: Lens' TrustedAdvisorCheckDescription Text
@@ -663,8 +663,8 @@ instance FromJSON TrustedAdvisorCheckRefreshStatus
 data TrustedAdvisorCheckResult = TrustedAdvisorCheckResult'{_tacrCheckId :: Text, _tacrTimestamp :: Text, _tacrStatus :: Text, _tacrResourcesSummary :: TrustedAdvisorResourcesSummary, _tacrCategorySpecificSummary :: TrustedAdvisorCategorySpecificSummary, _tacrFlaggedResources :: [TrustedAdvisorResourceDetail]} deriving (Eq, Read, Show)
 
 -- | 'TrustedAdvisorCheckResult' smart constructor.
-trustedAdvisorCheckResult :: Text -> Text -> Text -> TrustedAdvisorResourcesSummary -> TrustedAdvisorCategorySpecificSummary -> [TrustedAdvisorResourceDetail] -> TrustedAdvisorCheckResult
-trustedAdvisorCheckResult pCheckId pTimestamp pStatus pResourcesSummary pCategorySpecificSummary pFlaggedResources = TrustedAdvisorCheckResult'{_tacrCheckId = pCheckId, _tacrTimestamp = pTimestamp, _tacrStatus = pStatus, _tacrResourcesSummary = pResourcesSummary, _tacrCategorySpecificSummary = pCategorySpecificSummary, _tacrFlaggedResources = pFlaggedResources};
+trustedAdvisorCheckResult :: Text -> Text -> Text -> TrustedAdvisorResourcesSummary -> TrustedAdvisorCategorySpecificSummary -> TrustedAdvisorCheckResult
+trustedAdvisorCheckResult pCheckId pTimestamp pStatus pResourcesSummary pCategorySpecificSummary = TrustedAdvisorCheckResult'{_tacrCheckId = pCheckId, _tacrTimestamp = pTimestamp, _tacrStatus = pStatus, _tacrResourcesSummary = pResourcesSummary, _tacrCategorySpecificSummary = pCategorySpecificSummary, _tacrFlaggedResources = mempty};
 
 -- | The unique identifier for the Trusted Advisor check.
 tacrCheckId :: Lens' TrustedAdvisorCheckResult Text
@@ -808,8 +808,8 @@ instance FromJSON TrustedAdvisorCostOptimizingSummary
 data TrustedAdvisorResourceDetail = TrustedAdvisorResourceDetail'{_tardIsSuppressed :: Maybe Bool, _tardStatus :: Text, _tardRegion :: Text, _tardResourceId :: Text, _tardMetadata :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'TrustedAdvisorResourceDetail' smart constructor.
-trustedAdvisorResourceDetail :: Text -> Text -> Text -> [Text] -> TrustedAdvisorResourceDetail
-trustedAdvisorResourceDetail pStatus pRegion pResourceId pMetadata = TrustedAdvisorResourceDetail'{_tardIsSuppressed = Nothing, _tardStatus = pStatus, _tardRegion = pRegion, _tardResourceId = pResourceId, _tardMetadata = pMetadata};
+trustedAdvisorResourceDetail :: Text -> Text -> Text -> TrustedAdvisorResourceDetail
+trustedAdvisorResourceDetail pStatus pRegion pResourceId = TrustedAdvisorResourceDetail'{_tardIsSuppressed = Nothing, _tardStatus = pStatus, _tardRegion = pRegion, _tardResourceId = pResourceId, _tardMetadata = mempty};
 
 -- | Specifies whether the AWS resource was ignored by Trusted Advisor
 -- because it was marked as suppressed by the user.

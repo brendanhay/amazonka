@@ -44,15 +44,15 @@ module Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
     -- ** Response constructor
     , configurationSettingsDescription
     -- ** Response lenses
+    , csdTemplateName
     , csdOptionSettings
     , csdDateUpdated
     , csdDateCreated
+    , csdEnvironmentName
+    , csdApplicationName
     , csdDeploymentStatus
     , csdSolutionStackName
     , csdDescription
-    , csdTemplateName
-    , csdEnvironmentName
-    , csdApplicationName
     ) where
 
 import Network.AWS.Request
@@ -73,21 +73,21 @@ import Network.AWS.ElasticBeanstalk.Types
 -- * 'uctApplicationName'
 --
 -- * 'uctTemplateName'
-data UpdateConfigurationTemplate = UpdateConfigurationTemplate'{_uctOptionsToRemove :: [OptionSpecification], _uctOptionSettings :: [ConfigurationOptionSetting], _uctDescription :: Maybe Text, _uctApplicationName :: Text, _uctTemplateName :: Text} deriving (Eq, Read, Show)
+data UpdateConfigurationTemplate = UpdateConfigurationTemplate'{_uctOptionsToRemove :: Maybe [OptionSpecification], _uctOptionSettings :: Maybe [ConfigurationOptionSetting], _uctDescription :: Maybe Text, _uctApplicationName :: Text, _uctTemplateName :: Text} deriving (Eq, Read, Show)
 
 -- | 'UpdateConfigurationTemplate' smart constructor.
 updateConfigurationTemplate :: Text -> Text -> UpdateConfigurationTemplate
-updateConfigurationTemplate pApplicationName pTemplateName = UpdateConfigurationTemplate'{_uctOptionsToRemove = mempty, _uctOptionSettings = mempty, _uctDescription = Nothing, _uctApplicationName = pApplicationName, _uctTemplateName = pTemplateName};
+updateConfigurationTemplate pApplicationName pTemplateName = UpdateConfigurationTemplate'{_uctOptionsToRemove = Nothing, _uctOptionSettings = Nothing, _uctDescription = Nothing, _uctApplicationName = pApplicationName, _uctTemplateName = pTemplateName};
 
 -- | A list of configuration options to remove from the configuration set.
 --
 -- Constraint: You can remove only @UserDefined@ configuration options.
-uctOptionsToRemove :: Lens' UpdateConfigurationTemplate [OptionSpecification]
+uctOptionsToRemove :: Lens' UpdateConfigurationTemplate (Maybe [OptionSpecification])
 uctOptionsToRemove = lens _uctOptionsToRemove (\ s a -> s{_uctOptionsToRemove = a});
 
 -- | A list of configuration option settings to update with the new specified
 -- option value.
-uctOptionSettings :: Lens' UpdateConfigurationTemplate [ConfigurationOptionSetting]
+uctOptionSettings :: Lens' UpdateConfigurationTemplate (Maybe [ConfigurationOptionSetting])
 uctOptionSettings = lens _uctOptionSettings (\ s a -> s{_uctOptionSettings = a});
 
 -- | A new description for the configuration.

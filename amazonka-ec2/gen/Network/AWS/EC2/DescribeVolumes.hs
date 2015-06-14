@@ -68,11 +68,11 @@ import Network.AWS.EC2.Types
 -- * 'des1DryRun'
 --
 -- * 'des1MaxResults'
-data DescribeVolumes = DescribeVolumes'{_des1Filters :: [Filter], _des1VolumeIds :: [Text], _des1NextToken :: Maybe Text, _des1DryRun :: Maybe Bool, _des1MaxResults :: Maybe Int} deriving (Eq, Read, Show)
+data DescribeVolumes = DescribeVolumes'{_des1Filters :: Maybe [Filter], _des1VolumeIds :: Maybe [Text], _des1NextToken :: Maybe Text, _des1DryRun :: Maybe Bool, _des1MaxResults :: Maybe Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeVolumes' smart constructor.
 describeVolumes :: DescribeVolumes
-describeVolumes = DescribeVolumes'{_des1Filters = mempty, _des1VolumeIds = mempty, _des1NextToken = Nothing, _des1DryRun = Nothing, _des1MaxResults = Nothing};
+describeVolumes = DescribeVolumes'{_des1Filters = Nothing, _des1VolumeIds = Nothing, _des1NextToken = Nothing, _des1DryRun = Nothing, _des1MaxResults = Nothing};
 
 -- | One or more filters.
 --
@@ -125,11 +125,11 @@ describeVolumes = DescribeVolumes'{_des1Filters = mempty, _des1VolumeIds = mempt
 --     General Purpose (SSD) volumes, @io1@ for Provisioned IOPS (SSD)
 --     volumes, or @standard@ for Magnetic volumes.
 --
-des1Filters :: Lens' DescribeVolumes [Filter]
+des1Filters :: Lens' DescribeVolumes (Maybe [Filter])
 des1Filters = lens _des1Filters (\ s a -> s{_des1Filters = a});
 
 -- | One or more volume IDs.
-des1VolumeIds :: Lens' DescribeVolumes [Text]
+des1VolumeIds :: Lens' DescribeVolumes (Maybe [Text])
 des1VolumeIds = lens _des1VolumeIds (\ s a -> s{_des1VolumeIds = a});
 
 -- | The @NextToken@ value returned from a previous paginated
@@ -194,11 +194,11 @@ instance ToQuery DescribeVolumes where
 -- * 'dvrNextToken'
 --
 -- * 'dvrVolumes'
-data DescribeVolumesResponse = DescribeVolumesResponse'{_dvrNextToken :: Maybe Text, _dvrVolumes :: [Volume]} deriving (Eq, Read, Show)
+data DescribeVolumesResponse = DescribeVolumesResponse'{_dvrNextToken :: Maybe Text, _dvrVolumes :: Maybe [Volume]} deriving (Eq, Read, Show)
 
 -- | 'DescribeVolumesResponse' smart constructor.
 describeVolumesResponse :: DescribeVolumesResponse
-describeVolumesResponse = DescribeVolumesResponse'{_dvrNextToken = Nothing, _dvrVolumes = mempty};
+describeVolumesResponse = DescribeVolumesResponse'{_dvrNextToken = Nothing, _dvrVolumes = Nothing};
 
 -- | The @NextToken@ value to include in a future @DescribeVolumes@ request.
 -- When the results of a @DescribeVolumes@ request exceed @MaxResults@,
@@ -208,5 +208,5 @@ dvrNextToken :: Lens' DescribeVolumesResponse (Maybe Text)
 dvrNextToken = lens _dvrNextToken (\ s a -> s{_dvrNextToken = a});
 
 -- | Information about the volumes.
-dvrVolumes :: Lens' DescribeVolumesResponse [Volume]
+dvrVolumes :: Lens' DescribeVolumesResponse (Maybe [Volume])
 dvrVolumes = lens _dvrVolumes (\ s a -> s{_dvrVolumes = a});

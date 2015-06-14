@@ -44,14 +44,14 @@ import Network.AWS.EC2.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'detExportTaskIds'
-newtype DescribeExportTasks = DescribeExportTasks'{_detExportTaskIds :: [Text]} deriving (Eq, Read, Show)
+newtype DescribeExportTasks = DescribeExportTasks'{_detExportTaskIds :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'DescribeExportTasks' smart constructor.
 describeExportTasks :: DescribeExportTasks
-describeExportTasks = DescribeExportTasks'{_detExportTaskIds = mempty};
+describeExportTasks = DescribeExportTasks'{_detExportTaskIds = Nothing};
 
 -- | One or more export task IDs.
-detExportTaskIds :: Lens' DescribeExportTasks [Text]
+detExportTaskIds :: Lens' DescribeExportTasks (Maybe [Text])
 detExportTaskIds = lens _detExportTaskIds (\ s a -> s{_detExportTaskIds = a});
 
 instance AWSRequest DescribeExportTasks where
@@ -83,12 +83,12 @@ instance ToQuery DescribeExportTasks where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'detrExportTasks'
-newtype DescribeExportTasksResponse = DescribeExportTasksResponse'{_detrExportTasks :: [ExportTask]} deriving (Eq, Read, Show)
+newtype DescribeExportTasksResponse = DescribeExportTasksResponse'{_detrExportTasks :: Maybe [ExportTask]} deriving (Eq, Read, Show)
 
 -- | 'DescribeExportTasksResponse' smart constructor.
 describeExportTasksResponse :: DescribeExportTasksResponse
-describeExportTasksResponse = DescribeExportTasksResponse'{_detrExportTasks = mempty};
+describeExportTasksResponse = DescribeExportTasksResponse'{_detrExportTasks = Nothing};
 
 -- | Information about the export tasks.
-detrExportTasks :: Lens' DescribeExportTasksResponse [ExportTask]
+detrExportTasks :: Lens' DescribeExportTasksResponse (Maybe [ExportTask])
 detrExportTasks = lens _detrExportTasks (\ s a -> s{_detrExportTasks = a});

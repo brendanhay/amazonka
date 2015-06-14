@@ -100,8 +100,8 @@ instance ToQuery ListHapgs where
 data ListHapgsResponse = ListHapgsResponse'{_lhrNextToken :: Maybe Text, _lhrHapgList :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'ListHapgsResponse' smart constructor.
-listHapgsResponse :: [Text] -> ListHapgsResponse
-listHapgsResponse pHapgList = ListHapgsResponse'{_lhrNextToken = Nothing, _lhrHapgList = pHapgList};
+listHapgsResponse :: ListHapgsResponse
+listHapgsResponse = ListHapgsResponse'{_lhrNextToken = Nothing, _lhrHapgList = mempty};
 
 -- | If not null, more results are available. Pass this value to ListHapgs to
 -- retrieve the next set of items.

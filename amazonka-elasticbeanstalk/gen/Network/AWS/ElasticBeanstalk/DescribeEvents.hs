@@ -29,16 +29,16 @@ module Network.AWS.ElasticBeanstalk.DescribeEvents
     , describeEvents
     -- ** Request lenses
     , deRequestId
+    , deTemplateName
     , deStartTime
     , deSeverity
     , deNextToken
-    , deEndTime
-    , deEnvironmentId
-    , deTemplateName
     , deVersionLabel
     , deMaxRecords
     , deEnvironmentName
+    , deEndTime
     , deApplicationName
+    , deEnvironmentId
 
     -- * Response
     , DescribeEventsResponse
@@ -60,17 +60,13 @@ import Network.AWS.ElasticBeanstalk.Types
 --
 -- * 'deRequestId'
 --
+-- * 'deTemplateName'
+--
 -- * 'deStartTime'
 --
 -- * 'deSeverity'
 --
 -- * 'deNextToken'
---
--- * 'deEndTime'
---
--- * 'deEnvironmentId'
---
--- * 'deTemplateName'
 --
 -- * 'deVersionLabel'
 --
@@ -78,17 +74,26 @@ import Network.AWS.ElasticBeanstalk.Types
 --
 -- * 'deEnvironmentName'
 --
+-- * 'deEndTime'
+--
 -- * 'deApplicationName'
-data DescribeEvents = DescribeEvents'{_deRequestId :: Maybe Text, _deStartTime :: Maybe ISO8601, _deSeverity :: Maybe EventSeverity, _deNextToken :: Maybe Text, _deEndTime :: Maybe ISO8601, _deEnvironmentId :: Maybe Text, _deTemplateName :: Text, _deVersionLabel :: Text, _deMaxRecords :: Nat, _deEnvironmentName :: Text, _deApplicationName :: Text} deriving (Eq, Read, Show)
+--
+-- * 'deEnvironmentId'
+data DescribeEvents = DescribeEvents'{_deRequestId :: Maybe Text, _deTemplateName :: Maybe Text, _deStartTime :: Maybe ISO8601, _deSeverity :: Maybe EventSeverity, _deNextToken :: Maybe Text, _deVersionLabel :: Maybe Text, _deMaxRecords :: Maybe Nat, _deEnvironmentName :: Maybe Text, _deEndTime :: Maybe ISO8601, _deApplicationName :: Maybe Text, _deEnvironmentId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeEvents' smart constructor.
-describeEvents :: Text -> Text -> Natural -> Text -> Text -> DescribeEvents
-describeEvents pTemplateName pVersionLabel pMaxRecords pEnvironmentName pApplicationName = DescribeEvents'{_deRequestId = Nothing, _deStartTime = Nothing, _deSeverity = Nothing, _deNextToken = Nothing, _deEndTime = Nothing, _deEnvironmentId = Nothing, _deTemplateName = pTemplateName, _deVersionLabel = pVersionLabel, _deMaxRecords = _Nat # pMaxRecords, _deEnvironmentName = pEnvironmentName, _deApplicationName = pApplicationName};
+describeEvents :: DescribeEvents
+describeEvents = DescribeEvents'{_deRequestId = Nothing, _deTemplateName = Nothing, _deStartTime = Nothing, _deSeverity = Nothing, _deNextToken = Nothing, _deVersionLabel = Nothing, _deMaxRecords = Nothing, _deEnvironmentName = Nothing, _deEndTime = Nothing, _deApplicationName = Nothing, _deEnvironmentId = Nothing};
 
 -- | If specified, AWS Elastic Beanstalk restricts the described events to
 -- include only those associated with this request ID.
 deRequestId :: Lens' DescribeEvents (Maybe Text)
 deRequestId = lens _deRequestId (\ s a -> s{_deRequestId = a});
+
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
+-- to those that are associated with this environment configuration.
+deTemplateName :: Lens' DescribeEvents (Maybe Text)
+deTemplateName = lens _deTemplateName (\ s a -> s{_deTemplateName = a});
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to those that occur on or after this time.
@@ -106,39 +111,34 @@ deNextToken :: Lens' DescribeEvents (Maybe Text)
 deNextToken = lens _deNextToken (\ s a -> s{_deNextToken = a});
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
+-- to those associated with this application version.
+deVersionLabel :: Lens' DescribeEvents (Maybe Text)
+deVersionLabel = lens _deVersionLabel (\ s a -> s{_deVersionLabel = a});
+
+-- | Specifies the maximum number of events that can be returned, beginning
+-- with the most recent event.
+deMaxRecords :: Lens' DescribeEvents (Maybe Natural)
+deMaxRecords = lens _deMaxRecords (\ s a -> s{_deMaxRecords = a}) . mapping _Nat;
+
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
+-- to those associated with this environment.
+deEnvironmentName :: Lens' DescribeEvents (Maybe Text)
+deEnvironmentName = lens _deEnvironmentName (\ s a -> s{_deEnvironmentName = a});
+
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to those that occur up to, but not including, the @EndTime@.
 deEndTime :: Lens' DescribeEvents (Maybe UTCTime)
 deEndTime = lens _deEndTime (\ s a -> s{_deEndTime = a}) . mapping _Time;
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
+-- to include only those associated with this application.
+deApplicationName :: Lens' DescribeEvents (Maybe Text)
+deApplicationName = lens _deApplicationName (\ s a -> s{_deApplicationName = a});
+
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to those associated with this environment.
 deEnvironmentId :: Lens' DescribeEvents (Maybe Text)
 deEnvironmentId = lens _deEnvironmentId (\ s a -> s{_deEnvironmentId = a});
-
--- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
--- to those that are associated with this environment configuration.
-deTemplateName :: Lens' DescribeEvents Text
-deTemplateName = lens _deTemplateName (\ s a -> s{_deTemplateName = a});
-
--- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
--- to those associated with this application version.
-deVersionLabel :: Lens' DescribeEvents Text
-deVersionLabel = lens _deVersionLabel (\ s a -> s{_deVersionLabel = a});
-
--- | Specifies the maximum number of events that can be returned, beginning
--- with the most recent event.
-deMaxRecords :: Lens' DescribeEvents Natural
-deMaxRecords = lens _deMaxRecords (\ s a -> s{_deMaxRecords = a}) . _Nat;
-
--- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
--- to those associated with this environment.
-deEnvironmentName :: Lens' DescribeEvents Text
-deEnvironmentName = lens _deEnvironmentName (\ s a -> s{_deEnvironmentName = a});
-
--- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
--- to include only those associated with this application.
-deApplicationName :: Lens' DescribeEvents Text
-deApplicationName = lens _deApplicationName (\ s a -> s{_deApplicationName = a});
 
 instance AWSRequest DescribeEvents where
         type Sv DescribeEvents = ElasticBeanstalk
@@ -164,15 +164,16 @@ instance ToQuery DescribeEvents where
               ["Action" =: ("DescribeEvents" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
                "RequestId" =: _deRequestId,
+               "TemplateName" =: _deTemplateName,
                "StartTime" =: _deStartTime,
                "Severity" =: _deSeverity,
-               "NextToken" =: _deNextToken, "EndTime" =: _deEndTime,
-               "EnvironmentId" =: _deEnvironmentId,
-               "TemplateName" =: _deTemplateName,
+               "NextToken" =: _deNextToken,
                "VersionLabel" =: _deVersionLabel,
                "MaxRecords" =: _deMaxRecords,
                "EnvironmentName" =: _deEnvironmentName,
-               "ApplicationName" =: _deApplicationName]
+               "EndTime" =: _deEndTime,
+               "ApplicationName" =: _deApplicationName,
+               "EnvironmentId" =: _deEnvironmentId]
 
 -- | /See:/ 'describeEventsResponse' smart constructor.
 --
@@ -181,11 +182,11 @@ instance ToQuery DescribeEvents where
 -- * 'derNextToken'
 --
 -- * 'derEvents'
-data DescribeEventsResponse = DescribeEventsResponse'{_derNextToken :: Maybe Text, _derEvents :: [EventDescription]} deriving (Eq, Read, Show)
+data DescribeEventsResponse = DescribeEventsResponse'{_derNextToken :: Maybe Text, _derEvents :: Maybe [EventDescription]} deriving (Eq, Read, Show)
 
 -- | 'DescribeEventsResponse' smart constructor.
 describeEventsResponse :: DescribeEventsResponse
-describeEventsResponse = DescribeEventsResponse'{_derNextToken = Nothing, _derEvents = mempty};
+describeEventsResponse = DescribeEventsResponse'{_derNextToken = Nothing, _derEvents = Nothing};
 
 -- | If returned, this indicates that there are more results to obtain. Use
 -- this token in the next DescribeEvents call to get the next batch of
@@ -194,5 +195,5 @@ derNextToken :: Lens' DescribeEventsResponse (Maybe Text)
 derNextToken = lens _derNextToken (\ s a -> s{_derNextToken = a});
 
 -- | A list of EventDescription.
-derEvents :: Lens' DescribeEventsResponse [EventDescription]
+derEvents :: Lens' DescribeEventsResponse (Maybe [EventDescription])
 derEvents = lens _derEvents (\ s a -> s{_derEvents = a});

@@ -106,11 +106,11 @@ import Network.AWS.RDS.Types
 -- * 'rditpitSourceDBInstanceIdentifier'
 --
 -- * 'rditpitTargetDBInstanceIdentifier'
-data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'{_rditpitUseLatestRestorableTime :: Maybe Bool, _rditpitAutoMinorVersionUpgrade :: Maybe Bool, _rditpitPubliclyAccessible :: Maybe Bool, _rditpitDBSubnetGroupName :: Maybe Text, _rditpitRestoreTime :: Maybe ISO8601, _rditpitIOPS :: Maybe Int, _rditpitEngine :: Maybe Text, _rditpitTDECredentialPassword :: Maybe Text, _rditpitDBInstanceClass :: Maybe Text, _rditpitLicenseModel :: Maybe Text, _rditpitAvailabilityZone :: Maybe Text, _rditpitMultiAZ :: Maybe Bool, _rditpitTDECredentialARN :: Maybe Text, _rditpitOptionGroupName :: Maybe Text, _rditpitDBName :: Maybe Text, _rditpitTags :: [Tag], _rditpitPort :: Maybe Int, _rditpitStorageType :: Maybe Text, _rditpitSourceDBInstanceIdentifier :: Text, _rditpitTargetDBInstanceIdentifier :: Text} deriving (Eq, Read, Show)
+data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'{_rditpitUseLatestRestorableTime :: Maybe Bool, _rditpitAutoMinorVersionUpgrade :: Maybe Bool, _rditpitPubliclyAccessible :: Maybe Bool, _rditpitDBSubnetGroupName :: Maybe Text, _rditpitRestoreTime :: Maybe ISO8601, _rditpitIOPS :: Maybe Int, _rditpitEngine :: Maybe Text, _rditpitTDECredentialPassword :: Maybe Text, _rditpitDBInstanceClass :: Maybe Text, _rditpitLicenseModel :: Maybe Text, _rditpitAvailabilityZone :: Maybe Text, _rditpitMultiAZ :: Maybe Bool, _rditpitTDECredentialARN :: Maybe Text, _rditpitOptionGroupName :: Maybe Text, _rditpitDBName :: Maybe Text, _rditpitTags :: Maybe [Tag], _rditpitPort :: Maybe Int, _rditpitStorageType :: Maybe Text, _rditpitSourceDBInstanceIdentifier :: Text, _rditpitTargetDBInstanceIdentifier :: Text} deriving (Eq, Read, Show)
 
 -- | 'RestoreDBInstanceToPointInTime' smart constructor.
 restoreDBInstanceToPointInTime :: Text -> Text -> RestoreDBInstanceToPointInTime
-restoreDBInstanceToPointInTime pSourceDBInstanceIdentifier pTargetDBInstanceIdentifier = RestoreDBInstanceToPointInTime'{_rditpitUseLatestRestorableTime = Nothing, _rditpitAutoMinorVersionUpgrade = Nothing, _rditpitPubliclyAccessible = Nothing, _rditpitDBSubnetGroupName = Nothing, _rditpitRestoreTime = Nothing, _rditpitIOPS = Nothing, _rditpitEngine = Nothing, _rditpitTDECredentialPassword = Nothing, _rditpitDBInstanceClass = Nothing, _rditpitLicenseModel = Nothing, _rditpitAvailabilityZone = Nothing, _rditpitMultiAZ = Nothing, _rditpitTDECredentialARN = Nothing, _rditpitOptionGroupName = Nothing, _rditpitDBName = Nothing, _rditpitTags = mempty, _rditpitPort = Nothing, _rditpitStorageType = Nothing, _rditpitSourceDBInstanceIdentifier = pSourceDBInstanceIdentifier, _rditpitTargetDBInstanceIdentifier = pTargetDBInstanceIdentifier};
+restoreDBInstanceToPointInTime pSourceDBInstanceIdentifier pTargetDBInstanceIdentifier = RestoreDBInstanceToPointInTime'{_rditpitUseLatestRestorableTime = Nothing, _rditpitAutoMinorVersionUpgrade = Nothing, _rditpitPubliclyAccessible = Nothing, _rditpitDBSubnetGroupName = Nothing, _rditpitRestoreTime = Nothing, _rditpitIOPS = Nothing, _rditpitEngine = Nothing, _rditpitTDECredentialPassword = Nothing, _rditpitDBInstanceClass = Nothing, _rditpitLicenseModel = Nothing, _rditpitAvailabilityZone = Nothing, _rditpitMultiAZ = Nothing, _rditpitTDECredentialARN = Nothing, _rditpitOptionGroupName = Nothing, _rditpitDBName = Nothing, _rditpitTags = Nothing, _rditpitPort = Nothing, _rditpitStorageType = Nothing, _rditpitSourceDBInstanceIdentifier = pSourceDBInstanceIdentifier, _rditpitTargetDBInstanceIdentifier = pTargetDBInstanceIdentifier};
 
 -- | Specifies whether (@true@) or not (@false@) the DB instance is restored
 -- from the latest backup time.
@@ -250,7 +250,7 @@ rditpitDBName :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
 rditpitDBName = lens _rditpitDBName (\ s a -> s{_rditpitDBName = a});
 
 -- | FIXME: Undocumented member.
-rditpitTags :: Lens' RestoreDBInstanceToPointInTime [Tag]
+rditpitTags :: Lens' RestoreDBInstanceToPointInTime (Maybe [Tag])
 rditpitTags = lens _rditpitTags (\ s a -> s{_rditpitTags = a});
 
 -- | The port number on which the database accepts connections.

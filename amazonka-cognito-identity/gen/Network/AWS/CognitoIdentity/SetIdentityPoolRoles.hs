@@ -51,8 +51,8 @@ import Network.AWS.CognitoIdentity.Types
 data SetIdentityPoolRoles = SetIdentityPoolRoles'{_siprIdentityPoolId :: Text, _siprRoles :: HashMap Text Text} deriving (Eq, Read, Show)
 
 -- | 'SetIdentityPoolRoles' smart constructor.
-setIdentityPoolRoles :: Text -> HashMap Text Text -> SetIdentityPoolRoles
-setIdentityPoolRoles pIdentityPoolId pRoles = SetIdentityPoolRoles'{_siprIdentityPoolId = pIdentityPoolId, _siprRoles = _Coerce # pRoles};
+setIdentityPoolRoles :: Text -> SetIdentityPoolRoles
+setIdentityPoolRoles pIdentityPoolId = SetIdentityPoolRoles'{_siprIdentityPoolId = pIdentityPoolId, _siprRoles = mempty};
 
 -- | An identity pool ID in the format REGION:GUID.
 siprIdentityPoolId :: Lens' SetIdentityPoolRoles Text

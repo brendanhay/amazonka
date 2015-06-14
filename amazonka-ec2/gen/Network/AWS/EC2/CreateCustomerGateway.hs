@@ -83,7 +83,7 @@ data CreateCustomerGateway = CreateCustomerGateway'{_ccgDryRun :: Maybe Bool, _c
 
 -- | 'CreateCustomerGateway' smart constructor.
 createCustomerGateway :: GatewayType -> Text -> Int -> CreateCustomerGateway
-createCustomerGateway pType' pPublicIP pBGPASN = CreateCustomerGateway'{_ccgDryRun = Nothing, _ccgType = pType', _ccgPublicIP = pPublicIP, _ccgBGPASN = pBGPASN};
+createCustomerGateway pType pPublicIP pBGPASN = CreateCustomerGateway'{_ccgDryRun = Nothing, _ccgType = pType, _ccgPublicIP = pPublicIP, _ccgBGPASN = pBGPASN};
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have

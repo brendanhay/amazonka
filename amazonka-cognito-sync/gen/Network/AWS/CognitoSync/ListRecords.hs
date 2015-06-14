@@ -177,11 +177,11 @@ instance ToQuery ListRecords where
 -- * 'lrrLastModifiedBy'
 --
 -- * 'lrrDatasetSyncCount'
-data ListRecordsResponse = ListRecordsResponse'{_lrrDatasetDeletedAfterRequestedSyncCount :: Maybe Bool, _lrrDatasetExists :: Maybe Bool, _lrrCount :: Maybe Int, _lrrRecords :: [Record], _lrrNextToken :: Maybe Text, _lrrSyncSessionToken :: Maybe Text, _lrrMergedDatasetNames :: [Text], _lrrLastModifiedBy :: Maybe Text, _lrrDatasetSyncCount :: Maybe Integer} deriving (Eq, Read, Show)
+data ListRecordsResponse = ListRecordsResponse'{_lrrDatasetDeletedAfterRequestedSyncCount :: Maybe Bool, _lrrDatasetExists :: Maybe Bool, _lrrCount :: Maybe Int, _lrrRecords :: Maybe [Record], _lrrNextToken :: Maybe Text, _lrrSyncSessionToken :: Maybe Text, _lrrMergedDatasetNames :: Maybe [Text], _lrrLastModifiedBy :: Maybe Text, _lrrDatasetSyncCount :: Maybe Integer} deriving (Eq, Read, Show)
 
 -- | 'ListRecordsResponse' smart constructor.
 listRecordsResponse :: ListRecordsResponse
-listRecordsResponse = ListRecordsResponse'{_lrrDatasetDeletedAfterRequestedSyncCount = Nothing, _lrrDatasetExists = Nothing, _lrrCount = Nothing, _lrrRecords = mempty, _lrrNextToken = Nothing, _lrrSyncSessionToken = Nothing, _lrrMergedDatasetNames = mempty, _lrrLastModifiedBy = Nothing, _lrrDatasetSyncCount = Nothing};
+listRecordsResponse = ListRecordsResponse'{_lrrDatasetDeletedAfterRequestedSyncCount = Nothing, _lrrDatasetExists = Nothing, _lrrCount = Nothing, _lrrRecords = Nothing, _lrrNextToken = Nothing, _lrrSyncSessionToken = Nothing, _lrrMergedDatasetNames = Nothing, _lrrLastModifiedBy = Nothing, _lrrDatasetSyncCount = Nothing};
 
 -- | A boolean value specifying whether to delete the dataset locally.
 lrrDatasetDeletedAfterRequestedSyncCount :: Lens' ListRecordsResponse (Maybe Bool)
@@ -196,7 +196,7 @@ lrrCount :: Lens' ListRecordsResponse (Maybe Int)
 lrrCount = lens _lrrCount (\ s a -> s{_lrrCount = a});
 
 -- | A list of all records.
-lrrRecords :: Lens' ListRecordsResponse [Record]
+lrrRecords :: Lens' ListRecordsResponse (Maybe [Record])
 lrrRecords = lens _lrrRecords (\ s a -> s{_lrrRecords = a});
 
 -- | A pagination token for obtaining the next page of results.
@@ -208,7 +208,7 @@ lrrSyncSessionToken :: Lens' ListRecordsResponse (Maybe Text)
 lrrSyncSessionToken = lens _lrrSyncSessionToken (\ s a -> s{_lrrSyncSessionToken = a});
 
 -- | Names of merged datasets.
-lrrMergedDatasetNames :: Lens' ListRecordsResponse [Text]
+lrrMergedDatasetNames :: Lens' ListRecordsResponse (Maybe [Text])
 lrrMergedDatasetNames = lens _lrrMergedDatasetNames (\ s a -> s{_lrrMergedDatasetNames = a});
 
 -- | The user\/device that made the last change to this record.

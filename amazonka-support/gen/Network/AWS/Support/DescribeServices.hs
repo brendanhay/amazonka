@@ -60,14 +60,14 @@ import Network.AWS.Support.Types
 -- * 'dsServiceCodeList'
 --
 -- * 'dsLanguage'
-data DescribeServices = DescribeServices'{_dsServiceCodeList :: [Text], _dsLanguage :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeServices = DescribeServices'{_dsServiceCodeList :: Maybe [Text], _dsLanguage :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeServices' smart constructor.
 describeServices :: DescribeServices
-describeServices = DescribeServices'{_dsServiceCodeList = mempty, _dsLanguage = Nothing};
+describeServices = DescribeServices'{_dsServiceCodeList = Nothing, _dsLanguage = Nothing};
 
 -- | A JSON-formatted list of service codes available for AWS services.
-dsServiceCodeList :: Lens' DescribeServices [Text]
+dsServiceCodeList :: Lens' DescribeServices (Maybe [Text])
 dsServiceCodeList = lens _dsServiceCodeList (\ s a -> s{_dsServiceCodeList = a});
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
@@ -114,12 +114,12 @@ instance ToQuery DescribeServices where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsrServices'
-newtype DescribeServicesResponse = DescribeServicesResponse'{_dsrServices :: [SupportService]} deriving (Eq, Read, Show)
+newtype DescribeServicesResponse = DescribeServicesResponse'{_dsrServices :: Maybe [SupportService]} deriving (Eq, Read, Show)
 
 -- | 'DescribeServicesResponse' smart constructor.
 describeServicesResponse :: DescribeServicesResponse
-describeServicesResponse = DescribeServicesResponse'{_dsrServices = mempty};
+describeServicesResponse = DescribeServicesResponse'{_dsrServices = Nothing};
 
 -- | A JSON-formatted list of AWS services.
-dsrServices :: Lens' DescribeServicesResponse [SupportService]
+dsrServices :: Lens' DescribeServicesResponse (Maybe [SupportService])
 dsrServices = lens _dsrServices (\ s a -> s{_dsrServices = a});

@@ -49,9 +49,9 @@ module Network.AWS.IAM.ListPolicies
     -- ** Response constructor
     , listPoliciesResponse
     -- ** Response lenses
+    , lprMarker
     , lprIsTruncated
     , lprPolicies
-    , lprMarker
     ) where
 
 import Network.AWS.Request
@@ -72,11 +72,11 @@ import Network.AWS.IAM.Types
 -- * 'lpMaxItems'
 --
 -- * 'lpMarker'
-data ListPolicies = ListPolicies'{_lpPathPrefix :: Maybe Text, _lpOnlyAttached :: Maybe Bool, _lpScope :: Maybe PolicyScopeType, _lpMaxItems :: Nat, _lpMarker :: Text} deriving (Eq, Read, Show)
+data ListPolicies = ListPolicies'{_lpPathPrefix :: Maybe Text, _lpOnlyAttached :: Maybe Bool, _lpScope :: Maybe PolicyScopeType, _lpMaxItems :: Maybe Nat, _lpMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ListPolicies' smart constructor.
-listPolicies :: Natural -> Text -> ListPolicies
-listPolicies pMaxItems pMarker = ListPolicies'{_lpPathPrefix = Nothing, _lpOnlyAttached = Nothing, _lpScope = Nothing, _lpMaxItems = _Nat # pMaxItems, _lpMarker = pMarker};
+listPolicies :: ListPolicies
+listPolicies = ListPolicies'{_lpPathPrefix = Nothing, _lpOnlyAttached = Nothing, _lpScope = Nothing, _lpMaxItems = Nothing, _lpMarker = Nothing};
 
 -- | The path prefix for filtering the results. This parameter is optional.
 -- If it is not included, it defaults to a slash (\/), listing all
@@ -109,14 +109,14 @@ lpScope = lens _lpScope (\ s a -> s{_lpScope = a});
 -- policies beyond the maximum you specify, the @IsTruncated@ response
 -- element is @true@. This parameter is optional. If you do not include it,
 -- it defaults to 100.
-lpMaxItems :: Lens' ListPolicies Natural
-lpMaxItems = lens _lpMaxItems (\ s a -> s{_lpMaxItems = a}) . _Nat;
+lpMaxItems :: Lens' ListPolicies (Maybe Natural)
+lpMaxItems = lens _lpMaxItems (\ s a -> s{_lpMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results, and only in a
 -- subsequent request after you\'ve received a response where the results
 -- are truncated. Set it to the value of the @Marker@ element in the
 -- response you just received.
-lpMarker :: Lens' ListPolicies Text
+lpMarker :: Lens' ListPolicies (Maybe Text)
 lpMarker = lens _lpMarker (\ s a -> s{_lpMarker = a});
 
 instance AWSRequest ListPolicies where
@@ -127,10 +127,9 @@ instance AWSRequest ListPolicies where
           = receiveXMLWrapper "ListPoliciesResult"
               (\ s h x ->
                  ListPoliciesResponse' <$>
-                   x .@? "IsTruncated" <*>
+                   x .@? "Marker" <*> x .@? "IsTruncated" <*>
                      (x .@? "Policies" .!@ mempty >>=
-                        parseXMLList "member")
-                     <*> x .@ "Marker")
+                        parseXMLList "member"))
 
 instance ToHeaders ListPolicies where
         toHeaders = const mempty
@@ -152,16 +151,22 @@ instance ToQuery ListPolicies where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'lprMarker'
+--
 -- * 'lprIsTruncated'
 --
 -- * 'lprPolicies'
---
--- * 'lprMarker'
-data ListPoliciesResponse = ListPoliciesResponse'{_lprIsTruncated :: Maybe Bool, _lprPolicies :: [Policy], _lprMarker :: Text} deriving (Eq, Read, Show)
+data ListPoliciesResponse = ListPoliciesResponse'{_lprMarker :: Maybe Text, _lprIsTruncated :: Maybe Bool, _lprPolicies :: Maybe [Policy]} deriving (Eq, Read, Show)
 
 -- | 'ListPoliciesResponse' smart constructor.
-listPoliciesResponse :: Text -> ListPoliciesResponse
-listPoliciesResponse pMarker = ListPoliciesResponse'{_lprIsTruncated = Nothing, _lprPolicies = mempty, _lprMarker = pMarker};
+listPoliciesResponse :: ListPoliciesResponse
+listPoliciesResponse = ListPoliciesResponse'{_lprMarker = Nothing, _lprIsTruncated = Nothing, _lprPolicies = Nothing};
+
+-- | If @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+lprMarker :: Lens' ListPoliciesResponse (Maybe Text)
+lprMarker = lens _lprMarker (\ s a -> s{_lprMarker = a});
 
 -- | A flag that indicates whether there are more policies to list. If your
 -- results were truncated, you can make a subsequent pagination request
@@ -171,11 +176,5 @@ lprIsTruncated :: Lens' ListPoliciesResponse (Maybe Bool)
 lprIsTruncated = lens _lprIsTruncated (\ s a -> s{_lprIsTruncated = a});
 
 -- | A list of policies.
-lprPolicies :: Lens' ListPoliciesResponse [Policy]
+lprPolicies :: Lens' ListPoliciesResponse (Maybe [Policy])
 lprPolicies = lens _lprPolicies (\ s a -> s{_lprPolicies = a});
-
--- | If @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
-lprMarker :: Lens' ListPoliciesResponse Text
-lprMarker = lens _lprMarker (\ s a -> s{_lprMarker = a});

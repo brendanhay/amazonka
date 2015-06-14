@@ -55,11 +55,11 @@ import Network.AWS.Redshift.Types
 -- * 'rcpgParameters'
 --
 -- * 'rcpgParameterGroupName'
-data ResetClusterParameterGroup = ResetClusterParameterGroup'{_rcpgResetAllParameters :: Maybe Bool, _rcpgParameters :: [Parameter], _rcpgParameterGroupName :: Text} deriving (Eq, Read, Show)
+data ResetClusterParameterGroup = ResetClusterParameterGroup'{_rcpgResetAllParameters :: Maybe Bool, _rcpgParameters :: Maybe [Parameter], _rcpgParameterGroupName :: Text} deriving (Eq, Read, Show)
 
 -- | 'ResetClusterParameterGroup' smart constructor.
 resetClusterParameterGroup :: Text -> ResetClusterParameterGroup
-resetClusterParameterGroup pParameterGroupName = ResetClusterParameterGroup'{_rcpgResetAllParameters = Nothing, _rcpgParameters = mempty, _rcpgParameterGroupName = pParameterGroupName};
+resetClusterParameterGroup pParameterGroupName = ResetClusterParameterGroup'{_rcpgResetAllParameters = Nothing, _rcpgParameters = Nothing, _rcpgParameterGroupName = pParameterGroupName};
 
 -- | If @true@, all parameters in the specified parameter group will be reset
 -- to their default values.
@@ -73,7 +73,7 @@ rcpgResetAllParameters = lens _rcpgResetAllParameters (\ s a -> s{_rcpgResetAllP
 --
 -- Constraints: A maximum of 20 parameters can be reset in a single
 -- request.
-rcpgParameters :: Lens' ResetClusterParameterGroup [Parameter]
+rcpgParameters :: Lens' ResetClusterParameterGroup (Maybe [Parameter])
 rcpgParameters = lens _rcpgParameters (\ s a -> s{_rcpgParameters = a});
 
 -- | The name of the cluster parameter group to be reset.

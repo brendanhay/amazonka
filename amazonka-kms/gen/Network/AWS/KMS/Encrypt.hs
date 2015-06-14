@@ -75,22 +75,22 @@ import Network.AWS.KMS.Types
 -- * 'encKeyId'
 --
 -- * 'encPlaintext'
-data Encrypt = Encrypt'{_encEncryptionContext :: HashMap Text Text, _encGrantTokens :: [Text], _encKeyId :: Text, _encPlaintext :: Sensitive Base64} deriving (Eq, Read, Show)
+data Encrypt = Encrypt'{_encEncryptionContext :: Maybe (HashMap Text Text), _encGrantTokens :: Maybe [Text], _encKeyId :: Text, _encPlaintext :: Sensitive Base64} deriving (Eq, Read, Show)
 
 -- | 'Encrypt' smart constructor.
 encrypt :: Text -> Base64 -> Encrypt
-encrypt pKeyId pPlaintext = Encrypt'{_encEncryptionContext = mempty, _encGrantTokens = mempty, _encKeyId = pKeyId, _encPlaintext = _Sensitive # pPlaintext};
+encrypt pKeyId pPlaintext = Encrypt'{_encEncryptionContext = Nothing, _encGrantTokens = Nothing, _encKeyId = pKeyId, _encPlaintext = _Sensitive # pPlaintext};
 
 -- | Name\/value pair that specifies the encryption context to be used for
 -- authenticated encryption. If used here, the same value must be supplied
 -- to the @Decrypt@ API or decryption will fail. For more information, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html Encryption Context>.
-encEncryptionContext :: Lens' Encrypt (HashMap Text Text)
-encEncryptionContext = lens _encEncryptionContext (\ s a -> s{_encEncryptionContext = a}) . _Coerce;
+encEncryptionContext :: Lens' Encrypt (Maybe (HashMap Text Text))
+encEncryptionContext = lens _encEncryptionContext (\ s a -> s{_encEncryptionContext = a}) . mapping _Coerce;
 
 -- | For more information, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.
-encGrantTokens :: Lens' Encrypt [Text]
+encGrantTokens :: Lens' Encrypt (Maybe [Text])
 encGrantTokens = lens _encGrantTokens (\ s a -> s{_encGrantTokens = a});
 
 -- | A unique identifier for the customer master key. This value can be a
@@ -119,7 +119,7 @@ instance AWSRequest Encrypt where
           = receiveJSON
               (\ s h x ->
                  EncryptResponse' <$>
-                   x .:> "KeyId" <*> x .:> "CiphertextBlob")
+                   x .?> "KeyId" <*> x .?> "CiphertextBlob")
 
 instance ToHeaders Encrypt where
         toHeaders
@@ -150,17 +150,17 @@ instance ToQuery Encrypt where
 -- * 'erKeyId'
 --
 -- * 'erCiphertextBlob'
-data EncryptResponse = EncryptResponse'{_erKeyId :: Text, _erCiphertextBlob :: Base64} deriving (Eq, Read, Show)
+data EncryptResponse = EncryptResponse'{_erKeyId :: Maybe Text, _erCiphertextBlob :: Maybe Base64} deriving (Eq, Read, Show)
 
 -- | 'EncryptResponse' smart constructor.
-encryptResponse :: Text -> Base64 -> EncryptResponse
-encryptResponse pKeyId pCiphertextBlob = EncryptResponse'{_erKeyId = pKeyId, _erCiphertextBlob = pCiphertextBlob};
+encryptResponse :: EncryptResponse
+encryptResponse = EncryptResponse'{_erKeyId = Nothing, _erCiphertextBlob = Nothing};
 
 -- | The ID of the key used during encryption.
-erKeyId :: Lens' EncryptResponse Text
+erKeyId :: Lens' EncryptResponse (Maybe Text)
 erKeyId = lens _erKeyId (\ s a -> s{_erKeyId = a});
 
 -- | The encrypted plaintext. If you are using the CLI, the value is Base64
 -- encoded. Otherwise, it is not encoded.
-erCiphertextBlob :: Lens' EncryptResponse Base64
+erCiphertextBlob :: Lens' EncryptResponse (Maybe Base64)
 erCiphertextBlob = lens _erCiphertextBlob (\ s a -> s{_erCiphertextBlob = a});

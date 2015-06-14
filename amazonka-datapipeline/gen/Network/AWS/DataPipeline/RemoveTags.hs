@@ -48,8 +48,8 @@ import Network.AWS.DataPipeline.Types
 data RemoveTags = RemoveTags'{_rtPipelineId :: Text, _rtTagKeys :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'RemoveTags' smart constructor.
-removeTags :: Text -> [Text] -> RemoveTags
-removeTags pPipelineId pTagKeys = RemoveTags'{_rtPipelineId = pPipelineId, _rtTagKeys = pTagKeys};
+removeTags :: Text -> RemoveTags
+removeTags pPipelineId = RemoveTags'{_rtPipelineId = pPipelineId, _rtTagKeys = mempty};
 
 -- | The ID of the pipeline.
 rtPipelineId :: Lens' RemoveTags Text

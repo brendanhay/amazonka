@@ -49,14 +49,14 @@ import Network.AWS.AutoScaling.Types
 -- * 'aiInstanceIds'
 --
 -- * 'aiAutoScalingGroupName'
-data AttachInstances = AttachInstances'{_aiInstanceIds :: [Text], _aiAutoScalingGroupName :: Text} deriving (Eq, Read, Show)
+data AttachInstances = AttachInstances'{_aiInstanceIds :: Maybe [Text], _aiAutoScalingGroupName :: Text} deriving (Eq, Read, Show)
 
 -- | 'AttachInstances' smart constructor.
 attachInstances :: Text -> AttachInstances
-attachInstances pAutoScalingGroupName = AttachInstances'{_aiInstanceIds = mempty, _aiAutoScalingGroupName = pAutoScalingGroupName};
+attachInstances pAutoScalingGroupName = AttachInstances'{_aiInstanceIds = Nothing, _aiAutoScalingGroupName = pAutoScalingGroupName};
 
 -- | One or more EC2 instance IDs. You must specify at least one ID.
-aiInstanceIds :: Lens' AttachInstances [Text]
+aiInstanceIds :: Lens' AttachInstances (Maybe [Text])
 aiInstanceIds = lens _aiInstanceIds (\ s a -> s{_aiInstanceIds = a});
 
 -- | The name of the group.

@@ -82,7 +82,7 @@ instance AWSRequest RetrieveTapeArchive where
         response
           = receiveJSON
               (\ s h x ->
-                 RetrieveTapeArchiveResponse' <$> x .:> "TapeARN")
+                 RetrieveTapeArchiveResponse' <$> x .?> "TapeARN")
 
 instance ToHeaders RetrieveTapeArchive where
         toHeaders
@@ -111,12 +111,12 @@ instance ToQuery RetrieveTapeArchive where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rtarTapeARN'
-newtype RetrieveTapeArchiveResponse = RetrieveTapeArchiveResponse'{_rtarTapeARN :: Text} deriving (Eq, Read, Show)
+newtype RetrieveTapeArchiveResponse = RetrieveTapeArchiveResponse'{_rtarTapeARN :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'RetrieveTapeArchiveResponse' smart constructor.
-retrieveTapeArchiveResponse :: Text -> RetrieveTapeArchiveResponse
-retrieveTapeArchiveResponse pTapeARN = RetrieveTapeArchiveResponse'{_rtarTapeARN = pTapeARN};
+retrieveTapeArchiveResponse :: RetrieveTapeArchiveResponse
+retrieveTapeArchiveResponse = RetrieveTapeArchiveResponse'{_rtarTapeARN = Nothing};
 
 -- | The Amazon Resource Name (ARN) of the retrieved virtual tape.
-rtarTapeARN :: Lens' RetrieveTapeArchiveResponse Text
+rtarTapeARN :: Lens' RetrieveTapeArchiveResponse (Maybe Text)
 rtarTapeARN = lens _rtarTapeARN (\ s a -> s{_rtarTapeARN = a});

@@ -73,12 +73,12 @@ instance ToQuery ListDomainNames where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ldnrDomainNames'
-newtype ListDomainNamesResponse = ListDomainNamesResponse'{_ldnrDomainNames :: HashMap Text Text} deriving (Eq, Read, Show)
+newtype ListDomainNamesResponse = ListDomainNamesResponse'{_ldnrDomainNames :: Maybe (HashMap Text Text)} deriving (Eq, Read, Show)
 
 -- | 'ListDomainNamesResponse' smart constructor.
 listDomainNamesResponse :: ListDomainNamesResponse
-listDomainNamesResponse = ListDomainNamesResponse'{_ldnrDomainNames = mempty};
+listDomainNamesResponse = ListDomainNamesResponse'{_ldnrDomainNames = Nothing};
 
 -- | The names of the search domains owned by an account.
-ldnrDomainNames :: Lens' ListDomainNamesResponse (HashMap Text Text)
-ldnrDomainNames = lens _ldnrDomainNames (\ s a -> s{_ldnrDomainNames = a}) . _Coerce;
+ldnrDomainNames :: Lens' ListDomainNamesResponse (Maybe (HashMap Text Text))
+ldnrDomainNames = lens _ldnrDomainNames (\ s a -> s{_ldnrDomainNames = a}) . mapping _Coerce;

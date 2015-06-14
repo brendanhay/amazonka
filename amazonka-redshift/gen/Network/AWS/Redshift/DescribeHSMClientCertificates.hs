@@ -70,11 +70,11 @@ import Network.AWS.Redshift.Types
 -- * 'dhccMaxRecords'
 --
 -- * 'dhccMarker'
-data DescribeHSMClientCertificates = DescribeHSMClientCertificates'{_dhccTagValues :: [Text], _dhccTagKeys :: [Text], _dhccHSMClientCertificateIdentifier :: Maybe Text, _dhccMaxRecords :: Maybe Int, _dhccMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeHSMClientCertificates = DescribeHSMClientCertificates'{_dhccTagValues :: Maybe [Text], _dhccTagKeys :: Maybe [Text], _dhccHSMClientCertificateIdentifier :: Maybe Text, _dhccMaxRecords :: Maybe Int, _dhccMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeHSMClientCertificates' smart constructor.
 describeHSMClientCertificates :: DescribeHSMClientCertificates
-describeHSMClientCertificates = DescribeHSMClientCertificates'{_dhccTagValues = mempty, _dhccTagKeys = mempty, _dhccHSMClientCertificateIdentifier = Nothing, _dhccMaxRecords = Nothing, _dhccMarker = Nothing};
+describeHSMClientCertificates = DescribeHSMClientCertificates'{_dhccTagValues = Nothing, _dhccTagKeys = Nothing, _dhccHSMClientCertificateIdentifier = Nothing, _dhccMaxRecords = Nothing, _dhccMarker = Nothing};
 
 -- | A tag value or values for which you want to return all matching HSM
 -- client certificates that are associated with the specified tag value or
@@ -83,7 +83,7 @@ describeHSMClientCertificates = DescribeHSMClientCertificates'{_dhccTagValues = 
 -- these tag values in the request, Amazon Redshift returns a response with
 -- the HSM client certificates that have either or both of these tag values
 -- associated with them.
-dhccTagValues :: Lens' DescribeHSMClientCertificates [Text]
+dhccTagValues :: Lens' DescribeHSMClientCertificates (Maybe [Text])
 dhccTagValues = lens _dhccTagValues (\ s a -> s{_dhccTagValues = a});
 
 -- | A tag key or keys for which you want to return all matching HSM client
@@ -93,7 +93,7 @@ dhccTagValues = lens _dhccTagValues (\ s a -> s{_dhccTagValues = a});
 -- tag keys in the request, Amazon Redshift returns a response with the HSM
 -- client certificates that have either or both of these tag keys
 -- associated with them.
-dhccTagKeys :: Lens' DescribeHSMClientCertificates [Text]
+dhccTagKeys :: Lens' DescribeHSMClientCertificates (Maybe [Text])
 dhccTagKeys = lens _dhccTagKeys (\ s a -> s{_dhccTagKeys = a});
 
 -- | The identifier of a specific HSM client certificate for which you want
@@ -165,11 +165,11 @@ instance ToQuery DescribeHSMClientCertificates where
 -- * 'dhccrMarker'
 --
 -- * 'dhccrHSMClientCertificates'
-data DescribeHSMClientCertificatesResponse = DescribeHSMClientCertificatesResponse'{_dhccrMarker :: Maybe Text, _dhccrHSMClientCertificates :: [HSMClientCertificate]} deriving (Eq, Read, Show)
+data DescribeHSMClientCertificatesResponse = DescribeHSMClientCertificatesResponse'{_dhccrMarker :: Maybe Text, _dhccrHSMClientCertificates :: Maybe [HSMClientCertificate]} deriving (Eq, Read, Show)
 
 -- | 'DescribeHSMClientCertificatesResponse' smart constructor.
 describeHSMClientCertificatesResponse :: DescribeHSMClientCertificatesResponse
-describeHSMClientCertificatesResponse = DescribeHSMClientCertificatesResponse'{_dhccrMarker = Nothing, _dhccrHSMClientCertificates = mempty};
+describeHSMClientCertificatesResponse = DescribeHSMClientCertificatesResponse'{_dhccrMarker = Nothing, _dhccrHSMClientCertificates = Nothing};
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -183,5 +183,5 @@ dhccrMarker = lens _dhccrMarker (\ s a -> s{_dhccrMarker = a});
 -- | A list of the identifiers for one or more HSM client certificates used
 -- by Amazon Redshift clusters to store and retrieve database encryption
 -- keys in an HSM.
-dhccrHSMClientCertificates :: Lens' DescribeHSMClientCertificatesResponse [HSMClientCertificate]
+dhccrHSMClientCertificates :: Lens' DescribeHSMClientCertificatesResponse (Maybe [HSMClientCertificate])
 dhccrHSMClientCertificates = lens _dhccrHSMClientCertificates (\ s a -> s{_dhccrHSMClientCertificates = a});

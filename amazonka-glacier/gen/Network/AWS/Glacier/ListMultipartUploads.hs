@@ -150,14 +150,14 @@ instance ToQuery ListMultipartUploads where
 -- * 'lmurUploadsList'
 --
 -- * 'lmurMarker'
-data ListMultipartUploadsResponse = ListMultipartUploadsResponse'{_lmurUploadsList :: [UploadListElement], _lmurMarker :: Maybe Text} deriving (Eq, Read, Show)
+data ListMultipartUploadsResponse = ListMultipartUploadsResponse'{_lmurUploadsList :: Maybe [UploadListElement], _lmurMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ListMultipartUploadsResponse' smart constructor.
 listMultipartUploadsResponse :: ListMultipartUploadsResponse
-listMultipartUploadsResponse = ListMultipartUploadsResponse'{_lmurUploadsList = mempty, _lmurMarker = Nothing};
+listMultipartUploadsResponse = ListMultipartUploadsResponse'{_lmurUploadsList = Nothing, _lmurMarker = Nothing};
 
 -- | A list of in-progress multipart uploads.
-lmurUploadsList :: Lens' ListMultipartUploadsResponse [UploadListElement]
+lmurUploadsList :: Lens' ListMultipartUploadsResponse (Maybe [UploadListElement])
 lmurUploadsList = lens _lmurUploadsList (\ s a -> s{_lmurUploadsList = a});
 
 -- | An opaque string that represents where to continue pagination of the

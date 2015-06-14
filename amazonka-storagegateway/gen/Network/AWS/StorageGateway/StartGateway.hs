@@ -73,7 +73,7 @@ instance AWSRequest StartGateway where
         response
           = receiveJSON
               (\ s h x ->
-                 StartGatewayResponse' <$> x .:> "GatewayARN")
+                 StartGatewayResponse' <$> x .?> "GatewayARN")
 
 instance ToHeaders StartGateway where
         toHeaders
@@ -100,12 +100,12 @@ instance ToQuery StartGateway where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'staGatewayARN'
-newtype StartGatewayResponse = StartGatewayResponse'{_staGatewayARN :: Text} deriving (Eq, Read, Show)
+newtype StartGatewayResponse = StartGatewayResponse'{_staGatewayARN :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'StartGatewayResponse' smart constructor.
-startGatewayResponse :: Text -> StartGatewayResponse
-startGatewayResponse pGatewayARN = StartGatewayResponse'{_staGatewayARN = pGatewayARN};
+startGatewayResponse :: StartGatewayResponse
+startGatewayResponse = StartGatewayResponse'{_staGatewayARN = Nothing};
 
 -- | FIXME: Undocumented member.
-staGatewayARN :: Lens' StartGatewayResponse Text
+staGatewayARN :: Lens' StartGatewayResponse (Maybe Text)
 staGatewayARN = lens _staGatewayARN (\ s a -> s{_staGatewayARN = a});

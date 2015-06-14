@@ -82,8 +82,8 @@ import Network.AWS.ImportExport.Types
 data GetShippingLabel = GetShippingLabel'{_gslStreet3 :: Maybe Text, _gslAPIVersion :: Maybe Text, _gslPostalCode :: Maybe Text, _gslCountry :: Maybe Text, _gslStateOrProvince :: Maybe Text, _gslStreet2 :: Maybe Text, _gslName :: Maybe Text, _gslCompany :: Maybe Text, _gslCity :: Maybe Text, _gslPhoneNumber :: Maybe Text, _gslStreet1 :: Maybe Text, _gslJobIds :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'GetShippingLabel' smart constructor.
-getShippingLabel :: [Text] -> GetShippingLabel
-getShippingLabel pJobIds = GetShippingLabel'{_gslStreet3 = Nothing, _gslAPIVersion = Nothing, _gslPostalCode = Nothing, _gslCountry = Nothing, _gslStateOrProvince = Nothing, _gslStreet2 = Nothing, _gslName = Nothing, _gslCompany = Nothing, _gslCity = Nothing, _gslPhoneNumber = Nothing, _gslStreet1 = Nothing, _gslJobIds = pJobIds};
+getShippingLabel :: GetShippingLabel
+getShippingLabel = GetShippingLabel'{_gslStreet3 = Nothing, _gslAPIVersion = Nothing, _gslPostalCode = Nothing, _gslCountry = Nothing, _gslStateOrProvince = Nothing, _gslStreet2 = Nothing, _gslName = Nothing, _gslCompany = Nothing, _gslCity = Nothing, _gslPhoneNumber = Nothing, _gslStreet1 = Nothing, _gslJobIds = mempty};
 
 -- | FIXME: Undocumented member.
 gslStreet3 :: Lens' GetShippingLabel (Maybe Text)

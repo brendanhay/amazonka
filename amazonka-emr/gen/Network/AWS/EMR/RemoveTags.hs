@@ -54,8 +54,8 @@ import Network.AWS.EMR.Types
 data RemoveTags = RemoveTags'{_rtResourceId :: Text, _rtTagKeys :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'RemoveTags' smart constructor.
-removeTags :: Text -> [Text] -> RemoveTags
-removeTags pResourceId pTagKeys = RemoveTags'{_rtResourceId = pResourceId, _rtTagKeys = pTagKeys};
+removeTags :: Text -> RemoveTags
+removeTags pResourceId = RemoveTags'{_rtResourceId = pResourceId, _rtTagKeys = mempty};
 
 -- | The Amazon EMR resource identifier from which tags will be removed. This
 -- value must be a cluster identifier.

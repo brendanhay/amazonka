@@ -50,11 +50,11 @@ import Network.AWS.CloudFormation.Types
 -- * 'vtTemplateBody'
 --
 -- * 'vtTemplateURL'
-data ValidateTemplate = ValidateTemplate'{_vtTemplateBody :: Text, _vtTemplateURL :: Text} deriving (Eq, Read, Show)
+data ValidateTemplate = ValidateTemplate'{_vtTemplateBody :: Maybe Text, _vtTemplateURL :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ValidateTemplate' smart constructor.
-validateTemplate :: Text -> Text -> ValidateTemplate
-validateTemplate pTemplateBody pTemplateURL = ValidateTemplate'{_vtTemplateBody = pTemplateBody, _vtTemplateURL = pTemplateURL};
+validateTemplate :: ValidateTemplate
+validateTemplate = ValidateTemplate'{_vtTemplateBody = Nothing, _vtTemplateURL = Nothing};
 
 -- | Structure containing the template body with a minimum length of 1 byte
 -- and a maximum length of 51,200 bytes. For more information, go to
@@ -63,7 +63,7 @@ validateTemplate pTemplateBody pTemplateURL = ValidateTemplate'{_vtTemplateBody 
 --
 -- Conditional: You must pass @TemplateURL@ or @TemplateBody@. If both are
 -- passed, only @TemplateBody@ is used.
-vtTemplateBody :: Lens' ValidateTemplate Text
+vtTemplateBody :: Lens' ValidateTemplate (Maybe Text)
 vtTemplateBody = lens _vtTemplateBody (\ s a -> s{_vtTemplateBody = a});
 
 -- | Location of file containing the template body. The URL must point to a
@@ -74,7 +74,7 @@ vtTemplateBody = lens _vtTemplateBody (\ s a -> s{_vtTemplateBody = a});
 --
 -- Conditional: You must pass @TemplateURL@ or @TemplateBody@. If both are
 -- passed, only @TemplateBody@ is used.
-vtTemplateURL :: Lens' ValidateTemplate Text
+vtTemplateURL :: Lens' ValidateTemplate (Maybe Text)
 vtTemplateURL = lens _vtTemplateURL (\ s a -> s{_vtTemplateURL = a});
 
 instance AWSRequest ValidateTemplate where
@@ -118,14 +118,14 @@ instance ToQuery ValidateTemplate where
 -- * 'vtrCapabilities'
 --
 -- * 'vtrDescription'
-data ValidateTemplateResponse = ValidateTemplateResponse'{_vtrParameters :: [TemplateParameter], _vtrCapabilitiesReason :: Maybe Text, _vtrCapabilities :: [Capability], _vtrDescription :: Maybe Text} deriving (Eq, Read, Show)
+data ValidateTemplateResponse = ValidateTemplateResponse'{_vtrParameters :: Maybe [TemplateParameter], _vtrCapabilitiesReason :: Maybe Text, _vtrCapabilities :: Maybe [Capability], _vtrDescription :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ValidateTemplateResponse' smart constructor.
 validateTemplateResponse :: ValidateTemplateResponse
-validateTemplateResponse = ValidateTemplateResponse'{_vtrParameters = mempty, _vtrCapabilitiesReason = Nothing, _vtrCapabilities = mempty, _vtrDescription = Nothing};
+validateTemplateResponse = ValidateTemplateResponse'{_vtrParameters = Nothing, _vtrCapabilitiesReason = Nothing, _vtrCapabilities = Nothing, _vtrDescription = Nothing};
 
 -- | A list of @TemplateParameter@ structures.
-vtrParameters :: Lens' ValidateTemplateResponse [TemplateParameter]
+vtrParameters :: Lens' ValidateTemplateResponse (Maybe [TemplateParameter])
 vtrParameters = lens _vtrParameters (\ s a -> s{_vtrParameters = a});
 
 -- | The list of resources that generated the values in the @Capabilities@
@@ -139,7 +139,7 @@ vtrCapabilitiesReason = lens _vtrCapabilitiesReason (\ s a -> s{_vtrCapabilities
 -- value for this parameter when you use the CreateStack or UpdateStack
 -- actions with your template; otherwise, those actions return an
 -- InsufficientCapabilities error.
-vtrCapabilities :: Lens' ValidateTemplateResponse [Capability]
+vtrCapabilities :: Lens' ValidateTemplateResponse (Maybe [Capability])
 vtrCapabilities = lens _vtrCapabilities (\ s a -> s{_vtrCapabilities = a});
 
 -- | The description found within the template.

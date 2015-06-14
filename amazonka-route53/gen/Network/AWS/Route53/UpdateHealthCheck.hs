@@ -31,13 +31,13 @@ module Network.AWS.Route53.UpdateHealthCheck
     , updateHealthCheck
     -- ** Request lenses
     , uhcIPAddress
+    , uhcFailureThreshold
     , uhcSearchString
     , uhcResourcePath
-    , uhcFullyQualifiedDomainName
-    , uhcHealthCheckId
-    , uhcFailureThreshold
     , uhcHealthCheckVersion
+    , uhcFullyQualifiedDomainName
     , uhcPort
+    , uhcHealthCheckId
 
     -- * Response
     , UpdateHealthCheckResponse
@@ -58,30 +58,42 @@ import Network.AWS.Route53.Types
 --
 -- * 'uhcIPAddress'
 --
+-- * 'uhcFailureThreshold'
+--
 -- * 'uhcSearchString'
 --
 -- * 'uhcResourcePath'
 --
--- * 'uhcFullyQualifiedDomainName'
---
--- * 'uhcHealthCheckId'
---
--- * 'uhcFailureThreshold'
---
 -- * 'uhcHealthCheckVersion'
 --
+-- * 'uhcFullyQualifiedDomainName'
+--
 -- * 'uhcPort'
-data UpdateHealthCheck = UpdateHealthCheck'{_uhcIPAddress :: Maybe Text, _uhcSearchString :: Maybe Text, _uhcResourcePath :: Maybe Text, _uhcFullyQualifiedDomainName :: Maybe Text, _uhcHealthCheckId :: Text, _uhcFailureThreshold :: Nat, _uhcHealthCheckVersion :: Nat, _uhcPort :: Nat} deriving (Eq, Read, Show)
+--
+-- * 'uhcHealthCheckId'
+data UpdateHealthCheck = UpdateHealthCheck'{_uhcIPAddress :: Maybe Text, _uhcFailureThreshold :: Maybe Nat, _uhcSearchString :: Maybe Text, _uhcResourcePath :: Maybe Text, _uhcHealthCheckVersion :: Maybe Nat, _uhcFullyQualifiedDomainName :: Maybe Text, _uhcPort :: Maybe Nat, _uhcHealthCheckId :: Text} deriving (Eq, Read, Show)
 
 -- | 'UpdateHealthCheck' smart constructor.
-updateHealthCheck :: Text -> Natural -> Natural -> Natural -> UpdateHealthCheck
-updateHealthCheck pHealthCheckId pFailureThreshold pHealthCheckVersion pPort = UpdateHealthCheck'{_uhcIPAddress = Nothing, _uhcSearchString = Nothing, _uhcResourcePath = Nothing, _uhcFullyQualifiedDomainName = Nothing, _uhcHealthCheckId = pHealthCheckId, _uhcFailureThreshold = _Nat # pFailureThreshold, _uhcHealthCheckVersion = _Nat # pHealthCheckVersion, _uhcPort = _Nat # pPort};
+updateHealthCheck :: Text -> UpdateHealthCheck
+updateHealthCheck pHealthCheckId = UpdateHealthCheck'{_uhcIPAddress = Nothing, _uhcFailureThreshold = Nothing, _uhcSearchString = Nothing, _uhcResourcePath = Nothing, _uhcHealthCheckVersion = Nothing, _uhcFullyQualifiedDomainName = Nothing, _uhcPort = Nothing, _uhcHealthCheckId = pHealthCheckId};
 
 -- | The IP address of the resource that you want to check.
 --
 -- Specify this value only if you want to change it.
 uhcIPAddress :: Lens' UpdateHealthCheck (Maybe Text)
 uhcIPAddress = lens _uhcIPAddress (\ s a -> s{_uhcIPAddress = a});
+
+-- | The number of consecutive health checks that an endpoint must pass or
+-- fail for Route 53 to change the current status of the endpoint from
+-- unhealthy to healthy or vice versa.
+--
+-- Valid values are integers between 1 and 10. For more information, see
+-- \"How Amazon Route 53 Determines Whether an Endpoint Is Healthy\" in the
+-- Amazon Route 53 Developer Guide.
+--
+-- Specify this value only if you want to change it.
+uhcFailureThreshold :: Lens' UpdateHealthCheck (Maybe Natural)
+uhcFailureThreshold = lens _uhcFailureThreshold (\ s a -> s{_uhcFailureThreshold = a}) . mapping _Nat;
 
 -- | If the value of @Type@ is @HTTP_STR_MATCH@ or @HTTP_STR_MATCH@, the
 -- string that you want Route 53 to search for in the response body from
@@ -101,42 +113,30 @@ uhcSearchString = lens _uhcSearchString (\ s a -> s{_uhcSearchString = a});
 uhcResourcePath :: Lens' UpdateHealthCheck (Maybe Text)
 uhcResourcePath = lens _uhcResourcePath (\ s a -> s{_uhcResourcePath = a});
 
+-- | Optional. When you specify a health check version, Route 53 compares
+-- this value with the current value in the health check, which prevents
+-- you from updating the health check when the versions don\'t match. Using
+-- @HealthCheckVersion@ lets you prevent overwriting another change to the
+-- health check.
+uhcHealthCheckVersion :: Lens' UpdateHealthCheck (Maybe Natural)
+uhcHealthCheckVersion = lens _uhcHealthCheckVersion (\ s a -> s{_uhcHealthCheckVersion = a}) . mapping _Nat;
+
 -- | Fully qualified domain name of the instance to be health checked.
 --
 -- Specify this value only if you want to change it.
 uhcFullyQualifiedDomainName :: Lens' UpdateHealthCheck (Maybe Text)
 uhcFullyQualifiedDomainName = lens _uhcFullyQualifiedDomainName (\ s a -> s{_uhcFullyQualifiedDomainName = a});
 
--- | The ID of the health check to update.
-uhcHealthCheckId :: Lens' UpdateHealthCheck Text
-uhcHealthCheckId = lens _uhcHealthCheckId (\ s a -> s{_uhcHealthCheckId = a});
-
--- | The number of consecutive health checks that an endpoint must pass or
--- fail for Route 53 to change the current status of the endpoint from
--- unhealthy to healthy or vice versa.
---
--- Valid values are integers between 1 and 10. For more information, see
--- \"How Amazon Route 53 Determines Whether an Endpoint Is Healthy\" in the
--- Amazon Route 53 Developer Guide.
---
--- Specify this value only if you want to change it.
-uhcFailureThreshold :: Lens' UpdateHealthCheck Natural
-uhcFailureThreshold = lens _uhcFailureThreshold (\ s a -> s{_uhcFailureThreshold = a}) . _Nat;
-
--- | Optional. When you specify a health check version, Route 53 compares
--- this value with the current value in the health check, which prevents
--- you from updating the health check when the versions don\'t match. Using
--- @HealthCheckVersion@ lets you prevent overwriting another change to the
--- health check.
-uhcHealthCheckVersion :: Lens' UpdateHealthCheck Natural
-uhcHealthCheckVersion = lens _uhcHealthCheckVersion (\ s a -> s{_uhcHealthCheckVersion = a}) . _Nat;
-
 -- | The port on which you want Route 53 to open a connection to perform
 -- health checks.
 --
 -- Specify this value only if you want to change it.
-uhcPort :: Lens' UpdateHealthCheck Natural
-uhcPort = lens _uhcPort (\ s a -> s{_uhcPort = a}) . _Nat;
+uhcPort :: Lens' UpdateHealthCheck (Maybe Natural)
+uhcPort = lens _uhcPort (\ s a -> s{_uhcPort = a}) . mapping _Nat;
+
+-- | The ID of the health check to update.
+uhcHealthCheckId :: Lens' UpdateHealthCheck Text
+uhcHealthCheckId = lens _uhcHealthCheckId (\ s a -> s{_uhcHealthCheckId = a});
 
 instance AWSRequest UpdateHealthCheck where
         type Sv UpdateHealthCheck = Route53
@@ -168,12 +168,12 @@ instance ToXML UpdateHealthCheck where
         toXML UpdateHealthCheck'{..}
           = mconcat
               ["IPAddress" @= _uhcIPAddress,
+               "FailureThreshold" @= _uhcFailureThreshold,
                "SearchString" @= _uhcSearchString,
                "ResourcePath" @= _uhcResourcePath,
+               "HealthCheckVersion" @= _uhcHealthCheckVersion,
                "FullyQualifiedDomainName" @=
                  _uhcFullyQualifiedDomainName,
-               "FailureThreshold" @= _uhcFailureThreshold,
-               "HealthCheckVersion" @= _uhcHealthCheckVersion,
                "Port" @= _uhcPort]
 
 -- | /See:/ 'updateHealthCheckResponse' smart constructor.

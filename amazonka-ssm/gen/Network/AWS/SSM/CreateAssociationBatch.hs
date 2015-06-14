@@ -57,8 +57,8 @@ import Network.AWS.SSM.Types
 newtype CreateAssociationBatch = CreateAssociationBatch'{_cabEntries :: [CreateAssociationBatchRequestEntry]} deriving (Eq, Read, Show)
 
 -- | 'CreateAssociationBatch' smart constructor.
-createAssociationBatch :: [CreateAssociationBatchRequestEntry] -> CreateAssociationBatch
-createAssociationBatch pEntries = CreateAssociationBatch'{_cabEntries = pEntries};
+createAssociationBatch :: CreateAssociationBatch
+createAssociationBatch = CreateAssociationBatch'{_cabEntries = mempty};
 
 -- | One or more associations.
 cabEntries :: Lens' CreateAssociationBatch [CreateAssociationBatchRequestEntry]
@@ -102,16 +102,16 @@ instance ToQuery CreateAssociationBatch where
 -- * 'cabrSuccessful'
 --
 -- * 'cabrFailed'
-data CreateAssociationBatchResponse = CreateAssociationBatchResponse'{_cabrSuccessful :: [AssociationDescription], _cabrFailed :: [FailedCreateAssociation]} deriving (Eq, Read, Show)
+data CreateAssociationBatchResponse = CreateAssociationBatchResponse'{_cabrSuccessful :: Maybe [AssociationDescription], _cabrFailed :: Maybe [FailedCreateAssociation]} deriving (Eq, Read, Show)
 
 -- | 'CreateAssociationBatchResponse' smart constructor.
 createAssociationBatchResponse :: CreateAssociationBatchResponse
-createAssociationBatchResponse = CreateAssociationBatchResponse'{_cabrSuccessful = mempty, _cabrFailed = mempty};
+createAssociationBatchResponse = CreateAssociationBatchResponse'{_cabrSuccessful = Nothing, _cabrFailed = Nothing};
 
 -- | Information about the associations that succeeded.
-cabrSuccessful :: Lens' CreateAssociationBatchResponse [AssociationDescription]
+cabrSuccessful :: Lens' CreateAssociationBatchResponse (Maybe [AssociationDescription])
 cabrSuccessful = lens _cabrSuccessful (\ s a -> s{_cabrSuccessful = a});
 
 -- | Information about the associations that failed.
-cabrFailed :: Lens' CreateAssociationBatchResponse [FailedCreateAssociation]
+cabrFailed :: Lens' CreateAssociationBatchResponse (Maybe [FailedCreateAssociation])
 cabrFailed = lens _cabrFailed (\ s a -> s{_cabrFailed = a});

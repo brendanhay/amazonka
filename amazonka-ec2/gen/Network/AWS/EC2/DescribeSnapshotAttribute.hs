@@ -115,18 +115,18 @@ instance ToQuery DescribeSnapshotAttribute where
 -- * 'dsarProductCodes'
 --
 -- * 'dsarSnapshotId'
-data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse'{_dsarCreateVolumePermissions :: [CreateVolumePermission], _dsarProductCodes :: [ProductCode], _dsarSnapshotId :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse'{_dsarCreateVolumePermissions :: Maybe [CreateVolumePermission], _dsarProductCodes :: Maybe [ProductCode], _dsarSnapshotId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeSnapshotAttributeResponse' smart constructor.
 describeSnapshotAttributeResponse :: DescribeSnapshotAttributeResponse
-describeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse'{_dsarCreateVolumePermissions = mempty, _dsarProductCodes = mempty, _dsarSnapshotId = Nothing};
+describeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse'{_dsarCreateVolumePermissions = Nothing, _dsarProductCodes = Nothing, _dsarSnapshotId = Nothing};
 
 -- | A list of permissions for creating volumes from the snapshot.
-dsarCreateVolumePermissions :: Lens' DescribeSnapshotAttributeResponse [CreateVolumePermission]
+dsarCreateVolumePermissions :: Lens' DescribeSnapshotAttributeResponse (Maybe [CreateVolumePermission])
 dsarCreateVolumePermissions = lens _dsarCreateVolumePermissions (\ s a -> s{_dsarCreateVolumePermissions = a});
 
 -- | A list of product codes.
-dsarProductCodes :: Lens' DescribeSnapshotAttributeResponse [ProductCode]
+dsarProductCodes :: Lens' DescribeSnapshotAttributeResponse (Maybe [ProductCode])
 dsarProductCodes = lens _dsarProductCodes (\ s a -> s{_dsarProductCodes = a});
 
 -- | The ID of the EBS snapshot.

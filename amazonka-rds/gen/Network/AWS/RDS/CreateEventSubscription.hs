@@ -82,11 +82,11 @@ import Network.AWS.RDS.Types
 -- * 'cesSubscriptionName'
 --
 -- * 'cesSNSTopicARN'
-data CreateEventSubscription = CreateEventSubscription'{_cesEnabled :: Maybe Bool, _cesSourceType :: Maybe Text, _cesEventCategories :: [Text], _cesSourceIds :: [Text], _cesTags :: [Tag], _cesSubscriptionName :: Text, _cesSNSTopicARN :: Text} deriving (Eq, Read, Show)
+data CreateEventSubscription = CreateEventSubscription'{_cesEnabled :: Maybe Bool, _cesSourceType :: Maybe Text, _cesEventCategories :: Maybe [Text], _cesSourceIds :: Maybe [Text], _cesTags :: Maybe [Tag], _cesSubscriptionName :: Text, _cesSNSTopicARN :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateEventSubscription' smart constructor.
 createEventSubscription :: Text -> Text -> CreateEventSubscription
-createEventSubscription pSubscriptionName pSNSTopicARN = CreateEventSubscription'{_cesEnabled = Nothing, _cesSourceType = Nothing, _cesEventCategories = mempty, _cesSourceIds = mempty, _cesTags = mempty, _cesSubscriptionName = pSubscriptionName, _cesSNSTopicARN = pSNSTopicARN};
+createEventSubscription pSubscriptionName pSNSTopicARN = CreateEventSubscription'{_cesEnabled = Nothing, _cesSourceType = Nothing, _cesEventCategories = Nothing, _cesSourceIds = Nothing, _cesTags = Nothing, _cesSubscriptionName = pSubscriptionName, _cesSNSTopicARN = pSNSTopicARN};
 
 -- | A Boolean value; set to __true__ to activate the subscription, set to
 -- __false__ to create the subscription but not active it.
@@ -108,7 +108,7 @@ cesSourceType = lens _cesSourceType (\ s a -> s{_cesSourceType = a});
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html Events>
 -- topic in the Amazon RDS User Guide or by using the
 -- __DescribeEventCategories__ action.
-cesEventCategories :: Lens' CreateEventSubscription [Text]
+cesEventCategories :: Lens' CreateEventSubscription (Maybe [Text])
 cesEventCategories = lens _cesEventCategories (\ s a -> s{_cesEventCategories = a});
 
 -- | The list of identifiers of the event sources for which events will be
@@ -128,11 +128,11 @@ cesEventCategories = lens _cesEventCategories (\ s a -> s{_cesEventCategories = 
 --     must be supplied.
 -- -   If the source type is a DB snapshot, a @DBSnapshotIdentifier@ must
 --     be supplied.
-cesSourceIds :: Lens' CreateEventSubscription [Text]
+cesSourceIds :: Lens' CreateEventSubscription (Maybe [Text])
 cesSourceIds = lens _cesSourceIds (\ s a -> s{_cesSourceIds = a});
 
 -- | FIXME: Undocumented member.
-cesTags :: Lens' CreateEventSubscription [Tag]
+cesTags :: Lens' CreateEventSubscription (Maybe [Tag])
 cesTags = lens _cesTags (\ s a -> s{_cesTags = a});
 
 -- | The name of the subscription.

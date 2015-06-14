@@ -31,11 +31,11 @@ module Network.AWS.ElasticTranscoder.UpdatePipeline
     , upInputBucket
     , upContentConfig
     , upRole
+    , upName
     , upAWSKMSKeyARN
     , upThumbnailConfig
     , upNotifications
     , upId
-    , upName
 
     -- * Response
     , UpdatePipelineResponse
@@ -61,6 +61,8 @@ import Network.AWS.ElasticTranscoder.Types
 --
 -- * 'upRole'
 --
+-- * 'upName'
+--
 -- * 'upAWSKMSKeyARN'
 --
 -- * 'upThumbnailConfig'
@@ -68,13 +70,11 @@ import Network.AWS.ElasticTranscoder.Types
 -- * 'upNotifications'
 --
 -- * 'upId'
---
--- * 'upName'
-data UpdatePipeline = UpdatePipeline'{_upInputBucket :: Maybe Text, _upContentConfig :: Maybe PipelineOutputConfig, _upRole :: Maybe Text, _upAWSKMSKeyARN :: Maybe Text, _upThumbnailConfig :: Maybe PipelineOutputConfig, _upNotifications :: Maybe Notifications, _upId :: Text, _upName :: Text} deriving (Eq, Read, Show)
+data UpdatePipeline = UpdatePipeline'{_upInputBucket :: Maybe Text, _upContentConfig :: Maybe PipelineOutputConfig, _upRole :: Maybe Text, _upName :: Maybe Text, _upAWSKMSKeyARN :: Maybe Text, _upThumbnailConfig :: Maybe PipelineOutputConfig, _upNotifications :: Maybe Notifications, _upId :: Text} deriving (Eq, Read, Show)
 
 -- | 'UpdatePipeline' smart constructor.
-updatePipeline :: Text -> Text -> UpdatePipeline
-updatePipeline pId pName = UpdatePipeline'{_upInputBucket = Nothing, _upContentConfig = Nothing, _upRole = Nothing, _upAWSKMSKeyARN = Nothing, _upThumbnailConfig = Nothing, _upNotifications = Nothing, _upId = pId, _upName = pName};
+updatePipeline :: Text -> UpdatePipeline
+updatePipeline pId = UpdatePipeline'{_upInputBucket = Nothing, _upContentConfig = Nothing, _upRole = Nothing, _upName = Nothing, _upAWSKMSKeyARN = Nothing, _upThumbnailConfig = Nothing, _upNotifications = Nothing, _upId = pId};
 
 -- | The Amazon S3 bucket in which you saved the media files that you want to
 -- transcode and the graphics that you want to use as watermarks.
@@ -145,6 +145,13 @@ upContentConfig = lens _upContentConfig (\ s a -> s{_upContentConfig = a});
 -- Transcoder to use to transcode jobs for this pipeline.
 upRole :: Lens' UpdatePipeline (Maybe Text)
 upRole = lens _upRole (\ s a -> s{_upRole = a});
+
+-- | The name of the pipeline. We recommend that the name be unique within
+-- the AWS account, but uniqueness is not enforced.
+--
+-- Constraints: Maximum 40 characters
+upName :: Lens' UpdatePipeline (Maybe Text)
+upName = lens _upName (\ s a -> s{_upName = a});
 
 -- | The AWS Key Management Service (AWS KMS) key that you want to use with
 -- this pipeline.
@@ -220,13 +227,6 @@ upNotifications = lens _upNotifications (\ s a -> s{_upNotifications = a});
 upId :: Lens' UpdatePipeline Text
 upId = lens _upId (\ s a -> s{_upId = a});
 
--- | The name of the pipeline. We recommend that the name be unique within
--- the AWS account, but uniqueness is not enforced.
---
--- Constraints: Maximum 40 characters
-upName :: Lens' UpdatePipeline Text
-upName = lens _upName (\ s a -> s{_upName = a});
-
 instance AWSRequest UpdatePipeline where
         type Sv UpdatePipeline = ElasticTranscoder
         type Rs UpdatePipeline = UpdatePipelineResponse
@@ -245,10 +245,10 @@ instance ToJSON UpdatePipeline where
           = object
               ["InputBucket" .= _upInputBucket,
                "ContentConfig" .= _upContentConfig,
-               "Role" .= _upRole, "AwsKmsKeyArn" .= _upAWSKMSKeyARN,
+               "Role" .= _upRole, "Name" .= _upName,
+               "AwsKmsKeyArn" .= _upAWSKMSKeyARN,
                "ThumbnailConfig" .= _upThumbnailConfig,
-               "Notifications" .= _upNotifications,
-               "Name" .= _upName]
+               "Notifications" .= _upNotifications]
 
 instance ToPath UpdatePipeline where
         toPath UpdatePipeline'{..}
@@ -264,11 +264,11 @@ instance ToQuery UpdatePipeline where
 -- * 'uprWarnings'
 --
 -- * 'uprPipeline'
-data UpdatePipelineResponse = UpdatePipelineResponse'{_uprWarnings :: [Warning], _uprPipeline :: Maybe Pipeline} deriving (Eq, Read, Show)
+data UpdatePipelineResponse = UpdatePipelineResponse'{_uprWarnings :: Maybe [Warning], _uprPipeline :: Maybe Pipeline} deriving (Eq, Read, Show)
 
 -- | 'UpdatePipelineResponse' smart constructor.
 updatePipelineResponse :: UpdatePipelineResponse
-updatePipelineResponse = UpdatePipelineResponse'{_uprWarnings = mempty, _uprPipeline = Nothing};
+updatePipelineResponse = UpdatePipelineResponse'{_uprWarnings = Nothing, _uprPipeline = Nothing};
 
 -- | Elastic Transcoder returns a warning if the resources used by your
 -- pipeline are not in the same region as the pipeline.
@@ -276,7 +276,7 @@ updatePipelineResponse = UpdatePipelineResponse'{_uprWarnings = mempty, _uprPipe
 -- Using resources in the same region, such as your Amazon S3 buckets,
 -- Amazon SNS notification topics, and AWS KMS key, reduces processing time
 -- and prevents cross-regional charges.
-uprWarnings :: Lens' UpdatePipelineResponse [Warning]
+uprWarnings :: Lens' UpdatePipelineResponse (Maybe [Warning])
 uprWarnings = lens _uprWarnings (\ s a -> s{_uprWarnings = a});
 
 -- | FIXME: Undocumented member.

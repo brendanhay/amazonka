@@ -73,11 +73,11 @@ import Network.AWS.EC2.Types
 -- * 'drilReservedInstancesId'
 --
 -- * 'drilReservedInstancesListingId'
-data DescribeReservedInstancesListings = DescribeReservedInstancesListings'{_drilFilters :: [Filter], _drilReservedInstancesId :: Maybe Text, _drilReservedInstancesListingId :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeReservedInstancesListings = DescribeReservedInstancesListings'{_drilFilters :: Maybe [Filter], _drilReservedInstancesId :: Maybe Text, _drilReservedInstancesListingId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeReservedInstancesListings' smart constructor.
 describeReservedInstancesListings :: DescribeReservedInstancesListings
-describeReservedInstancesListings = DescribeReservedInstancesListings'{_drilFilters = mempty, _drilReservedInstancesId = Nothing, _drilReservedInstancesListingId = Nothing};
+describeReservedInstancesListings = DescribeReservedInstancesListings'{_drilFilters = Nothing, _drilReservedInstancesId = Nothing, _drilReservedInstancesListingId = Nothing};
 
 -- | One or more filters.
 --
@@ -91,7 +91,7 @@ describeReservedInstancesListings = DescribeReservedInstancesListings'{_drilFilt
 --
 -- -   @status-message@ - The reason for the status.
 --
-drilFilters :: Lens' DescribeReservedInstancesListings [Filter]
+drilFilters :: Lens' DescribeReservedInstancesListings (Maybe [Filter])
 drilFilters = lens _drilFilters (\ s a -> s{_drilFilters = a});
 
 -- | One or more Reserved Instance IDs.
@@ -139,12 +139,12 @@ instance ToQuery DescribeReservedInstancesListings
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'drilrReservedInstancesListings'
-newtype DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse'{_drilrReservedInstancesListings :: [ReservedInstancesListing]} deriving (Eq, Read, Show)
+newtype DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse'{_drilrReservedInstancesListings :: Maybe [ReservedInstancesListing]} deriving (Eq, Read, Show)
 
 -- | 'DescribeReservedInstancesListingsResponse' smart constructor.
 describeReservedInstancesListingsResponse :: DescribeReservedInstancesListingsResponse
-describeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse'{_drilrReservedInstancesListings = mempty};
+describeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse'{_drilrReservedInstancesListings = Nothing};
 
 -- | Information about the Reserved Instance listing.
-drilrReservedInstancesListings :: Lens' DescribeReservedInstancesListingsResponse [ReservedInstancesListing]
+drilrReservedInstancesListings :: Lens' DescribeReservedInstancesListingsResponse (Maybe [ReservedInstancesListing])
 drilrReservedInstancesListings = lens _drilrReservedInstancesListings (\ s a -> s{_drilrReservedInstancesListings = a});

@@ -63,11 +63,11 @@ import Network.AWS.EC2.Types
 -- * 'dsirSpotInstanceRequestIds'
 --
 -- * 'dsirDryRun'
-data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests'{_dsirFilters :: [Filter], _dsirSpotInstanceRequestIds :: [Text], _dsirDryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests'{_dsirFilters :: Maybe [Filter], _dsirSpotInstanceRequestIds :: Maybe [Text], _dsirDryRun :: Maybe Bool} deriving (Eq, Read, Show)
 
 -- | 'DescribeSpotInstanceRequests' smart constructor.
 describeSpotInstanceRequests :: DescribeSpotInstanceRequests
-describeSpotInstanceRequests = DescribeSpotInstanceRequests'{_dsirFilters = mempty, _dsirSpotInstanceRequestIds = mempty, _dsirDryRun = Nothing};
+describeSpotInstanceRequests = DescribeSpotInstanceRequests'{_dsirFilters = Nothing, _dsirSpotInstanceRequestIds = Nothing, _dsirDryRun = Nothing};
 
 -- | One or more filters.
 --
@@ -188,11 +188,11 @@ describeSpotInstanceRequests = DescribeSpotInstanceRequests'{_dsirFilters = memp
 --
 -- -   @valid-until@ - The end date of the request.
 --
-dsirFilters :: Lens' DescribeSpotInstanceRequests [Filter]
+dsirFilters :: Lens' DescribeSpotInstanceRequests (Maybe [Filter])
 dsirFilters = lens _dsirFilters (\ s a -> s{_dsirFilters = a});
 
 -- | One or more Spot Instance request IDs.
-dsirSpotInstanceRequestIds :: Lens' DescribeSpotInstanceRequests [Text]
+dsirSpotInstanceRequestIds :: Lens' DescribeSpotInstanceRequests (Maybe [Text])
 dsirSpotInstanceRequestIds = lens _dsirSpotInstanceRequestIds (\ s a -> s{_dsirSpotInstanceRequestIds = a});
 
 -- | Checks whether you have the required permissions for the action, without
@@ -236,12 +236,12 @@ instance ToQuery DescribeSpotInstanceRequests where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsirrSpotInstanceRequests'
-newtype DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse'{_dsirrSpotInstanceRequests :: [SpotInstanceRequest]} deriving (Eq, Read, Show)
+newtype DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse'{_dsirrSpotInstanceRequests :: Maybe [SpotInstanceRequest]} deriving (Eq, Read, Show)
 
 -- | 'DescribeSpotInstanceRequestsResponse' smart constructor.
 describeSpotInstanceRequestsResponse :: DescribeSpotInstanceRequestsResponse
-describeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse'{_dsirrSpotInstanceRequests = mempty};
+describeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse'{_dsirrSpotInstanceRequests = Nothing};
 
 -- | One or more Spot Instance requests.
-dsirrSpotInstanceRequests :: Lens' DescribeSpotInstanceRequestsResponse [SpotInstanceRequest]
+dsirrSpotInstanceRequests :: Lens' DescribeSpotInstanceRequestsResponse (Maybe [SpotInstanceRequest])
 dsirrSpotInstanceRequests = lens _dsirrSpotInstanceRequests (\ s a -> s{_dsirrSpotInstanceRequests = a});

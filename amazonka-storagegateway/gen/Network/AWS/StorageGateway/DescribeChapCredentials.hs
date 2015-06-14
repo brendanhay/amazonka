@@ -94,11 +94,11 @@ instance ToQuery DescribeChapCredentials where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dccrChapCredentials'
-newtype DescribeChapCredentialsResponse = DescribeChapCredentialsResponse'{_dccrChapCredentials :: [ChapInfo]} deriving (Eq, Read, Show)
+newtype DescribeChapCredentialsResponse = DescribeChapCredentialsResponse'{_dccrChapCredentials :: Maybe [ChapInfo]} deriving (Eq, Read, Show)
 
 -- | 'DescribeChapCredentialsResponse' smart constructor.
 describeChapCredentialsResponse :: DescribeChapCredentialsResponse
-describeChapCredentialsResponse = DescribeChapCredentialsResponse'{_dccrChapCredentials = mempty};
+describeChapCredentialsResponse = DescribeChapCredentialsResponse'{_dccrChapCredentials = Nothing};
 
 -- | An array of ChapInfo objects that represent CHAP credentials. Each
 -- object in the array contains CHAP credential information for one
@@ -118,5 +118,5 @@ describeChapCredentialsResponse = DescribeChapCredentialsResponse'{_dccrChapCred
 --
 -- -   __TargetARN__: The Amazon Resource Name (ARN) of the storage volume.
 --
-dccrChapCredentials :: Lens' DescribeChapCredentialsResponse [ChapInfo]
+dccrChapCredentials :: Lens' DescribeChapCredentialsResponse (Maybe [ChapInfo])
 dccrChapCredentials = lens _dccrChapCredentials (\ s a -> s{_dccrChapCredentials = a});

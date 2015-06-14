@@ -55,14 +55,14 @@ import Network.AWS.Redshift.Types
 -- * 'ccsSnapshotIdentifier'
 --
 -- * 'ccsClusterIdentifier'
-data CreateClusterSnapshot = CreateClusterSnapshot'{_ccsTags :: [Tag], _ccsSnapshotIdentifier :: Text, _ccsClusterIdentifier :: Text} deriving (Eq, Read, Show)
+data CreateClusterSnapshot = CreateClusterSnapshot'{_ccsTags :: Maybe [Tag], _ccsSnapshotIdentifier :: Text, _ccsClusterIdentifier :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateClusterSnapshot' smart constructor.
 createClusterSnapshot :: Text -> Text -> CreateClusterSnapshot
-createClusterSnapshot pSnapshotIdentifier pClusterIdentifier = CreateClusterSnapshot'{_ccsTags = mempty, _ccsSnapshotIdentifier = pSnapshotIdentifier, _ccsClusterIdentifier = pClusterIdentifier};
+createClusterSnapshot pSnapshotIdentifier pClusterIdentifier = CreateClusterSnapshot'{_ccsTags = Nothing, _ccsSnapshotIdentifier = pSnapshotIdentifier, _ccsClusterIdentifier = pClusterIdentifier};
 
 -- | A list of tag instances.
-ccsTags :: Lens' CreateClusterSnapshot [Tag]
+ccsTags :: Lens' CreateClusterSnapshot (Maybe [Tag])
 ccsTags = lens _ccsTags (\ s a -> s{_ccsTags = a});
 
 -- | A unique identifier for the snapshot that you are requesting. This

@@ -45,8 +45,8 @@ import Network.AWS.CloudWatch.Types
 newtype EnableAlarmActions = EnableAlarmActions'{_eaaAlarmNames :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'EnableAlarmActions' smart constructor.
-enableAlarmActions :: [Text] -> EnableAlarmActions
-enableAlarmActions pAlarmNames = EnableAlarmActions'{_eaaAlarmNames = pAlarmNames};
+enableAlarmActions :: EnableAlarmActions
+enableAlarmActions = EnableAlarmActions'{_eaaAlarmNames = mempty};
 
 -- | The names of the alarms to enable actions for.
 eaaAlarmNames :: Lens' EnableAlarmActions [Text]

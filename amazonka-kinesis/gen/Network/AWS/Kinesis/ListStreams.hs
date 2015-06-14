@@ -64,18 +64,18 @@ import Network.AWS.Kinesis.Types
 -- * 'lsLimit'
 --
 -- * 'lsExclusiveStartStreamName'
-data ListStreams = ListStreams'{_lsLimit :: Nat, _lsExclusiveStartStreamName :: Text} deriving (Eq, Read, Show)
+data ListStreams = ListStreams'{_lsLimit :: Maybe Nat, _lsExclusiveStartStreamName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ListStreams' smart constructor.
-listStreams :: Natural -> Text -> ListStreams
-listStreams pLimit pExclusiveStartStreamName = ListStreams'{_lsLimit = _Nat # pLimit, _lsExclusiveStartStreamName = pExclusiveStartStreamName};
+listStreams :: ListStreams
+listStreams = ListStreams'{_lsLimit = Nothing, _lsExclusiveStartStreamName = Nothing};
 
 -- | The maximum number of streams to list.
-lsLimit :: Lens' ListStreams Natural
-lsLimit = lens _lsLimit (\ s a -> s{_lsLimit = a}) . _Nat;
+lsLimit :: Lens' ListStreams (Maybe Natural)
+lsLimit = lens _lsLimit (\ s a -> s{_lsLimit = a}) . mapping _Nat;
 
 -- | The name of the stream to start the list with.
-lsExclusiveStartStreamName :: Lens' ListStreams Text
+lsExclusiveStartStreamName :: Lens' ListStreams (Maybe Text)
 lsExclusiveStartStreamName = lens _lsExclusiveStartStreamName (\ s a -> s{_lsExclusiveStartStreamName = a});
 
 instance AWSRequest ListStreams where
@@ -121,8 +121,8 @@ instance ToQuery ListStreams where
 data ListStreamsResponse = ListStreamsResponse'{_lsrStreamNames :: [Text], _lsrHasMoreStreams :: Bool} deriving (Eq, Read, Show)
 
 -- | 'ListStreamsResponse' smart constructor.
-listStreamsResponse :: [Text] -> Bool -> ListStreamsResponse
-listStreamsResponse pStreamNames pHasMoreStreams = ListStreamsResponse'{_lsrStreamNames = pStreamNames, _lsrHasMoreStreams = pHasMoreStreams};
+listStreamsResponse :: Bool -> ListStreamsResponse
+listStreamsResponse pHasMoreStreams = ListStreamsResponse'{_lsrStreamNames = mempty, _lsrHasMoreStreams = pHasMoreStreams};
 
 -- | The names of the streams that are associated with the AWS account making
 -- the @ListStreams@ request.

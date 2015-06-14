@@ -56,8 +56,8 @@ import Network.AWS.DataPipeline.Types
 newtype DescribePipelines = DescribePipelines'{_dpPipelineIds :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'DescribePipelines' smart constructor.
-describePipelines :: [Text] -> DescribePipelines
-describePipelines pPipelineIds = DescribePipelines'{_dpPipelineIds = pPipelineIds};
+describePipelines :: DescribePipelines
+describePipelines = DescribePipelines'{_dpPipelineIds = mempty};
 
 -- | The IDs of the pipelines to describe. You can pass as many as 25
 -- identifiers in a single call. To obtain pipeline IDs, call
@@ -102,8 +102,8 @@ instance ToQuery DescribePipelines where
 newtype DescribePipelinesResponse = DescribePipelinesResponse'{_dprPipelineDescriptionList :: [PipelineDescription]} deriving (Eq, Read, Show)
 
 -- | 'DescribePipelinesResponse' smart constructor.
-describePipelinesResponse :: [PipelineDescription] -> DescribePipelinesResponse
-describePipelinesResponse pPipelineDescriptionList = DescribePipelinesResponse'{_dprPipelineDescriptionList = pPipelineDescriptionList};
+describePipelinesResponse :: DescribePipelinesResponse
+describePipelinesResponse = DescribePipelinesResponse'{_dprPipelineDescriptionList = mempty};
 
 -- | An array of descriptions for the specified pipelines.
 dprPipelineDescriptionList :: Lens' DescribePipelinesResponse [PipelineDescription]

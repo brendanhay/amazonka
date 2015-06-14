@@ -32,10 +32,10 @@ module Network.AWS.MachineLearning.DescribeMLModels
     , dmlmNE
     , dmlmNextToken
     , dmlmSortOrder
+    , dmlmLimit
     , dmlmLT
     , dmlmFilterVariable
     , dmlmLE
-    , dmlmLimit
 
     -- * Response
     , DescribeMLModelsResponse
@@ -69,18 +69,18 @@ import Network.AWS.MachineLearning.Types
 --
 -- * 'dmlmSortOrder'
 --
+-- * 'dmlmLimit'
+--
 -- * 'dmlmLT'
 --
 -- * 'dmlmFilterVariable'
 --
 -- * 'dmlmLE'
---
--- * 'dmlmLimit'
-data DescribeMLModels = DescribeMLModels'{_dmlmEQ :: Maybe Text, _dmlmGE :: Maybe Text, _dmlmPrefix :: Maybe Text, _dmlmGT :: Maybe Text, _dmlmNE :: Maybe Text, _dmlmNextToken :: Maybe Text, _dmlmSortOrder :: Maybe SortOrder, _dmlmLT :: Maybe Text, _dmlmFilterVariable :: Maybe MLModelFilterVariable, _dmlmLE :: Maybe Text, _dmlmLimit :: Nat} deriving (Eq, Read, Show)
+data DescribeMLModels = DescribeMLModels'{_dmlmEQ :: Maybe Text, _dmlmGE :: Maybe Text, _dmlmPrefix :: Maybe Text, _dmlmGT :: Maybe Text, _dmlmNE :: Maybe Text, _dmlmNextToken :: Maybe Text, _dmlmSortOrder :: Maybe SortOrder, _dmlmLimit :: Maybe Nat, _dmlmLT :: Maybe Text, _dmlmFilterVariable :: Maybe MLModelFilterVariable, _dmlmLE :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeMLModels' smart constructor.
-describeMLModels :: Natural -> DescribeMLModels
-describeMLModels pLimit = DescribeMLModels'{_dmlmEQ = Nothing, _dmlmGE = Nothing, _dmlmPrefix = Nothing, _dmlmGT = Nothing, _dmlmNE = Nothing, _dmlmNextToken = Nothing, _dmlmSortOrder = Nothing, _dmlmLT = Nothing, _dmlmFilterVariable = Nothing, _dmlmLE = Nothing, _dmlmLimit = _Nat # pLimit};
+describeMLModels :: DescribeMLModels
+describeMLModels = DescribeMLModels'{_dmlmEQ = Nothing, _dmlmGE = Nothing, _dmlmPrefix = Nothing, _dmlmGT = Nothing, _dmlmNE = Nothing, _dmlmNextToken = Nothing, _dmlmSortOrder = Nothing, _dmlmLimit = Nothing, _dmlmLT = Nothing, _dmlmFilterVariable = Nothing, _dmlmLE = Nothing};
 
 -- | The equal to operator. The @MLModel@ results will have @FilterVariable@
 -- values that exactly match the value specified with @EQ@.
@@ -135,6 +135,11 @@ dmlmNextToken = lens _dmlmNextToken (\ s a -> s{_dmlmNextToken = a});
 dmlmSortOrder :: Lens' DescribeMLModels (Maybe SortOrder)
 dmlmSortOrder = lens _dmlmSortOrder (\ s a -> s{_dmlmSortOrder = a});
 
+-- | The number of pages of information to include in the result. The range
+-- of acceptable values is 1 through 100. The default value is 100.
+dmlmLimit :: Lens' DescribeMLModels (Maybe Natural)
+dmlmLimit = lens _dmlmLimit (\ s a -> s{_dmlmLimit = a}) . mapping _Nat;
+
 -- | The less than operator. The @MLModel@ results will have @FilterVariable@
 -- values that are less than the value specified with @LT@.
 dmlmLT :: Lens' DescribeMLModels (Maybe Text)
@@ -168,11 +173,6 @@ dmlmFilterVariable = lens _dmlmFilterVariable (\ s a -> s{_dmlmFilterVariable = 
 dmlmLE :: Lens' DescribeMLModels (Maybe Text)
 dmlmLE = lens _dmlmLE (\ s a -> s{_dmlmLE = a});
 
--- | The number of pages of information to include in the result. The range
--- of acceptable values is 1 through 100. The default value is 100.
-dmlmLimit :: Lens' DescribeMLModels Natural
-dmlmLimit = lens _dmlmLimit (\ s a -> s{_dmlmLimit = a}) . _Nat;
-
 instance AWSRequest DescribeMLModels where
         type Sv DescribeMLModels = MachineLearning
         type Rs DescribeMLModels = DescribeMLModelsResponse
@@ -198,9 +198,10 @@ instance ToJSON DescribeMLModels where
               ["EQ" .= _dmlmEQ, "GE" .= _dmlmGE,
                "Prefix" .= _dmlmPrefix, "GT" .= _dmlmGT,
                "NE" .= _dmlmNE, "NextToken" .= _dmlmNextToken,
-               "SortOrder" .= _dmlmSortOrder, "LT" .= _dmlmLT,
+               "SortOrder" .= _dmlmSortOrder, "Limit" .= _dmlmLimit,
+               "LT" .= _dmlmLT,
                "FilterVariable" .= _dmlmFilterVariable,
-               "LE" .= _dmlmLE, "Limit" .= _dmlmLimit]
+               "LE" .= _dmlmLE]
 
 instance ToPath DescribeMLModels where
         toPath = const "/"
@@ -215,14 +216,14 @@ instance ToQuery DescribeMLModels where
 -- * 'dmlmrResults'
 --
 -- * 'dmlmrNextToken'
-data DescribeMLModelsResponse = DescribeMLModelsResponse'{_dmlmrResults :: [MLModel], _dmlmrNextToken :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeMLModelsResponse = DescribeMLModelsResponse'{_dmlmrResults :: Maybe [MLModel], _dmlmrNextToken :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeMLModelsResponse' smart constructor.
 describeMLModelsResponse :: DescribeMLModelsResponse
-describeMLModelsResponse = DescribeMLModelsResponse'{_dmlmrResults = mempty, _dmlmrNextToken = Nothing};
+describeMLModelsResponse = DescribeMLModelsResponse'{_dmlmrResults = Nothing, _dmlmrNextToken = Nothing};
 
 -- | A list of MLModel that meet the search criteria.
-dmlmrResults :: Lens' DescribeMLModelsResponse [MLModel]
+dmlmrResults :: Lens' DescribeMLModelsResponse (Maybe [MLModel])
 dmlmrResults = lens _dmlmrResults (\ s a -> s{_dmlmrResults = a});
 
 -- | The ID of the next page in the paginated results that indicates at least

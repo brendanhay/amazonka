@@ -66,7 +66,7 @@ instance AWSRequest CreateRealtimeEndpoint where
           = receiveJSON
               (\ s h x ->
                  CreateRealtimeEndpointResponse' <$>
-                   x .?> "RealtimeEndpointInfo" <*> x .:> "MLModelId")
+                   x .?> "RealtimeEndpointInfo" <*> x .?> "MLModelId")
 
 instance ToHeaders CreateRealtimeEndpoint where
         toHeaders
@@ -95,11 +95,11 @@ instance ToQuery CreateRealtimeEndpoint where
 -- * 'crerRealtimeEndpointInfo'
 --
 -- * 'crerMLModelId'
-data CreateRealtimeEndpointResponse = CreateRealtimeEndpointResponse'{_crerRealtimeEndpointInfo :: Maybe RealtimeEndpointInfo, _crerMLModelId :: Text} deriving (Eq, Read, Show)
+data CreateRealtimeEndpointResponse = CreateRealtimeEndpointResponse'{_crerRealtimeEndpointInfo :: Maybe RealtimeEndpointInfo, _crerMLModelId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'CreateRealtimeEndpointResponse' smart constructor.
-createRealtimeEndpointResponse :: Text -> CreateRealtimeEndpointResponse
-createRealtimeEndpointResponse pMLModelId = CreateRealtimeEndpointResponse'{_crerRealtimeEndpointInfo = Nothing, _crerMLModelId = pMLModelId};
+createRealtimeEndpointResponse :: CreateRealtimeEndpointResponse
+createRealtimeEndpointResponse = CreateRealtimeEndpointResponse'{_crerRealtimeEndpointInfo = Nothing, _crerMLModelId = Nothing};
 
 -- | The endpoint information of the @MLModel@
 crerRealtimeEndpointInfo :: Lens' CreateRealtimeEndpointResponse (Maybe RealtimeEndpointInfo)
@@ -107,5 +107,5 @@ crerRealtimeEndpointInfo = lens _crerRealtimeEndpointInfo (\ s a -> s{_crerRealt
 
 -- | A user-supplied ID that uniquely identifies the @MLModel@. This value
 -- should be identical to the value of the @MLModelId@ in the request.
-crerMLModelId :: Lens' CreateRealtimeEndpointResponse Text
+crerMLModelId :: Lens' CreateRealtimeEndpointResponse (Maybe Text)
 crerMLModelId = lens _crerMLModelId (\ s a -> s{_crerMLModelId = a});

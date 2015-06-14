@@ -62,8 +62,8 @@ import Network.AWS.ELB.Types
 data SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackendServer'{_slbpfbsLoadBalancerName :: Text, _slbpfbsInstancePort :: Int, _slbpfbsPolicyNames :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'SetLoadBalancerPoliciesForBackendServer' smart constructor.
-setLoadBalancerPoliciesForBackendServer :: Text -> Int -> [Text] -> SetLoadBalancerPoliciesForBackendServer
-setLoadBalancerPoliciesForBackendServer pLoadBalancerName pInstancePort pPolicyNames = SetLoadBalancerPoliciesForBackendServer'{_slbpfbsLoadBalancerName = pLoadBalancerName, _slbpfbsInstancePort = pInstancePort, _slbpfbsPolicyNames = pPolicyNames};
+setLoadBalancerPoliciesForBackendServer :: Text -> Int -> SetLoadBalancerPoliciesForBackendServer
+setLoadBalancerPoliciesForBackendServer pLoadBalancerName pInstancePort = SetLoadBalancerPoliciesForBackendServer'{_slbpfbsLoadBalancerName = pLoadBalancerName, _slbpfbsInstancePort = pInstancePort, _slbpfbsPolicyNames = mempty};
 
 -- | The name of the load balancer.
 slbpfbsLoadBalancerName :: Lens' SetLoadBalancerPoliciesForBackendServer Text

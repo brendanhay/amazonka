@@ -70,11 +70,11 @@ import Network.AWS.EC2.Types
 -- * 'ci1InstanceId'
 --
 -- * 'ci1Name'
-data CreateImage = CreateImage'{_ci1NoReboot :: Maybe Bool, _ci1BlockDeviceMappings :: [BlockDeviceMapping], _ci1DryRun :: Maybe Bool, _ci1Description :: Maybe Text, _ci1InstanceId :: Text, _ci1Name :: Text} deriving (Eq, Read, Show)
+data CreateImage = CreateImage'{_ci1NoReboot :: Maybe Bool, _ci1BlockDeviceMappings :: Maybe [BlockDeviceMapping], _ci1DryRun :: Maybe Bool, _ci1Description :: Maybe Text, _ci1InstanceId :: Text, _ci1Name :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateImage' smart constructor.
 createImage :: Text -> Text -> CreateImage
-createImage pInstanceId pName = CreateImage'{_ci1NoReboot = Nothing, _ci1BlockDeviceMappings = mempty, _ci1DryRun = Nothing, _ci1Description = Nothing, _ci1InstanceId = pInstanceId, _ci1Name = pName};
+createImage pInstanceId pName = CreateImage'{_ci1NoReboot = Nothing, _ci1BlockDeviceMappings = Nothing, _ci1DryRun = Nothing, _ci1Description = Nothing, _ci1InstanceId = pInstanceId, _ci1Name = pName};
 
 -- | By default, this parameter is set to @false@, which means Amazon EC2
 -- attempts to shut down the instance cleanly before image creation and
@@ -86,7 +86,7 @@ ci1NoReboot :: Lens' CreateImage (Maybe Bool)
 ci1NoReboot = lens _ci1NoReboot (\ s a -> s{_ci1NoReboot = a});
 
 -- | Information about one or more block device mappings.
-ci1BlockDeviceMappings :: Lens' CreateImage [BlockDeviceMapping]
+ci1BlockDeviceMappings :: Lens' CreateImage (Maybe [BlockDeviceMapping])
 ci1BlockDeviceMappings = lens _ci1BlockDeviceMappings (\ s a -> s{_ci1BlockDeviceMappings = a});
 
 -- | Checks whether you have the required permissions for the action, without

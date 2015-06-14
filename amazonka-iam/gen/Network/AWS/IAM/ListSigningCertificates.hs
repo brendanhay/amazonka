@@ -44,9 +44,9 @@ module Network.AWS.IAM.ListSigningCertificates
     -- ** Response constructor
     , listSigningCertificatesResponse
     -- ** Response lenses
+    , lisMarker
     , lisIsTruncated
     , lisCertificates
-    , lisMarker
     ) where
 
 import Network.AWS.Request
@@ -63,14 +63,14 @@ import Network.AWS.IAM.Types
 -- * 'lMaxItems'
 --
 -- * 'lMarker'
-data ListSigningCertificates = ListSigningCertificates'{_lUserName :: Text, _lMaxItems :: Nat, _lMarker :: Text} deriving (Eq, Read, Show)
+data ListSigningCertificates = ListSigningCertificates'{_lUserName :: Maybe Text, _lMaxItems :: Maybe Nat, _lMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ListSigningCertificates' smart constructor.
-listSigningCertificates :: Text -> Natural -> Text -> ListSigningCertificates
-listSigningCertificates pUserName pMaxItems pMarker = ListSigningCertificates'{_lUserName = pUserName, _lMaxItems = _Nat # pMaxItems, _lMarker = pMarker};
+listSigningCertificates :: ListSigningCertificates
+listSigningCertificates = ListSigningCertificates'{_lUserName = Nothing, _lMaxItems = Nothing, _lMarker = Nothing};
 
 -- | The name of the user.
-lUserName :: Lens' ListSigningCertificates Text
+lUserName :: Lens' ListSigningCertificates (Maybe Text)
 lUserName = lens _lUserName (\ s a -> s{_lUserName = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
@@ -78,14 +78,14 @@ lUserName = lens _lUserName (\ s a -> s{_lUserName = a});
 -- certificate IDs beyond the maximum you specify, the @IsTruncated@
 -- response element is @true@. This parameter is optional. If you do not
 -- include it, it defaults to 100.
-lMaxItems :: Lens' ListSigningCertificates Natural
-lMaxItems = lens _lMaxItems (\ s a -> s{_lMaxItems = a}) . _Nat;
+lMaxItems :: Lens' ListSigningCertificates (Maybe Natural)
+lMaxItems = lens _lMaxItems (\ s a -> s{_lMaxItems = a}) . mapping _Nat;
 
 -- | Use this only when paginating results, and only in a subsequent request
 -- after you\'ve received a response where the results are truncated. Set
 -- it to the value of the @Marker@ element in the response you just
 -- received.
-lMarker :: Lens' ListSigningCertificates Text
+lMarker :: Lens' ListSigningCertificates (Maybe Text)
 lMarker = lens _lMarker (\ s a -> s{_lMarker = a});
 
 instance AWSRequest ListSigningCertificates where
@@ -97,10 +97,9 @@ instance AWSRequest ListSigningCertificates where
           = receiveXMLWrapper "ListSigningCertificatesResult"
               (\ s h x ->
                  ListSigningCertificatesResponse' <$>
-                   x .@? "IsTruncated" <*>
+                   x .@? "Marker" <*> x .@? "IsTruncated" <*>
                      (x .@? "Certificates" .!@ mempty >>=
-                        parseXMLList "member")
-                     <*> x .@ "Marker")
+                        parseXMLList "member"))
 
 instance ToHeaders ListSigningCertificates where
         toHeaders = const mempty
@@ -121,16 +120,22 @@ instance ToQuery ListSigningCertificates where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'lisMarker'
+--
 -- * 'lisIsTruncated'
 --
 -- * 'lisCertificates'
---
--- * 'lisMarker'
-data ListSigningCertificatesResponse = ListSigningCertificatesResponse'{_lisIsTruncated :: Maybe Bool, _lisCertificates :: [SigningCertificate], _lisMarker :: Text} deriving (Eq, Read, Show)
+data ListSigningCertificatesResponse = ListSigningCertificatesResponse'{_lisMarker :: Maybe Text, _lisIsTruncated :: Maybe Bool, _lisCertificates :: [SigningCertificate]} deriving (Eq, Read, Show)
 
 -- | 'ListSigningCertificatesResponse' smart constructor.
-listSigningCertificatesResponse :: [SigningCertificate] -> Text -> ListSigningCertificatesResponse
-listSigningCertificatesResponse pCertificates pMarker = ListSigningCertificatesResponse'{_lisIsTruncated = Nothing, _lisCertificates = pCertificates, _lisMarker = pMarker};
+listSigningCertificatesResponse :: ListSigningCertificatesResponse
+listSigningCertificatesResponse = ListSigningCertificatesResponse'{_lisMarker = Nothing, _lisIsTruncated = Nothing, _lisCertificates = mempty};
+
+-- | If @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+lisMarker :: Lens' ListSigningCertificatesResponse (Maybe Text)
+lisMarker = lens _lisMarker (\ s a -> s{_lisMarker = a});
 
 -- | A flag that indicates whether there are more certificate IDs to list. If
 -- your results were truncated, you can make a subsequent pagination
@@ -142,9 +147,3 @@ lisIsTruncated = lens _lisIsTruncated (\ s a -> s{_lisIsTruncated = a});
 -- | A list of the user\'s signing certificate information.
 lisCertificates :: Lens' ListSigningCertificatesResponse [SigningCertificate]
 lisCertificates = lens _lisCertificates (\ s a -> s{_lisCertificates = a});
-
--- | If @IsTruncated@ is @true@, this element is present and contains the
--- value to use for the @Marker@ parameter in a subsequent pagination
--- request.
-lisMarker :: Lens' ListSigningCertificatesResponse Text
-lisMarker = lens _lisMarker (\ s a -> s{_lisMarker = a});

@@ -76,7 +76,7 @@ instance AWSRequest DeleteVolume where
         response
           = receiveJSON
               (\ s h x ->
-                 DeleteVolumeResponse' <$> x .:> "VolumeARN")
+                 DeleteVolumeResponse' <$> x .?> "VolumeARN")
 
 instance ToHeaders DeleteVolume where
         toHeaders
@@ -103,13 +103,13 @@ instance ToQuery DeleteVolume where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dvrVolumeARN'
-newtype DeleteVolumeResponse = DeleteVolumeResponse'{_dvrVolumeARN :: Text} deriving (Eq, Read, Show)
+newtype DeleteVolumeResponse = DeleteVolumeResponse'{_dvrVolumeARN :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DeleteVolumeResponse' smart constructor.
-deleteVolumeResponse :: Text -> DeleteVolumeResponse
-deleteVolumeResponse pVolumeARN = DeleteVolumeResponse'{_dvrVolumeARN = pVolumeARN};
+deleteVolumeResponse :: DeleteVolumeResponse
+deleteVolumeResponse = DeleteVolumeResponse'{_dvrVolumeARN = Nothing};
 
 -- | The Amazon Resource Name (ARN) of the storage volume that was deleted.
 -- It is the same ARN you provided in the request.
-dvrVolumeARN :: Lens' DeleteVolumeResponse Text
+dvrVolumeARN :: Lens' DeleteVolumeResponse (Maybe Text)
 dvrVolumeARN = lens _dvrVolumeARN (\ s a -> s{_dvrVolumeARN = a});

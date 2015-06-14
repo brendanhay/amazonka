@@ -119,15 +119,15 @@ instance ToQuery DescribeCacheParameterGroups where
 -- * 'dcpgrCacheParameterGroups'
 --
 -- * 'dcpgrMarker'
-data DescribeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse'{_dcpgrCacheParameterGroups :: [CacheParameterGroup], _dcpgrMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse'{_dcpgrCacheParameterGroups :: Maybe [CacheParameterGroup], _dcpgrMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeCacheParameterGroupsResponse' smart constructor.
 describeCacheParameterGroupsResponse :: DescribeCacheParameterGroupsResponse
-describeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse'{_dcpgrCacheParameterGroups = mempty, _dcpgrMarker = Nothing};
+describeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse'{_dcpgrCacheParameterGroups = Nothing, _dcpgrMarker = Nothing};
 
 -- | A list of cache parameter groups. Each element in the list contains
 -- detailed information about one cache parameter group.
-dcpgrCacheParameterGroups :: Lens' DescribeCacheParameterGroupsResponse [CacheParameterGroup]
+dcpgrCacheParameterGroups :: Lens' DescribeCacheParameterGroupsResponse (Maybe [CacheParameterGroup])
 dcpgrCacheParameterGroups = lens _dcpgrCacheParameterGroups (\ s a -> s{_dcpgrCacheParameterGroups = a});
 
 -- | Provides an identifier to allow retrieval of paginated results.

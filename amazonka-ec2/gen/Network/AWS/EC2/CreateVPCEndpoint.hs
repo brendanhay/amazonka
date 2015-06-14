@@ -66,11 +66,11 @@ import Network.AWS.EC2.Types
 -- * 'cveVPCId'
 --
 -- * 'cveServiceName'
-data CreateVPCEndpoint = CreateVPCEndpoint'{_cvePolicyDocument :: Maybe Text, _cveClientToken :: Maybe Text, _cveDryRun :: Maybe Bool, _cveRouteTableIds :: [Text], _cveVPCId :: Text, _cveServiceName :: Text} deriving (Eq, Read, Show)
+data CreateVPCEndpoint = CreateVPCEndpoint'{_cvePolicyDocument :: Maybe Text, _cveClientToken :: Maybe Text, _cveDryRun :: Maybe Bool, _cveRouteTableIds :: Maybe [Text], _cveVPCId :: Text, _cveServiceName :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateVPCEndpoint' smart constructor.
 createVPCEndpoint :: Text -> Text -> CreateVPCEndpoint
-createVPCEndpoint pVPCId pServiceName = CreateVPCEndpoint'{_cvePolicyDocument = Nothing, _cveClientToken = Nothing, _cveDryRun = Nothing, _cveRouteTableIds = mempty, _cveVPCId = pVPCId, _cveServiceName = pServiceName};
+createVPCEndpoint pVPCId pServiceName = CreateVPCEndpoint'{_cvePolicyDocument = Nothing, _cveClientToken = Nothing, _cveDryRun = Nothing, _cveRouteTableIds = Nothing, _cveVPCId = pVPCId, _cveServiceName = pServiceName};
 
 -- | A policy to attach to the endpoint that controls access to the service.
 -- The policy must be in valid JSON format. If this parameter is not
@@ -93,7 +93,7 @@ cveDryRun :: Lens' CreateVPCEndpoint (Maybe Bool)
 cveDryRun = lens _cveDryRun (\ s a -> s{_cveDryRun = a});
 
 -- | One or more route table IDs.
-cveRouteTableIds :: Lens' CreateVPCEndpoint [Text]
+cveRouteTableIds :: Lens' CreateVPCEndpoint (Maybe [Text])
 cveRouteTableIds = lens _cveRouteTableIds (\ s a -> s{_cveRouteTableIds = a});
 
 -- | The ID of the VPC in which the endpoint will be used.

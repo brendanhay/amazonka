@@ -67,17 +67,17 @@ import Network.AWS.SQS.Types
 -- * 'smQueueURL'
 --
 -- * 'smMessageBody'
-data SendMessage = SendMessage'{_smMessageAttributes :: HashMap Text MessageAttributeValue, _smDelaySeconds :: Maybe Int, _smQueueURL :: Text, _smMessageBody :: Text} deriving (Eq, Read, Show)
+data SendMessage = SendMessage'{_smMessageAttributes :: Maybe (HashMap Text MessageAttributeValue), _smDelaySeconds :: Maybe Int, _smQueueURL :: Text, _smMessageBody :: Text} deriving (Eq, Read, Show)
 
 -- | 'SendMessage' smart constructor.
 sendMessage :: Text -> Text -> SendMessage
-sendMessage pQueueURL pMessageBody = SendMessage'{_smMessageAttributes = mempty, _smDelaySeconds = Nothing, _smQueueURL = pQueueURL, _smMessageBody = pMessageBody};
+sendMessage pQueueURL pMessageBody = SendMessage'{_smMessageAttributes = Nothing, _smDelaySeconds = Nothing, _smQueueURL = pQueueURL, _smMessageBody = pMessageBody};
 
 -- | Each message attribute consists of a Name, Type, and Value. For more
 -- information, see
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV Message Attribute Items>.
-smMessageAttributes :: Lens' SendMessage (HashMap Text MessageAttributeValue)
-smMessageAttributes = lens _smMessageAttributes (\ s a -> s{_smMessageAttributes = a}) . _Coerce;
+smMessageAttributes :: Lens' SendMessage (Maybe (HashMap Text MessageAttributeValue))
+smMessageAttributes = lens _smMessageAttributes (\ s a -> s{_smMessageAttributes = a}) . mapping _Coerce;
 
 -- | The number of seconds (0 to 900 - 15 minutes) to delay a specific
 -- message. Messages with a positive @DelaySeconds@ value become available

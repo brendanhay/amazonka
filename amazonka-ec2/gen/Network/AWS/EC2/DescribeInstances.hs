@@ -67,11 +67,11 @@ import Network.AWS.EC2.Types
 -- * 'di1DryRun'
 --
 -- * 'di1MaxResults'
-data DescribeInstances = DescribeInstances'{_di1Filters :: [Filter], _di1NextToken :: Maybe Text, _di1InstanceIds :: [Text], _di1DryRun :: Maybe Bool, _di1MaxResults :: Maybe Int} deriving (Eq, Read, Show)
+data DescribeInstances = DescribeInstances'{_di1Filters :: Maybe [Filter], _di1NextToken :: Maybe Text, _di1InstanceIds :: Maybe [Text], _di1DryRun :: Maybe Bool, _di1MaxResults :: Maybe Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeInstances' smart constructor.
 describeInstances :: DescribeInstances
-describeInstances = DescribeInstances'{_di1Filters = mempty, _di1NextToken = Nothing, _di1InstanceIds = mempty, _di1DryRun = Nothing, _di1MaxResults = Nothing};
+describeInstances = DescribeInstances'{_di1Filters = Nothing, _di1NextToken = Nothing, _di1InstanceIds = Nothing, _di1DryRun = Nothing, _di1MaxResults = Nothing};
 
 -- | One or more filters.
 --
@@ -318,7 +318,7 @@ describeInstances = DescribeInstances'{_di1Filters = mempty, _di1NextToken = Not
 -- -   @association.association-id@ - The association ID returned when the
 --     network interface was associated with an IP address.
 --
-di1Filters :: Lens' DescribeInstances [Filter]
+di1Filters :: Lens' DescribeInstances (Maybe [Filter])
 di1Filters = lens _di1Filters (\ s a -> s{_di1Filters = a});
 
 -- | The token to request the next page of results.
@@ -328,7 +328,7 @@ di1NextToken = lens _di1NextToken (\ s a -> s{_di1NextToken = a});
 -- | One or more instance IDs.
 --
 -- Default: Describes all your instances.
-di1InstanceIds :: Lens' DescribeInstances [Text]
+di1InstanceIds :: Lens' DescribeInstances (Maybe [Text])
 di1InstanceIds = lens _di1InstanceIds (\ s a -> s{_di1InstanceIds = a});
 
 -- | Checks whether you have the required permissions for the action, without
@@ -381,11 +381,11 @@ instance ToQuery DescribeInstances where
 -- * 'dirNextToken'
 --
 -- * 'dirReservations'
-data DescribeInstancesResponse = DescribeInstancesResponse'{_dirNextToken :: Maybe Text, _dirReservations :: [Reservation]} deriving (Eq, Read, Show)
+data DescribeInstancesResponse = DescribeInstancesResponse'{_dirNextToken :: Maybe Text, _dirReservations :: Maybe [Reservation]} deriving (Eq, Read, Show)
 
 -- | 'DescribeInstancesResponse' smart constructor.
 describeInstancesResponse :: DescribeInstancesResponse
-describeInstancesResponse = DescribeInstancesResponse'{_dirNextToken = Nothing, _dirReservations = mempty};
+describeInstancesResponse = DescribeInstancesResponse'{_dirNextToken = Nothing, _dirReservations = Nothing};
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
@@ -393,5 +393,5 @@ dirNextToken :: Lens' DescribeInstancesResponse (Maybe Text)
 dirNextToken = lens _dirNextToken (\ s a -> s{_dirNextToken = a});
 
 -- | One or more reservations.
-dirReservations :: Lens' DescribeInstancesResponse [Reservation]
+dirReservations :: Lens' DescribeInstancesResponse (Maybe [Reservation])
 dirReservations = lens _dirReservations (\ s a -> s{_dirReservations = a});

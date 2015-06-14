@@ -58,11 +58,11 @@ import Network.AWS.OpsWorks.Types
 -- * 'ddDeploymentIds'
 --
 -- * 'ddStackId'
-data DescribeDeployments = DescribeDeployments'{_ddAppId :: Maybe Text, _ddDeploymentIds :: [Text], _ddStackId :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeDeployments = DescribeDeployments'{_ddAppId :: Maybe Text, _ddDeploymentIds :: Maybe [Text], _ddStackId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeDeployments' smart constructor.
 describeDeployments :: DescribeDeployments
-describeDeployments = DescribeDeployments'{_ddAppId = Nothing, _ddDeploymentIds = mempty, _ddStackId = Nothing};
+describeDeployments = DescribeDeployments'{_ddAppId = Nothing, _ddDeploymentIds = Nothing, _ddStackId = Nothing};
 
 -- | The app ID. If you include this parameter, @DescribeDeployments@ returns
 -- a description of the commands associated with the specified app.
@@ -72,7 +72,7 @@ ddAppId = lens _ddAppId (\ s a -> s{_ddAppId = a});
 -- | An array of deployment IDs to be described. If you include this
 -- parameter, @DescribeDeployments@ returns a description of the specified
 -- deployments. Otherwise, it returns a description of every deployment.
-ddDeploymentIds :: Lens' DescribeDeployments [Text]
+ddDeploymentIds :: Lens' DescribeDeployments (Maybe [Text])
 ddDeploymentIds = lens _ddDeploymentIds (\ s a -> s{_ddDeploymentIds = a});
 
 -- | The stack ID. If you include this parameter, @DescribeDeployments@
@@ -120,12 +120,12 @@ instance ToQuery DescribeDeployments where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ddrDeployments'
-newtype DescribeDeploymentsResponse = DescribeDeploymentsResponse'{_ddrDeployments :: [Deployment]} deriving (Eq, Read, Show)
+newtype DescribeDeploymentsResponse = DescribeDeploymentsResponse'{_ddrDeployments :: Maybe [Deployment]} deriving (Eq, Read, Show)
 
 -- | 'DescribeDeploymentsResponse' smart constructor.
 describeDeploymentsResponse :: DescribeDeploymentsResponse
-describeDeploymentsResponse = DescribeDeploymentsResponse'{_ddrDeployments = mempty};
+describeDeploymentsResponse = DescribeDeploymentsResponse'{_ddrDeployments = Nothing};
 
 -- | An array of @Deployment@ objects that describe the deployments.
-ddrDeployments :: Lens' DescribeDeploymentsResponse [Deployment]
+ddrDeployments :: Lens' DescribeDeploymentsResponse (Maybe [Deployment])
 ddrDeployments = lens _ddrDeployments (\ s a -> s{_ddrDeployments = a});

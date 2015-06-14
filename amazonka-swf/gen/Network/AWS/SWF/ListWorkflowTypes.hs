@@ -46,10 +46,10 @@ module Network.AWS.SWF.ListWorkflowTypes
     -- ** Request lenses
     , lwtNextPageToken
     , lwtReverseOrder
+    , lwtName
     , lwtMaximumPageSize
     , lwtDomain
     , lwtRegistrationStatus
-    , lwtName
 
     -- * Response
     , ListWorkflowTypesResponse
@@ -73,18 +73,18 @@ import Network.AWS.SWF.Types
 --
 -- * 'lwtReverseOrder'
 --
+-- * 'lwtName'
+--
 -- * 'lwtMaximumPageSize'
 --
 -- * 'lwtDomain'
 --
 -- * 'lwtRegistrationStatus'
---
--- * 'lwtName'
-data ListWorkflowTypes = ListWorkflowTypes'{_lwtNextPageToken :: Maybe Text, _lwtReverseOrder :: Maybe Bool, _lwtMaximumPageSize :: Maybe Nat, _lwtDomain :: Text, _lwtRegistrationStatus :: RegistrationStatus, _lwtName :: Text} deriving (Eq, Read, Show)
+data ListWorkflowTypes = ListWorkflowTypes'{_lwtNextPageToken :: Maybe Text, _lwtReverseOrder :: Maybe Bool, _lwtName :: Maybe Text, _lwtMaximumPageSize :: Maybe Nat, _lwtDomain :: Text, _lwtRegistrationStatus :: RegistrationStatus} deriving (Eq, Read, Show)
 
 -- | 'ListWorkflowTypes' smart constructor.
-listWorkflowTypes :: Text -> RegistrationStatus -> Text -> ListWorkflowTypes
-listWorkflowTypes pDomain pRegistrationStatus pName = ListWorkflowTypes'{_lwtNextPageToken = Nothing, _lwtReverseOrder = Nothing, _lwtMaximumPageSize = Nothing, _lwtDomain = pDomain, _lwtRegistrationStatus = pRegistrationStatus, _lwtName = pName};
+listWorkflowTypes :: Text -> RegistrationStatus -> ListWorkflowTypes
+listWorkflowTypes pDomain pRegistrationStatus = ListWorkflowTypes'{_lwtNextPageToken = Nothing, _lwtReverseOrder = Nothing, _lwtName = Nothing, _lwtMaximumPageSize = Nothing, _lwtDomain = pDomain, _lwtRegistrationStatus = pRegistrationStatus};
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
 -- results available. To retrieve the next page of results, make the call
@@ -101,6 +101,10 @@ lwtNextPageToken = lens _lwtNextPageToken (\ s a -> s{_lwtNextPageToken = a});
 -- the workflow types.
 lwtReverseOrder :: Lens' ListWorkflowTypes (Maybe Bool)
 lwtReverseOrder = lens _lwtReverseOrder (\ s a -> s{_lwtReverseOrder = a});
+
+-- | If specified, lists the workflow type with this name.
+lwtName :: Lens' ListWorkflowTypes (Maybe Text)
+lwtName = lens _lwtName (\ s a -> s{_lwtName = a});
 
 -- | The maximum number of results that will be returned per call.
 -- @nextPageToken@ can be used to obtain futher pages of results. The
@@ -119,10 +123,6 @@ lwtDomain = lens _lwtDomain (\ s a -> s{_lwtDomain = a});
 -- | Specifies the registration status of the workflow types to list.
 lwtRegistrationStatus :: Lens' ListWorkflowTypes RegistrationStatus
 lwtRegistrationStatus = lens _lwtRegistrationStatus (\ s a -> s{_lwtRegistrationStatus = a});
-
--- | If specified, lists the workflow type with this name.
-lwtName :: Lens' ListWorkflowTypes Text
-lwtName = lens _lwtName (\ s a -> s{_lwtName = a});
 
 instance AWSRequest ListWorkflowTypes where
         type Sv ListWorkflowTypes = SWF
@@ -150,10 +150,10 @@ instance ToJSON ListWorkflowTypes where
           = object
               ["nextPageToken" .= _lwtNextPageToken,
                "reverseOrder" .= _lwtReverseOrder,
+               "name" .= _lwtName,
                "maximumPageSize" .= _lwtMaximumPageSize,
                "domain" .= _lwtDomain,
-               "registrationStatus" .= _lwtRegistrationStatus,
-               "name" .= _lwtName]
+               "registrationStatus" .= _lwtRegistrationStatus]
 
 instance ToPath ListWorkflowTypes where
         toPath = const "/"
@@ -171,8 +171,8 @@ instance ToQuery ListWorkflowTypes where
 data ListWorkflowTypesResponse = ListWorkflowTypesResponse'{_lwtrNextPageToken :: Maybe Text, _lwtrTypeInfos :: [WorkflowTypeInfo]} deriving (Eq, Read, Show)
 
 -- | 'ListWorkflowTypesResponse' smart constructor.
-listWorkflowTypesResponse :: [WorkflowTypeInfo] -> ListWorkflowTypesResponse
-listWorkflowTypesResponse pTypeInfos = ListWorkflowTypesResponse'{_lwtrNextPageToken = Nothing, _lwtrTypeInfos = pTypeInfos};
+listWorkflowTypesResponse :: ListWorkflowTypesResponse
+listWorkflowTypesResponse = ListWorkflowTypesResponse'{_lwtrNextPageToken = Nothing, _lwtrTypeInfos = mempty};
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
 -- results available. To retrieve the next page of results, make the call

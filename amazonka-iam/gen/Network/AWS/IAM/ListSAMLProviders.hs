@@ -76,12 +76,12 @@ instance ToQuery ListSAMLProviders where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lsamlprSAMLProviderList'
-newtype ListSAMLProvidersResponse = ListSAMLProvidersResponse'{_lsamlprSAMLProviderList :: [SAMLProviderListEntry]} deriving (Eq, Read, Show)
+newtype ListSAMLProvidersResponse = ListSAMLProvidersResponse'{_lsamlprSAMLProviderList :: Maybe [SAMLProviderListEntry]} deriving (Eq, Read, Show)
 
 -- | 'ListSAMLProvidersResponse' smart constructor.
 listSAMLProvidersResponse :: ListSAMLProvidersResponse
-listSAMLProvidersResponse = ListSAMLProvidersResponse'{_lsamlprSAMLProviderList = mempty};
+listSAMLProvidersResponse = ListSAMLProvidersResponse'{_lsamlprSAMLProviderList = Nothing};
 
 -- | The list of SAML providers for this account.
-lsamlprSAMLProviderList :: Lens' ListSAMLProvidersResponse [SAMLProviderListEntry]
+lsamlprSAMLProviderList :: Lens' ListSAMLProvidersResponse (Maybe [SAMLProviderListEntry])
 lsamlprSAMLProviderList = lens _lsamlprSAMLProviderList (\ s a -> s{_lsamlprSAMLProviderList = a});

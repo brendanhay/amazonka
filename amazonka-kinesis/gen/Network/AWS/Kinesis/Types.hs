@@ -61,11 +61,11 @@ module Network.AWS.Kinesis.Types
     -- * Shard
     , Shard
     , shard
+    , shaAdjacentParentShardId
+    , shaParentShardId
     , shaShardId
     , shaHashKeyRange
     , shaSequenceNumberRange
-    , shaAdjacentParentShardId
-    , shaParentShardId
 
     -- * ShardIteratorType
     , ShardIteratorType (..)
@@ -163,7 +163,7 @@ data PutRecordsRequestEntry = PutRecordsRequestEntry'{_prreExplicitHashKey :: Ma
 
 -- | 'PutRecordsRequestEntry' smart constructor.
 putRecordsRequestEntry :: Base64 -> Text -> PutRecordsRequestEntry
-putRecordsRequestEntry pData' pPartitionKey = PutRecordsRequestEntry'{_prreExplicitHashKey = Nothing, _prreData = pData', _prrePartitionKey = pPartitionKey};
+putRecordsRequestEntry pData pPartitionKey = PutRecordsRequestEntry'{_prreExplicitHashKey = Nothing, _prreData = pData, _prrePartitionKey = pPartitionKey};
 
 -- | The hash value used to determine explicitly the shard that the data
 -- record is assigned to by overriding the partition key hash.
@@ -206,11 +206,11 @@ instance ToJSON PutRecordsRequestEntry where
 -- * 'prreErrorMessage'
 --
 -- * 'prreShardId'
-data PutRecordsResultEntry = PutRecordsResultEntry'{_prreSequenceNumber :: Maybe Text, _prreErrorCode :: Maybe Text, _prreErrorMessage :: Maybe Text, _prreShardId :: Text} deriving (Eq, Read, Show)
+data PutRecordsResultEntry = PutRecordsResultEntry'{_prreSequenceNumber :: Maybe Text, _prreErrorCode :: Maybe Text, _prreErrorMessage :: Maybe Text, _prreShardId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'PutRecordsResultEntry' smart constructor.
-putRecordsResultEntry :: Text -> PutRecordsResultEntry
-putRecordsResultEntry pShardId = PutRecordsResultEntry'{_prreSequenceNumber = Nothing, _prreErrorCode = Nothing, _prreErrorMessage = Nothing, _prreShardId = pShardId};
+putRecordsResultEntry :: PutRecordsResultEntry
+putRecordsResultEntry = PutRecordsResultEntry'{_prreSequenceNumber = Nothing, _prreErrorCode = Nothing, _prreErrorMessage = Nothing, _prreShardId = Nothing};
 
 -- | The sequence number for an individual record result.
 prreSequenceNumber :: Lens' PutRecordsResultEntry (Maybe Text)
@@ -230,7 +230,7 @@ prreErrorMessage :: Lens' PutRecordsResultEntry (Maybe Text)
 prreErrorMessage = lens _prreErrorMessage (\ s a -> s{_prreErrorMessage = a});
 
 -- | The shard ID for an individual record result.
-prreShardId :: Lens' PutRecordsResultEntry Text
+prreShardId :: Lens' PutRecordsResultEntry (Maybe Text)
 prreShardId = lens _prreShardId (\ s a -> s{_prreShardId = a});
 
 instance FromJSON PutRecordsResultEntry where
@@ -240,7 +240,7 @@ instance FromJSON PutRecordsResultEntry where
                  PutRecordsResultEntry' <$>
                    x .:? "SequenceNumber" <*> x .:? "ErrorCode" <*>
                      x .:? "ErrorMessage"
-                     <*> x .: "ShardId")
+                     <*> x .:? "ShardId")
 
 -- | /See:/ 'record' smart constructor.
 --
@@ -255,7 +255,7 @@ data Record = Record'{_recSequenceNumber :: Text, _recData :: Base64, _recPartit
 
 -- | 'Record' smart constructor.
 record :: Text -> Base64 -> Text -> Record
-record pSequenceNumber pData' pPartitionKey = Record'{_recSequenceNumber = pSequenceNumber, _recData = pData', _recPartitionKey = pPartitionKey};
+record pSequenceNumber pData pPartitionKey = Record'{_recSequenceNumber = pSequenceNumber, _recData = pData, _recPartitionKey = pPartitionKey};
 
 -- | The unique identifier for the record in the Amazon Kinesis stream.
 recSequenceNumber :: Lens' Record Text
@@ -314,20 +314,28 @@ instance FromJSON SequenceNumberRange where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'shaAdjacentParentShardId'
+--
+-- * 'shaParentShardId'
+--
 -- * 'shaShardId'
 --
 -- * 'shaHashKeyRange'
 --
 -- * 'shaSequenceNumberRange'
---
--- * 'shaAdjacentParentShardId'
---
--- * 'shaParentShardId'
-data Shard = Shard'{_shaShardId :: Text, _shaHashKeyRange :: HashKeyRange, _shaSequenceNumberRange :: SequenceNumberRange, _shaAdjacentParentShardId :: Text, _shaParentShardId :: Text} deriving (Eq, Read, Show)
+data Shard = Shard'{_shaAdjacentParentShardId :: Maybe Text, _shaParentShardId :: Maybe Text, _shaShardId :: Text, _shaHashKeyRange :: HashKeyRange, _shaSequenceNumberRange :: SequenceNumberRange} deriving (Eq, Read, Show)
 
 -- | 'Shard' smart constructor.
-shard :: Text -> HashKeyRange -> SequenceNumberRange -> Text -> Text -> Shard
-shard pShardId pHashKeyRange pSequenceNumberRange pAdjacentParentShardId pParentShardId = Shard'{_shaShardId = pShardId, _shaHashKeyRange = pHashKeyRange, _shaSequenceNumberRange = pSequenceNumberRange, _shaAdjacentParentShardId = pAdjacentParentShardId, _shaParentShardId = pParentShardId};
+shard :: Text -> HashKeyRange -> SequenceNumberRange -> Shard
+shard pShardId pHashKeyRange pSequenceNumberRange = Shard'{_shaAdjacentParentShardId = Nothing, _shaParentShardId = Nothing, _shaShardId = pShardId, _shaHashKeyRange = pHashKeyRange, _shaSequenceNumberRange = pSequenceNumberRange};
+
+-- | The shard Id of the shard adjacent to the shard\'s parent.
+shaAdjacentParentShardId :: Lens' Shard (Maybe Text)
+shaAdjacentParentShardId = lens _shaAdjacentParentShardId (\ s a -> s{_shaAdjacentParentShardId = a});
+
+-- | The shard Id of the shard\'s parent.
+shaParentShardId :: Lens' Shard (Maybe Text)
+shaParentShardId = lens _shaParentShardId (\ s a -> s{_shaParentShardId = a});
 
 -- | The unique identifier of the shard within the Amazon Kinesis stream.
 shaShardId :: Lens' Shard Text
@@ -342,23 +350,16 @@ shaHashKeyRange = lens _shaHashKeyRange (\ s a -> s{_shaHashKeyRange = a});
 shaSequenceNumberRange :: Lens' Shard SequenceNumberRange
 shaSequenceNumberRange = lens _shaSequenceNumberRange (\ s a -> s{_shaSequenceNumberRange = a});
 
--- | The shard Id of the shard adjacent to the shard\'s parent.
-shaAdjacentParentShardId :: Lens' Shard Text
-shaAdjacentParentShardId = lens _shaAdjacentParentShardId (\ s a -> s{_shaAdjacentParentShardId = a});
-
--- | The shard Id of the shard\'s parent.
-shaParentShardId :: Lens' Shard Text
-shaParentShardId = lens _shaParentShardId (\ s a -> s{_shaParentShardId = a});
-
 instance FromJSON Shard where
         parseJSON
           = withObject "Shard"
               (\ x ->
                  Shard' <$>
-                   x .: "ShardId" <*> x .: "HashKeyRange" <*>
-                     x .: "SequenceNumberRange"
-                     <*> x .: "AdjacentParentShardId"
-                     <*> x .: "ParentShardId")
+                   x .:? "AdjacentParentShardId" <*>
+                     x .:? "ParentShardId"
+                     <*> x .: "ShardId"
+                     <*> x .: "HashKeyRange"
+                     <*> x .: "SequenceNumberRange")
 
 data ShardIteratorType = AfterSequenceNumber | ATSequenceNumber | TrimHorizon | Latest deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -400,8 +401,8 @@ instance ToJSON ShardIteratorType where
 data StreamDescription = StreamDescription'{_sdStreamName :: Text, _sdStreamARN :: Text, _sdStreamStatus :: StreamStatus, _sdShards :: [Shard], _sdHasMoreShards :: Bool} deriving (Eq, Read, Show)
 
 -- | 'StreamDescription' smart constructor.
-streamDescription :: Text -> Text -> StreamStatus -> [Shard] -> Bool -> StreamDescription
-streamDescription pStreamName pStreamARN pStreamStatus pShards pHasMoreShards = StreamDescription'{_sdStreamName = pStreamName, _sdStreamARN = pStreamARN, _sdStreamStatus = pStreamStatus, _sdShards = pShards, _sdHasMoreShards = pHasMoreShards};
+streamDescription :: Text -> Text -> StreamStatus -> Bool -> StreamDescription
+streamDescription pStreamName pStreamARN pStreamStatus pHasMoreShards = StreamDescription'{_sdStreamName = pStreamName, _sdStreamARN = pStreamARN, _sdStreamStatus = pStreamStatus, _sdShards = mempty, _sdHasMoreShards = pHasMoreShards};
 
 -- | The name of the stream being described.
 sdStreamName :: Lens' StreamDescription Text

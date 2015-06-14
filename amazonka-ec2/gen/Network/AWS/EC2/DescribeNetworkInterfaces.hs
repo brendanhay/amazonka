@@ -50,16 +50,16 @@ import Network.AWS.EC2.Types
 -- * 'dFilters'
 --
 -- * 'dDryRun'
-data DescribeNetworkInterfaces = DescribeNetworkInterfaces'{_dNetworkInterfaceIds :: [Text], _dFilters :: [Filter], _dDryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data DescribeNetworkInterfaces = DescribeNetworkInterfaces'{_dNetworkInterfaceIds :: Maybe [Text], _dFilters :: Maybe [Filter], _dDryRun :: Maybe Bool} deriving (Eq, Read, Show)
 
 -- | 'DescribeNetworkInterfaces' smart constructor.
 describeNetworkInterfaces :: DescribeNetworkInterfaces
-describeNetworkInterfaces = DescribeNetworkInterfaces'{_dNetworkInterfaceIds = mempty, _dFilters = mempty, _dDryRun = Nothing};
+describeNetworkInterfaces = DescribeNetworkInterfaces'{_dNetworkInterfaceIds = Nothing, _dFilters = Nothing, _dDryRun = Nothing};
 
 -- | One or more network interface IDs.
 --
 -- Default: Describes all your network interfaces.
-dNetworkInterfaceIds :: Lens' DescribeNetworkInterfaces [Text]
+dNetworkInterfaceIds :: Lens' DescribeNetworkInterfaces (Maybe [Text])
 dNetworkInterfaceIds = lens _dNetworkInterfaceIds (\ s a -> s{_dNetworkInterfaceIds = a});
 
 -- | One or more filters.
@@ -170,7 +170,7 @@ dNetworkInterfaceIds = lens _dNetworkInterfaceIds (\ s a -> s{_dNetworkInterface
 --
 -- -   @vpc-id@ - The ID of the VPC for the network interface.
 --
-dFilters :: Lens' DescribeNetworkInterfaces [Filter]
+dFilters :: Lens' DescribeNetworkInterfaces (Maybe [Filter])
 dFilters = lens _dFilters (\ s a -> s{_dFilters = a});
 
 -- | Checks whether you have the required permissions for the action, without
@@ -211,12 +211,12 @@ instance ToQuery DescribeNetworkInterfaces where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dnirNetworkInterfaces'
-newtype DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse'{_dnirNetworkInterfaces :: [NetworkInterface]} deriving (Eq, Read, Show)
+newtype DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse'{_dnirNetworkInterfaces :: Maybe [NetworkInterface]} deriving (Eq, Read, Show)
 
 -- | 'DescribeNetworkInterfacesResponse' smart constructor.
 describeNetworkInterfacesResponse :: DescribeNetworkInterfacesResponse
-describeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse'{_dnirNetworkInterfaces = mempty};
+describeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse'{_dnirNetworkInterfaces = Nothing};
 
 -- | Information about one or more network interfaces.
-dnirNetworkInterfaces :: Lens' DescribeNetworkInterfacesResponse [NetworkInterface]
+dnirNetworkInterfaces :: Lens' DescribeNetworkInterfacesResponse (Maybe [NetworkInterface])
 dnirNetworkInterfaces = lens _dnirNetworkInterfaces (\ s a -> s{_dnirNetworkInterfaces = a});

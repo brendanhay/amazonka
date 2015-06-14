@@ -27,11 +27,11 @@ module Network.AWS.CloudWatch.DescribeAlarms
     -- ** Request constructor
     , describeAlarms
     -- ** Request lenses
+    , daAlarmNamePrefix
+    , daActionPrefix
     , daNextToken
     , daStateValue
     , daAlarmNames
-    , daAlarmNamePrefix
-    , daActionPrefix
     , daMaxRecords
 
     -- * Response
@@ -52,22 +52,31 @@ import Network.AWS.CloudWatch.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'daAlarmNamePrefix'
+--
+-- * 'daActionPrefix'
+--
 -- * 'daNextToken'
 --
 -- * 'daStateValue'
 --
 -- * 'daAlarmNames'
 --
--- * 'daAlarmNamePrefix'
---
--- * 'daActionPrefix'
---
 -- * 'daMaxRecords'
-data DescribeAlarms = DescribeAlarms'{_daNextToken :: Maybe Text, _daStateValue :: Maybe StateValue, _daAlarmNames :: [Text], _daAlarmNamePrefix :: Text, _daActionPrefix :: Text, _daMaxRecords :: Nat} deriving (Eq, Read, Show)
+data DescribeAlarms = DescribeAlarms'{_daAlarmNamePrefix :: Maybe Text, _daActionPrefix :: Maybe Text, _daNextToken :: Maybe Text, _daStateValue :: Maybe StateValue, _daAlarmNames :: Maybe [Text], _daMaxRecords :: Maybe Nat} deriving (Eq, Read, Show)
 
 -- | 'DescribeAlarms' smart constructor.
-describeAlarms :: Text -> Text -> Natural -> DescribeAlarms
-describeAlarms pAlarmNamePrefix pActionPrefix pMaxRecords = DescribeAlarms'{_daNextToken = Nothing, _daStateValue = Nothing, _daAlarmNames = mempty, _daAlarmNamePrefix = pAlarmNamePrefix, _daActionPrefix = pActionPrefix, _daMaxRecords = _Nat # pMaxRecords};
+describeAlarms :: DescribeAlarms
+describeAlarms = DescribeAlarms'{_daAlarmNamePrefix = Nothing, _daActionPrefix = Nothing, _daNextToken = Nothing, _daStateValue = Nothing, _daAlarmNames = Nothing, _daMaxRecords = Nothing};
+
+-- | The alarm name prefix. @AlarmNames@ cannot be specified if this
+-- parameter is specified.
+daAlarmNamePrefix :: Lens' DescribeAlarms (Maybe Text)
+daAlarmNamePrefix = lens _daAlarmNamePrefix (\ s a -> s{_daAlarmNamePrefix = a});
+
+-- | The action name prefix.
+daActionPrefix :: Lens' DescribeAlarms (Maybe Text)
+daActionPrefix = lens _daActionPrefix (\ s a -> s{_daActionPrefix = a});
 
 -- | The token returned by a previous call to indicate that there is more
 -- data available.
@@ -79,21 +88,12 @@ daStateValue :: Lens' DescribeAlarms (Maybe StateValue)
 daStateValue = lens _daStateValue (\ s a -> s{_daStateValue = a});
 
 -- | A list of alarm names to retrieve information for.
-daAlarmNames :: Lens' DescribeAlarms [Text]
+daAlarmNames :: Lens' DescribeAlarms (Maybe [Text])
 daAlarmNames = lens _daAlarmNames (\ s a -> s{_daAlarmNames = a});
 
--- | The alarm name prefix. @AlarmNames@ cannot be specified if this
--- parameter is specified.
-daAlarmNamePrefix :: Lens' DescribeAlarms Text
-daAlarmNamePrefix = lens _daAlarmNamePrefix (\ s a -> s{_daAlarmNamePrefix = a});
-
--- | The action name prefix.
-daActionPrefix :: Lens' DescribeAlarms Text
-daActionPrefix = lens _daActionPrefix (\ s a -> s{_daActionPrefix = a});
-
 -- | The maximum number of alarm descriptions to retrieve.
-daMaxRecords :: Lens' DescribeAlarms Natural
-daMaxRecords = lens _daMaxRecords (\ s a -> s{_daMaxRecords = a}) . _Nat;
+daMaxRecords :: Lens' DescribeAlarms (Maybe Natural)
+daMaxRecords = lens _daMaxRecords (\ s a -> s{_daMaxRecords = a}) . mapping _Nat;
 
 instance AWSRequest DescribeAlarms where
         type Sv DescribeAlarms = CloudWatch
@@ -118,11 +118,11 @@ instance ToQuery DescribeAlarms where
           = mconcat
               ["Action" =: ("DescribeAlarms" :: ByteString),
                "Version" =: ("2010-08-01" :: ByteString),
+               "AlarmNamePrefix" =: _daAlarmNamePrefix,
+               "ActionPrefix" =: _daActionPrefix,
                "NextToken" =: _daNextToken,
                "StateValue" =: _daStateValue,
                "AlarmNames" =: "member" =: _daAlarmNames,
-               "AlarmNamePrefix" =: _daAlarmNamePrefix,
-               "ActionPrefix" =: _daActionPrefix,
                "MaxRecords" =: _daMaxRecords]
 
 -- | /See:/ 'describeAlarmsResponse' smart constructor.
@@ -132,14 +132,14 @@ instance ToQuery DescribeAlarms where
 -- * 'darMetricAlarms'
 --
 -- * 'darNextToken'
-data DescribeAlarmsResponse = DescribeAlarmsResponse'{_darMetricAlarms :: [MetricAlarm], _darNextToken :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeAlarmsResponse = DescribeAlarmsResponse'{_darMetricAlarms :: Maybe [MetricAlarm], _darNextToken :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeAlarmsResponse' smart constructor.
 describeAlarmsResponse :: DescribeAlarmsResponse
-describeAlarmsResponse = DescribeAlarmsResponse'{_darMetricAlarms = mempty, _darNextToken = Nothing};
+describeAlarmsResponse = DescribeAlarmsResponse'{_darMetricAlarms = Nothing, _darNextToken = Nothing};
 
 -- | A list of information for the specified alarms.
-darMetricAlarms :: Lens' DescribeAlarmsResponse [MetricAlarm]
+darMetricAlarms :: Lens' DescribeAlarmsResponse (Maybe [MetricAlarm])
 darMetricAlarms = lens _darMetricAlarms (\ s a -> s{_darMetricAlarms = a});
 
 -- | A string that marks the start of the next batch of returned results.

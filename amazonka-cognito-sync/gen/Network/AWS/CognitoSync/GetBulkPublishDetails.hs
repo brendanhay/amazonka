@@ -32,10 +32,10 @@ module Network.AWS.CognitoSync.GetBulkPublishDetails
     , getBulkPublishDetailsResponse
     -- ** Response lenses
     , gbpdrBulkPublishStartTime
+    , gbpdrIdentityPoolId
     , gbpdrBulkPublishCompleteTime
     , gbpdrFailureMessage
     , gbpdrBulkPublishStatus
-    , gbpdrIdentityPoolId
     ) where
 
 import Network.AWS.Request
@@ -70,10 +70,10 @@ instance AWSRequest GetBulkPublishDetails where
               (\ s h x ->
                  GetBulkPublishDetailsResponse' <$>
                    x .?> "BulkPublishStartTime" <*>
-                     x .?> "BulkPublishCompleteTime"
+                     x .?> "IdentityPoolId"
+                     <*> x .?> "BulkPublishCompleteTime"
                      <*> x .?> "FailureMessage"
-                     <*> x .?> "BulkPublishStatus"
-                     <*> x .:> "IdentityPoolId")
+                     <*> x .?> "BulkPublishStatus")
 
 instance ToHeaders GetBulkPublishDetails where
         toHeaders
@@ -100,22 +100,28 @@ instance ToQuery GetBulkPublishDetails where
 --
 -- * 'gbpdrBulkPublishStartTime'
 --
+-- * 'gbpdrIdentityPoolId'
+--
 -- * 'gbpdrBulkPublishCompleteTime'
 --
 -- * 'gbpdrFailureMessage'
 --
 -- * 'gbpdrBulkPublishStatus'
---
--- * 'gbpdrIdentityPoolId'
-data GetBulkPublishDetailsResponse = GetBulkPublishDetailsResponse'{_gbpdrBulkPublishStartTime :: Maybe POSIX, _gbpdrBulkPublishCompleteTime :: Maybe POSIX, _gbpdrFailureMessage :: Maybe Text, _gbpdrBulkPublishStatus :: Maybe BulkPublishStatus, _gbpdrIdentityPoolId :: Text} deriving (Eq, Read, Show)
+data GetBulkPublishDetailsResponse = GetBulkPublishDetailsResponse'{_gbpdrBulkPublishStartTime :: Maybe POSIX, _gbpdrIdentityPoolId :: Maybe Text, _gbpdrBulkPublishCompleteTime :: Maybe POSIX, _gbpdrFailureMessage :: Maybe Text, _gbpdrBulkPublishStatus :: Maybe BulkPublishStatus} deriving (Eq, Read, Show)
 
 -- | 'GetBulkPublishDetailsResponse' smart constructor.
-getBulkPublishDetailsResponse :: Text -> GetBulkPublishDetailsResponse
-getBulkPublishDetailsResponse pIdentityPoolId = GetBulkPublishDetailsResponse'{_gbpdrBulkPublishStartTime = Nothing, _gbpdrBulkPublishCompleteTime = Nothing, _gbpdrFailureMessage = Nothing, _gbpdrBulkPublishStatus = Nothing, _gbpdrIdentityPoolId = pIdentityPoolId};
+getBulkPublishDetailsResponse :: GetBulkPublishDetailsResponse
+getBulkPublishDetailsResponse = GetBulkPublishDetailsResponse'{_gbpdrBulkPublishStartTime = Nothing, _gbpdrIdentityPoolId = Nothing, _gbpdrBulkPublishCompleteTime = Nothing, _gbpdrFailureMessage = Nothing, _gbpdrBulkPublishStatus = Nothing};
 
 -- | The date\/time at which the last bulk publish was initiated.
 gbpdrBulkPublishStartTime :: Lens' GetBulkPublishDetailsResponse (Maybe UTCTime)
 gbpdrBulkPublishStartTime = lens _gbpdrBulkPublishStartTime (\ s a -> s{_gbpdrBulkPublishStartTime = a}) . mapping _Time;
+
+-- | A name-spaced GUID (for example,
+-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
+-- Cognito. GUID generation is unique within a region.
+gbpdrIdentityPoolId :: Lens' GetBulkPublishDetailsResponse (Maybe Text)
+gbpdrIdentityPoolId = lens _gbpdrIdentityPoolId (\ s a -> s{_gbpdrIdentityPoolId = a});
 
 -- | If BulkPublishStatus is SUCCEEDED, the time the last bulk publish
 -- operation completed.
@@ -140,9 +146,3 @@ gbpdrFailureMessage = lens _gbpdrFailureMessage (\ s a -> s{_gbpdrFailureMessage
 -- FailureMessage for the cause.
 gbpdrBulkPublishStatus :: Lens' GetBulkPublishDetailsResponse (Maybe BulkPublishStatus)
 gbpdrBulkPublishStatus = lens _gbpdrBulkPublishStatus (\ s a -> s{_gbpdrBulkPublishStatus = a});
-
--- | A name-spaced GUID (for example,
--- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
--- Cognito. GUID generation is unique within a region.
-gbpdrIdentityPoolId :: Lens' GetBulkPublishDetailsResponse Text
-gbpdrIdentityPoolId = lens _gbpdrIdentityPoolId (\ s a -> s{_gbpdrIdentityPoolId = a});

@@ -93,8 +93,8 @@ instance ToQuery GetHealthCheckLastFailureReason
 newtype GetHealthCheckLastFailureReasonResponse = GetHealthCheckLastFailureReasonResponse'{_ghclfrrHealthCheckObservations :: [HealthCheckObservation]} deriving (Eq, Read, Show)
 
 -- | 'GetHealthCheckLastFailureReasonResponse' smart constructor.
-getHealthCheckLastFailureReasonResponse :: [HealthCheckObservation] -> GetHealthCheckLastFailureReasonResponse
-getHealthCheckLastFailureReasonResponse pHealthCheckObservations = GetHealthCheckLastFailureReasonResponse'{_ghclfrrHealthCheckObservations = pHealthCheckObservations};
+getHealthCheckLastFailureReasonResponse :: GetHealthCheckLastFailureReasonResponse
+getHealthCheckLastFailureReasonResponse = GetHealthCheckLastFailureReasonResponse'{_ghclfrrHealthCheckObservations = mempty};
 
 -- | A list that contains one @HealthCheckObservation@ element for each Route
 -- 53 health checker.

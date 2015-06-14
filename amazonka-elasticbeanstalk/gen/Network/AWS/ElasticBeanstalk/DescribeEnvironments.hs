@@ -26,10 +26,10 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironments
     -- ** Request lenses
     , desEnvironmentIds
     , desEnvironmentNames
-    , desIncludedDeletedBackTo
-    , desIncludeDeleted
     , desVersionLabel
+    , desIncludedDeletedBackTo
     , desApplicationName
+    , desIncludeDeleted
 
     -- * Response
     , DescribeEnvironmentsResponse
@@ -52,33 +52,43 @@ import Network.AWS.ElasticBeanstalk.Types
 --
 -- * 'desEnvironmentNames'
 --
--- * 'desIncludedDeletedBackTo'
---
--- * 'desIncludeDeleted'
---
 -- * 'desVersionLabel'
 --
+-- * 'desIncludedDeletedBackTo'
+--
 -- * 'desApplicationName'
-data DescribeEnvironments = DescribeEnvironments'{_desEnvironmentIds :: [Text], _desEnvironmentNames :: [Text], _desIncludedDeletedBackTo :: Maybe ISO8601, _desIncludeDeleted :: Maybe Bool, _desVersionLabel :: Text, _desApplicationName :: Text} deriving (Eq, Read, Show)
+--
+-- * 'desIncludeDeleted'
+data DescribeEnvironments = DescribeEnvironments'{_desEnvironmentIds :: Maybe [Text], _desEnvironmentNames :: Maybe [Text], _desVersionLabel :: Maybe Text, _desIncludedDeletedBackTo :: Maybe ISO8601, _desApplicationName :: Maybe Text, _desIncludeDeleted :: Maybe Bool} deriving (Eq, Read, Show)
 
 -- | 'DescribeEnvironments' smart constructor.
-describeEnvironments :: Text -> Text -> DescribeEnvironments
-describeEnvironments pVersionLabel pApplicationName = DescribeEnvironments'{_desEnvironmentIds = mempty, _desEnvironmentNames = mempty, _desIncludedDeletedBackTo = Nothing, _desIncludeDeleted = Nothing, _desVersionLabel = pVersionLabel, _desApplicationName = pApplicationName};
+describeEnvironments :: DescribeEnvironments
+describeEnvironments = DescribeEnvironments'{_desEnvironmentIds = Nothing, _desEnvironmentNames = Nothing, _desVersionLabel = Nothing, _desIncludedDeletedBackTo = Nothing, _desApplicationName = Nothing, _desIncludeDeleted = Nothing};
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to include only those that have the specified IDs.
-desEnvironmentIds :: Lens' DescribeEnvironments [Text]
+desEnvironmentIds :: Lens' DescribeEnvironments (Maybe [Text])
 desEnvironmentIds = lens _desEnvironmentIds (\ s a -> s{_desEnvironmentIds = a});
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to include only those that have the specified names.
-desEnvironmentNames :: Lens' DescribeEnvironments [Text]
+desEnvironmentNames :: Lens' DescribeEnvironments (Maybe [Text])
 desEnvironmentNames = lens _desEnvironmentNames (\ s a -> s{_desEnvironmentNames = a});
+
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
+-- to include only those that are associated with this application version.
+desVersionLabel :: Lens' DescribeEnvironments (Maybe Text)
+desVersionLabel = lens _desVersionLabel (\ s a -> s{_desVersionLabel = a});
 
 -- | If specified when @IncludeDeleted@ is set to @true@, then environments
 -- deleted after this date are displayed.
 desIncludedDeletedBackTo :: Lens' DescribeEnvironments (Maybe UTCTime)
 desIncludedDeletedBackTo = lens _desIncludedDeletedBackTo (\ s a -> s{_desIncludedDeletedBackTo = a}) . mapping _Time;
+
+-- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
+-- to include only those that are associated with this application.
+desApplicationName :: Lens' DescribeEnvironments (Maybe Text)
+desApplicationName = lens _desApplicationName (\ s a -> s{_desApplicationName = a});
 
 -- | Indicates whether to include deleted environments:
 --
@@ -88,16 +98,6 @@ desIncludedDeletedBackTo = lens _desIncludedDeletedBackTo (\ s a -> s{_desInclud
 -- @false@: Do not include deleted environments.
 desIncludeDeleted :: Lens' DescribeEnvironments (Maybe Bool)
 desIncludeDeleted = lens _desIncludeDeleted (\ s a -> s{_desIncludeDeleted = a});
-
--- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
--- to include only those that are associated with this application version.
-desVersionLabel :: Lens' DescribeEnvironments Text
-desVersionLabel = lens _desVersionLabel (\ s a -> s{_desVersionLabel = a});
-
--- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
--- to include only those that are associated with this application.
-desApplicationName :: Lens' DescribeEnvironments Text
-desApplicationName = lens _desApplicationName (\ s a -> s{_desApplicationName = a});
 
 instance AWSRequest DescribeEnvironments where
         type Sv DescribeEnvironments = ElasticBeanstalk
@@ -125,22 +125,22 @@ instance ToQuery DescribeEnvironments where
                "EnvironmentIds" =: "member" =: _desEnvironmentIds,
                "EnvironmentNames" =:
                  "member" =: _desEnvironmentNames,
-               "IncludedDeletedBackTo" =: _desIncludedDeletedBackTo,
-               "IncludeDeleted" =: _desIncludeDeleted,
                "VersionLabel" =: _desVersionLabel,
-               "ApplicationName" =: _desApplicationName]
+               "IncludedDeletedBackTo" =: _desIncludedDeletedBackTo,
+               "ApplicationName" =: _desApplicationName,
+               "IncludeDeleted" =: _desIncludeDeleted]
 
 -- | /See:/ 'describeEnvironmentsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'derEnvironments'
-newtype DescribeEnvironmentsResponse = DescribeEnvironmentsResponse'{_derEnvironments :: [EnvironmentDescription]} deriving (Eq, Read, Show)
+newtype DescribeEnvironmentsResponse = DescribeEnvironmentsResponse'{_derEnvironments :: Maybe [EnvironmentDescription]} deriving (Eq, Read, Show)
 
 -- | 'DescribeEnvironmentsResponse' smart constructor.
 describeEnvironmentsResponse :: DescribeEnvironmentsResponse
-describeEnvironmentsResponse = DescribeEnvironmentsResponse'{_derEnvironments = mempty};
+describeEnvironmentsResponse = DescribeEnvironmentsResponse'{_derEnvironments = Nothing};
 
 -- | Returns an EnvironmentDescription list.
-derEnvironments :: Lens' DescribeEnvironmentsResponse [EnvironmentDescription]
+derEnvironments :: Lens' DescribeEnvironmentsResponse (Maybe [EnvironmentDescription])
 derEnvironments = lens _derEnvironments (\ s a -> s{_derEnvironments = a});

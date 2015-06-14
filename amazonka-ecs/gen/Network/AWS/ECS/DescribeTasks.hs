@@ -51,8 +51,8 @@ import Network.AWS.ECS.Types
 data DescribeTasks = DescribeTasks'{_dtCluster :: Maybe Text, _dtTasks :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'DescribeTasks' smart constructor.
-describeTasks :: [Text] -> DescribeTasks
-describeTasks pTasks = DescribeTasks'{_dtCluster = Nothing, _dtTasks = pTasks};
+describeTasks :: DescribeTasks
+describeTasks = DescribeTasks'{_dtCluster = Nothing, _dtTasks = mempty};
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the task you want to describe. If you do not specify a cluster,
@@ -104,16 +104,16 @@ instance ToQuery DescribeTasks where
 -- * 'dtrFailures'
 --
 -- * 'dtrTasks'
-data DescribeTasksResponse = DescribeTasksResponse'{_dtrFailures :: [Failure], _dtrTasks :: [Task]} deriving (Eq, Read, Show)
+data DescribeTasksResponse = DescribeTasksResponse'{_dtrFailures :: Maybe [Failure], _dtrTasks :: Maybe [Task]} deriving (Eq, Read, Show)
 
 -- | 'DescribeTasksResponse' smart constructor.
 describeTasksResponse :: DescribeTasksResponse
-describeTasksResponse = DescribeTasksResponse'{_dtrFailures = mempty, _dtrTasks = mempty};
+describeTasksResponse = DescribeTasksResponse'{_dtrFailures = Nothing, _dtrTasks = Nothing};
 
 -- | FIXME: Undocumented member.
-dtrFailures :: Lens' DescribeTasksResponse [Failure]
+dtrFailures :: Lens' DescribeTasksResponse (Maybe [Failure])
 dtrFailures = lens _dtrFailures (\ s a -> s{_dtrFailures = a});
 
 -- | The list of tasks.
-dtrTasks :: Lens' DescribeTasksResponse [Task]
+dtrTasks :: Lens' DescribeTasksResponse (Maybe [Task])
 dtrTasks = lens _dtrTasks (\ s a -> s{_dtrTasks = a});

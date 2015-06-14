@@ -470,11 +470,11 @@ instance FromXML AvailabilityZone where
 -- * 'ccPendingModifiedValues'
 --
 -- * 'ccNumCacheNodes'
-data CacheCluster = CacheCluster'{_ccCacheNodeType :: Maybe Text, _ccEngineVersion :: Maybe Text, _ccCacheNodes :: [CacheNode], _ccCacheClusterCreateTime :: Maybe ISO8601, _ccAutoMinorVersionUpgrade :: Maybe Bool, _ccSecurityGroups :: [SecurityGroupMembership], _ccNotificationConfiguration :: Maybe NotificationConfiguration, _ccSnapshotWindow :: Maybe Text, _ccCacheClusterId :: Maybe Text, _ccConfigurationEndpoint :: Maybe Endpoint, _ccEngine :: Maybe Text, _ccCacheSecurityGroups :: [CacheSecurityGroupMembership], _ccClientDownloadLandingPage :: Maybe Text, _ccPreferredMaintenanceWindow :: Maybe Text, _ccCacheSubnetGroupName :: Maybe Text, _ccCacheClusterStatus :: Maybe Text, _ccPreferredAvailabilityZone :: Maybe Text, _ccCacheParameterGroup :: Maybe CacheParameterGroupStatus, _ccSnapshotRetentionLimit :: Maybe Int, _ccReplicationGroupId :: Maybe Text, _ccPendingModifiedValues :: Maybe PendingModifiedValues, _ccNumCacheNodes :: Maybe Int} deriving (Eq, Read, Show)
+data CacheCluster = CacheCluster'{_ccCacheNodeType :: Maybe Text, _ccEngineVersion :: Maybe Text, _ccCacheNodes :: Maybe [CacheNode], _ccCacheClusterCreateTime :: Maybe ISO8601, _ccAutoMinorVersionUpgrade :: Maybe Bool, _ccSecurityGroups :: Maybe [SecurityGroupMembership], _ccNotificationConfiguration :: Maybe NotificationConfiguration, _ccSnapshotWindow :: Maybe Text, _ccCacheClusterId :: Maybe Text, _ccConfigurationEndpoint :: Maybe Endpoint, _ccEngine :: Maybe Text, _ccCacheSecurityGroups :: Maybe [CacheSecurityGroupMembership], _ccClientDownloadLandingPage :: Maybe Text, _ccPreferredMaintenanceWindow :: Maybe Text, _ccCacheSubnetGroupName :: Maybe Text, _ccCacheClusterStatus :: Maybe Text, _ccPreferredAvailabilityZone :: Maybe Text, _ccCacheParameterGroup :: Maybe CacheParameterGroupStatus, _ccSnapshotRetentionLimit :: Maybe Int, _ccReplicationGroupId :: Maybe Text, _ccPendingModifiedValues :: Maybe PendingModifiedValues, _ccNumCacheNodes :: Maybe Int} deriving (Eq, Read, Show)
 
 -- | 'CacheCluster' smart constructor.
 cacheCluster :: CacheCluster
-cacheCluster = CacheCluster'{_ccCacheNodeType = Nothing, _ccEngineVersion = Nothing, _ccCacheNodes = mempty, _ccCacheClusterCreateTime = Nothing, _ccAutoMinorVersionUpgrade = Nothing, _ccSecurityGroups = mempty, _ccNotificationConfiguration = Nothing, _ccSnapshotWindow = Nothing, _ccCacheClusterId = Nothing, _ccConfigurationEndpoint = Nothing, _ccEngine = Nothing, _ccCacheSecurityGroups = mempty, _ccClientDownloadLandingPage = Nothing, _ccPreferredMaintenanceWindow = Nothing, _ccCacheSubnetGroupName = Nothing, _ccCacheClusterStatus = Nothing, _ccPreferredAvailabilityZone = Nothing, _ccCacheParameterGroup = Nothing, _ccSnapshotRetentionLimit = Nothing, _ccReplicationGroupId = Nothing, _ccPendingModifiedValues = Nothing, _ccNumCacheNodes = Nothing};
+cacheCluster = CacheCluster'{_ccCacheNodeType = Nothing, _ccEngineVersion = Nothing, _ccCacheNodes = Nothing, _ccCacheClusterCreateTime = Nothing, _ccAutoMinorVersionUpgrade = Nothing, _ccSecurityGroups = Nothing, _ccNotificationConfiguration = Nothing, _ccSnapshotWindow = Nothing, _ccCacheClusterId = Nothing, _ccConfigurationEndpoint = Nothing, _ccEngine = Nothing, _ccCacheSecurityGroups = Nothing, _ccClientDownloadLandingPage = Nothing, _ccPreferredMaintenanceWindow = Nothing, _ccCacheSubnetGroupName = Nothing, _ccCacheClusterStatus = Nothing, _ccPreferredAvailabilityZone = Nothing, _ccCacheParameterGroup = Nothing, _ccSnapshotRetentionLimit = Nothing, _ccReplicationGroupId = Nothing, _ccPendingModifiedValues = Nothing, _ccNumCacheNodes = Nothing};
 
 -- | The name of the compute and memory capacity node type for the cache
 -- cluster.
@@ -517,7 +517,7 @@ ccEngineVersion :: Lens' CacheCluster (Maybe Text)
 ccEngineVersion = lens _ccEngineVersion (\ s a -> s{_ccEngineVersion = a});
 
 -- | A list of cache nodes that are members of the cache cluster.
-ccCacheNodes :: Lens' CacheCluster [CacheNode]
+ccCacheNodes :: Lens' CacheCluster (Maybe [CacheNode])
 ccCacheNodes = lens _ccCacheNodes (\ s a -> s{_ccCacheNodes = a});
 
 -- | The date and time when the cache cluster was created.
@@ -529,7 +529,7 @@ ccAutoMinorVersionUpgrade :: Lens' CacheCluster (Maybe Bool)
 ccAutoMinorVersionUpgrade = lens _ccAutoMinorVersionUpgrade (\ s a -> s{_ccAutoMinorVersionUpgrade = a});
 
 -- | A list of VPC Security Groups associated with the cache cluster.
-ccSecurityGroups :: Lens' CacheCluster [SecurityGroupMembership]
+ccSecurityGroups :: Lens' CacheCluster (Maybe [SecurityGroupMembership])
 ccSecurityGroups = lens _ccSecurityGroups (\ s a -> s{_ccSecurityGroups = a});
 
 -- | FIXME: Undocumented member.
@@ -559,7 +559,7 @@ ccEngine = lens _ccEngine (\ s a -> s{_ccEngine = a});
 
 -- | A list of cache security group elements, composed of name and status
 -- sub-elements.
-ccCacheSecurityGroups :: Lens' CacheCluster [CacheSecurityGroupMembership]
+ccCacheSecurityGroups :: Lens' CacheCluster (Maybe [CacheSecurityGroupMembership])
 ccCacheSecurityGroups = lens _ccCacheSecurityGroups (\ s a -> s{_ccCacheSecurityGroups = a});
 
 -- | The URL of the web page where you can download the latest ElastiCache
@@ -797,15 +797,15 @@ instance FromXML CacheNode where
 -- * 'cntspParameterName'
 --
 -- * 'cntspDescription'
-data CacheNodeTypeSpecificParameter = CacheNodeTypeSpecificParameter'{_cntspCacheNodeTypeSpecificValues :: [CacheNodeTypeSpecificValue], _cntspMinimumEngineVersion :: Maybe Text, _cntspSource :: Maybe Text, _cntspIsModifiable :: Maybe Bool, _cntspAllowedValues :: Maybe Text, _cntspDataType :: Maybe Text, _cntspParameterName :: Maybe Text, _cntspDescription :: Maybe Text} deriving (Eq, Read, Show)
+data CacheNodeTypeSpecificParameter = CacheNodeTypeSpecificParameter'{_cntspCacheNodeTypeSpecificValues :: Maybe [CacheNodeTypeSpecificValue], _cntspMinimumEngineVersion :: Maybe Text, _cntspSource :: Maybe Text, _cntspIsModifiable :: Maybe Bool, _cntspAllowedValues :: Maybe Text, _cntspDataType :: Maybe Text, _cntspParameterName :: Maybe Text, _cntspDescription :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'CacheNodeTypeSpecificParameter' smart constructor.
 cacheNodeTypeSpecificParameter :: CacheNodeTypeSpecificParameter
-cacheNodeTypeSpecificParameter = CacheNodeTypeSpecificParameter'{_cntspCacheNodeTypeSpecificValues = mempty, _cntspMinimumEngineVersion = Nothing, _cntspSource = Nothing, _cntspIsModifiable = Nothing, _cntspAllowedValues = Nothing, _cntspDataType = Nothing, _cntspParameterName = Nothing, _cntspDescription = Nothing};
+cacheNodeTypeSpecificParameter = CacheNodeTypeSpecificParameter'{_cntspCacheNodeTypeSpecificValues = Nothing, _cntspMinimumEngineVersion = Nothing, _cntspSource = Nothing, _cntspIsModifiable = Nothing, _cntspAllowedValues = Nothing, _cntspDataType = Nothing, _cntspParameterName = Nothing, _cntspDescription = Nothing};
 
 -- | A list of cache node types and their corresponding values for this
 -- parameter.
-cntspCacheNodeTypeSpecificValues :: Lens' CacheNodeTypeSpecificParameter [CacheNodeTypeSpecificValue]
+cntspCacheNodeTypeSpecificValues :: Lens' CacheNodeTypeSpecificParameter (Maybe [CacheNodeTypeSpecificValue])
 cntspCacheNodeTypeSpecificValues = lens _cntspCacheNodeTypeSpecificValues (\ s a -> s{_cntspCacheNodeTypeSpecificValues = a});
 
 -- | The earliest cache engine version to which the parameter can apply.
@@ -941,11 +941,11 @@ instance FromXML CacheParameterGroupNameMessage where
 -- * 'cpgsCacheNodeIdsToReboot'
 --
 -- * 'cpgsParameterApplyStatus'
-data CacheParameterGroupStatus = CacheParameterGroupStatus'{_cpgsCacheParameterGroupName :: Maybe Text, _cpgsCacheNodeIdsToReboot :: [Text], _cpgsParameterApplyStatus :: Maybe Text} deriving (Eq, Read, Show)
+data CacheParameterGroupStatus = CacheParameterGroupStatus'{_cpgsCacheParameterGroupName :: Maybe Text, _cpgsCacheNodeIdsToReboot :: Maybe [Text], _cpgsParameterApplyStatus :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'CacheParameterGroupStatus' smart constructor.
 cacheParameterGroupStatus :: CacheParameterGroupStatus
-cacheParameterGroupStatus = CacheParameterGroupStatus'{_cpgsCacheParameterGroupName = Nothing, _cpgsCacheNodeIdsToReboot = mempty, _cpgsParameterApplyStatus = Nothing};
+cacheParameterGroupStatus = CacheParameterGroupStatus'{_cpgsCacheParameterGroupName = Nothing, _cpgsCacheNodeIdsToReboot = Nothing, _cpgsParameterApplyStatus = Nothing};
 
 -- | The name of the cache parameter group.
 cpgsCacheParameterGroupName :: Lens' CacheParameterGroupStatus (Maybe Text)
@@ -954,7 +954,7 @@ cpgsCacheParameterGroupName = lens _cpgsCacheParameterGroupName (\ s a -> s{_cpg
 -- | A list of the cache node IDs which need to be rebooted for parameter
 -- changes to be applied. A node ID is a numeric identifier (0001, 0002,
 -- etc.).
-cpgsCacheNodeIdsToReboot :: Lens' CacheParameterGroupStatus [Text]
+cpgsCacheNodeIdsToReboot :: Lens' CacheParameterGroupStatus (Maybe [Text])
 cpgsCacheNodeIdsToReboot = lens _cpgsCacheNodeIdsToReboot (\ s a -> s{_cpgsCacheNodeIdsToReboot = a});
 
 -- | The status of parameter updates.
@@ -980,11 +980,11 @@ instance FromXML CacheParameterGroupStatus where
 -- * 'csgEC2SecurityGroups'
 --
 -- * 'csgDescription'
-data CacheSecurityGroup = CacheSecurityGroup'{_csgCacheSecurityGroupName :: Maybe Text, _csgOwnerId :: Maybe Text, _csgEC2SecurityGroups :: [EC2SecurityGroup], _csgDescription :: Maybe Text} deriving (Eq, Read, Show)
+data CacheSecurityGroup = CacheSecurityGroup'{_csgCacheSecurityGroupName :: Maybe Text, _csgOwnerId :: Maybe Text, _csgEC2SecurityGroups :: Maybe [EC2SecurityGroup], _csgDescription :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'CacheSecurityGroup' smart constructor.
 cacheSecurityGroup :: CacheSecurityGroup
-cacheSecurityGroup = CacheSecurityGroup'{_csgCacheSecurityGroupName = Nothing, _csgOwnerId = Nothing, _csgEC2SecurityGroups = mempty, _csgDescription = Nothing};
+cacheSecurityGroup = CacheSecurityGroup'{_csgCacheSecurityGroupName = Nothing, _csgOwnerId = Nothing, _csgEC2SecurityGroups = Nothing, _csgDescription = Nothing};
 
 -- | The name of the cache security group.
 csgCacheSecurityGroupName :: Lens' CacheSecurityGroup (Maybe Text)
@@ -996,7 +996,7 @@ csgOwnerId = lens _csgOwnerId (\ s a -> s{_csgOwnerId = a});
 
 -- | A list of Amazon EC2 security groups that are associated with this cache
 -- security group.
-csgEC2SecurityGroups :: Lens' CacheSecurityGroup [EC2SecurityGroup]
+csgEC2SecurityGroups :: Lens' CacheSecurityGroup (Maybe [EC2SecurityGroup])
 csgEC2SecurityGroups = lens _csgEC2SecurityGroups (\ s a -> s{_csgEC2SecurityGroups = a});
 
 -- | The description of the cache security group.
@@ -1051,11 +1051,11 @@ instance FromXML CacheSecurityGroupMembership where
 -- * 'csgCacheSubnetGroupName'
 --
 -- * 'csgCacheSubnetGroupDescription'
-data CacheSubnetGroup = CacheSubnetGroup'{_csgVPCId :: Maybe Text, _csgSubnets :: [Subnet], _csgCacheSubnetGroupName :: Maybe Text, _csgCacheSubnetGroupDescription :: Maybe Text} deriving (Eq, Read, Show)
+data CacheSubnetGroup = CacheSubnetGroup'{_csgVPCId :: Maybe Text, _csgSubnets :: Maybe [Subnet], _csgCacheSubnetGroupName :: Maybe Text, _csgCacheSubnetGroupDescription :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'CacheSubnetGroup' smart constructor.
 cacheSubnetGroup :: CacheSubnetGroup
-cacheSubnetGroup = CacheSubnetGroup'{_csgVPCId = Nothing, _csgSubnets = mempty, _csgCacheSubnetGroupName = Nothing, _csgCacheSubnetGroupDescription = Nothing};
+cacheSubnetGroup = CacheSubnetGroup'{_csgVPCId = Nothing, _csgSubnets = Nothing, _csgCacheSubnetGroupName = Nothing, _csgCacheSubnetGroupDescription = Nothing};
 
 -- | The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet
 -- group.
@@ -1063,7 +1063,7 @@ csgVPCId :: Lens' CacheSubnetGroup (Maybe Text)
 csgVPCId = lens _csgVPCId (\ s a -> s{_csgVPCId = a});
 
 -- | A list of subnets associated with the cache subnet group.
-csgSubnets :: Lens' CacheSubnetGroup [Subnet]
+csgSubnets :: Lens' CacheSubnetGroup (Maybe [Subnet])
 csgSubnets = lens _csgSubnets (\ s a -> s{_csgSubnets = a});
 
 -- | The name of the cache subnet group.
@@ -1152,11 +1152,11 @@ instance FromXML Endpoint where
 -- * 'edParameters'
 --
 -- * 'edMarker'
-data EngineDefaults = EngineDefaults'{_edCacheParameterGroupFamily :: Maybe Text, _edCacheNodeTypeSpecificParameters :: [CacheNodeTypeSpecificParameter], _edParameters :: [Parameter], _edMarker :: Maybe Text} deriving (Eq, Read, Show)
+data EngineDefaults = EngineDefaults'{_edCacheParameterGroupFamily :: Maybe Text, _edCacheNodeTypeSpecificParameters :: Maybe [CacheNodeTypeSpecificParameter], _edParameters :: Maybe [Parameter], _edMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'EngineDefaults' smart constructor.
 engineDefaults :: EngineDefaults
-engineDefaults = EngineDefaults'{_edCacheParameterGroupFamily = Nothing, _edCacheNodeTypeSpecificParameters = mempty, _edParameters = mempty, _edMarker = Nothing};
+engineDefaults = EngineDefaults'{_edCacheParameterGroupFamily = Nothing, _edCacheNodeTypeSpecificParameters = Nothing, _edParameters = Nothing, _edMarker = Nothing};
 
 -- | Specifies the name of the cache parameter group family to which the
 -- engine default parameters apply.
@@ -1165,11 +1165,11 @@ edCacheParameterGroupFamily = lens _edCacheParameterGroupFamily (\ s a -> s{_edC
 
 -- | A list of parameters specific to a particular cache node type. Each
 -- element in the list contains detailed information about one parameter.
-edCacheNodeTypeSpecificParameters :: Lens' EngineDefaults [CacheNodeTypeSpecificParameter]
+edCacheNodeTypeSpecificParameters :: Lens' EngineDefaults (Maybe [CacheNodeTypeSpecificParameter])
 edCacheNodeTypeSpecificParameters = lens _edCacheNodeTypeSpecificParameters (\ s a -> s{_edCacheNodeTypeSpecificParameters = a});
 
 -- | Contains a list of engine default parameters.
-edParameters :: Lens' EngineDefaults [Parameter]
+edParameters :: Lens' EngineDefaults (Maybe [Parameter])
 edParameters = lens _edParameters (\ s a -> s{_edParameters = a});
 
 -- | Provides an identifier to allow retrieval of paginated results.
@@ -1241,11 +1241,11 @@ instance FromXML Event where
 -- * 'ngNodeGroupMembers'
 --
 -- * 'ngNodeGroupId'
-data NodeGroup = NodeGroup'{_ngStatus :: Maybe Text, _ngPrimaryEndpoint :: Maybe Endpoint, _ngNodeGroupMembers :: [NodeGroupMember], _ngNodeGroupId :: Maybe Text} deriving (Eq, Read, Show)
+data NodeGroup = NodeGroup'{_ngStatus :: Maybe Text, _ngPrimaryEndpoint :: Maybe Endpoint, _ngNodeGroupMembers :: Maybe [NodeGroupMember], _ngNodeGroupId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'NodeGroup' smart constructor.
 nodeGroup :: NodeGroup
-nodeGroup = NodeGroup'{_ngStatus = Nothing, _ngPrimaryEndpoint = Nothing, _ngNodeGroupMembers = mempty, _ngNodeGroupId = Nothing};
+nodeGroup = NodeGroup'{_ngStatus = Nothing, _ngPrimaryEndpoint = Nothing, _ngNodeGroupMembers = Nothing, _ngNodeGroupId = Nothing};
 
 -- | The current state of this replication group - /creating/, /available/,
 -- etc.
@@ -1258,7 +1258,7 @@ ngPrimaryEndpoint = lens _ngPrimaryEndpoint (\ s a -> s{_ngPrimaryEndpoint = a})
 
 -- | A list containing information about individual nodes within the node
 -- group.
-ngNodeGroupMembers :: Lens' NodeGroup [NodeGroupMember]
+ngNodeGroupMembers :: Lens' NodeGroup (Maybe [NodeGroupMember])
 ngNodeGroupMembers = lens _ngNodeGroupMembers (\ s a -> s{_ngNodeGroupMembers = a});
 
 -- | The identifier for the node group. A replication group contains only one
@@ -1518,11 +1518,11 @@ instance FromXML PendingAutomaticFailoverStatus where
 -- * 'pmvCacheNodeIdsToRemove'
 --
 -- * 'pmvNumCacheNodes'
-data PendingModifiedValues = PendingModifiedValues'{_pmvEngineVersion :: Maybe Text, _pmvCacheNodeIdsToRemove :: [Text], _pmvNumCacheNodes :: Maybe Int} deriving (Eq, Read, Show)
+data PendingModifiedValues = PendingModifiedValues'{_pmvEngineVersion :: Maybe Text, _pmvCacheNodeIdsToRemove :: Maybe [Text], _pmvNumCacheNodes :: Maybe Int} deriving (Eq, Read, Show)
 
 -- | 'PendingModifiedValues' smart constructor.
 pendingModifiedValues :: PendingModifiedValues
-pendingModifiedValues = PendingModifiedValues'{_pmvEngineVersion = Nothing, _pmvCacheNodeIdsToRemove = mempty, _pmvNumCacheNodes = Nothing};
+pendingModifiedValues = PendingModifiedValues'{_pmvEngineVersion = Nothing, _pmvCacheNodeIdsToRemove = Nothing, _pmvNumCacheNodes = Nothing};
 
 -- | The new cache engine version that the cache cluster will run.
 pmvEngineVersion :: Lens' PendingModifiedValues (Maybe Text)
@@ -1531,7 +1531,7 @@ pmvEngineVersion = lens _pmvEngineVersion (\ s a -> s{_pmvEngineVersion = a});
 -- | A list of cache node IDs that are being removed (or will be removed)
 -- from the cache cluster. A node ID is a numeric identifier (0001, 0002,
 -- etc.).
-pmvCacheNodeIdsToRemove :: Lens' PendingModifiedValues [Text]
+pmvCacheNodeIdsToRemove :: Lens' PendingModifiedValues (Maybe [Text])
 pmvCacheNodeIdsToRemove = lens _pmvCacheNodeIdsToRemove (\ s a -> s{_pmvCacheNodeIdsToRemove = a});
 
 -- | The new number of cache nodes for the cache cluster.
@@ -1595,15 +1595,15 @@ instance FromXML RecurringCharge where
 -- * 'rgDescription'
 --
 -- * 'rgAutomaticFailover'
-data ReplicationGroup = ReplicationGroup'{_rgNodeGroups :: [NodeGroup], _rgStatus :: Maybe Text, _rgSnapshottingClusterId :: Maybe Text, _rgMemberClusters :: [Text], _rgReplicationGroupId :: Maybe Text, _rgPendingModifiedValues :: Maybe ReplicationGroupPendingModifiedValues, _rgDescription :: Maybe Text, _rgAutomaticFailover :: Maybe AutomaticFailoverStatus} deriving (Eq, Read, Show)
+data ReplicationGroup = ReplicationGroup'{_rgNodeGroups :: Maybe [NodeGroup], _rgStatus :: Maybe Text, _rgSnapshottingClusterId :: Maybe Text, _rgMemberClusters :: Maybe [Text], _rgReplicationGroupId :: Maybe Text, _rgPendingModifiedValues :: Maybe ReplicationGroupPendingModifiedValues, _rgDescription :: Maybe Text, _rgAutomaticFailover :: Maybe AutomaticFailoverStatus} deriving (Eq, Read, Show)
 
 -- | 'ReplicationGroup' smart constructor.
 replicationGroup :: ReplicationGroup
-replicationGroup = ReplicationGroup'{_rgNodeGroups = mempty, _rgStatus = Nothing, _rgSnapshottingClusterId = Nothing, _rgMemberClusters = mempty, _rgReplicationGroupId = Nothing, _rgPendingModifiedValues = Nothing, _rgDescription = Nothing, _rgAutomaticFailover = Nothing};
+replicationGroup = ReplicationGroup'{_rgNodeGroups = Nothing, _rgStatus = Nothing, _rgSnapshottingClusterId = Nothing, _rgMemberClusters = Nothing, _rgReplicationGroupId = Nothing, _rgPendingModifiedValues = Nothing, _rgDescription = Nothing, _rgAutomaticFailover = Nothing};
 
 -- | A single element list with information about the nodes in the
 -- replication group.
-rgNodeGroups :: Lens' ReplicationGroup [NodeGroup]
+rgNodeGroups :: Lens' ReplicationGroup (Maybe [NodeGroup])
 rgNodeGroups = lens _rgNodeGroups (\ s a -> s{_rgNodeGroups = a});
 
 -- | The current state of this replication group - /creating/, /available/,
@@ -1618,7 +1618,7 @@ rgSnapshottingClusterId = lens _rgSnapshottingClusterId (\ s a -> s{_rgSnapshott
 
 -- | The names of all the cache clusters that are part of this replication
 -- group.
-rgMemberClusters :: Lens' ReplicationGroup [Text]
+rgMemberClusters :: Lens' ReplicationGroup (Maybe [Text])
 rgMemberClusters = lens _rgMemberClusters (\ s a -> s{_rgMemberClusters = a});
 
 -- | The identifier for the replication group.
@@ -1720,11 +1720,11 @@ instance FromXML
 -- * 'rcnDuration'
 --
 -- * 'rcnReservedCacheNodesOfferingId'
-data ReservedCacheNode = ReservedCacheNode'{_rcnCacheNodeType :: Maybe Text, _rcnState :: Maybe Text, _rcnProductDescription :: Maybe Text, _rcnStartTime :: Maybe ISO8601, _rcnCacheNodeCount :: Maybe Int, _rcnReservedCacheNodeId :: Maybe Text, _rcnOfferingType :: Maybe Text, _rcnUsagePrice :: Maybe Double, _rcnRecurringCharges :: [RecurringCharge], _rcnFixedPrice :: Maybe Double, _rcnDuration :: Maybe Int, _rcnReservedCacheNodesOfferingId :: Maybe Text} deriving (Eq, Read, Show)
+data ReservedCacheNode = ReservedCacheNode'{_rcnCacheNodeType :: Maybe Text, _rcnState :: Maybe Text, _rcnProductDescription :: Maybe Text, _rcnStartTime :: Maybe ISO8601, _rcnCacheNodeCount :: Maybe Int, _rcnReservedCacheNodeId :: Maybe Text, _rcnOfferingType :: Maybe Text, _rcnUsagePrice :: Maybe Double, _rcnRecurringCharges :: Maybe [RecurringCharge], _rcnFixedPrice :: Maybe Double, _rcnDuration :: Maybe Int, _rcnReservedCacheNodesOfferingId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ReservedCacheNode' smart constructor.
 reservedCacheNode :: ReservedCacheNode
-reservedCacheNode = ReservedCacheNode'{_rcnCacheNodeType = Nothing, _rcnState = Nothing, _rcnProductDescription = Nothing, _rcnStartTime = Nothing, _rcnCacheNodeCount = Nothing, _rcnReservedCacheNodeId = Nothing, _rcnOfferingType = Nothing, _rcnUsagePrice = Nothing, _rcnRecurringCharges = mempty, _rcnFixedPrice = Nothing, _rcnDuration = Nothing, _rcnReservedCacheNodesOfferingId = Nothing};
+reservedCacheNode = ReservedCacheNode'{_rcnCacheNodeType = Nothing, _rcnState = Nothing, _rcnProductDescription = Nothing, _rcnStartTime = Nothing, _rcnCacheNodeCount = Nothing, _rcnReservedCacheNodeId = Nothing, _rcnOfferingType = Nothing, _rcnUsagePrice = Nothing, _rcnRecurringCharges = Nothing, _rcnFixedPrice = Nothing, _rcnDuration = Nothing, _rcnReservedCacheNodesOfferingId = Nothing};
 
 -- | The cache node type for the reserved cache nodes.
 --
@@ -1789,7 +1789,7 @@ rcnUsagePrice :: Lens' ReservedCacheNode (Maybe Double)
 rcnUsagePrice = lens _rcnUsagePrice (\ s a -> s{_rcnUsagePrice = a});
 
 -- | The recurring price charged to run this reserved cache node.
-rcnRecurringCharges :: Lens' ReservedCacheNode [RecurringCharge]
+rcnRecurringCharges :: Lens' ReservedCacheNode (Maybe [RecurringCharge])
 rcnRecurringCharges = lens _rcnRecurringCharges (\ s a -> s{_rcnRecurringCharges = a});
 
 -- | The fixed price charged for this reserved cache node.
@@ -1840,11 +1840,11 @@ instance FromXML ReservedCacheNode where
 -- * 'rcnoDuration'
 --
 -- * 'rcnoReservedCacheNodesOfferingId'
-data ReservedCacheNodesOffering = ReservedCacheNodesOffering'{_rcnoCacheNodeType :: Maybe Text, _rcnoProductDescription :: Maybe Text, _rcnoOfferingType :: Maybe Text, _rcnoUsagePrice :: Maybe Double, _rcnoRecurringCharges :: [RecurringCharge], _rcnoFixedPrice :: Maybe Double, _rcnoDuration :: Maybe Int, _rcnoReservedCacheNodesOfferingId :: Maybe Text} deriving (Eq, Read, Show)
+data ReservedCacheNodesOffering = ReservedCacheNodesOffering'{_rcnoCacheNodeType :: Maybe Text, _rcnoProductDescription :: Maybe Text, _rcnoOfferingType :: Maybe Text, _rcnoUsagePrice :: Maybe Double, _rcnoRecurringCharges :: Maybe [RecurringCharge], _rcnoFixedPrice :: Maybe Double, _rcnoDuration :: Maybe Int, _rcnoReservedCacheNodesOfferingId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ReservedCacheNodesOffering' smart constructor.
 reservedCacheNodesOffering :: ReservedCacheNodesOffering
-reservedCacheNodesOffering = ReservedCacheNodesOffering'{_rcnoCacheNodeType = Nothing, _rcnoProductDescription = Nothing, _rcnoOfferingType = Nothing, _rcnoUsagePrice = Nothing, _rcnoRecurringCharges = mempty, _rcnoFixedPrice = Nothing, _rcnoDuration = Nothing, _rcnoReservedCacheNodesOfferingId = Nothing};
+reservedCacheNodesOffering = ReservedCacheNodesOffering'{_rcnoCacheNodeType = Nothing, _rcnoProductDescription = Nothing, _rcnoOfferingType = Nothing, _rcnoUsagePrice = Nothing, _rcnoRecurringCharges = Nothing, _rcnoFixedPrice = Nothing, _rcnoDuration = Nothing, _rcnoReservedCacheNodesOfferingId = Nothing};
 
 -- | The cache node type for the reserved cache node.
 --
@@ -1893,7 +1893,7 @@ rcnoUsagePrice :: Lens' ReservedCacheNodesOffering (Maybe Double)
 rcnoUsagePrice = lens _rcnoUsagePrice (\ s a -> s{_rcnoUsagePrice = a});
 
 -- | The recurring price charged to run this reserved cache node.
-rcnoRecurringCharges :: Lens' ReservedCacheNodesOffering [RecurringCharge]
+rcnoRecurringCharges :: Lens' ReservedCacheNodesOffering (Maybe [RecurringCharge])
 rcnoRecurringCharges = lens _rcnoRecurringCharges (\ s a -> s{_rcnoRecurringCharges = a});
 
 -- | The fixed price charged for this offering.
@@ -1992,11 +1992,11 @@ instance FromXML SecurityGroupMembership where
 -- * 'snaNumCacheNodes'
 --
 -- * 'snaPort'
-data Snapshot = Snapshot'{_snaCacheNodeType :: Maybe Text, _snaEngineVersion :: Maybe Text, _snaCacheClusterCreateTime :: Maybe ISO8601, _snaAutoMinorVersionUpgrade :: Maybe Bool, _snaCacheParameterGroupName :: Maybe Text, _snaSnapshotStatus :: Maybe Text, _snaSnapshotWindow :: Maybe Text, _snaVPCId :: Maybe Text, _snaCacheClusterId :: Maybe Text, _snaEngine :: Maybe Text, _snaPreferredMaintenanceWindow :: Maybe Text, _snaTopicARN :: Maybe Text, _snaCacheSubnetGroupName :: Maybe Text, _snaNodeSnapshots :: [NodeSnapshot], _snaPreferredAvailabilityZone :: Maybe Text, _snaSnapshotRetentionLimit :: Maybe Int, _snaSnapshotName :: Maybe Text, _snaSnapshotSource :: Maybe Text, _snaNumCacheNodes :: Maybe Int, _snaPort :: Maybe Int} deriving (Eq, Read, Show)
+data Snapshot = Snapshot'{_snaCacheNodeType :: Maybe Text, _snaEngineVersion :: Maybe Text, _snaCacheClusterCreateTime :: Maybe ISO8601, _snaAutoMinorVersionUpgrade :: Maybe Bool, _snaCacheParameterGroupName :: Maybe Text, _snaSnapshotStatus :: Maybe Text, _snaSnapshotWindow :: Maybe Text, _snaVPCId :: Maybe Text, _snaCacheClusterId :: Maybe Text, _snaEngine :: Maybe Text, _snaPreferredMaintenanceWindow :: Maybe Text, _snaTopicARN :: Maybe Text, _snaCacheSubnetGroupName :: Maybe Text, _snaNodeSnapshots :: Maybe [NodeSnapshot], _snaPreferredAvailabilityZone :: Maybe Text, _snaSnapshotRetentionLimit :: Maybe Int, _snaSnapshotName :: Maybe Text, _snaSnapshotSource :: Maybe Text, _snaNumCacheNodes :: Maybe Int, _snaPort :: Maybe Int} deriving (Eq, Read, Show)
 
 -- | 'Snapshot' smart constructor.
 snapshot :: Snapshot
-snapshot = Snapshot'{_snaCacheNodeType = Nothing, _snaEngineVersion = Nothing, _snaCacheClusterCreateTime = Nothing, _snaAutoMinorVersionUpgrade = Nothing, _snaCacheParameterGroupName = Nothing, _snaSnapshotStatus = Nothing, _snaSnapshotWindow = Nothing, _snaVPCId = Nothing, _snaCacheClusterId = Nothing, _snaEngine = Nothing, _snaPreferredMaintenanceWindow = Nothing, _snaTopicARN = Nothing, _snaCacheSubnetGroupName = Nothing, _snaNodeSnapshots = mempty, _snaPreferredAvailabilityZone = Nothing, _snaSnapshotRetentionLimit = Nothing, _snaSnapshotName = Nothing, _snaSnapshotSource = Nothing, _snaNumCacheNodes = Nothing, _snaPort = Nothing};
+snapshot = Snapshot'{_snaCacheNodeType = Nothing, _snaEngineVersion = Nothing, _snaCacheClusterCreateTime = Nothing, _snaAutoMinorVersionUpgrade = Nothing, _snaCacheParameterGroupName = Nothing, _snaSnapshotStatus = Nothing, _snaSnapshotWindow = Nothing, _snaVPCId = Nothing, _snaCacheClusterId = Nothing, _snaEngine = Nothing, _snaPreferredMaintenanceWindow = Nothing, _snaTopicARN = Nothing, _snaCacheSubnetGroupName = Nothing, _snaNodeSnapshots = Nothing, _snaPreferredAvailabilityZone = Nothing, _snaSnapshotRetentionLimit = Nothing, _snaSnapshotName = Nothing, _snaSnapshotSource = Nothing, _snaNumCacheNodes = Nothing, _snaPort = Nothing};
 
 -- | The name of the compute and memory capacity node type for the source
 -- cache cluster.
@@ -2103,7 +2103,7 @@ snaCacheSubnetGroupName :: Lens' Snapshot (Maybe Text)
 snaCacheSubnetGroupName = lens _snaCacheSubnetGroupName (\ s a -> s{_snaCacheSubnetGroupName = a});
 
 -- | A list of the cache nodes in the source cache cluster.
-snaNodeSnapshots :: Lens' Snapshot [NodeSnapshot]
+snaNodeSnapshots :: Lens' Snapshot (Maybe [NodeSnapshot])
 snaNodeSnapshots = lens _snaNodeSnapshots (\ s a -> s{_snaNodeSnapshots = a});
 
 -- | The name of the Availability Zone in which the source cache cluster is
@@ -2255,14 +2255,14 @@ instance ToQuery Tag where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'tlmTagList'
-newtype TagListMessage = TagListMessage'{_tlmTagList :: [Tag]} deriving (Eq, Read, Show)
+newtype TagListMessage = TagListMessage'{_tlmTagList :: Maybe [Tag]} deriving (Eq, Read, Show)
 
 -- | 'TagListMessage' smart constructor.
 tagListMessage :: TagListMessage
-tagListMessage = TagListMessage'{_tlmTagList = mempty};
+tagListMessage = TagListMessage'{_tlmTagList = Nothing};
 
 -- | A list of cost allocation tags as key-value pairs.
-tlmTagList :: Lens' TagListMessage [Tag]
+tlmTagList :: Lens' TagListMessage (Maybe [Tag])
 tlmTagList = lens _tlmTagList (\ s a -> s{_tlmTagList = a});
 
 instance FromXML TagListMessage where

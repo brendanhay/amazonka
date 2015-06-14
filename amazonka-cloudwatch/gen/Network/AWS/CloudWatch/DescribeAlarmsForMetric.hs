@@ -25,12 +25,12 @@ module Network.AWS.CloudWatch.DescribeAlarmsForMetric
     -- ** Request constructor
     , describeAlarmsForMetric
     -- ** Request lenses
+    , dafmPeriod
     , dafmDimensions
     , dafmStatistic
     , dafmUnit
     , dafmMetricName
     , dafmNamespace
-    , dafmPeriod
 
     -- * Response
     , DescribeAlarmsForMetricResponse
@@ -49,6 +49,8 @@ import Network.AWS.CloudWatch.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'dafmPeriod'
+--
 -- * 'dafmDimensions'
 --
 -- * 'dafmStatistic'
@@ -58,16 +60,18 @@ import Network.AWS.CloudWatch.Types
 -- * 'dafmMetricName'
 --
 -- * 'dafmNamespace'
---
--- * 'dafmPeriod'
-data DescribeAlarmsForMetric = DescribeAlarmsForMetric'{_dafmDimensions :: [Dimension], _dafmStatistic :: Maybe Statistic, _dafmUnit :: Maybe StandardUnit, _dafmMetricName :: Text, _dafmNamespace :: Text, _dafmPeriod :: Nat} deriving (Eq, Read, Show)
+data DescribeAlarmsForMetric = DescribeAlarmsForMetric'{_dafmPeriod :: Maybe Nat, _dafmDimensions :: Maybe [Dimension], _dafmStatistic :: Maybe Statistic, _dafmUnit :: Maybe StandardUnit, _dafmMetricName :: Text, _dafmNamespace :: Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeAlarmsForMetric' smart constructor.
-describeAlarmsForMetric :: Text -> Text -> Natural -> DescribeAlarmsForMetric
-describeAlarmsForMetric pMetricName pNamespace pPeriod = DescribeAlarmsForMetric'{_dafmDimensions = mempty, _dafmStatistic = Nothing, _dafmUnit = Nothing, _dafmMetricName = pMetricName, _dafmNamespace = pNamespace, _dafmPeriod = _Nat # pPeriod};
+describeAlarmsForMetric :: Text -> Text -> DescribeAlarmsForMetric
+describeAlarmsForMetric pMetricName pNamespace = DescribeAlarmsForMetric'{_dafmPeriod = Nothing, _dafmDimensions = Nothing, _dafmStatistic = Nothing, _dafmUnit = Nothing, _dafmMetricName = pMetricName, _dafmNamespace = pNamespace};
+
+-- | The period in seconds over which the statistic is applied.
+dafmPeriod :: Lens' DescribeAlarmsForMetric (Maybe Natural)
+dafmPeriod = lens _dafmPeriod (\ s a -> s{_dafmPeriod = a}) . mapping _Nat;
 
 -- | The list of dimensions associated with the metric.
-dafmDimensions :: Lens' DescribeAlarmsForMetric [Dimension]
+dafmDimensions :: Lens' DescribeAlarmsForMetric (Maybe [Dimension])
 dafmDimensions = lens _dafmDimensions (\ s a -> s{_dafmDimensions = a});
 
 -- | The statistic for the metric.
@@ -85,10 +89,6 @@ dafmMetricName = lens _dafmMetricName (\ s a -> s{_dafmMetricName = a});
 -- | The namespace of the metric.
 dafmNamespace :: Lens' DescribeAlarmsForMetric Text
 dafmNamespace = lens _dafmNamespace (\ s a -> s{_dafmNamespace = a});
-
--- | The period in seconds over which the statistic is applied.
-dafmPeriod :: Lens' DescribeAlarmsForMetric Natural
-dafmPeriod = lens _dafmPeriod (\ s a -> s{_dafmPeriod = a}) . _Nat;
 
 instance AWSRequest DescribeAlarmsForMetric where
         type Sv DescribeAlarmsForMetric = CloudWatch
@@ -114,23 +114,23 @@ instance ToQuery DescribeAlarmsForMetric where
               ["Action" =:
                  ("DescribeAlarmsForMetric" :: ByteString),
                "Version" =: ("2010-08-01" :: ByteString),
+               "Period" =: _dafmPeriod,
                "Dimensions" =: "member" =: _dafmDimensions,
                "Statistic" =: _dafmStatistic, "Unit" =: _dafmUnit,
                "MetricName" =: _dafmMetricName,
-               "Namespace" =: _dafmNamespace,
-               "Period" =: _dafmPeriod]
+               "Namespace" =: _dafmNamespace]
 
 -- | /See:/ 'describeAlarmsForMetricResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dafmrMetricAlarms'
-newtype DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse'{_dafmrMetricAlarms :: [MetricAlarm]} deriving (Eq, Read, Show)
+newtype DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse'{_dafmrMetricAlarms :: Maybe [MetricAlarm]} deriving (Eq, Read, Show)
 
 -- | 'DescribeAlarmsForMetricResponse' smart constructor.
 describeAlarmsForMetricResponse :: DescribeAlarmsForMetricResponse
-describeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse'{_dafmrMetricAlarms = mempty};
+describeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse'{_dafmrMetricAlarms = Nothing};
 
 -- | A list of information for each alarm with the specified metric.
-dafmrMetricAlarms :: Lens' DescribeAlarmsForMetricResponse [MetricAlarm]
+dafmrMetricAlarms :: Lens' DescribeAlarmsForMetricResponse (Maybe [MetricAlarm])
 dafmrMetricAlarms = lens _dafmrMetricAlarms (\ s a -> s{_dafmrMetricAlarms = a});

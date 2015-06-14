@@ -53,18 +53,18 @@ import Network.AWS.EC2.Types
 -- * 'dctFilters'
 --
 -- * 'dctDryRun'
-data DescribeConversionTasks = DescribeConversionTasks'{_dctConversionTaskIds :: [Text], _dctFilters :: [Filter], _dctDryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data DescribeConversionTasks = DescribeConversionTasks'{_dctConversionTaskIds :: Maybe [Text], _dctFilters :: Maybe [Filter], _dctDryRun :: Maybe Bool} deriving (Eq, Read, Show)
 
 -- | 'DescribeConversionTasks' smart constructor.
 describeConversionTasks :: DescribeConversionTasks
-describeConversionTasks = DescribeConversionTasks'{_dctConversionTaskIds = mempty, _dctFilters = mempty, _dctDryRun = Nothing};
+describeConversionTasks = DescribeConversionTasks'{_dctConversionTaskIds = Nothing, _dctFilters = Nothing, _dctDryRun = Nothing};
 
 -- | One or more conversion task IDs.
-dctConversionTaskIds :: Lens' DescribeConversionTasks [Text]
+dctConversionTaskIds :: Lens' DescribeConversionTasks (Maybe [Text])
 dctConversionTaskIds = lens _dctConversionTaskIds (\ s a -> s{_dctConversionTaskIds = a});
 
 -- | One or more filters.
-dctFilters :: Lens' DescribeConversionTasks [Filter]
+dctFilters :: Lens' DescribeConversionTasks (Maybe [Filter])
 dctFilters = lens _dctFilters (\ s a -> s{_dctFilters = a});
 
 -- | Checks whether you have the required permissions for the action, without
@@ -105,12 +105,12 @@ instance ToQuery DescribeConversionTasks where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dctrConversionTasks'
-newtype DescribeConversionTasksResponse = DescribeConversionTasksResponse'{_dctrConversionTasks :: [ConversionTask]} deriving (Eq, Read, Show)
+newtype DescribeConversionTasksResponse = DescribeConversionTasksResponse'{_dctrConversionTasks :: Maybe [ConversionTask]} deriving (Eq, Read, Show)
 
 -- | 'DescribeConversionTasksResponse' smart constructor.
 describeConversionTasksResponse :: DescribeConversionTasksResponse
-describeConversionTasksResponse = DescribeConversionTasksResponse'{_dctrConversionTasks = mempty};
+describeConversionTasksResponse = DescribeConversionTasksResponse'{_dctrConversionTasks = Nothing};
 
 -- | Information about the conversion tasks.
-dctrConversionTasks :: Lens' DescribeConversionTasksResponse [ConversionTask]
+dctrConversionTasks :: Lens' DescribeConversionTasksResponse (Maybe [ConversionTask])
 dctrConversionTasks = lens _dctrConversionTasks (\ s a -> s{_dctrConversionTasks = a});

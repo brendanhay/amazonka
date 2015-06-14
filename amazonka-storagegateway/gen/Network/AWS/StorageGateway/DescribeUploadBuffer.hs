@@ -38,9 +38,9 @@ module Network.AWS.StorageGateway.DescribeUploadBuffer
     , describeUploadBufferResponse
     -- ** Response lenses
     , dubrUploadBufferAllocatedInBytes
+    , dubrGatewayARN
     , dubrDiskIds
     , dubrUploadBufferUsedInBytes
-    , dubrGatewayARN
     ) where
 
 import Network.AWS.Request
@@ -73,9 +73,9 @@ instance AWSRequest DescribeUploadBuffer where
               (\ s h x ->
                  DescribeUploadBufferResponse' <$>
                    x .?> "UploadBufferAllocatedInBytes" <*>
-                     x .?> "DiskIds" .!@ mempty
-                     <*> x .?> "UploadBufferUsedInBytes"
-                     <*> x .:> "GatewayARN")
+                     x .?> "GatewayARN"
+                     <*> x .?> "DiskIds" .!@ mempty
+                     <*> x .?> "UploadBufferUsedInBytes")
 
 instance ToHeaders DescribeUploadBuffer where
         toHeaders
@@ -103,29 +103,29 @@ instance ToQuery DescribeUploadBuffer where
 --
 -- * 'dubrUploadBufferAllocatedInBytes'
 --
+-- * 'dubrGatewayARN'
+--
 -- * 'dubrDiskIds'
 --
 -- * 'dubrUploadBufferUsedInBytes'
---
--- * 'dubrGatewayARN'
-data DescribeUploadBufferResponse = DescribeUploadBufferResponse'{_dubrUploadBufferAllocatedInBytes :: Maybe Integer, _dubrDiskIds :: [Text], _dubrUploadBufferUsedInBytes :: Maybe Integer, _dubrGatewayARN :: Text} deriving (Eq, Read, Show)
+data DescribeUploadBufferResponse = DescribeUploadBufferResponse'{_dubrUploadBufferAllocatedInBytes :: Maybe Integer, _dubrGatewayARN :: Maybe Text, _dubrDiskIds :: Maybe [Text], _dubrUploadBufferUsedInBytes :: Maybe Integer} deriving (Eq, Read, Show)
 
 -- | 'DescribeUploadBufferResponse' smart constructor.
-describeUploadBufferResponse :: Text -> DescribeUploadBufferResponse
-describeUploadBufferResponse pGatewayARN = DescribeUploadBufferResponse'{_dubrUploadBufferAllocatedInBytes = Nothing, _dubrDiskIds = mempty, _dubrUploadBufferUsedInBytes = Nothing, _dubrGatewayARN = pGatewayARN};
+describeUploadBufferResponse :: DescribeUploadBufferResponse
+describeUploadBufferResponse = DescribeUploadBufferResponse'{_dubrUploadBufferAllocatedInBytes = Nothing, _dubrGatewayARN = Nothing, _dubrDiskIds = Nothing, _dubrUploadBufferUsedInBytes = Nothing};
 
 -- | FIXME: Undocumented member.
 dubrUploadBufferAllocatedInBytes :: Lens' DescribeUploadBufferResponse (Maybe Integer)
 dubrUploadBufferAllocatedInBytes = lens _dubrUploadBufferAllocatedInBytes (\ s a -> s{_dubrUploadBufferAllocatedInBytes = a});
 
 -- | FIXME: Undocumented member.
-dubrDiskIds :: Lens' DescribeUploadBufferResponse [Text]
+dubrGatewayARN :: Lens' DescribeUploadBufferResponse (Maybe Text)
+dubrGatewayARN = lens _dubrGatewayARN (\ s a -> s{_dubrGatewayARN = a});
+
+-- | FIXME: Undocumented member.
+dubrDiskIds :: Lens' DescribeUploadBufferResponse (Maybe [Text])
 dubrDiskIds = lens _dubrDiskIds (\ s a -> s{_dubrDiskIds = a});
 
 -- | FIXME: Undocumented member.
 dubrUploadBufferUsedInBytes :: Lens' DescribeUploadBufferResponse (Maybe Integer)
 dubrUploadBufferUsedInBytes = lens _dubrUploadBufferUsedInBytes (\ s a -> s{_dubrUploadBufferUsedInBytes = a});
-
--- | FIXME: Undocumented member.
-dubrGatewayARN :: Lens' DescribeUploadBufferResponse Text
-dubrGatewayARN = lens _dubrGatewayARN (\ s a -> s{_dubrGatewayARN = a});

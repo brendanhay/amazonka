@@ -44,15 +44,15 @@ import Network.AWS.CodeDeploy.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'bgdDeploymentIds'
-newtype BatchGetDeployments = BatchGetDeployments'{_bgdDeploymentIds :: [Text]} deriving (Eq, Read, Show)
+newtype BatchGetDeployments = BatchGetDeployments'{_bgdDeploymentIds :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'BatchGetDeployments' smart constructor.
 batchGetDeployments :: BatchGetDeployments
-batchGetDeployments = BatchGetDeployments'{_bgdDeploymentIds = mempty};
+batchGetDeployments = BatchGetDeployments'{_bgdDeploymentIds = Nothing};
 
 -- | A list of deployment IDs, with multiple deployment IDs separated by
 -- spaces.
-bgdDeploymentIds :: Lens' BatchGetDeployments [Text]
+bgdDeploymentIds :: Lens' BatchGetDeployments (Maybe [Text])
 bgdDeploymentIds = lens _bgdDeploymentIds (\ s a -> s{_bgdDeploymentIds = a});
 
 instance AWSRequest BatchGetDeployments where
@@ -91,12 +91,12 @@ instance ToQuery BatchGetDeployments where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'bgdrDeploymentsInfo'
-newtype BatchGetDeploymentsResponse = BatchGetDeploymentsResponse'{_bgdrDeploymentsInfo :: [DeploymentInfo]} deriving (Eq, Read, Show)
+newtype BatchGetDeploymentsResponse = BatchGetDeploymentsResponse'{_bgdrDeploymentsInfo :: Maybe [DeploymentInfo]} deriving (Eq, Read, Show)
 
 -- | 'BatchGetDeploymentsResponse' smart constructor.
 batchGetDeploymentsResponse :: BatchGetDeploymentsResponse
-batchGetDeploymentsResponse = BatchGetDeploymentsResponse'{_bgdrDeploymentsInfo = mempty};
+batchGetDeploymentsResponse = BatchGetDeploymentsResponse'{_bgdrDeploymentsInfo = Nothing};
 
 -- | Information about the deployments.
-bgdrDeploymentsInfo :: Lens' BatchGetDeploymentsResponse [DeploymentInfo]
+bgdrDeploymentsInfo :: Lens' BatchGetDeploymentsResponse (Maybe [DeploymentInfo])
 bgdrDeploymentsInfo = lens _bgdrDeploymentsInfo (\ s a -> s{_bgdrDeploymentsInfo = a});

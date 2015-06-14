@@ -60,7 +60,7 @@ data DeleteObjects = DeleteObjects'{_delMFA :: Maybe Text, _delRequestPayer :: M
 
 -- | 'DeleteObjects' smart constructor.
 deleteObjects :: BucketName -> Delete -> DeleteObjects
-deleteObjects pBucket pDelete' = DeleteObjects'{_delMFA = Nothing, _delRequestPayer = Nothing, _delBucket = pBucket, _delDelete = pDelete'};
+deleteObjects pBucket pDelete = DeleteObjects'{_delMFA = Nothing, _delRequestPayer = Nothing, _delBucket = pBucket, _delDelete = pDelete};
 
 -- | The concatenation of the authentication device\'s serial number, a
 -- space, and the value that is displayed on your authentication device.
@@ -120,20 +120,20 @@ instance ToQuery DeleteObjects where
 -- * 'delDeleted'
 --
 -- * 'delErrors'
-data DeleteObjectsResponse = DeleteObjectsResponse'{_delRequestCharged :: Maybe RequestCharged, _delDeleted :: [DeletedObject], _delErrors :: [S3ServiceError]} deriving (Eq, Read, Show)
+data DeleteObjectsResponse = DeleteObjectsResponse'{_delRequestCharged :: Maybe RequestCharged, _delDeleted :: Maybe [DeletedObject], _delErrors :: Maybe [S3ServiceError]} deriving (Eq, Read, Show)
 
 -- | 'DeleteObjectsResponse' smart constructor.
 deleteObjectsResponse :: DeleteObjectsResponse
-deleteObjectsResponse = DeleteObjectsResponse'{_delRequestCharged = Nothing, _delDeleted = mempty, _delErrors = mempty};
+deleteObjectsResponse = DeleteObjectsResponse'{_delRequestCharged = Nothing, _delDeleted = Nothing, _delErrors = Nothing};
 
 -- | FIXME: Undocumented member.
 delRequestCharged :: Lens' DeleteObjectsResponse (Maybe RequestCharged)
 delRequestCharged = lens _delRequestCharged (\ s a -> s{_delRequestCharged = a});
 
 -- | FIXME: Undocumented member.
-delDeleted :: Lens' DeleteObjectsResponse [DeletedObject]
+delDeleted :: Lens' DeleteObjectsResponse (Maybe [DeletedObject])
 delDeleted = lens _delDeleted (\ s a -> s{_delDeleted = a});
 
 -- | FIXME: Undocumented member.
-delErrors :: Lens' DeleteObjectsResponse [S3ServiceError]
+delErrors :: Lens' DeleteObjectsResponse (Maybe [S3ServiceError])
 delErrors = lens _delErrors (\ s a -> s{_delErrors = a});

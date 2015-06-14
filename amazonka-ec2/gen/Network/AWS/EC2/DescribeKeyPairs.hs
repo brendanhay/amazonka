@@ -54,11 +54,11 @@ import Network.AWS.EC2.Types
 -- * 'dkp1KeyNames'
 --
 -- * 'dkp1DryRun'
-data DescribeKeyPairs = DescribeKeyPairs'{_dkp1Filters :: [Filter], _dkp1KeyNames :: [Text], _dkp1DryRun :: Maybe Bool} deriving (Eq, Read, Show)
+data DescribeKeyPairs = DescribeKeyPairs'{_dkp1Filters :: Maybe [Filter], _dkp1KeyNames :: Maybe [Text], _dkp1DryRun :: Maybe Bool} deriving (Eq, Read, Show)
 
 -- | 'DescribeKeyPairs' smart constructor.
 describeKeyPairs :: DescribeKeyPairs
-describeKeyPairs = DescribeKeyPairs'{_dkp1Filters = mempty, _dkp1KeyNames = mempty, _dkp1DryRun = Nothing};
+describeKeyPairs = DescribeKeyPairs'{_dkp1Filters = Nothing, _dkp1KeyNames = Nothing, _dkp1DryRun = Nothing};
 
 -- | One or more filters.
 --
@@ -66,13 +66,13 @@ describeKeyPairs = DescribeKeyPairs'{_dkp1Filters = mempty, _dkp1KeyNames = memp
 --
 -- -   @key-name@ - The name of the key pair.
 --
-dkp1Filters :: Lens' DescribeKeyPairs [Filter]
+dkp1Filters :: Lens' DescribeKeyPairs (Maybe [Filter])
 dkp1Filters = lens _dkp1Filters (\ s a -> s{_dkp1Filters = a});
 
 -- | One or more key pair names.
 --
 -- Default: Describes all your key pairs.
-dkp1KeyNames :: Lens' DescribeKeyPairs [Text]
+dkp1KeyNames :: Lens' DescribeKeyPairs (Maybe [Text])
 dkp1KeyNames = lens _dkp1KeyNames (\ s a -> s{_dkp1KeyNames = a});
 
 -- | Checks whether you have the required permissions for the action, without
@@ -110,12 +110,12 @@ instance ToQuery DescribeKeyPairs where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dkprKeyPairs'
-newtype DescribeKeyPairsResponse = DescribeKeyPairsResponse'{_dkprKeyPairs :: [KeyPairInfo]} deriving (Eq, Read, Show)
+newtype DescribeKeyPairsResponse = DescribeKeyPairsResponse'{_dkprKeyPairs :: Maybe [KeyPairInfo]} deriving (Eq, Read, Show)
 
 -- | 'DescribeKeyPairsResponse' smart constructor.
 describeKeyPairsResponse :: DescribeKeyPairsResponse
-describeKeyPairsResponse = DescribeKeyPairsResponse'{_dkprKeyPairs = mempty};
+describeKeyPairsResponse = DescribeKeyPairsResponse'{_dkprKeyPairs = Nothing};
 
 -- | Information about one or more key pairs.
-dkprKeyPairs :: Lens' DescribeKeyPairsResponse [KeyPairInfo]
+dkprKeyPairs :: Lens' DescribeKeyPairsResponse (Maybe [KeyPairInfo])
 dkprKeyPairs = lens _dkprKeyPairs (\ s a -> s{_dkprKeyPairs = a});

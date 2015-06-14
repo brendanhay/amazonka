@@ -167,7 +167,7 @@ instance AWSRequest CreateDataSourceFromRedshift
           = receiveJSON
               (\ s h x ->
                  CreateDataSourceFromRedshiftResponse' <$>
-                   x .:> "DataSourceId")
+                   x .?> "DataSourceId")
 
 instance ToHeaders CreateDataSourceFromRedshift where
         toHeaders
@@ -199,13 +199,13 @@ instance ToQuery CreateDataSourceFromRedshift where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cdsfrrDataSourceId'
-newtype CreateDataSourceFromRedshiftResponse = CreateDataSourceFromRedshiftResponse'{_cdsfrrDataSourceId :: Text} deriving (Eq, Read, Show)
+newtype CreateDataSourceFromRedshiftResponse = CreateDataSourceFromRedshiftResponse'{_cdsfrrDataSourceId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'CreateDataSourceFromRedshiftResponse' smart constructor.
-createDataSourceFromRedshiftResponse :: Text -> CreateDataSourceFromRedshiftResponse
-createDataSourceFromRedshiftResponse pDataSourceId = CreateDataSourceFromRedshiftResponse'{_cdsfrrDataSourceId = pDataSourceId};
+createDataSourceFromRedshiftResponse :: CreateDataSourceFromRedshiftResponse
+createDataSourceFromRedshiftResponse = CreateDataSourceFromRedshiftResponse'{_cdsfrrDataSourceId = Nothing};
 
 -- | A user-supplied ID that uniquely identifies the datasource. This value
 -- should be identical to the value of the @DataSourceID@ in the request.
-cdsfrrDataSourceId :: Lens' CreateDataSourceFromRedshiftResponse Text
+cdsfrrDataSourceId :: Lens' CreateDataSourceFromRedshiftResponse (Maybe Text)
 cdsfrrDataSourceId = lens _cdsfrrDataSourceId (\ s a -> s{_cdsfrrDataSourceId = a});

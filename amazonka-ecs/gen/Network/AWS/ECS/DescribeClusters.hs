@@ -45,16 +45,16 @@ import Network.AWS.ECS.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dcClusters'
-newtype DescribeClusters = DescribeClusters'{_dcClusters :: [Text]} deriving (Eq, Read, Show)
+newtype DescribeClusters = DescribeClusters'{_dcClusters :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'DescribeClusters' smart constructor.
 describeClusters :: DescribeClusters
-describeClusters = DescribeClusters'{_dcClusters = mempty};
+describeClusters = DescribeClusters'{_dcClusters = Nothing};
 
 -- | A space-separated list of cluster names or full cluster Amazon Resource
 -- Name (ARN) entries. If you do not specify a cluster, the default cluster
 -- is assumed.
-dcClusters :: Lens' DescribeClusters [Text]
+dcClusters :: Lens' DescribeClusters (Maybe [Text])
 dcClusters = lens _dcClusters (\ s a -> s{_dcClusters = a});
 
 instance AWSRequest DescribeClusters where
@@ -95,16 +95,16 @@ instance ToQuery DescribeClusters where
 -- * 'dcrFailures'
 --
 -- * 'dcrClusters'
-data DescribeClustersResponse = DescribeClustersResponse'{_dcrFailures :: [Failure], _dcrClusters :: [Cluster]} deriving (Eq, Read, Show)
+data DescribeClustersResponse = DescribeClustersResponse'{_dcrFailures :: Maybe [Failure], _dcrClusters :: Maybe [Cluster]} deriving (Eq, Read, Show)
 
 -- | 'DescribeClustersResponse' smart constructor.
 describeClustersResponse :: DescribeClustersResponse
-describeClustersResponse = DescribeClustersResponse'{_dcrFailures = mempty, _dcrClusters = mempty};
+describeClustersResponse = DescribeClustersResponse'{_dcrFailures = Nothing, _dcrClusters = Nothing};
 
 -- | FIXME: Undocumented member.
-dcrFailures :: Lens' DescribeClustersResponse [Failure]
+dcrFailures :: Lens' DescribeClustersResponse (Maybe [Failure])
 dcrFailures = lens _dcrFailures (\ s a -> s{_dcrFailures = a});
 
 -- | The list of clusters.
-dcrClusters :: Lens' DescribeClustersResponse [Cluster]
+dcrClusters :: Lens' DescribeClustersResponse (Maybe [Cluster])
 dcrClusters = lens _dcrClusters (\ s a -> s{_dcrClusters = a});

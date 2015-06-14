@@ -135,7 +135,7 @@ instance AWSRequest GetShardIterator where
         response
           = receiveJSON
               (\ s h x ->
-                 GetShardIteratorResponse' <$> x .:> "ShardIterator")
+                 GetShardIteratorResponse' <$> x .?> "ShardIterator")
 
 instance ToHeaders GetShardIterator where
         toHeaders
@@ -166,14 +166,14 @@ instance ToQuery GetShardIterator where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gsirShardIterator'
-newtype GetShardIteratorResponse = GetShardIteratorResponse'{_gsirShardIterator :: Text} deriving (Eq, Read, Show)
+newtype GetShardIteratorResponse = GetShardIteratorResponse'{_gsirShardIterator :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'GetShardIteratorResponse' smart constructor.
-getShardIteratorResponse :: Text -> GetShardIteratorResponse
-getShardIteratorResponse pShardIterator = GetShardIteratorResponse'{_gsirShardIterator = pShardIterator};
+getShardIteratorResponse :: GetShardIteratorResponse
+getShardIteratorResponse = GetShardIteratorResponse'{_gsirShardIterator = Nothing};
 
 -- | The position in the shard from which to start reading data records
 -- sequentially. A shard iterator specifies this position using the
 -- sequence number of a data record in a shard.
-gsirShardIterator :: Lens' GetShardIteratorResponse Text
+gsirShardIterator :: Lens' GetShardIteratorResponse (Maybe Text)
 gsirShardIterator = lens _gsirShardIterator (\ s a -> s{_gsirShardIterator = a});

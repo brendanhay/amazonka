@@ -76,12 +76,12 @@ instance ToQuery ListOpenIDConnectProviders where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'loidcprOpenIDConnectProviderList'
-newtype ListOpenIDConnectProvidersResponse = ListOpenIDConnectProvidersResponse'{_loidcprOpenIDConnectProviderList :: [OpenIDConnectProviderListEntry]} deriving (Eq, Read, Show)
+newtype ListOpenIDConnectProvidersResponse = ListOpenIDConnectProvidersResponse'{_loidcprOpenIDConnectProviderList :: Maybe [OpenIDConnectProviderListEntry]} deriving (Eq, Read, Show)
 
 -- | 'ListOpenIDConnectProvidersResponse' smart constructor.
 listOpenIDConnectProvidersResponse :: ListOpenIDConnectProvidersResponse
-listOpenIDConnectProvidersResponse = ListOpenIDConnectProvidersResponse'{_loidcprOpenIDConnectProviderList = mempty};
+listOpenIDConnectProvidersResponse = ListOpenIDConnectProvidersResponse'{_loidcprOpenIDConnectProviderList = Nothing};
 
 -- | The list of IAM OpenID Connect providers in the AWS account.
-loidcprOpenIDConnectProviderList :: Lens' ListOpenIDConnectProvidersResponse [OpenIDConnectProviderListEntry]
+loidcprOpenIDConnectProviderList :: Lens' ListOpenIDConnectProvidersResponse (Maybe [OpenIDConnectProviderListEntry])
 loidcprOpenIDConnectProviderList = lens _loidcprOpenIDConnectProviderList (\ s a -> s{_loidcprOpenIDConnectProviderList = a});

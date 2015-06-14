@@ -51,11 +51,11 @@ import Network.AWS.RDS.Types
 -- * 'decSourceType'
 --
 -- * 'decFilters'
-data DescribeEventCategories = DescribeEventCategories'{_decSourceType :: Maybe Text, _decFilters :: [Filter]} deriving (Eq, Read, Show)
+data DescribeEventCategories = DescribeEventCategories'{_decSourceType :: Maybe Text, _decFilters :: Maybe [Filter]} deriving (Eq, Read, Show)
 
 -- | 'DescribeEventCategories' smart constructor.
 describeEventCategories :: DescribeEventCategories
-describeEventCategories = DescribeEventCategories'{_decSourceType = Nothing, _decFilters = mempty};
+describeEventCategories = DescribeEventCategories'{_decSourceType = Nothing, _decFilters = Nothing};
 
 -- | The type of source that will be generating the events.
 --
@@ -65,7 +65,7 @@ decSourceType :: Lens' DescribeEventCategories (Maybe Text)
 decSourceType = lens _decSourceType (\ s a -> s{_decSourceType = a});
 
 -- | This parameter is not currently supported.
-decFilters :: Lens' DescribeEventCategories [Filter]
+decFilters :: Lens' DescribeEventCategories (Maybe [Filter])
 decFilters = lens _decFilters (\ s a -> s{_decFilters = a});
 
 instance AWSRequest DescribeEventCategories where
@@ -100,12 +100,12 @@ instance ToQuery DescribeEventCategories where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'decrEventCategoriesMapList'
-newtype DescribeEventCategoriesResponse = DescribeEventCategoriesResponse'{_decrEventCategoriesMapList :: [EventCategoriesMap]} deriving (Eq, Read, Show)
+newtype DescribeEventCategoriesResponse = DescribeEventCategoriesResponse'{_decrEventCategoriesMapList :: Maybe [EventCategoriesMap]} deriving (Eq, Read, Show)
 
 -- | 'DescribeEventCategoriesResponse' smart constructor.
 describeEventCategoriesResponse :: DescribeEventCategoriesResponse
-describeEventCategoriesResponse = DescribeEventCategoriesResponse'{_decrEventCategoriesMapList = mempty};
+describeEventCategoriesResponse = DescribeEventCategoriesResponse'{_decrEventCategoriesMapList = Nothing};
 
 -- | A list of EventCategoriesMap data types.
-decrEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse [EventCategoriesMap]
+decrEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse (Maybe [EventCategoriesMap])
 decrEventCategoriesMapList = lens _decrEventCategoriesMapList (\ s a -> s{_decrEventCategoriesMapList = a});

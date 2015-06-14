@@ -70,7 +70,7 @@ instance AWSRequest CancelArchival where
         response
           = receiveJSON
               (\ s h x ->
-                 CancelArchivalResponse' <$> x .:> "TapeARN")
+                 CancelArchivalResponse' <$> x .?> "TapeARN")
 
 instance ToHeaders CancelArchival where
         toHeaders
@@ -99,13 +99,13 @@ instance ToQuery CancelArchival where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'carTapeARN'
-newtype CancelArchivalResponse = CancelArchivalResponse'{_carTapeARN :: Text} deriving (Eq, Read, Show)
+newtype CancelArchivalResponse = CancelArchivalResponse'{_carTapeARN :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'CancelArchivalResponse' smart constructor.
-cancelArchivalResponse :: Text -> CancelArchivalResponse
-cancelArchivalResponse pTapeARN = CancelArchivalResponse'{_carTapeARN = pTapeARN};
+cancelArchivalResponse :: CancelArchivalResponse
+cancelArchivalResponse = CancelArchivalResponse'{_carTapeARN = Nothing};
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which archiving
 -- was canceled.
-carTapeARN :: Lens' CancelArchivalResponse Text
+carTapeARN :: Lens' CancelArchivalResponse (Maybe Text)
 carTapeARN = lens _carTapeARN (\ s a -> s{_carTapeARN = a});

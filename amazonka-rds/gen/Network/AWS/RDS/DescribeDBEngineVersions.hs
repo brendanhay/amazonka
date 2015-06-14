@@ -66,11 +66,11 @@ import Network.AWS.RDS.Types
 -- * 'ddevMaxRecords'
 --
 -- * 'ddevMarker'
-data DescribeDBEngineVersions = DescribeDBEngineVersions'{_ddevEngineVersion :: Maybe Text, _ddevDefaultOnly :: Maybe Bool, _ddevFilters :: [Filter], _ddevEngine :: Maybe Text, _ddevDBParameterGroupFamily :: Maybe Text, _ddevListSupportedCharacterSets :: Maybe Bool, _ddevMaxRecords :: Maybe Int, _ddevMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeDBEngineVersions = DescribeDBEngineVersions'{_ddevEngineVersion :: Maybe Text, _ddevDefaultOnly :: Maybe Bool, _ddevFilters :: Maybe [Filter], _ddevEngine :: Maybe Text, _ddevDBParameterGroupFamily :: Maybe Text, _ddevListSupportedCharacterSets :: Maybe Bool, _ddevMaxRecords :: Maybe Int, _ddevMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeDBEngineVersions' smart constructor.
 describeDBEngineVersions :: DescribeDBEngineVersions
-describeDBEngineVersions = DescribeDBEngineVersions'{_ddevEngineVersion = Nothing, _ddevDefaultOnly = Nothing, _ddevFilters = mempty, _ddevEngine = Nothing, _ddevDBParameterGroupFamily = Nothing, _ddevListSupportedCharacterSets = Nothing, _ddevMaxRecords = Nothing, _ddevMarker = Nothing};
+describeDBEngineVersions = DescribeDBEngineVersions'{_ddevEngineVersion = Nothing, _ddevDefaultOnly = Nothing, _ddevFilters = Nothing, _ddevEngine = Nothing, _ddevDBParameterGroupFamily = Nothing, _ddevListSupportedCharacterSets = Nothing, _ddevMaxRecords = Nothing, _ddevMarker = Nothing};
 
 -- | The database engine version to return.
 --
@@ -84,7 +84,7 @@ ddevDefaultOnly :: Lens' DescribeDBEngineVersions (Maybe Bool)
 ddevDefaultOnly = lens _ddevDefaultOnly (\ s a -> s{_ddevDefaultOnly = a});
 
 -- | Not currently supported.
-ddevFilters :: Lens' DescribeDBEngineVersions [Filter]
+ddevFilters :: Lens' DescribeDBEngineVersions (Maybe [Filter])
 ddevFilters = lens _ddevFilters (\ s a -> s{_ddevFilters = a});
 
 -- | The database engine to return.
@@ -167,11 +167,11 @@ instance ToQuery DescribeDBEngineVersions where
 -- * 'ddevrMarker'
 --
 -- * 'ddevrDBEngineVersions'
-data DescribeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse'{_ddevrMarker :: Maybe Text, _ddevrDBEngineVersions :: [DBEngineVersion]} deriving (Eq, Read, Show)
+data DescribeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse'{_ddevrMarker :: Maybe Text, _ddevrDBEngineVersions :: Maybe [DBEngineVersion]} deriving (Eq, Read, Show)
 
 -- | 'DescribeDBEngineVersionsResponse' smart constructor.
 describeDBEngineVersionsResponse :: DescribeDBEngineVersionsResponse
-describeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse'{_ddevrMarker = Nothing, _ddevrDBEngineVersions = mempty};
+describeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse'{_ddevrMarker = Nothing, _ddevrDBEngineVersions = Nothing};
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
@@ -180,5 +180,5 @@ ddevrMarker :: Lens' DescribeDBEngineVersionsResponse (Maybe Text)
 ddevrMarker = lens _ddevrMarker (\ s a -> s{_ddevrMarker = a});
 
 -- | A list of @DBEngineVersion@ elements.
-ddevrDBEngineVersions :: Lens' DescribeDBEngineVersionsResponse [DBEngineVersion]
+ddevrDBEngineVersions :: Lens' DescribeDBEngineVersionsResponse (Maybe [DBEngineVersion])
 ddevrDBEngineVersions = lens _ddevrDBEngineVersions (\ s a -> s{_ddevrDBEngineVersions = a});

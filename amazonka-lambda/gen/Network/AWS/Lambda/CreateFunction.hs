@@ -30,14 +30,14 @@ module Network.AWS.Lambda.CreateFunction
     -- ** Request constructor
     , createFunction
     -- ** Request lenses
+    , cfMemorySize
+    , cfTimeout
     , cfDescription
     , cfFunctionName
     , cfRuntime
     , cfRole
     , cfHandler
     , cfCode
-    , cfMemorySize
-    , cfTimeout
 
     -- * Response
     , FunctionConfiguration
@@ -45,15 +45,15 @@ module Network.AWS.Lambda.CreateFunction
     , functionConfiguration
     -- ** Response lenses
     , fcRuntime
+    , fcMemorySize
     , fcFunctionARN
     , fcRole
+    , fcFunctionName
     , fcCodeSize
     , fcHandler
+    , fcTimeout
     , fcLastModified
     , fcDescription
-    , fcMemorySize
-    , fcFunctionName
-    , fcTimeout
     ) where
 
 import Network.AWS.Request
@@ -64,6 +64,10 @@ import Network.AWS.Lambda.Types
 -- | /See:/ 'createFunction' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
+--
+-- * 'cfMemorySize'
+--
+-- * 'cfTimeout'
 --
 -- * 'cfDescription'
 --
@@ -76,15 +80,27 @@ import Network.AWS.Lambda.Types
 -- * 'cfHandler'
 --
 -- * 'cfCode'
---
--- * 'cfMemorySize'
---
--- * 'cfTimeout'
-data CreateFunction = CreateFunction'{_cfDescription :: Maybe Text, _cfFunctionName :: Text, _cfRuntime :: Runtime, _cfRole :: Text, _cfHandler :: Text, _cfCode :: FunctionCode, _cfMemorySize :: Nat, _cfTimeout :: Nat} deriving (Eq, Read, Show)
+data CreateFunction = CreateFunction'{_cfMemorySize :: Maybe Nat, _cfTimeout :: Maybe Nat, _cfDescription :: Maybe Text, _cfFunctionName :: Text, _cfRuntime :: Runtime, _cfRole :: Text, _cfHandler :: Text, _cfCode :: FunctionCode} deriving (Eq, Read, Show)
 
 -- | 'CreateFunction' smart constructor.
-createFunction :: Text -> Runtime -> Text -> Text -> FunctionCode -> Natural -> Natural -> CreateFunction
-createFunction pFunctionName pRuntime pRole pHandler pCode pMemorySize pTimeout = CreateFunction'{_cfDescription = Nothing, _cfFunctionName = pFunctionName, _cfRuntime = pRuntime, _cfRole = pRole, _cfHandler = pHandler, _cfCode = pCode, _cfMemorySize = _Nat # pMemorySize, _cfTimeout = _Nat # pTimeout};
+createFunction :: Text -> Runtime -> Text -> Text -> FunctionCode -> CreateFunction
+createFunction pFunctionName pRuntime pRole pHandler pCode = CreateFunction'{_cfMemorySize = Nothing, _cfTimeout = Nothing, _cfDescription = Nothing, _cfFunctionName = pFunctionName, _cfRuntime = pRuntime, _cfRole = pRole, _cfHandler = pHandler, _cfCode = pCode};
+
+-- | The amount of memory, in MB, your Lambda function is given. Lambda uses
+-- this memory size to infer the amount of CPU and memory allocated to your
+-- function. Your function use-case determines your CPU and memory
+-- requirements. For example, a database operation might need less memory
+-- compared to an image processing function. The default value is 128 MB.
+-- The value must be a multiple of 64 MB.
+cfMemorySize :: Lens' CreateFunction (Maybe Natural)
+cfMemorySize = lens _cfMemorySize (\ s a -> s{_cfMemorySize = a}) . mapping _Nat;
+
+-- | The function execution time at which Lambda should terminate the
+-- function. Because the execution time has cost implications, we recommend
+-- you set this value based on your expected execution time. The default is
+-- 3 seconds.
+cfTimeout :: Lens' CreateFunction (Maybe Natural)
+cfTimeout = lens _cfTimeout (\ s a -> s{_cfTimeout = a}) . mapping _Nat;
 
 -- | A short, user-defined function description. Lambda does not use this
 -- value. Assign a meaningful description as you see fit.
@@ -125,22 +141,6 @@ cfHandler = lens _cfHandler (\ s a -> s{_cfHandler = a});
 cfCode :: Lens' CreateFunction FunctionCode
 cfCode = lens _cfCode (\ s a -> s{_cfCode = a});
 
--- | The amount of memory, in MB, your Lambda function is given. Lambda uses
--- this memory size to infer the amount of CPU and memory allocated to your
--- function. Your function use-case determines your CPU and memory
--- requirements. For example, a database operation might need less memory
--- compared to an image processing function. The default value is 128 MB.
--- The value must be a multiple of 64 MB.
-cfMemorySize :: Lens' CreateFunction Natural
-cfMemorySize = lens _cfMemorySize (\ s a -> s{_cfMemorySize = a}) . _Nat;
-
--- | The function execution time at which Lambda should terminate the
--- function. Because the execution time has cost implications, we recommend
--- you set this value based on your expected execution time. The default is
--- 3 seconds.
-cfTimeout :: Lens' CreateFunction Natural
-cfTimeout = lens _cfTimeout (\ s a -> s{_cfTimeout = a}) . _Nat;
-
 instance AWSRequest CreateFunction where
         type Sv CreateFunction = Lambda
         type Rs CreateFunction = FunctionConfiguration
@@ -153,12 +153,12 @@ instance ToHeaders CreateFunction where
 instance ToJSON CreateFunction where
         toJSON CreateFunction'{..}
           = object
-              ["Description" .= _cfDescription,
+              ["MemorySize" .= _cfMemorySize,
+               "Timeout" .= _cfTimeout,
+               "Description" .= _cfDescription,
                "FunctionName" .= _cfFunctionName,
                "Runtime" .= _cfRuntime, "Role" .= _cfRole,
-               "Handler" .= _cfHandler, "Code" .= _cfCode,
-               "MemorySize" .= _cfMemorySize,
-               "Timeout" .= _cfTimeout]
+               "Handler" .= _cfHandler, "Code" .= _cfCode]
 
 instance ToPath CreateFunction where
         toPath = const "/2015-03-31/functions"

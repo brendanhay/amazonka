@@ -62,11 +62,11 @@ import Network.AWS.Support.Types
 -- * 'actcAttachmentSetId'
 --
 -- * 'actcCommunicationBody'
-data AddCommunicationToCase = AddCommunicationToCase'{_actcCaseId :: Maybe Text, _actcCcEmailAddresses :: [Text], _actcAttachmentSetId :: Maybe Text, _actcCommunicationBody :: Text} deriving (Eq, Read, Show)
+data AddCommunicationToCase = AddCommunicationToCase'{_actcCaseId :: Maybe Text, _actcCcEmailAddresses :: Maybe [Text], _actcAttachmentSetId :: Maybe Text, _actcCommunicationBody :: Text} deriving (Eq, Read, Show)
 
 -- | 'AddCommunicationToCase' smart constructor.
 addCommunicationToCase :: Text -> AddCommunicationToCase
-addCommunicationToCase pCommunicationBody = AddCommunicationToCase'{_actcCaseId = Nothing, _actcCcEmailAddresses = mempty, _actcAttachmentSetId = Nothing, _actcCommunicationBody = pCommunicationBody};
+addCommunicationToCase pCommunicationBody = AddCommunicationToCase'{_actcCaseId = Nothing, _actcCcEmailAddresses = Nothing, _actcAttachmentSetId = Nothing, _actcCommunicationBody = pCommunicationBody};
 
 -- | The AWS Support case ID requested or returned in the call. The case ID
 -- is an alphanumeric string formatted as shown in this example:
@@ -76,7 +76,7 @@ actcCaseId = lens _actcCaseId (\ s a -> s{_actcCaseId = a});
 
 -- | The email addresses in the CC line of an email to be added to the
 -- support case.
-actcCcEmailAddresses :: Lens' AddCommunicationToCase [Text]
+actcCcEmailAddresses :: Lens' AddCommunicationToCase (Maybe [Text])
 actcCcEmailAddresses = lens _actcCcEmailAddresses (\ s a -> s{_actcCcEmailAddresses = a});
 
 -- | The ID of a set of one or more attachments for the communication to add

@@ -112,18 +112,18 @@ instance ToQuery GetObjectACL where
 -- * 'goarGrants'
 --
 -- * 'goarOwner'
-data GetObjectACLResponse = GetObjectACLResponse'{_goarRequestCharged :: Maybe RequestCharged, _goarGrants :: [Grant], _goarOwner :: Maybe Owner} deriving (Eq, Read, Show)
+data GetObjectACLResponse = GetObjectACLResponse'{_goarRequestCharged :: Maybe RequestCharged, _goarGrants :: Maybe [Grant], _goarOwner :: Maybe Owner} deriving (Eq, Read, Show)
 
 -- | 'GetObjectACLResponse' smart constructor.
 getObjectACLResponse :: GetObjectACLResponse
-getObjectACLResponse = GetObjectACLResponse'{_goarRequestCharged = Nothing, _goarGrants = mempty, _goarOwner = Nothing};
+getObjectACLResponse = GetObjectACLResponse'{_goarRequestCharged = Nothing, _goarGrants = Nothing, _goarOwner = Nothing};
 
 -- | FIXME: Undocumented member.
 goarRequestCharged :: Lens' GetObjectACLResponse (Maybe RequestCharged)
 goarRequestCharged = lens _goarRequestCharged (\ s a -> s{_goarRequestCharged = a});
 
 -- | A list of grants.
-goarGrants :: Lens' GetObjectACLResponse [Grant]
+goarGrants :: Lens' GetObjectACLResponse (Maybe [Grant])
 goarGrants = lens _goarGrants (\ s a -> s{_goarGrants = a});
 
 -- | FIXME: Undocumented member.

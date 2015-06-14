@@ -48,17 +48,17 @@ import Network.AWS.IAM.Types
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'guUserName'
-newtype GetUser = GetUser'{_guUserName :: Text} deriving (Eq, Read, Show)
+newtype GetUser = GetUser'{_guUserName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'GetUser' smart constructor.
-getUser :: Text -> GetUser
-getUser pUserName = GetUser'{_guUserName = pUserName};
+getUser :: GetUser
+getUser = GetUser'{_guUserName = Nothing};
 
 -- | The name of the user to get information about.
 --
 -- This parameter is optional. If it is not included, it defaults to the
 -- user making the request.
-guUserName :: Lens' GetUser Text
+guUserName :: Lens' GetUser (Maybe Text)
 guUserName = lens _guUserName (\ s a -> s{_guUserName = a});
 
 instance AWSRequest GetUser where

@@ -32,9 +32,9 @@ module Network.AWS.IAM.UpdateSigningCertificate
     -- ** Request constructor
     , updateSigningCertificate
     -- ** Request lenses
+    , uscUserName
     , uscCertificateId
     , uscStatus
-    , uscUserName
 
     -- * Response
     , UpdateSigningCertificateResponse
@@ -51,16 +51,20 @@ import Network.AWS.IAM.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'uscUserName'
+--
 -- * 'uscCertificateId'
 --
 -- * 'uscStatus'
---
--- * 'uscUserName'
-data UpdateSigningCertificate = UpdateSigningCertificate'{_uscCertificateId :: Text, _uscStatus :: StatusType, _uscUserName :: Text} deriving (Eq, Read, Show)
+data UpdateSigningCertificate = UpdateSigningCertificate'{_uscUserName :: Maybe Text, _uscCertificateId :: Text, _uscStatus :: StatusType} deriving (Eq, Read, Show)
 
 -- | 'UpdateSigningCertificate' smart constructor.
-updateSigningCertificate :: Text -> StatusType -> Text -> UpdateSigningCertificate
-updateSigningCertificate pCertificateId pStatus pUserName = UpdateSigningCertificate'{_uscCertificateId = pCertificateId, _uscStatus = pStatus, _uscUserName = pUserName};
+updateSigningCertificate :: Text -> StatusType -> UpdateSigningCertificate
+updateSigningCertificate pCertificateId pStatus = UpdateSigningCertificate'{_uscUserName = Nothing, _uscCertificateId = pCertificateId, _uscStatus = pStatus};
+
+-- | The name of the user the signing certificate belongs to.
+uscUserName :: Lens' UpdateSigningCertificate (Maybe Text)
+uscUserName = lens _uscUserName (\ s a -> s{_uscUserName = a});
 
 -- | The ID of the signing certificate you want to update.
 uscCertificateId :: Lens' UpdateSigningCertificate Text
@@ -71,10 +75,6 @@ uscCertificateId = lens _uscCertificateId (\ s a -> s{_uscCertificateId = a});
 -- certificate cannot be used.
 uscStatus :: Lens' UpdateSigningCertificate StatusType
 uscStatus = lens _uscStatus (\ s a -> s{_uscStatus = a});
-
--- | The name of the user the signing certificate belongs to.
-uscUserName :: Lens' UpdateSigningCertificate Text
-uscUserName = lens _uscUserName (\ s a -> s{_uscUserName = a});
 
 instance AWSRequest UpdateSigningCertificate where
         type Sv UpdateSigningCertificate = IAM
@@ -96,8 +96,9 @@ instance ToQuery UpdateSigningCertificate where
               ["Action" =:
                  ("UpdateSigningCertificate" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
+               "UserName" =: _uscUserName,
                "CertificateId" =: _uscCertificateId,
-               "Status" =: _uscStatus, "UserName" =: _uscUserName]
+               "Status" =: _uscStatus]
 
 -- | /See:/ 'updateSigningCertificateResponse' smart constructor.
 data UpdateSigningCertificateResponse = UpdateSigningCertificateResponse' deriving (Eq, Read, Show)

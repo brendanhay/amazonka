@@ -477,14 +477,14 @@ instance AWSService S3 where
 -- * 'acpGrants'
 --
 -- * 'acpOwner'
-data AccessControlPolicy = AccessControlPolicy'{_acpGrants :: [Grant], _acpOwner :: Maybe Owner} deriving (Eq, Read, Show)
+data AccessControlPolicy = AccessControlPolicy'{_acpGrants :: Maybe [Grant], _acpOwner :: Maybe Owner} deriving (Eq, Read, Show)
 
 -- | 'AccessControlPolicy' smart constructor.
 accessControlPolicy :: AccessControlPolicy
-accessControlPolicy = AccessControlPolicy'{_acpGrants = mempty, _acpOwner = Nothing};
+accessControlPolicy = AccessControlPolicy'{_acpGrants = Nothing, _acpOwner = Nothing};
 
 -- | A list of grants.
-acpGrants :: Lens' AccessControlPolicy [Grant]
+acpGrants :: Lens' AccessControlPolicy (Maybe [Grant])
 acpGrants = lens _acpGrants (\ s a -> s{_acpGrants = a});
 
 -- | FIXME: Undocumented member.
@@ -618,14 +618,14 @@ instance ToXML BucketVersioningStatus where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ccCORSRules'
-newtype CORSConfiguration = CORSConfiguration'{_ccCORSRules :: [CORSRule]} deriving (Eq, Read, Show)
+newtype CORSConfiguration = CORSConfiguration'{_ccCORSRules :: Maybe [CORSRule]} deriving (Eq, Read, Show)
 
 -- | 'CORSConfiguration' smart constructor.
 corsConfiguration :: CORSConfiguration
-corsConfiguration = CORSConfiguration'{_ccCORSRules = mempty};
+corsConfiguration = CORSConfiguration'{_ccCORSRules = Nothing};
 
 -- | FIXME: Undocumented member.
-ccCORSRules :: Lens' CORSConfiguration [CORSRule]
+ccCORSRules :: Lens' CORSConfiguration (Maybe [CORSRule])
 ccCORSRules = lens _ccCORSRules (\ s a -> s{_ccCORSRules = a});
 
 instance ToXML CORSConfiguration where
@@ -645,15 +645,15 @@ instance ToXML CORSConfiguration where
 -- * 'crAllowedOrigins'
 --
 -- * 'crExposeHeaders'
-data CORSRule = CORSRule'{_crAllowedMethods :: [Text], _crMaxAgeSeconds :: Maybe Int, _crAllowedHeaders :: [Text], _crAllowedOrigins :: [Text], _crExposeHeaders :: [Text]} deriving (Eq, Read, Show)
+data CORSRule = CORSRule'{_crAllowedMethods :: Maybe [Text], _crMaxAgeSeconds :: Maybe Int, _crAllowedHeaders :: Maybe [Text], _crAllowedOrigins :: Maybe [Text], _crExposeHeaders :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'CORSRule' smart constructor.
 corsRule :: CORSRule
-corsRule = CORSRule'{_crAllowedMethods = mempty, _crMaxAgeSeconds = Nothing, _crAllowedHeaders = mempty, _crAllowedOrigins = mempty, _crExposeHeaders = mempty};
+corsRule = CORSRule'{_crAllowedMethods = Nothing, _crMaxAgeSeconds = Nothing, _crAllowedHeaders = Nothing, _crAllowedOrigins = Nothing, _crExposeHeaders = Nothing};
 
 -- | Identifies HTTP methods that the domain\/origin specified in the rule is
 -- allowed to execute.
-crAllowedMethods :: Lens' CORSRule [Text]
+crAllowedMethods :: Lens' CORSRule (Maybe [Text])
 crAllowedMethods = lens _crAllowedMethods (\ s a -> s{_crAllowedMethods = a});
 
 -- | The time in seconds that your browser is to cache the preflight response
@@ -662,18 +662,18 @@ crMaxAgeSeconds :: Lens' CORSRule (Maybe Int)
 crMaxAgeSeconds = lens _crMaxAgeSeconds (\ s a -> s{_crMaxAgeSeconds = a});
 
 -- | Specifies which headers are allowed in a pre-flight OPTIONS request.
-crAllowedHeaders :: Lens' CORSRule [Text]
+crAllowedHeaders :: Lens' CORSRule (Maybe [Text])
 crAllowedHeaders = lens _crAllowedHeaders (\ s a -> s{_crAllowedHeaders = a});
 
 -- | One or more origins you want customers to be able to access the bucket
 -- from.
-crAllowedOrigins :: Lens' CORSRule [Text]
+crAllowedOrigins :: Lens' CORSRule (Maybe [Text])
 crAllowedOrigins = lens _crAllowedOrigins (\ s a -> s{_crAllowedOrigins = a});
 
 -- | One or more headers in the response that you want customers to be able
 -- to access from their applications (for example, from a JavaScript
 -- XMLHttpRequest object).
-crExposeHeaders :: Lens' CORSRule [Text]
+crExposeHeaders :: Lens' CORSRule (Maybe [Text])
 crExposeHeaders = lens _crExposeHeaders (\ s a -> s{_crExposeHeaders = a});
 
 instance FromXML CORSRule where
@@ -717,15 +717,15 @@ instance FromXML CommonPrefix where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cmuParts'
-newtype CompletedMultipartUpload = CompletedMultipartUpload'{_cmuParts :: List1 CompletedPart} deriving (Eq, Read, Show)
+newtype CompletedMultipartUpload = CompletedMultipartUpload'{_cmuParts :: Maybe (List1 CompletedPart)} deriving (Eq, Read, Show)
 
 -- | 'CompletedMultipartUpload' smart constructor.
-completedMultipartUpload :: NonEmpty CompletedPart -> CompletedMultipartUpload
-completedMultipartUpload pParts = CompletedMultipartUpload'{_cmuParts = _List1 # pParts};
+completedMultipartUpload :: CompletedMultipartUpload
+completedMultipartUpload = CompletedMultipartUpload'{_cmuParts = Nothing};
 
 -- | FIXME: Undocumented member.
-cmuParts :: Lens' CompletedMultipartUpload (NonEmpty CompletedPart)
-cmuParts = lens _cmuParts (\ s a -> s{_cmuParts = a}) . _List1;
+cmuParts :: Lens' CompletedMultipartUpload (Maybe (NonEmpty CompletedPart))
+cmuParts = lens _cmuParts (\ s a -> s{_cmuParts = a}) . mapping _List1;
 
 instance ToXML CompletedMultipartUpload where
         toXML CompletedMultipartUpload'{..}
@@ -885,8 +885,8 @@ instance ToXML CreateBucketConfiguration where
 data Delete = Delete'{_delQuiet :: Maybe Bool, _delObjects :: [ObjectIdentifier]} deriving (Eq, Read, Show)
 
 -- | 'Delete' smart constructor.
-delete' :: [ObjectIdentifier] -> Delete
-delete' pObjects = Delete'{_delQuiet = Nothing, _delObjects = pObjects};
+delete' :: Delete
+delete' = Delete'{_delQuiet = Nothing, _delObjects = mempty};
 
 -- | Element to enable quiet mode for the request. When you add this element,
 -- you must set its value to true.
@@ -1155,7 +1155,7 @@ data Grantee = Grantee'{_graURI :: Maybe Text, _graEmailAddress :: Maybe Text, _
 
 -- | 'Grantee' smart constructor.
 grantee :: Type -> Grantee
-grantee pType' = Grantee'{_graURI = Nothing, _graEmailAddress = Nothing, _graID = Nothing, _graDisplayName = Nothing, _graType = pType'};
+grantee pType = Grantee'{_graURI = Nothing, _graEmailAddress = Nothing, _graID = Nothing, _graDisplayName = Nothing, _graType = pType};
 
 -- | URI of the grantee group.
 graURI :: Lens' Grantee (Maybe Text)
@@ -1256,8 +1256,8 @@ instance FromXML Initiator where
 data LambdaFunctionConfiguration = LambdaFunctionConfiguration'{_lfcId :: Maybe Text, _lfcLambdaFunctionARN :: Text, _lfcEvents :: [Event]} deriving (Eq, Read, Show)
 
 -- | 'LambdaFunctionConfiguration' smart constructor.
-lambdaFunctionConfiguration :: Text -> [Event] -> LambdaFunctionConfiguration
-lambdaFunctionConfiguration pLambdaFunctionARN pEvents = LambdaFunctionConfiguration'{_lfcId = Nothing, _lfcLambdaFunctionARN = pLambdaFunctionARN, _lfcEvents = pEvents};
+lambdaFunctionConfiguration :: Text -> LambdaFunctionConfiguration
+lambdaFunctionConfiguration pLambdaFunctionARN = LambdaFunctionConfiguration'{_lfcId = Nothing, _lfcLambdaFunctionARN = pLambdaFunctionARN, _lfcEvents = mempty};
 
 -- | FIXME: Undocumented member.
 lfcId :: Lens' LambdaFunctionConfiguration (Maybe Text)
@@ -1293,8 +1293,8 @@ instance ToXML LambdaFunctionConfiguration where
 newtype LifecycleConfiguration = LifecycleConfiguration'{_lcRules :: [Rule]} deriving (Eq, Read, Show)
 
 -- | 'LifecycleConfiguration' smart constructor.
-lifecycleConfiguration :: [Rule] -> LifecycleConfiguration
-lifecycleConfiguration pRules = LifecycleConfiguration'{_lcRules = pRules};
+lifecycleConfiguration :: LifecycleConfiguration
+lifecycleConfiguration = LifecycleConfiguration'{_lcRules = mempty};
 
 -- | FIXME: Undocumented member.
 lcRules :: Lens' LifecycleConfiguration [Rule]
@@ -1345,11 +1345,11 @@ instance ToXML LifecycleExpiration where
 -- * 'leTargetGrants'
 --
 -- * 'leTargetPrefix'
-data LoggingEnabled = LoggingEnabled'{_leTargetBucket :: Maybe Text, _leTargetGrants :: [TargetGrant], _leTargetPrefix :: Maybe Text} deriving (Eq, Read, Show)
+data LoggingEnabled = LoggingEnabled'{_leTargetBucket :: Maybe Text, _leTargetGrants :: Maybe [TargetGrant], _leTargetPrefix :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'LoggingEnabled' smart constructor.
 loggingEnabled :: LoggingEnabled
-loggingEnabled = LoggingEnabled'{_leTargetBucket = Nothing, _leTargetGrants = mempty, _leTargetPrefix = Nothing};
+loggingEnabled = LoggingEnabled'{_leTargetBucket = Nothing, _leTargetGrants = Nothing, _leTargetPrefix = Nothing};
 
 -- | Specifies the bucket where you want Amazon S3 to store server access
 -- logs. You can have your logs delivered to any bucket that you own,
@@ -1361,7 +1361,7 @@ leTargetBucket :: Lens' LoggingEnabled (Maybe Text)
 leTargetBucket = lens _leTargetBucket (\ s a -> s{_leTargetBucket = a});
 
 -- | FIXME: Undocumented member.
-leTargetGrants :: Lens' LoggingEnabled [TargetGrant]
+leTargetGrants :: Lens' LoggingEnabled (Maybe [TargetGrant])
 leTargetGrants = lens _leTargetGrants (\ s a -> s{_leTargetGrants = a});
 
 -- | This element lets you specify a prefix for the keys that the log files
@@ -1571,22 +1571,22 @@ instance ToXML NoncurrentVersionTransition where
 -- * 'ncTopicConfigurations'
 --
 -- * 'ncLambdaFunctionConfigurations'
-data NotificationConfiguration = NotificationConfiguration'{_ncQueueConfigurations :: [QueueConfiguration], _ncTopicConfigurations :: [TopicConfiguration], _ncLambdaFunctionConfigurations :: [LambdaFunctionConfiguration]} deriving (Eq, Read, Show)
+data NotificationConfiguration = NotificationConfiguration'{_ncQueueConfigurations :: Maybe [QueueConfiguration], _ncTopicConfigurations :: Maybe [TopicConfiguration], _ncLambdaFunctionConfigurations :: Maybe [LambdaFunctionConfiguration]} deriving (Eq, Read, Show)
 
 -- | 'NotificationConfiguration' smart constructor.
 notificationConfiguration :: NotificationConfiguration
-notificationConfiguration = NotificationConfiguration'{_ncQueueConfigurations = mempty, _ncTopicConfigurations = mempty, _ncLambdaFunctionConfigurations = mempty};
+notificationConfiguration = NotificationConfiguration'{_ncQueueConfigurations = Nothing, _ncTopicConfigurations = Nothing, _ncLambdaFunctionConfigurations = Nothing};
 
 -- | FIXME: Undocumented member.
-ncQueueConfigurations :: Lens' NotificationConfiguration [QueueConfiguration]
+ncQueueConfigurations :: Lens' NotificationConfiguration (Maybe [QueueConfiguration])
 ncQueueConfigurations = lens _ncQueueConfigurations (\ s a -> s{_ncQueueConfigurations = a});
 
 -- | FIXME: Undocumented member.
-ncTopicConfigurations :: Lens' NotificationConfiguration [TopicConfiguration]
+ncTopicConfigurations :: Lens' NotificationConfiguration (Maybe [TopicConfiguration])
 ncTopicConfigurations = lens _ncTopicConfigurations (\ s a -> s{_ncTopicConfigurations = a});
 
 -- | FIXME: Undocumented member.
-ncLambdaFunctionConfigurations :: Lens' NotificationConfiguration [LambdaFunctionConfiguration]
+ncLambdaFunctionConfigurations :: Lens' NotificationConfiguration (Maybe [LambdaFunctionConfiguration])
 ncLambdaFunctionConfigurations = lens _ncLambdaFunctionConfigurations (\ s a -> s{_ncLambdaFunctionConfigurations = a});
 
 instance FromXML NotificationConfiguration where
@@ -1975,8 +1975,8 @@ instance ToXML Protocol where
 data QueueConfiguration = QueueConfiguration'{_qcId :: Maybe Text, _qcQueueARN :: Text, _qcEvents :: [Event]} deriving (Eq, Read, Show)
 
 -- | 'QueueConfiguration' smart constructor.
-queueConfiguration :: Text -> [Event] -> QueueConfiguration
-queueConfiguration pQueueARN pEvents = QueueConfiguration'{_qcId = Nothing, _qcQueueARN = pQueueARN, _qcEvents = pEvents};
+queueConfiguration :: Text -> QueueConfiguration
+queueConfiguration pQueueARN = QueueConfiguration'{_qcId = Nothing, _qcQueueARN = pQueueARN, _qcEvents = mempty};
 
 -- | FIXME: Undocumented member.
 qcId :: Lens' QueueConfiguration (Maybe Text)
@@ -2111,8 +2111,8 @@ instance ToXML RedirectAllRequestsTo where
 data ReplicationConfiguration = ReplicationConfiguration'{_rcRole :: Text, _rcRules :: [ReplicationRule]} deriving (Eq, Read, Show)
 
 -- | 'ReplicationConfiguration' smart constructor.
-replicationConfiguration :: Text -> [ReplicationRule] -> ReplicationConfiguration
-replicationConfiguration pRole pRules = ReplicationConfiguration'{_rcRole = pRole, _rcRules = pRules};
+replicationConfiguration :: Text -> ReplicationConfiguration
+replicationConfiguration pRole = ReplicationConfiguration'{_rcRole = pRole, _rcRules = mempty};
 
 -- | Amazon Resource Name (ARN) of an IAM role for Amazon S3 to assume when
 -- replicating the objects.
@@ -2537,8 +2537,8 @@ instance ToXML Tag where
 newtype Tagging = Tagging'{_tagTagSet :: [Tag]} deriving (Eq, Read, Show)
 
 -- | 'Tagging' smart constructor.
-tagging :: [Tag] -> Tagging
-tagging pTagSet = Tagging'{_tagTagSet = pTagSet};
+tagging :: Tagging
+tagging = Tagging'{_tagTagSet = mempty};
 
 -- | FIXME: Undocumented member.
 tagTagSet :: Lens' Tagging [Tag]
@@ -2592,8 +2592,8 @@ instance ToXML TargetGrant where
 data TopicConfiguration = TopicConfiguration'{_tcId :: Maybe Text, _tcTopicARN :: Text, _tcEvents :: [Event]} deriving (Eq, Read, Show)
 
 -- | 'TopicConfiguration' smart constructor.
-topicConfiguration :: Text -> [Event] -> TopicConfiguration
-topicConfiguration pTopicARN pEvents = TopicConfiguration'{_tcId = Nothing, _tcTopicARN = pTopicARN, _tcEvents = pEvents};
+topicConfiguration :: Text -> TopicConfiguration
+topicConfiguration pTopicARN = TopicConfiguration'{_tcId = Nothing, _tcTopicARN = pTopicARN, _tcEvents = mempty};
 
 -- | FIXME: Undocumented member.
 tcId :: Lens' TopicConfiguration (Maybe Text)
@@ -2747,11 +2747,11 @@ instance ToXML VersioningConfiguration where
 -- * 'wcRoutingRules'
 --
 -- * 'wcIndexDocument'
-data WebsiteConfiguration = WebsiteConfiguration'{_wcRedirectAllRequestsTo :: Maybe RedirectAllRequestsTo, _wcErrorDocument :: Maybe ErrorDocument, _wcRoutingRules :: [RoutingRule], _wcIndexDocument :: Maybe IndexDocument} deriving (Eq, Read, Show)
+data WebsiteConfiguration = WebsiteConfiguration'{_wcRedirectAllRequestsTo :: Maybe RedirectAllRequestsTo, _wcErrorDocument :: Maybe ErrorDocument, _wcRoutingRules :: Maybe [RoutingRule], _wcIndexDocument :: Maybe IndexDocument} deriving (Eq, Read, Show)
 
 -- | 'WebsiteConfiguration' smart constructor.
 websiteConfiguration :: WebsiteConfiguration
-websiteConfiguration = WebsiteConfiguration'{_wcRedirectAllRequestsTo = Nothing, _wcErrorDocument = Nothing, _wcRoutingRules = mempty, _wcIndexDocument = Nothing};
+websiteConfiguration = WebsiteConfiguration'{_wcRedirectAllRequestsTo = Nothing, _wcErrorDocument = Nothing, _wcRoutingRules = Nothing, _wcIndexDocument = Nothing};
 
 -- | FIXME: Undocumented member.
 wcRedirectAllRequestsTo :: Lens' WebsiteConfiguration (Maybe RedirectAllRequestsTo)
@@ -2762,7 +2762,7 @@ wcErrorDocument :: Lens' WebsiteConfiguration (Maybe ErrorDocument)
 wcErrorDocument = lens _wcErrorDocument (\ s a -> s{_wcErrorDocument = a});
 
 -- | FIXME: Undocumented member.
-wcRoutingRules :: Lens' WebsiteConfiguration [RoutingRule]
+wcRoutingRules :: Lens' WebsiteConfiguration (Maybe [RoutingRule])
 wcRoutingRules = lens _wcRoutingRules (\ s a -> s{_wcRoutingRules = a});
 
 -- | FIXME: Undocumented member.

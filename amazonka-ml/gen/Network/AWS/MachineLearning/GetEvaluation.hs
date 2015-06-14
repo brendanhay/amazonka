@@ -37,11 +37,11 @@ module Network.AWS.MachineLearning.GetEvaluation
     , gerLastUpdatedAt
     , gerCreatedAt
     , gerInputDataLocationS3
+    , gerMLModelId
     , gerName
     , gerCreatedByIAMUser
     , gerLogURI
     , gerMessage
-    , gerMLModelId
     , gerEvaluationId
     , gerEvaluationDataSourceId
     ) where
@@ -80,13 +80,13 @@ instance AWSRequest GetEvaluation where
                      x .?> "LastUpdatedAt"
                      <*> x .?> "CreatedAt"
                      <*> x .?> "InputDataLocationS3"
+                     <*> x .?> "MLModelId"
                      <*> x .?> "Name"
                      <*> x .?> "CreatedByIamUser"
                      <*> x .?> "LogUri"
                      <*> x .?> "Message"
-                     <*> x .:> "MLModelId"
-                     <*> x .:> "EvaluationId"
-                     <*> x .:> "EvaluationDataSourceId")
+                     <*> x .?> "EvaluationId"
+                     <*> x .?> "EvaluationDataSourceId")
 
 instance ToHeaders GetEvaluation where
         toHeaders
@@ -121,6 +121,8 @@ instance ToQuery GetEvaluation where
 --
 -- * 'gerInputDataLocationS3'
 --
+-- * 'gerMLModelId'
+--
 -- * 'gerName'
 --
 -- * 'gerCreatedByIAMUser'
@@ -129,16 +131,14 @@ instance ToQuery GetEvaluation where
 --
 -- * 'gerMessage'
 --
--- * 'gerMLModelId'
---
 -- * 'gerEvaluationId'
 --
 -- * 'gerEvaluationDataSourceId'
-data GetEvaluationResponse = GetEvaluationResponse'{_gerStatus :: Maybe EntityStatus, _gerPerformanceMetrics :: Maybe PerformanceMetrics, _gerLastUpdatedAt :: Maybe POSIX, _gerCreatedAt :: Maybe POSIX, _gerInputDataLocationS3 :: Maybe Text, _gerName :: Maybe Text, _gerCreatedByIAMUser :: Maybe Text, _gerLogURI :: Maybe Text, _gerMessage :: Maybe Text, _gerMLModelId :: Text, _gerEvaluationId :: Text, _gerEvaluationDataSourceId :: Text} deriving (Eq, Read, Show)
+data GetEvaluationResponse = GetEvaluationResponse'{_gerStatus :: Maybe EntityStatus, _gerPerformanceMetrics :: Maybe PerformanceMetrics, _gerLastUpdatedAt :: Maybe POSIX, _gerCreatedAt :: Maybe POSIX, _gerInputDataLocationS3 :: Maybe Text, _gerMLModelId :: Maybe Text, _gerName :: Maybe Text, _gerCreatedByIAMUser :: Maybe Text, _gerLogURI :: Maybe Text, _gerMessage :: Maybe Text, _gerEvaluationId :: Maybe Text, _gerEvaluationDataSourceId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'GetEvaluationResponse' smart constructor.
-getEvaluationResponse :: Text -> Text -> Text -> GetEvaluationResponse
-getEvaluationResponse pMLModelId pEvaluationId pEvaluationDataSourceId = GetEvaluationResponse'{_gerStatus = Nothing, _gerPerformanceMetrics = Nothing, _gerLastUpdatedAt = Nothing, _gerCreatedAt = Nothing, _gerInputDataLocationS3 = Nothing, _gerName = Nothing, _gerCreatedByIAMUser = Nothing, _gerLogURI = Nothing, _gerMessage = Nothing, _gerMLModelId = pMLModelId, _gerEvaluationId = pEvaluationId, _gerEvaluationDataSourceId = pEvaluationDataSourceId};
+getEvaluationResponse :: GetEvaluationResponse
+getEvaluationResponse = GetEvaluationResponse'{_gerStatus = Nothing, _gerPerformanceMetrics = Nothing, _gerLastUpdatedAt = Nothing, _gerCreatedAt = Nothing, _gerInputDataLocationS3 = Nothing, _gerMLModelId = Nothing, _gerName = Nothing, _gerCreatedByIAMUser = Nothing, _gerLogURI = Nothing, _gerMessage = Nothing, _gerEvaluationId = Nothing, _gerEvaluationDataSourceId = Nothing};
 
 -- | The status of the evaluation. This element can have one of the following
 -- values:
@@ -188,6 +188,10 @@ gerCreatedAt = lens _gerCreatedAt (\ s a -> s{_gerCreatedAt = a}) . mapping _Tim
 gerInputDataLocationS3 :: Lens' GetEvaluationResponse (Maybe Text)
 gerInputDataLocationS3 = lens _gerInputDataLocationS3 (\ s a -> s{_gerInputDataLocationS3 = a});
 
+-- | The ID of the @MLModel@ that was the focus of the evaluation.
+gerMLModelId :: Lens' GetEvaluationResponse (Maybe Text)
+gerMLModelId = lens _gerMLModelId (\ s a -> s{_gerMLModelId = a});
+
 -- | A user-supplied name or description of the @Evaluation@.
 gerName :: Lens' GetEvaluationResponse (Maybe Text)
 gerName = lens _gerName (\ s a -> s{_gerName = a});
@@ -206,14 +210,10 @@ gerLogURI = lens _gerLogURI (\ s a -> s{_gerLogURI = a});
 gerMessage :: Lens' GetEvaluationResponse (Maybe Text)
 gerMessage = lens _gerMessage (\ s a -> s{_gerMessage = a});
 
--- | The ID of the @MLModel@ that was the focus of the evaluation.
-gerMLModelId :: Lens' GetEvaluationResponse Text
-gerMLModelId = lens _gerMLModelId (\ s a -> s{_gerMLModelId = a});
-
 -- | The evaluation ID which is same as the @EvaluationId@ in the request.
-gerEvaluationId :: Lens' GetEvaluationResponse Text
+gerEvaluationId :: Lens' GetEvaluationResponse (Maybe Text)
 gerEvaluationId = lens _gerEvaluationId (\ s a -> s{_gerEvaluationId = a});
 
 -- | The @DataSource@ used for this evaluation.
-gerEvaluationDataSourceId :: Lens' GetEvaluationResponse Text
+gerEvaluationDataSourceId :: Lens' GetEvaluationResponse (Maybe Text)
 gerEvaluationDataSourceId = lens _gerEvaluationDataSourceId (\ s a -> s{_gerEvaluationDataSourceId = a});

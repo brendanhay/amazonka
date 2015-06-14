@@ -81,8 +81,8 @@ import Network.AWS.SQS.Types
 data SendMessageBatch = SendMessageBatch'{_smbQueueURL :: Text, _smbEntries :: [SendMessageBatchRequestEntry]} deriving (Eq, Read, Show)
 
 -- | 'SendMessageBatch' smart constructor.
-sendMessageBatch :: Text -> [SendMessageBatchRequestEntry] -> SendMessageBatch
-sendMessageBatch pQueueURL pEntries = SendMessageBatch'{_smbQueueURL = pQueueURL, _smbEntries = pEntries};
+sendMessageBatch :: Text -> SendMessageBatch
+sendMessageBatch pQueueURL = SendMessageBatch'{_smbQueueURL = pQueueURL, _smbEntries = mempty};
 
 -- | The URL of the Amazon SQS queue to take action on.
 smbQueueURL :: Lens' SendMessageBatch Text
@@ -127,8 +127,8 @@ instance ToQuery SendMessageBatch where
 data SendMessageBatchResponse = SendMessageBatchResponse'{_smbrSuccessful :: [SendMessageBatchResultEntry], _smbrFailed :: [BatchResultErrorEntry]} deriving (Eq, Read, Show)
 
 -- | 'SendMessageBatchResponse' smart constructor.
-sendMessageBatchResponse :: [SendMessageBatchResultEntry] -> [BatchResultErrorEntry] -> SendMessageBatchResponse
-sendMessageBatchResponse pSuccessful pFailed = SendMessageBatchResponse'{_smbrSuccessful = pSuccessful, _smbrFailed = pFailed};
+sendMessageBatchResponse :: SendMessageBatchResponse
+sendMessageBatchResponse = SendMessageBatchResponse'{_smbrSuccessful = mempty, _smbrFailed = mempty};
 
 -- | A list of SendMessageBatchResultEntry items.
 smbrSuccessful :: Lens' SendMessageBatchResponse [SendMessageBatchResultEntry]

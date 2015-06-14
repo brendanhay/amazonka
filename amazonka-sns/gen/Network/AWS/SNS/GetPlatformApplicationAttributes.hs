@@ -94,11 +94,11 @@ instance ToQuery GetPlatformApplicationAttributes
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gpaarAttributes'
-newtype GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesResponse'{_gpaarAttributes :: HashMap Text Text} deriving (Eq, Read, Show)
+newtype GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesResponse'{_gpaarAttributes :: Maybe (HashMap Text Text)} deriving (Eq, Read, Show)
 
 -- | 'GetPlatformApplicationAttributesResponse' smart constructor.
 getPlatformApplicationAttributesResponse :: GetPlatformApplicationAttributesResponse
-getPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesResponse'{_gpaarAttributes = mempty};
+getPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesResponse'{_gpaarAttributes = Nothing};
 
 -- | Attributes include the following:
 --
@@ -111,5 +111,5 @@ getPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesRespo
 -- -   @EventDeliveryFailure@ -- Topic ARN to which DeliveryFailure event
 --     notifications should be sent upon Direct Publish delivery failure
 --     (permanent) to one of the application\'s endpoints.
-gpaarAttributes :: Lens' GetPlatformApplicationAttributesResponse (HashMap Text Text)
-gpaarAttributes = lens _gpaarAttributes (\ s a -> s{_gpaarAttributes = a}) . _Coerce;
+gpaarAttributes :: Lens' GetPlatformApplicationAttributesResponse (Maybe (HashMap Text Text))
+gpaarAttributes = lens _gpaarAttributes (\ s a -> s{_gpaarAttributes = a}) . mapping _Coerce;

@@ -57,11 +57,11 @@ import Network.AWS.AutoScaling.Types
 -- * 'dasiInstanceIds'
 --
 -- * 'dasiMaxRecords'
-data DescribeAutoScalingInstances = DescribeAutoScalingInstances'{_dasiNextToken :: Maybe Text, _dasiInstanceIds :: [Text], _dasiMaxRecords :: Maybe Int} deriving (Eq, Read, Show)
+data DescribeAutoScalingInstances = DescribeAutoScalingInstances'{_dasiNextToken :: Maybe Text, _dasiInstanceIds :: Maybe [Text], _dasiMaxRecords :: Maybe Int} deriving (Eq, Read, Show)
 
 -- | 'DescribeAutoScalingInstances' smart constructor.
 describeAutoScalingInstances :: DescribeAutoScalingInstances
-describeAutoScalingInstances = DescribeAutoScalingInstances'{_dasiNextToken = Nothing, _dasiInstanceIds = mempty, _dasiMaxRecords = Nothing};
+describeAutoScalingInstances = DescribeAutoScalingInstances'{_dasiNextToken = Nothing, _dasiInstanceIds = Nothing, _dasiMaxRecords = Nothing};
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
@@ -71,7 +71,7 @@ dasiNextToken = lens _dasiNextToken (\ s a -> s{_dasiNextToken = a});
 -- | One or more Auto Scaling instances to describe, up to 50 instances. If
 -- you omit this parameter, all Auto Scaling instances are described. If
 -- you specify an ID that does not exist, it is ignored with no error.
-dasiInstanceIds :: Lens' DescribeAutoScalingInstances [Text]
+dasiInstanceIds :: Lens' DescribeAutoScalingInstances (Maybe [Text])
 dasiInstanceIds = lens _dasiInstanceIds (\ s a -> s{_dasiInstanceIds = a});
 
 -- | The maximum number of items to return with this call.
@@ -116,11 +116,11 @@ instance ToQuery DescribeAutoScalingInstances where
 -- * 'dasirNextToken'
 --
 -- * 'dasirAutoScalingInstances'
-data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse'{_dasirNextToken :: Maybe Text, _dasirAutoScalingInstances :: [AutoScalingInstanceDetails]} deriving (Eq, Read, Show)
+data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse'{_dasirNextToken :: Maybe Text, _dasirAutoScalingInstances :: Maybe [AutoScalingInstanceDetails]} deriving (Eq, Read, Show)
 
 -- | 'DescribeAutoScalingInstancesResponse' smart constructor.
 describeAutoScalingInstancesResponse :: DescribeAutoScalingInstancesResponse
-describeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse'{_dasirNextToken = Nothing, _dasirAutoScalingInstances = mempty};
+describeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse'{_dasirNextToken = Nothing, _dasirAutoScalingInstances = Nothing};
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
@@ -128,5 +128,5 @@ dasirNextToken :: Lens' DescribeAutoScalingInstancesResponse (Maybe Text)
 dasirNextToken = lens _dasirNextToken (\ s a -> s{_dasirNextToken = a});
 
 -- | The instances.
-dasirAutoScalingInstances :: Lens' DescribeAutoScalingInstancesResponse [AutoScalingInstanceDetails]
+dasirAutoScalingInstances :: Lens' DescribeAutoScalingInstancesResponse (Maybe [AutoScalingInstanceDetails])
 dasirAutoScalingInstances = lens _dasirAutoScalingInstances (\ s a -> s{_dasirAutoScalingInstances = a});

@@ -148,10 +148,10 @@ module Network.AWS.EMR.Types
     , igRequestedInstanceCount
     , igRunningInstanceCount
     , igInstanceGroupType
+    , igInstanceType
     , igMarket
     , igName
     , igId
-    , igInstanceType
 
     -- * InstanceGroupConfig
     , InstanceGroupConfig
@@ -231,6 +231,7 @@ module Network.AWS.EMR.Types
     -- * JobFlowInstancesConfig
     , JobFlowInstancesConfig
     , jobFlowInstancesConfig
+    , jficSlaveInstanceType
     , jficEC2KeyName
     , jficInstanceCount
     , jficEmrManagedSlaveSecurityGroup
@@ -239,12 +240,11 @@ module Network.AWS.EMR.Types
     , jficAdditionalMasterSecurityGroups
     , jficEmrManagedMasterSecurityGroup
     , jficEC2SubnetId
+    , jficMasterInstanceType
     , jficInstanceGroups
     , jficKeepJobFlowAliveWhenNoSteps
     , jficTerminationProtected
     , jficPlacement
-    , jficSlaveInstanceType
-    , jficMasterInstanceType
 
     -- * KeyValue
     , KeyValue
@@ -401,20 +401,20 @@ instance FromJSON ActionOnFailure where
 -- * 'appName'
 --
 -- * 'appVersion'
-data Application = Application'{_appAdditionalInfo :: HashMap Text Text, _appArgs :: [Text], _appName :: Maybe Text, _appVersion :: Maybe Text} deriving (Eq, Read, Show)
+data Application = Application'{_appAdditionalInfo :: Maybe (HashMap Text Text), _appArgs :: Maybe [Text], _appName :: Maybe Text, _appVersion :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'Application' smart constructor.
 application :: Application
-application = Application'{_appAdditionalInfo = mempty, _appArgs = mempty, _appName = Nothing, _appVersion = Nothing};
+application = Application'{_appAdditionalInfo = Nothing, _appArgs = Nothing, _appName = Nothing, _appVersion = Nothing};
 
 -- | This option is for advanced users only. This is meta information about
 -- third-party applications that third-party vendors use for testing
 -- purposes.
-appAdditionalInfo :: Lens' Application (HashMap Text Text)
-appAdditionalInfo = lens _appAdditionalInfo (\ s a -> s{_appAdditionalInfo = a}) . _Coerce;
+appAdditionalInfo :: Lens' Application (Maybe (HashMap Text Text))
+appAdditionalInfo = lens _appAdditionalInfo (\ s a -> s{_appAdditionalInfo = a}) . mapping _Coerce;
 
 -- | Arguments for Amazon EMR to pass to the application.
-appArgs :: Lens' Application [Text]
+appArgs :: Lens' Application (Maybe [Text])
 appArgs = lens _appArgs (\ s a -> s{_appArgs = a});
 
 -- | The name of the application.
@@ -495,11 +495,11 @@ instance ToJSON BootstrapActionConfig where
 -- * 'cluName'
 --
 -- * 'cluStatus'
-data Cluster = Cluster'{_cluRequestedAMIVersion :: Maybe Text, _cluEC2InstanceAttributes :: Maybe EC2InstanceAttributes, _cluNormalizedInstanceHours :: Maybe Int, _cluLogURI :: Maybe Text, _cluRunningAMIVersion :: Maybe Text, _cluMasterPublicDNSName :: Maybe Text, _cluAutoTerminate :: Maybe Bool, _cluTerminationProtected :: Maybe Bool, _cluVisibleToAllUsers :: Maybe Bool, _cluApplications :: [Application], _cluTags :: [Tag], _cluServiceRole :: Maybe Text, _cluId :: Text, _cluName :: Text, _cluStatus :: ClusterStatus} deriving (Eq, Read, Show)
+data Cluster = Cluster'{_cluRequestedAMIVersion :: Maybe Text, _cluEC2InstanceAttributes :: Maybe EC2InstanceAttributes, _cluNormalizedInstanceHours :: Maybe Int, _cluLogURI :: Maybe Text, _cluRunningAMIVersion :: Maybe Text, _cluMasterPublicDNSName :: Maybe Text, _cluAutoTerminate :: Maybe Bool, _cluTerminationProtected :: Maybe Bool, _cluVisibleToAllUsers :: Maybe Bool, _cluApplications :: Maybe [Application], _cluTags :: Maybe [Tag], _cluServiceRole :: Maybe Text, _cluId :: Text, _cluName :: Text, _cluStatus :: ClusterStatus} deriving (Eq, Read, Show)
 
 -- | 'Cluster' smart constructor.
 cluster :: Text -> Text -> ClusterStatus -> Cluster
-cluster pId pName pStatus = Cluster'{_cluRequestedAMIVersion = Nothing, _cluEC2InstanceAttributes = Nothing, _cluNormalizedInstanceHours = Nothing, _cluLogURI = Nothing, _cluRunningAMIVersion = Nothing, _cluMasterPublicDNSName = Nothing, _cluAutoTerminate = Nothing, _cluTerminationProtected = Nothing, _cluVisibleToAllUsers = Nothing, _cluApplications = mempty, _cluTags = mempty, _cluServiceRole = Nothing, _cluId = pId, _cluName = pName, _cluStatus = pStatus};
+cluster pId pName pStatus = Cluster'{_cluRequestedAMIVersion = Nothing, _cluEC2InstanceAttributes = Nothing, _cluNormalizedInstanceHours = Nothing, _cluLogURI = Nothing, _cluRunningAMIVersion = Nothing, _cluMasterPublicDNSName = Nothing, _cluAutoTerminate = Nothing, _cluTerminationProtected = Nothing, _cluVisibleToAllUsers = Nothing, _cluApplications = Nothing, _cluTags = Nothing, _cluServiceRole = Nothing, _cluId = pId, _cluName = pName, _cluStatus = pStatus};
 
 -- | The AMI version requested for this cluster.
 cluRequestedAMIVersion :: Lens' Cluster (Maybe Text)
@@ -554,11 +554,11 @@ cluVisibleToAllUsers :: Lens' Cluster (Maybe Bool)
 cluVisibleToAllUsers = lens _cluVisibleToAllUsers (\ s a -> s{_cluVisibleToAllUsers = a});
 
 -- | The applications installed on this cluster.
-cluApplications :: Lens' Cluster [Application]
+cluApplications :: Lens' Cluster (Maybe [Application])
 cluApplications = lens _cluApplications (\ s a -> s{_cluApplications = a});
 
 -- | A list of tags associated with a cluster.
-cluTags :: Lens' Cluster [Tag]
+cluTags :: Lens' Cluster (Maybe [Tag])
 cluTags = lens _cluTags (\ s a -> s{_cluTags = a});
 
 -- | The IAM role that will be assumed by the Amazon EMR service to access
@@ -817,14 +817,14 @@ instance FromJSON ClusterTimeline where
 -- * 'comScriptPath'
 --
 -- * 'comName'
-data Command = Command'{_comArgs :: [Text], _comScriptPath :: Maybe Text, _comName :: Maybe Text} deriving (Eq, Read, Show)
+data Command = Command'{_comArgs :: Maybe [Text], _comScriptPath :: Maybe Text, _comName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'Command' smart constructor.
 command :: Command
-command = Command'{_comArgs = mempty, _comScriptPath = Nothing, _comName = Nothing};
+command = Command'{_comArgs = Nothing, _comScriptPath = Nothing, _comName = Nothing};
 
 -- | Arguments for Amazon EMR to pass to the command for execution.
-comArgs :: Lens' Command [Text]
+comArgs :: Lens' Command (Maybe [Text])
 comArgs = lens _comArgs (\ s a -> s{_comArgs = a});
 
 -- | The Amazon S3 location of the command script.
@@ -862,11 +862,11 @@ instance FromJSON Command where
 -- * 'eiaEC2SubnetId'
 --
 -- * 'eiaEC2AvailabilityZone'
-data EC2InstanceAttributes = EC2InstanceAttributes'{_eiaEC2KeyName :: Maybe Text, _eiaEmrManagedSlaveSecurityGroup :: Maybe Text, _eiaAdditionalSlaveSecurityGroups :: [Text], _eiaIAMInstanceProfile :: Maybe Text, _eiaAdditionalMasterSecurityGroups :: [Text], _eiaEmrManagedMasterSecurityGroup :: Maybe Text, _eiaEC2SubnetId :: Maybe Text, _eiaEC2AvailabilityZone :: Maybe Text} deriving (Eq, Read, Show)
+data EC2InstanceAttributes = EC2InstanceAttributes'{_eiaEC2KeyName :: Maybe Text, _eiaEmrManagedSlaveSecurityGroup :: Maybe Text, _eiaAdditionalSlaveSecurityGroups :: Maybe [Text], _eiaIAMInstanceProfile :: Maybe Text, _eiaAdditionalMasterSecurityGroups :: Maybe [Text], _eiaEmrManagedMasterSecurityGroup :: Maybe Text, _eiaEC2SubnetId :: Maybe Text, _eiaEC2AvailabilityZone :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'EC2InstanceAttributes' smart constructor.
 ec2InstanceAttributes :: EC2InstanceAttributes
-ec2InstanceAttributes = EC2InstanceAttributes'{_eiaEC2KeyName = Nothing, _eiaEmrManagedSlaveSecurityGroup = Nothing, _eiaAdditionalSlaveSecurityGroups = mempty, _eiaIAMInstanceProfile = Nothing, _eiaAdditionalMasterSecurityGroups = mempty, _eiaEmrManagedMasterSecurityGroup = Nothing, _eiaEC2SubnetId = Nothing, _eiaEC2AvailabilityZone = Nothing};
+ec2InstanceAttributes = EC2InstanceAttributes'{_eiaEC2KeyName = Nothing, _eiaEmrManagedSlaveSecurityGroup = Nothing, _eiaAdditionalSlaveSecurityGroups = Nothing, _eiaIAMInstanceProfile = Nothing, _eiaAdditionalMasterSecurityGroups = Nothing, _eiaEmrManagedMasterSecurityGroup = Nothing, _eiaEC2SubnetId = Nothing, _eiaEC2AvailabilityZone = Nothing};
 
 -- | The name of the Amazon EC2 key pair to use when connecting with SSH into
 -- the master node as a user named \"hadoop\".
@@ -879,7 +879,7 @@ eiaEmrManagedSlaveSecurityGroup :: Lens' EC2InstanceAttributes (Maybe Text)
 eiaEmrManagedSlaveSecurityGroup = lens _eiaEmrManagedSlaveSecurityGroup (\ s a -> s{_eiaEmrManagedSlaveSecurityGroup = a});
 
 -- | A list of additional Amazon EC2 security group IDs for the slave nodes.
-eiaAdditionalSlaveSecurityGroups :: Lens' EC2InstanceAttributes [Text]
+eiaAdditionalSlaveSecurityGroups :: Lens' EC2InstanceAttributes (Maybe [Text])
 eiaAdditionalSlaveSecurityGroups = lens _eiaAdditionalSlaveSecurityGroups (\ s a -> s{_eiaAdditionalSlaveSecurityGroups = a});
 
 -- | The IAM role that was specified when the job flow was launched. The EC2
@@ -888,7 +888,7 @@ eiaIAMInstanceProfile :: Lens' EC2InstanceAttributes (Maybe Text)
 eiaIAMInstanceProfile = lens _eiaIAMInstanceProfile (\ s a -> s{_eiaIAMInstanceProfile = a});
 
 -- | A list of additional Amazon EC2 security group IDs for the master node.
-eiaAdditionalMasterSecurityGroups :: Lens' EC2InstanceAttributes [Text]
+eiaAdditionalMasterSecurityGroups :: Lens' EC2InstanceAttributes (Maybe [Text])
 eiaAdditionalMasterSecurityGroups = lens _eiaAdditionalMasterSecurityGroups (\ s a -> s{_eiaAdditionalMasterSecurityGroups = a});
 
 -- | The identifier of the Amazon EC2 security group (managed by Amazon
@@ -936,15 +936,15 @@ instance FromJSON EC2InstanceAttributes where
 -- * 'hjscProperties'
 --
 -- * 'hjscJAR'
-data HadoopJARStepConfig = HadoopJARStepConfig'{_hjscArgs :: [Text], _hjscMainClass :: Maybe Text, _hjscProperties :: [KeyValue], _hjscJAR :: Text} deriving (Eq, Read, Show)
+data HadoopJARStepConfig = HadoopJARStepConfig'{_hjscArgs :: Maybe [Text], _hjscMainClass :: Maybe Text, _hjscProperties :: Maybe [KeyValue], _hjscJAR :: Text} deriving (Eq, Read, Show)
 
 -- | 'HadoopJARStepConfig' smart constructor.
 hadoopJARStepConfig :: Text -> HadoopJARStepConfig
-hadoopJARStepConfig pJAR = HadoopJARStepConfig'{_hjscArgs = mempty, _hjscMainClass = Nothing, _hjscProperties = mempty, _hjscJAR = pJAR};
+hadoopJARStepConfig pJAR = HadoopJARStepConfig'{_hjscArgs = Nothing, _hjscMainClass = Nothing, _hjscProperties = Nothing, _hjscJAR = pJAR};
 
 -- | A list of command line arguments passed to the JAR file\'s main function
 -- when executed.
-hjscArgs :: Lens' HadoopJARStepConfig [Text]
+hjscArgs :: Lens' HadoopJARStepConfig (Maybe [Text])
 hjscArgs = lens _hjscArgs (\ s a -> s{_hjscArgs = a});
 
 -- | The name of the main class in the specified Java file. If not specified,
@@ -954,7 +954,7 @@ hjscMainClass = lens _hjscMainClass (\ s a -> s{_hjscMainClass = a});
 
 -- | A list of Java properties that are set when the step runs. You can use
 -- these properties to pass key value pairs to your main function.
-hjscProperties :: Lens' HadoopJARStepConfig [KeyValue]
+hjscProperties :: Lens' HadoopJARStepConfig (Maybe [KeyValue])
 hjscProperties = lens _hjscProperties (\ s a -> s{_hjscProperties = a});
 
 -- | A path to a JAR file run during the step.
@@ -978,15 +978,15 @@ instance ToJSON HadoopJARStepConfig where
 -- * 'hscMainClass'
 --
 -- * 'hscProperties'
-data HadoopStepConfig = HadoopStepConfig'{_hscArgs :: [Text], _hscJAR :: Maybe Text, _hscMainClass :: Maybe Text, _hscProperties :: HashMap Text Text} deriving (Eq, Read, Show)
+data HadoopStepConfig = HadoopStepConfig'{_hscArgs :: Maybe [Text], _hscJAR :: Maybe Text, _hscMainClass :: Maybe Text, _hscProperties :: Maybe (HashMap Text Text)} deriving (Eq, Read, Show)
 
 -- | 'HadoopStepConfig' smart constructor.
 hadoopStepConfig :: HadoopStepConfig
-hadoopStepConfig = HadoopStepConfig'{_hscArgs = mempty, _hscJAR = Nothing, _hscMainClass = Nothing, _hscProperties = mempty};
+hadoopStepConfig = HadoopStepConfig'{_hscArgs = Nothing, _hscJAR = Nothing, _hscMainClass = Nothing, _hscProperties = Nothing};
 
 -- | The list of command line arguments to pass to the JAR file\'s main
 -- function for execution.
-hscArgs :: Lens' HadoopStepConfig [Text]
+hscArgs :: Lens' HadoopStepConfig (Maybe [Text])
 hscArgs = lens _hscArgs (\ s a -> s{_hscArgs = a});
 
 -- | The path to the JAR file that runs during the step.
@@ -1000,8 +1000,8 @@ hscMainClass = lens _hscMainClass (\ s a -> s{_hscMainClass = a});
 
 -- | The list of Java properties that are set when the step runs. You can use
 -- these properties to pass key value pairs to your main function.
-hscProperties :: Lens' HadoopStepConfig (HashMap Text Text)
-hscProperties = lens _hscProperties (\ s a -> s{_hscProperties = a}) . _Coerce;
+hscProperties :: Lens' HadoopStepConfig (Maybe (HashMap Text Text))
+hscProperties = lens _hscProperties (\ s a -> s{_hscProperties = a}) . mapping _Coerce;
 
 instance FromJSON HadoopStepConfig where
         parseJSON
@@ -1089,18 +1089,18 @@ instance FromJSON Instance where
 --
 -- * 'igInstanceGroupType'
 --
+-- * 'igInstanceType'
+--
 -- * 'igMarket'
 --
 -- * 'igName'
 --
 -- * 'igId'
---
--- * 'igInstanceType'
-data InstanceGroup = InstanceGroup'{_igStatus :: Maybe InstanceGroupStatus, _igBidPrice :: Maybe Text, _igRequestedInstanceCount :: Maybe Int, _igRunningInstanceCount :: Maybe Int, _igInstanceGroupType :: Maybe InstanceGroupType, _igMarket :: Maybe MarketType, _igName :: Maybe Text, _igId :: Maybe Text, _igInstanceType :: Text} deriving (Eq, Read, Show)
+data InstanceGroup = InstanceGroup'{_igStatus :: Maybe InstanceGroupStatus, _igBidPrice :: Maybe Text, _igRequestedInstanceCount :: Maybe Int, _igRunningInstanceCount :: Maybe Int, _igInstanceGroupType :: Maybe InstanceGroupType, _igInstanceType :: Maybe Text, _igMarket :: Maybe MarketType, _igName :: Maybe Text, _igId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'InstanceGroup' smart constructor.
-instanceGroup :: Text -> InstanceGroup
-instanceGroup pInstanceType = InstanceGroup'{_igStatus = Nothing, _igBidPrice = Nothing, _igRequestedInstanceCount = Nothing, _igRunningInstanceCount = Nothing, _igInstanceGroupType = Nothing, _igMarket = Nothing, _igName = Nothing, _igId = Nothing, _igInstanceType = pInstanceType};
+instanceGroup :: InstanceGroup
+instanceGroup = InstanceGroup'{_igStatus = Nothing, _igBidPrice = Nothing, _igRequestedInstanceCount = Nothing, _igRunningInstanceCount = Nothing, _igInstanceGroupType = Nothing, _igInstanceType = Nothing, _igMarket = Nothing, _igName = Nothing, _igId = Nothing};
 
 -- | The current status of the instance group.
 igStatus :: Lens' InstanceGroup (Maybe InstanceGroupStatus)
@@ -1123,6 +1123,10 @@ igRunningInstanceCount = lens _igRunningInstanceCount (\ s a -> s{_igRunningInst
 igInstanceGroupType :: Lens' InstanceGroup (Maybe InstanceGroupType)
 igInstanceGroupType = lens _igInstanceGroupType (\ s a -> s{_igInstanceGroupType = a});
 
+-- | The EC2 instance type for all instances in the instance group.
+igInstanceType :: Lens' InstanceGroup (Maybe Text)
+igInstanceType = lens _igInstanceType (\ s a -> s{_igInstanceType = a});
+
 -- | The marketplace to provision instances for this group. Valid values are
 -- ON_DEMAND or SPOT.
 igMarket :: Lens' InstanceGroup (Maybe MarketType)
@@ -1136,10 +1140,6 @@ igName = lens _igName (\ s a -> s{_igName = a});
 igId :: Lens' InstanceGroup (Maybe Text)
 igId = lens _igId (\ s a -> s{_igId = a});
 
--- | The EC2 instance type for all instances in the instance group.
-igInstanceType :: Lens' InstanceGroup Text
-igInstanceType = lens _igInstanceType (\ s a -> s{_igInstanceType = a});
-
 instance FromJSON InstanceGroup where
         parseJSON
           = withObject "InstanceGroup"
@@ -1149,10 +1149,10 @@ instance FromJSON InstanceGroup where
                      x .:? "RequestedInstanceCount"
                      <*> x .:? "RunningInstanceCount"
                      <*> x .:? "InstanceGroupType"
+                     <*> x .:? "InstanceType"
                      <*> x .:? "Market"
                      <*> x .:? "Name"
-                     <*> x .:? "Id"
-                     <*> x .: "InstanceType")
+                     <*> x .:? "Id")
 
 -- | /See:/ 'instanceGroupConfig' smart constructor.
 --
@@ -1218,11 +1218,11 @@ instance ToJSON InstanceGroupConfig where
 -- * 'igmcEC2InstanceIdsToTerminate'
 --
 -- * 'igmcInstanceGroupId'
-data InstanceGroupModifyConfig = InstanceGroupModifyConfig'{_igmcInstanceCount :: Maybe Int, _igmcEC2InstanceIdsToTerminate :: [Text], _igmcInstanceGroupId :: Text} deriving (Eq, Read, Show)
+data InstanceGroupModifyConfig = InstanceGroupModifyConfig'{_igmcInstanceCount :: Maybe Int, _igmcEC2InstanceIdsToTerminate :: Maybe [Text], _igmcInstanceGroupId :: Text} deriving (Eq, Read, Show)
 
 -- | 'InstanceGroupModifyConfig' smart constructor.
 instanceGroupModifyConfig :: Text -> InstanceGroupModifyConfig
-instanceGroupModifyConfig pInstanceGroupId = InstanceGroupModifyConfig'{_igmcInstanceCount = Nothing, _igmcEC2InstanceIdsToTerminate = mempty, _igmcInstanceGroupId = pInstanceGroupId};
+instanceGroupModifyConfig pInstanceGroupId = InstanceGroupModifyConfig'{_igmcInstanceCount = Nothing, _igmcEC2InstanceIdsToTerminate = Nothing, _igmcInstanceGroupId = pInstanceGroupId};
 
 -- | Target size for the instance group.
 igmcInstanceCount :: Lens' InstanceGroupModifyConfig (Maybe Int)
@@ -1231,7 +1231,7 @@ igmcInstanceCount = lens _igmcInstanceCount (\ s a -> s{_igmcInstanceCount = a})
 -- | The EC2 InstanceIds to terminate. For advanced users only. Once you
 -- terminate the instances, the instance group will not return to its
 -- original requested size.
-igmcEC2InstanceIdsToTerminate :: Lens' InstanceGroupModifyConfig [Text]
+igmcEC2InstanceIdsToTerminate :: Lens' InstanceGroupModifyConfig (Maybe [Text])
 igmcEC2InstanceIdsToTerminate = lens _igmcEC2InstanceIdsToTerminate (\ s a -> s{_igmcEC2InstanceIdsToTerminate = a});
 
 -- | Unique ID of the instance group to expand or shrink.
@@ -1606,6 +1606,8 @@ instance FromJSON InstanceTimeline where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'jficSlaveInstanceType'
+--
 -- * 'jficEC2KeyName'
 --
 -- * 'jficInstanceCount'
@@ -1622,6 +1624,8 @@ instance FromJSON InstanceTimeline where
 --
 -- * 'jficEC2SubnetId'
 --
+-- * 'jficMasterInstanceType'
+--
 -- * 'jficInstanceGroups'
 --
 -- * 'jficKeepJobFlowAliveWhenNoSteps'
@@ -1629,15 +1633,15 @@ instance FromJSON InstanceTimeline where
 -- * 'jficTerminationProtected'
 --
 -- * 'jficPlacement'
---
--- * 'jficSlaveInstanceType'
---
--- * 'jficMasterInstanceType'
-data JobFlowInstancesConfig = JobFlowInstancesConfig'{_jficEC2KeyName :: Maybe Text, _jficInstanceCount :: Maybe Int, _jficEmrManagedSlaveSecurityGroup :: Maybe Text, _jficAdditionalSlaveSecurityGroups :: [Text], _jficHadoopVersion :: Maybe Text, _jficAdditionalMasterSecurityGroups :: [Text], _jficEmrManagedMasterSecurityGroup :: Maybe Text, _jficEC2SubnetId :: Maybe Text, _jficInstanceGroups :: [InstanceGroupConfig], _jficKeepJobFlowAliveWhenNoSteps :: Maybe Bool, _jficTerminationProtected :: Maybe Bool, _jficPlacement :: Maybe PlacementType, _jficSlaveInstanceType :: Text, _jficMasterInstanceType :: Text} deriving (Eq, Read, Show)
+data JobFlowInstancesConfig = JobFlowInstancesConfig'{_jficSlaveInstanceType :: Maybe Text, _jficEC2KeyName :: Maybe Text, _jficInstanceCount :: Maybe Int, _jficEmrManagedSlaveSecurityGroup :: Maybe Text, _jficAdditionalSlaveSecurityGroups :: Maybe [Text], _jficHadoopVersion :: Maybe Text, _jficAdditionalMasterSecurityGroups :: Maybe [Text], _jficEmrManagedMasterSecurityGroup :: Maybe Text, _jficEC2SubnetId :: Maybe Text, _jficMasterInstanceType :: Maybe Text, _jficInstanceGroups :: Maybe [InstanceGroupConfig], _jficKeepJobFlowAliveWhenNoSteps :: Maybe Bool, _jficTerminationProtected :: Maybe Bool, _jficPlacement :: Maybe PlacementType} deriving (Eq, Read, Show)
 
 -- | 'JobFlowInstancesConfig' smart constructor.
-jobFlowInstancesConfig :: Text -> Text -> JobFlowInstancesConfig
-jobFlowInstancesConfig pSlaveInstanceType pMasterInstanceType = JobFlowInstancesConfig'{_jficEC2KeyName = Nothing, _jficInstanceCount = Nothing, _jficEmrManagedSlaveSecurityGroup = Nothing, _jficAdditionalSlaveSecurityGroups = mempty, _jficHadoopVersion = Nothing, _jficAdditionalMasterSecurityGroups = mempty, _jficEmrManagedMasterSecurityGroup = Nothing, _jficEC2SubnetId = Nothing, _jficInstanceGroups = mempty, _jficKeepJobFlowAliveWhenNoSteps = Nothing, _jficTerminationProtected = Nothing, _jficPlacement = Nothing, _jficSlaveInstanceType = pSlaveInstanceType, _jficMasterInstanceType = pMasterInstanceType};
+jobFlowInstancesConfig :: JobFlowInstancesConfig
+jobFlowInstancesConfig = JobFlowInstancesConfig'{_jficSlaveInstanceType = Nothing, _jficEC2KeyName = Nothing, _jficInstanceCount = Nothing, _jficEmrManagedSlaveSecurityGroup = Nothing, _jficAdditionalSlaveSecurityGroups = Nothing, _jficHadoopVersion = Nothing, _jficAdditionalMasterSecurityGroups = Nothing, _jficEmrManagedMasterSecurityGroup = Nothing, _jficEC2SubnetId = Nothing, _jficMasterInstanceType = Nothing, _jficInstanceGroups = Nothing, _jficKeepJobFlowAliveWhenNoSteps = Nothing, _jficTerminationProtected = Nothing, _jficPlacement = Nothing};
+
+-- | The EC2 instance type of the slave nodes.
+jficSlaveInstanceType :: Lens' JobFlowInstancesConfig (Maybe Text)
+jficSlaveInstanceType = lens _jficSlaveInstanceType (\ s a -> s{_jficSlaveInstanceType = a});
 
 -- | The name of the Amazon EC2 key pair that can be used to ssh to the
 -- master node as the user called \"hadoop.\"
@@ -1654,7 +1658,7 @@ jficEmrManagedSlaveSecurityGroup :: Lens' JobFlowInstancesConfig (Maybe Text)
 jficEmrManagedSlaveSecurityGroup = lens _jficEmrManagedSlaveSecurityGroup (\ s a -> s{_jficEmrManagedSlaveSecurityGroup = a});
 
 -- | A list of additional Amazon EC2 security group IDs for the slave nodes.
-jficAdditionalSlaveSecurityGroups :: Lens' JobFlowInstancesConfig [Text]
+jficAdditionalSlaveSecurityGroups :: Lens' JobFlowInstancesConfig (Maybe [Text])
 jficAdditionalSlaveSecurityGroups = lens _jficAdditionalSlaveSecurityGroups (\ s a -> s{_jficAdditionalSlaveSecurityGroups = a});
 
 -- | The Hadoop version for the job flow. Valid inputs are \"0.18\",
@@ -1666,7 +1670,7 @@ jficHadoopVersion :: Lens' JobFlowInstancesConfig (Maybe Text)
 jficHadoopVersion = lens _jficHadoopVersion (\ s a -> s{_jficHadoopVersion = a});
 
 -- | A list of additional Amazon EC2 security group IDs for the master node.
-jficAdditionalMasterSecurityGroups :: Lens' JobFlowInstancesConfig [Text]
+jficAdditionalMasterSecurityGroups :: Lens' JobFlowInstancesConfig (Maybe [Text])
 jficAdditionalMasterSecurityGroups = lens _jficAdditionalMasterSecurityGroups (\ s a -> s{_jficAdditionalMasterSecurityGroups = a});
 
 -- | The identifier of the Amazon EC2 security group (managed by Amazon
@@ -1686,8 +1690,12 @@ jficEmrManagedMasterSecurityGroup = lens _jficEmrManagedMasterSecurityGroup (\ s
 jficEC2SubnetId :: Lens' JobFlowInstancesConfig (Maybe Text)
 jficEC2SubnetId = lens _jficEC2SubnetId (\ s a -> s{_jficEC2SubnetId = a});
 
+-- | The EC2 instance type of the master node.
+jficMasterInstanceType :: Lens' JobFlowInstancesConfig (Maybe Text)
+jficMasterInstanceType = lens _jficMasterInstanceType (\ s a -> s{_jficMasterInstanceType = a});
+
 -- | Configuration for the job flow\'s instance groups.
-jficInstanceGroups :: Lens' JobFlowInstancesConfig [InstanceGroupConfig]
+jficInstanceGroups :: Lens' JobFlowInstancesConfig (Maybe [InstanceGroupConfig])
 jficInstanceGroups = lens _jficInstanceGroups (\ s a -> s{_jficInstanceGroups = a});
 
 -- | Specifies whether the job flow should terminate after completing all
@@ -1705,18 +1713,11 @@ jficTerminationProtected = lens _jficTerminationProtected (\ s a -> s{_jficTermi
 jficPlacement :: Lens' JobFlowInstancesConfig (Maybe PlacementType)
 jficPlacement = lens _jficPlacement (\ s a -> s{_jficPlacement = a});
 
--- | The EC2 instance type of the slave nodes.
-jficSlaveInstanceType :: Lens' JobFlowInstancesConfig Text
-jficSlaveInstanceType = lens _jficSlaveInstanceType (\ s a -> s{_jficSlaveInstanceType = a});
-
--- | The EC2 instance type of the master node.
-jficMasterInstanceType :: Lens' JobFlowInstancesConfig Text
-jficMasterInstanceType = lens _jficMasterInstanceType (\ s a -> s{_jficMasterInstanceType = a});
-
 instance ToJSON JobFlowInstancesConfig where
         toJSON JobFlowInstancesConfig'{..}
           = object
-              ["Ec2KeyName" .= _jficEC2KeyName,
+              ["SlaveInstanceType" .= _jficSlaveInstanceType,
+               "Ec2KeyName" .= _jficEC2KeyName,
                "InstanceCount" .= _jficInstanceCount,
                "EmrManagedSlaveSecurityGroup" .=
                  _jficEmrManagedSlaveSecurityGroup,
@@ -1728,13 +1729,12 @@ instance ToJSON JobFlowInstancesConfig where
                "EmrManagedMasterSecurityGroup" .=
                  _jficEmrManagedMasterSecurityGroup,
                "Ec2SubnetId" .= _jficEC2SubnetId,
+               "MasterInstanceType" .= _jficMasterInstanceType,
                "InstanceGroups" .= _jficInstanceGroups,
                "KeepJobFlowAliveWhenNoSteps" .=
                  _jficKeepJobFlowAliveWhenNoSteps,
                "TerminationProtected" .= _jficTerminationProtected,
-               "Placement" .= _jficPlacement,
-               "SlaveInstanceType" .= _jficSlaveInstanceType,
-               "MasterInstanceType" .= _jficMasterInstanceType]
+               "Placement" .= _jficPlacement]
 
 -- | /See:/ 'keyValue' smart constructor.
 --
@@ -1810,14 +1810,14 @@ instance ToJSON PlacementType where
 -- * 'sbacArgs'
 --
 -- * 'sbacPath'
-data ScriptBootstrapActionConfig = ScriptBootstrapActionConfig'{_sbacArgs :: [Text], _sbacPath :: Text} deriving (Eq, Read, Show)
+data ScriptBootstrapActionConfig = ScriptBootstrapActionConfig'{_sbacArgs :: Maybe [Text], _sbacPath :: Text} deriving (Eq, Read, Show)
 
 -- | 'ScriptBootstrapActionConfig' smart constructor.
 scriptBootstrapActionConfig :: Text -> ScriptBootstrapActionConfig
-scriptBootstrapActionConfig pPath = ScriptBootstrapActionConfig'{_sbacArgs = mempty, _sbacPath = pPath};
+scriptBootstrapActionConfig pPath = ScriptBootstrapActionConfig'{_sbacArgs = Nothing, _sbacPath = pPath};
 
 -- | A list of command line arguments to pass to the bootstrap action script.
-sbacArgs :: Lens' ScriptBootstrapActionConfig [Text]
+sbacArgs :: Lens' ScriptBootstrapActionConfig (Maybe [Text])
 sbacArgs = lens _sbacArgs (\ s a -> s{_sbacArgs = a});
 
 -- | Location of the script to run during a bootstrap action. Can be either a
@@ -2117,14 +2117,14 @@ instance FromJSON StepTimeline where
 -- * 'spcArgs'
 --
 -- * 'spcName'
-data SupportedProductConfig = SupportedProductConfig'{_spcArgs :: [Text], _spcName :: Maybe Text} deriving (Eq, Read, Show)
+data SupportedProductConfig = SupportedProductConfig'{_spcArgs :: Maybe [Text], _spcName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'SupportedProductConfig' smart constructor.
 supportedProductConfig :: SupportedProductConfig
-supportedProductConfig = SupportedProductConfig'{_spcArgs = mempty, _spcName = Nothing};
+supportedProductConfig = SupportedProductConfig'{_spcArgs = Nothing, _spcName = Nothing};
 
 -- | The list of user-supplied arguments.
-spcArgs :: Lens' SupportedProductConfig [Text]
+spcArgs :: Lens' SupportedProductConfig (Maybe [Text])
 spcArgs = lens _spcArgs (\ s a -> s{_spcArgs = a});
 
 -- | The name of the product configuration.

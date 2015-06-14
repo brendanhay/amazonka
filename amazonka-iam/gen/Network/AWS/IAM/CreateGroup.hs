@@ -28,8 +28,8 @@ module Network.AWS.IAM.CreateGroup
     -- ** Request constructor
     , createGroup
     -- ** Request lenses
-    , cgGroupName
     , cgPath
+    , cgGroupName
 
     -- * Response
     , CreateGroupResponse
@@ -48,18 +48,14 @@ import Network.AWS.IAM.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cgGroupName'
---
 -- * 'cgPath'
-data CreateGroup = CreateGroup'{_cgGroupName :: Text, _cgPath :: Text} deriving (Eq, Read, Show)
+--
+-- * 'cgGroupName'
+data CreateGroup = CreateGroup'{_cgPath :: Maybe Text, _cgGroupName :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateGroup' smart constructor.
-createGroup :: Text -> Text -> CreateGroup
-createGroup pGroupName pPath = CreateGroup'{_cgGroupName = pGroupName, _cgPath = pPath};
-
--- | The name of the group to create. Do not include the path in this value.
-cgGroupName :: Lens' CreateGroup Text
-cgGroupName = lens _cgGroupName (\ s a -> s{_cgGroupName = a});
+createGroup :: Text -> CreateGroup
+createGroup pGroupName = CreateGroup'{_cgPath = Nothing, _cgGroupName = pGroupName};
 
 -- | The path to the group. For more information about paths, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
@@ -67,8 +63,12 @@ cgGroupName = lens _cgGroupName (\ s a -> s{_cgGroupName = a});
 --
 -- This parameter is optional. If it is not included, it defaults to a
 -- slash (\/).
-cgPath :: Lens' CreateGroup Text
+cgPath :: Lens' CreateGroup (Maybe Text)
 cgPath = lens _cgPath (\ s a -> s{_cgPath = a});
+
+-- | The name of the group to create. Do not include the path in this value.
+cgGroupName :: Lens' CreateGroup Text
+cgGroupName = lens _cgGroupName (\ s a -> s{_cgGroupName = a});
 
 instance AWSRequest CreateGroup where
         type Sv CreateGroup = IAM
@@ -89,7 +89,7 @@ instance ToQuery CreateGroup where
           = mconcat
               ["Action" =: ("CreateGroup" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "GroupName" =: _cgGroupName, "Path" =: _cgPath]
+               "Path" =: _cgPath, "GroupName" =: _cgGroupName]
 
 -- | /See:/ 'createGroupResponse' smart constructor.
 --

@@ -123,14 +123,14 @@ instance ToQuery DescribeNetworkInterfaceAttribute
 -- * 'dniarAttachment'
 --
 -- * 'dniarDescription'
-data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResponse'{_dniarGroups :: [GroupIdentifier], _dniarSourceDestCheck :: Maybe AttributeBooleanValue, _dniarNetworkInterfaceId :: Maybe Text, _dniarAttachment :: Maybe NetworkInterfaceAttachment, _dniarDescription :: Maybe AttributeValue} deriving (Eq, Read, Show)
+data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResponse'{_dniarGroups :: Maybe [GroupIdentifier], _dniarSourceDestCheck :: Maybe AttributeBooleanValue, _dniarNetworkInterfaceId :: Maybe Text, _dniarAttachment :: Maybe NetworkInterfaceAttachment, _dniarDescription :: Maybe AttributeValue} deriving (Eq, Read, Show)
 
 -- | 'DescribeNetworkInterfaceAttributeResponse' smart constructor.
 describeNetworkInterfaceAttributeResponse :: DescribeNetworkInterfaceAttributeResponse
-describeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResponse'{_dniarGroups = mempty, _dniarSourceDestCheck = Nothing, _dniarNetworkInterfaceId = Nothing, _dniarAttachment = Nothing, _dniarDescription = Nothing};
+describeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResponse'{_dniarGroups = Nothing, _dniarSourceDestCheck = Nothing, _dniarNetworkInterfaceId = Nothing, _dniarAttachment = Nothing, _dniarDescription = Nothing};
 
 -- | The security groups associated with the network interface.
-dniarGroups :: Lens' DescribeNetworkInterfaceAttributeResponse [GroupIdentifier]
+dniarGroups :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe [GroupIdentifier])
 dniarGroups = lens _dniarGroups (\ s a -> s{_dniarGroups = a});
 
 -- | Indicates whether source\/destination checking is enabled.

@@ -69,11 +69,11 @@ import Network.AWS.Redshift.Types
 -- * 'dhsmcMaxRecords'
 --
 -- * 'dhsmcMarker'
-data DescribeHSMConfigurations = DescribeHSMConfigurations'{_dhsmcTagValues :: [Text], _dhsmcHSMConfigurationIdentifier :: Maybe Text, _dhsmcTagKeys :: [Text], _dhsmcMaxRecords :: Maybe Int, _dhsmcMarker :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeHSMConfigurations = DescribeHSMConfigurations'{_dhsmcTagValues :: Maybe [Text], _dhsmcHSMConfigurationIdentifier :: Maybe Text, _dhsmcTagKeys :: Maybe [Text], _dhsmcMaxRecords :: Maybe Int, _dhsmcMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeHSMConfigurations' smart constructor.
 describeHSMConfigurations :: DescribeHSMConfigurations
-describeHSMConfigurations = DescribeHSMConfigurations'{_dhsmcTagValues = mempty, _dhsmcHSMConfigurationIdentifier = Nothing, _dhsmcTagKeys = mempty, _dhsmcMaxRecords = Nothing, _dhsmcMarker = Nothing};
+describeHSMConfigurations = DescribeHSMConfigurations'{_dhsmcTagValues = Nothing, _dhsmcHSMConfigurationIdentifier = Nothing, _dhsmcTagKeys = Nothing, _dhsmcMaxRecords = Nothing, _dhsmcMarker = Nothing};
 
 -- | A tag value or values for which you want to return all matching HSM
 -- configurations that are associated with the specified tag value or
@@ -82,7 +82,7 @@ describeHSMConfigurations = DescribeHSMConfigurations'{_dhsmcTagValues = mempty,
 -- these tag values in the request, Amazon Redshift returns a response with
 -- the HSM configurations that have either or both of these tag values
 -- associated with them.
-dhsmcTagValues :: Lens' DescribeHSMConfigurations [Text]
+dhsmcTagValues :: Lens' DescribeHSMConfigurations (Maybe [Text])
 dhsmcTagValues = lens _dhsmcTagValues (\ s a -> s{_dhsmcTagValues = a});
 
 -- | The identifier of a specific Amazon Redshift HSM configuration to be
@@ -98,7 +98,7 @@ dhsmcHSMConfigurationIdentifier = lens _dhsmcHSMConfigurationIdentifier (\ s a -
 -- keys in the request, Amazon Redshift returns a response with the HSM
 -- configurations that have either or both of these tag keys associated
 -- with them.
-dhsmcTagKeys :: Lens' DescribeHSMConfigurations [Text]
+dhsmcTagKeys :: Lens' DescribeHSMConfigurations (Maybe [Text])
 dhsmcTagKeys = lens _dhsmcTagKeys (\ s a -> s{_dhsmcTagKeys = a});
 
 -- | The maximum number of response records to return in each call. If the
@@ -161,11 +161,11 @@ instance ToQuery DescribeHSMConfigurations where
 -- * 'dhcrMarker'
 --
 -- * 'dhcrHSMConfigurations'
-data DescribeHSMConfigurationsResponse = DescribeHSMConfigurationsResponse'{_dhcrMarker :: Maybe Text, _dhcrHSMConfigurations :: [HSMConfiguration]} deriving (Eq, Read, Show)
+data DescribeHSMConfigurationsResponse = DescribeHSMConfigurationsResponse'{_dhcrMarker :: Maybe Text, _dhcrHSMConfigurations :: Maybe [HSMConfiguration]} deriving (Eq, Read, Show)
 
 -- | 'DescribeHSMConfigurationsResponse' smart constructor.
 describeHSMConfigurationsResponse :: DescribeHSMConfigurationsResponse
-describeHSMConfigurationsResponse = DescribeHSMConfigurationsResponse'{_dhcrMarker = Nothing, _dhcrHSMConfigurations = mempty};
+describeHSMConfigurationsResponse = DescribeHSMConfigurationsResponse'{_dhcrMarker = Nothing, _dhcrHSMConfigurations = Nothing};
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -177,5 +177,5 @@ dhcrMarker :: Lens' DescribeHSMConfigurationsResponse (Maybe Text)
 dhcrMarker = lens _dhcrMarker (\ s a -> s{_dhcrMarker = a});
 
 -- | A list of Amazon Redshift HSM configurations.
-dhcrHSMConfigurations :: Lens' DescribeHSMConfigurationsResponse [HSMConfiguration]
+dhcrHSMConfigurations :: Lens' DescribeHSMConfigurationsResponse (Maybe [HSMConfiguration])
 dhcrHSMConfigurations = lens _dhcrHSMConfigurations (\ s a -> s{_dhcrHSMConfigurations = a});

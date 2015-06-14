@@ -122,15 +122,15 @@ instance ToQuery ListServices where
 -- * 'lsrServiceARNs'
 --
 -- * 'lsrNextToken'
-data ListServicesResponse = ListServicesResponse'{_lsrServiceARNs :: [Text], _lsrNextToken :: Maybe Text} deriving (Eq, Read, Show)
+data ListServicesResponse = ListServicesResponse'{_lsrServiceARNs :: Maybe [Text], _lsrNextToken :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ListServicesResponse' smart constructor.
 listServicesResponse :: ListServicesResponse
-listServicesResponse = ListServicesResponse'{_lsrServiceARNs = mempty, _lsrNextToken = Nothing};
+listServicesResponse = ListServicesResponse'{_lsrServiceARNs = Nothing, _lsrNextToken = Nothing};
 
 -- | The list of full Amazon Resource Name (ARN) entries for each service
 -- associated with the specified cluster.
-lsrServiceARNs :: Lens' ListServicesResponse [Text]
+lsrServiceARNs :: Lens' ListServicesResponse (Maybe [Text])
 lsrServiceARNs = lens _lsrServiceARNs (\ s a -> s{_lsrServiceARNs = a});
 
 -- | The @nextToken@ value to include in a future @ListServices@ request.

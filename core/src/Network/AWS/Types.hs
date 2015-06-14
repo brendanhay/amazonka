@@ -86,12 +86,13 @@ module Network.AWS.Types
     , ClientResponse
     , ResponseBody
     , clientRequest
+    , _Coerce
     ) where
 
 import           Control.Applicative
 import           Control.Concurrent           (ThreadId)
 import           Control.Exception            (Exception)
-import           Control.Lens
+import           Control.Lens                 hiding (coerce)
 import           Control.Monad.IO.Class
 import           Control.Monad.Trans.Resource
 import qualified Crypto.Hash.SHA256           as SHA256
@@ -99,6 +100,7 @@ import qualified Crypto.MAC.HMAC              as HMAC
 import           Data.Aeson                   hiding (Error)
 import qualified Data.Attoparsec.Text         as AText
 import           Data.ByteString.Builder      (Builder)
+import           Data.Coerce
 import           Data.Conduit
 import           Data.Default.Class
 import           Data.Hashable
@@ -301,7 +303,7 @@ data Retry a = Exponential
 data Request a = Request
     { _rqMethod  :: !StdMethod
     , _rqPath    :: ByteString
-    , _rqQuery   :: Query
+    , _rqQuery   :: QueryString
     , _rqHeaders :: [Header]
     , _rqBody    :: RqBody
     }
@@ -384,6 +386,9 @@ clientRequest = def
     , Client.port        = 443
     , Client.checkStatus = \_ _ _ -> Nothing
     }
+
+_Coerce :: (Coercible a b, Coercible b a) => Iso' a b
+_Coerce = iso coerce coerce
 
 makePrisms ''ServiceError
 makeLenses ''Request

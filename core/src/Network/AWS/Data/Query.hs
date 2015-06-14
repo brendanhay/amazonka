@@ -48,15 +48,15 @@ import           Network.AWS.Data.Text
 import           Network.HTTP.Types.URI      (urlEncode)
 import           Numeric.Natural
 
-data Query
-    = List  [Query]
-    | Pair  ByteString Query
+data QueryString
+    = List  [QueryString]
+    | Pair  ByteString QueryString
     | Value (Maybe ByteString)
       deriving (Eq, Show, Data, Typeable)
 
-makePrisms ''Query
+makePrisms ''QueryString
 
-instance Monoid Query where
+instance Monoid QueryString where
     mempty = List []
 
     mappend a b = case (a, b) of
@@ -65,73 +65,64 @@ instance Monoid Query where
         (l,      List r) -> List (l : r)
         (l,      r)      -> List [l, r]
 
-instance Plated Query where
+instance Plated QueryString where
     plate = uniplate
 
-instance ToByteString Query where
-    toBS = renderQuery
-
-instance ToText Query where
-    toText = Text.decodeUtf8 . toBS
-
-instance IsString Query where
+instance IsString QueryString where
     fromString = toQuery . BS.pack
 
-valuesOf :: Traversal' Query (Maybe ByteString)
+instance ToByteString QueryString where
+    toBS = intercalate . sort . enc Nothing
+      where
+        enc k = \case
+            List xs           -> concatMap (enc k) xs
+
+            Pair (urlEncode True -> k') x
+                | Just n <- k -> enc (Just $ n <> "." <> k') x
+                | otherwise   -> enc (Just k')               x
+
+            Value (Just (urlEncode True -> v))
+                | Just n <- k -> [n <> vsep <> v]
+                | otherwise   -> [v <> vsep]
+
+            _   | Just n <- k -> [n <> vsep]
+                | otherwise   -> []
+
+        intercalate []     = mempty
+        intercalate [x]    = x
+        intercalate (x:xs) = x <> ksep <> intercalate xs
+
+        ksep = "&"
+        vsep = "="
+
+valuesOf :: Traversal' QueryString (Maybe ByteString)
 valuesOf = deep _Value
 
-pair :: ToQuery a => ByteString -> a -> Query -> Query
+pair :: ToQuery a => ByteString -> a -> QueryString -> QueryString
 pair k v = mappend (Pair k (toQuery v))
 
 infixr 7 =:
 
-(=:) :: ToQuery a => ByteString -> a -> Query
+(=:) :: ToQuery a => ByteString -> a -> QueryString
 k =: v = Pair k (toQuery v)
-
--- (=::) :: (IsList a, ToQuery (Item a)) => ByteString -> a -> Query
--- k =:: xs = List . map (Pair k . toQuery) $ toList xs
-
-renderQuery :: Query -> ByteString
-renderQuery = intercalate . sort . enc Nothing
-  where
-    enc k = \case
-        List xs           -> concatMap (enc k) xs
-
-        Pair (urlEncode True -> k') x
-            | Just n <- k -> enc (Just $ n <> "." <> k') x
-            | otherwise   -> enc (Just k')               x
-
-        Value (Just (urlEncode True -> v))
-            | Just n <- k -> [n <> vsep <> v]
-            | otherwise   -> [v <> vsep]
-
-        _   | Just n <- k -> [n <> vsep]
-            | otherwise   -> []
-
-    intercalate []     = mempty
-    intercalate [x]    = x
-    intercalate (x:xs) = x <> ksep <> intercalate xs
-
-    ksep = "&"
-    vsep = "="
 
 toQueryMap :: (ToQuery k, ToQuery v)
            => ByteString
            -> ByteString
            -> ByteString
            -> HashMap k v
-           -> Query
+           -> QueryString
 toQueryMap e k v = Pair e . toQuery . map f . Map.toList
   where
     f (x, y) = List [k =: toQuery x, v =: toQuery y]
 
 class ToQuery a where
-    toQuery :: a -> Query
+    toQuery :: a -> QueryString
 
-    default toQuery :: ToText a => a -> Query
+    default toQuery :: ToText a => a -> QueryString
     toQuery = toQuery . toText
 
-instance ToQuery Query where
+instance ToQuery QueryString where
     toQuery = id
 
 instance (ToByteString k, ToQuery v) => ToQuery (k, v) where

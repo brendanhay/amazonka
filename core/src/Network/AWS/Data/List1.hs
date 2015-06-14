@@ -1,7 +1,6 @@
 {-# LANGUAGE DeriveFoldable             #-}
 {-# LANGUAGE DeriveTraversable          #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE TemplateHaskell            #-}
 {-# LANGUAGE TypeFamilies               #-}
 
 -- Module      : Network.AWS.Data.List1
@@ -20,9 +19,10 @@ module Network.AWS.Data.List1
     , parseXMLList1
     ) where
 
-import           Control.Lens         (makePrisms)
+import           Control.Lens         (Iso', iso)
 import           Control.Monad
 import           Data.Aeson
+import           Data.Coerce
 import           Data.List.NonEmpty   (NonEmpty (..))
 import qualified Data.List.NonEmpty   as NonEmpty
 import           Data.Text            (Text)
@@ -43,13 +43,14 @@ newtype List1 a = List1 { toNonEmpty :: NonEmpty a }
         , Show
         )
 
+_List1 :: (Coercible a b, Coercible b a) => Iso' (List1 a) (NonEmpty b)
+_List1 = iso (coerce . toNonEmpty) (List1 . coerce)
+
 instance IsList (List1 a) where
    type Item (List1 a) = a
 
    fromList = List1 . NonEmpty.fromList
    toList   = NonEmpty.toList . toNonEmpty
-
-makePrisms ''List1
 
 instance FromJSON a => FromJSON (List1 a) where
     parseJSON = withArray "List1" (go >=> traverse parseJSON)

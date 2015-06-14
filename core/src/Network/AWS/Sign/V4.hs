@@ -113,7 +113,7 @@ authorisation Meta{..} = BS.concat
 algorithm :: ByteString
 algorithm = "AWS4-HMAC-SHA256"
 
-finalise :: (ByteString -> ByteString -> Query -> Query)
+finalise :: (ByteString -> ByteString -> QueryString -> QueryString)
          -> ByteString
          -> Region
          -> Service (Sv a)

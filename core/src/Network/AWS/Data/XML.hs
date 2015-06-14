@@ -77,8 +77,8 @@ f .!@ x = fromMaybe x <$> f
 
 infixr 7 @=, @@=
 
--- Both this @= and @@= take 'Text' rather than 'Name' since
--- the IsString instance for Name adds an empty XMLNS.
+-- Both this @= and @@= take 'Text' rather than 'Name' since the
+-- IsString instance for Name creates a qualified name with an empty ns.
 
 (@=) :: ToXML a => Text -> a -> XML
 n @= x = XOne . NodeElement $ mkElement (Name n Nothing Nothing) x

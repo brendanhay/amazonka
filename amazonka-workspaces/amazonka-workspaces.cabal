@@ -1,28 +1,23 @@
 name:                  amazonka-workspaces
-<<<<<<< HEAD
 version:               0.3.6
-=======
-version:               0.3.4
->>>>>>> Beginning new exploratory AST/generator improvements
 synopsis:              Amazon WorkSpaces SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
-copyright:             Copyright (c) 2013-2014 Brendan Hay
+copyright:             Copyright (c) 2013-2015 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Amazon WorkSpaces offers you an easy way to provide a cloud-based desktop
-    experience to your end-users. You simply select from a choice of bundles that
-    offer a range of different amounts of CPU, memory, storage, and a choice of
-    applications. Users can connect from a PC, Mac desktop computer, iPad,
-    Kindle, or Android tablet.
+    Amazon WorkSpaces Service
 
+    This is the /Amazon WorkSpaces API Reference/. This guide provides
+    detailed information about Amazon WorkSpaces operations, data types,
+    parameters, and errors.
     .
     /See:/ <http://docs.aws.amazon.com/workspaces/latest/devguide/welcome.html AWS API Reference>
     .
@@ -49,13 +44,10 @@ library
         , Network.AWS.WorkSpaces.RebuildWorkspaces
         , Network.AWS.WorkSpaces.TerminateWorkspaces
         , Network.AWS.WorkSpaces.Types
+        , Network.AWS.WorkSpaces.Waiters
 
     other-modules:
 
     build-depends:
-<<<<<<< HEAD
           amazonka-core == 0.3.6.*
-=======
-          amazonka-core == 0.3.4.*
->>>>>>> Beginning new exploratory AST/generator improvements
         , base          >= 4.7     && < 5

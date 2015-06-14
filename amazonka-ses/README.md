@@ -2,20 +2,28 @@
 
 > _Warning:_ This is an experimental preview release which is still under heavy development and not intended for public consumption, _caveat emptor_!
 
+* [Version](#version)
 * [Description](#description)
 * [Contribute](#contribute)
 * [Licence](#licence)
 
+
+## Version
+
+`0.3.6`
+
+
 ## Description
 
-Amazon Simple Email Service (Amazon SES) is a cost-effective outbound-only
-email-sending service built on the reliable and scalable infrastructure that
-Amazon.com has developed to serve its own customer base. With Amazon SES, you
-can send transactional email, marketing messages, or any other type of
-high-quality content and you only pay for what you use. Along with high
-deliverability, Amazon SES provides easy, real-time access to your sending
-statistics and built-in notifications for bounces, complaints, and deliveries
-to help you fine-tune your email-sending strategy.
+Amazon Simple Email Service
+
+This is the API Reference for Amazon Simple Email Service (Amazon SES).
+This documentation is intended to be used in conjunction with the
+<http://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html Amazon SES Developer Guide>.
+
+For a list of Amazon SES endpoints to use in service requests, see
+<http://docs.aws.amazon.com/ses/latest/DeveloperGuide/regions.html Regions and Amazon SES>
+in the Amazon SES Developer Guide.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-ses)
 and the [AWS API Reference](http://docs.aws.amazon.com/ses/latest/APIReference/Welcome.html).

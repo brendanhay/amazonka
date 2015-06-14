@@ -2,17 +2,22 @@
 
 > _Warning:_ This is an experimental preview release which is still under heavy development and not intended for public consumption, _caveat emptor_!
 
+* [Version](#version)
 * [Description](#description)
 * [Contribute](#contribute)
 * [Licence](#licence)
 
+
+## Version
+
+`0.3.6`
+
+
 ## Description
 
-Amazon Elastic Transcoder lets you convert media files that you have stored
-in Amazon Simple Storage Service (Amazon S3) into media files in the formats
-required by consumer playback devices. For example, you can convert large,
-high-quality digital media files into formats that users can play back on
-mobile devices, tablets, web browsers, and connected televisions.
+AWS Elastic Transcoder Service
+
+The AWS Elastic Transcoder Service.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-elastictranscoder)
 and the [AWS API Reference](http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/api-reference.html).

@@ -1,0 +1,63 @@
+name:                  amazonka-ds
+version:               0.3.6
+synopsis:              Amazon Directory Service SDK.
+homepage:              https://github.com/brendanhay/amazonka
+license:               OtherLicense
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
+copyright:             Copyright (c) 2013-2015 Brendan Hay
+category:              Network, AWS, Cloud, Distributed Computing
+build-type:            Simple
+extra-source-files:    README.md
+cabal-version:         >= 1.10
+
+description:
+    AWS Directory Service
+
+    This is the /AWS Directory Service API Reference/. This guide provides
+    detailed information about AWS Directory Service operations, data types,
+    parameters, and errors.
+    .
+    /See:/ <http://docs.aws.amazon.com/directoryservice/latest/devguide/welcome.html AWS API Reference>
+    .
+    /Warning:/ This is an experimental preview release which is still under
+    heavy development and not intended for public consumption, caveat emptor!
+
+source-repository head
+    type:     git
+    location: git://github.com/brendanhay/amazonka.git
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src gen
+
+    ghc-options:       -Wall
+
+    exposed-modules:
+          Network.AWS.Directory Service
+        , Network.AWS.Directory Service.ConnectDirectory
+        , Network.AWS.Directory Service.CreateAlias
+        , Network.AWS.Directory Service.CreateComputer
+        , Network.AWS.Directory Service.CreateDirectory
+        , Network.AWS.Directory Service.CreateSnapshot
+        , Network.AWS.Directory Service.DeleteDirectory
+        , Network.AWS.Directory Service.DeleteSnapshot
+        , Network.AWS.Directory Service.DescribeDirectories
+        , Network.AWS.Directory Service.DescribeSnapshots
+        , Network.AWS.Directory Service.DisableRadius
+        , Network.AWS.Directory Service.DisableSso
+        , Network.AWS.Directory Service.EnableRadius
+        , Network.AWS.Directory Service.EnableSso
+        , Network.AWS.Directory Service.GetDirectoryLimits
+        , Network.AWS.Directory Service.GetSnapshotLimits
+        , Network.AWS.Directory Service.RestoreFromSnapshot
+        , Network.AWS.Directory Service.Types
+        , Network.AWS.Directory Service.UpdateRadius
+        , Network.AWS.Directory Service.Waiters
+
+    other-modules:
+
+    build-depends:
+          amazonka-core == 0.3.6.*
+        , base          >= 4.7     && < 5

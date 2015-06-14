@@ -6,21 +6,20 @@ license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
-copyright:             Copyright (c) 2013-2014 Brendan Hay
+copyright:             Copyright (c) 2013-2015 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Amazon Simple Storage Service is storage for the Internet. Amazon S3 has a
-    simple web services interface that you can use to store and retrieve any
-    amount of data, at any time, from anywhere on the web. It gives any developer
-    access to the same highly scalable, reliable, fast, inexpensive data storage
-    infrastructure that Amazon uses to run its own global network of web sites.
-    The service aims to maximize benefits of scale and to pass those benefits on
-    to developers.
-
+    Amazon Simple Storage Service is storage for the Internet. Amazon S3 has
+    a simple web services interface that you can use to store and retrieve
+    any amount of data, at any time, from anywhere on the web. It gives any
+    developer access to the same highly scalable, reliable, fast,
+    inexpensive data storage infrastructure that Amazon uses to run its own
+    global network of web sites. The service aims to maximize benefits of
+    scale and to pass those benefits on to developers.
     .
     /See:/ <http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html AWS API Reference>
     .
@@ -45,7 +44,7 @@ library
         , Network.AWS.S3.CreateBucket
         , Network.AWS.S3.CreateMultipartUpload
         , Network.AWS.S3.DeleteBucket
-        , Network.AWS.S3.DeleteBucketCors
+        , Network.AWS.S3.DeleteBucketCORS
         , Network.AWS.S3.DeleteBucketLifecycle
         , Network.AWS.S3.DeleteBucketPolicy
         , Network.AWS.S3.DeleteBucketReplication
@@ -53,12 +52,11 @@ library
         , Network.AWS.S3.DeleteBucketWebsite
         , Network.AWS.S3.DeleteObject
         , Network.AWS.S3.DeleteObjects
-        , Network.AWS.S3.GetBucketAcl
-        , Network.AWS.S3.GetBucketCors
+        , Network.AWS.S3.GetBucketACL
+        , Network.AWS.S3.GetBucketCORS
         , Network.AWS.S3.GetBucketLifecycle
         , Network.AWS.S3.GetBucketLocation
         , Network.AWS.S3.GetBucketLogging
-        , Network.AWS.S3.GetBucketNotification
         , Network.AWS.S3.GetBucketNotificationConfiguration
         , Network.AWS.S3.GetBucketPolicy
         , Network.AWS.S3.GetBucketReplication
@@ -67,7 +65,7 @@ library
         , Network.AWS.S3.GetBucketVersioning
         , Network.AWS.S3.GetBucketWebsite
         , Network.AWS.S3.GetObject
-        , Network.AWS.S3.GetObjectAcl
+        , Network.AWS.S3.GetObjectACL
         , Network.AWS.S3.GetObjectTorrent
         , Network.AWS.S3.HeadBucket
         , Network.AWS.S3.HeadObject
@@ -76,11 +74,10 @@ library
         , Network.AWS.S3.ListObjectVersions
         , Network.AWS.S3.ListObjects
         , Network.AWS.S3.ListParts
-        , Network.AWS.S3.PutBucketAcl
-        , Network.AWS.S3.PutBucketCors
+        , Network.AWS.S3.PutBucketACL
+        , Network.AWS.S3.PutBucketCORS
         , Network.AWS.S3.PutBucketLifecycle
         , Network.AWS.S3.PutBucketLogging
-        , Network.AWS.S3.PutBucketNotification
         , Network.AWS.S3.PutBucketNotificationConfiguration
         , Network.AWS.S3.PutBucketPolicy
         , Network.AWS.S3.PutBucketReplication
@@ -89,7 +86,7 @@ library
         , Network.AWS.S3.PutBucketVersioning
         , Network.AWS.S3.PutBucketWebsite
         , Network.AWS.S3.PutObject
-        , Network.AWS.S3.PutObjectAcl
+        , Network.AWS.S3.PutObjectACL
         , Network.AWS.S3.RestoreObject
         , Network.AWS.S3.Types
         , Network.AWS.S3.UploadPart

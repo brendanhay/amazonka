@@ -6,17 +6,14 @@ license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
-copyright:             Copyright (c) 2013-2014 Brendan Hay
+copyright:             Copyright (c) 2013-2015 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Amazon Machine Learning (Amazon ML) is a robust machine learning platform
-    that allows software developers to build and train predictive applications
-    and host those applications in a scalable AWS cloud solution.
-
+    Definition of the public APIs exposed by Amazon Machine Learning
     .
     /See:/ <http://docs.aws.amazon.com/machine-learning/latest/APIReference/Welcome.html AWS API Reference>
     .
@@ -38,7 +35,7 @@ library
         , Network.AWS.MachineLearning.CreateBatchPrediction
         , Network.AWS.MachineLearning.CreateDataSourceFromRDS
         , Network.AWS.MachineLearning.CreateDataSourceFromRedshift
-        , Network.AWS.MachineLearning.CreateDataSourceFromS
+        , Network.AWS.MachineLearning.CreateDataSourceFromS3
         , Network.AWS.MachineLearning.CreateEvaluation
         , Network.AWS.MachineLearning.CreateMLModel
         , Network.AWS.MachineLearning.CreateRealtimeEndpoint
@@ -61,6 +58,7 @@ library
         , Network.AWS.MachineLearning.UpdateDataSource
         , Network.AWS.MachineLearning.UpdateEvaluation
         , Network.AWS.MachineLearning.UpdateMLModel
+        , Network.AWS.MachineLearning.Waiters
 
     other-modules:
 

@@ -2,24 +2,25 @@
 
 > _Warning:_ This is an experimental preview release which is still under heavy development and not intended for public consumption, _caveat emptor_!
 
+* [Version](#version)
 * [Description](#description)
 * [Contribute](#contribute)
 * [Licence](#licence)
 
+
+## Version
+
+`0.3.6`
+
+
 ## Description
 
-Amazon Elastic Compute Cloud (Amazon EC2) is a web service that provides
-resizable compute capacity in the cloud. It is designed to make web-scale
-computing easier for developers. Amazon EC2’s simple web service interface
-allows you to obtain and configure capacity with minimal friction. It
-provides you with complete control of your computing resources and lets you
-run on Amazon’s proven computing environment. Amazon EC2 reduces the time
-required to obtain and boot new server instances to minutes, allowing you to
-quickly scale capacity, both up and down, as your computing requirements
-change. Amazon EC2 changes the economics of computing by allowing you to pay
-only for capacity that you actually use. Amazon EC2 provides developers the
-tools to build failure resilient applications and isolate themselves from
-common failure scenarios.
+Amazon Elastic Compute Cloud
+
+Amazon Elastic Compute Cloud (Amazon EC2) provides resizable computing
+capacity in the Amazon Web Services (AWS) cloud. Using Amazon EC2
+eliminates your need to invest in hardware up front, so you can develop
+and deploy applications faster.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-ec2)
 and the [AWS API Reference](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Welcome.html).

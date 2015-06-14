@@ -6,15 +6,25 @@ license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
-copyright:             Copyright (c) 2013-2014 Brendan Hay
+copyright:             Copyright (c) 2013-2015 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Pending
+    You use the AmazonCloudSearch2013 API to upload documents to a search
+    domain and search those documents.
 
+    The endpoints for submitting @UploadDocuments@, @Search@, and @Suggest@
+    requests are domain-specific. To get the endpoints for your domain, use
+    the Amazon CloudSearch configuration service @DescribeDomains@ action.
+    The domain endpoints are also displayed on the domain dashboard in the
+    Amazon CloudSearch console. You submit suggest requests to the search
+    endpoint.
+
+    For more information, see the
+    <http://docs.aws.amazon.com/cloudsearch/latest/developerguide Amazon CloudSearch Developer Guide>.
     .
     /See:/ <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/what-is-cloudsearch.html AWS API Reference>
     .
@@ -37,6 +47,7 @@ library
         , Network.AWS.CloudSearchDomains.Suggest
         , Network.AWS.CloudSearchDomains.Types
         , Network.AWS.CloudSearchDomains.UploadDocuments
+        , Network.AWS.CloudSearchDomains.Waiters
 
     other-modules:
 

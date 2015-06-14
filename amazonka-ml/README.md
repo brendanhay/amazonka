@@ -2,15 +2,20 @@
 
 > _Warning:_ This is an experimental preview release which is still under heavy development and not intended for public consumption, _caveat emptor_!
 
+* [Version](#version)
 * [Description](#description)
 * [Contribute](#contribute)
 * [Licence](#licence)
 
+
+## Version
+
+`0.3.6`
+
+
 ## Description
 
-Amazon Machine Learning (Amazon ML) is a robust machine learning platform
-that allows software developers to build and train predictive applications
-and host those applications in a scalable AWS cloud solution.
+Definition of the public APIs exposed by Amazon Machine Learning
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-ml)
 and the [AWS API Reference](http://docs.aws.amazon.com/machine-learning/latest/APIReference/Welcome.html).

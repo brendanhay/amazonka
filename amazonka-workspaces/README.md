@@ -2,17 +2,24 @@
 
 > _Warning:_ This is an experimental preview release which is still under heavy development and not intended for public consumption, _caveat emptor_!
 
+* [Version](#version)
 * [Description](#description)
 * [Contribute](#contribute)
 * [Licence](#licence)
 
+
+## Version
+
+`0.3.6`
+
+
 ## Description
 
-Amazon WorkSpaces offers you an easy way to provide a cloud-based desktop
-experience to your end-users. You simply select from a choice of bundles that
-offer a range of different amounts of CPU, memory, storage, and a choice of
-applications. Users can connect from a PC, Mac desktop computer, iPad,
-Kindle, or Android tablet.
+Amazon WorkSpaces Service
+
+This is the /Amazon WorkSpaces API Reference/. This guide provides
+detailed information about Amazon WorkSpaces operations, data types,
+parameters, and errors.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-workspaces)
 and the [AWS API Reference](http://docs.aws.amazon.com/workspaces/latest/devguide/welcome.html).

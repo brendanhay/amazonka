@@ -2,17 +2,32 @@
 
 > _Warning:_ This is an experimental preview release which is still under heavy development and not intended for public consumption, _caveat emptor_!
 
+* [Version](#version)
 * [Description](#description)
 * [Contribute](#contribute)
 * [Licence](#licence)
 
+
+## Version
+
+`0.3.6`
+
+
 ## Description
 
-Elastic Load Balancing automatically distributes incoming application traffic
-across multiple Amazon EC2 instances. It enables you to achieve greater
-levels of fault tolerance in your applications, seamlessly providing the
-required amount of load balancing capacity needed to distribute application
-traffic.
+Elastic Load Balancing
+
+Elastic Load Balancing automatically distributes incoming web traffic
+across multiple Amazon EC2 instances.
+
+All Elastic Load Balancing actions and commands are /idempotent/, which
+means that they complete no more than one time. If you repeat a request
+or a command, the action succeeds with a 200 OK response code.
+
+For detailed information about the features of Elastic Load Balancing,
+see
+<http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/UserScenarios.html Managing Load Balancers>
+in the /Elastic Load Balancing Developer Guide/.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-elb)
 and the [AWS API Reference](http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/Welcome.html).

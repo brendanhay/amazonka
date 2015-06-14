@@ -2,18 +2,26 @@
 
 > _Warning:_ This is an experimental preview release which is still under heavy development and not intended for public consumption, _caveat emptor_!
 
+* [Version](#version)
 * [Description](#description)
 * [Contribute](#contribute)
 * [Licence](#licence)
 
+
+## Version
+
+`0.3.6`
+
+
 ## Description
 
-AWS Import/Export accelerates moving large amounts of data into and out of
-AWS using portable storage devices for transport. AWS transfers your data
-directly onto and off of storage devices using Amazon’s high-speed internal
-network and bypassing the Internet. For significant data sets, AWS
-Import/Export is often faster than Internet transfer and more cost effective
-than upgrading your connectivity.
+AWS Import\/Export Service AWS Import\/Export accelerates transferring
+large amounts of data between the AWS cloud and portable storage devices
+that you mail to us. AWS Import\/Export transfers data directly onto and
+off of your storage devices using Amazon\'s high-speed internal network
+and bypassing the Internet. For large data sets, AWS Import\/Export is
+often faster than Internet transfer and more cost effective than
+upgrading your connectivity.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-importexport)
 and the [AWS API Reference](http://docs.aws.amazon.com/AWSImportExport/latest/DG/api-reference.html).

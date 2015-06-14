@@ -1,15 +1,12 @@
 name:                  amazonka-workspaces-examples
-<<<<<<< HEAD
 version:               0.3.6
-=======
-version:               0.3.4
->>>>>>> Beginning new exploratory AST/generator improvements
-synopsis:              Amazon WorkSpaces SDK Examples
+synopsis:              Amazon WorkSpaces SDK Examples.
 homepage:              https://github.com/brendanhay/amazonka
-license:               MPL-2.0
+license:               OtherLicense
+license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
-copyright:             Copyright (c) 2013-2014 Brendan Hay
+copyright:             Copyright (c) 2013-2015 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 cabal-version:         >= 1.10
@@ -24,15 +21,9 @@ library
         WorkSpaces
 
     build-depends:
-<<<<<<< HEAD
         amazonka      == 0.3.6.*
       , amazonka-core == 0.3.6.*
-      , amazonka-workspaces == 0.3.6.*
-=======
-        amazonka      == 0.3.4.*
-      , amazonka-core == 0.3.4.*
-      , amazonka-workspaces == 0.3.4.*
->>>>>>> Beginning new exploratory AST/generator improvements
+      , amazonka-workspaces  == 0.3.6.*
       , base          >= 4.7     && < 5
       , bytestring    >= 0.9
       , conduit       >= 1.1

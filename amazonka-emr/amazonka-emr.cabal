@@ -6,19 +6,18 @@ license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
 maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
-copyright:             Copyright (c) 2013-2014 Brendan Hay
+copyright:             Copyright (c) 2013-2015 Brendan Hay
 category:              Network, AWS, Cloud, Distributed Computing
 build-type:            Simple
 extra-source-files:    README.md
 cabal-version:         >= 1.10
 
 description:
-    Amazon Elastic MapReduce (Amazon EMR) is a web service that makes it easy to
-    process large amounts of data efficiently. Amazon EMR uses Hadoop processing
-    combined with several AWS products to do such tasks as web indexing, data
-    mining, log file analysis, machine learning, scientific simulation, and data
-    warehousing.
-
+    Amazon Elastic MapReduce (Amazon EMR) is a web service that makes it
+    easy to process large amounts of data efficiently. Amazon EMR uses
+    Hadoop processing combined with several AWS products to do tasks such as
+    web indexing, data mining, log file analysis, machine learning,
+    scientific simulation, and data warehousing.
     .
     /See:/ <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/Welcome.html AWS API Reference>
     .
@@ -41,7 +40,6 @@ library
         , Network.AWS.EMR.AddJobFlowSteps
         , Network.AWS.EMR.AddTags
         , Network.AWS.EMR.DescribeCluster
-        , Network.AWS.EMR.DescribeJobFlows
         , Network.AWS.EMR.DescribeStep
         , Network.AWS.EMR.ListBootstrapActions
         , Network.AWS.EMR.ListClusters

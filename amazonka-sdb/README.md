@@ -2,26 +2,36 @@
 
 > _Warning:_ This is an experimental preview release which is still under heavy development and not intended for public consumption, _caveat emptor_!
 
+* [Version](#version)
 * [Description](#description)
 * [Contribute](#contribute)
 * [Licence](#licence)
 
+
+## Version
+
+`0.3.6`
+
+
 ## Description
 
-Amazon SimpleDB is a highly available and flexible non-relational data store
-that offloads the work of database administration. Developers simply store
-and query data items via web services requests and Amazon SimpleDB does the
-rest. Unbound by the strict requirements of a relational database, Amazon
-SimpleDB is optimized to provide high availability and flexibility, with
-little or no administrative burden. Behind the scenes, Amazon SimpleDB
-creates and manages multiple geographically distributed replicas of your data
-automatically to enable high availability and data durability. The service
-charges you only for the resources actually consumed in storing your data and
-serving your requests. You can change your data model on the fly, and data is
-automatically indexed for you. With Amazon SimpleDB, you can focus on
-application development without worrying about infrastructure provisioning,
-high availability, software maintenance, schema and index management, or
-performance tuning.
+Amazon SimpleDB is a web service providing the core database functions
+of data indexing and querying in the cloud. By offloading the time and
+effort associated with building and operating a web-scale database,
+SimpleDB provides developers the freedom to focus on application
+development.
+
+A traditional, clustered relational database requires a sizable upfront
+capital outlay, is complex to design, and often requires extensive and
+repetitive database administration. Amazon SimpleDB is dramatically
+simpler, requiring no schema, automatically indexing your data and
+providing a simple API for storage and access. This approach eliminates
+the administrative burden of data modeling, index maintenance, and
+performance tuning. Developers gain access to this functionality within
+Amazon\'s proven computing environment, are able to scale instantly, and
+pay only for what they use.
+
+Visit <http://aws.amazon.com/simpledb/> for more information.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-sdb)
 and the [AWS API Reference](http://docs.aws.amazon.com/AmazonSimpleDB/latest/DeveloperGuide/SDB_API.html).

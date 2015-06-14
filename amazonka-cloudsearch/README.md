@@ -2,17 +2,32 @@
 
 > _Warning:_ This is an experimental preview release which is still under heavy development and not intended for public consumption, _caveat emptor_!
 
+* [Version](#version)
 * [Description](#description)
 * [Contribute](#contribute)
 * [Licence](#licence)
 
+
+## Version
+
+`0.3.6`
+
+
 ## Description
 
-Amazon CloudSearch is a fully-managed service in the AWS Cloud that makes it
-simple and cost-effective to set up, manage, and scale a search solution for
-your website or application. Amazon CloudSearch supports 34 languages and
-popular search features such as highlighting, autocomplete, and geospatial
-search.
+Amazon CloudSearch Configuration Service
+
+You use the Amazon CloudSearch configuration service to create,
+configure, and manage search domains. Configuration service requests are
+submitted using the AWS Query protocol. AWS Query requests are HTTP or
+HTTPS requests submitted via HTTP GET or POST with a query parameter
+named Action.
+
+The endpoint for configuration service requests is region-specific:
+cloudsearch./region/.amazonaws.com. For example,
+cloudsearch.us-east-1.amazonaws.com. For a current list of supported
+regions and endpoints, see
+<http://docs.aws.amazon.com/general/latest/gr/rande.html#cloudsearch_region Regions and Endpoints>.
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/amazonka-cloudsearch)
 and the [AWS API Reference](http://docs.aws.amazon.com/cloudsearch/latest/developerguide/what-is-cloudsearch.html).

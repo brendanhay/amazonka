@@ -15,7 +15,7 @@
 
 ## Description
 
-{{ description }}
+{{ plainDescription }}
 
 Documentation is available via [Hackage](http://hackage.haskell.org/package/{{ libraryName }})
 and the [AWS API Reference]({{ referenceUrl }}).

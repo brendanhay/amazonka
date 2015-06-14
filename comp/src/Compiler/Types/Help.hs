@@ -14,7 +14,7 @@
 
 module Compiler.Types.Help
     ( Help
-    , asDesc
+    , Desc (..)
     ) where
 
 import           Control.Lens
@@ -59,13 +59,10 @@ instance FromJSON Help where
 instance ToJSON Help where
     toJSON = toJSON . mappend "-- |" . Text.drop 2 . wrap "-- " . flatten
 
-newtype Desc = Desc Help
+data Desc = Desc !Int Help
 
 instance ToJSON Desc where
-    toJSON (Desc h) = toJSON . wrap "    " $ flatten h
-
-asDesc :: Getter Help Desc
-asDesc = to Desc
+    toJSON (Desc n h) = toJSON . wrap (replicate n ' ') $ flatten h
 
 flatten :: Help -> String
 flatten = \case

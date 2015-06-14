@@ -189,7 +189,8 @@ instance ToJSON Library where
         Object x = object
             [ "referenceUrl"     .= (l ^. referenceUrl)
             , "operationUrl"     .= (l ^. operationUrl)
-            , "description"      .= (l ^. documentation . asDesc)
+            , "plainDescription" .= Desc 0 (l ^. documentation)
+            , "cabalDescription" .= Desc 4 (l ^. documentation)
             , "documentation"    .= (l ^. documentation)
             , "libraryName"      .= (l ^. libraryName)
             , "libraryNamespace" .= (l ^. libraryNS)

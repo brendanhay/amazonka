@@ -463,6 +463,5 @@ getRequired :: StructF (Shape a) -> [Id]
 getRequired s = nub $ _required' s <> concatMap f (Map.toList (s ^. members))
   where
     f (n, r)
-        | streaming r                            = [n]
-        | Just i <- r ^. refAnn . infoMin, i > 0 = [n]
-        | otherwise                              = []
+        | streaming r = [n]
+        | otherwise   = []

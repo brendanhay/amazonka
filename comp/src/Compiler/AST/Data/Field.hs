@@ -52,15 +52,11 @@ instance IsStreaming Field where
     streaming = streaming . _fieldRef
 
 instance TypeOf Field where
-    typeOf f = canDefault (f ^. fieldRequired) (typeOf (f ^. fieldRef))
+    typeOf f = req (f ^. fieldRequired) (typeOf (f ^. fieldRef))
       where
-        canDefault :: Bool -> TType -> TType
-        canDefault True  t  = t -- This field is required.
-        canDefault False t
-              -- This field is not required, and can be defaulted using mempty/Nothing.
-            | typeDefault t = t
-              -- This field is not required, but the TType can't be defaulted sensibly.
-            | otherwise     = TMaybe t
+        req :: Bool -> TType -> TType
+        req True  t = t
+        req False t = TMaybe t
 
 instance HasInfo Field where
     info = fieldAnn . info
@@ -106,11 +102,15 @@ fieldLens, fieldAccessor :: Getter Field Text
 fieldLens     = to (\f -> f ^. fieldId . lensId     (f ^. fieldPrefix))
 fieldAccessor = to (\f -> f ^. fieldId . accessorId (f ^. fieldPrefix))
 
--- | Parameter to a constructor function.
-fieldParam :: Getter Field Name
-fieldParam = fieldId
-    . lensId Nothing
-    . to (Ident . Text.unpack . Text.cons 'p' . upperHead)
+fieldIsParam :: Field -> Bool
+fieldIsParam f = f ^. fieldRequired && not (f ^. fieldMonoid)
+
+fieldParamName :: Field -> Name
+fieldParamName = Ident
+    . Text.unpack
+    . Text.cons 'p'
+    . upperHead
+    . view (fieldId . typeId)
 
 fieldHelp :: Getter Field Help
 fieldHelp = fieldRef

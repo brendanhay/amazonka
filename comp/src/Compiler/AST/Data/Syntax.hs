@@ -47,7 +47,7 @@ ctorSig :: Timestamp -> Id -> [Field] -> Decl
 ctorSig ts n = TypeSig noLoc [n ^. smartCtorId . to ident]
     . Fold.foldr' TyFun (n ^. typeId . to tycon)
     . map (external ts)
-    . filter (^. fieldRequired)
+    . filter fieldIsParam
 
 ctorDecl :: Id -> [Field] -> Decl
 ctorDecl n fs = sfun noLoc name ps (UnGuardedRhs rhs) noBinds
@@ -56,7 +56,7 @@ ctorDecl n fs = sfun noLoc name ps (UnGuardedRhs rhs) noBinds
     name = n ^. smartCtorId . to ident
 
     ps :: [Name]
-    ps = map (view fieldParam) (filter (view fieldRequired) fs)
+    ps = map fieldParamName (filter fieldIsParam fs)
 
     rhs :: Exp
     rhs | null fs   = var (n ^. ctorId)
@@ -65,14 +65,14 @@ ctorDecl n fs = sfun noLoc name ps (UnGuardedRhs rhs) noBinds
 fieldUpdate :: Field -> FieldUpdate
 fieldUpdate f = FieldUpdate (f ^. fieldAccessor . to unqual) set'
   where
-    set' | opt, f ^. fieldMonoid    = var "mempty"
-         | opt                      = var "Nothing"
+    set' :: Exp
+    set' | not (f ^. fieldRequired) = var "Nothing"
+         | f ^. fieldMonoid         = var "mempty"
          | Just v <- iso (typeOf f) = infixApp v "#" p
          | otherwise                = p
 
-    opt = not (f ^. fieldRequired)
-
-    p = Exts.Var (UnQual (f ^. fieldParam))
+    p :: Exp
+    p = Exts.Var (UnQual (fieldParamName f))
 
 lensSig :: Timestamp -> TType -> Field -> Decl
 lensSig ts t f = TypeSig noLoc [ident (f ^. fieldLens)] $
@@ -463,7 +463,7 @@ directed i ts d (typeOf -> t) = case t of
     TSensitive x      -> sensitive (go x)
     TMaybe     x      -> TyApp  (tycon "Maybe") (go x)
     TList      x      -> TyList (go x)
-    TList1     x      -> list1 (go x)
+    TList1     x      -> list1  (go x)
     TMap       k v    -> TyApp  (TyApp (tycon "HashMap") (go k)) (go v)
   where
     go = directed i ts d

@@ -106,7 +106,6 @@ typeDefault = \case
     TSensitive t       -> typeDefault t
     TMaybe     {}      -> True
     TList      {}      -> True
-    TList1     {}      -> True
     TMap       {}      -> True
     _                  -> False
 

@@ -30,6 +30,12 @@
                 "LastModified"
             ]
         },
+        "CompletedPart": {
+            "requiredFields": [
+                "PartNumber",
+                "ETag"
+            ]
+        },
         "BucketLocationConstraint": {
             "replacedBy": {
                 "name": "Region",

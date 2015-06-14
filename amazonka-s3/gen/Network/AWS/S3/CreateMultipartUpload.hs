@@ -235,7 +235,7 @@ instance AWSRequest CreateMultipartUpload where
         type Sv CreateMultipartUpload = S3
         type Rs CreateMultipartUpload =
              CreateMultipartUploadResponse
-        request = postXML
+        request = post
         response
           = receiveXML
               (\ s h x ->
@@ -251,9 +251,6 @@ instance AWSRequest CreateMultipartUpload where
                      h .#? "x-amz-server-side-encryption-customer-key-MD5"
                      <*> x .@? "UploadId"
                      <*> h .#? "x-amz-server-side-encryption")
-
-instance ToElement CreateMultipartUpload where
-        toElement = mkElement "CreateMultipartUpload"
 
 instance ToHeaders CreateMultipartUpload where
         toHeaders CreateMultipartUpload'{..}

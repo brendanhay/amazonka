@@ -299,7 +299,7 @@ coKey = lens _coKey (\ s a -> s{_coKey = a});
 instance AWSRequest CopyObject where
         type Sv CopyObject = S3
         type Rs CopyObject = CopyObjectResponse
-        request = putXML
+        request = put
         response
           = receiveXML
               (\ s h x ->
@@ -316,9 +316,6 @@ instance AWSRequest CopyObject where
                      h .#? "x-amz-server-side-encryption-customer-key-MD5"
                      <*> h .#? "x-amz-server-side-encryption"
                      <*> x .@? "CopyObjectResult")
-
-instance ToElement CopyObject where
-        toElement = mkElement "CopyObject"
 
 instance ToHeaders CopyObject where
         toHeaders CopyObject'{..}

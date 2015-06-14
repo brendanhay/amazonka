@@ -195,7 +195,7 @@ upcUploadId = lens _upcUploadId (\ s a -> s{_upcUploadId = a});
 instance AWSRequest UploadPartCopy where
         type Sv UploadPartCopy = S3
         type Rs UploadPartCopy = UploadPartCopyResponse
-        request = putXML
+        request = put
         response
           = receiveXML
               (\ s h x ->
@@ -211,9 +211,6 @@ instance AWSRequest UploadPartCopy where
                      <*>
                      h .#? "x-amz-server-side-encryption-customer-key-MD5"
                      <*> h .#? "x-amz-server-side-encryption")
-
-instance ToElement UploadPartCopy where
-        toElement = mkElement "UploadPartCopy"
 
 instance ToHeaders UploadPartCopy where
         toHeaders UploadPartCopy'{..}

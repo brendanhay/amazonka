@@ -130,6 +130,9 @@ requestInsts m h r fs = do
         | any isXML is = ToElement ns root : is
         | otherwise    = is
       where
+        isXML (ToXML xs) = not (null xs)
+        isXML _          = False
+
         ns = m ^. xmlNamespace
             <|> r ^? refXMLNamespace . _Just . xmlUri
             <|> x ^? _Just . fieldRef . refXMLNamespace . _Just . xmlUri
@@ -137,9 +140,6 @@ requestInsts m h r fs = do
         root = fromMaybe (memberName p Input n r)
               $ r ^. refLocationName
             <|> x ^? _Just . fieldId . memberId
-
-        isXML ToXML{} = True
-        isXML _       = False
 
         x = listToMaybe (mapMaybe go is)
           where
@@ -150,9 +150,10 @@ requestInsts m h r fs = do
     removeInsts = mapMaybe go
       where
         go = \case
-            ToXML  {} | idem || body -> Nothing
-            ToJSON {} | idem || body -> Nothing
-            i                        -> Just i
+            ToXML     {} | idem || body -> Nothing
+            ToElement {} | idem || body -> Nothing
+            ToJSON    {} | idem || body -> Nothing
+            i                           -> Just i
 
         idem = elem (h ^. method) [HEAD, GET, DELETE]
         body = isJust toBody

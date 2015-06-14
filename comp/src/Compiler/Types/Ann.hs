@@ -39,7 +39,9 @@ type Set = Set.HashSet
 data Direction
    = Output
    | Input
-     deriving (Eq, Show)
+     deriving (Eq, Show, Generic)
+
+instance Hashable Direction
 
 data Mode
     = Bi

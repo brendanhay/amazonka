@@ -483,19 +483,21 @@ mapping t e = infixE e "." (go t)
   where
     go = \case
         TSensitive x -> var "_Sensitive" : go x
-        TMaybe     x -> coerce (go x)
+        TMaybe     x -> nest (go x)
         x            -> maybeToList (iso x)
 
-    coerce (x:xs) = app (var "mapping") x : xs
-    coerce []     = []
+    nest (x:xs) = app (var "mapping") x : xs
+    nest []     = []
 
 iso :: TType -> Maybe Exp
 iso = \case
-    TLit Time    -> Just (var "_Time")
-    TNatural     -> Just (var "_Nat")
-    TSensitive _ -> Just (var "_Sensitive")
-    TList1     _ -> Just (var "_List1")
-    _            -> Nothing
+    TLit Time        -> Just (var "_Time")
+    TNatural         -> Just (var "_Nat")
+    TSensitive   {}  -> Just (var "_Sensitive")
+    TList1       {}  -> Just (var "_List1")
+    TList  (TMap {}) -> Just (var "_Coerce")
+    TMap         {}  -> Just (var "_Coerce")
+    _                -> Nothing
 
 literal :: Bool -> Timestamp -> Lit -> Type
 literal i ts = tycon . \case

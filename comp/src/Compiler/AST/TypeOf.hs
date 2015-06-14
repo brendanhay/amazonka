@@ -80,8 +80,8 @@ derivingOf = uniq . typ . typeOf
         TStream         -> [DShow]
         TMaybe     t    -> typ t
         TSensitive t    -> DShow : typ t
-        TList      e    -> monoid <> typ e
-        TList1     e    -> DSemigroup : typ e
+        TList      e    -> monoid <> intersect base (typ e)
+        TList1     e    -> DSemigroup : intersect base (typ e)
         TMap       k v  -> monoid <> intersect (typ k) (typ v)
 
     lit = \case

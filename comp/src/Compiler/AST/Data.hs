@@ -39,6 +39,7 @@ import           Data.String
 import           Data.Text                    (Text)
 import qualified Data.Text.Lazy               as LText
 import qualified Data.Text.Lazy.Builder       as Build
+import           Debug.Trace
 import           HIndent
 import           Language.Haskell.Exts.Pretty
 

@@ -91,7 +91,7 @@ renderShapes cfg svc = do
         , _shapes     = ys
         }
 
-type MemoR = StateT (Map Id Relation, Set (Maybe Id, Id)) (Either Error)
+type MemoR = StateT (Map Id Relation, Set (Id, Direction, Id)) (Either Error)
 
 -- | Determine the relation for operation payloads, both input and output.
 --
@@ -112,18 +112,20 @@ relations os ss = fst <$> execStateT (traverse go os) (mempty, mempty)
     -- and the direction the parent is used in.
     count :: Maybe Id -> Direction -> Maybe Id -> MemoR ()
     count _ _ Nothing  = pure ()
-    count p d (Just n) = check p n $ do
+    count p d (Just n) = do
         _1 %= Map.insertWith (<>) n (mkRelation p d)
-        s <- lift (safe n)
-        shape n d s
+        check p d n $ do
+            s <- lift (safe n)
+            shape n d s
 
     shape :: Id -> Direction -> ShapeF a -> MemoR ()
     shape p d = mapM_ (count (Just p) d . Just . view refShape)
         . toListOf references
 
-    -- Ensure cyclic dependencies are only check once.
-    check p n f = do
-        let k = (p, n)
+    -- Ensure cyclic dependencies are only checked once per direction/parent.
+    check Nothing  _ _ f = f
+    check (Just p) d n f = do
+        let k = (p, d, n)
         m <- uses _2 (Set.member k)
         if m
             then pure ()

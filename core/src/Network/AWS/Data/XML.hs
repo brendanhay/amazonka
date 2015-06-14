@@ -77,17 +77,16 @@ f .!@ x = fromMaybe x <$> f
 
 infixr 7 @=, @@=
 
-(@=) :: ToXML a => Name -> a -> XML
-n @= x = XOne . NodeElement $ mkElement n x
+-- Both this @= and @@= take 'Text' rather than 'Name' since
+-- the IsString instance for Name adds an empty XMLNS.
 
-(@@=) :: (IsList a, ToXML (Item a)) => Name -> a -> XML
-n @@= xs = XMany . map (NodeElement . mkElement n) $ toList xs
+(@=) :: ToXML a => Text -> a -> XML
+n @= x = XOne . NodeElement $ mkElement (Name n Nothing Nothing) x
 
--- toXMLList1 :: (IsList a, ToXML (Item a)) => Name -> a -> XML
--- toXMLList1 = toXMLList
-
--- toXMLList :: (IsList a, ToXML (Item a)) => Maybe Name -> Name -> a -> XML
--- toXMLList _ n = XMany . map (NodeElement . mkElement n) . toList
+(@@=) :: (IsList a, ToXML (Item a)) => Text -> a -> XML
+n @@= xs = XMany . map (NodeElement . mkElement e) $ toList xs
+  where
+    e = Name n Nothing Nothing
 
 decodeXML :: FromXML a => LazyByteString -> Either String a
 decodeXML = either failure success . parseLBS def

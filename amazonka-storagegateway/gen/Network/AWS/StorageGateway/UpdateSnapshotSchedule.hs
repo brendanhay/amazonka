@@ -1,0 +1,140 @@
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE OverloadedStrings #-}
+
+-- Module      : Network.AWS.StorageGateway.UpdateSnapshotSchedule
+-- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- License     : This Source Code Form is subject to the terms of
+--               the Mozilla Public License, v. 2.0.
+--               A copy of the MPL can be found in the LICENSE file or
+--               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : experimental
+-- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- | This operation updates a snapshot schedule configured for a gateway
+-- volume.
+--
+-- The default snapshot schedule for volume is once every 24 hours,
+-- starting at the creation time of the volume. You can use this API to
+-- change the snapshot schedule configured for the volume.
+--
+-- In the request you must identify the gateway volume whose snapshot
+-- schedule you want to update, and the schedule information, including
+-- when you want the snapshot to begin on a day and the frequency (in
+-- hours) of snapshots.
+--
+-- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateSnapshotSchedule.html>
+module Network.AWS.StorageGateway.UpdateSnapshotSchedule
+    (
+    -- * Request
+      UpdateSnapshotSchedule
+    -- ** Request constructor
+    , updateSnapshotSchedule
+    -- ** Request lenses
+    , ussVolumeARN
+    , ussStartAt
+    , ussRecurrenceInHours
+    , ussDescription
+
+    -- * Response
+    , UpdateSnapshotScheduleResponse
+    -- ** Response constructor
+    , updateSnapshotScheduleResponse
+    -- ** Response lenses
+    , ussrVolumeARN
+    ) where
+
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Prelude
+import Network.AWS.StorageGateway.Types
+
+-- | /See:/ 'updateSnapshotSchedule' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'ussVolumeARN'
+--
+-- * 'ussStartAt'
+--
+-- * 'ussRecurrenceInHours'
+--
+-- * 'ussDescription'
+data UpdateSnapshotSchedule = UpdateSnapshotSchedule'{_ussVolumeARN :: Text, _ussStartAt :: Nat, _ussRecurrenceInHours :: Nat, _ussDescription :: Text} deriving (Eq, Read, Show)
+
+-- | 'UpdateSnapshotSchedule' smart constructor.
+updateSnapshotSchedule :: Text -> Natural -> Natural -> Text -> UpdateSnapshotSchedule
+updateSnapshotSchedule pVolumeARN pStartAt pRecurrenceInHours pDescription = UpdateSnapshotSchedule'{_ussVolumeARN = pVolumeARN, _ussStartAt = _Nat # pStartAt, _ussRecurrenceInHours = _Nat # pRecurrenceInHours, _ussDescription = pDescription};
+
+-- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
+-- operation to return a list of gateway volumes.
+ussVolumeARN :: Lens' UpdateSnapshotSchedule Text
+ussVolumeARN = lens _ussVolumeARN (\ s a -> s{_ussVolumeARN = a});
+
+-- | The hour of the day at which the snapshot schedule begins represented as
+-- /hh/, where /hh/ is the hour (0 to 23). The hour of the day is in the
+-- time zone of the gateway.
+ussStartAt :: Lens' UpdateSnapshotSchedule Natural
+ussStartAt = lens _ussStartAt (\ s a -> s{_ussStartAt = a}) . _Nat;
+
+-- | Frequency of snapshots. Specify the number of hours between snapshots.
+ussRecurrenceInHours :: Lens' UpdateSnapshotSchedule Natural
+ussRecurrenceInHours = lens _ussRecurrenceInHours (\ s a -> s{_ussRecurrenceInHours = a}) . _Nat;
+
+-- | Optional description of the snapshot that overwrites the existing
+-- description.
+ussDescription :: Lens' UpdateSnapshotSchedule Text
+ussDescription = lens _ussDescription (\ s a -> s{_ussDescription = a});
+
+instance AWSRequest UpdateSnapshotSchedule where
+        type Sv UpdateSnapshotSchedule = StorageGateway
+        type Rs UpdateSnapshotSchedule =
+             UpdateSnapshotScheduleResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 UpdateSnapshotScheduleResponse' <$>
+                   x .:> "VolumeARN")
+
+instance ToHeaders UpdateSnapshotSchedule where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("StorageGateway_20130630.UpdateSnapshotSchedule" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON UpdateSnapshotSchedule where
+        toJSON UpdateSnapshotSchedule'{..}
+          = object
+              ["VolumeARN" .= _ussVolumeARN,
+               "StartAt" .= _ussStartAt,
+               "RecurrenceInHours" .= _ussRecurrenceInHours,
+               "Description" .= _ussDescription]
+
+instance ToPath UpdateSnapshotSchedule where
+        toPath = const "/"
+
+instance ToQuery UpdateSnapshotSchedule where
+        toQuery = const mempty
+
+-- | /See:/ 'updateSnapshotScheduleResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'ussrVolumeARN'
+newtype UpdateSnapshotScheduleResponse = UpdateSnapshotScheduleResponse'{_ussrVolumeARN :: Text} deriving (Eq, Read, Show)
+
+-- | 'UpdateSnapshotScheduleResponse' smart constructor.
+updateSnapshotScheduleResponse :: Text -> UpdateSnapshotScheduleResponse
+updateSnapshotScheduleResponse pVolumeARN = UpdateSnapshotScheduleResponse'{_ussrVolumeARN = pVolumeARN};
+
+-- | FIXME: Undocumented member.
+ussrVolumeARN :: Lens' UpdateSnapshotScheduleResponse Text
+ussrVolumeARN = lens _ussrVolumeARN (\ s a -> s{_ussrVolumeARN = a});

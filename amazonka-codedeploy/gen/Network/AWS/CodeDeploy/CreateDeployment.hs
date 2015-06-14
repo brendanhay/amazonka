@@ -1,0 +1,158 @@
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE OverloadedStrings #-}
+
+-- Module      : Network.AWS.CodeDeploy.CreateDeployment
+-- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- License     : This Source Code Form is subject to the terms of
+--               the Mozilla Public License, v. 2.0.
+--               A copy of the MPL can be found in the LICENSE file or
+--               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : experimental
+-- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- | Deploys an application revision through the specified deployment group.
+--
+-- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeployment.html>
+module Network.AWS.CodeDeploy.CreateDeployment
+    (
+    -- * Request
+      CreateDeployment
+    -- ** Request constructor
+    , createDeployment
+    -- ** Request lenses
+    , cdRevision
+    , cdDescription
+    , cdIgnoreApplicationStopFailures
+    , cdApplicationName
+    , cdDeploymentConfigName
+    , cdDeploymentGroupName
+
+    -- * Response
+    , CreateDeploymentResponse
+    -- ** Response constructor
+    , createDeploymentResponse
+    -- ** Response lenses
+    , cdrDeploymentId
+    ) where
+
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Prelude
+import Network.AWS.CodeDeploy.Types
+
+-- | /See:/ 'createDeployment' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'cdRevision'
+--
+-- * 'cdDescription'
+--
+-- * 'cdIgnoreApplicationStopFailures'
+--
+-- * 'cdApplicationName'
+--
+-- * 'cdDeploymentConfigName'
+--
+-- * 'cdDeploymentGroupName'
+data CreateDeployment = CreateDeployment'{_cdRevision :: Maybe RevisionLocation, _cdDescription :: Maybe Text, _cdIgnoreApplicationStopFailures :: Maybe Bool, _cdApplicationName :: Text, _cdDeploymentConfigName :: Text, _cdDeploymentGroupName :: Text} deriving (Eq, Read, Show)
+
+-- | 'CreateDeployment' smart constructor.
+createDeployment :: Text -> Text -> Text -> CreateDeployment
+createDeployment pApplicationName pDeploymentConfigName pDeploymentGroupName = CreateDeployment'{_cdRevision = Nothing, _cdDescription = Nothing, _cdIgnoreApplicationStopFailures = Nothing, _cdApplicationName = pApplicationName, _cdDeploymentConfigName = pDeploymentConfigName, _cdDeploymentGroupName = pDeploymentGroupName};
+
+-- | The type of revision to deploy, along with information about the
+-- revision\'s location.
+cdRevision :: Lens' CreateDeployment (Maybe RevisionLocation)
+cdRevision = lens _cdRevision (\ s a -> s{_cdRevision = a});
+
+-- | A comment about the deployment.
+cdDescription :: Lens' CreateDeployment (Maybe Text)
+cdDescription = lens _cdDescription (\ s a -> s{_cdDescription = a});
+
+-- | If set to true, then if the deployment causes the ApplicationStop
+-- deployment lifecycle event to fail to a specific instance, the
+-- deployment will not be considered to have failed to that instance at
+-- that point and will continue on to the BeforeInstall deployment
+-- lifecycle event.
+--
+-- If set to false or not specified, then if the deployment causes the
+-- ApplicationStop deployment lifecycle event to fail to a specific
+-- instance, the deployment will stop to that instance, and the deployment
+-- to that instance will be considered to have failed.
+cdIgnoreApplicationStopFailures :: Lens' CreateDeployment (Maybe Bool)
+cdIgnoreApplicationStopFailures = lens _cdIgnoreApplicationStopFailures (\ s a -> s{_cdIgnoreApplicationStopFailures = a});
+
+-- | The name of an existing AWS CodeDeploy application associated with the
+-- applicable IAM user or AWS account.
+cdApplicationName :: Lens' CreateDeployment Text
+cdApplicationName = lens _cdApplicationName (\ s a -> s{_cdApplicationName = a});
+
+-- | The name of an existing deployment configuration associated with the
+-- applicable IAM user or AWS account.
+--
+-- If not specified, the value configured in the deployment group will be
+-- used as the default. If the deployment group does not have a deployment
+-- configuration associated with it, then CodeDeployDefault.OneAtATime will
+-- be used by default.
+cdDeploymentConfigName :: Lens' CreateDeployment Text
+cdDeploymentConfigName = lens _cdDeploymentConfigName (\ s a -> s{_cdDeploymentConfigName = a});
+
+-- | The deployment group\'s name.
+cdDeploymentGroupName :: Lens' CreateDeployment Text
+cdDeploymentGroupName = lens _cdDeploymentGroupName (\ s a -> s{_cdDeploymentGroupName = a});
+
+instance AWSRequest CreateDeployment where
+        type Sv CreateDeployment = CodeDeploy
+        type Rs CreateDeployment = CreateDeploymentResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 CreateDeploymentResponse' <$> x .?> "deploymentId")
+
+instance ToHeaders CreateDeployment where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("CodeDeploy_20141006.CreateDeployment" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON CreateDeployment where
+        toJSON CreateDeployment'{..}
+          = object
+              ["revision" .= _cdRevision,
+               "description" .= _cdDescription,
+               "ignoreApplicationStopFailures" .=
+                 _cdIgnoreApplicationStopFailures,
+               "applicationName" .= _cdApplicationName,
+               "deploymentConfigName" .= _cdDeploymentConfigName,
+               "deploymentGroupName" .= _cdDeploymentGroupName]
+
+instance ToPath CreateDeployment where
+        toPath = const "/"
+
+instance ToQuery CreateDeployment where
+        toQuery = const mempty
+
+-- | /See:/ 'createDeploymentResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'cdrDeploymentId'
+newtype CreateDeploymentResponse = CreateDeploymentResponse'{_cdrDeploymentId :: Maybe Text} deriving (Eq, Read, Show)
+
+-- | 'CreateDeploymentResponse' smart constructor.
+createDeploymentResponse :: CreateDeploymentResponse
+createDeploymentResponse = CreateDeploymentResponse'{_cdrDeploymentId = Nothing};
+
+-- | A unique deployment ID.
+cdrDeploymentId :: Lens' CreateDeploymentResponse (Maybe Text)
+cdrDeploymentId = lens _cdrDeploymentId (\ s a -> s{_cdrDeploymentId = a});

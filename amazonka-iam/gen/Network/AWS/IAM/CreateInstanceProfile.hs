@@ -1,0 +1,114 @@
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE OverloadedStrings #-}
+
+-- Module      : Network.AWS.IAM.CreateInstanceProfile
+-- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- License     : This Source Code Form is subject to the terms of
+--               the Mozilla Public License, v. 2.0.
+--               A copy of the MPL can be found in the LICENSE file or
+--               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : experimental
+-- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- | Creates a new instance profile. For information about instance profiles,
+-- go to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles>.
+--
+-- For information about the number of instance profiles you can create,
+-- see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html Limitations on IAM Entities>
+-- in the /Using IAM/ guide.
+--
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateInstanceProfile.html>
+module Network.AWS.IAM.CreateInstanceProfile
+    (
+    -- * Request
+      CreateInstanceProfile
+    -- ** Request constructor
+    , createInstanceProfile
+    -- ** Request lenses
+    , cipInstanceProfileName
+    , cipPath
+
+    -- * Response
+    , CreateInstanceProfileResponse
+    -- ** Response constructor
+    , createInstanceProfileResponse
+    -- ** Response lenses
+    , ciprInstanceProfile
+    ) where
+
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Prelude
+import Network.AWS.IAM.Types
+
+-- | /See:/ 'createInstanceProfile' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'cipInstanceProfileName'
+--
+-- * 'cipPath'
+data CreateInstanceProfile = CreateInstanceProfile'{_cipInstanceProfileName :: Text, _cipPath :: Text} deriving (Eq, Read, Show)
+
+-- | 'CreateInstanceProfile' smart constructor.
+createInstanceProfile :: Text -> Text -> CreateInstanceProfile
+createInstanceProfile pInstanceProfileName pPath = CreateInstanceProfile'{_cipInstanceProfileName = pInstanceProfileName, _cipPath = pPath};
+
+-- | The name of the instance profile to create.
+cipInstanceProfileName :: Lens' CreateInstanceProfile Text
+cipInstanceProfileName = lens _cipInstanceProfileName (\ s a -> s{_cipInstanceProfileName = a});
+
+-- | The path to the instance profile. For more information about paths, see
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
+-- in the /Using IAM/ guide.
+--
+-- This parameter is optional. If it is not included, it defaults to a
+-- slash (\/).
+cipPath :: Lens' CreateInstanceProfile Text
+cipPath = lens _cipPath (\ s a -> s{_cipPath = a});
+
+instance AWSRequest CreateInstanceProfile where
+        type Sv CreateInstanceProfile = IAM
+        type Rs CreateInstanceProfile =
+             CreateInstanceProfileResponse
+        request = post
+        response
+          = receiveXMLWrapper "CreateInstanceProfileResult"
+              (\ s h x ->
+                 CreateInstanceProfileResponse' <$>
+                   x .@ "InstanceProfile")
+
+instance ToHeaders CreateInstanceProfile where
+        toHeaders = const mempty
+
+instance ToPath CreateInstanceProfile where
+        toPath = const "/"
+
+instance ToQuery CreateInstanceProfile where
+        toQuery CreateInstanceProfile'{..}
+          = mconcat
+              ["Action" =: ("CreateInstanceProfile" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "InstanceProfileName" =: _cipInstanceProfileName,
+               "Path" =: _cipPath]
+
+-- | /See:/ 'createInstanceProfileResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'ciprInstanceProfile'
+newtype CreateInstanceProfileResponse = CreateInstanceProfileResponse'{_ciprInstanceProfile :: InstanceProfile} deriving (Eq, Read, Show)
+
+-- | 'CreateInstanceProfileResponse' smart constructor.
+createInstanceProfileResponse :: InstanceProfile -> CreateInstanceProfileResponse
+createInstanceProfileResponse pInstanceProfile = CreateInstanceProfileResponse'{_ciprInstanceProfile = pInstanceProfile};
+
+-- | Information about the instance profile.
+ciprInstanceProfile :: Lens' CreateInstanceProfileResponse InstanceProfile
+ciprInstanceProfile = lens _ciprInstanceProfile (\ s a -> s{_ciprInstanceProfile = a});

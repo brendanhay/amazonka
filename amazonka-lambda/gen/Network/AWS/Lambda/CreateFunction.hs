@@ -1,0 +1,167 @@
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE OverloadedStrings #-}
+
+-- Module      : Network.AWS.Lambda.CreateFunction
+-- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- License     : This Source Code Form is subject to the terms of
+--               the Mozilla Public License, v. 2.0.
+--               A copy of the MPL can be found in the LICENSE file or
+--               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : experimental
+-- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- | Creates a new Lambda function. The function metadata is created from the
+-- request parameters, and the code for the function is provided by a .zip
+-- file in the request body. If the function name already exists, the
+-- operation will fail. Note that the function name is case-sensitive.
+--
+-- This operation requires permission for the @lambda:CreateFunction@
+-- action.
+--
+-- <http://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html>
+module Network.AWS.Lambda.CreateFunction
+    (
+    -- * Request
+      CreateFunction
+    -- ** Request constructor
+    , createFunction
+    -- ** Request lenses
+    , cfDescription
+    , cfFunctionName
+    , cfRuntime
+    , cfRole
+    , cfHandler
+    , cfCode
+    , cfMemorySize
+    , cfTimeout
+
+    -- * Response
+    , FunctionConfiguration
+    -- ** Response constructor
+    , functionConfiguration
+    -- ** Response lenses
+    , fcRuntime
+    , fcFunctionARN
+    , fcRole
+    , fcCodeSize
+    , fcHandler
+    , fcLastModified
+    , fcDescription
+    , fcMemorySize
+    , fcFunctionName
+    , fcTimeout
+    ) where
+
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Prelude
+import Network.AWS.Lambda.Types
+
+-- | /See:/ 'createFunction' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'cfDescription'
+--
+-- * 'cfFunctionName'
+--
+-- * 'cfRuntime'
+--
+-- * 'cfRole'
+--
+-- * 'cfHandler'
+--
+-- * 'cfCode'
+--
+-- * 'cfMemorySize'
+--
+-- * 'cfTimeout'
+data CreateFunction = CreateFunction'{_cfDescription :: Maybe Text, _cfFunctionName :: Text, _cfRuntime :: Runtime, _cfRole :: Text, _cfHandler :: Text, _cfCode :: FunctionCode, _cfMemorySize :: Nat, _cfTimeout :: Nat} deriving (Eq, Read, Show)
+
+-- | 'CreateFunction' smart constructor.
+createFunction :: Text -> Runtime -> Text -> Text -> FunctionCode -> Natural -> Natural -> CreateFunction
+createFunction pFunctionName pRuntime pRole pHandler pCode pMemorySize pTimeout = CreateFunction'{_cfDescription = Nothing, _cfFunctionName = pFunctionName, _cfRuntime = pRuntime, _cfRole = pRole, _cfHandler = pHandler, _cfCode = pCode, _cfMemorySize = _Nat # pMemorySize, _cfTimeout = _Nat # pTimeout};
+
+-- | A short, user-defined function description. Lambda does not use this
+-- value. Assign a meaningful description as you see fit.
+cfDescription :: Lens' CreateFunction (Maybe Text)
+cfDescription = lens _cfDescription (\ s a -> s{_cfDescription = a});
+
+-- | The name you want to assign to the function you are uploading. You can
+-- specify an unqualified function name (for example, \"Thumbnail\") or you
+-- can specify Amazon Resource Name (ARN) of the function (for example,
+-- \"arn:aws:lambda:us-west-2:account-id:function:ThumbNail\"). AWS Lambda
+-- also allows you to specify only the account ID qualifier (for example,
+-- \"account-id:Thumbnail\"). Note that the length constraint applies only
+-- to the ARN. If you specify only the function name, it is limited to 64
+-- character in length. The function names appear in the console and are
+-- returned in the ListFunctions API. Function names are used to specify
+-- functions to other AWS Lambda APIs, such as Invoke.
+cfFunctionName :: Lens' CreateFunction Text
+cfFunctionName = lens _cfFunctionName (\ s a -> s{_cfFunctionName = a});
+
+-- | The runtime environment for the Lambda function you are uploading.
+-- Currently, Lambda supports only \"nodejs\" as the runtime.
+cfRuntime :: Lens' CreateFunction Runtime
+cfRuntime = lens _cfRuntime (\ s a -> s{_cfRuntime = a});
+
+-- | The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when
+-- it executes your function to access any other Amazon Web Services (AWS)
+-- resources. For more information, see
+-- <http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works>
+cfRole :: Lens' CreateFunction Text
+cfRole = lens _cfRole (\ s a -> s{_cfRole = a});
+
+-- | The function within your code that Lambda calls to begin execution. For
+-- Node.js, it is the /module-name/./export/ value in your function.
+cfHandler :: Lens' CreateFunction Text
+cfHandler = lens _cfHandler (\ s a -> s{_cfHandler = a});
+
+-- | A structure that includes ZipFile.
+cfCode :: Lens' CreateFunction FunctionCode
+cfCode = lens _cfCode (\ s a -> s{_cfCode = a});
+
+-- | The amount of memory, in MB, your Lambda function is given. Lambda uses
+-- this memory size to infer the amount of CPU and memory allocated to your
+-- function. Your function use-case determines your CPU and memory
+-- requirements. For example, a database operation might need less memory
+-- compared to an image processing function. The default value is 128 MB.
+-- The value must be a multiple of 64 MB.
+cfMemorySize :: Lens' CreateFunction Natural
+cfMemorySize = lens _cfMemorySize (\ s a -> s{_cfMemorySize = a}) . _Nat;
+
+-- | The function execution time at which Lambda should terminate the
+-- function. Because the execution time has cost implications, we recommend
+-- you set this value based on your expected execution time. The default is
+-- 3 seconds.
+cfTimeout :: Lens' CreateFunction Natural
+cfTimeout = lens _cfTimeout (\ s a -> s{_cfTimeout = a}) . _Nat;
+
+instance AWSRequest CreateFunction where
+        type Sv CreateFunction = Lambda
+        type Rs CreateFunction = FunctionConfiguration
+        request = postJSON
+        response = receiveJSON (\ s h x -> eitherParseJSON x)
+
+instance ToHeaders CreateFunction where
+        toHeaders = const mempty
+
+instance ToJSON CreateFunction where
+        toJSON CreateFunction'{..}
+          = object
+              ["Description" .= _cfDescription,
+               "FunctionName" .= _cfFunctionName,
+               "Runtime" .= _cfRuntime, "Role" .= _cfRole,
+               "Handler" .= _cfHandler, "Code" .= _cfCode,
+               "MemorySize" .= _cfMemorySize,
+               "Timeout" .= _cfTimeout]
+
+instance ToPath CreateFunction where
+        toPath = const "/2015-03-31/functions"
+
+instance ToQuery CreateFunction where
+        toQuery = const mempty

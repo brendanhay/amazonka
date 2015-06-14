@@ -1,0 +1,127 @@
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE OverloadedStrings #-}
+
+-- Module      : Network.AWS.Lambda.UpdateEventSourceMapping
+-- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- License     : This Source Code Form is subject to the terms of
+--               the Mozilla Public License, v. 2.0.
+--               A copy of the MPL can be found in the LICENSE file or
+--               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : experimental
+-- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- | You can update an event source mapping. This is useful if you want to
+-- change the parameters of the existing mapping without losing your
+-- position in the stream. You can change which function will receive the
+-- stream records, but to change the stream itself, you must create a new
+-- mapping.
+--
+-- This operation requires permission for the
+-- @lambda:UpdateEventSourceMapping@ action.
+--
+-- <http://docs.aws.amazon.com/lambda/latest/dg/API_UpdateEventSourceMapping.html>
+module Network.AWS.Lambda.UpdateEventSourceMapping
+    (
+    -- * Request
+      UpdateEventSourceMapping
+    -- ** Request constructor
+    , updateEventSourceMapping
+    -- ** Request lenses
+    , uesmEnabled
+    , uesmUUID
+    , uesmBatchSize
+    , uesmFunctionName
+
+    -- * Response
+    , EventSourceMappingConfiguration
+    -- ** Response constructor
+    , eventSourceMappingConfiguration
+    -- ** Response lenses
+    , esmcEventSourceARN
+    , esmcFunctionARN
+    , esmcState
+    , esmcUUID
+    , esmcLastProcessingResult
+    , esmcStateTransitionReason
+    , esmcLastModified
+    , esmcBatchSize
+    ) where
+
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Prelude
+import Network.AWS.Lambda.Types
+
+-- | /See:/ 'updateEventSourceMapping' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'uesmEnabled'
+--
+-- * 'uesmUUID'
+--
+-- * 'uesmBatchSize'
+--
+-- * 'uesmFunctionName'
+data UpdateEventSourceMapping = UpdateEventSourceMapping'{_uesmEnabled :: Maybe Bool, _uesmUUID :: Text, _uesmBatchSize :: Nat, _uesmFunctionName :: Text} deriving (Eq, Read, Show)
+
+-- | 'UpdateEventSourceMapping' smart constructor.
+updateEventSourceMapping :: Text -> Natural -> Text -> UpdateEventSourceMapping
+updateEventSourceMapping pUUID pBatchSize pFunctionName = UpdateEventSourceMapping'{_uesmEnabled = Nothing, _uesmUUID = pUUID, _uesmBatchSize = _Nat # pBatchSize, _uesmFunctionName = pFunctionName};
+
+-- | Specifies whether AWS Lambda should actively poll the stream or not. If
+-- disabled, AWS Lambda will not poll the stream.
+uesmEnabled :: Lens' UpdateEventSourceMapping (Maybe Bool)
+uesmEnabled = lens _uesmEnabled (\ s a -> s{_uesmEnabled = a});
+
+-- | The event source mapping identifier.
+uesmUUID :: Lens' UpdateEventSourceMapping Text
+uesmUUID = lens _uesmUUID (\ s a -> s{_uesmUUID = a});
+
+-- | The maximum number of stream records that can be sent to your Lambda
+-- function for a single invocation.
+uesmBatchSize :: Lens' UpdateEventSourceMapping Natural
+uesmBatchSize = lens _uesmBatchSize (\ s a -> s{_uesmBatchSize = a}) . _Nat;
+
+-- | The Lambda function to which you want the stream records sent.
+--
+-- You can specify an unqualified function name (for example,
+-- \"Thumbnail\") or you can specify Amazon Resource Name (ARN) of the
+-- function (for example,
+-- \"arn:aws:lambda:us-west-2:account-id:function:ThumbNail\"). AWS Lambda
+-- also allows you to specify only the account ID qualifier (for example,
+-- \"account-id:Thumbnail\"). Note that the length constraint applies only
+-- to the ARN. If you specify only the function name, it is limited to 64
+-- character in length.
+uesmFunctionName :: Lens' UpdateEventSourceMapping Text
+uesmFunctionName = lens _uesmFunctionName (\ s a -> s{_uesmFunctionName = a});
+
+instance AWSRequest UpdateEventSourceMapping where
+        type Sv UpdateEventSourceMapping = Lambda
+        type Rs UpdateEventSourceMapping =
+             EventSourceMappingConfiguration
+        request = putJSON
+        response = receiveJSON (\ s h x -> eitherParseJSON x)
+
+instance ToHeaders UpdateEventSourceMapping where
+        toHeaders = const mempty
+
+instance ToJSON UpdateEventSourceMapping where
+        toJSON UpdateEventSourceMapping'{..}
+          = object
+              ["Enabled" .= _uesmEnabled,
+               "BatchSize" .= _uesmBatchSize,
+               "FunctionName" .= _uesmFunctionName]
+
+instance ToPath UpdateEventSourceMapping where
+        toPath UpdateEventSourceMapping'{..}
+          = mconcat
+              ["/2015-03-31/event-source-mappings/",
+               toText _uesmUUID]
+
+instance ToQuery UpdateEventSourceMapping where
+        toQuery = const mempty

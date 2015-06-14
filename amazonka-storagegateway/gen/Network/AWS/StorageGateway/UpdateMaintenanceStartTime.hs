@@ -1,0 +1,132 @@
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE OverloadedStrings #-}
+
+-- Module      : Network.AWS.StorageGateway.UpdateMaintenanceStartTime
+-- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- License     : This Source Code Form is subject to the terms of
+--               the Mozilla Public License, v. 2.0.
+--               A copy of the MPL can be found in the LICENSE file or
+--               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : experimental
+-- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- | This operation updates a gateway\'s weekly maintenance start time
+-- information, including day and time of the week. The maintenance time is
+-- the time in your gateway\'s time zone.
+--
+-- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_UpdateMaintenanceStartTime.html>
+module Network.AWS.StorageGateway.UpdateMaintenanceStartTime
+    (
+    -- * Request
+      UpdateMaintenanceStartTime
+    -- ** Request constructor
+    , updateMaintenanceStartTime
+    -- ** Request lenses
+    , umstGatewayARN
+    , umstHourOfDay
+    , umstMinuteOfHour
+    , umstDayOfWeek
+
+    -- * Response
+    , UpdateMaintenanceStartTimeResponse
+    -- ** Response constructor
+    , updateMaintenanceStartTimeResponse
+    -- ** Response lenses
+    , umstrGatewayARN
+    ) where
+
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Prelude
+import Network.AWS.StorageGateway.Types
+
+-- | /See:/ 'updateMaintenanceStartTime' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'umstGatewayARN'
+--
+-- * 'umstHourOfDay'
+--
+-- * 'umstMinuteOfHour'
+--
+-- * 'umstDayOfWeek'
+data UpdateMaintenanceStartTime = UpdateMaintenanceStartTime'{_umstGatewayARN :: Text, _umstHourOfDay :: Nat, _umstMinuteOfHour :: Nat, _umstDayOfWeek :: Nat} deriving (Eq, Read, Show)
+
+-- | 'UpdateMaintenanceStartTime' smart constructor.
+updateMaintenanceStartTime :: Text -> Natural -> Natural -> Natural -> UpdateMaintenanceStartTime
+updateMaintenanceStartTime pGatewayARN pHourOfDay pMinuteOfHour pDayOfWeek = UpdateMaintenanceStartTime'{_umstGatewayARN = pGatewayARN, _umstHourOfDay = _Nat # pHourOfDay, _umstMinuteOfHour = _Nat # pMinuteOfHour, _umstDayOfWeek = _Nat # pDayOfWeek};
+
+-- | FIXME: Undocumented member.
+umstGatewayARN :: Lens' UpdateMaintenanceStartTime Text
+umstGatewayARN = lens _umstGatewayARN (\ s a -> s{_umstGatewayARN = a});
+
+-- | The hour component of the maintenance start time represented as hh,
+-- where /hh/ is the hour (00 to 23). The hour of the day is in the time
+-- zone of the gateway.
+umstHourOfDay :: Lens' UpdateMaintenanceStartTime Natural
+umstHourOfDay = lens _umstHourOfDay (\ s a -> s{_umstHourOfDay = a}) . _Nat;
+
+-- | The minute component of the maintenance start time represented as /mm/,
+-- where /mm/ is the minute (00 to 59). The minute of the hour is in the
+-- time zone of the gateway.
+umstMinuteOfHour :: Lens' UpdateMaintenanceStartTime Natural
+umstMinuteOfHour = lens _umstMinuteOfHour (\ s a -> s{_umstMinuteOfHour = a}) . _Nat;
+
+-- | The maintenance start time day of the week.
+umstDayOfWeek :: Lens' UpdateMaintenanceStartTime Natural
+umstDayOfWeek = lens _umstDayOfWeek (\ s a -> s{_umstDayOfWeek = a}) . _Nat;
+
+instance AWSRequest UpdateMaintenanceStartTime where
+        type Sv UpdateMaintenanceStartTime = StorageGateway
+        type Rs UpdateMaintenanceStartTime =
+             UpdateMaintenanceStartTimeResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 UpdateMaintenanceStartTimeResponse' <$>
+                   x .:> "GatewayARN")
+
+instance ToHeaders UpdateMaintenanceStartTime where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("StorageGateway_20130630.UpdateMaintenanceStartTime"
+                       :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON UpdateMaintenanceStartTime where
+        toJSON UpdateMaintenanceStartTime'{..}
+          = object
+              ["GatewayARN" .= _umstGatewayARN,
+               "HourOfDay" .= _umstHourOfDay,
+               "MinuteOfHour" .= _umstMinuteOfHour,
+               "DayOfWeek" .= _umstDayOfWeek]
+
+instance ToPath UpdateMaintenanceStartTime where
+        toPath = const "/"
+
+instance ToQuery UpdateMaintenanceStartTime where
+        toQuery = const mempty
+
+-- | /See:/ 'updateMaintenanceStartTimeResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'umstrGatewayARN'
+newtype UpdateMaintenanceStartTimeResponse = UpdateMaintenanceStartTimeResponse'{_umstrGatewayARN :: Text} deriving (Eq, Read, Show)
+
+-- | 'UpdateMaintenanceStartTimeResponse' smart constructor.
+updateMaintenanceStartTimeResponse :: Text -> UpdateMaintenanceStartTimeResponse
+updateMaintenanceStartTimeResponse pGatewayARN = UpdateMaintenanceStartTimeResponse'{_umstrGatewayARN = pGatewayARN};
+
+-- | FIXME: Undocumented member.
+umstrGatewayARN :: Lens' UpdateMaintenanceStartTimeResponse Text
+umstrGatewayARN = lens _umstrGatewayARN (\ s a -> s{_umstrGatewayARN = a});

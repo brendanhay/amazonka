@@ -1,0 +1,149 @@
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE OverloadedStrings #-}
+
+-- Module      : Network.AWS.IAM.ListInstanceProfiles
+-- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- License     : This Source Code Form is subject to the terms of
+--               the Mozilla Public License, v. 2.0.
+--               A copy of the MPL can be found in the LICENSE file or
+--               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : experimental
+-- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- | Lists the instance profiles that have the specified path prefix. If
+-- there are none, the action returns an empty list. For more information
+-- about instance profiles, go to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles>.
+--
+-- You can paginate the results using the @MaxItems@ and @Marker@
+-- parameters.
+--
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListInstanceProfiles.html>
+module Network.AWS.IAM.ListInstanceProfiles
+    (
+    -- * Request
+      ListInstanceProfiles
+    -- ** Request constructor
+    , listInstanceProfiles
+    -- ** Request lenses
+    , lipPathPrefix
+    , lipMaxItems
+    , lipMarker
+
+    -- * Response
+    , ListInstanceProfilesResponse
+    -- ** Response constructor
+    , listInstanceProfilesResponse
+    -- ** Response lenses
+    , liprIsTruncated
+    , liprInstanceProfiles
+    , liprMarker
+    ) where
+
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Prelude
+import Network.AWS.IAM.Types
+
+-- | /See:/ 'listInstanceProfiles' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'lipPathPrefix'
+--
+-- * 'lipMaxItems'
+--
+-- * 'lipMarker'
+data ListInstanceProfiles = ListInstanceProfiles'{_lipPathPrefix :: Text, _lipMaxItems :: Nat, _lipMarker :: Text} deriving (Eq, Read, Show)
+
+-- | 'ListInstanceProfiles' smart constructor.
+listInstanceProfiles :: Text -> Natural -> Text -> ListInstanceProfiles
+listInstanceProfiles pPathPrefix pMaxItems pMarker = ListInstanceProfiles'{_lipPathPrefix = pPathPrefix, _lipMaxItems = _Nat # pMaxItems, _lipMarker = pMarker};
+
+-- | The path prefix for filtering the results. For example, the prefix
+-- @\/application_abc\/component_xyz\/@ gets all instance profiles whose
+-- path starts with @\/application_abc\/component_xyz\/@.
+--
+-- This parameter is optional. If it is not included, it defaults to a
+-- slash (\/), listing all instance profiles.
+lipPathPrefix :: Lens' ListInstanceProfiles Text
+lipPathPrefix = lens _lipPathPrefix (\ s a -> s{_lipPathPrefix = a});
+
+-- | Use this parameter only when paginating results to indicate the maximum
+-- number of instance profiles you want in the response. If there are
+-- additional instance profiles beyond the maximum you specify, the
+-- @IsTruncated@ response element is @true@. This parameter is optional. If
+-- you do not include it, it defaults to 100.
+lipMaxItems :: Lens' ListInstanceProfiles Natural
+lipMaxItems = lens _lipMaxItems (\ s a -> s{_lipMaxItems = a}) . _Nat;
+
+-- | Use this parameter only when paginating results, and only in a
+-- subsequent request after you\'ve received a response where the results
+-- are truncated. Set it to the value of the @Marker@ element in the
+-- response you just received.
+lipMarker :: Lens' ListInstanceProfiles Text
+lipMarker = lens _lipMarker (\ s a -> s{_lipMarker = a});
+
+instance AWSRequest ListInstanceProfiles where
+        type Sv ListInstanceProfiles = IAM
+        type Rs ListInstanceProfiles =
+             ListInstanceProfilesResponse
+        request = post
+        response
+          = receiveXMLWrapper "ListInstanceProfilesResult"
+              (\ s h x ->
+                 ListInstanceProfilesResponse' <$>
+                   x .@? "IsTruncated" <*>
+                     (x .@? "InstanceProfiles" .!@ mempty >>=
+                        parseXMLList "member")
+                     <*> x .@ "Marker")
+
+instance ToHeaders ListInstanceProfiles where
+        toHeaders = const mempty
+
+instance ToPath ListInstanceProfiles where
+        toPath = const "/"
+
+instance ToQuery ListInstanceProfiles where
+        toQuery ListInstanceProfiles'{..}
+          = mconcat
+              ["Action" =: ("ListInstanceProfiles" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "PathPrefix" =: _lipPathPrefix,
+               "MaxItems" =: _lipMaxItems, "Marker" =: _lipMarker]
+
+-- | /See:/ 'listInstanceProfilesResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'liprIsTruncated'
+--
+-- * 'liprInstanceProfiles'
+--
+-- * 'liprMarker'
+data ListInstanceProfilesResponse = ListInstanceProfilesResponse'{_liprIsTruncated :: Maybe Bool, _liprInstanceProfiles :: [InstanceProfile], _liprMarker :: Text} deriving (Eq, Read, Show)
+
+-- | 'ListInstanceProfilesResponse' smart constructor.
+listInstanceProfilesResponse :: [InstanceProfile] -> Text -> ListInstanceProfilesResponse
+listInstanceProfilesResponse pInstanceProfiles pMarker = ListInstanceProfilesResponse'{_liprIsTruncated = Nothing, _liprInstanceProfiles = pInstanceProfiles, _liprMarker = pMarker};
+
+-- | A flag that indicates whether there are more instance profiles to list.
+-- If your results were truncated, you can make a subsequent pagination
+-- request using the @Marker@ request parameter to retrieve more instance
+-- profiles in the list.
+liprIsTruncated :: Lens' ListInstanceProfilesResponse (Maybe Bool)
+liprIsTruncated = lens _liprIsTruncated (\ s a -> s{_liprIsTruncated = a});
+
+-- | A list of instance profiles.
+liprInstanceProfiles :: Lens' ListInstanceProfilesResponse [InstanceProfile]
+liprInstanceProfiles = lens _liprInstanceProfiles (\ s a -> s{_liprInstanceProfiles = a});
+
+-- | If @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
+liprMarker :: Lens' ListInstanceProfilesResponse Text
+liprMarker = lens _liprMarker (\ s a -> s{_liprMarker = a});

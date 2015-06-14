@@ -1,0 +1,99 @@
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE OverloadedStrings #-}
+
+-- Module      : Network.AWS.IAM.AttachRolePolicy
+-- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- License     : This Source Code Form is subject to the terms of
+--               the Mozilla Public License, v. 2.0.
+--               A copy of the MPL can be found in the LICENSE file or
+--               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : experimental
+-- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- | Attaches the specified managed policy to the specified role.
+--
+-- When you attach a managed policy to a role, the managed policy is used
+-- as the role\'s access (permissions) policy. You cannot use a managed
+-- policy as the role\'s trust policy. The role\'s trust policy is created
+-- at the same time as the role, using CreateRole. You can update a role\'s
+-- trust policy using UpdateAssumeRolePolicy.
+--
+-- Use this API to attach a managed policy to a role. To embed an inline
+-- policy in a role, use PutRolePolicy. For more information about
+-- policies, refer to
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html Managed Policies and Inline Policies>
+-- in the /Using IAM/ guide.
+--
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_AttachRolePolicy.html>
+module Network.AWS.IAM.AttachRolePolicy
+    (
+    -- * Request
+      AttachRolePolicy
+    -- ** Request constructor
+    , attachRolePolicy
+    -- ** Request lenses
+    , arpRoleName
+    , arpPolicyARN
+
+    -- * Response
+    , AttachRolePolicyResponse
+    -- ** Response constructor
+    , attachRolePolicyResponse
+    ) where
+
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Prelude
+import Network.AWS.IAM.Types
+
+-- | /See:/ 'attachRolePolicy' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'arpRoleName'
+--
+-- * 'arpPolicyARN'
+data AttachRolePolicy = AttachRolePolicy'{_arpRoleName :: Text, _arpPolicyARN :: Text} deriving (Eq, Read, Show)
+
+-- | 'AttachRolePolicy' smart constructor.
+attachRolePolicy :: Text -> Text -> AttachRolePolicy
+attachRolePolicy pRoleName pPolicyARN = AttachRolePolicy'{_arpRoleName = pRoleName, _arpPolicyARN = pPolicyARN};
+
+-- | The name (friendly name, not ARN) of the role to attach the policy to.
+arpRoleName :: Lens' AttachRolePolicy Text
+arpRoleName = lens _arpRoleName (\ s a -> s{_arpRoleName = a});
+
+-- | FIXME: Undocumented member.
+arpPolicyARN :: Lens' AttachRolePolicy Text
+arpPolicyARN = lens _arpPolicyARN (\ s a -> s{_arpPolicyARN = a});
+
+instance AWSRequest AttachRolePolicy where
+        type Sv AttachRolePolicy = IAM
+        type Rs AttachRolePolicy = AttachRolePolicyResponse
+        request = post
+        response = receiveNull AttachRolePolicyResponse'
+
+instance ToHeaders AttachRolePolicy where
+        toHeaders = const mempty
+
+instance ToPath AttachRolePolicy where
+        toPath = const "/"
+
+instance ToQuery AttachRolePolicy where
+        toQuery AttachRolePolicy'{..}
+          = mconcat
+              ["Action" =: ("AttachRolePolicy" :: ByteString),
+               "Version" =: ("2010-05-08" :: ByteString),
+               "RoleName" =: _arpRoleName,
+               "PolicyArn" =: _arpPolicyARN]
+
+-- | /See:/ 'attachRolePolicyResponse' smart constructor.
+data AttachRolePolicyResponse = AttachRolePolicyResponse' deriving (Eq, Read, Show)
+
+-- | 'AttachRolePolicyResponse' smart constructor.
+attachRolePolicyResponse :: AttachRolePolicyResponse
+attachRolePolicyResponse = AttachRolePolicyResponse';

@@ -1,0 +1,95 @@
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE OverloadedStrings #-}
+
+-- Module      : Network.AWS.RDS.AddTagsToResource
+-- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- License     : This Source Code Form is subject to the terms of
+--               the Mozilla Public License, v. 2.0.
+--               A copy of the MPL can be found in the LICENSE file or
+--               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : experimental
+-- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- | Adds metadata tags to an Amazon RDS resource. These tags can also be
+-- used with cost allocation reporting to track cost associated with Amazon
+-- RDS resources, or used in Condition statement in IAM policy for Amazon
+-- RDS.
+--
+-- For an overview on tagging Amazon RDS resources, see
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html Tagging Amazon RDS Resources>.
+--
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_AddTagsToResource.html>
+module Network.AWS.RDS.AddTagsToResource
+    (
+    -- * Request
+      AddTagsToResource
+    -- ** Request constructor
+    , addTagsToResource
+    -- ** Request lenses
+    , attrResourceName
+    , attrTags
+
+    -- * Response
+    , AddTagsToResourceResponse
+    -- ** Response constructor
+    , addTagsToResourceResponse
+    ) where
+
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Prelude
+import Network.AWS.RDS.Types
+
+-- | /See:/ 'addTagsToResource' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'attrResourceName'
+--
+-- * 'attrTags'
+data AddTagsToResource = AddTagsToResource'{_attrResourceName :: Text, _attrTags :: [Tag]} deriving (Eq, Read, Show)
+
+-- | 'AddTagsToResource' smart constructor.
+addTagsToResource :: Text -> [Tag] -> AddTagsToResource
+addTagsToResource pResourceName pTags = AddTagsToResource'{_attrResourceName = pResourceName, _attrTags = pTags};
+
+-- | The Amazon RDS resource the tags will be added to. This value is an
+-- Amazon Resource Name (ARN). For information about creating an ARN, see
+-- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN Constructing an RDS Amazon Resource Name (ARN)>.
+attrResourceName :: Lens' AddTagsToResource Text
+attrResourceName = lens _attrResourceName (\ s a -> s{_attrResourceName = a});
+
+-- | The tags to be assigned to the Amazon RDS resource.
+attrTags :: Lens' AddTagsToResource [Tag]
+attrTags = lens _attrTags (\ s a -> s{_attrTags = a});
+
+instance AWSRequest AddTagsToResource where
+        type Sv AddTagsToResource = RDS
+        type Rs AddTagsToResource = AddTagsToResourceResponse
+        request = post
+        response = receiveNull AddTagsToResourceResponse'
+
+instance ToHeaders AddTagsToResource where
+        toHeaders = const mempty
+
+instance ToPath AddTagsToResource where
+        toPath = const "/"
+
+instance ToQuery AddTagsToResource where
+        toQuery AddTagsToResource'{..}
+          = mconcat
+              ["Action" =: ("AddTagsToResource" :: ByteString),
+               "Version" =: ("2014-10-31" :: ByteString),
+               "ResourceName" =: _attrResourceName,
+               "Tags" =: "Tag" =: _attrTags]
+
+-- | /See:/ 'addTagsToResourceResponse' smart constructor.
+data AddTagsToResourceResponse = AddTagsToResourceResponse' deriving (Eq, Read, Show)
+
+-- | 'AddTagsToResourceResponse' smart constructor.
+addTagsToResourceResponse :: AddTagsToResourceResponse
+addTagsToResourceResponse = AddTagsToResourceResponse';

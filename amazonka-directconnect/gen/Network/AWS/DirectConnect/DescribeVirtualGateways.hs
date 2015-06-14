@@ -1,0 +1,96 @@
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE OverloadedStrings #-}
+
+-- Module      : Network.AWS.DirectConnect.DescribeVirtualGateways
+-- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- License     : This Source Code Form is subject to the terms of
+--               the Mozilla Public License, v. 2.0.
+--               A copy of the MPL can be found in the LICENSE file or
+--               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : experimental
+-- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- | Returns a list of virtual private gateways owned by the AWS account.
+--
+-- You can create one or more AWS Direct Connect private virtual interfaces
+-- linking to a virtual private gateway. A virtual private gateway can be
+-- managed via Amazon Virtual Private Cloud (VPC) console or the
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html EC2 CreateVpnGateway>
+-- action.
+--
+-- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeVirtualGateways.html>
+module Network.AWS.DirectConnect.DescribeVirtualGateways
+    (
+    -- * Request
+      DescribeVirtualGateways
+    -- ** Request constructor
+    , describeVirtualGateways
+
+    -- * Response
+    , DescribeVirtualGatewaysResponse
+    -- ** Response constructor
+    , describeVirtualGatewaysResponse
+    -- ** Response lenses
+    , dvgrDescribeVirtualGatewaysResponse
+    ) where
+
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Prelude
+import Network.AWS.DirectConnect.Types
+
+-- | /See:/ 'describeVirtualGateways' smart constructor.
+data DescribeVirtualGateways = DescribeVirtualGateways' deriving (Eq, Read, Show)
+
+-- | 'DescribeVirtualGateways' smart constructor.
+describeVirtualGateways :: DescribeVirtualGateways
+describeVirtualGateways = DescribeVirtualGateways';
+
+instance AWSRequest DescribeVirtualGateways where
+        type Sv DescribeVirtualGateways = DirectConnect
+        type Rs DescribeVirtualGateways =
+             DescribeVirtualGatewaysResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DescribeVirtualGatewaysResponse' <$>
+                   x .?> "DescribeVirtualGatewaysResponse" .!@ mempty)
+
+instance ToHeaders DescribeVirtualGateways where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("OvertureService.DescribeVirtualGateways" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON DescribeVirtualGateways where
+        toJSON = const (Object mempty)
+
+instance ToPath DescribeVirtualGateways where
+        toPath = const "/"
+
+instance ToQuery DescribeVirtualGateways where
+        toQuery = const mempty
+
+-- | /See:/ 'describeVirtualGatewaysResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dvgrDescribeVirtualGatewaysResponse'
+newtype DescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse'{_dvgrDescribeVirtualGatewaysResponse :: [VirtualGateway]} deriving (Eq, Read, Show)
+
+-- | 'DescribeVirtualGatewaysResponse' smart constructor.
+describeVirtualGatewaysResponse :: DescribeVirtualGatewaysResponse
+describeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse'{_dvgrDescribeVirtualGatewaysResponse = mempty};
+
+-- | A list of virtual private gateways.
+dvgrDescribeVirtualGatewaysResponse :: Lens' DescribeVirtualGatewaysResponse [VirtualGateway]
+dvgrDescribeVirtualGatewaysResponse = lens _dvgrDescribeVirtualGatewaysResponse (\ s a -> s{_dvgrDescribeVirtualGatewaysResponse = a});

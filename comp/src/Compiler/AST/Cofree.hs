@@ -75,9 +75,9 @@ elaborate m = evalStateT (Map.traverseWithKey (shape []) m) mempty
   where
     shape :: [Id] -> Id -> ShapeF a -> MemoE (Shape Id)
     shape seen n s
-        | length seen > 6 = throwError $ depth  seen
-        | conseq seen     = return $! n :< Ptr (s ^. info) mempty
-        | otherwise       = do
+        | length seen > 30 = throwError $ depth seen
+        | conseq seen      = return $! n :< Ptr (s ^. info) mempty
+        | otherwise        = do
             ms <- gets (Map.lookup n)
             case ms of
                 Just x -> return x

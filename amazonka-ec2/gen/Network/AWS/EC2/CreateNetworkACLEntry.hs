@@ -1,0 +1,171 @@
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE OverloadedStrings #-}
+
+-- Module      : Network.AWS.EC2.CreateNetworkACLEntry
+-- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- License     : This Source Code Form is subject to the terms of
+--               the Mozilla Public License, v. 2.0.
+--               A copy of the MPL can be found in the LICENSE file or
+--               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : experimental
+-- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- | Creates an entry (a rule) in a network ACL with the specified rule
+-- number. Each network ACL has a set of numbered ingress rules and a
+-- separate set of numbered egress rules. When determining whether a packet
+-- should be allowed in or out of a subnet associated with the ACL, we
+-- process the entries in the ACL according to the rule numbers, in
+-- ascending order. Each network ACL has a set of ingress rules and a
+-- separate set of egress rules.
+--
+-- We recommend that you leave room between the rule numbers (for example,
+-- 100, 110, 120, ...), and not number them one right after the other (for
+-- example, 101, 102, 103, ...). This makes it easier to add a rule between
+-- existing ones without having to renumber the rules.
+--
+-- After you add an entry, you can\'t modify it; you must either replace
+-- it, or create an entry and delete the old one.
+--
+-- For more information about network ACLs, see
+-- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html Network ACLs>
+-- in the /Amazon Virtual Private Cloud User Guide/.
+--
+-- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateNetworkACLEntry.html>
+module Network.AWS.EC2.CreateNetworkACLEntry
+    (
+    -- * Request
+      CreateNetworkACLEntry
+    -- ** Request constructor
+    , createNetworkACLEntry
+    -- ** Request lenses
+    , cnaeICMPTypeCode
+    , cnaePortRange
+    , cnaeDryRun
+    , cnaeNetworkACLId
+    , cnaeRuleNumber
+    , cnaeProtocol
+    , cnaeRuleAction
+    , cnaeEgress
+    , cnaeCIDRBlock
+
+    -- * Response
+    , CreateNetworkACLEntryResponse
+    -- ** Response constructor
+    , createNetworkACLEntryResponse
+    ) where
+
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Prelude
+import Network.AWS.EC2.Types
+
+-- | /See:/ 'createNetworkACLEntry' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'cnaeICMPTypeCode'
+--
+-- * 'cnaePortRange'
+--
+-- * 'cnaeDryRun'
+--
+-- * 'cnaeNetworkACLId'
+--
+-- * 'cnaeRuleNumber'
+--
+-- * 'cnaeProtocol'
+--
+-- * 'cnaeRuleAction'
+--
+-- * 'cnaeEgress'
+--
+-- * 'cnaeCIDRBlock'
+data CreateNetworkACLEntry = CreateNetworkACLEntry'{_cnaeICMPTypeCode :: Maybe ICMPTypeCode, _cnaePortRange :: Maybe PortRange, _cnaeDryRun :: Maybe Bool, _cnaeNetworkACLId :: Text, _cnaeRuleNumber :: Int, _cnaeProtocol :: Text, _cnaeRuleAction :: RuleAction, _cnaeEgress :: Bool, _cnaeCIDRBlock :: Text} deriving (Eq, Read, Show)
+
+-- | 'CreateNetworkACLEntry' smart constructor.
+createNetworkACLEntry :: Text -> Int -> Text -> RuleAction -> Bool -> Text -> CreateNetworkACLEntry
+createNetworkACLEntry pNetworkACLId pRuleNumber pProtocol pRuleAction pEgress pCIDRBlock = CreateNetworkACLEntry'{_cnaeICMPTypeCode = Nothing, _cnaePortRange = Nothing, _cnaeDryRun = Nothing, _cnaeNetworkACLId = pNetworkACLId, _cnaeRuleNumber = pRuleNumber, _cnaeProtocol = pProtocol, _cnaeRuleAction = pRuleAction, _cnaeEgress = pEgress, _cnaeCIDRBlock = pCIDRBlock};
+
+-- | ICMP protocol: The ICMP type and code. Required if specifying ICMP for
+-- the protocol.
+cnaeICMPTypeCode :: Lens' CreateNetworkACLEntry (Maybe ICMPTypeCode)
+cnaeICMPTypeCode = lens _cnaeICMPTypeCode (\ s a -> s{_cnaeICMPTypeCode = a});
+
+-- | TCP or UDP protocols: The range of ports the rule applies to.
+cnaePortRange :: Lens' CreateNetworkACLEntry (Maybe PortRange)
+cnaePortRange = lens _cnaePortRange (\ s a -> s{_cnaePortRange = a});
+
+-- | Checks whether you have the required permissions for the action, without
+-- actually making the request, and provides an error response. If you have
+-- the required permissions, the error response is @DryRunOperation@.
+-- Otherwise, it is @UnauthorizedOperation@.
+cnaeDryRun :: Lens' CreateNetworkACLEntry (Maybe Bool)
+cnaeDryRun = lens _cnaeDryRun (\ s a -> s{_cnaeDryRun = a});
+
+-- | The ID of the network ACL.
+cnaeNetworkACLId :: Lens' CreateNetworkACLEntry Text
+cnaeNetworkACLId = lens _cnaeNetworkACLId (\ s a -> s{_cnaeNetworkACLId = a});
+
+-- | The rule number for the entry (for example, 100). ACL entries are
+-- processed in ascending order by rule number.
+--
+-- Constraints: Positive integer from 1 to 32766
+cnaeRuleNumber :: Lens' CreateNetworkACLEntry Int
+cnaeRuleNumber = lens _cnaeRuleNumber (\ s a -> s{_cnaeRuleNumber = a});
+
+-- | The protocol. A value of -1 means all protocols.
+cnaeProtocol :: Lens' CreateNetworkACLEntry Text
+cnaeProtocol = lens _cnaeProtocol (\ s a -> s{_cnaeProtocol = a});
+
+-- | Indicates whether to allow or deny the traffic that matches the rule.
+cnaeRuleAction :: Lens' CreateNetworkACLEntry RuleAction
+cnaeRuleAction = lens _cnaeRuleAction (\ s a -> s{_cnaeRuleAction = a});
+
+-- | Indicates whether this is an egress rule (rule is applied to traffic
+-- leaving the subnet).
+cnaeEgress :: Lens' CreateNetworkACLEntry Bool
+cnaeEgress = lens _cnaeEgress (\ s a -> s{_cnaeEgress = a});
+
+-- | The network range to allow or deny, in CIDR notation (for example
+-- @172.16.0.0\/24@).
+cnaeCIDRBlock :: Lens' CreateNetworkACLEntry Text
+cnaeCIDRBlock = lens _cnaeCIDRBlock (\ s a -> s{_cnaeCIDRBlock = a});
+
+instance AWSRequest CreateNetworkACLEntry where
+        type Sv CreateNetworkACLEntry = EC2
+        type Rs CreateNetworkACLEntry =
+             CreateNetworkACLEntryResponse
+        request = post
+        response = receiveNull CreateNetworkACLEntryResponse'
+
+instance ToHeaders CreateNetworkACLEntry where
+        toHeaders = const mempty
+
+instance ToPath CreateNetworkACLEntry where
+        toPath = const "/"
+
+instance ToQuery CreateNetworkACLEntry where
+        toQuery CreateNetworkACLEntry'{..}
+          = mconcat
+              ["Action" =: ("CreateNetworkACLEntry" :: ByteString),
+               "Version" =: ("2015-04-15" :: ByteString),
+               "Icmp" =: _cnaeICMPTypeCode,
+               "PortRange" =: _cnaePortRange,
+               "DryRun" =: _cnaeDryRun,
+               "NetworkAclId" =: _cnaeNetworkACLId,
+               "RuleNumber" =: _cnaeRuleNumber,
+               "Protocol" =: _cnaeProtocol,
+               "RuleAction" =: _cnaeRuleAction,
+               "Egress" =: _cnaeEgress,
+               "CidrBlock" =: _cnaeCIDRBlock]
+
+-- | /See:/ 'createNetworkACLEntryResponse' smart constructor.
+data CreateNetworkACLEntryResponse = CreateNetworkACLEntryResponse' deriving (Eq, Read, Show)
+
+-- | 'CreateNetworkACLEntryResponse' smart constructor.
+createNetworkACLEntryResponse :: CreateNetworkACLEntryResponse
+createNetworkACLEntryResponse = CreateNetworkACLEntryResponse';

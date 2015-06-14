@@ -1,0 +1,2309 @@
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE LambdaCase        #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE ViewPatterns      #-}
+
+-- Module      : Network.AWS.DynamoDB.Types
+-- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- License     : This Source Code Form is subject to the terms of
+--               the Mozilla Public License, v. 2.0.
+--               A copy of the MPL can be found in the LICENSE file or
+--               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : experimental
+-- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+module Network.AWS.DynamoDB.Types
+    (
+    -- * Service
+      DynamoDB
+    -- ** Errors
+    , JSONError
+
+    -- * AttributeAction
+    , AttributeAction (..)
+
+    -- * AttributeDefinition
+    , AttributeDefinition
+    , attributeDefinition
+    , adAttributeName
+    , adAttributeType
+
+    -- * AttributeValue
+    , AttributeValue
+    , attributeValue
+    , avL
+    , avM
+    , avNS
+    , avNULL
+    , avN
+    , avBS
+    , avB
+    , avSS
+    , avS
+    , avBOOL
+
+    -- * AttributeValueUpdate
+    , AttributeValueUpdate
+    , attributeValueUpdate
+    , avuValue
+    , avuAction
+
+    -- * Capacity
+    , Capacity
+    , capacity
+    , capCapacityUnits
+
+    -- * ComparisonOperator
+    , ComparisonOperator (..)
+
+    -- * Condition
+    , Condition
+    , condition
+    , conAttributeValueList
+    , conComparisonOperator
+
+    -- * ConditionalOperator
+    , ConditionalOperator (..)
+
+    -- * ConsumedCapacity
+    , ConsumedCapacity
+    , consumedCapacity
+    , ccCapacityUnits
+    , ccGlobalSecondaryIndexes
+    , ccLocalSecondaryIndexes
+    , ccTable
+    , ccTableName
+
+    -- * CreateGlobalSecondaryIndexAction
+    , CreateGlobalSecondaryIndexAction
+    , createGlobalSecondaryIndexAction
+    , cgsiaIndexName
+    , cgsiaKeySchema
+    , cgsiaProjection
+    , cgsiaProvisionedThroughput
+
+    -- * DeleteGlobalSecondaryIndexAction
+    , DeleteGlobalSecondaryIndexAction
+    , deleteGlobalSecondaryIndexAction
+    , dgsiaIndexName
+
+    -- * DeleteRequest
+    , DeleteRequest
+    , deleteRequest
+    , drKey
+
+    -- * ExpectedAttributeValue
+    , ExpectedAttributeValue
+    , expectedAttributeValue
+    , eavAttributeValueList
+    , eavExists
+    , eavValue
+    , eavComparisonOperator
+
+    -- * GlobalSecondaryIndex
+    , GlobalSecondaryIndex
+    , globalSecondaryIndex
+    , gsiIndexName
+    , gsiKeySchema
+    , gsiProjection
+    , gsiProvisionedThroughput
+
+    -- * GlobalSecondaryIndexDescription
+    , GlobalSecondaryIndexDescription
+    , globalSecondaryIndexDescription
+    , gsidBackfilling
+    , gsidProvisionedThroughput
+    , gsidIndexStatus
+    , gsidIndexSizeBytes
+    , gsidProjection
+    , gsidItemCount
+    , gsidKeySchema
+    , gsidIndexName
+
+    -- * GlobalSecondaryIndexUpdate
+    , GlobalSecondaryIndexUpdate
+    , globalSecondaryIndexUpdate
+    , gsiuCreate
+    , gsiuDelete
+    , gsiuUpdate
+
+    -- * IndexStatus
+    , IndexStatus (..)
+
+    -- * ItemCollectionMetrics
+    , ItemCollectionMetrics
+    , itemCollectionMetrics
+    , icmItemCollectionKey
+    , icmSizeEstimateRangeGB
+
+    -- * KeySchemaElement
+    , KeySchemaElement
+    , keySchemaElement
+    , kseAttributeName
+    , kseKeyType
+
+    -- * KeyType
+    , KeyType (..)
+
+    -- * KeysAndAttributes
+    , KeysAndAttributes
+    , keysAndAttributes
+    , kaaProjectionExpression
+    , kaaConsistentRead
+    , kaaExpressionAttributeNames
+    , kaaKeys
+    , kaaAttributesToGet
+
+    -- * LocalSecondaryIndex
+    , LocalSecondaryIndex
+    , localSecondaryIndex
+    , lsiIndexName
+    , lsiKeySchema
+    , lsiProjection
+
+    -- * LocalSecondaryIndexDescription
+    , LocalSecondaryIndexDescription
+    , localSecondaryIndexDescription
+    , lsidIndexSizeBytes
+    , lsidProjection
+    , lsidItemCount
+    , lsidKeySchema
+    , lsidIndexName
+
+    -- * Projection
+    , Projection
+    , projection
+    , proProjectionType
+    , proNonKeyAttributes
+
+    -- * ProjectionType
+    , ProjectionType (..)
+
+    -- * ProvisionedThroughput
+    , ProvisionedThroughput
+    , provisionedThroughput
+    , ptReadCapacityUnits
+    , ptWriteCapacityUnits
+
+    -- * ProvisionedThroughputDescription
+    , ProvisionedThroughputDescription
+    , provisionedThroughputDescription
+    , ptdLastDecreaseDateTime
+    , ptdLastIncreaseDateTime
+    , ptdReadCapacityUnits
+    , ptdWriteCapacityUnits
+    , ptdNumberOfDecreasesToday
+
+    -- * PutRequest
+    , PutRequest
+    , putRequest
+    , prItem
+
+    -- * ReturnConsumedCapacity
+    , ReturnConsumedCapacity (..)
+
+    -- * ReturnItemCollectionMetrics
+    , ReturnItemCollectionMetrics (..)
+
+    -- * ReturnValue
+    , ReturnValue (..)
+
+    -- * ScalarAttributeType
+    , ScalarAttributeType (..)
+
+    -- * Select
+    , Select (..)
+
+    -- * TableDescription
+    , TableDescription
+    , tableDescription
+    , tdProvisionedThroughput
+    , tdAttributeDefinitions
+    , tdTableSizeBytes
+    , tdTableStatus
+    , tdGlobalSecondaryIndexes
+    , tdLocalSecondaryIndexes
+    , tdCreationDateTime
+    , tdItemCount
+    , tdKeySchema
+    , tdTableName
+
+    -- * TableStatus
+    , TableStatus (..)
+
+    -- * UpdateGlobalSecondaryIndexAction
+    , UpdateGlobalSecondaryIndexAction
+    , updateGlobalSecondaryIndexAction
+    , ugsiaIndexName
+    , ugsiaProvisionedThroughput
+
+    -- * WriteRequest
+    , WriteRequest
+    , writeRequest
+    , wrPutRequest
+    , wrDeleteRequest
+    ) where
+
+import Network.AWS.Prelude
+import Network.AWS.Sign.V4
+
+-- | Version @2012-08-10@ of the Amazon DynamoDB SDK.
+data DynamoDB
+
+instance AWSService DynamoDB where
+    type Sg DynamoDB = V4
+    type Er DynamoDB = JSONError
+
+    service = service'
+      where
+        service' :: Service DynamoDB
+        service' = Service
+            { _svcAbbrev  = "DynamoDB"
+            , _svcPrefix  = "dynamodb"
+            , _svcVersion = "2012-08-10"
+            , _svcHandle  = handle
+            , _svcRetry   = retry
+            }
+
+        handle :: Status
+               -> Maybe (LazyByteString -> ServiceError JSONError)
+        handle = jsonError statusSuccess service'
+
+        retry :: Retry DynamoDB
+        retry = undefined
+
+        check :: Status
+              -> JSONError
+              -> Bool
+        check (statusCode -> s) (awsErrorCode -> e) = undefined
+
+data AttributeAction = Add | Put | Delete deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText AttributeAction where
+    parser = takeLowerText >>= \case
+        "ADD" -> pure Add
+        "DELETE" -> pure Delete
+        "PUT" -> pure Put
+        e -> fail ("Failure parsing AttributeAction from " ++ show e)
+
+instance ToText AttributeAction where
+    toText = \case
+        Add -> "ADD"
+        Delete -> "DELETE"
+        Put -> "PUT"
+
+instance Hashable AttributeAction
+instance ToQuery AttributeAction
+instance ToHeader AttributeAction
+
+instance ToJSON AttributeAction where
+    toJSON = toJSONText
+
+-- | /See:/ 'attributeDefinition' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'adAttributeName'
+--
+-- * 'adAttributeType'
+data AttributeDefinition = AttributeDefinition'{_adAttributeName :: Text, _adAttributeType :: ScalarAttributeType} deriving (Eq, Read, Show)
+
+-- | 'AttributeDefinition' smart constructor.
+attributeDefinition :: Text -> ScalarAttributeType -> AttributeDefinition
+attributeDefinition pAttributeName pAttributeType = AttributeDefinition'{_adAttributeName = pAttributeName, _adAttributeType = pAttributeType};
+
+-- | A name for the attribute.
+adAttributeName :: Lens' AttributeDefinition Text
+adAttributeName = lens _adAttributeName (\ s a -> s{_adAttributeName = a});
+
+-- | The data type for the attribute.
+adAttributeType :: Lens' AttributeDefinition ScalarAttributeType
+adAttributeType = lens _adAttributeType (\ s a -> s{_adAttributeType = a});
+
+instance FromJSON AttributeDefinition where
+        parseJSON
+          = withObject "AttributeDefinition"
+              (\ x ->
+                 AttributeDefinition' <$>
+                   x .: "AttributeName" <*> x .: "AttributeType")
+
+instance ToJSON AttributeDefinition where
+        toJSON AttributeDefinition'{..}
+          = object
+              ["AttributeName" .= _adAttributeName,
+               "AttributeType" .= _adAttributeType]
+
+-- | /See:/ 'attributeValue' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'avL'
+--
+-- * 'avM'
+--
+-- * 'avNS'
+--
+-- * 'avNULL'
+--
+-- * 'avN'
+--
+-- * 'avBS'
+--
+-- * 'avB'
+--
+-- * 'avSS'
+--
+-- * 'avS'
+--
+-- * 'avBOOL'
+data AttributeValue = AttributeValue'{_avL :: [AttributeValue], _avM :: HashMap Text AttributeValue, _avNS :: [Text], _avNULL :: Maybe Bool, _avN :: Maybe Text, _avBS :: [Base64], _avB :: Maybe Base64, _avSS :: [Text], _avS :: Maybe Text, _avBOOL :: Maybe Bool} deriving (Eq, Read, Show)
+
+-- | 'AttributeValue' smart constructor.
+attributeValue :: AttributeValue
+attributeValue = AttributeValue'{_avL = mempty, _avM = mempty, _avNS = mempty, _avNULL = Nothing, _avN = Nothing, _avBS = mempty, _avB = Nothing, _avSS = mempty, _avS = Nothing, _avBOOL = Nothing};
+
+-- | A List of attribute values.
+avL :: Lens' AttributeValue [AttributeValue]
+avL = lens _avL (\ s a -> s{_avL = a});
+
+-- | A Map of attribute values.
+avM :: Lens' AttributeValue (HashMap Text AttributeValue)
+avM = lens _avM (\ s a -> s{_avM = a}) . _Coerce;
+
+-- | A Number Set data type.
+avNS :: Lens' AttributeValue [Text]
+avNS = lens _avNS (\ s a -> s{_avNS = a});
+
+-- | A Null data type.
+avNULL :: Lens' AttributeValue (Maybe Bool)
+avNULL = lens _avNULL (\ s a -> s{_avNULL = a});
+
+-- | A Number data type.
+avN :: Lens' AttributeValue (Maybe Text)
+avN = lens _avN (\ s a -> s{_avN = a});
+
+-- | A Binary Set data type.
+avBS :: Lens' AttributeValue [Base64]
+avBS = lens _avBS (\ s a -> s{_avBS = a});
+
+-- | A Binary data type.
+avB :: Lens' AttributeValue (Maybe Base64)
+avB = lens _avB (\ s a -> s{_avB = a});
+
+-- | A String Set data type.
+avSS :: Lens' AttributeValue [Text]
+avSS = lens _avSS (\ s a -> s{_avSS = a});
+
+-- | A String data type.
+avS :: Lens' AttributeValue (Maybe Text)
+avS = lens _avS (\ s a -> s{_avS = a});
+
+-- | A Boolean data type.
+avBOOL :: Lens' AttributeValue (Maybe Bool)
+avBOOL = lens _avBOOL (\ s a -> s{_avBOOL = a});
+
+instance FromJSON AttributeValue where
+        parseJSON
+          = withObject "AttributeValue"
+              (\ x ->
+                 AttributeValue' <$>
+                   x .:? "L" .!= mempty <*> x .:? "M" .!= mempty <*>
+                     x .:? "NS" .!= mempty
+                     <*> x .:? "NULL"
+                     <*> x .:? "N"
+                     <*> x .:? "BS" .!= mempty
+                     <*> x .:? "B"
+                     <*> x .:? "SS" .!= mempty
+                     <*> x .:? "S"
+                     <*> x .:? "BOOL")
+
+instance ToJSON AttributeValue where
+        toJSON AttributeValue'{..}
+          = object
+              ["L" .= _avL, "M" .= _avM, "NS" .= _avNS,
+               "NULL" .= _avNULL, "N" .= _avN, "BS" .= _avBS,
+               "B" .= _avB, "SS" .= _avSS, "S" .= _avS,
+               "BOOL" .= _avBOOL]
+
+-- | /See:/ 'attributeValueUpdate' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'avuValue'
+--
+-- * 'avuAction'
+data AttributeValueUpdate = AttributeValueUpdate'{_avuValue :: Maybe AttributeValue, _avuAction :: Maybe AttributeAction} deriving (Eq, Read, Show)
+
+-- | 'AttributeValueUpdate' smart constructor.
+attributeValueUpdate :: AttributeValueUpdate
+attributeValueUpdate = AttributeValueUpdate'{_avuValue = Nothing, _avuAction = Nothing};
+
+-- | FIXME: Undocumented member.
+avuValue :: Lens' AttributeValueUpdate (Maybe AttributeValue)
+avuValue = lens _avuValue (\ s a -> s{_avuValue = a});
+
+-- | Specifies how to perform the update. Valid values are @PUT@ (default),
+-- @DELETE@, and @ADD@. The behavior depends on whether the specified
+-- primary key already exists in the table.
+--
+-- __If an item with the specified /Key/ is found in the table:__
+--
+-- -   @PUT@ - Adds the specified attribute to the item. If the attribute
+--     already exists, it is replaced by the new value.
+--
+-- -   @DELETE@ - If no value is specified, the attribute and its value are
+--     removed from the item. The data type of the specified value must
+--     match the existing value\'s data type.
+--
+--     If a /set/ of values is specified, then those values are subtracted
+--     from the old set. For example, if the attribute value was the set
+--     @[a,b,c]@ and the /DELETE/ action specified @[a,c]@, then the final
+--     attribute value would be @[b]@. Specifying an empty set is an error.
+--
+-- -   @ADD@ - If the attribute does not already exist, then the attribute
+--     and its values are added to the item. If the attribute does exist,
+--     then the behavior of @ADD@ depends on the data type of the
+--     attribute:
+--
+--     -   If the existing attribute is a number, and if /Value/ is also a
+--         number, then the /Value/ is mathematically added to the existing
+--         attribute. If /Value/ is a negative number, then it is
+--         subtracted from the existing attribute.
+--
+--         If you use @ADD@ to increment or decrement a number value for an
+--         item that doesn\'t exist before the update, DynamoDB uses 0 as
+--         the initial value.
+--
+--         In addition, if you use @ADD@ to update an existing item, and
+--         intend to increment or decrement an attribute value which does
+--         not yet exist, DynamoDB uses @0@ as the initial value. For
+--         example, suppose that the item you want to update does not yet
+--         have an attribute named /itemcount/, but you decide to @ADD@ the
+--         number @3@ to this attribute anyway, even though it currently
+--         does not exist. DynamoDB will create the /itemcount/ attribute,
+--         set its initial value to @0@, and finally add @3@ to it. The
+--         result will be a new /itemcount/ attribute in the item, with a
+--         value of @3@.
+--
+--     -   If the existing data type is a set, and if the /Value/ is also a
+--         set, then the /Value/ is added to the existing set. (This is a
+--         /set/ operation, not mathematical addition.) For example, if the
+--         attribute value was the set @[1,2]@, and the @ADD@ action
+--         specified @[3]@, then the final attribute value would be
+--         @[1,2,3]@. An error occurs if an Add action is specified for a
+--         set attribute and the attribute type specified does not match
+--         the existing set type.
+--
+--         Both sets must have the same primitive data type. For example,
+--         if the existing data type is a set of strings, the /Value/ must
+--         also be a set of strings. The same holds true for number sets
+--         and binary sets.
+--
+--     This action is only valid for an existing attribute whose data type
+--     is number or is a set. Do not use @ADD@ for any other data types.
+--
+-- __If no item with the specified /Key/ is found:__
+--
+-- -   @PUT@ - DynamoDB creates a new item with the specified primary key,
+--     and then adds the attribute.
+--
+-- -   @DELETE@ - Nothing happens; there is no attribute to delete.
+--
+-- -   @ADD@ - DynamoDB creates an item with the supplied primary key and
+--     number (or set of numbers) for the attribute value. The only data
+--     types allowed are number and number set; no other data types can be
+--     specified.
+--
+avuAction :: Lens' AttributeValueUpdate (Maybe AttributeAction)
+avuAction = lens _avuAction (\ s a -> s{_avuAction = a});
+
+instance ToJSON AttributeValueUpdate where
+        toJSON AttributeValueUpdate'{..}
+          = object
+              ["Value" .= _avuValue, "Action" .= _avuAction]
+
+-- | /See:/ 'capacity' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'capCapacityUnits'
+newtype Capacity = Capacity'{_capCapacityUnits :: Maybe Double} deriving (Eq, Read, Show)
+
+-- | 'Capacity' smart constructor.
+capacity :: Capacity
+capacity = Capacity'{_capCapacityUnits = Nothing};
+
+-- | The total number of capacity units consumed on a table or an index.
+capCapacityUnits :: Lens' Capacity (Maybe Double)
+capCapacityUnits = lens _capCapacityUnits (\ s a -> s{_capCapacityUnits = a});
+
+instance FromJSON Capacity where
+        parseJSON
+          = withObject "Capacity"
+              (\ x -> Capacity' <$> x .:? "CapacityUnits")
+
+data ComparisonOperator = GE | EQ' | NE | Null | NotContains | GT' | LT' | IN | Between | Contains | BeginsWith | NotNull | LE deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ComparisonOperator where
+    parser = takeLowerText >>= \case
+        "BEGINS_WITH" -> pure BeginsWith
+        "BETWEEN" -> pure Between
+        "CONTAINS" -> pure Contains
+        "EQ" -> pure EQ'
+        "GE" -> pure GE
+        "GT" -> pure GT'
+        "IN" -> pure IN
+        "LE" -> pure LE
+        "LT" -> pure LT'
+        "NE" -> pure NE
+        "NOT_CONTAINS" -> pure NotContains
+        "NOT_NULL" -> pure NotNull
+        "NULL" -> pure Null
+        e -> fail ("Failure parsing ComparisonOperator from " ++ show e)
+
+instance ToText ComparisonOperator where
+    toText = \case
+        BeginsWith -> "BEGINS_WITH"
+        Between -> "BETWEEN"
+        Contains -> "CONTAINS"
+        EQ' -> "EQ"
+        GE -> "GE"
+        GT' -> "GT"
+        IN -> "IN"
+        LE -> "LE"
+        LT' -> "LT"
+        NE -> "NE"
+        NotContains -> "NOT_CONTAINS"
+        NotNull -> "NOT_NULL"
+        Null -> "NULL"
+
+instance Hashable ComparisonOperator
+instance ToQuery ComparisonOperator
+instance ToHeader ComparisonOperator
+
+instance ToJSON ComparisonOperator where
+    toJSON = toJSONText
+
+-- | /See:/ 'condition' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'conAttributeValueList'
+--
+-- * 'conComparisonOperator'
+data Condition = Condition'{_conAttributeValueList :: [AttributeValue], _conComparisonOperator :: ComparisonOperator} deriving (Eq, Read, Show)
+
+-- | 'Condition' smart constructor.
+condition :: ComparisonOperator -> Condition
+condition pComparisonOperator = Condition'{_conAttributeValueList = mempty, _conComparisonOperator = pComparisonOperator};
+
+-- | One or more values to evaluate against the supplied attribute. The
+-- number of values in the list depends on the /ComparisonOperator/ being
+-- used.
+--
+-- For type Number, value comparisons are numeric.
+--
+-- String value comparisons for greater than, equals, or less than are
+-- based on ASCII character code values. For example, @a@ is greater than
+-- @A@, and @a@ is greater than @B@. For a list of code values, see
+-- <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>.
+--
+-- For Binary, DynamoDB treats each byte of the binary data as unsigned
+-- when it compares binary values.
+conAttributeValueList :: Lens' Condition [AttributeValue]
+conAttributeValueList = lens _conAttributeValueList (\ s a -> s{_conAttributeValueList = a});
+
+-- | A comparator for evaluating attributes. For example, equals, greater
+-- than, less than, etc.
+--
+-- The following comparison operators are available:
+--
+-- @EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL | CONTAINS | NOT_CONTAINS | BEGINS_WITH | IN | BETWEEN@
+--
+-- The following are descriptions of each comparison operator.
+--
+-- -   @EQ@ : Equal. @EQ@ is supported for all datatypes, including lists
+--     and maps.
+--
+--     /AttributeValueList/ can contain only one /AttributeValue/ element
+--     of type String, Number, Binary, String Set, Number Set, or Binary
+--     Set. If an item contains an /AttributeValue/ element of a different
+--     type than the one provided in the request, the value does not match.
+--     For example, @{\"S\":\"6\"}@ does not equal @{\"N\":\"6\"}@. Also,
+--     @{\"N\":\"6\"}@ does not equal @{\"NS\":[\"6\", \"2\", \"1\"]}@.
+--
+-- -   @NE@ : Not equal. @NE@ is supported for all datatypes, including
+--     lists and maps.
+--
+--     /AttributeValueList/ can contain only one /AttributeValue/ of type
+--     String, Number, Binary, String Set, Number Set, or Binary Set. If an
+--     item contains an /AttributeValue/ of a different type than the one
+--     provided in the request, the value does not match. For example,
+--     @{\"S\":\"6\"}@ does not equal @{\"N\":\"6\"}@. Also,
+--     @{\"N\":\"6\"}@ does not equal @{\"NS\":[\"6\", \"2\", \"1\"]}@.
+--
+-- -   @LE@ : Less than or equal.
+--
+--     /AttributeValueList/ can contain only one /AttributeValue/ element
+--     of type String, Number, or Binary (not a set type). If an item
+--     contains an /AttributeValue/ element of a different type than the
+--     one provided in the request, the value does not match. For example,
+--     @{\"S\":\"6\"}@ does not equal @{\"N\":\"6\"}@. Also,
+--     @{\"N\":\"6\"}@ does not compare to
+--     @{\"NS\":[\"6\", \"2\", \"1\"]}@.
+--
+-- -   @LT@ : Less than.
+--
+--     /AttributeValueList/ can contain only one /AttributeValue/ of type
+--     String, Number, or Binary (not a set type). If an item contains an
+--     /AttributeValue/ element of a different type than the one provided
+--     in the request, the value does not match. For example,
+--     @{\"S\":\"6\"}@ does not equal @{\"N\":\"6\"}@. Also,
+--     @{\"N\":\"6\"}@ does not compare to
+--     @{\"NS\":[\"6\", \"2\", \"1\"]}@.
+--
+-- -   @GE@ : Greater than or equal.
+--
+--     /AttributeValueList/ can contain only one /AttributeValue/ element
+--     of type String, Number, or Binary (not a set type). If an item
+--     contains an /AttributeValue/ element of a different type than the
+--     one provided in the request, the value does not match. For example,
+--     @{\"S\":\"6\"}@ does not equal @{\"N\":\"6\"}@. Also,
+--     @{\"N\":\"6\"}@ does not compare to
+--     @{\"NS\":[\"6\", \"2\", \"1\"]}@.
+--
+-- -   @GT@ : Greater than.
+--
+--     /AttributeValueList/ can contain only one /AttributeValue/ element
+--     of type String, Number, or Binary (not a set type). If an item
+--     contains an /AttributeValue/ element of a different type than the
+--     one provided in the request, the value does not match. For example,
+--     @{\"S\":\"6\"}@ does not equal @{\"N\":\"6\"}@. Also,
+--     @{\"N\":\"6\"}@ does not compare to
+--     @{\"NS\":[\"6\", \"2\", \"1\"]}@.
+--
+-- -   @NOT_NULL@ : The attribute exists. @NOT_NULL@ is supported for all
+--     datatypes, including lists and maps.
+--
+--     This operator tests for the existence of an attribute, not its data
+--     type. If the data type of attribute \"@a@\" is null, and you
+--     evaluate it using @NOT_NULL@, the result is a Boolean /true/. This
+--     result is because the attribute \"@a@\" exists; its data type is not
+--     relevant to the @NOT_NULL@ comparison operator.
+--
+-- -   @NULL@ : The attribute does not exist. @NULL@ is supported for all
+--     datatypes, including lists and maps.
+--
+--     This operator tests for the nonexistence of an attribute, not its
+--     data type. If the data type of attribute \"@a@\" is null, and you
+--     evaluate it using @NULL@, the result is a Boolean /false/. This is
+--     because the attribute \"@a@\" exists; its data type is not relevant
+--     to the @NULL@ comparison operator.
+--
+-- -   @CONTAINS@ : Checks for a subsequence, or value in a set.
+--
+--     /AttributeValueList/ can contain only one /AttributeValue/ element
+--     of type String, Number, or Binary (not a set type). If the target
+--     attribute of the comparison is of type String, then the operator
+--     checks for a substring match. If the target attribute of the
+--     comparison is of type Binary, then the operator looks for a
+--     subsequence of the target that matches the input. If the target
+--     attribute of the comparison is a set (\"@SS@\", \"@NS@\", or
+--     \"@BS@\"), then the operator evaluates to true if it finds an exact
+--     match with any member of the set.
+--
+--     CONTAINS is supported for lists: When evaluating \"@a CONTAINS b@\",
+--     \"@a@\" can be a list; however, \"@b@\" cannot be a set, a map, or a
+--     list.
+--
+-- -   @NOT_CONTAINS@ : Checks for absence of a subsequence, or absence of
+--     a value in a set.
+--
+--     /AttributeValueList/ can contain only one /AttributeValue/ element
+--     of type String, Number, or Binary (not a set type). If the target
+--     attribute of the comparison is a String, then the operator checks
+--     for the absence of a substring match. If the target attribute of the
+--     comparison is Binary, then the operator checks for the absence of a
+--     subsequence of the target that matches the input. If the target
+--     attribute of the comparison is a set (\"@SS@\", \"@NS@\", or
+--     \"@BS@\"), then the operator evaluates to true if it /does not/ find
+--     an exact match with any member of the set.
+--
+--     NOT_CONTAINS is supported for lists: When evaluating
+--     \"@a NOT CONTAINS b@\", \"@a@\" can be a list; however, \"@b@\"
+--     cannot be a set, a map, or a list.
+--
+-- -   @BEGINS_WITH@ : Checks for a prefix.
+--
+--     /AttributeValueList/ can contain only one /AttributeValue/ of type
+--     String or Binary (not a Number or a set type). The target attribute
+--     of the comparison must be of type String or Binary (not a Number or
+--     a set type).
+--
+-- -   @IN@ : Checks for matching elements within two sets.
+--
+--     /AttributeValueList/ can contain one or more /AttributeValue/
+--     elements of type String, Number, or Binary (not a set type). These
+--     attributes are compared against an existing set type attribute of an
+--     item. If any elements of the input set are present in the item
+--     attribute, the expression evaluates to true.
+--
+-- -   @BETWEEN@ : Greater than or equal to the first value, and less than
+--     or equal to the second value.
+--
+--     /AttributeValueList/ must contain two /AttributeValue/ elements of
+--     the same type, either String, Number, or Binary (not a set type). A
+--     target attribute matches if the target value is greater than, or
+--     equal to, the first element and less than, or equal to, the second
+--     element. If an item contains an /AttributeValue/ element of a
+--     different type than the one provided in the request, the value does
+--     not match. For example, @{\"S\":\"6\"}@ does not compare to
+--     @{\"N\":\"6\"}@. Also, @{\"N\":\"6\"}@ does not compare to
+--     @{\"NS\":[\"6\", \"2\", \"1\"]}@
+--
+-- For usage examples of /AttributeValueList/ and /ComparisonOperator/, see
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html Legacy Conditional Parameters>
+-- in the /Amazon DynamoDB Developer Guide/.
+conComparisonOperator :: Lens' Condition ComparisonOperator
+conComparisonOperator = lens _conComparisonOperator (\ s a -> s{_conComparisonOperator = a});
+
+instance ToJSON Condition where
+        toJSON Condition'{..}
+          = object
+              ["AttributeValueList" .= _conAttributeValueList,
+               "ComparisonOperator" .= _conComparisonOperator]
+
+data ConditionalOperator = And | OR deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ConditionalOperator where
+    parser = takeLowerText >>= \case
+        "AND" -> pure And
+        "OR" -> pure OR
+        e -> fail ("Failure parsing ConditionalOperator from " ++ show e)
+
+instance ToText ConditionalOperator where
+    toText = \case
+        And -> "AND"
+        OR -> "OR"
+
+instance Hashable ConditionalOperator
+instance ToQuery ConditionalOperator
+instance ToHeader ConditionalOperator
+
+instance ToJSON ConditionalOperator where
+    toJSON = toJSONText
+
+-- | /See:/ 'consumedCapacity' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'ccCapacityUnits'
+--
+-- * 'ccGlobalSecondaryIndexes'
+--
+-- * 'ccLocalSecondaryIndexes'
+--
+-- * 'ccTable'
+--
+-- * 'ccTableName'
+data ConsumedCapacity = ConsumedCapacity'{_ccCapacityUnits :: Maybe Double, _ccGlobalSecondaryIndexes :: HashMap Text Capacity, _ccLocalSecondaryIndexes :: HashMap Text Capacity, _ccTable :: Maybe Capacity, _ccTableName :: Text} deriving (Eq, Read, Show)
+
+-- | 'ConsumedCapacity' smart constructor.
+consumedCapacity :: Text -> ConsumedCapacity
+consumedCapacity pTableName = ConsumedCapacity'{_ccCapacityUnits = Nothing, _ccGlobalSecondaryIndexes = mempty, _ccLocalSecondaryIndexes = mempty, _ccTable = Nothing, _ccTableName = pTableName};
+
+-- | The total number of capacity units consumed by the operation.
+ccCapacityUnits :: Lens' ConsumedCapacity (Maybe Double)
+ccCapacityUnits = lens _ccCapacityUnits (\ s a -> s{_ccCapacityUnits = a});
+
+-- | The amount of throughput consumed on each global index affected by the
+-- operation.
+ccGlobalSecondaryIndexes :: Lens' ConsumedCapacity (HashMap Text Capacity)
+ccGlobalSecondaryIndexes = lens _ccGlobalSecondaryIndexes (\ s a -> s{_ccGlobalSecondaryIndexes = a}) . _Coerce;
+
+-- | The amount of throughput consumed on each local index affected by the
+-- operation.
+ccLocalSecondaryIndexes :: Lens' ConsumedCapacity (HashMap Text Capacity)
+ccLocalSecondaryIndexes = lens _ccLocalSecondaryIndexes (\ s a -> s{_ccLocalSecondaryIndexes = a}) . _Coerce;
+
+-- | The amount of throughput consumed on the table affected by the
+-- operation.
+ccTable :: Lens' ConsumedCapacity (Maybe Capacity)
+ccTable = lens _ccTable (\ s a -> s{_ccTable = a});
+
+-- | The name of the table that was affected by the operation.
+ccTableName :: Lens' ConsumedCapacity Text
+ccTableName = lens _ccTableName (\ s a -> s{_ccTableName = a});
+
+instance FromJSON ConsumedCapacity where
+        parseJSON
+          = withObject "ConsumedCapacity"
+              (\ x ->
+                 ConsumedCapacity' <$>
+                   x .:? "CapacityUnits" <*>
+                     x .:? "GlobalSecondaryIndexes" .!= mempty
+                     <*> x .:? "LocalSecondaryIndexes" .!= mempty
+                     <*> x .:? "Table"
+                     <*> x .: "TableName")
+
+-- | /See:/ 'createGlobalSecondaryIndexAction' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'cgsiaIndexName'
+--
+-- * 'cgsiaKeySchema'
+--
+-- * 'cgsiaProjection'
+--
+-- * 'cgsiaProvisionedThroughput'
+data CreateGlobalSecondaryIndexAction = CreateGlobalSecondaryIndexAction'{_cgsiaIndexName :: Text, _cgsiaKeySchema :: List1 KeySchemaElement, _cgsiaProjection :: Projection, _cgsiaProvisionedThroughput :: ProvisionedThroughput} deriving (Eq, Read, Show)
+
+-- | 'CreateGlobalSecondaryIndexAction' smart constructor.
+createGlobalSecondaryIndexAction :: Text -> NonEmpty KeySchemaElement -> Projection -> ProvisionedThroughput -> CreateGlobalSecondaryIndexAction
+createGlobalSecondaryIndexAction pIndexName pKeySchema pProjection pProvisionedThroughput = CreateGlobalSecondaryIndexAction'{_cgsiaIndexName = pIndexName, _cgsiaKeySchema = _List1 # pKeySchema, _cgsiaProjection = pProjection, _cgsiaProvisionedThroughput = pProvisionedThroughput};
+
+-- | The name of the global secondary index to be created.
+cgsiaIndexName :: Lens' CreateGlobalSecondaryIndexAction Text
+cgsiaIndexName = lens _cgsiaIndexName (\ s a -> s{_cgsiaIndexName = a});
+
+-- | The key schema for the global secondary index.
+cgsiaKeySchema :: Lens' CreateGlobalSecondaryIndexAction (NonEmpty KeySchemaElement)
+cgsiaKeySchema = lens _cgsiaKeySchema (\ s a -> s{_cgsiaKeySchema = a}) . _List1;
+
+-- | FIXME: Undocumented member.
+cgsiaProjection :: Lens' CreateGlobalSecondaryIndexAction Projection
+cgsiaProjection = lens _cgsiaProjection (\ s a -> s{_cgsiaProjection = a});
+
+-- | FIXME: Undocumented member.
+cgsiaProvisionedThroughput :: Lens' CreateGlobalSecondaryIndexAction ProvisionedThroughput
+cgsiaProvisionedThroughput = lens _cgsiaProvisionedThroughput (\ s a -> s{_cgsiaProvisionedThroughput = a});
+
+instance ToJSON CreateGlobalSecondaryIndexAction
+         where
+        toJSON CreateGlobalSecondaryIndexAction'{..}
+          = object
+              ["IndexName" .= _cgsiaIndexName,
+               "KeySchema" .= _cgsiaKeySchema,
+               "Projection" .= _cgsiaProjection,
+               "ProvisionedThroughput" .=
+                 _cgsiaProvisionedThroughput]
+
+-- | /See:/ 'deleteGlobalSecondaryIndexAction' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dgsiaIndexName'
+newtype DeleteGlobalSecondaryIndexAction = DeleteGlobalSecondaryIndexAction'{_dgsiaIndexName :: Text} deriving (Eq, Read, Show)
+
+-- | 'DeleteGlobalSecondaryIndexAction' smart constructor.
+deleteGlobalSecondaryIndexAction :: Text -> DeleteGlobalSecondaryIndexAction
+deleteGlobalSecondaryIndexAction pIndexName = DeleteGlobalSecondaryIndexAction'{_dgsiaIndexName = pIndexName};
+
+-- | The name of the global secondary index to be deleted.
+dgsiaIndexName :: Lens' DeleteGlobalSecondaryIndexAction Text
+dgsiaIndexName = lens _dgsiaIndexName (\ s a -> s{_dgsiaIndexName = a});
+
+instance ToJSON DeleteGlobalSecondaryIndexAction
+         where
+        toJSON DeleteGlobalSecondaryIndexAction'{..}
+          = object ["IndexName" .= _dgsiaIndexName]
+
+-- | /See:/ 'deleteRequest' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'drKey'
+newtype DeleteRequest = DeleteRequest'{_drKey :: HashMap Text AttributeValue} deriving (Eq, Read, Show)
+
+-- | 'DeleteRequest' smart constructor.
+deleteRequest :: HashMap Text AttributeValue -> DeleteRequest
+deleteRequest pKey = DeleteRequest'{_drKey = _Coerce # pKey};
+
+-- | A map of attribute name to attribute values, representing the primary
+-- key of the item to delete. All of the table\'s primary key attributes
+-- must be specified, and their data types must match those of the table\'s
+-- key schema.
+drKey :: Lens' DeleteRequest (HashMap Text AttributeValue)
+drKey = lens _drKey (\ s a -> s{_drKey = a}) . _Coerce;
+
+instance FromJSON DeleteRequest where
+        parseJSON
+          = withObject "DeleteRequest"
+              (\ x -> DeleteRequest' <$> x .:? "Key" .!= mempty)
+
+instance ToJSON DeleteRequest where
+        toJSON DeleteRequest'{..} = object ["Key" .= _drKey]
+
+-- | /See:/ 'expectedAttributeValue' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'eavAttributeValueList'
+--
+-- * 'eavExists'
+--
+-- * 'eavValue'
+--
+-- * 'eavComparisonOperator'
+data ExpectedAttributeValue = ExpectedAttributeValue'{_eavAttributeValueList :: [AttributeValue], _eavExists :: Maybe Bool, _eavValue :: Maybe AttributeValue, _eavComparisonOperator :: Maybe ComparisonOperator} deriving (Eq, Read, Show)
+
+-- | 'ExpectedAttributeValue' smart constructor.
+expectedAttributeValue :: ExpectedAttributeValue
+expectedAttributeValue = ExpectedAttributeValue'{_eavAttributeValueList = mempty, _eavExists = Nothing, _eavValue = Nothing, _eavComparisonOperator = Nothing};
+
+-- | One or more values to evaluate against the supplied attribute. The
+-- number of values in the list depends on the /ComparisonOperator/ being
+-- used.
+--
+-- For type Number, value comparisons are numeric.
+--
+-- String value comparisons for greater than, equals, or less than are
+-- based on ASCII character code values. For example, @a@ is greater than
+-- @A@, and @a@ is greater than @B@. For a list of code values, see
+-- <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>.
+--
+-- For Binary, DynamoDB treats each byte of the binary data as unsigned
+-- when it compares binary values.
+--
+-- For information on specifying data types in JSON, see
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataFormat.html JSON Data Format>
+-- in the /Amazon DynamoDB Developer Guide/.
+eavAttributeValueList :: Lens' ExpectedAttributeValue [AttributeValue]
+eavAttributeValueList = lens _eavAttributeValueList (\ s a -> s{_eavAttributeValueList = a});
+
+-- | Causes DynamoDB to evaluate the value before attempting a conditional
+-- operation:
+--
+-- -   If /Exists/ is @true@, DynamoDB will check to see if that attribute
+--     value already exists in the table. If it is found, then the
+--     operation succeeds. If it is not found, the operation fails with a
+--     /ConditionalCheckFailedException/.
+--
+-- -   If /Exists/ is @false@, DynamoDB assumes that the attribute value
+--     does not exist in the table. If in fact the value does not exist,
+--     then the assumption is valid and the operation succeeds. If the
+--     value is found, despite the assumption that it does not exist, the
+--     operation fails with a /ConditionalCheckFailedException/.
+--
+-- The default setting for /Exists/ is @true@. If you supply a /Value/ all
+-- by itself, DynamoDB assumes the attribute exists: You don\'t have to set
+-- /Exists/ to @true@, because it is implied.
+--
+-- DynamoDB returns a /ValidationException/ if:
+--
+-- -   /Exists/ is @true@ but there is no /Value/ to check. (You expect a
+--     value to exist, but don\'t specify what that value is.)
+--
+-- -   /Exists/ is @false@ but you also provide a /Value/. (You cannot
+--     expect an attribute to have a value, while also expecting it not to
+--     exist.)
+--
+eavExists :: Lens' ExpectedAttributeValue (Maybe Bool)
+eavExists = lens _eavExists (\ s a -> s{_eavExists = a});
+
+-- | FIXME: Undocumented member.
+eavValue :: Lens' ExpectedAttributeValue (Maybe AttributeValue)
+eavValue = lens _eavValue (\ s a -> s{_eavValue = a});
+
+-- | A comparator for evaluating attributes in the /AttributeValueList/. For
+-- example, equals, greater than, less than, etc.
+--
+-- The following comparison operators are available:
+--
+-- @EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL | CONTAINS | NOT_CONTAINS | BEGINS_WITH | IN | BETWEEN@
+--
+-- The following are descriptions of each comparison operator.
+--
+-- -   @EQ@ : Equal. @EQ@ is supported for all datatypes, including lists
+--     and maps.
+--
+--     /AttributeValueList/ can contain only one /AttributeValue/ element
+--     of type String, Number, Binary, String Set, Number Set, or Binary
+--     Set. If an item contains an /AttributeValue/ element of a different
+--     type than the one provided in the request, the value does not match.
+--     For example, @{\"S\":\"6\"}@ does not equal @{\"N\":\"6\"}@. Also,
+--     @{\"N\":\"6\"}@ does not equal @{\"NS\":[\"6\", \"2\", \"1\"]}@.
+--
+-- -   @NE@ : Not equal. @NE@ is supported for all datatypes, including
+--     lists and maps.
+--
+--     /AttributeValueList/ can contain only one /AttributeValue/ of type
+--     String, Number, Binary, String Set, Number Set, or Binary Set. If an
+--     item contains an /AttributeValue/ of a different type than the one
+--     provided in the request, the value does not match. For example,
+--     @{\"S\":\"6\"}@ does not equal @{\"N\":\"6\"}@. Also,
+--     @{\"N\":\"6\"}@ does not equal @{\"NS\":[\"6\", \"2\", \"1\"]}@.
+--
+-- -   @LE@ : Less than or equal.
+--
+--     /AttributeValueList/ can contain only one /AttributeValue/ element
+--     of type String, Number, or Binary (not a set type). If an item
+--     contains an /AttributeValue/ element of a different type than the
+--     one provided in the request, the value does not match. For example,
+--     @{\"S\":\"6\"}@ does not equal @{\"N\":\"6\"}@. Also,
+--     @{\"N\":\"6\"}@ does not compare to
+--     @{\"NS\":[\"6\", \"2\", \"1\"]}@.
+--
+-- -   @LT@ : Less than.
+--
+--     /AttributeValueList/ can contain only one /AttributeValue/ of type
+--     String, Number, or Binary (not a set type). If an item contains an
+--     /AttributeValue/ element of a different type than the one provided
+--     in the request, the value does not match. For example,
+--     @{\"S\":\"6\"}@ does not equal @{\"N\":\"6\"}@. Also,
+--     @{\"N\":\"6\"}@ does not compare to
+--     @{\"NS\":[\"6\", \"2\", \"1\"]}@.
+--
+-- -   @GE@ : Greater than or equal.
+--
+--     /AttributeValueList/ can contain only one /AttributeValue/ element
+--     of type String, Number, or Binary (not a set type). If an item
+--     contains an /AttributeValue/ element of a different type than the
+--     one provided in the request, the value does not match. For example,
+--     @{\"S\":\"6\"}@ does not equal @{\"N\":\"6\"}@. Also,
+--     @{\"N\":\"6\"}@ does not compare to
+--     @{\"NS\":[\"6\", \"2\", \"1\"]}@.
+--
+-- -   @GT@ : Greater than.
+--
+--     /AttributeValueList/ can contain only one /AttributeValue/ element
+--     of type String, Number, or Binary (not a set type). If an item
+--     contains an /AttributeValue/ element of a different type than the
+--     one provided in the request, the value does not match. For example,
+--     @{\"S\":\"6\"}@ does not equal @{\"N\":\"6\"}@. Also,
+--     @{\"N\":\"6\"}@ does not compare to
+--     @{\"NS\":[\"6\", \"2\", \"1\"]}@.
+--
+-- -   @NOT_NULL@ : The attribute exists. @NOT_NULL@ is supported for all
+--     datatypes, including lists and maps.
+--
+--     This operator tests for the existence of an attribute, not its data
+--     type. If the data type of attribute \"@a@\" is null, and you
+--     evaluate it using @NOT_NULL@, the result is a Boolean /true/. This
+--     result is because the attribute \"@a@\" exists; its data type is not
+--     relevant to the @NOT_NULL@ comparison operator.
+--
+-- -   @NULL@ : The attribute does not exist. @NULL@ is supported for all
+--     datatypes, including lists and maps.
+--
+--     This operator tests for the nonexistence of an attribute, not its
+--     data type. If the data type of attribute \"@a@\" is null, and you
+--     evaluate it using @NULL@, the result is a Boolean /false/. This is
+--     because the attribute \"@a@\" exists; its data type is not relevant
+--     to the @NULL@ comparison operator.
+--
+-- -   @CONTAINS@ : Checks for a subsequence, or value in a set.
+--
+--     /AttributeValueList/ can contain only one /AttributeValue/ element
+--     of type String, Number, or Binary (not a set type). If the target
+--     attribute of the comparison is of type String, then the operator
+--     checks for a substring match. If the target attribute of the
+--     comparison is of type Binary, then the operator looks for a
+--     subsequence of the target that matches the input. If the target
+--     attribute of the comparison is a set (\"@SS@\", \"@NS@\", or
+--     \"@BS@\"), then the operator evaluates to true if it finds an exact
+--     match with any member of the set.
+--
+--     CONTAINS is supported for lists: When evaluating \"@a CONTAINS b@\",
+--     \"@a@\" can be a list; however, \"@b@\" cannot be a set, a map, or a
+--     list.
+--
+-- -   @NOT_CONTAINS@ : Checks for absence of a subsequence, or absence of
+--     a value in a set.
+--
+--     /AttributeValueList/ can contain only one /AttributeValue/ element
+--     of type String, Number, or Binary (not a set type). If the target
+--     attribute of the comparison is a String, then the operator checks
+--     for the absence of a substring match. If the target attribute of the
+--     comparison is Binary, then the operator checks for the absence of a
+--     subsequence of the target that matches the input. If the target
+--     attribute of the comparison is a set (\"@SS@\", \"@NS@\", or
+--     \"@BS@\"), then the operator evaluates to true if it /does not/ find
+--     an exact match with any member of the set.
+--
+--     NOT_CONTAINS is supported for lists: When evaluating
+--     \"@a NOT CONTAINS b@\", \"@a@\" can be a list; however, \"@b@\"
+--     cannot be a set, a map, or a list.
+--
+-- -   @BEGINS_WITH@ : Checks for a prefix.
+--
+--     /AttributeValueList/ can contain only one /AttributeValue/ of type
+--     String or Binary (not a Number or a set type). The target attribute
+--     of the comparison must be of type String or Binary (not a Number or
+--     a set type).
+--
+-- -   @IN@ : Checks for matching elements within two sets.
+--
+--     /AttributeValueList/ can contain one or more /AttributeValue/
+--     elements of type String, Number, or Binary (not a set type). These
+--     attributes are compared against an existing set type attribute of an
+--     item. If any elements of the input set are present in the item
+--     attribute, the expression evaluates to true.
+--
+-- -   @BETWEEN@ : Greater than or equal to the first value, and less than
+--     or equal to the second value.
+--
+--     /AttributeValueList/ must contain two /AttributeValue/ elements of
+--     the same type, either String, Number, or Binary (not a set type). A
+--     target attribute matches if the target value is greater than, or
+--     equal to, the first element and less than, or equal to, the second
+--     element. If an item contains an /AttributeValue/ element of a
+--     different type than the one provided in the request, the value does
+--     not match. For example, @{\"S\":\"6\"}@ does not compare to
+--     @{\"N\":\"6\"}@. Also, @{\"N\":\"6\"}@ does not compare to
+--     @{\"NS\":[\"6\", \"2\", \"1\"]}@
+--
+eavComparisonOperator :: Lens' ExpectedAttributeValue (Maybe ComparisonOperator)
+eavComparisonOperator = lens _eavComparisonOperator (\ s a -> s{_eavComparisonOperator = a});
+
+instance ToJSON ExpectedAttributeValue where
+        toJSON ExpectedAttributeValue'{..}
+          = object
+              ["AttributeValueList" .= _eavAttributeValueList,
+               "Exists" .= _eavExists, "Value" .= _eavValue,
+               "ComparisonOperator" .= _eavComparisonOperator]
+
+-- | /See:/ 'globalSecondaryIndex' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'gsiIndexName'
+--
+-- * 'gsiKeySchema'
+--
+-- * 'gsiProjection'
+--
+-- * 'gsiProvisionedThroughput'
+data GlobalSecondaryIndex = GlobalSecondaryIndex'{_gsiIndexName :: Text, _gsiKeySchema :: List1 KeySchemaElement, _gsiProjection :: Projection, _gsiProvisionedThroughput :: ProvisionedThroughput} deriving (Eq, Read, Show)
+
+-- | 'GlobalSecondaryIndex' smart constructor.
+globalSecondaryIndex :: Text -> NonEmpty KeySchemaElement -> Projection -> ProvisionedThroughput -> GlobalSecondaryIndex
+globalSecondaryIndex pIndexName pKeySchema pProjection pProvisionedThroughput = GlobalSecondaryIndex'{_gsiIndexName = pIndexName, _gsiKeySchema = _List1 # pKeySchema, _gsiProjection = pProjection, _gsiProvisionedThroughput = pProvisionedThroughput};
+
+-- | The name of the global secondary index. The name must be unique among
+-- all other indexes on this table.
+gsiIndexName :: Lens' GlobalSecondaryIndex Text
+gsiIndexName = lens _gsiIndexName (\ s a -> s{_gsiIndexName = a});
+
+-- | The complete key schema for a global secondary index, which consists of
+-- one or more pairs of attribute names and key types (@HASH@ or @RANGE@).
+gsiKeySchema :: Lens' GlobalSecondaryIndex (NonEmpty KeySchemaElement)
+gsiKeySchema = lens _gsiKeySchema (\ s a -> s{_gsiKeySchema = a}) . _List1;
+
+-- | FIXME: Undocumented member.
+gsiProjection :: Lens' GlobalSecondaryIndex Projection
+gsiProjection = lens _gsiProjection (\ s a -> s{_gsiProjection = a});
+
+-- | FIXME: Undocumented member.
+gsiProvisionedThroughput :: Lens' GlobalSecondaryIndex ProvisionedThroughput
+gsiProvisionedThroughput = lens _gsiProvisionedThroughput (\ s a -> s{_gsiProvisionedThroughput = a});
+
+instance ToJSON GlobalSecondaryIndex where
+        toJSON GlobalSecondaryIndex'{..}
+          = object
+              ["IndexName" .= _gsiIndexName,
+               "KeySchema" .= _gsiKeySchema,
+               "Projection" .= _gsiProjection,
+               "ProvisionedThroughput" .= _gsiProvisionedThroughput]
+
+-- | /See:/ 'globalSecondaryIndexDescription' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'gsidBackfilling'
+--
+-- * 'gsidProvisionedThroughput'
+--
+-- * 'gsidIndexStatus'
+--
+-- * 'gsidIndexSizeBytes'
+--
+-- * 'gsidProjection'
+--
+-- * 'gsidItemCount'
+--
+-- * 'gsidKeySchema'
+--
+-- * 'gsidIndexName'
+data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription'{_gsidBackfilling :: Maybe Bool, _gsidProvisionedThroughput :: Maybe ProvisionedThroughputDescription, _gsidIndexStatus :: Maybe IndexStatus, _gsidIndexSizeBytes :: Maybe Integer, _gsidProjection :: Maybe Projection, _gsidItemCount :: Maybe Integer, _gsidKeySchema :: List1 KeySchemaElement, _gsidIndexName :: Text} deriving (Eq, Read, Show)
+
+-- | 'GlobalSecondaryIndexDescription' smart constructor.
+globalSecondaryIndexDescription :: NonEmpty KeySchemaElement -> Text -> GlobalSecondaryIndexDescription
+globalSecondaryIndexDescription pKeySchema pIndexName = GlobalSecondaryIndexDescription'{_gsidBackfilling = Nothing, _gsidProvisionedThroughput = Nothing, _gsidIndexStatus = Nothing, _gsidIndexSizeBytes = Nothing, _gsidProjection = Nothing, _gsidItemCount = Nothing, _gsidKeySchema = _List1 # pKeySchema, _gsidIndexName = pIndexName};
+
+-- | Indicates whether the index is currently backfilling. /Backfilling/ is
+-- the process of reading items from the table and determining whether they
+-- can be added to the index. (Not all items will qualify: For example, a
+-- hash key attribute cannot have any duplicates.) If an item can be added
+-- to the index, DynamoDB will do so. After all items have been processed,
+-- the backfilling operation is complete and /Backfilling/ is false.
+--
+-- For indexes that were created during a /CreateTable/ operation, the
+-- /Backfilling/ attribute does not appear in the /DescribeTable/ output.
+gsidBackfilling :: Lens' GlobalSecondaryIndexDescription (Maybe Bool)
+gsidBackfilling = lens _gsidBackfilling (\ s a -> s{_gsidBackfilling = a});
+
+-- | FIXME: Undocumented member.
+gsidProvisionedThroughput :: Lens' GlobalSecondaryIndexDescription (Maybe ProvisionedThroughputDescription)
+gsidProvisionedThroughput = lens _gsidProvisionedThroughput (\ s a -> s{_gsidProvisionedThroughput = a});
+
+-- | The current state of the global secondary index:
+--
+-- -   /CREATING/ - The index is being created.
+--
+-- -   /UPDATING/ - The index is being updated.
+--
+-- -   /DELETING/ - The index is being deleted.
+--
+-- -   /ACTIVE/ - The index is ready for use.
+--
+gsidIndexStatus :: Lens' GlobalSecondaryIndexDescription (Maybe IndexStatus)
+gsidIndexStatus = lens _gsidIndexStatus (\ s a -> s{_gsidIndexStatus = a});
+
+-- | The total size of the specified index, in bytes. DynamoDB updates this
+-- value approximately every six hours. Recent changes might not be
+-- reflected in this value.
+gsidIndexSizeBytes :: Lens' GlobalSecondaryIndexDescription (Maybe Integer)
+gsidIndexSizeBytes = lens _gsidIndexSizeBytes (\ s a -> s{_gsidIndexSizeBytes = a});
+
+-- | FIXME: Undocumented member.
+gsidProjection :: Lens' GlobalSecondaryIndexDescription (Maybe Projection)
+gsidProjection = lens _gsidProjection (\ s a -> s{_gsidProjection = a});
+
+-- | The number of items in the specified index. DynamoDB updates this value
+-- approximately every six hours. Recent changes might not be reflected in
+-- this value.
+gsidItemCount :: Lens' GlobalSecondaryIndexDescription (Maybe Integer)
+gsidItemCount = lens _gsidItemCount (\ s a -> s{_gsidItemCount = a});
+
+-- | The complete key schema for the global secondary index, consisting of
+-- one or more pairs of attribute names and key types (@HASH@ or @RANGE@).
+gsidKeySchema :: Lens' GlobalSecondaryIndexDescription (NonEmpty KeySchemaElement)
+gsidKeySchema = lens _gsidKeySchema (\ s a -> s{_gsidKeySchema = a}) . _List1;
+
+-- | The name of the global secondary index.
+gsidIndexName :: Lens' GlobalSecondaryIndexDescription Text
+gsidIndexName = lens _gsidIndexName (\ s a -> s{_gsidIndexName = a});
+
+instance FromJSON GlobalSecondaryIndexDescription
+         where
+        parseJSON
+          = withObject "GlobalSecondaryIndexDescription"
+              (\ x ->
+                 GlobalSecondaryIndexDescription' <$>
+                   x .:? "Backfilling" <*> x .:? "ProvisionedThroughput"
+                     <*> x .:? "IndexStatus"
+                     <*> x .:? "IndexSizeBytes"
+                     <*> x .:? "Projection"
+                     <*> x .:? "ItemCount"
+                     <*> x .: "KeySchema"
+                     <*> x .: "IndexName")
+
+-- | /See:/ 'globalSecondaryIndexUpdate' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'gsiuCreate'
+--
+-- * 'gsiuDelete'
+--
+-- * 'gsiuUpdate'
+data GlobalSecondaryIndexUpdate = GlobalSecondaryIndexUpdate'{_gsiuCreate :: Maybe CreateGlobalSecondaryIndexAction, _gsiuDelete :: Maybe DeleteGlobalSecondaryIndexAction, _gsiuUpdate :: Maybe UpdateGlobalSecondaryIndexAction} deriving (Eq, Read, Show)
+
+-- | 'GlobalSecondaryIndexUpdate' smart constructor.
+globalSecondaryIndexUpdate :: GlobalSecondaryIndexUpdate
+globalSecondaryIndexUpdate = GlobalSecondaryIndexUpdate'{_gsiuCreate = Nothing, _gsiuDelete = Nothing, _gsiuUpdate = Nothing};
+
+-- | The parameters required for creating a global secondary index on an
+-- existing table:
+--
+-- -   @IndexName @
+--
+-- -   @KeySchema @
+--
+-- -   @AttributeDefinitions @
+--
+-- -   @Projection @
+--
+-- -   @ProvisionedThroughput @
+--
+gsiuCreate :: Lens' GlobalSecondaryIndexUpdate (Maybe CreateGlobalSecondaryIndexAction)
+gsiuCreate = lens _gsiuCreate (\ s a -> s{_gsiuCreate = a});
+
+-- | The name of an existing global secondary index to be removed.
+gsiuDelete :: Lens' GlobalSecondaryIndexUpdate (Maybe DeleteGlobalSecondaryIndexAction)
+gsiuDelete = lens _gsiuDelete (\ s a -> s{_gsiuDelete = a});
+
+-- | The name of an existing global secondary index, along with new
+-- provisioned throughput settings to be applied to that index.
+gsiuUpdate :: Lens' GlobalSecondaryIndexUpdate (Maybe UpdateGlobalSecondaryIndexAction)
+gsiuUpdate = lens _gsiuUpdate (\ s a -> s{_gsiuUpdate = a});
+
+instance ToJSON GlobalSecondaryIndexUpdate where
+        toJSON GlobalSecondaryIndexUpdate'{..}
+          = object
+              ["Create" .= _gsiuCreate, "Delete" .= _gsiuDelete,
+               "Update" .= _gsiuUpdate]
+
+data IndexStatus = ISUpdating | ISDeleting | ISCreating | ISActive deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText IndexStatus where
+    parser = takeLowerText >>= \case
+        "ACTIVE" -> pure ISActive
+        "CREATING" -> pure ISCreating
+        "DELETING" -> pure ISDeleting
+        "UPDATING" -> pure ISUpdating
+        e -> fail ("Failure parsing IndexStatus from " ++ show e)
+
+instance ToText IndexStatus where
+    toText = \case
+        ISActive -> "ACTIVE"
+        ISCreating -> "CREATING"
+        ISDeleting -> "DELETING"
+        ISUpdating -> "UPDATING"
+
+instance Hashable IndexStatus
+instance ToQuery IndexStatus
+instance ToHeader IndexStatus
+
+instance FromJSON IndexStatus where
+    parseJSON = parseJSONText "IndexStatus"
+
+-- | /See:/ 'itemCollectionMetrics' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'icmItemCollectionKey'
+--
+-- * 'icmSizeEstimateRangeGB'
+data ItemCollectionMetrics = ItemCollectionMetrics'{_icmItemCollectionKey :: HashMap Text AttributeValue, _icmSizeEstimateRangeGB :: [Double]} deriving (Eq, Read, Show)
+
+-- | 'ItemCollectionMetrics' smart constructor.
+itemCollectionMetrics :: ItemCollectionMetrics
+itemCollectionMetrics = ItemCollectionMetrics'{_icmItemCollectionKey = mempty, _icmSizeEstimateRangeGB = mempty};
+
+-- | The hash key value of the item collection. This value is the same as the
+-- hash key of the item.
+icmItemCollectionKey :: Lens' ItemCollectionMetrics (HashMap Text AttributeValue)
+icmItemCollectionKey = lens _icmItemCollectionKey (\ s a -> s{_icmItemCollectionKey = a}) . _Coerce;
+
+-- | An estimate of item collection size, in gigabytes. This value is a
+-- two-element array containing a lower bound and an upper bound for the
+-- estimate. The estimate includes the size of all the items in the table,
+-- plus the size of all attributes projected into all of the local
+-- secondary indexes on that table. Use this estimate to measure whether a
+-- local secondary index is approaching its size limit.
+--
+-- The estimate is subject to change over time; therefore, do not rely on
+-- the precision or accuracy of the estimate.
+icmSizeEstimateRangeGB :: Lens' ItemCollectionMetrics [Double]
+icmSizeEstimateRangeGB = lens _icmSizeEstimateRangeGB (\ s a -> s{_icmSizeEstimateRangeGB = a});
+
+instance FromJSON ItemCollectionMetrics where
+        parseJSON
+          = withObject "ItemCollectionMetrics"
+              (\ x ->
+                 ItemCollectionMetrics' <$>
+                   x .:? "ItemCollectionKey" .!= mempty <*>
+                     x .:? "SizeEstimateRangeGB" .!= mempty)
+
+-- | /See:/ 'keySchemaElement' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'kseAttributeName'
+--
+-- * 'kseKeyType'
+data KeySchemaElement = KeySchemaElement'{_kseAttributeName :: Text, _kseKeyType :: KeyType} deriving (Eq, Read, Show)
+
+-- | 'KeySchemaElement' smart constructor.
+keySchemaElement :: Text -> KeyType -> KeySchemaElement
+keySchemaElement pAttributeName pKeyType = KeySchemaElement'{_kseAttributeName = pAttributeName, _kseKeyType = pKeyType};
+
+-- | The name of a key attribute.
+kseAttributeName :: Lens' KeySchemaElement Text
+kseAttributeName = lens _kseAttributeName (\ s a -> s{_kseAttributeName = a});
+
+-- | The attribute data, consisting of the data type and the attribute value
+-- itself.
+kseKeyType :: Lens' KeySchemaElement KeyType
+kseKeyType = lens _kseKeyType (\ s a -> s{_kseKeyType = a});
+
+instance FromJSON KeySchemaElement where
+        parseJSON
+          = withObject "KeySchemaElement"
+              (\ x ->
+                 KeySchemaElement' <$>
+                   x .: "AttributeName" <*> x .: "KeyType")
+
+instance ToJSON KeySchemaElement where
+        toJSON KeySchemaElement'{..}
+          = object
+              ["AttributeName" .= _kseAttributeName,
+               "KeyType" .= _kseKeyType]
+
+data KeyType = Hash | Range deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText KeyType where
+    parser = takeLowerText >>= \case
+        "HASH" -> pure Hash
+        "RANGE" -> pure Range
+        e -> fail ("Failure parsing KeyType from " ++ show e)
+
+instance ToText KeyType where
+    toText = \case
+        Hash -> "HASH"
+        Range -> "RANGE"
+
+instance Hashable KeyType
+instance ToQuery KeyType
+instance ToHeader KeyType
+
+instance ToJSON KeyType where
+    toJSON = toJSONText
+
+instance FromJSON KeyType where
+    parseJSON = parseJSONText "KeyType"
+
+-- | /See:/ 'keysAndAttributes' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'kaaProjectionExpression'
+--
+-- * 'kaaConsistentRead'
+--
+-- * 'kaaExpressionAttributeNames'
+--
+-- * 'kaaKeys'
+--
+-- * 'kaaAttributesToGet'
+data KeysAndAttributes = KeysAndAttributes'{_kaaProjectionExpression :: Maybe Text, _kaaConsistentRead :: Maybe Bool, _kaaExpressionAttributeNames :: HashMap Text Text, _kaaKeys :: List1 (HashMap Text AttributeValue), _kaaAttributesToGet :: List1 Text} deriving (Eq, Read, Show)
+
+-- | 'KeysAndAttributes' smart constructor.
+keysAndAttributes :: NonEmpty (HashMap Text AttributeValue) -> NonEmpty Text -> KeysAndAttributes
+keysAndAttributes pKeys pAttributesToGet = KeysAndAttributes'{_kaaProjectionExpression = Nothing, _kaaConsistentRead = Nothing, _kaaExpressionAttributeNames = mempty, _kaaKeys = _List1 # pKeys, _kaaAttributesToGet = _List1 # pAttributesToGet};
+
+-- | A string that identifies one or more attributes to retrieve from the
+-- table. These attributes can include scalars, sets, or elements of a JSON
+-- document. The attributes in the /ProjectionExpression/ must be separated
+-- by commas.
+--
+-- If no attribute names are specified, then all attributes will be
+-- returned. If any of the requested attributes are not found, they will
+-- not appear in the result.
+--
+-- For more information, see
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes>
+-- in the /Amazon DynamoDB Developer Guide/.
+--
+-- /ProjectionExpression/ replaces the legacy /AttributesToGet/ parameter.
+kaaProjectionExpression :: Lens' KeysAndAttributes (Maybe Text)
+kaaProjectionExpression = lens _kaaProjectionExpression (\ s a -> s{_kaaProjectionExpression = a});
+
+-- | The consistency of a read operation. If set to @true@, then a strongly
+-- consistent read is used; otherwise, an eventually consistent read is
+-- used.
+kaaConsistentRead :: Lens' KeysAndAttributes (Maybe Bool)
+kaaConsistentRead = lens _kaaConsistentRead (\ s a -> s{_kaaConsistentRead = a});
+
+-- | One or more substitution tokens for attribute names in an expression.
+-- The following are some use cases for using /ExpressionAttributeNames/:
+--
+-- -   To access an attribute whose name conflicts with a DynamoDB reserved
+--     word.
+--
+-- -   To create a placeholder for repeating occurrences of an attribute
+--     name in an expression.
+--
+-- -   To prevent special characters in an attribute name from being
+--     misinterpreted in an expression.
+--
+-- Use the __#__ character in an expression to dereference an attribute
+-- name. For example, consider the following attribute name:
+--
+-- -   @Percentile@
+--
+-- The name of this attribute conflicts with a reserved word, so it cannot
+-- be used directly in an expression. (For the complete list of reserved
+-- words, see
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html Reserved Words>
+-- in the /Amazon DynamoDB Developer Guide/). To work around this, you
+-- could specify the following for /ExpressionAttributeNames/:
+--
+-- -   @{\"#P\":\"Percentile\"}@
+--
+-- You could then use this substitution in an expression, as in this
+-- example:
+--
+-- -   @#P = :val@
+--
+-- Tokens that begin with the __:__ character are /expression attribute
+-- values/, which are placeholders for the actual value at runtime.
+--
+-- For more information on expression attribute names, see
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ExpressionPlaceholders.html Using Placeholders for Attribute Names and Values>
+-- in the /Amazon DynamoDB Developer Guide/.
+kaaExpressionAttributeNames :: Lens' KeysAndAttributes (HashMap Text Text)
+kaaExpressionAttributeNames = lens _kaaExpressionAttributeNames (\ s a -> s{_kaaExpressionAttributeNames = a}) . _Coerce;
+
+-- | The primary key attribute values that define the items and the
+-- attributes associated with the items.
+kaaKeys :: Lens' KeysAndAttributes (NonEmpty (HashMap Text AttributeValue))
+kaaKeys = lens _kaaKeys (\ s a -> s{_kaaKeys = a}) . _List1;
+
+-- | One or more attributes to retrieve from the table or index. If no
+-- attribute names are specified then all attributes will be returned. If
+-- any of the specified attributes are not found, they will not appear in
+-- the result.
+kaaAttributesToGet :: Lens' KeysAndAttributes (NonEmpty Text)
+kaaAttributesToGet = lens _kaaAttributesToGet (\ s a -> s{_kaaAttributesToGet = a}) . _List1;
+
+instance FromJSON KeysAndAttributes where
+        parseJSON
+          = withObject "KeysAndAttributes"
+              (\ x ->
+                 KeysAndAttributes' <$>
+                   x .:? "ProjectionExpression" <*>
+                     x .:? "ConsistentRead"
+                     <*> x .:? "ExpressionAttributeNames" .!= mempty
+                     <*> x .: "Keys"
+                     <*> x .: "AttributesToGet")
+
+instance ToJSON KeysAndAttributes where
+        toJSON KeysAndAttributes'{..}
+          = object
+              ["ProjectionExpression" .= _kaaProjectionExpression,
+               "ConsistentRead" .= _kaaConsistentRead,
+               "ExpressionAttributeNames" .=
+                 _kaaExpressionAttributeNames,
+               "Keys" .= _kaaKeys,
+               "AttributesToGet" .= _kaaAttributesToGet]
+
+-- | /See:/ 'localSecondaryIndex' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'lsiIndexName'
+--
+-- * 'lsiKeySchema'
+--
+-- * 'lsiProjection'
+data LocalSecondaryIndex = LocalSecondaryIndex'{_lsiIndexName :: Text, _lsiKeySchema :: List1 KeySchemaElement, _lsiProjection :: Projection} deriving (Eq, Read, Show)
+
+-- | 'LocalSecondaryIndex' smart constructor.
+localSecondaryIndex :: Text -> NonEmpty KeySchemaElement -> Projection -> LocalSecondaryIndex
+localSecondaryIndex pIndexName pKeySchema pProjection = LocalSecondaryIndex'{_lsiIndexName = pIndexName, _lsiKeySchema = _List1 # pKeySchema, _lsiProjection = pProjection};
+
+-- | The name of the local secondary index. The name must be unique among all
+-- other indexes on this table.
+lsiIndexName :: Lens' LocalSecondaryIndex Text
+lsiIndexName = lens _lsiIndexName (\ s a -> s{_lsiIndexName = a});
+
+-- | The complete key schema for the local secondary index, consisting of one
+-- or more pairs of attribute names and key types (@HASH@ or @RANGE@).
+lsiKeySchema :: Lens' LocalSecondaryIndex (NonEmpty KeySchemaElement)
+lsiKeySchema = lens _lsiKeySchema (\ s a -> s{_lsiKeySchema = a}) . _List1;
+
+-- | FIXME: Undocumented member.
+lsiProjection :: Lens' LocalSecondaryIndex Projection
+lsiProjection = lens _lsiProjection (\ s a -> s{_lsiProjection = a});
+
+instance ToJSON LocalSecondaryIndex where
+        toJSON LocalSecondaryIndex'{..}
+          = object
+              ["IndexName" .= _lsiIndexName,
+               "KeySchema" .= _lsiKeySchema,
+               "Projection" .= _lsiProjection]
+
+-- | /See:/ 'localSecondaryIndexDescription' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'lsidIndexSizeBytes'
+--
+-- * 'lsidProjection'
+--
+-- * 'lsidItemCount'
+--
+-- * 'lsidKeySchema'
+--
+-- * 'lsidIndexName'
+data LocalSecondaryIndexDescription = LocalSecondaryIndexDescription'{_lsidIndexSizeBytes :: Maybe Integer, _lsidProjection :: Maybe Projection, _lsidItemCount :: Maybe Integer, _lsidKeySchema :: List1 KeySchemaElement, _lsidIndexName :: Text} deriving (Eq, Read, Show)
+
+-- | 'LocalSecondaryIndexDescription' smart constructor.
+localSecondaryIndexDescription :: NonEmpty KeySchemaElement -> Text -> LocalSecondaryIndexDescription
+localSecondaryIndexDescription pKeySchema pIndexName = LocalSecondaryIndexDescription'{_lsidIndexSizeBytes = Nothing, _lsidProjection = Nothing, _lsidItemCount = Nothing, _lsidKeySchema = _List1 # pKeySchema, _lsidIndexName = pIndexName};
+
+-- | The total size of the specified index, in bytes. DynamoDB updates this
+-- value approximately every six hours. Recent changes might not be
+-- reflected in this value.
+lsidIndexSizeBytes :: Lens' LocalSecondaryIndexDescription (Maybe Integer)
+lsidIndexSizeBytes = lens _lsidIndexSizeBytes (\ s a -> s{_lsidIndexSizeBytes = a});
+
+-- | FIXME: Undocumented member.
+lsidProjection :: Lens' LocalSecondaryIndexDescription (Maybe Projection)
+lsidProjection = lens _lsidProjection (\ s a -> s{_lsidProjection = a});
+
+-- | The number of items in the specified index. DynamoDB updates this value
+-- approximately every six hours. Recent changes might not be reflected in
+-- this value.
+lsidItemCount :: Lens' LocalSecondaryIndexDescription (Maybe Integer)
+lsidItemCount = lens _lsidItemCount (\ s a -> s{_lsidItemCount = a});
+
+-- | The complete index key schema, which consists of one or more pairs of
+-- attribute names and key types (@HASH@ or @RANGE@).
+lsidKeySchema :: Lens' LocalSecondaryIndexDescription (NonEmpty KeySchemaElement)
+lsidKeySchema = lens _lsidKeySchema (\ s a -> s{_lsidKeySchema = a}) . _List1;
+
+-- | Represents the name of the local secondary index.
+lsidIndexName :: Lens' LocalSecondaryIndexDescription Text
+lsidIndexName = lens _lsidIndexName (\ s a -> s{_lsidIndexName = a});
+
+instance FromJSON LocalSecondaryIndexDescription
+         where
+        parseJSON
+          = withObject "LocalSecondaryIndexDescription"
+              (\ x ->
+                 LocalSecondaryIndexDescription' <$>
+                   x .:? "IndexSizeBytes" <*> x .:? "Projection" <*>
+                     x .:? "ItemCount"
+                     <*> x .: "KeySchema"
+                     <*> x .: "IndexName")
+
+-- | /See:/ 'projection' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'proProjectionType'
+--
+-- * 'proNonKeyAttributes'
+data Projection = Projection'{_proProjectionType :: Maybe ProjectionType, _proNonKeyAttributes :: List1 Text} deriving (Eq, Read, Show)
+
+-- | 'Projection' smart constructor.
+projection :: NonEmpty Text -> Projection
+projection pNonKeyAttributes = Projection'{_proProjectionType = Nothing, _proNonKeyAttributes = _List1 # pNonKeyAttributes};
+
+-- | The set of attributes that are projected into the index:
+--
+-- -   @KEYS_ONLY@ - Only the index and primary keys are projected into the
+--     index.
+--
+-- -   @INCLUDE@ - Only the specified table attributes are projected into
+--     the index. The list of projected attributes are in
+--     /NonKeyAttributes/.
+--
+-- -   @ALL@ - All of the table attributes are projected into the index.
+--
+proProjectionType :: Lens' Projection (Maybe ProjectionType)
+proProjectionType = lens _proProjectionType (\ s a -> s{_proProjectionType = a});
+
+-- | Represents the non-key attribute names which will be projected into the
+-- index.
+--
+-- For local secondary indexes, the total count of /NonKeyAttributes/
+-- summed across all of the local secondary indexes, must not exceed 20. If
+-- you project the same attribute into two different indexes, this counts
+-- as two distinct attributes when determining the total.
+proNonKeyAttributes :: Lens' Projection (NonEmpty Text)
+proNonKeyAttributes = lens _proNonKeyAttributes (\ s a -> s{_proNonKeyAttributes = a}) . _List1;
+
+instance FromJSON Projection where
+        parseJSON
+          = withObject "Projection"
+              (\ x ->
+                 Projection' <$>
+                   x .:? "ProjectionType" <*> x .: "NonKeyAttributes")
+
+instance ToJSON Projection where
+        toJSON Projection'{..}
+          = object
+              ["ProjectionType" .= _proProjectionType,
+               "NonKeyAttributes" .= _proNonKeyAttributes]
+
+data ProjectionType = Include | All | KeysOnly deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ProjectionType where
+    parser = takeLowerText >>= \case
+        "ALL" -> pure All
+        "INCLUDE" -> pure Include
+        "KEYS_ONLY" -> pure KeysOnly
+        e -> fail ("Failure parsing ProjectionType from " ++ show e)
+
+instance ToText ProjectionType where
+    toText = \case
+        All -> "ALL"
+        Include -> "INCLUDE"
+        KeysOnly -> "KEYS_ONLY"
+
+instance Hashable ProjectionType
+instance ToQuery ProjectionType
+instance ToHeader ProjectionType
+
+instance ToJSON ProjectionType where
+    toJSON = toJSONText
+
+instance FromJSON ProjectionType where
+    parseJSON = parseJSONText "ProjectionType"
+
+-- | /See:/ 'provisionedThroughput' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'ptReadCapacityUnits'
+--
+-- * 'ptWriteCapacityUnits'
+data ProvisionedThroughput = ProvisionedThroughput'{_ptReadCapacityUnits :: Nat, _ptWriteCapacityUnits :: Nat} deriving (Eq, Read, Show)
+
+-- | 'ProvisionedThroughput' smart constructor.
+provisionedThroughput :: Natural -> Natural -> ProvisionedThroughput
+provisionedThroughput pReadCapacityUnits pWriteCapacityUnits = ProvisionedThroughput'{_ptReadCapacityUnits = _Nat # pReadCapacityUnits, _ptWriteCapacityUnits = _Nat # pWriteCapacityUnits};
+
+-- | The maximum number of strongly consistent reads consumed per second
+-- before DynamoDB returns a /ThrottlingException/. For more information,
+-- see
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements>
+-- in the /Amazon DynamoDB Developer Guide/.
+ptReadCapacityUnits :: Lens' ProvisionedThroughput Natural
+ptReadCapacityUnits = lens _ptReadCapacityUnits (\ s a -> s{_ptReadCapacityUnits = a}) . _Nat;
+
+-- | The maximum number of writes consumed per second before DynamoDB returns
+-- a /ThrottlingException/. For more information, see
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput Specifying Read and Write Requirements>
+-- in the /Amazon DynamoDB Developer Guide/.
+ptWriteCapacityUnits :: Lens' ProvisionedThroughput Natural
+ptWriteCapacityUnits = lens _ptWriteCapacityUnits (\ s a -> s{_ptWriteCapacityUnits = a}) . _Nat;
+
+instance ToJSON ProvisionedThroughput where
+        toJSON ProvisionedThroughput'{..}
+          = object
+              ["ReadCapacityUnits" .= _ptReadCapacityUnits,
+               "WriteCapacityUnits" .= _ptWriteCapacityUnits]
+
+-- | /See:/ 'provisionedThroughputDescription' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'ptdLastDecreaseDateTime'
+--
+-- * 'ptdLastIncreaseDateTime'
+--
+-- * 'ptdReadCapacityUnits'
+--
+-- * 'ptdWriteCapacityUnits'
+--
+-- * 'ptdNumberOfDecreasesToday'
+data ProvisionedThroughputDescription = ProvisionedThroughputDescription'{_ptdLastDecreaseDateTime :: Maybe POSIX, _ptdLastIncreaseDateTime :: Maybe POSIX, _ptdReadCapacityUnits :: Nat, _ptdWriteCapacityUnits :: Nat, _ptdNumberOfDecreasesToday :: Nat} deriving (Eq, Read, Show)
+
+-- | 'ProvisionedThroughputDescription' smart constructor.
+provisionedThroughputDescription :: Natural -> Natural -> Natural -> ProvisionedThroughputDescription
+provisionedThroughputDescription pReadCapacityUnits pWriteCapacityUnits pNumberOfDecreasesToday = ProvisionedThroughputDescription'{_ptdLastDecreaseDateTime = Nothing, _ptdLastIncreaseDateTime = Nothing, _ptdReadCapacityUnits = _Nat # pReadCapacityUnits, _ptdWriteCapacityUnits = _Nat # pWriteCapacityUnits, _ptdNumberOfDecreasesToday = _Nat # pNumberOfDecreasesToday};
+
+-- | The date and time of the last provisioned throughput decrease for this
+-- table.
+ptdLastDecreaseDateTime :: Lens' ProvisionedThroughputDescription (Maybe UTCTime)
+ptdLastDecreaseDateTime = lens _ptdLastDecreaseDateTime (\ s a -> s{_ptdLastDecreaseDateTime = a}) . mapping _Time;
+
+-- | The date and time of the last provisioned throughput increase for this
+-- table.
+ptdLastIncreaseDateTime :: Lens' ProvisionedThroughputDescription (Maybe UTCTime)
+ptdLastIncreaseDateTime = lens _ptdLastIncreaseDateTime (\ s a -> s{_ptdLastIncreaseDateTime = a}) . mapping _Time;
+
+-- | The maximum number of strongly consistent reads consumed per second
+-- before DynamoDB returns a /ThrottlingException/. Eventually consistent
+-- reads require less effort than strongly consistent reads, so a setting
+-- of 50 /ReadCapacityUnits/ per second provides 100 eventually consistent
+-- /ReadCapacityUnits/ per second.
+ptdReadCapacityUnits :: Lens' ProvisionedThroughputDescription Natural
+ptdReadCapacityUnits = lens _ptdReadCapacityUnits (\ s a -> s{_ptdReadCapacityUnits = a}) . _Nat;
+
+-- | The maximum number of writes consumed per second before DynamoDB returns
+-- a /ThrottlingException/.
+ptdWriteCapacityUnits :: Lens' ProvisionedThroughputDescription Natural
+ptdWriteCapacityUnits = lens _ptdWriteCapacityUnits (\ s a -> s{_ptdWriteCapacityUnits = a}) . _Nat;
+
+-- | The number of provisioned throughput decreases for this table during
+-- this UTC calendar day. For current maximums on provisioned throughput
+-- decreases, see
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Limits>
+-- in the /Amazon DynamoDB Developer Guide/.
+ptdNumberOfDecreasesToday :: Lens' ProvisionedThroughputDescription Natural
+ptdNumberOfDecreasesToday = lens _ptdNumberOfDecreasesToday (\ s a -> s{_ptdNumberOfDecreasesToday = a}) . _Nat;
+
+instance FromJSON ProvisionedThroughputDescription
+         where
+        parseJSON
+          = withObject "ProvisionedThroughputDescription"
+              (\ x ->
+                 ProvisionedThroughputDescription' <$>
+                   x .:? "LastDecreaseDateTime" <*>
+                     x .:? "LastIncreaseDateTime"
+                     <*> x .: "ReadCapacityUnits"
+                     <*> x .: "WriteCapacityUnits"
+                     <*> x .: "NumberOfDecreasesToday")
+
+-- | /See:/ 'putRequest' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'prItem'
+newtype PutRequest = PutRequest'{_prItem :: HashMap Text AttributeValue} deriving (Eq, Read, Show)
+
+-- | 'PutRequest' smart constructor.
+putRequest :: HashMap Text AttributeValue -> PutRequest
+putRequest pItem = PutRequest'{_prItem = _Coerce # pItem};
+
+-- | A map of attribute name to attribute values, representing the primary
+-- key of an item to be processed by /PutItem/. All of the table\'s primary
+-- key attributes must be specified, and their data types must match those
+-- of the table\'s key schema. If any attributes are present in the item
+-- which are part of an index key schema for the table, their types must
+-- match the index key schema.
+prItem :: Lens' PutRequest (HashMap Text AttributeValue)
+prItem = lens _prItem (\ s a -> s{_prItem = a}) . _Coerce;
+
+instance FromJSON PutRequest where
+        parseJSON
+          = withObject "PutRequest"
+              (\ x -> PutRequest' <$> x .:? "Item" .!= mempty)
+
+instance ToJSON PutRequest where
+        toJSON PutRequest'{..} = object ["Item" .= _prItem]
+
+data ReturnConsumedCapacity = RCCNone | RCCIndexes | RCCTotal deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ReturnConsumedCapacity where
+    parser = takeLowerText >>= \case
+        "INDEXES" -> pure RCCIndexes
+        "NONE" -> pure RCCNone
+        "TOTAL" -> pure RCCTotal
+        e -> fail ("Failure parsing ReturnConsumedCapacity from " ++ show e)
+
+instance ToText ReturnConsumedCapacity where
+    toText = \case
+        RCCIndexes -> "INDEXES"
+        RCCNone -> "NONE"
+        RCCTotal -> "TOTAL"
+
+instance Hashable ReturnConsumedCapacity
+instance ToQuery ReturnConsumedCapacity
+instance ToHeader ReturnConsumedCapacity
+
+instance ToJSON ReturnConsumedCapacity where
+    toJSON = toJSONText
+
+data ReturnItemCollectionMetrics = RICMNone | RICMSize deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ReturnItemCollectionMetrics where
+    parser = takeLowerText >>= \case
+        "NONE" -> pure RICMNone
+        "SIZE" -> pure RICMSize
+        e -> fail ("Failure parsing ReturnItemCollectionMetrics from " ++ show e)
+
+instance ToText ReturnItemCollectionMetrics where
+    toText = \case
+        RICMNone -> "NONE"
+        RICMSize -> "SIZE"
+
+instance Hashable ReturnItemCollectionMetrics
+instance ToQuery ReturnItemCollectionMetrics
+instance ToHeader ReturnItemCollectionMetrics
+
+instance ToJSON ReturnItemCollectionMetrics where
+    toJSON = toJSONText
+
+data ReturnValue = UpdatedOld | None | AllNew | AllOld | UpdatedNew deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ReturnValue where
+    parser = takeLowerText >>= \case
+        "ALL_NEW" -> pure AllNew
+        "ALL_OLD" -> pure AllOld
+        "NONE" -> pure None
+        "UPDATED_NEW" -> pure UpdatedNew
+        "UPDATED_OLD" -> pure UpdatedOld
+        e -> fail ("Failure parsing ReturnValue from " ++ show e)
+
+instance ToText ReturnValue where
+    toText = \case
+        AllNew -> "ALL_NEW"
+        AllOld -> "ALL_OLD"
+        None -> "NONE"
+        UpdatedNew -> "UPDATED_NEW"
+        UpdatedOld -> "UPDATED_OLD"
+
+instance Hashable ReturnValue
+instance ToQuery ReturnValue
+instance ToHeader ReturnValue
+
+instance ToJSON ReturnValue where
+    toJSON = toJSONText
+
+data ScalarAttributeType = N | B | S deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText ScalarAttributeType where
+    parser = takeLowerText >>= \case
+        "B" -> pure B
+        "N" -> pure N
+        "S" -> pure S
+        e -> fail ("Failure parsing ScalarAttributeType from " ++ show e)
+
+instance ToText ScalarAttributeType where
+    toText = \case
+        B -> "B"
+        N -> "N"
+        S -> "S"
+
+instance Hashable ScalarAttributeType
+instance ToQuery ScalarAttributeType
+instance ToHeader ScalarAttributeType
+
+instance ToJSON ScalarAttributeType where
+    toJSON = toJSONText
+
+instance FromJSON ScalarAttributeType where
+    parseJSON = parseJSONText "ScalarAttributeType"
+
+data Select = Count | AllAttributes | SpecificAttributes | AllProjectedAttributes deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText Select where
+    parser = takeLowerText >>= \case
+        "ALL_ATTRIBUTES" -> pure AllAttributes
+        "ALL_PROJECTED_ATTRIBUTES" -> pure AllProjectedAttributes
+        "COUNT" -> pure Count
+        "SPECIFIC_ATTRIBUTES" -> pure SpecificAttributes
+        e -> fail ("Failure parsing Select from " ++ show e)
+
+instance ToText Select where
+    toText = \case
+        AllAttributes -> "ALL_ATTRIBUTES"
+        AllProjectedAttributes -> "ALL_PROJECTED_ATTRIBUTES"
+        Count -> "COUNT"
+        SpecificAttributes -> "SPECIFIC_ATTRIBUTES"
+
+instance Hashable Select
+instance ToQuery Select
+instance ToHeader Select
+
+instance ToJSON Select where
+    toJSON = toJSONText
+
+-- | /See:/ 'tableDescription' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'tdProvisionedThroughput'
+--
+-- * 'tdAttributeDefinitions'
+--
+-- * 'tdTableSizeBytes'
+--
+-- * 'tdTableStatus'
+--
+-- * 'tdGlobalSecondaryIndexes'
+--
+-- * 'tdLocalSecondaryIndexes'
+--
+-- * 'tdCreationDateTime'
+--
+-- * 'tdItemCount'
+--
+-- * 'tdKeySchema'
+--
+-- * 'tdTableName'
+data TableDescription = TableDescription'{_tdProvisionedThroughput :: Maybe ProvisionedThroughputDescription, _tdAttributeDefinitions :: [AttributeDefinition], _tdTableSizeBytes :: Maybe Integer, _tdTableStatus :: Maybe TableStatus, _tdGlobalSecondaryIndexes :: [GlobalSecondaryIndexDescription], _tdLocalSecondaryIndexes :: [LocalSecondaryIndexDescription], _tdCreationDateTime :: Maybe POSIX, _tdItemCount :: Maybe Integer, _tdKeySchema :: List1 KeySchemaElement, _tdTableName :: Text} deriving (Eq, Read, Show)
+
+-- | 'TableDescription' smart constructor.
+tableDescription :: NonEmpty KeySchemaElement -> Text -> TableDescription
+tableDescription pKeySchema pTableName = TableDescription'{_tdProvisionedThroughput = Nothing, _tdAttributeDefinitions = mempty, _tdTableSizeBytes = Nothing, _tdTableStatus = Nothing, _tdGlobalSecondaryIndexes = mempty, _tdLocalSecondaryIndexes = mempty, _tdCreationDateTime = Nothing, _tdItemCount = Nothing, _tdKeySchema = _List1 # pKeySchema, _tdTableName = pTableName};
+
+-- | The provisioned throughput settings for the table, consisting of read
+-- and write capacity units, along with data about increases and decreases.
+tdProvisionedThroughput :: Lens' TableDescription (Maybe ProvisionedThroughputDescription)
+tdProvisionedThroughput = lens _tdProvisionedThroughput (\ s a -> s{_tdProvisionedThroughput = a});
+
+-- | An array of /AttributeDefinition/ objects. Each of these objects
+-- describes one attribute in the table and index key schema.
+--
+-- Each /AttributeDefinition/ object in this array is composed of:
+--
+-- -   /AttributeName/ - The name of the attribute.
+--
+-- -   /AttributeType/ - The data type for the attribute.
+--
+tdAttributeDefinitions :: Lens' TableDescription [AttributeDefinition]
+tdAttributeDefinitions = lens _tdAttributeDefinitions (\ s a -> s{_tdAttributeDefinitions = a});
+
+-- | The total size of the specified table, in bytes. DynamoDB updates this
+-- value approximately every six hours. Recent changes might not be
+-- reflected in this value.
+tdTableSizeBytes :: Lens' TableDescription (Maybe Integer)
+tdTableSizeBytes = lens _tdTableSizeBytes (\ s a -> s{_tdTableSizeBytes = a});
+
+-- | The current state of the table:
+--
+-- -   /CREATING/ - The table is being created.
+--
+-- -   /UPDATING/ - The table is being updated.
+--
+-- -   /DELETING/ - The table is being deleted.
+--
+-- -   /ACTIVE/ - The table is ready for use.
+--
+tdTableStatus :: Lens' TableDescription (Maybe TableStatus)
+tdTableStatus = lens _tdTableStatus (\ s a -> s{_tdTableStatus = a});
+
+-- | The global secondary indexes, if any, on the table. Each index is scoped
+-- to a given hash key value. Each element is composed of:
+--
+-- -   /Backfilling/ - If true, then the index is currently in the
+--     backfilling phase. Backfilling occurs only when a new global
+--     secondary index is added to the table; it is the process by which
+--     DynamoDB populates the new index with data from the table. (This
+--     attribute does not appear for indexes that were created during a
+--     /CreateTable/ operation.)
+--
+-- -   /IndexName/ - The name of the global secondary index.
+--
+-- -   /IndexSizeBytes/ - The total size of the global secondary index, in
+--     bytes. DynamoDB updates this value approximately every six hours.
+--     Recent changes might not be reflected in this value.
+--
+-- -   /IndexStatus/ - The current status of the global secondary index:
+--
+--     -   /CREATING/ - The index is being created.
+--
+--     -   /UPDATING/ - The index is being updated.
+--
+--     -   /DELETING/ - The index is being deleted.
+--
+--     -   /ACTIVE/ - The index is ready for use.
+--
+-- -   /ItemCount/ - The number of items in the global secondary index.
+--     DynamoDB updates this value approximately every six hours. Recent
+--     changes might not be reflected in this value.
+--
+-- -   /KeySchema/ - Specifies the complete index key schema. The attribute
+--     names in the key schema must be between 1 and 255 characters
+--     (inclusive). The key schema must begin with the same hash key
+--     attribute as the table.
+--
+-- -   /Projection/ - Specifies attributes that are copied (projected) from
+--     the table into the index. These are in addition to the primary key
+--     attributes and index key attributes, which are automatically
+--     projected. Each attribute specification is composed of:
+--
+--     -   /ProjectionType/ - One of the following:
+--
+--         -   @KEYS_ONLY@ - Only the index and primary keys are projected
+--             into the index.
+--
+--         -   @INCLUDE@ - Only the specified table attributes are
+--             projected into the index. The list of projected attributes
+--             are in /NonKeyAttributes/.
+--
+--         -   @ALL@ - All of the table attributes are projected into the
+--             index.
+--
+--     -   /NonKeyAttributes/ - A list of one or more non-key attribute
+--         names that are projected into the secondary index. The total
+--         count of attributes provided in /NonKeyAttributes/, summed
+--         across all of the secondary indexes, must not exceed 20. If you
+--         project the same attribute into two different indexes, this
+--         counts as two distinct attributes when determining the total.
+--
+-- -   /ProvisionedThroughput/ - The provisioned throughput settings for
+--     the global secondary index, consisting of read and write capacity
+--     units, along with data about increases and decreases.
+--
+-- If the table is in the @DELETING@ state, no information about indexes
+-- will be returned.
+tdGlobalSecondaryIndexes :: Lens' TableDescription [GlobalSecondaryIndexDescription]
+tdGlobalSecondaryIndexes = lens _tdGlobalSecondaryIndexes (\ s a -> s{_tdGlobalSecondaryIndexes = a});
+
+-- | Represents one or more local secondary indexes on the table. Each index
+-- is scoped to a given hash key value. Tables with one or more local
+-- secondary indexes are subject to an item collection size limit, where
+-- the amount of data within a given item collection cannot exceed 10 GB.
+-- Each element is composed of:
+--
+-- -   /IndexName/ - The name of the local secondary index.
+--
+-- -   /KeySchema/ - Specifies the complete index key schema. The attribute
+--     names in the key schema must be between 1 and 255 characters
+--     (inclusive). The key schema must begin with the same hash key
+--     attribute as the table.
+--
+-- -   /Projection/ - Specifies attributes that are copied (projected) from
+--     the table into the index. These are in addition to the primary key
+--     attributes and index key attributes, which are automatically
+--     projected. Each attribute specification is composed of:
+--
+--     -   /ProjectionType/ - One of the following:
+--
+--         -   @KEYS_ONLY@ - Only the index and primary keys are projected
+--             into the index.
+--
+--         -   @INCLUDE@ - Only the specified table attributes are
+--             projected into the index. The list of projected attributes
+--             are in /NonKeyAttributes/.
+--
+--         -   @ALL@ - All of the table attributes are projected into the
+--             index.
+--
+--     -   /NonKeyAttributes/ - A list of one or more non-key attribute
+--         names that are projected into the secondary index. The total
+--         count of attributes provided in /NonKeyAttributes/, summed
+--         across all of the secondary indexes, must not exceed 20. If you
+--         project the same attribute into two different indexes, this
+--         counts as two distinct attributes when determining the total.
+--
+-- -   /IndexSizeBytes/ - Represents the total size of the index, in bytes.
+--     DynamoDB updates this value approximately every six hours. Recent
+--     changes might not be reflected in this value.
+--
+-- -   /ItemCount/ - Represents the number of items in the index. DynamoDB
+--     updates this value approximately every six hours. Recent changes
+--     might not be reflected in this value.
+--
+-- If the table is in the @DELETING@ state, no information about indexes
+-- will be returned.
+tdLocalSecondaryIndexes :: Lens' TableDescription [LocalSecondaryIndexDescription]
+tdLocalSecondaryIndexes = lens _tdLocalSecondaryIndexes (\ s a -> s{_tdLocalSecondaryIndexes = a});
+
+-- | The date and time when the table was created, in
+-- <http://www.epochconverter.com/ UNIX epoch time> format.
+tdCreationDateTime :: Lens' TableDescription (Maybe UTCTime)
+tdCreationDateTime = lens _tdCreationDateTime (\ s a -> s{_tdCreationDateTime = a}) . mapping _Time;
+
+-- | The number of items in the specified table. DynamoDB updates this value
+-- approximately every six hours. Recent changes might not be reflected in
+-- this value.
+tdItemCount :: Lens' TableDescription (Maybe Integer)
+tdItemCount = lens _tdItemCount (\ s a -> s{_tdItemCount = a});
+
+-- | The primary key structure for the table. Each /KeySchemaElement/
+-- consists of:
+--
+-- -   /AttributeName/ - The name of the attribute.
+--
+-- -   /KeyType/ - The key type for the attribute. Can be either @HASH@ or
+--     @RANGE@.
+--
+-- For more information about primary keys, see
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey Primary Key>
+-- in the /Amazon DynamoDB Developer Guide/.
+tdKeySchema :: Lens' TableDescription (NonEmpty KeySchemaElement)
+tdKeySchema = lens _tdKeySchema (\ s a -> s{_tdKeySchema = a}) . _List1;
+
+-- | The name of the table.
+tdTableName :: Lens' TableDescription Text
+tdTableName = lens _tdTableName (\ s a -> s{_tdTableName = a});
+
+instance FromJSON TableDescription where
+        parseJSON
+          = withObject "TableDescription"
+              (\ x ->
+                 TableDescription' <$>
+                   x .:? "ProvisionedThroughput" <*>
+                     x .:? "AttributeDefinitions" .!= mempty
+                     <*> x .:? "TableSizeBytes"
+                     <*> x .:? "TableStatus"
+                     <*> x .:? "GlobalSecondaryIndexes" .!= mempty
+                     <*> x .:? "LocalSecondaryIndexes" .!= mempty
+                     <*> x .:? "CreationDateTime"
+                     <*> x .:? "ItemCount"
+                     <*> x .: "KeySchema"
+                     <*> x .: "TableName")
+
+data TableStatus = Deleting | Updating | Creating | Active deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText TableStatus where
+    parser = takeLowerText >>= \case
+        "ACTIVE" -> pure Active
+        "CREATING" -> pure Creating
+        "DELETING" -> pure Deleting
+        "UPDATING" -> pure Updating
+        e -> fail ("Failure parsing TableStatus from " ++ show e)
+
+instance ToText TableStatus where
+    toText = \case
+        Active -> "ACTIVE"
+        Creating -> "CREATING"
+        Deleting -> "DELETING"
+        Updating -> "UPDATING"
+
+instance Hashable TableStatus
+instance ToQuery TableStatus
+instance ToHeader TableStatus
+
+instance FromJSON TableStatus where
+    parseJSON = parseJSONText "TableStatus"
+
+-- | /See:/ 'updateGlobalSecondaryIndexAction' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'ugsiaIndexName'
+--
+-- * 'ugsiaProvisionedThroughput'
+data UpdateGlobalSecondaryIndexAction = UpdateGlobalSecondaryIndexAction'{_ugsiaIndexName :: Text, _ugsiaProvisionedThroughput :: ProvisionedThroughput} deriving (Eq, Read, Show)
+
+-- | 'UpdateGlobalSecondaryIndexAction' smart constructor.
+updateGlobalSecondaryIndexAction :: Text -> ProvisionedThroughput -> UpdateGlobalSecondaryIndexAction
+updateGlobalSecondaryIndexAction pIndexName pProvisionedThroughput = UpdateGlobalSecondaryIndexAction'{_ugsiaIndexName = pIndexName, _ugsiaProvisionedThroughput = pProvisionedThroughput};
+
+-- | The name of the global secondary index to be updated.
+ugsiaIndexName :: Lens' UpdateGlobalSecondaryIndexAction Text
+ugsiaIndexName = lens _ugsiaIndexName (\ s a -> s{_ugsiaIndexName = a});
+
+-- | FIXME: Undocumented member.
+ugsiaProvisionedThroughput :: Lens' UpdateGlobalSecondaryIndexAction ProvisionedThroughput
+ugsiaProvisionedThroughput = lens _ugsiaProvisionedThroughput (\ s a -> s{_ugsiaProvisionedThroughput = a});
+
+instance ToJSON UpdateGlobalSecondaryIndexAction
+         where
+        toJSON UpdateGlobalSecondaryIndexAction'{..}
+          = object
+              ["IndexName" .= _ugsiaIndexName,
+               "ProvisionedThroughput" .=
+                 _ugsiaProvisionedThroughput]
+
+-- | /See:/ 'writeRequest' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'wrPutRequest'
+--
+-- * 'wrDeleteRequest'
+data WriteRequest = WriteRequest'{_wrPutRequest :: Maybe PutRequest, _wrDeleteRequest :: Maybe DeleteRequest} deriving (Eq, Read, Show)
+
+-- | 'WriteRequest' smart constructor.
+writeRequest :: WriteRequest
+writeRequest = WriteRequest'{_wrPutRequest = Nothing, _wrDeleteRequest = Nothing};
+
+-- | A request to perform a /PutItem/ operation.
+wrPutRequest :: Lens' WriteRequest (Maybe PutRequest)
+wrPutRequest = lens _wrPutRequest (\ s a -> s{_wrPutRequest = a});
+
+-- | A request to perform a /DeleteItem/ operation.
+wrDeleteRequest :: Lens' WriteRequest (Maybe DeleteRequest)
+wrDeleteRequest = lens _wrDeleteRequest (\ s a -> s{_wrDeleteRequest = a});
+
+instance FromJSON WriteRequest where
+        parseJSON
+          = withObject "WriteRequest"
+              (\ x ->
+                 WriteRequest' <$>
+                   x .:? "PutRequest" <*> x .:? "DeleteRequest")
+
+instance ToJSON WriteRequest where
+        toJSON WriteRequest'{..}
+          = object
+              ["PutRequest" .= _wrPutRequest,
+               "DeleteRequest" .= _wrDeleteRequest]

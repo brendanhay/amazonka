@@ -1,0 +1,121 @@
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE OverloadedStrings #-}
+
+-- Module      : Network.AWS.EMR.ListBootstrapActions
+-- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- License     : This Source Code Form is subject to the terms of
+--               the Mozilla Public License, v. 2.0.
+--               A copy of the MPL can be found in the LICENSE file or
+--               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : experimental
+-- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- | Provides information about the bootstrap actions associated with a
+-- cluster.
+--
+-- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ListBootstrapActions.html>
+module Network.AWS.EMR.ListBootstrapActions
+    (
+    -- * Request
+      ListBootstrapActions
+    -- ** Request constructor
+    , listBootstrapActions
+    -- ** Request lenses
+    , lbaMarker
+    , lbaClusterId
+
+    -- * Response
+    , ListBootstrapActionsResponse
+    -- ** Response constructor
+    , listBootstrapActionsResponse
+    -- ** Response lenses
+    , lbarBootstrapActions
+    , lbarMarker
+    ) where
+
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Prelude
+import Network.AWS.EMR.Types
+
+-- | /See:/ 'listBootstrapActions' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'lbaMarker'
+--
+-- * 'lbaClusterId'
+data ListBootstrapActions = ListBootstrapActions'{_lbaMarker :: Maybe Text, _lbaClusterId :: Text} deriving (Eq, Read, Show)
+
+-- | 'ListBootstrapActions' smart constructor.
+listBootstrapActions :: Text -> ListBootstrapActions
+listBootstrapActions pClusterId = ListBootstrapActions'{_lbaMarker = Nothing, _lbaClusterId = pClusterId};
+
+-- | The pagination token that indicates the next set of results to retrieve
+-- .
+lbaMarker :: Lens' ListBootstrapActions (Maybe Text)
+lbaMarker = lens _lbaMarker (\ s a -> s{_lbaMarker = a});
+
+-- | The cluster identifier for the bootstrap actions to list .
+lbaClusterId :: Lens' ListBootstrapActions Text
+lbaClusterId = lens _lbaClusterId (\ s a -> s{_lbaClusterId = a});
+
+instance AWSRequest ListBootstrapActions where
+        type Sv ListBootstrapActions = EMR
+        type Rs ListBootstrapActions =
+             ListBootstrapActionsResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 ListBootstrapActionsResponse' <$>
+                   x .?> "BootstrapActions" .!@ mempty <*>
+                     x .?> "Marker")
+
+instance ToHeaders ListBootstrapActions where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("ElasticMapReduce.ListBootstrapActions" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON ListBootstrapActions where
+        toJSON ListBootstrapActions'{..}
+          = object
+              ["Marker" .= _lbaMarker,
+               "ClusterId" .= _lbaClusterId]
+
+instance ToPath ListBootstrapActions where
+        toPath = const "/"
+
+instance ToQuery ListBootstrapActions where
+        toQuery = const mempty
+
+-- | /See:/ 'listBootstrapActionsResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'lbarBootstrapActions'
+--
+-- * 'lbarMarker'
+data ListBootstrapActionsResponse = ListBootstrapActionsResponse'{_lbarBootstrapActions :: [Command], _lbarMarker :: Maybe Text} deriving (Eq, Read, Show)
+
+-- | 'ListBootstrapActionsResponse' smart constructor.
+listBootstrapActionsResponse :: ListBootstrapActionsResponse
+listBootstrapActionsResponse = ListBootstrapActionsResponse'{_lbarBootstrapActions = mempty, _lbarMarker = Nothing};
+
+-- | The bootstrap actions associated with the cluster .
+lbarBootstrapActions :: Lens' ListBootstrapActionsResponse [Command]
+lbarBootstrapActions = lens _lbarBootstrapActions (\ s a -> s{_lbarBootstrapActions = a});
+
+-- | The pagination token that indicates the next set of results to retrieve
+-- .
+lbarMarker :: Lens' ListBootstrapActionsResponse (Maybe Text)
+lbarMarker = lens _lbarMarker (\ s a -> s{_lbarMarker = a});

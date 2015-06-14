@@ -1,0 +1,113 @@
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE OverloadedStrings #-}
+
+-- Module      : Network.AWS.DynamoDB.DeleteTable
+-- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- License     : This Source Code Form is subject to the terms of
+--               the Mozilla Public License, v. 2.0.
+--               A copy of the MPL can be found in the LICENSE file or
+--               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : experimental
+-- Portability : non-portable (GHC extensions)
+--
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- | The /DeleteTable/ operation deletes a table and all of its items. After
+-- a /DeleteTable/ request, the specified table is in the @DELETING@ state
+-- until DynamoDB completes the deletion. If the table is in the @ACTIVE@
+-- state, you can delete it. If a table is in @CREATING@ or @UPDATING@
+-- states, then DynamoDB returns a /ResourceInUseException/. If the
+-- specified table does not exist, DynamoDB returns a
+-- /ResourceNotFoundException/. If table is already in the @DELETING@
+-- state, no error is returned.
+--
+-- DynamoDB might continue to accept data read and write operations, such
+-- as /GetItem/ and /PutItem/, on a table in the @DELETING@ state until the
+-- table deletion is complete.
+--
+-- When you delete a table, any indexes on that table are also deleted.
+--
+-- Use the /DescribeTable/ API to check the status of the table.
+--
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DeleteTable.html>
+module Network.AWS.DynamoDB.DeleteTable
+    (
+    -- * Request
+      DeleteTable
+    -- ** Request constructor
+    , deleteTable
+    -- ** Request lenses
+    , dtTableName
+
+    -- * Response
+    , DeleteTableResponse
+    -- ** Response constructor
+    , deleteTableResponse
+    -- ** Response lenses
+    , dtrTableDescription
+    ) where
+
+import Network.AWS.Request
+import Network.AWS.Response
+import Network.AWS.Prelude
+import Network.AWS.DynamoDB.Types
+
+-- | /See:/ 'deleteTable' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dtTableName'
+newtype DeleteTable = DeleteTable'{_dtTableName :: Text} deriving (Eq, Read, Show)
+
+-- | 'DeleteTable' smart constructor.
+deleteTable :: Text -> DeleteTable
+deleteTable pTableName = DeleteTable'{_dtTableName = pTableName};
+
+-- | The name of the table to delete.
+dtTableName :: Lens' DeleteTable Text
+dtTableName = lens _dtTableName (\ s a -> s{_dtTableName = a});
+
+instance AWSRequest DeleteTable where
+        type Sv DeleteTable = DynamoDB
+        type Rs DeleteTable = DeleteTableResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DeleteTableResponse' <$> x .?> "TableDescription")
+
+instance ToHeaders DeleteTable where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("DynamoDB_20120810.DeleteTable" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.0" :: ByteString)])
+
+instance ToJSON DeleteTable where
+        toJSON DeleteTable'{..}
+          = object ["TableName" .= _dtTableName]
+
+instance ToPath DeleteTable where
+        toPath = const "/"
+
+instance ToQuery DeleteTable where
+        toQuery = const mempty
+
+-- | /See:/ 'deleteTableResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dtrTableDescription'
+newtype DeleteTableResponse = DeleteTableResponse'{_dtrTableDescription :: Maybe TableDescription} deriving (Eq, Read, Show)
+
+-- | 'DeleteTableResponse' smart constructor.
+deleteTableResponse :: DeleteTableResponse
+deleteTableResponse = DeleteTableResponse'{_dtrTableDescription = Nothing};
+
+-- | FIXME: Undocumented member.
+dtrTableDescription :: Lens' DeleteTableResponse (Maybe TableDescription)
+dtrTableDescription = lens _dtrTableDescription (\ s a -> s{_dtrTableDescription = a});

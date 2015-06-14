@@ -369,9 +369,6 @@ instance ToPath CopyObject where
 instance ToQuery CopyObject where
         toQuery = const mempty
 
-instance ToXML CopyObject where
-        toXML = const mempty
-
 -- | /See:/ 'copyObjectResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:

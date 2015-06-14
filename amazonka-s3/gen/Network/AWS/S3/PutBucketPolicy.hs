@@ -74,7 +74,7 @@ instance AWSRequest PutBucketPolicy where
         response = receiveNull PutBucketPolicyResponse'
 
 instance ToElement PutBucketPolicy where
-        toElement = mkElement "Policy"
+        toElement = mkElement "Policy" . _pbpPolicy
 
 instance ToHeaders PutBucketPolicy where
         toHeaders PutBucketPolicy'{..}
@@ -86,10 +86,6 @@ instance ToPath PutBucketPolicy where
 
 instance ToQuery PutBucketPolicy where
         toQuery = const (mconcat ["policy"])
-
-instance ToXML PutBucketPolicy where
-        toXML PutBucketPolicy'{..}
-          = mconcat ["Policy" @= _pbpPolicy]
 
 -- | /See:/ 'putBucketPolicyResponse' smart constructor.
 data PutBucketPolicyResponse = PutBucketPolicyResponse' deriving (Eq, Read, Show)

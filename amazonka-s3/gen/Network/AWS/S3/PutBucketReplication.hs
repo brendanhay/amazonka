@@ -78,6 +78,8 @@ instance ToElement PutBucketReplication where
         toElement
           = mkElement
               "{http://s3.amazonaws.com/doc/2006-03-01/}ReplicationConfiguration"
+              .
+              _pbrReplicationConfiguration
 
 instance ToHeaders PutBucketReplication where
         toHeaders PutBucketReplication'{..}
@@ -89,12 +91,6 @@ instance ToPath PutBucketReplication where
 
 instance ToQuery PutBucketReplication where
         toQuery = const (mconcat ["replication"])
-
-instance ToXML PutBucketReplication where
-        toXML PutBucketReplication'{..}
-          = mconcat
-              ["ReplicationConfiguration" @=
-                 _pbrReplicationConfiguration]
 
 -- | /See:/ 'putBucketReplicationResponse' smart constructor.
 data PutBucketReplicationResponse = PutBucketReplicationResponse' deriving (Eq, Read, Show)

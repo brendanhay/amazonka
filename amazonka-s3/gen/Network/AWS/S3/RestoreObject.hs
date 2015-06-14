@@ -96,6 +96,8 @@ instance ToElement RestoreObject where
         toElement
           = mkElement
               "{http://s3.amazonaws.com/doc/2006-03-01/}RestoreRequest"
+              .
+              _roRestoreRequest
 
 instance ToHeaders RestoreObject where
         toHeaders RestoreObject'{..}
@@ -108,10 +110,6 @@ instance ToPath RestoreObject where
 instance ToQuery RestoreObject where
         toQuery RestoreObject'{..}
           = mconcat ["versionId" =: _roVersionId, "restore"]
-
-instance ToXML RestoreObject where
-        toXML RestoreObject'{..}
-          = mconcat ["RestoreRequest" @= _roRestoreRequest]
 
 -- | /See:/ 'restoreObjectResponse' smart constructor.
 --

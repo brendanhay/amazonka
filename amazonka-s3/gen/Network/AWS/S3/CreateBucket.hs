@@ -118,6 +118,8 @@ instance ToElement CreateBucket where
         toElement
           = mkElement
               "{http://s3.amazonaws.com/doc/2006-03-01/}CreateBucketConfiguration"
+              .
+              _cbCreateBucketConfiguration
 
 instance ToHeaders CreateBucket where
         toHeaders CreateBucket'{..}
@@ -135,12 +137,6 @@ instance ToPath CreateBucket where
 
 instance ToQuery CreateBucket where
         toQuery = const mempty
-
-instance ToXML CreateBucket where
-        toXML CreateBucket'{..}
-          = mconcat
-              ["CreateBucketConfiguration" @=
-                 _cbCreateBucketConfiguration]
 
 -- | /See:/ 'createBucketResponse' smart constructor.
 --

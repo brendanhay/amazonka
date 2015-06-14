@@ -76,6 +76,8 @@ instance ToElement PutBucketTagging where
         toElement
           = mkElement
               "{http://s3.amazonaws.com/doc/2006-03-01/}Tagging"
+              .
+              _pbtTagging
 
 instance ToHeaders PutBucketTagging where
         toHeaders PutBucketTagging'{..}
@@ -87,10 +89,6 @@ instance ToPath PutBucketTagging where
 
 instance ToQuery PutBucketTagging where
         toQuery = const (mconcat ["tagging"])
-
-instance ToXML PutBucketTagging where
-        toXML PutBucketTagging'{..}
-          = mconcat ["Tagging" @= _pbtTagging]
 
 -- | /See:/ 'putBucketTaggingResponse' smart constructor.
 data PutBucketTaggingResponse = PutBucketTaggingResponse' deriving (Eq, Read, Show)

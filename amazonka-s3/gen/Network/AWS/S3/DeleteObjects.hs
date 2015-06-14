@@ -95,6 +95,8 @@ instance ToElement DeleteObjects where
         toElement
           = mkElement
               "{http://s3.amazonaws.com/doc/2006-03-01/}Delete"
+              .
+              _delDelete
 
 instance ToHeaders DeleteObjects where
         toHeaders DeleteObjects'{..}
@@ -108,10 +110,6 @@ instance ToPath DeleteObjects where
 
 instance ToQuery DeleteObjects where
         toQuery = const (mconcat ["delete"])
-
-instance ToXML DeleteObjects where
-        toXML DeleteObjects'{..}
-          = mconcat ["Delete" @= _delDelete]
 
 -- | /See:/ 'deleteObjectsResponse' smart constructor.
 --

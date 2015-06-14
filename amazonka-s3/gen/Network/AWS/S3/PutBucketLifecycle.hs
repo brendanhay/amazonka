@@ -78,6 +78,8 @@ instance ToElement PutBucketLifecycle where
         toElement
           = mkElement
               "{http://s3.amazonaws.com/doc/2006-03-01/}LifecycleConfiguration"
+              .
+              _putLifecycleConfiguration
 
 instance ToHeaders PutBucketLifecycle where
         toHeaders PutBucketLifecycle'{..}
@@ -89,12 +91,6 @@ instance ToPath PutBucketLifecycle where
 
 instance ToQuery PutBucketLifecycle where
         toQuery = const (mconcat ["lifecycle"])
-
-instance ToXML PutBucketLifecycle where
-        toXML PutBucketLifecycle'{..}
-          = mconcat
-              ["LifecycleConfiguration" @=
-                 _putLifecycleConfiguration]
 
 -- | /See:/ 'putBucketLifecycleResponse' smart constructor.
 data PutBucketLifecycleResponse = PutBucketLifecycleResponse' deriving (Eq, Read, Show)

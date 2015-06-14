@@ -250,9 +250,6 @@ instance ToQuery UploadPartCopy where
               ["partNumber" =: _upcPartNumber,
                "uploadId" =: _upcUploadId]
 
-instance ToXML UploadPartCopy where
-        toXML = const mempty
-
 -- | /See:/ 'uploadPartCopyResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:

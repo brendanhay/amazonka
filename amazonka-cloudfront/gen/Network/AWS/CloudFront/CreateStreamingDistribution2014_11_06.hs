@@ -75,6 +75,8 @@ instance ToElement
         toElement
           = mkElement
               "{http://cloudfront.amazonaws.com/doc/2014-11-06/}StreamingDistributionConfig"
+              .
+              _csdStreamingDistributionConfig
 
 instance ToHeaders
          CreateStreamingDistribution2014_11_06 where
@@ -87,13 +89,6 @@ instance ToPath CreateStreamingDistribution2014_11_06
 instance ToQuery
          CreateStreamingDistribution2014_11_06 where
         toQuery = const mempty
-
-instance ToXML CreateStreamingDistribution2014_11_06
-         where
-        toXML CreateStreamingDistribution2014_11_06'{..}
-          = mconcat
-              ["StreamingDistributionConfig" @=
-                 _csdStreamingDistributionConfig]
 
 -- | /See:/ 'createStreamingDistribution2014_11_06Response' smart constructor.
 --

@@ -78,6 +78,8 @@ instance ToElement PutBucketLogging where
         toElement
           = mkElement
               "{http://s3.amazonaws.com/doc/2006-03-01/}BucketLoggingStatus"
+              .
+              _pblBucketLoggingStatus
 
 instance ToHeaders PutBucketLogging where
         toHeaders PutBucketLogging'{..}
@@ -89,11 +91,6 @@ instance ToPath PutBucketLogging where
 
 instance ToQuery PutBucketLogging where
         toQuery = const (mconcat ["logging"])
-
-instance ToXML PutBucketLogging where
-        toXML PutBucketLogging'{..}
-          = mconcat
-              ["BucketLoggingStatus" @= _pblBucketLoggingStatus]
 
 -- | /See:/ 'putBucketLoggingResponse' smart constructor.
 data PutBucketLoggingResponse = PutBucketLoggingResponse' deriving (Eq, Read, Show)

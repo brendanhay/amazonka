@@ -141,6 +141,8 @@ instance ToElement PutObjectACL where
         toElement
           = mkElement
               "{http://s3.amazonaws.com/doc/2006-03-01/}AccessControlPolicy"
+              .
+              _poaAccessControlPolicy
 
 instance ToHeaders PutObjectACL where
         toHeaders PutObjectACL'{..}
@@ -161,11 +163,6 @@ instance ToPath PutObjectACL where
 
 instance ToQuery PutObjectACL where
         toQuery = const (mconcat ["acl"])
-
-instance ToXML PutObjectACL where
-        toXML PutObjectACL'{..}
-          = mconcat
-              ["AccessControlPolicy" @= _poaAccessControlPolicy]
 
 -- | /See:/ 'putObjectACLResponse' smart constructor.
 --

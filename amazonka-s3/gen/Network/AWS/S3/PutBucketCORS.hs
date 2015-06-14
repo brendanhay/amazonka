@@ -76,6 +76,8 @@ instance ToElement PutBucketCORS where
         toElement
           = mkElement
               "{http://s3.amazonaws.com/doc/2006-03-01/}CORSConfiguration"
+              .
+              _pbcCORSConfiguration
 
 instance ToHeaders PutBucketCORS where
         toHeaders PutBucketCORS'{..}
@@ -87,11 +89,6 @@ instance ToPath PutBucketCORS where
 
 instance ToQuery PutBucketCORS where
         toQuery = const (mconcat ["cors"])
-
-instance ToXML PutBucketCORS where
-        toXML PutBucketCORS'{..}
-          = mconcat
-              ["CORSConfiguration" @= _pbcCORSConfiguration]
 
 -- | /See:/ 'putBucketCORSResponse' smart constructor.
 data PutBucketCORSResponse = PutBucketCORSResponse' deriving (Eq, Read, Show)

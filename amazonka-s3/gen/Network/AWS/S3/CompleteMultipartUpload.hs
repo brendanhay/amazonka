@@ -112,7 +112,9 @@ instance AWSRequest CompleteMultipartUpload where
 instance ToElement CompleteMultipartUpload where
         toElement
           = mkElement
-              "{http://s3.amazonaws.com/doc/2006-03-01/}MultipartUpload"
+              "{http://s3.amazonaws.com/doc/2006-03-01/}CompleteMultipartUpload"
+              .
+              _comMultipartUpload
 
 instance ToHeaders CompleteMultipartUpload where
         toHeaders CompleteMultipartUpload'{..}
@@ -126,11 +128,6 @@ instance ToPath CompleteMultipartUpload where
 instance ToQuery CompleteMultipartUpload where
         toQuery CompleteMultipartUpload'{..}
           = mconcat ["uploadId" =: _comUploadId]
-
-instance ToXML CompleteMultipartUpload where
-        toXML CompleteMultipartUpload'{..}
-          = mconcat
-              ["CompleteMultipartUpload" @= _comMultipartUpload]
 
 -- | /See:/ 'completeMultipartUploadResponse' smart constructor.
 --

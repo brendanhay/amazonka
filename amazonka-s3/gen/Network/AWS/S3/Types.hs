@@ -77,8 +77,8 @@ module Network.AWS.S3.Types
     -- * CompletedPart
     , CompletedPart
     , completedPart
-    , cpETag
     , cpPartNumber
+    , cpETag
 
     -- * Condition
     , Condition
@@ -717,15 +717,15 @@ instance FromXML CommonPrefix where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cmuParts'
-newtype CompletedMultipartUpload = CompletedMultipartUpload'{_cmuParts :: [CompletedPart]} deriving (Eq, Read, Show)
+newtype CompletedMultipartUpload = CompletedMultipartUpload'{_cmuParts :: List1 CompletedPart} deriving (Eq, Read, Show)
 
 -- | 'CompletedMultipartUpload' smart constructor.
-completedMultipartUpload :: CompletedMultipartUpload
-completedMultipartUpload = CompletedMultipartUpload'{_cmuParts = mempty};
+completedMultipartUpload :: NonEmpty CompletedPart -> CompletedMultipartUpload
+completedMultipartUpload pParts = CompletedMultipartUpload'{_cmuParts = _List1 # pParts};
 
 -- | FIXME: Undocumented member.
-cmuParts :: Lens' CompletedMultipartUpload [CompletedPart]
-cmuParts = lens _cmuParts (\ s a -> s{_cmuParts = a});
+cmuParts :: Lens' CompletedMultipartUpload (NonEmpty CompletedPart)
+cmuParts = lens _cmuParts (\ s a -> s{_cmuParts = a}) . _List1;
 
 instance ToXML CompletedMultipartUpload where
         toXML CompletedMultipartUpload'{..}
@@ -735,27 +735,27 @@ instance ToXML CompletedMultipartUpload where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cpETag'
---
 -- * 'cpPartNumber'
-data CompletedPart = CompletedPart'{_cpETag :: Maybe ETag, _cpPartNumber :: Maybe Int} deriving (Eq, Read, Show)
+--
+-- * 'cpETag'
+data CompletedPart = CompletedPart'{_cpPartNumber :: Int, _cpETag :: ETag} deriving (Eq, Read, Show)
 
 -- | 'CompletedPart' smart constructor.
-completedPart :: CompletedPart
-completedPart = CompletedPart'{_cpETag = Nothing, _cpPartNumber = Nothing};
-
--- | Entity tag returned when the part was uploaded.
-cpETag :: Lens' CompletedPart (Maybe ETag)
-cpETag = lens _cpETag (\ s a -> s{_cpETag = a});
+completedPart :: Int -> ETag -> CompletedPart
+completedPart pPartNumber pETag = CompletedPart'{_cpPartNumber = pPartNumber, _cpETag = pETag};
 
 -- | Part number that identifies the part.
-cpPartNumber :: Lens' CompletedPart (Maybe Int)
+cpPartNumber :: Lens' CompletedPart Int
 cpPartNumber = lens _cpPartNumber (\ s a -> s{_cpPartNumber = a});
+
+-- | Entity tag returned when the part was uploaded.
+cpETag :: Lens' CompletedPart ETag
+cpETag = lens _cpETag (\ s a -> s{_cpETag = a});
 
 instance ToXML CompletedPart where
         toXML CompletedPart'{..}
           = mconcat
-              ["ETag" @= _cpETag, "PartNumber" @= _cpPartNumber]
+              ["PartNumber" @= _cpPartNumber, "ETag" @= _cpETag]
 
 -- | /See:/ 'condition' smart constructor.
 --

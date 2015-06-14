@@ -83,6 +83,8 @@ instance ToElement PutBucketRequestPayment where
         toElement
           = mkElement
               "{http://s3.amazonaws.com/doc/2006-03-01/}RequestPaymentConfiguration"
+              .
+              _pbrpRequestPaymentConfiguration
 
 instance ToHeaders PutBucketRequestPayment where
         toHeaders PutBucketRequestPayment'{..}
@@ -94,12 +96,6 @@ instance ToPath PutBucketRequestPayment where
 
 instance ToQuery PutBucketRequestPayment where
         toQuery = const (mconcat ["requestPayment"])
-
-instance ToXML PutBucketRequestPayment where
-        toXML PutBucketRequestPayment'{..}
-          = mconcat
-              ["RequestPaymentConfiguration" @=
-                 _pbrpRequestPaymentConfiguration]
 
 -- | /See:/ 'putBucketRequestPaymentResponse' smart constructor.
 data PutBucketRequestPaymentResponse = PutBucketRequestPaymentResponse' deriving (Eq, Read, Show)

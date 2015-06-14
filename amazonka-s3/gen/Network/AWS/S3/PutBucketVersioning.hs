@@ -86,6 +86,8 @@ instance ToElement PutBucketVersioning where
         toElement
           = mkElement
               "{http://s3.amazonaws.com/doc/2006-03-01/}VersioningConfiguration"
+              .
+              _pbvVersioningConfiguration
 
 instance ToHeaders PutBucketVersioning where
         toHeaders PutBucketVersioning'{..}
@@ -99,12 +101,6 @@ instance ToPath PutBucketVersioning where
 
 instance ToQuery PutBucketVersioning where
         toQuery = const (mconcat ["versioning"])
-
-instance ToXML PutBucketVersioning where
-        toXML PutBucketVersioning'{..}
-          = mconcat
-              ["VersioningConfiguration" @=
-                 _pbvVersioningConfiguration]
 
 -- | /See:/ 'putBucketVersioningResponse' smart constructor.
 data PutBucketVersioningResponse = PutBucketVersioningResponse' deriving (Eq, Read, Show)

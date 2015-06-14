@@ -93,6 +93,8 @@ instance ToElement
         toElement
           = mkElement
               "{http://cloudfront.amazonaws.com/doc/2014-11-06/}CloudFrontOriginAccessIdentityConfig"
+              .
+              _ucfoaiCloudFrontOriginAccessIdentityConfig
 
 instance ToHeaders
          UpdateCloudFrontOriginAccessIdentity2014_11_06 where
@@ -111,14 +113,6 @@ instance ToPath
 instance ToQuery
          UpdateCloudFrontOriginAccessIdentity2014_11_06 where
         toQuery = const mempty
-
-instance ToXML
-         UpdateCloudFrontOriginAccessIdentity2014_11_06 where
-        toXML
-          UpdateCloudFrontOriginAccessIdentity2014_11_06'{..}
-          = mconcat
-              ["CloudFrontOriginAccessIdentityConfig" @=
-                 _ucfoaiCloudFrontOriginAccessIdentityConfig]
 
 -- | /See:/ 'updateCloudFrontOriginAccessIdentity2014_11_06Response' smart constructor.
 --

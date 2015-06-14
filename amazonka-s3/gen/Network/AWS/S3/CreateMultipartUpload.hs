@@ -290,9 +290,6 @@ instance ToPath CreateMultipartUpload where
 instance ToQuery CreateMultipartUpload where
         toQuery = const (mconcat ["uploads"])
 
-instance ToXML CreateMultipartUpload where
-        toXML = const mempty
-
 -- | /See:/ 'createMultipartUploadResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:

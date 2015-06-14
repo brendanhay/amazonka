@@ -120,6 +120,8 @@ instance ToElement PutBucketACL where
         toElement
           = mkElement
               "{http://s3.amazonaws.com/doc/2006-03-01/}AccessControlPolicy"
+              .
+              _pbaAccessControlPolicy
 
 instance ToHeaders PutBucketACL where
         toHeaders PutBucketACL'{..}
@@ -138,11 +140,6 @@ instance ToPath PutBucketACL where
 
 instance ToQuery PutBucketACL where
         toQuery = const (mconcat ["acl"])
-
-instance ToXML PutBucketACL where
-        toXML PutBucketACL'{..}
-          = mconcat
-              ["AccessControlPolicy" @= _pbaAccessControlPolicy]
 
 -- | /See:/ 'putBucketACLResponse' smart constructor.
 data PutBucketACLResponse = PutBucketACLResponse' deriving (Eq, Read, Show)

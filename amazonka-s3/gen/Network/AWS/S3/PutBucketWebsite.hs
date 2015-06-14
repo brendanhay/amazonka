@@ -76,6 +76,8 @@ instance ToElement PutBucketWebsite where
         toElement
           = mkElement
               "{http://s3.amazonaws.com/doc/2006-03-01/}WebsiteConfiguration"
+              .
+              _pbwWebsiteConfiguration
 
 instance ToHeaders PutBucketWebsite where
         toHeaders PutBucketWebsite'{..}
@@ -87,11 +89,6 @@ instance ToPath PutBucketWebsite where
 
 instance ToQuery PutBucketWebsite where
         toQuery = const (mconcat ["website"])
-
-instance ToXML PutBucketWebsite where
-        toXML PutBucketWebsite'{..}
-          = mconcat
-              ["WebsiteConfiguration" @= _pbwWebsiteConfiguration]
 
 -- | /See:/ 'putBucketWebsiteResponse' smart constructor.
 data PutBucketWebsiteResponse = PutBucketWebsiteResponse' deriving (Eq, Read, Show)

@@ -74,6 +74,8 @@ instance ToElement PutBucketNotificationConfiguration
         toElement
           = mkElement
               "{http://s3.amazonaws.com/doc/2006-03-01/}NotificationConfiguration"
+              .
+              _pbncNotificationConfiguration
 
 instance ToHeaders PutBucketNotificationConfiguration
          where
@@ -87,13 +89,6 @@ instance ToPath PutBucketNotificationConfiguration
 instance ToQuery PutBucketNotificationConfiguration
          where
         toQuery = const (mconcat ["notification"])
-
-instance ToXML PutBucketNotificationConfiguration
-         where
-        toXML PutBucketNotificationConfiguration'{..}
-          = mconcat
-              ["NotificationConfiguration" @=
-                 _pbncNotificationConfiguration]
 
 -- | /See:/ 'putBucketNotificationConfigurationResponse' smart constructor.
 data PutBucketNotificationConfigurationResponse = PutBucketNotificationConfigurationResponse' deriving (Eq, Read, Show)

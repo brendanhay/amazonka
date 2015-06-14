@@ -78,6 +78,8 @@ instance ToElement CreateInvalidation2014_11_06 where
         toElement
           = mkElement
               "{http://cloudfront.amazonaws.com/doc/2014-11-06/}InvalidationBatch"
+              .
+              _ciInvalidationBatch
 
 instance ToHeaders CreateInvalidation2014_11_06 where
         toHeaders = const mempty
@@ -90,11 +92,6 @@ instance ToPath CreateInvalidation2014_11_06 where
 
 instance ToQuery CreateInvalidation2014_11_06 where
         toQuery = const mempty
-
-instance ToXML CreateInvalidation2014_11_06 where
-        toXML CreateInvalidation2014_11_06'{..}
-          = mconcat
-              ["InvalidationBatch" @= _ciInvalidationBatch]
 
 -- | /See:/ 'createInvalidation2014_11_06Response' smart constructor.
 --

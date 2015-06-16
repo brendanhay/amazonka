@@ -60,12 +60,12 @@ describeConversionTasks :: DescribeConversionTasks
 describeConversionTasks = DescribeConversionTasks'{_dctConversionTaskIds = Nothing, _dctFilters = Nothing, _dctDryRun = Nothing};
 
 -- | One or more conversion task IDs.
-dctConversionTaskIds :: Lens' DescribeConversionTasks (Maybe [Text])
-dctConversionTaskIds = lens _dctConversionTaskIds (\ s a -> s{_dctConversionTaskIds = a});
+dctConversionTaskIds :: Lens' DescribeConversionTasks [Text]
+dctConversionTaskIds = lens _dctConversionTaskIds (\ s a -> s{_dctConversionTaskIds = a}) . _Default;
 
 -- | One or more filters.
-dctFilters :: Lens' DescribeConversionTasks (Maybe [Filter])
-dctFilters = lens _dctFilters (\ s a -> s{_dctFilters = a});
+dctFilters :: Lens' DescribeConversionTasks [Filter]
+dctFilters = lens _dctFilters (\ s a -> s{_dctFilters = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -83,7 +83,7 @@ instance AWSRequest DescribeConversionTasks where
           = receiveXML
               (\ s h x ->
                  DescribeConversionTasksResponse' <$>
-                   parseXMLList "item" x)
+                   (may (parseXMLList "item") x))
 
 instance ToHeaders DescribeConversionTasks where
         toHeaders = const mempty
@@ -97,8 +97,10 @@ instance ToQuery DescribeConversionTasks where
               ["Action" =:
                  ("DescribeConversionTasks" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "item" =: _dctConversionTaskIds,
-               "Filter" =: _dctFilters, "DryRun" =: _dctDryRun]
+               toQuery
+                 (toQueryList "item" <$> _dctConversionTaskIds),
+               toQuery (toQueryList "Filter" <$> _dctFilters),
+               "DryRun" =: _dctDryRun]
 
 -- | /See:/ 'describeConversionTasksResponse' smart constructor.
 --
@@ -112,5 +114,5 @@ describeConversionTasksResponse :: DescribeConversionTasksResponse
 describeConversionTasksResponse = DescribeConversionTasksResponse'{_dctrConversionTasks = Nothing};
 
 -- | Information about the conversion tasks.
-dctrConversionTasks :: Lens' DescribeConversionTasksResponse (Maybe [ConversionTask])
-dctrConversionTasks = lens _dctrConversionTasks (\ s a -> s{_dctrConversionTasks = a});
+dctrConversionTasks :: Lens' DescribeConversionTasksResponse [ConversionTask]
+dctrConversionTasks = lens _dctrConversionTasks (\ s a -> s{_dctrConversionTasks = a}) . _Default;

@@ -68,7 +68,8 @@ instance AWSRequest DeleteService where
         response
           = receiveJSON
               (\ s h x ->
-                 DeleteServiceResponse' <$> x .?> "ContainerService")
+                 DeleteServiceResponse' <$>
+                   (x .?> "ContainerService"))
 
 instance ToHeaders DeleteService where
         toHeaders

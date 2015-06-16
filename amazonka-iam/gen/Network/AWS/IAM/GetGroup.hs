@@ -87,8 +87,8 @@ instance AWSRequest GetGroup where
           = receiveXMLWrapper "GetGroupResult"
               (\ s h x ->
                  GetGroupResponse' <$>
-                   x .@? "Marker" <*> x .@? "IsTruncated" <*>
-                     x .@ "Group"
+                   (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
+                     (x .@ "Group")
                      <*>
                      (x .@? "Users" .!@ mempty >>= parseXMLList "member"))
 

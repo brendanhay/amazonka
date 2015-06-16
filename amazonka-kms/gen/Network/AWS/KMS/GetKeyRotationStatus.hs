@@ -70,7 +70,7 @@ instance AWSRequest GetKeyRotationStatus where
           = receiveJSON
               (\ s h x ->
                  GetKeyRotationStatusResponse' <$>
-                   x .?> "KeyRotationEnabled")
+                   (x .?> "KeyRotationEnabled"))
 
 instance ToHeaders GetKeyRotationStatus where
         toHeaders

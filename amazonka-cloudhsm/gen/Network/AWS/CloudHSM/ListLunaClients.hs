@@ -69,7 +69,8 @@ instance AWSRequest ListLunaClients where
           = receiveJSON
               (\ s h x ->
                  ListLunaClientsResponse' <$>
-                   x .?> "NextToken" <*> x .?> "ClientList" .!@ mempty)
+                   (x .?> "NextToken") <*>
+                     (x .?> "ClientList" .!@ mempty))
 
 instance ToHeaders ListLunaClients where
         toHeaders

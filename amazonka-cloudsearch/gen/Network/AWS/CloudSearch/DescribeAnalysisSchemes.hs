@@ -31,9 +31,9 @@ module Network.AWS.CloudSearch.DescribeAnalysisSchemes
     -- ** Request constructor
     , describeAnalysisSchemes
     -- ** Request lenses
-    , describeDeployed
-    , describeAnalysisSchemeNames
-    , describeDomainName
+    , descDeployed
+    , descAnalysisSchemeNames
+    , descDomainName
 
     -- * Response
     , DescribeAnalysisSchemesResponse
@@ -52,29 +52,29 @@ import Network.AWS.CloudSearch.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'describeDeployed'
+-- * 'descDeployed'
 --
--- * 'describeAnalysisSchemeNames'
+-- * 'descAnalysisSchemeNames'
 --
--- * 'describeDomainName'
-data DescribeAnalysisSchemes = DescribeAnalysisSchemes'{_describeDeployed :: Maybe Bool, _describeAnalysisSchemeNames :: Maybe [Text], _describeDomainName :: Text} deriving (Eq, Read, Show)
+-- * 'descDomainName'
+data DescribeAnalysisSchemes = DescribeAnalysisSchemes'{_descDeployed :: Maybe Bool, _descAnalysisSchemeNames :: Maybe [Text], _descDomainName :: Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeAnalysisSchemes' smart constructor.
 describeAnalysisSchemes :: Text -> DescribeAnalysisSchemes
-describeAnalysisSchemes pDomainName = DescribeAnalysisSchemes'{_describeDeployed = Nothing, _describeAnalysisSchemeNames = Nothing, _describeDomainName = pDomainName};
+describeAnalysisSchemes pDomainName = DescribeAnalysisSchemes'{_descDeployed = Nothing, _descAnalysisSchemeNames = Nothing, _descDomainName = pDomainName};
 
 -- | Whether to display the deployed configuration (@true@) or include any
 -- pending changes (@false@). Defaults to @false@.
-describeDeployed :: Lens' DescribeAnalysisSchemes (Maybe Bool)
-describeDeployed = lens _describeDeployed (\ s a -> s{_describeDeployed = a});
+descDeployed :: Lens' DescribeAnalysisSchemes (Maybe Bool)
+descDeployed = lens _descDeployed (\ s a -> s{_descDeployed = a});
 
 -- | The analysis schemes you want to describe.
-describeAnalysisSchemeNames :: Lens' DescribeAnalysisSchemes (Maybe [Text])
-describeAnalysisSchemeNames = lens _describeAnalysisSchemeNames (\ s a -> s{_describeAnalysisSchemeNames = a});
+descAnalysisSchemeNames :: Lens' DescribeAnalysisSchemes [Text]
+descAnalysisSchemeNames = lens _descAnalysisSchemeNames (\ s a -> s{_descAnalysisSchemeNames = a}) . _Default;
 
 -- | The name of the domain you want to describe.
-describeDomainName :: Lens' DescribeAnalysisSchemes Text
-describeDomainName = lens _describeDomainName (\ s a -> s{_describeDomainName = a});
+descDomainName :: Lens' DescribeAnalysisSchemes Text
+descDomainName = lens _descDomainName (\ s a -> s{_descDomainName = a});
 
 instance AWSRequest DescribeAnalysisSchemes where
         type Sv DescribeAnalysisSchemes = CloudSearch
@@ -100,10 +100,11 @@ instance ToQuery DescribeAnalysisSchemes where
               ["Action" =:
                  ("DescribeAnalysisSchemes" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "Deployed" =: _describeDeployed,
+               "Deployed" =: _descDeployed,
                "AnalysisSchemeNames" =:
-                 "member" =: _describeAnalysisSchemeNames,
-               "DomainName" =: _describeDomainName]
+                 toQuery
+                   (toQueryList "member" <$> _descAnalysisSchemeNames),
+               "DomainName" =: _descDomainName]
 
 -- | /See:/ 'describeAnalysisSchemesResponse' smart constructor.
 --

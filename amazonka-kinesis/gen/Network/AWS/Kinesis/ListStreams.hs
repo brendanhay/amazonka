@@ -86,8 +86,8 @@ instance AWSRequest ListStreams where
           = receiveJSON
               (\ s h x ->
                  ListStreamsResponse' <$>
-                   x .?> "StreamNames" .!@ mempty <*>
-                     x .:> "HasMoreStreams")
+                   (x .?> "StreamNames" .!@ mempty) <*>
+                     (x .:> "HasMoreStreams"))
 
 instance ToHeaders ListStreams where
         toHeaders

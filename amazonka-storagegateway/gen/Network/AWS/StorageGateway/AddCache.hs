@@ -74,7 +74,8 @@ instance AWSRequest AddCache where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x -> AddCacheResponse' <$> x .?> "GatewayARN")
+              (\ s h x ->
+                 AddCacheResponse' <$> (x .?> "GatewayARN"))
 
 instance ToHeaders AddCache where
         toHeaders

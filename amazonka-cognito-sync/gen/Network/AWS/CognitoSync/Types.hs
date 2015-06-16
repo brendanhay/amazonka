@@ -194,8 +194,8 @@ instance FromJSON CognitoStreams where
           = withObject "CognitoStreams"
               (\ x ->
                  CognitoStreams' <$>
-                   x .:? "StreamingStatus" <*> x .:? "StreamName" <*>
-                     x .:? "RoleArn")
+                   (x .:? "StreamingStatus") <*> (x .:? "StreamName")
+                     <*> (x .:? "RoleArn"))
 
 instance ToJSON CognitoStreams where
         toJSON CognitoStreams'{..}
@@ -263,12 +263,12 @@ instance FromJSON Dataset where
           = withObject "Dataset"
               (\ x ->
                  Dataset' <$>
-                   x .:? "LastModifiedDate" <*> x .:? "NumRecords" <*>
-                     x .:? "DataStorage"
-                     <*> x .:? "DatasetName"
-                     <*> x .:? "CreationDate"
-                     <*> x .:? "LastModifiedBy"
-                     <*> x .:? "IdentityId")
+                   (x .:? "LastModifiedDate") <*> (x .:? "NumRecords")
+                     <*> (x .:? "DataStorage")
+                     <*> (x .:? "DatasetName")
+                     <*> (x .:? "CreationDate")
+                     <*> (x .:? "LastModifiedBy")
+                     <*> (x .:? "IdentityId"))
 
 -- | /See:/ 'identityPoolUsage' smart constructor.
 --
@@ -310,9 +310,10 @@ instance FromJSON IdentityPoolUsage where
           = withObject "IdentityPoolUsage"
               (\ x ->
                  IdentityPoolUsage' <$>
-                   x .:? "LastModifiedDate" <*> x .:? "IdentityPoolId"
-                     <*> x .:? "DataStorage"
-                     <*> x .:? "SyncSessionsCount")
+                   (x .:? "LastModifiedDate") <*>
+                     (x .:? "IdentityPoolId")
+                     <*> (x .:? "DataStorage")
+                     <*> (x .:? "SyncSessionsCount"))
 
 -- | /See:/ 'identityUsage' smart constructor.
 --
@@ -362,10 +363,11 @@ instance FromJSON IdentityUsage where
           = withObject "IdentityUsage"
               (\ x ->
                  IdentityUsage' <$>
-                   x .:? "LastModifiedDate" <*> x .:? "IdentityPoolId"
-                     <*> x .:? "DatasetCount"
-                     <*> x .:? "DataStorage"
-                     <*> x .:? "IdentityId")
+                   (x .:? "LastModifiedDate") <*>
+                     (x .:? "IdentityPoolId")
+                     <*> (x .:? "DatasetCount")
+                     <*> (x .:? "DataStorage")
+                     <*> (x .:? "IdentityId"))
 
 data Operation = Replace | Remove deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -425,8 +427,8 @@ pushSync :: PushSync
 pushSync = PushSync'{_psApplicationARNs = Nothing, _psRoleARN = Nothing};
 
 -- | List of SNS platform application ARNs that could be used by clients.
-psApplicationARNs :: Lens' PushSync (Maybe [Text])
-psApplicationARNs = lens _psApplicationARNs (\ s a -> s{_psApplicationARNs = a});
+psApplicationARNs :: Lens' PushSync [Text]
+psApplicationARNs = lens _psApplicationARNs (\ s a -> s{_psApplicationARNs = a}) . _Default;
 
 -- | A role configured to allow Cognito to call SNS on behalf of the
 -- developer.
@@ -438,8 +440,8 @@ instance FromJSON PushSync where
           = withObject "PushSync"
               (\ x ->
                  PushSync' <$>
-                   x .:? "ApplicationArns" .!= mempty <*>
-                     x .:? "RoleArn")
+                   (x .:? "ApplicationArns" .!= mempty) <*>
+                     (x .:? "RoleArn"))
 
 instance ToJSON PushSync where
         toJSON PushSync'{..}
@@ -497,11 +499,11 @@ instance FromJSON Record where
           = withObject "Record"
               (\ x ->
                  Record' <$>
-                   x .:? "SyncCount" <*> x .:? "LastModifiedDate" <*>
-                     x .:? "DeviceLastModifiedDate"
-                     <*> x .:? "Value"
-                     <*> x .:? "Key"
-                     <*> x .:? "LastModifiedBy")
+                   (x .:? "SyncCount") <*> (x .:? "LastModifiedDate")
+                     <*> (x .:? "DeviceLastModifiedDate")
+                     <*> (x .:? "Value")
+                     <*> (x .:? "Key")
+                     <*> (x .:? "LastModifiedBy"))
 
 -- | /See:/ 'recordPatch' smart constructor.
 --

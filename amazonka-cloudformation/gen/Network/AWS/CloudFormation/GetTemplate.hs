@@ -74,7 +74,7 @@ instance AWSRequest GetTemplate where
         response
           = receiveXMLWrapper "GetTemplateResult"
               (\ s h x ->
-                 GetTemplateResponse' <$> x .@? "TemplateBody")
+                 GetTemplateResponse' <$> (x .@? "TemplateBody"))
 
 instance ToHeaders GetTemplate where
         toHeaders = const mempty

@@ -64,8 +64,8 @@ createHSMClientCertificate :: Text -> CreateHSMClientCertificate
 createHSMClientCertificate pHSMClientCertificateIdentifier = CreateHSMClientCertificate'{_chccTags = Nothing, _chccHSMClientCertificateIdentifier = pHSMClientCertificateIdentifier};
 
 -- | A list of tag instances.
-chccTags :: Lens' CreateHSMClientCertificate (Maybe [Tag])
-chccTags = lens _chccTags (\ s a -> s{_chccTags = a});
+chccTags :: Lens' CreateHSMClientCertificate [Tag]
+chccTags = lens _chccTags (\ s a -> s{_chccTags = a}) . _Default;
 
 -- | The identifier to be assigned to the new HSM client certificate that the
 -- cluster will use to connect to the HSM to use the database encryption
@@ -83,7 +83,7 @@ instance AWSRequest CreateHSMClientCertificate where
               "CreateHsmClientCertificateResult"
               (\ s h x ->
                  CreateHSMClientCertificateResponse' <$>
-                   x .@? "HsmClientCertificate")
+                   (x .@? "HsmClientCertificate"))
 
 instance ToHeaders CreateHSMClientCertificate where
         toHeaders = const mempty
@@ -97,7 +97,7 @@ instance ToQuery CreateHSMClientCertificate where
               ["Action" =:
                  ("CreateHSMClientCertificate" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "Tags" =: "Tag" =: _chccTags,
+               "Tags" =: toQuery (toQueryList "Tag" <$> _chccTags),
                "HsmClientCertificateIdentifier" =:
                  _chccHSMClientCertificateIdentifier]
 

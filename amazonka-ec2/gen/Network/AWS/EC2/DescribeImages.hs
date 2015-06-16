@@ -30,11 +30,11 @@ module Network.AWS.EC2.DescribeImages
     -- ** Request constructor
     , describeImages
     -- ** Request lenses
-    , describe1Owners
-    , describe1ExecutableUsers
-    , describe1Filters
-    , describe1ImageIds
-    , describe1DryRun
+    , di2Owners
+    , di2ExecutableUsers
+    , di2Filters
+    , di2ImageIds
+    , di2DryRun
 
     -- * Response
     , DescribeImagesResponse
@@ -53,33 +53,33 @@ import Network.AWS.EC2.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'describe1Owners'
+-- * 'di2Owners'
 --
--- * 'describe1ExecutableUsers'
+-- * 'di2ExecutableUsers'
 --
--- * 'describe1Filters'
+-- * 'di2Filters'
 --
--- * 'describe1ImageIds'
+-- * 'di2ImageIds'
 --
--- * 'describe1DryRun'
-data DescribeImages = DescribeImages'{_describe1Owners :: Maybe [Text], _describe1ExecutableUsers :: Maybe [Text], _describe1Filters :: Maybe [Filter], _describe1ImageIds :: Maybe [Text], _describe1DryRun :: Maybe Bool} deriving (Eq, Read, Show)
+-- * 'di2DryRun'
+data DescribeImages = DescribeImages'{_di2Owners :: Maybe [Text], _di2ExecutableUsers :: Maybe [Text], _di2Filters :: Maybe [Filter], _di2ImageIds :: Maybe [Text], _di2DryRun :: Maybe Bool} deriving (Eq, Read, Show)
 
 -- | 'DescribeImages' smart constructor.
 describeImages :: DescribeImages
-describeImages = DescribeImages'{_describe1Owners = Nothing, _describe1ExecutableUsers = Nothing, _describe1Filters = Nothing, _describe1ImageIds = Nothing, _describe1DryRun = Nothing};
+describeImages = DescribeImages'{_di2Owners = Nothing, _di2ExecutableUsers = Nothing, _di2Filters = Nothing, _di2ImageIds = Nothing, _di2DryRun = Nothing};
 
 -- | Filters the images by the owner. Specify an AWS account ID, @amazon@
 -- (owner is Amazon), @aws-marketplace@ (owner is AWS Marketplace), @self@
 -- (owner is the sender of the request). Omitting this option returns all
 -- images for which you have launch permissions, regardless of ownership.
-describe1Owners :: Lens' DescribeImages (Maybe [Text])
-describe1Owners = lens _describe1Owners (\ s a -> s{_describe1Owners = a});
+di2Owners :: Lens' DescribeImages [Text]
+di2Owners = lens _di2Owners (\ s a -> s{_di2Owners = a}) . _Default;
 
 -- | Scopes the images by users with explicit launch permissions. Specify an
 -- AWS account ID, @self@ (the sender of the request), or @all@ (public
 -- AMIs).
-describe1ExecutableUsers :: Lens' DescribeImages (Maybe [Text])
-describe1ExecutableUsers = lens _describe1ExecutableUsers (\ s a -> s{_describe1ExecutableUsers = a});
+di2ExecutableUsers :: Lens' DescribeImages [Text]
+di2ExecutableUsers = lens _di2ExecutableUsers (\ s a -> s{_di2ExecutableUsers = a}) . _Default;
 
 -- | One or more filters.
 --
@@ -162,21 +162,21 @@ describe1ExecutableUsers = lens _describe1ExecutableUsers (\ s a -> s{_describe1
 -- -   @virtualization-type@ - The virtualization type (@paravirtual@ |
 --     @hvm@).
 --
-describe1Filters :: Lens' DescribeImages (Maybe [Filter])
-describe1Filters = lens _describe1Filters (\ s a -> s{_describe1Filters = a});
+di2Filters :: Lens' DescribeImages [Filter]
+di2Filters = lens _di2Filters (\ s a -> s{_di2Filters = a}) . _Default;
 
 -- | One or more image IDs.
 --
 -- Default: Describes all images available to you.
-describe1ImageIds :: Lens' DescribeImages (Maybe [Text])
-describe1ImageIds = lens _describe1ImageIds (\ s a -> s{_describe1ImageIds = a});
+di2ImageIds :: Lens' DescribeImages [Text]
+di2ImageIds = lens _di2ImageIds (\ s a -> s{_di2ImageIds = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-describe1DryRun :: Lens' DescribeImages (Maybe Bool)
-describe1DryRun = lens _describe1DryRun (\ s a -> s{_describe1DryRun = a});
+di2DryRun :: Lens' DescribeImages (Maybe Bool)
+di2DryRun = lens _di2DryRun (\ s a -> s{_di2DryRun = a});
 
 instance AWSRequest DescribeImages where
         type Sv DescribeImages = EC2
@@ -185,7 +185,8 @@ instance AWSRequest DescribeImages where
         response
           = receiveXML
               (\ s h x ->
-                 DescribeImagesResponse' <$> parseXMLList "item" x)
+                 DescribeImagesResponse' <$>
+                   (may (parseXMLList "item") x))
 
 instance ToHeaders DescribeImages where
         toHeaders = const mempty
@@ -198,11 +199,12 @@ instance ToQuery DescribeImages where
           = mconcat
               ["Action" =: ("DescribeImages" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Owner" =: _describe1Owners,
-               "ExecutableBy" =: _describe1ExecutableUsers,
-               "Filter" =: _describe1Filters,
-               "ImageId" =: _describe1ImageIds,
-               "DryRun" =: _describe1DryRun]
+               toQuery (toQueryList "Owner" <$> _di2Owners),
+               toQuery
+                 (toQueryList "ExecutableBy" <$> _di2ExecutableUsers),
+               toQuery (toQueryList "Filter" <$> _di2Filters),
+               toQuery (toQueryList "ImageId" <$> _di2ImageIds),
+               "DryRun" =: _di2DryRun]
 
 -- | /See:/ 'describeImagesResponse' smart constructor.
 --
@@ -216,5 +218,5 @@ describeImagesResponse :: DescribeImagesResponse
 describeImagesResponse = DescribeImagesResponse'{_dirImages = Nothing};
 
 -- | Information about one or more images.
-dirImages :: Lens' DescribeImagesResponse (Maybe [Image])
-dirImages = lens _dirImages (\ s a -> s{_dirImages = a});
+dirImages :: Lens' DescribeImagesResponse [Image]
+dirImages = lens _dirImages (\ s a -> s{_dirImages = a}) . _Default;

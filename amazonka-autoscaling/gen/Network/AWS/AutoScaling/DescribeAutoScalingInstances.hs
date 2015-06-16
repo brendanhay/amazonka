@@ -71,8 +71,8 @@ dasiNextToken = lens _dasiNextToken (\ s a -> s{_dasiNextToken = a});
 -- | One or more Auto Scaling instances to describe, up to 50 instances. If
 -- you omit this parameter, all Auto Scaling instances are described. If
 -- you specify an ID that does not exist, it is ignored with no error.
-dasiInstanceIds :: Lens' DescribeAutoScalingInstances (Maybe [Text])
-dasiInstanceIds = lens _dasiInstanceIds (\ s a -> s{_dasiInstanceIds = a});
+dasiInstanceIds :: Lens' DescribeAutoScalingInstances [Text]
+dasiInstanceIds = lens _dasiInstanceIds (\ s a -> s{_dasiInstanceIds = a}) . _Default;
 
 -- | The maximum number of items to return with this call.
 dasiMaxRecords :: Lens' DescribeAutoScalingInstances (Maybe Int)
@@ -89,9 +89,9 @@ instance AWSRequest DescribeAutoScalingInstances
               "DescribeAutoScalingInstancesResult"
               (\ s h x ->
                  DescribeAutoScalingInstancesResponse' <$>
-                   x .@? "NextToken" <*>
+                   (x .@? "NextToken") <*>
                      (x .@? "AutoScalingInstances" .!@ mempty >>=
-                        parseXMLList "member"))
+                        may (parseXMLList "member")))
 
 instance ToHeaders DescribeAutoScalingInstances where
         toHeaders = const mempty
@@ -106,7 +106,8 @@ instance ToQuery DescribeAutoScalingInstances where
                  ("DescribeAutoScalingInstances" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
                "NextToken" =: _dasiNextToken,
-               "InstanceIds" =: "member" =: _dasiInstanceIds,
+               "InstanceIds" =:
+                 toQuery (toQueryList "member" <$> _dasiInstanceIds),
                "MaxRecords" =: _dasiMaxRecords]
 
 -- | /See:/ 'describeAutoScalingInstancesResponse' smart constructor.
@@ -128,5 +129,5 @@ dasirNextToken :: Lens' DescribeAutoScalingInstancesResponse (Maybe Text)
 dasirNextToken = lens _dasirNextToken (\ s a -> s{_dasirNextToken = a});
 
 -- | The instances.
-dasirAutoScalingInstances :: Lens' DescribeAutoScalingInstancesResponse (Maybe [AutoScalingInstanceDetails])
-dasirAutoScalingInstances = lens _dasirAutoScalingInstances (\ s a -> s{_dasirAutoScalingInstances = a});
+dasirAutoScalingInstances :: Lens' DescribeAutoScalingInstancesResponse [AutoScalingInstanceDetails]
+dasirAutoScalingInstances = lens _dasirAutoScalingInstances (\ s a -> s{_dasirAutoScalingInstances = a}) . _Default;

@@ -90,7 +90,7 @@ instance AWSRequest CreateInstanceExportTask where
           = receiveXML
               (\ s h x ->
                  CreateInstanceExportTaskResponse' <$>
-                   x .@? "exportTask")
+                   (x .@? "exportTask"))
 
 instance ToHeaders CreateInstanceExportTask where
         toHeaders = const mempty

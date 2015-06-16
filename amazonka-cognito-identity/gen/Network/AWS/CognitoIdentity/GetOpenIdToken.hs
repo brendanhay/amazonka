@@ -54,7 +54,7 @@ import Network.AWS.CognitoIdentity.Types
 -- * 'goitLogins'
 --
 -- * 'goitIdentityId'
-data GetOpenIdToken = GetOpenIdToken'{_goitLogins :: Maybe (HashMap Text Text), _goitIdentityId :: Text} deriving (Eq, Read, Show)
+data GetOpenIdToken = GetOpenIdToken'{_goitLogins :: Maybe (Map Text Text), _goitIdentityId :: Text} deriving (Eq, Read, Show)
 
 -- | 'GetOpenIdToken' smart constructor.
 getOpenIdToken :: Text -> GetOpenIdToken
@@ -65,8 +65,8 @@ getOpenIdToken pIdentityId = GetOpenIdToken'{_goitLogins = Nothing, _goitIdentit
 -- access_token returned from the provider\'s authflow. For
 -- accounts.google.com or any other OpenId Connect provider, always include
 -- the id_token.
-goitLogins :: Lens' GetOpenIdToken (Maybe (HashMap Text Text))
-goitLogins = lens _goitLogins (\ s a -> s{_goitLogins = a}) . mapping _Coerce;
+goitLogins :: Lens' GetOpenIdToken (Map Text Text)
+goitLogins = lens _goitLogins (\ s a -> s{_goitLogins = a}) . _Default . _Map;
 
 -- | A unique identifier in the format REGION:GUID.
 goitIdentityId :: Lens' GetOpenIdToken Text
@@ -80,7 +80,7 @@ instance AWSRequest GetOpenIdToken where
           = receiveJSON
               (\ s h x ->
                  GetOpenIdTokenResponse' <$>
-                   x .?> "Token" <*> x .?> "IdentityId")
+                   (x .?> "Token") <*> (x .?> "IdentityId"))
 
 instance ToHeaders GetOpenIdToken where
         toHeaders

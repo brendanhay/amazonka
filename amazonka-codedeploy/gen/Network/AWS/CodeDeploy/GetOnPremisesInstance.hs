@@ -63,7 +63,7 @@ instance AWSRequest GetOnPremisesInstance where
           = receiveJSON
               (\ s h x ->
                  GetOnPremisesInstanceResponse' <$>
-                   x .?> "instanceInfo")
+                   (x .?> "instanceInfo"))
 
 instance ToHeaders GetOnPremisesInstance where
         toHeaders

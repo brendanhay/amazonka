@@ -74,7 +74,7 @@ instance AWSRequest ListDistributions2014_11_06 where
           = receiveXML
               (\ s h x ->
                  ListDistributions2014_11_06Response' <$>
-                   x .@ "DistributionList")
+                   (x .@ "DistributionList"))
 
 instance ToHeaders ListDistributions2014_11_06 where
         toHeaders = const mempty

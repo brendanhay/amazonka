@@ -181,7 +181,7 @@ instance AWSRequest DescribeMLModels where
           = receiveJSON
               (\ s h x ->
                  DescribeMLModelsResponse' <$>
-                   x .?> "Results" .!@ mempty <*> x .?> "NextToken")
+                   (x .?> "Results" .!@ mempty) <*> (x .?> "NextToken"))
 
 instance ToHeaders DescribeMLModels where
         toHeaders
@@ -223,8 +223,8 @@ describeMLModelsResponse :: DescribeMLModelsResponse
 describeMLModelsResponse = DescribeMLModelsResponse'{_dmlmrResults = Nothing, _dmlmrNextToken = Nothing};
 
 -- | A list of MLModel that meet the search criteria.
-dmlmrResults :: Lens' DescribeMLModelsResponse (Maybe [MLModel])
-dmlmrResults = lens _dmlmrResults (\ s a -> s{_dmlmrResults = a});
+dmlmrResults :: Lens' DescribeMLModelsResponse [MLModel]
+dmlmrResults = lens _dmlmrResults (\ s a -> s{_dmlmrResults = a}) . _Default;
 
 -- | The ID of the next page in the paginated results that indicates at least
 -- one more page follows.

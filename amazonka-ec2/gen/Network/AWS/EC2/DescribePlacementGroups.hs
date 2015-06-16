@@ -63,8 +63,8 @@ describePlacementGroups = DescribePlacementGroups'{_dpg1GroupNames = Nothing, _d
 --
 -- Default: Describes all your placement groups, or only those otherwise
 -- specified.
-dpg1GroupNames :: Lens' DescribePlacementGroups (Maybe [Text])
-dpg1GroupNames = lens _dpg1GroupNames (\ s a -> s{_dpg1GroupNames = a});
+dpg1GroupNames :: Lens' DescribePlacementGroups [Text]
+dpg1GroupNames = lens _dpg1GroupNames (\ s a -> s{_dpg1GroupNames = a}) . _Default;
 
 -- | One or more filters.
 --
@@ -75,8 +75,8 @@ dpg1GroupNames = lens _dpg1GroupNames (\ s a -> s{_dpg1GroupNames = a});
 --
 -- -   @strategy@ - The strategy of the placement group (@cluster@).
 --
-dpg1Filters :: Lens' DescribePlacementGroups (Maybe [Filter])
-dpg1Filters = lens _dpg1Filters (\ s a -> s{_dpg1Filters = a});
+dpg1Filters :: Lens' DescribePlacementGroups [Filter]
+dpg1Filters = lens _dpg1Filters (\ s a -> s{_dpg1Filters = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -94,7 +94,7 @@ instance AWSRequest DescribePlacementGroups where
           = receiveXML
               (\ s h x ->
                  DescribePlacementGroupsResponse' <$>
-                   parseXMLList "item" x)
+                   (may (parseXMLList "item") x))
 
 instance ToHeaders DescribePlacementGroups where
         toHeaders = const mempty
@@ -108,8 +108,10 @@ instance ToQuery DescribePlacementGroups where
               ["Action" =:
                  ("DescribePlacementGroups" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "GroupName" =: _dpg1GroupNames,
-               "Filter" =: _dpg1Filters, "DryRun" =: _dpg1DryRun]
+               toQuery
+                 (toQueryList "GroupName" <$> _dpg1GroupNames),
+               toQuery (toQueryList "Filter" <$> _dpg1Filters),
+               "DryRun" =: _dpg1DryRun]
 
 -- | /See:/ 'describePlacementGroupsResponse' smart constructor.
 --
@@ -123,5 +125,5 @@ describePlacementGroupsResponse :: DescribePlacementGroupsResponse
 describePlacementGroupsResponse = DescribePlacementGroupsResponse'{_dpgrPlacementGroups = Nothing};
 
 -- | One or more placement groups.
-dpgrPlacementGroups :: Lens' DescribePlacementGroupsResponse (Maybe [PlacementGroup])
-dpgrPlacementGroups = lens _dpgrPlacementGroups (\ s a -> s{_dpgrPlacementGroups = a});
+dpgrPlacementGroups :: Lens' DescribePlacementGroupsResponse [PlacementGroup]
+dpgrPlacementGroups = lens _dpgrPlacementGroups (\ s a -> s{_dpgrPlacementGroups = a}) . _Default;

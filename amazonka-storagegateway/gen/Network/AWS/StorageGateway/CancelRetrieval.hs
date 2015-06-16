@@ -71,7 +71,7 @@ instance AWSRequest CancelRetrieval where
         response
           = receiveJSON
               (\ s h x ->
-                 CancelRetrievalResponse' <$> x .?> "TapeARN")
+                 CancelRetrievalResponse' <$> (x .?> "TapeARN"))
 
 instance ToHeaders CancelRetrieval where
         toHeaders

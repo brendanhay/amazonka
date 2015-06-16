@@ -209,7 +209,8 @@ instance FromJSON Attachment where
         parseJSON
           = withObject "Attachment"
               (\ x ->
-                 Attachment' <$> x .:? "data" <*> x .:? "fileName")
+                 Attachment' <$>
+                   (x .:? "data") <*> (x .:? "fileName"))
 
 instance ToJSON Attachment where
         toJSON Attachment'{..}
@@ -242,7 +243,7 @@ instance FromJSON AttachmentDetails where
           = withObject "AttachmentDetails"
               (\ x ->
                  AttachmentDetails' <$>
-                   x .:? "attachmentId" <*> x .:? "fileName")
+                   (x .:? "attachmentId") <*> (x .:? "fileName"))
 
 -- | /See:/ 'caseDetails' smart constructor.
 --
@@ -304,8 +305,8 @@ cdCaseId :: Lens' CaseDetails (Maybe Text)
 cdCaseId = lens _cdCaseId (\ s a -> s{_cdCaseId = a});
 
 -- | The email addresses that receive copies of communication about the case.
-cdCcEmailAddresses :: Lens' CaseDetails (Maybe [Text])
-cdCcEmailAddresses = lens _cdCcEmailAddresses (\ s a -> s{_cdCcEmailAddresses = a});
+cdCcEmailAddresses :: Lens' CaseDetails [Text]
+cdCcEmailAddresses = lens _cdCcEmailAddresses (\ s a -> s{_cdCcEmailAddresses = a}) . _Default;
 
 -- | The ID displayed for the case in the AWS Support Center. This is a
 -- numeric string.
@@ -340,17 +341,17 @@ instance FromJSON CaseDetails where
           = withObject "CaseDetails"
               (\ x ->
                  CaseDetails' <$>
-                   x .:? "subject" <*> x .:? "status" <*>
-                     x .:? "recentCommunications"
-                     <*> x .:? "severityCode"
-                     <*> x .:? "caseId"
-                     <*> x .:? "ccEmailAddresses" .!= mempty
-                     <*> x .:? "displayId"
-                     <*> x .:? "submittedBy"
-                     <*> x .:? "language"
-                     <*> x .:? "categoryCode"
-                     <*> x .:? "timeCreated"
-                     <*> x .:? "serviceCode")
+                   (x .:? "subject") <*> (x .:? "status") <*>
+                     (x .:? "recentCommunications")
+                     <*> (x .:? "severityCode")
+                     <*> (x .:? "caseId")
+                     <*> (x .:? "ccEmailAddresses" .!= mempty)
+                     <*> (x .:? "displayId")
+                     <*> (x .:? "submittedBy")
+                     <*> (x .:? "language")
+                     <*> (x .:? "categoryCode")
+                     <*> (x .:? "timeCreated")
+                     <*> (x .:? "serviceCode"))
 
 -- | /See:/ 'category' smart constructor.
 --
@@ -376,7 +377,8 @@ catCode = lens _catCode (\ s a -> s{_catCode = a});
 instance FromJSON Category where
         parseJSON
           = withObject "Category"
-              (\ x -> Category' <$> x .:? "name" <*> x .:? "code")
+              (\ x ->
+                 Category' <$> (x .:? "name") <*> (x .:? "code"))
 
 -- | /See:/ 'communication' smart constructor.
 --
@@ -416,18 +418,18 @@ comTimeCreated :: Lens' Communication (Maybe Text)
 comTimeCreated = lens _comTimeCreated (\ s a -> s{_comTimeCreated = a});
 
 -- | Information about the attachments to the case communication.
-comAttachmentSet :: Lens' Communication (Maybe [AttachmentDetails])
-comAttachmentSet = lens _comAttachmentSet (\ s a -> s{_comAttachmentSet = a});
+comAttachmentSet :: Lens' Communication [AttachmentDetails]
+comAttachmentSet = lens _comAttachmentSet (\ s a -> s{_comAttachmentSet = a}) . _Default;
 
 instance FromJSON Communication where
         parseJSON
           = withObject "Communication"
               (\ x ->
                  Communication' <$>
-                   x .:? "body" <*> x .:? "caseId" <*>
-                     x .:? "submittedBy"
-                     <*> x .:? "timeCreated"
-                     <*> x .:? "attachmentSet" .!= mempty)
+                   (x .:? "body") <*> (x .:? "caseId") <*>
+                     (x .:? "submittedBy")
+                     <*> (x .:? "timeCreated")
+                     <*> (x .:? "attachmentSet" .!= mempty))
 
 -- | /See:/ 'recentCaseCommunications' smart constructor.
 --
@@ -447,16 +449,16 @@ rccNextToken :: Lens' RecentCaseCommunications (Maybe Text)
 rccNextToken = lens _rccNextToken (\ s a -> s{_rccNextToken = a});
 
 -- | The five most recent communications associated with the case.
-rccCommunications :: Lens' RecentCaseCommunications (Maybe [Communication])
-rccCommunications = lens _rccCommunications (\ s a -> s{_rccCommunications = a});
+rccCommunications :: Lens' RecentCaseCommunications [Communication]
+rccCommunications = lens _rccCommunications (\ s a -> s{_rccCommunications = a}) . _Default;
 
 instance FromJSON RecentCaseCommunications where
         parseJSON
           = withObject "RecentCaseCommunications"
               (\ x ->
                  RecentCaseCommunications' <$>
-                   x .:? "nextToken" <*>
-                     x .:? "communications" .!= mempty)
+                   (x .:? "nextToken") <*>
+                     (x .:? "communications" .!= mempty))
 
 -- | /See:/ 'severityLevel' smart constructor.
 --
@@ -486,7 +488,7 @@ instance FromJSON SeverityLevel where
         parseJSON
           = withObject "SeverityLevel"
               (\ x ->
-                 SeverityLevel' <$> x .:? "name" <*> x .:? "code")
+                 SeverityLevel' <$> (x .:? "name") <*> (x .:? "code"))
 
 -- | /See:/ 'supportService' smart constructor.
 --
@@ -507,8 +509,8 @@ supportService = SupportService'{_ssCategories = Nothing, _ssName = Nothing, _ss
 -- describes. Categories consist of a category name and a category code.
 -- Category names and codes are passed to AWS Support when you call
 -- CreateCase.
-ssCategories :: Lens' SupportService (Maybe [Category])
-ssCategories = lens _ssCategories (\ s a -> s{_ssCategories = a});
+ssCategories :: Lens' SupportService [Category]
+ssCategories = lens _ssCategories (\ s a -> s{_ssCategories = a}) . _Default;
 
 -- | The friendly name for an AWS service. The @Code@ element contains the
 -- corresponding code.
@@ -525,8 +527,8 @@ instance FromJSON SupportService where
           = withObject "SupportService"
               (\ x ->
                  SupportService' <$>
-                   x .:? "categories" .!= mempty <*> x .:? "name" <*>
-                     x .:? "code")
+                   (x .:? "categories" .!= mempty) <*> (x .:? "name")
+                     <*> (x .:? "code"))
 
 -- | /See:/ 'trustedAdvisorCategorySpecificSummary' smart constructor.
 --
@@ -550,7 +552,7 @@ instance FromJSON
           = withObject "TrustedAdvisorCategorySpecificSummary"
               (\ x ->
                  TrustedAdvisorCategorySpecificSummary' <$>
-                   x .:? "costOptimizing")
+                   (x .:? "costOptimizing"))
 
 -- | /See:/ 'trustedAdvisorCheckDescription' smart constructor.
 --
@@ -602,9 +604,10 @@ instance FromJSON TrustedAdvisorCheckDescription
           = withObject "TrustedAdvisorCheckDescription"
               (\ x ->
                  TrustedAdvisorCheckDescription' <$>
-                   x .: "id" <*> x .: "name" <*> x .: "description" <*>
-                     x .: "category"
-                     <*> x .:? "metadata" .!= mempty)
+                   (x .: "id") <*> (x .: "name") <*>
+                     (x .: "description")
+                     <*> (x .: "category")
+                     <*> (x .:? "metadata" .!= mempty))
 
 -- | /See:/ 'trustedAdvisorCheckRefreshStatus' smart constructor.
 --
@@ -642,8 +645,8 @@ instance FromJSON TrustedAdvisorCheckRefreshStatus
           = withObject "TrustedAdvisorCheckRefreshStatus"
               (\ x ->
                  TrustedAdvisorCheckRefreshStatus' <$>
-                   x .: "checkId" <*> x .: "status" <*>
-                     x .: "millisUntilNextRefreshable")
+                   (x .: "checkId") <*> (x .: "status") <*>
+                     (x .: "millisUntilNextRefreshable"))
 
 -- | /See:/ 'trustedAdvisorCheckResult' smart constructor.
 --
@@ -697,10 +700,11 @@ instance FromJSON TrustedAdvisorCheckResult where
           = withObject "TrustedAdvisorCheckResult"
               (\ x ->
                  TrustedAdvisorCheckResult' <$>
-                   x .: "checkId" <*> x .: "timestamp" <*> x .: "status"
-                     <*> x .: "resourcesSummary"
-                     <*> x .: "categorySpecificSummary"
-                     <*> x .:? "flaggedResources" .!= mempty)
+                   (x .: "checkId") <*> (x .: "timestamp") <*>
+                     (x .: "status")
+                     <*> (x .: "resourcesSummary")
+                     <*> (x .: "categorySpecificSummary")
+                     <*> (x .:? "flaggedResources" .!= mempty))
 
 -- | /See:/ 'trustedAdvisorCheckSummary' smart constructor.
 --
@@ -754,11 +758,11 @@ instance FromJSON TrustedAdvisorCheckSummary where
           = withObject "TrustedAdvisorCheckSummary"
               (\ x ->
                  TrustedAdvisorCheckSummary' <$>
-                   x .:? "hasFlaggedResources" <*> x .: "checkId" <*>
-                     x .: "timestamp"
-                     <*> x .: "status"
-                     <*> x .: "resourcesSummary"
-                     <*> x .: "categorySpecificSummary")
+                   (x .:? "hasFlaggedResources") <*> (x .: "checkId")
+                     <*> (x .: "timestamp")
+                     <*> (x .: "status")
+                     <*> (x .: "resourcesSummary")
+                     <*> (x .: "categorySpecificSummary"))
 
 -- | /See:/ 'trustedAdvisorCostOptimizingSummary' smart constructor.
 --
@@ -789,8 +793,8 @@ instance FromJSON TrustedAdvisorCostOptimizingSummary
           = withObject "TrustedAdvisorCostOptimizingSummary"
               (\ x ->
                  TrustedAdvisorCostOptimizingSummary' <$>
-                   x .: "estimatedMonthlySavings" <*>
-                     x .: "estimatedPercentMonthlySavings")
+                   (x .: "estimatedMonthlySavings") <*>
+                     (x .: "estimatedPercentMonthlySavings"))
 
 -- | /See:/ 'trustedAdvisorResourceDetail' smart constructor.
 --
@@ -843,10 +847,10 @@ instance FromJSON TrustedAdvisorResourceDetail where
           = withObject "TrustedAdvisorResourceDetail"
               (\ x ->
                  TrustedAdvisorResourceDetail' <$>
-                   x .:? "isSuppressed" <*> x .: "status" <*>
-                     x .: "region"
-                     <*> x .: "resourceId"
-                     <*> x .:? "metadata" .!= mempty)
+                   (x .:? "isSuppressed") <*> (x .: "status") <*>
+                     (x .: "region")
+                     <*> (x .: "resourceId")
+                     <*> (x .:? "metadata" .!= mempty))
 
 -- | /See:/ 'trustedAdvisorResourcesSummary' smart constructor.
 --
@@ -891,6 +895,7 @@ instance FromJSON TrustedAdvisorResourcesSummary
           = withObject "TrustedAdvisorResourcesSummary"
               (\ x ->
                  TrustedAdvisorResourcesSummary' <$>
-                   x .: "resourcesProcessed" <*> x .: "resourcesFlagged"
-                     <*> x .: "resourcesIgnored"
-                     <*> x .: "resourcesSuppressed")
+                   (x .: "resourcesProcessed") <*>
+                     (x .: "resourcesFlagged")
+                     <*> (x .: "resourcesIgnored")
+                     <*> (x .: "resourcesSuppressed"))

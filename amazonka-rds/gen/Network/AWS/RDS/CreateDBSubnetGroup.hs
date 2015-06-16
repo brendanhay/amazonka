@@ -25,10 +25,10 @@ module Network.AWS.RDS.CreateDBSubnetGroup
     -- ** Request constructor
     , createDBSubnetGroup
     -- ** Request lenses
-    , createTags
-    , createDBSubnetGroupName
-    , createDBSubnetGroupDescription
-    , createSubnetIds
+    , cdbsgTags
+    , cdbsgDBSubnetGroupName
+    , cdbsgDBSubnetGroupDescription
+    , cdbsgSubnetIds
 
     -- * Response
     , CreateDBSubnetGroupResponse
@@ -47,22 +47,22 @@ import Network.AWS.RDS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'createTags'
+-- * 'cdbsgTags'
 --
--- * 'createDBSubnetGroupName'
+-- * 'cdbsgDBSubnetGroupName'
 --
--- * 'createDBSubnetGroupDescription'
+-- * 'cdbsgDBSubnetGroupDescription'
 --
--- * 'createSubnetIds'
-data CreateDBSubnetGroup = CreateDBSubnetGroup'{_createTags :: Maybe [Tag], _createDBSubnetGroupName :: Text, _createDBSubnetGroupDescription :: Text, _createSubnetIds :: [Text]} deriving (Eq, Read, Show)
+-- * 'cdbsgSubnetIds'
+data CreateDBSubnetGroup = CreateDBSubnetGroup'{_cdbsgTags :: Maybe [Tag], _cdbsgDBSubnetGroupName :: Text, _cdbsgDBSubnetGroupDescription :: Text, _cdbsgSubnetIds :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'CreateDBSubnetGroup' smart constructor.
 createDBSubnetGroup :: Text -> Text -> CreateDBSubnetGroup
-createDBSubnetGroup pDBSubnetGroupName pDBSubnetGroupDescription = CreateDBSubnetGroup'{_createTags = Nothing, _createDBSubnetGroupName = pDBSubnetGroupName, _createDBSubnetGroupDescription = pDBSubnetGroupDescription, _createSubnetIds = mempty};
+createDBSubnetGroup pDBSubnetGroupName pDBSubnetGroupDescription = CreateDBSubnetGroup'{_cdbsgTags = Nothing, _cdbsgDBSubnetGroupName = pDBSubnetGroupName, _cdbsgDBSubnetGroupDescription = pDBSubnetGroupDescription, _cdbsgSubnetIds = mempty};
 
 -- | FIXME: Undocumented member.
-createTags :: Lens' CreateDBSubnetGroup (Maybe [Tag])
-createTags = lens _createTags (\ s a -> s{_createTags = a});
+cdbsgTags :: Lens' CreateDBSubnetGroup [Tag]
+cdbsgTags = lens _cdbsgTags (\ s a -> s{_cdbsgTags = a}) . _Default;
 
 -- | The name for the DB subnet group. This value is stored as a lowercase
 -- string.
@@ -71,16 +71,16 @@ createTags = lens _createTags (\ s a -> s{_createTags = a});
 -- hyphens. Must not be \"Default\".
 --
 -- Example: @mySubnetgroup@
-createDBSubnetGroupName :: Lens' CreateDBSubnetGroup Text
-createDBSubnetGroupName = lens _createDBSubnetGroupName (\ s a -> s{_createDBSubnetGroupName = a});
+cdbsgDBSubnetGroupName :: Lens' CreateDBSubnetGroup Text
+cdbsgDBSubnetGroupName = lens _cdbsgDBSubnetGroupName (\ s a -> s{_cdbsgDBSubnetGroupName = a});
 
 -- | The description for the DB subnet group.
-createDBSubnetGroupDescription :: Lens' CreateDBSubnetGroup Text
-createDBSubnetGroupDescription = lens _createDBSubnetGroupDescription (\ s a -> s{_createDBSubnetGroupDescription = a});
+cdbsgDBSubnetGroupDescription :: Lens' CreateDBSubnetGroup Text
+cdbsgDBSubnetGroupDescription = lens _cdbsgDBSubnetGroupDescription (\ s a -> s{_cdbsgDBSubnetGroupDescription = a});
 
 -- | The EC2 Subnet IDs for the DB subnet group.
-createSubnetIds :: Lens' CreateDBSubnetGroup [Text]
-createSubnetIds = lens _createSubnetIds (\ s a -> s{_createSubnetIds = a});
+cdbsgSubnetIds :: Lens' CreateDBSubnetGroup [Text]
+cdbsgSubnetIds = lens _cdbsgSubnetIds (\ s a -> s{_cdbsgSubnetIds = a});
 
 instance AWSRequest CreateDBSubnetGroup where
         type Sv CreateDBSubnetGroup = RDS
@@ -91,7 +91,7 @@ instance AWSRequest CreateDBSubnetGroup where
           = receiveXMLWrapper "CreateDBSubnetGroupResult"
               (\ s h x ->
                  CreateDBSubnetGroupResponse' <$>
-                   x .@? "DBSubnetGroup")
+                   (x .@? "DBSubnetGroup"))
 
 instance ToHeaders CreateDBSubnetGroup where
         toHeaders = const mempty
@@ -104,12 +104,12 @@ instance ToQuery CreateDBSubnetGroup where
           = mconcat
               ["Action" =: ("CreateDBSubnetGroup" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "Tags" =: "Tag" =: _createTags,
-               "DBSubnetGroupName" =: _createDBSubnetGroupName,
+               "Tags" =: toQuery (toQueryList "Tag" <$> _cdbsgTags),
+               "DBSubnetGroupName" =: _cdbsgDBSubnetGroupName,
                "DBSubnetGroupDescription" =:
-                 _createDBSubnetGroupDescription,
+                 _cdbsgDBSubnetGroupDescription,
                "SubnetIds" =:
-                 "SubnetIdentifier" =: _createSubnetIds]
+                 toQueryList "SubnetIdentifier" _cdbsgSubnetIds]
 
 -- | /See:/ 'createDBSubnetGroupResponse' smart constructor.
 --

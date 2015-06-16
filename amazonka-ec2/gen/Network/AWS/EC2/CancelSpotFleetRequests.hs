@@ -82,7 +82,8 @@ instance AWSRequest CancelSpotFleetRequests where
           = receiveXML
               (\ s h x ->
                  CancelSpotFleetRequestsResponse' <$>
-                   parseXMLList "item" x <*> parseXMLList "item" x)
+                   (may (parseXMLList "item") x) <*>
+                     (may (parseXMLList "item") x))
 
 instance ToHeaders CancelSpotFleetRequests where
         toHeaders = const mempty
@@ -97,7 +98,7 @@ instance ToQuery CancelSpotFleetRequests where
                  ("CancelSpotFleetRequests" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "DryRun" =: _csfrDryRun,
-               "item" =: _csfrSpotFleetRequestIds,
+               toQueryList "item" _csfrSpotFleetRequestIds,
                "TerminateInstances" =: _csfrTerminateInstances]
 
 -- | /See:/ 'cancelSpotFleetRequestsResponse' smart constructor.
@@ -115,10 +116,10 @@ cancelSpotFleetRequestsResponse = CancelSpotFleetRequestsResponse'{_csfrrSuccess
 
 -- | Information about the Spot fleet requests that are successfully
 -- canceled.
-csfrrSuccessfulFleetRequests :: Lens' CancelSpotFleetRequestsResponse (Maybe [CancelSpotFleetRequestsSuccessItem])
-csfrrSuccessfulFleetRequests = lens _csfrrSuccessfulFleetRequests (\ s a -> s{_csfrrSuccessfulFleetRequests = a});
+csfrrSuccessfulFleetRequests :: Lens' CancelSpotFleetRequestsResponse [CancelSpotFleetRequestsSuccessItem]
+csfrrSuccessfulFleetRequests = lens _csfrrSuccessfulFleetRequests (\ s a -> s{_csfrrSuccessfulFleetRequests = a}) . _Default;
 
 -- | Information about the Spot fleet requests that are not successfully
 -- canceled.
-csfrrUnsuccessfulFleetRequests :: Lens' CancelSpotFleetRequestsResponse (Maybe [CancelSpotFleetRequestsErrorItem])
-csfrrUnsuccessfulFleetRequests = lens _csfrrUnsuccessfulFleetRequests (\ s a -> s{_csfrrUnsuccessfulFleetRequests = a});
+csfrrUnsuccessfulFleetRequests :: Lens' CancelSpotFleetRequestsResponse [CancelSpotFleetRequestsErrorItem]
+csfrrUnsuccessfulFleetRequests = lens _csfrrUnsuccessfulFleetRequests (\ s a -> s{_csfrrUnsuccessfulFleetRequests = a}) . _Default;

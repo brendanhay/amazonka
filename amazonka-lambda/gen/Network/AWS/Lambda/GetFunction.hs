@@ -78,7 +78,7 @@ instance AWSRequest GetFunction where
           = receiveJSON
               (\ s h x ->
                  GetFunctionResponse' <$>
-                   x .?> "Code" <*> x .?> "Configuration")
+                   (x .?> "Code") <*> (x .?> "Configuration"))
 
 instance ToHeaders GetFunction where
         toHeaders = const mempty

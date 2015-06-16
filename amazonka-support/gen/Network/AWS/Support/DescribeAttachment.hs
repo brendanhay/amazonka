@@ -67,7 +67,7 @@ instance AWSRequest DescribeAttachment where
         response
           = receiveJSON
               (\ s h x ->
-                 DescribeAttachmentResponse' <$> x .?> "attachment")
+                 DescribeAttachmentResponse' <$> (x .?> "attachment"))
 
 instance ToHeaders DescribeAttachment where
         toHeaders

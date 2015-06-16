@@ -68,9 +68,7 @@ instance AWSRequest DeleteLifecycleHook where
         type Rs DeleteLifecycleHook =
              DeleteLifecycleHookResponse
         request = post
-        response
-          = receiveNullWrapper "DeleteLifecycleHookResult"
-              DeleteLifecycleHookResponse'
+        response = receiveNull DeleteLifecycleHookResponse'
 
 instance ToHeaders DeleteLifecycleHook where
         toHeaders = const mempty

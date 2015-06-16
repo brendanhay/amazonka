@@ -85,12 +85,12 @@ instance AWSRequest ListHealthChecks where
           = receiveXML
               (\ s h x ->
                  ListHealthChecksResponse' <$>
-                   x .@? "NextMarker" <*>
+                   (x .@? "NextMarker") <*>
                      (x .@? "HealthChecks" .!@ mempty >>=
                         parseXMLList "HealthCheck")
-                     <*> x .@ "Marker"
-                     <*> x .@ "IsTruncated"
-                     <*> x .@ "MaxItems")
+                     <*> (x .@ "Marker")
+                     <*> (x .@ "IsTruncated")
+                     <*> (x .@ "MaxItems"))
 
 instance ToHeaders ListHealthChecks where
         toHeaders = const mempty

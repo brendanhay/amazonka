@@ -74,10 +74,11 @@ instance AWSRequest DescribeLunaClient where
           = receiveJSON
               (\ s h x ->
                  DescribeLunaClientResponse' <$>
-                   x .?> "ClientArn" <*> x .?> "CertificateFingerprint"
-                     <*> x .?> "LastModifiedTimestamp"
-                     <*> x .?> "Certificate"
-                     <*> x .?> "Label")
+                   (x .?> "ClientArn") <*>
+                     (x .?> "CertificateFingerprint")
+                     <*> (x .?> "LastModifiedTimestamp")
+                     <*> (x .?> "Certificate")
+                     <*> (x .?> "Label"))
 
 instance ToHeaders DescribeLunaClient where
         toHeaders

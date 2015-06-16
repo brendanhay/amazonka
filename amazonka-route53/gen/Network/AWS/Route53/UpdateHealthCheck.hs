@@ -145,7 +145,7 @@ instance AWSRequest UpdateHealthCheck where
         response
           = receiveXML
               (\ s h x ->
-                 UpdateHealthCheckResponse' <$> x .@ "HealthCheck")
+                 UpdateHealthCheckResponse' <$> (x .@ "HealthCheck"))
 
 instance ToElement UpdateHealthCheck where
         toElement

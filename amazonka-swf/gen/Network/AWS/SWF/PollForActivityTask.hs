@@ -122,11 +122,11 @@ instance AWSRequest PollForActivityTask where
           = receiveJSON
               (\ s h x ->
                  PollForActivityTaskResponse' <$>
-                   x .?> "input" <*> x .:> "taskToken" <*>
-                     x .:> "activityId"
-                     <*> x .:> "startedEventId"
-                     <*> x .:> "workflowExecution"
-                     <*> x .:> "activityType")
+                   (x .?> "input") <*> (x .:> "taskToken") <*>
+                     (x .:> "activityId")
+                     <*> (x .:> "startedEventId")
+                     <*> (x .:> "workflowExecution")
+                     <*> (x .:> "activityType"))
 
 instance ToHeaders PollForActivityTask where
         toHeaders

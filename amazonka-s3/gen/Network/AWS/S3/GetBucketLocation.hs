@@ -62,7 +62,7 @@ instance AWSRequest GetBucketLocation where
           = receiveXML
               (\ s h x ->
                  GetBucketLocationResponse' <$>
-                   x .@? "LocationConstraint")
+                   (x .@? "LocationConstraint"))
 
 instance ToHeaders GetBucketLocation where
         toHeaders = const mempty

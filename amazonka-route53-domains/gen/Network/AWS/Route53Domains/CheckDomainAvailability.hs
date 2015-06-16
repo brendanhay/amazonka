@@ -83,7 +83,7 @@ instance AWSRequest CheckDomainAvailability where
           = receiveJSON
               (\ s h x ->
                  CheckDomainAvailabilityResponse' <$>
-                   x .:> "Availability")
+                   (x .:> "Availability"))
 
 instance ToHeaders CheckDomainAvailability where
         toHeaders

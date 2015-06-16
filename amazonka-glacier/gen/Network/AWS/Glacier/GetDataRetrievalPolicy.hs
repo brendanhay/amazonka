@@ -71,7 +71,7 @@ instance AWSRequest GetDataRetrievalPolicy where
         response
           = receiveJSON
               (\ s h x ->
-                 GetDataRetrievalPolicyResponse' <$> x .?> "Policy")
+                 GetDataRetrievalPolicyResponse' <$> (x .?> "Policy"))
 
 instance ToHeaders GetDataRetrievalPolicy where
         toHeaders = const mempty

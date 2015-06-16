@@ -79,8 +79,8 @@ describeTags = DescribeTags'{_dtFilters = Nothing, _dtNextToken = Nothing, _dtDr
 --
 -- -   @value@ - The tag value.
 --
-dtFilters :: Lens' DescribeTags (Maybe [Filter])
-dtFilters = lens _dtFilters (\ s a -> s{_dtFilters = a});
+dtFilters :: Lens' DescribeTags [Filter]
+dtFilters = lens _dtFilters (\ s a -> s{_dtFilters = a}) . _Default;
 
 -- | The token to retrieve the next page of results.
 dtNextToken :: Lens' DescribeTags (Maybe Text)
@@ -109,7 +109,8 @@ instance AWSRequest DescribeTags where
           = receiveXML
               (\ s h x ->
                  DescribeTagsResponse' <$>
-                   x .@? "nextToken" <*> parseXMLList "item" x)
+                   (x .@? "nextToken") <*>
+                     (may (parseXMLList "item") x))
 
 instance ToHeaders DescribeTags where
         toHeaders = const mempty
@@ -122,8 +123,9 @@ instance ToQuery DescribeTags where
           = mconcat
               ["Action" =: ("DescribeTags" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Filter" =: _dtFilters, "NextToken" =: _dtNextToken,
-               "DryRun" =: _dtDryRun, "MaxResults" =: _dtMaxResults]
+               toQuery (toQueryList "Filter" <$> _dtFilters),
+               "NextToken" =: _dtNextToken, "DryRun" =: _dtDryRun,
+               "MaxResults" =: _dtMaxResults]
 
 -- | /See:/ 'describeTagsResponse' smart constructor.
 --
@@ -144,5 +146,5 @@ dtrNextToken :: Lens' DescribeTagsResponse (Maybe Text)
 dtrNextToken = lens _dtrNextToken (\ s a -> s{_dtrNextToken = a});
 
 -- | A list of tags.
-dtrTags :: Lens' DescribeTagsResponse (Maybe [TagDescription])
-dtrTags = lens _dtrTags (\ s a -> s{_dtrTags = a});
+dtrTags :: Lens' DescribeTagsResponse [TagDescription]
+dtrTags = lens _dtrTags (\ s a -> s{_dtrTags = a}) . _Default;

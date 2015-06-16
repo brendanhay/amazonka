@@ -98,7 +98,8 @@ instance AWSRequest StartInstances where
         response
           = receiveXML
               (\ s h x ->
-                 StartInstancesResponse' <$> parseXMLList "item" x)
+                 StartInstancesResponse' <$>
+                   (may (parseXMLList "item") x))
 
 instance ToHeaders StartInstances where
         toHeaders = const mempty
@@ -113,7 +114,7 @@ instance ToQuery StartInstances where
                "Version" =: ("2015-04-15" :: ByteString),
                "AdditionalInfo" =: _staAdditionalInfo,
                "DryRun" =: _staDryRun,
-               "InstanceId" =: _staInstanceIds]
+               toQueryList "InstanceId" _staInstanceIds]
 
 -- | /See:/ 'startInstancesResponse' smart constructor.
 --
@@ -127,5 +128,5 @@ startInstancesResponse :: StartInstancesResponse
 startInstancesResponse = StartInstancesResponse'{_sirStartingInstances = Nothing};
 
 -- | Information about one or more started instances.
-sirStartingInstances :: Lens' StartInstancesResponse (Maybe [InstanceStateChange])
-sirStartingInstances = lens _sirStartingInstances (\ s a -> s{_sirStartingInstances = a});
+sirStartingInstances :: Lens' StartInstancesResponse [InstanceStateChange]
+sirStartingInstances = lens _sirStartingInstances (\ s a -> s{_sirStartingInstances = a}) . _Default;

@@ -57,8 +57,8 @@ describeInstanceHealth :: Text -> DescribeInstanceHealth
 describeInstanceHealth pLoadBalancerName = DescribeInstanceHealth'{_dihInstances = Nothing, _dihLoadBalancerName = pLoadBalancerName};
 
 -- | The IDs of the instances.
-dihInstances :: Lens' DescribeInstanceHealth (Maybe [Instance])
-dihInstances = lens _dihInstances (\ s a -> s{_dihInstances = a});
+dihInstances :: Lens' DescribeInstanceHealth [Instance]
+dihInstances = lens _dihInstances (\ s a -> s{_dihInstances = a}) . _Default;
 
 -- | The name of the load balancer.
 dihLoadBalancerName :: Lens' DescribeInstanceHealth Text
@@ -74,7 +74,7 @@ instance AWSRequest DescribeInstanceHealth where
               (\ s h x ->
                  DescribeInstanceHealthResponse' <$>
                    (x .@? "InstanceStates" .!@ mempty >>=
-                      parseXMLList "member"))
+                      may (parseXMLList "member")))
 
 instance ToHeaders DescribeInstanceHealth where
         toHeaders = const mempty
@@ -88,7 +88,8 @@ instance ToQuery DescribeInstanceHealth where
               ["Action" =:
                  ("DescribeInstanceHealth" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
-               "Instances" =: "member" =: _dihInstances,
+               "Instances" =:
+                 toQuery (toQueryList "member" <$> _dihInstances),
                "LoadBalancerName" =: _dihLoadBalancerName]
 
 -- | /See:/ 'describeInstanceHealthResponse' smart constructor.
@@ -103,5 +104,5 @@ describeInstanceHealthResponse :: DescribeInstanceHealthResponse
 describeInstanceHealthResponse = DescribeInstanceHealthResponse'{_dihrInstanceStates = Nothing};
 
 -- | Information about the health of the instances.
-dihrInstanceStates :: Lens' DescribeInstanceHealthResponse (Maybe [InstanceState])
-dihrInstanceStates = lens _dihrInstanceStates (\ s a -> s{_dihrInstanceStates = a});
+dihrInstanceStates :: Lens' DescribeInstanceHealthResponse [InstanceState]
+dihrInstanceStates = lens _dihrInstanceStates (\ s a -> s{_dihrInstanceStates = a}) . _Default;

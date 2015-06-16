@@ -74,7 +74,7 @@ instance AWSRequest CreateDocument where
           = receiveJSON
               (\ s h x ->
                  CreateDocumentResponse' <$>
-                   x .?> "DocumentDescription")
+                   (x .?> "DocumentDescription"))
 
 instance ToHeaders CreateDocument where
         toHeaders

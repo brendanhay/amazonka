@@ -96,8 +96,8 @@ seReturnPath = lens _seReturnPath (\ s a -> s{_seReturnPath = a});
 
 -- | The reply-to email address(es) for the message. If the recipient replies
 -- to the message, each reply-to address will receive the reply.
-seReplyToAddresses :: Lens' SendEmail (Maybe [Text])
-seReplyToAddresses = lens _seReplyToAddresses (\ s a -> s{_seReplyToAddresses = a});
+seReplyToAddresses :: Lens' SendEmail [Text]
+seReplyToAddresses = lens _seReplyToAddresses (\ s a -> s{_seReplyToAddresses = a}) . _Default;
 
 -- | The identity\'s email address.
 --
@@ -123,7 +123,8 @@ instance AWSRequest SendEmail where
         request = post
         response
           = receiveXMLWrapper "SendEmailResult"
-              (\ s h x -> SendEmailResponse' <$> x .@ "MessageId")
+              (\ s h x ->
+                 SendEmailResponse' <$> (x .@ "MessageId"))
 
 instance ToHeaders SendEmail where
         toHeaders = const mempty
@@ -138,7 +139,8 @@ instance ToQuery SendEmail where
                "Version" =: ("2010-12-01" :: ByteString),
                "ReturnPath" =: _seReturnPath,
                "ReplyToAddresses" =:
-                 "member" =: _seReplyToAddresses,
+                 toQuery
+                   (toQueryList "member" <$> _seReplyToAddresses),
                "Source" =: _seSource,
                "Destination" =: _seDestination,
                "Message" =: _seMessage]

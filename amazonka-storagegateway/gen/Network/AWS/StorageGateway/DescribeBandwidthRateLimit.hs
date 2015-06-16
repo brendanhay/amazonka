@@ -73,9 +73,9 @@ instance AWSRequest DescribeBandwidthRateLimit where
           = receiveJSON
               (\ s h x ->
                  DescribeBandwidthRateLimitResponse' <$>
-                   x .?> "GatewayARN" <*>
-                     x .?> "AverageUploadRateLimitInBitsPerSec"
-                     <*> x .?> "AverageDownloadRateLimitInBitsPerSec")
+                   (x .?> "GatewayARN") <*>
+                     (x .?> "AverageUploadRateLimitInBitsPerSec")
+                     <*> (x .?> "AverageDownloadRateLimitInBitsPerSec"))
 
 instance ToHeaders DescribeBandwidthRateLimit where
         toHeaders

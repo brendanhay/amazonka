@@ -55,8 +55,8 @@ describeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes'{_dlbptPolicyT
 
 -- | The names of the policy types. If no names are specified, describes all
 -- policy types defined by Elastic Load Balancing.
-dlbptPolicyTypeNames :: Lens' DescribeLoadBalancerPolicyTypes (Maybe [Text])
-dlbptPolicyTypeNames = lens _dlbptPolicyTypeNames (\ s a -> s{_dlbptPolicyTypeNames = a});
+dlbptPolicyTypeNames :: Lens' DescribeLoadBalancerPolicyTypes [Text]
+dlbptPolicyTypeNames = lens _dlbptPolicyTypeNames (\ s a -> s{_dlbptPolicyTypeNames = a}) . _Default;
 
 instance AWSRequest DescribeLoadBalancerPolicyTypes
          where
@@ -70,7 +70,7 @@ instance AWSRequest DescribeLoadBalancerPolicyTypes
               (\ s h x ->
                  DescribeLoadBalancerPolicyTypesResponse' <$>
                    (x .@? "PolicyTypeDescriptions" .!@ mempty >>=
-                      parseXMLList "member"))
+                      may (parseXMLList "member")))
 
 instance ToHeaders DescribeLoadBalancerPolicyTypes
          where
@@ -87,7 +87,8 @@ instance ToQuery DescribeLoadBalancerPolicyTypes
                  ("DescribeLoadBalancerPolicyTypes" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
                "PolicyTypeNames" =:
-                 "member" =: _dlbptPolicyTypeNames]
+                 toQuery
+                   (toQueryList "member" <$> _dlbptPolicyTypeNames)]
 
 -- | /See:/ 'describeLoadBalancerPolicyTypesResponse' smart constructor.
 --
@@ -101,5 +102,5 @@ describeLoadBalancerPolicyTypesResponse :: DescribeLoadBalancerPolicyTypesRespon
 describeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse'{_dlbptrPolicyTypeDescriptions = Nothing};
 
 -- | Information about the policy types.
-dlbptrPolicyTypeDescriptions :: Lens' DescribeLoadBalancerPolicyTypesResponse (Maybe [PolicyTypeDescription])
-dlbptrPolicyTypeDescriptions = lens _dlbptrPolicyTypeDescriptions (\ s a -> s{_dlbptrPolicyTypeDescriptions = a});
+dlbptrPolicyTypeDescriptions :: Lens' DescribeLoadBalancerPolicyTypesResponse [PolicyTypeDescription]
+dlbptrPolicyTypeDescriptions = lens _dlbptrPolicyTypeDescriptions (\ s a -> s{_dlbptrPolicyTypeDescriptions = a}) . _Default;

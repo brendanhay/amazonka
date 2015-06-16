@@ -69,7 +69,7 @@ instance AWSRequest CreateLunaClient where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateLunaClientResponse' <$> x .?> "ClientArn")
+                 CreateLunaClientResponse' <$> (x .?> "ClientArn"))
 
 instance ToHeaders CreateLunaClient where
         toHeaders

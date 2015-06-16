@@ -78,7 +78,7 @@ instance AWSRequest CreateAssociation where
           = receiveJSON
               (\ s h x ->
                  CreateAssociationResponse' <$>
-                   x .?> "AssociationDescription")
+                   (x .?> "AssociationDescription"))
 
 instance ToHeaders CreateAssociation where
         toHeaders

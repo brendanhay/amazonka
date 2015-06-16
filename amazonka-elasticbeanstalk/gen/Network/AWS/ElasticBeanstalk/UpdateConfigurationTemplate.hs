@@ -82,13 +82,13 @@ updateConfigurationTemplate pApplicationName pTemplateName = UpdateConfiguration
 -- | A list of configuration options to remove from the configuration set.
 --
 -- Constraint: You can remove only @UserDefined@ configuration options.
-uctOptionsToRemove :: Lens' UpdateConfigurationTemplate (Maybe [OptionSpecification])
-uctOptionsToRemove = lens _uctOptionsToRemove (\ s a -> s{_uctOptionsToRemove = a});
+uctOptionsToRemove :: Lens' UpdateConfigurationTemplate [OptionSpecification]
+uctOptionsToRemove = lens _uctOptionsToRemove (\ s a -> s{_uctOptionsToRemove = a}) . _Default;
 
 -- | A list of configuration option settings to update with the new specified
 -- option value.
-uctOptionSettings :: Lens' UpdateConfigurationTemplate (Maybe [ConfigurationOptionSetting])
-uctOptionSettings = lens _uctOptionSettings (\ s a -> s{_uctOptionSettings = a});
+uctOptionSettings :: Lens' UpdateConfigurationTemplate [ConfigurationOptionSetting]
+uctOptionSettings = lens _uctOptionSettings (\ s a -> s{_uctOptionSettings = a}) . _Default;
 
 -- | A new description for the configuration.
 uctDescription :: Lens' UpdateConfigurationTemplate (Maybe Text)
@@ -132,8 +132,12 @@ instance ToQuery UpdateConfigurationTemplate where
               ["Action" =:
                  ("UpdateConfigurationTemplate" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "OptionsToRemove" =: "member" =: _uctOptionsToRemove,
-               "OptionSettings" =: "member" =: _uctOptionSettings,
+               "OptionsToRemove" =:
+                 toQuery
+                   (toQueryList "member" <$> _uctOptionsToRemove),
+               "OptionSettings" =:
+                 toQuery
+                   (toQueryList "member" <$> _uctOptionSettings),
                "Description" =: _uctDescription,
                "ApplicationName" =: _uctApplicationName,
                "TemplateName" =: _uctTemplateName]

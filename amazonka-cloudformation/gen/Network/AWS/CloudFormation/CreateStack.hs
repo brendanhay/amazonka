@@ -96,8 +96,8 @@ csDisableRollback = lens _csDisableRollback (\ s a -> s{_csDisableRollback = a})
 -- related events. You can find your SNS topic ARNs using the
 -- <http://console.aws.amazon.com/sns SNS console> or your Command Line
 -- Interface (CLI).
-csNotificationARNs :: Lens' CreateStack (Maybe [Text])
-csNotificationARNs = lens _csNotificationARNs (\ s a -> s{_csNotificationARNs = a});
+csNotificationARNs :: Lens' CreateStack [Text]
+csNotificationARNs = lens _csNotificationARNs (\ s a -> s{_csNotificationARNs = a}) . _Default;
 
 -- | Structure containing the stack policy body. For more information, go to
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html Prevent Updates to Stack Resources>
@@ -108,8 +108,8 @@ csStackPolicyBody = lens _csStackPolicyBody (\ s a -> s{_csStackPolicyBody = a})
 
 -- | A list of @Parameter@ structures that specify input parameters for the
 -- stack.
-csParameters :: Lens' CreateStack (Maybe [Parameter])
-csParameters = lens _csParameters (\ s a -> s{_csParameters = a});
+csParameters :: Lens' CreateStack [Parameter]
+csParameters = lens _csParameters (\ s a -> s{_csParameters = a}) . _Default;
 
 -- | Location of a file containing the stack policy. The URL must point to a
 -- policy (max size: 16KB) located in an S3 bucket in the same region as
@@ -158,8 +158,8 @@ csTemplateURL = lens _csTemplateURL (\ s a -> s{_csTemplateURL = a});
 -- If your stack template contains these resources, we recommend that you
 -- review any permissions associated with them. If you don\'t specify this
 -- parameter, this action returns an @InsufficientCapabilities@ error.
-csCapabilities :: Lens' CreateStack (Maybe [Capability])
-csCapabilities = lens _csCapabilities (\ s a -> s{_csCapabilities = a});
+csCapabilities :: Lens' CreateStack [Capability]
+csCapabilities = lens _csCapabilities (\ s a -> s{_csCapabilities = a}) . _Default;
 
 -- | Determines what action will be taken if stack creation fails. This must
 -- be one of: DO_NOTHING, ROLLBACK, or DELETE. You can specify either
@@ -173,8 +173,8 @@ csOnFailure = lens _csOnFailure (\ s a -> s{_csOnFailure = a});
 -- by key\/value pairs. Tags defined for the stack are propagated to EC2
 -- resources that are created as part of the stack. A maximum number of 10
 -- tags can be specified.
-csTags :: Lens' CreateStack (Maybe [Tag])
-csTags = lens _csTags (\ s a -> s{_csTags = a});
+csTags :: Lens' CreateStack [Tag]
+csTags = lens _csTags (\ s a -> s{_csTags = a}) . _Default;
 
 -- | The amount of time that can pass before the stack status becomes
 -- CREATE_FAILED; if @DisableRollback@ is not set or is set to @false@, the
@@ -197,7 +197,8 @@ instance AWSRequest CreateStack where
         request = post
         response
           = receiveXMLWrapper "CreateStackResult"
-              (\ s h x -> CreateStackResponse' <$> x .@? "StackId")
+              (\ s h x ->
+                 CreateStackResponse' <$> (x .@? "StackId"))
 
 instance ToHeaders CreateStack where
         toHeaders = const mempty
@@ -212,15 +213,18 @@ instance ToQuery CreateStack where
                "Version" =: ("2010-05-15" :: ByteString),
                "DisableRollback" =: _csDisableRollback,
                "NotificationARNs" =:
-                 "member" =: _csNotificationARNs,
+                 toQuery
+                   (toQueryList "member" <$> _csNotificationARNs),
                "StackPolicyBody" =: _csStackPolicyBody,
-               "Parameters" =: "member" =: _csParameters,
+               "Parameters" =:
+                 toQuery (toQueryList "member" <$> _csParameters),
                "StackPolicyURL" =: _csStackPolicyURL,
                "TemplateBody" =: _csTemplateBody,
                "TemplateURL" =: _csTemplateURL,
-               "Capabilities" =: "member" =: _csCapabilities,
+               "Capabilities" =:
+                 toQuery (toQueryList "member" <$> _csCapabilities),
                "OnFailure" =: _csOnFailure,
-               "Tags" =: "member" =: _csTags,
+               "Tags" =: toQuery (toQueryList "member" <$> _csTags),
                "TimeoutInMinutes" =: _csTimeoutInMinutes,
                "StackName" =: _csStackName]
 

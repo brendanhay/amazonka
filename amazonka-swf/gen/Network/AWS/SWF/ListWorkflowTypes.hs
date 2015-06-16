@@ -132,8 +132,8 @@ instance AWSRequest ListWorkflowTypes where
           = receiveJSON
               (\ s h x ->
                  ListWorkflowTypesResponse' <$>
-                   x .?> "nextPageToken" <*>
-                     x .?> "typeInfos" .!@ mempty)
+                   (x .?> "nextPageToken") <*>
+                     (x .?> "typeInfos" .!@ mempty))
 
 instance ToHeaders ListWorkflowTypes where
         toHeaders

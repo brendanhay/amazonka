@@ -68,7 +68,7 @@ instance AWSRequest ListDeadLetterSourceQueues where
               "ListDeadLetterSourceQueuesResult"
               (\ s h x ->
                  ListDeadLetterSourceQueuesResponse' <$>
-                   parseXMLList "QueueUrl" x)
+                   (parseXMLList "QueueUrl" x))
 
 instance ToHeaders ListDeadLetterSourceQueues where
         toHeaders = const mempty

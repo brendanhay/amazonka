@@ -67,7 +67,7 @@ instance AWSRequest GetAccessKeyLastUsed where
           = receiveXMLWrapper "GetAccessKeyLastUsedResult"
               (\ s h x ->
                  GetAccessKeyLastUsedResponse' <$>
-                   x .@? "UserName" <*> x .@? "AccessKeyLastUsed")
+                   (x .@? "UserName") <*> (x .@? "AccessKeyLastUsed"))
 
 instance ToHeaders GetAccessKeyLastUsed where
         toHeaders = const mempty

@@ -94,7 +94,7 @@ instance AWSRequest CreateSnapshot where
           = receiveJSON
               (\ s h x ->
                  CreateSnapshotResponse' <$>
-                   x .?> "VolumeARN" <*> x .?> "SnapshotId")
+                   (x .?> "VolumeARN") <*> (x .?> "SnapshotId"))
 
 instance ToHeaders CreateSnapshot where
         toHeaders

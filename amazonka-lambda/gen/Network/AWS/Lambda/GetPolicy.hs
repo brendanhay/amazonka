@@ -72,7 +72,7 @@ instance AWSRequest GetPolicy where
         request = get
         response
           = receiveJSON
-              (\ s h x -> GetPolicyResponse' <$> x .?> "Policy")
+              (\ s h x -> GetPolicyResponse' <$> (x .?> "Policy"))
 
 instance ToHeaders GetPolicy where
         toHeaders = const mempty

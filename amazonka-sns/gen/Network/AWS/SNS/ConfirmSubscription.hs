@@ -84,7 +84,7 @@ instance AWSRequest ConfirmSubscription where
           = receiveXMLWrapper "ConfirmSubscriptionResult"
               (\ s h x ->
                  ConfirmSubscriptionResponse' <$>
-                   x .@? "SubscriptionArn")
+                   (x .@? "SubscriptionArn"))
 
 instance ToHeaders ConfirmSubscription where
         toHeaders = const mempty

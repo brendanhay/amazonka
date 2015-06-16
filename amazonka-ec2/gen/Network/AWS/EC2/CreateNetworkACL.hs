@@ -77,7 +77,7 @@ instance AWSRequest CreateNetworkACL where
         response
           = receiveXML
               (\ s h x ->
-                 CreateNetworkACLResponse' <$> x .@? "networkAcl")
+                 CreateNetworkACLResponse' <$> (x .@? "networkAcl"))
 
 instance ToHeaders CreateNetworkACL where
         toHeaders = const mempty

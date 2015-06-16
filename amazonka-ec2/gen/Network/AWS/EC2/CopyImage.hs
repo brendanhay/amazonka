@@ -108,7 +108,7 @@ instance AWSRequest CopyImage where
         request = post
         response
           = receiveXML
-              (\ s h x -> CopyImageResponse' <$> x .@? "imageId")
+              (\ s h x -> CopyImageResponse' <$> (x .@? "imageId"))
 
 instance ToHeaders CopyImage where
         toHeaders = const mempty

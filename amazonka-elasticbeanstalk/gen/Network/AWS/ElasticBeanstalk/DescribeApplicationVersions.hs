@@ -55,8 +55,8 @@ describeApplicationVersions = DescribeApplicationVersions'{_dVersionLabels = Not
 
 -- | If specified, restricts the returned descriptions to only include ones
 -- that have the specified version labels.
-dVersionLabels :: Lens' DescribeApplicationVersions (Maybe [Text])
-dVersionLabels = lens _dVersionLabels (\ s a -> s{_dVersionLabels = a});
+dVersionLabels :: Lens' DescribeApplicationVersions [Text]
+dVersionLabels = lens _dVersionLabels (\ s a -> s{_dVersionLabels = a}) . _Default;
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to only include ones that are associated with the specified application.
@@ -75,7 +75,7 @@ instance AWSRequest DescribeApplicationVersions where
               (\ s h x ->
                  DescribeApplicationVersionsResponse' <$>
                    (x .@? "ApplicationVersions" .!@ mempty >>=
-                      parseXMLList "member"))
+                      may (parseXMLList "member")))
 
 instance ToHeaders DescribeApplicationVersions where
         toHeaders = const mempty
@@ -89,7 +89,8 @@ instance ToQuery DescribeApplicationVersions where
               ["Action" =:
                  ("DescribeApplicationVersions" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "VersionLabels" =: "member" =: _dVersionLabels,
+               "VersionLabels" =:
+                 toQuery (toQueryList "member" <$> _dVersionLabels),
                "ApplicationName" =: _dApplicationName]
 
 -- | /See:/ 'describeApplicationVersionsResponse' smart constructor.
@@ -104,5 +105,5 @@ describeApplicationVersionsResponse :: DescribeApplicationVersionsResponse
 describeApplicationVersionsResponse = DescribeApplicationVersionsResponse'{_davrApplicationVersions = Nothing};
 
 -- | A list of ApplicationVersionDescription .
-davrApplicationVersions :: Lens' DescribeApplicationVersionsResponse (Maybe [ApplicationVersionDescription])
-davrApplicationVersions = lens _davrApplicationVersions (\ s a -> s{_davrApplicationVersions = a});
+davrApplicationVersions :: Lens' DescribeApplicationVersionsResponse [ApplicationVersionDescription]
+davrApplicationVersions = lens _davrApplicationVersions (\ s a -> s{_davrApplicationVersions = a}) . _Default;

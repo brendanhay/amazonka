@@ -100,7 +100,7 @@ instance AWSRequest AttachClassicLinkVPC where
         response
           = receiveXML
               (\ s h x ->
-                 AttachClassicLinkVPCResponse' <$> x .@? "return")
+                 AttachClassicLinkVPCResponse' <$> (x .@? "return"))
 
 instance ToHeaders AttachClassicLinkVPC where
         toHeaders = const mempty
@@ -115,7 +115,8 @@ instance ToQuery AttachClassicLinkVPC where
                "Version" =: ("2015-04-15" :: ByteString),
                "DryRun" =: _aclvDryRun,
                "InstanceId" =: _aclvInstanceId,
-               "VpcId" =: _aclvVPCId, "groupId" =: _aclvGroups]
+               "VpcId" =: _aclvVPCId,
+               toQueryList "groupId" _aclvGroups]
 
 -- | /See:/ 'attachClassicLinkVPCResponse' smart constructor.
 --

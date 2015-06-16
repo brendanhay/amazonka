@@ -108,7 +108,7 @@ instance ToQuery
                "OpenIDConnectProviderArn" =:
                  _uoidcptOpenIDConnectProviderARN,
                "ThumbprintList" =:
-                 "member" =: _uoidcptThumbprintList]
+                 toQueryList "member" _uoidcptThumbprintList]
 
 -- | /See:/ 'updateOpenIDConnectProviderThumbprintResponse' smart constructor.
 data UpdateOpenIDConnectProviderThumbprintResponse = UpdateOpenIDConnectProviderThumbprintResponse' deriving (Eq, Read, Show)

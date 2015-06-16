@@ -66,7 +66,8 @@ instance AWSRequest
           = receiveXML
               (\ s h x ->
                  GetStreamingDistributionConfig2014_11_06Response' <$>
-                   x .@? "StreamingDistributionConfig" <*> h .#? "ETag")
+                   (x .@? "StreamingDistributionConfig") <*>
+                     (h .#? "ETag"))
 
 instance ToHeaders
          GetStreamingDistributionConfig2014_11_06 where

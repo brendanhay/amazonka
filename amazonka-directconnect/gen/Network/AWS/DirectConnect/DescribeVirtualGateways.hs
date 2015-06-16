@@ -59,7 +59,7 @@ instance AWSRequest DescribeVirtualGateways where
           = receiveJSON
               (\ s h x ->
                  DescribeVirtualGatewaysResponse' <$>
-                   x .?> "DescribeVirtualGatewaysResponse" .!@ mempty)
+                   (x .?> "DescribeVirtualGatewaysResponse" .!@ mempty))
 
 instance ToHeaders DescribeVirtualGateways where
         toHeaders
@@ -92,5 +92,5 @@ describeVirtualGatewaysResponse :: DescribeVirtualGatewaysResponse
 describeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse'{_dvgrDescribeVirtualGatewaysResponse = Nothing};
 
 -- | A list of virtual private gateways.
-dvgrDescribeVirtualGatewaysResponse :: Lens' DescribeVirtualGatewaysResponse (Maybe [VirtualGateway])
-dvgrDescribeVirtualGatewaysResponse = lens _dvgrDescribeVirtualGatewaysResponse (\ s a -> s{_dvgrDescribeVirtualGatewaysResponse = a});
+dvgrDescribeVirtualGatewaysResponse :: Lens' DescribeVirtualGatewaysResponse [VirtualGateway]
+dvgrDescribeVirtualGatewaysResponse = lens _dvgrDescribeVirtualGatewaysResponse (\ s a -> s{_dvgrDescribeVirtualGatewaysResponse = a}) . _Default;

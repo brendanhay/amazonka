@@ -169,8 +169,8 @@ cdirrOptionGroupName :: Lens' CreateDBInstanceReadReplica (Maybe Text)
 cdirrOptionGroupName = lens _cdirrOptionGroupName (\ s a -> s{_cdirrOptionGroupName = a});
 
 -- | FIXME: Undocumented member.
-cdirrTags :: Lens' CreateDBInstanceReadReplica (Maybe [Tag])
-cdirrTags = lens _cdirrTags (\ s a -> s{_cdirrTags = a});
+cdirrTags :: Lens' CreateDBInstanceReadReplica [Tag]
+cdirrTags = lens _cdirrTags (\ s a -> s{_cdirrTags = a}) . _Default;
 
 -- | The port number that the DB instance uses for connections.
 --
@@ -229,7 +229,7 @@ instance AWSRequest CreateDBInstanceReadReplica where
               "CreateDBInstanceReadReplicaResult"
               (\ s h x ->
                  CreateDBInstanceReadReplicaResponse' <$>
-                   x .@? "DBInstance")
+                   (x .@? "DBInstance"))
 
 instance ToHeaders CreateDBInstanceReadReplica where
         toHeaders = const mempty
@@ -251,7 +251,8 @@ instance ToQuery CreateDBInstanceReadReplica where
                "DBInstanceClass" =: _cdirrDBInstanceClass,
                "AvailabilityZone" =: _cdirrAvailabilityZone,
                "OptionGroupName" =: _cdirrOptionGroupName,
-               "Tags" =: "Tag" =: _cdirrTags, "Port" =: _cdirrPort,
+               "Tags" =: toQuery (toQueryList "Tag" <$> _cdirrTags),
+               "Port" =: _cdirrPort,
                "StorageType" =: _cdirrStorageType,
                "DBInstanceIdentifier" =: _cdirrDBInstanceIdentifier,
                "SourceDBInstanceIdentifier" =:

@@ -92,9 +92,9 @@ instance AWSRequest ListPolicyVersions where
               (\ s h x ->
                  ListPolicyVersionsResponse' <$>
                    (x .@? "Versions" .!@ mempty >>=
-                      parseXMLList "member")
-                     <*> x .@? "Marker"
-                     <*> x .@? "IsTruncated")
+                      may (parseXMLList "member"))
+                     <*> (x .@? "Marker")
+                     <*> (x .@? "IsTruncated"))
 
 instance ToHeaders ListPolicyVersions where
         toHeaders = const mempty
@@ -130,8 +130,8 @@ listPolicyVersionsResponse = ListPolicyVersionsResponse'{_lpvrVersions = Nothing
 -- For more information about managed policy versions, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies>
 -- in the /Using IAM/ guide.
-lpvrVersions :: Lens' ListPolicyVersionsResponse (Maybe [PolicyVersion])
-lpvrVersions = lens _lpvrVersions (\ s a -> s{_lpvrVersions = a});
+lpvrVersions :: Lens' ListPolicyVersionsResponse [PolicyVersion]
+lpvrVersions = lens _lpvrVersions (\ s a -> s{_lpvrVersions = a}) . _Default;
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination

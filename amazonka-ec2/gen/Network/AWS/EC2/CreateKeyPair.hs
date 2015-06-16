@@ -90,8 +90,8 @@ instance AWSRequest CreateKeyPair where
           = receiveXML
               (\ s h x ->
                  CreateKeyPairResponse' <$>
-                   x .@? "keyFingerprint" <*> x .@? "keyName" <*>
-                     x .@? "keyMaterial")
+                   (x .@? "keyFingerprint") <*> (x .@? "keyName") <*>
+                     (x .@? "keyMaterial"))
 
 instance ToHeaders CreateKeyPair where
         toHeaders = const mempty

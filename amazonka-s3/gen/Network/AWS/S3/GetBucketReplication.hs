@@ -63,7 +63,7 @@ instance AWSRequest GetBucketReplication where
           = receiveXML
               (\ s h x ->
                  GetBucketReplicationResponse' <$>
-                   x .@? "ReplicationConfiguration")
+                   (x .@? "ReplicationConfiguration"))
 
 instance ToHeaders GetBucketReplication where
         toHeaders = const mempty

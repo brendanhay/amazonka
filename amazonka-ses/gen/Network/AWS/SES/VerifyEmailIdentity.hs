@@ -60,9 +60,7 @@ instance AWSRequest VerifyEmailIdentity where
         type Rs VerifyEmailIdentity =
              VerifyEmailIdentityResponse
         request = post
-        response
-          = receiveNullWrapper "VerifyEmailIdentityResult"
-              VerifyEmailIdentityResponse'
+        response = receiveNull VerifyEmailIdentityResponse'
 
 instance ToHeaders VerifyEmailIdentity where
         toHeaders = const mempty

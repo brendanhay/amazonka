@@ -85,8 +85,8 @@ ddlfFileLastWritten :: Lens' DescribeDBLogFiles (Maybe Integer)
 ddlfFileLastWritten = lens _ddlfFileLastWritten (\ s a -> s{_ddlfFileLastWritten = a});
 
 -- | This parameter is not currently supported.
-ddlfFilters :: Lens' DescribeDBLogFiles (Maybe [Filter])
-ddlfFilters = lens _ddlfFilters (\ s a -> s{_ddlfFilters = a});
+ddlfFilters :: Lens' DescribeDBLogFiles [Filter]
+ddlfFilters = lens _ddlfFilters (\ s a -> s{_ddlfFilters = a}) . _Default;
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified MaxRecords value, a pagination token
@@ -122,8 +122,8 @@ instance AWSRequest DescribeDBLogFiles where
               (\ s h x ->
                  DescribeDBLogFilesResponse' <$>
                    (x .@? "DescribeDBLogFiles" .!@ mempty >>=
-                      parseXMLList "DescribeDBLogFilesDetails")
-                     <*> x .@? "Marker")
+                      may (parseXMLList "DescribeDBLogFilesDetails"))
+                     <*> (x .@? "Marker"))
 
 instance ToHeaders DescribeDBLogFiles where
         toHeaders = const mempty
@@ -139,7 +139,8 @@ instance ToQuery DescribeDBLogFiles where
                "FilenameContains" =: _ddlfFilenameContains,
                "FileSize" =: _ddlfFileSize,
                "FileLastWritten" =: _ddlfFileLastWritten,
-               "Filters" =: "Filter" =: _ddlfFilters,
+               "Filters" =:
+                 toQuery (toQueryList "Filter" <$> _ddlfFilters),
                "MaxRecords" =: _ddlfMaxRecords,
                "Marker" =: _ddlfMarker,
                "DBInstanceIdentifier" =: _ddlfDBInstanceIdentifier]
@@ -158,8 +159,8 @@ describeDBLogFilesResponse :: DescribeDBLogFilesResponse
 describeDBLogFilesResponse = DescribeDBLogFilesResponse'{_ddlfrDescribeDBLogFiles = Nothing, _ddlfrMarker = Nothing};
 
 -- | The DB log files returned.
-ddlfrDescribeDBLogFiles :: Lens' DescribeDBLogFilesResponse (Maybe [DescribeDBLogFilesDetails])
-ddlfrDescribeDBLogFiles = lens _ddlfrDescribeDBLogFiles (\ s a -> s{_ddlfrDescribeDBLogFiles = a});
+ddlfrDescribeDBLogFiles :: Lens' DescribeDBLogFilesResponse [DescribeDBLogFilesDetails]
+ddlfrDescribeDBLogFiles = lens _ddlfrDescribeDBLogFiles (\ s a -> s{_ddlfrDescribeDBLogFiles = a}) . _Default;
 
 -- | A pagination token that can be used in a subsequent DescribeDBLogFiles
 -- request.

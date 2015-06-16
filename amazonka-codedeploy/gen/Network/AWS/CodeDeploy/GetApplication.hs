@@ -62,7 +62,7 @@ instance AWSRequest GetApplication where
         response
           = receiveJSON
               (\ s h x ->
-                 GetApplicationResponse' <$> x .?> "application")
+                 GetApplicationResponse' <$> (x .?> "application"))
 
 instance ToHeaders GetApplication where
         toHeaders

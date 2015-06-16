@@ -72,12 +72,12 @@ instance AWSRequest DescribeCache where
           = receiveJSON
               (\ s h x ->
                  DescribeCacheResponse' <$>
-                   x .?> "GatewayARN" <*> x .?> "DiskIds" .!@ mempty <*>
-                     x .?> "CacheUsedPercentage"
-                     <*> x .?> "CacheHitPercentage"
-                     <*> x .?> "CacheMissPercentage"
-                     <*> x .?> "CacheAllocatedInBytes"
-                     <*> x .?> "CacheDirtyPercentage")
+                   (x .?> "GatewayARN") <*> (x .?> "DiskIds" .!@ mempty)
+                     <*> (x .?> "CacheUsedPercentage")
+                     <*> (x .?> "CacheHitPercentage")
+                     <*> (x .?> "CacheMissPercentage")
+                     <*> (x .?> "CacheAllocatedInBytes")
+                     <*> (x .?> "CacheDirtyPercentage"))
 
 instance ToHeaders DescribeCache where
         toHeaders
@@ -127,8 +127,8 @@ dcrGatewayARN :: Lens' DescribeCacheResponse (Maybe Text)
 dcrGatewayARN = lens _dcrGatewayARN (\ s a -> s{_dcrGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-dcrDiskIds :: Lens' DescribeCacheResponse (Maybe [Text])
-dcrDiskIds = lens _dcrDiskIds (\ s a -> s{_dcrDiskIds = a});
+dcrDiskIds :: Lens' DescribeCacheResponse [Text]
+dcrDiskIds = lens _dcrDiskIds (\ s a -> s{_dcrDiskIds = a}) . _Default;
 
 -- | FIXME: Undocumented member.
 dcrCacheUsedPercentage :: Lens' DescribeCacheResponse (Maybe Double)

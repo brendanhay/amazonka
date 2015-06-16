@@ -69,7 +69,8 @@ instance AWSRequest DeleteTape where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x -> DeleteTapeResponse' <$> x .?> "TapeARN")
+              (\ s h x ->
+                 DeleteTapeResponse' <$> (x .?> "TapeARN"))
 
 instance ToHeaders DeleteTape where
         toHeaders

@@ -103,8 +103,7 @@ instance AWSRequest CompleteLifecycleAction where
              CompleteLifecycleActionResponse
         request = post
         response
-          = receiveNullWrapper "CompleteLifecycleActionResult"
-              CompleteLifecycleActionResponse'
+          = receiveNull CompleteLifecycleActionResponse'
 
 instance ToHeaders CompleteLifecycleAction where
         toHeaders = const mempty

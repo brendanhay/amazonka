@@ -70,10 +70,10 @@ instance AWSRequest DescribeSnapshotSchedule where
           = receiveJSON
               (\ s h x ->
                  DescribeSnapshotScheduleResponse' <$>
-                   x .?> "VolumeARN" <*> x .?> "StartAt" <*>
-                     x .?> "RecurrenceInHours"
-                     <*> x .?> "Timezone"
-                     <*> x .?> "Description")
+                   (x .?> "VolumeARN") <*> (x .?> "StartAt") <*>
+                     (x .?> "RecurrenceInHours")
+                     <*> (x .?> "Timezone")
+                     <*> (x .?> "Description"))
 
 instance ToHeaders DescribeSnapshotSchedule where
         toHeaders

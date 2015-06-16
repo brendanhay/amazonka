@@ -80,8 +80,8 @@ dtLimit = lens _dtLimit (\ s a -> s{_dtLimit = a}) . mapping _Nat;
 -- the virtual tapes you want to describe. If this parameter is not
 -- specified, AWS Storage Gateway returns a description of all virtual
 -- tapes associated with the specified gateway.
-dtTapeARNs :: Lens' DescribeTapes (Maybe [Text])
-dtTapeARNs = lens _dtTapeARNs (\ s a -> s{_dtTapeARNs = a});
+dtTapeARNs :: Lens' DescribeTapes [Text]
+dtTapeARNs = lens _dtTapeARNs (\ s a -> s{_dtTapeARNs = a}) . _Default;
 
 -- | FIXME: Undocumented member.
 dtGatewayARN :: Lens' DescribeTapes Text
@@ -95,7 +95,7 @@ instance AWSRequest DescribeTapes where
           = receiveJSON
               (\ s h x ->
                  DescribeTapesResponse' <$>
-                   x .?> "Marker" <*> x .?> "Tapes" .!@ mempty)
+                   (x .?> "Marker") <*> (x .?> "Tapes" .!@ mempty))
 
 instance ToHeaders DescribeTapes where
         toHeaders
@@ -142,5 +142,5 @@ dtrMarker :: Lens' DescribeTapesResponse (Maybe Text)
 dtrMarker = lens _dtrMarker (\ s a -> s{_dtrMarker = a});
 
 -- | An array of virtual tape descriptions.
-dtrTapes :: Lens' DescribeTapesResponse (Maybe [Tape])
-dtrTapes = lens _dtrTapes (\ s a -> s{_dtrTapes = a});
+dtrTapes :: Lens' DescribeTapesResponse [Tape]
+dtrTapes = lens _dtrTapes (\ s a -> s{_dtrTapes = a}) . _Default;

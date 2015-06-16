@@ -496,9 +496,9 @@ instance AWSRequest PutItem where
           = receiveJSON
               (\ s h x ->
                  PutItemResponse' <$>
-                   x .?> "ConsumedCapacity" <*>
-                     x .?> "ItemCollectionMetrics"
-                     <*> x .?> "Attributes" .!@ mempty)
+                   (x .?> "ConsumedCapacity") <*>
+                     (x .?> "ItemCollectionMetrics")
+                     <*> (x .?> "Attributes" .!@ mempty))
 
 instance ToHeaders PutItem where
         toHeaders

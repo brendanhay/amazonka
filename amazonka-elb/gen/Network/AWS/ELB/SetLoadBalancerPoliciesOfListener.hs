@@ -76,8 +76,7 @@ instance AWSRequest SetLoadBalancerPoliciesOfListener
              SetLoadBalancerPoliciesOfListenerResponse
         request = post
         response
-          = receiveNullWrapper
-              "SetLoadBalancerPoliciesOfListenerResult"
+          = receiveNull
               SetLoadBalancerPoliciesOfListenerResponse'
 
 instance ToHeaders SetLoadBalancerPoliciesOfListener
@@ -97,7 +96,8 @@ instance ToQuery SetLoadBalancerPoliciesOfListener
                "Version" =: ("2012-06-01" :: ByteString),
                "LoadBalancerName" =: _slbpolLoadBalancerName,
                "LoadBalancerPort" =: _slbpolLoadBalancerPort,
-               "PolicyNames" =: "member" =: _slbpolPolicyNames]
+               "PolicyNames" =:
+                 toQueryList "member" _slbpolPolicyNames]
 
 -- | /See:/ 'setLoadBalancerPoliciesOfListenerResponse' smart constructor.
 data SetLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListenerResponse' deriving (Eq, Read, Show)

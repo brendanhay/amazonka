@@ -69,8 +69,8 @@ instance AWSRequest GetSAMLProvider where
           = receiveXMLWrapper "GetSAMLProviderResult"
               (\ s h x ->
                  GetSAMLProviderResponse' <$>
-                   x .@? "CreateDate" <*> x .@? "ValidUntil" <*>
-                     x .@? "SAMLMetadataDocument")
+                   (x .@? "CreateDate") <*> (x .@? "ValidUntil") <*>
+                     (x .@? "SAMLMetadataDocument"))
 
 instance ToHeaders GetSAMLProvider where
         toHeaders = const mempty

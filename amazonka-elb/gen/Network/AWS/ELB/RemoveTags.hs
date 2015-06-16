@@ -64,9 +64,7 @@ instance AWSRequest RemoveTags where
         type Sv RemoveTags = ELB
         type Rs RemoveTags = RemoveTagsResponse
         request = post
-        response
-          = receiveNullWrapper "RemoveTagsResult"
-              RemoveTagsResponse'
+        response = receiveNull RemoveTagsResponse'
 
 instance ToHeaders RemoveTags where
         toHeaders = const mempty
@@ -80,8 +78,8 @@ instance ToQuery RemoveTags where
               ["Action" =: ("RemoveTags" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
                "LoadBalancerNames" =:
-                 "member" =: _rtLoadBalancerNames,
-               "Tags" =: "member" =: _rtTags]
+                 toQueryList "member" _rtLoadBalancerNames,
+               "Tags" =: toQueryList "member" _rtTags]
 
 -- | /See:/ 'removeTagsResponse' smart constructor.
 data RemoveTagsResponse = RemoveTagsResponse' deriving (Eq, Read, Show)

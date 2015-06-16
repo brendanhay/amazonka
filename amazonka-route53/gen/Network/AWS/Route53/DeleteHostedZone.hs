@@ -75,7 +75,7 @@ instance AWSRequest DeleteHostedZone where
         response
           = receiveXML
               (\ s h x ->
-                 DeleteHostedZoneResponse' <$> x .@ "ChangeInfo")
+                 DeleteHostedZoneResponse' <$> (x .@ "ChangeInfo"))
 
 instance ToHeaders DeleteHostedZone where
         toHeaders = const mempty

@@ -78,7 +78,7 @@ instance AWSRequest RejectVPCPeeringConnection where
           = receiveXML
               (\ s h x ->
                  RejectVPCPeeringConnectionResponse' <$>
-                   x .@? "return")
+                   (x .@? "return"))
 
 instance ToHeaders RejectVPCPeeringConnection where
         toHeaders = const mempty

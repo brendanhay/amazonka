@@ -71,8 +71,8 @@ dSubscriptionName :: Lens' DescribeEventSubscriptions (Maybe Text)
 dSubscriptionName = lens _dSubscriptionName (\ s a -> s{_dSubscriptionName = a});
 
 -- | This parameter is not currently supported.
-dFilters :: Lens' DescribeEventSubscriptions (Maybe [Filter])
-dFilters = lens _dFilters (\ s a -> s{_dFilters = a});
+dFilters :: Lens' DescribeEventSubscriptions [Filter]
+dFilters = lens _dFilters (\ s a -> s{_dFilters = a}) . _Default;
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -103,8 +103,8 @@ instance AWSRequest DescribeEventSubscriptions where
               (\ s h x ->
                  DescribeEventSubscriptionsResponse' <$>
                    (x .@? "EventSubscriptionsList" .!@ mempty >>=
-                      parseXMLList "EventSubscription")
-                     <*> x .@? "Marker")
+                      may (parseXMLList "EventSubscription"))
+                     <*> (x .@? "Marker"))
 
 instance ToHeaders DescribeEventSubscriptions where
         toHeaders = const mempty
@@ -119,7 +119,8 @@ instance ToQuery DescribeEventSubscriptions where
                  ("DescribeEventSubscriptions" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "SubscriptionName" =: _dSubscriptionName,
-               "Filters" =: "Filter" =: _dFilters,
+               "Filters" =:
+                 toQuery (toQueryList "Filter" <$> _dFilters),
                "MaxRecords" =: _dMaxRecords, "Marker" =: _dMarker]
 
 -- | /See:/ 'describeEventSubscriptionsResponse' smart constructor.
@@ -136,8 +137,8 @@ describeEventSubscriptionsResponse :: DescribeEventSubscriptionsResponse
 describeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse'{_desrEventSubscriptionsList = Nothing, _desrMarker = Nothing};
 
 -- | A list of EventSubscriptions data types.
-desrEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse (Maybe [EventSubscription])
-desrEventSubscriptionsList = lens _desrEventSubscriptionsList (\ s a -> s{_desrEventSubscriptionsList = a});
+desrEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse [EventSubscription]
+desrEventSubscriptionsList = lens _desrEventSubscriptionsList (\ s a -> s{_desrEventSubscriptionsList = a}) . _Default;
 
 -- | An optional pagination token provided by a previous
 -- DescribeOrderableDBInstanceOptions request. If this parameter is

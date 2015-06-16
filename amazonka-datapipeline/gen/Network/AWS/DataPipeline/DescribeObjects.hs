@@ -93,8 +93,8 @@ instance AWSRequest DescribeObjects where
           = receiveJSON
               (\ s h x ->
                  DescribeObjectsResponse' <$>
-                   x .?> "hasMoreResults" <*> x .?> "marker" <*>
-                     x .?> "pipelineObjects" .!@ mempty)
+                   (x .?> "hasMoreResults") <*> (x .?> "marker") <*>
+                     (x .?> "pipelineObjects" .!@ mempty))
 
 instance ToHeaders DescribeObjects where
         toHeaders

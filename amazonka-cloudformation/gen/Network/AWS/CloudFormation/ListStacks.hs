@@ -69,8 +69,8 @@ lsNextToken = lens _lsNextToken (\ s a -> s{_lsNextToken = a});
 -- to list only stacks with the specified status codes. For a complete list
 -- of stack status codes, see the @StackStatus@ parameter of the Stack data
 -- type.
-lsStackStatusFilter :: Lens' ListStacks (Maybe [StackStatus])
-lsStackStatusFilter = lens _lsStackStatusFilter (\ s a -> s{_lsStackStatusFilter = a});
+lsStackStatusFilter :: Lens' ListStacks [StackStatus]
+lsStackStatusFilter = lens _lsStackStatusFilter (\ s a -> s{_lsStackStatusFilter = a}) . _Default;
 
 instance AWSRequest ListStacks where
         type Sv ListStacks = CloudFormation
@@ -81,8 +81,8 @@ instance AWSRequest ListStacks where
               (\ s h x ->
                  ListStacksResponse' <$>
                    (x .@? "StackSummaries" .!@ mempty >>=
-                      parseXMLList "member")
-                     <*> x .@? "NextToken")
+                      may (parseXMLList "member"))
+                     <*> (x .@? "NextToken"))
 
 instance ToHeaders ListStacks where
         toHeaders = const mempty
@@ -97,7 +97,8 @@ instance ToQuery ListStacks where
                "Version" =: ("2010-05-15" :: ByteString),
                "NextToken" =: _lsNextToken,
                "StackStatusFilter" =:
-                 "member" =: _lsStackStatusFilter]
+                 toQuery
+                   (toQueryList "member" <$> _lsStackStatusFilter)]
 
 -- | /See:/ 'listStacksResponse' smart constructor.
 --
@@ -114,8 +115,8 @@ listStacksResponse = ListStacksResponse'{_lisStackSummaries = Nothing, _lisNextT
 
 -- | A list of @StackSummary@ structures containing information about the
 -- specified stacks.
-lisStackSummaries :: Lens' ListStacksResponse (Maybe [StackSummary])
-lisStackSummaries = lens _lisStackSummaries (\ s a -> s{_lisStackSummaries = a});
+lisStackSummaries :: Lens' ListStacksResponse [StackSummary]
+lisStackSummaries = lens _lisStackSummaries (\ s a -> s{_lisStackSummaries = a}) . _Default;
 
 -- | String that identifies the start of the next list of stacks, if there is
 -- one.

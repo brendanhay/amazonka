@@ -68,7 +68,7 @@ instance AWSRequest CancelJob where
         request = post
         response
           = receiveXMLWrapper "CancelJobResult"
-              (\ s h x -> CancelJobResponse' <$> x .@? "Success")
+              (\ s h x -> CancelJobResponse' <$> (x .@? "Success"))
 
 instance ToHeaders CancelJob where
         toHeaders = const mempty

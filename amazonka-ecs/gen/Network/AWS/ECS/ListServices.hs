@@ -90,7 +90,8 @@ instance AWSRequest ListServices where
           = receiveJSON
               (\ s h x ->
                  ListServicesResponse' <$>
-                   x .?> "serviceArns" .!@ mempty <*> x .?> "nextToken")
+                   (x .?> "serviceArns" .!@ mempty) <*>
+                     (x .?> "nextToken"))
 
 instance ToHeaders ListServices where
         toHeaders
@@ -130,8 +131,8 @@ listServicesResponse = ListServicesResponse'{_lsrServiceARNs = Nothing, _lsrNext
 
 -- | The list of full Amazon Resource Name (ARN) entries for each service
 -- associated with the specified cluster.
-lsrServiceARNs :: Lens' ListServicesResponse (Maybe [Text])
-lsrServiceARNs = lens _lsrServiceARNs (\ s a -> s{_lsrServiceARNs = a});
+lsrServiceARNs :: Lens' ListServicesResponse [Text]
+lsrServiceARNs = lens _lsrServiceARNs (\ s a -> s{_lsrServiceARNs = a}) . _Default;
 
 -- | The @nextToken@ value to include in a future @ListServices@ request.
 -- When the results of a @ListServices@ request exceed @maxResults@, this

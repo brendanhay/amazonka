@@ -52,7 +52,7 @@ import Network.AWS.CognitoIdentity.Types
 -- * 'uiLogins'
 --
 -- * 'uiLoginsToRemove'
-data UnlinkIdentity = UnlinkIdentity'{_uiIdentityId :: Text, _uiLogins :: HashMap Text Text, _uiLoginsToRemove :: [Text]} deriving (Eq, Read, Show)
+data UnlinkIdentity = UnlinkIdentity'{_uiIdentityId :: Text, _uiLogins :: Map Text Text, _uiLoginsToRemove :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'UnlinkIdentity' smart constructor.
 unlinkIdentity :: Text -> UnlinkIdentity
@@ -64,8 +64,8 @@ uiIdentityId = lens _uiIdentityId (\ s a -> s{_uiIdentityId = a});
 
 -- | A set of optional name-value pairs that map provider names to provider
 -- tokens.
-uiLogins :: Lens' UnlinkIdentity (HashMap Text Text)
-uiLogins = lens _uiLogins (\ s a -> s{_uiLogins = a}) . _Coerce;
+uiLogins :: Lens' UnlinkIdentity (Map Text Text)
+uiLogins = lens _uiLogins (\ s a -> s{_uiLogins = a}) . _Map;
 
 -- | Provider names to unlink from this identity.
 uiLoginsToRemove :: Lens' UnlinkIdentity [Text]

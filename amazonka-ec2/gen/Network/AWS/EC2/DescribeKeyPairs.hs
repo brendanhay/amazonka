@@ -66,14 +66,14 @@ describeKeyPairs = DescribeKeyPairs'{_dkp1Filters = Nothing, _dkp1KeyNames = Not
 --
 -- -   @key-name@ - The name of the key pair.
 --
-dkp1Filters :: Lens' DescribeKeyPairs (Maybe [Filter])
-dkp1Filters = lens _dkp1Filters (\ s a -> s{_dkp1Filters = a});
+dkp1Filters :: Lens' DescribeKeyPairs [Filter]
+dkp1Filters = lens _dkp1Filters (\ s a -> s{_dkp1Filters = a}) . _Default;
 
 -- | One or more key pair names.
 --
 -- Default: Describes all your key pairs.
-dkp1KeyNames :: Lens' DescribeKeyPairs (Maybe [Text])
-dkp1KeyNames = lens _dkp1KeyNames (\ s a -> s{_dkp1KeyNames = a});
+dkp1KeyNames :: Lens' DescribeKeyPairs [Text]
+dkp1KeyNames = lens _dkp1KeyNames (\ s a -> s{_dkp1KeyNames = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -89,7 +89,8 @@ instance AWSRequest DescribeKeyPairs where
         response
           = receiveXML
               (\ s h x ->
-                 DescribeKeyPairsResponse' <$> parseXMLList "item" x)
+                 DescribeKeyPairsResponse' <$>
+                   (may (parseXMLList "item") x))
 
 instance ToHeaders DescribeKeyPairs where
         toHeaders = const mempty
@@ -102,7 +103,8 @@ instance ToQuery DescribeKeyPairs where
           = mconcat
               ["Action" =: ("DescribeKeyPairs" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Filter" =: _dkp1Filters, "KeyName" =: _dkp1KeyNames,
+               toQuery (toQueryList "Filter" <$> _dkp1Filters),
+               toQuery (toQueryList "KeyName" <$> _dkp1KeyNames),
                "DryRun" =: _dkp1DryRun]
 
 -- | /See:/ 'describeKeyPairsResponse' smart constructor.
@@ -117,5 +119,5 @@ describeKeyPairsResponse :: DescribeKeyPairsResponse
 describeKeyPairsResponse = DescribeKeyPairsResponse'{_dkprKeyPairs = Nothing};
 
 -- | Information about one or more key pairs.
-dkprKeyPairs :: Lens' DescribeKeyPairsResponse (Maybe [KeyPairInfo])
-dkprKeyPairs = lens _dkprKeyPairs (\ s a -> s{_dkprKeyPairs = a});
+dkprKeyPairs :: Lens' DescribeKeyPairsResponse [KeyPairInfo]
+dkprKeyPairs = lens _dkprKeyPairs (\ s a -> s{_dkprKeyPairs = a}) . _Default;

@@ -186,8 +186,8 @@ ciAMIId = lens _ciAMIId (\ s a -> s{_ciAMIId = a});
 -- | An array of @BlockDeviceMapping@ objects that specify the instance\'s
 -- block devices. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html Block Device Mapping>.
-ciBlockDeviceMappings :: Lens' CreateInstance (Maybe [BlockDeviceMapping])
-ciBlockDeviceMappings = lens _ciBlockDeviceMappings (\ s a -> s{_ciBlockDeviceMappings = a});
+ciBlockDeviceMappings :: Lens' CreateInstance [BlockDeviceMapping]
+ciBlockDeviceMappings = lens _ciBlockDeviceMappings (\ s a -> s{_ciBlockDeviceMappings = a}) . _Default;
 
 -- | The instance root device type. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device>.
@@ -218,7 +218,7 @@ instance AWSRequest CreateInstance where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateInstanceResponse' <$> x .?> "InstanceId")
+                 CreateInstanceResponse' <$> (x .?> "InstanceId"))
 
 instance ToHeaders CreateInstance where
         toHeaders

@@ -65,7 +65,7 @@ instance AWSRequest GetReusableDelegationSet where
           = receiveXML
               (\ s h x ->
                  GetReusableDelegationSetResponse' <$>
-                   x .@ "DelegationSet")
+                   (x .@ "DelegationSet"))
 
 instance ToHeaders GetReusableDelegationSet where
         toHeaders = const mempty

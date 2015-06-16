@@ -125,8 +125,8 @@ eveEventTime :: Lens' Event (Maybe UTCTime)
 eveEventTime = lens _eveEventTime (\ s a -> s{_eveEventTime = a}) . mapping _Time;
 
 -- | A list of resources referenced by the event returned.
-eveResources :: Lens' Event (Maybe [Resource])
-eveResources = lens _eveResources (\ s a -> s{_eveResources = a});
+eveResources :: Lens' Event [Resource]
+eveResources = lens _eveResources (\ s a -> s{_eveResources = a}) . _Default;
 
 -- | A JSON string that contains a representation of the event returned.
 eveCloudTrailEvent :: Lens' Event (Maybe Text)
@@ -145,11 +145,11 @@ instance FromJSON Event where
           = withObject "Event"
               (\ x ->
                  Event' <$>
-                   x .:? "Username" <*> x .:? "EventTime" <*>
-                     x .:? "Resources" .!= mempty
-                     <*> x .:? "CloudTrailEvent"
-                     <*> x .:? "EventName"
-                     <*> x .:? "EventId")
+                   (x .:? "Username") <*> (x .:? "EventTime") <*>
+                     (x .:? "Resources" .!= mempty)
+                     <*> (x .:? "CloudTrailEvent")
+                     <*> (x .:? "EventName")
+                     <*> (x .:? "EventId"))
 
 -- | /See:/ 'lookupAttribute' smart constructor.
 --
@@ -238,7 +238,7 @@ instance FromJSON Resource where
           = withObject "Resource"
               (\ x ->
                  Resource' <$>
-                   x .:? "ResourceType" <*> x .:? "ResourceName")
+                   (x .:? "ResourceType") <*> (x .:? "ResourceName"))
 
 -- | /See:/ 'trail' smart constructor.
 --
@@ -301,9 +301,9 @@ instance FromJSON Trail where
           = withObject "Trail"
               (\ x ->
                  Trail' <$>
-                   x .:? "S3KeyPrefix" <*> x .:? "SnsTopicName" <*>
-                     x .:? "CloudWatchLogsLogGroupArn"
-                     <*> x .:? "Name"
-                     <*> x .:? "IncludeGlobalServiceEvents"
-                     <*> x .:? "CloudWatchLogsRoleArn"
-                     <*> x .:? "S3BucketName")
+                   (x .:? "S3KeyPrefix") <*> (x .:? "SnsTopicName") <*>
+                     (x .:? "CloudWatchLogsLogGroupArn")
+                     <*> (x .:? "Name")
+                     <*> (x .:? "IncludeGlobalServiceEvents")
+                     <*> (x .:? "CloudWatchLogsRoleArn")
+                     <*> (x .:? "S3BucketName"))

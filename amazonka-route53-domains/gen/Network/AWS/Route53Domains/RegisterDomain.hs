@@ -233,7 +233,7 @@ instance AWSRequest RegisterDomain where
         response
           = receiveJSON
               (\ s h x ->
-                 RegisterDomainResponse' <$> x .:> "OperationId")
+                 RegisterDomainResponse' <$> (x .:> "OperationId"))
 
 instance ToHeaders RegisterDomain where
         toHeaders

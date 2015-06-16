@@ -129,7 +129,8 @@ instance AWSRequest GetWorkflowExecutionHistory where
           = receiveJSON
               (\ s h x ->
                  GetWorkflowExecutionHistoryResponse' <$>
-                   x .?> "nextPageToken" <*> x .?> "events" .!@ mempty)
+                   (x .?> "nextPageToken") <*>
+                     (x .?> "events" .!@ mempty))
 
 instance ToHeaders GetWorkflowExecutionHistory where
         toHeaders

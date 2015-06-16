@@ -84,7 +84,8 @@ instance ToQuery BatchDeleteAttributes where
           = mconcat
               ["Action" =: ("BatchDeleteAttributes" :: ByteString),
                "Version" =: ("2009-04-15" :: ByteString),
-               "DomainName" =: _bdaDomainName, "Item" =: _bdaItems]
+               "DomainName" =: _bdaDomainName,
+               toQueryList "Item" _bdaItems]
 
 -- | /See:/ 'batchDeleteAttributesResponse' smart constructor.
 data BatchDeleteAttributesResponse = BatchDeleteAttributesResponse' deriving (Eq, Read, Show)

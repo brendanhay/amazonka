@@ -138,7 +138,7 @@ instance AWSRequest UpdateDomainContactPrivacy where
           = receiveJSON
               (\ s h x ->
                  UpdateDomainContactPrivacyResponse' <$>
-                   x .:> "OperationId")
+                   (x .:> "OperationId"))
 
 instance ToHeaders UpdateDomainContactPrivacy where
         toHeaders

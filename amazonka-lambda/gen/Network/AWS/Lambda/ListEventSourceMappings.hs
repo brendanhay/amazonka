@@ -106,8 +106,8 @@ instance AWSRequest ListEventSourceMappings where
           = receiveJSON
               (\ s h x ->
                  ListEventSourceMappingsResponse' <$>
-                   x .?> "EventSourceMappings" .!@ mempty <*>
-                     x .?> "NextMarker")
+                   (x .?> "EventSourceMappings" .!@ mempty) <*>
+                     (x .?> "NextMarker"))
 
 instance ToHeaders ListEventSourceMappings where
         toHeaders = const mempty
@@ -136,8 +136,8 @@ listEventSourceMappingsResponse :: ListEventSourceMappingsResponse
 listEventSourceMappingsResponse = ListEventSourceMappingsResponse'{_lesmrEventSourceMappings = Nothing, _lesmrNextMarker = Nothing};
 
 -- | An array of @EventSourceMappingConfiguration@ objects.
-lesmrEventSourceMappings :: Lens' ListEventSourceMappingsResponse (Maybe [EventSourceMappingConfiguration])
-lesmrEventSourceMappings = lens _lesmrEventSourceMappings (\ s a -> s{_lesmrEventSourceMappings = a});
+lesmrEventSourceMappings :: Lens' ListEventSourceMappingsResponse [EventSourceMappingConfiguration]
+lesmrEventSourceMappings = lens _lesmrEventSourceMappings (\ s a -> s{_lesmrEventSourceMappings = a}) . _Default;
 
 -- | A string, present if there are more event source mappings.
 lesmrNextMarker :: Lens' ListEventSourceMappingsResponse (Maybe Text)

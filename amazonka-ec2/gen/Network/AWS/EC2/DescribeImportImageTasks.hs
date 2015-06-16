@@ -65,12 +65,12 @@ describeImportImageTasks :: DescribeImportImageTasks
 describeImportImageTasks = DescribeImportImageTasks'{_diitFilters = Nothing, _diitImportTaskIds = Nothing, _diitNextToken = Nothing, _diitDryRun = Nothing, _diitMaxResults = Nothing};
 
 -- | One or more filters.
-diitFilters :: Lens' DescribeImportImageTasks (Maybe [Filter])
-diitFilters = lens _diitFilters (\ s a -> s{_diitFilters = a});
+diitFilters :: Lens' DescribeImportImageTasks [Filter]
+diitFilters = lens _diitFilters (\ s a -> s{_diitFilters = a}) . _Default;
 
 -- | A list of import image task IDs.
-diitImportTaskIds :: Lens' DescribeImportImageTasks (Maybe [Text])
-diitImportTaskIds = lens _diitImportTaskIds (\ s a -> s{_diitImportTaskIds = a});
+diitImportTaskIds :: Lens' DescribeImportImageTasks [Text]
+diitImportTaskIds = lens _diitImportTaskIds (\ s a -> s{_diitImportTaskIds = a}) . _Default;
 
 -- | A token that indicates the next page of results.
 diitNextToken :: Lens' DescribeImportImageTasks (Maybe Text)
@@ -96,7 +96,8 @@ instance AWSRequest DescribeImportImageTasks where
           = receiveXML
               (\ s h x ->
                  DescribeImportImageTasksResponse' <$>
-                   parseXMLList "item" x <*> x .@? "nextToken")
+                   (may (parseXMLList "item") x) <*>
+                     (x .@? "nextToken"))
 
 instance ToHeaders DescribeImportImageTasks where
         toHeaders = const mempty
@@ -110,8 +111,9 @@ instance ToQuery DescribeImportImageTasks where
               ["Action" =:
                  ("DescribeImportImageTasks" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Filter" =: _diitFilters,
-               "ImportTaskId" =: _diitImportTaskIds,
+               toQuery (toQueryList "Filter" <$> _diitFilters),
+               toQuery
+                 (toQueryList "ImportTaskId" <$> _diitImportTaskIds),
                "NextToken" =: _diitNextToken,
                "DryRun" =: _diitDryRun,
                "MaxResults" =: _diitMaxResults]
@@ -131,8 +133,8 @@ describeImportImageTasksResponse = DescribeImportImageTasksResponse'{_diitrImpor
 
 -- | A list of zero or more import image tasks that are currently active or
 -- were completed or canceled in the previous 7 days.
-diitrImportImageTasks :: Lens' DescribeImportImageTasksResponse (Maybe [ImportImageTask])
-diitrImportImageTasks = lens _diitrImportImageTasks (\ s a -> s{_diitrImportImageTasks = a});
+diitrImportImageTasks :: Lens' DescribeImportImageTasksResponse [ImportImageTask]
+diitrImportImageTasks = lens _diitrImportImageTasks (\ s a -> s{_diitrImportImageTasks = a}) . _Default;
 
 -- | The token to use to get the next page of results. This value is @null@
 -- when there are no more results to return.

@@ -101,7 +101,7 @@ instance AWSRequest PollForTask where
         response
           = receiveJSON
               (\ s h x ->
-                 PollForTaskResponse' <$> x .?> "taskObject")
+                 PollForTaskResponse' <$> (x .?> "taskObject"))
 
 instance ToHeaders PollForTask where
         toHeaders

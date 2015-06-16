@@ -73,7 +73,7 @@ instance AWSRequest UpdateBatchPrediction where
           = receiveJSON
               (\ s h x ->
                  UpdateBatchPredictionResponse' <$>
-                   x .?> "BatchPredictionId")
+                   (x .?> "BatchPredictionId"))
 
 instance ToHeaders UpdateBatchPrediction where
         toHeaders

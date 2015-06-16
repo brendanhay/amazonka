@@ -110,14 +110,14 @@ ueTemplateName = lens _ueTemplateName (\ s a -> s{_ueTemplateName = a});
 
 -- | A list of custom user-defined configuration options to remove from the
 -- configuration set for this environment.
-ueOptionsToRemove :: Lens' UpdateEnvironment (Maybe [OptionSpecification])
-ueOptionsToRemove = lens _ueOptionsToRemove (\ s a -> s{_ueOptionsToRemove = a});
+ueOptionsToRemove :: Lens' UpdateEnvironment [OptionSpecification]
+ueOptionsToRemove = lens _ueOptionsToRemove (\ s a -> s{_ueOptionsToRemove = a}) . _Default;
 
 -- | If specified, AWS Elastic Beanstalk updates the configuration set
 -- associated with the running environment and sets the specified
 -- configuration options to the requested value.
-ueOptionSettings :: Lens' UpdateEnvironment (Maybe [ConfigurationOptionSetting])
-ueOptionSettings = lens _ueOptionSettings (\ s a -> s{_ueOptionSettings = a});
+ueOptionSettings :: Lens' UpdateEnvironment [ConfigurationOptionSetting]
+ueOptionSettings = lens _ueOptionSettings (\ s a -> s{_ueOptionSettings = a}) . _Default;
 
 -- | If this parameter is specified, AWS Elastic Beanstalk deploys the named
 -- application version to the environment. If no such application version
@@ -182,8 +182,11 @@ instance ToQuery UpdateEnvironment where
               ["Action" =: ("UpdateEnvironment" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
                "TemplateName" =: _ueTemplateName,
-               "OptionsToRemove" =: "member" =: _ueOptionsToRemove,
-               "OptionSettings" =: "member" =: _ueOptionSettings,
+               "OptionsToRemove" =:
+                 toQuery
+                   (toQueryList "member" <$> _ueOptionsToRemove),
+               "OptionSettings" =:
+                 toQuery (toQueryList "member" <$> _ueOptionSettings),
                "VersionLabel" =: _ueVersionLabel, "Tier" =: _ueTier,
                "EnvironmentName" =: _ueEnvironmentName,
                "EnvironmentId" =: _ueEnvironmentId,

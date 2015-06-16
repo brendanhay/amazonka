@@ -181,13 +181,13 @@ instance FromJSON EventSourceMappingConfiguration
           = withObject "EventSourceMappingConfiguration"
               (\ x ->
                  EventSourceMappingConfiguration' <$>
-                   x .:? "EventSourceArn" <*> x .:? "FunctionArn" <*>
-                     x .:? "State"
-                     <*> x .:? "UUID"
-                     <*> x .:? "LastProcessingResult"
-                     <*> x .:? "BatchSize"
-                     <*> x .:? "StateTransitionReason"
-                     <*> x .:? "LastModified")
+                   (x .:? "EventSourceArn") <*> (x .:? "FunctionArn")
+                     <*> (x .:? "State")
+                     <*> (x .:? "UUID")
+                     <*> (x .:? "LastProcessingResult")
+                     <*> (x .:? "BatchSize")
+                     <*> (x .:? "StateTransitionReason")
+                     <*> (x .:? "LastModified"))
 
 data EventSourcePosition = TrimHorizon | Latest deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -283,7 +283,7 @@ instance FromJSON FunctionCodeLocation where
           = withObject "FunctionCodeLocation"
               (\ x ->
                  FunctionCodeLocation' <$>
-                   x .:? "Location" <*> x .:? "RepositoryType")
+                   (x .:? "Location") <*> (x .:? "RepositoryType"))
 
 -- | /See:/ 'functionConfiguration' smart constructor.
 --
@@ -365,15 +365,15 @@ instance FromJSON FunctionConfiguration where
           = withObject "FunctionConfiguration"
               (\ x ->
                  FunctionConfiguration' <$>
-                   x .:? "Runtime" <*> x .:? "MemorySize" <*>
-                     x .:? "FunctionArn"
-                     <*> x .:? "Role"
-                     <*> x .:? "FunctionName"
-                     <*> x .:? "CodeSize"
-                     <*> x .:? "Handler"
-                     <*> x .:? "Timeout"
-                     <*> x .:? "LastModified"
-                     <*> x .:? "Description")
+                   (x .:? "Runtime") <*> (x .:? "MemorySize") <*>
+                     (x .:? "FunctionArn")
+                     <*> (x .:? "Role")
+                     <*> (x .:? "FunctionName")
+                     <*> (x .:? "CodeSize")
+                     <*> (x .:? "Handler")
+                     <*> (x .:? "Timeout")
+                     <*> (x .:? "LastModified")
+                     <*> (x .:? "Description"))
 
 data InvocationType = Event | RequestResponse | DryRun deriving (Eq, Ord, Read, Show, Enum, Generic)
 

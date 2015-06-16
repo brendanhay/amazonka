@@ -109,8 +109,8 @@ instance AWSRequest DescribeCommunications where
           = receiveJSON
               (\ s h x ->
                  DescribeCommunicationsResponse' <$>
-                   x .?> "nextToken" <*>
-                     x .?> "communications" .!@ mempty)
+                   (x .?> "nextToken") <*>
+                     (x .?> "communications" .!@ mempty))
 
 instance ToHeaders DescribeCommunications where
         toHeaders
@@ -154,5 +154,5 @@ dcrNextToken :: Lens' DescribeCommunicationsResponse (Maybe Text)
 dcrNextToken = lens _dcrNextToken (\ s a -> s{_dcrNextToken = a});
 
 -- | The communications for the case.
-dcrCommunications :: Lens' DescribeCommunicationsResponse (Maybe [Communication])
-dcrCommunications = lens _dcrCommunications (\ s a -> s{_dcrCommunications = a});
+dcrCommunications :: Lens' DescribeCommunicationsResponse [Communication]
+dcrCommunications = lens _dcrCommunications (\ s a -> s{_dcrCommunications = a}) . _Default;

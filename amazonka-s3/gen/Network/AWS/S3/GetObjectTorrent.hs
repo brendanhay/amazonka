@@ -77,7 +77,7 @@ instance AWSRequest GetObjectTorrent where
           = receiveBody
               (\ s h x ->
                  GetObjectTorrentResponse' <$>
-                   h .#? "x-amz-request-charged" <*> pure x)
+                   (h .#? "x-amz-request-charged") <*> (pure x))
 
 instance ToHeaders GetObjectTorrent where
         toHeaders GetObjectTorrent'{..}

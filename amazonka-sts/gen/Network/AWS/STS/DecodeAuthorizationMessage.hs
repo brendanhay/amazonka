@@ -92,7 +92,7 @@ instance AWSRequest DecodeAuthorizationMessage where
               "DecodeAuthorizationMessageResult"
               (\ s h x ->
                  DecodeAuthorizationMessageResponse' <$>
-                   x .@? "DecodedMessage")
+                   (x .@? "DecodedMessage"))
 
 instance ToHeaders DecodeAuthorizationMessage where
         toHeaders = const mempty

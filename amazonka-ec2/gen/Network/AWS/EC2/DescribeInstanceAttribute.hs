@@ -98,19 +98,20 @@ instance AWSRequest DescribeInstanceAttribute where
           = receiveXML
               (\ s h x ->
                  DescribeInstanceAttributeResponse' <$>
-                   x .@? "instanceId" <*> parseXMLList "item" x <*>
-                     x .@? "sourceDestCheck"
-                     <*> x .@? "disableApiTermination"
-                     <*> x .@? "ramdisk"
-                     <*> x .@? "kernel"
-                     <*> x .@? "instanceType"
-                     <*> x .@? "rootDeviceName"
-                     <*> x .@? "ebsOptimized"
-                     <*> x .@? "userData"
-                     <*> x .@? "sriovNetSupport"
-                     <*> x .@? "instanceInitiatedShutdownBehavior"
-                     <*> parseXMLList "item" x
-                     <*> parseXMLList "item" x)
+                   (x .@? "instanceId") <*>
+                     (may (parseXMLList "item") x)
+                     <*> (x .@? "sourceDestCheck")
+                     <*> (x .@? "disableApiTermination")
+                     <*> (x .@? "ramdisk")
+                     <*> (x .@? "kernel")
+                     <*> (x .@? "instanceType")
+                     <*> (x .@? "rootDeviceName")
+                     <*> (x .@? "ebsOptimized")
+                     <*> (x .@? "userData")
+                     <*> (x .@? "sriovNetSupport")
+                     <*> (x .@? "instanceInitiatedShutdownBehavior")
+                     <*> (may (parseXMLList "item") x)
+                     <*> (may (parseXMLList "item") x))
 
 instance ToHeaders DescribeInstanceAttribute where
         toHeaders = const mempty
@@ -170,8 +171,8 @@ desInstanceId :: Lens' DescribeInstanceAttributeResponse (Maybe Text)
 desInstanceId = lens _desInstanceId (\ s a -> s{_desInstanceId = a});
 
 -- | The security groups associated with the instance.
-desGroups :: Lens' DescribeInstanceAttributeResponse (Maybe [GroupIdentifier])
-desGroups = lens _desGroups (\ s a -> s{_desGroups = a});
+desGroups :: Lens' DescribeInstanceAttributeResponse [GroupIdentifier]
+desGroups = lens _desGroups (\ s a -> s{_desGroups = a}) . _Default;
 
 -- | Indicates whether source\/destination checking is enabled. A value of
 -- @true@ means checking is enabled, and @false@ means checking is
@@ -220,9 +221,9 @@ desInstanceInitiatedShutdownBehavior :: Lens' DescribeInstanceAttributeResponse 
 desInstanceInitiatedShutdownBehavior = lens _desInstanceInitiatedShutdownBehavior (\ s a -> s{_desInstanceInitiatedShutdownBehavior = a});
 
 -- | A list of product codes.
-desProductCodes :: Lens' DescribeInstanceAttributeResponse (Maybe [ProductCode])
-desProductCodes = lens _desProductCodes (\ s a -> s{_desProductCodes = a});
+desProductCodes :: Lens' DescribeInstanceAttributeResponse [ProductCode]
+desProductCodes = lens _desProductCodes (\ s a -> s{_desProductCodes = a}) . _Default;
 
 -- | The block device mapping of the instance.
-desBlockDeviceMappings :: Lens' DescribeInstanceAttributeResponse (Maybe [InstanceBlockDeviceMapping])
-desBlockDeviceMappings = lens _desBlockDeviceMappings (\ s a -> s{_desBlockDeviceMappings = a});
+desBlockDeviceMappings :: Lens' DescribeInstanceAttributeResponse [InstanceBlockDeviceMapping]
+desBlockDeviceMappings = lens _desBlockDeviceMappings (\ s a -> s{_desBlockDeviceMappings = a}) . _Default;

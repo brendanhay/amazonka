@@ -247,14 +247,14 @@ instance FromJSON CachediSCSIVolume where
           = withObject "CachediSCSIVolume"
               (\ x ->
                  CachediSCSIVolume' <$>
-                   x .:? "VolumeStatus" <*>
-                     x .:? "VolumeiSCSIAttributes"
-                     <*> x .:? "SourceSnapshotId"
-                     <*> x .:? "VolumeARN"
-                     <*> x .:? "VolumeProgress"
-                     <*> x .:? "VolumeSizeInBytes"
-                     <*> x .:? "VolumeId"
-                     <*> x .:? "VolumeType")
+                   (x .:? "VolumeStatus") <*>
+                     (x .:? "VolumeiSCSIAttributes")
+                     <*> (x .:? "SourceSnapshotId")
+                     <*> (x .:? "VolumeARN")
+                     <*> (x .:? "VolumeProgress")
+                     <*> (x .:? "VolumeSizeInBytes")
+                     <*> (x .:? "VolumeId")
+                     <*> (x .:? "VolumeType"))
 
 -- | /See:/ 'chapInfo' smart constructor.
 --
@@ -299,10 +299,10 @@ instance FromJSON ChapInfo where
           = withObject "ChapInfo"
               (\ x ->
                  ChapInfo' <$>
-                   x .:? "TargetARN" <*>
-                     x .:? "SecretToAuthenticateInitiator"
-                     <*> x .:? "InitiatorName"
-                     <*> x .:? "SecretToAuthenticateTarget")
+                   (x .:? "TargetARN") <*>
+                     (x .:? "SecretToAuthenticateInitiator")
+                     <*> (x .:? "InitiatorName")
+                     <*> (x .:? "SecretToAuthenticateTarget"))
 
 -- | /See:/ 'deviceiSCSIAttributes' smart constructor.
 --
@@ -343,9 +343,9 @@ instance FromJSON DeviceiSCSIAttributes where
           = withObject "DeviceiSCSIAttributes"
               (\ x ->
                  DeviceiSCSIAttributes' <$>
-                   x .:? "TargetARN" <*> x .:? "ChapEnabled" <*>
-                     x .:? "NetworkInterfaceId"
-                     <*> x .:? "NetworkInterfacePort")
+                   (x .:? "TargetARN") <*> (x .:? "ChapEnabled") <*>
+                     (x .:? "NetworkInterfaceId")
+                     <*> (x .:? "NetworkInterfacePort"))
 
 -- | /See:/ 'disk' smart constructor.
 --
@@ -403,13 +403,13 @@ instance FromJSON Disk where
           = withObject "Disk"
               (\ x ->
                  Disk' <$>
-                   x .:? "DiskAllocationResource" <*>
-                     x .:? "DiskAllocationType"
-                     <*> x .:? "DiskNode"
-                     <*> x .:? "DiskPath"
-                     <*> x .:? "DiskSizeInBytes"
-                     <*> x .:? "DiskStatus"
-                     <*> x .:? "DiskId")
+                   (x .:? "DiskAllocationResource") <*>
+                     (x .:? "DiskAllocationType")
+                     <*> (x .:? "DiskNode")
+                     <*> (x .:? "DiskPath")
+                     <*> (x .:? "DiskSizeInBytes")
+                     <*> (x .:? "DiskStatus")
+                     <*> (x .:? "DiskId"))
 
 -- | /See:/ 'gatewayInfo' smart constructor.
 --
@@ -443,9 +443,9 @@ instance FromJSON GatewayInfo where
           = withObject "GatewayInfo"
               (\ x ->
                  GatewayInfo' <$>
-                   x .:? "GatewayARN" <*>
-                     x .:? "GatewayOperationalState"
-                     <*> x .:? "GatewayType")
+                   (x .:? "GatewayARN") <*>
+                     (x .:? "GatewayOperationalState")
+                     <*> (x .:? "GatewayType"))
 
 -- | /See:/ 'networkInterface' smart constructor.
 --
@@ -482,8 +482,8 @@ instance FromJSON NetworkInterface where
           = withObject "NetworkInterface"
               (\ x ->
                  NetworkInterface' <$>
-                   x .:? "Ipv6Address" <*> x .:? "MacAddress" <*>
-                     x .:? "Ipv4Address")
+                   (x .:? "Ipv6Address") <*> (x .:? "MacAddress") <*>
+                     (x .:? "Ipv4Address"))
 
 -- | /See:/ 'storediSCSIVolume' smart constructor.
 --
@@ -559,16 +559,16 @@ instance FromJSON StorediSCSIVolume where
           = withObject "StorediSCSIVolume"
               (\ x ->
                  StorediSCSIVolume' <$>
-                   x .:? "VolumeStatus" <*>
-                     x .:? "VolumeiSCSIAttributes"
-                     <*> x .:? "SourceSnapshotId"
-                     <*> x .:? "PreservedExistingData"
-                     <*> x .:? "VolumeARN"
-                     <*> x .:? "VolumeProgress"
-                     <*> x .:? "VolumeSizeInBytes"
-                     <*> x .:? "VolumeId"
-                     <*> x .:? "VolumeType"
-                     <*> x .:? "VolumeDiskId")
+                   (x .:? "VolumeStatus") <*>
+                     (x .:? "VolumeiSCSIAttributes")
+                     <*> (x .:? "SourceSnapshotId")
+                     <*> (x .:? "PreservedExistingData")
+                     <*> (x .:? "VolumeARN")
+                     <*> (x .:? "VolumeProgress")
+                     <*> (x .:? "VolumeSizeInBytes")
+                     <*> (x .:? "VolumeId")
+                     <*> (x .:? "VolumeType")
+                     <*> (x .:? "VolumeDiskId"))
 
 -- | /See:/ 'tape' smart constructor.
 --
@@ -624,11 +624,11 @@ instance FromJSON Tape where
           = withObject "Tape"
               (\ x ->
                  Tape' <$>
-                   x .:? "TapeBarcode" <*> x .:? "TapeStatus" <*>
-                     x .:? "Progress"
-                     <*> x .:? "TapeARN"
-                     <*> x .:? "TapeSizeInBytes"
-                     <*> x .:? "VTLDevice")
+                   (x .:? "TapeBarcode") <*> (x .:? "TapeStatus") <*>
+                     (x .:? "Progress")
+                     <*> (x .:? "TapeARN")
+                     <*> (x .:? "TapeSizeInBytes")
+                     <*> (x .:? "VTLDevice"))
 
 -- | /See:/ 'tapeArchive' smart constructor.
 --
@@ -686,11 +686,11 @@ instance FromJSON TapeArchive where
           = withObject "TapeArchive"
               (\ x ->
                  TapeArchive' <$>
-                   x .:? "TapeBarcode" <*> x .:? "TapeStatus" <*>
-                     x .:? "TapeARN"
-                     <*> x .:? "TapeSizeInBytes"
-                     <*> x .:? "CompletionTime"
-                     <*> x .:? "RetrievedTo")
+                   (x .:? "TapeBarcode") <*> (x .:? "TapeStatus") <*>
+                     (x .:? "TapeARN")
+                     <*> (x .:? "TapeSizeInBytes")
+                     <*> (x .:? "CompletionTime")
+                     <*> (x .:? "RetrievedTo"))
 
 -- | /See:/ 'tapeRecoveryPointInfo' smart constructor.
 --
@@ -734,9 +734,10 @@ instance FromJSON TapeRecoveryPointInfo where
           = withObject "TapeRecoveryPointInfo"
               (\ x ->
                  TapeRecoveryPointInfo' <$>
-                   x .:? "TapeStatus" <*> x .:? "TapeRecoveryPointTime"
-                     <*> x .:? "TapeARN"
-                     <*> x .:? "TapeSizeInBytes")
+                   (x .:? "TapeStatus") <*>
+                     (x .:? "TapeRecoveryPointTime")
+                     <*> (x .:? "TapeARN")
+                     <*> (x .:? "TapeSizeInBytes"))
 
 -- | /See:/ 'vTLDevice' smart constructor.
 --
@@ -783,11 +784,11 @@ instance FromJSON VTLDevice where
           = withObject "VTLDevice"
               (\ x ->
                  VTLDevice' <$>
-                   x .:? "DeviceiSCSIAttributes" <*>
-                     x .:? "VTLDeviceVendor"
-                     <*> x .:? "VTLDeviceARN"
-                     <*> x .:? "VTLDeviceType"
-                     <*> x .:? "VTLDeviceProductIdentifier")
+                   (x .:? "DeviceiSCSIAttributes") <*>
+                     (x .:? "VTLDeviceVendor")
+                     <*> (x .:? "VTLDeviceARN")
+                     <*> (x .:? "VTLDeviceType")
+                     <*> (x .:? "VTLDeviceProductIdentifier"))
 
 -- | /See:/ 'volumeInfo' smart constructor.
 --
@@ -815,7 +816,7 @@ instance FromJSON VolumeInfo where
           = withObject "VolumeInfo"
               (\ x ->
                  VolumeInfo' <$>
-                   x .:? "VolumeARN" <*> x .:? "VolumeType")
+                   (x .:? "VolumeARN") <*> (x .:? "VolumeType"))
 
 -- | /See:/ 'volumeRecoveryPointInfo' smart constructor.
 --
@@ -855,9 +856,10 @@ instance FromJSON VolumeRecoveryPointInfo where
           = withObject "VolumeRecoveryPointInfo"
               (\ x ->
                  VolumeRecoveryPointInfo' <$>
-                   x .:? "VolumeRecoveryPointTime" <*> x .:? "VolumeARN"
-                     <*> x .:? "VolumeSizeInBytes"
-                     <*> x .:? "VolumeUsageInBytes")
+                   (x .:? "VolumeRecoveryPointTime") <*>
+                     (x .:? "VolumeARN")
+                     <*> (x .:? "VolumeSizeInBytes")
+                     <*> (x .:? "VolumeUsageInBytes"))
 
 -- | /See:/ 'volumeiSCSIAttributes' smart constructor.
 --
@@ -903,7 +905,7 @@ instance FromJSON VolumeiSCSIAttributes where
           = withObject "VolumeiSCSIAttributes"
               (\ x ->
                  VolumeiSCSIAttributes' <$>
-                   x .:? "LunNumber" <*> x .:? "TargetARN" <*>
-                     x .:? "ChapEnabled"
-                     <*> x .:? "NetworkInterfaceId"
-                     <*> x .:? "NetworkInterfacePort")
+                   (x .:? "LunNumber") <*> (x .:? "TargetARN") <*>
+                     (x .:? "ChapEnabled")
+                     <*> (x .:? "NetworkInterfaceId")
+                     <*> (x .:? "NetworkInterfacePort"))

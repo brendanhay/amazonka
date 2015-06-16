@@ -54,7 +54,7 @@ instance AWSRequest GetHealthCheckCount where
           = receiveXML
               (\ s h x ->
                  GetHealthCheckCountResponse' <$>
-                   x .@ "HealthCheckCount")
+                   (x .@ "HealthCheckCount"))
 
 instance ToHeaders GetHealthCheckCount where
         toHeaders = const mempty

@@ -186,8 +186,8 @@ tdAuthCode = lens _tdAuthCode (\ s a -> s{_tdAuthCode = a}) . mapping _Sensitive
 -- Children: @GlueIps@, @Name@
 --
 -- Required: No
-tdNameservers :: Lens' TransferDomain (Maybe [Nameserver])
-tdNameservers = lens _tdNameservers (\ s a -> s{_tdNameservers = a});
+tdNameservers :: Lens' TransferDomain [Nameserver]
+tdNameservers = lens _tdNameservers (\ s a -> s{_tdNameservers = a}) . _Default;
 
 -- | The name of a domain.
 --
@@ -260,7 +260,7 @@ instance AWSRequest TransferDomain where
         response
           = receiveJSON
               (\ s h x ->
-                 TransferDomainResponse' <$> x .:> "OperationId")
+                 TransferDomainResponse' <$> (x .:> "OperationId"))
 
 instance ToHeaders TransferDomain where
         toHeaders

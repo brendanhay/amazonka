@@ -70,7 +70,7 @@ instance AWSRequest DescribeEventCategories where
               (\ s h x ->
                  DescribeEventCategoriesResponse' <$>
                    (x .@? "EventCategoriesMapList" .!@ mempty >>=
-                      parseXMLList "EventCategoriesMap"))
+                      may (parseXMLList "EventCategoriesMap")))
 
 instance ToHeaders DescribeEventCategories where
         toHeaders = const mempty
@@ -98,5 +98,5 @@ describeEventCategoriesResponse :: DescribeEventCategoriesResponse
 describeEventCategoriesResponse = DescribeEventCategoriesResponse'{_decrEventCategoriesMapList = Nothing};
 
 -- | A list of event categories descriptions.
-decrEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse (Maybe [EventCategoriesMap])
-decrEventCategoriesMapList = lens _decrEventCategoriesMapList (\ s a -> s{_decrEventCategoriesMapList = a});
+decrEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse [EventCategoriesMap]
+decrEventCategoriesMapList = lens _decrEventCategoriesMapList (\ s a -> s{_decrEventCategoriesMapList = a}) . _Default;

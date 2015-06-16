@@ -76,9 +76,9 @@ instance AWSRequest DescribeWorkingStorage where
           = receiveJSON
               (\ s h x ->
                  DescribeWorkingStorageResponse' <$>
-                   x .?> "GatewayARN" <*> x .?> "DiskIds" .!@ mempty <*>
-                     x .?> "WorkingStorageAllocatedInBytes"
-                     <*> x .?> "WorkingStorageUsedInBytes")
+                   (x .?> "GatewayARN") <*> (x .?> "DiskIds" .!@ mempty)
+                     <*> (x .?> "WorkingStorageAllocatedInBytes")
+                     <*> (x .?> "WorkingStorageUsedInBytes"))
 
 instance ToHeaders DescribeWorkingStorage where
         toHeaders
@@ -125,8 +125,8 @@ dwsrGatewayARN = lens _dwsrGatewayARN (\ s a -> s{_dwsrGatewayARN = a});
 -- storage. Each local disk ID is specified as a string (minimum length of
 -- 1 and maximum length of 300). If no local disks are configured as
 -- working storage, then the DiskIds array is empty.
-dwsrDiskIds :: Lens' DescribeWorkingStorageResponse (Maybe [Text])
-dwsrDiskIds = lens _dwsrDiskIds (\ s a -> s{_dwsrDiskIds = a});
+dwsrDiskIds :: Lens' DescribeWorkingStorageResponse [Text]
+dwsrDiskIds = lens _dwsrDiskIds (\ s a -> s{_dwsrDiskIds = a}) . _Default;
 
 -- | The total working storage in bytes allocated for the gateway. If no
 -- working storage is configured for the gateway, this field returns 0.

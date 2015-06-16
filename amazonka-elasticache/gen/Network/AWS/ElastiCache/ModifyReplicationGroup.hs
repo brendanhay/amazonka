@@ -123,8 +123,8 @@ mrgSnapshottingClusterId = lens _mrgSnapshottingClusterId (\ s a -> s{_mrgSnapsh
 --
 -- This parameter can be used only with replication group containing cache
 -- clusters running in an Amazon Virtual Private Cloud (VPC).
-mrgSecurityGroupIds :: Lens' ModifyReplicationGroup (Maybe [Text])
-mrgSecurityGroupIds = lens _mrgSecurityGroupIds (\ s a -> s{_mrgSecurityGroupIds = a});
+mrgSecurityGroupIds :: Lens' ModifyReplicationGroup [Text]
+mrgSecurityGroupIds = lens _mrgSecurityGroupIds (\ s a -> s{_mrgSecurityGroupIds = a}) . _Default;
 
 -- | This parameter is currently disabled.
 mrgAutoMinorVersionUpgrade :: Lens' ModifyReplicationGroup (Maybe Bool)
@@ -225,8 +225,8 @@ mrgNotificationTopicARN = lens _mrgNotificationTopicARN (\ s a -> s{_mrgNotifica
 --
 -- Constraints: Must contain no more than 255 alphanumeric characters. Must
 -- not be \"Default\".
-mrgCacheSecurityGroupNames :: Lens' ModifyReplicationGroup (Maybe [Text])
-mrgCacheSecurityGroupNames = lens _mrgCacheSecurityGroupNames (\ s a -> s{_mrgCacheSecurityGroupNames = a});
+mrgCacheSecurityGroupNames :: Lens' ModifyReplicationGroup [Text]
+mrgCacheSecurityGroupNames = lens _mrgCacheSecurityGroupNames (\ s a -> s{_mrgCacheSecurityGroupNames = a}) . _Default;
 
 -- | The identifier of the replication group to modify.
 mrgReplicationGroupId :: Lens' ModifyReplicationGroup Text
@@ -241,7 +241,7 @@ instance AWSRequest ModifyReplicationGroup where
           = receiveXMLWrapper "ModifyReplicationGroupResult"
               (\ s h x ->
                  ModifyReplicationGroupResponse' <$>
-                   x .@? "ReplicationGroup")
+                   (x .@? "ReplicationGroup"))
 
 instance ToHeaders ModifyReplicationGroup where
         toHeaders = const mempty
@@ -260,7 +260,9 @@ instance ToQuery ModifyReplicationGroup where
                "EngineVersion" =: _mrgEngineVersion,
                "SnapshottingClusterId" =: _mrgSnapshottingClusterId,
                "SecurityGroupIds" =:
-                 "SecurityGroupId" =: _mrgSecurityGroupIds,
+                 toQuery
+                   (toQueryList "SecurityGroupId" <$>
+                      _mrgSecurityGroupIds),
                "AutoMinorVersionUpgrade" =:
                  _mrgAutoMinorVersionUpgrade,
                "ReplicationGroupDescription" =:
@@ -278,8 +280,9 @@ instance ToQuery ModifyReplicationGroup where
                "ApplyImmediately" =: _mrgApplyImmediately,
                "NotificationTopicArn" =: _mrgNotificationTopicARN,
                "CacheSecurityGroupNames" =:
-                 "CacheSecurityGroupName" =:
-                   _mrgCacheSecurityGroupNames,
+                 toQuery
+                   (toQueryList "CacheSecurityGroupName" <$>
+                      _mrgCacheSecurityGroupNames),
                "ReplicationGroupId" =: _mrgReplicationGroupId]
 
 -- | /See:/ 'modifyReplicationGroupResponse' smart constructor.

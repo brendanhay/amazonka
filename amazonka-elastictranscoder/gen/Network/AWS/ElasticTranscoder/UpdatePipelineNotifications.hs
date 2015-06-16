@@ -95,7 +95,7 @@ instance AWSRequest UpdatePipelineNotifications where
           = receiveJSON
               (\ s h x ->
                  UpdatePipelineNotificationsResponse' <$>
-                   x .?> "Pipeline")
+                   (x .?> "Pipeline"))
 
 instance ToHeaders UpdatePipelineNotifications where
         toHeaders = const mempty

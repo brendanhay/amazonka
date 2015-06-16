@@ -87,7 +87,7 @@ instance AWSRequest
               "PurchaseReservedCacheNodesOfferingResult"
               (\ s h x ->
                  PurchaseReservedCacheNodesOfferingResponse' <$>
-                   x .@? "ReservedCacheNode")
+                   (x .@? "ReservedCacheNode"))
 
 instance ToHeaders PurchaseReservedCacheNodesOffering
          where

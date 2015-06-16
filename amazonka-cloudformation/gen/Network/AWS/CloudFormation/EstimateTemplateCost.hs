@@ -59,8 +59,8 @@ estimateTemplateCost :: EstimateTemplateCost
 estimateTemplateCost = EstimateTemplateCost'{_etcParameters = Nothing, _etcTemplateBody = Nothing, _etcTemplateURL = Nothing};
 
 -- | A list of @Parameter@ structures that specify input parameters.
-etcParameters :: Lens' EstimateTemplateCost (Maybe [Parameter])
-etcParameters = lens _etcParameters (\ s a -> s{_etcParameters = a});
+etcParameters :: Lens' EstimateTemplateCost [Parameter]
+etcParameters = lens _etcParameters (\ s a -> s{_etcParameters = a}) . _Default;
 
 -- | Structure containing the template body with a minimum length of 1 byte
 -- and a maximum length of 51,200 bytes. (For more information, go to
@@ -91,7 +91,7 @@ instance AWSRequest EstimateTemplateCost where
         response
           = receiveXMLWrapper "EstimateTemplateCostResult"
               (\ s h x ->
-                 EstimateTemplateCostResponse' <$> x .@? "Url")
+                 EstimateTemplateCostResponse' <$> (x .@? "Url"))
 
 instance ToHeaders EstimateTemplateCost where
         toHeaders = const mempty
@@ -104,7 +104,8 @@ instance ToQuery EstimateTemplateCost where
           = mconcat
               ["Action" =: ("EstimateTemplateCost" :: ByteString),
                "Version" =: ("2010-05-15" :: ByteString),
-               "Parameters" =: "member" =: _etcParameters,
+               "Parameters" =:
+                 toQuery (toQueryList "member" <$> _etcParameters),
                "TemplateBody" =: _etcTemplateBody,
                "TemplateURL" =: _etcTemplateURL]
 

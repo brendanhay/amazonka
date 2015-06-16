@@ -87,12 +87,12 @@ instance AWSRequest ListReusableDelegationSets where
           = receiveXML
               (\ s h x ->
                  ListReusableDelegationSetsResponse' <$>
-                   x .@? "NextMarker" <*>
+                   (x .@? "NextMarker") <*>
                      (x .@? "DelegationSets" .!@ mempty >>=
                         parseXMLList "DelegationSet")
-                     <*> x .@ "Marker"
-                     <*> x .@ "IsTruncated"
-                     <*> x .@ "MaxItems")
+                     <*> (x .@ "Marker")
+                     <*> (x .@ "IsTruncated")
+                     <*> (x .@ "MaxItems"))
 
 instance ToHeaders ListReusableDelegationSets where
         toHeaders = const mempty

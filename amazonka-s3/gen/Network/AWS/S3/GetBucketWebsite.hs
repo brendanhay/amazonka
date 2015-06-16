@@ -65,12 +65,12 @@ instance AWSRequest GetBucketWebsite where
           = receiveXML
               (\ s h x ->
                  GetBucketWebsiteResponse' <$>
-                   x .@? "RedirectAllRequestsTo" <*>
-                     x .@? "ErrorDocument"
+                   (x .@? "RedirectAllRequestsTo") <*>
+                     (x .@? "ErrorDocument")
                      <*>
                      (x .@? "RoutingRules" .!@ mempty >>=
-                        parseXMLList "RoutingRule")
-                     <*> x .@? "IndexDocument")
+                        may (parseXMLList "RoutingRule"))
+                     <*> (x .@? "IndexDocument"))
 
 instance ToHeaders GetBucketWebsite where
         toHeaders = const mempty
@@ -108,8 +108,8 @@ gbwrErrorDocument :: Lens' GetBucketWebsiteResponse (Maybe ErrorDocument)
 gbwrErrorDocument = lens _gbwrErrorDocument (\ s a -> s{_gbwrErrorDocument = a});
 
 -- | FIXME: Undocumented member.
-gbwrRoutingRules :: Lens' GetBucketWebsiteResponse (Maybe [RoutingRule])
-gbwrRoutingRules = lens _gbwrRoutingRules (\ s a -> s{_gbwrRoutingRules = a});
+gbwrRoutingRules :: Lens' GetBucketWebsiteResponse [RoutingRule]
+gbwrRoutingRules = lens _gbwrRoutingRules (\ s a -> s{_gbwrRoutingRules = a}) . _Default;
 
 -- | FIXME: Undocumented member.
 gbwrIndexDocument :: Lens' GetBucketWebsiteResponse (Maybe IndexDocument)

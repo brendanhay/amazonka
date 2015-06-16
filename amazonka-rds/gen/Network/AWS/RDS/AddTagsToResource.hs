@@ -85,7 +85,7 @@ instance ToQuery AddTagsToResource where
               ["Action" =: ("AddTagsToResource" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "ResourceName" =: _attrResourceName,
-               "Tags" =: "Tag" =: _attrTags]
+               "Tags" =: toQueryList "Tag" _attrTags]
 
 -- | /See:/ 'addTagsToResourceResponse' smart constructor.
 data AddTagsToResourceResponse = AddTagsToResourceResponse' deriving (Eq, Read, Show)

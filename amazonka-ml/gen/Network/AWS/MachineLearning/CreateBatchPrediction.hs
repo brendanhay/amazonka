@@ -115,7 +115,7 @@ instance AWSRequest CreateBatchPrediction where
           = receiveJSON
               (\ s h x ->
                  CreateBatchPredictionResponse' <$>
-                   x .?> "BatchPredictionId")
+                   (x .?> "BatchPredictionId"))
 
 instance ToHeaders CreateBatchPrediction where
         toHeaders

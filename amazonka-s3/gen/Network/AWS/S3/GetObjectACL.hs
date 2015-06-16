@@ -85,10 +85,10 @@ instance AWSRequest GetObjectACL where
           = receiveXML
               (\ s h x ->
                  GetObjectACLResponse' <$>
-                   h .#? "x-amz-request-charged" <*>
+                   (h .#? "x-amz-request-charged") <*>
                      (x .@? "AccessControlList" .!@ mempty >>=
-                        parseXMLList "Grant")
-                     <*> x .@? "Owner")
+                        may (parseXMLList "Grant"))
+                     <*> (x .@? "Owner"))
 
 instance ToHeaders GetObjectACL where
         toHeaders GetObjectACL'{..}
@@ -123,8 +123,8 @@ goarRequestCharged :: Lens' GetObjectACLResponse (Maybe RequestCharged)
 goarRequestCharged = lens _goarRequestCharged (\ s a -> s{_goarRequestCharged = a});
 
 -- | A list of grants.
-goarGrants :: Lens' GetObjectACLResponse (Maybe [Grant])
-goarGrants = lens _goarGrants (\ s a -> s{_goarGrants = a});
+goarGrants :: Lens' GetObjectACLResponse [Grant]
+goarGrants = lens _goarGrants (\ s a -> s{_goarGrants = a}) . _Default;
 
 -- | FIXME: Undocumented member.
 goarOwner :: Lens' GetObjectACLResponse (Maybe Owner)

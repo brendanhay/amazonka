@@ -82,8 +82,8 @@ createDBParameterGroup :: Text -> Text -> Text -> CreateDBParameterGroup
 createDBParameterGroup pDBParameterGroupName pDBParameterGroupFamily pDescription = CreateDBParameterGroup'{_cTags = Nothing, _cDBParameterGroupName = pDBParameterGroupName, _cDBParameterGroupFamily = pDBParameterGroupFamily, _cDescription = pDescription};
 
 -- | FIXME: Undocumented member.
-cTags :: Lens' CreateDBParameterGroup (Maybe [Tag])
-cTags = lens _cTags (\ s a -> s{_cTags = a});
+cTags :: Lens' CreateDBParameterGroup [Tag]
+cTags = lens _cTags (\ s a -> s{_cTags = a}) . _Default;
 
 -- | The name of the DB parameter group.
 --
@@ -117,7 +117,7 @@ instance AWSRequest CreateDBParameterGroup where
           = receiveXMLWrapper "CreateDBParameterGroupResult"
               (\ s h x ->
                  CreateDBParameterGroupResponse' <$>
-                   x .@? "DBParameterGroup")
+                   (x .@? "DBParameterGroup"))
 
 instance ToHeaders CreateDBParameterGroup where
         toHeaders = const mempty
@@ -131,7 +131,7 @@ instance ToQuery CreateDBParameterGroup where
               ["Action" =:
                  ("CreateDBParameterGroup" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "Tags" =: "Tag" =: _cTags,
+               "Tags" =: toQuery (toQueryList "Tag" <$> _cTags),
                "DBParameterGroupName" =: _cDBParameterGroupName,
                "DBParameterGroupFamily" =: _cDBParameterGroupFamily,
                "Description" =: _cDescription]

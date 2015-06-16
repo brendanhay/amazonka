@@ -86,8 +86,8 @@ describeSpotPriceHistory :: DescribeSpotPriceHistory
 describeSpotPriceHistory = DescribeSpotPriceHistory'{_dsphInstanceTypes = Nothing, _dsphStartTime = Nothing, _dsphFilters = Nothing, _dsphNextToken = Nothing, _dsphAvailabilityZone = Nothing, _dsphEndTime = Nothing, _dsphProductDescriptions = Nothing, _dsphDryRun = Nothing, _dsphMaxResults = Nothing};
 
 -- | Filters the results by the specified instance types.
-dsphInstanceTypes :: Lens' DescribeSpotPriceHistory (Maybe [InstanceType])
-dsphInstanceTypes = lens _dsphInstanceTypes (\ s a -> s{_dsphInstanceTypes = a});
+dsphInstanceTypes :: Lens' DescribeSpotPriceHistory [InstanceType]
+dsphInstanceTypes = lens _dsphInstanceTypes (\ s a -> s{_dsphInstanceTypes = a}) . _Default;
 
 -- | The date and time, up to the past 90 days, from which to start
 -- retrieving the price history data, in UTC format (for example,
@@ -115,8 +115,8 @@ dsphStartTime = lens _dsphStartTime (\ s a -> s{_dsphStartTime = a}) . mapping _
 --     wildcards (* and ?). Greater than or less than comparison is not
 --     supported.
 --
-dsphFilters :: Lens' DescribeSpotPriceHistory (Maybe [Filter])
-dsphFilters = lens _dsphFilters (\ s a -> s{_dsphFilters = a});
+dsphFilters :: Lens' DescribeSpotPriceHistory [Filter]
+dsphFilters = lens _dsphFilters (\ s a -> s{_dsphFilters = a}) . _Default;
 
 -- | The token for the next set of results.
 dsphNextToken :: Lens' DescribeSpotPriceHistory (Maybe Text)
@@ -133,8 +133,8 @@ dsphEndTime :: Lens' DescribeSpotPriceHistory (Maybe UTCTime)
 dsphEndTime = lens _dsphEndTime (\ s a -> s{_dsphEndTime = a}) . mapping _Time;
 
 -- | Filters the results by the specified basic product descriptions.
-dsphProductDescriptions :: Lens' DescribeSpotPriceHistory (Maybe [Text])
-dsphProductDescriptions = lens _dsphProductDescriptions (\ s a -> s{_dsphProductDescriptions = a});
+dsphProductDescriptions :: Lens' DescribeSpotPriceHistory [Text]
+dsphProductDescriptions = lens _dsphProductDescriptions (\ s a -> s{_dsphProductDescriptions = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -159,7 +159,8 @@ instance AWSRequest DescribeSpotPriceHistory where
           = receiveXML
               (\ s h x ->
                  DescribeSpotPriceHistoryResponse' <$>
-                   x .@? "nextToken" <*> parseXMLList "item" x)
+                   (x .@? "nextToken") <*>
+                     (may (parseXMLList "item") x))
 
 instance ToHeaders DescribeSpotPriceHistory where
         toHeaders = const mempty
@@ -173,13 +174,16 @@ instance ToQuery DescribeSpotPriceHistory where
               ["Action" =:
                  ("DescribeSpotPriceHistory" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "InstanceType" =: _dsphInstanceTypes,
+               toQuery
+                 (toQueryList "InstanceType" <$> _dsphInstanceTypes),
                "StartTime" =: _dsphStartTime,
-               "Filter" =: _dsphFilters,
+               toQuery (toQueryList "Filter" <$> _dsphFilters),
                "NextToken" =: _dsphNextToken,
                "AvailabilityZone" =: _dsphAvailabilityZone,
                "EndTime" =: _dsphEndTime,
-               "ProductDescription" =: _dsphProductDescriptions,
+               toQuery
+                 (toQueryList "ProductDescription" <$>
+                    _dsphProductDescriptions),
                "DryRun" =: _dsphDryRun,
                "MaxResults" =: _dsphMaxResults]
 
@@ -202,5 +206,5 @@ dsphrNextToken :: Lens' DescribeSpotPriceHistoryResponse (Maybe Text)
 dsphrNextToken = lens _dsphrNextToken (\ s a -> s{_dsphrNextToken = a});
 
 -- | The historical Spot Prices.
-dsphrSpotPriceHistory :: Lens' DescribeSpotPriceHistoryResponse (Maybe [SpotPrice])
-dsphrSpotPriceHistory = lens _dsphrSpotPriceHistory (\ s a -> s{_dsphrSpotPriceHistory = a});
+dsphrSpotPriceHistory :: Lens' DescribeSpotPriceHistoryResponse [SpotPrice]
+dsphrSpotPriceHistory = lens _dsphrSpotPriceHistory (\ s a -> s{_dsphrSpotPriceHistory = a}) . _Default;

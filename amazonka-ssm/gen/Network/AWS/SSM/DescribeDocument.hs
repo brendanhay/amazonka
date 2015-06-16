@@ -61,7 +61,7 @@ instance AWSRequest DescribeDocument where
         response
           = receiveJSON
               (\ s h x ->
-                 DescribeDocumentResponse' <$> x .?> "Document")
+                 DescribeDocumentResponse' <$> (x .?> "Document"))
 
 instance ToHeaders DescribeDocument where
         toHeaders

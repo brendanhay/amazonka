@@ -103,7 +103,7 @@ instance AWSRequest RegisterInstancesWithLoadBalancer
               (\ s h x ->
                  RegisterInstancesWithLoadBalancerResponse' <$>
                    (x .@? "Instances" .!@ mempty >>=
-                      parseXMLList "member"))
+                      may (parseXMLList "member")))
 
 instance ToHeaders RegisterInstancesWithLoadBalancer
          where
@@ -121,7 +121,7 @@ instance ToQuery RegisterInstancesWithLoadBalancer
                  ("RegisterInstancesWithLoadBalancer" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
                "LoadBalancerName" =: _riwlbLoadBalancerName,
-               "Instances" =: "member" =: _riwlbInstances]
+               "Instances" =: toQueryList "member" _riwlbInstances]
 
 -- | /See:/ 'registerInstancesWithLoadBalancerResponse' smart constructor.
 --
@@ -135,5 +135,5 @@ registerInstancesWithLoadBalancerResponse :: RegisterInstancesWithLoadBalancerRe
 registerInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse'{_riwlbrInstances = Nothing};
 
 -- | The updated list of instances for the load balancer.
-riwlbrInstances :: Lens' RegisterInstancesWithLoadBalancerResponse (Maybe [Instance])
-riwlbrInstances = lens _riwlbrInstances (\ s a -> s{_riwlbrInstances = a});
+riwlbrInstances :: Lens' RegisterInstancesWithLoadBalancerResponse [Instance]
+riwlbrInstances = lens _riwlbrInstances (\ s a -> s{_riwlbrInstances = a}) . _Default;

@@ -56,7 +56,7 @@ import Network.AWS.MachineLearning.Types
 -- * 'preRecord'
 --
 -- * 'prePredictEndpoint'
-data Predict = Predict'{_preMLModelId :: Text, _preRecord :: HashMap Text Text, _prePredictEndpoint :: Text} deriving (Eq, Read, Show)
+data Predict = Predict'{_preMLModelId :: Text, _preRecord :: Map Text Text, _prePredictEndpoint :: Text} deriving (Eq, Read, Show)
 
 -- | 'Predict' smart constructor.
 predict :: Text -> Text -> Predict
@@ -67,8 +67,8 @@ preMLModelId :: Lens' Predict Text
 preMLModelId = lens _preMLModelId (\ s a -> s{_preMLModelId = a});
 
 -- | FIXME: Undocumented member.
-preRecord :: Lens' Predict (HashMap Text Text)
-preRecord = lens _preRecord (\ s a -> s{_preRecord = a}) . _Coerce;
+preRecord :: Lens' Predict (Map Text Text)
+preRecord = lens _preRecord (\ s a -> s{_preRecord = a}) . _Map;
 
 -- | FIXME: Undocumented member.
 prePredictEndpoint :: Lens' Predict Text
@@ -80,7 +80,8 @@ instance AWSRequest Predict where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x -> PredictResponse' <$> x .?> "Prediction")
+              (\ s h x ->
+                 PredictResponse' <$> (x .?> "Prediction"))
 
 instance ToHeaders Predict where
         toHeaders

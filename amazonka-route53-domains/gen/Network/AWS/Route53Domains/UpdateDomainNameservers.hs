@@ -101,7 +101,7 @@ instance AWSRequest UpdateDomainNameservers where
           = receiveJSON
               (\ s h x ->
                  UpdateDomainNameserversResponse' <$>
-                   x .:> "OperationId")
+                   (x .:> "OperationId"))
 
 instance ToHeaders UpdateDomainNameservers where
         toHeaders

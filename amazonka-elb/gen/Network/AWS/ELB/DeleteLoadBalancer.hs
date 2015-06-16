@@ -66,9 +66,7 @@ instance AWSRequest DeleteLoadBalancer where
         type Rs DeleteLoadBalancer =
              DeleteLoadBalancerResponse
         request = post
-        response
-          = receiveNullWrapper "DeleteLoadBalancerResult"
-              DeleteLoadBalancerResponse'
+        response = receiveNull DeleteLoadBalancerResponse'
 
 instance ToHeaders DeleteLoadBalancer where
         toHeaders = const mempty

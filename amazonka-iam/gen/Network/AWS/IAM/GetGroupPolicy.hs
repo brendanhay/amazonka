@@ -81,8 +81,8 @@ instance AWSRequest GetGroupPolicy where
           = receiveXMLWrapper "GetGroupPolicyResult"
               (\ s h x ->
                  GetGroupPolicyResponse' <$>
-                   x .@ "GroupName" <*> x .@ "PolicyName" <*>
-                     x .@ "PolicyDocument")
+                   (x .@ "GroupName") <*> (x .@ "PolicyName") <*>
+                     (x .@ "PolicyDocument"))
 
 instance ToHeaders GetGroupPolicy where
         toHeaders = const mempty

@@ -80,14 +80,14 @@ describeInternetGateways = DescribeInternetGateways'{_desFilters = Nothing, _des
 -- -   @tag-value@ - The value of a tag assigned to the resource. This
 --     filter is independent of the @tag-key@ filter.
 --
-desFilters :: Lens' DescribeInternetGateways (Maybe [Filter])
-desFilters = lens _desFilters (\ s a -> s{_desFilters = a});
+desFilters :: Lens' DescribeInternetGateways [Filter]
+desFilters = lens _desFilters (\ s a -> s{_desFilters = a}) . _Default;
 
 -- | One or more Internet gateway IDs.
 --
 -- Default: Describes all your Internet gateways.
-desInternetGatewayIds :: Lens' DescribeInternetGateways (Maybe [Text])
-desInternetGatewayIds = lens _desInternetGatewayIds (\ s a -> s{_desInternetGatewayIds = a});
+desInternetGatewayIds :: Lens' DescribeInternetGateways [Text]
+desInternetGatewayIds = lens _desInternetGatewayIds (\ s a -> s{_desInternetGatewayIds = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -105,7 +105,7 @@ instance AWSRequest DescribeInternetGateways where
           = receiveXML
               (\ s h x ->
                  DescribeInternetGatewaysResponse' <$>
-                   parseXMLList "item" x)
+                   (may (parseXMLList "item") x))
 
 instance ToHeaders DescribeInternetGateways where
         toHeaders = const mempty
@@ -119,8 +119,9 @@ instance ToQuery DescribeInternetGateways where
               ["Action" =:
                  ("DescribeInternetGateways" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Filter" =: _desFilters,
-               "item" =: _desInternetGatewayIds,
+               toQuery (toQueryList "Filter" <$> _desFilters),
+               toQuery
+                 (toQueryList "item" <$> _desInternetGatewayIds),
                "DryRun" =: _desDryRun]
 
 -- | /See:/ 'describeInternetGatewaysResponse' smart constructor.
@@ -135,5 +136,5 @@ describeInternetGatewaysResponse :: DescribeInternetGatewaysResponse
 describeInternetGatewaysResponse = DescribeInternetGatewaysResponse'{_digrInternetGateways = Nothing};
 
 -- | Information about one or more Internet gateways.
-digrInternetGateways :: Lens' DescribeInternetGatewaysResponse (Maybe [InternetGateway])
-digrInternetGateways = lens _digrInternetGateways (\ s a -> s{_digrInternetGateways = a});
+digrInternetGateways :: Lens' DescribeInternetGatewaysResponse [InternetGateway]
+digrInternetGateways = lens _digrInternetGateways (\ s a -> s{_digrInternetGateways = a}) . _Default;

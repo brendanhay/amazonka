@@ -58,8 +58,8 @@ exitStandby :: Text -> ExitStandby
 exitStandby pAutoScalingGroupName = ExitStandby'{_exiInstanceIds = Nothing, _exiAutoScalingGroupName = pAutoScalingGroupName};
 
 -- | One or more instance IDs. You must specify at least one instance ID.
-exiInstanceIds :: Lens' ExitStandby (Maybe [Text])
-exiInstanceIds = lens _exiInstanceIds (\ s a -> s{_exiInstanceIds = a});
+exiInstanceIds :: Lens' ExitStandby [Text]
+exiInstanceIds = lens _exiInstanceIds (\ s a -> s{_exiInstanceIds = a}) . _Default;
 
 -- | The name of the Auto Scaling group.
 exiAutoScalingGroupName :: Lens' ExitStandby Text
@@ -74,7 +74,7 @@ instance AWSRequest ExitStandby where
               (\ s h x ->
                  ExitStandbyResponse' <$>
                    (x .@? "Activities" .!@ mempty >>=
-                      parseXMLList "member"))
+                      may (parseXMLList "member")))
 
 instance ToHeaders ExitStandby where
         toHeaders = const mempty
@@ -87,7 +87,8 @@ instance ToQuery ExitStandby where
           = mconcat
               ["Action" =: ("ExitStandby" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
-               "InstanceIds" =: "member" =: _exiInstanceIds,
+               "InstanceIds" =:
+                 toQuery (toQueryList "member" <$> _exiInstanceIds),
                "AutoScalingGroupName" =: _exiAutoScalingGroupName]
 
 -- | /See:/ 'exitStandbyResponse' smart constructor.
@@ -102,5 +103,5 @@ exitStandbyResponse :: ExitStandbyResponse
 exitStandbyResponse = ExitStandbyResponse'{_exiActivities = Nothing};
 
 -- | The activities related to moving instances out of @Standby@ mode.
-exiActivities :: Lens' ExitStandbyResponse (Maybe [Activity])
-exiActivities = lens _exiActivities (\ s a -> s{_exiActivities = a});
+exiActivities :: Lens' ExitStandbyResponse [Activity]
+exiActivities = lens _exiActivities (\ s a -> s{_exiActivities = a}) . _Default;

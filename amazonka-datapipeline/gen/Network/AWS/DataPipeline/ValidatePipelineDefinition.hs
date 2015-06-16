@@ -63,12 +63,12 @@ validatePipelineDefinition :: Text -> ValidatePipelineDefinition
 validatePipelineDefinition pPipelineId = ValidatePipelineDefinition'{_vpdParameterObjects = Nothing, _vpdParameterValues = Nothing, _vpdPipelineId = pPipelineId, _vpdPipelineObjects = mempty};
 
 -- | The parameter objects used with the pipeline.
-vpdParameterObjects :: Lens' ValidatePipelineDefinition (Maybe [ParameterObject])
-vpdParameterObjects = lens _vpdParameterObjects (\ s a -> s{_vpdParameterObjects = a});
+vpdParameterObjects :: Lens' ValidatePipelineDefinition [ParameterObject]
+vpdParameterObjects = lens _vpdParameterObjects (\ s a -> s{_vpdParameterObjects = a}) . _Default;
 
 -- | The parameter values used with the pipeline.
-vpdParameterValues :: Lens' ValidatePipelineDefinition (Maybe [ParameterValue])
-vpdParameterValues = lens _vpdParameterValues (\ s a -> s{_vpdParameterValues = a});
+vpdParameterValues :: Lens' ValidatePipelineDefinition [ParameterValue]
+vpdParameterValues = lens _vpdParameterValues (\ s a -> s{_vpdParameterValues = a}) . _Default;
 
 -- | The ID of the pipeline.
 vpdPipelineId :: Lens' ValidatePipelineDefinition Text
@@ -88,9 +88,9 @@ instance AWSRequest ValidatePipelineDefinition where
           = receiveJSON
               (\ s h x ->
                  ValidatePipelineDefinitionResponse' <$>
-                   x .?> "validationErrors" .!@ mempty <*>
-                     x .?> "validationWarnings" .!@ mempty
-                     <*> x .:> "errored")
+                   (x .?> "validationErrors" .!@ mempty) <*>
+                     (x .?> "validationWarnings" .!@ mempty)
+                     <*> (x .:> "errored"))
 
 instance ToHeaders ValidatePipelineDefinition where
         toHeaders
@@ -132,12 +132,12 @@ validatePipelineDefinitionResponse :: Bool -> ValidatePipelineDefinitionResponse
 validatePipelineDefinitionResponse pErrored = ValidatePipelineDefinitionResponse'{_vpdrValidationErrors = Nothing, _vpdrValidationWarnings = Nothing, _vpdrErrored = pErrored};
 
 -- | Any validation errors that were found.
-vpdrValidationErrors :: Lens' ValidatePipelineDefinitionResponse (Maybe [ValidationError])
-vpdrValidationErrors = lens _vpdrValidationErrors (\ s a -> s{_vpdrValidationErrors = a});
+vpdrValidationErrors :: Lens' ValidatePipelineDefinitionResponse [ValidationError]
+vpdrValidationErrors = lens _vpdrValidationErrors (\ s a -> s{_vpdrValidationErrors = a}) . _Default;
 
 -- | Any validation warnings that were found.
-vpdrValidationWarnings :: Lens' ValidatePipelineDefinitionResponse (Maybe [ValidationWarning])
-vpdrValidationWarnings = lens _vpdrValidationWarnings (\ s a -> s{_vpdrValidationWarnings = a});
+vpdrValidationWarnings :: Lens' ValidatePipelineDefinitionResponse [ValidationWarning]
+vpdrValidationWarnings = lens _vpdrValidationWarnings (\ s a -> s{_vpdrValidationWarnings = a}) . _Default;
 
 -- | Indicates whether there were validation errors.
 vpdrErrored :: Lens' ValidatePipelineDefinitionResponse Bool

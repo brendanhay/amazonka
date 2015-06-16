@@ -552,7 +552,7 @@ instance AWSService OpsWorks where
 -- * 'appStackId'
 --
 -- * 'appDescription'
-data App = App'{_appSSLConfiguration :: Maybe SSLConfiguration, _appShortname :: Maybe Text, _appEnableSSL :: Maybe Bool, _appCreatedAt :: Maybe Text, _appEnvironment :: Maybe [EnvironmentVariable], _appDataSources :: Maybe [DataSource], _appAppId :: Maybe Text, _appAppSource :: Maybe Source, _appName :: Maybe Text, _appAttributes :: Maybe (HashMap AppAttributesKeys Text), _appType :: Maybe AppType, _appDomains :: Maybe [Text], _appStackId :: Maybe Text, _appDescription :: Maybe Text} deriving (Eq, Read, Show)
+data App = App'{_appSSLConfiguration :: Maybe SSLConfiguration, _appShortname :: Maybe Text, _appEnableSSL :: Maybe Bool, _appCreatedAt :: Maybe Text, _appEnvironment :: Maybe [EnvironmentVariable], _appDataSources :: Maybe [DataSource], _appAppId :: Maybe Text, _appAppSource :: Maybe Source, _appName :: Maybe Text, _appAttributes :: Maybe (Map AppAttributesKeys Text), _appType :: Maybe AppType, _appDomains :: Maybe [Text], _appStackId :: Maybe Text, _appDescription :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'App' smart constructor.
 app :: App
@@ -586,12 +586,12 @@ appCreatedAt = lens _appCreatedAt (\ s a -> s{_appCreatedAt = a});
 -- KB (10240 Bytes). This limit should accommodate most if not all use
 -- cases, but if you do exceed it, you will cause an exception (API) with
 -- an \"Environment: is too large (maximum is 10KB)\" message.
-appEnvironment :: Lens' App (Maybe [EnvironmentVariable])
-appEnvironment = lens _appEnvironment (\ s a -> s{_appEnvironment = a});
+appEnvironment :: Lens' App [EnvironmentVariable]
+appEnvironment = lens _appEnvironment (\ s a -> s{_appEnvironment = a}) . _Default;
 
 -- | The app\'s data sources.
-appDataSources :: Lens' App (Maybe [DataSource])
-appDataSources = lens _appDataSources (\ s a -> s{_appDataSources = a});
+appDataSources :: Lens' App [DataSource]
+appDataSources = lens _appDataSources (\ s a -> s{_appDataSources = a}) . _Default;
 
 -- | The app ID.
 appAppId :: Lens' App (Maybe Text)
@@ -606,8 +606,8 @@ appName :: Lens' App (Maybe Text)
 appName = lens _appName (\ s a -> s{_appName = a});
 
 -- | The stack attributes.
-appAttributes :: Lens' App (Maybe (HashMap AppAttributesKeys Text))
-appAttributes = lens _appAttributes (\ s a -> s{_appAttributes = a}) . mapping _Coerce;
+appAttributes :: Lens' App (Map AppAttributesKeys Text)
+appAttributes = lens _appAttributes (\ s a -> s{_appAttributes = a}) . _Default . _Map;
 
 -- | The app type.
 appType :: Lens' App (Maybe AppType)
@@ -615,8 +615,8 @@ appType = lens _appType (\ s a -> s{_appType = a});
 
 -- | The app vhost settings with multiple domains separated by commas. For
 -- example: @\'www.example.com, example.com\'@
-appDomains :: Lens' App (Maybe [Text])
-appDomains = lens _appDomains (\ s a -> s{_appDomains = a});
+appDomains :: Lens' App [Text]
+appDomains = lens _appDomains (\ s a -> s{_appDomains = a}) . _Default;
 
 -- | The app stack ID.
 appStackId :: Lens' App (Maybe Text)
@@ -631,19 +631,19 @@ instance FromJSON App where
           = withObject "App"
               (\ x ->
                  App' <$>
-                   x .:? "SslConfiguration" <*> x .:? "Shortname" <*>
-                     x .:? "EnableSsl"
-                     <*> x .:? "CreatedAt"
-                     <*> x .:? "Environment" .!= mempty
-                     <*> x .:? "DataSources" .!= mempty
-                     <*> x .:? "AppId"
-                     <*> x .:? "AppSource"
-                     <*> x .:? "Name"
-                     <*> x .:? "Attributes" .!= mempty
-                     <*> x .:? "Type"
-                     <*> x .:? "Domains" .!= mempty
-                     <*> x .:? "StackId"
-                     <*> x .:? "Description")
+                   (x .:? "SslConfiguration") <*> (x .:? "Shortname")
+                     <*> (x .:? "EnableSsl")
+                     <*> (x .:? "CreatedAt")
+                     <*> (x .:? "Environment" .!= mempty)
+                     <*> (x .:? "DataSources" .!= mempty)
+                     <*> (x .:? "AppId")
+                     <*> (x .:? "AppSource")
+                     <*> (x .:? "Name")
+                     <*> (x .:? "Attributes" .!= mempty)
+                     <*> (x .:? "Type")
+                     <*> (x .:? "Domains" .!= mempty)
+                     <*> (x .:? "StackId")
+                     <*> (x .:? "Description"))
 
 data AppAttributesKeys = DocumentRoot | RailsEnv | AutoBundleOnDeploy deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -782,8 +782,8 @@ astThresholdsWaitTime = lens _astThresholdsWaitTime (\ s a -> s{_astThresholdsWa
 -- role for you when you first use this feature or you can edit the role
 -- manually. For more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-servicerole.html Allowing AWS OpsWorks to Act on Your Behalf>.
-astAlarms :: Lens' AutoScalingThresholds (Maybe [Text])
-astAlarms = lens _astAlarms (\ s a -> s{_astAlarms = a});
+astAlarms :: Lens' AutoScalingThresholds [Text]
+astAlarms = lens _astAlarms (\ s a -> s{_astAlarms = a}) . _Default;
 
 -- | The memory utilization threshold, as a percent of the available memory.
 astMemoryThreshold :: Lens' AutoScalingThresholds (Maybe Double)
@@ -798,12 +798,13 @@ instance FromJSON AutoScalingThresholds where
           = withObject "AutoScalingThresholds"
               (\ x ->
                  AutoScalingThresholds' <$>
-                   x .:? "InstanceCount" <*> x .:? "IgnoreMetricsTime"
-                     <*> x .:? "LoadThreshold"
-                     <*> x .:? "ThresholdsWaitTime"
-                     <*> x .:? "Alarms" .!= mempty
-                     <*> x .:? "MemoryThreshold"
-                     <*> x .:? "CpuThreshold")
+                   (x .:? "InstanceCount") <*>
+                     (x .:? "IgnoreMetricsTime")
+                     <*> (x .:? "LoadThreshold")
+                     <*> (x .:? "ThresholdsWaitTime")
+                     <*> (x .:? "Alarms" .!= mempty)
+                     <*> (x .:? "MemoryThreshold")
+                     <*> (x .:? "CpuThreshold"))
 
 instance ToJSON AutoScalingThresholds where
         toJSON AutoScalingThresholds'{..}
@@ -883,9 +884,9 @@ instance FromJSON BlockDeviceMapping where
           = withObject "BlockDeviceMapping"
               (\ x ->
                  BlockDeviceMapping' <$>
-                   x .:? "VirtualName" <*> x .:? "NoDevice" <*>
-                     x .:? "Ebs"
-                     <*> x .:? "DeviceName")
+                   (x .:? "VirtualName") <*> (x .:? "NoDevice") <*>
+                     (x .:? "Ebs")
+                     <*> (x .:? "DeviceName"))
 
 instance ToJSON BlockDeviceMapping where
         toJSON BlockDeviceMapping'{..}
@@ -920,7 +921,8 @@ instance FromJSON ChefConfiguration where
           = withObject "ChefConfiguration"
               (\ x ->
                  ChefConfiguration' <$>
-                   x .:? "BerkshelfVersion" <*> x .:? "ManageBerkshelf")
+                   (x .:? "BerkshelfVersion") <*>
+                     (x .:? "ManageBerkshelf"))
 
 instance ToJSON ChefConfiguration where
         toJSON ChefConfiguration'{..}
@@ -1018,15 +1020,15 @@ instance FromJSON Command where
           = withObject "Command"
               (\ x ->
                  Command' <$>
-                   x .:? "InstanceId" <*> x .:? "DeploymentId" <*>
-                     x .:? "Status"
-                     <*> x .:? "LogUrl"
-                     <*> x .:? "CreatedAt"
-                     <*> x .:? "CommandId"
-                     <*> x .:? "ExitCode"
-                     <*> x .:? "Type"
-                     <*> x .:? "CompletedAt"
-                     <*> x .:? "AcknowledgedAt")
+                   (x .:? "InstanceId") <*> (x .:? "DeploymentId") <*>
+                     (x .:? "Status")
+                     <*> (x .:? "LogUrl")
+                     <*> (x .:? "CreatedAt")
+                     <*> (x .:? "CommandId")
+                     <*> (x .:? "ExitCode")
+                     <*> (x .:? "Type")
+                     <*> (x .:? "CompletedAt")
+                     <*> (x .:? "AcknowledgedAt"))
 
 -- | /See:/ 'dataSource' smart constructor.
 --
@@ -1061,8 +1063,8 @@ instance FromJSON DataSource where
           = withObject "DataSource"
               (\ x ->
                  DataSource' <$>
-                   x .:? "Arn" <*> x .:? "DatabaseName" <*>
-                     x .:? "Type")
+                   (x .:? "Arn") <*> (x .:? "DatabaseName") <*>
+                     (x .:? "Type"))
 
 instance ToJSON DataSource where
         toJSON DataSource'{..}
@@ -1144,8 +1146,8 @@ depAppId :: Lens' Deployment (Maybe Text)
 depAppId = lens _depAppId (\ s a -> s{_depAppId = a});
 
 -- | The IDs of the target instances.
-depInstanceIds :: Lens' Deployment (Maybe [Text])
-depInstanceIds = lens _depInstanceIds (\ s a -> s{_depInstanceIds = a});
+depInstanceIds :: Lens' Deployment [Text]
+depInstanceIds = lens _depInstanceIds (\ s a -> s{_depInstanceIds = a}) . _Default;
 
 -- | Date when the deployment completed.
 depCompletedAt :: Lens' Deployment (Maybe Text)
@@ -1168,17 +1170,17 @@ instance FromJSON Deployment where
           = withObject "Deployment"
               (\ x ->
                  Deployment' <$>
-                   x .:? "DeploymentId" <*> x .:? "Status" <*>
-                     x .:? "Command"
-                     <*> x .:? "CreatedAt"
-                     <*> x .:? "CustomJson"
-                     <*> x .:? "IamUserArn"
-                     <*> x .:? "AppId"
-                     <*> x .:? "InstanceIds" .!= mempty
-                     <*> x .:? "CompletedAt"
-                     <*> x .:? "StackId"
-                     <*> x .:? "Comment"
-                     <*> x .:? "Duration")
+                   (x .:? "DeploymentId") <*> (x .:? "Status") <*>
+                     (x .:? "Command")
+                     <*> (x .:? "CreatedAt")
+                     <*> (x .:? "CustomJson")
+                     <*> (x .:? "IamUserArn")
+                     <*> (x .:? "AppId")
+                     <*> (x .:? "InstanceIds" .!= mempty)
+                     <*> (x .:? "CompletedAt")
+                     <*> (x .:? "StackId")
+                     <*> (x .:? "Comment")
+                     <*> (x .:? "Duration"))
 
 -- | /See:/ 'deploymentCommand' smart constructor.
 --
@@ -1187,7 +1189,7 @@ instance FromJSON Deployment where
 -- * 'dcArgs'
 --
 -- * 'dcName'
-data DeploymentCommand = DeploymentCommand'{_dcArgs :: Maybe (HashMap Text [Text]), _dcName :: DeploymentCommandName} deriving (Eq, Read, Show)
+data DeploymentCommand = DeploymentCommand'{_dcArgs :: Maybe (Map Text [Text]), _dcName :: DeploymentCommandName} deriving (Eq, Read, Show)
 
 -- | 'DeploymentCommand' smart constructor.
 deploymentCommand :: DeploymentCommandName -> DeploymentCommand
@@ -1213,8 +1215,8 @@ deploymentCommand pName = DeploymentCommand'{_dcArgs = Nothing, _dcName = pName}
 -- to the following.
 --
 -- @ { \"upgrade_os_to\":[\"Amazon Linux 2014.09\"], \"allow_reboot\":[\"true\"] } @
-dcArgs :: Lens' DeploymentCommand (Maybe (HashMap Text [Text]))
-dcArgs = lens _dcArgs (\ s a -> s{_dcArgs = a}) . mapping _Coerce;
+dcArgs :: Lens' DeploymentCommand (Map Text [Text])
+dcArgs = lens _dcArgs (\ s a -> s{_dcArgs = a}) . _Default . _Map;
 
 -- | Specifies the operation. You can specify only one command.
 --
@@ -1254,7 +1256,7 @@ instance FromJSON DeploymentCommand where
           = withObject "DeploymentCommand"
               (\ x ->
                  DeploymentCommand' <$>
-                   x .:? "Args" .!= mempty <*> x .: "Name")
+                   (x .:? "Args" .!= mempty) <*> (x .: "Name"))
 
 instance ToJSON DeploymentCommand where
         toJSON DeploymentCommand'{..}
@@ -1347,10 +1349,11 @@ instance FromJSON EBSBlockDevice where
           = withObject "EBSBlockDevice"
               (\ x ->
                  EBSBlockDevice' <$>
-                   x .:? "DeleteOnTermination" <*> x .:? "VolumeSize"
-                     <*> x .:? "Iops"
-                     <*> x .:? "VolumeType"
-                     <*> x .:? "SnapshotId")
+                   (x .:? "DeleteOnTermination") <*>
+                     (x .:? "VolumeSize")
+                     <*> (x .:? "Iops")
+                     <*> (x .:? "VolumeType")
+                     <*> (x .:? "SnapshotId"))
 
 instance ToJSON EBSBlockDevice where
         toJSON EBSBlockDevice'{..}
@@ -1405,9 +1408,10 @@ instance FromJSON ElasticIP where
           = withObject "ElasticIP"
               (\ x ->
                  ElasticIP' <$>
-                   x .:? "InstanceId" <*> x .:? "Domain" <*> x .:? "Ip"
-                     <*> x .:? "Name"
-                     <*> x .:? "Region")
+                   (x .:? "InstanceId") <*> (x .:? "Domain") <*>
+                     (x .:? "Ip")
+                     <*> (x .:? "Name")
+                     <*> (x .:? "Region"))
 
 -- | /See:/ 'elasticLoadBalancer' smart constructor.
 --
@@ -1437,16 +1441,16 @@ elasticLoadBalancer :: ElasticLoadBalancer
 elasticLoadBalancer = ElasticLoadBalancer'{_elbSubnetIds = Nothing, _elbVPCId = Nothing, _elbAvailabilityZones = Nothing, _elbRegion = Nothing, _elbElasticLoadBalancerName = Nothing, _elbEC2InstanceIds = Nothing, _elbStackId = Nothing, _elbLayerId = Nothing, _elbDNSName = Nothing};
 
 -- | A list of subnet IDs, if the stack is running in a VPC.
-elbSubnetIds :: Lens' ElasticLoadBalancer (Maybe [Text])
-elbSubnetIds = lens _elbSubnetIds (\ s a -> s{_elbSubnetIds = a});
+elbSubnetIds :: Lens' ElasticLoadBalancer [Text]
+elbSubnetIds = lens _elbSubnetIds (\ s a -> s{_elbSubnetIds = a}) . _Default;
 
 -- | The VPC ID.
 elbVPCId :: Lens' ElasticLoadBalancer (Maybe Text)
 elbVPCId = lens _elbVPCId (\ s a -> s{_elbVPCId = a});
 
 -- | A list of Availability Zones.
-elbAvailabilityZones :: Lens' ElasticLoadBalancer (Maybe [Text])
-elbAvailabilityZones = lens _elbAvailabilityZones (\ s a -> s{_elbAvailabilityZones = a});
+elbAvailabilityZones :: Lens' ElasticLoadBalancer [Text]
+elbAvailabilityZones = lens _elbAvailabilityZones (\ s a -> s{_elbAvailabilityZones = a}) . _Default;
 
 -- | The instance\'s AWS region.
 elbRegion :: Lens' ElasticLoadBalancer (Maybe Text)
@@ -1458,8 +1462,8 @@ elbElasticLoadBalancerName = lens _elbElasticLoadBalancerName (\ s a -> s{_elbEl
 
 -- | A list of the EC2 instances that the Elastic Load Balancing instance is
 -- managing traffic for.
-elbEC2InstanceIds :: Lens' ElasticLoadBalancer (Maybe [Text])
-elbEC2InstanceIds = lens _elbEC2InstanceIds (\ s a -> s{_elbEC2InstanceIds = a});
+elbEC2InstanceIds :: Lens' ElasticLoadBalancer [Text]
+elbEC2InstanceIds = lens _elbEC2InstanceIds (\ s a -> s{_elbEC2InstanceIds = a}) . _Default;
 
 -- | The ID of the stack that the instance is associated with.
 elbStackId :: Lens' ElasticLoadBalancer (Maybe Text)
@@ -1478,14 +1482,14 @@ instance FromJSON ElasticLoadBalancer where
           = withObject "ElasticLoadBalancer"
               (\ x ->
                  ElasticLoadBalancer' <$>
-                   x .:? "SubnetIds" .!= mempty <*> x .:? "VpcId" <*>
-                     x .:? "AvailabilityZones" .!= mempty
-                     <*> x .:? "Region"
-                     <*> x .:? "ElasticLoadBalancerName"
-                     <*> x .:? "Ec2InstanceIds" .!= mempty
-                     <*> x .:? "StackId"
-                     <*> x .:? "LayerId"
-                     <*> x .:? "DnsName")
+                   (x .:? "SubnetIds" .!= mempty) <*> (x .:? "VpcId")
+                     <*> (x .:? "AvailabilityZones" .!= mempty)
+                     <*> (x .:? "Region")
+                     <*> (x .:? "ElasticLoadBalancerName")
+                     <*> (x .:? "Ec2InstanceIds" .!= mempty)
+                     <*> (x .:? "StackId")
+                     <*> (x .:? "LayerId")
+                     <*> (x .:? "DnsName"))
 
 -- | /See:/ 'environmentVariable' smart constructor.
 --
@@ -1527,7 +1531,7 @@ instance FromJSON EnvironmentVariable where
           = withObject "EnvironmentVariable"
               (\ x ->
                  EnvironmentVariable' <$>
-                   x .:? "Secure" <*> x .: "Key" <*> x .: "Value")
+                   (x .:? "Secure") <*> (x .: "Key") <*> (x .: "Value"))
 
 instance ToJSON EnvironmentVariable where
         toJSON EnvironmentVariable'{..}
@@ -1666,8 +1670,8 @@ insVirtualizationType :: Lens' Instance (Maybe VirtualizationType)
 insVirtualizationType = lens _insVirtualizationType (\ s a -> s{_insVirtualizationType = a});
 
 -- | An array containing the instance security group IDs.
-insSecurityGroupIds :: Lens' Instance (Maybe [Text])
-insSecurityGroupIds = lens _insSecurityGroupIds (\ s a -> s{_insSecurityGroupIds = a});
+insSecurityGroupIds :: Lens' Instance [Text]
+insSecurityGroupIds = lens _insSecurityGroupIds (\ s a -> s{_insSecurityGroupIds = a}) . _Default;
 
 -- | The SSH key\'s RSA fingerprint.
 insSSHHostRsaKeyFingerprint :: Lens' Instance (Maybe Text)
@@ -1749,8 +1753,8 @@ insAutoScalingType :: Lens' Instance (Maybe AutoScalingType)
 insAutoScalingType = lens _insAutoScalingType (\ s a -> s{_insAutoScalingType = a});
 
 -- | An array containing the instance layer IDs.
-insLayerIds :: Lens' Instance (Maybe [Text])
-insLayerIds = lens _insLayerIds (\ s a -> s{_insLayerIds = a});
+insLayerIds :: Lens' Instance [Text]
+insLayerIds = lens _insLayerIds (\ s a -> s{_insLayerIds = a}) . _Default;
 
 -- | The instance architecture, \"i386\" or \"x86_64\".
 insArchitecture :: Lens' Instance (Maybe Architecture)
@@ -1785,8 +1789,8 @@ insRegisteredBy = lens _insRegisteredBy (\ s a -> s{_insRegisteredBy = a});
 
 -- | An array of @BlockDeviceMapping@ objects that specify the instance\'s
 -- block device mappings.
-insBlockDeviceMappings :: Lens' Instance (Maybe [BlockDeviceMapping])
-insBlockDeviceMappings = lens _insBlockDeviceMappings (\ s a -> s{_insBlockDeviceMappings = a});
+insBlockDeviceMappings :: Lens' Instance [BlockDeviceMapping]
+insBlockDeviceMappings = lens _insBlockDeviceMappings (\ s a -> s{_insBlockDeviceMappings = a}) . _Default;
 
 -- | The instance\'s root device type. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device>.
@@ -1798,40 +1802,40 @@ instance FromJSON Instance where
           = withObject "Instance"
               (\ x ->
                  Instance' <$>
-                   x .:? "InstanceId" <*> x .:? "PrivateIp" <*>
-                     x .:? "InstallUpdatesOnBoot"
-                     <*> x .:? "ReportedAgentVersion"
-                     <*> x .:? "Status"
-                     <*> x .:? "PrivateDns"
-                     <*> x .:? "VirtualizationType"
-                     <*> x .:? "SecurityGroupIds" .!= mempty
-                     <*> x .:? "SshHostRsaKeyFingerprint"
-                     <*> x .:? "InstanceProfileArn"
-                     <*> x .:? "Hostname"
-                     <*> x .:? "CreatedAt"
-                     <*> x .:? "SshKeyName"
-                     <*> x .:? "Ec2InstanceId"
-                     <*> x .:? "RootDeviceVolumeId"
-                     <*> x .:? "SubnetId"
-                     <*> x .:? "InstanceType"
-                     <*> x .:? "InfrastructureClass"
-                     <*> x .:? "EbsOptimized"
-                     <*> x .:? "SshHostDsaKeyFingerprint"
-                     <*> x .:? "ElasticIp"
-                     <*> x .:? "Os"
-                     <*> x .:? "AvailabilityZone"
-                     <*> x .:? "LastServiceErrorId"
-                     <*> x .:? "AutoScalingType"
-                     <*> x .:? "LayerIds" .!= mempty
-                     <*> x .:? "Architecture"
-                     <*> x .:? "PublicDns"
-                     <*> x .:? "PublicIp"
-                     <*> x .:? "AmiId"
-                     <*> x .:? "ReportedOs"
-                     <*> x .:? "StackId"
-                     <*> x .:? "RegisteredBy"
-                     <*> x .:? "BlockDeviceMappings" .!= mempty
-                     <*> x .:? "RootDeviceType")
+                   (x .:? "InstanceId") <*> (x .:? "PrivateIp") <*>
+                     (x .:? "InstallUpdatesOnBoot")
+                     <*> (x .:? "ReportedAgentVersion")
+                     <*> (x .:? "Status")
+                     <*> (x .:? "PrivateDns")
+                     <*> (x .:? "VirtualizationType")
+                     <*> (x .:? "SecurityGroupIds" .!= mempty)
+                     <*> (x .:? "SshHostRsaKeyFingerprint")
+                     <*> (x .:? "InstanceProfileArn")
+                     <*> (x .:? "Hostname")
+                     <*> (x .:? "CreatedAt")
+                     <*> (x .:? "SshKeyName")
+                     <*> (x .:? "Ec2InstanceId")
+                     <*> (x .:? "RootDeviceVolumeId")
+                     <*> (x .:? "SubnetId")
+                     <*> (x .:? "InstanceType")
+                     <*> (x .:? "InfrastructureClass")
+                     <*> (x .:? "EbsOptimized")
+                     <*> (x .:? "SshHostDsaKeyFingerprint")
+                     <*> (x .:? "ElasticIp")
+                     <*> (x .:? "Os")
+                     <*> (x .:? "AvailabilityZone")
+                     <*> (x .:? "LastServiceErrorId")
+                     <*> (x .:? "AutoScalingType")
+                     <*> (x .:? "LayerIds" .!= mempty)
+                     <*> (x .:? "Architecture")
+                     <*> (x .:? "PublicDns")
+                     <*> (x .:? "PublicIp")
+                     <*> (x .:? "AmiId")
+                     <*> (x .:? "ReportedOs")
+                     <*> (x .:? "StackId")
+                     <*> (x .:? "RegisteredBy")
+                     <*> (x .:? "BlockDeviceMappings" .!= mempty)
+                     <*> (x .:? "RootDeviceType"))
 
 -- | /See:/ 'instanceIdentity' smart constructor.
 --
@@ -1989,24 +1993,24 @@ instance FromJSON InstancesCount where
           = withObject "InstancesCount"
               (\ x ->
                  InstancesCount' <$>
-                   x .:? "Terminating" <*> x .:? "Pending" <*>
-                     x .:? "Online"
-                     <*> x .:? "Unassigning"
-                     <*> x .:? "Requested"
-                     <*> x .:? "RunningSetup"
-                     <*> x .:? "Deregistering"
-                     <*> x .:? "Booting"
-                     <*> x .:? "Stopped"
-                     <*> x .:? "Rebooting"
-                     <*> x .:? "Assigning"
-                     <*> x .:? "ShuttingDown"
-                     <*> x .:? "SetupFailed"
-                     <*> x .:? "ConnectionLost"
-                     <*> x .:? "Terminated"
-                     <*> x .:? "Stopping"
-                     <*> x .:? "Registered"
-                     <*> x .:? "StartFailed"
-                     <*> x .:? "Registering")
+                   (x .:? "Terminating") <*> (x .:? "Pending") <*>
+                     (x .:? "Online")
+                     <*> (x .:? "Unassigning")
+                     <*> (x .:? "Requested")
+                     <*> (x .:? "RunningSetup")
+                     <*> (x .:? "Deregistering")
+                     <*> (x .:? "Booting")
+                     <*> (x .:? "Stopped")
+                     <*> (x .:? "Rebooting")
+                     <*> (x .:? "Assigning")
+                     <*> (x .:? "ShuttingDown")
+                     <*> (x .:? "SetupFailed")
+                     <*> (x .:? "ConnectionLost")
+                     <*> (x .:? "Terminated")
+                     <*> (x .:? "Stopping")
+                     <*> (x .:? "Registered")
+                     <*> (x .:? "StartFailed")
+                     <*> (x .:? "Registering"))
 
 -- | /See:/ 'layer' smart constructor.
 --
@@ -2051,7 +2055,7 @@ instance FromJSON InstancesCount where
 -- * 'layDefaultSecurityGroupNames'
 --
 -- * 'layAutoAssignElasticIPs'
-data Layer = Layer'{_layCustomInstanceProfileARN :: Maybe Text, _layInstallUpdatesOnBoot :: Maybe Bool, _layCustomSecurityGroupIds :: Maybe [Text], _layLifecycleEventConfiguration :: Maybe LifecycleEventConfiguration, _layShortname :: Maybe Text, _layCreatedAt :: Maybe Text, _layDefaultRecipes :: Maybe Recipes, _layCustomRecipes :: Maybe Recipes, _layVolumeConfigurations :: Maybe [VolumeConfiguration], _layEnableAutoHealing :: Maybe Bool, _layPackages :: Maybe [Text], _layName :: Maybe Text, _layAttributes :: Maybe (HashMap LayerAttributesKeys Text), _layAutoAssignPublicIPs :: Maybe Bool, _layUseEBSOptimizedInstances :: Maybe Bool, _layType :: Maybe LayerType, _layStackId :: Maybe Text, _layLayerId :: Maybe Text, _layDefaultSecurityGroupNames :: Maybe [Text], _layAutoAssignElasticIPs :: Maybe Bool} deriving (Eq, Read, Show)
+data Layer = Layer'{_layCustomInstanceProfileARN :: Maybe Text, _layInstallUpdatesOnBoot :: Maybe Bool, _layCustomSecurityGroupIds :: Maybe [Text], _layLifecycleEventConfiguration :: Maybe LifecycleEventConfiguration, _layShortname :: Maybe Text, _layCreatedAt :: Maybe Text, _layDefaultRecipes :: Maybe Recipes, _layCustomRecipes :: Maybe Recipes, _layVolumeConfigurations :: Maybe [VolumeConfiguration], _layEnableAutoHealing :: Maybe Bool, _layPackages :: Maybe [Text], _layName :: Maybe Text, _layAttributes :: Maybe (Map LayerAttributesKeys Text), _layAutoAssignPublicIPs :: Maybe Bool, _layUseEBSOptimizedInstances :: Maybe Bool, _layType :: Maybe LayerType, _layStackId :: Maybe Text, _layLayerId :: Maybe Text, _layDefaultSecurityGroupNames :: Maybe [Text], _layAutoAssignElasticIPs :: Maybe Bool} deriving (Eq, Read, Show)
 
 -- | 'Layer' smart constructor.
 layer :: Layer
@@ -2076,8 +2080,8 @@ layInstallUpdatesOnBoot :: Lens' Layer (Maybe Bool)
 layInstallUpdatesOnBoot = lens _layInstallUpdatesOnBoot (\ s a -> s{_layInstallUpdatesOnBoot = a});
 
 -- | An array containing the layer\'s custom security group IDs.
-layCustomSecurityGroupIds :: Lens' Layer (Maybe [Text])
-layCustomSecurityGroupIds = lens _layCustomSecurityGroupIds (\ s a -> s{_layCustomSecurityGroupIds = a});
+layCustomSecurityGroupIds :: Lens' Layer [Text]
+layCustomSecurityGroupIds = lens _layCustomSecurityGroupIds (\ s a -> s{_layCustomSecurityGroupIds = a}) . _Default;
 
 -- | A @LifeCycleEventConfiguration@ object that specifies the Shutdown event
 -- configuration.
@@ -2103,16 +2107,16 @@ layCustomRecipes = lens _layCustomRecipes (\ s a -> s{_layCustomRecipes = a});
 
 -- | A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS
 -- volumes.
-layVolumeConfigurations :: Lens' Layer (Maybe [VolumeConfiguration])
-layVolumeConfigurations = lens _layVolumeConfigurations (\ s a -> s{_layVolumeConfigurations = a});
+layVolumeConfigurations :: Lens' Layer [VolumeConfiguration]
+layVolumeConfigurations = lens _layVolumeConfigurations (\ s a -> s{_layVolumeConfigurations = a}) . _Default;
 
 -- | Whether auto healing is disabled for the layer.
 layEnableAutoHealing :: Lens' Layer (Maybe Bool)
 layEnableAutoHealing = lens _layEnableAutoHealing (\ s a -> s{_layEnableAutoHealing = a});
 
 -- | An array of @Package@ objects that describe the layer\'s packages.
-layPackages :: Lens' Layer (Maybe [Text])
-layPackages = lens _layPackages (\ s a -> s{_layPackages = a});
+layPackages :: Lens' Layer [Text]
+layPackages = lens _layPackages (\ s a -> s{_layPackages = a}) . _Default;
 
 -- | The layer name.
 layName :: Lens' Layer (Maybe Text)
@@ -2123,8 +2127,8 @@ layName = lens _layName (\ s a -> s{_layName = a});
 -- For the @HaproxyStatsPassword@, @MysqlRootPassword@, and
 -- @GangliaPassword@ attributes, AWS OpsWorks returns @*****FILTERED*****@
 -- instead of the actual value
-layAttributes :: Lens' Layer (Maybe (HashMap LayerAttributesKeys Text))
-layAttributes = lens _layAttributes (\ s a -> s{_layAttributes = a}) . mapping _Coerce;
+layAttributes :: Lens' Layer (Map LayerAttributesKeys Text)
+layAttributes = lens _layAttributes (\ s a -> s{_layAttributes = a}) . _Default . _Map;
 
 -- | For stacks that are running in a VPC, whether to automatically assign a
 -- public IP address to the layer\'s instances. For more information, see
@@ -2149,8 +2153,8 @@ layLayerId :: Lens' Layer (Maybe Text)
 layLayerId = lens _layLayerId (\ s a -> s{_layLayerId = a});
 
 -- | An array containing the layer\'s security group names.
-layDefaultSecurityGroupNames :: Lens' Layer (Maybe [Text])
-layDefaultSecurityGroupNames = lens _layDefaultSecurityGroupNames (\ s a -> s{_layDefaultSecurityGroupNames = a});
+layDefaultSecurityGroupNames :: Lens' Layer [Text]
+layDefaultSecurityGroupNames = lens _layDefaultSecurityGroupNames (\ s a -> s{_layDefaultSecurityGroupNames = a}) . _Default;
 
 -- | Whether to automatically assign an
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address>
@@ -2164,26 +2168,26 @@ instance FromJSON Layer where
           = withObject "Layer"
               (\ x ->
                  Layer' <$>
-                   x .:? "CustomInstanceProfileArn" <*>
-                     x .:? "InstallUpdatesOnBoot"
-                     <*> x .:? "CustomSecurityGroupIds" .!= mempty
-                     <*> x .:? "LifecycleEventConfiguration"
-                     <*> x .:? "Shortname"
-                     <*> x .:? "CreatedAt"
-                     <*> x .:? "DefaultRecipes"
-                     <*> x .:? "CustomRecipes"
-                     <*> x .:? "VolumeConfigurations" .!= mempty
-                     <*> x .:? "EnableAutoHealing"
-                     <*> x .:? "Packages" .!= mempty
-                     <*> x .:? "Name"
-                     <*> x .:? "Attributes" .!= mempty
-                     <*> x .:? "AutoAssignPublicIps"
-                     <*> x .:? "UseEbsOptimizedInstances"
-                     <*> x .:? "Type"
-                     <*> x .:? "StackId"
-                     <*> x .:? "LayerId"
-                     <*> x .:? "DefaultSecurityGroupNames" .!= mempty
-                     <*> x .:? "AutoAssignElasticIps")
+                   (x .:? "CustomInstanceProfileArn") <*>
+                     (x .:? "InstallUpdatesOnBoot")
+                     <*> (x .:? "CustomSecurityGroupIds" .!= mempty)
+                     <*> (x .:? "LifecycleEventConfiguration")
+                     <*> (x .:? "Shortname")
+                     <*> (x .:? "CreatedAt")
+                     <*> (x .:? "DefaultRecipes")
+                     <*> (x .:? "CustomRecipes")
+                     <*> (x .:? "VolumeConfigurations" .!= mempty)
+                     <*> (x .:? "EnableAutoHealing")
+                     <*> (x .:? "Packages" .!= mempty)
+                     <*> (x .:? "Name")
+                     <*> (x .:? "Attributes" .!= mempty)
+                     <*> (x .:? "AutoAssignPublicIps")
+                     <*> (x .:? "UseEbsOptimizedInstances")
+                     <*> (x .:? "Type")
+                     <*> (x .:? "StackId")
+                     <*> (x .:? "LayerId")
+                     <*> (x .:? "DefaultSecurityGroupNames" .!= mempty)
+                     <*> (x .:? "AutoAssignElasticIps"))
 
 data LayerAttributesKeys = HaproxyHealthCheckURL | MemcachedMemory | GangliaPassword | JavaAppServerVersion | GangliaURL | HaproxyHealthCheckMethod | PassengerVersion | JVMVersion | MysqlRootPassword | HaproxyStatsPassword | RubyVersion | JVMOptions | JVM | BundlerVersion | HaproxyStatsURL | ManageBundler | RubygemsVersion | GangliaUser | EnableHaproxyStats | MysqlRootPasswordUbiquitous | HaproxyStatsUser | JavaAppServer | NodejsVersion | RailsStack deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -2311,7 +2315,7 @@ instance FromJSON LifecycleEventConfiguration where
         parseJSON
           = withObject "LifecycleEventConfiguration"
               (\ x ->
-                 LifecycleEventConfiguration' <$> x .:? "Shutdown")
+                 LifecycleEventConfiguration' <$> (x .:? "Shutdown"))
 
 instance ToJSON LifecycleEventConfiguration where
         toJSON LifecycleEventConfiguration'{..}
@@ -2360,9 +2364,9 @@ instance FromJSON LoadBasedAutoScalingConfiguration
           = withObject "LoadBasedAutoScalingConfiguration"
               (\ x ->
                  LoadBasedAutoScalingConfiguration' <$>
-                   x .:? "UpScaling" <*> x .:? "Enable" <*>
-                     x .:? "DownScaling"
-                     <*> x .:? "LayerId")
+                   (x .:? "UpScaling") <*> (x .:? "Enable") <*>
+                     (x .:? "DownScaling")
+                     <*> (x .:? "LayerId"))
 
 -- | /See:/ 'permission' smart constructor.
 --
@@ -2420,10 +2424,10 @@ instance FromJSON Permission where
           = withObject "Permission"
               (\ x ->
                  Permission' <$>
-                   x .:? "IamUserArn" <*> x .:? "AllowSudo" <*>
-                     x .:? "StackId"
-                     <*> x .:? "Level"
-                     <*> x .:? "AllowSsh")
+                   (x .:? "IamUserArn") <*> (x .:? "AllowSudo") <*>
+                     (x .:? "StackId")
+                     <*> (x .:? "Level")
+                     <*> (x .:? "AllowSsh"))
 
 -- | /See:/ 'raidArray' smart constructor.
 --
@@ -2518,18 +2522,18 @@ instance FromJSON RAIDArray where
           = withObject "RAIDArray"
               (\ x ->
                  RAIDArray' <$>
-                   x .:? "InstanceId" <*> x .:? "Size" <*>
-                     x .:? "CreatedAt"
-                     <*> x .:? "Iops"
-                     <*> x .:? "RaidLevel"
-                     <*> x .:? "Device"
-                     <*> x .:? "NumberOfDisks"
-                     <*> x .:? "Name"
-                     <*> x .:? "AvailabilityZone"
-                     <*> x .:? "RaidArrayId"
-                     <*> x .:? "VolumeType"
-                     <*> x .:? "StackId"
-                     <*> x .:? "MountPoint")
+                   (x .:? "InstanceId") <*> (x .:? "Size") <*>
+                     (x .:? "CreatedAt")
+                     <*> (x .:? "Iops")
+                     <*> (x .:? "RaidLevel")
+                     <*> (x .:? "Device")
+                     <*> (x .:? "NumberOfDisks")
+                     <*> (x .:? "Name")
+                     <*> (x .:? "AvailabilityZone")
+                     <*> (x .:? "RaidArrayId")
+                     <*> (x .:? "VolumeType")
+                     <*> (x .:? "StackId")
+                     <*> (x .:? "MountPoint"))
 
 -- | /See:/ 'rdsDBInstance' smart constructor.
 --
@@ -2602,14 +2606,14 @@ instance FromJSON RDSDBInstance where
           = withObject "RDSDBInstance"
               (\ x ->
                  RDSDBInstance' <$>
-                   x .:? "DbUser" <*> x .:? "RdsDbInstanceArn" <*>
-                     x .:? "MissingOnRds"
-                     <*> x .:? "Engine"
-                     <*> x .:? "Address"
-                     <*> x .:? "DbInstanceIdentifier"
-                     <*> x .:? "Region"
-                     <*> x .:? "StackId"
-                     <*> x .:? "DbPassword")
+                   (x .:? "DbUser") <*> (x .:? "RdsDbInstanceArn") <*>
+                     (x .:? "MissingOnRds")
+                     <*> (x .:? "Engine")
+                     <*> (x .:? "Address")
+                     <*> (x .:? "DbInstanceIdentifier")
+                     <*> (x .:? "Region")
+                     <*> (x .:? "StackId")
+                     <*> (x .:? "DbPassword"))
 
 -- | /See:/ 'recipes' smart constructor.
 --
@@ -2631,35 +2635,35 @@ recipes :: Recipes
 recipes = Recipes'{_recSetup = Nothing, _recUndeploy = Nothing, _recShutdown = Nothing, _recConfigure = Nothing, _recDeploy = Nothing};
 
 -- | An array of custom recipe names to be run following a @setup@ event.
-recSetup :: Lens' Recipes (Maybe [Text])
-recSetup = lens _recSetup (\ s a -> s{_recSetup = a});
+recSetup :: Lens' Recipes [Text]
+recSetup = lens _recSetup (\ s a -> s{_recSetup = a}) . _Default;
 
 -- | An array of custom recipe names to be run following a @undeploy@ event.
-recUndeploy :: Lens' Recipes (Maybe [Text])
-recUndeploy = lens _recUndeploy (\ s a -> s{_recUndeploy = a});
+recUndeploy :: Lens' Recipes [Text]
+recUndeploy = lens _recUndeploy (\ s a -> s{_recUndeploy = a}) . _Default;
 
 -- | An array of custom recipe names to be run following a @shutdown@ event.
-recShutdown :: Lens' Recipes (Maybe [Text])
-recShutdown = lens _recShutdown (\ s a -> s{_recShutdown = a});
+recShutdown :: Lens' Recipes [Text]
+recShutdown = lens _recShutdown (\ s a -> s{_recShutdown = a}) . _Default;
 
 -- | An array of custom recipe names to be run following a @configure@ event.
-recConfigure :: Lens' Recipes (Maybe [Text])
-recConfigure = lens _recConfigure (\ s a -> s{_recConfigure = a});
+recConfigure :: Lens' Recipes [Text]
+recConfigure = lens _recConfigure (\ s a -> s{_recConfigure = a}) . _Default;
 
 -- | An array of custom recipe names to be run following a @deploy@ event.
-recDeploy :: Lens' Recipes (Maybe [Text])
-recDeploy = lens _recDeploy (\ s a -> s{_recDeploy = a});
+recDeploy :: Lens' Recipes [Text]
+recDeploy = lens _recDeploy (\ s a -> s{_recDeploy = a}) . _Default;
 
 instance FromJSON Recipes where
         parseJSON
           = withObject "Recipes"
               (\ x ->
                  Recipes' <$>
-                   x .:? "Setup" .!= mempty <*>
-                     x .:? "Undeploy" .!= mempty
-                     <*> x .:? "Shutdown" .!= mempty
-                     <*> x .:? "Configure" .!= mempty
-                     <*> x .:? "Deploy" .!= mempty)
+                   (x .:? "Setup" .!= mempty) <*>
+                     (x .:? "Undeploy" .!= mempty)
+                     <*> (x .:? "Shutdown" .!= mempty)
+                     <*> (x .:? "Configure" .!= mempty)
+                     <*> (x .:? "Deploy" .!= mempty))
 
 instance ToJSON Recipes where
         toJSON Recipes'{..}
@@ -2700,7 +2704,8 @@ instance FromJSON ReportedOS where
           = withObject "ReportedOS"
               (\ x ->
                  ReportedOS' <$>
-                   x .:? "Family" <*> x .:? "Name" <*> x .:? "Version")
+                   (x .:? "Family") <*> (x .:? "Name") <*>
+                     (x .:? "Version"))
 
 data RootDeviceType = InstanceStore | EBS deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -2758,8 +2763,8 @@ instance FromJSON SSLConfiguration where
           = withObject "SSLConfiguration"
               (\ x ->
                  SSLConfiguration' <$>
-                   x .:? "Chain" <*> x .: "Certificate" <*>
-                     x .: "PrivateKey")
+                   (x .:? "Chain") <*> (x .: "Certificate") <*>
+                     (x .: "PrivateKey"))
 
 instance ToJSON SSLConfiguration where
         toJSON SSLConfiguration'{..}
@@ -2806,9 +2811,9 @@ instance FromJSON SelfUserProfile where
           = withObject "SelfUserProfile"
               (\ x ->
                  SelfUserProfile' <$>
-                   x .:? "SshUsername" <*> x .:? "SshPublicKey" <*>
-                     x .:? "IamUserArn"
-                     <*> x .:? "Name")
+                   (x .:? "SshUsername") <*> (x .:? "SshPublicKey") <*>
+                     (x .:? "IamUserArn")
+                     <*> (x .:? "Name"))
 
 -- | /See:/ 'serviceError'' smart constructor.
 --
@@ -2860,11 +2865,11 @@ instance FromJSON ServiceError' where
           = withObject "ServiceError'"
               (\ x ->
                  ServiceError'' <$>
-                   x .:? "InstanceId" <*> x .:? "CreatedAt" <*>
-                     x .:? "ServiceErrorId"
-                     <*> x .:? "Type"
-                     <*> x .:? "Message"
-                     <*> x .:? "StackId")
+                   (x .:? "InstanceId") <*> (x .:? "CreatedAt") <*>
+                     (x .:? "ServiceErrorId")
+                     <*> (x .:? "Type")
+                     <*> (x .:? "Message")
+                     <*> (x .:? "StackId"))
 
 -- | /See:/ 'shutdownEventConfiguration' smart constructor.
 --
@@ -2895,8 +2900,8 @@ instance FromJSON ShutdownEventConfiguration where
           = withObject "ShutdownEventConfiguration"
               (\ x ->
                  ShutdownEventConfiguration' <$>
-                   x .:? "ExecutionTimeout" <*>
-                     x .:? "DelayUntilElbConnectionsDrained")
+                   (x .:? "ExecutionTimeout") <*>
+                     (x .:? "DelayUntilElbConnectionsDrained"))
 
 instance ToJSON ShutdownEventConfiguration where
         toJSON ShutdownEventConfiguration'{..}
@@ -2978,10 +2983,11 @@ instance FromJSON Source where
           = withObject "Source"
               (\ x ->
                  Source' <$>
-                   x .:? "Url" <*> x .:? "Username" <*> x .:? "SshKey"
-                     <*> x .:? "Password"
-                     <*> x .:? "Type"
-                     <*> x .:? "Revision")
+                   (x .:? "Url") <*> (x .:? "Username") <*>
+                     (x .:? "SshKey")
+                     <*> (x .:? "Password")
+                     <*> (x .:? "Type")
+                     <*> (x .:? "Revision"))
 
 instance ToJSON Source where
         toJSON Source'{..}
@@ -3062,7 +3068,7 @@ instance FromJSON SourceType where
 -- * 'staStackId'
 --
 -- * 'staHostnameTheme'
-data Stack = Stack'{_staDefaultInstanceProfileARN :: Maybe Text, _staServiceRoleARN :: Maybe Text, _staARN :: Maybe Text, _staDefaultRootDeviceType :: Maybe RootDeviceType, _staCreatedAt :: Maybe Text, _staChefConfiguration :: Maybe ChefConfiguration, _staVPCId :: Maybe Text, _staDefaultSSHKeyName :: Maybe Text, _staCustomJSON :: Maybe Text, _staCustomCookbooksSource :: Maybe Source, _staDefaultAvailabilityZone :: Maybe Text, _staName :: Maybe Text, _staUseOpsworksSecurityGroups :: Maybe Bool, _staDefaultOS :: Maybe Text, _staAttributes :: Maybe (HashMap StackAttributesKeys Text), _staUseCustomCookbooks :: Maybe Bool, _staDefaultSubnetId :: Maybe Text, _staRegion :: Maybe Text, _staConfigurationManager :: Maybe StackConfigurationManager, _staStackId :: Maybe Text, _staHostnameTheme :: Maybe Text} deriving (Eq, Read, Show)
+data Stack = Stack'{_staDefaultInstanceProfileARN :: Maybe Text, _staServiceRoleARN :: Maybe Text, _staARN :: Maybe Text, _staDefaultRootDeviceType :: Maybe RootDeviceType, _staCreatedAt :: Maybe Text, _staChefConfiguration :: Maybe ChefConfiguration, _staVPCId :: Maybe Text, _staDefaultSSHKeyName :: Maybe Text, _staCustomJSON :: Maybe Text, _staCustomCookbooksSource :: Maybe Source, _staDefaultAvailabilityZone :: Maybe Text, _staName :: Maybe Text, _staUseOpsworksSecurityGroups :: Maybe Bool, _staDefaultOS :: Maybe Text, _staAttributes :: Maybe (Map StackAttributesKeys Text), _staUseCustomCookbooks :: Maybe Bool, _staDefaultSubnetId :: Maybe Text, _staRegion :: Maybe Text, _staConfigurationManager :: Maybe StackConfigurationManager, _staStackId :: Maybe Text, _staHostnameTheme :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'Stack' smart constructor.
 stack :: Stack
@@ -3143,8 +3149,8 @@ staDefaultOS :: Lens' Stack (Maybe Text)
 staDefaultOS = lens _staDefaultOS (\ s a -> s{_staDefaultOS = a});
 
 -- | The stack\'s attributes.
-staAttributes :: Lens' Stack (Maybe (HashMap StackAttributesKeys Text))
-staAttributes = lens _staAttributes (\ s a -> s{_staAttributes = a}) . mapping _Coerce;
+staAttributes :: Lens' Stack (Map StackAttributesKeys Text)
+staAttributes = lens _staAttributes (\ s a -> s{_staAttributes = a}) . _Default . _Map;
 
 -- | Whether the stack uses custom cookbooks.
 staUseCustomCookbooks :: Lens' Stack (Maybe Bool)
@@ -3177,27 +3183,27 @@ instance FromJSON Stack where
           = withObject "Stack"
               (\ x ->
                  Stack' <$>
-                   x .:? "DefaultInstanceProfileArn" <*>
-                     x .:? "ServiceRoleArn"
-                     <*> x .:? "Arn"
-                     <*> x .:? "DefaultRootDeviceType"
-                     <*> x .:? "CreatedAt"
-                     <*> x .:? "ChefConfiguration"
-                     <*> x .:? "VpcId"
-                     <*> x .:? "DefaultSshKeyName"
-                     <*> x .:? "CustomJson"
-                     <*> x .:? "CustomCookbooksSource"
-                     <*> x .:? "DefaultAvailabilityZone"
-                     <*> x .:? "Name"
-                     <*> x .:? "UseOpsworksSecurityGroups"
-                     <*> x .:? "DefaultOs"
-                     <*> x .:? "Attributes" .!= mempty
-                     <*> x .:? "UseCustomCookbooks"
-                     <*> x .:? "DefaultSubnetId"
-                     <*> x .:? "Region"
-                     <*> x .:? "ConfigurationManager"
-                     <*> x .:? "StackId"
-                     <*> x .:? "HostnameTheme")
+                   (x .:? "DefaultInstanceProfileArn") <*>
+                     (x .:? "ServiceRoleArn")
+                     <*> (x .:? "Arn")
+                     <*> (x .:? "DefaultRootDeviceType")
+                     <*> (x .:? "CreatedAt")
+                     <*> (x .:? "ChefConfiguration")
+                     <*> (x .:? "VpcId")
+                     <*> (x .:? "DefaultSshKeyName")
+                     <*> (x .:? "CustomJson")
+                     <*> (x .:? "CustomCookbooksSource")
+                     <*> (x .:? "DefaultAvailabilityZone")
+                     <*> (x .:? "Name")
+                     <*> (x .:? "UseOpsworksSecurityGroups")
+                     <*> (x .:? "DefaultOs")
+                     <*> (x .:? "Attributes" .!= mempty)
+                     <*> (x .:? "UseCustomCookbooks")
+                     <*> (x .:? "DefaultSubnetId")
+                     <*> (x .:? "Region")
+                     <*> (x .:? "ConfigurationManager")
+                     <*> (x .:? "StackId")
+                     <*> (x .:? "HostnameTheme"))
 
 data StackAttributesKeys = Color deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -3247,7 +3253,7 @@ instance FromJSON StackConfigurationManager where
           = withObject "StackConfigurationManager"
               (\ x ->
                  StackConfigurationManager' <$>
-                   x .:? "Name" <*> x .:? "Version")
+                   (x .:? "Name") <*> (x .:? "Version"))
 
 instance ToJSON StackConfigurationManager where
         toJSON StackConfigurationManager'{..}
@@ -3304,10 +3310,11 @@ instance FromJSON StackSummary where
           = withObject "StackSummary"
               (\ x ->
                  StackSummary' <$>
-                   x .:? "Arn" <*> x .:? "AppsCount" <*> x .:? "Name"
-                     <*> x .:? "StackId"
-                     <*> x .:? "LayersCount"
-                     <*> x .:? "InstancesCount")
+                   (x .:? "Arn") <*> (x .:? "AppsCount") <*>
+                     (x .:? "Name")
+                     <*> (x .:? "StackId")
+                     <*> (x .:? "LayersCount")
+                     <*> (x .:? "InstancesCount"))
 
 -- | /See:/ 'temporaryCredential' smart constructor.
 --
@@ -3350,9 +3357,9 @@ instance FromJSON TemporaryCredential where
           = withObject "TemporaryCredential"
               (\ x ->
                  TemporaryCredential' <$>
-                   x .:? "InstanceId" <*> x .:? "Username" <*>
-                     x .:? "Password"
-                     <*> x .:? "ValidForInMinutes")
+                   (x .:? "InstanceId") <*> (x .:? "Username") <*>
+                     (x .:? "Password")
+                     <*> (x .:? "ValidForInMinutes"))
 
 -- | /See:/ 'timeBasedAutoScalingConfiguration' smart constructor.
 --
@@ -3381,7 +3388,8 @@ instance FromJSON TimeBasedAutoScalingConfiguration
           = withObject "TimeBasedAutoScalingConfiguration"
               (\ x ->
                  TimeBasedAutoScalingConfiguration' <$>
-                   x .:? "InstanceId" <*> x .:? "AutoScalingSchedule")
+                   (x .:? "InstanceId") <*>
+                     (x .:? "AutoScalingSchedule"))
 
 -- | /See:/ 'userProfile' smart constructor.
 --
@@ -3429,10 +3437,10 @@ instance FromJSON UserProfile where
           = withObject "UserProfile"
               (\ x ->
                  UserProfile' <$>
-                   x .:? "SshUsername" <*> x .:? "SshPublicKey" <*>
-                     x .:? "AllowSelfManagement"
-                     <*> x .:? "IamUserArn"
-                     <*> x .:? "Name")
+                   (x .:? "SshUsername") <*> (x .:? "SshPublicKey") <*>
+                     (x .:? "AllowSelfManagement")
+                     <*> (x .:? "IamUserArn")
+                     <*> (x .:? "Name"))
 
 data VirtualizationType = Paravirtual | HVM deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -3549,18 +3557,18 @@ instance FromJSON Volume where
           = withObject "Volume"
               (\ x ->
                  Volume' <$>
-                   x .:? "InstanceId" <*> x .:? "Status" <*>
-                     x .:? "Size"
-                     <*> x .:? "Iops"
-                     <*> x .:? "Device"
-                     <*> x .:? "Name"
-                     <*> x .:? "AvailabilityZone"
-                     <*> x .:? "RaidArrayId"
-                     <*> x .:? "VolumeId"
-                     <*> x .:? "Region"
-                     <*> x .:? "VolumeType"
-                     <*> x .:? "Ec2VolumeId"
-                     <*> x .:? "MountPoint")
+                   (x .:? "InstanceId") <*> (x .:? "Status") <*>
+                     (x .:? "Size")
+                     <*> (x .:? "Iops")
+                     <*> (x .:? "Device")
+                     <*> (x .:? "Name")
+                     <*> (x .:? "AvailabilityZone")
+                     <*> (x .:? "RaidArrayId")
+                     <*> (x .:? "VolumeId")
+                     <*> (x .:? "Region")
+                     <*> (x .:? "VolumeType")
+                     <*> (x .:? "Ec2VolumeId")
+                     <*> (x .:? "MountPoint"))
 
 -- | /See:/ 'volumeConfiguration' smart constructor.
 --
@@ -3617,11 +3625,11 @@ instance FromJSON VolumeConfiguration where
           = withObject "VolumeConfiguration"
               (\ x ->
                  VolumeConfiguration' <$>
-                   x .:? "Iops" <*> x .:? "RaidLevel" <*>
-                     x .:? "VolumeType"
-                     <*> x .: "MountPoint"
-                     <*> x .: "NumberOfDisks"
-                     <*> x .: "Size")
+                   (x .:? "Iops") <*> (x .:? "RaidLevel") <*>
+                     (x .:? "VolumeType")
+                     <*> (x .: "MountPoint")
+                     <*> (x .: "NumberOfDisks")
+                     <*> (x .: "Size"))
 
 instance ToJSON VolumeConfiguration where
         toJSON VolumeConfiguration'{..}
@@ -3674,52 +3682,52 @@ instance FromJSON VolumeType where
 -- * 'wassSunday'
 --
 -- * 'wassTuesday'
-data WeeklyAutoScalingSchedule = WeeklyAutoScalingSchedule'{_wassThursday :: Maybe (HashMap Text Text), _wassWednesday :: Maybe (HashMap Text Text), _wassSaturday :: Maybe (HashMap Text Text), _wassMonday :: Maybe (HashMap Text Text), _wassFriday :: Maybe (HashMap Text Text), _wassSunday :: Maybe (HashMap Text Text), _wassTuesday :: Maybe (HashMap Text Text)} deriving (Eq, Read, Show)
+data WeeklyAutoScalingSchedule = WeeklyAutoScalingSchedule'{_wassThursday :: Maybe (Map Text Text), _wassWednesday :: Maybe (Map Text Text), _wassSaturday :: Maybe (Map Text Text), _wassMonday :: Maybe (Map Text Text), _wassFriday :: Maybe (Map Text Text), _wassSunday :: Maybe (Map Text Text), _wassTuesday :: Maybe (Map Text Text)} deriving (Eq, Read, Show)
 
 -- | 'WeeklyAutoScalingSchedule' smart constructor.
 weeklyAutoScalingSchedule :: WeeklyAutoScalingSchedule
 weeklyAutoScalingSchedule = WeeklyAutoScalingSchedule'{_wassThursday = Nothing, _wassWednesday = Nothing, _wassSaturday = Nothing, _wassMonday = Nothing, _wassFriday = Nothing, _wassSunday = Nothing, _wassTuesday = Nothing};
 
 -- | The schedule for Thursday.
-wassThursday :: Lens' WeeklyAutoScalingSchedule (Maybe (HashMap Text Text))
-wassThursday = lens _wassThursday (\ s a -> s{_wassThursday = a}) . mapping _Coerce;
+wassThursday :: Lens' WeeklyAutoScalingSchedule (Map Text Text)
+wassThursday = lens _wassThursday (\ s a -> s{_wassThursday = a}) . _Default . _Map;
 
 -- | The schedule for Wednesday.
-wassWednesday :: Lens' WeeklyAutoScalingSchedule (Maybe (HashMap Text Text))
-wassWednesday = lens _wassWednesday (\ s a -> s{_wassWednesday = a}) . mapping _Coerce;
+wassWednesday :: Lens' WeeklyAutoScalingSchedule (Map Text Text)
+wassWednesday = lens _wassWednesday (\ s a -> s{_wassWednesday = a}) . _Default . _Map;
 
 -- | The schedule for Saturday.
-wassSaturday :: Lens' WeeklyAutoScalingSchedule (Maybe (HashMap Text Text))
-wassSaturday = lens _wassSaturday (\ s a -> s{_wassSaturday = a}) . mapping _Coerce;
+wassSaturday :: Lens' WeeklyAutoScalingSchedule (Map Text Text)
+wassSaturday = lens _wassSaturday (\ s a -> s{_wassSaturday = a}) . _Default . _Map;
 
 -- | The schedule for Monday.
-wassMonday :: Lens' WeeklyAutoScalingSchedule (Maybe (HashMap Text Text))
-wassMonday = lens _wassMonday (\ s a -> s{_wassMonday = a}) . mapping _Coerce;
+wassMonday :: Lens' WeeklyAutoScalingSchedule (Map Text Text)
+wassMonday = lens _wassMonday (\ s a -> s{_wassMonday = a}) . _Default . _Map;
 
 -- | The schedule for Friday.
-wassFriday :: Lens' WeeklyAutoScalingSchedule (Maybe (HashMap Text Text))
-wassFriday = lens _wassFriday (\ s a -> s{_wassFriday = a}) . mapping _Coerce;
+wassFriday :: Lens' WeeklyAutoScalingSchedule (Map Text Text)
+wassFriday = lens _wassFriday (\ s a -> s{_wassFriday = a}) . _Default . _Map;
 
 -- | The schedule for Sunday.
-wassSunday :: Lens' WeeklyAutoScalingSchedule (Maybe (HashMap Text Text))
-wassSunday = lens _wassSunday (\ s a -> s{_wassSunday = a}) . mapping _Coerce;
+wassSunday :: Lens' WeeklyAutoScalingSchedule (Map Text Text)
+wassSunday = lens _wassSunday (\ s a -> s{_wassSunday = a}) . _Default . _Map;
 
 -- | The schedule for Tuesday.
-wassTuesday :: Lens' WeeklyAutoScalingSchedule (Maybe (HashMap Text Text))
-wassTuesday = lens _wassTuesday (\ s a -> s{_wassTuesday = a}) . mapping _Coerce;
+wassTuesday :: Lens' WeeklyAutoScalingSchedule (Map Text Text)
+wassTuesday = lens _wassTuesday (\ s a -> s{_wassTuesday = a}) . _Default . _Map;
 
 instance FromJSON WeeklyAutoScalingSchedule where
         parseJSON
           = withObject "WeeklyAutoScalingSchedule"
               (\ x ->
                  WeeklyAutoScalingSchedule' <$>
-                   x .:? "Thursday" .!= mempty <*>
-                     x .:? "Wednesday" .!= mempty
-                     <*> x .:? "Saturday" .!= mempty
-                     <*> x .:? "Monday" .!= mempty
-                     <*> x .:? "Friday" .!= mempty
-                     <*> x .:? "Sunday" .!= mempty
-                     <*> x .:? "Tuesday" .!= mempty)
+                   (x .:? "Thursday" .!= mempty) <*>
+                     (x .:? "Wednesday" .!= mempty)
+                     <*> (x .:? "Saturday" .!= mempty)
+                     <*> (x .:? "Monday" .!= mempty)
+                     <*> (x .:? "Friday" .!= mempty)
+                     <*> (x .:? "Sunday" .!= mempty)
+                     <*> (x .:? "Tuesday" .!= mempty))
 
 instance ToJSON WeeklyAutoScalingSchedule where
         toJSON WeeklyAutoScalingSchedule'{..}

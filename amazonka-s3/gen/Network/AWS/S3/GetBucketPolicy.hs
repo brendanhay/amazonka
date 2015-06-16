@@ -61,7 +61,7 @@ instance AWSRequest GetBucketPolicy where
         response
           = receiveXML
               (\ s h x ->
-                 GetBucketPolicyResponse' <$> x .@? "Policy")
+                 GetBucketPolicyResponse' <$> (x .@? "Policy"))
 
 instance ToHeaders GetBucketPolicy where
         toHeaders = const mempty

@@ -126,7 +126,7 @@ instance AWSRequest GetSessionToken where
         response
           = receiveXMLWrapper "GetSessionTokenResult"
               (\ s h x ->
-                 GetSessionTokenResponse' <$> x .@? "Credentials")
+                 GetSessionTokenResponse' <$> (x .@? "Credentials"))
 
 instance ToHeaders GetSessionToken where
         toHeaders = const mempty

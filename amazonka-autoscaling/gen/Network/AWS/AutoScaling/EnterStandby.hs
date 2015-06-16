@@ -62,8 +62,8 @@ enterStandby pAutoScalingGroupName pShouldDecrementDesiredCapacity = EnterStandb
 
 -- | One or more instances to move into @Standby@ mode. You must specify at
 -- least one instance ID.
-esInstanceIds :: Lens' EnterStandby (Maybe [Text])
-esInstanceIds = lens _esInstanceIds (\ s a -> s{_esInstanceIds = a});
+esInstanceIds :: Lens' EnterStandby [Text]
+esInstanceIds = lens _esInstanceIds (\ s a -> s{_esInstanceIds = a}) . _Default;
 
 -- | The name of the Auto Scaling group.
 esAutoScalingGroupName :: Lens' EnterStandby Text
@@ -85,7 +85,7 @@ instance AWSRequest EnterStandby where
               (\ s h x ->
                  EnterStandbyResponse' <$>
                    (x .@? "Activities" .!@ mempty >>=
-                      parseXMLList "member"))
+                      may (parseXMLList "member")))
 
 instance ToHeaders EnterStandby where
         toHeaders = const mempty
@@ -98,7 +98,8 @@ instance ToQuery EnterStandby where
           = mconcat
               ["Action" =: ("EnterStandby" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
-               "InstanceIds" =: "member" =: _esInstanceIds,
+               "InstanceIds" =:
+                 toQuery (toQueryList "member" <$> _esInstanceIds),
                "AutoScalingGroupName" =: _esAutoScalingGroupName,
                "ShouldDecrementDesiredCapacity" =:
                  _esShouldDecrementDesiredCapacity]
@@ -115,5 +116,5 @@ enterStandbyResponse :: EnterStandbyResponse
 enterStandbyResponse = EnterStandbyResponse'{_esrActivities = Nothing};
 
 -- | The activities related to moving instances into @Standby@ mode.
-esrActivities :: Lens' EnterStandbyResponse (Maybe [Activity])
-esrActivities = lens _esrActivities (\ s a -> s{_esrActivities = a});
+esrActivities :: Lens' EnterStandbyResponse [Activity]
+esrActivities = lens _esrActivities (\ s a -> s{_esrActivities = a}) . _Default;

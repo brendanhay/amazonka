@@ -55,7 +55,7 @@ instance AWSRequest ListOpenIDConnectProviders where
               (\ s h x ->
                  ListOpenIDConnectProvidersResponse' <$>
                    (x .@? "OpenIDConnectProviderList" .!@ mempty >>=
-                      parseXMLList "member"))
+                      may (parseXMLList "member")))
 
 instance ToHeaders ListOpenIDConnectProviders where
         toHeaders = const mempty
@@ -83,5 +83,5 @@ listOpenIDConnectProvidersResponse :: ListOpenIDConnectProvidersResponse
 listOpenIDConnectProvidersResponse = ListOpenIDConnectProvidersResponse'{_loidcprOpenIDConnectProviderList = Nothing};
 
 -- | The list of IAM OpenID Connect providers in the AWS account.
-loidcprOpenIDConnectProviderList :: Lens' ListOpenIDConnectProvidersResponse (Maybe [OpenIDConnectProviderListEntry])
-loidcprOpenIDConnectProviderList = lens _loidcprOpenIDConnectProviderList (\ s a -> s{_loidcprOpenIDConnectProviderList = a});
+loidcprOpenIDConnectProviderList :: Lens' ListOpenIDConnectProvidersResponse [OpenIDConnectProviderListEntry]
+loidcprOpenIDConnectProviderList = lens _loidcprOpenIDConnectProviderList (\ s a -> s{_loidcprOpenIDConnectProviderList = a}) . _Default;

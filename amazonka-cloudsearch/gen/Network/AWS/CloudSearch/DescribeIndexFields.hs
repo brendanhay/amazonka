@@ -69,8 +69,8 @@ difDeployed = lens _difDeployed (\ s a -> s{_difDeployed = a});
 
 -- | A list of the index fields you want to describe. If not specified,
 -- information is returned for all configured index fields.
-difFieldNames :: Lens' DescribeIndexFields (Maybe [Text])
-difFieldNames = lens _difFieldNames (\ s a -> s{_difFieldNames = a});
+difFieldNames :: Lens' DescribeIndexFields [Text]
+difFieldNames = lens _difFieldNames (\ s a -> s{_difFieldNames = a}) . _Default;
 
 -- | The name of the domain you want to describe.
 difDomainName :: Lens' DescribeIndexFields Text
@@ -100,7 +100,8 @@ instance ToQuery DescribeIndexFields where
               ["Action" =: ("DescribeIndexFields" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
                "Deployed" =: _difDeployed,
-               "FieldNames" =: "member" =: _difFieldNames,
+               "FieldNames" =:
+                 toQuery (toQueryList "member" <$> _difFieldNames),
                "DomainName" =: _difDomainName]
 
 -- | /See:/ 'describeIndexFieldsResponse' smart constructor.

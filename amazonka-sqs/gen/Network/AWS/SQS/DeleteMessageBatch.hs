@@ -85,8 +85,8 @@ instance AWSRequest DeleteMessageBatch where
           = receiveXMLWrapper "DeleteMessageBatchResult"
               (\ s h x ->
                  DeleteMessageBatchResponse' <$>
-                   parseXMLList "DeleteMessageBatchResultEntry" x <*>
-                     parseXMLList "BatchResultErrorEntry" x)
+                   (parseXMLList "DeleteMessageBatchResultEntry" x) <*>
+                     (parseXMLList "BatchResultErrorEntry" x))
 
 instance ToHeaders DeleteMessageBatch where
         toHeaders = const mempty
@@ -100,7 +100,8 @@ instance ToQuery DeleteMessageBatch where
               ["Action" =: ("DeleteMessageBatch" :: ByteString),
                "Version" =: ("2012-11-05" :: ByteString),
                "QueueUrl" =: _dmbQueueURL,
-               "DeleteMessageBatchRequestEntry" =: _dmbEntries]
+               toQueryList "DeleteMessageBatchRequestEntry"
+                 _dmbEntries]
 
 -- | /See:/ 'deleteMessageBatchResponse' smart constructor.
 --

@@ -66,8 +66,8 @@ resumeProcesses pAutoScalingGroupName = ResumeProcesses'{_rpScalingProcesses = N
 -- -   AlarmNotification
 -- -   ScheduledActions
 -- -   AddToLoadBalancer
-rpScalingProcesses :: Lens' ResumeProcesses (Maybe [Text])
-rpScalingProcesses = lens _rpScalingProcesses (\ s a -> s{_rpScalingProcesses = a});
+rpScalingProcesses :: Lens' ResumeProcesses [Text]
+rpScalingProcesses = lens _rpScalingProcesses (\ s a -> s{_rpScalingProcesses = a}) . _Default;
 
 -- | The name or Amazon Resource Name (ARN) of the Auto Scaling group.
 rpAutoScalingGroupName :: Lens' ResumeProcesses Text
@@ -91,7 +91,8 @@ instance ToQuery ResumeProcesses where
               ["Action" =: ("ResumeProcesses" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
                "ScalingProcesses" =:
-                 "member" =: _rpScalingProcesses,
+                 toQuery
+                   (toQueryList "member" <$> _rpScalingProcesses),
                "AutoScalingGroupName" =: _rpAutoScalingGroupName]
 
 -- | /See:/ 'resumeProcessesResponse' smart constructor.

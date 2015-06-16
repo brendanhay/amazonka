@@ -61,7 +61,7 @@ instance AWSRequest DeleteLunaClient where
         response
           = receiveJSON
               (\ s h x ->
-                 DeleteLunaClientResponse' <$> x .:> "Status")
+                 DeleteLunaClientResponse' <$> (x .:> "Status"))
 
 instance ToHeaders DeleteLunaClient where
         toHeaders

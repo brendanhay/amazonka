@@ -65,7 +65,7 @@ instance AWSRequest DeleteIdentities where
           = receiveJSON
               (\ s h x ->
                  DeleteIdentitiesResponse' <$>
-                   x .?> "UnprocessedIdentityIds" .!@ mempty)
+                   (x .?> "UnprocessedIdentityIds" .!@ mempty))
 
 instance ToHeaders DeleteIdentities where
         toHeaders
@@ -101,5 +101,5 @@ deleteIdentitiesResponse = DeleteIdentitiesResponse'{_dirUnprocessedIdentityIds 
 
 -- | An array of UnprocessedIdentityId objects, each of which contains an
 -- ErrorCode and IdentityId.
-dirUnprocessedIdentityIds :: Lens' DeleteIdentitiesResponse (Maybe [UnprocessedIdentityId])
-dirUnprocessedIdentityIds = lens _dirUnprocessedIdentityIds (\ s a -> s{_dirUnprocessedIdentityIds = a});
+dirUnprocessedIdentityIds :: Lens' DeleteIdentitiesResponse [UnprocessedIdentityId]
+dirUnprocessedIdentityIds = lens _dirUnprocessedIdentityIds (\ s a -> s{_dirUnprocessedIdentityIds = a}) . _Default;

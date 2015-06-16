@@ -93,8 +93,8 @@ instance AWSRequest GetConsoleOutput where
           = receiveXML
               (\ s h x ->
                  GetConsoleOutputResponse' <$>
-                   x .@? "instanceId" <*> x .@? "output" <*>
-                     x .@? "timestamp")
+                   (x .@? "instanceId") <*> (x .@? "output") <*>
+                     (x .@? "timestamp"))
 
 instance ToHeaders GetConsoleOutput where
         toHeaders = const mempty

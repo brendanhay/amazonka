@@ -125,12 +125,12 @@ describeVolumes = DescribeVolumes'{_des1Filters = Nothing, _des1VolumeIds = Noth
 --     General Purpose (SSD) volumes, @io1@ for Provisioned IOPS (SSD)
 --     volumes, or @standard@ for Magnetic volumes.
 --
-des1Filters :: Lens' DescribeVolumes (Maybe [Filter])
-des1Filters = lens _des1Filters (\ s a -> s{_des1Filters = a});
+des1Filters :: Lens' DescribeVolumes [Filter]
+des1Filters = lens _des1Filters (\ s a -> s{_des1Filters = a}) . _Default;
 
 -- | One or more volume IDs.
-des1VolumeIds :: Lens' DescribeVolumes (Maybe [Text])
-des1VolumeIds = lens _des1VolumeIds (\ s a -> s{_des1VolumeIds = a});
+des1VolumeIds :: Lens' DescribeVolumes [Text]
+des1VolumeIds = lens _des1VolumeIds (\ s a -> s{_des1VolumeIds = a}) . _Default;
 
 -- | The @NextToken@ value returned from a previous paginated
 -- @DescribeVolumes@ request where @MaxResults@ was used and the results
@@ -168,7 +168,8 @@ instance AWSRequest DescribeVolumes where
           = receiveXML
               (\ s h x ->
                  DescribeVolumesResponse' <$>
-                   x .@? "nextToken" <*> parseXMLList "item" x)
+                   (x .@? "nextToken") <*>
+                     (may (parseXMLList "item") x))
 
 instance ToHeaders DescribeVolumes where
         toHeaders = const mempty
@@ -181,8 +182,8 @@ instance ToQuery DescribeVolumes where
           = mconcat
               ["Action" =: ("DescribeVolumes" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Filter" =: _des1Filters,
-               "VolumeId" =: _des1VolumeIds,
+               toQuery (toQueryList "Filter" <$> _des1Filters),
+               toQuery (toQueryList "VolumeId" <$> _des1VolumeIds),
                "NextToken" =: _des1NextToken,
                "DryRun" =: _des1DryRun,
                "MaxResults" =: _des1MaxResults]
@@ -208,5 +209,5 @@ dvrNextToken :: Lens' DescribeVolumesResponse (Maybe Text)
 dvrNextToken = lens _dvrNextToken (\ s a -> s{_dvrNextToken = a});
 
 -- | Information about the volumes.
-dvrVolumes :: Lens' DescribeVolumesResponse (Maybe [Volume])
-dvrVolumes = lens _dvrVolumes (\ s a -> s{_dvrVolumes = a});
+dvrVolumes :: Lens' DescribeVolumesResponse [Volume]
+dvrVolumes = lens _dvrVolumes (\ s a -> s{_dvrVolumes = a}) . _Default;

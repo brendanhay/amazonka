@@ -88,7 +88,8 @@ instance AWSRequest DescribeVPCEndpointServices where
           = receiveXML
               (\ s h x ->
                  DescribeVPCEndpointServicesResponse' <$>
-                   parseXMLList "item" x <*> x .@? "nextToken")
+                   (may (parseXMLList "item") x) <*>
+                     (x .@? "nextToken"))
 
 instance ToHeaders DescribeVPCEndpointServices where
         toHeaders = const mempty
@@ -120,8 +121,8 @@ describeVPCEndpointServicesResponse :: DescribeVPCEndpointServicesResponse
 describeVPCEndpointServicesResponse = DescribeVPCEndpointServicesResponse'{_dvesrServiceNames = Nothing, _dvesrNextToken = Nothing};
 
 -- | A list of supported AWS services.
-dvesrServiceNames :: Lens' DescribeVPCEndpointServicesResponse (Maybe [Text])
-dvesrServiceNames = lens _dvesrServiceNames (\ s a -> s{_dvesrServiceNames = a});
+dvesrServiceNames :: Lens' DescribeVPCEndpointServicesResponse [Text]
+dvesrServiceNames = lens _dvesrServiceNames (\ s a -> s{_dvesrServiceNames = a}) . _Default;
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.

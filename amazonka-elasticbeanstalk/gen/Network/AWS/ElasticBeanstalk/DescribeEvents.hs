@@ -148,9 +148,9 @@ instance AWSRequest DescribeEvents where
           = receiveXMLWrapper "DescribeEventsResult"
               (\ s h x ->
                  DescribeEventsResponse' <$>
-                   x .@? "NextToken" <*>
+                   (x .@? "NextToken") <*>
                      (x .@? "Events" .!@ mempty >>=
-                        parseXMLList "member"))
+                        may (parseXMLList "member")))
 
 instance ToHeaders DescribeEvents where
         toHeaders = const mempty
@@ -195,5 +195,5 @@ derNextToken :: Lens' DescribeEventsResponse (Maybe Text)
 derNextToken = lens _derNextToken (\ s a -> s{_derNextToken = a});
 
 -- | A list of EventDescription.
-derEvents :: Lens' DescribeEventsResponse (Maybe [EventDescription])
-derEvents = lens _derEvents (\ s a -> s{_derEvents = a});
+derEvents :: Lens' DescribeEventsResponse [EventDescription]
+derEvents = lens _derEvents (\ s a -> s{_derEvents = a}) . _Default;

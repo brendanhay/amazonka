@@ -63,7 +63,7 @@ instance AWSRequest GetLoginProfile where
         response
           = receiveXMLWrapper "GetLoginProfileResult"
               (\ s h x ->
-                 GetLoginProfileResponse' <$> x .@ "LoginProfile")
+                 GetLoginProfileResponse' <$> (x .@ "LoginProfile"))
 
 instance ToHeaders GetLoginProfile where
         toHeaders = const mempty

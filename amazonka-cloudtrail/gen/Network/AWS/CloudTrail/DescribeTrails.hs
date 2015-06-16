@@ -52,8 +52,8 @@ describeTrails :: DescribeTrails
 describeTrails = DescribeTrails'{_dtTrailNameList = Nothing};
 
 -- | The trail returned.
-dtTrailNameList :: Lens' DescribeTrails (Maybe [Text])
-dtTrailNameList = lens _dtTrailNameList (\ s a -> s{_dtTrailNameList = a});
+dtTrailNameList :: Lens' DescribeTrails [Text]
+dtTrailNameList = lens _dtTrailNameList (\ s a -> s{_dtTrailNameList = a}) . _Default;
 
 instance AWSRequest DescribeTrails where
         type Sv DescribeTrails = CloudTrail
@@ -63,7 +63,7 @@ instance AWSRequest DescribeTrails where
           = receiveJSON
               (\ s h x ->
                  DescribeTrailsResponse' <$>
-                   x .?> "trailList" .!@ mempty)
+                   (x .?> "trailList" .!@ mempty))
 
 instance ToHeaders DescribeTrails where
         toHeaders
@@ -97,5 +97,5 @@ describeTrailsResponse :: DescribeTrailsResponse
 describeTrailsResponse = DescribeTrailsResponse'{_dtrTrailList = Nothing};
 
 -- | The list of trails.
-dtrTrailList :: Lens' DescribeTrailsResponse (Maybe [Trail])
-dtrTrailList = lens _dtrTrailList (\ s a -> s{_dtrTrailList = a});
+dtrTrailList :: Lens' DescribeTrailsResponse [Trail]
+dtrTrailList = lens _dtrTrailList (\ s a -> s{_dtrTrailList = a}) . _Default;

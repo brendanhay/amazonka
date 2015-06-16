@@ -77,11 +77,11 @@ instance AWSRequest GetOperationDetail where
           = receiveJSON
               (\ s h x ->
                  GetOperationDetailResponse' <$>
-                   x .?> "Status" <*> x .?> "SubmittedDate" <*>
-                     x .?> "DomainName"
-                     <*> x .?> "OperationId"
-                     <*> x .?> "Type"
-                     <*> x .?> "Message")
+                   (x .?> "Status") <*> (x .?> "SubmittedDate") <*>
+                     (x .?> "DomainName")
+                     <*> (x .?> "OperationId")
+                     <*> (x .?> "Type")
+                     <*> (x .?> "Message"))
 
 instance ToHeaders GetOperationDetail where
         toHeaders

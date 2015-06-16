@@ -66,8 +66,8 @@ createClusterSubnetGroup :: Text -> Text -> CreateClusterSubnetGroup
 createClusterSubnetGroup pClusterSubnetGroupName pDescription = CreateClusterSubnetGroup'{_ccsgTags = Nothing, _ccsgClusterSubnetGroupName = pClusterSubnetGroupName, _ccsgDescription = pDescription, _ccsgSubnetIds = mempty};
 
 -- | A list of tag instances.
-ccsgTags :: Lens' CreateClusterSubnetGroup (Maybe [Tag])
-ccsgTags = lens _ccsgTags (\ s a -> s{_ccsgTags = a});
+ccsgTags :: Lens' CreateClusterSubnetGroup [Tag]
+ccsgTags = lens _ccsgTags (\ s a -> s{_ccsgTags = a}) . _Default;
 
 -- | The name for the subnet group. Amazon Redshift stores the value as a
 -- lowercase string.
@@ -101,7 +101,7 @@ instance AWSRequest CreateClusterSubnetGroup where
           = receiveXMLWrapper "CreateClusterSubnetGroupResult"
               (\ s h x ->
                  CreateClusterSubnetGroupResponse' <$>
-                   x .@? "ClusterSubnetGroup")
+                   (x .@? "ClusterSubnetGroup"))
 
 instance ToHeaders CreateClusterSubnetGroup where
         toHeaders = const mempty
@@ -115,11 +115,12 @@ instance ToQuery CreateClusterSubnetGroup where
               ["Action" =:
                  ("CreateClusterSubnetGroup" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "Tags" =: "Tag" =: _ccsgTags,
+               "Tags" =: toQuery (toQueryList "Tag" <$> _ccsgTags),
                "ClusterSubnetGroupName" =:
                  _ccsgClusterSubnetGroupName,
                "Description" =: _ccsgDescription,
-               "SubnetIds" =: "SubnetIdentifier" =: _ccsgSubnetIds]
+               "SubnetIds" =:
+                 toQueryList "SubnetIdentifier" _ccsgSubnetIds]
 
 -- | /See:/ 'createClusterSubnetGroupResponse' smart constructor.
 --

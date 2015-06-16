@@ -74,8 +74,8 @@ respondDecisionTaskCompleted pTaskToken = RespondDecisionTaskCompleted'{_rdtcDec
 -- | The list of decisions (possibly empty) made by the decider while
 -- processing this decision task. See the docs for the Decision structure
 -- for details.
-rdtcDecisions :: Lens' RespondDecisionTaskCompleted (Maybe [Decision])
-rdtcDecisions = lens _rdtcDecisions (\ s a -> s{_rdtcDecisions = a});
+rdtcDecisions :: Lens' RespondDecisionTaskCompleted [Decision]
+rdtcDecisions = lens _rdtcDecisions (\ s a -> s{_rdtcDecisions = a}) . _Default;
 
 -- | User defined context to add to workflow execution.
 rdtcExecutionContext :: Lens' RespondDecisionTaskCompleted (Maybe Text)

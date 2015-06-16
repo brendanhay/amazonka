@@ -95,7 +95,7 @@ instance ToQuery CreateOrUpdateTags where
           = mconcat
               ["Action" =: ("CreateOrUpdateTags" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
-               "Tags" =: "member" =: _coutTags]
+               "Tags" =: toQueryList "member" _coutTags]
 
 -- | /See:/ 'createOrUpdateTagsResponse' smart constructor.
 data CreateOrUpdateTagsResponse = CreateOrUpdateTagsResponse' deriving (Eq, Read, Show)

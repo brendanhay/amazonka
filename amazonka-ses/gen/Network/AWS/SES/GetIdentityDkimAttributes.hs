@@ -99,19 +99,19 @@ instance ToQuery GetIdentityDkimAttributes where
               ["Action" =:
                  ("GetIdentityDkimAttributes" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "Identities" =: "member" =: _gidaIdentities]
+               "Identities" =: toQueryList "member" _gidaIdentities]
 
 -- | /See:/ 'getIdentityDkimAttributesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gidarDkimAttributes'
-newtype GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse'{_gidarDkimAttributes :: HashMap Text IdentityDkimAttributes} deriving (Eq, Read, Show)
+newtype GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse'{_gidarDkimAttributes :: Map Text IdentityDkimAttributes} deriving (Eq, Read, Show)
 
 -- | 'GetIdentityDkimAttributesResponse' smart constructor.
 getIdentityDkimAttributesResponse :: GetIdentityDkimAttributesResponse
 getIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse'{_gidarDkimAttributes = mempty};
 
 -- | The DKIM attributes for an email address or a domain.
-gidarDkimAttributes :: Lens' GetIdentityDkimAttributesResponse (HashMap Text IdentityDkimAttributes)
-gidarDkimAttributes = lens _gidarDkimAttributes (\ s a -> s{_gidarDkimAttributes = a}) . _Coerce;
+gidarDkimAttributes :: Lens' GetIdentityDkimAttributesResponse (Map Text IdentityDkimAttributes)
+gidarDkimAttributes = lens _gidarDkimAttributes (\ s a -> s{_gidarDkimAttributes = a}) . _Map;

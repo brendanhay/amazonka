@@ -90,8 +90,7 @@ instance AWSRequest CreateAppCookieStickinessPolicy
              CreateAppCookieStickinessPolicyResponse
         request = post
         response
-          = receiveNullWrapper
-              "CreateAppCookieStickinessPolicyResult"
+          = receiveNull
               CreateAppCookieStickinessPolicyResponse'
 
 instance ToHeaders CreateAppCookieStickinessPolicy

@@ -72,7 +72,7 @@ instance AWSRequest DeleteAnalysisScheme where
           = receiveXMLWrapper "DeleteAnalysisSchemeResult"
               (\ s h x ->
                  DeleteAnalysisSchemeResponse' <$>
-                   x .@ "AnalysisScheme")
+                   (x .@ "AnalysisScheme"))
 
 instance ToHeaders DeleteAnalysisScheme where
         toHeaders = const mempty

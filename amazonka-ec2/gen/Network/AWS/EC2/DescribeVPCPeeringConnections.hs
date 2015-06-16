@@ -99,14 +99,14 @@ describeVPCPeeringConnections = DescribeVPCPeeringConnections'{_dvpcpcFilters = 
 --
 -- -   @vpc-peering-connection-id@ - The ID of the VPC peering connection.
 --
-dvpcpcFilters :: Lens' DescribeVPCPeeringConnections (Maybe [Filter])
-dvpcpcFilters = lens _dvpcpcFilters (\ s a -> s{_dvpcpcFilters = a});
+dvpcpcFilters :: Lens' DescribeVPCPeeringConnections [Filter]
+dvpcpcFilters = lens _dvpcpcFilters (\ s a -> s{_dvpcpcFilters = a}) . _Default;
 
 -- | One or more VPC peering connection IDs.
 --
 -- Default: Describes all your VPC peering connections.
-dvpcpcVPCPeeringConnectionIds :: Lens' DescribeVPCPeeringConnections (Maybe [Text])
-dvpcpcVPCPeeringConnectionIds = lens _dvpcpcVPCPeeringConnectionIds (\ s a -> s{_dvpcpcVPCPeeringConnectionIds = a});
+dvpcpcVPCPeeringConnectionIds :: Lens' DescribeVPCPeeringConnections [Text]
+dvpcpcVPCPeeringConnectionIds = lens _dvpcpcVPCPeeringConnectionIds (\ s a -> s{_dvpcpcVPCPeeringConnectionIds = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -125,7 +125,7 @@ instance AWSRequest DescribeVPCPeeringConnections
           = receiveXML
               (\ s h x ->
                  DescribeVPCPeeringConnectionsResponse' <$>
-                   parseXMLList "item" x)
+                   (may (parseXMLList "item") x))
 
 instance ToHeaders DescribeVPCPeeringConnections
          where
@@ -140,8 +140,10 @@ instance ToQuery DescribeVPCPeeringConnections where
               ["Action" =:
                  ("DescribeVPCPeeringConnections" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Filter" =: _dvpcpcFilters,
-               "item" =: _dvpcpcVPCPeeringConnectionIds,
+               toQuery (toQueryList "Filter" <$> _dvpcpcFilters),
+               toQuery
+                 (toQueryList "item" <$>
+                    _dvpcpcVPCPeeringConnectionIds),
                "DryRun" =: _dvpcpcDryRun]
 
 -- | /See:/ 'describeVPCPeeringConnectionsResponse' smart constructor.
@@ -156,5 +158,5 @@ describeVPCPeeringConnectionsResponse :: DescribeVPCPeeringConnectionsResponse
 describeVPCPeeringConnectionsResponse = DescribeVPCPeeringConnectionsResponse'{_dvpcrVPCPeeringConnections = Nothing};
 
 -- | Information about the VPC peering connections.
-dvpcrVPCPeeringConnections :: Lens' DescribeVPCPeeringConnectionsResponse (Maybe [VPCPeeringConnection])
-dvpcrVPCPeeringConnections = lens _dvpcrVPCPeeringConnections (\ s a -> s{_dvpcrVPCPeeringConnections = a});
+dvpcrVPCPeeringConnections :: Lens' DescribeVPCPeeringConnectionsResponse [VPCPeeringConnection]
+dvpcrVPCPeeringConnections = lens _dvpcrVPCPeeringConnections (\ s a -> s{_dvpcrVPCPeeringConnections = a}) . _Default;

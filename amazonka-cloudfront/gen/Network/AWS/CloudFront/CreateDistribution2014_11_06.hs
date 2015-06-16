@@ -66,8 +66,8 @@ instance AWSRequest CreateDistribution2014_11_06
           = receiveXML
               (\ s h x ->
                  CreateDistribution2014_11_06Response' <$>
-                   h .#? "ETag" <*> x .@? "Distribution" <*>
-                     h .#? "Location")
+                   (h .#? "ETag") <*> (x .@? "Distribution") <*>
+                     (h .#? "Location"))
 
 instance ToElement CreateDistribution2014_11_06 where
         toElement

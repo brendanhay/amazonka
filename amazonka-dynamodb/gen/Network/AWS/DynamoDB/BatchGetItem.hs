@@ -213,9 +213,9 @@ instance AWSRequest BatchGetItem where
           = receiveJSON
               (\ s h x ->
                  BatchGetItemResponse' <$>
-                   x .?> "UnprocessedKeys" .!@ mempty <*>
-                     x .?> "Responses" .!@ mempty
-                     <*> x .?> "ConsumedCapacity" .!@ mempty)
+                   (x .?> "UnprocessedKeys" .!@ mempty) <*>
+                     (x .?> "Responses" .!@ mempty)
+                     <*> (x .?> "ConsumedCapacity" .!@ mempty))
 
 instance ToHeaders BatchGetItem where
         toHeaders

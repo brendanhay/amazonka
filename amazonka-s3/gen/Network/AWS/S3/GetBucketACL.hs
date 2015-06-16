@@ -64,8 +64,8 @@ instance AWSRequest GetBucketACL where
               (\ s h x ->
                  GetBucketACLResponse' <$>
                    (x .@? "AccessControlList" .!@ mempty >>=
-                      parseXMLList "Grant")
-                     <*> x .@? "Owner")
+                      may (parseXMLList "Grant"))
+                     <*> (x .@? "Owner"))
 
 instance ToHeaders GetBucketACL where
         toHeaders = const mempty
@@ -91,8 +91,8 @@ getBucketACLResponse :: GetBucketACLResponse
 getBucketACLResponse = GetBucketACLResponse'{_gbarGrants = Nothing, _gbarOwner = Nothing};
 
 -- | A list of grants.
-gbarGrants :: Lens' GetBucketACLResponse (Maybe [Grant])
-gbarGrants = lens _gbarGrants (\ s a -> s{_gbarGrants = a});
+gbarGrants :: Lens' GetBucketACLResponse [Grant]
+gbarGrants = lens _gbarGrants (\ s a -> s{_gbarGrants = a}) . _Default;
 
 -- | FIXME: Undocumented member.
 gbarOwner :: Lens' GetBucketACLResponse (Maybe Owner)

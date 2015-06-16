@@ -109,7 +109,7 @@ instance AWSRequest
               "AuthorizeClusterSecurityGroupIngressResult"
               (\ s h x ->
                  AuthorizeClusterSecurityGroupIngressResponse' <$>
-                   x .@? "ClusterSecurityGroup")
+                   (x .@? "ClusterSecurityGroup"))
 
 instance ToHeaders
          AuthorizeClusterSecurityGroupIngress where

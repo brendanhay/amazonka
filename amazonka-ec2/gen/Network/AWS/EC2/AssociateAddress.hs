@@ -135,7 +135,8 @@ instance AWSRequest AssociateAddress where
         response
           = receiveXML
               (\ s h x ->
-                 AssociateAddressResponse' <$> x .@? "associationId")
+                 AssociateAddressResponse' <$>
+                   (x .@? "associationId"))
 
 instance ToHeaders AssociateAddress where
         toHeaders = const mempty

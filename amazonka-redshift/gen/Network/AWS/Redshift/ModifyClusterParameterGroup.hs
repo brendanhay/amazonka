@@ -97,4 +97,5 @@ instance ToQuery ModifyClusterParameterGroup where
                  ("ModifyClusterParameterGroup" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
                "ParameterGroupName" =: _mcpgParameterGroupName,
-               "Parameters" =: "Parameter" =: _mcpgParameters]
+               "Parameters" =:
+                 toQueryList "Parameter" _mcpgParameters]

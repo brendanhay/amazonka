@@ -82,7 +82,7 @@ instance AWSRequest DescribeDomain where
           = receiveJSON
               (\ s h x ->
                  DescribeDomainResponse' <$>
-                   x .:> "domainInfo" <*> x .:> "configuration")
+                   (x .:> "domainInfo") <*> (x .:> "configuration"))
 
 instance ToHeaders DescribeDomain where
         toHeaders

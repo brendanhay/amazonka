@@ -93,8 +93,8 @@ instance AWSRequest ListDomains where
           = receiveJSON
               (\ s h x ->
                  ListDomainsResponse' <$>
-                   x .?> "NextPageMarker" <*>
-                     x .?> "Domains" .!@ mempty)
+                   (x .?> "NextPageMarker") <*>
+                     (x .?> "Domains" .!@ mempty))
 
 instance ToHeaders ListDomains where
         toHeaders

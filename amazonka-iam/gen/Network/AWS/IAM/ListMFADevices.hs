@@ -91,7 +91,7 @@ instance AWSRequest ListMFADevices where
           = receiveXMLWrapper "ListMFADevicesResult"
               (\ s h x ->
                  ListMFADevicesResponse' <$>
-                   x .@? "Marker" <*> x .@? "IsTruncated" <*>
+                   (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
                      (x .@? "MFADevices" .!@ mempty >>=
                         parseXMLList "member"))
 

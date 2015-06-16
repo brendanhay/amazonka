@@ -87,7 +87,7 @@ instance AWSRequest AttachNetworkInterface where
           = receiveXML
               (\ s h x ->
                  AttachNetworkInterfaceResponse' <$>
-                   x .@? "attachmentId")
+                   (x .@? "attachmentId"))
 
 instance ToHeaders AttachNetworkInterface where
         toHeaders = const mempty

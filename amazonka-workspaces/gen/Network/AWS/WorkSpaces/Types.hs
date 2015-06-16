@@ -204,7 +204,7 @@ ctName = lens _ctName (\ s a -> s{_ctName = a});
 instance FromJSON ComputeType where
         parseJSON
           = withObject "ComputeType"
-              (\ x -> ComputeType' <$> x .:? "Name")
+              (\ x -> ComputeType' <$> (x .:? "Name"))
 
 -- | /See:/ 'defaultWorkspaceCreationProperties' smart constructor.
 --
@@ -254,11 +254,11 @@ instance FromJSON DefaultWorkspaceCreationProperties
           = withObject "DefaultWorkspaceCreationProperties"
               (\ x ->
                  DefaultWorkspaceCreationProperties' <$>
-                   x .:? "CustomSecurityGroupId" <*>
-                     x .:? "UserEnabledAsLocalAdministrator"
-                     <*> x .:? "EnableWorkDocs"
-                     <*> x .:? "EnableInternetAccess"
-                     <*> x .:? "DefaultOu")
+                   (x .:? "CustomSecurityGroupId") <*>
+                     (x .:? "UserEnabledAsLocalAdministrator")
+                     <*> (x .:? "EnableWorkDocs")
+                     <*> (x .:? "EnableInternetAccess")
+                     <*> (x .:? "DefaultOu"))
 
 -- | /See:/ 'failedCreateWorkspaceRequest' smart constructor.
 --
@@ -293,8 +293,8 @@ instance FromJSON FailedCreateWorkspaceRequest where
           = withObject "FailedCreateWorkspaceRequest"
               (\ x ->
                  FailedCreateWorkspaceRequest' <$>
-                   x .:? "WorkspaceRequest" <*> x .:? "ErrorCode" <*>
-                     x .:? "ErrorMessage")
+                   (x .:? "WorkspaceRequest") <*> (x .:? "ErrorCode")
+                     <*> (x .:? "ErrorMessage"))
 
 -- | /See:/ 'failedWorkspaceChangeRequest' smart constructor.
 --
@@ -328,8 +328,8 @@ instance FromJSON FailedWorkspaceChangeRequest where
           = withObject "FailedWorkspaceChangeRequest"
               (\ x ->
                  FailedWorkspaceChangeRequest' <$>
-                   x .:? "ErrorCode" <*> x .:? "WorkspaceId" <*>
-                     x .:? "ErrorMessage")
+                   (x .:? "ErrorCode") <*> (x .:? "WorkspaceId") <*>
+                     (x .:? "ErrorMessage"))
 
 -- | /See:/ 'rebootRequest' smart constructor.
 --
@@ -406,7 +406,7 @@ usCapacity = lens _usCapacity (\ s a -> s{_usCapacity = a});
 instance FromJSON UserStorage where
         parseJSON
           = withObject "UserStorage"
-              (\ x -> UserStorage' <$> x .:? "Capacity")
+              (\ x -> UserStorage' <$> (x .:? "Capacity"))
 
 -- | /See:/ 'workspace' smart constructor.
 --
@@ -478,14 +478,14 @@ instance FromJSON Workspace where
           = withObject "Workspace"
               (\ x ->
                  Workspace' <$>
-                   x .:? "DirectoryId" <*> x .:? "IpAddress" <*>
-                     x .:? "State"
-                     <*> x .:? "UserName"
-                     <*> x .:? "SubnetId"
-                     <*> x .:? "BundleId"
-                     <*> x .:? "ErrorCode"
-                     <*> x .:? "WorkspaceId"
-                     <*> x .:? "ErrorMessage")
+                   (x .:? "DirectoryId") <*> (x .:? "IpAddress") <*>
+                     (x .:? "State")
+                     <*> (x .:? "UserName")
+                     <*> (x .:? "SubnetId")
+                     <*> (x .:? "BundleId")
+                     <*> (x .:? "ErrorCode")
+                     <*> (x .:? "WorkspaceId")
+                     <*> (x .:? "ErrorMessage"))
 
 -- | /See:/ 'workspaceBundle' smart constructor.
 --
@@ -539,10 +539,11 @@ instance FromJSON WorkspaceBundle where
           = withObject "WorkspaceBundle"
               (\ x ->
                  WorkspaceBundle' <$>
-                   x .:? "Owner" <*> x .:? "BundleId" <*> x .:? "Name"
-                     <*> x .:? "ComputeType"
-                     <*> x .:? "UserStorage"
-                     <*> x .:? "Description")
+                   (x .:? "Owner") <*> (x .:? "BundleId") <*>
+                     (x .:? "Name")
+                     <*> (x .:? "ComputeType")
+                     <*> (x .:? "UserStorage")
+                     <*> (x .:? "Description"))
 
 -- | /See:/ 'workspaceDirectory' smart constructor.
 --
@@ -603,8 +604,8 @@ wdCustomerUserName = lens _wdCustomerUserName (\ s a -> s{_wdCustomerUserName = 
 
 -- | An array of strings that contains the identifiers of the subnets used
 -- with the directory.
-wdSubnetIds :: Lens' WorkspaceDirectory (Maybe [Text])
-wdSubnetIds = lens _wdSubnetIds (\ s a -> s{_wdSubnetIds = a});
+wdSubnetIds :: Lens' WorkspaceDirectory [Text]
+wdSubnetIds = lens _wdSubnetIds (\ s a -> s{_wdSubnetIds = a}) . _Default;
 
 -- | The directory alias.
 wdAlias :: Lens' WorkspaceDirectory (Maybe Text)
@@ -625,8 +626,8 @@ wdWorkspaceCreationProperties = lens _wdWorkspaceCreationProperties (\ s a -> s{
 
 -- | An array of strings that contains the IP addresses of the DNS servers
 -- for the directory.
-wdDNSIPAddresses :: Lens' WorkspaceDirectory (Maybe [Text])
-wdDNSIPAddresses = lens _wdDNSIPAddresses (\ s a -> s{_wdDNSIPAddresses = a});
+wdDNSIPAddresses :: Lens' WorkspaceDirectory [Text]
+wdDNSIPAddresses = lens _wdDNSIPAddresses (\ s a -> s{_wdDNSIPAddresses = a}) . _Default;
 
 -- | The name of the directory.
 wdDirectoryName :: Lens' WorkspaceDirectory (Maybe Text)
@@ -637,17 +638,17 @@ instance FromJSON WorkspaceDirectory where
           = withObject "WorkspaceDirectory"
               (\ x ->
                  WorkspaceDirectory' <$>
-                   x .:? "RegistrationCode" <*> x .:? "IamRoleId" <*>
-                     x .:? "DirectoryId"
-                     <*> x .:? "State"
-                     <*> x .:? "CustomerUserName"
-                     <*> x .:? "SubnetIds" .!= mempty
-                     <*> x .:? "Alias"
-                     <*> x .:? "DirectoryType"
-                     <*> x .:? "WorkspaceSecurityGroupId"
-                     <*> x .:? "WorkspaceCreationProperties"
-                     <*> x .:? "DnsIpAddresses" .!= mempty
-                     <*> x .:? "DirectoryName")
+                   (x .:? "RegistrationCode") <*> (x .:? "IamRoleId")
+                     <*> (x .:? "DirectoryId")
+                     <*> (x .:? "State")
+                     <*> (x .:? "CustomerUserName")
+                     <*> (x .:? "SubnetIds" .!= mempty)
+                     <*> (x .:? "Alias")
+                     <*> (x .:? "DirectoryType")
+                     <*> (x .:? "WorkspaceSecurityGroupId")
+                     <*> (x .:? "WorkspaceCreationProperties")
+                     <*> (x .:? "DnsIpAddresses" .!= mempty)
+                     <*> (x .:? "DirectoryName"))
 
 data WorkspaceDirectoryState = Deregistering | Error | Registered | Registering | Deregistered deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -733,8 +734,8 @@ instance FromJSON WorkspaceRequest where
           = withObject "WorkspaceRequest"
               (\ x ->
                  WorkspaceRequest' <$>
-                   x .: "DirectoryId" <*> x .: "UserName" <*>
-                     x .: "BundleId")
+                   (x .: "DirectoryId") <*> (x .: "UserName") <*>
+                     (x .: "BundleId"))
 
 instance ToJSON WorkspaceRequest where
         toJSON WorkspaceRequest'{..}

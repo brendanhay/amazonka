@@ -84,24 +84,24 @@ instance AWSRequest DescribeResize where
           = receiveXMLWrapper "DescribeResizeResult"
               (\ s h x ->
                  DescribeResizeResponse' <$>
-                   x .@? "EstimatedTimeToCompletionInSeconds" <*>
-                     x .@? "Status"
+                   (x .@? "EstimatedTimeToCompletionInSeconds") <*>
+                     (x .@? "Status")
                      <*>
                      (x .@? "ImportTablesNotStarted" .!@ mempty >>=
-                        parseXMLList "member")
-                     <*> x .@? "AvgResizeRateInMegaBytesPerSecond"
-                     <*> x .@? "TargetNumberOfNodes"
-                     <*> x .@? "TargetNodeType"
+                        may (parseXMLList "member"))
+                     <*> (x .@? "AvgResizeRateInMegaBytesPerSecond")
+                     <*> (x .@? "TargetNumberOfNodes")
+                     <*> (x .@? "TargetNodeType")
                      <*>
                      (x .@? "ImportTablesInProgress" .!@ mempty >>=
-                        parseXMLList "member")
+                        may (parseXMLList "member"))
                      <*>
                      (x .@? "ImportTablesCompleted" .!@ mempty >>=
-                        parseXMLList "member")
-                     <*> x .@? "ProgressInMegaBytes"
-                     <*> x .@? "TotalResizeDataInMegaBytes"
-                     <*> x .@? "ElapsedTimeInSeconds"
-                     <*> x .@? "TargetClusterType")
+                        may (parseXMLList "member"))
+                     <*> (x .@? "ProgressInMegaBytes")
+                     <*> (x .@? "TotalResizeDataInMegaBytes")
+                     <*> (x .@? "ElapsedTimeInSeconds")
+                     <*> (x .@? "TargetClusterType"))
 
 instance ToHeaders DescribeResize where
         toHeaders = const mempty
@@ -165,8 +165,8 @@ drrStatus = lens _drrStatus (\ s a -> s{_drrStatus = a});
 -- | The names of tables that have not been yet imported.
 --
 -- Valid Values: List of table names
-drrImportTablesNotStarted :: Lens' DescribeResizeResponse (Maybe [Text])
-drrImportTablesNotStarted = lens _drrImportTablesNotStarted (\ s a -> s{_drrImportTablesNotStarted = a});
+drrImportTablesNotStarted :: Lens' DescribeResizeResponse [Text]
+drrImportTablesNotStarted = lens _drrImportTablesNotStarted (\ s a -> s{_drrImportTablesNotStarted = a}) . _Default;
 
 -- | The average rate of the resize operation over the last few minutes,
 -- measured in megabytes per second. After the resize operation completes,
@@ -187,14 +187,14 @@ drrTargetNodeType = lens _drrTargetNodeType (\ s a -> s{_drrTargetNodeType = a})
 -- | The names of tables that are being currently imported.
 --
 -- Valid Values: List of table names.
-drrImportTablesInProgress :: Lens' DescribeResizeResponse (Maybe [Text])
-drrImportTablesInProgress = lens _drrImportTablesInProgress (\ s a -> s{_drrImportTablesInProgress = a});
+drrImportTablesInProgress :: Lens' DescribeResizeResponse [Text]
+drrImportTablesInProgress = lens _drrImportTablesInProgress (\ s a -> s{_drrImportTablesInProgress = a}) . _Default;
 
 -- | The names of tables that have been completely imported .
 --
 -- Valid Values: List of table names.
-drrImportTablesCompleted :: Lens' DescribeResizeResponse (Maybe [Text])
-drrImportTablesCompleted = lens _drrImportTablesCompleted (\ s a -> s{_drrImportTablesCompleted = a});
+drrImportTablesCompleted :: Lens' DescribeResizeResponse [Text]
+drrImportTablesCompleted = lens _drrImportTablesCompleted (\ s a -> s{_drrImportTablesCompleted = a}) . _Default;
 
 -- | While the resize operation is in progress, this value shows the current
 -- amount of data, in megabytes, that has been processed so far. When the

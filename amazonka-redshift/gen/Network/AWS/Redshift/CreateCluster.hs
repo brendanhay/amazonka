@@ -139,8 +139,8 @@ ccHSMConfigurationIdentifier = lens _ccHSMConfigurationIdentifier (\ s a -> s{_c
 -- | A list of security groups to be associated with this cluster.
 --
 -- Default: The default cluster security group for Amazon Redshift.
-ccClusterSecurityGroups :: Lens' CreateCluster (Maybe [Text])
-ccClusterSecurityGroups = lens _ccClusterSecurityGroups (\ s a -> s{_ccClusterSecurityGroups = a});
+ccClusterSecurityGroups :: Lens' CreateCluster [Text]
+ccClusterSecurityGroups = lens _ccClusterSecurityGroups (\ s a -> s{_ccClusterSecurityGroups = a}) . _Default;
 
 -- | The number of days that automated snapshots are retained. If the value
 -- is 0, automated snapshots are disabled. Even if automated snapshots are
@@ -239,8 +239,8 @@ ccKMSKeyId = lens _ccKMSKeyId (\ s a -> s{_ccKMSKeyId = a});
 -- with the cluster.
 --
 -- Default: The default VPC security group is associated with the cluster.
-ccVPCSecurityGroupIds :: Lens' CreateCluster (Maybe [Text])
-ccVPCSecurityGroupIds = lens _ccVPCSecurityGroupIds (\ s a -> s{_ccVPCSecurityGroupIds = a});
+ccVPCSecurityGroupIds :: Lens' CreateCluster [Text]
+ccVPCSecurityGroupIds = lens _ccVPCSecurityGroupIds (\ s a -> s{_ccVPCSecurityGroupIds = a}) . _Default;
 
 -- | The type of the cluster. When cluster type is specified as
 --
@@ -313,8 +313,8 @@ ccDBName :: Lens' CreateCluster (Maybe Text)
 ccDBName = lens _ccDBName (\ s a -> s{_ccDBName = a});
 
 -- | A list of tag instances.
-ccTags :: Lens' CreateCluster (Maybe [Tag])
-ccTags = lens _ccTags (\ s a -> s{_ccTags = a});
+ccTags :: Lens' CreateCluster [Tag]
+ccTags = lens _ccTags (\ s a -> s{_ccTags = a}) . _Default;
 
 -- | The port number on which the cluster accepts incoming connections.
 --
@@ -388,7 +388,7 @@ instance AWSRequest CreateCluster where
         response
           = receiveXMLWrapper "CreateClusterResult"
               (\ s h x ->
-                 CreateClusterResponse' <$> x .@? "Cluster")
+                 CreateClusterResponse' <$> (x .@? "Cluster"))
 
 instance ToHeaders CreateCluster where
         toHeaders = const mempty
@@ -405,8 +405,9 @@ instance ToQuery CreateCluster where
                "HsmConfigurationIdentifier" =:
                  _ccHSMConfigurationIdentifier,
                "ClusterSecurityGroups" =:
-                 "ClusterSecurityGroupName" =:
-                   _ccClusterSecurityGroups,
+                 toQuery
+                   (toQueryList "ClusterSecurityGroupName" <$>
+                      _ccClusterSecurityGroups),
                "AutomatedSnapshotRetentionPeriod" =:
                  _ccAutomatedSnapshotRetentionPeriod,
                "Encrypted" =: _ccEncrypted,
@@ -421,13 +422,16 @@ instance ToQuery CreateCluster where
                "AvailabilityZone" =: _ccAvailabilityZone,
                "KmsKeyId" =: _ccKMSKeyId,
                "VpcSecurityGroupIds" =:
-                 "VpcSecurityGroupId" =: _ccVPCSecurityGroupIds,
+                 toQuery
+                   (toQueryList "VpcSecurityGroupId" <$>
+                      _ccVPCSecurityGroupIds),
                "ClusterType" =: _ccClusterType,
                "ClusterVersion" =: _ccClusterVersion,
                "AllowVersionUpgrade" =: _ccAllowVersionUpgrade,
                "ClusterParameterGroupName" =:
                  _ccClusterParameterGroupName,
-               "DBName" =: _ccDBName, "Tags" =: "Tag" =: _ccTags,
+               "DBName" =: _ccDBName,
+               "Tags" =: toQuery (toQueryList "Tag" <$> _ccTags),
                "Port" =: _ccPort,
                "ClusterIdentifier" =: _ccClusterIdentifier,
                "NodeType" =: _ccNodeType,

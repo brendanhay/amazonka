@@ -323,8 +323,8 @@ adDateUpdated :: Lens' ApplicationDescription (Maybe UTCTime)
 adDateUpdated = lens _adDateUpdated (\ s a -> s{_adDateUpdated = a}) . mapping _Time;
 
 -- | The names of the versions for this application.
-adVersions :: Lens' ApplicationDescription (Maybe [Text])
-adVersions = lens _adVersions (\ s a -> s{_adVersions = a});
+adVersions :: Lens' ApplicationDescription [Text]
+adVersions = lens _adVersions (\ s a -> s{_adVersions = a}) . _Default;
 
 -- | The date when the application was created.
 adDateCreated :: Lens' ApplicationDescription (Maybe UTCTime)
@@ -336,8 +336,8 @@ adApplicationName = lens _adApplicationName (\ s a -> s{_adApplicationName = a})
 
 -- | The names of the configuration templates associated with this
 -- application.
-adConfigurationTemplates :: Lens' ApplicationDescription (Maybe [Text])
-adConfigurationTemplates = lens _adConfigurationTemplates (\ s a -> s{_adConfigurationTemplates = a});
+adConfigurationTemplates :: Lens' ApplicationDescription [Text]
+adConfigurationTemplates = lens _adConfigurationTemplates (\ s a -> s{_adConfigurationTemplates = a}) . _Default;
 
 -- | User-defined description of the application.
 adDescription :: Lens' ApplicationDescription (Maybe Text)
@@ -346,15 +346,15 @@ adDescription = lens _adDescription (\ s a -> s{_adDescription = a});
 instance FromXML ApplicationDescription where
         parseXML x
           = ApplicationDescription' <$>
-              x .@? "DateUpdated" <*>
+              (x .@? "DateUpdated") <*>
                 (x .@? "Versions" .!@ mempty >>=
-                   parseXMLList "member")
-                <*> x .@? "DateCreated"
-                <*> x .@? "ApplicationName"
+                   may (parseXMLList "member"))
+                <*> (x .@? "DateCreated")
+                <*> (x .@? "ApplicationName")
                 <*>
                 (x .@? "ConfigurationTemplates" .!@ mempty >>=
-                   parseXMLList "member")
-                <*> x .@? "Description"
+                   may (parseXMLList "member"))
+                <*> (x .@? "Description")
 
 -- | /See:/ 'applicationDescriptionMessage' smart constructor.
 --
@@ -374,7 +374,7 @@ admApplication = lens _admApplication (\ s a -> s{_admApplication = a});
 instance FromXML ApplicationDescriptionMessage where
         parseXML x
           = ApplicationDescriptionMessage' <$>
-              x .@? "Application"
+              (x .@? "Application")
 
 -- | /See:/ 'applicationVersionDescription' smart constructor.
 --
@@ -424,11 +424,11 @@ avdDescription = lens _avdDescription (\ s a -> s{_avdDescription = a});
 instance FromXML ApplicationVersionDescription where
         parseXML x
           = ApplicationVersionDescription' <$>
-              x .@? "DateUpdated" <*> x .@? "SourceBundle" <*>
-                x .@? "VersionLabel"
-                <*> x .@? "DateCreated"
-                <*> x .@? "ApplicationName"
-                <*> x .@? "Description"
+              (x .@? "DateUpdated") <*> (x .@? "SourceBundle") <*>
+                (x .@? "VersionLabel")
+                <*> (x .@? "DateCreated")
+                <*> (x .@? "ApplicationName")
+                <*> (x .@? "Description")
 
 -- | /See:/ 'applicationVersionDescriptionMessage' smart constructor.
 --
@@ -449,7 +449,7 @@ instance FromXML ApplicationVersionDescriptionMessage
          where
         parseXML x
           = ApplicationVersionDescriptionMessage' <$>
-              x .@? "ApplicationVersion"
+              (x .@? "ApplicationVersion")
 
 -- | /See:/ 'autoScalingGroup' smart constructor.
 --
@@ -467,7 +467,7 @@ asgName :: Lens' AutoScalingGroup (Maybe Text)
 asgName = lens _asgName (\ s a -> s{_asgName = a});
 
 instance FromXML AutoScalingGroup where
-        parseXML x = AutoScalingGroup' <$> x .@? "Name"
+        parseXML x = AutoScalingGroup' <$> (x .@? "Name")
 
 data ConfigurationDeploymentStatus = Pending | Deployed | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -560,8 +560,8 @@ codMaxLength = lens _codMaxLength (\ s a -> s{_codMaxLength = a});
 
 -- | If specified, values for the configuration option are selected from this
 -- list.
-codValueOptions :: Lens' ConfigurationOptionDescription (Maybe [Text])
-codValueOptions = lens _codValueOptions (\ s a -> s{_codValueOptions = a});
+codValueOptions :: Lens' ConfigurationOptionDescription [Text]
+codValueOptions = lens _codValueOptions (\ s a -> s{_codValueOptions = a}) . _Default;
 
 -- | A unique namespace identifying the option\'s associated AWS resource.
 codNamespace :: Lens' ConfigurationOptionDescription (Maybe Text)
@@ -630,18 +630,18 @@ codMinValue = lens _codMinValue (\ s a -> s{_codMinValue = a});
 instance FromXML ConfigurationOptionDescription where
         parseXML x
           = ConfigurationOptionDescription' <$>
-              x .@? "MaxValue" <*> x .@? "Regex" <*>
-                x .@? "UserDefined"
-                <*> x .@? "MaxLength"
+              (x .@? "MaxValue") <*> (x .@? "Regex") <*>
+                (x .@? "UserDefined")
+                <*> (x .@? "MaxLength")
                 <*>
                 (x .@? "ValueOptions" .!@ mempty >>=
-                   parseXMLList "member")
-                <*> x .@? "Namespace"
-                <*> x .@? "Name"
-                <*> x .@? "ChangeSeverity"
-                <*> x .@? "DefaultValue"
-                <*> x .@? "ValueType"
-                <*> x .@? "MinValue"
+                   may (parseXMLList "member"))
+                <*> (x .@? "Namespace")
+                <*> (x .@? "Name")
+                <*> (x .@? "ChangeSeverity")
+                <*> (x .@? "DefaultValue")
+                <*> (x .@? "ValueType")
+                <*> (x .@? "MinValue")
 
 -- | /See:/ 'configurationOptionSetting' smart constructor.
 --
@@ -679,9 +679,9 @@ cosNamespace = lens _cosNamespace (\ s a -> s{_cosNamespace = a});
 instance FromXML ConfigurationOptionSetting where
         parseXML x
           = ConfigurationOptionSetting' <$>
-              x .@? "OptionName" <*> x .@? "ResourceName" <*>
-                x .@? "Value"
-                <*> x .@? "Namespace"
+              (x .@? "OptionName") <*> (x .@? "ResourceName") <*>
+                (x .@? "Value")
+                <*> (x .@? "Namespace")
 
 instance ToQuery ConfigurationOptionSetting where
         toQuery ConfigurationOptionSetting'{..}
@@ -744,8 +744,8 @@ csdTemplateName = lens _csdTemplateName (\ s a -> s{_csdTemplateName = a});
 
 -- | A list of the configuration options and their values in this
 -- configuration set.
-csdOptionSettings :: Lens' ConfigurationSettingsDescription (Maybe [ConfigurationOptionSetting])
-csdOptionSettings = lens _csdOptionSettings (\ s a -> s{_csdOptionSettings = a});
+csdOptionSettings :: Lens' ConfigurationSettingsDescription [ConfigurationOptionSetting]
+csdOptionSettings = lens _csdOptionSettings (\ s a -> s{_csdOptionSettings = a}) . _Default;
 
 -- | The date (in UTC time) when this configuration set was last modified.
 csdDateUpdated :: Lens' ConfigurationSettingsDescription (Maybe UTCTime)
@@ -801,16 +801,16 @@ instance FromXML ConfigurationSettingsDescription
          where
         parseXML x
           = ConfigurationSettingsDescription' <$>
-              x .@? "TemplateName" <*>
+              (x .@? "TemplateName") <*>
                 (x .@? "OptionSettings" .!@ mempty >>=
-                   parseXMLList "member")
-                <*> x .@? "DateUpdated"
-                <*> x .@? "DateCreated"
-                <*> x .@? "EnvironmentName"
-                <*> x .@? "ApplicationName"
-                <*> x .@? "DeploymentStatus"
-                <*> x .@? "SolutionStackName"
-                <*> x .@? "Description"
+                   may (parseXMLList "member"))
+                <*> (x .@? "DateUpdated")
+                <*> (x .@? "DateCreated")
+                <*> (x .@? "EnvironmentName")
+                <*> (x .@? "ApplicationName")
+                <*> (x .@? "DeploymentStatus")
+                <*> (x .@? "SolutionStackName")
+                <*> (x .@? "Description")
 
 -- | /See:/ 'environmentDescription' smart constructor.
 --
@@ -956,21 +956,21 @@ envDescription = lens _envDescription (\ s a -> s{_envDescription = a});
 instance FromXML EnvironmentDescription where
         parseXML x
           = EnvironmentDescription' <$>
-              x .@? "CNAME" <*> x .@? "Status" <*>
-                x .@? "TemplateName"
-                <*> x .@? "AbortableOperationInProgress"
-                <*> x .@? "EndpointURL"
-                <*> x .@? "DateUpdated"
-                <*> x .@? "Resources"
-                <*> x .@? "Health"
-                <*> x .@? "VersionLabel"
-                <*> x .@? "DateCreated"
-                <*> x .@? "Tier"
-                <*> x .@? "EnvironmentName"
-                <*> x .@? "ApplicationName"
-                <*> x .@? "EnvironmentId"
-                <*> x .@? "SolutionStackName"
-                <*> x .@? "Description"
+              (x .@? "CNAME") <*> (x .@? "Status") <*>
+                (x .@? "TemplateName")
+                <*> (x .@? "AbortableOperationInProgress")
+                <*> (x .@? "EndpointURL")
+                <*> (x .@? "DateUpdated")
+                <*> (x .@? "Resources")
+                <*> (x .@? "Health")
+                <*> (x .@? "VersionLabel")
+                <*> (x .@? "DateCreated")
+                <*> (x .@? "Tier")
+                <*> (x .@? "EnvironmentName")
+                <*> (x .@? "ApplicationName")
+                <*> (x .@? "EnvironmentId")
+                <*> (x .@? "SolutionStackName")
+                <*> (x .@? "Description")
 
 data EnvironmentHealth = Red | Yellow | Green | Grey deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -1032,9 +1032,9 @@ eidMessage = lens _eidMessage (\ s a -> s{_eidMessage = a});
 instance FromXML EnvironmentInfoDescription where
         parseXML x
           = EnvironmentInfoDescription' <$>
-              x .@? "SampleTimestamp" <*> x .@? "Ec2InstanceId" <*>
-                x .@? "InfoType"
-                <*> x .@? "Message"
+              (x .@? "SampleTimestamp") <*> (x .@? "Ec2InstanceId")
+                <*> (x .@? "InfoType")
+                <*> (x .@? "Message")
 
 data EnvironmentInfoType = Bundle | Tail deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -1080,53 +1080,54 @@ environmentResourceDescription :: EnvironmentResourceDescription
 environmentResourceDescription = EnvironmentResourceDescription'{_erdQueues = Nothing, _erdTriggers = Nothing, _erdLoadBalancers = Nothing, _erdInstances = Nothing, _erdEnvironmentName = Nothing, _erdLaunchConfigurations = Nothing, _erdAutoScalingGroups = Nothing};
 
 -- | The queues used by this environment.
-erdQueues :: Lens' EnvironmentResourceDescription (Maybe [Queue])
-erdQueues = lens _erdQueues (\ s a -> s{_erdQueues = a});
+erdQueues :: Lens' EnvironmentResourceDescription [Queue]
+erdQueues = lens _erdQueues (\ s a -> s{_erdQueues = a}) . _Default;
 
 -- | The @AutoScaling@ triggers in use by this environment.
-erdTriggers :: Lens' EnvironmentResourceDescription (Maybe [Trigger])
-erdTriggers = lens _erdTriggers (\ s a -> s{_erdTriggers = a});
+erdTriggers :: Lens' EnvironmentResourceDescription [Trigger]
+erdTriggers = lens _erdTriggers (\ s a -> s{_erdTriggers = a}) . _Default;
 
 -- | The LoadBalancers in use by this environment.
-erdLoadBalancers :: Lens' EnvironmentResourceDescription (Maybe [LoadBalancer])
-erdLoadBalancers = lens _erdLoadBalancers (\ s a -> s{_erdLoadBalancers = a});
+erdLoadBalancers :: Lens' EnvironmentResourceDescription [LoadBalancer]
+erdLoadBalancers = lens _erdLoadBalancers (\ s a -> s{_erdLoadBalancers = a}) . _Default;
 
 -- | The Amazon EC2 instances used by this environment.
-erdInstances :: Lens' EnvironmentResourceDescription (Maybe [Instance])
-erdInstances = lens _erdInstances (\ s a -> s{_erdInstances = a});
+erdInstances :: Lens' EnvironmentResourceDescription [Instance]
+erdInstances = lens _erdInstances (\ s a -> s{_erdInstances = a}) . _Default;
 
 -- | The name of the environment.
 erdEnvironmentName :: Lens' EnvironmentResourceDescription (Maybe Text)
 erdEnvironmentName = lens _erdEnvironmentName (\ s a -> s{_erdEnvironmentName = a});
 
 -- | The Auto Scaling launch configurations in use by this environment.
-erdLaunchConfigurations :: Lens' EnvironmentResourceDescription (Maybe [LaunchConfiguration])
-erdLaunchConfigurations = lens _erdLaunchConfigurations (\ s a -> s{_erdLaunchConfigurations = a});
+erdLaunchConfigurations :: Lens' EnvironmentResourceDescription [LaunchConfiguration]
+erdLaunchConfigurations = lens _erdLaunchConfigurations (\ s a -> s{_erdLaunchConfigurations = a}) . _Default;
 
 -- | The @AutoScalingGroups@ used by this environment.
-erdAutoScalingGroups :: Lens' EnvironmentResourceDescription (Maybe [AutoScalingGroup])
-erdAutoScalingGroups = lens _erdAutoScalingGroups (\ s a -> s{_erdAutoScalingGroups = a});
+erdAutoScalingGroups :: Lens' EnvironmentResourceDescription [AutoScalingGroup]
+erdAutoScalingGroups = lens _erdAutoScalingGroups (\ s a -> s{_erdAutoScalingGroups = a}) . _Default;
 
 instance FromXML EnvironmentResourceDescription where
         parseXML x
           = EnvironmentResourceDescription' <$>
-              (x .@? "Queues" .!@ mempty >>= parseXMLList "member")
+              (x .@? "Queues" .!@ mempty >>=
+                 may (parseXMLList "member"))
                 <*>
                 (x .@? "Triggers" .!@ mempty >>=
-                   parseXMLList "member")
+                   may (parseXMLList "member"))
                 <*>
                 (x .@? "LoadBalancers" .!@ mempty >>=
-                   parseXMLList "member")
+                   may (parseXMLList "member"))
                 <*>
                 (x .@? "Instances" .!@ mempty >>=
-                   parseXMLList "member")
-                <*> x .@? "EnvironmentName"
+                   may (parseXMLList "member"))
+                <*> (x .@? "EnvironmentName")
                 <*>
                 (x .@? "LaunchConfigurations" .!@ mempty >>=
-                   parseXMLList "member")
+                   may (parseXMLList "member"))
                 <*>
                 (x .@? "AutoScalingGroups" .!@ mempty >>=
-                   parseXMLList "member")
+                   may (parseXMLList "member"))
 
 -- | /See:/ 'environmentResourcesDescription' smart constructor.
 --
@@ -1147,7 +1148,7 @@ instance FromXML EnvironmentResourcesDescription
          where
         parseXML x
           = EnvironmentResourcesDescription' <$>
-              x .@? "LoadBalancer"
+              (x .@? "LoadBalancer")
 
 data EnvironmentStatus = Updating | Terminating | Launching | Terminated | Ready deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -1205,7 +1206,8 @@ etType = lens _etType (\ s a -> s{_etType = a});
 instance FromXML EnvironmentTier where
         parseXML x
           = EnvironmentTier' <$>
-              x .@? "Name" <*> x .@? "Version" <*> x .@? "Type"
+              (x .@? "Name") <*> (x .@? "Version") <*>
+                (x .@? "Type")
 
 instance ToQuery EnvironmentTier where
         toQuery EnvironmentTier'{..}
@@ -1274,34 +1276,34 @@ edMessage = lens _edMessage (\ s a -> s{_edMessage = a});
 instance FromXML EventDescription where
         parseXML x
           = EventDescription' <$>
-              x .@? "RequestId" <*> x .@? "TemplateName" <*>
-                x .@? "Severity"
-                <*> x .@? "VersionLabel"
-                <*> x .@? "EnvironmentName"
-                <*> x .@? "ApplicationName"
-                <*> x .@? "EventDate"
-                <*> x .@? "Message"
+              (x .@? "RequestId") <*> (x .@? "TemplateName") <*>
+                (x .@? "Severity")
+                <*> (x .@? "VersionLabel")
+                <*> (x .@? "EnvironmentName")
+                <*> (x .@? "ApplicationName")
+                <*> (x .@? "EventDate")
+                <*> (x .@? "Message")
 
-data EventSeverity = Error | Fatal | Debug | Warn | Info | Trace deriving (Eq, Ord, Read, Show, Enum, Generic)
+data EventSeverity = LevelDebug | LevelInfo | LevelWarn | LevelTrace | LevelFatal | LevelError deriving (Eq, Ord, Read, Show, Enum, Generic)
 
 instance FromText EventSeverity where
     parser = takeLowerText >>= \case
-        "DEBUG" -> pure Debug
-        "ERROR" -> pure Error
-        "FATAL" -> pure Fatal
-        "INFO" -> pure Info
-        "TRACE" -> pure Trace
-        "WARN" -> pure Warn
+        "DEBUG" -> pure LevelDebug
+        "ERROR" -> pure LevelError
+        "FATAL" -> pure LevelFatal
+        "INFO" -> pure LevelInfo
+        "TRACE" -> pure LevelTrace
+        "WARN" -> pure LevelWarn
         e -> fail ("Failure parsing EventSeverity from " ++ show e)
 
 instance ToText EventSeverity where
     toText = \case
-        Debug -> "DEBUG"
-        Error -> "ERROR"
-        Fatal -> "FATAL"
-        Info -> "INFO"
-        Trace -> "TRACE"
-        Warn -> "WARN"
+        LevelDebug -> "DEBUG"
+        LevelError -> "ERROR"
+        LevelFatal -> "FATAL"
+        LevelInfo -> "INFO"
+        LevelTrace -> "TRACE"
+        LevelWarn -> "WARN"
 
 instance Hashable EventSeverity
 instance ToQuery EventSeverity
@@ -1326,7 +1328,7 @@ insId :: Lens' Instance (Maybe Text)
 insId = lens _insId (\ s a -> s{_insId = a});
 
 instance FromXML Instance where
-        parseXML x = Instance' <$> x .@? "Id"
+        parseXML x = Instance' <$> (x .@? "Id")
 
 -- | /See:/ 'launchConfiguration' smart constructor.
 --
@@ -1344,7 +1346,7 @@ lcName :: Lens' LaunchConfiguration (Maybe Text)
 lcName = lens _lcName (\ s a -> s{_lcName = a});
 
 instance FromXML LaunchConfiguration where
-        parseXML x = LaunchConfiguration' <$> x .@? "Name"
+        parseXML x = LaunchConfiguration' <$> (x .@? "Name")
 
 -- | /See:/ 'listener' smart constructor.
 --
@@ -1369,7 +1371,7 @@ lisPort = lens _lisPort (\ s a -> s{_lisPort = a});
 
 instance FromXML Listener where
         parseXML x
-          = Listener' <$> x .@? "Protocol" <*> x .@? "Port"
+          = Listener' <$> (x .@? "Protocol") <*> (x .@? "Port")
 
 -- | /See:/ 'loadBalancer' smart constructor.
 --
@@ -1387,7 +1389,7 @@ lbName :: Lens' LoadBalancer (Maybe Text)
 lbName = lens _lbName (\ s a -> s{_lbName = a});
 
 instance FromXML LoadBalancer where
-        parseXML x = LoadBalancer' <$> x .@? "Name"
+        parseXML x = LoadBalancer' <$> (x .@? "Name")
 
 -- | /See:/ 'loadBalancerDescription' smart constructor.
 --
@@ -1413,15 +1415,15 @@ lbdDomain :: Lens' LoadBalancerDescription (Maybe Text)
 lbdDomain = lens _lbdDomain (\ s a -> s{_lbdDomain = a});
 
 -- | A list of Listeners used by the LoadBalancer.
-lbdListeners :: Lens' LoadBalancerDescription (Maybe [Listener])
-lbdListeners = lens _lbdListeners (\ s a -> s{_lbdListeners = a});
+lbdListeners :: Lens' LoadBalancerDescription [Listener]
+lbdListeners = lens _lbdListeners (\ s a -> s{_lbdListeners = a}) . _Default;
 
 instance FromXML LoadBalancerDescription where
         parseXML x
           = LoadBalancerDescription' <$>
-              x .@? "LoadBalancerName" <*> x .@? "Domain" <*>
+              (x .@? "LoadBalancerName") <*> (x .@? "Domain") <*>
                 (x .@? "Listeners" .!@ mempty >>=
-                   parseXMLList "member")
+                   may (parseXMLList "member"))
 
 -- | /See:/ 'optionRestrictionRegex' smart constructor.
 --
@@ -1448,7 +1450,7 @@ orrLabel = lens _orrLabel (\ s a -> s{_orrLabel = a});
 instance FromXML OptionRestrictionRegex where
         parseXML x
           = OptionRestrictionRegex' <$>
-              x .@? "Pattern" <*> x .@? "Label"
+              (x .@? "Pattern") <*> (x .@? "Label")
 
 -- | /See:/ 'optionSpecification' smart constructor.
 --
@@ -1506,7 +1508,8 @@ queName :: Lens' Queue (Maybe Text)
 queName = lens _queName (\ s a -> s{_queName = a});
 
 instance FromXML Queue where
-        parseXML x = Queue' <$> x .@? "URL" <*> x .@? "Name"
+        parseXML x
+          = Queue' <$> (x .@? "URL") <*> (x .@? "Name")
 
 -- | /See:/ 's3Location' smart constructor.
 --
@@ -1531,7 +1534,8 @@ slS3Bucket = lens _slS3Bucket (\ s a -> s{_slS3Bucket = a});
 
 instance FromXML S3Location where
         parseXML x
-          = S3Location' <$> x .@? "S3Key" <*> x .@? "S3Bucket"
+          = S3Location' <$>
+              (x .@? "S3Key") <*> (x .@? "S3Bucket")
 
 instance ToQuery S3Location where
         toQuery S3Location'{..}
@@ -1552,8 +1556,8 @@ solutionStackDescription :: SolutionStackDescription
 solutionStackDescription = SolutionStackDescription'{_ssdPermittedFileTypes = Nothing, _ssdSolutionStackName = Nothing};
 
 -- | The permitted file types allowed for a solution stack.
-ssdPermittedFileTypes :: Lens' SolutionStackDescription (Maybe [Text])
-ssdPermittedFileTypes = lens _ssdPermittedFileTypes (\ s a -> s{_ssdPermittedFileTypes = a});
+ssdPermittedFileTypes :: Lens' SolutionStackDescription [Text]
+ssdPermittedFileTypes = lens _ssdPermittedFileTypes (\ s a -> s{_ssdPermittedFileTypes = a}) . _Default;
 
 -- | The name of the solution stack.
 ssdSolutionStackName :: Lens' SolutionStackDescription (Maybe Text)
@@ -1563,8 +1567,8 @@ instance FromXML SolutionStackDescription where
         parseXML x
           = SolutionStackDescription' <$>
               (x .@? "PermittedFileTypes" .!@ mempty >>=
-                 parseXMLList "member")
-                <*> x .@? "SolutionStackName"
+                 may (parseXMLList "member"))
+                <*> (x .@? "SolutionStackName")
 
 -- | /See:/ 'sourceConfiguration' smart constructor.
 --
@@ -1634,7 +1638,7 @@ triName :: Lens' Trigger (Maybe Text)
 triName = lens _triName (\ s a -> s{_triName = a});
 
 instance FromXML Trigger where
-        parseXML x = Trigger' <$> x .@? "Name"
+        parseXML x = Trigger' <$> (x .@? "Name")
 
 -- | /See:/ 'validationMessage' smart constructor.
 --
@@ -1683,9 +1687,9 @@ vmMessage = lens _vmMessage (\ s a -> s{_vmMessage = a});
 instance FromXML ValidationMessage where
         parseXML x
           = ValidationMessage' <$>
-              x .@? "OptionName" <*> x .@? "Severity" <*>
-                x .@? "Namespace"
-                <*> x .@? "Message"
+              (x .@? "OptionName") <*> (x .@? "Severity") <*>
+                (x .@? "Namespace")
+                <*> (x .@? "Message")
 
 data ValidationSeverity = VSError | VSWarning deriving (Eq, Ord, Read, Show, Enum, Generic)
 

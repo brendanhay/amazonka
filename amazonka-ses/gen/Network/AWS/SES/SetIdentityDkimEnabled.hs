@@ -82,8 +82,7 @@ instance AWSRequest SetIdentityDkimEnabled where
              SetIdentityDkimEnabledResponse
         request = post
         response
-          = receiveNullWrapper "SetIdentityDkimEnabledResult"
-              SetIdentityDkimEnabledResponse'
+          = receiveNull SetIdentityDkimEnabledResponse'
 
 instance ToHeaders SetIdentityDkimEnabled where
         toHeaders = const mempty

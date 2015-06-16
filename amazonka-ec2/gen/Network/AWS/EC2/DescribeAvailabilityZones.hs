@@ -65,8 +65,8 @@ describeAvailabilityZones :: DescribeAvailabilityZones
 describeAvailabilityZones = DescribeAvailabilityZones'{_dazZoneNames = Nothing, _dazFilters = Nothing, _dazDryRun = Nothing};
 
 -- | The names of one or more Availability Zones.
-dazZoneNames :: Lens' DescribeAvailabilityZones (Maybe [Text])
-dazZoneNames = lens _dazZoneNames (\ s a -> s{_dazZoneNames = a});
+dazZoneNames :: Lens' DescribeAvailabilityZones [Text]
+dazZoneNames = lens _dazZoneNames (\ s a -> s{_dazZoneNames = a}) . _Default;
 
 -- | One or more filters.
 --
@@ -81,8 +81,8 @@ dazZoneNames = lens _dazZoneNames (\ s a -> s{_dazZoneNames = a});
 -- -   @zone-name@ - The name of the Availability Zone (for example,
 --     @us-east-1a@).
 --
-dazFilters :: Lens' DescribeAvailabilityZones (Maybe [Filter])
-dazFilters = lens _dazFilters (\ s a -> s{_dazFilters = a});
+dazFilters :: Lens' DescribeAvailabilityZones [Filter]
+dazFilters = lens _dazFilters (\ s a -> s{_dazFilters = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -100,7 +100,7 @@ instance AWSRequest DescribeAvailabilityZones where
           = receiveXML
               (\ s h x ->
                  DescribeAvailabilityZonesResponse' <$>
-                   parseXMLList "item" x)
+                   (may (parseXMLList "item") x))
 
 instance ToHeaders DescribeAvailabilityZones where
         toHeaders = const mempty
@@ -114,7 +114,8 @@ instance ToQuery DescribeAvailabilityZones where
               ["Action" =:
                  ("DescribeAvailabilityZones" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "ZoneName" =: _dazZoneNames, "Filter" =: _dazFilters,
+               toQuery (toQueryList "ZoneName" <$> _dazZoneNames),
+               toQuery (toQueryList "Filter" <$> _dazFilters),
                "DryRun" =: _dazDryRun]
 
 -- | /See:/ 'describeAvailabilityZonesResponse' smart constructor.
@@ -129,5 +130,5 @@ describeAvailabilityZonesResponse :: DescribeAvailabilityZonesResponse
 describeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse'{_dazrAvailabilityZones = Nothing};
 
 -- | Information about one or more Availability Zones.
-dazrAvailabilityZones :: Lens' DescribeAvailabilityZonesResponse (Maybe [AvailabilityZone])
-dazrAvailabilityZones = lens _dazrAvailabilityZones (\ s a -> s{_dazrAvailabilityZones = a});
+dazrAvailabilityZones :: Lens' DescribeAvailabilityZonesResponse [AvailabilityZone]
+dazrAvailabilityZones = lens _dazrAvailabilityZones (\ s a -> s{_dazrAvailabilityZones = a}) . _Default;

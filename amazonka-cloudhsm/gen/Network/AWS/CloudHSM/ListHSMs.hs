@@ -70,7 +70,7 @@ instance AWSRequest ListHSMs where
           = receiveJSON
               (\ s h x ->
                  ListHSMsResponse' <$>
-                   x .?> "NextToken" <*> x .?> "HsmList" .!@ mempty)
+                   (x .?> "NextToken") <*> (x .?> "HsmList" .!@ mempty))
 
 instance ToHeaders ListHSMs where
         toHeaders
@@ -110,5 +110,5 @@ lisNextToken :: Lens' ListHSMsResponse (Maybe Text)
 lisNextToken = lens _lisNextToken (\ s a -> s{_lisNextToken = a});
 
 -- | The list of ARNs that identify the HSMs.
-lisHSMList :: Lens' ListHSMsResponse (Maybe [Text])
-lisHSMList = lens _lisHSMList (\ s a -> s{_lisHSMList = a});
+lisHSMList :: Lens' ListHSMsResponse [Text]
+lisHSMList = lens _lisHSMList (\ s a -> s{_lisHSMList = a}) . _Default;

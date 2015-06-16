@@ -81,8 +81,8 @@ dsNextToken = lens _dsNextToken (\ s a -> s{_dsNextToken = a});
 -- | A list of identifiers of the snapshots to obtain the information for. If
 -- this member is null or empty, all snapshots are returned using the
 -- /Limit/ and /NextToken/ members.
-dsSnapshotIds :: Lens' DescribeSnapshots (Maybe [Text])
-dsSnapshotIds = lens _dsSnapshotIds (\ s a -> s{_dsSnapshotIds = a});
+dsSnapshotIds :: Lens' DescribeSnapshots [Text]
+dsSnapshotIds = lens _dsSnapshotIds (\ s a -> s{_dsSnapshotIds = a}) . _Default;
 
 -- | The maximum number of objects to return.
 dsLimit :: Lens' DescribeSnapshots (Maybe Natural)
@@ -96,7 +96,8 @@ instance AWSRequest DescribeSnapshots where
           = receiveJSON
               (\ s h x ->
                  DescribeSnapshotsResponse' <$>
-                   x .?> "NextToken" <*> x .?> "Snapshots" .!@ mempty)
+                   (x .?> "NextToken") <*>
+                     (x .?> "Snapshots" .!@ mempty))
 
 instance ToHeaders DescribeSnapshots where
         toHeaders
@@ -145,5 +146,5 @@ dsrNextToken = lens _dsrNextToken (\ s a -> s{_dsrNextToken = a});
 -- specified in the /Limit/ member of the request. This occurs if there are
 -- less than the requested number of items left to retrieve, or if the
 -- limitations of the operation have been exceeded.
-dsrSnapshots :: Lens' DescribeSnapshotsResponse (Maybe [Snapshot])
-dsrSnapshots = lens _dsrSnapshots (\ s a -> s{_dsrSnapshots = a});
+dsrSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
+dsrSnapshots = lens _dsrSnapshots (\ s a -> s{_dsrSnapshots = a}) . _Default;

@@ -135,7 +135,7 @@ instance AWSRequest PutObjectACL where
           = receiveXML
               (\ s h x ->
                  PutObjectACLResponse' <$>
-                   h .#? "x-amz-request-charged")
+                   (h .#? "x-amz-request-charged"))
 
 instance ToElement PutObjectACL where
         toElement

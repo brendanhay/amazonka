@@ -105,7 +105,7 @@ instance AWSRequest PurchaseReservedInstancesOffering
           = receiveXML
               (\ s h x ->
                  PurchaseReservedInstancesOfferingResponse' <$>
-                   x .@? "reservedInstancesId")
+                   (x .@? "reservedInstancesId"))
 
 instance ToHeaders PurchaseReservedInstancesOffering
          where

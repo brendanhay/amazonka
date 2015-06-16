@@ -136,8 +136,8 @@ rfcsSnapshotClusterIdentifier = lens _rfcsSnapshotClusterIdentifier (\ s a -> s{
 -- Default: The default cluster security group for Amazon Redshift.
 --
 -- Cluster security groups only apply to clusters outside of VPCs.
-rfcsClusterSecurityGroups :: Lens' RestoreFromClusterSnapshot (Maybe [Text])
-rfcsClusterSecurityGroups = lens _rfcsClusterSecurityGroups (\ s a -> s{_rfcsClusterSecurityGroups = a});
+rfcsClusterSecurityGroups :: Lens' RestoreFromClusterSnapshot [Text]
+rfcsClusterSecurityGroups = lens _rfcsClusterSecurityGroups (\ s a -> s{_rfcsClusterSecurityGroups = a}) . _Default;
 
 -- | The number of days that automated snapshots are retained. If the value
 -- is 0, automated snapshots are disabled. Even if automated snapshots are
@@ -203,8 +203,8 @@ rfcsKMSKeyId = lens _rfcsKMSKeyId (\ s a -> s{_rfcsKMSKeyId = a});
 -- Default: The default VPC security group is associated with the cluster.
 --
 -- VPC security groups only apply to clusters in VPCs.
-rfcsVPCSecurityGroupIds :: Lens' RestoreFromClusterSnapshot (Maybe [Text])
-rfcsVPCSecurityGroupIds = lens _rfcsVPCSecurityGroupIds (\ s a -> s{_rfcsVPCSecurityGroupIds = a});
+rfcsVPCSecurityGroupIds :: Lens' RestoreFromClusterSnapshot [Text]
+rfcsVPCSecurityGroupIds = lens _rfcsVPCSecurityGroupIds (\ s a -> s{_rfcsVPCSecurityGroupIds = a}) . _Default;
 
 -- | The AWS customer account used to create or copy the snapshot. Required
 -- if you are restoring a snapshot you do not own, optional if you own the
@@ -271,7 +271,7 @@ instance AWSRequest RestoreFromClusterSnapshot where
               "RestoreFromClusterSnapshotResult"
               (\ s h x ->
                  RestoreFromClusterSnapshotResponse' <$>
-                   x .@? "Cluster")
+                   (x .@? "Cluster"))
 
 instance ToHeaders RestoreFromClusterSnapshot where
         toHeaders = const mempty
@@ -291,8 +291,9 @@ instance ToQuery RestoreFromClusterSnapshot where
                "SnapshotClusterIdentifier" =:
                  _rfcsSnapshotClusterIdentifier,
                "ClusterSecurityGroups" =:
-                 "ClusterSecurityGroupName" =:
-                   _rfcsClusterSecurityGroups,
+                 toQuery
+                   (toQueryList "ClusterSecurityGroupName" <$>
+                      _rfcsClusterSecurityGroups),
                "AutomatedSnapshotRetentionPeriod" =:
                  _rfcsAutomatedSnapshotRetentionPeriod,
                "HsmClientCertificateIdentifier" =:
@@ -305,7 +306,9 @@ instance ToQuery RestoreFromClusterSnapshot where
                "AvailabilityZone" =: _rfcsAvailabilityZone,
                "KmsKeyId" =: _rfcsKMSKeyId,
                "VpcSecurityGroupIds" =:
-                 "VpcSecurityGroupId" =: _rfcsVPCSecurityGroupIds,
+                 toQuery
+                   (toQueryList "VpcSecurityGroupId" <$>
+                      _rfcsVPCSecurityGroupIds),
                "OwnerAccount" =: _rfcsOwnerAccount,
                "AllowVersionUpgrade" =: _rfcsAllowVersionUpgrade,
                "ClusterParameterGroupName" =:

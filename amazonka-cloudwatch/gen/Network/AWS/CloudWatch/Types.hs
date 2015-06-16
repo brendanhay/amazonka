@@ -202,10 +202,10 @@ ahiHistorySummary = lens _ahiHistorySummary (\ s a -> s{_ahiHistorySummary = a})
 instance FromXML AlarmHistoryItem where
         parseXML x
           = AlarmHistoryItem' <$>
-              x .@? "AlarmName" <*> x .@? "HistoryItemType" <*>
-                x .@? "HistoryData"
-                <*> x .@? "Timestamp"
-                <*> x .@? "HistorySummary"
+              (x .@? "AlarmName") <*> (x .@? "HistoryItemType") <*>
+                (x .@? "HistoryData")
+                <*> (x .@? "Timestamp")
+                <*> (x .@? "HistorySummary")
 
 data ComparisonOperator = GreaterThanOrEqualToThreshold | GreaterThanThreshold | LessThanOrEqualToThreshold | LessThanThreshold deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -291,12 +291,12 @@ datUnit = lens _datUnit (\ s a -> s{_datUnit = a});
 instance FromXML Datapoint where
         parseXML x
           = Datapoint' <$>
-              x .@? "SampleCount" <*> x .@? "Maximum" <*>
-                x .@? "Average"
-                <*> x .@? "Minimum"
-                <*> x .@? "Sum"
-                <*> x .@? "Timestamp"
-                <*> x .@? "Unit"
+              (x .@? "SampleCount") <*> (x .@? "Maximum") <*>
+                (x .@? "Average")
+                <*> (x .@? "Minimum")
+                <*> (x .@? "Sum")
+                <*> (x .@? "Timestamp")
+                <*> (x .@? "Unit")
 
 -- | /See:/ 'dimension' smart constructor.
 --
@@ -321,7 +321,7 @@ dimValue = lens _dimValue (\ s a -> s{_dimValue = a});
 
 instance FromXML Dimension where
         parseXML x
-          = Dimension' <$> x .@ "Name" <*> x .@ "Value"
+          = Dimension' <$> (x .@ "Name") <*> (x .@ "Value")
 
 instance ToQuery Dimension where
         toQuery Dimension'{..}
@@ -398,15 +398,15 @@ metNamespace :: Lens' Metric (Maybe Text)
 metNamespace = lens _metNamespace (\ s a -> s{_metNamespace = a});
 
 -- | A list of dimensions associated with the metric.
-metDimensions :: Lens' Metric (Maybe [Dimension])
-metDimensions = lens _metDimensions (\ s a -> s{_metDimensions = a});
+metDimensions :: Lens' Metric [Dimension]
+metDimensions = lens _metDimensions (\ s a -> s{_metDimensions = a}) . _Default;
 
 instance FromXML Metric where
         parseXML x
           = Metric' <$>
-              x .@? "MetricName" <*> x .@? "Namespace" <*>
+              (x .@? "MetricName") <*> (x .@? "Namespace") <*>
                 (x .@? "Dimensions" .!@ mempty >>=
-                   parseXMLList "member")
+                   may (parseXMLList "member"))
 
 -- | /See:/ 'metricAlarm' smart constructor.
 --
@@ -497,8 +497,8 @@ maNamespace = lens _maNamespace (\ s a -> s{_maNamespace = a});
 -- state from any other state. Each action is specified as an Amazon
 -- Resource Number (ARN). Currently the only actions supported are
 -- publishing to an Amazon SNS topic and triggering an Auto Scaling policy.
-maOKActions :: Lens' MetricAlarm (Maybe [Text])
-maOKActions = lens _maOKActions (\ s a -> s{_maOKActions = a});
+maOKActions :: Lens' MetricAlarm [Text]
+maOKActions = lens _maOKActions (\ s a -> s{_maOKActions = a}) . _Default;
 
 -- | The arithmetic operation to use when comparing the specified @Statistic@
 -- and @Threshold@. The specified @Statistic@ value is used as the first
@@ -535,12 +535,12 @@ maAlarmConfigurationUpdatedTimestamp = lens _maAlarmConfigurationUpdatedTimestam
 -- policy.
 --
 -- The current WSDL lists this attribute as @UnknownActions@.
-maInsufficientDataActions :: Lens' MetricAlarm (Maybe [Text])
-maInsufficientDataActions = lens _maInsufficientDataActions (\ s a -> s{_maInsufficientDataActions = a});
+maInsufficientDataActions :: Lens' MetricAlarm [Text]
+maInsufficientDataActions = lens _maInsufficientDataActions (\ s a -> s{_maInsufficientDataActions = a}) . _Default;
 
 -- | The list of dimensions associated with the alarm\'s associated metric.
-maDimensions :: Lens' MetricAlarm (Maybe [Dimension])
-maDimensions = lens _maDimensions (\ s a -> s{_maDimensions = a});
+maDimensions :: Lens' MetricAlarm [Dimension]
+maDimensions = lens _maDimensions (\ s a -> s{_maDimensions = a}) . _Default;
 
 -- | An explanation for the alarm\'s state in machine-readable JSON format
 maStateReasonData :: Lens' MetricAlarm (Maybe Text)
@@ -558,8 +558,8 @@ maAlarmARN = lens _maAlarmARN (\ s a -> s{_maAlarmARN = a});
 -- @ALARM@ state from any other state. Each action is specified as an
 -- Amazon Resource Number (ARN). Currently the only actions supported are
 -- publishing to an Amazon SNS topic and triggering an Auto Scaling policy.
-maAlarmActions :: Lens' MetricAlarm (Maybe [Text])
-maAlarmActions = lens _maAlarmActions (\ s a -> s{_maAlarmActions = a});
+maAlarmActions :: Lens' MetricAlarm [Text]
+maAlarmActions = lens _maAlarmActions (\ s a -> s{_maAlarmActions = a}) . _Default;
 
 -- | The statistic to apply to the alarm\'s associated metric.
 maStatistic :: Lens' MetricAlarm (Maybe Statistic)
@@ -572,34 +572,35 @@ maUnit = lens _maUnit (\ s a -> s{_maUnit = a});
 instance FromXML MetricAlarm where
         parseXML x
           = MetricAlarm' <$>
-              x .@? "AlarmName" <*> x .@? "StateUpdatedTimestamp"
-                <*> x .@? "AlarmDescription"
-                <*> x .@? "Period"
-                <*> x .@? "EvaluationPeriods"
-                <*> x .@? "MetricName"
-                <*> x .@? "Namespace"
+              (x .@? "AlarmName") <*>
+                (x .@? "StateUpdatedTimestamp")
+                <*> (x .@? "AlarmDescription")
+                <*> (x .@? "Period")
+                <*> (x .@? "EvaluationPeriods")
+                <*> (x .@? "MetricName")
+                <*> (x .@? "Namespace")
                 <*>
                 (x .@? "OKActions" .!@ mempty >>=
-                   parseXMLList "member")
-                <*> x .@? "ComparisonOperator"
-                <*> x .@? "StateValue"
-                <*> x .@? "Threshold"
-                <*> x .@? "ActionsEnabled"
-                <*> x .@? "AlarmConfigurationUpdatedTimestamp"
+                   may (parseXMLList "member"))
+                <*> (x .@? "ComparisonOperator")
+                <*> (x .@? "StateValue")
+                <*> (x .@? "Threshold")
+                <*> (x .@? "ActionsEnabled")
+                <*> (x .@? "AlarmConfigurationUpdatedTimestamp")
                 <*>
                 (x .@? "InsufficientDataActions" .!@ mempty >>=
-                   parseXMLList "member")
+                   may (parseXMLList "member"))
                 <*>
                 (x .@? "Dimensions" .!@ mempty >>=
-                   parseXMLList "member")
-                <*> x .@? "StateReasonData"
-                <*> x .@? "StateReason"
-                <*> x .@? "AlarmArn"
+                   may (parseXMLList "member"))
+                <*> (x .@? "StateReasonData")
+                <*> (x .@? "StateReason")
+                <*> (x .@? "AlarmArn")
                 <*>
                 (x .@? "AlarmActions" .!@ mempty >>=
-                   parseXMLList "member")
-                <*> x .@? "Statistic"
-                <*> x .@? "Unit"
+                   may (parseXMLList "member"))
+                <*> (x .@? "Statistic")
+                <*> (x .@? "Unit")
 
 -- | /See:/ 'metricDatum' smart constructor.
 --
@@ -635,8 +636,8 @@ mdValue = lens _mdValue (\ s a -> s{_mdValue = a});
 -- | A list of dimensions associated with the metric. Note, when using the
 -- Dimensions value in a query, you need to append .member.N to it (e.g.,
 -- Dimensions.member.N).
-mdDimensions :: Lens' MetricDatum (Maybe [Dimension])
-mdDimensions = lens _mdDimensions (\ s a -> s{_mdDimensions = a});
+mdDimensions :: Lens' MetricDatum [Dimension]
+mdDimensions = lens _mdDimensions (\ s a -> s{_mdDimensions = a}) . _Default;
 
 -- | The time stamp used for the metric. If not specified, the default value
 -- is set to the time the metric data was received. Amazon CloudWatch uses
@@ -664,7 +665,8 @@ instance ToQuery MetricDatum where
         toQuery MetricDatum'{..}
           = mconcat
               ["Value" =: _mdValue,
-               "Dimensions" =: "member" =: _mdDimensions,
+               "Dimensions" =:
+                 toQuery (toQueryList "member" <$> _mdDimensions),
                "Timestamp" =: _mdTimestamp,
                "StatisticValues" =: _mdStatisticValues,
                "Unit" =: _mdUnit, "MetricName" =: _mdMetricName]

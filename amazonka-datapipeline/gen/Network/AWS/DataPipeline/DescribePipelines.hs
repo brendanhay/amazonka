@@ -73,7 +73,7 @@ instance AWSRequest DescribePipelines where
           = receiveJSON
               (\ s h x ->
                  DescribePipelinesResponse' <$>
-                   x .?> "pipelineDescriptionList" .!@ mempty)
+                   (x .?> "pipelineDescriptionList" .!@ mempty))
 
 instance ToHeaders DescribePipelines where
         toHeaders

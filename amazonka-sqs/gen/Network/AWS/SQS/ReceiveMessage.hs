@@ -128,8 +128,8 @@ rmVisibilityTimeout = lens _rmVisibilityTimeout (\ s a -> s{_rmVisibilityTimeout
 -- receive, or you can return all of the attributes by specifying \"All\"
 -- or \".*\" in your request. You can also use \"foo.*\" to return all
 -- message attributes starting with the \"foo\" prefix.
-rmMessageAttributeNames :: Lens' ReceiveMessage (Maybe [Text])
-rmMessageAttributeNames = lens _rmMessageAttributeNames (\ s a -> s{_rmMessageAttributeNames = a});
+rmMessageAttributeNames :: Lens' ReceiveMessage [Text]
+rmMessageAttributeNames = lens _rmMessageAttributeNames (\ s a -> s{_rmMessageAttributeNames = a}) . _Default;
 
 -- | The duration (in seconds) for which the call will wait for a message to
 -- arrive in the queue before returning. If a message is available, the
@@ -152,8 +152,8 @@ rmWaitTimeSeconds = lens _rmWaitTimeSeconds (\ s a -> s{_rmWaitTimeSeconds = a})
 --     anonymous access is allowed) of the sender.
 -- -   @SentTimestamp@ - returns the time when the message was sent to the
 --     queue (epoch time in milliseconds).
-rmAttributeNames :: Lens' ReceiveMessage (Maybe [QueueAttributeName])
-rmAttributeNames = lens _rmAttributeNames (\ s a -> s{_rmAttributeNames = a});
+rmAttributeNames :: Lens' ReceiveMessage [QueueAttributeName]
+rmAttributeNames = lens _rmAttributeNames (\ s a -> s{_rmAttributeNames = a}) . _Default;
 
 -- | The maximum number of messages to return. Amazon SQS never returns more
 -- messages than this value but may return fewer. Values can be from 1 to
@@ -174,7 +174,8 @@ instance AWSRequest ReceiveMessage where
         response
           = receiveXMLWrapper "ReceiveMessageResult"
               (\ s h x ->
-                 ReceiveMessageResponse' <$> parseXMLList "Message" x)
+                 ReceiveMessageResponse' <$>
+                   (may (parseXMLList "Message") x))
 
 instance ToHeaders ReceiveMessage where
         toHeaders = const mempty
@@ -188,9 +189,12 @@ instance ToQuery ReceiveMessage where
               ["Action" =: ("ReceiveMessage" :: ByteString),
                "Version" =: ("2012-11-05" :: ByteString),
                "VisibilityTimeout" =: _rmVisibilityTimeout,
-               "MessageAttributeName" =: _rmMessageAttributeNames,
+               toQuery
+                 (toQueryList "MessageAttributeName" <$>
+                    _rmMessageAttributeNames),
                "WaitTimeSeconds" =: _rmWaitTimeSeconds,
-               "AttributeName" =: _rmAttributeNames,
+               toQuery
+                 (toQueryList "AttributeName" <$> _rmAttributeNames),
                "MaxNumberOfMessages" =: _rmMaxNumberOfMessages,
                "QueueUrl" =: _rmQueueURL]
 
@@ -206,5 +210,5 @@ receiveMessageResponse :: ReceiveMessageResponse
 receiveMessageResponse = ReceiveMessageResponse'{_rmrMessages = Nothing};
 
 -- | A list of messages.
-rmrMessages :: Lens' ReceiveMessageResponse (Maybe [Message])
-rmrMessages = lens _rmrMessages (\ s a -> s{_rmrMessages = a});
+rmrMessages :: Lens' ReceiveMessageResponse [Message]
+rmrMessages = lens _rmrMessages (\ s a -> s{_rmrMessages = a}) . _Default;

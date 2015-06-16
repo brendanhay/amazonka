@@ -79,7 +79,7 @@ instance AWSRequest EvaluateExpression where
           = receiveJSON
               (\ s h x ->
                  EvaluateExpressionResponse' <$>
-                   x .:> "evaluatedExpression")
+                   (x .:> "evaluatedExpression"))
 
 instance ToHeaders EvaluateExpression where
         toHeaders

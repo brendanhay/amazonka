@@ -160,7 +160,7 @@ instance AWSRequest CreateDataSourceFromRDS where
           = receiveJSON
               (\ s h x ->
                  CreateDataSourceFromRDSResponse' <$>
-                   x .?> "DataSourceId")
+                   (x .?> "DataSourceId"))
 
 instance ToHeaders CreateDataSourceFromRDS where
         toHeaders

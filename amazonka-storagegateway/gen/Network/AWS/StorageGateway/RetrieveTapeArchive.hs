@@ -82,7 +82,7 @@ instance AWSRequest RetrieveTapeArchive where
         response
           = receiveJSON
               (\ s h x ->
-                 RetrieveTapeArchiveResponse' <$> x .?> "TapeARN")
+                 RetrieveTapeArchiveResponse' <$> (x .?> "TapeARN"))
 
 instance ToHeaders RetrieveTapeArchive where
         toHeaders

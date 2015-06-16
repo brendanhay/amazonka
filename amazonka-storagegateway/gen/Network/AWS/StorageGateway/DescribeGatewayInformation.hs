@@ -73,13 +73,13 @@ instance AWSRequest DescribeGatewayInformation where
           = receiveJSON
               (\ s h x ->
                  DescribeGatewayInformationResponse' <$>
-                   x .?> "GatewayState" <*> x .?> "GatewayARN" <*>
-                     x .?> "GatewayNetworkInterfaces" .!@ mempty
-                     <*> x .?> "NextUpdateAvailabilityDate"
-                     <*> x .?> "LastSoftwareUpdate"
-                     <*> x .?> "GatewayId"
-                     <*> x .?> "GatewayType"
-                     <*> x .?> "GatewayTimezone")
+                   (x .?> "GatewayState") <*> (x .?> "GatewayARN") <*>
+                     (x .?> "GatewayNetworkInterfaces" .!@ mempty)
+                     <*> (x .?> "NextUpdateAvailabilityDate")
+                     <*> (x .?> "LastSoftwareUpdate")
+                     <*> (x .?> "GatewayId")
+                     <*> (x .?> "GatewayType")
+                     <*> (x .?> "GatewayTimezone"))
 
 instance ToHeaders DescribeGatewayInformation where
         toHeaders
@@ -136,8 +136,8 @@ dgirGatewayARN = lens _dgirGatewayARN (\ s a -> s{_dgirGatewayARN = a});
 
 -- | A NetworkInterface array that contains descriptions of the gateway
 -- network interfaces.
-dgirGatewayNetworkInterfaces :: Lens' DescribeGatewayInformationResponse (Maybe [NetworkInterface])
-dgirGatewayNetworkInterfaces = lens _dgirGatewayNetworkInterfaces (\ s a -> s{_dgirGatewayNetworkInterfaces = a});
+dgirGatewayNetworkInterfaces :: Lens' DescribeGatewayInformationResponse [NetworkInterface]
+dgirGatewayNetworkInterfaces = lens _dgirGatewayNetworkInterfaces (\ s a -> s{_dgirGatewayNetworkInterfaces = a}) . _Default;
 
 -- | The date on which an update to the gateway is available. This date is in
 -- the time zone of the gateway. If the gateway is not available for an

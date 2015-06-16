@@ -69,7 +69,7 @@ instance AWSRequest GetPlatformApplicationAttributes
               (\ s h x ->
                  GetPlatformApplicationAttributesResponse' <$>
                    (x .@? "Attributes" .!@ mempty >>=
-                      parseXMLMap "entry" "key" "value"))
+                      may (parseXMLMap "entry" "key" "value")))
 
 instance ToHeaders GetPlatformApplicationAttributes
          where
@@ -94,7 +94,7 @@ instance ToQuery GetPlatformApplicationAttributes
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gpaarAttributes'
-newtype GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesResponse'{_gpaarAttributes :: Maybe (HashMap Text Text)} deriving (Eq, Read, Show)
+newtype GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesResponse'{_gpaarAttributes :: Maybe (Map Text Text)} deriving (Eq, Read, Show)
 
 -- | 'GetPlatformApplicationAttributesResponse' smart constructor.
 getPlatformApplicationAttributesResponse :: GetPlatformApplicationAttributesResponse
@@ -111,5 +111,5 @@ getPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesRespo
 -- -   @EventDeliveryFailure@ -- Topic ARN to which DeliveryFailure event
 --     notifications should be sent upon Direct Publish delivery failure
 --     (permanent) to one of the application\'s endpoints.
-gpaarAttributes :: Lens' GetPlatformApplicationAttributesResponse (Maybe (HashMap Text Text))
-gpaarAttributes = lens _gpaarAttributes (\ s a -> s{_gpaarAttributes = a}) . mapping _Coerce;
+gpaarAttributes :: Lens' GetPlatformApplicationAttributesResponse (Map Text Text)
+gpaarAttributes = lens _gpaarAttributes (\ s a -> s{_gpaarAttributes = a}) . _Default . _Map;

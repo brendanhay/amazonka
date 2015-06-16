@@ -86,8 +86,8 @@ describeClusterSecurityGroups = DescribeClusterSecurityGroups'{_dcsgTagValues = 
 -- these tag values in the request, Amazon Redshift returns a response with
 -- the security groups that have either or both of these tag values
 -- associated with them.
-dcsgTagValues :: Lens' DescribeClusterSecurityGroups (Maybe [Text])
-dcsgTagValues = lens _dcsgTagValues (\ s a -> s{_dcsgTagValues = a});
+dcsgTagValues :: Lens' DescribeClusterSecurityGroups [Text]
+dcsgTagValues = lens _dcsgTagValues (\ s a -> s{_dcsgTagValues = a}) . _Default;
 
 -- | A tag key or keys for which you want to return all matching cluster
 -- security groups that are associated with the specified key or keys. For
@@ -95,8 +95,8 @@ dcsgTagValues = lens _dcsgTagValues (\ s a -> s{_dcsgTagValues = a});
 -- called @owner@ and @environment@. If you specify both of these tag keys
 -- in the request, Amazon Redshift returns a response with the security
 -- groups that have either or both of these tag keys associated with them.
-dcsgTagKeys :: Lens' DescribeClusterSecurityGroups (Maybe [Text])
-dcsgTagKeys = lens _dcsgTagKeys (\ s a -> s{_dcsgTagKeys = a});
+dcsgTagKeys :: Lens' DescribeClusterSecurityGroups [Text]
+dcsgTagKeys = lens _dcsgTagKeys (\ s a -> s{_dcsgTagKeys = a}) . _Default;
 
 -- | The name of a cluster security group for which you are requesting
 -- details. You can specify either the __Marker__ parameter or a
@@ -142,8 +142,8 @@ instance AWSRequest DescribeClusterSecurityGroups
               (\ s h x ->
                  DescribeClusterSecurityGroupsResponse' <$>
                    (x .@? "ClusterSecurityGroups" .!@ mempty >>=
-                      parseXMLList "ClusterSecurityGroup")
-                     <*> x .@? "Marker")
+                      may (parseXMLList "ClusterSecurityGroup"))
+                     <*> (x .@? "Marker"))
 
 instance ToHeaders DescribeClusterSecurityGroups
          where
@@ -158,8 +158,10 @@ instance ToQuery DescribeClusterSecurityGroups where
               ["Action" =:
                  ("DescribeClusterSecurityGroups" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "TagValues" =: "TagValue" =: _dcsgTagValues,
-               "TagKeys" =: "TagKey" =: _dcsgTagKeys,
+               "TagValues" =:
+                 toQuery (toQueryList "TagValue" <$> _dcsgTagValues),
+               "TagKeys" =:
+                 toQuery (toQueryList "TagKey" <$> _dcsgTagKeys),
                "ClusterSecurityGroupName" =:
                  _dcsgClusterSecurityGroupName,
                "MaxRecords" =: _dcsgMaxRecords,
@@ -179,8 +181,8 @@ describeClusterSecurityGroupsResponse :: DescribeClusterSecurityGroupsResponse
 describeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse'{_dcsgr1ClusterSecurityGroups = Nothing, _dcsgr1Marker = Nothing};
 
 -- | A list of ClusterSecurityGroup instances.
-dcsgr1ClusterSecurityGroups :: Lens' DescribeClusterSecurityGroupsResponse (Maybe [ClusterSecurityGroup])
-dcsgr1ClusterSecurityGroups = lens _dcsgr1ClusterSecurityGroups (\ s a -> s{_dcsgr1ClusterSecurityGroups = a});
+dcsgr1ClusterSecurityGroups :: Lens' DescribeClusterSecurityGroupsResponse [ClusterSecurityGroup]
+dcsgr1ClusterSecurityGroups = lens _dcsgr1ClusterSecurityGroups (\ s a -> s{_dcsgr1ClusterSecurityGroups = a}) . _Default;
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,

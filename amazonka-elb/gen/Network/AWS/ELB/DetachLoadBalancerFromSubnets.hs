@@ -79,7 +79,7 @@ instance AWSRequest DetachLoadBalancerFromSubnets
               (\ s h x ->
                  DetachLoadBalancerFromSubnetsResponse' <$>
                    (x .@? "Subnets" .!@ mempty >>=
-                      parseXMLList "member"))
+                      may (parseXMLList "member")))
 
 instance ToHeaders DetachLoadBalancerFromSubnets
          where
@@ -95,7 +95,7 @@ instance ToQuery DetachLoadBalancerFromSubnets where
                  ("DetachLoadBalancerFromSubnets" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
                "LoadBalancerName" =: _dlbfsLoadBalancerName,
-               "Subnets" =: "member" =: _dlbfsSubnets]
+               "Subnets" =: toQueryList "member" _dlbfsSubnets]
 
 -- | /See:/ 'detachLoadBalancerFromSubnetsResponse' smart constructor.
 --
@@ -109,5 +109,5 @@ detachLoadBalancerFromSubnetsResponse :: DetachLoadBalancerFromSubnetsResponse
 detachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse'{_dlbfsrSubnets = Nothing};
 
 -- | The IDs of the remaining subnets for the load balancer.
-dlbfsrSubnets :: Lens' DetachLoadBalancerFromSubnetsResponse (Maybe [Text])
-dlbfsrSubnets = lens _dlbfsrSubnets (\ s a -> s{_dlbfsrSubnets = a});
+dlbfsrSubnets :: Lens' DetachLoadBalancerFromSubnetsResponse [Text]
+dlbfsrSubnets = lens _dlbfsrSubnets (\ s a -> s{_dlbfsrSubnets = a}) . _Default;

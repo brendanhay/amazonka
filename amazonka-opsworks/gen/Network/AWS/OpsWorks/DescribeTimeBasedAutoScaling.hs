@@ -73,8 +73,8 @@ instance AWSRequest DescribeTimeBasedAutoScaling
           = receiveJSON
               (\ s h x ->
                  DescribeTimeBasedAutoScalingResponse' <$>
-                   x .?> "TimeBasedAutoScalingConfigurations" .!@
-                     mempty)
+                   (x .?> "TimeBasedAutoScalingConfigurations" .!@
+                      mempty))
 
 instance ToHeaders DescribeTimeBasedAutoScaling where
         toHeaders
@@ -109,5 +109,5 @@ describeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingResponse'{_dt
 
 -- | An array of @TimeBasedAutoScalingConfiguration@ objects that describe
 -- the configuration for the specified instances.
-dtbasrTimeBasedAutoScalingConfigurations :: Lens' DescribeTimeBasedAutoScalingResponse (Maybe [TimeBasedAutoScalingConfiguration])
-dtbasrTimeBasedAutoScalingConfigurations = lens _dtbasrTimeBasedAutoScalingConfigurations (\ s a -> s{_dtbasrTimeBasedAutoScalingConfigurations = a});
+dtbasrTimeBasedAutoScalingConfigurations :: Lens' DescribeTimeBasedAutoScalingResponse [TimeBasedAutoScalingConfiguration]
+dtbasrTimeBasedAutoScalingConfigurations = lens _dtbasrTimeBasedAutoScalingConfigurations (\ s a -> s{_dtbasrTimeBasedAutoScalingConfigurations = a}) . _Default;

@@ -101,8 +101,8 @@ instance AWSRequest QueryObjects where
           = receiveJSON
               (\ s h x ->
                  QueryObjectsResponse' <$>
-                   x .?> "hasMoreResults" <*> x .?> "ids" .!@ mempty <*>
-                     x .?> "marker")
+                   (x .?> "hasMoreResults") <*> (x .?> "ids" .!@ mempty)
+                     <*> (x .?> "marker"))
 
 instance ToHeaders QueryObjects where
         toHeaders
@@ -147,8 +147,8 @@ qorHasMoreResults :: Lens' QueryObjectsResponse (Maybe Bool)
 qorHasMoreResults = lens _qorHasMoreResults (\ s a -> s{_qorHasMoreResults = a});
 
 -- | The identifiers that match the query selectors.
-qorIds :: Lens' QueryObjectsResponse (Maybe [Text])
-qorIds = lens _qorIds (\ s a -> s{_qorIds = a});
+qorIds :: Lens' QueryObjectsResponse [Text]
+qorIds = lens _qorIds (\ s a -> s{_qorIds = a}) . _Default;
 
 -- | The starting point for the next page of results. To view the next page
 -- of results, call @QueryObjects@ again with this marker value. If the

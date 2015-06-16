@@ -74,8 +74,8 @@ describeAccountAttributes :: DescribeAccountAttributes
 describeAccountAttributes = DescribeAccountAttributes'{_daaAttributeNames = Nothing, _daaDryRun = Nothing};
 
 -- | One or more account attribute names.
-daaAttributeNames :: Lens' DescribeAccountAttributes (Maybe [AccountAttributeName])
-daaAttributeNames = lens _daaAttributeNames (\ s a -> s{_daaAttributeNames = a});
+daaAttributeNames :: Lens' DescribeAccountAttributes [AccountAttributeName]
+daaAttributeNames = lens _daaAttributeNames (\ s a -> s{_daaAttributeNames = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -93,7 +93,7 @@ instance AWSRequest DescribeAccountAttributes where
           = receiveXML
               (\ s h x ->
                  DescribeAccountAttributesResponse' <$>
-                   parseXMLList "item" x)
+                   (may (parseXMLList "item") x))
 
 instance ToHeaders DescribeAccountAttributes where
         toHeaders = const mempty
@@ -107,7 +107,8 @@ instance ToQuery DescribeAccountAttributes where
               ["Action" =:
                  ("DescribeAccountAttributes" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "attributeName" =: _daaAttributeNames,
+               toQuery
+                 (toQueryList "attributeName" <$> _daaAttributeNames),
                "DryRun" =: _daaDryRun]
 
 -- | /See:/ 'describeAccountAttributesResponse' smart constructor.
@@ -122,5 +123,5 @@ describeAccountAttributesResponse :: DescribeAccountAttributesResponse
 describeAccountAttributesResponse = DescribeAccountAttributesResponse'{_daarAccountAttributes = Nothing};
 
 -- | Information about one or more account attributes.
-daarAccountAttributes :: Lens' DescribeAccountAttributesResponse (Maybe [AccountAttribute])
-daarAccountAttributes = lens _daarAccountAttributes (\ s a -> s{_daarAccountAttributes = a});
+daarAccountAttributes :: Lens' DescribeAccountAttributesResponse [AccountAttribute]
+daarAccountAttributes = lens _daarAccountAttributes (\ s a -> s{_daarAccountAttributes = a}) . _Default;

@@ -51,8 +51,8 @@ batchGetOnPremisesInstances :: BatchGetOnPremisesInstances
 batchGetOnPremisesInstances = BatchGetOnPremisesInstances'{_bgopiInstanceNames = Nothing};
 
 -- | The names of the on-premises instances to get information about.
-bgopiInstanceNames :: Lens' BatchGetOnPremisesInstances (Maybe [Text])
-bgopiInstanceNames = lens _bgopiInstanceNames (\ s a -> s{_bgopiInstanceNames = a});
+bgopiInstanceNames :: Lens' BatchGetOnPremisesInstances [Text]
+bgopiInstanceNames = lens _bgopiInstanceNames (\ s a -> s{_bgopiInstanceNames = a}) . _Default;
 
 instance AWSRequest BatchGetOnPremisesInstances where
         type Sv BatchGetOnPremisesInstances = CodeDeploy
@@ -63,7 +63,7 @@ instance AWSRequest BatchGetOnPremisesInstances where
           = receiveJSON
               (\ s h x ->
                  BatchGetOnPremisesInstancesResponse' <$>
-                   x .?> "instanceInfos" .!@ mempty)
+                   (x .?> "instanceInfos" .!@ mempty))
 
 instance ToHeaders BatchGetOnPremisesInstances where
         toHeaders
@@ -97,5 +97,5 @@ batchGetOnPremisesInstancesResponse :: BatchGetOnPremisesInstancesResponse
 batchGetOnPremisesInstancesResponse = BatchGetOnPremisesInstancesResponse'{_bgopirInstanceInfos = Nothing};
 
 -- | Information about the on-premises instances.
-bgopirInstanceInfos :: Lens' BatchGetOnPremisesInstancesResponse (Maybe [InstanceInfo])
-bgopirInstanceInfos = lens _bgopirInstanceInfos (\ s a -> s{_bgopirInstanceInfos = a});
+bgopirInstanceInfos :: Lens' BatchGetOnPremisesInstancesResponse [InstanceInfo]
+bgopirInstanceInfos = lens _bgopirInstanceInfos (\ s a -> s{_bgopirInstanceInfos = a}) . _Default;

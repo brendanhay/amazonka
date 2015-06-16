@@ -71,8 +71,8 @@ instance AWSRequest
               (\ s h x ->
                  CreateCloudFrontOriginAccessIdentity2014_11_06Response'
                    <$>
-                   h .#? "ETag" <*> h .#? "Location" <*>
-                     x .@? "CloudFrontOriginAccessIdentity")
+                   (h .#? "ETag") <*> (h .#? "Location") <*>
+                     (x .@? "CloudFrontOriginAccessIdentity"))
 
 instance ToElement
          CreateCloudFrontOriginAccessIdentity2014_11_06 where

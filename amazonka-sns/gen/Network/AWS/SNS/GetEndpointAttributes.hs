@@ -67,7 +67,7 @@ instance AWSRequest GetEndpointAttributes where
               (\ s h x ->
                  GetEndpointAttributesResponse' <$>
                    (x .@? "Attributes" .!@ mempty >>=
-                      parseXMLMap "entry" "key" "value"))
+                      may (parseXMLMap "entry" "key" "value")))
 
 instance ToHeaders GetEndpointAttributes where
         toHeaders = const mempty
@@ -87,7 +87,7 @@ instance ToQuery GetEndpointAttributes where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gearAttributes'
-newtype GetEndpointAttributesResponse = GetEndpointAttributesResponse'{_gearAttributes :: Maybe (HashMap Text Text)} deriving (Eq, Read, Show)
+newtype GetEndpointAttributesResponse = GetEndpointAttributesResponse'{_gearAttributes :: Maybe (Map Text Text)} deriving (Eq, Read, Show)
 
 -- | 'GetEndpointAttributesResponse' smart constructor.
 getEndpointAttributesResponse :: GetEndpointAttributesResponse
@@ -106,5 +106,5 @@ getEndpointAttributesResponse = GetEndpointAttributesResponse'{_gearAttributes =
 --     an app and mobile device. This is returned from the notification
 --     service when an app and mobile device are registered with the
 --     notification service.
-gearAttributes :: Lens' GetEndpointAttributesResponse (Maybe (HashMap Text Text))
-gearAttributes = lens _gearAttributes (\ s a -> s{_gearAttributes = a}) . mapping _Coerce;
+gearAttributes :: Lens' GetEndpointAttributesResponse (Map Text Text)
+gearAttributes = lens _gearAttributes (\ s a -> s{_gearAttributes = a}) . _Default . _Map;

@@ -849,8 +849,8 @@ instance FromJSON
               "ActivityTaskCancelRequestedEventAttributes"
               (\ x ->
                  ActivityTaskCancelRequestedEventAttributes' <$>
-                   x .: "decisionTaskCompletedEventId" <*>
-                     x .: "activityId")
+                   (x .: "decisionTaskCompletedEventId") <*>
+                     (x .: "activityId"))
 
 -- | /See:/ 'activityTaskCanceledEventAttributes' smart constructor.
 --
@@ -899,10 +899,10 @@ instance FromJSON ActivityTaskCanceledEventAttributes
           = withObject "ActivityTaskCanceledEventAttributes"
               (\ x ->
                  ActivityTaskCanceledEventAttributes' <$>
-                   x .:? "latestCancelRequestedEventId" <*>
-                     x .:? "details"
-                     <*> x .: "scheduledEventId"
-                     <*> x .: "startedEventId")
+                   (x .:? "latestCancelRequestedEventId") <*>
+                     (x .:? "details")
+                     <*> (x .: "scheduledEventId")
+                     <*> (x .: "startedEventId"))
 
 -- | /See:/ 'activityTaskCompletedEventAttributes' smart constructor.
 --
@@ -942,8 +942,8 @@ instance FromJSON
           = withObject "ActivityTaskCompletedEventAttributes"
               (\ x ->
                  ActivityTaskCompletedEventAttributes' <$>
-                   x .:? "result" <*> x .: "scheduledEventId" <*>
-                     x .: "startedEventId")
+                   (x .:? "result") <*> (x .: "scheduledEventId") <*>
+                     (x .: "startedEventId"))
 
 -- | /See:/ 'activityTaskFailedEventAttributes' smart constructor.
 --
@@ -989,9 +989,9 @@ instance FromJSON ActivityTaskFailedEventAttributes
           = withObject "ActivityTaskFailedEventAttributes"
               (\ x ->
                  ActivityTaskFailedEventAttributes' <$>
-                   x .:? "reason" <*> x .:? "details" <*>
-                     x .: "scheduledEventId"
-                     <*> x .: "startedEventId")
+                   (x .:? "reason") <*> (x .:? "details") <*>
+                     (x .: "scheduledEventId")
+                     <*> (x .: "startedEventId"))
 
 -- | /See:/ 'activityTaskScheduledEventAttributes' smart constructor.
 --
@@ -1095,16 +1095,17 @@ instance FromJSON
           = withObject "ActivityTaskScheduledEventAttributes"
               (\ x ->
                  ActivityTaskScheduledEventAttributes' <$>
-                   x .:? "control" <*> x .:? "scheduleToCloseTimeout"
-                     <*> x .:? "heartbeatTimeout"
-                     <*> x .:? "input"
-                     <*> x .:? "taskPriority"
-                     <*> x .:? "scheduleToStartTimeout"
-                     <*> x .:? "startToCloseTimeout"
-                     <*> x .: "activityType"
-                     <*> x .: "activityId"
-                     <*> x .: "taskList"
-                     <*> x .: "decisionTaskCompletedEventId")
+                   (x .:? "control") <*>
+                     (x .:? "scheduleToCloseTimeout")
+                     <*> (x .:? "heartbeatTimeout")
+                     <*> (x .:? "input")
+                     <*> (x .:? "taskPriority")
+                     <*> (x .:? "scheduleToStartTimeout")
+                     <*> (x .:? "startToCloseTimeout")
+                     <*> (x .: "activityType")
+                     <*> (x .: "activityId")
+                     <*> (x .: "taskList")
+                     <*> (x .: "decisionTaskCompletedEventId"))
 
 -- | /See:/ 'activityTaskStartedEventAttributes' smart constructor.
 --
@@ -1138,7 +1139,7 @@ instance FromJSON ActivityTaskStartedEventAttributes
           = withObject "ActivityTaskStartedEventAttributes"
               (\ x ->
                  ActivityTaskStartedEventAttributes' <$>
-                   x .:? "identity" <*> x .: "scheduledEventId")
+                   (x .:? "identity") <*> (x .: "scheduledEventId"))
 
 -- | /See:/ 'activityTaskTimedOutEventAttributes' smart constructor.
 --
@@ -1185,9 +1186,9 @@ instance FromJSON ActivityTaskTimedOutEventAttributes
           = withObject "ActivityTaskTimedOutEventAttributes"
               (\ x ->
                  ActivityTaskTimedOutEventAttributes' <$>
-                   x .:? "details" <*> x .: "timeoutType" <*>
-                     x .: "scheduledEventId"
-                     <*> x .: "startedEventId")
+                   (x .:? "details") <*> (x .: "timeoutType") <*>
+                     (x .: "scheduledEventId")
+                     <*> (x .: "startedEventId"))
 
 data ActivityTaskTimeoutType = ATTTScheduleTOClose | ATTTHeartbeat | ATTTStartTOClose | ATTTScheduleTOStart deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -1244,7 +1245,7 @@ instance FromJSON ActivityType where
         parseJSON
           = withObject "ActivityType"
               (\ x ->
-                 ActivityType' <$> x .: "name" <*> x .: "version")
+                 ActivityType' <$> (x .: "name") <*> (x .: "version"))
 
 instance ToJSON ActivityType where
         toJSON ActivityType'{..}
@@ -1346,12 +1347,12 @@ instance FromJSON ActivityTypeConfiguration where
           = withObject "ActivityTypeConfiguration"
               (\ x ->
                  ActivityTypeConfiguration' <$>
-                   x .:? "defaultTaskScheduleToStartTimeout" <*>
-                     x .:? "defaultTaskList"
-                     <*> x .:? "defaultTaskPriority"
-                     <*> x .:? "defaultTaskHeartbeatTimeout"
-                     <*> x .:? "defaultTaskScheduleToCloseTimeout"
-                     <*> x .:? "defaultTaskStartToCloseTimeout")
+                   (x .:? "defaultTaskScheduleToStartTimeout") <*>
+                     (x .:? "defaultTaskList")
+                     <*> (x .:? "defaultTaskPriority")
+                     <*> (x .:? "defaultTaskHeartbeatTimeout")
+                     <*> (x .:? "defaultTaskScheduleToCloseTimeout")
+                     <*> (x .:? "defaultTaskStartToCloseTimeout"))
 
 -- | /See:/ 'activityTypeInfo' smart constructor.
 --
@@ -1398,10 +1399,10 @@ instance FromJSON ActivityTypeInfo where
           = withObject "ActivityTypeInfo"
               (\ x ->
                  ActivityTypeInfo' <$>
-                   x .:? "deprecationDate" <*> x .:? "description" <*>
-                     x .: "activityType"
-                     <*> x .: "status"
-                     <*> x .: "creationDate")
+                   (x .:? "deprecationDate") <*> (x .:? "description")
+                     <*> (x .: "activityType")
+                     <*> (x .: "status")
+                     <*> (x .: "creationDate"))
 
 -- | /See:/ 'cancelTimerDecisionAttributes' smart constructor.
 --
@@ -1484,8 +1485,8 @@ instance FromJSON CancelTimerFailedEventAttributes
           = withObject "CancelTimerFailedEventAttributes"
               (\ x ->
                  CancelTimerFailedEventAttributes' <$>
-                   x .: "timerId" <*> x .: "cause" <*>
-                     x .: "decisionTaskCompletedEventId")
+                   (x .: "timerId") <*> (x .: "cause") <*>
+                     (x .: "decisionTaskCompletedEventId"))
 
 -- | /See:/ 'cancelWorkflowExecutionDecisionAttributes' smart constructor.
 --
@@ -1565,7 +1566,8 @@ instance FromJSON
               "CancelWorkflowExecutionFailedEventAttributes"
               (\ x ->
                  CancelWorkflowExecutionFailedEventAttributes' <$>
-                   x .: "cause" <*> x .: "decisionTaskCompletedEventId")
+                   (x .: "cause") <*>
+                     (x .: "decisionTaskCompletedEventId"))
 
 data ChildPolicy = Abandon | RequestCancel | Terminate deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -1644,10 +1646,10 @@ instance FromJSON
               "ChildWorkflowExecutionCanceledEventAttributes"
               (\ x ->
                  ChildWorkflowExecutionCanceledEventAttributes' <$>
-                   x .:? "details" <*> x .: "workflowExecution" <*>
-                     x .: "workflowType"
-                     <*> x .: "initiatedEventId"
-                     <*> x .: "startedEventId")
+                   (x .:? "details") <*> (x .: "workflowExecution") <*>
+                     (x .: "workflowType")
+                     <*> (x .: "initiatedEventId")
+                     <*> (x .: "startedEventId"))
 
 -- | /See:/ 'childWorkflowExecutionCompletedEventAttributes' smart constructor.
 --
@@ -1701,10 +1703,10 @@ instance FromJSON
               "ChildWorkflowExecutionCompletedEventAttributes"
               (\ x ->
                  ChildWorkflowExecutionCompletedEventAttributes' <$>
-                   x .:? "result" <*> x .: "workflowExecution" <*>
-                     x .: "workflowType"
-                     <*> x .: "initiatedEventId"
-                     <*> x .: "startedEventId")
+                   (x .:? "result") <*> (x .: "workflowExecution") <*>
+                     (x .: "workflowType")
+                     <*> (x .: "initiatedEventId")
+                     <*> (x .: "startedEventId"))
 
 -- | /See:/ 'childWorkflowExecutionFailedEventAttributes' smart constructor.
 --
@@ -1764,11 +1766,11 @@ instance FromJSON
               "ChildWorkflowExecutionFailedEventAttributes"
               (\ x ->
                  ChildWorkflowExecutionFailedEventAttributes' <$>
-                   x .:? "reason" <*> x .:? "details" <*>
-                     x .: "workflowExecution"
-                     <*> x .: "workflowType"
-                     <*> x .: "initiatedEventId"
-                     <*> x .: "startedEventId")
+                   (x .:? "reason") <*> (x .:? "details") <*>
+                     (x .: "workflowExecution")
+                     <*> (x .: "workflowType")
+                     <*> (x .: "initiatedEventId")
+                     <*> (x .: "startedEventId"))
 
 -- | /See:/ 'childWorkflowExecutionStartedEventAttributes' smart constructor.
 --
@@ -1807,8 +1809,8 @@ instance FromJSON
               "ChildWorkflowExecutionStartedEventAttributes"
               (\ x ->
                  ChildWorkflowExecutionStartedEventAttributes' <$>
-                   x .: "workflowExecution" <*> x .: "workflowType" <*>
-                     x .: "initiatedEventId")
+                   (x .: "workflowExecution") <*> (x .: "workflowType")
+                     <*> (x .: "initiatedEventId"))
 
 -- | /See:/ 'childWorkflowExecutionTerminatedEventAttributes' smart constructor.
 --
@@ -1856,9 +1858,9 @@ instance FromJSON
               "ChildWorkflowExecutionTerminatedEventAttributes"
               (\ x ->
                  ChildWorkflowExecutionTerminatedEventAttributes' <$>
-                   x .: "workflowExecution" <*> x .: "workflowType" <*>
-                     x .: "initiatedEventId"
-                     <*> x .: "startedEventId")
+                   (x .: "workflowExecution") <*> (x .: "workflowType")
+                     <*> (x .: "initiatedEventId")
+                     <*> (x .: "startedEventId"))
 
 -- | /See:/ 'childWorkflowExecutionTimedOutEventAttributes' smart constructor.
 --
@@ -1913,10 +1915,10 @@ instance FromJSON
               "ChildWorkflowExecutionTimedOutEventAttributes"
               (\ x ->
                  ChildWorkflowExecutionTimedOutEventAttributes' <$>
-                   x .: "workflowExecution" <*> x .: "workflowType" <*>
-                     x .: "timeoutType"
-                     <*> x .: "initiatedEventId"
-                     <*> x .: "startedEventId")
+                   (x .: "workflowExecution") <*> (x .: "workflowType")
+                     <*> (x .: "timeoutType")
+                     <*> (x .: "initiatedEventId")
+                     <*> (x .: "startedEventId"))
 
 data CloseStatus = Canceled | TimedOut | Terminated | Completed | Failed | ContinuedASNew deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -2049,7 +2051,8 @@ instance FromJSON
               "CompleteWorkflowExecutionFailedEventAttributes"
               (\ x ->
                  CompleteWorkflowExecutionFailedEventAttributes' <$>
-                   x .: "cause" <*> x .: "decisionTaskCompletedEventId")
+                   (x .: "cause") <*>
+                     (x .: "decisionTaskCompletedEventId"))
 
 -- | /See:/ 'continueAsNewWorkflowExecutionDecisionAttributes' smart constructor.
 --
@@ -2080,8 +2083,8 @@ continueAsNewWorkflowExecutionDecisionAttributes = ContinueAsNewWorkflowExecutio
 -- of 5 tags can be specified. You can list workflow executions with a
 -- specific tag by calling ListOpenWorkflowExecutions or
 -- ListClosedWorkflowExecutions and specifying a TagFilter.
-canwedaTagList :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes (Maybe [Text])
-canwedaTagList = lens _canwedaTagList (\ s a -> s{_canwedaTagList = a});
+canwedaTagList :: Lens' ContinueAsNewWorkflowExecutionDecisionAttributes [Text]
+canwedaTagList = lens _canwedaTagList (\ s a -> s{_canwedaTagList = a}) . _Default;
 
 -- | Specifies the maximum duration of decision tasks for the new workflow
 -- execution. This parameter overrides the @defaultTaskStartToCloseTimout@
@@ -2252,7 +2255,8 @@ instance FromJSON
               (\ x ->
                  ContinueAsNewWorkflowExecutionFailedEventAttributes'
                    <$>
-                   x .: "cause" <*> x .: "decisionTaskCompletedEventId")
+                   (x .: "cause") <*>
+                     (x .: "decisionTaskCompletedEventId"))
 
 -- | /See:/ 'decision' smart constructor.
 --
@@ -2422,8 +2426,9 @@ instance FromJSON
           = withObject "DecisionTaskCompletedEventAttributes"
               (\ x ->
                  DecisionTaskCompletedEventAttributes' <$>
-                   x .:? "executionContext" <*> x .: "scheduledEventId"
-                     <*> x .: "startedEventId")
+                   (x .:? "executionContext") <*>
+                     (x .: "scheduledEventId")
+                     <*> (x .: "startedEventId"))
 
 -- | /See:/ 'decisionTaskScheduledEventAttributes' smart constructor.
 --
@@ -2469,8 +2474,9 @@ instance FromJSON
           = withObject "DecisionTaskScheduledEventAttributes"
               (\ x ->
                  DecisionTaskScheduledEventAttributes' <$>
-                   x .:? "taskPriority" <*> x .:? "startToCloseTimeout"
-                     <*> x .: "taskList")
+                   (x .:? "taskPriority") <*>
+                     (x .:? "startToCloseTimeout")
+                     <*> (x .: "taskList"))
 
 -- | /See:/ 'decisionTaskStartedEventAttributes' smart constructor.
 --
@@ -2503,7 +2509,7 @@ instance FromJSON DecisionTaskStartedEventAttributes
           = withObject "DecisionTaskStartedEventAttributes"
               (\ x ->
                  DecisionTaskStartedEventAttributes' <$>
-                   x .:? "identity" <*> x .: "scheduledEventId")
+                   (x .:? "identity") <*> (x .: "scheduledEventId"))
 
 -- | /See:/ 'decisionTaskTimedOutEventAttributes' smart constructor.
 --
@@ -2544,8 +2550,8 @@ instance FromJSON DecisionTaskTimedOutEventAttributes
           = withObject "DecisionTaskTimedOutEventAttributes"
               (\ x ->
                  DecisionTaskTimedOutEventAttributes' <$>
-                   x .: "timeoutType" <*> x .: "scheduledEventId" <*>
-                     x .: "startedEventId")
+                   (x .: "timeoutType") <*> (x .: "scheduledEventId")
+                     <*> (x .: "startedEventId"))
 
 data DecisionTaskTimeoutType = StartTOClose deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -2625,7 +2631,7 @@ instance FromJSON DomainConfiguration where
           = withObject "DomainConfiguration"
               (\ x ->
                  DomainConfiguration' <$>
-                   x .: "workflowExecutionRetentionPeriodInDays")
+                   (x .: "workflowExecutionRetentionPeriodInDays"))
 
 -- | /See:/ 'domainInfo' smart constructor.
 --
@@ -2666,8 +2672,8 @@ instance FromJSON DomainInfo where
           = withObject "DomainInfo"
               (\ x ->
                  DomainInfo' <$>
-                   x .:? "description" <*> x .: "name" <*>
-                     x .: "status")
+                   (x .:? "description") <*> (x .: "name") <*>
+                     (x .: "status"))
 
 data EventType = ChildWorkflowExecutionCanceled | ChildWorkflowExecutionTimedOut | StartChildWorkflowExecutionInitiated | WorkflowExecutionTerminated | CancelWorkflowExecutionFailed | DecisionTaskStarted | RequestCancelActivityTaskFailed | WorkflowExecutionCancelRequested | WorkflowExecutionContinuedAsNew | ExternalWorkflowExecutionCancelRequested | WorkflowExecutionFailed | ContinueAsNewWorkflowExecutionFailed | SignalExternalWorkflowExecutionInitiated | StartChildWorkflowExecutionFailed | FailWorkflowExecutionFailed | ChildWorkflowExecutionFailed | DecisionTaskCompleted | CompleteWorkflowExecutionFailed | ChildWorkflowExecutionCompleted | ScheduleActivityTaskFailed | MarkerRecorded | ActivityTaskScheduled | RecordMarkerFailed | StartTimerFailed | RequestCancelExternalWorkflowExecutionInitiated | DecisionTaskScheduled | WorkflowExecutionCompleted | ActivityTaskTimedOut | ActivityTaskCanceled | ChildWorkflowExecutionStarted | CancelTimerFailed | DecisionTaskTimedOut | ActivityTaskCompleted | TimerCanceled | WorkflowExecutionStarted | RequestCancelExternalWorkflowExecutionFailed | TimerFired | ExternalWorkflowExecutionSignaled | ActivityTaskFailed | WorkflowExecutionSignaled | WorkflowExecutionCanceled | WorkflowExecutionTimedOut | ChildWorkflowExecutionTerminated | ActivityTaskCancelRequested | TimerStarted | ActivityTaskStarted | SignalExternalWorkflowExecutionFailed deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -2861,7 +2867,8 @@ instance FromJSON
               (\ x ->
                  ExternalWorkflowExecutionCancelRequestedEventAttributes'
                    <$>
-                   x .: "workflowExecution" <*> x .: "initiatedEventId")
+                   (x .: "workflowExecution") <*>
+                     (x .: "initiatedEventId"))
 
 -- | /See:/ 'externalWorkflowExecutionSignaledEventAttributes' smart constructor.
 --
@@ -2895,7 +2902,8 @@ instance FromJSON
               "ExternalWorkflowExecutionSignaledEventAttributes"
               (\ x ->
                  ExternalWorkflowExecutionSignaledEventAttributes' <$>
-                   x .: "workflowExecution" <*> x .: "initiatedEventId")
+                   (x .: "workflowExecution") <*>
+                     (x .: "initiatedEventId"))
 
 -- | /See:/ 'failWorkflowExecutionDecisionAttributes' smart constructor.
 --
@@ -2982,7 +2990,8 @@ instance FromJSON
               "FailWorkflowExecutionFailedEventAttributes"
               (\ x ->
                  FailWorkflowExecutionFailedEventAttributes' <$>
-                   x .: "cause" <*> x .: "decisionTaskCompletedEventId")
+                   (x .: "cause") <*>
+                     (x .: "decisionTaskCompletedEventId"))
 
 -- | /See:/ 'historyEvent' smart constructor.
 --
@@ -3394,93 +3403,102 @@ instance FromJSON HistoryEvent where
           = withObject "HistoryEvent"
               (\ x ->
                  HistoryEvent' <$>
-                   x .:?
-                     "workflowExecutionCancelRequestedEventAttributes"
-                     <*> x .:? "decisionTaskScheduledEventAttributes"
-                     <*> x .:? "startTimerFailedEventAttributes"
-                     <*> x .:? "recordMarkerFailedEventAttributes"
+                   (x .:?
+                      "workflowExecutionCancelRequestedEventAttributes")
+                     <*> (x .:? "decisionTaskScheduledEventAttributes")
+                     <*> (x .:? "startTimerFailedEventAttributes")
+                     <*> (x .:? "recordMarkerFailedEventAttributes")
                      <*>
-                     x .:?
-                       "requestCancelExternalWorkflowExecutionInitiatedEventAttributes"
-                     <*> x .:? "workflowExecutionCompletedEventAttributes"
-                     <*> x .:? "activityTaskScheduledEventAttributes"
+                     (x .:?
+                        "requestCancelExternalWorkflowExecutionInitiatedEventAttributes")
                      <*>
-                     x .:?
-                       "childWorkflowExecutionCompletedEventAttributes"
-                     <*> x .:? "scheduleActivityTaskFailedEventAttributes"
-                     <*> x .:? "markerRecordedEventAttributes"
+                     (x .:? "workflowExecutionCompletedEventAttributes")
+                     <*> (x .:? "activityTaskScheduledEventAttributes")
                      <*>
-                     x .:?
-                       "completeWorkflowExecutionFailedEventAttributes"
+                     (x .:?
+                        "childWorkflowExecutionCompletedEventAttributes")
                      <*>
-                     x .:?
-                       "requestCancelExternalWorkflowExecutionFailedEventAttributes"
-                     <*> x .:? "timerCanceledEventAttributes"
-                     <*> x .:? "workflowExecutionStartedEventAttributes"
-                     <*> x .:? "activityTaskCompletedEventAttributes"
+                     (x .:? "scheduleActivityTaskFailedEventAttributes")
+                     <*> (x .:? "markerRecordedEventAttributes")
                      <*>
-                     x .:? "childWorkflowExecutionStartedEventAttributes"
-                     <*> x .:? "decisionTaskTimedOutEventAttributes"
-                     <*> x .:? "cancelTimerFailedEventAttributes"
-                     <*> x .:? "activityTaskTimedOutEventAttributes"
-                     <*> x .:? "activityTaskCanceledEventAttributes"
+                     (x .:?
+                        "completeWorkflowExecutionFailedEventAttributes")
                      <*>
-                     x .:? "childWorkflowExecutionCanceledEventAttributes"
-                     <*> x .:? "decisionTaskStartedEventAttributes"
+                     (x .:?
+                        "requestCancelExternalWorkflowExecutionFailedEventAttributes")
+                     <*> (x .:? "timerCanceledEventAttributes")
+                     <*> (x .:? "workflowExecutionStartedEventAttributes")
+                     <*> (x .:? "activityTaskCompletedEventAttributes")
                      <*>
-                     x .:? "cancelWorkflowExecutionFailedEventAttributes"
+                     (x .:?
+                        "childWorkflowExecutionStartedEventAttributes")
+                     <*> (x .:? "decisionTaskTimedOutEventAttributes")
+                     <*> (x .:? "cancelTimerFailedEventAttributes")
+                     <*> (x .:? "activityTaskTimedOutEventAttributes")
+                     <*> (x .:? "activityTaskCanceledEventAttributes")
                      <*>
-                     x .:? "childWorkflowExecutionTimedOutEventAttributes"
+                     (x .:?
+                        "childWorkflowExecutionCanceledEventAttributes")
+                     <*> (x .:? "decisionTaskStartedEventAttributes")
                      <*>
-                     x .:?
-                       "requestCancelActivityTaskFailedEventAttributes"
+                     (x .:?
+                        "cancelWorkflowExecutionFailedEventAttributes")
                      <*>
-                     x .:? "workflowExecutionTerminatedEventAttributes"
+                     (x .:?
+                        "childWorkflowExecutionTimedOutEventAttributes")
                      <*>
-                     x .:?
-                       "startChildWorkflowExecutionInitiatedEventAttributes"
-                     <*> x .:? "activityTaskStartedEventAttributes"
+                     (x .:?
+                        "requestCancelActivityTaskFailedEventAttributes")
                      <*>
-                     x .:?
-                       "signalExternalWorkflowExecutionFailedEventAttributes"
-                     <*> x .:? "timerStartedEventAttributes"
-                     <*> x .:? "workflowExecutionTimedOutEventAttributes"
+                     (x .:? "workflowExecutionTerminatedEventAttributes")
                      <*>
-                     x .:? "activityTaskCancelRequestedEventAttributes"
+                     (x .:?
+                        "startChildWorkflowExecutionInitiatedEventAttributes")
+                     <*> (x .:? "activityTaskStartedEventAttributes")
                      <*>
-                     x .:?
-                       "childWorkflowExecutionTerminatedEventAttributes"
-                     <*> x .:? "workflowExecutionCanceledEventAttributes"
-                     <*> x .:? "workflowExecutionSignaledEventAttributes"
-                     <*> x .:? "activityTaskFailedEventAttributes"
+                     (x .:?
+                        "signalExternalWorkflowExecutionFailedEventAttributes")
+                     <*> (x .:? "timerStartedEventAttributes")
                      <*>
-                     x .:?
-                       "externalWorkflowExecutionSignaledEventAttributes"
-                     <*> x .:? "timerFiredEventAttributes"
+                     (x .:? "workflowExecutionTimedOutEventAttributes")
                      <*>
-                     x .:? "failWorkflowExecutionFailedEventAttributes"
+                     (x .:? "activityTaskCancelRequestedEventAttributes")
                      <*>
-                     x .:? "childWorkflowExecutionFailedEventAttributes"
-                     <*> x .:? "decisionTaskCompletedEventAttributes"
+                     (x .:?
+                        "childWorkflowExecutionTerminatedEventAttributes")
                      <*>
-                     x .:?
-                       "startChildWorkflowExecutionFailedEventAttributes"
+                     (x .:? "workflowExecutionCanceledEventAttributes")
                      <*>
-                     x .:?
-                       "signalExternalWorkflowExecutionInitiatedEventAttributes"
+                     (x .:? "workflowExecutionSignaledEventAttributes")
+                     <*> (x .:? "activityTaskFailedEventAttributes")
                      <*>
-                     x .:?
-                       "continueAsNewWorkflowExecutionFailedEventAttributes"
-                     <*> x .:? "workflowExecutionFailedEventAttributes"
+                     (x .:?
+                        "externalWorkflowExecutionSignaledEventAttributes")
+                     <*> (x .:? "timerFiredEventAttributes")
                      <*>
-                     x .:?
-                       "workflowExecutionContinuedAsNewEventAttributes"
+                     (x .:? "failWorkflowExecutionFailedEventAttributes")
                      <*>
-                     x .:?
-                       "externalWorkflowExecutionCancelRequestedEventAttributes"
-                     <*> x .: "eventTimestamp"
-                     <*> x .: "eventType"
-                     <*> x .: "eventId")
+                     (x .:? "childWorkflowExecutionFailedEventAttributes")
+                     <*> (x .:? "decisionTaskCompletedEventAttributes")
+                     <*>
+                     (x .:?
+                        "startChildWorkflowExecutionFailedEventAttributes")
+                     <*>
+                     (x .:?
+                        "signalExternalWorkflowExecutionInitiatedEventAttributes")
+                     <*>
+                     (x .:?
+                        "continueAsNewWorkflowExecutionFailedEventAttributes")
+                     <*> (x .:? "workflowExecutionFailedEventAttributes")
+                     <*>
+                     (x .:?
+                        "workflowExecutionContinuedAsNewEventAttributes")
+                     <*>
+                     (x .:?
+                        "externalWorkflowExecutionCancelRequestedEventAttributes")
+                     <*> (x .: "eventTimestamp")
+                     <*> (x .: "eventType")
+                     <*> (x .: "eventId"))
 
 -- | /See:/ 'markerRecordedEventAttributes' smart constructor.
 --
@@ -3517,8 +3535,8 @@ instance FromJSON MarkerRecordedEventAttributes where
           = withObject "MarkerRecordedEventAttributes"
               (\ x ->
                  MarkerRecordedEventAttributes' <$>
-                   x .:? "details" <*> x .: "markerName" <*>
-                     x .: "decisionTaskCompletedEventId")
+                   (x .:? "details") <*> (x .: "markerName") <*>
+                     (x .: "decisionTaskCompletedEventId"))
 
 -- | /See:/ 'pendingTaskCount' smart constructor.
 --
@@ -3548,7 +3566,7 @@ instance FromJSON PendingTaskCount where
           = withObject "PendingTaskCount"
               (\ x ->
                  PendingTaskCount' <$>
-                   x .:? "truncated" <*> x .: "count")
+                   (x .:? "truncated") <*> (x .: "count"))
 
 -- | /See:/ 'recordMarkerDecisionAttributes' smart constructor.
 --
@@ -3637,8 +3655,8 @@ instance FromJSON RecordMarkerFailedEventAttributes
           = withObject "RecordMarkerFailedEventAttributes"
               (\ x ->
                  RecordMarkerFailedEventAttributes' <$>
-                   x .: "markerName" <*> x .: "cause" <*>
-                     x .: "decisionTaskCompletedEventId")
+                   (x .: "markerName") <*> (x .: "cause") <*>
+                     (x .: "decisionTaskCompletedEventId"))
 
 data RegistrationStatus = Registered | Deprecated deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -3749,8 +3767,8 @@ instance FromJSON
               "RequestCancelActivityTaskFailedEventAttributes"
               (\ x ->
                  RequestCancelActivityTaskFailedEventAttributes' <$>
-                   x .: "activityId" <*> x .: "cause" <*>
-                     x .: "decisionTaskCompletedEventId")
+                   (x .: "activityId") <*> (x .: "cause") <*>
+                     (x .: "decisionTaskCompletedEventId"))
 
 -- | /See:/ 'requestCancelExternalWorkflowExecutionDecisionAttributes' smart constructor.
 --
@@ -3882,11 +3900,11 @@ instance FromJSON
               (\ x ->
                  RequestCancelExternalWorkflowExecutionFailedEventAttributes'
                    <$>
-                   x .:? "control" <*> x .:? "runId" <*>
-                     x .: "workflowId"
-                     <*> x .: "cause"
-                     <*> x .: "initiatedEventId"
-                     <*> x .: "decisionTaskCompletedEventId")
+                   (x .:? "control") <*> (x .:? "runId") <*>
+                     (x .: "workflowId")
+                     <*> (x .: "cause")
+                     <*> (x .: "initiatedEventId")
+                     <*> (x .: "decisionTaskCompletedEventId"))
 
 -- | /See:/ 'requestCancelExternalWorkflowExecutionInitiatedEventAttributes' smart constructor.
 --
@@ -3935,9 +3953,9 @@ instance FromJSON
               (\ x ->
                  RequestCancelExternalWorkflowExecutionInitiatedEventAttributes'
                    <$>
-                   x .:? "control" <*> x .:? "runId" <*>
-                     x .: "workflowId"
-                     <*> x .: "decisionTaskCompletedEventId")
+                   (x .:? "control") <*> (x .:? "runId") <*>
+                     (x .: "workflowId")
+                     <*> (x .: "decisionTaskCompletedEventId"))
 
 -- | /See:/ 'scheduleActivityTaskDecisionAttributes' smart constructor.
 --
@@ -4178,9 +4196,9 @@ instance FromJSON
               "ScheduleActivityTaskFailedEventAttributes"
               (\ x ->
                  ScheduleActivityTaskFailedEventAttributes' <$>
-                   x .: "activityType" <*> x .: "activityId" <*>
-                     x .: "cause"
-                     <*> x .: "decisionTaskCompletedEventId")
+                   (x .: "activityType") <*> (x .: "activityId") <*>
+                     (x .: "cause")
+                     <*> (x .: "decisionTaskCompletedEventId"))
 
 -- | /See:/ 'signalExternalWorkflowExecutionDecisionAttributes' smart constructor.
 --
@@ -4326,11 +4344,11 @@ instance FromJSON
               (\ x ->
                  SignalExternalWorkflowExecutionFailedEventAttributes'
                    <$>
-                   x .:? "control" <*> x .:? "runId" <*>
-                     x .: "workflowId"
-                     <*> x .: "cause"
-                     <*> x .: "initiatedEventId"
-                     <*> x .: "decisionTaskCompletedEventId")
+                   (x .:? "control") <*> (x .:? "runId") <*>
+                     (x .: "workflowId")
+                     <*> (x .: "cause")
+                     <*> (x .: "initiatedEventId")
+                     <*> (x .: "decisionTaskCompletedEventId"))
 
 -- | /See:/ 'signalExternalWorkflowExecutionInitiatedEventAttributes' smart constructor.
 --
@@ -4390,10 +4408,11 @@ instance FromJSON
               (\ x ->
                  SignalExternalWorkflowExecutionInitiatedEventAttributes'
                    <$>
-                   x .:? "control" <*> x .:? "input" <*> x .:? "runId"
-                     <*> x .: "workflowId"
-                     <*> x .: "signalName"
-                     <*> x .: "decisionTaskCompletedEventId")
+                   (x .:? "control") <*> (x .:? "input") <*>
+                     (x .:? "runId")
+                     <*> (x .: "workflowId")
+                     <*> (x .: "signalName")
+                     <*> (x .: "decisionTaskCompletedEventId"))
 
 -- | /See:/ 'startChildWorkflowExecutionDecisionAttributes' smart constructor.
 --
@@ -4434,8 +4453,8 @@ scwedaControl = lens _scwedaControl (\ s a -> s{_scwedaControl = a});
 -- maximum of 5 tags can be specified. You can list workflow executions
 -- with a specific tag by calling ListOpenWorkflowExecutions or
 -- ListClosedWorkflowExecutions and specifying a TagFilter.
-scwedaTagList :: Lens' StartChildWorkflowExecutionDecisionAttributes (Maybe [Text])
-scwedaTagList = lens _scwedaTagList (\ s a -> s{_scwedaTagList = a});
+scwedaTagList :: Lens' StartChildWorkflowExecutionDecisionAttributes [Text]
+scwedaTagList = lens _scwedaTagList (\ s a -> s{_scwedaTagList = a}) . _Default;
 
 -- | Specifies the maximum duration of decision tasks for this workflow
 -- execution. This parameter overrides the @defaultTaskStartToCloseTimout@
@@ -4657,11 +4676,11 @@ instance FromJSON
               "StartChildWorkflowExecutionFailedEventAttributes"
               (\ x ->
                  StartChildWorkflowExecutionFailedEventAttributes' <$>
-                   x .:? "control" <*> x .: "workflowType" <*>
-                     x .: "cause"
-                     <*> x .: "workflowId"
-                     <*> x .: "initiatedEventId"
-                     <*> x .: "decisionTaskCompletedEventId")
+                   (x .:? "control") <*> (x .: "workflowType") <*>
+                     (x .: "cause")
+                     <*> (x .: "workflowId")
+                     <*> (x .: "initiatedEventId")
+                     <*> (x .: "decisionTaskCompletedEventId"))
 
 -- | /See:/ 'startChildWorkflowExecutionInitiatedEventAttributes' smart constructor.
 --
@@ -4700,8 +4719,8 @@ scweieaControl :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes (May
 scweieaControl = lens _scweieaControl (\ s a -> s{_scweieaControl = a});
 
 -- | The list of tags to associated with the child workflow execution.
-scweieaTagList :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes (Maybe [Text])
-scweieaTagList = lens _scweieaTagList (\ s a -> s{_scweieaTagList = a});
+scweieaTagList :: Lens' StartChildWorkflowExecutionInitiatedEventAttributes [Text]
+scweieaTagList = lens _scweieaTagList (\ s a -> s{_scweieaTagList = a}) . _Default;
 
 -- | The maximum duration allowed for the decision tasks for this workflow
 -- execution.
@@ -4780,16 +4799,16 @@ instance FromJSON
               (\ x ->
                  StartChildWorkflowExecutionInitiatedEventAttributes'
                    <$>
-                   x .:? "control" <*> x .:? "tagList" .!= mempty <*>
-                     x .:? "taskStartToCloseTimeout"
-                     <*> x .:? "input"
-                     <*> x .:? "executionStartToCloseTimeout"
-                     <*> x .:? "taskPriority"
-                     <*> x .: "workflowId"
-                     <*> x .: "workflowType"
-                     <*> x .: "taskList"
-                     <*> x .: "decisionTaskCompletedEventId"
-                     <*> x .: "childPolicy")
+                   (x .:? "control") <*> (x .:? "tagList" .!= mempty)
+                     <*> (x .:? "taskStartToCloseTimeout")
+                     <*> (x .:? "input")
+                     <*> (x .:? "executionStartToCloseTimeout")
+                     <*> (x .:? "taskPriority")
+                     <*> (x .: "workflowId")
+                     <*> (x .: "workflowType")
+                     <*> (x .: "taskList")
+                     <*> (x .: "decisionTaskCompletedEventId")
+                     <*> (x .: "childPolicy"))
 
 -- | /See:/ 'startTimerDecisionAttributes' smart constructor.
 --
@@ -4900,8 +4919,8 @@ instance FromJSON StartTimerFailedEventAttributes
           = withObject "StartTimerFailedEventAttributes"
               (\ x ->
                  StartTimerFailedEventAttributes' <$>
-                   x .: "timerId" <*> x .: "cause" <*>
-                     x .: "decisionTaskCompletedEventId")
+                   (x .: "timerId") <*> (x .: "cause") <*>
+                     (x .: "decisionTaskCompletedEventId"))
 
 -- | /See:/ 'tagFilter' smart constructor.
 --
@@ -4940,7 +4959,7 @@ tlName = lens _tlName (\ s a -> s{_tlName = a});
 instance FromJSON TaskList where
         parseJSON
           = withObject "TaskList"
-              (\ x -> TaskList' <$> x .: "name")
+              (\ x -> TaskList' <$> (x .: "name"))
 
 instance ToJSON TaskList where
         toJSON TaskList'{..} = object ["name" .= _tlName]
@@ -4982,8 +5001,8 @@ instance FromJSON TimerCanceledEventAttributes where
           = withObject "TimerCanceledEventAttributes"
               (\ x ->
                  TimerCanceledEventAttributes' <$>
-                   x .: "timerId" <*> x .: "startedEventId" <*>
-                     x .: "decisionTaskCompletedEventId")
+                   (x .: "timerId") <*> (x .: "startedEventId") <*>
+                     (x .: "decisionTaskCompletedEventId"))
 
 -- | /See:/ 'timerFiredEventAttributes' smart constructor.
 --
@@ -5013,7 +5032,7 @@ instance FromJSON TimerFiredEventAttributes where
           = withObject "TimerFiredEventAttributes"
               (\ x ->
                  TimerFiredEventAttributes' <$>
-                   x .: "timerId" <*> x .: "startedEventId")
+                   (x .: "timerId") <*> (x .: "startedEventId"))
 
 -- | /See:/ 'timerStartedEventAttributes' smart constructor.
 --
@@ -5060,9 +5079,9 @@ instance FromJSON TimerStartedEventAttributes where
           = withObject "TimerStartedEventAttributes"
               (\ x ->
                  TimerStartedEventAttributes' <$>
-                   x .:? "control" <*> x .: "timerId" <*>
-                     x .: "startToFireTimeout"
-                     <*> x .: "decisionTaskCompletedEventId")
+                   (x .:? "control") <*> (x .: "timerId") <*>
+                     (x .: "startToFireTimeout")
+                     <*> (x .: "decisionTaskCompletedEventId"))
 
 -- | /See:/ 'workflowExecution' smart constructor.
 --
@@ -5090,7 +5109,7 @@ instance FromJSON WorkflowExecution where
           = withObject "WorkflowExecution"
               (\ x ->
                  WorkflowExecution' <$>
-                   x .: "workflowId" <*> x .: "runId")
+                   (x .: "workflowId") <*> (x .: "runId"))
 
 instance ToJSON WorkflowExecution where
         toJSON WorkflowExecution'{..}
@@ -5158,9 +5177,9 @@ instance FromJSON
               "WorkflowExecutionCancelRequestedEventAttributes"
               (\ x ->
                  WorkflowExecutionCancelRequestedEventAttributes' <$>
-                   x .:? "externalWorkflowExecution" <*>
-                     x .:? "externalInitiatedEventId"
-                     <*> x .:? "cause")
+                   (x .:? "externalWorkflowExecution") <*>
+                     (x .:? "externalInitiatedEventId")
+                     <*> (x .:? "cause"))
 
 -- | /See:/ 'workflowExecutionCanceledEventAttributes' smart constructor.
 --
@@ -5194,8 +5213,8 @@ instance FromJSON
               "WorkflowExecutionCanceledEventAttributes"
               (\ x ->
                  WorkflowExecutionCanceledEventAttributes' <$>
-                   x .:? "details" <*>
-                     x .: "decisionTaskCompletedEventId")
+                   (x .:? "details") <*>
+                     (x .: "decisionTaskCompletedEventId"))
 
 -- | /See:/ 'workflowExecutionCompletedEventAttributes' smart constructor.
 --
@@ -5230,8 +5249,8 @@ instance FromJSON
               "WorkflowExecutionCompletedEventAttributes"
               (\ x ->
                  WorkflowExecutionCompletedEventAttributes' <$>
-                   x .:? "result" <*>
-                     x .: "decisionTaskCompletedEventId")
+                   (x .:? "result") <*>
+                     (x .: "decisionTaskCompletedEventId"))
 
 -- | /See:/ 'workflowExecutionConfiguration' smart constructor.
 --
@@ -5305,11 +5324,11 @@ instance FromJSON WorkflowExecutionConfiguration
           = withObject "WorkflowExecutionConfiguration"
               (\ x ->
                  WorkflowExecutionConfiguration' <$>
-                   x .:? "taskPriority" <*>
-                     x .: "taskStartToCloseTimeout"
-                     <*> x .: "executionStartToCloseTimeout"
-                     <*> x .: "taskList"
-                     <*> x .: "childPolicy")
+                   (x .:? "taskPriority") <*>
+                     (x .: "taskStartToCloseTimeout")
+                     <*> (x .: "executionStartToCloseTimeout")
+                     <*> (x .: "taskList")
+                     <*> (x .: "childPolicy"))
 
 -- | /See:/ 'workflowExecutionContinuedAsNewEventAttributes' smart constructor.
 --
@@ -5341,8 +5360,8 @@ workflowExecutionContinuedAsNewEventAttributes :: Integer -> Text -> TaskList ->
 workflowExecutionContinuedAsNewEventAttributes pDecisionTaskCompletedEventId pNewExecutionRunId pTaskList pChildPolicy pWorkflowType = WorkflowExecutionContinuedAsNewEventAttributes'{_wecaneaTagList = Nothing, _wecaneaTaskStartToCloseTimeout = Nothing, _wecaneaInput = Nothing, _wecaneaExecutionStartToCloseTimeout = Nothing, _wecaneaTaskPriority = Nothing, _wecaneaDecisionTaskCompletedEventId = pDecisionTaskCompletedEventId, _wecaneaNewExecutionRunId = pNewExecutionRunId, _wecaneaTaskList = pTaskList, _wecaneaChildPolicy = pChildPolicy, _wecaneaWorkflowType = pWorkflowType};
 
 -- | The list of tags associated with the new workflow execution.
-wecaneaTagList :: Lens' WorkflowExecutionContinuedAsNewEventAttributes (Maybe [Text])
-wecaneaTagList = lens _wecaneaTagList (\ s a -> s{_wecaneaTagList = a});
+wecaneaTagList :: Lens' WorkflowExecutionContinuedAsNewEventAttributes [Text]
+wecaneaTagList = lens _wecaneaTagList (\ s a -> s{_wecaneaTagList = a}) . _Default;
 
 -- | The maximum duration of decision tasks for the new workflow execution.
 --
@@ -5409,16 +5428,16 @@ instance FromJSON
               "WorkflowExecutionContinuedAsNewEventAttributes"
               (\ x ->
                  WorkflowExecutionContinuedAsNewEventAttributes' <$>
-                   x .:? "tagList" .!= mempty <*>
-                     x .:? "taskStartToCloseTimeout"
-                     <*> x .:? "input"
-                     <*> x .:? "executionStartToCloseTimeout"
-                     <*> x .:? "taskPriority"
-                     <*> x .: "decisionTaskCompletedEventId"
-                     <*> x .: "newExecutionRunId"
-                     <*> x .: "taskList"
-                     <*> x .: "childPolicy"
-                     <*> x .: "workflowType")
+                   (x .:? "tagList" .!= mempty) <*>
+                     (x .:? "taskStartToCloseTimeout")
+                     <*> (x .:? "input")
+                     <*> (x .:? "executionStartToCloseTimeout")
+                     <*> (x .:? "taskPriority")
+                     <*> (x .: "decisionTaskCompletedEventId")
+                     <*> (x .: "newExecutionRunId")
+                     <*> (x .: "taskList")
+                     <*> (x .: "childPolicy")
+                     <*> (x .: "workflowType"))
 
 -- | /See:/ 'workflowExecutionCount' smart constructor.
 --
@@ -5448,7 +5467,7 @@ instance FromJSON WorkflowExecutionCount where
           = withObject "WorkflowExecutionCount"
               (\ x ->
                  WorkflowExecutionCount' <$>
-                   x .:? "truncated" <*> x .: "count")
+                   (x .:? "truncated") <*> (x .: "count"))
 
 -- | /See:/ 'workflowExecutionFailedEventAttributes' smart constructor.
 --
@@ -5486,8 +5505,8 @@ instance FromJSON
           = withObject "WorkflowExecutionFailedEventAttributes"
               (\ x ->
                  WorkflowExecutionFailedEventAttributes' <$>
-                   x .:? "reason" <*> x .:? "details" <*>
-                     x .: "decisionTaskCompletedEventId")
+                   (x .:? "reason") <*> (x .:? "details") <*>
+                     (x .: "decisionTaskCompletedEventId"))
 
 -- | /See:/ 'workflowExecutionFilter' smart constructor.
 --
@@ -5543,8 +5562,8 @@ weiParent = lens _weiParent (\ s a -> s{_weiParent = a});
 -- | The list of tags associated with the workflow execution. Tags can be
 -- used to identify and list workflow executions of interest through the
 -- visibility APIs. A workflow execution can have a maximum of 5 tags.
-weiTagList :: Lens' WorkflowExecutionInfo (Maybe [Text])
-weiTagList = lens _weiTagList (\ s a -> s{_weiTagList = a});
+weiTagList :: Lens' WorkflowExecutionInfo [Text]
+weiTagList = lens _weiTagList (\ s a -> s{_weiTagList = a}) . _Default;
 
 -- | If the execution status is closed then this specifies how the execution
 -- was closed:
@@ -5593,14 +5612,14 @@ instance FromJSON WorkflowExecutionInfo where
           = withObject "WorkflowExecutionInfo"
               (\ x ->
                  WorkflowExecutionInfo' <$>
-                   x .:? "parent" <*> x .:? "tagList" .!= mempty <*>
-                     x .:? "closeStatus"
-                     <*> x .:? "closeTimestamp"
-                     <*> x .:? "cancelRequested"
-                     <*> x .: "execution"
-                     <*> x .: "workflowType"
-                     <*> x .: "startTimestamp"
-                     <*> x .: "executionStatus")
+                   (x .:? "parent") <*> (x .:? "tagList" .!= mempty) <*>
+                     (x .:? "closeStatus")
+                     <*> (x .:? "closeTimestamp")
+                     <*> (x .:? "cancelRequested")
+                     <*> (x .: "execution")
+                     <*> (x .: "workflowType")
+                     <*> (x .: "startTimestamp")
+                     <*> (x .: "executionStatus"))
 
 -- | /See:/ 'workflowExecutionInfos' smart constructor.
 --
@@ -5634,8 +5653,8 @@ instance FromJSON WorkflowExecutionInfos where
           = withObject "WorkflowExecutionInfos"
               (\ x ->
                  WorkflowExecutionInfos' <$>
-                   x .:? "nextPageToken" <*>
-                     x .:? "executionInfos" .!= mempty)
+                   (x .:? "nextPageToken") <*>
+                     (x .:? "executionInfos" .!= mempty))
 
 -- | /See:/ 'workflowExecutionOpenCounts' smart constructor.
 --
@@ -5677,9 +5696,10 @@ instance FromJSON WorkflowExecutionOpenCounts where
           = withObject "WorkflowExecutionOpenCounts"
               (\ x ->
                  WorkflowExecutionOpenCounts' <$>
-                   x .: "openActivityTasks" <*> x .: "openDecisionTasks"
-                     <*> x .: "openTimers"
-                     <*> x .: "openChildWorkflowExecutions")
+                   (x .: "openActivityTasks") <*>
+                     (x .: "openDecisionTasks")
+                     <*> (x .: "openTimers")
+                     <*> (x .: "openChildWorkflowExecutions"))
 
 -- | /See:/ 'workflowExecutionSignaledEventAttributes' smart constructor.
 --
@@ -5730,10 +5750,10 @@ instance FromJSON
               "WorkflowExecutionSignaledEventAttributes"
               (\ x ->
                  WorkflowExecutionSignaledEventAttributes' <$>
-                   x .:? "externalWorkflowExecution" <*>
-                     x .:? "externalInitiatedEventId"
-                     <*> x .:? "input"
-                     <*> x .: "signalName")
+                   (x .:? "externalWorkflowExecution") <*>
+                     (x .:? "externalInitiatedEventId")
+                     <*> (x .:? "input")
+                     <*> (x .: "signalName"))
 
 -- | /See:/ 'workflowExecutionStartedEventAttributes' smart constructor.
 --
@@ -5777,8 +5797,8 @@ weseaParentInitiatedEventId = lens _weseaParentInitiatedEventId (\ s a -> s{_wes
 
 -- | The list of tags associated with this workflow execution. An execution
 -- can have up to 5 tags.
-weseaTagList :: Lens' WorkflowExecutionStartedEventAttributes (Maybe [Text])
-weseaTagList = lens _weseaTagList (\ s a -> s{_weseaTagList = a});
+weseaTagList :: Lens' WorkflowExecutionStartedEventAttributes [Text]
+weseaTagList = lens _weseaTagList (\ s a -> s{_weseaTagList = a}) . _Default;
 
 -- | The maximum duration of decision tasks for this workflow type.
 --
@@ -5847,17 +5867,17 @@ instance FromJSON
               "WorkflowExecutionStartedEventAttributes"
               (\ x ->
                  WorkflowExecutionStartedEventAttributes' <$>
-                   x .:? "parentInitiatedEventId" <*>
-                     x .:? "tagList" .!= mempty
-                     <*> x .:? "taskStartToCloseTimeout"
-                     <*> x .:? "input"
-                     <*> x .:? "executionStartToCloseTimeout"
-                     <*> x .:? "taskPriority"
-                     <*> x .:? "parentWorkflowExecution"
-                     <*> x .:? "continuedExecutionRunId"
-                     <*> x .: "childPolicy"
-                     <*> x .: "taskList"
-                     <*> x .: "workflowType")
+                   (x .:? "parentInitiatedEventId") <*>
+                     (x .:? "tagList" .!= mempty)
+                     <*> (x .:? "taskStartToCloseTimeout")
+                     <*> (x .:? "input")
+                     <*> (x .:? "executionStartToCloseTimeout")
+                     <*> (x .:? "taskPriority")
+                     <*> (x .:? "parentWorkflowExecution")
+                     <*> (x .:? "continuedExecutionRunId")
+                     <*> (x .: "childPolicy")
+                     <*> (x .: "taskList")
+                     <*> (x .: "workflowType"))
 
 data WorkflowExecutionTerminatedCause = WETCEventLimitExceeded | WETCOperatorInitiated | WETCChildPolicyApplied deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -5935,8 +5955,9 @@ instance FromJSON
               "WorkflowExecutionTerminatedEventAttributes"
               (\ x ->
                  WorkflowExecutionTerminatedEventAttributes' <$>
-                   x .:? "cause" <*> x .:? "reason" <*> x .:? "details"
-                     <*> x .: "childPolicy")
+                   (x .:? "cause") <*> (x .:? "reason") <*>
+                     (x .:? "details")
+                     <*> (x .: "childPolicy"))
 
 -- | /See:/ 'workflowExecutionTimedOutEventAttributes' smart constructor.
 --
@@ -5977,7 +5998,7 @@ instance FromJSON
               "WorkflowExecutionTimedOutEventAttributes"
               (\ x ->
                  WorkflowExecutionTimedOutEventAttributes' <$>
-                   x .: "timeoutType" <*> x .: "childPolicy")
+                   (x .: "timeoutType") <*> (x .: "childPolicy"))
 
 data WorkflowExecutionTimeoutType = WETTStartTOClose deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -6028,7 +6049,7 @@ instance FromJSON WorkflowType where
         parseJSON
           = withObject "WorkflowType"
               (\ x ->
-                 WorkflowType' <$> x .: "name" <*> x .: "version")
+                 WorkflowType' <$> (x .: "name") <*> (x .: "version"))
 
 instance ToJSON WorkflowType where
         toJSON WorkflowType'{..}
@@ -6126,11 +6147,11 @@ instance FromJSON WorkflowTypeConfiguration where
           = withObject "WorkflowTypeConfiguration"
               (\ x ->
                  WorkflowTypeConfiguration' <$>
-                   x .:? "defaultChildPolicy" <*>
-                     x .:? "defaultTaskList"
-                     <*> x .:? "defaultTaskPriority"
-                     <*> x .:? "defaultExecutionStartToCloseTimeout"
-                     <*> x .:? "defaultTaskStartToCloseTimeout")
+                   (x .:? "defaultChildPolicy") <*>
+                     (x .:? "defaultTaskList")
+                     <*> (x .:? "defaultTaskPriority")
+                     <*> (x .:? "defaultExecutionStartToCloseTimeout")
+                     <*> (x .:? "defaultTaskStartToCloseTimeout"))
 
 -- | /See:/ 'workflowTypeFilter' smart constructor.
 --
@@ -6203,7 +6224,7 @@ instance FromJSON WorkflowTypeInfo where
           = withObject "WorkflowTypeInfo"
               (\ x ->
                  WorkflowTypeInfo' <$>
-                   x .:? "deprecationDate" <*> x .:? "description" <*>
-                     x .: "workflowType"
-                     <*> x .: "status"
-                     <*> x .: "creationDate")
+                   (x .:? "deprecationDate") <*> (x .:? "description")
+                     <*> (x .: "workflowType")
+                     <*> (x .: "status")
+                     <*> (x .: "creationDate"))

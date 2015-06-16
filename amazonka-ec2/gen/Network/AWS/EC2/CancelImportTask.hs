@@ -81,8 +81,8 @@ instance AWSRequest CancelImportTask where
           = receiveXML
               (\ s h x ->
                  CancelImportTaskResponse' <$>
-                   x .@? "state" <*> x .@? "importTaskId" <*>
-                     x .@? "previousState")
+                   (x .@? "state") <*> (x .@? "importTaskId") <*>
+                     (x .@? "previousState"))
 
 instance ToHeaders CancelImportTask where
         toHeaders = const mempty

@@ -71,7 +71,7 @@ instance AWSRequest ModifyLunaClient where
         response
           = receiveJSON
               (\ s h x ->
-                 ModifyLunaClientResponse' <$> x .?> "ClientArn")
+                 ModifyLunaClientResponse' <$> (x .?> "ClientArn"))
 
 instance ToHeaders ModifyLunaClient where
         toHeaders

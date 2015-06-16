@@ -77,7 +77,8 @@ instance AWSRequest GetQueueURL where
         request = post
         response
           = receiveXMLWrapper "GetQueueUrlResult"
-              (\ s h x -> GetQueueURLResponse' <$> x .@ "QueueUrl")
+              (\ s h x ->
+                 GetQueueURLResponse' <$> (x .@ "QueueUrl"))
 
 instance ToHeaders GetQueueURL where
         toHeaders = const mempty

@@ -72,8 +72,8 @@ instance AWSRequest
           = receiveJSON
               (\ s h x ->
                  DescribeStackProvisioningParametersResponse' <$>
-                   x .?> "AgentInstallerUrl" <*>
-                     x .?> "Parameters" .!@ mempty)
+                   (x .?> "AgentInstallerUrl") <*>
+                     (x .?> "Parameters" .!@ mempty))
 
 instance ToHeaders
          DescribeStackProvisioningParameters where
@@ -106,7 +106,7 @@ instance ToQuery DescribeStackProvisioningParameters
 -- * 'dspprAgentInstallerURL'
 --
 -- * 'dspprParameters'
-data DescribeStackProvisioningParametersResponse = DescribeStackProvisioningParametersResponse'{_dspprAgentInstallerURL :: Maybe Text, _dspprParameters :: Maybe (HashMap Text Text)} deriving (Eq, Read, Show)
+data DescribeStackProvisioningParametersResponse = DescribeStackProvisioningParametersResponse'{_dspprAgentInstallerURL :: Maybe Text, _dspprParameters :: Maybe (Map Text Text)} deriving (Eq, Read, Show)
 
 -- | 'DescribeStackProvisioningParametersResponse' smart constructor.
 describeStackProvisioningParametersResponse :: DescribeStackProvisioningParametersResponse
@@ -117,5 +117,5 @@ dspprAgentInstallerURL :: Lens' DescribeStackProvisioningParametersResponse (May
 dspprAgentInstallerURL = lens _dspprAgentInstallerURL (\ s a -> s{_dspprAgentInstallerURL = a});
 
 -- | An embedded object that contains the provisioning parameters.
-dspprParameters :: Lens' DescribeStackProvisioningParametersResponse (Maybe (HashMap Text Text))
-dspprParameters = lens _dspprParameters (\ s a -> s{_dspprParameters = a}) . mapping _Coerce;
+dspprParameters :: Lens' DescribeStackProvisioningParametersResponse (Map Text Text)
+dspprParameters = lens _dspprParameters (\ s a -> s{_dspprParameters = a}) . _Default . _Map;

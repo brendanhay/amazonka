@@ -76,12 +76,12 @@ putPipelineDefinition :: Text -> PutPipelineDefinition
 putPipelineDefinition pPipelineId = PutPipelineDefinition'{_ppdParameterObjects = Nothing, _ppdParameterValues = Nothing, _ppdPipelineId = pPipelineId, _ppdPipelineObjects = mempty};
 
 -- | The parameter objects used with the pipeline.
-ppdParameterObjects :: Lens' PutPipelineDefinition (Maybe [ParameterObject])
-ppdParameterObjects = lens _ppdParameterObjects (\ s a -> s{_ppdParameterObjects = a});
+ppdParameterObjects :: Lens' PutPipelineDefinition [ParameterObject]
+ppdParameterObjects = lens _ppdParameterObjects (\ s a -> s{_ppdParameterObjects = a}) . _Default;
 
 -- | The parameter values used with the pipeline.
-ppdParameterValues :: Lens' PutPipelineDefinition (Maybe [ParameterValue])
-ppdParameterValues = lens _ppdParameterValues (\ s a -> s{_ppdParameterValues = a});
+ppdParameterValues :: Lens' PutPipelineDefinition [ParameterValue]
+ppdParameterValues = lens _ppdParameterValues (\ s a -> s{_ppdParameterValues = a}) . _Default;
 
 -- | The ID of the pipeline.
 ppdPipelineId :: Lens' PutPipelineDefinition Text
@@ -101,9 +101,9 @@ instance AWSRequest PutPipelineDefinition where
           = receiveJSON
               (\ s h x ->
                  PutPipelineDefinitionResponse' <$>
-                   x .?> "validationErrors" .!@ mempty <*>
-                     x .?> "validationWarnings" .!@ mempty
-                     <*> x .:> "errored")
+                   (x .?> "validationErrors" .!@ mempty) <*>
+                     (x .?> "validationWarnings" .!@ mempty)
+                     <*> (x .:> "errored"))
 
 instance ToHeaders PutPipelineDefinition where
         toHeaders
@@ -145,13 +145,13 @@ putPipelineDefinitionResponse pErrored = PutPipelineDefinitionResponse'{_ppdrVal
 
 -- | The validation errors that are associated with the objects defined in
 -- @pipelineObjects@.
-ppdrValidationErrors :: Lens' PutPipelineDefinitionResponse (Maybe [ValidationError])
-ppdrValidationErrors = lens _ppdrValidationErrors (\ s a -> s{_ppdrValidationErrors = a});
+ppdrValidationErrors :: Lens' PutPipelineDefinitionResponse [ValidationError]
+ppdrValidationErrors = lens _ppdrValidationErrors (\ s a -> s{_ppdrValidationErrors = a}) . _Default;
 
 -- | The validation warnings that are associated with the objects defined in
 -- @pipelineObjects@.
-ppdrValidationWarnings :: Lens' PutPipelineDefinitionResponse (Maybe [ValidationWarning])
-ppdrValidationWarnings = lens _ppdrValidationWarnings (\ s a -> s{_ppdrValidationWarnings = a});
+ppdrValidationWarnings :: Lens' PutPipelineDefinitionResponse [ValidationWarning]
+ppdrValidationWarnings = lens _ppdrValidationWarnings (\ s a -> s{_ppdrValidationWarnings = a}) . _Default;
 
 -- | Indicates whether there were validation errors, and the pipeline
 -- definition is stored but cannot be activated until you correct the

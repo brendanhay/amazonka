@@ -76,8 +76,8 @@ instance AWSRequest DescribeContainerInstances where
           = receiveJSON
               (\ s h x ->
                  DescribeContainerInstancesResponse' <$>
-                   x .?> "failures" .!@ mempty <*>
-                     x .?> "containerInstances" .!@ mempty)
+                   (x .?> "failures" .!@ mempty) <*>
+                     (x .?> "containerInstances" .!@ mempty))
 
 instance ToHeaders DescribeContainerInstances where
         toHeaders
@@ -115,9 +115,9 @@ describeContainerInstancesResponse :: DescribeContainerInstancesResponse
 describeContainerInstancesResponse = DescribeContainerInstancesResponse'{_dcirFailures = Nothing, _dcirContainerInstances = Nothing};
 
 -- | FIXME: Undocumented member.
-dcirFailures :: Lens' DescribeContainerInstancesResponse (Maybe [Failure])
-dcirFailures = lens _dcirFailures (\ s a -> s{_dcirFailures = a});
+dcirFailures :: Lens' DescribeContainerInstancesResponse [Failure]
+dcirFailures = lens _dcirFailures (\ s a -> s{_dcirFailures = a}) . _Default;
 
 -- | The list of container instances.
-dcirContainerInstances :: Lens' DescribeContainerInstancesResponse (Maybe [ContainerInstance])
-dcirContainerInstances = lens _dcirContainerInstances (\ s a -> s{_dcirContainerInstances = a});
+dcirContainerInstances :: Lens' DescribeContainerInstancesResponse [ContainerInstance]
+dcirContainerInstances = lens _dcirContainerInstances (\ s a -> s{_dcirContainerInstances = a}) . _Default;

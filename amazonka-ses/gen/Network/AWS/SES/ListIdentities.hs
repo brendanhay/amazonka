@@ -83,7 +83,7 @@ instance AWSRequest ListIdentities where
           = receiveXMLWrapper "ListIdentitiesResult"
               (\ s h x ->
                  ListIdentitiesResponse' <$>
-                   x .@? "NextToken" <*>
+                   (x .@? "NextToken") <*>
                      (x .@? "Identities" .!@ mempty >>=
                         parseXMLList "member"))
 

@@ -73,7 +73,7 @@ instance AWSRequest StartGateway where
         response
           = receiveJSON
               (\ s h x ->
-                 StartGatewayResponse' <$> x .?> "GatewayARN")
+                 StartGatewayResponse' <$> (x .?> "GatewayARN"))
 
 instance ToHeaders StartGateway where
         toHeaders

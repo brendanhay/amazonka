@@ -66,7 +66,7 @@ instance AWSRequest CreateDomain where
         response
           = receiveXMLWrapper "CreateDomainResult"
               (\ s h x ->
-                 CreateDomainResponse' <$> x .@? "DomainStatus")
+                 CreateDomainResponse' <$> (x .@? "DomainStatus"))
 
 instance ToHeaders CreateDomain where
         toHeaders = const mempty

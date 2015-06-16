@@ -83,9 +83,9 @@ instance AWSRequest DescribeVPCAttribute where
           = receiveXML
               (\ s h x ->
                  DescribeVPCAttributeResponse' <$>
-                   x .@? "enableDnsHostnames" <*>
-                     x .@? "enableDnsSupport"
-                     <*> x .@? "vpcId")
+                   (x .@? "enableDnsHostnames") <*>
+                     (x .@? "enableDnsSupport")
+                     <*> (x .@? "vpcId"))
 
 instance ToHeaders DescribeVPCAttribute where
         toHeaders = const mempty

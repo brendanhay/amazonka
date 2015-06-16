@@ -81,7 +81,8 @@ instance AWSRequest DescribeWorkspaceDirectories
           = receiveJSON
               (\ s h x ->
                  DescribeWorkspaceDirectoriesResponse' <$>
-                   x .?> "Directories" .!@ mempty <*> x .?> "NextToken")
+                   (x .?> "Directories" .!@ mempty) <*>
+                     (x .?> "NextToken"))
 
 instance ToHeaders DescribeWorkspaceDirectories where
         toHeaders
@@ -119,8 +120,8 @@ describeWorkspaceDirectoriesResponse :: DescribeWorkspaceDirectoriesResponse
 describeWorkspaceDirectoriesResponse = DescribeWorkspaceDirectoriesResponse'{_dwdrDirectories = Nothing, _dwdrNextToken = Nothing};
 
 -- | An array of structures that contain information about the directories.
-dwdrDirectories :: Lens' DescribeWorkspaceDirectoriesResponse (Maybe [WorkspaceDirectory])
-dwdrDirectories = lens _dwdrDirectories (\ s a -> s{_dwdrDirectories = a});
+dwdrDirectories :: Lens' DescribeWorkspaceDirectoriesResponse [WorkspaceDirectory]
+dwdrDirectories = lens _dwdrDirectories (\ s a -> s{_dwdrDirectories = a}) . _Default;
 
 -- | If not null, more results are available. Pass this value for the
 -- @NextToken@ parameter in a subsequent call to this operation to retrieve

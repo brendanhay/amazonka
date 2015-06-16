@@ -26,8 +26,8 @@ module Network.AWS.CloudSearch.DeleteSuggester
     -- ** Request constructor
     , deleteSuggester
     -- ** Request lenses
-    , deleteDomainName
-    , deleteSuggesterName
+    , deleDomainName
+    , deleSuggesterName
 
     -- * Response
     , DeleteSuggesterResponse
@@ -46,22 +46,22 @@ import Network.AWS.CloudSearch.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'deleteDomainName'
+-- * 'deleDomainName'
 --
--- * 'deleteSuggesterName'
-data DeleteSuggester = DeleteSuggester'{_deleteDomainName :: Text, _deleteSuggesterName :: Text} deriving (Eq, Read, Show)
+-- * 'deleSuggesterName'
+data DeleteSuggester = DeleteSuggester'{_deleDomainName :: Text, _deleSuggesterName :: Text} deriving (Eq, Read, Show)
 
 -- | 'DeleteSuggester' smart constructor.
 deleteSuggester :: Text -> Text -> DeleteSuggester
-deleteSuggester pDomainName pSuggesterName = DeleteSuggester'{_deleteDomainName = pDomainName, _deleteSuggesterName = pSuggesterName};
+deleteSuggester pDomainName pSuggesterName = DeleteSuggester'{_deleDomainName = pDomainName, _deleSuggesterName = pSuggesterName};
 
 -- | FIXME: Undocumented member.
-deleteDomainName :: Lens' DeleteSuggester Text
-deleteDomainName = lens _deleteDomainName (\ s a -> s{_deleteDomainName = a});
+deleDomainName :: Lens' DeleteSuggester Text
+deleDomainName = lens _deleDomainName (\ s a -> s{_deleDomainName = a});
 
 -- | Specifies the name of the suggester you want to delete.
-deleteSuggesterName :: Lens' DeleteSuggester Text
-deleteSuggesterName = lens _deleteSuggesterName (\ s a -> s{_deleteSuggesterName = a});
+deleSuggesterName :: Lens' DeleteSuggester Text
+deleSuggesterName = lens _deleSuggesterName (\ s a -> s{_deleSuggesterName = a});
 
 instance AWSRequest DeleteSuggester where
         type Sv DeleteSuggester = CloudSearch
@@ -70,7 +70,7 @@ instance AWSRequest DeleteSuggester where
         response
           = receiveXMLWrapper "DeleteSuggesterResult"
               (\ s h x ->
-                 DeleteSuggesterResponse' <$> x .@ "Suggester")
+                 DeleteSuggesterResponse' <$> (x .@ "Suggester"))
 
 instance ToHeaders DeleteSuggester where
         toHeaders = const mempty
@@ -83,8 +83,8 @@ instance ToQuery DeleteSuggester where
           = mconcat
               ["Action" =: ("DeleteSuggester" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "DomainName" =: _deleteDomainName,
-               "SuggesterName" =: _deleteSuggesterName]
+               "DomainName" =: _deleDomainName,
+               "SuggesterName" =: _deleSuggesterName]
 
 -- | /See:/ 'deleteSuggesterResponse' smart constructor.
 --

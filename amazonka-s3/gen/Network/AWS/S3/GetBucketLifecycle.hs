@@ -63,7 +63,7 @@ instance AWSRequest GetBucketLifecycle where
           = receiveXML
               (\ s h x ->
                  GetBucketLifecycleResponse' <$>
-                   parseXMLList "Rule" x)
+                   (may (parseXMLList "Rule") x))
 
 instance ToHeaders GetBucketLifecycle where
         toHeaders = const mempty
@@ -87,5 +87,5 @@ getBucketLifecycleResponse :: GetBucketLifecycleResponse
 getBucketLifecycleResponse = GetBucketLifecycleResponse'{_gblrRules = Nothing};
 
 -- | FIXME: Undocumented member.
-gblrRules :: Lens' GetBucketLifecycleResponse (Maybe [Rule])
-gblrRules = lens _gblrRules (\ s a -> s{_gblrRules = a});
+gblrRules :: Lens' GetBucketLifecycleResponse [Rule]
+gblrRules = lens _gblrRules (\ s a -> s{_gblrRules = a}) . _Default;

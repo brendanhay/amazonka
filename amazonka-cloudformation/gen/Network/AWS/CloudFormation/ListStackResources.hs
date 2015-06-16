@@ -84,9 +84,9 @@ instance AWSRequest ListStackResources where
           = receiveXMLWrapper "ListStackResourcesResult"
               (\ s h x ->
                  ListStackResourcesResponse' <$>
-                   x .@? "NextToken" <*>
+                   (x .@? "NextToken") <*>
                      (x .@? "StackResourceSummaries" .!@ mempty >>=
-                        parseXMLList "member"))
+                        may (parseXMLList "member")))
 
 instance ToHeaders ListStackResources where
         toHeaders = const mempty
@@ -121,5 +121,5 @@ lsrrNextToken :: Lens' ListStackResourcesResponse (Maybe Text)
 lsrrNextToken = lens _lsrrNextToken (\ s a -> s{_lsrrNextToken = a});
 
 -- | A list of @StackResourceSummary@ structures.
-lsrrStackResourceSummaries :: Lens' ListStackResourcesResponse (Maybe [StackResourceSummary])
-lsrrStackResourceSummaries = lens _lsrrStackResourceSummaries (\ s a -> s{_lsrrStackResourceSummaries = a});
+lsrrStackResourceSummaries :: Lens' ListStackResourcesResponse [StackResourceSummary]
+lsrrStackResourceSummaries = lens _lsrrStackResourceSummaries (\ s a -> s{_lsrrStackResourceSummaries = a}) . _Default;

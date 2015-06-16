@@ -87,8 +87,8 @@ instance AWSRequest ModifyLoadBalancerAttributes
               "ModifyLoadBalancerAttributesResult"
               (\ s h x ->
                  ModifyLoadBalancerAttributesResponse' <$>
-                   x .@? "LoadBalancerAttributes" <*>
-                     x .@? "LoadBalancerName")
+                   (x .@? "LoadBalancerAttributes") <*>
+                     (x .@? "LoadBalancerName"))
 
 instance ToHeaders ModifyLoadBalancerAttributes where
         toHeaders = const mempty

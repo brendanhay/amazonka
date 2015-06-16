@@ -484,8 +484,8 @@ accessControlPolicy :: AccessControlPolicy
 accessControlPolicy = AccessControlPolicy'{_acpGrants = Nothing, _acpOwner = Nothing};
 
 -- | A list of grants.
-acpGrants :: Lens' AccessControlPolicy (Maybe [Grant])
-acpGrants = lens _acpGrants (\ s a -> s{_acpGrants = a});
+acpGrants :: Lens' AccessControlPolicy [Grant]
+acpGrants = lens _acpGrants (\ s a -> s{_acpGrants = a}) . _Default;
 
 -- | FIXME: Undocumented member.
 acpOwner :: Lens' AccessControlPolicy (Maybe Owner)
@@ -494,7 +494,8 @@ acpOwner = lens _acpOwner (\ s a -> s{_acpOwner = a});
 instance ToXML AccessControlPolicy where
         toXML AccessControlPolicy'{..}
           = mconcat
-              ["AccessControlList" @= "Grant" @@= _acpGrants,
+              ["AccessControlList" @=
+                 toXML (toXMLList "Grant" <$> _acpGrants),
                "Owner" @= _acpOwner]
 
 -- | /See:/ 'bucket' smart constructor.
@@ -520,7 +521,7 @@ bucName = lens _bucName (\ s a -> s{_bucName = a});
 
 instance FromXML Bucket where
         parseXML x
-          = Bucket' <$> x .@ "CreationDate" <*> x .@ "Name"
+          = Bucket' <$> (x .@ "CreationDate") <*> (x .@ "Name")
 
 data BucketCannedACL = BCACannedAuthenticatedRead | BCACannedPrivate | BCACannedPublicReadWrite | BCACannedPublicRead deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -625,12 +626,13 @@ corsConfiguration :: CORSConfiguration
 corsConfiguration = CORSConfiguration'{_ccCORSRules = Nothing};
 
 -- | FIXME: Undocumented member.
-ccCORSRules :: Lens' CORSConfiguration (Maybe [CORSRule])
-ccCORSRules = lens _ccCORSRules (\ s a -> s{_ccCORSRules = a});
+ccCORSRules :: Lens' CORSConfiguration [CORSRule]
+ccCORSRules = lens _ccCORSRules (\ s a -> s{_ccCORSRules = a}) . _Default;
 
 instance ToXML CORSConfiguration where
         toXML CORSConfiguration'{..}
-          = mconcat ["CORSRule" @@= _ccCORSRules]
+          = mconcat
+              [toXML (toXMLList "CORSRule" <$> _ccCORSRules)]
 
 -- | /See:/ 'corsRule' smart constructor.
 --
@@ -653,8 +655,8 @@ corsRule = CORSRule'{_crAllowedMethods = Nothing, _crMaxAgeSeconds = Nothing, _c
 
 -- | Identifies HTTP methods that the domain\/origin specified in the rule is
 -- allowed to execute.
-crAllowedMethods :: Lens' CORSRule (Maybe [Text])
-crAllowedMethods = lens _crAllowedMethods (\ s a -> s{_crAllowedMethods = a});
+crAllowedMethods :: Lens' CORSRule [Text]
+crAllowedMethods = lens _crAllowedMethods (\ s a -> s{_crAllowedMethods = a}) . _Default;
 
 -- | The time in seconds that your browser is to cache the preflight response
 -- for the specified resource.
@@ -662,37 +664,41 @@ crMaxAgeSeconds :: Lens' CORSRule (Maybe Int)
 crMaxAgeSeconds = lens _crMaxAgeSeconds (\ s a -> s{_crMaxAgeSeconds = a});
 
 -- | Specifies which headers are allowed in a pre-flight OPTIONS request.
-crAllowedHeaders :: Lens' CORSRule (Maybe [Text])
-crAllowedHeaders = lens _crAllowedHeaders (\ s a -> s{_crAllowedHeaders = a});
+crAllowedHeaders :: Lens' CORSRule [Text]
+crAllowedHeaders = lens _crAllowedHeaders (\ s a -> s{_crAllowedHeaders = a}) . _Default;
 
 -- | One or more origins you want customers to be able to access the bucket
 -- from.
-crAllowedOrigins :: Lens' CORSRule (Maybe [Text])
-crAllowedOrigins = lens _crAllowedOrigins (\ s a -> s{_crAllowedOrigins = a});
+crAllowedOrigins :: Lens' CORSRule [Text]
+crAllowedOrigins = lens _crAllowedOrigins (\ s a -> s{_crAllowedOrigins = a}) . _Default;
 
 -- | One or more headers in the response that you want customers to be able
 -- to access from their applications (for example, from a JavaScript
 -- XMLHttpRequest object).
-crExposeHeaders :: Lens' CORSRule (Maybe [Text])
-crExposeHeaders = lens _crExposeHeaders (\ s a -> s{_crExposeHeaders = a});
+crExposeHeaders :: Lens' CORSRule [Text]
+crExposeHeaders = lens _crExposeHeaders (\ s a -> s{_crExposeHeaders = a}) . _Default;
 
 instance FromXML CORSRule where
         parseXML x
           = CORSRule' <$>
-              parseXMLList "AllowedMethod" x <*>
-                x .@? "MaxAgeSeconds"
-                <*> parseXMLList "AllowedHeader" x
-                <*> parseXMLList "AllowedOrigin" x
-                <*> parseXMLList "ExposeHeader" x
+              (may (parseXMLList "AllowedMethod") x) <*>
+                (x .@? "MaxAgeSeconds")
+                <*> (may (parseXMLList "AllowedHeader") x)
+                <*> (may (parseXMLList "AllowedOrigin") x)
+                <*> (may (parseXMLList "ExposeHeader") x)
 
 instance ToXML CORSRule where
         toXML CORSRule'{..}
           = mconcat
-              ["AllowedMethod" @@= _crAllowedMethods,
+              [toXML
+                 (toXMLList "AllowedMethod" <$> _crAllowedMethods),
                "MaxAgeSeconds" @= _crMaxAgeSeconds,
-               "AllowedHeader" @@= _crAllowedHeaders,
-               "AllowedOrigin" @@= _crAllowedOrigins,
-               "ExposeHeader" @@= _crExposeHeaders]
+               toXML
+                 (toXMLList "AllowedHeader" <$> _crAllowedHeaders),
+               toXML
+                 (toXMLList "AllowedOrigin" <$> _crAllowedOrigins),
+               toXML
+                 (toXMLList "ExposeHeader" <$> _crExposeHeaders)]
 
 -- | /See:/ 'commonPrefix' smart constructor.
 --
@@ -710,7 +716,7 @@ cpPrefix :: Lens' CommonPrefix (Maybe Text)
 cpPrefix = lens _cpPrefix (\ s a -> s{_cpPrefix = a});
 
 instance FromXML CommonPrefix where
-        parseXML x = CommonPrefix' <$> x .@? "Prefix"
+        parseXML x = CommonPrefix' <$> (x .@? "Prefix")
 
 -- | /See:/ 'completedMultipartUpload' smart constructor.
 --
@@ -729,7 +735,7 @@ cmuParts = lens _cmuParts (\ s a -> s{_cmuParts = a}) . mapping _List1;
 
 instance ToXML CompletedMultipartUpload where
         toXML CompletedMultipartUpload'{..}
-          = mconcat ["Part" @@= _cmuParts]
+          = mconcat [toXML (toXMLList "Part" <$> _cmuParts)]
 
 -- | /See:/ 'completedPart' smart constructor.
 --
@@ -792,8 +798,8 @@ conHTTPErrorCodeReturnedEquals = lens _conHTTPErrorCodeReturnedEquals (\ s a -> 
 instance FromXML Condition where
         parseXML x
           = Condition' <$>
-              x .@? "KeyPrefixEquals" <*>
-                x .@? "HttpErrorCodeReturnedEquals"
+              (x .@? "KeyPrefixEquals") <*>
+                (x .@? "HttpErrorCodeReturnedEquals")
 
 instance ToXML Condition where
         toXML Condition'{..}
@@ -826,7 +832,7 @@ corLastModified = lens _corLastModified (\ s a -> s{_corLastModified = a}) . map
 instance FromXML CopyObjectResult where
         parseXML x
           = CopyObjectResult' <$>
-              x .@? "ETag" <*> x .@? "LastModified"
+              (x .@? "ETag") <*> (x .@? "LastModified")
 
 -- | /See:/ 'copyPartResult' smart constructor.
 --
@@ -852,7 +858,7 @@ cprLastModified = lens _cprLastModified (\ s a -> s{_cprLastModified = a}) . map
 instance FromXML CopyPartResult where
         parseXML x
           = CopyPartResult' <$>
-              x .@? "ETag" <*> x .@? "LastModified"
+              (x .@? "ETag") <*> (x .@? "LastModified")
 
 -- | /See:/ 'createBucketConfiguration' smart constructor.
 --
@@ -900,7 +906,8 @@ delObjects = lens _delObjects (\ s a -> s{_delObjects = a});
 instance ToXML Delete where
         toXML Delete'{..}
           = mconcat
-              ["Quiet" @= _delQuiet, "Object" @@= _delObjects]
+              ["Quiet" @= _delQuiet,
+               toXMLList "Object" _delObjects]
 
 -- | /See:/ 'deleteMarkerEntry' smart constructor.
 --
@@ -945,10 +952,10 @@ dmeLastModified = lens _dmeLastModified (\ s a -> s{_dmeLastModified = a}) . map
 instance FromXML DeleteMarkerEntry where
         parseXML x
           = DeleteMarkerEntry' <$>
-              x .@? "VersionId" <*> x .@? "IsLatest" <*>
-                x .@? "Owner"
-                <*> x .@? "Key"
-                <*> x .@? "LastModified"
+              (x .@? "VersionId") <*> (x .@? "IsLatest") <*>
+                (x .@? "Owner")
+                <*> (x .@? "Key")
+                <*> (x .@? "LastModified")
 
 -- | /See:/ 'deletedObject' smart constructor.
 --
@@ -986,9 +993,9 @@ delKey = lens _delKey (\ s a -> s{_delKey = a});
 instance FromXML DeletedObject where
         parseXML x
           = DeletedObject' <$>
-              x .@? "VersionId" <*> x .@? "DeleteMarker" <*>
-                x .@? "DeleteMarkerVersionId"
-                <*> x .@? "Key"
+              (x .@? "VersionId") <*> (x .@? "DeleteMarker") <*>
+                (x .@? "DeleteMarkerVersionId")
+                <*> (x .@? "Key")
 
 -- | /See:/ 'destination' smart constructor.
 --
@@ -1007,7 +1014,7 @@ desBucket :: Lens' Destination BucketName
 desBucket = lens _desBucket (\ s a -> s{_desBucket = a});
 
 instance FromXML Destination where
-        parseXML x = Destination' <$> x .@ "Bucket"
+        parseXML x = Destination' <$> (x .@ "Bucket")
 
 instance ToXML Destination where
         toXML Destination'{..}
@@ -1050,7 +1057,7 @@ edKey :: Lens' ErrorDocument ObjectKey
 edKey = lens _edKey (\ s a -> s{_edKey = a});
 
 instance FromXML ErrorDocument where
-        parseXML x = ErrorDocument' <$> x .@ "Key"
+        parseXML x = ErrorDocument' <$> (x .@ "Key")
 
 instance ToXML ErrorDocument where
         toXML ErrorDocument'{..} = mconcat ["Key" @= _edKey]
@@ -1130,7 +1137,8 @@ graGrantee = lens _graGrantee (\ s a -> s{_graGrantee = a});
 
 instance FromXML Grant where
         parseXML x
-          = Grant' <$> x .@? "Permission" <*> x .@? "Grantee"
+          = Grant' <$>
+              (x .@? "Permission") <*> (x .@? "Grantee")
 
 instance ToXML Grant where
         toXML Grant'{..}
@@ -1180,9 +1188,10 @@ graType = lens _graType (\ s a -> s{_graType = a});
 instance FromXML Grantee where
         parseXML x
           = Grantee' <$>
-              x .@? "URI" <*> x .@? "EmailAddress" <*> x .@? "ID"
-                <*> x .@? "DisplayName"
-                <*> x .@ "xsi:type"
+              (x .@? "URI") <*> (x .@? "EmailAddress") <*>
+                (x .@? "ID")
+                <*> (x .@? "DisplayName")
+                <*> (x .@ "xsi:type")
 
 instance ToXML Grantee where
         toXML Grantee'{..}
@@ -1212,7 +1221,7 @@ idSuffix :: Lens' IndexDocument Text
 idSuffix = lens _idSuffix (\ s a -> s{_idSuffix = a});
 
 instance FromXML IndexDocument where
-        parseXML x = IndexDocument' <$> x .@ "Suffix"
+        parseXML x = IndexDocument' <$> (x .@ "Suffix")
 
 instance ToXML IndexDocument where
         toXML IndexDocument'{..}
@@ -1242,7 +1251,8 @@ iniDisplayName = lens _iniDisplayName (\ s a -> s{_iniDisplayName = a});
 
 instance FromXML Initiator where
         parseXML x
-          = Initiator' <$> x .@? "ID" <*> x .@? "DisplayName"
+          = Initiator' <$>
+              (x .@? "ID") <*> (x .@? "DisplayName")
 
 -- | /See:/ 'lambdaFunctionConfiguration' smart constructor.
 --
@@ -1275,15 +1285,15 @@ lfcEvents = lens _lfcEvents (\ s a -> s{_lfcEvents = a});
 instance FromXML LambdaFunctionConfiguration where
         parseXML x
           = LambdaFunctionConfiguration' <$>
-              x .@? "Id" <*> x .@ "CloudFunction" <*>
-                parseXMLList "Event" x
+              (x .@? "Id") <*> (x .@ "CloudFunction") <*>
+                (parseXMLList "Event" x)
 
 instance ToXML LambdaFunctionConfiguration where
         toXML LambdaFunctionConfiguration'{..}
           = mconcat
               ["Id" @= _lfcId,
                "CloudFunction" @= _lfcLambdaFunctionARN,
-               "Event" @@= _lfcEvents]
+               toXMLList "Event" _lfcEvents]
 
 -- | /See:/ 'lifecycleConfiguration' smart constructor.
 --
@@ -1302,7 +1312,7 @@ lcRules = lens _lcRules (\ s a -> s{_lcRules = a});
 
 instance ToXML LifecycleConfiguration where
         toXML LifecycleConfiguration'{..}
-          = mconcat ["Rule" @@= _lcRules]
+          = mconcat [toXMLList "Rule" _lcRules]
 
 -- | /See:/ 'lifecycleExpiration' smart constructor.
 --
@@ -1330,7 +1340,7 @@ leDate = lens _leDate (\ s a -> s{_leDate = a}) . mapping _Time;
 instance FromXML LifecycleExpiration where
         parseXML x
           = LifecycleExpiration' <$>
-              x .@? "Days" <*> x .@? "Date"
+              (x .@? "Days") <*> (x .@? "Date")
 
 instance ToXML LifecycleExpiration where
         toXML LifecycleExpiration'{..}
@@ -1361,8 +1371,8 @@ leTargetBucket :: Lens' LoggingEnabled (Maybe Text)
 leTargetBucket = lens _leTargetBucket (\ s a -> s{_leTargetBucket = a});
 
 -- | FIXME: Undocumented member.
-leTargetGrants :: Lens' LoggingEnabled (Maybe [TargetGrant])
-leTargetGrants = lens _leTargetGrants (\ s a -> s{_leTargetGrants = a});
+leTargetGrants :: Lens' LoggingEnabled [TargetGrant]
+leTargetGrants = lens _leTargetGrants (\ s a -> s{_leTargetGrants = a}) . _Default;
 
 -- | This element lets you specify a prefix for the keys that the log files
 -- will be stored under.
@@ -1372,16 +1382,17 @@ leTargetPrefix = lens _leTargetPrefix (\ s a -> s{_leTargetPrefix = a});
 instance FromXML LoggingEnabled where
         parseXML x
           = LoggingEnabled' <$>
-              x .@? "TargetBucket" <*>
+              (x .@? "TargetBucket") <*>
                 (x .@? "TargetGrants" .!@ mempty >>=
-                   parseXMLList "Grant")
-                <*> x .@? "TargetPrefix"
+                   may (parseXMLList "Grant"))
+                <*> (x .@? "TargetPrefix")
 
 instance ToXML LoggingEnabled where
         toXML LoggingEnabled'{..}
           = mconcat
               ["TargetBucket" @= _leTargetBucket,
-               "TargetGrants" @= "Grant" @@= _leTargetGrants,
+               "TargetGrants" @=
+                 toXML (toXMLList "Grant" <$> _leTargetGrants),
                "TargetPrefix" @= _leTargetPrefix]
 
 data MFADelete = MDDisabled | MDEnabled deriving (Eq, Ord, Read, Show, Enum, Generic)
@@ -1492,11 +1503,11 @@ muUploadId = lens _muUploadId (\ s a -> s{_muUploadId = a});
 instance FromXML MultipartUpload where
         parseXML x
           = MultipartUpload' <$>
-              x .@? "Initiated" <*> x .@? "Initiator" <*>
-                x .@? "Owner"
-                <*> x .@? "Key"
-                <*> x .@? "StorageClass"
-                <*> x .@? "UploadId"
+              (x .@? "Initiated") <*> (x .@? "Initiator") <*>
+                (x .@? "Owner")
+                <*> (x .@? "Key")
+                <*> (x .@? "StorageClass")
+                <*> (x .@? "UploadId")
 
 -- | /See:/ 'noncurrentVersionExpiration' smart constructor.
 --
@@ -1520,7 +1531,7 @@ nveNoncurrentDays = lens _nveNoncurrentDays (\ s a -> s{_nveNoncurrentDays = a})
 instance FromXML NoncurrentVersionExpiration where
         parseXML x
           = NoncurrentVersionExpiration' <$>
-              x .@ "NoncurrentDays"
+              (x .@ "NoncurrentDays")
 
 instance ToXML NoncurrentVersionExpiration where
         toXML NoncurrentVersionExpiration'{..}
@@ -1554,7 +1565,7 @@ nvtStorageClass = lens _nvtStorageClass (\ s a -> s{_nvtStorageClass = a});
 instance FromXML NoncurrentVersionTransition where
         parseXML x
           = NoncurrentVersionTransition' <$>
-              x .@ "NoncurrentDays" <*> x .@ "StorageClass"
+              (x .@ "NoncurrentDays") <*> (x .@ "StorageClass")
 
 instance ToXML NoncurrentVersionTransition where
         toXML NoncurrentVersionTransition'{..}
@@ -1578,31 +1589,37 @@ notificationConfiguration :: NotificationConfiguration
 notificationConfiguration = NotificationConfiguration'{_ncQueueConfigurations = Nothing, _ncTopicConfigurations = Nothing, _ncLambdaFunctionConfigurations = Nothing};
 
 -- | FIXME: Undocumented member.
-ncQueueConfigurations :: Lens' NotificationConfiguration (Maybe [QueueConfiguration])
-ncQueueConfigurations = lens _ncQueueConfigurations (\ s a -> s{_ncQueueConfigurations = a});
+ncQueueConfigurations :: Lens' NotificationConfiguration [QueueConfiguration]
+ncQueueConfigurations = lens _ncQueueConfigurations (\ s a -> s{_ncQueueConfigurations = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ncTopicConfigurations :: Lens' NotificationConfiguration (Maybe [TopicConfiguration])
-ncTopicConfigurations = lens _ncTopicConfigurations (\ s a -> s{_ncTopicConfigurations = a});
+ncTopicConfigurations :: Lens' NotificationConfiguration [TopicConfiguration]
+ncTopicConfigurations = lens _ncTopicConfigurations (\ s a -> s{_ncTopicConfigurations = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ncLambdaFunctionConfigurations :: Lens' NotificationConfiguration (Maybe [LambdaFunctionConfiguration])
-ncLambdaFunctionConfigurations = lens _ncLambdaFunctionConfigurations (\ s a -> s{_ncLambdaFunctionConfigurations = a});
+ncLambdaFunctionConfigurations :: Lens' NotificationConfiguration [LambdaFunctionConfiguration]
+ncLambdaFunctionConfigurations = lens _ncLambdaFunctionConfigurations (\ s a -> s{_ncLambdaFunctionConfigurations = a}) . _Default;
 
 instance FromXML NotificationConfiguration where
         parseXML x
           = NotificationConfiguration' <$>
-              parseXMLList "QueueConfiguration" x <*>
-                parseXMLList "TopicConfiguration" x
-                <*> parseXMLList "CloudFunctionConfiguration" x
+              (may (parseXMLList "QueueConfiguration") x) <*>
+                (may (parseXMLList "TopicConfiguration") x)
+                <*>
+                (may (parseXMLList "CloudFunctionConfiguration") x)
 
 instance ToXML NotificationConfiguration where
         toXML NotificationConfiguration'{..}
           = mconcat
-              ["QueueConfiguration" @@= _ncQueueConfigurations,
-               "TopicConfiguration" @@= _ncTopicConfigurations,
-               "CloudFunctionConfiguration" @@=
-                 _ncLambdaFunctionConfigurations]
+              [toXML
+                 (toXMLList "QueueConfiguration" <$>
+                    _ncQueueConfigurations),
+               toXML
+                 (toXMLList "TopicConfiguration" <$>
+                    _ncTopicConfigurations),
+               toXML
+                 (toXMLList "CloudFunctionConfiguration" <$>
+                    _ncLambdaFunctionConfigurations)]
 
 -- | /See:/ 'object'' smart constructor.
 --
@@ -1652,10 +1669,10 @@ objLastModified = lens _objLastModified (\ s a -> s{_objLastModified = a}) . _Ti
 instance FromXML Object where
         parseXML x
           = Object' <$>
-              x .@ "ETag" <*> x .@ "Size" <*> x .@ "Owner" <*>
-                x .@ "Key"
-                <*> x .@ "StorageClass"
-                <*> x .@ "LastModified"
+              (x .@ "ETag") <*> (x .@ "Size") <*> (x .@ "Owner")
+                <*> (x .@ "Key")
+                <*> (x .@ "StorageClass")
+                <*> (x .@ "LastModified")
 
 data ObjectCannedACL = Private | BucketOwnerFullControl | BucketOwnerRead | PublicRead | AuthenticatedRead | PublicReadWrite deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -1794,12 +1811,13 @@ ovLastModified = lens _ovLastModified (\ s a -> s{_ovLastModified = a}) . mappin
 instance FromXML ObjectVersion where
         parseXML x
           = ObjectVersion' <$>
-              x .@? "VersionId" <*> x .@? "ETag" <*> x .@? "Size"
-                <*> x .@? "IsLatest"
-                <*> x .@? "Owner"
-                <*> x .@? "Key"
-                <*> x .@? "StorageClass"
-                <*> x .@? "LastModified"
+              (x .@? "VersionId") <*> (x .@? "ETag") <*>
+                (x .@? "Size")
+                <*> (x .@? "IsLatest")
+                <*> (x .@? "Owner")
+                <*> (x .@? "Key")
+                <*> (x .@? "StorageClass")
+                <*> (x .@? "LastModified")
 
 data ObjectVersionStorageClass = OVSCStandard deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -1842,7 +1860,7 @@ ownDisplayName = lens _ownDisplayName (\ s a -> s{_ownDisplayName = a});
 
 instance FromXML Owner where
         parseXML x
-          = Owner' <$> x .@? "ID" <*> x .@? "DisplayName"
+          = Owner' <$> (x .@? "ID") <*> (x .@? "DisplayName")
 
 instance ToXML Owner where
         toXML Owner'{..}
@@ -1885,8 +1903,9 @@ parLastModified = lens _parLastModified (\ s a -> s{_parLastModified = a}) . map
 instance FromXML Part where
         parseXML x
           = Part' <$>
-              x .@? "ETag" <*> x .@? "Size" <*> x .@? "PartNumber"
-                <*> x .@? "LastModified"
+              (x .@? "ETag") <*> (x .@? "Size") <*>
+                (x .@? "PartNumber")
+                <*> (x .@? "LastModified")
 
 data Payer = BucketOwner | Requester deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -1994,14 +2013,14 @@ qcEvents = lens _qcEvents (\ s a -> s{_qcEvents = a});
 instance FromXML QueueConfiguration where
         parseXML x
           = QueueConfiguration' <$>
-              x .@? "Id" <*> x .@ "Queue" <*>
-                parseXMLList "Event" x
+              (x .@? "Id") <*> (x .@ "Queue") <*>
+                (parseXMLList "Event" x)
 
 instance ToXML QueueConfiguration where
         toXML QueueConfiguration'{..}
           = mconcat
               ["Id" @= _qcId, "Queue" @= _qcQueueARN,
-               "Event" @@= _qcEvents]
+               toXMLList "Event" _qcEvents]
 
 -- | /See:/ 'redirect' smart constructor.
 --
@@ -2054,10 +2073,10 @@ redReplaceKeyPrefixWith = lens _redReplaceKeyPrefixWith (\ s a -> s{_redReplaceK
 instance FromXML Redirect where
         parseXML x
           = Redirect' <$>
-              x .@? "HostName" <*> x .@? "Protocol" <*>
-                x .@? "HttpRedirectCode"
-                <*> x .@? "ReplaceKeyWith"
-                <*> x .@? "ReplaceKeyPrefixWith"
+              (x .@? "HostName") <*> (x .@? "Protocol") <*>
+                (x .@? "HttpRedirectCode")
+                <*> (x .@? "ReplaceKeyWith")
+                <*> (x .@? "ReplaceKeyPrefixWith")
 
 instance ToXML Redirect where
         toXML Redirect'{..}
@@ -2093,7 +2112,7 @@ rartHostName = lens _rartHostName (\ s a -> s{_rartHostName = a});
 instance FromXML RedirectAllRequestsTo where
         parseXML x
           = RedirectAllRequestsTo' <$>
-              x .@? "Protocol" <*> x .@ "HostName"
+              (x .@? "Protocol") <*> (x .@ "HostName")
 
 instance ToXML RedirectAllRequestsTo where
         toXML RedirectAllRequestsTo'{..}
@@ -2128,11 +2147,12 @@ rcRules = lens _rcRules (\ s a -> s{_rcRules = a});
 instance FromXML ReplicationConfiguration where
         parseXML x
           = ReplicationConfiguration' <$>
-              x .@ "Role" <*> parseXMLList "Rule" x
+              (x .@ "Role") <*> (parseXMLList "Rule" x)
 
 instance ToXML ReplicationConfiguration where
         toXML ReplicationConfiguration'{..}
-          = mconcat ["Role" @= _rcRole, "Rule" @@= _rcRules]
+          = mconcat
+              ["Role" @= _rcRole, toXMLList "Rule" _rcRules]
 
 -- | /See:/ 'replicationRule' smart constructor.
 --
@@ -2173,8 +2193,8 @@ rrDestination = lens _rrDestination (\ s a -> s{_rrDestination = a});
 instance FromXML ReplicationRule where
         parseXML x
           = ReplicationRule' <$>
-              x .@? "ID" <*> x .@ "Prefix" <*> x .@ "Status" <*>
-                x .@ "Destination"
+              (x .@? "ID") <*> (x .@ "Prefix") <*> (x .@ "Status")
+                <*> (x .@ "Destination")
 
 instance ToXML ReplicationRule where
         toXML ReplicationRule'{..}
@@ -2334,7 +2354,7 @@ rrRedirect = lens _rrRedirect (\ s a -> s{_rrRedirect = a});
 instance FromXML RoutingRule where
         parseXML x
           = RoutingRule' <$>
-              x .@? "Condition" <*> x .@ "Redirect"
+              (x .@? "Condition") <*> (x .@ "Redirect")
 
 instance ToXML RoutingRule where
         toXML RoutingRule'{..}
@@ -2398,13 +2418,13 @@ rulStatus = lens _rulStatus (\ s a -> s{_rulStatus = a});
 instance FromXML Rule where
         parseXML x
           = Rule' <$>
-              x .@? "NoncurrentVersionExpiration" <*>
-                x .@? "Transition"
-                <*> x .@? "Expiration"
-                <*> x .@? "NoncurrentVersionTransition"
-                <*> x .@? "ID"
-                <*> x .@ "Prefix"
-                <*> x .@ "Status"
+              (x .@? "NoncurrentVersionExpiration") <*>
+                (x .@? "Transition")
+                <*> (x .@? "Expiration")
+                <*> (x .@? "NoncurrentVersionTransition")
+                <*> (x .@? "ID")
+                <*> (x .@ "Prefix")
+                <*> (x .@ "Status")
 
 instance ToXML Rule where
         toXML Rule'{..}
@@ -2454,8 +2474,9 @@ sseMessage = lens _sseMessage (\ s a -> s{_sseMessage = a});
 instance FromXML S3ServiceError where
         parseXML x
           = S3ServiceError' <$>
-              x .@? "VersionId" <*> x .@? "Key" <*> x .@? "Code"
-                <*> x .@? "Message"
+              (x .@? "VersionId") <*> (x .@? "Key") <*>
+                (x .@? "Code")
+                <*> (x .@? "Message")
 
 data ServerSideEncryption = AES256 deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -2523,7 +2544,7 @@ tagValue :: Lens' Tag Text
 tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
 
 instance FromXML Tag where
-        parseXML x = Tag' <$> x .@ "Key" <*> x .@ "Value"
+        parseXML x = Tag' <$> (x .@ "Key") <*> (x .@ "Value")
 
 instance ToXML Tag where
         toXML Tag'{..}
@@ -2546,7 +2567,7 @@ tagTagSet = lens _tagTagSet (\ s a -> s{_tagTagSet = a});
 
 instance ToXML Tagging where
         toXML Tagging'{..}
-          = mconcat ["TagSet" @= "Tag" @@= _tagTagSet]
+          = mconcat ["TagSet" @= toXMLList "Tag" _tagTagSet]
 
 -- | /See:/ 'targetGrant' smart constructor.
 --
@@ -2572,7 +2593,7 @@ tgGrantee = lens _tgGrantee (\ s a -> s{_tgGrantee = a});
 instance FromXML TargetGrant where
         parseXML x
           = TargetGrant' <$>
-              x .@? "Permission" <*> x .@? "Grantee"
+              (x .@? "Permission") <*> (x .@? "Grantee")
 
 instance ToXML TargetGrant where
         toXML TargetGrant'{..}
@@ -2611,14 +2632,14 @@ tcEvents = lens _tcEvents (\ s a -> s{_tcEvents = a});
 instance FromXML TopicConfiguration where
         parseXML x
           = TopicConfiguration' <$>
-              x .@? "Id" <*> x .@ "Topic" <*>
-                parseXMLList "Event" x
+              (x .@? "Id") <*> (x .@ "Topic") <*>
+                (parseXMLList "Event" x)
 
 instance ToXML TopicConfiguration where
         toXML TopicConfiguration'{..}
           = mconcat
               ["Id" @= _tcId, "Topic" @= _tcTopicARN,
-               "Event" @@= _tcEvents]
+               toXMLList "Event" _tcEvents]
 
 -- | /See:/ 'transition' smart constructor.
 --
@@ -2652,8 +2673,8 @@ traStorageClass = lens _traStorageClass (\ s a -> s{_traStorageClass = a});
 instance FromXML Transition where
         parseXML x
           = Transition' <$>
-              x .@? "Days" <*> x .@? "Date" <*>
-                x .@? "StorageClass"
+              (x .@? "Days") <*> (x .@? "Date") <*>
+                (x .@? "StorageClass")
 
 instance ToXML Transition where
         toXML Transition'{..}
@@ -2762,8 +2783,8 @@ wcErrorDocument :: Lens' WebsiteConfiguration (Maybe ErrorDocument)
 wcErrorDocument = lens _wcErrorDocument (\ s a -> s{_wcErrorDocument = a});
 
 -- | FIXME: Undocumented member.
-wcRoutingRules :: Lens' WebsiteConfiguration (Maybe [RoutingRule])
-wcRoutingRules = lens _wcRoutingRules (\ s a -> s{_wcRoutingRules = a});
+wcRoutingRules :: Lens' WebsiteConfiguration [RoutingRule]
+wcRoutingRules = lens _wcRoutingRules (\ s a -> s{_wcRoutingRules = a}) . _Default;
 
 -- | FIXME: Undocumented member.
 wcIndexDocument :: Lens' WebsiteConfiguration (Maybe IndexDocument)
@@ -2774,5 +2795,6 @@ instance ToXML WebsiteConfiguration where
           = mconcat
               ["RedirectAllRequestsTo" @= _wcRedirectAllRequestsTo,
                "ErrorDocument" @= _wcErrorDocument,
-               "RoutingRules" @= "RoutingRule" @@= _wcRoutingRules,
+               "RoutingRules" @=
+                 toXML (toXMLList "RoutingRule" <$> _wcRoutingRules),
                "IndexDocument" @= _wcIndexDocument]

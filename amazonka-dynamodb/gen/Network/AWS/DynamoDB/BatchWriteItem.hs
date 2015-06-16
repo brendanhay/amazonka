@@ -185,9 +185,9 @@ instance AWSRequest BatchWriteItem where
           = receiveJSON
               (\ s h x ->
                  BatchWriteItemResponse' <$>
-                   x .?> "ConsumedCapacity" .!@ mempty <*>
-                     x .?> "ItemCollectionMetrics" .!@ mempty
-                     <*> x .?> "UnprocessedItems" .!@ mempty)
+                   (x .?> "ConsumedCapacity" .!@ mempty) <*>
+                     (x .?> "ItemCollectionMetrics" .!@ mempty)
+                     <*> (x .?> "UnprocessedItems" .!@ mempty))
 
 instance ToHeaders BatchWriteItem where
         toHeaders

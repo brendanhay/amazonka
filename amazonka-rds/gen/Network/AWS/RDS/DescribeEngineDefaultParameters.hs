@@ -61,8 +61,8 @@ describeEngineDefaultParameters :: Text -> DescribeEngineDefaultParameters
 describeEngineDefaultParameters pDBParameterGroupFamily = DescribeEngineDefaultParameters'{_dedpFilters = Nothing, _dedpMaxRecords = Nothing, _dedpMarker = Nothing, _dedpDBParameterGroupFamily = pDBParameterGroupFamily};
 
 -- | Not currently supported.
-dedpFilters :: Lens' DescribeEngineDefaultParameters (Maybe [Filter])
-dedpFilters = lens _dedpFilters (\ s a -> s{_dedpFilters = a});
+dedpFilters :: Lens' DescribeEngineDefaultParameters [Filter]
+dedpFilters = lens _dedpFilters (\ s a -> s{_dedpFilters = a}) . _Default;
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -97,7 +97,7 @@ instance AWSRequest DescribeEngineDefaultParameters
               "DescribeEngineDefaultParametersResult"
               (\ s h x ->
                  DescribeEngineDefaultParametersResponse' <$>
-                   x .@ "EngineDefaults")
+                   (x .@ "EngineDefaults"))
 
 instance ToHeaders DescribeEngineDefaultParameters
          where
@@ -113,7 +113,8 @@ instance ToQuery DescribeEngineDefaultParameters
               ["Action" =:
                  ("DescribeEngineDefaultParameters" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "Filters" =: "Filter" =: _dedpFilters,
+               "Filters" =:
+                 toQuery (toQueryList "Filter" <$> _dedpFilters),
                "MaxRecords" =: _dedpMaxRecords,
                "Marker" =: _dedpMarker,
                "DBParameterGroupFamily" =:

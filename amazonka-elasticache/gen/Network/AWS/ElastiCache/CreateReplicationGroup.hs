@@ -184,8 +184,8 @@ crgEngineVersion = lens _crgEngineVersion (\ s a -> s{_crgEngineVersion = a});
 --
 -- Use this parameter only when you are creating a replication group in an
 -- Amazon Virtual Private Cloud (VPC).
-crgSecurityGroupIds :: Lens' CreateReplicationGroup (Maybe [Text])
-crgSecurityGroupIds = lens _crgSecurityGroupIds (\ s a -> s{_crgSecurityGroupIds = a});
+crgSecurityGroupIds :: Lens' CreateReplicationGroup [Text]
+crgSecurityGroupIds = lens _crgSecurityGroupIds (\ s a -> s{_crgSecurityGroupIds = a}) . _Default;
 
 -- | This parameter is currently disabled.
 crgAutoMinorVersionUpgrade :: Lens' CreateReplicationGroup (Maybe Bool)
@@ -200,8 +200,8 @@ crgAutoMinorVersionUpgrade = lens _crgAutoMinorVersionUpgrade (\ s a -> s{_crgAu
 -- @redis@.
 --
 -- Example of an Amazon S3 ARN: @arn:aws:s3:::my_bucket\/snapshot1.rdb@
-crgSnapshotARNs :: Lens' CreateReplicationGroup (Maybe [Text])
-crgSnapshotARNs = lens _crgSnapshotARNs (\ s a -> s{_crgSnapshotARNs = a});
+crgSnapshotARNs :: Lens' CreateReplicationGroup [Text]
+crgSnapshotARNs = lens _crgSnapshotARNs (\ s a -> s{_crgSnapshotARNs = a}) . _Default;
 
 -- | The name of the parameter group to associate with this replication
 -- group. If this argument is omitted, the default cache parameter group
@@ -297,8 +297,8 @@ crgSnapshotName = lens _crgSnapshotName (\ s a -> s{_crgSnapshotName = a});
 -- PreferredAvailabilityZones.member.1=us-west-2a
 -- PreferredAvailabilityZones.member.2=us-west-2c
 -- PreferredAvailabilityZones.member.3=us-west-2c
-crgPreferredCacheClusterAZs :: Lens' CreateReplicationGroup (Maybe [Text])
-crgPreferredCacheClusterAZs = lens _crgPreferredCacheClusterAZs (\ s a -> s{_crgPreferredCacheClusterAZs = a});
+crgPreferredCacheClusterAZs :: Lens' CreateReplicationGroup [Text]
+crgPreferredCacheClusterAZs = lens _crgPreferredCacheClusterAZs (\ s a -> s{_crgPreferredCacheClusterAZs = a}) . _Default;
 
 -- | The number of cache clusters this replication group will initially have.
 --
@@ -321,13 +321,13 @@ crgNotificationTopicARN = lens _crgNotificationTopicARN (\ s a -> s{_crgNotifica
 
 -- | A list of cost allocation tags to be added to this resource. A tag is a
 -- key-value pair. A tag key must be accompanied by a tag value.
-crgTags :: Lens' CreateReplicationGroup (Maybe [Tag])
-crgTags = lens _crgTags (\ s a -> s{_crgTags = a});
+crgTags :: Lens' CreateReplicationGroup [Tag]
+crgTags = lens _crgTags (\ s a -> s{_crgTags = a}) . _Default;
 
 -- | A list of cache security group names to associate with this replication
 -- group.
-crgCacheSecurityGroupNames :: Lens' CreateReplicationGroup (Maybe [Text])
-crgCacheSecurityGroupNames = lens _crgCacheSecurityGroupNames (\ s a -> s{_crgCacheSecurityGroupNames = a});
+crgCacheSecurityGroupNames :: Lens' CreateReplicationGroup [Text]
+crgCacheSecurityGroupNames = lens _crgCacheSecurityGroupNames (\ s a -> s{_crgCacheSecurityGroupNames = a}) . _Default;
 
 -- | The port number on which each member of the replication group will
 -- accept connections.
@@ -358,7 +358,7 @@ instance AWSRequest CreateReplicationGroup where
           = receiveXMLWrapper "CreateReplicationGroupResult"
               (\ s h x ->
                  CreateReplicationGroupResponse' <$>
-                   x .@? "ReplicationGroup")
+                   (x .@? "ReplicationGroup"))
 
 instance ToHeaders CreateReplicationGroup where
         toHeaders = const mempty
@@ -377,10 +377,14 @@ instance ToQuery CreateReplicationGroup where
                "CacheNodeType" =: _crgCacheNodeType,
                "EngineVersion" =: _crgEngineVersion,
                "SecurityGroupIds" =:
-                 "SecurityGroupId" =: _crgSecurityGroupIds,
+                 toQuery
+                   (toQueryList "SecurityGroupId" <$>
+                      _crgSecurityGroupIds),
                "AutoMinorVersionUpgrade" =:
                  _crgAutoMinorVersionUpgrade,
-               "SnapshotArns" =: "SnapshotArn" =: _crgSnapshotARNs,
+               "SnapshotArns" =:
+                 toQuery
+                   (toQueryList "SnapshotArn" <$> _crgSnapshotARNs),
                "CacheParameterGroupName" =:
                  _crgCacheParameterGroupName,
                "SnapshotWindow" =: _crgSnapshotWindow,
@@ -393,13 +397,16 @@ instance ToQuery CreateReplicationGroup where
                  _crgSnapshotRetentionLimit,
                "SnapshotName" =: _crgSnapshotName,
                "PreferredCacheClusterAZs" =:
-                 "AvailabilityZone" =: _crgPreferredCacheClusterAZs,
+                 toQuery
+                   (toQueryList "AvailabilityZone" <$>
+                      _crgPreferredCacheClusterAZs),
                "NumCacheClusters" =: _crgNumCacheClusters,
                "NotificationTopicArn" =: _crgNotificationTopicARN,
-               "Tags" =: "Tag" =: _crgTags,
+               "Tags" =: toQuery (toQueryList "Tag" <$> _crgTags),
                "CacheSecurityGroupNames" =:
-                 "CacheSecurityGroupName" =:
-                   _crgCacheSecurityGroupNames,
+                 toQuery
+                   (toQueryList "CacheSecurityGroupName" <$>
+                      _crgCacheSecurityGroupNames),
                "Port" =: _crgPort,
                "ReplicationGroupId" =: _crgReplicationGroupId,
                "ReplicationGroupDescription" =:

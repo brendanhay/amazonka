@@ -72,7 +72,7 @@ instance AWSRequest DeleteIndexField where
         response
           = receiveXMLWrapper "DeleteIndexFieldResult"
               (\ s h x ->
-                 DeleteIndexFieldResponse' <$> x .@ "IndexField")
+                 DeleteIndexFieldResponse' <$> (x .@ "IndexField"))
 
 instance ToHeaders DeleteIndexField where
         toHeaders = const mempty

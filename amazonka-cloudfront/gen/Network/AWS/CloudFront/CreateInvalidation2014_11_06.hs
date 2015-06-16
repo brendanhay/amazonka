@@ -72,7 +72,7 @@ instance AWSRequest CreateInvalidation2014_11_06
           = receiveXML
               (\ s h x ->
                  CreateInvalidation2014_11_06Response' <$>
-                   x .@? "Invalidation" <*> h .#? "Location")
+                   (x .@? "Invalidation") <*> (h .#? "Location"))
 
 instance ToElement CreateInvalidation2014_11_06 where
         toElement

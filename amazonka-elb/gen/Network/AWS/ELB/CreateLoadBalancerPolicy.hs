@@ -63,8 +63,8 @@ createLoadBalancerPolicy :: Text -> Text -> Text -> CreateLoadBalancerPolicy
 createLoadBalancerPolicy pLoadBalancerName pPolicyName pPolicyTypeName = CreateLoadBalancerPolicy'{_clbpPolicyAttributes = Nothing, _clbpLoadBalancerName = pLoadBalancerName, _clbpPolicyName = pPolicyName, _clbpPolicyTypeName = pPolicyTypeName};
 
 -- | The attributes for the policy.
-clbpPolicyAttributes :: Lens' CreateLoadBalancerPolicy (Maybe [PolicyAttribute])
-clbpPolicyAttributes = lens _clbpPolicyAttributes (\ s a -> s{_clbpPolicyAttributes = a});
+clbpPolicyAttributes :: Lens' CreateLoadBalancerPolicy [PolicyAttribute]
+clbpPolicyAttributes = lens _clbpPolicyAttributes (\ s a -> s{_clbpPolicyAttributes = a}) . _Default;
 
 -- | The name of the load balancer.
 clbpLoadBalancerName :: Lens' CreateLoadBalancerPolicy Text
@@ -86,8 +86,7 @@ instance AWSRequest CreateLoadBalancerPolicy where
              CreateLoadBalancerPolicyResponse
         request = post
         response
-          = receiveNullWrapper "CreateLoadBalancerPolicyResult"
-              CreateLoadBalancerPolicyResponse'
+          = receiveNull CreateLoadBalancerPolicyResponse'
 
 instance ToHeaders CreateLoadBalancerPolicy where
         toHeaders = const mempty
@@ -102,7 +101,8 @@ instance ToQuery CreateLoadBalancerPolicy where
                  ("CreateLoadBalancerPolicy" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
                "PolicyAttributes" =:
-                 "member" =: _clbpPolicyAttributes,
+                 toQuery
+                   (toQueryList "member" <$> _clbpPolicyAttributes),
                "LoadBalancerName" =: _clbpLoadBalancerName,
                "PolicyName" =: _clbpPolicyName,
                "PolicyTypeName" =: _clbpPolicyTypeName]

@@ -86,7 +86,7 @@ instance AWSRequest ReplaceNetworkACLAssociation
           = receiveXML
               (\ s h x ->
                  ReplaceNetworkACLAssociationResponse' <$>
-                   x .@? "newAssociationId")
+                   (x .@? "newAssociationId"))
 
 instance ToHeaders ReplaceNetworkACLAssociation where
         toHeaders = const mempty

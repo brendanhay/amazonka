@@ -109,7 +109,7 @@ instance AWSRequest CreateDHCPOptions where
         response
           = receiveXML
               (\ s h x ->
-                 CreateDHCPOptionsResponse' <$> x .@? "dhcpOptions")
+                 CreateDHCPOptionsResponse' <$> (x .@? "dhcpOptions"))
 
 instance ToHeaders CreateDHCPOptions where
         toHeaders = const mempty
@@ -123,7 +123,7 @@ instance ToQuery CreateDHCPOptions where
               ["Action" =: ("CreateDHCPOptions" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "DryRun" =: _cdoDryRun,
-               "item" =: _cdoDHCPConfigurations]
+               toQueryList "item" _cdoDHCPConfigurations]
 
 -- | /See:/ 'createDHCPOptionsResponse' smart constructor.
 --

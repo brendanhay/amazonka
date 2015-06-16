@@ -98,7 +98,7 @@ instance AWSRequest ValidateConfigurationSettings
               (\ s h x ->
                  ValidateConfigurationSettingsResponse' <$>
                    (x .@? "Messages" .!@ mempty >>=
-                      parseXMLList "member"))
+                      may (parseXMLList "member")))
 
 instance ToHeaders ValidateConfigurationSettings
          where
@@ -116,7 +116,8 @@ instance ToQuery ValidateConfigurationSettings where
                "TemplateName" =: _vcsTemplateName,
                "EnvironmentName" =: _vcsEnvironmentName,
                "ApplicationName" =: _vcsApplicationName,
-               "OptionSettings" =: "member" =: _vcsOptionSettings]
+               "OptionSettings" =:
+                 toQueryList "member" _vcsOptionSettings]
 
 -- | /See:/ 'validateConfigurationSettingsResponse' smart constructor.
 --
@@ -130,5 +131,5 @@ validateConfigurationSettingsResponse :: ValidateConfigurationSettingsResponse
 validateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse'{_vcsrMessages = Nothing};
 
 -- | A list of ValidationMessage.
-vcsrMessages :: Lens' ValidateConfigurationSettingsResponse (Maybe [ValidationMessage])
-vcsrMessages = lens _vcsrMessages (\ s a -> s{_vcsrMessages = a});
+vcsrMessages :: Lens' ValidateConfigurationSettingsResponse [ValidationMessage]
+vcsrMessages = lens _vcsrMessages (\ s a -> s{_vcsrMessages = a}) . _Default;

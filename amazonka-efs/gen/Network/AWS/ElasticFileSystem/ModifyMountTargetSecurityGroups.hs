@@ -67,8 +67,8 @@ modifyMountTargetSecurityGroups :: Text -> ModifyMountTargetSecurityGroups
 modifyMountTargetSecurityGroups pMountTargetId = ModifyMountTargetSecurityGroups'{_mmtsgSecurityGroups = Nothing, _mmtsgMountTargetId = pMountTargetId};
 
 -- | An array of up to five VPC security group IDs.
-mmtsgSecurityGroups :: Lens' ModifyMountTargetSecurityGroups (Maybe [Text])
-mmtsgSecurityGroups = lens _mmtsgSecurityGroups (\ s a -> s{_mmtsgSecurityGroups = a});
+mmtsgSecurityGroups :: Lens' ModifyMountTargetSecurityGroups [Text]
+mmtsgSecurityGroups = lens _mmtsgSecurityGroups (\ s a -> s{_mmtsgSecurityGroups = a}) . _Default;
 
 -- | The ID of the mount target whose security groups you want to modify.
 mmtsgMountTargetId :: Lens' ModifyMountTargetSecurityGroups Text

@@ -53,7 +53,7 @@ import Network.AWS.CognitoIdentity.Types
 -- * 'gcfiLogins'
 --
 -- * 'gcfiIdentityId'
-data GetCredentialsForIdentity = GetCredentialsForIdentity'{_gcfiLogins :: Maybe (HashMap Text Text), _gcfiIdentityId :: Text} deriving (Eq, Read, Show)
+data GetCredentialsForIdentity = GetCredentialsForIdentity'{_gcfiLogins :: Maybe (Map Text Text), _gcfiIdentityId :: Text} deriving (Eq, Read, Show)
 
 -- | 'GetCredentialsForIdentity' smart constructor.
 getCredentialsForIdentity :: Text -> GetCredentialsForIdentity
@@ -61,8 +61,8 @@ getCredentialsForIdentity pIdentityId = GetCredentialsForIdentity'{_gcfiLogins =
 
 -- | A set of optional name-value pairs that map provider names to provider
 -- tokens.
-gcfiLogins :: Lens' GetCredentialsForIdentity (Maybe (HashMap Text Text))
-gcfiLogins = lens _gcfiLogins (\ s a -> s{_gcfiLogins = a}) . mapping _Coerce;
+gcfiLogins :: Lens' GetCredentialsForIdentity (Map Text Text)
+gcfiLogins = lens _gcfiLogins (\ s a -> s{_gcfiLogins = a}) . _Default . _Map;
 
 -- | A unique identifier in the format REGION:GUID.
 gcfiIdentityId :: Lens' GetCredentialsForIdentity Text
@@ -77,7 +77,7 @@ instance AWSRequest GetCredentialsForIdentity where
           = receiveJSON
               (\ s h x ->
                  GetCredentialsForIdentityResponse' <$>
-                   x .?> "Credentials" <*> x .?> "IdentityId")
+                   (x .?> "Credentials") <*> (x .?> "IdentityId"))
 
 instance ToHeaders GetCredentialsForIdentity where
         toHeaders

@@ -54,7 +54,7 @@ instance AWSRequest DescribeLocations where
           = receiveJSON
               (\ s h x ->
                  DescribeLocationsResponse' <$>
-                   x .?> "DescribeLocationsResponse" .!@ mempty)
+                   (x .?> "DescribeLocationsResponse" .!@ mempty))
 
 instance ToHeaders DescribeLocations where
         toHeaders
@@ -86,5 +86,5 @@ describeLocationsResponse :: DescribeLocationsResponse
 describeLocationsResponse = DescribeLocationsResponse'{_dlrDescribeLocationsResponse = Nothing};
 
 -- | FIXME: Undocumented member.
-dlrDescribeLocationsResponse :: Lens' DescribeLocationsResponse (Maybe [Location])
-dlrDescribeLocationsResponse = lens _dlrDescribeLocationsResponse (\ s a -> s{_dlrDescribeLocationsResponse = a});
+dlrDescribeLocationsResponse :: Lens' DescribeLocationsResponse [Location]
+dlrDescribeLocationsResponse = lens _dlrDescribeLocationsResponse (\ s a -> s{_dlrDescribeLocationsResponse = a}) . _Default;

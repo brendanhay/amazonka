@@ -73,7 +73,7 @@ instance AWSRequest CancelBundleTask where
           = receiveXML
               (\ s h x ->
                  CancelBundleTaskResponse' <$>
-                   x .@? "bundleInstanceTask")
+                   (x .@? "bundleInstanceTask"))
 
 instance ToHeaders CancelBundleTask where
         toHeaders = const mempty

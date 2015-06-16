@@ -92,8 +92,8 @@ cdAppId :: Lens' CreateDeployment (Maybe Text)
 cdAppId = lens _cdAppId (\ s a -> s{_cdAppId = a});
 
 -- | The instance IDs for the deployment targets.
-cdInstanceIds :: Lens' CreateDeployment (Maybe [Text])
-cdInstanceIds = lens _cdInstanceIds (\ s a -> s{_cdInstanceIds = a});
+cdInstanceIds :: Lens' CreateDeployment [Text]
+cdInstanceIds = lens _cdInstanceIds (\ s a -> s{_cdInstanceIds = a}) . _Default;
 
 -- | A user-defined comment.
 cdComment :: Lens' CreateDeployment (Maybe Text)
@@ -115,7 +115,7 @@ instance AWSRequest CreateDeployment where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateDeploymentResponse' <$> x .?> "DeploymentId")
+                 CreateDeploymentResponse' <$> (x .?> "DeploymentId"))
 
 instance ToHeaders CreateDeployment where
         toHeaders

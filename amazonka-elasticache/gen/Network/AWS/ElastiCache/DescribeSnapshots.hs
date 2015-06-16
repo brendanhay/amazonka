@@ -109,8 +109,8 @@ instance AWSRequest DescribeSnapshots where
               (\ s h x ->
                  DescribeSnapshotsResponse' <$>
                    (x .@? "Snapshots" .!@ mempty >>=
-                      parseXMLList "Snapshot")
-                     <*> x .@? "Marker")
+                      may (parseXMLList "Snapshot"))
+                     <*> (x .@? "Marker"))
 
 instance ToHeaders DescribeSnapshots where
         toHeaders = const mempty
@@ -143,8 +143,8 @@ describeSnapshotsResponse = DescribeSnapshotsResponse'{_dsrSnapshots = Nothing, 
 
 -- | A list of snapshots. Each item in the list contains detailed information
 -- about one snapshot.
-dsrSnapshots :: Lens' DescribeSnapshotsResponse (Maybe [Snapshot])
-dsrSnapshots = lens _dsrSnapshots (\ s a -> s{_dsrSnapshots = a});
+dsrSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
+dsrSnapshots = lens _dsrSnapshots (\ s a -> s{_dsrSnapshots = a}) . _Default;
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this action. If this parameter is specified,

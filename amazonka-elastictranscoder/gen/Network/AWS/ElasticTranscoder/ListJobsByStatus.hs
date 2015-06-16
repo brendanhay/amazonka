@@ -85,7 +85,8 @@ instance AWSRequest ListJobsByStatus where
           = receiveJSON
               (\ s h x ->
                  ListJobsByStatusResponse' <$>
-                   x .?> "NextPageToken" <*> x .?> "Jobs" .!@ mempty)
+                   (x .?> "NextPageToken") <*>
+                     (x .?> "Jobs" .!@ mempty))
 
 instance ToHeaders ListJobsByStatus where
         toHeaders = const mempty
@@ -122,5 +123,5 @@ ljbsrNextPageToken :: Lens' ListJobsByStatusResponse (Maybe Text)
 ljbsrNextPageToken = lens _ljbsrNextPageToken (\ s a -> s{_ljbsrNextPageToken = a});
 
 -- | An array of @Job@ objects that have the specified status.
-ljbsrJobs :: Lens' ListJobsByStatusResponse (Maybe [Job'])
-ljbsrJobs = lens _ljbsrJobs (\ s a -> s{_ljbsrJobs = a});
+ljbsrJobs :: Lens' ListJobsByStatusResponse [Job']
+ljbsrJobs = lens _ljbsrJobs (\ s a -> s{_ljbsrJobs = a}) . _Default;

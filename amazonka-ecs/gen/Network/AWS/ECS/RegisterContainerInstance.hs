@@ -85,8 +85,8 @@ rciVersionInfo :: Lens' RegisterContainerInstance (Maybe VersionInfo)
 rciVersionInfo = lens _rciVersionInfo (\ s a -> s{_rciVersionInfo = a});
 
 -- | FIXME: Undocumented member.
-rciTotalResources :: Lens' RegisterContainerInstance (Maybe [Resource])
-rciTotalResources = lens _rciTotalResources (\ s a -> s{_rciTotalResources = a});
+rciTotalResources :: Lens' RegisterContainerInstance [Resource]
+rciTotalResources = lens _rciTotalResources (\ s a -> s{_rciTotalResources = a}) . _Default;
 
 instance AWSRequest RegisterContainerInstance where
         type Sv RegisterContainerInstance = ECS
@@ -97,7 +97,7 @@ instance AWSRequest RegisterContainerInstance where
           = receiveJSON
               (\ s h x ->
                  RegisterContainerInstanceResponse' <$>
-                   x .?> "containerInstance")
+                   (x .?> "containerInstance"))
 
 instance ToHeaders RegisterContainerInstance where
         toHeaders

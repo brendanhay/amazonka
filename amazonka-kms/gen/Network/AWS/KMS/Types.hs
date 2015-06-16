@@ -139,8 +139,8 @@ instance FromJSON AliasListEntry where
           = withObject "AliasListEntry"
               (\ x ->
                  AliasListEntry' <$>
-                   x .:? "TargetKeyId" <*> x .:? "AliasName" <*>
-                     x .:? "AliasArn")
+                   (x .:? "TargetKeyId") <*> (x .:? "AliasName") <*>
+                     (x .:? "AliasArn"))
 
 data DataKeySpec = AES128 | AES256 deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -169,7 +169,7 @@ instance ToJSON DataKeySpec where
 -- * 'gcEncryptionContextEquals'
 --
 -- * 'gcEncryptionContextSubset'
-data GrantConstraints = GrantConstraints'{_gcEncryptionContextEquals :: Maybe (HashMap Text Text), _gcEncryptionContextSubset :: Maybe (HashMap Text Text)} deriving (Eq, Read, Show)
+data GrantConstraints = GrantConstraints'{_gcEncryptionContextEquals :: Maybe (Map Text Text), _gcEncryptionContextSubset :: Maybe (Map Text Text)} deriving (Eq, Read, Show)
 
 -- | 'GrantConstraints' smart constructor.
 grantConstraints :: GrantConstraints
@@ -177,20 +177,20 @@ grantConstraints = GrantConstraints'{_gcEncryptionContextEquals = Nothing, _gcEn
 
 -- | The constraint contains additional key\/value pairs that serve to
 -- further limit the grant.
-gcEncryptionContextEquals :: Lens' GrantConstraints (Maybe (HashMap Text Text))
-gcEncryptionContextEquals = lens _gcEncryptionContextEquals (\ s a -> s{_gcEncryptionContextEquals = a}) . mapping _Coerce;
+gcEncryptionContextEquals :: Lens' GrantConstraints (Map Text Text)
+gcEncryptionContextEquals = lens _gcEncryptionContextEquals (\ s a -> s{_gcEncryptionContextEquals = a}) . _Default . _Map;
 
 -- | The constraint equals the full encryption context.
-gcEncryptionContextSubset :: Lens' GrantConstraints (Maybe (HashMap Text Text))
-gcEncryptionContextSubset = lens _gcEncryptionContextSubset (\ s a -> s{_gcEncryptionContextSubset = a}) . mapping _Coerce;
+gcEncryptionContextSubset :: Lens' GrantConstraints (Map Text Text)
+gcEncryptionContextSubset = lens _gcEncryptionContextSubset (\ s a -> s{_gcEncryptionContextSubset = a}) . _Default . _Map;
 
 instance FromJSON GrantConstraints where
         parseJSON
           = withObject "GrantConstraints"
               (\ x ->
                  GrantConstraints' <$>
-                   x .:? "EncryptionContextEquals" .!= mempty <*>
-                     x .:? "EncryptionContextSubset" .!= mempty)
+                   (x .:? "EncryptionContextEquals" .!= mempty) <*>
+                     (x .:? "EncryptionContextSubset" .!= mempty))
 
 instance ToJSON GrantConstraints where
         toJSON GrantConstraints'{..}
@@ -252,19 +252,20 @@ gleGranteePrincipal = lens _gleGranteePrincipal (\ s a -> s{_gleGranteePrincipal
 -- 5.  ReEncryptFrom
 -- 6.  ReEncryptTo
 -- 7.  CreateGrant
-gleOperations :: Lens' GrantListEntry (Maybe [GrantOperation])
-gleOperations = lens _gleOperations (\ s a -> s{_gleOperations = a});
+gleOperations :: Lens' GrantListEntry [GrantOperation]
+gleOperations = lens _gleOperations (\ s a -> s{_gleOperations = a}) . _Default;
 
 instance FromJSON GrantListEntry where
         parseJSON
           = withObject "GrantListEntry"
               (\ x ->
                  GrantListEntry' <$>
-                   x .:? "RetiringPrincipal" <*> x .:? "IssuingAccount"
-                     <*> x .:? "GrantId"
-                     <*> x .:? "Constraints"
-                     <*> x .:? "GranteePrincipal"
-                     <*> x .:? "Operations" .!= mempty)
+                   (x .:? "RetiringPrincipal") <*>
+                     (x .:? "IssuingAccount")
+                     <*> (x .:? "GrantId")
+                     <*> (x .:? "Constraints")
+                     <*> (x .:? "GranteePrincipal")
+                     <*> (x .:? "Operations" .!= mempty))
 
 data GrantOperation = Encrypt | GenerateDataKeyWithoutPlaintext | CreateGrant | RetireGrant | GenerateDataKey | Decrypt | ReEncryptTo | ReEncryptFrom deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -326,7 +327,8 @@ instance FromJSON KeyListEntry where
         parseJSON
           = withObject "KeyListEntry"
               (\ x ->
-                 KeyListEntry' <$> x .:? "KeyArn" <*> x .:? "KeyId")
+                 KeyListEntry' <$>
+                   (x .:? "KeyArn") <*> (x .:? "KeyId"))
 
 -- | /See:/ 'keyMetadata' smart constructor.
 --
@@ -384,12 +386,12 @@ instance FromJSON KeyMetadata where
           = withObject "KeyMetadata"
               (\ x ->
                  KeyMetadata' <$>
-                   x .:? "Arn" <*> x .:? "Enabled" <*>
-                     x .:? "AWSAccountId"
-                     <*> x .:? "KeyUsage"
-                     <*> x .:? "CreationDate"
-                     <*> x .:? "Description"
-                     <*> x .: "KeyId")
+                   (x .:? "Arn") <*> (x .:? "Enabled") <*>
+                     (x .:? "AWSAccountId")
+                     <*> (x .:? "KeyUsage")
+                     <*> (x .:? "CreationDate")
+                     <*> (x .:? "Description")
+                     <*> (x .: "KeyId"))
 
 data KeyUsageType = EncryptDecrypt deriving (Eq, Ord, Read, Show, Enum, Generic)
 

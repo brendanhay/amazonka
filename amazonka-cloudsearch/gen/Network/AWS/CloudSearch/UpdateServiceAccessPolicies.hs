@@ -74,7 +74,7 @@ instance AWSRequest UpdateServiceAccessPolicies where
               "UpdateServiceAccessPoliciesResult"
               (\ s h x ->
                  UpdateServiceAccessPoliciesResponse' <$>
-                   x .@ "AccessPolicies")
+                   (x .@ "AccessPolicies"))
 
 instance ToHeaders UpdateServiceAccessPolicies where
         toHeaders = const mempty

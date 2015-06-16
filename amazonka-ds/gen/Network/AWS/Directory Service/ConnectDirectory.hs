@@ -98,7 +98,7 @@ instance AWSRequest ConnectDirectory where
         response
           = receiveJSON
               (\ s h x ->
-                 ConnectDirectoryResponse' <$> x .?> "DirectoryId")
+                 ConnectDirectoryResponse' <$> (x .?> "DirectoryId"))
 
 instance ToHeaders ConnectDirectory where
         toHeaders

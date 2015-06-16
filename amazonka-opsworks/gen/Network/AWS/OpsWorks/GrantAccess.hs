@@ -73,7 +73,8 @@ instance AWSRequest GrantAccess where
         response
           = receiveJSON
               (\ s h x ->
-                 GrantAccessResponse' <$> x .?> "TemporaryCredential")
+                 GrantAccessResponse' <$>
+                   (x .?> "TemporaryCredential"))
 
 instance ToHeaders GrantAccess where
         toHeaders

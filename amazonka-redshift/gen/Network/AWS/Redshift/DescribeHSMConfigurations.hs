@@ -82,8 +82,8 @@ describeHSMConfigurations = DescribeHSMConfigurations'{_dhsmcTagValues = Nothing
 -- these tag values in the request, Amazon Redshift returns a response with
 -- the HSM configurations that have either or both of these tag values
 -- associated with them.
-dhsmcTagValues :: Lens' DescribeHSMConfigurations (Maybe [Text])
-dhsmcTagValues = lens _dhsmcTagValues (\ s a -> s{_dhsmcTagValues = a});
+dhsmcTagValues :: Lens' DescribeHSMConfigurations [Text]
+dhsmcTagValues = lens _dhsmcTagValues (\ s a -> s{_dhsmcTagValues = a}) . _Default;
 
 -- | The identifier of a specific Amazon Redshift HSM configuration to be
 -- described. If no identifier is specified, information is returned for
@@ -98,8 +98,8 @@ dhsmcHSMConfigurationIdentifier = lens _dhsmcHSMConfigurationIdentifier (\ s a -
 -- keys in the request, Amazon Redshift returns a response with the HSM
 -- configurations that have either or both of these tag keys associated
 -- with them.
-dhsmcTagKeys :: Lens' DescribeHSMConfigurations (Maybe [Text])
-dhsmcTagKeys = lens _dhsmcTagKeys (\ s a -> s{_dhsmcTagKeys = a});
+dhsmcTagKeys :: Lens' DescribeHSMConfigurations [Text]
+dhsmcTagKeys = lens _dhsmcTagKeys (\ s a -> s{_dhsmcTagKeys = a}) . _Default;
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -131,9 +131,9 @@ instance AWSRequest DescribeHSMConfigurations where
           = receiveXMLWrapper "DescribeHsmConfigurationsResult"
               (\ s h x ->
                  DescribeHSMConfigurationsResponse' <$>
-                   x .@? "Marker" <*>
+                   (x .@? "Marker") <*>
                      (x .@? "HsmConfigurations" .!@ mempty >>=
-                        parseXMLList "HsmConfiguration"))
+                        may (parseXMLList "HsmConfiguration")))
 
 instance ToHeaders DescribeHSMConfigurations where
         toHeaders = const mempty
@@ -147,10 +147,12 @@ instance ToQuery DescribeHSMConfigurations where
               ["Action" =:
                  ("DescribeHSMConfigurations" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "TagValues" =: "TagValue" =: _dhsmcTagValues,
+               "TagValues" =:
+                 toQuery (toQueryList "TagValue" <$> _dhsmcTagValues),
                "HsmConfigurationIdentifier" =:
                  _dhsmcHSMConfigurationIdentifier,
-               "TagKeys" =: "TagKey" =: _dhsmcTagKeys,
+               "TagKeys" =:
+                 toQuery (toQueryList "TagKey" <$> _dhsmcTagKeys),
                "MaxRecords" =: _dhsmcMaxRecords,
                "Marker" =: _dhsmcMarker]
 
@@ -177,5 +179,5 @@ dhcrMarker :: Lens' DescribeHSMConfigurationsResponse (Maybe Text)
 dhcrMarker = lens _dhcrMarker (\ s a -> s{_dhcrMarker = a});
 
 -- | A list of Amazon Redshift HSM configurations.
-dhcrHSMConfigurations :: Lens' DescribeHSMConfigurationsResponse (Maybe [HSMConfiguration])
-dhcrHSMConfigurations = lens _dhcrHSMConfigurations (\ s a -> s{_dhcrHSMConfigurations = a});
+dhcrHSMConfigurations :: Lens' DescribeHSMConfigurationsResponse [HSMConfiguration]
+dhcrHSMConfigurations = lens _dhcrHSMConfigurations (\ s a -> s{_dhcrHSMConfigurations = a}) . _Default;

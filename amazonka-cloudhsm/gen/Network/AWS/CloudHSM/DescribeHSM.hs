@@ -92,26 +92,26 @@ instance AWSRequest DescribeHSM where
           = receiveJSON
               (\ s h x ->
                  DescribeHSMResponse' <$>
-                   x .?> "IamRoleArn" <*> x .?> "Status" <*>
-                     x .?> "EniId"
-                     <*> x .?> "SubscriptionEndDate"
-                     <*> x .?> "VpcId"
-                     <*> x .?> "SshKeyLastUpdated"
-                     <*> x .?> "ServerCertUri"
-                     <*> x .?> "SubscriptionType"
-                     <*> x .?> "StatusDetails"
-                     <*> x .?> "SshPublicKey"
-                     <*> x .?> "SubnetId"
-                     <*> x .?> "Partitions" .!@ mempty
-                     <*> x .?> "AvailabilityZone"
-                     <*> x .?> "SubscriptionStartDate"
-                     <*> x .?> "ServerCertLastUpdated"
-                     <*> x .?> "SoftwareVersion"
-                     <*> x .?> "SerialNumber"
-                     <*> x .?> "VendorName"
-                     <*> x .?> "HsmArn"
-                     <*> x .?> "EniIp"
-                     <*> x .?> "HsmType")
+                   (x .?> "IamRoleArn") <*> (x .?> "Status") <*>
+                     (x .?> "EniId")
+                     <*> (x .?> "SubscriptionEndDate")
+                     <*> (x .?> "VpcId")
+                     <*> (x .?> "SshKeyLastUpdated")
+                     <*> (x .?> "ServerCertUri")
+                     <*> (x .?> "SubscriptionType")
+                     <*> (x .?> "StatusDetails")
+                     <*> (x .?> "SshPublicKey")
+                     <*> (x .?> "SubnetId")
+                     <*> (x .?> "Partitions" .!@ mempty)
+                     <*> (x .?> "AvailabilityZone")
+                     <*> (x .?> "SubscriptionStartDate")
+                     <*> (x .?> "ServerCertLastUpdated")
+                     <*> (x .?> "SoftwareVersion")
+                     <*> (x .?> "SerialNumber")
+                     <*> (x .?> "VendorName")
+                     <*> (x .?> "HsmArn")
+                     <*> (x .?> "EniIp")
+                     <*> (x .?> "HsmType"))
 
 instance ToHeaders DescribeHSM where
         toHeaders
@@ -232,8 +232,8 @@ desSubnetId :: Lens' DescribeHSMResponse (Maybe Text)
 desSubnetId = lens _desSubnetId (\ s a -> s{_desSubnetId = a});
 
 -- | The list of partitions on the HSM.
-desPartitions :: Lens' DescribeHSMResponse (Maybe [Text])
-desPartitions = lens _desPartitions (\ s a -> s{_desPartitions = a});
+desPartitions :: Lens' DescribeHSMResponse [Text]
+desPartitions = lens _desPartitions (\ s a -> s{_desPartitions = a}) . _Default;
 
 -- | The Availability Zone that the HSM is in.
 desAvailabilityZone :: Lens' DescribeHSMResponse (Maybe Text)

@@ -167,7 +167,7 @@ instance AWSRequest CreateDataSourceFromRedshift
           = receiveJSON
               (\ s h x ->
                  CreateDataSourceFromRedshiftResponse' <$>
-                   x .?> "DataSourceId")
+                   (x .?> "DataSourceId"))
 
 instance ToHeaders CreateDataSourceFromRedshift where
         toHeaders

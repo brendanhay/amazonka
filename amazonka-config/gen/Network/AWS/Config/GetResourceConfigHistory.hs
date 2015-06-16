@@ -121,8 +121,8 @@ instance AWSRequest GetResourceConfigHistory where
           = receiveJSON
               (\ s h x ->
                  GetResourceConfigHistoryResponse' <$>
-                   x .?> "nextToken" <*>
-                     x .?> "configurationItems" .!@ mempty)
+                   (x .?> "nextToken") <*>
+                     (x .?> "configurationItems" .!@ mempty))
 
 instance ToHeaders GetResourceConfigHistory where
         toHeaders
@@ -168,5 +168,5 @@ grchrNextToken :: Lens' GetResourceConfigHistoryResponse (Maybe Text)
 grchrNextToken = lens _grchrNextToken (\ s a -> s{_grchrNextToken = a});
 
 -- | A list that contains the configuration history of one or more resources.
-grchrConfigurationItems :: Lens' GetResourceConfigHistoryResponse (Maybe [ConfigurationItem])
-grchrConfigurationItems = lens _grchrConfigurationItems (\ s a -> s{_grchrConfigurationItems = a});
+grchrConfigurationItems :: Lens' GetResourceConfigHistoryResponse [ConfigurationItem]
+grchrConfigurationItems = lens _grchrConfigurationItems (\ s a -> s{_grchrConfigurationItems = a}) . _Default;

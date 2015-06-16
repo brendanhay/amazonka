@@ -76,8 +76,8 @@ instance AWSRequest ListDeploymentGroups where
           = receiveJSON
               (\ s h x ->
                  ListDeploymentGroupsResponse' <$>
-                   x .?> "nextToken" <*> x .?> "applicationName" <*>
-                     x .?> "deploymentGroups" .!@ mempty)
+                   (x .?> "nextToken") <*> (x .?> "applicationName") <*>
+                     (x .?> "deploymentGroups" .!@ mempty))
 
 instance ToHeaders ListDeploymentGroups where
         toHeaders
@@ -128,5 +128,5 @@ ldgrApplicationName :: Lens' ListDeploymentGroupsResponse (Maybe Text)
 ldgrApplicationName = lens _ldgrApplicationName (\ s a -> s{_ldgrApplicationName = a});
 
 -- | A list of corresponding deployment group names.
-ldgrDeploymentGroups :: Lens' ListDeploymentGroupsResponse (Maybe [Text])
-ldgrDeploymentGroups = lens _ldgrDeploymentGroups (\ s a -> s{_ldgrDeploymentGroups = a});
+ldgrDeploymentGroups :: Lens' ListDeploymentGroupsResponse [Text]
+ldgrDeploymentGroups = lens _ldgrDeploymentGroups (\ s a -> s{_ldgrDeploymentGroups = a}) . _Default;

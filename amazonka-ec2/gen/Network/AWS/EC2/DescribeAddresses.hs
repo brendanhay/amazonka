@@ -67,8 +67,8 @@ describeAddresses = DescribeAddresses'{_daPublicIPs = Nothing, _daFilters = Noth
 -- | [EC2-Classic] One or more Elastic IP addresses.
 --
 -- Default: Describes all your Elastic IP addresses.
-daPublicIPs :: Lens' DescribeAddresses (Maybe [Text])
-daPublicIPs = lens _daPublicIPs (\ s a -> s{_daPublicIPs = a});
+daPublicIPs :: Lens' DescribeAddresses [Text]
+daPublicIPs = lens _daPublicIPs (\ s a -> s{_daPublicIPs = a}) . _Default;
 
 -- | One or more filters. Filter names and values are case-sensitive.
 --
@@ -92,8 +92,8 @@ daPublicIPs = lens _daPublicIPs (\ s a -> s{_daPublicIPs = a});
 --
 -- -   @public-ip@ - The Elastic IP address.
 --
-daFilters :: Lens' DescribeAddresses (Maybe [Filter])
-daFilters = lens _daFilters (\ s a -> s{_daFilters = a});
+daFilters :: Lens' DescribeAddresses [Filter]
+daFilters = lens _daFilters (\ s a -> s{_daFilters = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -105,8 +105,8 @@ daDryRun = lens _daDryRun (\ s a -> s{_daDryRun = a});
 -- | [EC2-VPC] One or more allocation IDs.
 --
 -- Default: Describes all your Elastic IP addresses.
-daAllocationIds :: Lens' DescribeAddresses (Maybe [Text])
-daAllocationIds = lens _daAllocationIds (\ s a -> s{_daAllocationIds = a});
+daAllocationIds :: Lens' DescribeAddresses [Text]
+daAllocationIds = lens _daAllocationIds (\ s a -> s{_daAllocationIds = a}) . _Default;
 
 instance AWSRequest DescribeAddresses where
         type Sv DescribeAddresses = EC2
@@ -115,7 +115,8 @@ instance AWSRequest DescribeAddresses where
         response
           = receiveXML
               (\ s h x ->
-                 DescribeAddressesResponse' <$> parseXMLList "item" x)
+                 DescribeAddressesResponse' <$>
+                   (may (parseXMLList "item") x))
 
 instance ToHeaders DescribeAddresses where
         toHeaders = const mempty
@@ -128,9 +129,11 @@ instance ToQuery DescribeAddresses where
           = mconcat
               ["Action" =: ("DescribeAddresses" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "PublicIp" =: _daPublicIPs, "Filter" =: _daFilters,
+               toQuery (toQueryList "PublicIp" <$> _daPublicIPs),
+               toQuery (toQueryList "Filter" <$> _daFilters),
                "DryRun" =: _daDryRun,
-               "AllocationId" =: _daAllocationIds]
+               toQuery
+                 (toQueryList "AllocationId" <$> _daAllocationIds)]
 
 -- | /See:/ 'describeAddressesResponse' smart constructor.
 --
@@ -144,5 +147,5 @@ describeAddressesResponse :: DescribeAddressesResponse
 describeAddressesResponse = DescribeAddressesResponse'{_darAddresses = Nothing};
 
 -- | Information about one or more Elastic IP addresses.
-darAddresses :: Lens' DescribeAddressesResponse (Maybe [Address])
-darAddresses = lens _darAddresses (\ s a -> s{_darAddresses = a});
+darAddresses :: Lens' DescribeAddressesResponse [Address]
+darAddresses = lens _darAddresses (\ s a -> s{_darAddresses = a}) . _Default;

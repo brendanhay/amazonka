@@ -81,7 +81,7 @@ instance AWSRequest DescribeEnvironmentResources
               "DescribeEnvironmentResourcesResult"
               (\ s h x ->
                  DescribeEnvironmentResourcesResponse' <$>
-                   x .@? "EnvironmentResources")
+                   (x .@? "EnvironmentResources"))
 
 instance ToHeaders DescribeEnvironmentResources where
         toHeaders = const mempty

@@ -85,9 +85,9 @@ instance AWSRequest
               "ListEndpointsByPlatformApplicationResult"
               (\ s h x ->
                  ListEndpointsByPlatformApplicationResponse' <$>
-                   x .@? "NextToken" <*>
+                   (x .@? "NextToken") <*>
                      (x .@? "Endpoints" .!@ mempty >>=
-                        parseXMLList "member"))
+                        may (parseXMLList "member")))
 
 instance ToHeaders ListEndpointsByPlatformApplication
          where
@@ -128,5 +128,5 @@ lebparNextToken :: Lens' ListEndpointsByPlatformApplicationResponse (Maybe Text)
 lebparNextToken = lens _lebparNextToken (\ s a -> s{_lebparNextToken = a});
 
 -- | Endpoints returned for ListEndpointsByPlatformApplication action.
-lebparEndpoints :: Lens' ListEndpointsByPlatformApplicationResponse (Maybe [Endpoint])
-lebparEndpoints = lens _lebparEndpoints (\ s a -> s{_lebparEndpoints = a});
+lebparEndpoints :: Lens' ListEndpointsByPlatformApplicationResponse [Endpoint]
+lebparEndpoints = lens _lebparEndpoints (\ s a -> s{_lebparEndpoints = a}) . _Default;

@@ -109,8 +109,8 @@ describeReservedInstances = DescribeReservedInstances'{_driFilters = Nothing, _d
 -- -   @usage-price@ - The usage price of the Reserved Instance, per hour
 --     (for example, 0.84).
 --
-driFilters :: Lens' DescribeReservedInstances (Maybe [Filter])
-driFilters = lens _driFilters (\ s a -> s{_driFilters = a});
+driFilters :: Lens' DescribeReservedInstances [Filter]
+driFilters = lens _driFilters (\ s a -> s{_driFilters = a}) . _Default;
 
 -- | The Reserved Instance offering type. If you are using tools that predate
 -- the 2011-11-01 API version, you only have access to the
@@ -122,8 +122,8 @@ driOfferingType = lens _driOfferingType (\ s a -> s{_driOfferingType = a});
 --
 -- Default: Describes all your Reserved Instances, or only those otherwise
 -- specified.
-driReservedInstancesIds :: Lens' DescribeReservedInstances (Maybe [Text])
-driReservedInstancesIds = lens _driReservedInstancesIds (\ s a -> s{_driReservedInstancesIds = a});
+driReservedInstancesIds :: Lens' DescribeReservedInstances [Text]
+driReservedInstancesIds = lens _driReservedInstancesIds (\ s a -> s{_driReservedInstancesIds = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -141,7 +141,7 @@ instance AWSRequest DescribeReservedInstances where
           = receiveXML
               (\ s h x ->
                  DescribeReservedInstancesResponse' <$>
-                   parseXMLList "item" x)
+                   (may (parseXMLList "item") x))
 
 instance ToHeaders DescribeReservedInstances where
         toHeaders = const mempty
@@ -155,9 +155,11 @@ instance ToQuery DescribeReservedInstances where
               ["Action" =:
                  ("DescribeReservedInstances" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Filter" =: _driFilters,
+               toQuery (toQueryList "Filter" <$> _driFilters),
                "OfferingType" =: _driOfferingType,
-               "ReservedInstancesId" =: _driReservedInstancesIds,
+               toQuery
+                 (toQueryList "ReservedInstancesId" <$>
+                    _driReservedInstancesIds),
                "DryRun" =: _driDryRun]
 
 -- | /See:/ 'describeReservedInstancesResponse' smart constructor.
@@ -172,5 +174,5 @@ describeReservedInstancesResponse :: DescribeReservedInstancesResponse
 describeReservedInstancesResponse = DescribeReservedInstancesResponse'{_drirReservedInstances = Nothing};
 
 -- | A list of Reserved Instances.
-drirReservedInstances :: Lens' DescribeReservedInstancesResponse (Maybe [ReservedInstances])
-drirReservedInstances = lens _drirReservedInstances (\ s a -> s{_drirReservedInstances = a});
+drirReservedInstances :: Lens' DescribeReservedInstancesResponse [ReservedInstances]
+drirReservedInstances = lens _drirReservedInstances (\ s a -> s{_drirReservedInstances = a}) . _Default;

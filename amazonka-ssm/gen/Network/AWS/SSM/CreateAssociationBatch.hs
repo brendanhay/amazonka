@@ -73,8 +73,8 @@ instance AWSRequest CreateAssociationBatch where
           = receiveJSON
               (\ s h x ->
                  CreateAssociationBatchResponse' <$>
-                   x .?> "Successful" .!@ mempty <*>
-                     x .?> "Failed" .!@ mempty)
+                   (x .?> "Successful" .!@ mempty) <*>
+                     (x .?> "Failed" .!@ mempty))
 
 instance ToHeaders CreateAssociationBatch where
         toHeaders
@@ -109,9 +109,9 @@ createAssociationBatchResponse :: CreateAssociationBatchResponse
 createAssociationBatchResponse = CreateAssociationBatchResponse'{_cabrSuccessful = Nothing, _cabrFailed = Nothing};
 
 -- | Information about the associations that succeeded.
-cabrSuccessful :: Lens' CreateAssociationBatchResponse (Maybe [AssociationDescription])
-cabrSuccessful = lens _cabrSuccessful (\ s a -> s{_cabrSuccessful = a});
+cabrSuccessful :: Lens' CreateAssociationBatchResponse [AssociationDescription]
+cabrSuccessful = lens _cabrSuccessful (\ s a -> s{_cabrSuccessful = a}) . _Default;
 
 -- | Information about the associations that failed.
-cabrFailed :: Lens' CreateAssociationBatchResponse (Maybe [FailedCreateAssociation])
-cabrFailed = lens _cabrFailed (\ s a -> s{_cabrFailed = a});
+cabrFailed :: Lens' CreateAssociationBatchResponse [FailedCreateAssociation]
+cabrFailed = lens _cabrFailed (\ s a -> s{_cabrFailed = a}) . _Default;

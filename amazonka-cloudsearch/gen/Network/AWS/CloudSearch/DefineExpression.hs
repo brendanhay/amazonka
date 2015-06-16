@@ -72,7 +72,7 @@ instance AWSRequest DefineExpression where
         response
           = receiveXMLWrapper "DefineExpressionResult"
               (\ s h x ->
-                 DefineExpressionResponse' <$> x .@ "Expression")
+                 DefineExpressionResponse' <$> (x .@ "Expression"))
 
 instance ToHeaders DefineExpression where
         toHeaders = const mempty

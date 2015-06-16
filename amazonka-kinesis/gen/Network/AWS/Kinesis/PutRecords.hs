@@ -82,7 +82,7 @@ module Network.AWS.Kinesis.PutRecords
     -- ** Request constructor
     , putRecords
     -- ** Request lenses
-    , putRecords
+    , putRecordEntries
     , putStreamName
 
     -- * Response
@@ -103,18 +103,18 @@ import Network.AWS.Kinesis.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'putRecords'
+-- * 'putRecordEntries'
 --
 -- * 'putStreamName'
-data PutRecords = PutRecords'{_putRecords :: List1 PutRecordsRequestEntry, _putStreamName :: Text} deriving (Eq, Read, Show)
+data PutRecords = PutRecords'{_putRecordEntries :: List1 PutRecordsRequestEntry, _putStreamName :: Text} deriving (Eq, Read, Show)
 
 -- | 'PutRecords' smart constructor.
 putRecords :: NonEmpty PutRecordsRequestEntry -> Text -> PutRecords
-putRecords pRecords pStreamName = PutRecords'{_putRecords = _List1 # pRecords, _putStreamName = pStreamName};
+putRecords pRecordEntries pStreamName = PutRecords'{_putRecordEntries = _List1 # pRecordEntries, _putStreamName = pStreamName};
 
 -- | The records associated with the request.
-putRecords :: Lens' PutRecords (NonEmpty PutRecordsRequestEntry)
-putRecords = lens _putRecords (\ s a -> s{_putRecords = a}) . _List1;
+putRecordEntries :: Lens' PutRecords (NonEmpty PutRecordsRequestEntry)
+putRecordEntries = lens _putRecordEntries (\ s a -> s{_putRecordEntries = a}) . _List1;
 
 -- | The stream name associated with the request.
 putStreamName :: Lens' PutRecords Text
@@ -128,7 +128,7 @@ instance AWSRequest PutRecords where
           = receiveJSON
               (\ s h x ->
                  PutRecordsResponse' <$>
-                   x .?> "FailedRecordCount" <*> x .:> "Records")
+                   (x .?> "FailedRecordCount") <*> (x .:> "Records"))
 
 instance ToHeaders PutRecords where
         toHeaders
@@ -142,7 +142,7 @@ instance ToHeaders PutRecords where
 instance ToJSON PutRecords where
         toJSON PutRecords'{..}
           = object
-              ["Records" .= _putRecords,
+              ["Records" .= _putRecordEntries,
                "StreamName" .= _putStreamName]
 
 instance ToPath PutRecords where

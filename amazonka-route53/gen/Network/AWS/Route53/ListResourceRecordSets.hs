@@ -155,13 +155,13 @@ instance AWSRequest ListResourceRecordSets where
           = receiveXML
               (\ s h x ->
                  ListResourceRecordSetsResponse' <$>
-                   x .@? "NextRecordType" <*> x .@? "NextRecordName" <*>
-                     x .@? "NextRecordIdentifier"
+                   (x .@? "NextRecordType") <*> (x .@? "NextRecordName")
+                     <*> (x .@? "NextRecordIdentifier")
                      <*>
                      (x .@? "ResourceRecordSets" .!@ mempty >>=
                         parseXMLList "ResourceRecordSet")
-                     <*> x .@ "IsTruncated"
-                     <*> x .@ "MaxItems")
+                     <*> (x .@ "IsTruncated")
+                     <*> (x .@ "MaxItems"))
 
 instance ToHeaders ListResourceRecordSets where
         toHeaders = const mempty

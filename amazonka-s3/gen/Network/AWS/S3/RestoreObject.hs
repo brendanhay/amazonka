@@ -90,7 +90,7 @@ instance AWSRequest RestoreObject where
           = receiveXML
               (\ s h x ->
                  RestoreObjectResponse' <$>
-                   h .#? "x-amz-request-charged")
+                   (h .#? "x-amz-request-charged"))
 
 instance ToElement RestoreObject where
         toElement

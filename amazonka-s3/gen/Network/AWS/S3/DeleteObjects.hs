@@ -87,9 +87,9 @@ instance AWSRequest DeleteObjects where
           = receiveXML
               (\ s h x ->
                  DeleteObjectsResponse' <$>
-                   h .#? "x-amz-request-charged" <*>
-                     parseXMLList "Deleted" x
-                     <*> parseXMLList "Error" x)
+                   (h .#? "x-amz-request-charged") <*>
+                     (may (parseXMLList "Deleted") x)
+                     <*> (may (parseXMLList "Error") x))
 
 instance ToElement DeleteObjects where
         toElement
@@ -131,9 +131,9 @@ delRequestCharged :: Lens' DeleteObjectsResponse (Maybe RequestCharged)
 delRequestCharged = lens _delRequestCharged (\ s a -> s{_delRequestCharged = a});
 
 -- | FIXME: Undocumented member.
-delDeleted :: Lens' DeleteObjectsResponse (Maybe [DeletedObject])
-delDeleted = lens _delDeleted (\ s a -> s{_delDeleted = a});
+delDeleted :: Lens' DeleteObjectsResponse [DeletedObject]
+delDeleted = lens _delDeleted (\ s a -> s{_delDeleted = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-delErrors :: Lens' DeleteObjectsResponse (Maybe [S3ServiceError])
-delErrors = lens _delErrors (\ s a -> s{_delErrors = a});
+delErrors :: Lens' DeleteObjectsResponse [S3ServiceError]
+delErrors = lens _delErrors (\ s a -> s{_delErrors = a}) . _Default;

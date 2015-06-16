@@ -73,8 +73,8 @@ instance AWSRequest ListBootstrapActions where
           = receiveJSON
               (\ s h x ->
                  ListBootstrapActionsResponse' <$>
-                   x .?> "BootstrapActions" .!@ mempty <*>
-                     x .?> "Marker")
+                   (x .?> "BootstrapActions" .!@ mempty) <*>
+                     (x .?> "Marker"))
 
 instance ToHeaders ListBootstrapActions where
         toHeaders
@@ -112,8 +112,8 @@ listBootstrapActionsResponse :: ListBootstrapActionsResponse
 listBootstrapActionsResponse = ListBootstrapActionsResponse'{_lbarBootstrapActions = Nothing, _lbarMarker = Nothing};
 
 -- | The bootstrap actions associated with the cluster .
-lbarBootstrapActions :: Lens' ListBootstrapActionsResponse (Maybe [Command])
-lbarBootstrapActions = lens _lbarBootstrapActions (\ s a -> s{_lbarBootstrapActions = a});
+lbarBootstrapActions :: Lens' ListBootstrapActionsResponse [Command]
+lbarBootstrapActions = lens _lbarBootstrapActions (\ s a -> s{_lbarBootstrapActions = a}) . _Default;
 
 -- | The pagination token that indicates the next set of results to retrieve
 -- .

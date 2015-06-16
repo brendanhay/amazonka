@@ -124,7 +124,8 @@ instance AWSRequest UpdateDomainContact where
         response
           = receiveJSON
               (\ s h x ->
-                 UpdateDomainContactResponse' <$> x .:> "OperationId")
+                 UpdateDomainContactResponse' <$>
+                   (x .:> "OperationId"))
 
 instance ToHeaders UpdateDomainContact where
         toHeaders

@@ -135,7 +135,8 @@ instance AWSRequest GetShardIterator where
         response
           = receiveJSON
               (\ s h x ->
-                 GetShardIteratorResponse' <$> x .?> "ShardIterator")
+                 GetShardIteratorResponse' <$>
+                   (x .?> "ShardIterator"))
 
 instance ToHeaders GetShardIterator where
         toHeaders

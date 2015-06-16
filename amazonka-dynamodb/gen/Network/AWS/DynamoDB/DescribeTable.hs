@@ -68,7 +68,8 @@ instance AWSRequest DescribeTable where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x -> DescribeTableResponse' <$> x .?> "Table")
+              (\ s h x ->
+                 DescribeTableResponse' <$> (x .?> "Table"))
 
 instance ToHeaders DescribeTable where
         toHeaders

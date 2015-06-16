@@ -63,7 +63,7 @@ instance AWSRequest DeleteSnapshot where
         response
           = receiveXMLWrapper "DeleteSnapshotResult"
               (\ s h x ->
-                 DeleteSnapshotResponse' <$> x .@? "Snapshot")
+                 DeleteSnapshotResponse' <$> (x .@? "Snapshot"))
 
 instance ToHeaders DeleteSnapshot where
         toHeaders = const mempty

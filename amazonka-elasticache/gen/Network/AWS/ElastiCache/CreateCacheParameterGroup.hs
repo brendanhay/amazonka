@@ -82,7 +82,7 @@ instance AWSRequest CreateCacheParameterGroup where
           = receiveXMLWrapper "CreateCacheParameterGroupResult"
               (\ s h x ->
                  CreateCacheParameterGroupResponse' <$>
-                   x .@? "CacheParameterGroup")
+                   (x .@? "CacheParameterGroup"))
 
 instance ToHeaders CreateCacheParameterGroup where
         toHeaders = const mempty

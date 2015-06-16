@@ -66,8 +66,8 @@ instance AWSRequest ResolveCase where
           = receiveJSON
               (\ s h x ->
                  ResolveCaseResponse' <$>
-                   x .?> "initialCaseStatus" <*>
-                     x .?> "finalCaseStatus")
+                   (x .?> "initialCaseStatus") <*>
+                     (x .?> "finalCaseStatus"))
 
 instance ToHeaders ResolveCase where
         toHeaders

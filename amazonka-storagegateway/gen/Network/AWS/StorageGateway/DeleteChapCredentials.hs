@@ -74,7 +74,7 @@ instance AWSRequest DeleteChapCredentials where
           = receiveJSON
               (\ s h x ->
                  DeleteChapCredentialsResponse' <$>
-                   x .?> "TargetARN" <*> x .?> "InitiatorName")
+                   (x .?> "TargetARN") <*> (x .?> "InitiatorName"))
 
 instance ToHeaders DeleteChapCredentials where
         toHeaders

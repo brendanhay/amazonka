@@ -62,7 +62,7 @@ instance AWSRequest GetHealthCheck where
         response
           = receiveXML
               (\ s h x ->
-                 GetHealthCheckResponse' <$> x .@ "HealthCheck")
+                 GetHealthCheckResponse' <$> (x .@ "HealthCheck"))
 
 instance ToHeaders GetHealthCheck where
         toHeaders = const mempty

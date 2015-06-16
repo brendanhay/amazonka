@@ -87,8 +87,9 @@ instance AWSRequest DescribeMountTargets where
           = receiveJSON
               (\ s h x ->
                  DescribeMountTargetsResponse' <$>
-                   x .?> "MountTargets" .!@ mempty <*> x .?> "Marker"
-                     <*> x .?> "NextMarker")
+                   (x .?> "MountTargets" .!@ mempty) <*>
+                     (x .?> "Marker")
+                     <*> (x .?> "NextMarker"))
 
 instance ToHeaders DescribeMountTargets where
         toHeaders = const mempty
@@ -119,8 +120,8 @@ describeMountTargetsResponse = DescribeMountTargetsResponse'{_dmtrMountTargets =
 
 -- | Returns the file system\'s mount targets as an array of
 -- @MountTargetDescription@ objects.
-dmtrMountTargets :: Lens' DescribeMountTargetsResponse (Maybe [MountTargetDescription])
-dmtrMountTargets = lens _dmtrMountTargets (\ s a -> s{_dmtrMountTargets = a});
+dmtrMountTargets :: Lens' DescribeMountTargetsResponse [MountTargetDescription]
+dmtrMountTargets = lens _dmtrMountTargets (\ s a -> s{_dmtrMountTargets = a}) . _Default;
 
 -- | If the request included the @Marker@, the response returns that value in
 -- this field.

@@ -75,8 +75,8 @@ dvInstanceId = lens _dvInstanceId (\ s a -> s{_dvInstanceId = a});
 -- | Am array of volume IDs. If you use this parameter, @DescribeVolumes@
 -- returns descriptions of the specified volumes. Otherwise, it returns a
 -- description of every volume.
-dvVolumeIds :: Lens' DescribeVolumes (Maybe [Text])
-dvVolumeIds = lens _dvVolumeIds (\ s a -> s{_dvVolumeIds = a});
+dvVolumeIds :: Lens' DescribeVolumes [Text]
+dvVolumeIds = lens _dvVolumeIds (\ s a -> s{_dvVolumeIds = a}) . _Default;
 
 -- | The RAID array ID. If you use this parameter, @DescribeVolumes@ returns
 -- descriptions of the volumes associated with the specified RAID array.
@@ -96,7 +96,7 @@ instance AWSRequest DescribeVolumes where
           = receiveJSON
               (\ s h x ->
                  DescribeVolumesResponse' <$>
-                   x .?> "Volumes" .!@ mempty)
+                   (x .?> "Volumes" .!@ mempty))
 
 instance ToHeaders DescribeVolumes where
         toHeaders
@@ -133,5 +133,5 @@ describeVolumesResponse :: DescribeVolumesResponse
 describeVolumesResponse = DescribeVolumesResponse'{_dvrVolumes = Nothing};
 
 -- | An array of volume IDs.
-dvrVolumes :: Lens' DescribeVolumesResponse (Maybe [Volume])
-dvrVolumes = lens _dvrVolumes (\ s a -> s{_dvrVolumes = a});
+dvrVolumes :: Lens' DescribeVolumesResponse [Volume]
+dvrVolumes = lens _dvrVolumes (\ s a -> s{_dvrVolumes = a}) . _Default;

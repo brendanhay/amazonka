@@ -75,7 +75,7 @@ instance AWSRequest DeleteVPCEndpoints where
           = receiveXML
               (\ s h x ->
                  DeleteVPCEndpointsResponse' <$>
-                   parseXMLList "item" x)
+                   (may (parseXMLList "item") x))
 
 instance ToHeaders DeleteVPCEndpoints where
         toHeaders = const mempty
@@ -88,7 +88,8 @@ instance ToQuery DeleteVPCEndpoints where
           = mconcat
               ["Action" =: ("DeleteVPCEndpoints" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _dveDryRun, "item" =: _dveVPCEndpointIds]
+               "DryRun" =: _dveDryRun,
+               toQueryList "item" _dveVPCEndpointIds]
 
 -- | /See:/ 'deleteVPCEndpointsResponse' smart constructor.
 --
@@ -102,5 +103,5 @@ deleteVPCEndpointsResponse :: DeleteVPCEndpointsResponse
 deleteVPCEndpointsResponse = DeleteVPCEndpointsResponse'{_dverUnsuccessful = Nothing};
 
 -- | Information about the endpoints that were not successfully deleted.
-dverUnsuccessful :: Lens' DeleteVPCEndpointsResponse (Maybe [UnsuccessfulItem])
-dverUnsuccessful = lens _dverUnsuccessful (\ s a -> s{_dverUnsuccessful = a});
+dverUnsuccessful :: Lens' DeleteVPCEndpointsResponse [UnsuccessfulItem]
+dverUnsuccessful = lens _dverUnsuccessful (\ s a -> s{_dverUnsuccessful = a}) . _Default;

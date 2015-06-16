@@ -135,8 +135,8 @@ instance AWSRequest ListActivityTypes where
           = receiveJSON
               (\ s h x ->
                  ListActivityTypesResponse' <$>
-                   x .?> "nextPageToken" <*>
-                     x .?> "typeInfos" .!@ mempty)
+                   (x .?> "nextPageToken") <*>
+                     (x .?> "typeInfos" .!@ mempty))
 
 instance ToHeaders ListActivityTypes where
         toHeaders

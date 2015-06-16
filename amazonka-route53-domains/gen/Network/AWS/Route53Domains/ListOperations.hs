@@ -90,8 +90,8 @@ instance AWSRequest ListOperations where
           = receiveJSON
               (\ s h x ->
                  ListOperationsResponse' <$>
-                   x .?> "NextPageMarker" <*>
-                     x .?> "Operations" .!@ mempty)
+                   (x .?> "NextPageMarker") <*>
+                     (x .?> "Operations" .!@ mempty))
 
 instance ToHeaders ListOperations where
         toHeaders

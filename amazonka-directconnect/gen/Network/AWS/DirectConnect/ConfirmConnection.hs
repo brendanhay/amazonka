@@ -66,7 +66,7 @@ instance AWSRequest ConfirmConnection where
           = receiveJSON
               (\ s h x ->
                  ConfirmConnectionResponse' <$>
-                   x .?> "connectionState")
+                   (x .?> "connectionState"))
 
 instance ToHeaders ConfirmConnection where
         toHeaders

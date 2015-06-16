@@ -75,8 +75,8 @@ instance AWSRequest ListPlatformApplications where
               (\ s h x ->
                  ListPlatformApplicationsResponse' <$>
                    (x .@? "PlatformApplications" .!@ mempty >>=
-                      parseXMLList "member")
-                     <*> x .@? "NextToken")
+                      may (parseXMLList "member"))
+                     <*> (x .@? "NextToken"))
 
 instance ToHeaders ListPlatformApplications where
         toHeaders = const mempty
@@ -107,8 +107,8 @@ listPlatformApplicationsResponse = ListPlatformApplicationsResponse'{_lparPlatfo
 
 -- | Platform applications returned when calling ListPlatformApplications
 -- action.
-lparPlatformApplications :: Lens' ListPlatformApplicationsResponse (Maybe [PlatformApplication])
-lparPlatformApplications = lens _lparPlatformApplications (\ s a -> s{_lparPlatformApplications = a});
+lparPlatformApplications :: Lens' ListPlatformApplicationsResponse [PlatformApplication]
+lparPlatformApplications = lens _lparPlatformApplications (\ s a -> s{_lparPlatformApplications = a}) . _Default;
 
 -- | NextToken string is returned when calling ListPlatformApplications
 -- action if additional records are available after the first page results.

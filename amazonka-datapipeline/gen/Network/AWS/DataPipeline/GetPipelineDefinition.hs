@@ -76,9 +76,9 @@ instance AWSRequest GetPipelineDefinition where
           = receiveJSON
               (\ s h x ->
                  GetPipelineDefinitionResponse' <$>
-                   x .?> "pipelineObjects" .!@ mempty <*>
-                     x .?> "parameterObjects" .!@ mempty
-                     <*> x .?> "parameterValues" .!@ mempty)
+                   (x .?> "pipelineObjects" .!@ mempty) <*>
+                     (x .?> "parameterObjects" .!@ mempty)
+                     <*> (x .?> "parameterValues" .!@ mempty))
 
 instance ToHeaders GetPipelineDefinition where
         toHeaders
@@ -117,13 +117,13 @@ getPipelineDefinitionResponse :: GetPipelineDefinitionResponse
 getPipelineDefinitionResponse = GetPipelineDefinitionResponse'{_gpdrPipelineObjects = Nothing, _gpdrParameterObjects = Nothing, _gpdrParameterValues = Nothing};
 
 -- | The objects defined in the pipeline.
-gpdrPipelineObjects :: Lens' GetPipelineDefinitionResponse (Maybe [PipelineObject])
-gpdrPipelineObjects = lens _gpdrPipelineObjects (\ s a -> s{_gpdrPipelineObjects = a});
+gpdrPipelineObjects :: Lens' GetPipelineDefinitionResponse [PipelineObject]
+gpdrPipelineObjects = lens _gpdrPipelineObjects (\ s a -> s{_gpdrPipelineObjects = a}) . _Default;
 
 -- | The parameter objects used in the pipeline definition.
-gpdrParameterObjects :: Lens' GetPipelineDefinitionResponse (Maybe [ParameterObject])
-gpdrParameterObjects = lens _gpdrParameterObjects (\ s a -> s{_gpdrParameterObjects = a});
+gpdrParameterObjects :: Lens' GetPipelineDefinitionResponse [ParameterObject]
+gpdrParameterObjects = lens _gpdrParameterObjects (\ s a -> s{_gpdrParameterObjects = a}) . _Default;
 
 -- | The parameter values used in the pipeline definition.
-gpdrParameterValues :: Lens' GetPipelineDefinitionResponse (Maybe [ParameterValue])
-gpdrParameterValues = lens _gpdrParameterValues (\ s a -> s{_gpdrParameterValues = a});
+gpdrParameterValues :: Lens' GetPipelineDefinitionResponse [ParameterValue]
+gpdrParameterValues = lens _gpdrParameterValues (\ s a -> s{_gpdrParameterValues = a}) . _Default;

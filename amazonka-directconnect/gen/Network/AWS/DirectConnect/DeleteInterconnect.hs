@@ -63,7 +63,7 @@ instance AWSRequest DeleteInterconnect where
           = receiveJSON
               (\ s h x ->
                  DeleteInterconnectResponse' <$>
-                   x .?> "interconnectState")
+                   (x .?> "interconnectState"))
 
 instance ToHeaders DeleteInterconnect where
         toHeaders

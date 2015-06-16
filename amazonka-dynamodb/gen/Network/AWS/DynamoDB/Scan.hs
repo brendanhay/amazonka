@@ -403,10 +403,11 @@ instance AWSRequest Scan where
           = receiveJSON
               (\ s h x ->
                  ScanResponse' <$>
-                   x .?> "LastEvaluatedKey" .!@ mempty <*> x .?> "Count"
-                     <*> x .?> "ScannedCount"
-                     <*> x .?> "Items" .!@ mempty
-                     <*> x .?> "ConsumedCapacity")
+                   (x .?> "LastEvaluatedKey" .!@ mempty) <*>
+                     (x .?> "Count")
+                     <*> (x .?> "ScannedCount")
+                     <*> (x .?> "Items" .!@ mempty)
+                     <*> (x .?> "ConsumedCapacity"))
 
 instance ToHeaders Scan where
         toHeaders

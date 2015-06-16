@@ -84,7 +84,7 @@ instance AWSRequest ShutdownGateway where
         response
           = receiveJSON
               (\ s h x ->
-                 ShutdownGatewayResponse' <$> x .?> "GatewayARN")
+                 ShutdownGatewayResponse' <$> (x .?> "GatewayARN"))
 
 instance ToHeaders ShutdownGateway where
         toHeaders

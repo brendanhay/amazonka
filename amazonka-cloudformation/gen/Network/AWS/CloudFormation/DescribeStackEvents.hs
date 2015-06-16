@@ -87,9 +87,9 @@ instance AWSRequest DescribeStackEvents where
           = receiveXMLWrapper "DescribeStackEventsResult"
               (\ s h x ->
                  DescribeStackEventsResponse' <$>
-                   x .@? "NextToken" <*>
+                   (x .@? "NextToken") <*>
                      (x .@? "StackEvents" .!@ mempty >>=
-                        parseXMLList "member"))
+                        may (parseXMLList "member")))
 
 instance ToHeaders DescribeStackEvents where
         toHeaders = const mempty
@@ -124,5 +124,5 @@ dserNextToken :: Lens' DescribeStackEventsResponse (Maybe Text)
 dserNextToken = lens _dserNextToken (\ s a -> s{_dserNextToken = a});
 
 -- | A list of @StackEvents@ structures.
-dserStackEvents :: Lens' DescribeStackEventsResponse (Maybe [StackEvent])
-dserStackEvents = lens _dserStackEvents (\ s a -> s{_dserStackEvents = a});
+dserStackEvents :: Lens' DescribeStackEventsResponse [StackEvent]
+dserStackEvents = lens _dserStackEvents (\ s a -> s{_dserStackEvents = a}) . _Default;

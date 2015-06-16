@@ -79,7 +79,8 @@ instance AWSRequest DeleteCacheCluster where
         response
           = receiveXMLWrapper "DeleteCacheClusterResult"
               (\ s h x ->
-                 DeleteCacheClusterResponse' <$> x .@? "CacheCluster")
+                 DeleteCacheClusterResponse' <$>
+                   (x .@? "CacheCluster"))
 
 instance ToHeaders DeleteCacheCluster where
         toHeaders = const mempty

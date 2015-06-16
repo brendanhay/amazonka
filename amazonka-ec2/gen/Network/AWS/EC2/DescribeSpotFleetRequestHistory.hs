@@ -115,10 +115,10 @@ instance AWSRequest DescribeSpotFleetRequestHistory
           = receiveXML
               (\ s h x ->
                  DescribeSpotFleetRequestHistoryResponse' <$>
-                   x .@? "nextToken" <*> x .@ "spotFleetRequestId" <*>
-                     x .@ "startTime"
-                     <*> x .@ "lastEvaluatedTime"
-                     <*> parseXMLList "item" x)
+                   (x .@? "nextToken") <*> (x .@ "spotFleetRequestId")
+                     <*> (x .@ "startTime")
+                     <*> (x .@ "lastEvaluatedTime")
+                     <*> (parseXMLList "item" x))
 
 instance ToHeaders DescribeSpotFleetRequestHistory
          where

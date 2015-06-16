@@ -68,8 +68,8 @@ instance AWSRequest GetIdentityPoolConfiguration
           = receiveJSON
               (\ s h x ->
                  GetIdentityPoolConfigurationResponse' <$>
-                   x .?> "IdentityPoolId" <*> x .?> "CognitoStreams" <*>
-                     x .?> "PushSync")
+                   (x .?> "IdentityPoolId") <*> (x .?> "CognitoStreams")
+                     <*> (x .?> "PushSync"))
 
 instance ToHeaders GetIdentityPoolConfiguration where
         toHeaders

@@ -96,7 +96,7 @@ instance AWSRequest ModifyHSM where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x -> ModifyHSMResponse' <$> x .?> "HsmArn")
+              (\ s h x -> ModifyHSMResponse' <$> (x .?> "HsmArn"))
 
 instance ToHeaders ModifyHSM where
         toHeaders

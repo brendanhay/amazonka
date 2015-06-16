@@ -456,8 +456,8 @@ instance AWSRequest Search where
           = receiveJSON
               (\ s h x ->
                  SearchResponse' <$>
-                   x .?> "status" <*> x .?> "facets" .!@ mempty <*>
-                     x .?> "hits")
+                   (x .?> "status") <*> (x .?> "facets" .!@ mempty) <*>
+                     (x .?> "hits"))
 
 instance ToHeaders Search where
         toHeaders
@@ -490,7 +490,7 @@ instance ToQuery Search where
 -- * 'seaFacets'
 --
 -- * 'seaHits'
-data SearchResponse = SearchResponse'{_seaStatus :: Maybe SearchStatus, _seaFacets :: Maybe (HashMap Text BucketInfo), _seaHits :: Maybe Hits} deriving (Eq, Read, Show)
+data SearchResponse = SearchResponse'{_seaStatus :: Maybe SearchStatus, _seaFacets :: Maybe (Map Text BucketInfo), _seaHits :: Maybe Hits} deriving (Eq, Read, Show)
 
 -- | 'SearchResponse' smart constructor.
 searchResponse :: SearchResponse
@@ -501,8 +501,8 @@ seaStatus :: Lens' SearchResponse (Maybe SearchStatus)
 seaStatus = lens _seaStatus (\ s a -> s{_seaStatus = a});
 
 -- | The requested facet information.
-seaFacets :: Lens' SearchResponse (Maybe (HashMap Text BucketInfo))
-seaFacets = lens _seaFacets (\ s a -> s{_seaFacets = a}) . mapping _Coerce;
+seaFacets :: Lens' SearchResponse (Map Text BucketInfo)
+seaFacets = lens _seaFacets (\ s a -> s{_seaFacets = a}) . _Default . _Map;
 
 -- | The documents that match the search criteria.
 seaHits :: Lens' SearchResponse (Maybe Hits)

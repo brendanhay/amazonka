@@ -70,8 +70,8 @@ describePendingMaintenanceActions = DescribePendingMaintenanceActions'{_dpmaFilt
 --     Amazon Resource Names (ARNs). The results list will only include
 --     pending maintenance actions for the DB instances identified by these
 --     ARNs.
-dpmaFilters :: Lens' DescribePendingMaintenanceActions (Maybe [Filter])
-dpmaFilters = lens _dpmaFilters (\ s a -> s{_dpmaFilters = a});
+dpmaFilters :: Lens' DescribePendingMaintenanceActions [Filter]
+dpmaFilters = lens _dpmaFilters (\ s a -> s{_dpmaFilters = a}) . _Default;
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -107,8 +107,9 @@ instance AWSRequest DescribePendingMaintenanceActions
               (\ s h x ->
                  DescribePendingMaintenanceActionsResponse' <$>
                    (x .@? "PendingMaintenanceActions" .!@ mempty >>=
-                      parseXMLList "ResourcePendingMaintenanceActions")
-                     <*> x .@? "Marker")
+                      may
+                        (parseXMLList "ResourcePendingMaintenanceActions"))
+                     <*> (x .@? "Marker"))
 
 instance ToHeaders DescribePendingMaintenanceActions
          where
@@ -125,7 +126,8 @@ instance ToQuery DescribePendingMaintenanceActions
               ["Action" =:
                  ("DescribePendingMaintenanceActions" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "Filters" =: "Filter" =: _dpmaFilters,
+               "Filters" =:
+                 toQuery (toQueryList "Filter" <$> _dpmaFilters),
                "MaxRecords" =: _dpmaMaxRecords,
                "Marker" =: _dpmaMarker,
                "ResourceIdentifier" =: _dpmaResourceIdentifier]
@@ -144,8 +146,8 @@ describePendingMaintenanceActionsResponse :: DescribePendingMaintenanceActionsRe
 describePendingMaintenanceActionsResponse = DescribePendingMaintenanceActionsResponse'{_dpmarPendingMaintenanceActions = Nothing, _dpmarMarker = Nothing};
 
 -- | A list of the pending maintenance actions for the resource.
-dpmarPendingMaintenanceActions :: Lens' DescribePendingMaintenanceActionsResponse (Maybe [ResourcePendingMaintenanceActions])
-dpmarPendingMaintenanceActions = lens _dpmarPendingMaintenanceActions (\ s a -> s{_dpmarPendingMaintenanceActions = a});
+dpmarPendingMaintenanceActions :: Lens' DescribePendingMaintenanceActionsResponse [ResourcePendingMaintenanceActions]
+dpmarPendingMaintenanceActions = lens _dpmarPendingMaintenanceActions (\ s a -> s{_dpmarPendingMaintenanceActions = a}) . _Default;
 
 -- | An optional pagination token provided by a previous
 -- @DescribePendingMaintenanceActions@ request. If this parameter is

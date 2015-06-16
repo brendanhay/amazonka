@@ -127,9 +127,9 @@ instance AWSRequest ListPolicies where
           = receiveXMLWrapper "ListPoliciesResult"
               (\ s h x ->
                  ListPoliciesResponse' <$>
-                   x .@? "Marker" <*> x .@? "IsTruncated" <*>
+                   (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
                      (x .@? "Policies" .!@ mempty >>=
-                        parseXMLList "member"))
+                        may (parseXMLList "member")))
 
 instance ToHeaders ListPolicies where
         toHeaders = const mempty
@@ -176,5 +176,5 @@ lprIsTruncated :: Lens' ListPoliciesResponse (Maybe Bool)
 lprIsTruncated = lens _lprIsTruncated (\ s a -> s{_lprIsTruncated = a});
 
 -- | A list of policies.
-lprPolicies :: Lens' ListPoliciesResponse (Maybe [Policy])
-lprPolicies = lens _lprPolicies (\ s a -> s{_lprPolicies = a});
+lprPolicies :: Lens' ListPoliciesResponse [Policy]
+lprPolicies = lens _lprPolicies (\ s a -> s{_lprPolicies = a}) . _Default;

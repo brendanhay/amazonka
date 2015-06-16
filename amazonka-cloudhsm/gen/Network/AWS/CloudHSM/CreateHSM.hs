@@ -113,7 +113,7 @@ instance AWSRequest CreateHSM where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x -> CreateHSMResponse' <$> x .?> "HsmArn")
+              (\ s h x -> CreateHSMResponse' <$> (x .?> "HsmArn"))
 
 instance ToHeaders CreateHSM where
         toHeaders

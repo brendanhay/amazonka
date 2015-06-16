@@ -77,8 +77,8 @@ instance AWSRequest ListAliases where
           = receiveJSON
               (\ s h x ->
                  ListAliasesResponse' <$>
-                   x .?> "Truncated" <*> x .?> "Aliases" .!@ mempty <*>
-                     x .?> "NextMarker")
+                   (x .?> "Truncated") <*> (x .?> "Aliases" .!@ mempty)
+                     <*> (x .?> "NextMarker"))
 
 instance ToHeaders ListAliases where
         toHeaders
@@ -122,8 +122,8 @@ larTruncated :: Lens' ListAliasesResponse (Maybe Bool)
 larTruncated = lens _larTruncated (\ s a -> s{_larTruncated = a});
 
 -- | A list of key aliases in the user\'s account.
-larAliases :: Lens' ListAliasesResponse (Maybe [AliasListEntry])
-larAliases = lens _larAliases (\ s a -> s{_larAliases = a});
+larAliases :: Lens' ListAliasesResponse [AliasListEntry]
+larAliases = lens _larAliases (\ s a -> s{_larAliases = a}) . _Default;
 
 -- | If @Truncated@ is true, this value is present and contains the value to
 -- use for the @Marker@ request parameter in a subsequent pagination

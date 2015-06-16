@@ -82,7 +82,7 @@ instance AWSRequest CancelSpotInstanceRequests where
           = receiveXML
               (\ s h x ->
                  CancelSpotInstanceRequestsResponse' <$>
-                   parseXMLList "item" x)
+                   (may (parseXMLList "item") x))
 
 instance ToHeaders CancelSpotInstanceRequests where
         toHeaders = const mempty
@@ -97,7 +97,7 @@ instance ToQuery CancelSpotInstanceRequests where
                  ("CancelSpotInstanceRequests" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "DryRun" =: _csirDryRun,
-               "SpotInstanceRequestId" =:
+               toQueryList "SpotInstanceRequestId"
                  _csirSpotInstanceRequestIds]
 
 -- | /See:/ 'cancelSpotInstanceRequestsResponse' smart constructor.
@@ -112,5 +112,5 @@ cancelSpotInstanceRequestsResponse :: CancelSpotInstanceRequestsResponse
 cancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse'{_csirrCancelledSpotInstanceRequests = Nothing};
 
 -- | One or more Spot Instance requests.
-csirrCancelledSpotInstanceRequests :: Lens' CancelSpotInstanceRequestsResponse (Maybe [CancelledSpotInstanceRequest])
-csirrCancelledSpotInstanceRequests = lens _csirrCancelledSpotInstanceRequests (\ s a -> s{_csirrCancelledSpotInstanceRequests = a});
+csirrCancelledSpotInstanceRequests :: Lens' CancelSpotInstanceRequestsResponse [CancelledSpotInstanceRequest]
+csirrCancelledSpotInstanceRequests = lens _csirrCancelledSpotInstanceRequests (\ s a -> s{_csirrCancelledSpotInstanceRequests = a}) . _Default;

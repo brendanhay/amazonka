@@ -98,7 +98,7 @@ instance AWSRequest UpdateSnapshotSchedule where
           = receiveJSON
               (\ s h x ->
                  UpdateSnapshotScheduleResponse' <$>
-                   x .?> "VolumeARN")
+                   (x .?> "VolumeARN"))
 
 instance ToHeaders UpdateSnapshotSchedule where
         toHeaders

@@ -85,8 +85,8 @@ drdiProductDescription :: Lens' DescribeReservedDBInstances (Maybe Text)
 drdiProductDescription = lens _drdiProductDescription (\ s a -> s{_drdiProductDescription = a});
 
 -- | This parameter is not currently supported.
-drdiFilters :: Lens' DescribeReservedDBInstances (Maybe [Filter])
-drdiFilters = lens _drdiFilters (\ s a -> s{_drdiFilters = a});
+drdiFilters :: Lens' DescribeReservedDBInstances [Filter]
+drdiFilters = lens _drdiFilters (\ s a -> s{_drdiFilters = a}) . _Default;
 
 -- | The reserved DB instance identifier filter value. Specify this parameter
 -- to show only the reservation that matches the specified reservation ID.
@@ -151,8 +151,8 @@ instance AWSRequest DescribeReservedDBInstances where
               (\ s h x ->
                  DescribeReservedDBInstancesResponse' <$>
                    (x .@? "ReservedDBInstances" .!@ mempty >>=
-                      parseXMLList "ReservedDBInstance")
-                     <*> x .@? "Marker")
+                      may (parseXMLList "ReservedDBInstance"))
+                     <*> (x .@? "Marker"))
 
 instance ToHeaders DescribeReservedDBInstances where
         toHeaders = const mempty
@@ -167,7 +167,8 @@ instance ToQuery DescribeReservedDBInstances where
                  ("DescribeReservedDBInstances" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "ProductDescription" =: _drdiProductDescription,
-               "Filters" =: "Filter" =: _drdiFilters,
+               "Filters" =:
+                 toQuery (toQueryList "Filter" <$> _drdiFilters),
                "ReservedDBInstanceId" =: _drdiReservedDBInstanceId,
                "DBInstanceClass" =: _drdiDBInstanceClass,
                "MaxRecords" =: _drdiMaxRecords,
@@ -191,8 +192,8 @@ describeReservedDBInstancesResponse :: DescribeReservedDBInstancesResponse
 describeReservedDBInstancesResponse = DescribeReservedDBInstancesResponse'{_drdirReservedDBInstances = Nothing, _drdirMarker = Nothing};
 
 -- | A list of reserved DB instances.
-drdirReservedDBInstances :: Lens' DescribeReservedDBInstancesResponse (Maybe [ReservedDBInstance])
-drdirReservedDBInstances = lens _drdirReservedDBInstances (\ s a -> s{_drdirReservedDBInstances = a});
+drdirReservedDBInstances :: Lens' DescribeReservedDBInstancesResponse [ReservedDBInstance]
+drdirReservedDBInstances = lens _drdirReservedDBInstances (\ s a -> s{_drdirReservedDBInstances = a}) . _Default;
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the

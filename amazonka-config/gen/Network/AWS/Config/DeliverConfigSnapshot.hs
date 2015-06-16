@@ -73,7 +73,7 @@ instance AWSRequest DeliverConfigSnapshot where
           = receiveJSON
               (\ s h x ->
                  DeliverConfigSnapshotResponse' <$>
-                   x .?> "configSnapshotId")
+                   (x .?> "configSnapshotId"))
 
 instance ToHeaders DeliverConfigSnapshot where
         toHeaders

@@ -102,7 +102,7 @@ instance AWSRequest ChangeResourceRecordSets where
           = receiveXML
               (\ s h x ->
                  ChangeResourceRecordSetsResponse' <$>
-                   x .@ "ChangeInfo")
+                   (x .@ "ChangeInfo"))
 
 instance ToElement ChangeResourceRecordSets where
         toElement

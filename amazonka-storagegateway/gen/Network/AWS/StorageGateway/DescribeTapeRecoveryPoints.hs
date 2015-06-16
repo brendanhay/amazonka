@@ -87,9 +87,9 @@ instance AWSRequest DescribeTapeRecoveryPoints where
           = receiveJSON
               (\ s h x ->
                  DescribeTapeRecoveryPointsResponse' <$>
-                   x .?> "TapeRecoveryPointInfos" .!@ mempty <*>
-                     x .?> "GatewayARN"
-                     <*> x .?> "Marker")
+                   (x .?> "TapeRecoveryPointInfos" .!@ mempty) <*>
+                     (x .?> "GatewayARN")
+                     <*> (x .?> "Marker"))
 
 instance ToHeaders DescribeTapeRecoveryPoints where
         toHeaders
@@ -130,8 +130,8 @@ describeTapeRecoveryPointsResponse = DescribeTapeRecoveryPointsResponse'{_dtrprT
 
 -- | An array of TapeRecoveryPointInfos that are available for the specified
 -- gateway.
-dtrprTapeRecoveryPointInfos :: Lens' DescribeTapeRecoveryPointsResponse (Maybe [TapeRecoveryPointInfo])
-dtrprTapeRecoveryPointInfos = lens _dtrprTapeRecoveryPointInfos (\ s a -> s{_dtrprTapeRecoveryPointInfos = a});
+dtrprTapeRecoveryPointInfos :: Lens' DescribeTapeRecoveryPointsResponse [TapeRecoveryPointInfo]
+dtrprTapeRecoveryPointInfos = lens _dtrprTapeRecoveryPointInfos (\ s a -> s{_dtrprTapeRecoveryPointInfos = a}) . _Default;
 
 -- | FIXME: Undocumented member.
 dtrprGatewayARN :: Lens' DescribeTapeRecoveryPointsResponse (Maybe Text)

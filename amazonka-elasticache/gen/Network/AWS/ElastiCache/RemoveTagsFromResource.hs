@@ -88,4 +88,4 @@ instance ToQuery RemoveTagsFromResource where
                  ("RemoveTagsFromResource" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
                "ResourceName" =: _rtfrResourceName,
-               "TagKeys" =: "member" =: _rtfrTagKeys]
+               "TagKeys" =: toQueryList "member" _rtfrTagKeys]

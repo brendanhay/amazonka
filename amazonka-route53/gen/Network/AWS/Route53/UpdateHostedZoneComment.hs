@@ -75,7 +75,7 @@ instance AWSRequest UpdateHostedZoneComment where
           = receiveXML
               (\ s h x ->
                  UpdateHostedZoneCommentResponse' <$>
-                   x .@ "HostedZone")
+                   (x .@ "HostedZone"))
 
 instance ToElement UpdateHostedZoneComment where
         toElement

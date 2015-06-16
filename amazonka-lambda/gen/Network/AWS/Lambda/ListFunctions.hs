@@ -78,7 +78,8 @@ instance AWSRequest ListFunctions where
           = receiveJSON
               (\ s h x ->
                  ListFunctionsResponse' <$>
-                   x .?> "NextMarker" <*> x .?> "Functions" .!@ mempty)
+                   (x .?> "NextMarker") <*>
+                     (x .?> "Functions" .!@ mempty))
 
 instance ToHeaders ListFunctions where
         toHeaders = const mempty
@@ -109,5 +110,5 @@ lfrNextMarker :: Lens' ListFunctionsResponse (Maybe Text)
 lfrNextMarker = lens _lfrNextMarker (\ s a -> s{_lfrNextMarker = a});
 
 -- | A list of Lambda functions.
-lfrFunctions :: Lens' ListFunctionsResponse (Maybe [FunctionConfiguration])
-lfrFunctions = lens _lfrFunctions (\ s a -> s{_lfrFunctions = a});
+lfrFunctions :: Lens' ListFunctionsResponse [FunctionConfiguration]
+lfrFunctions = lens _lfrFunctions (\ s a -> s{_lfrFunctions = a}) . _Default;

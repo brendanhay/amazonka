@@ -141,11 +141,11 @@ import Network.AWS.S3.Types
 -- * 'coCopySource'
 --
 -- * 'coKey'
-data CopyObject = CopyObject'{_coCopySourceIfModifiedSince :: Maybe RFC822, _coCopySourceIfUnmodifiedSince :: Maybe RFC822, _coCopySourceSSECustomerKeyMD5 :: Maybe Text, _coMetadataDirective :: Maybe MetadataDirective, _coExpires :: Maybe RFC822, _coSSECustomerAlgorithm :: Maybe Text, _coCopySourceIfNoneMatch :: Maybe Text, _coGrantReadACP :: Maybe Text, _coSSECustomerKey :: Maybe (Sensitive Text), _coRequestPayer :: Maybe RequestPayer, _coGrantWriteACP :: Maybe Text, _coWebsiteRedirectLocation :: Maybe Text, _coCopySourceIfMatch :: Maybe Text, _coGrantRead :: Maybe Text, _coStorageClass :: Maybe StorageClass, _coContentEncoding :: Maybe Text, _coSSEKMSKeyId :: Maybe (Sensitive Text), _coGrantFullControl :: Maybe Text, _coSSECustomerKeyMD5 :: Maybe Text, _coMetadata :: Maybe (HashMap Text Text), _coCacheControl :: Maybe Text, _coContentLanguage :: Maybe Text, _coACL :: Maybe ObjectCannedACL, _coCopySourceSSECustomerKey :: Maybe (Sensitive Text), _coContentDisposition :: Maybe Text, _coCopySourceSSECustomerAlgorithm :: Maybe Text, _coServerSideEncryption :: Maybe ServerSideEncryption, _coContentType :: Maybe Text, _coBucket :: BucketName, _coCopySource :: Text, _coKey :: ObjectKey} deriving (Eq, Read, Show)
+data CopyObject = CopyObject'{_coCopySourceIfModifiedSince :: Maybe RFC822, _coCopySourceIfUnmodifiedSince :: Maybe RFC822, _coCopySourceSSECustomerKeyMD5 :: Maybe Text, _coMetadataDirective :: Maybe MetadataDirective, _coExpires :: Maybe RFC822, _coSSECustomerAlgorithm :: Maybe Text, _coCopySourceIfNoneMatch :: Maybe Text, _coGrantReadACP :: Maybe Text, _coSSECustomerKey :: Maybe (Sensitive Text), _coRequestPayer :: Maybe RequestPayer, _coGrantWriteACP :: Maybe Text, _coWebsiteRedirectLocation :: Maybe Text, _coCopySourceIfMatch :: Maybe Text, _coGrantRead :: Maybe Text, _coStorageClass :: Maybe StorageClass, _coContentEncoding :: Maybe Text, _coSSEKMSKeyId :: Maybe (Sensitive Text), _coGrantFullControl :: Maybe Text, _coSSECustomerKeyMD5 :: Maybe Text, _coMetadata :: Map Text Text, _coCacheControl :: Maybe Text, _coContentLanguage :: Maybe Text, _coACL :: Maybe ObjectCannedACL, _coCopySourceSSECustomerKey :: Maybe (Sensitive Text), _coContentDisposition :: Maybe Text, _coCopySourceSSECustomerAlgorithm :: Maybe Text, _coServerSideEncryption :: Maybe ServerSideEncryption, _coContentType :: Maybe Text, _coBucket :: BucketName, _coCopySource :: Text, _coKey :: ObjectKey} deriving (Eq, Read, Show)
 
 -- | 'CopyObject' smart constructor.
 copyObject :: BucketName -> Text -> ObjectKey -> CopyObject
-copyObject pBucket pCopySource pKey = CopyObject'{_coCopySourceIfModifiedSince = Nothing, _coCopySourceIfUnmodifiedSince = Nothing, _coCopySourceSSECustomerKeyMD5 = Nothing, _coMetadataDirective = Nothing, _coExpires = Nothing, _coSSECustomerAlgorithm = Nothing, _coCopySourceIfNoneMatch = Nothing, _coGrantReadACP = Nothing, _coSSECustomerKey = Nothing, _coRequestPayer = Nothing, _coGrantWriteACP = Nothing, _coWebsiteRedirectLocation = Nothing, _coCopySourceIfMatch = Nothing, _coGrantRead = Nothing, _coStorageClass = Nothing, _coContentEncoding = Nothing, _coSSEKMSKeyId = Nothing, _coGrantFullControl = Nothing, _coSSECustomerKeyMD5 = Nothing, _coMetadata = Nothing, _coCacheControl = Nothing, _coContentLanguage = Nothing, _coACL = Nothing, _coCopySourceSSECustomerKey = Nothing, _coContentDisposition = Nothing, _coCopySourceSSECustomerAlgorithm = Nothing, _coServerSideEncryption = Nothing, _coContentType = Nothing, _coBucket = pBucket, _coCopySource = pCopySource, _coKey = pKey};
+copyObject pBucket pCopySource pKey = CopyObject'{_coCopySourceIfModifiedSince = Nothing, _coCopySourceIfUnmodifiedSince = Nothing, _coCopySourceSSECustomerKeyMD5 = Nothing, _coMetadataDirective = Nothing, _coExpires = Nothing, _coSSECustomerAlgorithm = Nothing, _coCopySourceIfNoneMatch = Nothing, _coGrantReadACP = Nothing, _coSSECustomerKey = Nothing, _coRequestPayer = Nothing, _coGrantWriteACP = Nothing, _coWebsiteRedirectLocation = Nothing, _coCopySourceIfMatch = Nothing, _coGrantRead = Nothing, _coStorageClass = Nothing, _coContentEncoding = Nothing, _coSSEKMSKeyId = Nothing, _coGrantFullControl = Nothing, _coSSECustomerKeyMD5 = Nothing, _coMetadata = mempty, _coCacheControl = Nothing, _coContentLanguage = Nothing, _coACL = Nothing, _coCopySourceSSECustomerKey = Nothing, _coContentDisposition = Nothing, _coCopySourceSSECustomerAlgorithm = Nothing, _coServerSideEncryption = Nothing, _coContentType = Nothing, _coBucket = pBucket, _coCopySource = pCopySource, _coKey = pKey};
 
 -- | Copies the object if it has been modified since the specified time.
 coCopySourceIfModifiedSince :: Lens' CopyObject (Maybe UTCTime)
@@ -244,8 +244,8 @@ coSSECustomerKeyMD5 :: Lens' CopyObject (Maybe Text)
 coSSECustomerKeyMD5 = lens _coSSECustomerKeyMD5 (\ s a -> s{_coSSECustomerKeyMD5 = a});
 
 -- | A map of metadata to store with the object in S3.
-coMetadata :: Lens' CopyObject (Maybe (HashMap Text Text))
-coMetadata = lens _coMetadata (\ s a -> s{_coMetadata = a}) . mapping _Coerce;
+coMetadata :: Lens' CopyObject (Map Text Text)
+coMetadata = lens _coMetadata (\ s a -> s{_coMetadata = a}) . _Map;
 
 -- | Specifies caching behavior along the request\/reply chain.
 coCacheControl :: Lens' CopyObject (Maybe Text)
@@ -304,18 +304,19 @@ instance AWSRequest CopyObject where
           = receiveXML
               (\ s h x ->
                  CopyObjectResponse' <$>
-                   h .#? "x-amz-request-charged" <*>
-                     h .#? "x-amz-expiration"
+                   (h .#? "x-amz-request-charged") <*>
+                     (h .#? "x-amz-expiration")
                      <*>
-                     h .#?
-                       "x-amz-server-side-encryption-customer-algorithm"
-                     <*> h .#? "x-amz-copy-source-version-id"
+                     (h .#?
+                        "x-amz-server-side-encryption-customer-algorithm")
+                     <*> (h .#? "x-amz-copy-source-version-id")
                      <*>
-                     h .#? "x-amz-server-side-encryption-aws-kms-key-id"
+                     (h .#? "x-amz-server-side-encryption-aws-kms-key-id")
                      <*>
-                     h .#? "x-amz-server-side-encryption-customer-key-MD5"
-                     <*> h .#? "x-amz-server-side-encryption"
-                     <*> x .@? "CopyObjectResult")
+                     (h .#?
+                        "x-amz-server-side-encryption-customer-key-MD5")
+                     <*> (h .#? "x-amz-server-side-encryption")
+                     <*> (x .@? "CopyObjectResult"))
 
 instance ToHeaders CopyObject where
         toHeaders CopyObject'{..}

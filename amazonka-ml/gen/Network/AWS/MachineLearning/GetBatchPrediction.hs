@@ -75,17 +75,17 @@ instance AWSRequest GetBatchPrediction where
           = receiveJSON
               (\ s h x ->
                  GetBatchPredictionResponse' <$>
-                   x .?> "Status" <*> x .?> "LastUpdatedAt" <*>
-                     x .?> "CreatedAt"
-                     <*> x .?> "InputDataLocationS3"
-                     <*> x .?> "MLModelId"
-                     <*> x .?> "BatchPredictionDataSourceId"
-                     <*> x .?> "BatchPredictionId"
-                     <*> x .?> "Name"
-                     <*> x .?> "CreatedByIamUser"
-                     <*> x .?> "LogUri"
-                     <*> x .?> "Message"
-                     <*> x .?> "OutputUri")
+                   (x .?> "Status") <*> (x .?> "LastUpdatedAt") <*>
+                     (x .?> "CreatedAt")
+                     <*> (x .?> "InputDataLocationS3")
+                     <*> (x .?> "MLModelId")
+                     <*> (x .?> "BatchPredictionDataSourceId")
+                     <*> (x .?> "BatchPredictionId")
+                     <*> (x .?> "Name")
+                     <*> (x .?> "CreatedByIamUser")
+                     <*> (x .?> "LogUri")
+                     <*> (x .?> "Message")
+                     <*> (x .?> "OutputUri"))
 
 instance ToHeaders GetBatchPrediction where
         toHeaders

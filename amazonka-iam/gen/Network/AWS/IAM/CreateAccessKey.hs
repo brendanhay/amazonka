@@ -78,7 +78,7 @@ instance AWSRequest CreateAccessKey where
         response
           = receiveXMLWrapper "CreateAccessKeyResult"
               (\ s h x ->
-                 CreateAccessKeyResponse' <$> x .@ "AccessKey")
+                 CreateAccessKeyResponse' <$> (x .@ "AccessKey"))
 
 instance ToHeaders CreateAccessKey where
         toHeaders = const mempty

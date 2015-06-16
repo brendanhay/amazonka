@@ -120,7 +120,7 @@ instance AWSRequest DescribeStackResources where
               (\ s h x ->
                  DescribeStackResourcesResponse' <$>
                    (x .@? "StackResources" .!@ mempty >>=
-                      parseXMLList "member"))
+                      may (parseXMLList "member")))
 
 instance ToHeaders DescribeStackResources where
         toHeaders = const mempty
@@ -150,5 +150,5 @@ describeStackResourcesResponse :: DescribeStackResourcesResponse
 describeStackResourcesResponse = DescribeStackResourcesResponse'{_dsrrStackResources = Nothing};
 
 -- | A list of @StackResource@ structures.
-dsrrStackResources :: Lens' DescribeStackResourcesResponse (Maybe [StackResource])
-dsrrStackResources = lens _dsrrStackResources (\ s a -> s{_dsrrStackResources = a});
+dsrrStackResources :: Lens' DescribeStackResourcesResponse [StackResource]
+dsrrStackResources = lens _dsrrStackResources (\ s a -> s{_dsrrStackResources = a}) . _Default;

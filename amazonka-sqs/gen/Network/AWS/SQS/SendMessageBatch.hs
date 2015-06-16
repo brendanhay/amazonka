@@ -100,8 +100,8 @@ instance AWSRequest SendMessageBatch where
           = receiveXMLWrapper "SendMessageBatchResult"
               (\ s h x ->
                  SendMessageBatchResponse' <$>
-                   parseXMLList "SendMessageBatchResultEntry" x <*>
-                     parseXMLList "BatchResultErrorEntry" x)
+                   (parseXMLList "SendMessageBatchResultEntry" x) <*>
+                     (parseXMLList "BatchResultErrorEntry" x))
 
 instance ToHeaders SendMessageBatch where
         toHeaders = const mempty
@@ -115,7 +115,8 @@ instance ToQuery SendMessageBatch where
               ["Action" =: ("SendMessageBatch" :: ByteString),
                "Version" =: ("2012-11-05" :: ByteString),
                "QueueUrl" =: _smbQueueURL,
-               "SendMessageBatchRequestEntry" =: _smbEntries]
+               toQueryList "SendMessageBatchRequestEntry"
+                 _smbEntries]
 
 -- | /See:/ 'sendMessageBatchResponse' smart constructor.
 --

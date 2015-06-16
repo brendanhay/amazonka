@@ -71,8 +71,8 @@ instance AWSRequest ListVolumeRecoveryPoints where
           = receiveJSON
               (\ s h x ->
                  ListVolumeRecoveryPointsResponse' <$>
-                   x .?> "VolumeRecoveryPointInfos" .!@ mempty <*>
-                     x .?> "GatewayARN")
+                   (x .?> "VolumeRecoveryPointInfos" .!@ mempty) <*>
+                     (x .?> "GatewayARN"))
 
 instance ToHeaders ListVolumeRecoveryPoints where
         toHeaders
@@ -108,8 +108,8 @@ listVolumeRecoveryPointsResponse :: ListVolumeRecoveryPointsResponse
 listVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse'{_lvrprVolumeRecoveryPointInfos = Nothing, _lvrprGatewayARN = Nothing};
 
 -- | FIXME: Undocumented member.
-lvrprVolumeRecoveryPointInfos :: Lens' ListVolumeRecoveryPointsResponse (Maybe [VolumeRecoveryPointInfo])
-lvrprVolumeRecoveryPointInfos = lens _lvrprVolumeRecoveryPointInfos (\ s a -> s{_lvrprVolumeRecoveryPointInfos = a});
+lvrprVolumeRecoveryPointInfos :: Lens' ListVolumeRecoveryPointsResponse [VolumeRecoveryPointInfo]
+lvrprVolumeRecoveryPointInfos = lens _lvrprVolumeRecoveryPointInfos (\ s a -> s{_lvrprVolumeRecoveryPointInfos = a}) . _Default;
 
 -- | FIXME: Undocumented member.
 lvrprGatewayARN :: Lens' ListVolumeRecoveryPointsResponse (Maybe Text)

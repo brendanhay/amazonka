@@ -119,7 +119,7 @@ instance AWSRequest PutScalingPolicy where
         response
           = receiveXMLWrapper "PutScalingPolicyResult"
               (\ s h x ->
-                 PutScalingPolicyResponse' <$> x .@? "PolicyARN")
+                 PutScalingPolicyResponse' <$> (x .@? "PolicyARN"))
 
 instance ToHeaders PutScalingPolicy where
         toHeaders = const mempty

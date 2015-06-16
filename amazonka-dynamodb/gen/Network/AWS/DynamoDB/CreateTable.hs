@@ -211,7 +211,7 @@ instance AWSRequest CreateTable where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateTableResponse' <$> x .?> "TableDescription")
+                 CreateTableResponse' <$> (x .?> "TableDescription"))
 
 instance ToHeaders CreateTable where
         toHeaders

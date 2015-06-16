@@ -75,7 +75,7 @@ import Network.AWS.KMS.Types
 -- * 'encKeyId'
 --
 -- * 'encPlaintext'
-data Encrypt = Encrypt'{_encEncryptionContext :: Maybe (HashMap Text Text), _encGrantTokens :: Maybe [Text], _encKeyId :: Text, _encPlaintext :: Sensitive Base64} deriving (Eq, Read, Show)
+data Encrypt = Encrypt'{_encEncryptionContext :: Maybe (Map Text Text), _encGrantTokens :: Maybe [Text], _encKeyId :: Text, _encPlaintext :: Sensitive Base64} deriving (Eq, Read, Show)
 
 -- | 'Encrypt' smart constructor.
 encrypt :: Text -> Base64 -> Encrypt
@@ -85,13 +85,13 @@ encrypt pKeyId pPlaintext = Encrypt'{_encEncryptionContext = Nothing, _encGrantT
 -- authenticated encryption. If used here, the same value must be supplied
 -- to the @Decrypt@ API or decryption will fail. For more information, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html Encryption Context>.
-encEncryptionContext :: Lens' Encrypt (Maybe (HashMap Text Text))
-encEncryptionContext = lens _encEncryptionContext (\ s a -> s{_encEncryptionContext = a}) . mapping _Coerce;
+encEncryptionContext :: Lens' Encrypt (Map Text Text)
+encEncryptionContext = lens _encEncryptionContext (\ s a -> s{_encEncryptionContext = a}) . _Default . _Map;
 
 -- | For more information, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.
-encGrantTokens :: Lens' Encrypt (Maybe [Text])
-encGrantTokens = lens _encGrantTokens (\ s a -> s{_encGrantTokens = a});
+encGrantTokens :: Lens' Encrypt [Text]
+encGrantTokens = lens _encGrantTokens (\ s a -> s{_encGrantTokens = a}) . _Default;
 
 -- | A unique identifier for the customer master key. This value can be a
 -- globally unique identifier, a fully specified ARN to either an alias or
@@ -119,7 +119,7 @@ instance AWSRequest Encrypt where
           = receiveJSON
               (\ s h x ->
                  EncryptResponse' <$>
-                   x .?> "KeyId" <*> x .?> "CiphertextBlob")
+                   (x .?> "KeyId") <*> (x .?> "CiphertextBlob"))
 
 instance ToHeaders Encrypt where
         toHeaders

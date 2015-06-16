@@ -73,8 +73,8 @@ suspendProcesses pAutoScalingGroupName = SuspendProcesses'{_spScalingProcesses =
 -- -   AlarmNotification
 -- -   ScheduledActions
 -- -   AddToLoadBalancer
-spScalingProcesses :: Lens' SuspendProcesses (Maybe [Text])
-spScalingProcesses = lens _spScalingProcesses (\ s a -> s{_spScalingProcesses = a});
+spScalingProcesses :: Lens' SuspendProcesses [Text]
+spScalingProcesses = lens _spScalingProcesses (\ s a -> s{_spScalingProcesses = a}) . _Default;
 
 -- | The name or Amazon Resource Name (ARN) of the Auto Scaling group.
 spAutoScalingGroupName :: Lens' SuspendProcesses Text
@@ -98,7 +98,8 @@ instance ToQuery SuspendProcesses where
               ["Action" =: ("SuspendProcesses" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
                "ScalingProcesses" =:
-                 "member" =: _spScalingProcesses,
+                 toQuery
+                   (toQueryList "member" <$> _spScalingProcesses),
                "AutoScalingGroupName" =: _spAutoScalingGroupName]
 
 -- | /See:/ 'suspendProcessesResponse' smart constructor.

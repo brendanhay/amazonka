@@ -117,9 +117,9 @@ instance AWSRequest DescribeOrderableClusterOptions
               "DescribeOrderableClusterOptionsResult"
               (\ s h x ->
                  DescribeOrderableClusterOptionsResponse' <$>
-                   x .@? "Marker" <*>
+                   (x .@? "Marker") <*>
                      (x .@? "OrderableClusterOptions" .!@ mempty >>=
-                        parseXMLList "OrderableClusterOption"))
+                        may (parseXMLList "OrderableClusterOption")))
 
 instance ToHeaders DescribeOrderableClusterOptions
          where
@@ -164,5 +164,5 @@ docorMarker = lens _docorMarker (\ s a -> s{_docorMarker = a});
 
 -- | An OrderableClusterOption structure containing information about
 -- orderable options for the Cluster.
-docorOrderableClusterOptions :: Lens' DescribeOrderableClusterOptionsResponse (Maybe [OrderableClusterOption])
-docorOrderableClusterOptions = lens _docorOrderableClusterOptions (\ s a -> s{_docorOrderableClusterOptions = a});
+docorOrderableClusterOptions :: Lens' DescribeOrderableClusterOptionsResponse [OrderableClusterOption]
+docorOrderableClusterOptions = lens _docorOrderableClusterOptions (\ s a -> s{_docorOrderableClusterOptions = a}) . _Default;

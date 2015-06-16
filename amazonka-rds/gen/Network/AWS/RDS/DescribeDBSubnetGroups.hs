@@ -70,8 +70,8 @@ ddsgDBSubnetGroupName :: Lens' DescribeDBSubnetGroups (Maybe Text)
 ddsgDBSubnetGroupName = lens _ddsgDBSubnetGroupName (\ s a -> s{_ddsgDBSubnetGroupName = a});
 
 -- | This parameter is not currently supported.
-ddsgFilters :: Lens' DescribeDBSubnetGroups (Maybe [Filter])
-ddsgFilters = lens _ddsgFilters (\ s a -> s{_ddsgFilters = a});
+ddsgFilters :: Lens' DescribeDBSubnetGroups [Filter]
+ddsgFilters = lens _ddsgFilters (\ s a -> s{_ddsgFilters = a}) . _Default;
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -101,8 +101,8 @@ instance AWSRequest DescribeDBSubnetGroups where
               (\ s h x ->
                  DescribeDBSubnetGroupsResponse' <$>
                    (x .@? "DBSubnetGroups" .!@ mempty >>=
-                      parseXMLList "DBSubnetGroup")
-                     <*> x .@? "Marker")
+                      may (parseXMLList "DBSubnetGroup"))
+                     <*> (x .@? "Marker"))
 
 instance ToHeaders DescribeDBSubnetGroups where
         toHeaders = const mempty
@@ -117,7 +117,8 @@ instance ToQuery DescribeDBSubnetGroups where
                  ("DescribeDBSubnetGroups" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "DBSubnetGroupName" =: _ddsgDBSubnetGroupName,
-               "Filters" =: "Filter" =: _ddsgFilters,
+               "Filters" =:
+                 toQuery (toQueryList "Filter" <$> _ddsgFilters),
                "MaxRecords" =: _ddsgMaxRecords,
                "Marker" =: _ddsgMarker]
 
@@ -135,8 +136,8 @@ describeDBSubnetGroupsResponse :: DescribeDBSubnetGroupsResponse
 describeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse'{_ddsgrDBSubnetGroups = Nothing, _ddsgrMarker = Nothing};
 
 -- | A list of DBSubnetGroup instances.
-ddsgrDBSubnetGroups :: Lens' DescribeDBSubnetGroupsResponse (Maybe [DBSubnetGroup])
-ddsgrDBSubnetGroups = lens _ddsgrDBSubnetGroups (\ s a -> s{_ddsgrDBSubnetGroups = a});
+ddsgrDBSubnetGroups :: Lens' DescribeDBSubnetGroupsResponse [DBSubnetGroup]
+ddsgrDBSubnetGroups = lens _ddsgrDBSubnetGroups (\ s a -> s{_ddsgrDBSubnetGroups = a}) . _Default;
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the

@@ -62,8 +62,8 @@ describeLoadBalancerPolicies :: DescribeLoadBalancerPolicies
 describeLoadBalancerPolicies = DescribeLoadBalancerPolicies'{_dlbpPolicyNames = Nothing, _dlbpLoadBalancerName = Nothing};
 
 -- | The names of the policies.
-dlbpPolicyNames :: Lens' DescribeLoadBalancerPolicies (Maybe [Text])
-dlbpPolicyNames = lens _dlbpPolicyNames (\ s a -> s{_dlbpPolicyNames = a});
+dlbpPolicyNames :: Lens' DescribeLoadBalancerPolicies [Text]
+dlbpPolicyNames = lens _dlbpPolicyNames (\ s a -> s{_dlbpPolicyNames = a}) . _Default;
 
 -- | The name of the load balancer.
 dlbpLoadBalancerName :: Lens' DescribeLoadBalancerPolicies (Maybe Text)
@@ -81,7 +81,7 @@ instance AWSRequest DescribeLoadBalancerPolicies
               (\ s h x ->
                  DescribeLoadBalancerPoliciesResponse' <$>
                    (x .@? "PolicyDescriptions" .!@ mempty >>=
-                      parseXMLList "member"))
+                      may (parseXMLList "member")))
 
 instance ToHeaders DescribeLoadBalancerPolicies where
         toHeaders = const mempty
@@ -95,7 +95,8 @@ instance ToQuery DescribeLoadBalancerPolicies where
               ["Action" =:
                  ("DescribeLoadBalancerPolicies" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
-               "PolicyNames" =: "member" =: _dlbpPolicyNames,
+               "PolicyNames" =:
+                 toQuery (toQueryList "member" <$> _dlbpPolicyNames),
                "LoadBalancerName" =: _dlbpLoadBalancerName]
 
 -- | /See:/ 'describeLoadBalancerPoliciesResponse' smart constructor.
@@ -110,5 +111,5 @@ describeLoadBalancerPoliciesResponse :: DescribeLoadBalancerPoliciesResponse
 describeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse'{_dlbprPolicyDescriptions = Nothing};
 
 -- | Information about the policies.
-dlbprPolicyDescriptions :: Lens' DescribeLoadBalancerPoliciesResponse (Maybe [PolicyDescription])
-dlbprPolicyDescriptions = lens _dlbprPolicyDescriptions (\ s a -> s{_dlbprPolicyDescriptions = a});
+dlbprPolicyDescriptions :: Lens' DescribeLoadBalancerPoliciesResponse [PolicyDescription]
+dlbprPolicyDescriptions = lens _dlbprPolicyDescriptions (\ s a -> s{_dlbprPolicyDescriptions = a}) . _Default;

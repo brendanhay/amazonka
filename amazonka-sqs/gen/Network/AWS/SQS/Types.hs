@@ -164,8 +164,9 @@ breeCode = lens _breeCode (\ s a -> s{_breeCode = a});
 instance FromXML BatchResultErrorEntry where
         parseXML x
           = BatchResultErrorEntry' <$>
-              x .@? "Message" <*> x .@ "Id" <*> x .@ "SenderFault"
-                <*> x .@ "Code"
+              (x .@? "Message") <*> (x .@ "Id") <*>
+                (x .@ "SenderFault")
+                <*> (x .@ "Code")
 
 -- | /See:/ 'changeMessageVisibilityBatchRequestEntry' smart constructor.
 --
@@ -223,7 +224,7 @@ instance FromXML
          ChangeMessageVisibilityBatchResultEntry where
         parseXML x
           = ChangeMessageVisibilityBatchResultEntry' <$>
-              x .@ "Id"
+              (x .@ "Id")
 
 -- | /See:/ 'deleteMessageBatchRequestEntry' smart constructor.
 --
@@ -271,7 +272,7 @@ delId = lens _delId (\ s a -> s{_delId = a});
 
 instance FromXML DeleteMessageBatchResultEntry where
         parseXML x
-          = DeleteMessageBatchResultEntry' <$> x .@ "Id"
+          = DeleteMessageBatchResultEntry' <$> (x .@ "Id")
 
 -- | /See:/ 'message' smart constructor.
 --
@@ -290,7 +291,7 @@ instance FromXML DeleteMessageBatchResultEntry where
 -- * 'mesReceiptHandle'
 --
 -- * 'mesMD5OfMessageAttributes'
-data Message = Message'{_mesMessageAttributes :: Maybe (HashMap Text MessageAttributeValue), _mesMD5OfBody :: Maybe Text, _mesBody :: Maybe Text, _mesAttributes :: Maybe (HashMap QueueAttributeName Text), _mesMessageId :: Maybe Text, _mesReceiptHandle :: Maybe Text, _mesMD5OfMessageAttributes :: Maybe Text} deriving (Eq, Read, Show)
+data Message = Message'{_mesMessageAttributes :: Maybe (Map Text MessageAttributeValue), _mesMD5OfBody :: Maybe Text, _mesBody :: Maybe Text, _mesAttributes :: Maybe (Map QueueAttributeName Text), _mesMessageId :: Maybe Text, _mesReceiptHandle :: Maybe Text, _mesMD5OfMessageAttributes :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'Message' smart constructor.
 message :: Message
@@ -299,8 +300,8 @@ message = Message'{_mesMessageAttributes = Nothing, _mesMD5OfBody = Nothing, _me
 -- | Each message attribute consists of a Name, Type, and Value. For more
 -- information, see
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV Message Attribute Items>.
-mesMessageAttributes :: Lens' Message (Maybe (HashMap Text MessageAttributeValue))
-mesMessageAttributes = lens _mesMessageAttributes (\ s a -> s{_mesMessageAttributes = a}) . mapping _Coerce;
+mesMessageAttributes :: Lens' Message (Map Text MessageAttributeValue)
+mesMessageAttributes = lens _mesMessageAttributes (\ s a -> s{_mesMessageAttributes = a}) . _Default . _Map;
 
 -- | An MD5 digest of the non-URL-encoded message body string.
 mesMD5OfBody :: Lens' Message (Maybe Text)
@@ -315,8 +316,8 @@ mesBody = lens _mesBody (\ s a -> s{_mesBody = a});
 -- @ApproximateFirstReceiveTimestamp@ are each returned as an integer
 -- representing the <http://en.wikipedia.org/wiki/Unix_time epoch time> in
 -- milliseconds.
-mesAttributes :: Lens' Message (Maybe (HashMap QueueAttributeName Text))
-mesAttributes = lens _mesAttributes (\ s a -> s{_mesAttributes = a}) . mapping _Coerce;
+mesAttributes :: Lens' Message (Map QueueAttributeName Text)
+mesAttributes = lens _mesAttributes (\ s a -> s{_mesAttributes = a}) . _Default . _Map;
 
 -- | A unique identifier for the message. Message IDs are considered unique
 -- across all AWS accounts for an extended period of time.
@@ -340,13 +341,14 @@ mesMD5OfMessageAttributes = lens _mesMD5OfMessageAttributes (\ s a -> s{_mesMD5O
 instance FromXML Message where
         parseXML x
           = Message' <$>
-              parseXMLMap "MessageAttribute" "Name" "Value" x <*>
-                x .@? "MD5OfBody"
-                <*> x .@? "Body"
-                <*> parseXMLMap "Attribute" "Name" "Value" x
-                <*> x .@? "MessageId"
-                <*> x .@? "ReceiptHandle"
-                <*> x .@? "MD5OfMessageAttributes"
+              (may (parseXMLMap "MessageAttribute" "Name" "Value")
+                 x)
+                <*> (x .@? "MD5OfBody")
+                <*> (x .@? "Body")
+                <*> (may (parseXMLMap "Attribute" "Name" "Value") x)
+                <*> (x .@? "MessageId")
+                <*> (x .@? "ReceiptHandle")
+                <*> (x .@? "MD5OfMessageAttributes")
 
 -- | /See:/ 'messageAttributeValue' smart constructor.
 --
@@ -373,8 +375,8 @@ mavBinaryValue :: Lens' MessageAttributeValue (Maybe Base64)
 mavBinaryValue = lens _mavBinaryValue (\ s a -> s{_mavBinaryValue = a});
 
 -- | Not implemented. Reserved for future use.
-mavStringListValues :: Lens' MessageAttributeValue (Maybe [Text])
-mavStringListValues = lens _mavStringListValues (\ s a -> s{_mavStringListValues = a});
+mavStringListValues :: Lens' MessageAttributeValue [Text]
+mavStringListValues = lens _mavStringListValues (\ s a -> s{_mavStringListValues = a}) . _Default;
 
 -- | Strings are Unicode with UTF8 binary encoding. For a list of code
 -- values, see
@@ -383,8 +385,8 @@ mavStringValue :: Lens' MessageAttributeValue (Maybe Text)
 mavStringValue = lens _mavStringValue (\ s a -> s{_mavStringValue = a});
 
 -- | Not implemented. Reserved for future use.
-mavBinaryListValues :: Lens' MessageAttributeValue (Maybe [Base64])
-mavBinaryListValues = lens _mavBinaryListValues (\ s a -> s{_mavBinaryListValues = a});
+mavBinaryListValues :: Lens' MessageAttributeValue [Base64]
+mavBinaryListValues = lens _mavBinaryListValues (\ s a -> s{_mavBinaryListValues = a}) . _Default;
 
 -- | Amazon SQS supports the following logical data types: String, Number,
 -- and Binary. In addition, you can append your own custom labels. For more
@@ -396,24 +398,28 @@ mavDataType = lens _mavDataType (\ s a -> s{_mavDataType = a});
 instance FromXML MessageAttributeValue where
         parseXML x
           = MessageAttributeValue' <$>
-              x .@? "BinaryValue" <*>
+              (x .@? "BinaryValue") <*>
                 (x .@? "StringListValue" .!@ mempty >>=
-                   parseXMLList "StringListValue")
-                <*> x .@? "StringValue"
+                   may (parseXMLList "StringListValue"))
+                <*> (x .@? "StringValue")
                 <*>
                 (x .@? "BinaryListValue" .!@ mempty >>=
-                   parseXMLList "BinaryListValue")
-                <*> x .@ "DataType"
+                   may (parseXMLList "BinaryListValue"))
+                <*> (x .@ "DataType")
 
 instance ToQuery MessageAttributeValue where
         toQuery MessageAttributeValue'{..}
           = mconcat
               ["BinaryValue" =: _mavBinaryValue,
                "StringListValue" =:
-                 "StringListValue" =: _mavStringListValues,
+                 toQuery
+                   (toQueryList "StringListValue" <$>
+                      _mavStringListValues),
                "StringValue" =: _mavStringValue,
                "BinaryListValue" =:
-                 "BinaryListValue" =: _mavBinaryListValues,
+                 toQuery
+                   (toQueryList "BinaryListValue" <$>
+                      _mavBinaryListValues),
                "DataType" =: _mavDataType]
 
 data QueueAttributeName = MessageRetentionPeriod | LastModifiedTimestamp | VisibilityTimeout | RedrivePolicy | ApproximateNumberOfMessagesDelayed | MaximumMessageSize | DelaySeconds | QueueARN | ApproximateNumberOfMessages | ReceiveMessageWaitTimeSeconds | Policy | CreatedTimestamp | ApproximateNumberOfMessagesNotVisible deriving (Eq, Ord, Read, Show, Enum, Generic)
@@ -469,7 +475,7 @@ instance FromXML QueueAttributeName where
 -- * 'senId'
 --
 -- * 'senMessageBody'
-data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry'{_senMessageAttributes :: Maybe (HashMap Text MessageAttributeValue), _senDelaySeconds :: Maybe Int, _senId :: Text, _senMessageBody :: Text} deriving (Eq, Read, Show)
+data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry'{_senMessageAttributes :: Maybe (Map Text MessageAttributeValue), _senDelaySeconds :: Maybe Int, _senId :: Text, _senMessageBody :: Text} deriving (Eq, Read, Show)
 
 -- | 'SendMessageBatchRequestEntry' smart constructor.
 sendMessageBatchRequestEntry :: Text -> Text -> SendMessageBatchRequestEntry
@@ -478,8 +484,8 @@ sendMessageBatchRequestEntry pId pMessageBody = SendMessageBatchRequestEntry'{_s
 -- | Each message attribute consists of a Name, Type, and Value. For more
 -- information, see
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV Message Attribute Items>.
-senMessageAttributes :: Lens' SendMessageBatchRequestEntry (Maybe (HashMap Text MessageAttributeValue))
-senMessageAttributes = lens _senMessageAttributes (\ s a -> s{_senMessageAttributes = a}) . mapping _Coerce;
+senMessageAttributes :: Lens' SendMessageBatchRequestEntry (Map Text MessageAttributeValue)
+senMessageAttributes = lens _senMessageAttributes (\ s a -> s{_senMessageAttributes = a}) . _Default . _Map;
 
 -- | The number of seconds for which the message has to be delayed.
 senDelaySeconds :: Lens' SendMessageBatchRequestEntry (Maybe Int)
@@ -498,8 +504,9 @@ senMessageBody = lens _senMessageBody (\ s a -> s{_senMessageBody = a});
 instance ToQuery SendMessageBatchRequestEntry where
         toQuery SendMessageBatchRequestEntry'{..}
           = mconcat
-              [toQueryMap "MessageAttribute" "Name" "Value"
-                 _senMessageAttributes,
+              [toQuery
+                 (toQueryMap "MessageAttribute" "Name" "Value" <$>
+                    _senMessageAttributes),
                "DelaySeconds" =: _senDelaySeconds, "Id" =: _senId,
                "MessageBody" =: _senMessageBody]
 
@@ -546,6 +553,6 @@ smbreMD5OfMessageBody = lens _smbreMD5OfMessageBody (\ s a -> s{_smbreMD5OfMessa
 instance FromXML SendMessageBatchResultEntry where
         parseXML x
           = SendMessageBatchResultEntry' <$>
-              x .@? "MD5OfMessageAttributes" <*> x .@ "Id" <*>
-                x .@ "MessageId"
-                <*> x .@ "MD5OfMessageBody"
+              (x .@? "MD5OfMessageAttributes") <*> (x .@ "Id") <*>
+                (x .@ "MessageId")
+                <*> (x .@ "MD5OfMessageBody")

@@ -67,7 +67,7 @@ instance AWSRequest DescribeStep where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x -> DescribeStepResponse' <$> x .?> "Step")
+              (\ s h x -> DescribeStepResponse' <$> (x .?> "Step"))
 
 instance ToHeaders DescribeStep where
         toHeaders

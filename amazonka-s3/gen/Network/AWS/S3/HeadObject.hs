@@ -177,32 +177,33 @@ instance AWSRequest HeadObject where
           = receiveXML
               (\ s h x ->
                  HeadObjectResponse' <$>
-                   h .#? "x-amz-version-id" <*> h .#? "ETag" <*>
-                     h .#? "x-amz-request-charged"
-                     <*> h .#? "Content-Length"
-                     <*> h .#? "x-amz-restore"
-                     <*> h .#? "Expires"
-                     <*> h .#? "x-amz-delete-marker"
-                     <*> h .#? "x-amz-expiration"
+                   (h .#? "x-amz-version-id") <*> (h .#? "ETag") <*>
+                     (h .#? "x-amz-request-charged")
+                     <*> (h .#? "Content-Length")
+                     <*> (h .#? "x-amz-restore")
+                     <*> (h .#? "Expires")
+                     <*> (h .#? "x-amz-delete-marker")
+                     <*> (h .#? "x-amz-expiration")
                      <*>
-                     h .#?
-                       "x-amz-server-side-encryption-customer-algorithm"
-                     <*> h .#? "x-amz-missing-meta"
-                     <*> h .#? "x-amz-website-redirect-location"
-                     <*> h .#? "accept-ranges"
-                     <*> h .#? "Content-Encoding"
+                     (h .#?
+                        "x-amz-server-side-encryption-customer-algorithm")
+                     <*> (h .#? "x-amz-missing-meta")
+                     <*> (h .#? "x-amz-website-redirect-location")
+                     <*> (h .#? "accept-ranges")
+                     <*> (h .#? "Content-Encoding")
                      <*>
-                     h .#? "x-amz-server-side-encryption-aws-kms-key-id"
+                     (h .#? "x-amz-server-side-encryption-aws-kms-key-id")
                      <*>
-                     h .#? "x-amz-server-side-encryption-customer-key-MD5"
-                     <*> h .#? "x-amz-meta-"
-                     <*> h .#? "x-amz-replication-status"
-                     <*> h .#? "Cache-Control"
-                     <*> h .#? "Content-Language"
-                     <*> h .#? "Last-Modified"
-                     <*> h .#? "Content-Disposition"
-                     <*> h .#? "x-amz-server-side-encryption"
-                     <*> h .#? "Content-Type")
+                     (h .#?
+                        "x-amz-server-side-encryption-customer-key-MD5")
+                     <*> (parseHeadersMap "x-amz-meta-" h)
+                     <*> (h .#? "x-amz-replication-status")
+                     <*> (h .#? "Cache-Control")
+                     <*> (h .#? "Content-Language")
+                     <*> (h .#? "Last-Modified")
+                     <*> (h .#? "Content-Disposition")
+                     <*> (h .#? "x-amz-server-side-encryption")
+                     <*> (h .#? "Content-Type"))
 
 instance ToHeaders HeadObject where
         toHeaders HeadObject'{..}
@@ -277,11 +278,11 @@ instance ToQuery HeadObject where
 -- * 'horServerSideEncryption'
 --
 -- * 'horContentType'
-data HeadObjectResponse = HeadObjectResponse'{_horVersionId :: Maybe ObjectVersionId, _horETag :: Maybe ETag, _horRequestCharged :: Maybe RequestCharged, _horContentLength :: Maybe Int, _horRestore :: Maybe Text, _horExpires :: Maybe RFC822, _horDeleteMarker :: Maybe Bool, _horExpiration :: Maybe Text, _horSSECustomerAlgorithm :: Maybe Text, _horMissingMeta :: Maybe Int, _horWebsiteRedirectLocation :: Maybe Text, _horAcceptRanges :: Maybe Text, _horContentEncoding :: Maybe Text, _horSSEKMSKeyId :: Maybe (Sensitive Text), _horSSECustomerKeyMD5 :: Maybe Text, _horMetadata :: Maybe (HashMap Text Text), _horReplicationStatus :: Maybe ReplicationStatus, _horCacheControl :: Maybe Text, _horContentLanguage :: Maybe Text, _horLastModified :: Maybe RFC822, _horContentDisposition :: Maybe Text, _horServerSideEncryption :: Maybe ServerSideEncryption, _horContentType :: Maybe Text} deriving (Eq, Read, Show)
+data HeadObjectResponse = HeadObjectResponse'{_horVersionId :: Maybe ObjectVersionId, _horETag :: Maybe ETag, _horRequestCharged :: Maybe RequestCharged, _horContentLength :: Maybe Int, _horRestore :: Maybe Text, _horExpires :: Maybe RFC822, _horDeleteMarker :: Maybe Bool, _horExpiration :: Maybe Text, _horSSECustomerAlgorithm :: Maybe Text, _horMissingMeta :: Maybe Int, _horWebsiteRedirectLocation :: Maybe Text, _horAcceptRanges :: Maybe Text, _horContentEncoding :: Maybe Text, _horSSEKMSKeyId :: Maybe (Sensitive Text), _horSSECustomerKeyMD5 :: Maybe Text, _horMetadata :: Map Text Text, _horReplicationStatus :: Maybe ReplicationStatus, _horCacheControl :: Maybe Text, _horContentLanguage :: Maybe Text, _horLastModified :: Maybe RFC822, _horContentDisposition :: Maybe Text, _horServerSideEncryption :: Maybe ServerSideEncryption, _horContentType :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'HeadObjectResponse' smart constructor.
 headObjectResponse :: HeadObjectResponse
-headObjectResponse = HeadObjectResponse'{_horVersionId = Nothing, _horETag = Nothing, _horRequestCharged = Nothing, _horContentLength = Nothing, _horRestore = Nothing, _horExpires = Nothing, _horDeleteMarker = Nothing, _horExpiration = Nothing, _horSSECustomerAlgorithm = Nothing, _horMissingMeta = Nothing, _horWebsiteRedirectLocation = Nothing, _horAcceptRanges = Nothing, _horContentEncoding = Nothing, _horSSEKMSKeyId = Nothing, _horSSECustomerKeyMD5 = Nothing, _horMetadata = Nothing, _horReplicationStatus = Nothing, _horCacheControl = Nothing, _horContentLanguage = Nothing, _horLastModified = Nothing, _horContentDisposition = Nothing, _horServerSideEncryption = Nothing, _horContentType = Nothing};
+headObjectResponse = HeadObjectResponse'{_horVersionId = Nothing, _horETag = Nothing, _horRequestCharged = Nothing, _horContentLength = Nothing, _horRestore = Nothing, _horExpires = Nothing, _horDeleteMarker = Nothing, _horExpiration = Nothing, _horSSECustomerAlgorithm = Nothing, _horMissingMeta = Nothing, _horWebsiteRedirectLocation = Nothing, _horAcceptRanges = Nothing, _horContentEncoding = Nothing, _horSSEKMSKeyId = Nothing, _horSSECustomerKeyMD5 = Nothing, _horMetadata = mempty, _horReplicationStatus = Nothing, _horCacheControl = Nothing, _horContentLanguage = Nothing, _horLastModified = Nothing, _horContentDisposition = Nothing, _horServerSideEncryption = Nothing, _horContentType = Nothing};
 
 -- | Version of the object.
 horVersionId :: Lens' HeadObjectResponse (Maybe ObjectVersionId)
@@ -364,8 +365,8 @@ horSSECustomerKeyMD5 :: Lens' HeadObjectResponse (Maybe Text)
 horSSECustomerKeyMD5 = lens _horSSECustomerKeyMD5 (\ s a -> s{_horSSECustomerKeyMD5 = a});
 
 -- | A map of metadata to store with the object in S3.
-horMetadata :: Lens' HeadObjectResponse (Maybe (HashMap Text Text))
-horMetadata = lens _horMetadata (\ s a -> s{_horMetadata = a}) . mapping _Coerce;
+horMetadata :: Lens' HeadObjectResponse (Map Text Text)
+horMetadata = lens _horMetadata (\ s a -> s{_horMetadata = a}) . _Map;
 
 -- | FIXME: Undocumented member.
 horReplicationStatus :: Lens' HeadObjectResponse (Maybe ReplicationStatus)

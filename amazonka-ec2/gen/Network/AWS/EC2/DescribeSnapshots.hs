@@ -117,8 +117,8 @@ describeSnapshots = DescribeSnapshots'{_ds1OwnerIds = Nothing, _ds1Filters = Not
 
 -- | Returns the snapshots owned by the specified owner. Multiple owners can
 -- be specified.
-ds1OwnerIds :: Lens' DescribeSnapshots (Maybe [Text])
-ds1OwnerIds = lens _ds1OwnerIds (\ s a -> s{_ds1OwnerIds = a});
+ds1OwnerIds :: Lens' DescribeSnapshots [Text]
+ds1OwnerIds = lens _ds1OwnerIds (\ s a -> s{_ds1OwnerIds = a}) . _Default;
 
 -- | One or more filters.
 --
@@ -157,8 +157,8 @@ ds1OwnerIds = lens _ds1OwnerIds (\ s a -> s{_ds1OwnerIds = a});
 --
 -- -   @volume-size@ - The size of the volume, in GiB.
 --
-ds1Filters :: Lens' DescribeSnapshots (Maybe [Filter])
-ds1Filters = lens _ds1Filters (\ s a -> s{_ds1Filters = a});
+ds1Filters :: Lens' DescribeSnapshots [Filter]
+ds1Filters = lens _ds1Filters (\ s a -> s{_ds1Filters = a}) . _Default;
 
 -- | The @NextToken@ value returned from a previous paginated
 -- @DescribeSnapshots@ request where @MaxResults@ was used and the results
@@ -171,12 +171,12 @@ ds1NextToken = lens _ds1NextToken (\ s a -> s{_ds1NextToken = a});
 -- | One or more snapshot IDs.
 --
 -- Default: Describes snapshots for which you have launch permissions.
-ds1SnapshotIds :: Lens' DescribeSnapshots (Maybe [Text])
-ds1SnapshotIds = lens _ds1SnapshotIds (\ s a -> s{_ds1SnapshotIds = a});
+ds1SnapshotIds :: Lens' DescribeSnapshots [Text]
+ds1SnapshotIds = lens _ds1SnapshotIds (\ s a -> s{_ds1SnapshotIds = a}) . _Default;
 
 -- | One or more AWS accounts IDs that can create volumes from the snapshot.
-ds1RestorableByUserIds :: Lens' DescribeSnapshots (Maybe [Text])
-ds1RestorableByUserIds = lens _ds1RestorableByUserIds (\ s a -> s{_ds1RestorableByUserIds = a});
+ds1RestorableByUserIds :: Lens' DescribeSnapshots [Text]
+ds1RestorableByUserIds = lens _ds1RestorableByUserIds (\ s a -> s{_ds1RestorableByUserIds = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -206,7 +206,8 @@ instance AWSRequest DescribeSnapshots where
           = receiveXML
               (\ s h x ->
                  DescribeSnapshotsResponse' <$>
-                   x .@? "nextToken" <*> parseXMLList "item" x)
+                   (x .@? "nextToken") <*>
+                     (may (parseXMLList "item") x))
 
 instance ToHeaders DescribeSnapshots where
         toHeaders = const mempty
@@ -219,10 +220,14 @@ instance ToQuery DescribeSnapshots where
           = mconcat
               ["Action" =: ("DescribeSnapshots" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Owner" =: _ds1OwnerIds, "Filter" =: _ds1Filters,
+               toQuery (toQueryList "Owner" <$> _ds1OwnerIds),
+               toQuery (toQueryList "Filter" <$> _ds1Filters),
                "NextToken" =: _ds1NextToken,
-               "SnapshotId" =: _ds1SnapshotIds,
-               "RestorableBy" =: _ds1RestorableByUserIds,
+               toQuery
+                 (toQueryList "SnapshotId" <$> _ds1SnapshotIds),
+               toQuery
+                 (toQueryList "RestorableBy" <$>
+                    _ds1RestorableByUserIds),
                "DryRun" =: _ds1DryRun,
                "MaxResults" =: _ds1MaxResults]
 
@@ -247,5 +252,5 @@ dsrNextToken :: Lens' DescribeSnapshotsResponse (Maybe Text)
 dsrNextToken = lens _dsrNextToken (\ s a -> s{_dsrNextToken = a});
 
 -- | Information about the snapshots.
-dsrSnapshots :: Lens' DescribeSnapshotsResponse (Maybe [Snapshot])
-dsrSnapshots = lens _dsrSnapshots (\ s a -> s{_dsrSnapshots = a});
+dsrSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
+dsrSnapshots = lens _dsrSnapshots (\ s a -> s{_dsrSnapshots = a}) . _Default;

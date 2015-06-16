@@ -174,13 +174,13 @@ instance FromJSON FileSystemDescription where
           = withObject "FileSystemDescription"
               (\ x ->
                  FileSystemDescription' <$>
-                   x .:? "Name" <*> x .: "OwnerId" <*>
-                     x .: "CreationToken"
-                     <*> x .: "FileSystemId"
-                     <*> x .: "CreationTime"
-                     <*> x .: "LifeCycleState"
-                     <*> x .: "NumberOfMountTargets"
-                     <*> x .: "SizeInBytes")
+                   (x .:? "Name") <*> (x .: "OwnerId") <*>
+                     (x .: "CreationToken")
+                     <*> (x .: "FileSystemId")
+                     <*> (x .: "CreationTime")
+                     <*> (x .: "LifeCycleState")
+                     <*> (x .: "NumberOfMountTargets")
+                     <*> (x .: "SizeInBytes"))
 
 -- | /See:/ 'fileSystemSize' smart constructor.
 --
@@ -211,7 +211,7 @@ instance FromJSON FileSystemSize where
           = withObject "FileSystemSize"
               (\ x ->
                  FileSystemSize' <$>
-                   x .:? "Timestamp" <*> x .: "Value")
+                   (x .:? "Timestamp") <*> (x .: "Value"))
 
 data LifeCycleState = Deleting | Creating | Deleted | Available deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -295,12 +295,12 @@ instance FromJSON MountTargetDescription where
           = withObject "MountTargetDescription"
               (\ x ->
                  MountTargetDescription' <$>
-                   x .:? "IpAddress" <*> x .:? "NetworkInterfaceId" <*>
-                     x .:? "OwnerId"
-                     <*> x .: "MountTargetId"
-                     <*> x .: "FileSystemId"
-                     <*> x .: "SubnetId"
-                     <*> x .: "LifeCycleState")
+                   (x .:? "IpAddress") <*> (x .:? "NetworkInterfaceId")
+                     <*> (x .:? "OwnerId")
+                     <*> (x .: "MountTargetId")
+                     <*> (x .: "FileSystemId")
+                     <*> (x .: "SubnetId")
+                     <*> (x .: "LifeCycleState"))
 
 -- | /See:/ 'tag' smart constructor.
 --
@@ -326,7 +326,7 @@ tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
 instance FromJSON Tag where
         parseJSON
           = withObject "Tag"
-              (\ x -> Tag' <$> x .: "Key" <*> x .: "Value")
+              (\ x -> Tag' <$> (x .: "Key") <*> (x .: "Value"))
 
 instance ToJSON Tag where
         toJSON Tag'{..}

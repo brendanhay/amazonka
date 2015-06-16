@@ -98,7 +98,7 @@ instance AWSRequest DescribeStream where
           = receiveJSON
               (\ s h x ->
                  DescribeStreamResponse' <$>
-                   x .:> "StreamDescription")
+                   (x .:> "StreamDescription"))
 
 instance ToHeaders DescribeStream where
         toHeaders

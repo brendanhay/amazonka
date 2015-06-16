@@ -102,7 +102,7 @@ instance AWSRequest CreateSAMLProvider where
           = receiveXMLWrapper "CreateSAMLProviderResult"
               (\ s h x ->
                  CreateSAMLProviderResponse' <$>
-                   x .@? "SAMLProviderArn")
+                   (x .@? "SAMLProviderArn"))
 
 instance ToHeaders CreateSAMLProvider where
         toHeaders = const mempty

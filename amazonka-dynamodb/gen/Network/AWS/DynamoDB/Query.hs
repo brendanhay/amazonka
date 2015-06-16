@@ -649,10 +649,11 @@ instance AWSRequest Query where
           = receiveJSON
               (\ s h x ->
                  QueryResponse' <$>
-                   x .?> "LastEvaluatedKey" .!@ mempty <*> x .?> "Count"
-                     <*> x .?> "ScannedCount"
-                     <*> x .?> "Items" .!@ mempty
-                     <*> x .?> "ConsumedCapacity")
+                   (x .?> "LastEvaluatedKey" .!@ mempty) <*>
+                     (x .?> "Count")
+                     <*> (x .?> "ScannedCount")
+                     <*> (x .?> "Items" .!@ mempty)
+                     <*> (x .?> "ConsumedCapacity"))
 
 instance ToHeaders Query where
         toHeaders

@@ -55,8 +55,8 @@ describeConfigurationRecorders :: DescribeConfigurationRecorders
 describeConfigurationRecorders = DescribeConfigurationRecorders'{_dcrConfigurationRecorderNames = Nothing};
 
 -- | A list of configuration recorder names.
-dcrConfigurationRecorderNames :: Lens' DescribeConfigurationRecorders (Maybe [Text])
-dcrConfigurationRecorderNames = lens _dcrConfigurationRecorderNames (\ s a -> s{_dcrConfigurationRecorderNames = a});
+dcrConfigurationRecorderNames :: Lens' DescribeConfigurationRecorders [Text]
+dcrConfigurationRecorderNames = lens _dcrConfigurationRecorderNames (\ s a -> s{_dcrConfigurationRecorderNames = a}) . _Default;
 
 instance AWSRequest DescribeConfigurationRecorders
          where
@@ -68,7 +68,7 @@ instance AWSRequest DescribeConfigurationRecorders
           = receiveJSON
               (\ s h x ->
                  DescribeConfigurationRecordersResponse' <$>
-                   x .?> "ConfigurationRecorders" .!@ mempty)
+                   (x .?> "ConfigurationRecorders" .!@ mempty))
 
 instance ToHeaders DescribeConfigurationRecorders
          where
@@ -106,5 +106,5 @@ describeConfigurationRecordersResponse = DescribeConfigurationRecordersResponse'
 
 -- | A list that contains the descriptions of the specified configuration
 -- recorders.
-dcrrConfigurationRecorders :: Lens' DescribeConfigurationRecordersResponse (Maybe [ConfigurationRecorder])
-dcrrConfigurationRecorders = lens _dcrrConfigurationRecorders (\ s a -> s{_dcrrConfigurationRecorders = a});
+dcrrConfigurationRecorders :: Lens' DescribeConfigurationRecordersResponse [ConfigurationRecorder]
+dcrrConfigurationRecorders = lens _dcrrConfigurationRecorders (\ s a -> s{_dcrrConfigurationRecorders = a}) . _Default;

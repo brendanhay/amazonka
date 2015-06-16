@@ -119,15 +119,15 @@ instance AWSRequest ListEntitiesForPolicy where
               (\ s h x ->
                  ListEntitiesForPolicyResponse' <$>
                    (x .@? "PolicyGroups" .!@ mempty >>=
-                      parseXMLList "member")
+                      may (parseXMLList "member"))
                      <*>
                      (x .@? "PolicyRoles" .!@ mempty >>=
-                        parseXMLList "member")
+                        may (parseXMLList "member"))
                      <*>
                      (x .@? "PolicyUsers" .!@ mempty >>=
-                        parseXMLList "member")
-                     <*> x .@? "Marker"
-                     <*> x .@? "IsTruncated")
+                        may (parseXMLList "member"))
+                     <*> (x .@? "Marker")
+                     <*> (x .@? "IsTruncated"))
 
 instance ToHeaders ListEntitiesForPolicy where
         toHeaders = const mempty
@@ -165,16 +165,16 @@ listEntitiesForPolicyResponse :: ListEntitiesForPolicyResponse
 listEntitiesForPolicyResponse = ListEntitiesForPolicyResponse'{_lefprPolicyGroups = Nothing, _lefprPolicyRoles = Nothing, _lefprPolicyUsers = Nothing, _lefprMarker = Nothing, _lefprIsTruncated = Nothing};
 
 -- | A list of groups that the policy is attached to.
-lefprPolicyGroups :: Lens' ListEntitiesForPolicyResponse (Maybe [PolicyGroup])
-lefprPolicyGroups = lens _lefprPolicyGroups (\ s a -> s{_lefprPolicyGroups = a});
+lefprPolicyGroups :: Lens' ListEntitiesForPolicyResponse [PolicyGroup]
+lefprPolicyGroups = lens _lefprPolicyGroups (\ s a -> s{_lefprPolicyGroups = a}) . _Default;
 
 -- | A list of roles that the policy is attached to.
-lefprPolicyRoles :: Lens' ListEntitiesForPolicyResponse (Maybe [PolicyRole])
-lefprPolicyRoles = lens _lefprPolicyRoles (\ s a -> s{_lefprPolicyRoles = a});
+lefprPolicyRoles :: Lens' ListEntitiesForPolicyResponse [PolicyRole]
+lefprPolicyRoles = lens _lefprPolicyRoles (\ s a -> s{_lefprPolicyRoles = a}) . _Default;
 
 -- | A list of users that the policy is attached to.
-lefprPolicyUsers :: Lens' ListEntitiesForPolicyResponse (Maybe [PolicyUser])
-lefprPolicyUsers = lens _lefprPolicyUsers (\ s a -> s{_lefprPolicyUsers = a});
+lefprPolicyUsers :: Lens' ListEntitiesForPolicyResponse [PolicyUser]
+lefprPolicyUsers = lens _lefprPolicyUsers (\ s a -> s{_lefprPolicyUsers = a}) . _Default;
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination

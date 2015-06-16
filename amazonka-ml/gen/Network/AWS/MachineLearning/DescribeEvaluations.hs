@@ -181,7 +181,7 @@ instance AWSRequest DescribeEvaluations where
           = receiveJSON
               (\ s h x ->
                  DescribeEvaluationsResponse' <$>
-                   x .?> "Results" .!@ mempty <*> x .?> "NextToken")
+                   (x .?> "Results" .!@ mempty) <*> (x .?> "NextToken"))
 
 instance ToHeaders DescribeEvaluations where
         toHeaders
@@ -223,8 +223,8 @@ describeEvaluationsResponse :: DescribeEvaluationsResponse
 describeEvaluationsResponse = DescribeEvaluationsResponse'{_derResults = Nothing, _derNextToken = Nothing};
 
 -- | A list of Evaluation that meet the search criteria.
-derResults :: Lens' DescribeEvaluationsResponse (Maybe [Evaluation])
-derResults = lens _derResults (\ s a -> s{_derResults = a});
+derResults :: Lens' DescribeEvaluationsResponse [Evaluation]
+derResults = lens _derResults (\ s a -> s{_derResults = a}) . _Default;
 
 -- | The ID of the next page in the paginated results that indicates at least
 -- one more page follows.

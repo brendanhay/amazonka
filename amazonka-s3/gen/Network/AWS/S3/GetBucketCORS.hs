@@ -61,7 +61,8 @@ instance AWSRequest GetBucketCORS where
         response
           = receiveXML
               (\ s h x ->
-                 GetBucketCORSResponse' <$> parseXMLList "CORSRule" x)
+                 GetBucketCORSResponse' <$>
+                   (may (parseXMLList "CORSRule") x))
 
 instance ToHeaders GetBucketCORS where
         toHeaders = const mempty
@@ -85,5 +86,5 @@ getBucketCORSResponse :: GetBucketCORSResponse
 getBucketCORSResponse = GetBucketCORSResponse'{_gbcrCORSRules = Nothing};
 
 -- | FIXME: Undocumented member.
-gbcrCORSRules :: Lens' GetBucketCORSResponse (Maybe [CORSRule])
-gbcrCORSRules = lens _gbcrCORSRules (\ s a -> s{_gbcrCORSRules = a});
+gbcrCORSRules :: Lens' GetBucketCORSResponse [CORSRule]
+gbcrCORSRules = lens _gbcrCORSRules (\ s a -> s{_gbcrCORSRules = a}) . _Default;

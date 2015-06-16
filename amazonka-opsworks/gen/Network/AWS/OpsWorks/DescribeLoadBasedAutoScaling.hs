@@ -72,8 +72,8 @@ instance AWSRequest DescribeLoadBasedAutoScaling
           = receiveJSON
               (\ s h x ->
                  DescribeLoadBasedAutoScalingResponse' <$>
-                   x .?> "LoadBasedAutoScalingConfigurations" .!@
-                     mempty)
+                   (x .?> "LoadBasedAutoScalingConfigurations" .!@
+                      mempty))
 
 instance ToHeaders DescribeLoadBasedAutoScaling where
         toHeaders
@@ -108,5 +108,5 @@ describeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse'{_dl
 
 -- | An array of @LoadBasedAutoScalingConfiguration@ objects that describe
 -- each layer\'s configuration.
-dlbasrLoadBasedAutoScalingConfigurations :: Lens' DescribeLoadBasedAutoScalingResponse (Maybe [LoadBasedAutoScalingConfiguration])
-dlbasrLoadBasedAutoScalingConfigurations = lens _dlbasrLoadBasedAutoScalingConfigurations (\ s a -> s{_dlbasrLoadBasedAutoScalingConfigurations = a});
+dlbasrLoadBasedAutoScalingConfigurations :: Lens' DescribeLoadBasedAutoScalingResponse [LoadBasedAutoScalingConfiguration]
+dlbasrLoadBasedAutoScalingConfigurations = lens _dlbasrLoadBasedAutoScalingConfigurations (\ s a -> s{_dlbasrLoadBasedAutoScalingConfigurations = a}) . _Default;

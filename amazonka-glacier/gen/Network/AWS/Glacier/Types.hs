@@ -220,9 +220,9 @@ instance FromJSON ArchiveCreationOutput where
           = withObject "ArchiveCreationOutput"
               (\ x ->
                  ArchiveCreationOutput' <$>
-                   x .:? "x-amz-archive-id" <*>
-                     x .:? "x-amz-sha256-tree-hash"
-                     <*> x .:? "Location")
+                   (x .:? "x-amz-archive-id") <*>
+                     (x .:? "x-amz-sha256-tree-hash")
+                     <*> (x .:? "Location"))
 
 -- | /See:/ 'dataRetrievalPolicy' smart constructor.
 --
@@ -238,14 +238,14 @@ dataRetrievalPolicy = DataRetrievalPolicy'{_drpRules = Nothing};
 -- | The policy rule. Although this is a list type, currently there must be
 -- only one rule, which contains a Strategy field and optionally a
 -- BytesPerHour field.
-drpRules :: Lens' DataRetrievalPolicy (Maybe [DataRetrievalRule])
-drpRules = lens _drpRules (\ s a -> s{_drpRules = a});
+drpRules :: Lens' DataRetrievalPolicy [DataRetrievalRule]
+drpRules = lens _drpRules (\ s a -> s{_drpRules = a}) . _Default;
 
 instance FromJSON DataRetrievalPolicy where
         parseJSON
           = withObject "DataRetrievalPolicy"
               (\ x ->
-                 DataRetrievalPolicy' <$> x .:? "Rules" .!= mempty)
+                 DataRetrievalPolicy' <$> (x .:? "Rules" .!= mempty))
 
 instance ToJSON DataRetrievalPolicy where
         toJSON DataRetrievalPolicy'{..}
@@ -283,7 +283,7 @@ instance FromJSON DataRetrievalRule where
           = withObject "DataRetrievalRule"
               (\ x ->
                  DataRetrievalRule' <$>
-                   x .:? "Strategy" <*> x .:? "BytesPerHour")
+                   (x .:? "Strategy") <*> (x .:? "BytesPerHour"))
 
 instance ToJSON DataRetrievalRule where
         toJSON DataRetrievalRule'{..}
@@ -348,11 +348,11 @@ instance FromJSON DescribeVaultOutput where
           = withObject "DescribeVaultOutput"
               (\ x ->
                  DescribeVaultOutput' <$>
-                   x .:? "VaultName" <*> x .:? "SizeInBytes" <*>
-                     x .:? "LastInventoryDate"
-                     <*> x .:? "VaultARN"
-                     <*> x .:? "CreationDate"
-                     <*> x .:? "NumberOfArchives")
+                   (x .:? "VaultName") <*> (x .:? "SizeInBytes") <*>
+                     (x .:? "LastInventoryDate")
+                     <*> (x .:? "VaultARN")
+                     <*> (x .:? "CreationDate")
+                     <*> (x .:? "NumberOfArchives"))
 
 -- | /See:/ 'glacierJobDescription' smart constructor.
 --
@@ -504,22 +504,22 @@ instance FromJSON GlacierJobDescription where
           = withObject "GlacierJobDescription"
               (\ x ->
                  GlacierJobDescription' <$>
-                   x .:? "ArchiveId" <*> x .:? "SHA256TreeHash" <*>
-                     x .:? "JobId"
-                     <*> x .:? "RetrievalByteRange"
-                     <*> x .:? "InventoryRetrievalParameters"
-                     <*> x .:? "Action"
-                     <*> x .:? "JobDescription"
-                     <*> x .:? "SNSTopic"
-                     <*> x .:? "VaultARN"
-                     <*> x .:? "StatusMessage"
-                     <*> x .:? "ArchiveSHA256TreeHash"
-                     <*> x .:? "CreationDate"
-                     <*> x .:? "Completed"
-                     <*> x .:? "CompletionDate"
-                     <*> x .:? "ArchiveSizeInBytes"
-                     <*> x .:? "StatusCode"
-                     <*> x .:? "InventorySizeInBytes")
+                   (x .:? "ArchiveId") <*> (x .:? "SHA256TreeHash") <*>
+                     (x .:? "JobId")
+                     <*> (x .:? "RetrievalByteRange")
+                     <*> (x .:? "InventoryRetrievalParameters")
+                     <*> (x .:? "Action")
+                     <*> (x .:? "JobDescription")
+                     <*> (x .:? "SNSTopic")
+                     <*> (x .:? "VaultARN")
+                     <*> (x .:? "StatusMessage")
+                     <*> (x .:? "ArchiveSHA256TreeHash")
+                     <*> (x .:? "CreationDate")
+                     <*> (x .:? "Completed")
+                     <*> (x .:? "CompletionDate")
+                     <*> (x .:? "ArchiveSizeInBytes")
+                     <*> (x .:? "StatusCode")
+                     <*> (x .:? "InventorySizeInBytes"))
 
 -- | /See:/ 'inventoryRetrievalJobDescription' smart constructor.
 --
@@ -579,10 +579,10 @@ instance FromJSON InventoryRetrievalJobDescription
           = withObject "InventoryRetrievalJobDescription"
               (\ x ->
                  InventoryRetrievalJobDescription' <$>
-                   x .:? "Format" <*> x .:? "EndDate" <*>
-                     x .:? "StartDate"
-                     <*> x .:? "Marker"
-                     <*> x .:? "Limit")
+                   (x .:? "Format") <*> (x .:? "EndDate") <*>
+                     (x .:? "StartDate")
+                     <*> (x .:? "Marker")
+                     <*> (x .:? "Limit"))
 
 -- | /See:/ 'inventoryRetrievalJobInput' smart constructor.
 --
@@ -745,7 +745,7 @@ instance FromJSON PartListElement where
           = withObject "PartListElement"
               (\ x ->
                  PartListElement' <$>
-                   x .:? "SHA256TreeHash" <*> x .:? "RangeInBytes")
+                   (x .:? "SHA256TreeHash") <*> (x .:? "RangeInBytes"))
 
 data StatusCode = InProgress | Succeeded | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -816,11 +816,11 @@ instance FromJSON UploadListElement where
           = withObject "UploadListElement"
               (\ x ->
                  UploadListElement' <$>
-                   x .:? "MultipartUploadId" <*>
-                     x .:? "ArchiveDescription"
-                     <*> x .:? "PartSizeInBytes"
-                     <*> x .:? "VaultARN"
-                     <*> x .:? "CreationDate")
+                   (x .:? "MultipartUploadId") <*>
+                     (x .:? "ArchiveDescription")
+                     <*> (x .:? "PartSizeInBytes")
+                     <*> (x .:? "VaultARN")
+                     <*> (x .:? "CreationDate"))
 
 -- | /See:/ 'vaultAccessPolicy' smart constructor.
 --
@@ -840,7 +840,7 @@ vapPolicy = lens _vapPolicy (\ s a -> s{_vapPolicy = a});
 instance FromJSON VaultAccessPolicy where
         parseJSON
           = withObject "VaultAccessPolicy"
-              (\ x -> VaultAccessPolicy' <$> x .:? "Policy")
+              (\ x -> VaultAccessPolicy' <$> (x .:? "Policy"))
 
 instance ToJSON VaultAccessPolicy where
         toJSON VaultAccessPolicy'{..}
@@ -866,15 +866,15 @@ vncSNSTopic = lens _vncSNSTopic (\ s a -> s{_vncSNSTopic = a});
 
 -- | A list of one or more events for which Amazon Glacier will send a
 -- notification to the specified Amazon SNS topic.
-vncEvents :: Lens' VaultNotificationConfig (Maybe [Text])
-vncEvents = lens _vncEvents (\ s a -> s{_vncEvents = a});
+vncEvents :: Lens' VaultNotificationConfig [Text]
+vncEvents = lens _vncEvents (\ s a -> s{_vncEvents = a}) . _Default;
 
 instance FromJSON VaultNotificationConfig where
         parseJSON
           = withObject "VaultNotificationConfig"
               (\ x ->
                  VaultNotificationConfig' <$>
-                   x .:? "SNSTopic" <*> x .:? "Events" .!= mempty)
+                   (x .:? "SNSTopic") <*> (x .:? "Events" .!= mempty))
 
 instance ToJSON VaultNotificationConfig where
         toJSON VaultNotificationConfig'{..}

@@ -463,12 +463,12 @@ instance FromJSON Artwork where
           = withObject "Artwork"
               (\ x ->
                  Artwork' <$>
-                   x .:? "SizingPolicy" <*> x .:? "MaxHeight" <*>
-                     x .:? "AlbumArtFormat"
-                     <*> x .:? "InputKey"
-                     <*> x .:? "PaddingPolicy"
-                     <*> x .:? "Encryption"
-                     <*> x .:? "MaxWidth")
+                   (x .:? "SizingPolicy") <*> (x .:? "MaxHeight") <*>
+                     (x .:? "AlbumArtFormat")
+                     <*> (x .:? "InputKey")
+                     <*> (x .:? "PaddingPolicy")
+                     <*> (x .:? "Encryption")
+                     <*> (x .:? "MaxWidth"))
 
 instance ToJSON Artwork where
         toJSON Artwork'{..}
@@ -559,9 +559,9 @@ instance FromJSON AudioCodecOptions where
           = withObject "AudioCodecOptions"
               (\ x ->
                  AudioCodecOptions' <$>
-                   x .:? "BitDepth" <*> x .:? "Signed" <*>
-                     x .:? "Profile"
-                     <*> x .:? "BitOrder")
+                   (x .:? "BitDepth") <*> (x .:? "Signed") <*>
+                     (x .:? "Profile")
+                     <*> (x .:? "BitOrder"))
 
 instance ToJSON AudioCodecOptions where
         toJSON AudioCodecOptions'{..}
@@ -744,11 +744,11 @@ instance FromJSON AudioParameters where
           = withObject "AudioParameters"
               (\ x ->
                  AudioParameters' <$>
-                   x .:? "Channels" <*> x .:? "Codec" <*>
-                     x .:? "AudioPackingMode"
-                     <*> x .:? "SampleRate"
-                     <*> x .:? "BitRate"
-                     <*> x .:? "CodecOptions")
+                   (x .:? "Channels") <*> (x .:? "Codec") <*>
+                     (x .:? "AudioPackingMode")
+                     <*> (x .:? "SampleRate")
+                     <*> (x .:? "BitRate")
+                     <*> (x .:? "CodecOptions"))
 
 instance ToJSON AudioParameters where
         toJSON AudioParameters'{..}
@@ -834,8 +834,8 @@ instance FromJSON CaptionFormat where
           = withObject "CaptionFormat"
               (\ x ->
                  CaptionFormat' <$>
-                   x .:? "Pattern" <*> x .:? "Format" <*>
-                     x .:? "Encryption")
+                   (x .:? "Pattern") <*> (x .:? "Format") <*>
+                     (x .:? "Encryption"))
 
 instance ToJSON CaptionFormat where
         toJSON CaptionFormat'{..}
@@ -903,10 +903,10 @@ instance FromJSON CaptionSource where
           = withObject "CaptionSource"
               (\ x ->
                  CaptionSource' <$>
-                   x .:? "TimeOffset" <*> x .:? "Key" <*>
-                     x .:? "Encryption"
-                     <*> x .:? "Language"
-                     <*> x .:? "Label")
+                   (x .:? "TimeOffset") <*> (x .:? "Key") <*>
+                     (x .:? "Encryption")
+                     <*> (x .:? "Language")
+                     <*> (x .:? "Label"))
 
 instance ToJSON CaptionSource where
         toJSON CaptionSource'{..}
@@ -955,22 +955,22 @@ capMergePolicy = lens _capMergePolicy (\ s a -> s{_capMergePolicy = a});
 
 -- | Source files for the input sidecar captions used during the transcoding
 -- process. To omit all sidecar captions, leave @CaptionSources@ blank.
-capCaptionSources :: Lens' Captions (Maybe [CaptionSource])
-capCaptionSources = lens _capCaptionSources (\ s a -> s{_capCaptionSources = a});
+capCaptionSources :: Lens' Captions [CaptionSource]
+capCaptionSources = lens _capCaptionSources (\ s a -> s{_capCaptionSources = a}) . _Default;
 
 -- | The array of file formats for the output captions. If you leave this
 -- value blank, Elastic Transcoder returns an error.
-capCaptionFormats :: Lens' Captions (Maybe [CaptionFormat])
-capCaptionFormats = lens _capCaptionFormats (\ s a -> s{_capCaptionFormats = a});
+capCaptionFormats :: Lens' Captions [CaptionFormat]
+capCaptionFormats = lens _capCaptionFormats (\ s a -> s{_capCaptionFormats = a}) . _Default;
 
 instance FromJSON Captions where
         parseJSON
           = withObject "Captions"
               (\ x ->
                  Captions' <$>
-                   x .:? "MergePolicy" <*>
-                     x .:? "CaptionSources" .!= mempty
-                     <*> x .:? "CaptionFormats" .!= mempty)
+                   (x .:? "MergePolicy") <*>
+                     (x .:? "CaptionSources" .!= mempty)
+                     <*> (x .:? "CaptionFormats" .!= mempty))
 
 instance ToJSON Captions where
         toJSON Captions'{..}
@@ -997,7 +997,7 @@ cliTimeSpan = lens _cliTimeSpan (\ s a -> s{_cliTimeSpan = a});
 instance FromJSON Clip where
         parseJSON
           = withObject "Clip"
-              (\ x -> Clip' <$> x .:? "TimeSpan")
+              (\ x -> Clip' <$> (x .:? "TimeSpan"))
 
 instance ToJSON Clip where
         toJSON Clip'{..}
@@ -1136,8 +1136,8 @@ cjoPresetId = lens _cjoPresetId (\ s a -> s{_cjoPresetId = a});
 -- clips that make up an output file. For the current release, you can only
 -- specify settings for a single clip per output file. The Composition
 -- object cannot be null.
-cjoComposition :: Lens' CreateJobOutput (Maybe [Clip])
-cjoComposition = lens _cjoComposition (\ s a -> s{_cjoComposition = a});
+cjoComposition :: Lens' CreateJobOutput [Clip]
+cjoComposition = lens _cjoComposition (\ s a -> s{_cjoComposition = a}) . _Default;
 
 -- | Information about the album art that you want Elastic Transcoder to add
 -- to the file during transcoding. You can specify up to twenty album
@@ -1150,8 +1150,8 @@ cjoAlbumArt = lens _cjoAlbumArt (\ s a -> s{_cjoAlbumArt = a});
 -- to the video during transcoding. You can specify up to four watermarks
 -- for each output. Settings for each watermark must be defined in the
 -- preset for the current output.
-cjoWatermarks :: Lens' CreateJobOutput (Maybe [JobWatermark])
-cjoWatermarks = lens _cjoWatermarks (\ s a -> s{_cjoWatermarks = a});
+cjoWatermarks :: Lens' CreateJobOutput [JobWatermark]
+cjoWatermarks = lens _cjoWatermarks (\ s a -> s{_cjoWatermarks = a}) . _Default;
 
 -- | The name to assign to the transcoded file. Elastic Transcoder saves the
 -- file in the Amazon S3 bucket specified by the @OutputBucket@ object in
@@ -1280,8 +1280,8 @@ cjpPlayReadyDrm = lens _cjpPlayReadyDrm (\ s a -> s{_cjpPlayReadyDrm = a});
 -- outputs in the playlist. For @Smooth@ playlists, the @Audio:Profile@,
 -- @Video:Profile@, and @Video:FrameRate@ to @Video:KeyframesMaxDist@ ratio
 -- must be the same for all outputs.
-cjpOutputKeys :: Lens' CreateJobPlaylist (Maybe [Text])
-cjpOutputKeys = lens _cjpOutputKeys (\ s a -> s{_cjpOutputKeys = a});
+cjpOutputKeys :: Lens' CreateJobPlaylist [Text]
+cjpOutputKeys = lens _cjpOutputKeys (\ s a -> s{_cjpOutputKeys = a}) . _Default;
 
 -- | The format of the output playlist. Valid formats include @HLSv3@,
 -- @HLSv4@, and @Smooth@.
@@ -1358,10 +1358,10 @@ instance FromJSON DetectedProperties where
           = withObject "DetectedProperties"
               (\ x ->
                  DetectedProperties' <$>
-                   x .:? "Height" <*> x .:? "FrameRate" <*>
-                     x .:? "FileSize"
-                     <*> x .:? "Width"
-                     <*> x .:? "DurationMillis")
+                   (x .:? "Height") <*> (x .:? "FrameRate") <*>
+                     (x .:? "FileSize")
+                     <*> (x .:? "Width")
+                     <*> (x .:? "DurationMillis"))
 
 instance ToJSON DetectedProperties where
         toJSON DetectedProperties'{..}
@@ -1459,8 +1459,8 @@ instance FromJSON Encryption where
           = withObject "Encryption"
               (\ x ->
                  Encryption' <$>
-                   x .:? "KeyMd5" <*> x .:? "Mode" <*> x .:? "Key" <*>
-                     x .:? "InitializationVector")
+                   (x .:? "KeyMd5") <*> (x .:? "Mode") <*> (x .:? "Key")
+                     <*> (x .:? "InitializationVector"))
 
 instance ToJSON Encryption where
         toJSON Encryption'{..}
@@ -1549,11 +1549,11 @@ instance FromJSON HlsContentProtection where
           = withObject "HlsContentProtection"
               (\ x ->
                  HlsContentProtection' <$>
-                   x .:? "KeyMd5" <*> x .:? "KeyStoragePolicy" <*>
-                     x .:? "Key"
-                     <*> x .:? "Method"
-                     <*> x .:? "LicenseAcquisitionUrl"
-                     <*> x .:? "InitializationVector")
+                   (x .:? "KeyMd5") <*> (x .:? "KeyStoragePolicy") <*>
+                     (x .:? "Key")
+                     <*> (x .:? "Method")
+                     <*> (x .:? "LicenseAcquisitionUrl")
+                     <*> (x .:? "InitializationVector"))
 
 instance ToJSON HlsContentProtection where
         toJSON HlsContentProtection'{..}
@@ -1589,7 +1589,7 @@ instance ToJSON HlsContentProtection where
 -- * 'jobTiming'
 --
 -- * 'jobOutputKeyPrefix'
-data Job' = Job''{_jobStatus :: Maybe Text, _jobPipelineId :: Maybe Text, _jobARN :: Maybe Text, _jobInput :: Maybe JobInput, _jobOutputs :: Maybe [JobOutput], _jobUserMetadata :: Maybe (HashMap Text Text), _jobOutput :: Maybe JobOutput, _jobId :: Maybe Text, _jobPlaylists :: Maybe [Playlist], _jobTiming :: Maybe Timing, _jobOutputKeyPrefix :: Maybe Text} deriving (Eq, Read, Show)
+data Job' = Job''{_jobStatus :: Maybe Text, _jobPipelineId :: Maybe Text, _jobARN :: Maybe Text, _jobInput :: Maybe JobInput, _jobOutputs :: Maybe [JobOutput], _jobUserMetadata :: Maybe (Map Text Text), _jobOutput :: Maybe JobOutput, _jobId :: Maybe Text, _jobPlaylists :: Maybe [Playlist], _jobTiming :: Maybe Timing, _jobOutputKeyPrefix :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'Job'' smart constructor.
 job' :: Job'
@@ -1626,8 +1626,8 @@ jobInput = lens _jobInput (\ s a -> s{_jobInput = a});
 -- If you specify more than one output for a job, Elastic Transcoder
 -- creates the files for each output in the order in which you specify them
 -- in the job.
-jobOutputs :: Lens' Job' (Maybe [JobOutput])
-jobOutputs = lens _jobOutputs (\ s a -> s{_jobOutputs = a});
+jobOutputs :: Lens' Job' [JobOutput]
+jobOutputs = lens _jobOutputs (\ s a -> s{_jobOutputs = a}) . _Default;
 
 -- | User-defined metadata that you want to associate with an Elastic
 -- Transcoder job. You specify metadata in @key\/value@ pairs, and you can
@@ -1646,8 +1646,8 @@ jobOutputs = lens _jobOutputs (\ s a -> s{_jobOutputs = a});
 --
 -- -   The following symbols: @_.:\/=+-%\@@
 --
-jobUserMetadata :: Lens' Job' (Maybe (HashMap Text Text))
-jobUserMetadata = lens _jobUserMetadata (\ s a -> s{_jobUserMetadata = a}) . mapping _Coerce;
+jobUserMetadata :: Lens' Job' (Map Text Text)
+jobUserMetadata = lens _jobUserMetadata (\ s a -> s{_jobUserMetadata = a}) . _Default . _Map;
 
 -- | If you specified one output for a job, information about that output. If
 -- you specified multiple outputs for a job, the Output object lists
@@ -1674,8 +1674,8 @@ jobId = lens _jobId (\ s a -> s{_jobId = a});
 -- to create.
 --
 -- The maximum number of master playlists in a job is 30.
-jobPlaylists :: Lens' Job' (Maybe [Playlist])
-jobPlaylists = lens _jobPlaylists (\ s a -> s{_jobPlaylists = a});
+jobPlaylists :: Lens' Job' [Playlist]
+jobPlaylists = lens _jobPlaylists (\ s a -> s{_jobPlaylists = a}) . _Default;
 
 -- | Details about the timing of a job.
 jobTiming :: Lens' Job' (Maybe Timing)
@@ -1693,15 +1693,16 @@ instance FromJSON Job' where
           = withObject "Job'"
               (\ x ->
                  Job'' <$>
-                   x .:? "Status" <*> x .:? "PipelineId" <*> x .:? "Arn"
-                     <*> x .:? "Input"
-                     <*> x .:? "Outputs" .!= mempty
-                     <*> x .:? "UserMetadata" .!= mempty
-                     <*> x .:? "Output"
-                     <*> x .:? "Id"
-                     <*> x .:? "Playlists" .!= mempty
-                     <*> x .:? "Timing"
-                     <*> x .:? "OutputKeyPrefix")
+                   (x .:? "Status") <*> (x .:? "PipelineId") <*>
+                     (x .:? "Arn")
+                     <*> (x .:? "Input")
+                     <*> (x .:? "Outputs" .!= mempty)
+                     <*> (x .:? "UserMetadata" .!= mempty)
+                     <*> (x .:? "Output")
+                     <*> (x .:? "Id")
+                     <*> (x .:? "Playlists" .!= mempty)
+                     <*> (x .:? "Timing")
+                     <*> (x .:? "OutputKeyPrefix"))
 
 -- | /See:/ 'jobAlbumArt' smart constructor.
 --
@@ -1735,15 +1736,16 @@ jaaMergePolicy = lens _jaaMergePolicy (\ s a -> s{_jaaMergePolicy = a});
 -- | The file to be used as album art. There can be multiple artworks
 -- associated with an audio file, to a maximum of 20. Valid formats are
 -- @.jpg@ and @.png@
-jaaArtwork :: Lens' JobAlbumArt (Maybe [Artwork])
-jaaArtwork = lens _jaaArtwork (\ s a -> s{_jaaArtwork = a});
+jaaArtwork :: Lens' JobAlbumArt [Artwork]
+jaaArtwork = lens _jaaArtwork (\ s a -> s{_jaaArtwork = a}) . _Default;
 
 instance FromJSON JobAlbumArt where
         parseJSON
           = withObject "JobAlbumArt"
               (\ x ->
                  JobAlbumArt' <$>
-                   x .:? "MergePolicy" <*> x .:? "Artwork" .!= mempty)
+                   (x .:? "MergePolicy") <*>
+                     (x .:? "Artwork" .!= mempty))
 
 instance ToJSON JobAlbumArt where
         toJSON JobAlbumArt'{..}
@@ -1853,13 +1855,13 @@ instance FromJSON JobInput where
           = withObject "JobInput"
               (\ x ->
                  JobInput' <$>
-                   x .:? "FrameRate" <*> x .:? "Resolution" <*>
-                     x .:? "AspectRatio"
-                     <*> x .:? "Key"
-                     <*> x .:? "DetectedProperties"
-                     <*> x .:? "Encryption"
-                     <*> x .:? "Container"
-                     <*> x .:? "Interlaced")
+                   (x .:? "FrameRate") <*> (x .:? "Resolution") <*>
+                     (x .:? "AspectRatio")
+                     <*> (x .:? "Key")
+                     <*> (x .:? "DetectedProperties")
+                     <*> (x .:? "Encryption")
+                     <*> (x .:? "Container")
+                     <*> (x .:? "Interlaced"))
 
 instance ToJSON JobInput where
         toJSON JobInput'{..}
@@ -2066,8 +2068,8 @@ joPresetId = lens _joPresetId (\ s a -> s{_joPresetId = a});
 -- clips that make up an output file. For the current release, you can only
 -- specify settings for a single clip per output file. The Composition
 -- object cannot be null.
-joComposition :: Lens' JobOutput (Maybe [Clip])
-joComposition = lens _joComposition (\ s a -> s{_joComposition = a});
+joComposition :: Lens' JobOutput [Clip]
+joComposition = lens _joComposition (\ s a -> s{_joComposition = a}) . _Default;
 
 -- | The album art to be associated with the output file, if any.
 joAlbumArt :: Lens' JobOutput (Maybe JobAlbumArt)
@@ -2089,8 +2091,8 @@ joFileSize = lens _joFileSize (\ s a -> s{_joFileSize = a});
 -- Transcoder to place all watermarks in the same location, the second
 -- watermark that you add will cover the first one, the third one will
 -- cover the second, and the fourth one will cover the third.
-joWatermarks :: Lens' JobOutput (Maybe [JobWatermark])
-joWatermarks = lens _joWatermarks (\ s a -> s{_joWatermarks = a});
+joWatermarks :: Lens' JobOutput [JobWatermark]
+joWatermarks = lens _joWatermarks (\ s a -> s{_joWatermarks = a}) . _Default;
 
 -- | Specifies the width of the output file in pixels.
 joWidth :: Lens' JobOutput (Maybe Int)
@@ -2170,27 +2172,27 @@ instance FromJSON JobOutput where
           = withObject "JobOutput"
               (\ x ->
                  JobOutput' <$>
-                   x .:? "AppliedColorSpaceConversion" <*>
-                     x .:? "Status"
-                     <*> x .:? "ThumbnailPattern"
-                     <*> x .:? "Height"
-                     <*> x .:? "FrameRate"
-                     <*> x .:? "Captions"
-                     <*> x .:? "PresetId"
-                     <*> x .:? "Composition" .!= mempty
-                     <*> x .:? "AlbumArt"
-                     <*> x .:? "FileSize"
-                     <*> x .:? "Watermarks" .!= mempty
-                     <*> x .:? "Width"
-                     <*> x .:? "Key"
-                     <*> x .:? "Encryption"
-                     <*> x .:? "Id"
-                     <*> x .:? "SegmentDuration"
-                     <*> x .:? "StatusDetail"
-                     <*> x .:? "DurationMillis"
-                     <*> x .:? "ThumbnailEncryption"
-                     <*> x .:? "Duration"
-                     <*> x .:? "Rotate")
+                   (x .:? "AppliedColorSpaceConversion") <*>
+                     (x .:? "Status")
+                     <*> (x .:? "ThumbnailPattern")
+                     <*> (x .:? "Height")
+                     <*> (x .:? "FrameRate")
+                     <*> (x .:? "Captions")
+                     <*> (x .:? "PresetId")
+                     <*> (x .:? "Composition" .!= mempty)
+                     <*> (x .:? "AlbumArt")
+                     <*> (x .:? "FileSize")
+                     <*> (x .:? "Watermarks" .!= mempty)
+                     <*> (x .:? "Width")
+                     <*> (x .:? "Key")
+                     <*> (x .:? "Encryption")
+                     <*> (x .:? "Id")
+                     <*> (x .:? "SegmentDuration")
+                     <*> (x .:? "StatusDetail")
+                     <*> (x .:? "DurationMillis")
+                     <*> (x .:? "ThumbnailEncryption")
+                     <*> (x .:? "Duration")
+                     <*> (x .:? "Rotate"))
 
 -- | /See:/ 'jobWatermark' smart constructor.
 --
@@ -2235,8 +2237,8 @@ instance FromJSON JobWatermark where
           = withObject "JobWatermark"
               (\ x ->
                  JobWatermark' <$>
-                   x .:? "PresetWatermarkId" <*> x .:? "InputKey" <*>
-                     x .:? "Encryption")
+                   (x .:? "PresetWatermarkId") <*> (x .:? "InputKey")
+                     <*> (x .:? "Encryption"))
 
 instance ToJSON JobWatermark where
         toJSON JobWatermark'{..}
@@ -2287,9 +2289,9 @@ instance FromJSON Notifications where
           = withObject "Notifications"
               (\ x ->
                  Notifications' <$>
-                   x .:? "Error" <*> x .:? "Warning" <*>
-                     x .:? "Completed"
-                     <*> x .:? "Progressing")
+                   (x .:? "Error") <*> (x .:? "Warning") <*>
+                     (x .:? "Completed")
+                     <*> (x .:? "Progressing"))
 
 instance ToJSON Notifications where
         toJSON Notifications'{..}
@@ -2325,8 +2327,8 @@ permission = Permission'{_perAccess = Nothing, _perGranteeType = Nothing, _perGr
 -- -   @FULL_CONTROL@: The grantee has READ, READ_ACP, and WRITE_ACP
 --     permissions for the thumbnails that Elastic Transcoder adds to the
 --     Amazon S3 bucket.
-perAccess :: Lens' Permission (Maybe [Text])
-perAccess = lens _perAccess (\ s a -> s{_perAccess = a});
+perAccess :: Lens' Permission [Text]
+perAccess = lens _perAccess (\ s a -> s{_perAccess = a}) . _Default;
 
 -- | The type of value that appears in the Grantee object:
 --
@@ -2352,8 +2354,8 @@ instance FromJSON Permission where
           = withObject "Permission"
               (\ x ->
                  Permission' <$>
-                   x .:? "Access" .!= mempty <*> x .:? "GranteeType" <*>
-                     x .:? "Grantee")
+                   (x .:? "Access" .!= mempty) <*> (x .:? "GranteeType")
+                     <*> (x .:? "Grantee"))
 
 instance ToJSON Permission where
         toJSON Permission'{..}
@@ -2548,16 +2550,16 @@ instance FromJSON Pipeline where
           = withObject "Pipeline"
               (\ x ->
                  Pipeline' <$>
-                   x .:? "Status" <*> x .:? "Arn" <*>
-                     x .:? "InputBucket"
-                     <*> x .:? "ContentConfig"
-                     <*> x .:? "OutputBucket"
-                     <*> x .:? "Role"
-                     <*> x .:? "Name"
-                     <*> x .:? "AwsKmsKeyArn"
-                     <*> x .:? "Id"
-                     <*> x .:? "ThumbnailConfig"
-                     <*> x .:? "Notifications")
+                   (x .:? "Status") <*> (x .:? "Arn") <*>
+                     (x .:? "InputBucket")
+                     <*> (x .:? "ContentConfig")
+                     <*> (x .:? "OutputBucket")
+                     <*> (x .:? "Role")
+                     <*> (x .:? "Name")
+                     <*> (x .:? "AwsKmsKeyArn")
+                     <*> (x .:? "Id")
+                     <*> (x .:? "ThumbnailConfig")
+                     <*> (x .:? "Notifications"))
 
 -- | /See:/ 'pipelineOutputConfig' smart constructor.
 --
@@ -2614,16 +2616,16 @@ pocStorageClass = lens _pocStorageClass (\ s a -> s{_pocStorageClass = a});
 -- If you omit @Permissions@, Elastic Transcoder grants full control over
 -- the transcoded files and playlists to the owner of the role specified by
 -- @Role@, and grants no other permissions to any other user or group.
-pocPermissions :: Lens' PipelineOutputConfig (Maybe [Permission])
-pocPermissions = lens _pocPermissions (\ s a -> s{_pocPermissions = a});
+pocPermissions :: Lens' PipelineOutputConfig [Permission]
+pocPermissions = lens _pocPermissions (\ s a -> s{_pocPermissions = a}) . _Default;
 
 instance FromJSON PipelineOutputConfig where
         parseJSON
           = withObject "PipelineOutputConfig"
               (\ x ->
                  PipelineOutputConfig' <$>
-                   x .:? "Bucket" <*> x .:? "StorageClass" <*>
-                     x .:? "Permissions" .!= mempty)
+                   (x .:? "Bucket") <*> (x .:? "StorageClass") <*>
+                     (x .:? "Permissions" .!= mempty))
 
 instance ToJSON PipelineOutputConfig where
         toJSON PipelineOutputConfig'{..}
@@ -2709,10 +2711,11 @@ instance FromJSON PlayReadyDrm where
           = withObject "PlayReadyDrm"
               (\ x ->
                  PlayReadyDrm' <$>
-                   x .:? "KeyId" <*> x .:? "KeyMd5" <*> x .:? "Format"
-                     <*> x .:? "Key"
-                     <*> x .:? "LicenseAcquisitionUrl"
-                     <*> x .:? "InitializationVector")
+                   (x .:? "KeyId") <*> (x .:? "KeyMd5") <*>
+                     (x .:? "Format")
+                     <*> (x .:? "Key")
+                     <*> (x .:? "LicenseAcquisitionUrl")
+                     <*> (x .:? "InitializationVector"))
 
 instance ToJSON PlayReadyDrm where
         toJSON PlayReadyDrm'{..}
@@ -2794,8 +2797,8 @@ plaStatus = lens _plaStatus (\ s a -> s{_plaStatus = a});
 -- outputs in the playlist. For @Smooth@ playlists, the @Audio:Profile@,
 -- @Video:Profile@, and @Video:FrameRate@ to @Video:KeyframesMaxDist@ ratio
 -- must be the same for all outputs.
-plaOutputKeys :: Lens' Playlist (Maybe [Text])
-plaOutputKeys = lens _plaOutputKeys (\ s a -> s{_plaOutputKeys = a});
+plaOutputKeys :: Lens' Playlist [Text]
+plaOutputKeys = lens _plaOutputKeys (\ s a -> s{_plaOutputKeys = a}) . _Default;
 
 -- | The format of the output playlist. Valid formats include @HLSv3@,
 -- @HLSv4@, and @Smooth@.
@@ -2829,12 +2832,12 @@ instance FromJSON Playlist where
           = withObject "Playlist"
               (\ x ->
                  Playlist' <$>
-                   x .:? "PlayReadyDrm" <*> x .:? "Status" <*>
-                     x .:? "OutputKeys" .!= mempty
-                     <*> x .:? "Format"
-                     <*> x .:? "Name"
-                     <*> x .:? "HlsContentProtection"
-                     <*> x .:? "StatusDetail")
+                   (x .:? "PlayReadyDrm") <*> (x .:? "Status") <*>
+                     (x .:? "OutputKeys" .!= mempty)
+                     <*> (x .:? "Format")
+                     <*> (x .:? "Name")
+                     <*> (x .:? "HlsContentProtection")
+                     <*> (x .:? "StatusDetail"))
 
 -- | /See:/ 'preset' smart constructor.
 --
@@ -2911,13 +2914,13 @@ instance FromJSON Preset where
           = withObject "Preset"
               (\ x ->
                  Preset' <$>
-                   x .:? "Arn" <*> x .:? "Video" <*> x .:? "Name" <*>
-                     x .:? "Thumbnails"
-                     <*> x .:? "Container"
-                     <*> x .:? "Id"
-                     <*> x .:? "Type"
-                     <*> x .:? "Audio"
-                     <*> x .:? "Description")
+                   (x .:? "Arn") <*> (x .:? "Video") <*> (x .:? "Name")
+                     <*> (x .:? "Thumbnails")
+                     <*> (x .:? "Container")
+                     <*> (x .:? "Id")
+                     <*> (x .:? "Type")
+                     <*> (x .:? "Audio")
+                     <*> (x .:? "Description"))
 
 -- | /See:/ 'presetWatermark' smart constructor.
 --
@@ -3104,15 +3107,15 @@ instance FromJSON PresetWatermark where
           = withObject "PresetWatermark"
               (\ x ->
                  PresetWatermark' <$>
-                   x .:? "VerticalAlign" <*> x .:? "SizingPolicy" <*>
-                     x .:? "MaxHeight"
-                     <*> x .:? "HorizontalOffset"
-                     <*> x .:? "Opacity"
-                     <*> x .:? "VerticalOffset"
-                     <*> x .:? "MaxWidth"
-                     <*> x .:? "Id"
-                     <*> x .:? "HorizontalAlign"
-                     <*> x .:? "Target")
+                   (x .:? "VerticalAlign") <*> (x .:? "SizingPolicy")
+                     <*> (x .:? "MaxHeight")
+                     <*> (x .:? "HorizontalOffset")
+                     <*> (x .:? "Opacity")
+                     <*> (x .:? "VerticalOffset")
+                     <*> (x .:? "MaxWidth")
+                     <*> (x .:? "Id")
+                     <*> (x .:? "HorizontalAlign")
+                     <*> (x .:? "Target"))
 
 instance ToJSON PresetWatermark where
         toJSON PresetWatermark'{..}
@@ -3247,13 +3250,13 @@ instance FromJSON Thumbnails where
           = withObject "Thumbnails"
               (\ x ->
                  Thumbnails' <$>
-                   x .:? "SizingPolicy" <*> x .:? "Format" <*>
-                     x .:? "MaxHeight"
-                     <*> x .:? "Resolution"
-                     <*> x .:? "PaddingPolicy"
-                     <*> x .:? "AspectRatio"
-                     <*> x .:? "Interval"
-                     <*> x .:? "MaxWidth")
+                   (x .:? "SizingPolicy") <*> (x .:? "Format") <*>
+                     (x .:? "MaxHeight")
+                     <*> (x .:? "Resolution")
+                     <*> (x .:? "PaddingPolicy")
+                     <*> (x .:? "AspectRatio")
+                     <*> (x .:? "Interval")
+                     <*> (x .:? "MaxWidth"))
 
 instance ToJSON Thumbnails where
         toJSON Thumbnails'{..}
@@ -3301,7 +3304,8 @@ instance FromJSON TimeSpan where
         parseJSON
           = withObject "TimeSpan"
               (\ x ->
-                 TimeSpan' <$> x .:? "StartTime" <*> x .:? "Duration")
+                 TimeSpan' <$>
+                   (x .:? "StartTime") <*> (x .:? "Duration"))
 
 instance ToJSON TimeSpan where
         toJSON TimeSpan'{..}
@@ -3342,8 +3346,9 @@ instance FromJSON Timing where
           = withObject "Timing"
               (\ x ->
                  Timing' <$>
-                   x .:? "SubmitTimeMillis" <*> x .:? "FinishTimeMillis"
-                     <*> x .:? "StartTimeMillis")
+                   (x .:? "SubmitTimeMillis") <*>
+                     (x .:? "FinishTimeMillis")
+                     <*> (x .:? "StartTimeMillis"))
 
 -- | /See:/ 'videoParameters' smart constructor.
 --
@@ -3378,7 +3383,7 @@ instance FromJSON Timing where
 -- * 'vpFixedGOP'
 --
 -- * 'vpCodecOptions'
-data VideoParameters = VideoParameters'{_vpKeyframesMaxDist :: Maybe Text, _vpFrameRate :: Maybe Text, _vpSizingPolicy :: Maybe Text, _vpMaxFrameRate :: Maybe Text, _vpMaxHeight :: Maybe Text, _vpDisplayAspectRatio :: Maybe Text, _vpWatermarks :: Maybe [PresetWatermark], _vpCodec :: Maybe Text, _vpResolution :: Maybe Text, _vpPaddingPolicy :: Maybe Text, _vpAspectRatio :: Maybe Text, _vpMaxWidth :: Maybe Text, _vpBitRate :: Maybe Text, _vpFixedGOP :: Maybe Text, _vpCodecOptions :: Maybe (HashMap Text Text)} deriving (Eq, Read, Show)
+data VideoParameters = VideoParameters'{_vpKeyframesMaxDist :: Maybe Text, _vpFrameRate :: Maybe Text, _vpSizingPolicy :: Maybe Text, _vpMaxFrameRate :: Maybe Text, _vpMaxHeight :: Maybe Text, _vpDisplayAspectRatio :: Maybe Text, _vpWatermarks :: Maybe [PresetWatermark], _vpCodec :: Maybe Text, _vpResolution :: Maybe Text, _vpPaddingPolicy :: Maybe Text, _vpAspectRatio :: Maybe Text, _vpMaxWidth :: Maybe Text, _vpBitRate :: Maybe Text, _vpFixedGOP :: Maybe Text, _vpCodecOptions :: Maybe (Map Text Text)} deriving (Eq, Read, Show)
 
 -- | 'VideoParameters' smart constructor.
 videoParameters :: VideoParameters
@@ -3513,8 +3518,8 @@ vpDisplayAspectRatio = lens _vpDisplayAspectRatio (\ s a -> s{_vpDisplayAspectRa
 -- transcoded videos. You can specify fewer graphics in the job than you
 -- specify watermark settings in the preset, which allows you to use the
 -- same preset for up to four watermarks that have different dimensions.
-vpWatermarks :: Lens' VideoParameters (Maybe [PresetWatermark])
-vpWatermarks = lens _vpWatermarks (\ s a -> s{_vpWatermarks = a});
+vpWatermarks :: Lens' VideoParameters [PresetWatermark]
+vpWatermarks = lens _vpWatermarks (\ s a -> s{_vpWatermarks = a}) . _Default;
 
 -- | The video codec for the output file. Valid values include @gif@,
 -- @H.264@, @mpeg2@, and @vp8@. You can only specify @vp8@ when the
@@ -3776,28 +3781,28 @@ vpFixedGOP = lens _vpFixedGOP (\ s a -> s{_vpFixedGOP = a});
 --
 -- The number of times you want the output gif to loop. Valid values
 -- include @Infinite@ and integers between @0@ and @100@, inclusive.
-vpCodecOptions :: Lens' VideoParameters (Maybe (HashMap Text Text))
-vpCodecOptions = lens _vpCodecOptions (\ s a -> s{_vpCodecOptions = a}) . mapping _Coerce;
+vpCodecOptions :: Lens' VideoParameters (Map Text Text)
+vpCodecOptions = lens _vpCodecOptions (\ s a -> s{_vpCodecOptions = a}) . _Default . _Map;
 
 instance FromJSON VideoParameters where
         parseJSON
           = withObject "VideoParameters"
               (\ x ->
                  VideoParameters' <$>
-                   x .:? "KeyframesMaxDist" <*> x .:? "FrameRate" <*>
-                     x .:? "SizingPolicy"
-                     <*> x .:? "MaxFrameRate"
-                     <*> x .:? "MaxHeight"
-                     <*> x .:? "DisplayAspectRatio"
-                     <*> x .:? "Watermarks" .!= mempty
-                     <*> x .:? "Codec"
-                     <*> x .:? "Resolution"
-                     <*> x .:? "PaddingPolicy"
-                     <*> x .:? "AspectRatio"
-                     <*> x .:? "MaxWidth"
-                     <*> x .:? "BitRate"
-                     <*> x .:? "FixedGOP"
-                     <*> x .:? "CodecOptions" .!= mempty)
+                   (x .:? "KeyframesMaxDist") <*> (x .:? "FrameRate")
+                     <*> (x .:? "SizingPolicy")
+                     <*> (x .:? "MaxFrameRate")
+                     <*> (x .:? "MaxHeight")
+                     <*> (x .:? "DisplayAspectRatio")
+                     <*> (x .:? "Watermarks" .!= mempty)
+                     <*> (x .:? "Codec")
+                     <*> (x .:? "Resolution")
+                     <*> (x .:? "PaddingPolicy")
+                     <*> (x .:? "AspectRatio")
+                     <*> (x .:? "MaxWidth")
+                     <*> (x .:? "BitRate")
+                     <*> (x .:? "FixedGOP")
+                     <*> (x .:? "CodecOptions" .!= mempty))
 
 instance ToJSON VideoParameters where
         toJSON VideoParameters'{..}
@@ -3844,4 +3849,4 @@ instance FromJSON Warning where
         parseJSON
           = withObject "Warning"
               (\ x ->
-                 Warning' <$> x .:? "Code" <*> x .:? "Message")
+                 Warning' <$> (x .:? "Code") <*> (x .:? "Message"))

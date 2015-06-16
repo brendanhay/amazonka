@@ -113,7 +113,7 @@ instance AWSRequest CreateReservedInstancesListing
           = receiveXML
               (\ s h x ->
                  CreateReservedInstancesListingResponse' <$>
-                   parseXMLList "item" x)
+                   (may (parseXMLList "item") x))
 
 instance ToHeaders CreateReservedInstancesListing
          where
@@ -130,7 +130,7 @@ instance ToQuery CreateReservedInstancesListing where
                "Version" =: ("2015-04-15" :: ByteString),
                "ReservedInstancesId" =: _crilReservedInstancesId,
                "InstanceCount" =: _crilInstanceCount,
-               "item" =: _crilPriceSchedules,
+               toQueryList "item" _crilPriceSchedules,
                "ClientToken" =: _crilClientToken]
 
 -- | /See:/ 'createReservedInstancesListingResponse' smart constructor.
@@ -145,5 +145,5 @@ createReservedInstancesListingResponse :: CreateReservedInstancesListingResponse
 createReservedInstancesListingResponse = CreateReservedInstancesListingResponse'{_creReservedInstancesListings = Nothing};
 
 -- | Information about the Reserved Instances listing.
-creReservedInstancesListings :: Lens' CreateReservedInstancesListingResponse (Maybe [ReservedInstancesListing])
-creReservedInstancesListings = lens _creReservedInstancesListings (\ s a -> s{_creReservedInstancesListings = a});
+creReservedInstancesListings :: Lens' CreateReservedInstancesListingResponse [ReservedInstancesListing]
+creReservedInstancesListings = lens _creReservedInstancesListings (\ s a -> s{_creReservedInstancesListings = a}) . _Default;

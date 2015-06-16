@@ -421,7 +421,7 @@ azName :: Lens' AvailabilityZone (Maybe Text)
 azName = lens _azName (\ s a -> s{_azName = a});
 
 instance FromXML AvailabilityZone where
-        parseXML x = AvailabilityZone' <$> x .@? "Name"
+        parseXML x = AvailabilityZone' <$> (x .@? "Name")
 
 -- | /See:/ 'cacheCluster' smart constructor.
 --
@@ -517,8 +517,8 @@ ccEngineVersion :: Lens' CacheCluster (Maybe Text)
 ccEngineVersion = lens _ccEngineVersion (\ s a -> s{_ccEngineVersion = a});
 
 -- | A list of cache nodes that are members of the cache cluster.
-ccCacheNodes :: Lens' CacheCluster (Maybe [CacheNode])
-ccCacheNodes = lens _ccCacheNodes (\ s a -> s{_ccCacheNodes = a});
+ccCacheNodes :: Lens' CacheCluster [CacheNode]
+ccCacheNodes = lens _ccCacheNodes (\ s a -> s{_ccCacheNodes = a}) . _Default;
 
 -- | The date and time when the cache cluster was created.
 ccCacheClusterCreateTime :: Lens' CacheCluster (Maybe UTCTime)
@@ -529,8 +529,8 @@ ccAutoMinorVersionUpgrade :: Lens' CacheCluster (Maybe Bool)
 ccAutoMinorVersionUpgrade = lens _ccAutoMinorVersionUpgrade (\ s a -> s{_ccAutoMinorVersionUpgrade = a});
 
 -- | A list of VPC Security Groups associated with the cache cluster.
-ccSecurityGroups :: Lens' CacheCluster (Maybe [SecurityGroupMembership])
-ccSecurityGroups = lens _ccSecurityGroups (\ s a -> s{_ccSecurityGroups = a});
+ccSecurityGroups :: Lens' CacheCluster [SecurityGroupMembership]
+ccSecurityGroups = lens _ccSecurityGroups (\ s a -> s{_ccSecurityGroups = a}) . _Default;
 
 -- | FIXME: Undocumented member.
 ccNotificationConfiguration :: Lens' CacheCluster (Maybe NotificationConfiguration)
@@ -559,8 +559,8 @@ ccEngine = lens _ccEngine (\ s a -> s{_ccEngine = a});
 
 -- | A list of cache security group elements, composed of name and status
 -- sub-elements.
-ccCacheSecurityGroups :: Lens' CacheCluster (Maybe [CacheSecurityGroupMembership])
-ccCacheSecurityGroups = lens _ccCacheSecurityGroups (\ s a -> s{_ccCacheSecurityGroups = a});
+ccCacheSecurityGroups :: Lens' CacheCluster [CacheSecurityGroupMembership]
+ccCacheSecurityGroups = lens _ccCacheSecurityGroups (\ s a -> s{_ccCacheSecurityGroups = a}) . _Default;
 
 -- | The URL of the web page where you can download the latest ElastiCache
 -- client library.
@@ -636,32 +636,33 @@ ccNumCacheNodes = lens _ccNumCacheNodes (\ s a -> s{_ccNumCacheNodes = a});
 instance FromXML CacheCluster where
         parseXML x
           = CacheCluster' <$>
-              x .@? "CacheNodeType" <*> x .@? "EngineVersion" <*>
+              (x .@? "CacheNodeType") <*> (x .@? "EngineVersion")
+                <*>
                 (x .@? "CacheNodes" .!@ mempty >>=
-                   parseXMLList "CacheNode")
-                <*> x .@? "CacheClusterCreateTime"
-                <*> x .@? "AutoMinorVersionUpgrade"
+                   may (parseXMLList "CacheNode"))
+                <*> (x .@? "CacheClusterCreateTime")
+                <*> (x .@? "AutoMinorVersionUpgrade")
                 <*>
                 (x .@? "SecurityGroups" .!@ mempty >>=
-                   parseXMLList "member")
-                <*> x .@? "NotificationConfiguration"
-                <*> x .@? "SnapshotWindow"
-                <*> x .@? "CacheClusterId"
-                <*> x .@? "ConfigurationEndpoint"
-                <*> x .@? "Engine"
+                   may (parseXMLList "member"))
+                <*> (x .@? "NotificationConfiguration")
+                <*> (x .@? "SnapshotWindow")
+                <*> (x .@? "CacheClusterId")
+                <*> (x .@? "ConfigurationEndpoint")
+                <*> (x .@? "Engine")
                 <*>
                 (x .@? "CacheSecurityGroups" .!@ mempty >>=
-                   parseXMLList "CacheSecurityGroup")
-                <*> x .@? "ClientDownloadLandingPage"
-                <*> x .@? "PreferredMaintenanceWindow"
-                <*> x .@? "CacheSubnetGroupName"
-                <*> x .@? "CacheClusterStatus"
-                <*> x .@? "PreferredAvailabilityZone"
-                <*> x .@? "CacheParameterGroup"
-                <*> x .@? "SnapshotRetentionLimit"
-                <*> x .@? "ReplicationGroupId"
-                <*> x .@? "PendingModifiedValues"
-                <*> x .@? "NumCacheNodes"
+                   may (parseXMLList "CacheSecurityGroup"))
+                <*> (x .@? "ClientDownloadLandingPage")
+                <*> (x .@? "PreferredMaintenanceWindow")
+                <*> (x .@? "CacheSubnetGroupName")
+                <*> (x .@? "CacheClusterStatus")
+                <*> (x .@? "PreferredAvailabilityZone")
+                <*> (x .@? "CacheParameterGroup")
+                <*> (x .@? "SnapshotRetentionLimit")
+                <*> (x .@? "ReplicationGroupId")
+                <*> (x .@? "PendingModifiedValues")
+                <*> (x .@? "NumCacheNodes")
 
 -- | /See:/ 'cacheEngineVersion' smart constructor.
 --
@@ -706,11 +707,11 @@ cevEngine = lens _cevEngine (\ s a -> s{_cevEngine = a});
 instance FromXML CacheEngineVersion where
         parseXML x
           = CacheEngineVersion' <$>
-              x .@? "CacheEngineDescription" <*>
-                x .@? "CacheParameterGroupFamily"
-                <*> x .@? "EngineVersion"
-                <*> x .@? "CacheEngineVersionDescription"
-                <*> x .@? "Engine"
+              (x .@? "CacheEngineDescription") <*>
+                (x .@? "CacheParameterGroupFamily")
+                <*> (x .@? "EngineVersion")
+                <*> (x .@? "CacheEngineVersionDescription")
+                <*> (x .@? "Engine")
 
 -- | /See:/ 'cacheNode' smart constructor.
 --
@@ -770,13 +771,13 @@ cnEndpoint = lens _cnEndpoint (\ s a -> s{_cnEndpoint = a});
 instance FromXML CacheNode where
         parseXML x
           = CacheNode' <$>
-              x .@? "SourceCacheNodeId" <*>
-                x .@? "ParameterGroupStatus"
-                <*> x .@? "CacheNodeCreateTime"
-                <*> x .@? "CustomerAvailabilityZone"
-                <*> x .@? "CacheNodeId"
-                <*> x .@? "CacheNodeStatus"
-                <*> x .@? "Endpoint"
+              (x .@? "SourceCacheNodeId") <*>
+                (x .@? "ParameterGroupStatus")
+                <*> (x .@? "CacheNodeCreateTime")
+                <*> (x .@? "CustomerAvailabilityZone")
+                <*> (x .@? "CacheNodeId")
+                <*> (x .@? "CacheNodeStatus")
+                <*> (x .@? "Endpoint")
 
 -- | /See:/ 'cacheNodeTypeSpecificParameter' smart constructor.
 --
@@ -805,8 +806,8 @@ cacheNodeTypeSpecificParameter = CacheNodeTypeSpecificParameter'{_cntspCacheNode
 
 -- | A list of cache node types and their corresponding values for this
 -- parameter.
-cntspCacheNodeTypeSpecificValues :: Lens' CacheNodeTypeSpecificParameter (Maybe [CacheNodeTypeSpecificValue])
-cntspCacheNodeTypeSpecificValues = lens _cntspCacheNodeTypeSpecificValues (\ s a -> s{_cntspCacheNodeTypeSpecificValues = a});
+cntspCacheNodeTypeSpecificValues :: Lens' CacheNodeTypeSpecificParameter [CacheNodeTypeSpecificValue]
+cntspCacheNodeTypeSpecificValues = lens _cntspCacheNodeTypeSpecificValues (\ s a -> s{_cntspCacheNodeTypeSpecificValues = a}) . _Default;
 
 -- | The earliest cache engine version to which the parameter can apply.
 cntspMinimumEngineVersion :: Lens' CacheNodeTypeSpecificParameter (Maybe Text)
@@ -842,14 +843,14 @@ instance FromXML CacheNodeTypeSpecificParameter where
         parseXML x
           = CacheNodeTypeSpecificParameter' <$>
               (x .@? "CacheNodeTypeSpecificValues" .!@ mempty >>=
-                 parseXMLList "CacheNodeTypeSpecificValue")
-                <*> x .@? "MinimumEngineVersion"
-                <*> x .@? "Source"
-                <*> x .@? "IsModifiable"
-                <*> x .@? "AllowedValues"
-                <*> x .@? "DataType"
-                <*> x .@? "ParameterName"
-                <*> x .@? "Description"
+                 may (parseXMLList "CacheNodeTypeSpecificValue"))
+                <*> (x .@? "MinimumEngineVersion")
+                <*> (x .@? "Source")
+                <*> (x .@? "IsModifiable")
+                <*> (x .@? "AllowedValues")
+                <*> (x .@? "DataType")
+                <*> (x .@? "ParameterName")
+                <*> (x .@? "Description")
 
 -- | /See:/ 'cacheNodeTypeSpecificValue' smart constructor.
 --
@@ -875,7 +876,7 @@ cntsvValue = lens _cntsvValue (\ s a -> s{_cntsvValue = a});
 instance FromXML CacheNodeTypeSpecificValue where
         parseXML x
           = CacheNodeTypeSpecificValue' <$>
-              x .@? "CacheNodeType" <*> x .@? "Value"
+              (x .@? "CacheNodeType") <*> (x .@? "Value")
 
 -- | /See:/ 'cacheParameterGroup' smart constructor.
 --
@@ -908,9 +909,9 @@ cpgDescription = lens _cpgDescription (\ s a -> s{_cpgDescription = a});
 instance FromXML CacheParameterGroup where
         parseXML x
           = CacheParameterGroup' <$>
-              x .@? "CacheParameterGroupFamily" <*>
-                x .@? "CacheParameterGroupName"
-                <*> x .@? "Description"
+              (x .@? "CacheParameterGroupFamily") <*>
+                (x .@? "CacheParameterGroupName")
+                <*> (x .@? "Description")
 
 -- | /See:/ 'cacheParameterGroupNameMessage' smart constructor.
 --
@@ -930,7 +931,7 @@ cpgnmCacheParameterGroupName = lens _cpgnmCacheParameterGroupName (\ s a -> s{_c
 instance FromXML CacheParameterGroupNameMessage where
         parseXML x
           = CacheParameterGroupNameMessage' <$>
-              x .@? "CacheParameterGroupName"
+              (x .@? "CacheParameterGroupName")
 
 -- | /See:/ 'cacheParameterGroupStatus' smart constructor.
 --
@@ -954,8 +955,8 @@ cpgsCacheParameterGroupName = lens _cpgsCacheParameterGroupName (\ s a -> s{_cpg
 -- | A list of the cache node IDs which need to be rebooted for parameter
 -- changes to be applied. A node ID is a numeric identifier (0001, 0002,
 -- etc.).
-cpgsCacheNodeIdsToReboot :: Lens' CacheParameterGroupStatus (Maybe [Text])
-cpgsCacheNodeIdsToReboot = lens _cpgsCacheNodeIdsToReboot (\ s a -> s{_cpgsCacheNodeIdsToReboot = a});
+cpgsCacheNodeIdsToReboot :: Lens' CacheParameterGroupStatus [Text]
+cpgsCacheNodeIdsToReboot = lens _cpgsCacheNodeIdsToReboot (\ s a -> s{_cpgsCacheNodeIdsToReboot = a}) . _Default;
 
 -- | The status of parameter updates.
 cpgsParameterApplyStatus :: Lens' CacheParameterGroupStatus (Maybe Text)
@@ -964,10 +965,10 @@ cpgsParameterApplyStatus = lens _cpgsParameterApplyStatus (\ s a -> s{_cpgsParam
 instance FromXML CacheParameterGroupStatus where
         parseXML x
           = CacheParameterGroupStatus' <$>
-              x .@? "CacheParameterGroupName" <*>
+              (x .@? "CacheParameterGroupName") <*>
                 (x .@? "CacheNodeIdsToReboot" .!@ mempty >>=
-                   parseXMLList "CacheNodeId")
-                <*> x .@? "ParameterApplyStatus"
+                   may (parseXMLList "CacheNodeId"))
+                <*> (x .@? "ParameterApplyStatus")
 
 -- | /See:/ 'cacheSecurityGroup' smart constructor.
 --
@@ -996,8 +997,8 @@ csgOwnerId = lens _csgOwnerId (\ s a -> s{_csgOwnerId = a});
 
 -- | A list of Amazon EC2 security groups that are associated with this cache
 -- security group.
-csgEC2SecurityGroups :: Lens' CacheSecurityGroup (Maybe [EC2SecurityGroup])
-csgEC2SecurityGroups = lens _csgEC2SecurityGroups (\ s a -> s{_csgEC2SecurityGroups = a});
+csgEC2SecurityGroups :: Lens' CacheSecurityGroup [EC2SecurityGroup]
+csgEC2SecurityGroups = lens _csgEC2SecurityGroups (\ s a -> s{_csgEC2SecurityGroups = a}) . _Default;
 
 -- | The description of the cache security group.
 csgDescription :: Lens' CacheSecurityGroup (Maybe Text)
@@ -1006,11 +1007,12 @@ csgDescription = lens _csgDescription (\ s a -> s{_csgDescription = a});
 instance FromXML CacheSecurityGroup where
         parseXML x
           = CacheSecurityGroup' <$>
-              x .@? "CacheSecurityGroupName" <*> x .@? "OwnerId"
+              (x .@? "CacheSecurityGroupName") <*>
+                (x .@? "OwnerId")
                 <*>
                 (x .@? "EC2SecurityGroups" .!@ mempty >>=
-                   parseXMLList "EC2SecurityGroup")
-                <*> x .@? "Description"
+                   may (parseXMLList "EC2SecurityGroup"))
+                <*> (x .@? "Description")
 
 -- | /See:/ 'cacheSecurityGroupMembership' smart constructor.
 --
@@ -1038,7 +1040,7 @@ csgmCacheSecurityGroupName = lens _csgmCacheSecurityGroupName (\ s a -> s{_csgmC
 instance FromXML CacheSecurityGroupMembership where
         parseXML x
           = CacheSecurityGroupMembership' <$>
-              x .@? "Status" <*> x .@? "CacheSecurityGroupName"
+              (x .@? "Status") <*> (x .@? "CacheSecurityGroupName")
 
 -- | /See:/ 'cacheSubnetGroup' smart constructor.
 --
@@ -1063,8 +1065,8 @@ csgVPCId :: Lens' CacheSubnetGroup (Maybe Text)
 csgVPCId = lens _csgVPCId (\ s a -> s{_csgVPCId = a});
 
 -- | A list of subnets associated with the cache subnet group.
-csgSubnets :: Lens' CacheSubnetGroup (Maybe [Subnet])
-csgSubnets = lens _csgSubnets (\ s a -> s{_csgSubnets = a});
+csgSubnets :: Lens' CacheSubnetGroup [Subnet]
+csgSubnets = lens _csgSubnets (\ s a -> s{_csgSubnets = a}) . _Default;
 
 -- | The name of the cache subnet group.
 csgCacheSubnetGroupName :: Lens' CacheSubnetGroup (Maybe Text)
@@ -1077,11 +1079,11 @@ csgCacheSubnetGroupDescription = lens _csgCacheSubnetGroupDescription (\ s a -> 
 instance FromXML CacheSubnetGroup where
         parseXML x
           = CacheSubnetGroup' <$>
-              x .@? "VpcId" <*>
+              (x .@? "VpcId") <*>
                 (x .@? "Subnets" .!@ mempty >>=
-                   parseXMLList "Subnet")
-                <*> x .@? "CacheSubnetGroupName"
-                <*> x .@? "CacheSubnetGroupDescription"
+                   may (parseXMLList "Subnet"))
+                <*> (x .@? "CacheSubnetGroupName")
+                <*> (x .@? "CacheSubnetGroupDescription")
 
 -- | /See:/ 'ec2SecurityGroup' smart constructor.
 --
@@ -1113,8 +1115,9 @@ esgEC2SecurityGroupName = lens _esgEC2SecurityGroupName (\ s a -> s{_esgEC2Secur
 instance FromXML EC2SecurityGroup where
         parseXML x
           = EC2SecurityGroup' <$>
-              x .@? "Status" <*> x .@? "EC2SecurityGroupOwnerId"
-                <*> x .@? "EC2SecurityGroupName"
+              (x .@? "Status") <*>
+                (x .@? "EC2SecurityGroupOwnerId")
+                <*> (x .@? "EC2SecurityGroupName")
 
 -- | /See:/ 'endpoint' smart constructor.
 --
@@ -1139,7 +1142,7 @@ endPort = lens _endPort (\ s a -> s{_endPort = a});
 
 instance FromXML Endpoint where
         parseXML x
-          = Endpoint' <$> x .@? "Address" <*> x .@? "Port"
+          = Endpoint' <$> (x .@? "Address") <*> (x .@? "Port")
 
 -- | /See:/ 'engineDefaults' smart constructor.
 --
@@ -1165,12 +1168,12 @@ edCacheParameterGroupFamily = lens _edCacheParameterGroupFamily (\ s a -> s{_edC
 
 -- | A list of parameters specific to a particular cache node type. Each
 -- element in the list contains detailed information about one parameter.
-edCacheNodeTypeSpecificParameters :: Lens' EngineDefaults (Maybe [CacheNodeTypeSpecificParameter])
-edCacheNodeTypeSpecificParameters = lens _edCacheNodeTypeSpecificParameters (\ s a -> s{_edCacheNodeTypeSpecificParameters = a});
+edCacheNodeTypeSpecificParameters :: Lens' EngineDefaults [CacheNodeTypeSpecificParameter]
+edCacheNodeTypeSpecificParameters = lens _edCacheNodeTypeSpecificParameters (\ s a -> s{_edCacheNodeTypeSpecificParameters = a}) . _Default;
 
 -- | Contains a list of engine default parameters.
-edParameters :: Lens' EngineDefaults (Maybe [Parameter])
-edParameters = lens _edParameters (\ s a -> s{_edParameters = a});
+edParameters :: Lens' EngineDefaults [Parameter]
+edParameters = lens _edParameters (\ s a -> s{_edParameters = a}) . _Default;
 
 -- | Provides an identifier to allow retrieval of paginated results.
 edMarker :: Lens' EngineDefaults (Maybe Text)
@@ -1179,13 +1182,14 @@ edMarker = lens _edMarker (\ s a -> s{_edMarker = a});
 instance FromXML EngineDefaults where
         parseXML x
           = EngineDefaults' <$>
-              x .@? "CacheParameterGroupFamily" <*>
+              (x .@? "CacheParameterGroupFamily") <*>
                 (x .@? "CacheNodeTypeSpecificParameters" .!@ mempty
-                   >>= parseXMLList "CacheNodeTypeSpecificParameter")
+                   >>=
+                   may (parseXMLList "CacheNodeTypeSpecificParameter"))
                 <*>
                 (x .@? "Parameters" .!@ mempty >>=
-                   parseXMLList "Parameter")
-                <*> x .@? "Marker"
+                   may (parseXMLList "Parameter"))
+                <*> (x .@? "Marker")
 
 -- | /See:/ 'event' smart constructor.
 --
@@ -1226,9 +1230,9 @@ eveMessage = lens _eveMessage (\ s a -> s{_eveMessage = a});
 instance FromXML Event where
         parseXML x
           = Event' <$>
-              x .@? "SourceType" <*> x .@? "SourceIdentifier" <*>
-                x .@? "Date"
-                <*> x .@? "Message"
+              (x .@? "SourceType") <*> (x .@? "SourceIdentifier")
+                <*> (x .@? "Date")
+                <*> (x .@? "Message")
 
 -- | /See:/ 'nodeGroup' smart constructor.
 --
@@ -1258,8 +1262,8 @@ ngPrimaryEndpoint = lens _ngPrimaryEndpoint (\ s a -> s{_ngPrimaryEndpoint = a})
 
 -- | A list containing information about individual nodes within the node
 -- group.
-ngNodeGroupMembers :: Lens' NodeGroup (Maybe [NodeGroupMember])
-ngNodeGroupMembers = lens _ngNodeGroupMembers (\ s a -> s{_ngNodeGroupMembers = a});
+ngNodeGroupMembers :: Lens' NodeGroup [NodeGroupMember]
+ngNodeGroupMembers = lens _ngNodeGroupMembers (\ s a -> s{_ngNodeGroupMembers = a}) . _Default;
 
 -- | The identifier for the node group. A replication group contains only one
 -- node group; therefore, the node group ID is 0001.
@@ -1269,10 +1273,10 @@ ngNodeGroupId = lens _ngNodeGroupId (\ s a -> s{_ngNodeGroupId = a});
 instance FromXML NodeGroup where
         parseXML x
           = NodeGroup' <$>
-              x .@? "Status" <*> x .@? "PrimaryEndpoint" <*>
+              (x .@? "Status") <*> (x .@? "PrimaryEndpoint") <*>
                 (x .@? "NodeGroupMembers" .!@ mempty >>=
-                   parseXMLList "NodeGroupMember")
-                <*> x .@? "NodeGroupId"
+                   may (parseXMLList "NodeGroupMember"))
+                <*> (x .@? "NodeGroupId")
 
 -- | /See:/ 'nodeGroupMember' smart constructor.
 --
@@ -1318,10 +1322,10 @@ ngmReadEndpoint = lens _ngmReadEndpoint (\ s a -> s{_ngmReadEndpoint = a});
 instance FromXML NodeGroupMember where
         parseXML x
           = NodeGroupMember' <$>
-              x .@? "CacheClusterId" <*> x .@? "CacheNodeId" <*>
-                x .@? "PreferredAvailabilityZone"
-                <*> x .@? "CurrentRole"
-                <*> x .@? "ReadEndpoint"
+              (x .@? "CacheClusterId") <*> (x .@? "CacheNodeId")
+                <*> (x .@? "PreferredAvailabilityZone")
+                <*> (x .@? "CurrentRole")
+                <*> (x .@? "ReadEndpoint")
 
 -- | /See:/ 'nodeSnapshot' smart constructor.
 --
@@ -1361,9 +1365,10 @@ nsCacheSize = lens _nsCacheSize (\ s a -> s{_nsCacheSize = a});
 instance FromXML NodeSnapshot where
         parseXML x
           = NodeSnapshot' <$>
-              x .@? "CacheNodeCreateTime" <*> x .@? "CacheNodeId"
-                <*> x .@? "SnapshotCreateTime"
-                <*> x .@? "CacheSize"
+              (x .@? "CacheNodeCreateTime") <*>
+                (x .@? "CacheNodeId")
+                <*> (x .@? "SnapshotCreateTime")
+                <*> (x .@? "CacheSize")
 
 -- | /See:/ 'notificationConfiguration' smart constructor.
 --
@@ -1389,7 +1394,7 @@ ncTopicARN = lens _ncTopicARN (\ s a -> s{_ncTopicARN = a});
 instance FromXML NotificationConfiguration where
         parseXML x
           = NotificationConfiguration' <$>
-              x .@? "TopicStatus" <*> x .@? "TopicArn"
+              (x .@? "TopicStatus") <*> (x .@? "TopicArn")
 
 -- | /See:/ 'parameter' smart constructor.
 --
@@ -1453,14 +1458,14 @@ parDescription = lens _parDescription (\ s a -> s{_parDescription = a});
 instance FromXML Parameter where
         parseXML x
           = Parameter' <$>
-              x .@? "ParameterValue" <*>
-                x .@? "MinimumEngineVersion"
-                <*> x .@? "Source"
-                <*> x .@? "IsModifiable"
-                <*> x .@? "AllowedValues"
-                <*> x .@? "DataType"
-                <*> x .@? "ParameterName"
-                <*> x .@? "Description"
+              (x .@? "ParameterValue") <*>
+                (x .@? "MinimumEngineVersion")
+                <*> (x .@? "Source")
+                <*> (x .@? "IsModifiable")
+                <*> (x .@? "AllowedValues")
+                <*> (x .@? "DataType")
+                <*> (x .@? "ParameterName")
+                <*> (x .@? "Description")
 
 -- | /See:/ 'parameterNameValue' smart constructor.
 --
@@ -1531,8 +1536,8 @@ pmvEngineVersion = lens _pmvEngineVersion (\ s a -> s{_pmvEngineVersion = a});
 -- | A list of cache node IDs that are being removed (or will be removed)
 -- from the cache cluster. A node ID is a numeric identifier (0001, 0002,
 -- etc.).
-pmvCacheNodeIdsToRemove :: Lens' PendingModifiedValues (Maybe [Text])
-pmvCacheNodeIdsToRemove = lens _pmvCacheNodeIdsToRemove (\ s a -> s{_pmvCacheNodeIdsToRemove = a});
+pmvCacheNodeIdsToRemove :: Lens' PendingModifiedValues [Text]
+pmvCacheNodeIdsToRemove = lens _pmvCacheNodeIdsToRemove (\ s a -> s{_pmvCacheNodeIdsToRemove = a}) . _Default;
 
 -- | The new number of cache nodes for the cache cluster.
 --
@@ -1544,10 +1549,10 @@ pmvNumCacheNodes = lens _pmvNumCacheNodes (\ s a -> s{_pmvNumCacheNodes = a});
 instance FromXML PendingModifiedValues where
         parseXML x
           = PendingModifiedValues' <$>
-              x .@? "EngineVersion" <*>
+              (x .@? "EngineVersion") <*>
                 (x .@? "CacheNodeIdsToRemove" .!@ mempty >>=
-                   parseXMLList "CacheNodeId")
-                <*> x .@? "NumCacheNodes"
+                   may (parseXMLList "CacheNodeId"))
+                <*> (x .@? "NumCacheNodes")
 
 -- | /See:/ 'recurringCharge' smart constructor.
 --
@@ -1573,8 +1578,8 @@ rcRecurringChargeAmount = lens _rcRecurringChargeAmount (\ s a -> s{_rcRecurring
 instance FromXML RecurringCharge where
         parseXML x
           = RecurringCharge' <$>
-              x .@? "RecurringChargeFrequency" <*>
-                x .@? "RecurringChargeAmount"
+              (x .@? "RecurringChargeFrequency") <*>
+                (x .@? "RecurringChargeAmount")
 
 -- | /See:/ 'replicationGroup' smart constructor.
 --
@@ -1603,8 +1608,8 @@ replicationGroup = ReplicationGroup'{_rgNodeGroups = Nothing, _rgStatus = Nothin
 
 -- | A single element list with information about the nodes in the
 -- replication group.
-rgNodeGroups :: Lens' ReplicationGroup (Maybe [NodeGroup])
-rgNodeGroups = lens _rgNodeGroups (\ s a -> s{_rgNodeGroups = a});
+rgNodeGroups :: Lens' ReplicationGroup [NodeGroup]
+rgNodeGroups = lens _rgNodeGroups (\ s a -> s{_rgNodeGroups = a}) . _Default;
 
 -- | The current state of this replication group - /creating/, /available/,
 -- etc.
@@ -1618,8 +1623,8 @@ rgSnapshottingClusterId = lens _rgSnapshottingClusterId (\ s a -> s{_rgSnapshott
 
 -- | The names of all the cache clusters that are part of this replication
 -- group.
-rgMemberClusters :: Lens' ReplicationGroup (Maybe [Text])
-rgMemberClusters = lens _rgMemberClusters (\ s a -> s{_rgMemberClusters = a});
+rgMemberClusters :: Lens' ReplicationGroup [Text]
+rgMemberClusters = lens _rgMemberClusters (\ s a -> s{_rgMemberClusters = a}) . _Default;
 
 -- | The identifier for the replication group.
 rgReplicationGroupId :: Lens' ReplicationGroup (Maybe Text)
@@ -1647,16 +1652,16 @@ instance FromXML ReplicationGroup where
         parseXML x
           = ReplicationGroup' <$>
               (x .@? "NodeGroups" .!@ mempty >>=
-                 parseXMLList "NodeGroup")
-                <*> x .@? "Status"
-                <*> x .@? "SnapshottingClusterId"
+                 may (parseXMLList "NodeGroup"))
+                <*> (x .@? "Status")
+                <*> (x .@? "SnapshottingClusterId")
                 <*>
                 (x .@? "MemberClusters" .!@ mempty >>=
-                   parseXMLList "ClusterId")
-                <*> x .@? "ReplicationGroupId"
-                <*> x .@? "PendingModifiedValues"
-                <*> x .@? "Description"
-                <*> x .@? "AutomaticFailover"
+                   may (parseXMLList "ClusterId"))
+                <*> (x .@? "ReplicationGroupId")
+                <*> (x .@? "PendingModifiedValues")
+                <*> (x .@? "Description")
+                <*> (x .@? "AutomaticFailover")
 
 -- | /See:/ 'replicationGroupPendingModifiedValues' smart constructor.
 --
@@ -1690,8 +1695,8 @@ instance FromXML
          ReplicationGroupPendingModifiedValues where
         parseXML x
           = ReplicationGroupPendingModifiedValues' <$>
-              x .@? "PrimaryClusterId" <*>
-                x .@? "AutomaticFailoverStatus"
+              (x .@? "PrimaryClusterId") <*>
+                (x .@? "AutomaticFailoverStatus")
 
 -- | /See:/ 'reservedCacheNode' smart constructor.
 --
@@ -1789,8 +1794,8 @@ rcnUsagePrice :: Lens' ReservedCacheNode (Maybe Double)
 rcnUsagePrice = lens _rcnUsagePrice (\ s a -> s{_rcnUsagePrice = a});
 
 -- | The recurring price charged to run this reserved cache node.
-rcnRecurringCharges :: Lens' ReservedCacheNode (Maybe [RecurringCharge])
-rcnRecurringCharges = lens _rcnRecurringCharges (\ s a -> s{_rcnRecurringCharges = a});
+rcnRecurringCharges :: Lens' ReservedCacheNode [RecurringCharge]
+rcnRecurringCharges = lens _rcnRecurringCharges (\ s a -> s{_rcnRecurringCharges = a}) . _Default;
 
 -- | The fixed price charged for this reserved cache node.
 rcnFixedPrice :: Lens' ReservedCacheNode (Maybe Double)
@@ -1807,19 +1812,19 @@ rcnReservedCacheNodesOfferingId = lens _rcnReservedCacheNodesOfferingId (\ s a -
 instance FromXML ReservedCacheNode where
         parseXML x
           = ReservedCacheNode' <$>
-              x .@? "CacheNodeType" <*> x .@? "State" <*>
-                x .@? "ProductDescription"
-                <*> x .@? "StartTime"
-                <*> x .@? "CacheNodeCount"
-                <*> x .@? "ReservedCacheNodeId"
-                <*> x .@? "OfferingType"
-                <*> x .@? "UsagePrice"
+              (x .@? "CacheNodeType") <*> (x .@? "State") <*>
+                (x .@? "ProductDescription")
+                <*> (x .@? "StartTime")
+                <*> (x .@? "CacheNodeCount")
+                <*> (x .@? "ReservedCacheNodeId")
+                <*> (x .@? "OfferingType")
+                <*> (x .@? "UsagePrice")
                 <*>
                 (x .@? "RecurringCharges" .!@ mempty >>=
-                   parseXMLList "RecurringCharge")
-                <*> x .@? "FixedPrice"
-                <*> x .@? "Duration"
-                <*> x .@? "ReservedCacheNodesOfferingId"
+                   may (parseXMLList "RecurringCharge"))
+                <*> (x .@? "FixedPrice")
+                <*> (x .@? "Duration")
+                <*> (x .@? "ReservedCacheNodesOfferingId")
 
 -- | /See:/ 'reservedCacheNodesOffering' smart constructor.
 --
@@ -1893,8 +1898,8 @@ rcnoUsagePrice :: Lens' ReservedCacheNodesOffering (Maybe Double)
 rcnoUsagePrice = lens _rcnoUsagePrice (\ s a -> s{_rcnoUsagePrice = a});
 
 -- | The recurring price charged to run this reserved cache node.
-rcnoRecurringCharges :: Lens' ReservedCacheNodesOffering (Maybe [RecurringCharge])
-rcnoRecurringCharges = lens _rcnoRecurringCharges (\ s a -> s{_rcnoRecurringCharges = a});
+rcnoRecurringCharges :: Lens' ReservedCacheNodesOffering [RecurringCharge]
+rcnoRecurringCharges = lens _rcnoRecurringCharges (\ s a -> s{_rcnoRecurringCharges = a}) . _Default;
 
 -- | The fixed price charged for this offering.
 rcnoFixedPrice :: Lens' ReservedCacheNodesOffering (Maybe Double)
@@ -1911,15 +1916,16 @@ rcnoReservedCacheNodesOfferingId = lens _rcnoReservedCacheNodesOfferingId (\ s a
 instance FromXML ReservedCacheNodesOffering where
         parseXML x
           = ReservedCacheNodesOffering' <$>
-              x .@? "CacheNodeType" <*> x .@? "ProductDescription"
-                <*> x .@? "OfferingType"
-                <*> x .@? "UsagePrice"
+              (x .@? "CacheNodeType") <*>
+                (x .@? "ProductDescription")
+                <*> (x .@? "OfferingType")
+                <*> (x .@? "UsagePrice")
                 <*>
                 (x .@? "RecurringCharges" .!@ mempty >>=
-                   parseXMLList "RecurringCharge")
-                <*> x .@? "FixedPrice"
-                <*> x .@? "Duration"
-                <*> x .@? "ReservedCacheNodesOfferingId"
+                   may (parseXMLList "RecurringCharge"))
+                <*> (x .@? "FixedPrice")
+                <*> (x .@? "Duration")
+                <*> (x .@? "ReservedCacheNodesOfferingId")
 
 -- | /See:/ 'securityGroupMembership' smart constructor.
 --
@@ -1947,7 +1953,7 @@ sgmSecurityGroupId = lens _sgmSecurityGroupId (\ s a -> s{_sgmSecurityGroupId = 
 instance FromXML SecurityGroupMembership where
         parseXML x
           = SecurityGroupMembership' <$>
-              x .@? "Status" <*> x .@? "SecurityGroupId"
+              (x .@? "Status") <*> (x .@? "SecurityGroupId")
 
 -- | /See:/ 'snapshot' smart constructor.
 --
@@ -2103,8 +2109,8 @@ snaCacheSubnetGroupName :: Lens' Snapshot (Maybe Text)
 snaCacheSubnetGroupName = lens _snaCacheSubnetGroupName (\ s a -> s{_snaCacheSubnetGroupName = a});
 
 -- | A list of the cache nodes in the source cache cluster.
-snaNodeSnapshots :: Lens' Snapshot (Maybe [NodeSnapshot])
-snaNodeSnapshots = lens _snaNodeSnapshots (\ s a -> s{_snaNodeSnapshots = a});
+snaNodeSnapshots :: Lens' Snapshot [NodeSnapshot]
+snaNodeSnapshots = lens _snaNodeSnapshots (\ s a -> s{_snaNodeSnapshots = a}) . _Default;
 
 -- | The name of the Availability Zone in which the source cache cluster is
 -- located.
@@ -2149,27 +2155,27 @@ snaPort = lens _snaPort (\ s a -> s{_snaPort = a});
 instance FromXML Snapshot where
         parseXML x
           = Snapshot' <$>
-              x .@? "CacheNodeType" <*> x .@? "EngineVersion" <*>
-                x .@? "CacheClusterCreateTime"
-                <*> x .@? "AutoMinorVersionUpgrade"
-                <*> x .@? "CacheParameterGroupName"
-                <*> x .@? "SnapshotStatus"
-                <*> x .@? "SnapshotWindow"
-                <*> x .@? "VpcId"
-                <*> x .@? "CacheClusterId"
-                <*> x .@? "Engine"
-                <*> x .@? "PreferredMaintenanceWindow"
-                <*> x .@? "TopicArn"
-                <*> x .@? "CacheSubnetGroupName"
+              (x .@? "CacheNodeType") <*> (x .@? "EngineVersion")
+                <*> (x .@? "CacheClusterCreateTime")
+                <*> (x .@? "AutoMinorVersionUpgrade")
+                <*> (x .@? "CacheParameterGroupName")
+                <*> (x .@? "SnapshotStatus")
+                <*> (x .@? "SnapshotWindow")
+                <*> (x .@? "VpcId")
+                <*> (x .@? "CacheClusterId")
+                <*> (x .@? "Engine")
+                <*> (x .@? "PreferredMaintenanceWindow")
+                <*> (x .@? "TopicArn")
+                <*> (x .@? "CacheSubnetGroupName")
                 <*>
                 (x .@? "NodeSnapshots" .!@ mempty >>=
-                   parseXMLList "NodeSnapshot")
-                <*> x .@? "PreferredAvailabilityZone"
-                <*> x .@? "SnapshotRetentionLimit"
-                <*> x .@? "SnapshotName"
-                <*> x .@? "SnapshotSource"
-                <*> x .@? "NumCacheNodes"
-                <*> x .@? "Port"
+                   may (parseXMLList "NodeSnapshot"))
+                <*> (x .@? "PreferredAvailabilityZone")
+                <*> (x .@? "SnapshotRetentionLimit")
+                <*> (x .@? "SnapshotName")
+                <*> (x .@? "SnapshotSource")
+                <*> (x .@? "NumCacheNodes")
+                <*> (x .@? "Port")
 
 data SourceType = CacheSubnetGroup | CacheCluster | CacheParameterGroup | CacheSecurityGroup deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -2219,8 +2225,8 @@ subSubnetAvailabilityZone = lens _subSubnetAvailabilityZone (\ s a -> s{_subSubn
 instance FromXML Subnet where
         parseXML x
           = Subnet' <$>
-              x .@? "SubnetIdentifier" <*>
-                x .@? "SubnetAvailabilityZone"
+              (x .@? "SubnetIdentifier") <*>
+                (x .@? "SubnetAvailabilityZone")
 
 -- | /See:/ 'tag' smart constructor.
 --
@@ -2244,7 +2250,8 @@ tagKey :: Lens' Tag (Maybe Text)
 tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 
 instance FromXML Tag where
-        parseXML x = Tag' <$> x .@? "Value" <*> x .@? "Key"
+        parseXML x
+          = Tag' <$> (x .@? "Value") <*> (x .@? "Key")
 
 instance ToQuery Tag where
         toQuery Tag'{..}
@@ -2262,10 +2269,11 @@ tagListMessage :: TagListMessage
 tagListMessage = TagListMessage'{_tlmTagList = Nothing};
 
 -- | A list of cost allocation tags as key-value pairs.
-tlmTagList :: Lens' TagListMessage (Maybe [Tag])
-tlmTagList = lens _tlmTagList (\ s a -> s{_tlmTagList = a});
+tlmTagList :: Lens' TagListMessage [Tag]
+tlmTagList = lens _tlmTagList (\ s a -> s{_tlmTagList = a}) . _Default;
 
 instance FromXML TagListMessage where
         parseXML x
           = TagListMessage' <$>
-              (x .@? "TagList" .!@ mempty >>= parseXMLList "Tag")
+              (x .@? "TagList" .!@ mempty >>=
+                 may (parseXMLList "Tag"))

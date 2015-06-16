@@ -63,7 +63,7 @@ instance AWSRequest DescribeTags where
               (\ s h x ->
                  DescribeTagsResponse' <$>
                    (x .@? "TagDescriptions" .!@ mempty >>=
-                      parseXMLList "member"))
+                      may (parseXMLList "member")))
 
 instance ToHeaders DescribeTags where
         toHeaders = const mempty
@@ -77,7 +77,7 @@ instance ToQuery DescribeTags where
               ["Action" =: ("DescribeTags" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
                "LoadBalancerNames" =:
-                 "member" =: _dtLoadBalancerNames]
+                 toQueryList "member" _dtLoadBalancerNames]
 
 -- | /See:/ 'describeTagsResponse' smart constructor.
 --
@@ -91,5 +91,5 @@ describeTagsResponse :: DescribeTagsResponse
 describeTagsResponse = DescribeTagsResponse'{_dtrTagDescriptions = Nothing};
 
 -- | Information about the tags.
-dtrTagDescriptions :: Lens' DescribeTagsResponse (Maybe [TagDescription])
-dtrTagDescriptions = lens _dtrTagDescriptions (\ s a -> s{_dtrTagDescriptions = a});
+dtrTagDescriptions :: Lens' DescribeTagsResponse [TagDescription]
+dtrTagDescriptions = lens _dtrTagDescriptions (\ s a -> s{_dtrTagDescriptions = a}) . _Default;

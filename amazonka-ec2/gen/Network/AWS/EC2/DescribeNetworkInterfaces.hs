@@ -59,8 +59,8 @@ describeNetworkInterfaces = DescribeNetworkInterfaces'{_dNetworkInterfaceIds = N
 -- | One or more network interface IDs.
 --
 -- Default: Describes all your network interfaces.
-dNetworkInterfaceIds :: Lens' DescribeNetworkInterfaces (Maybe [Text])
-dNetworkInterfaceIds = lens _dNetworkInterfaceIds (\ s a -> s{_dNetworkInterfaceIds = a});
+dNetworkInterfaceIds :: Lens' DescribeNetworkInterfaces [Text]
+dNetworkInterfaceIds = lens _dNetworkInterfaceIds (\ s a -> s{_dNetworkInterfaceIds = a}) . _Default;
 
 -- | One or more filters.
 --
@@ -170,8 +170,8 @@ dNetworkInterfaceIds = lens _dNetworkInterfaceIds (\ s a -> s{_dNetworkInterface
 --
 -- -   @vpc-id@ - The ID of the VPC for the network interface.
 --
-dFilters :: Lens' DescribeNetworkInterfaces (Maybe [Filter])
-dFilters = lens _dFilters (\ s a -> s{_dFilters = a});
+dFilters :: Lens' DescribeNetworkInterfaces [Filter]
+dFilters = lens _dFilters (\ s a -> s{_dFilters = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -189,7 +189,7 @@ instance AWSRequest DescribeNetworkInterfaces where
           = receiveXML
               (\ s h x ->
                  DescribeNetworkInterfacesResponse' <$>
-                   parseXMLList "item" x)
+                   (may (parseXMLList "item") x))
 
 instance ToHeaders DescribeNetworkInterfaces where
         toHeaders = const mempty
@@ -203,8 +203,10 @@ instance ToQuery DescribeNetworkInterfaces where
               ["Action" =:
                  ("DescribeNetworkInterfaces" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "item" =: _dNetworkInterfaceIds,
-               "Filter" =: _dFilters, "DryRun" =: _dDryRun]
+               toQuery
+                 (toQueryList "item" <$> _dNetworkInterfaceIds),
+               toQuery (toQueryList "Filter" <$> _dFilters),
+               "DryRun" =: _dDryRun]
 
 -- | /See:/ 'describeNetworkInterfacesResponse' smart constructor.
 --
@@ -218,5 +220,5 @@ describeNetworkInterfacesResponse :: DescribeNetworkInterfacesResponse
 describeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse'{_dnirNetworkInterfaces = Nothing};
 
 -- | Information about one or more network interfaces.
-dnirNetworkInterfaces :: Lens' DescribeNetworkInterfacesResponse (Maybe [NetworkInterface])
-dnirNetworkInterfaces = lens _dnirNetworkInterfaces (\ s a -> s{_dnirNetworkInterfaces = a});
+dnirNetworkInterfaces :: Lens' DescribeNetworkInterfacesResponse [NetworkInterface]
+dnirNetworkInterfaces = lens _dnirNetworkInterfaces (\ s a -> s{_dnirNetworkInterfaces = a}) . _Default;

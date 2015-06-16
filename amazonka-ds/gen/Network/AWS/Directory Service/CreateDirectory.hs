@@ -99,7 +99,7 @@ instance AWSRequest CreateDirectory where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateDirectoryResponse' <$> x .?> "DirectoryId")
+                 CreateDirectoryResponse' <$> (x .?> "DirectoryId"))
 
 instance ToHeaders CreateDirectory where
         toHeaders

@@ -56,7 +56,7 @@ instance AWSRequest DescribeTerminationPolicyTypes
               (\ s h x ->
                  DescribeTerminationPolicyTypesResponse' <$>
                    (x .@? "TerminationPolicyTypes" .!@ mempty >>=
-                      parseXMLList "member"))
+                      may (parseXMLList "member")))
 
 instance ToHeaders DescribeTerminationPolicyTypes
          where
@@ -87,5 +87,5 @@ describeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse'
 -- | The Termination policies supported by Auto Scaling. They are:
 -- @OldestInstance@, @OldestLaunchConfiguration@, @NewestInstance@,
 -- @ClosestToNextInstanceHour@, and @Default@.
-dtptrTerminationPolicyTypes :: Lens' DescribeTerminationPolicyTypesResponse (Maybe [Text])
-dtptrTerminationPolicyTypes = lens _dtptrTerminationPolicyTypes (\ s a -> s{_dtptrTerminationPolicyTypes = a});
+dtptrTerminationPolicyTypes :: Lens' DescribeTerminationPolicyTypesResponse [Text]
+dtptrTerminationPolicyTypes = lens _dtptrTerminationPolicyTypes (\ s a -> s{_dtptrTerminationPolicyTypes = a}) . _Default;

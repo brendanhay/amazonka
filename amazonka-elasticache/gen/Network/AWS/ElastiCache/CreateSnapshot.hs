@@ -70,7 +70,7 @@ instance AWSRequest CreateSnapshot where
         response
           = receiveXMLWrapper "CreateSnapshotResult"
               (\ s h x ->
-                 CreateSnapshotResponse' <$> x .@? "Snapshot")
+                 CreateSnapshotResponse' <$> (x .@? "Snapshot"))
 
 instance ToHeaders CreateSnapshot where
         toHeaders = const mempty

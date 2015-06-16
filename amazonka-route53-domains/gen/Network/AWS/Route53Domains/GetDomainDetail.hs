@@ -93,26 +93,26 @@ instance AWSRequest GetDomainDetail where
           = receiveJSON
               (\ s h x ->
                  GetDomainDetailResponse' <$>
-                   x .?> "TechPrivacy" <*> x .?> "DnsSec" <*>
-                     x .?> "WhoIsServer"
-                     <*> x .?> "RegistryDomainId"
-                     <*> x .?> "RegistrantPrivacy"
-                     <*> x .?> "UpdatedDate"
-                     <*> x .?> "AdminPrivacy"
-                     <*> x .?> "AbuseContactEmail"
-                     <*> x .?> "RegistrarUrl"
-                     <*> x .?> "AutoRenew"
-                     <*> x .?> "AbuseContactPhone"
-                     <*> x .?> "ExpirationDate"
-                     <*> x .?> "CreationDate"
-                     <*> x .?> "RegistrarName"
-                     <*> x .?> "StatusList" .!@ mempty
-                     <*> x .?> "Reseller"
-                     <*> x .:> "DomainName"
-                     <*> x .?> "Nameservers" .!@ mempty
-                     <*> x .:> "AdminContact"
-                     <*> x .:> "RegistrantContact"
-                     <*> x .:> "TechContact")
+                   (x .?> "TechPrivacy") <*> (x .?> "DnsSec") <*>
+                     (x .?> "WhoIsServer")
+                     <*> (x .?> "RegistryDomainId")
+                     <*> (x .?> "RegistrantPrivacy")
+                     <*> (x .?> "UpdatedDate")
+                     <*> (x .?> "AdminPrivacy")
+                     <*> (x .?> "AbuseContactEmail")
+                     <*> (x .?> "RegistrarUrl")
+                     <*> (x .?> "AutoRenew")
+                     <*> (x .?> "AbuseContactPhone")
+                     <*> (x .?> "ExpirationDate")
+                     <*> (x .?> "CreationDate")
+                     <*> (x .?> "RegistrarName")
+                     <*> (x .?> "StatusList" .!@ mempty)
+                     <*> (x .?> "Reseller")
+                     <*> (x .:> "DomainName")
+                     <*> (x .?> "Nameservers" .!@ mempty)
+                     <*> (x .:> "AdminContact")
+                     <*> (x .:> "RegistrantContact")
+                     <*> (x .:> "TechContact"))
 
 instance ToHeaders GetDomainDetail where
         toHeaders
@@ -293,8 +293,8 @@ gddrRegistrarName = lens _gddrRegistrarName (\ s a -> s{_gddrRegistrarName = a})
 -- searches sometimes return an old version of the document.)
 --
 -- Type: Array of String
-gddrStatusList :: Lens' GetDomainDetailResponse (Maybe [Text])
-gddrStatusList = lens _gddrStatusList (\ s a -> s{_gddrStatusList = a});
+gddrStatusList :: Lens' GetDomainDetailResponse [Text]
+gddrStatusList = lens _gddrStatusList (\ s a -> s{_gddrStatusList = a}) . _Default;
 
 -- | Reseller of the domain. Domains registered or transferred using Amazon
 -- Route 53 domains will have @\"Amazon\"@ as the reseller.

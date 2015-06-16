@@ -92,8 +92,8 @@ instance AWSRequest DescribeCacheParameterGroups
               (\ s h x ->
                  DescribeCacheParameterGroupsResponse' <$>
                    (x .@? "CacheParameterGroups" .!@ mempty >>=
-                      parseXMLList "CacheParameterGroup")
-                     <*> x .@? "Marker")
+                      may (parseXMLList "CacheParameterGroup"))
+                     <*> (x .@? "Marker"))
 
 instance ToHeaders DescribeCacheParameterGroups where
         toHeaders = const mempty
@@ -127,8 +127,8 @@ describeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse'{_dc
 
 -- | A list of cache parameter groups. Each element in the list contains
 -- detailed information about one cache parameter group.
-dcpgrCacheParameterGroups :: Lens' DescribeCacheParameterGroupsResponse (Maybe [CacheParameterGroup])
-dcpgrCacheParameterGroups = lens _dcpgrCacheParameterGroups (\ s a -> s{_dcpgrCacheParameterGroups = a});
+dcpgrCacheParameterGroups :: Lens' DescribeCacheParameterGroupsResponse [CacheParameterGroup]
+dcpgrCacheParameterGroups = lens _dcpgrCacheParameterGroups (\ s a -> s{_dcpgrCacheParameterGroups = a}) . _Default;
 
 -- | Provides an identifier to allow retrieval of paginated results.
 dcpgrMarker :: Lens' DescribeCacheParameterGroupsResponse (Maybe Text)

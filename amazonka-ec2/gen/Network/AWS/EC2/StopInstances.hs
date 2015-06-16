@@ -116,7 +116,8 @@ instance AWSRequest StopInstances where
         response
           = receiveXML
               (\ s h x ->
-                 StopInstancesResponse' <$> parseXMLList "item" x)
+                 StopInstancesResponse' <$>
+                   (may (parseXMLList "item") x))
 
 instance ToHeaders StopInstances where
         toHeaders = const mempty
@@ -130,7 +131,7 @@ instance ToQuery StopInstances where
               ["Action" =: ("StopInstances" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "Force" =: _siForce, "DryRun" =: _siDryRun,
-               "InstanceId" =: _siInstanceIds]
+               toQueryList "InstanceId" _siInstanceIds]
 
 -- | /See:/ 'stopInstancesResponse' smart constructor.
 --
@@ -144,5 +145,5 @@ stopInstancesResponse :: StopInstancesResponse
 stopInstancesResponse = StopInstancesResponse'{_sirStoppingInstances = Nothing};
 
 -- | Information about one or more stopped instances.
-sirStoppingInstances :: Lens' StopInstancesResponse (Maybe [InstanceStateChange])
-sirStoppingInstances = lens _sirStoppingInstances (\ s a -> s{_sirStoppingInstances = a});
+sirStoppingInstances :: Lens' StopInstancesResponse [InstanceStateChange]
+sirStoppingInstances = lens _sirStoppingInstances (\ s a -> s{_sirStoppingInstances = a}) . _Default;

@@ -80,8 +80,8 @@ ddNextToken = lens _ddNextToken (\ s a -> s{_ddNextToken = a});
 -- account are returned.
 --
 -- An empty list results in an @InvalidParameterException@ being thrown.
-ddDirectoryIds :: Lens' DescribeDirectories (Maybe [Text])
-ddDirectoryIds = lens _ddDirectoryIds (\ s a -> s{_ddDirectoryIds = a});
+ddDirectoryIds :: Lens' DescribeDirectories [Text]
+ddDirectoryIds = lens _ddDirectoryIds (\ s a -> s{_ddDirectoryIds = a}) . _Default;
 
 -- | The maximum number of items to return. If this value is zero, the
 -- maximum number of items is specified by the limitations of the
@@ -98,8 +98,8 @@ instance AWSRequest DescribeDirectories where
           = receiveJSON
               (\ s h x ->
                  DescribeDirectoriesResponse' <$>
-                   x .?> "DirectoryDescriptions" .!@ mempty <*>
-                     x .?> "NextToken")
+                   (x .?> "DirectoryDescriptions" .!@ mempty) <*>
+                     (x .?> "NextToken"))
 
 instance ToHeaders DescribeDirectories where
         toHeaders
@@ -143,8 +143,8 @@ describeDirectoriesResponse = DescribeDirectoriesResponse'{_ddrDirectoryDescript
 -- specified in the /Limit/ member of the request. This occurs if there are
 -- less than the requested number of items left to retrieve, or if the
 -- limitations of the operation have been exceeded.
-ddrDirectoryDescriptions :: Lens' DescribeDirectoriesResponse (Maybe [DirectoryDescription])
-ddrDirectoryDescriptions = lens _ddrDirectoryDescriptions (\ s a -> s{_ddrDirectoryDescriptions = a});
+ddrDirectoryDescriptions :: Lens' DescribeDirectoriesResponse [DirectoryDescription]
+ddrDirectoryDescriptions = lens _ddrDirectoryDescriptions (\ s a -> s{_ddrDirectoryDescriptions = a}) . _Default;
 
 -- | If not null, more results are available. Pass this value for the
 -- /NextToken/ parameter in a subsequent call to DescribeDirectories to

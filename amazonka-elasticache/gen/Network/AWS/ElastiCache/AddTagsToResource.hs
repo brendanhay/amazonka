@@ -94,4 +94,4 @@ instance ToQuery AddTagsToResource where
               ["Action" =: ("AddTagsToResource" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
                "ResourceName" =: _attrResourceName,
-               "Tags" =: "Tag" =: _attrTags]
+               "Tags" =: toQueryList "Tag" _attrTags]

@@ -92,8 +92,8 @@ instance AWSRequest ListContainerInstances where
           = receiveJSON
               (\ s h x ->
                  ListContainerInstancesResponse' <$>
-                   x .?> "containerInstanceArns" .!@ mempty <*>
-                     x .?> "nextToken")
+                   (x .?> "containerInstanceArns" .!@ mempty) <*>
+                     (x .?> "nextToken"))
 
 instance ToHeaders ListContainerInstances where
         toHeaders
@@ -133,8 +133,8 @@ listContainerInstancesResponse = ListContainerInstancesResponse'{_lcirContainerI
 
 -- | The list of container instance full Amazon Resource Name (ARN) entries
 -- for each container instance associated with the specified cluster.
-lcirContainerInstanceARNs :: Lens' ListContainerInstancesResponse (Maybe [Text])
-lcirContainerInstanceARNs = lens _lcirContainerInstanceARNs (\ s a -> s{_lcirContainerInstanceARNs = a});
+lcirContainerInstanceARNs :: Lens' ListContainerInstancesResponse [Text]
+lcirContainerInstanceARNs = lens _lcirContainerInstanceARNs (\ s a -> s{_lcirContainerInstanceARNs = a}) . _Default;
 
 -- | The @nextToken@ value to include in a future @ListContainerInstances@
 -- request. When the results of a @ListContainerInstances@ request exceed

@@ -78,7 +78,7 @@ instance AWSRequest UpdateAssociationStatus where
           = receiveJSON
               (\ s h x ->
                  UpdateAssociationStatusResponse' <$>
-                   x .?> "AssociationDescription")
+                   (x .?> "AssociationDescription"))
 
 instance ToHeaders UpdateAssociationStatus where
         toHeaders

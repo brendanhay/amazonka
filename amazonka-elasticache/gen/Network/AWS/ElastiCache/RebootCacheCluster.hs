@@ -82,7 +82,8 @@ instance AWSRequest RebootCacheCluster where
         response
           = receiveXMLWrapper "RebootCacheClusterResult"
               (\ s h x ->
-                 RebootCacheClusterResponse' <$> x .@? "CacheCluster")
+                 RebootCacheClusterResponse' <$>
+                   (x .@? "CacheCluster"))
 
 instance ToHeaders RebootCacheCluster where
         toHeaders = const mempty
@@ -97,7 +98,7 @@ instance ToQuery RebootCacheCluster where
                "Version" =: ("2015-02-02" :: ByteString),
                "CacheClusterId" =: _rccCacheClusterId,
                "CacheNodeIdsToReboot" =:
-                 "CacheNodeId" =: _rccCacheNodeIdsToReboot]
+                 toQueryList "CacheNodeId" _rccCacheNodeIdsToReboot]
 
 -- | /See:/ 'rebootCacheClusterResponse' smart constructor.
 --

@@ -90,7 +90,7 @@ instance ToQuery RebootInstances where
               ["Action" =: ("RebootInstances" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "DryRun" =: _rebDryRun,
-               "InstanceId" =: _rebInstanceIds]
+               toQueryList "InstanceId" _rebInstanceIds]
 
 -- | /See:/ 'rebootInstancesResponse' smart constructor.
 data RebootInstancesResponse = RebootInstancesResponse' deriving (Eq, Read, Show)

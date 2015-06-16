@@ -65,8 +65,8 @@ createComputer pDirectoryId pComputerName pPassword = CreateComputer'{_ccCompute
 
 -- | An array of Attribute objects that contain any LDAP attributes to apply
 -- to the computer account.
-ccComputerAttributes :: Lens' CreateComputer (Maybe [Attribute])
-ccComputerAttributes = lens _ccComputerAttributes (\ s a -> s{_ccComputerAttributes = a});
+ccComputerAttributes :: Lens' CreateComputer [Attribute]
+ccComputerAttributes = lens _ccComputerAttributes (\ s a -> s{_ccComputerAttributes = a}) . _Default;
 
 -- | The fully-qualified distinguished name of the organizational unit to
 -- place the computer account in.
@@ -93,7 +93,7 @@ instance AWSRequest CreateComputer where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateComputerResponse' <$> x .?> "Computer")
+                 CreateComputerResponse' <$> (x .?> "Computer"))
 
 instance ToHeaders CreateComputer where
         toHeaders

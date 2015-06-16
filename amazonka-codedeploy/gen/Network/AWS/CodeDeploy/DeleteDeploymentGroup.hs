@@ -71,7 +71,7 @@ instance AWSRequest DeleteDeploymentGroup where
           = receiveJSON
               (\ s h x ->
                  DeleteDeploymentGroupResponse' <$>
-                   x .?> "hooksNotCleanedUp" .!@ mempty)
+                   (x .?> "hooksNotCleanedUp" .!@ mempty))
 
 instance ToHeaders DeleteDeploymentGroup where
         toHeaders
@@ -112,5 +112,5 @@ deleteDeploymentGroupResponse = DeleteDeploymentGroupResponse'{_ddgrHooksNotClea
 -- Amazon EC2 instances in the Auto Scaling. If the output does contain
 -- data, AWS CodeDeploy could not remove some Auto Scaling lifecycle event
 -- hooks from the Amazon EC2 instances in the Auto Scaling group.
-ddgrHooksNotCleanedUp :: Lens' DeleteDeploymentGroupResponse (Maybe [AutoScalingGroup])
-ddgrHooksNotCleanedUp = lens _ddgrHooksNotCleanedUp (\ s a -> s{_ddgrHooksNotCleanedUp = a});
+ddgrHooksNotCleanedUp :: Lens' DeleteDeploymentGroupResponse [AutoScalingGroup]
+ddgrHooksNotCleanedUp = lens _ddgrHooksNotCleanedUp (\ s a -> s{_ddgrHooksNotCleanedUp = a}) . _Default;

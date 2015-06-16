@@ -92,8 +92,8 @@ instance AWSRequest DescribeReservedNodes where
               (\ s h x ->
                  DescribeReservedNodesResponse' <$>
                    (x .@? "ReservedNodes" .!@ mempty >>=
-                      parseXMLList "ReservedNode")
-                     <*> x .@? "Marker")
+                      may (parseXMLList "ReservedNode"))
+                     <*> (x .@? "Marker"))
 
 instance ToHeaders DescribeReservedNodes where
         toHeaders = const mempty
@@ -124,8 +124,8 @@ describeReservedNodesResponse :: DescribeReservedNodesResponse
 describeReservedNodesResponse = DescribeReservedNodesResponse'{_drnrReservedNodes = Nothing, _drnrMarker = Nothing};
 
 -- | The list of reserved nodes.
-drnrReservedNodes :: Lens' DescribeReservedNodesResponse (Maybe [ReservedNode])
-drnrReservedNodes = lens _drnrReservedNodes (\ s a -> s{_drnrReservedNodes = a});
+drnrReservedNodes :: Lens' DescribeReservedNodesResponse [ReservedNode]
+drnrReservedNodes = lens _drnrReservedNodes (\ s a -> s{_drnrReservedNodes = a}) . _Default;
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,

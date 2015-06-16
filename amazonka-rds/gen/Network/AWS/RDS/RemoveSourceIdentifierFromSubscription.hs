@@ -76,7 +76,7 @@ instance AWSRequest
               "RemoveSourceIdentifierFromSubscriptionResult"
               (\ s h x ->
                  RemoveSourceIdentifierFromSubscriptionResponse' <$>
-                   x .@? "EventSubscription")
+                   (x .@? "EventSubscription"))
 
 instance ToHeaders
          RemoveSourceIdentifierFromSubscription where

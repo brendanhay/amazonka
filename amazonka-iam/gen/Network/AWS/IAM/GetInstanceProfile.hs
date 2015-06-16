@@ -68,7 +68,7 @@ instance AWSRequest GetInstanceProfile where
           = receiveXMLWrapper "GetInstanceProfileResult"
               (\ s h x ->
                  GetInstanceProfileResponse' <$>
-                   x .@ "InstanceProfile")
+                   (x .@ "InstanceProfile"))
 
 instance ToHeaders GetInstanceProfile where
         toHeaders = const mempty

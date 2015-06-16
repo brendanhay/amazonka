@@ -63,7 +63,7 @@ instance AWSRequest StopDeployment where
           = receiveJSON
               (\ s h x ->
                  StopDeploymentResponse' <$>
-                   x .?> "status" <*> x .?> "statusMessage")
+                   (x .?> "status") <*> (x .?> "statusMessage"))
 
 instance ToHeaders StopDeployment where
         toHeaders

@@ -102,8 +102,8 @@ getQueueAttributes :: Text -> GetQueueAttributes
 getQueueAttributes pQueueURL = GetQueueAttributes'{_gqaAttributeNames = Nothing, _gqaQueueURL = pQueueURL};
 
 -- | A list of attributes to retrieve information for.
-gqaAttributeNames :: Lens' GetQueueAttributes (Maybe [QueueAttributeName])
-gqaAttributeNames = lens _gqaAttributeNames (\ s a -> s{_gqaAttributeNames = a});
+gqaAttributeNames :: Lens' GetQueueAttributes [QueueAttributeName]
+gqaAttributeNames = lens _gqaAttributeNames (\ s a -> s{_gqaAttributeNames = a}) . _Default;
 
 -- | The URL of the Amazon SQS queue to take action on.
 gqaQueueURL :: Lens' GetQueueAttributes Text
@@ -118,7 +118,7 @@ instance AWSRequest GetQueueAttributes where
           = receiveXMLWrapper "GetQueueAttributesResult"
               (\ s h x ->
                  GetQueueAttributesResponse' <$>
-                   parseXMLMap "Attribute" "Name" "Value" x)
+                   (may (parseXMLMap "Attribute" "Name" "Value") x))
 
 instance ToHeaders GetQueueAttributes where
         toHeaders = const mempty
@@ -131,7 +131,8 @@ instance ToQuery GetQueueAttributes where
           = mconcat
               ["Action" =: ("GetQueueAttributes" :: ByteString),
                "Version" =: ("2012-11-05" :: ByteString),
-               "AttributeName" =: _gqaAttributeNames,
+               toQuery
+                 (toQueryList "AttributeName" <$> _gqaAttributeNames),
                "QueueUrl" =: _gqaQueueURL]
 
 -- | /See:/ 'getQueueAttributesResponse' smart constructor.
@@ -139,12 +140,12 @@ instance ToQuery GetQueueAttributes where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gqarAttributes'
-newtype GetQueueAttributesResponse = GetQueueAttributesResponse'{_gqarAttributes :: Maybe (HashMap QueueAttributeName Text)} deriving (Eq, Read, Show)
+newtype GetQueueAttributesResponse = GetQueueAttributesResponse'{_gqarAttributes :: Maybe (Map QueueAttributeName Text)} deriving (Eq, Read, Show)
 
 -- | 'GetQueueAttributesResponse' smart constructor.
 getQueueAttributesResponse :: GetQueueAttributesResponse
 getQueueAttributesResponse = GetQueueAttributesResponse'{_gqarAttributes = Nothing};
 
 -- | A map of attributes to the respective values.
-gqarAttributes :: Lens' GetQueueAttributesResponse (Maybe (HashMap QueueAttributeName Text))
-gqarAttributes = lens _gqarAttributes (\ s a -> s{_gqarAttributes = a}) . mapping _Coerce;
+gqarAttributes :: Lens' GetQueueAttributesResponse (Map QueueAttributeName Text)
+gqarAttributes = lens _gqarAttributes (\ s a -> s{_gqarAttributes = a}) . _Default . _Map;

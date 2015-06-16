@@ -119,4 +119,5 @@ instance ToQuery ModifyDBParameterGroup where
                  ("ModifyDBParameterGroup" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "DBParameterGroupName" =: _mdpgDBParameterGroupName,
-               "Parameters" =: "Parameter" =: _mdpgParameters]
+               "Parameters" =:
+                 toQueryList "Parameter" _mdpgParameters]

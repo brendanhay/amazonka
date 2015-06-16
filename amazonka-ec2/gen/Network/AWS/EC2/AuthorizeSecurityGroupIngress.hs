@@ -102,8 +102,8 @@ asgiFromPort = lens _asgiFromPort (\ s a -> s{_asgiFromPort = a});
 
 -- | A set of IP permissions. Can be used to specify multiple rules in a
 -- single command.
-asgiIPPermissions :: Lens' AuthorizeSecurityGroupIngress (Maybe [IPPermission])
-asgiIPPermissions = lens _asgiIPPermissions (\ s a -> s{_asgiIPPermissions = a});
+asgiIPPermissions :: Lens' AuthorizeSecurityGroupIngress [IPPermission]
+asgiIPPermissions = lens _asgiIPPermissions (\ s a -> s{_asgiIPPermissions = a}) . _Default;
 
 -- | The IP protocol name (@tcp@, @udp@, @icmp@) or number (see
 -- <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>).
@@ -170,7 +170,7 @@ instance ToQuery AuthorizeSecurityGroupIngress where
                  ("AuthorizeSecurityGroupIngress" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "FromPort" =: _asgiFromPort,
-               "item" =: _asgiIPPermissions,
+               toQuery (toQueryList "item" <$> _asgiIPPermissions),
                "IpProtocol" =: _asgiIPProtocol,
                "GroupId" =: _asgiGroupId, "ToPort" =: _asgiToPort,
                "CidrIp" =: _asgiCIDRIP,

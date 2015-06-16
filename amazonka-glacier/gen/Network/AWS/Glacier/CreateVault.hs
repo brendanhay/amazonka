@@ -98,7 +98,7 @@ instance AWSRequest CreateVault where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateVaultResponse' <$> h .#? "Location")
+                 CreateVaultResponse' <$> (h .#? "Location"))
 
 instance ToHeaders CreateVault where
         toHeaders = const mempty

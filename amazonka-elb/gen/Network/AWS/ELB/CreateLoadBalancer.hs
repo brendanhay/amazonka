@@ -96,14 +96,14 @@ createLoadBalancer :: Text -> CreateLoadBalancer
 createLoadBalancer pLoadBalancerName = CreateLoadBalancer'{_clbSecurityGroups = Nothing, _clbSubnets = Nothing, _clbAvailabilityZones = Nothing, _clbScheme = Nothing, _clbTags = Nothing, _clbLoadBalancerName = pLoadBalancerName, _clbListeners = mempty};
 
 -- | The IDs of the security groups to assign to the load balancer.
-clbSecurityGroups :: Lens' CreateLoadBalancer (Maybe [Text])
-clbSecurityGroups = lens _clbSecurityGroups (\ s a -> s{_clbSecurityGroups = a});
+clbSecurityGroups :: Lens' CreateLoadBalancer [Text]
+clbSecurityGroups = lens _clbSecurityGroups (\ s a -> s{_clbSecurityGroups = a}) . _Default;
 
 -- | The IDs of the subnets in your VPC to attach to the load balancer.
 -- Specify one subnet per Availability Zone specified in
 -- @AvailabilityZones@.
-clbSubnets :: Lens' CreateLoadBalancer (Maybe [Text])
-clbSubnets = lens _clbSubnets (\ s a -> s{_clbSubnets = a});
+clbSubnets :: Lens' CreateLoadBalancer [Text]
+clbSubnets = lens _clbSubnets (\ s a -> s{_clbSubnets = a}) . _Default;
 
 -- | One or more Availability Zones from the same region as the load
 -- balancer. Traffic is equally distributed across all specified
@@ -113,8 +113,8 @@ clbSubnets = lens _clbSubnets (\ s a -> s{_clbSubnets = a});
 --
 -- You can add more Availability Zones after you create the load balancer
 -- using EnableAvailabilityZonesForLoadBalancer.
-clbAvailabilityZones :: Lens' CreateLoadBalancer (Maybe [Text])
-clbAvailabilityZones = lens _clbAvailabilityZones (\ s a -> s{_clbAvailabilityZones = a});
+clbAvailabilityZones :: Lens' CreateLoadBalancer [Text]
+clbAvailabilityZones = lens _clbAvailabilityZones (\ s a -> s{_clbAvailabilityZones = a}) . _Default;
 
 -- | The type of a load balancer. Valid only for load balancers in a VPC.
 --
@@ -162,7 +162,7 @@ instance AWSRequest CreateLoadBalancer where
         response
           = receiveXMLWrapper "CreateLoadBalancerResult"
               (\ s h x ->
-                 CreateLoadBalancerResponse' <$> x .@? "DNSName")
+                 CreateLoadBalancerResponse' <$> (x .@? "DNSName"))
 
 instance ToHeaders CreateLoadBalancer where
         toHeaders = const mempty
@@ -175,14 +175,19 @@ instance ToQuery CreateLoadBalancer where
           = mconcat
               ["Action" =: ("CreateLoadBalancer" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
-               "SecurityGroups" =: "member" =: _clbSecurityGroups,
-               "Subnets" =: "member" =: _clbSubnets,
+               "SecurityGroups" =:
+                 toQuery
+                   (toQueryList "member" <$> _clbSecurityGroups),
+               "Subnets" =:
+                 toQuery (toQueryList "member" <$> _clbSubnets),
                "AvailabilityZones" =:
-                 "member" =: _clbAvailabilityZones,
+                 toQuery
+                   (toQueryList "member" <$> _clbAvailabilityZones),
                "Scheme" =: _clbScheme,
-               "Tags" =: "member" =: _clbTags,
+               "Tags" =:
+                 toQuery (toQueryList "member" <$> _clbTags),
                "LoadBalancerName" =: _clbLoadBalancerName,
-               "Listeners" =: "member" =: _clbListeners]
+               "Listeners" =: toQueryList "member" _clbListeners]
 
 -- | /See:/ 'createLoadBalancerResponse' smart constructor.
 --

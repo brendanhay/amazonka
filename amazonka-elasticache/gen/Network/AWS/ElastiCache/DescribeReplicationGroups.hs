@@ -94,9 +94,9 @@ instance AWSRequest DescribeReplicationGroups where
           = receiveXMLWrapper "DescribeReplicationGroupsResult"
               (\ s h x ->
                  DescribeReplicationGroupsResponse' <$>
-                   x .@? "Marker" <*>
+                   (x .@? "Marker") <*>
                      (x .@? "ReplicationGroups" .!@ mempty >>=
-                        parseXMLList "ReplicationGroup"))
+                        may (parseXMLList "ReplicationGroup")))
 
 instance ToHeaders DescribeReplicationGroups where
         toHeaders = const mempty
@@ -132,5 +132,5 @@ drgrMarker = lens _drgrMarker (\ s a -> s{_drgrMarker = a});
 
 -- | A list of replication groups. Each item in the list contains detailed
 -- information about one replication group.
-drgrReplicationGroups :: Lens' DescribeReplicationGroupsResponse (Maybe [ReplicationGroup])
-drgrReplicationGroups = lens _drgrReplicationGroups (\ s a -> s{_drgrReplicationGroups = a});
+drgrReplicationGroups :: Lens' DescribeReplicationGroupsResponse [ReplicationGroup]
+drgrReplicationGroups = lens _drgrReplicationGroups (\ s a -> s{_drgrReplicationGroups = a}) . _Default;

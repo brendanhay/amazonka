@@ -106,7 +106,8 @@ instance AWSRequest CreateTapes where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateTapesResponse' <$> x .?> "TapeARNs" .!@ mempty)
+                 CreateTapesResponse' <$>
+                   (x .?> "TapeARNs" .!@ mempty))
 
 instance ToHeaders CreateTapes where
         toHeaders
@@ -146,5 +147,5 @@ createTapesResponse = CreateTapesResponse'{_ctrTapeARNs = Nothing};
 
 -- | A list of unique Amazon Resource Named (ARN) the represents the virtual
 -- tapes that were created.
-ctrTapeARNs :: Lens' CreateTapesResponse (Maybe [Text])
-ctrTapeARNs = lens _ctrTapeARNs (\ s a -> s{_ctrTapeARNs = a});
+ctrTapeARNs :: Lens' CreateTapesResponse [Text]
+ctrTapeARNs = lens _ctrTapeARNs (\ s a -> s{_ctrTapeARNs = a}) . _Default;

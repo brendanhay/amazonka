@@ -83,8 +83,8 @@ describeHSMClientCertificates = DescribeHSMClientCertificates'{_dhccTagValues = 
 -- these tag values in the request, Amazon Redshift returns a response with
 -- the HSM client certificates that have either or both of these tag values
 -- associated with them.
-dhccTagValues :: Lens' DescribeHSMClientCertificates (Maybe [Text])
-dhccTagValues = lens _dhccTagValues (\ s a -> s{_dhccTagValues = a});
+dhccTagValues :: Lens' DescribeHSMClientCertificates [Text]
+dhccTagValues = lens _dhccTagValues (\ s a -> s{_dhccTagValues = a}) . _Default;
 
 -- | A tag key or keys for which you want to return all matching HSM client
 -- certificates that are associated with the specified key or keys. For
@@ -93,8 +93,8 @@ dhccTagValues = lens _dhccTagValues (\ s a -> s{_dhccTagValues = a});
 -- tag keys in the request, Amazon Redshift returns a response with the HSM
 -- client certificates that have either or both of these tag keys
 -- associated with them.
-dhccTagKeys :: Lens' DescribeHSMClientCertificates (Maybe [Text])
-dhccTagKeys = lens _dhccTagKeys (\ s a -> s{_dhccTagKeys = a});
+dhccTagKeys :: Lens' DescribeHSMClientCertificates [Text]
+dhccTagKeys = lens _dhccTagKeys (\ s a -> s{_dhccTagKeys = a}) . _Default;
 
 -- | The identifier of a specific HSM client certificate for which you want
 -- information. If no identifier is specified, information is returned for
@@ -134,9 +134,9 @@ instance AWSRequest DescribeHSMClientCertificates
               "DescribeHsmClientCertificatesResult"
               (\ s h x ->
                  DescribeHSMClientCertificatesResponse' <$>
-                   x .@? "Marker" <*>
+                   (x .@? "Marker") <*>
                      (x .@? "HsmClientCertificates" .!@ mempty >>=
-                        parseXMLList "HsmClientCertificate"))
+                        may (parseXMLList "HsmClientCertificate")))
 
 instance ToHeaders DescribeHSMClientCertificates
          where
@@ -151,8 +151,10 @@ instance ToQuery DescribeHSMClientCertificates where
               ["Action" =:
                  ("DescribeHSMClientCertificates" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "TagValues" =: "TagValue" =: _dhccTagValues,
-               "TagKeys" =: "TagKey" =: _dhccTagKeys,
+               "TagValues" =:
+                 toQuery (toQueryList "TagValue" <$> _dhccTagValues),
+               "TagKeys" =:
+                 toQuery (toQueryList "TagKey" <$> _dhccTagKeys),
                "HsmClientCertificateIdentifier" =:
                  _dhccHSMClientCertificateIdentifier,
                "MaxRecords" =: _dhccMaxRecords,
@@ -183,5 +185,5 @@ dhccrMarker = lens _dhccrMarker (\ s a -> s{_dhccrMarker = a});
 -- | A list of the identifiers for one or more HSM client certificates used
 -- by Amazon Redshift clusters to store and retrieve database encryption
 -- keys in an HSM.
-dhccrHSMClientCertificates :: Lens' DescribeHSMClientCertificatesResponse (Maybe [HSMClientCertificate])
-dhccrHSMClientCertificates = lens _dhccrHSMClientCertificates (\ s a -> s{_dhccrHSMClientCertificates = a});
+dhccrHSMClientCertificates :: Lens' DescribeHSMClientCertificatesResponse [HSMClientCertificate]
+dhccrHSMClientCertificates = lens _dhccrHSMClientCertificates (\ s a -> s{_dhccrHSMClientCertificates = a}) . _Default;

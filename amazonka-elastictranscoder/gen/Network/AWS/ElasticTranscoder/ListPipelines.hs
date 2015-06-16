@@ -75,8 +75,8 @@ instance AWSRequest ListPipelines where
           = receiveJSON
               (\ s h x ->
                  ListPipelinesResponse' <$>
-                   x .?> "NextPageToken" <*>
-                     x .?> "Pipelines" .!@ mempty)
+                   (x .?> "NextPageToken") <*>
+                     (x .?> "Pipelines" .!@ mempty))
 
 instance ToHeaders ListPipelines where
         toHeaders = const mempty
@@ -111,5 +111,5 @@ lprNextPageToken :: Lens' ListPipelinesResponse (Maybe Text)
 lprNextPageToken = lens _lprNextPageToken (\ s a -> s{_lprNextPageToken = a});
 
 -- | An array of @Pipeline@ objects.
-lprPipelines :: Lens' ListPipelinesResponse (Maybe [Pipeline])
-lprPipelines = lens _lprPipelines (\ s a -> s{_lprPipelines = a});
+lprPipelines :: Lens' ListPipelinesResponse [Pipeline]
+lprPipelines = lens _lprPipelines (\ s a -> s{_lprPipelines = a}) . _Default;

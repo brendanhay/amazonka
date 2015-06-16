@@ -71,7 +71,7 @@ instance AWSRequest GetHostnameSuggestion where
           = receiveJSON
               (\ s h x ->
                  GetHostnameSuggestionResponse' <$>
-                   x .?> "Hostname" <*> x .?> "LayerId")
+                   (x .?> "Hostname") <*> (x .?> "LayerId"))
 
 instance ToHeaders GetHostnameSuggestion where
         toHeaders

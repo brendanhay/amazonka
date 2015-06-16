@@ -75,7 +75,7 @@ instance AWSRequest DescribeMountTargetSecurityGroups
           = receiveJSON
               (\ s h x ->
                  DescribeMountTargetSecurityGroupsResponse' <$>
-                   x .?> "SecurityGroups" .!@ mempty)
+                   (x .?> "SecurityGroups" .!@ mempty))
 
 instance ToHeaders DescribeMountTargetSecurityGroups
          where

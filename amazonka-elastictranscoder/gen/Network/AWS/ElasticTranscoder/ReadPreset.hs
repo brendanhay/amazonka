@@ -61,7 +61,7 @@ instance AWSRequest ReadPreset where
         request = get
         response
           = receiveJSON
-              (\ s h x -> ReadPresetResponse' <$> x .?> "Preset")
+              (\ s h x -> ReadPresetResponse' <$> (x .?> "Preset"))
 
 instance ToHeaders ReadPreset where
         toHeaders = const mempty

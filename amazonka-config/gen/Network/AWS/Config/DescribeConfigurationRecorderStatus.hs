@@ -57,8 +57,8 @@ describeConfigurationRecorderStatus = DescribeConfigurationRecorderStatus'{_dcrs
 -- | The name(s) of the configuration recorder. If the name is not specified,
 -- the action returns the current status of all the configuration recorders
 -- associated with the account.
-dcrsConfigurationRecorderNames :: Lens' DescribeConfigurationRecorderStatus (Maybe [Text])
-dcrsConfigurationRecorderNames = lens _dcrsConfigurationRecorderNames (\ s a -> s{_dcrsConfigurationRecorderNames = a});
+dcrsConfigurationRecorderNames :: Lens' DescribeConfigurationRecorderStatus [Text]
+dcrsConfigurationRecorderNames = lens _dcrsConfigurationRecorderNames (\ s a -> s{_dcrsConfigurationRecorderNames = a}) . _Default;
 
 instance AWSRequest
          DescribeConfigurationRecorderStatus where
@@ -70,7 +70,7 @@ instance AWSRequest
           = receiveJSON
               (\ s h x ->
                  DescribeConfigurationRecorderStatusResponse' <$>
-                   x .?> "ConfigurationRecordersStatus" .!@ mempty)
+                   (x .?> "ConfigurationRecordersStatus" .!@ mempty))
 
 instance ToHeaders
          DescribeConfigurationRecorderStatus where
@@ -110,5 +110,5 @@ describeConfigurationRecorderStatusResponse :: DescribeConfigurationRecorderStat
 describeConfigurationRecorderStatusResponse = DescribeConfigurationRecorderStatusResponse'{_dcrsrConfigurationRecordersStatus = Nothing};
 
 -- | A list that contains status of the specified recorders.
-dcrsrConfigurationRecordersStatus :: Lens' DescribeConfigurationRecorderStatusResponse (Maybe [ConfigurationRecorderStatus])
-dcrsrConfigurationRecordersStatus = lens _dcrsrConfigurationRecordersStatus (\ s a -> s{_dcrsrConfigurationRecordersStatus = a});
+dcrsrConfigurationRecordersStatus :: Lens' DescribeConfigurationRecorderStatusResponse [ConfigurationRecorderStatus]
+dcrsrConfigurationRecordersStatus = lens _dcrsrConfigurationRecordersStatus (\ s a -> s{_dcrsrConfigurationRecordersStatus = a}) . _Default;

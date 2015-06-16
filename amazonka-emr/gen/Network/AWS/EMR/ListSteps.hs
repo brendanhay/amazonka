@@ -61,12 +61,12 @@ listSteps :: Text -> ListSteps
 listSteps pClusterId = ListSteps'{_lsStepIds = Nothing, _lsStepStates = Nothing, _lsMarker = Nothing, _lsClusterId = pClusterId};
 
 -- | The filter to limit the step list based on the identifier of the steps.
-lsStepIds :: Lens' ListSteps (Maybe [Text])
-lsStepIds = lens _lsStepIds (\ s a -> s{_lsStepIds = a});
+lsStepIds :: Lens' ListSteps [Text]
+lsStepIds = lens _lsStepIds (\ s a -> s{_lsStepIds = a}) . _Default;
 
 -- | The filter to limit the step list based on certain states.
-lsStepStates :: Lens' ListSteps (Maybe [StepState])
-lsStepStates = lens _lsStepStates (\ s a -> s{_lsStepStates = a});
+lsStepStates :: Lens' ListSteps [StepState]
+lsStepStates = lens _lsStepStates (\ s a -> s{_lsStepStates = a}) . _Default;
 
 -- | The pagination token that indicates the next set of results to retrieve.
 lsMarker :: Lens' ListSteps (Maybe Text)
@@ -84,7 +84,7 @@ instance AWSRequest ListSteps where
           = receiveJSON
               (\ s h x ->
                  ListStepsResponse' <$>
-                   x .?> "Steps" .!@ mempty <*> x .?> "Marker")
+                   (x .?> "Steps" .!@ mempty) <*> (x .?> "Marker"))
 
 instance ToHeaders ListSteps where
         toHeaders
@@ -122,8 +122,8 @@ listStepsResponse :: ListStepsResponse
 listStepsResponse = ListStepsResponse'{_lsrSteps = Nothing, _lsrMarker = Nothing};
 
 -- | The filtered list of steps for the cluster.
-lsrSteps :: Lens' ListStepsResponse (Maybe [StepSummary])
-lsrSteps = lens _lsrSteps (\ s a -> s{_lsrSteps = a});
+lsrSteps :: Lens' ListStepsResponse [StepSummary]
+lsrSteps = lens _lsrSteps (\ s a -> s{_lsrSteps = a}) . _Default;
 
 -- | The pagination token that indicates the next set of results to retrieve.
 lsrMarker :: Lens' ListStepsResponse (Maybe Text)

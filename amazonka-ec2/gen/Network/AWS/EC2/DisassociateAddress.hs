@@ -33,9 +33,9 @@ module Network.AWS.EC2.DisassociateAddress
     -- ** Request constructor
     , disassociateAddress
     -- ** Request lenses
-    , disassociateAssociationId
-    , disassociatePublicIP
-    , disassociateDryRun
+    , disaAssociationId
+    , disaPublicIP
+    , disaDryRun
 
     -- * Response
     , DisassociateAddressResponse
@@ -52,31 +52,31 @@ import Network.AWS.EC2.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'disassociateAssociationId'
+-- * 'disaAssociationId'
 --
--- * 'disassociatePublicIP'
+-- * 'disaPublicIP'
 --
--- * 'disassociateDryRun'
-data DisassociateAddress = DisassociateAddress'{_disassociateAssociationId :: Maybe Text, _disassociatePublicIP :: Maybe Text, _disassociateDryRun :: Maybe Bool} deriving (Eq, Read, Show)
+-- * 'disaDryRun'
+data DisassociateAddress = DisassociateAddress'{_disaAssociationId :: Maybe Text, _disaPublicIP :: Maybe Text, _disaDryRun :: Maybe Bool} deriving (Eq, Read, Show)
 
 -- | 'DisassociateAddress' smart constructor.
 disassociateAddress :: DisassociateAddress
-disassociateAddress = DisassociateAddress'{_disassociateAssociationId = Nothing, _disassociatePublicIP = Nothing, _disassociateDryRun = Nothing};
+disassociateAddress = DisassociateAddress'{_disaAssociationId = Nothing, _disaPublicIP = Nothing, _disaDryRun = Nothing};
 
 -- | [EC2-VPC] The association ID. Required for EC2-VPC.
-disassociateAssociationId :: Lens' DisassociateAddress (Maybe Text)
-disassociateAssociationId = lens _disassociateAssociationId (\ s a -> s{_disassociateAssociationId = a});
+disaAssociationId :: Lens' DisassociateAddress (Maybe Text)
+disaAssociationId = lens _disaAssociationId (\ s a -> s{_disaAssociationId = a});
 
 -- | [EC2-Classic] The Elastic IP address. Required for EC2-Classic.
-disassociatePublicIP :: Lens' DisassociateAddress (Maybe Text)
-disassociatePublicIP = lens _disassociatePublicIP (\ s a -> s{_disassociatePublicIP = a});
+disaPublicIP :: Lens' DisassociateAddress (Maybe Text)
+disaPublicIP = lens _disaPublicIP (\ s a -> s{_disaPublicIP = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-disassociateDryRun :: Lens' DisassociateAddress (Maybe Bool)
-disassociateDryRun = lens _disassociateDryRun (\ s a -> s{_disassociateDryRun = a});
+disaDryRun :: Lens' DisassociateAddress (Maybe Bool)
+disaDryRun = lens _disaDryRun (\ s a -> s{_disaDryRun = a});
 
 instance AWSRequest DisassociateAddress where
         type Sv DisassociateAddress = EC2
@@ -96,9 +96,8 @@ instance ToQuery DisassociateAddress where
           = mconcat
               ["Action" =: ("DisassociateAddress" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "AssociationId" =: _disassociateAssociationId,
-               "PublicIp" =: _disassociatePublicIP,
-               "DryRun" =: _disassociateDryRun]
+               "AssociationId" =: _disaAssociationId,
+               "PublicIp" =: _disaPublicIP, "DryRun" =: _disaDryRun]
 
 -- | /See:/ 'disassociateAddressResponse' smart constructor.
 data DisassociateAddressResponse = DisassociateAddressResponse' deriving (Eq, Read, Show)

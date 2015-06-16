@@ -72,8 +72,8 @@ draInstanceId = lens _draInstanceId (\ s a -> s{_draInstanceId = a});
 -- | An array of RAID array IDs. If you use this parameter,
 -- @DescribeRaidArrays@ returns descriptions of the specified arrays.
 -- Otherwise, it returns a description of every array.
-draRAIDArrayIds :: Lens' DescribeRAIDArrays (Maybe [Text])
-draRAIDArrayIds = lens _draRAIDArrayIds (\ s a -> s{_draRAIDArrayIds = a});
+draRAIDArrayIds :: Lens' DescribeRAIDArrays [Text]
+draRAIDArrayIds = lens _draRAIDArrayIds (\ s a -> s{_draRAIDArrayIds = a}) . _Default;
 
 -- | The stack ID.
 draStackId :: Lens' DescribeRAIDArrays (Maybe Text)
@@ -88,7 +88,7 @@ instance AWSRequest DescribeRAIDArrays where
           = receiveJSON
               (\ s h x ->
                  DescribeRAIDArraysResponse' <$>
-                   x .?> "RaidArrays" .!@ mempty)
+                   (x .?> "RaidArrays" .!@ mempty))
 
 instance ToHeaders DescribeRAIDArrays where
         toHeaders
@@ -125,5 +125,5 @@ describeRAIDArraysResponse :: DescribeRAIDArraysResponse
 describeRAIDArraysResponse = DescribeRAIDArraysResponse'{_drarRAIDArrays = Nothing};
 
 -- | A @RaidArrays@ object that describes the specified RAID arrays.
-drarRAIDArrays :: Lens' DescribeRAIDArraysResponse (Maybe [RAIDArray])
-drarRAIDArrays = lens _drarRAIDArrays (\ s a -> s{_drarRAIDArrays = a});
+drarRAIDArrays :: Lens' DescribeRAIDArraysResponse [RAIDArray]
+drarRAIDArrays = lens _drarRAIDArrays (\ s a -> s{_drarRAIDArrays = a}) . _Default;

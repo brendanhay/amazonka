@@ -82,7 +82,7 @@ instance AWSRequest ListTagsForStream where
           = receiveJSON
               (\ s h x ->
                  ListTagsForStreamResponse' <$>
-                   x .?> "Tags" .!@ mempty <*> x .:> "HasMoreTags")
+                   (x .?> "Tags" .!@ mempty) <*> (x .:> "HasMoreTags"))
 
 instance ToHeaders ListTagsForStream where
         toHeaders

@@ -81,8 +81,8 @@ instance AWSRequest ListDocuments where
           = receiveJSON
               (\ s h x ->
                  ListDocumentsResponse' <$>
-                   x .?> "DocumentIdentifiers" .!@ mempty <*>
-                     x .?> "NextToken")
+                   (x .?> "DocumentIdentifiers" .!@ mempty) <*>
+                     (x .?> "NextToken"))
 
 instance ToHeaders ListDocuments where
         toHeaders
@@ -120,8 +120,8 @@ listDocumentsResponse :: ListDocumentsResponse
 listDocumentsResponse = ListDocumentsResponse'{_ldrDocumentIdentifiers = Nothing, _ldrNextToken = Nothing};
 
 -- | The names of the configuration documents.
-ldrDocumentIdentifiers :: Lens' ListDocumentsResponse (Maybe [DocumentIdentifier])
-ldrDocumentIdentifiers = lens _ldrDocumentIdentifiers (\ s a -> s{_ldrDocumentIdentifiers = a});
+ldrDocumentIdentifiers :: Lens' ListDocumentsResponse [DocumentIdentifier]
+ldrDocumentIdentifiers = lens _ldrDocumentIdentifiers (\ s a -> s{_ldrDocumentIdentifiers = a}) . _Default;
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.

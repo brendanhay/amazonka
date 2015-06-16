@@ -64,7 +64,7 @@ instance AWSRequest GetServerCertificate where
           = receiveXMLWrapper "GetServerCertificateResult"
               (\ s h x ->
                  GetServerCertificateResponse' <$>
-                   x .@ "ServerCertificate")
+                   (x .@ "ServerCertificate"))
 
 instance ToHeaders GetServerCertificate where
         toHeaders = const mempty

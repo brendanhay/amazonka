@@ -73,8 +73,8 @@ instance AWSRequest GetApplicationRevision where
           = receiveJSON
               (\ s h x ->
                  GetApplicationRevisionResponse' <$>
-                   x .?> "revisionInfo" <*> x .?> "applicationName" <*>
-                     x .?> "revision")
+                   (x .?> "revisionInfo") <*> (x .?> "applicationName")
+                     <*> (x .?> "revision"))
 
 instance ToHeaders GetApplicationRevision where
         toHeaders

@@ -109,7 +109,7 @@ instance AWSRequest RevokeDBSecurityGroupIngress
               "RevokeDBSecurityGroupIngressResult"
               (\ s h x ->
                  RevokeDBSecurityGroupIngressResponse' <$>
-                   x .@? "DBSecurityGroup")
+                   (x .@? "DBSecurityGroup"))
 
 instance ToHeaders RevokeDBSecurityGroupIngress where
         toHeaders = const mempty

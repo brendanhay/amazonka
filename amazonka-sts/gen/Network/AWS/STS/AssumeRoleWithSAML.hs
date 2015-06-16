@@ -177,13 +177,13 @@ instance AWSRequest AssumeRoleWithSAML where
           = receiveXMLWrapper "AssumeRoleWithSAMLResult"
               (\ s h x ->
                  AssumeRoleWithSAMLResponse' <$>
-                   x .@? "Audience" <*> x .@? "Subject" <*>
-                     x .@? "PackedPolicySize"
-                     <*> x .@? "Credentials"
-                     <*> x .@? "SubjectType"
-                     <*> x .@? "NameQualifier"
-                     <*> x .@? "AssumedRoleUser"
-                     <*> x .@? "Issuer")
+                   (x .@? "Audience") <*> (x .@? "Subject") <*>
+                     (x .@? "PackedPolicySize")
+                     <*> (x .@? "Credentials")
+                     <*> (x .@? "SubjectType")
+                     <*> (x .@? "NameQualifier")
+                     <*> (x .@? "AssumedRoleUser")
+                     <*> (x .@? "Issuer"))
 
 instance ToHeaders AssumeRoleWithSAML where
         toHeaders = const mempty

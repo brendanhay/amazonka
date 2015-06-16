@@ -69,8 +69,8 @@ deDeployed = lens _deDeployed (\ s a -> s{_deDeployed = a});
 
 -- | Limits the @DescribeExpressions@ response to the specified expressions.
 -- If not specified, all expressions are shown.
-deExpressionNames :: Lens' DescribeExpressions (Maybe [Text])
-deExpressionNames = lens _deExpressionNames (\ s a -> s{_deExpressionNames = a});
+deExpressionNames :: Lens' DescribeExpressions [Text]
+deExpressionNames = lens _deExpressionNames (\ s a -> s{_deExpressionNames = a}) . _Default;
 
 -- | The name of the domain you want to describe.
 deDomainName :: Lens' DescribeExpressions Text
@@ -100,7 +100,9 @@ instance ToQuery DescribeExpressions where
               ["Action" =: ("DescribeExpressions" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
                "Deployed" =: _deDeployed,
-               "ExpressionNames" =: "member" =: _deExpressionNames,
+               "ExpressionNames" =:
+                 toQuery
+                   (toQueryList "member" <$> _deExpressionNames),
                "DomainName" =: _deDomainName]
 
 -- | /See:/ 'describeExpressionsResponse' smart constructor.

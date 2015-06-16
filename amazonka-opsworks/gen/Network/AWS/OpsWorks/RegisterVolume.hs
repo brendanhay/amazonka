@@ -78,7 +78,7 @@ instance AWSRequest RegisterVolume where
         response
           = receiveJSON
               (\ s h x ->
-                 RegisterVolumeResponse' <$> x .?> "VolumeId")
+                 RegisterVolumeResponse' <$> (x .?> "VolumeId"))
 
 instance ToHeaders RegisterVolume where
         toHeaders

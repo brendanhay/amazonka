@@ -59,8 +59,8 @@ describeNotificationConfigurations :: DescribeNotificationConfigurations
 describeNotificationConfigurations = DescribeNotificationConfigurations'{_dncAutoScalingGroupNames = Nothing, _dncNextToken = Nothing, _dncMaxRecords = Nothing};
 
 -- | The name of the group.
-dncAutoScalingGroupNames :: Lens' DescribeNotificationConfigurations (Maybe [Text])
-dncAutoScalingGroupNames = lens _dncAutoScalingGroupNames (\ s a -> s{_dncAutoScalingGroupNames = a});
+dncAutoScalingGroupNames :: Lens' DescribeNotificationConfigurations [Text]
+dncAutoScalingGroupNames = lens _dncAutoScalingGroupNames (\ s a -> s{_dncAutoScalingGroupNames = a}) . _Default;
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
@@ -83,7 +83,7 @@ instance AWSRequest
               "DescribeNotificationConfigurationsResult"
               (\ s h x ->
                  DescribeNotificationConfigurationsResponse' <$>
-                   x .@? "NextToken" <*>
+                   (x .@? "NextToken") <*>
                      (x .@? "NotificationConfigurations" .!@ mempty >>=
                         parseXMLList "member"))
 
@@ -103,7 +103,8 @@ instance ToQuery DescribeNotificationConfigurations
                  ("DescribeNotificationConfigurations" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
                "AutoScalingGroupNames" =:
-                 "member" =: _dncAutoScalingGroupNames,
+                 toQuery
+                   (toQueryList "member" <$> _dncAutoScalingGroupNames),
                "NextToken" =: _dncNextToken,
                "MaxRecords" =: _dncMaxRecords]
 

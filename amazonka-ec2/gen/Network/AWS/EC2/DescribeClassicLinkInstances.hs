@@ -89,8 +89,8 @@ describeClassicLinkInstances = DescribeClassicLinkInstances'{_dcliFilters = Noth
 --
 -- -   @vpc-id@ - The ID of the VPC that the instance is linked to.
 --
-dcliFilters :: Lens' DescribeClassicLinkInstances (Maybe [Filter])
-dcliFilters = lens _dcliFilters (\ s a -> s{_dcliFilters = a});
+dcliFilters :: Lens' DescribeClassicLinkInstances [Filter]
+dcliFilters = lens _dcliFilters (\ s a -> s{_dcliFilters = a}) . _Default;
 
 -- | The token to retrieve the next page of results.
 dcliNextToken :: Lens' DescribeClassicLinkInstances (Maybe Text)
@@ -98,8 +98,8 @@ dcliNextToken = lens _dcliNextToken (\ s a -> s{_dcliNextToken = a});
 
 -- | One or more instance IDs. Must be instances linked to a VPC through
 -- ClassicLink.
-dcliInstanceIds :: Lens' DescribeClassicLinkInstances (Maybe [Text])
-dcliInstanceIds = lens _dcliInstanceIds (\ s a -> s{_dcliInstanceIds = a});
+dcliInstanceIds :: Lens' DescribeClassicLinkInstances [Text]
+dcliInstanceIds = lens _dcliInstanceIds (\ s a -> s{_dcliInstanceIds = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -130,7 +130,8 @@ instance AWSRequest DescribeClassicLinkInstances
           = receiveXML
               (\ s h x ->
                  DescribeClassicLinkInstancesResponse' <$>
-                   x .@? "nextToken" <*> parseXMLList "item" x)
+                   (x .@? "nextToken") <*>
+                     (may (parseXMLList "item") x))
 
 instance ToHeaders DescribeClassicLinkInstances where
         toHeaders = const mempty
@@ -144,9 +145,10 @@ instance ToQuery DescribeClassicLinkInstances where
               ["Action" =:
                  ("DescribeClassicLinkInstances" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Filter" =: _dcliFilters,
+               toQuery (toQueryList "Filter" <$> _dcliFilters),
                "NextToken" =: _dcliNextToken,
-               "InstanceId" =: _dcliInstanceIds,
+               toQuery
+                 (toQueryList "InstanceId" <$> _dcliInstanceIds),
                "DryRun" =: _dcliDryRun,
                "MaxResults" =: _dcliMaxResults]
 
@@ -169,5 +171,5 @@ dclirNextToken :: Lens' DescribeClassicLinkInstancesResponse (Maybe Text)
 dclirNextToken = lens _dclirNextToken (\ s a -> s{_dclirNextToken = a});
 
 -- | Information about one or more linked EC2-Classic instances.
-dclirInstances :: Lens' DescribeClassicLinkInstancesResponse (Maybe [ClassicLinkInstance])
-dclirInstances = lens _dclirInstances (\ s a -> s{_dclirInstances = a});
+dclirInstances :: Lens' DescribeClassicLinkInstancesResponse [ClassicLinkInstance]
+dclirInstances = lens _dclirInstances (\ s a -> s{_dclirInstances = a}) . _Default;

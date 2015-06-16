@@ -62,7 +62,8 @@ instance AWSRequest GetBucketLogging where
         response
           = receiveXML
               (\ s h x ->
-                 GetBucketLoggingResponse' <$> x .@? "LoggingEnabled")
+                 GetBucketLoggingResponse' <$>
+                   (x .@? "LoggingEnabled"))
 
 instance ToHeaders GetBucketLogging where
         toHeaders = const mempty

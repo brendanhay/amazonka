@@ -90,8 +90,8 @@ instance AWSRequest ListGrants where
           = receiveJSON
               (\ s h x ->
                  ListGrantsResponse' <$>
-                   x .?> "Truncated" <*> x .?> "Grants" .!@ mempty <*>
-                     x .?> "NextMarker")
+                   (x .?> "Truncated") <*> (x .?> "Grants" .!@ mempty)
+                     <*> (x .?> "NextMarker"))
 
 instance ToHeaders ListGrants where
         toHeaders
@@ -137,8 +137,8 @@ lgrTruncated :: Lens' ListGrantsResponse (Maybe Bool)
 lgrTruncated = lens _lgrTruncated (\ s a -> s{_lgrTruncated = a});
 
 -- | A list of grants.
-lgrGrants :: Lens' ListGrantsResponse (Maybe [GrantListEntry])
-lgrGrants = lens _lgrGrants (\ s a -> s{_lgrGrants = a});
+lgrGrants :: Lens' ListGrantsResponse [GrantListEntry]
+lgrGrants = lens _lgrGrants (\ s a -> s{_lgrGrants = a}) . _Default;
 
 -- | If @Truncated@ is true, this value is present and contains the value to
 -- use for the @Marker@ request parameter in a subsequent pagination

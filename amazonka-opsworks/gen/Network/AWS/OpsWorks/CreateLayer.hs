@@ -103,7 +103,7 @@ import Network.AWS.OpsWorks.Types
 -- * 'clName'
 --
 -- * 'clShortname'
-data CreateLayer = CreateLayer'{_clCustomInstanceProfileARN :: Maybe Text, _clInstallUpdatesOnBoot :: Maybe Bool, _clCustomSecurityGroupIds :: Maybe [Text], _clLifecycleEventConfiguration :: Maybe LifecycleEventConfiguration, _clCustomRecipes :: Maybe Recipes, _clVolumeConfigurations :: Maybe [VolumeConfiguration], _clEnableAutoHealing :: Maybe Bool, _clPackages :: Maybe [Text], _clAttributes :: Maybe (HashMap LayerAttributesKeys Text), _clAutoAssignPublicIPs :: Maybe Bool, _clUseEBSOptimizedInstances :: Maybe Bool, _clAutoAssignElasticIPs :: Maybe Bool, _clStackId :: Text, _clType :: LayerType, _clName :: Text, _clShortname :: Text} deriving (Eq, Read, Show)
+data CreateLayer = CreateLayer'{_clCustomInstanceProfileARN :: Maybe Text, _clInstallUpdatesOnBoot :: Maybe Bool, _clCustomSecurityGroupIds :: Maybe [Text], _clLifecycleEventConfiguration :: Maybe LifecycleEventConfiguration, _clCustomRecipes :: Maybe Recipes, _clVolumeConfigurations :: Maybe [VolumeConfiguration], _clEnableAutoHealing :: Maybe Bool, _clPackages :: Maybe [Text], _clAttributes :: Maybe (Map LayerAttributesKeys Text), _clAutoAssignPublicIPs :: Maybe Bool, _clUseEBSOptimizedInstances :: Maybe Bool, _clAutoAssignElasticIPs :: Maybe Bool, _clStackId :: Text, _clType :: LayerType, _clName :: Text, _clShortname :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateLayer' smart constructor.
 createLayer :: Text -> LayerType -> Text -> Text -> CreateLayer
@@ -128,8 +128,8 @@ clInstallUpdatesOnBoot :: Lens' CreateLayer (Maybe Bool)
 clInstallUpdatesOnBoot = lens _clInstallUpdatesOnBoot (\ s a -> s{_clInstallUpdatesOnBoot = a});
 
 -- | An array containing the layer custom security group IDs.
-clCustomSecurityGroupIds :: Lens' CreateLayer (Maybe [Text])
-clCustomSecurityGroupIds = lens _clCustomSecurityGroupIds (\ s a -> s{_clCustomSecurityGroupIds = a});
+clCustomSecurityGroupIds :: Lens' CreateLayer [Text]
+clCustomSecurityGroupIds = lens _clCustomSecurityGroupIds (\ s a -> s{_clCustomSecurityGroupIds = a}) . _Default;
 
 -- | A LifeCycleEventConfiguration object that you can use to configure the
 -- Shutdown event to specify an execution timeout and enable or disable
@@ -143,21 +143,21 @@ clCustomRecipes = lens _clCustomRecipes (\ s a -> s{_clCustomRecipes = a});
 
 -- | A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS
 -- volumes.
-clVolumeConfigurations :: Lens' CreateLayer (Maybe [VolumeConfiguration])
-clVolumeConfigurations = lens _clVolumeConfigurations (\ s a -> s{_clVolumeConfigurations = a});
+clVolumeConfigurations :: Lens' CreateLayer [VolumeConfiguration]
+clVolumeConfigurations = lens _clVolumeConfigurations (\ s a -> s{_clVolumeConfigurations = a}) . _Default;
 
 -- | Whether to disable auto healing for the layer.
 clEnableAutoHealing :: Lens' CreateLayer (Maybe Bool)
 clEnableAutoHealing = lens _clEnableAutoHealing (\ s a -> s{_clEnableAutoHealing = a});
 
 -- | An array of @Package@ objects that describe the layer packages.
-clPackages :: Lens' CreateLayer (Maybe [Text])
-clPackages = lens _clPackages (\ s a -> s{_clPackages = a});
+clPackages :: Lens' CreateLayer [Text]
+clPackages = lens _clPackages (\ s a -> s{_clPackages = a}) . _Default;
 
 -- | One or more user-defined key\/value pairs to be added to the stack
 -- attributes.
-clAttributes :: Lens' CreateLayer (Maybe (HashMap LayerAttributesKeys Text))
-clAttributes = lens _clAttributes (\ s a -> s{_clAttributes = a}) . mapping _Coerce;
+clAttributes :: Lens' CreateLayer (Map LayerAttributesKeys Text)
+clAttributes = lens _clAttributes (\ s a -> s{_clAttributes = a}) . _Default . _Map;
 
 -- | For stacks that are running in a VPC, whether to automatically assign a
 -- public IP address to the layer\'s instances. For more information, see
@@ -207,7 +207,8 @@ instance AWSRequest CreateLayer where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x -> CreateLayerResponse' <$> x .?> "LayerId")
+              (\ s h x ->
+                 CreateLayerResponse' <$> (x .?> "LayerId"))
 
 instance ToHeaders CreateLayer where
         toHeaders

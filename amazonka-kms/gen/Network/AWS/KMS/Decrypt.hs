@@ -65,7 +65,7 @@ import Network.AWS.KMS.Types
 -- * 'decGrantTokens'
 --
 -- * 'decCiphertextBlob'
-data Decrypt = Decrypt'{_decEncryptionContext :: Maybe (HashMap Text Text), _decGrantTokens :: Maybe [Text], _decCiphertextBlob :: Base64} deriving (Eq, Read, Show)
+data Decrypt = Decrypt'{_decEncryptionContext :: Maybe (Map Text Text), _decGrantTokens :: Maybe [Text], _decCiphertextBlob :: Base64} deriving (Eq, Read, Show)
 
 -- | 'Decrypt' smart constructor.
 decrypt :: Base64 -> Decrypt
@@ -75,13 +75,13 @@ decrypt pCiphertextBlob = Decrypt'{_decEncryptionContext = Nothing, _decGrantTok
 -- it must be specified here or the decryption operation will fail. For
 -- more information, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html Encryption Context>.
-decEncryptionContext :: Lens' Decrypt (Maybe (HashMap Text Text))
-decEncryptionContext = lens _decEncryptionContext (\ s a -> s{_decEncryptionContext = a}) . mapping _Coerce;
+decEncryptionContext :: Lens' Decrypt (Map Text Text)
+decEncryptionContext = lens _decEncryptionContext (\ s a -> s{_decEncryptionContext = a}) . _Default . _Map;
 
 -- | For more information, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.
-decGrantTokens :: Lens' Decrypt (Maybe [Text])
-decGrantTokens = lens _decGrantTokens (\ s a -> s{_decGrantTokens = a});
+decGrantTokens :: Lens' Decrypt [Text]
+decGrantTokens = lens _decGrantTokens (\ s a -> s{_decGrantTokens = a}) . _Default;
 
 -- | Ciphertext to be decrypted. The blob includes metadata.
 decCiphertextBlob :: Lens' Decrypt Base64
@@ -95,7 +95,7 @@ instance AWSRequest Decrypt where
           = receiveJSON
               (\ s h x ->
                  DecryptResponse' <$>
-                   x .?> "KeyId" <*> x .?> "Plaintext")
+                   (x .?> "KeyId") <*> (x .?> "Plaintext"))
 
 instance ToHeaders Decrypt where
         toHeaders

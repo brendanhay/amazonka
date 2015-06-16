@@ -141,7 +141,7 @@ instance AWSRequest CreateRoute where
           = receiveXML
               (\ s h x ->
                  CreateRouteResponse' <$>
-                   x .@? "return" <*> x .@? "clientToken")
+                   (x .@? "return") <*> (x .@? "clientToken"))
 
 instance ToHeaders CreateRoute where
         toHeaders = const mempty

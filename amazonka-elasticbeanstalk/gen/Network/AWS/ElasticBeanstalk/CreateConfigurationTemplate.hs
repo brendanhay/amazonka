@@ -87,8 +87,8 @@ createConfigurationTemplate pApplicationName pTemplateName = CreateConfiguration
 -- | If specified, AWS Elastic Beanstalk sets the specified configuration
 -- option to the requested value. The new value overrides the value
 -- obtained from the solution stack or the source configuration template.
-cctOptionSettings :: Lens' CreateConfigurationTemplate (Maybe [ConfigurationOptionSetting])
-cctOptionSettings = lens _cctOptionSettings (\ s a -> s{_cctOptionSettings = a});
+cctOptionSettings :: Lens' CreateConfigurationTemplate [ConfigurationOptionSetting]
+cctOptionSettings = lens _cctOptionSettings (\ s a -> s{_cctOptionSettings = a}) . _Default;
 
 -- | If specified, AWS Elastic Beanstalk uses the configuration values from
 -- the specified configuration template to create a new configuration.
@@ -171,7 +171,9 @@ instance ToQuery CreateConfigurationTemplate where
               ["Action" =:
                  ("CreateConfigurationTemplate" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "OptionSettings" =: "member" =: _cctOptionSettings,
+               "OptionSettings" =:
+                 toQuery
+                   (toQueryList "member" <$> _cctOptionSettings),
                "SourceConfiguration" =: _cctSourceConfiguration,
                "EnvironmentId" =: _cctEnvironmentId,
                "SolutionStackName" =: _cctSolutionStackName,

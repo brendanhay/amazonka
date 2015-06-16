@@ -58,8 +58,8 @@ createDBSnapshot :: Text -> Text -> CreateDBSnapshot
 createDBSnapshot pDBSnapshotIdentifier pDBInstanceIdentifier = CreateDBSnapshot'{_creTags = Nothing, _creDBSnapshotIdentifier = pDBSnapshotIdentifier, _creDBInstanceIdentifier = pDBInstanceIdentifier};
 
 -- | FIXME: Undocumented member.
-creTags :: Lens' CreateDBSnapshot (Maybe [Tag])
-creTags = lens _creTags (\ s a -> s{_creTags = a});
+creTags :: Lens' CreateDBSnapshot [Tag]
+creTags = lens _creTags (\ s a -> s{_creTags = a}) . _Default;
 
 -- | The identifier for the DB snapshot.
 --
@@ -92,7 +92,7 @@ instance AWSRequest CreateDBSnapshot where
         response
           = receiveXMLWrapper "CreateDBSnapshotResult"
               (\ s h x ->
-                 CreateDBSnapshotResponse' <$> x .@? "DBSnapshot")
+                 CreateDBSnapshotResponse' <$> (x .@? "DBSnapshot"))
 
 instance ToHeaders CreateDBSnapshot where
         toHeaders = const mempty
@@ -105,7 +105,7 @@ instance ToQuery CreateDBSnapshot where
           = mconcat
               ["Action" =: ("CreateDBSnapshot" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "Tags" =: "Tag" =: _creTags,
+               "Tags" =: toQuery (toQueryList "Tag" <$> _creTags),
                "DBSnapshotIdentifier" =: _creDBSnapshotIdentifier,
                "DBInstanceIdentifier" =: _creDBInstanceIdentifier]
 

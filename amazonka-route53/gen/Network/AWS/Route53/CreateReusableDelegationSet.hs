@@ -90,7 +90,7 @@ instance AWSRequest CreateReusableDelegationSet where
           = receiveXML
               (\ s h x ->
                  CreateReusableDelegationSetResponse' <$>
-                   x .@ "DelegationSet" <*> h .# "Location")
+                   (x .@ "DelegationSet") <*> (h .# "Location"))
 
 instance ToElement CreateReusableDelegationSet where
         toElement

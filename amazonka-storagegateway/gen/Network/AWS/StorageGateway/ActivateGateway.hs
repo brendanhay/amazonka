@@ -139,7 +139,7 @@ instance AWSRequest ActivateGateway where
         response
           = receiveJSON
               (\ s h x ->
-                 ActivateGatewayResponse' <$> x .?> "GatewayARN")
+                 ActivateGatewayResponse' <$> (x .?> "GatewayARN"))
 
 instance ToHeaders ActivateGateway where
         toHeaders

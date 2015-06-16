@@ -96,7 +96,7 @@ instance AWSRequest DescribeWorkflowType where
           = receiveJSON
               (\ s h x ->
                  DescribeWorkflowTypeResponse' <$>
-                   x .:> "typeInfo" <*> x .:> "configuration")
+                   (x .:> "typeInfo") <*> (x .:> "configuration"))
 
 instance ToHeaders DescribeWorkflowType where
         toHeaders

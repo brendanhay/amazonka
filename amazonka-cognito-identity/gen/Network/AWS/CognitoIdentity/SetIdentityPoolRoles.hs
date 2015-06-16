@@ -48,7 +48,7 @@ import Network.AWS.CognitoIdentity.Types
 -- * 'siprIdentityPoolId'
 --
 -- * 'siprRoles'
-data SetIdentityPoolRoles = SetIdentityPoolRoles'{_siprIdentityPoolId :: Text, _siprRoles :: HashMap Text Text} deriving (Eq, Read, Show)
+data SetIdentityPoolRoles = SetIdentityPoolRoles'{_siprIdentityPoolId :: Text, _siprRoles :: Map Text Text} deriving (Eq, Read, Show)
 
 -- | 'SetIdentityPoolRoles' smart constructor.
 setIdentityPoolRoles :: Text -> SetIdentityPoolRoles
@@ -61,8 +61,8 @@ siprIdentityPoolId = lens _siprIdentityPoolId (\ s a -> s{_siprIdentityPoolId = 
 -- | The map of roles associated with this pool. For a given role, the key
 -- will be either \"authenticated\" or \"unauthenticated\" and the value
 -- will be the Role ARN.
-siprRoles :: Lens' SetIdentityPoolRoles (HashMap Text Text)
-siprRoles = lens _siprRoles (\ s a -> s{_siprRoles = a}) . _Coerce;
+siprRoles :: Lens' SetIdentityPoolRoles (Map Text Text)
+siprRoles = lens _siprRoles (\ s a -> s{_siprRoles = a}) . _Map;
 
 instance AWSRequest SetIdentityPoolRoles where
         type Sv SetIdentityPoolRoles = CognitoIdentity

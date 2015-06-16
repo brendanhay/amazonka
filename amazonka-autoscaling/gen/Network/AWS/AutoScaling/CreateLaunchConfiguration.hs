@@ -129,8 +129,8 @@ clcInstanceId = lens _clcInstanceId (\ s a -> s{_clcInstanceId = a});
 -- more information, see
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html Security Groups for Your VPC>
 -- in the /Amazon Virtual Private Cloud User Guide/.
-clcSecurityGroups :: Lens' CreateLaunchConfiguration (Maybe [Text])
-clcSecurityGroups = lens _clcSecurityGroups (\ s a -> s{_clcSecurityGroups = a});
+clcSecurityGroups :: Lens' CreateLaunchConfiguration [Text]
+clcSecurityGroups = lens _clcSecurityGroups (\ s a -> s{_clcSecurityGroups = a}) . _Default;
 
 -- | Used for groups that launch instances into a virtual private cloud
 -- (VPC). Specifies whether to assign a public IP address to each instance.
@@ -181,8 +181,8 @@ clcKeyName = lens _clcKeyName (\ s a -> s{_clcKeyName = a});
 -- specified, and cannot be used otherwise. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
-clcClassicLinkVPCSecurityGroups :: Lens' CreateLaunchConfiguration (Maybe [Text])
-clcClassicLinkVPCSecurityGroups = lens _clcClassicLinkVPCSecurityGroups (\ s a -> s{_clcClassicLinkVPCSecurityGroups = a});
+clcClassicLinkVPCSecurityGroups :: Lens' CreateLaunchConfiguration [Text]
+clcClassicLinkVPCSecurityGroups = lens _clcClassicLinkVPCSecurityGroups (\ s a -> s{_clcClassicLinkVPCSecurityGroups = a}) . _Default;
 
 -- | The ID of the RAM disk associated with the Amazon EC2 AMI.
 clcRAMDiskId :: Lens' CreateLaunchConfiguration (Maybe Text)
@@ -271,8 +271,8 @@ clcPlacementTenancy = lens _clcPlacementTenancy (\ s a -> s{_clcPlacementTenancy
 -- instance. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html Block Device Mapping>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
-clcBlockDeviceMappings :: Lens' CreateLaunchConfiguration (Maybe [BlockDeviceMapping])
-clcBlockDeviceMappings = lens _clcBlockDeviceMappings (\ s a -> s{_clcBlockDeviceMappings = a});
+clcBlockDeviceMappings :: Lens' CreateLaunchConfiguration [BlockDeviceMapping]
+clcBlockDeviceMappings = lens _clcBlockDeviceMappings (\ s a -> s{_clcBlockDeviceMappings = a}) . _Default;
 
 -- | The name of the launch configuration. This name must be unique within
 -- the scope of your AWS account.
@@ -300,14 +300,18 @@ instance ToQuery CreateLaunchConfiguration where
                  ("CreateLaunchConfiguration" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
                "InstanceId" =: _clcInstanceId,
-               "SecurityGroups" =: "member" =: _clcSecurityGroups,
+               "SecurityGroups" =:
+                 toQuery
+                   (toQueryList "member" <$> _clcSecurityGroups),
                "AssociatePublicIpAddress" =:
                  _clcAssociatePublicIPAddress,
                "InstanceMonitoring" =: _clcInstanceMonitoring,
                "SpotPrice" =: _clcSpotPrice,
                "KeyName" =: _clcKeyName,
                "ClassicLinkVPCSecurityGroups" =:
-                 "member" =: _clcClassicLinkVPCSecurityGroups,
+                 toQuery
+                   (toQueryList "member" <$>
+                      _clcClassicLinkVPCSecurityGroups),
                "RamdiskId" =: _clcRAMDiskId,
                "KernelId" =: _clcKernelId,
                "InstanceType" =: _clcInstanceType,
@@ -318,7 +322,8 @@ instance ToQuery CreateLaunchConfiguration where
                "ImageId" =: _clcImageId,
                "PlacementTenancy" =: _clcPlacementTenancy,
                "BlockDeviceMappings" =:
-                 "member" =: _clcBlockDeviceMappings,
+                 toQuery
+                   (toQueryList "member" <$> _clcBlockDeviceMappings),
                "LaunchConfigurationName" =:
                  _clcLaunchConfigurationName]
 

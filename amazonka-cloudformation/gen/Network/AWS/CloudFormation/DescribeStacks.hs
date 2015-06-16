@@ -79,9 +79,9 @@ instance AWSRequest DescribeStacks where
           = receiveXMLWrapper "DescribeStacksResult"
               (\ s h x ->
                  DescribeStacksResponse' <$>
-                   x .@? "NextToken" <*>
+                   (x .@? "NextToken") <*>
                      (x .@? "Stacks" .!@ mempty >>=
-                        parseXMLList "member"))
+                        may (parseXMLList "member")))
 
 instance ToHeaders DescribeStacks where
         toHeaders = const mempty
@@ -116,5 +116,5 @@ dsrNextToken :: Lens' DescribeStacksResponse (Maybe Text)
 dsrNextToken = lens _dsrNextToken (\ s a -> s{_dsrNextToken = a});
 
 -- | A list of stack structures.
-dsrStacks :: Lens' DescribeStacksResponse (Maybe [Stack])
-dsrStacks = lens _dsrStacks (\ s a -> s{_dsrStacks = a});
+dsrStacks :: Lens' DescribeStacksResponse [Stack]
+dsrStacks = lens _dsrStacks (\ s a -> s{_dsrStacks = a}) . _Default;

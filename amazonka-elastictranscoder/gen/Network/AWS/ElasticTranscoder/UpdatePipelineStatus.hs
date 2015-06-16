@@ -79,7 +79,7 @@ instance AWSRequest UpdatePipelineStatus where
         response
           = receiveJSON
               (\ s h x ->
-                 UpdatePipelineStatusResponse' <$> x .?> "Pipeline")
+                 UpdatePipelineStatusResponse' <$> (x .?> "Pipeline"))
 
 instance ToHeaders UpdatePipelineStatus where
         toHeaders = const mempty

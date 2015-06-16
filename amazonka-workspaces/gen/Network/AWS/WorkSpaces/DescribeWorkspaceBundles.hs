@@ -97,7 +97,7 @@ instance AWSRequest DescribeWorkspaceBundles where
           = receiveJSON
               (\ s h x ->
                  DescribeWorkspaceBundlesResponse' <$>
-                   x .?> "Bundles" .!@ mempty <*> x .?> "NextToken")
+                   (x .?> "Bundles" .!@ mempty) <*> (x .?> "NextToken"))
 
 instance ToHeaders DescribeWorkspaceBundles where
         toHeaders
@@ -135,8 +135,8 @@ describeWorkspaceBundlesResponse :: DescribeWorkspaceBundlesResponse
 describeWorkspaceBundlesResponse = DescribeWorkspaceBundlesResponse'{_dwbrBundles = Nothing, _dwbrNextToken = Nothing};
 
 -- | An array of structures that contain information about the bundles.
-dwbrBundles :: Lens' DescribeWorkspaceBundlesResponse (Maybe [WorkspaceBundle])
-dwbrBundles = lens _dwbrBundles (\ s a -> s{_dwbrBundles = a});
+dwbrBundles :: Lens' DescribeWorkspaceBundlesResponse [WorkspaceBundle]
+dwbrBundles = lens _dwbrBundles (\ s a -> s{_dwbrBundles = a}) . _Default;
 
 -- | If not null, more results are available. Pass this value for the
 -- @NextToken@ parameter in a subsequent call to this operation to retrieve

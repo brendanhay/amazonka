@@ -127,7 +127,8 @@ instance AWSRequest ListMultipartUploads where
           = receiveJSON
               (\ s h x ->
                  ListMultipartUploadsResponse' <$>
-                   x .?> "UploadsList" .!@ mempty <*> x .?> "Marker")
+                   (x .?> "UploadsList" .!@ mempty) <*>
+                     (x .?> "Marker"))
 
 instance ToHeaders ListMultipartUploads where
         toHeaders = const mempty
@@ -157,8 +158,8 @@ listMultipartUploadsResponse :: ListMultipartUploadsResponse
 listMultipartUploadsResponse = ListMultipartUploadsResponse'{_lmurUploadsList = Nothing, _lmurMarker = Nothing};
 
 -- | A list of in-progress multipart uploads.
-lmurUploadsList :: Lens' ListMultipartUploadsResponse (Maybe [UploadListElement])
-lmurUploadsList = lens _lmurUploadsList (\ s a -> s{_lmurUploadsList = a});
+lmurUploadsList :: Lens' ListMultipartUploadsResponse [UploadListElement]
+lmurUploadsList = lens _lmurUploadsList (\ s a -> s{_lmurUploadsList = a}) . _Default;
 
 -- | An opaque string that represents where to continue pagination of the
 -- results. You use the marker in a new List Multipart Uploads request to

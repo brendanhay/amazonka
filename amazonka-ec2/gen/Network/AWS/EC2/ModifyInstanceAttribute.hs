@@ -104,8 +104,8 @@ modAttribute = lens _modAttribute (\ s a -> s{_modAttribute = a});
 -- at least one security group, even if it\'s just the default security
 -- group for the VPC. You must specify the security group ID, not the
 -- security group name.
-modGroups :: Lens' ModifyInstanceAttribute (Maybe [Text])
-modGroups = lens _modGroups (\ s a -> s{_modGroups = a});
+modGroups :: Lens' ModifyInstanceAttribute [Text]
+modGroups = lens _modGroups (\ s a -> s{_modGroups = a}) . _Default;
 
 -- | Specifies whether source\/destination checking is enabled. A value of
 -- @true@ means that checking is enabled, and @false@ means checking is
@@ -182,8 +182,8 @@ modInstanceInitiatedShutdownBehavior = lens _modInstanceInitiatedShutdownBehavio
 -- add them when you launch the instance. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM Updating the Block Device Mapping when Launching an Instance>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
-modBlockDeviceMappings :: Lens' ModifyInstanceAttribute (Maybe [InstanceBlockDeviceMappingSpecification])
-modBlockDeviceMappings = lens _modBlockDeviceMappings (\ s a -> s{_modBlockDeviceMappings = a});
+modBlockDeviceMappings :: Lens' ModifyInstanceAttribute [InstanceBlockDeviceMappingSpecification]
+modBlockDeviceMappings = lens _modBlockDeviceMappings (\ s a -> s{_modBlockDeviceMappings = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -217,7 +217,7 @@ instance ToQuery ModifyInstanceAttribute where
                  ("ModifyInstanceAttribute" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "Attribute" =: _modAttribute,
-               "groupId" =: _modGroups,
+               toQuery (toQueryList "groupId" <$> _modGroups),
                "SourceDestCheck" =: _modSourceDestCheck,
                "DisableApiTermination" =: _modDisableAPITermination,
                "Ramdisk" =: _modRAMDisk, "Value" =: _modValue,
@@ -228,7 +228,8 @@ instance ToQuery ModifyInstanceAttribute where
                "SriovNetSupport" =: _modSRIOVNetSupport,
                "InstanceInitiatedShutdownBehavior" =:
                  _modInstanceInitiatedShutdownBehavior,
-               "item" =: _modBlockDeviceMappings,
+               toQuery
+                 (toQueryList "item" <$> _modBlockDeviceMappings),
                "DryRun" =: _modDryRun,
                "InstanceId" =: _modInstanceId]
 

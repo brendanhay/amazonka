@@ -88,8 +88,8 @@ instance AWSRequest GetPasswordData where
           = receiveXML
               (\ s h x ->
                  GetPasswordDataResponse' <$>
-                   x .@? "instanceId" <*> x .@? "passwordData" <*>
-                     x .@? "timestamp")
+                   (x .@? "instanceId") <*> (x .@? "passwordData") <*>
+                     (x .@? "timestamp"))
 
 instance ToHeaders GetPasswordData where
         toHeaders = const mempty

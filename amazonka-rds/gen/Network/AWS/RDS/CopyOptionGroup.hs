@@ -60,8 +60,8 @@ copyOptionGroup :: Text -> Text -> Text -> CopyOptionGroup
 copyOptionGroup pSourceOptionGroupIdentifier pTargetOptionGroupIdentifier pTargetOptionGroupDescription = CopyOptionGroup'{_copTags = Nothing, _copSourceOptionGroupIdentifier = pSourceOptionGroupIdentifier, _copTargetOptionGroupIdentifier = pTargetOptionGroupIdentifier, _copTargetOptionGroupDescription = pTargetOptionGroupDescription};
 
 -- | FIXME: Undocumented member.
-copTags :: Lens' CopyOptionGroup (Maybe [Tag])
-copTags = lens _copTags (\ s a -> s{_copTags = a});
+copTags :: Lens' CopyOptionGroup [Tag]
+copTags = lens _copTags (\ s a -> s{_copTags = a}) . _Default;
 
 -- | The identifier or ARN for the source option group.
 --
@@ -101,7 +101,7 @@ instance AWSRequest CopyOptionGroup where
         response
           = receiveXMLWrapper "CopyOptionGroupResult"
               (\ s h x ->
-                 CopyOptionGroupResponse' <$> x .@? "OptionGroup")
+                 CopyOptionGroupResponse' <$> (x .@? "OptionGroup"))
 
 instance ToHeaders CopyOptionGroup where
         toHeaders = const mempty
@@ -114,7 +114,7 @@ instance ToQuery CopyOptionGroup where
           = mconcat
               ["Action" =: ("CopyOptionGroup" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "Tags" =: "Tag" =: _copTags,
+               "Tags" =: toQuery (toQueryList "Tag" <$> _copTags),
                "SourceOptionGroupIdentifier" =:
                  _copSourceOptionGroupIdentifier,
                "TargetOptionGroupIdentifier" =:

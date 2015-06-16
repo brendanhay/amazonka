@@ -113,8 +113,8 @@ dtResourceType = lens _dtResourceType (\ s a -> s{_dtResourceType = a});
 -- @admin@ and @test@. If you specify both of these tag values in the
 -- request, Amazon Redshift returns a response with all resources that have
 -- either or both of these tag values associated with them.
-dtTagValues :: Lens' DescribeTags (Maybe [Text])
-dtTagValues = lens _dtTagValues (\ s a -> s{_dtTagValues = a});
+dtTagValues :: Lens' DescribeTags [Text]
+dtTagValues = lens _dtTagValues (\ s a -> s{_dtTagValues = a}) . _Default;
 
 -- | The Amazon Resource Name (ARN) for which you want to describe the tag or
 -- tags. For example, @arn:aws:redshift:us-east-1:123456789:cluster:t1@.
@@ -127,8 +127,8 @@ dtResourceName = lens _dtResourceName (\ s a -> s{_dtResourceName = a});
 -- @environment@. If you specify both of these tag keys in the request,
 -- Amazon Redshift returns a response with all resources that have either
 -- or both of these tag keys associated with them.
-dtTagKeys :: Lens' DescribeTags (Maybe [Text])
-dtTagKeys = lens _dtTagKeys (\ s a -> s{_dtTagKeys = a});
+dtTagKeys :: Lens' DescribeTags [Text]
+dtTagKeys = lens _dtTagKeys (\ s a -> s{_dtTagKeys = a}) . _Default;
 
 -- | The maximum number or response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -155,9 +155,9 @@ instance AWSRequest DescribeTags where
           = receiveXMLWrapper "DescribeTagsResult"
               (\ s h x ->
                  DescribeTagsResponse' <$>
-                   x .@? "Marker" <*>
+                   (x .@? "Marker") <*>
                      (x .@? "TaggedResources" .!@ mempty >>=
-                        parseXMLList "TaggedResource"))
+                        may (parseXMLList "TaggedResource")))
 
 instance ToHeaders DescribeTags where
         toHeaders = const mempty
@@ -171,9 +171,11 @@ instance ToQuery DescribeTags where
               ["Action" =: ("DescribeTags" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
                "ResourceType" =: _dtResourceType,
-               "TagValues" =: "TagValue" =: _dtTagValues,
+               "TagValues" =:
+                 toQuery (toQueryList "TagValue" <$> _dtTagValues),
                "ResourceName" =: _dtResourceName,
-               "TagKeys" =: "TagKey" =: _dtTagKeys,
+               "TagKeys" =:
+                 toQuery (toQueryList "TagKey" <$> _dtTagKeys),
                "MaxRecords" =: _dtMaxRecords, "Marker" =: _dtMarker]
 
 -- | /See:/ 'describeTagsResponse' smart constructor.
@@ -199,5 +201,5 @@ dtrMarker :: Lens' DescribeTagsResponse (Maybe Text)
 dtrMarker = lens _dtrMarker (\ s a -> s{_dtrMarker = a});
 
 -- | A list of tags with their associated resources.
-dtrTaggedResources :: Lens' DescribeTagsResponse (Maybe [TaggedResource])
-dtrTaggedResources = lens _dtrTaggedResources (\ s a -> s{_dtrTaggedResources = a});
+dtrTaggedResources :: Lens' DescribeTagsResponse [TaggedResource]
+dtrTaggedResources = lens _dtrTaggedResources (\ s a -> s{_dtrTaggedResources = a}) . _Default;

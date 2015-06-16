@@ -100,8 +100,8 @@ asgeFromPort = lens _asgeFromPort (\ s a -> s{_asgeFromPort = a});
 
 -- | A set of IP permissions. You can\'t specify a destination security group
 -- and a CIDR IP address range.
-asgeIPPermissions :: Lens' AuthorizeSecurityGroupEgress (Maybe [IPPermission])
-asgeIPPermissions = lens _asgeIPPermissions (\ s a -> s{_asgeIPPermissions = a});
+asgeIPPermissions :: Lens' AuthorizeSecurityGroupEgress [IPPermission]
+asgeIPPermissions = lens _asgeIPPermissions (\ s a -> s{_asgeIPPermissions = a}) . _Default;
 
 -- | The IP protocol name (@tcp@, @udp@, @icmp@) or number (see
 -- <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>).
@@ -164,7 +164,7 @@ instance ToQuery AuthorizeSecurityGroupEgress where
                  ("AuthorizeSecurityGroupEgress" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "FromPort" =: _asgeFromPort,
-               "item" =: _asgeIPPermissions,
+               toQuery (toQueryList "item" <$> _asgeIPPermissions),
                "IpProtocol" =: _asgeIPProtocol,
                "ToPort" =: _asgeToPort, "CidrIp" =: _asgeCIDRIP,
                "SourceSecurityGroupOwnerId" =:

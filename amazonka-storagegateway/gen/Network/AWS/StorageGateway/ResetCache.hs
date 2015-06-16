@@ -73,7 +73,7 @@ instance AWSRequest ResetCache where
         response
           = receiveJSON
               (\ s h x ->
-                 ResetCacheResponse' <$> x .?> "GatewayARN")
+                 ResetCacheResponse' <$> (x .?> "GatewayARN"))
 
 instance ToHeaders ResetCache where
         toHeaders

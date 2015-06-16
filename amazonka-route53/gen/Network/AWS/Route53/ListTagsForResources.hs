@@ -97,7 +97,8 @@ instance ToQuery ListTagsForResources where
 instance ToXML ListTagsForResources where
         toXML ListTagsForResources'{..}
           = mconcat
-              ["ResourceIds" @= "ResourceId" @@= _lisResourceIds]
+              ["ResourceIds" @=
+                 toXMLList "ResourceId" _lisResourceIds]
 
 -- | /See:/ 'listTagsForResourcesResponse' smart constructor.
 --

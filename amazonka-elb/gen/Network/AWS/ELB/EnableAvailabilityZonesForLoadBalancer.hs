@@ -82,7 +82,7 @@ instance AWSRequest
               (\ s h x ->
                  EnableAvailabilityZonesForLoadBalancerResponse' <$>
                    (x .@? "AvailabilityZones" .!@ mempty >>=
-                      parseXMLList "member"))
+                      may (parseXMLList "member")))
 
 instance ToHeaders
          EnableAvailabilityZonesForLoadBalancer where
@@ -102,7 +102,7 @@ instance ToQuery
                "Version" =: ("2012-06-01" :: ByteString),
                "LoadBalancerName" =: _eazflbLoadBalancerName,
                "AvailabilityZones" =:
-                 "member" =: _eazflbAvailabilityZones]
+                 toQueryList "member" _eazflbAvailabilityZones]
 
 -- | /See:/ 'enableAvailabilityZonesForLoadBalancerResponse' smart constructor.
 --
@@ -116,5 +116,5 @@ enableAvailabilityZonesForLoadBalancerResponse :: EnableAvailabilityZonesForLoad
 enableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesForLoadBalancerResponse'{_eazflbrAvailabilityZones = Nothing};
 
 -- | The updated list of Availability Zones for the load balancer.
-eazflbrAvailabilityZones :: Lens' EnableAvailabilityZonesForLoadBalancerResponse (Maybe [Text])
-eazflbrAvailabilityZones = lens _eazflbrAvailabilityZones (\ s a -> s{_eazflbrAvailabilityZones = a});
+eazflbrAvailabilityZones :: Lens' EnableAvailabilityZonesForLoadBalancerResponse [Text]
+eazflbrAvailabilityZones = lens _eazflbrAvailabilityZones (\ s a -> s{_eazflbrAvailabilityZones = a}) . _Default;

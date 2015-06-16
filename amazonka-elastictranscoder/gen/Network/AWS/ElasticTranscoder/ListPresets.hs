@@ -76,7 +76,8 @@ instance AWSRequest ListPresets where
           = receiveJSON
               (\ s h x ->
                  ListPresetsResponse' <$>
-                   x .?> "NextPageToken" <*> x .?> "Presets" .!@ mempty)
+                   (x .?> "NextPageToken") <*>
+                     (x .?> "Presets" .!@ mempty))
 
 instance ToHeaders ListPresets where
         toHeaders = const mempty
@@ -111,5 +112,5 @@ lisNextPageToken :: Lens' ListPresetsResponse (Maybe Text)
 lisNextPageToken = lens _lisNextPageToken (\ s a -> s{_lisNextPageToken = a});
 
 -- | An array of @Preset@ objects.
-lisPresets :: Lens' ListPresetsResponse (Maybe [Preset])
-lisPresets = lens _lisPresets (\ s a -> s{_lisPresets = a});
+lisPresets :: Lens' ListPresetsResponse [Preset]
+lisPresets = lens _lisPresets (\ s a -> s{_lisPresets = a}) . _Default;

@@ -83,7 +83,7 @@ instance AWSRequest ListGateways where
           = receiveJSON
               (\ s h x ->
                  ListGatewaysResponse' <$>
-                   x .?> "Marker" <*> x .?> "Gateways" .!@ mempty)
+                   (x .?> "Marker") <*> (x .?> "Gateways" .!@ mempty))
 
 instance ToHeaders ListGateways where
         toHeaders
@@ -123,5 +123,5 @@ lgrMarker :: Lens' ListGatewaysResponse (Maybe Text)
 lgrMarker = lens _lgrMarker (\ s a -> s{_lgrMarker = a});
 
 -- | FIXME: Undocumented member.
-lgrGateways :: Lens' ListGatewaysResponse (Maybe [GatewayInfo])
-lgrGateways = lens _lgrGateways (\ s a -> s{_lgrGateways = a});
+lgrGateways :: Lens' ListGatewaysResponse [GatewayInfo]
+lgrGateways = lens _lgrGateways (\ s a -> s{_lgrGateways = a}) . _Default;

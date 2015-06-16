@@ -64,8 +64,8 @@ describeOptionGroupOptions :: Text -> DescribeOptionGroupOptions
 describeOptionGroupOptions pEngineName = DescribeOptionGroupOptions'{_dogoFilters = Nothing, _dogoMajorEngineVersion = Nothing, _dogoMaxRecords = Nothing, _dogoMarker = Nothing, _dogoEngineName = pEngineName};
 
 -- | This parameter is not currently supported.
-dogoFilters :: Lens' DescribeOptionGroupOptions (Maybe [Filter])
-dogoFilters = lens _dogoFilters (\ s a -> s{_dogoFilters = a});
+dogoFilters :: Lens' DescribeOptionGroupOptions [Filter]
+dogoFilters = lens _dogoFilters (\ s a -> s{_dogoFilters = a}) . _Default;
 
 -- | If specified, filters the results to include only options for the
 -- specified major engine version.
@@ -105,8 +105,8 @@ instance AWSRequest DescribeOptionGroupOptions where
               (\ s h x ->
                  DescribeOptionGroupOptionsResponse' <$>
                    (x .@? "OptionGroupOptions" .!@ mempty >>=
-                      parseXMLList "OptionGroupOption")
-                     <*> x .@? "Marker")
+                      may (parseXMLList "OptionGroupOption"))
+                     <*> (x .@? "Marker"))
 
 instance ToHeaders DescribeOptionGroupOptions where
         toHeaders = const mempty
@@ -120,7 +120,8 @@ instance ToQuery DescribeOptionGroupOptions where
               ["Action" =:
                  ("DescribeOptionGroupOptions" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "Filters" =: "Filter" =: _dogoFilters,
+               "Filters" =:
+                 toQuery (toQueryList "Filter" <$> _dogoFilters),
                "MajorEngineVersion" =: _dogoMajorEngineVersion,
                "MaxRecords" =: _dogoMaxRecords,
                "Marker" =: _dogoMarker,
@@ -140,8 +141,8 @@ describeOptionGroupOptionsResponse :: DescribeOptionGroupOptionsResponse
 describeOptionGroupOptionsResponse = DescribeOptionGroupOptionsResponse'{_dogorOptionGroupOptions = Nothing, _dogorMarker = Nothing};
 
 -- | FIXME: Undocumented member.
-dogorOptionGroupOptions :: Lens' DescribeOptionGroupOptionsResponse (Maybe [OptionGroupOption])
-dogorOptionGroupOptions = lens _dogorOptionGroupOptions (\ s a -> s{_dogorOptionGroupOptions = a});
+dogorOptionGroupOptions :: Lens' DescribeOptionGroupOptionsResponse [OptionGroupOption]
+dogorOptionGroupOptions = lens _dogorOptionGroupOptions (\ s a -> s{_dogorOptionGroupOptions = a}) . _Default;
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the

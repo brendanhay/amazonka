@@ -140,8 +140,8 @@ createDBInstance pDBInstanceIdentifier pAllocatedStorage pDBInstanceClass pEngin
 -- | A list of DB security groups to associate with this DB instance.
 --
 -- Default: The default DB security group for the database engine.
-cdiDBSecurityGroups :: Lens' CreateDBInstance (Maybe [Text])
-cdiDBSecurityGroups = lens _cdiDBSecurityGroups (\ s a -> s{_cdiDBSecurityGroups = a});
+cdiDBSecurityGroups :: Lens' CreateDBInstance [Text]
+cdiDBSecurityGroups = lens _cdiDBSecurityGroups (\ s a -> s{_cdiDBSecurityGroups = a}) . _Default;
 
 -- | The version number of the database engine to use.
 --
@@ -469,8 +469,8 @@ cdiDBParameterGroupName = lens _cdiDBParameterGroupName (\ s a -> s{_cdiDBParame
 --
 -- Default: The default EC2 VPC security group for the DB subnet group\'s
 -- VPC.
-cdiVPCSecurityGroupIds :: Lens' CreateDBInstance (Maybe [Text])
-cdiVPCSecurityGroupIds = lens _cdiVPCSecurityGroupIds (\ s a -> s{_cdiVPCSecurityGroupIds = a});
+cdiVPCSecurityGroupIds :: Lens' CreateDBInstance [Text]
+cdiVPCSecurityGroupIds = lens _cdiVPCSecurityGroupIds (\ s a -> s{_cdiVPCSecurityGroupIds = a}) . _Default;
 
 -- | Specifies if the DB instance is a Multi-AZ deployment. You cannot set
 -- the AvailabilityZone parameter if the MultiAZ parameter is set to true.
@@ -538,8 +538,8 @@ cdiDBName :: Lens' CreateDBInstance (Maybe Text)
 cdiDBName = lens _cdiDBName (\ s a -> s{_cdiDBName = a});
 
 -- | FIXME: Undocumented member.
-cdiTags :: Lens' CreateDBInstance (Maybe [Tag])
-cdiTags = lens _cdiTags (\ s a -> s{_cdiTags = a});
+cdiTags :: Lens' CreateDBInstance [Tag]
+cdiTags = lens _cdiTags (\ s a -> s{_cdiTags = a}) . _Default;
 
 -- | The port number on which the database accepts connections.
 --
@@ -709,7 +709,7 @@ instance AWSRequest CreateDBInstance where
         response
           = receiveXMLWrapper "CreateDBInstanceResult"
               (\ s h x ->
-                 CreateDBInstanceResponse' <$> x .@? "DBInstance")
+                 CreateDBInstanceResponse' <$> (x .@? "DBInstance"))
 
 instance ToHeaders CreateDBInstance where
         toHeaders = const mempty
@@ -723,7 +723,9 @@ instance ToQuery CreateDBInstance where
               ["Action" =: ("CreateDBInstance" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "DBSecurityGroups" =:
-                 "DBSecurityGroupName" =: _cdiDBSecurityGroups,
+                 toQuery
+                   (toQueryList "DBSecurityGroupName" <$>
+                      _cdiDBSecurityGroups),
                "EngineVersion" =: _cdiEngineVersion,
                "StorageEncrypted" =: _cdiStorageEncrypted,
                "AutoMinorVersionUpgrade" =:
@@ -742,11 +744,14 @@ instance ToQuery CreateDBInstance where
                "KmsKeyId" =: _cdiKMSKeyId,
                "DBParameterGroupName" =: _cdiDBParameterGroupName,
                "VpcSecurityGroupIds" =:
-                 "VpcSecurityGroupId" =: _cdiVPCSecurityGroupIds,
+                 toQuery
+                   (toQueryList "VpcSecurityGroupId" <$>
+                      _cdiVPCSecurityGroupIds),
                "MultiAZ" =: _cdiMultiAZ,
                "TdeCredentialArn" =: _cdiTDECredentialARN,
                "OptionGroupName" =: _cdiOptionGroupName,
-               "DBName" =: _cdiDBName, "Tags" =: "Tag" =: _cdiTags,
+               "DBName" =: _cdiDBName,
+               "Tags" =: toQuery (toQueryList "Tag" <$> _cdiTags),
                "Port" =: _cdiPort, "StorageType" =: _cdiStorageType,
                "DBInstanceIdentifier" =: _cdiDBInstanceIdentifier,
                "AllocatedStorage" =: _cdiAllocatedStorage,

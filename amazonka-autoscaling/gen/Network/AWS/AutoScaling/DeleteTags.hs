@@ -72,7 +72,7 @@ instance ToQuery DeleteTags where
           = mconcat
               ["Action" =: ("DeleteTags" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
-               "Tags" =: "member" =: _dtTags]
+               "Tags" =: toQueryList "member" _dtTags]
 
 -- | /See:/ 'deleteTagsResponse' smart constructor.
 data DeleteTagsResponse = DeleteTagsResponse' deriving (Eq, Read, Show)

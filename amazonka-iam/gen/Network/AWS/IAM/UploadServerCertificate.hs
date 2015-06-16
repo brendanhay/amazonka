@@ -121,7 +121,7 @@ instance AWSRequest UploadServerCertificate where
           = receiveXMLWrapper "UploadServerCertificateResult"
               (\ s h x ->
                  UploadServerCertificateResponse' <$>
-                   x .@? "ServerCertificateMetadata")
+                   (x .@? "ServerCertificateMetadata"))
 
 instance ToHeaders UploadServerCertificate where
         toHeaders = const mempty

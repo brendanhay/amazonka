@@ -75,8 +75,8 @@ instance AWSRequest ListTables where
           = receiveJSON
               (\ s h x ->
                  ListTablesResponse' <$>
-                   x .?> "LastEvaluatedTableName" <*>
-                     x .?> "TableNames" .!@ mempty)
+                   (x .?> "LastEvaluatedTableName") <*>
+                     (x .?> "TableNames" .!@ mempty))
 
 instance ToHeaders ListTables where
         toHeaders

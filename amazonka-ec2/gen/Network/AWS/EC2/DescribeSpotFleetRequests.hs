@@ -61,8 +61,8 @@ describeSpotFleetRequests :: DescribeSpotFleetRequests
 describeSpotFleetRequests = DescribeSpotFleetRequests'{_dsfrSpotFleetRequestIds = Nothing, _dsfrNextToken = Nothing, _dsfrDryRun = Nothing, _dsfrMaxResults = Nothing};
 
 -- | The IDs of the Spot fleet requests.
-dsfrSpotFleetRequestIds :: Lens' DescribeSpotFleetRequests (Maybe [Text])
-dsfrSpotFleetRequestIds = lens _dsfrSpotFleetRequestIds (\ s a -> s{_dsfrSpotFleetRequestIds = a});
+dsfrSpotFleetRequestIds :: Lens' DescribeSpotFleetRequests [Text]
+dsfrSpotFleetRequestIds = lens _dsfrSpotFleetRequestIds (\ s a -> s{_dsfrSpotFleetRequestIds = a}) . _Default;
 
 -- | The token for the next set of results.
 dsfrNextToken :: Lens' DescribeSpotFleetRequests (Maybe Text)
@@ -91,7 +91,7 @@ instance AWSRequest DescribeSpotFleetRequests where
           = receiveXML
               (\ s h x ->
                  DescribeSpotFleetRequestsResponse' <$>
-                   x .@? "nextToken" <*> parseXMLList "item" x)
+                   (x .@? "nextToken") <*> (parseXMLList "item" x))
 
 instance ToHeaders DescribeSpotFleetRequests where
         toHeaders = const mempty
@@ -105,7 +105,8 @@ instance ToQuery DescribeSpotFleetRequests where
               ["Action" =:
                  ("DescribeSpotFleetRequests" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "item" =: _dsfrSpotFleetRequestIds,
+               toQuery
+                 (toQueryList "item" <$> _dsfrSpotFleetRequestIds),
                "NextToken" =: _dsfrNextToken,
                "DryRun" =: _dsfrDryRun,
                "MaxResults" =: _dsfrMaxResults]

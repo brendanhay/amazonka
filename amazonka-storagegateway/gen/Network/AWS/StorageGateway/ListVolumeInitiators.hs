@@ -66,7 +66,7 @@ instance AWSRequest ListVolumeInitiators where
           = receiveJSON
               (\ s h x ->
                  ListVolumeInitiatorsResponse' <$>
-                   x .?> "Initiators" .!@ mempty)
+                   (x .?> "Initiators" .!@ mempty))
 
 instance ToHeaders ListVolumeInitiators where
         toHeaders
@@ -101,5 +101,5 @@ listVolumeInitiatorsResponse = ListVolumeInitiatorsResponse'{_lvirInitiators = N
 
 -- | The host names and port numbers of all iSCSI initiators that are
 -- connected to the gateway.
-lvirInitiators :: Lens' ListVolumeInitiatorsResponse (Maybe [Text])
-lvirInitiators = lens _lvirInitiators (\ s a -> s{_lvirInitiators = a});
+lvirInitiators :: Lens' ListVolumeInitiatorsResponse [Text]
+lvirInitiators = lens _lvirInitiators (\ s a -> s{_lvirInitiators = a}) . _Default;

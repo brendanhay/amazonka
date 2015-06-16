@@ -136,7 +136,7 @@ instance AWSRequest CreateDataSourceFromS3 where
           = receiveJSON
               (\ s h x ->
                  CreateDataSourceFromS3Response' <$>
-                   x .?> "DataSourceId")
+                   (x .?> "DataSourceId"))
 
 instance ToHeaders CreateDataSourceFromS3 where
         toHeaders

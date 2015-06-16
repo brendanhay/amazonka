@@ -103,7 +103,7 @@ instance AWSRequest CreateEvaluation where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateEvaluationResponse' <$> x .?> "EvaluationId")
+                 CreateEvaluationResponse' <$> (x .?> "EvaluationId"))
 
 instance ToHeaders CreateEvaluation where
         toHeaders

@@ -27,7 +27,7 @@ module Network.AWS.CloudHSM.GetConfig
     -- ** Request lenses
     , gcClientARN
     , gcClientVersion
-    , gcHapgList
+    , gcHAPGList
 
     -- * Response
     , GetConfigResponse
@@ -52,12 +52,12 @@ import Network.AWS.CloudHSM.Types
 --
 -- * 'gcClientVersion'
 --
--- * 'gcHapgList'
-data GetConfig = GetConfig'{_gcClientARN :: Text, _gcClientVersion :: ClientVersion, _gcHapgList :: [Text]} deriving (Eq, Read, Show)
+-- * 'gcHAPGList'
+data GetConfig = GetConfig'{_gcClientARN :: Text, _gcClientVersion :: ClientVersion, _gcHAPGList :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'GetConfig' smart constructor.
 getConfig :: Text -> ClientVersion -> GetConfig
-getConfig pClientARN pClientVersion = GetConfig'{_gcClientARN = pClientARN, _gcClientVersion = pClientVersion, _gcHapgList = mempty};
+getConfig pClientARN pClientVersion = GetConfig'{_gcClientARN = pClientARN, _gcClientVersion = pClientVersion, _gcHAPGList = mempty};
 
 -- | The ARN of the client.
 gcClientARN :: Lens' GetConfig Text
@@ -69,8 +69,8 @@ gcClientVersion = lens _gcClientVersion (\ s a -> s{_gcClientVersion = a});
 
 -- | A list of ARNs that identify the high-availability partition groups that
 -- are associated with the client.
-gcHapgList :: Lens' GetConfig [Text]
-gcHapgList = lens _gcHapgList (\ s a -> s{_gcHapgList = a});
+gcHAPGList :: Lens' GetConfig [Text]
+gcHAPGList = lens _gcHAPGList (\ s a -> s{_gcHAPGList = a});
 
 instance AWSRequest GetConfig where
         type Sv GetConfig = CloudHSM
@@ -80,8 +80,8 @@ instance AWSRequest GetConfig where
           = receiveJSON
               (\ s h x ->
                  GetConfigResponse' <$>
-                   x .?> "ConfigFile" <*> x .?> "ConfigCred" <*>
-                     x .?> "ConfigType")
+                   (x .?> "ConfigFile") <*> (x .?> "ConfigCred") <*>
+                     (x .?> "ConfigType"))
 
 instance ToHeaders GetConfig where
         toHeaders
@@ -97,7 +97,7 @@ instance ToJSON GetConfig where
           = object
               ["ClientArn" .= _gcClientARN,
                "ClientVersion" .= _gcClientVersion,
-               "HapgList" .= _gcHapgList]
+               "HapgList" .= _gcHAPGList]
 
 instance ToPath GetConfig where
         toPath = const "/"

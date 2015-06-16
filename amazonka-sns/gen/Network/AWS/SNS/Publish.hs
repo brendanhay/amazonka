@@ -69,15 +69,15 @@ import Network.AWS.SNS.Types
 -- * 'pubMessageStructure'
 --
 -- * 'pubMessage'
-data Publish = Publish'{_pubMessageAttributes :: Maybe (HashMap Text MessageAttributeValue), _pubTargetARN :: Maybe Text, _pubSubject :: Maybe Text, _pubTopicARN :: Maybe Text, _pubMessageStructure :: Maybe Text, _pubMessage :: Text} deriving (Eq, Read, Show)
+data Publish = Publish'{_pubMessageAttributes :: Maybe (Map Text MessageAttributeValue), _pubTargetARN :: Maybe Text, _pubSubject :: Maybe Text, _pubTopicARN :: Maybe Text, _pubMessageStructure :: Maybe Text, _pubMessage :: Text} deriving (Eq, Read, Show)
 
 -- | 'Publish' smart constructor.
 publish :: Text -> Publish
 publish pMessage = Publish'{_pubMessageAttributes = Nothing, _pubTargetARN = Nothing, _pubSubject = Nothing, _pubTopicARN = Nothing, _pubMessageStructure = Nothing, _pubMessage = pMessage};
 
 -- | Message attributes for Publish action.
-pubMessageAttributes :: Lens' Publish (Maybe (HashMap Text MessageAttributeValue))
-pubMessageAttributes = lens _pubMessageAttributes (\ s a -> s{_pubMessageAttributes = a}) . mapping _Coerce;
+pubMessageAttributes :: Lens' Publish (Map Text MessageAttributeValue)
+pubMessageAttributes = lens _pubMessageAttributes (\ s a -> s{_pubMessageAttributes = a}) . _Default . _Map;
 
 -- | Either TopicArn or EndpointArn, but not both.
 pubTargetARN :: Lens' Publish (Maybe Text)
@@ -159,7 +159,7 @@ instance AWSRequest Publish where
         request = post
         response
           = receiveXMLWrapper "PublishResult"
-              (\ s h x -> PublishResponse' <$> x .@? "MessageId")
+              (\ s h x -> PublishResponse' <$> (x .@? "MessageId"))
 
 instance ToHeaders Publish where
         toHeaders = const mempty
@@ -173,8 +173,9 @@ instance ToQuery Publish where
               ["Action" =: ("Publish" :: ByteString),
                "Version" =: ("2010-03-31" :: ByteString),
                "MessageAttributes" =:
-                 toQueryMap "entry" "Name" "Value"
-                   _pubMessageAttributes,
+                 toQuery
+                   (toQueryMap "entry" "Name" "Value" <$>
+                      _pubMessageAttributes),
                "TargetArn" =: _pubTargetARN,
                "Subject" =: _pubSubject, "TopicArn" =: _pubTopicARN,
                "MessageStructure" =: _pubMessageStructure,

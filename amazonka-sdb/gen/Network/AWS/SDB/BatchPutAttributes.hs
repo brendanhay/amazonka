@@ -124,7 +124,8 @@ instance ToQuery BatchPutAttributes where
           = mconcat
               ["Action" =: ("BatchPutAttributes" :: ByteString),
                "Version" =: ("2009-04-15" :: ByteString),
-               "DomainName" =: _bpaDomainName, "Item" =: _bpaItems]
+               "DomainName" =: _bpaDomainName,
+               toQueryList "Item" _bpaItems]
 
 -- | /See:/ 'batchPutAttributesResponse' smart constructor.
 data BatchPutAttributesResponse = BatchPutAttributesResponse' deriving (Eq, Read, Show)

@@ -95,9 +95,7 @@ instance AWSRequest CreateLBCookieStickinessPolicy
              CreateLBCookieStickinessPolicyResponse
         request = post
         response
-          = receiveNullWrapper
-              "CreateLBCookieStickinessPolicyResult"
-              CreateLBCookieStickinessPolicyResponse'
+          = receiveNull CreateLBCookieStickinessPolicyResponse'
 
 instance ToHeaders CreateLBCookieStickinessPolicy
          where

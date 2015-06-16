@@ -55,7 +55,7 @@ instance AWSRequest GetAccountPasswordPolicy where
           = receiveXMLWrapper "GetAccountPasswordPolicyResult"
               (\ s h x ->
                  GetAccountPasswordPolicyResponse' <$>
-                   x .@ "PasswordPolicy")
+                   (x .@ "PasswordPolicy"))
 
 instance ToHeaders GetAccountPasswordPolicy where
         toHeaders = const mempty

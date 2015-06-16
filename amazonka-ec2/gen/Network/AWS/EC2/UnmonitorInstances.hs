@@ -76,7 +76,7 @@ instance AWSRequest UnmonitorInstances where
           = receiveXML
               (\ s h x ->
                  UnmonitorInstancesResponse' <$>
-                   parseXMLList "item" x)
+                   (may (parseXMLList "item") x))
 
 instance ToHeaders UnmonitorInstances where
         toHeaders = const mempty
@@ -90,7 +90,7 @@ instance ToQuery UnmonitorInstances where
               ["Action" =: ("UnmonitorInstances" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "DryRun" =: _uiDryRun,
-               "InstanceId" =: _uiInstanceIds]
+               toQueryList "InstanceId" _uiInstanceIds]
 
 -- | /See:/ 'unmonitorInstancesResponse' smart constructor.
 --
@@ -104,5 +104,5 @@ unmonitorInstancesResponse :: UnmonitorInstancesResponse
 unmonitorInstancesResponse = UnmonitorInstancesResponse'{_uirInstanceMonitorings = Nothing};
 
 -- | Monitoring information for one or more instances.
-uirInstanceMonitorings :: Lens' UnmonitorInstancesResponse (Maybe [InstanceMonitoring])
-uirInstanceMonitorings = lens _uirInstanceMonitorings (\ s a -> s{_uirInstanceMonitorings = a});
+uirInstanceMonitorings :: Lens' UnmonitorInstancesResponse [InstanceMonitoring]
+uirInstanceMonitorings = lens _uirInstanceMonitorings (\ s a -> s{_uirInstanceMonitorings = a}) . _Default;

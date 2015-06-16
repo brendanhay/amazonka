@@ -93,7 +93,7 @@ instance AWSRequest GetVaultNotifications where
           = receiveJSON
               (\ s h x ->
                  GetVaultNotificationsResponse' <$>
-                   x .?> "vaultNotificationConfig")
+                   (x .?> "vaultNotificationConfig"))
 
 instance ToHeaders GetVaultNotifications where
         toHeaders = const mempty

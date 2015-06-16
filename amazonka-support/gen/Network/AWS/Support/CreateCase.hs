@@ -133,8 +133,8 @@ ccIssueType = lens _ccIssueType (\ s a -> s{_ccIssueType = a});
 
 -- | A list of email addresses that AWS Support copies on case
 -- correspondence.
-ccCcEmailAddresses :: Lens' CreateCase (Maybe [Text])
-ccCcEmailAddresses = lens _ccCcEmailAddresses (\ s a -> s{_ccCcEmailAddresses = a});
+ccCcEmailAddresses :: Lens' CreateCase [Text]
+ccCcEmailAddresses = lens _ccCcEmailAddresses (\ s a -> s{_ccCcEmailAddresses = a}) . _Default;
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
 -- Support currently supports English (\"en\") and Japanese (\"ja\").
@@ -171,7 +171,7 @@ instance AWSRequest CreateCase where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x -> CreateCaseResponse' <$> x .?> "caseId")
+              (\ s h x -> CreateCaseResponse' <$> (x .?> "caseId"))
 
 instance ToHeaders CreateCase where
         toHeaders

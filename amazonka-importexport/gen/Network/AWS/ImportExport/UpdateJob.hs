@@ -96,9 +96,9 @@ instance AWSRequest UpdateJob where
           = receiveXMLWrapper "UpdateJobResult"
               (\ s h x ->
                  UpdateJobResponse' <$>
-                   x .@? "Success" <*> x .@? "WarningMessage" <*>
+                   (x .@? "Success") <*> (x .@? "WarningMessage") <*>
                      (x .@? "ArtifactList" .!@ mempty >>=
-                        parseXMLList "member"))
+                        may (parseXMLList "member")))
 
 instance ToHeaders UpdateJob where
         toHeaders = const mempty
@@ -140,5 +140,5 @@ ujrWarningMessage :: Lens' UpdateJobResponse (Maybe Text)
 ujrWarningMessage = lens _ujrWarningMessage (\ s a -> s{_ujrWarningMessage = a});
 
 -- | FIXME: Undocumented member.
-ujrArtifactList :: Lens' UpdateJobResponse (Maybe [Artifact])
-ujrArtifactList = lens _ujrArtifactList (\ s a -> s{_ujrArtifactList = a});
+ujrArtifactList :: Lens' UpdateJobResponse [Artifact]
+ujrArtifactList = lens _ujrArtifactList (\ s a -> s{_ujrArtifactList = a}) . _Default;

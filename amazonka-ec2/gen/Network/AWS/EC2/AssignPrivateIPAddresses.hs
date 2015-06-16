@@ -75,8 +75,8 @@ assignPrivateIPAddresses pNetworkInterfaceId = AssignPrivateIPAddresses'{_apiaPr
 --
 -- If you don\'t specify an IP address, Amazon EC2 automatically selects an
 -- IP address within the subnet range.
-apiaPrivateIPAddresses :: Lens' AssignPrivateIPAddresses (Maybe [Text])
-apiaPrivateIPAddresses = lens _apiaPrivateIPAddresses (\ s a -> s{_apiaPrivateIPAddresses = a});
+apiaPrivateIPAddresses :: Lens' AssignPrivateIPAddresses [Text]
+apiaPrivateIPAddresses = lens _apiaPrivateIPAddresses (\ s a -> s{_apiaPrivateIPAddresses = a}) . _Default;
 
 -- | Indicates whether to allow an IP address that is already assigned to
 -- another network interface or instance to be reassigned to the specified
@@ -114,7 +114,9 @@ instance ToQuery AssignPrivateIPAddresses where
               ["Action" =:
                  ("AssignPrivateIPAddresses" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "PrivateIpAddress" =: _apiaPrivateIPAddresses,
+               toQuery
+                 (toQueryList "PrivateIpAddress" <$>
+                    _apiaPrivateIPAddresses),
                "AllowReassignment" =: _apiaAllowReassignment,
                "SecondaryPrivateIpAddressCount" =:
                  _apiaSecondaryPrivateIPAddressCount,

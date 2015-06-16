@@ -63,7 +63,7 @@ instance AWSRequest GetCognitoEvents where
           = receiveJSON
               (\ s h x ->
                  GetCognitoEventsResponse' <$>
-                   x .?> "Events" .!@ mempty)
+                   (x .?> "Events" .!@ mempty))
 
 instance ToHeaders GetCognitoEvents where
         toHeaders
@@ -86,12 +86,12 @@ instance ToQuery GetCognitoEvents where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gcerEvents'
-newtype GetCognitoEventsResponse = GetCognitoEventsResponse'{_gcerEvents :: Maybe (HashMap Text Text)} deriving (Eq, Read, Show)
+newtype GetCognitoEventsResponse = GetCognitoEventsResponse'{_gcerEvents :: Maybe (Map Text Text)} deriving (Eq, Read, Show)
 
 -- | 'GetCognitoEventsResponse' smart constructor.
 getCognitoEventsResponse :: GetCognitoEventsResponse
 getCognitoEventsResponse = GetCognitoEventsResponse'{_gcerEvents = Nothing};
 
 -- | The Cognito Events returned from the GetCognitoEvents request
-gcerEvents :: Lens' GetCognitoEventsResponse (Maybe (HashMap Text Text))
-gcerEvents = lens _gcerEvents (\ s a -> s{_gcerEvents = a}) . mapping _Coerce;
+gcerEvents :: Lens' GetCognitoEventsResponse (Map Text Text)
+gcerEvents = lens _gcerEvents (\ s a -> s{_gcerEvents = a}) . _Default . _Map;

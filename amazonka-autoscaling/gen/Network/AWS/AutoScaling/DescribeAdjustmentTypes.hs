@@ -54,7 +54,7 @@ instance AWSRequest DescribeAdjustmentTypes where
               (\ s h x ->
                  DescribeAdjustmentTypesResponse' <$>
                    (x .@? "AdjustmentTypes" .!@ mempty >>=
-                      parseXMLList "member"))
+                      may (parseXMLList "member")))
 
 instance ToHeaders DescribeAdjustmentTypes where
         toHeaders = const mempty
@@ -82,5 +82,5 @@ describeAdjustmentTypesResponse :: DescribeAdjustmentTypesResponse
 describeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse'{_datrAdjustmentTypes = Nothing};
 
 -- | The policy adjustment types.
-datrAdjustmentTypes :: Lens' DescribeAdjustmentTypesResponse (Maybe [AdjustmentType])
-datrAdjustmentTypes = lens _datrAdjustmentTypes (\ s a -> s{_datrAdjustmentTypes = a});
+datrAdjustmentTypes :: Lens' DescribeAdjustmentTypesResponse [AdjustmentType]
+datrAdjustmentTypes = lens _datrAdjustmentTypes (\ s a -> s{_datrAdjustmentTypes = a}) . _Default;

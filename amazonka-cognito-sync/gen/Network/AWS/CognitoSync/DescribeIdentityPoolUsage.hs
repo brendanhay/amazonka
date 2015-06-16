@@ -70,7 +70,7 @@ instance AWSRequest DescribeIdentityPoolUsage where
           = receiveJSON
               (\ s h x ->
                  DescribeIdentityPoolUsageResponse' <$>
-                   x .?> "IdentityPoolUsage")
+                   (x .?> "IdentityPoolUsage"))
 
 instance ToHeaders DescribeIdentityPoolUsage where
         toHeaders

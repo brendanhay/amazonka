@@ -62,8 +62,8 @@ createClusterSnapshot :: Text -> Text -> CreateClusterSnapshot
 createClusterSnapshot pSnapshotIdentifier pClusterIdentifier = CreateClusterSnapshot'{_ccsTags = Nothing, _ccsSnapshotIdentifier = pSnapshotIdentifier, _ccsClusterIdentifier = pClusterIdentifier};
 
 -- | A list of tag instances.
-ccsTags :: Lens' CreateClusterSnapshot (Maybe [Tag])
-ccsTags = lens _ccsTags (\ s a -> s{_ccsTags = a});
+ccsTags :: Lens' CreateClusterSnapshot [Tag]
+ccsTags = lens _ccsTags (\ s a -> s{_ccsTags = a}) . _Default;
 
 -- | A unique identifier for the snapshot that you are requesting. This
 -- identifier must be unique for all snapshots within the AWS account.
@@ -91,7 +91,8 @@ instance AWSRequest CreateClusterSnapshot where
         response
           = receiveXMLWrapper "CreateClusterSnapshotResult"
               (\ s h x ->
-                 CreateClusterSnapshotResponse' <$> x .@? "Snapshot")
+                 CreateClusterSnapshotResponse' <$>
+                   (x .@? "Snapshot"))
 
 instance ToHeaders CreateClusterSnapshot where
         toHeaders = const mempty
@@ -104,7 +105,7 @@ instance ToQuery CreateClusterSnapshot where
           = mconcat
               ["Action" =: ("CreateClusterSnapshot" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "Tags" =: "Tag" =: _ccsTags,
+               "Tags" =: toQuery (toQueryList "Tag" <$> _ccsTags),
                "SnapshotIdentifier" =: _ccsSnapshotIdentifier,
                "ClusterIdentifier" =: _ccsClusterIdentifier]
 

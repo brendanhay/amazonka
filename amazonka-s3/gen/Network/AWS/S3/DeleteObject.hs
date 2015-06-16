@@ -95,9 +95,9 @@ instance AWSRequest DeleteObject where
           = receiveXML
               (\ s h x ->
                  DeleteObjectResponse' <$>
-                   h .#? "x-amz-version-id" <*>
-                     h .#? "x-amz-request-charged"
-                     <*> h .#? "x-amz-delete-marker")
+                   (h .#? "x-amz-version-id") <*>
+                     (h .#? "x-amz-request-charged")
+                     <*> (h .#? "x-amz-delete-marker"))
 
 instance ToHeaders DeleteObject where
         toHeaders DeleteObject'{..}

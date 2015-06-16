@@ -83,7 +83,7 @@ instance AWSRequest CreateKey where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateKeyResponse' <$> x .?> "KeyMetadata")
+                 CreateKeyResponse' <$> (x .?> "KeyMetadata"))
 
 instance ToHeaders CreateKey where
         toHeaders

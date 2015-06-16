@@ -97,7 +97,7 @@ instance AWSRequest CreateVPC where
         request = post
         response
           = receiveXML
-              (\ s h x -> CreateVPCResponse' <$> x .@? "vpc")
+              (\ s h x -> CreateVPCResponse' <$> (x .@? "vpc"))
 
 instance ToHeaders CreateVPC where
         toHeaders = const mempty

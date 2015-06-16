@@ -64,8 +64,8 @@ describeApps = DescribeApps'{_daAppIds = Nothing, _daStackId = Nothing};
 -- | An array of app IDs for the apps to be described. If you use this
 -- parameter, @DescribeApps@ returns a description of the specified apps.
 -- Otherwise, it returns a description of every app.
-daAppIds :: Lens' DescribeApps (Maybe [Text])
-daAppIds = lens _daAppIds (\ s a -> s{_daAppIds = a});
+daAppIds :: Lens' DescribeApps [Text]
+daAppIds = lens _daAppIds (\ s a -> s{_daAppIds = a}) . _Default;
 
 -- | The app stack ID. If you use this parameter, @DescribeApps@ returns a
 -- description of the apps in the specified stack.
@@ -79,7 +79,7 @@ instance AWSRequest DescribeApps where
         response
           = receiveJSON
               (\ s h x ->
-                 DescribeAppsResponse' <$> x .?> "Apps" .!@ mempty)
+                 DescribeAppsResponse' <$> (x .?> "Apps" .!@ mempty))
 
 instance ToHeaders DescribeApps where
         toHeaders
@@ -113,5 +113,5 @@ describeAppsResponse :: DescribeAppsResponse
 describeAppsResponse = DescribeAppsResponse'{_darApps = Nothing};
 
 -- | An array of @App@ objects that describe the specified apps.
-darApps :: Lens' DescribeAppsResponse (Maybe [App])
-darApps = lens _darApps (\ s a -> s{_darApps = a});
+darApps :: Lens' DescribeAppsResponse [App]
+darApps = lens _darApps (\ s a -> s{_darApps = a}) . _Default;

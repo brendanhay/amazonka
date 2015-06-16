@@ -108,7 +108,7 @@ instance AWSRequest PromoteReadReplica where
         response
           = receiveXMLWrapper "PromoteReadReplicaResult"
               (\ s h x ->
-                 PromoteReadReplicaResponse' <$> x .@? "DBInstance")
+                 PromoteReadReplicaResponse' <$> (x .@? "DBInstance"))
 
 instance ToHeaders PromoteReadReplica where
         toHeaders = const mempty

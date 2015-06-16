@@ -98,7 +98,8 @@ artDescription = lens _artDescription (\ s a -> s{_artDescription = a});
 
 instance FromXML Artifact where
         parseXML x
-          = Artifact' <$> x .@? "URL" <*> x .@? "Description"
+          = Artifact' <$>
+              (x .@? "URL") <*> (x .@? "Description")
 
 -- | /See:/ 'job' smart constructor.
 --
@@ -136,8 +137,9 @@ jobCreationDate = lens _jobCreationDate (\ s a -> s{_jobCreationDate = a}) . _Ti
 instance FromXML Job where
         parseXML x
           = Job' <$>
-              x .@ "JobType" <*> x .@ "JobId" <*> x .@ "IsCanceled"
-                <*> x .@ "CreationDate"
+              (x .@ "JobType") <*> (x .@ "JobId") <*>
+                (x .@ "IsCanceled")
+                <*> (x .@ "CreationDate")
 
 data JobType = Export | Import deriving (Eq, Ord, Read, Show, Enum, Generic)
 

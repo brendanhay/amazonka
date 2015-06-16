@@ -70,8 +70,8 @@ describeTags = DescribeTags'{_dtFilters = Nothing, _dtNextToken = Nothing, _dtMa
 -- For example, you can filter so that tags are returned according to Auto
 -- Scaling group, the key and value, or whether the new tag will be applied
 -- to instances launched after the tag is created (PropagateAtLaunch).
-dtFilters :: Lens' DescribeTags (Maybe [Filter])
-dtFilters = lens _dtFilters (\ s a -> s{_dtFilters = a});
+dtFilters :: Lens' DescribeTags [Filter]
+dtFilters = lens _dtFilters (\ s a -> s{_dtFilters = a}) . _Default;
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
@@ -90,8 +90,9 @@ instance AWSRequest DescribeTags where
           = receiveXMLWrapper "DescribeTagsResult"
               (\ s h x ->
                  DescribeTagsResponse' <$>
-                   x .@? "NextToken" <*>
-                     (x .@? "Tags" .!@ mempty >>= parseXMLList "member"))
+                   (x .@? "NextToken") <*>
+                     (x .@? "Tags" .!@ mempty >>=
+                        may (parseXMLList "member")))
 
 instance ToHeaders DescribeTags where
         toHeaders = const mempty
@@ -104,7 +105,8 @@ instance ToQuery DescribeTags where
           = mconcat
               ["Action" =: ("DescribeTags" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
-               "Filters" =: "member" =: _dtFilters,
+               "Filters" =:
+                 toQuery (toQueryList "member" <$> _dtFilters),
                "NextToken" =: _dtNextToken,
                "MaxRecords" =: _dtMaxRecords]
 
@@ -127,5 +129,5 @@ dtrNextToken :: Lens' DescribeTagsResponse (Maybe Text)
 dtrNextToken = lens _dtrNextToken (\ s a -> s{_dtrNextToken = a});
 
 -- | The tags.
-dtrTags :: Lens' DescribeTagsResponse (Maybe [TagDescription])
-dtrTags = lens _dtrTags (\ s a -> s{_dtrTags = a});
+dtrTags :: Lens' DescribeTagsResponse [TagDescription]
+dtrTags = lens _dtrTags (\ s a -> s{_dtrTags = a}) . _Default;

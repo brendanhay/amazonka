@@ -250,8 +250,8 @@ rditpitDBName :: Lens' RestoreDBInstanceToPointInTime (Maybe Text)
 rditpitDBName = lens _rditpitDBName (\ s a -> s{_rditpitDBName = a});
 
 -- | FIXME: Undocumented member.
-rditpitTags :: Lens' RestoreDBInstanceToPointInTime (Maybe [Tag])
-rditpitTags = lens _rditpitTags (\ s a -> s{_rditpitTags = a});
+rditpitTags :: Lens' RestoreDBInstanceToPointInTime [Tag]
+rditpitTags = lens _rditpitTags (\ s a -> s{_rditpitTags = a}) . _Default;
 
 -- | The port number on which the database accepts connections.
 --
@@ -305,7 +305,7 @@ instance AWSRequest RestoreDBInstanceToPointInTime
               "RestoreDBInstanceToPointInTimeResult"
               (\ s h x ->
                  RestoreDBInstanceToPointInTimeResponse' <$>
-                   x .@? "DBInstance")
+                   (x .@? "DBInstance"))
 
 instance ToHeaders RestoreDBInstanceToPointInTime
          where
@@ -337,7 +337,8 @@ instance ToQuery RestoreDBInstanceToPointInTime where
                "TdeCredentialArn" =: _rditpitTDECredentialARN,
                "OptionGroupName" =: _rditpitOptionGroupName,
                "DBName" =: _rditpitDBName,
-               "Tags" =: "Tag" =: _rditpitTags,
+               "Tags" =:
+                 toQuery (toQueryList "Tag" <$> _rditpitTags),
                "Port" =: _rditpitPort,
                "StorageType" =: _rditpitStorageType,
                "SourceDBInstanceIdentifier" =:

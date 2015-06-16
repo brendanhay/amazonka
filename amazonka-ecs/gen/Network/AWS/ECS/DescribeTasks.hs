@@ -73,8 +73,8 @@ instance AWSRequest DescribeTasks where
           = receiveJSON
               (\ s h x ->
                  DescribeTasksResponse' <$>
-                   x .?> "failures" .!@ mempty <*>
-                     x .?> "tasks" .!@ mempty)
+                   (x .?> "failures" .!@ mempty) <*>
+                     (x .?> "tasks" .!@ mempty))
 
 instance ToHeaders DescribeTasks where
         toHeaders
@@ -111,9 +111,9 @@ describeTasksResponse :: DescribeTasksResponse
 describeTasksResponse = DescribeTasksResponse'{_dtrFailures = Nothing, _dtrTasks = Nothing};
 
 -- | FIXME: Undocumented member.
-dtrFailures :: Lens' DescribeTasksResponse (Maybe [Failure])
-dtrFailures = lens _dtrFailures (\ s a -> s{_dtrFailures = a});
+dtrFailures :: Lens' DescribeTasksResponse [Failure]
+dtrFailures = lens _dtrFailures (\ s a -> s{_dtrFailures = a}) . _Default;
 
 -- | The list of tasks.
-dtrTasks :: Lens' DescribeTasksResponse (Maybe [Task])
-dtrTasks = lens _dtrTasks (\ s a -> s{_dtrTasks = a});
+dtrTasks :: Lens' DescribeTasksResponse [Task]
+dtrTasks = lens _dtrTasks (\ s a -> s{_dtrTasks = a}) . _Default;

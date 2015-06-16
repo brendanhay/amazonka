@@ -107,7 +107,7 @@ instance AWSRequest ListVaults where
           = receiveJSON
               (\ s h x ->
                  ListVaultsResponse' <$>
-                   x .?> "Marker" <*> x .?> "VaultList" .!@ mempty)
+                   (x .?> "Marker") <*> (x .?> "VaultList" .!@ mempty))
 
 instance ToHeaders ListVaults where
         toHeaders = const mempty
@@ -141,5 +141,5 @@ lvrMarker :: Lens' ListVaultsResponse (Maybe Text)
 lvrMarker = lens _lvrMarker (\ s a -> s{_lvrMarker = a});
 
 -- | List of vaults.
-lvrVaultList :: Lens' ListVaultsResponse (Maybe [DescribeVaultOutput])
-lvrVaultList = lens _lvrVaultList (\ s a -> s{_lvrVaultList = a});
+lvrVaultList :: Lens' ListVaultsResponse [DescribeVaultOutput]
+lvrVaultList = lens _lvrVaultList (\ s a -> s{_lvrVaultList = a}) . _Default;

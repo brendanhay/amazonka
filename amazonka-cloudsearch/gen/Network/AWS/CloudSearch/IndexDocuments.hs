@@ -65,7 +65,7 @@ instance AWSRequest IndexDocuments where
               (\ s h x ->
                  IndexDocumentsResponse' <$>
                    (x .@? "FieldNames" .!@ mempty >>=
-                      parseXMLList "member"))
+                      may (parseXMLList "member")))
 
 instance ToHeaders IndexDocuments where
         toHeaders = const mempty
@@ -92,5 +92,5 @@ indexDocumentsResponse :: IndexDocumentsResponse
 indexDocumentsResponse = IndexDocumentsResponse'{_idrFieldNames = Nothing};
 
 -- | The names of the fields that are currently being indexed.
-idrFieldNames :: Lens' IndexDocumentsResponse (Maybe [Text])
-idrFieldNames = lens _idrFieldNames (\ s a -> s{_idrFieldNames = a});
+idrFieldNames :: Lens' IndexDocumentsResponse [Text]
+idrFieldNames = lens _idrFieldNames (\ s a -> s{_idrFieldNames = a}) . _Default;

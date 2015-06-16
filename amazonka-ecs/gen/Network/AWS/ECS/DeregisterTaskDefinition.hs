@@ -67,7 +67,7 @@ instance AWSRequest DeregisterTaskDefinition where
           = receiveJSON
               (\ s h x ->
                  DeregisterTaskDefinitionResponse' <$>
-                   x .?> "taskDefinition")
+                   (x .?> "taskDefinition"))
 
 instance ToHeaders DeregisterTaskDefinition where
         toHeaders

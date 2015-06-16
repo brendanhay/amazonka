@@ -68,12 +68,12 @@ instance AWSRequest GetOpenIDConnectProvider where
           = receiveXMLWrapper "GetOpenIDConnectProviderResult"
               (\ s h x ->
                  GetOpenIDConnectProviderResponse' <$>
-                   x .@? "CreateDate" <*> x .@? "Url" <*>
+                   (x .@? "CreateDate") <*> (x .@? "Url") <*>
                      (x .@? "ThumbprintList" .!@ mempty >>=
-                        parseXMLList "member")
+                        may (parseXMLList "member"))
                      <*>
                      (x .@? "ClientIDList" .!@ mempty >>=
-                        parseXMLList "member"))
+                        may (parseXMLList "member")))
 
 instance ToHeaders GetOpenIDConnectProvider where
         toHeaders = const mempty
@@ -120,11 +120,11 @@ goidcprURL = lens _goidcprURL (\ s a -> s{_goidcprURL = a});
 -- | A list of certificate thumbprints that are associated with the specified
 -- IAM OpenID Connect provider. For more information, see
 -- CreateOpenIDConnectProvider.
-goidcprThumbprintList :: Lens' GetOpenIDConnectProviderResponse (Maybe [Text])
-goidcprThumbprintList = lens _goidcprThumbprintList (\ s a -> s{_goidcprThumbprintList = a});
+goidcprThumbprintList :: Lens' GetOpenIDConnectProviderResponse [Text]
+goidcprThumbprintList = lens _goidcprThumbprintList (\ s a -> s{_goidcprThumbprintList = a}) . _Default;
 
 -- | A list of client IDs (also known as audiences) that are associated with
 -- the specified IAM OpenID Connect provider. For more information, see
 -- CreateOpenIDConnectProvider.
-goidcprClientIDList :: Lens' GetOpenIDConnectProviderResponse (Maybe [Text])
-goidcprClientIDList = lens _goidcprClientIDList (\ s a -> s{_goidcprClientIDList = a});
+goidcprClientIDList :: Lens' GetOpenIDConnectProviderResponse [Text]
+goidcprClientIDList = lens _goidcprClientIDList (\ s a -> s{_goidcprClientIDList = a}) . _Default;

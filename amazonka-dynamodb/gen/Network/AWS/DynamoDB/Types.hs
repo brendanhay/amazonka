@@ -330,7 +330,7 @@ instance FromJSON AttributeDefinition where
           = withObject "AttributeDefinition"
               (\ x ->
                  AttributeDefinition' <$>
-                   x .: "AttributeName" <*> x .: "AttributeType")
+                   (x .: "AttributeName") <*> (x .: "AttributeType"))
 
 instance ToJSON AttributeDefinition where
         toJSON AttributeDefinition'{..}
@@ -412,15 +412,15 @@ instance FromJSON AttributeValue where
           = withObject "AttributeValue"
               (\ x ->
                  AttributeValue' <$>
-                   x .:? "L" .!= mempty <*> x .:? "M" .!= mempty <*>
-                     x .:? "NS" .!= mempty
-                     <*> x .:? "NULL"
-                     <*> x .:? "N"
-                     <*> x .:? "BS" .!= mempty
-                     <*> x .:? "B"
-                     <*> x .:? "SS" .!= mempty
-                     <*> x .:? "S"
-                     <*> x .:? "BOOL")
+                   (x .:? "L" .!= mempty) <*> (x .:? "M" .!= mempty) <*>
+                     (x .:? "NS" .!= mempty)
+                     <*> (x .:? "NULL")
+                     <*> (x .:? "N")
+                     <*> (x .:? "BS" .!= mempty)
+                     <*> (x .:? "B")
+                     <*> (x .:? "SS" .!= mempty)
+                     <*> (x .:? "S")
+                     <*> (x .:? "BOOL"))
 
 instance ToJSON AttributeValue where
         toJSON AttributeValue'{..}
@@ -545,7 +545,7 @@ capCapacityUnits = lens _capCapacityUnits (\ s a -> s{_capCapacityUnits = a});
 instance FromJSON Capacity where
         parseJSON
           = withObject "Capacity"
-              (\ x -> Capacity' <$> x .:? "CapacityUnits")
+              (\ x -> Capacity' <$> (x .:? "CapacityUnits"))
 
 data ComparisonOperator = GE | EQ' | NE | Null | NotContains | GT' | LT' | IN | Between | Contains | BeginsWith | NotNull | LE deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -845,11 +845,11 @@ instance FromJSON ConsumedCapacity where
           = withObject "ConsumedCapacity"
               (\ x ->
                  ConsumedCapacity' <$>
-                   x .:? "CapacityUnits" <*>
-                     x .:? "GlobalSecondaryIndexes" .!= mempty
-                     <*> x .:? "LocalSecondaryIndexes" .!= mempty
-                     <*> x .:? "Table"
-                     <*> x .:? "TableName")
+                   (x .:? "CapacityUnits") <*>
+                     (x .:? "GlobalSecondaryIndexes" .!= mempty)
+                     <*> (x .:? "LocalSecondaryIndexes" .!= mempty)
+                     <*> (x .:? "Table")
+                     <*> (x .:? "TableName"))
 
 -- | /See:/ 'createGlobalSecondaryIndexAction' smart constructor.
 --
@@ -935,7 +935,7 @@ drKey = lens _drKey (\ s a -> s{_drKey = a}) . _Coerce;
 instance FromJSON DeleteRequest where
         parseJSON
           = withObject "DeleteRequest"
-              (\ x -> DeleteRequest' <$> x .:? "Key" .!= mempty)
+              (\ x -> DeleteRequest' <$> (x .:? "Key" .!= mempty))
 
 instance ToJSON DeleteRequest where
         toJSON DeleteRequest'{..} = object ["Key" .= _drKey]
@@ -1297,13 +1297,14 @@ instance FromJSON GlobalSecondaryIndexDescription
           = withObject "GlobalSecondaryIndexDescription"
               (\ x ->
                  GlobalSecondaryIndexDescription' <$>
-                   x .:? "Backfilling" <*> x .:? "ProvisionedThroughput"
-                     <*> x .:? "IndexStatus"
-                     <*> x .:? "IndexSizeBytes"
-                     <*> x .:? "KeySchema"
-                     <*> x .:? "Projection"
-                     <*> x .:? "ItemCount"
-                     <*> x .:? "IndexName")
+                   (x .:? "Backfilling") <*>
+                     (x .:? "ProvisionedThroughput")
+                     <*> (x .:? "IndexStatus")
+                     <*> (x .:? "IndexSizeBytes")
+                     <*> (x .:? "KeySchema")
+                     <*> (x .:? "Projection")
+                     <*> (x .:? "ItemCount")
+                     <*> (x .:? "IndexName"))
 
 -- | /See:/ 'globalSecondaryIndexUpdate' smart constructor.
 --
@@ -1410,8 +1411,8 @@ instance FromJSON ItemCollectionMetrics where
           = withObject "ItemCollectionMetrics"
               (\ x ->
                  ItemCollectionMetrics' <$>
-                   x .:? "ItemCollectionKey" .!= mempty <*>
-                     x .:? "SizeEstimateRangeGB" .!= mempty)
+                   (x .:? "ItemCollectionKey" .!= mempty) <*>
+                     (x .:? "SizeEstimateRangeGB" .!= mempty))
 
 -- | /See:/ 'keySchemaElement' smart constructor.
 --
@@ -1440,7 +1441,7 @@ instance FromJSON KeySchemaElement where
           = withObject "KeySchemaElement"
               (\ x ->
                  KeySchemaElement' <$>
-                   x .: "AttributeName" <*> x .: "KeyType")
+                   (x .: "AttributeName") <*> (x .: "KeyType"))
 
 instance ToJSON KeySchemaElement where
         toJSON KeySchemaElement'{..}
@@ -1570,11 +1571,11 @@ instance FromJSON KeysAndAttributes where
           = withObject "KeysAndAttributes"
               (\ x ->
                  KeysAndAttributes' <$>
-                   x .:? "ProjectionExpression" <*>
-                     x .:? "ConsistentRead"
-                     <*> x .:? "ExpressionAttributeNames" .!= mempty
-                     <*> x .:? "AttributesToGet"
-                     <*> x .: "Keys")
+                   (x .:? "ProjectionExpression") <*>
+                     (x .:? "ConsistentRead")
+                     <*> (x .:? "ExpressionAttributeNames" .!= mempty)
+                     <*> (x .:? "AttributesToGet")
+                     <*> (x .: "Keys"))
 
 instance ToJSON KeysAndAttributes where
         toJSON KeysAndAttributes'{..}
@@ -1672,10 +1673,10 @@ instance FromJSON LocalSecondaryIndexDescription
           = withObject "LocalSecondaryIndexDescription"
               (\ x ->
                  LocalSecondaryIndexDescription' <$>
-                   x .:? "IndexSizeBytes" <*> x .:? "KeySchema" <*>
-                     x .:? "Projection"
-                     <*> x .:? "ItemCount"
-                     <*> x .:? "IndexName")
+                   (x .:? "IndexSizeBytes") <*> (x .:? "KeySchema") <*>
+                     (x .:? "Projection")
+                     <*> (x .:? "ItemCount")
+                     <*> (x .:? "IndexName"))
 
 -- | /See:/ 'projection' smart constructor.
 --
@@ -1719,7 +1720,8 @@ instance FromJSON Projection where
           = withObject "Projection"
               (\ x ->
                  Projection' <$>
-                   x .:? "ProjectionType" <*> x .:? "NonKeyAttributes")
+                   (x .:? "ProjectionType") <*>
+                     (x .:? "NonKeyAttributes"))
 
 instance ToJSON Projection where
         toJSON Projection'{..}
@@ -1842,11 +1844,11 @@ instance FromJSON ProvisionedThroughputDescription
           = withObject "ProvisionedThroughputDescription"
               (\ x ->
                  ProvisionedThroughputDescription' <$>
-                   x .:? "ReadCapacityUnits" <*>
-                     x .:? "LastDecreaseDateTime"
-                     <*> x .:? "WriteCapacityUnits"
-                     <*> x .:? "NumberOfDecreasesToday"
-                     <*> x .:? "LastIncreaseDateTime")
+                   (x .:? "ReadCapacityUnits") <*>
+                     (x .:? "LastDecreaseDateTime")
+                     <*> (x .:? "WriteCapacityUnits")
+                     <*> (x .:? "NumberOfDecreasesToday")
+                     <*> (x .:? "LastIncreaseDateTime"))
 
 -- | /See:/ 'putRequest' smart constructor.
 --
@@ -1871,7 +1873,7 @@ prItem = lens _prItem (\ s a -> s{_prItem = a}) . _Coerce;
 instance FromJSON PutRequest where
         parseJSON
           = withObject "PutRequest"
-              (\ x -> PutRequest' <$> x .:? "Item" .!= mempty)
+              (\ x -> PutRequest' <$> (x .:? "Item" .!= mempty))
 
 instance ToJSON PutRequest where
         toJSON PutRequest'{..} = object ["Item" .= _prItem]
@@ -2210,16 +2212,16 @@ instance FromJSON TableDescription where
           = withObject "TableDescription"
               (\ x ->
                  TableDescription' <$>
-                   x .:? "ProvisionedThroughput" <*>
-                     x .:? "AttributeDefinitions" .!= mempty
-                     <*> x .:? "TableSizeBytes"
-                     <*> x .:? "TableStatus"
-                     <*> x .:? "KeySchema"
-                     <*> x .:? "GlobalSecondaryIndexes" .!= mempty
-                     <*> x .:? "LocalSecondaryIndexes" .!= mempty
-                     <*> x .:? "CreationDateTime"
-                     <*> x .:? "ItemCount"
-                     <*> x .:? "TableName")
+                   (x .:? "ProvisionedThroughput") <*>
+                     (x .:? "AttributeDefinitions" .!= mempty)
+                     <*> (x .:? "TableSizeBytes")
+                     <*> (x .:? "TableStatus")
+                     <*> (x .:? "KeySchema")
+                     <*> (x .:? "GlobalSecondaryIndexes" .!= mempty)
+                     <*> (x .:? "LocalSecondaryIndexes" .!= mempty)
+                     <*> (x .:? "CreationDateTime")
+                     <*> (x .:? "ItemCount")
+                     <*> (x .:? "TableName"))
 
 data TableStatus = Deleting | Updating | Creating | Active deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -2300,7 +2302,7 @@ instance FromJSON WriteRequest where
           = withObject "WriteRequest"
               (\ x ->
                  WriteRequest' <$>
-                   x .:? "PutRequest" <*> x .:? "DeleteRequest")
+                   (x .:? "PutRequest") <*> (x .:? "DeleteRequest"))
 
 instance ToJSON WriteRequest where
         toJSON WriteRequest'{..}

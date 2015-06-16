@@ -78,7 +78,7 @@ import Network.AWS.OpsWorks.Types
 -- * 'uaDescription'
 --
 -- * 'uaAppId'
-data UpdateApp = UpdateApp'{_uaSSLConfiguration :: Maybe SSLConfiguration, _uaEnableSSL :: Maybe Bool, _uaEnvironment :: Maybe [EnvironmentVariable], _uaDataSources :: Maybe [DataSource], _uaAppSource :: Maybe Source, _uaName :: Maybe Text, _uaAttributes :: Maybe (HashMap AppAttributesKeys Text), _uaType :: Maybe AppType, _uaDomains :: Maybe [Text], _uaDescription :: Maybe Text, _uaAppId :: Text} deriving (Eq, Read, Show)
+data UpdateApp = UpdateApp'{_uaSSLConfiguration :: Maybe SSLConfiguration, _uaEnableSSL :: Maybe Bool, _uaEnvironment :: Maybe [EnvironmentVariable], _uaDataSources :: Maybe [DataSource], _uaAppSource :: Maybe Source, _uaName :: Maybe Text, _uaAttributes :: Maybe (Map AppAttributesKeys Text), _uaType :: Maybe AppType, _uaDomains :: Maybe [Text], _uaDescription :: Maybe Text, _uaAppId :: Text} deriving (Eq, Read, Show)
 
 -- | 'UpdateApp' smart constructor.
 updateApp :: Text -> UpdateApp
@@ -108,12 +108,12 @@ uaEnableSSL = lens _uaEnableSSL (\ s a -> s{_uaEnableSSL = a});
 -- This parameter is supported only by Chef 11.10 stacks. If you have
 -- specified one or more environment variables, you cannot modify the
 -- stack\'s Chef version.
-uaEnvironment :: Lens' UpdateApp (Maybe [EnvironmentVariable])
-uaEnvironment = lens _uaEnvironment (\ s a -> s{_uaEnvironment = a});
+uaEnvironment :: Lens' UpdateApp [EnvironmentVariable]
+uaEnvironment = lens _uaEnvironment (\ s a -> s{_uaEnvironment = a}) . _Default;
 
 -- | The app\'s data sources.
-uaDataSources :: Lens' UpdateApp (Maybe [DataSource])
-uaDataSources = lens _uaDataSources (\ s a -> s{_uaDataSources = a});
+uaDataSources :: Lens' UpdateApp [DataSource]
+uaDataSources = lens _uaDataSources (\ s a -> s{_uaDataSources = a}) . _Default;
 
 -- | A @Source@ object that specifies the app repository.
 uaAppSource :: Lens' UpdateApp (Maybe Source)
@@ -125,8 +125,8 @@ uaName = lens _uaName (\ s a -> s{_uaName = a});
 
 -- | One or more user-defined key\/value pairs to be added to the stack
 -- attributes.
-uaAttributes :: Lens' UpdateApp (Maybe (HashMap AppAttributesKeys Text))
-uaAttributes = lens _uaAttributes (\ s a -> s{_uaAttributes = a}) . mapping _Coerce;
+uaAttributes :: Lens' UpdateApp (Map AppAttributesKeys Text)
+uaAttributes = lens _uaAttributes (\ s a -> s{_uaAttributes = a}) . _Default . _Map;
 
 -- | The app type.
 uaType :: Lens' UpdateApp (Maybe AppType)
@@ -134,8 +134,8 @@ uaType = lens _uaType (\ s a -> s{_uaType = a});
 
 -- | The app\'s virtual host settings, with multiple domains separated by
 -- commas. For example: @\'www.example.com, example.com\'@
-uaDomains :: Lens' UpdateApp (Maybe [Text])
-uaDomains = lens _uaDomains (\ s a -> s{_uaDomains = a});
+uaDomains :: Lens' UpdateApp [Text]
+uaDomains = lens _uaDomains (\ s a -> s{_uaDomains = a}) . _Default;
 
 -- | A description of the app.
 uaDescription :: Lens' UpdateApp (Maybe Text)

@@ -98,15 +98,15 @@ instance AWSService SNS where
 -- * 'endAttributes'
 --
 -- * 'endEndpointARN'
-data Endpoint = Endpoint'{_endAttributes :: Maybe (HashMap Text Text), _endEndpointARN :: Maybe Text} deriving (Eq, Read, Show)
+data Endpoint = Endpoint'{_endAttributes :: Maybe (Map Text Text), _endEndpointARN :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'Endpoint' smart constructor.
 endpoint :: Endpoint
 endpoint = Endpoint'{_endAttributes = Nothing, _endEndpointARN = Nothing};
 
 -- | Attributes for endpoint.
-endAttributes :: Lens' Endpoint (Maybe (HashMap Text Text))
-endAttributes = lens _endAttributes (\ s a -> s{_endAttributes = a}) . mapping _Coerce;
+endAttributes :: Lens' Endpoint (Map Text Text)
+endAttributes = lens _endAttributes (\ s a -> s{_endAttributes = a}) . _Default . _Map;
 
 -- | EndpointArn for mobile app and device.
 endEndpointARN :: Lens' Endpoint (Maybe Text)
@@ -116,14 +116,16 @@ instance FromXML Endpoint where
         parseXML x
           = Endpoint' <$>
               (x .@? "Attributes" .!@ mempty >>=
-                 parseXMLMap "entry" "key" "value")
-                <*> x .@? "EndpointArn"
+                 may (parseXMLMap "entry" "key" "value"))
+                <*> (x .@? "EndpointArn")
 
 instance ToQuery Endpoint where
         toQuery Endpoint'{..}
           = mconcat
               ["Attributes" =:
-                 toQueryMap "entry" "key" "value" _endAttributes,
+                 toQuery
+                   (toQueryMap "entry" "key" "value" <$>
+                      _endAttributes),
                "EndpointArn" =: _endEndpointARN]
 
 -- | /See:/ 'messageAttributeValue' smart constructor.
@@ -172,7 +174,7 @@ instance ToQuery MessageAttributeValue where
 -- * 'paPlatformApplicationARN'
 --
 -- * 'paAttributes'
-data PlatformApplication = PlatformApplication'{_paPlatformApplicationARN :: Maybe Text, _paAttributes :: Maybe (HashMap Text Text)} deriving (Eq, Read, Show)
+data PlatformApplication = PlatformApplication'{_paPlatformApplicationARN :: Maybe Text, _paAttributes :: Maybe (Map Text Text)} deriving (Eq, Read, Show)
 
 -- | 'PlatformApplication' smart constructor.
 platformApplication :: PlatformApplication
@@ -183,15 +185,15 @@ paPlatformApplicationARN :: Lens' PlatformApplication (Maybe Text)
 paPlatformApplicationARN = lens _paPlatformApplicationARN (\ s a -> s{_paPlatformApplicationARN = a});
 
 -- | Attributes for platform application object.
-paAttributes :: Lens' PlatformApplication (Maybe (HashMap Text Text))
-paAttributes = lens _paAttributes (\ s a -> s{_paAttributes = a}) . mapping _Coerce;
+paAttributes :: Lens' PlatformApplication (Map Text Text)
+paAttributes = lens _paAttributes (\ s a -> s{_paAttributes = a}) . _Default . _Map;
 
 instance FromXML PlatformApplication where
         parseXML x
           = PlatformApplication' <$>
-              x .@? "PlatformApplicationArn" <*>
+              (x .@? "PlatformApplicationArn") <*>
                 (x .@? "Attributes" .!@ mempty >>=
-                   parseXMLMap "entry" "key" "value")
+                   may (parseXMLMap "entry" "key" "value"))
 
 -- | /See:/ 'subscription' smart constructor.
 --
@@ -235,10 +237,10 @@ subSubscriptionARN = lens _subSubscriptionARN (\ s a -> s{_subSubscriptionARN = 
 instance FromXML Subscription where
         parseXML x
           = Subscription' <$>
-              x .@? "Protocol" <*> x .@? "Owner" <*>
-                x .@? "TopicArn"
-                <*> x .@? "Endpoint"
-                <*> x .@? "SubscriptionArn"
+              (x .@? "Protocol") <*> (x .@? "Owner") <*>
+                (x .@? "TopicArn")
+                <*> (x .@? "Endpoint")
+                <*> (x .@? "SubscriptionArn")
 
 -- | /See:/ 'topic' smart constructor.
 --
@@ -256,4 +258,4 @@ topTopicARN :: Lens' Topic (Maybe Text)
 topTopicARN = lens _topTopicARN (\ s a -> s{_topTopicARN = a});
 
 instance FromXML Topic where
-        parseXML x = Topic' <$> x .@? "TopicArn"
+        parseXML x = Topic' <$> (x .@? "TopicArn")

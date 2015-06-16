@@ -80,7 +80,7 @@ instance AWSRequest
           = receiveXML
               (\ s h x ->
                  ListCloudFrontOriginAccessIdentities2014_11_06Response'
-                   <$> x .@ "CloudFrontOriginAccessIdentityList")
+                   <$> (x .@ "CloudFrontOriginAccessIdentityList"))
 
 instance ToHeaders
          ListCloudFrontOriginAccessIdentities2014_11_06 where

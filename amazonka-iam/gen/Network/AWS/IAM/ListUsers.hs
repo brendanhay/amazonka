@@ -95,7 +95,7 @@ instance AWSRequest ListUsers where
           = receiveXMLWrapper "ListUsersResult"
               (\ s h x ->
                  ListUsersResponse' <$>
-                   x .@? "Marker" <*> x .@? "IsTruncated" <*>
+                   (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
                      (x .@? "Users" .!@ mempty >>= parseXMLList "member"))
 
 instance ToHeaders ListUsers where

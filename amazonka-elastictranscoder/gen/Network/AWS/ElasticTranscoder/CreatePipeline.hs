@@ -277,7 +277,7 @@ instance AWSRequest CreatePipeline where
           = receiveJSON
               (\ s h x ->
                  CreatePipelineResponse' <$>
-                   x .?> "Warnings" .!@ mempty <*> x .?> "Pipeline")
+                   (x .?> "Warnings" .!@ mempty) <*> (x .?> "Pipeline"))
 
 instance ToHeaders CreatePipeline where
         toHeaders = const mempty
@@ -318,8 +318,8 @@ createPipelineResponse = CreatePipelineResponse'{_cprWarnings = Nothing, _cprPip
 -- Using resources in the same region, such as your Amazon S3 buckets,
 -- Amazon SNS notification topics, and AWS KMS key, reduces processing time
 -- and prevents cross-regional charges.
-cprWarnings :: Lens' CreatePipelineResponse (Maybe [Warning])
-cprWarnings = lens _cprWarnings (\ s a -> s{_cprWarnings = a});
+cprWarnings :: Lens' CreatePipelineResponse [Warning]
+cprWarnings = lens _cprWarnings (\ s a -> s{_cprWarnings = a}) . _Default;
 
 -- | A section of the response body that provides information about the
 -- pipeline that is created.

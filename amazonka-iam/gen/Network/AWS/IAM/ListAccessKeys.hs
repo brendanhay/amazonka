@@ -98,7 +98,7 @@ instance AWSRequest ListAccessKeys where
           = receiveXMLWrapper "ListAccessKeysResult"
               (\ s h x ->
                  ListAccessKeysResponse' <$>
-                   x .@? "Marker" <*> x .@? "IsTruncated" <*>
+                   (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
                      (x .@? "AccessKeyMetadata" .!@ mempty >>=
                         parseXMLList "member"))
 

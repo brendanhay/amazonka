@@ -93,8 +93,9 @@ instance AWSRequest
           = receiveJSON
               (\ s h x ->
                  CreateSnapshotFromVolumeRecoveryPointResponse' <$>
-                   x .?> "VolumeRecoveryPointTime" <*> x .?> "VolumeARN"
-                     <*> x .?> "SnapshotId")
+                   (x .?> "VolumeRecoveryPointTime") <*>
+                     (x .?> "VolumeARN")
+                     <*> (x .?> "SnapshotId"))
 
 instance ToHeaders
          CreateSnapshotFromVolumeRecoveryPoint where

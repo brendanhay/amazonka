@@ -74,8 +74,8 @@ updateRecords :: Text -> Text -> Text -> Text -> UpdateRecords
 updateRecords pIdentityPoolId pIdentityId pDatasetName pSyncSessionToken = UpdateRecords'{_urRecordPatches = Nothing, _urDeviceId = Nothing, _urClientContext = Nothing, _urIdentityPoolId = pIdentityPoolId, _urIdentityId = pIdentityId, _urDatasetName = pDatasetName, _urSyncSessionToken = pSyncSessionToken};
 
 -- | A list of patch operations.
-urRecordPatches :: Lens' UpdateRecords (Maybe [RecordPatch])
-urRecordPatches = lens _urRecordPatches (\ s a -> s{_urRecordPatches = a});
+urRecordPatches :: Lens' UpdateRecords [RecordPatch]
+urRecordPatches = lens _urRecordPatches (\ s a -> s{_urRecordPatches = a}) . _Default;
 
 -- | The unique ID generated for this device by Cognito.
 urDeviceId :: Lens' UpdateRecords (Maybe Text)
@@ -117,7 +117,7 @@ instance AWSRequest UpdateRecords where
           = receiveJSON
               (\ s h x ->
                  UpdateRecordsResponse' <$>
-                   x .?> "Records" .!@ mempty)
+                   (x .?> "Records" .!@ mempty))
 
 instance ToHeaders UpdateRecords where
         toHeaders UpdateRecords'{..}
@@ -155,5 +155,5 @@ updateRecordsResponse :: UpdateRecordsResponse
 updateRecordsResponse = UpdateRecordsResponse'{_urrRecords = Nothing};
 
 -- | A list of records that have been updated.
-urrRecords :: Lens' UpdateRecordsResponse (Maybe [Record])
-urrRecords = lens _urrRecords (\ s a -> s{_urrRecords = a});
+urrRecords :: Lens' UpdateRecordsResponse [Record]
+urrRecords = lens _urrRecords (\ s a -> s{_urrRecords = a}) . _Default;

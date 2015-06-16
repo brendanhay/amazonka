@@ -53,7 +53,7 @@ instance AWSRequest ListAvailableZones where
           = receiveJSON
               (\ s h x ->
                  ListAvailableZonesResponse' <$>
-                   x .?> "AZList" .!@ mempty)
+                   (x .?> "AZList" .!@ mempty))
 
 instance ToHeaders ListAvailableZones where
         toHeaders
@@ -87,5 +87,5 @@ listAvailableZonesResponse = ListAvailableZonesResponse'{_lazrAZList = Nothing};
 
 -- | The list of Availability Zones that have available AWS CloudHSM
 -- capacity.
-lazrAZList :: Lens' ListAvailableZonesResponse (Maybe [Text])
-lazrAZList = lens _lazrAZList (\ s a -> s{_lazrAZList = a});
+lazrAZList :: Lens' ListAvailableZonesResponse [Text]
+lazrAZList = lens _lazrAZList (\ s a -> s{_lazrAZList = a}) . _Default;

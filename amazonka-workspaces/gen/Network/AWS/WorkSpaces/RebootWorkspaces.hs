@@ -68,7 +68,7 @@ instance AWSRequest RebootWorkspaces where
           = receiveJSON
               (\ s h x ->
                  RebootWorkspacesResponse' <$>
-                   x .?> "FailedRequests" .!@ mempty)
+                   (x .?> "FailedRequests" .!@ mempty))
 
 instance ToHeaders RebootWorkspaces where
         toHeaders
@@ -104,5 +104,5 @@ rebootWorkspacesResponse = RebootWorkspacesResponse'{_rebFailedRequests = Nothin
 
 -- | An array of structures that represent any WorkSpaces that could not be
 -- rebooted.
-rebFailedRequests :: Lens' RebootWorkspacesResponse (Maybe [FailedWorkspaceChangeRequest])
-rebFailedRequests = lens _rebFailedRequests (\ s a -> s{_rebFailedRequests = a});
+rebFailedRequests :: Lens' RebootWorkspacesResponse [FailedWorkspaceChangeRequest]
+rebFailedRequests = lens _rebFailedRequests (\ s a -> s{_rebFailedRequests = a}) . _Default;

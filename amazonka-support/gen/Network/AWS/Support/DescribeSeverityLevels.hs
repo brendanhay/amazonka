@@ -68,7 +68,7 @@ instance AWSRequest DescribeSeverityLevels where
           = receiveJSON
               (\ s h x ->
                  DescribeSeverityLevelsResponse' <$>
-                   x .?> "severityLevels" .!@ mempty)
+                   (x .?> "severityLevels" .!@ mempty))
 
 instance ToHeaders DescribeSeverityLevels where
         toHeaders
@@ -103,5 +103,5 @@ describeSeverityLevelsResponse = DescribeSeverityLevelsResponse'{_dslrSeverityLe
 
 -- | The available severity levels for the support case. Available severity
 -- levels are defined by your service level agreement with AWS.
-dslrSeverityLevels :: Lens' DescribeSeverityLevelsResponse (Maybe [SeverityLevel])
-dslrSeverityLevels = lens _dslrSeverityLevels (\ s a -> s{_dslrSeverityLevels = a});
+dslrSeverityLevels :: Lens' DescribeSeverityLevelsResponse [SeverityLevel]
+dslrSeverityLevels = lens _dslrSeverityLevels (\ s a -> s{_dslrSeverityLevels = a}) . _Default;

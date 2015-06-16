@@ -85,8 +85,8 @@ leStartTime = lens _leStartTime (\ s a -> s{_leStartTime = a}) . mapping _Time;
 
 -- | Contains a list of lookup attributes. Currently the list can contain
 -- only one item.
-leLookupAttributes :: Lens' LookupEvents (Maybe [LookupAttribute])
-leLookupAttributes = lens _leLookupAttributes (\ s a -> s{_leLookupAttributes = a});
+leLookupAttributes :: Lens' LookupEvents [LookupAttribute]
+leLookupAttributes = lens _leLookupAttributes (\ s a -> s{_leLookupAttributes = a}) . _Default;
 
 -- | The token to use to get the next page of results after a previous API
 -- call. This token must be passed in with the same parameters that were
@@ -115,7 +115,7 @@ instance AWSRequest LookupEvents where
           = receiveJSON
               (\ s h x ->
                  LookupEventsResponse' <$>
-                   x .?> "NextToken" <*> x .?> "Events" .!@ mempty)
+                   (x .?> "NextToken") <*> (x .?> "Events" .!@ mempty))
 
 instance ToHeaders LookupEvents where
         toHeaders
@@ -166,5 +166,5 @@ lerNextToken = lens _lerNextToken (\ s a -> s{_lerNextToken = a});
 -- | A list of events returned based on the lookup attributes specified and
 -- the CloudTrail event. The events list is sorted by time. The most recent
 -- event is listed first.
-lerEvents :: Lens' LookupEventsResponse (Maybe [Event])
-lerEvents = lens _lerEvents (\ s a -> s{_lerEvents = a});
+lerEvents :: Lens' LookupEventsResponse [Event]
+lerEvents = lens _lerEvents (\ s a -> s{_lerEvents = a}) . _Default;

@@ -70,7 +70,8 @@ instance AWSRequest GetChange where
         request = get
         response
           = receiveXML
-              (\ s h x -> GetChangeResponse' <$> x .@ "ChangeInfo")
+              (\ s h x ->
+                 GetChangeResponse' <$> (x .@ "ChangeInfo"))
 
 instance ToHeaders GetChange where
         toHeaders = const mempty

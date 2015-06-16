@@ -137,7 +137,8 @@ instance AWSRequest ListApplicationRevisions where
           = receiveJSON
               (\ s h x ->
                  ListApplicationRevisionsResponse' <$>
-                   x .?> "nextToken" <*> x .?> "revisions" .!@ mempty)
+                   (x .?> "nextToken") <*>
+                     (x .?> "revisions" .!@ mempty))
 
 instance ToHeaders ListApplicationRevisions where
         toHeaders
@@ -186,5 +187,5 @@ larrNextToken :: Lens' ListApplicationRevisionsResponse (Maybe Text)
 larrNextToken = lens _larrNextToken (\ s a -> s{_larrNextToken = a});
 
 -- | A list of revision locations that contain the matching revisions.
-larrRevisions :: Lens' ListApplicationRevisionsResponse (Maybe [RevisionLocation])
-larrRevisions = lens _larrRevisions (\ s a -> s{_larrRevisions = a});
+larrRevisions :: Lens' ListApplicationRevisionsResponse [RevisionLocation]
+larrRevisions = lens _larrRevisions (\ s a -> s{_larrRevisions = a}) . _Default;

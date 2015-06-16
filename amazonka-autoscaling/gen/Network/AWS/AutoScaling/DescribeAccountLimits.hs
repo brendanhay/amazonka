@@ -57,8 +57,8 @@ instance AWSRequest DescribeAccountLimits where
           = receiveXMLWrapper "DescribeAccountLimitsResult"
               (\ s h x ->
                  DescribeAccountLimitsResponse' <$>
-                   x .@? "MaxNumberOfLaunchConfigurations" <*>
-                     x .@? "MaxNumberOfAutoScalingGroups")
+                   (x .@? "MaxNumberOfLaunchConfigurations") <*>
+                     (x .@? "MaxNumberOfAutoScalingGroups"))
 
 instance ToHeaders DescribeAccountLimits where
         toHeaders = const mempty

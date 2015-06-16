@@ -60,7 +60,7 @@ instance AWSRequest DeleteHapg where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x -> DeleteHapgResponse' <$> x .:> "Status")
+              (\ s h x -> DeleteHapgResponse' <$> (x .:> "Status"))
 
 instance ToHeaders DeleteHapg where
         toHeaders

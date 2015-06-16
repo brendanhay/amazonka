@@ -101,9 +101,9 @@ instance AWSRequest UploadDocuments where
           = receiveJSON
               (\ s h x ->
                  UploadDocumentsResponse' <$>
-                   x .?> "status" <*> x .?> "adds" <*>
-                     x .?> "warnings" .!@ mempty
-                     <*> x .?> "deletes")
+                   (x .?> "status") <*> (x .?> "adds") <*>
+                     (x .?> "warnings" .!@ mempty)
+                     <*> (x .?> "deletes"))
 
 instance ToBody UploadDocuments where
         toBody = _udDocuments
@@ -148,8 +148,8 @@ udrAdds = lens _udrAdds (\ s a -> s{_udrAdds = a});
 
 -- | Any warnings returned by the document service about the documents being
 -- uploaded.
-udrWarnings :: Lens' UploadDocumentsResponse (Maybe [DocumentServiceWarning])
-udrWarnings = lens _udrWarnings (\ s a -> s{_udrWarnings = a});
+udrWarnings :: Lens' UploadDocumentsResponse [DocumentServiceWarning]
+udrWarnings = lens _udrWarnings (\ s a -> s{_udrWarnings = a}) . _Default;
 
 -- | The number of documents that were deleted from the search domain.
 udrDeletes :: Lens' UploadDocumentsResponse (Maybe Integer)

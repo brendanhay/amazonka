@@ -109,15 +109,16 @@ instance AWSRequest ListObjects where
           = receiveXML
               (\ s h x ->
                  ListObjectsResponse' <$>
-                   parseXMLList "Contents" x <*> x .@? "Prefix" <*>
-                     x .@? "EncodingType"
-                     <*> parseXMLList "CommonPrefixes" x
-                     <*> x .@? "Name"
-                     <*> x .@? "Marker"
-                     <*> x .@? "NextMarker"
-                     <*> x .@? "MaxKeys"
-                     <*> x .@? "IsTruncated"
-                     <*> x .@? "Delimiter")
+                   (may (parseXMLList "Contents") x) <*>
+                     (x .@? "Prefix")
+                     <*> (x .@? "EncodingType")
+                     <*> (may (parseXMLList "CommonPrefixes") x)
+                     <*> (x .@? "Name")
+                     <*> (x .@? "Marker")
+                     <*> (x .@? "NextMarker")
+                     <*> (x .@? "MaxKeys")
+                     <*> (x .@? "IsTruncated")
+                     <*> (x .@? "Delimiter"))
 
 instance ToHeaders ListObjects where
         toHeaders = const mempty
@@ -164,8 +165,8 @@ listObjectsResponse :: ListObjectsResponse
 listObjectsResponse = ListObjectsResponse'{_lorContents = Nothing, _lorPrefix = Nothing, _lorEncodingType = Nothing, _lorCommonPrefixes = Nothing, _lorName = Nothing, _lorMarker = Nothing, _lorNextMarker = Nothing, _lorMaxKeys = Nothing, _lorIsTruncated = Nothing, _lorDelimiter = Nothing};
 
 -- | FIXME: Undocumented member.
-lorContents :: Lens' ListObjectsResponse (Maybe [Object])
-lorContents = lens _lorContents (\ s a -> s{_lorContents = a});
+lorContents :: Lens' ListObjectsResponse [Object]
+lorContents = lens _lorContents (\ s a -> s{_lorContents = a}) . _Default;
 
 -- | FIXME: Undocumented member.
 lorPrefix :: Lens' ListObjectsResponse (Maybe Text)
@@ -176,8 +177,8 @@ lorEncodingType :: Lens' ListObjectsResponse (Maybe EncodingType)
 lorEncodingType = lens _lorEncodingType (\ s a -> s{_lorEncodingType = a});
 
 -- | FIXME: Undocumented member.
-lorCommonPrefixes :: Lens' ListObjectsResponse (Maybe [CommonPrefix])
-lorCommonPrefixes = lens _lorCommonPrefixes (\ s a -> s{_lorCommonPrefixes = a});
+lorCommonPrefixes :: Lens' ListObjectsResponse [CommonPrefix]
+lorCommonPrefixes = lens _lorCommonPrefixes (\ s a -> s{_lorCommonPrefixes = a}) . _Default;
 
 -- | FIXME: Undocumented member.
 lorName :: Lens' ListObjectsResponse (Maybe BucketName)

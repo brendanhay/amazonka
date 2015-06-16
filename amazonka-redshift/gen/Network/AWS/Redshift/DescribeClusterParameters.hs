@@ -117,8 +117,8 @@ instance AWSRequest DescribeClusterParameters where
               (\ s h x ->
                  DescribeClusterParametersResponse' <$>
                    (x .@? "Parameters" .!@ mempty >>=
-                      parseXMLList "Parameter")
-                     <*> x .@? "Marker")
+                      may (parseXMLList "Parameter"))
+                     <*> (x .@? "Marker"))
 
 instance ToHeaders DescribeClusterParameters where
         toHeaders = const mempty
@@ -151,8 +151,8 @@ describeClusterParametersResponse = DescribeClusterParametersResponse'{_dcprPara
 
 -- | A list of Parameter instances. Each instance lists the parameters of one
 -- cluster parameter group.
-dcprParameters :: Lens' DescribeClusterParametersResponse (Maybe [Parameter])
-dcprParameters = lens _dcprParameters (\ s a -> s{_dcprParameters = a});
+dcprParameters :: Lens' DescribeClusterParametersResponse [Parameter]
+dcprParameters = lens _dcprParameters (\ s a -> s{_dcprParameters = a}) . _Default;
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,

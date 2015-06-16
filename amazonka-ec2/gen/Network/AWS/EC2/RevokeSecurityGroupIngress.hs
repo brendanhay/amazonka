@@ -92,8 +92,8 @@ rsgiFromPort = lens _rsgiFromPort (\ s a -> s{_rsgiFromPort = a});
 
 -- | A set of IP permissions. You can\'t specify a source security group and
 -- a CIDR IP address range.
-rsgiIPPermissions :: Lens' RevokeSecurityGroupIngress (Maybe [IPPermission])
-rsgiIPPermissions = lens _rsgiIPPermissions (\ s a -> s{_rsgiIPPermissions = a});
+rsgiIPPermissions :: Lens' RevokeSecurityGroupIngress [IPPermission]
+rsgiIPPermissions = lens _rsgiIPPermissions (\ s a -> s{_rsgiIPPermissions = a}) . _Default;
 
 -- | The IP protocol name (@tcp@, @udp@, @icmp@) or number (see
 -- <http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers>).
@@ -158,7 +158,7 @@ instance ToQuery RevokeSecurityGroupIngress where
                  ("RevokeSecurityGroupIngress" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "FromPort" =: _rsgiFromPort,
-               "item" =: _rsgiIPPermissions,
+               toQuery (toQueryList "item" <$> _rsgiIPPermissions),
                "IpProtocol" =: _rsgiIPProtocol,
                "GroupId" =: _rsgiGroupId, "ToPort" =: _rsgiToPort,
                "CidrIp" =: _rsgiCIDRIP,

@@ -192,8 +192,8 @@ instance FromJSON Field where
           = withObject "Field"
               (\ x ->
                  Field' <$>
-                   x .:? "refValue" <*> x .:? "stringValue" <*>
-                     x .: "key")
+                   (x .:? "refValue") <*> (x .:? "stringValue") <*>
+                     (x .: "key"))
 
 instance ToJSON Field where
         toJSON Field'{..}
@@ -245,8 +245,8 @@ operator :: Operator
 operator = Operator'{_opeValues = Nothing, _opeType = Nothing};
 
 -- | The value that the actual field value will be compared with.
-opeValues :: Lens' Operator (Maybe [Text])
-opeValues = lens _opeValues (\ s a -> s{_opeValues = a});
+opeValues :: Lens' Operator [Text]
+opeValues = lens _opeValues (\ s a -> s{_opeValues = a}) . _Default;
 
 -- | The logical operation to be performed: equal (@EQ@), equal reference
 -- (@REF_EQ@), less than or equal (@LE@), greater than or equal (@GE@), or
@@ -340,7 +340,7 @@ instance FromJSON ParameterAttribute where
           = withObject "ParameterAttribute"
               (\ x ->
                  ParameterAttribute' <$>
-                   x .: "key" <*> x .: "stringValue")
+                   (x .: "key") <*> (x .: "stringValue"))
 
 instance ToJSON ParameterAttribute where
         toJSON ParameterAttribute'{..}
@@ -373,7 +373,7 @@ instance FromJSON ParameterObject where
           = withObject "ParameterObject"
               (\ x ->
                  ParameterObject' <$>
-                   x .: "id" <*> x .:? "attributes" .!= mempty)
+                   (x .: "id") <*> (x .:? "attributes" .!= mempty))
 
 instance ToJSON ParameterObject where
         toJSON ParameterObject'{..}
@@ -405,7 +405,8 @@ instance FromJSON ParameterValue where
         parseJSON
           = withObject "ParameterValue"
               (\ x ->
-                 ParameterValue' <$> x .: "id" <*> x .: "stringValue")
+                 ParameterValue' <$>
+                   (x .: "id") <*> (x .: "stringValue"))
 
 instance ToJSON ParameterValue where
         toJSON ParameterValue'{..}
@@ -439,8 +440,8 @@ pdDescription = lens _pdDescription (\ s a -> s{_pdDescription = a});
 -- access to pipelines. For more information, see
 -- <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines>
 -- in the /AWS Data Pipeline Developer Guide/.
-pdTags :: Lens' PipelineDescription (Maybe [Tag])
-pdTags = lens _pdTags (\ s a -> s{_pdTags = a});
+pdTags :: Lens' PipelineDescription [Tag]
+pdTags = lens _pdTags (\ s a -> s{_pdTags = a}) . _Default;
 
 -- | The pipeline identifier that was assigned by AWS Data Pipeline. This is
 -- a string of the form @df-297EG78HU43EEXAMPLE@.
@@ -461,10 +462,10 @@ instance FromJSON PipelineDescription where
           = withObject "PipelineDescription"
               (\ x ->
                  PipelineDescription' <$>
-                   x .:? "description" <*> x .:? "tags" .!= mempty <*>
-                     x .: "pipelineId"
-                     <*> x .: "name"
-                     <*> x .:? "fields" .!= mempty)
+                   (x .:? "description") <*> (x .:? "tags" .!= mempty)
+                     <*> (x .: "pipelineId")
+                     <*> (x .: "name")
+                     <*> (x .:? "fields" .!= mempty))
 
 -- | /See:/ 'pipelineIdName' smart constructor.
 --
@@ -492,7 +493,7 @@ instance FromJSON PipelineIdName where
         parseJSON
           = withObject "PipelineIdName"
               (\ x ->
-                 PipelineIdName' <$> x .:? "name" <*> x .:? "id")
+                 PipelineIdName' <$> (x .:? "name") <*> (x .:? "id"))
 
 -- | /See:/ 'pipelineObject' smart constructor.
 --
@@ -526,8 +527,8 @@ instance FromJSON PipelineObject where
           = withObject "PipelineObject"
               (\ x ->
                  PipelineObject' <$>
-                   x .: "id" <*> x .: "name" <*>
-                     x .:? "fields" .!= mempty)
+                   (x .: "id") <*> (x .: "name") <*>
+                     (x .:? "fields" .!= mempty))
 
 instance ToJSON PipelineObject where
         toJSON PipelineObject'{..}
@@ -548,8 +549,8 @@ query = Query'{_queSelectors = Nothing};
 
 -- | List of selectors that define the query. An object must satisfy all of
 -- the selectors to match the query.
-queSelectors :: Lens' Query (Maybe [Selector])
-queSelectors = lens _queSelectors (\ s a -> s{_queSelectors = a});
+queSelectors :: Lens' Query [Selector]
+queSelectors = lens _queSelectors (\ s a -> s{_queSelectors = a}) . _Default;
 
 instance ToJSON Query where
         toJSON Query'{..}
@@ -614,7 +615,7 @@ tagValue = lens _tagValue (\ s a -> s{_tagValue = a});
 instance FromJSON Tag where
         parseJSON
           = withObject "Tag"
-              (\ x -> Tag' <$> x .: "key" <*> x .: "value")
+              (\ x -> Tag' <$> (x .: "key") <*> (x .: "value"))
 
 instance ToJSON Tag where
         toJSON Tag'{..}
@@ -631,7 +632,7 @@ instance ToJSON Tag where
 -- * 'toAttemptId'
 --
 -- * 'toObjects'
-data TaskObject = TaskObject'{_toPipelineId :: Maybe Text, _toTaskId :: Maybe Text, _toAttemptId :: Maybe Text, _toObjects :: Maybe (HashMap Text PipelineObject)} deriving (Eq, Read, Show)
+data TaskObject = TaskObject'{_toPipelineId :: Maybe Text, _toTaskId :: Maybe Text, _toAttemptId :: Maybe Text, _toObjects :: Maybe (Map Text PipelineObject)} deriving (Eq, Read, Show)
 
 -- | 'TaskObject' smart constructor.
 taskObject :: TaskObject
@@ -653,31 +654,31 @@ toAttemptId = lens _toAttemptId (\ s a -> s{_toAttemptId = a});
 
 -- | Connection information for the location where the task runner will
 -- publish the output of the task.
-toObjects :: Lens' TaskObject (Maybe (HashMap Text PipelineObject))
-toObjects = lens _toObjects (\ s a -> s{_toObjects = a}) . mapping _Coerce;
+toObjects :: Lens' TaskObject (Map Text PipelineObject)
+toObjects = lens _toObjects (\ s a -> s{_toObjects = a}) . _Default . _Map;
 
 instance FromJSON TaskObject where
         parseJSON
           = withObject "TaskObject"
               (\ x ->
                  TaskObject' <$>
-                   x .:? "pipelineId" <*> x .:? "taskId" <*>
-                     x .:? "attemptId"
-                     <*> x .:? "objects" .!= mempty)
+                   (x .:? "pipelineId") <*> (x .:? "taskId") <*>
+                     (x .:? "attemptId")
+                     <*> (x .:? "objects" .!= mempty))
 
-data TaskStatus = False | Finished | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
+data TaskStatus = Finished | False' | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
 
 instance FromText TaskStatus where
     parser = takeLowerText >>= \case
         "FAILED" -> pure Failed
-        "FALSE" -> pure False
+        "FALSE" -> pure False'
         "FINISHED" -> pure Finished
         e -> fail ("Failure parsing TaskStatus from " ++ show e)
 
 instance ToText TaskStatus where
     toText = \case
         Failed -> "FAILED"
-        False -> "FALSE"
+        False' -> "FALSE"
         Finished -> "FINISHED"
 
 instance Hashable TaskStatus
@@ -705,15 +706,15 @@ veId :: Lens' ValidationError (Maybe Text)
 veId = lens _veId (\ s a -> s{_veId = a});
 
 -- | A description of the validation error.
-veErrors :: Lens' ValidationError (Maybe [Text])
-veErrors = lens _veErrors (\ s a -> s{_veErrors = a});
+veErrors :: Lens' ValidationError [Text]
+veErrors = lens _veErrors (\ s a -> s{_veErrors = a}) . _Default;
 
 instance FromJSON ValidationError where
         parseJSON
           = withObject "ValidationError"
               (\ x ->
                  ValidationError' <$>
-                   x .:? "id" <*> x .:? "errors" .!= mempty)
+                   (x .:? "id") <*> (x .:? "errors" .!= mempty))
 
 -- | /See:/ 'validationWarning' smart constructor.
 --
@@ -729,8 +730,8 @@ validationWarning :: ValidationWarning
 validationWarning = ValidationWarning'{_vwWarnings = Nothing, _vwId = Nothing};
 
 -- | A description of the validation warning.
-vwWarnings :: Lens' ValidationWarning (Maybe [Text])
-vwWarnings = lens _vwWarnings (\ s a -> s{_vwWarnings = a});
+vwWarnings :: Lens' ValidationWarning [Text]
+vwWarnings = lens _vwWarnings (\ s a -> s{_vwWarnings = a}) . _Default;
 
 -- | The identifier of the object that contains the validation warning.
 vwId :: Lens' ValidationWarning (Maybe Text)
@@ -741,4 +742,4 @@ instance FromJSON ValidationWarning where
           = withObject "ValidationWarning"
               (\ x ->
                  ValidationWarning' <$>
-                   x .:? "warnings" .!= mempty <*> x .:? "id")
+                   (x .:? "warnings" .!= mempty) <*> (x .:? "id"))

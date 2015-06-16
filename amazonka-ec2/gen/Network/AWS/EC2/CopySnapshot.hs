@@ -132,7 +132,7 @@ instance AWSRequest CopySnapshot where
         response
           = receiveXML
               (\ s h x ->
-                 CopySnapshotResponse' <$> x .@? "snapshotId")
+                 CopySnapshotResponse' <$> (x .@? "snapshotId"))
 
 instance ToHeaders CopySnapshot where
         toHeaders = const mempty

@@ -102,7 +102,7 @@ instance AWSRequest RevokeClusterSecurityGroupIngress
               "RevokeClusterSecurityGroupIngressResult"
               (\ s h x ->
                  RevokeClusterSecurityGroupIngressResponse' <$>
-                   x .@? "ClusterSecurityGroup")
+                   (x .@? "ClusterSecurityGroup"))
 
 instance ToHeaders RevokeClusterSecurityGroupIngress
          where

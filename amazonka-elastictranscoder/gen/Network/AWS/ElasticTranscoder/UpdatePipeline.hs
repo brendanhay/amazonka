@@ -235,7 +235,7 @@ instance AWSRequest UpdatePipeline where
           = receiveJSON
               (\ s h x ->
                  UpdatePipelineResponse' <$>
-                   x .?> "Warnings" .!@ mempty <*> x .?> "Pipeline")
+                   (x .?> "Warnings" .!@ mempty) <*> (x .?> "Pipeline"))
 
 instance ToHeaders UpdatePipeline where
         toHeaders = const mempty
@@ -276,8 +276,8 @@ updatePipelineResponse = UpdatePipelineResponse'{_uprWarnings = Nothing, _uprPip
 -- Using resources in the same region, such as your Amazon S3 buckets,
 -- Amazon SNS notification topics, and AWS KMS key, reduces processing time
 -- and prevents cross-regional charges.
-uprWarnings :: Lens' UpdatePipelineResponse (Maybe [Warning])
-uprWarnings = lens _uprWarnings (\ s a -> s{_uprWarnings = a});
+uprWarnings :: Lens' UpdatePipelineResponse [Warning]
+uprWarnings = lens _uprWarnings (\ s a -> s{_uprWarnings = a}) . _Default;
 
 -- | FIXME: Undocumented member.
 uprPipeline :: Lens' UpdatePipelineResponse (Maybe Pipeline)

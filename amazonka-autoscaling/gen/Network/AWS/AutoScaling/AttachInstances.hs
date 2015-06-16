@@ -56,8 +56,8 @@ attachInstances :: Text -> AttachInstances
 attachInstances pAutoScalingGroupName = AttachInstances'{_aiInstanceIds = Nothing, _aiAutoScalingGroupName = pAutoScalingGroupName};
 
 -- | One or more EC2 instance IDs. You must specify at least one ID.
-aiInstanceIds :: Lens' AttachInstances (Maybe [Text])
-aiInstanceIds = lens _aiInstanceIds (\ s a -> s{_aiInstanceIds = a});
+aiInstanceIds :: Lens' AttachInstances [Text]
+aiInstanceIds = lens _aiInstanceIds (\ s a -> s{_aiInstanceIds = a}) . _Default;
 
 -- | The name of the group.
 aiAutoScalingGroupName :: Lens' AttachInstances Text
@@ -80,7 +80,8 @@ instance ToQuery AttachInstances where
           = mconcat
               ["Action" =: ("AttachInstances" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
-               "InstanceIds" =: "member" =: _aiInstanceIds,
+               "InstanceIds" =:
+                 toQuery (toQueryList "member" <$> _aiInstanceIds),
                "AutoScalingGroupName" =: _aiAutoScalingGroupName]
 
 -- | /See:/ 'attachInstancesResponse' smart constructor.

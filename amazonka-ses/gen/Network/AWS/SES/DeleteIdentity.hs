@@ -60,9 +60,7 @@ instance AWSRequest DeleteIdentity where
         type Sv DeleteIdentity = SES
         type Rs DeleteIdentity = DeleteIdentityResponse
         request = post
-        response
-          = receiveNullWrapper "DeleteIdentityResult"
-              DeleteIdentityResponse'
+        response = receiveNull DeleteIdentityResponse'
 
 instance ToHeaders DeleteIdentity where
         toHeaders = const mempty

@@ -76,7 +76,7 @@ instance AWSRequest RequestSpotFleet where
           = receiveXML
               (\ s h x ->
                  RequestSpotFleetResponse' <$>
-                   x .@ "spotFleetRequestId")
+                   (x .@ "spotFleetRequestId"))
 
 instance ToHeaders RequestSpotFleet where
         toHeaders = const mempty

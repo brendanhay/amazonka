@@ -102,4 +102,5 @@ instance ToQuery ResetCacheParameterGroup where
                "CacheParameterGroupName" =:
                  _rcpgCacheParameterGroupName,
                "ParameterNameValues" =:
-                 "ParameterNameValue" =: _rcpgParameterNameValues]
+                 toQueryList "ParameterNameValue"
+                   _rcpgParameterNameValues]

@@ -78,7 +78,7 @@ instance AWSRequest UpdateScalingParameters where
           = receiveXMLWrapper "UpdateScalingParametersResult"
               (\ s h x ->
                  UpdateScalingParametersResponse' <$>
-                   x .@ "ScalingParameters")
+                   (x .@ "ScalingParameters"))
 
 instance ToHeaders UpdateScalingParameters where
         toHeaders = const mempty

@@ -80,7 +80,7 @@ instance AWSRequest AttachVPNGateway where
         response
           = receiveXML
               (\ s h x ->
-                 AttachVPNGatewayResponse' <$> x .@? "attachment")
+                 AttachVPNGatewayResponse' <$> (x .@? "attachment"))
 
 instance ToHeaders AttachVPNGateway where
         toHeaders = const mempty

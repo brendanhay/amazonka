@@ -670,9 +670,9 @@ instance AWSRequest UpdateItem where
           = receiveJSON
               (\ s h x ->
                  UpdateItemResponse' <$>
-                   x .?> "ConsumedCapacity" <*>
-                     x .?> "ItemCollectionMetrics"
-                     <*> x .?> "Attributes" .!@ mempty)
+                   (x .?> "ConsumedCapacity") <*>
+                     (x .?> "ItemCollectionMetrics")
+                     <*> (x .?> "Attributes" .!@ mempty))
 
 instance ToHeaders UpdateItem where
         toHeaders

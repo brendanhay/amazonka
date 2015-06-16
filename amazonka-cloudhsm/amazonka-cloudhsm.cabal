@@ -32,22 +32,22 @@ library
 
     exposed-modules:
           Network.AWS.CloudHSM
+        , Network.AWS.CloudHSM.CreateHAPG
         , Network.AWS.CloudHSM.CreateHSM
-        , Network.AWS.CloudHSM.CreateHapg
         , Network.AWS.CloudHSM.CreateLunaClient
+        , Network.AWS.CloudHSM.DeleteHAPG
         , Network.AWS.CloudHSM.DeleteHSM
-        , Network.AWS.CloudHSM.DeleteHapg
         , Network.AWS.CloudHSM.DeleteLunaClient
+        , Network.AWS.CloudHSM.DescribeHAPG
         , Network.AWS.CloudHSM.DescribeHSM
-        , Network.AWS.CloudHSM.DescribeHapg
         , Network.AWS.CloudHSM.DescribeLunaClient
         , Network.AWS.CloudHSM.GetConfig
         , Network.AWS.CloudHSM.ListAvailableZones
+        , Network.AWS.CloudHSM.ListHAPGs
         , Network.AWS.CloudHSM.ListHSMs
-        , Network.AWS.CloudHSM.ListHapgs
         , Network.AWS.CloudHSM.ListLunaClients
+        , Network.AWS.CloudHSM.ModifyHAPG
         , Network.AWS.CloudHSM.ModifyHSM
-        , Network.AWS.CloudHSM.ModifyHapg
         , Network.AWS.CloudHSM.ModifyLunaClient
         , Network.AWS.CloudHSM.Types
         , Network.AWS.CloudHSM.Waiters

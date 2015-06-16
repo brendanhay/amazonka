@@ -62,7 +62,8 @@ instance AWSRequest CreateHapg where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x -> CreateHapgResponse' <$> x .?> "HapgArn")
+              (\ s h x ->
+                 CreateHapgResponse' <$> (x .?> "HapgArn"))
 
 instance ToHeaders CreateHapg where
         toHeaders

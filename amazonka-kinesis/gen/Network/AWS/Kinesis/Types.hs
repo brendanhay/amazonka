@@ -148,7 +148,7 @@ instance FromJSON HashKeyRange where
           = withObject "HashKeyRange"
               (\ x ->
                  HashKeyRange' <$>
-                   x .: "StartingHashKey" <*> x .: "EndingHashKey")
+                   (x .: "StartingHashKey") <*> (x .: "EndingHashKey"))
 
 -- | /See:/ 'putRecordsRequestEntry' smart constructor.
 --
@@ -238,9 +238,9 @@ instance FromJSON PutRecordsResultEntry where
           = withObject "PutRecordsResultEntry"
               (\ x ->
                  PutRecordsResultEntry' <$>
-                   x .:? "SequenceNumber" <*> x .:? "ErrorCode" <*>
-                     x .:? "ErrorMessage"
-                     <*> x .:? "ShardId")
+                   (x .:? "SequenceNumber") <*> (x .:? "ErrorCode") <*>
+                     (x .:? "ErrorMessage")
+                     <*> (x .:? "ShardId"))
 
 -- | /See:/ 'record' smart constructor.
 --
@@ -277,8 +277,8 @@ instance FromJSON Record where
           = withObject "Record"
               (\ x ->
                  Record' <$>
-                   x .: "SequenceNumber" <*> x .: "Data" <*>
-                     x .: "PartitionKey")
+                   (x .: "SequenceNumber") <*> (x .: "Data") <*>
+                     (x .: "PartitionKey"))
 
 -- | /See:/ 'sequenceNumberRange' smart constructor.
 --
@@ -307,8 +307,8 @@ instance FromJSON SequenceNumberRange where
           = withObject "SequenceNumberRange"
               (\ x ->
                  SequenceNumberRange' <$>
-                   x .:? "EndingSequenceNumber" <*>
-                     x .: "StartingSequenceNumber")
+                   (x .:? "EndingSequenceNumber") <*>
+                     (x .: "StartingSequenceNumber"))
 
 -- | /See:/ 'shard' smart constructor.
 --
@@ -355,11 +355,11 @@ instance FromJSON Shard where
           = withObject "Shard"
               (\ x ->
                  Shard' <$>
-                   x .:? "AdjacentParentShardId" <*>
-                     x .:? "ParentShardId"
-                     <*> x .: "ShardId"
-                     <*> x .: "HashKeyRange"
-                     <*> x .: "SequenceNumberRange")
+                   (x .:? "AdjacentParentShardId") <*>
+                     (x .:? "ParentShardId")
+                     <*> (x .: "ShardId")
+                     <*> (x .: "HashKeyRange")
+                     <*> (x .: "SequenceNumberRange"))
 
 data ShardIteratorType = AfterSequenceNumber | ATSequenceNumber | TrimHorizon | Latest deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -442,10 +442,10 @@ instance FromJSON StreamDescription where
           = withObject "StreamDescription"
               (\ x ->
                  StreamDescription' <$>
-                   x .: "StreamName" <*> x .: "StreamARN" <*>
-                     x .: "StreamStatus"
-                     <*> x .:? "Shards" .!= mempty
-                     <*> x .: "HasMoreShards")
+                   (x .: "StreamName") <*> (x .: "StreamARN") <*>
+                     (x .: "StreamStatus")
+                     <*> (x .:? "Shards" .!= mempty)
+                     <*> (x .: "HasMoreShards"))
 
 data StreamStatus = Deleting | Updating | Creating | Active deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -498,4 +498,4 @@ tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 instance FromJSON Tag where
         parseJSON
           = withObject "Tag"
-              (\ x -> Tag' <$> x .:? "Value" <*> x .: "Key")
+              (\ x -> Tag' <$> (x .:? "Value") <*> (x .: "Key"))

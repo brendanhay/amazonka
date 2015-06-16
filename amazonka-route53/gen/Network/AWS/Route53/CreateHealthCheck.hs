@@ -85,7 +85,7 @@ instance AWSRequest CreateHealthCheck where
           = receiveXML
               (\ s h x ->
                  CreateHealthCheckResponse' <$>
-                   x .@ "HealthCheck" <*> h .# "Location")
+                   (x .@ "HealthCheck") <*> (h .# "Location"))
 
 instance ToElement CreateHealthCheck where
         toElement

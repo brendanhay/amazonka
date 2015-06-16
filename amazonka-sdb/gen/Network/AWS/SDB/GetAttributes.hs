@@ -74,8 +74,8 @@ gaConsistentRead :: Lens' GetAttributes (Maybe Bool)
 gaConsistentRead = lens _gaConsistentRead (\ s a -> s{_gaConsistentRead = a});
 
 -- | The names of the attributes.
-gaAttributeNames :: Lens' GetAttributes (Maybe [Text])
-gaAttributeNames = lens _gaAttributeNames (\ s a -> s{_gaAttributeNames = a});
+gaAttributeNames :: Lens' GetAttributes [Text]
+gaAttributeNames = lens _gaAttributeNames (\ s a -> s{_gaAttributeNames = a}) . _Default;
 
 -- | The name of the domain in which to perform the operation.
 gaDomainName :: Lens' GetAttributes Text
@@ -93,7 +93,7 @@ instance AWSRequest GetAttributes where
           = receiveXMLWrapper "GetAttributesResult"
               (\ s h x ->
                  GetAttributesResponse' <$>
-                   parseXMLList "Attribute" x)
+                   (may (parseXMLList "Attribute") x))
 
 instance ToHeaders GetAttributes where
         toHeaders = const mempty
@@ -107,7 +107,8 @@ instance ToQuery GetAttributes where
               ["Action" =: ("GetAttributes" :: ByteString),
                "Version" =: ("2009-04-15" :: ByteString),
                "ConsistentRead" =: _gaConsistentRead,
-               "AttributeName" =: _gaAttributeNames,
+               toQuery
+                 (toQueryList "AttributeName" <$> _gaAttributeNames),
                "DomainName" =: _gaDomainName,
                "ItemName" =: _gaItemName]
 
@@ -123,5 +124,5 @@ getAttributesResponse :: GetAttributesResponse
 getAttributesResponse = GetAttributesResponse'{_garAttributes = Nothing};
 
 -- | The list of attributes returned by the operation.
-garAttributes :: Lens' GetAttributesResponse (Maybe [Attribute])
-garAttributes = lens _garAttributes (\ s a -> s{_garAttributes = a});
+garAttributes :: Lens' GetAttributesResponse [Attribute]
+garAttributes = lens _garAttributes (\ s a -> s{_garAttributes = a}) . _Default;

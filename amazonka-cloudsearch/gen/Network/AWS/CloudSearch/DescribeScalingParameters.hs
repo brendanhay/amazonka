@@ -67,7 +67,7 @@ instance AWSRequest DescribeScalingParameters where
           = receiveXMLWrapper "DescribeScalingParametersResult"
               (\ s h x ->
                  DescribeScalingParametersResponse' <$>
-                   x .@ "ScalingParameters")
+                   (x .@ "ScalingParameters"))
 
 instance ToHeaders DescribeScalingParameters where
         toHeaders = const mempty

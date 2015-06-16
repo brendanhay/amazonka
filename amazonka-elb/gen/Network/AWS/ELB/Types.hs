@@ -278,9 +278,9 @@ alEnabled = lens _alEnabled (\ s a -> s{_alEnabled = a});
 instance FromXML AccessLog where
         parseXML x
           = AccessLog' <$>
-              x .@? "EmitInterval" <*> x .@? "S3BucketPrefix" <*>
-                x .@? "S3BucketName"
-                <*> x .@ "Enabled"
+              (x .@? "EmitInterval") <*> (x .@? "S3BucketPrefix")
+                <*> (x .@? "S3BucketName")
+                <*> (x .@ "Enabled")
 
 instance ToQuery AccessLog where
         toQuery AccessLog'{..}
@@ -314,7 +314,7 @@ aaKey = lens _aaKey (\ s a -> s{_aaKey = a});
 instance FromXML AdditionalAttribute where
         parseXML x
           = AdditionalAttribute' <$>
-              x .@? "Value" <*> x .@? "Key"
+              (x .@? "Value") <*> (x .@? "Key")
 
 instance ToQuery AdditionalAttribute where
         toQuery AdditionalAttribute'{..}
@@ -345,7 +345,7 @@ acspCookieName = lens _acspCookieName (\ s a -> s{_acspCookieName = a});
 instance FromXML AppCookieStickinessPolicy where
         parseXML x
           = AppCookieStickinessPolicy' <$>
-              x .@? "PolicyName" <*> x .@? "CookieName"
+              (x .@? "PolicyName") <*> (x .@? "CookieName")
 
 -- | /See:/ 'backendServerDescription' smart constructor.
 --
@@ -361,8 +361,8 @@ backendServerDescription :: BackendServerDescription
 backendServerDescription = BackendServerDescription'{_bsdPolicyNames = Nothing, _bsdInstancePort = Nothing};
 
 -- | The names of the policies enabled for the back-end server.
-bsdPolicyNames :: Lens' BackendServerDescription (Maybe [Text])
-bsdPolicyNames = lens _bsdPolicyNames (\ s a -> s{_bsdPolicyNames = a});
+bsdPolicyNames :: Lens' BackendServerDescription [Text]
+bsdPolicyNames = lens _bsdPolicyNames (\ s a -> s{_bsdPolicyNames = a}) . _Default;
 
 -- | The port on which the back-end server is listening.
 bsdInstancePort :: Lens' BackendServerDescription (Maybe Natural)
@@ -372,8 +372,8 @@ instance FromXML BackendServerDescription where
         parseXML x
           = BackendServerDescription' <$>
               (x .@? "PolicyNames" .!@ mempty >>=
-                 parseXMLList "member")
-                <*> x .@? "InstancePort"
+                 may (parseXMLList "member"))
+                <*> (x .@? "InstancePort")
 
 -- | /See:/ 'connectionDraining' smart constructor.
 --
@@ -400,7 +400,7 @@ cdEnabled = lens _cdEnabled (\ s a -> s{_cdEnabled = a});
 instance FromXML ConnectionDraining where
         parseXML x
           = ConnectionDraining' <$>
-              x .@? "Timeout" <*> x .@ "Enabled"
+              (x .@? "Timeout") <*> (x .@ "Enabled")
 
 instance ToQuery ConnectionDraining where
         toQuery ConnectionDraining'{..}
@@ -426,7 +426,7 @@ csIdleTimeout = lens _csIdleTimeout (\ s a -> s{_csIdleTimeout = a}) . _Nat;
 
 instance FromXML ConnectionSettings where
         parseXML x
-          = ConnectionSettings' <$> x .@ "IdleTimeout"
+          = ConnectionSettings' <$> (x .@ "IdleTimeout")
 
 instance ToQuery ConnectionSettings where
         toQuery ConnectionSettings'{..}
@@ -450,7 +450,7 @@ czlbEnabled = lens _czlbEnabled (\ s a -> s{_czlbEnabled = a});
 
 instance FromXML CrossZoneLoadBalancing where
         parseXML x
-          = CrossZoneLoadBalancing' <$> x .@ "Enabled"
+          = CrossZoneLoadBalancing' <$> (x .@ "Enabled")
 
 instance ToQuery CrossZoneLoadBalancing where
         toQuery CrossZoneLoadBalancing'{..}
@@ -521,9 +521,10 @@ hcHealthyThreshold = lens _hcHealthyThreshold (\ s a -> s{_hcHealthyThreshold = 
 instance FromXML HealthCheck where
         parseXML x
           = HealthCheck' <$>
-              x .@ "Target" <*> x .@ "Interval" <*> x .@ "Timeout"
-                <*> x .@ "UnhealthyThreshold"
-                <*> x .@ "HealthyThreshold"
+              (x .@ "Target") <*> (x .@ "Interval") <*>
+                (x .@ "Timeout")
+                <*> (x .@ "UnhealthyThreshold")
+                <*> (x .@ "HealthyThreshold")
 
 instance ToQuery HealthCheck where
         toQuery HealthCheck'{..}
@@ -549,7 +550,7 @@ insInstanceId :: Lens' Instance (Maybe Text)
 insInstanceId = lens _insInstanceId (\ s a -> s{_insInstanceId = a});
 
 instance FromXML Instance where
-        parseXML x = Instance' <$> x .@? "InstanceId"
+        parseXML x = Instance' <$> (x .@? "InstanceId")
 
 instance ToQuery Instance where
         toQuery Instance'{..}
@@ -622,9 +623,9 @@ isDescription = lens _isDescription (\ s a -> s{_isDescription = a});
 instance FromXML InstanceState where
         parseXML x
           = InstanceState' <$>
-              x .@? "InstanceId" <*> x .@? "State" <*>
-                x .@? "ReasonCode"
-                <*> x .@? "Description"
+              (x .@? "InstanceId") <*> (x .@? "State") <*>
+                (x .@? "ReasonCode")
+                <*> (x .@? "Description")
 
 -- | /See:/ 'lBCookieStickinessPolicy' smart constructor.
 --
@@ -653,7 +654,8 @@ lbcspCookieExpirationPeriod = lens _lbcspCookieExpirationPeriod (\ s a -> s{_lbc
 instance FromXML LBCookieStickinessPolicy where
         parseXML x
           = LBCookieStickinessPolicy' <$>
-              x .@? "PolicyName" <*> x .@? "CookieExpirationPeriod"
+              (x .@? "PolicyName") <*>
+                (x .@? "CookieExpirationPeriod")
 
 -- | /See:/ 'listener' smart constructor.
 --
@@ -712,10 +714,11 @@ lisInstancePort = lens _lisInstancePort (\ s a -> s{_lisInstancePort = a}) . _Na
 instance FromXML Listener where
         parseXML x
           = Listener' <$>
-              x .@? "InstanceProtocol" <*> x .@? "SSLCertificateId"
-                <*> x .@ "Protocol"
-                <*> x .@ "LoadBalancerPort"
-                <*> x .@ "InstancePort"
+              (x .@? "InstanceProtocol") <*>
+                (x .@? "SSLCertificateId")
+                <*> (x .@ "Protocol")
+                <*> (x .@ "LoadBalancerPort")
+                <*> (x .@ "InstancePort")
 
 instance ToQuery Listener where
         toQuery Listener'{..}
@@ -740,8 +743,8 @@ listenerDescription :: ListenerDescription
 listenerDescription = ListenerDescription'{_ldPolicyNames = Nothing, _ldListener = Nothing};
 
 -- | The policies. If there are no policies enabled, the list is empty.
-ldPolicyNames :: Lens' ListenerDescription (Maybe [Text])
-ldPolicyNames = lens _ldPolicyNames (\ s a -> s{_ldPolicyNames = a});
+ldPolicyNames :: Lens' ListenerDescription [Text]
+ldPolicyNames = lens _ldPolicyNames (\ s a -> s{_ldPolicyNames = a}) . _Default;
 
 -- | FIXME: Undocumented member.
 ldListener :: Lens' ListenerDescription (Maybe Listener)
@@ -751,8 +754,8 @@ instance FromXML ListenerDescription where
         parseXML x
           = ListenerDescription' <$>
               (x .@? "PolicyNames" .!@ mempty >>=
-                 parseXMLList "member")
-                <*> x .@? "Listener"
+                 may (parseXMLList "member"))
+                <*> (x .@? "Listener")
 
 -- | /See:/ 'loadBalancerAttributes' smart constructor.
 --
@@ -793,8 +796,8 @@ lbaAccessLog :: Lens' LoadBalancerAttributes (Maybe AccessLog)
 lbaAccessLog = lens _lbaAccessLog (\ s a -> s{_lbaAccessLog = a});
 
 -- | This parameter is reserved.
-lbaAdditionalAttributes :: Lens' LoadBalancerAttributes (Maybe [AdditionalAttribute])
-lbaAdditionalAttributes = lens _lbaAdditionalAttributes (\ s a -> s{_lbaAdditionalAttributes = a});
+lbaAdditionalAttributes :: Lens' LoadBalancerAttributes [AdditionalAttribute]
+lbaAdditionalAttributes = lens _lbaAdditionalAttributes (\ s a -> s{_lbaAdditionalAttributes = a}) . _Default;
 
 -- | If enabled, the load balancer allows the connections to remain idle (no
 -- data is sent over the connection) for the specified duration.
@@ -820,12 +823,13 @@ lbaConnectionDraining = lens _lbaConnectionDraining (\ s a -> s{_lbaConnectionDr
 instance FromXML LoadBalancerAttributes where
         parseXML x
           = LoadBalancerAttributes' <$>
-              x .@? "CrossZoneLoadBalancing" <*> x .@? "AccessLog"
+              (x .@? "CrossZoneLoadBalancing") <*>
+                (x .@? "AccessLog")
                 <*>
                 (x .@? "AdditionalAttributes" .!@ mempty >>=
-                   parseXMLList "member")
-                <*> x .@? "ConnectionSettings"
-                <*> x .@? "ConnectionDraining"
+                   may (parseXMLList "member"))
+                <*> (x .@? "ConnectionSettings")
+                <*> (x .@? "ConnectionDraining")
 
 instance ToQuery LoadBalancerAttributes where
         toQuery LoadBalancerAttributes'{..}
@@ -834,7 +838,8 @@ instance ToQuery LoadBalancerAttributes where
                  _lbaCrossZoneLoadBalancing,
                "AccessLog" =: _lbaAccessLog,
                "AdditionalAttributes" =:
-                 "member" =: _lbaAdditionalAttributes,
+                 toQuery
+                   (toQueryList "member" <$> _lbaAdditionalAttributes),
                "ConnectionSettings" =: _lbaConnectionSettings,
                "ConnectionDraining" =: _lbaConnectionDraining]
 
@@ -901,8 +906,8 @@ lbdCanonicalHostedZoneName = lens _lbdCanonicalHostedZoneName (\ s a -> s{_lbdCa
 
 -- | The security groups for the load balancer. Valid only for load balancers
 -- in a VPC.
-lbdSecurityGroups :: Lens' LoadBalancerDescription (Maybe [Text])
-lbdSecurityGroups = lens _lbdSecurityGroups (\ s a -> s{_lbdSecurityGroups = a});
+lbdSecurityGroups :: Lens' LoadBalancerDescription [Text]
+lbdSecurityGroups = lens _lbdSecurityGroups (\ s a -> s{_lbdSecurityGroups = a}) . _Default;
 
 -- | The name of the load balancer.
 lbdLoadBalancerName :: Lens' LoadBalancerDescription (Maybe Text)
@@ -917,16 +922,16 @@ lbdVPCId :: Lens' LoadBalancerDescription (Maybe Text)
 lbdVPCId = lens _lbdVPCId (\ s a -> s{_lbdVPCId = a});
 
 -- | The IDs of the subnets for the load balancer.
-lbdSubnets :: Lens' LoadBalancerDescription (Maybe [Text])
-lbdSubnets = lens _lbdSubnets (\ s a -> s{_lbdSubnets = a});
+lbdSubnets :: Lens' LoadBalancerDescription [Text]
+lbdSubnets = lens _lbdSubnets (\ s a -> s{_lbdSubnets = a}) . _Default;
 
 -- | The Availability Zones for the load balancer.
-lbdAvailabilityZones :: Lens' LoadBalancerDescription (Maybe [Text])
-lbdAvailabilityZones = lens _lbdAvailabilityZones (\ s a -> s{_lbdAvailabilityZones = a});
+lbdAvailabilityZones :: Lens' LoadBalancerDescription [Text]
+lbdAvailabilityZones = lens _lbdAvailabilityZones (\ s a -> s{_lbdAvailabilityZones = a}) . _Default;
 
 -- | Information about the back-end servers.
-lbdBackendServerDescriptions :: Lens' LoadBalancerDescription (Maybe [BackendServerDescription])
-lbdBackendServerDescriptions = lens _lbdBackendServerDescriptions (\ s a -> s{_lbdBackendServerDescriptions = a});
+lbdBackendServerDescriptions :: Lens' LoadBalancerDescription [BackendServerDescription]
+lbdBackendServerDescriptions = lens _lbdBackendServerDescriptions (\ s a -> s{_lbdBackendServerDescriptions = a}) . _Default;
 
 -- | The ID of the Amazon Route 53 hosted zone name associated with the load
 -- balancer.
@@ -934,8 +939,8 @@ lbdCanonicalHostedZoneNameID :: Lens' LoadBalancerDescription (Maybe Text)
 lbdCanonicalHostedZoneNameID = lens _lbdCanonicalHostedZoneNameID (\ s a -> s{_lbdCanonicalHostedZoneNameID = a});
 
 -- | The IDs of the instances for the load balancer.
-lbdInstances :: Lens' LoadBalancerDescription (Maybe [Instance])
-lbdInstances = lens _lbdInstances (\ s a -> s{_lbdInstances = a});
+lbdInstances :: Lens' LoadBalancerDescription [Instance]
+lbdInstances = lens _lbdInstances (\ s a -> s{_lbdInstances = a}) . _Default;
 
 -- | The type of load balancer. Valid only for load balancers in a VPC.
 --
@@ -948,8 +953,8 @@ lbdScheme :: Lens' LoadBalancerDescription (Maybe Text)
 lbdScheme = lens _lbdScheme (\ s a -> s{_lbdScheme = a});
 
 -- | The listeners for the load balancer.
-lbdListenerDescriptions :: Lens' LoadBalancerDescription (Maybe [ListenerDescription])
-lbdListenerDescriptions = lens _lbdListenerDescriptions (\ s a -> s{_lbdListenerDescriptions = a});
+lbdListenerDescriptions :: Lens' LoadBalancerDescription [ListenerDescription]
+lbdListenerDescriptions = lens _lbdListenerDescriptions (\ s a -> s{_lbdListenerDescriptions = a}) . _Default;
 
 -- | The external DNS name of the load balancer.
 lbdDNSName :: Lens' LoadBalancerDescription (Maybe Text)
@@ -962,33 +967,34 @@ lbdPolicies = lens _lbdPolicies (\ s a -> s{_lbdPolicies = a});
 instance FromXML LoadBalancerDescription where
         parseXML x
           = LoadBalancerDescription' <$>
-              x .@? "SourceSecurityGroup" <*> x .@? "HealthCheck"
-                <*> x .@? "CanonicalHostedZoneName"
+              (x .@? "SourceSecurityGroup") <*>
+                (x .@? "HealthCheck")
+                <*> (x .@? "CanonicalHostedZoneName")
                 <*>
                 (x .@? "SecurityGroups" .!@ mempty >>=
-                   parseXMLList "member")
-                <*> x .@? "LoadBalancerName"
-                <*> x .@? "CreatedTime"
-                <*> x .@? "VPCId"
+                   may (parseXMLList "member"))
+                <*> (x .@? "LoadBalancerName")
+                <*> (x .@? "CreatedTime")
+                <*> (x .@? "VPCId")
                 <*>
                 (x .@? "Subnets" .!@ mempty >>=
-                   parseXMLList "member")
+                   may (parseXMLList "member"))
                 <*>
                 (x .@? "AvailabilityZones" .!@ mempty >>=
-                   parseXMLList "member")
+                   may (parseXMLList "member"))
                 <*>
                 (x .@? "BackendServerDescriptions" .!@ mempty >>=
-                   parseXMLList "member")
-                <*> x .@? "CanonicalHostedZoneNameID"
+                   may (parseXMLList "member"))
+                <*> (x .@? "CanonicalHostedZoneNameID")
                 <*>
                 (x .@? "Instances" .!@ mempty >>=
-                   parseXMLList "member")
-                <*> x .@? "Scheme"
+                   may (parseXMLList "member"))
+                <*> (x .@? "Scheme")
                 <*>
                 (x .@? "ListenerDescriptions" .!@ mempty >>=
-                   parseXMLList "member")
-                <*> x .@? "DNSName"
-                <*> x .@? "Policies"
+                   may (parseXMLList "member"))
+                <*> (x .@? "DNSName")
+                <*> (x .@? "Policies")
 
 -- | /See:/ 'policies' smart constructor.
 --
@@ -1006,28 +1012,28 @@ policies :: Policies
 policies = Policies'{_polOtherPolicies = Nothing, _polLBCookieStickinessPolicies = Nothing, _polAppCookieStickinessPolicies = Nothing};
 
 -- | The policies other than the stickiness policies.
-polOtherPolicies :: Lens' Policies (Maybe [Text])
-polOtherPolicies = lens _polOtherPolicies (\ s a -> s{_polOtherPolicies = a});
+polOtherPolicies :: Lens' Policies [Text]
+polOtherPolicies = lens _polOtherPolicies (\ s a -> s{_polOtherPolicies = a}) . _Default;
 
 -- | The stickiness policies created using CreateLBCookieStickinessPolicy.
-polLBCookieStickinessPolicies :: Lens' Policies (Maybe [LBCookieStickinessPolicy])
-polLBCookieStickinessPolicies = lens _polLBCookieStickinessPolicies (\ s a -> s{_polLBCookieStickinessPolicies = a});
+polLBCookieStickinessPolicies :: Lens' Policies [LBCookieStickinessPolicy]
+polLBCookieStickinessPolicies = lens _polLBCookieStickinessPolicies (\ s a -> s{_polLBCookieStickinessPolicies = a}) . _Default;
 
 -- | The stickiness policies created using CreateAppCookieStickinessPolicy.
-polAppCookieStickinessPolicies :: Lens' Policies (Maybe [AppCookieStickinessPolicy])
-polAppCookieStickinessPolicies = lens _polAppCookieStickinessPolicies (\ s a -> s{_polAppCookieStickinessPolicies = a});
+polAppCookieStickinessPolicies :: Lens' Policies [AppCookieStickinessPolicy]
+polAppCookieStickinessPolicies = lens _polAppCookieStickinessPolicies (\ s a -> s{_polAppCookieStickinessPolicies = a}) . _Default;
 
 instance FromXML Policies where
         parseXML x
           = Policies' <$>
               (x .@? "OtherPolicies" .!@ mempty >>=
-                 parseXMLList "member")
+                 may (parseXMLList "member"))
                 <*>
                 (x .@? "LBCookieStickinessPolicies" .!@ mempty >>=
-                   parseXMLList "member")
+                   may (parseXMLList "member"))
                 <*>
                 (x .@? "AppCookieStickinessPolicies" .!@ mempty >>=
-                   parseXMLList "member")
+                   may (parseXMLList "member"))
 
 -- | /See:/ 'policyAttribute' smart constructor.
 --
@@ -1080,7 +1086,7 @@ padAttributeName = lens _padAttributeName (\ s a -> s{_padAttributeName = a});
 instance FromXML PolicyAttributeDescription where
         parseXML x
           = PolicyAttributeDescription' <$>
-              x .@? "AttributeValue" <*> x .@? "AttributeName"
+              (x .@? "AttributeValue") <*> (x .@? "AttributeName")
 
 -- | /See:/ 'policyAttributeTypeDescription' smart constructor.
 --
@@ -1131,10 +1137,10 @@ patdDescription = lens _patdDescription (\ s a -> s{_patdDescription = a});
 instance FromXML PolicyAttributeTypeDescription where
         parseXML x
           = PolicyAttributeTypeDescription' <$>
-              x .@? "AttributeType" <*> x .@? "Cardinality" <*>
-                x .@? "DefaultValue"
-                <*> x .@? "AttributeName"
-                <*> x .@? "Description"
+              (x .@? "AttributeType") <*> (x .@? "Cardinality") <*>
+                (x .@? "DefaultValue")
+                <*> (x .@? "AttributeName")
+                <*> (x .@? "Description")
 
 -- | /See:/ 'policyDescription' smart constructor.
 --
@@ -1156,8 +1162,8 @@ pdPolicyName :: Lens' PolicyDescription (Maybe Text)
 pdPolicyName = lens _pdPolicyName (\ s a -> s{_pdPolicyName = a});
 
 -- | The policy attributes.
-pdPolicyAttributeDescriptions :: Lens' PolicyDescription (Maybe [PolicyAttributeDescription])
-pdPolicyAttributeDescriptions = lens _pdPolicyAttributeDescriptions (\ s a -> s{_pdPolicyAttributeDescriptions = a});
+pdPolicyAttributeDescriptions :: Lens' PolicyDescription [PolicyAttributeDescription]
+pdPolicyAttributeDescriptions = lens _pdPolicyAttributeDescriptions (\ s a -> s{_pdPolicyAttributeDescriptions = a}) . _Default;
 
 -- | The name of the policy type.
 pdPolicyTypeName :: Lens' PolicyDescription (Maybe Text)
@@ -1166,10 +1172,10 @@ pdPolicyTypeName = lens _pdPolicyTypeName (\ s a -> s{_pdPolicyTypeName = a});
 instance FromXML PolicyDescription where
         parseXML x
           = PolicyDescription' <$>
-              x .@? "PolicyName" <*>
+              (x .@? "PolicyName") <*>
                 (x .@? "PolicyAttributeDescriptions" .!@ mempty >>=
-                   parseXMLList "member")
-                <*> x .@? "PolicyTypeName"
+                   may (parseXMLList "member"))
+                <*> (x .@? "PolicyTypeName")
 
 -- | /See:/ 'policyTypeDescription' smart constructor.
 --
@@ -1196,15 +1202,16 @@ ptdDescription = lens _ptdDescription (\ s a -> s{_ptdDescription = a});
 
 -- | The description of the policy attributes associated with the policies
 -- defined by Elastic Load Balancing.
-ptdPolicyAttributeTypeDescriptions :: Lens' PolicyTypeDescription (Maybe [PolicyAttributeTypeDescription])
-ptdPolicyAttributeTypeDescriptions = lens _ptdPolicyAttributeTypeDescriptions (\ s a -> s{_ptdPolicyAttributeTypeDescriptions = a});
+ptdPolicyAttributeTypeDescriptions :: Lens' PolicyTypeDescription [PolicyAttributeTypeDescription]
+ptdPolicyAttributeTypeDescriptions = lens _ptdPolicyAttributeTypeDescriptions (\ s a -> s{_ptdPolicyAttributeTypeDescriptions = a}) . _Default;
 
 instance FromXML PolicyTypeDescription where
         parseXML x
           = PolicyTypeDescription' <$>
-              x .@? "PolicyTypeName" <*> x .@? "Description" <*>
+              (x .@? "PolicyTypeName") <*> (x .@? "Description")
+                <*>
                 (x .@? "PolicyAttributeTypeDescriptions" .!@ mempty
-                   >>= parseXMLList "member")
+                   >>= may (parseXMLList "member"))
 
 -- | /See:/ 'sourceSecurityGroup' smart constructor.
 --
@@ -1230,7 +1237,7 @@ ssgGroupName = lens _ssgGroupName (\ s a -> s{_ssgGroupName = a});
 instance FromXML SourceSecurityGroup where
         parseXML x
           = SourceSecurityGroup' <$>
-              x .@? "OwnerAlias" <*> x .@? "GroupName"
+              (x .@? "OwnerAlias") <*> (x .@? "GroupName")
 
 -- | /See:/ 'tag' smart constructor.
 --
@@ -1254,7 +1261,8 @@ tagKey :: Lens' Tag Text
 tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 
 instance FromXML Tag where
-        parseXML x = Tag' <$> x .@? "Value" <*> x .@ "Key"
+        parseXML x
+          = Tag' <$> (x .@? "Value") <*> (x .@ "Key")
 
 instance ToQuery Tag where
         toQuery Tag'{..}
@@ -1284,8 +1292,9 @@ tdTags = lens _tdTags (\ s a -> s{_tdTags = a}) . mapping _List1;
 instance FromXML TagDescription where
         parseXML x
           = TagDescription' <$>
-              x .@? "LoadBalancerName" <*>
-                (x .@? "Tags" .!@ mempty >>= parseXMLList1 "member")
+              (x .@? "LoadBalancerName") <*>
+                (x .@? "Tags" .!@ mempty >>=
+                   may (parseXMLList1 "member"))
 
 -- | /See:/ 'tagKeyOnly' smart constructor.
 --

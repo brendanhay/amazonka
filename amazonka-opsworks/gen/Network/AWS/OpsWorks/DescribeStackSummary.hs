@@ -70,7 +70,7 @@ instance AWSRequest DescribeStackSummary where
           = receiveJSON
               (\ s h x ->
                  DescribeStackSummaryResponse' <$>
-                   x .?> "StackSummary")
+                   (x .?> "StackSummary"))
 
 instance ToHeaders DescribeStackSummary where
         toHeaders

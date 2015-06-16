@@ -90,10 +90,10 @@ instance AWSRequest ChangeMessageVisibilityBatch
               "ChangeMessageVisibilityBatchResult"
               (\ s h x ->
                  ChangeMessageVisibilityBatchResponse' <$>
-                   parseXMLList
-                     "ChangeMessageVisibilityBatchResultEntry"
-                     x
-                     <*> parseXMLList "BatchResultErrorEntry" x)
+                   (parseXMLList
+                      "ChangeMessageVisibilityBatchResultEntry"
+                      x)
+                     <*> (parseXMLList "BatchResultErrorEntry" x))
 
 instance ToHeaders ChangeMessageVisibilityBatch where
         toHeaders = const mempty
@@ -108,7 +108,8 @@ instance ToQuery ChangeMessageVisibilityBatch where
                  ("ChangeMessageVisibilityBatch" :: ByteString),
                "Version" =: ("2012-11-05" :: ByteString),
                "QueueUrl" =: _cmvbQueueURL,
-               "ChangeMessageVisibilityBatchRequestEntry" =:
+               toQueryList
+                 "ChangeMessageVisibilityBatchRequestEntry"
                  _cmvbEntries]
 
 -- | /See:/ 'changeMessageVisibilityBatchResponse' smart constructor.

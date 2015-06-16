@@ -75,12 +75,12 @@ describeVPCClassicLink = DescribeVPCClassicLink'{_dvclFilters = Nothing, _dvclVP
 -- -   @tag-value@ - The value of a tag assigned to the resource. This
 --     filter is independent of the @tag-key@ filter.
 --
-dvclFilters :: Lens' DescribeVPCClassicLink (Maybe [Filter])
-dvclFilters = lens _dvclFilters (\ s a -> s{_dvclFilters = a});
+dvclFilters :: Lens' DescribeVPCClassicLink [Filter]
+dvclFilters = lens _dvclFilters (\ s a -> s{_dvclFilters = a}) . _Default;
 
 -- | One or more VPCs for which you want to describe the ClassicLink status.
-dvclVPCIds :: Lens' DescribeVPCClassicLink (Maybe [Text])
-dvclVPCIds = lens _dvclVPCIds (\ s a -> s{_dvclVPCIds = a});
+dvclVPCIds :: Lens' DescribeVPCClassicLink [Text]
+dvclVPCIds = lens _dvclVPCIds (\ s a -> s{_dvclVPCIds = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -98,7 +98,7 @@ instance AWSRequest DescribeVPCClassicLink where
           = receiveXML
               (\ s h x ->
                  DescribeVPCClassicLinkResponse' <$>
-                   parseXMLList "item" x)
+                   (may (parseXMLList "item") x))
 
 instance ToHeaders DescribeVPCClassicLink where
         toHeaders = const mempty
@@ -112,7 +112,8 @@ instance ToQuery DescribeVPCClassicLink where
               ["Action" =:
                  ("DescribeVPCClassicLink" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Filter" =: _dvclFilters, "VpcId" =: _dvclVPCIds,
+               toQuery (toQueryList "Filter" <$> _dvclFilters),
+               toQuery (toQueryList "VpcId" <$> _dvclVPCIds),
                "DryRun" =: _dvclDryRun]
 
 -- | /See:/ 'describeVPCClassicLinkResponse' smart constructor.
@@ -127,5 +128,5 @@ describeVPCClassicLinkResponse :: DescribeVPCClassicLinkResponse
 describeVPCClassicLinkResponse = DescribeVPCClassicLinkResponse'{_dvclrVPCs = Nothing};
 
 -- | The ClassicLink status of one or more VPCs.
-dvclrVPCs :: Lens' DescribeVPCClassicLinkResponse (Maybe [VPCClassicLink])
-dvclrVPCs = lens _dvclrVPCs (\ s a -> s{_dvclrVPCs = a});
+dvclrVPCs :: Lens' DescribeVPCClassicLinkResponse [VPCClassicLink]
+dvclrVPCs = lens _dvclrVPCs (\ s a -> s{_dvclrVPCs = a}) . _Default;

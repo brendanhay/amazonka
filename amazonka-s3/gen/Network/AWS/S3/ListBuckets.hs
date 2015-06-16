@@ -55,8 +55,8 @@ instance AWSRequest ListBuckets where
               (\ s h x ->
                  ListBucketsResponse' <$>
                    (x .@? "Buckets" .!@ mempty >>=
-                      parseXMLList "Bucket")
-                     <*> x .@? "Owner")
+                      may (parseXMLList "Bucket"))
+                     <*> (x .@? "Owner"))
 
 instance ToHeaders ListBuckets where
         toHeaders = const mempty
@@ -81,8 +81,8 @@ listBucketsResponse :: ListBucketsResponse
 listBucketsResponse = ListBucketsResponse'{_lbrBuckets = Nothing, _lbrOwner = Nothing};
 
 -- | FIXME: Undocumented member.
-lbrBuckets :: Lens' ListBucketsResponse (Maybe [Bucket])
-lbrBuckets = lens _lbrBuckets (\ s a -> s{_lbrBuckets = a});
+lbrBuckets :: Lens' ListBucketsResponse [Bucket]
+lbrBuckets = lens _lbrBuckets (\ s a -> s{_lbrBuckets = a}) . _Default;
 
 -- | FIXME: Undocumented member.
 lbrOwner :: Lens' ListBucketsResponse (Maybe Owner)

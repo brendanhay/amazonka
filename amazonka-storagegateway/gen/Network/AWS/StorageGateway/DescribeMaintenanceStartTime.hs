@@ -70,10 +70,10 @@ instance AWSRequest DescribeMaintenanceStartTime
           = receiveJSON
               (\ s h x ->
                  DescribeMaintenanceStartTimeResponse' <$>
-                   x .?> "GatewayARN" <*> x .?> "MinuteOfHour" <*>
-                     x .?> "HourOfDay"
-                     <*> x .?> "Timezone"
-                     <*> x .?> "DayOfWeek")
+                   (x .?> "GatewayARN") <*> (x .?> "MinuteOfHour") <*>
+                     (x .?> "HourOfDay")
+                     <*> (x .?> "Timezone")
+                     <*> (x .?> "DayOfWeek"))
 
 instance ToHeaders DescribeMaintenanceStartTime where
         toHeaders

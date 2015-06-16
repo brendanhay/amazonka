@@ -78,7 +78,7 @@ instance AWSRequest UpdateSAMLProvider where
           = receiveXMLWrapper "UpdateSAMLProviderResult"
               (\ s h x ->
                  UpdateSAMLProviderResponse' <$>
-                   x .@? "SAMLProviderArn")
+                   (x .@? "SAMLProviderArn"))
 
 instance ToHeaders UpdateSAMLProvider where
         toHeaders = const mempty

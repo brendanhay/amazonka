@@ -55,7 +55,7 @@ import Network.AWS.CognitoIdentity.Types
 -- * 'giLogins'
 --
 -- * 'giIdentityPoolId'
-data GetId = GetId'{_giAccountId :: Maybe Text, _giLogins :: Maybe (HashMap Text Text), _giIdentityPoolId :: Text} deriving (Eq, Read, Show)
+data GetId = GetId'{_giAccountId :: Maybe Text, _giLogins :: Maybe (Map Text Text), _giIdentityPoolId :: Text} deriving (Eq, Read, Show)
 
 -- | 'GetId' smart constructor.
 getId :: Text -> GetId
@@ -75,8 +75,8 @@ giAccountId = lens _giAccountId (\ s a -> s{_giAccountId = a});
 -- -   Amazon: @www.amazon.com@
 -- -   Twitter: @www.twitter.com@
 -- -   Digits: @www.digits.com@
-giLogins :: Lens' GetId (Maybe (HashMap Text Text))
-giLogins = lens _giLogins (\ s a -> s{_giLogins = a}) . mapping _Coerce;
+giLogins :: Lens' GetId (Map Text Text)
+giLogins = lens _giLogins (\ s a -> s{_giLogins = a}) . _Default . _Map;
 
 -- | An identity pool ID in the format REGION:GUID.
 giIdentityPoolId :: Lens' GetId Text
@@ -88,7 +88,7 @@ instance AWSRequest GetId where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x -> GetIdResponse' <$> x .?> "IdentityId")
+              (\ s h x -> GetIdResponse' <$> (x .?> "IdentityId"))
 
 instance ToHeaders GetId where
         toHeaders

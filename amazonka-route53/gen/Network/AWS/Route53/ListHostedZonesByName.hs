@@ -103,14 +103,14 @@ instance AWSRequest ListHostedZonesByName where
           = receiveXML
               (\ s h x ->
                  ListHostedZonesByNameResponse' <$>
-                   x .@? "HostedZoneId" <*> x .@? "NextHostedZoneId" <*>
-                     x .@? "DNSName"
-                     <*> x .@? "NextDNSName"
+                   (x .@? "HostedZoneId") <*> (x .@? "NextHostedZoneId")
+                     <*> (x .@? "DNSName")
+                     <*> (x .@? "NextDNSName")
                      <*>
                      (x .@? "HostedZones" .!@ mempty >>=
                         parseXMLList "HostedZone")
-                     <*> x .@ "IsTruncated"
-                     <*> x .@ "MaxItems")
+                     <*> (x .@ "IsTruncated")
+                     <*> (x .@ "MaxItems"))
 
 instance ToHeaders ListHostedZonesByName where
         toHeaders = const mempty

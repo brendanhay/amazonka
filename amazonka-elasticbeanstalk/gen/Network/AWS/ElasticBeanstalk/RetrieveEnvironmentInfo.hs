@@ -97,7 +97,7 @@ instance AWSRequest RetrieveEnvironmentInfo where
               (\ s h x ->
                  RetrieveEnvironmentInfoResponse' <$>
                    (x .@? "EnvironmentInfo" .!@ mempty >>=
-                      parseXMLList "member"))
+                      may (parseXMLList "member")))
 
 instance ToHeaders RetrieveEnvironmentInfo where
         toHeaders = const mempty
@@ -127,5 +127,5 @@ retrieveEnvironmentInfoResponse :: RetrieveEnvironmentInfoResponse
 retrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse'{_reirEnvironmentInfo = Nothing};
 
 -- | The EnvironmentInfoDescription of the environment.
-reirEnvironmentInfo :: Lens' RetrieveEnvironmentInfoResponse (Maybe [EnvironmentInfoDescription])
-reirEnvironmentInfo = lens _reirEnvironmentInfo (\ s a -> s{_reirEnvironmentInfo = a});
+reirEnvironmentInfo :: Lens' RetrieveEnvironmentInfoResponse [EnvironmentInfoDescription]
+reirEnvironmentInfo = lens _reirEnvironmentInfo (\ s a -> s{_reirEnvironmentInfo = a}) . _Default;

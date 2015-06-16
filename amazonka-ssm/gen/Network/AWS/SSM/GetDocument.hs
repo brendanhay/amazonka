@@ -63,7 +63,7 @@ instance AWSRequest GetDocument where
           = receiveJSON
               (\ s h x ->
                  GetDocumentResponse' <$>
-                   x .?> "Content" <*> x .?> "Name")
+                   (x .?> "Content") <*> (x .?> "Name"))
 
 instance ToHeaders GetDocument where
         toHeaders

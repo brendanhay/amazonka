@@ -71,8 +71,8 @@ createClusterParameterGroup :: Text -> Text -> Text -> CreateClusterParameterGro
 createClusterParameterGroup pParameterGroupName pParameterGroupFamily pDescription = CreateClusterParameterGroup'{_ccpgTags = Nothing, _ccpgParameterGroupName = pParameterGroupName, _ccpgParameterGroupFamily = pParameterGroupFamily, _ccpgDescription = pDescription};
 
 -- | A list of tag instances.
-ccpgTags :: Lens' CreateClusterParameterGroup (Maybe [Tag])
-ccpgTags = lens _ccpgTags (\ s a -> s{_ccpgTags = a});
+ccpgTags :: Lens' CreateClusterParameterGroup [Tag]
+ccpgTags = lens _ccpgTags (\ s a -> s{_ccpgTags = a}) . _Default;
 
 -- | The name of the cluster parameter group.
 --
@@ -114,7 +114,7 @@ instance AWSRequest CreateClusterParameterGroup where
               "CreateClusterParameterGroupResult"
               (\ s h x ->
                  CreateClusterParameterGroupResponse' <$>
-                   x .@? "ClusterParameterGroup")
+                   (x .@? "ClusterParameterGroup"))
 
 instance ToHeaders CreateClusterParameterGroup where
         toHeaders = const mempty
@@ -128,7 +128,7 @@ instance ToQuery CreateClusterParameterGroup where
               ["Action" =:
                  ("CreateClusterParameterGroup" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "Tags" =: "Tag" =: _ccpgTags,
+               "Tags" =: toQuery (toQueryList "Tag" <$> _ccpgTags),
                "ParameterGroupName" =: _ccpgParameterGroupName,
                "ParameterGroupFamily" =: _ccpgParameterGroupFamily,
                "Description" =: _ccpgDescription]

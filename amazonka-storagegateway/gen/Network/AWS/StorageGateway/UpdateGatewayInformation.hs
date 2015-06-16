@@ -79,7 +79,7 @@ instance AWSRequest UpdateGatewayInformation where
           = receiveJSON
               (\ s h x ->
                  UpdateGatewayInformationResponse' <$>
-                   x .?> "GatewayARN")
+                   (x .?> "GatewayARN"))
 
 instance ToHeaders UpdateGatewayInformation where
         toHeaders

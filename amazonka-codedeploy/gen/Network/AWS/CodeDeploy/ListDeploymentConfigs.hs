@@ -67,8 +67,8 @@ instance AWSRequest ListDeploymentConfigs where
           = receiveJSON
               (\ s h x ->
                  ListDeploymentConfigsResponse' <$>
-                   x .?> "nextToken" <*>
-                     x .?> "deploymentConfigsList" .!@ mempty)
+                   (x .?> "nextToken") <*>
+                     (x .?> "deploymentConfigsList" .!@ mempty))
 
 instance ToHeaders ListDeploymentConfigs where
         toHeaders
@@ -112,5 +112,5 @@ ldcrNextToken = lens _ldcrNextToken (\ s a -> s{_ldcrNextToken = a});
 
 -- | A list of deployment configurations, including the built-in
 -- configurations such as CodeDeployDefault.OneAtATime.
-ldcrDeploymentConfigsList :: Lens' ListDeploymentConfigsResponse (Maybe [Text])
-ldcrDeploymentConfigsList = lens _ldcrDeploymentConfigsList (\ s a -> s{_ldcrDeploymentConfigsList = a});
+ldcrDeploymentConfigsList :: Lens' ListDeploymentConfigsResponse [Text]
+ldcrDeploymentConfigsList = lens _ldcrDeploymentConfigsList (\ s a -> s{_ldcrDeploymentConfigsList = a}) . _Default;

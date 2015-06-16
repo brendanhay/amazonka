@@ -77,7 +77,7 @@ instance AWSRequest
           = receiveXML
               (\ s h x ->
                  ListStreamingDistributions2014_11_06Response' <$>
-                   x .@ "StreamingDistributionList")
+                   (x .@ "StreamingDistributionList"))
 
 instance ToHeaders
          ListStreamingDistributions2014_11_06 where

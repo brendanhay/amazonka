@@ -85,8 +85,8 @@ instance AWSRequest
               (\ s h x ->
                  UpdateCloudFrontOriginAccessIdentity2014_11_06Response'
                    <$>
-                   h .#? "ETag" <*>
-                     x .@? "CloudFrontOriginAccessIdentity")
+                   (h .#? "ETag") <*>
+                     (x .@? "CloudFrontOriginAccessIdentity"))
 
 instance ToElement
          UpdateCloudFrontOriginAccessIdentity2014_11_06 where

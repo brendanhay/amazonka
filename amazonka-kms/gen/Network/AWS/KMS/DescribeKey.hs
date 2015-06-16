@@ -71,7 +71,7 @@ instance AWSRequest DescribeKey where
         response
           = receiveJSON
               (\ s h x ->
-                 DescribeKeyResponse' <$> x .?> "KeyMetadata")
+                 DescribeKeyResponse' <$> (x .?> "KeyMetadata"))
 
 instance ToHeaders DescribeKey where
         toHeaders

@@ -88,7 +88,7 @@ instance AWSRequest UpdateBandwidthRateLimit where
           = receiveJSON
               (\ s h x ->
                  UpdateBandwidthRateLimitResponse' <$>
-                   x .?> "GatewayARN")
+                   (x .?> "GatewayARN"))
 
 instance ToHeaders UpdateBandwidthRateLimit where
         toHeaders

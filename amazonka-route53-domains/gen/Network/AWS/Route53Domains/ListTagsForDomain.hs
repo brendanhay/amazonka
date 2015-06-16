@@ -66,7 +66,7 @@ instance AWSRequest ListTagsForDomain where
           = receiveJSON
               (\ s h x ->
                  ListTagsForDomainResponse' <$>
-                   x .?> "TagList" .!@ mempty)
+                   (x .?> "TagList" .!@ mempty))
 
 instance ToHeaders ListTagsForDomain where
         toHeaders

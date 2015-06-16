@@ -64,7 +64,7 @@ instance AWSRequest DeleteDomain where
         response
           = receiveXMLWrapper "DeleteDomainResult"
               (\ s h x ->
-                 DeleteDomainResponse' <$> x .@? "DomainStatus")
+                 DeleteDomainResponse' <$> (x .@? "DomainStatus"))
 
 instance ToHeaders DeleteDomain where
         toHeaders = const mempty

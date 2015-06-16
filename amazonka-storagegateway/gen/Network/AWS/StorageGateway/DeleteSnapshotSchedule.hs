@@ -73,7 +73,7 @@ instance AWSRequest DeleteSnapshotSchedule where
           = receiveJSON
               (\ s h x ->
                  DeleteSnapshotScheduleResponse' <$>
-                   x .?> "VolumeARN")
+                   (x .?> "VolumeARN"))
 
 instance ToHeaders DeleteSnapshotSchedule where
         toHeaders

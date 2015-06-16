@@ -99,11 +99,12 @@ instance AWSRequest DescribeCacheParameters where
               (\ s h x ->
                  DescribeCacheParametersResponse' <$>
                    (x .@? "CacheNodeTypeSpecificParameters" .!@ mempty
-                      >>= parseXMLList "CacheNodeTypeSpecificParameter")
+                      >>=
+                      may (parseXMLList "CacheNodeTypeSpecificParameter"))
                      <*>
                      (x .@? "Parameters" .!@ mempty >>=
-                        parseXMLList "Parameter")
-                     <*> x .@? "Marker")
+                        may (parseXMLList "Parameter"))
+                     <*> (x .@? "Marker"))
 
 instance ToHeaders DescribeCacheParameters where
         toHeaders = const mempty
@@ -139,12 +140,12 @@ describeCacheParametersResponse = DescribeCacheParametersResponse'{_dcprCacheNod
 
 -- | A list of parameters specific to a particular cache node type. Each
 -- element in the list contains detailed information about one parameter.
-dcprCacheNodeTypeSpecificParameters :: Lens' DescribeCacheParametersResponse (Maybe [CacheNodeTypeSpecificParameter])
-dcprCacheNodeTypeSpecificParameters = lens _dcprCacheNodeTypeSpecificParameters (\ s a -> s{_dcprCacheNodeTypeSpecificParameters = a});
+dcprCacheNodeTypeSpecificParameters :: Lens' DescribeCacheParametersResponse [CacheNodeTypeSpecificParameter]
+dcprCacheNodeTypeSpecificParameters = lens _dcprCacheNodeTypeSpecificParameters (\ s a -> s{_dcprCacheNodeTypeSpecificParameters = a}) . _Default;
 
 -- | A list of Parameter instances.
-dcprParameters :: Lens' DescribeCacheParametersResponse (Maybe [Parameter])
-dcprParameters = lens _dcprParameters (\ s a -> s{_dcprParameters = a});
+dcprParameters :: Lens' DescribeCacheParametersResponse [Parameter]
+dcprParameters = lens _dcprParameters (\ s a -> s{_dcprParameters = a}) . _Default;
 
 -- | Provides an identifier to allow retrieval of paginated results.
 dcprMarker :: Lens' DescribeCacheParametersResponse (Maybe Text)

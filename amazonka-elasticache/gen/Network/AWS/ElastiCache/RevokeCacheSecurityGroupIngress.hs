@@ -83,7 +83,7 @@ instance AWSRequest RevokeCacheSecurityGroupIngress
               "RevokeCacheSecurityGroupIngressResult"
               (\ s h x ->
                  RevokeCacheSecurityGroupIngressResponse' <$>
-                   x .@? "CacheSecurityGroup")
+                   (x .@? "CacheSecurityGroup"))
 
 instance ToHeaders RevokeCacheSecurityGroupIngress
          where

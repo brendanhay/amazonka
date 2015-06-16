@@ -118,18 +118,18 @@ instance AWSRequest ListObjectVersions where
           = receiveXML
               (\ s h x ->
                  ListObjectVersionsResponse' <$>
-                   x .@? "NextVersionIdMarker" <*> x .@? "KeyMarker" <*>
-                     x .@? "Prefix"
-                     <*> parseXMLList "DeleteMarker" x
-                     <*> x .@? "EncodingType"
-                     <*> parseXMLList "CommonPrefixes" x
-                     <*> parseXMLList "Version" x
-                     <*> x .@? "Name"
-                     <*> x .@? "NextKeyMarker"
-                     <*> x .@? "VersionIdMarker"
-                     <*> x .@? "MaxKeys"
-                     <*> x .@? "IsTruncated"
-                     <*> x .@? "Delimiter")
+                   (x .@? "NextVersionIdMarker") <*> (x .@? "KeyMarker")
+                     <*> (x .@? "Prefix")
+                     <*> (may (parseXMLList "DeleteMarker") x)
+                     <*> (x .@? "EncodingType")
+                     <*> (may (parseXMLList "CommonPrefixes") x)
+                     <*> (may (parseXMLList "Version") x)
+                     <*> (x .@? "Name")
+                     <*> (x .@? "NextKeyMarker")
+                     <*> (x .@? "VersionIdMarker")
+                     <*> (x .@? "MaxKeys")
+                     <*> (x .@? "IsTruncated")
+                     <*> (x .@? "Delimiter"))
 
 instance ToHeaders ListObjectVersions where
         toHeaders = const mempty
@@ -197,20 +197,20 @@ lovrPrefix :: Lens' ListObjectVersionsResponse (Maybe Text)
 lovrPrefix = lens _lovrPrefix (\ s a -> s{_lovrPrefix = a});
 
 -- | FIXME: Undocumented member.
-lovrDeleteMarkers :: Lens' ListObjectVersionsResponse (Maybe [DeleteMarkerEntry])
-lovrDeleteMarkers = lens _lovrDeleteMarkers (\ s a -> s{_lovrDeleteMarkers = a});
+lovrDeleteMarkers :: Lens' ListObjectVersionsResponse [DeleteMarkerEntry]
+lovrDeleteMarkers = lens _lovrDeleteMarkers (\ s a -> s{_lovrDeleteMarkers = a}) . _Default;
 
 -- | Encoding type used by Amazon S3 to encode object keys in the response.
 lovrEncodingType :: Lens' ListObjectVersionsResponse (Maybe EncodingType)
 lovrEncodingType = lens _lovrEncodingType (\ s a -> s{_lovrEncodingType = a});
 
 -- | FIXME: Undocumented member.
-lovrCommonPrefixes :: Lens' ListObjectVersionsResponse (Maybe [CommonPrefix])
-lovrCommonPrefixes = lens _lovrCommonPrefixes (\ s a -> s{_lovrCommonPrefixes = a});
+lovrCommonPrefixes :: Lens' ListObjectVersionsResponse [CommonPrefix]
+lovrCommonPrefixes = lens _lovrCommonPrefixes (\ s a -> s{_lovrCommonPrefixes = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lovrVersions :: Lens' ListObjectVersionsResponse (Maybe [ObjectVersion])
-lovrVersions = lens _lovrVersions (\ s a -> s{_lovrVersions = a});
+lovrVersions :: Lens' ListObjectVersionsResponse [ObjectVersion]
+lovrVersions = lens _lovrVersions (\ s a -> s{_lovrVersions = a}) . _Default;
 
 -- | FIXME: Undocumented member.
 lovrName :: Lens' ListObjectVersionsResponse (Maybe BucketName)

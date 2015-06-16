@@ -60,8 +60,8 @@ describeRegions :: DescribeRegions
 describeRegions = DescribeRegions'{_dr1RegionNames = Nothing, _dr1Filters = Nothing, _dr1DryRun = Nothing};
 
 -- | The names of one or more regions.
-dr1RegionNames :: Lens' DescribeRegions (Maybe [Text])
-dr1RegionNames = lens _dr1RegionNames (\ s a -> s{_dr1RegionNames = a});
+dr1RegionNames :: Lens' DescribeRegions [Text]
+dr1RegionNames = lens _dr1RegionNames (\ s a -> s{_dr1RegionNames = a}) . _Default;
 
 -- | One or more filters.
 --
@@ -70,8 +70,8 @@ dr1RegionNames = lens _dr1RegionNames (\ s a -> s{_dr1RegionNames = a});
 --
 -- -   @region-name@ - The name of the region (for example, @us-east-1@).
 --
-dr1Filters :: Lens' DescribeRegions (Maybe [Filter])
-dr1Filters = lens _dr1Filters (\ s a -> s{_dr1Filters = a});
+dr1Filters :: Lens' DescribeRegions [Filter]
+dr1Filters = lens _dr1Filters (\ s a -> s{_dr1Filters = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -87,7 +87,8 @@ instance AWSRequest DescribeRegions where
         response
           = receiveXML
               (\ s h x ->
-                 DescribeRegionsResponse' <$> parseXMLList "item" x)
+                 DescribeRegionsResponse' <$>
+                   (may (parseXMLList "item") x))
 
 instance ToHeaders DescribeRegions where
         toHeaders = const mempty
@@ -100,8 +101,10 @@ instance ToQuery DescribeRegions where
           = mconcat
               ["Action" =: ("DescribeRegions" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "RegionName" =: _dr1RegionNames,
-               "Filter" =: _dr1Filters, "DryRun" =: _dr1DryRun]
+               toQuery
+                 (toQueryList "RegionName" <$> _dr1RegionNames),
+               toQuery (toQueryList "Filter" <$> _dr1Filters),
+               "DryRun" =: _dr1DryRun]
 
 -- | /See:/ 'describeRegionsResponse' smart constructor.
 --
@@ -115,5 +118,5 @@ describeRegionsResponse :: DescribeRegionsResponse
 describeRegionsResponse = DescribeRegionsResponse'{_drrRegions = Nothing};
 
 -- | Information about one or more regions.
-drrRegions :: Lens' DescribeRegionsResponse (Maybe [RegionInfo])
-drrRegions = lens _drrRegions (\ s a -> s{_drrRegions = a});
+drrRegions :: Lens' DescribeRegionsResponse [RegionInfo]
+drrRegions = lens _drrRegions (\ s a -> s{_drrRegions = a}) . _Default;

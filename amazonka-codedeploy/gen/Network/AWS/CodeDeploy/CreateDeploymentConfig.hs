@@ -87,7 +87,7 @@ instance AWSRequest CreateDeploymentConfig where
           = receiveJSON
               (\ s h x ->
                  CreateDeploymentConfigResponse' <$>
-                   x .?> "deploymentConfigId")
+                   (x .?> "deploymentConfigId"))
 
 instance ToHeaders CreateDeploymentConfig where
         toHeaders

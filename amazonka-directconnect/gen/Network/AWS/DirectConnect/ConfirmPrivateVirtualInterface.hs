@@ -85,7 +85,7 @@ instance AWSRequest ConfirmPrivateVirtualInterface
           = receiveJSON
               (\ s h x ->
                  ConfirmPrivateVirtualInterfaceResponse' <$>
-                   x .?> "virtualInterfaceState")
+                   (x .?> "virtualInterfaceState"))
 
 instance ToHeaders ConfirmPrivateVirtualInterface
          where

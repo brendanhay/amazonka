@@ -55,7 +55,7 @@ instance AWSRequest DescribeLifecycleHookTypes where
               (\ s h x ->
                  DescribeLifecycleHookTypesResponse' <$>
                    (x .@? "LifecycleHookTypes" .!@ mempty >>=
-                      parseXMLList "member"))
+                      may (parseXMLList "member")))
 
 instance ToHeaders DescribeLifecycleHookTypes where
         toHeaders = const mempty
@@ -88,5 +88,5 @@ describeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse'{_dlhtrL
 --
 -- -   @autoscaling:EC2_INSTANCE_TERMINATING@
 --
-dlhtrLifecycleHookTypes :: Lens' DescribeLifecycleHookTypesResponse (Maybe [Text])
-dlhtrLifecycleHookTypes = lens _dlhtrLifecycleHookTypes (\ s a -> s{_dlhtrLifecycleHookTypes = a});
+dlhtrLifecycleHookTypes :: Lens' DescribeLifecycleHookTypesResponse [Text]
+dlhtrLifecycleHookTypes = lens _dlhtrLifecycleHookTypes (\ s a -> s{_dlhtrLifecycleHookTypes = a}) . _Default;

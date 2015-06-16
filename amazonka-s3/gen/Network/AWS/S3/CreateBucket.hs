@@ -112,7 +112,7 @@ instance AWSRequest CreateBucket where
         response
           = receiveXML
               (\ s h x ->
-                 CreateBucketResponse' <$> h .#? "Location")
+                 CreateBucketResponse' <$> (h .#? "Location"))
 
 instance ToElement CreateBucket where
         toElement

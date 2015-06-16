@@ -70,25 +70,25 @@ import Network.AWS.KMS.Types
 -- * 'reCiphertextBlob'
 --
 -- * 'reDestinationKeyId'
-data ReEncrypt = ReEncrypt'{_reDestinationEncryptionContext :: Maybe (HashMap Text Text), _reSourceEncryptionContext :: Maybe (HashMap Text Text), _reGrantTokens :: Maybe [Text], _reCiphertextBlob :: Base64, _reDestinationKeyId :: Text} deriving (Eq, Read, Show)
+data ReEncrypt = ReEncrypt'{_reDestinationEncryptionContext :: Maybe (Map Text Text), _reSourceEncryptionContext :: Maybe (Map Text Text), _reGrantTokens :: Maybe [Text], _reCiphertextBlob :: Base64, _reDestinationKeyId :: Text} deriving (Eq, Read, Show)
 
 -- | 'ReEncrypt' smart constructor.
 reEncrypt :: Base64 -> Text -> ReEncrypt
 reEncrypt pCiphertextBlob pDestinationKeyId = ReEncrypt'{_reDestinationEncryptionContext = Nothing, _reSourceEncryptionContext = Nothing, _reGrantTokens = Nothing, _reCiphertextBlob = pCiphertextBlob, _reDestinationKeyId = pDestinationKeyId};
 
 -- | Encryption context to be used when the data is re-encrypted.
-reDestinationEncryptionContext :: Lens' ReEncrypt (Maybe (HashMap Text Text))
-reDestinationEncryptionContext = lens _reDestinationEncryptionContext (\ s a -> s{_reDestinationEncryptionContext = a}) . mapping _Coerce;
+reDestinationEncryptionContext :: Lens' ReEncrypt (Map Text Text)
+reDestinationEncryptionContext = lens _reDestinationEncryptionContext (\ s a -> s{_reDestinationEncryptionContext = a}) . _Default . _Map;
 
 -- | Encryption context used to encrypt and decrypt the data specified in the
 -- @CiphertextBlob@ parameter.
-reSourceEncryptionContext :: Lens' ReEncrypt (Maybe (HashMap Text Text))
-reSourceEncryptionContext = lens _reSourceEncryptionContext (\ s a -> s{_reSourceEncryptionContext = a}) . mapping _Coerce;
+reSourceEncryptionContext :: Lens' ReEncrypt (Map Text Text)
+reSourceEncryptionContext = lens _reSourceEncryptionContext (\ s a -> s{_reSourceEncryptionContext = a}) . _Default . _Map;
 
 -- | For more information, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.
-reGrantTokens :: Lens' ReEncrypt (Maybe [Text])
-reGrantTokens = lens _reGrantTokens (\ s a -> s{_reGrantTokens = a});
+reGrantTokens :: Lens' ReEncrypt [Text]
+reGrantTokens = lens _reGrantTokens (\ s a -> s{_reGrantTokens = a}) . _Default;
 
 -- | Ciphertext of the data to re-encrypt.
 reCiphertextBlob :: Lens' ReEncrypt Base64
@@ -117,8 +117,8 @@ instance AWSRequest ReEncrypt where
           = receiveJSON
               (\ s h x ->
                  ReEncryptResponse' <$>
-                   x .?> "SourceKeyId" <*> x .?> "KeyId" <*>
-                     x .?> "CiphertextBlob")
+                   (x .?> "SourceKeyId") <*> (x .?> "KeyId") <*>
+                     (x .?> "CiphertextBlob"))
 
 instance ToHeaders ReEncrypt where
         toHeaders

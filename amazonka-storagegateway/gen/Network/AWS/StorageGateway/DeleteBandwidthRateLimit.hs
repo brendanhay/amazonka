@@ -28,8 +28,8 @@ module Network.AWS.StorageGateway.DeleteBandwidthRateLimit
     -- ** Request constructor
     , deleteBandwidthRateLimit
     -- ** Request lenses
-    , deleteGatewayARN
-    , deleteBandwidthType
+    , deleGatewayARN
+    , deleBandwidthType
 
     -- * Response
     , DeleteBandwidthRateLimitResponse
@@ -48,22 +48,22 @@ import Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'deleteGatewayARN'
+-- * 'deleGatewayARN'
 --
--- * 'deleteBandwidthType'
-data DeleteBandwidthRateLimit = DeleteBandwidthRateLimit'{_deleteGatewayARN :: Text, _deleteBandwidthType :: Text} deriving (Eq, Read, Show)
+-- * 'deleBandwidthType'
+data DeleteBandwidthRateLimit = DeleteBandwidthRateLimit'{_deleGatewayARN :: Text, _deleBandwidthType :: Text} deriving (Eq, Read, Show)
 
 -- | 'DeleteBandwidthRateLimit' smart constructor.
 deleteBandwidthRateLimit :: Text -> Text -> DeleteBandwidthRateLimit
-deleteBandwidthRateLimit pGatewayARN pBandwidthType = DeleteBandwidthRateLimit'{_deleteGatewayARN = pGatewayARN, _deleteBandwidthType = pBandwidthType};
+deleteBandwidthRateLimit pGatewayARN pBandwidthType = DeleteBandwidthRateLimit'{_deleGatewayARN = pGatewayARN, _deleBandwidthType = pBandwidthType};
 
 -- | FIXME: Undocumented member.
-deleteGatewayARN :: Lens' DeleteBandwidthRateLimit Text
-deleteGatewayARN = lens _deleteGatewayARN (\ s a -> s{_deleteGatewayARN = a});
+deleGatewayARN :: Lens' DeleteBandwidthRateLimit Text
+deleGatewayARN = lens _deleGatewayARN (\ s a -> s{_deleGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-deleteBandwidthType :: Lens' DeleteBandwidthRateLimit Text
-deleteBandwidthType = lens _deleteBandwidthType (\ s a -> s{_deleteBandwidthType = a});
+deleBandwidthType :: Lens' DeleteBandwidthRateLimit Text
+deleBandwidthType = lens _deleBandwidthType (\ s a -> s{_deleBandwidthType = a});
 
 instance AWSRequest DeleteBandwidthRateLimit where
         type Sv DeleteBandwidthRateLimit = StorageGateway
@@ -74,7 +74,7 @@ instance AWSRequest DeleteBandwidthRateLimit where
           = receiveJSON
               (\ s h x ->
                  DeleteBandwidthRateLimitResponse' <$>
-                   x .?> "GatewayARN")
+                   (x .?> "GatewayARN"))
 
 instance ToHeaders DeleteBandwidthRateLimit where
         toHeaders
@@ -89,8 +89,8 @@ instance ToHeaders DeleteBandwidthRateLimit where
 instance ToJSON DeleteBandwidthRateLimit where
         toJSON DeleteBandwidthRateLimit'{..}
           = object
-              ["GatewayARN" .= _deleteGatewayARN,
-               "BandwidthType" .= _deleteBandwidthType]
+              ["GatewayARN" .= _deleGatewayARN,
+               "BandwidthType" .= _deleBandwidthType]
 
 instance ToPath DeleteBandwidthRateLimit where
         toPath = const "/"

@@ -66,8 +66,8 @@ instance AWSRequest CreateWorkspaces where
           = receiveJSON
               (\ s h x ->
                  CreateWorkspacesResponse' <$>
-                   x .?> "FailedRequests" .!@ mempty <*>
-                     x .?> "PendingRequests" .!@ mempty)
+                   (x .?> "FailedRequests" .!@ mempty) <*>
+                     (x .?> "PendingRequests" .!@ mempty))
 
 instance ToHeaders CreateWorkspaces where
         toHeaders
@@ -103,13 +103,13 @@ createWorkspacesResponse = CreateWorkspacesResponse'{_cwrFailedRequests = Nothin
 
 -- | An array of structures that represent the WorkSpaces that could not be
 -- created.
-cwrFailedRequests :: Lens' CreateWorkspacesResponse (Maybe [FailedCreateWorkspaceRequest])
-cwrFailedRequests = lens _cwrFailedRequests (\ s a -> s{_cwrFailedRequests = a});
+cwrFailedRequests :: Lens' CreateWorkspacesResponse [FailedCreateWorkspaceRequest]
+cwrFailedRequests = lens _cwrFailedRequests (\ s a -> s{_cwrFailedRequests = a}) . _Default;
 
 -- | An array of structures that represent the WorkSpaces that were created.
 --
 -- Because this operation is asynchronous, the identifier in @WorkspaceId@
 -- is not immediately available. If you immediately call DescribeWorkspaces
 -- with this identifier, no information will be returned.
-cwrPendingRequests :: Lens' CreateWorkspacesResponse (Maybe [Workspace])
-cwrPendingRequests = lens _cwrPendingRequests (\ s a -> s{_cwrPendingRequests = a});
+cwrPendingRequests :: Lens' CreateWorkspacesResponse [Workspace]
+cwrPendingRequests = lens _cwrPendingRequests (\ s a -> s{_cwrPendingRequests = a}) . _Default;

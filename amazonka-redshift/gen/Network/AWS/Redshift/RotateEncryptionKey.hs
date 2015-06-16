@@ -66,7 +66,7 @@ instance AWSRequest RotateEncryptionKey where
         response
           = receiveXMLWrapper "RotateEncryptionKeyResult"
               (\ s h x ->
-                 RotateEncryptionKeyResponse' <$> x .@? "Cluster")
+                 RotateEncryptionKeyResponse' <$> (x .@? "Cluster"))
 
 instance ToHeaders RotateEncryptionKey where
         toHeaders = const mempty

@@ -159,8 +159,8 @@ runInstances pImageId pMinCount pMaxCount = RunInstances'{_runSecurityGroupIds =
 -- CreateSecurityGroup.
 --
 -- Default: Amazon EC2 uses the default security group.
-runSecurityGroupIds :: Lens' RunInstances (Maybe [Text])
-runSecurityGroupIds = lens _runSecurityGroupIds (\ s a -> s{_runSecurityGroupIds = a});
+runSecurityGroupIds :: Lens' RunInstances [Text]
+runSecurityGroupIds = lens _runSecurityGroupIds (\ s a -> s{_runSecurityGroupIds = a}) . _Default;
 
 -- | Reserved.
 runAdditionalInfo :: Lens' RunInstances (Maybe Text)
@@ -170,8 +170,8 @@ runAdditionalInfo = lens _runAdditionalInfo (\ s a -> s{_runAdditionalInfo = a})
 -- nondefault VPC, you must use security group IDs instead.
 --
 -- Default: Amazon EC2 uses the default security group.
-runSecurityGroups :: Lens' RunInstances (Maybe [Text])
-runSecurityGroups = lens _runSecurityGroups (\ s a -> s{_runSecurityGroups = a});
+runSecurityGroups :: Lens' RunInstances [Text]
+runSecurityGroups = lens _runSecurityGroups (\ s a -> s{_runSecurityGroups = a}) . _Default;
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency
 -- of the request. For more information, see
@@ -195,8 +195,8 @@ runDisableAPITermination :: Lens' RunInstances (Maybe Bool)
 runDisableAPITermination = lens _runDisableAPITermination (\ s a -> s{_runDisableAPITermination = a});
 
 -- | One or more network interfaces.
-runNetworkInterfaces :: Lens' RunInstances (Maybe [InstanceNetworkInterfaceSpecification])
-runNetworkInterfaces = lens _runNetworkInterfaces (\ s a -> s{_runNetworkInterfaces = a});
+runNetworkInterfaces :: Lens' RunInstances [InstanceNetworkInterfaceSpecification]
+runNetworkInterfaces = lens _runNetworkInterfaces (\ s a -> s{_runNetworkInterfaces = a}) . _Default;
 
 -- | The name of the key pair. You can create a key pair using CreateKeyPair
 -- or ImportKeyPair.
@@ -281,8 +281,8 @@ runPrivateIPAddress :: Lens' RunInstances (Maybe Text)
 runPrivateIPAddress = lens _runPrivateIPAddress (\ s a -> s{_runPrivateIPAddress = a});
 
 -- | The block device mapping.
-runBlockDeviceMappings :: Lens' RunInstances (Maybe [BlockDeviceMapping])
-runBlockDeviceMappings = lens _runBlockDeviceMappings (\ s a -> s{_runBlockDeviceMappings = a});
+runBlockDeviceMappings :: Lens' RunInstances [BlockDeviceMapping]
+runBlockDeviceMappings = lens _runBlockDeviceMappings (\ s a -> s{_runBlockDeviceMappings = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -340,12 +340,16 @@ instance ToQuery RunInstances where
           = mconcat
               ["Action" =: ("RunInstances" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "SecurityGroupId" =: _runSecurityGroupIds,
+               toQuery
+                 (toQueryList "SecurityGroupId" <$>
+                    _runSecurityGroupIds),
                "AdditionalInfo" =: _runAdditionalInfo,
-               "SecurityGroup" =: _runSecurityGroups,
+               toQuery
+                 (toQueryList "SecurityGroup" <$> _runSecurityGroups),
                "ClientToken" =: _runClientToken,
                "DisableApiTermination" =: _runDisableAPITermination,
-               "item" =: _runNetworkInterfaces,
+               toQuery
+                 (toQueryList "item" <$> _runNetworkInterfaces),
                "KeyName" =: _runKeyName,
                "RamdiskId" =: _runRAMDiskId,
                "KernelId" =: _runKernelId,
@@ -358,7 +362,9 @@ instance ToQuery RunInstances where
                "InstanceInitiatedShutdownBehavior" =:
                  _runInstanceInitiatedShutdownBehavior,
                "PrivateIpAddress" =: _runPrivateIPAddress,
-               "BlockDeviceMapping" =: _runBlockDeviceMappings,
+               toQuery
+                 (toQueryList "BlockDeviceMapping" <$>
+                    _runBlockDeviceMappings),
                "DryRun" =: _runDryRun, "Placement" =: _runPlacement,
                "ImageId" =: _runImageId, "MinCount" =: _runMinCount,
                "MaxCount" =: _runMaxCount]

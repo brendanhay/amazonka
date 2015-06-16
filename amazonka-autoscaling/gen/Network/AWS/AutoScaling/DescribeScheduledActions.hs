@@ -99,8 +99,8 @@ desAutoScalingGroupName = lens _desAutoScalingGroupName (\ s a -> s{_desAutoScal
 -- there are more items to return, the call returns a token. To get the
 -- next set of items, repeat the call with the returned token in the
 -- @NextToken@ parameter.
-desScheduledActionNames :: Lens' DescribeScheduledActions (Maybe [Text])
-desScheduledActionNames = lens _desScheduledActionNames (\ s a -> s{_desScheduledActionNames = a});
+desScheduledActionNames :: Lens' DescribeScheduledActions [Text]
+desScheduledActionNames = lens _desScheduledActionNames (\ s a -> s{_desScheduledActionNames = a}) . _Default;
 
 instance AWSRequest DescribeScheduledActions where
         type Sv DescribeScheduledActions = AutoScaling
@@ -112,8 +112,8 @@ instance AWSRequest DescribeScheduledActions where
               (\ s h x ->
                  DescribeScheduledActionsResponse' <$>
                    (x .@? "ScheduledUpdateGroupActions" .!@ mempty >>=
-                      parseXMLList "member")
-                     <*> x .@? "NextToken")
+                      may (parseXMLList "member"))
+                     <*> (x .@? "NextToken"))
 
 instance ToHeaders DescribeScheduledActions where
         toHeaders = const mempty
@@ -133,7 +133,8 @@ instance ToQuery DescribeScheduledActions where
                "EndTime" =: _desEndTime,
                "AutoScalingGroupName" =: _desAutoScalingGroupName,
                "ScheduledActionNames" =:
-                 "member" =: _desScheduledActionNames]
+                 toQuery
+                   (toQueryList "member" <$> _desScheduledActionNames)]
 
 -- | /See:/ 'describeScheduledActionsResponse' smart constructor.
 --
@@ -149,8 +150,8 @@ describeScheduledActionsResponse :: DescribeScheduledActionsResponse
 describeScheduledActionsResponse = DescribeScheduledActionsResponse'{_dsarScheduledUpdateGroupActions = Nothing, _dsarNextToken = Nothing};
 
 -- | The scheduled actions.
-dsarScheduledUpdateGroupActions :: Lens' DescribeScheduledActionsResponse (Maybe [ScheduledUpdateGroupAction])
-dsarScheduledUpdateGroupActions = lens _dsarScheduledUpdateGroupActions (\ s a -> s{_dsarScheduledUpdateGroupActions = a});
+dsarScheduledUpdateGroupActions :: Lens' DescribeScheduledActionsResponse [ScheduledUpdateGroupAction]
+dsarScheduledUpdateGroupActions = lens _dsarScheduledUpdateGroupActions (\ s a -> s{_dsarScheduledUpdateGroupActions = a}) . _Default;
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.

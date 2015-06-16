@@ -86,8 +86,8 @@ createOpenIDConnectProvider pURL = CreateOpenIDConnectProvider'{_coidcpClientIDL
 -- There is no defined format for a client ID. The
 -- @CreateOpenIDConnectProviderRequest@ action accepts client IDs up to 255
 -- characters long.
-coidcpClientIDList :: Lens' CreateOpenIDConnectProvider (Maybe [Text])
-coidcpClientIDList = lens _coidcpClientIDList (\ s a -> s{_coidcpClientIDList = a});
+coidcpClientIDList :: Lens' CreateOpenIDConnectProvider [Text]
+coidcpClientIDList = lens _coidcpClientIDList (\ s a -> s{_coidcpClientIDList = a}) . _Default;
 
 -- | The URL of the identity provider. The URL must begin with \"https:\/\/\"
 -- and should correspond to the @iss@ claim in the provider\'s OpenID
@@ -136,7 +136,7 @@ instance AWSRequest CreateOpenIDConnectProvider where
               "CreateOpenIDConnectProviderResult"
               (\ s h x ->
                  CreateOpenIDConnectProviderResponse' <$>
-                   x .@? "OpenIDConnectProviderArn")
+                   (x .@? "OpenIDConnectProviderArn"))
 
 instance ToHeaders CreateOpenIDConnectProvider where
         toHeaders = const mempty
@@ -150,10 +150,12 @@ instance ToQuery CreateOpenIDConnectProvider where
               ["Action" =:
                  ("CreateOpenIDConnectProvider" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "ClientIDList" =: "member" =: _coidcpClientIDList,
+               "ClientIDList" =:
+                 toQuery
+                   (toQueryList "member" <$> _coidcpClientIDList),
                "Url" =: _coidcpURL,
                "ThumbprintList" =:
-                 "member" =: _coidcpThumbprintList]
+                 toQueryList "member" _coidcpThumbprintList]
 
 -- | /See:/ 'createOpenIDConnectProviderResponse' smart constructor.
 --

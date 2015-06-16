@@ -182,7 +182,7 @@ instance AWSRequest DescribeBatchPredictions where
           = receiveJSON
               (\ s h x ->
                  DescribeBatchPredictionsResponse' <$>
-                   x .?> "Results" .!@ mempty <*> x .?> "NextToken")
+                   (x .?> "Results" .!@ mempty) <*> (x .?> "NextToken"))
 
 instance ToHeaders DescribeBatchPredictions where
         toHeaders
@@ -225,8 +225,8 @@ describeBatchPredictionsResponse :: DescribeBatchPredictionsResponse
 describeBatchPredictionsResponse = DescribeBatchPredictionsResponse'{_dbprResults = Nothing, _dbprNextToken = Nothing};
 
 -- | A list of BatchPrediction objects that meet the search criteria.
-dbprResults :: Lens' DescribeBatchPredictionsResponse (Maybe [BatchPrediction])
-dbprResults = lens _dbprResults (\ s a -> s{_dbprResults = a});
+dbprResults :: Lens' DescribeBatchPredictionsResponse [BatchPrediction]
+dbprResults = lens _dbprResults (\ s a -> s{_dbprResults = a}) . _Default;
 
 -- | The ID of the next page in the paginated results that indicates at least
 -- one more page follows.

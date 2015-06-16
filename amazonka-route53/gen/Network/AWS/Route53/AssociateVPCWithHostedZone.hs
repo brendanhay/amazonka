@@ -90,7 +90,7 @@ instance AWSRequest AssociateVPCWithHostedZone where
           = receiveXML
               (\ s h x ->
                  AssociateVPCWithHostedZoneResponse' <$>
-                   x .@ "ChangeInfo")
+                   (x .@ "ChangeInfo"))
 
 instance ToElement AssociateVPCWithHostedZone where
         toElement

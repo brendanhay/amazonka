@@ -68,8 +68,8 @@ deleteAttributes pDomainName pItemName = DeleteAttributes'{_daAttributes = Nothi
 
 -- | A list of Attributes. Similar to columns on a spreadsheet, attributes
 -- represent categories of data that can be assigned to items.
-daAttributes :: Lens' DeleteAttributes (Maybe [Attribute])
-daAttributes = lens _daAttributes (\ s a -> s{_daAttributes = a});
+daAttributes :: Lens' DeleteAttributes [Attribute]
+daAttributes = lens _daAttributes (\ s a -> s{_daAttributes = a}) . _Default;
 
 -- | The update condition which, if specified, determines whether the
 -- specified attributes will be deleted or not. The update condition must
@@ -104,7 +104,7 @@ instance ToQuery DeleteAttributes where
           = mconcat
               ["Action" =: ("DeleteAttributes" :: ByteString),
                "Version" =: ("2009-04-15" :: ByteString),
-               "Attribute" =: _daAttributes,
+               toQuery (toQueryList "Attribute" <$> _daAttributes),
                "Expected" =: _daExpected,
                "DomainName" =: _daDomainName,
                "ItemName" =: _daItemName]

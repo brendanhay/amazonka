@@ -116,8 +116,9 @@ instance AWSRequest DownloadDBLogFilePortion where
           = receiveXMLWrapper "DownloadDBLogFilePortionResult"
               (\ s h x ->
                  DownloadDBLogFilePortionResponse' <$>
-                   x .@? "LogFileData" <*> x .@? "AdditionalDataPending"
-                     <*> x .@? "Marker")
+                   (x .@? "LogFileData") <*>
+                     (x .@? "AdditionalDataPending")
+                     <*> (x .@? "Marker"))
 
 instance ToHeaders DownloadDBLogFilePortion where
         toHeaders = const mempty

@@ -80,7 +80,7 @@ instance AWSRequest ModifyClusterSubnetGroup where
           = receiveXMLWrapper "ModifyClusterSubnetGroupResult"
               (\ s h x ->
                  ModifyClusterSubnetGroupResponse' <$>
-                   x .@? "ClusterSubnetGroup")
+                   (x .@? "ClusterSubnetGroup"))
 
 instance ToHeaders ModifyClusterSubnetGroup where
         toHeaders = const mempty
@@ -97,7 +97,8 @@ instance ToQuery ModifyClusterSubnetGroup where
                "Description" =: _mcsgDescription,
                "ClusterSubnetGroupName" =:
                  _mcsgClusterSubnetGroupName,
-               "SubnetIds" =: "SubnetIdentifier" =: _mcsgSubnetIds]
+               "SubnetIds" =:
+                 toQueryList "SubnetIdentifier" _mcsgSubnetIds]
 
 -- | /See:/ 'modifyClusterSubnetGroupResponse' smart constructor.
 --

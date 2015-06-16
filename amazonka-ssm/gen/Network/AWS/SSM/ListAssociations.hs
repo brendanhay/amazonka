@@ -82,8 +82,8 @@ instance AWSRequest ListAssociations where
           = receiveJSON
               (\ s h x ->
                  ListAssociationsResponse' <$>
-                   x .?> "NextToken" <*>
-                     x .?> "Associations" .!@ mempty)
+                   (x .?> "NextToken") <*>
+                     (x .?> "Associations" .!@ mempty))
 
 instance ToHeaders ListAssociations where
         toHeaders
@@ -126,5 +126,5 @@ larNextToken :: Lens' ListAssociationsResponse (Maybe Text)
 larNextToken = lens _larNextToken (\ s a -> s{_larNextToken = a});
 
 -- | The associations.
-larAssociations :: Lens' ListAssociationsResponse (Maybe [Association])
-larAssociations = lens _larAssociations (\ s a -> s{_larAssociations = a});
+larAssociations :: Lens' ListAssociationsResponse [Association]
+larAssociations = lens _larAssociations (\ s a -> s{_larAssociations = a}) . _Default;

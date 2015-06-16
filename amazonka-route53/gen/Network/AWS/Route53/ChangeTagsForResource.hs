@@ -108,8 +108,10 @@ instance ToQuery ChangeTagsForResource where
 instance ToXML ChangeTagsForResource where
         toXML ChangeTagsForResource'{..}
           = mconcat
-              ["RemoveTagKeys" @= "Key" @@= _ctfrRemoveTagKeys,
-               "AddTags" @= "Tag" @@= _ctfrAddTags]
+              ["RemoveTagKeys" @=
+                 toXML (toXMLList "Key" <$> _ctfrRemoveTagKeys),
+               "AddTags" @=
+                 toXML (toXMLList "Tag" <$> _ctfrAddTags)]
 
 -- | /See:/ 'changeTagsForResourceResponse' smart constructor.
 data ChangeTagsForResourceResponse = ChangeTagsForResourceResponse' deriving (Eq, Read, Show)

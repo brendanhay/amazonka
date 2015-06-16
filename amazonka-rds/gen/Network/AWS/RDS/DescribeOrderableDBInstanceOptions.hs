@@ -79,8 +79,8 @@ dodioEngineVersion :: Lens' DescribeOrderableDBInstanceOptions (Maybe Text)
 dodioEngineVersion = lens _dodioEngineVersion (\ s a -> s{_dodioEngineVersion = a});
 
 -- | This parameter is not currently supported.
-dodioFilters :: Lens' DescribeOrderableDBInstanceOptions (Maybe [Filter])
-dodioFilters = lens _dodioFilters (\ s a -> s{_dodioFilters = a});
+dodioFilters :: Lens' DescribeOrderableDBInstanceOptions [Filter]
+dodioFilters = lens _dodioFilters (\ s a -> s{_dodioFilters = a}) . _Default;
 
 -- | The DB instance class filter value. Specify this parameter to show only
 -- the available offerings matching the specified DB instance class.
@@ -131,8 +131,8 @@ instance AWSRequest
               (\ s h x ->
                  DescribeOrderableDBInstanceOptionsResponse' <$>
                    (x .@? "OrderableDBInstanceOptions" .!@ mempty >>=
-                      parseXMLList "OrderableDBInstanceOption")
-                     <*> x .@? "Marker")
+                      may (parseXMLList "OrderableDBInstanceOption"))
+                     <*> (x .@? "Marker"))
 
 instance ToHeaders DescribeOrderableDBInstanceOptions
          where
@@ -150,7 +150,8 @@ instance ToQuery DescribeOrderableDBInstanceOptions
                  ("DescribeOrderableDBInstanceOptions" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "EngineVersion" =: _dodioEngineVersion,
-               "Filters" =: "Filter" =: _dodioFilters,
+               "Filters" =:
+                 toQuery (toQueryList "Filter" <$> _dodioFilters),
                "DBInstanceClass" =: _dodioDBInstanceClass,
                "LicenseModel" =: _dodioLicenseModel,
                "MaxRecords" =: _dodioMaxRecords,
@@ -172,8 +173,8 @@ describeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOptionsR
 
 -- | An OrderableDBInstanceOption structure containing information about
 -- orderable options for the DB instance.
-dodiorOrderableDBInstanceOptions :: Lens' DescribeOrderableDBInstanceOptionsResponse (Maybe [OrderableDBInstanceOption])
-dodiorOrderableDBInstanceOptions = lens _dodiorOrderableDBInstanceOptions (\ s a -> s{_dodiorOrderableDBInstanceOptions = a});
+dodiorOrderableDBInstanceOptions :: Lens' DescribeOrderableDBInstanceOptionsResponse [OrderableDBInstanceOption]
+dodiorOrderableDBInstanceOptions = lens _dodiorOrderableDBInstanceOptions (\ s a -> s{_dodiorOrderableDBInstanceOptions = a}) . _Default;
 
 -- | An optional pagination token provided by a previous
 -- OrderableDBInstanceOptions request. If this parameter is specified, the

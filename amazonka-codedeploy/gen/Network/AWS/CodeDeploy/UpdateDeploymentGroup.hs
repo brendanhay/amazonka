@@ -82,8 +82,8 @@ udgDeploymentConfigName = lens _udgDeploymentConfigName (\ s a -> s{_udgDeployme
 
 -- | The replacement set of Amazon EC2 tags to filter on, if you want to
 -- change them.
-udgEc2TagFilters :: Lens' UpdateDeploymentGroup (Maybe [EC2TagFilter])
-udgEc2TagFilters = lens _udgEc2TagFilters (\ s a -> s{_udgEc2TagFilters = a});
+udgEc2TagFilters :: Lens' UpdateDeploymentGroup [EC2TagFilter]
+udgEc2TagFilters = lens _udgEc2TagFilters (\ s a -> s{_udgEc2TagFilters = a}) . _Default;
 
 -- | The new name of the deployment group, if you want to change it.
 udgNewDeploymentGroupName :: Lens' UpdateDeploymentGroup (Maybe Text)
@@ -91,13 +91,13 @@ udgNewDeploymentGroupName = lens _udgNewDeploymentGroupName (\ s a -> s{_udgNewD
 
 -- | The replacement set of on-premises instance tags for filter on, if you
 -- want to change them.
-udgOnPremisesInstanceTagFilters :: Lens' UpdateDeploymentGroup (Maybe [TagFilter])
-udgOnPremisesInstanceTagFilters = lens _udgOnPremisesInstanceTagFilters (\ s a -> s{_udgOnPremisesInstanceTagFilters = a});
+udgOnPremisesInstanceTagFilters :: Lens' UpdateDeploymentGroup [TagFilter]
+udgOnPremisesInstanceTagFilters = lens _udgOnPremisesInstanceTagFilters (\ s a -> s{_udgOnPremisesInstanceTagFilters = a}) . _Default;
 
 -- | The replacement list of Auto Scaling groups to be included in the
 -- deployment group, if you want to change them.
-udgAutoScalingGroups :: Lens' UpdateDeploymentGroup (Maybe [Text])
-udgAutoScalingGroups = lens _udgAutoScalingGroups (\ s a -> s{_udgAutoScalingGroups = a});
+udgAutoScalingGroups :: Lens' UpdateDeploymentGroup [Text]
+udgAutoScalingGroups = lens _udgAutoScalingGroups (\ s a -> s{_udgAutoScalingGroups = a}) . _Default;
 
 -- | The application name corresponding to the deployment group to update.
 udgApplicationName :: Lens' UpdateDeploymentGroup Text
@@ -116,7 +116,7 @@ instance AWSRequest UpdateDeploymentGroup where
           = receiveJSON
               (\ s h x ->
                  UpdateDeploymentGroupResponse' <$>
-                   x .?> "hooksNotCleanedUp" .!@ mempty)
+                   (x .?> "hooksNotCleanedUp" .!@ mempty))
 
 instance ToHeaders UpdateDeploymentGroup where
         toHeaders
@@ -165,5 +165,5 @@ updateDeploymentGroupResponse = UpdateDeploymentGroupResponse'{_udgrHooksNotClea
 -- removed all corresponding Auto Scaling lifecycle event hooks from the
 -- AWS account. If the output does contain data, AWS CodeDeploy could not
 -- remove some Auto Scaling lifecycle event hooks from the AWS account.
-udgrHooksNotCleanedUp :: Lens' UpdateDeploymentGroupResponse (Maybe [AutoScalingGroup])
-udgrHooksNotCleanedUp = lens _udgrHooksNotCleanedUp (\ s a -> s{_udgrHooksNotCleanedUp = a});
+udgrHooksNotCleanedUp :: Lens' UpdateDeploymentGroupResponse [AutoScalingGroup]
+udgrHooksNotCleanedUp = lens _udgrHooksNotCleanedUp (\ s a -> s{_udgrHooksNotCleanedUp = a}) . _Default;

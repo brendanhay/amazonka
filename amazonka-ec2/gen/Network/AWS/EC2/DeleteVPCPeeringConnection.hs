@@ -76,7 +76,7 @@ instance AWSRequest DeleteVPCPeeringConnection where
           = receiveXML
               (\ s h x ->
                  DeleteVPCPeeringConnectionResponse' <$>
-                   x .@? "return")
+                   (x .@? "return"))
 
 instance ToHeaders DeleteVPCPeeringConnection where
         toHeaders = const mempty

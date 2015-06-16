@@ -93,8 +93,8 @@ deSourceType :: Lens' DescribeEvents (Maybe SourceType)
 deSourceType = lens _deSourceType (\ s a -> s{_deSourceType = a});
 
 -- | This parameter is not currently supported.
-deFilters :: Lens' DescribeEvents (Maybe [Filter])
-deFilters = lens _deFilters (\ s a -> s{_deFilters = a});
+deFilters :: Lens' DescribeEvents [Filter]
+deFilters = lens _deFilters (\ s a -> s{_deFilters = a}) . _Default;
 
 -- | The identifier of the event source for which events will be returned. If
 -- not specified, then all sources are included in the response.
@@ -127,8 +127,8 @@ deMaxRecords = lens _deMaxRecords (\ s a -> s{_deMaxRecords = a});
 
 -- | A list of event categories that trigger notifications for a event
 -- notification subscription.
-deEventCategories :: Lens' DescribeEvents (Maybe [Text])
-deEventCategories = lens _deEventCategories (\ s a -> s{_deEventCategories = a});
+deEventCategories :: Lens' DescribeEvents [Text]
+deEventCategories = lens _deEventCategories (\ s a -> s{_deEventCategories = a}) . _Default;
 
 -- | The end of the time interval for which to retrieve events, specified in
 -- ISO 8601 format. For more information about ISO 8601, go to the
@@ -158,8 +158,9 @@ instance AWSRequest DescribeEvents where
           = receiveXMLWrapper "DescribeEventsResult"
               (\ s h x ->
                  DescribeEventsResponse' <$>
-                   (x .@? "Events" .!@ mempty >>= parseXMLList "Event")
-                     <*> x .@? "Marker")
+                   (x .@? "Events" .!@ mempty >>=
+                      may (parseXMLList "Event"))
+                     <*> (x .@? "Marker"))
 
 instance ToHeaders DescribeEvents where
         toHeaders = const mempty
@@ -174,11 +175,13 @@ instance ToQuery DescribeEvents where
                "Version" =: ("2014-10-31" :: ByteString),
                "StartTime" =: _deStartTime,
                "SourceType" =: _deSourceType,
-               "Filters" =: "Filter" =: _deFilters,
+               "Filters" =:
+                 toQuery (toQueryList "Filter" <$> _deFilters),
                "SourceIdentifier" =: _deSourceIdentifier,
                "MaxRecords" =: _deMaxRecords,
                "EventCategories" =:
-                 "EventCategory" =: _deEventCategories,
+                 toQuery
+                   (toQueryList "EventCategory" <$> _deEventCategories),
                "EndTime" =: _deEndTime, "Marker" =: _deMarker,
                "Duration" =: _deDuration]
 
@@ -196,8 +199,8 @@ describeEventsResponse :: DescribeEventsResponse
 describeEventsResponse = DescribeEventsResponse'{_derEvents = Nothing, _derMarker = Nothing};
 
 -- | A list of Event instances.
-derEvents :: Lens' DescribeEventsResponse (Maybe [Event])
-derEvents = lens _derEvents (\ s a -> s{_derEvents = a});
+derEvents :: Lens' DescribeEventsResponse [Event]
+derEvents = lens _derEvents (\ s a -> s{_derEvents = a}) . _Default;
 
 -- | An optional pagination token provided by a previous Events request. If
 -- this parameter is specified, the response includes only records beyond

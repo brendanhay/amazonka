@@ -61,7 +61,7 @@ instance AWSRequest DeleteSnapshot where
         response
           = receiveJSON
               (\ s h x ->
-                 DeleteSnapshotResponse' <$> x .?> "SnapshotId")
+                 DeleteSnapshotResponse' <$> (x .?> "SnapshotId"))
 
 instance ToHeaders DeleteSnapshot where
         toHeaders

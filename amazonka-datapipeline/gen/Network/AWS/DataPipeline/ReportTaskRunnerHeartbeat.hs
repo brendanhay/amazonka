@@ -90,7 +90,7 @@ instance AWSRequest ReportTaskRunnerHeartbeat where
           = receiveJSON
               (\ s h x ->
                  ReportTaskRunnerHeartbeatResponse' <$>
-                   x .:> "terminate")
+                   (x .:> "terminate"))
 
 instance ToHeaders ReportTaskRunnerHeartbeat where
         toHeaders

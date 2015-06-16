@@ -123,8 +123,8 @@ instance AWSRequest ListDomains where
           = receiveJSON
               (\ s h x ->
                  ListDomainsResponse' <$>
-                   x .?> "nextPageToken" <*>
-                     x .?> "ListDomainsResponse" .!@ mempty)
+                   (x .?> "nextPageToken") <*>
+                     (x .?> "ListDomainsResponse" .!@ mempty))
 
 instance ToHeaders ListDomains where
         toHeaders
@@ -173,5 +173,5 @@ ldrNextPageToken :: Lens' ListDomainsResponse (Maybe Text)
 ldrNextPageToken = lens _ldrNextPageToken (\ s a -> s{_ldrNextPageToken = a});
 
 -- | A list of DomainInfo structures.
-ldrListDomainsResponse :: Lens' ListDomainsResponse (Maybe [DomainInfo])
-ldrListDomainsResponse = lens _ldrListDomainsResponse (\ s a -> s{_ldrListDomainsResponse = a});
+ldrListDomainsResponse :: Lens' ListDomainsResponse [DomainInfo]
+ldrListDomainsResponse = lens _ldrListDomainsResponse (\ s a -> s{_ldrListDomainsResponse = a}) . _Default;

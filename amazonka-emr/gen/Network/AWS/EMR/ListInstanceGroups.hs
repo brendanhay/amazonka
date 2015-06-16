@@ -71,7 +71,8 @@ instance AWSRequest ListInstanceGroups where
           = receiveJSON
               (\ s h x ->
                  ListInstanceGroupsResponse' <$>
-                   x .?> "Marker" <*> x .?> "InstanceGroups" .!@ mempty)
+                   (x .?> "Marker") <*>
+                     (x .?> "InstanceGroups" .!@ mempty))
 
 instance ToHeaders ListInstanceGroups where
         toHeaders
@@ -113,5 +114,5 @@ ligrMarker :: Lens' ListInstanceGroupsResponse (Maybe Text)
 ligrMarker = lens _ligrMarker (\ s a -> s{_ligrMarker = a});
 
 -- | The list of instance groups for the cluster and given filters.
-ligrInstanceGroups :: Lens' ListInstanceGroupsResponse (Maybe [InstanceGroup])
-ligrInstanceGroups = lens _ligrInstanceGroups (\ s a -> s{_ligrInstanceGroups = a});
+ligrInstanceGroups :: Lens' ListInstanceGroupsResponse [InstanceGroup]
+ligrInstanceGroups = lens _ligrInstanceGroups (\ s a -> s{_ligrInstanceGroups = a}) . _Default;

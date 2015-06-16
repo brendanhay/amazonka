@@ -68,7 +68,7 @@ instance AWSRequest DisableGateway where
         response
           = receiveJSON
               (\ s h x ->
-                 DisableGatewayResponse' <$> x .?> "GatewayARN")
+                 DisableGatewayResponse' <$> (x .?> "GatewayARN"))
 
 instance ToHeaders DisableGateway where
         toHeaders

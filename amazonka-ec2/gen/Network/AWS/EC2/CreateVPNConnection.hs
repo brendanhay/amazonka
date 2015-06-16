@@ -114,7 +114,7 @@ instance AWSRequest CreateVPNConnection where
           = receiveXML
               (\ s h x ->
                  CreateVPNConnectionResponse' <$>
-                   x .@? "vpnConnection")
+                   (x .@? "vpnConnection"))
 
 instance ToHeaders CreateVPNConnection where
         toHeaders = const mempty

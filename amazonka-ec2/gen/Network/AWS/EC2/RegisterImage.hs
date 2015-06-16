@@ -142,8 +142,8 @@ riArchitecture :: Lens' RegisterImage (Maybe ArchitectureValues)
 riArchitecture = lens _riArchitecture (\ s a -> s{_riArchitecture = a});
 
 -- | One or more block device mapping entries.
-riBlockDeviceMappings :: Lens' RegisterImage (Maybe [BlockDeviceMapping])
-riBlockDeviceMappings = lens _riBlockDeviceMappings (\ s a -> s{_riBlockDeviceMappings = a});
+riBlockDeviceMappings :: Lens' RegisterImage [BlockDeviceMapping]
+riBlockDeviceMappings = lens _riBlockDeviceMappings (\ s a -> s{_riBlockDeviceMappings = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -171,7 +171,7 @@ instance AWSRequest RegisterImage where
         response
           = receiveXML
               (\ s h x ->
-                 RegisterImageResponse' <$> x .@? "imageId")
+                 RegisterImageResponse' <$> (x .@? "imageId"))
 
 instance ToHeaders RegisterImage where
         toHeaders = const mempty
@@ -191,7 +191,9 @@ instance ToQuery RegisterImage where
                "RootDeviceName" =: _riRootDeviceName,
                "SriovNetSupport" =: _riSRIOVNetSupport,
                "Architecture" =: _riArchitecture,
-               "BlockDeviceMapping" =: _riBlockDeviceMappings,
+               toQuery
+                 (toQueryList "BlockDeviceMapping" <$>
+                    _riBlockDeviceMappings),
                "DryRun" =: _riDryRun,
                "Description" =: _riDescription, "Name" =: _riName]
 

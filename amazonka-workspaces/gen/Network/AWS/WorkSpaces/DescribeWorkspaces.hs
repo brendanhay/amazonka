@@ -121,7 +121,8 @@ instance AWSRequest DescribeWorkspaces where
           = receiveJSON
               (\ s h x ->
                  DescribeWorkspacesResponse' <$>
-                   x .?> "NextToken" <*> x .?> "Workspaces" .!@ mempty)
+                   (x .?> "NextToken") <*>
+                     (x .?> "Workspaces" .!@ mempty))
 
 instance ToHeaders DescribeWorkspaces where
         toHeaders
@@ -172,5 +173,5 @@ dwrNextToken = lens _dwrNextToken (\ s a -> s{_dwrNextToken = a});
 --
 -- Because the CreateWorkspaces operation is asynchronous, some of this
 -- information may be incomplete for a newly-created WorkSpace.
-dwrWorkspaces :: Lens' DescribeWorkspacesResponse (Maybe [Workspace])
-dwrWorkspaces = lens _dwrWorkspaces (\ s a -> s{_dwrWorkspaces = a});
+dwrWorkspaces :: Lens' DescribeWorkspacesResponse [Workspace]
+dwrWorkspaces = lens _dwrWorkspaces (\ s a -> s{_dwrWorkspaces = a}) . _Default;

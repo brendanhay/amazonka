@@ -53,7 +53,7 @@ instance AWSRequest ListDomainNames where
               (\ s h x ->
                  ListDomainNamesResponse' <$>
                    (x .@? "DomainNames" .!@ mempty >>=
-                      parseXMLMap "entry" "key" "value"))
+                      may (parseXMLMap "entry" "key" "value")))
 
 instance ToHeaders ListDomainNames where
         toHeaders = const mempty
@@ -73,12 +73,12 @@ instance ToQuery ListDomainNames where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ldnrDomainNames'
-newtype ListDomainNamesResponse = ListDomainNamesResponse'{_ldnrDomainNames :: Maybe (HashMap Text Text)} deriving (Eq, Read, Show)
+newtype ListDomainNamesResponse = ListDomainNamesResponse'{_ldnrDomainNames :: Maybe (Map Text Text)} deriving (Eq, Read, Show)
 
 -- | 'ListDomainNamesResponse' smart constructor.
 listDomainNamesResponse :: ListDomainNamesResponse
 listDomainNamesResponse = ListDomainNamesResponse'{_ldnrDomainNames = Nothing};
 
 -- | The names of the search domains owned by an account.
-ldnrDomainNames :: Lens' ListDomainNamesResponse (Maybe (HashMap Text Text))
-ldnrDomainNames = lens _ldnrDomainNames (\ s a -> s{_ldnrDomainNames = a}) . mapping _Coerce;
+ldnrDomainNames :: Lens' ListDomainNamesResponse (Map Text Text)
+ldnrDomainNames = lens _ldnrDomainNames (\ s a -> s{_ldnrDomainNames = a}) . _Default . _Map;

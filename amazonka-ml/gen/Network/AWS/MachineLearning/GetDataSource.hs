@@ -95,22 +95,22 @@ instance AWSRequest GetDataSource where
           = receiveJSON
               (\ s h x ->
                  GetDataSourceResponse' <$>
-                   x .?> "Status" <*> x .?> "NumberOfFiles" <*>
-                     x .?> "LastUpdatedAt"
-                     <*> x .?> "CreatedAt"
-                     <*> x .?> "RDSMetadata"
-                     <*> x .?> "DataSourceId"
-                     <*> x .?> "DataSizeInBytes"
-                     <*> x .?> "DataSourceSchema"
-                     <*> x .?> "Name"
-                     <*> x .?> "CreatedByIamUser"
-                     <*> x .?> "LogUri"
-                     <*> x .?> "DataLocationS3"
-                     <*> x .?> "ComputeStatistics"
-                     <*> x .?> "Message"
-                     <*> x .?> "RedshiftMetadata"
-                     <*> x .?> "RoleARN"
-                     <*> x .?> "DataRearrangement")
+                   (x .?> "Status") <*> (x .?> "NumberOfFiles") <*>
+                     (x .?> "LastUpdatedAt")
+                     <*> (x .?> "CreatedAt")
+                     <*> (x .?> "RDSMetadata")
+                     <*> (x .?> "DataSourceId")
+                     <*> (x .?> "DataSizeInBytes")
+                     <*> (x .?> "DataSourceSchema")
+                     <*> (x .?> "Name")
+                     <*> (x .?> "CreatedByIamUser")
+                     <*> (x .?> "LogUri")
+                     <*> (x .?> "DataLocationS3")
+                     <*> (x .?> "ComputeStatistics")
+                     <*> (x .?> "Message")
+                     <*> (x .?> "RedshiftMetadata")
+                     <*> (x .?> "RoleARN")
+                     <*> (x .?> "DataRearrangement"))
 
 instance ToHeaders GetDataSource where
         toHeaders

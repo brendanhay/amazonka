@@ -90,7 +90,7 @@ instance AWSRequest DisassociateVPCFromHostedZone
           = receiveXML
               (\ s h x ->
                  DisassociateVPCFromHostedZoneResponse' <$>
-                   x .@ "ChangeInfo")
+                   (x .@ "ChangeInfo"))
 
 instance ToElement DisassociateVPCFromHostedZone
          where

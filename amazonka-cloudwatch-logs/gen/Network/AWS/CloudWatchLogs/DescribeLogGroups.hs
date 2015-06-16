@@ -89,7 +89,8 @@ instance AWSRequest DescribeLogGroups where
           = receiveJSON
               (\ s h x ->
                  DescribeLogGroupsResponse' <$>
-                   x .?> "logGroups" .!@ mempty <*> x .?> "nextToken")
+                   (x .?> "logGroups" .!@ mempty) <*>
+                     (x .?> "nextToken"))
 
 instance ToHeaders DescribeLogGroups where
         toHeaders
@@ -127,8 +128,8 @@ describeLogGroupsResponse :: DescribeLogGroupsResponse
 describeLogGroupsResponse = DescribeLogGroupsResponse'{_dlgrLogGroups = Nothing, _dlgrNextToken = Nothing};
 
 -- | FIXME: Undocumented member.
-dlgrLogGroups :: Lens' DescribeLogGroupsResponse (Maybe [LogGroup])
-dlgrLogGroups = lens _dlgrLogGroups (\ s a -> s{_dlgrLogGroups = a});
+dlgrLogGroups :: Lens' DescribeLogGroupsResponse [LogGroup]
+dlgrLogGroups = lens _dlgrLogGroups (\ s a -> s{_dlgrLogGroups = a}) . _Default;
 
 -- | FIXME: Undocumented member.
 dlgrNextToken :: Lens' DescribeLogGroupsResponse (Maybe Text)

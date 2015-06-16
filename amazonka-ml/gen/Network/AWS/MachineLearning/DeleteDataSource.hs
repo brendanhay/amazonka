@@ -69,7 +69,7 @@ instance AWSRequest DeleteDataSource where
         response
           = receiveJSON
               (\ s h x ->
-                 DeleteDataSourceResponse' <$> x .?> "DataSourceId")
+                 DeleteDataSourceResponse' <$> (x .?> "DataSourceId"))
 
 instance ToHeaders DeleteDataSource where
         toHeaders

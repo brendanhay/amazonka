@@ -85,14 +85,14 @@ describeVPCs = DescribeVPCs'{_dv1Filters = Nothing, _dv1VPCIds = Nothing, _dv1Dr
 --
 -- -   @vpc-id@ - The ID of the VPC.
 --
-dv1Filters :: Lens' DescribeVPCs (Maybe [Filter])
-dv1Filters = lens _dv1Filters (\ s a -> s{_dv1Filters = a});
+dv1Filters :: Lens' DescribeVPCs [Filter]
+dv1Filters = lens _dv1Filters (\ s a -> s{_dv1Filters = a}) . _Default;
 
 -- | One or more VPC IDs.
 --
 -- Default: Describes all your VPCs.
-dv1VPCIds :: Lens' DescribeVPCs (Maybe [Text])
-dv1VPCIds = lens _dv1VPCIds (\ s a -> s{_dv1VPCIds = a});
+dv1VPCIds :: Lens' DescribeVPCs [Text]
+dv1VPCIds = lens _dv1VPCIds (\ s a -> s{_dv1VPCIds = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -108,7 +108,8 @@ instance AWSRequest DescribeVPCs where
         response
           = receiveXML
               (\ s h x ->
-                 DescribeVPCsResponse' <$> parseXMLList "item" x)
+                 DescribeVPCsResponse' <$>
+                   (may (parseXMLList "item") x))
 
 instance ToHeaders DescribeVPCs where
         toHeaders = const mempty
@@ -121,7 +122,8 @@ instance ToQuery DescribeVPCs where
           = mconcat
               ["Action" =: ("DescribeVPCs" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Filter" =: _dv1Filters, "VpcId" =: _dv1VPCIds,
+               toQuery (toQueryList "Filter" <$> _dv1Filters),
+               toQuery (toQueryList "VpcId" <$> _dv1VPCIds),
                "DryRun" =: _dv1DryRun]
 
 -- | /See:/ 'describeVPCsResponse' smart constructor.
@@ -136,5 +138,5 @@ describeVPCsResponse :: DescribeVPCsResponse
 describeVPCsResponse = DescribeVPCsResponse'{_dvrVPCs = Nothing};
 
 -- | Information about one or more VPCs.
-dvrVPCs :: Lens' DescribeVPCsResponse (Maybe [VPC])
-dvrVPCs = lens _dvrVPCs (\ s a -> s{_dvrVPCs = a});
+dvrVPCs :: Lens' DescribeVPCsResponse [VPC]
+dvrVPCs = lens _dvrVPCs (\ s a -> s{_dvrVPCs = a}) . _Default;

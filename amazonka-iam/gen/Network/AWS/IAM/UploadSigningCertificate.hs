@@ -89,7 +89,7 @@ instance AWSRequest UploadSigningCertificate where
           = receiveXMLWrapper "UploadSigningCertificateResult"
               (\ s h x ->
                  UploadSigningCertificateResponse' <$>
-                   x .@ "Certificate")
+                   (x .@ "Certificate"))
 
 instance ToHeaders UploadSigningCertificate where
         toHeaders = const mempty

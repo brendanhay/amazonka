@@ -82,7 +82,7 @@ instance AWSRequest DescribeStackResource where
           = receiveXMLWrapper "DescribeStackResourceResult"
               (\ s h x ->
                  DescribeStackResourceResponse' <$>
-                   x .@? "StackResourceDetail")
+                   (x .@? "StackResourceDetail"))
 
 instance ToHeaders DescribeStackResource where
         toHeaders = const mempty

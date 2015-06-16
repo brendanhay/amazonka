@@ -74,7 +74,7 @@ instance AWSRequest DefineSuggester where
         response
           = receiveXMLWrapper "DefineSuggesterResult"
               (\ s h x ->
-                 DefineSuggesterResponse' <$> x .@ "Suggester")
+                 DefineSuggesterResponse' <$> (x .@ "Suggester"))
 
 instance ToHeaders DefineSuggester where
         toHeaders = const mempty

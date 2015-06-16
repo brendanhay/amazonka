@@ -62,7 +62,7 @@ instance AWSRequest ListVerifiedEmailAddresses where
               (\ s h x ->
                  ListVerifiedEmailAddressesResponse' <$>
                    (x .@? "VerifiedEmailAddresses" .!@ mempty >>=
-                      parseXMLList "member"))
+                      may (parseXMLList "member")))
 
 instance ToHeaders ListVerifiedEmailAddresses where
         toHeaders = const mempty
@@ -90,5 +90,5 @@ listVerifiedEmailAddressesResponse :: ListVerifiedEmailAddressesResponse
 listVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse'{_lvearVerifiedEmailAddresses = Nothing};
 
 -- | A list of email addresses that have been verified.
-lvearVerifiedEmailAddresses :: Lens' ListVerifiedEmailAddressesResponse (Maybe [Text])
-lvearVerifiedEmailAddresses = lens _lvearVerifiedEmailAddresses (\ s a -> s{_lvearVerifiedEmailAddresses = a});
+lvearVerifiedEmailAddresses :: Lens' ListVerifiedEmailAddressesResponse [Text]
+lvearVerifiedEmailAddresses = lens _lvearVerifiedEmailAddresses (\ s a -> s{_lvearVerifiedEmailAddresses = a}) . _Default;

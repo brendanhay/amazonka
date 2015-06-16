@@ -103,8 +103,8 @@ instance AWSRequest DescribeAlarmHistory where
               (\ s h x ->
                  DescribeAlarmHistoryResponse' <$>
                    (x .@? "AlarmHistoryItems" .!@ mempty >>=
-                      parseXMLList "member")
-                     <*> x .@? "NextToken")
+                      may (parseXMLList "member"))
+                     <*> (x .@? "NextToken"))
 
 instance ToHeaders DescribeAlarmHistory where
         toHeaders = const mempty
@@ -138,8 +138,8 @@ describeAlarmHistoryResponse :: DescribeAlarmHistoryResponse
 describeAlarmHistoryResponse = DescribeAlarmHistoryResponse'{_dahrAlarmHistoryItems = Nothing, _dahrNextToken = Nothing};
 
 -- | A list of alarm histories in JSON format.
-dahrAlarmHistoryItems :: Lens' DescribeAlarmHistoryResponse (Maybe [AlarmHistoryItem])
-dahrAlarmHistoryItems = lens _dahrAlarmHistoryItems (\ s a -> s{_dahrAlarmHistoryItems = a});
+dahrAlarmHistoryItems :: Lens' DescribeAlarmHistoryResponse [AlarmHistoryItem]
+dahrAlarmHistoryItems = lens _dahrAlarmHistoryItems (\ s a -> s{_dahrAlarmHistoryItems = a}) . _Default;
 
 -- | A string that marks the start of the next batch of returned results.
 dahrNextToken :: Lens' DescribeAlarmHistoryResponse (Maybe Text)

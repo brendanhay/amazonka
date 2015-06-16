@@ -96,7 +96,7 @@ instance AWSRequest TerminateInstances where
           = receiveXML
               (\ s h x ->
                  TerminateInstancesResponse' <$>
-                   parseXMLList "item" x)
+                   (may (parseXMLList "item") x))
 
 instance ToHeaders TerminateInstances where
         toHeaders = const mempty
@@ -110,7 +110,7 @@ instance ToQuery TerminateInstances where
               ["Action" =: ("TerminateInstances" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "DryRun" =: _tiDryRun,
-               "InstanceId" =: _tiInstanceIds]
+               toQueryList "InstanceId" _tiInstanceIds]
 
 -- | /See:/ 'terminateInstancesResponse' smart constructor.
 --
@@ -124,5 +124,5 @@ terminateInstancesResponse :: TerminateInstancesResponse
 terminateInstancesResponse = TerminateInstancesResponse'{_tirTerminatingInstances = Nothing};
 
 -- | Information about one or more terminated instances.
-tirTerminatingInstances :: Lens' TerminateInstancesResponse (Maybe [InstanceStateChange])
-tirTerminatingInstances = lens _tirTerminatingInstances (\ s a -> s{_tirTerminatingInstances = a});
+tirTerminatingInstances :: Lens' TerminateInstancesResponse [InstanceStateChange]
+tirTerminatingInstances = lens _tirTerminatingInstances (\ s a -> s{_tirTerminatingInstances = a}) . _Default;

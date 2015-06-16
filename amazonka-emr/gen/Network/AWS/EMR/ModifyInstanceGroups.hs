@@ -52,8 +52,8 @@ modifyInstanceGroups :: ModifyInstanceGroups
 modifyInstanceGroups = ModifyInstanceGroups'{_migInstanceGroups = Nothing};
 
 -- | Instance groups to change.
-migInstanceGroups :: Lens' ModifyInstanceGroups (Maybe [InstanceGroupModifyConfig])
-migInstanceGroups = lens _migInstanceGroups (\ s a -> s{_migInstanceGroups = a});
+migInstanceGroups :: Lens' ModifyInstanceGroups [InstanceGroupModifyConfig]
+migInstanceGroups = lens _migInstanceGroups (\ s a -> s{_migInstanceGroups = a}) . _Default;
 
 instance AWSRequest ModifyInstanceGroups where
         type Sv ModifyInstanceGroups = EMR

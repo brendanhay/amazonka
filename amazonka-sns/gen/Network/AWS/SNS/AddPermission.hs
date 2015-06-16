@@ -96,8 +96,9 @@ instance ToQuery AddPermission where
               ["Action" =: ("AddPermission" :: ByteString),
                "Version" =: ("2010-03-31" :: ByteString),
                "TopicArn" =: _apTopicARN, "Label" =: _apLabel,
-               "AWSAccountId" =: "member" =: _apAWSAccountId,
-               "ActionName" =: "member" =: _apActionName]
+               "AWSAccountId" =:
+                 toQueryList "member" _apAWSAccountId,
+               "ActionName" =: toQueryList "member" _apActionName]
 
 -- | /See:/ 'addPermissionResponse' smart constructor.
 data AddPermissionResponse = AddPermissionResponse' deriving (Eq, Read, Show)

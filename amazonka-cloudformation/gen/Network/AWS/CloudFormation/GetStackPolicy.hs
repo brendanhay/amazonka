@@ -63,7 +63,8 @@ instance AWSRequest GetStackPolicy where
         response
           = receiveXMLWrapper "GetStackPolicyResult"
               (\ s h x ->
-                 GetStackPolicyResponse' <$> x .@? "StackPolicyBody")
+                 GetStackPolicyResponse' <$>
+                   (x .@? "StackPolicyBody"))
 
 instance ToHeaders GetStackPolicy where
         toHeaders = const mempty

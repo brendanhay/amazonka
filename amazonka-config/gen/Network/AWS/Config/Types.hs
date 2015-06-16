@@ -214,10 +214,10 @@ instance FromJSON ConfigExportDeliveryInfo where
           = withObject "ConfigExportDeliveryInfo"
               (\ x ->
                  ConfigExportDeliveryInfo' <$>
-                   x .:? "lastErrorCode" <*> x .:? "lastAttemptTime" <*>
-                     x .:? "lastSuccessfulTime"
-                     <*> x .:? "lastStatus"
-                     <*> x .:? "lastErrorMessage")
+                   (x .:? "lastErrorCode") <*> (x .:? "lastAttemptTime")
+                     <*> (x .:? "lastSuccessfulTime")
+                     <*> (x .:? "lastStatus")
+                     <*> (x .:? "lastErrorMessage"))
 
 -- | /See:/ 'configStreamDeliveryInfo' smart constructor.
 --
@@ -257,10 +257,10 @@ instance FromJSON ConfigStreamDeliveryInfo where
           = withObject "ConfigStreamDeliveryInfo"
               (\ x ->
                  ConfigStreamDeliveryInfo' <$>
-                   x .:? "lastErrorCode" <*>
-                     x .:? "lastStatusChangeTime"
-                     <*> x .:? "lastStatus"
-                     <*> x .:? "lastErrorMessage")
+                   (x .:? "lastErrorCode") <*>
+                     (x .:? "lastStatusChangeTime")
+                     <*> (x .:? "lastStatus")
+                     <*> (x .:? "lastErrorMessage"))
 
 -- | /See:/ 'configurationItem' smart constructor.
 --
@@ -295,7 +295,7 @@ instance FromJSON ConfigStreamDeliveryInfo where
 -- * 'ciConfigurationItemMD5Hash'
 --
 -- * 'ciTags'
-data ConfigurationItem = ConfigurationItem'{_ciResourceId :: Maybe Text, _ciConfigurationStateId :: Maybe Text, _ciResourceType :: Maybe ResourceType, _ciArn :: Maybe Text, _ciResourceCreationTime :: Maybe POSIX, _ciConfigurationItemStatus :: Maybe ConfigurationItemStatus, _ciAccountId :: Maybe Text, _ciConfigurationItemCaptureTime :: Maybe POSIX, _ciAvailabilityZone :: Maybe Text, _ciRelationships :: Maybe [Relationship], _ciVersion :: Maybe Text, _ciRelatedEvents :: Maybe [Text], _ciConfiguration :: Maybe Text, _ciConfigurationItemMD5Hash :: Maybe Text, _ciTags :: Maybe (HashMap Text Text)} deriving (Eq, Read, Show)
+data ConfigurationItem = ConfigurationItem'{_ciResourceId :: Maybe Text, _ciConfigurationStateId :: Maybe Text, _ciResourceType :: Maybe ResourceType, _ciArn :: Maybe Text, _ciResourceCreationTime :: Maybe POSIX, _ciConfigurationItemStatus :: Maybe ConfigurationItemStatus, _ciAccountId :: Maybe Text, _ciConfigurationItemCaptureTime :: Maybe POSIX, _ciAvailabilityZone :: Maybe Text, _ciRelationships :: Maybe [Relationship], _ciVersion :: Maybe Text, _ciRelatedEvents :: Maybe [Text], _ciConfiguration :: Maybe Text, _ciConfigurationItemMD5Hash :: Maybe Text, _ciTags :: Maybe (Map Text Text)} deriving (Eq, Read, Show)
 
 -- | 'ConfigurationItem' smart constructor.
 configurationItem :: ConfigurationItem
@@ -339,8 +339,8 @@ ciAvailabilityZone :: Lens' ConfigurationItem (Maybe Text)
 ciAvailabilityZone = lens _ciAvailabilityZone (\ s a -> s{_ciAvailabilityZone = a});
 
 -- | A list of related AWS resources.
-ciRelationships :: Lens' ConfigurationItem (Maybe [Relationship])
-ciRelationships = lens _ciRelationships (\ s a -> s{_ciRelationships = a});
+ciRelationships :: Lens' ConfigurationItem [Relationship]
+ciRelationships = lens _ciRelationships (\ s a -> s{_ciRelationships = a}) . _Default;
 
 -- | The version number of the resource configuration.
 ciVersion :: Lens' ConfigurationItem (Maybe Text)
@@ -355,8 +355,8 @@ ciVersion = lens _ciVersion (\ s a -> s{_ciVersion = a});
 --
 -- An empty field indicates that the current configuration was not
 -- initiated by any event.
-ciRelatedEvents :: Lens' ConfigurationItem (Maybe [Text])
-ciRelatedEvents = lens _ciRelatedEvents (\ s a -> s{_ciRelatedEvents = a});
+ciRelatedEvents :: Lens' ConfigurationItem [Text]
+ciRelatedEvents = lens _ciRelatedEvents (\ s a -> s{_ciRelatedEvents = a}) . _Default;
 
 -- | The description of the resource configuration.
 ciConfiguration :: Lens' ConfigurationItem (Maybe Text)
@@ -370,28 +370,29 @@ ciConfigurationItemMD5Hash :: Lens' ConfigurationItem (Maybe Text)
 ciConfigurationItemMD5Hash = lens _ciConfigurationItemMD5Hash (\ s a -> s{_ciConfigurationItemMD5Hash = a});
 
 -- | A mapping of key value tags associated with the resource.
-ciTags :: Lens' ConfigurationItem (Maybe (HashMap Text Text))
-ciTags = lens _ciTags (\ s a -> s{_ciTags = a}) . mapping _Coerce;
+ciTags :: Lens' ConfigurationItem (Map Text Text)
+ciTags = lens _ciTags (\ s a -> s{_ciTags = a}) . _Default . _Map;
 
 instance FromJSON ConfigurationItem where
         parseJSON
           = withObject "ConfigurationItem"
               (\ x ->
                  ConfigurationItem' <$>
-                   x .:? "resourceId" <*> x .:? "configurationStateId"
-                     <*> x .:? "resourceType"
-                     <*> x .:? "arn"
-                     <*> x .:? "resourceCreationTime"
-                     <*> x .:? "configurationItemStatus"
-                     <*> x .:? "accountId"
-                     <*> x .:? "configurationItemCaptureTime"
-                     <*> x .:? "availabilityZone"
-                     <*> x .:? "relationships" .!= mempty
-                     <*> x .:? "version"
-                     <*> x .:? "relatedEvents" .!= mempty
-                     <*> x .:? "configuration"
-                     <*> x .:? "configurationItemMD5Hash"
-                     <*> x .:? "tags" .!= mempty)
+                   (x .:? "resourceId") <*>
+                     (x .:? "configurationStateId")
+                     <*> (x .:? "resourceType")
+                     <*> (x .:? "arn")
+                     <*> (x .:? "resourceCreationTime")
+                     <*> (x .:? "configurationItemStatus")
+                     <*> (x .:? "accountId")
+                     <*> (x .:? "configurationItemCaptureTime")
+                     <*> (x .:? "availabilityZone")
+                     <*> (x .:? "relationships" .!= mempty)
+                     <*> (x .:? "version")
+                     <*> (x .:? "relatedEvents" .!= mempty)
+                     <*> (x .:? "configuration")
+                     <*> (x .:? "configurationItemMD5Hash")
+                     <*> (x .:? "tags" .!= mempty))
 
 data ConfigurationItemStatus = OK | Discovered | Deleted | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -446,7 +447,7 @@ instance FromJSON ConfigurationRecorder where
           = withObject "ConfigurationRecorder"
               (\ x ->
                  ConfigurationRecorder' <$>
-                   x .:? "name" <*> x .:? "roleARN")
+                   (x .:? "name") <*> (x .:? "roleARN"))
 
 instance ToJSON ConfigurationRecorder where
         toJSON ConfigurationRecorder'{..}
@@ -514,13 +515,13 @@ instance FromJSON ConfigurationRecorderStatus where
           = withObject "ConfigurationRecorderStatus"
               (\ x ->
                  ConfigurationRecorderStatus' <$>
-                   x .:? "lastErrorCode" <*> x .:? "lastStopTime" <*>
-                     x .:? "lastStatusChangeTime"
-                     <*> x .:? "recording"
-                     <*> x .:? "lastStatus"
-                     <*> x .:? "lastErrorMessage"
-                     <*> x .:? "name"
-                     <*> x .:? "lastStartTime")
+                   (x .:? "lastErrorCode") <*> (x .:? "lastStopTime")
+                     <*> (x .:? "lastStatusChangeTime")
+                     <*> (x .:? "recording")
+                     <*> (x .:? "lastStatus")
+                     <*> (x .:? "lastErrorMessage")
+                     <*> (x .:? "name")
+                     <*> (x .:? "lastStartTime"))
 
 -- | /See:/ 'deliveryChannel' smart constructor.
 --
@@ -564,9 +565,9 @@ instance FromJSON DeliveryChannel where
           = withObject "DeliveryChannel"
               (\ x ->
                  DeliveryChannel' <$>
-                   x .:? "s3KeyPrefix" <*> x .:? "snsTopicARN" <*>
-                     x .:? "name"
-                     <*> x .:? "s3BucketName")
+                   (x .:? "s3KeyPrefix") <*> (x .:? "snsTopicARN") <*>
+                     (x .:? "name")
+                     <*> (x .:? "s3BucketName"))
 
 instance ToJSON DeliveryChannel where
         toJSON DeliveryChannel'{..}
@@ -616,10 +617,10 @@ instance FromJSON DeliveryChannelStatus where
           = withObject "DeliveryChannelStatus"
               (\ x ->
                  DeliveryChannelStatus' <$>
-                   x .:? "configStreamDeliveryInfo" <*>
-                     x .:? "configSnapshotDeliveryInfo"
-                     <*> x .:? "configHistoryDeliveryInfo"
-                     <*> x .:? "name")
+                   (x .:? "configStreamDeliveryInfo") <*>
+                     (x .:? "configSnapshotDeliveryInfo")
+                     <*> (x .:? "configHistoryDeliveryInfo")
+                     <*> (x .:? "name"))
 
 data DeliveryStatus = Success | NotApplicable | Failure deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -697,8 +698,8 @@ instance FromJSON Relationship where
           = withObject "Relationship"
               (\ x ->
                  Relationship' <$>
-                   x .:? "resourceId" <*> x .:? "resourceType" <*>
-                     x .:? "relationshipName")
+                   (x .:? "resourceId") <*> (x .:? "resourceType") <*>
+                     (x .:? "relationshipName"))
 
 data ResourceType = AWSCloudTrailTrail | AWSEC2VPNConnection | AWSEC2SecurityGroup | AWSEC2Instance | AWSEC2NetworkACL | AWSEC2VPNGateway | AWSEC2VPC | AWSEC2NetworkInterface | AWSEC2InternetGateway | AWSEC2Subnet | AWSEC2EIP | AWSEC2CustomerGateway | AWSEC2RouteTable | AWSEC2Volume deriving (Eq, Ord, Read, Show, Enum, Generic)
 

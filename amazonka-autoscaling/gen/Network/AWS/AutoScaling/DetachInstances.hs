@@ -63,8 +63,8 @@ detachInstances :: Text -> Bool -> DetachInstances
 detachInstances pAutoScalingGroupName pShouldDecrementDesiredCapacity = DetachInstances'{_diInstanceIds = Nothing, _diAutoScalingGroupName = pAutoScalingGroupName, _diShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity};
 
 -- | One or more instance IDs.
-diInstanceIds :: Lens' DetachInstances (Maybe [Text])
-diInstanceIds = lens _diInstanceIds (\ s a -> s{_diInstanceIds = a});
+diInstanceIds :: Lens' DetachInstances [Text]
+diInstanceIds = lens _diInstanceIds (\ s a -> s{_diInstanceIds = a}) . _Default;
 
 -- | The name of the group.
 diAutoScalingGroupName :: Lens' DetachInstances Text
@@ -84,7 +84,7 @@ instance AWSRequest DetachInstances where
               (\ s h x ->
                  DetachInstancesResponse' <$>
                    (x .@? "Activities" .!@ mempty >>=
-                      parseXMLList "member"))
+                      may (parseXMLList "member")))
 
 instance ToHeaders DetachInstances where
         toHeaders = const mempty
@@ -97,7 +97,8 @@ instance ToQuery DetachInstances where
           = mconcat
               ["Action" =: ("DetachInstances" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
-               "InstanceIds" =: "member" =: _diInstanceIds,
+               "InstanceIds" =:
+                 toQuery (toQueryList "member" <$> _diInstanceIds),
                "AutoScalingGroupName" =: _diAutoScalingGroupName,
                "ShouldDecrementDesiredCapacity" =:
                  _diShouldDecrementDesiredCapacity]
@@ -115,5 +116,5 @@ detachInstancesResponse = DetachInstancesResponse'{_dirActivities = Nothing};
 
 -- | The activities related to detaching the instances from the Auto Scaling
 -- group.
-dirActivities :: Lens' DetachInstancesResponse (Maybe [Activity])
-dirActivities = lens _dirActivities (\ s a -> s{_dirActivities = a});
+dirActivities :: Lens' DetachInstancesResponse [Activity]
+dirActivities = lens _dirActivities (\ s a -> s{_dirActivities = a}) . _Default;

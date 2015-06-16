@@ -62,7 +62,7 @@ instance AWSRequest GenerateRandom where
         response
           = receiveJSON
               (\ s h x ->
-                 GenerateRandomResponse' <$> x .?> "Plaintext")
+                 GenerateRandomResponse' <$> (x .?> "Plaintext"))
 
 instance ToHeaders GenerateRandom where
         toHeaders

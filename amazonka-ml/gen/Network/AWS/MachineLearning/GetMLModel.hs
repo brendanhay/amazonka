@@ -93,24 +93,24 @@ instance AWSRequest GetMLModel where
           = receiveJSON
               (\ s h x ->
                  GetMLModelResponse' <$>
-                   x .?> "Status" <*>
-                     x .?> "TrainingParameters" .!@ mempty
-                     <*> x .?> "LastUpdatedAt"
-                     <*> x .?> "CreatedAt"
-                     <*> x .?> "ScoreThresholdLastUpdatedAt"
-                     <*> x .?> "Recipe"
-                     <*> x .?> "InputDataLocationS3"
-                     <*> x .?> "SizeInBytes"
-                     <*> x .?> "MLModelId"
-                     <*> x .?> "Schema"
-                     <*> x .?> "ScoreThreshold"
-                     <*> x .?> "Name"
-                     <*> x .?> "CreatedByIamUser"
-                     <*> x .?> "LogUri"
-                     <*> x .?> "EndpointInfo"
-                     <*> x .?> "TrainingDataSourceId"
-                     <*> x .?> "Message"
-                     <*> x .?> "MLModelType")
+                   (x .?> "Status") <*>
+                     (x .?> "TrainingParameters" .!@ mempty)
+                     <*> (x .?> "LastUpdatedAt")
+                     <*> (x .?> "CreatedAt")
+                     <*> (x .?> "ScoreThresholdLastUpdatedAt")
+                     <*> (x .?> "Recipe")
+                     <*> (x .?> "InputDataLocationS3")
+                     <*> (x .?> "SizeInBytes")
+                     <*> (x .?> "MLModelId")
+                     <*> (x .?> "Schema")
+                     <*> (x .?> "ScoreThreshold")
+                     <*> (x .?> "Name")
+                     <*> (x .?> "CreatedByIamUser")
+                     <*> (x .?> "LogUri")
+                     <*> (x .?> "EndpointInfo")
+                     <*> (x .?> "TrainingDataSourceId")
+                     <*> (x .?> "Message")
+                     <*> (x .?> "MLModelType"))
 
 instance ToHeaders GetMLModel where
         toHeaders
@@ -172,7 +172,7 @@ instance ToQuery GetMLModel where
 -- * 'gmlmrMessage'
 --
 -- * 'gmlmrMLModelType'
-data GetMLModelResponse = GetMLModelResponse'{_gmlmrStatus :: Maybe EntityStatus, _gmlmrTrainingParameters :: Maybe (HashMap Text Text), _gmlmrLastUpdatedAt :: Maybe POSIX, _gmlmrCreatedAt :: Maybe POSIX, _gmlmrScoreThresholdLastUpdatedAt :: Maybe POSIX, _gmlmrRecipe :: Maybe Text, _gmlmrInputDataLocationS3 :: Maybe Text, _gmlmrSizeInBytes :: Maybe Integer, _gmlmrMLModelId :: Maybe Text, _gmlmrSchema :: Maybe Text, _gmlmrScoreThreshold :: Maybe Double, _gmlmrName :: Maybe Text, _gmlmrCreatedByIAMUser :: Maybe Text, _gmlmrLogURI :: Maybe Text, _gmlmrEndpointInfo :: Maybe RealtimeEndpointInfo, _gmlmrTrainingDataSourceId :: Maybe Text, _gmlmrMessage :: Maybe Text, _gmlmrMLModelType :: Maybe MLModelType} deriving (Eq, Read, Show)
+data GetMLModelResponse = GetMLModelResponse'{_gmlmrStatus :: Maybe EntityStatus, _gmlmrTrainingParameters :: Maybe (Map Text Text), _gmlmrLastUpdatedAt :: Maybe POSIX, _gmlmrCreatedAt :: Maybe POSIX, _gmlmrScoreThresholdLastUpdatedAt :: Maybe POSIX, _gmlmrRecipe :: Maybe Text, _gmlmrInputDataLocationS3 :: Maybe Text, _gmlmrSizeInBytes :: Maybe Integer, _gmlmrMLModelId :: Maybe Text, _gmlmrSchema :: Maybe Text, _gmlmrScoreThreshold :: Maybe Double, _gmlmrName :: Maybe Text, _gmlmrCreatedByIAMUser :: Maybe Text, _gmlmrLogURI :: Maybe Text, _gmlmrEndpointInfo :: Maybe RealtimeEndpointInfo, _gmlmrTrainingDataSourceId :: Maybe Text, _gmlmrMessage :: Maybe Text, _gmlmrMLModelType :: Maybe MLModelType} deriving (Eq, Read, Show)
 
 -- | 'GetMLModelResponse' smart constructor.
 getMLModelResponse :: GetMLModelResponse
@@ -226,8 +226,8 @@ gmlmrStatus = lens _gmlmrStatus (\ s a -> s{_gmlmrStatus = a});
 --     The value is an integer that ranges from 100000 to 2147483648. The
 --     default value is 33554432.
 --
-gmlmrTrainingParameters :: Lens' GetMLModelResponse (Maybe (HashMap Text Text))
-gmlmrTrainingParameters = lens _gmlmrTrainingParameters (\ s a -> s{_gmlmrTrainingParameters = a}) . mapping _Coerce;
+gmlmrTrainingParameters :: Lens' GetMLModelResponse (Map Text Text)
+gmlmrTrainingParameters = lens _gmlmrTrainingParameters (\ s a -> s{_gmlmrTrainingParameters = a}) . _Default . _Map;
 
 -- | The time of the most recent edit to the @MLModel@. The time is expressed
 -- in epoch time.

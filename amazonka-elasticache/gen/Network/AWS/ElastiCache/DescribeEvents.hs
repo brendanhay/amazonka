@@ -127,8 +127,9 @@ instance AWSRequest DescribeEvents where
           = receiveXMLWrapper "DescribeEventsResult"
               (\ s h x ->
                  DescribeEventsResponse' <$>
-                   (x .@? "Events" .!@ mempty >>= parseXMLList "Event")
-                     <*> x .@? "Marker")
+                   (x .@? "Events" .!@ mempty >>=
+                      may (parseXMLList "Event"))
+                     <*> (x .@? "Marker"))
 
 instance ToHeaders DescribeEvents where
         toHeaders = const mempty
@@ -163,8 +164,8 @@ describeEventsResponse = DescribeEventsResponse'{_derEvents = Nothing, _derMarke
 
 -- | A list of events. Each element in the list contains detailed information
 -- about one event.
-derEvents :: Lens' DescribeEventsResponse (Maybe [Event])
-derEvents = lens _derEvents (\ s a -> s{_derEvents = a});
+derEvents :: Lens' DescribeEventsResponse [Event]
+derEvents = lens _derEvents (\ s a -> s{_derEvents = a}) . _Default;
 
 -- | Provides an identifier to allow retrieval of paginated results.
 derMarker :: Lens' DescribeEventsResponse (Maybe Text)

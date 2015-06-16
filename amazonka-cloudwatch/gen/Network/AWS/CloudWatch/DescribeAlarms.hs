@@ -88,8 +88,8 @@ daStateValue :: Lens' DescribeAlarms (Maybe StateValue)
 daStateValue = lens _daStateValue (\ s a -> s{_daStateValue = a});
 
 -- | A list of alarm names to retrieve information for.
-daAlarmNames :: Lens' DescribeAlarms (Maybe [Text])
-daAlarmNames = lens _daAlarmNames (\ s a -> s{_daAlarmNames = a});
+daAlarmNames :: Lens' DescribeAlarms [Text]
+daAlarmNames = lens _daAlarmNames (\ s a -> s{_daAlarmNames = a}) . _Default;
 
 -- | The maximum number of alarm descriptions to retrieve.
 daMaxRecords :: Lens' DescribeAlarms (Maybe Natural)
@@ -104,8 +104,8 @@ instance AWSRequest DescribeAlarms where
               (\ s h x ->
                  DescribeAlarmsResponse' <$>
                    (x .@? "MetricAlarms" .!@ mempty >>=
-                      parseXMLList "member")
-                     <*> x .@? "NextToken")
+                      may (parseXMLList "member"))
+                     <*> (x .@? "NextToken"))
 
 instance ToHeaders DescribeAlarms where
         toHeaders = const mempty
@@ -122,7 +122,8 @@ instance ToQuery DescribeAlarms where
                "ActionPrefix" =: _daActionPrefix,
                "NextToken" =: _daNextToken,
                "StateValue" =: _daStateValue,
-               "AlarmNames" =: "member" =: _daAlarmNames,
+               "AlarmNames" =:
+                 toQuery (toQueryList "member" <$> _daAlarmNames),
                "MaxRecords" =: _daMaxRecords]
 
 -- | /See:/ 'describeAlarmsResponse' smart constructor.
@@ -139,8 +140,8 @@ describeAlarmsResponse :: DescribeAlarmsResponse
 describeAlarmsResponse = DescribeAlarmsResponse'{_darMetricAlarms = Nothing, _darNextToken = Nothing};
 
 -- | A list of information for the specified alarms.
-darMetricAlarms :: Lens' DescribeAlarmsResponse (Maybe [MetricAlarm])
-darMetricAlarms = lens _darMetricAlarms (\ s a -> s{_darMetricAlarms = a});
+darMetricAlarms :: Lens' DescribeAlarmsResponse [MetricAlarm]
+darMetricAlarms = lens _darMetricAlarms (\ s a -> s{_darMetricAlarms = a}) . _Default;
 
 -- | A string that marks the start of the next batch of returned results.
 darNextToken :: Lens' DescribeAlarmsResponse (Maybe Text)

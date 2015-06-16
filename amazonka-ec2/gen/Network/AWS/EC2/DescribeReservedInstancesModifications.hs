@@ -102,12 +102,12 @@ describeReservedInstancesModifications = DescribeReservedInstancesModifications'
 -- -   @update-date@ - The time when the modification request was last
 --     updated.
 --
-drimFilters :: Lens' DescribeReservedInstancesModifications (Maybe [Filter])
-drimFilters = lens _drimFilters (\ s a -> s{_drimFilters = a});
+drimFilters :: Lens' DescribeReservedInstancesModifications [Filter]
+drimFilters = lens _drimFilters (\ s a -> s{_drimFilters = a}) . _Default;
 
 -- | IDs for the submitted modification request.
-drimReservedInstancesModificationIds :: Lens' DescribeReservedInstancesModifications (Maybe [Text])
-drimReservedInstancesModificationIds = lens _drimReservedInstancesModificationIds (\ s a -> s{_drimReservedInstancesModificationIds = a});
+drimReservedInstancesModificationIds :: Lens' DescribeReservedInstancesModifications [Text]
+drimReservedInstancesModificationIds = lens _drimReservedInstancesModificationIds (\ s a -> s{_drimReservedInstancesModificationIds = a}) . _Default;
 
 -- | The token to retrieve the next page of results.
 drimNextToken :: Lens' DescribeReservedInstancesModifications (Maybe Text)
@@ -123,7 +123,8 @@ instance AWSRequest
           = receiveXML
               (\ s h x ->
                  DescribeReservedInstancesModificationsResponse' <$>
-                   x .@? "nextToken" <*> parseXMLList "item" x)
+                   (x .@? "nextToken") <*>
+                     (may (parseXMLList "item") x))
 
 instance ToHeaders
          DescribeReservedInstancesModifications where
@@ -141,9 +142,10 @@ instance ToQuery
                  ("DescribeReservedInstancesModifications" ::
                     ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Filter" =: _drimFilters,
-               "ReservedInstancesModificationId" =:
-                 _drimReservedInstancesModificationIds,
+               toQuery (toQueryList "Filter" <$> _drimFilters),
+               toQuery
+                 (toQueryList "ReservedInstancesModificationId" <$>
+                    _drimReservedInstancesModificationIds),
                "NextToken" =: _drimNextToken]
 
 -- | /See:/ 'describeReservedInstancesModificationsResponse' smart constructor.
@@ -165,5 +167,5 @@ drimrNextToken :: Lens' DescribeReservedInstancesModificationsResponse (Maybe Te
 drimrNextToken = lens _drimrNextToken (\ s a -> s{_drimrNextToken = a});
 
 -- | The Reserved Instance modification information.
-drimrReservedInstancesModifications :: Lens' DescribeReservedInstancesModificationsResponse (Maybe [ReservedInstancesModification])
-drimrReservedInstancesModifications = lens _drimrReservedInstancesModifications (\ s a -> s{_drimrReservedInstancesModifications = a});
+drimrReservedInstancesModifications :: Lens' DescribeReservedInstancesModificationsResponse [ReservedInstancesModification]
+drimrReservedInstancesModifications = lens _drimrReservedInstancesModifications (\ s a -> s{_drimrReservedInstancesModifications = a}) . _Default;

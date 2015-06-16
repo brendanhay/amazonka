@@ -177,13 +177,13 @@ instance AWSRequest PollForDecisionTask where
           = receiveJSON
               (\ s h x ->
                  PollForDecisionTaskResponse' <$>
-                   x .?> "nextPageToken" <*>
-                     x .?> "previousStartedEventId"
-                     <*> x .:> "taskToken"
-                     <*> x .:> "startedEventId"
-                     <*> x .:> "workflowExecution"
-                     <*> x .:> "workflowType"
-                     <*> x .?> "events" .!@ mempty)
+                   (x .?> "nextPageToken") <*>
+                     (x .?> "previousStartedEventId")
+                     <*> (x .:> "taskToken")
+                     <*> (x .:> "startedEventId")
+                     <*> (x .:> "workflowExecution")
+                     <*> (x .:> "workflowType")
+                     <*> (x .?> "events" .!@ mempty))
 
 instance ToHeaders PollForDecisionTask where
         toHeaders

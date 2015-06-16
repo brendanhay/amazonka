@@ -99,15 +99,15 @@ instance AWSRequest CompleteMultipartUpload where
           = receiveXML
               (\ s h x ->
                  CompleteMultipartUploadResponse' <$>
-                   h .#? "x-amz-version-id" <*> x .@? "ETag" <*>
-                     h .#? "x-amz-request-charged"
-                     <*> x .@? "Location"
-                     <*> h .#? "x-amz-expiration"
-                     <*> x .@? "Bucket"
-                     <*> x .@? "Key"
+                   (h .#? "x-amz-version-id") <*> (x .@? "ETag") <*>
+                     (h .#? "x-amz-request-charged")
+                     <*> (x .@? "Location")
+                     <*> (h .#? "x-amz-expiration")
+                     <*> (x .@? "Bucket")
+                     <*> (x .@? "Key")
                      <*>
-                     h .#? "x-amz-server-side-encryption-aws-kms-key-id"
-                     <*> h .#? "x-amz-server-side-encryption")
+                     (h .#? "x-amz-server-side-encryption-aws-kms-key-id")
+                     <*> (h .#? "x-amz-server-side-encryption"))
 
 instance ToElement CompleteMultipartUpload where
         toElement

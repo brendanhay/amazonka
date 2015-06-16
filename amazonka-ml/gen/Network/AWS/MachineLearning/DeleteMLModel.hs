@@ -68,7 +68,7 @@ instance AWSRequest DeleteMLModel where
         response
           = receiveJSON
               (\ s h x ->
-                 DeleteMLModelResponse' <$> x .?> "MLModelId")
+                 DeleteMLModelResponse' <$> (x .?> "MLModelId"))
 
 instance ToHeaders DeleteMLModel where
         toHeaders

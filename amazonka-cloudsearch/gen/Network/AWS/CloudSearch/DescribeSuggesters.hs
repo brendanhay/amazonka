@@ -69,8 +69,8 @@ desDeployed :: Lens' DescribeSuggesters (Maybe Bool)
 desDeployed = lens _desDeployed (\ s a -> s{_desDeployed = a});
 
 -- | The suggesters you want to describe.
-desSuggesterNames :: Lens' DescribeSuggesters (Maybe [Text])
-desSuggesterNames = lens _desSuggesterNames (\ s a -> s{_desSuggesterNames = a});
+desSuggesterNames :: Lens' DescribeSuggesters [Text]
+desSuggesterNames = lens _desSuggesterNames (\ s a -> s{_desSuggesterNames = a}) . _Default;
 
 -- | The name of the domain you want to describe.
 desDomainName :: Lens' DescribeSuggesters Text
@@ -100,7 +100,9 @@ instance ToQuery DescribeSuggesters where
               ["Action" =: ("DescribeSuggesters" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
                "Deployed" =: _desDeployed,
-               "SuggesterNames" =: "member" =: _desSuggesterNames,
+               "SuggesterNames" =:
+                 toQuery
+                   (toQueryList "member" <$> _desSuggesterNames),
                "DomainName" =: _desDomainName]
 
 -- | /See:/ 'describeSuggestersResponse' smart constructor.

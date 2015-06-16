@@ -72,8 +72,8 @@ listDeploymentInstances pDeploymentId = ListDeploymentInstances'{_ldiInstanceSta
 --     deployments.
 -- -   Unknown: Include in the resulting list those instances with
 --     deployments in an unknown state.
-ldiInstanceStatusFilter :: Lens' ListDeploymentInstances (Maybe [InstanceStatus])
-ldiInstanceStatusFilter = lens _ldiInstanceStatusFilter (\ s a -> s{_ldiInstanceStatusFilter = a});
+ldiInstanceStatusFilter :: Lens' ListDeploymentInstances [InstanceStatus]
+ldiInstanceStatusFilter = lens _ldiInstanceStatusFilter (\ s a -> s{_ldiInstanceStatusFilter = a}) . _Default;
 
 -- | An identifier that was returned from the previous list deployment
 -- instances call, which can be used to return the next set of deployment
@@ -94,8 +94,8 @@ instance AWSRequest ListDeploymentInstances where
           = receiveJSON
               (\ s h x ->
                  ListDeploymentInstancesResponse' <$>
-                   x .?> "nextToken" <*>
-                     x .?> "instancesList" .!@ mempty)
+                   (x .?> "nextToken") <*>
+                     (x .?> "instancesList" .!@ mempty))
 
 instance ToHeaders ListDeploymentInstances where
         toHeaders
@@ -141,5 +141,5 @@ ldirNextToken :: Lens' ListDeploymentInstancesResponse (Maybe Text)
 ldirNextToken = lens _ldirNextToken (\ s a -> s{_ldirNextToken = a});
 
 -- | A list of instances IDs.
-ldirInstancesList :: Lens' ListDeploymentInstancesResponse (Maybe [Text])
-ldirInstancesList = lens _ldirInstancesList (\ s a -> s{_ldirInstancesList = a});
+ldirInstancesList :: Lens' ListDeploymentInstancesResponse [Text]
+ldirInstancesList = lens _ldirInstancesList (\ s a -> s{_ldirInstancesList = a}) . _Default;

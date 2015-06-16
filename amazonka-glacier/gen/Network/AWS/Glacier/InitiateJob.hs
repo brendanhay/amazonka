@@ -208,7 +208,7 @@ instance AWSRequest InitiateJob where
           = receiveJSON
               (\ s h x ->
                  InitiateJobResponse' <$>
-                   h .#? "x-amz-job-id" <*> h .#? "Location")
+                   (h .#? "x-amz-job-id") <*> (h .#? "Location"))
 
 instance ToHeaders InitiateJob where
         toHeaders = const mempty

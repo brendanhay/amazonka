@@ -84,8 +84,8 @@ instance AWSRequest GetRolePolicy where
           = receiveXMLWrapper "GetRolePolicyResult"
               (\ s h x ->
                  GetRolePolicyResponse' <$>
-                   x .@ "RoleName" <*> x .@ "PolicyName" <*>
-                     x .@ "PolicyDocument")
+                   (x .@ "RoleName") <*> (x .@ "PolicyName") <*>
+                     (x .@ "PolicyDocument"))
 
 instance ToHeaders GetRolePolicy where
         toHeaders = const mempty

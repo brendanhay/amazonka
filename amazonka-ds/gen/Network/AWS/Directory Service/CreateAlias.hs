@@ -78,7 +78,7 @@ instance AWSRequest CreateAlias where
           = receiveJSON
               (\ s h x ->
                  CreateAliasResponse' <$>
-                   x .?> "DirectoryId" <*> x .?> "Alias")
+                   (x .?> "DirectoryId") <*> (x .?> "Alias"))
 
 instance ToHeaders CreateAlias where
         toHeaders

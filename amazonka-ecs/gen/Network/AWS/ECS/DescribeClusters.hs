@@ -54,8 +54,8 @@ describeClusters = DescribeClusters'{_dcClusters = Nothing};
 -- | A space-separated list of cluster names or full cluster Amazon Resource
 -- Name (ARN) entries. If you do not specify a cluster, the default cluster
 -- is assumed.
-dcClusters :: Lens' DescribeClusters (Maybe [Text])
-dcClusters = lens _dcClusters (\ s a -> s{_dcClusters = a});
+dcClusters :: Lens' DescribeClusters [Text]
+dcClusters = lens _dcClusters (\ s a -> s{_dcClusters = a}) . _Default;
 
 instance AWSRequest DescribeClusters where
         type Sv DescribeClusters = ECS
@@ -65,8 +65,8 @@ instance AWSRequest DescribeClusters where
           = receiveJSON
               (\ s h x ->
                  DescribeClustersResponse' <$>
-                   x .?> "failures" .!@ mempty <*>
-                     x .?> "clusters" .!@ mempty)
+                   (x .?> "failures" .!@ mempty) <*>
+                     (x .?> "clusters" .!@ mempty))
 
 instance ToHeaders DescribeClusters where
         toHeaders
@@ -102,9 +102,9 @@ describeClustersResponse :: DescribeClustersResponse
 describeClustersResponse = DescribeClustersResponse'{_dcrFailures = Nothing, _dcrClusters = Nothing};
 
 -- | FIXME: Undocumented member.
-dcrFailures :: Lens' DescribeClustersResponse (Maybe [Failure])
-dcrFailures = lens _dcrFailures (\ s a -> s{_dcrFailures = a});
+dcrFailures :: Lens' DescribeClustersResponse [Failure]
+dcrFailures = lens _dcrFailures (\ s a -> s{_dcrFailures = a}) . _Default;
 
 -- | The list of clusters.
-dcrClusters :: Lens' DescribeClustersResponse (Maybe [Cluster])
-dcrClusters = lens _dcrClusters (\ s a -> s{_dcrClusters = a});
+dcrClusters :: Lens' DescribeClustersResponse [Cluster]
+dcrClusters = lens _dcrClusters (\ s a -> s{_dcrClusters = a}) . _Default;

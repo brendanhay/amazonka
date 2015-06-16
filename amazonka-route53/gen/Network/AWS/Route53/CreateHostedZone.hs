@@ -136,10 +136,10 @@ instance AWSRequest CreateHostedZone where
           = receiveXML
               (\ s h x ->
                  CreateHostedZoneResponse' <$>
-                   x .@? "VPC" <*> x .@ "HostedZone" <*>
-                     x .@ "ChangeInfo"
-                     <*> x .@ "DelegationSet"
-                     <*> h .# "Location")
+                   (x .@? "VPC") <*> (x .@ "HostedZone") <*>
+                     (x .@ "ChangeInfo")
+                     <*> (x .@ "DelegationSet")
+                     <*> (h .# "Location"))
 
 instance ToElement CreateHostedZone where
         toElement

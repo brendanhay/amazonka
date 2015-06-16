@@ -44,6 +44,9 @@ module Network.AWS.CodeDeploy.Types
     -- * BundleType
     , BundleType (..)
 
+    -- * DeployErrorCode
+    , DeployErrorCode (..)
+
     -- * DeploymentConfigInfo
     , DeploymentConfigInfo
     , deploymentConfigInfo
@@ -101,8 +104,8 @@ module Network.AWS.CodeDeploy.Types
     -- * Diagnostics
     , Diagnostics
     , diagnostics
+    , diaDeployErrorCode
     , diaLogTail
-    , diaErrorCode
     , diaScriptName
     , diaMessage
 
@@ -115,9 +118,6 @@ module Network.AWS.CodeDeploy.Types
 
     -- * EC2TagFilterType
     , EC2TagFilterType (..)
-
-    -- * ErrorCode
-    , ErrorCode (..)
 
     -- * ErrorInformation
     , ErrorInformation
@@ -312,9 +312,9 @@ instance FromJSON ApplicationInfo where
           = withObject "ApplicationInfo"
               (\ x ->
                  ApplicationInfo' <$>
-                   x .:? "linkedToGitHub" <*> x .:? "applicationId" <*>
-                     x .:? "applicationName"
-                     <*> x .:? "createTime")
+                   (x .:? "linkedToGitHub") <*> (x .:? "applicationId")
+                     <*> (x .:? "applicationName")
+                     <*> (x .:? "createTime"))
 
 data ApplicationRevisionSortBy = RegisterTime | FirstUsedTime | LastUsedTime deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -363,7 +363,8 @@ instance FromJSON AutoScalingGroup where
         parseJSON
           = withObject "AutoScalingGroup"
               (\ x ->
-                 AutoScalingGroup' <$> x .:? "hook" <*> x .:? "name")
+                 AutoScalingGroup' <$>
+                   (x .:? "hook") <*> (x .:? "name"))
 
 data BundleType = Zip | TGZ | TAR deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -389,6 +390,48 @@ instance ToJSON BundleType where
 
 instance FromJSON BundleType where
     parseJSON = parseJSONText "BundleType"
+
+data DeployErrorCode = Throttled | HealthConstraints | OverMaxInstances | HealthConstraintsInvalid | NOInstances | ApplicationMissing | RevisionMissing | InternalError | DeploymentGroupMissing | IAMRoleMissing | Timeout | NOEC2Subscription | IAMRolePermissions deriving (Eq, Ord, Read, Show, Enum, Generic)
+
+instance FromText DeployErrorCode where
+    parser = takeLowerText >>= \case
+        "APPLICATION_MISSING" -> pure ApplicationMissing
+        "DEPLOYMENT_GROUP_MISSING" -> pure DeploymentGroupMissing
+        "HEALTH_CONSTRAINTS" -> pure HealthConstraints
+        "HEALTH_CONSTRAINTS_INVALID" -> pure HealthConstraintsInvalid
+        "IAM_ROLE_MISSING" -> pure IAMRoleMissing
+        "IAM_ROLE_PERMISSIONS" -> pure IAMRolePermissions
+        "INTERNAL_ERROR" -> pure InternalError
+        "NO_EC2_SUBSCRIPTION" -> pure NOEC2Subscription
+        "NO_INSTANCES" -> pure NOInstances
+        "OVER_MAX_INSTANCES" -> pure OverMaxInstances
+        "REVISION_MISSING" -> pure RevisionMissing
+        "THROTTLED" -> pure Throttled
+        "TIMEOUT" -> pure Timeout
+        e -> fail ("Failure parsing DeployErrorCode from " ++ show e)
+
+instance ToText DeployErrorCode where
+    toText = \case
+        ApplicationMissing -> "APPLICATION_MISSING"
+        DeploymentGroupMissing -> "DEPLOYMENT_GROUP_MISSING"
+        HealthConstraints -> "HEALTH_CONSTRAINTS"
+        HealthConstraintsInvalid -> "HEALTH_CONSTRAINTS_INVALID"
+        IAMRoleMissing -> "IAM_ROLE_MISSING"
+        IAMRolePermissions -> "IAM_ROLE_PERMISSIONS"
+        InternalError -> "INTERNAL_ERROR"
+        NOEC2Subscription -> "NO_EC2_SUBSCRIPTION"
+        NOInstances -> "NO_INSTANCES"
+        OverMaxInstances -> "OVER_MAX_INSTANCES"
+        RevisionMissing -> "REVISION_MISSING"
+        Throttled -> "THROTTLED"
+        Timeout -> "TIMEOUT"
+
+instance Hashable DeployErrorCode
+instance ToQuery DeployErrorCode
+instance ToHeader DeployErrorCode
+
+instance FromJSON DeployErrorCode where
+    parseJSON = parseJSONText "DeployErrorCode"
 
 -- | /See:/ 'deploymentConfigInfo' smart constructor.
 --
@@ -428,10 +471,10 @@ instance FromJSON DeploymentConfigInfo where
           = withObject "DeploymentConfigInfo"
               (\ x ->
                  DeploymentConfigInfo' <$>
-                   x .:? "deploymentConfigName" <*>
-                     x .:? "minimumHealthyHosts"
-                     <*> x .:? "deploymentConfigId"
-                     <*> x .:? "createTime")
+                   (x .:? "deploymentConfigName") <*>
+                     (x .:? "minimumHealthyHosts")
+                     <*> (x .:? "deploymentConfigId")
+                     <*> (x .:? "createTime"))
 
 data DeploymentCreator = Autoscaling | User deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -494,12 +537,12 @@ dgiTargetRevision :: Lens' DeploymentGroupInfo (Maybe RevisionLocation)
 dgiTargetRevision = lens _dgiTargetRevision (\ s a -> s{_dgiTargetRevision = a});
 
 -- | The Amazon EC2 tags to filter on.
-dgiEc2TagFilters :: Lens' DeploymentGroupInfo (Maybe [EC2TagFilter])
-dgiEc2TagFilters = lens _dgiEc2TagFilters (\ s a -> s{_dgiEc2TagFilters = a});
+dgiEc2TagFilters :: Lens' DeploymentGroupInfo [EC2TagFilter]
+dgiEc2TagFilters = lens _dgiEc2TagFilters (\ s a -> s{_dgiEc2TagFilters = a}) . _Default;
 
 -- | The on-premises instance tags to filter on.
-dgiOnPremisesInstanceTagFilters :: Lens' DeploymentGroupInfo (Maybe [TagFilter])
-dgiOnPremisesInstanceTagFilters = lens _dgiOnPremisesInstanceTagFilters (\ s a -> s{_dgiOnPremisesInstanceTagFilters = a});
+dgiOnPremisesInstanceTagFilters :: Lens' DeploymentGroupInfo [TagFilter]
+dgiOnPremisesInstanceTagFilters = lens _dgiOnPremisesInstanceTagFilters (\ s a -> s{_dgiOnPremisesInstanceTagFilters = a}) . _Default;
 
 -- | The application name.
 dgiApplicationName :: Lens' DeploymentGroupInfo (Maybe Text)
@@ -510,8 +553,8 @@ dgiDeploymentGroupId :: Lens' DeploymentGroupInfo (Maybe Text)
 dgiDeploymentGroupId = lens _dgiDeploymentGroupId (\ s a -> s{_dgiDeploymentGroupId = a});
 
 -- | A list of associated Auto Scaling groups.
-dgiAutoScalingGroups :: Lens' DeploymentGroupInfo (Maybe [AutoScalingGroup])
-dgiAutoScalingGroups = lens _dgiAutoScalingGroups (\ s a -> s{_dgiAutoScalingGroups = a});
+dgiAutoScalingGroups :: Lens' DeploymentGroupInfo [AutoScalingGroup]
+dgiAutoScalingGroups = lens _dgiAutoScalingGroups (\ s a -> s{_dgiAutoScalingGroups = a}) . _Default;
 
 -- | The deployment group name.
 dgiDeploymentGroupName :: Lens' DeploymentGroupInfo (Maybe Text)
@@ -522,15 +565,15 @@ instance FromJSON DeploymentGroupInfo where
           = withObject "DeploymentGroupInfo"
               (\ x ->
                  DeploymentGroupInfo' <$>
-                   x .:? "serviceRoleArn" <*>
-                     x .:? "deploymentConfigName"
-                     <*> x .:? "targetRevision"
-                     <*> x .:? "ec2TagFilters" .!= mempty
-                     <*> x .:? "onPremisesInstanceTagFilters" .!= mempty
-                     <*> x .:? "applicationName"
-                     <*> x .:? "deploymentGroupId"
-                     <*> x .:? "autoScalingGroups" .!= mempty
-                     <*> x .:? "deploymentGroupName")
+                   (x .:? "serviceRoleArn") <*>
+                     (x .:? "deploymentConfigName")
+                     <*> (x .:? "targetRevision")
+                     <*> (x .:? "ec2TagFilters" .!= mempty)
+                     <*> (x .:? "onPremisesInstanceTagFilters" .!= mempty)
+                     <*> (x .:? "applicationName")
+                     <*> (x .:? "deploymentGroupId")
+                     <*> (x .:? "autoScalingGroups" .!= mempty)
+                     <*> (x .:? "deploymentGroupName"))
 
 -- | /See:/ 'deploymentInfo' smart constructor.
 --
@@ -648,19 +691,19 @@ instance FromJSON DeploymentInfo where
           = withObject "DeploymentInfo"
               (\ x ->
                  DeploymentInfo' <$>
-                   x .:? "deploymentId" <*> x .:? "creator" <*>
-                     x .:? "status"
-                     <*> x .:? "deploymentConfigName"
-                     <*> x .:? "startTime"
-                     <*> x .:? "completeTime"
-                     <*> x .:? "errorInformation"
-                     <*> x .:? "deploymentOverview"
-                     <*> x .:? "applicationName"
-                     <*> x .:? "revision"
-                     <*> x .:? "description"
-                     <*> x .:? "ignoreApplicationStopFailures"
-                     <*> x .:? "deploymentGroupName"
-                     <*> x .:? "createTime")
+                   (x .:? "deploymentId") <*> (x .:? "creator") <*>
+                     (x .:? "status")
+                     <*> (x .:? "deploymentConfigName")
+                     <*> (x .:? "startTime")
+                     <*> (x .:? "completeTime")
+                     <*> (x .:? "errorInformation")
+                     <*> (x .:? "deploymentOverview")
+                     <*> (x .:? "applicationName")
+                     <*> (x .:? "revision")
+                     <*> (x .:? "description")
+                     <*> (x .:? "ignoreApplicationStopFailures")
+                     <*> (x .:? "deploymentGroupName")
+                     <*> (x .:? "createTime"))
 
 -- | /See:/ 'deploymentOverview' smart constructor.
 --
@@ -706,10 +749,10 @@ instance FromJSON DeploymentOverview where
           = withObject "DeploymentOverview"
               (\ x ->
                  DeploymentOverview' <$>
-                   x .:? "Pending" <*> x .:? "Skipped" <*>
-                     x .:? "InProgress"
-                     <*> x .:? "Succeeded"
-                     <*> x .:? "Failed")
+                   (x .:? "Pending") <*> (x .:? "Skipped") <*>
+                     (x .:? "InProgress")
+                     <*> (x .:? "Succeeded")
+                     <*> (x .:? "Failed"))
 
 data DeploymentStatus = Queued | Created | Stopped | InProgress | Succeeded | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -746,22 +789,18 @@ instance FromJSON DeploymentStatus where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'diaLogTail'
+-- * 'diaDeployErrorCode'
 --
--- * 'diaErrorCode'
+-- * 'diaLogTail'
 --
 -- * 'diaScriptName'
 --
 -- * 'diaMessage'
-data Diagnostics = Diagnostics'{_diaLogTail :: Maybe Text, _diaErrorCode :: Maybe LifecycleErrorCode, _diaScriptName :: Maybe Text, _diaMessage :: Maybe Text} deriving (Eq, Read, Show)
+data Diagnostics = Diagnostics'{_diaDeployErrorCode :: Maybe LifecycleErrorCode, _diaLogTail :: Maybe Text, _diaScriptName :: Maybe Text, _diaMessage :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'Diagnostics' smart constructor.
 diagnostics :: Diagnostics
-diagnostics = Diagnostics'{_diaLogTail = Nothing, _diaErrorCode = Nothing, _diaScriptName = Nothing, _diaMessage = Nothing};
-
--- | The last portion of the associated diagnostic log.
-diaLogTail :: Lens' Diagnostics (Maybe Text)
-diaLogTail = lens _diaLogTail (\ s a -> s{_diaLogTail = a});
+diagnostics = Diagnostics'{_diaDeployErrorCode = Nothing, _diaLogTail = Nothing, _diaScriptName = Nothing, _diaMessage = Nothing};
 
 -- | The associated error code:
 --
@@ -775,8 +814,12 @@ diaLogTail = lens _diaLogTail (\ s a -> s{_diaLogTail = a});
 -- -   ScriptFailed: The specified script failed to run as expected.
 -- -   UnknownError: The specified script did not run for an unknown
 --     reason.
-diaErrorCode :: Lens' Diagnostics (Maybe LifecycleErrorCode)
-diaErrorCode = lens _diaErrorCode (\ s a -> s{_diaErrorCode = a});
+diaDeployErrorCode :: Lens' Diagnostics (Maybe LifecycleErrorCode)
+diaDeployErrorCode = lens _diaDeployErrorCode (\ s a -> s{_diaDeployErrorCode = a});
+
+-- | The last portion of the associated diagnostic log.
+diaLogTail :: Lens' Diagnostics (Maybe Text)
+diaLogTail = lens _diaLogTail (\ s a -> s{_diaLogTail = a});
 
 -- | The name of the script.
 diaScriptName :: Lens' Diagnostics (Maybe Text)
@@ -791,9 +834,9 @@ instance FromJSON Diagnostics where
           = withObject "Diagnostics"
               (\ x ->
                  Diagnostics' <$>
-                   x .:? "logTail" <*> x .:? "errorCode" <*>
-                     x .:? "scriptName"
-                     <*> x .:? "message")
+                   (x .:? "DeployErrorCode") <*> (x .:? "logTail") <*>
+                     (x .:? "scriptName")
+                     <*> (x .:? "message"))
 
 -- | /See:/ 'ec2TagFilter' smart constructor.
 --
@@ -831,7 +874,7 @@ instance FromJSON EC2TagFilter where
           = withObject "EC2TagFilter"
               (\ x ->
                  EC2TagFilter' <$>
-                   x .:? "Value" <*> x .:? "Key" <*> x .:? "Type")
+                   (x .:? "Value") <*> (x .:? "Key") <*> (x .:? "Type"))
 
 instance ToJSON EC2TagFilter where
         toJSON EC2TagFilter'{..}
@@ -864,48 +907,6 @@ instance ToJSON EC2TagFilterType where
 instance FromJSON EC2TagFilterType where
     parseJSON = parseJSONText "EC2TagFilterType"
 
-data ErrorCode = Throttled | HealthConstraints | OverMaxInstances | HealthConstraintsInvalid | NOInstances | ApplicationMissing | RevisionMissing | InternalError | DeploymentGroupMissing | IAMRoleMissing | Timeout | NOEC2Subscription | IAMRolePermissions deriving (Eq, Ord, Read, Show, Enum, Generic)
-
-instance FromText ErrorCode where
-    parser = takeLowerText >>= \case
-        "APPLICATION_MISSING" -> pure ApplicationMissing
-        "DEPLOYMENT_GROUP_MISSING" -> pure DeploymentGroupMissing
-        "HEALTH_CONSTRAINTS" -> pure HealthConstraints
-        "HEALTH_CONSTRAINTS_INVALID" -> pure HealthConstraintsInvalid
-        "IAM_ROLE_MISSING" -> pure IAMRoleMissing
-        "IAM_ROLE_PERMISSIONS" -> pure IAMRolePermissions
-        "INTERNAL_ERROR" -> pure InternalError
-        "NO_EC2_SUBSCRIPTION" -> pure NOEC2Subscription
-        "NO_INSTANCES" -> pure NOInstances
-        "OVER_MAX_INSTANCES" -> pure OverMaxInstances
-        "REVISION_MISSING" -> pure RevisionMissing
-        "THROTTLED" -> pure Throttled
-        "TIMEOUT" -> pure Timeout
-        e -> fail ("Failure parsing ErrorCode from " ++ show e)
-
-instance ToText ErrorCode where
-    toText = \case
-        ApplicationMissing -> "APPLICATION_MISSING"
-        DeploymentGroupMissing -> "DEPLOYMENT_GROUP_MISSING"
-        HealthConstraints -> "HEALTH_CONSTRAINTS"
-        HealthConstraintsInvalid -> "HEALTH_CONSTRAINTS_INVALID"
-        IAMRoleMissing -> "IAM_ROLE_MISSING"
-        IAMRolePermissions -> "IAM_ROLE_PERMISSIONS"
-        InternalError -> "INTERNAL_ERROR"
-        NOEC2Subscription -> "NO_EC2_SUBSCRIPTION"
-        NOInstances -> "NO_INSTANCES"
-        OverMaxInstances -> "OVER_MAX_INSTANCES"
-        RevisionMissing -> "REVISION_MISSING"
-        Throttled -> "THROTTLED"
-        Timeout -> "TIMEOUT"
-
-instance Hashable ErrorCode
-instance ToQuery ErrorCode
-instance ToHeader ErrorCode
-
-instance FromJSON ErrorCode where
-    parseJSON = parseJSONText "ErrorCode"
-
 -- | /See:/ 'errorInformation' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
@@ -913,7 +914,7 @@ instance FromJSON ErrorCode where
 -- * 'eiCode'
 --
 -- * 'eiMessage'
-data ErrorInformation = ErrorInformation'{_eiCode :: Maybe ErrorCode, _eiMessage :: Maybe Text} deriving (Eq, Read, Show)
+data ErrorInformation = ErrorInformation'{_eiCode :: Maybe DeployErrorCode, _eiMessage :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'ErrorInformation' smart constructor.
 errorInformation :: ErrorInformation
@@ -948,7 +949,7 @@ errorInformation = ErrorInformation'{_eiCode = Nothing, _eiMessage = Nothing};
 -- -   REVISION_MISSING: The revision ID was missing. Note that this error
 --     code will most likely be raised if the revision is deleted after the
 --     deployment is created but before it starts.
-eiCode :: Lens' ErrorInformation (Maybe ErrorCode)
+eiCode :: Lens' ErrorInformation (Maybe DeployErrorCode)
 eiCode = lens _eiCode (\ s a -> s{_eiCode = a});
 
 -- | An accompanying error message.
@@ -960,7 +961,7 @@ instance FromJSON ErrorInformation where
           = withObject "ErrorInformation"
               (\ x ->
                  ErrorInformation' <$>
-                   x .:? "code" <*> x .:? "message")
+                   (x .:? "code") <*> (x .:? "message"))
 
 -- | /See:/ 'genericRevisionInfo' smart constructor.
 --
@@ -990,8 +991,8 @@ griFirstUsedTime :: Lens' GenericRevisionInfo (Maybe UTCTime)
 griFirstUsedTime = lens _griFirstUsedTime (\ s a -> s{_griFirstUsedTime = a}) . mapping _Time;
 
 -- | A list of deployment groups that use this revision.
-griDeploymentGroups :: Lens' GenericRevisionInfo (Maybe [Text])
-griDeploymentGroups = lens _griDeploymentGroups (\ s a -> s{_griDeploymentGroups = a});
+griDeploymentGroups :: Lens' GenericRevisionInfo [Text]
+griDeploymentGroups = lens _griDeploymentGroups (\ s a -> s{_griDeploymentGroups = a}) . _Default;
 
 -- | When the revision was last used by AWS CodeDeploy.
 griLastUsedTime :: Lens' GenericRevisionInfo (Maybe UTCTime)
@@ -1006,10 +1007,10 @@ instance FromJSON GenericRevisionInfo where
           = withObject "GenericRevisionInfo"
               (\ x ->
                  GenericRevisionInfo' <$>
-                   x .:? "registerTime" <*> x .:? "firstUsedTime" <*>
-                     x .:? "deploymentGroups" .!= mempty
-                     <*> x .:? "lastUsedTime"
-                     <*> x .:? "description")
+                   (x .:? "registerTime") <*> (x .:? "firstUsedTime")
+                     <*> (x .:? "deploymentGroups" .!= mempty)
+                     <*> (x .:? "lastUsedTime")
+                     <*> (x .:? "description"))
 
 -- | /See:/ 'gitHubLocation' smart constructor.
 --
@@ -1042,7 +1043,7 @@ instance FromJSON GitHubLocation where
           = withObject "GitHubLocation"
               (\ x ->
                  GitHubLocation' <$>
-                   x .:? "commitId" <*> x .:? "repository")
+                   (x .:? "commitId") <*> (x .:? "repository"))
 
 instance ToJSON GitHubLocation where
         toJSON GitHubLocation'{..}
@@ -1093,19 +1094,19 @@ iiInstanceName :: Lens' InstanceInfo (Maybe Text)
 iiInstanceName = lens _iiInstanceName (\ s a -> s{_iiInstanceName = a});
 
 -- | The tags that are currently associated with the on-premises instance.
-iiTags :: Lens' InstanceInfo (Maybe [Tag])
-iiTags = lens _iiTags (\ s a -> s{_iiTags = a});
+iiTags :: Lens' InstanceInfo [Tag]
+iiTags = lens _iiTags (\ s a -> s{_iiTags = a}) . _Default;
 
 instance FromJSON InstanceInfo where
         parseJSON
           = withObject "InstanceInfo"
               (\ x ->
                  InstanceInfo' <$>
-                   x .:? "instanceArn" <*> x .:? "registerTime" <*>
-                     x .:? "deregisterTime"
-                     <*> x .:? "iamUserArn"
-                     <*> x .:? "instanceName"
-                     <*> x .:? "tags" .!= mempty)
+                   (x .:? "instanceArn") <*> (x .:? "registerTime") <*>
+                     (x .:? "deregisterTime")
+                     <*> (x .:? "iamUserArn")
+                     <*> (x .:? "instanceName")
+                     <*> (x .:? "tags" .!= mempty))
 
 data InstanceStatus = ISInProgress | ISFailed | ISSucceeded | ISUnknown | ISSkipped | ISPending deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -1181,18 +1182,18 @@ isLastUpdatedAt :: Lens' InstanceSummary (Maybe UTCTime)
 isLastUpdatedAt = lens _isLastUpdatedAt (\ s a -> s{_isLastUpdatedAt = a}) . mapping _Time;
 
 -- | A list of lifecycle events for this instance.
-isLifecycleEvents :: Lens' InstanceSummary (Maybe [LifecycleEvent])
-isLifecycleEvents = lens _isLifecycleEvents (\ s a -> s{_isLifecycleEvents = a});
+isLifecycleEvents :: Lens' InstanceSummary [LifecycleEvent]
+isLifecycleEvents = lens _isLifecycleEvents (\ s a -> s{_isLifecycleEvents = a}) . _Default;
 
 instance FromJSON InstanceSummary where
         parseJSON
           = withObject "InstanceSummary"
               (\ x ->
                  InstanceSummary' <$>
-                   x .:? "instanceId" <*> x .:? "deploymentId" <*>
-                     x .:? "status"
-                     <*> x .:? "lastUpdatedAt"
-                     <*> x .:? "lifecycleEvents" .!= mempty)
+                   (x .:? "instanceId") <*> (x .:? "deploymentId") <*>
+                     (x .:? "status")
+                     <*> (x .:? "lastUpdatedAt")
+                     <*> (x .:? "lifecycleEvents" .!= mempty))
 
 data LifecycleErrorCode = UnknownError | ScriptMissing | Success | ScriptFailed | ScriptNotExecutable | ScriptTimedOut deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -1274,10 +1275,10 @@ instance FromJSON LifecycleEvent where
           = withObject "LifecycleEvent"
               (\ x ->
                  LifecycleEvent' <$>
-                   x .:? "status" <*> x .:? "startTime" <*>
-                     x .:? "lifecycleEventName"
-                     <*> x .:? "diagnostics"
-                     <*> x .:? "endTime")
+                   (x .:? "status") <*> (x .:? "startTime") <*>
+                     (x .:? "lifecycleEventName")
+                     <*> (x .:? "diagnostics")
+                     <*> (x .:? "endTime"))
 
 data LifecycleEventStatus = LESInProgress | LESFailed | LESSucceeded | LESSkipped | LESUnknown | LESPending deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -1373,7 +1374,7 @@ instance FromJSON MinimumHealthyHosts where
           = withObject "MinimumHealthyHosts"
               (\ x ->
                  MinimumHealthyHosts' <$>
-                   x .:? "value" <*> x .:? "type")
+                   (x .:? "value") <*> (x .:? "type"))
 
 instance ToJSON MinimumHealthyHosts where
         toJSON MinimumHealthyHosts'{..}
@@ -1457,8 +1458,8 @@ instance FromJSON RevisionLocation where
           = withObject "RevisionLocation"
               (\ x ->
                  RevisionLocation' <$>
-                   x .:? "revisionType" <*> x .:? "s3Location" <*>
-                     x .:? "gitHubLocation")
+                   (x .:? "revisionType") <*> (x .:? "s3Location") <*>
+                     (x .:? "gitHubLocation"))
 
 instance ToJSON RevisionLocation where
         toJSON RevisionLocation'{..}
@@ -1548,10 +1549,10 @@ instance FromJSON S3Location where
           = withObject "S3Location"
               (\ x ->
                  S3Location' <$>
-                   x .:? "bundleType" <*> x .:? "eTag" <*>
-                     x .:? "bucket"
-                     <*> x .:? "key"
-                     <*> x .:? "version")
+                   (x .:? "bundleType") <*> (x .:? "eTag") <*>
+                     (x .:? "bucket")
+                     <*> (x .:? "key")
+                     <*> (x .:? "version"))
 
 instance ToJSON S3Location where
         toJSON S3Location'{..}
@@ -1624,7 +1625,7 @@ tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 instance FromJSON Tag where
         parseJSON
           = withObject "Tag"
-              (\ x -> Tag' <$> x .:? "Value" <*> x .:? "Key")
+              (\ x -> Tag' <$> (x .:? "Value") <*> (x .:? "Key"))
 
 instance ToJSON Tag where
         toJSON Tag'{..}
@@ -1666,7 +1667,7 @@ instance FromJSON TagFilter where
           = withObject "TagFilter"
               (\ x ->
                  TagFilter' <$>
-                   x .:? "Value" <*> x .:? "Key" <*> x .:? "Type")
+                   (x .:? "Value") <*> (x .:? "Key") <*> (x .:? "Type"))
 
 instance ToJSON TagFilter where
         toJSON TagFilter'{..}

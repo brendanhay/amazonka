@@ -82,7 +82,8 @@ instance AWSRequest ConfirmProductInstance where
         response
           = receiveXML
               (\ s h x ->
-                 ConfirmProductInstanceResponse' <$> x .@? "ownerId")
+                 ConfirmProductInstanceResponse' <$>
+                   (x .@? "ownerId"))
 
 instance ToHeaders ConfirmProductInstance where
         toHeaders = const mempty

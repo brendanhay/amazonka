@@ -66,8 +66,9 @@ instance AWSRequest ListTopics where
           = receiveXMLWrapper "ListTopicsResult"
               (\ s h x ->
                  ListTopicsResponse' <$>
-                   (x .@? "Topics" .!@ mempty >>= parseXMLList "member")
-                     <*> x .@? "NextToken")
+                   (x .@? "Topics" .!@ mempty >>=
+                      may (parseXMLList "member"))
+                     <*> (x .@? "NextToken"))
 
 instance ToHeaders ListTopics where
         toHeaders = const mempty
@@ -96,8 +97,8 @@ listTopicsResponse :: ListTopicsResponse
 listTopicsResponse = ListTopicsResponse'{_ltrTopics = Nothing, _ltrNextToken = Nothing};
 
 -- | A list of topic ARNs.
-ltrTopics :: Lens' ListTopicsResponse (Maybe [Topic])
-ltrTopics = lens _ltrTopics (\ s a -> s{_ltrTopics = a});
+ltrTopics :: Lens' ListTopicsResponse [Topic]
+ltrTopics = lens _ltrTopics (\ s a -> s{_ltrTopics = a}) . _Default;
 
 -- | Token to pass along to the next @ListTopics@ request. This element is
 -- returned if there are additional topics to retrieve.

@@ -85,13 +85,13 @@ miaAttribute = lens _miaAttribute (\ s a -> s{_miaAttribute = a});
 
 -- | One or more AWS account IDs. This is only valid when modifying the
 -- @launchPermission@ attribute.
-miaUserIds :: Lens' ModifyImageAttribute (Maybe [Text])
-miaUserIds = lens _miaUserIds (\ s a -> s{_miaUserIds = a});
+miaUserIds :: Lens' ModifyImageAttribute [Text]
+miaUserIds = lens _miaUserIds (\ s a -> s{_miaUserIds = a}) . _Default;
 
 -- | One or more user groups. This is only valid when modifying the
 -- @launchPermission@ attribute.
-miaUserGroups :: Lens' ModifyImageAttribute (Maybe [Text])
-miaUserGroups = lens _miaUserGroups (\ s a -> s{_miaUserGroups = a});
+miaUserGroups :: Lens' ModifyImageAttribute [Text]
+miaUserGroups = lens _miaUserGroups (\ s a -> s{_miaUserGroups = a}) . _Default;
 
 -- | The value of the attribute being modified. This is only valid when
 -- modifying the @description@ attribute.
@@ -109,8 +109,8 @@ miaOperationType = lens _miaOperationType (\ s a -> s{_miaOperationType = a});
 -- | One or more product codes. After you add a product code to an AMI, it
 -- can\'t be removed. This is only valid when modifying the @productCodes@
 -- attribute.
-miaProductCodes :: Lens' ModifyImageAttribute (Maybe [Text])
-miaProductCodes = lens _miaProductCodes (\ s a -> s{_miaProductCodes = a});
+miaProductCodes :: Lens' ModifyImageAttribute [Text]
+miaProductCodes = lens _miaProductCodes (\ s a -> s{_miaProductCodes = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -146,11 +146,13 @@ instance ToQuery ModifyImageAttribute where
               ["Action" =: ("ModifyImageAttribute" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "Attribute" =: _miaAttribute,
-               "UserId" =: _miaUserIds,
-               "UserGroup" =: _miaUserGroups, "Value" =: _miaValue,
+               toQuery (toQueryList "UserId" <$> _miaUserIds),
+               toQuery (toQueryList "UserGroup" <$> _miaUserGroups),
+               "Value" =: _miaValue,
                "LaunchPermission" =: _miaLaunchPermission,
                "OperationType" =: _miaOperationType,
-               "ProductCode" =: _miaProductCodes,
+               toQuery
+                 (toQueryList "ProductCode" <$> _miaProductCodes),
                "DryRun" =: _miaDryRun,
                "Description" =: _miaDescription,
                "ImageId" =: _miaImageId]

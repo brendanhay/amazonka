@@ -65,7 +65,7 @@ instance AWSRequest DescribeLoadBalancerAttributes
               "DescribeLoadBalancerAttributesResult"
               (\ s h x ->
                  DescribeLoadBalancerAttributesResponse' <$>
-                   x .@? "LoadBalancerAttributes")
+                   (x .@? "LoadBalancerAttributes"))
 
 instance ToHeaders DescribeLoadBalancerAttributes
          where

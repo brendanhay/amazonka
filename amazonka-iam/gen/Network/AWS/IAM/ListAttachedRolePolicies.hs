@@ -109,9 +109,9 @@ instance AWSRequest ListAttachedRolePolicies where
               (\ s h x ->
                  ListAttachedRolePoliciesResponse' <$>
                    (x .@? "AttachedPolicies" .!@ mempty >>=
-                      parseXMLList "member")
-                     <*> x .@? "Marker"
-                     <*> x .@? "IsTruncated")
+                      may (parseXMLList "member"))
+                     <*> (x .@? "Marker")
+                     <*> (x .@? "IsTruncated"))
 
 instance ToHeaders ListAttachedRolePolicies where
         toHeaders = const mempty
@@ -145,8 +145,8 @@ listAttachedRolePoliciesResponse :: ListAttachedRolePoliciesResponse
 listAttachedRolePoliciesResponse = ListAttachedRolePoliciesResponse'{_larprAttachedPolicies = Nothing, _larprMarker = Nothing, _larprIsTruncated = Nothing};
 
 -- | A list of the attached policies.
-larprAttachedPolicies :: Lens' ListAttachedRolePoliciesResponse (Maybe [AttachedPolicy])
-larprAttachedPolicies = lens _larprAttachedPolicies (\ s a -> s{_larprAttachedPolicies = a});
+larprAttachedPolicies :: Lens' ListAttachedRolePoliciesResponse [AttachedPolicy]
+larprAttachedPolicies = lens _larprAttachedPolicies (\ s a -> s{_larprAttachedPolicies = a}) . _Default;
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination

@@ -67,7 +67,7 @@ instance AWSRequest DisableSnapshotCopy where
         response
           = receiveXMLWrapper "DisableSnapshotCopyResult"
               (\ s h x ->
-                 DisableSnapshotCopyResponse' <$> x .@? "Cluster")
+                 DisableSnapshotCopyResponse' <$> (x .@? "Cluster"))
 
 instance ToHeaders DisableSnapshotCopy where
         toHeaders = const mempty

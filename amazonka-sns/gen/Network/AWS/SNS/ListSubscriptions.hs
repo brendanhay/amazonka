@@ -66,9 +66,9 @@ instance AWSRequest ListSubscriptions where
           = receiveXMLWrapper "ListSubscriptionsResult"
               (\ s h x ->
                  ListSubscriptionsResponse' <$>
-                   x .@? "NextToken" <*>
+                   (x .@? "NextToken") <*>
                      (x .@? "Subscriptions" .!@ mempty >>=
-                        parseXMLList "member"))
+                        may (parseXMLList "member")))
 
 instance ToHeaders ListSubscriptions where
         toHeaders = const mempty
@@ -102,5 +102,5 @@ lsrNextToken :: Lens' ListSubscriptionsResponse (Maybe Text)
 lsrNextToken = lens _lsrNextToken (\ s a -> s{_lsrNextToken = a});
 
 -- | A list of subscriptions.
-lsrSubscriptions :: Lens' ListSubscriptionsResponse (Maybe [Subscription])
-lsrSubscriptions = lens _lsrSubscriptions (\ s a -> s{_lsrSubscriptions = a});
+lsrSubscriptions :: Lens' ListSubscriptionsResponse [Subscription]
+lsrSubscriptions = lens _lsrSubscriptions (\ s a -> s{_lsrSubscriptions = a}) . _Default;

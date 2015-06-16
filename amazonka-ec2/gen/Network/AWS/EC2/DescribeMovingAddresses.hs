@@ -67,16 +67,16 @@ describeMovingAddresses :: DescribeMovingAddresses
 describeMovingAddresses = DescribeMovingAddresses'{_dmaPublicIPs = Nothing, _dmaFilters = Nothing, _dmaNextToken = Nothing, _dmaDryRun = Nothing, _dmaMaxResults = Nothing};
 
 -- | One or more Elastic IP addresses.
-dmaPublicIPs :: Lens' DescribeMovingAddresses (Maybe [Text])
-dmaPublicIPs = lens _dmaPublicIPs (\ s a -> s{_dmaPublicIPs = a});
+dmaPublicIPs :: Lens' DescribeMovingAddresses [Text]
+dmaPublicIPs = lens _dmaPublicIPs (\ s a -> s{_dmaPublicIPs = a}) . _Default;
 
 -- | One or more filters.
 --
 -- -   @moving-status@ - The status of the Elastic IP address
 --     (@MovingToVpc@ | @RestoringToClassic@).
 --
-dmaFilters :: Lens' DescribeMovingAddresses (Maybe [Filter])
-dmaFilters = lens _dmaFilters (\ s a -> s{_dmaFilters = a});
+dmaFilters :: Lens' DescribeMovingAddresses [Filter]
+dmaFilters = lens _dmaFilters (\ s a -> s{_dmaFilters = a}) . _Default;
 
 -- | The token to use to retrieve the next page of results.
 dmaNextToken :: Lens' DescribeMovingAddresses (Maybe Text)
@@ -108,7 +108,8 @@ instance AWSRequest DescribeMovingAddresses where
           = receiveXML
               (\ s h x ->
                  DescribeMovingAddressesResponse' <$>
-                   parseXMLList "item" x <*> x .@? "nextToken")
+                   (may (parseXMLList "item") x) <*>
+                     (x .@? "nextToken"))
 
 instance ToHeaders DescribeMovingAddresses where
         toHeaders = const mempty
@@ -122,7 +123,8 @@ instance ToQuery DescribeMovingAddresses where
               ["Action" =:
                  ("DescribeMovingAddresses" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "item" =: _dmaPublicIPs, "Filter" =: _dmaFilters,
+               toQuery (toQueryList "item" <$> _dmaPublicIPs),
+               toQuery (toQueryList "Filter" <$> _dmaFilters),
                "NextToken" =: _dmaNextToken, "DryRun" =: _dmaDryRun,
                "MaxResults" =: _dmaMaxResults]
 
@@ -140,8 +142,8 @@ describeMovingAddressesResponse :: DescribeMovingAddressesResponse
 describeMovingAddressesResponse = DescribeMovingAddressesResponse'{_dmarMovingAddressStatuses = Nothing, _dmarNextToken = Nothing};
 
 -- | The status for each Elastic IP address.
-dmarMovingAddressStatuses :: Lens' DescribeMovingAddressesResponse (Maybe [MovingAddressStatus])
-dmarMovingAddressStatuses = lens _dmarMovingAddressStatuses (\ s a -> s{_dmarMovingAddressStatuses = a});
+dmarMovingAddressStatuses :: Lens' DescribeMovingAddressesResponse [MovingAddressStatus]
+dmarMovingAddressStatuses = lens _dmarMovingAddressStatuses (\ s a -> s{_dmarMovingAddressStatuses = a}) . _Default;
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.

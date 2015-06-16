@@ -121,8 +121,8 @@ instance AWSRequest DescribeFileSystems where
           = receiveJSON
               (\ s h x ->
                  DescribeFileSystemsResponse' <$>
-                   x .?> "FileSystems" .!@ mempty <*> x .?> "Marker" <*>
-                     x .?> "NextMarker")
+                   (x .?> "FileSystems" .!@ mempty) <*> (x .?> "Marker")
+                     <*> (x .?> "NextMarker"))
 
 instance ToHeaders DescribeFileSystems where
         toHeaders = const mempty
@@ -154,8 +154,8 @@ describeFileSystemsResponse :: DescribeFileSystemsResponse
 describeFileSystemsResponse = DescribeFileSystemsResponse'{_dfsrFileSystems = Nothing, _dfsrMarker = Nothing, _dfsrNextMarker = Nothing};
 
 -- | An array of file system descriptions.
-dfsrFileSystems :: Lens' DescribeFileSystemsResponse (Maybe [FileSystemDescription])
-dfsrFileSystems = lens _dfsrFileSystems (\ s a -> s{_dfsrFileSystems = a});
+dfsrFileSystems :: Lens' DescribeFileSystemsResponse [FileSystemDescription]
+dfsrFileSystems = lens _dfsrFileSystems (\ s a -> s{_dfsrFileSystems = a}) . _Default;
 
 -- | A string, present if provided by caller in the request.
 dfsrMarker :: Lens' DescribeFileSystemsResponse (Maybe Text)

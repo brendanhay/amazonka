@@ -63,8 +63,8 @@ listOnPremisesInstances = ListOnPremisesInstances'{_lopiTagFilters = Nothing, _l
 
 -- | The on-premises instance tags that will be used to restrict the
 -- corresponding on-premises instance names that are returned.
-lopiTagFilters :: Lens' ListOnPremisesInstances (Maybe [TagFilter])
-lopiTagFilters = lens _lopiTagFilters (\ s a -> s{_lopiTagFilters = a});
+lopiTagFilters :: Lens' ListOnPremisesInstances [TagFilter]
+lopiTagFilters = lens _lopiTagFilters (\ s a -> s{_lopiTagFilters = a}) . _Default;
 
 -- | An identifier that was returned from the previous list on-premises
 -- instances call, which can be used to return the next set of on-premises
@@ -90,8 +90,8 @@ instance AWSRequest ListOnPremisesInstances where
           = receiveJSON
               (\ s h x ->
                  ListOnPremisesInstancesResponse' <$>
-                   x .?> "nextToken" <*>
-                     x .?> "instanceNames" .!@ mempty)
+                   (x .?> "nextToken") <*>
+                     (x .?> "instanceNames" .!@ mempty))
 
 instance ToHeaders ListOnPremisesInstances where
         toHeaders
@@ -137,5 +137,5 @@ lopirNextToken :: Lens' ListOnPremisesInstancesResponse (Maybe Text)
 lopirNextToken = lens _lopirNextToken (\ s a -> s{_lopirNextToken = a});
 
 -- | The list of matching on-premises instance names.
-lopirInstanceNames :: Lens' ListOnPremisesInstancesResponse (Maybe [Text])
-lopirInstanceNames = lens _lopirInstanceNames (\ s a -> s{_lopirInstanceNames = a});
+lopirInstanceNames :: Lens' ListOnPremisesInstancesResponse [Text]
+lopirInstanceNames = lens _lopirInstanceNames (\ s a -> s{_lopirInstanceNames = a}) . _Default;

@@ -84,7 +84,7 @@ instance AWSRequest ListInvalidations2014_11_06 where
           = receiveXML
               (\ s h x ->
                  ListInvalidations2014_11_06Response' <$>
-                   x .@ "InvalidationList")
+                   (x .@ "InvalidationList"))
 
 instance ToHeaders ListInvalidations2014_11_06 where
         toHeaders = const mempty

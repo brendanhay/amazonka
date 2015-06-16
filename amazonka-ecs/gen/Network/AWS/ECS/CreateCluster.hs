@@ -66,7 +66,7 @@ instance AWSRequest CreateCluster where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateClusterResponse' <$> x .?> "cluster")
+                 CreateClusterResponse' <$> (x .?> "cluster"))
 
 instance ToHeaders CreateCluster where
         toHeaders

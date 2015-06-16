@@ -104,7 +104,8 @@ instance AWSRequest CreatePolicy where
         request = post
         response
           = receiveXMLWrapper "CreatePolicyResult"
-              (\ s h x -> CreatePolicyResponse' <$> x .@? "Policy")
+              (\ s h x ->
+                 CreatePolicyResponse' <$> (x .@? "Policy"))
 
 instance ToHeaders CreatePolicy where
         toHeaders = const mempty

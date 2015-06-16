@@ -63,8 +63,8 @@ createOptionGroup :: Text -> Text -> Text -> Text -> CreateOptionGroup
 createOptionGroup pOptionGroupName pEngineName pMajorEngineVersion pOptionGroupDescription = CreateOptionGroup'{_cogTags = Nothing, _cogOptionGroupName = pOptionGroupName, _cogEngineName = pEngineName, _cogMajorEngineVersion = pMajorEngineVersion, _cogOptionGroupDescription = pOptionGroupDescription};
 
 -- | FIXME: Undocumented member.
-cogTags :: Lens' CreateOptionGroup (Maybe [Tag])
-cogTags = lens _cogTags (\ s a -> s{_cogTags = a});
+cogTags :: Lens' CreateOptionGroup [Tag]
+cogTags = lens _cogTags (\ s a -> s{_cogTags = a}) . _Default;
 
 -- | Specifies the name of the option group to be created.
 --
@@ -99,7 +99,7 @@ instance AWSRequest CreateOptionGroup where
         response
           = receiveXMLWrapper "CreateOptionGroupResult"
               (\ s h x ->
-                 CreateOptionGroupResponse' <$> x .@? "OptionGroup")
+                 CreateOptionGroupResponse' <$> (x .@? "OptionGroup"))
 
 instance ToHeaders CreateOptionGroup where
         toHeaders = const mempty
@@ -112,7 +112,7 @@ instance ToQuery CreateOptionGroup where
           = mconcat
               ["Action" =: ("CreateOptionGroup" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "Tags" =: "Tag" =: _cogTags,
+               "Tags" =: toQuery (toQueryList "Tag" <$> _cogTags),
                "OptionGroupName" =: _cogOptionGroupName,
                "EngineName" =: _cogEngineName,
                "MajorEngineVersion" =: _cogMajorEngineVersion,

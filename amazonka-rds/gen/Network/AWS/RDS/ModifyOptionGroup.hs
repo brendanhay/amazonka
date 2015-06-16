@@ -62,12 +62,12 @@ modifyOptionGroup pOptionGroupName = ModifyOptionGroup'{_mogOptionsToInclude = N
 -- | Options in this list are added to the option group or, if already
 -- present, the specified configuration is used to update the existing
 -- configuration.
-mogOptionsToInclude :: Lens' ModifyOptionGroup (Maybe [OptionConfiguration])
-mogOptionsToInclude = lens _mogOptionsToInclude (\ s a -> s{_mogOptionsToInclude = a});
+mogOptionsToInclude :: Lens' ModifyOptionGroup [OptionConfiguration]
+mogOptionsToInclude = lens _mogOptionsToInclude (\ s a -> s{_mogOptionsToInclude = a}) . _Default;
 
 -- | Options in this list are removed from the option group.
-mogOptionsToRemove :: Lens' ModifyOptionGroup (Maybe [Text])
-mogOptionsToRemove = lens _mogOptionsToRemove (\ s a -> s{_mogOptionsToRemove = a});
+mogOptionsToRemove :: Lens' ModifyOptionGroup [Text]
+mogOptionsToRemove = lens _mogOptionsToRemove (\ s a -> s{_mogOptionsToRemove = a}) . _Default;
 
 -- | Indicates whether the changes should be applied immediately, or during
 -- the next maintenance window for each instance associated with the option
@@ -91,7 +91,7 @@ instance AWSRequest ModifyOptionGroup where
         response
           = receiveXMLWrapper "ModifyOptionGroupResult"
               (\ s h x ->
-                 ModifyOptionGroupResponse' <$> x .@? "OptionGroup")
+                 ModifyOptionGroupResponse' <$> (x .@? "OptionGroup"))
 
 instance ToHeaders ModifyOptionGroup where
         toHeaders = const mempty
@@ -105,8 +105,12 @@ instance ToQuery ModifyOptionGroup where
               ["Action" =: ("ModifyOptionGroup" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "OptionsToInclude" =:
-                 "OptionConfiguration" =: _mogOptionsToInclude,
-               "OptionsToRemove" =: "member" =: _mogOptionsToRemove,
+                 toQuery
+                   (toQueryList "OptionConfiguration" <$>
+                      _mogOptionsToInclude),
+               "OptionsToRemove" =:
+                 toQuery
+                   (toQueryList "member" <$> _mogOptionsToRemove),
                "ApplyImmediately" =: _mogApplyImmediately,
                "OptionGroupName" =: _mogOptionGroupName]
 

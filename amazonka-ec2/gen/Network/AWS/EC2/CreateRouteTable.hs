@@ -76,7 +76,7 @@ instance AWSRequest CreateRouteTable where
         response
           = receiveXML
               (\ s h x ->
-                 CreateRouteTableResponse' <$> x .@? "routeTable")
+                 CreateRouteTableResponse' <$> (x .@? "routeTable"))
 
 instance ToHeaders CreateRouteTable where
         toHeaders = const mempty

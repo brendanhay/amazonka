@@ -81,8 +81,8 @@ drdioProductDescription :: Lens' DescribeReservedDBInstancesOfferings (Maybe Tex
 drdioProductDescription = lens _drdioProductDescription (\ s a -> s{_drdioProductDescription = a});
 
 -- | This parameter is not currently supported.
-drdioFilters :: Lens' DescribeReservedDBInstancesOfferings (Maybe [Filter])
-drdioFilters = lens _drdioFilters (\ s a -> s{_drdioFilters = a});
+drdioFilters :: Lens' DescribeReservedDBInstancesOfferings [Filter]
+drdioFilters = lens _drdioFilters (\ s a -> s{_drdioFilters = a}) . _Default;
 
 -- | The DB instance class filter value. Specify this parameter to show only
 -- the available offerings matching the specified DB instance class.
@@ -145,9 +145,9 @@ instance AWSRequest
               "DescribeReservedDBInstancesOfferingsResult"
               (\ s h x ->
                  DescribeReservedDBInstancesOfferingsResponse' <$>
-                   x .@? "Marker" <*>
+                   (x .@? "Marker") <*>
                      (x .@? "ReservedDBInstancesOfferings" .!@ mempty >>=
-                        parseXMLList "ReservedDBInstancesOffering"))
+                        may (parseXMLList "ReservedDBInstancesOffering")))
 
 instance ToHeaders
          DescribeReservedDBInstancesOfferings where
@@ -166,7 +166,8 @@ instance ToQuery DescribeReservedDBInstancesOfferings
                     ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "ProductDescription" =: _drdioProductDescription,
-               "Filters" =: "Filter" =: _drdioFilters,
+               "Filters" =:
+                 toQuery (toQueryList "Filter" <$> _drdioFilters),
                "DBInstanceClass" =: _drdioDBInstanceClass,
                "MaxRecords" =: _drdioMaxRecords,
                "MultiAZ" =: _drdioMultiAZ, "Marker" =: _drdioMarker,
@@ -195,5 +196,5 @@ drdiorMarker :: Lens' DescribeReservedDBInstancesOfferingsResponse (Maybe Text)
 drdiorMarker = lens _drdiorMarker (\ s a -> s{_drdiorMarker = a});
 
 -- | A list of reserved DB instance offerings.
-drdiorReservedDBInstancesOfferings :: Lens' DescribeReservedDBInstancesOfferingsResponse (Maybe [ReservedDBInstancesOffering])
-drdiorReservedDBInstancesOfferings = lens _drdiorReservedDBInstancesOfferings (\ s a -> s{_drdiorReservedDBInstancesOfferings = a});
+drdiorReservedDBInstancesOfferings :: Lens' DescribeReservedDBInstancesOfferingsResponse [ReservedDBInstancesOffering]
+drdiorReservedDBInstancesOfferings = lens _drdiorReservedDBInstancesOfferings (\ s a -> s{_drdiorReservedDBInstancesOfferings = a}) . _Default;

@@ -65,8 +65,8 @@ decSourceType :: Lens' DescribeEventCategories (Maybe Text)
 decSourceType = lens _decSourceType (\ s a -> s{_decSourceType = a});
 
 -- | This parameter is not currently supported.
-decFilters :: Lens' DescribeEventCategories (Maybe [Filter])
-decFilters = lens _decFilters (\ s a -> s{_decFilters = a});
+decFilters :: Lens' DescribeEventCategories [Filter]
+decFilters = lens _decFilters (\ s a -> s{_decFilters = a}) . _Default;
 
 instance AWSRequest DescribeEventCategories where
         type Sv DescribeEventCategories = RDS
@@ -78,7 +78,7 @@ instance AWSRequest DescribeEventCategories where
               (\ s h x ->
                  DescribeEventCategoriesResponse' <$>
                    (x .@? "EventCategoriesMapList" .!@ mempty >>=
-                      parseXMLList "EventCategoriesMap"))
+                      may (parseXMLList "EventCategoriesMap")))
 
 instance ToHeaders DescribeEventCategories where
         toHeaders = const mempty
@@ -93,7 +93,8 @@ instance ToQuery DescribeEventCategories where
                  ("DescribeEventCategories" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "SourceType" =: _decSourceType,
-               "Filters" =: "Filter" =: _decFilters]
+               "Filters" =:
+                 toQuery (toQueryList "Filter" <$> _decFilters)]
 
 -- | /See:/ 'describeEventCategoriesResponse' smart constructor.
 --
@@ -107,5 +108,5 @@ describeEventCategoriesResponse :: DescribeEventCategoriesResponse
 describeEventCategoriesResponse = DescribeEventCategoriesResponse'{_decrEventCategoriesMapList = Nothing};
 
 -- | A list of EventCategoriesMap data types.
-decrEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse (Maybe [EventCategoriesMap])
-decrEventCategoriesMapList = lens _decrEventCategoriesMapList (\ s a -> s{_decrEventCategoriesMapList = a});
+decrEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse [EventCategoriesMap]
+decrEventCategoriesMapList = lens _decrEventCategoriesMapList (\ s a -> s{_decrEventCategoriesMapList = a}) . _Default;

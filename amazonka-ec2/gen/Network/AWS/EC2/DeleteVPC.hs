@@ -29,8 +29,8 @@ module Network.AWS.EC2.DeleteVPC
     -- ** Request constructor
     , deleteVPC
     -- ** Request lenses
-    , deleteDryRun
-    , deleteVPCId
+    , deleDryRun
+    , deleVPCId
 
     -- * Response
     , DeleteVPCResponse
@@ -47,25 +47,25 @@ import Network.AWS.EC2.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'deleteDryRun'
+-- * 'deleDryRun'
 --
--- * 'deleteVPCId'
-data DeleteVPC = DeleteVPC'{_deleteDryRun :: Maybe Bool, _deleteVPCId :: Text} deriving (Eq, Read, Show)
+-- * 'deleVPCId'
+data DeleteVPC = DeleteVPC'{_deleDryRun :: Maybe Bool, _deleVPCId :: Text} deriving (Eq, Read, Show)
 
 -- | 'DeleteVPC' smart constructor.
 deleteVPC :: Text -> DeleteVPC
-deleteVPC pVPCId = DeleteVPC'{_deleteDryRun = Nothing, _deleteVPCId = pVPCId};
+deleteVPC pVPCId = DeleteVPC'{_deleDryRun = Nothing, _deleVPCId = pVPCId};
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-deleteDryRun :: Lens' DeleteVPC (Maybe Bool)
-deleteDryRun = lens _deleteDryRun (\ s a -> s{_deleteDryRun = a});
+deleDryRun :: Lens' DeleteVPC (Maybe Bool)
+deleDryRun = lens _deleDryRun (\ s a -> s{_deleDryRun = a});
 
 -- | The ID of the VPC.
-deleteVPCId :: Lens' DeleteVPC Text
-deleteVPCId = lens _deleteVPCId (\ s a -> s{_deleteVPCId = a});
+deleVPCId :: Lens' DeleteVPC Text
+deleVPCId = lens _deleVPCId (\ s a -> s{_deleVPCId = a});
 
 instance AWSRequest DeleteVPC where
         type Sv DeleteVPC = EC2
@@ -84,7 +84,7 @@ instance ToQuery DeleteVPC where
           = mconcat
               ["Action" =: ("DeleteVPC" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _deleteDryRun, "VpcId" =: _deleteVPCId]
+               "DryRun" =: _deleDryRun, "VpcId" =: _deleVPCId]
 
 -- | /See:/ 'deleteVPCResponse' smart constructor.
 data DeleteVPCResponse = DeleteVPCResponse' deriving (Eq, Read, Show)

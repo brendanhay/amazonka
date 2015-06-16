@@ -153,7 +153,7 @@ instance AWSRequest ListJobs where
           = receiveJSON
               (\ s h x ->
                  ListJobsResponse' <$>
-                   x .?> "Marker" <*> x .?> "JobList" .!@ mempty)
+                   (x .?> "Marker") <*> (x .?> "JobList" .!@ mempty))
 
 instance ToHeaders ListJobs where
         toHeaders = const mempty
@@ -191,5 +191,5 @@ ljrMarker = lens _ljrMarker (\ s a -> s{_ljrMarker = a});
 
 -- | A list of job objects. Each job object contains metadata describing the
 -- job.
-ljrJobList :: Lens' ListJobsResponse (Maybe [GlacierJobDescription])
-ljrJobList = lens _ljrJobList (\ s a -> s{_ljrJobList = a});
+ljrJobList :: Lens' ListJobsResponse [GlacierJobDescription]
+ljrJobList = lens _ljrJobList (\ s a -> s{_ljrJobList = a}) . _Default;

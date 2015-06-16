@@ -72,8 +72,8 @@ instance AWSRequest ListIdentityPools where
           = receiveJSON
               (\ s h x ->
                  ListIdentityPoolsResponse' <$>
-                   x .?> "IdentityPools" .!@ mempty <*>
-                     x .?> "NextToken")
+                   (x .?> "IdentityPools" .!@ mempty) <*>
+                     (x .?> "NextToken"))
 
 instance ToHeaders ListIdentityPools where
         toHeaders
@@ -111,8 +111,8 @@ listIdentityPoolsResponse :: ListIdentityPoolsResponse
 listIdentityPoolsResponse = ListIdentityPoolsResponse'{_liprIdentityPools = Nothing, _liprNextToken = Nothing};
 
 -- | The identity pools returned by the ListIdentityPools action.
-liprIdentityPools :: Lens' ListIdentityPoolsResponse (Maybe [IdentityPoolShortDescription])
-liprIdentityPools = lens _liprIdentityPools (\ s a -> s{_liprIdentityPools = a});
+liprIdentityPools :: Lens' ListIdentityPoolsResponse [IdentityPoolShortDescription]
+liprIdentityPools = lens _liprIdentityPools (\ s a -> s{_liprIdentityPools = a}) . _Default;
 
 -- | A pagination token.
 liprNextToken :: Lens' ListIdentityPoolsResponse (Maybe Text)

@@ -64,7 +64,7 @@ import Network.AWS.SNS.Types
 -- * 'cpaPlatform'
 --
 -- * 'cpaAttributes'
-data CreatePlatformApplication = CreatePlatformApplication'{_cpaName :: Text, _cpaPlatform :: Text, _cpaAttributes :: HashMap Text Text} deriving (Eq, Read, Show)
+data CreatePlatformApplication = CreatePlatformApplication'{_cpaName :: Text, _cpaPlatform :: Text, _cpaAttributes :: Map Text Text} deriving (Eq, Read, Show)
 
 -- | 'CreatePlatformApplication' smart constructor.
 createPlatformApplication :: Text -> Text -> CreatePlatformApplication
@@ -84,8 +84,8 @@ cpaPlatform = lens _cpaPlatform (\ s a -> s{_cpaPlatform = a});
 
 -- | For a list of attributes, see
 -- <http://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html SetPlatformApplicationAttributes>
-cpaAttributes :: Lens' CreatePlatformApplication (HashMap Text Text)
-cpaAttributes = lens _cpaAttributes (\ s a -> s{_cpaAttributes = a}) . _Coerce;
+cpaAttributes :: Lens' CreatePlatformApplication (Map Text Text)
+cpaAttributes = lens _cpaAttributes (\ s a -> s{_cpaAttributes = a}) . _Map;
 
 instance AWSRequest CreatePlatformApplication where
         type Sv CreatePlatformApplication = SNS
@@ -96,7 +96,7 @@ instance AWSRequest CreatePlatformApplication where
           = receiveXMLWrapper "CreatePlatformApplicationResult"
               (\ s h x ->
                  CreatePlatformApplicationResponse' <$>
-                   x .@? "PlatformApplicationArn")
+                   (x .@? "PlatformApplicationArn"))
 
 instance ToHeaders CreatePlatformApplication where
         toHeaders = const mempty

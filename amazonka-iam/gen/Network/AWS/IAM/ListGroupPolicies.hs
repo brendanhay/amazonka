@@ -96,7 +96,7 @@ instance AWSRequest ListGroupPolicies where
           = receiveXMLWrapper "ListGroupPoliciesResult"
               (\ s h x ->
                  ListGroupPoliciesResponse' <$>
-                   x .@? "Marker" <*> x .@? "IsTruncated" <*>
+                   (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
                      (x .@? "PolicyNames" .!@ mempty >>=
                         parseXMLList "member"))
 

@@ -56,7 +56,7 @@ instance AWSRequest ListSAMLProviders where
               (\ s h x ->
                  ListSAMLProvidersResponse' <$>
                    (x .@? "SAMLProviderList" .!@ mempty >>=
-                      parseXMLList "member"))
+                      may (parseXMLList "member")))
 
 instance ToHeaders ListSAMLProviders where
         toHeaders = const mempty
@@ -83,5 +83,5 @@ listSAMLProvidersResponse :: ListSAMLProvidersResponse
 listSAMLProvidersResponse = ListSAMLProvidersResponse'{_lsamlprSAMLProviderList = Nothing};
 
 -- | The list of SAML providers for this account.
-lsamlprSAMLProviderList :: Lens' ListSAMLProvidersResponse (Maybe [SAMLProviderListEntry])
-lsamlprSAMLProviderList = lens _lsamlprSAMLProviderList (\ s a -> s{_lsamlprSAMLProviderList = a});
+lsamlprSAMLProviderList :: Lens' ListSAMLProvidersResponse [SAMLProviderListEntry]
+lsamlprSAMLProviderList = lens _lsamlprSAMLProviderList (\ s a -> s{_lsamlprSAMLProviderList = a}) . _Default;

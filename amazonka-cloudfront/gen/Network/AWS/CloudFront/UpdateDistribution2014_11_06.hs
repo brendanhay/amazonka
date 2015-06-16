@@ -80,7 +80,7 @@ instance AWSRequest UpdateDistribution2014_11_06
           = receiveXML
               (\ s h x ->
                  UpdateDistribution2014_11_06Response' <$>
-                   h .#? "ETag" <*> x .@? "Distribution")
+                   (h .#? "ETag") <*> (x .@? "Distribution"))
 
 instance ToElement UpdateDistribution2014_11_06 where
         toElement

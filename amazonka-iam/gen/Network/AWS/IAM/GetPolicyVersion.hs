@@ -79,7 +79,8 @@ instance AWSRequest GetPolicyVersion where
         response
           = receiveXMLWrapper "GetPolicyVersionResult"
               (\ s h x ->
-                 GetPolicyVersionResponse' <$> x .@? "PolicyVersion")
+                 GetPolicyVersionResponse' <$>
+                   (x .@? "PolicyVersion"))
 
 instance ToHeaders GetPolicyVersion where
         toHeaders = const mempty

@@ -60,8 +60,8 @@ describeRDSDBInstances :: Text -> DescribeRDSDBInstances
 describeRDSDBInstances pStackId = DescribeRDSDBInstances'{_drdiRDSDBInstanceARNs = Nothing, _drdiStackId = pStackId};
 
 -- | An array containing the ARNs of the instances to be described.
-drdiRDSDBInstanceARNs :: Lens' DescribeRDSDBInstances (Maybe [Text])
-drdiRDSDBInstanceARNs = lens _drdiRDSDBInstanceARNs (\ s a -> s{_drdiRDSDBInstanceARNs = a});
+drdiRDSDBInstanceARNs :: Lens' DescribeRDSDBInstances [Text]
+drdiRDSDBInstanceARNs = lens _drdiRDSDBInstanceARNs (\ s a -> s{_drdiRDSDBInstanceARNs = a}) . _Default;
 
 -- | The stack ID that the instances are registered with. The operation
 -- returns descriptions of all registered Amazon RDS instances.
@@ -77,7 +77,7 @@ instance AWSRequest DescribeRDSDBInstances where
           = receiveJSON
               (\ s h x ->
                  DescribeRDSDBInstancesResponse' <$>
-                   x .?> "RdsDbInstances" .!@ mempty)
+                   (x .?> "RdsDbInstances" .!@ mempty))
 
 instance ToHeaders DescribeRDSDBInstances where
         toHeaders
@@ -113,5 +113,5 @@ describeRDSDBInstancesResponse :: DescribeRDSDBInstancesResponse
 describeRDSDBInstancesResponse = DescribeRDSDBInstancesResponse'{_drdirRDSDBInstances = Nothing};
 
 -- | An a array of @RdsDbInstance@ objects that describe the instances.
-drdirRDSDBInstances :: Lens' DescribeRDSDBInstancesResponse (Maybe [RDSDBInstance])
-drdirRDSDBInstances = lens _drdirRDSDBInstances (\ s a -> s{_drdirRDSDBInstances = a});
+drdirRDSDBInstances :: Lens' DescribeRDSDBInstancesResponse [RDSDBInstance]
+drdirRDSDBInstances = lens _drdirRDSDBInstances (\ s a -> s{_drdirRDSDBInstances = a}) . _Default;

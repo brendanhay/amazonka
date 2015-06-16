@@ -158,7 +158,8 @@ instance FromJSON Association where
         parseJSON
           = withObject "Association"
               (\ x ->
-                 Association' <$> x .:? "InstanceId" <*> x .:? "Name")
+                 Association' <$>
+                   (x .:? "InstanceId") <*> (x .:? "Name"))
 
 -- | /See:/ 'associationDescription' smart constructor.
 --
@@ -198,9 +199,9 @@ instance FromJSON AssociationDescription where
           = withObject "AssociationDescription"
               (\ x ->
                  AssociationDescription' <$>
-                   x .:? "InstanceId" <*> x .:? "Status" <*>
-                     x .:? "Date"
-                     <*> x .:? "Name")
+                   (x .:? "InstanceId") <*> (x .:? "Status") <*>
+                     (x .:? "Date")
+                     <*> (x .:? "Name"))
 
 -- | /See:/ 'associationFilter' smart constructor.
 --
@@ -285,9 +286,9 @@ instance FromJSON AssociationStatus where
           = withObject "AssociationStatus"
               (\ x ->
                  AssociationStatus' <$>
-                   x .:? "AdditionalInfo" <*> x .: "Date" <*>
-                     x .: "Name"
-                     <*> x .: "Message")
+                   (x .:? "AdditionalInfo") <*> (x .: "Date") <*>
+                     (x .: "Name")
+                     <*> (x .: "Message"))
 
 instance ToJSON AssociationStatus where
         toJSON AssociationStatus'{..}
@@ -348,7 +349,7 @@ instance FromJSON CreateAssociationBatchRequestEntry
           = withObject "CreateAssociationBatchRequestEntry"
               (\ x ->
                  CreateAssociationBatchRequestEntry' <$>
-                   x .:? "InstanceId" <*> x .:? "Name")
+                   (x .:? "InstanceId") <*> (x .:? "Name"))
 
 instance ToJSON CreateAssociationBatchRequestEntry
          where
@@ -396,9 +397,9 @@ instance FromJSON DocumentDescription where
           = withObject "DocumentDescription"
               (\ x ->
                  DocumentDescription' <$>
-                   x .:? "Status" <*> x .:? "Sha1" <*>
-                     x .:? "CreatedDate"
-                     <*> x .:? "Name")
+                   (x .:? "Status") <*> (x .:? "Sha1") <*>
+                     (x .:? "CreatedDate")
+                     <*> (x .:? "Name"))
 
 -- | /See:/ 'documentFilter' smart constructor.
 --
@@ -461,7 +462,7 @@ diName = lens _diName (\ s a -> s{_diName = a});
 instance FromJSON DocumentIdentifier where
         parseJSON
           = withObject "DocumentIdentifier"
-              (\ x -> DocumentIdentifier' <$> x .:? "Name")
+              (\ x -> DocumentIdentifier' <$> (x .:? "Name"))
 
 data DocumentStatus = Deleting | Creating | Active deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -517,7 +518,8 @@ instance FromJSON FailedCreateAssociation where
           = withObject "FailedCreateAssociation"
               (\ x ->
                  FailedCreateAssociation' <$>
-                   x .:? "Entry" <*> x .:? "Fault" <*> x .:? "Message")
+                   (x .:? "Entry") <*> (x .:? "Fault") <*>
+                     (x .:? "Message"))
 
 data Fault = Unknown | Server | Client deriving (Eq, Ord, Read, Show, Enum, Generic)
 

@@ -428,7 +428,7 @@ awraAccountId = lens _awraAccountId (\ s a -> s{_awraAccountId = a});
 
 instance FromXML AccountWithRestoreAccess where
         parseXML x
-          = AccountWithRestoreAccess' <$> x .@? "AccountId"
+          = AccountWithRestoreAccess' <$> (x .@? "AccountId")
 
 -- | /See:/ 'availabilityZone' smart constructor.
 --
@@ -446,7 +446,7 @@ azName :: Lens' AvailabilityZone (Maybe Text)
 azName = lens _azName (\ s a -> s{_azName = a});
 
 instance FromXML AvailabilityZone where
-        parseXML x = AvailabilityZone' <$> x .@? "Name"
+        parseXML x = AvailabilityZone' <$> (x .@? "Name")
 
 -- | /See:/ 'cluster' smart constructor.
 --
@@ -554,8 +554,8 @@ cluVPCId = lens _cluVPCId (\ s a -> s{_cluVPCId = a});
 -- Cluster security groups are used when the cluster is not created in a
 -- VPC. Clusters that are created in a VPC use VPC security groups, which
 -- are listed by the __VpcSecurityGroups__ parameter.
-cluClusterSecurityGroups :: Lens' Cluster (Maybe [ClusterSecurityGroupMembership])
-cluClusterSecurityGroups = lens _cluClusterSecurityGroups (\ s a -> s{_cluClusterSecurityGroups = a});
+cluClusterSecurityGroups :: Lens' Cluster [ClusterSecurityGroupMembership]
+cluClusterSecurityGroups = lens _cluClusterSecurityGroups (\ s a -> s{_cluClusterSecurityGroups = a}) . _Default;
 
 -- | The number of days that automatic cluster snapshots are retained.
 cluAutomatedSnapshotRetentionPeriod :: Lens' Cluster (Maybe Int)
@@ -593,8 +593,8 @@ cluClusterPublicKey = lens _cluClusterPublicKey (\ s a -> s{_cluClusterPublicKey
 
 -- | The list of cluster parameter groups that are associated with this
 -- cluster.
-cluClusterParameterGroups :: Lens' Cluster (Maybe [ClusterParameterGroupStatus])
-cluClusterParameterGroups = lens _cluClusterParameterGroups (\ s a -> s{_cluClusterParameterGroups = a});
+cluClusterParameterGroups :: Lens' Cluster [ClusterParameterGroupStatus]
+cluClusterParameterGroups = lens _cluClusterParameterGroups (\ s a -> s{_cluClusterParameterGroups = a}) . _Default;
 
 -- | The name of the Availability Zone in which the cluster is located.
 cluAvailabilityZone :: Lens' Cluster (Maybe Text)
@@ -603,8 +603,8 @@ cluAvailabilityZone = lens _cluAvailabilityZone (\ s a -> s{_cluAvailabilityZone
 -- | A list of Virtual Private Cloud (VPC) security groups that are
 -- associated with the cluster. This parameter is returned only if the
 -- cluster is in a VPC.
-cluVPCSecurityGroups :: Lens' Cluster (Maybe [VPCSecurityGroupMembership])
-cluVPCSecurityGroups = lens _cluVPCSecurityGroups (\ s a -> s{_cluVPCSecurityGroups = a});
+cluVPCSecurityGroups :: Lens' Cluster [VPCSecurityGroupMembership]
+cluVPCSecurityGroups = lens _cluVPCSecurityGroups (\ s a -> s{_cluVPCSecurityGroups = a}) . _Default;
 
 -- | The AWS Key Management Service (KMS) key ID of the encryption key used
 -- to encrypt data in the cluster.
@@ -662,55 +662,57 @@ cluDBName :: Lens' Cluster (Maybe Text)
 cluDBName = lens _cluDBName (\ s a -> s{_cluDBName = a});
 
 -- | The list of tags for the cluster.
-cluTags :: Lens' Cluster (Maybe [Tag])
-cluTags = lens _cluTags (\ s a -> s{_cluTags = a});
+cluTags :: Lens' Cluster [Tag]
+cluTags = lens _cluTags (\ s a -> s{_cluTags = a}) . _Default;
 
 -- | The nodes in a cluster.
-cluClusterNodes :: Lens' Cluster (Maybe [ClusterNode])
-cluClusterNodes = lens _cluClusterNodes (\ s a -> s{_cluClusterNodes = a});
+cluClusterNodes :: Lens' Cluster [ClusterNode]
+cluClusterNodes = lens _cluClusterNodes (\ s a -> s{_cluClusterNodes = a}) . _Default;
 
 instance FromXML Cluster where
         parseXML x
           = Cluster' <$>
-              x .@? "RestoreStatus" <*>
-                x .@? "ClusterSnapshotCopyStatus"
-                <*> x .@? "ClusterRevisionNumber"
-                <*> x .@? "MasterUsername"
-                <*> x .@? "PubliclyAccessible"
-                <*> x .@? "VpcId"
+              (x .@? "RestoreStatus") <*>
+                (x .@? "ClusterSnapshotCopyStatus")
+                <*> (x .@? "ClusterRevisionNumber")
+                <*> (x .@? "MasterUsername")
+                <*> (x .@? "PubliclyAccessible")
+                <*> (x .@? "VpcId")
                 <*>
                 (x .@? "ClusterSecurityGroups" .!@ mempty >>=
-                   parseXMLList "ClusterSecurityGroup")
-                <*> x .@? "AutomatedSnapshotRetentionPeriod"
-                <*> x .@? "Encrypted"
-                <*> x .@? "ClusterIdentifier"
-                <*> x .@? "NumberOfNodes"
-                <*> x .@? "ClusterSubnetGroupName"
-                <*> x .@? "PreferredMaintenanceWindow"
-                <*> x .@? "ModifyStatus"
-                <*> x .@? "ClusterPublicKey"
+                   may (parseXMLList "ClusterSecurityGroup"))
+                <*> (x .@? "AutomatedSnapshotRetentionPeriod")
+                <*> (x .@? "Encrypted")
+                <*> (x .@? "ClusterIdentifier")
+                <*> (x .@? "NumberOfNodes")
+                <*> (x .@? "ClusterSubnetGroupName")
+                <*> (x .@? "PreferredMaintenanceWindow")
+                <*> (x .@? "ModifyStatus")
+                <*> (x .@? "ClusterPublicKey")
                 <*>
                 (x .@? "ClusterParameterGroups" .!@ mempty >>=
-                   parseXMLList "ClusterParameterGroup")
-                <*> x .@? "AvailabilityZone"
+                   may (parseXMLList "ClusterParameterGroup"))
+                <*> (x .@? "AvailabilityZone")
                 <*>
                 (x .@? "VpcSecurityGroups" .!@ mempty >>=
-                   parseXMLList "VpcSecurityGroup")
-                <*> x .@? "KmsKeyId"
-                <*> x .@? "HsmStatus"
-                <*> x .@? "ElasticIpStatus"
-                <*> x .@? "ClusterVersion"
-                <*> x .@? "NodeType"
-                <*> x .@? "Endpoint"
-                <*> x .@? "ClusterCreateTime"
-                <*> x .@? "AllowVersionUpgrade"
-                <*> x .@? "PendingModifiedValues"
-                <*> x .@? "ClusterStatus"
-                <*> x .@? "DBName"
-                <*> (x .@? "Tags" .!@ mempty >>= parseXMLList "Tag")
+                   may (parseXMLList "VpcSecurityGroup"))
+                <*> (x .@? "KmsKeyId")
+                <*> (x .@? "HsmStatus")
+                <*> (x .@? "ElasticIpStatus")
+                <*> (x .@? "ClusterVersion")
+                <*> (x .@? "NodeType")
+                <*> (x .@? "Endpoint")
+                <*> (x .@? "ClusterCreateTime")
+                <*> (x .@? "AllowVersionUpgrade")
+                <*> (x .@? "PendingModifiedValues")
+                <*> (x .@? "ClusterStatus")
+                <*> (x .@? "DBName")
+                <*>
+                (x .@? "Tags" .!@ mempty >>=
+                   may (parseXMLList "Tag"))
                 <*>
                 (x .@? "ClusterNodes" .!@ mempty >>=
-                   parseXMLList "member")
+                   may (parseXMLList "member"))
 
 -- | /See:/ 'clusterNode' smart constructor.
 --
@@ -742,8 +744,8 @@ cnPublicIPAddress = lens _cnPublicIPAddress (\ s a -> s{_cnPublicIPAddress = a})
 instance FromXML ClusterNode where
         parseXML x
           = ClusterNode' <$>
-              x .@? "NodeRole" <*> x .@? "PrivateIPAddress" <*>
-                x .@? "PublicIPAddress"
+              (x .@? "NodeRole") <*> (x .@? "PrivateIPAddress") <*>
+                (x .@? "PublicIPAddress")
 
 -- | /See:/ 'clusterParameterGroup' smart constructor.
 --
@@ -776,15 +778,18 @@ cpgParameterGroupName :: Lens' ClusterParameterGroup (Maybe Text)
 cpgParameterGroupName = lens _cpgParameterGroupName (\ s a -> s{_cpgParameterGroupName = a});
 
 -- | The list of tags for the cluster parameter group.
-cpgTags :: Lens' ClusterParameterGroup (Maybe [Tag])
-cpgTags = lens _cpgTags (\ s a -> s{_cpgTags = a});
+cpgTags :: Lens' ClusterParameterGroup [Tag]
+cpgTags = lens _cpgTags (\ s a -> s{_cpgTags = a}) . _Default;
 
 instance FromXML ClusterParameterGroup where
         parseXML x
           = ClusterParameterGroup' <$>
-              x .@? "ParameterGroupFamily" <*> x .@? "Description"
-                <*> x .@? "ParameterGroupName"
-                <*> (x .@? "Tags" .!@ mempty >>= parseXMLList "Tag")
+              (x .@? "ParameterGroupFamily") <*>
+                (x .@? "Description")
+                <*> (x .@? "ParameterGroupName")
+                <*>
+                (x .@? "Tags" .!@ mempty >>=
+                   may (parseXMLList "Tag"))
 
 -- | /See:/ 'clusterParameterGroupNameMessage' smart constructor.
 --
@@ -813,8 +818,8 @@ instance FromXML ClusterParameterGroupNameMessage
          where
         parseXML x
           = ClusterParameterGroupNameMessage' <$>
-              x .@? "ParameterGroupStatus" <*>
-                x .@? "ParameterGroupName"
+              (x .@? "ParameterGroupStatus") <*>
+                (x .@? "ParameterGroupName")
 
 -- | /See:/ 'clusterParameterGroupStatus' smart constructor.
 --
@@ -840,8 +845,8 @@ cpgsParameterGroupName = lens _cpgsParameterGroupName (\ s a -> s{_cpgsParameter
 instance FromXML ClusterParameterGroupStatus where
         parseXML x
           = ClusterParameterGroupStatus' <$>
-              x .@? "ParameterApplyStatus" <*>
-                x .@? "ParameterGroupName"
+              (x .@? "ParameterApplyStatus") <*>
+                (x .@? "ParameterGroupName")
 
 -- | /See:/ 'clusterSecurityGroup' smart constructor.
 --
@@ -869,33 +874,35 @@ cClusterSecurityGroupName = lens _cClusterSecurityGroupName (\ s a -> s{_cCluste
 
 -- | A list of IP ranges (CIDR blocks) that are permitted to access clusters
 -- associated with this cluster security group.
-cIPRanges :: Lens' ClusterSecurityGroup (Maybe [IPRange])
-cIPRanges = lens _cIPRanges (\ s a -> s{_cIPRanges = a});
+cIPRanges :: Lens' ClusterSecurityGroup [IPRange]
+cIPRanges = lens _cIPRanges (\ s a -> s{_cIPRanges = a}) . _Default;
 
 -- | A list of EC2 security groups that are permitted to access clusters
 -- associated with this cluster security group.
-cEC2SecurityGroups :: Lens' ClusterSecurityGroup (Maybe [EC2SecurityGroup])
-cEC2SecurityGroups = lens _cEC2SecurityGroups (\ s a -> s{_cEC2SecurityGroups = a});
+cEC2SecurityGroups :: Lens' ClusterSecurityGroup [EC2SecurityGroup]
+cEC2SecurityGroups = lens _cEC2SecurityGroups (\ s a -> s{_cEC2SecurityGroups = a}) . _Default;
 
 -- | A description of the security group.
 cDescription :: Lens' ClusterSecurityGroup (Maybe Text)
 cDescription = lens _cDescription (\ s a -> s{_cDescription = a});
 
 -- | The list of tags for the cluster security group.
-cTags :: Lens' ClusterSecurityGroup (Maybe [Tag])
-cTags = lens _cTags (\ s a -> s{_cTags = a});
+cTags :: Lens' ClusterSecurityGroup [Tag]
+cTags = lens _cTags (\ s a -> s{_cTags = a}) . _Default;
 
 instance FromXML ClusterSecurityGroup where
         parseXML x
           = ClusterSecurityGroup' <$>
-              x .@? "ClusterSecurityGroupName" <*>
+              (x .@? "ClusterSecurityGroupName") <*>
                 (x .@? "IPRanges" .!@ mempty >>=
-                   parseXMLList "IPRange")
+                   may (parseXMLList "IPRange"))
                 <*>
                 (x .@? "EC2SecurityGroups" .!@ mempty >>=
-                   parseXMLList "EC2SecurityGroup")
-                <*> x .@? "Description"
-                <*> (x .@? "Tags" .!@ mempty >>= parseXMLList "Tag")
+                   may (parseXMLList "EC2SecurityGroup"))
+                <*> (x .@? "Description")
+                <*>
+                (x .@? "Tags" .!@ mempty >>=
+                   may (parseXMLList "Tag"))
 
 -- | /See:/ 'clusterSecurityGroupMembership' smart constructor.
 --
@@ -921,7 +928,8 @@ csgmClusterSecurityGroupName = lens _csgmClusterSecurityGroupName (\ s a -> s{_c
 instance FromXML ClusterSecurityGroupMembership where
         parseXML x
           = ClusterSecurityGroupMembership' <$>
-              x .@? "Status" <*> x .@? "ClusterSecurityGroupName"
+              (x .@? "Status") <*>
+                (x .@? "ClusterSecurityGroupName")
 
 -- | /See:/ 'clusterSnapshotCopyStatus' smart constructor.
 --
@@ -949,7 +957,8 @@ cscsDestinationRegion = lens _cscsDestinationRegion (\ s a -> s{_cscsDestination
 instance FromXML ClusterSnapshotCopyStatus where
         parseXML x
           = ClusterSnapshotCopyStatus' <$>
-              x .@? "RetentionPeriod" <*> x .@? "DestinationRegion"
+              (x .@? "RetentionPeriod") <*>
+                (x .@? "DestinationRegion")
 
 -- | /See:/ 'clusterSubnetGroup' smart constructor.
 --
@@ -977,8 +986,8 @@ csgVPCId :: Lens' ClusterSubnetGroup (Maybe Text)
 csgVPCId = lens _csgVPCId (\ s a -> s{_csgVPCId = a});
 
 -- | A list of the VPC Subnet elements.
-csgSubnets :: Lens' ClusterSubnetGroup (Maybe [Subnet])
-csgSubnets = lens _csgSubnets (\ s a -> s{_csgSubnets = a});
+csgSubnets :: Lens' ClusterSubnetGroup [Subnet]
+csgSubnets = lens _csgSubnets (\ s a -> s{_csgSubnets = a}) . _Default;
 
 -- | The name of the cluster subnet group.
 csgClusterSubnetGroupName :: Lens' ClusterSubnetGroup (Maybe Text)
@@ -994,19 +1003,21 @@ csgDescription :: Lens' ClusterSubnetGroup (Maybe Text)
 csgDescription = lens _csgDescription (\ s a -> s{_csgDescription = a});
 
 -- | The list of tags for the cluster subnet group.
-csgTags :: Lens' ClusterSubnetGroup (Maybe [Tag])
-csgTags = lens _csgTags (\ s a -> s{_csgTags = a});
+csgTags :: Lens' ClusterSubnetGroup [Tag]
+csgTags = lens _csgTags (\ s a -> s{_csgTags = a}) . _Default;
 
 instance FromXML ClusterSubnetGroup where
         parseXML x
           = ClusterSubnetGroup' <$>
-              x .@? "VpcId" <*>
+              (x .@? "VpcId") <*>
                 (x .@? "Subnets" .!@ mempty >>=
-                   parseXMLList "Subnet")
-                <*> x .@? "ClusterSubnetGroupName"
-                <*> x .@? "SubnetGroupStatus"
-                <*> x .@? "Description"
-                <*> (x .@? "Tags" .!@ mempty >>= parseXMLList "Tag")
+                   may (parseXMLList "Subnet"))
+                <*> (x .@? "ClusterSubnetGroupName")
+                <*> (x .@? "SubnetGroupStatus")
+                <*> (x .@? "Description")
+                <*>
+                (x .@? "Tags" .!@ mempty >>=
+                   may (parseXMLList "Tag"))
 
 -- | /See:/ 'clusterVersion' smart constructor.
 --
@@ -1038,9 +1049,9 @@ cvDescription = lens _cvDescription (\ s a -> s{_cvDescription = a});
 instance FromXML ClusterVersion where
         parseXML x
           = ClusterVersion' <$>
-              x .@? "ClusterParameterGroupFamily" <*>
-                x .@? "ClusterVersion"
-                <*> x .@? "Description"
+              (x .@? "ClusterParameterGroupFamily") <*>
+                (x .@? "ClusterVersion")
+                <*> (x .@? "Description")
 
 -- | /See:/ 'defaultClusterParameters' smart constructor.
 --
@@ -1058,8 +1069,8 @@ defaultClusterParameters :: DefaultClusterParameters
 defaultClusterParameters = DefaultClusterParameters'{_dcpParameters = Nothing, _dcpMarker = Nothing, _dcpParameterGroupFamily = Nothing};
 
 -- | The list of cluster default parameters.
-dcpParameters :: Lens' DefaultClusterParameters (Maybe [Parameter])
-dcpParameters = lens _dcpParameters (\ s a -> s{_dcpParameters = a});
+dcpParameters :: Lens' DefaultClusterParameters [Parameter]
+dcpParameters = lens _dcpParameters (\ s a -> s{_dcpParameters = a}) . _Default;
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -1079,9 +1090,9 @@ instance FromXML DefaultClusterParameters where
         parseXML x
           = DefaultClusterParameters' <$>
               (x .@? "Parameters" .!@ mempty >>=
-                 parseXMLList "Parameter")
-                <*> x .@? "Marker"
-                <*> x .@? "ParameterGroupFamily"
+                 may (parseXMLList "Parameter"))
+                <*> (x .@? "Marker")
+                <*> (x .@? "ParameterGroupFamily")
 
 -- | /See:/ 'ec2SecurityGroup' smart constructor.
 --
@@ -1114,15 +1125,18 @@ esgEC2SecurityGroupName :: Lens' EC2SecurityGroup (Maybe Text)
 esgEC2SecurityGroupName = lens _esgEC2SecurityGroupName (\ s a -> s{_esgEC2SecurityGroupName = a});
 
 -- | The list of tags for the EC2 security group.
-esgTags :: Lens' EC2SecurityGroup (Maybe [Tag])
-esgTags = lens _esgTags (\ s a -> s{_esgTags = a});
+esgTags :: Lens' EC2SecurityGroup [Tag]
+esgTags = lens _esgTags (\ s a -> s{_esgTags = a}) . _Default;
 
 instance FromXML EC2SecurityGroup where
         parseXML x
           = EC2SecurityGroup' <$>
-              x .@? "Status" <*> x .@? "EC2SecurityGroupOwnerId"
-                <*> x .@? "EC2SecurityGroupName"
-                <*> (x .@? "Tags" .!@ mempty >>= parseXMLList "Tag")
+              (x .@? "Status") <*>
+                (x .@? "EC2SecurityGroupOwnerId")
+                <*> (x .@? "EC2SecurityGroupName")
+                <*>
+                (x .@? "Tags" .!@ mempty >>=
+                   may (parseXMLList "Tag"))
 
 -- | /See:/ 'elasticIPStatus' smart constructor.
 --
@@ -1148,7 +1162,7 @@ eisElasticIP = lens _eisElasticIP (\ s a -> s{_eisElasticIP = a});
 instance FromXML ElasticIPStatus where
         parseXML x
           = ElasticIPStatus' <$>
-              x .@? "Status" <*> x .@? "ElasticIp"
+              (x .@? "Status") <*> (x .@? "ElasticIp")
 
 -- | /See:/ 'endpoint' smart constructor.
 --
@@ -1173,7 +1187,7 @@ endPort = lens _endPort (\ s a -> s{_endPort = a});
 
 instance FromXML Endpoint where
         parseXML x
-          = Endpoint' <$> x .@? "Address" <*> x .@? "Port"
+          = Endpoint' <$> (x .@? "Address") <*> (x .@? "Port")
 
 -- | /See:/ 'event' smart constructor.
 --
@@ -1217,8 +1231,8 @@ eveDate :: Lens' Event (Maybe UTCTime)
 eveDate = lens _eveDate (\ s a -> s{_eveDate = a}) . mapping _Time;
 
 -- | A list of the event categories.
-eveEventCategories :: Lens' Event (Maybe [Text])
-eveEventCategories = lens _eveEventCategories (\ s a -> s{_eveEventCategories = a});
+eveEventCategories :: Lens' Event [Text]
+eveEventCategories = lens _eveEventCategories (\ s a -> s{_eveEventCategories = a}) . _Default;
 
 -- | The text of this event.
 eveMessage :: Lens' Event (Maybe Text)
@@ -1231,14 +1245,14 @@ eveEventId = lens _eveEventId (\ s a -> s{_eveEventId = a});
 instance FromXML Event where
         parseXML x
           = Event' <$>
-              x .@? "SourceType" <*> x .@? "Severity" <*>
-                x .@? "SourceIdentifier"
-                <*> x .@? "Date"
+              (x .@? "SourceType") <*> (x .@? "Severity") <*>
+                (x .@? "SourceIdentifier")
+                <*> (x .@? "Date")
                 <*>
                 (x .@? "EventCategories" .!@ mempty >>=
-                   parseXMLList "EventCategory")
-                <*> x .@? "Message"
-                <*> x .@? "EventId"
+                   may (parseXMLList "EventCategory"))
+                <*> (x .@? "Message")
+                <*> (x .@? "EventId")
 
 -- | /See:/ 'eventCategoriesMap' smart constructor.
 --
@@ -1259,15 +1273,15 @@ ecmSourceType :: Lens' EventCategoriesMap (Maybe Text)
 ecmSourceType = lens _ecmSourceType (\ s a -> s{_ecmSourceType = a});
 
 -- | The events in the event category.
-ecmEvents :: Lens' EventCategoriesMap (Maybe [EventInfoMap])
-ecmEvents = lens _ecmEvents (\ s a -> s{_ecmEvents = a});
+ecmEvents :: Lens' EventCategoriesMap [EventInfoMap]
+ecmEvents = lens _ecmEvents (\ s a -> s{_ecmEvents = a}) . _Default;
 
 instance FromXML EventCategoriesMap where
         parseXML x
           = EventCategoriesMap' <$>
-              x .@? "SourceType" <*>
+              (x .@? "SourceType") <*>
                 (x .@? "Events" .!@ mempty >>=
-                   parseXMLList "EventInfoMap")
+                   may (parseXMLList "EventInfoMap"))
 
 -- | /See:/ 'eventInfoMap' smart constructor.
 --
@@ -1297,8 +1311,8 @@ eimSeverity :: Lens' EventInfoMap (Maybe Text)
 eimSeverity = lens _eimSeverity (\ s a -> s{_eimSeverity = a});
 
 -- | The category of an Amazon Redshift event.
-eimEventCategories :: Lens' EventInfoMap (Maybe [Text])
-eimEventCategories = lens _eimEventCategories (\ s a -> s{_eimEventCategories = a});
+eimEventCategories :: Lens' EventInfoMap [Text]
+eimEventCategories = lens _eimEventCategories (\ s a -> s{_eimEventCategories = a}) . _Default;
 
 -- | The identifier of an Amazon Redshift event.
 eimEventId :: Lens' EventInfoMap (Maybe Text)
@@ -1307,10 +1321,10 @@ eimEventId = lens _eimEventId (\ s a -> s{_eimEventId = a});
 instance FromXML EventInfoMap where
         parseXML x
           = EventInfoMap' <$>
-              x .@? "EventDescription" <*> x .@? "Severity" <*>
+              (x .@? "EventDescription") <*> (x .@? "Severity") <*>
                 (x .@? "EventCategories" .!@ mempty >>=
-                   parseXMLList "EventCategory")
-                <*> x .@? "EventId"
+                   may (parseXMLList "EventCategory"))
+                <*> (x .@? "EventId")
 
 -- | /See:/ 'eventSubscription' smart constructor.
 --
@@ -1396,35 +1410,37 @@ esSubscriptionCreationTime = lens _esSubscriptionCreationTime (\ s a -> s{_esSub
 -- notification subscription.
 --
 -- Values: Configuration, Management, Monitoring, Security
-esEventCategoriesList :: Lens' EventSubscription (Maybe [Text])
-esEventCategoriesList = lens _esEventCategoriesList (\ s a -> s{_esEventCategoriesList = a});
+esEventCategoriesList :: Lens' EventSubscription [Text]
+esEventCategoriesList = lens _esEventCategoriesList (\ s a -> s{_esEventCategoriesList = a}) . _Default;
 
 -- | A list of the sources that publish events to the Amazon Redshift event
 -- notification subscription.
-esSourceIdsList :: Lens' EventSubscription (Maybe [Text])
-esSourceIdsList = lens _esSourceIdsList (\ s a -> s{_esSourceIdsList = a});
+esSourceIdsList :: Lens' EventSubscription [Text]
+esSourceIdsList = lens _esSourceIdsList (\ s a -> s{_esSourceIdsList = a}) . _Default;
 
 -- | The list of tags for the event subscription.
-esTags :: Lens' EventSubscription (Maybe [Tag])
-esTags = lens _esTags (\ s a -> s{_esTags = a});
+esTags :: Lens' EventSubscription [Tag]
+esTags = lens _esTags (\ s a -> s{_esTags = a}) . _Default;
 
 instance FromXML EventSubscription where
         parseXML x
           = EventSubscription' <$>
-              x .@? "CustomerAwsId" <*> x .@? "Status" <*>
-                x .@? "CustSubscriptionId"
-                <*> x .@? "SnsTopicArn"
-                <*> x .@? "Enabled"
-                <*> x .@? "SourceType"
-                <*> x .@? "Severity"
-                <*> x .@? "SubscriptionCreationTime"
+              (x .@? "CustomerAwsId") <*> (x .@? "Status") <*>
+                (x .@? "CustSubscriptionId")
+                <*> (x .@? "SnsTopicArn")
+                <*> (x .@? "Enabled")
+                <*> (x .@? "SourceType")
+                <*> (x .@? "Severity")
+                <*> (x .@? "SubscriptionCreationTime")
                 <*>
                 (x .@? "EventCategoriesList" .!@ mempty >>=
-                   parseXMLList "EventCategory")
+                   may (parseXMLList "EventCategory"))
                 <*>
                 (x .@? "SourceIdsList" .!@ mempty >>=
-                   parseXMLList "SourceId")
-                <*> (x .@? "Tags" .!@ mempty >>= parseXMLList "Tag")
+                   may (parseXMLList "SourceId"))
+                <*>
+                (x .@? "Tags" .!@ mempty >>=
+                   may (parseXMLList "Tag"))
 
 -- | /See:/ 'hsmClientCertificate' smart constructor.
 --
@@ -1451,15 +1467,17 @@ hccHSMClientCertificatePublicKey :: Lens' HSMClientCertificate (Maybe Text)
 hccHSMClientCertificatePublicKey = lens _hccHSMClientCertificatePublicKey (\ s a -> s{_hccHSMClientCertificatePublicKey = a});
 
 -- | The list of tags for the HSM client certificate.
-hccTags :: Lens' HSMClientCertificate (Maybe [Tag])
-hccTags = lens _hccTags (\ s a -> s{_hccTags = a});
+hccTags :: Lens' HSMClientCertificate [Tag]
+hccTags = lens _hccTags (\ s a -> s{_hccTags = a}) . _Default;
 
 instance FromXML HSMClientCertificate where
         parseXML x
           = HSMClientCertificate' <$>
-              x .@? "HsmClientCertificateIdentifier" <*>
-                x .@? "HsmClientCertificatePublicKey"
-                <*> (x .@? "Tags" .!@ mempty >>= parseXMLList "Tag")
+              (x .@? "HsmClientCertificateIdentifier") <*>
+                (x .@? "HsmClientCertificatePublicKey")
+                <*>
+                (x .@? "Tags" .!@ mempty >>=
+                   may (parseXMLList "Tag"))
 
 -- | /See:/ 'hsmConfiguration' smart constructor.
 --
@@ -1499,17 +1517,19 @@ hcHSMIPAddress :: Lens' HSMConfiguration (Maybe Text)
 hcHSMIPAddress = lens _hcHSMIPAddress (\ s a -> s{_hcHSMIPAddress = a});
 
 -- | The list of tags for the HSM configuration.
-hcTags :: Lens' HSMConfiguration (Maybe [Tag])
-hcTags = lens _hcTags (\ s a -> s{_hcTags = a});
+hcTags :: Lens' HSMConfiguration [Tag]
+hcTags = lens _hcTags (\ s a -> s{_hcTags = a}) . _Default;
 
 instance FromXML HSMConfiguration where
         parseXML x
           = HSMConfiguration' <$>
-              x .@? "HsmConfigurationIdentifier" <*>
-                x .@? "HsmPartitionName"
-                <*> x .@? "Description"
-                <*> x .@? "HsmIpAddress"
-                <*> (x .@? "Tags" .!@ mempty >>= parseXMLList "Tag")
+              (x .@? "HsmConfigurationIdentifier") <*>
+                (x .@? "HsmPartitionName")
+                <*> (x .@? "Description")
+                <*> (x .@? "HsmIpAddress")
+                <*>
+                (x .@? "Tags" .!@ mempty >>=
+                   may (parseXMLList "Tag"))
 
 -- | /See:/ 'hsmStatus' smart constructor.
 --
@@ -1547,8 +1567,9 @@ hsHSMClientCertificateIdentifier = lens _hsHSMClientCertificateIdentifier (\ s a
 instance FromXML HSMStatus where
         parseXML x
           = HSMStatus' <$>
-              x .@? "Status" <*> x .@? "HsmConfigurationIdentifier"
-                <*> x .@? "HsmClientCertificateIdentifier"
+              (x .@? "Status") <*>
+                (x .@? "HsmConfigurationIdentifier")
+                <*> (x .@? "HsmClientCertificateIdentifier")
 
 -- | /See:/ 'ipRange' smart constructor.
 --
@@ -1574,14 +1595,15 @@ irCIDRIP :: Lens' IPRange (Maybe Text)
 irCIDRIP = lens _irCIDRIP (\ s a -> s{_irCIDRIP = a});
 
 -- | The list of tags for the IP range.
-irTags :: Lens' IPRange (Maybe [Tag])
-irTags = lens _irTags (\ s a -> s{_irTags = a});
+irTags :: Lens' IPRange [Tag]
+irTags = lens _irTags (\ s a -> s{_irTags = a}) . _Default;
 
 instance FromXML IPRange where
         parseXML x
           = IPRange' <$>
-              x .@? "Status" <*> x .@? "CIDRIP" <*>
-                (x .@? "Tags" .!@ mempty >>= parseXMLList "Tag")
+              (x .@? "Status") <*> (x .@? "CIDRIP") <*>
+                (x .@? "Tags" .!@ mempty >>=
+                   may (parseXMLList "Tag"))
 
 -- | /See:/ 'loggingStatus' smart constructor.
 --
@@ -1631,12 +1653,12 @@ lsLastFailureMessage = lens _lsLastFailureMessage (\ s a -> s{_lsLastFailureMess
 instance FromXML LoggingStatus where
         parseXML x
           = LoggingStatus' <$>
-              x .@? "LastSuccessfulDeliveryTime" <*>
-                x .@? "LastFailureTime"
-                <*> x .@? "S3KeyPrefix"
-                <*> x .@? "BucketName"
-                <*> x .@? "LoggingEnabled"
-                <*> x .@? "LastFailureMessage"
+              (x .@? "LastSuccessfulDeliveryTime") <*>
+                (x .@? "LastFailureTime")
+                <*> (x .@? "S3KeyPrefix")
+                <*> (x .@? "BucketName")
+                <*> (x .@? "LoggingEnabled")
+                <*> (x .@? "LastFailureMessage")
 
 -- | /See:/ 'orderableClusterOption' smart constructor.
 --
@@ -1656,8 +1678,8 @@ orderableClusterOption :: OrderableClusterOption
 orderableClusterOption = OrderableClusterOption'{_ocoAvailabilityZones = Nothing, _ocoClusterType = Nothing, _ocoClusterVersion = Nothing, _ocoNodeType = Nothing};
 
 -- | A list of availability zones for the orderable cluster.
-ocoAvailabilityZones :: Lens' OrderableClusterOption (Maybe [AvailabilityZone])
-ocoAvailabilityZones = lens _ocoAvailabilityZones (\ s a -> s{_ocoAvailabilityZones = a});
+ocoAvailabilityZones :: Lens' OrderableClusterOption [AvailabilityZone]
+ocoAvailabilityZones = lens _ocoAvailabilityZones (\ s a -> s{_ocoAvailabilityZones = a}) . _Default;
 
 -- | The cluster type, for example @multi-node@.
 ocoClusterType :: Lens' OrderableClusterOption (Maybe Text)
@@ -1675,10 +1697,10 @@ instance FromXML OrderableClusterOption where
         parseXML x
           = OrderableClusterOption' <$>
               (x .@? "AvailabilityZones" .!@ mempty >>=
-                 parseXMLList "AvailabilityZone")
-                <*> x .@? "ClusterType"
-                <*> x .@? "ClusterVersion"
-                <*> x .@? "NodeType"
+                 may (parseXMLList "AvailabilityZone"))
+                <*> (x .@? "ClusterType")
+                <*> (x .@? "ClusterVersion")
+                <*> (x .@? "NodeType")
 
 -- | /See:/ 'parameter' smart constructor.
 --
@@ -1742,14 +1764,14 @@ parDescription = lens _parDescription (\ s a -> s{_parDescription = a});
 instance FromXML Parameter where
         parseXML x
           = Parameter' <$>
-              x .@? "ParameterValue" <*>
-                x .@? "MinimumEngineVersion"
-                <*> x .@? "Source"
-                <*> x .@? "IsModifiable"
-                <*> x .@? "AllowedValues"
-                <*> x .@? "DataType"
-                <*> x .@? "ParameterName"
-                <*> x .@? "Description"
+              (x .@? "ParameterValue") <*>
+                (x .@? "MinimumEngineVersion")
+                <*> (x .@? "Source")
+                <*> (x .@? "IsModifiable")
+                <*> (x .@? "AllowedValues")
+                <*> (x .@? "DataType")
+                <*> (x .@? "ParameterName")
+                <*> (x .@? "Description")
 
 instance ToQuery Parameter where
         toQuery Parameter'{..}
@@ -1819,13 +1841,13 @@ pmvNodeType = lens _pmvNodeType (\ s a -> s{_pmvNodeType = a});
 instance FromXML PendingModifiedValues where
         parseXML x
           = PendingModifiedValues' <$>
-              x .@? "MasterUserPassword" <*>
-                x .@? "AutomatedSnapshotRetentionPeriod"
-                <*> x .@? "ClusterIdentifier"
-                <*> x .@? "NumberOfNodes"
-                <*> x .@? "ClusterType"
-                <*> x .@? "ClusterVersion"
-                <*> x .@? "NodeType"
+              (x .@? "MasterUserPassword") <*>
+                (x .@? "AutomatedSnapshotRetentionPeriod")
+                <*> (x .@? "ClusterIdentifier")
+                <*> (x .@? "NumberOfNodes")
+                <*> (x .@? "ClusterType")
+                <*> (x .@? "ClusterVersion")
+                <*> (x .@? "NodeType")
 
 -- | /See:/ 'recurringCharge' smart constructor.
 --
@@ -1852,8 +1874,8 @@ rcRecurringChargeAmount = lens _rcRecurringChargeAmount (\ s a -> s{_rcRecurring
 instance FromXML RecurringCharge where
         parseXML x
           = RecurringCharge' <$>
-              x .@? "RecurringChargeFrequency" <*>
-                x .@? "RecurringChargeAmount"
+              (x .@? "RecurringChargeFrequency") <*>
+                (x .@? "RecurringChargeAmount")
 
 -- | /See:/ 'reservedNode' smart constructor.
 --
@@ -1935,8 +1957,8 @@ rnNodeType :: Lens' ReservedNode (Maybe Text)
 rnNodeType = lens _rnNodeType (\ s a -> s{_rnNodeType = a});
 
 -- | The recurring charges for the reserved node.
-rnRecurringCharges :: Lens' ReservedNode (Maybe [RecurringCharge])
-rnRecurringCharges = lens _rnRecurringCharges (\ s a -> s{_rnRecurringCharges = a});
+rnRecurringCharges :: Lens' ReservedNode [RecurringCharge]
+rnRecurringCharges = lens _rnRecurringCharges (\ s a -> s{_rnRecurringCharges = a}) . _Default;
 
 -- | The fixed cost Amazon Redshift charged you for this reserved node.
 rnFixedPrice :: Lens' ReservedNode (Maybe Double)
@@ -1949,19 +1971,19 @@ rnDuration = lens _rnDuration (\ s a -> s{_rnDuration = a});
 instance FromXML ReservedNode where
         parseXML x
           = ReservedNode' <$>
-              x .@? "State" <*> x .@? "CurrencyCode" <*>
-                x .@? "StartTime"
-                <*> x .@? "NodeCount"
-                <*> x .@? "ReservedNodeOfferingId"
-                <*> x .@? "ReservedNodeId"
-                <*> x .@? "OfferingType"
-                <*> x .@? "UsagePrice"
-                <*> x .@? "NodeType"
+              (x .@? "State") <*> (x .@? "CurrencyCode") <*>
+                (x .@? "StartTime")
+                <*> (x .@? "NodeCount")
+                <*> (x .@? "ReservedNodeOfferingId")
+                <*> (x .@? "ReservedNodeId")
+                <*> (x .@? "OfferingType")
+                <*> (x .@? "UsagePrice")
+                <*> (x .@? "NodeType")
                 <*>
                 (x .@? "RecurringCharges" .!@ mempty >>=
-                   parseXMLList "RecurringCharge")
-                <*> x .@? "FixedPrice"
-                <*> x .@? "Duration"
+                   may (parseXMLList "RecurringCharge"))
+                <*> (x .@? "FixedPrice")
+                <*> (x .@? "Duration")
 
 -- | /See:/ 'reservedNodeOffering' smart constructor.
 --
@@ -2013,8 +2035,8 @@ rnoNodeType = lens _rnoNodeType (\ s a -> s{_rnoNodeType = a});
 -- | The charge to your account regardless of whether you are creating any
 -- clusters using the node offering. Recurring charges are only in effect
 -- for heavy-utilization reserved nodes.
-rnoRecurringCharges :: Lens' ReservedNodeOffering (Maybe [RecurringCharge])
-rnoRecurringCharges = lens _rnoRecurringCharges (\ s a -> s{_rnoRecurringCharges = a});
+rnoRecurringCharges :: Lens' ReservedNodeOffering [RecurringCharge]
+rnoRecurringCharges = lens _rnoRecurringCharges (\ s a -> s{_rnoRecurringCharges = a}) . _Default;
 
 -- | The upfront fixed charge you will pay to purchase the specific reserved
 -- node offering.
@@ -2028,16 +2050,16 @@ rnoDuration = lens _rnoDuration (\ s a -> s{_rnoDuration = a});
 instance FromXML ReservedNodeOffering where
         parseXML x
           = ReservedNodeOffering' <$>
-              x .@? "CurrencyCode" <*>
-                x .@? "ReservedNodeOfferingId"
-                <*> x .@? "OfferingType"
-                <*> x .@? "UsagePrice"
-                <*> x .@? "NodeType"
+              (x .@? "CurrencyCode") <*>
+                (x .@? "ReservedNodeOfferingId")
+                <*> (x .@? "OfferingType")
+                <*> (x .@? "UsagePrice")
+                <*> (x .@? "NodeType")
                 <*>
                 (x .@? "RecurringCharges" .!@ mempty >>=
-                   parseXMLList "RecurringCharge")
-                <*> x .@? "FixedPrice"
-                <*> x .@? "Duration"
+                   may (parseXMLList "RecurringCharge"))
+                <*> (x .@? "FixedPrice")
+                <*> (x .@? "Duration")
 
 -- | /See:/ 'restoreStatus' smart constructor.
 --
@@ -2092,12 +2114,12 @@ rsSnapshotSizeInMegaBytes = lens _rsSnapshotSizeInMegaBytes (\ s a -> s{_rsSnaps
 instance FromXML RestoreStatus where
         parseXML x
           = RestoreStatus' <$>
-              x .@? "EstimatedTimeToCompletionInSeconds" <*>
-                x .@? "Status"
-                <*> x .@? "CurrentRestoreRateInMegaBytesPerSecond"
-                <*> x .@? "ProgressInMegaBytes"
-                <*> x .@? "ElapsedTimeInSeconds"
-                <*> x .@? "SnapshotSizeInMegaBytes"
+              (x .@? "EstimatedTimeToCompletionInSeconds") <*>
+                (x .@? "Status")
+                <*> (x .@? "CurrentRestoreRateInMegaBytesPerSecond")
+                <*> (x .@? "ProgressInMegaBytes")
+                <*> (x .@? "ElapsedTimeInSeconds")
+                <*> (x .@? "SnapshotSizeInMegaBytes")
 
 -- | /See:/ 'snapshot' smart constructor.
 --
@@ -2176,8 +2198,8 @@ snaStatus = lens _snaStatus (\ s a -> s{_snaStatus = a});
 -- | A list of the AWS customer accounts authorized to restore the snapshot.
 -- Returns @null@ if no accounts are authorized. Visible only to the
 -- snapshot owner.
-snaAccountsWithRestoreAccess :: Lens' Snapshot (Maybe [AccountWithRestoreAccess])
-snaAccountsWithRestoreAccess = lens _snaAccountsWithRestoreAccess (\ s a -> s{_snaAccountsWithRestoreAccess = a});
+snaAccountsWithRestoreAccess :: Lens' Snapshot [AccountWithRestoreAccess]
+snaAccountsWithRestoreAccess = lens _snaAccountsWithRestoreAccess (\ s a -> s{_snaAccountsWithRestoreAccess = a}) . _Default;
 
 -- | The snapshot identifier that is provided in the request.
 snaSnapshotIdentifier :: Lens' Snapshot (Maybe Text)
@@ -2284,8 +2306,8 @@ snaDBName :: Lens' Snapshot (Maybe Text)
 snaDBName = lens _snaDBName (\ s a -> s{_snaDBName = a});
 
 -- | The list of tags for the cluster snapshot.
-snaTags :: Lens' Snapshot (Maybe [Tag])
-snaTags = lens _snaTags (\ s a -> s{_snaTags = a});
+snaTags :: Lens' Snapshot [Tag]
+snaTags = lens _snaTags (\ s a -> s{_snaTags = a}) . _Default;
 
 -- | The size of the incremental backup.
 snaActualIncrementalBackupSizeInMegaBytes :: Lens' Snapshot (Maybe Double)
@@ -2298,34 +2320,36 @@ snaPort = lens _snaPort (\ s a -> s{_snaPort = a});
 instance FromXML Snapshot where
         parseXML x
           = Snapshot' <$>
-              x .@? "Status" <*>
+              (x .@? "Status") <*>
                 (x .@? "AccountsWithRestoreAccess" .!@ mempty >>=
-                   parseXMLList "AccountWithRestoreAccess")
-                <*> x .@? "SnapshotIdentifier"
-                <*> x .@? "EncryptedWithHSM"
-                <*> x .@? "MasterUsername"
-                <*> x .@? "SourceRegion"
-                <*> x .@? "VpcId"
-                <*> x .@? "BackupProgressInMegaBytes"
-                <*> x .@? "Encrypted"
-                <*> x .@? "ClusterIdentifier"
-                <*> x .@? "NumberOfNodes"
-                <*> x .@? "SnapshotType"
-                <*> x .@? "AvailabilityZone"
-                <*> x .@? "KmsKeyId"
-                <*> x .@? "CurrentBackupRateInMegaBytesPerSecond"
-                <*> x .@? "SnapshotCreateTime"
-                <*> x .@? "ClusterVersion"
-                <*> x .@? "OwnerAccount"
-                <*> x .@? "NodeType"
-                <*> x .@? "ClusterCreateTime"
-                <*> x .@? "ElapsedTimeInSeconds"
-                <*> x .@? "EstimatedSecondsToCompletion"
-                <*> x .@? "TotalBackupSizeInMegaBytes"
-                <*> x .@? "DBName"
-                <*> (x .@? "Tags" .!@ mempty >>= parseXMLList "Tag")
-                <*> x .@? "ActualIncrementalBackupSizeInMegaBytes"
-                <*> x .@? "Port"
+                   may (parseXMLList "AccountWithRestoreAccess"))
+                <*> (x .@? "SnapshotIdentifier")
+                <*> (x .@? "EncryptedWithHSM")
+                <*> (x .@? "MasterUsername")
+                <*> (x .@? "SourceRegion")
+                <*> (x .@? "VpcId")
+                <*> (x .@? "BackupProgressInMegaBytes")
+                <*> (x .@? "Encrypted")
+                <*> (x .@? "ClusterIdentifier")
+                <*> (x .@? "NumberOfNodes")
+                <*> (x .@? "SnapshotType")
+                <*> (x .@? "AvailabilityZone")
+                <*> (x .@? "KmsKeyId")
+                <*> (x .@? "CurrentBackupRateInMegaBytesPerSecond")
+                <*> (x .@? "SnapshotCreateTime")
+                <*> (x .@? "ClusterVersion")
+                <*> (x .@? "OwnerAccount")
+                <*> (x .@? "NodeType")
+                <*> (x .@? "ClusterCreateTime")
+                <*> (x .@? "ElapsedTimeInSeconds")
+                <*> (x .@? "EstimatedSecondsToCompletion")
+                <*> (x .@? "TotalBackupSizeInMegaBytes")
+                <*> (x .@? "DBName")
+                <*>
+                (x .@? "Tags" .!@ mempty >>=
+                   may (parseXMLList "Tag"))
+                <*> (x .@? "ActualIncrementalBackupSizeInMegaBytes")
+                <*> (x .@? "Port")
 
 data SourceType = ClusterParameterGroup | Cluster | ClusterSecurityGroup | ClusterSnapshot deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -2381,8 +2405,8 @@ subSubnetAvailabilityZone = lens _subSubnetAvailabilityZone (\ s a -> s{_subSubn
 instance FromXML Subnet where
         parseXML x
           = Subnet' <$>
-              x .@? "SubnetStatus" <*> x .@? "SubnetIdentifier" <*>
-                x .@? "SubnetAvailabilityZone"
+              (x .@? "SubnetStatus") <*> (x .@? "SubnetIdentifier")
+                <*> (x .@? "SubnetAvailabilityZone")
 
 -- | /See:/ 'tag' smart constructor.
 --
@@ -2406,7 +2430,8 @@ tagKey :: Lens' Tag (Maybe Text)
 tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 
 instance FromXML Tag where
-        parseXML x = Tag' <$> x .@? "Value" <*> x .@? "Key"
+        parseXML x
+          = Tag' <$> (x .@? "Value") <*> (x .@? "Key")
 
 instance ToQuery Tag where
         toQuery Tag'{..}
@@ -2459,8 +2484,8 @@ trResourceName = lens _trResourceName (\ s a -> s{_trResourceName = a});
 instance FromXML TaggedResource where
         parseXML x
           = TaggedResource' <$>
-              x .@? "ResourceType" <*> x .@? "Tag" <*>
-                x .@? "ResourceName"
+              (x .@? "ResourceType") <*> (x .@? "Tag") <*>
+                (x .@? "ResourceName")
 
 -- | /See:/ 'vpcSecurityGroupMembership' smart constructor.
 --
@@ -2486,4 +2511,4 @@ vsgmVPCSecurityGroupId = lens _vsgmVPCSecurityGroupId (\ s a -> s{_vsgmVPCSecuri
 instance FromXML VPCSecurityGroupMembership where
         parseXML x
           = VPCSecurityGroupMembership' <$>
-              x .@? "Status" <*> x .@? "VpcSecurityGroupId"
+              (x .@? "Status") <*> (x .@? "VpcSecurityGroupId")

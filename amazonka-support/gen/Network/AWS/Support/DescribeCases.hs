@@ -96,8 +96,8 @@ dcIncludeResolvedCases = lens _dcIncludeResolvedCases (\ s a -> s{_dcIncludeReso
 
 -- | A list of ID numbers of the support cases you want returned. The maximum
 -- number of cases is 100.
-dcCaseIdList :: Lens' DescribeCases (Maybe [Text])
-dcCaseIdList = lens _dcCaseIdList (\ s a -> s{_dcCaseIdList = a});
+dcCaseIdList :: Lens' DescribeCases [Text]
+dcCaseIdList = lens _dcCaseIdList (\ s a -> s{_dcCaseIdList = a}) . _Default;
 
 -- | The start date for a filtered date search on support case
 -- communications. Case communications are available for 12 months after
@@ -142,7 +142,7 @@ instance AWSRequest DescribeCases where
           = receiveJSON
               (\ s h x ->
                  DescribeCasesResponse' <$>
-                   x .?> "cases" .!@ mempty <*> x .?> "nextToken")
+                   (x .?> "cases" .!@ mempty) <*> (x .?> "nextToken"))
 
 instance ToHeaders DescribeCases where
         toHeaders
@@ -186,8 +186,8 @@ describeCasesResponse :: DescribeCasesResponse
 describeCasesResponse = DescribeCasesResponse'{_desCases = Nothing, _desNextToken = Nothing};
 
 -- | The details for the cases that match the request.
-desCases :: Lens' DescribeCasesResponse (Maybe [CaseDetails])
-desCases = lens _desCases (\ s a -> s{_desCases = a});
+desCases :: Lens' DescribeCasesResponse [CaseDetails]
+desCases = lens _desCases (\ s a -> s{_desCases = a}) . _Default;
 
 -- | A resumption point for pagination.
 desNextToken :: Lens' DescribeCasesResponse (Maybe Text)

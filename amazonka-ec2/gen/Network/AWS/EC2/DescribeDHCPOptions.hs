@@ -82,14 +82,14 @@ describeDHCPOptions = DescribeDHCPOptions'{_ddoFilters = Nothing, _ddoDHCPOption
 -- -   @tag-value@ - The value of a tag assigned to the resource. This
 --     filter is independent of the @tag-key@ filter.
 --
-ddoFilters :: Lens' DescribeDHCPOptions (Maybe [Filter])
-ddoFilters = lens _ddoFilters (\ s a -> s{_ddoFilters = a});
+ddoFilters :: Lens' DescribeDHCPOptions [Filter]
+ddoFilters = lens _ddoFilters (\ s a -> s{_ddoFilters = a}) . _Default;
 
 -- | The IDs of one or more DHCP options sets.
 --
 -- Default: Describes all your DHCP options sets.
-ddoDHCPOptionsIds :: Lens' DescribeDHCPOptions (Maybe [Text])
-ddoDHCPOptionsIds = lens _ddoDHCPOptionsIds (\ s a -> s{_ddoDHCPOptionsIds = a});
+ddoDHCPOptionsIds :: Lens' DescribeDHCPOptions [Text]
+ddoDHCPOptionsIds = lens _ddoDHCPOptionsIds (\ s a -> s{_ddoDHCPOptionsIds = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -107,7 +107,7 @@ instance AWSRequest DescribeDHCPOptions where
           = receiveXML
               (\ s h x ->
                  DescribeDHCPOptionsResponse' <$>
-                   parseXMLList "item" x)
+                   (may (parseXMLList "item") x))
 
 instance ToHeaders DescribeDHCPOptions where
         toHeaders = const mempty
@@ -120,8 +120,9 @@ instance ToQuery DescribeDHCPOptions where
           = mconcat
               ["Action" =: ("DescribeDHCPOptions" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Filter" =: _ddoFilters,
-               "DhcpOptionsId" =: _ddoDHCPOptionsIds,
+               toQuery (toQueryList "Filter" <$> _ddoFilters),
+               toQuery
+                 (toQueryList "DhcpOptionsId" <$> _ddoDHCPOptionsIds),
                "DryRun" =: _ddoDryRun]
 
 -- | /See:/ 'describeDHCPOptionsResponse' smart constructor.
@@ -136,5 +137,5 @@ describeDHCPOptionsResponse :: DescribeDHCPOptionsResponse
 describeDHCPOptionsResponse = DescribeDHCPOptionsResponse'{_ddorDHCPOptions = Nothing};
 
 -- | Information about one or more DHCP options sets.
-ddorDHCPOptions :: Lens' DescribeDHCPOptionsResponse (Maybe [DHCPOptions])
-ddorDHCPOptions = lens _ddorDHCPOptions (\ s a -> s{_ddorDHCPOptions = a});
+ddorDHCPOptions :: Lens' DescribeDHCPOptionsResponse [DHCPOptions]
+ddorDHCPOptions = lens _ddorDHCPOptions (\ s a -> s{_ddorDHCPOptions = a}) . _Default;

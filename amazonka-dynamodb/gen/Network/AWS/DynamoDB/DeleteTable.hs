@@ -76,7 +76,7 @@ instance AWSRequest DeleteTable where
         response
           = receiveJSON
               (\ s h x ->
-                 DeleteTableResponse' <$> x .?> "TableDescription")
+                 DeleteTableResponse' <$> (x .?> "TableDescription"))
 
 instance ToHeaders DeleteTable where
         toHeaders

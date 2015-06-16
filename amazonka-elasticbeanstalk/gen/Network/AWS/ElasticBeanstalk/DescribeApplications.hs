@@ -52,8 +52,8 @@ describeApplications = DescribeApplications'{_daApplicationNames = Nothing};
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to only include those with the specified names.
-daApplicationNames :: Lens' DescribeApplications (Maybe [Text])
-daApplicationNames = lens _daApplicationNames (\ s a -> s{_daApplicationNames = a});
+daApplicationNames :: Lens' DescribeApplications [Text]
+daApplicationNames = lens _daApplicationNames (\ s a -> s{_daApplicationNames = a}) . _Default;
 
 instance AWSRequest DescribeApplications where
         type Sv DescribeApplications = ElasticBeanstalk
@@ -65,7 +65,7 @@ instance AWSRequest DescribeApplications where
               (\ s h x ->
                  DescribeApplicationsResponse' <$>
                    (x .@? "Applications" .!@ mempty >>=
-                      parseXMLList "member"))
+                      may (parseXMLList "member")))
 
 instance ToHeaders DescribeApplications where
         toHeaders = const mempty
@@ -79,7 +79,8 @@ instance ToQuery DescribeApplications where
               ["Action" =: ("DescribeApplications" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
                "ApplicationNames" =:
-                 "member" =: _daApplicationNames]
+                 toQuery
+                   (toQueryList "member" <$> _daApplicationNames)]
 
 -- | /See:/ 'describeApplicationsResponse' smart constructor.
 --
@@ -93,5 +94,5 @@ describeApplicationsResponse :: DescribeApplicationsResponse
 describeApplicationsResponse = DescribeApplicationsResponse'{_darApplications = Nothing};
 
 -- | This parameter contains a list of ApplicationDescription.
-darApplications :: Lens' DescribeApplicationsResponse (Maybe [ApplicationDescription])
-darApplications = lens _darApplications (\ s a -> s{_darApplications = a});
+darApplications :: Lens' DescribeApplicationsResponse [ApplicationDescription]
+darApplications = lens _darApplications (\ s a -> s{_darApplications = a}) . _Default;

@@ -85,8 +85,7 @@ instance AWSRequest
              SetIdentityFeedbackForwardingEnabledResponse
         request = post
         response
-          = receiveNullWrapper
-              "SetIdentityFeedbackForwardingEnabledResult"
+          = receiveNull
               SetIdentityFeedbackForwardingEnabledResponse'
 
 instance ToHeaders

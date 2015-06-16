@@ -73,7 +73,7 @@ instance AWSRequest DisableVPCClassicLink where
         response
           = receiveXML
               (\ s h x ->
-                 DisableVPCClassicLinkResponse' <$> x .@? "return")
+                 DisableVPCClassicLinkResponse' <$> (x .@? "return"))
 
 instance ToHeaders DisableVPCClassicLink where
         toHeaders = const mempty

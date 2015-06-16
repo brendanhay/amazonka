@@ -80,7 +80,7 @@ instance AWSRequest EnableVPCClassicLink where
         response
           = receiveXML
               (\ s h x ->
-                 EnableVPCClassicLinkResponse' <$> x .@? "return")
+                 EnableVPCClassicLinkResponse' <$> (x .@? "return"))
 
 instance ToHeaders EnableVPCClassicLink where
         toHeaders = const mempty

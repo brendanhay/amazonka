@@ -96,7 +96,8 @@ instance ToQuery CreateTags where
               ["Action" =: ("CreateTags" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "DryRun" =: _creDryRun,
-               "ResourceId" =: _creResources, "item" =: _creTags]
+               toQueryList "ResourceId" _creResources,
+               toQueryList "item" _creTags]
 
 -- | /See:/ 'createTagsResponse' smart constructor.
 data CreateTagsResponse = CreateTagsResponse' deriving (Eq, Read, Show)

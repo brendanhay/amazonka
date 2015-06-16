@@ -57,7 +57,7 @@ instance AWSRequest GenerateCredentialReport where
           = receiveXMLWrapper "GenerateCredentialReportResult"
               (\ s h x ->
                  GenerateCredentialReportResponse' <$>
-                   x .@? "State" <*> x .@? "Description")
+                   (x .@? "State") <*> (x .@? "Description"))
 
 instance ToHeaders GenerateCredentialReport where
         toHeaders = const mempty

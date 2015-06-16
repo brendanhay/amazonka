@@ -84,7 +84,7 @@ instance AWSRequest UpdateMLModel where
         response
           = receiveJSON
               (\ s h x ->
-                 UpdateMLModelResponse' <$> x .?> "MLModelId")
+                 UpdateMLModelResponse' <$> (x .?> "MLModelId"))
 
 instance ToHeaders UpdateMLModel where
         toHeaders

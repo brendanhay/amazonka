@@ -112,7 +112,7 @@ instance AWSRequest UpdateTable where
         response
           = receiveJSON
               (\ s h x ->
-                 UpdateTableResponse' <$> x .?> "TableDescription")
+                 UpdateTableResponse' <$> (x .?> "TableDescription"))
 
 instance ToHeaders UpdateTable where
         toHeaders

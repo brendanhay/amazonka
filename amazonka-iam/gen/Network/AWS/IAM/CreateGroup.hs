@@ -76,7 +76,7 @@ instance AWSRequest CreateGroup where
         request = post
         response
           = receiveXMLWrapper "CreateGroupResult"
-              (\ s h x -> CreateGroupResponse' <$> x .@ "Group")
+              (\ s h x -> CreateGroupResponse' <$> (x .@ "Group"))
 
 instance ToHeaders CreateGroup where
         toHeaders = const mempty

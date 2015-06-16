@@ -98,7 +98,7 @@ instance AWSRequest DescribeDefaultClusterParameters
               "DescribeDefaultClusterParametersResult"
               (\ s h x ->
                  DescribeDefaultClusterParametersResponse' <$>
-                   x .@ "DefaultClusterParameters")
+                   (x .@ "DefaultClusterParameters"))
 
 instance ToHeaders DescribeDefaultClusterParameters
          where

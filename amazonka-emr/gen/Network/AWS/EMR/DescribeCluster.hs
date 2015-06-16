@@ -63,7 +63,7 @@ instance AWSRequest DescribeCluster where
         response
           = receiveJSON
               (\ s h x ->
-                 DescribeClusterResponse' <$> x .:> "Cluster")
+                 DescribeClusterResponse' <$> (x .:> "Cluster"))
 
 instance ToHeaders DescribeCluster where
         toHeaders

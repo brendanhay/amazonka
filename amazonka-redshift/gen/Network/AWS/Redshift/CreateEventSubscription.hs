@@ -121,8 +121,8 @@ cesSeverity = lens _cesSeverity (\ s a -> s{_cesSeverity = a});
 -- event notification subscription.
 --
 -- Values: Configuration, Management, Monitoring, Security
-cesEventCategories :: Lens' CreateEventSubscription (Maybe [Text])
-cesEventCategories = lens _cesEventCategories (\ s a -> s{_cesEventCategories = a});
+cesEventCategories :: Lens' CreateEventSubscription [Text]
+cesEventCategories = lens _cesEventCategories (\ s a -> s{_cesEventCategories = a}) . _Default;
 
 -- | A list of one or more identifiers of Amazon Redshift source objects. All
 -- of the objects must be of the same type as was specified in the source
@@ -133,12 +133,12 @@ cesEventCategories = lens _cesEventCategories (\ s a -> s{_cesEventCategories = 
 -- Example: my-cluster-1, my-cluster-2
 --
 -- Example: my-snapshot-20131010
-cesSourceIds :: Lens' CreateEventSubscription (Maybe [Text])
-cesSourceIds = lens _cesSourceIds (\ s a -> s{_cesSourceIds = a});
+cesSourceIds :: Lens' CreateEventSubscription [Text]
+cesSourceIds = lens _cesSourceIds (\ s a -> s{_cesSourceIds = a}) . _Default;
 
 -- | A list of tag instances.
-cesTags :: Lens' CreateEventSubscription (Maybe [Tag])
-cesTags = lens _cesTags (\ s a -> s{_cesTags = a});
+cesTags :: Lens' CreateEventSubscription [Tag]
+cesTags = lens _cesTags (\ s a -> s{_cesTags = a}) . _Default;
 
 -- | The name of the event subscription to be created.
 --
@@ -166,7 +166,7 @@ instance AWSRequest CreateEventSubscription where
           = receiveXMLWrapper "CreateEventSubscriptionResult"
               (\ s h x ->
                  CreateEventSubscriptionResponse' <$>
-                   x .@? "EventSubscription")
+                   (x .@? "EventSubscription"))
 
 instance ToHeaders CreateEventSubscription where
         toHeaders = const mempty
@@ -184,9 +184,12 @@ instance ToQuery CreateEventSubscription where
                "SourceType" =: _cesSourceType,
                "Severity" =: _cesSeverity,
                "EventCategories" =:
-                 "EventCategory" =: _cesEventCategories,
-               "SourceIds" =: "SourceId" =: _cesSourceIds,
-               "Tags" =: "Tag" =: _cesTags,
+                 toQuery
+                   (toQueryList "EventCategory" <$>
+                      _cesEventCategories),
+               "SourceIds" =:
+                 toQuery (toQueryList "SourceId" <$> _cesSourceIds),
+               "Tags" =: toQuery (toQueryList "Tag" <$> _cesTags),
                "SubscriptionName" =: _cesSubscriptionName,
                "SnsTopicArn" =: _cesSNSTopicARN]
 

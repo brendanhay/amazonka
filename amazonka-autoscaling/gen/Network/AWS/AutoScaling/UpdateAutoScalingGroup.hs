@@ -116,8 +116,8 @@ updateAutoScalingGroup pAutoScalingGroupName = UpdateAutoScalingGroup'{_uasgTerm
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-termination-policy.html Choosing a Termination Policy for Your Auto Scaling Group>
 -- in the /Auto Scaling Developer Guide/.
-uasgTerminationPolicies :: Lens' UpdateAutoScalingGroup (Maybe [Text])
-uasgTerminationPolicies = lens _uasgTerminationPolicies (\ s a -> s{_uasgTerminationPolicies = a});
+uasgTerminationPolicies :: Lens' UpdateAutoScalingGroup [Text]
+uasgTerminationPolicies = lens _uasgTerminationPolicies (\ s a -> s{_uasgTerminationPolicies = a}) . _Default;
 
 -- | The amount of time, in second, that Auto Scaling waits before checking
 -- the health status of an instance. The grace period begins when the
@@ -205,7 +205,8 @@ instance ToQuery UpdateAutoScalingGroup where
                  ("UpdateAutoScalingGroup" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
                "TerminationPolicies" =:
-                 "member" =: _uasgTerminationPolicies,
+                 toQuery
+                   (toQueryList "member" <$> _uasgTerminationPolicies),
                "HealthCheckGracePeriod" =:
                  _uasgHealthCheckGracePeriod,
                "VPCZoneIdentifier" =: _uasgVPCZoneIdentifier,
@@ -213,7 +214,8 @@ instance ToQuery UpdateAutoScalingGroup where
                "MaxSize" =: _uasgMaxSize,
                "DesiredCapacity" =: _uasgDesiredCapacity,
                "AvailabilityZones" =:
-                 "member" =: _uasgAvailabilityZones,
+                 toQuery
+                   (toQueryList "member" <$> _uasgAvailabilityZones),
                "MinSize" =: _uasgMinSize,
                "HealthCheckType" =: _uasgHealthCheckType,
                "LaunchConfigurationName" =:

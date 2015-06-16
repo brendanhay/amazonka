@@ -198,23 +198,26 @@ destination :: Destination
 destination = Destination'{_desBCCAddresses = Nothing, _desCCAddresses = Nothing, _desToAddresses = Nothing};
 
 -- | The BCC: field(s) of the message.
-desBCCAddresses :: Lens' Destination (Maybe [Text])
-desBCCAddresses = lens _desBCCAddresses (\ s a -> s{_desBCCAddresses = a});
+desBCCAddresses :: Lens' Destination [Text]
+desBCCAddresses = lens _desBCCAddresses (\ s a -> s{_desBCCAddresses = a}) . _Default;
 
 -- | The CC: field(s) of the message.
-desCCAddresses :: Lens' Destination (Maybe [Text])
-desCCAddresses = lens _desCCAddresses (\ s a -> s{_desCCAddresses = a});
+desCCAddresses :: Lens' Destination [Text]
+desCCAddresses = lens _desCCAddresses (\ s a -> s{_desCCAddresses = a}) . _Default;
 
 -- | The To: field(s) of the message.
-desToAddresses :: Lens' Destination (Maybe [Text])
-desToAddresses = lens _desToAddresses (\ s a -> s{_desToAddresses = a});
+desToAddresses :: Lens' Destination [Text]
+desToAddresses = lens _desToAddresses (\ s a -> s{_desToAddresses = a}) . _Default;
 
 instance ToQuery Destination where
         toQuery Destination'{..}
           = mconcat
-              ["BccAddresses" =: "member" =: _desBCCAddresses,
-               "CcAddresses" =: "member" =: _desCCAddresses,
-               "ToAddresses" =: "member" =: _desToAddresses]
+              ["BccAddresses" =:
+                 toQuery (toQueryList "member" <$> _desBCCAddresses),
+               "CcAddresses" =:
+                 toQuery (toQueryList "member" <$> _desCCAddresses),
+               "ToAddresses" =:
+                 toQuery (toQueryList "member" <$> _desToAddresses)]
 
 -- | /See:/ 'identityDkimAttributes' smart constructor.
 --
@@ -242,8 +245,8 @@ identityDkimAttributes pDkimEnabled pDkimVerificationStatus = IdentityDkimAttrib
 -- For more information about creating DNS records using DKIM tokens, go to
 -- the
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide>.
-idaDkimTokens :: Lens' IdentityDkimAttributes (Maybe [Text])
-idaDkimTokens = lens _idaDkimTokens (\ s a -> s{_idaDkimTokens = a});
+idaDkimTokens :: Lens' IdentityDkimAttributes [Text]
+idaDkimTokens = lens _idaDkimTokens (\ s a -> s{_idaDkimTokens = a}) . _Default;
 
 -- | True if DKIM signing is enabled for email sent from the identity; false
 -- otherwise.
@@ -260,9 +263,9 @@ instance FromXML IdentityDkimAttributes where
         parseXML x
           = IdentityDkimAttributes' <$>
               (x .@? "DkimTokens" .!@ mempty >>=
-                 parseXMLList "member")
-                <*> x .@ "DkimEnabled"
-                <*> x .@ "DkimVerificationStatus"
+                 may (parseXMLList "member"))
+                <*> (x .@ "DkimEnabled")
+                <*> (x .@ "DkimVerificationStatus")
 
 -- | /See:/ 'identityNotificationAttributes' smart constructor.
 --
@@ -307,9 +310,9 @@ inaForwardingEnabled = lens _inaForwardingEnabled (\ s a -> s{_inaForwardingEnab
 instance FromXML IdentityNotificationAttributes where
         parseXML x
           = IdentityNotificationAttributes' <$>
-              x .@ "BounceTopic" <*> x .@ "ComplaintTopic" <*>
-                x .@ "DeliveryTopic"
-                <*> x .@ "ForwardingEnabled"
+              (x .@ "BounceTopic") <*> (x .@ "ComplaintTopic") <*>
+                (x .@ "DeliveryTopic")
+                <*> (x .@ "ForwardingEnabled")
 
 data IdentityType = Domain | EmailAddress deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -354,8 +357,8 @@ ivaVerificationStatus = lens _ivaVerificationStatus (\ s a -> s{_ivaVerification
 instance FromXML IdentityVerificationAttributes where
         parseXML x
           = IdentityVerificationAttributes' <$>
-              x .@? "VerificationToken" <*>
-                x .@ "VerificationStatus"
+              (x .@? "VerificationToken") <*>
+                (x .@ "VerificationStatus")
 
 -- | /See:/ 'message' smart constructor.
 --
@@ -471,10 +474,10 @@ sdpTimestamp = lens _sdpTimestamp (\ s a -> s{_sdpTimestamp = a}) . mapping _Tim
 instance FromXML SendDataPoint where
         parseXML x
           = SendDataPoint' <$>
-              x .@? "Rejects" <*> x .@? "Complaints" <*>
-                x .@? "DeliveryAttempts"
-                <*> x .@? "Bounces"
-                <*> x .@? "Timestamp"
+              (x .@? "Rejects") <*> (x .@? "Complaints") <*>
+                (x .@? "DeliveryAttempts")
+                <*> (x .@? "Bounces")
+                <*> (x .@? "Timestamp")
 
 data VerificationStatus = NotStarted | Pending | Success | TemporaryFailure | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
 

@@ -62,7 +62,7 @@ instance AWSRequest GetDeployment where
         response
           = receiveJSON
               (\ s h x ->
-                 GetDeploymentResponse' <$> x .?> "deploymentInfo")
+                 GetDeploymentResponse' <$> (x .?> "deploymentInfo"))
 
 instance ToHeaders GetDeployment where
         toHeaders

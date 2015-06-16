@@ -249,8 +249,8 @@ cdLastName = lens _cdLastName (\ s a -> s{_cdLastName = a});
 -- Children: @Name@, @Value@
 --
 -- Required: No
-cdExtraParams :: Lens' ContactDetail (Maybe [ExtraParam])
-cdExtraParams = lens _cdExtraParams (\ s a -> s{_cdExtraParams = a});
+cdExtraParams :: Lens' ContactDetail [ExtraParam]
+cdExtraParams = lens _cdExtraParams (\ s a -> s{_cdExtraParams = a}) . _Default;
 
 -- | The zip or postal code of the contact\'s address.
 --
@@ -376,19 +376,19 @@ instance FromJSON ContactDetail where
           = withObject "ContactDetail"
               (\ x ->
                  ContactDetail' <$>
-                   x .:? "OrganizationName" <*> x .:? "Email" <*>
-                     x .:? "Fax"
-                     <*> x .:? "State"
-                     <*> x .:? "LastName"
-                     <*> x .:? "ExtraParams" .!= mempty
-                     <*> x .:? "ZipCode"
-                     <*> x .:? "AddressLine1"
-                     <*> x .:? "City"
-                     <*> x .:? "PhoneNumber"
-                     <*> x .:? "AddressLine2"
-                     <*> x .:? "FirstName"
-                     <*> x .:? "CountryCode"
-                     <*> x .:? "ContactType")
+                   (x .:? "OrganizationName") <*> (x .:? "Email") <*>
+                     (x .:? "Fax")
+                     <*> (x .:? "State")
+                     <*> (x .:? "LastName")
+                     <*> (x .:? "ExtraParams" .!= mempty)
+                     <*> (x .:? "ZipCode")
+                     <*> (x .:? "AddressLine1")
+                     <*> (x .:? "City")
+                     <*> (x .:? "PhoneNumber")
+                     <*> (x .:? "AddressLine2")
+                     <*> (x .:? "FirstName")
+                     <*> (x .:? "CountryCode")
+                     <*> (x .:? "ContactType"))
 
 instance ToJSON ContactDetail where
         toJSON ContactDetail'{..}
@@ -994,9 +994,9 @@ instance FromJSON DomainSummary where
           = withObject "DomainSummary"
               (\ x ->
                  DomainSummary' <$>
-                   x .:? "Expiry" <*> x .:? "TransferLock" <*>
-                     x .:? "AutoRenew"
-                     <*> x .: "DomainName")
+                   (x .:? "Expiry") <*> (x .:? "TransferLock") <*>
+                     (x .:? "AutoRenew")
+                     <*> (x .: "DomainName"))
 
 -- | /See:/ 'extraParam' smart constructor.
 --
@@ -1048,7 +1048,8 @@ epValue = lens _epValue (\ s a -> s{_epValue = a});
 instance FromJSON ExtraParam where
         parseJSON
           = withObject "ExtraParam"
-              (\ x -> ExtraParam' <$> x .: "Name" <*> x .: "Value")
+              (\ x ->
+                 ExtraParam' <$> (x .: "Name") <*> (x .: "Value"))
 
 instance ToJSON ExtraParam where
         toJSON ExtraParam'{..}
@@ -1137,8 +1138,8 @@ nameserver pName = Nameserver'{_namGlueIPs = Nothing, _namName = pName};
 -- Constraints: The list can contain only one IPv4 and one IPv6 address.
 --
 -- Parent: @Nameservers@
-namGlueIPs :: Lens' Nameserver (Maybe [Text])
-namGlueIPs = lens _namGlueIPs (\ s a -> s{_namGlueIPs = a});
+namGlueIPs :: Lens' Nameserver [Text]
+namGlueIPs = lens _namGlueIPs (\ s a -> s{_namGlueIPs = a}) . _Default;
 
 -- | The fully qualified host name of the name server.
 --
@@ -1155,7 +1156,7 @@ instance FromJSON Nameserver where
           = withObject "Nameserver"
               (\ x ->
                  Nameserver' <$>
-                   x .:? "GlueIps" .!= mempty <*> x .: "Name")
+                   (x .:? "GlueIps" .!= mempty) <*> (x .: "Name"))
 
 instance ToJSON Nameserver where
         toJSON Nameserver'{..}
@@ -1236,8 +1237,9 @@ instance FromJSON OperationSummary where
           = withObject "OperationSummary"
               (\ x ->
                  OperationSummary' <$>
-                   x .: "OperationId" <*> x .: "Status" <*> x .: "Type"
-                     <*> x .: "SubmittedDate")
+                   (x .: "OperationId") <*> (x .: "Status") <*>
+                     (x .: "Type")
+                     <*> (x .: "SubmittedDate"))
 
 data OperationType = TransferINDomain | ChangePrivacyProtection | UpdateDomainContact | RegisterDomain | UpdateNameserver | DomainLock | DeleteDomain deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -1313,7 +1315,7 @@ tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 instance FromJSON Tag where
         parseJSON
           = withObject "Tag"
-              (\ x -> Tag' <$> x .:? "Value" <*> x .:? "Key")
+              (\ x -> Tag' <$> (x .:? "Value") <*> (x .:? "Key"))
 
 instance ToJSON Tag where
         toJSON Tag'{..}

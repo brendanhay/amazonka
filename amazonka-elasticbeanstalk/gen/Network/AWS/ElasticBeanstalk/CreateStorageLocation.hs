@@ -54,7 +54,8 @@ instance AWSRequest CreateStorageLocation where
         response
           = receiveXMLWrapper "CreateStorageLocationResult"
               (\ s h x ->
-                 CreateStorageLocationResponse' <$> x .@? "S3Bucket")
+                 CreateStorageLocationResponse' <$>
+                   (x .@? "S3Bucket"))
 
 instance ToHeaders CreateStorageLocation where
         toHeaders = const mempty

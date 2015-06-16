@@ -65,7 +65,7 @@ instance AWSRequest DeleteCluster where
         response
           = receiveJSON
               (\ s h x ->
-                 DeleteClusterResponse' <$> x .?> "cluster")
+                 DeleteClusterResponse' <$> (x .?> "cluster"))
 
 instance ToHeaders DeleteCluster where
         toHeaders

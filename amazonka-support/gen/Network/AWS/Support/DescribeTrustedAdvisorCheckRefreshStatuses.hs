@@ -67,7 +67,7 @@ instance AWSRequest
           = receiveJSON
               (\ s h x ->
                  DescribeTrustedAdvisorCheckRefreshStatusesResponse'
-                   <$> x .?> "statuses" .!@ mempty)
+                   <$> (x .?> "statuses" .!@ mempty))
 
 instance ToHeaders
          DescribeTrustedAdvisorCheckRefreshStatuses where

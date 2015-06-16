@@ -65,7 +65,7 @@ instance AWSRequest GetTopicAttributes where
               (\ s h x ->
                  GetTopicAttributesResponse' <$>
                    (x .@? "Attributes" .!@ mempty >>=
-                      parseXMLMap "entry" "key" "value"))
+                      may (parseXMLMap "entry" "key" "value")))
 
 instance ToHeaders GetTopicAttributes where
         toHeaders = const mempty
@@ -85,7 +85,7 @@ instance ToQuery GetTopicAttributes where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gtarAttributes'
-newtype GetTopicAttributesResponse = GetTopicAttributesResponse'{_gtarAttributes :: Maybe (HashMap Text Text)} deriving (Eq, Read, Show)
+newtype GetTopicAttributesResponse = GetTopicAttributesResponse'{_gtarAttributes :: Maybe (Map Text Text)} deriving (Eq, Read, Show)
 
 -- | 'GetTopicAttributesResponse' smart constructor.
 getTopicAttributesResponse :: GetTopicAttributesResponse
@@ -110,5 +110,5 @@ getTopicAttributesResponse = GetTopicAttributesResponse'{_gtarAttributes = Nothi
 --     policy
 -- -   @EffectiveDeliveryPolicy@ -- the JSON serialization of the effective
 --     delivery policy that takes into account system defaults
-gtarAttributes :: Lens' GetTopicAttributesResponse (Maybe (HashMap Text Text))
-gtarAttributes = lens _gtarAttributes (\ s a -> s{_gtarAttributes = a}) . mapping _Coerce;
+gtarAttributes :: Lens' GetTopicAttributesResponse (Map Text Text)
+gtarAttributes = lens _gtarAttributes (\ s a -> s{_gtarAttributes = a}) . _Default . _Map;

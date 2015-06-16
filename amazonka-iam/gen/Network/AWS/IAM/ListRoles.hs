@@ -96,7 +96,7 @@ instance AWSRequest ListRoles where
           = receiveXMLWrapper "ListRolesResult"
               (\ s h x ->
                  ListRolesResponse' <$>
-                   x .@? "Marker" <*> x .@? "IsTruncated" <*>
+                   (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
                      (x .@? "Roles" .!@ mempty >>= parseXMLList "member"))
 
 instance ToHeaders ListRoles where

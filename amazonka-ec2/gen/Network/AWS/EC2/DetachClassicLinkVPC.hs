@@ -82,7 +82,7 @@ instance AWSRequest DetachClassicLinkVPC where
         response
           = receiveXML
               (\ s h x ->
-                 DetachClassicLinkVPCResponse' <$> x .@? "return")
+                 DetachClassicLinkVPCResponse' <$> (x .@? "return"))
 
 instance ToHeaders DetachClassicLinkVPC where
         toHeaders = const mempty

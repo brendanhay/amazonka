@@ -83,8 +83,8 @@ gaadMarker = lens _gaadMarker (\ s a -> s{_gaadMarker = a});
 
 -- | A list of entity types (user, group, role, local managed policy, or AWS
 -- managed policy) for filtering the results.
-gaadFilter :: Lens' GetAccountAuthorizationDetails (Maybe [EntityType])
-gaadFilter = lens _gaadFilter (\ s a -> s{_gaadFilter = a});
+gaadFilter :: Lens' GetAccountAuthorizationDetails [EntityType]
+gaadFilter = lens _gaadFilter (\ s a -> s{_gaadFilter = a}) . _Default;
 
 instance AWSRequest GetAccountAuthorizationDetails
          where
@@ -98,18 +98,18 @@ instance AWSRequest GetAccountAuthorizationDetails
               (\ s h x ->
                  GetAccountAuthorizationDetailsResponse' <$>
                    (x .@? "RoleDetailList" .!@ mempty >>=
-                      parseXMLList "member")
+                      may (parseXMLList "member"))
                      <*>
                      (x .@? "GroupDetailList" .!@ mempty >>=
-                        parseXMLList "member")
+                        may (parseXMLList "member"))
                      <*>
                      (x .@? "UserDetailList" .!@ mempty >>=
-                        parseXMLList "member")
-                     <*> x .@? "Marker"
-                     <*> x .@? "IsTruncated"
+                        may (parseXMLList "member"))
+                     <*> (x .@? "Marker")
+                     <*> (x .@? "IsTruncated")
                      <*>
                      (x .@? "Policies" .!@ mempty >>=
-                        parseXMLList "member"))
+                        may (parseXMLList "member")))
 
 instance ToHeaders GetAccountAuthorizationDetails
          where
@@ -125,7 +125,8 @@ instance ToQuery GetAccountAuthorizationDetails where
                  ("GetAccountAuthorizationDetails" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
                "MaxItems" =: _gaadMaxItems, "Marker" =: _gaadMarker,
-               "Filter" =: "member" =: _gaadFilter]
+               "Filter" =:
+                 toQuery (toQueryList "member" <$> _gaadFilter)]
 
 -- | /See:/ 'getAccountAuthorizationDetailsResponse' smart constructor.
 --
@@ -149,16 +150,16 @@ getAccountAuthorizationDetailsResponse :: GetAccountAuthorizationDetailsResponse
 getAccountAuthorizationDetailsResponse = GetAccountAuthorizationDetailsResponse'{_gaadrRoleDetailList = Nothing, _gaadrGroupDetailList = Nothing, _gaadrUserDetailList = Nothing, _gaadrMarker = Nothing, _gaadrIsTruncated = Nothing, _gaadrPolicies = Nothing};
 
 -- | A list containing information about IAM roles.
-gaadrRoleDetailList :: Lens' GetAccountAuthorizationDetailsResponse (Maybe [RoleDetail])
-gaadrRoleDetailList = lens _gaadrRoleDetailList (\ s a -> s{_gaadrRoleDetailList = a});
+gaadrRoleDetailList :: Lens' GetAccountAuthorizationDetailsResponse [RoleDetail]
+gaadrRoleDetailList = lens _gaadrRoleDetailList (\ s a -> s{_gaadrRoleDetailList = a}) . _Default;
 
 -- | A list containing information about IAM groups.
-gaadrGroupDetailList :: Lens' GetAccountAuthorizationDetailsResponse (Maybe [GroupDetail])
-gaadrGroupDetailList = lens _gaadrGroupDetailList (\ s a -> s{_gaadrGroupDetailList = a});
+gaadrGroupDetailList :: Lens' GetAccountAuthorizationDetailsResponse [GroupDetail]
+gaadrGroupDetailList = lens _gaadrGroupDetailList (\ s a -> s{_gaadrGroupDetailList = a}) . _Default;
 
 -- | A list containing information about IAM users.
-gaadrUserDetailList :: Lens' GetAccountAuthorizationDetailsResponse (Maybe [UserDetail])
-gaadrUserDetailList = lens _gaadrUserDetailList (\ s a -> s{_gaadrUserDetailList = a});
+gaadrUserDetailList :: Lens' GetAccountAuthorizationDetailsResponse [UserDetail]
+gaadrUserDetailList = lens _gaadrUserDetailList (\ s a -> s{_gaadrUserDetailList = a}) . _Default;
 
 -- | If @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
@@ -173,5 +174,5 @@ gaadrIsTruncated :: Lens' GetAccountAuthorizationDetailsResponse (Maybe Bool)
 gaadrIsTruncated = lens _gaadrIsTruncated (\ s a -> s{_gaadrIsTruncated = a});
 
 -- | A list containing information about managed policies.
-gaadrPolicies :: Lens' GetAccountAuthorizationDetailsResponse (Maybe [ManagedPolicyDetail])
-gaadrPolicies = lens _gaadrPolicies (\ s a -> s{_gaadrPolicies = a});
+gaadrPolicies :: Lens' GetAccountAuthorizationDetailsResponse [ManagedPolicyDetail]
+gaadrPolicies = lens _gaadrPolicies (\ s a -> s{_gaadrPolicies = a}) . _Default;

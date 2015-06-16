@@ -58,8 +58,8 @@ copyDBSnapshot :: Text -> Text -> CopyDBSnapshot
 copyDBSnapshot pSourceDBSnapshotIdentifier pTargetDBSnapshotIdentifier = CopyDBSnapshot'{_cdsTags = Nothing, _cdsSourceDBSnapshotIdentifier = pSourceDBSnapshotIdentifier, _cdsTargetDBSnapshotIdentifier = pTargetDBSnapshotIdentifier};
 
 -- | FIXME: Undocumented member.
-cdsTags :: Lens' CopyDBSnapshot (Maybe [Tag])
-cdsTags = lens _cdsTags (\ s a -> s{_cdsTags = a});
+cdsTags :: Lens' CopyDBSnapshot [Tag]
+cdsTags = lens _cdsTags (\ s a -> s{_cdsTags = a}) . _Default;
 
 -- | The identifier for the source DB snapshot.
 --
@@ -99,7 +99,7 @@ instance AWSRequest CopyDBSnapshot where
         response
           = receiveXMLWrapper "CopyDBSnapshotResult"
               (\ s h x ->
-                 CopyDBSnapshotResponse' <$> x .@? "DBSnapshot")
+                 CopyDBSnapshotResponse' <$> (x .@? "DBSnapshot"))
 
 instance ToHeaders CopyDBSnapshot where
         toHeaders = const mempty
@@ -112,7 +112,7 @@ instance ToQuery CopyDBSnapshot where
           = mconcat
               ["Action" =: ("CopyDBSnapshot" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "Tags" =: "Tag" =: _cdsTags,
+               "Tags" =: toQuery (toQueryList "Tag" <$> _cdsTags),
                "SourceDBSnapshotIdentifier" =:
                  _cdsSourceDBSnapshotIdentifier,
                "TargetDBSnapshotIdentifier" =:

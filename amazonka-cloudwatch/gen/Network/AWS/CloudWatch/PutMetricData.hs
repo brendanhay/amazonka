@@ -94,7 +94,7 @@ instance ToQuery PutMetricData where
               ["Action" =: ("PutMetricData" :: ByteString),
                "Version" =: ("2010-08-01" :: ByteString),
                "Namespace" =: _pmdNamespace,
-               "MetricData" =: "member" =: _pmdMetricData]
+               "MetricData" =: toQueryList "member" _pmdMetricData]
 
 -- | /See:/ 'putMetricDataResponse' smart constructor.
 data PutMetricDataResponse = PutMetricDataResponse' deriving (Eq, Read, Show)

@@ -67,8 +67,8 @@ describeOptionGroups :: DescribeOptionGroups
 describeOptionGroups = DescribeOptionGroups'{_dogFilters = Nothing, _dogEngineName = Nothing, _dogMajorEngineVersion = Nothing, _dogMaxRecords = Nothing, _dogMarker = Nothing, _dogOptionGroupName = Nothing};
 
 -- | This parameter is not currently supported.
-dogFilters :: Lens' DescribeOptionGroups (Maybe [Filter])
-dogFilters = lens _dogFilters (\ s a -> s{_dogFilters = a});
+dogFilters :: Lens' DescribeOptionGroups [Filter]
+dogFilters = lens _dogFilters (\ s a -> s{_dogFilters = a}) . _Default;
 
 -- | Filters the list of option groups to only include groups associated with
 -- a specific database engine.
@@ -112,9 +112,9 @@ instance AWSRequest DescribeOptionGroups where
           = receiveXMLWrapper "DescribeOptionGroupsResult"
               (\ s h x ->
                  DescribeOptionGroupsResponse' <$>
-                   x .@? "Marker" <*>
+                   (x .@? "Marker") <*>
                      (x .@? "OptionGroupsList" .!@ mempty >>=
-                        parseXMLList "OptionGroup"))
+                        may (parseXMLList "OptionGroup")))
 
 instance ToHeaders DescribeOptionGroups where
         toHeaders = const mempty
@@ -127,7 +127,8 @@ instance ToQuery DescribeOptionGroups where
           = mconcat
               ["Action" =: ("DescribeOptionGroups" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "Filters" =: "Filter" =: _dogFilters,
+               "Filters" =:
+                 toQuery (toQueryList "Filter" <$> _dogFilters),
                "EngineName" =: _dogEngineName,
                "MajorEngineVersion" =: _dogMajorEngineVersion,
                "MaxRecords" =: _dogMaxRecords,
@@ -154,5 +155,5 @@ dogrMarker :: Lens' DescribeOptionGroupsResponse (Maybe Text)
 dogrMarker = lens _dogrMarker (\ s a -> s{_dogrMarker = a});
 
 -- | List of option groups.
-dogrOptionGroupsList :: Lens' DescribeOptionGroupsResponse (Maybe [OptionGroup])
-dogrOptionGroupsList = lens _dogrOptionGroupsList (\ s a -> s{_dogrOptionGroupsList = a});
+dogrOptionGroupsList :: Lens' DescribeOptionGroupsResponse [OptionGroup]
+dogrOptionGroupsList = lens _dogrOptionGroupsList (\ s a -> s{_dogrOptionGroupsList = a}) . _Default;

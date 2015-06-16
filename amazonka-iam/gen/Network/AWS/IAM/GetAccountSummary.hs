@@ -58,7 +58,7 @@ instance AWSRequest GetAccountSummary where
               (\ s h x ->
                  GetAccountSummaryResponse' <$>
                    (x .@? "SummaryMap" .!@ mempty >>=
-                      parseXMLMap "entry" "key" "value"))
+                      may (parseXMLMap "entry" "key" "value")))
 
 instance ToHeaders GetAccountSummary where
         toHeaders = const mempty
@@ -78,7 +78,7 @@ instance ToQuery GetAccountSummary where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gasrSummaryMap'
-newtype GetAccountSummaryResponse = GetAccountSummaryResponse'{_gasrSummaryMap :: Maybe (HashMap SummaryKeyType Int)} deriving (Eq, Read, Show)
+newtype GetAccountSummaryResponse = GetAccountSummaryResponse'{_gasrSummaryMap :: Maybe (Map SummaryKeyType Int)} deriving (Eq, Read, Show)
 
 -- | 'GetAccountSummaryResponse' smart constructor.
 getAccountSummaryResponse :: GetAccountSummaryResponse
@@ -237,5 +237,5 @@ getAccountSummaryResponse = GetAccountSummaryResponse'{_gasrSummaryMap = Nothing
 --     The maximum number of policy versions allowed for each managed
 --     policy.
 --
-gasrSummaryMap :: Lens' GetAccountSummaryResponse (Maybe (HashMap SummaryKeyType Int))
-gasrSummaryMap = lens _gasrSummaryMap (\ s a -> s{_gasrSummaryMap = a}) . mapping _Coerce;
+gasrSummaryMap :: Lens' GetAccountSummaryResponse (Map SummaryKeyType Int)
+gasrSummaryMap = lens _gasrSummaryMap (\ s a -> s{_gasrSummaryMap = a}) . _Default . _Map;

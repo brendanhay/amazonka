@@ -80,7 +80,7 @@ import Network.AWS.MachineLearning.Types
 -- * 'cmlmMLModelType'
 --
 -- * 'cmlmTrainingDataSourceId'
-data CreateMLModel = CreateMLModel'{_cmlmRecipe :: Maybe Text, _cmlmRecipeURI :: Maybe Text, _cmlmMLModelName :: Maybe Text, _cmlmParameters :: Maybe (HashMap Text Text), _cmlmMLModelId :: Text, _cmlmMLModelType :: MLModelType, _cmlmTrainingDataSourceId :: Text} deriving (Eq, Read, Show)
+data CreateMLModel = CreateMLModel'{_cmlmRecipe :: Maybe Text, _cmlmRecipeURI :: Maybe Text, _cmlmMLModelName :: Maybe Text, _cmlmParameters :: Maybe (Map Text Text), _cmlmMLModelId :: Text, _cmlmMLModelType :: MLModelType, _cmlmTrainingDataSourceId :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateMLModel' smart constructor.
 createMLModel :: Text -> MLModelType -> Text -> CreateMLModel
@@ -139,8 +139,8 @@ cmlmMLModelName = lens _cmlmMLModelName (\ s a -> s{_cmlmMLModelName = a});
 --     The value is an integer that ranges from 100000 to 2147483648. The
 --     default value is 33554432.
 --
-cmlmParameters :: Lens' CreateMLModel (Maybe (HashMap Text Text))
-cmlmParameters = lens _cmlmParameters (\ s a -> s{_cmlmParameters = a}) . mapping _Coerce;
+cmlmParameters :: Lens' CreateMLModel (Map Text Text)
+cmlmParameters = lens _cmlmParameters (\ s a -> s{_cmlmParameters = a}) . _Default . _Map;
 
 -- | A user-supplied ID that uniquely identifies the @MLModel@.
 cmlmMLModelId :: Lens' CreateMLModel Text
@@ -171,7 +171,7 @@ instance AWSRequest CreateMLModel where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateMLModelResponse' <$> x .?> "MLModelId")
+                 CreateMLModelResponse' <$> (x .?> "MLModelId"))
 
 instance ToHeaders CreateMLModel where
         toHeaders

@@ -141,7 +141,7 @@ instance AWSRequest GetShippingLabel where
           = receiveXMLWrapper "GetShippingLabelResult"
               (\ s h x ->
                  GetShippingLabelResponse' <$>
-                   x .@? "ShippingLabelURL" <*> x .@? "Warning")
+                   (x .@? "ShippingLabelURL") <*> (x .@? "Warning"))
 
 instance ToHeaders GetShippingLabel where
         toHeaders = const mempty
@@ -164,7 +164,7 @@ instance ToQuery GetShippingLabel where
                "company" =: _gslCompany, "city" =: _gslCity,
                "phoneNumber" =: _gslPhoneNumber,
                "street1" =: _gslStreet1,
-               "jobIds" =: "member" =: _gslJobIds]
+               "jobIds" =: toQueryList "member" _gslJobIds]
 
 -- | /See:/ 'getShippingLabelResponse' smart constructor.
 --

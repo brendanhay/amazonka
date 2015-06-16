@@ -62,7 +62,7 @@ instance AWSRequest GetBucketRequestPayment where
         response
           = receiveXML
               (\ s h x ->
-                 GetBucketRequestPaymentResponse' <$> x .@? "Payer")
+                 GetBucketRequestPaymentResponse' <$> (x .@? "Payer"))
 
 instance ToHeaders GetBucketRequestPayment where
         toHeaders = const mempty

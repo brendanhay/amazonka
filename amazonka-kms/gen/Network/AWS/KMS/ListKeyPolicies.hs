@@ -94,8 +94,9 @@ instance AWSRequest ListKeyPolicies where
           = receiveJSON
               (\ s h x ->
                  ListKeyPoliciesResponse' <$>
-                   x .?> "PolicyNames" .!@ mempty <*> x .?> "Truncated"
-                     <*> x .?> "NextMarker")
+                   (x .?> "PolicyNames" .!@ mempty) <*>
+                     (x .?> "Truncated")
+                     <*> (x .?> "NextMarker"))
 
 instance ToHeaders ListKeyPolicies where
         toHeaders
@@ -135,8 +136,8 @@ listKeyPoliciesResponse = ListKeyPoliciesResponse'{_lkprPolicyNames = Nothing, _
 
 -- | A list of policy names. Currently, there is only one policy and it is
 -- named \"Default\".
-lkprPolicyNames :: Lens' ListKeyPoliciesResponse (Maybe [Text])
-lkprPolicyNames = lens _lkprPolicyNames (\ s a -> s{_lkprPolicyNames = a});
+lkprPolicyNames :: Lens' ListKeyPoliciesResponse [Text]
+lkprPolicyNames = lens _lkprPolicyNames (\ s a -> s{_lkprPolicyNames = a}) . _Default;
 
 -- | A flag that indicates whether there are more items in the list. If your
 -- results were truncated, you can make a subsequent pagination request

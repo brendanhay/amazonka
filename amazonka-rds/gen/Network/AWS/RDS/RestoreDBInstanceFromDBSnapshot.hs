@@ -232,8 +232,8 @@ rdifdsDBName :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe Text)
 rdifdsDBName = lens _rdifdsDBName (\ s a -> s{_rdifdsDBName = a});
 
 -- | FIXME: Undocumented member.
-rdifdsTags :: Lens' RestoreDBInstanceFromDBSnapshot (Maybe [Tag])
-rdifdsTags = lens _rdifdsTags (\ s a -> s{_rdifdsTags = a});
+rdifdsTags :: Lens' RestoreDBInstanceFromDBSnapshot [Tag]
+rdifdsTags = lens _rdifdsTags (\ s a -> s{_rdifdsTags = a}) . _Default;
 
 -- | The port number on which the database accepts connections.
 --
@@ -289,7 +289,7 @@ instance AWSRequest RestoreDBInstanceFromDBSnapshot
               "RestoreDBInstanceFromDBSnapshotResult"
               (\ s h x ->
                  RestoreDBInstanceFromDBSnapshotResponse' <$>
-                   x .@? "DBInstance")
+                   (x .@? "DBInstance"))
 
 instance ToHeaders RestoreDBInstanceFromDBSnapshot
          where
@@ -319,7 +319,8 @@ instance ToQuery RestoreDBInstanceFromDBSnapshot
                "TdeCredentialArn" =: _rdifdsTDECredentialARN,
                "OptionGroupName" =: _rdifdsOptionGroupName,
                "DBName" =: _rdifdsDBName,
-               "Tags" =: "Tag" =: _rdifdsTags,
+               "Tags" =:
+                 toQuery (toQueryList "Tag" <$> _rdifdsTags),
                "Port" =: _rdifdsPort,
                "StorageType" =: _rdifdsStorageType,
                "DBInstanceIdentifier" =:

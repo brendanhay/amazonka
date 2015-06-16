@@ -79,7 +79,7 @@ instance AWSRequest UpdateAvailabilityOptions where
           = receiveXMLWrapper "UpdateAvailabilityOptionsResult"
               (\ s h x ->
                  UpdateAvailabilityOptionsResponse' <$>
-                   x .@? "AvailabilityOptions")
+                   (x .@? "AvailabilityOptions"))
 
 instance ToHeaders UpdateAvailabilityOptions where
         toHeaders = const mempty

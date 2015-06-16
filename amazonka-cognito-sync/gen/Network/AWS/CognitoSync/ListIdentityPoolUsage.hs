@@ -77,10 +77,10 @@ instance AWSRequest ListIdentityPoolUsage where
           = receiveJSON
               (\ s h x ->
                  ListIdentityPoolUsageResponse' <$>
-                   x .?> "IdentityPoolUsages" .!@ mempty <*>
-                     x .?> "Count"
-                     <*> x .?> "NextToken"
-                     <*> x .?> "MaxResults")
+                   (x .?> "IdentityPoolUsages" .!@ mempty) <*>
+                     (x .?> "Count")
+                     <*> (x .?> "NextToken")
+                     <*> (x .?> "MaxResults"))
 
 instance ToHeaders ListIdentityPoolUsage where
         toHeaders
@@ -116,8 +116,8 @@ listIdentityPoolUsageResponse :: ListIdentityPoolUsageResponse
 listIdentityPoolUsageResponse = ListIdentityPoolUsageResponse'{_lipurIdentityPoolUsages = Nothing, _lipurCount = Nothing, _lipurNextToken = Nothing, _lipurMaxResults = Nothing};
 
 -- | Usage information for the identity pools.
-lipurIdentityPoolUsages :: Lens' ListIdentityPoolUsageResponse (Maybe [IdentityPoolUsage])
-lipurIdentityPoolUsages = lens _lipurIdentityPoolUsages (\ s a -> s{_lipurIdentityPoolUsages = a});
+lipurIdentityPoolUsages :: Lens' ListIdentityPoolUsageResponse [IdentityPoolUsage]
+lipurIdentityPoolUsages = lens _lipurIdentityPoolUsages (\ s a -> s{_lipurIdentityPoolUsages = a}) . _Default;
 
 -- | Total number of identities for the identity pool.
 lipurCount :: Lens' ListIdentityPoolUsageResponse (Maybe Int)

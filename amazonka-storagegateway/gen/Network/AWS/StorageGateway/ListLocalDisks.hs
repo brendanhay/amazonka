@@ -72,7 +72,7 @@ instance AWSRequest ListLocalDisks where
           = receiveJSON
               (\ s h x ->
                  ListLocalDisksResponse' <$>
-                   x .?> "GatewayARN" <*> x .?> "Disks" .!@ mempty)
+                   (x .?> "GatewayARN") <*> (x .?> "Disks" .!@ mempty))
 
 instance ToHeaders ListLocalDisks where
         toHeaders
@@ -112,5 +112,5 @@ lldrGatewayARN :: Lens' ListLocalDisksResponse (Maybe Text)
 lldrGatewayARN = lens _lldrGatewayARN (\ s a -> s{_lldrGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-lldrDisks :: Lens' ListLocalDisksResponse (Maybe [Disk])
-lldrDisks = lens _lldrDisks (\ s a -> s{_lldrDisks = a});
+lldrDisks :: Lens' ListLocalDisksResponse [Disk]
+lldrDisks = lens _lldrDisks (\ s a -> s{_lldrDisks = a}) . _Default;

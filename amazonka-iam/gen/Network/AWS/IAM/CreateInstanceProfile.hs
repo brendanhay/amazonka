@@ -82,7 +82,7 @@ instance AWSRequest CreateInstanceProfile where
           = receiveXMLWrapper "CreateInstanceProfileResult"
               (\ s h x ->
                  CreateInstanceProfileResponse' <$>
-                   x .@ "InstanceProfile")
+                   (x .@ "InstanceProfile"))
 
 instance ToHeaders CreateInstanceProfile where
         toHeaders = const mempty

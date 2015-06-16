@@ -76,7 +76,7 @@ instance AWSRequest DeleteVolume where
         response
           = receiveJSON
               (\ s h x ->
-                 DeleteVolumeResponse' <$> x .?> "VolumeARN")
+                 DeleteVolumeResponse' <$> (x .?> "VolumeARN"))
 
 instance ToHeaders DeleteVolume where
         toHeaders

@@ -181,7 +181,8 @@ instance AWSRequest GetItem where
           = receiveJSON
               (\ s h x ->
                  GetItemResponse' <$>
-                   x .?> "ConsumedCapacity" <*> x .?> "Item" .!@ mempty)
+                   (x .?> "ConsumedCapacity") <*>
+                     (x .?> "Item" .!@ mempty))
 
 instance ToHeaders GetItem where
         toHeaders

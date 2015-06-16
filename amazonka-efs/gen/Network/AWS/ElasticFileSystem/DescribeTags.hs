@@ -87,8 +87,8 @@ instance AWSRequest DescribeTags where
           = receiveJSON
               (\ s h x ->
                  DescribeTagsResponse' <$>
-                   x .?> "Marker" <*> x .?> "NextMarker" <*>
-                     x .?> "Tags" .!@ mempty)
+                   (x .?> "Marker") <*> (x .?> "NextMarker") <*>
+                     (x .?> "Tags" .!@ mempty))
 
 instance ToHeaders DescribeTags where
         toHeaders = const mempty

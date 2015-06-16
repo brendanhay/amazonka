@@ -84,8 +84,8 @@ ddevDefaultOnly :: Lens' DescribeDBEngineVersions (Maybe Bool)
 ddevDefaultOnly = lens _ddevDefaultOnly (\ s a -> s{_ddevDefaultOnly = a});
 
 -- | Not currently supported.
-ddevFilters :: Lens' DescribeDBEngineVersions (Maybe [Filter])
-ddevFilters = lens _ddevFilters (\ s a -> s{_ddevFilters = a});
+ddevFilters :: Lens' DescribeDBEngineVersions [Filter]
+ddevFilters = lens _ddevFilters (\ s a -> s{_ddevFilters = a}) . _Default;
 
 -- | The database engine to return.
 ddevEngine :: Lens' DescribeDBEngineVersions (Maybe Text)
@@ -133,9 +133,9 @@ instance AWSRequest DescribeDBEngineVersions where
           = receiveXMLWrapper "DescribeDBEngineVersionsResult"
               (\ s h x ->
                  DescribeDBEngineVersionsResponse' <$>
-                   x .@? "Marker" <*>
+                   (x .@? "Marker") <*>
                      (x .@? "DBEngineVersions" .!@ mempty >>=
-                        parseXMLList "DBEngineVersion"))
+                        may (parseXMLList "DBEngineVersion")))
 
 instance ToHeaders DescribeDBEngineVersions where
         toHeaders = const mempty
@@ -151,7 +151,8 @@ instance ToQuery DescribeDBEngineVersions where
                "Version" =: ("2014-10-31" :: ByteString),
                "EngineVersion" =: _ddevEngineVersion,
                "DefaultOnly" =: _ddevDefaultOnly,
-               "Filters" =: "Filter" =: _ddevFilters,
+               "Filters" =:
+                 toQuery (toQueryList "Filter" <$> _ddevFilters),
                "Engine" =: _ddevEngine,
                "DBParameterGroupFamily" =:
                  _ddevDBParameterGroupFamily,
@@ -180,5 +181,5 @@ ddevrMarker :: Lens' DescribeDBEngineVersionsResponse (Maybe Text)
 ddevrMarker = lens _ddevrMarker (\ s a -> s{_ddevrMarker = a});
 
 -- | A list of @DBEngineVersion@ elements.
-ddevrDBEngineVersions :: Lens' DescribeDBEngineVersionsResponse (Maybe [DBEngineVersion])
-ddevrDBEngineVersions = lens _ddevrDBEngineVersions (\ s a -> s{_ddevrDBEngineVersions = a});
+ddevrDBEngineVersions :: Lens' DescribeDBEngineVersionsResponse [DBEngineVersion]
+ddevrDBEngineVersions = lens _ddevrDBEngineVersions (\ s a -> s{_ddevrDBEngineVersions = a}) . _Default;

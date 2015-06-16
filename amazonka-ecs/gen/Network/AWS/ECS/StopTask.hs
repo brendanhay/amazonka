@@ -70,7 +70,7 @@ instance AWSRequest StopTask where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x -> StopTaskResponse' <$> x .?> "task")
+              (\ s h x -> StopTaskResponse' <$> (x .?> "task"))
 
 instance ToHeaders StopTask where
         toHeaders

@@ -86,8 +86,8 @@ ci1NoReboot :: Lens' CreateImage (Maybe Bool)
 ci1NoReboot = lens _ci1NoReboot (\ s a -> s{_ci1NoReboot = a});
 
 -- | Information about one or more block device mappings.
-ci1BlockDeviceMappings :: Lens' CreateImage (Maybe [BlockDeviceMapping])
-ci1BlockDeviceMappings = lens _ci1BlockDeviceMappings (\ s a -> s{_ci1BlockDeviceMappings = a});
+ci1BlockDeviceMappings :: Lens' CreateImage [BlockDeviceMapping]
+ci1BlockDeviceMappings = lens _ci1BlockDeviceMappings (\ s a -> s{_ci1BlockDeviceMappings = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -118,7 +118,8 @@ instance AWSRequest CreateImage where
         request = post
         response
           = receiveXML
-              (\ s h x -> CreateImageResponse' <$> x .@? "imageId")
+              (\ s h x ->
+                 CreateImageResponse' <$> (x .@? "imageId"))
 
 instance ToHeaders CreateImage where
         toHeaders = const mempty
@@ -132,7 +133,9 @@ instance ToQuery CreateImage where
               ["Action" =: ("CreateImage" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "NoReboot" =: _ci1NoReboot,
-               "BlockDeviceMapping" =: _ci1BlockDeviceMappings,
+               toQuery
+                 (toQueryList "BlockDeviceMapping" <$>
+                    _ci1BlockDeviceMappings),
                "DryRun" =: _ci1DryRun,
                "Description" =: _ci1Description,
                "InstanceId" =: _ci1InstanceId, "Name" =: _ci1Name]

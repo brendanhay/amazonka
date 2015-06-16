@@ -89,7 +89,7 @@ instance AWSRequest SubmitTaskStateChange where
           = receiveJSON
               (\ s h x ->
                  SubmitTaskStateChangeResponse' <$>
-                   x .?> "acknowledgment")
+                   (x .?> "acknowledgment"))
 
 instance ToHeaders SubmitTaskStateChange where
         toHeaders

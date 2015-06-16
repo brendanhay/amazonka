@@ -93,8 +93,8 @@ instance AWSRequest ListTaskDefinitions where
           = receiveJSON
               (\ s h x ->
                  ListTaskDefinitionsResponse' <$>
-                   x .?> "taskDefinitionArns" .!@ mempty <*>
-                     x .?> "nextToken")
+                   (x .?> "taskDefinitionArns" .!@ mempty) <*>
+                     (x .?> "nextToken"))
 
 instance ToHeaders ListTaskDefinitions where
         toHeaders
@@ -134,8 +134,8 @@ listTaskDefinitionsResponse = ListTaskDefinitionsResponse'{_ltdrTaskDefinitionAR
 
 -- | The list of task definition Amazon Resource Name (ARN) entries for the
 -- @ListTaskDefintions@ request.
-ltdrTaskDefinitionARNs :: Lens' ListTaskDefinitionsResponse (Maybe [Text])
-ltdrTaskDefinitionARNs = lens _ltdrTaskDefinitionARNs (\ s a -> s{_ltdrTaskDefinitionARNs = a});
+ltdrTaskDefinitionARNs :: Lens' ListTaskDefinitionsResponse [Text]
+ltdrTaskDefinitionARNs = lens _ltdrTaskDefinitionARNs (\ s a -> s{_ltdrTaskDefinitionARNs = a}) . _Default;
 
 -- | The @nextToken@ value to include in a future @ListTaskDefinitions@
 -- request. When the results of a @ListTaskDefinitions@ request exceed

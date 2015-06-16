@@ -71,8 +71,8 @@ dseInstanceId = lens _dseInstanceId (\ s a -> s{_dseInstanceId = a});
 -- | An array of service error IDs. If you use this parameter,
 -- @DescribeServiceErrors@ returns descriptions of the specified errors.
 -- Otherwise, it returns a description of every error.
-dseServiceErrorIds :: Lens' DescribeServiceErrors (Maybe [Text])
-dseServiceErrorIds = lens _dseServiceErrorIds (\ s a -> s{_dseServiceErrorIds = a});
+dseServiceErrorIds :: Lens' DescribeServiceErrors [Text]
+dseServiceErrorIds = lens _dseServiceErrorIds (\ s a -> s{_dseServiceErrorIds = a}) . _Default;
 
 -- | The stack ID. If you use this parameter, @DescribeServiceErrors@ returns
 -- descriptions of the errors associated with the specified stack.
@@ -88,7 +88,7 @@ instance AWSRequest DescribeServiceErrors where
           = receiveJSON
               (\ s h x ->
                  DescribeServiceErrorsResponse' <$>
-                   x .?> "ServiceErrors" .!@ mempty)
+                   (x .?> "ServiceErrors" .!@ mempty))
 
 instance ToHeaders DescribeServiceErrors where
         toHeaders
@@ -126,5 +126,5 @@ describeServiceErrorsResponse = DescribeServiceErrorsResponse'{_dserServiceError
 
 -- | An array of @ServiceError@ objects that describe the specified service
 -- errors.
-dserServiceErrors :: Lens' DescribeServiceErrorsResponse (Maybe [ServiceError'])
-dserServiceErrors = lens _dserServiceErrors (\ s a -> s{_dserServiceErrors = a});
+dserServiceErrors :: Lens' DescribeServiceErrorsResponse [ServiceError']
+dserServiceErrors = lens _dserServiceErrors (\ s a -> s{_dserServiceErrors = a}) . _Default;

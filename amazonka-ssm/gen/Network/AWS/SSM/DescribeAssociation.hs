@@ -71,7 +71,7 @@ instance AWSRequest DescribeAssociation where
           = receiveJSON
               (\ s h x ->
                  DescribeAssociationResponse' <$>
-                   x .?> "AssociationDescription")
+                   (x .?> "AssociationDescription"))
 
 instance ToHeaders DescribeAssociation where
         toHeaders

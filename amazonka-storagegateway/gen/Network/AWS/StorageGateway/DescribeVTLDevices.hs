@@ -81,8 +81,8 @@ dvtldLimit = lens _dvtldLimit (\ s a -> s{_dvtldLimit = a}) . mapping _Nat;
 -- All of the specified VTL devices must be from the same gateway. If no
 -- VTL devices are specified, the result will contain all devices on the
 -- specified gateway.
-dvtldVTLDeviceARNs :: Lens' DescribeVTLDevices (Maybe [Text])
-dvtldVTLDeviceARNs = lens _dvtldVTLDeviceARNs (\ s a -> s{_dvtldVTLDeviceARNs = a});
+dvtldVTLDeviceARNs :: Lens' DescribeVTLDevices [Text]
+dvtldVTLDeviceARNs = lens _dvtldVTLDeviceARNs (\ s a -> s{_dvtldVTLDeviceARNs = a}) . _Default;
 
 -- | FIXME: Undocumented member.
 dvtldGatewayARN :: Lens' DescribeVTLDevices Text
@@ -97,8 +97,9 @@ instance AWSRequest DescribeVTLDevices where
           = receiveJSON
               (\ s h x ->
                  DescribeVTLDevicesResponse' <$>
-                   x .?> "GatewayARN" <*> x .?> "VTLDevices" .!@ mempty
-                     <*> x .?> "Marker")
+                   (x .?> "GatewayARN") <*>
+                     (x .?> "VTLDevices" .!@ mempty)
+                     <*> (x .?> "Marker"))
 
 instance ToHeaders DescribeVTLDevices where
         toHeaders
@@ -144,8 +145,8 @@ dvtldrGatewayARN = lens _dvtldrGatewayARN (\ s a -> s{_dvtldrGatewayARN = a});
 
 -- | An array of VTL device objects composed of the Amazon Resource Name(ARN)
 -- of the VTL devices.
-dvtldrVTLDevices :: Lens' DescribeVTLDevicesResponse (Maybe [VTLDevice])
-dvtldrVTLDevices = lens _dvtldrVTLDevices (\ s a -> s{_dvtldrVTLDevices = a});
+dvtldrVTLDevices :: Lens' DescribeVTLDevicesResponse [VTLDevice]
+dvtldrVTLDevices = lens _dvtldrVTLDevices (\ s a -> s{_dvtldrVTLDevices = a}) . _Default;
 
 -- | An opaque string that indicates the position at which the VTL devices
 -- that were fetched for description ended. Use the marker in your next

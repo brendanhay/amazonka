@@ -109,7 +109,7 @@ instance AWSRequest CopyClusterSnapshot where
         response
           = receiveXMLWrapper "CopyClusterSnapshotResult"
               (\ s h x ->
-                 CopyClusterSnapshotResponse' <$> x .@? "Snapshot")
+                 CopyClusterSnapshotResponse' <$> (x .@? "Snapshot"))
 
 instance ToHeaders CopyClusterSnapshot where
         toHeaders = const mempty

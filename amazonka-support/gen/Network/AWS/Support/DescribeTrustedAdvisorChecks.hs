@@ -71,7 +71,7 @@ instance AWSRequest DescribeTrustedAdvisorChecks
           = receiveJSON
               (\ s h x ->
                  DescribeTrustedAdvisorChecksResponse' <$>
-                   x .?> "checks" .!@ mempty)
+                   (x .?> "checks" .!@ mempty))
 
 instance ToHeaders DescribeTrustedAdvisorChecks where
         toHeaders

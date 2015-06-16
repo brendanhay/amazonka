@@ -59,8 +59,8 @@ describeStacks = DescribeStacks'{_dsStackIds = Nothing};
 -- | An array of stack IDs that specify the stacks to be described. If you
 -- omit this parameter, @DescribeStacks@ returns a description of every
 -- stack.
-dsStackIds :: Lens' DescribeStacks (Maybe [Text])
-dsStackIds = lens _dsStackIds (\ s a -> s{_dsStackIds = a});
+dsStackIds :: Lens' DescribeStacks [Text]
+dsStackIds = lens _dsStackIds (\ s a -> s{_dsStackIds = a}) . _Default;
 
 instance AWSRequest DescribeStacks where
         type Sv DescribeStacks = OpsWorks
@@ -70,7 +70,7 @@ instance AWSRequest DescribeStacks where
           = receiveJSON
               (\ s h x ->
                  DescribeStacksResponse' <$>
-                   x .?> "Stacks" .!@ mempty)
+                   (x .?> "Stacks" .!@ mempty))
 
 instance ToHeaders DescribeStacks where
         toHeaders
@@ -103,5 +103,5 @@ describeStacksResponse :: DescribeStacksResponse
 describeStacksResponse = DescribeStacksResponse'{_dsrStacks = Nothing};
 
 -- | An array of @Stack@ objects that describe the stacks.
-dsrStacks :: Lens' DescribeStacksResponse (Maybe [Stack])
-dsrStacks = lens _dsrStacks (\ s a -> s{_dsrStacks = a});
+dsrStacks :: Lens' DescribeStacksResponse [Stack]
+dsrStacks = lens _dsrStacks (\ s a -> s{_dsrStacks = a}) . _Default;

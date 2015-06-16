@@ -122,7 +122,7 @@ instance AWSRequest RecordActivityTaskHeartbeat where
           = receiveJSON
               (\ s h x ->
                  RecordActivityTaskHeartbeatResponse' <$>
-                   x .:> "cancelRequested")
+                   (x .:> "cancelRequested"))
 
 instance ToHeaders RecordActivityTaskHeartbeat where
         toHeaders

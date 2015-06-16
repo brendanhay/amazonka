@@ -64,8 +64,8 @@ describeLaunchConfigurations :: DescribeLaunchConfigurations
 describeLaunchConfigurations = DescribeLaunchConfigurations'{_dlcLaunchConfigurationNames = Nothing, _dlcNextToken = Nothing, _dlcMaxRecords = Nothing};
 
 -- | The launch configuration names.
-dlcLaunchConfigurationNames :: Lens' DescribeLaunchConfigurations (Maybe [Text])
-dlcLaunchConfigurationNames = lens _dlcLaunchConfigurationNames (\ s a -> s{_dlcLaunchConfigurationNames = a});
+dlcLaunchConfigurationNames :: Lens' DescribeLaunchConfigurations [Text]
+dlcLaunchConfigurationNames = lens _dlcLaunchConfigurationNames (\ s a -> s{_dlcLaunchConfigurationNames = a}) . _Default;
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
@@ -88,7 +88,7 @@ instance AWSRequest DescribeLaunchConfigurations
               "DescribeLaunchConfigurationsResult"
               (\ s h x ->
                  DescribeLaunchConfigurationsResponse' <$>
-                   x .@? "NextToken" <*>
+                   (x .@? "NextToken") <*>
                      (x .@? "LaunchConfigurations" .!@ mempty >>=
                         parseXMLList "member"))
 
@@ -105,7 +105,9 @@ instance ToQuery DescribeLaunchConfigurations where
                  ("DescribeLaunchConfigurations" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
                "LaunchConfigurationNames" =:
-                 "member" =: _dlcLaunchConfigurationNames,
+                 toQuery
+                   (toQueryList "member" <$>
+                      _dlcLaunchConfigurationNames),
                "NextToken" =: _dlcNextToken,
                "MaxRecords" =: _dlcMaxRecords]
 

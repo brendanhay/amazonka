@@ -74,7 +74,7 @@ instance AWSRequest RefreshTrustedAdvisorCheck where
           = receiveJSON
               (\ s h x ->
                  RefreshTrustedAdvisorCheckResponse' <$>
-                   x .:> "status")
+                   (x .:> "status"))
 
 instance ToHeaders RefreshTrustedAdvisorCheck where
         toHeaders

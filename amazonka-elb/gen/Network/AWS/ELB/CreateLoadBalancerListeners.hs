@@ -72,9 +72,7 @@ instance AWSRequest CreateLoadBalancerListeners where
              CreateLoadBalancerListenersResponse
         request = post
         response
-          = receiveNullWrapper
-              "CreateLoadBalancerListenersResult"
-              CreateLoadBalancerListenersResponse'
+          = receiveNull CreateLoadBalancerListenersResponse'
 
 instance ToHeaders CreateLoadBalancerListeners where
         toHeaders = const mempty
@@ -89,7 +87,7 @@ instance ToQuery CreateLoadBalancerListeners where
                  ("CreateLoadBalancerListeners" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
                "LoadBalancerName" =: _clblLoadBalancerName,
-               "Listeners" =: "member" =: _clblListeners]
+               "Listeners" =: toQueryList "member" _clblListeners]
 
 -- | /See:/ 'createLoadBalancerListenersResponse' smart constructor.
 data CreateLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse' deriving (Eq, Read, Show)

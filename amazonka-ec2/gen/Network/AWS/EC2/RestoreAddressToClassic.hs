@@ -77,7 +77,7 @@ instance AWSRequest RestoreAddressToClassic where
           = receiveXML
               (\ s h x ->
                  RestoreAddressToClassicResponse' <$>
-                   x .@? "status" <*> x .@? "publicIp")
+                   (x .@? "status") <*> (x .@? "publicIp"))
 
 instance ToHeaders RestoreAddressToClassic where
         toHeaders = const mempty

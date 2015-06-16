@@ -113,7 +113,7 @@ instance AWSRequest CreateDeployment where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateDeploymentResponse' <$> x .?> "deploymentId")
+                 CreateDeploymentResponse' <$> (x .?> "deploymentId"))
 
 instance ToHeaders CreateDeployment where
         toHeaders

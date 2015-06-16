@@ -101,8 +101,8 @@ getMetricStatistics :: Text -> Text -> UTCTime -> UTCTime -> Natural -> NonEmpty
 getMetricStatistics pNamespace pMetricName pStartTime pEndTime pPeriod pStatistics = GetMetricStatistics'{_gmsDimensions = Nothing, _gmsUnit = Nothing, _gmsNamespace = pNamespace, _gmsMetricName = pMetricName, _gmsStartTime = _Time # pStartTime, _gmsEndTime = _Time # pEndTime, _gmsPeriod = _Nat # pPeriod, _gmsStatistics = _List1 # pStatistics};
 
 -- | A list of dimensions describing qualities of the metric.
-gmsDimensions :: Lens' GetMetricStatistics (Maybe [Dimension])
-gmsDimensions = lens _gmsDimensions (\ s a -> s{_gmsDimensions = a});
+gmsDimensions :: Lens' GetMetricStatistics [Dimension]
+gmsDimensions = lens _gmsDimensions (\ s a -> s{_gmsDimensions = a}) . _Default;
 
 -- | The unit for the metric.
 gmsUnit :: Lens' GetMetricStatistics (Maybe StandardUnit)
@@ -153,8 +153,8 @@ instance AWSRequest GetMetricStatistics where
               (\ s h x ->
                  GetMetricStatisticsResponse' <$>
                    (x .@? "Datapoints" .!@ mempty >>=
-                      parseXMLList "member")
-                     <*> x .@? "Label")
+                      may (parseXMLList "member"))
+                     <*> (x .@? "Label"))
 
 instance ToHeaders GetMetricStatistics where
         toHeaders = const mempty
@@ -167,12 +167,13 @@ instance ToQuery GetMetricStatistics where
           = mconcat
               ["Action" =: ("GetMetricStatistics" :: ByteString),
                "Version" =: ("2010-08-01" :: ByteString),
-               "Dimensions" =: "member" =: _gmsDimensions,
+               "Dimensions" =:
+                 toQuery (toQueryList "member" <$> _gmsDimensions),
                "Unit" =: _gmsUnit, "Namespace" =: _gmsNamespace,
                "MetricName" =: _gmsMetricName,
                "StartTime" =: _gmsStartTime,
                "EndTime" =: _gmsEndTime, "Period" =: _gmsPeriod,
-               "Statistics" =: "member" =: _gmsStatistics]
+               "Statistics" =: toQueryList "member" _gmsStatistics]
 
 -- | /See:/ 'getMetricStatisticsResponse' smart constructor.
 --
@@ -188,8 +189,8 @@ getMetricStatisticsResponse :: GetMetricStatisticsResponse
 getMetricStatisticsResponse = GetMetricStatisticsResponse'{_gmsrDatapoints = Nothing, _gmsrLabel = Nothing};
 
 -- | The datapoints for the specified metric.
-gmsrDatapoints :: Lens' GetMetricStatisticsResponse (Maybe [Datapoint])
-gmsrDatapoints = lens _gmsrDatapoints (\ s a -> s{_gmsrDatapoints = a});
+gmsrDatapoints :: Lens' GetMetricStatisticsResponse [Datapoint]
+gmsrDatapoints = lens _gmsrDatapoints (\ s a -> s{_gmsrDatapoints = a}) . _Default;
 
 -- | A label describing the specified metric.
 gmsrLabel :: Lens' GetMetricStatisticsResponse (Maybe Text)

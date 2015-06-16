@@ -63,7 +63,7 @@ instance AWSRequest DeleteEventSubscription where
           = receiveXMLWrapper "DeleteEventSubscriptionResult"
               (\ s h x ->
                  DeleteEventSubscriptionResponse' <$>
-                   x .@? "EventSubscription")
+                   (x .@? "EventSubscription"))
 
 instance ToHeaders DeleteEventSubscription where
         toHeaders = const mempty

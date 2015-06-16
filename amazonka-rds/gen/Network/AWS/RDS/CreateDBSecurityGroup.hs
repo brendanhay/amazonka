@@ -58,8 +58,8 @@ createDBSecurityGroup :: Text -> Text -> CreateDBSecurityGroup
 createDBSecurityGroup pDBSecurityGroupName pDBSecurityGroupDescription = CreateDBSecurityGroup'{_cdsgTags = Nothing, _cdsgDBSecurityGroupName = pDBSecurityGroupName, _cdsgDBSecurityGroupDescription = pDBSecurityGroupDescription};
 
 -- | FIXME: Undocumented member.
-cdsgTags :: Lens' CreateDBSecurityGroup (Maybe [Tag])
-cdsgTags = lens _cdsgTags (\ s a -> s{_cdsgTags = a});
+cdsgTags :: Lens' CreateDBSecurityGroup [Tag]
+cdsgTags = lens _cdsgTags (\ s a -> s{_cdsgTags = a}) . _Default;
 
 -- | The name for the DB security group. This value is stored as a lowercase
 -- string.
@@ -89,7 +89,7 @@ instance AWSRequest CreateDBSecurityGroup where
           = receiveXMLWrapper "CreateDBSecurityGroupResult"
               (\ s h x ->
                  CreateDBSecurityGroupResponse' <$>
-                   x .@? "DBSecurityGroup")
+                   (x .@? "DBSecurityGroup"))
 
 instance ToHeaders CreateDBSecurityGroup where
         toHeaders = const mempty
@@ -102,7 +102,7 @@ instance ToQuery CreateDBSecurityGroup where
           = mconcat
               ["Action" =: ("CreateDBSecurityGroup" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "Tags" =: "Tag" =: _cdsgTags,
+               "Tags" =: toQuery (toQueryList "Tag" <$> _cdsgTags),
                "DBSecurityGroupName" =: _cdsgDBSecurityGroupName,
                "DBSecurityGroupDescription" =:
                  _cdsgDBSecurityGroupDescription]

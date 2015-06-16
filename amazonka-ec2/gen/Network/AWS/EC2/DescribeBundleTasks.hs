@@ -64,8 +64,8 @@ describeBundleTasks = DescribeBundleTasks'{_dbtBundleIds = Nothing, _dbtFilters 
 -- | One or more bundle task IDs.
 --
 -- Default: Describes all your bundle tasks.
-dbtBundleIds :: Lens' DescribeBundleTasks (Maybe [Text])
-dbtBundleIds = lens _dbtBundleIds (\ s a -> s{_dbtBundleIds = a});
+dbtBundleIds :: Lens' DescribeBundleTasks [Text]
+dbtBundleIds = lens _dbtBundleIds (\ s a -> s{_dbtBundleIds = a}) . _Default;
 
 -- | One or more filters.
 --
@@ -92,8 +92,8 @@ dbtBundleIds = lens _dbtBundleIds (\ s a -> s{_dbtBundleIds = a});
 --
 -- -   @update-time@ - The time of the most recent update for the task.
 --
-dbtFilters :: Lens' DescribeBundleTasks (Maybe [Filter])
-dbtFilters = lens _dbtFilters (\ s a -> s{_dbtFilters = a});
+dbtFilters :: Lens' DescribeBundleTasks [Filter]
+dbtFilters = lens _dbtFilters (\ s a -> s{_dbtFilters = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -111,7 +111,7 @@ instance AWSRequest DescribeBundleTasks where
           = receiveXML
               (\ s h x ->
                  DescribeBundleTasksResponse' <$>
-                   parseXMLList "item" x)
+                   (may (parseXMLList "item") x))
 
 instance ToHeaders DescribeBundleTasks where
         toHeaders = const mempty
@@ -124,7 +124,8 @@ instance ToQuery DescribeBundleTasks where
           = mconcat
               ["Action" =: ("DescribeBundleTasks" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "BundleId" =: _dbtBundleIds, "Filter" =: _dbtFilters,
+               toQuery (toQueryList "BundleId" <$> _dbtBundleIds),
+               toQuery (toQueryList "Filter" <$> _dbtFilters),
                "DryRun" =: _dbtDryRun]
 
 -- | /See:/ 'describeBundleTasksResponse' smart constructor.
@@ -139,5 +140,5 @@ describeBundleTasksResponse :: DescribeBundleTasksResponse
 describeBundleTasksResponse = DescribeBundleTasksResponse'{_dbtrBundleTasks = Nothing};
 
 -- | Information about one or more bundle tasks.
-dbtrBundleTasks :: Lens' DescribeBundleTasksResponse (Maybe [BundleTask])
-dbtrBundleTasks = lens _dbtrBundleTasks (\ s a -> s{_dbtrBundleTasks = a});
+dbtrBundleTasks :: Lens' DescribeBundleTasksResponse [BundleTask]
+dbtrBundleTasks = lens _dbtrBundleTasks (\ s a -> s{_dbtrBundleTasks = a}) . _Default;

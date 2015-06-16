@@ -176,7 +176,7 @@ instance AWSRequest DescribeDataSources where
           = receiveJSON
               (\ s h x ->
                  DescribeDataSourcesResponse' <$>
-                   x .?> "Results" .!@ mempty <*> x .?> "NextToken")
+                   (x .?> "Results" .!@ mempty) <*> (x .?> "NextToken"))
 
 instance ToHeaders DescribeDataSources where
         toHeaders
@@ -219,8 +219,8 @@ describeDataSourcesResponse :: DescribeDataSourcesResponse
 describeDataSourcesResponse = DescribeDataSourcesResponse'{_ddsrResults = Nothing, _ddsrNextToken = Nothing};
 
 -- | A list of @DataSource@ that meet the search criteria.
-ddsrResults :: Lens' DescribeDataSourcesResponse (Maybe [DataSource])
-ddsrResults = lens _ddsrResults (\ s a -> s{_ddsrResults = a});
+ddsrResults :: Lens' DescribeDataSourcesResponse [DataSource]
+ddsrResults = lens _ddsrResults (\ s a -> s{_ddsrResults = a}) . _Default;
 
 -- | An ID of the next page in the paginated results that indicates at least
 -- one more page follows.

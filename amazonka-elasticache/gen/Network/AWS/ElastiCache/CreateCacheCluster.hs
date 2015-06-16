@@ -159,8 +159,8 @@ cccEngineVersion = lens _cccEngineVersion (\ s a -> s{_cccEngineVersion = a});
 --
 -- Use this parameter only when you are creating a cache cluster in an
 -- Amazon Virtual Private Cloud (VPC).
-cccSecurityGroupIds :: Lens' CreateCacheCluster (Maybe [Text])
-cccSecurityGroupIds = lens _cccSecurityGroupIds (\ s a -> s{_cccSecurityGroupIds = a});
+cccSecurityGroupIds :: Lens' CreateCacheCluster [Text]
+cccSecurityGroupIds = lens _cccSecurityGroupIds (\ s a -> s{_cccSecurityGroupIds = a}) . _Default;
 
 -- | This parameter is currently disabled.
 cccAutoMinorVersionUpgrade :: Lens' CreateCacheCluster (Maybe Bool)
@@ -175,8 +175,8 @@ cccAutoMinorVersionUpgrade = lens _cccAutoMinorVersionUpgrade (\ s a -> s{_cccAu
 -- @redis@.
 --
 -- Example of an Amazon S3 ARN: @arn:aws:s3:::my_bucket\/snapshot1.rdb@
-cccSnapshotARNs :: Lens' CreateCacheCluster (Maybe [Text])
-cccSnapshotARNs = lens _cccSnapshotARNs (\ s a -> s{_cccSnapshotARNs = a});
+cccSnapshotARNs :: Lens' CreateCacheCluster [Text]
+cccSnapshotARNs = lens _cccSnapshotARNs (\ s a -> s{_cccSnapshotARNs = a}) . _Default;
 
 -- | The name of the parameter group to associate with this cache cluster. If
 -- this argument is omitted, the default parameter group for the specified
@@ -229,8 +229,8 @@ cccEngine = lens _cccEngine (\ s a -> s{_cccEngine = a});
 --
 -- Example: All three Memcached nodes in one Availability Zone:
 -- @PreferredAvailabilityZones.member.1=us-west-2a&PreferredAvailabilityZones.member.2=us-west-2a&PreferredAvailabilityZones.member.3=us-west-2a@
-cccPreferredAvailabilityZones :: Lens' CreateCacheCluster (Maybe [Text])
-cccPreferredAvailabilityZones = lens _cccPreferredAvailabilityZones (\ s a -> s{_cccPreferredAvailabilityZones = a});
+cccPreferredAvailabilityZones :: Lens' CreateCacheCluster [Text]
+cccPreferredAvailabilityZones = lens _cccPreferredAvailabilityZones (\ s a -> s{_cccPreferredAvailabilityZones = a}) . _Default;
 
 -- | Specifies the weekly time range during which maintenance on the cache
 -- cluster is performed. It is specified as a range in the format
@@ -324,8 +324,8 @@ cccNotificationTopicARN = lens _cccNotificationTopicARN (\ s a -> s{_cccNotifica
 
 -- | A list of cost allocation tags to be added to this resource. A tag is a
 -- key-value pair. A tag key must be accompanied by a tag value.
-cccTags :: Lens' CreateCacheCluster (Maybe [Tag])
-cccTags = lens _cccTags (\ s a -> s{_cccTags = a});
+cccTags :: Lens' CreateCacheCluster [Tag]
+cccTags = lens _cccTags (\ s a -> s{_cccTags = a}) . _Default;
 
 -- | The initial number of cache nodes that the cache cluster will have.
 --
@@ -342,8 +342,8 @@ cccNumCacheNodes = lens _cccNumCacheNodes (\ s a -> s{_cccNumCacheNodes = a});
 --
 -- Use this parameter only when you are creating a cache cluster outside of
 -- an Amazon Virtual Private Cloud (VPC).
-cccCacheSecurityGroupNames :: Lens' CreateCacheCluster (Maybe [Text])
-cccCacheSecurityGroupNames = lens _cccCacheSecurityGroupNames (\ s a -> s{_cccCacheSecurityGroupNames = a});
+cccCacheSecurityGroupNames :: Lens' CreateCacheCluster [Text]
+cccCacheSecurityGroupNames = lens _cccCacheSecurityGroupNames (\ s a -> s{_cccCacheSecurityGroupNames = a}) . _Default;
 
 -- | The port number on which each of the cache nodes will accept
 -- connections.
@@ -369,7 +369,8 @@ instance AWSRequest CreateCacheCluster where
         response
           = receiveXMLWrapper "CreateCacheClusterResult"
               (\ s h x ->
-                 CreateCacheClusterResponse' <$> x .@? "CacheCluster")
+                 CreateCacheClusterResponse' <$>
+                   (x .@? "CacheCluster"))
 
 instance ToHeaders CreateCacheCluster where
         toHeaders = const mempty
@@ -385,17 +386,22 @@ instance ToQuery CreateCacheCluster where
                "CacheNodeType" =: _cccCacheNodeType,
                "EngineVersion" =: _cccEngineVersion,
                "SecurityGroupIds" =:
-                 "SecurityGroupId" =: _cccSecurityGroupIds,
+                 toQuery
+                   (toQueryList "SecurityGroupId" <$>
+                      _cccSecurityGroupIds),
                "AutoMinorVersionUpgrade" =:
                  _cccAutoMinorVersionUpgrade,
-               "SnapshotArns" =: "SnapshotArn" =: _cccSnapshotARNs,
+               "SnapshotArns" =:
+                 toQuery
+                   (toQueryList "SnapshotArn" <$> _cccSnapshotARNs),
                "CacheParameterGroupName" =:
                  _cccCacheParameterGroupName,
                "SnapshotWindow" =: _cccSnapshotWindow,
                "Engine" =: _cccEngine,
                "PreferredAvailabilityZones" =:
-                 "PreferredAvailabilityZone" =:
-                   _cccPreferredAvailabilityZones,
+                 toQuery
+                   (toQueryList "PreferredAvailabilityZone" <$>
+                      _cccPreferredAvailabilityZones),
                "PreferredMaintenanceWindow" =:
                  _cccPreferredMaintenanceWindow,
                "CacheSubnetGroupName" =: _cccCacheSubnetGroupName,
@@ -407,11 +413,12 @@ instance ToQuery CreateCacheCluster where
                "SnapshotName" =: _cccSnapshotName,
                "ReplicationGroupId" =: _cccReplicationGroupId,
                "NotificationTopicArn" =: _cccNotificationTopicARN,
-               "Tags" =: "Tag" =: _cccTags,
+               "Tags" =: toQuery (toQueryList "Tag" <$> _cccTags),
                "NumCacheNodes" =: _cccNumCacheNodes,
                "CacheSecurityGroupNames" =:
-                 "CacheSecurityGroupName" =:
-                   _cccCacheSecurityGroupNames,
+                 toQuery
+                   (toQueryList "CacheSecurityGroupName" <$>
+                      _cccCacheSecurityGroupNames),
                "Port" =: _cccPort,
                "CacheClusterId" =: _cccCacheClusterId]
 

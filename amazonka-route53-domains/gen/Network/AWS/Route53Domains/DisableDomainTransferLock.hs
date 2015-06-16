@@ -79,7 +79,7 @@ instance AWSRequest DisableDomainTransferLock where
           = receiveJSON
               (\ s h x ->
                  DisableDomainTransferLockResponse' <$>
-                   x .:> "OperationId")
+                   (x .:> "OperationId"))
 
 instance ToHeaders DisableDomainTransferLock where
         toHeaders

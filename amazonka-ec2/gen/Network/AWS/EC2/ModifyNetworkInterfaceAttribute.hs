@@ -68,8 +68,8 @@ modifyNetworkInterfaceAttribute pNetworkInterfaceId = ModifyNetworkInterfaceAttr
 -- groups you specify replaces the current set. You must specify at least
 -- one group, even if it\'s just the default security group in the VPC. You
 -- must specify the ID of the security group, not the name.
-mniaGroups :: Lens' ModifyNetworkInterfaceAttribute (Maybe [Text])
-mniaGroups = lens _mniaGroups (\ s a -> s{_mniaGroups = a});
+mniaGroups :: Lens' ModifyNetworkInterfaceAttribute [Text]
+mniaGroups = lens _mniaGroups (\ s a -> s{_mniaGroups = a}) . _Default;
 
 -- | Indicates whether source\/destination checking is enabled. A value of
 -- @true@ means checking is enabled, and @false@ means checking is
@@ -125,7 +125,8 @@ instance ToQuery ModifyNetworkInterfaceAttribute
               ["Action" =:
                  ("ModifyNetworkInterfaceAttribute" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "SecurityGroupId" =: _mniaGroups,
+               toQuery
+                 (toQueryList "SecurityGroupId" <$> _mniaGroups),
                "SourceDestCheck" =: _mniaSourceDestCheck,
                "Attachment" =: _mniaAttachment,
                "DryRun" =: _mniaDryRun,

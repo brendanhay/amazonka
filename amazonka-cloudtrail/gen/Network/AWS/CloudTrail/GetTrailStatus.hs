@@ -72,15 +72,15 @@ instance AWSRequest GetTrailStatus where
           = receiveJSON
               (\ s h x ->
                  GetTrailStatusResponse' <$>
-                   x .?> "LatestDeliveryError" <*>
-                     x .?> "StartLoggingTime"
-                     <*> x .?> "LatestNotificationError"
-                     <*> x .?> "IsLogging"
-                     <*> x .?> "LatestDeliveryTime"
-                     <*> x .?> "LatestCloudWatchLogsDeliveryTime"
-                     <*> x .?> "LatestCloudWatchLogsDeliveryError"
-                     <*> x .?> "LatestNotificationTime"
-                     <*> x .?> "StopLoggingTime")
+                   (x .?> "LatestDeliveryError") <*>
+                     (x .?> "StartLoggingTime")
+                     <*> (x .?> "LatestNotificationError")
+                     <*> (x .?> "IsLogging")
+                     <*> (x .?> "LatestDeliveryTime")
+                     <*> (x .?> "LatestCloudWatchLogsDeliveryTime")
+                     <*> (x .?> "LatestCloudWatchLogsDeliveryError")
+                     <*> (x .?> "LatestNotificationTime")
+                     <*> (x .?> "StopLoggingTime"))
 
 instance ToHeaders GetTrailStatus where
         toHeaders

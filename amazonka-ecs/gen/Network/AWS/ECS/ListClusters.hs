@@ -81,7 +81,8 @@ instance AWSRequest ListClusters where
           = receiveJSON
               (\ s h x ->
                  ListClustersResponse' <$>
-                   x .?> "clusterArns" .!@ mempty <*> x .?> "nextToken")
+                   (x .?> "clusterArns" .!@ mempty) <*>
+                     (x .?> "nextToken"))
 
 instance ToHeaders ListClusters where
         toHeaders
@@ -120,8 +121,8 @@ listClustersResponse = ListClustersResponse'{_lcrClusterARNs = Nothing, _lcrNext
 
 -- | The list of full Amazon Resource Name (ARN) entries for each cluster
 -- associated with your account.
-lcrClusterARNs :: Lens' ListClustersResponse (Maybe [Text])
-lcrClusterARNs = lens _lcrClusterARNs (\ s a -> s{_lcrClusterARNs = a});
+lcrClusterARNs :: Lens' ListClustersResponse [Text]
+lcrClusterARNs = lens _lcrClusterARNs (\ s a -> s{_lcrClusterARNs = a}) . _Default;
 
 -- | The @nextToken@ value to include in a future @ListClusters@ request.
 -- When the results of a @ListClusters@ request exceed @maxResults@, this

@@ -96,9 +96,7 @@ instance AWSRequest RecordLifecycleActionHeartbeat
              RecordLifecycleActionHeartbeatResponse
         request = post
         response
-          = receiveNullWrapper
-              "RecordLifecycleActionHeartbeatResult"
-              RecordLifecycleActionHeartbeatResponse'
+          = receiveNull RecordLifecycleActionHeartbeatResponse'
 
 instance ToHeaders RecordLifecycleActionHeartbeat
          where

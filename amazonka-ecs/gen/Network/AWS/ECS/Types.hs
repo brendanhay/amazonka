@@ -304,11 +304,11 @@ instance FromJSON Cluster where
           = withObject "Cluster"
               (\ x ->
                  Cluster' <$>
-                   x .:? "status" <*> x .:? "clusterArn" <*>
-                     x .:? "runningTasksCount"
-                     <*> x .:? "registeredContainerInstancesCount"
-                     <*> x .:? "pendingTasksCount"
-                     <*> x .:? "clusterName")
+                   (x .:? "status") <*> (x .:? "clusterArn") <*>
+                     (x .:? "runningTasksCount")
+                     <*> (x .:? "registeredContainerInstancesCount")
+                     <*> (x .:? "pendingTasksCount")
+                     <*> (x .:? "clusterName"))
 
 -- | /See:/ 'container' smart constructor.
 --
@@ -334,8 +334,8 @@ container :: Container
 container = Container'{_conNetworkBindings = Nothing, _conContainerARN = Nothing, _conTaskARN = Nothing, _conLastStatus = Nothing, _conReason = Nothing, _conName = Nothing, _conExitCode = Nothing};
 
 -- | FIXME: Undocumented member.
-conNetworkBindings :: Lens' Container (Maybe [NetworkBinding])
-conNetworkBindings = lens _conNetworkBindings (\ s a -> s{_conNetworkBindings = a});
+conNetworkBindings :: Lens' Container [NetworkBinding]
+conNetworkBindings = lens _conNetworkBindings (\ s a -> s{_conNetworkBindings = a}) . _Default;
 
 -- | The Amazon Resource Name (ARN) of the container.
 conContainerARN :: Lens' Container (Maybe Text)
@@ -367,13 +367,13 @@ instance FromJSON Container where
           = withObject "Container"
               (\ x ->
                  Container' <$>
-                   x .:? "networkBindings" .!= mempty <*>
-                     x .:? "containerArn"
-                     <*> x .:? "taskArn"
-                     <*> x .:? "lastStatus"
-                     <*> x .:? "reason"
-                     <*> x .:? "name"
-                     <*> x .:? "exitCode")
+                   (x .:? "networkBindings" .!= mempty) <*>
+                     (x .:? "containerArn")
+                     <*> (x .:? "taskArn")
+                     <*> (x .:? "lastStatus")
+                     <*> (x .:? "reason")
+                     <*> (x .:? "name")
+                     <*> (x .:? "exitCode"))
 
 -- | /See:/ 'containerDefinition' smart constructor.
 --
@@ -418,16 +418,16 @@ cdImage = lens _cdImage (\ s a -> s{_cdImage = a});
 -- | The @CMD@ that is passed to the container. For more information on the
 -- Docker @CMD@ parameter, see
 -- <https://docs.docker.com/reference/builder/#cmd>.
-cdCommand :: Lens' ContainerDefinition (Maybe [Text])
-cdCommand = lens _cdCommand (\ s a -> s{_cdCommand = a});
+cdCommand :: Lens' ContainerDefinition [Text]
+cdCommand = lens _cdCommand (\ s a -> s{_cdCommand = a}) . _Default;
 
 -- | Data volumes to mount from another container.
-cdVolumesFrom :: Lens' ContainerDefinition (Maybe [VolumeFrom])
-cdVolumesFrom = lens _cdVolumesFrom (\ s a -> s{_cdVolumesFrom = a});
+cdVolumesFrom :: Lens' ContainerDefinition [VolumeFrom]
+cdVolumesFrom = lens _cdVolumesFrom (\ s a -> s{_cdVolumesFrom = a}) . _Default;
 
 -- | The environment variables to pass to a container.
-cdEnvironment :: Lens' ContainerDefinition (Maybe [KeyValuePair])
-cdEnvironment = lens _cdEnvironment (\ s a -> s{_cdEnvironment = a});
+cdEnvironment :: Lens' ContainerDefinition [KeyValuePair]
+cdEnvironment = lens _cdEnvironment (\ s a -> s{_cdEnvironment = a}) . _Default;
 
 -- | Early versions of the Amazon ECS container agent do not properly handle
 -- @entryPoint@ parameters. If you have problems using @entryPoint@, update
@@ -437,12 +437,12 @@ cdEnvironment = lens _cdEnvironment (\ s a -> s{_cdEnvironment = a});
 -- The @ENTRYPOINT@ that is passed to the container. For more information
 -- on the Docker @ENTRYPOINT@ parameter, see
 -- <https://docs.docker.com/reference/builder/#entrypoint>.
-cdEntryPoint :: Lens' ContainerDefinition (Maybe [Text])
-cdEntryPoint = lens _cdEntryPoint (\ s a -> s{_cdEntryPoint = a});
+cdEntryPoint :: Lens' ContainerDefinition [Text]
+cdEntryPoint = lens _cdEntryPoint (\ s a -> s{_cdEntryPoint = a}) . _Default;
 
 -- | The list of port mappings for the container.
-cdPortMappings :: Lens' ContainerDefinition (Maybe [PortMapping])
-cdPortMappings = lens _cdPortMappings (\ s a -> s{_cdPortMappings = a});
+cdPortMappings :: Lens' ContainerDefinition [PortMapping]
+cdPortMappings = lens _cdPortMappings (\ s a -> s{_cdPortMappings = a}) . _Default;
 
 -- | The number of MiB of memory reserved for the container. Docker will
 -- allocate a minimum of 4 MiB of memory to a container.
@@ -456,15 +456,15 @@ cdName :: Lens' ContainerDefinition (Maybe Text)
 cdName = lens _cdName (\ s a -> s{_cdName = a});
 
 -- | The mount points for data volumes in your container.
-cdMountPoints :: Lens' ContainerDefinition (Maybe [MountPoint])
-cdMountPoints = lens _cdMountPoints (\ s a -> s{_cdMountPoints = a});
+cdMountPoints :: Lens' ContainerDefinition [MountPoint]
+cdMountPoints = lens _cdMountPoints (\ s a -> s{_cdMountPoints = a}) . _Default;
 
 -- | The @link@ parameter allows containers to communicate with each other
 -- without the need for port mappings, using the @name@ parameter. For more
 -- information on linking Docker containers, see
 -- <https://docs.docker.com/userguide/dockerlinks/>.
-cdLinks :: Lens' ContainerDefinition (Maybe [Text])
-cdLinks = lens _cdLinks (\ s a -> s{_cdLinks = a});
+cdLinks :: Lens' ContainerDefinition [Text]
+cdLinks = lens _cdLinks (\ s a -> s{_cdLinks = a}) . _Default;
 
 -- | If the @essential@ parameter of a container is marked as @true@, the
 -- failure of that container will stop the task. If the @essential@
@@ -483,17 +483,17 @@ instance FromJSON ContainerDefinition where
           = withObject "ContainerDefinition"
               (\ x ->
                  ContainerDefinition' <$>
-                   x .:? "image" <*> x .:? "command" .!= mempty <*>
-                     x .:? "volumesFrom" .!= mempty
-                     <*> x .:? "environment" .!= mempty
-                     <*> x .:? "entryPoint" .!= mempty
-                     <*> x .:? "portMappings" .!= mempty
-                     <*> x .:? "memory"
-                     <*> x .:? "name"
-                     <*> x .:? "mountPoints" .!= mempty
-                     <*> x .:? "links" .!= mempty
-                     <*> x .:? "essential"
-                     <*> x .:? "cpu")
+                   (x .:? "image") <*> (x .:? "command" .!= mempty) <*>
+                     (x .:? "volumesFrom" .!= mempty)
+                     <*> (x .:? "environment" .!= mempty)
+                     <*> (x .:? "entryPoint" .!= mempty)
+                     <*> (x .:? "portMappings" .!= mempty)
+                     <*> (x .:? "memory")
+                     <*> (x .:? "name")
+                     <*> (x .:? "mountPoints" .!= mempty)
+                     <*> (x .:? "links" .!= mempty)
+                     <*> (x .:? "essential")
+                     <*> (x .:? "cpu"))
 
 instance ToJSON ContainerDefinition where
         toJSON ContainerDefinition'{..}
@@ -545,8 +545,8 @@ ciRunningTasksCount = lens _ciRunningTasksCount (\ s a -> s{_ciRunningTasksCount
 
 -- | The remaining resources of the container instance that are available for
 -- new tasks.
-ciRemainingResources :: Lens' ContainerInstance (Maybe [Resource])
-ciRemainingResources = lens _ciRemainingResources (\ s a -> s{_ciRemainingResources = a});
+ciRemainingResources :: Lens' ContainerInstance [Resource]
+ciRemainingResources = lens _ciRemainingResources (\ s a -> s{_ciRemainingResources = a}) . _Default;
 
 -- | The Amazon EC2 instance ID of the container instance.
 ciEc2InstanceId :: Lens' ContainerInstance (Maybe Text)
@@ -575,21 +575,21 @@ ciPendingTasksCount = lens _ciPendingTasksCount (\ s a -> s{_ciPendingTasksCount
 
 -- | The registered resources on the container instance that are in use by
 -- current tasks.
-ciRegisteredResources :: Lens' ContainerInstance (Maybe [Resource])
-ciRegisteredResources = lens _ciRegisteredResources (\ s a -> s{_ciRegisteredResources = a});
+ciRegisteredResources :: Lens' ContainerInstance [Resource]
+ciRegisteredResources = lens _ciRegisteredResources (\ s a -> s{_ciRegisteredResources = a}) . _Default;
 
 instance FromJSON ContainerInstance where
         parseJSON
           = withObject "ContainerInstance"
               (\ x ->
                  ContainerInstance' <$>
-                   x .:? "status" <*> x .:? "runningTasksCount" <*>
-                     x .:? "remainingResources" .!= mempty
-                     <*> x .:? "ec2InstanceId"
-                     <*> x .:? "containerInstanceArn"
-                     <*> x .:? "agentConnected"
-                     <*> x .:? "pendingTasksCount"
-                     <*> x .:? "registeredResources" .!= mempty)
+                   (x .:? "status") <*> (x .:? "runningTasksCount") <*>
+                     (x .:? "remainingResources" .!= mempty)
+                     <*> (x .:? "ec2InstanceId")
+                     <*> (x .:? "containerInstanceArn")
+                     <*> (x .:? "agentConnected")
+                     <*> (x .:? "pendingTasksCount")
+                     <*> (x .:? "registeredResources" .!= mempty))
 
 -- | /See:/ 'containerOverride' smart constructor.
 --
@@ -606,8 +606,8 @@ containerOverride = ContainerOverride'{_coCommand = Nothing, _coName = Nothing};
 
 -- | The command to send to the container that overrides the default command
 -- from the Docker image or the task definition.
-coCommand :: Lens' ContainerOverride (Maybe [Text])
-coCommand = lens _coCommand (\ s a -> s{_coCommand = a});
+coCommand :: Lens' ContainerOverride [Text]
+coCommand = lens _coCommand (\ s a -> s{_coCommand = a}) . _Default;
 
 -- | The name of the container that receives the override.
 coName :: Lens' ContainerOverride (Maybe Text)
@@ -618,7 +618,7 @@ instance FromJSON ContainerOverride where
           = withObject "ContainerOverride"
               (\ x ->
                  ContainerOverride' <$>
-                   x .:? "command" .!= mempty <*> x .:? "name")
+                   (x .:? "command" .!= mempty) <*> (x .:? "name"))
 
 instance ToJSON ContainerOverride where
         toJSON ContainerOverride'{..}
@@ -680,8 +680,8 @@ csDesiredCount = lens _csDesiredCount (\ s a -> s{_csDesiredCount = a});
 -- | A list of load balancer objects, containing the load balancer name, the
 -- container name (as it appears in a container definition), and the
 -- container port to access from the load balancer.
-csLoadBalancers :: Lens' ContainerService (Maybe [LoadBalancer])
-csLoadBalancers = lens _csLoadBalancers (\ s a -> s{_csLoadBalancers = a});
+csLoadBalancers :: Lens' ContainerService [LoadBalancer]
+csLoadBalancers = lens _csLoadBalancers (\ s a -> s{_csLoadBalancers = a}) . _Default;
 
 -- | The number of tasks in the cluster that are in the @PENDING@ state.
 csPendingCount :: Lens' ContainerService (Maybe Int)
@@ -689,16 +689,16 @@ csPendingCount = lens _csPendingCount (\ s a -> s{_csPendingCount = a});
 
 -- | The event stream for your service. A maximum of 100 of the latest events
 -- are displayed.
-csEvents :: Lens' ContainerService (Maybe [ServiceEvent])
-csEvents = lens _csEvents (\ s a -> s{_csEvents = a});
+csEvents :: Lens' ContainerService [ServiceEvent]
+csEvents = lens _csEvents (\ s a -> s{_csEvents = a}) . _Default;
 
 -- | A user-generated string that you can use to identify your service.
 csServiceName :: Lens' ContainerService (Maybe Text)
 csServiceName = lens _csServiceName (\ s a -> s{_csServiceName = a});
 
 -- | The current state of deployments for the service.
-csDeployments :: Lens' ContainerService (Maybe [Deployment])
-csDeployments = lens _csDeployments (\ s a -> s{_csDeployments = a});
+csDeployments :: Lens' ContainerService [Deployment]
+csDeployments = lens _csDeployments (\ s a -> s{_csDeployments = a}) . _Default;
 
 -- | The task definition to use for tasks in the service. This value is
 -- specified when the service is created with CreateService, and it can be
@@ -725,17 +725,17 @@ instance FromJSON ContainerService where
           = withObject "ContainerService"
               (\ x ->
                  ContainerService' <$>
-                   x .:? "status" <*> x .:? "runningCount" <*>
-                     x .:? "clusterArn"
-                     <*> x .:? "desiredCount"
-                     <*> x .:? "loadBalancers" .!= mempty
-                     <*> x .:? "pendingCount"
-                     <*> x .:? "events" .!= mempty
-                     <*> x .:? "serviceName"
-                     <*> x .:? "deployments" .!= mempty
-                     <*> x .:? "taskDefinition"
-                     <*> x .:? "serviceArn"
-                     <*> x .:? "roleArn")
+                   (x .:? "status") <*> (x .:? "runningCount") <*>
+                     (x .:? "clusterArn")
+                     <*> (x .:? "desiredCount")
+                     <*> (x .:? "loadBalancers" .!= mempty)
+                     <*> (x .:? "pendingCount")
+                     <*> (x .:? "events" .!= mempty)
+                     <*> (x .:? "serviceName")
+                     <*> (x .:? "deployments" .!= mempty)
+                     <*> (x .:? "taskDefinition")
+                     <*> (x .:? "serviceArn")
+                     <*> (x .:? "roleArn"))
 
 -- | /See:/ 'deployment' smart constructor.
 --
@@ -805,13 +805,13 @@ instance FromJSON Deployment where
           = withObject "Deployment"
               (\ x ->
                  Deployment' <$>
-                   x .:? "status" <*> x .:? "runningCount" <*>
-                     x .:? "createdAt"
-                     <*> x .:? "desiredCount"
-                     <*> x .:? "pendingCount"
-                     <*> x .:? "id"
-                     <*> x .:? "taskDefinition"
-                     <*> x .:? "updatedAt")
+                   (x .:? "status") <*> (x .:? "runningCount") <*>
+                     (x .:? "createdAt")
+                     <*> (x .:? "desiredCount")
+                     <*> (x .:? "pendingCount")
+                     <*> (x .:? "id")
+                     <*> (x .:? "taskDefinition")
+                     <*> (x .:? "updatedAt"))
 
 -- | /See:/ 'failure' smart constructor.
 --
@@ -837,7 +837,8 @@ faiReason = lens _faiReason (\ s a -> s{_faiReason = a});
 instance FromJSON Failure where
         parseJSON
           = withObject "Failure"
-              (\ x -> Failure' <$> x .:? "arn" <*> x .:? "reason")
+              (\ x ->
+                 Failure' <$> (x .:? "arn") <*> (x .:? "reason"))
 
 -- | /See:/ 'hostVolumeProperties' smart constructor.
 --
@@ -859,7 +860,8 @@ hvpSourcePath = lens _hvpSourcePath (\ s a -> s{_hvpSourcePath = a});
 instance FromJSON HostVolumeProperties where
         parseJSON
           = withObject "HostVolumeProperties"
-              (\ x -> HostVolumeProperties' <$> x .:? "sourcePath")
+              (\ x ->
+                 HostVolumeProperties' <$> (x .:? "sourcePath"))
 
 instance ToJSON HostVolumeProperties where
         toJSON HostVolumeProperties'{..}
@@ -890,7 +892,7 @@ instance FromJSON KeyValuePair where
         parseJSON
           = withObject "KeyValuePair"
               (\ x ->
-                 KeyValuePair' <$> x .:? "value" <*> x .:? "name")
+                 KeyValuePair' <$> (x .:? "value") <*> (x .:? "name"))
 
 instance ToJSON KeyValuePair where
         toJSON KeyValuePair'{..}
@@ -928,8 +930,9 @@ instance FromJSON LoadBalancer where
           = withObject "LoadBalancer"
               (\ x ->
                  LoadBalancer' <$>
-                   x .:? "loadBalancerName" <*> x .:? "containerName"
-                     <*> x .:? "containerPort")
+                   (x .:? "loadBalancerName") <*>
+                     (x .:? "containerName")
+                     <*> (x .:? "containerPort"))
 
 instance ToJSON LoadBalancer where
         toJSON LoadBalancer'{..}
@@ -972,8 +975,8 @@ instance FromJSON MountPoint where
           = withObject "MountPoint"
               (\ x ->
                  MountPoint' <$>
-                   x .:? "containerPath" <*> x .:? "sourceVolume" <*>
-                     x .:? "readOnly")
+                   (x .:? "containerPath") <*> (x .:? "sourceVolume")
+                     <*> (x .:? "readOnly"))
 
 instance ToJSON MountPoint where
         toJSON MountPoint'{..}
@@ -1015,8 +1018,8 @@ instance FromJSON NetworkBinding where
           = withObject "NetworkBinding"
               (\ x ->
                  NetworkBinding' <$>
-                   x .:? "bindIP" <*> x .:? "hostPort" <*>
-                     x .:? "containerPort")
+                   (x .:? "bindIP") <*> (x .:? "hostPort") <*>
+                     (x .:? "containerPort"))
 
 instance ToJSON NetworkBinding where
         toJSON NetworkBinding'{..}
@@ -1068,7 +1071,7 @@ instance FromJSON PortMapping where
           = withObject "PortMapping"
               (\ x ->
                  PortMapping' <$>
-                   x .:? "hostPort" <*> x .:? "containerPort")
+                   (x .:? "hostPort") <*> (x .:? "containerPort"))
 
 instance ToJSON PortMapping where
         toJSON PortMapping'{..}
@@ -1099,8 +1102,8 @@ resource = Resource'{_resStringSetValue = Nothing, _resIntegerValue = Nothing, _
 
 -- | When the @stringSetValue@ type is set, the value of the resource must be
 -- a string type.
-resStringSetValue :: Lens' Resource (Maybe [Text])
-resStringSetValue = lens _resStringSetValue (\ s a -> s{_resStringSetValue = a});
+resStringSetValue :: Lens' Resource [Text]
+resStringSetValue = lens _resStringSetValue (\ s a -> s{_resStringSetValue = a}) . _Default;
 
 -- | When the @integerValue@ type is set, the value of the resource must be
 -- an integer.
@@ -1132,12 +1135,12 @@ instance FromJSON Resource where
           = withObject "Resource"
               (\ x ->
                  Resource' <$>
-                   x .:? "stringSetValue" .!= mempty <*>
-                     x .:? "integerValue"
-                     <*> x .:? "doubleValue"
-                     <*> x .:? "longValue"
-                     <*> x .:? "name"
-                     <*> x .:? "type")
+                   (x .:? "stringSetValue" .!= mempty) <*>
+                     (x .:? "integerValue")
+                     <*> (x .:? "doubleValue")
+                     <*> (x .:? "longValue")
+                     <*> (x .:? "name")
+                     <*> (x .:? "type"))
 
 instance ToJSON Resource where
         toJSON Resource'{..}
@@ -1180,7 +1183,8 @@ instance FromJSON ServiceEvent where
           = withObject "ServiceEvent"
               (\ x ->
                  ServiceEvent' <$>
-                   x .:? "createdAt" <*> x .:? "id" <*> x .:? "message")
+                   (x .:? "createdAt") <*> (x .:? "id") <*>
+                     (x .:? "message"))
 
 -- | /See:/ 'task' smart constructor.
 --
@@ -1236,8 +1240,8 @@ tasLastStatus :: Lens' Task (Maybe Text)
 tasLastStatus = lens _tasLastStatus (\ s a -> s{_tasLastStatus = a});
 
 -- | The containers associated with the task.
-tasContainers :: Lens' Task (Maybe [Container])
-tasContainers = lens _tasContainers (\ s a -> s{_tasContainers = a});
+tasContainers :: Lens' Task [Container]
+tasContainers = lens _tasContainers (\ s a -> s{_tasContainers = a}) . _Default;
 
 -- | The tag specified when a task is started. If the task is started by an
 -- Amazon ECS service, then the @startedBy@ parameter contains the
@@ -1255,14 +1259,14 @@ instance FromJSON Task where
           = withObject "Task"
               (\ x ->
                  Task' <$>
-                   x .:? "desiredStatus" <*> x .:? "clusterArn" <*>
-                     x .:? "overrides"
-                     <*> x .:? "taskArn"
-                     <*> x .:? "containerInstanceArn"
-                     <*> x .:? "lastStatus"
-                     <*> x .:? "containers" .!= mempty
-                     <*> x .:? "startedBy"
-                     <*> x .:? "taskDefinitionArn")
+                   (x .:? "desiredStatus") <*> (x .:? "clusterArn") <*>
+                     (x .:? "overrides")
+                     <*> (x .:? "taskArn")
+                     <*> (x .:? "containerInstanceArn")
+                     <*> (x .:? "lastStatus")
+                     <*> (x .:? "containers" .!= mempty)
+                     <*> (x .:? "startedBy")
+                     <*> (x .:? "taskDefinitionArn"))
 
 -- | /See:/ 'taskDefinition' smart constructor.
 --
@@ -1293,8 +1297,8 @@ tdFamily = lens _tdFamily (\ s a -> s{_tdFamily = a});
 -- container definition parameters and defaults, see
 -- <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Amazon ECS Task Definitions>
 -- in the /Amazon EC2 Container Service Developer Guide/.
-tdContainerDefinitions :: Lens' TaskDefinition (Maybe [ContainerDefinition])
-tdContainerDefinitions = lens _tdContainerDefinitions (\ s a -> s{_tdContainerDefinitions = a});
+tdContainerDefinitions :: Lens' TaskDefinition [ContainerDefinition]
+tdContainerDefinitions = lens _tdContainerDefinitions (\ s a -> s{_tdContainerDefinitions = a}) . _Default;
 
 -- | The full Amazon Resource Name (ARN) of the of the task definition.
 tdTaskDefinitionARN :: Lens' TaskDefinition (Maybe Text)
@@ -1312,19 +1316,19 @@ tdRevision = lens _tdRevision (\ s a -> s{_tdRevision = a});
 -- parameters and defaults, see
 -- <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Amazon ECS Task Definitions>
 -- in the /Amazon EC2 Container Service Developer Guide/.
-tdVolumes :: Lens' TaskDefinition (Maybe [Volume])
-tdVolumes = lens _tdVolumes (\ s a -> s{_tdVolumes = a});
+tdVolumes :: Lens' TaskDefinition [Volume]
+tdVolumes = lens _tdVolumes (\ s a -> s{_tdVolumes = a}) . _Default;
 
 instance FromJSON TaskDefinition where
         parseJSON
           = withObject "TaskDefinition"
               (\ x ->
                  TaskDefinition' <$>
-                   x .:? "family" <*>
-                     x .:? "containerDefinitions" .!= mempty
-                     <*> x .:? "taskDefinitionArn"
-                     <*> x .:? "revision"
-                     <*> x .:? "volumes" .!= mempty)
+                   (x .:? "family") <*>
+                     (x .:? "containerDefinitions" .!= mempty)
+                     <*> (x .:? "taskDefinitionArn")
+                     <*> (x .:? "revision")
+                     <*> (x .:? "volumes" .!= mempty))
 
 -- | /See:/ 'taskOverride' smart constructor.
 --
@@ -1338,15 +1342,15 @@ taskOverride :: TaskOverride
 taskOverride = TaskOverride'{_toContainerOverrides = Nothing};
 
 -- | One or more container overrides sent to a task.
-toContainerOverrides :: Lens' TaskOverride (Maybe [ContainerOverride])
-toContainerOverrides = lens _toContainerOverrides (\ s a -> s{_toContainerOverrides = a});
+toContainerOverrides :: Lens' TaskOverride [ContainerOverride]
+toContainerOverrides = lens _toContainerOverrides (\ s a -> s{_toContainerOverrides = a}) . _Default;
 
 instance FromJSON TaskOverride where
         parseJSON
           = withObject "TaskOverride"
               (\ x ->
                  TaskOverride' <$>
-                   x .:? "containerOverrides" .!= mempty)
+                   (x .:? "containerOverrides" .!= mempty))
 
 instance ToJSON TaskOverride where
         toJSON TaskOverride'{..}
@@ -1416,7 +1420,8 @@ volHost = lens _volHost (\ s a -> s{_volHost = a});
 instance FromJSON Volume where
         parseJSON
           = withObject "Volume"
-              (\ x -> Volume' <$> x .:? "name" <*> x .:? "host")
+              (\ x ->
+                 Volume' <$> (x .:? "name") <*> (x .:? "host"))
 
 instance ToJSON Volume where
         toJSON Volume'{..}
@@ -1450,7 +1455,7 @@ instance FromJSON VolumeFrom where
           = withObject "VolumeFrom"
               (\ x ->
                  VolumeFrom' <$>
-                   x .:? "sourceContainer" <*> x .:? "readOnly")
+                   (x .:? "sourceContainer") <*> (x .:? "readOnly"))
 
 instance ToJSON VolumeFrom where
         toJSON VolumeFrom'{..}

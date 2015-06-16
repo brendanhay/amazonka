@@ -85,7 +85,7 @@ instance AWSRequest
               (\ s h x ->
                  DisableAvailabilityZonesForLoadBalancerResponse' <$>
                    (x .@? "AvailabilityZones" .!@ mempty >>=
-                      parseXMLList "member"))
+                      may (parseXMLList "member")))
 
 instance ToHeaders
          DisableAvailabilityZonesForLoadBalancer where
@@ -105,7 +105,7 @@ instance ToQuery
                "Version" =: ("2012-06-01" :: ByteString),
                "LoadBalancerName" =: _dazflbLoadBalancerName,
                "AvailabilityZones" =:
-                 "member" =: _dazflbAvailabilityZones]
+                 toQueryList "member" _dazflbAvailabilityZones]
 
 -- | /See:/ 'disableAvailabilityZonesForLoadBalancerResponse' smart constructor.
 --
@@ -119,5 +119,5 @@ disableAvailabilityZonesForLoadBalancerResponse :: DisableAvailabilityZonesForLo
 disableAvailabilityZonesForLoadBalancerResponse = DisableAvailabilityZonesForLoadBalancerResponse'{_dazflbrAvailabilityZones = Nothing};
 
 -- | The remaining Availability Zones for the load balancer.
-dazflbrAvailabilityZones :: Lens' DisableAvailabilityZonesForLoadBalancerResponse (Maybe [Text])
-dazflbrAvailabilityZones = lens _dazflbrAvailabilityZones (\ s a -> s{_dazflbrAvailabilityZones = a});
+dazflbrAvailabilityZones :: Lens' DisableAvailabilityZonesForLoadBalancerResponse [Text]
+dazflbrAvailabilityZones = lens _dazflbrAvailabilityZones (\ s a -> s{_dazflbrAvailabilityZones = a}) . _Default;

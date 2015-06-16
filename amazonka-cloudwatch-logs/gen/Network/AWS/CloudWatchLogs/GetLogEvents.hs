@@ -121,9 +121,9 @@ instance AWSRequest GetLogEvents where
           = receiveJSON
               (\ s h x ->
                  GetLogEventsResponse' <$>
-                   x .?> "nextBackwardToken" <*>
-                     x .?> "nextForwardToken"
-                     <*> x .?> "events" .!@ mempty)
+                   (x .?> "nextBackwardToken") <*>
+                     (x .?> "nextForwardToken")
+                     <*> (x .?> "events" .!@ mempty))
 
 instance ToHeaders GetLogEvents where
         toHeaders
@@ -174,5 +174,5 @@ glerNextForwardToken :: Lens' GetLogEventsResponse (Maybe Text)
 glerNextForwardToken = lens _glerNextForwardToken (\ s a -> s{_glerNextForwardToken = a});
 
 -- | FIXME: Undocumented member.
-glerEvents :: Lens' GetLogEventsResponse (Maybe [OutputLogEvent])
-glerEvents = lens _glerEvents (\ s a -> s{_glerEvents = a});
+glerEvents :: Lens' GetLogEventsResponse [OutputLogEvent]
+glerEvents = lens _glerEvents (\ s a -> s{_glerEvents = a}) . _Default;

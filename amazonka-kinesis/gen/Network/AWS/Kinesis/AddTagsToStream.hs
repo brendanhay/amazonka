@@ -49,7 +49,7 @@ import Network.AWS.Kinesis.Types
 -- * 'attsStreamName'
 --
 -- * 'attsTags'
-data AddTagsToStream = AddTagsToStream'{_attsStreamName :: Text, _attsTags :: HashMap Text Text} deriving (Eq, Read, Show)
+data AddTagsToStream = AddTagsToStream'{_attsStreamName :: Text, _attsTags :: Map Text Text} deriving (Eq, Read, Show)
 
 -- | 'AddTagsToStream' smart constructor.
 addTagsToStream :: Text -> AddTagsToStream
@@ -60,8 +60,8 @@ attsStreamName :: Lens' AddTagsToStream Text
 attsStreamName = lens _attsStreamName (\ s a -> s{_attsStreamName = a});
 
 -- | The set of key-value pairs to use to create the tags.
-attsTags :: Lens' AddTagsToStream (HashMap Text Text)
-attsTags = lens _attsTags (\ s a -> s{_attsTags = a}) . _Coerce;
+attsTags :: Lens' AddTagsToStream (Map Text Text)
+attsTags = lens _attsTags (\ s a -> s{_attsTags = a}) . _Map;
 
 instance AWSRequest AddTagsToStream where
         type Sv AddTagsToStream = Kinesis

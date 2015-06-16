@@ -63,7 +63,7 @@ instance AWSRequest ReadPipeline where
           = receiveJSON
               (\ s h x ->
                  ReadPipelineResponse' <$>
-                   x .?> "Warnings" .!@ mempty <*> x .?> "Pipeline")
+                   (x .?> "Warnings" .!@ mempty) <*> (x .?> "Pipeline"))
 
 instance ToHeaders ReadPipeline where
         toHeaders = const mempty
@@ -94,8 +94,8 @@ readPipelineResponse = ReadPipelineResponse'{_rprWarnings = Nothing, _rprPipelin
 -- Using resources in the same region, such as your Amazon S3 buckets,
 -- Amazon SNS notification topics, and AWS KMS key, reduces processing time
 -- and prevents cross-regional charges.
-rprWarnings :: Lens' ReadPipelineResponse (Maybe [Warning])
-rprWarnings = lens _rprWarnings (\ s a -> s{_rprWarnings = a});
+rprWarnings :: Lens' ReadPipelineResponse [Warning]
+rprWarnings = lens _rprWarnings (\ s a -> s{_rprWarnings = a}) . _Default;
 
 -- | A section of the response body that provides information about the
 -- pipeline.

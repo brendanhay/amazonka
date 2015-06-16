@@ -67,7 +67,7 @@ instance AWSRequest DescribeChapCredentials where
           = receiveJSON
               (\ s h x ->
                  DescribeChapCredentialsResponse' <$>
-                   x .?> "ChapCredentials" .!@ mempty)
+                   (x .?> "ChapCredentials" .!@ mempty))
 
 instance ToHeaders DescribeChapCredentials where
         toHeaders
@@ -118,5 +118,5 @@ describeChapCredentialsResponse = DescribeChapCredentialsResponse'{_dccrChapCred
 --
 -- -   __TargetARN__: The Amazon Resource Name (ARN) of the storage volume.
 --
-dccrChapCredentials :: Lens' DescribeChapCredentialsResponse (Maybe [ChapInfo])
-dccrChapCredentials = lens _dccrChapCredentials (\ s a -> s{_dccrChapCredentials = a});
+dccrChapCredentials :: Lens' DescribeChapCredentialsResponse [ChapInfo]
+dccrChapCredentials = lens _dccrChapCredentials (\ s a -> s{_dccrChapCredentials = a}) . _Default;

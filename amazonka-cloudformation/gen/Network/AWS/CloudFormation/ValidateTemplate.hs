@@ -86,12 +86,12 @@ instance AWSRequest ValidateTemplate where
               (\ s h x ->
                  ValidateTemplateResponse' <$>
                    (x .@? "Parameters" .!@ mempty >>=
-                      parseXMLList "member")
-                     <*> x .@? "CapabilitiesReason"
+                      may (parseXMLList "member"))
+                     <*> (x .@? "CapabilitiesReason")
                      <*>
                      (x .@? "Capabilities" .!@ mempty >>=
-                        parseXMLList "member")
-                     <*> x .@? "Description")
+                        may (parseXMLList "member"))
+                     <*> (x .@? "Description"))
 
 instance ToHeaders ValidateTemplate where
         toHeaders = const mempty
@@ -125,8 +125,8 @@ validateTemplateResponse :: ValidateTemplateResponse
 validateTemplateResponse = ValidateTemplateResponse'{_vtrParameters = Nothing, _vtrCapabilitiesReason = Nothing, _vtrCapabilities = Nothing, _vtrDescription = Nothing};
 
 -- | A list of @TemplateParameter@ structures.
-vtrParameters :: Lens' ValidateTemplateResponse (Maybe [TemplateParameter])
-vtrParameters = lens _vtrParameters (\ s a -> s{_vtrParameters = a});
+vtrParameters :: Lens' ValidateTemplateResponse [TemplateParameter]
+vtrParameters = lens _vtrParameters (\ s a -> s{_vtrParameters = a}) . _Default;
 
 -- | The list of resources that generated the values in the @Capabilities@
 -- response element.
@@ -139,8 +139,8 @@ vtrCapabilitiesReason = lens _vtrCapabilitiesReason (\ s a -> s{_vtrCapabilities
 -- value for this parameter when you use the CreateStack or UpdateStack
 -- actions with your template; otherwise, those actions return an
 -- InsufficientCapabilities error.
-vtrCapabilities :: Lens' ValidateTemplateResponse (Maybe [Capability])
-vtrCapabilities = lens _vtrCapabilities (\ s a -> s{_vtrCapabilities = a});
+vtrCapabilities :: Lens' ValidateTemplateResponse [Capability]
+vtrCapabilities = lens _vtrCapabilities (\ s a -> s{_vtrCapabilities = a}) . _Default;
 
 -- | The description found within the template.
 vtrDescription :: Lens' ValidateTemplateResponse (Maybe Text)

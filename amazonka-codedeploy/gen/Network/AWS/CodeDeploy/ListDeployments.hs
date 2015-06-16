@@ -82,8 +82,8 @@ ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a});
 -- -   Succeeded: Include in the resulting list succeeded deployments.
 -- -   Failed: Include in the resulting list failed deployments.
 -- -   Aborted: Include in the resulting list aborted deployments.
-ldIncludeOnlyStatuses :: Lens' ListDeployments (Maybe [DeploymentStatus])
-ldIncludeOnlyStatuses = lens _ldIncludeOnlyStatuses (\ s a -> s{_ldIncludeOnlyStatuses = a});
+ldIncludeOnlyStatuses :: Lens' ListDeployments [DeploymentStatus]
+ldIncludeOnlyStatuses = lens _ldIncludeOnlyStatuses (\ s a -> s{_ldIncludeOnlyStatuses = a}) . _Default;
 
 -- | The name of an existing AWS CodeDeploy application associated with the
 -- applicable IAM user or AWS account.
@@ -102,7 +102,8 @@ instance AWSRequest ListDeployments where
           = receiveJSON
               (\ s h x ->
                  ListDeploymentsResponse' <$>
-                   x .?> "nextToken" <*> x .?> "deployments" .!@ mempty)
+                   (x .?> "nextToken") <*>
+                     (x .?> "deployments" .!@ mempty))
 
 instance ToHeaders ListDeployments where
         toHeaders
@@ -149,5 +150,5 @@ ldrNextToken :: Lens' ListDeploymentsResponse (Maybe Text)
 ldrNextToken = lens _ldrNextToken (\ s a -> s{_ldrNextToken = a});
 
 -- | A list of deployment IDs.
-ldrDeployments :: Lens' ListDeploymentsResponse (Maybe [Text])
-ldrDeployments = lens _ldrDeployments (\ s a -> s{_ldrDeployments = a});
+ldrDeployments :: Lens' ListDeploymentsResponse [Text]
+ldrDeployments = lens _ldrDeployments (\ s a -> s{_ldrDeployments = a}) . _Default;

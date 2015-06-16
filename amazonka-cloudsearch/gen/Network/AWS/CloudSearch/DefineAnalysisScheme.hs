@@ -28,8 +28,8 @@ module Network.AWS.CloudSearch.DefineAnalysisScheme
     -- ** Request constructor
     , defineAnalysisScheme
     -- ** Request lenses
-    , defineDomainName
-    , defineAnalysisScheme
+    , defiDomainName
+    , defiAnalysisScheme
 
     -- * Response
     , DefineAnalysisSchemeResponse
@@ -48,22 +48,22 @@ import Network.AWS.CloudSearch.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'defineDomainName'
+-- * 'defiDomainName'
 --
--- * 'defineAnalysisScheme'
-data DefineAnalysisScheme = DefineAnalysisScheme'{_defineDomainName :: Text, _defineAnalysisScheme :: AnalysisScheme} deriving (Eq, Read, Show)
+-- * 'defiAnalysisScheme'
+data DefineAnalysisScheme = DefineAnalysisScheme'{_defiDomainName :: Text, _defiAnalysisScheme :: AnalysisScheme} deriving (Eq, Read, Show)
 
 -- | 'DefineAnalysisScheme' smart constructor.
 defineAnalysisScheme :: Text -> AnalysisScheme -> DefineAnalysisScheme
-defineAnalysisScheme pDomainName pAnalysisScheme = DefineAnalysisScheme'{_defineDomainName = pDomainName, _defineAnalysisScheme = pAnalysisScheme};
+defineAnalysisScheme pDomainName pAnalysisScheme = DefineAnalysisScheme'{_defiDomainName = pDomainName, _defiAnalysisScheme = pAnalysisScheme};
 
 -- | FIXME: Undocumented member.
-defineDomainName :: Lens' DefineAnalysisScheme Text
-defineDomainName = lens _defineDomainName (\ s a -> s{_defineDomainName = a});
+defiDomainName :: Lens' DefineAnalysisScheme Text
+defiDomainName = lens _defiDomainName (\ s a -> s{_defiDomainName = a});
 
 -- | FIXME: Undocumented member.
-defineAnalysisScheme :: Lens' DefineAnalysisScheme AnalysisScheme
-defineAnalysisScheme = lens _defineAnalysisScheme (\ s a -> s{_defineAnalysisScheme = a});
+defiAnalysisScheme :: Lens' DefineAnalysisScheme AnalysisScheme
+defiAnalysisScheme = lens _defiAnalysisScheme (\ s a -> s{_defiAnalysisScheme = a});
 
 instance AWSRequest DefineAnalysisScheme where
         type Sv DefineAnalysisScheme = CloudSearch
@@ -74,7 +74,7 @@ instance AWSRequest DefineAnalysisScheme where
           = receiveXMLWrapper "DefineAnalysisSchemeResult"
               (\ s h x ->
                  DefineAnalysisSchemeResponse' <$>
-                   x .@ "AnalysisScheme")
+                   (x .@ "AnalysisScheme"))
 
 instance ToHeaders DefineAnalysisScheme where
         toHeaders = const mempty
@@ -87,8 +87,8 @@ instance ToQuery DefineAnalysisScheme where
           = mconcat
               ["Action" =: ("DefineAnalysisScheme" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "DomainName" =: _defineDomainName,
-               "AnalysisScheme" =: _defineAnalysisScheme]
+               "DomainName" =: _defiDomainName,
+               "AnalysisScheme" =: _defiAnalysisScheme]
 
 -- | /See:/ 'defineAnalysisSchemeResponse' smart constructor.
 --

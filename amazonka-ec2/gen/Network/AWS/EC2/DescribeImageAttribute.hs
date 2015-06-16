@@ -93,13 +93,13 @@ instance AWSRequest DescribeImageAttribute where
           = receiveXML
               (\ s h x ->
                  DescribeImageAttributeResponse' <$>
-                   parseXMLList "item" x <*> x .@? "ramdisk" <*>
-                     x .@? "kernel"
-                     <*> x .@? "sriovNetSupport"
-                     <*> x .@? "imageId"
-                     <*> parseXMLList "item" x
-                     <*> parseXMLList "item" x
-                     <*> x .@? "description")
+                   (may (parseXMLList "item") x) <*> (x .@? "ramdisk")
+                     <*> (x .@? "kernel")
+                     <*> (x .@? "sriovNetSupport")
+                     <*> (x .@? "imageId")
+                     <*> (may (parseXMLList "item") x)
+                     <*> (may (parseXMLList "item") x)
+                     <*> (x .@? "description"))
 
 instance ToHeaders DescribeImageAttribute where
         toHeaders = const mempty
@@ -142,8 +142,8 @@ describeImageAttributeResponse :: DescribeImageAttributeResponse
 describeImageAttributeResponse = DescribeImageAttributeResponse'{_diarLaunchPermissions = Nothing, _diarRAMDiskId = Nothing, _diarKernelId = Nothing, _diarSRIOVNetSupport = Nothing, _diarImageId = Nothing, _diarProductCodes = Nothing, _diarBlockDeviceMappings = Nothing, _diarDescription = Nothing};
 
 -- | One or more launch permissions.
-diarLaunchPermissions :: Lens' DescribeImageAttributeResponse (Maybe [LaunchPermission])
-diarLaunchPermissions = lens _diarLaunchPermissions (\ s a -> s{_diarLaunchPermissions = a});
+diarLaunchPermissions :: Lens' DescribeImageAttributeResponse [LaunchPermission]
+diarLaunchPermissions = lens _diarLaunchPermissions (\ s a -> s{_diarLaunchPermissions = a}) . _Default;
 
 -- | The RAM disk ID.
 diarRAMDiskId :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
@@ -162,12 +162,12 @@ diarImageId :: Lens' DescribeImageAttributeResponse (Maybe Text)
 diarImageId = lens _diarImageId (\ s a -> s{_diarImageId = a});
 
 -- | One or more product codes.
-diarProductCodes :: Lens' DescribeImageAttributeResponse (Maybe [ProductCode])
-diarProductCodes = lens _diarProductCodes (\ s a -> s{_diarProductCodes = a});
+diarProductCodes :: Lens' DescribeImageAttributeResponse [ProductCode]
+diarProductCodes = lens _diarProductCodes (\ s a -> s{_diarProductCodes = a}) . _Default;
 
 -- | One or more block device mapping entries.
-diarBlockDeviceMappings :: Lens' DescribeImageAttributeResponse (Maybe [BlockDeviceMapping])
-diarBlockDeviceMappings = lens _diarBlockDeviceMappings (\ s a -> s{_diarBlockDeviceMappings = a});
+diarBlockDeviceMappings :: Lens' DescribeImageAttributeResponse [BlockDeviceMapping]
+diarBlockDeviceMappings = lens _diarBlockDeviceMappings (\ s a -> s{_diarBlockDeviceMappings = a}) . _Default;
 
 -- | A description for the AMI.
 diarDescription :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)

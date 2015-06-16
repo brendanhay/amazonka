@@ -200,17 +200,18 @@ instance AWSRequest UploadPartCopy where
           = receiveXML
               (\ s h x ->
                  UploadPartCopyResponse' <$>
-                   h .#? "x-amz-request-charged" <*>
-                     x .@? "CopyPartResult"
+                   (h .#? "x-amz-request-charged") <*>
+                     (x .@? "CopyPartResult")
                      <*>
-                     h .#?
-                       "x-amz-server-side-encryption-customer-algorithm"
-                     <*> h .#? "x-amz-copy-source-version-id"
+                     (h .#?
+                        "x-amz-server-side-encryption-customer-algorithm")
+                     <*> (h .#? "x-amz-copy-source-version-id")
                      <*>
-                     h .#? "x-amz-server-side-encryption-aws-kms-key-id"
+                     (h .#? "x-amz-server-side-encryption-aws-kms-key-id")
                      <*>
-                     h .#? "x-amz-server-side-encryption-customer-key-MD5"
-                     <*> h .#? "x-amz-server-side-encryption")
+                     (h .#?
+                        "x-amz-server-side-encryption-customer-key-MD5")
+                     <*> (h .#? "x-amz-server-side-encryption"))
 
 instance ToHeaders UploadPartCopy where
         toHeaders UploadPartCopy'{..}

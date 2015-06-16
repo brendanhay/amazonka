@@ -64,7 +64,7 @@ instance AWSRequest GetDistribution2014_11_06 where
           = receiveXML
               (\ s h x ->
                  GetDistribution2014_11_06Response' <$>
-                   h .#? "ETag" <*> x .@? "Distribution")
+                   (h .#? "ETag") <*> (x .@? "Distribution"))
 
 instance ToHeaders GetDistribution2014_11_06 where
         toHeaders = const mempty

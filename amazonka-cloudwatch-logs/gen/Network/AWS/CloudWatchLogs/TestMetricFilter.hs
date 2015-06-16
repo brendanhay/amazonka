@@ -71,7 +71,7 @@ instance AWSRequest TestMetricFilter where
           = receiveJSON
               (\ s h x ->
                  TestMetricFilterResponse' <$>
-                   x .?> "matches" .!@ mempty)
+                   (x .?> "matches" .!@ mempty))
 
 instance ToHeaders TestMetricFilter where
         toHeaders
@@ -106,5 +106,5 @@ testMetricFilterResponse :: TestMetricFilterResponse
 testMetricFilterResponse = TestMetricFilterResponse'{_tmfrMatches = Nothing};
 
 -- | FIXME: Undocumented member.
-tmfrMatches :: Lens' TestMetricFilterResponse (Maybe [MetricFilterMatchRecord])
-tmfrMatches = lens _tmfrMatches (\ s a -> s{_tmfrMatches = a});
+tmfrMatches :: Lens' TestMetricFilterResponse [MetricFilterMatchRecord]
+tmfrMatches = lens _tmfrMatches (\ s a -> s{_tmfrMatches = a}) . _Default;

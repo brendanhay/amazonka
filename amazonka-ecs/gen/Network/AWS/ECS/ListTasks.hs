@@ -129,7 +129,8 @@ instance AWSRequest ListTasks where
           = receiveJSON
               (\ s h x ->
                  ListTasksResponse' <$>
-                   x .?> "nextToken" <*> x .?> "taskArns" .!@ mempty)
+                   (x .?> "nextToken") <*>
+                     (x .?> "taskArns" .!@ mempty))
 
 instance ToHeaders ListTasks where
         toHeaders
@@ -179,5 +180,5 @@ ltrNextToken = lens _ltrNextToken (\ s a -> s{_ltrNextToken = a});
 
 -- | The list of task Amazon Resource Name (ARN) entries for the @ListTasks@
 -- request.
-ltrTaskARNs :: Lens' ListTasksResponse (Maybe [Text])
-ltrTaskARNs = lens _ltrTaskARNs (\ s a -> s{_ltrTaskARNs = a});
+ltrTaskARNs :: Lens' ListTasksResponse [Text]
+ltrTaskARNs = lens _ltrTaskARNs (\ s a -> s{_ltrTaskARNs = a}) . _Default;

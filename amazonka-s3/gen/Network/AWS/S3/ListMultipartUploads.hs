@@ -122,17 +122,17 @@ instance AWSRequest ListMultipartUploads where
           = receiveXML
               (\ s h x ->
                  ListMultipartUploadsResponse' <$>
-                   x .@? "KeyMarker" <*> x .@? "Prefix" <*>
-                     x .@? "EncodingType"
-                     <*> parseXMLList "CommonPrefixes" x
-                     <*> x .@? "Bucket"
-                     <*> x .@? "MaxUploads"
-                     <*> x .@? "UploadIdMarker"
-                     <*> x .@? "NextKeyMarker"
-                     <*> parseXMLList "Upload" x
-                     <*> x .@? "IsTruncated"
-                     <*> x .@? "NextUploadIdMarker"
-                     <*> x .@? "Delimiter")
+                   (x .@? "KeyMarker") <*> (x .@? "Prefix") <*>
+                     (x .@? "EncodingType")
+                     <*> (may (parseXMLList "CommonPrefixes") x)
+                     <*> (x .@? "Bucket")
+                     <*> (x .@? "MaxUploads")
+                     <*> (x .@? "UploadIdMarker")
+                     <*> (x .@? "NextKeyMarker")
+                     <*> (may (parseXMLList "Upload") x)
+                     <*> (x .@? "IsTruncated")
+                     <*> (x .@? "NextUploadIdMarker")
+                     <*> (x .@? "Delimiter"))
 
 instance ToHeaders ListMultipartUploads where
         toHeaders = const mempty
@@ -199,8 +199,8 @@ lmurEncodingType :: Lens' ListMultipartUploadsResponse (Maybe EncodingType)
 lmurEncodingType = lens _lmurEncodingType (\ s a -> s{_lmurEncodingType = a});
 
 -- | FIXME: Undocumented member.
-lmurCommonPrefixes :: Lens' ListMultipartUploadsResponse (Maybe [CommonPrefix])
-lmurCommonPrefixes = lens _lmurCommonPrefixes (\ s a -> s{_lmurCommonPrefixes = a});
+lmurCommonPrefixes :: Lens' ListMultipartUploadsResponse [CommonPrefix]
+lmurCommonPrefixes = lens _lmurCommonPrefixes (\ s a -> s{_lmurCommonPrefixes = a}) . _Default;
 
 -- | Name of the bucket to which the multipart upload was initiated.
 lmurBucket :: Lens' ListMultipartUploadsResponse (Maybe BucketName)
@@ -221,8 +221,8 @@ lmurNextKeyMarker :: Lens' ListMultipartUploadsResponse (Maybe Text)
 lmurNextKeyMarker = lens _lmurNextKeyMarker (\ s a -> s{_lmurNextKeyMarker = a});
 
 -- | FIXME: Undocumented member.
-lmurUploads :: Lens' ListMultipartUploadsResponse (Maybe [MultipartUpload])
-lmurUploads = lens _lmurUploads (\ s a -> s{_lmurUploads = a});
+lmurUploads :: Lens' ListMultipartUploadsResponse [MultipartUpload]
+lmurUploads = lens _lmurUploads (\ s a -> s{_lmurUploads = a}) . _Default;
 
 -- | Indicates whether the returned list of multipart uploads is truncated. A
 -- value of true indicates that the list was truncated. The list can be

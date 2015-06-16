@@ -116,15 +116,15 @@ ceTemplateName = lens _ceTemplateName (\ s a -> s{_ceTemplateName = a});
 
 -- | A list of custom user-defined configuration options to remove from the
 -- configuration set for this new environment.
-ceOptionsToRemove :: Lens' CreateEnvironment (Maybe [OptionSpecification])
-ceOptionsToRemove = lens _ceOptionsToRemove (\ s a -> s{_ceOptionsToRemove = a});
+ceOptionsToRemove :: Lens' CreateEnvironment [OptionSpecification]
+ceOptionsToRemove = lens _ceOptionsToRemove (\ s a -> s{_ceOptionsToRemove = a}) . _Default;
 
 -- | If specified, AWS Elastic Beanstalk sets the specified configuration
 -- options to the requested value in the configuration set for the new
 -- environment. These override the values obtained from the solution stack
 -- or the configuration template.
-ceOptionSettings :: Lens' CreateEnvironment (Maybe [ConfigurationOptionSetting])
-ceOptionSettings = lens _ceOptionSettings (\ s a -> s{_ceOptionSettings = a});
+ceOptionSettings :: Lens' CreateEnvironment [ConfigurationOptionSetting]
+ceOptionSettings = lens _ceOptionSettings (\ s a -> s{_ceOptionSettings = a}) . _Default;
 
 -- | The name of the application version to deploy.
 --
@@ -157,8 +157,8 @@ ceDescription :: Lens' CreateEnvironment (Maybe Text)
 ceDescription = lens _ceDescription (\ s a -> s{_ceDescription = a});
 
 -- | This specifies the tags applied to resources in the environment.
-ceTags :: Lens' CreateEnvironment (Maybe [Tag])
-ceTags = lens _ceTags (\ s a -> s{_ceTags = a});
+ceTags :: Lens' CreateEnvironment [Tag]
+ceTags = lens _ceTags (\ s a -> s{_ceTags = a}) . _Default;
 
 -- | The name of the application that contains the version to be deployed.
 --
@@ -203,11 +203,14 @@ instance ToQuery CreateEnvironment where
                "Version" =: ("2010-12-01" :: ByteString),
                "CNAMEPrefix" =: _ceCNAMEPrefix,
                "TemplateName" =: _ceTemplateName,
-               "OptionsToRemove" =: "member" =: _ceOptionsToRemove,
-               "OptionSettings" =: "member" =: _ceOptionSettings,
+               "OptionsToRemove" =:
+                 toQuery
+                   (toQueryList "member" <$> _ceOptionsToRemove),
+               "OptionSettings" =:
+                 toQuery (toQueryList "member" <$> _ceOptionSettings),
                "VersionLabel" =: _ceVersionLabel, "Tier" =: _ceTier,
                "SolutionStackName" =: _ceSolutionStackName,
                "Description" =: _ceDescription,
-               "Tags" =: "member" =: _ceTags,
+               "Tags" =: toQuery (toQueryList "member" <$> _ceTags),
                "ApplicationName" =: _ceApplicationName,
                "EnvironmentName" =: _ceEnvironmentName]

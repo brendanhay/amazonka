@@ -63,8 +63,8 @@ describeElasticLoadBalancers = DescribeElasticLoadBalancers'{_delbLayerIds = Not
 
 -- | A list of layer IDs. The action describes the Elastic Load Balancing
 -- instances for the specified layers.
-delbLayerIds :: Lens' DescribeElasticLoadBalancers (Maybe [Text])
-delbLayerIds = lens _delbLayerIds (\ s a -> s{_delbLayerIds = a});
+delbLayerIds :: Lens' DescribeElasticLoadBalancers [Text]
+delbLayerIds = lens _delbLayerIds (\ s a -> s{_delbLayerIds = a}) . _Default;
 
 -- | A stack ID. The action describes the stack\'s Elastic Load Balancing
 -- instances.
@@ -81,7 +81,7 @@ instance AWSRequest DescribeElasticLoadBalancers
           = receiveJSON
               (\ s h x ->
                  DescribeElasticLoadBalancersResponse' <$>
-                   x .?> "ElasticLoadBalancers" .!@ mempty)
+                   (x .?> "ElasticLoadBalancers" .!@ mempty))
 
 instance ToHeaders DescribeElasticLoadBalancers where
         toHeaders
@@ -118,5 +118,5 @@ describeElasticLoadBalancersResponse = DescribeElasticLoadBalancersResponse'{_de
 
 -- | A list of @ElasticLoadBalancer@ objects that describe the specified
 -- Elastic Load Balancing instances.
-delbrElasticLoadBalancers :: Lens' DescribeElasticLoadBalancersResponse (Maybe [ElasticLoadBalancer])
-delbrElasticLoadBalancers = lens _delbrElasticLoadBalancers (\ s a -> s{_delbrElasticLoadBalancers = a});
+delbrElasticLoadBalancers :: Lens' DescribeElasticLoadBalancersResponse [ElasticLoadBalancer]
+delbrElasticLoadBalancers = lens _delbrElasticLoadBalancers (\ s a -> s{_delbrElasticLoadBalancers = a}) . _Default;

@@ -78,7 +78,7 @@ instance AWSRequest DeleteGateway where
         response
           = receiveJSON
               (\ s h x ->
-                 DeleteGatewayResponse' <$> x .?> "GatewayARN")
+                 DeleteGatewayResponse' <$> (x .?> "GatewayARN"))
 
 instance ToHeaders DeleteGateway where
         toHeaders

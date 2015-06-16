@@ -73,7 +73,8 @@ instance AWSRequest RetrieveDomainAuthCode where
         response
           = receiveJSON
               (\ s h x ->
-                 RetrieveDomainAuthCodeResponse' <$> x .:> "AuthCode")
+                 RetrieveDomainAuthCodeResponse' <$>
+                   (x .:> "AuthCode"))
 
 instance ToHeaders RetrieveDomainAuthCode where
         toHeaders

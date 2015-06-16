@@ -100,8 +100,8 @@ mesSeverity = lens _mesSeverity (\ s a -> s{_mesSeverity = a});
 -- event notification subscription.
 --
 -- Values: Configuration, Management, Monitoring, Security
-mesEventCategories :: Lens' ModifyEventSubscription (Maybe [Text])
-mesEventCategories = lens _mesEventCategories (\ s a -> s{_mesEventCategories = a});
+mesEventCategories :: Lens' ModifyEventSubscription [Text]
+mesEventCategories = lens _mesEventCategories (\ s a -> s{_mesEventCategories = a}) . _Default;
 
 -- | A list of one or more identifiers of Amazon Redshift source objects. All
 -- of the objects must be of the same type as was specified in the source
@@ -112,8 +112,8 @@ mesEventCategories = lens _mesEventCategories (\ s a -> s{_mesEventCategories = 
 -- Example: my-cluster-1, my-cluster-2
 --
 -- Example: my-snapshot-20131010
-mesSourceIds :: Lens' ModifyEventSubscription (Maybe [Text])
-mesSourceIds = lens _mesSourceIds (\ s a -> s{_mesSourceIds = a});
+mesSourceIds :: Lens' ModifyEventSubscription [Text]
+mesSourceIds = lens _mesSourceIds (\ s a -> s{_mesSourceIds = a}) . _Default;
 
 -- | The name of the modified Amazon Redshift event notification
 -- subscription.
@@ -129,7 +129,7 @@ instance AWSRequest ModifyEventSubscription where
           = receiveXMLWrapper "ModifyEventSubscriptionResult"
               (\ s h x ->
                  ModifyEventSubscriptionResponse' <$>
-                   x .@? "EventSubscription")
+                   (x .@? "EventSubscription"))
 
 instance ToHeaders ModifyEventSubscription where
         toHeaders = const mempty
@@ -148,8 +148,11 @@ instance ToQuery ModifyEventSubscription where
                "SourceType" =: _mesSourceType,
                "Severity" =: _mesSeverity,
                "EventCategories" =:
-                 "EventCategory" =: _mesEventCategories,
-               "SourceIds" =: "SourceId" =: _mesSourceIds,
+                 toQuery
+                   (toQueryList "EventCategory" <$>
+                      _mesEventCategories),
+               "SourceIds" =:
+                 toQuery (toQueryList "SourceId" <$> _mesSourceIds),
                "SubscriptionName" =: _mesSubscriptionName]
 
 -- | /See:/ 'modifyEventSubscriptionResponse' smart constructor.

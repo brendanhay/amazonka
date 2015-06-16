@@ -89,7 +89,7 @@ instance AWSRequest ImportKeyPair where
           = receiveXML
               (\ s h x ->
                  ImportKeyPairResponse' <$>
-                   x .@? "keyFingerprint" <*> x .@? "keyName")
+                   (x .@? "keyFingerprint") <*> (x .@? "keyName"))
 
 instance ToHeaders ImportKeyPair where
         toHeaders = const mempty

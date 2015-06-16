@@ -188,12 +188,12 @@ describeSpotInstanceRequests = DescribeSpotInstanceRequests'{_dsirFilters = Noth
 --
 -- -   @valid-until@ - The end date of the request.
 --
-dsirFilters :: Lens' DescribeSpotInstanceRequests (Maybe [Filter])
-dsirFilters = lens _dsirFilters (\ s a -> s{_dsirFilters = a});
+dsirFilters :: Lens' DescribeSpotInstanceRequests [Filter]
+dsirFilters = lens _dsirFilters (\ s a -> s{_dsirFilters = a}) . _Default;
 
 -- | One or more Spot Instance request IDs.
-dsirSpotInstanceRequestIds :: Lens' DescribeSpotInstanceRequests (Maybe [Text])
-dsirSpotInstanceRequestIds = lens _dsirSpotInstanceRequestIds (\ s a -> s{_dsirSpotInstanceRequestIds = a});
+dsirSpotInstanceRequestIds :: Lens' DescribeSpotInstanceRequests [Text]
+dsirSpotInstanceRequestIds = lens _dsirSpotInstanceRequestIds (\ s a -> s{_dsirSpotInstanceRequestIds = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -212,7 +212,7 @@ instance AWSRequest DescribeSpotInstanceRequests
           = receiveXML
               (\ s h x ->
                  DescribeSpotInstanceRequestsResponse' <$>
-                   parseXMLList "item" x)
+                   (may (parseXMLList "item") x))
 
 instance ToHeaders DescribeSpotInstanceRequests where
         toHeaders = const mempty
@@ -226,9 +226,10 @@ instance ToQuery DescribeSpotInstanceRequests where
               ["Action" =:
                  ("DescribeSpotInstanceRequests" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Filter" =: _dsirFilters,
-               "SpotInstanceRequestId" =:
-                 _dsirSpotInstanceRequestIds,
+               toQuery (toQueryList "Filter" <$> _dsirFilters),
+               toQuery
+                 (toQueryList "SpotInstanceRequestId" <$>
+                    _dsirSpotInstanceRequestIds),
                "DryRun" =: _dsirDryRun]
 
 -- | /See:/ 'describeSpotInstanceRequestsResponse' smart constructor.
@@ -243,5 +244,5 @@ describeSpotInstanceRequestsResponse :: DescribeSpotInstanceRequestsResponse
 describeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse'{_dsirrSpotInstanceRequests = Nothing};
 
 -- | One or more Spot Instance requests.
-dsirrSpotInstanceRequests :: Lens' DescribeSpotInstanceRequestsResponse (Maybe [SpotInstanceRequest])
-dsirrSpotInstanceRequests = lens _dsirrSpotInstanceRequests (\ s a -> s{_dsirrSpotInstanceRequests = a});
+dsirrSpotInstanceRequests :: Lens' DescribeSpotInstanceRequestsResponse [SpotInstanceRequest]
+dsirrSpotInstanceRequests = lens _dsirrSpotInstanceRequests (\ s a -> s{_dsirrSpotInstanceRequests = a}) . _Default;

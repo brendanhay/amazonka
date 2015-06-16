@@ -82,7 +82,8 @@ instance AWSRequest DescribeVirtualInterfaces where
           = receiveJSON
               (\ s h x ->
                  DescribeVirtualInterfacesResponse' <$>
-                   x .?> "DescribeVirtualInterfacesResponse" .!@ mempty)
+                   (x .?> "DescribeVirtualInterfacesResponse" .!@
+                      mempty))
 
 instance ToHeaders DescribeVirtualInterfaces where
         toHeaders
@@ -118,5 +119,5 @@ describeVirtualInterfacesResponse :: DescribeVirtualInterfacesResponse
 describeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse'{_dvirDescribeVirtualInterfacesResponse = Nothing};
 
 -- | A list of virtual interfaces.
-dvirDescribeVirtualInterfacesResponse :: Lens' DescribeVirtualInterfacesResponse (Maybe [VirtualInterface])
-dvirDescribeVirtualInterfacesResponse = lens _dvirDescribeVirtualInterfacesResponse (\ s a -> s{_dvirDescribeVirtualInterfacesResponse = a});
+dvirDescribeVirtualInterfacesResponse :: Lens' DescribeVirtualInterfacesResponse [VirtualInterface]
+dvirDescribeVirtualInterfacesResponse = lens _dvirDescribeVirtualInterfacesResponse (\ s a -> s{_dvirDescribeVirtualInterfacesResponse = a}) . _Default;

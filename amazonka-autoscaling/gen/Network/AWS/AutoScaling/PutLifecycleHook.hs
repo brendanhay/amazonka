@@ -171,9 +171,7 @@ instance AWSRequest PutLifecycleHook where
         type Sv PutLifecycleHook = AutoScaling
         type Rs PutLifecycleHook = PutLifecycleHookResponse
         request = post
-        response
-          = receiveNullWrapper "PutLifecycleHookResult"
-              PutLifecycleHookResponse'
+        response = receiveNull PutLifecycleHookResponse'
 
 instance ToHeaders PutLifecycleHook where
         toHeaders = const mempty

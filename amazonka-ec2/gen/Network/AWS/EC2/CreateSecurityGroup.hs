@@ -128,7 +128,7 @@ instance AWSRequest CreateSecurityGroup where
         response
           = receiveXML
               (\ s h x ->
-                 CreateSecurityGroupResponse' <$> x .@? "groupId")
+                 CreateSecurityGroupResponse' <$> (x .@? "groupId"))
 
 instance ToHeaders CreateSecurityGroup where
         toHeaders = const mempty

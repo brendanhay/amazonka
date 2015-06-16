@@ -153,14 +153,16 @@ instance AWSRequest UploadPart where
           = receiveXML
               (\ s h x ->
                  UploadPartResponse' <$>
-                   h .#? "ETag" <*> h .#? "x-amz-request-charged" <*>
-                     h .#?
-                       "x-amz-server-side-encryption-customer-algorithm"
+                   (h .#? "ETag") <*> (h .#? "x-amz-request-charged")
                      <*>
-                     h .#? "x-amz-server-side-encryption-aws-kms-key-id"
+                     (h .#?
+                        "x-amz-server-side-encryption-customer-algorithm")
                      <*>
-                     h .#? "x-amz-server-side-encryption-customer-key-MD5"
-                     <*> h .#? "x-amz-server-side-encryption")
+                     (h .#? "x-amz-server-side-encryption-aws-kms-key-id")
+                     <*>
+                     (h .#?
+                        "x-amz-server-side-encryption-customer-key-MD5")
+                     <*> (h .#? "x-amz-server-side-encryption"))
 
 instance ToBody UploadPart where
         toBody = _upBody

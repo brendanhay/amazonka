@@ -74,7 +74,7 @@ instance AWSRequest AddUploadBuffer where
         response
           = receiveJSON
               (\ s h x ->
-                 AddUploadBufferResponse' <$> x .?> "GatewayARN")
+                 AddUploadBufferResponse' <$> (x .?> "GatewayARN"))
 
 instance ToHeaders AddUploadBuffer where
         toHeaders

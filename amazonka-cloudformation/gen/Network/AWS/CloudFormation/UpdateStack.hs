@@ -99,8 +99,8 @@ usUsePreviousTemplate = lens _usUsePreviousTemplate (\ s a -> s{_usUsePreviousTe
 
 -- | Update the ARNs for the Amazon SNS topics that are associated with the
 -- stack.
-usNotificationARNs :: Lens' UpdateStack (Maybe [Text])
-usNotificationARNs = lens _usNotificationARNs (\ s a -> s{_usNotificationARNs = a});
+usNotificationARNs :: Lens' UpdateStack [Text]
+usNotificationARNs = lens _usNotificationARNs (\ s a -> s{_usNotificationARNs = a}) . _Default;
 
 -- | Structure containing a new stack policy body. You can specify either the
 -- @StackPolicyBody@ or the @StackPolicyURL@ parameter, but not both.
@@ -140,8 +140,8 @@ usStackPolicyDuringUpdateURL = lens _usStackPolicyDuringUpdateURL (\ s a -> s{_u
 -- stack. For more information, see the
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html Parameter>
 -- data type.
-usParameters :: Lens' UpdateStack (Maybe [Parameter])
-usParameters = lens _usParameters (\ s a -> s{_usParameters = a});
+usParameters :: Lens' UpdateStack [Parameter]
+usParameters = lens _usParameters (\ s a -> s{_usParameters = a}) . _Default;
 
 -- | Location of a file containing the updated stack policy. The URL must
 -- point to a policy (max size: 16KB) located in an S3 bucket in the same
@@ -193,8 +193,8 @@ usTemplateURL = lens _usTemplateURL (\ s a -> s{_usTemplateURL = a});
 -- If your stack template contains these resources, we recommend that you
 -- review any permissions associated with them. If you don\'t specify this
 -- parameter, this action returns an InsufficientCapabilities error.
-usCapabilities :: Lens' UpdateStack (Maybe [Capability])
-usCapabilities = lens _usCapabilities (\ s a -> s{_usCapabilities = a});
+usCapabilities :: Lens' UpdateStack [Capability]
+usCapabilities = lens _usCapabilities (\ s a -> s{_usCapabilities = a}) . _Default;
 
 -- | The name or unique stack ID of the stack to update.
 usStackName :: Lens' UpdateStack Text
@@ -206,7 +206,8 @@ instance AWSRequest UpdateStack where
         request = post
         response
           = receiveXMLWrapper "UpdateStackResult"
-              (\ s h x -> UpdateStackResponse' <$> x .@? "StackId")
+              (\ s h x ->
+                 UpdateStackResponse' <$> (x .@? "StackId"))
 
 instance ToHeaders UpdateStack where
         toHeaders = const mempty
@@ -221,17 +222,20 @@ instance ToQuery UpdateStack where
                "Version" =: ("2010-05-15" :: ByteString),
                "UsePreviousTemplate" =: _usUsePreviousTemplate,
                "NotificationARNs" =:
-                 "member" =: _usNotificationARNs,
+                 toQuery
+                   (toQueryList "member" <$> _usNotificationARNs),
                "StackPolicyBody" =: _usStackPolicyBody,
                "StackPolicyDuringUpdateBody" =:
                  _usStackPolicyDuringUpdateBody,
                "StackPolicyDuringUpdateURL" =:
                  _usStackPolicyDuringUpdateURL,
-               "Parameters" =: "member" =: _usParameters,
+               "Parameters" =:
+                 toQuery (toQueryList "member" <$> _usParameters),
                "StackPolicyURL" =: _usStackPolicyURL,
                "TemplateBody" =: _usTemplateBody,
                "TemplateURL" =: _usTemplateURL,
-               "Capabilities" =: "member" =: _usCapabilities,
+               "Capabilities" =:
+                 toQuery (toQueryList "member" <$> _usCapabilities),
                "StackName" =: _usStackName]
 
 -- | /See:/ 'updateStackResponse' smart constructor.

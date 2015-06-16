@@ -104,7 +104,7 @@ instance AWSRequest DescribeConfigurationSettings
               (\ s h x ->
                  DescribeConfigurationSettingsResponse' <$>
                    (x .@? "ConfigurationSettings" .!@ mempty >>=
-                      parseXMLList "member"))
+                      may (parseXMLList "member")))
 
 instance ToHeaders DescribeConfigurationSettings
          where
@@ -135,5 +135,5 @@ describeConfigurationSettingsResponse :: DescribeConfigurationSettingsResponse
 describeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse'{_dcsrConfigurationSettings = Nothing};
 
 -- | A list of ConfigurationSettingsDescription.
-dcsrConfigurationSettings :: Lens' DescribeConfigurationSettingsResponse (Maybe [ConfigurationSettingsDescription])
-dcsrConfigurationSettings = lens _dcsrConfigurationSettings (\ s a -> s{_dcsrConfigurationSettings = a});
+dcsrConfigurationSettings :: Lens' DescribeConfigurationSettingsResponse [ConfigurationSettingsDescription]
+dcsrConfigurationSettings = lens _dcsrConfigurationSettings (\ s a -> s{_dcsrConfigurationSettings = a}) . _Default;

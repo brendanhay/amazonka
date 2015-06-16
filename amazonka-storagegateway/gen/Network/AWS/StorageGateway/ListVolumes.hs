@@ -91,8 +91,8 @@ instance AWSRequest ListVolumes where
           = receiveJSON
               (\ s h x ->
                  ListVolumesResponse' <$>
-                   x .?> "GatewayARN" <*> x .?> "Marker" <*>
-                     x .?> "VolumeInfos" .!@ mempty)
+                   (x .?> "GatewayARN") <*> (x .?> "Marker") <*>
+                     (x .?> "VolumeInfos" .!@ mempty))
 
 instance ToHeaders ListVolumes where
         toHeaders
@@ -140,5 +140,5 @@ lvrMarker :: Lens' ListVolumesResponse (Maybe Text)
 lvrMarker = lens _lvrMarker (\ s a -> s{_lvrMarker = a});
 
 -- | FIXME: Undocumented member.
-lvrVolumeInfos :: Lens' ListVolumesResponse (Maybe [VolumeInfo])
-lvrVolumeInfos = lens _lvrVolumeInfos (\ s a -> s{_lvrVolumeInfos = a});
+lvrVolumeInfos :: Lens' ListVolumesResponse [VolumeInfo]
+lvrVolumeInfos = lens _lvrVolumeInfos (\ s a -> s{_lvrVolumeInfos = a}) . _Default;

@@ -118,7 +118,8 @@ instance AWSRequest DescribeLogStreams where
           = receiveJSON
               (\ s h x ->
                  DescribeLogStreamsResponse' <$>
-                   x .?> "nextToken" <*> x .?> "logStreams" .!@ mempty)
+                   (x .?> "nextToken") <*>
+                     (x .?> "logStreams" .!@ mempty))
 
 instance ToHeaders DescribeLogStreams where
         toHeaders
@@ -163,5 +164,5 @@ dlsrNextToken :: Lens' DescribeLogStreamsResponse (Maybe Text)
 dlsrNextToken = lens _dlsrNextToken (\ s a -> s{_dlsrNextToken = a});
 
 -- | FIXME: Undocumented member.
-dlsrLogStreams :: Lens' DescribeLogStreamsResponse (Maybe [LogStream])
-dlsrLogStreams = lens _dlsrLogStreams (\ s a -> s{_dlsrLogStreams = a});
+dlsrLogStreams :: Lens' DescribeLogStreamsResponse [LogStream]
+dlsrLogStreams = lens _dlsrLogStreams (\ s a -> s{_dlsrLogStreams = a}) . _Default;

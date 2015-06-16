@@ -67,8 +67,8 @@ describeInstances = DescribeInstances'{_diInstanceIds = Nothing, _diStackId = No
 -- | An array of instance IDs to be described. If you use this parameter,
 -- @DescribeInstances@ returns a description of the specified instances.
 -- Otherwise, it returns a description of every instance.
-diInstanceIds :: Lens' DescribeInstances (Maybe [Text])
-diInstanceIds = lens _diInstanceIds (\ s a -> s{_diInstanceIds = a});
+diInstanceIds :: Lens' DescribeInstances [Text]
+diInstanceIds = lens _diInstanceIds (\ s a -> s{_diInstanceIds = a}) . _Default;
 
 -- | A stack ID. If you use this parameter, @DescribeInstances@ returns
 -- descriptions of the instances associated with the specified stack.
@@ -88,7 +88,7 @@ instance AWSRequest DescribeInstances where
           = receiveJSON
               (\ s h x ->
                  DescribeInstancesResponse' <$>
-                   x .?> "Instances" .!@ mempty)
+                   (x .?> "Instances" .!@ mempty))
 
 instance ToHeaders DescribeInstances where
         toHeaders
@@ -124,5 +124,5 @@ describeInstancesResponse :: DescribeInstancesResponse
 describeInstancesResponse = DescribeInstancesResponse'{_dirInstances = Nothing};
 
 -- | An array of @Instance@ objects that describe the instances.
-dirInstances :: Lens' DescribeInstancesResponse (Maybe [Instance])
-dirInstances = lens _dirInstances (\ s a -> s{_dirInstances = a});
+dirInstances :: Lens' DescribeInstancesResponse [Instance]
+dirInstances = lens _dirInstances (\ s a -> s{_dirInstances = a}) . _Default;

@@ -64,8 +64,8 @@ describeDBParameters :: Text -> DescribeDBParameters
 describeDBParameters pDBParameterGroupName = DescribeDBParameters'{_ddpFilters = Nothing, _ddpMaxRecords = Nothing, _ddpMarker = Nothing, _ddpSource = Nothing, _ddpDBParameterGroupName = pDBParameterGroupName};
 
 -- | This parameter is not currently supported.
-ddpFilters :: Lens' DescribeDBParameters (Maybe [Filter])
-ddpFilters = lens _ddpFilters (\ s a -> s{_ddpFilters = a});
+ddpFilters :: Lens' DescribeDBParameters [Filter]
+ddpFilters = lens _ddpFilters (\ s a -> s{_ddpFilters = a}) . _Default;
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -113,8 +113,8 @@ instance AWSRequest DescribeDBParameters where
               (\ s h x ->
                  DescribeDBParametersResponse' <$>
                    (x .@? "Parameters" .!@ mempty >>=
-                      parseXMLList "Parameter")
-                     <*> x .@? "Marker")
+                      may (parseXMLList "Parameter"))
+                     <*> (x .@? "Marker"))
 
 instance ToHeaders DescribeDBParameters where
         toHeaders = const mempty
@@ -127,7 +127,8 @@ instance ToQuery DescribeDBParameters where
           = mconcat
               ["Action" =: ("DescribeDBParameters" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "Filters" =: "Filter" =: _ddpFilters,
+               "Filters" =:
+                 toQuery (toQueryList "Filter" <$> _ddpFilters),
                "MaxRecords" =: _ddpMaxRecords,
                "Marker" =: _ddpMarker, "Source" =: _ddpSource,
                "DBParameterGroupName" =: _ddpDBParameterGroupName]
@@ -146,8 +147,8 @@ describeDBParametersResponse :: DescribeDBParametersResponse
 describeDBParametersResponse = DescribeDBParametersResponse'{_ddprParameters = Nothing, _ddprMarker = Nothing};
 
 -- | A list of Parameter values.
-ddprParameters :: Lens' DescribeDBParametersResponse (Maybe [Parameter])
-ddprParameters = lens _ddprParameters (\ s a -> s{_ddprParameters = a});
+ddprParameters :: Lens' DescribeDBParametersResponse [Parameter]
+ddprParameters = lens _ddprParameters (\ s a -> s{_ddprParameters = a}) . _Default;
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the

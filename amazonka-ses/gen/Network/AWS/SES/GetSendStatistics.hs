@@ -59,7 +59,7 @@ instance AWSRequest GetSendStatistics where
               (\ s h x ->
                  GetSendStatisticsResponse' <$>
                    (x .@? "SendDataPoints" .!@ mempty >>=
-                      parseXMLList "member"))
+                      may (parseXMLList "member")))
 
 instance ToHeaders GetSendStatistics where
         toHeaders = const mempty
@@ -86,5 +86,5 @@ getSendStatisticsResponse :: GetSendStatisticsResponse
 getSendStatisticsResponse = GetSendStatisticsResponse'{_gssrSendDataPoints = Nothing};
 
 -- | A list of data points, each of which represents 15 minutes of activity.
-gssrSendDataPoints :: Lens' GetSendStatisticsResponse (Maybe [SendDataPoint])
-gssrSendDataPoints = lens _gssrSendDataPoints (\ s a -> s{_gssrSendDataPoints = a});
+gssrSendDataPoints :: Lens' GetSendStatisticsResponse [SendDataPoint]
+gssrSendDataPoints = lens _gssrSendDataPoints (\ s a -> s{_gssrSendDataPoints = a}) . _Default;

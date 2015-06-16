@@ -72,8 +72,7 @@ instance AWSRequest AddTags where
         type Sv AddTags = ELB
         type Rs AddTags = AddTagsResponse
         request = post
-        response
-          = receiveNullWrapper "AddTagsResult" AddTagsResponse'
+        response = receiveNull AddTagsResponse'
 
 instance ToHeaders AddTags where
         toHeaders = const mempty
@@ -87,8 +86,8 @@ instance ToQuery AddTags where
               ["Action" =: ("AddTags" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
                "LoadBalancerNames" =:
-                 "member" =: _atLoadBalancerNames,
-               "Tags" =: "member" =: _atTags]
+                 toQueryList "member" _atLoadBalancerNames,
+               "Tags" =: toQueryList "member" _atTags]
 
 -- | /See:/ 'addTagsResponse' smart constructor.
 data AddTagsResponse = AddTagsResponse' deriving (Eq, Read, Show)

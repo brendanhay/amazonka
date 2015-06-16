@@ -55,8 +55,8 @@ describeDeliveryChannelStatus :: DescribeDeliveryChannelStatus
 describeDeliveryChannelStatus = DescribeDeliveryChannelStatus'{_ddcsDeliveryChannelNames = Nothing};
 
 -- | A list of delivery channel names.
-ddcsDeliveryChannelNames :: Lens' DescribeDeliveryChannelStatus (Maybe [Text])
-ddcsDeliveryChannelNames = lens _ddcsDeliveryChannelNames (\ s a -> s{_ddcsDeliveryChannelNames = a});
+ddcsDeliveryChannelNames :: Lens' DescribeDeliveryChannelStatus [Text]
+ddcsDeliveryChannelNames = lens _ddcsDeliveryChannelNames (\ s a -> s{_ddcsDeliveryChannelNames = a}) . _Default;
 
 instance AWSRequest DescribeDeliveryChannelStatus
          where
@@ -68,7 +68,7 @@ instance AWSRequest DescribeDeliveryChannelStatus
           = receiveJSON
               (\ s h x ->
                  DescribeDeliveryChannelStatusResponse' <$>
-                   x .?> "DeliveryChannelsStatus" .!@ mempty)
+                   (x .?> "DeliveryChannelsStatus" .!@ mempty))
 
 instance ToHeaders DescribeDeliveryChannelStatus
          where
@@ -104,5 +104,5 @@ describeDeliveryChannelStatusResponse :: DescribeDeliveryChannelStatusResponse
 describeDeliveryChannelStatusResponse = DescribeDeliveryChannelStatusResponse'{_ddcsrDeliveryChannelsStatus = Nothing};
 
 -- | A list that contains the status of a specified delivery channel.
-ddcsrDeliveryChannelsStatus :: Lens' DescribeDeliveryChannelStatusResponse (Maybe [DeliveryChannelStatus])
-ddcsrDeliveryChannelsStatus = lens _ddcsrDeliveryChannelsStatus (\ s a -> s{_ddcsrDeliveryChannelsStatus = a});
+ddcsrDeliveryChannelsStatus :: Lens' DescribeDeliveryChannelStatusResponse [DeliveryChannelStatus]
+ddcsrDeliveryChannelsStatus = lens _ddcsrDeliveryChannelsStatus (\ s a -> s{_ddcsrDeliveryChannelsStatus = a}) . _Default;

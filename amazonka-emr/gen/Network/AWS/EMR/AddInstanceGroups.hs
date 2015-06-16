@@ -70,8 +70,8 @@ instance AWSRequest AddInstanceGroups where
           = receiveJSON
               (\ s h x ->
                  AddInstanceGroupsResponse' <$>
-                   x .?> "JobFlowId" <*>
-                     x .?> "InstanceGroupIds" .!@ mempty)
+                   (x .?> "JobFlowId") <*>
+                     (x .?> "InstanceGroupIds" .!@ mempty))
 
 instance ToHeaders AddInstanceGroups where
         toHeaders
@@ -112,5 +112,5 @@ aigrJobFlowId :: Lens' AddInstanceGroupsResponse (Maybe Text)
 aigrJobFlowId = lens _aigrJobFlowId (\ s a -> s{_aigrJobFlowId = a});
 
 -- | Instance group IDs of the newly created instance groups.
-aigrInstanceGroupIds :: Lens' AddInstanceGroupsResponse (Maybe [Text])
-aigrInstanceGroupIds = lens _aigrInstanceGroupIds (\ s a -> s{_aigrInstanceGroupIds = a});
+aigrInstanceGroupIds :: Lens' AddInstanceGroupsResponse [Text]
+aigrInstanceGroupIds = lens _aigrInstanceGroupIds (\ s a -> s{_aigrInstanceGroupIds = a}) . _Default;

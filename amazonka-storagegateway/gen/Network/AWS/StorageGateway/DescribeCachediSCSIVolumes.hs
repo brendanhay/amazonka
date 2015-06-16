@@ -69,7 +69,7 @@ instance AWSRequest DescribeCachediSCSIVolumes where
           = receiveJSON
               (\ s h x ->
                  DescribeCachediSCSIVolumesResponse' <$>
-                   x .?> "CachediSCSIVolumes" .!@ mempty)
+                   (x .?> "CachediSCSIVolumes" .!@ mempty))
 
 instance ToHeaders DescribeCachediSCSIVolumes where
         toHeaders
@@ -104,5 +104,5 @@ describeCachediSCSIVolumesResponse = DescribeCachediSCSIVolumesResponse'{_dcscsi
 
 -- | An array of objects where each object contains metadata about one cached
 -- volume.
-dcscsivrCachediSCSIVolumes :: Lens' DescribeCachediSCSIVolumesResponse (Maybe [CachediSCSIVolume])
-dcscsivrCachediSCSIVolumes = lens _dcscsivrCachediSCSIVolumes (\ s a -> s{_dcscsivrCachediSCSIVolumes = a});
+dcscsivrCachediSCSIVolumes :: Lens' DescribeCachediSCSIVolumesResponse [CachediSCSIVolume]
+dcscsivrCachediSCSIVolumes = lens _dcscsivrCachediSCSIVolumes (\ s a -> s{_dcscsivrCachediSCSIVolumes = a}) . _Default;

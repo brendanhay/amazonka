@@ -103,8 +103,9 @@ instance AWSRequest ImportSnapshot where
           = receiveXML
               (\ s h x ->
                  ImportSnapshotResponse' <$>
-                   x .@? "snapshotTaskDetail" <*> x .@? "importTaskId"
-                     <*> x .@? "description")
+                   (x .@? "snapshotTaskDetail") <*>
+                     (x .@? "importTaskId")
+                     <*> (x .@? "description"))
 
 instance ToHeaders ImportSnapshot where
         toHeaders = const mempty

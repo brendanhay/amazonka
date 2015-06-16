@@ -98,8 +98,8 @@ updateTagsForDomain pDomainName = UpdateTagsForDomain'{_utfdTagsToUpdate = Nothi
 --
 --     Required: Yes
 --
-utfdTagsToUpdate :: Lens' UpdateTagsForDomain (Maybe [Tag])
-utfdTagsToUpdate = lens _utfdTagsToUpdate (\ s a -> s{_utfdTagsToUpdate = a});
+utfdTagsToUpdate :: Lens' UpdateTagsForDomain [Tag]
+utfdTagsToUpdate = lens _utfdTagsToUpdate (\ s a -> s{_utfdTagsToUpdate = a}) . _Default;
 
 -- | The domain for which you want to add or update tags.
 --

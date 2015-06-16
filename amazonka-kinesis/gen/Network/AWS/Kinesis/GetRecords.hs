@@ -122,9 +122,9 @@ instance AWSRequest GetRecords where
           = receiveJSON
               (\ s h x ->
                  GetRecordsResponse' <$>
-                   x .?> "MillisBehindLatest" <*>
-                     x .?> "NextShardIterator"
-                     <*> x .?> "Records" .!@ mempty)
+                   (x .?> "MillisBehindLatest") <*>
+                     (x .?> "NextShardIterator")
+                     <*> (x .?> "Records" .!@ mempty))
 
 instance ToHeaders GetRecords where
         toHeaders

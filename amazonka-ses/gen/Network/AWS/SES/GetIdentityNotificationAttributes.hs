@@ -90,19 +90,19 @@ instance ToQuery GetIdentityNotificationAttributes
               ["Action" =:
                  ("GetIdentityNotificationAttributes" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "Identities" =: "member" =: _ginaIdentities]
+               "Identities" =: toQueryList "member" _ginaIdentities]
 
 -- | /See:/ 'getIdentityNotificationAttributesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ginarNotificationAttributes'
-newtype GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttributesResponse'{_ginarNotificationAttributes :: HashMap Text IdentityNotificationAttributes} deriving (Eq, Read, Show)
+newtype GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttributesResponse'{_ginarNotificationAttributes :: Map Text IdentityNotificationAttributes} deriving (Eq, Read, Show)
 
 -- | 'GetIdentityNotificationAttributesResponse' smart constructor.
 getIdentityNotificationAttributesResponse :: GetIdentityNotificationAttributesResponse
 getIdentityNotificationAttributesResponse = GetIdentityNotificationAttributesResponse'{_ginarNotificationAttributes = mempty};
 
 -- | A map of Identity to IdentityNotificationAttributes.
-ginarNotificationAttributes :: Lens' GetIdentityNotificationAttributesResponse (HashMap Text IdentityNotificationAttributes)
-ginarNotificationAttributes = lens _ginarNotificationAttributes (\ s a -> s{_ginarNotificationAttributes = a}) . _Coerce;
+ginarNotificationAttributes :: Lens' GetIdentityNotificationAttributesResponse (Map Text IdentityNotificationAttributes)
+ginarNotificationAttributes = lens _ginarNotificationAttributes (\ s a -> s{_ginarNotificationAttributes = a}) . _Map;

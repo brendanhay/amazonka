@@ -70,13 +70,13 @@ instance AWSRequest DomainMetadata where
           = receiveXMLWrapper "DomainMetadataResult"
               (\ s h x ->
                  DomainMetadataResponse' <$>
-                   x .@? "ItemNamesSizeBytes" <*>
-                     x .@? "AttributeNameCount"
-                     <*> x .@? "AttributeValuesSizeBytes"
-                     <*> x .@? "AttributeValueCount"
-                     <*> x .@? "AttributeNamesSizeBytes"
-                     <*> x .@? "Timestamp"
-                     <*> x .@? "ItemCount")
+                   (x .@? "ItemNamesSizeBytes") <*>
+                     (x .@? "AttributeNameCount")
+                     <*> (x .@? "AttributeValuesSizeBytes")
+                     <*> (x .@? "AttributeValueCount")
+                     <*> (x .@? "AttributeNamesSizeBytes")
+                     <*> (x .@? "Timestamp")
+                     <*> (x .@? "ItemCount"))
 
 instance ToHeaders DomainMetadata where
         toHeaders = const mempty

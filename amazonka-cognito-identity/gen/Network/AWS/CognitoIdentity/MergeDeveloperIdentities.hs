@@ -100,7 +100,7 @@ instance AWSRequest MergeDeveloperIdentities where
           = receiveJSON
               (\ s h x ->
                  MergeDeveloperIdentitiesResponse' <$>
-                   x .?> "IdentityId")
+                   (x .?> "IdentityId"))
 
 instance ToHeaders MergeDeveloperIdentities where
         toHeaders

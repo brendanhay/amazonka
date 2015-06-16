@@ -87,8 +87,8 @@ instance AWSRequest DescribeVolumeAttribute where
           = receiveXML
               (\ s h x ->
                  DescribeVolumeAttributeResponse' <$>
-                   parseXMLList "item" x <*> x .@? "volumeId" <*>
-                     x .@? "autoEnableIO")
+                   (may (parseXMLList "item") x) <*> (x .@? "volumeId")
+                     <*> (x .@? "autoEnableIO"))
 
 instance ToHeaders DescribeVolumeAttribute where
         toHeaders = const mempty
@@ -121,8 +121,8 @@ describeVolumeAttributeResponse :: DescribeVolumeAttributeResponse
 describeVolumeAttributeResponse = DescribeVolumeAttributeResponse'{_dvarProductCodes = Nothing, _dvarVolumeId = Nothing, _dvarAutoEnableIO = Nothing};
 
 -- | A list of product codes.
-dvarProductCodes :: Lens' DescribeVolumeAttributeResponse (Maybe [ProductCode])
-dvarProductCodes = lens _dvarProductCodes (\ s a -> s{_dvarProductCodes = a});
+dvarProductCodes :: Lens' DescribeVolumeAttributeResponse [ProductCode]
+dvarProductCodes = lens _dvarProductCodes (\ s a -> s{_dvarProductCodes = a}) . _Default;
 
 -- | The ID of the volume.
 dvarVolumeId :: Lens' DescribeVolumeAttributeResponse (Maybe Text)

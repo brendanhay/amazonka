@@ -51,8 +51,8 @@ describeExportTasks :: DescribeExportTasks
 describeExportTasks = DescribeExportTasks'{_detExportTaskIds = Nothing};
 
 -- | One or more export task IDs.
-detExportTaskIds :: Lens' DescribeExportTasks (Maybe [Text])
-detExportTaskIds = lens _detExportTaskIds (\ s a -> s{_detExportTaskIds = a});
+detExportTaskIds :: Lens' DescribeExportTasks [Text]
+detExportTaskIds = lens _detExportTaskIds (\ s a -> s{_detExportTaskIds = a}) . _Default;
 
 instance AWSRequest DescribeExportTasks where
         type Sv DescribeExportTasks = EC2
@@ -63,7 +63,7 @@ instance AWSRequest DescribeExportTasks where
           = receiveXML
               (\ s h x ->
                  DescribeExportTasksResponse' <$>
-                   parseXMLList "item" x)
+                   (may (parseXMLList "item") x))
 
 instance ToHeaders DescribeExportTasks where
         toHeaders = const mempty
@@ -76,7 +76,8 @@ instance ToQuery DescribeExportTasks where
           = mconcat
               ["Action" =: ("DescribeExportTasks" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "ExportTaskId" =: _detExportTaskIds]
+               toQuery
+                 (toQueryList "ExportTaskId" <$> _detExportTaskIds)]
 
 -- | /See:/ 'describeExportTasksResponse' smart constructor.
 --
@@ -90,5 +91,5 @@ describeExportTasksResponse :: DescribeExportTasksResponse
 describeExportTasksResponse = DescribeExportTasksResponse'{_detrExportTasks = Nothing};
 
 -- | Information about the export tasks.
-detrExportTasks :: Lens' DescribeExportTasksResponse (Maybe [ExportTask])
-detrExportTasks = lens _detrExportTasks (\ s a -> s{_detrExportTasks = a});
+detrExportTasks :: Lens' DescribeExportTasksResponse [ExportTask]
+detrExportTasks = lens _detrExportTasks (\ s a -> s{_detrExportTasks = a}) . _Default;

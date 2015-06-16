@@ -139,7 +139,7 @@ instance AWSRequest AddPermission where
         response
           = receiveJSON
               (\ s h x ->
-                 AddPermissionResponse' <$> x .?> "Statement")
+                 AddPermissionResponse' <$> (x .?> "Statement"))
 
 instance ToHeaders AddPermission where
         toHeaders = const mempty

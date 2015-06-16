@@ -65,7 +65,8 @@ instance AWSRequest ListQueues where
         response
           = receiveXMLWrapper "ListQueuesResult"
               (\ s h x ->
-                 ListQueuesResponse' <$> parseXMLList "QueueUrl" x)
+                 ListQueuesResponse' <$>
+                   (may (parseXMLList "QueueUrl") x))
 
 instance ToHeaders ListQueues where
         toHeaders = const mempty
@@ -92,5 +93,5 @@ listQueuesResponse :: ListQueuesResponse
 listQueuesResponse = ListQueuesResponse'{_lqrQueueURLs = Nothing};
 
 -- | A list of queue URLs, up to 1000 entries.
-lqrQueueURLs :: Lens' ListQueuesResponse (Maybe [Text])
-lqrQueueURLs = lens _lqrQueueURLs (\ s a -> s{_lqrQueueURLs = a});
+lqrQueueURLs :: Lens' ListQueuesResponse [Text]
+lqrQueueURLs = lens _lqrQueueURLs (\ s a -> s{_lqrQueueURLs = a}) . _Default;

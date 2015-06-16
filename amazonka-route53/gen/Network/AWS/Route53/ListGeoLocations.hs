@@ -117,13 +117,14 @@ instance AWSRequest ListGeoLocations where
           = receiveXML
               (\ s h x ->
                  ListGeoLocationsResponse' <$>
-                   x .@? "NextContinentCode" <*> x .@? "NextCountryCode"
-                     <*> x .@? "NextSubdivisionCode"
+                   (x .@? "NextContinentCode") <*>
+                     (x .@? "NextCountryCode")
+                     <*> (x .@? "NextSubdivisionCode")
                      <*>
                      (x .@? "GeoLocationDetailsList" .!@ mempty >>=
                         parseXMLList "GeoLocationDetails")
-                     <*> x .@ "IsTruncated"
-                     <*> x .@ "MaxItems")
+                     <*> (x .@ "IsTruncated")
+                     <*> (x .@ "MaxItems"))
 
 instance ToHeaders ListGeoLocations where
         toHeaders = const mempty

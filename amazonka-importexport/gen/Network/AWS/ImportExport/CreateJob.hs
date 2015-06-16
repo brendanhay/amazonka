@@ -100,13 +100,13 @@ instance AWSRequest CreateJob where
           = receiveXMLWrapper "CreateJobResult"
               (\ s h x ->
                  CreateJobResponse' <$>
-                   x .@? "Signature" <*> x .@? "JobType" <*>
-                     x .@? "JobId"
-                     <*> x .@? "SignatureFileContents"
-                     <*> x .@? "WarningMessage"
+                   (x .@? "Signature") <*> (x .@? "JobType") <*>
+                     (x .@? "JobId")
+                     <*> (x .@? "SignatureFileContents")
+                     <*> (x .@? "WarningMessage")
                      <*>
                      (x .@? "ArtifactList" .!@ mempty >>=
-                        parseXMLList "member"))
+                        may (parseXMLList "member")))
 
 instance ToHeaders CreateJob where
         toHeaders = const mempty
@@ -167,5 +167,5 @@ cjrWarningMessage :: Lens' CreateJobResponse (Maybe Text)
 cjrWarningMessage = lens _cjrWarningMessage (\ s a -> s{_cjrWarningMessage = a});
 
 -- | FIXME: Undocumented member.
-cjrArtifactList :: Lens' CreateJobResponse (Maybe [Artifact])
-cjrArtifactList = lens _cjrArtifactList (\ s a -> s{_cjrArtifactList = a});
+cjrArtifactList :: Lens' CreateJobResponse [Artifact]
+cjrArtifactList = lens _cjrArtifactList (\ s a -> s{_cjrArtifactList = a}) . _Default;

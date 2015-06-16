@@ -131,8 +131,8 @@ instance AWSRequest CreateStorediSCSIVolume where
           = receiveJSON
               (\ s h x ->
                  CreateStorediSCSIVolumeResponse' <$>
-                   x .?> "TargetARN" <*> x .?> "VolumeARN" <*>
-                     x .?> "VolumeSizeInBytes")
+                   (x .?> "TargetARN") <*> (x .?> "VolumeARN") <*>
+                     (x .?> "VolumeSizeInBytes"))
 
 instance ToHeaders CreateStorediSCSIVolume where
         toHeaders

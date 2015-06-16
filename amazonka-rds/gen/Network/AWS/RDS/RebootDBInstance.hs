@@ -95,7 +95,7 @@ instance AWSRequest RebootDBInstance where
         response
           = receiveXMLWrapper "RebootDBInstanceResult"
               (\ s h x ->
-                 RebootDBInstanceResponse' <$> x .@? "DBInstance")
+                 RebootDBInstanceResponse' <$> (x .@? "DBInstance"))
 
 instance ToHeaders RebootDBInstance where
         toHeaders = const mempty

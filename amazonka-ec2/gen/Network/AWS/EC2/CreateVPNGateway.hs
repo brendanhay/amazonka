@@ -84,7 +84,7 @@ instance AWSRequest CreateVPNGateway where
         response
           = receiveXML
               (\ s h x ->
-                 CreateVPNGatewayResponse' <$> x .@? "vpnGateway")
+                 CreateVPNGatewayResponse' <$> (x .@? "vpnGateway"))
 
 instance ToHeaders CreateVPNGateway where
         toHeaders = const mempty

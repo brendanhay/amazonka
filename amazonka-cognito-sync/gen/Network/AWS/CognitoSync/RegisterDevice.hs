@@ -84,7 +84,7 @@ instance AWSRequest RegisterDevice where
         response
           = receiveJSON
               (\ s h x ->
-                 RegisterDeviceResponse' <$> x .?> "DeviceId")
+                 RegisterDeviceResponse' <$> (x .?> "DeviceId"))
 
 instance ToHeaders RegisterDevice where
         toHeaders

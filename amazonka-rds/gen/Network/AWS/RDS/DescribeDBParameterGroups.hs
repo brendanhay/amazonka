@@ -63,8 +63,8 @@ describeDBParameterGroups :: DescribeDBParameterGroups
 describeDBParameterGroups = DescribeDBParameterGroups'{_ddpgFilters = Nothing, _ddpgDBParameterGroupName = Nothing, _ddpgMaxRecords = Nothing, _ddpgMarker = Nothing};
 
 -- | This parameter is not currently supported.
-ddpgFilters :: Lens' DescribeDBParameterGroups (Maybe [Filter])
-ddpgFilters = lens _ddpgFilters (\ s a -> s{_ddpgFilters = a});
+ddpgFilters :: Lens' DescribeDBParameterGroups [Filter]
+ddpgFilters = lens _ddpgFilters (\ s a -> s{_ddpgFilters = a}) . _Default;
 
 -- | The name of a specific DB parameter group to return details for.
 --
@@ -103,9 +103,9 @@ instance AWSRequest DescribeDBParameterGroups where
           = receiveXMLWrapper "DescribeDBParameterGroupsResult"
               (\ s h x ->
                  DescribeDBParameterGroupsResponse' <$>
-                   x .@? "Marker" <*>
+                   (x .@? "Marker") <*>
                      (x .@? "DBParameterGroups" .!@ mempty >>=
-                        parseXMLList "DBParameterGroup"))
+                        may (parseXMLList "DBParameterGroup")))
 
 instance ToHeaders DescribeDBParameterGroups where
         toHeaders = const mempty
@@ -119,7 +119,8 @@ instance ToQuery DescribeDBParameterGroups where
               ["Action" =:
                  ("DescribeDBParameterGroups" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "Filters" =: "Filter" =: _ddpgFilters,
+               "Filters" =:
+                 toQuery (toQueryList "Filter" <$> _ddpgFilters),
                "DBParameterGroupName" =: _ddpgDBParameterGroupName,
                "MaxRecords" =: _ddpgMaxRecords,
                "Marker" =: _ddpgMarker]
@@ -144,5 +145,5 @@ ddpgrMarker :: Lens' DescribeDBParameterGroupsResponse (Maybe Text)
 ddpgrMarker = lens _ddpgrMarker (\ s a -> s{_ddpgrMarker = a});
 
 -- | A list of DBParameterGroup instances.
-ddpgrDBParameterGroups :: Lens' DescribeDBParameterGroupsResponse (Maybe [DBParameterGroup])
-ddpgrDBParameterGroups = lens _ddpgrDBParameterGroups (\ s a -> s{_ddpgrDBParameterGroups = a});
+ddpgrDBParameterGroups :: Lens' DescribeDBParameterGroupsResponse [DBParameterGroup]
+ddpgrDBParameterGroups = lens _ddpgrDBParameterGroups (\ s a -> s{_ddpgrDBParameterGroups = a}) . _Default;

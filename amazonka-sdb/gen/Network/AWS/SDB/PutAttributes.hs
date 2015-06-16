@@ -131,7 +131,7 @@ instance ToQuery PutAttributes where
                "Expected" =: _paExpected,
                "DomainName" =: _paDomainName,
                "ItemName" =: _paItemName,
-               "Attribute" =: _paAttributes]
+               toQueryList "Attribute" _paAttributes]
 
 -- | /See:/ 'putAttributesResponse' smart constructor.
 data PutAttributesResponse = PutAttributesResponse' deriving (Eq, Read, Show)

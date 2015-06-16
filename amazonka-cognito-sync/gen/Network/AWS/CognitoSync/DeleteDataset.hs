@@ -86,7 +86,7 @@ instance AWSRequest DeleteDataset where
         response
           = receiveJSON
               (\ s h x ->
-                 DeleteDatasetResponse' <$> x .?> "Dataset")
+                 DeleteDatasetResponse' <$> (x .?> "Dataset"))
 
 instance ToHeaders DeleteDataset where
         toHeaders

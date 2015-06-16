@@ -97,7 +97,7 @@ instance AWSRequest BundleInstance where
           = receiveXML
               (\ s h x ->
                  BundleInstanceResponse' <$>
-                   x .@? "bundleInstanceTask")
+                   (x .@? "bundleInstanceTask"))
 
 instance ToHeaders BundleInstance where
         toHeaders = const mempty

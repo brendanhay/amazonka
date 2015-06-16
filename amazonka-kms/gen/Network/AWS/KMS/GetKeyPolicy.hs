@@ -74,7 +74,8 @@ instance AWSRequest GetKeyPolicy where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x -> GetKeyPolicyResponse' <$> x .?> "Policy")
+              (\ s h x ->
+                 GetKeyPolicyResponse' <$> (x .?> "Policy"))
 
 instance ToHeaders GetKeyPolicy where
         toHeaders

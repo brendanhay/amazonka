@@ -152,7 +152,7 @@ instance AWSRequest UploadMultipartPart where
           = receiveJSON
               (\ s h x ->
                  UploadMultipartPartResponse' <$>
-                   h .#? "x-amz-sha256-tree-hash")
+                   (h .#? "x-amz-sha256-tree-hash"))
 
 instance ToBody UploadMultipartPart where
         toBody = _umpBody

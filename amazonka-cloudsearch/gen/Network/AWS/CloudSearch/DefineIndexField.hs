@@ -76,7 +76,7 @@ instance AWSRequest DefineIndexField where
         response
           = receiveXMLWrapper "DefineIndexFieldResult"
               (\ s h x ->
-                 DefineIndexFieldResponse' <$> x .@ "IndexField")
+                 DefineIndexFieldResponse' <$> (x .@ "IndexField"))
 
 instance ToHeaders DefineIndexField where
         toHeaders = const mempty

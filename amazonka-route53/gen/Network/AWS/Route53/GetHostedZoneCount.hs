@@ -54,7 +54,7 @@ instance AWSRequest GetHostedZoneCount where
           = receiveXML
               (\ s h x ->
                  GetHostedZoneCountResponse' <$>
-                   x .@ "HostedZoneCount")
+                   (x .@ "HostedZoneCount"))
 
 instance ToHeaders GetHostedZoneCount where
         toHeaders = const mempty

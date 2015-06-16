@@ -112,7 +112,7 @@ instance AWSRequest DeleteDBInstance where
         response
           = receiveXMLWrapper "DeleteDBInstanceResult"
               (\ s h x ->
-                 DeleteDBInstanceResponse' <$> x .@? "DBInstance")
+                 DeleteDBInstanceResponse' <$> (x .@? "DBInstance"))
 
 instance ToHeaders DeleteDBInstance where
         toHeaders = const mempty

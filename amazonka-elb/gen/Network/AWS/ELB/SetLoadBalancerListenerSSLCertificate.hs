@@ -79,8 +79,7 @@ instance AWSRequest
              SetLoadBalancerListenerSSLCertificateResponse
         request = post
         response
-          = receiveNullWrapper
-              "SetLoadBalancerListenerSSLCertificateResult"
+          = receiveNull
               SetLoadBalancerListenerSSLCertificateResponse'
 
 instance ToHeaders

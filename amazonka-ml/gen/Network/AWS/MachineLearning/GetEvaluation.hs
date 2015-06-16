@@ -76,17 +76,17 @@ instance AWSRequest GetEvaluation where
           = receiveJSON
               (\ s h x ->
                  GetEvaluationResponse' <$>
-                   x .?> "Status" <*> x .?> "PerformanceMetrics" <*>
-                     x .?> "LastUpdatedAt"
-                     <*> x .?> "CreatedAt"
-                     <*> x .?> "InputDataLocationS3"
-                     <*> x .?> "MLModelId"
-                     <*> x .?> "Name"
-                     <*> x .?> "CreatedByIamUser"
-                     <*> x .?> "LogUri"
-                     <*> x .?> "Message"
-                     <*> x .?> "EvaluationId"
-                     <*> x .?> "EvaluationDataSourceId")
+                   (x .?> "Status") <*> (x .?> "PerformanceMetrics") <*>
+                     (x .?> "LastUpdatedAt")
+                     <*> (x .?> "CreatedAt")
+                     <*> (x .?> "InputDataLocationS3")
+                     <*> (x .?> "MLModelId")
+                     <*> (x .?> "Name")
+                     <*> (x .?> "CreatedByIamUser")
+                     <*> (x .?> "LogUri")
+                     <*> (x .?> "Message")
+                     <*> (x .?> "EvaluationId")
+                     <*> (x .?> "EvaluationDataSourceId"))
 
 instance ToHeaders GetEvaluation where
         toHeaders

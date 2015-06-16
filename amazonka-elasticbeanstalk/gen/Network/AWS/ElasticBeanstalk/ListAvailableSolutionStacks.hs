@@ -57,10 +57,10 @@ instance AWSRequest ListAvailableSolutionStacks where
               (\ s h x ->
                  ListAvailableSolutionStacksResponse' <$>
                    (x .@? "SolutionStacks" .!@ mempty >>=
-                      parseXMLList "member")
+                      may (parseXMLList "member"))
                      <*>
                      (x .@? "SolutionStackDetails" .!@ mempty >>=
-                        parseXMLList "member"))
+                        may (parseXMLList "member")))
 
 instance ToHeaders ListAvailableSolutionStacks where
         toHeaders = const mempty
@@ -90,9 +90,9 @@ listAvailableSolutionStacksResponse :: ListAvailableSolutionStacksResponse
 listAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse'{_lassrSolutionStacks = Nothing, _lassrSolutionStackDetails = Nothing};
 
 -- | A list of available solution stacks.
-lassrSolutionStacks :: Lens' ListAvailableSolutionStacksResponse (Maybe [Text])
-lassrSolutionStacks = lens _lassrSolutionStacks (\ s a -> s{_lassrSolutionStacks = a});
+lassrSolutionStacks :: Lens' ListAvailableSolutionStacksResponse [Text]
+lassrSolutionStacks = lens _lassrSolutionStacks (\ s a -> s{_lassrSolutionStacks = a}) . _Default;
 
 -- | A list of available solution stacks and their SolutionStackDescription.
-lassrSolutionStackDetails :: Lens' ListAvailableSolutionStacksResponse (Maybe [SolutionStackDescription])
-lassrSolutionStackDetails = lens _lassrSolutionStackDetails (\ s a -> s{_lassrSolutionStackDetails = a});
+lassrSolutionStackDetails :: Lens' ListAvailableSolutionStacksResponse [SolutionStackDescription]
+lassrSolutionStackDetails = lens _lassrSolutionStackDetails (\ s a -> s{_lassrSolutionStackDetails = a}) . _Default;

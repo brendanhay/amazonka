@@ -63,8 +63,8 @@ describeSubnets = DescribeSubnets'{_dsSubnetIds = Nothing, _dsFilters = Nothing,
 -- | One or more subnet IDs.
 --
 -- Default: Describes all your subnets.
-dsSubnetIds :: Lens' DescribeSubnets (Maybe [Text])
-dsSubnetIds = lens _dsSubnetIds (\ s a -> s{_dsSubnetIds = a});
+dsSubnetIds :: Lens' DescribeSubnets [Text]
+dsSubnetIds = lens _dsSubnetIds (\ s a -> s{_dsSubnetIds = a}) . _Default;
 
 -- | One or more filters.
 --
@@ -103,8 +103,8 @@ dsSubnetIds = lens _dsSubnetIds (\ s a -> s{_dsSubnetIds = a});
 --
 -- -   @vpc-id@ - The ID of the VPC for the subnet.
 --
-dsFilters :: Lens' DescribeSubnets (Maybe [Filter])
-dsFilters = lens _dsFilters (\ s a -> s{_dsFilters = a});
+dsFilters :: Lens' DescribeSubnets [Filter]
+dsFilters = lens _dsFilters (\ s a -> s{_dsFilters = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -120,7 +120,8 @@ instance AWSRequest DescribeSubnets where
         response
           = receiveXML
               (\ s h x ->
-                 DescribeSubnetsResponse' <$> parseXMLList "item" x)
+                 DescribeSubnetsResponse' <$>
+                   (may (parseXMLList "item") x))
 
 instance ToHeaders DescribeSubnets where
         toHeaders = const mempty
@@ -133,7 +134,8 @@ instance ToQuery DescribeSubnets where
           = mconcat
               ["Action" =: ("DescribeSubnets" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "SubnetId" =: _dsSubnetIds, "Filter" =: _dsFilters,
+               toQuery (toQueryList "SubnetId" <$> _dsSubnetIds),
+               toQuery (toQueryList "Filter" <$> _dsFilters),
                "DryRun" =: _dsDryRun]
 
 -- | /See:/ 'describeSubnetsResponse' smart constructor.
@@ -148,5 +150,5 @@ describeSubnetsResponse :: DescribeSubnetsResponse
 describeSubnetsResponse = DescribeSubnetsResponse'{_dsrSubnets = Nothing};
 
 -- | Information about one or more subnets.
-dsrSubnets :: Lens' DescribeSubnetsResponse (Maybe [Subnet])
-dsrSubnets = lens _dsrSubnets (\ s a -> s{_dsrSubnets = a});
+dsrSubnets :: Lens' DescribeSubnetsResponse [Subnet]
+dsrSubnets = lens _dsrSubnets (\ s a -> s{_dsrSubnets = a}) . _Default;

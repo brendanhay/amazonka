@@ -139,9 +139,9 @@ instance AWSRequest FilterLogEvents where
           = receiveJSON
               (\ s h x ->
                  FilterLogEventsResponse' <$>
-                   x .?> "searchedLogStreams" .!@ mempty <*>
-                     x .?> "nextToken"
-                     <*> x .?> "events" .!@ mempty)
+                   (x .?> "searchedLogStreams" .!@ mempty) <*>
+                     (x .?> "nextToken")
+                     <*> (x .?> "events" .!@ mempty))
 
 instance ToHeaders FilterLogEvents where
         toHeaders
@@ -187,8 +187,8 @@ filterLogEventsResponse = FilterLogEventsResponse'{_flerSearchedLogStreams = Not
 -- | A list of @SearchedLogStream@ objects indicating which log streams have
 -- been searched in this request and whether each has been searched
 -- completely or still has more to be paginated.
-flerSearchedLogStreams :: Lens' FilterLogEventsResponse (Maybe [SearchedLogStream])
-flerSearchedLogStreams = lens _flerSearchedLogStreams (\ s a -> s{_flerSearchedLogStreams = a});
+flerSearchedLogStreams :: Lens' FilterLogEventsResponse [SearchedLogStream]
+flerSearchedLogStreams = lens _flerSearchedLogStreams (\ s a -> s{_flerSearchedLogStreams = a}) . _Default;
 
 -- | A pagination token obtained from a @FilterLogEvents@ response to
 -- continue paginating the FilterLogEvents results.
@@ -197,5 +197,5 @@ flerNextToken = lens _flerNextToken (\ s a -> s{_flerNextToken = a});
 
 -- | A list of @FilteredLogEvent@ objects representing the matched events
 -- from the request.
-flerEvents :: Lens' FilterLogEventsResponse (Maybe [FilteredLogEvent])
-flerEvents = lens _flerEvents (\ s a -> s{_flerEvents = a});
+flerEvents :: Lens' FilterLogEventsResponse [FilteredLogEvent]
+flerEvents = lens _flerEvents (\ s a -> s{_flerEvents = a}) . _Default;

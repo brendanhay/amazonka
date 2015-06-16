@@ -108,8 +108,8 @@ cesSourceType = lens _cesSourceType (\ s a -> s{_cesSourceType = a});
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html Events>
 -- topic in the Amazon RDS User Guide or by using the
 -- __DescribeEventCategories__ action.
-cesEventCategories :: Lens' CreateEventSubscription (Maybe [Text])
-cesEventCategories = lens _cesEventCategories (\ s a -> s{_cesEventCategories = a});
+cesEventCategories :: Lens' CreateEventSubscription [Text]
+cesEventCategories = lens _cesEventCategories (\ s a -> s{_cesEventCategories = a}) . _Default;
 
 -- | The list of identifiers of the event sources for which events will be
 -- returned. If not specified, then all sources are included in the
@@ -128,12 +128,12 @@ cesEventCategories = lens _cesEventCategories (\ s a -> s{_cesEventCategories = 
 --     must be supplied.
 -- -   If the source type is a DB snapshot, a @DBSnapshotIdentifier@ must
 --     be supplied.
-cesSourceIds :: Lens' CreateEventSubscription (Maybe [Text])
-cesSourceIds = lens _cesSourceIds (\ s a -> s{_cesSourceIds = a});
+cesSourceIds :: Lens' CreateEventSubscription [Text]
+cesSourceIds = lens _cesSourceIds (\ s a -> s{_cesSourceIds = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-cesTags :: Lens' CreateEventSubscription (Maybe [Tag])
-cesTags = lens _cesTags (\ s a -> s{_cesTags = a});
+cesTags :: Lens' CreateEventSubscription [Tag]
+cesTags = lens _cesTags (\ s a -> s{_cesTags = a}) . _Default;
 
 -- | The name of the subscription.
 --
@@ -156,7 +156,7 @@ instance AWSRequest CreateEventSubscription where
           = receiveXMLWrapper "CreateEventSubscriptionResult"
               (\ s h x ->
                  CreateEventSubscriptionResponse' <$>
-                   x .@? "EventSubscription")
+                   (x .@? "EventSubscription"))
 
 instance ToHeaders CreateEventSubscription where
         toHeaders = const mempty
@@ -173,9 +173,12 @@ instance ToQuery CreateEventSubscription where
                "Enabled" =: _cesEnabled,
                "SourceType" =: _cesSourceType,
                "EventCategories" =:
-                 "EventCategory" =: _cesEventCategories,
-               "SourceIds" =: "SourceId" =: _cesSourceIds,
-               "Tags" =: "Tag" =: _cesTags,
+                 toQuery
+                   (toQueryList "EventCategory" <$>
+                      _cesEventCategories),
+               "SourceIds" =:
+                 toQuery (toQueryList "SourceId" <$> _cesSourceIds),
+               "Tags" =: toQuery (toQueryList "Tag" <$> _cesTags),
                "SubscriptionName" =: _cesSubscriptionName,
                "SnsTopicArn" =: _cesSNSTopicARN]
 

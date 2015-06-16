@@ -318,8 +318,8 @@ describeInstances = DescribeInstances'{_di1Filters = Nothing, _di1NextToken = No
 -- -   @association.association-id@ - The association ID returned when the
 --     network interface was associated with an IP address.
 --
-di1Filters :: Lens' DescribeInstances (Maybe [Filter])
-di1Filters = lens _di1Filters (\ s a -> s{_di1Filters = a});
+di1Filters :: Lens' DescribeInstances [Filter]
+di1Filters = lens _di1Filters (\ s a -> s{_di1Filters = a}) . _Default;
 
 -- | The token to request the next page of results.
 di1NextToken :: Lens' DescribeInstances (Maybe Text)
@@ -328,8 +328,8 @@ di1NextToken = lens _di1NextToken (\ s a -> s{_di1NextToken = a});
 -- | One or more instance IDs.
 --
 -- Default: Describes all your instances.
-di1InstanceIds :: Lens' DescribeInstances (Maybe [Text])
-di1InstanceIds = lens _di1InstanceIds (\ s a -> s{_di1InstanceIds = a});
+di1InstanceIds :: Lens' DescribeInstances [Text]
+di1InstanceIds = lens _di1InstanceIds (\ s a -> s{_di1InstanceIds = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -355,7 +355,8 @@ instance AWSRequest DescribeInstances where
           = receiveXML
               (\ s h x ->
                  DescribeInstancesResponse' <$>
-                   x .@? "nextToken" <*> parseXMLList "item" x)
+                   (x .@? "nextToken") <*>
+                     (may (parseXMLList "item") x))
 
 instance ToHeaders DescribeInstances where
         toHeaders = const mempty
@@ -368,9 +369,10 @@ instance ToQuery DescribeInstances where
           = mconcat
               ["Action" =: ("DescribeInstances" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Filter" =: _di1Filters,
+               toQuery (toQueryList "Filter" <$> _di1Filters),
                "NextToken" =: _di1NextToken,
-               "InstanceId" =: _di1InstanceIds,
+               toQuery
+                 (toQueryList "InstanceId" <$> _di1InstanceIds),
                "DryRun" =: _di1DryRun,
                "MaxResults" =: _di1MaxResults]
 
@@ -393,5 +395,5 @@ dirNextToken :: Lens' DescribeInstancesResponse (Maybe Text)
 dirNextToken = lens _dirNextToken (\ s a -> s{_dirNextToken = a});
 
 -- | One or more reservations.
-dirReservations :: Lens' DescribeInstancesResponse (Maybe [Reservation])
-dirReservations = lens _dirReservations (\ s a -> s{_dirReservations = a});
+dirReservations :: Lens' DescribeInstancesResponse [Reservation]
+dirReservations = lens _dirReservations (\ s a -> s{_dirReservations = a}) . _Default;

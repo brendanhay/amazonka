@@ -81,16 +81,16 @@ msaAttribute :: Lens' ModifySnapshotAttribute (Maybe SnapshotAttributeName)
 msaAttribute = lens _msaAttribute (\ s a -> s{_msaAttribute = a});
 
 -- | The account ID to modify for the snapshot.
-msaUserIds :: Lens' ModifySnapshotAttribute (Maybe [Text])
-msaUserIds = lens _msaUserIds (\ s a -> s{_msaUserIds = a});
+msaUserIds :: Lens' ModifySnapshotAttribute [Text]
+msaUserIds = lens _msaUserIds (\ s a -> s{_msaUserIds = a}) . _Default;
 
 -- | A JSON representation of the snapshot attribute modification.
 msaCreateVolumePermission :: Lens' ModifySnapshotAttribute (Maybe CreateVolumePermissionModifications)
 msaCreateVolumePermission = lens _msaCreateVolumePermission (\ s a -> s{_msaCreateVolumePermission = a});
 
 -- | The group to modify for the snapshot.
-msaGroupNames :: Lens' ModifySnapshotAttribute (Maybe [Text])
-msaGroupNames = lens _msaGroupNames (\ s a -> s{_msaGroupNames = a});
+msaGroupNames :: Lens' ModifySnapshotAttribute [Text]
+msaGroupNames = lens _msaGroupNames (\ s a -> s{_msaGroupNames = a}) . _Default;
 
 -- | The type of operation to perform to the attribute.
 msaOperationType :: Lens' ModifySnapshotAttribute (Maybe Text)
@@ -128,10 +128,10 @@ instance ToQuery ModifySnapshotAttribute where
                  ("ModifySnapshotAttribute" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "Attribute" =: _msaAttribute,
-               "UserId" =: _msaUserIds,
+               toQuery (toQueryList "UserId" <$> _msaUserIds),
                "CreateVolumePermission" =:
                  _msaCreateVolumePermission,
-               "GroupName" =: _msaGroupNames,
+               toQuery (toQueryList "GroupName" <$> _msaGroupNames),
                "OperationType" =: _msaOperationType,
                "DryRun" =: _msaDryRun,
                "SnapshotId" =: _msaSnapshotId]

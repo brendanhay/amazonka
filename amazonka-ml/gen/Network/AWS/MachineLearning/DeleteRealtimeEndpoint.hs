@@ -64,7 +64,8 @@ instance AWSRequest DeleteRealtimeEndpoint where
           = receiveJSON
               (\ s h x ->
                  DeleteRealtimeEndpointResponse' <$>
-                   x .?> "RealtimeEndpointInfo" <*> x .?> "MLModelId")
+                   (x .?> "RealtimeEndpointInfo") <*>
+                     (x .?> "MLModelId"))
 
 instance ToHeaders DeleteRealtimeEndpoint where
         toHeaders

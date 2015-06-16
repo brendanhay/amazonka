@@ -68,7 +68,7 @@ instance AWSRequest DescribeStorediSCSIVolumes where
           = receiveJSON
               (\ s h x ->
                  DescribeStorediSCSIVolumesResponse' <$>
-                   x .?> "StorediSCSIVolumes" .!@ mempty)
+                   (x .?> "StorediSCSIVolumes" .!@ mempty))
 
 instance ToHeaders DescribeStorediSCSIVolumes where
         toHeaders
@@ -102,5 +102,5 @@ describeStorediSCSIVolumesResponse :: DescribeStorediSCSIVolumesResponse
 describeStorediSCSIVolumesResponse = DescribeStorediSCSIVolumesResponse'{_dsscsivrStorediSCSIVolumes = Nothing};
 
 -- | FIXME: Undocumented member.
-dsscsivrStorediSCSIVolumes :: Lens' DescribeStorediSCSIVolumesResponse (Maybe [StorediSCSIVolume])
-dsscsivrStorediSCSIVolumes = lens _dsscsivrStorediSCSIVolumes (\ s a -> s{_dsscsivrStorediSCSIVolumes = a});
+dsscsivrStorediSCSIVolumes :: Lens' DescribeStorediSCSIVolumesResponse [StorediSCSIVolume]
+dsscsivrStorediSCSIVolumes = lens _dsscsivrStorediSCSIVolumes (\ s a -> s{_dsscsivrStorediSCSIVolumes = a}) . _Default;

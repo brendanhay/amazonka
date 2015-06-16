@@ -90,7 +90,7 @@ instance AWSRequest UpdateMaintenanceStartTime where
           = receiveJSON
               (\ s h x ->
                  UpdateMaintenanceStartTimeResponse' <$>
-                   x .?> "GatewayARN")
+                   (x .?> "GatewayARN"))
 
 instance ToHeaders UpdateMaintenanceStartTime where
         toHeaders

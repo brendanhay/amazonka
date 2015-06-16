@@ -86,7 +86,7 @@ instance AWSRequest ModifyReservedInstances where
           = receiveXML
               (\ s h x ->
                  ModifyReservedInstancesResponse' <$>
-                   x .@? "reservedInstancesModificationId")
+                   (x .@? "reservedInstancesModificationId"))
 
 instance ToHeaders ModifyReservedInstances where
         toHeaders = const mempty
@@ -101,8 +101,9 @@ instance ToQuery ModifyReservedInstances where
                  ("ModifyReservedInstances" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "ClientToken" =: _mriClientToken,
-               "ReservedInstancesId" =: _mriReservedInstancesIds,
-               "item" =: _mriTargetConfigurations]
+               toQueryList "ReservedInstancesId"
+                 _mriReservedInstancesIds,
+               toQueryList "item" _mriTargetConfigurations]
 
 -- | /See:/ 'modifyReservedInstancesResponse' smart constructor.
 --

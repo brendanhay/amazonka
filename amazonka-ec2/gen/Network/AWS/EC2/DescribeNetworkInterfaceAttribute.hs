@@ -86,10 +86,11 @@ instance AWSRequest DescribeNetworkInterfaceAttribute
           = receiveXML
               (\ s h x ->
                  DescribeNetworkInterfaceAttributeResponse' <$>
-                   parseXMLList "item" x <*> x .@? "sourceDestCheck" <*>
-                     x .@? "networkInterfaceId"
-                     <*> x .@? "attachment"
-                     <*> x .@? "description")
+                   (may (parseXMLList "item") x) <*>
+                     (x .@? "sourceDestCheck")
+                     <*> (x .@? "networkInterfaceId")
+                     <*> (x .@? "attachment")
+                     <*> (x .@? "description"))
 
 instance ToHeaders DescribeNetworkInterfaceAttribute
          where
@@ -130,8 +131,8 @@ describeNetworkInterfaceAttributeResponse :: DescribeNetworkInterfaceAttributeRe
 describeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResponse'{_dniarGroups = Nothing, _dniarSourceDestCheck = Nothing, _dniarNetworkInterfaceId = Nothing, _dniarAttachment = Nothing, _dniarDescription = Nothing};
 
 -- | The security groups associated with the network interface.
-dniarGroups :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe [GroupIdentifier])
-dniarGroups = lens _dniarGroups (\ s a -> s{_dniarGroups = a});
+dniarGroups :: Lens' DescribeNetworkInterfaceAttributeResponse [GroupIdentifier]
+dniarGroups = lens _dniarGroups (\ s a -> s{_dniarGroups = a}) . _Default;
 
 -- | Indicates whether source\/destination checking is enabled.
 dniarSourceDestCheck :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe AttributeBooleanValue)

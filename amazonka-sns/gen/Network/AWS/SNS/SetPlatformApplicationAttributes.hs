@@ -48,7 +48,7 @@ import Network.AWS.SNS.Types
 -- * 'spaaPlatformApplicationARN'
 --
 -- * 'spaaAttributes'
-data SetPlatformApplicationAttributes = SetPlatformApplicationAttributes'{_spaaPlatformApplicationARN :: Text, _spaaAttributes :: HashMap Text Text} deriving (Eq, Read, Show)
+data SetPlatformApplicationAttributes = SetPlatformApplicationAttributes'{_spaaPlatformApplicationARN :: Text, _spaaAttributes :: Map Text Text} deriving (Eq, Read, Show)
 
 -- | 'SetPlatformApplicationAttributes' smart constructor.
 setPlatformApplicationAttributes :: Text -> SetPlatformApplicationAttributes
@@ -78,8 +78,8 @@ spaaPlatformApplicationARN = lens _spaaPlatformApplicationARN (\ s a -> s{_spaaP
 -- -   @EventDeliveryFailure@ -- Topic ARN to which DeliveryFailure event
 --     notifications should be sent upon Direct Publish delivery failure
 --     (permanent) to one of the application\'s endpoints.
-spaaAttributes :: Lens' SetPlatformApplicationAttributes (HashMap Text Text)
-spaaAttributes = lens _spaaAttributes (\ s a -> s{_spaaAttributes = a}) . _Coerce;
+spaaAttributes :: Lens' SetPlatformApplicationAttributes (Map Text Text)
+spaaAttributes = lens _spaaAttributes (\ s a -> s{_spaaAttributes = a}) . _Map;
 
 instance AWSRequest SetPlatformApplicationAttributes
          where

@@ -101,7 +101,7 @@ import Network.AWS.OpsWorks.Types
 -- * 'csServiceRoleARN'
 --
 -- * 'csDefaultInstanceProfileARN'
-data CreateStack = CreateStack'{_csDefaultRootDeviceType :: Maybe RootDeviceType, _csChefConfiguration :: Maybe ChefConfiguration, _csVPCId :: Maybe Text, _csDefaultSSHKeyName :: Maybe Text, _csCustomJSON :: Maybe Text, _csCustomCookbooksSource :: Maybe Source, _csDefaultAvailabilityZone :: Maybe Text, _csUseOpsworksSecurityGroups :: Maybe Bool, _csDefaultOS :: Maybe Text, _csAttributes :: Maybe (HashMap StackAttributesKeys Text), _csUseCustomCookbooks :: Maybe Bool, _csDefaultSubnetId :: Maybe Text, _csConfigurationManager :: Maybe StackConfigurationManager, _csHostnameTheme :: Maybe Text, _csName :: Text, _csRegion :: Text, _csServiceRoleARN :: Text, _csDefaultInstanceProfileARN :: Text} deriving (Eq, Read, Show)
+data CreateStack = CreateStack'{_csDefaultRootDeviceType :: Maybe RootDeviceType, _csChefConfiguration :: Maybe ChefConfiguration, _csVPCId :: Maybe Text, _csDefaultSSHKeyName :: Maybe Text, _csCustomJSON :: Maybe Text, _csCustomCookbooksSource :: Maybe Source, _csDefaultAvailabilityZone :: Maybe Text, _csUseOpsworksSecurityGroups :: Maybe Bool, _csDefaultOS :: Maybe Text, _csAttributes :: Maybe (Map StackAttributesKeys Text), _csUseCustomCookbooks :: Maybe Bool, _csDefaultSubnetId :: Maybe Text, _csConfigurationManager :: Maybe StackConfigurationManager, _csHostnameTheme :: Maybe Text, _csName :: Text, _csRegion :: Text, _csServiceRoleARN :: Text, _csDefaultInstanceProfileARN :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateStack' smart constructor.
 createStack :: Text -> Text -> Text -> Text -> CreateStack
@@ -227,8 +227,8 @@ csDefaultOS = lens _csDefaultOS (\ s a -> s{_csDefaultOS = a});
 
 -- | One or more user-defined key\/value pairs to be added to the stack
 -- attributes.
-csAttributes :: Lens' CreateStack (Maybe (HashMap StackAttributesKeys Text))
-csAttributes = lens _csAttributes (\ s a -> s{_csAttributes = a}) . mapping _Coerce;
+csAttributes :: Lens' CreateStack (Map StackAttributesKeys Text)
+csAttributes = lens _csAttributes (\ s a -> s{_csAttributes = a}) . _Default . _Map;
 
 -- | Whether the stack uses custom cookbooks.
 csUseCustomCookbooks :: Lens' CreateStack (Maybe Bool)
@@ -302,7 +302,8 @@ instance AWSRequest CreateStack where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x -> CreateStackResponse' <$> x .?> "StackId")
+              (\ s h x ->
+                 CreateStackResponse' <$> (x .?> "StackId"))
 
 instance ToHeaders CreateStack where
         toHeaders

@@ -79,7 +79,7 @@ instance AWSRequest RetrieveTapeRecoveryPoint where
           = receiveJSON
               (\ s h x ->
                  RetrieveTapeRecoveryPointResponse' <$>
-                   x .?> "TapeARN")
+                   (x .?> "TapeARN"))
 
 instance ToHeaders RetrieveTapeRecoveryPoint where
         toHeaders

@@ -61,7 +61,7 @@ import Network.AWS.KMS.Types
 -- * 'gdkwpGrantTokens'
 --
 -- * 'gdkwpKeyId'
-data GenerateDataKeyWithoutPlaintext = GenerateDataKeyWithoutPlaintext'{_gdkwpKeySpec :: Maybe DataKeySpec, _gdkwpEncryptionContext :: Maybe (HashMap Text Text), _gdkwpNumberOfBytes :: Maybe Nat, _gdkwpGrantTokens :: Maybe [Text], _gdkwpKeyId :: Text} deriving (Eq, Read, Show)
+data GenerateDataKeyWithoutPlaintext = GenerateDataKeyWithoutPlaintext'{_gdkwpKeySpec :: Maybe DataKeySpec, _gdkwpEncryptionContext :: Maybe (Map Text Text), _gdkwpNumberOfBytes :: Maybe Nat, _gdkwpGrantTokens :: Maybe [Text], _gdkwpKeyId :: Text} deriving (Eq, Read, Show)
 
 -- | 'GenerateDataKeyWithoutPlaintext' smart constructor.
 generateDataKeyWithoutPlaintext :: Text -> GenerateDataKeyWithoutPlaintext
@@ -74,8 +74,8 @@ gdkwpKeySpec = lens _gdkwpKeySpec (\ s a -> s{_gdkwpKeySpec = a});
 
 -- | Name:value pair that contains additional data to be authenticated during
 -- the encryption and decryption processes.
-gdkwpEncryptionContext :: Lens' GenerateDataKeyWithoutPlaintext (Maybe (HashMap Text Text))
-gdkwpEncryptionContext = lens _gdkwpEncryptionContext (\ s a -> s{_gdkwpEncryptionContext = a}) . mapping _Coerce;
+gdkwpEncryptionContext :: Lens' GenerateDataKeyWithoutPlaintext (Map Text Text)
+gdkwpEncryptionContext = lens _gdkwpEncryptionContext (\ s a -> s{_gdkwpEncryptionContext = a}) . _Default . _Map;
 
 -- | Integer that contains the number of bytes to generate. Common values are
 -- 128, 256, 512, 1024 and so on. We recommend that you use the @KeySpec@
@@ -85,8 +85,8 @@ gdkwpNumberOfBytes = lens _gdkwpNumberOfBytes (\ s a -> s{_gdkwpNumberOfBytes = 
 
 -- | For more information, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.
-gdkwpGrantTokens :: Lens' GenerateDataKeyWithoutPlaintext (Maybe [Text])
-gdkwpGrantTokens = lens _gdkwpGrantTokens (\ s a -> s{_gdkwpGrantTokens = a});
+gdkwpGrantTokens :: Lens' GenerateDataKeyWithoutPlaintext [Text]
+gdkwpGrantTokens = lens _gdkwpGrantTokens (\ s a -> s{_gdkwpGrantTokens = a}) . _Default;
 
 -- | A unique identifier for the customer master key. This value can be a
 -- globally unique identifier, a fully specified ARN to either an alias or
@@ -112,7 +112,7 @@ instance AWSRequest GenerateDataKeyWithoutPlaintext
           = receiveJSON
               (\ s h x ->
                  GenerateDataKeyWithoutPlaintextResponse' <$>
-                   x .?> "KeyId" <*> x .?> "CiphertextBlob")
+                   (x .?> "KeyId") <*> (x .?> "CiphertextBlob"))
 
 instance ToHeaders GenerateDataKeyWithoutPlaintext
          where

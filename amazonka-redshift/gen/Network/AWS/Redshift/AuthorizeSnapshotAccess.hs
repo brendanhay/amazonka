@@ -86,7 +86,7 @@ instance AWSRequest AuthorizeSnapshotAccess where
           = receiveXMLWrapper "AuthorizeSnapshotAccessResult"
               (\ s h x ->
                  AuthorizeSnapshotAccessResponse' <$>
-                   x .@? "Snapshot")
+                   (x .@? "Snapshot"))
 
 instance ToHeaders AuthorizeSnapshotAccess where
         toHeaders = const mempty

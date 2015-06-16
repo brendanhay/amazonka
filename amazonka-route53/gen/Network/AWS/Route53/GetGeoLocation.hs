@@ -93,7 +93,7 @@ instance AWSRequest GetGeoLocation where
           = receiveXML
               (\ s h x ->
                  GetGeoLocationResponse' <$>
-                   x .@ "GeoLocationDetails")
+                   (x .@ "GeoLocationDetails"))
 
 instance ToHeaders GetGeoLocation where
         toHeaders = const mempty

@@ -95,7 +95,7 @@ instance AWSRequest TestRole where
           = receiveJSON
               (\ s h x ->
                  TestRoleResponse' <$>
-                   x .?> "Success" <*> x .?> "Messages" .!@ mempty)
+                   (x .?> "Success") <*> (x .?> "Messages" .!@ mempty))
 
 instance ToHeaders TestRole where
         toHeaders = const mempty
@@ -133,5 +133,5 @@ trrSuccess = lens _trrSuccess (\ s a -> s{_trrSuccess = a});
 
 -- | If the @Success@ element contains @false@, this value is an array of one
 -- or more error messages that were generated during the test process.
-trrMessages :: Lens' TestRoleResponse (Maybe [Text])
-trrMessages = lens _trrMessages (\ s a -> s{_trrMessages = a});
+trrMessages :: Lens' TestRoleResponse [Text]
+trrMessages = lens _trrMessages (\ s a -> s{_trrMessages = a}) . _Default;

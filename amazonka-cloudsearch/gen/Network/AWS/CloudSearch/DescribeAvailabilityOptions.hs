@@ -77,7 +77,7 @@ instance AWSRequest DescribeAvailabilityOptions where
               "DescribeAvailabilityOptionsResult"
               (\ s h x ->
                  DescribeAvailabilityOptionsResponse' <$>
-                   x .@? "AvailabilityOptions")
+                   (x .@? "AvailabilityOptions"))
 
 instance ToHeaders DescribeAvailabilityOptions where
         toHeaders = const mempty

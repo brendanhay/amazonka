@@ -70,7 +70,7 @@ import Network.AWS.CognitoIdentity.Types
 -- * 'goitfdiIdentityPoolId'
 --
 -- * 'goitfdiLogins'
-data GetOpenIdTokenForDeveloperIdentity = GetOpenIdTokenForDeveloperIdentity'{_goitfdiTokenDuration :: Maybe Nat, _goitfdiIdentityId :: Maybe Text, _goitfdiIdentityPoolId :: Text, _goitfdiLogins :: HashMap Text Text} deriving (Eq, Read, Show)
+data GetOpenIdTokenForDeveloperIdentity = GetOpenIdTokenForDeveloperIdentity'{_goitfdiTokenDuration :: Maybe Nat, _goitfdiIdentityId :: Maybe Text, _goitfdiIdentityPoolId :: Text, _goitfdiLogins :: Map Text Text} deriving (Eq, Read, Show)
 
 -- | 'GetOpenIdTokenForDeveloperIdentity' smart constructor.
 getOpenIdTokenForDeveloperIdentity :: Text -> GetOpenIdTokenForDeveloperIdentity
@@ -106,8 +106,8 @@ goitfdiIdentityPoolId = lens _goitfdiIdentityPoolId (\ s a -> s{_goitfdiIdentity
 -- pool. The developer user identifier is an identifier from your backend
 -- that uniquely identifies a user. When you create an identity pool, you
 -- can specify the supported logins.
-goitfdiLogins :: Lens' GetOpenIdTokenForDeveloperIdentity (HashMap Text Text)
-goitfdiLogins = lens _goitfdiLogins (\ s a -> s{_goitfdiLogins = a}) . _Coerce;
+goitfdiLogins :: Lens' GetOpenIdTokenForDeveloperIdentity (Map Text Text)
+goitfdiLogins = lens _goitfdiLogins (\ s a -> s{_goitfdiLogins = a}) . _Map;
 
 instance AWSRequest
          GetOpenIdTokenForDeveloperIdentity where
@@ -120,7 +120,7 @@ instance AWSRequest
           = receiveJSON
               (\ s h x ->
                  GetOpenIdTokenForDeveloperIdentityResponse' <$>
-                   x .?> "Token" <*> x .?> "IdentityId")
+                   (x .?> "Token") <*> (x .?> "IdentityId"))
 
 instance ToHeaders GetOpenIdTokenForDeveloperIdentity
          where

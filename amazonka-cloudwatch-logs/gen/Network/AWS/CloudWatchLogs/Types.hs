@@ -194,10 +194,10 @@ instance FromJSON FilteredLogEvent where
           = withObject "FilteredLogEvent"
               (\ x ->
                  FilteredLogEvent' <$>
-                   x .:? "ingestionTime" <*> x .:? "logStreamName" <*>
-                     x .:? "message"
-                     <*> x .:? "timestamp"
-                     <*> x .:? "eventId")
+                   (x .:? "ingestionTime") <*> (x .:? "logStreamName")
+                     <*> (x .:? "message")
+                     <*> (x .:? "timestamp")
+                     <*> (x .:? "eventId"))
 
 -- | /See:/ 'inputLogEvent' smart constructor.
 --
@@ -276,11 +276,12 @@ instance FromJSON LogGroup where
           = withObject "LogGroup"
               (\ x ->
                  LogGroup' <$>
-                   x .:? "creationTime" <*> x .:? "metricFilterCount"
-                     <*> x .:? "arn"
-                     <*> x .:? "logGroupName"
-                     <*> x .:? "retentionInDays"
-                     <*> x .:? "storedBytes")
+                   (x .:? "creationTime") <*>
+                     (x .:? "metricFilterCount")
+                     <*> (x .:? "arn")
+                     <*> (x .:? "logGroupName")
+                     <*> (x .:? "retentionInDays")
+                     <*> (x .:? "storedBytes"))
 
 -- | /See:/ 'logStream' smart constructor.
 --
@@ -344,13 +345,14 @@ instance FromJSON LogStream where
           = withObject "LogStream"
               (\ x ->
                  LogStream' <$>
-                   x .:? "creationTime" <*> x .:? "uploadSequenceToken"
-                     <*> x .:? "arn"
-                     <*> x .:? "firstEventTimestamp"
-                     <*> x .:? "logStreamName"
-                     <*> x .:? "storedBytes"
-                     <*> x .:? "lastIngestionTime"
-                     <*> x .:? "lastEventTimestamp")
+                   (x .:? "creationTime") <*>
+                     (x .:? "uploadSequenceToken")
+                     <*> (x .:? "arn")
+                     <*> (x .:? "firstEventTimestamp")
+                     <*> (x .:? "logStreamName")
+                     <*> (x .:? "storedBytes")
+                     <*> (x .:? "lastIngestionTime")
+                     <*> (x .:? "lastEventTimestamp"))
 
 -- | /See:/ 'metricFilter' smart constructor.
 --
@@ -390,9 +392,9 @@ instance FromJSON MetricFilter where
           = withObject "MetricFilter"
               (\ x ->
                  MetricFilter' <$>
-                   x .:? "creationTime" <*> x .:? "filterName" <*>
-                     x .:? "filterPattern"
-                     <*> x .:? "metricTransformations")
+                   (x .:? "creationTime") <*> (x .:? "filterName") <*>
+                     (x .:? "filterPattern")
+                     <*> (x .:? "metricTransformations"))
 
 -- | /See:/ 'metricFilterMatchRecord' smart constructor.
 --
@@ -403,15 +405,15 @@ instance FromJSON MetricFilter where
 -- * 'mfmrEventMessage'
 --
 -- * 'mfmrEventNumber'
-data MetricFilterMatchRecord = MetricFilterMatchRecord'{_mfmrExtractedValues :: Maybe (HashMap Text Text), _mfmrEventMessage :: Maybe Text, _mfmrEventNumber :: Maybe Integer} deriving (Eq, Read, Show)
+data MetricFilterMatchRecord = MetricFilterMatchRecord'{_mfmrExtractedValues :: Maybe (Map Text Text), _mfmrEventMessage :: Maybe Text, _mfmrEventNumber :: Maybe Integer} deriving (Eq, Read, Show)
 
 -- | 'MetricFilterMatchRecord' smart constructor.
 metricFilterMatchRecord :: MetricFilterMatchRecord
 metricFilterMatchRecord = MetricFilterMatchRecord'{_mfmrExtractedValues = Nothing, _mfmrEventMessage = Nothing, _mfmrEventNumber = Nothing};
 
 -- | FIXME: Undocumented member.
-mfmrExtractedValues :: Lens' MetricFilterMatchRecord (Maybe (HashMap Text Text))
-mfmrExtractedValues = lens _mfmrExtractedValues (\ s a -> s{_mfmrExtractedValues = a}) . mapping _Coerce;
+mfmrExtractedValues :: Lens' MetricFilterMatchRecord (Map Text Text)
+mfmrExtractedValues = lens _mfmrExtractedValues (\ s a -> s{_mfmrExtractedValues = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
 mfmrEventMessage :: Lens' MetricFilterMatchRecord (Maybe Text)
@@ -426,9 +428,9 @@ instance FromJSON MetricFilterMatchRecord where
           = withObject "MetricFilterMatchRecord"
               (\ x ->
                  MetricFilterMatchRecord' <$>
-                   x .:? "extractedValues" .!= mempty <*>
-                     x .:? "eventMessage"
-                     <*> x .:? "eventNumber")
+                   (x .:? "extractedValues" .!= mempty) <*>
+                     (x .:? "eventMessage")
+                     <*> (x .:? "eventNumber"))
 
 -- | /See:/ 'metricTransformation' smart constructor.
 --
@@ -462,8 +464,8 @@ instance FromJSON MetricTransformation where
           = withObject "MetricTransformation"
               (\ x ->
                  MetricTransformation' <$>
-                   x .: "metricName" <*> x .: "metricNamespace" <*>
-                     x .: "metricValue")
+                   (x .: "metricName") <*> (x .: "metricNamespace") <*>
+                     (x .: "metricValue"))
 
 instance ToJSON MetricTransformation where
         toJSON MetricTransformation'{..}
@@ -524,8 +526,8 @@ instance FromJSON OutputLogEvent where
           = withObject "OutputLogEvent"
               (\ x ->
                  OutputLogEvent' <$>
-                   x .:? "ingestionTime" <*> x .:? "message" <*>
-                     x .:? "timestamp")
+                   (x .:? "ingestionTime") <*> (x .:? "message") <*>
+                     (x .:? "timestamp"))
 
 -- | /See:/ 'rejectedLogEventsInfo' smart constructor.
 --
@@ -559,9 +561,9 @@ instance FromJSON RejectedLogEventsInfo where
           = withObject "RejectedLogEventsInfo"
               (\ x ->
                  RejectedLogEventsInfo' <$>
-                   x .:? "tooOldLogEventEndIndex" <*>
-                     x .:? "tooNewLogEventStartIndex"
-                     <*> x .:? "expiredLogEventEndIndex")
+                   (x .:? "tooOldLogEventEndIndex") <*>
+                     (x .:? "tooNewLogEventStartIndex")
+                     <*> (x .:? "expiredLogEventEndIndex"))
 
 -- | /See:/ 'searchedLogStream' smart constructor.
 --
@@ -590,7 +592,8 @@ instance FromJSON SearchedLogStream where
           = withObject "SearchedLogStream"
               (\ x ->
                  SearchedLogStream' <$>
-                   x .:? "logStreamName" <*> x .:? "searchedCompletely")
+                   (x .:? "logStreamName") <*>
+                     (x .:? "searchedCompletely"))
 
 -- | /See:/ 'subscriptionFilter' smart constructor.
 --
@@ -642,8 +645,8 @@ instance FromJSON SubscriptionFilter where
           = withObject "SubscriptionFilter"
               (\ x ->
                  SubscriptionFilter' <$>
-                   x .:? "creationTime" <*> x .:? "filterName" <*>
-                     x .:? "destinationArn"
-                     <*> x .:? "logGroupName"
-                     <*> x .:? "filterPattern"
-                     <*> x .:? "roleArn")
+                   (x .:? "creationTime") <*> (x .:? "filterName") <*>
+                     (x .:? "destinationArn")
+                     <*> (x .:? "logGroupName")
+                     <*> (x .:? "filterPattern")
+                     <*> (x .:? "roleArn"))

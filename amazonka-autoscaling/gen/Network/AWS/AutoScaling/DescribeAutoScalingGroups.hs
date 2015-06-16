@@ -64,8 +64,8 @@ describeAutoScalingGroups :: DescribeAutoScalingGroups
 describeAutoScalingGroups = DescribeAutoScalingGroups'{_dasgAutoScalingGroupNames = Nothing, _dasgNextToken = Nothing, _dasgMaxRecords = Nothing};
 
 -- | The group names.
-dasgAutoScalingGroupNames :: Lens' DescribeAutoScalingGroups (Maybe [Text])
-dasgAutoScalingGroupNames = lens _dasgAutoScalingGroupNames (\ s a -> s{_dasgAutoScalingGroupNames = a});
+dasgAutoScalingGroupNames :: Lens' DescribeAutoScalingGroups [Text]
+dasgAutoScalingGroupNames = lens _dasgAutoScalingGroupNames (\ s a -> s{_dasgAutoScalingGroupNames = a}) . _Default;
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
@@ -85,7 +85,7 @@ instance AWSRequest DescribeAutoScalingGroups where
           = receiveXMLWrapper "DescribeAutoScalingGroupsResult"
               (\ s h x ->
                  DescribeAutoScalingGroupsResponse' <$>
-                   x .@? "NextToken" <*>
+                   (x .@? "NextToken") <*>
                      (x .@? "AutoScalingGroups" .!@ mempty >>=
                         parseXMLList "member"))
 
@@ -102,7 +102,9 @@ instance ToQuery DescribeAutoScalingGroups where
                  ("DescribeAutoScalingGroups" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
                "AutoScalingGroupNames" =:
-                 "member" =: _dasgAutoScalingGroupNames,
+                 toQuery
+                   (toQueryList "member" <$>
+                      _dasgAutoScalingGroupNames),
                "NextToken" =: _dasgNextToken,
                "MaxRecords" =: _dasgMaxRecords]
 

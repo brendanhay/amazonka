@@ -360,10 +360,10 @@ akSecretAccessKey = lens _akSecretAccessKey (\ s a -> s{_akSecretAccessKey = a})
 instance FromXML AccessKey where
         parseXML x
           = AccessKey' <$>
-              x .@? "CreateDate" <*> x .@ "UserName" <*>
-                x .@ "AccessKeyId"
-                <*> x .@ "Status"
-                <*> x .@ "SecretAccessKey"
+              (x .@? "CreateDate") <*> (x .@ "UserName") <*>
+                (x .@ "AccessKeyId")
+                <*> (x .@ "Status")
+                <*> (x .@ "SecretAccessKey")
 
 -- | /See:/ 'accessKeyLastUsed' smart constructor.
 --
@@ -402,8 +402,8 @@ akluRegion = lens _akluRegion (\ s a -> s{_akluRegion = a});
 instance FromXML AccessKeyLastUsed where
         parseXML x
           = AccessKeyLastUsed' <$>
-              x .@ "LastUsedDate" <*> x .@ "ServiceName" <*>
-                x .@ "Region"
+              (x .@ "LastUsedDate") <*> (x .@ "ServiceName") <*>
+                (x .@ "Region")
 
 -- | /See:/ 'accessKeyMetadata' smart constructor.
 --
@@ -442,9 +442,9 @@ akmAccessKeyId = lens _akmAccessKeyId (\ s a -> s{_akmAccessKeyId = a});
 instance FromXML AccessKeyMetadata where
         parseXML x
           = AccessKeyMetadata' <$>
-              x .@? "Status" <*> x .@? "CreateDate" <*>
-                x .@? "UserName"
-                <*> x .@? "AccessKeyId"
+              (x .@? "Status") <*> (x .@? "CreateDate") <*>
+                (x .@? "UserName")
+                <*> (x .@? "AccessKeyId")
 
 data AssignmentStatusType = Assigned | Unassigned | Any deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -489,7 +489,7 @@ apPolicyARN = lens _apPolicyARN (\ s a -> s{_apPolicyARN = a});
 instance FromXML AttachedPolicy where
         parseXML x
           = AttachedPolicy' <$>
-              x .@? "PolicyName" <*> x .@? "PolicyArn"
+              (x .@? "PolicyName") <*> (x .@? "PolicyArn")
 
 data EntityType = Group | LocalManagedPolicy | AWSManagedPolicy | User | Role deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -566,9 +566,10 @@ groCreateDate = lens _groCreateDate (\ s a -> s{_groCreateDate = a}) . _Time;
 instance FromXML Group where
         parseXML x
           = Group' <$>
-              x .@ "Path" <*> x .@ "GroupName" <*> x .@ "GroupId"
-                <*> x .@ "Arn"
-                <*> x .@ "CreateDate"
+              (x .@ "Path") <*> (x .@ "GroupName") <*>
+                (x .@ "GroupId")
+                <*> (x .@ "Arn")
+                <*> (x .@ "CreateDate")
 
 -- | /See:/ 'groupDetail' smart constructor.
 --
@@ -617,29 +618,30 @@ gdGroupId :: Lens' GroupDetail (Maybe Text)
 gdGroupId = lens _gdGroupId (\ s a -> s{_gdGroupId = a});
 
 -- | A list of the inline policies embedded in the group.
-gdGroupPolicyList :: Lens' GroupDetail (Maybe [PolicyDetail])
-gdGroupPolicyList = lens _gdGroupPolicyList (\ s a -> s{_gdGroupPolicyList = a});
+gdGroupPolicyList :: Lens' GroupDetail [PolicyDetail]
+gdGroupPolicyList = lens _gdGroupPolicyList (\ s a -> s{_gdGroupPolicyList = a}) . _Default;
 
 -- | The friendly name that identifies the group.
 gdGroupName :: Lens' GroupDetail (Maybe Text)
 gdGroupName = lens _gdGroupName (\ s a -> s{_gdGroupName = a});
 
 -- | A list of the managed policies attached to the group.
-gdAttachedManagedPolicies :: Lens' GroupDetail (Maybe [AttachedPolicy])
-gdAttachedManagedPolicies = lens _gdAttachedManagedPolicies (\ s a -> s{_gdAttachedManagedPolicies = a});
+gdAttachedManagedPolicies :: Lens' GroupDetail [AttachedPolicy]
+gdAttachedManagedPolicies = lens _gdAttachedManagedPolicies (\ s a -> s{_gdAttachedManagedPolicies = a}) . _Default;
 
 instance FromXML GroupDetail where
         parseXML x
           = GroupDetail' <$>
-              x .@? "Arn" <*> x .@? "Path" <*> x .@? "CreateDate"
-                <*> x .@? "GroupId"
+              (x .@? "Arn") <*> (x .@? "Path") <*>
+                (x .@? "CreateDate")
+                <*> (x .@? "GroupId")
                 <*>
                 (x .@? "GroupPolicyList" .!@ mempty >>=
-                   parseXMLList "member")
-                <*> x .@? "GroupName"
+                   may (parseXMLList "member"))
+                <*> (x .@? "GroupName")
                 <*>
                 (x .@? "AttachedManagedPolicies" .!@ mempty >>=
-                   parseXMLList "member")
+                   may (parseXMLList "member"))
 
 -- | /See:/ 'instanceProfile' smart constructor.
 --
@@ -697,10 +699,10 @@ ipRoles = lens _ipRoles (\ s a -> s{_ipRoles = a});
 instance FromXML InstanceProfile where
         parseXML x
           = InstanceProfile' <$>
-              x .@ "Path" <*> x .@ "InstanceProfileName" <*>
-                x .@ "InstanceProfileId"
-                <*> x .@ "Arn"
-                <*> x .@ "CreateDate"
+              (x .@ "Path") <*> (x .@ "InstanceProfileName") <*>
+                (x .@ "InstanceProfileId")
+                <*> (x .@ "Arn")
+                <*> (x .@ "CreateDate")
                 <*>
                 (x .@? "Roles" .!@ mempty >>= parseXMLList "member")
 
@@ -736,8 +738,8 @@ lpCreateDate = lens _lpCreateDate (\ s a -> s{_lpCreateDate = a}) . _Time;
 instance FromXML LoginProfile where
         parseXML x
           = LoginProfile' <$>
-              x .@? "PasswordResetRequired" <*> x .@ "UserName" <*>
-                x .@ "CreateDate"
+              (x .@? "PasswordResetRequired") <*> (x .@ "UserName")
+                <*> (x .@ "CreateDate")
 
 -- | /See:/ 'mfaDevice' smart constructor.
 --
@@ -770,8 +772,8 @@ mdEnableDate = lens _mdEnableDate (\ s a -> s{_mdEnableDate = a}) . _Time;
 instance FromXML MFADevice where
         parseXML x
           = MFADevice' <$>
-              x .@ "UserName" <*> x .@ "SerialNumber" <*>
-                x .@ "EnableDate"
+              (x .@ "UserName") <*> (x .@ "SerialNumber") <*>
+                (x .@ "EnableDate")
 
 -- | /See:/ 'managedPolicyDetail' smart constructor.
 --
@@ -846,8 +848,8 @@ mpdCreateDate :: Lens' ManagedPolicyDetail (Maybe UTCTime)
 mpdCreateDate = lens _mpdCreateDate (\ s a -> s{_mpdCreateDate = a}) . mapping _Time;
 
 -- | A list containing information about the versions of the policy.
-mpdPolicyVersionList :: Lens' ManagedPolicyDetail (Maybe [PolicyVersion])
-mpdPolicyVersionList = lens _mpdPolicyVersionList (\ s a -> s{_mpdPolicyVersionList = a});
+mpdPolicyVersionList :: Lens' ManagedPolicyDetail [PolicyVersion]
+mpdPolicyVersionList = lens _mpdPolicyVersionList (\ s a -> s{_mpdPolicyVersionList = a}) . _Default;
 
 -- | Specifies whether the policy can be attached to an IAM user, group, or
 -- role.
@@ -875,17 +877,18 @@ mpdDescription = lens _mpdDescription (\ s a -> s{_mpdDescription = a});
 instance FromXML ManagedPolicyDetail where
         parseXML x
           = ManagedPolicyDetail' <$>
-              x .@? "PolicyName" <*> x .@? "Arn" <*> x .@? "Path"
-                <*> x .@? "UpdateDate"
-                <*> x .@? "PolicyId"
-                <*> x .@? "CreateDate"
+              (x .@? "PolicyName") <*> (x .@? "Arn") <*>
+                (x .@? "Path")
+                <*> (x .@? "UpdateDate")
+                <*> (x .@? "PolicyId")
+                <*> (x .@? "CreateDate")
                 <*>
                 (x .@? "PolicyVersionList" .!@ mempty >>=
-                   parseXMLList "member")
-                <*> x .@? "IsAttachable"
-                <*> x .@? "DefaultVersionId"
-                <*> x .@? "AttachmentCount"
-                <*> x .@? "Description"
+                   may (parseXMLList "member"))
+                <*> (x .@? "IsAttachable")
+                <*> (x .@? "DefaultVersionId")
+                <*> (x .@? "AttachmentCount")
+                <*> (x .@? "Description")
 
 -- | /See:/ 'openIDConnectProviderListEntry' smart constructor.
 --
@@ -904,7 +907,7 @@ oidcpleARN = lens _oidcpleARN (\ s a -> s{_oidcpleARN = a});
 
 instance FromXML OpenIDConnectProviderListEntry where
         parseXML x
-          = OpenIDConnectProviderListEntry' <$> x .@? "Arn"
+          = OpenIDConnectProviderListEntry' <$> (x .@? "Arn")
 
 -- | /See:/ 'passwordPolicy' smart constructor.
 --
@@ -983,15 +986,16 @@ ppAllowUsersToChangePassword = lens _ppAllowUsersToChangePassword (\ s a -> s{_p
 instance FromXML PasswordPolicy where
         parseXML x
           = PasswordPolicy' <$>
-              x .@? "ExpirePasswords" <*> x .@? "RequireNumbers"
-                <*> x .@? "MinimumPasswordLength"
-                <*> x .@? "PasswordReusePrevention"
-                <*> x .@? "RequireLowercaseCharacters"
-                <*> x .@? "MaxPasswordAge"
-                <*> x .@? "HardExpiry"
-                <*> x .@? "RequireSymbols"
-                <*> x .@? "RequireUppercaseCharacters"
-                <*> x .@? "AllowUsersToChangePassword"
+              (x .@? "ExpirePasswords") <*>
+                (x .@? "RequireNumbers")
+                <*> (x .@? "MinimumPasswordLength")
+                <*> (x .@? "PasswordReusePrevention")
+                <*> (x .@? "RequireLowercaseCharacters")
+                <*> (x .@? "MaxPasswordAge")
+                <*> (x .@? "HardExpiry")
+                <*> (x .@? "RequireSymbols")
+                <*> (x .@? "RequireUppercaseCharacters")
+                <*> (x .@? "AllowUsersToChangePassword")
 
 -- | /See:/ 'policy' smart constructor.
 --
@@ -1088,14 +1092,15 @@ polDescription = lens _polDescription (\ s a -> s{_polDescription = a});
 instance FromXML Policy where
         parseXML x
           = Policy' <$>
-              x .@? "PolicyName" <*> x .@? "Arn" <*> x .@? "Path"
-                <*> x .@? "UpdateDate"
-                <*> x .@? "PolicyId"
-                <*> x .@? "CreateDate"
-                <*> x .@? "IsAttachable"
-                <*> x .@? "DefaultVersionId"
-                <*> x .@? "AttachmentCount"
-                <*> x .@? "Description"
+              (x .@? "PolicyName") <*> (x .@? "Arn") <*>
+                (x .@? "Path")
+                <*> (x .@? "UpdateDate")
+                <*> (x .@? "PolicyId")
+                <*> (x .@? "CreateDate")
+                <*> (x .@? "IsAttachable")
+                <*> (x .@? "DefaultVersionId")
+                <*> (x .@? "AttachmentCount")
+                <*> (x .@? "Description")
 
 -- | /See:/ 'policyDetail' smart constructor.
 --
@@ -1121,7 +1126,7 @@ pdPolicyName = lens _pdPolicyName (\ s a -> s{_pdPolicyName = a});
 instance FromXML PolicyDetail where
         parseXML x
           = PolicyDetail' <$>
-              x .@? "PolicyDocument" <*> x .@? "PolicyName"
+              (x .@? "PolicyDocument") <*> (x .@? "PolicyName")
 
 -- | /See:/ 'policyGroup' smart constructor.
 --
@@ -1139,7 +1144,7 @@ pgGroupName :: Lens' PolicyGroup (Maybe Text)
 pgGroupName = lens _pgGroupName (\ s a -> s{_pgGroupName = a});
 
 instance FromXML PolicyGroup where
-        parseXML x = PolicyGroup' <$> x .@? "GroupName"
+        parseXML x = PolicyGroup' <$> (x .@? "GroupName")
 
 -- | /See:/ 'policyRole' smart constructor.
 --
@@ -1157,7 +1162,7 @@ prRoleName :: Lens' PolicyRole (Maybe Text)
 prRoleName = lens _prRoleName (\ s a -> s{_prRoleName = a});
 
 instance FromXML PolicyRole where
-        parseXML x = PolicyRole' <$> x .@? "RoleName"
+        parseXML x = PolicyRole' <$> (x .@? "RoleName")
 
 data PolicyScopeType = AWS | Local | All deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -1194,7 +1199,7 @@ puUserName :: Lens' PolicyUser (Maybe Text)
 puUserName = lens _puUserName (\ s a -> s{_puUserName = a});
 
 instance FromXML PolicyUser where
-        parseXML x = PolicyUser' <$> x .@? "UserName"
+        parseXML x = PolicyUser' <$> (x .@? "UserName")
 
 -- | /See:/ 'policyVersion' smart constructor.
 --
@@ -1242,9 +1247,9 @@ pvIsDefaultVersion = lens _pvIsDefaultVersion (\ s a -> s{_pvIsDefaultVersion = 
 instance FromXML PolicyVersion where
         parseXML x
           = PolicyVersion' <$>
-              x .@? "VersionId" <*> x .@? "CreateDate" <*>
-                x .@? "Document"
-                <*> x .@? "IsDefaultVersion"
+              (x .@? "VersionId") <*> (x .@? "CreateDate") <*>
+                (x .@? "Document")
+                <*> (x .@? "IsDefaultVersion")
 
 data ReportFormatType = TextCSV deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -1344,11 +1349,11 @@ rolCreateDate = lens _rolCreateDate (\ s a -> s{_rolCreateDate = a}) . _Time;
 instance FromXML Role where
         parseXML x
           = Role' <$>
-              x .@? "AssumeRolePolicyDocument" <*> x .@ "Path" <*>
-                x .@ "RoleName"
-                <*> x .@ "RoleId"
-                <*> x .@ "Arn"
-                <*> x .@ "CreateDate"
+              (x .@? "AssumeRolePolicyDocument") <*> (x .@ "Path")
+                <*> (x .@ "RoleName")
+                <*> (x .@ "RoleId")
+                <*> (x .@ "Arn")
+                <*> (x .@ "CreateDate")
 
 -- | /See:/ 'roleDetail' smart constructor.
 --
@@ -1392,8 +1397,8 @@ rdPath :: Lens' RoleDetail (Maybe Text)
 rdPath = lens _rdPath (\ s a -> s{_rdPath = a});
 
 -- | FIXME: Undocumented member.
-rdInstanceProfileList :: Lens' RoleDetail (Maybe [InstanceProfile])
-rdInstanceProfileList = lens _rdInstanceProfileList (\ s a -> s{_rdInstanceProfileList = a});
+rdInstanceProfileList :: Lens' RoleDetail [InstanceProfile]
+rdInstanceProfileList = lens _rdInstanceProfileList (\ s a -> s{_rdInstanceProfileList = a}) . _Default;
 
 -- | The date and time, in
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
@@ -1414,31 +1419,31 @@ rdRoleId = lens _rdRoleId (\ s a -> s{_rdRoleId = a});
 
 -- | A list of inline policies embedded in the role. These policies are the
 -- role\'s access (permissions) policies.
-rdRolePolicyList :: Lens' RoleDetail (Maybe [PolicyDetail])
-rdRolePolicyList = lens _rdRolePolicyList (\ s a -> s{_rdRolePolicyList = a});
+rdRolePolicyList :: Lens' RoleDetail [PolicyDetail]
+rdRolePolicyList = lens _rdRolePolicyList (\ s a -> s{_rdRolePolicyList = a}) . _Default;
 
 -- | A list of managed policies attached to the role. These policies are the
 -- role\'s access (permissions) policies.
-rdAttachedManagedPolicies :: Lens' RoleDetail (Maybe [AttachedPolicy])
-rdAttachedManagedPolicies = lens _rdAttachedManagedPolicies (\ s a -> s{_rdAttachedManagedPolicies = a});
+rdAttachedManagedPolicies :: Lens' RoleDetail [AttachedPolicy]
+rdAttachedManagedPolicies = lens _rdAttachedManagedPolicies (\ s a -> s{_rdAttachedManagedPolicies = a}) . _Default;
 
 instance FromXML RoleDetail where
         parseXML x
           = RoleDetail' <$>
-              x .@? "AssumeRolePolicyDocument" <*> x .@? "Arn" <*>
-                x .@? "Path"
+              (x .@? "AssumeRolePolicyDocument") <*> (x .@? "Arn")
+                <*> (x .@? "Path")
                 <*>
                 (x .@? "InstanceProfileList" .!@ mempty >>=
-                   parseXMLList "member")
-                <*> x .@? "CreateDate"
-                <*> x .@? "RoleName"
-                <*> x .@? "RoleId"
+                   may (parseXMLList "member"))
+                <*> (x .@? "CreateDate")
+                <*> (x .@? "RoleName")
+                <*> (x .@? "RoleId")
                 <*>
                 (x .@? "RolePolicyList" .!@ mempty >>=
-                   parseXMLList "member")
+                   may (parseXMLList "member"))
                 <*>
                 (x .@? "AttachedManagedPolicies" .!@ mempty >>=
-                   parseXMLList "member")
+                   may (parseXMLList "member"))
 
 -- | /See:/ 'sAMLProviderListEntry' smart constructor.
 --
@@ -1470,8 +1475,8 @@ samlpleValidUntil = lens _samlpleValidUntil (\ s a -> s{_samlpleValidUntil = a})
 instance FromXML SAMLProviderListEntry where
         parseXML x
           = SAMLProviderListEntry' <$>
-              x .@? "Arn" <*> x .@? "CreateDate" <*>
-                x .@? "ValidUntil"
+              (x .@? "Arn") <*> (x .@? "CreateDate") <*>
+                (x .@? "ValidUntil")
 
 -- | /See:/ 'serverCertificate' smart constructor.
 --
@@ -1504,9 +1509,9 @@ serCertificateBody = lens _serCertificateBody (\ s a -> s{_serCertificateBody = 
 instance FromXML ServerCertificate where
         parseXML x
           = ServerCertificate' <$>
-              x .@? "CertificateChain" <*>
-                x .@ "ServerCertificateMetadata"
-                <*> x .@ "CertificateBody"
+              (x .@? "CertificateChain") <*>
+                (x .@ "ServerCertificateMetadata")
+                <*> (x .@ "CertificateBody")
 
 -- | /See:/ 'serverCertificateMetadata' smart constructor.
 --
@@ -1565,11 +1570,11 @@ scmARN = lens _scmARN (\ s a -> s{_scmARN = a});
 instance FromXML ServerCertificateMetadata where
         parseXML x
           = ServerCertificateMetadata' <$>
-              x .@? "UploadDate" <*> x .@? "Expiration" <*>
-                x .@ "Path"
-                <*> x .@ "ServerCertificateName"
-                <*> x .@ "ServerCertificateId"
-                <*> x .@ "Arn"
+              (x .@? "UploadDate") <*> (x .@? "Expiration") <*>
+                (x .@ "Path")
+                <*> (x .@ "ServerCertificateName")
+                <*> (x .@ "ServerCertificateId")
+                <*> (x .@ "Arn")
 
 -- | /See:/ 'signingCertificate' smart constructor.
 --
@@ -1614,10 +1619,10 @@ scStatus = lens _scStatus (\ s a -> s{_scStatus = a});
 instance FromXML SigningCertificate where
         parseXML x
           = SigningCertificate' <$>
-              x .@? "UploadDate" <*> x .@ "UserName" <*>
-                x .@ "CertificateId"
-                <*> x .@ "CertificateBody"
-                <*> x .@ "Status"
+              (x .@? "UploadDate") <*> (x .@ "UserName") <*>
+                (x .@ "CertificateId")
+                <*> (x .@ "CertificateBody")
+                <*> (x .@ "Status")
 
 data StatusType = Inactive | Active deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -1775,11 +1780,11 @@ useCreateDate = lens _useCreateDate (\ s a -> s{_useCreateDate = a}) . _Time;
 instance FromXML User where
         parseXML x
           = User' <$>
-              x .@? "PasswordLastUsed" <*> x .@ "Path" <*>
-                x .@ "UserName"
-                <*> x .@ "UserId"
-                <*> x .@ "Arn"
-                <*> x .@ "CreateDate"
+              (x .@? "PasswordLastUsed") <*> (x .@ "Path") <*>
+                (x .@ "UserName")
+                <*> (x .@ "UserId")
+                <*> (x .@ "Arn")
+                <*> (x .@ "CreateDate")
 
 -- | /See:/ 'userDetail' smart constructor.
 --
@@ -1817,8 +1822,8 @@ udPath :: Lens' UserDetail (Maybe Text)
 udPath = lens _udPath (\ s a -> s{_udPath = a});
 
 -- | A list of IAM groups that the user is in.
-udGroupList :: Lens' UserDetail (Maybe [Text])
-udGroupList = lens _udGroupList (\ s a -> s{_udGroupList = a});
+udGroupList :: Lens' UserDetail [Text]
+udGroupList = lens _udGroupList (\ s a -> s{_udGroupList = a}) . _Default;
 
 -- | The date and time, in
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
@@ -1838,28 +1843,28 @@ udUserId :: Lens' UserDetail (Maybe Text)
 udUserId = lens _udUserId (\ s a -> s{_udUserId = a});
 
 -- | A list of the inline policies embedded in the user.
-udUserPolicyList :: Lens' UserDetail (Maybe [PolicyDetail])
-udUserPolicyList = lens _udUserPolicyList (\ s a -> s{_udUserPolicyList = a});
+udUserPolicyList :: Lens' UserDetail [PolicyDetail]
+udUserPolicyList = lens _udUserPolicyList (\ s a -> s{_udUserPolicyList = a}) . _Default;
 
 -- | A list of the managed policies attached to the user.
-udAttachedManagedPolicies :: Lens' UserDetail (Maybe [AttachedPolicy])
-udAttachedManagedPolicies = lens _udAttachedManagedPolicies (\ s a -> s{_udAttachedManagedPolicies = a});
+udAttachedManagedPolicies :: Lens' UserDetail [AttachedPolicy]
+udAttachedManagedPolicies = lens _udAttachedManagedPolicies (\ s a -> s{_udAttachedManagedPolicies = a}) . _Default;
 
 instance FromXML UserDetail where
         parseXML x
           = UserDetail' <$>
-              x .@? "Arn" <*> x .@? "Path" <*>
+              (x .@? "Arn") <*> (x .@? "Path") <*>
                 (x .@? "GroupList" .!@ mempty >>=
-                   parseXMLList "member")
-                <*> x .@? "CreateDate"
-                <*> x .@? "UserName"
-                <*> x .@? "UserId"
+                   may (parseXMLList "member"))
+                <*> (x .@? "CreateDate")
+                <*> (x .@? "UserName")
+                <*> (x .@? "UserId")
                 <*>
                 (x .@? "UserPolicyList" .!@ mempty >>=
-                   parseXMLList "member")
+                   may (parseXMLList "member"))
                 <*>
                 (x .@? "AttachedManagedPolicies" .!@ mempty >>=
-                   parseXMLList "member")
+                   may (parseXMLList "member"))
 
 -- | /See:/ 'virtualMFADevice' smart constructor.
 --
@@ -1910,7 +1915,7 @@ vmdSerialNumber = lens _vmdSerialNumber (\ s a -> s{_vmdSerialNumber = a});
 instance FromXML VirtualMFADevice where
         parseXML x
           = VirtualMFADevice' <$>
-              x .@? "QRCodePNG" <*> x .@? "Base32StringSeed" <*>
-                x .@? "User"
-                <*> x .@? "EnableDate"
-                <*> x .@ "SerialNumber"
+              (x .@? "QRCodePNG") <*> (x .@? "Base32StringSeed")
+                <*> (x .@? "User")
+                <*> (x .@? "EnableDate")
+                <*> (x .@ "SerialNumber")

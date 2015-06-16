@@ -124,15 +124,15 @@ instance AWSRequest ListRecords where
           = receiveJSON
               (\ s h x ->
                  ListRecordsResponse' <$>
-                   x .?> "DatasetDeletedAfterRequestedSyncCount" <*>
-                     x .?> "DatasetExists"
-                     <*> x .?> "Count"
-                     <*> x .?> "Records" .!@ mempty
-                     <*> x .?> "NextToken"
-                     <*> x .?> "SyncSessionToken"
-                     <*> x .?> "MergedDatasetNames" .!@ mempty
-                     <*> x .?> "LastModifiedBy"
-                     <*> x .?> "DatasetSyncCount")
+                   (x .?> "DatasetDeletedAfterRequestedSyncCount") <*>
+                     (x .?> "DatasetExists")
+                     <*> (x .?> "Count")
+                     <*> (x .?> "Records" .!@ mempty)
+                     <*> (x .?> "NextToken")
+                     <*> (x .?> "SyncSessionToken")
+                     <*> (x .?> "MergedDatasetNames" .!@ mempty)
+                     <*> (x .?> "LastModifiedBy")
+                     <*> (x .?> "DatasetSyncCount"))
 
 instance ToHeaders ListRecords where
         toHeaders
@@ -196,8 +196,8 @@ lrrCount :: Lens' ListRecordsResponse (Maybe Int)
 lrrCount = lens _lrrCount (\ s a -> s{_lrrCount = a});
 
 -- | A list of all records.
-lrrRecords :: Lens' ListRecordsResponse (Maybe [Record])
-lrrRecords = lens _lrrRecords (\ s a -> s{_lrrRecords = a});
+lrrRecords :: Lens' ListRecordsResponse [Record]
+lrrRecords = lens _lrrRecords (\ s a -> s{_lrrRecords = a}) . _Default;
 
 -- | A pagination token for obtaining the next page of results.
 lrrNextToken :: Lens' ListRecordsResponse (Maybe Text)
@@ -208,8 +208,8 @@ lrrSyncSessionToken :: Lens' ListRecordsResponse (Maybe Text)
 lrrSyncSessionToken = lens _lrrSyncSessionToken (\ s a -> s{_lrrSyncSessionToken = a});
 
 -- | Names of merged datasets.
-lrrMergedDatasetNames :: Lens' ListRecordsResponse (Maybe [Text])
-lrrMergedDatasetNames = lens _lrrMergedDatasetNames (\ s a -> s{_lrrMergedDatasetNames = a});
+lrrMergedDatasetNames :: Lens' ListRecordsResponse [Text]
+lrrMergedDatasetNames = lens _lrrMergedDatasetNames (\ s a -> s{_lrrMergedDatasetNames = a}) . _Default;
 
 -- | The user\/device that made the last change to this record.
 lrrLastModifiedBy :: Lens' ListRecordsResponse (Maybe Text)

@@ -123,10 +123,10 @@ instance AWSRequest Invoke where
           = receiveJSON
               (\ s h x ->
                  InvokeResponse' <$>
-                   h .#? "X-Amz-Function-Error" <*>
-                     h .#? "X-Amz-Log-Result"
-                     <*> x .?> "Payload"
-                     <*> pure s)
+                   (h .#? "X-Amz-Function-Error") <*>
+                     (h .#? "X-Amz-Log-Result")
+                     <*> (x .?> "Payload")
+                     <*> (pure (Just s)))
 
 instance ToHeaders Invoke where
         toHeaders Invoke'{..}

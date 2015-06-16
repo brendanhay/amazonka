@@ -62,7 +62,7 @@ instance AWSRequest GetSnapshotLimits where
           = receiveJSON
               (\ s h x ->
                  GetSnapshotLimitsResponse' <$>
-                   x .?> "SnapshotLimits")
+                   (x .?> "SnapshotLimits"))
 
 instance ToHeaders GetSnapshotLimits where
         toHeaders

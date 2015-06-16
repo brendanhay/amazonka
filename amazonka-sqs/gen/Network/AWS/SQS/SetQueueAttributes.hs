@@ -52,7 +52,7 @@ import Network.AWS.SQS.Types
 -- * 'sqaQueueURL'
 --
 -- * 'sqaAttributes'
-data SetQueueAttributes = SetQueueAttributes'{_sqaQueueURL :: Text, _sqaAttributes :: HashMap QueueAttributeName Text} deriving (Eq, Read, Show)
+data SetQueueAttributes = SetQueueAttributes'{_sqaQueueURL :: Text, _sqaAttributes :: Map QueueAttributeName Text} deriving (Eq, Read, Show)
 
 -- | 'SetQueueAttributes' smart constructor.
 setQueueAttributes :: Text -> SetQueueAttributes
@@ -93,8 +93,8 @@ sqaQueueURL = lens _sqaQueueURL (\ s a -> s{_sqaQueueURL = a});
 --     of the source queue. For more information about RedrivePolicy and
 --     dead letter queues, see Using Amazon SQS Dead Letter Queues in the
 --     /Amazon SQS Developer Guide/.
-sqaAttributes :: Lens' SetQueueAttributes (HashMap QueueAttributeName Text)
-sqaAttributes = lens _sqaAttributes (\ s a -> s{_sqaAttributes = a}) . _Coerce;
+sqaAttributes :: Lens' SetQueueAttributes (Map QueueAttributeName Text)
+sqaAttributes = lens _sqaAttributes (\ s a -> s{_sqaAttributes = a}) . _Map;
 
 instance AWSRequest SetQueueAttributes where
         type Sv SetQueueAttributes = SQS

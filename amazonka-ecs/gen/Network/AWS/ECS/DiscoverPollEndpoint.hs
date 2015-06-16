@@ -78,7 +78,7 @@ instance AWSRequest DiscoverPollEndpoint where
         response
           = receiveJSON
               (\ s h x ->
-                 DiscoverPollEndpointResponse' <$> x .?> "endpoint")
+                 DiscoverPollEndpointResponse' <$> (x .?> "endpoint"))
 
 instance ToHeaders DiscoverPollEndpoint where
         toHeaders

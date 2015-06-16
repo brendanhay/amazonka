@@ -91,7 +91,7 @@ instance AWSRequest ReplaceRouteTableAssociation
           = receiveXML
               (\ s h x ->
                  ReplaceRouteTableAssociationResponse' <$>
-                   x .@? "newAssociationId")
+                   (x .@? "newAssociationId"))
 
 instance ToHeaders ReplaceRouteTableAssociation where
         toHeaders = const mempty

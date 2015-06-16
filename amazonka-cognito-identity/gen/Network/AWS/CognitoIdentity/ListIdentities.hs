@@ -89,8 +89,8 @@ instance AWSRequest ListIdentities where
           = receiveJSON
               (\ s h x ->
                  ListIdentitiesResponse' <$>
-                   x .?> "IdentityPoolId" <*> x .?> "NextToken" <*>
-                     x .?> "Identities" .!@ mempty)
+                   (x .?> "IdentityPoolId") <*> (x .?> "NextToken") <*>
+                     (x .?> "Identities" .!@ mempty))
 
 instance ToHeaders ListIdentities where
         toHeaders
@@ -140,5 +140,5 @@ lirNextToken :: Lens' ListIdentitiesResponse (Maybe Text)
 lirNextToken = lens _lirNextToken (\ s a -> s{_lirNextToken = a});
 
 -- | An object containing a set of identities and associated mappings.
-lirIdentities :: Lens' ListIdentitiesResponse (Maybe [IdentityDescription])
-lirIdentities = lens _lirIdentities (\ s a -> s{_lirIdentities = a});
+lirIdentities :: Lens' ListIdentitiesResponse [IdentityDescription]
+lirIdentities = lens _lirIdentities (\ s a -> s{_lirIdentities = a}) . _Default;

@@ -373,16 +373,16 @@ instance FromJSON BatchPrediction where
           = withObject "BatchPrediction"
               (\ x ->
                  BatchPrediction' <$>
-                   x .:? "Status" <*> x .:? "LastUpdatedAt" <*>
-                     x .:? "CreatedAt"
-                     <*> x .:? "InputDataLocationS3"
-                     <*> x .:? "MLModelId"
-                     <*> x .:? "BatchPredictionDataSourceId"
-                     <*> x .:? "BatchPredictionId"
-                     <*> x .:? "Name"
-                     <*> x .:? "CreatedByIamUser"
-                     <*> x .:? "Message"
-                     <*> x .:? "OutputUri")
+                   (x .:? "Status") <*> (x .:? "LastUpdatedAt") <*>
+                     (x .:? "CreatedAt")
+                     <*> (x .:? "InputDataLocationS3")
+                     <*> (x .:? "MLModelId")
+                     <*> (x .:? "BatchPredictionDataSourceId")
+                     <*> (x .:? "BatchPredictionId")
+                     <*> (x .:? "Name")
+                     <*> (x .:? "CreatedByIamUser")
+                     <*> (x .:? "Message")
+                     <*> (x .:? "OutputUri"))
 
 data BatchPredictionFilterVariable = BatchDataSourceId | BatchMLModelId | BatchIAMUser | BatchStatus | BatchCreatedAt | BatchDataURI | BatchName | BatchLastUpdatedAt deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -538,20 +538,20 @@ instance FromJSON DataSource where
           = withObject "DataSource"
               (\ x ->
                  DataSource' <$>
-                   x .:? "Status" <*> x .:? "NumberOfFiles" <*>
-                     x .:? "LastUpdatedAt"
-                     <*> x .:? "CreatedAt"
-                     <*> x .:? "RDSMetadata"
-                     <*> x .:? "DataSourceId"
-                     <*> x .:? "DataSizeInBytes"
-                     <*> x .:? "Name"
-                     <*> x .:? "CreatedByIamUser"
-                     <*> x .:? "DataLocationS3"
-                     <*> x .:? "ComputeStatistics"
-                     <*> x .:? "Message"
-                     <*> x .:? "RedshiftMetadata"
-                     <*> x .:? "RoleARN"
-                     <*> x .:? "DataRearrangement")
+                   (x .:? "Status") <*> (x .:? "NumberOfFiles") <*>
+                     (x .:? "LastUpdatedAt")
+                     <*> (x .:? "CreatedAt")
+                     <*> (x .:? "RDSMetadata")
+                     <*> (x .:? "DataSourceId")
+                     <*> (x .:? "DataSizeInBytes")
+                     <*> (x .:? "Name")
+                     <*> (x .:? "CreatedByIamUser")
+                     <*> (x .:? "DataLocationS3")
+                     <*> (x .:? "ComputeStatistics")
+                     <*> (x .:? "Message")
+                     <*> (x .:? "RedshiftMetadata")
+                     <*> (x .:? "RoleARN")
+                     <*> (x .:? "DataRearrangement"))
 
 data DataSourceFilterVariable = DSFVDataStatus | DSFVDataDATALOCATIONS3 | DSFVDataCreatedAt | DSFVDataLastUpdatedAt | DSFVDataName | DSFVDataIAMUser deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -737,16 +737,16 @@ instance FromJSON Evaluation where
           = withObject "Evaluation"
               (\ x ->
                  Evaluation' <$>
-                   x .:? "Status" <*> x .:? "PerformanceMetrics" <*>
-                     x .:? "LastUpdatedAt"
-                     <*> x .:? "CreatedAt"
-                     <*> x .:? "InputDataLocationS3"
-                     <*> x .:? "MLModelId"
-                     <*> x .:? "Name"
-                     <*> x .:? "CreatedByIamUser"
-                     <*> x .:? "Message"
-                     <*> x .:? "EvaluationId"
-                     <*> x .:? "EvaluationDataSourceId")
+                   (x .:? "Status") <*> (x .:? "PerformanceMetrics") <*>
+                     (x .:? "LastUpdatedAt")
+                     <*> (x .:? "CreatedAt")
+                     <*> (x .:? "InputDataLocationS3")
+                     <*> (x .:? "MLModelId")
+                     <*> (x .:? "Name")
+                     <*> (x .:? "CreatedByIamUser")
+                     <*> (x .:? "Message")
+                     <*> (x .:? "EvaluationId")
+                     <*> (x .:? "EvaluationDataSourceId"))
 
 data EvaluationFilterVariable = EFVEvalStatus | EFVEvalDataURI | EFVEvalDataSourceId | EFVEvalCreatedAt | EFVEvalName | EFVEvalIAMUser | EFVEvalMLModelId | EFVEvalLastUpdatedAt deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -815,7 +815,7 @@ instance ToJSON EvaluationFilterVariable where
 -- * 'mlmMessage'
 --
 -- * 'mlmMLModelType'
-data MLModel = MLModel'{_mlmStatus :: Maybe EntityStatus, _mlmTrainingParameters :: Maybe (HashMap Text Text), _mlmLastUpdatedAt :: Maybe POSIX, _mlmCreatedAt :: Maybe POSIX, _mlmScoreThresholdLastUpdatedAt :: Maybe POSIX, _mlmInputDataLocationS3 :: Maybe Text, _mlmSizeInBytes :: Maybe Integer, _mlmMLModelId :: Maybe Text, _mlmScoreThreshold :: Maybe Double, _mlmName :: Maybe Text, _mlmAlgorithm :: Maybe Algorithm, _mlmCreatedByIAMUser :: Maybe Text, _mlmEndpointInfo :: Maybe RealtimeEndpointInfo, _mlmTrainingDataSourceId :: Maybe Text, _mlmMessage :: Maybe Text, _mlmMLModelType :: Maybe MLModelType} deriving (Eq, Read, Show)
+data MLModel = MLModel'{_mlmStatus :: Maybe EntityStatus, _mlmTrainingParameters :: Maybe (Map Text Text), _mlmLastUpdatedAt :: Maybe POSIX, _mlmCreatedAt :: Maybe POSIX, _mlmScoreThresholdLastUpdatedAt :: Maybe POSIX, _mlmInputDataLocationS3 :: Maybe Text, _mlmSizeInBytes :: Maybe Integer, _mlmMLModelId :: Maybe Text, _mlmScoreThreshold :: Maybe Double, _mlmName :: Maybe Text, _mlmAlgorithm :: Maybe Algorithm, _mlmCreatedByIAMUser :: Maybe Text, _mlmEndpointInfo :: Maybe RealtimeEndpointInfo, _mlmTrainingDataSourceId :: Maybe Text, _mlmMessage :: Maybe Text, _mlmMLModelType :: Maybe MLModelType} deriving (Eq, Read, Show)
 
 -- | 'MLModel' smart constructor.
 mLModel :: MLModel
@@ -870,8 +870,8 @@ mlmStatus = lens _mlmStatus (\ s a -> s{_mlmStatus = a});
 --     The value is an integer that ranges from 100000 to 2147483648. The
 --     default value is 33554432.
 --
-mlmTrainingParameters :: Lens' MLModel (Maybe (HashMap Text Text))
-mlmTrainingParameters = lens _mlmTrainingParameters (\ s a -> s{_mlmTrainingParameters = a}) . mapping _Coerce;
+mlmTrainingParameters :: Lens' MLModel (Map Text Text)
+mlmTrainingParameters = lens _mlmTrainingParameters (\ s a -> s{_mlmTrainingParameters = a}) . _Default . _Map;
 
 -- | The time of the most recent edit to the @MLModel@. The time is expressed
 -- in epoch time.
@@ -953,22 +953,22 @@ instance FromJSON MLModel where
           = withObject "MLModel"
               (\ x ->
                  MLModel' <$>
-                   x .:? "Status" <*>
-                     x .:? "TrainingParameters" .!= mempty
-                     <*> x .:? "LastUpdatedAt"
-                     <*> x .:? "CreatedAt"
-                     <*> x .:? "ScoreThresholdLastUpdatedAt"
-                     <*> x .:? "InputDataLocationS3"
-                     <*> x .:? "SizeInBytes"
-                     <*> x .:? "MLModelId"
-                     <*> x .:? "ScoreThreshold"
-                     <*> x .:? "Name"
-                     <*> x .:? "Algorithm"
-                     <*> x .:? "CreatedByIamUser"
-                     <*> x .:? "EndpointInfo"
-                     <*> x .:? "TrainingDataSourceId"
-                     <*> x .:? "Message"
-                     <*> x .:? "MLModelType")
+                   (x .:? "Status") <*>
+                     (x .:? "TrainingParameters" .!= mempty)
+                     <*> (x .:? "LastUpdatedAt")
+                     <*> (x .:? "CreatedAt")
+                     <*> (x .:? "ScoreThresholdLastUpdatedAt")
+                     <*> (x .:? "InputDataLocationS3")
+                     <*> (x .:? "SizeInBytes")
+                     <*> (x .:? "MLModelId")
+                     <*> (x .:? "ScoreThreshold")
+                     <*> (x .:? "Name")
+                     <*> (x .:? "Algorithm")
+                     <*> (x .:? "CreatedByIamUser")
+                     <*> (x .:? "EndpointInfo")
+                     <*> (x .:? "TrainingDataSourceId")
+                     <*> (x .:? "Message")
+                     <*> (x .:? "MLModelType"))
 
 data MLModelFilterVariable = MLMFVRealtimeEndpointStatus | MLMFVMLModelType | MLMFVTrainingDataURI | MLMFVStatus | MLMFVIAMUser | MLMFVCreatedAt | MLMFVTrainingDataSourceId | MLMFVAlgorithm | MLMFVName | MLMFVLastUpdatedAt deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -1036,22 +1036,22 @@ instance FromJSON MLModelType where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'pmProperties'
-newtype PerformanceMetrics = PerformanceMetrics'{_pmProperties :: Maybe (HashMap Text Text)} deriving (Eq, Read, Show)
+newtype PerformanceMetrics = PerformanceMetrics'{_pmProperties :: Maybe (Map Text Text)} deriving (Eq, Read, Show)
 
 -- | 'PerformanceMetrics' smart constructor.
 performanceMetrics :: PerformanceMetrics
 performanceMetrics = PerformanceMetrics'{_pmProperties = Nothing};
 
 -- | FIXME: Undocumented member.
-pmProperties :: Lens' PerformanceMetrics (Maybe (HashMap Text Text))
-pmProperties = lens _pmProperties (\ s a -> s{_pmProperties = a}) . mapping _Coerce;
+pmProperties :: Lens' PerformanceMetrics (Map Text Text)
+pmProperties = lens _pmProperties (\ s a -> s{_pmProperties = a}) . _Default . _Map;
 
 instance FromJSON PerformanceMetrics where
         parseJSON
           = withObject "PerformanceMetrics"
               (\ x ->
                  PerformanceMetrics' <$>
-                   x .:? "Properties" .!= mempty)
+                   (x .:? "Properties" .!= mempty))
 
 -- | /See:/ 'prediction' smart constructor.
 --
@@ -1064,7 +1064,7 @@ instance FromJSON PerformanceMetrics where
 -- * 'prePredictedScores'
 --
 -- * 'preDetails'
-data Prediction = Prediction'{_prePredictedValue :: Maybe Double, _prePredictedLabel :: Maybe Text, _prePredictedScores :: Maybe (HashMap Text Double), _preDetails :: Maybe (HashMap DetailsAttributes Text)} deriving (Eq, Read, Show)
+data Prediction = Prediction'{_prePredictedValue :: Maybe Double, _prePredictedLabel :: Maybe Text, _prePredictedScores :: Maybe (Map Text Double), _preDetails :: Maybe (Map DetailsAttributes Text)} deriving (Eq, Read, Show)
 
 -- | 'Prediction' smart constructor.
 prediction :: Prediction
@@ -1079,21 +1079,21 @@ prePredictedLabel :: Lens' Prediction (Maybe Text)
 prePredictedLabel = lens _prePredictedLabel (\ s a -> s{_prePredictedLabel = a});
 
 -- | FIXME: Undocumented member.
-prePredictedScores :: Lens' Prediction (Maybe (HashMap Text Double))
-prePredictedScores = lens _prePredictedScores (\ s a -> s{_prePredictedScores = a}) . mapping _Coerce;
+prePredictedScores :: Lens' Prediction (Map Text Double)
+prePredictedScores = lens _prePredictedScores (\ s a -> s{_prePredictedScores = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-preDetails :: Lens' Prediction (Maybe (HashMap DetailsAttributes Text))
-preDetails = lens _preDetails (\ s a -> s{_preDetails = a}) . mapping _Coerce;
+preDetails :: Lens' Prediction (Map DetailsAttributes Text)
+preDetails = lens _preDetails (\ s a -> s{_preDetails = a}) . _Default . _Map;
 
 instance FromJSON Prediction where
         parseJSON
           = withObject "Prediction"
               (\ x ->
                  Prediction' <$>
-                   x .:? "predictedValue" <*> x .:? "predictedLabel" <*>
-                     x .:? "predictedScores" .!= mempty
-                     <*> x .:? "details" .!= mempty)
+                   (x .:? "predictedValue") <*> (x .:? "predictedLabel")
+                     <*> (x .:? "predictedScores" .!= mempty)
+                     <*> (x .:? "details" .!= mempty))
 
 -- | /See:/ 'rdsDataSpec' smart constructor.
 --
@@ -1233,7 +1233,8 @@ instance FromJSON RDSDatabase where
           = withObject "RDSDatabase"
               (\ x ->
                  RDSDatabase' <$>
-                   x .: "InstanceIdentifier" <*> x .: "DatabaseName")
+                   (x .: "InstanceIdentifier") <*>
+                     (x .: "DatabaseName"))
 
 instance ToJSON RDSDatabase where
         toJSON RDSDatabase'{..}
@@ -1329,11 +1330,11 @@ instance FromJSON RDSMetadata where
           = withObject "RDSMetadata"
               (\ x ->
                  RDSMetadata' <$>
-                   x .:? "SelectSqlQuery" <*> x .:? "DataPipelineId" <*>
-                     x .:? "Database"
-                     <*> x .:? "DatabaseUserName"
-                     <*> x .:? "ResourceRole"
-                     <*> x .:? "ServiceRole")
+                   (x .:? "SelectSqlQuery") <*> (x .:? "DataPipelineId")
+                     <*> (x .:? "Database")
+                     <*> (x .:? "DatabaseUserName")
+                     <*> (x .:? "ResourceRole")
+                     <*> (x .:? "ServiceRole"))
 
 -- | /See:/ 'realtimeEndpointInfo' smart constructor.
 --
@@ -1386,9 +1387,9 @@ instance FromJSON RealtimeEndpointInfo where
           = withObject "RealtimeEndpointInfo"
               (\ x ->
                  RealtimeEndpointInfo' <$>
-                   x .:? "CreatedAt" <*> x .:? "EndpointUrl" <*>
-                     x .:? "EndpointStatus"
-                     <*> x .:? "PeakRequestsPerSecond")
+                   (x .:? "CreatedAt") <*> (x .:? "EndpointUrl") <*>
+                     (x .:? "EndpointStatus")
+                     <*> (x .:? "PeakRequestsPerSecond"))
 
 data RealtimeEndpointStatus = RESUpdating | RESReady | RESFailed | RESNone deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -1506,7 +1507,7 @@ instance FromJSON RedshiftDatabase where
           = withObject "RedshiftDatabase"
               (\ x ->
                  RedshiftDatabase' <$>
-                   x .: "DatabaseName" <*> x .: "ClusterIdentifier")
+                   (x .: "DatabaseName") <*> (x .: "ClusterIdentifier"))
 
 instance ToJSON RedshiftDatabase where
         toJSON RedshiftDatabase'{..}
@@ -1574,8 +1575,9 @@ instance FromJSON RedshiftMetadata where
           = withObject "RedshiftMetadata"
               (\ x ->
                  RedshiftMetadata' <$>
-                   x .:? "SelectSqlQuery" <*> x .:? "RedshiftDatabase"
-                     <*> x .:? "DatabaseUserName")
+                   (x .:? "SelectSqlQuery") <*>
+                     (x .:? "RedshiftDatabase")
+                     <*> (x .:? "DatabaseUserName"))
 
 -- | /See:/ 's3DataSpec' smart constructor.
 --

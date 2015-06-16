@@ -97,7 +97,7 @@ instance AWSRequest ListSigningCertificates where
           = receiveXMLWrapper "ListSigningCertificatesResult"
               (\ s h x ->
                  ListSigningCertificatesResponse' <$>
-                   x .@? "Marker" <*> x .@? "IsTruncated" <*>
+                   (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
                      (x .@? "Certificates" .!@ mempty >>=
                         parseXMLList "member"))
 

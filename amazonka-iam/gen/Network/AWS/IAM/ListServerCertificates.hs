@@ -95,7 +95,7 @@ instance AWSRequest ListServerCertificates where
           = receiveXMLWrapper "ListServerCertificatesResult"
               (\ s h x ->
                  ListServerCertificatesResponse' <$>
-                   x .@? "Marker" <*> x .@? "IsTruncated" <*>
+                   (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
                      (x .@? "ServerCertificateMetadataList" .!@ mempty >>=
                         parseXMLList "member"))
 

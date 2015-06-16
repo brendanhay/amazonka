@@ -215,8 +215,8 @@ instance AWSRequest AssumeRole where
           = receiveXMLWrapper "AssumeRoleResult"
               (\ s h x ->
                  AssumeRoleResponse' <$>
-                   x .@? "PackedPolicySize" <*> x .@? "Credentials" <*>
-                     x .@? "AssumedRoleUser")
+                   (x .@? "PackedPolicySize") <*> (x .@? "Credentials")
+                     <*> (x .@? "AssumedRoleUser"))
 
 instance ToHeaders AssumeRole where
         toHeaders = const mempty

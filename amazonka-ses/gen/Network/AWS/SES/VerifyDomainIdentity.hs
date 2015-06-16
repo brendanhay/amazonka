@@ -65,7 +65,7 @@ instance AWSRequest VerifyDomainIdentity where
           = receiveXMLWrapper "VerifyDomainIdentityResult"
               (\ s h x ->
                  VerifyDomainIdentityResponse' <$>
-                   x .@ "VerificationToken")
+                   (x .@ "VerificationToken"))
 
 instance ToHeaders VerifyDomainIdentity where
         toHeaders = const mempty

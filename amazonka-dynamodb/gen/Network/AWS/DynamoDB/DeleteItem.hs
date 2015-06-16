@@ -471,9 +471,9 @@ instance AWSRequest DeleteItem where
           = receiveJSON
               (\ s h x ->
                  DeleteItemResponse' <$>
-                   x .?> "ConsumedCapacity" <*>
-                     x .?> "ItemCollectionMetrics"
-                     <*> x .?> "Attributes" .!@ mempty)
+                   (x .?> "ConsumedCapacity") <*>
+                     (x .?> "ItemCollectionMetrics")
+                     <*> (x .?> "Attributes" .!@ mempty))
 
 instance ToHeaders DeleteItem where
         toHeaders

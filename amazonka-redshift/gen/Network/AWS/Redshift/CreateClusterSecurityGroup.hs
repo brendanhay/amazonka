@@ -62,8 +62,8 @@ createClusterSecurityGroup :: Text -> Text -> CreateClusterSecurityGroup
 createClusterSecurityGroup pClusterSecurityGroupName pDescription = CreateClusterSecurityGroup'{_creTags = Nothing, _creClusterSecurityGroupName = pClusterSecurityGroupName, _creDescription = pDescription};
 
 -- | A list of tag instances.
-creTags :: Lens' CreateClusterSecurityGroup (Maybe [Tag])
-creTags = lens _creTags (\ s a -> s{_creTags = a});
+creTags :: Lens' CreateClusterSecurityGroup [Tag]
+creTags = lens _creTags (\ s a -> s{_creTags = a}) . _Default;
 
 -- | The name for the security group. Amazon Redshift stores the value as a
 -- lowercase string.
@@ -93,7 +93,7 @@ instance AWSRequest CreateClusterSecurityGroup where
               "CreateClusterSecurityGroupResult"
               (\ s h x ->
                  CreateClusterSecurityGroupResponse' <$>
-                   x .@? "ClusterSecurityGroup")
+                   (x .@? "ClusterSecurityGroup"))
 
 instance ToHeaders CreateClusterSecurityGroup where
         toHeaders = const mempty
@@ -107,7 +107,7 @@ instance ToQuery CreateClusterSecurityGroup where
               ["Action" =:
                  ("CreateClusterSecurityGroup" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "Tags" =: "Tag" =: _creTags,
+               "Tags" =: toQuery (toQueryList "Tag" <$> _creTags),
                "ClusterSecurityGroupName" =:
                  _creClusterSecurityGroupName,
                "Description" =: _creDescription]

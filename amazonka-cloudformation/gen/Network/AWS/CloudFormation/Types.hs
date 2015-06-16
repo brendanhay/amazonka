@@ -264,8 +264,8 @@ outDescription = lens _outDescription (\ s a -> s{_outDescription = a});
 instance FromXML Output where
         parseXML x
           = Output' <$>
-              x .@? "OutputValue" <*> x .@? "OutputKey" <*>
-                x .@? "Description"
+              (x .@? "OutputValue") <*> (x .@? "OutputKey") <*>
+                (x .@? "Description")
 
 -- | /See:/ 'parameter' smart constructor.
 --
@@ -301,8 +301,8 @@ parUsePreviousValue = lens _parUsePreviousValue (\ s a -> s{_parUsePreviousValue
 instance FromXML Parameter where
         parseXML x
           = Parameter' <$>
-              x .@? "ParameterValue" <*> x .@? "ParameterKey" <*>
-                x .@? "UsePreviousValue"
+              (x .@? "ParameterValue") <*> (x .@? "ParameterKey")
+                <*> (x .@? "UsePreviousValue")
 
 instance ToQuery Parameter where
         toQuery Parameter'{..}
@@ -323,14 +323,14 @@ parameterConstraints :: ParameterConstraints
 parameterConstraints = ParameterConstraints'{_pcAllowedValues = Nothing};
 
 -- | A list of values that are permitted for a parameter.
-pcAllowedValues :: Lens' ParameterConstraints (Maybe [Text])
-pcAllowedValues = lens _pcAllowedValues (\ s a -> s{_pcAllowedValues = a});
+pcAllowedValues :: Lens' ParameterConstraints [Text]
+pcAllowedValues = lens _pcAllowedValues (\ s a -> s{_pcAllowedValues = a}) . _Default;
 
 instance FromXML ParameterConstraints where
         parseXML x
           = ParameterConstraints' <$>
               (x .@? "AllowedValues" .!@ mempty >>=
-                 parseXMLList "member")
+                 may (parseXMLList "member"))
 
 -- | /See:/ 'parameterDeclaration' smart constructor.
 --
@@ -381,11 +381,11 @@ pdDescription = lens _pdDescription (\ s a -> s{_pdDescription = a});
 instance FromXML ParameterDeclaration where
         parseXML x
           = ParameterDeclaration' <$>
-              x .@? "ParameterKey" <*> x .@? "ParameterType" <*>
-                x .@? "ParameterConstraints"
-                <*> x .@? "DefaultValue"
-                <*> x .@? "NoEcho"
-                <*> x .@? "Description"
+              (x .@? "ParameterKey") <*> (x .@? "ParameterType")
+                <*> (x .@? "ParameterConstraints")
+                <*> (x .@? "DefaultValue")
+                <*> (x .@? "NoEcho")
+                <*> (x .@? "Description")
 
 data ResourceSignalStatus = Success | Failure deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -490,36 +490,36 @@ staLastUpdatedTime :: Lens' Stack (Maybe UTCTime)
 staLastUpdatedTime = lens _staLastUpdatedTime (\ s a -> s{_staLastUpdatedTime = a}) . mapping _Time;
 
 -- | SNS topic ARNs to which stack related events are published.
-staNotificationARNs :: Lens' Stack (Maybe [Text])
-staNotificationARNs = lens _staNotificationARNs (\ s a -> s{_staNotificationARNs = a});
+staNotificationARNs :: Lens' Stack [Text]
+staNotificationARNs = lens _staNotificationARNs (\ s a -> s{_staNotificationARNs = a}) . _Default;
 
 -- | Success\/failure message associated with the stack status.
 staStackStatusReason :: Lens' Stack (Maybe Text)
 staStackStatusReason = lens _staStackStatusReason (\ s a -> s{_staStackStatusReason = a});
 
 -- | A list of output structures.
-staOutputs :: Lens' Stack (Maybe [Output])
-staOutputs = lens _staOutputs (\ s a -> s{_staOutputs = a});
+staOutputs :: Lens' Stack [Output]
+staOutputs = lens _staOutputs (\ s a -> s{_staOutputs = a}) . _Default;
 
 -- | A list of @Parameter@ structures.
-staParameters :: Lens' Stack (Maybe [Parameter])
-staParameters = lens _staParameters (\ s a -> s{_staParameters = a});
+staParameters :: Lens' Stack [Parameter]
+staParameters = lens _staParameters (\ s a -> s{_staParameters = a}) . _Default;
 
 -- | Unique identifier of the stack.
 staStackId :: Lens' Stack (Maybe Text)
 staStackId = lens _staStackId (\ s a -> s{_staStackId = a});
 
 -- | The capabilities allowed in the stack.
-staCapabilities :: Lens' Stack (Maybe [Capability])
-staCapabilities = lens _staCapabilities (\ s a -> s{_staCapabilities = a});
+staCapabilities :: Lens' Stack [Capability]
+staCapabilities = lens _staCapabilities (\ s a -> s{_staCapabilities = a}) . _Default;
 
 -- | User defined description associated with the stack.
 staDescription :: Lens' Stack (Maybe Text)
 staDescription = lens _staDescription (\ s a -> s{_staDescription = a});
 
 -- | A list of @Tag@s that specify cost allocation information for the stack.
-staTags :: Lens' Stack (Maybe [Tag])
-staTags = lens _staTags (\ s a -> s{_staTags = a});
+staTags :: Lens' Stack [Tag]
+staTags = lens _staTags (\ s a -> s{_staTags = a}) . _Default;
 
 -- | The amount of time within which stack creation should complete.
 staTimeoutInMinutes :: Lens' Stack (Maybe Natural)
@@ -540,28 +540,30 @@ staStackStatus = lens _staStackStatus (\ s a -> s{_staStackStatus = a});
 instance FromXML Stack where
         parseXML x
           = Stack' <$>
-              x .@? "DisableRollback" <*> x .@? "LastUpdatedTime"
+              (x .@? "DisableRollback") <*>
+                (x .@? "LastUpdatedTime")
                 <*>
                 (x .@? "NotificationARNs" .!@ mempty >>=
-                   parseXMLList "member")
-                <*> x .@? "StackStatusReason"
+                   may (parseXMLList "member"))
+                <*> (x .@? "StackStatusReason")
                 <*>
                 (x .@? "Outputs" .!@ mempty >>=
-                   parseXMLList "member")
+                   may (parseXMLList "member"))
                 <*>
                 (x .@? "Parameters" .!@ mempty >>=
-                   parseXMLList "member")
-                <*> x .@? "StackId"
+                   may (parseXMLList "member"))
+                <*> (x .@? "StackId")
                 <*>
                 (x .@? "Capabilities" .!@ mempty >>=
-                   parseXMLList "member")
-                <*> x .@? "Description"
+                   may (parseXMLList "member"))
+                <*> (x .@? "Description")
                 <*>
-                (x .@? "Tags" .!@ mempty >>= parseXMLList "member")
-                <*> x .@? "TimeoutInMinutes"
-                <*> x .@ "StackName"
-                <*> x .@ "CreationTime"
-                <*> x .@ "StackStatus"
+                (x .@? "Tags" .!@ mempty >>=
+                   may (parseXMLList "member"))
+                <*> (x .@? "TimeoutInMinutes")
+                <*> (x .@ "StackName")
+                <*> (x .@ "CreationTime")
+                <*> (x .@ "StackStatus")
 
 -- | /See:/ 'stackEvent' smart constructor.
 --
@@ -638,16 +640,16 @@ seTimestamp = lens _seTimestamp (\ s a -> s{_seTimestamp = a}) . _Time;
 instance FromXML StackEvent where
         parseXML x
           = StackEvent' <$>
-              x .@? "LogicalResourceId" <*>
-                x .@? "ResourceStatusReason"
-                <*> x .@? "ResourceType"
-                <*> x .@? "PhysicalResourceId"
-                <*> x .@? "ResourceProperties"
-                <*> x .@? "ResourceStatus"
-                <*> x .@ "StackId"
-                <*> x .@ "EventId"
-                <*> x .@ "StackName"
-                <*> x .@ "Timestamp"
+              (x .@? "LogicalResourceId") <*>
+                (x .@? "ResourceStatusReason")
+                <*> (x .@? "ResourceType")
+                <*> (x .@? "PhysicalResourceId")
+                <*> (x .@? "ResourceProperties")
+                <*> (x .@? "ResourceStatus")
+                <*> (x .@ "StackId")
+                <*> (x .@ "EventId")
+                <*> (x .@ "StackName")
+                <*> (x .@ "Timestamp")
 
 -- | /See:/ 'stackResource' smart constructor.
 --
@@ -718,15 +720,15 @@ srResourceStatus = lens _srResourceStatus (\ s a -> s{_srResourceStatus = a});
 instance FromXML StackResource where
         parseXML x
           = StackResource' <$>
-              x .@? "ResourceStatusReason" <*>
-                x .@? "PhysicalResourceId"
-                <*> x .@? "StackId"
-                <*> x .@? "Description"
-                <*> x .@? "StackName"
-                <*> x .@ "LogicalResourceId"
-                <*> x .@ "ResourceType"
-                <*> x .@ "Timestamp"
-                <*> x .@ "ResourceStatus"
+              (x .@? "ResourceStatusReason") <*>
+                (x .@? "PhysicalResourceId")
+                <*> (x .@? "StackId")
+                <*> (x .@? "Description")
+                <*> (x .@? "StackName")
+                <*> (x .@ "LogicalResourceId")
+                <*> (x .@ "ResourceType")
+                <*> (x .@ "Timestamp")
+                <*> (x .@ "ResourceStatus")
 
 -- | /See:/ 'stackResourceDetail' smart constructor.
 --
@@ -806,16 +808,16 @@ srdResourceStatus = lens _srdResourceStatus (\ s a -> s{_srdResourceStatus = a})
 instance FromXML StackResourceDetail where
         parseXML x
           = StackResourceDetail' <$>
-              x .@? "ResourceStatusReason" <*>
-                x .@? "PhysicalResourceId"
-                <*> x .@? "Metadata"
-                <*> x .@? "StackId"
-                <*> x .@? "Description"
-                <*> x .@? "StackName"
-                <*> x .@ "LogicalResourceId"
-                <*> x .@ "ResourceType"
-                <*> x .@ "LastUpdatedTimestamp"
-                <*> x .@ "ResourceStatus"
+              (x .@? "ResourceStatusReason") <*>
+                (x .@? "PhysicalResourceId")
+                <*> (x .@? "Metadata")
+                <*> (x .@? "StackId")
+                <*> (x .@? "Description")
+                <*> (x .@? "StackName")
+                <*> (x .@ "LogicalResourceId")
+                <*> (x .@ "ResourceType")
+                <*> (x .@ "LastUpdatedTimestamp")
+                <*> (x .@ "ResourceStatus")
 
 -- | /See:/ 'stackResourceSummary' smart constructor.
 --
@@ -868,12 +870,12 @@ srsResourceStatus = lens _srsResourceStatus (\ s a -> s{_srsResourceStatus = a})
 instance FromXML StackResourceSummary where
         parseXML x
           = StackResourceSummary' <$>
-              x .@? "ResourceStatusReason" <*>
-                x .@? "PhysicalResourceId"
-                <*> x .@ "LogicalResourceId"
-                <*> x .@ "ResourceType"
-                <*> x .@ "LastUpdatedTimestamp"
-                <*> x .@ "ResourceStatus"
+              (x .@? "ResourceStatusReason") <*>
+                (x .@? "PhysicalResourceId")
+                <*> (x .@ "LogicalResourceId")
+                <*> (x .@ "ResourceType")
+                <*> (x .@ "LastUpdatedTimestamp")
+                <*> (x .@ "ResourceStatus")
 
 data StackStatus = SSUpdateRollbackFailed | SSUpdateCompleteCleanupINProgress | SSUpdateRollbackINProgress | SSCreateINProgress | SSRollbackINProgress | SSUpdateRollbackCompleteCleanupINProgress | SSCreateFailed | SSRollbackComplete | SSDeleteFailed | SSRollbackFailed | SSCreateComplete | SSDeleteComplete | SSUpdateComplete | SSDeleteINProgress | SSUpdateINProgress | SSUpdateRollbackComplete deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -984,14 +986,14 @@ ssStackStatus = lens _ssStackStatus (\ s a -> s{_ssStackStatus = a});
 instance FromXML StackSummary where
         parseXML x
           = StackSummary' <$>
-              x .@? "LastUpdatedTime" <*>
-                x .@? "TemplateDescription"
-                <*> x .@? "StackStatusReason"
-                <*> x .@? "DeletionTime"
-                <*> x .@? "StackId"
-                <*> x .@ "StackName"
-                <*> x .@ "CreationTime"
-                <*> x .@ "StackStatus"
+              (x .@? "LastUpdatedTime") <*>
+                (x .@? "TemplateDescription")
+                <*> (x .@? "StackStatusReason")
+                <*> (x .@? "DeletionTime")
+                <*> (x .@? "StackId")
+                <*> (x .@ "StackName")
+                <*> (x .@ "CreationTime")
+                <*> (x .@ "StackStatus")
 
 -- | /See:/ 'tag' smart constructor.
 --
@@ -1018,7 +1020,8 @@ tagKey :: Lens' Tag (Maybe Text)
 tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 
 instance FromXML Tag where
-        parseXML x = Tag' <$> x .@? "Value" <*> x .@? "Key"
+        parseXML x
+          = Tag' <$> (x .@? "Value") <*> (x .@? "Key")
 
 instance ToQuery Tag where
         toQuery Tag'{..}
@@ -1061,6 +1064,6 @@ tpDescription = lens _tpDescription (\ s a -> s{_tpDescription = a});
 instance FromXML TemplateParameter where
         parseXML x
           = TemplateParameter' <$>
-              x .@? "ParameterKey" <*> x .@? "DefaultValue" <*>
-                x .@? "NoEcho"
-                <*> x .@? "Description"
+              (x .@? "ParameterKey") <*> (x .@? "DefaultValue") <*>
+                (x .@? "NoEcho")
+                <*> (x .@? "Description")

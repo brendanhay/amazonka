@@ -73,8 +73,8 @@ lcMarker :: Lens' ListClusters (Maybe Text)
 lcMarker = lens _lcMarker (\ s a -> s{_lcMarker = a});
 
 -- | The cluster state filters to apply when listing clusters.
-lcClusterStates :: Lens' ListClusters (Maybe [ClusterState])
-lcClusterStates = lens _lcClusterStates (\ s a -> s{_lcClusterStates = a});
+lcClusterStates :: Lens' ListClusters [ClusterState]
+lcClusterStates = lens _lcClusterStates (\ s a -> s{_lcClusterStates = a}) . _Default;
 
 -- | The creation date and time end value filter for listing clusters .
 lcCreatedBefore :: Lens' ListClusters (Maybe UTCTime)
@@ -88,7 +88,7 @@ instance AWSRequest ListClusters where
           = receiveJSON
               (\ s h x ->
                  ListClustersResponse' <$>
-                   x .?> "Marker" <*> x .?> "Clusters" .!@ mempty)
+                   (x .?> "Marker") <*> (x .?> "Clusters" .!@ mempty))
 
 instance ToHeaders ListClusters where
         toHeaders
@@ -131,5 +131,5 @@ lcrMarker :: Lens' ListClustersResponse (Maybe Text)
 lcrMarker = lens _lcrMarker (\ s a -> s{_lcrMarker = a});
 
 -- | The list of clusters for the account based on the given filters.
-lcrClusters :: Lens' ListClustersResponse (Maybe [ClusterSummary])
-lcrClusters = lens _lcrClusters (\ s a -> s{_lcrClusters = a});
+lcrClusters :: Lens' ListClustersResponse [ClusterSummary]
+lcrClusters = lens _lcrClusters (\ s a -> s{_lcrClusters = a}) . _Default;

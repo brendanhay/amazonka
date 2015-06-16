@@ -401,7 +401,7 @@ instance FromJSON ActionOnFailure where
 -- * 'appName'
 --
 -- * 'appVersion'
-data Application = Application'{_appAdditionalInfo :: Maybe (HashMap Text Text), _appArgs :: Maybe [Text], _appName :: Maybe Text, _appVersion :: Maybe Text} deriving (Eq, Read, Show)
+data Application = Application'{_appAdditionalInfo :: Maybe (Map Text Text), _appArgs :: Maybe [Text], _appName :: Maybe Text, _appVersion :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'Application' smart constructor.
 application :: Application
@@ -410,12 +410,12 @@ application = Application'{_appAdditionalInfo = Nothing, _appArgs = Nothing, _ap
 -- | This option is for advanced users only. This is meta information about
 -- third-party applications that third-party vendors use for testing
 -- purposes.
-appAdditionalInfo :: Lens' Application (Maybe (HashMap Text Text))
-appAdditionalInfo = lens _appAdditionalInfo (\ s a -> s{_appAdditionalInfo = a}) . mapping _Coerce;
+appAdditionalInfo :: Lens' Application (Map Text Text)
+appAdditionalInfo = lens _appAdditionalInfo (\ s a -> s{_appAdditionalInfo = a}) . _Default . _Map;
 
 -- | Arguments for Amazon EMR to pass to the application.
-appArgs :: Lens' Application (Maybe [Text])
-appArgs = lens _appArgs (\ s a -> s{_appArgs = a});
+appArgs :: Lens' Application [Text]
+appArgs = lens _appArgs (\ s a -> s{_appArgs = a}) . _Default;
 
 -- | The name of the application.
 appName :: Lens' Application (Maybe Text)
@@ -430,10 +430,10 @@ instance FromJSON Application where
           = withObject "Application"
               (\ x ->
                  Application' <$>
-                   x .:? "AdditionalInfo" .!= mempty <*>
-                     x .:? "Args" .!= mempty
-                     <*> x .:? "Name"
-                     <*> x .:? "Version")
+                   (x .:? "AdditionalInfo" .!= mempty) <*>
+                     (x .:? "Args" .!= mempty)
+                     <*> (x .:? "Name")
+                     <*> (x .:? "Version"))
 
 -- | /See:/ 'bootstrapActionConfig' smart constructor.
 --
@@ -554,12 +554,12 @@ cluVisibleToAllUsers :: Lens' Cluster (Maybe Bool)
 cluVisibleToAllUsers = lens _cluVisibleToAllUsers (\ s a -> s{_cluVisibleToAllUsers = a});
 
 -- | The applications installed on this cluster.
-cluApplications :: Lens' Cluster (Maybe [Application])
-cluApplications = lens _cluApplications (\ s a -> s{_cluApplications = a});
+cluApplications :: Lens' Cluster [Application]
+cluApplications = lens _cluApplications (\ s a -> s{_cluApplications = a}) . _Default;
 
 -- | A list of tags associated with a cluster.
-cluTags :: Lens' Cluster (Maybe [Tag])
-cluTags = lens _cluTags (\ s a -> s{_cluTags = a});
+cluTags :: Lens' Cluster [Tag]
+cluTags = lens _cluTags (\ s a -> s{_cluTags = a}) . _Default;
 
 -- | The IAM role that will be assumed by the Amazon EMR service to access
 -- AWS resources on your behalf.
@@ -583,21 +583,21 @@ instance FromJSON Cluster where
           = withObject "Cluster"
               (\ x ->
                  Cluster' <$>
-                   x .:? "RequestedAmiVersion" <*>
-                     x .:? "Ec2InstanceAttributes"
-                     <*> x .:? "NormalizedInstanceHours"
-                     <*> x .:? "LogUri"
-                     <*> x .:? "RunningAmiVersion"
-                     <*> x .:? "MasterPublicDnsName"
-                     <*> x .:? "AutoTerminate"
-                     <*> x .:? "TerminationProtected"
-                     <*> x .:? "VisibleToAllUsers"
-                     <*> x .:? "Applications" .!= mempty
-                     <*> x .:? "Tags" .!= mempty
-                     <*> x .:? "ServiceRole"
-                     <*> x .: "Id"
-                     <*> x .: "Name"
-                     <*> x .: "Status")
+                   (x .:? "RequestedAmiVersion") <*>
+                     (x .:? "Ec2InstanceAttributes")
+                     <*> (x .:? "NormalizedInstanceHours")
+                     <*> (x .:? "LogUri")
+                     <*> (x .:? "RunningAmiVersion")
+                     <*> (x .:? "MasterPublicDnsName")
+                     <*> (x .:? "AutoTerminate")
+                     <*> (x .:? "TerminationProtected")
+                     <*> (x .:? "VisibleToAllUsers")
+                     <*> (x .:? "Applications" .!= mempty)
+                     <*> (x .:? "Tags" .!= mempty)
+                     <*> (x .:? "ServiceRole")
+                     <*> (x .: "Id")
+                     <*> (x .: "Name")
+                     <*> (x .: "Status"))
 
 data ClusterState = TerminatedWithErrors | Terminating | Starting | Running | Bootstrapping | Terminated | Waiting deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -658,7 +658,7 @@ instance FromJSON ClusterStateChangeReason where
           = withObject "ClusterStateChangeReason"
               (\ x ->
                  ClusterStateChangeReason' <$>
-                   x .:? "Code" <*> x .:? "Message")
+                   (x .:? "Code") <*> (x .:? "Message"))
 
 data ClusterStateChangeReasonCode = BootstrapFailure | StepFailure | AllStepsCompleted | UserRequest | ValidationError | InternalError | InstanceFailure deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -723,8 +723,8 @@ instance FromJSON ClusterStatus where
           = withObject "ClusterStatus"
               (\ x ->
                  ClusterStatus' <$>
-                   x .:? "State" <*> x .:? "StateChangeReason" <*>
-                     x .:? "Timeline")
+                   (x .:? "State") <*> (x .:? "StateChangeReason") <*>
+                     (x .:? "Timeline"))
 
 -- | /See:/ 'clusterSummary' smart constructor.
 --
@@ -769,9 +769,10 @@ instance FromJSON ClusterSummary where
           = withObject "ClusterSummary"
               (\ x ->
                  ClusterSummary' <$>
-                   x .:? "Status" <*> x .:? "NormalizedInstanceHours"
-                     <*> x .:? "Name"
-                     <*> x .:? "Id")
+                   (x .:? "Status") <*>
+                     (x .:? "NormalizedInstanceHours")
+                     <*> (x .:? "Name")
+                     <*> (x .:? "Id"))
 
 -- | /See:/ 'clusterTimeline' smart constructor.
 --
@@ -805,8 +806,9 @@ instance FromJSON ClusterTimeline where
           = withObject "ClusterTimeline"
               (\ x ->
                  ClusterTimeline' <$>
-                   x .:? "ReadyDateTime" <*> x .:? "CreationDateTime"
-                     <*> x .:? "EndDateTime")
+                   (x .:? "ReadyDateTime") <*>
+                     (x .:? "CreationDateTime")
+                     <*> (x .:? "EndDateTime"))
 
 -- | /See:/ 'command' smart constructor.
 --
@@ -824,8 +826,8 @@ command :: Command
 command = Command'{_comArgs = Nothing, _comScriptPath = Nothing, _comName = Nothing};
 
 -- | Arguments for Amazon EMR to pass to the command for execution.
-comArgs :: Lens' Command (Maybe [Text])
-comArgs = lens _comArgs (\ s a -> s{_comArgs = a});
+comArgs :: Lens' Command [Text]
+comArgs = lens _comArgs (\ s a -> s{_comArgs = a}) . _Default;
 
 -- | The Amazon S3 location of the command script.
 comScriptPath :: Lens' Command (Maybe Text)
@@ -840,8 +842,8 @@ instance FromJSON Command where
           = withObject "Command"
               (\ x ->
                  Command' <$>
-                   x .:? "Args" .!= mempty <*> x .:? "ScriptPath" <*>
-                     x .:? "Name")
+                   (x .:? "Args" .!= mempty) <*> (x .:? "ScriptPath")
+                     <*> (x .:? "Name"))
 
 -- | /See:/ 'ec2InstanceAttributes' smart constructor.
 --
@@ -879,8 +881,8 @@ eiaEmrManagedSlaveSecurityGroup :: Lens' EC2InstanceAttributes (Maybe Text)
 eiaEmrManagedSlaveSecurityGroup = lens _eiaEmrManagedSlaveSecurityGroup (\ s a -> s{_eiaEmrManagedSlaveSecurityGroup = a});
 
 -- | A list of additional Amazon EC2 security group IDs for the slave nodes.
-eiaAdditionalSlaveSecurityGroups :: Lens' EC2InstanceAttributes (Maybe [Text])
-eiaAdditionalSlaveSecurityGroups = lens _eiaAdditionalSlaveSecurityGroups (\ s a -> s{_eiaAdditionalSlaveSecurityGroups = a});
+eiaAdditionalSlaveSecurityGroups :: Lens' EC2InstanceAttributes [Text]
+eiaAdditionalSlaveSecurityGroups = lens _eiaAdditionalSlaveSecurityGroups (\ s a -> s{_eiaAdditionalSlaveSecurityGroups = a}) . _Default;
 
 -- | The IAM role that was specified when the job flow was launched. The EC2
 -- instances of the job flow assume this role.
@@ -888,8 +890,8 @@ eiaIAMInstanceProfile :: Lens' EC2InstanceAttributes (Maybe Text)
 eiaIAMInstanceProfile = lens _eiaIAMInstanceProfile (\ s a -> s{_eiaIAMInstanceProfile = a});
 
 -- | A list of additional Amazon EC2 security group IDs for the master node.
-eiaAdditionalMasterSecurityGroups :: Lens' EC2InstanceAttributes (Maybe [Text])
-eiaAdditionalMasterSecurityGroups = lens _eiaAdditionalMasterSecurityGroups (\ s a -> s{_eiaAdditionalMasterSecurityGroups = a});
+eiaAdditionalMasterSecurityGroups :: Lens' EC2InstanceAttributes [Text]
+eiaAdditionalMasterSecurityGroups = lens _eiaAdditionalMasterSecurityGroups (\ s a -> s{_eiaAdditionalMasterSecurityGroups = a}) . _Default;
 
 -- | The identifier of the Amazon EC2 security group (managed by Amazon
 -- Elastic MapReduce) for the master node.
@@ -916,14 +918,16 @@ instance FromJSON EC2InstanceAttributes where
           = withObject "EC2InstanceAttributes"
               (\ x ->
                  EC2InstanceAttributes' <$>
-                   x .:? "Ec2KeyName" <*>
-                     x .:? "EmrManagedSlaveSecurityGroup"
-                     <*> x .:? "AdditionalSlaveSecurityGroups" .!= mempty
-                     <*> x .:? "IamInstanceProfile"
-                     <*> x .:? "AdditionalMasterSecurityGroups" .!= mempty
-                     <*> x .:? "EmrManagedMasterSecurityGroup"
-                     <*> x .:? "Ec2SubnetId"
-                     <*> x .:? "Ec2AvailabilityZone")
+                   (x .:? "Ec2KeyName") <*>
+                     (x .:? "EmrManagedSlaveSecurityGroup")
+                     <*>
+                     (x .:? "AdditionalSlaveSecurityGroups" .!= mempty)
+                     <*> (x .:? "IamInstanceProfile")
+                     <*>
+                     (x .:? "AdditionalMasterSecurityGroups" .!= mempty)
+                     <*> (x .:? "EmrManagedMasterSecurityGroup")
+                     <*> (x .:? "Ec2SubnetId")
+                     <*> (x .:? "Ec2AvailabilityZone"))
 
 -- | /See:/ 'hadoopJARStepConfig' smart constructor.
 --
@@ -944,8 +948,8 @@ hadoopJARStepConfig pJAR = HadoopJARStepConfig'{_hjscArgs = Nothing, _hjscMainCl
 
 -- | A list of command line arguments passed to the JAR file\'s main function
 -- when executed.
-hjscArgs :: Lens' HadoopJARStepConfig (Maybe [Text])
-hjscArgs = lens _hjscArgs (\ s a -> s{_hjscArgs = a});
+hjscArgs :: Lens' HadoopJARStepConfig [Text]
+hjscArgs = lens _hjscArgs (\ s a -> s{_hjscArgs = a}) . _Default;
 
 -- | The name of the main class in the specified Java file. If not specified,
 -- the JAR file should specify a Main-Class in its manifest file.
@@ -954,8 +958,8 @@ hjscMainClass = lens _hjscMainClass (\ s a -> s{_hjscMainClass = a});
 
 -- | A list of Java properties that are set when the step runs. You can use
 -- these properties to pass key value pairs to your main function.
-hjscProperties :: Lens' HadoopJARStepConfig (Maybe [KeyValue])
-hjscProperties = lens _hjscProperties (\ s a -> s{_hjscProperties = a});
+hjscProperties :: Lens' HadoopJARStepConfig [KeyValue]
+hjscProperties = lens _hjscProperties (\ s a -> s{_hjscProperties = a}) . _Default;
 
 -- | A path to a JAR file run during the step.
 hjscJAR :: Lens' HadoopJARStepConfig Text
@@ -978,7 +982,7 @@ instance ToJSON HadoopJARStepConfig where
 -- * 'hscMainClass'
 --
 -- * 'hscProperties'
-data HadoopStepConfig = HadoopStepConfig'{_hscArgs :: Maybe [Text], _hscJAR :: Maybe Text, _hscMainClass :: Maybe Text, _hscProperties :: Maybe (HashMap Text Text)} deriving (Eq, Read, Show)
+data HadoopStepConfig = HadoopStepConfig'{_hscArgs :: Maybe [Text], _hscJAR :: Maybe Text, _hscMainClass :: Maybe Text, _hscProperties :: Maybe (Map Text Text)} deriving (Eq, Read, Show)
 
 -- | 'HadoopStepConfig' smart constructor.
 hadoopStepConfig :: HadoopStepConfig
@@ -986,8 +990,8 @@ hadoopStepConfig = HadoopStepConfig'{_hscArgs = Nothing, _hscJAR = Nothing, _hsc
 
 -- | The list of command line arguments to pass to the JAR file\'s main
 -- function for execution.
-hscArgs :: Lens' HadoopStepConfig (Maybe [Text])
-hscArgs = lens _hscArgs (\ s a -> s{_hscArgs = a});
+hscArgs :: Lens' HadoopStepConfig [Text]
+hscArgs = lens _hscArgs (\ s a -> s{_hscArgs = a}) . _Default;
 
 -- | The path to the JAR file that runs during the step.
 hscJAR :: Lens' HadoopStepConfig (Maybe Text)
@@ -1000,17 +1004,17 @@ hscMainClass = lens _hscMainClass (\ s a -> s{_hscMainClass = a});
 
 -- | The list of Java properties that are set when the step runs. You can use
 -- these properties to pass key value pairs to your main function.
-hscProperties :: Lens' HadoopStepConfig (Maybe (HashMap Text Text))
-hscProperties = lens _hscProperties (\ s a -> s{_hscProperties = a}) . mapping _Coerce;
+hscProperties :: Lens' HadoopStepConfig (Map Text Text)
+hscProperties = lens _hscProperties (\ s a -> s{_hscProperties = a}) . _Default . _Map;
 
 instance FromJSON HadoopStepConfig where
         parseJSON
           = withObject "HadoopStepConfig"
               (\ x ->
                  HadoopStepConfig' <$>
-                   x .:? "Args" .!= mempty <*> x .:? "Jar" <*>
-                     x .:? "MainClass"
-                     <*> x .:? "Properties" .!= mempty)
+                   (x .:? "Args" .!= mempty) <*> (x .:? "Jar") <*>
+                     (x .:? "MainClass")
+                     <*> (x .:? "Properties" .!= mempty))
 
 -- | /See:/ 'instance'' smart constructor.
 --
@@ -1068,12 +1072,12 @@ instance FromJSON Instance where
           = withObject "Instance"
               (\ x ->
                  Instance' <$>
-                   x .:? "Status" <*> x .:? "PublicDnsName" <*>
-                     x .:? "Ec2InstanceId"
-                     <*> x .:? "PrivateIpAddress"
-                     <*> x .:? "Id"
-                     <*> x .:? "PrivateDnsName"
-                     <*> x .:? "PublicIpAddress")
+                   (x .:? "Status") <*> (x .:? "PublicDnsName") <*>
+                     (x .:? "Ec2InstanceId")
+                     <*> (x .:? "PrivateIpAddress")
+                     <*> (x .:? "Id")
+                     <*> (x .:? "PrivateDnsName")
+                     <*> (x .:? "PublicIpAddress"))
 
 -- | /See:/ 'instanceGroup' smart constructor.
 --
@@ -1145,14 +1149,14 @@ instance FromJSON InstanceGroup where
           = withObject "InstanceGroup"
               (\ x ->
                  InstanceGroup' <$>
-                   x .:? "Status" <*> x .:? "BidPrice" <*>
-                     x .:? "RequestedInstanceCount"
-                     <*> x .:? "RunningInstanceCount"
-                     <*> x .:? "InstanceGroupType"
-                     <*> x .:? "InstanceType"
-                     <*> x .:? "Market"
-                     <*> x .:? "Name"
-                     <*> x .:? "Id")
+                   (x .:? "Status") <*> (x .:? "BidPrice") <*>
+                     (x .:? "RequestedInstanceCount")
+                     <*> (x .:? "RunningInstanceCount")
+                     <*> (x .:? "InstanceGroupType")
+                     <*> (x .:? "InstanceType")
+                     <*> (x .:? "Market")
+                     <*> (x .:? "Name")
+                     <*> (x .:? "Id"))
 
 -- | /See:/ 'instanceGroupConfig' smart constructor.
 --
@@ -1231,8 +1235,8 @@ igmcInstanceCount = lens _igmcInstanceCount (\ s a -> s{_igmcInstanceCount = a})
 -- | The EC2 InstanceIds to terminate. For advanced users only. Once you
 -- terminate the instances, the instance group will not return to its
 -- original requested size.
-igmcEC2InstanceIdsToTerminate :: Lens' InstanceGroupModifyConfig (Maybe [Text])
-igmcEC2InstanceIdsToTerminate = lens _igmcEC2InstanceIdsToTerminate (\ s a -> s{_igmcEC2InstanceIdsToTerminate = a});
+igmcEC2InstanceIdsToTerminate :: Lens' InstanceGroupModifyConfig [Text]
+igmcEC2InstanceIdsToTerminate = lens _igmcEC2InstanceIdsToTerminate (\ s a -> s{_igmcEC2InstanceIdsToTerminate = a}) . _Default;
 
 -- | Unique ID of the instance group to expand or shrink.
 igmcInstanceGroupId :: Lens' InstanceGroupModifyConfig Text
@@ -1309,7 +1313,7 @@ instance FromJSON InstanceGroupStateChangeReason
           = withObject "InstanceGroupStateChangeReason"
               (\ x ->
                  InstanceGroupStateChangeReason' <$>
-                   x .:? "Code" <*> x .:? "Message")
+                   (x .:? "Code") <*> (x .:? "Message"))
 
 data InstanceGroupStateChangeReasonCode = IGSCRCValidationError | IGSCRCInstanceFailure | IGSCRCInternalError | IGSCRCClusterTerminated deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -1367,8 +1371,8 @@ instance FromJSON InstanceGroupStatus where
           = withObject "InstanceGroupStatus"
               (\ x ->
                  InstanceGroupStatus' <$>
-                   x .:? "State" <*> x .:? "StateChangeReason" <*>
-                     x .:? "Timeline")
+                   (x .:? "State") <*> (x .:? "StateChangeReason") <*>
+                     (x .:? "Timeline"))
 
 -- | /See:/ 'instanceGroupTimeline' smart constructor.
 --
@@ -1402,8 +1406,9 @@ instance FromJSON InstanceGroupTimeline where
           = withObject "InstanceGroupTimeline"
               (\ x ->
                  InstanceGroupTimeline' <$>
-                   x .:? "ReadyDateTime" <*> x .:? "CreationDateTime"
-                     <*> x .:? "EndDateTime")
+                   (x .:? "ReadyDateTime") <*>
+                     (x .:? "CreationDateTime")
+                     <*> (x .:? "EndDateTime"))
 
 data InstanceGroupType = IGTTask | IGTCore | IGTMaster deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -1504,7 +1509,7 @@ instance FromJSON InstanceStateChangeReason where
           = withObject "InstanceStateChangeReason"
               (\ x ->
                  InstanceStateChangeReason' <$>
-                   x .:? "Code" <*> x .:? "Message")
+                   (x .:? "Code") <*> (x .:? "Message"))
 
 data InstanceStateChangeReasonCode = ISCRCBootstrapFailure | ISCRCValidationError | ISCRCInternalError | ISCRCClusterTerminated | ISCRCInstanceFailure deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -1564,8 +1569,8 @@ instance FromJSON InstanceStatus where
           = withObject "InstanceStatus"
               (\ x ->
                  InstanceStatus' <$>
-                   x .:? "State" <*> x .:? "StateChangeReason" <*>
-                     x .:? "Timeline")
+                   (x .:? "State") <*> (x .:? "StateChangeReason") <*>
+                     (x .:? "Timeline"))
 
 -- | /See:/ 'instanceTimeline' smart constructor.
 --
@@ -1599,8 +1604,9 @@ instance FromJSON InstanceTimeline where
           = withObject "InstanceTimeline"
               (\ x ->
                  InstanceTimeline' <$>
-                   x .:? "ReadyDateTime" <*> x .:? "CreationDateTime"
-                     <*> x .:? "EndDateTime")
+                   (x .:? "ReadyDateTime") <*>
+                     (x .:? "CreationDateTime")
+                     <*> (x .:? "EndDateTime"))
 
 -- | /See:/ 'jobFlowInstancesConfig' smart constructor.
 --
@@ -1658,8 +1664,8 @@ jficEmrManagedSlaveSecurityGroup :: Lens' JobFlowInstancesConfig (Maybe Text)
 jficEmrManagedSlaveSecurityGroup = lens _jficEmrManagedSlaveSecurityGroup (\ s a -> s{_jficEmrManagedSlaveSecurityGroup = a});
 
 -- | A list of additional Amazon EC2 security group IDs for the slave nodes.
-jficAdditionalSlaveSecurityGroups :: Lens' JobFlowInstancesConfig (Maybe [Text])
-jficAdditionalSlaveSecurityGroups = lens _jficAdditionalSlaveSecurityGroups (\ s a -> s{_jficAdditionalSlaveSecurityGroups = a});
+jficAdditionalSlaveSecurityGroups :: Lens' JobFlowInstancesConfig [Text]
+jficAdditionalSlaveSecurityGroups = lens _jficAdditionalSlaveSecurityGroups (\ s a -> s{_jficAdditionalSlaveSecurityGroups = a}) . _Default;
 
 -- | The Hadoop version for the job flow. Valid inputs are \"0.18\",
 -- \"0.20\", \"0.20.205\", \"1.0.3\", \"2.2.0\", or \"2.4.0\". If you do
@@ -1670,8 +1676,8 @@ jficHadoopVersion :: Lens' JobFlowInstancesConfig (Maybe Text)
 jficHadoopVersion = lens _jficHadoopVersion (\ s a -> s{_jficHadoopVersion = a});
 
 -- | A list of additional Amazon EC2 security group IDs for the master node.
-jficAdditionalMasterSecurityGroups :: Lens' JobFlowInstancesConfig (Maybe [Text])
-jficAdditionalMasterSecurityGroups = lens _jficAdditionalMasterSecurityGroups (\ s a -> s{_jficAdditionalMasterSecurityGroups = a});
+jficAdditionalMasterSecurityGroups :: Lens' JobFlowInstancesConfig [Text]
+jficAdditionalMasterSecurityGroups = lens _jficAdditionalMasterSecurityGroups (\ s a -> s{_jficAdditionalMasterSecurityGroups = a}) . _Default;
 
 -- | The identifier of the Amazon EC2 security group (managed by Amazon
 -- ElasticMapReduce) for the master node.
@@ -1695,8 +1701,8 @@ jficMasterInstanceType :: Lens' JobFlowInstancesConfig (Maybe Text)
 jficMasterInstanceType = lens _jficMasterInstanceType (\ s a -> s{_jficMasterInstanceType = a});
 
 -- | Configuration for the job flow\'s instance groups.
-jficInstanceGroups :: Lens' JobFlowInstancesConfig (Maybe [InstanceGroupConfig])
-jficInstanceGroups = lens _jficInstanceGroups (\ s a -> s{_jficInstanceGroups = a});
+jficInstanceGroups :: Lens' JobFlowInstancesConfig [InstanceGroupConfig]
+jficInstanceGroups = lens _jficInstanceGroups (\ s a -> s{_jficInstanceGroups = a}) . _Default;
 
 -- | Specifies whether the job flow should terminate after completing all
 -- steps.
@@ -1817,8 +1823,8 @@ scriptBootstrapActionConfig :: Text -> ScriptBootstrapActionConfig
 scriptBootstrapActionConfig pPath = ScriptBootstrapActionConfig'{_sbacArgs = Nothing, _sbacPath = pPath};
 
 -- | A list of command line arguments to pass to the bootstrap action script.
-sbacArgs :: Lens' ScriptBootstrapActionConfig (Maybe [Text])
-sbacArgs = lens _sbacArgs (\ s a -> s{_sbacArgs = a});
+sbacArgs :: Lens' ScriptBootstrapActionConfig [Text]
+sbacArgs = lens _sbacArgs (\ s a -> s{_sbacArgs = a}) . _Default;
 
 -- | Location of the script to run during a bootstrap action. Can be either a
 -- location in Amazon S3 or on a local file system.
@@ -1874,10 +1880,10 @@ instance FromJSON Step where
           = withObject "Step"
               (\ x ->
                  Step' <$>
-                   x .:? "Status" <*> x .:? "ActionOnFailure" <*>
-                     x .:? "Config"
-                     <*> x .:? "Name"
-                     <*> x .:? "Id")
+                   (x .:? "Status") <*> (x .:? "ActionOnFailure") <*>
+                     (x .:? "Config")
+                     <*> (x .:? "Name")
+                     <*> (x .:? "Id"))
 
 -- | /See:/ 'stepConfig' smart constructor.
 --
@@ -1970,7 +1976,7 @@ instance FromJSON StepStateChangeReason where
           = withObject "StepStateChangeReason"
               (\ x ->
                  StepStateChangeReason' <$>
-                   x .:? "Code" <*> x .:? "Message")
+                   (x .:? "Code") <*> (x .:? "Message"))
 
 data StepStateChangeReasonCode = None deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -2022,8 +2028,8 @@ instance FromJSON StepStatus where
           = withObject "StepStatus"
               (\ x ->
                  StepStatus' <$>
-                   x .:? "State" <*> x .:? "StateChangeReason" <*>
-                     x .:? "Timeline")
+                   (x .:? "State") <*> (x .:? "StateChangeReason") <*>
+                     (x .:? "Timeline"))
 
 -- | /See:/ 'stepSummary' smart constructor.
 --
@@ -2070,10 +2076,10 @@ instance FromJSON StepSummary where
           = withObject "StepSummary"
               (\ x ->
                  StepSummary' <$>
-                   x .:? "Status" <*> x .:? "ActionOnFailure" <*>
-                     x .:? "Config"
-                     <*> x .:? "Name"
-                     <*> x .:? "Id")
+                   (x .:? "Status") <*> (x .:? "ActionOnFailure") <*>
+                     (x .:? "Config")
+                     <*> (x .:? "Name")
+                     <*> (x .:? "Id"))
 
 -- | /See:/ 'stepTimeline' smart constructor.
 --
@@ -2107,8 +2113,8 @@ instance FromJSON StepTimeline where
           = withObject "StepTimeline"
               (\ x ->
                  StepTimeline' <$>
-                   x .:? "CreationDateTime" <*> x .:? "EndDateTime" <*>
-                     x .:? "StartDateTime")
+                   (x .:? "CreationDateTime") <*> (x .:? "EndDateTime")
+                     <*> (x .:? "StartDateTime"))
 
 -- | /See:/ 'supportedProductConfig' smart constructor.
 --
@@ -2124,8 +2130,8 @@ supportedProductConfig :: SupportedProductConfig
 supportedProductConfig = SupportedProductConfig'{_spcArgs = Nothing, _spcName = Nothing};
 
 -- | The list of user-supplied arguments.
-spcArgs :: Lens' SupportedProductConfig (Maybe [Text])
-spcArgs = lens _spcArgs (\ s a -> s{_spcArgs = a});
+spcArgs :: Lens' SupportedProductConfig [Text]
+spcArgs = lens _spcArgs (\ s a -> s{_spcArgs = a}) . _Default;
 
 -- | The name of the product configuration.
 spcName :: Lens' SupportedProductConfig (Maybe Text)
@@ -2163,7 +2169,7 @@ tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 instance FromJSON Tag where
         parseJSON
           = withObject "Tag"
-              (\ x -> Tag' <$> x .:? "Value" <*> x .:? "Key")
+              (\ x -> Tag' <$> (x .:? "Value") <*> (x .:? "Key"))
 
 instance ToJSON Tag where
         toJSON Tag'{..}

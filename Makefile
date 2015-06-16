@@ -1,4 +1,4 @@
-DEPS ?= core amazonka $(wildcard amazonka-*)
+DEPS ?= core $(wildcard amazonka-*)
 
 .PHONY: full-clean
 

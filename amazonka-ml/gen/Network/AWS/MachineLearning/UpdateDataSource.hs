@@ -72,7 +72,7 @@ instance AWSRequest UpdateDataSource where
         response
           = receiveJSON
               (\ s h x ->
-                 UpdateDataSourceResponse' <$> x .?> "DataSourceId")
+                 UpdateDataSourceResponse' <$> (x .?> "DataSourceId"))
 
 instance ToHeaders UpdateDataSource where
         toHeaders

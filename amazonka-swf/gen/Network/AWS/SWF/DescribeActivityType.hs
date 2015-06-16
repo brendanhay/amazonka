@@ -98,7 +98,7 @@ instance AWSRequest DescribeActivityType where
           = receiveJSON
               (\ s h x ->
                  DescribeActivityTypeResponse' <$>
-                   x .:> "typeInfo" <*> x .:> "configuration")
+                   (x .:> "typeInfo") <*> (x .:> "configuration"))
 
 instance ToHeaders DescribeActivityType where
         toHeaders

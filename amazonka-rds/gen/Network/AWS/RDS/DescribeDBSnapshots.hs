@@ -67,8 +67,8 @@ describeDBSnapshots :: DescribeDBSnapshots
 describeDBSnapshots = DescribeDBSnapshots'{_ddsFilters = Nothing, _ddsDBSnapshotIdentifier = Nothing, _ddsSnapshotType = Nothing, _ddsDBInstanceIdentifier = Nothing, _ddsMaxRecords = Nothing, _ddsMarker = Nothing};
 
 -- | This parameter is not currently supported.
-ddsFilters :: Lens' DescribeDBSnapshots (Maybe [Filter])
-ddsFilters = lens _ddsFilters (\ s a -> s{_ddsFilters = a});
+ddsFilters :: Lens' DescribeDBSnapshots [Filter]
+ddsFilters = lens _ddsFilters (\ s a -> s{_ddsFilters = a}) . _Default;
 
 -- | A specific DB snapshot identifier to describe. Cannot be used in
 -- conjunction with @DBInstanceIdentifier@. This value is stored as a
@@ -129,9 +129,9 @@ instance AWSRequest DescribeDBSnapshots where
           = receiveXMLWrapper "DescribeDBSnapshotsResult"
               (\ s h x ->
                  DescribeDBSnapshotsResponse' <$>
-                   x .@? "Marker" <*>
+                   (x .@? "Marker") <*>
                      (x .@? "DBSnapshots" .!@ mempty >>=
-                        parseXMLList "DBSnapshot"))
+                        may (parseXMLList "DBSnapshot")))
 
 instance ToHeaders DescribeDBSnapshots where
         toHeaders = const mempty
@@ -144,7 +144,8 @@ instance ToQuery DescribeDBSnapshots where
           = mconcat
               ["Action" =: ("DescribeDBSnapshots" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "Filters" =: "Filter" =: _ddsFilters,
+               "Filters" =:
+                 toQuery (toQueryList "Filter" <$> _ddsFilters),
                "DBSnapshotIdentifier" =: _ddsDBSnapshotIdentifier,
                "SnapshotType" =: _ddsSnapshotType,
                "DBInstanceIdentifier" =: _ddsDBInstanceIdentifier,
@@ -171,5 +172,5 @@ ddsrMarker :: Lens' DescribeDBSnapshotsResponse (Maybe Text)
 ddsrMarker = lens _ddsrMarker (\ s a -> s{_ddsrMarker = a});
 
 -- | A list of DBSnapshot instances.
-ddsrDBSnapshots :: Lens' DescribeDBSnapshotsResponse (Maybe [DBSnapshot])
-ddsrDBSnapshots = lens _ddsrDBSnapshots (\ s a -> s{_ddsrDBSnapshots = a});
+ddsrDBSnapshots :: Lens' DescribeDBSnapshotsResponse [DBSnapshot]
+ddsrDBSnapshots = lens _ddsrDBSnapshots (\ s a -> s{_ddsrDBSnapshots = a}) . _Default;

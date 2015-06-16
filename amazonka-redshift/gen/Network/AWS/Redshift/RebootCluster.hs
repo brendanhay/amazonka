@@ -68,7 +68,7 @@ instance AWSRequest RebootCluster where
         response
           = receiveXMLWrapper "RebootClusterResult"
               (\ s h x ->
-                 RebootClusterResponse' <$> x .@? "Cluster")
+                 RebootClusterResponse' <$> (x .@? "Cluster"))
 
 instance ToHeaders RebootCluster where
         toHeaders = const mempty

@@ -64,7 +64,7 @@ instance AWSRequest GetSubscriptionAttributes where
               (\ s h x ->
                  GetSubscriptionAttributesResponse' <$>
                    (x .@? "Attributes" .!@ mempty >>=
-                      parseXMLMap "entry" "key" "value"))
+                      may (parseXMLMap "entry" "key" "value")))
 
 instance ToHeaders GetSubscriptionAttributes where
         toHeaders = const mempty
@@ -85,7 +85,7 @@ instance ToQuery GetSubscriptionAttributes where
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gsarAttributes'
-newtype GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse'{_gsarAttributes :: Maybe (HashMap Text Text)} deriving (Eq, Read, Show)
+newtype GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse'{_gsarAttributes :: Maybe (Map Text Text)} deriving (Eq, Read, Show)
 
 -- | 'GetSubscriptionAttributesResponse' smart constructor.
 getSubscriptionAttributesResponse :: GetSubscriptionAttributesResponse
@@ -104,5 +104,5 @@ getSubscriptionAttributesResponse = GetSubscriptionAttributesResponse'{_gsarAttr
 -- -   @EffectiveDeliveryPolicy@ -- the JSON serialization of the effective
 --     delivery policy that takes into account the topic delivery policy
 --     and account system defaults
-gsarAttributes :: Lens' GetSubscriptionAttributesResponse (Maybe (HashMap Text Text))
-gsarAttributes = lens _gsarAttributes (\ s a -> s{_gsarAttributes = a}) . mapping _Coerce;
+gsarAttributes :: Lens' GetSubscriptionAttributesResponse (Map Text Text)
+gsarAttributes = lens _gsarAttributes (\ s a -> s{_gsarAttributes = a}) . _Default . _Map;

@@ -58,8 +58,8 @@ describeDomains :: DescribeDomains
 describeDomains = DescribeDomains'{_ddDomainNames = Nothing};
 
 -- | The names of the domains you want to include in the response.
-ddDomainNames :: Lens' DescribeDomains (Maybe [Text])
-ddDomainNames = lens _ddDomainNames (\ s a -> s{_ddDomainNames = a});
+ddDomainNames :: Lens' DescribeDomains [Text]
+ddDomainNames = lens _ddDomainNames (\ s a -> s{_ddDomainNames = a}) . _Default;
 
 instance AWSRequest DescribeDomains where
         type Sv DescribeDomains = CloudSearch
@@ -83,7 +83,8 @@ instance ToQuery DescribeDomains where
           = mconcat
               ["Action" =: ("DescribeDomains" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "DomainNames" =: "member" =: _ddDomainNames]
+               "DomainNames" =:
+                 toQuery (toQueryList "member" <$> _ddDomainNames)]
 
 -- | /See:/ 'describeDomainsResponse' smart constructor.
 --

@@ -89,9 +89,7 @@ instance AWSRequest SetIdentityNotificationTopic
              SetIdentityNotificationTopicResponse
         request = post
         response
-          = receiveNullWrapper
-              "SetIdentityNotificationTopicResult"
-              SetIdentityNotificationTopicResponse'
+          = receiveNull SetIdentityNotificationTopicResponse'
 
 instance ToHeaders SetIdentityNotificationTopic where
         toHeaders = const mempty

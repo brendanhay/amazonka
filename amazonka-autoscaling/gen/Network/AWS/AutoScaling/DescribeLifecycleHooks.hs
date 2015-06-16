@@ -54,8 +54,8 @@ describeLifecycleHooks :: Text -> DescribeLifecycleHooks
 describeLifecycleHooks pAutoScalingGroupName = DescribeLifecycleHooks'{_dlhLifecycleHookNames = Nothing, _dlhAutoScalingGroupName = pAutoScalingGroupName};
 
 -- | The names of one or more lifecycle hooks.
-dlhLifecycleHookNames :: Lens' DescribeLifecycleHooks (Maybe [Text])
-dlhLifecycleHookNames = lens _dlhLifecycleHookNames (\ s a -> s{_dlhLifecycleHookNames = a});
+dlhLifecycleHookNames :: Lens' DescribeLifecycleHooks [Text]
+dlhLifecycleHookNames = lens _dlhLifecycleHookNames (\ s a -> s{_dlhLifecycleHookNames = a}) . _Default;
 
 -- | The name of the group.
 dlhAutoScalingGroupName :: Lens' DescribeLifecycleHooks Text
@@ -71,7 +71,7 @@ instance AWSRequest DescribeLifecycleHooks where
               (\ s h x ->
                  DescribeLifecycleHooksResponse' <$>
                    (x .@? "LifecycleHooks" .!@ mempty >>=
-                      parseXMLList "member"))
+                      may (parseXMLList "member")))
 
 instance ToHeaders DescribeLifecycleHooks where
         toHeaders = const mempty
@@ -86,7 +86,8 @@ instance ToQuery DescribeLifecycleHooks where
                  ("DescribeLifecycleHooks" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
                "LifecycleHookNames" =:
-                 "member" =: _dlhLifecycleHookNames,
+                 toQuery
+                   (toQueryList "member" <$> _dlhLifecycleHookNames),
                "AutoScalingGroupName" =: _dlhAutoScalingGroupName]
 
 -- | /See:/ 'describeLifecycleHooksResponse' smart constructor.
@@ -101,5 +102,5 @@ describeLifecycleHooksResponse :: DescribeLifecycleHooksResponse
 describeLifecycleHooksResponse = DescribeLifecycleHooksResponse'{_dlhrLifecycleHooks = Nothing};
 
 -- | The lifecycle hooks for the specified group.
-dlhrLifecycleHooks :: Lens' DescribeLifecycleHooksResponse (Maybe [LifecycleHook])
-dlhrLifecycleHooks = lens _dlhrLifecycleHooks (\ s a -> s{_dlhrLifecycleHooks = a});
+dlhrLifecycleHooks :: Lens' DescribeLifecycleHooksResponse [LifecycleHook]
+dlhrLifecycleHooks = lens _dlhrLifecycleHooks (\ s a -> s{_dlhrLifecycleHooks = a}) . _Default;

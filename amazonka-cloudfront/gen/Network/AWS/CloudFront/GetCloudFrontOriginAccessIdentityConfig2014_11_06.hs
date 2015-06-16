@@ -71,8 +71,8 @@ instance AWSRequest
               (\ s h x ->
                  GetCloudFrontOriginAccessIdentityConfig2014_11_06Response'
                    <$>
-                   x .@? "CloudFrontOriginAccessIdentityConfig" <*>
-                     h .#? "ETag")
+                   (x .@? "CloudFrontOriginAccessIdentityConfig") <*>
+                     (h .#? "ETag"))
 
 instance ToHeaders
          GetCloudFrontOriginAccessIdentityConfig2014_11_06

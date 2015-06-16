@@ -61,10 +61,10 @@ instance AWSRequest DescribeMetricCollectionTypes
               (\ s h x ->
                  DescribeMetricCollectionTypesResponse' <$>
                    (x .@? "Metrics" .!@ mempty >>=
-                      parseXMLList "member")
+                      may (parseXMLList "member"))
                      <*>
                      (x .@? "Granularities" .!@ mempty >>=
-                        parseXMLList "member"))
+                        may (parseXMLList "member")))
 
 instance ToHeaders DescribeMetricCollectionTypes
          where
@@ -114,9 +114,9 @@ describeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse'{_
 --
 -- The @GroupStandbyInstances@ metric is not returned by default. You must
 -- explicitly request it when calling EnableMetricsCollection.
-dmctrMetrics :: Lens' DescribeMetricCollectionTypesResponse (Maybe [MetricCollectionType])
-dmctrMetrics = lens _dmctrMetrics (\ s a -> s{_dmctrMetrics = a});
+dmctrMetrics :: Lens' DescribeMetricCollectionTypesResponse [MetricCollectionType]
+dmctrMetrics = lens _dmctrMetrics (\ s a -> s{_dmctrMetrics = a}) . _Default;
 
 -- | The granularities for the listed metrics.
-dmctrGranularities :: Lens' DescribeMetricCollectionTypesResponse (Maybe [MetricGranularityType])
-dmctrGranularities = lens _dmctrGranularities (\ s a -> s{_dmctrGranularities = a});
+dmctrGranularities :: Lens' DescribeMetricCollectionTypesResponse [MetricGranularityType]
+dmctrGranularities = lens _dmctrGranularities (\ s a -> s{_dmctrGranularities = a}) . _Default;

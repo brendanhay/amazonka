@@ -58,7 +58,7 @@ instance AWSRequest DescribeMyUserProfile where
           = receiveJSON
               (\ s h x ->
                  DescribeMyUserProfileResponse' <$>
-                   x .?> "UserProfile")
+                   (x .?> "UserProfile"))
 
 instance ToHeaders DescribeMyUserProfile where
         toHeaders

@@ -81,8 +81,8 @@ instance AWSRequest GetUserPolicy where
           = receiveXMLWrapper "GetUserPolicyResult"
               (\ s h x ->
                  GetUserPolicyResponse' <$>
-                   x .@ "UserName" <*> x .@ "PolicyName" <*>
-                     x .@ "PolicyDocument")
+                   (x .@ "UserName") <*> (x .@ "PolicyName") <*>
+                     (x .@ "PolicyDocument"))
 
 instance ToHeaders GetUserPolicy where
         toHeaders = const mempty

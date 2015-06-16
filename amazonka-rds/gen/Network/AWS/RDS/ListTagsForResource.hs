@@ -57,8 +57,8 @@ listTagsForResource :: Text -> ListTagsForResource
 listTagsForResource pResourceName = ListTagsForResource'{_ltfrFilters = Nothing, _ltfrResourceName = pResourceName};
 
 -- | This parameter is not currently supported.
-ltfrFilters :: Lens' ListTagsForResource (Maybe [Filter])
-ltfrFilters = lens _ltfrFilters (\ s a -> s{_ltfrFilters = a});
+ltfrFilters :: Lens' ListTagsForResource [Filter]
+ltfrFilters = lens _ltfrFilters (\ s a -> s{_ltfrFilters = a}) . _Default;
 
 -- | The Amazon RDS resource with tags to be listed. This value is an Amazon
 -- Resource Name (ARN). For information about creating an ARN, see
@@ -75,7 +75,8 @@ instance AWSRequest ListTagsForResource where
           = receiveXMLWrapper "ListTagsForResourceResult"
               (\ s h x ->
                  ListTagsForResourceResponse' <$>
-                   (x .@? "TagList" .!@ mempty >>= parseXMLList "Tag"))
+                   (x .@? "TagList" .!@ mempty >>=
+                      may (parseXMLList "Tag")))
 
 instance ToHeaders ListTagsForResource where
         toHeaders = const mempty
@@ -88,7 +89,8 @@ instance ToQuery ListTagsForResource where
           = mconcat
               ["Action" =: ("ListTagsForResource" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "Filters" =: "Filter" =: _ltfrFilters,
+               "Filters" =:
+                 toQuery (toQueryList "Filter" <$> _ltfrFilters),
                "ResourceName" =: _ltfrResourceName]
 
 -- | /See:/ 'listTagsForResourceResponse' smart constructor.
@@ -103,5 +105,5 @@ listTagsForResourceResponse :: ListTagsForResourceResponse
 listTagsForResourceResponse = ListTagsForResourceResponse'{_ltfrrTagList = Nothing};
 
 -- | List of tags returned by the ListTagsForResource operation.
-ltfrrTagList :: Lens' ListTagsForResourceResponse (Maybe [Tag])
-ltfrrTagList = lens _ltfrrTagList (\ s a -> s{_ltfrrTagList = a});
+ltfrrTagList :: Lens' ListTagsForResourceResponse [Tag]
+ltfrrTagList = lens _ltfrrTagList (\ s a -> s{_ltfrrTagList = a}) . _Default;

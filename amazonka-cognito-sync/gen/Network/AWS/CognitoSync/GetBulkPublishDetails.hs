@@ -69,11 +69,11 @@ instance AWSRequest GetBulkPublishDetails where
           = receiveJSON
               (\ s h x ->
                  GetBulkPublishDetailsResponse' <$>
-                   x .?> "BulkPublishStartTime" <*>
-                     x .?> "IdentityPoolId"
-                     <*> x .?> "BulkPublishCompleteTime"
-                     <*> x .?> "FailureMessage"
-                     <*> x .?> "BulkPublishStatus")
+                   (x .?> "BulkPublishStartTime") <*>
+                     (x .?> "IdentityPoolId")
+                     <*> (x .?> "BulkPublishCompleteTime")
+                     <*> (x .?> "FailureMessage")
+                     <*> (x .?> "BulkPublishStatus"))
 
 instance ToHeaders GetBulkPublishDetails where
         toHeaders

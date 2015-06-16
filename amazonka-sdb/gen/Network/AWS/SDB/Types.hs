@@ -135,10 +135,10 @@ attValue = lens _attValue (\ s a -> s{_attValue = a});
 instance FromXML Attribute where
         parseXML x
           = Attribute' <$>
-              x .@? "AlternateValueEncoding" <*>
-                x .@? "AlternateNameEncoding"
-                <*> x .@ "Name"
-                <*> x .@ "Value"
+              (x .@? "AlternateValueEncoding") <*>
+                (x .@? "AlternateNameEncoding")
+                <*> (x .@ "Name")
+                <*> (x .@ "Value")
 
 instance ToQuery Attribute where
         toQuery Attribute'{..}
@@ -162,8 +162,8 @@ deletableItem :: Text -> DeletableItem
 deletableItem pName = DeletableItem'{_diAttributes = Nothing, _diName = pName};
 
 -- | FIXME: Undocumented member.
-diAttributes :: Lens' DeletableItem (Maybe [Attribute])
-diAttributes = lens _diAttributes (\ s a -> s{_diAttributes = a});
+diAttributes :: Lens' DeletableItem [Attribute]
+diAttributes = lens _diAttributes (\ s a -> s{_diAttributes = a}) . _Default;
 
 -- | FIXME: Undocumented member.
 diName :: Lens' DeletableItem Text
@@ -172,7 +172,8 @@ diName = lens _diName (\ s a -> s{_diName = a});
 instance ToQuery DeletableItem where
         toQuery DeletableItem'{..}
           = mconcat
-              ["Attribute" =: _diAttributes, "ItemName" =: _diName]
+              [toQuery (toQueryList "Attribute" <$> _diAttributes),
+               "ItemName" =: _diName]
 
 -- | /See:/ 'item' smart constructor.
 --
@@ -204,8 +205,8 @@ iteAttributes = lens _iteAttributes (\ s a -> s{_iteAttributes = a});
 instance FromXML Item where
         parseXML x
           = Item' <$>
-              x .@? "AlternateNameEncoding" <*> x .@ "Name" <*>
-                parseXMLList "Attribute" x
+              (x .@? "AlternateNameEncoding") <*> (x .@ "Name") <*>
+                (parseXMLList "Attribute" x)
 
 -- | /See:/ 'replaceableAttribute' smart constructor.
 --
@@ -265,7 +266,8 @@ riAttributes = lens _riAttributes (\ s a -> s{_riAttributes = a});
 instance ToQuery ReplaceableItem where
         toQuery ReplaceableItem'{..}
           = mconcat
-              ["ItemName" =: _riName, "Attribute" =: _riAttributes]
+              ["ItemName" =: _riName,
+               toQueryList "Attribute" _riAttributes]
 
 -- | /See:/ 'updateCondition' smart constructor.
 --

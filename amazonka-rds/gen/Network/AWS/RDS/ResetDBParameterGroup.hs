@@ -86,8 +86,8 @@ rdpgResetAllParameters = lens _rdpgResetAllParameters (\ s a -> s{_rdpgResetAllP
 -- __Oracle__
 --
 -- Valid Values (for Apply method): @pending-reboot@
-rdpgParameters :: Lens' ResetDBParameterGroup (Maybe [Parameter])
-rdpgParameters = lens _rdpgParameters (\ s a -> s{_rdpgParameters = a});
+rdpgParameters :: Lens' ResetDBParameterGroup [Parameter]
+rdpgParameters = lens _rdpgParameters (\ s a -> s{_rdpgParameters = a}) . _Default;
 
 -- | The name of the DB parameter group.
 --
@@ -120,5 +120,7 @@ instance ToQuery ResetDBParameterGroup where
               ["Action" =: ("ResetDBParameterGroup" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "ResetAllParameters" =: _rdpgResetAllParameters,
-               "Parameters" =: "Parameter" =: _rdpgParameters,
+               "Parameters" =:
+                 toQuery
+                   (toQueryList "Parameter" <$> _rdpgParameters),
                "DBParameterGroupName" =: _rdpgDBParameterGroupName]

@@ -73,12 +73,12 @@ createNetworkInterface :: Text -> CreateNetworkInterface
 createNetworkInterface pSubnetId = CreateNetworkInterface'{_cniPrivateIPAddresses = Nothing, _cniGroups = Nothing, _cniPrivateIPAddress = Nothing, _cniSecondaryPrivateIPAddressCount = Nothing, _cniDryRun = Nothing, _cniDescription = Nothing, _cniSubnetId = pSubnetId};
 
 -- | One or more private IP addresses.
-cniPrivateIPAddresses :: Lens' CreateNetworkInterface (Maybe [PrivateIPAddressSpecification])
-cniPrivateIPAddresses = lens _cniPrivateIPAddresses (\ s a -> s{_cniPrivateIPAddresses = a});
+cniPrivateIPAddresses :: Lens' CreateNetworkInterface [PrivateIPAddressSpecification]
+cniPrivateIPAddresses = lens _cniPrivateIPAddresses (\ s a -> s{_cniPrivateIPAddresses = a}) . _Default;
 
 -- | The IDs of one or more security groups.
-cniGroups :: Lens' CreateNetworkInterface (Maybe [Text])
-cniGroups = lens _cniGroups (\ s a -> s{_cniGroups = a});
+cniGroups :: Lens' CreateNetworkInterface [Text]
+cniGroups = lens _cniGroups (\ s a -> s{_cniGroups = a}) . _Default;
 
 -- | The primary private IP address of the network interface. If you don\'t
 -- specify an IP address, Amazon EC2 selects one for you from the subnet
@@ -125,7 +125,7 @@ instance AWSRequest CreateNetworkInterface where
           = receiveXML
               (\ s h x ->
                  CreateNetworkInterfaceResponse' <$>
-                   x .@? "networkInterface")
+                   (x .@? "networkInterface"))
 
 instance ToHeaders CreateNetworkInterface where
         toHeaders = const mempty
@@ -139,8 +139,10 @@ instance ToQuery CreateNetworkInterface where
               ["Action" =:
                  ("CreateNetworkInterface" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "item" =: _cniPrivateIPAddresses,
-               "SecurityGroupId" =: _cniGroups,
+               toQuery
+                 (toQueryList "item" <$> _cniPrivateIPAddresses),
+               toQuery
+                 (toQueryList "SecurityGroupId" <$> _cniGroups),
                "PrivateIpAddress" =: _cniPrivateIPAddress,
                "SecondaryPrivateIpAddressCount" =:
                  _cniSecondaryPrivateIPAddressCount,

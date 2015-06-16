@@ -64,15 +64,15 @@ import Network.AWS.CognitoIdentity.Types
 -- * 'cipIdentityPoolName'
 --
 -- * 'cipAllowUnauthenticatedIdentities'
-data CreateIdentityPool = CreateIdentityPool'{_cipSupportedLoginProviders :: Maybe (HashMap Text Text), _cipDeveloperProviderName :: Maybe Text, _cipOpenIdConnectProviderARNs :: Maybe [Text], _cipIdentityPoolName :: Text, _cipAllowUnauthenticatedIdentities :: Bool} deriving (Eq, Read, Show)
+data CreateIdentityPool = CreateIdentityPool'{_cipSupportedLoginProviders :: Maybe (Map Text Text), _cipDeveloperProviderName :: Maybe Text, _cipOpenIdConnectProviderARNs :: Maybe [Text], _cipIdentityPoolName :: Text, _cipAllowUnauthenticatedIdentities :: Bool} deriving (Eq, Read, Show)
 
 -- | 'CreateIdentityPool' smart constructor.
 createIdentityPool :: Text -> Bool -> CreateIdentityPool
 createIdentityPool pIdentityPoolName pAllowUnauthenticatedIdentities = CreateIdentityPool'{_cipSupportedLoginProviders = Nothing, _cipDeveloperProviderName = Nothing, _cipOpenIdConnectProviderARNs = Nothing, _cipIdentityPoolName = pIdentityPoolName, _cipAllowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities};
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
-cipSupportedLoginProviders :: Lens' CreateIdentityPool (Maybe (HashMap Text Text))
-cipSupportedLoginProviders = lens _cipSupportedLoginProviders (\ s a -> s{_cipSupportedLoginProviders = a}) . mapping _Coerce;
+cipSupportedLoginProviders :: Lens' CreateIdentityPool (Map Text Text)
+cipSupportedLoginProviders = lens _cipSupportedLoginProviders (\ s a -> s{_cipSupportedLoginProviders = a}) . _Default . _Map;
 
 -- | The \"domain\" by which Cognito will refer to your users. This name acts
 -- as a placeholder that allows your backend and the Cognito service to
@@ -86,8 +86,8 @@ cipDeveloperProviderName :: Lens' CreateIdentityPool (Maybe Text)
 cipDeveloperProviderName = lens _cipDeveloperProviderName (\ s a -> s{_cipDeveloperProviderName = a});
 
 -- | A list of OpendID Connect provider ARNs.
-cipOpenIdConnectProviderARNs :: Lens' CreateIdentityPool (Maybe [Text])
-cipOpenIdConnectProviderARNs = lens _cipOpenIdConnectProviderARNs (\ s a -> s{_cipOpenIdConnectProviderARNs = a});
+cipOpenIdConnectProviderARNs :: Lens' CreateIdentityPool [Text]
+cipOpenIdConnectProviderARNs = lens _cipOpenIdConnectProviderARNs (\ s a -> s{_cipOpenIdConnectProviderARNs = a}) . _Default;
 
 -- | A string that you provide.
 cipIdentityPoolName :: Lens' CreateIdentityPool Text

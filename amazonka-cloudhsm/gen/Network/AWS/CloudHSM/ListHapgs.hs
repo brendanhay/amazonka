@@ -69,7 +69,8 @@ instance AWSRequest ListHapgs where
           = receiveJSON
               (\ s h x ->
                  ListHapgsResponse' <$>
-                   x .?> "NextToken" <*> x .?> "HapgList" .!@ mempty)
+                   (x .?> "NextToken") <*>
+                     (x .?> "HapgList" .!@ mempty))
 
 instance ToHeaders ListHapgs where
         toHeaders

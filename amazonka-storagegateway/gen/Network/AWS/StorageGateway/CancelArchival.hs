@@ -70,7 +70,7 @@ instance AWSRequest CancelArchival where
         response
           = receiveJSON
               (\ s h x ->
-                 CancelArchivalResponse' <$> x .?> "TapeARN")
+                 CancelArchivalResponse' <$> (x .?> "TapeARN"))
 
 instance ToHeaders CancelArchival where
         toHeaders

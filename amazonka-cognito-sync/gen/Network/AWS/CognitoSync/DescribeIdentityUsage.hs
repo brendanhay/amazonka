@@ -78,7 +78,7 @@ instance AWSRequest DescribeIdentityUsage where
           = receiveJSON
               (\ s h x ->
                  DescribeIdentityUsageResponse' <$>
-                   x .?> "IdentityUsage")
+                   (x .?> "IdentityUsage"))
 
 instance ToHeaders DescribeIdentityUsage where
         toHeaders

@@ -75,9 +75,9 @@ instance AWSRequest ListSubscriptionsByTopic where
           = receiveXMLWrapper "ListSubscriptionsByTopicResult"
               (\ s h x ->
                  ListSubscriptionsByTopicResponse' <$>
-                   x .@? "NextToken" <*>
+                   (x .@? "NextToken") <*>
                      (x .@? "Subscriptions" .!@ mempty >>=
-                        parseXMLList "member"))
+                        may (parseXMLList "member")))
 
 instance ToHeaders ListSubscriptionsByTopic where
         toHeaders = const mempty
@@ -113,5 +113,5 @@ lsbtrNextToken :: Lens' ListSubscriptionsByTopicResponse (Maybe Text)
 lsbtrNextToken = lens _lsbtrNextToken (\ s a -> s{_lsbtrNextToken = a});
 
 -- | A list of subscriptions.
-lsbtrSubscriptions :: Lens' ListSubscriptionsByTopicResponse (Maybe [Subscription])
-lsbtrSubscriptions = lens _lsbtrSubscriptions (\ s a -> s{_lsbtrSubscriptions = a});
+lsbtrSubscriptions :: Lens' ListSubscriptionsByTopicResponse [Subscription]
+lsbtrSubscriptions = lens _lsbtrSubscriptions (\ s a -> s{_lsbtrSubscriptions = a}) . _Default;

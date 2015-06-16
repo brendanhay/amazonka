@@ -79,7 +79,7 @@ instance AWSRequest GetVaultAccessPolicy where
         response
           = receiveJSON
               (\ s h x ->
-                 GetVaultAccessPolicyResponse' <$> x .?> "policy")
+                 GetVaultAccessPolicyResponse' <$> (x .?> "policy"))
 
 instance ToHeaders GetVaultAccessPolicy where
         toHeaders = const mempty

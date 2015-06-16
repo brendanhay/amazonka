@@ -112,8 +112,8 @@ instance AWSRequest StartTask where
           = receiveJSON
               (\ s h x ->
                  StartTaskResponse' <$>
-                   x .?> "failures" .!@ mempty <*>
-                     x .?> "tasks" .!@ mempty)
+                   (x .?> "failures" .!@ mempty) <*>
+                     (x .?> "tasks" .!@ mempty))
 
 instance ToHeaders StartTask where
         toHeaders
@@ -154,10 +154,10 @@ startTaskResponse :: StartTaskResponse
 startTaskResponse = StartTaskResponse'{_strFailures = Nothing, _strTasks = Nothing};
 
 -- | Any failed tasks from your @StartTask@ action are listed here.
-strFailures :: Lens' StartTaskResponse (Maybe [Failure])
-strFailures = lens _strFailures (\ s a -> s{_strFailures = a});
+strFailures :: Lens' StartTaskResponse [Failure]
+strFailures = lens _strFailures (\ s a -> s{_strFailures = a}) . _Default;
 
 -- | A full description of the tasks that were started. Each task that was
 -- successfully placed on your container instances will be described here.
-strTasks :: Lens' StartTaskResponse (Maybe [Task])
-strTasks = lens _strTasks (\ s a -> s{_strTasks = a});
+strTasks :: Lens' StartTaskResponse [Task]
+strTasks = lens _strTasks (\ s a -> s{_strTasks = a}) . _Default;

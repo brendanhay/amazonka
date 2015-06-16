@@ -88,7 +88,7 @@ instance AWSRequest ListGroupsForUser where
           = receiveXMLWrapper "ListGroupsForUserResult"
               (\ s h x ->
                  ListGroupsForUserResponse' <$>
-                   x .@? "Marker" <*> x .@? "IsTruncated" <*>
+                   (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
                      (x .@? "Groups" .!@ mempty >>=
                         parseXMLList "member"))
 

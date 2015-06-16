@@ -119,7 +119,7 @@ instance AWSRequest CreatePreset where
           = receiveJSON
               (\ s h x ->
                  CreatePresetResponse' <$>
-                   x .?> "Warning" <*> x .?> "Preset")
+                   (x .?> "Warning") <*> (x .?> "Preset"))
 
 instance ToHeaders CreatePreset where
         toHeaders = const mempty

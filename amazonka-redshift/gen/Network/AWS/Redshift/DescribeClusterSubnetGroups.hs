@@ -83,8 +83,8 @@ describeClusterSubnetGroups = DescribeClusterSubnetGroups'{_dTagValues = Nothing
 -- values in the request, Amazon Redshift returns a response with the
 -- subnet groups that have either or both of these tag values associated
 -- with them.
-dTagValues :: Lens' DescribeClusterSubnetGroups (Maybe [Text])
-dTagValues = lens _dTagValues (\ s a -> s{_dTagValues = a});
+dTagValues :: Lens' DescribeClusterSubnetGroups [Text]
+dTagValues = lens _dTagValues (\ s a -> s{_dTagValues = a}) . _Default;
 
 -- | A tag key or keys for which you want to return all matching cluster
 -- subnet groups that are associated with the specified key or keys. For
@@ -92,8 +92,8 @@ dTagValues = lens _dTagValues (\ s a -> s{_dTagValues = a});
 -- called @owner@ and @environment@. If you specify both of these tag keys
 -- in the request, Amazon Redshift returns a response with the subnet
 -- groups that have either or both of these tag keys associated with them.
-dTagKeys :: Lens' DescribeClusterSubnetGroups (Maybe [Text])
-dTagKeys = lens _dTagKeys (\ s a -> s{_dTagKeys = a});
+dTagKeys :: Lens' DescribeClusterSubnetGroups [Text]
+dTagKeys = lens _dTagKeys (\ s a -> s{_dTagKeys = a}) . _Default;
 
 -- | The name of the cluster subnet group for which information is requested.
 dClusterSubnetGroupName :: Lens' DescribeClusterSubnetGroups (Maybe Text)
@@ -131,8 +131,8 @@ instance AWSRequest DescribeClusterSubnetGroups where
               (\ s h x ->
                  DescribeClusterSubnetGroupsResponse' <$>
                    (x .@? "ClusterSubnetGroups" .!@ mempty >>=
-                      parseXMLList "ClusterSubnetGroup")
-                     <*> x .@? "Marker")
+                      may (parseXMLList "ClusterSubnetGroup"))
+                     <*> (x .@? "Marker"))
 
 instance ToHeaders DescribeClusterSubnetGroups where
         toHeaders = const mempty
@@ -146,8 +146,10 @@ instance ToQuery DescribeClusterSubnetGroups where
               ["Action" =:
                  ("DescribeClusterSubnetGroups" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "TagValues" =: "TagValue" =: _dTagValues,
-               "TagKeys" =: "TagKey" =: _dTagKeys,
+               "TagValues" =:
+                 toQuery (toQueryList "TagValue" <$> _dTagValues),
+               "TagKeys" =:
+                 toQuery (toQueryList "TagKey" <$> _dTagKeys),
                "ClusterSubnetGroupName" =: _dClusterSubnetGroupName,
                "MaxRecords" =: _dMaxRecords, "Marker" =: _dMarker]
 
@@ -165,8 +167,8 @@ describeClusterSubnetGroupsResponse :: DescribeClusterSubnetGroupsResponse
 describeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse'{_dcsgrClusterSubnetGroups = Nothing, _dcsgrMarker = Nothing};
 
 -- | A list of ClusterSubnetGroup instances.
-dcsgrClusterSubnetGroups :: Lens' DescribeClusterSubnetGroupsResponse (Maybe [ClusterSubnetGroup])
-dcsgrClusterSubnetGroups = lens _dcsgrClusterSubnetGroups (\ s a -> s{_dcsgrClusterSubnetGroups = a});
+dcsgrClusterSubnetGroups :: Lens' DescribeClusterSubnetGroupsResponse [ClusterSubnetGroup]
+dcsgrClusterSubnetGroups = lens _dcsgrClusterSubnetGroups (\ s a -> s{_dcsgrClusterSubnetGroups = a}) . _Default;
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,

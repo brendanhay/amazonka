@@ -72,7 +72,7 @@ instance ToQuery DisableAlarmActions where
           = mconcat
               ["Action" =: ("DisableAlarmActions" :: ByteString),
                "Version" =: ("2010-08-01" :: ByteString),
-               "AlarmNames" =: "member" =: _daaAlarmNames]
+               "AlarmNames" =: toQueryList "member" _daaAlarmNames]
 
 -- | /See:/ 'disableAlarmActionsResponse' smart constructor.
 data DisableAlarmActionsResponse = DisableAlarmActionsResponse' deriving (Eq, Read, Show)

@@ -74,8 +74,8 @@ describeVPCEndpoints = DescribeVPCEndpoints'{_dvpceFilters = Nothing, _dvpceNext
 -- -   @vpc-endpoint-state@: The state of the endpoint. (@pending@ |
 --     @available@ | @deleting@ | @deleted@)
 --
-dvpceFilters :: Lens' DescribeVPCEndpoints (Maybe [Filter])
-dvpceFilters = lens _dvpceFilters (\ s a -> s{_dvpceFilters = a});
+dvpceFilters :: Lens' DescribeVPCEndpoints [Filter]
+dvpceFilters = lens _dvpceFilters (\ s a -> s{_dvpceFilters = a}) . _Default;
 
 -- | The token for the next set of items to return. (You received this token
 -- from a prior call.)
@@ -83,8 +83,8 @@ dvpceNextToken :: Lens' DescribeVPCEndpoints (Maybe Text)
 dvpceNextToken = lens _dvpceNextToken (\ s a -> s{_dvpceNextToken = a});
 
 -- | One or more endpoint IDs.
-dvpceVPCEndpointIds :: Lens' DescribeVPCEndpoints (Maybe [Text])
-dvpceVPCEndpointIds = lens _dvpceVPCEndpointIds (\ s a -> s{_dvpceVPCEndpointIds = a});
+dvpceVPCEndpointIds :: Lens' DescribeVPCEndpoints [Text]
+dvpceVPCEndpointIds = lens _dvpceVPCEndpointIds (\ s a -> s{_dvpceVPCEndpointIds = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -111,7 +111,8 @@ instance AWSRequest DescribeVPCEndpoints where
           = receiveXML
               (\ s h x ->
                  DescribeVPCEndpointsResponse' <$>
-                   x .@? "nextToken" <*> parseXMLList "item" x)
+                   (x .@? "nextToken") <*>
+                     (may (parseXMLList "item") x))
 
 instance ToHeaders DescribeVPCEndpoints where
         toHeaders = const mempty
@@ -124,9 +125,10 @@ instance ToQuery DescribeVPCEndpoints where
           = mconcat
               ["Action" =: ("DescribeVPCEndpoints" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Filter" =: _dvpceFilters,
+               toQuery (toQueryList "Filter" <$> _dvpceFilters),
                "NextToken" =: _dvpceNextToken,
-               "item" =: _dvpceVPCEndpointIds,
+               toQuery
+                 (toQueryList "item" <$> _dvpceVPCEndpointIds),
                "DryRun" =: _dvpceDryRun,
                "MaxResults" =: _dvpceMaxResults]
 
@@ -149,5 +151,5 @@ dverNextToken :: Lens' DescribeVPCEndpointsResponse (Maybe Text)
 dverNextToken = lens _dverNextToken (\ s a -> s{_dverNextToken = a});
 
 -- | Information about the endpoints.
-dverVPCEndpoints :: Lens' DescribeVPCEndpointsResponse (Maybe [VPCEndpoint])
-dverVPCEndpoints = lens _dverVPCEndpoints (\ s a -> s{_dverVPCEndpoints = a});
+dverVPCEndpoints :: Lens' DescribeVPCEndpointsResponse [VPCEndpoint]
+dverVPCEndpoints = lens _dverVPCEndpoints (\ s a -> s{_dverVPCEndpoints = a}) . _Default;

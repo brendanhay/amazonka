@@ -176,7 +176,7 @@ instance AWSRequest RequestSpotInstances where
           = receiveXML
               (\ s h x ->
                  RequestSpotInstancesResponse' <$>
-                   parseXMLList "item" x)
+                   (may (parseXMLList "item") x))
 
 instance ToHeaders RequestSpotInstances where
         toHeaders = const mempty
@@ -210,5 +210,5 @@ requestSpotInstancesResponse :: RequestSpotInstancesResponse
 requestSpotInstancesResponse = RequestSpotInstancesResponse'{_rsirSpotInstanceRequests = Nothing};
 
 -- | One or more Spot Instance requests.
-rsirSpotInstanceRequests :: Lens' RequestSpotInstancesResponse (Maybe [SpotInstanceRequest])
-rsirSpotInstanceRequests = lens _rsirSpotInstanceRequests (\ s a -> s{_rsirSpotInstanceRequests = a});
+rsirSpotInstanceRequests :: Lens' RequestSpotInstancesResponse [SpotInstanceRequest]
+rsirSpotInstanceRequests = lens _rsirSpotInstanceRequests (\ s a -> s{_rsirSpotInstanceRequests = a}) . _Default;

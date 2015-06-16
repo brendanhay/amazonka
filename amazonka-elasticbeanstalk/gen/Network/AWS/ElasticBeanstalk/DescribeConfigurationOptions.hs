@@ -85,8 +85,8 @@ dcoApplicationName :: Lens' DescribeConfigurationOptions (Maybe Text)
 dcoApplicationName = lens _dcoApplicationName (\ s a -> s{_dcoApplicationName = a});
 
 -- | If specified, restricts the descriptions to only the specified options.
-dcoOptions :: Lens' DescribeConfigurationOptions (Maybe [OptionSpecification])
-dcoOptions = lens _dcoOptions (\ s a -> s{_dcoOptions = a});
+dcoOptions :: Lens' DescribeConfigurationOptions [OptionSpecification]
+dcoOptions = lens _dcoOptions (\ s a -> s{_dcoOptions = a}) . _Default;
 
 -- | The name of the solution stack whose configuration options you want to
 -- describe.
@@ -106,8 +106,8 @@ instance AWSRequest DescribeConfigurationOptions
               (\ s h x ->
                  DescribeConfigurationOptionsResponse' <$>
                    (x .@? "Options" .!@ mempty >>=
-                      parseXMLList "member")
-                     <*> x .@? "SolutionStackName")
+                      may (parseXMLList "member"))
+                     <*> (x .@? "SolutionStackName"))
 
 instance ToHeaders DescribeConfigurationOptions where
         toHeaders = const mempty
@@ -124,7 +124,8 @@ instance ToQuery DescribeConfigurationOptions where
                "TemplateName" =: _dcoTemplateName,
                "EnvironmentName" =: _dcoEnvironmentName,
                "ApplicationName" =: _dcoApplicationName,
-               "Options" =: "member" =: _dcoOptions,
+               "Options" =:
+                 toQuery (toQueryList "member" <$> _dcoOptions),
                "SolutionStackName" =: _dcoSolutionStackName]
 
 -- | /See:/ 'describeConfigurationOptionsResponse' smart constructor.
@@ -141,8 +142,8 @@ describeConfigurationOptionsResponse :: DescribeConfigurationOptionsResponse
 describeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse'{_dcorOptions = Nothing, _dcorSolutionStackName = Nothing};
 
 -- | A list of ConfigurationOptionDescription.
-dcorOptions :: Lens' DescribeConfigurationOptionsResponse (Maybe [ConfigurationOptionDescription])
-dcorOptions = lens _dcorOptions (\ s a -> s{_dcorOptions = a});
+dcorOptions :: Lens' DescribeConfigurationOptionsResponse [ConfigurationOptionDescription]
+dcorOptions = lens _dcorOptions (\ s a -> s{_dcorOptions = a}) . _Default;
 
 -- | The name of the solution stack these configuration options belong to.
 dcorSolutionStackName :: Lens' DescribeConfigurationOptionsResponse (Maybe Text)

@@ -60,8 +60,8 @@ copyDBParameterGroup :: Text -> Text -> Text -> CopyDBParameterGroup
 copyDBParameterGroup pSourceDBParameterGroupIdentifier pTargetDBParameterGroupIdentifier pTargetDBParameterGroupDescription = CopyDBParameterGroup'{_cdpgTags = Nothing, _cdpgSourceDBParameterGroupIdentifier = pSourceDBParameterGroupIdentifier, _cdpgTargetDBParameterGroupIdentifier = pTargetDBParameterGroupIdentifier, _cdpgTargetDBParameterGroupDescription = pTargetDBParameterGroupDescription};
 
 -- | FIXME: Undocumented member.
-cdpgTags :: Lens' CopyDBParameterGroup (Maybe [Tag])
-cdpgTags = lens _cdpgTags (\ s a -> s{_cdpgTags = a});
+cdpgTags :: Lens' CopyDBParameterGroup [Tag]
+cdpgTags = lens _cdpgTags (\ s a -> s{_cdpgTags = a}) . _Default;
 
 -- | The identifier or ARN for the source DB parameter group.
 --
@@ -103,7 +103,7 @@ instance AWSRequest CopyDBParameterGroup where
           = receiveXMLWrapper "CopyDBParameterGroupResult"
               (\ s h x ->
                  CopyDBParameterGroupResponse' <$>
-                   x .@? "DBParameterGroup")
+                   (x .@? "DBParameterGroup"))
 
 instance ToHeaders CopyDBParameterGroup where
         toHeaders = const mempty
@@ -116,7 +116,7 @@ instance ToQuery CopyDBParameterGroup where
           = mconcat
               ["Action" =: ("CopyDBParameterGroup" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "Tags" =: "Tag" =: _cdpgTags,
+               "Tags" =: toQuery (toQueryList "Tag" <$> _cdpgTags),
                "SourceDBParameterGroupIdentifier" =:
                  _cdpgSourceDBParameterGroupIdentifier,
                "TargetDBParameterGroupIdentifier" =:

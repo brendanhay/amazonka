@@ -63,8 +63,8 @@ describeCustomerGateways = DescribeCustomerGateways'{_dcgCustomerGatewayIds = No
 -- | One or more customer gateway IDs.
 --
 -- Default: Describes all your customer gateways.
-dcgCustomerGatewayIds :: Lens' DescribeCustomerGateways (Maybe [Text])
-dcgCustomerGatewayIds = lens _dcgCustomerGatewayIds (\ s a -> s{_dcgCustomerGatewayIds = a});
+dcgCustomerGatewayIds :: Lens' DescribeCustomerGateways [Text]
+dcgCustomerGatewayIds = lens _dcgCustomerGatewayIds (\ s a -> s{_dcgCustomerGatewayIds = a}) . _Default;
 
 -- | One or more filters.
 --
@@ -96,8 +96,8 @@ dcgCustomerGatewayIds = lens _dcgCustomerGatewayIds (\ s a -> s{_dcgCustomerGate
 -- -   @tag-value@ - The value of a tag assigned to the resource. This
 --     filter is independent of the @tag-key@ filter.
 --
-dcgFilters :: Lens' DescribeCustomerGateways (Maybe [Filter])
-dcgFilters = lens _dcgFilters (\ s a -> s{_dcgFilters = a});
+dcgFilters :: Lens' DescribeCustomerGateways [Filter]
+dcgFilters = lens _dcgFilters (\ s a -> s{_dcgFilters = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -115,7 +115,7 @@ instance AWSRequest DescribeCustomerGateways where
           = receiveXML
               (\ s h x ->
                  DescribeCustomerGatewaysResponse' <$>
-                   parseXMLList "item" x)
+                   (may (parseXMLList "item") x))
 
 instance ToHeaders DescribeCustomerGateways where
         toHeaders = const mempty
@@ -129,8 +129,11 @@ instance ToQuery DescribeCustomerGateways where
               ["Action" =:
                  ("DescribeCustomerGateways" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "CustomerGatewayId" =: _dcgCustomerGatewayIds,
-               "Filter" =: _dcgFilters, "DryRun" =: _dcgDryRun]
+               toQuery
+                 (toQueryList "CustomerGatewayId" <$>
+                    _dcgCustomerGatewayIds),
+               toQuery (toQueryList "Filter" <$> _dcgFilters),
+               "DryRun" =: _dcgDryRun]
 
 -- | /See:/ 'describeCustomerGatewaysResponse' smart constructor.
 --
@@ -144,5 +147,5 @@ describeCustomerGatewaysResponse :: DescribeCustomerGatewaysResponse
 describeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse'{_dcgrCustomerGateways = Nothing};
 
 -- | Information about one or more customer gateways.
-dcgrCustomerGateways :: Lens' DescribeCustomerGatewaysResponse (Maybe [CustomerGateway])
-dcgrCustomerGateways = lens _dcgrCustomerGateways (\ s a -> s{_dcgrCustomerGateways = a});
+dcgrCustomerGateways :: Lens' DescribeCustomerGatewaysResponse [CustomerGateway]
+dcgrCustomerGateways = lens _dcgrCustomerGateways (\ s a -> s{_dcgrCustomerGateways = a}) . _Default;

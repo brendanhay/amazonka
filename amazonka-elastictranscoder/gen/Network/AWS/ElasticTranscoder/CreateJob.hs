@@ -69,7 +69,7 @@ import Network.AWS.ElasticTranscoder.Types
 -- * 'cjPipelineId'
 --
 -- * 'cjInput'
-data CreateJob = CreateJob'{_cjOutputs :: Maybe [CreateJobOutput], _cjUserMetadata :: Maybe (HashMap Text Text), _cjOutput :: Maybe CreateJobOutput, _cjPlaylists :: Maybe [CreateJobPlaylist], _cjOutputKeyPrefix :: Maybe Text, _cjPipelineId :: Text, _cjInput :: JobInput} deriving (Eq, Read, Show)
+data CreateJob = CreateJob'{_cjOutputs :: Maybe [CreateJobOutput], _cjUserMetadata :: Maybe (Map Text Text), _cjOutput :: Maybe CreateJobOutput, _cjPlaylists :: Maybe [CreateJobPlaylist], _cjOutputKeyPrefix :: Maybe Text, _cjPipelineId :: Text, _cjInput :: JobInput} deriving (Eq, Read, Show)
 
 -- | 'CreateJob' smart constructor.
 createJob :: Text -> JobInput -> CreateJob
@@ -78,16 +78,16 @@ createJob pPipelineId pInput = CreateJob'{_cjOutputs = Nothing, _cjUserMetadata 
 -- | A section of the request body that provides information about the
 -- transcoded (target) files. We recommend that you use the @Outputs@
 -- syntax instead of the @Output@ syntax.
-cjOutputs :: Lens' CreateJob (Maybe [CreateJobOutput])
-cjOutputs = lens _cjOutputs (\ s a -> s{_cjOutputs = a});
+cjOutputs :: Lens' CreateJob [CreateJobOutput]
+cjOutputs = lens _cjOutputs (\ s a -> s{_cjOutputs = a}) . _Default;
 
 -- | User-defined metadata that you want to associate with an Elastic
 -- Transcoder job. You specify metadata in @key\/value@ pairs, and you can
 -- add up to 10 @key\/value@ pairs per job. Elastic Transcoder does not
 -- guarantee that @key\/value@ pairs will be returned in the same order in
 -- which you specify them.
-cjUserMetadata :: Lens' CreateJob (Maybe (HashMap Text Text))
-cjUserMetadata = lens _cjUserMetadata (\ s a -> s{_cjUserMetadata = a}) . mapping _Coerce;
+cjUserMetadata :: Lens' CreateJob (Map Text Text)
+cjUserMetadata = lens _cjUserMetadata (\ s a -> s{_cjUserMetadata = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
 cjOutput :: Lens' CreateJob (Maybe CreateJobOutput)
@@ -98,8 +98,8 @@ cjOutput = lens _cjOutput (\ s a -> s{_cjOutput = a});
 -- about the master playlists that you want Elastic Transcoder to create.
 --
 -- The maximum number of master playlists in a job is 30.
-cjPlaylists :: Lens' CreateJob (Maybe [CreateJobPlaylist])
-cjPlaylists = lens _cjPlaylists (\ s a -> s{_cjPlaylists = a});
+cjPlaylists :: Lens' CreateJob [CreateJobPlaylist]
+cjPlaylists = lens _cjPlaylists (\ s a -> s{_cjPlaylists = a}) . _Default;
 
 -- | The value, if any, that you want Elastic Transcoder to prepend to the
 -- names of all files that this job creates, including output files,
@@ -126,7 +126,7 @@ instance AWSRequest CreateJob where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x -> CreateJobResponse' <$> x .?> "Job'")
+              (\ s h x -> CreateJobResponse' <$> (x .?> "Job'"))
 
 instance ToHeaders CreateJob where
         toHeaders = const mempty

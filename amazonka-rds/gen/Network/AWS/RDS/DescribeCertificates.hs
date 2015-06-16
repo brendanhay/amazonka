@@ -62,8 +62,8 @@ describeCertificates :: DescribeCertificates
 describeCertificates = DescribeCertificates'{_dcFilters = Nothing, _dcCertificateIdentifier = Nothing, _dcMaxRecords = Nothing, _dcMarker = Nothing};
 
 -- | This parameter is not currently supported.
-dcFilters :: Lens' DescribeCertificates (Maybe [Filter])
-dcFilters = lens _dcFilters (\ s a -> s{_dcFilters = a});
+dcFilters :: Lens' DescribeCertificates [Filter]
+dcFilters = lens _dcFilters (\ s a -> s{_dcFilters = a}) . _Default;
 
 -- | The user-supplied certificate identifier. If this parameter is
 -- specified, information for only the identified certificate is returned.
@@ -104,8 +104,8 @@ instance AWSRequest DescribeCertificates where
               (\ s h x ->
                  DescribeCertificatesResponse' <$>
                    (x .@? "Certificates" .!@ mempty >>=
-                      parseXMLList "Certificate")
-                     <*> x .@? "Marker")
+                      may (parseXMLList "Certificate"))
+                     <*> (x .@? "Marker"))
 
 instance ToHeaders DescribeCertificates where
         toHeaders = const mempty
@@ -118,7 +118,8 @@ instance ToQuery DescribeCertificates where
           = mconcat
               ["Action" =: ("DescribeCertificates" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "Filters" =: "Filter" =: _dcFilters,
+               "Filters" =:
+                 toQuery (toQueryList "Filter" <$> _dcFilters),
                "CertificateIdentifier" =: _dcCertificateIdentifier,
                "MaxRecords" =: _dcMaxRecords, "Marker" =: _dcMarker]
 
@@ -136,8 +137,8 @@ describeCertificatesResponse :: DescribeCertificatesResponse
 describeCertificatesResponse = DescribeCertificatesResponse'{_dcrCertificates = Nothing, _dcrMarker = Nothing};
 
 -- | The list of Certificate objects for the AWS account.
-dcrCertificates :: Lens' DescribeCertificatesResponse (Maybe [Certificate])
-dcrCertificates = lens _dcrCertificates (\ s a -> s{_dcrCertificates = a});
+dcrCertificates :: Lens' DescribeCertificatesResponse [Certificate]
+dcrCertificates = lens _dcrCertificates (\ s a -> s{_dcrCertificates = a}) . _Default;
 
 -- | An optional pagination token provided by a previous DescribeCertificates
 -- request. If this parameter is specified, the response includes only

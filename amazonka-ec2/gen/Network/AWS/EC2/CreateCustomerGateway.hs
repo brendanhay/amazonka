@@ -117,7 +117,7 @@ instance AWSRequest CreateCustomerGateway where
           = receiveXML
               (\ s h x ->
                  CreateCustomerGatewayResponse' <$>
-                   x .@? "customerGateway")
+                   (x .@? "customerGateway"))
 
 instance ToHeaders CreateCustomerGateway where
         toHeaders = const mempty

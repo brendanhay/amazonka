@@ -87,8 +87,8 @@ dsa1AutoScalingGroupName = lens _dsa1AutoScalingGroupName (\ s a -> s{_dsa1AutoS
 -- group. The list of requested activities cannot contain more than 50
 -- items. If unknown activities are requested, they are ignored with no
 -- error.
-dsa1ActivityIds :: Lens' DescribeScalingActivities (Maybe [Text])
-dsa1ActivityIds = lens _dsa1ActivityIds (\ s a -> s{_dsa1ActivityIds = a});
+dsa1ActivityIds :: Lens' DescribeScalingActivities [Text]
+dsa1ActivityIds = lens _dsa1ActivityIds (\ s a -> s{_dsa1ActivityIds = a}) . _Default;
 
 instance AWSRequest DescribeScalingActivities where
         type Sv DescribeScalingActivities = AutoScaling
@@ -99,7 +99,7 @@ instance AWSRequest DescribeScalingActivities where
           = receiveXMLWrapper "DescribeScalingActivitiesResult"
               (\ s h x ->
                  DescribeScalingActivitiesResponse' <$>
-                   x .@? "NextToken" <*>
+                   (x .@? "NextToken") <*>
                      (x .@? "Activities" .!@ mempty >>=
                         parseXMLList "member"))
 
@@ -118,7 +118,8 @@ instance ToQuery DescribeScalingActivities where
                "NextToken" =: _dsa1NextToken,
                "MaxRecords" =: _dsa1MaxRecords,
                "AutoScalingGroupName" =: _dsa1AutoScalingGroupName,
-               "ActivityIds" =: "member" =: _dsa1ActivityIds]
+               "ActivityIds" =:
+                 toQuery (toQueryList "member" <$> _dsa1ActivityIds)]
 
 -- | /See:/ 'describeScalingActivitiesResponse' smart constructor.
 --

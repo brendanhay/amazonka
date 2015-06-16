@@ -87,8 +87,8 @@ cgConstraints = lens _cgConstraints (\ s a -> s{_cgConstraints = a});
 
 -- | For more information, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.
-cgGrantTokens :: Lens' CreateGrant (Maybe [Text])
-cgGrantTokens = lens _cgGrantTokens (\ s a -> s{_cgGrantTokens = a});
+cgGrantTokens :: Lens' CreateGrant [Text]
+cgGrantTokens = lens _cgGrantTokens (\ s a -> s{_cgGrantTokens = a}) . _Default;
 
 -- | List of operations permitted by the grant. This can be any combination
 -- of one or more of the following values:
@@ -101,8 +101,8 @@ cgGrantTokens = lens _cgGrantTokens (\ s a -> s{_cgGrantTokens = a});
 -- 6.  ReEncryptTo
 -- 7.  CreateGrant
 -- 8.  RetireGrant
-cgOperations :: Lens' CreateGrant (Maybe [GrantOperation])
-cgOperations = lens _cgOperations (\ s a -> s{_cgOperations = a});
+cgOperations :: Lens' CreateGrant [GrantOperation]
+cgOperations = lens _cgOperations (\ s a -> s{_cgOperations = a}) . _Default;
 
 -- | A unique identifier for the customer master key. This value can be a
 -- globally unique identifier or the fully specified ARN to a key.
@@ -127,7 +127,7 @@ instance AWSRequest CreateGrant where
           = receiveJSON
               (\ s h x ->
                  CreateGrantResponse' <$>
-                   x .?> "GrantId" <*> x .?> "GrantToken")
+                   (x .?> "GrantId") <*> (x .?> "GrantToken"))
 
 instance ToHeaders CreateGrant where
         toHeaders

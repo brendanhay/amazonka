@@ -90,7 +90,7 @@ instance AWSRequest DescribeEngineDefaultParameters
               "DescribeEngineDefaultParametersResult"
               (\ s h x ->
                  DescribeEngineDefaultParametersResponse' <$>
-                   x .@ "EngineDefaults")
+                   (x .@ "EngineDefaults"))
 
 instance ToHeaders DescribeEngineDefaultParameters
          where

@@ -86,7 +86,7 @@ instance AWSRequest RevokeSnapshotAccess where
         response
           = receiveXMLWrapper "RevokeSnapshotAccessResult"
               (\ s h x ->
-                 RevokeSnapshotAccessResponse' <$> x .@? "Snapshot")
+                 RevokeSnapshotAccessResponse' <$> (x .@? "Snapshot"))
 
 instance ToHeaders RevokeSnapshotAccess where
         toHeaders = const mempty

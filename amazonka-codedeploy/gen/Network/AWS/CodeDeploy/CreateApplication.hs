@@ -62,7 +62,8 @@ instance AWSRequest CreateApplication where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateApplicationResponse' <$> x .?> "applicationId")
+                 CreateApplicationResponse' <$>
+                   (x .?> "applicationId"))
 
 instance ToHeaders CreateApplication where
         toHeaders

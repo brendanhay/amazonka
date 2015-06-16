@@ -90,7 +90,7 @@ instance AWSRequest EnableSnapshotCopy where
         response
           = receiveXMLWrapper "EnableSnapshotCopyResult"
               (\ s h x ->
-                 EnableSnapshotCopyResponse' <$> x .@? "Cluster")
+                 EnableSnapshotCopyResponse' <$> (x .@? "Cluster"))
 
 instance ToHeaders EnableSnapshotCopy where
         toHeaders = const mempty

@@ -52,8 +52,8 @@ batchGetApplications = BatchGetApplications'{_bgaApplicationNames = Nothing};
 
 -- | A list of application names, with multiple application names separated
 -- by spaces.
-bgaApplicationNames :: Lens' BatchGetApplications (Maybe [Text])
-bgaApplicationNames = lens _bgaApplicationNames (\ s a -> s{_bgaApplicationNames = a});
+bgaApplicationNames :: Lens' BatchGetApplications [Text]
+bgaApplicationNames = lens _bgaApplicationNames (\ s a -> s{_bgaApplicationNames = a}) . _Default;
 
 instance AWSRequest BatchGetApplications where
         type Sv BatchGetApplications = CodeDeploy
@@ -64,7 +64,7 @@ instance AWSRequest BatchGetApplications where
           = receiveJSON
               (\ s h x ->
                  BatchGetApplicationsResponse' <$>
-                   x .?> "applicationsInfo" .!@ mempty)
+                   (x .?> "applicationsInfo" .!@ mempty))
 
 instance ToHeaders BatchGetApplications where
         toHeaders
@@ -98,5 +98,5 @@ batchGetApplicationsResponse :: BatchGetApplicationsResponse
 batchGetApplicationsResponse = BatchGetApplicationsResponse'{_bgarApplicationsInfo = Nothing};
 
 -- | Information about the applications.
-bgarApplicationsInfo :: Lens' BatchGetApplicationsResponse (Maybe [ApplicationInfo])
-bgarApplicationsInfo = lens _bgarApplicationsInfo (\ s a -> s{_bgarApplicationsInfo = a});
+bgarApplicationsInfo :: Lens' BatchGetApplicationsResponse [ApplicationInfo]
+bgarApplicationsInfo = lens _bgarApplicationsInfo (\ s a -> s{_bgarApplicationsInfo = a}) . _Default;

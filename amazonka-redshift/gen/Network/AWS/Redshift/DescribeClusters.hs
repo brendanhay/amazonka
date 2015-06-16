@@ -84,8 +84,8 @@ describeClusters = DescribeClusters'{_dcTagValues = Nothing, _dcTagKeys = Nothin
 -- @admin@ and @test@. If you specify both of these tag values in the
 -- request, Amazon Redshift returns a response with the clusters that have
 -- either or both of these tag values associated with them.
-dcTagValues :: Lens' DescribeClusters (Maybe [Text])
-dcTagValues = lens _dcTagValues (\ s a -> s{_dcTagValues = a});
+dcTagValues :: Lens' DescribeClusters [Text]
+dcTagValues = lens _dcTagValues (\ s a -> s{_dcTagValues = a}) . _Default;
 
 -- | A tag key or keys for which you want to return all matching clusters
 -- that are associated with the specified key or keys. For example, suppose
@@ -93,8 +93,8 @@ dcTagValues = lens _dcTagValues (\ s a -> s{_dcTagValues = a});
 -- @environment@. If you specify both of these tag keys in the request,
 -- Amazon Redshift returns a response with the clusters that have either or
 -- both of these tag keys associated with them.
-dcTagKeys :: Lens' DescribeClusters (Maybe [Text])
-dcTagKeys = lens _dcTagKeys (\ s a -> s{_dcTagKeys = a});
+dcTagKeys :: Lens' DescribeClusters [Text]
+dcTagKeys = lens _dcTagKeys (\ s a -> s{_dcTagKeys = a}) . _Default;
 
 -- | The unique identifier of a cluster whose properties you are requesting.
 -- This parameter is case sensitive.
@@ -135,9 +135,9 @@ instance AWSRequest DescribeClusters where
           = receiveXMLWrapper "DescribeClustersResult"
               (\ s h x ->
                  DescribeClustersResponse' <$>
-                   x .@? "Marker" <*>
+                   (x .@? "Marker") <*>
                      (x .@? "Clusters" .!@ mempty >>=
-                        parseXMLList "Cluster"))
+                        may (parseXMLList "Cluster")))
 
 instance ToHeaders DescribeClusters where
         toHeaders = const mempty
@@ -150,8 +150,10 @@ instance ToQuery DescribeClusters where
           = mconcat
               ["Action" =: ("DescribeClusters" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "TagValues" =: "TagValue" =: _dcTagValues,
-               "TagKeys" =: "TagKey" =: _dcTagKeys,
+               "TagValues" =:
+                 toQuery (toQueryList "TagValue" <$> _dcTagValues),
+               "TagKeys" =:
+                 toQuery (toQueryList "TagKey" <$> _dcTagKeys),
                "ClusterIdentifier" =: _dcClusterIdentifier,
                "MaxRecords" =: _dcMaxRecords, "Marker" =: _dcMarker]
 
@@ -178,5 +180,5 @@ dcrMarker :: Lens' DescribeClustersResponse (Maybe Text)
 dcrMarker = lens _dcrMarker (\ s a -> s{_dcrMarker = a});
 
 -- | A list of Cluster objects, where each object describes one cluster.
-dcrClusters :: Lens' DescribeClustersResponse (Maybe [Cluster])
-dcrClusters = lens _dcrClusters (\ s a -> s{_dcrClusters = a});
+dcrClusters :: Lens' DescribeClustersResponse [Cluster]
+dcrClusters = lens _dcrClusters (\ s a -> s{_dcrClusters = a}) . _Default;

@@ -112,15 +112,15 @@ instance AWSRequest GetTemplateSummary where
           = receiveXMLWrapper "GetTemplateSummaryResult"
               (\ s h x ->
                  GetTemplateSummaryResponse' <$>
-                   x .@? "Version" <*>
+                   (x .@? "Version") <*>
                      (x .@? "Parameters" .!@ mempty >>=
-                        parseXMLList "member")
-                     <*> x .@? "CapabilitiesReason"
-                     <*> x .@? "Metadata"
+                        may (parseXMLList "member"))
+                     <*> (x .@? "CapabilitiesReason")
+                     <*> (x .@? "Metadata")
                      <*>
                      (x .@? "Capabilities" .!@ mempty >>=
-                        parseXMLList "member")
-                     <*> x .@? "Description")
+                        may (parseXMLList "member"))
+                     <*> (x .@? "Description"))
 
 instance ToHeaders GetTemplateSummary where
         toHeaders = const mempty
@@ -165,8 +165,8 @@ gtsrVersion = lens _gtsrVersion (\ s a -> s{_gtsrVersion = a});
 
 -- | A list of parameter declarations that describe various properties for
 -- each parameter.
-gtsrParameters :: Lens' GetTemplateSummaryResponse (Maybe [ParameterDeclaration])
-gtsrParameters = lens _gtsrParameters (\ s a -> s{_gtsrParameters = a});
+gtsrParameters :: Lens' GetTemplateSummaryResponse [ParameterDeclaration]
+gtsrParameters = lens _gtsrParameters (\ s a -> s{_gtsrParameters = a}) . _Default;
 
 -- | The list of resources that generated the values in the @Capabilities@
 -- response element.
@@ -183,8 +183,8 @@ gtsrMetadata = lens _gtsrMetadata (\ s a -> s{_gtsrMetadata = a});
 -- value for this parameter when you use the CreateStack or UpdateStack
 -- actions with your template; otherwise, those actions return an
 -- InsufficientCapabilities error.
-gtsrCapabilities :: Lens' GetTemplateSummaryResponse (Maybe [Capability])
-gtsrCapabilities = lens _gtsrCapabilities (\ s a -> s{_gtsrCapabilities = a});
+gtsrCapabilities :: Lens' GetTemplateSummaryResponse [Capability]
+gtsrCapabilities = lens _gtsrCapabilities (\ s a -> s{_gtsrCapabilities = a}) . _Default;
 
 -- | The value that is defined in the @Description@ property of the template.
 gtsrDescription :: Lens' GetTemplateSummaryResponse (Maybe Text)

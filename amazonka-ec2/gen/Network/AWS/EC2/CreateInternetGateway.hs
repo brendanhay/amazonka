@@ -70,7 +70,7 @@ instance AWSRequest CreateInternetGateway where
           = receiveXML
               (\ s h x ->
                  CreateInternetGatewayResponse' <$>
-                   x .@? "internetGateway")
+                   (x .@? "internetGateway"))
 
 instance ToHeaders CreateInternetGateway where
         toHeaders = const mempty

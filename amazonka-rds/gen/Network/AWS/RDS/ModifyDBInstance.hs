@@ -124,8 +124,8 @@ modifyDBInstance pDBInstanceIdentifier = ModifyDBInstance'{_mdiDBSecurityGroups 
 -- -   Must be 1 to 255 alphanumeric characters
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
-mdiDBSecurityGroups :: Lens' ModifyDBInstance (Maybe [Text])
-mdiDBSecurityGroups = lens _mdiDBSecurityGroups (\ s a -> s{_mdiDBSecurityGroups = a});
+mdiDBSecurityGroups :: Lens' ModifyDBInstance [Text]
+mdiDBSecurityGroups = lens _mdiDBSecurityGroups (\ s a -> s{_mdiDBSecurityGroups = a}) . _Default;
 
 -- | The version number of the database engine to upgrade to. Changing this
 -- parameter results in an outage and the change is applied during the next
@@ -340,8 +340,8 @@ mdiDBParameterGroupName = lens _mdiDBParameterGroupName (\ s a -> s{_mdiDBParame
 -- -   Must be 1 to 255 alphanumeric characters
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
-mdiVPCSecurityGroupIds :: Lens' ModifyDBInstance (Maybe [Text])
-mdiVPCSecurityGroupIds = lens _mdiVPCSecurityGroupIds (\ s a -> s{_mdiVPCSecurityGroupIds = a});
+mdiVPCSecurityGroupIds :: Lens' ModifyDBInstance [Text]
+mdiVPCSecurityGroupIds = lens _mdiVPCSecurityGroupIds (\ s a -> s{_mdiVPCSecurityGroupIds = a}) . _Default;
 
 -- | Specifies if the DB instance is a Multi-AZ deployment. Changing this
 -- parameter does not result in an outage and the change is applied during
@@ -484,7 +484,7 @@ instance AWSRequest ModifyDBInstance where
         response
           = receiveXMLWrapper "ModifyDBInstanceResult"
               (\ s h x ->
-                 ModifyDBInstanceResponse' <$> x .@? "DBInstance")
+                 ModifyDBInstanceResponse' <$> (x .@? "DBInstance"))
 
 instance ToHeaders ModifyDBInstance where
         toHeaders = const mempty
@@ -498,7 +498,9 @@ instance ToQuery ModifyDBInstance where
               ["Action" =: ("ModifyDBInstance" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "DBSecurityGroups" =:
-                 "DBSecurityGroupName" =: _mdiDBSecurityGroups,
+                 toQuery
+                   (toQueryList "DBSecurityGroupName" <$>
+                      _mdiDBSecurityGroups),
                "EngineVersion" =: _mdiEngineVersion,
                "AutoMinorVersionUpgrade" =:
                  _mdiAutoMinorVersionUpgrade,
@@ -518,7 +520,9 @@ instance ToQuery ModifyDBInstance where
                "BackupRetentionPeriod" =: _mdiBackupRetentionPeriod,
                "DBParameterGroupName" =: _mdiDBParameterGroupName,
                "VpcSecurityGroupIds" =:
-                 "VpcSecurityGroupId" =: _mdiVPCSecurityGroupIds,
+                 toQuery
+                   (toQueryList "VpcSecurityGroupId" <$>
+                      _mdiVPCSecurityGroupIds),
                "MultiAZ" =: _mdiMultiAZ,
                "AllocatedStorage" =: _mdiAllocatedStorage,
                "ApplyImmediately" =: _mdiApplyImmediately,

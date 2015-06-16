@@ -162,8 +162,9 @@ instance AWSRequest DescribeEvents where
           = receiveXMLWrapper "DescribeEventsResult"
               (\ s h x ->
                  DescribeEventsResponse' <$>
-                   (x .@? "Events" .!@ mempty >>= parseXMLList "Event")
-                     <*> x .@? "Marker")
+                   (x .@? "Events" .!@ mempty >>=
+                      may (parseXMLList "Event"))
+                     <*> (x .@? "Marker"))
 
 instance ToHeaders DescribeEvents where
         toHeaders = const mempty
@@ -197,8 +198,8 @@ describeEventsResponse :: DescribeEventsResponse
 describeEventsResponse = DescribeEventsResponse'{_derEvents = Nothing, _derMarker = Nothing};
 
 -- | A list of Event instances.
-derEvents :: Lens' DescribeEventsResponse (Maybe [Event])
-derEvents = lens _derEvents (\ s a -> s{_derEvents = a});
+derEvents :: Lens' DescribeEventsResponse [Event]
+derEvents = lens _derEvents (\ s a -> s{_derEvents = a}) . _Default;
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,

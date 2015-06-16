@@ -142,12 +142,12 @@ instance AWSRequest GetJobOutput where
           = receiveBody
               (\ s h x ->
                  GetJobOutputResponse' <$>
-                   pure s <*> h .#? "x-amz-sha256-tree-hash" <*>
-                     h .#? "Accept-Ranges"
-                     <*> h .#? "x-amz-archive-description"
-                     <*> h .#? "Content-Range"
-                     <*> h .#? "Content-Type"
-                     <*> pure x)
+                   (pure (Just s)) <*> (h .#? "x-amz-sha256-tree-hash")
+                     <*> (h .#? "Accept-Ranges")
+                     <*> (h .#? "x-amz-archive-description")
+                     <*> (h .#? "Content-Range")
+                     <*> (h .#? "Content-Type")
+                     <*> (pure x))
 
 instance ToHeaders GetJobOutput where
         toHeaders GetJobOutput'{..}

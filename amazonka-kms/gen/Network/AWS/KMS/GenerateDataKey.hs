@@ -91,7 +91,7 @@ import Network.AWS.KMS.Types
 -- * 'gdkGrantTokens'
 --
 -- * 'gdkKeyId'
-data GenerateDataKey = GenerateDataKey'{_gdkKeySpec :: Maybe DataKeySpec, _gdkEncryptionContext :: Maybe (HashMap Text Text), _gdkNumberOfBytes :: Maybe Nat, _gdkGrantTokens :: Maybe [Text], _gdkKeyId :: Text} deriving (Eq, Read, Show)
+data GenerateDataKey = GenerateDataKey'{_gdkKeySpec :: Maybe DataKeySpec, _gdkEncryptionContext :: Maybe (Map Text Text), _gdkNumberOfBytes :: Maybe Nat, _gdkGrantTokens :: Maybe [Text], _gdkKeyId :: Text} deriving (Eq, Read, Show)
 
 -- | 'GenerateDataKey' smart constructor.
 generateDataKey :: Text -> GenerateDataKey
@@ -106,8 +106,8 @@ gdkKeySpec = lens _gdkKeySpec (\ s a -> s{_gdkKeySpec = a});
 -- during the encryption and decryption processes that use the key. This
 -- value is logged by AWS CloudTrail to provide context around the data
 -- encrypted by the key.
-gdkEncryptionContext :: Lens' GenerateDataKey (Maybe (HashMap Text Text))
-gdkEncryptionContext = lens _gdkEncryptionContext (\ s a -> s{_gdkEncryptionContext = a}) . mapping _Coerce;
+gdkEncryptionContext :: Lens' GenerateDataKey (Map Text Text)
+gdkEncryptionContext = lens _gdkEncryptionContext (\ s a -> s{_gdkEncryptionContext = a}) . _Default . _Map;
 
 -- | Integer that contains the number of bytes to generate. Common values are
 -- 128, 256, 512, and 1024. 1024 is the current limit. We recommend that
@@ -117,8 +117,8 @@ gdkNumberOfBytes = lens _gdkNumberOfBytes (\ s a -> s{_gdkNumberOfBytes = a}) . 
 
 -- | For more information, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.
-gdkGrantTokens :: Lens' GenerateDataKey (Maybe [Text])
-gdkGrantTokens = lens _gdkGrantTokens (\ s a -> s{_gdkGrantTokens = a});
+gdkGrantTokens :: Lens' GenerateDataKey [Text]
+gdkGrantTokens = lens _gdkGrantTokens (\ s a -> s{_gdkGrantTokens = a}) . _Default;
 
 -- | A unique identifier for the customer master key. This value can be a
 -- globally unique identifier, a fully specified ARN to either an alias or
@@ -142,8 +142,8 @@ instance AWSRequest GenerateDataKey where
           = receiveJSON
               (\ s h x ->
                  GenerateDataKeyResponse' <$>
-                   x .?> "KeyId" <*> x .?> "Plaintext" <*>
-                     x .?> "CiphertextBlob")
+                   (x .?> "KeyId") <*> (x .?> "Plaintext") <*>
+                     (x .?> "CiphertextBlob"))
 
 instance ToHeaders GenerateDataKey where
         toHeaders

@@ -73,8 +73,8 @@ iiLaunchSpecification :: Lens' ImportInstance (Maybe ImportInstanceLaunchSpecifi
 iiLaunchSpecification = lens _iiLaunchSpecification (\ s a -> s{_iiLaunchSpecification = a});
 
 -- | The disk image.
-iiDiskImages :: Lens' ImportInstance (Maybe [DiskImage])
-iiDiskImages = lens _iiDiskImages (\ s a -> s{_iiDiskImages = a});
+iiDiskImages :: Lens' ImportInstance [DiskImage]
+iiDiskImages = lens _iiDiskImages (\ s a -> s{_iiDiskImages = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -98,7 +98,7 @@ instance AWSRequest ImportInstance where
         response
           = receiveXML
               (\ s h x ->
-                 ImportInstanceResponse' <$> x .@? "conversionTask")
+                 ImportInstanceResponse' <$> (x .@? "conversionTask"))
 
 instance ToHeaders ImportInstance where
         toHeaders = const mempty
@@ -112,7 +112,8 @@ instance ToQuery ImportInstance where
               ["Action" =: ("ImportInstance" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "LaunchSpecification" =: _iiLaunchSpecification,
-               "DiskImage" =: _iiDiskImages, "DryRun" =: _iiDryRun,
+               toQuery (toQueryList "DiskImage" <$> _iiDiskImages),
+               "DryRun" =: _iiDryRun,
                "Description" =: _iiDescription,
                "Platform" =: _iiPlatform]
 

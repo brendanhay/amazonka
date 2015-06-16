@@ -78,7 +78,7 @@ instance AWSRequest RegisterElasticIP where
         response
           = receiveJSON
               (\ s h x ->
-                 RegisterElasticIPResponse' <$> x .?> "ElasticIp")
+                 RegisterElasticIPResponse' <$> (x .?> "ElasticIp"))
 
 instance ToHeaders RegisterElasticIP where
         toHeaders

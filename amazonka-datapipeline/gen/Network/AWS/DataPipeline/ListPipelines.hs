@@ -68,8 +68,8 @@ instance AWSRequest ListPipelines where
           = receiveJSON
               (\ s h x ->
                  ListPipelinesResponse' <$>
-                   x .?> "hasMoreResults" <*> x .?> "marker" <*>
-                     x .?> "pipelineIdList" .!@ mempty)
+                   (x .?> "hasMoreResults") <*> (x .?> "marker") <*>
+                     (x .?> "pipelineIdList" .!@ mempty))
 
 instance ToHeaders ListPipelines where
         toHeaders

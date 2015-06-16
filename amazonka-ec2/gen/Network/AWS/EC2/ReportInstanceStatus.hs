@@ -153,8 +153,8 @@ instance ToQuery ReportInstanceStatus where
                "Status" =: _risAddressStatus,
                "EndTime" =: _risEndTime, "DryRun" =: _risDryRun,
                "Description" =: _risDescription,
-               "InstanceId" =: _risInstances,
-               "item" =: _risReasonCodes]
+               toQueryList "InstanceId" _risInstances,
+               toQueryList "item" _risReasonCodes]
 
 -- | /See:/ 'reportInstanceStatusResponse' smart constructor.
 data ReportInstanceStatusResponse = ReportInstanceStatusResponse' deriving (Eq, Read, Show)

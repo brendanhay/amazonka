@@ -88,7 +88,7 @@ instance AWSRequest CreateRole where
         request = post
         response
           = receiveXMLWrapper "CreateRoleResult"
-              (\ s h x -> CreateRoleResponse' <$> x .@ "Role")
+              (\ s h x -> CreateRoleResponse' <$> (x .@ "Role"))
 
 instance ToHeaders CreateRole where
         toHeaders = const mempty

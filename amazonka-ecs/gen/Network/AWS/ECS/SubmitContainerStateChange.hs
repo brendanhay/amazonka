@@ -72,8 +72,8 @@ submitContainerStateChange :: SubmitContainerStateChange
 submitContainerStateChange = SubmitContainerStateChange'{_scscNetworkBindings = Nothing, _scscStatus = Nothing, _scscCluster = Nothing, _scscContainerName = Nothing, _scscReason = Nothing, _scscExitCode = Nothing, _scscTask = Nothing};
 
 -- | The network bindings of the container.
-scscNetworkBindings :: Lens' SubmitContainerStateChange (Maybe [NetworkBinding])
-scscNetworkBindings = lens _scscNetworkBindings (\ s a -> s{_scscNetworkBindings = a});
+scscNetworkBindings :: Lens' SubmitContainerStateChange [NetworkBinding]
+scscNetworkBindings = lens _scscNetworkBindings (\ s a -> s{_scscNetworkBindings = a}) . _Default;
 
 -- | The status of the state change request.
 scscStatus :: Lens' SubmitContainerStateChange (Maybe Text)
@@ -110,7 +110,7 @@ instance AWSRequest SubmitContainerStateChange where
           = receiveJSON
               (\ s h x ->
                  SubmitContainerStateChangeResponse' <$>
-                   x .?> "acknowledgment")
+                   (x .?> "acknowledgment"))
 
 instance ToHeaders SubmitContainerStateChange where
         toHeaders

@@ -65,7 +65,7 @@ instance AWSRequest BuildSuggesters where
               (\ s h x ->
                  BuildSuggestersResponse' <$>
                    (x .@? "FieldNames" .!@ mempty >>=
-                      parseXMLList "member"))
+                      may (parseXMLList "member")))
 
 instance ToHeaders BuildSuggesters where
         toHeaders = const mempty
@@ -92,5 +92,5 @@ buildSuggestersResponse :: BuildSuggestersResponse
 buildSuggestersResponse = BuildSuggestersResponse'{_bsrFieldNames = Nothing};
 
 -- | FIXME: Undocumented member.
-bsrFieldNames :: Lens' BuildSuggestersResponse (Maybe [Text])
-bsrFieldNames = lens _bsrFieldNames (\ s a -> s{_bsrFieldNames = a});
+bsrFieldNames :: Lens' BuildSuggestersResponse [Text]
+bsrFieldNames = lens _bsrFieldNames (\ s a -> s{_bsrFieldNames = a}) . _Default;

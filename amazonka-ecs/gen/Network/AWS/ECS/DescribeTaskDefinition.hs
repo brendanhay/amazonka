@@ -68,7 +68,7 @@ instance AWSRequest DescribeTaskDefinition where
           = receiveJSON
               (\ s h x ->
                  DescribeTaskDefinitionResponse' <$>
-                   x .?> "taskDefinition")
+                   (x .?> "taskDefinition"))
 
 instance ToHeaders DescribeTaskDefinition where
         toHeaders

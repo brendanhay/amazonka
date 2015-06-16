@@ -86,7 +86,7 @@ instance AWSRequest ModifySnapshotCopyRetentionPeriod
               "ModifySnapshotCopyRetentionPeriodResult"
               (\ s h x ->
                  ModifySnapshotCopyRetentionPeriodResponse' <$>
-                   x .@? "Cluster")
+                   (x .@? "Cluster"))
 
 instance ToHeaders ModifySnapshotCopyRetentionPeriod
          where

@@ -113,8 +113,8 @@ instance AWSRequest DescribeClusterVersions where
               (\ s h x ->
                  DescribeClusterVersionsResponse' <$>
                    (x .@? "ClusterVersions" .!@ mempty >>=
-                      parseXMLList "ClusterVersion")
-                     <*> x .@? "Marker")
+                      may (parseXMLList "ClusterVersion"))
+                     <*> (x .@? "Marker"))
 
 instance ToHeaders DescribeClusterVersions where
         toHeaders = const mempty
@@ -148,8 +148,8 @@ describeClusterVersionsResponse :: DescribeClusterVersionsResponse
 describeClusterVersionsResponse = DescribeClusterVersionsResponse'{_dcvrClusterVersions = Nothing, _dcvrMarker = Nothing};
 
 -- | A list of @Version@ elements.
-dcvrClusterVersions :: Lens' DescribeClusterVersionsResponse (Maybe [ClusterVersion])
-dcvrClusterVersions = lens _dcvrClusterVersions (\ s a -> s{_dcvrClusterVersions = a});
+dcvrClusterVersions :: Lens' DescribeClusterVersionsResponse [ClusterVersion]
+dcvrClusterVersions = lens _dcvrClusterVersions (\ s a -> s{_dcvrClusterVersions = a}) . _Default;
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,

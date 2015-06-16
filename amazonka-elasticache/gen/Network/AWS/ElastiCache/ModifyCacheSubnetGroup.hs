@@ -58,8 +58,8 @@ modifyCacheSubnetGroup :: Text -> ModifyCacheSubnetGroup
 modifyCacheSubnetGroup pCacheSubnetGroupName = ModifyCacheSubnetGroup'{_mcsgSubnetIds = Nothing, _mcsgCacheSubnetGroupDescription = Nothing, _mcsgCacheSubnetGroupName = pCacheSubnetGroupName};
 
 -- | The EC2 subnet IDs for the cache subnet group.
-mcsgSubnetIds :: Lens' ModifyCacheSubnetGroup (Maybe [Text])
-mcsgSubnetIds = lens _mcsgSubnetIds (\ s a -> s{_mcsgSubnetIds = a});
+mcsgSubnetIds :: Lens' ModifyCacheSubnetGroup [Text]
+mcsgSubnetIds = lens _mcsgSubnetIds (\ s a -> s{_mcsgSubnetIds = a}) . _Default;
 
 -- | A description for the cache subnet group.
 mcsgCacheSubnetGroupDescription :: Lens' ModifyCacheSubnetGroup (Maybe Text)
@@ -84,7 +84,7 @@ instance AWSRequest ModifyCacheSubnetGroup where
           = receiveXMLWrapper "ModifyCacheSubnetGroupResult"
               (\ s h x ->
                  ModifyCacheSubnetGroupResponse' <$>
-                   x .@? "CacheSubnetGroup")
+                   (x .@? "CacheSubnetGroup"))
 
 instance ToHeaders ModifyCacheSubnetGroup where
         toHeaders = const mempty
@@ -98,7 +98,9 @@ instance ToQuery ModifyCacheSubnetGroup where
               ["Action" =:
                  ("ModifyCacheSubnetGroup" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
-               "SubnetIds" =: "SubnetIdentifier" =: _mcsgSubnetIds,
+               "SubnetIds" =:
+                 toQuery
+                   (toQueryList "SubnetIdentifier" <$> _mcsgSubnetIds),
                "CacheSubnetGroupDescription" =:
                  _mcsgCacheSubnetGroupDescription,
                "CacheSubnetGroupName" =: _mcsgCacheSubnetGroupName]

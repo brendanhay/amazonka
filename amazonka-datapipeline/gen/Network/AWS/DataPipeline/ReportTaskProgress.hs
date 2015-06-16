@@ -66,8 +66,8 @@ reportTaskProgress pTaskId = ReportTaskProgress'{_rtpFields = Nothing, _rtpTaskI
 
 -- | Key-value pairs that define the properties of the
 -- ReportTaskProgressInput object.
-rtpFields :: Lens' ReportTaskProgress (Maybe [Field])
-rtpFields = lens _rtpFields (\ s a -> s{_rtpFields = a});
+rtpFields :: Lens' ReportTaskProgress [Field]
+rtpFields = lens _rtpFields (\ s a -> s{_rtpFields = a}) . _Default;
 
 -- | The ID of the task assigned to the task runner. This value is provided
 -- in the response for PollForTask.
@@ -82,7 +82,7 @@ instance AWSRequest ReportTaskProgress where
         response
           = receiveJSON
               (\ s h x ->
-                 ReportTaskProgressResponse' <$> x .:> "canceled")
+                 ReportTaskProgressResponse' <$> (x .:> "canceled"))
 
 instance ToHeaders ReportTaskProgress where
         toHeaders

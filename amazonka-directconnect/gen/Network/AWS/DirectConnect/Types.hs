@@ -247,14 +247,14 @@ instance FromJSON Connection where
           = withObject "Connection"
               (\ x ->
                  Connection' <$>
-                   x .:? "vlan" <*> x .:? "location" <*>
-                     x .:? "connectionId"
-                     <*> x .:? "connectionName"
-                     <*> x .:? "partnerName"
-                     <*> x .:? "bandwidth"
-                     <*> x .:? "region"
-                     <*> x .:? "ownerAccount"
-                     <*> x .:? "connectionState")
+                   (x .:? "vlan") <*> (x .:? "location") <*>
+                     (x .:? "connectionId")
+                     <*> (x .:? "connectionName")
+                     <*> (x .:? "partnerName")
+                     <*> (x .:? "bandwidth")
+                     <*> (x .:? "region")
+                     <*> (x .:? "ownerAccount")
+                     <*> (x .:? "connectionState"))
 
 data ConnectionState = CSDeleted | CSOrdering | CSAvailable | CSDeleting | CSPending | CSDown | CSRequested | CSRejected deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -300,14 +300,14 @@ connections :: Connections
 connections = Connections'{_conConnections = Nothing};
 
 -- | A list of connections.
-conConnections :: Lens' Connections (Maybe [Connection])
-conConnections = lens _conConnections (\ s a -> s{_conConnections = a});
+conConnections :: Lens' Connections [Connection]
+conConnections = lens _conConnections (\ s a -> s{_conConnections = a}) . _Default;
 
 instance FromJSON Connections where
         parseJSON
           = withObject "Connections"
               (\ x ->
-                 Connections' <$> x .:? "connections" .!= mempty)
+                 Connections' <$> (x .:? "connections" .!= mempty))
 
 -- | /See:/ 'interconnect' smart constructor.
 --
@@ -359,11 +359,12 @@ instance FromJSON Interconnect where
           = withObject "Interconnect"
               (\ x ->
                  Interconnect' <$>
-                   x .:? "interconnectId" <*> x .:? "interconnectName"
-                     <*> x .:? "location"
-                     <*> x .:? "bandwidth"
-                     <*> x .:? "interconnectState"
-                     <*> x .:? "region")
+                   (x .:? "interconnectId") <*>
+                     (x .:? "interconnectName")
+                     <*> (x .:? "location")
+                     <*> (x .:? "bandwidth")
+                     <*> (x .:? "interconnectState")
+                     <*> (x .:? "region"))
 
 data InterconnectState = ISDeleted | ISAvailable | ISDeleting | ISRequested | ISPending | ISDown deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -420,7 +421,7 @@ instance FromJSON Location where
           = withObject "Location"
               (\ x ->
                  Location' <$>
-                   x .:? "locationName" <*> x .:? "locationCode")
+                   (x .:? "locationName") <*> (x .:? "locationCode"))
 
 -- | /See:/ 'newPrivateVirtualInterface' smart constructor.
 --
@@ -682,7 +683,7 @@ rfpCidr = lens _rfpCidr (\ s a -> s{_rfpCidr = a});
 instance FromJSON RouteFilterPrefix where
         parseJSON
           = withObject "RouteFilterPrefix"
-              (\ x -> RouteFilterPrefix' <$> x .:? "cidr")
+              (\ x -> RouteFilterPrefix' <$> (x .:? "cidr"))
 
 instance ToJSON RouteFilterPrefix where
         toJSON RouteFilterPrefix'{..}
@@ -714,8 +715,8 @@ instance FromJSON VirtualGateway where
           = withObject "VirtualGateway"
               (\ x ->
                  VirtualGateway' <$>
-                   x .:? "virtualGatewayId" <*>
-                     x .:? "virtualGatewayState")
+                   (x .:? "virtualGatewayId") <*>
+                     (x .:? "virtualGatewayState"))
 
 -- | /See:/ 'virtualInterface' smart constructor.
 --
@@ -761,8 +762,8 @@ viVirtualGatewayId :: Lens' VirtualInterface (Maybe Text)
 viVirtualGatewayId = lens _viVirtualGatewayId (\ s a -> s{_viVirtualGatewayId = a});
 
 -- | FIXME: Undocumented member.
-viRouteFilterPrefixes :: Lens' VirtualInterface (Maybe [RouteFilterPrefix])
-viRouteFilterPrefixes = lens _viRouteFilterPrefixes (\ s a -> s{_viRouteFilterPrefixes = a});
+viRouteFilterPrefixes :: Lens' VirtualInterface [RouteFilterPrefix]
+viRouteFilterPrefixes = lens _viRouteFilterPrefixes (\ s a -> s{_viRouteFilterPrefixes = a}) . _Default;
 
 -- | FIXME: Undocumented member.
 viCustomerAddress :: Lens' VirtualInterface (Maybe Text)
@@ -821,21 +822,21 @@ instance FromJSON VirtualInterface where
           = withObject "VirtualInterface"
               (\ x ->
                  VirtualInterface' <$>
-                   x .:? "virtualGatewayId" <*>
-                     x .:? "routeFilterPrefixes" .!= mempty
-                     <*> x .:? "customerAddress"
-                     <*> x .:? "vlan"
-                     <*> x .:? "location"
-                     <*> x .:? "amazonAddress"
-                     <*> x .:? "virtualInterfaceState"
-                     <*> x .:? "connectionId"
-                     <*> x .:? "asn"
-                     <*> x .:? "virtualInterfaceType"
-                     <*> x .:? "authKey"
-                     <*> x .:? "customerRouterConfig"
-                     <*> x .:? "ownerAccount"
-                     <*> x .:? "virtualInterfaceName"
-                     <*> x .:? "virtualInterfaceId")
+                   (x .:? "virtualGatewayId") <*>
+                     (x .:? "routeFilterPrefixes" .!= mempty)
+                     <*> (x .:? "customerAddress")
+                     <*> (x .:? "vlan")
+                     <*> (x .:? "location")
+                     <*> (x .:? "amazonAddress")
+                     <*> (x .:? "virtualInterfaceState")
+                     <*> (x .:? "connectionId")
+                     <*> (x .:? "asn")
+                     <*> (x .:? "virtualInterfaceType")
+                     <*> (x .:? "authKey")
+                     <*> (x .:? "customerRouterConfig")
+                     <*> (x .:? "ownerAccount")
+                     <*> (x .:? "virtualInterfaceName")
+                     <*> (x .:? "virtualInterfaceId"))
 
 data VirtualInterfaceState = Deleting | Pending | Confirming | Rejected | Verifying | Deleted | Available deriving (Eq, Ord, Read, Show, Enum, Generic)
 

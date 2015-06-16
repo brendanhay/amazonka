@@ -55,8 +55,8 @@ describeDeliveryChannels :: DescribeDeliveryChannels
 describeDeliveryChannels = DescribeDeliveryChannels'{_ddcDeliveryChannelNames = Nothing};
 
 -- | A list of delivery channel names.
-ddcDeliveryChannelNames :: Lens' DescribeDeliveryChannels (Maybe [Text])
-ddcDeliveryChannelNames = lens _ddcDeliveryChannelNames (\ s a -> s{_ddcDeliveryChannelNames = a});
+ddcDeliveryChannelNames :: Lens' DescribeDeliveryChannels [Text]
+ddcDeliveryChannelNames = lens _ddcDeliveryChannelNames (\ s a -> s{_ddcDeliveryChannelNames = a}) . _Default;
 
 instance AWSRequest DescribeDeliveryChannels where
         type Sv DescribeDeliveryChannels = Config
@@ -67,7 +67,7 @@ instance AWSRequest DescribeDeliveryChannels where
           = receiveJSON
               (\ s h x ->
                  DescribeDeliveryChannelsResponse' <$>
-                   x .?> "DeliveryChannels" .!@ mempty)
+                   (x .?> "DeliveryChannels" .!@ mempty))
 
 instance ToHeaders DescribeDeliveryChannels where
         toHeaders
@@ -102,5 +102,5 @@ describeDeliveryChannelsResponse :: DescribeDeliveryChannelsResponse
 describeDeliveryChannelsResponse = DescribeDeliveryChannelsResponse'{_ddcrDeliveryChannels = Nothing};
 
 -- | A list that contains the descriptions of the specified delivery channel.
-ddcrDeliveryChannels :: Lens' DescribeDeliveryChannelsResponse (Maybe [DeliveryChannel])
-ddcrDeliveryChannels = lens _ddcrDeliveryChannels (\ s a -> s{_ddcrDeliveryChannels = a});
+ddcrDeliveryChannels :: Lens' DescribeDeliveryChannelsResponse [DeliveryChannel]
+ddcrDeliveryChannels = lens _ddcrDeliveryChannels (\ s a -> s{_ddcrDeliveryChannels = a}) . _Default;

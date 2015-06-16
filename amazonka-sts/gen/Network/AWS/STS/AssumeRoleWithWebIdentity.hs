@@ -209,12 +209,12 @@ instance AWSRequest AssumeRoleWithWebIdentity where
           = receiveXMLWrapper "AssumeRoleWithWebIdentityResult"
               (\ s h x ->
                  AssumeRoleWithWebIdentityResponse' <$>
-                   x .@? "Audience" <*>
-                     x .@? "SubjectFromWebIdentityToken"
-                     <*> x .@? "PackedPolicySize"
-                     <*> x .@? "Credentials"
-                     <*> x .@? "AssumedRoleUser"
-                     <*> x .@? "Provider")
+                   (x .@? "Audience") <*>
+                     (x .@? "SubjectFromWebIdentityToken")
+                     <*> (x .@? "PackedPolicySize")
+                     <*> (x .@? "Credentials")
+                     <*> (x .@? "AssumedRoleUser")
+                     <*> (x .@? "Provider"))
 
 instance ToHeaders AssumeRoleWithWebIdentity where
         toHeaders = const mempty

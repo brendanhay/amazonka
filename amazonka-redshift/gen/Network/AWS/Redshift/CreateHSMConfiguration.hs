@@ -78,8 +78,8 @@ createHSMConfiguration :: Text -> Text -> Text -> Text -> Text -> Text -> Create
 createHSMConfiguration pHSMConfigurationIdentifier pDescription pHSMIPAddress pHSMPartitionName pHSMPartitionPassword pHSMServerPublicCertificate = CreateHSMConfiguration'{_chcTags = Nothing, _chcHSMConfigurationIdentifier = pHSMConfigurationIdentifier, _chcDescription = pDescription, _chcHSMIPAddress = pHSMIPAddress, _chcHSMPartitionName = pHSMPartitionName, _chcHSMPartitionPassword = pHSMPartitionPassword, _chcHSMServerPublicCertificate = pHSMServerPublicCertificate};
 
 -- | A list of tag instances.
-chcTags :: Lens' CreateHSMConfiguration (Maybe [Tag])
-chcTags = lens _chcTags (\ s a -> s{_chcTags = a});
+chcTags :: Lens' CreateHSMConfiguration [Tag]
+chcTags = lens _chcTags (\ s a -> s{_chcTags = a}) . _Default;
 
 -- | The identifier to be assigned to the new Amazon Redshift HSM
 -- configuration.
@@ -118,7 +118,7 @@ instance AWSRequest CreateHSMConfiguration where
           = receiveXMLWrapper "CreateHsmConfigurationResult"
               (\ s h x ->
                  CreateHSMConfigurationResponse' <$>
-                   x .@? "HsmConfiguration")
+                   (x .@? "HsmConfiguration"))
 
 instance ToHeaders CreateHSMConfiguration where
         toHeaders = const mempty
@@ -132,7 +132,7 @@ instance ToQuery CreateHSMConfiguration where
               ["Action" =:
                  ("CreateHSMConfiguration" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "Tags" =: "Tag" =: _chcTags,
+               "Tags" =: toQuery (toQueryList "Tag" <$> _chcTags),
                "HsmConfigurationIdentifier" =:
                  _chcHSMConfigurationIdentifier,
                "Description" =: _chcDescription,

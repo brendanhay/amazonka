@@ -75,7 +75,7 @@ import Network.AWS.SQS.Types
 -- * 'cqAttributes'
 --
 -- * 'cqQueueName'
-data CreateQueue = CreateQueue'{_cqAttributes :: Maybe (HashMap QueueAttributeName Text), _cqQueueName :: Text} deriving (Eq, Read, Show)
+data CreateQueue = CreateQueue'{_cqAttributes :: Maybe (Map QueueAttributeName Text), _cqQueueName :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreateQueue' smart constructor.
 createQueue :: Text -> CreateQueue
@@ -109,8 +109,8 @@ createQueue pQueueName = CreateQueue'{_cqAttributes = Nothing, _cqQueueName = pQ
 --     is 30. For more information about visibility timeout, see
 --     <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html Visibility Timeout>
 --     in the /Amazon SQS Developer Guide/.
-cqAttributes :: Lens' CreateQueue (Maybe (HashMap QueueAttributeName Text))
-cqAttributes = lens _cqAttributes (\ s a -> s{_cqAttributes = a}) . mapping _Coerce;
+cqAttributes :: Lens' CreateQueue (Map QueueAttributeName Text)
+cqAttributes = lens _cqAttributes (\ s a -> s{_cqAttributes = a}) . _Default . _Map;
 
 -- | The name for the queue to be created.
 cqQueueName :: Lens' CreateQueue Text
@@ -123,7 +123,7 @@ instance AWSRequest CreateQueue where
         response
           = receiveXMLWrapper "CreateQueueResult"
               (\ s h x ->
-                 CreateQueueResponse' <$> x .@? "QueueUrl")
+                 CreateQueueResponse' <$> (x .@? "QueueUrl"))
 
 instance ToHeaders CreateQueue where
         toHeaders = const mempty
@@ -136,7 +136,9 @@ instance ToQuery CreateQueue where
           = mconcat
               ["Action" =: ("CreateQueue" :: ByteString),
                "Version" =: ("2012-11-05" :: ByteString),
-               toQueryMap "Attribute" "Name" "Value" _cqAttributes,
+               toQuery
+                 (toQueryMap "Attribute" "Name" "Value" <$>
+                    _cqAttributes),
                "QueueName" =: _cqQueueName]
 
 -- | /See:/ 'createQueueResponse' smart constructor.

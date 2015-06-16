@@ -72,7 +72,7 @@ instance AWSRequest DeleteBatchPrediction where
           = receiveJSON
               (\ s h x ->
                  DeleteBatchPredictionResponse' <$>
-                   x .?> "BatchPredictionId")
+                   (x .?> "BatchPredictionId"))
 
 instance ToHeaders DeleteBatchPrediction where
         toHeaders

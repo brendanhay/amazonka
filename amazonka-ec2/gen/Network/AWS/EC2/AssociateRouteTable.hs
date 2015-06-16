@@ -89,7 +89,7 @@ instance AWSRequest AssociateRouteTable where
           = receiveXML
               (\ s h x ->
                  AssociateRouteTableResponse' <$>
-                   x .@? "associationId")
+                   (x .@? "associationId"))
 
 instance ToHeaders AssociateRouteTable where
         toHeaders = const mempty

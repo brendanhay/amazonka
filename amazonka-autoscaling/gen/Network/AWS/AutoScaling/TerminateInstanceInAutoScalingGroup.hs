@@ -78,7 +78,7 @@ instance AWSRequest
               "TerminateInstanceInAutoScalingGroupResult"
               (\ s h x ->
                  TerminateInstanceInAutoScalingGroupResponse' <$>
-                   x .@? "Activity")
+                   (x .@? "Activity"))
 
 instance ToHeaders
          TerminateInstanceInAutoScalingGroup where

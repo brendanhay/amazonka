@@ -144,8 +144,8 @@ impClientData :: Lens' ImportImage (Maybe ClientData)
 impClientData = lens _impClientData (\ s a -> s{_impClientData = a});
 
 -- | Information about the disk containers.
-impDiskContainers :: Lens' ImportImage (Maybe [ImageDiskContainer])
-impDiskContainers = lens _impDiskContainers (\ s a -> s{_impDiskContainers = a});
+impDiskContainers :: Lens' ImportImage [ImageDiskContainer]
+impDiskContainers = lens _impDiskContainers (\ s a -> s{_impDiskContainers = a}) . _Default;
 
 instance AWSRequest ImportImage where
         type Sv ImportImage = EC2
@@ -155,16 +155,16 @@ instance AWSRequest ImportImage where
           = receiveXML
               (\ s h x ->
                  ImportImageResponse' <$>
-                   x .@? "hypervisor" <*> x .@? "platform" <*>
-                     x .@? "progress"
-                     <*> x .@? "licenseType"
-                     <*> parseXMLList "item" x
-                     <*> x .@? "statusMessage"
-                     <*> x .@? "status"
-                     <*> x .@? "imageId"
-                     <*> x .@? "importTaskId"
-                     <*> x .@? "architecture"
-                     <*> x .@? "description")
+                   (x .@? "hypervisor") <*> (x .@? "platform") <*>
+                     (x .@? "progress")
+                     <*> (x .@? "licenseType")
+                     <*> (may (parseXMLList "item") x)
+                     <*> (x .@? "statusMessage")
+                     <*> (x .@? "status")
+                     <*> (x .@? "imageId")
+                     <*> (x .@? "importTaskId")
+                     <*> (x .@? "architecture")
+                     <*> (x .@? "description"))
 
 instance ToHeaders ImportImage where
         toHeaders = const mempty
@@ -186,7 +186,7 @@ instance ToQuery ImportImage where
                "DryRun" =: _impDryRun,
                "Description" =: _impDescription,
                "ClientData" =: _impClientData,
-               "item" =: _impDiskContainers]
+               toQuery (toQueryList "item" <$> _impDiskContainers)]
 
 -- | /See:/ 'importImageResponse' smart constructor.
 --
@@ -236,8 +236,8 @@ iirLicenseType :: Lens' ImportImageResponse (Maybe Text)
 iirLicenseType = lens _iirLicenseType (\ s a -> s{_iirLicenseType = a});
 
 -- | Information about the snapshots.
-iirSnapshotDetails :: Lens' ImportImageResponse (Maybe [SnapshotDetail])
-iirSnapshotDetails = lens _iirSnapshotDetails (\ s a -> s{_iirSnapshotDetails = a});
+iirSnapshotDetails :: Lens' ImportImageResponse [SnapshotDetail]
+iirSnapshotDetails = lens _iirSnapshotDetails (\ s a -> s{_iirSnapshotDetails = a}) . _Default;
 
 -- | A detailed status message of the import task.
 iirStatusMessage :: Lens' ImportImageResponse (Maybe Text)

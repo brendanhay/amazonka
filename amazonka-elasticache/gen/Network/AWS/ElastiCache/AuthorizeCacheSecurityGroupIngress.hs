@@ -89,7 +89,7 @@ instance AWSRequest
               "AuthorizeCacheSecurityGroupIngressResult"
               (\ s h x ->
                  AuthorizeCacheSecurityGroupIngressResponse' <$>
-                   x .@? "CacheSecurityGroup")
+                   (x .@? "CacheSecurityGroup"))
 
 instance ToHeaders AuthorizeCacheSecurityGroupIngress
          where

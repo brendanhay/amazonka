@@ -121,8 +121,8 @@ instance AWSRequest DescribeCacheClusters where
               (\ s h x ->
                  DescribeCacheClustersResponse' <$>
                    (x .@? "CacheClusters" .!@ mempty >>=
-                      parseXMLList "CacheCluster")
-                     <*> x .@? "Marker")
+                      may (parseXMLList "CacheCluster"))
+                     <*> (x .@? "Marker"))
 
 instance ToHeaders DescribeCacheClusters where
         toHeaders = const mempty
@@ -155,8 +155,8 @@ describeCacheClustersResponse = DescribeCacheClustersResponse'{_dccrCacheCluster
 
 -- | A list of cache clusters. Each item in the list contains detailed
 -- information about one cache cluster.
-dccrCacheClusters :: Lens' DescribeCacheClustersResponse (Maybe [CacheCluster])
-dccrCacheClusters = lens _dccrCacheClusters (\ s a -> s{_dccrCacheClusters = a});
+dccrCacheClusters :: Lens' DescribeCacheClustersResponse [CacheCluster]
+dccrCacheClusters = lens _dccrCacheClusters (\ s a -> s{_dccrCacheClusters = a}) . _Default;
 
 -- | Provides an identifier to allow retrieval of paginated results.
 dccrMarker :: Lens' DescribeCacheClustersResponse (Maybe Text)

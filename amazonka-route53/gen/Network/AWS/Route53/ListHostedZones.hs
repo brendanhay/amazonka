@@ -92,12 +92,12 @@ instance AWSRequest ListHostedZones where
           = receiveXML
               (\ s h x ->
                  ListHostedZonesResponse' <$>
-                   x .@? "NextMarker" <*>
+                   (x .@? "NextMarker") <*>
                      (x .@? "HostedZones" .!@ mempty >>=
                         parseXMLList "HostedZone")
-                     <*> x .@ "Marker"
-                     <*> x .@ "IsTruncated"
-                     <*> x .@ "MaxItems")
+                     <*> (x .@ "Marker")
+                     <*> (x .@ "IsTruncated")
+                     <*> (x .@ "MaxItems"))
 
 instance ToHeaders ListHostedZones where
         toHeaders = const mempty

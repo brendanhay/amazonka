@@ -135,14 +135,14 @@ describeVolumeStatus = DescribeVolumeStatus'{_dvsFilters = Nothing, _dvsVolumeId
 -- -   @volume-status.status@ - The status of the volume (@ok@ | @impaired@
 --     | @warning@ | @insufficient-data@).
 --
-dvsFilters :: Lens' DescribeVolumeStatus (Maybe [Filter])
-dvsFilters = lens _dvsFilters (\ s a -> s{_dvsFilters = a});
+dvsFilters :: Lens' DescribeVolumeStatus [Filter]
+dvsFilters = lens _dvsFilters (\ s a -> s{_dvsFilters = a}) . _Default;
 
 -- | One or more volume IDs.
 --
 -- Default: Describes all your volumes.
-dvsVolumeIds :: Lens' DescribeVolumeStatus (Maybe [Text])
-dvsVolumeIds = lens _dvsVolumeIds (\ s a -> s{_dvsVolumeIds = a});
+dvsVolumeIds :: Lens' DescribeVolumeStatus [Text]
+dvsVolumeIds = lens _dvsVolumeIds (\ s a -> s{_dvsVolumeIds = a}) . _Default;
 
 -- | The @NextToken@ value to include in a future @DescribeVolumeStatus@
 -- request. When the results of the request exceed @MaxResults@, this value
@@ -179,7 +179,8 @@ instance AWSRequest DescribeVolumeStatus where
           = receiveXML
               (\ s h x ->
                  DescribeVolumeStatusResponse' <$>
-                   x .@? "nextToken" <*> parseXMLList "item" x)
+                   (x .@? "nextToken") <*>
+                     (may (parseXMLList "item") x))
 
 instance ToHeaders DescribeVolumeStatus where
         toHeaders = const mempty
@@ -192,7 +193,8 @@ instance ToQuery DescribeVolumeStatus where
           = mconcat
               ["Action" =: ("DescribeVolumeStatus" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Filter" =: _dvsFilters, "VolumeId" =: _dvsVolumeIds,
+               toQuery (toQueryList "Filter" <$> _dvsFilters),
+               toQuery (toQueryList "VolumeId" <$> _dvsVolumeIds),
                "NextToken" =: _dvsNextToken, "DryRun" =: _dvsDryRun,
                "MaxResults" =: _dvsMaxResults]
 
@@ -215,5 +217,5 @@ dvsrNextToken :: Lens' DescribeVolumeStatusResponse (Maybe Text)
 dvsrNextToken = lens _dvsrNextToken (\ s a -> s{_dvsrNextToken = a});
 
 -- | A list of volumes.
-dvsrVolumeStatuses :: Lens' DescribeVolumeStatusResponse (Maybe [VolumeStatusItem])
-dvsrVolumeStatuses = lens _dvsrVolumeStatuses (\ s a -> s{_dvsrVolumeStatuses = a});
+dvsrVolumeStatuses :: Lens' DescribeVolumeStatusResponse [VolumeStatusItem]
+dvsrVolumeStatuses = lens _dvsrVolumeStatuses (\ s a -> s{_dvsrVolumeStatuses = a}) . _Default;

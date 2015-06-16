@@ -67,7 +67,7 @@ instance AWSRequest GetUser where
         request = post
         response
           = receiveXMLWrapper "GetUserResult"
-              (\ s h x -> GetUserResponse' <$> x .@ "User")
+              (\ s h x -> GetUserResponse' <$> (x .@ "User"))
 
 instance ToHeaders GetUser where
         toHeaders = const mempty

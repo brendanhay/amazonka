@@ -86,8 +86,8 @@ sendRawEmail pRawMessage = SendRawEmail'{_sreDestinations = Nothing, _sreSource 
 
 -- | A list of destinations for the message, consisting of To:, CC:, and BCC:
 -- addresses.
-sreDestinations :: Lens' SendRawEmail (Maybe [Text])
-sreDestinations = lens _sreDestinations (\ s a -> s{_sreDestinations = a});
+sreDestinations :: Lens' SendRawEmail [Text]
+sreDestinations = lens _sreDestinations (\ s a -> s{_sreDestinations = a}) . _Default;
 
 -- | The identity\'s email address. If you do not provide a value for this
 -- parameter, you must specify a \"From\" address in the raw text of the
@@ -126,7 +126,7 @@ instance AWSRequest SendRawEmail where
         response
           = receiveXMLWrapper "SendRawEmailResult"
               (\ s h x ->
-                 SendRawEmailResponse' <$> x .@ "MessageId")
+                 SendRawEmailResponse' <$> (x .@ "MessageId"))
 
 instance ToHeaders SendRawEmail where
         toHeaders = const mempty
@@ -139,7 +139,8 @@ instance ToQuery SendRawEmail where
           = mconcat
               ["Action" =: ("SendRawEmail" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "Destinations" =: "member" =: _sreDestinations,
+               "Destinations" =:
+                 toQuery (toQueryList "member" <$> _sreDestinations),
                "Source" =: _sreSource,
                "RawMessage" =: _sreRawMessage]
 

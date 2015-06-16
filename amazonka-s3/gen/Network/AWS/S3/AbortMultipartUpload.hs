@@ -88,7 +88,7 @@ instance AWSRequest AbortMultipartUpload where
           = receiveXML
               (\ s h x ->
                  AbortMultipartUploadResponse' <$>
-                   h .#? "x-amz-request-charged")
+                   (h .#? "x-amz-request-charged"))
 
 instance ToHeaders AbortMultipartUpload where
         toHeaders AbortMultipartUpload'{..}

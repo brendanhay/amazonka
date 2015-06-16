@@ -94,7 +94,8 @@ instance AWSRequest Select where
           = receiveXMLWrapper "SelectResult"
               (\ s h x ->
                  SelectResponse' <$>
-                   parseXMLList "Item" x <*> x .@? "NextToken")
+                   (may (parseXMLList "Item") x) <*>
+                     (x .@? "NextToken"))
 
 instance ToHeaders Select where
         toHeaders = const mempty
@@ -125,8 +126,8 @@ selectResponse :: SelectResponse
 selectResponse = SelectResponse'{_srItems = Nothing, _srNextToken = Nothing};
 
 -- | A list of items that match the select expression.
-srItems :: Lens' SelectResponse (Maybe [Item])
-srItems = lens _srItems (\ s a -> s{_srItems = a});
+srItems :: Lens' SelectResponse [Item]
+srItems = lens _srItems (\ s a -> s{_srItems = a}) . _Default;
 
 -- | An opaque token indicating that more items than @MaxNumberOfItems@ were
 -- matched, the response size exceeded 1 megabyte, or the execution time

@@ -87,7 +87,7 @@ instance AWSRequest DescribeDataset where
         response
           = receiveJSON
               (\ s h x ->
-                 DescribeDatasetResponse' <$> x .?> "Dataset")
+                 DescribeDatasetResponse' <$> (x .?> "Dataset"))
 
 instance ToHeaders DescribeDataset where
         toHeaders

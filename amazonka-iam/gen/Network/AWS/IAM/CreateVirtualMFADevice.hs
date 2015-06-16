@@ -93,7 +93,7 @@ instance AWSRequest CreateVirtualMFADevice where
           = receiveXMLWrapper "CreateVirtualMFADeviceResult"
               (\ s h x ->
                  CreateVirtualMFADeviceResponse' <$>
-                   x .@ "VirtualMFADevice")
+                   (x .@ "VirtualMFADevice"))
 
 instance ToHeaders CreateVirtualMFADevice where
         toHeaders = const mempty

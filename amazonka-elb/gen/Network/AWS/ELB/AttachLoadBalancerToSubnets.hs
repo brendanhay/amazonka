@@ -79,7 +79,7 @@ instance AWSRequest AttachLoadBalancerToSubnets where
               (\ s h x ->
                  AttachLoadBalancerToSubnetsResponse' <$>
                    (x .@? "Subnets" .!@ mempty >>=
-                      parseXMLList "member"))
+                      may (parseXMLList "member")))
 
 instance ToHeaders AttachLoadBalancerToSubnets where
         toHeaders = const mempty
@@ -94,7 +94,7 @@ instance ToQuery AttachLoadBalancerToSubnets where
                  ("AttachLoadBalancerToSubnets" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
                "LoadBalancerName" =: _albtsLoadBalancerName,
-               "Subnets" =: "member" =: _albtsSubnets]
+               "Subnets" =: toQueryList "member" _albtsSubnets]
 
 -- | /See:/ 'attachLoadBalancerToSubnetsResponse' smart constructor.
 --
@@ -108,5 +108,5 @@ attachLoadBalancerToSubnetsResponse :: AttachLoadBalancerToSubnetsResponse
 attachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse'{_albtsrSubnets = Nothing};
 
 -- | The IDs of the subnets attached to the load balancer.
-albtsrSubnets :: Lens' AttachLoadBalancerToSubnetsResponse (Maybe [Text])
-albtsrSubnets = lens _albtsrSubnets (\ s a -> s{_albtsrSubnets = a});
+albtsrSubnets :: Lens' AttachLoadBalancerToSubnetsResponse [Text]
+albtsrSubnets = lens _albtsrSubnets (\ s a -> s{_albtsrSubnets = a}) . _Default;

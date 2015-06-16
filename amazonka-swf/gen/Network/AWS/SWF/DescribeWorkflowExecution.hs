@@ -96,11 +96,11 @@ instance AWSRequest DescribeWorkflowExecution where
           = receiveJSON
               (\ s h x ->
                  DescribeWorkflowExecutionResponse' <$>
-                   x .?> "latestActivityTaskTimestamp" <*>
-                     x .?> "latestExecutionContext"
-                     <*> x .:> "executionInfo"
-                     <*> x .:> "executionConfiguration"
-                     <*> x .:> "openCounts")
+                   (x .?> "latestActivityTaskTimestamp") <*>
+                     (x .?> "latestExecutionContext")
+                     <*> (x .:> "executionInfo")
+                     <*> (x .:> "executionConfiguration")
+                     <*> (x .:> "openCounts"))
 
 instance ToHeaders DescribeWorkflowExecution where
         toHeaders

@@ -93,8 +93,8 @@ cveDryRun :: Lens' CreateVPCEndpoint (Maybe Bool)
 cveDryRun = lens _cveDryRun (\ s a -> s{_cveDryRun = a});
 
 -- | One or more route table IDs.
-cveRouteTableIds :: Lens' CreateVPCEndpoint (Maybe [Text])
-cveRouteTableIds = lens _cveRouteTableIds (\ s a -> s{_cveRouteTableIds = a});
+cveRouteTableIds :: Lens' CreateVPCEndpoint [Text]
+cveRouteTableIds = lens _cveRouteTableIds (\ s a -> s{_cveRouteTableIds = a}) . _Default;
 
 -- | The ID of the VPC in which the endpoint will be used.
 cveVPCId :: Lens' CreateVPCEndpoint Text
@@ -114,7 +114,7 @@ instance AWSRequest CreateVPCEndpoint where
           = receiveXML
               (\ s h x ->
                  CreateVPCEndpointResponse' <$>
-                   x .@? "clientToken" <*> x .@? "vpcEndpoint")
+                   (x .@? "clientToken") <*> (x .@? "vpcEndpoint"))
 
 instance ToHeaders CreateVPCEndpoint where
         toHeaders = const mempty
@@ -129,7 +129,8 @@ instance ToQuery CreateVPCEndpoint where
                "Version" =: ("2015-04-15" :: ByteString),
                "PolicyDocument" =: _cvePolicyDocument,
                "ClientToken" =: _cveClientToken,
-               "DryRun" =: _cveDryRun, "item" =: _cveRouteTableIds,
+               "DryRun" =: _cveDryRun,
+               toQuery (toQueryList "item" <$> _cveRouteTableIds),
                "VpcId" =: _cveVPCId,
                "ServiceName" =: _cveServiceName]
 

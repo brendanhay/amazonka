@@ -70,7 +70,7 @@ instance AWSRequest CreateTopic where
         response
           = receiveXMLWrapper "CreateTopicResult"
               (\ s h x ->
-                 CreateTopicResponse' <$> x .@? "TopicArn")
+                 CreateTopicResponse' <$> (x .@? "TopicArn"))
 
 instance ToHeaders CreateTopic where
         toHeaders = const mempty

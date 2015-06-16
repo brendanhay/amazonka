@@ -72,7 +72,7 @@ instance AWSRequest UpdateEvaluation where
         response
           = receiveJSON
               (\ s h x ->
-                 UpdateEvaluationResponse' <$> x .?> "EvaluationId")
+                 UpdateEvaluationResponse' <$> (x .?> "EvaluationId"))
 
 instance ToHeaders UpdateEvaluation where
         toHeaders

@@ -71,7 +71,7 @@ instance AWSRequest DeleteExpression where
         response
           = receiveXMLWrapper "DeleteExpressionResult"
               (\ s h x ->
-                 DeleteExpressionResponse' <$> x .@ "Expression")
+                 DeleteExpressionResponse' <$> (x .@ "Expression"))
 
 instance ToHeaders DeleteExpression where
         toHeaders = const mempty

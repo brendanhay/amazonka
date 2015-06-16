@@ -68,7 +68,7 @@ instance AWSRequest CopySnapshot where
         response
           = receiveXMLWrapper "CopySnapshotResult"
               (\ s h x ->
-                 CopySnapshotResponse' <$> x .@? "Snapshot")
+                 CopySnapshotResponse' <$> (x .@? "Snapshot"))
 
 instance ToHeaders CopySnapshot where
         toHeaders = const mempty

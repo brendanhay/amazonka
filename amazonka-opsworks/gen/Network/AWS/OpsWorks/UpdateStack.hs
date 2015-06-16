@@ -96,7 +96,7 @@ import Network.AWS.OpsWorks.Types
 -- * 'usHostnameTheme'
 --
 -- * 'usStackId'
-data UpdateStack = UpdateStack'{_usDefaultInstanceProfileARN :: Maybe Text, _usServiceRoleARN :: Maybe Text, _usDefaultRootDeviceType :: Maybe RootDeviceType, _usChefConfiguration :: Maybe ChefConfiguration, _usDefaultSSHKeyName :: Maybe Text, _usCustomJSON :: Maybe Text, _usCustomCookbooksSource :: Maybe Source, _usDefaultAvailabilityZone :: Maybe Text, _usName :: Maybe Text, _usUseOpsworksSecurityGroups :: Maybe Bool, _usDefaultOS :: Maybe Text, _usAttributes :: Maybe (HashMap StackAttributesKeys Text), _usUseCustomCookbooks :: Maybe Bool, _usDefaultSubnetId :: Maybe Text, _usConfigurationManager :: Maybe StackConfigurationManager, _usHostnameTheme :: Maybe Text, _usStackId :: Text} deriving (Eq, Read, Show)
+data UpdateStack = UpdateStack'{_usDefaultInstanceProfileARN :: Maybe Text, _usServiceRoleARN :: Maybe Text, _usDefaultRootDeviceType :: Maybe RootDeviceType, _usChefConfiguration :: Maybe ChefConfiguration, _usDefaultSSHKeyName :: Maybe Text, _usCustomJSON :: Maybe Text, _usCustomCookbooksSource :: Maybe Source, _usDefaultAvailabilityZone :: Maybe Text, _usName :: Maybe Text, _usUseOpsworksSecurityGroups :: Maybe Bool, _usDefaultOS :: Maybe Text, _usAttributes :: Maybe (Map StackAttributesKeys Text), _usUseCustomCookbooks :: Maybe Bool, _usDefaultSubnetId :: Maybe Text, _usConfigurationManager :: Maybe StackConfigurationManager, _usHostnameTheme :: Maybe Text, _usStackId :: Text} deriving (Eq, Read, Show)
 
 -- | 'UpdateStack' smart constructor.
 updateStack :: Text -> UpdateStack
@@ -215,8 +215,8 @@ usDefaultOS = lens _usDefaultOS (\ s a -> s{_usDefaultOS = a});
 
 -- | One or more user-defined key\/value pairs to be added to the stack
 -- attributes.
-usAttributes :: Lens' UpdateStack (Maybe (HashMap StackAttributesKeys Text))
-usAttributes = lens _usAttributes (\ s a -> s{_usAttributes = a}) . mapping _Coerce;
+usAttributes :: Lens' UpdateStack (Map StackAttributesKeys Text)
+usAttributes = lens _usAttributes (\ s a -> s{_usAttributes = a}) . _Default . _Map;
 
 -- | Whether the stack uses custom cookbooks.
 usUseCustomCookbooks :: Lens' UpdateStack (Maybe Bool)

@@ -52,8 +52,8 @@ batchGetDeployments = BatchGetDeployments'{_bgdDeploymentIds = Nothing};
 
 -- | A list of deployment IDs, with multiple deployment IDs separated by
 -- spaces.
-bgdDeploymentIds :: Lens' BatchGetDeployments (Maybe [Text])
-bgdDeploymentIds = lens _bgdDeploymentIds (\ s a -> s{_bgdDeploymentIds = a});
+bgdDeploymentIds :: Lens' BatchGetDeployments [Text]
+bgdDeploymentIds = lens _bgdDeploymentIds (\ s a -> s{_bgdDeploymentIds = a}) . _Default;
 
 instance AWSRequest BatchGetDeployments where
         type Sv BatchGetDeployments = CodeDeploy
@@ -64,7 +64,7 @@ instance AWSRequest BatchGetDeployments where
           = receiveJSON
               (\ s h x ->
                  BatchGetDeploymentsResponse' <$>
-                   x .?> "deploymentsInfo" .!@ mempty)
+                   (x .?> "deploymentsInfo" .!@ mempty))
 
 instance ToHeaders BatchGetDeployments where
         toHeaders
@@ -98,5 +98,5 @@ batchGetDeploymentsResponse :: BatchGetDeploymentsResponse
 batchGetDeploymentsResponse = BatchGetDeploymentsResponse'{_bgdrDeploymentsInfo = Nothing};
 
 -- | Information about the deployments.
-bgdrDeploymentsInfo :: Lens' BatchGetDeploymentsResponse (Maybe [DeploymentInfo])
-bgdrDeploymentsInfo = lens _bgdrDeploymentsInfo (\ s a -> s{_bgdrDeploymentsInfo = a});
+bgdrDeploymentsInfo :: Lens' BatchGetDeploymentsResponse [DeploymentInfo]
+bgdrDeploymentsInfo = lens _bgdrDeploymentsInfo (\ s a -> s{_bgdrDeploymentsInfo = a}) . _Default;

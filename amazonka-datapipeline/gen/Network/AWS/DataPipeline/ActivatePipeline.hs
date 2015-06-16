@@ -67,8 +67,8 @@ apStartTimestamp :: Lens' ActivatePipeline (Maybe UTCTime)
 apStartTimestamp = lens _apStartTimestamp (\ s a -> s{_apStartTimestamp = a}) . mapping _Time;
 
 -- | A list of parameter values to pass to the pipeline at activation.
-apParameterValues :: Lens' ActivatePipeline (Maybe [ParameterValue])
-apParameterValues = lens _apParameterValues (\ s a -> s{_apParameterValues = a});
+apParameterValues :: Lens' ActivatePipeline [ParameterValue]
+apParameterValues = lens _apParameterValues (\ s a -> s{_apParameterValues = a}) . _Default;
 
 -- | The ID of the pipeline.
 apPipelineId :: Lens' ActivatePipeline Text

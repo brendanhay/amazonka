@@ -64,7 +64,7 @@ instance AWSRequest GetDeploymentConfig where
           = receiveJSON
               (\ s h x ->
                  GetDeploymentConfigResponse' <$>
-                   x .?> "deploymentConfigInfo")
+                   (x .?> "deploymentConfigInfo"))
 
 instance ToHeaders GetDeploymentConfig where
         toHeaders

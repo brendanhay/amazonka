@@ -117,7 +117,7 @@ instance AWSRequest AuthorizeDBSecurityGroupIngress
               "AuthorizeDBSecurityGroupIngressResult"
               (\ s h x ->
                  AuthorizeDBSecurityGroupIngressResponse' <$>
-                   x .@? "DBSecurityGroup")
+                   (x .@? "DBSecurityGroup"))
 
 instance ToHeaders AuthorizeDBSecurityGroupIngress
          where

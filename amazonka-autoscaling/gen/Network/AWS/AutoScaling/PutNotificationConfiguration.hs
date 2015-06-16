@@ -101,7 +101,7 @@ instance ToQuery PutNotificationConfiguration where
                "AutoScalingGroupName" =: _pncAutoScalingGroupName,
                "TopicARN" =: _pncTopicARN,
                "NotificationTypes" =:
-                 "member" =: _pncNotificationTypes]
+                 toQueryList "member" _pncNotificationTypes]
 
 -- | /See:/ 'putNotificationConfigurationResponse' smart constructor.
 data PutNotificationConfigurationResponse = PutNotificationConfigurationResponse' deriving (Eq, Read, Show)

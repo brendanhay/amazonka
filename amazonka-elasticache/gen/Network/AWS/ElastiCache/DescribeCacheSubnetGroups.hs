@@ -89,9 +89,9 @@ instance AWSRequest DescribeCacheSubnetGroups where
           = receiveXMLWrapper "DescribeCacheSubnetGroupsResult"
               (\ s h x ->
                  DescribeCacheSubnetGroupsResponse' <$>
-                   x .@? "Marker" <*>
+                   (x .@? "Marker") <*>
                      (x .@? "CacheSubnetGroups" .!@ mempty >>=
-                        parseXMLList "CacheSubnetGroup"))
+                        may (parseXMLList "CacheSubnetGroup")))
 
 instance ToHeaders DescribeCacheSubnetGroups where
         toHeaders = const mempty
@@ -128,5 +128,5 @@ dcsgrMarker = lens _dcsgrMarker (\ s a -> s{_dcsgrMarker = a});
 
 -- | A list of cache subnet groups. Each element in the list contains
 -- detailed information about one group.
-dcsgrCacheSubnetGroups :: Lens' DescribeCacheSubnetGroupsResponse (Maybe [CacheSubnetGroup])
-dcsgrCacheSubnetGroups = lens _dcsgrCacheSubnetGroups (\ s a -> s{_dcsgrCacheSubnetGroups = a});
+dcsgrCacheSubnetGroups :: Lens' DescribeCacheSubnetGroupsResponse [CacheSubnetGroup]
+dcsgrCacheSubnetGroups = lens _dcsgrCacheSubnetGroups (\ s a -> s{_dcsgrCacheSubnetGroups = a}) . _Default;

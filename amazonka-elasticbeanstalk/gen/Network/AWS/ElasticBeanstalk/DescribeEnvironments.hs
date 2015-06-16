@@ -67,13 +67,13 @@ describeEnvironments = DescribeEnvironments'{_desEnvironmentIds = Nothing, _desE
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to include only those that have the specified IDs.
-desEnvironmentIds :: Lens' DescribeEnvironments (Maybe [Text])
-desEnvironmentIds = lens _desEnvironmentIds (\ s a -> s{_desEnvironmentIds = a});
+desEnvironmentIds :: Lens' DescribeEnvironments [Text]
+desEnvironmentIds = lens _desEnvironmentIds (\ s a -> s{_desEnvironmentIds = a}) . _Default;
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to include only those that have the specified names.
-desEnvironmentNames :: Lens' DescribeEnvironments (Maybe [Text])
-desEnvironmentNames = lens _desEnvironmentNames (\ s a -> s{_desEnvironmentNames = a});
+desEnvironmentNames :: Lens' DescribeEnvironments [Text]
+desEnvironmentNames = lens _desEnvironmentNames (\ s a -> s{_desEnvironmentNames = a}) . _Default;
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to include only those that are associated with this application version.
@@ -109,7 +109,7 @@ instance AWSRequest DescribeEnvironments where
               (\ s h x ->
                  DescribeEnvironmentsResponse' <$>
                    (x .@? "Environments" .!@ mempty >>=
-                      parseXMLList "member"))
+                      may (parseXMLList "member")))
 
 instance ToHeaders DescribeEnvironments where
         toHeaders = const mempty
@@ -122,9 +122,12 @@ instance ToQuery DescribeEnvironments where
           = mconcat
               ["Action" =: ("DescribeEnvironments" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "EnvironmentIds" =: "member" =: _desEnvironmentIds,
+               "EnvironmentIds" =:
+                 toQuery
+                   (toQueryList "member" <$> _desEnvironmentIds),
                "EnvironmentNames" =:
-                 "member" =: _desEnvironmentNames,
+                 toQuery
+                   (toQueryList "member" <$> _desEnvironmentNames),
                "VersionLabel" =: _desVersionLabel,
                "IncludedDeletedBackTo" =: _desIncludedDeletedBackTo,
                "ApplicationName" =: _desApplicationName,
@@ -142,5 +145,5 @@ describeEnvironmentsResponse :: DescribeEnvironmentsResponse
 describeEnvironmentsResponse = DescribeEnvironmentsResponse'{_derEnvironments = Nothing};
 
 -- | Returns an EnvironmentDescription list.
-derEnvironments :: Lens' DescribeEnvironmentsResponse (Maybe [EnvironmentDescription])
-derEnvironments = lens _derEnvironments (\ s a -> s{_derEnvironments = a});
+derEnvironments :: Lens' DescribeEnvironmentsResponse [EnvironmentDescription]
+derEnvironments = lens _derEnvironments (\ s a -> s{_derEnvironments = a}) . _Default;

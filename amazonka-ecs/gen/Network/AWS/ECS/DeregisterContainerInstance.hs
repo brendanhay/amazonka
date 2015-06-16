@@ -89,7 +89,7 @@ instance AWSRequest DeregisterContainerInstance where
           = receiveJSON
               (\ s h x ->
                  DeregisterContainerInstanceResponse' <$>
-                   x .?> "containerInstance")
+                   (x .?> "containerInstance"))
 
 instance ToHeaders DeregisterContainerInstance where
         toHeaders

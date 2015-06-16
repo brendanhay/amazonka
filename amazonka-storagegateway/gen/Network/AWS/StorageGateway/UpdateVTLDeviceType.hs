@@ -75,7 +75,7 @@ instance AWSRequest UpdateVTLDeviceType where
           = receiveJSON
               (\ s h x ->
                  UpdateVTLDeviceTypeResponse' <$>
-                   x .?> "VTLDeviceARN")
+                   (x .?> "VTLDeviceARN"))
 
 instance ToHeaders UpdateVTLDeviceType where
         toHeaders

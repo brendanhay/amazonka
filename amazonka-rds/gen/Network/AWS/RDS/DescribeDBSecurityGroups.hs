@@ -63,8 +63,8 @@ describeDBSecurityGroups :: DescribeDBSecurityGroups
 describeDBSecurityGroups = DescribeDBSecurityGroups'{_ddbsgFilters = Nothing, _ddbsgMaxRecords = Nothing, _ddbsgMarker = Nothing, _ddbsgDBSecurityGroupName = Nothing};
 
 -- | This parameter is not currently supported.
-ddbsgFilters :: Lens' DescribeDBSecurityGroups (Maybe [Filter])
-ddbsgFilters = lens _ddbsgFilters (\ s a -> s{_ddbsgFilters = a});
+ddbsgFilters :: Lens' DescribeDBSecurityGroups [Filter]
+ddbsgFilters = lens _ddbsgFilters (\ s a -> s{_ddbsgFilters = a}) . _Default;
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -98,8 +98,8 @@ instance AWSRequest DescribeDBSecurityGroups where
               (\ s h x ->
                  DescribeDBSecurityGroupsResponse' <$>
                    (x .@? "DBSecurityGroups" .!@ mempty >>=
-                      parseXMLList "DBSecurityGroup")
-                     <*> x .@? "Marker")
+                      may (parseXMLList "DBSecurityGroup"))
+                     <*> (x .@? "Marker"))
 
 instance ToHeaders DescribeDBSecurityGroups where
         toHeaders = const mempty
@@ -113,7 +113,8 @@ instance ToQuery DescribeDBSecurityGroups where
               ["Action" =:
                  ("DescribeDBSecurityGroups" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "Filters" =: "Filter" =: _ddbsgFilters,
+               "Filters" =:
+                 toQuery (toQueryList "Filter" <$> _ddbsgFilters),
                "MaxRecords" =: _ddbsgMaxRecords,
                "Marker" =: _ddbsgMarker,
                "DBSecurityGroupName" =: _ddbsgDBSecurityGroupName]
@@ -132,8 +133,8 @@ describeDBSecurityGroupsResponse :: DescribeDBSecurityGroupsResponse
 describeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse'{_desDBSecurityGroups = Nothing, _desMarker = Nothing};
 
 -- | A list of DBSecurityGroup instances.
-desDBSecurityGroups :: Lens' DescribeDBSecurityGroupsResponse (Maybe [DBSecurityGroup])
-desDBSecurityGroups = lens _desDBSecurityGroups (\ s a -> s{_desDBSecurityGroups = a});
+desDBSecurityGroups :: Lens' DescribeDBSecurityGroupsResponse [DBSecurityGroup]
+desDBSecurityGroups = lens _desDBSecurityGroups (\ s a -> s{_desDBSecurityGroups = a}) . _Default;
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the

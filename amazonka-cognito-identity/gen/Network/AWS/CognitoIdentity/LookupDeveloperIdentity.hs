@@ -111,8 +111,8 @@ instance AWSRequest LookupDeveloperIdentity where
           = receiveJSON
               (\ s h x ->
                  LookupDeveloperIdentityResponse' <$>
-                   x .?> "NextToken" <*> x .?> "IdentityId" <*>
-                     x .?> "DeveloperUserIdentifierList" .!@ mempty)
+                   (x .?> "NextToken") <*> (x .?> "IdentityId") <*>
+                     (x .?> "DeveloperUserIdentifierList" .!@ mempty))
 
 instance ToHeaders LookupDeveloperIdentity where
         toHeaders
@@ -171,5 +171,5 @@ ldirIdentityId = lens _ldirIdentityId (\ s a -> s{_ldirIdentityId = a});
 -- | This is the list of developer user identifiers associated with an
 -- identity ID. Cognito supports the association of multiple developer user
 -- identifiers with an identity ID.
-ldirDeveloperUserIdentifierList :: Lens' LookupDeveloperIdentityResponse (Maybe [Text])
-ldirDeveloperUserIdentifierList = lens _ldirDeveloperUserIdentifierList (\ s a -> s{_ldirDeveloperUserIdentifierList = a});
+ldirDeveloperUserIdentifierList :: Lens' LookupDeveloperIdentityResponse [Text]
+ldirDeveloperUserIdentifierList = lens _ldirDeveloperUserIdentifierList (\ s a -> s{_ldirDeveloperUserIdentifierList = a}) . _Default;

@@ -87,23 +87,23 @@ instance AWSRequest GetStatus where
           = receiveXMLWrapper "GetStatusResult"
               (\ s h x ->
                  GetStatusResponse' <$>
-                   x .@? "Carrier" <*> x .@? "Signature" <*>
-                     x .@? "TrackingNumber"
-                     <*> x .@? "JobType"
-                     <*> x .@? "JobId"
-                     <*> x .@? "SignatureFileContents"
-                     <*> x .@? "ErrorCount"
-                     <*> x .@? "CurrentManifest"
+                   (x .@? "Carrier") <*> (x .@? "Signature") <*>
+                     (x .@? "TrackingNumber")
+                     <*> (x .@? "JobType")
+                     <*> (x .@? "JobId")
+                     <*> (x .@? "SignatureFileContents")
+                     <*> (x .@? "ErrorCount")
+                     <*> (x .@? "CurrentManifest")
                      <*>
                      (x .@? "ArtifactList" .!@ mempty >>=
-                        parseXMLList "member")
-                     <*> x .@? "LogBucket"
-                     <*> x .@? "CreationDate"
-                     <*> x .@? "ProgressCode"
-                     <*> x .@? "LocationCode"
-                     <*> x .@? "LogKey"
-                     <*> x .@? "ProgressMessage"
-                     <*> x .@? "LocationMessage")
+                        may (parseXMLList "member"))
+                     <*> (x .@? "LogBucket")
+                     <*> (x .@? "CreationDate")
+                     <*> (x .@? "ProgressCode")
+                     <*> (x .@? "LocationCode")
+                     <*> (x .@? "LogKey")
+                     <*> (x .@? "ProgressMessage")
+                     <*> (x .@? "LocationMessage"))
 
 instance ToHeaders GetStatus where
         toHeaders = const mempty
@@ -193,8 +193,8 @@ gsrCurrentManifest :: Lens' GetStatusResponse (Maybe Text)
 gsrCurrentManifest = lens _gsrCurrentManifest (\ s a -> s{_gsrCurrentManifest = a});
 
 -- | FIXME: Undocumented member.
-gsrArtifactList :: Lens' GetStatusResponse (Maybe [Artifact])
-gsrArtifactList = lens _gsrArtifactList (\ s a -> s{_gsrArtifactList = a});
+gsrArtifactList :: Lens' GetStatusResponse [Artifact]
+gsrArtifactList = lens _gsrArtifactList (\ s a -> s{_gsrArtifactList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
 gsrLogBucket :: Lens' GetStatusResponse (Maybe Text)

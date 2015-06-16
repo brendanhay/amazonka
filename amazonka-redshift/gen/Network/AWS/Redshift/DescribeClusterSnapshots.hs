@@ -105,8 +105,8 @@ desSnapshotIdentifier = lens _desSnapshotIdentifier (\ s a -> s{_desSnapshotIden
 -- called @admin@ and @test@. If you specify both of these tag values in
 -- the request, Amazon Redshift returns a response with the snapshots that
 -- have either or both of these tag values associated with them.
-desTagValues :: Lens' DescribeClusterSnapshots (Maybe [Text])
-desTagValues = lens _desTagValues (\ s a -> s{_desTagValues = a});
+desTagValues :: Lens' DescribeClusterSnapshots [Text]
+desTagValues = lens _desTagValues (\ s a -> s{_desTagValues = a}) . _Default;
 
 -- | A value that requests only snapshots created at or after the specified
 -- time. The time value is specified in ISO 8601 format. For more
@@ -123,8 +123,8 @@ desStartTime = lens _desStartTime (\ s a -> s{_desStartTime = a}) . mapping _Tim
 -- called @owner@ and @environment@. If you specify both of these tag keys
 -- in the request, Amazon Redshift returns a response with the snapshots
 -- that have either or both of these tag keys associated with them.
-desTagKeys :: Lens' DescribeClusterSnapshots (Maybe [Text])
-desTagKeys = lens _desTagKeys (\ s a -> s{_desTagKeys = a});
+desTagKeys :: Lens' DescribeClusterSnapshots [Text]
+desTagKeys = lens _desTagKeys (\ s a -> s{_desTagKeys = a}) . _Default;
 
 -- | The identifier of the cluster for which information about snapshots is
 -- requested.
@@ -185,8 +185,8 @@ instance AWSRequest DescribeClusterSnapshots where
               (\ s h x ->
                  DescribeClusterSnapshotsResponse' <$>
                    (x .@? "Snapshots" .!@ mempty >>=
-                      parseXMLList "Snapshot")
-                     <*> x .@? "Marker")
+                      may (parseXMLList "Snapshot"))
+                     <*> (x .@? "Marker"))
 
 instance ToHeaders DescribeClusterSnapshots where
         toHeaders = const mempty
@@ -201,9 +201,11 @@ instance ToQuery DescribeClusterSnapshots where
                  ("DescribeClusterSnapshots" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
                "SnapshotIdentifier" =: _desSnapshotIdentifier,
-               "TagValues" =: "TagValue" =: _desTagValues,
+               "TagValues" =:
+                 toQuery (toQueryList "TagValue" <$> _desTagValues),
                "StartTime" =: _desStartTime,
-               "TagKeys" =: "TagKey" =: _desTagKeys,
+               "TagKeys" =:
+                 toQuery (toQueryList "TagKey" <$> _desTagKeys),
                "ClusterIdentifier" =: _desClusterIdentifier,
                "SnapshotType" =: _desSnapshotType,
                "MaxRecords" =: _desMaxRecords,
@@ -224,8 +226,8 @@ describeClusterSnapshotsResponse :: DescribeClusterSnapshotsResponse
 describeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse'{_dcsrSnapshots = Nothing, _dcsrMarker = Nothing};
 
 -- | A list of Snapshot instances.
-dcsrSnapshots :: Lens' DescribeClusterSnapshotsResponse (Maybe [Snapshot])
-dcsrSnapshots = lens _dcsrSnapshots (\ s a -> s{_dcsrSnapshots = a});
+dcsrSnapshots :: Lens' DescribeClusterSnapshotsResponse [Snapshot]
+dcsrSnapshots = lens _dcsrSnapshots (\ s a -> s{_dcsrSnapshots = a}) . _Default;
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,

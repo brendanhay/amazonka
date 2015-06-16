@@ -68,7 +68,7 @@ import Network.AWS.SNS.Types
 -- * 'cpePlatformApplicationARN'
 --
 -- * 'cpeToken'
-data CreatePlatformEndpoint = CreatePlatformEndpoint'{_cpeCustomUserData :: Maybe Text, _cpeAttributes :: Maybe (HashMap Text Text), _cpePlatformApplicationARN :: Text, _cpeToken :: Text} deriving (Eq, Read, Show)
+data CreatePlatformEndpoint = CreatePlatformEndpoint'{_cpeCustomUserData :: Maybe Text, _cpeAttributes :: Maybe (Map Text Text), _cpePlatformApplicationARN :: Text, _cpeToken :: Text} deriving (Eq, Read, Show)
 
 -- | 'CreatePlatformEndpoint' smart constructor.
 createPlatformEndpoint :: Text -> Text -> CreatePlatformEndpoint
@@ -81,8 +81,8 @@ cpeCustomUserData = lens _cpeCustomUserData (\ s a -> s{_cpeCustomUserData = a})
 
 -- | For a list of attributes, see
 -- <http://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html SetEndpointAttributes>.
-cpeAttributes :: Lens' CreatePlatformEndpoint (Maybe (HashMap Text Text))
-cpeAttributes = lens _cpeAttributes (\ s a -> s{_cpeAttributes = a}) . mapping _Coerce;
+cpeAttributes :: Lens' CreatePlatformEndpoint (Map Text Text)
+cpeAttributes = lens _cpeAttributes (\ s a -> s{_cpeAttributes = a}) . _Default . _Map;
 
 -- | PlatformApplicationArn returned from CreatePlatformApplication is used
 -- to create a an endpoint.
@@ -107,7 +107,7 @@ instance AWSRequest CreatePlatformEndpoint where
           = receiveXMLWrapper "CreatePlatformEndpointResult"
               (\ s h x ->
                  CreatePlatformEndpointResponse' <$>
-                   x .@? "EndpointArn")
+                   (x .@? "EndpointArn"))
 
 instance ToHeaders CreatePlatformEndpoint where
         toHeaders = const mempty
@@ -123,7 +123,9 @@ instance ToQuery CreatePlatformEndpoint where
                "Version" =: ("2010-03-31" :: ByteString),
                "CustomUserData" =: _cpeCustomUserData,
                "Attributes" =:
-                 toQueryMap "entry" "key" "value" _cpeAttributes,
+                 toQuery
+                   (toQueryMap "entry" "key" "value" <$>
+                      _cpeAttributes),
                "PlatformApplicationArn" =:
                  _cpePlatformApplicationARN,
                "Token" =: _cpeToken]

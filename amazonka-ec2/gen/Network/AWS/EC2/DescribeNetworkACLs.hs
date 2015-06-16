@@ -116,8 +116,8 @@ describeNetworkACLs = DescribeNetworkACLs'{_dnaclFilters = Nothing, _dnaclDryRun
 --
 -- -   @vpc-id@ - The ID of the VPC for the network ACL.
 --
-dnaclFilters :: Lens' DescribeNetworkACLs (Maybe [Filter])
-dnaclFilters = lens _dnaclFilters (\ s a -> s{_dnaclFilters = a});
+dnaclFilters :: Lens' DescribeNetworkACLs [Filter]
+dnaclFilters = lens _dnaclFilters (\ s a -> s{_dnaclFilters = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -129,8 +129,8 @@ dnaclDryRun = lens _dnaclDryRun (\ s a -> s{_dnaclDryRun = a});
 -- | One or more network ACL IDs.
 --
 -- Default: Describes all your network ACLs.
-dnaclNetworkACLIds :: Lens' DescribeNetworkACLs (Maybe [Text])
-dnaclNetworkACLIds = lens _dnaclNetworkACLIds (\ s a -> s{_dnaclNetworkACLIds = a});
+dnaclNetworkACLIds :: Lens' DescribeNetworkACLs [Text]
+dnaclNetworkACLIds = lens _dnaclNetworkACLIds (\ s a -> s{_dnaclNetworkACLIds = a}) . _Default;
 
 instance AWSRequest DescribeNetworkACLs where
         type Sv DescribeNetworkACLs = EC2
@@ -141,7 +141,7 @@ instance AWSRequest DescribeNetworkACLs where
           = receiveXML
               (\ s h x ->
                  DescribeNetworkACLsResponse' <$>
-                   parseXMLList "item" x)
+                   (may (parseXMLList "item") x))
 
 instance ToHeaders DescribeNetworkACLs where
         toHeaders = const mempty
@@ -154,8 +154,9 @@ instance ToQuery DescribeNetworkACLs where
           = mconcat
               ["Action" =: ("DescribeNetworkACLs" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Filter" =: _dnaclFilters, "DryRun" =: _dnaclDryRun,
-               "item" =: _dnaclNetworkACLIds]
+               toQuery (toQueryList "Filter" <$> _dnaclFilters),
+               "DryRun" =: _dnaclDryRun,
+               toQuery (toQueryList "item" <$> _dnaclNetworkACLIds)]
 
 -- | /See:/ 'describeNetworkACLsResponse' smart constructor.
 --
@@ -169,5 +170,5 @@ describeNetworkACLsResponse :: DescribeNetworkACLsResponse
 describeNetworkACLsResponse = DescribeNetworkACLsResponse'{_dnarNetworkACLs = Nothing};
 
 -- | Information about one or more network ACLs.
-dnarNetworkACLs :: Lens' DescribeNetworkACLsResponse (Maybe [NetworkACL])
-dnarNetworkACLs = lens _dnarNetworkACLs (\ s a -> s{_dnarNetworkACLs = a});
+dnarNetworkACLs :: Lens' DescribeNetworkACLsResponse [NetworkACL]
+dnarNetworkACLs = lens _dnarNetworkACLs (\ s a -> s{_dnarNetworkACLs = a}) . _Default;

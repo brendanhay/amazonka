@@ -93,8 +93,8 @@ describeVPNGateways = DescribeVPNGateways'{_dvpngFilters = Nothing, _dvpngDryRun
 --
 -- -   @vpn-gateway-id@ - The ID of the virtual private gateway.
 --
-dvpngFilters :: Lens' DescribeVPNGateways (Maybe [Filter])
-dvpngFilters = lens _dvpngFilters (\ s a -> s{_dvpngFilters = a});
+dvpngFilters :: Lens' DescribeVPNGateways [Filter]
+dvpngFilters = lens _dvpngFilters (\ s a -> s{_dvpngFilters = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -106,8 +106,8 @@ dvpngDryRun = lens _dvpngDryRun (\ s a -> s{_dvpngDryRun = a});
 -- | One or more virtual private gateway IDs.
 --
 -- Default: Describes all your virtual private gateways.
-dvpngVPNGatewayIds :: Lens' DescribeVPNGateways (Maybe [Text])
-dvpngVPNGatewayIds = lens _dvpngVPNGatewayIds (\ s a -> s{_dvpngVPNGatewayIds = a});
+dvpngVPNGatewayIds :: Lens' DescribeVPNGateways [Text]
+dvpngVPNGatewayIds = lens _dvpngVPNGatewayIds (\ s a -> s{_dvpngVPNGatewayIds = a}) . _Default;
 
 instance AWSRequest DescribeVPNGateways where
         type Sv DescribeVPNGateways = EC2
@@ -118,7 +118,7 @@ instance AWSRequest DescribeVPNGateways where
           = receiveXML
               (\ s h x ->
                  DescribeVPNGatewaysResponse' <$>
-                   parseXMLList "item" x)
+                   (may (parseXMLList "item") x))
 
 instance ToHeaders DescribeVPNGateways where
         toHeaders = const mempty
@@ -131,8 +131,10 @@ instance ToQuery DescribeVPNGateways where
           = mconcat
               ["Action" =: ("DescribeVPNGateways" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Filter" =: _dvpngFilters, "DryRun" =: _dvpngDryRun,
-               "VpnGatewayId" =: _dvpngVPNGatewayIds]
+               toQuery (toQueryList "Filter" <$> _dvpngFilters),
+               "DryRun" =: _dvpngDryRun,
+               toQuery
+                 (toQueryList "VpnGatewayId" <$> _dvpngVPNGatewayIds)]
 
 -- | /See:/ 'describeVPNGatewaysResponse' smart constructor.
 --
@@ -146,5 +148,5 @@ describeVPNGatewaysResponse :: DescribeVPNGatewaysResponse
 describeVPNGatewaysResponse = DescribeVPNGatewaysResponse'{_dvgrVPNGateways = Nothing};
 
 -- | Information about one or more virtual private gateways.
-dvgrVPNGateways :: Lens' DescribeVPNGatewaysResponse (Maybe [VPNGateway])
-dvgrVPNGateways = lens _dvgrVPNGateways (\ s a -> s{_dvgrVPNGateways = a});
+dvgrVPNGateways :: Lens' DescribeVPNGatewaysResponse [VPNGateway]
+dvgrVPNGateways = lens _dvgrVPNGateways (\ s a -> s{_dvgrVPNGateways = a}) . _Default;

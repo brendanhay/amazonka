@@ -86,7 +86,7 @@ instance AWSRequest CreateCacheSubnetGroup where
           = receiveXMLWrapper "CreateCacheSubnetGroupResult"
               (\ s h x ->
                  CreateCacheSubnetGroupResponse' <$>
-                   x .@? "CacheSubnetGroup")
+                   (x .@? "CacheSubnetGroup"))
 
 instance ToHeaders CreateCacheSubnetGroup where
         toHeaders = const mempty
@@ -103,7 +103,8 @@ instance ToQuery CreateCacheSubnetGroup where
                "CacheSubnetGroupName" =: _ccsgCacheSubnetGroupName,
                "CacheSubnetGroupDescription" =:
                  _ccsgCacheSubnetGroupDescription,
-               "SubnetIds" =: "SubnetIdentifier" =: _ccsgSubnetIds]
+               "SubnetIds" =:
+                 toQueryList "SubnetIdentifier" _ccsgSubnetIds]
 
 -- | /See:/ 'createCacheSubnetGroupResponse' smart constructor.
 --

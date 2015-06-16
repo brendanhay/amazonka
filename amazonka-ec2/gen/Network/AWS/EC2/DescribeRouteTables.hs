@@ -120,8 +120,8 @@ describeRouteTables = DescribeRouteTables'{_drt2Filters = Nothing, _drt2DryRun =
 --
 -- -   @vpc-id@ - The ID of the VPC for the route table.
 --
-drt2Filters :: Lens' DescribeRouteTables (Maybe [Filter])
-drt2Filters = lens _drt2Filters (\ s a -> s{_drt2Filters = a});
+drt2Filters :: Lens' DescribeRouteTables [Filter]
+drt2Filters = lens _drt2Filters (\ s a -> s{_drt2Filters = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -133,8 +133,8 @@ drt2DryRun = lens _drt2DryRun (\ s a -> s{_drt2DryRun = a});
 -- | One or more route table IDs.
 --
 -- Default: Describes all your route tables.
-drt2RouteTableIds :: Lens' DescribeRouteTables (Maybe [Text])
-drt2RouteTableIds = lens _drt2RouteTableIds (\ s a -> s{_drt2RouteTableIds = a});
+drt2RouteTableIds :: Lens' DescribeRouteTables [Text]
+drt2RouteTableIds = lens _drt2RouteTableIds (\ s a -> s{_drt2RouteTableIds = a}) . _Default;
 
 instance AWSRequest DescribeRouteTables where
         type Sv DescribeRouteTables = EC2
@@ -145,7 +145,7 @@ instance AWSRequest DescribeRouteTables where
           = receiveXML
               (\ s h x ->
                  DescribeRouteTablesResponse' <$>
-                   parseXMLList "item" x)
+                   (may (parseXMLList "item") x))
 
 instance ToHeaders DescribeRouteTables where
         toHeaders = const mempty
@@ -158,8 +158,9 @@ instance ToQuery DescribeRouteTables where
           = mconcat
               ["Action" =: ("DescribeRouteTables" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Filter" =: _drt2Filters, "DryRun" =: _drt2DryRun,
-               "item" =: _drt2RouteTableIds]
+               toQuery (toQueryList "Filter" <$> _drt2Filters),
+               "DryRun" =: _drt2DryRun,
+               toQuery (toQueryList "item" <$> _drt2RouteTableIds)]
 
 -- | /See:/ 'describeRouteTablesResponse' smart constructor.
 --
@@ -173,5 +174,5 @@ describeRouteTablesResponse :: DescribeRouteTablesResponse
 describeRouteTablesResponse = DescribeRouteTablesResponse'{_drtrRouteTables = Nothing};
 
 -- | Information about one or more route tables.
-drtrRouteTables :: Lens' DescribeRouteTablesResponse (Maybe [RouteTable])
-drtrRouteTables = lens _drtrRouteTables (\ s a -> s{_drtrRouteTables = a});
+drtrRouteTables :: Lens' DescribeRouteTablesResponse [RouteTable]
+drtrRouteTables = lens _drtrRouteTables (\ s a -> s{_drtrRouteTables = a}) . _Default;

@@ -132,13 +132,13 @@ instance AWSRequest ListParts where
           = receiveJSON
               (\ s h x ->
                  ListPartsResponse' <$>
-                   x .?> "Parts" .!@ mempty <*>
-                     x .?> "MultipartUploadId"
-                     <*> x .?> "ArchiveDescription"
-                     <*> x .?> "PartSizeInBytes"
-                     <*> x .?> "VaultARN"
-                     <*> x .?> "Marker"
-                     <*> x .?> "CreationDate")
+                   (x .?> "Parts" .!@ mempty) <*>
+                     (x .?> "MultipartUploadId")
+                     <*> (x .?> "ArchiveDescription")
+                     <*> (x .?> "PartSizeInBytes")
+                     <*> (x .?> "VaultARN")
+                     <*> (x .?> "Marker")
+                     <*> (x .?> "CreationDate"))
 
 instance ToHeaders ListParts where
         toHeaders = const mempty
@@ -179,8 +179,8 @@ listPartsResponse :: ListPartsResponse
 listPartsResponse = ListPartsResponse'{_lprParts = Nothing, _lprMultipartUploadId = Nothing, _lprArchiveDescription = Nothing, _lprPartSizeInBytes = Nothing, _lprVaultARN = Nothing, _lprMarker = Nothing, _lprCreationDate = Nothing};
 
 -- | A list of the part sizes of the multipart upload.
-lprParts :: Lens' ListPartsResponse (Maybe [PartListElement])
-lprParts = lens _lprParts (\ s a -> s{_lprParts = a});
+lprParts :: Lens' ListPartsResponse [PartListElement]
+lprParts = lens _lprParts (\ s a -> s{_lprParts = a}) . _Default;
 
 -- | The ID of the upload to which the parts are associated.
 lprMultipartUploadId :: Lens' ListPartsResponse (Maybe Text)

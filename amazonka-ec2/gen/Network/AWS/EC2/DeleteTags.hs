@@ -70,8 +70,8 @@ delDryRun = lens _delDryRun (\ s a -> s{_delDryRun = a});
 -- the tag regardless of its value. If you specify this parameter with an
 -- empty string as the value, we delete the key only if its value is an
 -- empty string.
-delTags :: Lens' DeleteTags (Maybe [Tag])
-delTags = lens _delTags (\ s a -> s{_delTags = a});
+delTags :: Lens' DeleteTags [Tag]
+delTags = lens _delTags (\ s a -> s{_delTags = a}) . _Default;
 
 -- | The ID of the resource. For example, ami-1a2b3c4d. You can specify more
 -- than one resource ID.
@@ -95,8 +95,9 @@ instance ToQuery DeleteTags where
           = mconcat
               ["Action" =: ("DeleteTags" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _delDryRun, "item" =: _delTags,
-               "ResourceId" =: _delResources]
+               "DryRun" =: _delDryRun,
+               toQuery (toQueryList "item" <$> _delTags),
+               toQueryList "ResourceId" _delResources]
 
 -- | /See:/ 'deleteTagsResponse' smart constructor.
 data DeleteTagsResponse = DeleteTagsResponse' deriving (Eq, Read, Show)

@@ -71,7 +71,7 @@ instance AWSRequest GetDeploymentGroup where
           = receiveJSON
               (\ s h x ->
                  GetDeploymentGroupResponse' <$>
-                   x .?> "deploymentGroupInfo")
+                   (x .?> "deploymentGroupInfo"))
 
 instance ToHeaders GetDeploymentGroup where
         toHeaders

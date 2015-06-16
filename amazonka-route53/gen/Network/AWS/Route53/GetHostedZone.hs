@@ -68,9 +68,10 @@ instance AWSRequest GetHostedZone where
           = receiveXML
               (\ s h x ->
                  GetHostedZoneResponse' <$>
-                   (x .@? "VPCs" .!@ mempty >>= parseXMLList1 "VPC") <*>
-                     x .@? "DelegationSet"
-                     <*> x .@ "HostedZone")
+                   (x .@? "VPCs" .!@ mempty >>=
+                      may (parseXMLList1 "VPC"))
+                     <*> (x .@? "DelegationSet")
+                     <*> (x .@ "HostedZone"))
 
 instance ToHeaders GetHostedZone where
         toHeaders = const mempty

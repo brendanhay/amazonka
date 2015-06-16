@@ -66,23 +66,23 @@ import Network.AWS.CognitoIdentity.Types
 -- * 'uipIdentityPoolName'
 --
 -- * 'uipAllowUnauthenticatedIdentities'
-data UpdateIdentityPool = UpdateIdentityPool'{_uipSupportedLoginProviders :: Maybe (HashMap Text Text), _uipDeveloperProviderName :: Maybe Text, _uipOpenIdConnectProviderARNs :: Maybe [Text], _uipIdentityPoolId :: Text, _uipIdentityPoolName :: Text, _uipAllowUnauthenticatedIdentities :: Bool} deriving (Eq, Read, Show)
+data UpdateIdentityPool = UpdateIdentityPool'{_uipSupportedLoginProviders :: Maybe (Map Text Text), _uipDeveloperProviderName :: Maybe Text, _uipOpenIdConnectProviderARNs :: Maybe [Text], _uipIdentityPoolId :: Text, _uipIdentityPoolName :: Text, _uipAllowUnauthenticatedIdentities :: Bool} deriving (Eq, Read, Show)
 
 -- | 'UpdateIdentityPool' smart constructor.
 updateIdentityPool :: Text -> Text -> Bool -> UpdateIdentityPool
 updateIdentityPool pIdentityPoolId pIdentityPoolName pAllowUnauthenticatedIdentities = UpdateIdentityPool'{_uipSupportedLoginProviders = Nothing, _uipDeveloperProviderName = Nothing, _uipOpenIdConnectProviderARNs = Nothing, _uipIdentityPoolId = pIdentityPoolId, _uipIdentityPoolName = pIdentityPoolName, _uipAllowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities};
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
-uipSupportedLoginProviders :: Lens' UpdateIdentityPool (Maybe (HashMap Text Text))
-uipSupportedLoginProviders = lens _uipSupportedLoginProviders (\ s a -> s{_uipSupportedLoginProviders = a}) . mapping _Coerce;
+uipSupportedLoginProviders :: Lens' UpdateIdentityPool (Map Text Text)
+uipSupportedLoginProviders = lens _uipSupportedLoginProviders (\ s a -> s{_uipSupportedLoginProviders = a}) . _Default . _Map;
 
 -- | The \"domain\" by which Cognito will refer to your users.
 uipDeveloperProviderName :: Lens' UpdateIdentityPool (Maybe Text)
 uipDeveloperProviderName = lens _uipDeveloperProviderName (\ s a -> s{_uipDeveloperProviderName = a});
 
 -- | A list of OpendID Connect provider ARNs.
-uipOpenIdConnectProviderARNs :: Lens' UpdateIdentityPool (Maybe [Text])
-uipOpenIdConnectProviderARNs = lens _uipOpenIdConnectProviderARNs (\ s a -> s{_uipOpenIdConnectProviderARNs = a});
+uipOpenIdConnectProviderARNs :: Lens' UpdateIdentityPool [Text]
+uipOpenIdConnectProviderARNs = lens _uipOpenIdConnectProviderARNs (\ s a -> s{_uipOpenIdConnectProviderARNs = a}) . _Default;
 
 -- | An identity pool ID in the format REGION:GUID.
 uipIdentityPoolId :: Lens' UpdateIdentityPool Text

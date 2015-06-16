@@ -89,4 +89,5 @@ instance ToQuery ModifyCacheParameterGroup where
                "CacheParameterGroupName" =:
                  _mcpgCacheParameterGroupName,
                "ParameterNameValues" =:
-                 "ParameterNameValue" =: _mcpgParameterNameValues]
+                 toQueryList "ParameterNameValue"
+                   _mcpgParameterNameValues]

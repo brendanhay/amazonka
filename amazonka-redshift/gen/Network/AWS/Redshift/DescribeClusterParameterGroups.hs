@@ -88,8 +88,8 @@ describeClusterParameterGroups = DescribeClusterParameterGroups'{_dcpgTagValues 
 -- these tag values in the request, Amazon Redshift returns a response with
 -- the parameter groups that have either or both of these tag values
 -- associated with them.
-dcpgTagValues :: Lens' DescribeClusterParameterGroups (Maybe [Text])
-dcpgTagValues = lens _dcpgTagValues (\ s a -> s{_dcpgTagValues = a});
+dcpgTagValues :: Lens' DescribeClusterParameterGroups [Text]
+dcpgTagValues = lens _dcpgTagValues (\ s a -> s{_dcpgTagValues = a}) . _Default;
 
 -- | A tag key or keys for which you want to return all matching cluster
 -- parameter groups that are associated with the specified key or keys. For
@@ -98,8 +98,8 @@ dcpgTagValues = lens _dcpgTagValues (\ s a -> s{_dcpgTagValues = a});
 -- keys in the request, Amazon Redshift returns a response with the
 -- parameter groups that have either or both of these tag keys associated
 -- with them.
-dcpgTagKeys :: Lens' DescribeClusterParameterGroups (Maybe [Text])
-dcpgTagKeys = lens _dcpgTagKeys (\ s a -> s{_dcpgTagKeys = a});
+dcpgTagKeys :: Lens' DescribeClusterParameterGroups [Text]
+dcpgTagKeys = lens _dcpgTagKeys (\ s a -> s{_dcpgTagKeys = a}) . _Default;
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -140,9 +140,9 @@ instance AWSRequest DescribeClusterParameterGroups
               "DescribeClusterParameterGroupsResult"
               (\ s h x ->
                  DescribeClusterParameterGroupsResponse' <$>
-                   x .@? "Marker" <*>
+                   (x .@? "Marker") <*>
                      (x .@? "ParameterGroups" .!@ mempty >>=
-                        parseXMLList "ClusterParameterGroup"))
+                        may (parseXMLList "ClusterParameterGroup")))
 
 instance ToHeaders DescribeClusterParameterGroups
          where
@@ -157,8 +157,10 @@ instance ToQuery DescribeClusterParameterGroups where
               ["Action" =:
                  ("DescribeClusterParameterGroups" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "TagValues" =: "TagValue" =: _dcpgTagValues,
-               "TagKeys" =: "TagKey" =: _dcpgTagKeys,
+               "TagValues" =:
+                 toQuery (toQueryList "TagValue" <$> _dcpgTagValues),
+               "TagKeys" =:
+                 toQuery (toQueryList "TagKey" <$> _dcpgTagKeys),
                "MaxRecords" =: _dcpgMaxRecords,
                "Marker" =: _dcpgMarker,
                "ParameterGroupName" =: _dcpgParameterGroupName]
@@ -187,5 +189,5 @@ dcpgrMarker = lens _dcpgrMarker (\ s a -> s{_dcpgrMarker = a});
 
 -- | A list of ClusterParameterGroup instances. Each instance describes one
 -- cluster parameter group.
-dcpgrParameterGroups :: Lens' DescribeClusterParameterGroupsResponse (Maybe [ClusterParameterGroup])
-dcpgrParameterGroups = lens _dcpgrParameterGroups (\ s a -> s{_dcpgrParameterGroups = a});
+dcpgrParameterGroups :: Lens' DescribeClusterParameterGroupsResponse [ClusterParameterGroup]
+dcpgrParameterGroups = lens _dcpgrParameterGroups (\ s a -> s{_dcpgrParameterGroups = a}) . _Default;

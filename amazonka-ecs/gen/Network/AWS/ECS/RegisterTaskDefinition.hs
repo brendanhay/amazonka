@@ -63,8 +63,8 @@ registerTaskDefinition pFamily = RegisterTaskDefinition'{_rtdVolumes = Nothing, 
 
 -- | A list of volume definitions in JSON format that containers in your task
 -- may use.
-rtdVolumes :: Lens' RegisterTaskDefinition (Maybe [Volume])
-rtdVolumes = lens _rtdVolumes (\ s a -> s{_rtdVolumes = a});
+rtdVolumes :: Lens' RegisterTaskDefinition [Volume]
+rtdVolumes = lens _rtdVolumes (\ s a -> s{_rtdVolumes = a}) . _Default;
 
 -- | You must specify a @family@ for a task definition, which allows you to
 -- track multiple versions of the same task definition. You can think of
@@ -88,7 +88,7 @@ instance AWSRequest RegisterTaskDefinition where
           = receiveJSON
               (\ s h x ->
                  RegisterTaskDefinitionResponse' <$>
-                   x .?> "taskDefinition")
+                   (x .?> "taskDefinition"))
 
 instance ToHeaders RegisterTaskDefinition where
         toHeaders

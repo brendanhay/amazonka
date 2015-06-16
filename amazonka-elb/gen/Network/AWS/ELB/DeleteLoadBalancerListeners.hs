@@ -65,9 +65,7 @@ instance AWSRequest DeleteLoadBalancerListeners where
              DeleteLoadBalancerListenersResponse
         request = post
         response
-          = receiveNullWrapper
-              "DeleteLoadBalancerListenersResult"
-              DeleteLoadBalancerListenersResponse'
+          = receiveNull DeleteLoadBalancerListenersResponse'
 
 instance ToHeaders DeleteLoadBalancerListeners where
         toHeaders = const mempty
@@ -83,7 +81,7 @@ instance ToQuery DeleteLoadBalancerListeners where
                "Version" =: ("2012-06-01" :: ByteString),
                "LoadBalancerName" =: _dlblLoadBalancerName,
                "LoadBalancerPorts" =:
-                 "member" =: _dlblLoadBalancerPorts]
+                 toQueryList "member" _dlblLoadBalancerPorts]
 
 -- | /See:/ 'deleteLoadBalancerListenersResponse' smart constructor.
 data DeleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse' deriving (Eq, Read, Show)

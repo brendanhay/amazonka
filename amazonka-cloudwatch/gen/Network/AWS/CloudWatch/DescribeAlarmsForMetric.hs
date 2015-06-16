@@ -71,8 +71,8 @@ dafmPeriod :: Lens' DescribeAlarmsForMetric (Maybe Natural)
 dafmPeriod = lens _dafmPeriod (\ s a -> s{_dafmPeriod = a}) . mapping _Nat;
 
 -- | The list of dimensions associated with the metric.
-dafmDimensions :: Lens' DescribeAlarmsForMetric (Maybe [Dimension])
-dafmDimensions = lens _dafmDimensions (\ s a -> s{_dafmDimensions = a});
+dafmDimensions :: Lens' DescribeAlarmsForMetric [Dimension]
+dafmDimensions = lens _dafmDimensions (\ s a -> s{_dafmDimensions = a}) . _Default;
 
 -- | The statistic for the metric.
 dafmStatistic :: Lens' DescribeAlarmsForMetric (Maybe Statistic)
@@ -100,7 +100,7 @@ instance AWSRequest DescribeAlarmsForMetric where
               (\ s h x ->
                  DescribeAlarmsForMetricResponse' <$>
                    (x .@? "MetricAlarms" .!@ mempty >>=
-                      parseXMLList "member"))
+                      may (parseXMLList "member")))
 
 instance ToHeaders DescribeAlarmsForMetric where
         toHeaders = const mempty
@@ -115,7 +115,8 @@ instance ToQuery DescribeAlarmsForMetric where
                  ("DescribeAlarmsForMetric" :: ByteString),
                "Version" =: ("2010-08-01" :: ByteString),
                "Period" =: _dafmPeriod,
-               "Dimensions" =: "member" =: _dafmDimensions,
+               "Dimensions" =:
+                 toQuery (toQueryList "member" <$> _dafmDimensions),
                "Statistic" =: _dafmStatistic, "Unit" =: _dafmUnit,
                "MetricName" =: _dafmMetricName,
                "Namespace" =: _dafmNamespace]
@@ -132,5 +133,5 @@ describeAlarmsForMetricResponse :: DescribeAlarmsForMetricResponse
 describeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse'{_dafmrMetricAlarms = Nothing};
 
 -- | A list of information for each alarm with the specified metric.
-dafmrMetricAlarms :: Lens' DescribeAlarmsForMetricResponse (Maybe [MetricAlarm])
-dafmrMetricAlarms = lens _dafmrMetricAlarms (\ s a -> s{_dafmrMetricAlarms = a});
+dafmrMetricAlarms :: Lens' DescribeAlarmsForMetricResponse [MetricAlarm]
+dafmrMetricAlarms = lens _dafmrMetricAlarms (\ s a -> s{_dafmrMetricAlarms = a}) . _Default;

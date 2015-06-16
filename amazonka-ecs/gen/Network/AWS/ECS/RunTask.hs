@@ -112,8 +112,8 @@ instance AWSRequest RunTask where
           = receiveJSON
               (\ s h x ->
                  RunTaskResponse' <$>
-                   x .?> "failures" .!@ mempty <*>
-                     x .?> "tasks" .!@ mempty)
+                   (x .?> "failures" .!@ mempty) <*>
+                     (x .?> "tasks" .!@ mempty))
 
 instance ToHeaders RunTask where
         toHeaders
@@ -153,10 +153,10 @@ runTaskResponse :: RunTaskResponse
 runTaskResponse = RunTaskResponse'{_rtrFailures = Nothing, _rtrTasks = Nothing};
 
 -- | Any failed tasks from your @RunTask@ action are listed here.
-rtrFailures :: Lens' RunTaskResponse (Maybe [Failure])
-rtrFailures = lens _rtrFailures (\ s a -> s{_rtrFailures = a});
+rtrFailures :: Lens' RunTaskResponse [Failure]
+rtrFailures = lens _rtrFailures (\ s a -> s{_rtrFailures = a}) . _Default;
 
 -- | A full description of the tasks that were run. Each task that was
 -- successfully placed on your cluster will be described here.
-rtrTasks :: Lens' RunTaskResponse (Maybe [Task])
-rtrTasks = lens _rtrTasks (\ s a -> s{_rtrTasks = a});
+rtrTasks :: Lens' RunTaskResponse [Task]
+rtrTasks = lens _rtrTasks (\ s a -> s{_rtrTasks = a}) . _Default;

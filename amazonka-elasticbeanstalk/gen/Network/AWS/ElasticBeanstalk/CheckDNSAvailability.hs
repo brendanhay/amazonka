@@ -64,7 +64,8 @@ instance AWSRequest CheckDNSAvailability where
           = receiveXMLWrapper "CheckDNSAvailabilityResult"
               (\ s h x ->
                  CheckDNSAvailabilityResponse' <$>
-                   x .@? "FullyQualifiedCNAME" <*> x .@? "Available")
+                   (x .@? "FullyQualifiedCNAME") <*>
+                     (x .@? "Available"))
 
 instance ToHeaders CheckDNSAvailability where
         toHeaders = const mempty

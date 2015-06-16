@@ -85,8 +85,7 @@ instance AWSRequest
              SetLoadBalancerPoliciesForBackendServerResponse
         request = post
         response
-          = receiveNullWrapper
-              "SetLoadBalancerPoliciesForBackendServerResult"
+          = receiveNull
               SetLoadBalancerPoliciesForBackendServerResponse'
 
 instance ToHeaders
@@ -107,7 +106,8 @@ instance ToQuery
                "Version" =: ("2012-06-01" :: ByteString),
                "LoadBalancerName" =: _slbpfbsLoadBalancerName,
                "InstancePort" =: _slbpfbsInstancePort,
-               "PolicyNames" =: "member" =: _slbpfbsPolicyNames]
+               "PolicyNames" =:
+                 toQueryList "member" _slbpfbsPolicyNames]
 
 -- | /See:/ 'setLoadBalancerPoliciesForBackendServerResponse' smart constructor.
 data SetLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesForBackendServerResponse' deriving (Eq, Read, Show)

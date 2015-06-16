@@ -87,8 +87,9 @@ instance AWSRequest DescribeSnapshotAttribute where
           = receiveXML
               (\ s h x ->
                  DescribeSnapshotAttributeResponse' <$>
-                   parseXMLList "item" x <*> parseXMLList "item" x <*>
-                     x .@? "snapshotId")
+                   (may (parseXMLList "item") x) <*>
+                     (may (parseXMLList "item") x)
+                     <*> (x .@? "snapshotId"))
 
 instance ToHeaders DescribeSnapshotAttribute where
         toHeaders = const mempty
@@ -122,12 +123,12 @@ describeSnapshotAttributeResponse :: DescribeSnapshotAttributeResponse
 describeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse'{_dsarCreateVolumePermissions = Nothing, _dsarProductCodes = Nothing, _dsarSnapshotId = Nothing};
 
 -- | A list of permissions for creating volumes from the snapshot.
-dsarCreateVolumePermissions :: Lens' DescribeSnapshotAttributeResponse (Maybe [CreateVolumePermission])
-dsarCreateVolumePermissions = lens _dsarCreateVolumePermissions (\ s a -> s{_dsarCreateVolumePermissions = a});
+dsarCreateVolumePermissions :: Lens' DescribeSnapshotAttributeResponse [CreateVolumePermission]
+dsarCreateVolumePermissions = lens _dsarCreateVolumePermissions (\ s a -> s{_dsarCreateVolumePermissions = a}) . _Default;
 
 -- | A list of product codes.
-dsarProductCodes :: Lens' DescribeSnapshotAttributeResponse (Maybe [ProductCode])
-dsarProductCodes = lens _dsarProductCodes (\ s a -> s{_dsarProductCodes = a});
+dsarProductCodes :: Lens' DescribeSnapshotAttributeResponse [ProductCode]
+dsarProductCodes = lens _dsarProductCodes (\ s a -> s{_dsarProductCodes = a}) . _Default;
 
 -- | The ID of the EBS snapshot.
 dsarSnapshotId :: Lens' DescribeSnapshotAttributeResponse (Maybe Text)

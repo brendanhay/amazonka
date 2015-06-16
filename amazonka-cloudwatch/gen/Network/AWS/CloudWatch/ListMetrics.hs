@@ -76,8 +76,8 @@ lmNextToken :: Lens' ListMetrics (Maybe Text)
 lmNextToken = lens _lmNextToken (\ s a -> s{_lmNextToken = a});
 
 -- | A list of dimensions to filter against.
-lmDimensions :: Lens' ListMetrics (Maybe [DimensionFilter])
-lmDimensions = lens _lmDimensions (\ s a -> s{_lmDimensions = a});
+lmDimensions :: Lens' ListMetrics [DimensionFilter]
+lmDimensions = lens _lmDimensions (\ s a -> s{_lmDimensions = a}) . _Default;
 
 instance AWSRequest ListMetrics where
         type Sv ListMetrics = CloudWatch
@@ -88,8 +88,8 @@ instance AWSRequest ListMetrics where
               (\ s h x ->
                  ListMetricsResponse' <$>
                    (x .@? "Metrics" .!@ mempty >>=
-                      parseXMLList "member")
-                     <*> x .@? "NextToken")
+                      may (parseXMLList "member"))
+                     <*> (x .@? "NextToken"))
 
 instance ToHeaders ListMetrics where
         toHeaders = const mempty
@@ -105,7 +105,8 @@ instance ToQuery ListMetrics where
                "MetricName" =: _lmMetricName,
                "Namespace" =: _lmNamespace,
                "NextToken" =: _lmNextToken,
-               "Dimensions" =: "member" =: _lmDimensions]
+               "Dimensions" =:
+                 toQuery (toQueryList "member" <$> _lmDimensions)]
 
 -- | /See:/ 'listMetricsResponse' smart constructor.
 --
@@ -121,8 +122,8 @@ listMetricsResponse :: ListMetricsResponse
 listMetricsResponse = ListMetricsResponse'{_lmrMetrics = Nothing, _lmrNextToken = Nothing};
 
 -- | A list of metrics used to generate statistics for an AWS account.
-lmrMetrics :: Lens' ListMetricsResponse (Maybe [Metric])
-lmrMetrics = lens _lmrMetrics (\ s a -> s{_lmrMetrics = a});
+lmrMetrics :: Lens' ListMetricsResponse [Metric]
+lmrMetrics = lens _lmrMetrics (\ s a -> s{_lmrMetrics = a}) . _Default;
 
 -- | A string that marks the start of the next batch of returned results.
 lmrNextToken :: Lens' ListMetricsResponse (Maybe Text)

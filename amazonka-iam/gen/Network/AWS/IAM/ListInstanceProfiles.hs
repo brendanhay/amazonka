@@ -97,7 +97,7 @@ instance AWSRequest ListInstanceProfiles where
           = receiveXMLWrapper "ListInstanceProfilesResult"
               (\ s h x ->
                  ListInstanceProfilesResponse' <$>
-                   x .@? "Marker" <*> x .@? "IsTruncated" <*>
+                   (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
                      (x .@? "InstanceProfiles" .!@ mempty >>=
                         parseXMLList "member"))
 

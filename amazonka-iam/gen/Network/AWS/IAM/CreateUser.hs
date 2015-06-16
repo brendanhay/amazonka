@@ -77,7 +77,7 @@ instance AWSRequest CreateUser where
         request = post
         response
           = receiveXMLWrapper "CreateUserResult"
-              (\ s h x -> CreateUserResponse' <$> x .@? "User")
+              (\ s h x -> CreateUserResponse' <$> (x .@? "User"))
 
 instance ToHeaders CreateUser where
         toHeaders = const mempty

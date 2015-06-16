@@ -217,33 +217,34 @@ instance AWSRequest GetObject where
           = receiveBody
               (\ s h x ->
                  GetObjectResponse' <$>
-                   h .#? "x-amz-version-id" <*> h .#? "ETag" <*>
-                     h .#? "x-amz-request-charged"
-                     <*> h .#? "Content-Length"
-                     <*> h .#? "x-amz-restore"
-                     <*> h .#? "Expires"
-                     <*> h .#? "x-amz-delete-marker"
-                     <*> h .#? "x-amz-expiration"
+                   (h .#? "x-amz-version-id") <*> (h .#? "ETag") <*>
+                     (h .#? "x-amz-request-charged")
+                     <*> (h .#? "Content-Length")
+                     <*> (h .#? "x-amz-restore")
+                     <*> (h .#? "Expires")
+                     <*> (h .#? "x-amz-delete-marker")
+                     <*> (h .#? "x-amz-expiration")
                      <*>
-                     h .#?
-                       "x-amz-server-side-encryption-customer-algorithm"
-                     <*> h .#? "x-amz-missing-meta"
-                     <*> h .#? "x-amz-website-redirect-location"
-                     <*> h .#? "accept-ranges"
-                     <*> h .#? "Content-Encoding"
+                     (h .#?
+                        "x-amz-server-side-encryption-customer-algorithm")
+                     <*> (h .#? "x-amz-missing-meta")
+                     <*> (h .#? "x-amz-website-redirect-location")
+                     <*> (h .#? "accept-ranges")
+                     <*> (h .#? "Content-Encoding")
                      <*>
-                     h .#? "x-amz-server-side-encryption-aws-kms-key-id"
+                     (h .#? "x-amz-server-side-encryption-aws-kms-key-id")
                      <*>
-                     h .#? "x-amz-server-side-encryption-customer-key-MD5"
-                     <*> h .#? "x-amz-meta-"
-                     <*> h .#? "x-amz-replication-status"
-                     <*> h .#? "Cache-Control"
-                     <*> h .#? "Content-Language"
-                     <*> h .#? "Last-Modified"
-                     <*> h .#? "Content-Disposition"
-                     <*> h .#? "x-amz-server-side-encryption"
-                     <*> h .#? "Content-Type"
-                     <*> pure x)
+                     (h .#?
+                        "x-amz-server-side-encryption-customer-key-MD5")
+                     <*> (parseHeadersMap "x-amz-meta-" h)
+                     <*> (h .#? "x-amz-replication-status")
+                     <*> (h .#? "Cache-Control")
+                     <*> (h .#? "Content-Language")
+                     <*> (h .#? "Last-Modified")
+                     <*> (h .#? "Content-Disposition")
+                     <*> (h .#? "x-amz-server-side-encryption")
+                     <*> (h .#? "Content-Type")
+                     <*> (pure x))
 
 instance ToHeaders GetObject where
         toHeaders GetObject'{..}
@@ -330,11 +331,11 @@ instance ToQuery GetObject where
 -- * 'gorContentType'
 --
 -- * 'gorBody'
-data GetObjectResponse = GetObjectResponse'{_gorVersionId :: Maybe ObjectVersionId, _gorETag :: Maybe ETag, _gorRequestCharged :: Maybe RequestCharged, _gorContentLength :: Maybe Int, _gorRestore :: Maybe Text, _gorExpires :: Maybe RFC822, _gorDeleteMarker :: Maybe Bool, _gorExpiration :: Maybe Text, _gorSSECustomerAlgorithm :: Maybe Text, _gorMissingMeta :: Maybe Int, _gorWebsiteRedirectLocation :: Maybe Text, _gorAcceptRanges :: Maybe Text, _gorContentEncoding :: Maybe Text, _gorSSEKMSKeyId :: Maybe (Sensitive Text), _gorSSECustomerKeyMD5 :: Maybe Text, _gorMetadata :: Maybe (HashMap Text Text), _gorReplicationStatus :: Maybe ReplicationStatus, _gorCacheControl :: Maybe Text, _gorContentLanguage :: Maybe Text, _gorLastModified :: Maybe RFC822, _gorContentDisposition :: Maybe Text, _gorServerSideEncryption :: Maybe ServerSideEncryption, _gorContentType :: Maybe Text, _gorBody :: RsBody} deriving Show
+data GetObjectResponse = GetObjectResponse'{_gorVersionId :: Maybe ObjectVersionId, _gorETag :: Maybe ETag, _gorRequestCharged :: Maybe RequestCharged, _gorContentLength :: Maybe Int, _gorRestore :: Maybe Text, _gorExpires :: Maybe RFC822, _gorDeleteMarker :: Maybe Bool, _gorExpiration :: Maybe Text, _gorSSECustomerAlgorithm :: Maybe Text, _gorMissingMeta :: Maybe Int, _gorWebsiteRedirectLocation :: Maybe Text, _gorAcceptRanges :: Maybe Text, _gorContentEncoding :: Maybe Text, _gorSSEKMSKeyId :: Maybe (Sensitive Text), _gorSSECustomerKeyMD5 :: Maybe Text, _gorMetadata :: Map Text Text, _gorReplicationStatus :: Maybe ReplicationStatus, _gorCacheControl :: Maybe Text, _gorContentLanguage :: Maybe Text, _gorLastModified :: Maybe RFC822, _gorContentDisposition :: Maybe Text, _gorServerSideEncryption :: Maybe ServerSideEncryption, _gorContentType :: Maybe Text, _gorBody :: RsBody} deriving Show
 
 -- | 'GetObjectResponse' smart constructor.
 getObjectResponse :: RsBody -> GetObjectResponse
-getObjectResponse pBody = GetObjectResponse'{_gorVersionId = Nothing, _gorETag = Nothing, _gorRequestCharged = Nothing, _gorContentLength = Nothing, _gorRestore = Nothing, _gorExpires = Nothing, _gorDeleteMarker = Nothing, _gorExpiration = Nothing, _gorSSECustomerAlgorithm = Nothing, _gorMissingMeta = Nothing, _gorWebsiteRedirectLocation = Nothing, _gorAcceptRanges = Nothing, _gorContentEncoding = Nothing, _gorSSEKMSKeyId = Nothing, _gorSSECustomerKeyMD5 = Nothing, _gorMetadata = Nothing, _gorReplicationStatus = Nothing, _gorCacheControl = Nothing, _gorContentLanguage = Nothing, _gorLastModified = Nothing, _gorContentDisposition = Nothing, _gorServerSideEncryption = Nothing, _gorContentType = Nothing, _gorBody = pBody};
+getObjectResponse pBody = GetObjectResponse'{_gorVersionId = Nothing, _gorETag = Nothing, _gorRequestCharged = Nothing, _gorContentLength = Nothing, _gorRestore = Nothing, _gorExpires = Nothing, _gorDeleteMarker = Nothing, _gorExpiration = Nothing, _gorSSECustomerAlgorithm = Nothing, _gorMissingMeta = Nothing, _gorWebsiteRedirectLocation = Nothing, _gorAcceptRanges = Nothing, _gorContentEncoding = Nothing, _gorSSEKMSKeyId = Nothing, _gorSSECustomerKeyMD5 = Nothing, _gorMetadata = mempty, _gorReplicationStatus = Nothing, _gorCacheControl = Nothing, _gorContentLanguage = Nothing, _gorLastModified = Nothing, _gorContentDisposition = Nothing, _gorServerSideEncryption = Nothing, _gorContentType = Nothing, _gorBody = pBody};
 
 -- | Version of the object.
 gorVersionId :: Lens' GetObjectResponse (Maybe ObjectVersionId)
@@ -417,8 +418,8 @@ gorSSECustomerKeyMD5 :: Lens' GetObjectResponse (Maybe Text)
 gorSSECustomerKeyMD5 = lens _gorSSECustomerKeyMD5 (\ s a -> s{_gorSSECustomerKeyMD5 = a});
 
 -- | A map of metadata to store with the object in S3.
-gorMetadata :: Lens' GetObjectResponse (Maybe (HashMap Text Text))
-gorMetadata = lens _gorMetadata (\ s a -> s{_gorMetadata = a}) . mapping _Coerce;
+gorMetadata :: Lens' GetObjectResponse (Map Text Text)
+gorMetadata = lens _gorMetadata (\ s a -> s{_gorMetadata = a}) . _Map;
 
 -- | FIXME: Undocumented member.
 gorReplicationStatus :: Lens' GetObjectResponse (Maybe ReplicationStatus)

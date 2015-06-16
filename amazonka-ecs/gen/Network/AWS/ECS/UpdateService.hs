@@ -104,7 +104,8 @@ instance AWSRequest UpdateService where
         response
           = receiveJSON
               (\ s h x ->
-                 UpdateServiceResponse' <$> x .?> "ContainerService")
+                 UpdateServiceResponse' <$>
+                   (x .?> "ContainerService"))
 
 instance ToHeaders UpdateService where
         toHeaders

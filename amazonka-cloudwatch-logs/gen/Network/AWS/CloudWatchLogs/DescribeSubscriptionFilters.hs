@@ -94,8 +94,8 @@ instance AWSRequest DescribeSubscriptionFilters where
           = receiveJSON
               (\ s h x ->
                  DescribeSubscriptionFiltersResponse' <$>
-                   x .?> "subscriptionFilters" .!@ mempty <*>
-                     x .?> "nextToken")
+                   (x .?> "subscriptionFilters" .!@ mempty) <*>
+                     (x .?> "nextToken"))
 
 instance ToHeaders DescribeSubscriptionFilters where
         toHeaders
@@ -134,8 +134,8 @@ describeSubscriptionFiltersResponse :: DescribeSubscriptionFiltersResponse
 describeSubscriptionFiltersResponse = DescribeSubscriptionFiltersResponse'{_dsfrSubscriptionFilters = Nothing, _dsfrNextToken = Nothing};
 
 -- | FIXME: Undocumented member.
-dsfrSubscriptionFilters :: Lens' DescribeSubscriptionFiltersResponse (Maybe [SubscriptionFilter])
-dsfrSubscriptionFilters = lens _dsfrSubscriptionFilters (\ s a -> s{_dsfrSubscriptionFilters = a});
+dsfrSubscriptionFilters :: Lens' DescribeSubscriptionFiltersResponse [SubscriptionFilter]
+dsfrSubscriptionFilters = lens _dsfrSubscriptionFilters (\ s a -> s{_dsfrSubscriptionFilters = a}) . _Default;
 
 -- | FIXME: Undocumented member.
 dsfrNextToken :: Lens' DescribeSubscriptionFiltersResponse (Maybe Text)

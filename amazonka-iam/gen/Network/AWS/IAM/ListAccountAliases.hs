@@ -85,7 +85,7 @@ instance AWSRequest ListAccountAliases where
           = receiveXMLWrapper "ListAccountAliasesResult"
               (\ s h x ->
                  ListAccountAliasesResponse' <$>
-                   x .@? "Marker" <*> x .@? "IsTruncated" <*>
+                   (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
                      (x .@? "AccountAliases" .!@ mempty >>=
                         parseXMLList "member"))
 

@@ -166,9 +166,9 @@ instance AWSRequest DescribeReservedCacheNodes where
               "DescribeReservedCacheNodesResult"
               (\ s h x ->
                  DescribeReservedCacheNodesResponse' <$>
-                   x .@? "Marker" <*>
+                   (x .@? "Marker") <*>
                      (x .@? "ReservedCacheNodes" .!@ mempty >>=
-                        parseXMLList "ReservedCacheNode"))
+                        may (parseXMLList "ReservedCacheNode")))
 
 instance ToHeaders DescribeReservedCacheNodes where
         toHeaders = const mempty
@@ -211,5 +211,5 @@ drcnrMarker = lens _drcnrMarker (\ s a -> s{_drcnrMarker = a});
 
 -- | A list of reserved cache nodes. Each element in the list contains
 -- detailed information about one node.
-drcnrReservedCacheNodes :: Lens' DescribeReservedCacheNodesResponse (Maybe [ReservedCacheNode])
-drcnrReservedCacheNodes = lens _drcnrReservedCacheNodes (\ s a -> s{_drcnrReservedCacheNodes = a});
+drcnrReservedCacheNodes :: Lens' DescribeReservedCacheNodesResponse [ReservedCacheNode]
+drcnrReservedCacheNodes = lens _drcnrReservedCacheNodes (\ s a -> s{_drcnrReservedCacheNodes = a}) . _Default;

@@ -56,8 +56,8 @@ instance AWSRequest GetSendQuota where
           = receiveXMLWrapper "GetSendQuotaResult"
               (\ s h x ->
                  GetSendQuotaResponse' <$>
-                   x .@? "MaxSendRate" <*> x .@? "SentLast24Hours" <*>
-                     x .@? "Max24HourSend")
+                   (x .@? "MaxSendRate") <*> (x .@? "SentLast24Hours")
+                     <*> (x .@? "Max24HourSend"))
 
 instance ToHeaders GetSendQuota where
         toHeaders = const mempty

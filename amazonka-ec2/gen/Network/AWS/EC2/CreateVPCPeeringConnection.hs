@@ -101,7 +101,7 @@ instance AWSRequest CreateVPCPeeringConnection where
           = receiveXML
               (\ s h x ->
                  CreateVPCPeeringConnectionResponse' <$>
-                   x .@? "vpcPeeringConnection")
+                   (x .@? "vpcPeeringConnection"))
 
 instance ToHeaders CreateVPCPeeringConnection where
         toHeaders = const mempty

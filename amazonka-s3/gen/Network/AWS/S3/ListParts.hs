@@ -109,18 +109,18 @@ instance AWSRequest ListParts where
           = receiveXML
               (\ s h x ->
                  ListPartsResponse' <$>
-                   parseXMLList "Part" x <*>
-                     h .#? "x-amz-request-charged"
-                     <*> x .@? "MaxParts"
-                     <*> x .@? "Initiator"
-                     <*> x .@? "Bucket"
-                     <*> x .@? "NextPartNumberMarker"
-                     <*> x .@? "Owner"
-                     <*> x .@? "Key"
-                     <*> x .@? "StorageClass"
-                     <*> x .@? "IsTruncated"
-                     <*> x .@? "PartNumberMarker"
-                     <*> x .@? "UploadId")
+                   (may (parseXMLList "Part") x) <*>
+                     (h .#? "x-amz-request-charged")
+                     <*> (x .@? "MaxParts")
+                     <*> (x .@? "Initiator")
+                     <*> (x .@? "Bucket")
+                     <*> (x .@? "NextPartNumberMarker")
+                     <*> (x .@? "Owner")
+                     <*> (x .@? "Key")
+                     <*> (x .@? "StorageClass")
+                     <*> (x .@? "IsTruncated")
+                     <*> (x .@? "PartNumberMarker")
+                     <*> (x .@? "UploadId"))
 
 instance ToHeaders ListParts where
         toHeaders ListParts'{..}
@@ -171,8 +171,8 @@ listPartsResponse :: ListPartsResponse
 listPartsResponse = ListPartsResponse'{_lprParts = Nothing, _lprRequestCharged = Nothing, _lprMaxParts = Nothing, _lprInitiator = Nothing, _lprBucket = Nothing, _lprNextPartNumberMarker = Nothing, _lprOwner = Nothing, _lprKey = Nothing, _lprStorageClass = Nothing, _lprIsTruncated = Nothing, _lprPartNumberMarker = Nothing, _lprUploadId = Nothing};
 
 -- | FIXME: Undocumented member.
-lprParts :: Lens' ListPartsResponse (Maybe [Part])
-lprParts = lens _lprParts (\ s a -> s{_lprParts = a});
+lprParts :: Lens' ListPartsResponse [Part]
+lprParts = lens _lprParts (\ s a -> s{_lprParts = a}) . _Default;
 
 -- | FIXME: Undocumented member.
 lprRequestCharged :: Lens' ListPartsResponse (Maybe RequestCharged)

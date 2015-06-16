@@ -148,7 +148,7 @@ instance AWSRequest PutRecord where
           = receiveJSON
               (\ s h x ->
                  PutRecordResponse' <$>
-                   x .:> "ShardId" <*> x .:> "SequenceNumber")
+                   (x .:> "ShardId") <*> (x .:> "SequenceNumber"))
 
 instance ToHeaders PutRecord where
         toHeaders

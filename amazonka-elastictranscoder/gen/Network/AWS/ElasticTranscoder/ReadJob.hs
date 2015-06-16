@@ -61,7 +61,7 @@ instance AWSRequest ReadJob where
         request = get
         response
           = receiveJSON
-              (\ s h x -> ReadJobResponse' <$> x .?> "Job'")
+              (\ s h x -> ReadJobResponse' <$> (x .?> "Job'"))
 
 instance ToHeaders ReadJob where
         toHeaders = const mempty

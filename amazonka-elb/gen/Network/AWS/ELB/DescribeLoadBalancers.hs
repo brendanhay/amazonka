@@ -69,8 +69,8 @@ dlbPageSize :: Lens' DescribeLoadBalancers (Maybe Natural)
 dlbPageSize = lens _dlbPageSize (\ s a -> s{_dlbPageSize = a}) . mapping _Nat;
 
 -- | The names of the load balancers.
-dlbLoadBalancerNames :: Lens' DescribeLoadBalancers (Maybe [Text])
-dlbLoadBalancerNames = lens _dlbLoadBalancerNames (\ s a -> s{_dlbLoadBalancerNames = a});
+dlbLoadBalancerNames :: Lens' DescribeLoadBalancers [Text]
+dlbLoadBalancerNames = lens _dlbLoadBalancerNames (\ s a -> s{_dlbLoadBalancerNames = a}) . _Default;
 
 instance AWSRequest DescribeLoadBalancers where
         type Sv DescribeLoadBalancers = ELB
@@ -82,8 +82,8 @@ instance AWSRequest DescribeLoadBalancers where
               (\ s h x ->
                  DescribeLoadBalancersResponse' <$>
                    (x .@? "LoadBalancerDescriptions" .!@ mempty >>=
-                      parseXMLList "member")
-                     <*> x .@? "NextMarker")
+                      may (parseXMLList "member"))
+                     <*> (x .@? "NextMarker"))
 
 instance ToHeaders DescribeLoadBalancers where
         toHeaders = const mempty
@@ -98,7 +98,8 @@ instance ToQuery DescribeLoadBalancers where
                "Version" =: ("2012-06-01" :: ByteString),
                "Marker" =: _dlbMarker, "PageSize" =: _dlbPageSize,
                "LoadBalancerNames" =:
-                 "member" =: _dlbLoadBalancerNames]
+                 toQuery
+                   (toQueryList "member" <$> _dlbLoadBalancerNames)]
 
 -- | /See:/ 'describeLoadBalancersResponse' smart constructor.
 --
@@ -114,8 +115,8 @@ describeLoadBalancersResponse :: DescribeLoadBalancersResponse
 describeLoadBalancersResponse = DescribeLoadBalancersResponse'{_dlbrLoadBalancerDescriptions = Nothing, _dlbrNextMarker = Nothing};
 
 -- | Information about the load balancers.
-dlbrLoadBalancerDescriptions :: Lens' DescribeLoadBalancersResponse (Maybe [LoadBalancerDescription])
-dlbrLoadBalancerDescriptions = lens _dlbrLoadBalancerDescriptions (\ s a -> s{_dlbrLoadBalancerDescriptions = a});
+dlbrLoadBalancerDescriptions :: Lens' DescribeLoadBalancersResponse [LoadBalancerDescription]
+dlbrLoadBalancerDescriptions = lens _dlbrLoadBalancerDescriptions (\ s a -> s{_dlbrLoadBalancerDescriptions = a}) . _Default;
 
 -- | The marker to use when requesting the next set of results. If there are
 -- no additional results, the string is empty.

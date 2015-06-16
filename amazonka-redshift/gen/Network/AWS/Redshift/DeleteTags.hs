@@ -79,7 +79,7 @@ instance ToQuery DeleteTags where
               ["Action" =: ("DeleteTags" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
                "ResourceName" =: _delResourceName,
-               "TagKeys" =: "TagKey" =: _delTagKeys]
+               "TagKeys" =: toQueryList "TagKey" _delTagKeys]
 
 -- | /See:/ 'deleteTagsResponse' smart constructor.
 data DeleteTagsResponse = DeleteTagsResponse' deriving (Eq, Read, Show)

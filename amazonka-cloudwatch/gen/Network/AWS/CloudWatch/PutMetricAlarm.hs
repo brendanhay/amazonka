@@ -105,8 +105,8 @@ pmaAlarmDescription = lens _pmaAlarmDescription (\ s a -> s{_pmaAlarmDescription
 -- state from any other state. Each action is specified as an Amazon
 -- Resource Number (ARN). Currently the only action supported is publishing
 -- to an Amazon SNS topic or an Amazon Auto Scaling policy.
-pmaOKActions :: Lens' PutMetricAlarm (Maybe [Text])
-pmaOKActions = lens _pmaOKActions (\ s a -> s{_pmaOKActions = a});
+pmaOKActions :: Lens' PutMetricAlarm [Text]
+pmaOKActions = lens _pmaOKActions (\ s a -> s{_pmaOKActions = a}) . _Default;
 
 -- | Indicates whether or not actions should be executed during any changes
 -- to the alarm\'s state.
@@ -117,19 +117,19 @@ pmaActionsEnabled = lens _pmaActionsEnabled (\ s a -> s{_pmaActionsEnabled = a})
 -- @INSUFFICIENT_DATA@ state from any other state. Each action is specified
 -- as an Amazon Resource Number (ARN). Currently the only action supported
 -- is publishing to an Amazon SNS topic or an Amazon Auto Scaling policy.
-pmaInsufficientDataActions :: Lens' PutMetricAlarm (Maybe [Text])
-pmaInsufficientDataActions = lens _pmaInsufficientDataActions (\ s a -> s{_pmaInsufficientDataActions = a});
+pmaInsufficientDataActions :: Lens' PutMetricAlarm [Text]
+pmaInsufficientDataActions = lens _pmaInsufficientDataActions (\ s a -> s{_pmaInsufficientDataActions = a}) . _Default;
 
 -- | The dimensions for the alarm\'s associated metric.
-pmaDimensions :: Lens' PutMetricAlarm (Maybe [Dimension])
-pmaDimensions = lens _pmaDimensions (\ s a -> s{_pmaDimensions = a});
+pmaDimensions :: Lens' PutMetricAlarm [Dimension]
+pmaDimensions = lens _pmaDimensions (\ s a -> s{_pmaDimensions = a}) . _Default;
 
 -- | The list of actions to execute when this alarm transitions into an
 -- @ALARM@ state from any other state. Each action is specified as an
 -- Amazon Resource Number (ARN). Currently the only action supported is
 -- publishing to an Amazon SNS topic or an Amazon Auto Scaling policy.
-pmaAlarmActions :: Lens' PutMetricAlarm (Maybe [Text])
-pmaAlarmActions = lens _pmaAlarmActions (\ s a -> s{_pmaAlarmActions = a});
+pmaAlarmActions :: Lens' PutMetricAlarm [Text]
+pmaAlarmActions = lens _pmaAlarmActions (\ s a -> s{_pmaAlarmActions = a}) . _Default;
 
 -- | The unit for the alarm\'s associated metric.
 pmaUnit :: Lens' PutMetricAlarm (Maybe StandardUnit)
@@ -189,12 +189,17 @@ instance ToQuery PutMetricAlarm where
               ["Action" =: ("PutMetricAlarm" :: ByteString),
                "Version" =: ("2010-08-01" :: ByteString),
                "AlarmDescription" =: _pmaAlarmDescription,
-               "OKActions" =: "member" =: _pmaOKActions,
+               "OKActions" =:
+                 toQuery (toQueryList "member" <$> _pmaOKActions),
                "ActionsEnabled" =: _pmaActionsEnabled,
                "InsufficientDataActions" =:
-                 "member" =: _pmaInsufficientDataActions,
-               "Dimensions" =: "member" =: _pmaDimensions,
-               "AlarmActions" =: "member" =: _pmaAlarmActions,
+                 toQuery
+                   (toQueryList "member" <$>
+                      _pmaInsufficientDataActions),
+               "Dimensions" =:
+                 toQuery (toQueryList "member" <$> _pmaDimensions),
+               "AlarmActions" =:
+                 toQuery (toQueryList "member" <$> _pmaAlarmActions),
                "Unit" =: _pmaUnit, "AlarmName" =: _pmaAlarmName,
                "MetricName" =: _pmaMetricName,
                "Namespace" =: _pmaNamespace,

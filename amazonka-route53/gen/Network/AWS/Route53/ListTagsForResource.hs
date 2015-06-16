@@ -74,7 +74,7 @@ instance AWSRequest ListTagsForResource where
           = receiveXML
               (\ s h x ->
                  ListTagsForResourceResponse' <$>
-                   x .@ "ResourceTagSet")
+                   (x .@ "ResourceTagSet"))
 
 instance ToHeaders ListTagsForResource where
         toHeaders = const mempty

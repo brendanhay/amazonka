@@ -35,8 +35,8 @@ module Network.AWS.ElastiCache.DescribeCacheSecurityGroups
     -- ** Response constructor
     , describeCacheSecurityGroupsResponse
     -- ** Response lenses
-    , describeCacheSecurityGroups
-    , describeMarker
+    , descCacheSecurityGroups
+    , descMarker
     ) where
 
 import Network.AWS.Request
@@ -91,8 +91,8 @@ instance AWSRequest DescribeCacheSecurityGroups where
               (\ s h x ->
                  DescribeCacheSecurityGroupsResponse' <$>
                    (x .@? "CacheSecurityGroups" .!@ mempty >>=
-                      parseXMLList "CacheSecurityGroup")
-                     <*> x .@? "Marker")
+                      may (parseXMLList "CacheSecurityGroup"))
+                     <*> (x .@? "Marker"))
 
 instance ToHeaders DescribeCacheSecurityGroups where
         toHeaders = const mempty
@@ -115,20 +115,20 @@ instance ToQuery DescribeCacheSecurityGroups where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'describeCacheSecurityGroups'
+-- * 'descCacheSecurityGroups'
 --
--- * 'describeMarker'
-data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse'{_describeCacheSecurityGroups :: Maybe [CacheSecurityGroup], _describeMarker :: Maybe Text} deriving (Eq, Read, Show)
+-- * 'descMarker'
+data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse'{_descCacheSecurityGroups :: Maybe [CacheSecurityGroup], _descMarker :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeCacheSecurityGroupsResponse' smart constructor.
 describeCacheSecurityGroupsResponse :: DescribeCacheSecurityGroupsResponse
-describeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse'{_describeCacheSecurityGroups = Nothing, _describeMarker = Nothing};
+describeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse'{_descCacheSecurityGroups = Nothing, _descMarker = Nothing};
 
 -- | A list of cache security groups. Each element in the list contains
 -- detailed information about one group.
-describeCacheSecurityGroups :: Lens' DescribeCacheSecurityGroupsResponse (Maybe [CacheSecurityGroup])
-describeCacheSecurityGroups = lens _describeCacheSecurityGroups (\ s a -> s{_describeCacheSecurityGroups = a});
+descCacheSecurityGroups :: Lens' DescribeCacheSecurityGroupsResponse [CacheSecurityGroup]
+descCacheSecurityGroups = lens _descCacheSecurityGroups (\ s a -> s{_descCacheSecurityGroups = a}) . _Default;
 
 -- | Provides an identifier to allow retrieval of paginated results.
-describeMarker :: Lens' DescribeCacheSecurityGroupsResponse (Maybe Text)
-describeMarker = lens _describeMarker (\ s a -> s{_describeMarker = a});
+descMarker :: Lens' DescribeCacheSecurityGroupsResponse (Maybe Text)
+descMarker = lens _descMarker (\ s a -> s{_descMarker = a});

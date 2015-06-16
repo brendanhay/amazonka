@@ -77,7 +77,7 @@ instance AWSRequest DescribePermissions where
           = receiveJSON
               (\ s h x ->
                  DescribePermissionsResponse' <$>
-                   x .?> "Permissions" .!@ mempty)
+                   (x .?> "Permissions" .!@ mempty))
 
 instance ToHeaders DescribePermissions where
         toHeaders
@@ -122,5 +122,5 @@ describePermissionsResponse = DescribePermissionsResponse'{_dprPermissions = Not
 -- -   If the request contains a stack ID and an IAM ARN, the array
 --     contains a single @Permission@ object with permissions for the
 --     specified stack and IAM ARN.
-dprPermissions :: Lens' DescribePermissionsResponse (Maybe [Permission])
-dprPermissions = lens _dprPermissions (\ s a -> s{_dprPermissions = a});
+dprPermissions :: Lens' DescribePermissionsResponse [Permission]
+dprPermissions = lens _dprPermissions (\ s a -> s{_dprPermissions = a}) . _Default;

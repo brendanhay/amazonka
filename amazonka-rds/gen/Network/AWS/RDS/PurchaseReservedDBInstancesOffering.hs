@@ -72,8 +72,8 @@ prdioReservedDBInstanceId :: Lens' PurchaseReservedDBInstancesOffering (Maybe Te
 prdioReservedDBInstanceId = lens _prdioReservedDBInstanceId (\ s a -> s{_prdioReservedDBInstanceId = a});
 
 -- | FIXME: Undocumented member.
-prdioTags :: Lens' PurchaseReservedDBInstancesOffering (Maybe [Tag])
-prdioTags = lens _prdioTags (\ s a -> s{_prdioTags = a});
+prdioTags :: Lens' PurchaseReservedDBInstancesOffering [Tag]
+prdioTags = lens _prdioTags (\ s a -> s{_prdioTags = a}) . _Default;
 
 -- | The ID of the Reserved DB instance offering to purchase.
 --
@@ -92,7 +92,7 @@ instance AWSRequest
               "PurchaseReservedDBInstancesOfferingResult"
               (\ s h x ->
                  PurchaseReservedDBInstancesOfferingResponse' <$>
-                   x .@? "ReservedDBInstance")
+                   (x .@? "ReservedDBInstance"))
 
 instance ToHeaders
          PurchaseReservedDBInstancesOffering where
@@ -112,7 +112,7 @@ instance ToQuery PurchaseReservedDBInstancesOffering
                "Version" =: ("2014-10-31" :: ByteString),
                "DBInstanceCount" =: _prdioDBInstanceCount,
                "ReservedDBInstanceId" =: _prdioReservedDBInstanceId,
-               "Tags" =: "Tag" =: _prdioTags,
+               "Tags" =: toQuery (toQueryList "Tag" <$> _prdioTags),
                "ReservedDBInstancesOfferingId" =:
                  _prdioReservedDBInstancesOfferingId]
 

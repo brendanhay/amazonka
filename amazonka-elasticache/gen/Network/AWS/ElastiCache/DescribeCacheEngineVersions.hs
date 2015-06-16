@@ -121,8 +121,8 @@ instance AWSRequest DescribeCacheEngineVersions where
               (\ s h x ->
                  DescribeCacheEngineVersionsResponse' <$>
                    (x .@? "CacheEngineVersions" .!@ mempty >>=
-                      parseXMLList "CacheEngineVersion")
-                     <*> x .@? "Marker")
+                      may (parseXMLList "CacheEngineVersion"))
+                     <*> (x .@? "Marker"))
 
 instance ToHeaders DescribeCacheEngineVersions where
         toHeaders = const mempty
@@ -159,8 +159,8 @@ describeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse'{_dcev
 
 -- | A list of cache engine version details. Each element in the list
 -- contains detailed information about one cache engine version.
-dcevrCacheEngineVersions :: Lens' DescribeCacheEngineVersionsResponse (Maybe [CacheEngineVersion])
-dcevrCacheEngineVersions = lens _dcevrCacheEngineVersions (\ s a -> s{_dcevrCacheEngineVersions = a});
+dcevrCacheEngineVersions :: Lens' DescribeCacheEngineVersionsResponse [CacheEngineVersion]
+dcevrCacheEngineVersions = lens _dcevrCacheEngineVersions (\ s a -> s{_dcevrCacheEngineVersions = a}) . _Default;
 
 -- | Provides an identifier to allow retrieval of paginated results.
 dcevrMarker :: Lens' DescribeCacheEngineVersionsResponse (Maybe Text)

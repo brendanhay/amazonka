@@ -77,8 +77,8 @@ instance AWSRequest ListKeys where
           = receiveJSON
               (\ s h x ->
                  ListKeysResponse' <$>
-                   x .?> "Truncated" <*> x .?> "Keys" .!@ mempty <*>
-                     x .?> "NextMarker")
+                   (x .?> "Truncated") <*> (x .?> "Keys" .!@ mempty) <*>
+                     (x .?> "NextMarker"))
 
 instance ToHeaders ListKeys where
         toHeaders
@@ -121,8 +121,8 @@ lkrTruncated :: Lens' ListKeysResponse (Maybe Bool)
 lkrTruncated = lens _lkrTruncated (\ s a -> s{_lkrTruncated = a});
 
 -- | A list of keys.
-lkrKeys :: Lens' ListKeysResponse (Maybe [KeyListEntry])
-lkrKeys = lens _lkrKeys (\ s a -> s{_lkrKeys = a});
+lkrKeys :: Lens' ListKeysResponse [KeyListEntry]
+lkrKeys = lens _lkrKeys (\ s a -> s{_lkrKeys = a}) . _Default;
 
 -- | If @Truncated@ is true, this value is present and contains the value to
 -- use for the @Marker@ request parameter in a subsequent pagination

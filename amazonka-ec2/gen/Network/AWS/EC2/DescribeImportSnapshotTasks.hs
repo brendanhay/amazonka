@@ -64,12 +64,12 @@ describeImportSnapshotTasks :: DescribeImportSnapshotTasks
 describeImportSnapshotTasks = DescribeImportSnapshotTasks'{_distFilters = Nothing, _distImportTaskIds = Nothing, _distNextToken = Nothing, _distDryRun = Nothing, _distMaxResults = Nothing};
 
 -- | One or more filters.
-distFilters :: Lens' DescribeImportSnapshotTasks (Maybe [Filter])
-distFilters = lens _distFilters (\ s a -> s{_distFilters = a});
+distFilters :: Lens' DescribeImportSnapshotTasks [Filter]
+distFilters = lens _distFilters (\ s a -> s{_distFilters = a}) . _Default;
 
 -- | A list of import snapshot task IDs.
-distImportTaskIds :: Lens' DescribeImportSnapshotTasks (Maybe [Text])
-distImportTaskIds = lens _distImportTaskIds (\ s a -> s{_distImportTaskIds = a});
+distImportTaskIds :: Lens' DescribeImportSnapshotTasks [Text]
+distImportTaskIds = lens _distImportTaskIds (\ s a -> s{_distImportTaskIds = a}) . _Default;
 
 -- | A token that indicates the next page of results.
 distNextToken :: Lens' DescribeImportSnapshotTasks (Maybe Text)
@@ -95,7 +95,8 @@ instance AWSRequest DescribeImportSnapshotTasks where
           = receiveXML
               (\ s h x ->
                  DescribeImportSnapshotTasksResponse' <$>
-                   x .@? "nextToken" <*> parseXMLList "item" x)
+                   (x .@? "nextToken") <*>
+                     (may (parseXMLList "item") x))
 
 instance ToHeaders DescribeImportSnapshotTasks where
         toHeaders = const mempty
@@ -109,8 +110,9 @@ instance ToQuery DescribeImportSnapshotTasks where
               ["Action" =:
                  ("DescribeImportSnapshotTasks" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Filter" =: _distFilters,
-               "ImportTaskId" =: _distImportTaskIds,
+               toQuery (toQueryList "Filter" <$> _distFilters),
+               toQuery
+                 (toQueryList "ImportTaskId" <$> _distImportTaskIds),
                "NextToken" =: _distNextToken,
                "DryRun" =: _distDryRun,
                "MaxResults" =: _distMaxResults]
@@ -135,5 +137,5 @@ distrNextToken = lens _distrNextToken (\ s a -> s{_distrNextToken = a});
 
 -- | A list of zero or more import snapshot tasks that are currently active
 -- or were completed or canceled in the previous 7 days.
-distrImportSnapshotTasks :: Lens' DescribeImportSnapshotTasksResponse (Maybe [ImportSnapshotTask])
-distrImportSnapshotTasks = lens _distrImportSnapshotTasks (\ s a -> s{_distrImportSnapshotTasks = a});
+distrImportSnapshotTasks :: Lens' DescribeImportSnapshotTasksResponse [ImportSnapshotTask]
+distrImportSnapshotTasks = lens _distrImportSnapshotTasks (\ s a -> s{_distrImportSnapshotTasks = a}) . _Default;

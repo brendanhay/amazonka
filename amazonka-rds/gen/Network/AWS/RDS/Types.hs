@@ -511,8 +511,8 @@ aqAccountQuotaName = lens _aqAccountQuotaName (\ s a -> s{_aqAccountQuotaName = 
 instance FromXML AccountQuota where
         parseXML x
           = AccountQuota' <$>
-              x .@? "Max" <*> x .@? "Used" <*>
-                x .@? "AccountQuotaName"
+              (x .@? "Max") <*> (x .@? "Used") <*>
+                (x .@? "AccountQuotaName")
 
 data ApplyMethod = PendingReboot | Immediate deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -550,7 +550,7 @@ azName :: Lens' AvailabilityZone (Maybe Text)
 azName = lens _azName (\ s a -> s{_azName = a});
 
 instance FromXML AvailabilityZone where
-        parseXML x = AvailabilityZone' <$> x .@? "Name"
+        parseXML x = AvailabilityZone' <$> (x .@? "Name")
 
 -- | /See:/ 'certificate' smart constructor.
 --
@@ -594,10 +594,10 @@ cerValidFrom = lens _cerValidFrom (\ s a -> s{_cerValidFrom = a}) . mapping _Tim
 instance FromXML Certificate where
         parseXML x
           = Certificate' <$>
-              x .@? "CertificateType" <*> x .@? "ValidTill" <*>
-                x .@? "CertificateIdentifier"
-                <*> x .@? "Thumbprint"
-                <*> x .@? "ValidFrom"
+              (x .@? "CertificateType") <*> (x .@? "ValidTill") <*>
+                (x .@? "CertificateIdentifier")
+                <*> (x .@? "Thumbprint")
+                <*> (x .@? "ValidFrom")
 
 -- | /See:/ 'characterSet' smart constructor.
 --
@@ -623,8 +623,8 @@ csCharacterSetDescription = lens _csCharacterSetDescription (\ s a -> s{_csChara
 instance FromXML CharacterSet where
         parseXML x
           = CharacterSet' <$>
-              x .@? "CharacterSetName" <*>
-                x .@? "CharacterSetDescription"
+              (x .@? "CharacterSetName") <*>
+                (x .@? "CharacterSetDescription")
 
 -- | /See:/ 'dbEngineVersion' smart constructor.
 --
@@ -665,8 +665,8 @@ devDefaultCharacterSet = lens _devDefaultCharacterSet (\ s a -> s{_devDefaultCha
 
 -- | A list of the character sets supported by this engine for the
 -- @CharacterSetName@ parameter of the CreateDBInstance API.
-devSupportedCharacterSets :: Lens' DBEngineVersion (Maybe [CharacterSet])
-devSupportedCharacterSets = lens _devSupportedCharacterSets (\ s a -> s{_devSupportedCharacterSets = a});
+devSupportedCharacterSets :: Lens' DBEngineVersion [CharacterSet]
+devSupportedCharacterSets = lens _devSupportedCharacterSets (\ s a -> s{_devSupportedCharacterSets = a}) . _Default;
 
 -- | The name of the database engine.
 devEngine :: Lens' DBEngineVersion (Maybe Text)
@@ -683,15 +683,15 @@ devDBEngineDescription = lens _devDBEngineDescription (\ s a -> s{_devDBEngineDe
 instance FromXML DBEngineVersion where
         parseXML x
           = DBEngineVersion' <$>
-              x .@? "DBEngineVersionDescription" <*>
-                x .@? "EngineVersion"
-                <*> x .@? "DefaultCharacterSet"
+              (x .@? "DBEngineVersionDescription") <*>
+                (x .@? "EngineVersion")
+                <*> (x .@? "DefaultCharacterSet")
                 <*>
                 (x .@? "SupportedCharacterSets" .!@ mempty >>=
-                   parseXMLList "CharacterSet")
-                <*> x .@? "Engine"
-                <*> x .@? "DBParameterGroupFamily"
-                <*> x .@? "DBEngineDescription"
+                   may (parseXMLList "CharacterSet"))
+                <*> (x .@? "Engine")
+                <*> (x .@? "DBParameterGroupFamily")
+                <*> (x .@? "DBEngineDescription")
 
 -- | /See:/ 'dbInstance' smart constructor.
 --
@@ -778,8 +778,8 @@ dbInstance = DBInstance'{_diDBSecurityGroups = Nothing, _diEngineVersion = Nothi
 
 -- | Provides List of DB security group elements containing only
 -- @DBSecurityGroup.Name@ and @DBSecurityGroup.Status@ subelements.
-diDBSecurityGroups :: Lens' DBInstance (Maybe [DBSecurityGroupMembership])
-diDBSecurityGroups = lens _diDBSecurityGroups (\ s a -> s{_diDBSecurityGroups = a});
+diDBSecurityGroups :: Lens' DBInstance [DBSecurityGroupMembership]
+diDBSecurityGroups = lens _diDBSecurityGroups (\ s a -> s{_diDBSecurityGroups = a}) . _Default;
 
 -- | Indicates the database engine version.
 diEngineVersion :: Lens' DBInstance (Maybe Text)
@@ -820,8 +820,8 @@ diPubliclyAccessible = lens _diPubliclyAccessible (\ s a -> s{_diPubliclyAccessi
 
 -- | Contains one or more identifiers of the Read Replicas associated with
 -- this DB instance.
-diReadReplicaDBInstanceIdentifiers :: Lens' DBInstance (Maybe [Text])
-diReadReplicaDBInstanceIdentifiers = lens _diReadReplicaDBInstanceIdentifiers (\ s a -> s{_diReadReplicaDBInstanceIdentifiers = a});
+diReadReplicaDBInstanceIdentifiers :: Lens' DBInstance [Text]
+diReadReplicaDBInstanceIdentifiers = lens _diReadReplicaDBInstanceIdentifiers (\ s a -> s{_diReadReplicaDBInstanceIdentifiers = a}) . _Default;
 
 -- | Specifies the Provisioned IOPS (I\/O operations per second) value.
 diIOPS :: Lens' DBInstance (Maybe Int)
@@ -887,8 +887,8 @@ diAvailabilityZone = lens _diAvailabilityZone (\ s a -> s{_diAvailabilityZone = 
 
 -- | Provides List of VPC security group elements that the DB instance
 -- belongs to.
-diVPCSecurityGroups :: Lens' DBInstance (Maybe [VPCSecurityGroupMembership])
-diVPCSecurityGroups = lens _diVPCSecurityGroups (\ s a -> s{_diVPCSecurityGroups = a});
+diVPCSecurityGroups :: Lens' DBInstance [VPCSecurityGroupMembership]
+diVPCSecurityGroups = lens _diVPCSecurityGroups (\ s a -> s{_diVPCSecurityGroups = a}) . _Default;
 
 -- | Specifies the number of days for which automatic DB snapshots are
 -- retained.
@@ -916,8 +916,8 @@ diSecondaryAvailabilityZone :: Lens' DBInstance (Maybe Text)
 diSecondaryAvailabilityZone = lens _diSecondaryAvailabilityZone (\ s a -> s{_diSecondaryAvailabilityZone = a});
 
 -- | Provides the list of option group memberships for this DB instance.
-diOptionGroupMemberships :: Lens' DBInstance (Maybe [OptionGroupMembership])
-diOptionGroupMemberships = lens _diOptionGroupMemberships (\ s a -> s{_diOptionGroupMemberships = a});
+diOptionGroupMemberships :: Lens' DBInstance [OptionGroupMembership]
+diOptionGroupMemberships = lens _diOptionGroupMemberships (\ s a -> s{_diOptionGroupMemberships = a}) . _Default;
 
 -- | If @StorageEncrypted@ is true, the region-unique, immutable identifier
 -- for the encrypted DB instance. This identifier is found in AWS
@@ -935,8 +935,8 @@ diEndpoint :: Lens' DBInstance (Maybe Endpoint)
 diEndpoint = lens _diEndpoint (\ s a -> s{_diEndpoint = a});
 
 -- | Provides the list of DB parameter groups applied to this DB instance.
-diDBParameterGroups :: Lens' DBInstance (Maybe [DBParameterGroupStatus])
-diDBParameterGroups = lens _diDBParameterGroups (\ s a -> s{_diDBParameterGroups = a});
+diDBParameterGroups :: Lens' DBInstance [DBParameterGroupStatus]
+diDBParameterGroups = lens _diDBParameterGroups (\ s a -> s{_diDBParameterGroups = a}) . _Default;
 
 -- | The ARN from the Key Store with which the instance is associated for TDE
 -- encryption.
@@ -955,8 +955,8 @@ diPendingModifiedValues = lens _diPendingModifiedValues (\ s a -> s{_diPendingMo
 
 -- | The status of a Read Replica. If the instance is not a Read Replica,
 -- this will be blank.
-diStatusInfos :: Lens' DBInstance (Maybe [DBInstanceStatusInfo])
-diStatusInfos = lens _diStatusInfos (\ s a -> s{_diStatusInfos = a});
+diStatusInfos :: Lens' DBInstance [DBInstanceStatusInfo]
+diStatusInfos = lens _diStatusInfos (\ s a -> s{_diStatusInfos = a}) . _Default;
 
 -- | The meaning of this parameter differs according to the database engine
 -- you use. For example, this value returns either MySQL or PostgreSQL
@@ -987,53 +987,54 @@ instance FromXML DBInstance where
         parseXML x
           = DBInstance' <$>
               (x .@? "DBSecurityGroups" .!@ mempty >>=
-                 parseXMLList "DBSecurityGroup")
-                <*> x .@? "EngineVersion"
-                <*> x .@? "StorageEncrypted"
-                <*> x .@? "AutoMinorVersionUpgrade"
-                <*> x .@? "MasterUsername"
-                <*> x .@? "PubliclyAccessible"
+                 may (parseXMLList "DBSecurityGroup"))
+                <*> (x .@? "EngineVersion")
+                <*> (x .@? "StorageEncrypted")
+                <*> (x .@? "AutoMinorVersionUpgrade")
+                <*> (x .@? "MasterUsername")
+                <*> (x .@? "PubliclyAccessible")
                 <*>
                 (x .@? "ReadReplicaDBInstanceIdentifiers" .!@ mempty
-                   >>= parseXMLList "ReadReplicaDBInstanceIdentifier")
-                <*> x .@? "Iops"
-                <*> x .@? "InstanceCreateTime"
-                <*> x .@? "ReadReplicaSourceDBInstanceIdentifier"
-                <*> x .@? "Engine"
-                <*> x .@? "LatestRestorableTime"
-                <*> x .@? "DBInstanceClass"
-                <*> x .@? "LicenseModel"
-                <*> x .@? "PreferredMaintenanceWindow"
-                <*> x .@? "CharacterSetName"
-                <*> x .@? "DBInstanceIdentifier"
-                <*> x .@? "CACertificateIdentifier"
-                <*> x .@? "PreferredBackupWindow"
-                <*> x .@? "AvailabilityZone"
+                   >>=
+                   may (parseXMLList "ReadReplicaDBInstanceIdentifier"))
+                <*> (x .@? "Iops")
+                <*> (x .@? "InstanceCreateTime")
+                <*> (x .@? "ReadReplicaSourceDBInstanceIdentifier")
+                <*> (x .@? "Engine")
+                <*> (x .@? "LatestRestorableTime")
+                <*> (x .@? "DBInstanceClass")
+                <*> (x .@? "LicenseModel")
+                <*> (x .@? "PreferredMaintenanceWindow")
+                <*> (x .@? "CharacterSetName")
+                <*> (x .@? "DBInstanceIdentifier")
+                <*> (x .@? "CACertificateIdentifier")
+                <*> (x .@? "PreferredBackupWindow")
+                <*> (x .@? "AvailabilityZone")
                 <*>
                 (x .@? "VpcSecurityGroups" .!@ mempty >>=
-                   parseXMLList "VpcSecurityGroupMembership")
-                <*> x .@? "BackupRetentionPeriod"
-                <*> x .@? "KmsKeyId"
-                <*> x .@? "DBSubnetGroup"
-                <*> x .@? "MultiAZ"
-                <*> x .@? "SecondaryAvailabilityZone"
+                   may (parseXMLList "VpcSecurityGroupMembership"))
+                <*> (x .@? "BackupRetentionPeriod")
+                <*> (x .@? "KmsKeyId")
+                <*> (x .@? "DBSubnetGroup")
+                <*> (x .@? "MultiAZ")
+                <*> (x .@? "SecondaryAvailabilityZone")
                 <*>
                 (x .@? "OptionGroupMemberships" .!@ mempty >>=
-                   parseXMLList "OptionGroupMembership")
-                <*> x .@? "DbiResourceId"
-                <*> x .@? "AllocatedStorage"
-                <*> x .@? "Endpoint"
+                   may (parseXMLList "OptionGroupMembership"))
+                <*> (x .@? "DbiResourceId")
+                <*> (x .@? "AllocatedStorage")
+                <*> (x .@? "Endpoint")
                 <*>
                 (x .@? "DBParameterGroups" .!@ mempty >>=
-                   parseXMLList "DBParameterGroup")
-                <*> x .@? "TdeCredentialArn"
-                <*> x .@? "DBInstanceStatus"
-                <*> x .@? "PendingModifiedValues"
+                   may (parseXMLList "DBParameterGroup"))
+                <*> (x .@? "TdeCredentialArn")
+                <*> (x .@? "DBInstanceStatus")
+                <*> (x .@? "PendingModifiedValues")
                 <*>
                 (x .@? "StatusInfos" .!@ mempty >>=
-                   parseXMLList "DBInstanceStatusInfo")
-                <*> x .@? "DBName"
-                <*> x .@? "StorageType"
+                   may (parseXMLList "DBInstanceStatusInfo"))
+                <*> (x .@? "DBName")
+                <*> (x .@? "StorageType")
 
 -- | /See:/ 'dbInstanceStatusInfo' smart constructor.
 --
@@ -1074,9 +1075,9 @@ disiMessage = lens _disiMessage (\ s a -> s{_disiMessage = a});
 instance FromXML DBInstanceStatusInfo where
         parseXML x
           = DBInstanceStatusInfo' <$>
-              x .@? "Status" <*> x .@? "Normal" <*>
-                x .@? "StatusType"
-                <*> x .@? "Message"
+              (x .@? "Status") <*> (x .@? "Normal") <*>
+                (x .@? "StatusType")
+                <*> (x .@? "Message")
 
 -- | /See:/ 'dbParameterGroup' smart constructor.
 --
@@ -1109,9 +1110,9 @@ dpgDescription = lens _dpgDescription (\ s a -> s{_dpgDescription = a});
 instance FromXML DBParameterGroup where
         parseXML x
           = DBParameterGroup' <$>
-              x .@? "DBParameterGroupFamily" <*>
-                x .@? "DBParameterGroupName"
-                <*> x .@? "Description"
+              (x .@? "DBParameterGroupFamily") <*>
+                (x .@? "DBParameterGroupName")
+                <*> (x .@? "Description")
 
 -- | /See:/ 'dbParameterGroupNameMessage' smart constructor.
 --
@@ -1131,7 +1132,7 @@ dpgnmDBParameterGroupName = lens _dpgnmDBParameterGroupName (\ s a -> s{_dpgnmDB
 instance FromXML DBParameterGroupNameMessage where
         parseXML x
           = DBParameterGroupNameMessage' <$>
-              x .@? "DBParameterGroupName"
+              (x .@? "DBParameterGroupName")
 
 -- | /See:/ 'dbParameterGroupStatus' smart constructor.
 --
@@ -1157,8 +1158,8 @@ dpgsParameterApplyStatus = lens _dpgsParameterApplyStatus (\ s a -> s{_dpgsParam
 instance FromXML DBParameterGroupStatus where
         parseXML x
           = DBParameterGroupStatus' <$>
-              x .@? "DBParameterGroupName" <*>
-                x .@? "ParameterApplyStatus"
+              (x .@? "DBParameterGroupName") <*>
+                (x .@? "ParameterApplyStatus")
 
 -- | /See:/ 'dbSecurityGroup' smart constructor.
 --
@@ -1190,16 +1191,16 @@ dsgOwnerId :: Lens' DBSecurityGroup (Maybe Text)
 dsgOwnerId = lens _dsgOwnerId (\ s a -> s{_dsgOwnerId = a});
 
 -- | Contains a list of IPRange elements.
-dsgIPRanges :: Lens' DBSecurityGroup (Maybe [IPRange])
-dsgIPRanges = lens _dsgIPRanges (\ s a -> s{_dsgIPRanges = a});
+dsgIPRanges :: Lens' DBSecurityGroup [IPRange]
+dsgIPRanges = lens _dsgIPRanges (\ s a -> s{_dsgIPRanges = a}) . _Default;
 
 -- | Specifies the name of the DB security group.
 dsgDBSecurityGroupName :: Lens' DBSecurityGroup (Maybe Text)
 dsgDBSecurityGroupName = lens _dsgDBSecurityGroupName (\ s a -> s{_dsgDBSecurityGroupName = a});
 
 -- | Contains a list of EC2SecurityGroup elements.
-dsgEC2SecurityGroups :: Lens' DBSecurityGroup (Maybe [EC2SecurityGroup])
-dsgEC2SecurityGroups = lens _dsgEC2SecurityGroups (\ s a -> s{_dsgEC2SecurityGroups = a});
+dsgEC2SecurityGroups :: Lens' DBSecurityGroup [EC2SecurityGroup]
+dsgEC2SecurityGroups = lens _dsgEC2SecurityGroups (\ s a -> s{_dsgEC2SecurityGroups = a}) . _Default;
 
 -- | Provides the description of the DB security group.
 dsgDBSecurityGroupDescription :: Lens' DBSecurityGroup (Maybe Text)
@@ -1208,14 +1209,14 @@ dsgDBSecurityGroupDescription = lens _dsgDBSecurityGroupDescription (\ s a -> s{
 instance FromXML DBSecurityGroup where
         parseXML x
           = DBSecurityGroup' <$>
-              x .@? "VpcId" <*> x .@? "OwnerId" <*>
+              (x .@? "VpcId") <*> (x .@? "OwnerId") <*>
                 (x .@? "IPRanges" .!@ mempty >>=
-                   parseXMLList "IPRange")
-                <*> x .@? "DBSecurityGroupName"
+                   may (parseXMLList "IPRange"))
+                <*> (x .@? "DBSecurityGroupName")
                 <*>
                 (x .@? "EC2SecurityGroups" .!@ mempty >>=
-                   parseXMLList "EC2SecurityGroup")
-                <*> x .@? "DBSecurityGroupDescription"
+                   may (parseXMLList "EC2SecurityGroup"))
+                <*> (x .@? "DBSecurityGroupDescription")
 
 -- | /See:/ 'dbSecurityGroupMembership' smart constructor.
 --
@@ -1241,7 +1242,7 @@ dsgmDBSecurityGroupName = lens _dsgmDBSecurityGroupName (\ s a -> s{_dsgmDBSecur
 instance FromXML DBSecurityGroupMembership where
         parseXML x
           = DBSecurityGroupMembership' <$>
-              x .@? "Status" <*> x .@? "DBSecurityGroupName"
+              (x .@? "Status") <*> (x .@? "DBSecurityGroupName")
 
 -- | /See:/ 'dbSnapshot' smart constructor.
 --
@@ -1393,27 +1394,27 @@ dsStorageType = lens _dsStorageType (\ s a -> s{_dsStorageType = a});
 instance FromXML DBSnapshot where
         parseXML x
           = DBSnapshot' <$>
-              x .@? "EngineVersion" <*> x .@? "Status" <*>
-                x .@? "MasterUsername"
-                <*> x .@? "SourceRegion"
-                <*> x .@? "Iops"
-                <*> x .@? "InstanceCreateTime"
-                <*> x .@? "VpcId"
-                <*> x .@? "Engine"
-                <*> x .@? "Encrypted"
-                <*> x .@? "DBSnapshotIdentifier"
-                <*> x .@? "LicenseModel"
-                <*> x .@? "SnapshotType"
-                <*> x .@? "DBInstanceIdentifier"
-                <*> x .@? "AvailabilityZone"
-                <*> x .@? "KmsKeyId"
-                <*> x .@? "SnapshotCreateTime"
-                <*> x .@? "AllocatedStorage"
-                <*> x .@? "TdeCredentialArn"
-                <*> x .@? "OptionGroupName"
-                <*> x .@? "PercentProgress"
-                <*> x .@? "Port"
-                <*> x .@? "StorageType"
+              (x .@? "EngineVersion") <*> (x .@? "Status") <*>
+                (x .@? "MasterUsername")
+                <*> (x .@? "SourceRegion")
+                <*> (x .@? "Iops")
+                <*> (x .@? "InstanceCreateTime")
+                <*> (x .@? "VpcId")
+                <*> (x .@? "Engine")
+                <*> (x .@? "Encrypted")
+                <*> (x .@? "DBSnapshotIdentifier")
+                <*> (x .@? "LicenseModel")
+                <*> (x .@? "SnapshotType")
+                <*> (x .@? "DBInstanceIdentifier")
+                <*> (x .@? "AvailabilityZone")
+                <*> (x .@? "KmsKeyId")
+                <*> (x .@? "SnapshotCreateTime")
+                <*> (x .@? "AllocatedStorage")
+                <*> (x .@? "TdeCredentialArn")
+                <*> (x .@? "OptionGroupName")
+                <*> (x .@? "PercentProgress")
+                <*> (x .@? "Port")
+                <*> (x .@? "StorageType")
 
 -- | /See:/ 'dbSubnetGroup' smart constructor.
 --
@@ -1443,8 +1444,8 @@ dbsVPCId :: Lens' DBSubnetGroup (Maybe Text)
 dbsVPCId = lens _dbsVPCId (\ s a -> s{_dbsVPCId = a});
 
 -- | Contains a list of Subnet elements.
-dbsSubnets :: Lens' DBSubnetGroup (Maybe [Subnet])
-dbsSubnets = lens _dbsSubnets (\ s a -> s{_dbsSubnets = a});
+dbsSubnets :: Lens' DBSubnetGroup [Subnet]
+dbsSubnets = lens _dbsSubnets (\ s a -> s{_dbsSubnets = a}) . _Default;
 
 -- | Provides the description of the DB subnet group.
 dbsDBSubnetGroupDescription :: Lens' DBSubnetGroup (Maybe Text)
@@ -1457,11 +1458,11 @@ dbsSubnetGroupStatus = lens _dbsSubnetGroupStatus (\ s a -> s{_dbsSubnetGroupSta
 instance FromXML DBSubnetGroup where
         parseXML x
           = DBSubnetGroup' <$>
-              x .@? "DBSubnetGroupName" <*> x .@? "VpcId" <*>
+              (x .@? "DBSubnetGroupName") <*> (x .@? "VpcId") <*>
                 (x .@? "Subnets" .!@ mempty >>=
-                   parseXMLList "Subnet")
-                <*> x .@? "DBSubnetGroupDescription"
-                <*> x .@? "SubnetGroupStatus"
+                   may (parseXMLList "Subnet"))
+                <*> (x .@? "DBSubnetGroupDescription")
+                <*> (x .@? "SubnetGroupStatus")
 
 -- | /See:/ 'describeDBLogFilesDetails' smart constructor.
 --
@@ -1493,8 +1494,8 @@ ddlfdLogFileName = lens _ddlfdLogFileName (\ s a -> s{_ddlfdLogFileName = a});
 instance FromXML DescribeDBLogFilesDetails where
         parseXML x
           = DescribeDBLogFilesDetails' <$>
-              x .@? "LastWritten" <*> x .@? "Size" <*>
-                x .@? "LogFileName"
+              (x .@? "LastWritten") <*> (x .@? "Size") <*>
+                (x .@? "LogFileName")
 
 -- | /See:/ 'ec2SecurityGroup' smart constructor.
 --
@@ -1534,9 +1535,10 @@ esgEC2SecurityGroupId = lens _esgEC2SecurityGroupId (\ s a -> s{_esgEC2SecurityG
 instance FromXML EC2SecurityGroup where
         parseXML x
           = EC2SecurityGroup' <$>
-              x .@? "Status" <*> x .@? "EC2SecurityGroupOwnerId"
-                <*> x .@? "EC2SecurityGroupName"
-                <*> x .@? "EC2SecurityGroupId"
+              (x .@? "Status") <*>
+                (x .@? "EC2SecurityGroupOwnerId")
+                <*> (x .@? "EC2SecurityGroupName")
+                <*> (x .@? "EC2SecurityGroupId")
 
 -- | /See:/ 'endpoint' smart constructor.
 --
@@ -1561,7 +1563,7 @@ endPort = lens _endPort (\ s a -> s{_endPort = a});
 
 instance FromXML Endpoint where
         parseXML x
-          = Endpoint' <$> x .@? "Address" <*> x .@? "Port"
+          = Endpoint' <$> (x .@? "Address") <*> (x .@? "Port")
 
 -- | /See:/ 'engineDefaults' smart constructor.
 --
@@ -1584,8 +1586,8 @@ edDBParameterGroupFamily :: Lens' EngineDefaults (Maybe Text)
 edDBParameterGroupFamily = lens _edDBParameterGroupFamily (\ s a -> s{_edDBParameterGroupFamily = a});
 
 -- | Contains a list of engine default parameters.
-edParameters :: Lens' EngineDefaults (Maybe [Parameter])
-edParameters = lens _edParameters (\ s a -> s{_edParameters = a});
+edParameters :: Lens' EngineDefaults [Parameter]
+edParameters = lens _edParameters (\ s a -> s{_edParameters = a}) . _Default;
 
 -- | An optional pagination token provided by a previous EngineDefaults
 -- request. If this parameter is specified, the response includes only
@@ -1596,10 +1598,10 @@ edMarker = lens _edMarker (\ s a -> s{_edMarker = a});
 instance FromXML EngineDefaults where
         parseXML x
           = EngineDefaults' <$>
-              x .@? "DBParameterGroupFamily" <*>
+              (x .@? "DBParameterGroupFamily") <*>
                 (x .@? "Parameters" .!@ mempty >>=
-                   parseXMLList "Parameter")
-                <*> x .@? "Marker"
+                   may (parseXMLList "Parameter"))
+                <*> (x .@? "Marker")
 
 -- | /See:/ 'event' smart constructor.
 --
@@ -1633,8 +1635,8 @@ eveDate :: Lens' Event (Maybe UTCTime)
 eveDate = lens _eveDate (\ s a -> s{_eveDate = a}) . mapping _Time;
 
 -- | Specifies the category for the event.
-eveEventCategories :: Lens' Event (Maybe [Text])
-eveEventCategories = lens _eveEventCategories (\ s a -> s{_eveEventCategories = a});
+eveEventCategories :: Lens' Event [Text]
+eveEventCategories = lens _eveEventCategories (\ s a -> s{_eveEventCategories = a}) . _Default;
 
 -- | Provides the text of this event.
 eveMessage :: Lens' Event (Maybe Text)
@@ -1643,12 +1645,12 @@ eveMessage = lens _eveMessage (\ s a -> s{_eveMessage = a});
 instance FromXML Event where
         parseXML x
           = Event' <$>
-              x .@? "SourceType" <*> x .@? "SourceIdentifier" <*>
-                x .@? "Date"
+              (x .@? "SourceType") <*> (x .@? "SourceIdentifier")
+                <*> (x .@? "Date")
                 <*>
                 (x .@? "EventCategories" .!@ mempty >>=
-                   parseXMLList "EventCategory")
-                <*> x .@? "Message"
+                   may (parseXMLList "EventCategory"))
+                <*> (x .@? "Message")
 
 -- | /See:/ 'eventCategoriesMap' smart constructor.
 --
@@ -1668,15 +1670,15 @@ ecmSourceType :: Lens' EventCategoriesMap (Maybe Text)
 ecmSourceType = lens _ecmSourceType (\ s a -> s{_ecmSourceType = a});
 
 -- | The event categories for the specified source type
-ecmEventCategories :: Lens' EventCategoriesMap (Maybe [Text])
-ecmEventCategories = lens _ecmEventCategories (\ s a -> s{_ecmEventCategories = a});
+ecmEventCategories :: Lens' EventCategoriesMap [Text]
+ecmEventCategories = lens _ecmEventCategories (\ s a -> s{_ecmEventCategories = a}) . _Default;
 
 instance FromXML EventCategoriesMap where
         parseXML x
           = EventCategoriesMap' <$>
-              x .@? "SourceType" <*>
+              (x .@? "SourceType") <*>
                 (x .@? "EventCategories" .!@ mempty >>=
-                   parseXMLList "EventCategory")
+                   may (parseXMLList "EventCategory"))
 
 -- | /See:/ 'eventSubscription' smart constructor.
 --
@@ -1745,28 +1747,28 @@ esSubscriptionCreationTime :: Lens' EventSubscription (Maybe Text)
 esSubscriptionCreationTime = lens _esSubscriptionCreationTime (\ s a -> s{_esSubscriptionCreationTime = a});
 
 -- | A list of event categories for the RDS event notification subscription.
-esEventCategoriesList :: Lens' EventSubscription (Maybe [Text])
-esEventCategoriesList = lens _esEventCategoriesList (\ s a -> s{_esEventCategoriesList = a});
+esEventCategoriesList :: Lens' EventSubscription [Text]
+esEventCategoriesList = lens _esEventCategoriesList (\ s a -> s{_esEventCategoriesList = a}) . _Default;
 
 -- | A list of source IDs for the RDS event notification subscription.
-esSourceIdsList :: Lens' EventSubscription (Maybe [Text])
-esSourceIdsList = lens _esSourceIdsList (\ s a -> s{_esSourceIdsList = a});
+esSourceIdsList :: Lens' EventSubscription [Text]
+esSourceIdsList = lens _esSourceIdsList (\ s a -> s{_esSourceIdsList = a}) . _Default;
 
 instance FromXML EventSubscription where
         parseXML x
           = EventSubscription' <$>
-              x .@? "CustomerAwsId" <*> x .@? "Status" <*>
-                x .@? "CustSubscriptionId"
-                <*> x .@? "SnsTopicArn"
-                <*> x .@? "Enabled"
-                <*> x .@? "SourceType"
-                <*> x .@? "SubscriptionCreationTime"
+              (x .@? "CustomerAwsId") <*> (x .@? "Status") <*>
+                (x .@? "CustSubscriptionId")
+                <*> (x .@? "SnsTopicArn")
+                <*> (x .@? "Enabled")
+                <*> (x .@? "SourceType")
+                <*> (x .@? "SubscriptionCreationTime")
                 <*>
                 (x .@? "EventCategoriesList" .!@ mempty >>=
-                   parseXMLList "EventCategory")
+                   may (parseXMLList "EventCategory"))
                 <*>
                 (x .@? "SourceIdsList" .!@ mempty >>=
-                   parseXMLList "SourceId")
+                   may (parseXMLList "SourceId"))
 
 -- | /See:/ 'filter'' smart constructor.
 --
@@ -1793,7 +1795,7 @@ instance ToQuery Filter where
         toQuery Filter'{..}
           = mconcat
               ["Name" =: _filName,
-               "Values" =: "Value" =: _filValues]
+               "Values" =: toQueryList "Value" _filValues]
 
 -- | /See:/ 'ipRange' smart constructor.
 --
@@ -1819,7 +1821,7 @@ irCIDRIP = lens _irCIDRIP (\ s a -> s{_irCIDRIP = a});
 
 instance FromXML IPRange where
         parseXML x
-          = IPRange' <$> x .@? "Status" <*> x .@? "CIDRIP"
+          = IPRange' <$> (x .@? "Status") <*> (x .@? "CIDRIP")
 
 -- | /See:/ 'option' smart constructor.
 --
@@ -1863,18 +1865,18 @@ optOptionDescription :: Lens' Option (Maybe Text)
 optOptionDescription = lens _optOptionDescription (\ s a -> s{_optOptionDescription = a});
 
 -- | The option settings for this option.
-optOptionSettings :: Lens' Option (Maybe [OptionSetting])
-optOptionSettings = lens _optOptionSettings (\ s a -> s{_optOptionSettings = a});
+optOptionSettings :: Lens' Option [OptionSetting]
+optOptionSettings = lens _optOptionSettings (\ s a -> s{_optOptionSettings = a}) . _Default;
 
 -- | If the option requires access to a port, then this VPC security group
 -- allows access to the port.
-optVPCSecurityGroupMemberships :: Lens' Option (Maybe [VPCSecurityGroupMembership])
-optVPCSecurityGroupMemberships = lens _optVPCSecurityGroupMemberships (\ s a -> s{_optVPCSecurityGroupMemberships = a});
+optVPCSecurityGroupMemberships :: Lens' Option [VPCSecurityGroupMembership]
+optVPCSecurityGroupMemberships = lens _optVPCSecurityGroupMemberships (\ s a -> s{_optVPCSecurityGroupMemberships = a}) . _Default;
 
 -- | If the option requires access to a port, then this DB security group
 -- allows access to the port.
-optDBSecurityGroupMemberships :: Lens' Option (Maybe [DBSecurityGroupMembership])
-optDBSecurityGroupMemberships = lens _optDBSecurityGroupMemberships (\ s a -> s{_optDBSecurityGroupMemberships = a});
+optDBSecurityGroupMemberships :: Lens' Option [DBSecurityGroupMembership]
+optDBSecurityGroupMemberships = lens _optDBSecurityGroupMemberships (\ s a -> s{_optDBSecurityGroupMemberships = a}) . _Default;
 
 -- | If required, the port configured for this option to use.
 optPort :: Lens' Option (Maybe Int)
@@ -1883,19 +1885,19 @@ optPort = lens _optPort (\ s a -> s{_optPort = a});
 instance FromXML Option where
         parseXML x
           = Option' <$>
-              x .@? "OptionName" <*> x .@? "Permanent" <*>
-                x .@? "Persistent"
-                <*> x .@? "OptionDescription"
+              (x .@? "OptionName") <*> (x .@? "Permanent") <*>
+                (x .@? "Persistent")
+                <*> (x .@? "OptionDescription")
                 <*>
                 (x .@? "OptionSettings" .!@ mempty >>=
-                   parseXMLList "OptionSetting")
+                   may (parseXMLList "OptionSetting"))
                 <*>
                 (x .@? "VpcSecurityGroupMemberships" .!@ mempty >>=
-                   parseXMLList "VpcSecurityGroupMembership")
+                   may (parseXMLList "VpcSecurityGroupMembership"))
                 <*>
                 (x .@? "DBSecurityGroupMemberships" .!@ mempty >>=
-                   parseXMLList "DBSecurityGroup")
-                <*> x .@? "Port"
+                   may (parseXMLList "DBSecurityGroup"))
+                <*> (x .@? "Port")
 
 -- | /See:/ 'optionConfiguration' smart constructor.
 --
@@ -1917,16 +1919,16 @@ optionConfiguration :: Text -> OptionConfiguration
 optionConfiguration pOptionName = OptionConfiguration'{_ocOptionSettings = Nothing, _ocVPCSecurityGroupMemberships = Nothing, _ocDBSecurityGroupMemberships = Nothing, _ocPort = Nothing, _ocOptionName = pOptionName};
 
 -- | The option settings to include in an option group.
-ocOptionSettings :: Lens' OptionConfiguration (Maybe [OptionSetting])
-ocOptionSettings = lens _ocOptionSettings (\ s a -> s{_ocOptionSettings = a});
+ocOptionSettings :: Lens' OptionConfiguration [OptionSetting]
+ocOptionSettings = lens _ocOptionSettings (\ s a -> s{_ocOptionSettings = a}) . _Default;
 
 -- | A list of VpcSecurityGroupMemebrship name strings used for this option.
-ocVPCSecurityGroupMemberships :: Lens' OptionConfiguration (Maybe [Text])
-ocVPCSecurityGroupMemberships = lens _ocVPCSecurityGroupMemberships (\ s a -> s{_ocVPCSecurityGroupMemberships = a});
+ocVPCSecurityGroupMemberships :: Lens' OptionConfiguration [Text]
+ocVPCSecurityGroupMemberships = lens _ocVPCSecurityGroupMemberships (\ s a -> s{_ocVPCSecurityGroupMemberships = a}) . _Default;
 
 -- | A list of DBSecurityGroupMemebrship name strings used for this option.
-ocDBSecurityGroupMemberships :: Lens' OptionConfiguration (Maybe [Text])
-ocDBSecurityGroupMemberships = lens _ocDBSecurityGroupMemberships (\ s a -> s{_ocDBSecurityGroupMemberships = a});
+ocDBSecurityGroupMemberships :: Lens' OptionConfiguration [Text]
+ocDBSecurityGroupMemberships = lens _ocDBSecurityGroupMemberships (\ s a -> s{_ocDBSecurityGroupMemberships = a}) . _Default;
 
 -- | The optional port for the option.
 ocPort :: Lens' OptionConfiguration (Maybe Int)
@@ -1940,13 +1942,16 @@ instance ToQuery OptionConfiguration where
         toQuery OptionConfiguration'{..}
           = mconcat
               ["OptionSettings" =:
-                 "OptionSetting" =: _ocOptionSettings,
+                 toQuery
+                   (toQueryList "OptionSetting" <$> _ocOptionSettings),
                "VpcSecurityGroupMemberships" =:
-                 "VpcSecurityGroupId" =:
-                   _ocVPCSecurityGroupMemberships,
+                 toQuery
+                   (toQueryList "VpcSecurityGroupId" <$>
+                      _ocVPCSecurityGroupMemberships),
                "DBSecurityGroupMemberships" =:
-                 "DBSecurityGroupName" =:
-                   _ocDBSecurityGroupMemberships,
+                 toQuery
+                   (toQueryList "DBSecurityGroupName" <$>
+                      _ocDBSecurityGroupMemberships),
                "Port" =: _ocPort, "OptionName" =: _ocOptionName]
 
 -- | /See:/ 'optionGroup' smart constructor.
@@ -2000,8 +2005,8 @@ ogMajorEngineVersion :: Lens' OptionGroup (Maybe Text)
 ogMajorEngineVersion = lens _ogMajorEngineVersion (\ s a -> s{_ogMajorEngineVersion = a});
 
 -- | Indicates what options are available in the option group.
-ogOptions :: Lens' OptionGroup (Maybe [Option])
-ogOptions = lens _ogOptions (\ s a -> s{_ogOptions = a});
+ogOptions :: Lens' OptionGroup [Option]
+ogOptions = lens _ogOptions (\ s a -> s{_ogOptions = a}) . _Default;
 
 -- | Specifies the name of the option group.
 ogOptionGroupName :: Lens' OptionGroup (Maybe Text)
@@ -2010,14 +2015,14 @@ ogOptionGroupName = lens _ogOptionGroupName (\ s a -> s{_ogOptionGroupName = a})
 instance FromXML OptionGroup where
         parseXML x
           = OptionGroup' <$>
-              x .@? "OptionGroupDescription" <*> x .@? "VpcId" <*>
-                x .@? "AllowsVpcAndNonVpcInstanceMemberships"
-                <*> x .@? "EngineName"
-                <*> x .@? "MajorEngineVersion"
+              (x .@? "OptionGroupDescription") <*> (x .@? "VpcId")
+                <*> (x .@? "AllowsVpcAndNonVpcInstanceMemberships")
+                <*> (x .@? "EngineName")
+                <*> (x .@? "MajorEngineVersion")
                 <*>
                 (x .@? "Options" .!@ mempty >>=
-                   parseXMLList "Option")
-                <*> x .@? "OptionGroupName"
+                   may (parseXMLList "Option"))
+                <*> (x .@? "OptionGroupName")
 
 -- | /See:/ 'optionGroupMembership' smart constructor.
 --
@@ -2044,7 +2049,7 @@ ogmOptionGroupName = lens _ogmOptionGroupName (\ s a -> s{_ogmOptionGroupName = 
 instance FromXML OptionGroupMembership where
         parseXML x
           = OptionGroupMembership' <$>
-              x .@? "Status" <*> x .@? "OptionGroupName"
+              (x .@? "Status") <*> (x .@? "OptionGroupName")
 
 -- | /See:/ 'optionGroupOption' smart constructor.
 --
@@ -2113,16 +2118,16 @@ ogoDefaultPort = lens _ogoDefaultPort (\ s a -> s{_ogoDefaultPort = a});
 
 -- | Specifies the option settings that are available (and the default value)
 -- for each option in an option group.
-ogoOptionGroupOptionSettings :: Lens' OptionGroupOption (Maybe [OptionGroupOptionSetting])
-ogoOptionGroupOptionSettings = lens _ogoOptionGroupOptionSettings (\ s a -> s{_ogoOptionGroupOptionSettings = a});
+ogoOptionGroupOptionSettings :: Lens' OptionGroupOption [OptionGroupOptionSetting]
+ogoOptionGroupOptionSettings = lens _ogoOptionGroupOptionSettings (\ s a -> s{_ogoOptionGroupOptionSettings = a}) . _Default;
 
 -- | Specifies whether the option requires a port.
 ogoPortRequired :: Lens' OptionGroupOption (Maybe Bool)
 ogoPortRequired = lens _ogoPortRequired (\ s a -> s{_ogoPortRequired = a});
 
 -- | List of all options that are prerequisites for this option.
-ogoOptionsDependedOn :: Lens' OptionGroupOption (Maybe [Text])
-ogoOptionsDependedOn = lens _ogoOptionsDependedOn (\ s a -> s{_ogoOptionsDependedOn = a});
+ogoOptionsDependedOn :: Lens' OptionGroupOption [Text]
+ogoOptionsDependedOn = lens _ogoOptionsDependedOn (\ s a -> s{_ogoOptionsDependedOn = a}) . _Default;
 
 -- | The description of the option.
 ogoDescription :: Lens' OptionGroupOption (Maybe Text)
@@ -2131,21 +2136,21 @@ ogoDescription = lens _ogoDescription (\ s a -> s{_ogoDescription = a});
 instance FromXML OptionGroupOption where
         parseXML x
           = OptionGroupOption' <$>
-              x .@? "MinimumRequiredMinorEngineVersion" <*>
-                x .@? "Permanent"
-                <*> x .@? "Persistent"
-                <*> x .@? "EngineName"
-                <*> x .@? "Name"
-                <*> x .@? "MajorEngineVersion"
-                <*> x .@? "DefaultPort"
+              (x .@? "MinimumRequiredMinorEngineVersion") <*>
+                (x .@? "Permanent")
+                <*> (x .@? "Persistent")
+                <*> (x .@? "EngineName")
+                <*> (x .@? "Name")
+                <*> (x .@? "MajorEngineVersion")
+                <*> (x .@? "DefaultPort")
                 <*>
                 (x .@? "OptionGroupOptionSettings" .!@ mempty >>=
-                   parseXMLList "OptionGroupOptionSetting")
-                <*> x .@? "PortRequired"
+                   may (parseXMLList "OptionGroupOptionSetting"))
+                <*> (x .@? "PortRequired")
                 <*>
                 (x .@? "OptionsDependedOn" .!@ mempty >>=
-                   parseXMLList "OptionName")
-                <*> x .@? "Description"
+                   may (parseXMLList "OptionName"))
+                <*> (x .@? "Description")
 
 -- | /See:/ 'optionGroupOptionSetting' smart constructor.
 --
@@ -2196,11 +2201,11 @@ ogosSettingDescription = lens _ogosSettingDescription (\ s a -> s{_ogosSettingDe
 instance FromXML OptionGroupOptionSetting where
         parseXML x
           = OptionGroupOptionSetting' <$>
-              x .@? "ApplyType" <*> x .@? "SettingName" <*>
-                x .@? "DefaultValue"
-                <*> x .@? "IsModifiable"
-                <*> x .@? "AllowedValues"
-                <*> x .@? "SettingDescription"
+              (x .@? "ApplyType") <*> (x .@? "SettingName") <*>
+                (x .@? "DefaultValue")
+                <*> (x .@? "IsModifiable")
+                <*> (x .@? "AllowedValues")
+                <*> (x .@? "SettingDescription")
 
 -- | /See:/ 'optionSetting' smart constructor.
 --
@@ -2269,14 +2274,14 @@ osDescription = lens _osDescription (\ s a -> s{_osDescription = a});
 instance FromXML OptionSetting where
         parseXML x
           = OptionSetting' <$>
-              x .@? "IsCollection" <*> x .@? "ApplyType" <*>
-                x .@? "Value"
-                <*> x .@? "Name"
-                <*> x .@? "DefaultValue"
-                <*> x .@? "IsModifiable"
-                <*> x .@? "AllowedValues"
-                <*> x .@? "DataType"
-                <*> x .@? "Description"
+              (x .@? "IsCollection") <*> (x .@? "ApplyType") <*>
+                (x .@? "Value")
+                <*> (x .@? "Name")
+                <*> (x .@? "DefaultValue")
+                <*> (x .@? "IsModifiable")
+                <*> (x .@? "AllowedValues")
+                <*> (x .@? "DataType")
+                <*> (x .@? "Description")
 
 instance ToQuery OptionSetting where
         toQuery OptionSetting'{..}
@@ -2345,8 +2350,8 @@ odioLicenseModel :: Lens' OrderableDBInstanceOption (Maybe Text)
 odioLicenseModel = lens _odioLicenseModel (\ s a -> s{_odioLicenseModel = a});
 
 -- | A list of availability zones for the orderable DB instance.
-odioAvailabilityZones :: Lens' OrderableDBInstanceOption (Maybe [AvailabilityZone])
-odioAvailabilityZones = lens _odioAvailabilityZones (\ s a -> s{_odioAvailabilityZones = a});
+odioAvailabilityZones :: Lens' OrderableDBInstanceOption [AvailabilityZone]
+odioAvailabilityZones = lens _odioAvailabilityZones (\ s a -> s{_odioAvailabilityZones = a}) . _Default;
 
 -- | Indicates whether this orderable DB instance can have a Read Replica.
 odioReadReplicaCapable :: Lens' OrderableDBInstanceOption (Maybe Bool)
@@ -2367,18 +2372,18 @@ odioStorageType = lens _odioStorageType (\ s a -> s{_odioStorageType = a});
 instance FromXML OrderableDBInstanceOption where
         parseXML x
           = OrderableDBInstanceOption' <$>
-              x .@? "EngineVersion" <*> x .@? "MultiAZCapable" <*>
-                x .@? "Engine"
-                <*> x .@? "SupportsIops"
-                <*> x .@? "DBInstanceClass"
-                <*> x .@? "LicenseModel"
+              (x .@? "EngineVersion") <*> (x .@? "MultiAZCapable")
+                <*> (x .@? "Engine")
+                <*> (x .@? "SupportsIops")
+                <*> (x .@? "DBInstanceClass")
+                <*> (x .@? "LicenseModel")
                 <*>
                 (x .@? "AvailabilityZones" .!@ mempty >>=
-                   parseXMLList "AvailabilityZone")
-                <*> x .@? "ReadReplicaCapable"
-                <*> x .@? "SupportsStorageEncryption"
-                <*> x .@? "Vpc"
-                <*> x .@? "StorageType"
+                   may (parseXMLList "AvailabilityZone"))
+                <*> (x .@? "ReadReplicaCapable")
+                <*> (x .@? "SupportsStorageEncryption")
+                <*> (x .@? "Vpc")
+                <*> (x .@? "StorageType")
 
 -- | /See:/ 'parameter' smart constructor.
 --
@@ -2454,15 +2459,15 @@ parDescription = lens _parDescription (\ s a -> s{_parDescription = a});
 instance FromXML Parameter where
         parseXML x
           = Parameter' <$>
-              x .@? "ApplyType" <*> x .@? "ParameterValue" <*>
-                x .@? "ApplyMethod"
-                <*> x .@? "MinimumEngineVersion"
-                <*> x .@? "Source"
-                <*> x .@? "IsModifiable"
-                <*> x .@? "AllowedValues"
-                <*> x .@? "DataType"
-                <*> x .@? "ParameterName"
-                <*> x .@? "Description"
+              (x .@? "ApplyType") <*> (x .@? "ParameterValue") <*>
+                (x .@? "ApplyMethod")
+                <*> (x .@? "MinimumEngineVersion")
+                <*> (x .@? "Source")
+                <*> (x .@? "IsModifiable")
+                <*> (x .@? "AllowedValues")
+                <*> (x .@? "DataType")
+                <*> (x .@? "ParameterName")
+                <*> (x .@? "Description")
 
 instance ToQuery Parameter where
         toQuery Parameter'{..}
@@ -2539,11 +2544,11 @@ pmaForcedApplyDate = lens _pmaForcedApplyDate (\ s a -> s{_pmaForcedApplyDate = 
 instance FromXML PendingMaintenanceAction where
         parseXML x
           = PendingMaintenanceAction' <$>
-              x .@? "AutoAppliedAfterDate" <*> x .@? "Action" <*>
-                x .@? "OptInStatus"
-                <*> x .@? "Description"
-                <*> x .@? "CurrentApplyDate"
-                <*> x .@? "ForcedApplyDate"
+              (x .@? "AutoAppliedAfterDate") <*> (x .@? "Action")
+                <*> (x .@? "OptInStatus")
+                <*> (x .@? "Description")
+                <*> (x .@? "CurrentApplyDate")
+                <*> (x .@? "ForcedApplyDate")
 
 -- | /See:/ 'pendingModifiedValues' smart constructor.
 --
@@ -2630,16 +2635,17 @@ pmvStorageType = lens _pmvStorageType (\ s a -> s{_pmvStorageType = a});
 instance FromXML PendingModifiedValues where
         parseXML x
           = PendingModifiedValues' <$>
-              x .@? "EngineVersion" <*> x .@? "MasterUserPassword"
-                <*> x .@? "Iops"
-                <*> x .@? "DBInstanceClass"
-                <*> x .@? "DBInstanceIdentifier"
-                <*> x .@? "CACertificateIdentifier"
-                <*> x .@? "BackupRetentionPeriod"
-                <*> x .@? "MultiAZ"
-                <*> x .@? "AllocatedStorage"
-                <*> x .@? "Port"
-                <*> x .@? "StorageType"
+              (x .@? "EngineVersion") <*>
+                (x .@? "MasterUserPassword")
+                <*> (x .@? "Iops")
+                <*> (x .@? "DBInstanceClass")
+                <*> (x .@? "DBInstanceIdentifier")
+                <*> (x .@? "CACertificateIdentifier")
+                <*> (x .@? "BackupRetentionPeriod")
+                <*> (x .@? "MultiAZ")
+                <*> (x .@? "AllocatedStorage")
+                <*> (x .@? "Port")
+                <*> (x .@? "StorageType")
 
 -- | /See:/ 'recurringCharge' smart constructor.
 --
@@ -2665,8 +2671,8 @@ rcRecurringChargeAmount = lens _rcRecurringChargeAmount (\ s a -> s{_rcRecurring
 instance FromXML RecurringCharge where
         parseXML x
           = RecurringCharge' <$>
-              x .@? "RecurringChargeFrequency" <*>
-                x .@? "RecurringChargeAmount"
+              (x .@? "RecurringChargeFrequency") <*>
+                (x .@? "RecurringChargeAmount")
 
 -- | /See:/ 'reservedDBInstance' smart constructor.
 --
@@ -2750,8 +2756,8 @@ rdiUsagePrice :: Lens' ReservedDBInstance (Maybe Double)
 rdiUsagePrice = lens _rdiUsagePrice (\ s a -> s{_rdiUsagePrice = a});
 
 -- | The recurring price charged to run this reserved DB instance.
-rdiRecurringCharges :: Lens' ReservedDBInstance (Maybe [RecurringCharge])
-rdiRecurringCharges = lens _rdiRecurringCharges (\ s a -> s{_rdiRecurringCharges = a});
+rdiRecurringCharges :: Lens' ReservedDBInstance [RecurringCharge]
+rdiRecurringCharges = lens _rdiRecurringCharges (\ s a -> s{_rdiRecurringCharges = a}) . _Default;
 
 -- | The fixed price charged for this reserved DB instance.
 rdiFixedPrice :: Lens' ReservedDBInstance (Maybe Double)
@@ -2764,21 +2770,21 @@ rdiDuration = lens _rdiDuration (\ s a -> s{_rdiDuration = a});
 instance FromXML ReservedDBInstance where
         parseXML x
           = ReservedDBInstance' <$>
-              x .@? "DBInstanceCount" <*> x .@? "State" <*>
-                x .@? "CurrencyCode"
-                <*> x .@? "ProductDescription"
-                <*> x .@? "StartTime"
-                <*> x .@? "ReservedDBInstanceId"
-                <*> x .@? "DBInstanceClass"
-                <*> x .@? "MultiAZ"
-                <*> x .@? "ReservedDBInstancesOfferingId"
-                <*> x .@? "OfferingType"
-                <*> x .@? "UsagePrice"
+              (x .@? "DBInstanceCount") <*> (x .@? "State") <*>
+                (x .@? "CurrencyCode")
+                <*> (x .@? "ProductDescription")
+                <*> (x .@? "StartTime")
+                <*> (x .@? "ReservedDBInstanceId")
+                <*> (x .@? "DBInstanceClass")
+                <*> (x .@? "MultiAZ")
+                <*> (x .@? "ReservedDBInstancesOfferingId")
+                <*> (x .@? "OfferingType")
+                <*> (x .@? "UsagePrice")
                 <*>
                 (x .@? "RecurringCharges" .!@ mempty >>=
-                   parseXMLList "RecurringCharge")
-                <*> x .@? "FixedPrice"
-                <*> x .@? "Duration"
+                   may (parseXMLList "RecurringCharge"))
+                <*> (x .@? "FixedPrice")
+                <*> (x .@? "Duration")
 
 -- | /See:/ 'reservedDBInstancesOffering' smart constructor.
 --
@@ -2838,8 +2844,8 @@ rdioUsagePrice :: Lens' ReservedDBInstancesOffering (Maybe Double)
 rdioUsagePrice = lens _rdioUsagePrice (\ s a -> s{_rdioUsagePrice = a});
 
 -- | The recurring price charged to run this reserved DB instance.
-rdioRecurringCharges :: Lens' ReservedDBInstancesOffering (Maybe [RecurringCharge])
-rdioRecurringCharges = lens _rdioRecurringCharges (\ s a -> s{_rdioRecurringCharges = a});
+rdioRecurringCharges :: Lens' ReservedDBInstancesOffering [RecurringCharge]
+rdioRecurringCharges = lens _rdioRecurringCharges (\ s a -> s{_rdioRecurringCharges = a}) . _Default;
 
 -- | The fixed price charged for this offering.
 rdioFixedPrice :: Lens' ReservedDBInstancesOffering (Maybe Double)
@@ -2852,17 +2858,18 @@ rdioDuration = lens _rdioDuration (\ s a -> s{_rdioDuration = a});
 instance FromXML ReservedDBInstancesOffering where
         parseXML x
           = ReservedDBInstancesOffering' <$>
-              x .@? "CurrencyCode" <*> x .@? "ProductDescription"
-                <*> x .@? "DBInstanceClass"
-                <*> x .@? "MultiAZ"
-                <*> x .@? "ReservedDBInstancesOfferingId"
-                <*> x .@? "OfferingType"
-                <*> x .@? "UsagePrice"
+              (x .@? "CurrencyCode") <*>
+                (x .@? "ProductDescription")
+                <*> (x .@? "DBInstanceClass")
+                <*> (x .@? "MultiAZ")
+                <*> (x .@? "ReservedDBInstancesOfferingId")
+                <*> (x .@? "OfferingType")
+                <*> (x .@? "UsagePrice")
                 <*>
                 (x .@? "RecurringCharges" .!@ mempty >>=
-                   parseXMLList "RecurringCharge")
-                <*> x .@? "FixedPrice"
-                <*> x .@? "Duration"
+                   may (parseXMLList "RecurringCharge"))
+                <*> (x .@? "FixedPrice")
+                <*> (x .@? "Duration")
 
 -- | /See:/ 'resourcePendingMaintenanceActions' smart constructor.
 --
@@ -2879,8 +2886,8 @@ resourcePendingMaintenanceActions = ResourcePendingMaintenanceActions'{_rpmaPend
 
 -- | A list that provides details about the pending maintenance actions for
 -- the resource.
-rpmaPendingMaintenanceActionDetails :: Lens' ResourcePendingMaintenanceActions (Maybe [PendingMaintenanceAction])
-rpmaPendingMaintenanceActionDetails = lens _rpmaPendingMaintenanceActionDetails (\ s a -> s{_rpmaPendingMaintenanceActionDetails = a});
+rpmaPendingMaintenanceActionDetails :: Lens' ResourcePendingMaintenanceActions [PendingMaintenanceAction]
+rpmaPendingMaintenanceActionDetails = lens _rpmaPendingMaintenanceActionDetails (\ s a -> s{_rpmaPendingMaintenanceActionDetails = a}) . _Default;
 
 -- | The ARN of the resource that has pending maintenance actions.
 rpmaResourceIdentifier :: Lens' ResourcePendingMaintenanceActions (Maybe Text)
@@ -2891,8 +2898,8 @@ instance FromXML ResourcePendingMaintenanceActions
         parseXML x
           = ResourcePendingMaintenanceActions' <$>
               (x .@? "PendingMaintenanceActionDetails" .!@ mempty
-                 >>= parseXMLList "PendingMaintenanceAction")
-                <*> x .@? "ResourceIdentifier"
+                 >>= may (parseXMLList "PendingMaintenanceAction"))
+                <*> (x .@? "ResourceIdentifier")
 
 data SourceType = DBSecurityGroup | DBSnapshot | DBParameterGroup | DBInstance deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -2948,8 +2955,8 @@ subSubnetAvailabilityZone = lens _subSubnetAvailabilityZone (\ s a -> s{_subSubn
 instance FromXML Subnet where
         parseXML x
           = Subnet' <$>
-              x .@? "SubnetStatus" <*> x .@? "SubnetIdentifier" <*>
-                x .@? "SubnetAvailabilityZone"
+              (x .@? "SubnetStatus") <*> (x .@? "SubnetIdentifier")
+                <*> (x .@? "SubnetAvailabilityZone")
 
 -- | /See:/ 'tag' smart constructor.
 --
@@ -2981,7 +2988,8 @@ tagKey :: Lens' Tag (Maybe Text)
 tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 
 instance FromXML Tag where
-        parseXML x = Tag' <$> x .@? "Value" <*> x .@? "Key"
+        parseXML x
+          = Tag' <$> (x .@? "Value") <*> (x .@? "Key")
 
 instance ToQuery Tag where
         toQuery Tag'{..}
@@ -3011,4 +3019,4 @@ vsgmVPCSecurityGroupId = lens _vsgmVPCSecurityGroupId (\ s a -> s{_vsgmVPCSecuri
 instance FromXML VPCSecurityGroupMembership where
         parseXML x
           = VPCSecurityGroupMembership' <$>
-              x .@? "Status" <*> x .@? "VpcSecurityGroupId"
+              (x .@? "Status") <*> (x .@? "VpcSecurityGroupId")

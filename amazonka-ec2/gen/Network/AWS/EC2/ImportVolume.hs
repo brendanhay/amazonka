@@ -97,7 +97,7 @@ instance AWSRequest ImportVolume where
         response
           = receiveXML
               (\ s h x ->
-                 ImportVolumeResponse' <$> x .@? "conversionTask")
+                 ImportVolumeResponse' <$> (x .@? "conversionTask"))
 
 instance ToHeaders ImportVolume where
         toHeaders = const mempty

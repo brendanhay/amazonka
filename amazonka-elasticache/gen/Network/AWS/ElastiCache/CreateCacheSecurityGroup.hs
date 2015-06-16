@@ -84,7 +84,7 @@ instance AWSRequest CreateCacheSecurityGroup where
           = receiveXMLWrapper "CreateCacheSecurityGroupResult"
               (\ s h x ->
                  CreateCacheSecurityGroupResponse' <$>
-                   x .@? "CacheSecurityGroup")
+                   (x .@? "CacheSecurityGroup"))
 
 instance ToHeaders CreateCacheSecurityGroup where
         toHeaders = const mempty

@@ -31,8 +31,8 @@ module Network.AWS.EC2.DeleteVolume
     -- ** Request constructor
     , deleteVolume
     -- ** Request lenses
-    , delete1DryRun
-    , delete1VolumeId
+    , dv2DryRun
+    , dv2VolumeId
 
     -- * Response
     , DeleteVolumeResponse
@@ -49,25 +49,25 @@ import Network.AWS.EC2.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delete1DryRun'
+-- * 'dv2DryRun'
 --
--- * 'delete1VolumeId'
-data DeleteVolume = DeleteVolume'{_delete1DryRun :: Maybe Bool, _delete1VolumeId :: Text} deriving (Eq, Read, Show)
+-- * 'dv2VolumeId'
+data DeleteVolume = DeleteVolume'{_dv2DryRun :: Maybe Bool, _dv2VolumeId :: Text} deriving (Eq, Read, Show)
 
 -- | 'DeleteVolume' smart constructor.
 deleteVolume :: Text -> DeleteVolume
-deleteVolume pVolumeId = DeleteVolume'{_delete1DryRun = Nothing, _delete1VolumeId = pVolumeId};
+deleteVolume pVolumeId = DeleteVolume'{_dv2DryRun = Nothing, _dv2VolumeId = pVolumeId};
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-delete1DryRun :: Lens' DeleteVolume (Maybe Bool)
-delete1DryRun = lens _delete1DryRun (\ s a -> s{_delete1DryRun = a});
+dv2DryRun :: Lens' DeleteVolume (Maybe Bool)
+dv2DryRun = lens _dv2DryRun (\ s a -> s{_dv2DryRun = a});
 
 -- | The ID of the volume.
-delete1VolumeId :: Lens' DeleteVolume Text
-delete1VolumeId = lens _delete1VolumeId (\ s a -> s{_delete1VolumeId = a});
+dv2VolumeId :: Lens' DeleteVolume Text
+dv2VolumeId = lens _dv2VolumeId (\ s a -> s{_dv2VolumeId = a});
 
 instance AWSRequest DeleteVolume where
         type Sv DeleteVolume = EC2
@@ -86,8 +86,7 @@ instance ToQuery DeleteVolume where
           = mconcat
               ["Action" =: ("DeleteVolume" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _delete1DryRun,
-               "VolumeId" =: _delete1VolumeId]
+               "DryRun" =: _dv2DryRun, "VolumeId" =: _dv2VolumeId]
 
 -- | /See:/ 'deleteVolumeResponse' smart constructor.
 data DeleteVolumeResponse = DeleteVolumeResponse' deriving (Eq, Read, Show)

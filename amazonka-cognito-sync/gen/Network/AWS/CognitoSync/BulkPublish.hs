@@ -67,7 +67,7 @@ instance AWSRequest BulkPublish where
         response
           = receiveJSON
               (\ s h x ->
-                 BulkPublishResponse' <$> x .?> "IdentityPoolId")
+                 BulkPublishResponse' <$> (x .?> "IdentityPoolId"))
 
 instance ToHeaders BulkPublish where
         toHeaders

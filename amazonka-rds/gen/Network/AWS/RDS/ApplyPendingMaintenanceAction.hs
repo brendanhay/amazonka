@@ -89,7 +89,7 @@ instance AWSRequest ApplyPendingMaintenanceAction
               "ApplyPendingMaintenanceActionResult"
               (\ s h x ->
                  ApplyPendingMaintenanceActionResponse' <$>
-                   x .@? "ResourcePendingMaintenanceActions")
+                   (x .@? "ResourcePendingMaintenanceActions"))
 
 instance ToHeaders ApplyPendingMaintenanceAction
          where

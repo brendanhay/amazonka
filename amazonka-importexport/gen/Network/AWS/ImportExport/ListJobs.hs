@@ -81,8 +81,9 @@ instance AWSRequest ListJobs where
           = receiveXMLWrapper "ListJobsResult"
               (\ s h x ->
                  ListJobsResponse' <$>
-                   (x .@? "Jobs" .!@ mempty >>= parseXMLList "member")
-                     <*> x .@? "IsTruncated")
+                   (x .@? "Jobs" .!@ mempty >>=
+                      may (parseXMLList "member"))
+                     <*> (x .@? "IsTruncated"))
 
 instance ToHeaders ListJobs where
         toHeaders = const mempty
@@ -113,8 +114,8 @@ listJobsResponse :: ListJobsResponse
 listJobsResponse = ListJobsResponse'{_ljrJobs = Nothing, _ljrIsTruncated = Nothing};
 
 -- | FIXME: Undocumented member.
-ljrJobs :: Lens' ListJobsResponse (Maybe [Job])
-ljrJobs = lens _ljrJobs (\ s a -> s{_ljrJobs = a});
+ljrJobs :: Lens' ListJobsResponse [Job]
+ljrJobs = lens _ljrJobs (\ s a -> s{_ljrJobs = a}) . _Default;
 
 -- | FIXME: Undocumented member.
 ljrIsTruncated :: Lens' ListJobsResponse (Maybe Bool)

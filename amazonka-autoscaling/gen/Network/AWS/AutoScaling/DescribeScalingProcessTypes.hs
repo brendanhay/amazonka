@@ -56,7 +56,7 @@ instance AWSRequest DescribeScalingProcessTypes where
               (\ s h x ->
                  DescribeScalingProcessTypesResponse' <$>
                    (x .@? "Processes" .!@ mempty >>=
-                      parseXMLList "member"))
+                      may (parseXMLList "member")))
 
 instance ToHeaders DescribeScalingProcessTypes where
         toHeaders = const mempty
@@ -84,5 +84,5 @@ describeScalingProcessTypesResponse :: DescribeScalingProcessTypesResponse
 describeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse'{_dsptrProcesses = Nothing};
 
 -- | The names of the process types.
-dsptrProcesses :: Lens' DescribeScalingProcessTypesResponse (Maybe [ProcessType])
-dsptrProcesses = lens _dsptrProcesses (\ s a -> s{_dsptrProcesses = a});
+dsptrProcesses :: Lens' DescribeScalingProcessTypesResponse [ProcessType]
+dsptrProcesses = lens _dsptrProcesses (\ s a -> s{_dsptrProcesses = a}) . _Default;

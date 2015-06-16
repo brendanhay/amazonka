@@ -65,8 +65,8 @@ listInstances :: Text -> ListInstances
 listInstances pClusterId = ListInstances'{_liInstanceGroupTypes = Nothing, _liMarker = Nothing, _liInstanceGroupId = Nothing, _liClusterId = pClusterId};
 
 -- | The type of instance group for which to list the instances.
-liInstanceGroupTypes :: Lens' ListInstances (Maybe [InstanceGroupType])
-liInstanceGroupTypes = lens _liInstanceGroupTypes (\ s a -> s{_liInstanceGroupTypes = a});
+liInstanceGroupTypes :: Lens' ListInstances [InstanceGroupType]
+liInstanceGroupTypes = lens _liInstanceGroupTypes (\ s a -> s{_liInstanceGroupTypes = a}) . _Default;
 
 -- | The pagination token that indicates the next set of results to retrieve.
 liMarker :: Lens' ListInstances (Maybe Text)
@@ -88,7 +88,7 @@ instance AWSRequest ListInstances where
           = receiveJSON
               (\ s h x ->
                  ListInstancesResponse' <$>
-                   x .?> "Instances" .!@ mempty <*> x .?> "Marker")
+                   (x .?> "Instances" .!@ mempty) <*> (x .?> "Marker"))
 
 instance ToHeaders ListInstances where
         toHeaders
@@ -127,8 +127,8 @@ listInstancesResponse :: ListInstancesResponse
 listInstancesResponse = ListInstancesResponse'{_lirInstances = Nothing, _lirMarker = Nothing};
 
 -- | The list of instances for the cluster and given filters.
-lirInstances :: Lens' ListInstancesResponse (Maybe [Instance])
-lirInstances = lens _lirInstances (\ s a -> s{_lirInstances = a});
+lirInstances :: Lens' ListInstancesResponse [Instance]
+lirInstances = lens _lirInstances (\ s a -> s{_lirInstances = a}) . _Default;
 
 -- | The pagination token that indicates the next set of results to retrieve.
 lirMarker :: Lens' ListInstancesResponse (Maybe Text)

@@ -69,7 +69,7 @@ instance AWSRequest CancelReservedInstancesListing
           = receiveXML
               (\ s h x ->
                  CancelReservedInstancesListingResponse' <$>
-                   parseXMLList "item" x)
+                   (may (parseXMLList "item") x))
 
 instance ToHeaders CancelReservedInstancesListing
          where
@@ -99,5 +99,5 @@ cancelReservedInstancesListingResponse :: CancelReservedInstancesListingResponse
 cancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse'{_crilrReservedInstancesListings = Nothing};
 
 -- | The Reserved Instance listing.
-crilrReservedInstancesListings :: Lens' CancelReservedInstancesListingResponse (Maybe [ReservedInstancesListing])
-crilrReservedInstancesListings = lens _crilrReservedInstancesListings (\ s a -> s{_crilrReservedInstancesListings = a});
+crilrReservedInstancesListings :: Lens' CancelReservedInstancesListingResponse [ReservedInstancesListing]
+crilrReservedInstancesListings = lens _crilrReservedInstancesListings (\ s a -> s{_crilrReservedInstancesListings = a}) . _Default;

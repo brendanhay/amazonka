@@ -74,7 +74,8 @@ instance AWSRequest MonitorInstances where
         response
           = receiveXML
               (\ s h x ->
-                 MonitorInstancesResponse' <$> parseXMLList "item" x)
+                 MonitorInstancesResponse' <$>
+                   (may (parseXMLList "item") x))
 
 instance ToHeaders MonitorInstances where
         toHeaders = const mempty
@@ -88,7 +89,7 @@ instance ToQuery MonitorInstances where
               ["Action" =: ("MonitorInstances" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "DryRun" =: _miDryRun,
-               "InstanceId" =: _miInstanceIds]
+               toQueryList "InstanceId" _miInstanceIds]
 
 -- | /See:/ 'monitorInstancesResponse' smart constructor.
 --
@@ -102,5 +103,5 @@ monitorInstancesResponse :: MonitorInstancesResponse
 monitorInstancesResponse = MonitorInstancesResponse'{_mirInstanceMonitorings = Nothing};
 
 -- | Monitoring information for one or more instances.
-mirInstanceMonitorings :: Lens' MonitorInstancesResponse (Maybe [InstanceMonitoring])
-mirInstanceMonitorings = lens _mirInstanceMonitorings (\ s a -> s{_mirInstanceMonitorings = a});
+mirInstanceMonitorings :: Lens' MonitorInstancesResponse [InstanceMonitoring]
+mirInstanceMonitorings = lens _mirInstanceMonitorings (\ s a -> s{_mirInstanceMonitorings = a}) . _Default;

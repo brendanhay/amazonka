@@ -61,7 +61,7 @@ instance AWSRequest DeleteHSM where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x -> DeleteHSMResponse' <$> x .:> "Status")
+              (\ s h x -> DeleteHSMResponse' <$> (x .:> "Status"))
 
 instance ToHeaders DeleteHSM where
         toHeaders

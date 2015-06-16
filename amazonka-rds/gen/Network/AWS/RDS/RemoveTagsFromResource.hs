@@ -85,7 +85,7 @@ instance ToQuery RemoveTagsFromResource where
                  ("RemoveTagsFromResource" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "ResourceName" =: _rtfrResourceName,
-               "TagKeys" =: "member" =: _rtfrTagKeys]
+               "TagKeys" =: toQueryList "member" _rtfrTagKeys]
 
 -- | /See:/ 'removeTagsFromResourceResponse' smart constructor.
 data RemoveTagsFromResourceResponse = RemoveTagsFromResourceResponse' deriving (Eq, Read, Show)

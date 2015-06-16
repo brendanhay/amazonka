@@ -64,8 +64,8 @@ describeLayers = DescribeLayers'{_dlLayerIds = Nothing, _dlStackId = Nothing};
 -- | An array of layer IDs that specify the layers to be described. If you
 -- omit this parameter, @DescribeLayers@ returns a description of every
 -- layer in the specified stack.
-dlLayerIds :: Lens' DescribeLayers (Maybe [Text])
-dlLayerIds = lens _dlLayerIds (\ s a -> s{_dlLayerIds = a});
+dlLayerIds :: Lens' DescribeLayers [Text]
+dlLayerIds = lens _dlLayerIds (\ s a -> s{_dlLayerIds = a}) . _Default;
 
 -- | The stack ID.
 dlStackId :: Lens' DescribeLayers (Maybe Text)
@@ -79,7 +79,7 @@ instance AWSRequest DescribeLayers where
           = receiveJSON
               (\ s h x ->
                  DescribeLayersResponse' <$>
-                   x .?> "Layers" .!@ mempty)
+                   (x .?> "Layers" .!@ mempty))
 
 instance ToHeaders DescribeLayers where
         toHeaders
@@ -113,5 +113,5 @@ describeLayersResponse :: DescribeLayersResponse
 describeLayersResponse = DescribeLayersResponse'{_dlrLayers = Nothing};
 
 -- | An array of @Layer@ objects that describe the layers.
-dlrLayers :: Lens' DescribeLayersResponse (Maybe [Layer])
-dlrLayers = lens _dlrLayers (\ s a -> s{_dlrLayers = a});
+dlrLayers :: Lens' DescribeLayersResponse [Layer]
+dlrLayers = lens _dlrLayers (\ s a -> s{_dlrLayers = a}) . _Default;

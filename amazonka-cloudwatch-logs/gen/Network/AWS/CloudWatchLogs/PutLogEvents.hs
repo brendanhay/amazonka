@@ -102,8 +102,8 @@ instance AWSRequest PutLogEvents where
           = receiveJSON
               (\ s h x ->
                  PutLogEventsResponse' <$>
-                   x .?> "rejectedLogEventsInfo" <*>
-                     x .?> "nextSequenceToken")
+                   (x .?> "rejectedLogEventsInfo") <*>
+                     (x .?> "nextSequenceToken"))
 
 instance ToHeaders PutLogEvents where
         toHeaders

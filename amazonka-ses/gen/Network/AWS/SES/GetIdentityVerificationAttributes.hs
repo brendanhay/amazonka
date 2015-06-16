@@ -88,19 +88,19 @@ instance ToQuery GetIdentityVerificationAttributes
               ["Action" =:
                  ("GetIdentityVerificationAttributes" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "Identities" =: "member" =: _givaIdentities]
+               "Identities" =: toQueryList "member" _givaIdentities]
 
 -- | /See:/ 'getIdentityVerificationAttributesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'givarVerificationAttributes'
-newtype GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttributesResponse'{_givarVerificationAttributes :: HashMap Text IdentityVerificationAttributes} deriving (Eq, Read, Show)
+newtype GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttributesResponse'{_givarVerificationAttributes :: Map Text IdentityVerificationAttributes} deriving (Eq, Read, Show)
 
 -- | 'GetIdentityVerificationAttributesResponse' smart constructor.
 getIdentityVerificationAttributesResponse :: GetIdentityVerificationAttributesResponse
 getIdentityVerificationAttributesResponse = GetIdentityVerificationAttributesResponse'{_givarVerificationAttributes = mempty};
 
 -- | A map of Identities to IdentityVerificationAttributes objects.
-givarVerificationAttributes :: Lens' GetIdentityVerificationAttributesResponse (HashMap Text IdentityVerificationAttributes)
-givarVerificationAttributes = lens _givarVerificationAttributes (\ s a -> s{_givarVerificationAttributes = a}) . _Coerce;
+givarVerificationAttributes :: Lens' GetIdentityVerificationAttributesResponse (Map Text IdentityVerificationAttributes)
+givarVerificationAttributes = lens _givarVerificationAttributes (\ s a -> s{_givarVerificationAttributes = a}) . _Map;

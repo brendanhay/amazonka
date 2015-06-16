@@ -72,10 +72,10 @@ instance AWSRequest DescribeUploadBuffer where
           = receiveJSON
               (\ s h x ->
                  DescribeUploadBufferResponse' <$>
-                   x .?> "UploadBufferAllocatedInBytes" <*>
-                     x .?> "GatewayARN"
-                     <*> x .?> "DiskIds" .!@ mempty
-                     <*> x .?> "UploadBufferUsedInBytes")
+                   (x .?> "UploadBufferAllocatedInBytes") <*>
+                     (x .?> "GatewayARN")
+                     <*> (x .?> "DiskIds" .!@ mempty)
+                     <*> (x .?> "UploadBufferUsedInBytes"))
 
 instance ToHeaders DescribeUploadBuffer where
         toHeaders
@@ -123,8 +123,8 @@ dubrGatewayARN :: Lens' DescribeUploadBufferResponse (Maybe Text)
 dubrGatewayARN = lens _dubrGatewayARN (\ s a -> s{_dubrGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-dubrDiskIds :: Lens' DescribeUploadBufferResponse (Maybe [Text])
-dubrDiskIds = lens _dubrDiskIds (\ s a -> s{_dubrDiskIds = a});
+dubrDiskIds :: Lens' DescribeUploadBufferResponse [Text]
+dubrDiskIds = lens _dubrDiskIds (\ s a -> s{_dubrDiskIds = a}) . _Default;
 
 -- | FIXME: Undocumented member.
 dubrUploadBufferUsedInBytes :: Lens' DescribeUploadBufferResponse (Maybe Integer)

@@ -147,7 +147,8 @@ bucCount = lens _bucCount (\ s a -> s{_bucCount = a});
 instance FromJSON Bucket where
         parseJSON
           = withObject "Bucket"
-              (\ x -> Bucket' <$> x .:? "value" <*> x .:? "count")
+              (\ x ->
+                 Bucket' <$> (x .:? "value") <*> (x .:? "count"))
 
 -- | /See:/ 'bucketInfo' smart constructor.
 --
@@ -161,13 +162,13 @@ bucketInfo :: BucketInfo
 bucketInfo = BucketInfo'{_biBuckets = Nothing};
 
 -- | A list of the calculated facet values and counts.
-biBuckets :: Lens' BucketInfo (Maybe [Bucket])
-biBuckets = lens _biBuckets (\ s a -> s{_biBuckets = a});
+biBuckets :: Lens' BucketInfo [Bucket]
+biBuckets = lens _biBuckets (\ s a -> s{_biBuckets = a}) . _Default;
 
 instance FromJSON BucketInfo where
         parseJSON
           = withObject "BucketInfo"
-              (\ x -> BucketInfo' <$> x .:? "buckets" .!= mempty)
+              (\ x -> BucketInfo' <$> (x .:? "buckets" .!= mempty))
 
 data ContentType = ApplicationJSON | ApplicationXML deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -207,7 +208,8 @@ dswMessage = lens _dswMessage (\ s a -> s{_dswMessage = a});
 instance FromJSON DocumentServiceWarning where
         parseJSON
           = withObject "DocumentServiceWarning"
-              (\ x -> DocumentServiceWarning' <$> x .:? "message")
+              (\ x ->
+                 DocumentServiceWarning' <$> (x .:? "message"))
 
 -- | /See:/ 'hit' smart constructor.
 --
@@ -220,7 +222,7 @@ instance FromJSON DocumentServiceWarning where
 -- * 'hitHighlights'
 --
 -- * 'hitFields'
-data Hit = Hit'{_hitExprs :: Maybe (HashMap Text Text), _hitId :: Maybe Text, _hitHighlights :: Maybe (HashMap Text Text), _hitFields :: Maybe (HashMap Text [Text])} deriving (Eq, Read, Show)
+data Hit = Hit'{_hitExprs :: Maybe (Map Text Text), _hitId :: Maybe Text, _hitHighlights :: Maybe (Map Text Text), _hitFields :: Maybe (Map Text [Text])} deriving (Eq, Read, Show)
 
 -- | 'Hit' smart constructor.
 hit :: Hit
@@ -228,29 +230,29 @@ hit = Hit'{_hitExprs = Nothing, _hitId = Nothing, _hitHighlights = Nothing, _hit
 
 -- | The expressions returned from a document that matches the search
 -- request.
-hitExprs :: Lens' Hit (Maybe (HashMap Text Text))
-hitExprs = lens _hitExprs (\ s a -> s{_hitExprs = a}) . mapping _Coerce;
+hitExprs :: Lens' Hit (Map Text Text)
+hitExprs = lens _hitExprs (\ s a -> s{_hitExprs = a}) . _Default . _Map;
 
 -- | The document ID of a document that matches the search request.
 hitId :: Lens' Hit (Maybe Text)
 hitId = lens _hitId (\ s a -> s{_hitId = a});
 
 -- | The highlights returned from a document that matches the search request.
-hitHighlights :: Lens' Hit (Maybe (HashMap Text Text))
-hitHighlights = lens _hitHighlights (\ s a -> s{_hitHighlights = a}) . mapping _Coerce;
+hitHighlights :: Lens' Hit (Map Text Text)
+hitHighlights = lens _hitHighlights (\ s a -> s{_hitHighlights = a}) . _Default . _Map;
 
 -- | The fields returned from a document that matches the search request.
-hitFields :: Lens' Hit (Maybe (HashMap Text [Text]))
-hitFields = lens _hitFields (\ s a -> s{_hitFields = a}) . mapping _Coerce;
+hitFields :: Lens' Hit (Map Text [Text])
+hitFields = lens _hitFields (\ s a -> s{_hitFields = a}) . _Default . _Map;
 
 instance FromJSON Hit where
         parseJSON
           = withObject "Hit"
               (\ x ->
                  Hit' <$>
-                   x .:? "exprs" .!= mempty <*> x .:? "id" <*>
-                     x .:? "highlights" .!= mempty
-                     <*> x .:? "fields" .!= mempty)
+                   (x .:? "exprs" .!= mempty) <*> (x .:? "id") <*>
+                     (x .:? "highlights" .!= mempty)
+                     <*> (x .:? "fields" .!= mempty))
 
 -- | /See:/ 'hits' smart constructor.
 --
@@ -275,8 +277,8 @@ hitCursor :: Lens' Hits (Maybe Text)
 hitCursor = lens _hitCursor (\ s a -> s{_hitCursor = a});
 
 -- | A document that matches the search request.
-hitHit :: Lens' Hits (Maybe [Hit])
-hitHit = lens _hitHit (\ s a -> s{_hitHit = a});
+hitHit :: Lens' Hits [Hit]
+hitHit = lens _hitHit (\ s a -> s{_hitHit = a}) . _Default;
 
 -- | The index of the first matching document.
 hitStart :: Lens' Hits (Maybe Integer)
@@ -291,9 +293,9 @@ instance FromJSON Hits where
           = withObject "Hits"
               (\ x ->
                  Hits' <$>
-                   x .:? "cursor" <*> x .:? "hit" .!= mempty <*>
-                     x .:? "start"
-                     <*> x .:? "found")
+                   (x .:? "cursor") <*> (x .:? "hit" .!= mempty) <*>
+                     (x .:? "start")
+                     <*> (x .:? "found"))
 
 data QueryParser = Lucene | Dismax | Simple | Structured deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -344,7 +346,7 @@ instance FromJSON SearchStatus where
         parseJSON
           = withObject "SearchStatus"
               (\ x ->
-                 SearchStatus' <$> x .:? "rid" <*> x .:? "timems")
+                 SearchStatus' <$> (x .:? "rid") <*> (x .:? "timems"))
 
 -- | /See:/ 'suggestModel' smart constructor.
 --
@@ -366,8 +368,8 @@ smFound :: Lens' SuggestModel (Maybe Integer)
 smFound = lens _smFound (\ s a -> s{_smFound = a});
 
 -- | The documents that match the query string.
-smSuggestions :: Lens' SuggestModel (Maybe [SuggestionMatch])
-smSuggestions = lens _smSuggestions (\ s a -> s{_smSuggestions = a});
+smSuggestions :: Lens' SuggestModel [SuggestionMatch]
+smSuggestions = lens _smSuggestions (\ s a -> s{_smSuggestions = a}) . _Default;
 
 -- | The query string specified in the suggest request.
 smQuery :: Lens' SuggestModel (Maybe Text)
@@ -378,8 +380,8 @@ instance FromJSON SuggestModel where
           = withObject "SuggestModel"
               (\ x ->
                  SuggestModel' <$>
-                   x .:? "found" <*> x .:? "suggestions" .!= mempty <*>
-                     x .:? "query")
+                   (x .:? "found") <*> (x .:? "suggestions" .!= mempty)
+                     <*> (x .:? "query"))
 
 -- | /See:/ 'suggestStatus' smart constructor.
 --
@@ -406,7 +408,8 @@ instance FromJSON SuggestStatus where
         parseJSON
           = withObject "SuggestStatus"
               (\ x ->
-                 SuggestStatus' <$> x .:? "rid" <*> x .:? "timems")
+                 SuggestStatus' <$>
+                   (x .:? "rid") <*> (x .:? "timems"))
 
 -- | /See:/ 'suggestionMatch' smart constructor.
 --
@@ -441,4 +444,5 @@ instance FromJSON SuggestionMatch where
           = withObject "SuggestionMatch"
               (\ x ->
                  SuggestionMatch' <$>
-                   x .:? "suggestion" <*> x .:? "score" <*> x .:? "id")
+                   (x .:? "suggestion") <*> (x .:? "score") <*>
+                     (x .:? "id"))

@@ -64,7 +64,7 @@ instance AWSRequest GetBucketVersioning where
           = receiveXML
               (\ s h x ->
                  GetBucketVersioningResponse' <$>
-                   x .@? "Status" <*> x .@? "MfaDelete")
+                   (x .@? "Status") <*> (x .@? "MfaDelete"))
 
 instance ToHeaders GetBucketVersioning where
         toHeaders = const mempty

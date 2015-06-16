@@ -58,8 +58,8 @@ modifyHapg pHapgARN = ModifyHapg'{_mhPartitionSerialList = Nothing, _mhLabel = N
 
 -- | The list of partition serial numbers to make members of the
 -- high-availability partition group.
-mhPartitionSerialList :: Lens' ModifyHapg (Maybe [Text])
-mhPartitionSerialList = lens _mhPartitionSerialList (\ s a -> s{_mhPartitionSerialList = a});
+mhPartitionSerialList :: Lens' ModifyHapg [Text]
+mhPartitionSerialList = lens _mhPartitionSerialList (\ s a -> s{_mhPartitionSerialList = a}) . _Default;
 
 -- | The new label for the high-availability partition group.
 mhLabel :: Lens' ModifyHapg (Maybe Text)
@@ -75,7 +75,8 @@ instance AWSRequest ModifyHapg where
         request = postJSON
         response
           = receiveJSON
-              (\ s h x -> ModifyHapgResponse' <$> x .?> "HapgArn")
+              (\ s h x ->
+                 ModifyHapgResponse' <$> (x .?> "HapgArn"))
 
 instance ToHeaders ModifyHapg where
         toHeaders

@@ -66,7 +66,7 @@ instance AWSRequest DescribeInterconnects where
           = receiveJSON
               (\ s h x ->
                  DescribeInterconnectsResponse' <$>
-                   x .?> "DescribeInterconnectsResponse" .!@ mempty)
+                   (x .?> "DescribeInterconnectsResponse" .!@ mempty))
 
 instance ToHeaders DescribeInterconnects where
         toHeaders
@@ -100,5 +100,5 @@ describeInterconnectsResponse :: DescribeInterconnectsResponse
 describeInterconnectsResponse = DescribeInterconnectsResponse'{_dirDescribeInterconnectsResponse = Nothing};
 
 -- | A list of interconnects.
-dirDescribeInterconnectsResponse :: Lens' DescribeInterconnectsResponse (Maybe [Interconnect])
-dirDescribeInterconnectsResponse = lens _dirDescribeInterconnectsResponse (\ s a -> s{_dirDescribeInterconnectsResponse = a});
+dirDescribeInterconnectsResponse :: Lens' DescribeInterconnectsResponse [Interconnect]
+dirDescribeInterconnectsResponse = lens _dirDescribeInterconnectsResponse (\ s a -> s{_dirDescribeInterconnectsResponse = a}) . _Default;

@@ -95,8 +95,8 @@ instance AWSRequest ListDatasets where
           = receiveJSON
               (\ s h x ->
                  ListDatasetsResponse' <$>
-                   x .?> "Count" <*> x .?> "NextToken" <*>
-                     x .?> "Datasets" .!@ mempty)
+                   (x .?> "Count") <*> (x .?> "NextToken") <*>
+                     (x .?> "Datasets" .!@ mempty))
 
 instance ToHeaders ListDatasets where
         toHeaders
@@ -141,5 +141,5 @@ ldrNextToken :: Lens' ListDatasetsResponse (Maybe Text)
 ldrNextToken = lens _ldrNextToken (\ s a -> s{_ldrNextToken = a});
 
 -- | A set of datasets.
-ldrDatasets :: Lens' ListDatasetsResponse (Maybe [Dataset])
-ldrDatasets = lens _ldrDatasets (\ s a -> s{_ldrDatasets = a});
+ldrDatasets :: Lens' ListDatasetsResponse [Dataset]
+ldrDatasets = lens _ldrDatasets (\ s a -> s{_ldrDatasets = a}) . _Default;

@@ -80,8 +80,8 @@ enableMetricsCollection pAutoScalingGroupName pGranularity = EnableMetricsCollec
 --
 -- The @GroupStandbyInstances@ metric is not returned by default. You must
 -- explicitly request it when calling EnableMetricsCollection.
-emcMetrics :: Lens' EnableMetricsCollection (Maybe [Text])
-emcMetrics = lens _emcMetrics (\ s a -> s{_emcMetrics = a});
+emcMetrics :: Lens' EnableMetricsCollection [Text]
+emcMetrics = lens _emcMetrics (\ s a -> s{_emcMetrics = a}) . _Default;
 
 -- | The name or ARN of the Auto Scaling group.
 emcAutoScalingGroupName :: Lens' EnableMetricsCollection Text
@@ -112,7 +112,8 @@ instance ToQuery EnableMetricsCollection where
               ["Action" =:
                  ("EnableMetricsCollection" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
-               "Metrics" =: "member" =: _emcMetrics,
+               "Metrics" =:
+                 toQuery (toQueryList "member" <$> _emcMetrics),
                "AutoScalingGroupName" =: _emcAutoScalingGroupName,
                "Granularity" =: _emcGranularity]
 

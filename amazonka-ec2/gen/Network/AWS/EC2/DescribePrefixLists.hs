@@ -73,8 +73,8 @@ describePrefixLists = DescribePrefixLists'{_dplFilters = Nothing, _dplNextToken 
 --
 -- -   @prefix-list-name@: The name of a prefix list.
 --
-dplFilters :: Lens' DescribePrefixLists (Maybe [Filter])
-dplFilters = lens _dplFilters (\ s a -> s{_dplFilters = a});
+dplFilters :: Lens' DescribePrefixLists [Filter]
+dplFilters = lens _dplFilters (\ s a -> s{_dplFilters = a}) . _Default;
 
 -- | The token for the next set of items to return. (You received this token
 -- from a prior call.)
@@ -82,8 +82,8 @@ dplNextToken :: Lens' DescribePrefixLists (Maybe Text)
 dplNextToken = lens _dplNextToken (\ s a -> s{_dplNextToken = a});
 
 -- | One or more prefix list IDs.
-dplPrefixListIds :: Lens' DescribePrefixLists (Maybe [Text])
-dplPrefixListIds = lens _dplPrefixListIds (\ s a -> s{_dplPrefixListIds = a});
+dplPrefixListIds :: Lens' DescribePrefixLists [Text]
+dplPrefixListIds = lens _dplPrefixListIds (\ s a -> s{_dplPrefixListIds = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -110,7 +110,8 @@ instance AWSRequest DescribePrefixLists where
           = receiveXML
               (\ s h x ->
                  DescribePrefixListsResponse' <$>
-                   x .@? "nextToken" <*> parseXMLList "item" x)
+                   (x .@? "nextToken") <*>
+                     (may (parseXMLList "item") x))
 
 instance ToHeaders DescribePrefixLists where
         toHeaders = const mempty
@@ -123,9 +124,10 @@ instance ToQuery DescribePrefixLists where
           = mconcat
               ["Action" =: ("DescribePrefixLists" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Filter" =: _dplFilters,
+               toQuery (toQueryList "Filter" <$> _dplFilters),
                "NextToken" =: _dplNextToken,
-               "item" =: _dplPrefixListIds, "DryRun" =: _dplDryRun,
+               toQuery (toQueryList "item" <$> _dplPrefixListIds),
+               "DryRun" =: _dplDryRun,
                "MaxResults" =: _dplMaxResults]
 
 -- | /See:/ 'describePrefixListsResponse' smart constructor.
@@ -147,5 +149,5 @@ dplrNextToken :: Lens' DescribePrefixListsResponse (Maybe Text)
 dplrNextToken = lens _dplrNextToken (\ s a -> s{_dplrNextToken = a});
 
 -- | All available prefix lists.
-dplrPrefixLists :: Lens' DescribePrefixListsResponse (Maybe [PrefixList])
-dplrPrefixLists = lens _dplrPrefixLists (\ s a -> s{_dplrPrefixLists = a});
+dplrPrefixLists :: Lens' DescribePrefixListsResponse [PrefixList]
+dplrPrefixLists = lens _dplrPrefixLists (\ s a -> s{_dplrPrefixLists = a}) . _Default;

@@ -92,8 +92,8 @@ instance AWSRequest DescribeSpotFleetInstances where
           = receiveXML
               (\ s h x ->
                  DescribeSpotFleetInstancesResponse' <$>
-                   x .@? "nextToken" <*> x .@ "spotFleetRequestId" <*>
-                     parseXMLList "item" x)
+                   (x .@? "nextToken") <*> (x .@ "spotFleetRequestId")
+                     <*> (parseXMLList "item" x))
 
 instance ToHeaders DescribeSpotFleetInstances where
         toHeaders = const mempty

@@ -272,8 +272,8 @@ atEvaluateTargetHealth = lens _atEvaluateTargetHealth (\ s a -> s{_atEvaluateTar
 instance FromXML AliasTarget where
         parseXML x
           = AliasTarget' <$>
-              x .@ "HostedZoneId" <*> x .@ "DNSName" <*>
-                x .@ "EvaluateTargetHealth"
+              (x .@ "HostedZoneId") <*> (x .@ "DNSName") <*>
+                (x .@ "EvaluateTargetHealth")
 
 instance ToXML AliasTarget where
         toXML AliasTarget'{..}
@@ -360,7 +360,7 @@ instance ToXML ChangeBatch where
         toXML ChangeBatch'{..}
           = mconcat
               ["Comment" @= _cbComment,
-               "Changes" @= "Change" @@= _cbChanges]
+               "Changes" @= toXMLList "Change" _cbChanges]
 
 -- | /See:/ 'changeInfo' smart constructor.
 --
@@ -410,8 +410,8 @@ ciSubmittedAt = lens _ciSubmittedAt (\ s a -> s{_ciSubmittedAt = a}) . _Time;
 instance FromXML ChangeInfo where
         parseXML x
           = ChangeInfo' <$>
-              x .@? "Comment" <*> x .@ "Id" <*> x .@ "Status" <*>
-                x .@ "SubmittedAt"
+              (x .@? "Comment") <*> (x .@ "Id") <*> (x .@ "Status")
+                <*> (x .@ "SubmittedAt")
 
 data ChangeStatus = Pending | Insync deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -466,7 +466,7 @@ dsNameServers = lens _dsNameServers (\ s a -> s{_dsNameServers = a}) . _List1;
 instance FromXML DelegationSet where
         parseXML x
           = DelegationSet' <$>
-              x .@? "Id" <*> x .@? "CallerReference" <*>
+              (x .@? "Id") <*> (x .@? "CallerReference") <*>
                 (x .@? "NameServers" .!@ mempty >>=
                    parseXMLList1 "NameServer")
 
@@ -538,8 +538,8 @@ glContinentCode = lens _glContinentCode (\ s a -> s{_glContinentCode = a});
 instance FromXML GeoLocation where
         parseXML x
           = GeoLocation' <$>
-              x .@? "SubdivisionCode" <*> x .@? "CountryCode" <*>
-                x .@? "ContinentCode"
+              (x .@? "SubdivisionCode") <*> (x .@? "CountryCode")
+                <*> (x .@? "ContinentCode")
 
 instance ToXML GeoLocation where
         toXML GeoLocation'{..}
@@ -606,11 +606,12 @@ gldContinentName = lens _gldContinentName (\ s a -> s{_gldContinentName = a});
 instance FromXML GeoLocationDetails where
         parseXML x
           = GeoLocationDetails' <$>
-              x .@? "SubdivisionName" <*> x .@? "SubdivisionCode"
-                <*> x .@? "CountryName"
-                <*> x .@? "CountryCode"
-                <*> x .@? "ContinentCode"
-                <*> x .@? "ContinentName"
+              (x .@? "SubdivisionName") <*>
+                (x .@? "SubdivisionCode")
+                <*> (x .@? "CountryName")
+                <*> (x .@? "CountryCode")
+                <*> (x .@? "ContinentCode")
+                <*> (x .@? "ContinentName")
 
 -- | /See:/ 'healthCheck' smart constructor.
 --
@@ -650,9 +651,9 @@ hcHealthCheckVersion = lens _hcHealthCheckVersion (\ s a -> s{_hcHealthCheckVers
 instance FromXML HealthCheck where
         parseXML x
           = HealthCheck' <$>
-              x .@ "Id" <*> x .@ "CallerReference" <*>
-                x .@ "HealthCheckConfig"
-                <*> x .@ "HealthCheckVersion"
+              (x .@ "Id") <*> (x .@ "CallerReference") <*>
+                (x .@ "HealthCheckConfig")
+                <*> (x .@ "HealthCheckVersion")
 
 -- | /See:/ 'healthCheckConfig' smart constructor.
 --
@@ -732,13 +733,13 @@ hccType = lens _hccType (\ s a -> s{_hccType = a});
 instance FromXML HealthCheckConfig where
         parseXML x
           = HealthCheckConfig' <$>
-              x .@? "IPAddress" <*> x .@? "FailureThreshold" <*>
-                x .@? "SearchString"
-                <*> x .@? "ResourcePath"
-                <*> x .@? "FullyQualifiedDomainName"
-                <*> x .@? "RequestInterval"
-                <*> x .@? "Port"
-                <*> x .@ "Type"
+              (x .@? "IPAddress") <*> (x .@? "FailureThreshold")
+                <*> (x .@? "SearchString")
+                <*> (x .@? "ResourcePath")
+                <*> (x .@? "FullyQualifiedDomainName")
+                <*> (x .@? "RequestInterval")
+                <*> (x .@? "Port")
+                <*> (x .@ "Type")
 
 instance ToXML HealthCheckConfig where
         toXML HealthCheckConfig'{..}
@@ -778,7 +779,7 @@ hcoStatusReport = lens _hcoStatusReport (\ s a -> s{_hcoStatusReport = a});
 instance FromXML HealthCheckObservation where
         parseXML x
           = HealthCheckObservation' <$>
-              x .@? "IPAddress" <*> x .@? "StatusReport"
+              (x .@? "IPAddress") <*> (x .@? "StatusReport")
 
 data HealthCheckType = HTTPS | TCP | HTTPSStrMatch | HTTP | HTTPStrMatch deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -859,10 +860,10 @@ hzCallerReference = lens _hzCallerReference (\ s a -> s{_hzCallerReference = a})
 instance FromXML HostedZone where
         parseXML x
           = HostedZone' <$>
-              x .@? "Config" <*> x .@? "ResourceRecordSetCount" <*>
-                x .@ "Id"
-                <*> x .@ "Name"
-                <*> x .@ "CallerReference"
+              (x .@? "Config") <*> (x .@? "ResourceRecordSetCount")
+                <*> (x .@ "Id")
+                <*> (x .@ "Name")
+                <*> (x .@ "CallerReference")
 
 -- | /See:/ 'hostedZoneConfig' smart constructor.
 --
@@ -891,7 +892,7 @@ hzcComment = lens _hzcComment (\ s a -> s{_hzcComment = a});
 instance FromXML HostedZoneConfig where
         parseXML x
           = HostedZoneConfig' <$>
-              x .@? "PrivateZone" <*> x .@? "Comment"
+              (x .@? "PrivateZone") <*> (x .@? "Comment")
 
 instance ToXML HostedZoneConfig where
         toXML HostedZoneConfig'{..}
@@ -954,7 +955,7 @@ rrValue :: Lens' ResourceRecord Text
 rrValue = lens _rrValue (\ s a -> s{_rrValue = a});
 
 instance FromXML ResourceRecord where
-        parseXML x = ResourceRecord' <$> x .@ "Value"
+        parseXML x = ResourceRecord' <$> (x .@ "Value")
 
 instance ToXML ResourceRecord where
         toXML ResourceRecord'{..}
@@ -1067,15 +1068,15 @@ rrsResourceRecords = lens _rrsResourceRecords (\ s a -> s{_rrsResourceRecords = 
 instance FromXML ResourceRecordSet where
         parseXML x
           = ResourceRecordSet' <$>
-              x .@? "TTL" <*> x .@? "AliasTarget" <*>
-                x .@? "Weight"
-                <*> x .@? "SetIdentifier"
-                <*> x .@? "Failover"
-                <*> x .@? "HealthCheckId"
-                <*> x .@? "Region"
-                <*> x .@? "GeoLocation"
-                <*> x .@ "Name"
-                <*> x .@ "Type"
+              (x .@? "TTL") <*> (x .@? "AliasTarget") <*>
+                (x .@? "Weight")
+                <*> (x .@? "SetIdentifier")
+                <*> (x .@? "Failover")
+                <*> (x .@? "HealthCheckId")
+                <*> (x .@? "Region")
+                <*> (x .@? "GeoLocation")
+                <*> (x .@ "Name")
+                <*> (x .@ "Type")
                 <*>
                 (x .@? "ResourceRecords" .!@ mempty >>=
                    parseXMLList1 "ResourceRecord")
@@ -1092,7 +1093,7 @@ instance ToXML ResourceRecordSet where
                "GeoLocation" @= _rrsGeoLocation, "Name" @= _rrsName,
                "Type" @= _rrsType,
                "ResourceRecords" @=
-                 "ResourceRecord" @@= _rrsResourceRecords]
+                 toXMLList "ResourceRecord" _rrsResourceRecords]
 
 -- | /See:/ 'resourceTagSet' smart constructor.
 --
@@ -1128,8 +1129,9 @@ rtsTags = lens _rtsTags (\ s a -> s{_rtsTags = a}) . mapping _List1;
 instance FromXML ResourceTagSet where
         parseXML x
           = ResourceTagSet' <$>
-              x .@? "ResourceId" <*> x .@? "ResourceType" <*>
-                (x .@? "Tags" .!@ mempty >>= parseXMLList1 "Tag")
+              (x .@? "ResourceId") <*> (x .@? "ResourceType") <*>
+                (x .@? "Tags" .!@ mempty >>=
+                   may (parseXMLList1 "Tag"))
 
 -- | /See:/ 'statusReport' smart constructor.
 --
@@ -1159,7 +1161,7 @@ srCheckedTime = lens _srCheckedTime (\ s a -> s{_srCheckedTime = a}) . mapping _
 instance FromXML StatusReport where
         parseXML x
           = StatusReport' <$>
-              x .@? "Status" <*> x .@? "CheckedTime"
+              (x .@? "Status") <*> (x .@? "CheckedTime")
 
 -- | /See:/ 'tag' smart constructor.
 --
@@ -1183,7 +1185,8 @@ tagKey :: Lens' Tag (Maybe Text)
 tagKey = lens _tagKey (\ s a -> s{_tagKey = a});
 
 instance FromXML Tag where
-        parseXML x = Tag' <$> x .@? "Value" <*> x .@? "Key"
+        parseXML x
+          = Tag' <$> (x .@? "Value") <*> (x .@? "Key")
 
 instance ToXML Tag where
         toXML Tag'{..}
@@ -1235,7 +1238,7 @@ vpcVPCId = lens _vpcVPCId (\ s a -> s{_vpcVPCId = a});
 
 instance FromXML VPC where
         parseXML x
-          = VPC' <$> x .@? "VPCRegion" <*> x .@? "VPCId"
+          = VPC' <$> (x .@? "VPCRegion") <*> (x .@? "VPCId")
 
 instance ToXML VPC where
         toXML VPC'{..}

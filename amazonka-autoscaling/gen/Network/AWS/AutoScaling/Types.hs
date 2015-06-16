@@ -352,15 +352,15 @@ actStatusCode = lens _actStatusCode (\ s a -> s{_actStatusCode = a});
 instance FromXML Activity where
         parseXML x
           = Activity' <$>
-              x .@? "Progress" <*> x .@? "StatusMessage" <*>
-                x .@? "Details"
-                <*> x .@? "EndTime"
-                <*> x .@? "Description"
-                <*> x .@ "ActivityId"
-                <*> x .@ "AutoScalingGroupName"
-                <*> x .@ "Cause"
-                <*> x .@ "StartTime"
-                <*> x .@ "StatusCode"
+              (x .@? "Progress") <*> (x .@? "StatusMessage") <*>
+                (x .@? "Details")
+                <*> (x .@? "EndTime")
+                <*> (x .@? "Description")
+                <*> (x .@ "ActivityId")
+                <*> (x .@ "AutoScalingGroupName")
+                <*> (x .@ "Cause")
+                <*> (x .@ "StartTime")
+                <*> (x .@ "StatusCode")
 
 -- | /See:/ 'adjustmentType' smart constructor.
 --
@@ -384,7 +384,7 @@ atAdjustmentType = lens _atAdjustmentType (\ s a -> s{_atAdjustmentType = a});
 
 instance FromXML AdjustmentType where
         parseXML x
-          = AdjustmentType' <$> x .@? "AdjustmentType"
+          = AdjustmentType' <$> (x .@? "AdjustmentType")
 
 -- | /See:/ 'alarm' smart constructor.
 --
@@ -409,7 +409,8 @@ alaAlarmARN = lens _alaAlarmARN (\ s a -> s{_alaAlarmARN = a});
 
 instance FromXML Alarm where
         parseXML x
-          = Alarm' <$> x .@? "AlarmName" <*> x .@? "AlarmARN"
+          = Alarm' <$>
+              (x .@? "AlarmName") <*> (x .@? "AlarmARN")
 
 -- | /See:/ 'autoScalingGroup' smart constructor.
 --
@@ -466,8 +467,8 @@ asgStatus :: Lens' AutoScalingGroup (Maybe Text)
 asgStatus = lens _asgStatus (\ s a -> s{_asgStatus = a});
 
 -- | The termination policies for this Auto Scaling group.
-asgTerminationPolicies :: Lens' AutoScalingGroup (Maybe [Text])
-asgTerminationPolicies = lens _asgTerminationPolicies (\ s a -> s{_asgTerminationPolicies = a});
+asgTerminationPolicies :: Lens' AutoScalingGroup [Text]
+asgTerminationPolicies = lens _asgTerminationPolicies (\ s a -> s{_asgTerminationPolicies = a}) . _Default;
 
 -- | The amount of time that Auto Scaling waits before checking an
 -- instance\'s health status. The grace period begins when an instance
@@ -484,20 +485,20 @@ asgVPCZoneIdentifier :: Lens' AutoScalingGroup (Maybe Text)
 asgVPCZoneIdentifier = lens _asgVPCZoneIdentifier (\ s a -> s{_asgVPCZoneIdentifier = a});
 
 -- | The metrics enabled for this Auto Scaling group.
-asgEnabledMetrics :: Lens' AutoScalingGroup (Maybe [EnabledMetric])
-asgEnabledMetrics = lens _asgEnabledMetrics (\ s a -> s{_asgEnabledMetrics = a});
+asgEnabledMetrics :: Lens' AutoScalingGroup [EnabledMetric]
+asgEnabledMetrics = lens _asgEnabledMetrics (\ s a -> s{_asgEnabledMetrics = a}) . _Default;
 
 -- | The EC2 instances associated with the group.
-asgInstances :: Lens' AutoScalingGroup (Maybe [Instance])
-asgInstances = lens _asgInstances (\ s a -> s{_asgInstances = a});
+asgInstances :: Lens' AutoScalingGroup [Instance]
+asgInstances = lens _asgInstances (\ s a -> s{_asgInstances = a}) . _Default;
 
 -- | The Amazon Resource Name (ARN) of the group.
 asgAutoScalingGroupARN :: Lens' AutoScalingGroup (Maybe Text)
 asgAutoScalingGroupARN = lens _asgAutoScalingGroupARN (\ s a -> s{_asgAutoScalingGroupARN = a});
 
 -- | The suspended processes associated with the group.
-asgSuspendedProcesses :: Lens' AutoScalingGroup (Maybe [SuspendedProcess])
-asgSuspendedProcesses = lens _asgSuspendedProcesses (\ s a -> s{_asgSuspendedProcesses = a});
+asgSuspendedProcesses :: Lens' AutoScalingGroup [SuspendedProcess]
+asgSuspendedProcesses = lens _asgSuspendedProcesses (\ s a -> s{_asgSuspendedProcesses = a}) . _Default;
 
 -- | The name of the placement group into which you\'ll launch your
 -- instances, if any. For more information, see
@@ -506,12 +507,12 @@ asgPlacementGroup :: Lens' AutoScalingGroup (Maybe Text)
 asgPlacementGroup = lens _asgPlacementGroup (\ s a -> s{_asgPlacementGroup = a});
 
 -- | One or more load balancers associated with the group.
-asgLoadBalancerNames :: Lens' AutoScalingGroup (Maybe [Text])
-asgLoadBalancerNames = lens _asgLoadBalancerNames (\ s a -> s{_asgLoadBalancerNames = a});
+asgLoadBalancerNames :: Lens' AutoScalingGroup [Text]
+asgLoadBalancerNames = lens _asgLoadBalancerNames (\ s a -> s{_asgLoadBalancerNames = a}) . _Default;
 
 -- | The tags for the Auto Scaling group.
-asgTags :: Lens' AutoScalingGroup (Maybe [TagDescription])
-asgTags = lens _asgTags (\ s a -> s{_asgTags = a});
+asgTags :: Lens' AutoScalingGroup [TagDescription]
+asgTags = lens _asgTags (\ s a -> s{_asgTags = a}) . _Default;
 
 -- | The name of the group.
 asgAutoScalingGroupName :: Lens' AutoScalingGroup Text
@@ -554,38 +555,39 @@ asgCreatedTime = lens _asgCreatedTime (\ s a -> s{_asgCreatedTime = a}) . _Time;
 instance FromXML AutoScalingGroup where
         parseXML x
           = AutoScalingGroup' <$>
-              x .@? "Status" <*>
+              (x .@? "Status") <*>
                 (x .@? "TerminationPolicies" .!@ mempty >>=
-                   parseXMLList "member")
-                <*> x .@? "HealthCheckGracePeriod"
-                <*> x .@? "VPCZoneIdentifier"
+                   may (parseXMLList "member"))
+                <*> (x .@? "HealthCheckGracePeriod")
+                <*> (x .@? "VPCZoneIdentifier")
                 <*>
                 (x .@? "EnabledMetrics" .!@ mempty >>=
-                   parseXMLList "member")
+                   may (parseXMLList "member"))
                 <*>
                 (x .@? "Instances" .!@ mempty >>=
-                   parseXMLList "member")
-                <*> x .@? "AutoScalingGroupARN"
+                   may (parseXMLList "member"))
+                <*> (x .@? "AutoScalingGroupARN")
                 <*>
                 (x .@? "SuspendedProcesses" .!@ mempty >>=
-                   parseXMLList "member")
-                <*> x .@? "PlacementGroup"
+                   may (parseXMLList "member"))
+                <*> (x .@? "PlacementGroup")
                 <*>
                 (x .@? "LoadBalancerNames" .!@ mempty >>=
-                   parseXMLList "member")
+                   may (parseXMLList "member"))
                 <*>
-                (x .@? "Tags" .!@ mempty >>= parseXMLList "member")
-                <*> x .@ "AutoScalingGroupName"
-                <*> x .@ "LaunchConfigurationName"
-                <*> x .@ "MinSize"
-                <*> x .@ "MaxSize"
-                <*> x .@ "DesiredCapacity"
-                <*> x .@ "DefaultCooldown"
+                (x .@? "Tags" .!@ mempty >>=
+                   may (parseXMLList "member"))
+                <*> (x .@ "AutoScalingGroupName")
+                <*> (x .@ "LaunchConfigurationName")
+                <*> (x .@ "MinSize")
+                <*> (x .@ "MaxSize")
+                <*> (x .@ "DesiredCapacity")
+                <*> (x .@ "DefaultCooldown")
                 <*>
                 (x .@? "AvailabilityZones" .!@ mempty >>=
                    parseXMLList1 "member")
-                <*> x .@ "HealthCheckType"
-                <*> x .@ "CreatedTime"
+                <*> (x .@ "HealthCheckType")
+                <*> (x .@ "CreatedTime")
 
 -- | /See:/ 'autoScalingInstanceDetails' smart constructor.
 --
@@ -639,11 +641,11 @@ asidLaunchConfigurationName = lens _asidLaunchConfigurationName (\ s a -> s{_asi
 instance FromXML AutoScalingInstanceDetails where
         parseXML x
           = AutoScalingInstanceDetails' <$>
-              x .@ "InstanceId" <*> x .@ "AutoScalingGroupName" <*>
-                x .@ "AvailabilityZone"
-                <*> x .@ "LifecycleState"
-                <*> x .@ "HealthStatus"
-                <*> x .@ "LaunchConfigurationName"
+              (x .@ "InstanceId") <*> (x .@ "AutoScalingGroupName")
+                <*> (x .@ "AvailabilityZone")
+                <*> (x .@ "LifecycleState")
+                <*> (x .@ "HealthStatus")
+                <*> (x .@ "LaunchConfigurationName")
 
 -- | /See:/ 'blockDeviceMapping' smart constructor.
 --
@@ -686,9 +688,9 @@ bdmDeviceName = lens _bdmDeviceName (\ s a -> s{_bdmDeviceName = a});
 instance FromXML BlockDeviceMapping where
         parseXML x
           = BlockDeviceMapping' <$>
-              x .@? "VirtualName" <*> x .@? "NoDevice" <*>
-                x .@? "Ebs"
-                <*> x .@ "DeviceName"
+              (x .@? "VirtualName") <*> (x .@? "NoDevice") <*>
+                (x .@? "Ebs")
+                <*> (x .@ "DeviceName")
 
 instance ToQuery BlockDeviceMapping where
         toQuery BlockDeviceMapping'{..}
@@ -759,10 +761,11 @@ ebsSnapshotId = lens _ebsSnapshotId (\ s a -> s{_ebsSnapshotId = a});
 instance FromXML EBS where
         parseXML x
           = EBS' <$>
-              x .@? "DeleteOnTermination" <*> x .@? "VolumeSize"
-                <*> x .@? "Iops"
-                <*> x .@? "VolumeType"
-                <*> x .@? "SnapshotId"
+              (x .@? "DeleteOnTermination") <*>
+                (x .@? "VolumeSize")
+                <*> (x .@? "Iops")
+                <*> (x .@? "VolumeType")
+                <*> (x .@? "SnapshotId")
 
 instance ToQuery EBS where
         toQuery EBS'{..}
@@ -796,7 +799,7 @@ emMetric = lens _emMetric (\ s a -> s{_emMetric = a});
 instance FromXML EnabledMetric where
         parseXML x
           = EnabledMetric' <$>
-              x .@? "Granularity" <*> x .@? "Metric"
+              (x .@? "Granularity") <*> (x .@? "Metric")
 
 -- | /See:/ 'filter'' smart constructor.
 --
@@ -812,8 +815,8 @@ filter' :: Text -> Filter
 filter' pName = Filter'{_filValues = Nothing, _filName = pName};
 
 -- | The value of the filter.
-filValues :: Lens' Filter (Maybe [Text])
-filValues = lens _filValues (\ s a -> s{_filValues = a});
+filValues :: Lens' Filter [Text]
+filValues = lens _filValues (\ s a -> s{_filValues = a}) . _Default;
 
 -- | The name of the filter. The valid values are: @\"auto-scaling-group\"@,
 -- @\"key\"@, @\"value\"@, and @\"propagate-at-launch\"@.
@@ -823,7 +826,8 @@ filName = lens _filName (\ s a -> s{_filName = a});
 instance ToQuery Filter where
         toQuery Filter'{..}
           = mconcat
-              ["Values" =: "member" =: _filValues,
+              ["Values" =:
+                 toQuery (toQueryList "member" <$> _filValues),
                "Name" =: _filName]
 
 -- | /See:/ 'instance'' smart constructor.
@@ -870,10 +874,10 @@ insLaunchConfigurationName = lens _insLaunchConfigurationName (\ s a -> s{_insLa
 instance FromXML Instance where
         parseXML x
           = Instance' <$>
-              x .@ "InstanceId" <*> x .@ "AvailabilityZone" <*>
-                x .@ "LifecycleState"
-                <*> x .@ "HealthStatus"
-                <*> x .@ "LaunchConfigurationName"
+              (x .@ "InstanceId") <*> (x .@ "AvailabilityZone") <*>
+                (x .@ "LifecycleState")
+                <*> (x .@ "HealthStatus")
+                <*> (x .@ "LaunchConfigurationName")
 
 -- | /See:/ 'instanceMonitoring' smart constructor.
 --
@@ -891,7 +895,8 @@ imEnabled :: Lens' InstanceMonitoring (Maybe Bool)
 imEnabled = lens _imEnabled (\ s a -> s{_imEnabled = a});
 
 instance FromXML InstanceMonitoring where
-        parseXML x = InstanceMonitoring' <$> x .@? "Enabled"
+        parseXML x
+          = InstanceMonitoring' <$> (x .@? "Enabled")
 
 instance ToQuery InstanceMonitoring where
         toQuery InstanceMonitoring'{..}
@@ -945,8 +950,8 @@ launchConfiguration :: Text -> Text -> Text -> UTCTime -> LaunchConfiguration
 launchConfiguration pLaunchConfigurationName pImageId pInstanceType pCreatedTime = LaunchConfiguration'{_lcSecurityGroups = Nothing, _lcAssociatePublicIPAddress = Nothing, _lcInstanceMonitoring = Nothing, _lcSpotPrice = Nothing, _lcKeyName = Nothing, _lcClassicLinkVPCSecurityGroups = Nothing, _lcRAMDiskId = Nothing, _lcKernelId = Nothing, _lcEBSOptimized = Nothing, _lcUserData = Nothing, _lcClassicLinkVPCId = Nothing, _lcIAMInstanceProfile = Nothing, _lcLaunchConfigurationARN = Nothing, _lcPlacementTenancy = Nothing, _lcBlockDeviceMappings = Nothing, _lcLaunchConfigurationName = pLaunchConfigurationName, _lcImageId = pImageId, _lcInstanceType = pInstanceType, _lcCreatedTime = _Time # pCreatedTime};
 
 -- | The security groups to associate with the EC2 instances.
-lcSecurityGroups :: Lens' LaunchConfiguration (Maybe [Text])
-lcSecurityGroups = lens _lcSecurityGroups (\ s a -> s{_lcSecurityGroups = a});
+lcSecurityGroups :: Lens' LaunchConfiguration [Text]
+lcSecurityGroups = lens _lcSecurityGroups (\ s a -> s{_lcSecurityGroups = a}) . _Default;
 
 -- | Specifies whether the EC2 instances are associated with a public IP
 -- address (@true@) or not (@false@).
@@ -971,8 +976,8 @@ lcKeyName = lens _lcKeyName (\ s a -> s{_lcKeyName = a});
 -- specified, and cannot be used otherwise. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
-lcClassicLinkVPCSecurityGroups :: Lens' LaunchConfiguration (Maybe [Text])
-lcClassicLinkVPCSecurityGroups = lens _lcClassicLinkVPCSecurityGroups (\ s a -> s{_lcClassicLinkVPCSecurityGroups = a});
+lcClassicLinkVPCSecurityGroups :: Lens' LaunchConfiguration [Text]
+lcClassicLinkVPCSecurityGroups = lens _lcClassicLinkVPCSecurityGroups (\ s a -> s{_lcClassicLinkVPCSecurityGroups = a}) . _Default;
 
 -- | The ID of the RAM disk associated with the AMI.
 lcRAMDiskId :: Lens' LaunchConfiguration (Maybe Text)
@@ -1017,8 +1022,8 @@ lcPlacementTenancy = lens _lcPlacementTenancy (\ s a -> s{_lcPlacementTenancy = 
 -- | A block device mapping that specifies how block devices are exposed to
 -- the instance. Each mapping is made up of a @virtualName@ and a
 -- @deviceName@.
-lcBlockDeviceMappings :: Lens' LaunchConfiguration (Maybe [BlockDeviceMapping])
-lcBlockDeviceMappings = lens _lcBlockDeviceMappings (\ s a -> s{_lcBlockDeviceMappings = a});
+lcBlockDeviceMappings :: Lens' LaunchConfiguration [BlockDeviceMapping]
+lcBlockDeviceMappings = lens _lcBlockDeviceMappings (\ s a -> s{_lcBlockDeviceMappings = a}) . _Default;
 
 -- | The name of the launch configuration.
 lcLaunchConfigurationName :: Lens' LaunchConfiguration Text
@@ -1040,29 +1045,29 @@ instance FromXML LaunchConfiguration where
         parseXML x
           = LaunchConfiguration' <$>
               (x .@? "SecurityGroups" .!@ mempty >>=
-                 parseXMLList "member")
-                <*> x .@? "AssociatePublicIpAddress"
-                <*> x .@? "InstanceMonitoring"
-                <*> x .@? "SpotPrice"
-                <*> x .@? "KeyName"
+                 may (parseXMLList "member"))
+                <*> (x .@? "AssociatePublicIpAddress")
+                <*> (x .@? "InstanceMonitoring")
+                <*> (x .@? "SpotPrice")
+                <*> (x .@? "KeyName")
                 <*>
                 (x .@? "ClassicLinkVPCSecurityGroups" .!@ mempty >>=
-                   parseXMLList "member")
-                <*> x .@? "RamdiskId"
-                <*> x .@? "KernelId"
-                <*> x .@? "EbsOptimized"
-                <*> x .@? "UserData"
-                <*> x .@? "ClassicLinkVPCId"
-                <*> x .@? "IamInstanceProfile"
-                <*> x .@? "LaunchConfigurationARN"
-                <*> x .@? "PlacementTenancy"
+                   may (parseXMLList "member"))
+                <*> (x .@? "RamdiskId")
+                <*> (x .@? "KernelId")
+                <*> (x .@? "EbsOptimized")
+                <*> (x .@? "UserData")
+                <*> (x .@? "ClassicLinkVPCId")
+                <*> (x .@? "IamInstanceProfile")
+                <*> (x .@? "LaunchConfigurationARN")
+                <*> (x .@? "PlacementTenancy")
                 <*>
                 (x .@? "BlockDeviceMappings" .!@ mempty >>=
-                   parseXMLList "member")
-                <*> x .@ "LaunchConfigurationName"
-                <*> x .@ "ImageId"
-                <*> x .@ "InstanceType"
-                <*> x .@ "CreatedTime"
+                   may (parseXMLList "member"))
+                <*> (x .@ "LaunchConfigurationName")
+                <*> (x .@ "ImageId")
+                <*> (x .@ "InstanceType")
+                <*> (x .@ "CreatedTime")
 
 -- | /See:/ 'lifecycleHook' smart constructor.
 --
@@ -1150,14 +1155,15 @@ lhNotificationTargetARN = lens _lhNotificationTargetARN (\ s a -> s{_lhNotificat
 instance FromXML LifecycleHook where
         parseXML x
           = LifecycleHook' <$>
-              x .@? "DefaultResult" <*> x .@? "LifecycleHookName"
-                <*> x .@? "HeartbeatTimeout"
-                <*> x .@? "AutoScalingGroupName"
-                <*> x .@? "NotificationMetadata"
-                <*> x .@? "GlobalTimeout"
-                <*> x .@? "RoleARN"
-                <*> x .@? "LifecycleTransition"
-                <*> x .@? "NotificationTargetARN"
+              (x .@? "DefaultResult") <*>
+                (x .@? "LifecycleHookName")
+                <*> (x .@? "HeartbeatTimeout")
+                <*> (x .@? "AutoScalingGroupName")
+                <*> (x .@? "NotificationMetadata")
+                <*> (x .@? "GlobalTimeout")
+                <*> (x .@? "RoleARN")
+                <*> (x .@? "LifecycleTransition")
+                <*> (x .@? "NotificationTargetARN")
 
 data LifecycleState = PendingWait | Terminating | TerminatingWait | Pending | Standby | EnteringStandby | InService | Detached | Detaching | Quarantined | PendingProceed | Terminated | TerminatingProceed deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -1217,7 +1223,8 @@ mctMetric :: Lens' MetricCollectionType (Maybe Text)
 mctMetric = lens _mctMetric (\ s a -> s{_mctMetric = a});
 
 instance FromXML MetricCollectionType where
-        parseXML x = MetricCollectionType' <$> x .@? "Metric"
+        parseXML x
+          = MetricCollectionType' <$> (x .@? "Metric")
 
 -- | /See:/ 'metricGranularityType' smart constructor.
 --
@@ -1236,7 +1243,7 @@ mgtGranularity = lens _mgtGranularity (\ s a -> s{_mgtGranularity = a});
 
 instance FromXML MetricGranularityType where
         parseXML x
-          = MetricGranularityType' <$> x .@? "Granularity"
+          = MetricGranularityType' <$> (x .@? "Granularity")
 
 -- | /See:/ 'notificationConfiguration' smart constructor.
 --
@@ -1269,8 +1276,8 @@ ncNotificationType = lens _ncNotificationType (\ s a -> s{_ncNotificationType = 
 instance FromXML NotificationConfiguration where
         parseXML x
           = NotificationConfiguration' <$>
-              x .@? "TopicARN" <*> x .@? "AutoScalingGroupName" <*>
-                x .@? "NotificationType"
+              (x .@? "TopicARN") <*> (x .@? "AutoScalingGroupName")
+                <*> (x .@? "NotificationType")
 
 -- | /See:/ 'processType' smart constructor.
 --
@@ -1288,7 +1295,7 @@ ptProcessName :: Lens' ProcessType Text
 ptProcessName = lens _ptProcessName (\ s a -> s{_ptProcessName = a});
 
 instance FromXML ProcessType where
-        parseXML x = ProcessType' <$> x .@ "ProcessName"
+        parseXML x = ProcessType' <$> (x .@ "ProcessName")
 
 data ScalingActivityStatusCode = WaitingForSpotInstanceId | WaitingForSpotInstanceRequestId | WaitingForInstanceId | Successful | InProgress | PreInService | WaitingForELBConnectionDraining | MidLifecycleAction | Cancelled | Failed deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -1386,20 +1393,21 @@ scaPolicyARN :: Lens' ScalingPolicy (Maybe Text)
 scaPolicyARN = lens _scaPolicyARN (\ s a -> s{_scaPolicyARN = a});
 
 -- | The CloudWatch Alarms related to the policy.
-scaAlarms :: Lens' ScalingPolicy (Maybe [Alarm])
-scaAlarms = lens _scaAlarms (\ s a -> s{_scaAlarms = a});
+scaAlarms :: Lens' ScalingPolicy [Alarm]
+scaAlarms = lens _scaAlarms (\ s a -> s{_scaAlarms = a}) . _Default;
 
 instance FromXML ScalingPolicy where
         parseXML x
           = ScalingPolicy' <$>
-              x .@? "MinAdjustmentStep" <*> x .@? "PolicyName" <*>
-                x .@? "AdjustmentType"
-                <*> x .@? "ScalingAdjustment"
-                <*> x .@? "AutoScalingGroupName"
-                <*> x .@? "Cooldown"
-                <*> x .@? "PolicyARN"
+              (x .@? "MinAdjustmentStep") <*> (x .@? "PolicyName")
+                <*> (x .@? "AdjustmentType")
+                <*> (x .@? "ScalingAdjustment")
+                <*> (x .@? "AutoScalingGroupName")
+                <*> (x .@? "Cooldown")
+                <*> (x .@? "PolicyARN")
                 <*>
-                (x .@? "Alarms" .!@ mempty >>= parseXMLList "member")
+                (x .@? "Alarms" .!@ mempty >>=
+                   may (parseXMLList "member"))
 
 -- | /See:/ 'scalingProcessQuery' smart constructor.
 --
@@ -1424,8 +1432,8 @@ scalingProcessQuery pAutoScalingGroupName = ScalingProcessQuery'{_spqScalingProc
 -- -   AlarmNotification
 -- -   ScheduledActions
 -- -   AddToLoadBalancer
-spqScalingProcesses :: Lens' ScalingProcessQuery (Maybe [Text])
-spqScalingProcesses = lens _spqScalingProcesses (\ s a -> s{_spqScalingProcesses = a});
+spqScalingProcesses :: Lens' ScalingProcessQuery [Text]
+spqScalingProcesses = lens _spqScalingProcesses (\ s a -> s{_spqScalingProcesses = a}) . _Default;
 
 -- | The name or Amazon Resource Name (ARN) of the Auto Scaling group.
 spqAutoScalingGroupName :: Lens' ScalingProcessQuery Text
@@ -1435,7 +1443,8 @@ instance ToQuery ScalingProcessQuery where
         toQuery ScalingProcessQuery'{..}
           = mconcat
               ["ScalingProcesses" =:
-                 "member" =: _spqScalingProcesses,
+                 toQuery
+                   (toQueryList "member" <$> _spqScalingProcesses),
                "AutoScalingGroupName" =: _spqAutoScalingGroupName]
 
 -- | /See:/ 'scheduledUpdateGroupAction' smart constructor.
@@ -1518,15 +1527,15 @@ sugaAutoScalingGroupName = lens _sugaAutoScalingGroupName (\ s a -> s{_sugaAutoS
 instance FromXML ScheduledUpdateGroupAction where
         parseXML x
           = ScheduledUpdateGroupAction' <$>
-              x .@? "ScheduledActionARN" <*> x .@? "Time" <*>
-                x .@? "StartTime"
-                <*> x .@? "ScheduledActionName"
-                <*> x .@? "MaxSize"
-                <*> x .@? "DesiredCapacity"
-                <*> x .@? "Recurrence"
-                <*> x .@? "MinSize"
-                <*> x .@? "EndTime"
-                <*> x .@? "AutoScalingGroupName"
+              (x .@? "ScheduledActionARN") <*> (x .@? "Time") <*>
+                (x .@? "StartTime")
+                <*> (x .@? "ScheduledActionName")
+                <*> (x .@? "MaxSize")
+                <*> (x .@? "DesiredCapacity")
+                <*> (x .@? "Recurrence")
+                <*> (x .@? "MinSize")
+                <*> (x .@? "EndTime")
+                <*> (x .@? "AutoScalingGroupName")
 
 -- | /See:/ 'suspendedProcess' smart constructor.
 --
@@ -1552,7 +1561,7 @@ spSuspensionReason = lens _spSuspensionReason (\ s a -> s{_spSuspensionReason = 
 instance FromXML SuspendedProcess where
         parseXML x
           = SuspendedProcess' <$>
-              x .@? "ProcessName" <*> x .@? "SuspensionReason"
+              (x .@? "ProcessName") <*> (x .@? "SuspensionReason")
 
 -- | /See:/ 'tag' smart constructor.
 --
@@ -1649,7 +1658,7 @@ tdValue = lens _tdValue (\ s a -> s{_tdValue = a});
 instance FromXML TagDescription where
         parseXML x
           = TagDescription' <$>
-              x .@ "ResourceId" <*> x .@ "ResourceType" <*>
-                x .@ "Key"
-                <*> x .@ "PropagateAtLaunch"
-                <*> x .@ "Value"
+              (x .@ "ResourceId") <*> (x .@ "ResourceType") <*>
+                (x .@ "Key")
+                <*> (x .@ "PropagateAtLaunch")
+                <*> (x .@ "Value")

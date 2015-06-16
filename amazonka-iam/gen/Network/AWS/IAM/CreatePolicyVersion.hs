@@ -98,7 +98,7 @@ instance AWSRequest CreatePolicyVersion where
           = receiveXMLWrapper "CreatePolicyVersionResult"
               (\ s h x ->
                  CreatePolicyVersionResponse' <$>
-                   x .@? "PolicyVersion")
+                   (x .@? "PolicyVersion"))
 
 instance ToHeaders CreatePolicyVersion where
         toHeaders = const mempty

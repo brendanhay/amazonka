@@ -74,7 +74,7 @@ instance AWSRequest GetPolicy where
         request = post
         response
           = receiveXMLWrapper "GetPolicyResult"
-              (\ s h x -> GetPolicyResponse' <$> x .@? "Policy")
+              (\ s h x -> GetPolicyResponse' <$> (x .@? "Policy"))
 
 instance ToHeaders GetPolicy where
         toHeaders = const mempty

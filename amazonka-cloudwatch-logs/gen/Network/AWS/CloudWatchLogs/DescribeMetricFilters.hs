@@ -97,8 +97,8 @@ instance AWSRequest DescribeMetricFilters where
           = receiveJSON
               (\ s h x ->
                  DescribeMetricFiltersResponse' <$>
-                   x .?> "nextToken" <*>
-                     x .?> "metricFilters" .!@ mempty)
+                   (x .?> "nextToken") <*>
+                     (x .?> "metricFilters" .!@ mempty))
 
 instance ToHeaders DescribeMetricFilters where
         toHeaders
@@ -141,5 +141,5 @@ dmfrNextToken :: Lens' DescribeMetricFiltersResponse (Maybe Text)
 dmfrNextToken = lens _dmfrNextToken (\ s a -> s{_dmfrNextToken = a});
 
 -- | FIXME: Undocumented member.
-dmfrMetricFilters :: Lens' DescribeMetricFiltersResponse (Maybe [MetricFilter])
-dmfrMetricFilters = lens _dmfrMetricFilters (\ s a -> s{_dmfrMetricFilters = a});
+dmfrMetricFilters :: Lens' DescribeMetricFiltersResponse [MetricFilter]
+dmfrMetricFilters = lens _dmfrMetricFilters (\ s a -> s{_dmfrMetricFilters = a}) . _Default;

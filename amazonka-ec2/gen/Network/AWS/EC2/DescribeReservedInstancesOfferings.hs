@@ -143,8 +143,8 @@ drioIncludeMarketplace = lens _drioIncludeMarketplace (\ s a -> s{_drioIncludeMa
 -- -   @usage-price@ - The usage price of the Reserved Instance, per hour
 --     (for example, 0.84).
 --
-drioFilters :: Lens' DescribeReservedInstancesOfferings (Maybe [Filter])
-drioFilters = lens _drioFilters (\ s a -> s{_drioFilters = a});
+drioFilters :: Lens' DescribeReservedInstancesOfferings [Filter]
+drioFilters = lens _drioFilters (\ s a -> s{_drioFilters = a}) . _Default;
 
 -- | The instance type on which the Reserved Instance can be used. For more
 -- information, see
@@ -175,8 +175,8 @@ drioOfferingType :: Lens' DescribeReservedInstancesOfferings (Maybe OfferingType
 drioOfferingType = lens _drioOfferingType (\ s a -> s{_drioOfferingType = a});
 
 -- | One or more Reserved Instances offering IDs.
-drioReservedInstancesOfferingIds :: Lens' DescribeReservedInstancesOfferings (Maybe [Text])
-drioReservedInstancesOfferingIds = lens _drioReservedInstancesOfferingIds (\ s a -> s{_drioReservedInstancesOfferingIds = a});
+drioReservedInstancesOfferingIds :: Lens' DescribeReservedInstancesOfferings [Text]
+drioReservedInstancesOfferingIds = lens _drioReservedInstancesOfferingIds (\ s a -> s{_drioReservedInstancesOfferingIds = a}) . _Default;
 
 -- | The tenancy of the Reserved Instance offering. A Reserved Instance with
 -- @dedicated@ tenancy runs on single-tenant hardware and can only be
@@ -218,7 +218,8 @@ instance AWSRequest
           = receiveXML
               (\ s h x ->
                  DescribeReservedInstancesOfferingsResponse' <$>
-                   x .@? "nextToken" <*> parseXMLList "item" x)
+                   (x .@? "nextToken") <*>
+                     (may (parseXMLList "item") x))
 
 instance ToHeaders DescribeReservedInstancesOfferings
          where
@@ -238,14 +239,15 @@ instance ToQuery DescribeReservedInstancesOfferings
                "MaxDuration" =: _drioMaxDuration,
                "ProductDescription" =: _drioProductDescription,
                "IncludeMarketplace" =: _drioIncludeMarketplace,
-               "Filter" =: _drioFilters,
+               toQuery (toQueryList "Filter" <$> _drioFilters),
                "InstanceType" =: _drioInstanceType,
                "NextToken" =: _drioNextToken,
                "MinDuration" =: _drioMinDuration,
                "AvailabilityZone" =: _drioAvailabilityZone,
                "OfferingType" =: _drioOfferingType,
-               "ReservedInstancesOfferingId" =:
-                 _drioReservedInstancesOfferingIds,
+               toQuery
+                 (toQueryList "ReservedInstancesOfferingId" <$>
+                    _drioReservedInstancesOfferingIds),
                "InstanceTenancy" =: _drioInstanceTenancy,
                "DryRun" =: _drioDryRun,
                "MaxResults" =: _drioMaxResults,
@@ -270,5 +272,5 @@ driorNextToken :: Lens' DescribeReservedInstancesOfferingsResponse (Maybe Text)
 driorNextToken = lens _driorNextToken (\ s a -> s{_driorNextToken = a});
 
 -- | A list of Reserved Instances offerings.
-driorReservedInstancesOfferings :: Lens' DescribeReservedInstancesOfferingsResponse (Maybe [ReservedInstancesOffering])
-driorReservedInstancesOfferings = lens _driorReservedInstancesOfferings (\ s a -> s{_driorReservedInstancesOfferings = a});
+driorReservedInstancesOfferings :: Lens' DescribeReservedInstancesOfferingsResponse [ReservedInstancesOffering]
+driorReservedInstancesOfferings = lens _driorReservedInstancesOfferings (\ s a -> s{_driorReservedInstancesOfferings = a}) . _Default;

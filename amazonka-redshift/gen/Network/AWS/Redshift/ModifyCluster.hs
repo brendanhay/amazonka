@@ -145,8 +145,8 @@ mcHSMConfigurationIdentifier = lens _mcHSMConfigurationIdentifier (\ s a -> s{_m
 -- -   Must be 1 to 255 alphanumeric characters or hyphens
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
-mcClusterSecurityGroups :: Lens' ModifyCluster (Maybe [Text])
-mcClusterSecurityGroups = lens _mcClusterSecurityGroups (\ s a -> s{_mcClusterSecurityGroups = a});
+mcClusterSecurityGroups :: Lens' ModifyCluster [Text]
+mcClusterSecurityGroups = lens _mcClusterSecurityGroups (\ s a -> s{_mcClusterSecurityGroups = a}) . _Default;
 
 -- | The number of days that automated snapshots are retained. If the value
 -- is 0, automated snapshots are disabled. Even if automated snapshots are
@@ -204,8 +204,8 @@ mcPreferredMaintenanceWindow = lens _mcPreferredMaintenanceWindow (\ s a -> s{_m
 
 -- | A list of virtual private cloud (VPC) security groups to be associated
 -- with the cluster.
-mcVPCSecurityGroupIds :: Lens' ModifyCluster (Maybe [Text])
-mcVPCSecurityGroupIds = lens _mcVPCSecurityGroupIds (\ s a -> s{_mcVPCSecurityGroupIds = a});
+mcVPCSecurityGroupIds :: Lens' ModifyCluster [Text]
+mcVPCSecurityGroupIds = lens _mcVPCSecurityGroupIds (\ s a -> s{_mcVPCSecurityGroupIds = a}) . _Default;
 
 -- | The new cluster type.
 --
@@ -295,7 +295,7 @@ instance AWSRequest ModifyCluster where
         response
           = receiveXMLWrapper "ModifyClusterResult"
               (\ s h x ->
-                 ModifyClusterResponse' <$> x .@? "Cluster")
+                 ModifyClusterResponse' <$> (x .@? "Cluster"))
 
 instance ToHeaders ModifyCluster where
         toHeaders = const mempty
@@ -312,8 +312,9 @@ instance ToQuery ModifyCluster where
                "HsmConfigurationIdentifier" =:
                  _mcHSMConfigurationIdentifier,
                "ClusterSecurityGroups" =:
-                 "ClusterSecurityGroupName" =:
-                   _mcClusterSecurityGroups,
+                 toQuery
+                   (toQueryList "ClusterSecurityGroupName" <$>
+                      _mcClusterSecurityGroups),
                "AutomatedSnapshotRetentionPeriod" =:
                  _mcAutomatedSnapshotRetentionPeriod,
                "NumberOfNodes" =: _mcNumberOfNodes,
@@ -322,7 +323,9 @@ instance ToQuery ModifyCluster where
                "PreferredMaintenanceWindow" =:
                  _mcPreferredMaintenanceWindow,
                "VpcSecurityGroupIds" =:
-                 "VpcSecurityGroupId" =: _mcVPCSecurityGroupIds,
+                 toQuery
+                   (toQueryList "VpcSecurityGroupId" <$>
+                      _mcVPCSecurityGroupIds),
                "ClusterType" =: _mcClusterType,
                "NewClusterIdentifier" =: _mcNewClusterIdentifier,
                "ClusterVersion" =: _mcClusterVersion,

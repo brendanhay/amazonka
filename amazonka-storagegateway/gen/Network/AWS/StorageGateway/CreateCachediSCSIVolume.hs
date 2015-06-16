@@ -112,7 +112,7 @@ instance AWSRequest CreateCachediSCSIVolume where
           = receiveJSON
               (\ s h x ->
                  CreateCachediSCSIVolumeResponse' <$>
-                   x .?> "TargetARN" <*> x .?> "VolumeARN")
+                   (x .?> "TargetARN") <*> (x .?> "VolumeARN"))
 
 instance ToHeaders CreateCachediSCSIVolume where
         toHeaders

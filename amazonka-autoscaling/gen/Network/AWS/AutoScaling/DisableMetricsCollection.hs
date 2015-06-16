@@ -71,8 +71,8 @@ disableMetricsCollection pAutoScalingGroupName = DisableMetricsCollection'{_dmcM
 -- -   GroupTotalInstances
 --
 -- If you omit this parameter, all metrics are disabled.
-dmcMetrics :: Lens' DisableMetricsCollection (Maybe [Text])
-dmcMetrics = lens _dmcMetrics (\ s a -> s{_dmcMetrics = a});
+dmcMetrics :: Lens' DisableMetricsCollection [Text]
+dmcMetrics = lens _dmcMetrics (\ s a -> s{_dmcMetrics = a}) . _Default;
 
 -- | The name or Amazon Resource Name (ARN) of the group.
 dmcAutoScalingGroupName :: Lens' DisableMetricsCollection Text
@@ -98,7 +98,8 @@ instance ToQuery DisableMetricsCollection where
               ["Action" =:
                  ("DisableMetricsCollection" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
-               "Metrics" =: "member" =: _dmcMetrics,
+               "Metrics" =:
+                 toQuery (toQueryList "member" <$> _dmcMetrics),
                "AutoScalingGroupName" =: _dmcAutoScalingGroupName]
 
 -- | /See:/ 'disableMetricsCollectionResponse' smart constructor.

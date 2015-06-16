@@ -90,7 +90,7 @@ instance AWSRequest DeleteReplicationGroup where
           = receiveXMLWrapper "DeleteReplicationGroupResult"
               (\ s h x ->
                  DeleteReplicationGroupResponse' <$>
-                   x .@? "ReplicationGroup")
+                   (x .@? "ReplicationGroup"))
 
 instance ToHeaders DeleteReplicationGroup where
         toHeaders = const mempty

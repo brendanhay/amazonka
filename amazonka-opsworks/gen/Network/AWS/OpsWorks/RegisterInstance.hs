@@ -118,7 +118,7 @@ instance AWSRequest RegisterInstance where
         response
           = receiveJSON
               (\ s h x ->
-                 RegisterInstanceResponse' <$> x .?> "InstanceId")
+                 RegisterInstanceResponse' <$> (x .?> "InstanceId"))
 
 instance ToHeaders RegisterInstance where
         toHeaders

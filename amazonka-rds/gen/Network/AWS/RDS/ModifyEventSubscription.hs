@@ -96,8 +96,8 @@ mesSourceType = lens _mesSourceType (\ s a -> s{_mesSourceType = a});
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html Events>
 -- topic in the Amazon RDS User Guide or by using the
 -- __DescribeEventCategories__ action.
-mesEventCategories :: Lens' ModifyEventSubscription (Maybe [Text])
-mesEventCategories = lens _mesEventCategories (\ s a -> s{_mesEventCategories = a});
+mesEventCategories :: Lens' ModifyEventSubscription [Text]
+mesEventCategories = lens _mesEventCategories (\ s a -> s{_mesEventCategories = a}) . _Default;
 
 -- | The name of the RDS event notification subscription.
 mesSubscriptionName :: Lens' ModifyEventSubscription Text
@@ -112,7 +112,7 @@ instance AWSRequest ModifyEventSubscription where
           = receiveXMLWrapper "ModifyEventSubscriptionResult"
               (\ s h x ->
                  ModifyEventSubscriptionResponse' <$>
-                   x .@? "EventSubscription")
+                   (x .@? "EventSubscription"))
 
 instance ToHeaders ModifyEventSubscription where
         toHeaders = const mempty
@@ -130,7 +130,9 @@ instance ToQuery ModifyEventSubscription where
                "Enabled" =: _mesEnabled,
                "SourceType" =: _mesSourceType,
                "EventCategories" =:
-                 "EventCategory" =: _mesEventCategories,
+                 toQuery
+                   (toQueryList "EventCategory" <$>
+                      _mesEventCategories),
                "SubscriptionName" =: _mesSubscriptionName]
 
 -- | /See:/ 'modifyEventSubscriptionResponse' smart constructor.

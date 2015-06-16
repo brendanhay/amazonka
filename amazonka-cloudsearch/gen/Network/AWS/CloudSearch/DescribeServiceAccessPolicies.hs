@@ -79,7 +79,7 @@ instance AWSRequest DescribeServiceAccessPolicies
               "DescribeServiceAccessPoliciesResult"
               (\ s h x ->
                  DescribeServiceAccessPoliciesResponse' <$>
-                   x .@ "AccessPolicies")
+                   (x .@ "AccessPolicies"))
 
 instance ToHeaders DescribeServiceAccessPolicies
          where

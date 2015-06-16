@@ -94,7 +94,7 @@ instance AWSRequest AddJobFlowSteps where
           = receiveJSON
               (\ s h x ->
                  AddJobFlowStepsResponse' <$>
-                   x .?> "StepIds" .!@ mempty)
+                   (x .?> "StepIds" .!@ mempty))
 
 instance ToHeaders AddJobFlowSteps where
         toHeaders
@@ -129,5 +129,5 @@ addJobFlowStepsResponse :: AddJobFlowStepsResponse
 addJobFlowStepsResponse = AddJobFlowStepsResponse'{_ajfsrStepIds = Nothing};
 
 -- | The identifiers of the list of steps added to the job flow.
-ajfsrStepIds :: Lens' AddJobFlowStepsResponse (Maybe [Text])
-ajfsrStepIds = lens _ajfsrStepIds (\ s a -> s{_ajfsrStepIds = a});
+ajfsrStepIds :: Lens' AddJobFlowStepsResponse [Text]
+ajfsrStepIds = lens _ajfsrStepIds (\ s a -> s{_ajfsrStepIds = a}) . _Default;

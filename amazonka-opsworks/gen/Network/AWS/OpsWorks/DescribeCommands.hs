@@ -79,8 +79,8 @@ dcDeploymentId = lens _dcDeploymentId (\ s a -> s{_dcDeploymentId = a});
 -- | An array of command IDs. If you include this parameter,
 -- @DescribeCommands@ returns a description of the specified commands.
 -- Otherwise, it returns a description of every command.
-dcCommandIds :: Lens' DescribeCommands (Maybe [Text])
-dcCommandIds = lens _dcCommandIds (\ s a -> s{_dcCommandIds = a});
+dcCommandIds :: Lens' DescribeCommands [Text]
+dcCommandIds = lens _dcCommandIds (\ s a -> s{_dcCommandIds = a}) . _Default;
 
 instance AWSRequest DescribeCommands where
         type Sv DescribeCommands = OpsWorks
@@ -90,7 +90,7 @@ instance AWSRequest DescribeCommands where
           = receiveJSON
               (\ s h x ->
                  DescribeCommandsResponse' <$>
-                   x .?> "Commands" .!@ mempty)
+                   (x .?> "Commands" .!@ mempty))
 
 instance ToHeaders DescribeCommands where
         toHeaders
@@ -127,5 +127,5 @@ describeCommandsResponse = DescribeCommandsResponse'{_dcrCommands = Nothing};
 
 -- | An array of @Command@ objects that describe each of the specified
 -- commands.
-dcrCommands :: Lens' DescribeCommandsResponse (Maybe [Command])
-dcrCommands = lens _dcrCommands (\ s a -> s{_dcrCommands = a});
+dcrCommands :: Lens' DescribeCommandsResponse [Command]
+dcrCommands = lens _dcrCommands (\ s a -> s{_dcrCommands = a}) . _Default;

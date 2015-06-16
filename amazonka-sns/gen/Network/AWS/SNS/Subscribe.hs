@@ -101,7 +101,7 @@ instance AWSRequest Subscribe where
         response
           = receiveXMLWrapper "SubscribeResult"
               (\ s h x ->
-                 SubscribeResponse' <$> x .@? "SubscriptionArn")
+                 SubscribeResponse' <$> (x .@? "SubscriptionArn"))
 
 instance ToHeaders Subscribe where
         toHeaders = const mempty

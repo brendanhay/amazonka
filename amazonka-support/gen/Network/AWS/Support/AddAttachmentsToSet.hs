@@ -85,7 +85,7 @@ instance AWSRequest AddAttachmentsToSet where
           = receiveJSON
               (\ s h x ->
                  AddAttachmentsToSetResponse' <$>
-                   x .?> "expiryTime" <*> x .?> "attachmentSetId")
+                   (x .?> "expiryTime") <*> (x .?> "attachmentSetId"))
 
 instance ToHeaders AddAttachmentsToSet where
         toHeaders

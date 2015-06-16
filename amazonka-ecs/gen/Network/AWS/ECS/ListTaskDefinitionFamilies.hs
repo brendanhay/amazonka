@@ -94,7 +94,8 @@ instance AWSRequest ListTaskDefinitionFamilies where
           = receiveJSON
               (\ s h x ->
                  ListTaskDefinitionFamiliesResponse' <$>
-                   x .?> "families" .!@ mempty <*> x .?> "nextToken")
+                   (x .?> "families" .!@ mempty) <*>
+                     (x .?> "nextToken"))
 
 instance ToHeaders ListTaskDefinitionFamilies where
         toHeaders
@@ -134,8 +135,8 @@ listTaskDefinitionFamiliesResponse = ListTaskDefinitionFamiliesResponse'{_ltdfrF
 
 -- | The list of task definition family names that match the
 -- @ListTaskDefinitionFamilies@ request.
-ltdfrFamilies :: Lens' ListTaskDefinitionFamiliesResponse (Maybe [Text])
-ltdfrFamilies = lens _ltdfrFamilies (\ s a -> s{_ltdfrFamilies = a});
+ltdfrFamilies :: Lens' ListTaskDefinitionFamiliesResponse [Text]
+ltdfrFamilies = lens _ltdfrFamilies (\ s a -> s{_ltdfrFamilies = a}) . _Default;
 
 -- | The @nextToken@ value to include in a future
 -- @ListTaskDefinitionFamilies@ request. When the results of a

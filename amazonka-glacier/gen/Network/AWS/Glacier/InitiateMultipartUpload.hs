@@ -131,8 +131,8 @@ instance AWSRequest InitiateMultipartUpload where
           = receiveJSON
               (\ s h x ->
                  InitiateMultipartUploadResponse' <$>
-                   h .#? "Location" <*>
-                     h .#? "x-amz-multipart-upload-id")
+                   (h .#? "Location") <*>
+                     (h .#? "x-amz-multipart-upload-id"))
 
 instance ToHeaders InitiateMultipartUpload where
         toHeaders InitiateMultipartUpload'{..}

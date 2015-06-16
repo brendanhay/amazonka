@@ -75,8 +75,8 @@ deiInstanceId = lens _deiInstanceId (\ s a -> s{_deiInstanceId = a});
 -- parameter, @DescribeElasticIps@ returns a description of the specified
 -- Elastic IP addresses. Otherwise, it returns a description of every
 -- Elastic IP address.
-deiIPs :: Lens' DescribeElasticIPs (Maybe [Text])
-deiIPs = lens _deiIPs (\ s a -> s{_deiIPs = a});
+deiIPs :: Lens' DescribeElasticIPs [Text]
+deiIPs = lens _deiIPs (\ s a -> s{_deiIPs = a}) . _Default;
 
 -- | A stack ID. If you include this parameter, @DescribeElasticIps@ returns
 -- a description of the Elastic IP addresses that are registered with the
@@ -93,7 +93,7 @@ instance AWSRequest DescribeElasticIPs where
           = receiveJSON
               (\ s h x ->
                  DescribeElasticIPsResponse' <$>
-                   x .?> "ElasticIps" .!@ mempty)
+                   (x .?> "ElasticIps" .!@ mempty))
 
 instance ToHeaders DescribeElasticIPs where
         toHeaders
@@ -130,5 +130,5 @@ describeElasticIPsResponse = DescribeElasticIPsResponse'{_deirElasticIPs = Nothi
 
 -- | An @ElasticIps@ object that describes the specified Elastic IP
 -- addresses.
-deirElasticIPs :: Lens' DescribeElasticIPsResponse (Maybe [ElasticIP])
-deirElasticIPs = lens _deirElasticIPs (\ s a -> s{_deirElasticIPs = a});
+deirElasticIPs :: Lens' DescribeElasticIPsResponse [ElasticIP]
+deirElasticIPs = lens _deirElasticIPs (\ s a -> s{_deirElasticIPs = a}) . _Default;

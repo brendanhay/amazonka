@@ -81,8 +81,8 @@ instance AWSRequest AllocateAddress where
           = receiveXML
               (\ s h x ->
                  AllocateAddressResponse' <$>
-                   x .@? "allocationId" <*> x .@? "domain" <*>
-                     x .@? "publicIp")
+                   (x .@? "allocationId") <*> (x .@? "domain") <*>
+                     (x .@? "publicIp"))
 
 instance ToHeaders AllocateAddress where
         toHeaders = const mempty

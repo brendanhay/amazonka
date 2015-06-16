@@ -116,8 +116,8 @@ casgInstanceId = lens _casgInstanceId (\ s a -> s{_casgInstanceId = a});
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-termination-policy.html Choosing a Termination Policy for Your Auto Scaling Group>
 -- in the /Auto Scaling Developer Guide/.
-casgTerminationPolicies :: Lens' CreateAutoScalingGroup (Maybe [Text])
-casgTerminationPolicies = lens _casgTerminationPolicies (\ s a -> s{_casgTerminationPolicies = a});
+casgTerminationPolicies :: Lens' CreateAutoScalingGroup [Text]
+casgTerminationPolicies = lens _casgTerminationPolicies (\ s a -> s{_casgTerminationPolicies = a}) . _Default;
 
 -- | The amount of time, in seconds, after an EC2 instance comes into service
 -- that Auto Scaling starts checking its health. During this time, any
@@ -195,8 +195,8 @@ casgPlacementGroup = lens _casgPlacementGroup (\ s a -> s{_casgPlacementGroup = 
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SetUpASLBApp.html Load Balance Your Auto Scaling Group>
 -- in the /Auto Scaling Developer Guide/.
-casgLoadBalancerNames :: Lens' CreateAutoScalingGroup (Maybe [Text])
-casgLoadBalancerNames = lens _casgLoadBalancerNames (\ s a -> s{_casgLoadBalancerNames = a});
+casgLoadBalancerNames :: Lens' CreateAutoScalingGroup [Text]
+casgLoadBalancerNames = lens _casgLoadBalancerNames (\ s a -> s{_casgLoadBalancerNames = a}) . _Default;
 
 -- | The tag to be created or updated. Each tag should be defined by its
 -- resource type, resource ID, key, value, and a propagate flag. Valid
@@ -206,8 +206,8 @@ casgLoadBalancerNames = lens _casgLoadBalancerNames (\ s a -> s{_casgLoadBalance
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASTagging.html Add, Modify, or Remove Auto Scaling Group Tags>
 -- in the /Auto Scaling Developer Guide/.
-casgTags :: Lens' CreateAutoScalingGroup (Maybe [Tag])
-casgTags = lens _casgTags (\ s a -> s{_casgTags = a});
+casgTags :: Lens' CreateAutoScalingGroup [Tag]
+casgTags = lens _casgTags (\ s a -> s{_casgTags = a}) . _Default;
 
 -- | The name of the group. This name must be unique within the scope of your
 -- AWS account.
@@ -244,21 +244,25 @@ instance ToQuery CreateAutoScalingGroup where
                "Version" =: ("2011-01-01" :: ByteString),
                "InstanceId" =: _casgInstanceId,
                "TerminationPolicies" =:
-                 "member" =: _casgTerminationPolicies,
+                 toQuery
+                   (toQueryList "member" <$> _casgTerminationPolicies),
                "HealthCheckGracePeriod" =:
                  _casgHealthCheckGracePeriod,
                "VPCZoneIdentifier" =: _casgVPCZoneIdentifier,
                "DefaultCooldown" =: _casgDefaultCooldown,
                "DesiredCapacity" =: _casgDesiredCapacity,
                "AvailabilityZones" =:
-                 "member" =: _casgAvailabilityZones,
+                 toQuery
+                   (toQueryList "member" <$> _casgAvailabilityZones),
                "HealthCheckType" =: _casgHealthCheckType,
                "LaunchConfigurationName" =:
                  _casgLaunchConfigurationName,
                "PlacementGroup" =: _casgPlacementGroup,
                "LoadBalancerNames" =:
-                 "member" =: _casgLoadBalancerNames,
-               "Tags" =: "member" =: _casgTags,
+                 toQuery
+                   (toQueryList "member" <$> _casgLoadBalancerNames),
+               "Tags" =:
+                 toQuery (toQueryList "member" <$> _casgTags),
                "AutoScalingGroupName" =: _casgAutoScalingGroupName,
                "MinSize" =: _casgMinSize, "MaxSize" =: _casgMaxSize]
 

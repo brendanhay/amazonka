@@ -79,7 +79,7 @@ instance AWSRequest MoveAddressToVPC where
           = receiveXML
               (\ s h x ->
                  MoveAddressToVPCResponse' <$>
-                   x .@? "allocationId" <*> x .@? "status")
+                   (x .@? "allocationId") <*> (x .@? "status"))
 
 instance ToHeaders MoveAddressToVPC where
         toHeaders = const mempty

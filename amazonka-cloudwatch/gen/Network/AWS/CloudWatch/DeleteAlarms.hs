@@ -70,7 +70,7 @@ instance ToQuery DeleteAlarms where
           = mconcat
               ["Action" =: ("DeleteAlarms" :: ByteString),
                "Version" =: ("2010-08-01" :: ByteString),
-               "AlarmNames" =: "member" =: _delAlarmNames]
+               "AlarmNames" =: toQueryList "member" _delAlarmNames]
 
 -- | /See:/ 'deleteAlarmsResponse' smart constructor.
 data DeleteAlarmsResponse = DeleteAlarmsResponse' deriving (Eq, Read, Show)

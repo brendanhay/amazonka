@@ -66,8 +66,8 @@ instance AWSRequest ListApplications where
           = receiveJSON
               (\ s h x ->
                  ListApplicationsResponse' <$>
-                   x .?> "nextToken" <*>
-                     x .?> "applications" .!@ mempty)
+                   (x .?> "nextToken") <*>
+                     (x .?> "applications" .!@ mempty))
 
 instance ToHeaders ListApplications where
         toHeaders
@@ -109,5 +109,5 @@ larNextToken :: Lens' ListApplicationsResponse (Maybe Text)
 larNextToken = lens _larNextToken (\ s a -> s{_larNextToken = a});
 
 -- | A list of application names.
-larApplications :: Lens' ListApplicationsResponse (Maybe [Text])
-larApplications = lens _larApplications (\ s a -> s{_larApplications = a});
+larApplications :: Lens' ListApplicationsResponse [Text]
+larApplications = lens _larApplications (\ s a -> s{_larApplications = a}) . _Default;

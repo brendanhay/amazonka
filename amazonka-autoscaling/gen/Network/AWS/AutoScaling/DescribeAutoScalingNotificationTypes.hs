@@ -57,7 +57,7 @@ instance AWSRequest
               (\ s h x ->
                  DescribeAutoScalingNotificationTypesResponse' <$>
                    (x .@? "AutoScalingNotificationTypes" .!@ mempty >>=
-                      parseXMLList "member"))
+                      may (parseXMLList "member")))
 
 instance ToHeaders
          DescribeAutoScalingNotificationTypes where
@@ -100,5 +100,5 @@ describeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTy
 --
 -- -   @autoscaling:TEST_NOTIFICATION@
 --
-dasntrAutoScalingNotificationTypes :: Lens' DescribeAutoScalingNotificationTypesResponse (Maybe [Text])
-dasntrAutoScalingNotificationTypes = lens _dasntrAutoScalingNotificationTypes (\ s a -> s{_dasntrAutoScalingNotificationTypes = a});
+dasntrAutoScalingNotificationTypes :: Lens' DescribeAutoScalingNotificationTypesResponse [Text]
+dasntrAutoScalingNotificationTypes = lens _dasntrAutoScalingNotificationTypes (\ s a -> s{_dasntrAutoScalingNotificationTypes = a}) . _Default;

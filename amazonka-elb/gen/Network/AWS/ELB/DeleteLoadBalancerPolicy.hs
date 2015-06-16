@@ -66,8 +66,7 @@ instance AWSRequest DeleteLoadBalancerPolicy where
              DeleteLoadBalancerPolicyResponse
         request = post
         response
-          = receiveNullWrapper "DeleteLoadBalancerPolicyResult"
-              DeleteLoadBalancerPolicyResponse'
+          = receiveNull DeleteLoadBalancerPolicyResponse'
 
 instance ToHeaders DeleteLoadBalancerPolicy where
         toHeaders = const mempty

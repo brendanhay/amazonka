@@ -65,7 +65,7 @@ instance AWSRequest GetDistributionConfig2014_11_06
           = receiveXML
               (\ s h x ->
                  GetDistributionConfig2014_11_06Response' <$>
-                   h .#? "ETag" <*> x .@? "DistributionConfig")
+                   (h .#? "ETag") <*> (x .@? "DistributionConfig"))
 
 instance ToHeaders GetDistributionConfig2014_11_06
          where

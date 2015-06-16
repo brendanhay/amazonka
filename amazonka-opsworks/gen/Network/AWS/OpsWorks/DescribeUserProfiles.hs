@@ -56,8 +56,8 @@ describeUserProfiles :: DescribeUserProfiles
 describeUserProfiles = DescribeUserProfiles'{_dupIAMUserARNs = Nothing};
 
 -- | An array of IAM user ARNs that identify the users to be described.
-dupIAMUserARNs :: Lens' DescribeUserProfiles (Maybe [Text])
-dupIAMUserARNs = lens _dupIAMUserARNs (\ s a -> s{_dupIAMUserARNs = a});
+dupIAMUserARNs :: Lens' DescribeUserProfiles [Text]
+dupIAMUserARNs = lens _dupIAMUserARNs (\ s a -> s{_dupIAMUserARNs = a}) . _Default;
 
 instance AWSRequest DescribeUserProfiles where
         type Sv DescribeUserProfiles = OpsWorks
@@ -68,7 +68,7 @@ instance AWSRequest DescribeUserProfiles where
           = receiveJSON
               (\ s h x ->
                  DescribeUserProfilesResponse' <$>
-                   x .?> "UserProfiles" .!@ mempty)
+                   (x .?> "UserProfiles" .!@ mempty))
 
 instance ToHeaders DescribeUserProfiles where
         toHeaders
@@ -102,5 +102,5 @@ describeUserProfilesResponse :: DescribeUserProfilesResponse
 describeUserProfilesResponse = DescribeUserProfilesResponse'{_duprUserProfiles = Nothing};
 
 -- | A @Users@ object that describes the specified users.
-duprUserProfiles :: Lens' DescribeUserProfilesResponse (Maybe [UserProfile])
-duprUserProfiles = lens _duprUserProfiles (\ s a -> s{_duprUserProfiles = a});
+duprUserProfiles :: Lens' DescribeUserProfilesResponse [UserProfile]
+duprUserProfiles = lens _duprUserProfiles (\ s a -> s{_duprUserProfiles = a}) . _Default;

@@ -90,8 +90,8 @@ creDesiredCount = lens _creDesiredCount (\ s a -> s{_creDesiredCount = a});
 -- | A list of load balancer objects, containing the load balancer name, the
 -- container name (as it appears in a container definition), and the
 -- container port to access from the load balancer.
-creLoadBalancers :: Lens' CreateService (Maybe [LoadBalancer])
-creLoadBalancers = lens _creLoadBalancers (\ s a -> s{_creLoadBalancers = a});
+creLoadBalancers :: Lens' CreateService [LoadBalancer]
+creLoadBalancers = lens _creLoadBalancers (\ s a -> s{_creLoadBalancers = a}) . _Default;
 
 -- | The name or full Amazon Resource Name (ARN) of the IAM role that allows
 -- your Amazon ECS container agent to make calls to your load balancer on
@@ -117,7 +117,8 @@ instance AWSRequest CreateService where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateServiceResponse' <$> x .?> "ContainerService")
+                 CreateServiceResponse' <$>
+                   (x .?> "ContainerService"))
 
 instance ToHeaders CreateService where
         toHeaders

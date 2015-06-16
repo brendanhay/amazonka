@@ -87,7 +87,7 @@ instance AWSRequest AddSourceIdentifierToSubscription
               "AddSourceIdentifierToSubscriptionResult"
               (\ s h x ->
                  AddSourceIdentifierToSubscriptionResponse' <$>
-                   x .@? "EventSubscription")
+                   (x .@? "EventSubscription"))
 
 instance ToHeaders AddSourceIdentifierToSubscription
          where

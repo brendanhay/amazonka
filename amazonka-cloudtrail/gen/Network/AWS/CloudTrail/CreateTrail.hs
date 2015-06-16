@@ -120,12 +120,12 @@ instance AWSRequest CreateTrail where
           = receiveJSON
               (\ s h x ->
                  CreateTrailResponse' <$>
-                   x .?> "S3KeyPrefix" <*> x .?> "SnsTopicName" <*>
-                     x .?> "CloudWatchLogsLogGroupArn"
-                     <*> x .?> "Name"
-                     <*> x .?> "IncludeGlobalServiceEvents"
-                     <*> x .?> "CloudWatchLogsRoleArn"
-                     <*> x .?> "S3BucketName")
+                   (x .?> "S3KeyPrefix") <*> (x .?> "SnsTopicName") <*>
+                     (x .?> "CloudWatchLogsLogGroupArn")
+                     <*> (x .?> "Name")
+                     <*> (x .?> "IncludeGlobalServiceEvents")
+                     <*> (x .?> "CloudWatchLogsRoleArn")
+                     <*> (x .?> "S3BucketName"))
 
 instance ToHeaders CreateTrail where
         toHeaders

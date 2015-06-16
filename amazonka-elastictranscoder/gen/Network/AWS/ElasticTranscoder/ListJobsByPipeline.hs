@@ -87,7 +87,8 @@ instance AWSRequest ListJobsByPipeline where
           = receiveJSON
               (\ s h x ->
                  ListJobsByPipelineResponse' <$>
-                   x .?> "NextPageToken" <*> x .?> "Jobs" .!@ mempty)
+                   (x .?> "NextPageToken") <*>
+                     (x .?> "Jobs" .!@ mempty))
 
 instance ToHeaders ListJobsByPipeline where
         toHeaders = const mempty
@@ -125,5 +126,5 @@ ljbprNextPageToken :: Lens' ListJobsByPipelineResponse (Maybe Text)
 ljbprNextPageToken = lens _ljbprNextPageToken (\ s a -> s{_ljbprNextPageToken = a});
 
 -- | An array of @Job@ objects that are in the specified pipeline.
-ljbprJobs :: Lens' ListJobsByPipelineResponse (Maybe [Job'])
-ljbprJobs = lens _ljbprJobs (\ s a -> s{_ljbprJobs = a});
+ljbprJobs :: Lens' ListJobsByPipelineResponse [Job']
+ljbprJobs = lens _ljbprJobs (\ s a -> s{_ljbprJobs = a}) . _Default;

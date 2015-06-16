@@ -95,7 +95,7 @@ instance AWSRequest Suggest where
           = receiveJSON
               (\ s h x ->
                  SuggestResponse' <$>
-                   x .?> "suggest" <*> x .?> "status")
+                   (x .?> "suggest") <*> (x .?> "status"))
 
 instance ToHeaders Suggest where
         toHeaders

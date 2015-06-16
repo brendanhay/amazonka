@@ -70,7 +70,7 @@ instance AWSRequest GetDeploymentInstance where
           = receiveJSON
               (\ s h x ->
                  GetDeploymentInstanceResponse' <$>
-                   x .?> "instanceSummary")
+                   (x .?> "instanceSummary"))
 
 instance ToHeaders GetDeploymentInstance where
         toHeaders

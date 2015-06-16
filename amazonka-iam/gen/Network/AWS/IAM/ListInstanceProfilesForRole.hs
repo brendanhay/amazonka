@@ -93,7 +93,7 @@ instance AWSRequest ListInstanceProfilesForRole where
               "ListInstanceProfilesForRoleResult"
               (\ s h x ->
                  ListInstanceProfilesForRoleResponse' <$>
-                   x .@? "Marker" <*> x .@? "IsTruncated" <*>
+                   (x .@? "Marker") <*> (x .@? "IsTruncated") <*>
                      (x .@? "InstanceProfiles" .!@ mempty >>=
                         parseXMLList "member"))
 

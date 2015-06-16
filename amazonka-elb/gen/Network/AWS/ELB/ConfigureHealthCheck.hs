@@ -75,7 +75,7 @@ instance AWSRequest ConfigureHealthCheck where
           = receiveXMLWrapper "ConfigureHealthCheckResult"
               (\ s h x ->
                  ConfigureHealthCheckResponse' <$>
-                   x .@? "HealthCheck")
+                   (x .@? "HealthCheck"))
 
 instance ToHeaders ConfigureHealthCheck where
         toHeaders = const mempty

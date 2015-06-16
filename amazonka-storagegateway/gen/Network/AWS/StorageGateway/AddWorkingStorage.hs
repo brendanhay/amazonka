@@ -81,7 +81,7 @@ instance AWSRequest AddWorkingStorage where
         response
           = receiveJSON
               (\ s h x ->
-                 AddWorkingStorageResponse' <$> x .?> "GatewayARN")
+                 AddWorkingStorageResponse' <$> (x .?> "GatewayARN"))
 
 instance ToHeaders AddWorkingStorage where
         toHeaders

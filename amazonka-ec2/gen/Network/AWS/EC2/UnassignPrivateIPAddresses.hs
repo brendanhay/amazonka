@@ -83,7 +83,8 @@ instance ToQuery UnassignPrivateIPAddresses where
                  ("UnassignPrivateIPAddresses" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "NetworkInterfaceId" =: _upiaNetworkInterfaceId,
-               "PrivateIpAddress" =: _upiaPrivateIPAddresses]
+               toQueryList "PrivateIpAddress"
+                 _upiaPrivateIPAddresses]
 
 -- | /See:/ 'unassignPrivateIPAddressesResponse' smart constructor.
 data UnassignPrivateIPAddressesResponse = UnassignPrivateIPAddressesResponse' deriving (Eq, Read, Show)

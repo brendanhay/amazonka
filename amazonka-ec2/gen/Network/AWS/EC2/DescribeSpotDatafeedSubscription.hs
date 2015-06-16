@@ -69,7 +69,7 @@ instance AWSRequest DescribeSpotDatafeedSubscription
           = receiveXML
               (\ s h x ->
                  DescribeSpotDatafeedSubscriptionResponse' <$>
-                   x .@? "spotDatafeedSubscription")
+                   (x .@? "spotDatafeedSubscription"))
 
 instance ToHeaders DescribeSpotDatafeedSubscription
          where

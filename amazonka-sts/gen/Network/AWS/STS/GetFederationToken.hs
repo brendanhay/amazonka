@@ -179,8 +179,8 @@ instance AWSRequest GetFederationToken where
           = receiveXMLWrapper "GetFederationTokenResult"
               (\ s h x ->
                  GetFederationTokenResponse' <$>
-                   x .@? "PackedPolicySize" <*> x .@? "Credentials" <*>
-                     x .@? "FederatedUser")
+                   (x .@? "PackedPolicySize") <*> (x .@? "Credentials")
+                     <*> (x .@? "FederatedUser"))
 
 instance ToHeaders GetFederationToken where
         toHeaders = const mempty

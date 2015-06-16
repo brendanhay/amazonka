@@ -113,8 +113,8 @@ startWorkflowExecution pDomain pWorkflowId pWorkflowType = StartWorkflowExecutio
 -- specify a maximum of 5 tags. You can list workflow executions with a
 -- specific tag by calling ListOpenWorkflowExecutions or
 -- ListClosedWorkflowExecutions and specifying a TagFilter.
-staTagList :: Lens' StartWorkflowExecution (Maybe [Text])
-staTagList = lens _staTagList (\ s a -> s{_staTagList = a});
+staTagList :: Lens' StartWorkflowExecution [Text]
+staTagList = lens _staTagList (\ s a -> s{_staTagList = a}) . _Default;
 
 -- | Specifies the maximum duration of decision tasks for this workflow
 -- execution. This parameter overrides the @defaultTaskStartToCloseTimout@
@@ -236,7 +236,7 @@ instance AWSRequest StartWorkflowExecution where
         response
           = receiveJSON
               (\ s h x ->
-                 StartWorkflowExecutionResponse' <$> x .?> "runId")
+                 StartWorkflowExecutionResponse' <$> (x .?> "runId"))
 
 instance ToHeaders StartWorkflowExecution where
         toHeaders

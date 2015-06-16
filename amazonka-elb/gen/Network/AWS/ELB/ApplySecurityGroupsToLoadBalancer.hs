@@ -80,7 +80,7 @@ instance AWSRequest ApplySecurityGroupsToLoadBalancer
               (\ s h x ->
                  ApplySecurityGroupsToLoadBalancerResponse' <$>
                    (x .@? "SecurityGroups" .!@ mempty >>=
-                      parseXMLList "member"))
+                      may (parseXMLList "member")))
 
 instance ToHeaders ApplySecurityGroupsToLoadBalancer
          where
@@ -99,7 +99,7 @@ instance ToQuery ApplySecurityGroupsToLoadBalancer
                "Version" =: ("2012-06-01" :: ByteString),
                "LoadBalancerName" =: _asgtlbLoadBalancerName,
                "SecurityGroups" =:
-                 "member" =: _asgtlbSecurityGroups]
+                 toQueryList "member" _asgtlbSecurityGroups]
 
 -- | /See:/ 'applySecurityGroupsToLoadBalancerResponse' smart constructor.
 --
@@ -113,5 +113,5 @@ applySecurityGroupsToLoadBalancerResponse :: ApplySecurityGroupsToLoadBalancerRe
 applySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse'{_asgtlbrSecurityGroups = Nothing};
 
 -- | The IDs of the security groups associated with the load balancer.
-asgtlbrSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancerResponse (Maybe [Text])
-asgtlbrSecurityGroups = lens _asgtlbrSecurityGroups (\ s a -> s{_asgtlbrSecurityGroups = a});
+asgtlbrSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancerResponse [Text]
+asgtlbrSecurityGroups = lens _asgtlbrSecurityGroups (\ s a -> s{_asgtlbrSecurityGroups = a}) . _Default;

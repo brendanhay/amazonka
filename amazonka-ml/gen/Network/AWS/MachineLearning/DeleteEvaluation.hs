@@ -69,7 +69,7 @@ instance AWSRequest DeleteEvaluation where
         response
           = receiveJSON
               (\ s h x ->
-                 DeleteEvaluationResponse' <$> x .?> "EvaluationId")
+                 DeleteEvaluationResponse' <$> (x .?> "EvaluationId"))
 
 instance ToHeaders DeleteEvaluation where
         toHeaders

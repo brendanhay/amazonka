@@ -73,7 +73,7 @@ instance AWSRequest TerminateWorkspaces where
           = receiveJSON
               (\ s h x ->
                  TerminateWorkspacesResponse' <$>
-                   x .?> "FailedRequests" .!@ mempty)
+                   (x .?> "FailedRequests" .!@ mempty))
 
 instance ToHeaders TerminateWorkspaces where
         toHeaders
@@ -110,5 +110,5 @@ terminateWorkspacesResponse = TerminateWorkspacesResponse'{_twrFailedRequests = 
 
 -- | An array of structures that represent any WorkSpaces that could not be
 -- terminated.
-twrFailedRequests :: Lens' TerminateWorkspacesResponse (Maybe [FailedWorkspaceChangeRequest])
-twrFailedRequests = lens _twrFailedRequests (\ s a -> s{_twrFailedRequests = a});
+twrFailedRequests :: Lens' TerminateWorkspacesResponse [FailedWorkspaceChangeRequest]
+twrFailedRequests = lens _twrFailedRequests (\ s a -> s{_twrFailedRequests = a}) . _Default;

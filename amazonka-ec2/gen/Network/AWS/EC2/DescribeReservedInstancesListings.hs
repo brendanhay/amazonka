@@ -91,8 +91,8 @@ describeReservedInstancesListings = DescribeReservedInstancesListings'{_drilFilt
 --
 -- -   @status-message@ - The reason for the status.
 --
-drilFilters :: Lens' DescribeReservedInstancesListings (Maybe [Filter])
-drilFilters = lens _drilFilters (\ s a -> s{_drilFilters = a});
+drilFilters :: Lens' DescribeReservedInstancesListings [Filter]
+drilFilters = lens _drilFilters (\ s a -> s{_drilFilters = a}) . _Default;
 
 -- | One or more Reserved Instance IDs.
 drilReservedInstancesId :: Lens' DescribeReservedInstancesListings (Maybe Text)
@@ -112,7 +112,7 @@ instance AWSRequest DescribeReservedInstancesListings
           = receiveXML
               (\ s h x ->
                  DescribeReservedInstancesListingsResponse' <$>
-                   parseXMLList "item" x)
+                   (may (parseXMLList "item") x))
 
 instance ToHeaders DescribeReservedInstancesListings
          where
@@ -129,7 +129,7 @@ instance ToQuery DescribeReservedInstancesListings
               ["Action" =:
                  ("DescribeReservedInstancesListings" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Filter" =: _drilFilters,
+               toQuery (toQueryList "Filter" <$> _drilFilters),
                "ReservedInstancesId" =: _drilReservedInstancesId,
                "ReservedInstancesListingId" =:
                  _drilReservedInstancesListingId]
@@ -146,5 +146,5 @@ describeReservedInstancesListingsResponse :: DescribeReservedInstancesListingsRe
 describeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse'{_drilrReservedInstancesListings = Nothing};
 
 -- | Information about the Reserved Instance listing.
-drilrReservedInstancesListings :: Lens' DescribeReservedInstancesListingsResponse (Maybe [ReservedInstancesListing])
-drilrReservedInstancesListings = lens _drilrReservedInstancesListings (\ s a -> s{_drilrReservedInstancesListings = a});
+drilrReservedInstancesListings :: Lens' DescribeReservedInstancesListingsResponse [ReservedInstancesListing]
+drilrReservedInstancesListings = lens _drilrReservedInstancesListings (\ s a -> s{_drilrReservedInstancesListings = a}) . _Default;

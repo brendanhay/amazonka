@@ -63,7 +63,7 @@ instance AWSRequest DeleteVirtualInterface where
           = receiveJSON
               (\ s h x ->
                  DeleteVirtualInterfaceResponse' <$>
-                   x .?> "virtualInterfaceState")
+                   (x .?> "virtualInterfaceState"))
 
 instance ToHeaders DeleteVirtualInterface where
         toHeaders

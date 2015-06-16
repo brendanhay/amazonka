@@ -82,7 +82,7 @@ instance AWSRequest
               (\ s h x ->
                  DeregisterInstancesFromLoadBalancerResponse' <$>
                    (x .@? "Instances" .!@ mempty >>=
-                      parseXMLList "member"))
+                      may (parseXMLList "member")))
 
 instance ToHeaders
          DeregisterInstancesFromLoadBalancer where
@@ -101,7 +101,7 @@ instance ToQuery DeregisterInstancesFromLoadBalancer
                     ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
                "LoadBalancerName" =: _diflbLoadBalancerName,
-               "Instances" =: "member" =: _diflbInstances]
+               "Instances" =: toQueryList "member" _diflbInstances]
 
 -- | /See:/ 'deregisterInstancesFromLoadBalancerResponse' smart constructor.
 --
@@ -115,5 +115,5 @@ deregisterInstancesFromLoadBalancerResponse :: DeregisterInstancesFromLoadBalanc
 deregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse'{_diflbrInstances = Nothing};
 
 -- | The remaining instances registered with the load balancer.
-diflbrInstances :: Lens' DeregisterInstancesFromLoadBalancerResponse (Maybe [Instance])
-diflbrInstances = lens _diflbrInstances (\ s a -> s{_diflbrInstances = a});
+diflbrInstances :: Lens' DeregisterInstancesFromLoadBalancerResponse [Instance]
+diflbrInstances = lens _diflbrInstances (\ s a -> s{_diflbrInstances = a}) . _Default;

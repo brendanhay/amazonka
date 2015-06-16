@@ -93,7 +93,7 @@ instance AWSRequest CreateUserProfile where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateUserProfileResponse' <$> x .?> "IamUserArn")
+                 CreateUserProfileResponse' <$> (x .?> "IamUserArn"))
 
 instance ToHeaders CreateUserProfile where
         toHeaders

@@ -72,8 +72,8 @@ describeSecurityGroups = DescribeSecurityGroups'{_dsg1GroupNames = Nothing, _dsg
 -- describe security groups by name.
 --
 -- Default: Describes all your security groups.
-dsg1GroupNames :: Lens' DescribeSecurityGroups (Maybe [Text])
-dsg1GroupNames = lens _dsg1GroupNames (\ s a -> s{_dsg1GroupNames = a});
+dsg1GroupNames :: Lens' DescribeSecurityGroups [Text]
+dsg1GroupNames = lens _dsg1GroupNames (\ s a -> s{_dsg1GroupNames = a}) . _Default;
 
 -- | One or more filters.
 --
@@ -116,15 +116,15 @@ dsg1GroupNames = lens _dsg1GroupNames (\ s a -> s{_dsg1GroupNames = a});
 -- -   @vpc-id@ - The ID of the VPC specified when the security group was
 --     created.
 --
-dsg1Filters :: Lens' DescribeSecurityGroups (Maybe [Filter])
-dsg1Filters = lens _dsg1Filters (\ s a -> s{_dsg1Filters = a});
+dsg1Filters :: Lens' DescribeSecurityGroups [Filter]
+dsg1Filters = lens _dsg1Filters (\ s a -> s{_dsg1Filters = a}) . _Default;
 
 -- | One or more security group IDs. Required for security groups in a
 -- nondefault VPC.
 --
 -- Default: Describes all your security groups.
-dsg1GroupIds :: Lens' DescribeSecurityGroups (Maybe [Text])
-dsg1GroupIds = lens _dsg1GroupIds (\ s a -> s{_dsg1GroupIds = a});
+dsg1GroupIds :: Lens' DescribeSecurityGroups [Text]
+dsg1GroupIds = lens _dsg1GroupIds (\ s a -> s{_dsg1GroupIds = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
@@ -142,7 +142,7 @@ instance AWSRequest DescribeSecurityGroups where
           = receiveXML
               (\ s h x ->
                  DescribeSecurityGroupsResponse' <$>
-                   parseXMLList "item" x)
+                   (may (parseXMLList "item") x))
 
 instance ToHeaders DescribeSecurityGroups where
         toHeaders = const mempty
@@ -156,8 +156,10 @@ instance ToQuery DescribeSecurityGroups where
               ["Action" =:
                  ("DescribeSecurityGroups" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "GroupName" =: _dsg1GroupNames,
-               "Filter" =: _dsg1Filters, "groupId" =: _dsg1GroupIds,
+               toQuery
+                 (toQueryList "GroupName" <$> _dsg1GroupNames),
+               toQuery (toQueryList "Filter" <$> _dsg1Filters),
+               toQuery (toQueryList "groupId" <$> _dsg1GroupIds),
                "DryRun" =: _dsg1DryRun]
 
 -- | /See:/ 'describeSecurityGroupsResponse' smart constructor.
@@ -172,5 +174,5 @@ describeSecurityGroupsResponse :: DescribeSecurityGroupsResponse
 describeSecurityGroupsResponse = DescribeSecurityGroupsResponse'{_dsgrSecurityGroups = Nothing};
 
 -- | Information about one or more security groups.
-dsgrSecurityGroups :: Lens' DescribeSecurityGroupsResponse (Maybe [SecurityGroup])
-dsgrSecurityGroups = lens _dsgrSecurityGroups (\ s a -> s{_dsgrSecurityGroups = a});
+dsgrSecurityGroups :: Lens' DescribeSecurityGroupsResponse [SecurityGroup]
+dsgrSecurityGroups = lens _dsgrSecurityGroups (\ s a -> s{_dsgrSecurityGroups = a}) . _Default;

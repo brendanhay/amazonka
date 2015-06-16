@@ -101,7 +101,7 @@ instance AWSRequest UpdateChapCredentials where
           = receiveJSON
               (\ s h x ->
                  UpdateChapCredentialsResponse' <$>
-                   x .?> "TargetARN" <*> x .?> "InitiatorName")
+                   (x .?> "TargetARN") <*> (x .?> "InitiatorName"))
 
 instance ToHeaders UpdateChapCredentials where
         toHeaders

@@ -84,7 +84,7 @@ instance AWSRequest PurchaseReservedNodeOffering
               "PurchaseReservedNodeOfferingResult"
               (\ s h x ->
                  PurchaseReservedNodeOfferingResponse' <$>
-                   x .@? "ReservedNode")
+                   (x .@? "ReservedNode"))
 
 instance ToHeaders PurchaseReservedNodeOffering where
         toHeaders = const mempty

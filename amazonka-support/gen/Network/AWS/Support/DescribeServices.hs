@@ -67,8 +67,8 @@ describeServices :: DescribeServices
 describeServices = DescribeServices'{_dsServiceCodeList = Nothing, _dsLanguage = Nothing};
 
 -- | A JSON-formatted list of service codes available for AWS services.
-dsServiceCodeList :: Lens' DescribeServices (Maybe [Text])
-dsServiceCodeList = lens _dsServiceCodeList (\ s a -> s{_dsServiceCodeList = a});
+dsServiceCodeList :: Lens' DescribeServices [Text]
+dsServiceCodeList = lens _dsServiceCodeList (\ s a -> s{_dsServiceCodeList = a}) . _Default;
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
 -- Support currently supports English (\"en\") and Japanese (\"ja\").
@@ -85,7 +85,7 @@ instance AWSRequest DescribeServices where
           = receiveJSON
               (\ s h x ->
                  DescribeServicesResponse' <$>
-                   x .?> "services" .!@ mempty)
+                   (x .?> "services" .!@ mempty))
 
 instance ToHeaders DescribeServices where
         toHeaders
@@ -121,5 +121,5 @@ describeServicesResponse :: DescribeServicesResponse
 describeServicesResponse = DescribeServicesResponse'{_dsrServices = Nothing};
 
 -- | A JSON-formatted list of AWS services.
-dsrServices :: Lens' DescribeServicesResponse (Maybe [SupportService])
-dsrServices = lens _dsrServices (\ s a -> s{_dsrServices = a});
+dsrServices :: Lens' DescribeServicesResponse [SupportService]
+dsrServices = lens _dsrServices (\ s a -> s{_dsrServices = a}) . _Default;

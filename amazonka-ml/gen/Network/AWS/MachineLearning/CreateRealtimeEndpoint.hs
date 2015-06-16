@@ -66,7 +66,8 @@ instance AWSRequest CreateRealtimeEndpoint where
           = receiveJSON
               (\ s h x ->
                  CreateRealtimeEndpointResponse' <$>
-                   x .?> "RealtimeEndpointInfo" <*> x .?> "MLModelId")
+                   (x .?> "RealtimeEndpointInfo") <*>
+                     (x .?> "MLModelId"))
 
 instance ToHeaders CreateRealtimeEndpoint where
         toHeaders

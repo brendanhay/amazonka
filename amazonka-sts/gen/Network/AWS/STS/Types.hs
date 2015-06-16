@@ -108,7 +108,7 @@ aruARN = lens _aruARN (\ s a -> s{_aruARN = a});
 instance FromXML AssumedRoleUser where
         parseXML x
           = AssumedRoleUser' <$>
-              x .@ "AssumedRoleId" <*> x .@ "Arn"
+              (x .@ "AssumedRoleId") <*> (x .@ "Arn")
 
 -- | /See:/ 'credentials' smart constructor.
 --
@@ -147,9 +147,9 @@ creExpiration = lens _creExpiration (\ s a -> s{_creExpiration = a}) . _Time;
 instance FromXML Credentials where
         parseXML x
           = Credentials' <$>
-              x .@ "AccessKeyId" <*> x .@ "SecretAccessKey" <*>
-                x .@ "SessionToken"
-                <*> x .@ "Expiration"
+              (x .@ "AccessKeyId") <*> (x .@ "SecretAccessKey") <*>
+                (x .@ "SessionToken")
+                <*> (x .@ "Expiration")
 
 -- | /See:/ 'federatedUser' smart constructor.
 --
@@ -180,4 +180,4 @@ fuARN = lens _fuARN (\ s a -> s{_fuARN = a});
 instance FromXML FederatedUser where
         parseXML x
           = FederatedUser' <$>
-              x .@ "FederatedUserId" <*> x .@ "Arn"
+              (x .@ "FederatedUserId") <*> (x .@ "Arn")

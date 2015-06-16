@@ -70,8 +70,8 @@ instance AWSRequest DescribeServices where
           = receiveJSON
               (\ s h x ->
                  DescribeServicesResponse' <$>
-                   x .?> "failures" .!@ mempty <*>
-                     x .?> "services" .!@ mempty)
+                   (x .?> "failures" .!@ mempty) <*>
+                     (x .?> "services" .!@ mempty))
 
 instance ToHeaders DescribeServices where
         toHeaders
@@ -109,9 +109,9 @@ describeServicesResponse :: DescribeServicesResponse
 describeServicesResponse = DescribeServicesResponse'{_dsrFailures = Nothing, _dsrServices = Nothing};
 
 -- | Any failures associated with the call.
-dsrFailures :: Lens' DescribeServicesResponse (Maybe [Failure])
-dsrFailures = lens _dsrFailures (\ s a -> s{_dsrFailures = a});
+dsrFailures :: Lens' DescribeServicesResponse [Failure]
+dsrFailures = lens _dsrFailures (\ s a -> s{_dsrFailures = a}) . _Default;
 
 -- | The list of services described.
-dsrServices :: Lens' DescribeServicesResponse (Maybe [ContainerService])
-dsrServices = lens _dsrServices (\ s a -> s{_dsrServices = a});
+dsrServices :: Lens' DescribeServicesResponse [ContainerService]
+dsrServices = lens _dsrServices (\ s a -> s{_dsrServices = a}) . _Default;

@@ -25,6 +25,8 @@ module Network.AWS.Request
     , postXML
     , postJSON
     , postQuery
+    , postBody
+
     , putXML
     , putJSON
     , putBody
@@ -84,6 +86,9 @@ postQuery x = defaultRequest x
     & rqMethod .~ POST
     & rqQuery <>~ toQuery x
     & contentSHA256
+
+postBody :: (ToPath a, ToQuery a, ToHeaders a, ToBody a) => a -> Request a
+postBody x = putBody x & rqMethod .~ POST
 
 putXML :: (ToPath a, ToQuery a, ToHeaders a, ToElement a) => a -> Request a
 putXML x = defaultRequest x

@@ -86,7 +86,9 @@ module Network.AWS.Types
     , ClientResponse
     , ResponseBody
     , clientRequest
+
     , _Coerce
+    , _Default
     ) where
 
 import           Control.Applicative
@@ -389,6 +391,14 @@ clientRequest = def
 
 _Coerce :: (Coercible a b, Coercible b a) => Iso' a b
 _Coerce = iso coerce coerce
+
+-- | Invalid Iso, should be a Prism but exists for ease of composition
+-- with the current 'Lens . Iso' chaining to hide internal types from the user.
+_Default :: Monoid a => Iso' (Maybe a) a
+_Default = iso f Just
+  where
+    f (Just x) = x
+    f Nothing  = mempty
 
 makePrisms ''ServiceError
 makeLenses ''Request

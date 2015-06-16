@@ -72,21 +72,22 @@ ns .@? n =
         Left _   -> Right Nothing
         Right xs -> parseXML xs
 
-(.!@) :: Either e (Maybe a) -> a -> Either e a
+-- FIXME: .!@ and may can be moved somewhere else.
+
+(.!@) :: Functor f => f (Maybe a) -> a -> f a
 f .!@ x = fromMaybe x <$> f
 
-infixr 7 @=, @@=
+may :: Applicative f => ([a] -> f b) -> [a] -> f (Maybe b)
+may f [] = pure Nothing
+may f xs = Just <$> f xs
 
--- Both this @= and @@= take 'Text' rather than 'Name' since the
+infixr 7 @=
+
+-- Both this @= and toXMLList take 'Text' rather than 'Name' since the
 -- IsString instance for Name creates a qualified name with an empty ns.
 
 (@=) :: ToXML a => Text -> a -> XML
 n @= x = XOne . NodeElement $ mkElement (Name n Nothing Nothing) x
-
-(@@=) :: (IsList a, ToXML (Item a)) => Text -> a -> XML
-n @@= xs = XMany . map (NodeElement . mkElement e) $ toList xs
-  where
-    e = Name n Nothing Nothing
 
 decodeXML :: FromXML a => LazyByteString -> Either String a
 decodeXML = either failure success . parseLBS def
@@ -176,18 +177,6 @@ instance ToXML Natural    where toXML = toXMLText
 instance ToXML Double     where toXML = toXMLText
 instance ToXML Bool       where toXML = toXMLText
 
-parseXMLMap :: (Eq k, Hashable k, FromText k, FromXML v)
-            => Text
-            -> Text
-            -> Text
-            -> [Node]
-            -> Either String (HashMap k v)
-parseXMLMap e k v = fmap Map.fromList . traverse f . mapMaybe (childNodesOf e)
-  where
-    f ns = (,)
-       <$> (ns .@ k >>= fromText)
-       <*>  ns .@ v
-
 parseXMLList :: FromXML a
              => Text
              -> [Node]
@@ -198,6 +187,11 @@ parseXMLText :: FromText a => String -> [Node] -> Either String a
 parseXMLText n = withContent n >=>
     maybe (Left $ "empty node list, when expecting single node " ++ n)
         fromText
+
+toXMLList :: (IsList a, ToXML (Item a)) => Text -> a -> XML
+toXMLList n = XMany . map (NodeElement . mkElement e) . toList
+  where
+    e = Name n Nothing Nothing
 
 toXMLText :: ToText a => a -> XML
 toXMLText = XOne . NodeContent . toText

@@ -25,6 +25,7 @@ import           Data.Aeson
 import           Data.Coerce
 import           Data.List.NonEmpty   (NonEmpty (..))
 import qualified Data.List.NonEmpty   as NonEmpty
+import           Data.Semigroup
 import           Data.Text            (Text)
 import           GHC.Exts
 import           Network.AWS.Data.XML
@@ -37,6 +38,7 @@ newtype List1 a = List1 { toNonEmpty :: NonEmpty a }
         , Applicative
         , Foldable
         , Traversable
+        , Semigroup
         , Eq
         , Ord
         , Read
@@ -66,8 +68,12 @@ parseXMLList1 :: FromXML a
               => Text
               -> [Node]
               -> Either String (List1 a)
-parseXMLList1 n ns = parseXMLList n ns >>=
-    maybe (Left $ empty ++ ": " ++ show n) (Right . List1) . NonEmpty.nonEmpty
+parseXMLList1 n = parseXMLList n >=> parse
+  where
+    parse xs =
+       maybe (Left $ empty ++ ": " ++ show n)
+             (Right . List1)
+             (NonEmpty.nonEmpty xs)
 
 empty :: String
 empty = "Error parsing empty List1 when expecting at least one element"

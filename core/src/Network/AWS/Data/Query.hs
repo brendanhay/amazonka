@@ -43,27 +43,28 @@ import qualified Data.List.NonEmpty          as NonEmpty
 import           Data.Monoid
 import           Data.String
 import qualified Data.Text.Encoding          as Text
+import           GHC.Exts
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Text
 import           Network.HTTP.Types.URI      (urlEncode)
 import           Numeric.Natural
 
 data QueryString
-    = List  [QueryString]
-    | Pair  ByteString QueryString
-    | Value (Maybe ByteString)
+    = QList  [QueryString]
+    | QPair  ByteString QueryString
+    | QValue (Maybe ByteString)
       deriving (Eq, Show, Data, Typeable)
 
 makePrisms ''QueryString
 
 instance Monoid QueryString where
-    mempty = List []
+    mempty = QList []
 
     mappend a b = case (a, b) of
-        (List l, List r) -> List (l ++ r)
-        (List l, r)      -> List (r : l)
-        (l,      List r) -> List (l : r)
-        (l,      r)      -> List [l, r]
+        (QList l, QList r) -> QList (l ++ r)
+        (QList l, r)       -> QList (r : l)
+        (l,       QList r) -> QList (l : r)
+        (l,       r)       -> QList [l, r]
 
 instance Plated QueryString where
     plate = uniplate
@@ -75,13 +76,13 @@ instance ToByteString QueryString where
     toBS = intercalate . sort . enc Nothing
       where
         enc k = \case
-            List xs           -> concatMap (enc k) xs
+            QList xs           -> concatMap (enc k) xs
 
-            Pair (urlEncode True -> k') x
+            QPair (urlEncode True -> k') x
                 | Just n <- k -> enc (Just $ n <> "." <> k') x
                 | otherwise   -> enc (Just k')               x
 
-            Value (Just (urlEncode True -> v))
+            QValue (Just (urlEncode True -> v))
                 | Just n <- k -> [n <> vsep <> v]
                 | otherwise   -> [v <> vsep]
 
@@ -96,25 +97,24 @@ instance ToByteString QueryString where
         vsep = "="
 
 valuesOf :: Traversal' QueryString (Maybe ByteString)
-valuesOf = deep _Value
+valuesOf = deep _QValue
 
 pair :: ToQuery a => ByteString -> a -> QueryString -> QueryString
-pair k v = mappend (Pair k (toQuery v))
+pair k v = mappend (QPair k (toQuery v))
 
 infixr 7 =:
 
 (=:) :: ToQuery a => ByteString -> a -> QueryString
-k =: v = Pair k (toQuery v)
+k =: v = QPair k (toQuery v)
 
-toQueryMap :: (ToQuery k, ToQuery v)
-           => ByteString
-           -> ByteString
-           -> ByteString
-           -> HashMap k v
-           -> QueryString
-toQueryMap e k v = Pair e . toQuery . map f . Map.toList
+toQueryList :: (IsList a, ToQuery (Item a))
+            => ByteString
+            -> a
+            -> QueryString
+toQueryList k = QPair k . QList . zipWith f [1..] . toList
   where
-    f (x, y) = List [k =: toQuery x, v =: toQuery y]
+    f :: ToQuery a => Int -> a -> QueryString
+    f n v = toBS n =: toQuery v
 
 class ToQuery a where
     toQuery :: a -> QueryString
@@ -126,14 +126,14 @@ instance ToQuery QueryString where
     toQuery = id
 
 instance (ToByteString k, ToQuery v) => ToQuery (k, v) where
-    toQuery (k, v) = Pair (toBS k) (toQuery v)
+    toQuery (k, v) = QPair (toBS k) (toQuery v)
 
 instance ToQuery Char where
     toQuery = toQuery . BS.singleton
 
 instance ToQuery ByteString where
-    toQuery "" = Value Nothing
-    toQuery bs = Value (Just bs)
+    toQuery "" = QValue Nothing
+    toQuery bs = QValue (Just bs)
 
 instance ToQuery Text    where toQuery = toQuery . Text.encodeUtf8
 instance ToQuery Int     where toQuery = toQuery . toBS
@@ -144,14 +144,6 @@ instance ToQuery Natural where toQuery = toQuery . toBS
 instance ToQuery a => ToQuery (Maybe a) where
     toQuery (Just x) = toQuery x
     toQuery Nothing  = mempty
-
-instance ToQuery a => ToQuery [a] where
-    toQuery = List . zipWith (\n v -> toBS n =: toQuery v) idx
-      where
-        idx = [1..] :: [Integer]
-
-instance ToQuery a => ToQuery (NonEmpty a) where
-    toQuery = toQuery . NonEmpty.toList
 
 instance ToQuery Bool where
     toQuery True  = toQuery ("true"  :: ByteString)

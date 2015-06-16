@@ -1,7 +1,7 @@
-{-# LANGUAGE RoleAnnotations            #-}
 {-# LANGUAGE DeriveFoldable             #-}
 {-# LANGUAGE DeriveTraversable          #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE RoleAnnotations            #-}
 {-# LANGUAGE TypeFamilies               #-}
 
 -- Module      : Network.AWS.Data.Map
@@ -21,25 +21,25 @@ module Network.AWS.Data.Map
     , toQueryMap
     ) where
 
-import Data.Maybe
-import Data.ByteString (ByteString)
-import Data.Bifunctor
-import           Data.HashMap.Strict (HashMap)
-import qualified           Data.HashMap.Strict as Map
-import Data.Semigroup
-import           Control.Lens         (Iso', iso)
+import           Control.Lens           (Iso', iso)
 import           Control.Monad
 import           Data.Aeson
-import Network.AWS.Data.Query
-import Network.AWS.Data.Text
+import           Data.Bifunctor
+import           Data.ByteString        (ByteString)
 import           Data.Coerce
-import           Data.List.NonEmpty   (NonEmpty (..))
-import qualified Data.List.NonEmpty   as NonEmpty
-import           Data.Text            (Text)
+import           Data.Hashable
+import           Data.HashMap.Strict    (HashMap)
+import qualified Data.HashMap.Strict    as Map
+import           Data.List.NonEmpty     (NonEmpty (..))
+import qualified Data.List.NonEmpty     as NonEmpty
+import           Data.Maybe
+import           Data.Semigroup
+import           Data.Text              (Text)
 import           GHC.Exts
+import           Network.AWS.Data.Query
+import           Network.AWS.Data.Text
 import           Network.AWS.Data.XML
-import           Text.XML             (Node)
-import Data.Hashable
+import           Text.XML               (Node)
 
 newtype Map k v = Map { toMap :: HashMap k v }
     deriving
@@ -64,18 +64,15 @@ instance (Hashable k, Eq k) => IsList (Map k v) where
    fromList = Map . Map.fromList
    toList   = Map.toList . toMap
 
--- instance (Eq k, Hashable k, FromText k, FromJSON v) => FromJSON (Map k v) where
---     parseJSON = withObject "HashMap" $
---           fmap (Map . Map.fromList)
---         . traverse g
---         . Map.toList
---       where
---         g (k, v) = (,)
---             <$> either fail return (fromText k)
---             <*> parseJSON v
+instance (Eq k, Hashable k, FromText k, FromJSON v) => FromJSON (Map k v) where
+    parseJSON = withObject "HashMap" (fmap fromList . traverse f . toList)
+      where
+        f (k, v) = (,)
+            <$> either fail return (fromText k)
+            <*> parseJSON v
 
 instance (Eq k, Hashable k, ToText k, ToJSON v) => ToJSON (Map k v) where
-    toJSON = Object . Map.fromList . map (bimap toText toJSON) . toList
+    toJSON = Object . fromList . map (bimap toText toJSON) . toList
 
 parseXMLMap :: (Eq k, Hashable k, FromText k, FromXML v)
             => Text

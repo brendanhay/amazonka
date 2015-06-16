@@ -459,9 +459,5 @@ instance IsStreaming TType where
 setRequired :: ([Id] -> [Id]) -> ShapeF a -> ShapeF a
 setRequired f = _Struct . required' %~ nub . f
 
-getRequired :: StructF (Shape a) -> [Id]
-getRequired s = nub $ _required' s <> concatMap f (Map.toList (s ^. members))
-  where
-    f (n, r)
-        | streaming r = [n]
-        | otherwise   = []
+getRequired :: Fold (StructF a) Id
+getRequired = required' . each

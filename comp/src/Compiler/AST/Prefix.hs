@@ -102,22 +102,30 @@ heuristics :: Text -> [CI Text]
 heuristics (camelAcronym -> n) = map CI.mk (rules ++ ordinals)
   where
     -- Append an ordinal to the generated acronyms.
-    ordinals = concatMap (\i -> map (\x -> mappend x (num i)) rules) [1..3]
+    ordinals = concatMap (\n -> map (<> n) rs) (map num [1..3])
+      where
+        rs = catMaybes [r1, r2, r3]
 
     -- Acronym preference list.
     rules = catMaybes [r1, r2, r3, r4, r5]
 
     -- SomeTestTType -> STT
     r1 = toAcronym n
+
     -- SomeTestTType -> S
-    r3 = Text.toUpper <$> safeHead n
-    -- SomeTestTType -> Som
     r2 | Text.length n <= 3 = Just n
        | otherwise          = Just (Text.take 3 n)
-    -- Some -> Some || SomeTestTType -> Some
-    r4 = upperHead <$> listToMaybe (splitWords n)
+
+    -- SomeTestTType -> Som
+    r3 = Text.toUpper <$> safeHead n
+
     -- VpcPeeringInfo -> VPCPI
-    r5 = toAcronym (upperAcronym n)
+    r4 = toAcronym (upperAcronym n)
+
+    r5 = Text.take 4 <$> r6
+
+    -- Some -> Some || SomeTestTType -> Some
+    r6 = listToMaybe (splitWords n)
 
     num :: Int -> Text
     num = Text.pack . show

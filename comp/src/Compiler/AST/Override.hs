@@ -30,6 +30,7 @@ import           Data.Bifunctor
 import qualified Data.HashMap.Strict    as Map
 import qualified Data.HashSet           as Set
 import           Data.Monoid
+import           Debug.Trace
 
 data Env = Env
     { _renamed  :: Map Id Id
@@ -79,23 +80,17 @@ overrideShape :: Map Id Override
               -> Id
               -> Shape Related
               -> MemoS (Id, Shape Related)
-overrideShape ovs n c@(_ :< s) = doCache
+overrideShape ovs n c@(_ :< s) = go -- env memo n >>= maybe go (return . (n,))
   where
-    doCache = env memo n >>=
-        maybe doRename
-              (return . (n,))
-
-    doRename = do
-         m <- env renamed n
-         case m of
-             Nothing         -> doReplace
-             Just x
-                 | x == n    -> doReplace
-                 | otherwise -> overrideShape ovs x c
-
-    doReplace = env replaced n >>=
-        maybe ((n,) <$> shape)
-              (fmap (n,) . pointer)
+    go = do
+        rp <- env replaced n
+        rn <- env renamed n
+        case (rp, rn) of
+            (Nothing, Nothing) -> (n,) <$> shape
+            (Just x,  _)       -> (n,) <$> pointer x
+            (_,       Just x)
+                | x == n       -> (n,) <$> shape
+                | otherwise    -> overrideShape ovs x c
 
     Override{..} = fromMaybe defaultOverride (Map.lookup n ovs)
 
@@ -116,7 +111,7 @@ overrideShape ovs n c@(_ :< s) = doCache
         overrideShape ovs (r ^. refShape) (r ^. refAnn)
 
     rules :: ShapeF a -> MemoS (ShapeF a)
-    rules = rename . prefix . require . optional >=> retype
+    rules = rename . fields . prefix . require . optional >=> retype
 
     require, optional :: ShapeF a -> ShapeF a
     require  = setRequired (<> _requiredFields)
@@ -127,6 +122,11 @@ overrideShape ovs n c@(_ :< s) = doCache
         case _enumPrefix of
             Nothing -> id
             Just  p -> _Enum . _2 . kvTraversal %~ first (prependId p)
+
+    fields :: ShapeF a -> ShapeF a
+    fields = _Struct . members . kvTraversal %~ first f
+      where
+        f k = maybe k (trace (show k) . replaceId k) (Map.lookup k _renamedFields)
 
     rename :: ShapeF a -> MemoS (ShapeF a)
     rename x = do

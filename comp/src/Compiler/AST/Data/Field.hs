@@ -4,6 +4,7 @@
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TemplateHaskell   #-}
 {-# LANGUAGE TypeOperators     #-}
+{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Compiler.AST.Data.Field
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,10 +37,11 @@ import           Language.Haskell.Exts.Syntax (Name (..))
 -- | Convenience type to package up some information from the struct with the
 -- related field, namely the memberId and the (Set.member required).
 data Field = Field
-    { _fieldOrdinal   :: !Int
+    { _fieldMeta      :: Metadata Identity
+    , _fieldOrdinal   :: !Int
     , _fieldId        :: Id    -- ^ The memberId from the struct members map.
     , _fieldRef       :: Ref   -- ^ The original struct member reference.
-    , _fieldRequired  :: !Bool -- ^ Does the struct have this member in the required set.
+    , _fieldRequired' :: !Bool -- ^ Does the struct have this member in the required set.
     , _fieldPayload   :: !Bool -- ^ Does the struct have this memeber marked as the payload.
     , _fieldPrefix    :: Maybe Text
     , _fieldNamespace :: Maybe Text
@@ -52,27 +54,46 @@ instance IsStreaming Field where
     streaming = streaming . _fieldRef
 
 instance TypeOf Field where
-    typeOf f = req (f ^. fieldRequired) (typeOf (f ^. fieldRef))
+    typeOf f
+        | streaming r         = t
+        | typ, loc            = t
+        | f ^. fieldRequired' = t
+        | otherwise           = TMaybe t
       where
-        req :: Bool -> TType -> TType
-        req True  t = t
-        req False t = TMaybe t
+        t = typeOf r
+        r = f ^. fieldRef
+
+        typ = case t of
+            TMap  {} -> True
+            TList {} -> True
+            _        -> False
+
+        loc = (f ^. fieldLocation) `elem` map Just
+            [ Headers
+            , Header
+            ]
+
+-- FIXME: special Lens construction for Maybe Monoid types?
+
+-- FIXME: ensure serialisation of empty lists and maps for xml/query
+-- serialise an actual empty element .. since everything should now
+-- correctly be a maybe or not.
 
 instance HasInfo Field where
     info = fieldAnn . info
 
 -- FIXME: Can just add the metadata to field as well since
 -- the protocol/timestamp are passed in everywhere in the .Syntax module.
-mkFields :: HasMetadata a f
+mkFields :: HasMetadata a Identity
          => a
          -> Solved
          -> StructF (Shape Solved)
          -> [Field]
-mkFields m s st = sortFields rs $
+mkFields (view metadata -> m) s st = sortFields rs $
     zipWith mk [1..] $ Map.toList (st ^. members)
   where
     mk :: Int -> (Id, Ref) -> Field
-    mk i (k, v) = Field i k v req pay p ns d
+    mk i (k, v) = Field m i k v req pay p ns d
       where
         req = k `elem` rs
         pay = Just k == st ^. payload
@@ -80,9 +101,9 @@ mkFields m s st = sortFields rs $
         ns  = (view xmlUri <$> v ^. refXMLNamespace)
           <|> (m ^. xmlNamespace)
 
-    rs = getRequired st
+    rs = st ^.. getRequired
+    p  = s  ^. annPrefix
 
-    p = s ^. annPrefix
     d = case s ^. relMode of
         Uni x -> Just x
         Bi    -> Nothing
@@ -103,7 +124,7 @@ fieldLens     = to (\f -> f ^. fieldId . lensId     (f ^. fieldPrefix))
 fieldAccessor = to (\f -> f ^. fieldId . accessorId (f ^. fieldPrefix))
 
 fieldIsParam :: Field -> Bool
-fieldIsParam f = f ^. fieldRequired && not (f ^. fieldMonoid)
+fieldIsParam f = not (f ^. fieldMaybe) && not (f ^. fieldMonoid)
 
 fieldParamName :: Field -> Name
 fieldParamName = Ident
@@ -119,6 +140,13 @@ fieldHelp = fieldRef
 
 fieldLocation :: Getter Field (Maybe Location)
 fieldLocation = fieldRef . refLocation
+
+fieldMaybe :: Getter Field Bool
+fieldMaybe = to f
+  where
+    f x = case typeOf x of
+        TMaybe {} -> True
+        _         -> False
 
 fieldMonoid :: Getter Field Bool
 fieldMonoid = fieldAnn . to (elem DMonoid . derivingOf)

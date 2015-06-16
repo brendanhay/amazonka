@@ -66,7 +66,7 @@ fieldUpdate :: Field -> FieldUpdate
 fieldUpdate f = FieldUpdate (f ^. fieldAccessor . to unqual) set'
   where
     set' :: Exp
-    set' | not (f ^. fieldRequired) = var "Nothing"
+    set' | f ^. fieldMaybe          = var "Nothing"
          | f ^. fieldMonoid         = var "mempty"
          | Just v <- iso (typeOf f) = infixApp v "#" p
          | otherwise                = p
@@ -140,7 +140,7 @@ responseE p h r fs = app (responseF p h r fs) bdy
     parseField x = case x ^. fieldLocation of
         Just Headers        -> parseHeadersE p x
         Just Header         -> parseHeadersE p x
-        Just StatusCode     -> app (var "pure") (var "s")
+        Just StatusCode     -> parseStatusE    x
         Just Body    | body -> app (var "pure") (var "x")
         Nothing      | body -> app (var "pure") (var "x")
         _                   -> parseProto x
@@ -289,38 +289,52 @@ pXList  = var "parseXMLList"
 pXList1 = var "parseXMLList1"
 pHMap   = var "parseHeadersMap"
 
-toX, toXList, toJ, toQ, toH :: QOp
-toX     = "@="
-toXList = "@@="
-toJ     = ".="
-toQ     = "=:"
-toH     = "=#"
+toX, toJ, toQ, toH :: QOp
+toX = "@="
+toJ = ".="
+toQ = "=:"
+toH = "=#"
+
+toQList, toXList ::  Exp
+toQList = var "toQueryList"
+toXList = var "toXMLList"
 
 toXMap, toQMap :: Exp
 toXMap  = var "toXMLMap"
 toQMap  = var "toQueryMap"
 
 parseXMLE :: Protocol -> Field -> Exp
-parseXMLE p f = case outputNames p f of
-    NMap  mn e k v             -> unflatE mn pXMap   [str e, str k, str v]
-    NList mn i
-        | f ^. fieldMonoid     -> unflatE mn pXList  [str i]
-        | otherwise            -> unflatE mn pXList1 [str i]
-    NName n
-        | f ^. fieldRequired   -> decodeE x pX    n
-        | otherwise            -> decodeE x pXMay n
+parseXMLE p f = parse
   where
-    unflatE Nothing  g xs = appFun g (xs ++ [x])
-    unflatE (Just n) g xs = paren $
-        infixApp (defaultMonoidE x n pXMay pXDef) ">>=" (appFun g xs)
+    parse = case outputNames p f of
+        NMap  mn e k v             -> unflatE mn pXMap   [str e, str k, str v]
+        NList mn i
+            | f ^. fieldMonoid     -> unflatE mn pXList  [str i]
+            | otherwise            -> unflatE mn pXList1 [str i]
+        NName n
+            | req                  -> decodeE x pX    n
+            | otherwise            -> decodeE x pXMay n
 
-    x = var "x"
+    unflatE Nothing  g xs
+        | req       = appFun g (xs ++ [x])
+        | otherwise = app (may (appFun g xs)) x
+
+    unflatE (Just n) g xs =
+        infixApp (defaultMonoidE x n pXMay pXDef) ">>=" $
+            if req
+                then appFun g xs
+                else may (appFun g xs)
+
+    may = app (var "may")
+    x   = var "x"
+
+    req = not (f ^. fieldMaybe)
 
 parseJSONE :: Protocol -> QOp -> QOp -> QOp -> Field -> Exp
 parseJSONE p d dm dd f
-    | f ^. fieldMonoid   = defaultMonoidE x n dm dd
-    | f ^. fieldRequired = decodeE x d  n
-    | otherwise          = decodeE x dm n
+    | f ^. fieldMonoid = defaultMonoidE x n dm dd
+    | f ^. fieldMaybe  = decodeE x dm n
+    | otherwise        = decodeE x d  n
   where
     n = memberName p Output f
     x = var "x"
@@ -328,19 +342,19 @@ parseJSONE p d dm dd f
 parseHeadersE :: Protocol -> Field -> Exp
 parseHeadersE p f
     | TMap {} <- typeOf f = appFun pHMap [str n, h]
-    | f ^. fieldRequired  = decodeE h pH    n
-    | otherwise           = decodeE h pHMay n
+    | f ^. fieldMaybe     = decodeE h pHMay n
+    | otherwise           = decodeE h pH    n
   where
     n = memberName p Output f
     h = var "h"
 
+parseStatusE :: Field -> Exp
+parseStatusE f
+    | f ^. fieldMaybe = app (var "pure") (app (var "Just") (var "s"))
+    | otherwise       = app (var "pure") (var "s")
+
 toXMLE :: Protocol -> Field -> Exp
-toXMLE p f = case inputNames p f of
-    NMap  mn e k v -> flatE mn  toX $ appFun toXMap [str e, str k, str v, a]
-    NList mn i     -> flatE mn  toX $ encodeE i toXList a
-    NName n        -> encodeE n toX a
-  where
-    a = var (f ^. fieldAccessor)
+toXMLE p = toGenericE p toX "toXML" toXMap toXList
 
 toElementE :: Protocol -> Maybe Text -> Either Text Field -> Exp
 toElementE p ns = either (`root` []) element
@@ -370,12 +384,7 @@ toQueryE p = either pair field
     pair (k, Nothing) = str k
     pair (k, Just v)  = encodeE k toQ $ impliesE v (var "ByteString")
 
-    field f = case inputNames p f of
-        NMap  mn e k v -> flatE mn  toQ $ appFun toQMap [str e, str k, str v, a]
-        NList mn i     -> flatE mn  toQ $ encodeE i toQ a
-        NName n        -> encodeE n toQ a
-      where
-        a = var (f ^. fieldAccessor)
+    field = toGenericE p toQ "toQuery" toQMap toQList
 
 toPathE :: Either Text Field -> Exp
 toPathE = either str (app (var "toText") . var . view fieldAccessor)
@@ -383,8 +392,21 @@ toPathE = either str (app (var "toText") . var . view fieldAccessor)
 toBodyE :: Field -> Exp
 toBodyE f = var (f ^. fieldAccessor)
 
+toGenericE p toO toF toM toL f = case inputNames p f of
+    NMap  mn e k v
+        | f ^. fieldMaybe -> flatE mn toO . app (var toF) $ appFun toM [str e, str k, str v, var "<$>", a]
+        | otherwise       -> flatE mn toO $ appFun toM [str e, str k, str v, a]
+
+    NList mn i
+        | f ^. fieldMaybe -> flatE mn toO . app (var toF) $ appFun toL [str i, var "<$>", a]
+        | otherwise       -> flatE mn toO $ appFun toL [str i, a]
+
+    NName n               -> encodeE n toO a
+  where
+    a = var (f ^. fieldAccessor)
+
 ctorE :: Id -> [Exp] -> Exp
-ctorE n = seqE (n ^. ctorId . to var)
+ctorE n = seqE (n ^. ctorId . to var) . map paren
 
 mconcatE :: [Exp] -> Exp
 mconcatE = app (var "mconcat") . listE
@@ -437,15 +459,13 @@ requestF h is = var v
 -- FIXME: take method into account for responses, such as HEAD etc, particuarly
 -- when the body might be totally empty.
 responseF :: Protocol -> HTTP Identity -> RefF a -> [Field] -> Exp
-responseF p h r fs = wrapper ("receive" <> fun)
+responseF p h r fs
+    | null fs                   = var "receiveNull"
+    | any (view fieldStream) fs = var "receiveBody"
+    | Just x <- r ^. refResultWrapper = app (var (suf <> "Wrapper")) (str x)
+    | otherwise                       = var suf
   where
-    fun | null fs                   = "Null"
-        | any (view fieldStream) fs = "Body"
-        | otherwise                 = Proto.suffix p
-
-    wrapper v
-        | Just x <- r ^. refResultWrapper = app (var (v <> "Wrapper")) (str x)
-        | otherwise                       = var v
+    suf = "receive" <> Proto.suffix p
 
 signature :: Timestamp -> TType -> Type
 signature ts = directed False ts Nothing
@@ -461,10 +481,10 @@ directed i ts d (typeOf -> t) = case t of
     TNatural          -> tycon nat
     TStream           -> tycon stream
     TSensitive x      -> sensitive (go x)
-    TMaybe     x      -> TyApp  (tycon "Maybe") (go x)
+    TMaybe     x      -> may x
     TList      x      -> TyList (go x)
     TList1     x      -> list1  (go x)
-    TMap       k v    -> TyApp  (TyApp (tycon "HashMap") (go k)) (go v)
+    TMap       k v    -> TyApp  (TyApp (tycon "Map") (go k)) (go v)
   where
     go = directed i ts d
 
@@ -474,6 +494,10 @@ directed i ts d (typeOf -> t) = case t of
     sensitive
         | i         = TyApp (tycon "Sensitive")
         | otherwise = id
+
+    may x@(TMap  {}) | not i = go x
+    may x@(TList {}) | not i = go x
+    may x                    = TyApp (tycon "Maybe") (go x)
 
     list1
         | i         = TyApp (tycon "List1")
@@ -488,9 +512,11 @@ mapping :: TType -> Exp -> Exp
 mapping t e = infixE e "." (go t)
   where
     go = \case
-        TSensitive x -> var "_Sensitive" : go x
-        TMaybe     x -> nest (go x)
-        x            -> maybeToList (iso x)
+        TSensitive x            -> var "_Sensitive" : go x
+        TMaybe     x@(TMap  {}) -> var "_Default"   : go x
+        TMaybe     x@(TList {}) -> var "_Default"   : go x
+        TMaybe     x            -> nest (go x)
+        x                       -> maybeToList (iso x)
 
     nest (x:xs) = app (var "mapping") x : xs
     nest []     = []
@@ -502,7 +528,7 @@ iso = \case
     TSensitive   {}  -> Just (var "_Sensitive")
     TList1       {}  -> Just (var "_List1")
     TList  (TMap {}) -> Just (var "_Coerce")
-    TMap         {}  -> Just (var "_Coerce")
+    TMap         {}  -> Just (var "_Map")
     _                -> Nothing
 
 literal :: Bool -> Timestamp -> Lit -> Type

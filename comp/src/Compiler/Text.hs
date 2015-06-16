@@ -95,8 +95,8 @@ renameReserved x
         , "tail"
         , "delete"
         , "filter"
-        , "true"
-        , "false"
+        , "True"
+        , "False"
         , "map"
         , "object"
         , "get"
@@ -180,6 +180,7 @@ upperAcronym x = Fold.foldl' (flip (uncurry RE.replaceAll)) x xs
          , ("Xml",           "XML")
          , ("Xlarge",        "XLarge")
          , ("xlarge",        "XLarge")
+         , ("Hapg",          "HAPG")
          ]
 
 camelAcronym :: Text -> Text
@@ -262,4 +263,5 @@ acronyms =
     , ("VPN",      "Vpn")
     , ("XML",      "Xml")
     , ("XLarge",   "Xlarge")
+    , ("HAPG",     "Hapg")
     ]

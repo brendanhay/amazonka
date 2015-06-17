@@ -86,12 +86,6 @@ instance ToHeader ByteString where
 instance ToText a => ToHeader (Maybe a) where
     toHeader k = maybe [] (toHeader k . toText)
 
-instance (ToByteString k, ToText v) => ToHeader (HashMap k v) where
-    toHeader p = map (bimap k v) . Map.toList
-      where
-        k = mappend p . CI.mk . toBS
-        v = Text.encodeUtf8 . toText
-
 hHost :: HeaderName
 hHost = "Host"
 

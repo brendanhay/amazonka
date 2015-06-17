@@ -474,6 +474,8 @@ internal, external :: Timestamp -> Field -> Type
 internal ts f = directed True  ts (f ^. fieldDirection) f
 external ts f = directed False ts (f ^. fieldDirection) f
 
+-- split again into internal/external
+
 directed :: TypeOf a => Bool -> Timestamp -> Maybe Direction -> a -> Type
 directed i ts d (typeOf -> t) = case t of
     TType      x _    -> tycon x
@@ -484,7 +486,7 @@ directed i ts d (typeOf -> t) = case t of
     TMaybe     x      -> may x
     TList      x      -> TyList (go x)
     TList1     x      -> list1  (go x)
-    TMap       k v    -> TyApp  (TyApp (tycon "Map") (go k)) (go v)
+    TMap       k v    -> hmap k v
   where
     go = directed i ts d
 
@@ -502,6 +504,10 @@ directed i ts d (typeOf -> t) = case t of
     list1
         | i         = TyApp (tycon "List1")
         | otherwise = TyApp (tycon "NonEmpty")
+
+    hmap k v
+        | i         = TyApp (TyApp (tycon "Map") (go k)) (go v)
+        | otherwise = TyApp (TyApp (tycon "HashMap") (go k)) (go v)
 
     stream = case d of
         Nothing     -> "Stream"

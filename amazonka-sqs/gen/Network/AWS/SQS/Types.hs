@@ -300,7 +300,7 @@ message = Message'{_mesMessageAttributes = Nothing, _mesMD5OfBody = Nothing, _me
 -- | Each message attribute consists of a Name, Type, and Value. For more
 -- information, see
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV Message Attribute Items>.
-mesMessageAttributes :: Lens' Message (Map Text MessageAttributeValue)
+mesMessageAttributes :: Lens' Message (HashMap Text MessageAttributeValue)
 mesMessageAttributes = lens _mesMessageAttributes (\ s a -> s{_mesMessageAttributes = a}) . _Default . _Map;
 
 -- | An MD5 digest of the non-URL-encoded message body string.
@@ -316,7 +316,7 @@ mesBody = lens _mesBody (\ s a -> s{_mesBody = a});
 -- @ApproximateFirstReceiveTimestamp@ are each returned as an integer
 -- representing the <http://en.wikipedia.org/wiki/Unix_time epoch time> in
 -- milliseconds.
-mesAttributes :: Lens' Message (Map QueueAttributeName Text)
+mesAttributes :: Lens' Message (HashMap QueueAttributeName Text)
 mesAttributes = lens _mesAttributes (\ s a -> s{_mesAttributes = a}) . _Default . _Map;
 
 -- | A unique identifier for the message. Message IDs are considered unique
@@ -484,7 +484,7 @@ sendMessageBatchRequestEntry pId pMessageBody = SendMessageBatchRequestEntry'{_s
 -- | Each message attribute consists of a Name, Type, and Value. For more
 -- information, see
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV Message Attribute Items>.
-senMessageAttributes :: Lens' SendMessageBatchRequestEntry (Map Text MessageAttributeValue)
+senMessageAttributes :: Lens' SendMessageBatchRequestEntry (HashMap Text MessageAttributeValue)
 senMessageAttributes = lens _senMessageAttributes (\ s a -> s{_senMessageAttributes = a}) . _Default . _Map;
 
 -- | The number of seconds for which the message has to be delayed.

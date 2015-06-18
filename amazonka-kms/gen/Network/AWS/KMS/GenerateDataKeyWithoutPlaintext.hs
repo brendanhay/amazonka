@@ -74,7 +74,7 @@ gdkwpKeySpec = lens _gdkwpKeySpec (\ s a -> s{_gdkwpKeySpec = a});
 
 -- | Name:value pair that contains additional data to be authenticated during
 -- the encryption and decryption processes.
-gdkwpEncryptionContext :: Lens' GenerateDataKeyWithoutPlaintext (Map Text Text)
+gdkwpEncryptionContext :: Lens' GenerateDataKeyWithoutPlaintext (HashMap Text Text)
 gdkwpEncryptionContext = lens _gdkwpEncryptionContext (\ s a -> s{_gdkwpEncryptionContext = a}) . _Default . _Map;
 
 -- | Integer that contains the number of bytes to generate. Common values are

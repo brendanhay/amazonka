@@ -64,7 +64,7 @@ uiIdentityId = lens _uiIdentityId (\ s a -> s{_uiIdentityId = a});
 
 -- | A set of optional name-value pairs that map provider names to provider
 -- tokens.
-uiLogins :: Lens' UnlinkIdentity (Map Text Text)
+uiLogins :: Lens' UnlinkIdentity (HashMap Text Text)
 uiLogins = lens _uiLogins (\ s a -> s{_uiLogins = a}) . _Map;
 
 -- | Provider names to unlink from this identity.

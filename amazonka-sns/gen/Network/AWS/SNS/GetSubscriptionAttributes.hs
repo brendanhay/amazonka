@@ -104,5 +104,5 @@ getSubscriptionAttributesResponse = GetSubscriptionAttributesResponse'{_gsarAttr
 -- -   @EffectiveDeliveryPolicy@ -- the JSON serialization of the effective
 --     delivery policy that takes into account the topic delivery policy
 --     and account system defaults
-gsarAttributes :: Lens' GetSubscriptionAttributesResponse (Map Text Text)
+gsarAttributes :: Lens' GetSubscriptionAttributesResponse (HashMap Text Text)
 gsarAttributes = lens _gsarAttributes (\ s a -> s{_gsarAttributes = a}) . _Default . _Map;

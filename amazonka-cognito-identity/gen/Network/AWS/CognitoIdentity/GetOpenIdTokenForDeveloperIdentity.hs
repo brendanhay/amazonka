@@ -106,7 +106,7 @@ goitfdiIdentityPoolId = lens _goitfdiIdentityPoolId (\ s a -> s{_goitfdiIdentity
 -- pool. The developer user identifier is an identifier from your backend
 -- that uniquely identifies a user. When you create an identity pool, you
 -- can specify the supported logins.
-goitfdiLogins :: Lens' GetOpenIdTokenForDeveloperIdentity (Map Text Text)
+goitfdiLogins :: Lens' GetOpenIdTokenForDeveloperIdentity (HashMap Text Text)
 goitfdiLogins = lens _goitfdiLogins (\ s a -> s{_goitfdiLogins = a}) . _Map;
 
 instance AWSRequest

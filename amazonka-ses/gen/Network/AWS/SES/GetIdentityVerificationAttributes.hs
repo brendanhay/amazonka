@@ -102,5 +102,5 @@ getIdentityVerificationAttributesResponse :: GetIdentityVerificationAttributesRe
 getIdentityVerificationAttributesResponse = GetIdentityVerificationAttributesResponse'{_givarVerificationAttributes = mempty};
 
 -- | A map of Identities to IdentityVerificationAttributes objects.
-givarVerificationAttributes :: Lens' GetIdentityVerificationAttributesResponse (Map Text IdentityVerificationAttributes)
+givarVerificationAttributes :: Lens' GetIdentityVerificationAttributesResponse (HashMap Text IdentityVerificationAttributes)
 givarVerificationAttributes = lens _givarVerificationAttributes (\ s a -> s{_givarVerificationAttributes = a}) . _Map;

@@ -135,17 +135,17 @@ module Network.AWS.ElasticTranscoder.Types
     -- * Job'
     , Job'
     , job'
-    , jobStatus
-    , jobPipelineId
-    , jobARN
-    , jobInput
-    , jobOutputs
-    , jobUserMetadata
-    , jobOutput
-    , jobId
-    , jobPlaylists
-    , jobTiming
-    , jobOutputKeyPrefix
+    , jStatus
+    , jPipelineId
+    , jARN
+    , jInput
+    , jOutputs
+    , jUserMetadata
+    , jOutput
+    , jId
+    , jPlaylists
+    , jTiming
+    , jOutputKeyPrefix
 
     -- * JobAlbumArt
     , JobAlbumArt
@@ -1568,54 +1568,54 @@ instance ToJSON HlsContentProtection where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'jobStatus'
+-- * 'jStatus'
 --
--- * 'jobPipelineId'
+-- * 'jPipelineId'
 --
--- * 'jobARN'
+-- * 'jARN'
 --
--- * 'jobInput'
+-- * 'jInput'
 --
--- * 'jobOutputs'
+-- * 'jOutputs'
 --
--- * 'jobUserMetadata'
+-- * 'jUserMetadata'
 --
--- * 'jobOutput'
+-- * 'jOutput'
 --
--- * 'jobId'
+-- * 'jId'
 --
--- * 'jobPlaylists'
+-- * 'jPlaylists'
 --
--- * 'jobTiming'
+-- * 'jTiming'
 --
--- * 'jobOutputKeyPrefix'
-data Job' = Job''{_jobStatus :: Maybe Text, _jobPipelineId :: Maybe Text, _jobARN :: Maybe Text, _jobInput :: Maybe JobInput, _jobOutputs :: Maybe [JobOutput], _jobUserMetadata :: Maybe (Map Text Text), _jobOutput :: Maybe JobOutput, _jobId :: Maybe Text, _jobPlaylists :: Maybe [Playlist], _jobTiming :: Maybe Timing, _jobOutputKeyPrefix :: Maybe Text} deriving (Eq, Read, Show)
+-- * 'jOutputKeyPrefix'
+data Job' = Job''{_jStatus :: Maybe Text, _jPipelineId :: Maybe Text, _jARN :: Maybe Text, _jInput :: Maybe JobInput, _jOutputs :: Maybe [JobOutput], _jUserMetadata :: Maybe (Map Text Text), _jOutput :: Maybe JobOutput, _jId :: Maybe Text, _jPlaylists :: Maybe [Playlist], _jTiming :: Maybe Timing, _jOutputKeyPrefix :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'Job'' smart constructor.
 job' :: Job'
-job' = Job''{_jobStatus = Nothing, _jobPipelineId = Nothing, _jobARN = Nothing, _jobInput = Nothing, _jobOutputs = Nothing, _jobUserMetadata = Nothing, _jobOutput = Nothing, _jobId = Nothing, _jobPlaylists = Nothing, _jobTiming = Nothing, _jobOutputKeyPrefix = Nothing};
+job' = Job''{_jStatus = Nothing, _jPipelineId = Nothing, _jARN = Nothing, _jInput = Nothing, _jOutputs = Nothing, _jUserMetadata = Nothing, _jOutput = Nothing, _jId = Nothing, _jPlaylists = Nothing, _jTiming = Nothing, _jOutputKeyPrefix = Nothing};
 
 -- | The status of the job: @Submitted@, @Progressing@, @Complete@,
 -- @Canceled@, or @Error@.
-jobStatus :: Lens' Job' (Maybe Text)
-jobStatus = lens _jobStatus (\ s a -> s{_jobStatus = a});
+jStatus :: Lens' Job' (Maybe Text)
+jStatus = lens _jStatus (\ s a -> s{_jStatus = a});
 
 -- | The @Id@ of the pipeline that you want Elastic Transcoder to use for
 -- transcoding. The pipeline determines several settings, including the
 -- Amazon S3 bucket from which Elastic Transcoder gets the files to
 -- transcode and the bucket into which Elastic Transcoder puts the
 -- transcoded files.
-jobPipelineId :: Lens' Job' (Maybe Text)
-jobPipelineId = lens _jobPipelineId (\ s a -> s{_jobPipelineId = a});
+jPipelineId :: Lens' Job' (Maybe Text)
+jPipelineId = lens _jPipelineId (\ s a -> s{_jPipelineId = a});
 
 -- | The Amazon Resource Name (ARN) for the job.
-jobARN :: Lens' Job' (Maybe Text)
-jobARN = lens _jobARN (\ s a -> s{_jobARN = a});
+jARN :: Lens' Job' (Maybe Text)
+jARN = lens _jARN (\ s a -> s{_jARN = a});
 
 -- | A section of the request or response body that provides information
 -- about the file that is being transcoded.
-jobInput :: Lens' Job' (Maybe JobInput)
-jobInput = lens _jobInput (\ s a -> s{_jobInput = a});
+jInput :: Lens' Job' (Maybe JobInput)
+jInput = lens _jInput (\ s a -> s{_jInput = a});
 
 -- | Information about the output files. We recommend that you use the
 -- @Outputs@ syntax for all jobs, even when you want Elastic Transcoder to
@@ -1626,8 +1626,8 @@ jobInput = lens _jobInput (\ s a -> s{_jobInput = a});
 -- If you specify more than one output for a job, Elastic Transcoder
 -- creates the files for each output in the order in which you specify them
 -- in the job.
-jobOutputs :: Lens' Job' [JobOutput]
-jobOutputs = lens _jobOutputs (\ s a -> s{_jobOutputs = a}) . _Default;
+jOutputs :: Lens' Job' [JobOutput]
+jOutputs = lens _jOutputs (\ s a -> s{_jOutputs = a}) . _Default;
 
 -- | User-defined metadata that you want to associate with an Elastic
 -- Transcoder job. You specify metadata in @key\/value@ pairs, and you can
@@ -1646,8 +1646,8 @@ jobOutputs = lens _jobOutputs (\ s a -> s{_jobOutputs = a}) . _Default;
 --
 -- -   The following symbols: @_.:\/=+-%\@@
 --
-jobUserMetadata :: Lens' Job' (Map Text Text)
-jobUserMetadata = lens _jobUserMetadata (\ s a -> s{_jobUserMetadata = a}) . _Default . _Map;
+jUserMetadata :: Lens' Job' (HashMap Text Text)
+jUserMetadata = lens _jUserMetadata (\ s a -> s{_jUserMetadata = a}) . _Default . _Map;
 
 -- | If you specified one output for a job, information about that output. If
 -- you specified multiple outputs for a job, the Output object lists
@@ -1658,13 +1658,13 @@ jobUserMetadata = lens _jobUserMetadata (\ s a -> s{_jobUserMetadata = a}) . _De
 --
 -- A section of the request or response body that provides information
 -- about the transcoded (target) file.
-jobOutput :: Lens' Job' (Maybe JobOutput)
-jobOutput = lens _jobOutput (\ s a -> s{_jobOutput = a});
+jOutput :: Lens' Job' (Maybe JobOutput)
+jOutput = lens _jOutput (\ s a -> s{_jOutput = a});
 
 -- | The identifier that Elastic Transcoder assigned to the job. You use this
 -- value to get settings for the job or to delete the job.
-jobId :: Lens' Job' (Maybe Text)
-jobId = lens _jobId (\ s a -> s{_jobId = a});
+jId :: Lens' Job' (Maybe Text)
+jId = lens _jId (\ s a -> s{_jId = a});
 
 -- | Outputs in Fragmented MP4 or MPEG-TS format only.
 --
@@ -1674,19 +1674,19 @@ jobId = lens _jobId (\ s a -> s{_jobId = a});
 -- to create.
 --
 -- The maximum number of master playlists in a job is 30.
-jobPlaylists :: Lens' Job' [Playlist]
-jobPlaylists = lens _jobPlaylists (\ s a -> s{_jobPlaylists = a}) . _Default;
+jPlaylists :: Lens' Job' [Playlist]
+jPlaylists = lens _jPlaylists (\ s a -> s{_jPlaylists = a}) . _Default;
 
 -- | Details about the timing of a job.
-jobTiming :: Lens' Job' (Maybe Timing)
-jobTiming = lens _jobTiming (\ s a -> s{_jobTiming = a});
+jTiming :: Lens' Job' (Maybe Timing)
+jTiming = lens _jTiming (\ s a -> s{_jTiming = a});
 
 -- | The value, if any, that you want Elastic Transcoder to prepend to the
 -- names of all files that this job creates, including output files,
 -- thumbnails, and playlists. We recommend that you add a \/ or some other
 -- delimiter to the end of the @OutputKeyPrefix@.
-jobOutputKeyPrefix :: Lens' Job' (Maybe Text)
-jobOutputKeyPrefix = lens _jobOutputKeyPrefix (\ s a -> s{_jobOutputKeyPrefix = a});
+jOutputKeyPrefix :: Lens' Job' (Maybe Text)
+jOutputKeyPrefix = lens _jOutputKeyPrefix (\ s a -> s{_jOutputKeyPrefix = a});
 
 instance FromJSON Job' where
         parseJSON
@@ -3781,7 +3781,7 @@ vpFixedGOP = lens _vpFixedGOP (\ s a -> s{_vpFixedGOP = a});
 --
 -- The number of times you want the output gif to loop. Valid values
 -- include @Infinite@ and integers between @0@ and @100@, inclusive.
-vpCodecOptions :: Lens' VideoParameters (Map Text Text)
+vpCodecOptions :: Lens' VideoParameters (HashMap Text Text)
 vpCodecOptions = lens _vpCodecOptions (\ s a -> s{_vpCodecOptions = a}) . _Default . _Map;
 
 instance FromJSON VideoParameters where

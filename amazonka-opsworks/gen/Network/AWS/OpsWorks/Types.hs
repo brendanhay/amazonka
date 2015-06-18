@@ -606,7 +606,7 @@ appName :: Lens' App (Maybe Text)
 appName = lens _appName (\ s a -> s{_appName = a});
 
 -- | The stack attributes.
-appAttributes :: Lens' App (Map AppAttributesKeys Text)
+appAttributes :: Lens' App (HashMap AppAttributesKeys Text)
 appAttributes = lens _appAttributes (\ s a -> s{_appAttributes = a}) . _Default . _Map;
 
 -- | The app type.
@@ -1215,7 +1215,7 @@ deploymentCommand pName = DeploymentCommand'{_dcArgs = Nothing, _dcName = pName}
 -- to the following.
 --
 -- @ { \"upgrade_os_to\":[\"Amazon Linux 2014.09\"], \"allow_reboot\":[\"true\"] } @
-dcArgs :: Lens' DeploymentCommand (Map Text [Text])
+dcArgs :: Lens' DeploymentCommand (HashMap Text [Text])
 dcArgs = lens _dcArgs (\ s a -> s{_dcArgs = a}) . _Default . _Map;
 
 -- | Specifies the operation. You can specify only one command.
@@ -2127,7 +2127,7 @@ layName = lens _layName (\ s a -> s{_layName = a});
 -- For the @HaproxyStatsPassword@, @MysqlRootPassword@, and
 -- @GangliaPassword@ attributes, AWS OpsWorks returns @*****FILTERED*****@
 -- instead of the actual value
-layAttributes :: Lens' Layer (Map LayerAttributesKeys Text)
+layAttributes :: Lens' Layer (HashMap LayerAttributesKeys Text)
 layAttributes = lens _layAttributes (\ s a -> s{_layAttributes = a}) . _Default . _Map;
 
 -- | For stacks that are running in a VPC, whether to automatically assign a
@@ -3149,7 +3149,7 @@ staDefaultOS :: Lens' Stack (Maybe Text)
 staDefaultOS = lens _staDefaultOS (\ s a -> s{_staDefaultOS = a});
 
 -- | The stack\'s attributes.
-staAttributes :: Lens' Stack (Map StackAttributesKeys Text)
+staAttributes :: Lens' Stack (HashMap StackAttributesKeys Text)
 staAttributes = lens _staAttributes (\ s a -> s{_staAttributes = a}) . _Default . _Map;
 
 -- | Whether the stack uses custom cookbooks.
@@ -3689,31 +3689,31 @@ weeklyAutoScalingSchedule :: WeeklyAutoScalingSchedule
 weeklyAutoScalingSchedule = WeeklyAutoScalingSchedule'{_wassThursday = Nothing, _wassWednesday = Nothing, _wassSaturday = Nothing, _wassMonday = Nothing, _wassFriday = Nothing, _wassSunday = Nothing, _wassTuesday = Nothing};
 
 -- | The schedule for Thursday.
-wassThursday :: Lens' WeeklyAutoScalingSchedule (Map Text Text)
+wassThursday :: Lens' WeeklyAutoScalingSchedule (HashMap Text Text)
 wassThursday = lens _wassThursday (\ s a -> s{_wassThursday = a}) . _Default . _Map;
 
 -- | The schedule for Wednesday.
-wassWednesday :: Lens' WeeklyAutoScalingSchedule (Map Text Text)
+wassWednesday :: Lens' WeeklyAutoScalingSchedule (HashMap Text Text)
 wassWednesday = lens _wassWednesday (\ s a -> s{_wassWednesday = a}) . _Default . _Map;
 
 -- | The schedule for Saturday.
-wassSaturday :: Lens' WeeklyAutoScalingSchedule (Map Text Text)
+wassSaturday :: Lens' WeeklyAutoScalingSchedule (HashMap Text Text)
 wassSaturday = lens _wassSaturday (\ s a -> s{_wassSaturday = a}) . _Default . _Map;
 
 -- | The schedule for Monday.
-wassMonday :: Lens' WeeklyAutoScalingSchedule (Map Text Text)
+wassMonday :: Lens' WeeklyAutoScalingSchedule (HashMap Text Text)
 wassMonday = lens _wassMonday (\ s a -> s{_wassMonday = a}) . _Default . _Map;
 
 -- | The schedule for Friday.
-wassFriday :: Lens' WeeklyAutoScalingSchedule (Map Text Text)
+wassFriday :: Lens' WeeklyAutoScalingSchedule (HashMap Text Text)
 wassFriday = lens _wassFriday (\ s a -> s{_wassFriday = a}) . _Default . _Map;
 
 -- | The schedule for Sunday.
-wassSunday :: Lens' WeeklyAutoScalingSchedule (Map Text Text)
+wassSunday :: Lens' WeeklyAutoScalingSchedule (HashMap Text Text)
 wassSunday = lens _wassSunday (\ s a -> s{_wassSunday = a}) . _Default . _Map;
 
 -- | The schedule for Tuesday.
-wassTuesday :: Lens' WeeklyAutoScalingSchedule (Map Text Text)
+wassTuesday :: Lens' WeeklyAutoScalingSchedule (HashMap Text Text)
 wassTuesday = lens _wassTuesday (\ s a -> s{_wassTuesday = a}) . _Default . _Map;
 
 instance FromJSON WeeklyAutoScalingSchedule where

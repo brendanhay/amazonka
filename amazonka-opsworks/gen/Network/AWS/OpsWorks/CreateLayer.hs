@@ -156,7 +156,7 @@ clPackages = lens _clPackages (\ s a -> s{_clPackages = a}) . _Default;
 
 -- | One or more user-defined key\/value pairs to be added to the stack
 -- attributes.
-clAttributes :: Lens' CreateLayer (Map LayerAttributesKeys Text)
+clAttributes :: Lens' CreateLayer (HashMap LayerAttributesKeys Text)
 clAttributes = lens _clAttributes (\ s a -> s{_clAttributes = a}) . _Default . _Map;
 
 -- | For stacks that are running in a VPC, whether to automatically assign a

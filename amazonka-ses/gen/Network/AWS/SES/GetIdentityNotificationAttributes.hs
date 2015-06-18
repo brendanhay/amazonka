@@ -104,5 +104,5 @@ getIdentityNotificationAttributesResponse :: GetIdentityNotificationAttributesRe
 getIdentityNotificationAttributesResponse = GetIdentityNotificationAttributesResponse'{_ginarNotificationAttributes = mempty};
 
 -- | A map of Identity to IdentityNotificationAttributes.
-ginarNotificationAttributes :: Lens' GetIdentityNotificationAttributesResponse (Map Text IdentityNotificationAttributes)
+ginarNotificationAttributes :: Lens' GetIdentityNotificationAttributesResponse (HashMap Text IdentityNotificationAttributes)
 ginarNotificationAttributes = lens _ginarNotificationAttributes (\ s a -> s{_ginarNotificationAttributes = a}) . _Map;

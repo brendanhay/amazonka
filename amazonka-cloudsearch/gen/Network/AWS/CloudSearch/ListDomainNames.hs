@@ -80,5 +80,5 @@ listDomainNamesResponse :: ListDomainNamesResponse
 listDomainNamesResponse = ListDomainNamesResponse'{_ldnrDomainNames = Nothing};
 
 -- | The names of the search domains owned by an account.
-ldnrDomainNames :: Lens' ListDomainNamesResponse (Map Text Text)
+ldnrDomainNames :: Lens' ListDomainNamesResponse (HashMap Text Text)
 ldnrDomainNames = lens _ldnrDomainNames (\ s a -> s{_ldnrDomainNames = a}) . _Default . _Map;

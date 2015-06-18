@@ -253,7 +253,7 @@ cloDefaultOS = lens _cloDefaultOS (\ s a -> s{_cloDefaultOS = a});
 
 -- | A list of stack attributes and values as key\/value pairs to be added to
 -- the cloned stack.
-cloAttributes :: Lens' CloneStack (Map StackAttributesKeys Text)
+cloAttributes :: Lens' CloneStack (HashMap StackAttributesKeys Text)
 cloAttributes = lens _cloAttributes (\ s a -> s{_cloAttributes = a}) . _Default . _Map;
 
 -- | Whether to use custom cookbooks.

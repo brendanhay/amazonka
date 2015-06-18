@@ -412,7 +412,7 @@ metricFilterMatchRecord :: MetricFilterMatchRecord
 metricFilterMatchRecord = MetricFilterMatchRecord'{_mfmrExtractedValues = Nothing, _mfmrEventMessage = Nothing, _mfmrEventNumber = Nothing};
 
 -- | FIXME: Undocumented member.
-mfmrExtractedValues :: Lens' MetricFilterMatchRecord (Map Text Text)
+mfmrExtractedValues :: Lens' MetricFilterMatchRecord (HashMap Text Text)
 mfmrExtractedValues = lens _mfmrExtractedValues (\ s a -> s{_mfmrExtractedValues = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.

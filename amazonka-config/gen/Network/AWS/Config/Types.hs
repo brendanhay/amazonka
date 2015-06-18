@@ -370,7 +370,7 @@ ciConfigurationItemMD5Hash :: Lens' ConfigurationItem (Maybe Text)
 ciConfigurationItemMD5Hash = lens _ciConfigurationItemMD5Hash (\ s a -> s{_ciConfigurationItemMD5Hash = a});
 
 -- | A mapping of key value tags associated with the resource.
-ciTags :: Lens' ConfigurationItem (Map Text Text)
+ciTags :: Lens' ConfigurationItem (HashMap Text Text)
 ciTags = lens _ciTags (\ s a -> s{_ciTags = a}) . _Default . _Map;
 
 instance FromJSON ConfigurationItem where

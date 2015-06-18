@@ -71,7 +71,7 @@ createIdentityPool :: Text -> Bool -> CreateIdentityPool
 createIdentityPool pIdentityPoolName pAllowUnauthenticatedIdentities = CreateIdentityPool'{_cipSupportedLoginProviders = Nothing, _cipDeveloperProviderName = Nothing, _cipOpenIdConnectProviderARNs = Nothing, _cipIdentityPoolName = pIdentityPoolName, _cipAllowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities};
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
-cipSupportedLoginProviders :: Lens' CreateIdentityPool (Map Text Text)
+cipSupportedLoginProviders :: Lens' CreateIdentityPool (HashMap Text Text)
 cipSupportedLoginProviders = lens _cipSupportedLoginProviders (\ s a -> s{_cipSupportedLoginProviders = a}) . _Default . _Map;
 
 -- | The \"domain\" by which Cognito will refer to your users. This name acts

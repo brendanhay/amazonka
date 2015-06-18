@@ -368,14 +368,14 @@ module Network.AWS.EC2.Types
     -- * IAMInstanceProfile
     , IAMInstanceProfile
     , iamInstanceProfile
-    , iipARN
-    , iipId
+    , iapARN
+    , iapId
 
     -- * IAMInstanceProfileSpecification
     , IAMInstanceProfileSpecification
     , iamInstanceProfileSpecification
-    , iipsARN
-    , iipsName
+    , iapsARN
+    , iapsName
 
     -- * ICMPTypeCode
     , ICMPTypeCode
@@ -3625,22 +3625,22 @@ instance FromXML HypervisorType where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'iipARN'
+-- * 'iapARN'
 --
--- * 'iipId'
-data IAMInstanceProfile = IAMInstanceProfile'{_iipARN :: Maybe Text, _iipId :: Maybe Text} deriving (Eq, Read, Show)
+-- * 'iapId'
+data IAMInstanceProfile = IAMInstanceProfile'{_iapARN :: Maybe Text, _iapId :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'IAMInstanceProfile' smart constructor.
 iamInstanceProfile :: IAMInstanceProfile
-iamInstanceProfile = IAMInstanceProfile'{_iipARN = Nothing, _iipId = Nothing};
+iamInstanceProfile = IAMInstanceProfile'{_iapARN = Nothing, _iapId = Nothing};
 
 -- | The Amazon Resource Name (ARN) of the instance profile.
-iipARN :: Lens' IAMInstanceProfile (Maybe Text)
-iipARN = lens _iipARN (\ s a -> s{_iipARN = a});
+iapARN :: Lens' IAMInstanceProfile (Maybe Text)
+iapARN = lens _iapARN (\ s a -> s{_iapARN = a});
 
 -- | The ID of the instance profile.
-iipId :: Lens' IAMInstanceProfile (Maybe Text)
-iipId = lens _iipId (\ s a -> s{_iipId = a});
+iapId :: Lens' IAMInstanceProfile (Maybe Text)
+iapId = lens _iapId (\ s a -> s{_iapId = a});
 
 instance FromXML IAMInstanceProfile where
         parseXML x
@@ -3651,22 +3651,22 @@ instance FromXML IAMInstanceProfile where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'iipsARN'
+-- * 'iapsARN'
 --
--- * 'iipsName'
-data IAMInstanceProfileSpecification = IAMInstanceProfileSpecification'{_iipsARN :: Maybe Text, _iipsName :: Maybe Text} deriving (Eq, Read, Show)
+-- * 'iapsName'
+data IAMInstanceProfileSpecification = IAMInstanceProfileSpecification'{_iapsARN :: Maybe Text, _iapsName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'IAMInstanceProfileSpecification' smart constructor.
 iamInstanceProfileSpecification :: IAMInstanceProfileSpecification
-iamInstanceProfileSpecification = IAMInstanceProfileSpecification'{_iipsARN = Nothing, _iipsName = Nothing};
+iamInstanceProfileSpecification = IAMInstanceProfileSpecification'{_iapsARN = Nothing, _iapsName = Nothing};
 
 -- | The Amazon Resource Name (ARN) of the instance profile.
-iipsARN :: Lens' IAMInstanceProfileSpecification (Maybe Text)
-iipsARN = lens _iipsARN (\ s a -> s{_iipsARN = a});
+iapsARN :: Lens' IAMInstanceProfileSpecification (Maybe Text)
+iapsARN = lens _iapsARN (\ s a -> s{_iapsARN = a});
 
 -- | The name of the instance profile.
-iipsName :: Lens' IAMInstanceProfileSpecification (Maybe Text)
-iipsName = lens _iipsName (\ s a -> s{_iipsName = a});
+iapsName :: Lens' IAMInstanceProfileSpecification (Maybe Text)
+iapsName = lens _iapsName (\ s a -> s{_iapsName = a});
 
 instance FromXML IAMInstanceProfileSpecification
          where
@@ -3677,7 +3677,7 @@ instance FromXML IAMInstanceProfileSpecification
 instance ToQuery IAMInstanceProfileSpecification
          where
         toQuery IAMInstanceProfileSpecification'{..}
-          = mconcat ["Arn" =: _iipsARN, "Name" =: _iipsName]
+          = mconcat ["Arn" =: _iapsARN, "Name" =: _iapsName]
 
 -- | /See:/ 'icmpTypeCode' smart constructor.
 --

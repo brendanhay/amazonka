@@ -106,7 +106,7 @@ gdkKeySpec = lens _gdkKeySpec (\ s a -> s{_gdkKeySpec = a});
 -- during the encryption and decryption processes that use the key. This
 -- value is logged by AWS CloudTrail to provide context around the data
 -- encrypted by the key.
-gdkEncryptionContext :: Lens' GenerateDataKey (Map Text Text)
+gdkEncryptionContext :: Lens' GenerateDataKey (HashMap Text Text)
 gdkEncryptionContext = lens _gdkEncryptionContext (\ s a -> s{_gdkEncryptionContext = a}) . _Default . _Map;
 
 -- | Integer that contains the number of bytes to generate. Common values are

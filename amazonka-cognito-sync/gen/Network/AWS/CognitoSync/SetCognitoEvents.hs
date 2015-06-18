@@ -59,7 +59,7 @@ sceIdentityPoolId :: Lens' SetCognitoEvents Text
 sceIdentityPoolId = lens _sceIdentityPoolId (\ s a -> s{_sceIdentityPoolId = a});
 
 -- | The events to configure
-sceEvents :: Lens' SetCognitoEvents (Map Text Text)
+sceEvents :: Lens' SetCognitoEvents (HashMap Text Text)
 sceEvents = lens _sceEvents (\ s a -> s{_sceEvents = a}) . _Map;
 
 instance AWSRequest SetCognitoEvents where

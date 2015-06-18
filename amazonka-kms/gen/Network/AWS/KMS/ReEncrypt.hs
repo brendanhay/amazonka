@@ -77,12 +77,12 @@ reEncrypt :: Base64 -> Text -> ReEncrypt
 reEncrypt pCiphertextBlob pDestinationKeyId = ReEncrypt'{_reDestinationEncryptionContext = Nothing, _reSourceEncryptionContext = Nothing, _reGrantTokens = Nothing, _reCiphertextBlob = pCiphertextBlob, _reDestinationKeyId = pDestinationKeyId};
 
 -- | Encryption context to be used when the data is re-encrypted.
-reDestinationEncryptionContext :: Lens' ReEncrypt (Map Text Text)
+reDestinationEncryptionContext :: Lens' ReEncrypt (HashMap Text Text)
 reDestinationEncryptionContext = lens _reDestinationEncryptionContext (\ s a -> s{_reDestinationEncryptionContext = a}) . _Default . _Map;
 
 -- | Encryption context used to encrypt and decrypt the data specified in the
 -- @CiphertextBlob@ parameter.
-reSourceEncryptionContext :: Lens' ReEncrypt (Map Text Text)
+reSourceEncryptionContext :: Lens' ReEncrypt (HashMap Text Text)
 reSourceEncryptionContext = lens _reSourceEncryptionContext (\ s a -> s{_reSourceEncryptionContext = a}) . _Default . _Map;
 
 -- | For more information, see

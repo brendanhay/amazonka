@@ -67,7 +67,7 @@ preMLModelId :: Lens' Predict Text
 preMLModelId = lens _preMLModelId (\ s a -> s{_preMLModelId = a});
 
 -- | FIXME: Undocumented member.
-preRecord :: Lens' Predict (Map Text Text)
+preRecord :: Lens' Predict (HashMap Text Text)
 preRecord = lens _preRecord (\ s a -> s{_preRecord = a}) . _Map;
 
 -- | FIXME: Undocumented member.

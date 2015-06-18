@@ -75,7 +75,7 @@ decrypt pCiphertextBlob = Decrypt'{_decEncryptionContext = Nothing, _decGrantTok
 -- it must be specified here or the decryption operation will fail. For
 -- more information, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html Encryption Context>.
-decEncryptionContext :: Lens' Decrypt (Map Text Text)
+decEncryptionContext :: Lens' Decrypt (HashMap Text Text)
 decEncryptionContext = lens _decEncryptionContext (\ s a -> s{_decEncryptionContext = a}) . _Default . _Map;
 
 -- | For more information, see

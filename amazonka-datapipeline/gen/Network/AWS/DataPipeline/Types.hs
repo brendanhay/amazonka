@@ -654,7 +654,7 @@ toAttemptId = lens _toAttemptId (\ s a -> s{_toAttemptId = a});
 
 -- | Connection information for the location where the task runner will
 -- publish the output of the task.
-toObjects :: Lens' TaskObject (Map Text PipelineObject)
+toObjects :: Lens' TaskObject (HashMap Text PipelineObject)
 toObjects = lens _toObjects (\ s a -> s{_toObjects = a}) . _Default . _Map;
 
 instance FromJSON TaskObject where

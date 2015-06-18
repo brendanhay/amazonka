@@ -61,7 +61,7 @@ siprIdentityPoolId = lens _siprIdentityPoolId (\ s a -> s{_siprIdentityPoolId = 
 -- | The map of roles associated with this pool. For a given role, the key
 -- will be either \"authenticated\" or \"unauthenticated\" and the value
 -- will be the Role ARN.
-siprRoles :: Lens' SetIdentityPoolRoles (Map Text Text)
+siprRoles :: Lens' SetIdentityPoolRoles (HashMap Text Text)
 siprRoles = lens _siprRoles (\ s a -> s{_siprRoles = a}) . _Map;
 
 instance AWSRequest SetIdentityPoolRoles where

@@ -158,7 +158,7 @@ ulName = lens _ulName (\ s a -> s{_ulName = a});
 
 -- | One or more user-defined key\/value pairs to be added to the stack
 -- attributes.
-ulAttributes :: Lens' UpdateLayer (Map LayerAttributesKeys Text)
+ulAttributes :: Lens' UpdateLayer (HashMap LayerAttributesKeys Text)
 ulAttributes = lens _ulAttributes (\ s a -> s{_ulAttributes = a}) . _Default . _Map;
 
 -- | For stacks that are running in a VPC, whether to automatically assign a

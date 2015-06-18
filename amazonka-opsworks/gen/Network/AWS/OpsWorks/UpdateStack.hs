@@ -215,7 +215,7 @@ usDefaultOS = lens _usDefaultOS (\ s a -> s{_usDefaultOS = a});
 
 -- | One or more user-defined key\/value pairs to be added to the stack
 -- attributes.
-usAttributes :: Lens' UpdateStack (Map StackAttributesKeys Text)
+usAttributes :: Lens' UpdateStack (HashMap StackAttributesKeys Text)
 usAttributes = lens _usAttributes (\ s a -> s{_usAttributes = a}) . _Default . _Map;
 
 -- | Whether the stack uses custom cookbooks.

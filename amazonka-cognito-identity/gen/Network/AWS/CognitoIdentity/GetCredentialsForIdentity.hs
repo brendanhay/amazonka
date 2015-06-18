@@ -61,7 +61,7 @@ getCredentialsForIdentity pIdentityId = GetCredentialsForIdentity'{_gcfiLogins =
 
 -- | A set of optional name-value pairs that map provider names to provider
 -- tokens.
-gcfiLogins :: Lens' GetCredentialsForIdentity (Map Text Text)
+gcfiLogins :: Lens' GetCredentialsForIdentity (HashMap Text Text)
 gcfiLogins = lens _gcfiLogins (\ s a -> s{_gcfiLogins = a}) . _Default . _Map;
 
 -- | A unique identifier in the format REGION:GUID.

@@ -60,7 +60,7 @@ attsStreamName :: Lens' AddTagsToStream Text
 attsStreamName = lens _attsStreamName (\ s a -> s{_attsStreamName = a});
 
 -- | The set of key-value pairs to use to create the tags.
-attsTags :: Lens' AddTagsToStream (Map Text Text)
+attsTags :: Lens' AddTagsToStream (HashMap Text Text)
 attsTags = lens _attsTags (\ s a -> s{_attsTags = a}) . _Map;
 
 instance AWSRequest AddTagsToStream where

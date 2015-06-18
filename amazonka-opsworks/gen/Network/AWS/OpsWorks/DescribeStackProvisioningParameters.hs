@@ -117,5 +117,5 @@ dspprAgentInstallerURL :: Lens' DescribeStackProvisioningParametersResponse (May
 dspprAgentInstallerURL = lens _dspprAgentInstallerURL (\ s a -> s{_dspprAgentInstallerURL = a});
 
 -- | An embedded object that contains the provisioning parameters.
-dspprParameters :: Lens' DescribeStackProvisioningParametersResponse (Map Text Text)
+dspprParameters :: Lens' DescribeStackProvisioningParametersResponse (HashMap Text Text)
 dspprParameters = lens _dspprParameters (\ s a -> s{_dspprParameters = a}) . _Default . _Map;

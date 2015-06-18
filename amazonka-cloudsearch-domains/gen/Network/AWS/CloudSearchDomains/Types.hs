@@ -230,7 +230,7 @@ hit = Hit'{_hitExprs = Nothing, _hitId = Nothing, _hitHighlights = Nothing, _hit
 
 -- | The expressions returned from a document that matches the search
 -- request.
-hitExprs :: Lens' Hit (Map Text Text)
+hitExprs :: Lens' Hit (HashMap Text Text)
 hitExprs = lens _hitExprs (\ s a -> s{_hitExprs = a}) . _Default . _Map;
 
 -- | The document ID of a document that matches the search request.
@@ -238,11 +238,11 @@ hitId :: Lens' Hit (Maybe Text)
 hitId = lens _hitId (\ s a -> s{_hitId = a});
 
 -- | The highlights returned from a document that matches the search request.
-hitHighlights :: Lens' Hit (Map Text Text)
+hitHighlights :: Lens' Hit (HashMap Text Text)
 hitHighlights = lens _hitHighlights (\ s a -> s{_hitHighlights = a}) . _Default . _Map;
 
 -- | The fields returned from a document that matches the search request.
-hitFields :: Lens' Hit (Map Text [Text])
+hitFields :: Lens' Hit (HashMap Text [Text])
 hitFields = lens _hitFields (\ s a -> s{_hitFields = a}) . _Default . _Map;
 
 instance FromJSON Hit where

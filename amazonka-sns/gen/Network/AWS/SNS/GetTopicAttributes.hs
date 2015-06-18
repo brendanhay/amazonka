@@ -110,5 +110,5 @@ getTopicAttributesResponse = GetTopicAttributesResponse'{_gtarAttributes = Nothi
 --     policy
 -- -   @EffectiveDeliveryPolicy@ -- the JSON serialization of the effective
 --     delivery policy that takes into account system defaults
-gtarAttributes :: Lens' GetTopicAttributesResponse (Map Text Text)
+gtarAttributes :: Lens' GetTopicAttributesResponse (HashMap Text Text)
 gtarAttributes = lens _gtarAttributes (\ s a -> s{_gtarAttributes = a}) . _Default . _Map;

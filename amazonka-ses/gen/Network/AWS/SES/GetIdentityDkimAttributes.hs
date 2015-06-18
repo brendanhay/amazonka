@@ -113,5 +113,5 @@ getIdentityDkimAttributesResponse :: GetIdentityDkimAttributesResponse
 getIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse'{_gidarDkimAttributes = mempty};
 
 -- | The DKIM attributes for an email address or a domain.
-gidarDkimAttributes :: Lens' GetIdentityDkimAttributesResponse (Map Text IdentityDkimAttributes)
+gidarDkimAttributes :: Lens' GetIdentityDkimAttributesResponse (HashMap Text IdentityDkimAttributes)
 gidarDkimAttributes = lens _gidarDkimAttributes (\ s a -> s{_gidarDkimAttributes = a}) . _Map;

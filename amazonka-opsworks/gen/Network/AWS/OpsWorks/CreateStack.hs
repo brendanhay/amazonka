@@ -227,7 +227,7 @@ csDefaultOS = lens _csDefaultOS (\ s a -> s{_csDefaultOS = a});
 
 -- | One or more user-defined key\/value pairs to be added to the stack
 -- attributes.
-csAttributes :: Lens' CreateStack (Map StackAttributesKeys Text)
+csAttributes :: Lens' CreateStack (HashMap StackAttributesKeys Text)
 csAttributes = lens _csAttributes (\ s a -> s{_csAttributes = a}) . _Default . _Map;
 
 -- | Whether the stack uses custom cookbooks.

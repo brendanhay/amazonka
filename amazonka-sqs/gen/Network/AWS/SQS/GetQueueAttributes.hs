@@ -147,5 +147,5 @@ getQueueAttributesResponse :: GetQueueAttributesResponse
 getQueueAttributesResponse = GetQueueAttributesResponse'{_gqarAttributes = Nothing};
 
 -- | A map of attributes to the respective values.
-gqarAttributes :: Lens' GetQueueAttributesResponse (Map QueueAttributeName Text)
+gqarAttributes :: Lens' GetQueueAttributesResponse (HashMap QueueAttributeName Text)
 gqarAttributes = lens _gqarAttributes (\ s a -> s{_gqarAttributes = a}) . _Default . _Map;

@@ -84,7 +84,7 @@ cpaPlatform = lens _cpaPlatform (\ s a -> s{_cpaPlatform = a});
 
 -- | For a list of attributes, see
 -- <http://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html SetPlatformApplicationAttributes>
-cpaAttributes :: Lens' CreatePlatformApplication (Map Text Text)
+cpaAttributes :: Lens' CreatePlatformApplication (HashMap Text Text)
 cpaAttributes = lens _cpaAttributes (\ s a -> s{_cpaAttributes = a}) . _Map;
 
 instance AWSRequest CreatePlatformApplication where

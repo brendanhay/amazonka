@@ -203,7 +203,7 @@ poSSECustomerKeyMD5 :: Lens' PutObject (Maybe Text)
 poSSECustomerKeyMD5 = lens _poSSECustomerKeyMD5 (\ s a -> s{_poSSECustomerKeyMD5 = a});
 
 -- | A map of metadata to store with the object in S3.
-poMetadata :: Lens' PutObject (Map Text Text)
+poMetadata :: Lens' PutObject (HashMap Text Text)
 poMetadata = lens _poMetadata (\ s a -> s{_poMetadata = a}) . _Map;
 
 -- | FIXME: Undocumented member.

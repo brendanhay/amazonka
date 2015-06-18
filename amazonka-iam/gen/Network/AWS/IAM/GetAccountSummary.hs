@@ -237,5 +237,5 @@ getAccountSummaryResponse = GetAccountSummaryResponse'{_gasrSummaryMap = Nothing
 --     The maximum number of policy versions allowed for each managed
 --     policy.
 --
-gasrSummaryMap :: Lens' GetAccountSummaryResponse (Map SummaryKeyType Int)
+gasrSummaryMap :: Lens' GetAccountSummaryResponse (HashMap SummaryKeyType Int)
 gasrSummaryMap = lens _gasrSummaryMap (\ s a -> s{_gasrSummaryMap = a}) . _Default . _Map;

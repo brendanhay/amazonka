@@ -418,7 +418,7 @@ gorSSECustomerKeyMD5 :: Lens' GetObjectResponse (Maybe Text)
 gorSSECustomerKeyMD5 = lens _gorSSECustomerKeyMD5 (\ s a -> s{_gorSSECustomerKeyMD5 = a});
 
 -- | A map of metadata to store with the object in S3.
-gorMetadata :: Lens' GetObjectResponse (Map Text Text)
+gorMetadata :: Lens' GetObjectResponse (HashMap Text Text)
 gorMetadata = lens _gorMetadata (\ s a -> s{_gorMetadata = a}) . _Map;
 
 -- | FIXME: Undocumented member.

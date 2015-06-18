@@ -76,7 +76,7 @@ sendMessage pQueueURL pMessageBody = SendMessage'{_smMessageAttributes = Nothing
 -- | Each message attribute consists of a Name, Type, and Value. For more
 -- information, see
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV Message Attribute Items>.
-smMessageAttributes :: Lens' SendMessage (Map Text MessageAttributeValue)
+smMessageAttributes :: Lens' SendMessage (HashMap Text MessageAttributeValue)
 smMessageAttributes = lens _smMessageAttributes (\ s a -> s{_smMessageAttributes = a}) . _Default . _Map;
 
 -- | The number of seconds (0 to 900 - 15 minutes) to delay a specific

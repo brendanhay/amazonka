@@ -76,7 +76,7 @@ publish :: Text -> Publish
 publish pMessage = Publish'{_pubMessageAttributes = Nothing, _pubTargetARN = Nothing, _pubSubject = Nothing, _pubTopicARN = Nothing, _pubMessageStructure = Nothing, _pubMessage = pMessage};
 
 -- | Message attributes for Publish action.
-pubMessageAttributes :: Lens' Publish (Map Text MessageAttributeValue)
+pubMessageAttributes :: Lens' Publish (HashMap Text MessageAttributeValue)
 pubMessageAttributes = lens _pubMessageAttributes (\ s a -> s{_pubMessageAttributes = a}) . _Default . _Map;
 
 -- | Either TopicArn or EndpointArn, but not both.

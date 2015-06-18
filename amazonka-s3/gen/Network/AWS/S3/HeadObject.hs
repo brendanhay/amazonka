@@ -365,7 +365,7 @@ horSSECustomerKeyMD5 :: Lens' HeadObjectResponse (Maybe Text)
 horSSECustomerKeyMD5 = lens _horSSECustomerKeyMD5 (\ s a -> s{_horSSECustomerKeyMD5 = a});
 
 -- | A map of metadata to store with the object in S3.
-horMetadata :: Lens' HeadObjectResponse (Map Text Text)
+horMetadata :: Lens' HeadObjectResponse (HashMap Text Text)
 horMetadata = lens _horMetadata (\ s a -> s{_horMetadata = a}) . _Map;
 
 -- | FIXME: Undocumented member.

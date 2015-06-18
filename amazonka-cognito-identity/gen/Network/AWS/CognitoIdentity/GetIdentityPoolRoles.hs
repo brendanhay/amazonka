@@ -104,7 +104,7 @@ getIdentityPoolRolesResponse = GetIdentityPoolRolesResponse'{_giprrRoles = Nothi
 
 -- | The map of roles associated with this pool. Currently only authenticated
 -- and unauthenticated roles are supported.
-giprrRoles :: Lens' GetIdentityPoolRolesResponse (Map Text Text)
+giprrRoles :: Lens' GetIdentityPoolRolesResponse (HashMap Text Text)
 giprrRoles = lens _giprrRoles (\ s a -> s{_giprrRoles = a}) . _Default . _Map;
 
 -- | An identity pool ID in the format REGION:GUID.

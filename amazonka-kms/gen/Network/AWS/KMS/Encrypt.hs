@@ -85,7 +85,7 @@ encrypt pKeyId pPlaintext = Encrypt'{_encEncryptionContext = Nothing, _encGrantT
 -- authenticated encryption. If used here, the same value must be supplied
 -- to the @Decrypt@ API or decryption will fail. For more information, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html Encryption Context>.
-encEncryptionContext :: Lens' Encrypt (Map Text Text)
+encEncryptionContext :: Lens' Encrypt (HashMap Text Text)
 encEncryptionContext = lens _encEncryptionContext (\ s a -> s{_encEncryptionContext = a}) . _Default . _Map;
 
 -- | For more information, see

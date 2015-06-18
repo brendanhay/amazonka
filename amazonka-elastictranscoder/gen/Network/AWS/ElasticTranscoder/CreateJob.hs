@@ -86,7 +86,7 @@ cjOutputs = lens _cjOutputs (\ s a -> s{_cjOutputs = a}) . _Default;
 -- add up to 10 @key\/value@ pairs per job. Elastic Transcoder does not
 -- guarantee that @key\/value@ pairs will be returned in the same order in
 -- which you specify them.
-cjUserMetadata :: Lens' CreateJob (Map Text Text)
+cjUserMetadata :: Lens' CreateJob (HashMap Text Text)
 cjUserMetadata = lens _cjUserMetadata (\ s a -> s{_cjUserMetadata = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.

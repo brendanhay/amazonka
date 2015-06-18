@@ -139,7 +139,7 @@ cmlmMLModelName = lens _cmlmMLModelName (\ s a -> s{_cmlmMLModelName = a});
 --     The value is an integer that ranges from 100000 to 2147483648. The
 --     default value is 33554432.
 --
-cmlmParameters :: Lens' CreateMLModel (Map Text Text)
+cmlmParameters :: Lens' CreateMLModel (HashMap Text Text)
 cmlmParameters = lens _cmlmParameters (\ s a -> s{_cmlmParameters = a}) . _Default . _Map;
 
 -- | A user-supplied ID that uniquely identifies the @MLModel@.

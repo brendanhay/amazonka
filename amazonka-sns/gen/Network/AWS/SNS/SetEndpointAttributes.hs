@@ -72,7 +72,7 @@ seaEndpointARN = lens _seaEndpointARN (\ s a -> s{_seaEndpointARN = a});
 --     an app and mobile device. This is returned from the notification
 --     service when an app and mobile device are registered with the
 --     notification service.
-seaAttributes :: Lens' SetEndpointAttributes (Map Text Text)
+seaAttributes :: Lens' SetEndpointAttributes (HashMap Text Text)
 seaAttributes = lens _seaAttributes (\ s a -> s{_seaAttributes = a}) . _Map;
 
 instance AWSRequest SetEndpointAttributes where

@@ -501,7 +501,7 @@ seaStatus :: Lens' SearchResponse (Maybe SearchStatus)
 seaStatus = lens _seaStatus (\ s a -> s{_seaStatus = a});
 
 -- | The requested facet information.
-seaFacets :: Lens' SearchResponse (Map Text BucketInfo)
+seaFacets :: Lens' SearchResponse (HashMap Text BucketInfo)
 seaFacets = lens _seaFacets (\ s a -> s{_seaFacets = a}) . _Default . _Map;
 
 -- | The documents that match the search criteria.

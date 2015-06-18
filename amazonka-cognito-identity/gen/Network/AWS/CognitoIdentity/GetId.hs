@@ -75,7 +75,7 @@ giAccountId = lens _giAccountId (\ s a -> s{_giAccountId = a});
 -- -   Amazon: @www.amazon.com@
 -- -   Twitter: @www.twitter.com@
 -- -   Digits: @www.digits.com@
-giLogins :: Lens' GetId (Map Text Text)
+giLogins :: Lens' GetId (HashMap Text Text)
 giLogins = lens _giLogins (\ s a -> s{_giLogins = a}) . _Default . _Map;
 
 -- | An identity pool ID in the format REGION:GUID.

@@ -410,7 +410,7 @@ application = Application'{_appAdditionalInfo = Nothing, _appArgs = Nothing, _ap
 -- | This option is for advanced users only. This is meta information about
 -- third-party applications that third-party vendors use for testing
 -- purposes.
-appAdditionalInfo :: Lens' Application (Map Text Text)
+appAdditionalInfo :: Lens' Application (HashMap Text Text)
 appAdditionalInfo = lens _appAdditionalInfo (\ s a -> s{_appAdditionalInfo = a}) . _Default . _Map;
 
 -- | Arguments for Amazon EMR to pass to the application.
@@ -1004,7 +1004,7 @@ hscMainClass = lens _hscMainClass (\ s a -> s{_hscMainClass = a});
 
 -- | The list of Java properties that are set when the step runs. You can use
 -- these properties to pass key value pairs to your main function.
-hscProperties :: Lens' HadoopStepConfig (Map Text Text)
+hscProperties :: Lens' HadoopStepConfig (HashMap Text Text)
 hscProperties = lens _hscProperties (\ s a -> s{_hscProperties = a}) . _Default . _Map;
 
 instance FromJSON HadoopStepConfig where

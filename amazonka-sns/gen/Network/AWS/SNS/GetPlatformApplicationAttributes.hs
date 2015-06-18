@@ -111,5 +111,5 @@ getPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesRespo
 -- -   @EventDeliveryFailure@ -- Topic ARN to which DeliveryFailure event
 --     notifications should be sent upon Direct Publish delivery failure
 --     (permanent) to one of the application\'s endpoints.
-gpaarAttributes :: Lens' GetPlatformApplicationAttributesResponse (Map Text Text)
+gpaarAttributes :: Lens' GetPlatformApplicationAttributesResponse (HashMap Text Text)
 gpaarAttributes = lens _gpaarAttributes (\ s a -> s{_gpaarAttributes = a}) . _Default . _Map;

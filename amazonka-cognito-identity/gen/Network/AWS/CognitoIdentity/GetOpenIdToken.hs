@@ -65,7 +65,7 @@ getOpenIdToken pIdentityId = GetOpenIdToken'{_goitLogins = Nothing, _goitIdentit
 -- access_token returned from the provider\'s authflow. For
 -- accounts.google.com or any other OpenId Connect provider, always include
 -- the id_token.
-goitLogins :: Lens' GetOpenIdToken (Map Text Text)
+goitLogins :: Lens' GetOpenIdToken (HashMap Text Text)
 goitLogins = lens _goitLogins (\ s a -> s{_goitLogins = a}) . _Default . _Map;
 
 -- | A unique identifier in the format REGION:GUID.

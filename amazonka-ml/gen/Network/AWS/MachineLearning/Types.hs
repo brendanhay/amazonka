@@ -133,17 +133,17 @@ module Network.AWS.MachineLearning.Types
     -- * RDSDataSpec
     , RDSDataSpec
     , rdsDataSpec
-    , rDataSchemaURI
-    , rDataSchema
-    , rDataRearrangement
-    , rDatabaseInformation
-    , rSelectSqlQuery
-    , rDatabaseCredentials
-    , rS3StagingLocation
-    , rResourceRole
-    , rServiceRole
-    , rSubnetId
-    , rSecurityGroupIds
+    , rdsdsDataSchemaURI
+    , rdsdsDataSchema
+    , rdsdsDataRearrangement
+    , rdsdsDatabaseInformation
+    , rdsdsSelectSqlQuery
+    , rdsdsDatabaseCredentials
+    , rdsdsS3StagingLocation
+    , rdsdsResourceRole
+    , rdsdsServiceRole
+    , rdsdsSubnetId
+    , rdsdsSecurityGroupIds
 
     -- * RDSDatabase
     , RDSDatabase
@@ -181,13 +181,13 @@ module Network.AWS.MachineLearning.Types
     -- * RedshiftDataSpec
     , RedshiftDataSpec
     , redshiftDataSpec
-    , rdsDataSchemaURI
-    , rdsDataSchema
-    , rdsDataRearrangement
-    , rdsDatabaseInformation
-    , rdsSelectSqlQuery
-    , rdsDatabaseCredentials
-    , rdsS3StagingLocation
+    , redDataSchemaURI
+    , redDataSchema
+    , redDataRearrangement
+    , redDatabaseInformation
+    , redSelectSqlQuery
+    , redDatabaseCredentials
+    , redS3StagingLocation
 
     -- * RedshiftDatabase
     , RedshiftDatabase
@@ -204,9 +204,9 @@ module Network.AWS.MachineLearning.Types
     -- * RedshiftMetadata
     , RedshiftMetadata
     , redshiftMetadata
-    , redSelectSqlQuery
-    , redRedshiftDatabase
-    , redDatabaseUserName
+    , rSelectSqlQuery
+    , rRedshiftDatabase
+    , rDatabaseUserName
 
     -- * S3DataSpec
     , S3DataSpec
@@ -870,7 +870,7 @@ mlmStatus = lens _mlmStatus (\ s a -> s{_mlmStatus = a});
 --     The value is an integer that ranges from 100000 to 2147483648. The
 --     default value is 33554432.
 --
-mlmTrainingParameters :: Lens' MLModel (Map Text Text)
+mlmTrainingParameters :: Lens' MLModel (HashMap Text Text)
 mlmTrainingParameters = lens _mlmTrainingParameters (\ s a -> s{_mlmTrainingParameters = a}) . _Default . _Map;
 
 -- | The time of the most recent edit to the @MLModel@. The time is expressed
@@ -1043,7 +1043,7 @@ performanceMetrics :: PerformanceMetrics
 performanceMetrics = PerformanceMetrics'{_pmProperties = Nothing};
 
 -- | FIXME: Undocumented member.
-pmProperties :: Lens' PerformanceMetrics (Map Text Text)
+pmProperties :: Lens' PerformanceMetrics (HashMap Text Text)
 pmProperties = lens _pmProperties (\ s a -> s{_pmProperties = a}) . _Default . _Map;
 
 instance FromJSON PerformanceMetrics where
@@ -1079,11 +1079,11 @@ prePredictedLabel :: Lens' Prediction (Maybe Text)
 prePredictedLabel = lens _prePredictedLabel (\ s a -> s{_prePredictedLabel = a});
 
 -- | FIXME: Undocumented member.
-prePredictedScores :: Lens' Prediction (Map Text Double)
+prePredictedScores :: Lens' Prediction (HashMap Text Double)
 prePredictedScores = lens _prePredictedScores (\ s a -> s{_prePredictedScores = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-preDetails :: Lens' Prediction (Map DetailsAttributes Text)
+preDetails :: Lens' Prediction (HashMap DetailsAttributes Text)
 preDetails = lens _preDetails (\ s a -> s{_preDetails = a}) . _Default . _Map;
 
 instance FromJSON Prediction where
@@ -1099,113 +1099,113 @@ instance FromJSON Prediction where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rDataSchemaURI'
+-- * 'rdsdsDataSchemaURI'
 --
--- * 'rDataSchema'
+-- * 'rdsdsDataSchema'
 --
--- * 'rDataRearrangement'
+-- * 'rdsdsDataRearrangement'
 --
--- * 'rDatabaseInformation'
+-- * 'rdsdsDatabaseInformation'
 --
--- * 'rSelectSqlQuery'
+-- * 'rdsdsSelectSqlQuery'
 --
--- * 'rDatabaseCredentials'
+-- * 'rdsdsDatabaseCredentials'
 --
--- * 'rS3StagingLocation'
+-- * 'rdsdsS3StagingLocation'
 --
--- * 'rResourceRole'
+-- * 'rdsdsResourceRole'
 --
--- * 'rServiceRole'
+-- * 'rdsdsServiceRole'
 --
--- * 'rSubnetId'
+-- * 'rdsdsSubnetId'
 --
--- * 'rSecurityGroupIds'
-data RDSDataSpec = RDSDataSpec'{_rDataSchemaURI :: Maybe Text, _rDataSchema :: Maybe Text, _rDataRearrangement :: Maybe Text, _rDatabaseInformation :: RDSDatabase, _rSelectSqlQuery :: Text, _rDatabaseCredentials :: RDSDatabaseCredentials, _rS3StagingLocation :: Text, _rResourceRole :: Text, _rServiceRole :: Text, _rSubnetId :: Text, _rSecurityGroupIds :: [Text]} deriving (Eq, Read, Show)
+-- * 'rdsdsSecurityGroupIds'
+data RDSDataSpec = RDSDataSpec'{_rdsdsDataSchemaURI :: Maybe Text, _rdsdsDataSchema :: Maybe Text, _rdsdsDataRearrangement :: Maybe Text, _rdsdsDatabaseInformation :: RDSDatabase, _rdsdsSelectSqlQuery :: Text, _rdsdsDatabaseCredentials :: RDSDatabaseCredentials, _rdsdsS3StagingLocation :: Text, _rdsdsResourceRole :: Text, _rdsdsServiceRole :: Text, _rdsdsSubnetId :: Text, _rdsdsSecurityGroupIds :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'RDSDataSpec' smart constructor.
 rdsDataSpec :: RDSDatabase -> Text -> RDSDatabaseCredentials -> Text -> Text -> Text -> Text -> RDSDataSpec
-rdsDataSpec pDatabaseInformation pSelectSqlQuery pDatabaseCredentials pS3StagingLocation pResourceRole pServiceRole pSubnetId = RDSDataSpec'{_rDataSchemaURI = Nothing, _rDataSchema = Nothing, _rDataRearrangement = Nothing, _rDatabaseInformation = pDatabaseInformation, _rSelectSqlQuery = pSelectSqlQuery, _rDatabaseCredentials = pDatabaseCredentials, _rS3StagingLocation = pS3StagingLocation, _rResourceRole = pResourceRole, _rServiceRole = pServiceRole, _rSubnetId = pSubnetId, _rSecurityGroupIds = mempty};
+rdsDataSpec pDatabaseInformation pSelectSqlQuery pDatabaseCredentials pS3StagingLocation pResourceRole pServiceRole pSubnetId = RDSDataSpec'{_rdsdsDataSchemaURI = Nothing, _rdsdsDataSchema = Nothing, _rdsdsDataRearrangement = Nothing, _rdsdsDatabaseInformation = pDatabaseInformation, _rdsdsSelectSqlQuery = pSelectSqlQuery, _rdsdsDatabaseCredentials = pDatabaseCredentials, _rdsdsS3StagingLocation = pS3StagingLocation, _rdsdsResourceRole = pResourceRole, _rdsdsServiceRole = pServiceRole, _rdsdsSubnetId = pSubnetId, _rdsdsSecurityGroupIds = mempty};
 
 -- | The Amazon S3 location of the @DataSchema@.
-rDataSchemaURI :: Lens' RDSDataSpec (Maybe Text)
-rDataSchemaURI = lens _rDataSchemaURI (\ s a -> s{_rDataSchemaURI = a});
+rdsdsDataSchemaURI :: Lens' RDSDataSpec (Maybe Text)
+rdsdsDataSchemaURI = lens _rdsdsDataSchemaURI (\ s a -> s{_rdsdsDataSchemaURI = a});
 
 -- | A JSON string that represents the schema. This is not required if
 -- @DataSchemaUri@ is specified.
-rDataSchema :: Lens' RDSDataSpec (Maybe Text)
-rDataSchema = lens _rDataSchema (\ s a -> s{_rDataSchema = a});
+rdsdsDataSchema :: Lens' RDSDataSpec (Maybe Text)
+rdsdsDataSchema = lens _rdsdsDataSchema (\ s a -> s{_rdsdsDataSchema = a});
 
 -- | DataRearrangement - A JSON string that represents the splitting
 -- requirement of a @DataSource@.
 --
 -- Sample -
 -- @ \"{\\\"randomSeed\\\":\\\"some-random-seed\\\", \\\"splitting\\\":{\\\"percentBegin\\\":10,\\\"percentEnd\\\":60}}\"@
-rDataRearrangement :: Lens' RDSDataSpec (Maybe Text)
-rDataRearrangement = lens _rDataRearrangement (\ s a -> s{_rDataRearrangement = a});
+rdsdsDataRearrangement :: Lens' RDSDataSpec (Maybe Text)
+rdsdsDataRearrangement = lens _rdsdsDataRearrangement (\ s a -> s{_rdsdsDataRearrangement = a});
 
 -- | Describes the @DatabaseName@ and @InstanceIdentifier@ of an an Amazon
 -- RDS database.
-rDatabaseInformation :: Lens' RDSDataSpec RDSDatabase
-rDatabaseInformation = lens _rDatabaseInformation (\ s a -> s{_rDatabaseInformation = a});
+rdsdsDatabaseInformation :: Lens' RDSDataSpec RDSDatabase
+rdsdsDatabaseInformation = lens _rdsdsDatabaseInformation (\ s a -> s{_rdsdsDatabaseInformation = a});
 
 -- | The query that is used to retrieve the observation data for the
 -- @DataSource@.
-rSelectSqlQuery :: Lens' RDSDataSpec Text
-rSelectSqlQuery = lens _rSelectSqlQuery (\ s a -> s{_rSelectSqlQuery = a});
+rdsdsSelectSqlQuery :: Lens' RDSDataSpec Text
+rdsdsSelectSqlQuery = lens _rdsdsSelectSqlQuery (\ s a -> s{_rdsdsSelectSqlQuery = a});
 
 -- | The AWS Identity and Access Management (IAM) credentials that are used
 -- connect to the Amazon RDS database.
-rDatabaseCredentials :: Lens' RDSDataSpec RDSDatabaseCredentials
-rDatabaseCredentials = lens _rDatabaseCredentials (\ s a -> s{_rDatabaseCredentials = a});
+rdsdsDatabaseCredentials :: Lens' RDSDataSpec RDSDatabaseCredentials
+rdsdsDatabaseCredentials = lens _rdsdsDatabaseCredentials (\ s a -> s{_rdsdsDatabaseCredentials = a});
 
 -- | The Amazon S3 location for staging Amazon RDS data. The data retrieved
 -- from Amazon RDS using @SelectSqlQuery@ is stored in this location.
-rS3StagingLocation :: Lens' RDSDataSpec Text
-rS3StagingLocation = lens _rS3StagingLocation (\ s a -> s{_rS3StagingLocation = a});
+rdsdsS3StagingLocation :: Lens' RDSDataSpec Text
+rdsdsS3StagingLocation = lens _rdsdsS3StagingLocation (\ s a -> s{_rdsdsS3StagingLocation = a});
 
 -- | The role (DataPipelineDefaultResourceRole) assumed by an Amazon Elastic
 -- Compute Cloud (Amazon EC2) instance to carry out the copy operation from
 -- Amazon RDS to an Amazon S3 task. For more information, see
 -- <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates>
 -- for data pipelines.
-rResourceRole :: Lens' RDSDataSpec Text
-rResourceRole = lens _rResourceRole (\ s a -> s{_rResourceRole = a});
+rdsdsResourceRole :: Lens' RDSDataSpec Text
+rdsdsResourceRole = lens _rdsdsResourceRole (\ s a -> s{_rdsdsResourceRole = a});
 
 -- | The role (DataPipelineDefaultRole) assumed by AWS Data Pipeline service
 -- to monitor the progress of the copy task from Amazon RDS to Amazon S3.
 -- For more information, see
 -- <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-iam-roles.html Role templates>
 -- for data pipelines.
-rServiceRole :: Lens' RDSDataSpec Text
-rServiceRole = lens _rServiceRole (\ s a -> s{_rServiceRole = a});
+rdsdsServiceRole :: Lens' RDSDataSpec Text
+rdsdsServiceRole = lens _rdsdsServiceRole (\ s a -> s{_rdsdsServiceRole = a});
 
 -- | The subnet ID to be used to access a VPC-based RDS DB instance. This
 -- attribute is used by Data Pipeline to carry out the copy task from
 -- Amazon RDS to Amazon S3.
-rSubnetId :: Lens' RDSDataSpec Text
-rSubnetId = lens _rSubnetId (\ s a -> s{_rSubnetId = a});
+rdsdsSubnetId :: Lens' RDSDataSpec Text
+rdsdsSubnetId = lens _rdsdsSubnetId (\ s a -> s{_rdsdsSubnetId = a});
 
 -- | The security group IDs to be used to access a VPC-based RDS DB instance.
 -- Ensure that there are appropriate ingress rules set up to allow access
 -- to the RDS DB instance. This attribute is used by Data Pipeline to carry
 -- out the copy operation from Amazon RDS to an Amazon S3 task.
-rSecurityGroupIds :: Lens' RDSDataSpec [Text]
-rSecurityGroupIds = lens _rSecurityGroupIds (\ s a -> s{_rSecurityGroupIds = a});
+rdsdsSecurityGroupIds :: Lens' RDSDataSpec [Text]
+rdsdsSecurityGroupIds = lens _rdsdsSecurityGroupIds (\ s a -> s{_rdsdsSecurityGroupIds = a});
 
 instance ToJSON RDSDataSpec where
         toJSON RDSDataSpec'{..}
           = object
-              ["DataSchemaUri" .= _rDataSchemaURI,
-               "DataSchema" .= _rDataSchema,
-               "DataRearrangement" .= _rDataRearrangement,
-               "DatabaseInformation" .= _rDatabaseInformation,
-               "SelectSqlQuery" .= _rSelectSqlQuery,
-               "DatabaseCredentials" .= _rDatabaseCredentials,
-               "S3StagingLocation" .= _rS3StagingLocation,
-               "ResourceRole" .= _rResourceRole,
-               "ServiceRole" .= _rServiceRole,
-               "SubnetId" .= _rSubnetId,
-               "SecurityGroupIds" .= _rSecurityGroupIds]
+              ["DataSchemaUri" .= _rdsdsDataSchemaURI,
+               "DataSchema" .= _rdsdsDataSchema,
+               "DataRearrangement" .= _rdsdsDataRearrangement,
+               "DatabaseInformation" .= _rdsdsDatabaseInformation,
+               "SelectSqlQuery" .= _rdsdsSelectSqlQuery,
+               "DatabaseCredentials" .= _rdsdsDatabaseCredentials,
+               "S3StagingLocation" .= _rdsdsS3StagingLocation,
+               "ResourceRole" .= _rdsdsResourceRole,
+               "ServiceRole" .= _rdsdsServiceRole,
+               "SubnetId" .= _rdsdsSubnetId,
+               "SecurityGroupIds" .= _rdsdsSecurityGroupIds]
 
 -- | /See:/ 'rdsDatabase' smart constructor.
 --
@@ -1419,67 +1419,67 @@ instance FromJSON RealtimeEndpointStatus where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rdsDataSchemaURI'
+-- * 'redDataSchemaURI'
 --
--- * 'rdsDataSchema'
+-- * 'redDataSchema'
 --
--- * 'rdsDataRearrangement'
+-- * 'redDataRearrangement'
 --
--- * 'rdsDatabaseInformation'
+-- * 'redDatabaseInformation'
 --
--- * 'rdsSelectSqlQuery'
+-- * 'redSelectSqlQuery'
 --
--- * 'rdsDatabaseCredentials'
+-- * 'redDatabaseCredentials'
 --
--- * 'rdsS3StagingLocation'
-data RedshiftDataSpec = RedshiftDataSpec'{_rdsDataSchemaURI :: Maybe Text, _rdsDataSchema :: Maybe Text, _rdsDataRearrangement :: Maybe Text, _rdsDatabaseInformation :: RedshiftDatabase, _rdsSelectSqlQuery :: Text, _rdsDatabaseCredentials :: RedshiftDatabaseCredentials, _rdsS3StagingLocation :: Text} deriving (Eq, Read, Show)
+-- * 'redS3StagingLocation'
+data RedshiftDataSpec = RedshiftDataSpec'{_redDataSchemaURI :: Maybe Text, _redDataSchema :: Maybe Text, _redDataRearrangement :: Maybe Text, _redDatabaseInformation :: RedshiftDatabase, _redSelectSqlQuery :: Text, _redDatabaseCredentials :: RedshiftDatabaseCredentials, _redS3StagingLocation :: Text} deriving (Eq, Read, Show)
 
 -- | 'RedshiftDataSpec' smart constructor.
 redshiftDataSpec :: RedshiftDatabase -> Text -> RedshiftDatabaseCredentials -> Text -> RedshiftDataSpec
-redshiftDataSpec pDatabaseInformation pSelectSqlQuery pDatabaseCredentials pS3StagingLocation = RedshiftDataSpec'{_rdsDataSchemaURI = Nothing, _rdsDataSchema = Nothing, _rdsDataRearrangement = Nothing, _rdsDatabaseInformation = pDatabaseInformation, _rdsSelectSqlQuery = pSelectSqlQuery, _rdsDatabaseCredentials = pDatabaseCredentials, _rdsS3StagingLocation = pS3StagingLocation};
+redshiftDataSpec pDatabaseInformation pSelectSqlQuery pDatabaseCredentials pS3StagingLocation = RedshiftDataSpec'{_redDataSchemaURI = Nothing, _redDataSchema = Nothing, _redDataRearrangement = Nothing, _redDatabaseInformation = pDatabaseInformation, _redSelectSqlQuery = pSelectSqlQuery, _redDatabaseCredentials = pDatabaseCredentials, _redS3StagingLocation = pS3StagingLocation};
 
 -- | Describes the schema location for an Amazon Redshift @DataSource@.
-rdsDataSchemaURI :: Lens' RedshiftDataSpec (Maybe Text)
-rdsDataSchemaURI = lens _rdsDataSchemaURI (\ s a -> s{_rdsDataSchemaURI = a});
+redDataSchemaURI :: Lens' RedshiftDataSpec (Maybe Text)
+redDataSchemaURI = lens _redDataSchemaURI (\ s a -> s{_redDataSchemaURI = a});
 
 -- | Describes the schema for an Amazon Redshift @DataSource@.
-rdsDataSchema :: Lens' RedshiftDataSpec (Maybe Text)
-rdsDataSchema = lens _rdsDataSchema (\ s a -> s{_rdsDataSchema = a});
+redDataSchema :: Lens' RedshiftDataSpec (Maybe Text)
+redDataSchema = lens _redDataSchema (\ s a -> s{_redDataSchema = a});
 
 -- | Describes the splitting specifications for a @DataSource@.
-rdsDataRearrangement :: Lens' RedshiftDataSpec (Maybe Text)
-rdsDataRearrangement = lens _rdsDataRearrangement (\ s a -> s{_rdsDataRearrangement = a});
+redDataRearrangement :: Lens' RedshiftDataSpec (Maybe Text)
+redDataRearrangement = lens _redDataRearrangement (\ s a -> s{_redDataRearrangement = a});
 
 -- | Describes the @DatabaseName@ and @ClusterIdentifier@ for an Amazon
 -- Redshift @DataSource@.
-rdsDatabaseInformation :: Lens' RedshiftDataSpec RedshiftDatabase
-rdsDatabaseInformation = lens _rdsDatabaseInformation (\ s a -> s{_rdsDatabaseInformation = a});
+redDatabaseInformation :: Lens' RedshiftDataSpec RedshiftDatabase
+redDatabaseInformation = lens _redDatabaseInformation (\ s a -> s{_redDatabaseInformation = a});
 
 -- | Describes the SQL Query to execute on an Amazon Redshift database for an
 -- Amazon Redshift @DataSource@.
-rdsSelectSqlQuery :: Lens' RedshiftDataSpec Text
-rdsSelectSqlQuery = lens _rdsSelectSqlQuery (\ s a -> s{_rdsSelectSqlQuery = a});
+redSelectSqlQuery :: Lens' RedshiftDataSpec Text
+redSelectSqlQuery = lens _redSelectSqlQuery (\ s a -> s{_redSelectSqlQuery = a});
 
 -- | Describes AWS Identity and Access Management (IAM) credentials that are
 -- used connect to the Amazon Redshift database.
-rdsDatabaseCredentials :: Lens' RedshiftDataSpec RedshiftDatabaseCredentials
-rdsDatabaseCredentials = lens _rdsDatabaseCredentials (\ s a -> s{_rdsDatabaseCredentials = a});
+redDatabaseCredentials :: Lens' RedshiftDataSpec RedshiftDatabaseCredentials
+redDatabaseCredentials = lens _redDatabaseCredentials (\ s a -> s{_redDatabaseCredentials = a});
 
 -- | Describes an Amazon S3 location to store the result set of the
 -- @SelectSqlQuery@ query.
-rdsS3StagingLocation :: Lens' RedshiftDataSpec Text
-rdsS3StagingLocation = lens _rdsS3StagingLocation (\ s a -> s{_rdsS3StagingLocation = a});
+redS3StagingLocation :: Lens' RedshiftDataSpec Text
+redS3StagingLocation = lens _redS3StagingLocation (\ s a -> s{_redS3StagingLocation = a});
 
 instance ToJSON RedshiftDataSpec where
         toJSON RedshiftDataSpec'{..}
           = object
-              ["DataSchemaUri" .= _rdsDataSchemaURI,
-               "DataSchema" .= _rdsDataSchema,
-               "DataRearrangement" .= _rdsDataRearrangement,
-               "DatabaseInformation" .= _rdsDatabaseInformation,
-               "SelectSqlQuery" .= _rdsSelectSqlQuery,
-               "DatabaseCredentials" .= _rdsDatabaseCredentials,
-               "S3StagingLocation" .= _rdsS3StagingLocation]
+              ["DataSchemaUri" .= _redDataSchemaURI,
+               "DataSchema" .= _redDataSchema,
+               "DataRearrangement" .= _redDataRearrangement,
+               "DatabaseInformation" .= _redDatabaseInformation,
+               "SelectSqlQuery" .= _redSelectSqlQuery,
+               "DatabaseCredentials" .= _redDatabaseCredentials,
+               "S3StagingLocation" .= _redS3StagingLocation]
 
 -- | /See:/ 'redshiftDatabase' smart constructor.
 --
@@ -1546,29 +1546,29 @@ instance ToJSON RedshiftDatabaseCredentials where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'redSelectSqlQuery'
+-- * 'rSelectSqlQuery'
 --
--- * 'redRedshiftDatabase'
+-- * 'rRedshiftDatabase'
 --
--- * 'redDatabaseUserName'
-data RedshiftMetadata = RedshiftMetadata'{_redSelectSqlQuery :: Maybe Text, _redRedshiftDatabase :: Maybe RedshiftDatabase, _redDatabaseUserName :: Maybe Text} deriving (Eq, Read, Show)
+-- * 'rDatabaseUserName'
+data RedshiftMetadata = RedshiftMetadata'{_rSelectSqlQuery :: Maybe Text, _rRedshiftDatabase :: Maybe RedshiftDatabase, _rDatabaseUserName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'RedshiftMetadata' smart constructor.
 redshiftMetadata :: RedshiftMetadata
-redshiftMetadata = RedshiftMetadata'{_redSelectSqlQuery = Nothing, _redRedshiftDatabase = Nothing, _redDatabaseUserName = Nothing};
+redshiftMetadata = RedshiftMetadata'{_rSelectSqlQuery = Nothing, _rRedshiftDatabase = Nothing, _rDatabaseUserName = Nothing};
 
 -- | The SQL query that is specified during CreateDataSourceFromRedshift.
 -- Returns only if @Verbose@ is true in GetDataSourceInput.
-redSelectSqlQuery :: Lens' RedshiftMetadata (Maybe Text)
-redSelectSqlQuery = lens _redSelectSqlQuery (\ s a -> s{_redSelectSqlQuery = a});
+rSelectSqlQuery :: Lens' RedshiftMetadata (Maybe Text)
+rSelectSqlQuery = lens _rSelectSqlQuery (\ s a -> s{_rSelectSqlQuery = a});
 
 -- | FIXME: Undocumented member.
-redRedshiftDatabase :: Lens' RedshiftMetadata (Maybe RedshiftDatabase)
-redRedshiftDatabase = lens _redRedshiftDatabase (\ s a -> s{_redRedshiftDatabase = a});
+rRedshiftDatabase :: Lens' RedshiftMetadata (Maybe RedshiftDatabase)
+rRedshiftDatabase = lens _rRedshiftDatabase (\ s a -> s{_rRedshiftDatabase = a});
 
 -- | FIXME: Undocumented member.
-redDatabaseUserName :: Lens' RedshiftMetadata (Maybe Text)
-redDatabaseUserName = lens _redDatabaseUserName (\ s a -> s{_redDatabaseUserName = a});
+rDatabaseUserName :: Lens' RedshiftMetadata (Maybe Text)
+rDatabaseUserName = lens _rDatabaseUserName (\ s a -> s{_rDatabaseUserName = a});
 
 instance FromJSON RedshiftMetadata where
         parseJSON

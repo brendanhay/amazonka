@@ -93,7 +93,7 @@ sqaQueueURL = lens _sqaQueueURL (\ s a -> s{_sqaQueueURL = a});
 --     of the source queue. For more information about RedrivePolicy and
 --     dead letter queues, see Using Amazon SQS Dead Letter Queues in the
 --     /Amazon SQS Developer Guide/.
-sqaAttributes :: Lens' SetQueueAttributes (Map QueueAttributeName Text)
+sqaAttributes :: Lens' SetQueueAttributes (HashMap QueueAttributeName Text)
 sqaAttributes = lens _sqaAttributes (\ s a -> s{_sqaAttributes = a}) . _Map;
 
 instance AWSRequest SetQueueAttributes where

@@ -93,5 +93,5 @@ getCognitoEventsResponse :: GetCognitoEventsResponse
 getCognitoEventsResponse = GetCognitoEventsResponse'{_gcerEvents = Nothing};
 
 -- | The Cognito Events returned from the GetCognitoEvents request
-gcerEvents :: Lens' GetCognitoEventsResponse (Map Text Text)
+gcerEvents :: Lens' GetCognitoEventsResponse (HashMap Text Text)
 gcerEvents = lens _gcerEvents (\ s a -> s{_gcerEvents = a}) . _Default . _Map;

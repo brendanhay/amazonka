@@ -81,7 +81,7 @@ cpeCustomUserData = lens _cpeCustomUserData (\ s a -> s{_cpeCustomUserData = a})
 
 -- | For a list of attributes, see
 -- <http://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html SetEndpointAttributes>.
-cpeAttributes :: Lens' CreatePlatformEndpoint (Map Text Text)
+cpeAttributes :: Lens' CreatePlatformEndpoint (HashMap Text Text)
 cpeAttributes = lens _cpeAttributes (\ s a -> s{_cpeAttributes = a}) . _Default . _Map;
 
 -- | PlatformApplicationArn returned from CreatePlatformApplication is used

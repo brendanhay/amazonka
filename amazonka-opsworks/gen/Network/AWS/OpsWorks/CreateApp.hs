@@ -131,7 +131,7 @@ caAppSource = lens _caAppSource (\ s a -> s{_caAppSource = a});
 
 -- | One or more user-defined key\/value pairs to be added to the stack
 -- attributes.
-caAttributes :: Lens' CreateApp (Map AppAttributesKeys Text)
+caAttributes :: Lens' CreateApp (HashMap AppAttributesKeys Text)
 caAttributes = lens _caAttributes (\ s a -> s{_caAttributes = a}) . _Default . _Map;
 
 -- | The app virtual host settings, with multiple domains separated by

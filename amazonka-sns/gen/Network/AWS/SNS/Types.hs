@@ -105,7 +105,7 @@ endpoint :: Endpoint
 endpoint = Endpoint'{_endAttributes = Nothing, _endEndpointARN = Nothing};
 
 -- | Attributes for endpoint.
-endAttributes :: Lens' Endpoint (Map Text Text)
+endAttributes :: Lens' Endpoint (HashMap Text Text)
 endAttributes = lens _endAttributes (\ s a -> s{_endAttributes = a}) . _Default . _Map;
 
 -- | EndpointArn for mobile app and device.
@@ -185,7 +185,7 @@ paPlatformApplicationARN :: Lens' PlatformApplication (Maybe Text)
 paPlatformApplicationARN = lens _paPlatformApplicationARN (\ s a -> s{_paPlatformApplicationARN = a});
 
 -- | Attributes for platform application object.
-paAttributes :: Lens' PlatformApplication (Map Text Text)
+paAttributes :: Lens' PlatformApplication (HashMap Text Text)
 paAttributes = lens _paAttributes (\ s a -> s{_paAttributes = a}) . _Default . _Map;
 
 instance FromXML PlatformApplication where

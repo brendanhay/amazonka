@@ -177,11 +177,11 @@ grantConstraints = GrantConstraints'{_gcEncryptionContextEquals = Nothing, _gcEn
 
 -- | The constraint contains additional key\/value pairs that serve to
 -- further limit the grant.
-gcEncryptionContextEquals :: Lens' GrantConstraints (Map Text Text)
+gcEncryptionContextEquals :: Lens' GrantConstraints (HashMap Text Text)
 gcEncryptionContextEquals = lens _gcEncryptionContextEquals (\ s a -> s{_gcEncryptionContextEquals = a}) . _Default . _Map;
 
 -- | The constraint equals the full encryption context.
-gcEncryptionContextSubset :: Lens' GrantConstraints (Map Text Text)
+gcEncryptionContextSubset :: Lens' GrantConstraints (HashMap Text Text)
 gcEncryptionContextSubset = lens _gcEncryptionContextSubset (\ s a -> s{_gcEncryptionContextSubset = a}) . _Default . _Map;
 
 instance FromJSON GrantConstraints where

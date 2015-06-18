@@ -109,7 +109,7 @@ createQueue pQueueName = CreateQueue'{_cqAttributes = Nothing, _cqQueueName = pQ
 --     is 30. For more information about visibility timeout, see
 --     <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html Visibility Timeout>
 --     in the /Amazon SQS Developer Guide/.
-cqAttributes :: Lens' CreateQueue (Map QueueAttributeName Text)
+cqAttributes :: Lens' CreateQueue (HashMap QueueAttributeName Text)
 cqAttributes = lens _cqAttributes (\ s a -> s{_cqAttributes = a}) . _Default . _Map;
 
 -- | The name for the queue to be created.

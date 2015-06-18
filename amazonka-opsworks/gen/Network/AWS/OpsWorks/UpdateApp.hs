@@ -125,7 +125,7 @@ uaName = lens _uaName (\ s a -> s{_uaName = a});
 
 -- | One or more user-defined key\/value pairs to be added to the stack
 -- attributes.
-uaAttributes :: Lens' UpdateApp (Map AppAttributesKeys Text)
+uaAttributes :: Lens' UpdateApp (HashMap AppAttributesKeys Text)
 uaAttributes = lens _uaAttributes (\ s a -> s{_uaAttributes = a}) . _Default . _Map;
 
 -- | The app type.

@@ -226,7 +226,7 @@ identityPool :: Text -> Text -> Bool -> IdentityPool
 identityPool pIdentityPoolId pIdentityPoolName pAllowUnauthenticatedIdentities = IdentityPool'{_ipSupportedLoginProviders = Nothing, _ipDeveloperProviderName = Nothing, _ipOpenIdConnectProviderARNs = Nothing, _ipIdentityPoolId = pIdentityPoolId, _ipIdentityPoolName = pIdentityPoolName, _ipAllowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities};
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
-ipSupportedLoginProviders :: Lens' IdentityPool (Map Text Text)
+ipSupportedLoginProviders :: Lens' IdentityPool (HashMap Text Text)
 ipSupportedLoginProviders = lens _ipSupportedLoginProviders (\ s a -> s{_ipSupportedLoginProviders = a}) . _Default . _Map;
 
 -- | The \"domain\" by which Cognito will refer to your users.

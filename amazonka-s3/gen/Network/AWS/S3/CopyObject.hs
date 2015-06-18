@@ -244,7 +244,7 @@ coSSECustomerKeyMD5 :: Lens' CopyObject (Maybe Text)
 coSSECustomerKeyMD5 = lens _coSSECustomerKeyMD5 (\ s a -> s{_coSSECustomerKeyMD5 = a});
 
 -- | A map of metadata to store with the object in S3.
-coMetadata :: Lens' CopyObject (Map Text Text)
+coMetadata :: Lens' CopyObject (HashMap Text Text)
 coMetadata = lens _coMetadata (\ s a -> s{_coMetadata = a}) . _Map;
 
 -- | Specifies caching behavior along the request\/reply chain.

@@ -106,5 +106,5 @@ getEndpointAttributesResponse = GetEndpointAttributesResponse'{_gearAttributes =
 --     an app and mobile device. This is returned from the notification
 --     service when an app and mobile device are registered with the
 --     notification service.
-gearAttributes :: Lens' GetEndpointAttributesResponse (Map Text Text)
+gearAttributes :: Lens' GetEndpointAttributesResponse (HashMap Text Text)
 gearAttributes = lens _gearAttributes (\ s a -> s{_gearAttributes = a}) . _Default . _Map;

@@ -73,7 +73,7 @@ updateIdentityPool :: Text -> Text -> Bool -> UpdateIdentityPool
 updateIdentityPool pIdentityPoolId pIdentityPoolName pAllowUnauthenticatedIdentities = UpdateIdentityPool'{_uipSupportedLoginProviders = Nothing, _uipDeveloperProviderName = Nothing, _uipOpenIdConnectProviderARNs = Nothing, _uipIdentityPoolId = pIdentityPoolId, _uipIdentityPoolName = pIdentityPoolName, _uipAllowUnauthenticatedIdentities = pAllowUnauthenticatedIdentities};
 
 -- | Optional key:value pairs mapping provider names to provider app IDs.
-uipSupportedLoginProviders :: Lens' UpdateIdentityPool (Map Text Text)
+uipSupportedLoginProviders :: Lens' UpdateIdentityPool (HashMap Text Text)
 uipSupportedLoginProviders = lens _uipSupportedLoginProviders (\ s a -> s{_uipSupportedLoginProviders = a}) . _Default . _Map;
 
 -- | The \"domain\" by which Cognito will refer to your users.

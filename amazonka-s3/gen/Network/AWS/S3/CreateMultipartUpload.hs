@@ -195,7 +195,7 @@ cmuSSECustomerKeyMD5 :: Lens' CreateMultipartUpload (Maybe Text)
 cmuSSECustomerKeyMD5 = lens _cmuSSECustomerKeyMD5 (\ s a -> s{_cmuSSECustomerKeyMD5 = a});
 
 -- | A map of metadata to store with the object in S3.
-cmuMetadata :: Lens' CreateMultipartUpload (Map Text Text)
+cmuMetadata :: Lens' CreateMultipartUpload (HashMap Text Text)
 cmuMetadata = lens _cmuMetadata (\ s a -> s{_cmuMetadata = a}) . _Map;
 
 -- | Specifies caching behavior along the request\/reply chain.

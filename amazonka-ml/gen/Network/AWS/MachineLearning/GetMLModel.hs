@@ -226,7 +226,7 @@ gmlmrStatus = lens _gmlmrStatus (\ s a -> s{_gmlmrStatus = a});
 --     The value is an integer that ranges from 100000 to 2147483648. The
 --     default value is 33554432.
 --
-gmlmrTrainingParameters :: Lens' GetMLModelResponse (Map Text Text)
+gmlmrTrainingParameters :: Lens' GetMLModelResponse (HashMap Text Text)
 gmlmrTrainingParameters = lens _gmlmrTrainingParameters (\ s a -> s{_gmlmrTrainingParameters = a}) . _Default . _Map;
 
 -- | The time of the most recent edit to the @MLModel@. The time is expressed

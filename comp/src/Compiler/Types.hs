@@ -38,10 +38,12 @@ import           Compiler.Types.Data       as Types
 import           Compiler.Types.Help       as Types
 import           Compiler.Types.Id         as Types
 import           Compiler.Types.Map        as Types
+import           Compiler.Types.Notation   as Types
 import           Compiler.Types.NS         as Types
 import           Compiler.Types.Orphans    ()
 import           Compiler.Types.Service    as Types
 import           Compiler.Types.URI        as Types
+import           Compiler.Types.Waiter     as Types
 import           Control.Error
 import           Control.Lens              hiding ((.=))
 import           Data.Aeson
@@ -150,7 +152,7 @@ instance FromJSON Config where
 data Library = Library
     { _versions' :: Versions
     , _config'   :: Config
-    , _service'  :: Service Identity Data Data
+    , _service'  :: Service Identity Data Data Rendered
     } deriving (Generic)
 
 makeLenses ''Library
@@ -158,7 +160,7 @@ makeLenses ''Library
 instance HasMetadata Library Identity where
     metadata = service' . metadata'
 
-instance HasService Library Identity Data Data where
+instance HasService Library Identity Data Data Rendered where
     service  = service'
 
 instance HasConfig Library where
@@ -202,6 +204,7 @@ instance ToJSON Library where
             , "exposedModules"   .= sort (l ^. exposedModules)
             , "otherModules"     .= sort (l ^. otherModules)
             , "shapes"           .= (l ^. shapes & kvTraversal %~ first (^. typeId))
+            , "waiters"          .= (l ^.. waiters . each)
             ]
 
 data Templates = Templates

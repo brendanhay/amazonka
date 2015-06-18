@@ -435,6 +435,9 @@ encodeE n o = infixApp (str n) o
 decodeE :: Exp -> QOp -> Text -> Exp
 decodeE v o = infixApp v o . str
 
+notationE :: Notation -> Exp
+notationE _ = error ("Compiler.AST.Data.Syntax.notationE: not implemented.")
+
 memberName :: Protocol -> Direction -> Field -> Text
 memberName p d f = Proto.memberName p d (f ^. fieldId) (f ^. fieldRef)
 

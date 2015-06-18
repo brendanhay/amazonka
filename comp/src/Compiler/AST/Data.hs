@@ -16,7 +16,8 @@
 -- Portability : non-portable (GHC extensions)
 
 module Compiler.AST.Data
-    ( operationData
+    ( waiterData
+    , operationData
     , shapeData
     ) where
 
@@ -42,6 +43,72 @@ import qualified Data.Text.Lazy.Builder       as Build
 import           Debug.Trace
 import           HIndent
 import           Language.Haskell.Exts.Pretty
+
+import qualified Language.Haskell.Exts        as Exts
+import           Language.Haskell.Exts.Build  hiding (pvar, var)
+import           Language.Haskell.Exts.SrcLoc (noLoc)
+import           Language.Haskell.Exts.Syntax hiding (Int, List, Lit, Var)
+
+waiterData :: Id
+           -> Waiter
+           -> Either Error Rendered
+waiterData n w = liftM2 newline (pp None sig) (pp Indent dec)
+  where
+    newline x y = x <> "\n" <> y
+
+    c = n ^. smartCtorId . to ident
+
+    sig = TypeSig noLoc [c] $ TyApp (tycon "Wait") (n ^. typeId . to tycon)
+
+    dec = sfun noLoc c [] (UnGuardedRhs rhs) noBinds
+
+    rhs :: Exp
+    rhs = RecConstr (n ^. ctorId . to unqual)
+        [ FieldUpdate (unqual "_waitName")      (n ^. typeId . to str)
+        , FieldUpdate (unqual "_waitAttempts")  (w ^. waitAttempts . to intE)
+        , FieldUpdate (unqual "_waitDelay")     (w ^. waitDelay . to intE )
+        , FieldUpdate (unqual "_waitAcceptors") . listE $ map match (w ^. waitAcceptors)
+        ]
+
+    match x =  ($ [expect x, criteria x]) $
+        case _acceptMatch x of
+            Path    -> appFun (var "matchAll")
+            PathAll -> appFun (var "matchAll")
+            PathAny -> appFun (var "matchAny")
+            Status  -> appFun (var "matchStatus")
+            Error   -> appFun (var "matchError")
+
+    expect x =
+        case _acceptExpect x of
+            Status' i -> intE i
+--            Boolean b -> boolE b
+            Textual t -> str t
+
+    criteria x =
+        case _acceptCriteria x of
+            Retry   -> var "AcceptRetry"
+            Success -> var "AcceptSuccess"
+            Failure -> var "AcceptFailure"
+
+    argument = maybe [] ((:[]) . notationE) . _acceptArgument
+
+-- Indexed k i    -> "folding (concatOf " <> k <> ") . " <> go i
+-- Nested  k i    -> k <> " . " <> go i
+-- Access  k      -> k
+-- Bounds  k GT 0 -> "nonEmpty " <> k
+-- Bounds  k _  _ ->
+--     error $ "Bounds notation not implemented for: " ++ show k
+
+-- bucketExists :: Wait HeadBucket
+-- bucketExists = Wait
+--     { _waitName      = "BucketExists"
+--     , _waitAttempts  = 20
+--     , _waitDelay     = 5
+--     , _waitAcceptors =
+--         [ matchStatus 200 AcceptSuccess
+--         , matchStatus 404 AcceptRetry
+--         ]
+--     }
 
 operationData :: HasMetadata a Identity
               => a
@@ -163,7 +230,7 @@ data Ident
 
 pp :: Pretty a => Ident -> a -> Either Error LText.Text
 pp i d
---    | i == Indent = bimap e Build.toLazyText (reformat johanTibell Nothing p)
+    | i == Indent = bimap e Build.toLazyText (reformat johanTibell Nothing p)
     | otherwise   = pure p
   where
     e = flip mappend (", when formatting datatype: " <> p) . LText.pack

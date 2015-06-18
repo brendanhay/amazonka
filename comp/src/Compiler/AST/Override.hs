@@ -43,8 +43,8 @@ makeLenses ''Env
 -- | Apply the override rules to shapes and their respective fields.
 override :: Functor f
          => Map Id Override
-         -> Service f (RefF a) (Shape Related)
-         -> Service f (RefF a) (Shape Related)
+         -> Service f (RefF a) (Shape Related) b
+         -> Service f (RefF a) (Shape Related) b
 override ovs svc = do
    svc & operations . each %~ operation
        & shapes            .~ evalState ss (Env rename replace mempty)

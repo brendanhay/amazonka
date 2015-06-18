@@ -7,4 +7,10 @@
 
 module {{ moduleName }} where
 
-import Network.AWS.Waiters
+{% for import in moduleImports %}
+import {{ import.value }}
+{% endfor %}
+{% for waiter in waiters %}
+
+{{ waiter.value }}
+{% endfor %}

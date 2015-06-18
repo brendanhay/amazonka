@@ -39,6 +39,7 @@ import           Compiler.Types.Map
 import           Compiler.Types.NS
 import           Compiler.Types.Orphans ()
 import           Compiler.Types.URI
+import           Compiler.Types.Waiter
 import           Control.Comonad
 import           Control.Comonad.Cofree
 import           Control.Lens           hiding ((.=))
@@ -420,20 +421,26 @@ instance ToJSON (Metadata Identity) where
 
         (e, f) = m ^. serviceError
 
-data Service f a b = Service
+data Service f a b c = Service
     { _metadata'     :: Metadata f
     , _documentation :: Help
     , _operations    :: Map Id (Operation f a)
     , _shapes        :: Map Id b
+    , _waiters       :: Map Id c
     } deriving (Generic)
 
 makeClassy ''Service
 
-instance HasMetadata (Service f a b) f where
+instance HasMetadata (Service f a b c) f where
     metadata = metadata'
 
-instance FromJSON (Service Maybe (RefF ()) (ShapeF ())) where
-    parseJSON = gParseJSON' lower
+instance FromJSON (Service Maybe (RefF ()) (ShapeF ()) Waiter) where
+    parseJSON = withObject "service" $ \o -> Service
+        <$> o .:  "metadata"
+        <*> o .:  "documentation"
+        <*> o .:  "operations"
+        <*> o .:  "shapes"
+        <*> o .:? "waiters" .!= mempty
 
 type Shape = Cofree ShapeF
 type Ref   = RefF (Shape Solved)

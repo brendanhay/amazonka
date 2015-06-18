@@ -45,9 +45,11 @@ executable compile
         , Compiler.Types.Id
         , Compiler.Types.Map
         , Compiler.Types.NS
+        , Compiler.Types.Notation
         , Compiler.Types.Orphans
         , Compiler.Types.Service
         , Compiler.Types.URI
+        , Compiler.Types.Waiter
 
     ghc-options:       -Wall -threaded
 

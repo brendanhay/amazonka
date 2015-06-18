@@ -26,10 +26,10 @@ module Network.AWS.DirectoryService.CreateComputer
     , createComputer
     -- ** Request lenses
     , ccComputerAttributes
+    , ccOrganizationalUnitDistinguishedName
     , ccDirectoryId
     , ccComputerName
     , ccPassword
-    , ccOrganizationalUnitDistinguishedName
 
     -- * Response
     , CreateComputerResponse
@@ -50,23 +50,28 @@ import Network.AWS.DirectoryService.Types
 --
 -- * 'ccComputerAttributes'
 --
+-- * 'ccOrganizationalUnitDistinguishedName'
+--
 -- * 'ccDirectoryId'
 --
 -- * 'ccComputerName'
 --
 -- * 'ccPassword'
---
--- * 'ccOrganizationalUnitDistinguishedName'
-data CreateComputer = CreateComputer'{_ccComputerAttributes :: [Attribute], _ccDirectoryId :: Text, _ccComputerName :: Text, _ccPassword :: Sensitive Text, _ccOrganizationalUnitDistinguishedName :: Text} deriving (Eq, Read, Show)
+data CreateComputer = CreateComputer'{_ccComputerAttributes :: Maybe [Attribute], _ccOrganizationalUnitDistinguishedName :: Maybe Text, _ccDirectoryId :: Text, _ccComputerName :: Text, _ccPassword :: Sensitive Text} deriving (Eq, Read, Show)
 
 -- | 'CreateComputer' smart constructor.
-createComputer :: Text -> Text -> Text -> Text -> CreateComputer
-createComputer pDirectoryId pComputerName pPassword pOrganizationalUnitDistinguishedName = CreateComputer'{_ccComputerAttributes = mempty, _ccDirectoryId = pDirectoryId, _ccComputerName = pComputerName, _ccPassword = _Sensitive # pPassword, _ccOrganizationalUnitDistinguishedName = pOrganizationalUnitDistinguishedName};
+createComputer :: Text -> Text -> Text -> CreateComputer
+createComputer pDirectoryId pComputerName pPassword = CreateComputer'{_ccComputerAttributes = Nothing, _ccOrganizationalUnitDistinguishedName = Nothing, _ccDirectoryId = pDirectoryId, _ccComputerName = pComputerName, _ccPassword = _Sensitive # pPassword};
 
 -- | An array of Attribute objects that contain any LDAP attributes to apply
 -- to the computer account.
 ccComputerAttributes :: Lens' CreateComputer [Attribute]
-ccComputerAttributes = lens _ccComputerAttributes (\ s a -> s{_ccComputerAttributes = a});
+ccComputerAttributes = lens _ccComputerAttributes (\ s a -> s{_ccComputerAttributes = a}) . _Default;
+
+-- | The fully-qualified distinguished name of the organizational unit to
+-- place the computer account in.
+ccOrganizationalUnitDistinguishedName :: Lens' CreateComputer (Maybe Text)
+ccOrganizationalUnitDistinguishedName = lens _ccOrganizationalUnitDistinguishedName (\ s a -> s{_ccOrganizationalUnitDistinguishedName = a});
 
 -- | The identifier of the directory to create the computer account in.
 ccDirectoryId :: Lens' CreateComputer Text
@@ -81,11 +86,6 @@ ccComputerName = lens _ccComputerName (\ s a -> s{_ccComputerName = a});
 ccPassword :: Lens' CreateComputer Text
 ccPassword = lens _ccPassword (\ s a -> s{_ccPassword = a}) . _Sensitive;
 
--- | The fully-qualified distinguished name of the organizational unit to
--- place the computer account in.
-ccOrganizationalUnitDistinguishedName :: Lens' CreateComputer Text
-ccOrganizationalUnitDistinguishedName = lens _ccOrganizationalUnitDistinguishedName (\ s a -> s{_ccOrganizationalUnitDistinguishedName = a});
-
 instance AWSRequest CreateComputer where
         type Sv CreateComputer = DirectoryService
         type Rs CreateComputer = CreateComputerResponse
@@ -93,7 +93,7 @@ instance AWSRequest CreateComputer where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateComputerResponse' <$> x .?> "Computer")
+                 CreateComputerResponse' <$> (x .?> "Computer"))
 
 instance ToHeaders CreateComputer where
         toHeaders
@@ -109,11 +109,11 @@ instance ToJSON CreateComputer where
         toJSON CreateComputer'{..}
           = object
               ["ComputerAttributes" .= _ccComputerAttributes,
+               "OrganizationalUnitDistinguishedName" .=
+                 _ccOrganizationalUnitDistinguishedName,
                "DirectoryId" .= _ccDirectoryId,
                "ComputerName" .= _ccComputerName,
-               "Password" .= _ccPassword,
-               "OrganizationalUnitDistinguishedName" .=
-                 _ccOrganizationalUnitDistinguishedName]
+               "Password" .= _ccPassword]
 
 instance ToPath CreateComputer where
         toPath = const "/"

@@ -64,11 +64,11 @@ import Network.AWS.DirectoryService.Types
 -- * 'ddDirectoryIds'
 --
 -- * 'ddLimit'
-data DescribeDirectories = DescribeDirectories'{_ddNextToken :: Maybe Text, _ddDirectoryIds :: [Text], _ddLimit :: Maybe Nat} deriving (Eq, Read, Show)
+data DescribeDirectories = DescribeDirectories'{_ddNextToken :: Maybe Text, _ddDirectoryIds :: Maybe [Text], _ddLimit :: Maybe Nat} deriving (Eq, Read, Show)
 
 -- | 'DescribeDirectories' smart constructor.
 describeDirectories :: DescribeDirectories
-describeDirectories = DescribeDirectories'{_ddNextToken = Nothing, _ddDirectoryIds = mempty, _ddLimit = Nothing};
+describeDirectories = DescribeDirectories'{_ddNextToken = Nothing, _ddDirectoryIds = Nothing, _ddLimit = Nothing};
 
 -- | The /DescribeDirectoriesResult.NextToken/ value from a previous call to
 -- DescribeDirectories. Pass null if this is the first call.
@@ -81,7 +81,7 @@ ddNextToken = lens _ddNextToken (\ s a -> s{_ddNextToken = a});
 --
 -- An empty list results in an @InvalidParameterException@ being thrown.
 ddDirectoryIds :: Lens' DescribeDirectories [Text]
-ddDirectoryIds = lens _ddDirectoryIds (\ s a -> s{_ddDirectoryIds = a});
+ddDirectoryIds = lens _ddDirectoryIds (\ s a -> s{_ddDirectoryIds = a}) . _Default;
 
 -- | The maximum number of items to return. If this value is zero, the
 -- maximum number of items is specified by the limitations of the
@@ -98,8 +98,8 @@ instance AWSRequest DescribeDirectories where
           = receiveJSON
               (\ s h x ->
                  DescribeDirectoriesResponse' <$>
-                   x .?> "DirectoryDescriptions" .!@ mempty <*>
-                     x .?> "NextToken")
+                   (x .?> "DirectoryDescriptions" .!@ mempty) <*>
+                     (x .?> "NextToken"))
 
 instance ToHeaders DescribeDirectories where
         toHeaders
@@ -131,11 +131,11 @@ instance ToQuery DescribeDirectories where
 -- * 'ddrDirectoryDescriptions'
 --
 -- * 'ddrNextToken'
-data DescribeDirectoriesResponse = DescribeDirectoriesResponse'{_ddrDirectoryDescriptions :: [DirectoryDescription], _ddrNextToken :: Maybe Text} deriving (Eq, Read, Show)
+data DescribeDirectoriesResponse = DescribeDirectoriesResponse'{_ddrDirectoryDescriptions :: Maybe [DirectoryDescription], _ddrNextToken :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DescribeDirectoriesResponse' smart constructor.
 describeDirectoriesResponse :: DescribeDirectoriesResponse
-describeDirectoriesResponse = DescribeDirectoriesResponse'{_ddrDirectoryDescriptions = mempty, _ddrNextToken = Nothing};
+describeDirectoriesResponse = DescribeDirectoriesResponse'{_ddrDirectoryDescriptions = Nothing, _ddrNextToken = Nothing};
 
 -- | The list of DirectoryDescription objects that were retrieved.
 --
@@ -144,7 +144,7 @@ describeDirectoriesResponse = DescribeDirectoriesResponse'{_ddrDirectoryDescript
 -- less than the requested number of items left to retrieve, or if the
 -- limitations of the operation have been exceeded.
 ddrDirectoryDescriptions :: Lens' DescribeDirectoriesResponse [DirectoryDescription]
-ddrDirectoryDescriptions = lens _ddrDirectoryDescriptions (\ s a -> s{_ddrDirectoryDescriptions = a});
+ddrDirectoryDescriptions = lens _ddrDirectoryDescriptions (\ s a -> s{_ddrDirectoryDescriptions = a}) . _Default;
 
 -- | If not null, more results are available. Pass this value for the
 -- /NextToken/ parameter in a subsequent call to DescribeDirectories to

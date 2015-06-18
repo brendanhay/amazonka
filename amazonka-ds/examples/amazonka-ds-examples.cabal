@@ -18,7 +18,7 @@ library
     ghc-options:       -Wall -threaded
 
     exposed-modules:
-        Directory Service
+        DirectoryService
 
     build-depends:
         amazonka      == 0.3.6.*

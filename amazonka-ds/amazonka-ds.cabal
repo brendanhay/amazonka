@@ -35,26 +35,26 @@ library
     ghc-options:       -Wall
 
     exposed-modules:
-          Network.AWS.Directory Service
-        , Network.AWS.Directory Service.ConnectDirectory
-        , Network.AWS.Directory Service.CreateAlias
-        , Network.AWS.Directory Service.CreateComputer
-        , Network.AWS.Directory Service.CreateDirectory
-        , Network.AWS.Directory Service.CreateSnapshot
-        , Network.AWS.Directory Service.DeleteDirectory
-        , Network.AWS.Directory Service.DeleteSnapshot
-        , Network.AWS.Directory Service.DescribeDirectories
-        , Network.AWS.Directory Service.DescribeSnapshots
-        , Network.AWS.Directory Service.DisableRadius
-        , Network.AWS.Directory Service.DisableSso
-        , Network.AWS.Directory Service.EnableRadius
-        , Network.AWS.Directory Service.EnableSso
-        , Network.AWS.Directory Service.GetDirectoryLimits
-        , Network.AWS.Directory Service.GetSnapshotLimits
-        , Network.AWS.Directory Service.RestoreFromSnapshot
-        , Network.AWS.Directory Service.Types
-        , Network.AWS.Directory Service.UpdateRadius
-        , Network.AWS.Directory Service.Waiters
+          Network.AWS.DirectoryService
+        , Network.AWS.DirectoryService.ConnectDirectory
+        , Network.AWS.DirectoryService.CreateAlias
+        , Network.AWS.DirectoryService.CreateComputer
+        , Network.AWS.DirectoryService.CreateDirectory
+        , Network.AWS.DirectoryService.CreateSnapshot
+        , Network.AWS.DirectoryService.DeleteDirectory
+        , Network.AWS.DirectoryService.DeleteSnapshot
+        , Network.AWS.DirectoryService.DescribeDirectories
+        , Network.AWS.DirectoryService.DescribeSnapshots
+        , Network.AWS.DirectoryService.DisableRadius
+        , Network.AWS.DirectoryService.DisableSso
+        , Network.AWS.DirectoryService.EnableRadius
+        , Network.AWS.DirectoryService.EnableSso
+        , Network.AWS.DirectoryService.GetDirectoryLimits
+        , Network.AWS.DirectoryService.GetSnapshotLimits
+        , Network.AWS.DirectoryService.RestoreFromSnapshot
+        , Network.AWS.DirectoryService.Types
+        , Network.AWS.DirectoryService.UpdateRadius
+        , Network.AWS.DirectoryService.Waiters
 
     other-modules:
 

@@ -70,7 +70,7 @@ instance AWSRequest CreateSnapshot where
         response
           = receiveJSON
               (\ s h x ->
-                 CreateSnapshotResponse' <$> x .?> "SnapshotId")
+                 CreateSnapshotResponse' <$> (x .?> "SnapshotId"))
 
 instance ToHeaders CreateSnapshot where
         toHeaders

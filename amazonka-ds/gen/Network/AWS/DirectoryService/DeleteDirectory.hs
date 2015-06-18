@@ -61,7 +61,7 @@ instance AWSRequest DeleteDirectory where
         response
           = receiveJSON
               (\ s h x ->
-                 DeleteDirectoryResponse' <$> x .?> "DirectoryId")
+                 DeleteDirectoryResponse' <$> (x .?> "DirectoryId"))
 
 instance ToHeaders DeleteDirectory where
         toHeaders

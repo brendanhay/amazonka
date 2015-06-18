@@ -53,7 +53,7 @@ instance AWSRequest GetDirectoryLimits where
           = receiveJSON
               (\ s h x ->
                  GetDirectoryLimitsResponse' <$>
-                   x .?> "DirectoryLimits")
+                   (x .?> "DirectoryLimits"))
 
 instance ToHeaders GetDirectoryLimits where
         toHeaders

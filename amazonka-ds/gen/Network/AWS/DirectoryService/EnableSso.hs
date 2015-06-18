@@ -24,9 +24,9 @@ module Network.AWS.DirectoryService.EnableSso
     -- ** Request constructor
     , enableSso
     -- ** Request lenses
-    , esDirectoryId
     , esUserName
     , esPassword
+    , esDirectoryId
 
     -- * Response
     , EnableSsoResponse
@@ -43,20 +43,16 @@ import Network.AWS.DirectoryService.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'esDirectoryId'
---
 -- * 'esUserName'
 --
 -- * 'esPassword'
-data EnableSso = EnableSso'{_esDirectoryId :: Text, _esUserName :: Text, _esPassword :: Sensitive Text} deriving (Eq, Read, Show)
+--
+-- * 'esDirectoryId'
+data EnableSso = EnableSso'{_esUserName :: Maybe Text, _esPassword :: Maybe (Sensitive Text), _esDirectoryId :: Text} deriving (Eq, Read, Show)
 
 -- | 'EnableSso' smart constructor.
-enableSso :: Text -> Text -> Text -> EnableSso
-enableSso pDirectoryId pUserName pPassword = EnableSso'{_esDirectoryId = pDirectoryId, _esUserName = pUserName, _esPassword = _Sensitive # pPassword};
-
--- | The identifier of the directory to enable single-sign on for.
-esDirectoryId :: Lens' EnableSso Text
-esDirectoryId = lens _esDirectoryId (\ s a -> s{_esDirectoryId = a});
+enableSso :: Text -> EnableSso
+enableSso pDirectoryId = EnableSso'{_esUserName = Nothing, _esPassword = Nothing, _esDirectoryId = pDirectoryId};
 
 -- | The username of an alternate account to use to enable single-sign on.
 -- This is only used for AD Connector directories. This account must have
@@ -67,14 +63,18 @@ esDirectoryId = lens _esDirectoryId (\ s a -> s{_esDirectoryId = a});
 -- /UserName/ and /Password/ parameters. These credentials are only used to
 -- enable single sign-on and are not stored by the service. The AD
 -- Connector service account is not changed.
-esUserName :: Lens' EnableSso Text
+esUserName :: Lens' EnableSso (Maybe Text)
 esUserName = lens _esUserName (\ s a -> s{_esUserName = a});
 
 -- | The password of an alternate account to use to enable single-sign on.
 -- This is only used for AD Connector directories. See the /UserName/
 -- parameter for more information.
-esPassword :: Lens' EnableSso Text
-esPassword = lens _esPassword (\ s a -> s{_esPassword = a}) . _Sensitive;
+esPassword :: Lens' EnableSso (Maybe Text)
+esPassword = lens _esPassword (\ s a -> s{_esPassword = a}) . mapping _Sensitive;
+
+-- | The identifier of the directory to enable single-sign on for.
+esDirectoryId :: Lens' EnableSso Text
+esDirectoryId = lens _esDirectoryId (\ s a -> s{_esDirectoryId = a});
 
 instance AWSRequest EnableSso where
         type Sv EnableSso = DirectoryService
@@ -95,8 +95,9 @@ instance ToHeaders EnableSso where
 instance ToJSON EnableSso where
         toJSON EnableSso'{..}
           = object
-              ["DirectoryId" .= _esDirectoryId,
-               "UserName" .= _esUserName, "Password" .= _esPassword]
+              ["UserName" .= _esUserName,
+               "Password" .= _esPassword,
+               "DirectoryId" .= _esDirectoryId]
 
 instance ToPath EnableSso where
         toPath = const "/"

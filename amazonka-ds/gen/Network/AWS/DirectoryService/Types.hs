@@ -33,8 +33,8 @@ module Network.AWS.DirectoryService.Types
     -- * Computer
     , Computer
     , computer
-    , comComputerAttributes
     , comComputerId
+    , comComputerAttributes
     , comComputerName
 
     -- * DirectoryConnectSettings
@@ -48,12 +48,12 @@ module Network.AWS.DirectoryService.Types
     -- * DirectoryConnectSettingsDescription
     , DirectoryConnectSettingsDescription
     , directoryConnectSettingsDescription
+    , dcsdCustomerUserName
     , dcsdSubnetIds
     , dcsdVPCId
     , dcsdConnectIPs
     , dcsdSecurityGroupId
     , dcsdAvailabilityZones
-    , dcsdCustomerUserName
 
     -- * DirectoryDescription
     , DirectoryDescription
@@ -61,10 +61,12 @@ module Network.AWS.DirectoryService.Types
     , ddRadiusStatus
     , ddDirectoryId
     , ddStage
+    , ddAccessURL
     , ddShortName
     , ddSize
     , ddRadiusSettings
     , ddLaunchTime
+    , ddAlias
     , ddName
     , ddSsoEnabled
     , ddStageLastUpdatedDateTime
@@ -74,8 +76,6 @@ module Network.AWS.DirectoryService.Types
     , ddType
     , ddConnectSettings
     , ddDescription
-    , ddAccessURL
-    , ddAlias
 
     -- * DirectoryLimits
     , DirectoryLimits
@@ -116,11 +116,11 @@ module Network.AWS.DirectoryService.Types
     -- * RadiusSettings
     , RadiusSettings
     , radiusSettings
+    , rsDisplayLabel
     , rsRadiusServers
     , rsRadiusRetries
     , rsAuthenticationProtocol
     , rsUseSameUsername
-    , rsDisplayLabel
     , rsSharedSecret
     , rsRadiusTimeout
     , rsRadiusPort
@@ -192,24 +192,25 @@ instance AWSService DirectoryService where
 -- * 'attValue'
 --
 -- * 'attName'
-data Attribute = Attribute'{_attValue :: Maybe Text, _attName :: Text} deriving (Eq, Read, Show)
+data Attribute = Attribute'{_attValue :: Maybe Text, _attName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'Attribute' smart constructor.
-attribute :: Text -> Attribute
-attribute pName = Attribute'{_attValue = Nothing, _attName = pName};
+attribute :: Attribute
+attribute = Attribute'{_attValue = Nothing, _attName = Nothing};
 
 -- | The value of the attribute.
 attValue :: Lens' Attribute (Maybe Text)
 attValue = lens _attValue (\ s a -> s{_attValue = a});
 
 -- | The name of the attribute.
-attName :: Lens' Attribute Text
+attName :: Lens' Attribute (Maybe Text)
 attName = lens _attName (\ s a -> s{_attName = a});
 
 instance FromJSON Attribute where
         parseJSON
           = withObject "Attribute"
-              (\ x -> Attribute' <$> x .:? "Value" <*> x .: "Name")
+              (\ x ->
+                 Attribute' <$> (x .:? "Value") <*> (x .:? "Name"))
 
 instance ToJSON Attribute where
         toJSON Attribute'{..}
@@ -219,28 +220,28 @@ instance ToJSON Attribute where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'comComputerAttributes'
---
 -- * 'comComputerId'
 --
+-- * 'comComputerAttributes'
+--
 -- * 'comComputerName'
-data Computer = Computer'{_comComputerAttributes :: [Attribute], _comComputerId :: Text, _comComputerName :: Text} deriving (Eq, Read, Show)
+data Computer = Computer'{_comComputerId :: Maybe Text, _comComputerAttributes :: Maybe [Attribute], _comComputerName :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'Computer' smart constructor.
-computer :: Text -> Text -> Computer
-computer pComputerId pComputerName = Computer'{_comComputerAttributes = mempty, _comComputerId = pComputerId, _comComputerName = pComputerName};
+computer :: Computer
+computer = Computer'{_comComputerId = Nothing, _comComputerAttributes = Nothing, _comComputerName = Nothing};
+
+-- | The identifier of the computer.
+comComputerId :: Lens' Computer (Maybe Text)
+comComputerId = lens _comComputerId (\ s a -> s{_comComputerId = a});
 
 -- | An array of Attribute objects that contain the LDAP attributes that
 -- belong to the computer account.
 comComputerAttributes :: Lens' Computer [Attribute]
-comComputerAttributes = lens _comComputerAttributes (\ s a -> s{_comComputerAttributes = a});
-
--- | The identifier of the computer.
-comComputerId :: Lens' Computer Text
-comComputerId = lens _comComputerId (\ s a -> s{_comComputerId = a});
+comComputerAttributes = lens _comComputerAttributes (\ s a -> s{_comComputerAttributes = a}) . _Default;
 
 -- | The computer name.
-comComputerName :: Lens' Computer Text
+comComputerName :: Lens' Computer (Maybe Text)
 comComputerName = lens _comComputerName (\ s a -> s{_comComputerName = a});
 
 instance FromJSON Computer where
@@ -248,9 +249,9 @@ instance FromJSON Computer where
           = withObject "Computer"
               (\ x ->
                  Computer' <$>
-                   x .:? "ComputerAttributes" .!= mempty <*>
-                     x .: "ComputerId"
-                     <*> x .: "ComputerName")
+                   (x .:? "ComputerId") <*>
+                     (x .:? "ComputerAttributes" .!= mempty)
+                     <*> (x .:? "ComputerName"))
 
 -- | /See:/ 'directoryConnectSettings' smart constructor.
 --
@@ -266,8 +267,8 @@ instance FromJSON Computer where
 data DirectoryConnectSettings = DirectoryConnectSettings'{_dcsVPCId :: Text, _dcsSubnetIds :: [Text], _dcsCustomerDNSIPs :: [Text], _dcsCustomerUserName :: Text} deriving (Eq, Read, Show)
 
 -- | 'DirectoryConnectSettings' smart constructor.
-directoryConnectSettings :: Text -> [Text] -> [Text] -> Text -> DirectoryConnectSettings
-directoryConnectSettings pVPCId pSubnetIds pCustomerDNSIPs pCustomerUserName = DirectoryConnectSettings'{_dcsVPCId = pVPCId, _dcsSubnetIds = pSubnetIds, _dcsCustomerDNSIPs = pCustomerDNSIPs, _dcsCustomerUserName = pCustomerUserName};
+directoryConnectSettings :: Text -> Text -> DirectoryConnectSettings
+directoryConnectSettings pVPCId pCustomerUserName = DirectoryConnectSettings'{_dcsVPCId = pVPCId, _dcsSubnetIds = mempty, _dcsCustomerDNSIPs = mempty, _dcsCustomerUserName = pCustomerUserName};
 
 -- | The identifier of the VPC that the AD Connector is created in.
 dcsVPCId :: Lens' DirectoryConnectSettings Text
@@ -304,6 +305,8 @@ instance ToJSON DirectoryConnectSettings where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'dcsdCustomerUserName'
+--
 -- * 'dcsdSubnetIds'
 --
 -- * 'dcsdVPCId'
@@ -313,17 +316,19 @@ instance ToJSON DirectoryConnectSettings where
 -- * 'dcsdSecurityGroupId'
 --
 -- * 'dcsdAvailabilityZones'
---
--- * 'dcsdCustomerUserName'
-data DirectoryConnectSettingsDescription = DirectoryConnectSettingsDescription'{_dcsdSubnetIds :: [Text], _dcsdVPCId :: Maybe Text, _dcsdConnectIPs :: [Text], _dcsdSecurityGroupId :: Maybe Text, _dcsdAvailabilityZones :: [Text], _dcsdCustomerUserName :: Text} deriving (Eq, Read, Show)
+data DirectoryConnectSettingsDescription = DirectoryConnectSettingsDescription'{_dcsdCustomerUserName :: Maybe Text, _dcsdSubnetIds :: Maybe [Text], _dcsdVPCId :: Maybe Text, _dcsdConnectIPs :: Maybe [Text], _dcsdSecurityGroupId :: Maybe Text, _dcsdAvailabilityZones :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'DirectoryConnectSettingsDescription' smart constructor.
-directoryConnectSettingsDescription :: Text -> DirectoryConnectSettingsDescription
-directoryConnectSettingsDescription pCustomerUserName = DirectoryConnectSettingsDescription'{_dcsdSubnetIds = mempty, _dcsdVPCId = Nothing, _dcsdConnectIPs = mempty, _dcsdSecurityGroupId = Nothing, _dcsdAvailabilityZones = mempty, _dcsdCustomerUserName = pCustomerUserName};
+directoryConnectSettingsDescription :: DirectoryConnectSettingsDescription
+directoryConnectSettingsDescription = DirectoryConnectSettingsDescription'{_dcsdCustomerUserName = Nothing, _dcsdSubnetIds = Nothing, _dcsdVPCId = Nothing, _dcsdConnectIPs = Nothing, _dcsdSecurityGroupId = Nothing, _dcsdAvailabilityZones = Nothing};
+
+-- | The username of the service account in the on-premises directory.
+dcsdCustomerUserName :: Lens' DirectoryConnectSettingsDescription (Maybe Text)
+dcsdCustomerUserName = lens _dcsdCustomerUserName (\ s a -> s{_dcsdCustomerUserName = a});
 
 -- | A list of subnet identifiers in the VPC that the AD connector is in.
 dcsdSubnetIds :: Lens' DirectoryConnectSettingsDescription [Text]
-dcsdSubnetIds = lens _dcsdSubnetIds (\ s a -> s{_dcsdSubnetIds = a});
+dcsdSubnetIds = lens _dcsdSubnetIds (\ s a -> s{_dcsdSubnetIds = a}) . _Default;
 
 -- | The identifier of the VPC that the AD Connector is in.
 dcsdVPCId :: Lens' DirectoryConnectSettingsDescription (Maybe Text)
@@ -331,7 +336,7 @@ dcsdVPCId = lens _dcsdVPCId (\ s a -> s{_dcsdVPCId = a});
 
 -- | The IP addresses of the AD Connector servers.
 dcsdConnectIPs :: Lens' DirectoryConnectSettingsDescription [Text]
-dcsdConnectIPs = lens _dcsdConnectIPs (\ s a -> s{_dcsdConnectIPs = a});
+dcsdConnectIPs = lens _dcsdConnectIPs (\ s a -> s{_dcsdConnectIPs = a}) . _Default;
 
 -- | The security group identifier for the AD Connector directory.
 dcsdSecurityGroupId :: Lens' DirectoryConnectSettingsDescription (Maybe Text)
@@ -339,11 +344,7 @@ dcsdSecurityGroupId = lens _dcsdSecurityGroupId (\ s a -> s{_dcsdSecurityGroupId
 
 -- | A list of the Availability Zones that the directory is in.
 dcsdAvailabilityZones :: Lens' DirectoryConnectSettingsDescription [Text]
-dcsdAvailabilityZones = lens _dcsdAvailabilityZones (\ s a -> s{_dcsdAvailabilityZones = a});
-
--- | The username of the service account in the on-premises directory.
-dcsdCustomerUserName :: Lens' DirectoryConnectSettingsDescription Text
-dcsdCustomerUserName = lens _dcsdCustomerUserName (\ s a -> s{_dcsdCustomerUserName = a});
+dcsdAvailabilityZones = lens _dcsdAvailabilityZones (\ s a -> s{_dcsdAvailabilityZones = a}) . _Default;
 
 instance FromJSON DirectoryConnectSettingsDescription
          where
@@ -351,11 +352,12 @@ instance FromJSON DirectoryConnectSettingsDescription
           = withObject "DirectoryConnectSettingsDescription"
               (\ x ->
                  DirectoryConnectSettingsDescription' <$>
-                   x .:? "SubnetIds" .!= mempty <*> x .:? "VpcId" <*>
-                     x .:? "ConnectIps" .!= mempty
-                     <*> x .:? "SecurityGroupId"
-                     <*> x .:? "AvailabilityZones" .!= mempty
-                     <*> x .: "CustomerUserName")
+                   (x .:? "CustomerUserName") <*>
+                     (x .:? "SubnetIds" .!= mempty)
+                     <*> (x .:? "VpcId")
+                     <*> (x .:? "ConnectIps" .!= mempty)
+                     <*> (x .:? "SecurityGroupId")
+                     <*> (x .:? "AvailabilityZones" .!= mempty))
 
 -- | /See:/ 'directoryDescription' smart constructor.
 --
@@ -367,6 +369,8 @@ instance FromJSON DirectoryConnectSettingsDescription
 --
 -- * 'ddStage'
 --
+-- * 'ddAccessURL'
+--
 -- * 'ddShortName'
 --
 -- * 'ddSize'
@@ -374,6 +378,8 @@ instance FromJSON DirectoryConnectSettingsDescription
 -- * 'ddRadiusSettings'
 --
 -- * 'ddLaunchTime'
+--
+-- * 'ddAlias'
 --
 -- * 'ddName'
 --
@@ -392,15 +398,11 @@ instance FromJSON DirectoryConnectSettingsDescription
 -- * 'ddConnectSettings'
 --
 -- * 'ddDescription'
---
--- * 'ddAccessURL'
---
--- * 'ddAlias'
-data DirectoryDescription = DirectoryDescription'{_ddRadiusStatus :: Maybe RadiusStatus, _ddDirectoryId :: Maybe Text, _ddStage :: Maybe DirectoryStage, _ddShortName :: Maybe Text, _ddSize :: Maybe DirectorySize, _ddRadiusSettings :: Maybe RadiusSettings, _ddLaunchTime :: Maybe POSIX, _ddName :: Maybe Text, _ddSsoEnabled :: Maybe Bool, _ddStageLastUpdatedDateTime :: Maybe POSIX, _ddStageReason :: Maybe Text, _ddDNSIPAddrs :: [Text], _ddVPCSettings :: Maybe DirectoryVPCSettingsDescription, _ddType :: Maybe DirectoryType, _ddConnectSettings :: Maybe DirectoryConnectSettingsDescription, _ddDescription :: Maybe Text, _ddAccessURL :: Text, _ddAlias :: Text} deriving (Eq, Read, Show)
+data DirectoryDescription = DirectoryDescription'{_ddRadiusStatus :: Maybe RadiusStatus, _ddDirectoryId :: Maybe Text, _ddStage :: Maybe DirectoryStage, _ddAccessURL :: Maybe Text, _ddShortName :: Maybe Text, _ddSize :: Maybe DirectorySize, _ddRadiusSettings :: Maybe RadiusSettings, _ddLaunchTime :: Maybe POSIX, _ddAlias :: Maybe Text, _ddName :: Maybe Text, _ddSsoEnabled :: Maybe Bool, _ddStageLastUpdatedDateTime :: Maybe POSIX, _ddStageReason :: Maybe Text, _ddDNSIPAddrs :: Maybe [Text], _ddVPCSettings :: Maybe DirectoryVPCSettingsDescription, _ddType :: Maybe DirectoryType, _ddConnectSettings :: Maybe DirectoryConnectSettingsDescription, _ddDescription :: Maybe Text} deriving (Eq, Read, Show)
 
 -- | 'DirectoryDescription' smart constructor.
-directoryDescription :: Text -> Text -> DirectoryDescription
-directoryDescription pAccessURL pAlias = DirectoryDescription'{_ddRadiusStatus = Nothing, _ddDirectoryId = Nothing, _ddStage = Nothing, _ddShortName = Nothing, _ddSize = Nothing, _ddRadiusSettings = Nothing, _ddLaunchTime = Nothing, _ddName = Nothing, _ddSsoEnabled = Nothing, _ddStageLastUpdatedDateTime = Nothing, _ddStageReason = Nothing, _ddDNSIPAddrs = mempty, _ddVPCSettings = Nothing, _ddType = Nothing, _ddConnectSettings = Nothing, _ddDescription = Nothing, _ddAccessURL = pAccessURL, _ddAlias = pAlias};
+directoryDescription :: DirectoryDescription
+directoryDescription = DirectoryDescription'{_ddRadiusStatus = Nothing, _ddDirectoryId = Nothing, _ddStage = Nothing, _ddAccessURL = Nothing, _ddShortName = Nothing, _ddSize = Nothing, _ddRadiusSettings = Nothing, _ddLaunchTime = Nothing, _ddAlias = Nothing, _ddName = Nothing, _ddSsoEnabled = Nothing, _ddStageLastUpdatedDateTime = Nothing, _ddStageReason = Nothing, _ddDNSIPAddrs = Nothing, _ddVPCSettings = Nothing, _ddType = Nothing, _ddConnectSettings = Nothing, _ddDescription = Nothing};
 
 -- | The status of the RADIUS MFA server connection.
 ddRadiusStatus :: Lens' DirectoryDescription (Maybe RadiusStatus)
@@ -413,6 +415,11 @@ ddDirectoryId = lens _ddDirectoryId (\ s a -> s{_ddDirectoryId = a});
 -- | The current stage of the directory.
 ddStage :: Lens' DirectoryDescription (Maybe DirectoryStage)
 ddStage = lens _ddStage (\ s a -> s{_ddStage = a});
+
+-- | The access URL for the directory, such as
+-- @http:\/\/\<alias>.awsapps.com@.
+ddAccessURL :: Lens' DirectoryDescription (Maybe Text)
+ddAccessURL = lens _ddAccessURL (\ s a -> s{_ddAccessURL = a});
 
 -- | The short name of the directory.
 ddShortName :: Lens' DirectoryDescription (Maybe Text)
@@ -430,6 +437,10 @@ ddRadiusSettings = lens _ddRadiusSettings (\ s a -> s{_ddRadiusSettings = a});
 -- | Specifies when the directory was created.
 ddLaunchTime :: Lens' DirectoryDescription (Maybe UTCTime)
 ddLaunchTime = lens _ddLaunchTime (\ s a -> s{_ddLaunchTime = a}) . mapping _Time;
+
+-- | The alias for the directory.
+ddAlias :: Lens' DirectoryDescription (Maybe Text)
+ddAlias = lens _ddAlias (\ s a -> s{_ddAlias = a});
 
 -- | The fully-qualified name of the directory.
 ddName :: Lens' DirectoryDescription (Maybe Text)
@@ -454,7 +465,7 @@ ddStageReason = lens _ddStageReason (\ s a -> s{_ddStageReason = a});
 -- the DNS servers or domain controllers in the on-premises directory that
 -- the AD Connector is connected to.
 ddDNSIPAddrs :: Lens' DirectoryDescription [Text]
-ddDNSIPAddrs = lens _ddDNSIPAddrs (\ s a -> s{_ddDNSIPAddrs = a});
+ddDNSIPAddrs = lens _ddDNSIPAddrs (\ s a -> s{_ddDNSIPAddrs = a}) . _Default;
 
 -- | A DirectoryVpcSettingsDescription object that contains additional
 -- information about a Simple AD directory. This member is only present if
@@ -476,37 +487,28 @@ ddConnectSettings = lens _ddConnectSettings (\ s a -> s{_ddConnectSettings = a})
 ddDescription :: Lens' DirectoryDescription (Maybe Text)
 ddDescription = lens _ddDescription (\ s a -> s{_ddDescription = a});
 
--- | The access URL for the directory, such as
--- @http:\/\/\<alias>.awsapps.com@.
-ddAccessURL :: Lens' DirectoryDescription Text
-ddAccessURL = lens _ddAccessURL (\ s a -> s{_ddAccessURL = a});
-
--- | The alias for the directory.
-ddAlias :: Lens' DirectoryDescription Text
-ddAlias = lens _ddAlias (\ s a -> s{_ddAlias = a});
-
 instance FromJSON DirectoryDescription where
         parseJSON
           = withObject "DirectoryDescription"
               (\ x ->
                  DirectoryDescription' <$>
-                   x .:? "RadiusStatus" <*> x .:? "DirectoryId" <*>
-                     x .:? "Stage"
-                     <*> x .:? "ShortName"
-                     <*> x .:? "Size"
-                     <*> x .:? "RadiusSettings"
-                     <*> x .:? "LaunchTime"
-                     <*> x .:? "Name"
-                     <*> x .:? "SsoEnabled"
-                     <*> x .:? "StageLastUpdatedDateTime"
-                     <*> x .:? "StageReason"
-                     <*> x .:? "DnsIpAddrs" .!= mempty
-                     <*> x .:? "VpcSettings"
-                     <*> x .:? "Type"
-                     <*> x .:? "ConnectSettings"
-                     <*> x .:? "Description"
-                     <*> x .: "AccessUrl"
-                     <*> x .: "Alias")
+                   (x .:? "RadiusStatus") <*> (x .:? "DirectoryId") <*>
+                     (x .:? "Stage")
+                     <*> (x .:? "AccessUrl")
+                     <*> (x .:? "ShortName")
+                     <*> (x .:? "Size")
+                     <*> (x .:? "RadiusSettings")
+                     <*> (x .:? "LaunchTime")
+                     <*> (x .:? "Alias")
+                     <*> (x .:? "Name")
+                     <*> (x .:? "SsoEnabled")
+                     <*> (x .:? "StageLastUpdatedDateTime")
+                     <*> (x .:? "StageReason")
+                     <*> (x .:? "DnsIpAddrs" .!= mempty)
+                     <*> (x .:? "VpcSettings")
+                     <*> (x .:? "Type")
+                     <*> (x .:? "ConnectSettings")
+                     <*> (x .:? "Description"))
 
 -- | /See:/ 'directoryLimits' smart constructor.
 --
@@ -558,12 +560,12 @@ instance FromJSON DirectoryLimits where
           = withObject "DirectoryLimits"
               (\ x ->
                  DirectoryLimits' <$>
-                   x .:? "ConnectedDirectoriesCurrentCount" <*>
-                     x .:? "ConnectedDirectoriesLimit"
-                     <*> x .:? "ConnectedDirectoriesLimitReached"
-                     <*> x .:? "CloudOnlyDirectoriesLimit"
-                     <*> x .:? "CloudOnlyDirectoriesCurrentCount"
-                     <*> x .:? "CloudOnlyDirectoriesLimitReached")
+                   (x .:? "ConnectedDirectoriesCurrentCount") <*>
+                     (x .:? "ConnectedDirectoriesLimit")
+                     <*> (x .:? "ConnectedDirectoriesLimitReached")
+                     <*> (x .:? "CloudOnlyDirectoriesLimit")
+                     <*> (x .:? "CloudOnlyDirectoriesCurrentCount")
+                     <*> (x .:? "CloudOnlyDirectoriesLimitReached"))
 
 data DirectorySize = Small | Large deriving (Eq, Ord, Read, Show, Enum, Generic)
 
@@ -656,8 +658,8 @@ instance FromJSON DirectoryType where
 data DirectoryVPCSettings = DirectoryVPCSettings'{_dvsVPCId :: Text, _dvsSubnetIds :: [Text]} deriving (Eq, Read, Show)
 
 -- | 'DirectoryVPCSettings' smart constructor.
-directoryVPCSettings :: Text -> [Text] -> DirectoryVPCSettings
-directoryVPCSettings pVPCId pSubnetIds = DirectoryVPCSettings'{_dvsVPCId = pVPCId, _dvsSubnetIds = pSubnetIds};
+directoryVPCSettings :: Text -> DirectoryVPCSettings
+directoryVPCSettings pVPCId = DirectoryVPCSettings'{_dvsVPCId = pVPCId, _dvsSubnetIds = mempty};
 
 -- | The identifier of the VPC to create the Simple AD directory in.
 dvsVPCId :: Lens' DirectoryVPCSettings Text
@@ -685,15 +687,15 @@ instance ToJSON DirectoryVPCSettings where
 -- * 'dvsdSecurityGroupId'
 --
 -- * 'dvsdAvailabilityZones'
-data DirectoryVPCSettingsDescription = DirectoryVPCSettingsDescription'{_dvsdSubnetIds :: [Text], _dvsdVPCId :: Maybe Text, _dvsdSecurityGroupId :: Maybe Text, _dvsdAvailabilityZones :: [Text]} deriving (Eq, Read, Show)
+data DirectoryVPCSettingsDescription = DirectoryVPCSettingsDescription'{_dvsdSubnetIds :: Maybe [Text], _dvsdVPCId :: Maybe Text, _dvsdSecurityGroupId :: Maybe Text, _dvsdAvailabilityZones :: Maybe [Text]} deriving (Eq, Read, Show)
 
 -- | 'DirectoryVPCSettingsDescription' smart constructor.
 directoryVPCSettingsDescription :: DirectoryVPCSettingsDescription
-directoryVPCSettingsDescription = DirectoryVPCSettingsDescription'{_dvsdSubnetIds = mempty, _dvsdVPCId = Nothing, _dvsdSecurityGroupId = Nothing, _dvsdAvailabilityZones = mempty};
+directoryVPCSettingsDescription = DirectoryVPCSettingsDescription'{_dvsdSubnetIds = Nothing, _dvsdVPCId = Nothing, _dvsdSecurityGroupId = Nothing, _dvsdAvailabilityZones = Nothing};
 
 -- | The identifiers of the subnets for the directory servers.
 dvsdSubnetIds :: Lens' DirectoryVPCSettingsDescription [Text]
-dvsdSubnetIds = lens _dvsdSubnetIds (\ s a -> s{_dvsdSubnetIds = a});
+dvsdSubnetIds = lens _dvsdSubnetIds (\ s a -> s{_dvsdSubnetIds = a}) . _Default;
 
 -- | The identifier of the VPC that the directory is in.
 dvsdVPCId :: Lens' DirectoryVPCSettingsDescription (Maybe Text)
@@ -705,7 +707,7 @@ dvsdSecurityGroupId = lens _dvsdSecurityGroupId (\ s a -> s{_dvsdSecurityGroupId
 
 -- | The list of Availability Zones that the directory is in.
 dvsdAvailabilityZones :: Lens' DirectoryVPCSettingsDescription [Text]
-dvsdAvailabilityZones = lens _dvsdAvailabilityZones (\ s a -> s{_dvsdAvailabilityZones = a});
+dvsdAvailabilityZones = lens _dvsdAvailabilityZones (\ s a -> s{_dvsdAvailabilityZones = a}) . _Default;
 
 instance FromJSON DirectoryVPCSettingsDescription
          where
@@ -713,26 +715,26 @@ instance FromJSON DirectoryVPCSettingsDescription
           = withObject "DirectoryVPCSettingsDescription"
               (\ x ->
                  DirectoryVPCSettingsDescription' <$>
-                   x .:? "SubnetIds" .!= mempty <*> x .:? "VpcId" <*>
-                     x .:? "SecurityGroupId"
-                     <*> x .:? "AvailabilityZones" .!= mempty)
+                   (x .:? "SubnetIds" .!= mempty) <*> (x .:? "VpcId")
+                     <*> (x .:? "SecurityGroupId")
+                     <*> (x .:? "AvailabilityZones" .!= mempty))
 
-data RadiusAuthenticationProtocol = CHAP | MSCHAPV1 | MSCHAPV2 | PAP deriving (Eq, Ord, Read, Show, Enum, Generic)
+data RadiusAuthenticationProtocol = Chap | MSCHAPV1 | MSCHAPV2 | Pap deriving (Eq, Ord, Read, Show, Enum, Generic)
 
 instance FromText RadiusAuthenticationProtocol where
     parser = takeLowerText >>= \case
-        "CHAP" -> pure CHAP
+        "CHAP" -> pure Chap
         "MS-CHAPv1" -> pure MSCHAPV1
         "MS-CHAPv2" -> pure MSCHAPV2
-        "PAP" -> pure PAP
+        "PAP" -> pure Pap
         e -> fail ("Failure parsing RadiusAuthenticationProtocol from " ++ show e)
 
 instance ToText RadiusAuthenticationProtocol where
     toText = \case
-        CHAP -> "CHAP"
+        Chap -> "CHAP"
         MSCHAPV1 -> "MS-CHAPv1"
         MSCHAPV2 -> "MS-CHAPv2"
-        PAP -> "PAP"
+        Pap -> "PAP"
 
 instance Hashable RadiusAuthenticationProtocol
 instance ToQuery RadiusAuthenticationProtocol
@@ -748,6 +750,8 @@ instance FromJSON RadiusAuthenticationProtocol where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'rsDisplayLabel'
+--
 -- * 'rsRadiusServers'
 --
 -- * 'rsRadiusRetries'
@@ -756,23 +760,25 @@ instance FromJSON RadiusAuthenticationProtocol where
 --
 -- * 'rsUseSameUsername'
 --
--- * 'rsDisplayLabel'
---
 -- * 'rsSharedSecret'
 --
 -- * 'rsRadiusTimeout'
 --
 -- * 'rsRadiusPort'
-data RadiusSettings = RadiusSettings'{_rsRadiusServers :: [Text], _rsRadiusRetries :: Maybe Nat, _rsAuthenticationProtocol :: Maybe RadiusAuthenticationProtocol, _rsUseSameUsername :: Maybe Bool, _rsDisplayLabel :: Text, _rsSharedSecret :: Sensitive Text, _rsRadiusTimeout :: Nat, _rsRadiusPort :: Nat} deriving (Eq, Read, Show)
+data RadiusSettings = RadiusSettings'{_rsDisplayLabel :: Maybe Text, _rsRadiusServers :: Maybe [Text], _rsRadiusRetries :: Maybe Nat, _rsAuthenticationProtocol :: Maybe RadiusAuthenticationProtocol, _rsUseSameUsername :: Maybe Bool, _rsSharedSecret :: Maybe (Sensitive Text), _rsRadiusTimeout :: Maybe Nat, _rsRadiusPort :: Maybe Nat} deriving (Eq, Read, Show)
 
 -- | 'RadiusSettings' smart constructor.
-radiusSettings :: Text -> Text -> Natural -> Natural -> RadiusSettings
-radiusSettings pDisplayLabel pSharedSecret pRadiusTimeout pRadiusPort = RadiusSettings'{_rsRadiusServers = mempty, _rsRadiusRetries = Nothing, _rsAuthenticationProtocol = Nothing, _rsUseSameUsername = Nothing, _rsDisplayLabel = pDisplayLabel, _rsSharedSecret = _Sensitive # pSharedSecret, _rsRadiusTimeout = _Nat # pRadiusTimeout, _rsRadiusPort = _Nat # pRadiusPort};
+radiusSettings :: RadiusSettings
+radiusSettings = RadiusSettings'{_rsDisplayLabel = Nothing, _rsRadiusServers = Nothing, _rsRadiusRetries = Nothing, _rsAuthenticationProtocol = Nothing, _rsUseSameUsername = Nothing, _rsSharedSecret = Nothing, _rsRadiusTimeout = Nothing, _rsRadiusPort = Nothing};
+
+-- | Not currently used.
+rsDisplayLabel :: Lens' RadiusSettings (Maybe Text)
+rsDisplayLabel = lens _rsDisplayLabel (\ s a -> s{_rsDisplayLabel = a});
 
 -- | An array of strings that contains the IP addresses of the RADIUS server
 -- endpoints, or the IP addresses of your RADIUS server load balancer.
 rsRadiusServers :: Lens' RadiusSettings [Text]
-rsRadiusServers = lens _rsRadiusServers (\ s a -> s{_rsRadiusServers = a});
+rsRadiusServers = lens _rsRadiusServers (\ s a -> s{_rsRadiusServers = a}) . _Default;
 
 -- | The maximum number of times that communication with the RADIUS server is
 -- attempted.
@@ -787,49 +793,45 @@ rsAuthenticationProtocol = lens _rsAuthenticationProtocol (\ s a -> s{_rsAuthent
 rsUseSameUsername :: Lens' RadiusSettings (Maybe Bool)
 rsUseSameUsername = lens _rsUseSameUsername (\ s a -> s{_rsUseSameUsername = a});
 
--- | Not currently used.
-rsDisplayLabel :: Lens' RadiusSettings Text
-rsDisplayLabel = lens _rsDisplayLabel (\ s a -> s{_rsDisplayLabel = a});
-
 -- | The shared secret code that was specified when your RADIUS endpoints
 -- were created.
-rsSharedSecret :: Lens' RadiusSettings Text
-rsSharedSecret = lens _rsSharedSecret (\ s a -> s{_rsSharedSecret = a}) . _Sensitive;
+rsSharedSecret :: Lens' RadiusSettings (Maybe Text)
+rsSharedSecret = lens _rsSharedSecret (\ s a -> s{_rsSharedSecret = a}) . mapping _Sensitive;
 
 -- | The amount of time, in seconds, to wait for the RADIUS server to
 -- respond.
-rsRadiusTimeout :: Lens' RadiusSettings Natural
-rsRadiusTimeout = lens _rsRadiusTimeout (\ s a -> s{_rsRadiusTimeout = a}) . _Nat;
+rsRadiusTimeout :: Lens' RadiusSettings (Maybe Natural)
+rsRadiusTimeout = lens _rsRadiusTimeout (\ s a -> s{_rsRadiusTimeout = a}) . mapping _Nat;
 
 -- | The port that your RADIUS server is using for communications. Your
 -- on-premises network must allow inbound traffic over this port from the
 -- AWS Directory Service servers.
-rsRadiusPort :: Lens' RadiusSettings Natural
-rsRadiusPort = lens _rsRadiusPort (\ s a -> s{_rsRadiusPort = a}) . _Nat;
+rsRadiusPort :: Lens' RadiusSettings (Maybe Natural)
+rsRadiusPort = lens _rsRadiusPort (\ s a -> s{_rsRadiusPort = a}) . mapping _Nat;
 
 instance FromJSON RadiusSettings where
         parseJSON
           = withObject "RadiusSettings"
               (\ x ->
                  RadiusSettings' <$>
-                   x .:? "RadiusServers" .!= mempty <*>
-                     x .:? "RadiusRetries"
-                     <*> x .:? "AuthenticationProtocol"
-                     <*> x .:? "UseSameUsername"
-                     <*> x .: "DisplayLabel"
-                     <*> x .: "SharedSecret"
-                     <*> x .: "RadiusTimeout"
-                     <*> x .: "RadiusPort")
+                   (x .:? "DisplayLabel") <*>
+                     (x .:? "RadiusServers" .!= mempty)
+                     <*> (x .:? "RadiusRetries")
+                     <*> (x .:? "AuthenticationProtocol")
+                     <*> (x .:? "UseSameUsername")
+                     <*> (x .:? "SharedSecret")
+                     <*> (x .:? "RadiusTimeout")
+                     <*> (x .:? "RadiusPort"))
 
 instance ToJSON RadiusSettings where
         toJSON RadiusSettings'{..}
           = object
-              ["RadiusServers" .= _rsRadiusServers,
+              ["DisplayLabel" .= _rsDisplayLabel,
+               "RadiusServers" .= _rsRadiusServers,
                "RadiusRetries" .= _rsRadiusRetries,
                "AuthenticationProtocol" .=
                  _rsAuthenticationProtocol,
                "UseSameUsername" .= _rsUseSameUsername,
-               "DisplayLabel" .= _rsDisplayLabel,
                "SharedSecret" .= _rsSharedSecret,
                "RadiusTimeout" .= _rsRadiusTimeout,
                "RadiusPort" .= _rsRadiusPort]
@@ -906,11 +908,11 @@ instance FromJSON Snapshot where
           = withObject "Snapshot"
               (\ x ->
                  Snapshot' <$>
-                   x .:? "DirectoryId" <*> x .:? "Status" <*>
-                     x .:? "StartTime"
-                     <*> x .:? "Name"
-                     <*> x .:? "Type"
-                     <*> x .:? "SnapshotId")
+                   (x .:? "DirectoryId") <*> (x .:? "Status") <*>
+                     (x .:? "StartTime")
+                     <*> (x .:? "Name")
+                     <*> (x .:? "Type")
+                     <*> (x .:? "SnapshotId"))
 
 -- | /See:/ 'snapshotLimits' smart constructor.
 --
@@ -944,9 +946,9 @@ instance FromJSON SnapshotLimits where
           = withObject "SnapshotLimits"
               (\ x ->
                  SnapshotLimits' <$>
-                   x .:? "ManualSnapshotsLimitReached" <*>
-                     x .:? "ManualSnapshotsCurrentCount"
-                     <*> x .:? "ManualSnapshotsLimit")
+                   (x .:? "ManualSnapshotsLimitReached") <*>
+                     (x .:? "ManualSnapshotsCurrentCount")
+                     <*> (x .:? "ManualSnapshotsLimit"))
 
 data SnapshotStatus = SSCompleted | SSFailed | SSCreating deriving (Eq, Ord, Read, Show, Enum, Generic)
 

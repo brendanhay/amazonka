@@ -40,7 +40,7 @@ msgMessage = lens _msgMessage (\s x -> s { _msgMessage = x })
 
 data EC2Error = EC2Error
     { _errRequestID :: Text
-    , _errErrors    :: List1 "Error" Message
+    , _errErrors    :: List1 Message
     } deriving (Eq, Ord, Show, Generic)
 
 instance AWSErrorCode EC2Error where
@@ -49,7 +49,7 @@ instance AWSErrorCode EC2Error where
 instance FromXML EC2Error where
     parseXML x = EC2Error
         <$> x .@ "RequestID"
-        <*> x .@ "Errors"
+        <*> (x .@? "Errors" .!@ mempty >>= parseXMLList1 "Error")
 
 errRequestID :: Lens' EC2Error Text
 errRequestID = lens _errRequestID (\s x -> s { _errRequestID = x })

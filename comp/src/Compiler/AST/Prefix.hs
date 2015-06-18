@@ -53,23 +53,24 @@ makeLenses ''Env
 type MemoP = StateT Env (Either Error)
 
 prefixes :: Map Id (Shape Related) -> Either Error (Map Id (Shape Prefixed))
-prefixes ss = evalStateT (traverse prefix ss) (Env mempty mempty seen)
+prefixes ss = evalStateT (traverse assignPrefix ss) env
   where
-    -- Record projected smart constructors in set of seen field names.
-    seen :: Seen
-    seen = Map.fromListWith (<>) . mapMaybe ctor $ Map.elems ss
+    env = Env mempty mempty (smartCtors ss)
 
-    ctor :: HasId a => Shape a -> Maybe (CI Text, Set (CI Text))
-    ctor = \case
-        a :< Struct {} ->
-             let n = identifier a ^. smartCtorId
-                 k = CI.mk (Text.takeWhile isLower n)
-                 v = CI.mk (dropLower n)
-              in Just (k, Set.singleton v)
-        _              -> Nothing
+-- | Record projected smart constructors in set of seen field names.
+smartCtors :: Map Id (Shape a) -> Seen
+smartCtors = Map.fromListWith (<>) . mapMaybe go . Map.toList
+  where
+    go :: (Id, Shape a) -> Maybe (CI Text, Set (CI Text))
+    go (s, _ :< Struct {}) = Just (k, Set.singleton v)
+      where
+        n = s ^. smartCtorId
+        k = CI.mk (Text.takeWhile isLower n)
+        v = CI.mk (dropLower n)
+    go _                   = Nothing
 
-prefix :: Shape Related -> MemoP (Shape Prefixed)
-prefix = annotate Prefixed memo go
+assignPrefix :: Shape Related -> MemoP (Shape Prefixed)
+assignPrefix = annotate Prefixed memo go
   where
     go :: HasId a => Shape a -> MemoP (Maybe Text)
     go (x :< s) =

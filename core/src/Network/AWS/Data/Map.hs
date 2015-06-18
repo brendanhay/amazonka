@@ -2,6 +2,7 @@
 {-# LANGUAGE DeriveTraversable          #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE RoleAnnotations            #-}
+{-# LANGUAGE TupleSections              #-}
 {-# LANGUAGE TypeFamilies               #-}
 
 -- Module      : Network.AWS.Data.Map
@@ -18,6 +19,7 @@ module Network.AWS.Data.Map
     ( Map (..)
     , _Map
     , parseXMLMap
+    , parseHeadersMap
     , toQueryMap
     ) where
 
@@ -26,6 +28,7 @@ import           Control.Monad
 import           Data.Aeson
 import           Data.Bifunctor
 import           Data.ByteString             (ByteString)
+import qualified Data.ByteString             as BS
 import qualified Data.CaseInsensitive        as CI
 import           Data.Coerce
 import           Data.Hashable
@@ -43,6 +46,7 @@ import           Network.AWS.Data.Headers
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.Text
 import           Network.AWS.Data.XML
+import           Network.HTTP.Types          (ResponseHeaders)
 import           Text.XML                    (Node)
 
 newtype Map k v = Map { toMap :: HashMap k v }
@@ -95,6 +99,19 @@ parseXMLMap e k v = fmap fromList . traverse f . mapMaybe (childNodesOf e)
     f ns = (,)
        <$> (ns .@ k >>= fromText)
        <*>  ns .@ v
+
+parseHeadersMap :: FromText a
+                => ByteString
+                -> ResponseHeaders
+                -> Either String (Map Text a)
+parseHeadersMap p = fmap fromList . traverse g . filter f
+  where
+    f = BS.isPrefixOf p . CI.foldedCase . fst
+
+    g (k, v) = (Text.decodeUtf8 . BS.drop n $ CI.original k,) <$>
+        fromText (Text.decodeUtf8 v)
+
+    n = BS.length p
 
 toQueryMap :: (Hashable k, Eq k, ToQuery k, ToQuery v)
            => ByteString

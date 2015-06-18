@@ -45,19 +45,6 @@ hs .#? k =
 
 infixr 7 =#
 
-parseHeadersMap :: FromText a
-                => ByteString
-                -> ResponseHeaders
-                -> Either String (HashMap Text a)
-parseHeadersMap p = fmap Map.fromList . traverse g . filter f
-  where
-    f = BS.isPrefixOf p . CI.foldedCase . fst
-
-    g (k, v) = (Text.decodeUtf8 . BS.drop n $ CI.original k,) <$>
-        fromText (Text.decodeUtf8 v)
-
-    n = BS.length p
-
 (=#) :: ToHeader a => HeaderName -> a -> [Header]
 (=#) = toHeader
 
